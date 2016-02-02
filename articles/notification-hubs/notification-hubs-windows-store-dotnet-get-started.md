@@ -33,7 +33,7 @@
 
 
 
-##必要條件
+##先決條件
 
 本教學課程需要下列各項：
 
@@ -41,7 +41,7 @@
 
 + 有效的 Windows 市集帳戶
 
-+ 作用中的 Azure 帳戶 <br/> 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F)。
++ 作用中的 Azure 帳戶 <br/> 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F)。
 
 完成本教學課程是 Windows 市集應用程式所有其他通知中心教學課程的先決條件。
 
@@ -86,7 +86,8 @@
 
    	![][6]
 
- 	> [AZURE.WARNING]用戶端密碼和封裝 SID 是重要的安全性認證。請勿與任何人共用這些值，或與您的應用程式一起散發密碼。
+ 	> [AZURE.WARNING]
+	用戶端密碼和封裝 SID 是重要的安全性認證。請勿與任何人共用這些值，或與您的應用程式一起散發密碼。
 
 ##設定您的通知中樞
 
@@ -283,4 +284,4 @@
 [磚目錄]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [徽章概觀]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

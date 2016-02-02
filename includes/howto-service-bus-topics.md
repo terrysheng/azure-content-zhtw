@@ -16,7 +16,7 @@
 
 建立服務命名空間：
 
-1.  登入 [Azure 入口網站][]。
+1.  登入 [Azure 傳統入口網站][]。
 
 2.  在入口網站的左方瀏覽窗格中，按一下 [服務匯流排]。
 
@@ -26,9 +26,9 @@
 
 5.  確定命名空間名稱可用之後，請選擇要代管命名空間的國家或區域 (必須使用您要部署計算資源的相同國家/區域)。
 
-	> [AZURE.IMPORTANT]請挑選您想要選擇來部署應用程式的**相同區域**。這樣可以獲得最佳效能。
+	> [AZURE.IMPORTANT] 請挑選您想要選擇來部署應用程式的**相同區域**。這樣可以獲得最佳效能。
 
-6. 	讓對話方塊中的其他欄位保留其預設值 ([傳訊] 和 [標準層])，然後按一下核取記號。此時系統會建立並啟用服務命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
+6. 	讓對話方塊中的其他欄位保留其預設值 ([**傳訊**] 和 [**標準層**])，然後按一下核取記號。此時系統會建立並啟用服務命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
 
 	![][6]
 
@@ -47,7 +47,7 @@
 4.  在 [**存取連線資訊**] 對話方塊中，尋找包含 SAS 金鑰和金鑰名稱的連接字串。請記下這些值，稍後您將會利用此資訊對命名空間執行作業。
 
 
-  [Azure 入口網站]: http://manage.windowsazure.com
+  [Azure 傳統入口網站]: http://manage.windowsazure.com
   [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [2]: ./media/howto-service-bus-topics/sb-queues-04.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png
@@ -55,4 +55,4 @@
   
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

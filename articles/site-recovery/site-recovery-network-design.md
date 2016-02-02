@@ -158,7 +158,7 @@ Woodgrove 若要能夠部署複寫和維護 IP 位址，需要以下項目：
 
 ### 選項 2：修改的 IP 位址
 
-這種方法似乎是最常見，而且表示將容錯移轉的每個 VM 的 IP 位址會變更。這個方法的主要缺點是，您的網路基礎結構需要知道 IP 位址已變更，而且在整個網路中，DNS 項目通常必須變更或排清，如同網路資料表中的快取項目一般。這會造成停機時間，取決於 DNS 基礎結構的設定方式而定。在內部網路應用程式的情況下使用低 TTL 值，以及對網際網路架構應用程式使用 [Azure 流量管理員與站台復原](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)，即可緩和這些問題。
+這種方法似乎是最常見，而且表示將容錯移轉的每個 VM 的 IP 位址會變更。這個方法的主要缺點是，您的網路基礎結構需要知道 IP 位址已變更，而且在整個網路中，DNS 項目通常必須變更或排清，如同網路資料表中的快取項目一般。這會造成停機時間，取決於 DNS 基礎結構的設定方式而定。在內部網路應用程式的情況下使用低 TTL 值，以及對網際網路架構應用程式使用 [Azure 流量管理員與站台復原](https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)，即可緩和這些問題。
 
 #### 範例：修改的 IP 位址
 
@@ -177,17 +177,17 @@ Woodgrove 若要能夠部署複寫和維護 IP 位址，需要以下項目：
 - 虛擬機器在啟動後將更新他們正在使用的 DNS 伺服器。在整個網路中，DNS 項目通常需要變更或排清，而且網路資料表中的快取項目必須更新或排清，因此這些狀態變更發生時面臨停機時間，不是罕見的情況。緩和方式如下：
 
 	- 對內部網路應用程式使用低 TTL 值。
-	- 使用 [Azure 流量管理員與站台復原] (http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/，適用於網際網路架構應用程式)。
+	- 使用 [Azure 流量管理員與站台復原] (https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/，適用於網際網路架構應用程式/)。
 	- 在您的復原計劃內使用下列指令碼來更新 DNS 伺服器，以確保及時更新 (如果已設定動態 DNS 登錄，不需要指令碼)
 
     [string]$Zone, [string]$name, [string]$IP ) $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name $newrecord = $record.clone() $newrecord.RecordData[0].IPv4Address = $IP Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
 #### 範例 - 容錯移轉至 Azure
 
-Azure 做為災害復原站台的網路基礎結構設定[部落格文章](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/)說明如何在保留 IP 位址不是必要時，設定必要的 Azure 網路基礎結構。一開始描述應用程式，接著探討如何在內部部署及 Azure 設定網路。最後指示如何執行測試容錯移轉和計劃的容錯移轉。
+Azure 做為災害復原站台的網路基礎結構設定[部落格文章](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/)說明如何在保留 IP 位址不是必要時，設定必要的 Azure 網路基礎結構。一開始描述應用程式，接著探討如何在內部部署及 Azure 設定網路。最後指示如何執行測試容錯移轉和計劃的容錯移轉。
 
 ## 後續步驟
 
 [了解](site-recovery-network-mapping.md)站台復原如何對應來源及目標網路。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

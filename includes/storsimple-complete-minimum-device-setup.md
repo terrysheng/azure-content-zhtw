@@ -23,7 +23,7 @@
 4. 在 [網路介面] 頁面上，提供控制站 0 和控制站 1 的固定 IP 位址。如果 DATA 0 介面是針對 IPv4 所設定，就必須以 IPv4 格式提供固定的 IP 位址。如果您提供適用於 IPv6 設定的首碼，則固定的 IP 位址將自動填入這些欄位中。
 
 
-	> [AZURE.NOTE]
+	> [AZURE.NOTE] 
  	> 
  	> - 控制站的固定 IP 位址必須是裝置 IP 位址可存取的子網路內的可用 IP。
  	> - 適用於控制站的固定 IP 位址可用來為裝置提供更新，因此，固定的 IP 必須可路由傳送，而且能夠連線到網際網路。
@@ -32,10 +32,10 @@
 
 5. 按一下核取圖示 ![StorSimple 核取圖示](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png)。您將會回到裝置的 [快速入門] 頁面。
 
- >[AZURE.NOTE]您可以隨時存取 [**設定**] 頁面，以修改其他所有裝置設定。
+ >[AZURE.NOTE] 您可以隨時存取 [**設定**] 頁面，以修改其他所有裝置設定。
 
 ![提供的影片](./media/storsimple-complete-minimum-device-setup/Video_icon.png)**提供的影片**
 
-若要觀看影片示範如何完成最小量裝置設定，請按一下[這裡](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/)。
+若要觀看影片示範如何完成最小量裝置設定，請按一下[這裡](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

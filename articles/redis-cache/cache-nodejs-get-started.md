@@ -43,8 +43,7 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用安全 Redis 快�
 
   ![][1]
 
-輸入 DNS 主機名稱。它的形式為 `<name>
-  .redis.cache.windows.net`。按一下 [建立]。
+輸入 DNS 主機名稱。它的形式為 `<name>.redis.cache.windows.net`。按一下 [建立]。
 
   ![][2]
 
@@ -53,29 +52,22 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用安全 Redis 快�
 
   ![][4]
 
+## 在快取中加入項目並擷取該項目
 
-  ## 啟用非 SSL 端點
+```js
+var redis = require("redis");
 
+// Add your cache name and access key.
+var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
-  按一下 [連接埠] 下方的連結，然後按一下 [否] 表示「只允許透過 SSL 存取」。這會啟用快取的非 SSL 連接埠。node\_redis 用戶端目前不支援 SSL。
+client.set("foo", "bar", function(err, reply) {
+  console.log(reply);
+});
 
-  ![][3]
-
-
-  ## 在快取中加入項目並擷取該項目
-
-  var redis = require("redis");
-
-  // Add your cache name and access key. var client = redis.createClient(6379,'<name>.redis.cache.windows.net', {auth\_pass: '<key>' });
-
-	client.set("foo", "bar", function(err, reply) {
-	    console.log(reply);
-	});
-
-	client.get("foo",  function(err, reply) {
-	    console.log(reply);
-	});
-
+client.get("foo",  function(err, reply) {
+  console.log(reply);
+});
+```
 
 Output:
 
@@ -97,4 +89,4 @@ Output:
 
 [在 Azure 網站上使用 Socket.IO 建置 Node.js 聊天應用程式]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

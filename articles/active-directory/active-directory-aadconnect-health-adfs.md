@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/14/2015" 
+	ms.date="01/21/2016" 
 	ms.author="billmath"/>
 
 # 使用 Azure AD Connect Health 搭配 AD FS 
@@ -32,7 +32,7 @@
 ## AD FS 的使用情況分析
 Azure AD Connect Health 使用情況分析會分析您的同盟伺服器的驗證流量。選取使用情況分析方塊將會開啟使用情況分析刀鋒視窗，以顯示度量和群組。
 
->[AZURE.NOTE]若要搭配 AD FS 使用使用情況分析，您必須確定已啟用 AD FS 稽核。如需詳細資訊，請參閱[啟用 AD FS 的稽核](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs)。
+>[AZURE.NOTE] 若要搭配 AD FS 使用使用情況分析，您必須確定已啟用 AD FS 稽核。如需詳細資訊，請參閱[啟用 AD FS 的稽核](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs)。
 
 ![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health/report1.png)
 
@@ -74,4 +74,4 @@ Azure AD Connect Health 效能監視會提供關於度量的監視資訊。選�
 * [使用適用於同步處理的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

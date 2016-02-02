@@ -20,7 +20,7 @@
 
 能夠設定站對站 VPN 和 ExpressRoute 有諸多好處。您可以將站對站 VPN 設定為 ExressRoute 的安全容錯移轉路徑，或使用站對站 VPN 來連線至不在您網路中但透過 ExpressRoute 連接的網站。本文中將說明設定這兩個案例的步驟。本文適用於使用傳統部署模型所建立的連線。
 
->[AZURE.IMPORTANT]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的相關資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
+>[AZURE.IMPORTANT] 請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的相關資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
 
 
 在執行下列指示之前，必須事先設定 ExpressRoute 線路。在執行下列步驟之前，請確定您已遵循指南[建立 ExpressRoute 線路](expressroute-howto-circuit-classic.md)和[設定路由](expressroute-howto-routing-classic.md)。
@@ -46,7 +46,7 @@
 
 ![並存](media/expressroute-howto-coexist-classic/scenario2.jpg)
 
->[AZURE.NOTE]您無法將虛擬網路設定為轉送路由器。
+>[AZURE.NOTE] 您無法將虛擬網路設定為轉送路由器。
 
 ## 建立和設定
 
@@ -67,7 +67,7 @@
 
 此程序會引導您建立 VNet，並建立將並存的站對站和 ExpressRoute 連線。
 
-1. 請確認您擁有最新版本的 PowerShell Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 PowerShell 區段下載並安裝最新版本的 PowerShell Cmdlet。
+1. 請確認您擁有最新版本的 PowerShell Cmdlet。您可以從[下載頁面](https://azure.microsoft.com/downloads/)的 PowerShell 區段下載並安裝最新版本的 PowerShell Cmdlet。
 
 2. 建立虛擬網路的結構描述。如需關於使用網路組態檔的詳細資訊，請參閱[使用網路組態檔設定虛擬網路](../virtual-network/virtual-networks-create-vnet-classic-portal.md)。如需關於組態結構描述的詳細資訊，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
 
@@ -142,13 +142,13 @@
 
 7. 建立本機的站台 VPN 閘道實體。此命令不會設定內部部署 VPN 閘道。相反地，它可讓您提供本機閘道器設定 (例如公用 IP 與內部位址空間)，使 Azure VPN 閘道能夠與其連線。
 
-	> [AZURE.IMPORTANT]未在 Netcfg 中定義站對站 VPN 的本機站台。您必須改為使用此 Cmdlet 來指定本機站台參數。您無法使用 Azure 傳統入口網站或 Netcfg 檔來定義參數。
+	> [AZURE.IMPORTANT] 未在 Netcfg 中定義站對站 VPN 的本機站台。您必須改為使用此 Cmdlet 來指定本機站台參數。您無法使用 Azure 傳統入口網站或 Netcfg 檔來定義參數。
 
 	使用下列範例，將該值替換為您自己的值。
 
 	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
 
-	> [AZURE.NOTE]如果您的區域網路有多個路由，您可以將它們全部放在陣列中傳遞。$MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
+	> [AZURE.NOTE] 如果您的區域網路有多個路由，您可以將它們全部放在陣列中傳遞。$MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
 
 
 	若要擷取虛擬網路閘道器的設定 (包括閘道器識別碼和公用 IP)，請使用 `Get-AzureVirtualNetworkGateway` Cmdlet。請參閱下列範例。
@@ -179,7 +179,7 @@
 
 **開始設定之前：**請確認您的虛擬網路有足夠的 IP 位址，讓您能夠增加閘道器子網路的大小。
 
-1. 下載最新版的 PowerShell Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 PowerShell 區段下載並安裝最新版本的 PowerShell Cmdlet。
+1. 下載最新版的 PowerShell Cmdlet。您可以從[下載頁面](https://azure.microsoft.com/downloads/)的 PowerShell 區段下載並安裝最新版本的 PowerShell Cmdlet。
 
 2. 刪除現有的站對站 VPN 閘道。使用下列 Cmdlet，將該值替換為您自己的值。
 
@@ -211,4 +211,4 @@
 
 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

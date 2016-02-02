@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/16/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # 在雲端中監視內部部署身分識別基礎結構和同步處理服務。
@@ -92,7 +92,7 @@ Azure AD Connect Health 入口網站可讓您檢視警示、效能監視和使�
 | 需求 | 說明|
 | ----------- | ---------- |
 |Azure AD Premium| Azure AD Connect Health 是 Azure AD Premium 的一個功能，而且需要 Azure AD Premium。</br></br>如需詳細資訊，請參閱[開始使用 Azure AD Premium](active-directory-get-started-premium.md)。</br></br>若要啟動 30 天免費試用版，請參閱[開始使用試用版。](https://azure.microsoft.com/trial/get-started-active-directory/)|。
-|您必須是 Azure AD 的全域系統管理員，才能啟用 (建立) Azure AD Connect Health|依預設，只有全域系統管理員才能啟用 (建立)、存取所有資訊，以及執行 Azure AD Connect Health 內的所有作業。如需其他資訊，請參閱[管理您的 Azure AD 目錄](active-directory-administer.md)。<br><br>使用角色型存取控制，您可以允許貴組織中的其他使用者存取 Azure AD Connect Health。如需詳細資訊，請參閱 [Azure AD Connect Health 的角色型存取控制。](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**重要：**您在安裝代理程式時使用的帳戶必須是工作或組織帳戶，且不能是 Microsoft 帳戶。如需詳細資訊，請參閱[以組織身分註冊 Azure](sign-up-organization.md)|
+|您必須是 Azure AD 的全域系統管理員，才能啟用 (建立) Azure AD Connect Health|依預設，只有全域系統管理員才能啟用 (建立)、存取所有資訊，以及執行 Azure AD Connect Health 內的所有作業。如需其他資訊，請參閱[管理您的 Azure AD 目錄](active-directory-administer.md)。<br><br>使用角色型存取控制，您可以允許貴組織中的其他使用者存取 Azure AD Connect Health。如需詳細資訊，請參閱 [Azure AD Connect Health 的角色型存取控制。](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**重要：**您在安裝代理程式時使用的帳戶必須是工作或組織帳戶<!--school account-->，且不能是 Microsoft 帳戶。如需詳細資訊，請參閱[以組織身分註冊 Azure](sign-up-organization.md)|
 |若是 AD FS，必須啟用 AD FS 稽核，才能使用使用情況分析| 如果計劃使用 AD FS 的使用情況分析，則您必須啟用 AD FS 稽核。</br></br>請參閱[安裝適用於 AD FS 的 Azure AD Connect Health 代理程式](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)。
 |了解 Azure AD Connect Health 代理程式需求|請參閱下表以取得代理程式的特定需求。
 
@@ -123,4 +123,4 @@ Azure AD Connect Health 入口網站可讓您檢視警示、效能監視和使�
 * [使用適用於同步處理的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

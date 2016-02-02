@@ -1,6 +1,6 @@
 <properties
-			pageTitle="如何搭配 Windows 使用 Azure 檔案 | Microsoft Azure"
-    		description="使用此逐步解說教學課程，在雲端中建立 Azure 檔案共用。管理您的檔案共用內容，並從 Azure 虛擬機器 (VM) 或內部部署應用程式掛接檔案共用。"
+			pageTitle="在 Windows 上開始使用 Azure 檔案儲存體 | Microsoft Azure"
+    		description="使用 Azure 檔案儲存體在雲端中儲存檔案資料，並從 Azure 虛擬機器 (VM) 或執行 Windows 的內部部署應用程式掛接雲端檔案共用。"
             services="storage"
             documentationCenter=".net"
             authors="robinsh"
@@ -12,22 +12,20 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="01/12/2015"
+      ms.date="01/24/2015"
       ms.author="robinsh" />
 
-# 如何搭配使用 Azure 檔案儲存體與 Windows
+# 在 Windows 上開始使用 Azure 檔案儲存體
 
 [AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
 ## 概觀
 
-Azure 檔案儲存體使用標準[伺服器訊息區塊 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)，在雲端提供檔案共用功能。檔案儲存體現已公開推出，並同時支援 SMB 2.1 和 SMB 3.0。
+Azure 檔案儲存體是使用標準[伺服器訊息區塊 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)，在雲端中提供檔案共用功能的服務。SMB 2.1 和 SMB 3.0 皆受到支援。使用 Azure 檔案儲存體時，您可以快速地將依賴檔案共用功能的舊式應用程式移轉至 Azure，而不必浪費成本來重新撰寫程式。在 Azure 虛擬機器、雲端服務或內部部署中執行的應用程式，可掛接雲端中的檔案共用，就像桌面應用程式掛接一般 SMB 共用一樣。可同時掛接和存取檔案儲存體共用的應用程式元件數量沒有限制。
 
-您可以使用 [Azure 入口網站](portal.azure.com)、Azure 儲存體 PowerShell Cmdlet、Azure 儲存體用戶端程式庫或 Azure 儲存體 REST API 來建立 Azure 檔案共用。此外，由於檔案共用為 SMB 共用，因此您可以透過熟悉的標準檔案系統 API 加以存取。
+因為檔案儲存體是標準 SMB 檔案共用，所以 Azure 中執行的應用程式可透過檔案系統 I/O API 來存取共用中的資料。因此，開發人員可利用現有的程式碼和技能來移轉現有的應用程式。IT 專業人員在管理 Azure 應用程式時，可以使用 PowerShell Cmdlet 來建立、掛接和管理檔案儲存體共用。
 
-在 Azure 中執行的應用程式可以從 Azure 虛擬機器輕鬆地掛接檔案共用。而且，由於檔案儲存體的廣泛的可用性，您也可以從內部部署用戶端掛接支援 SMB 3.0 的檔案共用 (例如您的本機膝上型電腦、桌面及伺服器)。
-
-檔案儲存體是使用與 Blob、資料表和佇列儲存體相同的技術建置，因此能夠運用現有的可用性、持續性、延展性和建置於 Azure 儲存體平台內的異地備援。
+您可以使用 [Azure 入口網站](https://portal.azure.com)、Azure 儲存體 PowerShell Cmdlet、Azure 儲存體用戶端程式庫或 Azure 儲存體 REST API 來建立 Azure 檔案共用。此外，由於檔案共用為 SMB 共用，因此您可以透過熟悉的標準檔案系統 API 加以存取。
 
 如需搭配 Linux 使用檔案儲存體的詳細資訊，請參閱[如何搭配使用 Azure 檔案儲存體與 Linux](storage-how-to-use-files-linux.md)。
 
@@ -61,7 +59,7 @@ Azure 檔案儲存體使用標準[伺服器訊息區塊 (SMB) 通訊協定](http
 
 ## 使用 Azure 入口網站來管理檔案共用
 
-[Azure 入口網站](portal.azure.com)提供使用者介面，讓客戶管理檔案共用。從預覽入口網站，您可以：
+[Azure 入口網站](https://portal.azure.com)提供使用者介面，讓客戶管理檔案共用。從預覽入口網站，您可以：
 
 - 建立檔案共用
 - 上傳檔案至檔案共用和從檔案共用下載檔案
@@ -119,7 +117,7 @@ Azure 檔案儲存體使用標準[伺服器訊息區塊 (SMB) 通訊協定](http
 
 	![示範如何掛接檔案共用的螢幕擷取畫面](./media/storage-dotnet-how-to-use-files/files-manage-3.png)
 
-	>[AZURE.TIP]要尋找掛接的儲存體帳戶存取金鑰，按一下您儲存體帳戶的 [設定]，再按一下 [存取金鑰]。
+	>[AZURE.TIP] 要尋找掛接的儲存體帳戶存取金鑰，按一下您儲存體帳戶的 [設定]，再按一下 [存取金鑰]。
 
 	![示範如何尋找儲存體帳戶存取金鑰的螢幕擷取畫面](./media/storage-dotnet-how-to-use-files/files-manage-4.png)
 
@@ -134,13 +132,13 @@ Azure 檔案儲存體使用標準[伺服器訊息區塊 (SMB) 通訊協定](http
 
 若要準備使用 PowerShell，請下載並安裝 Azure PowerShell Cmdlet。如需安裝點和安裝指示的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)。
 
-> [AZURE.NOTE]建議您下載和安裝或升級至最新的 Azure PowerShell 模組。
+> [AZURE.NOTE] 建議您下載和安裝或升級至最新的 Azure PowerShell 模組。
 
 透過按一下 [啟動]，然後輸入 **Azure PowerShell** 來開啟 Azure PowerShell 視窗。Azure PowerShell 視窗便會為您載入 Azure Powershell 模組。
 
 ### 建立儲存體帳戶和金鑰的內容
 
-現在，請建立儲存體帳戶內容。內容包含儲存體帳戶名稱和帳戶金鑰。如需從 [Azure 入口網站](portal.azure.com)複製帳戶金鑰的指示，請參閱[檢視、複製和重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
+現在，請建立儲存體帳戶內容。內容包含儲存體帳戶名稱和帳戶金鑰。如需從 [Azure 入口網站](https://portal.azure.com)複製帳戶金鑰的指示，請參閱[檢視、複製和重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
 
 使用下列範例中的儲存體帳戶名稱和金鑰來取代`storage-account-name` 和 `storage-account-key`。
 
@@ -156,7 +154,7 @@ Azure 檔案儲存體使用標準[伺服器訊息區塊 (SMB) 通訊協定](http
 
 現在，您的檔案儲存體中便有一個檔案共用。接下來，我們將新增目錄和檔案。
 
-> [AZURE.IMPORTANT]您的檔案共用名稱必須是全部小寫。如需有關為檔案共用與檔案命名的完整詳細資料，請參閱[命名和參考共用、目錄、檔案及中繼資料](https://msdn.microsoft.com/library/azure/dn167011.aspx)。
+> [AZURE.IMPORTANT] 您的檔案共用名稱必須是全部小寫。如需有關為檔案共用與檔案命名的完整詳細資料，請參閱[命名和參考共用、目錄、檔案及中繼資料](https://msdn.microsoft.com/library/azure/dn167011.aspx)。
 
 ### 在檔案共用中建立目錄
 
@@ -253,7 +251,7 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 - 安裝支援 SMB 3.0 的 Windows 版本。Windows 將利用 SMB 3.0 加密來安全地在內部部署用戶端與雲端中的 Azure 檔案共用之間傳輸資料。 
 - 如 SMB 通訊協定所要求，在區域網路上開啟通訊埠 445 的網際網路存取 (TCP 輸出)。 
 
-> [AZURE.NOTE]有些網際網路服務提供者可能會封鎖連接埠 445，因此您可能需要連絡您的服務提供者。
+> [AZURE.NOTE] 有些網際網路服務提供者可能會封鎖連接埠 445，因此您可能需要連絡您的服務提供者。
 
 ## 使用檔案儲存體開發
 
@@ -281,7 +279,7 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 	    </appSettings>
 	</configuration>
 
-> [AZURE.NOTE]最新版本的 Azure 儲存體模擬器不支援檔案儲存體。您的連接字串必須以雲端中的 Azure 儲存體帳戶為目標，才能與檔案儲存體搭配使用。
+> [AZURE.NOTE] 最新版本的 Azure 儲存體模擬器不支援檔案儲存體。您的連接字串必須以雲端中的 Azure 儲存體帳戶為目標，才能與檔案儲存體搭配使用。
 
 ### 新增命名空間宣告
 
@@ -429,7 +427,7 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 您也可以使用 AzCopy 將檔案複製到另一個檔案，或將 Blob 複製到檔案或反向操作。如需使用 AzCopy 複製檔案的詳細資訊，請參閱[如何搭配使用 AzCopy 與 Microsoft Azure 儲存體](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy-preview-version-only)。
 
-> [AZURE.NOTE]如果要將 Blob 複製到檔案，或將檔案複製到 Blob，您必須使用共用存取簽章 (SAS) 驗證來源物件，即使是在相同的儲存體帳戶內進行複製也一樣。
+> [AZURE.NOTE] 如果要將 Blob 複製到檔案，或將檔案複製到 Blob，您必須使用共用存取簽章 (SAS) 驗證來源物件，即使是在相同的儲存體帳戶內進行複製也一樣。
 
 **將檔案複製到另一個檔案**
 
@@ -528,7 +526,7 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料，您可以追蹤要求及診斷問題。
 
-您可以從 [Azure 入口網站](portal.azure.com)啟用檔案儲存體的度量。您也可以透過 REST API 或儲存體用戶端程式庫中的其中一個同類工具來呼叫設定檔案服務屬性作業，以程式設計方式啟用度量。
+您可以從 [Azure 入口網站](https://portal.azure.com)啟用檔案儲存體的度量。您也可以透過 REST API 或儲存體用戶端程式庫中的其中一個同類工具來呼叫設定檔案服務屬性作業，以程式設計方式啟用度量。
 
 ## 檔案儲存體常見問題集
 
@@ -611,4 +609,4 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 - [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

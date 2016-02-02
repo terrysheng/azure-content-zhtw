@@ -31,7 +31,7 @@
 **VMM** | System Center 2012 R2 上執行的 VMM<br/><br/>至少一個 VMM 雲端，其中包含一或多個 VMM 主機群組。 | NA | 至少在具有最新更新的 System Center 2012 SP1 上執行的主要和次要網站中的 VMM 伺服器。<br/><br/>每個 VMM 伺服器上至少一個雲端。雲端應該設定 Hyper-V 容量設定檔集。<br/><br/> 來源雲端應該有至少一個 VMM 主機群組。 | 選用。您不需要部署 System Center VMM，即可將 Hyper-V 虛擬機器複寫至 Azure，但是如果必須部署，請務必確定已正確設定 VMM 伺服器。這包括確認您正在執行正確的 VMM 版本，且已設定雲端。
 **Hyper-V** | 內部部署資料中心中，至少有一部 Hyper-V 主機伺服器執行 Windows Server 2012 R2 | 來源和目標網站中，至少有一部 Hyper-V 伺服器執行已安裝 Windows Server 2012 R2，並且連接至網際網路。<br/><br/> Hyper-V 伺服器必須位於 VMM 雲端中的主機群組。 | 來源和目標網站中，至少有一部 Hyper-V 伺服器執行已安裝最新更新的 Windows Server 2012，並且連接至網際網路。<br/><br/> Hyper-V 伺服器必須位於 VMM 雲端中的主機群組。 | 
 **虛擬機器** | 來源 Hyper-V 主機伺服器上至少有一個 VM | 來源 VMM 雲端中的 Hyper-V 主機伺服器上至少有一個 VM | 來源 VMM 雲端中的 Hyper-V 主機伺服器上至少有一個 VM。 | 複寫至 Azure 的 VM 必須符合 [Azure 虛擬機器必要條件](site-recovery-best-practices.md/#virtual-machines)
-**Azure 帳戶** | 您需要有 [Azure](http://azure.microsoft.com/) 帳戶和 Site Recovery 服務的訂用帳戶。 | 您需要有 [Azure](http://azure.microsoft.com/) 帳戶和 Site Recovery 服務的訂用帳戶。 | NA | 如果您沒有帳戶，請先前往[免費試用](pricing/free-trial/)。閱讀有關服務的[價格](pricing/details/site-recovery/)。
+**Azure 帳戶** | 您需要有 [Azure](https://azure.microsoft.com/) 帳戶和 Site Recovery 服務的訂用帳戶。 | 您需要有 [Azure](https://azure.microsoft.com/) 帳戶和 Site Recovery 服務的訂用帳戶。 | NA | 如果您沒有帳戶，請先前往[免費試用](pricing/free-trial/)。閱讀有關服務的[價格](pricing/details/site-recovery/)。
 **Azure 儲存體** | 您必須有已啟用異地複寫的 Azure 儲存體帳戶的訂用帳戶。 | 您必須有已啟用異地複寫的 Azure 儲存體帳戶的訂用帳戶。 | NA | 此帳戶應該與 Azure Site Recovery 保存庫位於相同的區域，且和同一個訂用帳戶產生關聯。[深入了解儲存體](../storage/storage-introduction.md)。
 **儲存體對應** | NA | NA | 您可以選擇性設定儲存體對應，以確保虛擬機器可在容錯移轉之後，以最佳方式連接至儲存體。當您在兩個內部部署 VMM 網站之間執行複寫，則根據預設，會將複本虛擬機器儲存在目標 Hyper-V 主機伺服器的指定位置上。您可以在來源與目標 VMM 伺服器上，設定 VMM 儲存體分類之間的對應。 | 若要使用此功能，您必須在開始部署之前，確定已先設定好儲存體分類。[閱讀更多資訊](site-recovery-storage-mapping.md)。
 **SAN 複寫** | NA | NA | 如果要使用 SAN 複寫節點，在兩個內部部署 VMM 網站之間執行複寫，您可以使用現有的 SAN 環境。 | 您需要[支援的 SAN 陣列](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx)，且必須在 VMM 中探索及分類 SAN 儲存體。<br/><br/>如果您目前沒有複寫，則需要建立 LUN 並且在 VMM 主控台中配置儲存體。如果已經複寫，可以略過此步驟。
@@ -76,7 +76,7 @@ iSCSI 磁碟 | 不支援 | 如果不支援，則先決條件檢查會失敗
 FC 磁碟 | 不支援 | 如果不支援，則先決條件檢查會失敗
 硬碟格式| VHD <br/><br/> VHDX | 雖然 Azure 目前不支援 VHDX，但 Site Recovery 會在您容錯移轉至 Azure 時，自動將 VHDX 轉換為 VHD。當您容錯回復到內部部署時，虛擬機器仍會繼續使用 VHDX 格式。
 虛擬機器名稱| 介於 1 到 63 個字元。只能使用字母、數字和連字號。應該以字母或數字為開頭和結尾 | 更新 Site Recovery 中虛擬機器內容的值
-虛擬機器類型 | <p>第 1 代</p> <p>第 2 代 - Windows</p> | 支援第 2 代虛擬機器：具備包含 1 或 2 個資料磁碟區、磁碟格式為 VHDX、磁碟大小小於 300GB 之基本磁碟的作業系統磁碟。不支援 Linux 第 2 代虛擬機器。[了解詳細資訊](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/) 
+虛擬機器類型 | <p>第 1 代</p> <p>第 2 代 - Windows</p> | 支援第 2 代虛擬機器：具備包含 1 或 2 個資料磁碟區、磁碟格式為 VHDX、磁碟大小小於 300GB 之基本磁碟的作業系統磁碟。不支援 Linux 第 2 代虛擬機器。[了解詳細資訊](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)
 
 
 
@@ -106,9 +106,9 @@ FC 磁碟 | 不支援 | 如果不支援，則先決條件檢查會失敗
 
 - [設定內部部署 VMM 網站和 Azure 之間的保護](site-recovery-vmm-to-azure.md)
 - [設定內部部署 Hyper-V 網站和 Azure 之間的保護](site-recovery-hyper-v-site-to-azure.md)
-- [設定兩個內部部署 VMM 網站之間的保護](site-recovery-vmm-to-vmm.md)
+- [設定兩個內部部署 VMM 站台之間的保護](site-recovery-vmm-to-vmm.md)
 - [利用 SAN 設定兩個內部部署 VMM 網站之間的保護](site-recovery-vmm-san.md)
 - [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm.md)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

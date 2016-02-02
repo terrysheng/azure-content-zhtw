@@ -61,7 +61,7 @@
 
 		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
 
-	> [AZURE.IMPORTANT]Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤：「Data Factory 名稱 “FirstDataFactoryPSH” 無法使用」，請變更名稱 (例如 yournameFirstDataFactoryPSH)。執行本教學課程中的步驟時，請使用此名稱來取代 ADFTutorialFactoryPSH。請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md)主題，以了解 Data Factory 成品的命名規則。
+	> [AZURE.IMPORTANT] Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤：「Data Factory 名稱 “FirstDataFactoryPSH” 無法使用」，請變更名稱 (例如 yournameFirstDataFactoryPSH)。執行本教學課程中的步驟時，請使用此名稱來取代 ADFTutorialFactoryPSH。請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md)主題，以了解 Data Factory 成品的命名規則。
 	> 
 	> Data Factory 的名稱未來可能會註冊為 DNS 名稱，因此會變成公開可見的名稱。
 
@@ -86,7 +86,7 @@
 	    	}
 		}
 
-	使用您的 Azure 儲存體帳戶名稱取代帳戶名稱，並使用 Azure 儲存體帳戶的存取金鑰取代帳戶金鑰。若要了解如何取得儲存體存取金鑰，請參閱[檢視、複製和重新產生儲存體存取金鑰](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)。
+	使用您的 Azure 儲存體帳戶名稱取代帳戶名稱，並使用 Azure 儲存體帳戶的存取金鑰取代帳戶金鑰。若要了解如何取得儲存體存取金鑰，請參閱[檢視、複製和重新產生儲存體存取金鑰](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)。
 
 2. 在 Azure PowerShell 中，切換到 ADFGetStarted 資料夾。
 3. 您可以使用 **New-AzureRmDataFactoryLinkedService** Cmdlet 建立連結服務。此 Cmdlet 和您在本教學課程中使用的其他 Data Factory Cmdlet，皆需要您將值傳給 *ResourceGroupName* 和 *DataFactoryName* 參數。或者，您可以使用 Get-AzureRmDataFactory 取得 DataFactory 物件，並傳遞此物件，就不需要在每次執行 Cmdlet 時輸入 ResourceGroupName 和 DataFactoryName。執行以下命令，將 **Get-AzureRmDataFactory** Cmdlet 的輸出指派給 **$df** 變數。
@@ -130,6 +130,15 @@
 	| TimeToLive | 指定 HDInsight 叢集在被刪除之前的閒置時間。 |
 	| linkedServiceName | 指定將用來儲存 HDInsight 產生之記錄檔的儲存體帳戶 |
 
+	請注意：
+	
+	- Data Factory 會以上述 JSON 為您建立**以 Windows 為基礎的** HDInsight 叢集。您也可以讓它建立**以 Linux 為基礎的** HDInsight 叢集。如需詳細資訊，請參閱 [HDInsight 隨選連結服務](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。 
+	- 您可以使用**自己的 HDInsight 叢集**，不必使用隨選的 HDInsight 叢集。如需詳細資訊，請參閱 [HDInsight 連結服務](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)。
+	- HDInsight 叢集會在您於 JSON 中指定的 Blob 儲存體 (**linkedServiceName**) 建立**預設容器**。HDInsight 不會在刪除叢集時刪除此容器。原先的設計就是如此。在使用 HDInsight 隨選連結服務時，除非有現有的即時叢集 (**timeToLive**)，否則每當需要處理配量時，就會建立 HDInsight 叢集，並在處理完成時予以刪除。
+	
+		隨著處理的配量越來越多，您會在 Azure Blob 儲存體中看到許多容器。如果在疑難排解作業時不需要這些容器，您可能會想要刪除它們以降低儲存成本。這些容器的名稱遵循下列模式："adf**yourdatafactoryname**-**linkedservicename**-datetimestamp"。請使用 [Microsoft 儲存體總管](http://storageexplorer.com/)之類的工具刪除 Azure Blob 儲存體中的容器。
+
+	如需詳細資訊，請參閱 [HDInsight 隨選連結服務](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。 
 2. 執行 **New-AzureRmDataFactoryLinkedService** Cmdlet 建立名為 HDInsightOnDemandLinkedServiceHDInsightOnDemandLinkedService 的連結服務。
 
 		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
@@ -217,7 +226,7 @@
 
 1. 在 C:\\ADFGetStarted 資料夾中，使用下列內容建立名為 MyFirstPipelinePSH.json 的 JSON 檔案：
 
-	> [AZURE.IMPORTANT]在 JSON 中使用您的儲存體帳戶名稱取代 **storageaccountname**。
+	> [AZURE.IMPORTANT] 在 JSON 中使用您的儲存體帳戶名稱取代 **storageaccountname**。
 		
 		{
 		    "name": "MyFirstPipeline",
@@ -342,4 +351,4 @@
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

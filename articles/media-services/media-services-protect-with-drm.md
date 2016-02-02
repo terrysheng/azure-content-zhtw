@@ -30,7 +30,7 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 
 從媒體服務 .NET SDK 3.5.2 版開始，媒體服務也可讓您設定 Widevine 授權範本並取得 Widevine 授權。
 
->[AZURE.NOTE]Azure 媒體服務所提供的 Widevine 授權傳遞服務為預覽狀態。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)。
+>[AZURE.NOTE]Azure 媒體服務所提供的 Widevine 授權傳遞服務為預覽狀態。如需詳細資訊，請參閱[此部落格](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)。
 
 您也可以使用下列 AMS 合作夥伴來助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。如需詳細資訊，請參閱整合 [Axinom](media-services-axinom-integration.md) 和 [castLabs](media-services-castlabs-integration.md)。
 
@@ -631,6 +631,6 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 
 [使用 AMS 設定 Widevine 封裝](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
-[宣布在 Azure 媒體服務中推出 Google Widevine 授權傳遞服務公開預覽](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
+[宣布在 Azure 媒體服務中推出 Google Widevine 授權傳遞服務公開預覽](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

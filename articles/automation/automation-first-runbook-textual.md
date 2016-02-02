@@ -30,7 +30,7 @@
 
 若要完成本教學課程，您需要下列項目。
 
-- 。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或<a href="/pricing/free-trial/" target="_blank">[申請免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+- 。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或<a href="/pricing/free-trial/" target="_blank">[申請免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - 要保存 Runbook 的[自動化帳戶](automation-configuring.md)。
 - Azure 虛擬機器。我們將會停止並啟動這台電腦，因此它不應該是生產環境。
 - [Azure Active Directory 使用者和自動化認證資產](automation-configuring.md)來向 Azure 資源驗證。此使用者必須擁有權限來啟動和停止虛擬機器。
@@ -124,4 +124,4 @@
 - [我的第一個圖形化 Runbook](automation-first-runbook-graphical.md)
 - [我的第一個 PowerShell Runbook](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

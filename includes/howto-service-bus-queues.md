@@ -18,40 +18,35 @@
 
 建立服務命名空間：
 
-1.  登入 [Azure 入口網站][]。
+1.  登入 [Azure 傳統入口網站][]。
 
 2.  在入口網站的左方瀏覽窗格中，按一下 [服務匯流排]。
 
-3.  在管理入口網站的下方窗格中，按一下 [**建立**]。
-	![](./media/howto-service-bus-queues/sb-queues-03.png)
+3.  在入口網站的下方窗格中，按一下 [建立]。![](./media/howto-service-bus-queues/sb-queues-03.png)
 
-4.  在 [Add a new namespace] 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用。   
-	![](./media/howto-service-bus-queues/sb-queues-04.png)
+4.  在 [Add a new namespace] 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用。![](./media/howto-service-bus-queues/sb-queues-04.png)
 
 5.  確定命名空間名稱可用之後，請選擇要代管命名空間的國家或區域 (必須使用您要部署計算資源的相同國家/區域)。
 
-	 >[AZURE.IMPORTANT]請挑選您想要選擇來部署應用程式的**相同區域**。這樣可以獲得最佳效能。
+	 >[AZURE.IMPORTANT] 請挑選您想要選擇來部署應用程式的**相同區域**。這樣可以獲得最佳效能。
 
 6. 	讓對話方塊中的其他欄位保留其預設值 ([傳訊] 和 [標準層])，然後按一下 [確定] 核取記號。此時系統會建立並啟用命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
 
 	![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
 
-然後，您建立的命名空間稍待片刻就會生效，然後就會出現在 Azure 入口網站中。等到命名空間狀態變成 [**作用中**] 之後再繼續。
+然後，您建立的命名空間稍待片刻就會生效，然後就會出現在入口網站中。等到命名空間狀態變成 [**作用中**] 之後再繼續。
 
 ## 取得命名空間的預設管理認證
 
-若要在新的命名空間上執行管理作業，例如建立佇列，您必須取得命名空間的管理認證。您可以從 Azure 入口網站取得這些認證。
+若要在新的命名空間上執行管理作業，例如建立佇列，您必須取得命名空間的管理認證。您可以從 [Azure 傳統入口網站][]取得這些認證。
 
 ###從入口網站取得管理認證
 
-1.  在左方瀏覽窗格中，按一下 [**服務匯流排**] 節點，以顯示可用的命名空間清單：   
-	![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  在左方瀏覽窗格中，按一下 [**服務匯流排**] 節點，以顯示可用的命名空間清單：![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  從顯示的清單中，選取您剛建立的命名空間：   
-	![](./media/howto-service-bus-queues/sb-queues-09.png)
+2.  從顯示的清單中，選取您剛建立的命名空間：![](./media/howto-service-bus-queues/sb-queues-09.png)
 
-3.  按一下 [**連線資訊**]。   
-	![](./media/howto-service-bus-queues/sb-queues-06.png)
+3.  按一下 [**連線資訊**]。![](./media/howto-service-bus-queues/sb-queues-06.png)
 
 4.  在 [**存取連線資訊**] 窗格中，尋找包含 SAS 金鑰和金鑰名稱的連接字串。
 
@@ -59,6 +54,6 @@
     
 5.  記下金鑰，或將它複製到剪貼簿。
 
-  [Azure 入口網站]: http://manage.windowsazure.com
+  [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

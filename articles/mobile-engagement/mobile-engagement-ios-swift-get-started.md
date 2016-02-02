@@ -34,11 +34,11 @@
 + [Mobile Engagement iOS SDK]
 + 推播通知憑證 (.p12)，您可以在 Apple Dev Center 取得
 
-> [AZURE.NOTE]本教學課程使用 Swift 2.0 版。
+> [AZURE.NOTE] 本教學課程使用 Swift 2.0 版。
 
 完成本教學課程是所有其他 iOS 應用程式 Mobile Engagement 教學課程的先決條件。
 
-> [AZURE.IMPORTANT]完成本教學課程是所有其他 iOS 應用程式 Mobile Engagement 教學課程的先決條件，若要完成此課程，您必須擁有有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
+> [AZURE.IMPORTANT] 完成本教學課程是所有其他 iOS 應用程式 Mobile Engagement 教學課程的先決條件，若要完成此課程，您必須擁有有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
 ##<a id="setup-azme"></a>為您的 iOS 應用程式設定 Mobile Engagement
 
@@ -66,7 +66,7 @@
 
 	![][2]
 
-5. 開啟 `Build Phases` 索引標籤，並在 `Link Binary With Libraries` 功能表中新增框架，如下所示：
+5. 開啟 `Build Phases` 索引標籤，並在 `Link Binary With Libraries` 功能表中新增框架，如下所示。**注意** 您必須包含 `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration`：
 
 	![][3]
 
@@ -209,4 +209,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

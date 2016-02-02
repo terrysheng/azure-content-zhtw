@@ -5,7 +5,7 @@
 	documentationCenter="windows"
 	authors="ggailey777"
 	manager="dwrede"
-	editor=""/> 
+	editor=""/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -18,9 +18,7 @@
 
 #建立 Windows 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##概觀
 
@@ -32,11 +30,11 @@
 
 若要完成此教學課程，您需要下列項目：
 
-* 使用中的 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+* 使用中的 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 * [Visual Studio Community 2013] 或更新版本。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶之前先開始使用 Azure App Service，請前往[試用 App Service](https://tryappservice.azure.com/?appServiceName=mobile)。您可以於該處，在 App Service 中立即建立短期的入門行動 app - 不需信用卡，不需任何承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶之前先開始使用 Azure App Service，請前往[試用 App Service](https://tryappservice.azure.com/?appServiceName=mobile)。您可以於該處，在 App Service 中立即建立短期的入門行動 app - 不需信用卡，不需任何承諾。
 
 ##建立新的 Azure 行動應用程式後端
 
@@ -60,7 +58,7 @@
 
 4. 以 Windows 市集應用程式做為啟始專案，按下 F5 鍵以重建專案並啟動 Windows 市集應用程式。
 
-5. 在應用程式的 [插入 TodoItem] 文字方塊中輸入有意義的文字 (例如 *「完成教學課程* 」(Complete the tutorial)」)，然後按一下 [儲存]。
+5. 在應用程式的 [插入 TodoItem] 文字方塊中輸入有意義的文字 (例如「完成教學課程」(Complete the tutorial)」)，然後按一下 [儲存]。
 
 	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
@@ -74,11 +72,9 @@
 
 ##後續步驟
 
-* [加入驗證至應用程式](app-service-mobile-windows-store-dotnet-get-started-users.md) 
- <br/>了解如何使用身分識別提供者驗證應用程式的使用者。
+* [加入驗證至應用程式](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/>了解如何使用身分識別提供者驗證應用程式的使用者。
 
-* [將推播通知新增至您的應用程式](app-service-mobile-windows-store-dotnet-get-started-push.md) 
- <br/>了解如何將非常基本的推播通知傳送至應用程式。
+* [將推播通知新增至您的應用程式](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -87,4 +83,4 @@
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

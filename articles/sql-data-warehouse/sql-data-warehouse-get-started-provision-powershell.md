@@ -13,41 +13,56 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/11/2016"
+   ms.date="01/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # 使用 Powershell 建立 SQL 資料倉儲
 
 > [AZURE.SELECTOR]
-- [Azure 入口網站](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-> [AZURE.NOTE]若要搭配使用 Microsoft Azure Powershell 與 SQL 資料倉儲，您將需要 1.0 版或更高版本。您可以在 PowerShell 中執行 (Get-Module Azure).Version 來檢查您的版本。
-
 ## 取得和執行 Azure PowerShell Cmdlet
+
+> [AZURE.NOTE]  若要搭配使用 Microsoft Azure Powershell 與 SQL 資料倉儲，您應該使用 ARM Cmdlet 下載並安裝最新版的 Azure PowerShell。您可以執行 `Get-Module -ListAvailable -Name Azure` 來檢查版本。本文是根據 Microsoft Azure PowerShell 1.0.3 版所撰寫。
+
 如果您尚未安裝 PowerShell，您需要加以下載並進行設定。
 
 1. 如要下載 Azure PowerShell 模組，請執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)。
 2. 如要執行模組，請在開始視窗中鍵入 **Microsoft Azure PowerShell**。
-3. 如果您尚未將帳戶加入電腦，請執行下列 Cmdlet。(如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][])：
+3. 執行此 Cmdlet 來登入 Azure 資源管理員。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][]。
 
-```
-Add-AzureAccount
-```
+	```
+	Login-AzureRmAccount
+	```
 
-4. 選取您要使用的訂閱帳戶。此範例會取得訂用帳戶名稱清單。然後將訂用帳戶名稱設定為 "MySubscription"。 
+4. 選取目前的工作階段要使用的訂用帳戶。
 
-```
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
-```
+	```
+	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
+	```
    
-## 建立 SQL 資料倉儲
-為您的帳戶設定 PowerShell 之後，您可以執行下列動作在 SQL 資料倉儲中部署新的資料庫。
+## 建立 SQL 資料倉儲資料庫
+若要部署 SQL 資料倉儲，請使用 New-AzureRmSQLDatabase Cmdlet。在執行命令前，請確定您已符合下列先決條件。
+
+### 先決條件
+
+- 用來主控資料庫的 V12 Azure SQL Server
+- 了解 SQL Server 的資源群組名稱。
+
+### 部署命令
+
+此命令會在 SQL 資料倉儲中部署新的資料庫。
 
 ```
-New-AzureSqlDatabase -RequestedServiceObjectiveName "<Service Objective>" -DatabaseName "<Data Warehouse Name>" -ServerName "<Server Name>" -ResourceGroupName "<ResourceGroupName>" -Edition "DataWarehouse"
+New-AzureRmSqlDatabase -RequestedServiceObjectiveName "<Service Objective>" -DatabaseName "<Data Warehouse Name>" -ServerName "<Server Name>" -ResourceGroupName "<ResourceGroupName>" -Edition "DataWarehouse"
+```
+
+這個範例會使用服務目標等級 "DW400" 將名為 "mynewsqldw1" 的新資料庫部署到 "mywesteuroperesgp1" 資源群組中名為 "sqldwserver1" 的伺服器。
+
+```
+New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw1" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
 ```
 
 這個 Cmdlet 的必要參數如下所示：
@@ -58,7 +73,7 @@ New-AzureSqlDatabase -RequestedServiceObjectiveName "<Service Objective>" -Datab
  + **ResourceGroupName**：您使用的資源群組。若要尋找訂用帳戶中可用的資源，請使用 Get-AzureResource。
  + **版本**：您必須將版本設定為 "DataWarehouse"，才能建立 SQL 資料倉儲。 
 
-如需命令參考，請參閱 [New-AzureSqlDatabase](https://msdn.microsoft.com/library/mt619339.aspx)
+如需命令參考，請參閱 [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619339.aspx)
 
 如需參數選項，請參閱[建立資料庫 (Azure SQL 資料倉儲)](https://msdn.microsoft.com/library/mt204021.aspx)。
 
@@ -81,4 +96,4 @@ New-AzureSqlDatabase -RequestedServiceObjectiveName "<Service Objective>" -Datab
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [如何安裝和設定 Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

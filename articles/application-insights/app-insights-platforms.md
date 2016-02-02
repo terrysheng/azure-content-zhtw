@@ -17,8 +17,6 @@
 
 # Application Insights：語言、平台和整合
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
 這些都是我們聽說過的實作，包括一些協力廠商提供的實作。
 
 ## 語言
@@ -85,4 +83,4 @@
 
 如果您的語言或平台中還沒有 SDK，您會想要建置一個嗎？ 查看 [GitHub 上之 Application Insights SDK 專案](https://github.com/Microsoft/AppInsights-Home)中列出的現有 SDK 程式碼。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

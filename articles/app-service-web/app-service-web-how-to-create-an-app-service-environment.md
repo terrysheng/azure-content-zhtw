@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015" 
+	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
 # 如何建立 App Service 環境 #
@@ -47,7 +47,7 @@ App Service 環境 (ASE) 是 Azure App Service 的進階服務選項，可提供
 - 具有 2 個 P1 計算資源的背景工作集區
 - 要用於 IP SSL 的單一 IP 位址
 
-這是 ASE 的最小大小。前端集區需要 P2 或更大的大小。請確實選取您想讓 ASE 屬於哪個訂用帳戶。唯一可使用 ASE 來裝載內容的帳戶必須屬於用來建立帳戶的訂用帳戶。
+前端集區需要 P2 或更大的大小。請小心選取您想讓 ASE 屬於哪個訂用帳戶。唯一可使用 ASE 來裝載內容的帳戶必須屬於用來建立帳戶的訂用帳戶。
 
 ![][1]
 
@@ -102,7 +102,7 @@ VNET 的位置就是 ASE 的位置，因為 ASE 部署至該 VNET 中。
 - 如果 X 介於 21 到 40，您可用於工作負載的可用計算資源數量為 X-2
 - 如果 X 介於 41 到 53，您可用於工作負載的可用計算資源數量為 X-3
 
-除了能夠管理您可指派給指定集區的計算資源數量以外，您也可以控制大小。在 App Service 環境中，您可以選擇 4 個標示為 P1 至 P4 的不同大小。如需大小及其定價的詳細資訊，請參閱 [App Service 定價][AppServicePricing]。P1 至 P3 計算資源大小與多租用戶環境中可用的大小相同。P4 計算資源提供 14 GB RAM 的八核心， 而且只適用於 App Service 環境。
+除了能夠管理您可指派給指定集區的計算資源數量以外，您也可以控制大小。在 App Service 環境中，您可以選擇 4 個標示為 P1 至 P4 的不同大小。如需大小及其價格的詳細資訊，請參閱 [App Service 價格][AppServicePricing]。P1 至 P3 計算資源大小與多租用戶環境中可用的大小相同。P4 計算資源提供 14 GB RAM 的八核心， 而且只適用於 App Service 環境。
 
 App Service 環境的定價是根據指派的計算資源。無論是否裝載工作負載，您都需支付配置給您的 App Service 環境的計算資源。
 
@@ -155,4 +155,4 @@ App Service 環境的定價是根據指派的計算資源。無論是否裝載�
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

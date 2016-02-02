@@ -35,7 +35,7 @@
 ## 使用 Visual Studio 建立和部署 Data Factory 實體 
 
 ### 必要條件
-您必須在電腦上安裝下列項目：- Visual Studio 2013 - 下載 Azure SDK for Visual Studio 2013。瀏覽至 [Azure 下載頁面](http://azure.microsoft.com/downloads/)並按一下 **.NET** 區段中的 [VS 2013 安裝]。
+您必須在電腦上安裝下列項目：- Visual Studio 2013 - 下載 Azure SDK for Visual Studio 2013。瀏覽至 [Azure 下載頁面](https://azure.microsoft.com/downloads/)並按一下 **.NET** 區段中的 [VS 2013 安裝]。
 
 ### 逐步介紹
 
@@ -116,7 +116,7 @@
 
 #### 建立輸出資料表
 
-11. 再次以滑鼠右鍵按一下 [方案總管] 中的 [資料表]，指向 [加入]，然後按一下 [新增項目]。
+11. 再次以滑鼠右鍵按一下 [**方案總管**] 中的 [**資料表**]，指向 [**新增**]，然後按一下 [**新增項目**]。
 12. 在 [加入新項目] 對話方塊中，選取 [Azure SQL]，然後按一下 [加入]。 
 13. 將 JSON 文字取代成下列 JSON 並儲存 **AzureSqlTableLocation1.json** 檔案。
 
@@ -209,7 +209,8 @@
 	1. 選取 [建立新的 Data Factory] 選項。
 	2. 針對 [名稱] 輸入 **VSTutorialFactory**。  
 	
-		> [AZURE.NOTE]Azure Data Factory 的名稱在全域必須是唯一的。如果您在發佈時收到與 Data Factory 名稱有關的錯誤，請變更 Data Factory 的名稱 (例如 yournameVSTutorialFactory) 並嘗試再發佈一次。請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md)主題，以了解 Data Factory 成品的命名規則。
+		> [AZURE.NOTE]  
+		Azure Data Factory 的名稱在全域必須是唯一的。如果您在發佈時收到與 Data Factory 名稱有關的錯誤，請變更 Data Factory 的名稱 (例如 yournameVSTutorialFactory) 並嘗試再發佈一次。請參閱 [Data Factory - 命名規則](data-factory-naming-rules.md)主題，以了解 Data Factory 成品的命名規則。
 		> 
 		> Data Factory 的名稱未來可能會註冊為 DNS 名稱，因此會變成公開可見的名稱。
 	3. 針對 [訂用帳戶] 欄位選取適當的訂用帳戶。 
@@ -236,4 +237,4 @@
 
 如需如何使用 Azure 入口網站來監視您在本教學課程中建立的管線和資料集的指示，請參閱[監視資料集和管線](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

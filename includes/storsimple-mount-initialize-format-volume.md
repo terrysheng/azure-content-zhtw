@@ -10,7 +10,7 @@
 
 4. 在 [iSCSI 啟動器屬性] 視窗的 [目標] 索引標籤上，找到 [探索到的目標]。裝置狀態應會顯示為 [非使用中]。
 
-5. 選取目標裝置，然後按一下 [連接]。連接裝置之後，狀態應會變更為 [已連接]。 (如需如何使用 Microsoft iSCSI 啟動器的詳細資訊，請參閱[安裝和設定 Microsoft iSCSI 啟動器][1])。
+5. 選取目標裝置，然後按一下 [連接]。連接裝置之後，狀態應會變更為 [已連接](如需如何使用 Microsoft iSCSI 啟動器的詳細資訊，請參閱[安裝和設定 Microsoft iSCSI 啟動器][1])。
 
 6. 在 Windows 主機上按 Windows 標誌鍵 + X，然後按一下 [執行]。
 
@@ -30,9 +30,9 @@
 
 ![提供的影片](./media/storsimple-mount-initialize-format-volume/Video_icon.png)**提供的影片**
 
-若要觀看影片示範如何掛接、初始化和格式化 StorSimple 磁碟區，請按一下[這裡](http://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/)。
+若要觀看影片示範如何掛接、初始化和格式化 StorSimple 磁碟區，請按一下[這裡](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/)。
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

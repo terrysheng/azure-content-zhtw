@@ -26,7 +26,7 @@
 
 若要完成此教學課程，您需要下列項目：
 
-* 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F)。
+* 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F)。
 * [Visual Studio 2013 Express for Windows]
 
 ## 建立新的行動服務
@@ -68,7 +68,7 @@
 
    	如此可讓您瀏覽由應用程式插入資料表中的資料。
 
->[AZURE.NOTE]您可以檢閱造成存取您行動服務來進行查詢和插入資料的程式碼，該程式碼位於 default.js 檔案中。
+>[AZURE.NOTE] 您可以檢閱造成存取您行動服務來進行查詢和插入資料的程式碼，該程式碼位於 default.js 檔案中。
 
 ## 後續步驟
 您已經完成快速入門，接下來請了解如何使用 [HTML/JavaScript 的行動服務用戶端](mobile-services-html-how-to-use-client-library.md)。
@@ -88,4 +88,4 @@
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!-----HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016-->

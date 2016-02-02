@@ -66,7 +66,7 @@
 
 1. 從 **start** 資料夾將 **lib** 資料夾複製到建構者所建立的 **ContactList** 資料夾。
 
-1. 以下列程式碼取代 **handlers/contacts.js** 檔案中的程式碼。此程式碼會使用 **lib/contactRepository.js** 所提供的 **lib/contacts.json** 檔案中儲存的 JSON 資料。以下的新 contats.js 程式碼會回應 HTTP 要求，以取得使用此程式碼的所有連絡人。
+1. 以下列程式碼取代 **handlers/contacts.js** 檔案中的程式碼。此程式碼會使用 **lib/contactRepository.js** 所提供的 **lib/contacts.json** 檔案中儲存的 JSON 資料。以下的新 contacts.js 程式碼會回應 HTTP 要求，以取得使用此程式碼的所有連絡人。
 
         'use strict';
         
@@ -86,7 +86,7 @@
         
         module.exports = {
             get: function contacts_get(req, res) {
-                res.json(repository.get(req.params['id']))
+                res.json(repository.get(req.params['id']));
             }    
         };
 
@@ -151,7 +151,7 @@
 
 您從中複製原始程式碼的 GitHub 儲存機制，並不是您要推送程式碼以供部署的同一個儲存機制。範例 GitHub 儲存機制包含了程式碼的「開始」狀態，而現在您已建構程式碼的「結束」狀態，您必須將該程式碼只推送至與您的 API 應用程式相關聯的 Git 儲存機制。第一個步驟是使用 Azure 入口網站建立 API 應用程式，然後您將
 
-1. 瀏覽至 [Azure 入口網站](http://portal.azure.com)。 
+1. 瀏覽至 [Azure 入口網站](https://portal.azure.com/)。 
 
 1. 建立新的 API 應用程式。
 
@@ -243,4 +243,4 @@
 
 為了根據此範例進行建置，您可以將程式碼加入至處理常式，以便在資料庫中或在 API 應用程式執行個體的磁碟上儲存資料。既然您已連接 [連續部署]，變更 API 應用程式功能並加以擴充，就如同變更您的程式碼並推送至 Git 儲存機制一樣容易。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

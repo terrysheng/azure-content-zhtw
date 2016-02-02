@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 
@@ -33,13 +33,13 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 本文將逐步引導您完成建立、設定、啟動及刪除應用程式閘道的步驟。
 
 
->[AZURE.IMPORTANT]使用 Azure 資源之前，請務必了解 Azure 目前有「資源管理員」和「傳統」兩種部署模型。在使用任何 Azure 資源之前，請先確認您了解[部署模型和工具](azure-classic-rm.md)。您可以按一下本文頂端的索引標籤，檢視不同工具的文件。本文件將討論如何使用 Azure 資源管理員建立應用程式閘道。若要使用傳統的版本，請移至[使用 PowerShell 建立應用程式閘道傳統部署](application-gateway-create-gateway.md)。
+>[AZURE.IMPORTANT] 使用 Azure 資源之前，請務必了解 Azure 目前有「資源管理員」和「傳統」兩種部署模型。在使用任何 Azure 資源之前，請先確認您了解[部署模型和工具](azure-classic-rm.md)。您可以按一下本文頂端的索引標籤，檢視不同工具的文件。本文件將討論如何使用 Azure 資源管理員建立應用程式閘道。若要使用傳統的版本，請移至[使用 PowerShell 建立應用程式閘道傳統部署](application-gateway-create-gateway.md)。
 
 
 
 ## 開始之前
 
-1. 使用 Web Platform Installer 安裝最新版的 Azure PowerShell Cmdlet。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的＜**Windows PowerShell**＞區段下載並安裝最新版本。
+1. 使用 Web Platform Installer 安裝最新版的 Azure PowerShell Cmdlet。您可以從[下載頁面](https://azure.microsoft.com/downloads/)的 **Windows PowerShell** 區段下載並安裝最新版本。
 2. 您將建立應用程式閘道的虛擬網路和子網路。請確定沒有虛擬機器或是雲端部署正在使用子網路。應用程式閘道必須單獨位於虛擬網路子網路中。
 3. 您要設定為使用應用程式閘道的伺服器必須存在，或是在虛擬網路中建立其端點，或是已指派公用 IP/VIP。
 
@@ -106,7 +106,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 在上述範例中，我們建立名為 "appgw-RG" 的資源群組，且位置為美國西部 ("West US")。
 
 
->[AZURE.NOTE]如果您需要設定應用程式閘道的自訂探查，請參閱[使用 PowerShell 建立具有自訂探查的應用程式閘道](application-gateway-create-probe-ps.md)。參閱[自訂探查和健康狀況監視](application-gateway-probe-overview.md)以取得詳細資訊。
+>[AZURE.NOTE] 如果您需要設定應用程式閘道的自訂探查，請參閱[使用 PowerShell 建立具有自訂探查的應用程式閘道](application-gateway-create-probe-ps.md)。參閱[自訂探查和健康狀況監視](application-gateway-probe-overview.md)以取得詳細資訊。
 
 
 
@@ -200,7 +200,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
->[AZURE.NOTE]*InstanceCount* 的預設值是 2，最大值是 10。GatewaySize 的預設值是 Medium。您可以在 Standard\_Small、Standard\_Medium 和 Standard\_Large 之間選擇。
+>[AZURE.NOTE]  *InstanceCount* 的預設值是 2，最大值是 10。GatewaySize 的預設值是 Medium。您可以在 Standard\_Small、Standard\_Medium 和 Standard\_Large 之間選擇。
 
 ## 使用 New-AzureRmApplicationGateway 建立應用程式閘道
 
@@ -237,13 +237,13 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 
 
->[AZURE.NOTE]選擇性的 **-force** 參數可用來隱藏移除確認訊息。
+>[AZURE.NOTE] 選擇性的 **-force** 參數可用來隱藏移除確認訊息。
 
 
 若要確認已移除服務，您可以使用 **Get-AzureRmApplicationGateway** Cmdlet。這不是必要步驟。
 
 
-	Get-AzureRmApplicationGateway -Name appgwtest-ResourceGroupName appgw-rg
+	Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 
 ## 後續步驟
@@ -257,4 +257,4 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

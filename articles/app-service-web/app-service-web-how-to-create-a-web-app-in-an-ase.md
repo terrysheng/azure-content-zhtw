@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/26/2015"
+	ms.date="01/14/2016"
 	ms.author="ccompy"/>
 
 # 在 App Service 環境中建立 Web 應用程式
@@ -22,7 +22,7 @@
 
 本教學課程說明如何在 [App Service 環境](app-service-app-service-environment-intro.md) (ASE) 中建立 Web 應用程式和 App Service 方案。
 
-> [AZURE.NOTE]如果您想要了解如何建立 Web 應用程式，但不需要在 App Service 環境中加以實作，請參閱[建立 .NET Web 應用程式](web-sites-dotnet-get-started.md)，或其中一個適用於其他語言和架構的相關教學課程。
+> [AZURE.NOTE] 如果您想要了解如何建立 Web 應用程式，但不需要在 App Service 環境中加以實作，請參閱[建立 .NET Web 應用程式](web-sites-dotnet-get-started.md)，或其中一個適用於其他語言和架構的相關教學課程。
 
 ## 必要條件
 
@@ -30,7 +30,7 @@
 
 ## 建立 Web 應用程式
 
-1. 在 [Azure Preview 入口網站](https://portal.azure.com/) 中，按一下 [新增] > [Web + 行動] > [Web 應用程式]。 
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [新增] > [Web + 行動] > [Web 應用程式]。 
 
 	![][1]
 
@@ -118,4 +118,4 @@
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

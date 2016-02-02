@@ -48,7 +48,7 @@
 	您可以使用任何網頁伺服器來裝載應用程式，但是這些網頁伺服器需受所下載的指令碼支援。
 
 + 支援 HTML5 的網頁瀏覽器。
-+ 一個 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-tw%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank)。 
++ 一個 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank)。 
 
 
 ## <a name="create-new-service"> </a>建立新的行動服務
@@ -68,7 +68,7 @@
 
    	![][6]
 
-   	這將顯示三個簡單步驟，可用來建立和主控連接到您行動服務的 HTML 應用程式。
+   	This displays the three easy steps to create and host an HTML app connected to your mobile service.
 
   	![][7]
 
@@ -82,7 +82,7 @@
 
   	![][9]
 
-	> [AZURE.IMPORTANT]如果您將快速入門應用程式部署至 localhost 以外的 Web 伺服器，您必須將該 Web 伺服器的主機名稱新增至 [允許提出要求的主機名稱] 清單。如需詳細資訊，請參閱[跨原始來源資源分享](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx) (英文)。
+	> [AZURE.IMPORTANT] 如果您將快速入門應用程式部署至 localhost 以外的 Web 伺服器，您必須將該 Web 伺服器的主機名稱新增至 [允許提出要求的主機名稱] 清單。如需詳細資訊，請參閱[跨原始來源資源分享](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx) (英文)。
 
 ## 裝載並執行 HTML 應用程式
 
@@ -94,7 +94,7 @@
 	+ **launch-mac.command** (Mac OS X 電腦)
 	+ **launch-linux.sh** (Linux 電腦)
 
-	> [AZURE.NOTE]在 Windows 電腦上，PowerShell 要求您確認是否要執行指令碼時，請輸入 `R`。因為指令碼是從網際網路中下載，所以您的網頁瀏覽器可能會警告您不要執行指令碼。發生此情況時，您必須要求瀏覽器繼續載入指令碼。
+	> [AZURE.NOTE] 在 Windows 電腦上，PowerShell 要求您確認是否要執行指令碼時，請輸入 `R`。因為指令碼是從網際網路中下載，所以您的網頁瀏覽器可能會警告您不要執行指令碼。發生此情況時，您必須要求瀏覽器繼續載入指令碼。
 
 	如此會在本機電腦上啟動網頁伺服器來裝載新的應用程式。
 
@@ -106,7 +106,7 @@
 
    	如此會傳送 POST 要求到 Azure 中代管的新行動服務。要求中的資料會插入 TodoItem 資料表中。行動服務會傳回資料表中儲存的項目，而該資料會顯示在應用程式的第二欄。
 
-	> [AZURE.NOTE]您可以檢視會存取您的行動服務來查詢及插入資料的程式碼 (位於 page.js 檔案中)。
+	> [AZURE.NOTE] 您可以檢視會存取您的行動服務來查詢及插入資料的程式碼 (位於 page.js 檔案中)。
 
 4. 回到 [Azure 傳統入口網站]，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。
 
@@ -154,4 +154,4 @@
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

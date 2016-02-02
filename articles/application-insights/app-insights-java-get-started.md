@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/24/2015"
+	ms.date="01/24/2016"
 	ms.author="awills"/>
 
 # 在 Java Web 專案中開始使用 Application Insights
@@ -30,7 +30,7 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
 您需要：
 
 * Oracle JRE 1.6 或更新版本，或 Zulu JRE 1.6 或更新版本
-* [Microsoft Azure](http://azure.microsoft.com/) 訂用帳戶。(您可以從[免費試用](http://azure.microsoft.com/pricing/free-trial/)開始。)
+* [Microsoft Azure](https://azure.microsoft.com/) 訂用帳戶。(您可以從[免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。)
 
 *如果您有使用中的 Web 應用程式，您可以依照替代的程序[在執行階段將 SDK 加入 Web 伺服器](app-insights-java-live.md)。替代方法可避免重建程式碼，但您沒有選項可撰寫程式碼來追蹤使用者活動。*
 
@@ -117,7 +117,7 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
  * `applicationinsights-web` 提供追蹤 HTTP 要求計數和回應時間的度量。如果您不想自動收集此遙測，您可以忽略這個。例如，如果您想要自己撰寫。
 
 * *在我們發佈變更時更新 SDK*
- * 下載最新的 [Application Insights SDK for Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) 並取代舊的。
+ * 下載最新的 [Application Insights SDK for Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) 並取代舊的。
  * [SDK 版本資訊](app-insights-release-notes-java.md)中會說明變更內容。
 
 
@@ -398,4 +398,4 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

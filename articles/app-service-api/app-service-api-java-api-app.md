@@ -25,7 +25,7 @@
 ## 必要條件
 
 1. [Java Developer Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (或更新版本)
-1. 付費或[免費試用](https://azure.microsoft.com/pricing/free-trial/)的 [Microsoft Azure](https://azure.microsoft.com) 訂用帳戶
+1. 付費或[免費試用](https://azure.microsoft.com/pricing/free-trial/)的 [Microsoft Azure](https://azure.microsoft.com/) 訂用帳戶
 1. 安裝在您開發電腦上的 [Maven](https://maven.apache.org/)
 1. 安裝在您開發電腦上的 Git 
 
@@ -129,7 +129,7 @@
 			}
 		}
 		
-1. 瀏覽至[線上 Swagger 編輯器](http://editor.swagger.io/)。抵達之後，依序按一下 [File] \(檔案) -> [Paste JSON] \(貼上 JSON) 功能表項目 。
+1. 瀏覽至[線上 Swagger 編輯器](http://editor.swagger.io/)。抵達之後，依序按一下 [File] (檔案) -> [Paste JSON] (貼上 JSON) 功能表項目 。
 
     ![貼上 Json](media/app-service-api-java-api-app/paste-json.png)
 
@@ -254,7 +254,7 @@
 ## 將輸出資料發佈至 Azure App Service
 在本節中，您將了解如何使用 Azure 入口網站來建立新的 API 應用程式、準備該 API 應用程式來託管 Java 應用程式，以及將新建立的 WAR 檔案部署至 Azure App Service 來執行您的新 API 應用程式。
 
-1. 在 [Azure 入口網站](http://portal.azure.com)建立新的 API 應用程式，方法是依序按一下 [新增] -> [Web + 行動] -> [API 應用程式] 功能表項目。
+1. 在 [Azure 入口網站](https://portal.azure.com/)建立新的 API 應用程式，方法是依序按一下 [新增] -> [Web + 行動] -> [API 應用程式] 功能表項目。
 	
 	![建立新的 API 應用程式](media/app-service-api-java-api-app/create-api-app.png)
 
@@ -295,4 +295,4 @@
 
 如需有關在 Azure 中使用 Java 的詳細資訊，請參閱 [ 開發人員中心](/develop/java/)。
 
-<!-----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

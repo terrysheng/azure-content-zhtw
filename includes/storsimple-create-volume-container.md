@@ -18,6 +18,6 @@
 
 ![提供的影片](./media/storsimple-create-volume-container/Video_icon.png)**提供的影片**
 
-若要觀看影片示範如何在您的 StorSimple 方案中建立磁碟區容器，請按一下[這裡](http://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/)。
+若要觀看影片示範如何在您的 StorSimple 方案中建立磁碟區容器，請按一下[這裡](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="如何使用 .NET 的資料表儲存體 | Microsoft Azure"
-	description="使用表格儲存體來儲存非結構化、無結構描述的資料。表格儲存體是 NoSQL 索引鍵/屬性存放區。.NET 的儲存體用戶端程式庫提供了 API，可用於便建立和刪除資料表，以及插入、更新、刪除和查詢資料。"
+	pageTitle="以 .NET 開始使用 Azure 表格儲存體 | Microsoft Azure"
+	description="使用 Azure 表格儲存體 (Microsoft 的 NoSQL 資料存放區) 將非結構化的資料儲存在雲端。從簡單的表格儲存體作業來開始，包括建立和刪除表格以及插入、更新、刪除和查詢資料。"
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,17 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/07/2016"
+	ms.date="01/24/2016"
 	ms.author="tamram"/>
 
 
-# 如何使用 .NET 的資料表儲存體
+# 以 .NET 開始使用 Azure 表格儲存體
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
 ## 概觀
 
-本文將示範如何使用 Azure 資料表儲存體服務來執行一般案例。這些範例均以 C# 程式碼撰寫，並使用 Azure Storage Client Library for .NET。所涵蓋的案例包括「建立和刪除資料表」，以及「使用資料表實體」。
+Azure 表格儲存體是可將非結構化的 NoSQL 資料儲存在雲端中的服務。表格儲存體是具有無結構描述設計的索引鍵/屬性存放區。由於表格儲存體並無結構描述，因此可輕易隨著應用程式發展需求改寫資料。所有類型的應用程式都可以用快速且具成本效益的方式存取資料。相較於類似資料量的傳統 SQL，資料表儲存體通常可大幅降低成本。
+
+您可以使用資料表儲存體來儲存具彈性的資料集，例如 Web 應用程式的使用者資料、通訊錄、裝置資訊，以及服務所需的任何其他中繼資料類型。您可以在資料表中儲存任意數目的實體，且儲存體帳戶可包含任意數目的資料表，最高可達儲存體帳戶的容量限制。
+
+本教學課程說明如何使用 Azure 表格儲存體撰寫一些常見案例的 .NET 程式碼，包括建立和刪除表格以及插入、更新、刪除和查詢表格資料。
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -440,4 +444,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

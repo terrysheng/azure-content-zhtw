@@ -16,7 +16,7 @@
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.0-preview.8</version>
+      <version>1.0.0-preview.9</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -50,7 +50,7 @@
 
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.HTTPS;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
     private static boolean stopThread = false;
     ```
 
@@ -153,9 +153,9 @@
     mvn clean package -DskipTests
     ```
 
-> [AZURE.NOTE]為了簡單起見，本教學課程不會實作任何重試原則。在實際程式碼中，您應該如 MSDN 文章[暫時性錯誤處理][lnk-transient-faults]所建議，實作重試原則 (例如指數型輪詢)。
+> [AZURE.NOTE] 為了簡單起見，本教學課程不會實作任何重試原則。在實際程式碼中，您應該如 MSDN 文章[暫時性錯誤處理][lnk-transient-faults]所建議，實作重試原則 (例如指數型輪詢)。
 
 <!-- Links -->
-[lnk-transient-faults]: https://msdn.microsoft.com/en-us/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/zh-TW/library/hh680901(v=pandp.50).aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

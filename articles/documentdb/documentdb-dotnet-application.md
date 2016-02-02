@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="DocumentDB 的 ASP.NET MVC 教學課程：Web 應用程式開發 | Microsoft Azure" 
-	description="完成這個 ASP.NET MVC 教學課程來使用 DocumentDB 建立 MVC Web 應用程式。您將從託管於 Azure 網站的待辦事項應用程式儲存 JSON 和存取資料。" 
+	description="使用 DocumentDB 建立 MVC Web 應用程式的 ASP.NET MVC 教學課程。您將在託管於 Azure 網站的待辦事項應用程式儲存 JSON 和存取資料 - ASP NET MVC 教學課程逐步解說。" 
 	keywords="asp.net mvc 教學課程, web 應用程式開發, mvc web 應用程式, asp net mvc 教學課程逐步解說"
 	services="documentdb" 
 	documentationCenter=".net" 
@@ -18,7 +18,7 @@
 	ms.date="11/18/2015" 
 	ms.author="ryancraw"/>
 
-#<a name="_Toc395809351"></a>使用 DocumentDB 搭配 ASP.NET MVC 的 Web 應用程式開發
+#<a name="_Toc395809351"></a>ASP.NET MVC 教學課程：使用 DocumentDB 開發 Web 應用程式
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -32,7 +32,7 @@
 
 本逐步解說說明如何使用 Azure 所提供的 DocumentDB 服務，來儲存和存取 Azure 上所託管 ASP.NET MVC Web 應用程式的資料。
 
-> [AZURE.TIP]本教學課程假設您先前有過使用 ASP.NET MVC 和 Azure 網站的經驗。如果您不熟悉 ASP.NET 或[必備工具](#_Toc395637760)，我們建議您從 [GitHub][] 下載完整的範例專案，並依照此範例的指示進行。建置完成後，您可以檢閱此文章，以加深對專案內容中程式碼的了解。
+> [AZURE.TIP] 本教學課程假設您先前有過使用 ASP.NET MVC 和 Azure 網站的經驗。如果您不熟悉 ASP.NET 或[必備工具](#_Toc395637760)，我們建議您從 [GitHub][] 下載完整的範例專案，並依照此範例的指示進行。建置完成後，您可以檢閱此文章，以加深對專案內容中程式碼的了解。
 
 ## <a name="_Toc395637760"></a>此資料庫教學課程的必要條件
 
@@ -206,8 +206,8 @@
 
 2. 在 [新增檢視] 對話方塊中，執行下列動作：
 	- 在 [檢視名稱] 方塊中，輸入「***索引***」。
-	- 在 [範本] 方塊中，選取 [***清單***]。
-	- 在 [模型類別] 方塊中，選取 [***項目 (todo.Models)***]。
+	- 在 [範本] 方塊中，選取 [清單]。
+	- 在 [模型類別] 方塊中，選取 [項目 (todo.Models)]。
 	- 將 [資料內容類別] 方塊保留空白。 
 	- 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/\_Layout.cshtml***。
 	
@@ -224,7 +224,7 @@
 2. 在 [新增檢視] 對話方塊中，執行下列動作：
     - 在 [檢視名稱] 方塊中，輸入「***建立***」。
     - 在 [**範本**] 方塊中，選取 [***建立***]。
-    - 在 [模型類別] 方塊中，選取 [***項目 (todo.Models)***]。
+    - 在 [模型類別] 方塊中，選取 [項目 (todo.Models)]。
     - 將 [資料內容類別] 方塊保留空白。
     - 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/\_Layout.cshtml***。
     - 按一下 [新增]。
@@ -236,9 +236,9 @@
 1. 在 [方案總管] 中，再次以滑鼠右鍵按一下 **Item** 資料夾，按一下 [新增]，然後按一下 [檢視]。
 
 2. 在 [新增檢視] 對話方塊中，執行下列動作：
-    - 在 [檢視名稱] 方塊中，輸入「***編輯***」。
-    - 在 [範本] 方塊中，選取 [***編輯***]。
-    - 在 [模型類別] 方塊中，選取 [***項目 (todo.Models)***]。
+    - 在 [**檢視名稱**] 方塊中，輸入「***編輯***」。
+    - 在 [範本] 方塊中，選取 [編輯]。
+    - 在 [模型類別] 方塊中，選取 [項目 (todo.Models)]。
     - 將 [資料內容類別] 方塊保留空白。 
     - 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/\_Layout.cshtml***。
     - 按一下 [新增]。
@@ -397,7 +397,7 @@
     	    }
     	}
 
-	> [AZURE.TIP]建立新的 DocumentCollection 時，您可以提供 OfferType 的選擇性 RequestOptions 參數，此參數可讓您指定新集合的效能層級。如果無法傳遞此參數，系統將會使用預設的優惠類型。如需 DocumentDB 優惠類型的詳細資訊，請參閱 [DocumentDB 效能層級](documentdb-performance-levels.md)
+	> [AZURE.TIP] 建立新的 DocumentCollection 時，您可以提供 OfferType 的選擇性 RequestOptions 參數，此參數可讓您指定新集合的效能層級。如果無法傳遞此參數，系統將會使用預設的優惠類型。如需 DocumentDB 優惠類型的詳細資訊，請參閱 [DocumentDB 效能層級](documentdb-performance-levels.md)
 
 3. 我們打算從組態中讀取部分值，因此請開啟應用程式的 **Web.config** 檔案，並在 [`<AppSettings>`] 區段下新增下列幾行。
 	
@@ -454,7 +454,7 @@
 
 如果您未在 URL 中指定控制路由行為的值，這會讓 ASP.NET MVC 知道改用 **Item** (**Home**) 作為控制器，並使用使用者**索引**作為檢視。
 
-如果您執行應用程式，它現在會呼叫至您的 **ItemController**，進而呼叫至儲存機制類別，並使用 GetItems 方法將所有未完成的項目傳回 **Views**\\**Item**\\**Index** 檢視。
+如果您執行應用程式，它現在會呼叫至您的 **ItemController**，進而呼叫至儲存機制類別，並使用 GetItems 方法將所有未完成的項目傳回 **Views**\**Item**\**Index** 檢視。
 
 如果建置並立即執行此專案，您現在應該會看到如下的內容。
 
@@ -626,11 +626,11 @@
 若要將其他功能加入至您的應用程式，請檢閱[文件 DB .NET 程式庫](https://msdn.microsoft.com/library/azure/dn948556.aspx)中提供的 API，並歡迎您貢獻到 [GitHub][] 上的 DocumentDB .NET 程式庫。
 
 
-[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
+[*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [防止跨網站偽造要求]: http://go.microsoft.com/fwlink/?LinkID=517254
 [ASP.NET MVC 中的基本 CRUD 作業]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

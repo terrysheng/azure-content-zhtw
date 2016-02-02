@@ -2,13 +2,14 @@
 	pageTitle="開始使用預先設定解決方案 | Microsoft Azure"
 	description="遵循此教學課程學習如何部署 Azure IoT Suite 預先設定解決方案。"
 	services=""
+    suite="iot-suite"
 	documentationCenter=""
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="na"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
@@ -26,7 +27,7 @@ Azure IoT Suite [預先設定的解決方案][lnk-preconfigured-solutions]結合
 
 若要完成本教學課程，您需要作用中的 Azure 訂用帳戶。
 
-> [AZURE.NOTE]如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][lnk_free_trial]。
+> [AZURE.NOTE]  如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][lnk_free_trial]。
 
 ## 佈建遠端監視預先設定的解決方案
 
@@ -159,4 +160,4 @@ Azure IoT Suite [預先設定的解決方案][lnk-preconfigured-solutions]結合
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -6,7 +6,7 @@
 	authors="Jim-Parker"
 	manager="jwhit"
 	editor=""
-	keywords="虛擬機器備份; 備份虛擬機器; 備份和災害復原"/>
+	keywords="虛擬機器備份; 備份虛擬機器; 備份和災害復原; vm 備份"/>
 
 <tags
 	ms.service="backup"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/19/2016"
+	ms.date="01/22/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # 備份 Azure 虛擬機器
 本文提供如何備份現有 Azure 虛擬機器 (VM)，以根據您的公司的備份和災害復原原則保護 VM 的程序。
 
-首先，您必須注意幾件事，才能備份 Azure 虛擬機器。如果您尚未這樣做，請先完成[必要條件](backup-azure-vms-prepare.md)為您的環境備份 VM 的準備工作，再繼續作業。
+首先，您必須注意幾件事，才能備份 Azure 虛擬機器。如果您尚未這樣做，請先完成[先決條件](backup-azure-vms-prepare.md)為您的環境進行 VM 備份的準備工作，再繼續作業。
 
 如需詳細資訊，請參閱[在 Azure 中規劃 VM 備份基礎結構](backup-azure-vms-introduction.md)和 [Azure 虛擬機器](https://azure.microsoft.com/documentation/services/virtual-machines/)的文件。
 
@@ -29,7 +29,7 @@
 
 ![備份 Azure IaaS VM 的三個步驟](./media/backup-azure-vms/3-steps-for-backup.png)
 
->[AZURE.NOTE]備份虛擬機器是本機的程序。您無法將虛擬機器從一個區域備份到另一個區域中的備份保存庫。因此，對於每一個有 VM 需要備份的 Azure 區域，必須在該區域中至少建立一個備份保存庫。
+>[AZURE.NOTE] 備份虛擬機器是本機的程序。您無法將虛擬機器從一個區域備份到另一個區域中的備份保存庫。因此，對於每一個有 VM 需要備份的 Azure 區域，必須在該區域中至少建立一個備份保存庫。
 
 ## 步驟 1 - 探索 Azure 虛擬機器
 探索程序一律為首要執行步驟，以確保能夠識別任何加入至訂用帳戶的新虛擬機器。此程序會在 Azure 中查詢訂用帳戶中的虛擬機器清單，以及其他資訊，例如雲端服務名稱、區域等。
@@ -40,8 +40,7 @@
 
     ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. 按一下頁面底部的 [**探索**]。
-    ![探索按鈕](./media/backup-azure-vms/discover-button-only.png)
+3. 按一下頁面底部的 [**探索**]。![探索按鈕](./media/backup-azure-vms/discover-button-only.png)
 
     在列表顯示虛擬機器時，探索程序可能需花費幾分鐘的時間。畫面底部會有通知讓您知道程序正在執行中。
 
@@ -60,12 +59,11 @@
 
     ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
 
-3. 按一下頁面底部的 [註冊]。
-    ![註冊按鈕](./media/backup-azure-vms/register-button-only.png)
+3. 按一下頁面底部的 [註冊]。![註冊按鈕](./media/backup-azure-vms/register-button-only.png)
 
 4. 在 [註冊項目] 捷徑功能表中，選取您想要註冊的虛擬機器。如果有兩個以上同名的虛擬機器，請使用雲端服務加以區別。
 
-    >[AZURE.TIP]您可以同時註冊多個虛擬機器。
+    >[AZURE.TIP] 您可以同時註冊多個虛擬機器。
 
     系統會為您所選取的每個虛擬機器建立一個工作。
 
@@ -97,7 +95,7 @@
 
     如果有兩個以上同名的虛擬機器，請使用雲端服務來區別虛擬機器。
 
-    >[AZURE.TIP]您可以同時保護多個虛擬機器。
+    >[AZURE.TIP] 您可以同時保護多個虛擬機器。
 
     ![設定大規模保護](./media/backup-azure-vms/protect-at-scale.png)
 
@@ -107,7 +105,7 @@
 
     ![使用新的原則來保護](./media/backup-azure-vms/policy-schedule.png)
 
-    >[AZURE.NOTE]備份原則中包含排定備份的保留配置。如果您選取現有的備份原則，將無法在下一個步驟中修改保留選項。
+    >[AZURE.NOTE] 備份原則中包含排定備份的保留配置。如果您選取現有的備份原則，將無法在下一個步驟中修改保留選項。
 
 5. 選擇要與備份相關聯的 [保留範圍]。
 
@@ -143,9 +141,9 @@
 
     ![備份進行中](./media/backup-azure-vms/protect-inprogress.png)
 
->[AZURE.NOTE]在備份工作進行時，Azure 備份服務會發出命令給每個虛擬機器中的備份擴充功能，以排清所有寫入並取得一致的快照。
+>[AZURE.NOTE] 在備份工作進行時，Azure 備份服務會發出命令給每個虛擬機器中的備份擴充功能，以排清所有寫入並取得一致的快照。
 
-初始備份完成後，[受保護的項目] 索引標籤中的虛擬機器狀態會顯示為 *[受保護]*。
+初始備份完成後，[受保護的項目] 索引標籤中的虛擬機器狀態會顯示為 [受保護]。
 
 ![搭配復原點備份虛擬機器](./media/backup-azure-vms/protect-backedupvm.png)
 
@@ -164,4 +162,4 @@
 - [管理和監視虛擬機器](backup-azure-manage-vms.md)
 - [還原虛擬機器](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

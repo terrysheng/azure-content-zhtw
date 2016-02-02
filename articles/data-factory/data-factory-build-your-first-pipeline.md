@@ -26,7 +26,7 @@
 
 本文可協助您開始建置您的第一個 Azure Data Factory。
 
-> [AZURE.NOTE]本文不提供 Azure Data Factory 服務的概念性概觀。如需有關服務的詳細概觀，請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)。
+> [AZURE.NOTE] 本文不提供 Azure Data Factory 服務的概念性概觀。如需有關服務的詳細概觀，請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)。
 
 ## 教學課程概觀
 本教學課程將逐步帶您建置並執行第一個 Data Factory 所需的步驟。您會在 Data Factory 中建立一個管線，可轉換/處理輸入資料以產生輸出資料。
@@ -34,7 +34,7 @@
 ## 必要條件
 開始進行本教學課程之前，您必須具備下列必要條件：
 
-1.	**Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，只需要幾分鐘就可以建立免費試用帳戶。請參閱[免費試用](http://azure.microsoft.com/pricing/free-trial/)一文了解如何取得免費試用帳戶。
+1.	**Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，只需要幾分鐘就可以建立免費試用帳戶。請參閱[免費試用](https://azure.microsoft.com/pricing/free-trial/)一文了解如何取得免費試用帳戶。
 
 2.	**Azure 儲存體** – 在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱[檢視、複製和重新產生儲存體存取金鑰](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
 
@@ -159,7 +159,7 @@
 		FROM WebLogsRaw
 
 ### 建立範例輸入檔案
-使用記事本，在 **c:\adfgetstarted** 中建立名為 **input.log** 的檔案，內容如下：
+使用記事本，在 **c:\\adfgetstarted** 中建立名為 **input.log** 的檔案，內容如下：
 
 	#Software: Microsoft Internet Information Services 8.0
 	#Fields: date time s-sitename cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Cookie) cs(Referer) cs-host sc-status sc-substatus sc-win32-status sc-bytes cs-bytes time-taken
@@ -185,7 +185,7 @@
 
 ### 將輸入檔案和 HQL 檔案上傳到您的 Azure Blob 儲存體
 
-您可以使用任何工具 (例如：Azure 儲存體總管、CloudXPlorer by ClumsyLeaf Software) 來執行這項工作。本節提供使用 AzCopy 工具的指示。
+您可以使用任何工具 (例如：[Microsoft Azure 儲存體總管](http://storageexplorer.com/)、CloudXPlorer by ClumsyLeaf Software) 來執行這項工作。本節提供使用 AzCopy 工具的指示。
 	 
 2. 為教學課程準備 Azure 儲存體：
 	1. 下載[最新版本的 **AzCopy**](http://aka.ms/downloadazcopy)，或[最新預覽版本](http://aka.ms/downloadazcopypr)。請參閱[如何使用 AzCopy](../storage/storage-use-azcopy.md) 一文以取得使用公用程式的指示。
@@ -193,11 +193,11 @@
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. 瀏覽至 c:\adfgetstarted 資料夾，然後執行下列命令將 **input.log** 檔案上傳到儲存體帳戶 (**adfgetstarted** 容器和 **inputdata** 資料夾)。使用您的儲存體帳戶名稱取代 StorageAccountName，並使用儲存體帳戶金鑰取代儲存體金鑰。
+	3. 瀏覽至 c:\\adfgetstarted 資料夾，然後執行下列命令將 **input.log** 檔案上傳到儲存體帳戶 (**adfgetstarted** 容器和 **inputdata** 資料夾)。使用您的儲存體帳戶名稱取代 StorageAccountName，並使用儲存體帳戶金鑰取代儲存體金鑰。
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE]上述命令會在您的 Azure Blob 儲存體建立名為 **adfgetstarted** 的容器，並從您的本機磁碟將 **partitionweblogs.hql** 檔案複製到該容器中的 **inputdata** 資料夾。
+		> [AZURE.NOTE] 上述命令會在您的 Azure Blob 儲存體建立名為 **adfgetstarted** 的容器，並從您的本機磁碟將 **partitionweblogs.hql** 檔案複製到該容器中的 **inputdata** 資料夾。
 	
 	5. 檔案成功上傳之後，您會看見來自 AzCopy 的輸出，如下所示。
 	
@@ -222,4 +222,4 @@
 - Visual Studio
 - Azure 資源管理員範本 
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

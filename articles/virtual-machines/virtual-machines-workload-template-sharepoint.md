@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # 使用 Azure 資源管理員範本部署 SharePoint 伺服器陣列
@@ -31,7 +31,7 @@
 
 您可以使用 Azure 入口網站、Azure PowerShell 或 Azure CLI 來執行範本。
 
-> [AZURE.NOTE]您也可以在 Azure 入口網站的 Azure Marketplace 中使用 [SharePoint 2013 非 HA 伺服器陣列](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/)項目建立這個組態。
+> [AZURE.NOTE] 您也可以在 Azure 入口網站的 Azure Marketplace 中使用 [SharePoint 2013 非 HA 伺服器陣列](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/)項目建立這個組態。
 
 ### Azure 入口網站
 
@@ -41,7 +41,7 @@
 
 1.	按一下 [參數]。在 [參數] 窗格中輸入新值、從允許的值選取，或接受預設值，然後按一下 [確定]。
 2.	如有需要，按一下 [訂用帳戶]，然後選取正確的 Azure 訂用帳戶。
-3.	按一下 [資源群組]，然後選取現有的資源群組。或者，按一下 [或建立新的]，為此工作負載建立新的資源群組。
+3.	按一下 [資源群組]，然後選取現有的資源群組。或者按一下 [或建立新的]，為此工作負載建立新的資源群組。
 4.	如有需要，按一下 [資源群組位置]，然後選取正確的 Azure 位置。
 6.	按一下 [法律條款]，檢閱使用範本的條款和合約，然後按一下 [購買]。
 7.	按一下 [建立]。
@@ -50,7 +50,7 @@
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]這份文件包含 Azure PowerShell Preview 1.0 的命令。若要在 Azure PowerShell 0.9.8 和先前版本中執行這些命令，請將 **New-AzureRMResourceGroup** 取代為 **New-AzureResourceGroup**、將 **New-AzureRMResourceGroupDeployment** 取代為 **New-AzureResourceGroupDeployment**，以及將 **Switch-AzureMode AzureResourceManager** 命令加在 **New-AzureResourceGroup** 命令前面。如需詳細資訊，請參閱 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)。
+> [AZURE.NOTE] 下列命令集使用 Azure PowerShell 1.0 版和更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
 
 在下列命令中填寫 Azure 部署名稱、新的資源群組名稱，以及 Azure 資料中心位置。移除括弧內的所有項目，包括 < and > 字元。
 
@@ -103,7 +103,7 @@
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
-> [AZURE.NOTE]您也可以在 Azure 入口網站的 Azure Marketplace 中使用 [SharePoint 2013 HA 伺服器陣列](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/)項目建立這個組態。
+> [AZURE.NOTE] 您也可以在 Azure 入口網站的 Azure Marketplace 中使用 [SharePoint 2013 HA 伺服器陣列](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/)項目建立這個組態。
 
 ### Azure 入口網站
 
@@ -113,7 +113,7 @@
 
 1.	按一下 [參數]。在 [參數] 窗格中輸入新值、從允許的值選取，或接受預設值，然後按一下 [確定]。
 2.	如有需要，按一下 [訂用帳戶]，然後選取正確的 Azure 訂用帳戶。
-3.	按一下 [資源群組]，然後選取現有的資源群組。或者，按一下 [或建立新的]，為此工作負載建立新的資源群組。
+3.	按一下 [資源群組]，然後選取現有的資源群組。或者按一下 [或建立新的]，為此工作負載建立新的資源群組。
 4.	如有需要，按一下 [資源群組位置]，然後選取正確的 Azure 位置。
 5.	按一下 [法律條款]，檢閱使用範本的條款和合約，然後按一下 [購買]。
 6.	按一下 [建立]。
@@ -122,7 +122,7 @@
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]這份文件包含 Azure PowerShell Preview 1.0 的命令。若要在 Azure PowerShell 0.9.8 和先前版本中執行這些命令，請將 **New-AzureRMResourceGroup** 取代為 **New-AzureResourceGroup**、將 **New-AzureRMResourceGroupDeployment** 取代為 **New-AzureResourceGroupDeployment**，以及將 **Switch-AzureMode AzureResourceManager** 命令加在 **New-AzureResourceGroup** 命令前面。如需詳細資訊，請參閱 [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/)。
+> [AZURE.NOTE] 下列命令集使用 Azure PowerShell 1.0 版和更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
 
 在下列命令中填寫 Azure 部署名稱、新的資源群組名稱，以及 Azure 資料中心位置。移除括弧內的所有項目，包括 < and > 字元。
 
@@ -170,20 +170,8 @@
 範本執行完成時，您在新的資源群組中就會有一個新的、包含九部伺服器的 SharePoint Server 2013 伺服器陣列。
 
 
-## 其他資源
+## 下一步
 
-[在 Azure 基礎結構服務中架設的 SharePoint 伺服器陣列](virtual-machines-sharepoint-infrastructure-services.md)
+- 探索 Azure 基礎結構服務中其他的 [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) 設定。
 
-[使用 Azure 資源管理員範本和 Azure PowerShell 部署和管理虛擬機器](virtual-machines-deploy-rmtemplates-powershell.md)
-
-[Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](virtual-machines-azurerm-versus-azuresm.md)
-
-[Azure 資源管理員概觀](../resource-group-overview.md)
-
-[使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-[虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

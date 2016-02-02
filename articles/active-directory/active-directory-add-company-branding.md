@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/30/2015" 
+	ms.date="01/26/2016" 
 	ms.author="MarkVi"/>
 
 # 將公司商標新增至登入和存取面板頁面
@@ -21,7 +21,7 @@
 > [AZURE.NOTE]
 >
 - 公司商標是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
-- Azure Active Directory Premium 和 Basic 版本適用於使用全球 Azure Active Directory 執行個體的中國客戶。由 21Vianet 在中國提供的 Microsoft Azure 服務目前不支援 Azure Active Directory Premium 和 Basic 版本。如需詳細資訊，請透過 [Azure Active Directory 論壇](http://feedback.azure.com/forums/169401-azure-active-directory)與我們連絡。
+- Azure Active Directory Premium 和 Basic 版本適用於使用全球 Azure Active Directory 執行個體的中國客戶。由 21Vianet 在中國提供的 Microsoft Azure 服務目前不支援 Azure Active Directory Premium 和 Basic 版本。如需詳細資訊，請透過 [Azure Active Directory 論壇](https://feedback.azure.com/forums/169401-azure-active-directory/)與我們連絡。
 
 許多公司想要在所管理的所有網站和服務上套用一致的外觀及操作，讓使用者在需要使用這些網站時不致混淆。Azure Active Directory 提供這項功能，讓您可以自訂下列使用者面向網頁的外觀，以納入您的公司標誌和色彩配置：
 
@@ -80,7 +80,8 @@
 大型圖例/背景色彩 | 顯示於頁面的左方。取代您使用者所登入之目的地網站通常會顯示的影像。可能會顯示「背景色彩」，來替代低頻寬連線或極窄畫面上的「大型圖例」。
 登入頁面文字 | 需要在使用者使用其工作或學校帳戶登入之前傳達給他們的有用資訊時，顯示於頁尾上方。例如，您可能想要包括支援人員的電話號碼或法律聲明。
 
-> [AZURE.NOTE]所有元素都是選用的。例如，如果您指定 [橫幅標誌]，但未指定 [大型圖例]，則 [登入] 頁面會顯示您的標誌以及目的地網站的圖例 (即 Office 365 加州高速公路影像)。
+> [AZURE.NOTE]
+所有元素都是選用的。例如，如果您指定 [橫幅標誌]，但未指定 [大型圖例]，則 [登入] 頁面會顯示您的標誌以及目的地網站的圖例 (即 Office 365 加州高速公路影像)。
 
 您也可以將此頁面上的所有元素都翻成當地使用語。設定一組「預設」自訂元素之後，就可以設定不同地區設定的其他版本。您也可以混合使用並符合各種元素。例如，您可以：
 
@@ -185,4 +186,4 @@ Azure AD 中的部分可自訂元素有多個使用案例。公司標誌可以�
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

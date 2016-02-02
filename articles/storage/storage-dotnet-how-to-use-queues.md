@@ -1,6 +1,6 @@
 <properties
-	pageTitle="如何使用 .NET 的佇列儲存體 | Microsoft Azure"
-	description="了解如何使用佇列儲存體來建立和刪除佇列，以及插入、查看、取得和刪除佇列訊息。"
+	pageTitle="以 .NET 開始使用 Azure 佇列儲存體 | Microsoft Azure"
+	description="使用 Azure 佇列儲存體在應用程式元件之間以非同步方式傳送和接收訊息。從簡單的佇列儲存體作業來開始，包括建立和刪除佇列以及新增、讀取和刪除佇列訊息。"
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/04/2015"
+	ms.date="01/24/2016"
 	ms.author="gusapost"/>
 
-# 如何使用 .NET 的佇列儲存體
+# 以 .NET 開始使用 Azure 佇列儲存體
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 ## 概觀
 
-本指南將示範如何使用 Azure 佇列儲存服務執行一般案例。這些範例均以 C# 程式碼撰寫，並使用 Azure Storage Client for .NET。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立和刪除佇列」。
+Azure 佇列儲存體是在雲端中提供訊息佇列的服務。設計擴充性的應用程式時，會經常分離應用程式元件，以便進行個別擴充。佇列儲存體針對應用程式元件間的非同步通訊，提供可靠的訊息服務解決方案，無論應用程式元件是在雲端、桌面、內部部署伺服器或行動裝置上執行。佇列儲存體也支援管理非同步工作並建置處理工作流程。
+
+本教學課程說明如何使用 Azure 佇列儲存體撰寫一些常見案例的 .NET 程式碼。本文說明的案例包括建立和刪除佇列，以及新增、讀取和刪除佇列訊息。
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -260,4 +262,4 @@
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

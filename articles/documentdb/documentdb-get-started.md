@@ -17,7 +17,7 @@
 	ms.date="11/18/2015"
 	ms.author="anhoh"/>
 
-# NoSQL 教學課程：DocumentDB C# 主控台應用程式 
+# NoSQL 教學課程：建置 DocumentDB C# 主控台應用程式 
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
@@ -45,7 +45,7 @@
 
 請確定您具有下列項目：
 
-- 使用中的 Azure 帳戶。如果您沒有帳戶，您可以註冊[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+- 使用中的 Azure 帳戶。如果您沒有帳戶，您可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/)。
 
 ## 步驟 1：建立 DocumentDB 帳戶
@@ -76,11 +76,11 @@
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
 
-> [AZURE.IMPORTANT]若要完成此 NoSQL 教學課程，請務必加入上述的相依性。
+> [AZURE.IMPORTANT] 若要完成此 NoSQL 教學課程，請務必加入上述的相依性。
 
 接著，儲存 DocumentDB 帳戶端點以及主要或次要存取金鑰 (可於 [Azure 入口網站](https://portal.azure.com)中找到)。
 
-![顯示 DocumentDB 帳戶的 Azure 入口網站螢幕擷取畫面，內含反白顯示的 [主動式] 集線器、[DocumentDB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][keys]
+![NoSQL 教學課程用來建立 C# 主控台應用程式之 Azure 入口網站的螢幕擷取畫面。顯示 DocumentDB 帳戶，內含反白顯示的 [主動式] 集線器、[DocumentDB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][keys]
 
     private const string EndpointUrl = "<your endpoint URI>";
     private const string AuthorizationKey = "<your key>";
@@ -108,7 +108,7 @@
 		}
 	}
 
-> [AZURE.WARNING]請勿將認證儲存在原始程式碼中。為了讓這個範例簡單明瞭，原始程式碼中會顯示認證。如需如何在實際執行環境中儲存認證的相關資訊，請參閱 [Azure 網站：應用程式字串與連接字串的運作方式 (英文)](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。查看我們在 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs) 上的範例應用程式，以取得在原始程式碼外儲存認證的相關範例。
+> [AZURE.WARNING] 請勿將認證儲存在原始程式碼中。為了讓這個範例簡單明瞭，原始程式碼中會顯示認證。如需如何在實際執行環境中儲存認證的相關資訊，請參閱 [Azure 網站：應用程式字串與連接字串的運作方式 (英文)](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。查看我們在 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs) 上的範例應用程式，以取得在原始程式碼外儲存認證的相關範例。
 
 現在，您已經知道如何連接到 DocumentDB 帳戶和建立 **DocumentClient** 類別的執行個體，接下來說明使用 DocumentDB 資源。
 
@@ -136,7 +136,7 @@
 
 ##<a id="CreateColl"></a>步驟 5：建立集合  
 
-> [AZURE.WARNING]**CreateDocumentCollectionAsync** 會建立具有定價含意的新 S1 集合。如需詳細資訊，請造訪[定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
+> [AZURE.WARNING] **CreateDocumentCollectionAsync** 會建立具有定價含意的新 S1 集合。如需詳細資訊，請造訪[定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
 
 您可以使用 **DocumentClient** 類別的 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 方法建立[集合](documentdb-resources.md#collections)。集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。新建立的集合將會對應至 [S1 效能層級](documentdb-performance-levels.md)。在 **GetStartedDemo** 方法中建立資料庫之後，建立名為 **FamilyCollection** 的新集合。
 
@@ -279,7 +279,7 @@
 
 您現在已經在 DocumentDB 帳戶中建立下列資料庫、集合和文件。
 
-![說明帳戶、資料庫、集合和文件之間階層式關聯性的圖表](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![說明 NoSQL 教學課程用來建立 C# 主控台應用程式之帳戶、線上資料庫、集合和文件之間階層式關聯性的圖表](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ##<a id="Query"></a>步驟 7：查詢 DocumentDB 資源
 
@@ -289,7 +289,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
     var families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id,
         "SELECT * " +
         "FROM Families f " +
-        "WHERE f.id = \"AndersenFamily\"");
+        "WHERE f.id = "AndersenFamily"");
 
     foreach (var family in families)
     {
@@ -319,11 +319,11 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 
 下圖說明如何針對您所建立的集合呼叫 DocumentDB SQL 查詢語法，相同邏輯也可以套用至 LINQ 查詢。
 
-![說明查詢範圍和意義的圖表](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![說明 NoSQL 教學課程用來建立 C# 主控台應用程式之查詢的範圍和意義的圖表](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
 因為 DocumentDB 查詢已侷限於單一集合，所以查詢中的 [FROM](documentdb-sql-query.md#from-clause) 關鍵字是選擇性的。因此，"FROM Families f" 可以換成 "FROM root r"，或您選擇的任何其他變數名稱。依預設，DocumentDB 會推斷該系列、根或您選擇的變數名稱來參考目前的集合。
 
-##<a id="DeleteDatabase"></a>步驟 8：刪除資料庫
+##<a id="DeleteDatabase"></a>步驟 8：刪除線上資料庫
 
 刪除已建立的資料庫將會移除資料庫和所有子系資源 (集合、文件等)。您可以刪除資料庫和文件用戶端，方法是在 **GetStartedDemo** 非同步方法的結尾處加入下列程式碼片段。
 
@@ -376,7 +376,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from SQL
 	Read {
@@ -414,7 +414,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from LINQ
 	Read {
@@ -452,13 +452,13 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from LINQ query
 
-恭喜！ 您已經完成本 NoSQL 教學課程！
+恭喜！ 您已經完成本 NoSQL 教學課程，並擁有運作中的 C# 主控台應用程式！
 
-##<a id="GetSolution"></a>取得完整的方案
+##<a id="GetSolution"></a> 取得完整的 NoSQL 教學課程方案
 若要建置包含本文中所有範例的 GetStarted 方案，您將需要下列項目：
 
 -   [DocumentDB 帳戶][documentdb-create-account]。
@@ -478,4 +478,4 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

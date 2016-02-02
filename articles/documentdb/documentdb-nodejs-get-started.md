@@ -41,11 +41,11 @@
 
 讓我們開始吧！
 
-## 必要條件
+## Node.js 教學課程的必要條件
 
 請確定您具有下列項目：
 
-- 使用中的 Azure 帳戶。如果您沒有帳戶，您可以註冊[免費 Azure 試用](http://azure.microsoft.com/pricing/free-trial/)。
+- 使用中的 Azure 帳戶。如果您沒有帳戶，您可以註冊[免費 Azure 試用](https://azure.microsoft.com/pricing/free-trial/)。
 - [Node.js](https://nodejs.org/) v0.10.29 版或更高版本。
 
 ## 步驟 1：建立 DocumentDB 帳戶
@@ -76,7 +76,7 @@
 
 接著，建立一個名為 ```config``` 的空白物件，將屬性 ```config.endpoint``` 和 ```config.authKey``` 設定為您的 DocumentDB 端點和授權金鑰。您可以在 [Azure 入口網站](https://portal.azure.com)找到這兩個設定。
 
-![顯示 DocumentDB 帳戶的 Azure 入口網站螢幕擷取畫面，內含反白顯示的 [主動式] 集線器、[DocumentDB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值][keys]
+![node.js 教學課程 - 顯示 DocumentDB 帳戶的 Azure 入口網站螢幕擷取畫面，內含反白顯示的 [主動式] 集線器、[DocumentDB 帳戶] 刀鋒視窗上反白顯示的 [金鑰] 按鈕、[金鑰] 刀鋒視窗上反白顯示的 [URI]、[主要金鑰] 和 [次要金鑰] 值 - 節點資料庫][keys]
 
     var config = {}
 
@@ -212,7 +212,7 @@
 
 ##<a id="CreateColl"></a>步驟 6：建立集合  
 
-> [AZURE.WARNING]**CreateDocumentCollectionAsync** 會建立具有定價含意的新 S1 集合。如需詳細資訊，請造訪[定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
+> [AZURE.WARNING] **CreateDocumentCollectionAsync** 會建立具有定價含意的新 S1 集合。如需詳細資訊，請造訪[定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
 
 可以使用 **DocumentClient** 類別的 [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式建立[集合](documentdb-resources.md#collections)。集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。新建立的集合將會對應至 [S1 效能層級](documentdb-performance-levels.md)。以 ```config``` 物件中指定的 ```id```，在 app.js 檔案中加入建立新集合的函式。同樣地，我們會檢查確定具有相同 ```FamilyCollection``` 識別碼的集合不存在。如果存在，我們會傳回該集合，而不會建立新集合。
 
@@ -276,7 +276,7 @@
 
 恭喜！ 您現在有可以在 DocumentDB 中建立資料庫、集合和文件的函式了！
 
-![說明帳戶、資料庫、集合和文件之間階層式關聯性的圖表](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
+![node.js 教學課程 - 說明帳戶、資料庫、集合和文件之間階層式關聯性的圖表 - 節點資料庫](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
 ##<a id="Query"></a>步驟 8：查詢 DocumentDB 資源
 
@@ -302,7 +302,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 
 下圖說明如何針對您所建立的集合呼叫 DocumentDB SQL 查詢語法。
 
-![說明查詢範圍和意義的圖表](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
+![node.js 教學課程 - 說明查詢範圍和意義的圖表 - 節點資料庫](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
 因為 DocumentDB 查詢已侷限於單一集合，所以查詢中的 [FROM](documentdb-sql-query.md/#from-clause) 關鍵字是選擇性的。因此，"FROM Families f" 可以換成 "FROM root r"，或您選擇的任何其他變數名稱。依預設，DocumentDB 會推斷該系列、根或您選擇的變數名稱來參考目前的集合。
 
@@ -419,7 +419,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 
 恭喜！ 您已完成 Node.js 教學課程，和擁有您的第一個 DocumentDB 主控台應用程式！
 
-##<a id="GetSolution"></a>取得完整的方案
+##<a id="GetSolution"></a> 取得完整的 Node.js 教學課程方案
 若要建置包含本文中所有範例的 GetStarted 方案，您將需要下列項目：
 
 -   [DocumentDB 帳戶][documentdb-create-account]。
@@ -442,4 +442,4 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

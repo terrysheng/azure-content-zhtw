@@ -42,11 +42,11 @@
 + 支援 iOS 8 (或更新版本) 的裝置
 + iOS Developer Program 成員資格
 
-   >[AZURE.NOTE]基於推播通知的組態需求，您必須在使用 iOS 系統的裝置 (iPhone 或 iPad)，而不是在 iOS 模擬器上部署和測試推播通知。
+   >[AZURE.NOTE] 基於推播通知的組態需求，您必須在使用 iOS 系統的裝置 (iPhone 或 iPad)，而不是在 iOS 模擬器上部署和測試推播通知。
 
 完成本教學課程是參加 iOS app 所有其他通知中樞教學課程的先決條件。
 
-> [AZURE.NOTE]若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started)。
+> [AZURE.NOTE] 若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started)。
 
 [AZURE.INCLUDE [通知中樞會啟用 Apple 推播通知](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
@@ -88,7 +88,7 @@
 
 4. 下載 [行動服務 iOS SDK 1.2.4 版]，然後將檔案解壓縮。在 Xcode 中，以滑鼠右鍵按一下您的專案，然後按一下 [新增檔案至] 選項，將 **WindowsAzureMessaging.framework** 資料夾加入至 Xcode 專案。選取 [必要時複製項目]，然後按一下 [新增]。
 
-	>[AZURE.NOTE]通知中樞 SDK 目前不支援 Xcode 7 上的 Bitcode。您必須在專案的 [建置選項] 中將 [啟用 Bitcode] 設定為 [否]。
+	>[AZURE.NOTE] 通知中樞 SDK 目前不支援 Xcode 7 上的 Bitcode。您必須在專案的 [建置選項] 中將 [啟用 Bitcode] 設定為 [否]。
 
    	![][10]
 
@@ -436,7 +436,7 @@
 11. 建置專案並確認一切正確無誤。
 
 
-> [AZURE.NOTE]如果您在 Xcode7 中遇到有關 Bitcode 支援的建置錯誤，您應該在 Xcode 中將 [建置設定] -> [啟用 Bitcode] \(ENABLE\_BITCODE) 變更為 'NO'。通知中樞 SDK 目前不支援 Bitcode。
+> [AZURE.NOTE] 如果您在 Xcode7 中遇到有關 Bitcode 支援的建置錯誤，您應該在 Xcode 中將 [建置設定] -> [啟用 Bitcode] (ENABLE\_BITCODE) 變更為 'NO'。通知中樞 SDK 目前不支援 Bitcode。
 
 您可以在 Apple [本機和推播通知程式設計指南]中找到所有可能的通知承載。
 
@@ -507,4 +507,4 @@
 
 [本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

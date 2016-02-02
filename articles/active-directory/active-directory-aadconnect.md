@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Azure AD Connect：整合內部部署身分識別與 Azure Active Directory。| Microsoft Azure"
-	description="這就是 Azure AD Connect，說明它是什麼及使用的理由。"
+	description="Azure AD Connect 是一種工具，用來整合您的內部部署身分識別系統 (例如 Windows Server Active Directory) 與 Azure Active Directory，並將您的使用者連線到 Office 365、Azure 和數千種 SaaS 應用程式。本主題說明 Azure AD Connect 的各項功能，並提供 Azure AD Connect 運作方式、如何安裝、設定和自訂的相關資訊。"
+    keywords="Azure AD Connect 簡介, Azure AD Connect 概觀, 何謂 Azure AD Connect, 安裝 active directory"
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/08/2016"
+	ms.date="01/25/2016"
 	ms.author="andkjell;billmath"/>
 
 # 整合內部部署身分識別與 Azure Active Directory
@@ -140,4 +141,4 @@ Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

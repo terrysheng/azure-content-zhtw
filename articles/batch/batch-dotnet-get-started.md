@@ -28,7 +28,7 @@
 
 ### 帳戶
 
-- **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，只需幾分鐘就可以在 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)建立免費試用帳戶。
+- **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，只需幾分鐘就可以在 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)建立免費試用帳戶。
 - **Batch 帳戶** - 擁有 Azure 訂用帳戶後，請[建立和管理 Azure Batch 帳戶](batch-account-create-portal.md)。
 - **儲存體帳戶** - 請參閱 [關於 Azure 儲存體帳戶](../storage-create-storage-account.md)中的「建立儲存體帳戶」一節。
 
@@ -88,7 +88,7 @@ private const string StorageAccountKey  = "";
 
 您現已使用您的認證更新專案，以滑鼠右鍵按一下 [方案總管] 中的方案，然後按一下 [建置方案]。出現提示時，請確認任何 NuGet 封裝的還原。
 
-> [AZURE.TIP]如果未自動還原 NuGet 封裝，或您看到有關封裝還原失敗的錯誤，請確定您已安裝 [NuGet 封裝管理員][nuget_packagemgr]，然後啟用遺失封裝的下載。若要啟用封裝下載，請參閱[在建置期間啟用封裝還原][nuget_restore]。
+> [AZURE.TIP] 如果未自動還原 NuGet 封裝，或您看到有關封裝還原失敗的錯誤，請確定您已安裝 [NuGet 封裝管理員][nuget_packagemgr]，然後啟用遺失封裝的下載。若要啟用封裝下載，請參閱[在建置期間啟用封裝還原][nuget_restore]。
 
 在下列各節中，我們會將範例應用程式細分為用來處理 Batch 服務中工作負載的數個步驟，並詳細討論這些步驟。建議您在進行本文的其餘部分時參閱 Visual Studio 中開啟的方案，因為並不會討論範例中的每一行程式碼。
 
@@ -234,7 +234,7 @@ DotNetTutorial 範例應用程式不會使用 JobPreparationTask 或 JobReleaseT
 
 - **容器 SAS** - 每個工作在計算節點上完成其工作時，便會將其輸出檔案上傳至 Azure 儲存體中的「輸出」容器。若要這樣做，TaskApplication 會使用容器 SAS，其在上傳檔案時提供寫入容器以成為路徑的一部分的存取權。取得容器 SAS 的方式類似於取得 Blob SAS，而在 DotNetTutorial 中，您會發現 `GetContainerSasUrl` 協助程式方法會呼叫 [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] 來進行此操作。您將在下面步驟 6「監視工作」中進一步了解 TaskApplication 如何使用容器 SAS。
 
-> [AZURE.TIP]查看有關共用存取簽章的兩部分系列[第 1 部分：了解 SAS 模型](./../storage/storage-dotnet-shared-access-signature-part-1.md)和[第 2 部分：建立和使用 SAS 與 Blob 服務](./../storage/storage-dotnet-shared-access-signature-part-2.md)，進一步了解如何提供您儲存體帳戶中資料的安全存取。
+> [AZURE.TIP] 查看有關共用存取簽章的兩部分系列[第 1 部分：了解 SAS 模型](./../storage/storage-dotnet-shared-access-signature-part-1.md)和[第 2 部分：建立和使用 SAS 與 Blob 服務](./../storage/storage-dotnet-shared-access-signature-part-2.md)，進一步了解如何提供您儲存體帳戶中資料的安全存取。
 
 ## 步驟 3：建立 Batch 集區
 
@@ -288,7 +288,7 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
 
 利用 [CreatePool][net_pool_create] 建立集區時，您會指定一些參數，例如計算節點數目、[節點大小](./../cloud-services/cloud-services-sizes-specs.md)以及節點的[作業系統](./../cloud-services/cloud-services-guestos-update-matrix.md)。
 
-> [AZURE.IMPORTANT]您需對 Batch 中的計算資源付費。若要將成本降到最低，您可以在執行範例前，將 `targetDedicated` 降為 1。
+> [AZURE.IMPORTANT] 您需對 Batch 中的計算資源付費。若要將成本降到最低，您可以在執行範例前，將 `targetDedicated` 降為 1。
 
 透過這些實體節點屬性，您也可以指定集區的 [StartTask][net_pool_starttask]。StartTask 將在每個節點加入集區以及每次重新啟動節點時，於該節點上執行。StartTask 特別適合用於在工作執行前，在計算節點上安裝應用程式。例如，如果您的工作使用 Python 指令碼來處理資料，您可以使用 StartTask 在計算節點上安裝 Python。
 
@@ -296,7 +296,7 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
 
 此外，在上述程式碼片段中值得注意的是在 StartTask的 *CommandLine* 屬性中使用的兩個環境變數：`%AZ_BATCH_TASK_WORKING_DIR%` 和 `%AZ_BATCH_NODE_SHARED_DIR%`。Batch 集區中的每個計算節點都會自動以 Batch 特有的數個環境變數進行設定，而工作所執行的任何程序都可以存取這些環境變數。
 
-> [AZURE.TIP]若要深入了解 Batch 集區中計算節點上可用的環境變數，以及有關工作的工作目錄資訊，請參閱 [Azure Batch 功能概觀](batch-api-basics.md)中的**工作的環境設定**和**檔案和目錄**章節。
+> [AZURE.TIP] 若要深入了解 Batch 集區中計算節點上可用的環境變數，以及有關工作的工作目錄資訊，請參閱 [Azure Batch 功能概觀](batch-api-basics.md)中的**工作的環境設定**和**檔案和目錄**章節。
 
 ## 步驟 4：建立 Batch 作業
 
@@ -356,7 +356,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
 }
 ```
 
-> [AZURE.IMPORTANT]存取環境變數 (例如 `%AZ_BATCH_NODE_SHARED_DIR%`) 或執行在節點的 `PATH` 中找不到的應用程式時，工作命令列的前面必須加上 `cmd /c`，才能明確執行命令直譯器並指示它在執行命令之後終止。如果您的工作在節點的 PATH 中執行應用程式 (例如 *robocopy.exe* 或 *powershell.exe*)，而且未使用任何環境變數，這就不是必要條件。
+> [AZURE.IMPORTANT] 存取環境變數 (例如 `%AZ_BATCH_NODE_SHARED_DIR%`) 或執行在節點的 `PATH` 中找不到的應用程式時，工作命令列的前面必須加上 `cmd /c`，才能明確執行命令直譯器並指示它在執行命令之後終止。如果您的工作在節點的 PATH 中執行應用程式 (例如 *robocopy.exe* 或 *powershell.exe*)，而且未使用任何環境變數，這就不是必要條件。
 
 在上述程式碼片段中的 `foreach` 迴圈內，您可以看到已建構工作的命令列，以致有三個命令列引數傳遞至 *TaskApplication.exe*：
 
@@ -521,7 +521,7 @@ private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobCl
 }
 ```
 
-> [AZURE.NOTE]在 *DotNetTutorial* 應用程式中呼叫 `DownloadBlobsFromContainerAsync`，可讓您指定檔案應下載到您的 `%TEMP%` 資料夾。您可隨意修改此輸出位置。
+> [AZURE.NOTE] 在 *DotNetTutorial* 應用程式中呼叫 `DownloadBlobsFromContainerAsync`，可讓您指定檔案應下載到您的 `%TEMP%` 資料夾。您可隨意修改此輸出位置。
 
 ## 步驟 8：刪除容器
 
@@ -576,7 +576,7 @@ if (response != "n" && response != "no")
 }
 ```
 
-> [AZURE.IMPORTANT]請記住，您需支付計算資源的費用，而刪除未使用的集區會將成本降到最低。請注意，刪除集區也會刪除該集區內的所有計算節點，而一旦刪除集區，將無法復原節點上的任何資料。
+> [AZURE.IMPORTANT] 請記住，您需支付計算資源的費用，而刪除未使用的集區會將成本降到最低。請注意，刪除集區也會刪除該集區內的所有計算節點，而一旦刪除集區，將無法復原節點上的任何資料。
 
 ## 執行 *DotNetTutorial* 範例
 
@@ -680,4 +680,4 @@ Sample complete, hit ENTER to exit...
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "入口網站中的儲存體認證"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Batch 方案工作流程 (最小圖表)"
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

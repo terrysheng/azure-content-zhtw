@@ -24,7 +24,7 @@ Microsoft Azure 入口網站是一個可以佈建和管理 Azure 資源的中央
 
 ## 開始之前
 
-您需要一個有效的 Azure 訂用帳戶才能完成本教學課程。如果您沒有訂用帳戶，您可以立即[註冊免費試用](http://azure.microsoft.com/pricing/free-trial/)。擁有訂用帳戶之後，您便可以存取入口網站，網址是 [https://portal.azure.com]。
+您需要一個有效的 Azure 訂用帳戶才能完成本教學課程。如果您沒有訂用帳戶，您可以立即[註冊免費試用](https://azure.microsoft.com/pricing/free-trial/)。擁有訂用帳戶之後，您便可以存取入口網站，網址是 [https://portal.azure.com]。
 
 ## 如何建立資源
 
@@ -70,7 +70,7 @@ Azure 會預先設定資源的刀鋒視窗，但您可以控制這些刀鋒視�
 
 ## 如何取得協助
 
-如果您有任何疑問，我們會隨時提供協助。入口網站具備可協助您作業的說明及支援頁面。視您的[支援計畫](http://azure.microsoft.com/support/plans/)而定，您也可以直接在入口網站中建立支援票證。建立支援票證之後，您便可以從入口網站中管理票證的生命週期。您可以瀏覽至 [瀏覽] -> [說明 + 支援] 以取得說明及支援頁面。
+如果您有任何疑問，我們會隨時提供協助。入口網站具備可協助您作業的說明及支援頁面。視您的[支援計畫](https://azure.microsoft.com/support/plans/)而定，您也可以直接在入口網站中建立支援票證。建立支援票證之後，您便可以從入口網站中管理票證的生命週期。您可以瀏覽至 [瀏覽] -> [說明 + 支援] 以取得說明及支援頁面。
 
 ![說明及支援][HelpSupport]
 
@@ -78,7 +78,7 @@ Azure 會預先設定資源的刀鋒視窗，但您可以控制這些刀鋒視�
 
 讓我們複習一下您在本教學課程中學到的內容：- 您學到如何註冊、取得訂用帳戶，並瀏覽至入口網站 - 您學會如何使用入口網站 UI，並學到如何建立和瀏覽資源 - 您學到如何建立資源並瀏覽資源 - 您學到如何結構或管理刀鋒視窗，以及如何以一致的方式管理不同類型的資源 - 您學到如何自訂入口網站，將您十分重視的資訊放在最顯眼的地方 - 您學到如何使用角色型存取 (RBAC) 來控制資源的存取 - 您學到如何取得說明及支援
 
-Microsoft Azure 入口網站會徹底簡化建置及管理您在雲端中的應用程式。由於我們不斷地[聆聽意見](http://feedback.azure.com/forums/223579-azure-preview-portal)並加以改善，請查看[管理部落格](http://azure.microsoft.com/blog/topics/management/)以了解最新資訊。[ScottGu 的部落格](http://weblogs.asp.net/scottgu)是尋找所有 Azure 更新的另一個絕佳網站。
+Microsoft Azure 入口網站會徹底簡化建置及管理您在雲端中的應用程式。由於我們不斷地[聆聽意見](https://feedback.azure.com/forums/223579-azure-preview-portal/)並加以改善，請查看[管理部落格](https://azure.microsoft.com/blog/topics/management/)以了解最新資訊。[ScottGu 的部落格](http://weblogs.asp.net/scottgu)是尋找所有 Azure 更新的另一個絕佳網站。
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png
@@ -87,4 +87,4 @@ Microsoft Azure 入口網站會徹底簡化建置及管理您在雲端中的應�
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -9,17 +9,17 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="10/07/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 
 # 如何使用 Azure 服務匯流排轉送服務
 
-本文說明如何使用服務匯流排轉送服務。這些範例均以 C# 撰寫，並使用 Windows Communication Foundation (WCF) API 以及包含在服務匯流排組件 (Microsoft Azure .NET SDK 的一部分) 中的擴充功能。如需有關服務匯流排轉送的詳細資訊，請參閱[服務匯流排轉送傳訊](service-bus-relay-overview.md)概觀。
+本文說明如何使用服務匯流排轉送服務。這些範例均以 C# 撰寫，並使用 Windows Communication Foundation (WCF) API 以及包含在服務匯流排組件中的擴充功能。如需有關服務匯流排轉送的詳細資訊，請參閱[服務匯流排轉送傳訊](service-bus-relay-overview.md)概觀。
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -53,7 +53,7 @@
 
 5.  確定命名空間名稱可用之後，請選擇要代管命名空間的國家或區域 (必須使用您要部署計算資源的相同國家/區域)。
 
-	> [AZURE.IMPORTANT]請挑選您想要選擇來部署應用程式的*相同區域*。這樣可以獲得最佳效能。
+	> [AZURE.IMPORTANT] 請挑選您想要選擇來部署應用程式的*相同區域*。這樣可以獲得最佳效能。
 
 6.	讓對話方塊中的其他欄位保留其預設值 ([傳訊] 和 [標準層])，然後按一下核取記號。此時系統會建立並啟用命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
 
@@ -75,7 +75,7 @@
 
 ## 取得服務匯流排 NuGet 封裝
 
-要取得服務匯流排 API，並對應用程式進行設定，以使用所有服務匯流排相依性的最簡單方法，便是使用服務匯流排 NuGet 封裝。NuGet Visual Studio 擴充功能可讓您輕易地安裝和更新 Visual Studio 和 Visual Studio Express 中的程式庫和工具。要取得服務匯流排 API，並對應用程式進行設定，以使用所有服務匯流排相依性的最簡單方法，便是使用服務匯流排 NuGet 封裝。
+[服務匯流排 NuGet 封裝](https://www.nuget.org/packages/WindowsAzure.ServiceBus)為取得服務匯流排 API，並設定具有所有服務匯流排相依性的應用程式的最容易方式。NuGet Visual Studio 擴充功能可讓您輕易地安裝和更新 Visual Studio 和 Visual Studio Express 中的程式庫和工具。要取得服務匯流排 API，並對應用程式進行設定，以使用所有服務匯流排相依性的最簡單方法，便是使用服務匯流排 NuGet 封裝。
 
 若要在應用程式中安裝 NuGet 封裝，請執行下列動作：
 
@@ -265,17 +265,13 @@ using (var ch = cf.CreateChannel())
 
 了解基本的服務匯流排轉送服務之後，請參考下列連結以取得更多資訊。
 
-- [Azure 服務匯流排架構概觀](fundamentals-service-bus-hybrid-solutions.md)
+- [Azure 服務匯流排架構概觀](service-bus-fundamentals-hybrid-solutions.md)
 - [如何使用服務匯流排轉送服務](service-bus-dotnet-how-to-use-relay.md)
 - 從 [Azure 範例][]下載服務匯流排範例，或參閱[服務匯流排範例概觀][]。
 
-  [Create a Service Namespace]: #create_namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
-  [Get the Service Bus NuGet Package]: #get_nuget_package
-  [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
   [Azure 傳統入口網站]: http://manage.windowsazure.com
   [使用服務匯流排的共用存取簽章驗證]: service-bus-shared-access-signature-authentication.md
   [Azure 範例]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [服務匯流排範例概觀]: service-bus-samples.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

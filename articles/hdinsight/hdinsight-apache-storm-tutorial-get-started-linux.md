@@ -22,13 +22,13 @@
 
 Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運算系統。在 Storm on Azure HDInsight 中，您可以建立雲端式 Storm 叢集，以執行即時的巨量資料分析。
 
-> [AZURE.NOTE]本文中的步驟會建立以 Linux 為基礎的 HDInsight 叢集。如需在 HDInsight 叢集上建立 Windows 式 Storm 的步驟，請參閱 [Apache Storm 教學課程：在 HDInsight 上藉由資料分析開始使用 Storm Starter 範例](hdinsight-apache-storm-tutorial-get-started.md)
+> [AZURE.NOTE] 本文中的步驟會建立以 Linux 為基礎的 HDInsight 叢集。如需在 HDInsight 叢集上建立 Windows 式 Storm 的步驟，請參閱 [Apache Storm 教學課程：在 HDInsight 上藉由資料分析開始使用 Storm Starter 範例](hdinsight-apache-storm-tutorial-get-started.md)
 
 ## 開始之前
 
 您必須具備下列先決條件，才能順利完成本 Apache Storm 教學課程：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 - **熟悉 SSH 和 SCP**。如需搭配 HDInsight 使用 SSH 和 SCP 的詳細資訊，請參閱下列文章：
 
@@ -52,13 +52,13 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 	請選取 [Ubuntu] 來建立以 Linux 為基礎的 HDInsight 叢集。
     
-    > [AZURE.NOTE]針對本文件中的步驟保留 [版本] 欄位的預設值。
+    > [AZURE.NOTE] 針對本文件中的步驟保留 [版本] 欄位的預設值。
 	
 4. 如果您有多個訂用帳戶，請選取 [訂用帳戶] 項目，以選取將用於該叢集的 Azure 訂用帳戶。
 
 5. 針對 [資源群組]，您可以選取此項目以查看現有資源群組的清單，然後選取其中一個用來建立叢集。或者選取 [建立新群組]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
 
-	> [AZURE.NOTE]如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
+	> [AZURE.NOTE] 如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
 
 6. 選取 [認證]，然後輸入 [叢集登入使用者名稱] 的 [叢集登入密碼]。您也必須輸入 [SSH 使用者名稱] 和 [密碼] 或 [公開金鑰]，這會用來驗證 SSH 使用者。最後，使用 [選取] 按鈕來設定認證。
 
@@ -86,11 +86,11 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 	
 	- __位置__：儲存體帳戶所在地或將建立的地理區域。
 	
-		> [AZURE.IMPORTANT]選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
+		> [AZURE.IMPORTANT] 選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
     
     - __叢集 AAD 身分識別__：使用此選項以選取將由叢集用來存取 Azure 資料湖存放區的 Azure Active Directory 身分識別。
     
-        > [AZURE.NOTE]這不會在這份文件中使用，並且可以保留預設設定。如需使用此項目和 Azure 資料湖存放區與 HDInsight 的詳細資訊，請參閱[建立使用 Azure 資料湖存放區的 HDInsight 叢集](data-lake-store-hdinsight-hadoop-use-portal.md)。
+        > [AZURE.NOTE] 這不會在這份文件中使用，並且可以保留預設設定。如需使用此項目和 Azure 資料湖存放區與 HDInsight 的詳細資訊，請參閱[建立使用 Azure 資料湖存放區的 HDInsight 叢集](data-lake-store-hdinsight-hadoop-use-portal.md)。
 		
 	- __選取__：用來儲存資料來源組態。
 	
@@ -114,7 +114,7 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 	| ------------------ | --------------------- |
 	| ![「開始面板」上的佈建指示器](./media/hdinsight-apache-storm-tutorial-get-started-linux/provisioning.png) | ![佈建的叢集磚](./media/hdinsight-apache-storm-tutorial-get-started-linux/provisioned.png) |
 
-	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。請使用「開始面板」上的磚，或頁面左邊的 [通知] 項目來以檢查佈建進度。
+	> [AZURE.NOTE] 建立叢集需要一些時間，通常約 15 分鐘左右。請使用「開始面板」上的磚，或頁面左邊的 [通知] 項目來以檢查佈建進度。
 
 ##在 HDInsight 上執行 Storm Starter 範例
 
@@ -136,11 +136,11 @@ HDInsight 叢集已包含 [storm-starter](https://github.com/apache/storm/tree/m
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
 		
-	> [AZURE.NOTE]因為 HDinsight 會隨著 Storm 的新版本而更新，所以檔案名稱的 `0.9.3.2.2.4.9-1` 部分可能會變更。
+	> [AZURE.NOTE] 因為 HDinsight 會隨著 Storm 的新版本而更新，所以檔案名稱的 `0.9.3.2.2.4.9-1` 部分可能會變更。
 
     這會在叢集上使用 'wordcount' 的易記名稱，啟動範例 WordCount 拓撲。命令會隨機產生句子，並計算句子中每個字詞的出現次數。
 
-    > [AZURE.NOTE]將拓撲提交至叢集時，您必須先複製包含叢集的 jar 檔案，再使用 `storm` 命令。而您可以從檔案所在的用戶端使用 `scp` 命令來完成這個動作。例如，`scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+    > [AZURE.NOTE] 將拓撲提交至叢集時，您必須先複製包含叢集的 jar 檔案，再使用 `storm` 命令。而您可以從檔案所在的用戶端使用 `scp` 命令來完成這個動作。例如，`scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
     > WordCount 範例和其他 Storm 入門範例都已經包含在叢集中，位置是 `/usr/hdp/current/storm-client/contrib/storm-starter/`。
 
@@ -152,7 +152,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 1. 開啟網頁瀏覽器至 https://CLUSTERNAME.azurehdinsight.net/stormui，其中 __CLUSTERNAME__ 是叢集的名稱。這會開啟 Storm UI。
 
-	> [AZURE.NOTE]如果要求您提供使用者名稱和密碼，請輸入叢集系統管理員 (admin) 和建立叢集時使用的密碼。
+	> [AZURE.NOTE] 如果要求您提供使用者名稱和密碼，請輸入叢集系統管理員 (admin) 和建立叢集時使用的密碼。
 
 2. 在 [拓撲摘要] 下，選取 [名稱] 欄中的 [wordcount] 項目。這麼做會顯示拓撲的詳細資訊。
 
@@ -162,7 +162,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 	* **拓撲統計資料 (Topology stats)**：拓撲效能的基本資訊，已整理為時間範圍。
 
-		> [AZURE.NOTE]選取特定的時間範圍，可以變更頁面中其他區段所顯示之資訊的時間範圍。
+		> [AZURE.NOTE] 選取特定的時間範圍，可以變更頁面中其他區段所顯示之資訊的時間範圍。
 
 	* **Spouts**：spout 的基本資訊，包括每個 spout 傳回的最後一個錯誤。
 
@@ -188,7 +188,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 	* **Spout/Bolt 統計資料 (Spout/Bolt stats)**：元件效能的基本資訊，已整理為時間範圍。
 
-		> [AZURE.NOTE]選取特定的時間範圍，可以變更頁面中其他區段所顯示之資訊的時間範圍。
+		> [AZURE.NOTE] 選取特定的時間範圍，可以變更頁面中其他區段所顯示之資訊的時間範圍。
 
 	* **輸入統計資料 (Input stats)** (僅 bolt)：提供的資訊是關於產生 bolt 所使用之資料的元件。
 
@@ -213,7 +213,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 ##停止拓撲
 
-返回 word-count 拓撲的 [拓撲摘要] \(Topology summary) 頁面，然後選取 [拓撲動作] \(Topology actions) 區段中的 [終止] \(Kill) 按鈕。出現提示時，請先輸入要等候 10 秒，再停止拓撲。逾時期限過後，當您瀏覽儀表板的 [Storm UI] 區段時，便不會再顯示拓撲。
+返回 word-count 拓撲的 [拓撲摘要] (Topology summary) 頁面，然後選取 [拓撲動作] (Topology actions) 區段中的 [終止] (Kill) 按鈕。出現提示時，請先輸入要等候 10 秒，再停止拓撲。逾時期限過後，當您瀏覽儀表板的 [Storm UI] 區段時，便不會再顯示拓撲。
 
 ##摘要
 
@@ -233,4 +233,4 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

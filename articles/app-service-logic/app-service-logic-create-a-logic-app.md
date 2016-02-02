@@ -40,7 +40,7 @@
 
 1. 登入 Azure 入口網站。
 
-2. 按一下主畫面上的 [Marketplace ](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) 並搜尋 Twitter (或 [按一下這裡](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2))。
+2. 按一下主畫面上的 [Marketplace ](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps/) 並搜尋 Twitter (或 [按一下這裡](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2/))。
 
 3. 選取 [Twitter 連接器]，然後按一下 [建立]。您會看到一個包含所有設定的檢視。您可以保留 **Twitter 連接器**名稱。
 4. 選取 [封裝設定]--在此您需要輸入 Twitter 應用程式的資訊。您可以使用下列步驟設定免費的應用程式：
@@ -70,7 +70,7 @@
 
 10. 按一下 [建立]。佈建步驟可能需要一兩分鐘的時間。
 
-11. 現在對 [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2) 重複執行此程序。
+11. 現在對 [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2/) 重複執行此程序。
 
 ## 啟動邏輯應用程式
 
@@ -106,7 +106,7 @@
 
 	![週期性](./media/app-service-logic-create-a-logic-app/recurrence.png)
 
-4.  選擇週期性 [頻率] 和 [間隔] \(例如每小時一次)，然後按一下綠色核取符號。
+4.  選擇週期性 [頻率] 和 [間隔] (例如每小時一次)，然後按一下綠色核取符號。
 
 現在，您將把動作加入流程。
 
@@ -188,4 +188,4 @@ Twitter 連接器現在便是工作流程的一部分。
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [使用邏輯應用程式功能]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0128_2016-->

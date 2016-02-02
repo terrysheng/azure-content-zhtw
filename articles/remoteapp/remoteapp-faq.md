@@ -26,7 +26,7 @@
 - **有哪些部署選項？** RemoteApp 收藏有兩種：雲端和混合式。您所需的種類取決於許多因素，像是您是否需要加入網域。我們會在[這裡](remoteapp-collections.md)討論所有的決策。
 
 ## 使用 Azure RemoteApp 的快速祕訣 ##
-- **多久以後我會中斷連線？ 在您將我登出之前，我可以閒置多久？** 4 小時。如果您或其中一位使用者閒置 4 小時，您將被自動登出 Azure RemoteApp。若要查看其他預設限制，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](azure-subscription-service-limits.md)。
+- **多久以後我會中斷連線？ 在您將我登出之前，我可以閒置多久？** 4 小時。如果您或其中一位使用者閒置 4 小時，您將被自動登出 Azure RemoteApp。請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](azure-subscription-service-limits.md)中的其他預設設定。
 - **我能免費試用這項服務嗎？** 是。免費試用期有 30 天。試用結束之後，您可以轉換到付費帳戶 (用於生產環境中) 或停止使用服務。請前往 [manage.windowsazure.com](http://manage.windowsazure.com) 開始您的免費試用- 建立新的 RemoteApp 執行個體。使用免費試用版，可以建立 2 個 RemoteApp 執行個體，每個執行個體 10 個使用者。請記住這個試用期只有 30 天。
 ## Azure RemoteApp 訂用帳戶詳細資料 ##
 
@@ -89,7 +89,7 @@
 
 
 - **RemoteApp 的支援計畫為何？** 計費及訂用帳戶管理支援均為免費提供。透過 [Azure 服務方案](../../../support/plans/)可以使用技術支援。您也可以透過我們的 [Azure 討論區論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp)獲得免費的社群支援。 
-- **如何提交意見反應？** 請瀏覽[意見反應論壇](http://feedback.azure.com/forums/247748-azure-remoteapp)。
+- **如何提交意見反應？** 請瀏覽[意見反應論壇](https://feedback.azure.com/forums/247748-azure-remoteapp/)。
 - **我可以和誰討論更多 Azure RemoteApp 的資訊？** 除了我們的[討論區論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp) (這是張貼問題的最佳去處) 外，您還可加入每週的[專家請益網路研討會](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html)，在這裡我們會討論 RemoteApp 的一切。
 - **RemoteApp 文件呢？** 很高興您這麼問。除了入口網站說明庫的說明內容外 (只要按下入口網站任一頁面上的 **?**)，還有下列關於 RemoteApp 的文件：
 	- **開始使用：**
@@ -108,10 +108,10 @@
 		- [新增使用者](remoteapp-user.md)
 		- [設定和使用 RemoteApp 的最佳作法](remoteapp-bestpractices.md)	
 
-	影片！ 我們也有一些關於 RemoteApp 的影片。有些提供簡介 ([Azure RemoteApp 簡介](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/))，有些則是引導您完成部署 ([雲端部署](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be)和[混合式部署](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be))。請觀賞影片！
+	影片！ 我們也有一些關於 RemoteApp 的影片。有些提供簡介 ([Azure RemoteApp 簡介](https://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/))，有些則是引導您完成部署 ([雲端部署](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be)和[混合式部署](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be))。請觀賞影片！
 
  
 ### 幫我們來協助您 
 您知道除了評比這篇文章以及在下面留言以外，您可以變更文件本身嗎？ 有所遺漏？ 有所錯誤？ 我是否撰寫了令人混淆的內容？ 向上捲動並按一下 [在 GitHub 上編輯] 以進行變更 - 系統會顯示這些變更以供我們檢閱，而我們簽核後，您就會在這裡看到您所進行的變更和改良。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -32,14 +32,14 @@
 + [行動服務 Android SDK]
 + [百度推播 Android SDK]
 
->[AZURE.NOTE]若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F)。
+>[AZURE.NOTE] 若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F)。
 
 
 ##建立百度帳戶
 
 若要使用百度，您必須有百度帳戶。如果您已經有帳戶，請登入[百度入口網站]，並略過下一個步驟。否則請參閱下列指示建立百度帳戶。
 
-1. 移至[百度入口網站]，然後按一下 [登录] \(**登入**) 連結。按一下 [立即注册] 以開始帳戶註冊程序。
+1. 移至[百度入口網站]，然後按一下 [登录] (**登入**) 連結。按一下 [立即注册] 以開始帳戶註冊程序。
 
    	![][1]
 
@@ -59,23 +59,23 @@
 
 ##註冊為百度開發人員
 
-1. 登入[百度入口網站]之後，按一下 [更多>>] \(**更多**)。
+1. 登入[百度入口網站]之後，按一下 [更多>>] (**更多**)。
 
   	![][5]
 
-2. 向下捲動至 [站长与开发者服务] **(網站管理員和開發人員服務)** 區段，然後按一下 [百度开放云平台] \(**百度開放雲平台**)。
+2. 向下捲動至 [站长与开发者服务] **(網站管理員和開發人員服務)** 區段，然後按一下 [百度开放云平台] (**百度開放雲平台**)。
 
   	![][6]
 
-3. 在下一個頁面中，按一下右上角的 [开发者服务] \(**開發人員服務**)。
+3. 在下一個頁面中，按一下右上角的 [开发者服务] (**開發人員服務**)。
 
   	![][7]
 
-4. 在下一個頁面中，按一下右上角功能表中的 [注册开发者] \(**已註冊的開發人員**)。
+4. 在下一個頁面中，按一下右上角功能表中的 [注册开发者] (**已註冊的開發人員**)。
 
   	![][8]
 
-5. 輸入您的名稱、描述和可收到驗證簡訊的行動電話號碼，然後按一下 [送验证码] \(**傳送驗證碼**)。請注意，如果是國際電話號碼，您需要使用括號括住國碼。例如，如果是美國的電話號碼，就會是 **(1)1234567890**。
+5. 輸入您的名稱、描述和可收到驗證簡訊的行動電話號碼，然後按一下 [送验证码] (**傳送驗證碼**)。請注意，如果是國際電話號碼，您需要使用括號括住國碼。例如，如果是美國的電話號碼，就會是 **(1)1234567890**。
 
   	![][9]
 
@@ -83,9 +83,9 @@
 
   	![][10]
 
-7. 請在 [验证码] \(**確認碼**) 中輸入訊息內的驗證號碼。
+7. 請在 [验证码] (**確認碼**) 中輸入訊息內的驗證號碼。
 
-8. 最後，接受百度合約並按一下 [提交] \(**提交**) 之後，即可完成開發人員註冊。成功完成註冊，您會看到下列頁面：
+8. 最後，接受百度合約並按一下 [提交] (**提交**) 之後，即可完成開發人員註冊。成功完成註冊，您會看到下列頁面：
 
   	![][11]
 
@@ -93,31 +93,31 @@
 
 建立百度雲端推播專案時，您會收到應用程式識別碼、API 金鑰和秘密金鑰。
 
-1. 登入[百度入口網站]之後，按一下 [更多>>] \(**更多**)。
+1. 登入[百度入口網站]之後，按一下 [更多>>] (**更多**)。
 
   	![][5]
 
-2. 向下捲動至 [站长与开发者服务] \(**網站管理員和開發人員服務**) 區段，然後按一下 [百度开放云平台] \(**百度開放雲平台**)。
+2. 向下捲動至 [站长与开发者服务] (**網站管理員和開發人員服務**) 區段，然後按一下 [百度开放云平台] (**百度開放雲平台**)。
 
   	![][6]
 
-3. 在下一個頁面中，按一下右上角的 [开发者服务] \(**開發人員服務**)。
+3. 在下一個頁面中，按一下右上角的 [开发者服务] (**開發人員服務**)。
 
   	![][7]
 
-4. 在下一個頁面中，按一下**云服务** (**雲端服務**) 區段中的 [云推播] \(**雲端推播**)。
+4. 在下一個頁面中，按一下**云服务** (**雲端服務**) 區段中的 [云推播] (**雲端推播**)。
 
   	![][12]
 
-5. 成為已註冊開發人員之後，您會在最上方的功能表看到 [管理控制台] \(**管理主控台**)。按一下 [开发者服务管理] \(**開發人員服務管理**)。
+5. 成為已註冊開發人員之後，您會在最上方的功能表看到 [管理控制台] (**管理主控台**)。按一下 [开发者服务管理] (**開發人員服務管理**)。
 
   	![][13]
 
-6. 在下一個頁面中，按一下 [创建工程] \(**建立專案**)。
+6. 在下一個頁面中，按一下 [创建工程] (**建立專案**)。
 
   	![][14]
 
-7. 輸入應用程式名稱，然後按一下 [创建] \(**建立**)。
+7. 輸入應用程式名稱，然後按一下 [创建] (**建立**)。
 
   	![][15]
 
@@ -125,19 +125,19 @@
 
   	![][16]
 
-9. 按一下左窗格中的 [云推送] \(**雲端推播**)，設定專案的推播通知。
+9. 按一下左窗格中的 [云推送] (**雲端推播**)，設定專案的推播通知。
 
   	![][31]
 
-10. 在下一個頁面中，按一下 [推送设置] \(**推播設定**) 按鈕。
+10. 在下一個頁面中，按一下 [推送设置] (**推播設定**) 按鈕。
 
 	![][32]
 
-11. 在組態頁面中，在 [应用包名] \(**應用程式封裝**) 欄位新增要用於 Android 專案中的封裝名稱，然後按一下 [保存设置] \(**儲存**)。
+11. 在組態頁面中，在 [应用包名] (**應用程式封裝**) 欄位新增要用於 Android 專案中的封裝名稱，然後按一下 [保存设置] (**儲存**)。
 
 	![][33]
 
-您會看到 [保存成功！] \(**儲存成功！**) 的訊息。
+您會看到 [保存成功！] (**儲存成功！**) 的訊息。
 
 ##設定您的通知中樞
 
@@ -409,7 +409,7 @@
 
 * **REST 介面**：您可以在使用 [REST 介面](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)的任何後端平台上支援通知。
 
-* **Microsoft Azure 通知中樞 .NET SDK**︰在適用於 Visual Studio 的 Nuget 封裝管理員中，執行 [Install-package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
+* **Microsoft Azure 通知中樞 .NET SDK**︰在適用於 Visual Studio 的 NuGet 封裝管理員中，執行 [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
 
 * **Node.js**：[如何從 Node.js 使用通知中樞](notification-hubs-nodejs-how-to-use-notification-hubs.md)。
 
@@ -429,7 +429,7 @@
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-	這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 封裝</a>加入 Azure 通知中樞 SDK 的參考。
+	這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 封裝</a>加入對 Azure 通知中樞 SDK 的參考。
 
 	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
@@ -437,7 +437,7 @@
 
         using Microsoft.Azure.NotificationHubs;
 
-4. 在 `Program` 類別中新增下列方法，並使用您的值取代 *DefaultFullSharedAccessSignatureSASConnectionString* 與 *NotificationHubName* 。
+4. 在 `Program` 類別中新增下列方法，並使用您的值取代 *DefaultFullSharedAccessSignatureSASConnectionString* 與 *NotificationHubName*。
 
 		private static async void SendNotificationAsync()
 		{
@@ -503,4 +503,4 @@
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 [百度入口網站]: http://www.baidu.com/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

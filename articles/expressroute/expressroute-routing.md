@@ -38,7 +38,7 @@
  - 如果使用 /29 子網路，它就會分割成兩個 /30 子網路。 
 	 - 第一個 /30 子網路將用於主要連結，而第二個 /30 子網路將用於次要連結。
 	 - 針對每個 /30 子網路，您必須在您的路由器上使用 /30 子網路的第一個 IP 位址。Microsoft 會使用 /30 子網路的第二個 IP 位址來設定 BGP 工作階段。
-	 - 您必須設定兩個 BGP 工作階段，我們的[可用性 SLA](http://azure.microsoft.com/support/legal/sla/) 才會有效。  
+	 - 您必須設定兩個 BGP 工作階段，我們的[可用性 SLA](https://azure.microsoft.com/support/legal/sla/) 才會有效。  
 
 #### 私人對等互連範例
 
@@ -48,8 +48,8 @@ a.b.c.d/29 會分割成 a.b.c.d/30 和 a.b.c.d+4/30 並透過佈建 API 向下�
 
 請考慮您選取 192.168.100.128/29 來設定私人互連的情況。192.168.100.128/29 包含從 192.168.100.128 至 192.168.100.135 的位址，其中︰
 
-- 192.168.100.128/30 將會指派給 link1 (提供者使用 192.168.100.129，而 Microsoft 使用 192.168.100.130)。
-- 192.168.100.132/30 將會指派給 link2 (提供者使用 192.168.100.133，而 Microsoft 使用 192.168.100.134)。
+- 192\.168.100.128/30 將會指派給 link1 (提供者使用 192.168.100.129，而 Microsoft 使用 192.168.100.130)。
+- 192\.168.100.132/30 將會指派給 link2 (提供者使用 192.168.100.133，而 Microsoft 使用 192.168.100.134)。
 
 ### Azure 公用與 Microsoft 對等互連的 IP 位址
 
@@ -59,7 +59,7 @@ a.b.c.d/29 會分割成 a.b.c.d/30 和 a.b.c.d+4/30 並透過佈建 API 向下�
 - 如果使用 /29 子網路，它就會分割成兩個 /30 子網路。 
 	- 第一個 /30 子網路將用於主要連結，而第二個 /30 子網路將用於次要連結。
 	- 針對每個 /30 子網路，您必須在您的路由器上使用 /30 子網路的第一個 IP 位址。Microsoft 會使用 /30 子網路的第二個 IP 位址來設定 BGP 工作階段。
-	- 您必須設定兩個 BGP 工作階段，我們的[可用性 SLA](http://azure.microsoft.com/support/legal/sla/) 才會有效。
+	- 您必須設定兩個 BGP 工作階段，我們的[可用性 SLA](https://azure.microsoft.com/support/legal/sla/) 才會有效。
 
 確定您的 IP 位址和 AS 號碼已在下列其中一個登錄中註冊。
 
@@ -147,7 +147,7 @@ Microsoft 會以適當的 BGP 社群值標記透過公用對等互連和 Microso
 
 所有 Microsoft 公告的路由會都加上適當的社群值。
 
->[AZURE.IMPORTANT]全域前置詞會加上適當的社群值，而且只會在啟用 ExpressRoute 進階附加元件時公告。
+>[AZURE.IMPORTANT] 全域前置詞會加上適當的社群值，而且只會在啟用 ExpressRoute 進階附加元件時公告。
 
 
 除了上述各項，Microsoft 也將根據其所屬的服務加上標記及前置詞。這只適用於 Microsoft 對等互連。下表提供服務與 BGP 社群值的對應。
@@ -163,7 +163,7 @@ Microsoft 會以適當的 BGP 社群值標記透過公用對等互連和 Microso
 
 ### 管理路由偏好設定
 
-Microsoft 不接受任何您所設定的 BGP 社群值。您必須為每個對等互連設定一組 BGP 工作階段，以確保符合[可用性 SLA](http://azure.microsoft.com/support/legal/sla/) 的需求。不過，您可以依賴標準的 BGP 路由操作技術，將您的網路設定成偏好某一個連結。您可以將不同的 BGP 本機喜好設定套用至每個連結，偏好某一個從您的網路至 Microsoft 的路徑。您可以在路由公告前面加上 AS-PATH，以影響從 Microsoft 到您的網路的流量流程。
+Microsoft 不接受任何您所設定的 BGP 社群值。您必須為每個對等互連設定一組 BGP 工作階段，以確保符合[可用性 SLA](https://azure.microsoft.com/support/legal/sla/) 的需求。不過，您可以依賴標準的 BGP 路由操作技術，將您的網路設定成偏好某一個連結。您可以將不同的 BGP 本機喜好設定套用至每個連結，偏好某一個從您的網路至 Microsoft 的路徑。您可以在路由公告前面加上 AS-PATH，以影響從 Microsoft 到您的網路的流量流程。
 
 ## 後續步驟
 
@@ -173,4 +173,4 @@ Microsoft 不接受任何您所設定的 BGP 社群值。您必須為每個對�
 	- [設定路由](expressroute-howto-routing-classic.md)
 	- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

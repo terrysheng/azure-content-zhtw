@@ -23,7 +23,7 @@
 
 
 >[AZURE.NOTE]
-> 若要完成此教學課程，您需要 Azure 帳戶。如需詳細資訊，請參閱 [Azure 免費試用](/pricing/free-trial/?WT.mc_id=A261C142F)。
+若要完成此教學課程，您需要 Azure 帳戶。如需詳細資訊，請參閱 [Azure 免費試用](/pricing/free-trial/?WT.mc_id=A261C142F)。
  
 ##概觀 
 
@@ -59,7 +59,7 @@
 
 ##下載範例
 
-從[這裡](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)取得和執行範例。
+從[這裡](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/)取得和執行範例。
 
 ##使用入口網站建立媒體服務帳戶
 
@@ -114,7 +114,7 @@
 
 配置任何新的單元需要大約 20 分鐘的時間才能完成。
 
->[AZURE.NOTE]目前，如果串流單元從任何正值到無，可能會停用串流長達一小時。
+>[AZURE.NOTE] 目前，如果串流單元從任何正值到無，可能會停用串流長達一小時。
 >
 > 計算成本時會使用 24 小時內指定的最大單元數。如需價格詳細資料的相關資訊，請參閱[媒體服務價格詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)。
 
@@ -130,12 +130,7 @@
 
 4. 開啟 App.config 檔案 (如果尚未新增，則預設會將檔案新增至您的專案)，並將 *appSettings* 區段新增至此檔案。設定 Azure 媒體服務帳戶名稱和帳戶金鑰的值 (如下列範例所示)。若要取得帳戶名稱和金鑰資訊，請開啟 Azure 傳統入口網站，並選取媒體服務帳戶，然後按一下 [管理金鑰] 按鈕。
 
-<configuration>
-		...
-		  <appSettings>
-		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-		  </appSettings>
+<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
 		  
 		</configuration>
 
@@ -452,4 +447,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

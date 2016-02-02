@@ -89,7 +89,7 @@
 
 5.  確定命名空間名稱可用之後，請選擇要代管命名空間的國家或區域 (必須使用您要部署計算資源的相同國家/區域)。
 
-    > [AZURE.IMPORTANT]請挑選您想要選擇來部署應用程式的*相同區域*。這樣可以獲得最佳效能。
+    > [AZURE.IMPORTANT] 請挑選您想要選擇來部署應用程式的*相同區域*。這樣可以獲得最佳效能。
 
 6.	讓對話方塊中的其他欄位保留其預設值 ([傳訊] 和 [標準層])，然後按一下核取記號。此時系統會建立並啟用命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
 
@@ -123,7 +123,7 @@
 
 ### 建立專案
 
-1.  使用系統管理員權限，啟動 Microsoft Visual Studio 2013 或 Microsoft Visual Studio Express。若要以系統管理員權限啟動 Visual Studio，請在 \[Microsoft Visual Studio 2013] (或 [Microsoft Visual Studio Express]) 上按一下滑鼠右鍵，然後按一下 [以系統管理員身分執行]。
+1.  使用系統管理員權限，啟動 Microsoft Visual Studio 2013 或 Microsoft Visual Studio Express。若要以系統管理員權限啟動 Visual Studio，請在 [Microsoft Visual Studio 2013] (或 [Microsoft Visual Studio Express]) 上按一下滑鼠右鍵，然後按一下 [以系統管理員身分執行]。
 
 2.  在 Visual Studio 的 [檔案] 功能表，按一下 [新增]，然後按一下 [專案]。
 
@@ -141,11 +141,11 @@
 
     ![][12]
 
-7.  如果已安裝 Visual Studio 的 NuGet 套件管理員，請跳至下一個步驟。否則，請造訪 [NuGet][] (英文)，然後按一下 [安裝 NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c) (英文)。按照提示安裝 NuGet 套件管理員，然後重新啟動 Visual Studio。
+7.  如果已安裝 Visual Studio 的 NuGet 套件管理員，請跳至下一個步驟。否則，請造訪 [NuGet][] (英文)，然後按一下 [[安裝 NuGet]](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c) (英文)。按照提示安裝 NuGet 套件管理員，然後重新啟動 Visual Studio。
 
 7.  在 [方案總管] 中，以滑鼠右鍵按一下 [喜好設定]，然後按一下 [Manage NuGet Packages]。
 
-8.  在 \[NuGet] 對話方塊的左欄中，按一下 [線上]。
+8.  在 [NuGet] 對話方塊的左欄中，按一下 [線上]。
 
 9. 	在右欄中，按一下 [搜尋] 方塊、鍵入「**服務匯流排**」，然後選取 [Microsoft Azure 服務匯流排] 項目。按一下 [安裝] 完成安裝作業，然後關閉此對話方塊。
 
@@ -402,7 +402,7 @@
 
 ## 將應用程式準備好部署到 Azure
 
-您可以將您的應用程式部署到 Azure 雲端服務或 Azure 網站。若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型][executionmodels] (英文)。若要了解如何將應用程式部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](http://azure.microsoft.com/develop/net/tutorials/get-started/)。本節包含將應用程式部署至 Azure 雲端服務的詳細步驟。
+您可以將您的應用程式部署到 Azure 雲端服務或 Azure 網站。若要深入了解網站與雲端服務之間的差異，請參閱 [Azure 執行模型][executionmodels] (英文)。若要了解如何將應用程式部署至 Azure 網站，請參閱[將 ASP.NET Web 應用程式部署至 Azure 網站](https://azure.microsoft.com/develop/net/tutorials/get-started/)。本節包含將應用程式部署至 Azure 雲端服務的詳細步驟。
 
 若要將應用程式部署至雲端服務，您需要新增雲端服務專案部署專案至方案。部署專案包含在雲端適當地執行應用程式所需的組態資訊。
 
@@ -610,4 +610,4 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

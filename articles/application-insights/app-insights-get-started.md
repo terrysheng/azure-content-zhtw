@@ -29,7 +29,7 @@
 
 依照任意順序開始使用出現在下列圖表之任意進入點的組合。請遵循適合您的路徑操作。
 
-Application Insights 的運作方式是將 SDK 加入至您的應用程式，並將遙測資料傳送至 [Azure 入口網站](http://portal.azure.com)。目前有不同的 SDK 適用於各個支援的平台、語言和 IDE 組合。
+Application Insights 的運作方式是將 SDK 加入至您的應用程式，並將遙測資料傳送至 [Azure 入口網站](https://portal.azure.com)。目前有不同的 SDK 適用於各個支援的平台、語言和 IDE 組合。
 
 您將需要 [Microsoft Azure](http://azure.com) 帳戶。您可能已透過組織獲得群組帳戶的存取權；或者，您可以使用隨用隨附帳戶。Application Insights 有免費層，因此在您的應用程式受歡迎之前，您不需要支付任何費用。請檢閱[定價頁面](https://azure.microsoft.com/pricing/details/application-insights/)。
 
@@ -74,4 +74,4 @@ Application Insights 的運作方式是將 SDK 加入至您的應用程式，並
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

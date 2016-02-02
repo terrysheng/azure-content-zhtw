@@ -43,16 +43,16 @@
 **[在 YouTube 上觀看 HDInsight 的 Hadoop 教學課程](https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS)**
 
 
-除了全面供應 Azure HDInsight 之外，Microsoft 還提供 HDInsight Emulator for Azure，先前稱為 *Microsoft HDInsight Developer Preview* 。模擬器非常適合開發人員使用，並只支援單一節點部署。如需使用 HDInsight Emulator 的詳細資訊，請參閱〈[開始使用 HDInsight Emulator][hdinsight-emulator]〉。
+除了全面供應 Azure HDInsight 之外，Microsoft 還提供 HDInsight Emulator for Azure，先前稱為 *Microsoft HDInsight Developer Preview*。模擬器非常適合開發人員使用，並只支援單一節點部署。如需使用 HDInsight Emulator 的詳細資訊，請參閱〈[開始使用 HDInsight Emulator][hdinsight-emulator]〉。
 
-> [AZURE.NOTE]如需如何佈建 HBase 叢集的指示，請參閱〈[在 HDInsight 上佈建 HBase 叢集][hdinsight-hbase-custom-provision]〉。請參閱〈<a href="http://go.microsoft.com/fwlink/?LinkId=510237">Hadoop 和 HBase 之間的差別？</a>〉，以了解最優先選擇某個資料庫的理由。
+> [AZURE.NOTE] 如需如何佈建 HBase 叢集的指示，請參閱〈[在 HDInsight 上佈建 HBase 叢集][hdinsight-hbase-custom-provision]〉。請參閱〈<a href="http://go.microsoft.com/fwlink/?LinkId=510237">Hadoop 和 HBase 之間的差別？</a>〉，以了解最優先選擇某個資料庫的理由。
 
 ## 必要條件
 
 開始進行在 Windows 上的 Hadoop 教學課程之前，您必須具備下列條件：
 
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - 安裝 Office 2013 Professional Plus、Office 365 Pro Plus、Excel 2013 Standalone 或 Office 2010 Professional Plus 的**工作站電腦**。
 
 **預估完成時間：**30 分鐘
@@ -63,7 +63,7 @@
 
 當您在 HDInsight 中佈建 Hadoop 叢集時，您需要指定一個 Azure 儲存體帳戶。該帳戶特定的 Blob 儲存體容器將被指定為預設檔案系統，如同 Hadoop 分散式檔案系統 (HDFS)。依預設，系統會在與您指定儲存體帳戶的相同資料中心內佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]＞。
 
->[AZURE.NOTE]不要與多個 Hadoop 叢集共用預設 Blob 儲存體容器。
+>[AZURE.NOTE] 不要與多個 Hadoop 叢集共用預設 Blob 儲存體容器。
 
 除了此儲存體帳戶以外，您可以在自訂設定叢集時新增其他儲存體帳戶。這個其他儲存體帳戶可以來自相同的 Azure 訂用帳戶或不同的 Azure 訂用帳戶。如需相關指示，請參閱〈[使用自訂選項佈建 HDInsight 叢集][hdinsight-provision]〉。
 
@@ -76,9 +76,9 @@
 
 	![Azure 傳統入口網站，您可以在此使用「快速建立」來設定新的儲存體帳戶。][image-hdi-storageaccount-quickcreate]
 
->[AZURE.NOTE]請務必在支援叢集的位置建立您的儲存體帳戶。這些位置包括：「**東亞**」、「**東南亞**」、「**北歐**」、「**西歐**」、「**美國東部**」、「**美國西部**」、「**美國中北部**」和「**美國中南部**」。
+>[AZURE.NOTE]  請務必在支援叢集的位置建立您的儲存體帳戶。這些位置包括：「**東亞**」、「**東南亞**」、「**北歐**」、「**西歐**」、「**美國東部**」、「**美國西部**」、「**美國中北部**」和「**美國中南部**」。
 
-從清單中選取新儲存體帳戶，並按一下頁面底部的 [**管理存取金鑰**]。請記下 [**主要存取金鑰**] \(或 [**次要存取金鑰**]，任一金鑰皆可)。稍後在教學課程中需要這些資訊。如需詳細資訊，請參閱＜[如何建立儲存體帳戶][azure-create-storageaccount]＞。
+從清單中選取新儲存體帳戶，並按一下頁面底部的 [**管理存取金鑰**]。請記下 [**主要存取金鑰**] (或 [**次要存取金鑰**]，任一金鑰皆可)。稍後在教學課程中需要這些資訊。如需詳細資訊，請參閱＜[如何建立儲存體帳戶][azure-create-storageaccount]＞。
 
 ##<a name="provision"></a>佈建 Hadoop 叢集
 
@@ -120,7 +120,7 @@
 
 -- COMMENTED OUT TEXT ENDS -->
 
->[AZURE.NOTE]這些步驟佈建 HDInsight 叢集 3.1 版。若要使用其他版本建立叢集，請使用入口網站中的 [**自訂建立**] 方法，或使用 Azure PowerShell。如需每個版本之間的差異相關資訊，請參閱〈[HDInsight 所提供叢集版本的新功能][hdinsight-versions]〉。如需使用 [**自訂建立**] 選項的詳細資訊，請參閱〈[使用自訂選項佈建 HDInsight 叢集][hdinsight-provision]〉。
+>[AZURE.NOTE] 這些步驟佈建 HDInsight 叢集 3.1 版。若要使用其他版本建立叢集，請使用入口網站中的 [**自訂建立**] 方法，或使用 Azure PowerShell。如需每個版本之間的差異相關資訊，請參閱〈[HDInsight 所提供叢集版本的新功能][hdinsight-versions]〉。如需使用 [**自訂建立**] 選項的詳細資訊，請參閱〈[使用自訂選項佈建 HDInsight 叢集][hdinsight-provision]〉。
 
 
 ##<a name="sample"></a>從入口網站中執行範例資料
@@ -138,9 +138,9 @@
 
 
 ##<a name="hivequery"></a>從入口網站執行 Hive 查詢
-您已佈建 HDInsight 叢集，下一個步驟是執行 Hive 工作，以查詢範例 Hive 資料表。我們會使用 HDInsight 叢集隨附的 *hivesampletable* 。此資料表會包含行動裝置製造商、平台及模型等資料。使用 Hive 查詢資料表會擷取特定製造商的行動裝置的資料。
+您已佈建 HDInsight 叢集，下一個步驟是執行 Hive 工作，以查詢範例 Hive 資料表。我們會使用 HDInsight 叢集隨附的 *hivesampletable*。此資料表會包含行動裝置製造商、平台及模型等資料。使用 Hive 查詢資料表會擷取特定製造商的行動裝置的資料。
 
-> [AZURE.NOTE]HDInsight Tools for Visual Studio 隨附 Azure SDK for .NET 2.5 版或更新版本。您可以使用 Visual Studio 的工具，連線至 HDInsight 叢集、建立 Hive 資料表及執行 Hive 查詢。如需詳細資訊，請參閱〈[開始使用 HDInsight Hadoop Tools for Visual Studio][1]〉。
+> [AZURE.NOTE] HDInsight Tools for Visual Studio 隨附 Azure SDK for .NET 2.5 版或更新版本。您可以使用 Visual Studio 的工具，連線至 HDInsight 叢集、建立 Hive 資料表及執行 Hive 查詢。如需詳細資訊，請參閱〈[開始使用 HDInsight Hadoop Tools for Visual Studio][1]〉。
 
 **從叢集儀表板執行 Hive 工作**
 
@@ -153,7 +153,7 @@
 
 	頁面頂端會有數個索引標籤。預設索引標籤為 [**Hive 編輯器**]，其他索引標籤包括 [**工作歷程記錄**] 和 [**檔案瀏覽器**]。您可以使用儀表板提交 Hive 查詢、檢查 Hadoop 工作記錄及瀏覽儲存體中的檔案。
 
-	> [AZURE.NOTE]請注意，網頁的 URL 為 *&lt;ClusterName&gt;.azurehdinsight.net* 。因此，與其從入口網站開啟儀表板，您也可以使用 URL 從網頁瀏覽器中開啟儀表板。
+	> [AZURE.NOTE] 請注意，網頁的 URL 為 *&lt;ClusterName&gt;.azurehdinsight.net*。因此，與其從入口網站開啟儀表板，您也可以使用 URL 從網頁瀏覽器中開啟儀表板。
 
 6. 在 [Hive Editor] 索引標籤的 [查詢名稱] 中，輸入 **HTC20**。查詢名稱就是工作標題。在查詢窗格中，如圖所示輸入 Hive 查詢：
 
@@ -280,4 +280,4 @@
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!-----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

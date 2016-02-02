@@ -229,7 +229,7 @@ Azure 排程器會實作以數個條件為基礎的配額。本節列出配額�
 
  [如何使用 Azure 排程器建立複雜的排程和進階週期](scheduler-advanced-complexity.md)
 
- [排程器 REST API 參考](https://msdn.microsoft.com/library/dn528946)
+ [排程器 REST API 參考](https://msdn.microsoft.com/library/mt629143)
 
  [排程器 PowerShell Cmdlet 參考](scheduler-powershell-reference.md)
 
@@ -257,4 +257,4 @@ Azure 排程器會實作以數個條件為基礎的配額。本節列出配額�
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,4 +1,4 @@
-1. 登入 Azure 管理入口網站，並按一下畫面底部的 [+新增]。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)，並按一下畫面底部的 [+新增]。
 
 2. 依序按一下 [應用程式服務]、[Mobile Engagement]，然後 [建立]。
 
@@ -23,4 +23,4 @@
 
    	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -21,8 +21,7 @@
 
 ##概觀
 
-本教學課程說明如何使用 Azure 通知中樞傳送推播通知到 Android 應用程式。
-您將建立可使用 Google Cloud Messaging (GCM) 接收推播通知的空白 Android app。完成時，您便能夠使用通知中樞，將推播通知廣播到所有執行您 app 的裝置。
+本教學課程說明如何使用 Azure 通知中樞傳送推播通知到 Android 應用程式。您將建立可使用 Google Cloud Messaging (GCM) 接收推播通知的空白 Android app。完成時，您便能夠使用通知中樞，將推播通知廣播到所有執行您 app 的裝置。
 
 本教學課程示範使用通知中樞的簡單廣播案例。請確定依照下一個教學課程的步驟進行，以查看如何使用通知中樞來處理特定使用者和裝置群組。
 
@@ -39,7 +38,7 @@
 本教學課程需要下列各項：
 
 + Android Studio，您可以從 <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android 網站</a>下載。
-+ 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F)。
++ 使用中的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F)。
 
 
 完成本教學課程是 Android app 所有其他通知中樞教學課程的先決條件。
@@ -130,10 +129,7 @@
 	    private static Boolean isVisible = false;
 
 
-	請務必更新三個預留位置：
-	* **SENDER\_ID**：將 `SENDER_ID` 設定為您先前從在 [Google Cloud Console](http://cloud.google.com/console) 中建立的專案取得的專案號碼。
-	* **HubListenConnectionString**：將 `HubListenConnectionString` 設定為中樞的 **DefaultListenAccessSignature** 連接字串。在 [Azure 傳統入口網站]上，按一下您的中樞的 [儀表板] 索引標籤上的 [檢視連接字串]，即可複製該連接字串。
-	* **HubName**：在 Azure 中針對您的中樞使用在頁面頂端的通知中樞名稱 (**不是**完整 URL)。例如，使用 `"myhub"`。
+	請務必更新三個預留位置：* **SENDER\_ID**：將 `SENDER_ID` 設定為您先前從在 [Google Cloud Console](http://cloud.google.com/console) 中建立的專案取得的專案號碼。* **HubListenConnectionString**：將 `HubListenConnectionString` 設定為中樞的 **DefaultListenAccessSignature** 連接字串。在 [Azure 傳統入口網站]上，按一下您的中樞的 [儀表板] 索引標籤上的 [檢視連接字串]，即可複製該連接字串。* **HubName**：在 Azure 中針對您的中樞使用在頁面頂端的通知中樞名稱 (**不是**完整 URL)。例如，使用 `"myhub"`。
 
 
 
@@ -205,7 +201,7 @@
 
 8. 由於 Android 不會顯示通知，因此您必須撰寫自己的接收器。在 **AndroidManifest.xml** 中，在 `<application>` 元素內新增下列元素。
 
-	> [AZURE.NOTE]以您的封裝名稱取代預留位置。
+	> [AZURE.NOTE] 以您的封裝名稱取代預留位置。
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -551,4 +547,4 @@
 [使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-android-notify-users.md
 [使用通知中心傳送即時新聞]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -117,7 +117,7 @@
 
     ![Admin](./media/active-directory-saas-bime-tutorial/IC775561.png "Admin")
 
-3.  在 [使用者清單] 中，按一下 [新增使用者] ("+")。
+3.  在 [使用者清單] 中，按一下 [新增使用者] \("+")。
 
     ![使用者](./media/active-directory-saas-bime-tutorial/IC775562.png "使用者")
 
@@ -148,4 +148,4 @@
 
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->

@@ -27,7 +27,7 @@
 
 ## 建立專案
 
-1. 移至 [檔案] 功能表，選取 [新增] > [專案] (或者，移至 [加入]，再選取 [新增專案]，以加入至現有的方案)：![[檔案] 功能表](./media/app-service-logic-deploy-from-vs/filemenu.png)
+1. 移至 [檔案] 功能表，選取 [新增] > [專案] \(或者，移至 [加入]，再選取 [新增專案]，以加入至現有的方案)：![[檔案] 功能表](./media/app-service-logic-deploy-from-vs/filemenu.png)
 
 2. 在對話方塊中，尋找 [雲端]，然後選取 [Azure 資源群組]。輸入 [**名稱**]，然後按一下 [**確定**]。![加入新的專案](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
@@ -65,4 +65,4 @@
 
 如果您不想使用 Visual Studio，但仍想使用工具從原始檔控制來部署邏輯應用程式，您可以直接使用 [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 或 [PowerShell](../powershell-azure-resource-manager.md) 將部署作業自動化。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!-----HONumber=AcomDC_0121_2016-->

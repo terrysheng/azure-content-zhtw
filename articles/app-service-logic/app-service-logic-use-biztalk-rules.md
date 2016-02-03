@@ -152,7 +152,7 @@ IF 金額小於或等於可用資金 THEN 執行交易並列印收據
 
 ##建立規則
 規則是條件和動作陳述式的集合。如果條件評估為 true，則會執行動作。在 [建立規則] 分頁中，提供唯一的規則名稱 (適用於該原則) 和說明 (選擇性)。
-[條件] (IF) 方塊可用來建立複雜的條件陳述式。以下是支援的關鍵字：
+[條件] \(IF) 方塊可用來建立複雜的條件陳述式。以下是支援的關鍵字：
 1. And – 條件運算子 
 2. Or – 條件運算子 
 3. does_not_exist 
@@ -250,4 +250,4 @@ BizTalk 規則支援明確向前鏈結，因此，如果使用者想要重新評
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->

@@ -36,7 +36,8 @@
 **儲存體對應** | NA | NA | 您可以選擇性設定儲存體對應，以確保虛擬機器可在容錯移轉之後，以最佳方式連接至儲存體。當您在兩個內部部署 VMM 網站之間執行複寫，則根據預設，會將複本虛擬機器儲存在目標 Hyper-V 主機伺服器的指定位置上。您可以在來源與目標 VMM 伺服器上，設定 VMM 儲存體分類之間的對應。 | 若要使用此功能，您必須在開始部署之前，確定已先設定好儲存體分類。[閱讀更多資訊](site-recovery-storage-mapping.md)。
 **SAN 複寫** | NA | NA | 如果要使用 SAN 複寫節點，在兩個內部部署 VMM 網站之間執行複寫，您可以使用現有的 SAN 環境。 | 您需要[支援的 SAN 陣列](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx)，且必須在 VMM 中探索及分類 SAN 儲存體。<br/><br/>如果您目前沒有複寫，則需要建立 LUN 並且在 VMM 主控台中配置儲存體。如果已經複寫，可以略過此步驟。
 **網路功能** | 設定網路對應，以確定無論使用哪個復原計劃，在相同 Azure 網路上容錯移轉的所有機器都能彼此連接。此外，如果目標 Azure 網路上已設定網路閘道，則虛擬機器可以連接到其他內部部署虛擬機器。如果您未設定網路對應，則只能連接在相同復原方案中容錯移轉的機器。 | NA | <br/><br/>設定網路對應，以確定在容錯移轉之後虛擬機器會連接到適當的網路，且複本虛擬機器位於最佳的 Hyper-V 主機伺服器。如果您沒有設定網路對應，則複寫的機器將不會在容錯移轉之後連接到任何 VM 網路。 | [深入了解](site-recovery-network-mapping)網路對應。<br/><br/>若要使用 VMM 設定網路對應，您必須確定該 VMM 邏輯和 VM 網路是否正確設定。[深入了解](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx)和 [VM 網路](https://technet.microsoft.com/library/jj721575.aspx)。此外，請參閱 [VMM 的網路考量](site-recovery-network-design.md/#vmm-design)。  
-**提供者和代理程式** | 在部署期間，您會在 VMM 伺服器上安裝 Azure Site Recovery 提供者。您會在 VMM 雲端的 Hyper-V 伺服器上安裝 Azure 復原服務代理程式。 | 在部署期間，您會在 Hyper-V 主機伺服器或叢集上，安裝 Azure Site Recovery 提供者和 Azure 復原服務代理程式。| 在部署期間，您會在 VMM 伺服器上安裝 Azure Site Recovery 提供者。您會在 VMM 雲端的 Hyper-V 伺服器上安裝 Azure 復原服務代理程式。 | 提供者和代理程式會使用加密的 HTTPS 連線，透過網際網路連接至 Site Recovery。您不需要針對提供者連接新增防火牆例外或建立特定 proxy，但是如果您要使用自訂 proxy，您應該在開始部署之前允許這些 URL 通過防火牆：<br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net<br/><br/> *.backup.windowsazure.com <br/><br/> *.blob.core.windows.net <br/><br/>*.store.core.windows.net **網際網路連線** | 只有 VMM 伺服器需要網際網路連線 | 只有 Hyper-V 主機伺服器需要網際網路連線 | 只有 VMM 伺服器需要網際網路連線 | 不需要在虛擬機器上安裝 任何項目，也不要直接連接至網路網路。
+**提供者和代理程式** | 在部署期間，您會在 VMM 伺服器上安裝 Azure Site Recovery 提供者。您會在 VMM 雲端的 Hyper-V 伺服器上安裝 Azure 復原服務代理程式。 | 在部署期間，您會在 Hyper-V 主機伺服器或叢集上，安裝 Azure Site Recovery 提供者和 Azure 復原服務代理程式。| 在部署期間，您會在 VMM 伺服器上安裝 Azure Site Recovery 提供者。您會在 VMM 雲端的 Hyper-V 伺服器上安裝 Azure 復原服務代理程式。 | 提供者和代理程式會使用加密的 HTTPS 連線，透過網際網路連接至 Site Recovery。您不需要針對提供者連接新增防火牆例外或建立特定 proxy，但是如果您要使用自訂 proxy，您應該在開始部署之前允許這些 URL 通過防火牆：<br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net<br/><br/> *.backup.windowsazure.com <br/><br/> *.blob.core.windows.net <br/><br/>*.store.core.windows.net
+**網際網路連線** | 只有 VMM 伺服器需要網際網路連線 | 只有 Hyper-V 主機伺服器需要網際網路連線 | 只有 VMM 伺服器需要網際網路連線 | 不需要在虛擬機器上安裝 任何項目，也不要直接連接至網路網路。
 
 
 
@@ -111,4 +112,4 @@ FC 磁碟 | 不支援 | 如果不支援，則先決條件檢查會失敗
 - [利用單一 VMM 伺服器設定保護](site-recovery-single-vmm.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

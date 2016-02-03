@@ -143,7 +143,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 	![Configure Network][config_hpc2]
 
-3. 在 [網路設定精靈] 中，選取 [All nodes only on an enterprise network] (拓撲 5)。
+3. 在 [網路設定精靈] 中，選取 [All nodes only on an enterprise network] \(拓撲 5)。
 
 	![Topology 5][config_hpc3]
 
@@ -348,4 +348,4 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->

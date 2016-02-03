@@ -462,7 +462,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 
 ### 建立 Data Factory
 
-在 [建立自訂活動][](#create-the-custom-activity) 區段中，您建立自訂活動，並將包含二進位檔和 PDB 檔案的 zip 檔案上傳到 Azure blob 容器。在本節中，您將透過使用**自訂活動**的**管線**建立 Azure **Data Factory**。
+在 [建立自訂活動](#create-the-custom-activity) 區段中，您建立自訂活動，並將包含二進位檔和 PDB 檔案的 zip 檔案上傳到 Azure blob 容器。在本節中，您將透過使用**自訂活動**的**管線**建立 Azure **Data Factory**。
 
 自訂活動的輸入資料集代表 blob 儲存體中輸入資料夾 (mycontainer\\inputfolder) 的 blob (檔案)。活動的輸出資料集代表 blob 儲存體中輸出資料夾 (mycontainer\\outputfolder) 的輸出 blob。
 
@@ -929,4 +929,4 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 
     -   [開始使用 Azure Batch 程式庫 .NET](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->

@@ -178,7 +178,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
 
-1.  在 [選擇磁碟類型] 頁面上，將虛擬硬碟類型設定為 [動態擴充] (建議選項)。您也可以選擇 [固定大小] 磁碟，但你可能會需要等待很長一段時間。我們建議您不要使用 [差異] 選項。按 [下一步]。請注意，在 Hyper-V 2012 及 Hyper-V 2012 R2 中，預設選項為 [動態擴充]。而在 Hyper-V 2008 R2 中，預設選項是 [固定大小]。
+1.  在 [選擇磁碟類型] 頁面上，將虛擬硬碟類型設定為 [動態擴充] \(建議選項)。您也可以選擇 [固定大小] 磁碟，但你可能會需要等待很長一段時間。我們建議您不要使用 [差異] 選項。按 [下一步]。請注意，在 Hyper-V 2012 及 Hyper-V 2012 R2 中，預設選項為 [動態擴充]。而在 Hyper-V 2008 R2 中，預設選項是 [固定大小]。
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image16.png)
 
@@ -274,4 +274,4 @@
 
 -   [Set up your StorSimple Virtual Array as an iSCSI server (將 StorSimple 虛擬陣列設定為 iSCSI 伺服器)](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->

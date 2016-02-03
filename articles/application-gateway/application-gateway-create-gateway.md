@@ -48,7 +48,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 - **後端伺服器集區設定：**每個集區都包括一些設定，例如連接埠、通訊協定和以 Cookie 為基礎的同質性。這些設定會繫結至集區，並套用至集區內所有伺服器。
 - **前端連接埠：**此連接埠是在應用程式閘道上開啟的公用連接埠。流量會達到此連接埠，然後重新導向至其中一個後端伺服器。
 - **接聽程式：**接聽程式具有前端連接埠、通訊協定 (Http 或 Https，都區分大小寫) 和 SSL 憑證名稱 (如果已設定 SSL 卸載)。
-- **規則：**規則會繫結接聽程式和後端伺服器集區，並定義流量達到特定接聽程式時應該導向至哪個後端伺服器集區。目前只支援*基本*規則。*基本*規則是循環配置資源的負載分配。
+- **規則：**規則會繫結接聽程式和後端伺服器集區，並定義流量達到特定接聽程式時應該導向至哪個後端伺服器集區。目前只支援 *基本* 規則。 *基本* 規則是循環配置資源的負載分配。
 
 
 
@@ -79,7 +79,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 
- *Description*、*InstanceCount* 和 *GatewaySize* 為選用參數。
+ *Description* 、 *InstanceCount* 和 *GatewaySize* 為選用參數。
 
 
 若要驗證已建立閘道，您可以使用 **Get-AzureApplicationGateway** Cmdlet。
@@ -345,7 +345,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 
 ## 確認閘道狀態
 
-使用 **Get-AzureApplicationGateway** Cmdlet 來檢查閘道狀態。如果上一個步驟中的 **Start-AzureApplicationGateway** 成功，則*狀態*應該是 Running，而且 *Vip* 和 *DnsName* 應該具有有效的輸入。
+使用 **Get-AzureApplicationGateway** Cmdlet 來檢查閘道狀態。如果上一個步驟中的 **Start-AzureApplicationGateway** 成功，則 *狀態* 應該是 Running，而且 *Vip* 和 *DnsName* 應該具有有效的輸入。
 
 下列範例示範已啟動、正在執行且準備好將流量傳送到 `http://<generated-dns-name>.cloudapp.net` 的應用程式閘道。
 

@@ -28,4 +28,4 @@
 
 若要觀看影片示範如何建立新的 StorSimple Manager 服務，請按一下[這裡](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

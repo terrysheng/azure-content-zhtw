@@ -16,7 +16,8 @@
 
 #教學課程：Azure Active Directory 與 Cisco Webex 整合
 
-本教學課程的目的是要示範 Azure 與 Cisco Webex 的整合。本教學課程中說明的案例假設您已經具有下列項目：
+本教學課程的目的是要示範 Azure 與 Cisco Webex 的整合。  
+本教學課程中說明的案例假設您已經具有下列項目：
 
 -   有效的 Azure 訂閱
 -   Cisco Webex 租用戶
@@ -82,8 +83,8 @@
 
     ![設定應用程式 URL](./media/active-directory-saas-cisco-webex-tutorial/IC777619.png "設定應用程式 URL")
 
-    1.  在 [登入 URL] 文字方塊中，輸入您的 Cisco Webex 租用戶 URL (例如：**http://contoso.webex.com*))。
-2.  在 [Cisco Webex 回覆 URL] 文字方塊中，輸入您的 **Cisco Webex AssertionConsumerService URL** (例如：**https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*))。
+    1.  在 [登入 URL] 文字方塊中，輸入您的 Cisco Webex 租用戶 URL (例如：*http://contoso.webex.com*)。
+	2.  在 [Cisco Webex 回覆 URL] 文字方塊中，輸入您的 **Cisco Webex AssertionConsumerService URL** (例如：*https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*)。
 
 4.  於 [在 Cisco Webex 設定單一登入] 頁面上，按 [下載憑證] 以下載您的憑證，然後將憑證檔案儲存在您的電腦中。
 

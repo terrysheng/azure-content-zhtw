@@ -761,7 +761,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 
 	-   **AssemblyName** 會設定為 DLL 的名稱：**MyDotNetActivity.dll**。
 
-	-   **EntryPoint** 設定為 **MyDotNetActivityNS.MyDotNetActivity**。在您的程式碼中，它基本上是 <namespace>.<classname>。
+	-   **EntryPoint** 設定為 **MyDotNetActivityNS.MyDotNetActivity**。在您的程式碼中，它基本上是 \<namespace\>.\<classname\>。
 
 	-   **PackageLinkedService** 設為 **StorageLinkedService**，會指向包含自訂活動 zip 檔案的 Blob 儲存體。如果您將不同的 Azure 儲存體帳戶用於輸入/輸出檔案和自訂活動 zip 檔案，您必須建立另一個 Azure 儲存體連結服務。本文假設您使用相同的 Azure 儲存體帳戶。
 

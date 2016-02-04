@@ -76,7 +76,7 @@
 
     ![設定單一登入](./media/active-directory-saas-boomi-tutorial/IC790825.png "設定單一登入")
 
-3.  在 [設定應用程式 URL] 頁面的 [Boomi 回覆 URL] 文字方塊中，輸入您的 [Boomi AtomSphere 登入 URL] \(例如：“*https://platform.boomi.com/sso/AccountName/saml*”)，然後按 [下一步]。
+3.  在 [設定應用程式 URL] 頁面的 [Boomi 回覆 URL] 文字方塊中，輸入您的 [Boomi AtomSphere 登入 URL] \(例如： “*https://platform.boomi.com/sso/AccountName/saml*”)，然後按 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-boomi-tutorial/IC790826.png "設定應用程式 URL")
 

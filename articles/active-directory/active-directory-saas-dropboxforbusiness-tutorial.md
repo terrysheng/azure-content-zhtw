@@ -16,7 +16,7 @@
 
 #教學課程：Azure Active Directory 與 Dropbox for Business 整合
   
-本教學課程的目的是要示範 Azure 與 Dropbox for Business 的整合。
+本教學課程的目的是要示範 Azure 與 Dropbox for Business 的整合。  
 本教學課程中說明的案例假設您已經具有下列項目：
 
 -   有效的 Azure 訂閱
@@ -108,7 +108,8 @@
      5.2.在 Azure 入口網站的 [設定在 Dropbox for Business 單一登入] 對話頁面上，複製 [登入頁面 URL] 值，然後將它貼至 [登入 URL] 文字方塊。
 
 
-     5.3.從您下載的憑證建立 **Base-64 編碼**檔案。[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
+     5.3.從您下載的憑證建立 **Base-64 編碼**檔案。
+     >[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
 
 
      5.4.按一下 [選擇憑證]，然後瀏覽至您的 **Base-64 編碼的憑證檔案**。
@@ -177,7 +178,8 @@
 <br><br> ![指派使用者](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "指派使用者")
 
 
-如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
+如果要測試您的單一登入設定，請開啟存取面板。
+如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
 
 

@@ -16,7 +16,8 @@
 
 #教學課程：Azure Active Directory 與 Kudos 整合
   
-本教學課程的目的是要示範 Azure 與 Kudos 的整合。本教學課程中說明的案例假設您已經具有下列項目：
+本教學課程的目的是要示範 Azure 與 Kudos 的整合。  
+本教學課程中說明的案例假設您已經具有下列項目：
 
 -   有效的 Azure 訂閱
 -   Kudos 租用戶
@@ -64,7 +65,9 @@
     ![Kudos](./media/active-directory-saas-kudos-tutorial/IC787801.png "Kudos")
 ##設定單一登入
   
-本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶在 Kudos 中進行驗證。在此程序中，您必須建立 Base-64 編碼的憑證檔案。如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶在 Kudos 中進行驗證。  
+在此程序中，您必須建立 Base-64 編碼的憑證檔案。  
+如果您不熟悉這個程序，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
 
 ###若要設定單一登入，請執行下列步驟：
 
@@ -76,7 +79,7 @@
 
     ![設定單一登入](./media/active-directory-saas-kudos-tutorial/IC787803.png "設定單一登入")
 
-3.  在 [設定應用程式 URL] 頁面的 [Kudos 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："**https://company.kudosnow.com*"，然後按一下 [下一步]。
+3.  在 [設定應用程式 URL] 頁面的 [Kudos 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："*https://company.kudosnow.com*"，然後按一下 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-kudos-tutorial/IC787804.png "設定應用程式 URL")
 
@@ -99,11 +102,12 @@
     1.  在 Azure 入口網站中的 [設定在 Kudos 單一登入] 對話頁面上，複製 [單一登入服務 URL] 值，然後將它貼至 [登入 URL] 文字方塊中。
 	2.  從您下載的憑證建立「Base-64 編碼」檔案。  
 
-        >[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP]
+        如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)
 
     3.  在記事本中開啟您的 base-64 編碼的憑證，將它的內容複製到您的剪貼簿，然後貼至 [X.509 憑證] 文字方塊中。
     4.  在 Azure 入口網站中的 [設定在 Kudos 單一登入] 對話頁面上，複製 [單一登出服務 URL] 值，然後將它貼至 [登出 URL] 文字方塊中。
-5.  在 [您的 Kudos URL] 文字方塊中，輸入您的公司名稱。
+	5.  在 [您的 Kudos URL] 文字方塊中，輸入您的公司名稱。
     6.  按一下 [儲存]。
 
 9.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
@@ -155,3 +159,6 @@
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
 <!----HONumber=AcomDC_0121_2016-->
+
+
+

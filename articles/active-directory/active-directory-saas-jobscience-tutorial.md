@@ -16,7 +16,8 @@
 
 #教學課程：Azure Active Directory 與 Jobscience 整合
   
-本教學課程的目的是要示範 Azure 與 Jobscience 的整合。本教學課程中說明的案例假設您已經具有下列項目：
+本教學課程的目的是要示範 Azure 與 Jobscience 的整合。  
+本教學課程中說明的案例假設您已經具有下列項目：
 
 -   有效的 Azure 訂閱
 -   啟用 Jobscience 單一登入的訂用帳戶
@@ -64,8 +65,8 @@
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##設定單一登入
   
-本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己在 Azure AD 中的帳戶在 Jobscience 中進行驗證。
-設定 Jobscience 的單一登入需要您從憑證抓取指紋值。
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己在 Azure AD 中的帳戶在 Jobscience 中進行驗證。  
+設定 Jobscience 的單一登入需要您從憑證抓取指紋值。  
 如果您不熟悉這個程序，請參閱[如何抓取憑證的指紋值](http://youtu.be/YKQF266SAxI)。
 
 ###若要設定單一登入，請執行下列步驟：
@@ -94,7 +95,7 @@
 
     ![設定單一登入](./media/active-directory-saas-jobscience-tutorial/IC784361.png "設定單一登入")
 
-8.  在 [設定應用程式 URL] 頁面的 [Jobscience 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："**http://company.my.salesforce.com*"，然後按一下 [下一步]。
+8.  在 [設定應用程式 URL] 頁面的 [Jobscience 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："*http://company.my.salesforce.com*"，然後按一下 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-jobscience-tutorial/IC784362.png "設定應用程式 URL")
 
@@ -120,7 +121,7 @@
     1.  在 [名稱] 文字方塊中，輸入您的組態名稱。
     2.  在 Azure 入口網站中的 [設定在 Jobscience 單一登入] 對話頁面上， 複製 [簽發者 URL] 值，然後將它貼至 [簽發者] 文字方塊中。
     3.  在 [實體識別碼] 文字方塊中，輸入 **https://salesforce-jobscience.com**
-4.  按一下 [瀏覽] 來上傳您的 Azure AD 憑證。
+    4.  按一下 [瀏覽] 來上傳您的 Azure AD 憑證。
     5.  在 [SAML 識別類型] 中選取 [判斷提示包含來自使用者物件的同盟識別碼]。
     6.  在 [SAML 識別位置] 中選取 [識位於 Subject 陳述式的 NameIdentifier 元素中]。
     7.  在 Azure 入口網站中的 [設定在 Jobscience 單一登入] 對話頁面上， 複製 [遠端登入 URL] 值，然後將它貼至 [識別提供者登入 URL] 文字方塊中。
@@ -147,10 +148,12 @@
 
 ![安全性控制項](./media/active-directory-saas-jobscience-tutorial/IC784368.png "安全性控制項")
   
-按一下您已經在上述步驟中建立的 SSO 設定檔。此頁面會顯示您的公司的單一登入 URL (例如 **https://companyname.my.salesforce.com?so=companyid*))。
+按一下您已經在上述步驟中建立的 SSO 設定檔。  
+此頁面會顯示您的公司的單一登入 URL (例如 *https://companyname.my.salesforce.com?so=companyid*)。
 ##設定使用者佈建
   
-若要讓 Azure AD 使用者能夠登入 Jobscience，必須將他們佈建到 Jobscience。Jobscience 需以手動的方式佈建。
+若要讓 Azure AD 使用者能夠登入 Jobscience，必須將他們佈建到 Jobscience。  
+Jobscience 需以手動的方式佈建。
 
 ###若要設定使用者佈建，請執行下列步驟：
 
@@ -198,3 +201,4 @@
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
 <!---HONumber=AcomDC_0121_2016-->
+

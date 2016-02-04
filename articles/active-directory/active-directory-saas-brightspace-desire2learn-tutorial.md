@@ -16,7 +16,8 @@
 
 #教學課程：Azure Active Directory 與 Brightspace by Desire2Learn 整合
 
-本教學課程的目的是要示範 Azure 與 Brightspace by Desire2Learn 的整合。本教學課程中說明的案例假設您已經具有下列項目：
+本教學課程的目的是要示範 Azure 與 Brightspace by Desire2Learn 的整合。  
+本教學課程中說明的案例假設您已經具有下列項目：
 
 -   有效的 Azure 訂閱
 -   啟用 Brightspace by Desire2Learn 單一登入的訂用帳戶
@@ -80,8 +81,8 @@
 
     ![設定應用程式 URL](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798961.png "設定應用程式 URL")
 
-    1.  在 [登入 URL] 文字方塊中，輸入您的使用者用來登入 **Brightspace by Desire2Learn** 的 URL (例如：**https://partnershowcase.desire2learn.com/Shibboleth.sso/Login?entityID=https://sts.windows-ppe.net/5caf9349-fd93-4a74-b064-0070f65bfb49/&target=https%3A%2F%2Fpartnershowcase.desire2learn.com%2Fd2l%2FshibbolethSSO%2Faspinfo.asp*))。
-2.  按 [**下一步**]
+    1.  在 [登入 URL] 文字方塊中，輸入您的使用者用來登入 **Brightspace by Desire2Learn** 的 URL (例如： *https://partnershowcase.desire2learn.com/Shibboleth.sso/Login?entityID=https://sts.windows-ppe.net/5caf9349-fd93-4a74-b064-0070f65bfb49/&target=https%3A%2F%2Fpartnershowcase.desire2learn.com%2Fd2l%2FshibbolethSSO%2Faspinfo.asp*)。
+    2.  按 [**下一步**]
 
 4.  於 [在 Brightspace by Desire2Learn 設定單一登入] 頁面上，按 [下載中繼資料] 以下載您的中繼資料，然後將中繼資料儲存在您的電腦中。
 
@@ -89,14 +90,16 @@
 
 5.  將下載的中繼資料檔傳送給 Brightspace by Desire2Learn 支援小組。
 
-    >[AZURE.NOTE]Brightspace by Desire2Learn 支援小組必須執行實際的 SSO 組態。當您的訂用帳戶啟用 SSO 之後，您會收到通知。
+    >[AZURE.NOTE]Brightspace by Desire2Learn 支援小組必須執行實際的 SSO 組態。
+    當您的訂用帳戶啟用 SSO 之後，您會收到通知。
 
 6.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-brightspace-desire2learn-tutorial/IC798963.png "設定單一登入")
 ##設定使用者佈建
 
-若要讓 Azure AD 使用者可以登入 Brightspace by Desire2Learn，必須將他們佈建到 Brightspace by Desire2Learn。Brightspace by Desire2Learn 的使用者帳戶必須由您的 Brightspace by Desire2Learn 支援小組建立。
+若要讓 Azure AD 使用者可以登入 Brightspace by Desire2Learn，必須將他們佈建到 Brightspace by Desire2Learn。  
+Brightspace by Desire2Learn 的使用者帳戶必須由您的 Brightspace by Desire2Learn 支援小組建立。
 
 >[AZURE.NOTE]您可以使用任何其他的 Brightspace by Desire2Learn 使用者帳戶建立工具或 Brightspace by Desire2Learn 提供的 API 來佈建 Azure Active Directory 使用者帳戶。
 

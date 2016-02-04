@@ -82,8 +82,8 @@
 
     ![設定應用程式 URL](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "設定應用程式 URL")
 
-    1.  在 [登入 URL] 文字方塊中輸入使用者用來登入您 NetDocuments 應用程式的 URL (例如："**https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*")。
-2.  在 [NetDocuments 回覆 URL] 文字方塊中，輸入您在 [登入 URL] 文字方塊中輸入的相同值。  
+    1.  在 [登入 URL] 文字方塊中輸入使用者用來登入您 NetDocuments 應用程式的 URL (例如："*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*")。
+	2.  在 [NetDocuments 回覆 URL] 文字方塊中，輸入您在 [登入 URL] 文字方塊中輸入的相同值。  
 
         >[AZURE.NOTE]您可以在 [同盟識別身分] 對話方塊結尾找到正確值 (請參閱步驟 9 的螢幕擷取畫面)。
 
@@ -159,3 +159,4 @@
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
 <!---HONumber=AcomDC_0121_2016-->
+

@@ -260,11 +260,12 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
 6. 確定可以從管理伺服器存取這些 URL：
 
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net 如果您在伺服器上有以 IP 位址為基礎的防火牆規則，請檢查這些規則以允許對 Azure 的通訊。您必須允許 [Azure Datacenter IP Ranges (Azure 資料中心 IP 範圍)](https://msdn.microsoft.com/library/azure/dn175718.aspx) 和 HTTPS (433) 通訊協定。您也必須將訂用帳戶的 Azure 區域和美國西部的 IP 位址範圍列於白名單。此外，將此 URL 列於白名單以供 MySQL 下載：http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi。
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
+	如果您在伺服器上有以 IP 位址為基礎的防火牆規則，請檢查這些規則以允許對 Azure 的通訊。您必須允許 [Azure Datacenter IP Ranges (Azure 資料中心 IP 範圍)](https://msdn.microsoft.com/library/azure/dn175718.aspx) 和 HTTPS (433) 通訊協定。您也必須將訂用帳戶的 Azure 區域和美國西部的 IP 位址範圍列於白名單。此外，將此 URL 列於白名單以供 MySQL 下載：http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi。
 
 
 7. 在 [必要條件檢查] 時，安裝程式會在伺服器上執行必要條件檢查。

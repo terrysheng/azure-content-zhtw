@@ -111,8 +111,8 @@
     ![儲存變更](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "儲存變更")
 
     1.  在 [使用者識別碼] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**。
-2.  在 [電子郵件] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**。
-3.  按一下 [儲存變更]。
+    2.  在 [電子郵件] 文字方塊中，輸入 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**。
+    3.  按一下 [儲存變更]。
 
 10. 在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
 
@@ -158,4 +158,4 @@
 
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0121_2016-->

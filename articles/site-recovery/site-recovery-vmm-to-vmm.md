@@ -111,7 +111,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 		- *.backup.windowsazure.com
 		- *.blob.core.windows.net
 		- *.store.core.windows.net
-- 允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
+	- 允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 	- 如果您使用的是自訂 proxy，則會使用指定的 proxy 認證自動建立 VMM RunAs 帳戶 (DRAProxyAccount)。設定 proxy 伺服器，讓此帳戶可以成功進行驗證。在 VMM 主控台中，可以修改 VMM RunAs 帳戶設定。若要這樣做，請開啟 [設定] 工作區、展開 [安全性]、按一下 [執行身分帳戶]，然後修改 DRAProxyAccount 的密碼。您必須重新啟動 VMM 服務，這項設定才會生效。
 
 8. 在 [註冊金鑰] 中，選取您從 Azure Site Recovery 下載並複製到 VMM 伺服器的金鑰。
@@ -375,4 +375,4 @@ VMM 伺服器上的提供者會收到來自服務的事件通知，並在 Hyper-
 
 - **選擇**：這是服務不可或缺的一部分，而且無法關閉。如果您不想將此資訊傳送給服務，請勿使用此服務。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!------HONumber=AcomDC_0121_2016-->

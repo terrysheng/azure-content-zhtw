@@ -152,4 +152,4 @@ BambooHR 需以手動方式佈建。
 
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!----HONumber=AcomDC_0121_2016-->
+<!-----HONumber=AcomDC_0121_2016-->

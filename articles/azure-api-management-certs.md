@@ -21,11 +21,11 @@
 
 管理憑證可讓您使用 Azure 所提供的服務管理 API 進行驗證。許多程式和工具 (例如 Visual Studio 或 Azure SDK) 會使用這些憑證，將各種 Azure 服務的設定與部署自動化。這些並不是真的與雲端服務相關。
 
->[AZURE.WARNING]請務必小心！ 這些憑證類型允許使用它們進行驗證的任何人管理與他們相關聯的訂用帳戶。
+>[AZURE.WARNING] 請務必小心！ 這些憑證類型允許使用它們進行驗證的任何人管理與他們相關聯的訂用帳戶。
 
 如果您需要，可以為您[提供](cloud-services/cloud-services-certs-create.md#what-are-management-certificates)有關 Azure 憑證 (包括建立自我簽署憑證) 的詳細資訊。
 
-您也可以使用 [Azure Active Directory](http://azure.microsoft.com/documentation/services/active-directory/) 驗證用於自動化用途的用戶端程式碼。
+您也可以使用 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/) 驗證用於自動化用途的用戶端程式碼。
 
 ## 上傳管理憑證
 
@@ -52,4 +52,4 @@
 
 既然您已經擁有與訂用帳戶相關聯的管理憑證，您就能 (在本機安裝相符的憑證之後) 以程式設計方式連線到[服務管理 REST API](https://msdn.microsoft.com/library/azure/mt420159.aspx)，並將同樣與該訂用帳戶相關聯的各種 Azure 資源自動化。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

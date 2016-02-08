@@ -60,7 +60,7 @@
 
 用戶端雖然可透過網際網路連線，但這不表示任何人都可以連接您的 SQL Server。外部用戶端必須要有正確的使用者名稱和密碼。為了增加安全性，請勿使用知名的 1433 連接埠做為公用虛擬機器端點。請盡可能考慮在您的端點加入 ACL 來限制流量，只開放給您允許的用戶端。如需有關在端點中使用 ACL 的指示，請參閱[在端點上管理 ACL](virtual-machines-set-up-endpoints.md#manage-the-acl-on-an-endpoint)。
 
->[AZURE.NOTE]請務必注意，當您使用這項技巧與 SQL Server 進行通訊時，所有傳回的資料會視為資料中心的連出流量，並受限於一般[輸出資料傳輸價格](http://azure.microsoft.com/pricing/details/data-transfers)。即使您在相同的 Azure 資料中心內的另一部機器或雲端服務使用這項技巧，也是如此，因為流量還是會通過 Azure 的公用負載平衡器。
+>[AZURE.NOTE] 請務必注意，當您使用這項技巧與 SQL Server 進行通訊時，所有傳回的資料會視為資料中心的連出流量，並受限於一般[輸出資料傳輸價格](https://azure.microsoft.com/pricing/details/data-transfers/)。即使您在相同的 Azure 資料中心內的另一部機器或雲端服務使用這項技巧，也是如此，因為流量還是會通過 Azure 的公用負載平衡器。
 
 ### 連接相同虛擬網路中的 SQL Server
 
@@ -110,4 +110,4 @@
 
 如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

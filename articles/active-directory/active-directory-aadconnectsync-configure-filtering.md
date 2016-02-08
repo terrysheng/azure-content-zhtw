@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/21/2016"
 	ms.author="andkjell;markusvi"/>
 
 
@@ -246,4 +246,4 @@ Azure AD Connect 只會刪除其曾經認為是在範圍內的物件。如果 Az
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/25/2016"
 	ms.author="dkshir"/>
 
 # 疑難排解執行 Windows 之 Azure 虛擬機器的遠端桌面連線
@@ -26,7 +26,7 @@
 
 本文適用於執行 Windows 的 Azure 虛擬機器。對於執行 Linux 的 Azure 虛擬機器，請參閱[疑難排解 Azure VM 的 SSH 連線](virtual-machines-troubleshoot-ssh-connections.md)。
 
-如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專員。或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後按一下**取得支援**。
 
 
 <a id="quickfixrdp"></a>
@@ -46,20 +46,20 @@
 
 - 檢閱 VM 的主控台記錄檔或螢幕擷取畫面，以修正開機問題。<br> 依序按一下 [瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [設定] > [開機診斷]。
 
-- 檢查 VM 的資源健康情況是否有任何平台問題。<br> 依序按一下 [瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [設定] > [檢查健康情況]
+- 檢查 VM 的資源健康情況是否有任何平台問題。<br> 依序按一下 [瀏覽] > [虛擬機器 (傳統)] > 您的 Windows 虛擬機器 > [設定] > [檢查健康情況]。
 
 ### 使用資源管理員部署模型建立的虛擬機器
 
 這些步驟可解決使用資源管理員部署模型建立之 Azure 虛擬機器中最常見的遠端桌面連線失敗。在每個步驟完成後，請嘗試重新連接至 VM。
 
-- 使用 Powershell 重設遠端存取<br> a.如果尚未安裝，請使用 Azure AD 方法[安裝 Azure PowerShell 並連線至您的 Azure 訂用帳戶](../powershell-install-configure.md)。請注意，在新的 Azure PowerShell 1.0.x 版中，您不需要切換至資源管理員模式。
+- 使用 Powershell _重設遠端存取_<br> a.如果尚未安裝，請使用 Azure AD 方法[安裝 Azure PowerShell 並連線至您的 Azure 訂用帳戶](../powershell-install-configure.md)。請注意，在新的 Azure PowerShell 1.0.x 版中，您不需要切換至資源管理員模式。
 
 	b.使用下列任一個 Azure PowerShell 命令來重設您的 RDP 連線。使用和您的設定相關的值取代 `myRG`、`myVM`、`myVMAccessExtension` 和位置。
 
 	```
 	Set-AzureRmVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
 	```
-	或
+	或<br>
 
   ```
   Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" -Location Westus
@@ -69,7 +69,7 @@
 
 - 調整 VM 大小以修正任何主機問題。<br> 依序按一下 [瀏覽] > [虛擬機器] > 您的 Windows 虛擬機器 > [設定] > [大小]。
 
-- 檢閱 VM 的主控台記錄檔或螢幕擷取畫面，以修正開機問題。<br> 依序按一下 [瀏覽] > [虛擬機器] > 您的 Windows 虛擬機器 > [設定] > [開機診斷]
+- 檢閱 VM 的主控台記錄檔或螢幕擷取畫面，以修正開機問題。<br> 依序按一下 [瀏覽] > [虛擬機器] > 您的 Windows 虛擬機器 > [設定] > [開機診斷]。
 
 
 如果上述步驟無法解決您的遠端桌面連線失敗，請繼續下一節。
@@ -171,4 +171,4 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0114_2016---->
+<!---HONumber=AcomDC_0128_2016-->

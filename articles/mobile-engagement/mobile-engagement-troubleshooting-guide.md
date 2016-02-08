@@ -110,7 +110,7 @@
 如果您無法自行解決問題，您可以：
 
 1. 在 StackOverflow 論壇與 [MSDN 論壇](https://social.msdn.microsoft.com/Forums/windows/zh-TW/home?forum=azuremobileengagement)的現有討論對話中，搜尋是否有您的問題，如果沒有，即在論壇中發問。 
-2. 如果您發現缺少什麼功能，則請到我們的 [UserVoice 論壇](http://feedback.azure.com/forums/285737-mobile-engagement)新增申請或進行投票
+2. 如果您發現缺少什麼功能，則請到我們的 [UserVoice 論壇](https://feedback.azure.com/forums/285737-mobile-engagement/)新增申請或進行投票
 3. 如果您有 Microsoft 支援，則請提供下列詳細資料來開立支援事件： 
 	- Azure 訂用帳戶識別碼
 	- 平台 (例如 iOS、Android 等)
@@ -120,4 +120,4 @@
 	- Mobile Engagement SDK 版本 (例如 Android SDK v2.1.0)
 	- 附有確切錯誤訊息與狀況的錯誤詳細資料
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

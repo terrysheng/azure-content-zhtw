@@ -23,7 +23,7 @@
 
 Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時通訊。此外，它還能支援遞補其他適用於舊版瀏覽器的傳輸 (例如長輪詢)。本教學課程將逐步引導您裝載 Socket.IO 型聊天應用程式以做為 Azure Web 應用程式，並示範如何使用 [Azure Redis 快取](/documentation/services/cache)為應用程式[調整規模](#scale-out)。如需 Socket.IO 的詳細資訊，請參閱 [http://socket.io/][socketio]。
 
-> [AZURE.NOTE]此工作中的程序適用於 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)。對於雲端服務，請參閱<a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 聊天應用程式</a>。
+> [AZURE.NOTE] 此工作中的程序適用於 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)。對於雲端服務，請參閱<a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">在 Azure 雲端服務上使用 Socket.IO 建立 Node.js 聊天應用程式</a>。
 
 
 ## 下載聊天範例
@@ -67,7 +67,7 @@ Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時�
 
 遵循以下步驟來建立 Azure Web 應用程式、啟用 Git 發行，然後針對 Web 應用程式啟用 WebSocket 支援。
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。
+> [AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Azure 免費試用</a>。
 
 1. 安裝 Azure 命令列介面 (Azure CLI)，並連線到您的 Azure 訂用帳戶。請參閱[安裝和設定 Azure CLI](../xplat-cli)。
 
@@ -93,7 +93,7 @@ Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時�
 
 	系統出現提示時，請輸入步驟 2 中的認證。在伺服器上匯入模組時會顯示狀態訊息。此程序完成之後，應用程式將裝載於 Azure Web 應用程式上。
 
- 	> [AZURE.NOTE]在模組安裝期間，您可能會看到「找不到匯入的專案...」的錯誤。請放心忽略這項錯誤訊息。
+ 	> [AZURE.NOTE] 在模組安裝期間，您可能會看到「找不到匯入的專案...」的錯誤。請放心忽略這項錯誤訊息。
 
 4. Socket.IO 使用 WebSockets (在 Azure 上依預設不會啟用)。若要啟用 Web Sockets，請使用下列命令：
 
@@ -101,7 +101,8 @@ Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時�
 
 	如果出現提示，請輸入 Web 應用程式的名稱。
 
-	>[AZURE.NOTE]'azure site set -w' 命令僅適用於 Azure 命令列介面 0.7.4 版或更新版本。您也可以使用 [Azure 入口網站](https://portal.azure.com)來啟用 WebSocket 支援。
+	>[AZURE.NOTE]
+	'azure site set -w' 命令僅適用於 Azure 命令列介面 0.7.4 版或更新版本。您也可以使用 [Azure 入口網站](https://portal.azure.com)來啟用 WebSocket 支援。
 	>
 	>若要使用 Azure 入口網站啟用 WebSocket，可從 [Web App] 分頁中按一下 Web 應用程式，然後依序按一下 [所有設定] > [應用程式設定]。在 [Web 通訊端] 下方，按一下 [開啟]。然後按一下 [儲存]。
 
@@ -115,13 +116,13 @@ Socket.IO 使用 WebSocket 提供 node.js 伺服器與用戶端之間的即時�
 
 Socket.IO 應用程式可以使用__配接器__來橫向擴充，以在多個應用程式執行個體之間散佈訊息和事件。由於市面上已有數種配接器，因此可以輕鬆使用 [socket.io-redis](https://github.com/automattic/socket.io-redis) 配接器來搭配 Azure Redis 快取功能。
 
-> [AZURE.NOTE]橫向擴充 Socket.IO 解決方案的額外需求是支援黏性工作階段。Azure Web Apps 的黏性工作階段預設是透過 Azure 要求路由來啟用。如需詳細資訊，請參閱 [Azure 網站的執行個體同質性](http://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)。
+> [AZURE.NOTE] 橫向擴充 Socket.IO 解決方案的額外需求是支援黏性工作階段。Azure Web Apps 的黏性工作階段預設是透過 Azure 要求路由來啟用。如需詳細資訊，請參閱 [Azure 網站的執行個體同質性](https://azure.microsoft.com/blog/2013/11/18/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)。
 
 ###建立 Redis 快取
 
 執行[在 Azure Redis 快取中建立快取](/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache)中的步驟以建立新的快取。
 
-> [AZURE.NOTE]儲存快取的__主機名稱__和__主要金鑰__，因為後續步驟將會需要這些項目。
+> [AZURE.NOTE] 儲存快取的__主機名稱__和__主要金鑰__，因為後續步驟將會需要這些項目。
 
 ###新增 redis 和 socket.io-redis 模組
 
@@ -129,7 +130,7 @@ Socket.IO 應用程式可以使用__配接器__來橫向擴充，以在多個應
 
 		npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
-	> [AZURE.NOTE]此命令中指定的版本是測試本文章所使用的版本。
+	> [AZURE.NOTE] 此命令中指定的版本是測試本文章所使用的版本。
 
 2. 修改 __app.js__ 檔案以在 `var io = require('socket.io')(server);` 之後緊接下列行
 
@@ -143,7 +144,7 @@ Socket.IO 應用程式可以使用__配接器__來橫向擴充，以在多個應
 
 	如此將會為先前建立的 Redis 快取建立一個發佈和訂閱用戶端。之後該用戶端會搭配配接器使用，以將 Socket.IO 設定為使用 Redis 快取在應用程式的執行個體之間傳遞訊息和事件。
 
-	> [AZURE.NOTE]雖然 __socket.io-redis__ 配接器可以直接與 Redis 通訊，但是目前版本並不支援 Azure Redis 快取所需的驗證。因此，系統會使用 __redis__ 模組來建立初始連線，然後將該用戶端傳遞至 __socket.io-redis__ 配接器。
+	> [AZURE.NOTE] 雖然 __socket.io-redis__ 配接器可以直接與 Redis 通訊，但是目前版本並不支援 Azure Redis 快取所需的驗證。因此，系統會使用 __redis__ 模組來建立初始連線，然後將該用戶端傳遞至 __socket.io-redis__ 配接器。
 	>
 	> 雖然 Azure Redis 快取使用連接埠 6380 來支援安全的連線，但是此範例中使用的模組截至 2014/7/14 為止並不支援安全的連線。以上程式碼使用的是預設的 6379 連接埠 (不安全)。
 
@@ -183,7 +184,7 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 		  io.set('transports', ['websocket']);
 		});
 
-	> [AZURE.NOTE]請注意，不支援 WebSockets 的舊版瀏覽器將無法在以上程式碼作用中時連線至該網站，因為此程式碼會將通訊僅限制到 WebSockets。
+	> [AZURE.NOTE] 請注意，不支援 WebSockets 的舊版瀏覽器將無法在以上程式碼作用中時連線至該網站，因為此程式碼會將通訊僅限制到 WebSockets。
 
 * **使用 SSL**
 
@@ -207,7 +208,7 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 
 	通常 Node.js 應用程式並不包含 **web.config** 檔案，因此 Azure 網站會在部署 Node.js 應用程式時自動建立此一檔案。由於此檔案是在伺服器上自動產生的，因此您必須在網站使用 FTP 或 FTPS URL 才能檢視此檔案。您可以在傳統入口網站中選取您的 Web 應用程式，再選取 [儀表板] 連結，以找出該網站的 FTP 和 FTPS URL。URL 會顯示在 [快速概覽] 區段。
 
-	> [AZURE.NOTE]如果您的應用程式並未提供 **web.config** 檔案，那麼此一檔案只會由 Azure 網站來產生。如果您在應用程式專案的根目錄中提供 **web.config** 檔案，Azure Web Apps 將會使用此檔案。
+	> [AZURE.NOTE] 如果您的應用程式並未提供 **web.config** 檔案，那麼此一檔案只會由 Azure 網站來產生。如果您在應用程式專案的根目錄中提供 **web.config** 檔案，Azure Web Apps 將會使用此檔案。
 
 	如果沒有顯示此項目，或此項目設為 `true` 的值，那麼您應該在 Node.js 應用程式的根目錄中建立一個 **web.config**，然後指定 `false` 的值。以下即為某種應用程式的預設 **web.config**，這種應用程式是使用 **app.js** 作為進入點，供您參考。
 
@@ -262,7 +263,7 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 
 	如果您的應用程式使用非 **app.js** 的進入點，則必須將 **app.js** 的所有出現項目取代為正確的進入點。例如，將 **app.js** 取代為 **server.js**。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ##後續步驟
 
@@ -285,4 +286,4 @@ Azure Web Apps 可用於多個 SKU，SKU 可以決定您網站適用的資源。
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

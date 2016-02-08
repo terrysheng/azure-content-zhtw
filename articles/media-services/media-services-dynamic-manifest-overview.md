@@ -192,7 +192,7 @@
 
 您可以結合最多 3 個篩選條件。
 
-如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)。
+如需詳細資訊，請參閱[此部落格](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)。
 
 
 ##已知問題與限制
@@ -236,4 +236,4 @@
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

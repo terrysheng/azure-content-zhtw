@@ -16,7 +16,7 @@
 ## 概念
 取得 Azure 備份文件中的 [Azure IaaS VM 備份簡介](backup-azure-vms-introduction.md)。
 
-> [AZURE.WARNING]開始之前，請確定您已了解使用 Azure 備份需要的[必要條件](backup-azure-vms-prepare.md)的重點，以及目前的 VM 備份解決方案的[限制](backup-azure-vms-prepare.md#limitations)。
+> [AZURE.WARNING] 開始之前，請確定您已了解使用 Azure 備份需要的[必要條件](backup-azure-vms-prepare.md)的重點，以及目前的 VM 備份解決方案的[限制](backup-azure-vms-prepare.md#limitations)。
 
 若要有效地使用 PowerShell，就必須了解物件的階層及從何處開始。
 
@@ -70,7 +70,7 @@ PowerShell 可以自動化下列設定和註冊工作：
 
 ### 建立備份保存庫
 
-> [AZURE.WARNING]對於第一次使用 Azure 備份的客戶，您需要註冊 Azure 備份提供者以搭配您的訂用帳戶使用。這可以透過執行下列命令來完成：Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] 對於第一次使用 Azure 備份的客戶，您需要註冊 Azure 備份提供者以搭配您的訂用帳戶使用。這可以透過執行下列命令來完成：Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 
 您可以使用 **New-AzureRMBackupVault** Cmdlet 建立新的備份保存庫。備份保存庫是 ARM 資源，因此您必須將它放在資源群組內。在提高權限的 Azure PowerShell 主控台中，執行下列命令：
 
@@ -81,7 +81,7 @@ PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg”
 
 您可以使用 **Get-AzureRMBackupVault** Cmdlet 取得特定訂用帳戶中所有備份保存庫的清單。
 
-> [AZURE.NOTE]將備份保存庫物件儲存到變數中會很方便。許多 Azure 備份 Cmdlet 都需要保存庫物件做為輸入。
+> [AZURE.NOTE] 將備份保存庫物件儲存到變數中會很方便。許多 Azure 備份 Cmdlet 都需要保存庫物件做為輸入。
 
 
 ### 註冊 VM
@@ -106,7 +106,7 @@ Name                      Type               ScheduleType       BackupTime
 DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:00 AM
 ```
 
-> [AZURE.NOTE]PowerShell 中 BackupTime 欄位的時區是 UTC。不過，當備份時間顯示在 Azure 入口網站中時，時區會對應您的本機系統與 UTC 時差。
+> [AZURE.NOTE] PowerShell 中 BackupTime 欄位的時區是 UTC。不過，當備份時間顯示在 Azure 入口網站中時，時區會對應您的本機系統與 UTC 時差。
 
 備份原則至少與一個保留原則相關聯。保留原則定義復原點在 Azure 備份中保留的時間長度。**New-AzureRMBackupRetentionPolicy** Cmdlet 會建立可儲存保留原則資訊的 PowerShell 物件。這些保留原則物件會用作為 *New-AzureRMBackupProtectionPolicy* Cmdlet 的輸入，或直接與 *Enable-AzureRMBackupProtection* Cmdlet 搭配使用。
 
@@ -141,7 +141,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
 
-> [AZURE.NOTE]在 PowerShell 中顯示的 StartTime 和 EndTime 欄位的時間為 UTC。不過，當類似資訊顯示在 Azure 入口網站中時，時區會對應您的本機系統時鐘。
+> [AZURE.NOTE] 在 PowerShell 中顯示的 StartTime 和 EndTime 欄位的時間為 UTC。不過，當類似資訊顯示在 Azure 入口網站中時，時區會對應您的本機系統時鐘。
 
 ### 監視備份工作
 Azure 備份中長時間執行的大部分作業都模擬成工作。如此就很容易追蹤進度，而不需要一直開啟 Azure 入口網站。
@@ -195,7 +195,7 @@ RecoveryPointId    RecoveryPointType  RecoveryPointTime      ContainerName
 
 透過 Azure 入口網站或透過 Azure PowerShell 執行還原作業，兩者之間有一項重要差異。如果使用 PowerShell，從復原點還原磁碟及組態資訊時，還原作業會停止。不會建立虛擬機器。
 
-> [AZURE.WARNING]Restore-AzureRMBackupItem 不會建立 VM。只會將磁碟還原到指定的儲存體帳戶。這與 Azure 入口網站中的行為不同。
+> [AZURE.WARNING] Restore-AzureRMBackupItem 不會建立 VM。只會將磁碟還原到指定的儲存體帳戶。這與 Azure 入口網站中的行為不同。
 
 ```
 PS C:\> $restorejob = Restore-AzureRMBackupItem -StorageAccountName "DestAccount" -RecoveryPoint $rp[0]
@@ -327,4 +327,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 如果想要將製作圖表的功能加入這個報表輸出，請在 TechNet 部落格上了解[使用 PowerShell 製作圖表](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

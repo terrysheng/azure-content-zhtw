@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Azure Multi-Factor Authentication 的 Azure MFA 登入體驗" 
-	description="本頁面將指引您移至何處才能看到 Azure MFA 可用的各種登入方法。" 
+	description="本頁面將指引您移至何處才能看到 Azure MFA 可用的各種登入方法。"
+	keywords="使用者驗證, 登入經驗, 使用行動電話登入, 使用辦公室電話登入" 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 的登入體驗
-> [AZURE.NOTE]以下文件顯示一般登入體驗。如需登入的說明，請參閱[使用 Azure Multi-Factor Authentication 時碰到困難](multi-factor-authentication-end-user-manage-settings.md)
+> [AZURE.NOTE]  以下文件顯示一般登入體驗。如需登入的說明，請參閱[使用 Azure Multi-Factor Authentication 時碰到困難](multi-factor-authentication-end-user-manage-settings.md)
 
 
 
@@ -103,4 +104,4 @@
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

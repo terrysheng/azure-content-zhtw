@@ -47,7 +47,7 @@ Azure 備份和 System Center Data Protection Manager 的客戶可以：- 以最
 
 因此復原點的總數是 56。
 
-> [AZURE.NOTE]Azure 備份對於復原點數目沒有限制。
+> [AZURE.NOTE] Azure 備份對於復原點數目沒有限制。
 
 ## 進階組態
 按一下上方畫面中的 [修改]，客戶在指定保留排程時擁有更進一步的彈性。
@@ -60,4 +60,4 @@ Azure 備份和 System Center Data Protection Manager 的客戶可以：- 以最
 - [Azure 備份的簡介](backup-introduction-to-azure-backup.md)
 - [試用 Azure 備份](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

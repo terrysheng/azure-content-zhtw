@@ -26,7 +26,7 @@
 
 **2014 年 11 月 3 日** 客體 OS 系列 1 的延伸支援已結束，並且已完全淘汰。所有仍以系列 1 為基礎的服務都將受到影響。我們可能會隨時停止這些服務。除非您以手動方式自行升級服務，否則我們不保證您的服務能繼續運作。
 
-如果您有其他問題，請造訪[雲端服務論壇](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc)或[連絡 Azure 支援](http://azure.microsoft.com/support/options/)。
+如果您有其他問題，請造訪[雲端服務論壇](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc)或[連絡 Azure 支援](https://azure.microsoft.com/support/options/)。
 
 
 
@@ -81,4 +81,4 @@ foreach($subscription in Get-AzureSubscription) {
 ## 後續步驟
 檢閱最新的[客體作業系統版本](cloud-services-guestos-update-matrix.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

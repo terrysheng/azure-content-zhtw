@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2015" 
+    ms.date="01/26/2016" 
     ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 Mindflash 整合
@@ -86,7 +86,7 @@
 
 5.  將中繼資料檔傳送給 Mindflash 支援小組。
 
-    >[AZURE.NOTE]單一登入設定必須由 Mindflash 支援小組執行。設定完成後，您將會收到通知。
+    >[AZURE.NOTE] 單一登入設定必須由 Mindflash 支援小組執行。設定完成後，您將會收到通知。
 
 6.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
 
@@ -132,4 +132,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

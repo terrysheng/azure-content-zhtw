@@ -93,7 +93,7 @@
 
 4. 在 [回合設定] 區段中，指定負載測試持續期間。
 
-    >[AZURE.NOTE] [測試反覆項目] 選項只有當您使用 Visual Studio 在本機執行負載測試時才可以使用。
+    >[AZURE.NOTE] [測試反覆項目] 選項只有當您使用 Visual Studio 在本機執行負載測試時才可以使用。
 
 5. 在 [回合設定] 的 [位置] 區段中，指定產生負載測試要求的位置。此精靈可能會提示您登入您的 Team Services 帳戶。登入，然後選擇一個地理位置。完成時，選擇 [完成] 按鈕。
 
@@ -141,4 +141,4 @@ Visual Studio Team Services 負載測試會提供 API 協助您管理負載測�
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

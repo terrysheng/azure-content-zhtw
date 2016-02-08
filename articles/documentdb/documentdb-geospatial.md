@@ -18,7 +18,7 @@
     
 # 使用 Azure DocumentDB 中的地理空間資料
 
-本文將介紹 [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 中的地理空間功能。閱讀本文後，您將能夠回答下列問題：
+本文將介紹 [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 中的地理空間功能。閱讀本文後，您將能夠回答下列問題：
 
 - 如何儲存 Azure DocumentDB 中的空間資料？
 - 如何以 SQL 和 LINQ 查詢 Azure DocumentDB 中的地理空間資料？
@@ -43,7 +43,7 @@ DocumentDB 支援對使用 [GeoJSON 規格](http://geojson.org/geojson-spec.html
        "coordinates":[ 31.9, -4.8 ]
     }
 
->[AZURE.NOTE]GeoJSON 規格會先指定經度，然後再指定緯度。如同其他的地圖應用程式，經度和緯度為角度，並以度為表示單位。經度值是從本初子午線測量，並介於 -180 和 180.0 度之間；緯度值是從赤道測量，並介於 -90.0 和 90.0 度之間。
+>[AZURE.NOTE] GeoJSON 規格會先指定經度，然後再指定緯度。如同其他的地圖應用程式，經度和緯度為角度，並以度為表示單位。經度值是從本初子午線測量，並介於 -180 和 180.0 度之間；緯度值是從赤道測量，並介於 -90.0 和 90.0 度之間。
 >
 > DocumentDB 會將座標解譯為依照 WGS-84 參考系統的表示。請參閱下方詳細的座標參考系統資料。
 
@@ -77,7 +77,7 @@ DocumentDB 支援對使用 [GeoJSON 規格](http://geojson.org/geojson-spec.html
        ]
     }
 
->[AZURE.NOTE]GeoJSON 規格需要此資料才能形成有效的多邊形；若要建立一個封閉的形狀，最後一個座標組應該與第一個座標組相同。
+>[AZURE.NOTE] GeoJSON 規格需要此資料才能形成有效的多邊形；若要建立一個封閉的形狀，最後一個座標組應該與第一個座標組相同。
 >
 >多邊形內的點必須以逆時針順序指定。以順時針順序指定多邊形，代表區域內的反轉。
 
@@ -198,7 +198,7 @@ ST\_WITHIN 中的多邊形引數只可以包含單一環狀，也就是多邊形
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]與 DocumentDB 查詢中不相符類型的運作方式類似的是，如果任一引數中指定的位置值格式不正確或無效，則會評估為**未定義**，且會在查詢結果中略過已評估的文件。如果您的查詢沒有傳回任何結果，請執行 ST\_ISVALIDDETAILED 來偵錯，了解空間類型無效的原因。
+>[AZURE.NOTE] 與 DocumentDB 查詢中不相符類型的運作方式類似的是，如果任一引數中指定的位置值格式不正確或無效，則會評估為**未定義**，且會在查詢結果中略過已評估的文件。如果您的查詢沒有傳回任何結果，請執行 ST\_ISVALIDDETAILED 來偵錯，了解空間類型無效的原因。
 
 ST\_ISVALID 和 ST\_ISVALIDDETAILED 可用來檢查空間物件是否有效。例如，下列查詢以超出範圍的緯度值 (-132.8)，檢查點的有效性。ST\_ISVALID 只會傳回布林值，而 ST\_ISVALIDDETAILED 會傳回布林和字串，字串中包含被視為無效的原因。
 
@@ -345,7 +345,7 @@ DocumentDB.NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提�
         await Task.Delay(TimeSpan.FromSeconds(1));
     }
 
-> [AZURE.NOTE]如果文件中的 GeoJSON 位置值格式不正確或無效，就不會為其編製索引以用於空間查詢。您可以使用 ST\_ISVALID 和 ST\_ISVALIDDETAILED 驗證位置值。
+> [AZURE.NOTE] 如果文件中的 GeoJSON 位置值格式不正確或無效，就不會為其編製索引以用於空間查詢。您可以使用 ST\_ISVALID 和 ST\_ISVALIDDETAILED 驗證位置值。
 
 ## 後續步驟
 既然您已經學會如何開始使用 DocumentDB 中的地理空間支援，您可以：
@@ -355,4 +355,4 @@ DocumentDB.NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提�
 - 深入了解 [DocumentDB 查詢](documentdb-sql-query.md)
 - 深入了解 [DocumentDB 索引編製原則](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

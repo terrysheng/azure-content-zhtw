@@ -3,7 +3,7 @@
    description="了解如何將角色新增到具備 Azure 特殊權限身分識別管理擴充功能的特殊權限身分識別。"
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="inhenk"/>
+   ms.date="01/21/2016"
+   ms.author="kgremban"/>
 
-# Azure 特殊權限身分識別管理：如何執行安全性檢閱
+# Azure Privileged Identity Management：如何執行安全性檢閱
 
-## 執行安全性檢閱
+
 一旦[啟動安全性檢閱](active-directory-privileged-identity-management-how-to-start-security-review.md)之後，檢閱特殊權限存取就非常容易。
 
 ## 針對檢閱者：核准或拒絕存取
@@ -35,21 +35,21 @@
 ## 針對檢閱管理員：管理安全性檢閱
 
 ## 完成或停止檢閱
-1. 返回 PIM 儀表板。
+1. 移至 PIM 儀表板。
 2. 在 [安全性檢閱] 清單中，按一下您想要完成的安全性檢閱。隨即會出現安全性檢閱的詳細資料刀鋒視窗。
 3. 按一下 [停止檢閱] 以完成或停止檢閱。這將會封存檢閱，而該刀鋒視窗將會消失。
 
 ## 匯出檢閱
 您可以匯出檢閱，來與 Excel 或可使用 CSV 檔案的其他程式搭配使用。
 
-1. 返回 PIM 儀表板。
+1. 移至 PIM 儀表板。
 2. 按一下儀表板的 [安全性檢閱] 區段。隨即會出現 [安全性檢閱] 刀鋒視窗。
 3. 按一下您想要匯出的安全性檢閱。隨即會出現安全性檢閱的詳細資料刀鋒視窗。
 4. 按一下 [匯出] 按鈕。隨即會開始下載 CSV 檔案。
 
 ## 刪除檢閱
 
-> AZURE.WARNING [發生刪除動作之前，您將不會收到警告，因此，請確定您「想要」實際刪除該檢閱。]
+> [AZURE.WARNING] 發生刪除動作之前，您將不會收到警告，因此，請確定您「想要」實際刪除該檢閱。
 
 1. 返回 PIM 儀表板。
 2. 按一下儀表板的 [安全性檢閱] 區段。隨即會出現 [安全性檢閱] 刀鋒視窗。
@@ -60,4 +60,4 @@
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

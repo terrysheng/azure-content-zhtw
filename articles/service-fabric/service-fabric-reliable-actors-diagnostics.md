@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
+   ms.date="01/26/2016"
    ms.author="abhisram"/>
 
 # Reliable Actors 的診斷和效能監視
@@ -153,4 +153,4 @@ Reliable Actor 執行階段會發出下列與[動作項目啟動與停用](servi
 |ActorActivated|5|資訊|0x1|動作項目已啟動。|
 |ActorDeactivated|6|資訊|0x1|動作項目已停用。|
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

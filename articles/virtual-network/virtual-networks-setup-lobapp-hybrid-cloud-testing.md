@@ -46,7 +46,7 @@
 2.	設定 SQL 伺服器電腦 (SQL1)。
 3.	設定 LOB 伺服器 (LOB1)。
 
-如果您還沒有 Azure 訂用帳戶，則可以在[試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
+如果您還沒有 Azure 訂用帳戶，則可以在[試用 Azure](https://azure.microsoft.com/pricing/free-trial/) 註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
 ## 第 1 階段：設定混合式雲端環境
 
@@ -56,7 +56,7 @@
 
 ![](./media/virtual-networks-setup-lobapp-hybrid-cloud-testing/CreateLOBAppHybridCloud_1.png)
 
-> [AZURE.NOTE]針對第 1 階段，您也可以設定模擬混合式雲端測試環境。如需指示，請參閱[設定用於測試的模擬混合式雲端環境](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)。
+> [AZURE.NOTE] 針對第 1 階段，您也可以設定模擬混合式雲端測試環境。如需指示，請參閱[設定用於測試的模擬混合式雲端環境](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)。
  
 ## 第 2 階段：設定 SQL 伺服器電腦 (SQL1)
 
@@ -98,7 +98,7 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 接著，將額外的資料磁碟新增為磁碟機代號 F: 的新磁碟區。
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] ([磁碟分割] 設為 [不明])。
+2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 磁碟 2 (磁碟分割 設為 不明)。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
 4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
 5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
@@ -161,12 +161,12 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 接著，為 IIS 設定 LOB1，並且測試從 CLIENT1 進行的存取。
 
 1.	執行伺服器管理員，然後按一下 [新增角色及功能]。
-2.	在 [開始之前] 頁面中按一下 [下一步]。
-3.	在 [選取安裝類型] 頁面上，按一下 [下一步]。
-4.	在 [選取目的地伺服器] 頁面上，按一下 [下一步]。
-5.	在 [伺服器角色] 頁面上，按一下 [角色] 清單中的 [Web 伺服器 (IIS)]。
-6.	出現提示時，按一下 [新增功能]，然後按一下 [下一步]。
-7.	在 [選取功能] 頁面上，按一下 [下一步]。
+2.	在 [開始之前] 頁面中按 [下一步]。
+3.	在 [選取安裝類型] 頁面上，按 [下一步]。
+4.	在 [選取目的地伺服器] 頁面上，按 [下一步]。
+5.	在 [伺服器角色] 頁面上，按一下 [角色] 清單中的 [網頁伺服器 (IIS)]。
+6.	出現提示時，按一下 [新增功能]，然後按 [下一步]。
+7.	在 [選取功能] 頁面上，按 [下一步]。
 8.	在 [網頁伺服器 (IIS)] 頁面上，按一下 [下一步]。
 9.	在 [選取角色服務] 頁面上，選取或清除測試 LOB 應用程式所需服務的核取方塊，然後按一下 [下一步]。
 10.	在 [確認安裝選項] 頁面上，按一下 [安裝]。
@@ -199,4 +199,4 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 [Azure 基礎結構服務實作指導方針](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -56,20 +56,20 @@ CDN 的典型用法包括：
 下列清單顯示來自不同地理位置的第一個位元組的時間中間值範例。目標 Web 角色會部署到 Azure 美國西部。因為 CDN 很接近 CDN 節點，所以較大的暴增之間有更強的關聯性。如需 Azure CDN 節點位置的完整清單，請參閱 [Azure 內容傳遞網路 (CDN) POP 位置](cdn/cdn-pop-locations.md/)。
 
 
-|| 到達第一個位元組 (原點) 的時間 (毫秒) | 到達第一個 (CDN) 的時間 (ms) |CDN 時間改善百分比|
+| 距第一位元組 (來源) 時間 (毫秒) | 第一個 (CDN) 的時間 (毫秒) |%CDN 時間改善|
 |-------------|------------------------|--------------------|------------------|
-|\*聖荷西, CA| 47.5 | 46.5 | 2 % |
-|\*\*杜勒斯, VA| 109 | 40.5 | 169% |
-|布宜諾斯艾利斯, AR| 210 | 151 | 39%|
-|\*倫敦, UK| 195 | 44 | 343%|
-|上海, CN| 242 | 206 | 17% |
-|\*新加坡 | 214 | 74 | 189 % |
-|\*東京, JP | 163 | 48 | 204 % |
-|首爾, KR| 190 | 190 | 0% |
+|*美國加州聖荷西| 47.5 | 46.5 | 2 % |
+|**維吉尼亞州杜勒斯| 109 | 40.5 | 169% |
+|阿根廷布宜諾斯艾利斯| 210 | 151 | 39%|
+|*英國倫敦| 195 | 44 | 343%|
+|中國上海| 242 | 206 | 17% |
+|*新加坡 | 214 | 74 | 189 % |
+|*日本東京 | 163 | 48 | 204 % |
+|韓國首爾| 190 | 190 | 0% |
 
 
-\* 在同一城市中具有 Azure CDN 節點。  
-\*\* 在鄰近城市中具有 Azure CDN 節點。  
+* 在同一城市中具有 Azure CDN 節點。
+** 在鄰近城市中具有 Azure CDN 節點。
 
 ## 挑戰  
 
@@ -281,12 +281,10 @@ Azure CDN 可讓您指定自訂網域名稱，並使用它透過 CDN 存取資�
 ## 詳細資訊
 
 
-+ [Azure CDN](http://azure.microsoft.com/services/cdn/)
++ [Azure CDN](https://azure.microsoft.com/services/cdn/)
 + [Azure 內容傳遞網路 (CDN) 文件](https://azure.microsoft.com/documentation/services/cdn/)
 + [在 Web 應用程式中從 Azure CDN 提供內容](cdn/cdn-serve-content-from-cdn-in-your-web-application/)
 + [整合雲端服務與 Azure CDN](cdn/cdn-cloud-service-with-cdn.md/)
-+ [Microsoft Azure 內容傳遞網路的最佳作法](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
++ [Microsoft Azure 內容傳遞網路的最佳作法](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=AcomDC_1223_2015-->
-
-
+<!---HONumber=AcomDC_0128_2016-->

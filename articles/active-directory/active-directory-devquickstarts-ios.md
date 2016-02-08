@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # 將 Azure AD 整合至 iOS 應用程式
@@ -47,7 +47,7 @@ iOS 格式的重新導向 URI：
 
 - 	**aap-scheme** - 這已在您的 XCode 專案中註冊。它是其他應用程式呼叫您的方式。您可以在 Info.plist -> URL types -> URL Identifier 下找到此項目。如果您尚未設定任何一個，建議您建立一個。
 - 	**bundle-id** - 這是在您的 XCode 專案設定中，[identity] 下可找到的 [Bundle Identifier]。
-	
+
 此 QuickStart 程式碼的範例為：******msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2.註冊 DirectorySearcher 應用程式*
@@ -107,12 +107,12 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
         completionBlock(data.userItem.accessToken, nil);
         return;
     }
-    
+
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
     authContext.parentController = parent;
     NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
-    
+
     [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
     [authContext acquireTokenWithResource:data.resourceId
                                  clientId:data.clientId
@@ -121,7 +121,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                                    userId:data.userItem.userInformation.userId
                      extraQueryParameters: @"nux=1" // if this strikes you as strange it was legacy to display the correct mobile UX. You most likely won't need it in your code.
                           completionBlock:^(ADAuthenticationResult *result) {
-                              
+
                               if (result.status != AD_SUCCEEDED)
                               {
                                   completionBlock(nil, result.error);
@@ -147,68 +147,68 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
     {
         [self readApplicationSettings];
     }
-    
+
     AppData* data = [AppData getInstance];
-    
+
     NSString *graphURL = [NSString stringWithFormat:@"%@%@/users?api-version=%@&$filter=startswith(userPrincipalName, '%@')", data.taskWebApiUrlString, data.tenant, data.apiversion, searchString];
 
-    
+
     [self craftRequest:[self.class trimString:graphURL]
                 parent:parent
      completionHandler:^(NSMutableURLRequest *request, NSError *error) {
-         
+
          if (error != nil)
          {
              completionBlock(nil, error);
          }
          else
          {
-             
+
              NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-             
+
              [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                 
+
                  if (error == nil && data != nil){
-                     
+
                      NSDictionary *dataReturned = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                     
+
                      // We can grab the top most JSON node to get our graph data.
                      NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
-                     
+
                      // Don't be thrown off by the key name being "value". It really is the name of the
                      // first node. :-)
-                     
+
                      //each object is a key value pair
                      NSDictionary *keyValuePairs;
                      NSMutableArray* Users = [[NSMutableArray alloc]init];
-                     
+
                      for(int i =0; i < graphDataArray.count; i++)
                      {
                          keyValuePairs = [graphDataArray objectAtIndex:i];
-                         
+
                          User *s = [[User alloc]init];
                          s.upn = [keyValuePairs valueForKey:@"userPrincipalName"];
                          s.name =[keyValuePairs valueForKey:@"givenName"];
-                         
+
                          [Users addObject:s];
                      }
-                     
+
                      completionBlock(Users, nil);
                  }
                  else
                  {
                      completionBlock(nil, error);
                  }
-                 
+
              }];
          }
      }];
-    
+
 }
 
 ```
 - 當您的應用程式透過呼叫 `getToken(...)` 要求權杖時，ADAL 會嘗試在不要求使用者認證的情況下傳回權杖。如果 ADAL 決定使用者需要登入才能取得權杖，它會顯示登入對話方塊、收集使用者的認證，並在成功驗證後傳回權杖。如果基於任何原因 ADAL 無法傳回權杖，則會擲回 `AdalException`。
-- 請注意，`AuthenticationResult` 物件包含 `tokenCacheStoreItem` 物件，可用來收集您的應用程式可能需要的資訊。在 QuickStart 中，`tokenCacheStoreItem` 用來判斷驗證是否已經發生。 
+- 請注意，`AuthenticationResult` 物件包含 `tokenCacheStoreItem` 物件，可用來收集您的應用程式可能需要的資訊。在 QuickStart 中，`tokenCacheStoreItem` 用來判斷驗證是否已經發生。
 
 
 ## 步驟 5：建置並執行應用程式
@@ -225,4 +225,4 @@ ADAL 可讓您輕鬆地將這些常見的身分識別功能全部納入您的應
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,9 +1,9 @@
 <properties
    pageTitle="Azure 特殊權限身分識別管理：如何設定安全性警示"
-   description="了解如何為 Azure 特殊權限身分識別管理擴充功能設定安全性警示。"
+   description="了解如何為 Azure Privileged Identity Management 擴充功能設定安全性警示。"
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="01/21/2016"
    ms.author="inhenk"/>
 
-# Azure 特殊權限身分識別管理：如何設定安全性警示
+# Azure Privileged Identity Management：如何設定安全性警示
+
 ## 安全性警示概觀
-Azure 特殊權限身分識別管理提供下列可設定的警示。您可以在 PIM 儀表板的 [警示] 區段中檢視安全性警示。
+Azure Privileged Identity Management (PIM) 提供下列可設定的警示。您可以在 PIM 儀表板的 [警示] 區段中檢視安全性警示。
 
 | 警示 | 觸發程序 |
 | ------------- | ------------- |
@@ -42,7 +43,7 @@ Azure 特殊權限身分識別管理提供下列可設定的警示。您可以�
 1. 從儀表板的 [活動] 區段，選取 [安全性警示]。隨即會出現 [作用中的安全性警示] 刀鋒視窗。
 2. 按一下 [設定]。
 3. 調整滑桿或在文字欄位中輸入天數，來選取允許未啟用角色的天數。
-4. 按一下 [儲存]
+4. 按一下 [儲存]。
 
 ### 設定「太多全域管理員會增加您的受攻擊面」警示
 
@@ -52,9 +53,10 @@ Azure 特殊權限身分識別管理提供下列可設定的警示。您可以�
 2. 按一下 [設定]。
 3. 調整滑桿或在文字欄位中輸入數目，來設定 [全域管理員數目下限]。
 4. 調整滑桿或在文字欄位中輸入數目，來設定 [全域管理員的百分比]。
+5. 按一下 [儲存]。
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

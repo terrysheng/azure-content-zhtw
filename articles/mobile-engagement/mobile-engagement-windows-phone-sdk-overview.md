@@ -32,11 +32,11 @@
 
 ##版本資訊
 
-###3\.1.0 (11/20/2015)
-*MicrosoftAzure.MobileEngagement* Nuget 套件 **v3.2.0** 的一部分。
+###3\.2.0 (01/22/2016)
+*MicrosoftAzure.MobileEngagement* Nuget 封裝 **v3.3.0** 的一部分。
 
--   修正初始化之後立即要求裝置 ID 時發生的當機。
--   主控台記錄檔改善。
+-   動作 URL 現在可使用自訂配置、ms-appx 及 ms-appdata。
+-   穩定性改進。
 
 如需較早版本，請參閱[完整版本資訊](mobile-engagement-windows-phone-release-notes.md)
 
@@ -55,4 +55,4 @@
 請參閱[升級程序](mobile-engagement-windows-phone-upgrade-procedure/)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

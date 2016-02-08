@@ -39,7 +39,7 @@
 
 您也可以依照[參與 machine 建置](https://github.com/docker/machine#contributing)的步驟，自行建置 **docker-machine**。您應該已準備好下載最多可達 1 GB 或以上來執行組建，不過這樣做，您就可以精確自訂所需的方式。
 
-> [AZURE.NOTE]您也可以建立指向其平台版本的[符號連結](http://en.wikipedia.org/wiki/Symbolic_link)，但本教學課程會直接使用二進位檔，非常清楚地示範該行為。因此，本教學課程會改用 `docker-machine_linux-amd64 env`，而不使用如 **docker-machine** 文件所示的命令 (例如 `docker-machine env`)。不論您是否要建立符號連結或只要直接使用二進位檔名稱，都可自行決定，但是，如果要變更您正在使用的名稱，請記得使用下列指示來修改名稱。
+> [AZURE.NOTE] 您也可以建立指向其平台版本的[符號連結](http://en.wikipedia.org/wiki/Symbolic_link)，但本教學課程會直接使用二進位檔，非常清楚地示範該行為。因此，本教學課程會改用 `docker-machine_linux-amd64 env`，而不使用如 **docker-machine** 文件所示的命令 (例如 `docker-machine env`)。不論您是否要建立符號連結或只要直接使用二進位檔名稱，都可自行決定，但是，如果要變更您正在使用的名稱，請記得使用下列指示來修改名稱。
 
 <br />
 
@@ -49,7 +49,7 @@
 
 現在您必須建立憑證和金鑰檔，Azure 需要它們來確認您的身分識別和權限，而那些 **docker-machine** 需要它們來與您的 Azure 虛擬機器進行通訊，以便從遠端建立和管理容器。如果您在目錄中已經擁有這些檔案 (或許是搭配 docker 使用)，則您可以重複使用它們。但是，測試 **docker-machine** 的最佳做法是在個別目錄中建立它們，然後將 docker-machine 指向它們。
 
-> [AZURE.NOTE]如果再三嘗試 **docker-machine** 都沒有成功，請確定您重複使用憑證和金鑰檔。**docker-machine** 也會建立一組用戶端憑證 -- 其建立的所有項目都會在 `~/.docker/machine` 上進行檢查。如果您將這些憑證移至另一部電腦，也需要移動 **docker-machine** 憑證資料夾。這和您即將在另一個平台上使用 **docker-machine** 的情況不同，例如，只想查看它如何運作。
+> [AZURE.NOTE] 如果再三嘗試 **docker-machine** 都沒有成功，請確定您重複使用憑證和金鑰檔。**docker-machine** 也會建立一組用戶端憑證 -- 其建立的所有項目都會在 `~/.docker/machine` 上進行檢查。如果您將這些憑證移至另一部電腦，也需要移動 **docker-machine** 憑證資料夾。這和您即將在另一個平台上使用 **docker-machine** 的情況不同，例如，只想查看它如何運作。
 
 如果您有使用 Linux 發行版的經驗，或許已經可以在電腦的特定位置上使用這些檔案，而 [Docker HTTPS 文件也會說明這些步驟](https://docs.docker.com/articles/https/)。不過，以下是這個步驟的最簡單形式。
 
@@ -106,7 +106,7 @@
 	    INFO[0368] "machine-name" has been created and is now the active machine.
 	    INFO[0368] To point your Docker client at it, run this in your shell: $(docker-machine_linux-amd64 env machine-name)
 
-    > [AZURE.NOTE]因為正在建立 VM，所以可能需要幾分鐘的時間才能處於就緒狀態。雖然您正處於等待狀態，但您可以使用 Azure CLI 輸入 `azure vm list` 來檢查新 Docker 主機的狀態，直到您看見 VM 呈現 **ReadyRole** 狀態為止。
+    > [AZURE.NOTE] 因為正在建立 VM，所以可能需要幾分鐘的時間才能處於就緒狀態。雖然您正處於等待狀態，但您可以使用 Azure CLI 輸入 `azure vm list` 來檢查新 Docker 主機的狀態，直到您看見 VM 呈現 **ReadyRole** 狀態為止。
 
 5. 針對終端機工作階段設定 docker 和機器環境變數。傳回訊息的最後一行建議您立即執行 **env** 命令，以匯出將 docker 用戶端與特定機器直接搭配使用所需的環境變數。
 
@@ -140,7 +140,7 @@
 	    ID: W3FZ:BCZW:UX24:GDSV:FR4N:N3JW:XOC2:RI56:IWQX:LRTZ:3G4P:6KJK
 	    WARNING: No swap limit support
 
-> [AZURE.NOTE]本教學課程示範的 **docker-machine** 會建立一個 VM。不過，您可以重複執行這些步驟，來建立所需機器的數目。如果您執行此動作，則在 VM 和 docker 之間進行切換的最佳方式是使用內嵌的 **env** 命令，為每個個別命令設定 **docker** 環境變數。例如，若要搭配不同的 VM 使用 **docker info**，您可以輸入 `docker $(docker-machine env <VM name>) info`，而 **env** 命令會填入 docker 連線資訊，以便與該 VM 搭配使用。
+> [AZURE.NOTE] 本教學課程示範的 **docker-machine** 會建立一個 VM。不過，您可以重複執行這些步驟，來建立所需機器的數目。如果您執行此動作，則在 VM 和 docker 之間進行切換的最佳方式是使用內嵌的 **env** 命令，為每個個別命令設定 **docker** 環境變數。例如，若要搭配不同的 VM 使用 **docker info**，您可以輸入 `docker $(docker-machine env <VM name>) info`，而 **env** 命令會填入 docker 連線資訊，以便與該 VM 搭配使用。
 
 ## 我們已完成此動作。讓我們從遠端使用 docker，和來自 Docker 中樞的映像執行某些應用程式。
 
@@ -158,7 +158,7 @@
 
 但是，您可能想要從 [Docker 中樞](https://registry.hub.docker.com/)建立可在網際網路上立即看見的應用程式，例如 [nginx](https://registry.hub.docker.com/_/nginx/)。
 
-> [AZURE.NOTE]請記得使用 **-P** 選項，讓 **docker** 可為映像指派隨機連接埠，並使用 **-d**，以確保該容器會在背景中持續執行。(如果您忘記，將會啟動 nginx，然後它將立即關機。所以請不要忘了！)
+> [AZURE.NOTE] 請記得使用 **-P** 選項，讓 **docker** 可為映像指派隨機連接埠，並使用 **-d**，以確保該容器會在背景中持續執行。(如果您忘記，將會啟動 nginx，然後它將立即關機。所以請不要忘了！)
 
 	$ docker run --name machinenginx -P -d nginx
     Unable to find image 'nginx:latest' locally
@@ -201,7 +201,7 @@
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
-前往 [Docker 使用者指南](https://docs.docker.com/userguide/)，並在 Microsoft Azure 上建立一些應用程式。或者，在 Azure 上使用 [**docker** 和 swarm](https://github.com/docker/swarm) (virtual-machines-docker-swarm.md)，看看 swarm 如何與 docker 及 Azure 搭配使用。
+前往 [Docker 使用者指南](https://docs.docker.com/userguide/)，並在 Microsoft Azure 上建立一些應用程式。或者，在 [Azure 上使用 Docker 和 Swarm]，看看 [Swarm](https://github.com/docker/swarm) 如何與 Docker 及 Azure 搭配使用。
 
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
@@ -213,5 +213,6 @@
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+[Azure 上使用 Docker 和 Swarm]: virtual-machines-docker-swarm.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

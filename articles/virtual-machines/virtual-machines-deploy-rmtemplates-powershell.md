@@ -193,7 +193,7 @@
 
 	Remove-AzureRmVM -ResourceGroupName "resource group name" –Name "VM name"
 
-> [AZURE.NOTE]您可以使用 **– Force** 參數，略過確認提示。
+> [AZURE.NOTE] 您可以使用 **– Force** 參數，略過確認提示。
 
 系統會要您確認是否沒有使用 -Force 參數：
 
@@ -216,4 +216,4 @@
 
 [AZURE.VIDEO start-stop-restart-and-delete-vms-in-microsoft-azure-with-powershell]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="01/21/2016"
 	ms.author="jolevy"/>
 
 
@@ -25,7 +25,7 @@
 
 ## 什麼是 Azure 自動化？
 
-[Azure 自動化](http://azure.microsoft.com/services/automation/) 是一項 Azure 服務，可經由程序自動化簡化雲端管理。透過 Azure 自動化，長時間執行、手動、容易發生錯誤和經常重複的工作都可以自動化，以提高可靠性、效率，並為您的組織縮短創造價值時程。
+[Azure 自動化](https://azure.microsoft.com/services/automation/) 是一項 Azure 服務，可經由程序自動化簡化雲端管理。透過 Azure 自動化，長時間執行、手動、容易發生錯誤和經常重複的工作都可以自動化，以提高可靠性、效率，並為您的組織縮短創造價值時程。
 
 Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，可隨著組織的成長根據您的需求進行調整。在 Azure 自動化中，可利用手動方式、透過協力廠商系統或依排定的間隔開始執行程序，讓工作只發生在必要時刻。
 
@@ -41,6 +41,8 @@ Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，�
 
 了解 Azure 自動化的基本概念以及如何用它來管理 Azure 虛擬機器之後，深入了解：
 
-[開始使用 Azure 自動化](../automation-create-runbook-from-samples.md)
+- [Azure 自動化概觀](../automation/automation-intro.md)
+- [我的第一個 Runbook](../automation/automation-first-runbook-graphical.md)
+- [Azure 自動化的學習地圖](https://azure.microsoft.com/documentation/learning-paths/automation/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

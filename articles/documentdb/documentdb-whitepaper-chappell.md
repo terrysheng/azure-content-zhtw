@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="01/27/2016" 
 	ms.author="mimig"/>
 
 # DocumentDB 簡介 - 適用於 Microsoft Azure 的 NoSQL 資料庫 (英文) 
@@ -31,4 +31,4 @@
 **PDF 下載：** [DocumentDB 簡介 - 適用於 Microsoft Azure 的 NoSQL 資料庫](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

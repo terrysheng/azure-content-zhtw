@@ -25,7 +25,7 @@
 
 StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您透過單一 Web 介面管理 StorSimple 解決方案。除了管理磁碟區，您可以使用 StorSimple Manager 服務來建立和管理 StorSimple 服務、檢視和管理裝置、檢視警示，以及檢視和管理備份原則與備份類別目錄。
 
-> [AZURE.NOTE]Azure StorSimple 只能建立精簡佈建的磁碟區。您無法在 Azure StorSimple 系統上建立完整佈建或部分佈建的磁碟區。
+> [AZURE.NOTE] Azure StorSimple 只能建立精簡佈建的磁碟區。您無法在 Azure StorSimple 系統上建立完整佈建或部分佈建的磁碟區。
 >
 > 精簡佈建是一項虛擬化技術，讓可用的儲存空間超過實體資源。Azure StorSimple 不預先保留足夠的儲存空間，而是利用精簡佈建來配置剛好符合目前需求的空間。雲端儲存體本質有彈性可協助這種方法，因為 Azure StorSimple 可以隨需求變化，增加或減少雲端儲存體。
 
@@ -90,7 +90,7 @@ StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您
 
 當您需要擴充磁碟區，或變更存取該磁碟區的主機時，請修改磁碟區。
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 >
 > - 如果您修改裝置上的磁碟區大小，也必須變更主機上的磁碟區大小。 
 > - 此處所述的主機端步驟適用於 Windows Server 2012 (2012R2)。Linux 或其他主機作業系統的程序會有所不同。如果要在執行其他作業系統的主機上修改磁碟區，請參考主機作業系統的指示。 
@@ -108,14 +108,14 @@ StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您
   - 編輯 [名稱] 與 [應用程式類型]。
   - 增加 [佈建的容量]。[佈建的容量] 只能增加。您無法在磁碟區建立後予以壓縮。
 
-    > [AZURE.NOTE]磁碟區容器一經指派給磁碟區後，便無法變更。
+    > [AZURE.NOTE] 磁碟區容器一經指派給磁碟區後，便無法變更。
 
 5. 在 [其他設定] 下，您可以執行下列動作：
 
   - 修改 ACR，若是磁碟區已離線。如果磁碟區已連線，您必須先讓它離線。修改 ACR 之前，請參閱[使磁碟區離線](#take-a-volume-offline)中的步驟。
   - 在磁碟區離線之後，才修改 ACR 清單。
  
-    > [AZURE.NOTE]您無法變更此磁碟區的 [**啟用此磁碟區的預設備份**] 選項。
+    > [AZURE.NOTE] 您無法變更此磁碟區的 [**啟用此磁碟區的預設備份**] 選項。
 
 6. 按一下核取圖示 ![核取圖示](./media/storsimple-manage-volumes/HCS_CheckIcon.png)，即可儲存您的變更。Azure 傳統入口網站將會顯示更新磁碟區訊息。如果磁碟區已成功更新，即會顯示成功訊息。
 
@@ -126,9 +126,9 @@ StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您
    3. 在磁碟清單中，選取您已更新的磁碟區，按一下滑鼠右鍵，然後選取 [延伸磁碟區]。[延伸磁碟區精靈] 隨即啟動。按 [下一步]。
    4. 使用預設值完成精靈。完成精靈後，磁碟區應該會顯示增加的大小。
 
-![提供的影片](./media/storsimple-manage-volumes/Video_icon.png) **提供的影片**
+![提供的影片](./media/storsimple-manage-volumes/Video_icon.png)**提供的影片**
 
-若要觀看影片示範如何擴充磁碟區，請按一下[這裡](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume)。
+若要觀看影片示範如何擴充磁碟區，請按一下[這裡](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/)。
 
 ## 使磁碟區離線
 
@@ -153,7 +153,7 @@ StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您
 
 ## 刪除磁碟區
 
-> [AZURE.IMPORTANT]只有當磁碟區離線時，您才能予以刪除。
+> [AZURE.IMPORTANT] 只有當磁碟區離線時，您才能予以刪除。
 
 請完成下列步驟來刪除磁碟區。
 
@@ -198,4 +198,4 @@ StorSimple Manager 服務是 Azure 傳統入口網站的延伸模組，可讓您
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -48,13 +48,13 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 - **升級所有 Web 和商務資料庫**：請參閱下面的[升級所有 Web 和商務資料庫](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases)一節，或使用 [PowerShell 來升級資料庫和伺服器](sql-database-upgrade-server-powershell.md)。
 - **檢閱和暫停異地複寫**：如果您的 Azure SQL Database 已針對異地複寫做設定，您應該記錄其目前的設定並[停止異地複寫](sql-database-geo-replication-portal.md#remove-secondary-database)。在升級完成之後，請重新設定資料庫的異地複寫。
-- **如果您的用戶端位於 Azure VM 上，請開啟這些連接埠**：如果您的用戶端在 Azure 虛擬機器 (VM) 上執行，而用戶端程式連線到 SQL Database V12，您就必須開啟此 VM 上 11000-11999 和 14000-14999 範圍的連接埠。如需詳細資訊，請參閱 [SQL Database V12 的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
+- **如果您的用戶端位於 Azure VM 上，請開啟這些連接埠**：如果在您的用戶端於 Azure 虛擬機器 (VM) 上執行時，用戶端程式連接至 SQL Database V12，您就必須開啟此 VM 上 11000-11999 和 14000-14999 範圍的連接埠。如需詳細資訊，請參閱 [SQL Database V12 的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
 
 
 ## 開始升級
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，瀏覽至您想要升級的伺服器，方法是選取 [**瀏覽全部**] > [**SQL Server**]，然後選取所需的伺服器。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您想要升級的伺服器，方法是選取 [**瀏覽全部**] > [**SQL Server**]，然後選取所需的伺服器。
 2. 選取 [**最新的 SQL Database 更新**]，然後選取 [**升級此伺服器**]。
 
       ![升級伺服器][1]
@@ -117,7 +117,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 除了監視個別的資料庫之外，您也可以[使用入口網站](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool)或藉由 [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools) 監視彈性資料庫集區。
 
 
-**資源耗用量資料：**「基本」、「標準」及「高階」資料庫的資源耗用量資料會透過使用者資料庫中的 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV 提供。此 DMV 以 15 秒的間隔提供幾乎即時的前一小時作業資源耗用量資訊。某一間隔的 DTU 百分比耗用量會以 CPU、IO 及記錄檔方面的最大百分比耗用量來計算。下列是計算前一小時之平均 DTU 百分比耗用量的查詢：
+**資源耗用量資料：**Basic、Standard 及 Premium 資料庫的資源耗用量資料會透過使用者資料庫中的 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV 提供。此 DMV 以 15 秒的間隔提供幾乎即時的前一小時作業資源耗用量資訊。某一間隔的 DTU 百分比耗用量會以 CPU、IO 及記錄檔方面的最大百分比耗用量來計算。下列是計算前一小時之平均 DTU 百分比耗用量的查詢：
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -168,4 +168,4 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

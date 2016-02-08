@@ -46,9 +46,9 @@
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。若要執行 PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱＜使用 Set-ExecutionPolicy Cmdlet＞。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。若要執行 PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱＜使用 Set-ExecutionPolicy Cmdlet＞。
 
 - **兩個具備 VPN 連線且已設定 DNS 的 Azure 虛擬網路**。如需相關指示，請參閱[設定兩個 Azure 虛擬網路之間的 VPN 連線][hdinsight-hbase-replication-vnet]和[在兩個 Azure 虛擬網路之間設定 DNS][hdinsight-hbase-replication-dns]。
 
@@ -192,7 +192,7 @@ Azure 傳統入口網站不支援使用自訂組態選項佈建 HDInsight 叢集
 4. 請不要關閉 RDP 工作階段。稍後在教學課程中，您將會需要它。
 5. 重複相同的步驟來從 Contoso-HBase-US ping Contoso-HBase-EU 的 headnode0。
 
->[AZURE.IMPORTANT]DNS 必須在您繼續下一個步驟之前運作。
+>[AZURE.IMPORTANT] DNS 必須在您繼續下一個步驟之前運作。
 
 ## 啟用 HBase 資料表之間的複寫
 
@@ -285,8 +285,8 @@ Azure 傳統入口網站不支援使用自訂組態選項佈建 HDInsight 叢集
 
 在本教學課程中，您已經學會如何跨兩個資料中心設定 HBase 複寫。若要深入了解 HDInsight 與 HBase ，請參閱：
 
-- [HDInsight 服務頁面](http://azure.microsoft.com/services/hdinsight/)
-- [HDInsight 文件](http://azure.microsoft.com/documentation/services/hdinsight/)
+- [HDInsight 服務頁面](https://azure.microsoft.com/services/hdinsight/)
+- [HDInsight 文件](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [開始使用 HDInsight 中的 Apache HBase][hdinsight-hbase-get-started]
 - [HDInsight HBase 概觀][hdinsight-hbase-overview]
 - [在 Azure 虛擬網路上佈建 HBase 叢集][hdinsight-hbase-provision-vnet]
@@ -311,4 +311,4 @@ Azure 傳統入口網站不支援使用自訂組態選項佈建 HDInsight 叢集
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

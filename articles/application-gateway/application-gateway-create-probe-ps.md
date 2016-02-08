@@ -124,7 +124,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 - **-Hostname 和 -path** - 應用程式閘道所叫用以判斷執行個體健全狀況的完整 URL 路徑。例如，若您擁有網站 http://contoso.com/，則可以為 "http://contoso.com/path/custompath.htm" 設定自訂探查，以便讓探查檢查有成功的 HTTP 回應。
 - **-UnhealthyThreshold** - 要將後端執行個體標記為*狀況不良*所需要的失敗 HTTP 回應數目。
 
-
+<BR>
 
 	$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
@@ -168,7 +168,7 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
 
->[AZURE.NOTE]*InstanceCount* 的預設值是 2，最大值是 10。GatewaySize 的預設值是 Medium。您可以在 Standard\_Small、Standard\_Medium 和 Standard\_Large 之間選擇。
+>[AZURE.NOTE]  InstanceCount 的預設值是 2，最大值是 10。GatewaySize 的預設值是 Medium。您可以在 Standard\_Small、Standard\_Medium 和 Standard\_Large 之間選擇。
 
 ## 使用 New-AzureRmApplicationGateway 建立應用程式閘道
 
@@ -238,4 +238,4 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

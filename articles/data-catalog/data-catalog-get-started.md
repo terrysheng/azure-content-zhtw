@@ -24,15 +24,15 @@
 
 開始進行本教學課程之前，您必須具備下列條件：
 
--	**Azure 訂用帳戶** - 如果您沒有訂用帳戶，只需要幾分鐘就可以建立免費試用帳戶。如需詳細資料，請參閱[免費試用](http://azure.microsoft.com/pricing/free-trial/)一文。
--	**Azure Active Directory** - Azure 資料目錄使用 [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) 來管理身分識別和存取權。
+-	**Azure 訂用帳戶** - 如果您沒有訂用帳戶，只需要幾分鐘就可以建立免費試用帳戶。如需詳細資料，請參閱[免費試用](https://azure.microsoft.com/pricing/free-trial/)一文。
+-	**Azure Active Directory** - Azure 資料目錄使用 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 來管理身分識別和存取權。
 -	**資料來源** - Azure 資料目錄提供資料來源探索的功能，若要繼續進行本教學課程，您必須具備一或多個資料來源的存取權。本教學課程是使用 Adventure Works 範例資料庫來編寫，但如果喜歡使用您熟悉且與您角色相關的資料，您可以使用任何支援的資料來源。
 
 ## 練習 1：安裝 Adventure Works 範例資料庫
 
 在本練習中，您可以為 SQL Server Database Engine 和 SQL Server Analysis Services 多維度安裝 Adventure Works 範例。接下來的練習中會使用這些範例。
 
-> [AZURE.NOTE]本練習中是選擇性的。本教學課程的其餘練習都編寫成參考 Adventure Works 範例資料庫，但是您也可以選擇略過這個練習，使用您自己的資料來源。以下是安裝 Adventure Works 的步驟。
+> [AZURE.NOTE] 本練習中是選擇性的。本教學課程的其餘練習都編寫成參考 Adventure Works 範例資料庫，但是您也可以選擇略過這個練習，使用您自己的資料來源。以下是安裝 Adventure Works 的步驟。
 
 ### 安裝 Adventure Works 2014 OLTP 和資料倉儲資料庫
 
@@ -69,7 +69,7 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 
     ![register4][4]
 
-    c.按一下以移動選取項目箭號 (**>**)。這會將所有 Product 物件移至 [準備註冊] 清單。
+    c.按一下移動選取項目箭號 (**>**)。這會將所有 Product 物件移至 [**準備註冊**] 清單。
 
     ![register5][5]
 
@@ -142,7 +142,7 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 
 在本練習中，您將與另一位使用者合作，將中繼資料加入至目錄中的資料資產。Azure 資料目錄對於註解的群眾外包作法，可讓任何使用者加入標記、描述和其他中繼資料，任何對資料資產及其用法有所見解的使用者，都能將此見解記錄下來分享給其他使用者。
 
-> [AZURE.NOTE]如果沒有另一位使用者可配合您一起進行本教學課程，請別擔心！ 任何存取資料目錄的使用者都可以選擇加入自己的觀點。這種關於中繼資料的群眾外包方法，可讓目錄的內容和目錄中繼資料的豐富性隨著時間不斷成長。
+> [AZURE.NOTE] 如果沒有另一位使用者可配合您一起進行本教學課程，請別擔心！ 任何存取資料目錄的使用者都可以選擇加入自己的觀點。這種關於中繼資料的群眾外包方法，可讓目錄的內容和目錄中繼資料的豐富性隨著時間不斷成長。
 
 ### 以下說明您如何讓群眾外包資料資產的中繼資料
 
@@ -159,7 +159,7 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 在本練習中，您將使用 **Azure 資料目錄**入口網站，透過 Microsoft Excel 連接到資料來源。
 
 
-> [AZURE.NOTE]請務必記得，**Azure 資料目錄**不會讓使用者存取實際的資料來源，它只是讓使用者更容易探索和了解它們。當使用者連接到資料來源時，他們所選擇的用戶端應用程式會使用其 Windows 認證，或在必要時提示他們提供認證。如果先前未授權使用者存取資料來源，則他必須先獲得授權才能連線。
+> [AZURE.NOTE] 請務必記得，**Azure 資料目錄**不會讓使用者存取實際的資料來源，它只是讓使用者更容易探索和了解它們。當使用者連接到資料來源時，他們所選擇的用戶端應用程式會使用其 Windows 認證，或在必要時提示他們提供認證。如果先前未授權使用者存取資料來源，則他必須先獲得授權才能連線。
 
 ### 以下說明如何從 Excel 連接到資料來源
 
@@ -181,7 +181,7 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 
 在本練習中，您將使用 **Azure 資料目錄**入口網站從已註冊的資料資產中移除預覽資料，並從目錄中刪除資料資產。
 
-> [AZURE.NOTE]目錄的預設行為是允許任何使用者註冊任何資料來源，並允許任何使用者刪除任何已註冊的資料資產。**標準版 Azure 資料目錄**中包含的管理功能提供其他選項，可用來取得資產的所有權、限制誰可以探索資產，以及限制誰可以刪除資產。
+> [AZURE.NOTE] 目錄的預設行為是允許任何使用者註冊任何資料來源，並允許任何使用者刪除任何已註冊的資料資產。**標準版 Azure 資料目錄**中包含的管理功能提供其他選項，可用來取得資產的所有權、限制誰可以探索資產，以及限制誰可以刪除資產。
 
 在 **Azure 資料目錄**中，您可以刪除個別資產或多個資產來移除預覽。
 
@@ -232,4 +232,4 @@ Adventure Works OLTP 資料庫支援一家虛構自行車製造商 (Adventure Wo
 [12]: ./media/data-catalog-get-started/ownership.png
 [13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

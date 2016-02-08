@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli"/>
 
 # 部署 StorSimple Virtual Array：準備入口網站 (預覽版)
 
 ![](./media/storsimple-ova-deploy1-portal-prep/getstarted4.png)
 
-## 簡介 
+## 概觀 
 
 本文章僅適用於執行 1.1.1.0 版 (公開預覽版) 的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。我們提供一系列如何將虛擬陣列完全部署為檔案伺服器或 iSCSI 伺服器的佈署教學課程，而這是該系列的第一篇文章。本文章說明在佈建虛擬陣列之前，要建立並設定 StorSimple Manager 服務所需的準備工作。本文章也會提供能前往部署設定檢查清單及設定必要條件的連結。
 
@@ -40,7 +40,7 @@
 
 請以指定的順序參閱下列文章來部署 StorSimple 虛擬陣列。
 
-| **#** | **在此步驟中** | **您將會進行...** | **請使用這些文件...**|
+| **#** | **在此步驟中** | **您將會進行...** | **請使用這些文件。**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
 |1\. | **設定 Azure 傳統入口網站** | 請在佈建 StorSimple 虛擬裝置之前，先建立並設定 StorSimple Manager 服務。 |[Prepare the portal (準備入口網站)](storsimple-ova-deploy1-portal-prep.md)| 
 |2\. | **佈建 Virtual Array** | 對於 Hyper-V，請佈建及連線到執行 Hyper-V 2008 R2、Hyper-V 2012 或 Hyper-V 2012 R2 之主機系統上的 StorSimple 虛擬裝置。<br></br> <br></br>對於 VMware，請佈建及連線到執行 VMware ESXi 5.5 及更新版本之主機系統上的 StorSimple 內部部署虛擬裝置。| [Provision a virtual array in Hyper-V (在 HYPER-V 中佈建虛擬陣列)](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Provision a virtual array in VMware (在 VMware 中佈建虛擬陣列)](storsimple-ova-deploy2-provision-vmware.md)|
@@ -48,13 +48,13 @@
 
 #### 部署相關影片
 
-| **如要進行此步驟...** | **請觀看這個影片**|
+| **如要進行此步驟...** | **請觀看這個影片。**|
 |----------------|-------------|
-| 開始使用 StorSimple Virtual Array 的逐步指示。 | [Get started with the StorSimple Virtual Array (開始使用 StorSimple Virtual Array)](http://azure.microsoft.com/documentation/videos/get-started-with-the-storsimple-virtual-array)|
-| 在 Hyper-V 中佈建 StorSimple 虛擬陣列的逐步指示。|[Create a StorSimple Virtual Array (建立 StorSimple 虛擬陣列)](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-array) |
-|設定及註冊 StorSimple 虛擬陣列的逐步指示|[Configure a StorSimple Virtual Array (設定 StorSimple 虛擬陣列)](http://azure.microsoft.com/documentation/videos/configure-a-storsimple-virtual-array)|
-|在設定為檔案伺服器的 StorSimple 虛擬陣列上建立共用、備份共用，以及還原資料的逐步指示|[Use the StorSimple Virtual Array (使用 StorSimple Virtual Array)](http://azure.microsoft.com/documentation/videos/use-the-storsimple-virtual-array)|
-|為 StorSimple 虛擬陣列進行容錯移轉及災害復原的逐步指示|[StorSimple Virtual Array Disaster Recovery (StorSimple Virtual Array 災害復原)](http://azure.microsoft.com/documentation/videos/storsimple-virtual-array-disaster-recovery)
+| 開始使用 StorSimple Virtual Array 的逐步指示。 | [Get started with the StorSimple Virtual Array (開始使用 StorSimple Virtual Array)](https://azure.microsoft.com/documentation/videos/get-started-with-the-storsimple-virtual-array/)|
+| 在 Hyper-V 中佈建 StorSimple 虛擬陣列的逐步指示。|[Create a StorSimple Virtual Array (建立 StorSimple 虛擬陣列)](https://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-array/) |
+|設定及註冊 StorSimple 虛擬陣列的逐步指示|[Configure a StorSimple Virtual Array (設定 StorSimple 虛擬陣列)](https://azure.microsoft.com/documentation/videos/configure-a-storsimple-virtual-array/)|
+|在設定為檔案伺服器的 StorSimple 虛擬陣列上建立共用、備份共用，以及還原資料的逐步指示|[Use the StorSimple Virtual Array (使用 StorSimple Virtual Array)](https://azure.microsoft.com/documentation/videos/use-the-storsimple-virtual-array/)|
+|為 StorSimple 虛擬陣列進行容錯移轉及災害復原的逐步指示|[StorSimple Virtual Array Disaster Recovery (StorSimple Virtual Array 災害復原)](https://azure.microsoft.com/documentation/videos/storsimple-virtual-array-disaster-recovery/)
 
 現在您可以開始設定 Azure 傳統入口網站了。
 
@@ -112,48 +112,14 @@
 
 單一的 StorSimple Manager 服務執行個體就能管理多個 StorSimple 1200 裝置。請執行下列步驟以建立 StorSimple Manager 服務的新執行個體。如果您已經擁有用來管理 StorSimple 1200 裝置的 StorSimple Manager 服務，請略過此步驟，並移至[步驟 2：取得服務註冊金鑰](#step-2-get-the-service-registration-key)。
 
-#### 建立新服務
-
-1.  請使用您的 Microsoft 帳戶認證登入 Azure 傳統入口網站：<https://manage.windowsazure.com/>
-
-2.  在入口網站中，按一下 [新增] > [資料服務] > [StorSimple Manager] > [快速建立]。
-
-3.  在顯示的表單中，執行下列動作：
-
-	1.  為服務提供唯一的 [名稱]。這是可以用來識別服務的易記名稱。名稱長度可介於 2 到 50 個字元之間，且可以是字母、數字和連字號。名稱必須以字母或數字為開頭或結尾。
-
-	2.  對於要管理 StorSimple 虛擬裝置的服務，請從 [受管理的裝置類型] 下拉式清單中選擇 [虛擬裝置系列]。
-
-	3.  提供服務的 [位置]。位置是指您要部署裝置的地理區域。
-
-	 -   如果您在 Azure 中還有其他您想利用 StorSimple 裝置來部署的工作負載，建議您使用該資料中心。
-
-   	 -   StorSimple Manager 和 Azure 儲存體可以分別位於兩個不同的位置。如此一來，您需要分別建立 StorSimple Manager 和 Azure 儲存體帳戶。若要建立 Azure 儲存體帳戶，請前往入口網站中的 [Azure 儲存體服務]，並依照[建立 Azure 儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)中的步驟進行。建立帳戶之後，請依照[設定服務的新儲存體帳戶](#appendix-a-configure-a-new-storage-account-for-the-service)中的步驟，將此帳戶新增到 StorSimple Manager 服務中。
-   	 
-   	 -   請注意，在預覽版中，您只能建立在美國西部和日本東部的 StorSimple Manager 服務。
-	
-	1.  從下拉式清單選擇 [訂用帳戶]。訂用帳戶會連結到您的帳單帳戶。當您只有一個訂用帳戶時，這個欄位不會出現。
-
-	1.  選取 [建立新的 Azure 儲存體帳戶] 來自動建立具有此服務的儲存體帳戶。這個儲存體帳戶將會有特殊的名稱，例如「storsimplebwv8c6dcnf」。如果您需要讓資料存放在不同的位置，請清除此核取方塊。
-
-	1.  按一下 [建立 StorSimple Manager] 來建立服務。
-
-		![](./media/storsimple-ova-deploy1-portal-prep/image1.png)
-
-	系統會將您導向至 [服務] 登陸頁面。服務建立需要幾分鐘的時間。當帳戶成功建立之後，系統將會通知您。
-
-	![](./media/storsimple-ova-deploy1-portal-prep/image2.png)
-
-	服務狀態會變更為 [使用中]。
-
-	![](./media/storsimple-ova-deploy1-portal-prep/image3.png)
+[AZURE.INCLUDE [storsimple-ova-create-new-service](../../includes/storsimple-ova-create-new-service.md)]
 
 > [AZURE.IMPORTANT]
 > 
 > 如果您並未啟用服務自動建立儲存體帳戶，您將必須在成功建立服務後，至少建立一個儲存體帳戶。
 > 
 
-> - 如果您未自動建立儲存體帳戶，請移至[針對服務設定新的儲存體帳戶](#appendix-a-configure-a-new-storage-account-for-the-service)以取得詳細指示。
+> - 如果您未自動建立儲存體帳戶，請移至[針對服務設定新的儲存體帳戶](#optional-step-configure-a-new-storage-account-for-the-service)以取得詳細指示。
 > 
 
 > - 如果您已啟用自動建立儲存體帳戶，請移至[步驟 2：取得服務註冊金鑰](#step-2-get-the-service-registration-key)。
@@ -166,16 +132,8 @@
 
 請在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中執行下列步驟。
 
-#### 取得 StorSimple 服務註冊金鑰
 
-1.  按一下 [StorSimple Manager 服務] 頁面底部的 [註冊金鑰]。
-
-2.  您必須等候幾分鐘的時間來擷取金鑰。[服務註冊金鑰] 對話方塊隨即出現。
-
-
-	1.  找到**服務註冊金鑰**。
-
-	2.  按一下複製圖示 ![](./media/storsimple-ova-deploy1-portal-prep/image6.png)，複製此金鑰並加以儲存，以供日後使用。
+[AZURE.INCLUDE [storsimple-ova-get-service-registration-key](../../includes/storsimple-ova-get-service-registration-key.md)]
 
 > [AZURE.NOTE]
 > 
@@ -210,22 +168,15 @@
 
 > [AZURE.VIDEO get-started-with-the-storsimple-virtual-array]
 
-## 後續步驟
-
-下一個步驟是為 StorSimple 虛擬裝置來佈建虛擬機器。請根據您的主機作業系統，來參閱下列其中一個詳細指示：
-
--   [StorSimple Virtual Array Provisioning in Hyper-V (在 Hyper-V 中佈建 StorSimple Virtual Array)](storsimple-ova-deploy2-provision-hyperv.md)
-
--   [StorSimple Virtual Array Provisioning in VMware (在 VMware 中佈建 StorSimple Virtual Array)](storsimple-ova-deploy2-provision-vmware.md)
 
 
-## 附錄 A：為服務設定新的儲存體帳戶
+## 選用步驟：為服務設定新的儲存體帳戶
 
 這是可省略的步驟，只有在您並未啟用服務自動建立儲存體帳戶的功能時，才需要執行。
 
 如果您需要在不同區域建立 Azure 儲存體帳戶，請參閱[如何建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)來取得逐步指示。
 
-請根據 [Azure 傳統入口網站](https://manage.windowsazure.com/)中 [StorSimple Manager 服務] 頁面上的步驟，來新增現有的 Microsoft Azure 儲存體帳戶。
+請執行 [Azure 傳統入口網站](https://manage.windowsazure.com/)中 [StorSimple Manager 服務] 頁面上的步驟，來新增現有的 Microsoft Azure 儲存體帳戶。
 
 #### 若要新增儲存體帳戶
 
@@ -247,4 +198,13 @@
 
 1.  新建立的儲存體帳戶將顯示於 [設定] 頁面上的 [儲存體帳戶] 下方。按一下 [儲存] 以儲存新建立的儲存體帳戶。系統提示您進行確認時，按一下 [確定]。
 
-<!---HONumber=AcomDC_0121_2016-->
+
+## 後續步驟
+
+下一個步驟是為 StorSimple 虛擬裝置來佈建虛擬機器。請根據您的主機作業系統，來參閱下列其中一個詳細指示：
+
+-   [Provision a StorSimple Virtual Array in Hyper-V (在 Hyper-V 中佈建 StorSimple Virtual Array)](storsimple-ova-deploy2-provision-hyperv.md)
+
+-   [Provision a Virtual Array in VMware (在 VMware 中佈建 Virtual Array)](storsimple-ova-deploy2-provision-vmware.md)
+
+<!---HONumber=AcomDC_0128_2016-->

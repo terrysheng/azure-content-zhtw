@@ -29,7 +29,7 @@
 
 建議您先檢閱下列文章：
 
-- [Azure 媒體服務 RTMP 支援和即時編碼器](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
+- [Azure 媒體服務 RTMP 支援和即時編碼器](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 - [使用通道，從內部部署編碼器接收多位元速率即時串流](media-services-manage-channels-overview.md)
  
 
@@ -49,7 +49,7 @@
 - 取得所有串流端點的定位器
 - 關閉資源
 	
-如需有關如何設定即時編碼器的詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)。
+如需有關如何設定即時編碼器的詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)。
 	
 		using System;
 		using System.Collections.Generic;
@@ -385,4 +385,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

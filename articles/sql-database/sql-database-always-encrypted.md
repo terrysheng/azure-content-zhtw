@@ -35,14 +35,14 @@
 - 建立資料庫資料表，並將某些資料行加密。
 - 建立可插入、選取及顯示加密資料行資料的應用程式。
 
-> [AZURE.NOTE]Azure SQL Database 的 [永遠加密] 功能目前為預覽狀態。
+> [AZURE.NOTE] Azure SQL Database 的 [永遠加密] 功能目前為預覽狀態。
 
 
 ## 先決條件
 
 本教學課程中，您將需要：
 
-- 在開始之前，您需要有 Azure 帳戶和訂用帳戶。如果您沒有帳戶，請註冊[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+- 在開始之前，您需要有 Azure 帳戶和訂用帳戶。如果您沒有帳戶，請註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 13.0.700.242 版或更新版本。
 - [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) 或更新版本 (用戶端電腦上)。
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)。
@@ -50,7 +50,7 @@
 
 
 ## 建立空白 SQL Database
-1. 登入 [Azure 入口網站](http://portal.azure.com/)。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下 [新增] > [資料 + 儲存體] > [SQL Database]。
 3. 在新的或現有伺服器上建立名稱為**實務課程**的**空白**資料庫。如需在 Azure 入口網站中建立資料庫的詳細指示，請參閱 [Create a SQL database in minutes (快速建立 SQL Database)](sql-database-getting-started.md)。
 
@@ -70,7 +70,7 @@
 
 
 1. 開啟 SSMS (如果沒有開啟，請按一下 [連線] > [資料庫引擎...] 以開啟 [連接到伺服器] 視窗)。
-2. 輸入您的伺服器名稱和認證。可以在 SQL 資料庫刀鋒視窗上找到此伺服器名稱和稍早複製的連接字串。輸入完整的伺服器名稱，包括 database.windows.net。
+2. 輸入您的伺服器名稱和認證。可以在 SQL 資料庫刀鋒視窗上找到此伺服器名稱和稍早複製的連接字串。輸入完整的伺服器名稱，包括 *database.windows.net*。
 
 	![複製連接字串](./media/sql-database-always-encrypted/ssms-connect.png)
 
@@ -156,7 +156,7 @@ SSMS 提供一個精靈，透過設定加密資料行主要金鑰 (CMK)、資料
 
 既然已經設定 [永遠加密]，我們可以開始建置在加密資料行上執行一些 INSERTS 和 SELECTS 的應用程式。若要成功執行範例應用程式，您必須在您執行 [永遠加密] 精靈的相同電腦上執行範例應用程式。若要在另一部電腦上執行，您必須將您的 [永遠加密] 憑證部署至執行用戶端應用程式的電腦上。
 
-> [AZURE.IMPORTANT]傳送純文字資料至具有 [永遠加密] 資料行的伺服器時，您的應用程式必須使用 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 物件。在不使用 SqlParameter 物件的情況下傳遞常值會導致例外狀況。
+> [AZURE.IMPORTANT] 傳送純文字資料至具有 [永遠加密] 資料行的伺服器時，您的應用程式必須使用 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 物件。在不使用 SqlParameter 物件的情況下傳遞常值會導致例外狀況。
 
 
 1. 開啟 Visual Studio，建立新的 C# 主控台應用程式。請確定您的專案設定為 **.NET Framework 4.6** 或更新版本。
@@ -176,7 +176,7 @@ SSMS 提供一個精靈，透過設定加密資料行主要金鑰 (CMK)、資料
 
 您可以直接在連接字串中設定，或您可以使用 [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx) 設定它。下一節中的範例應用程式會示範如何使用 **SqlConnectionStringBuilder**。
 
-> [AZURE.NOTE]這是 [永遠加密] 特定的用戶端應用程式中唯一需要做的變更。如果您有將其連接字串儲存於外部 (例如組態檔) 的現有應用程式，您也許能夠啟用 [永遠加密] 而不需要變更任何程式碼。
+> [AZURE.NOTE] 這是 [永遠加密] 特定的用戶端應用程式中唯一需要做的變更。如果您有將其連接字串儲存於外部 (例如組態檔) 的現有應用程式，您也許能夠啟用 [永遠加密] 而不需要變更任何程式碼。
 
 
 ### 在連接字串中啟用 [永遠加密]
@@ -524,7 +524,7 @@ SSMS 提供一個精靈，透過設定加密資料行主要金鑰 (CMK)、資料
 
 
 
-> [AZURE.NOTE]如果您是從另一部電腦使用 SSMS (或任何用戶端) 進行連線，則它無法存取加密金鑰，因此無法解密資料。
+> [AZURE.NOTE] 如果您是從另一部電腦使用 SSMS (或任何用戶端) 進行連線，則它無法存取加密金鑰，因此無法解密資料。
 
 
 
@@ -545,4 +545,4 @@ SSMS 提供一個精靈，透過設定加密資料行主要金鑰 (CMK)、資料
 - [Always Encrypted Wizard (永遠加密精靈)](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Always Encrypted Blog (永遠加密部落格)](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

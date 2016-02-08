@@ -29,7 +29,7 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 
 本文說明如何搭配 ARM 使用 Windows PowerShell® 來部署 Azure Site Recovery，以利用範例的說明來設定及協調 Azure 的伺服器保護。在本文中使用的範例說明如何使用包含 ARM 的 Azure PowerShell 保護、容錯移轉及復原 Hyper-V 主機上的虛擬機器至 Azure。
 
-> [AZURE.NOTE]目前，Azure Site Recovery PowerShell cmdlet 可讓您設定 VMM 站台至 VMM 站台、VMM 站台至 Azure 和 Azure 案例的 Hyper-V 站台。即將加入對其他 ASR 案例的支援。
+> [AZURE.NOTE] 目前，Azure Site Recovery PowerShell cmdlet 可讓您設定 VMM 站台至 VMM 站台、VMM 站台至 Azure 和 Azure 案例的 Hyper-V 站台。即將加入對其他 ASR 案例的支援。
 
 您不需要是 PowerShell 專家就能使用本文，但本文假設您了解模組、Cmdlet 和工作階段等基本概念。如需 Windows PowerShell 的詳細資訊，請參閱[開始使用 Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx)。深入了解[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
 
@@ -43,8 +43,8 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 
 確認您已備妥這些必要條件：
 
-- 您將需要 [Microsoft Azure](http://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。此外，您可以參閱 [Azure Site Recovery 管理員價格](http://azure.microsoft.com/pricing/details/site-recovery/)。
-- 您將需要 Azure PowerShell 1.0。如需有關此版本以及如何安裝的資訊，請參閱 [Azure PowerShell 1.0](http://azure.microsoft.com/)。
+- 您將需要 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。此外，您可以參閱 [Azure Site Recovery 管理員價格](https://azure.microsoft.com/pricing/details/site-recovery/)。
+- 您將需要 Azure PowerShell 1.0。如需有關此版本以及如何安裝的資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/)。
 - 您必須安裝 [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) 和 [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) 模組。您可以從 [PowerShell](https://www.powershellgallery.com/) 資源庫取得這些模組的最新版本
 
 這篇文章說明如何透過範例的說明搭配使用 Azure Powershell 和 ARM 來設定及管理對伺服器的保護。在本文中使用的範例將示範如何保護在 Hyper-V 主機上執行的虛擬機器至 Azure，以及後續專屬於此範例的必要條件。針對一組更完整的各種 ASR 案例需求，請參閱屬於該案例的文件。
@@ -87,7 +87,7 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 
 		Register-AzureRmProviderFeature -FeatureName betaAccess -ProviderNamespace Microsoft.RecoveryServices
 
-	>[AZURE.TIP]在成功完成上述命令之後，要在您的訂用帳戶上啟用復原服務提供者的存取權可能需要一小時。嘗試使用 `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` 命令在訂用帳戶中註冊復原服務提供者可能會在過渡期間失敗。如果發生這種情況，請等待一個小時並重試。
+	>[AZURE.TIP] 在成功完成上述命令之後，要在您的訂用帳戶上啟用復原服務提供者的存取權可能需要一小時。嘗試使用 `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` 命令在訂用帳戶中註冊復原服務提供者可能會在過渡期間失敗。如果發生這種情況，請等待一個小時並重試。
 
 	您在訂用帳戶上啟用復原服務提供者存取權之後，請藉由執行下列命令，在您的訂用帳戶中註冊提供者：
 
@@ -113,7 +113,7 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 
 	您可以使用 `Get-AzureRmRecoveryServicesVault` cmdlet 擷取現有保存庫的清單。
 
-> [AZURE.NOTE]如果您想要使用傳統入口網站或 Azure 服務管理 PowerShell 模組在建立的 ASR 保存庫上執行作業，您可以使用 `Get-AzureRmSiteRecoveryVault` cmdlet 擷取這些保存庫的清單。建議您為所有新的作業建立新的復原服務保存庫。您稍早建立的 Site Recovery 保存庫將會繼續受到支援，但不會有最新的功能。
+> [AZURE.NOTE] 如果您想要使用傳統入口網站或 Azure 服務管理 PowerShell 模組在建立的 ASR 保存庫上執行作業，您可以使用 `Get-AzureRmSiteRecoveryVault` cmdlet 擷取這些保存庫的清單。建議您為所有新的作業建立新的復原服務保存庫。您稍早建立的 Site Recovery 保存庫將會繼續受到支援，但不會有最新的功能。
 
 ## 步驟 3：產生保存庫註冊金鑰
 
@@ -164,7 +164,7 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 
 	請檢查傳回的作業，以確保複寫原則建立成功。
 
-	>[AZURE.IMPORTANT]指定的儲存體帳戶應與您的復原服務保存庫位於相同的 Azure 區域中，而且應該啟用異地複寫。
+	>[AZURE.IMPORTANT] 指定的儲存體帳戶應與您的復原服務保存庫位於相同的 Azure 區域中，而且應該啟用異地複寫。
 	>
 	> - 如果指定的復原儲存體帳戶屬於 Azure Storage (Classic) 類型，受保護機器的容錯移轉會將機器復原到 Azure IaaS (Classic)
 	> - 如果指定的復原儲存體帳戶屬於 Azure Storage (ARM) 類型，受保護機器的容錯移轉會將機器復原到 Azure IaaS (ARM)
@@ -192,7 +192,7 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 		$Ostype = "Windows"                                 # "Windows" or "Linux"
 		$DRjob = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity -Policy $Policy -Protection Enable -RecoveryAzureStorageAccountId $storageaccountID  -OS $OStype -OSDiskName $protectionEntity.Disks[0].Name
 
-	>[AZURE.IMPORTANT]指定的儲存體帳戶應與您的復原服務保存庫位於相同的 Azure 區域中，而且應該啟用異地複寫。
+	>[AZURE.IMPORTANT] 指定的儲存體帳戶應與您的復原服務保存庫位於相同的 Azure 區域中，而且應該啟用異地複寫。
 	>
 	> - 如果指定的復原儲存體帳戶屬於 Azure Storage (Classic) 類型，受保護機器的容錯移轉會將機器復原到 Azure IaaS (Classic)
 	> - 如果指定的復原儲存體帳戶屬於 Azure Storage (ARM) 類型，受保護機器的容錯移轉會將機器復原到 Azure IaaS (ARM)
@@ -261,4 +261,4 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

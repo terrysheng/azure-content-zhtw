@@ -27,7 +27,7 @@
 我們持續新增 V12 的功能。因此我們鼓勵您造訪我們的 Azure 服務更新網頁，並使用它的篩選條件：
 
 
-- 篩選出 [SQL Database 服務](http://azure.microsoft.com/updates/?service=sql-database)。
+- 篩選出 [SQL Database 服務](https://azure.microsoft.com/updates/?service=sql-database)。
 - 篩選出 SQL Database 功能的「正式運作 [(GA)」公告](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability)。
 
 
@@ -70,7 +70,7 @@ SQL Database V12 的一個主要目標就是要提高與 Microsoft SQL Server 20
 - 14000-14999
 
 
-如需有關 SQL Database V12 連接埠的詳細資訊，請按一下[這裡](sql-database-develop-direct-route-ports-adonet-v12.md)。SQL Database V12 的效能增強功能需要這些連接埠。
+如需 SQL Database V12 連接埠的詳細資訊，請按一下[這裡](sql-database-develop-direct-route-ports-adonet-v12.md)。SQL Database V12 的效能增強功能需要這些連接埠。
 
 
 ## 更有效地支援雲端 SaaS 廠商
@@ -132,7 +132,7 @@ V12 提供大幅改進的復原點目標 (RPO) 與預估復原時間 (ERT)：
 查看您是否已經具備執行較早版本 SQL Database 服務的資料庫或邏輯伺服器的一個簡單方法是執行下列動作：
 
 
-1. 移至 [Azure 入口網站](http://portal.azure.com/)。
+1. 移至 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下 [瀏覽]。
 3. 按一下 [SQL Server]。
 4. 您的伺服器或資料庫旁邊的圖示會告知詳情：
@@ -159,6 +159,6 @@ V12 資料庫只能裝載在 V12 邏輯伺服器上。而 V12 只可以裝載 V1
 - 2015 年 7 月 31，所有區域都已升級至公開上市 (GA)。
 - V12 已於 2014 年 12 月發行，但是僅以預覽狀態提供。
 
-[Microsoft Azure 預覽專用的使用補充條款](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+[Microsoft Azure 預覽專用的使用補充條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

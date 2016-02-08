@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="10/14/2015" 
+ms.date="01/19/2016" 
 ms.author="saurabh"/>
 
 # 啟用 Azure 雲端服務中角色的遠端桌面連線
@@ -20,7 +20,7 @@ ms.author="saurabh"/>
 >[AZURE.SELECTOR]
 - [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
+- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
 遠端桌面可讓您存取 Azure 內執行中角色的桌面。您可以使用遠端桌面連線來疑難排解和診斷執行中應用程式的問題。
@@ -28,8 +28,8 @@ ms.author="saurabh"/>
 您可以在開發期間藉由在服務定義中包含遠端桌面模組啟用遠端桌面連線，也可以選擇透過遠端桌面延伸模組啟用遠端桌面。慣用的方法是使用遠端桌面延伸模組，因為即使在部署應用程式之後，您仍然可以啟用遠端桌面，無需重新部署您的應用程式。
 
 
-## 從入口網站設定遠端桌面
-入口網站會使用遠端桌面延伸模組方法，因此即使在應用程式部署之後，您也可以啟用遠端桌面。雲端服務的 [設定] 頁面可讓您啟用遠端桌面，變更用來與虛擬機器連線的本機系統管理員帳戶、驗證中使用的憑證，並設定到期日。
+## 從 Azure 傳統入口網站設定遠端桌面
+Azure 傳統入口網站會使用遠端桌面延伸模組方法，因此即使在應用程式部署之後，您也可以啟用遠端桌面。雲端服務的 [設定] 頁面可讓您啟用遠端桌面，變更用來與虛擬機器連線的本機系統管理員帳戶、驗證中使用的憑證，並設定到期日。
 
 
 1. 依序按一下 [雲端服務]、雲端服務的名稱及 [設定]。
@@ -38,7 +38,7 @@ ms.author="saurabh"/>
     
     ![Cloud services remote](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
     
-    > [AZURE.WARNING]當您首次啟用遠端桌面並按一下 [確定] \(打勾記號) 時，所有角色執行個體都會重新啟動。若要防止重新啟動，角色上必須安裝用來將密碼加密的憑證。若要防止重新啟動，請[上傳雲端服務的憑證](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service)，然後再回到這個對話方塊。
+    > [AZURE.WARNING] 當您首次啟用遠端桌面並按一下 [確定] (打勾記號) 時，所有角色執行個體都會重新啟動。若要防止重新啟動，角色上必須安裝用來將密碼加密的憑證。若要防止重新啟動，請[上傳雲端服務的憑證](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service)，然後再回到這個對話方塊。
     
 
 3. 在 [角色] 中，選取想要更新的角色，或選取 [全部] 以更新所有角色。
@@ -61,7 +61,7 @@ ms.author="saurabh"/>
 ## 角色執行個體的遠端存取
 一旦在角色上啟用遠端桌面，您可以透過各種工具遠端存取角色執行個體。
 
-從入口網站連線到角色執行個體：
+若要從 Azure 傳統入口網站連線到角色執行個體：
     
   1.   按一下 [**執行個體**] 以開啟 [**執行個體**] 頁面。
   2.   選取已設定「遠端桌面」的角色執行個體。
@@ -147,4 +147,4 @@ ms.author="saurabh"/>
 
 [如何設定雲端服務](cloud-services-how-to-configure.md)
 
-<!-----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

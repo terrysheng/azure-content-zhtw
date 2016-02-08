@@ -77,7 +77,7 @@
 
 	1. 在磁碟區容器清單中，選取您要容錯移轉的磁碟區容器。
 
-		>[AZURE.NOTE]**只會顯示與雲端快照集和離線磁碟區相關聯的磁碟區容器。**
+		>[AZURE.NOTE] **只會顯示與雲端快照集和離線磁碟區相關聯的磁碟區容器。**
 
 	1. 在 [為所選取容器中的磁碟區選擇目標裝置] 中，從可用裝置的下拉式清單中選取目標裝置。下拉式清單中只會顯示具有可用容量的裝置。
 
@@ -103,7 +103,7 @@
 
 1. 對於新的裝置，請先完成最小量裝置組態設定。
 												
-	>[AZURE.IMPORTANT]**如果不先完成最小量組態設定，您的 DR 會因目前實作中的錯誤而失敗。未來版本中將會修正這個問題。**
+	>[AZURE.IMPORTANT] **如果不先完成最小量組態設定，您的 DR 會因目前實作中的錯誤而失敗。未來版本中將會修正這個問題。**
 
 1. 選取舊裝置 (離線狀態)，然後按一下 [容錯移轉]。在呈現的精靈中，容錯移轉這個裝置，並將新註冊的裝置指定為目標裝置。如需詳細指示，請參閱[容錯移轉到另一個實體裝置](#fail-over-to-another-physical-device)。
 
@@ -131,7 +131,7 @@
 													
 	a.在磁碟區容器清單中，選取您要容錯移轉的磁碟區容器。
 
-	>[AZURE.NOTE]**只會顯示與雲端快照集和離線磁碟區相關聯的磁碟區容器。**
+	>[AZURE.NOTE] **只會顯示與雲端快照集和離線磁碟區相關聯的磁碟區容器。**
 
 	b.在 [為所選取容器中的磁碟區選擇目標裝置] 下，從可用裝置的下拉式清單中選取 StorSimple 虛擬裝置。下拉式清單中只會顯示具有足夠容量的裝置。
 	
@@ -146,7 +146,7 @@
 
 ![提供的影片](./media/storsimple-device-failover-disaster-recovery/Video_icon.png)**提供的影片**
 
-若要觀看影片示範如何將失敗的實體裝置還原至雲端中的虛擬裝置，請按一下[這裡](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/)。
+若要觀看影片示範如何將失敗的實體裝置還原至雲端中的虛擬裝置，請按一下[這裡](https://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/)。
 
 ## 業務持續性災害復原 (BCDR)
 
@@ -162,4 +162,4 @@
 - 如需如何使用 StorSimple Manager 服務的相關資訊，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

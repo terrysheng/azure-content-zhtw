@@ -45,7 +45,7 @@ git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet.git
 - 輸入正確的**重新導向 URI**。此範例的預設值是 `https://localhost:44326/`。
 - 保留 [允許隱含流程] 核取方塊啟用。 
 
-將指派給您應用程式的**應用程式識別碼**複製起來，您很快會需要用到這些識別碼。
+將指派給您應用程式的「應用程式識別碼」複製起來，您很快會需要用到這些識別碼。
 
 ## 安裝 adal.js
 若要開始，請瀏覽至您下載並安裝 adal.js 的專案。如果您已安裝 [bower](http://bower.io/)，您只要執行這個命令即可。對於任何相依性版本不符，請選擇較高的版本。```
@@ -83,7 +83,7 @@ bower install adal-angular#experimental
 ...
 ```
 
-這是我們討論 REST API 運作方式所花費的所有時間。您可以自由摸索程式碼，但是如果您想要了解使用 Azure AD 保護 Web API，請參閱[這篇文章](active-directory-v2-devquickstarts-dotnet-api.md)。
+這是我們討論 REST API 運作方式所花費的所有時間。您可以自由摸索程式碼，但是如果您想要深入了解使用 Azure AD 保護 Web API，請參閱[這篇文章](active-directory-v2-devquickstarts-dotnet-api.md)。
 
 ## 登入使用者
 撰寫一些身分識別程式碼。您可能已經發現 adal.js 包含 AngularJS 提供者，它運用 Angular 路由機制相當良好。從將 adal 模組新增至應用程式開始：
@@ -203,7 +203,7 @@ angular.module('todoApp')
 ```
 
 ## 呼叫 REST API
-最後，取得某些權杖並且呼叫 REST API，以建立、讀取、更新和刪除工作。您知道嗎？ 您*什麼事*都不必做。Adal.js 會自動為您取得、快取和重新整理權杖。它也會將這些權杖附加至您傳送至 REST API 的傳出 AJAX 要求。
+最後，取得某些權杖並且呼叫 REST API，以建立、讀取、更新和刪除工作。您知道嗎？ 您「什麼事」都不必做。Adal.js 會自動為您取得、快取和重新整理權杖。它也會將這些權杖附加至您傳送至 REST API 的傳出 AJAX 要求。
 
 到底是如何運作的呢？ 都是因為神奇的 [AngularJS 攔截器](https://docs.angularjs.org/api/ng/service/$http)，它可讓 adal.js 轉換傳出和傳入的 http 訊息。此外，adal.js 會假設傳送至相同網域做為視窗的任何要求，應該使用適用於相同應用程式識別碼的權杖做為 AngularJS 應用程式。這就是為什麼我們在 Angular 應用程式和 NodeJS REST API 中使用相同的應用程式識別碼。當然，您可以覆寫這個行為，並且視需要告知 adal.js 取得其他 REST API 的權杖 - 但是對於這個簡單的案例，使用預設值即可。
 
@@ -223,6 +223,6 @@ return $http.get('/api/tasks');
 
 - [GitHub 上的 Azure 範例 >>](https://github.com/Azure-Samples)
 - [堆疊溢位上的 Azure AD >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
-- [Azure.com 上的 Azure AD 文件 >>](http://azure.microsoft.com/documentation/services/active-directory/)
+- [Azure.com 上的 Azure AD 文件 >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

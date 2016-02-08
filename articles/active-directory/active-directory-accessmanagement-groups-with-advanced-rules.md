@@ -37,8 +37,9 @@ Azure 入口網站可讓您彈性地設定 Azure Active Directory (Azure AD) 中
 
 如需支援的參數和運算式規則運算子的完整清單，請參閱下列各節。
 
-進階規則主體的總長度不得超過 255 個字元。
-> [AZURE.NOTE]字串和 regex 運算都不區分大小寫。您也可以使用 $null 做為常數，執行 Null 檢查，例如，user.department-eq $null。包含引號 " 的字串應該使用 ' 字元逸出，例如 user.department -eq "Sa`"les"。
+進階規則主體的總長度不得超過 2048 個字元。
+> [AZURE.NOTE]
+字串和 regex 運算都不區分大小寫。您也可以使用 $null 做為常數，執行 Null 檢查，例如，user.department-eq $null。包含引號 " 的字串應該使用 ' 字元逸出，例如 user.department -eq "Sa`"les"。
 
 ##支援的運算式規則運算子
 下表列出所有支援的運算式規則運算子及其用於進階規則主體中的語法：
@@ -59,7 +60,7 @@ Azure 入口網站可讓您彈性地設定 Azure Active Directory (Azure AD) 中
 |----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 錯誤：不支援屬性。 | (user.invalidProperty -eq "Value") | (user.department-eq"value") 屬性應該符合上述支援的屬性清單中的一個屬性。 |
 | 錯誤：屬性不支援運算子。 | (user.accountEnabled -contains true) | (user.accountEnabled -eq true) 屬性屬於布林型別。使用上述清單中的布林型別支援的運算子 (-eq 或-ne)。 |
-| 錯誤：查詢編譯錯誤。 | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing") 邏輯運算子應該符合上述支援的屬性清單中的一個屬性。(user.userPrincipalName -match ".@domain.ext")or(user.userPrincipalName -match "@domain.ext$") 規則運算式中發生錯誤。 |
+| 錯誤：查詢編譯錯誤。 | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing") 邏輯運算子應該符合上述支援的屬性清單中的一個屬性。(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$") 規則運算式中發生錯誤。 |
 | 錯誤：二進位運算式不是正確的格式。 | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain") 查詢有多個錯誤。括號不在正確的位置。 |
 | 錯誤：設定動態成員資格時發生未知的錯誤。 | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain") 查詢有多個錯誤。括號不在正確的位置。 |
 
@@ -148,12 +149,25 @@ Azure 入口網站可讓您彈性地設定 Azure Active Directory (Azure AD) 中
 | otherMails | 任何字串值 | (user.otherMails -contains "alias@domain") |
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## 擴充屬性和自訂屬性
+動態成員資格規則支援擴充屬性和自訂屬性。
+
+擴充屬性會從內部部署 Windows Server AD 進行同步處理，並採用 "ExtensionAttributeX" 格式，其中 X 等於 1-15。以下是使用擴充屬性的規則範例：
+
+(user.extensionAttribute15 -eq "Marketing")
+
+自訂屬性會從內部部署 Windows Server AD 或從連接的 SaaS 應用程式進行同步處理，並採用 "user.extension\_[GUID]\_\_[Attribute]" 格式，其中 [GUID] 是 AAD 中的唯一識別碼 (適用於在 AAD 中建立屬性的應用程式)，而 [Attribute] 是其建立的屬性名稱。以下是使用自訂屬性的規則範例：
+
+user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
+
+使用 [圖表總管] 查詢使用者的屬性並搜尋屬性名稱，即可在目錄中找到自訂屬性名稱。
+
 ## 屬下規則
 您現在可以根據使用者的經理屬性在群組中填入成員。
 設定群組為「經理」群組
 --------------------------------------------------------------------------------
 1. 在管理員入口網站上按一下 [設定] 索引標籤，然後選取 [進階規則]。
-2. 使用下列語法輸入規則：Direct Reports for {UserID\_of\_manager}。有效的規則直屬員工的範例為 
+2. 使用下列語法輸入規則：Direct Reports for *Direct Reports for {UserID\_of\_manager}*。以下是 Direct Reports 的有效規則範例： 
 
 Direct Reports for 62e19b97-8b3d-4d4a-a106-4ce66896a863”
 
@@ -173,4 +187,4 @@ Direct Reports for 62e19b97-8b3d-4d4a-a106-4ce66896a863”
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

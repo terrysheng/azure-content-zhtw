@@ -48,7 +48,7 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 ### 在 Azure 和 Office 365 Marketplace 中推廣您的應用程式
 
-**將您的應用程式擴廣到數百萬個已使用 Azure AD 的組織。** 搜尋和瀏覽 Marketplace 的使用者已經使用一或多項雲端服務，讓他們成為合格的雲端服務客戶。深入了解如何在 [Azure Marketplace](http://azure.microsoft.com/marketplace/partner-program/) 中推廣您的應用程式。
+**將您的應用程式擴廣到數百萬個已使用 Azure AD 的組織。** 搜尋和瀏覽 Marketplace 的使用者已經使用一或多項雲端服務，讓他們成為合格的雲端服務客戶。深入了解如何在 [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/) 中推廣您的應用程式。
 
 **當使用者註冊您的應用程式時，它便會出現在其 Azure AD 存取面板和 Office 365 應用程式啟動程式中。** 使用者將能夠迅速且輕鬆地返回您的應用程式，以增加使用者參與度。深入了解 [Azure AD 存取面板](active-directory-saas-access-panel-introduction.md)。
 
@@ -68,7 +68,7 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 ### 進階的安全性功能
 
-**多因素驗證。** Azure AD 提供原生多因素驗證。IT 系統管理員可以要求多因素驗證才能存取應用程式，因此您無需自行撰寫這項支援的程式碼。深入了解[多因素驗證](http://azure.microsoft.com/documentation/services/multi-factor-authentication/)。
+**多因素驗證。** Azure AD 提供原生多因素驗證。IT 系統管理員可以要求多因素驗證才能存取應用程式，因此您無需自行撰寫這項支援的程式碼。深入了解[多因素驗證](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)。
 
 **登入偵測異常。** Azure AD 每天處理超過 10 億個登入，同時使用機器學習演算法來偵測可疑活動，並向 IT 系統管理員通知可能發生的問題。藉由支援 Azure AD 登入，您的應用程式便會獲得這項保護的好處。深入了解[檢視 Azure Active Directory 存取報告](active-directory-view-access-usage-reports.md)。
 
@@ -90,4 +90,4 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 [使用 Azure AD 登入使用者](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

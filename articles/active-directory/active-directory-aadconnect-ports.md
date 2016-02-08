@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect 連接埠"
+	pageTitle="Azure AD Connect：連接埠 |Microsoft Azure"
 	description="本頁面為針對 Azure AD Connect 必須開啟之連接埠的技術參考頁面"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # 混合式身分識別所需的連接埠和通訊協定
@@ -79,4 +79,4 @@
 ### 6b - 適用於 (AD FS/Sync) 和 Azure AD 之 Azure AD Connect Health 代理程式的端點
 如需端點的清單，請參閱 [Azure AD Connect Health 代理程式的需求一節](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

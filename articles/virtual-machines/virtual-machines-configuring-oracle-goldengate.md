@@ -24,7 +24,7 @@
 
 Oracle GoldenGate 支援資料分佈和資料整合。它讓您能夠透過 Oracle 設定資料分佈和資料同步處理解決方案 (Oracle 複寫設定)，並提供彈性的高可用性解決方案。Oracle GoldenGate 利用它的複寫功能來補充 Oracle Data Guard，讓資訊可分佈於整個企業，並進行零停機時間的升級和移轉。如需詳細資訊，請參閱[搭配使用 Oracle GoldenGate 與 Oracle Data Guard](http://docs.oracle.com/cd/E11882_01/server.112/e17157/unplanned.htm) (英文)。
 
-Oracle GoldenGate 包含下列主要元件：擷取、資料幫浦、複寫、軌跡或解壓縮檔案、檢查點、管理員及收集器。若要在兩個站台之間進行雙向複寫，您需要在這兩個站台上建立並啟動所有元件。如需 Oracle GoldenGate 架構的詳細資訊，請參閱 [Oracle GoldenGate 指南](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) (英文)。
+Oracle GoldenGate 包含下列主要元件：擷取、資料幫浦、複寫、軌跡或解壓縮檔案、檢查點、管理員及收集器。若要在兩個站台之間進行雙向複寫，您需要在這兩個站台上建立並啟動所有元件。如需 Oracle GoldenGate 架構的詳細資訊，請參閱 [Oracle GoldenGate 指南](http://docs.oracle.com/goldengate/1212/gg-winux/index.html)。
 
 本教學課程假設您已經具備 Oracle 資料庫高可用性和嚴重損壞修復概念的理論和實務知識，以及 [Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html)。如需詳細資訊，請參閱 [Oracle 網站](http://www.oracle.com/technetwork/database/features/availability/index.html)。
 
@@ -34,7 +34,7 @@ Oracle GoldenGate 包含下列主要元件：擷取、資料幫浦、複寫、�
 
 - 您已經從 [Oracle 下載](http://www.oracle.com/us/downloads/index.html)網站下載 Oracle GoldenGate 軟體。您已選取 Oracle Fusion Middleware 產品套件 - 資料整合。然後，您針對 Oracle 11g 資料庫，在適用於 Microsoft Windows x64 (64 位元) 的 Oracle v11.2.1 媒體套件上選取了 Oracle GoldenGate。接著，在 Windows 2008 (64 位元) 上下載適用於 Oracle 11g (64 位元) 的 Oracle GoldenGate V11.2.1.0.3。
 
-- 您已經使用 Windows Server 上提供 Oracle Enterprise Edition 映像的平台，在 Azure 中建立兩部虛擬機器 (VM)。如需相關資訊，請參閱[在 Azure 中建立 Oracle Database 12c 虛擬機器](#z3dc8d3c097cf414e9048f7a89c026f80)和 [Azure 虛擬機器](http://azure.microsoft.com/documentation/services/virtual-machines/)。請確定虛擬機器都位於[相同的雲端服務](virtual-machines-load-balance.md)和相同的[虛擬網路](http://azure.microsoft.com/documentation/services/virtual-network/)中，以確保它們可以透過永續的私人 IP 位址互相存取。
+- 您已經使用 Windows Server 上提供 Oracle Enterprise Edition 映像的平台，在 Azure 中建立兩部虛擬機器 (VM)。如需相關資訊，請參閱[在 Azure 中建立 Oracle Database 12c 虛擬機器](#z3dc8d3c097cf414e9048f7a89c026f80)和 [Azure 虛擬機器](https://azure.microsoft.com/documentation/services/virtual-machines/)。請確定虛擬機器都位於[相同的雲端服務](virtual-machines-load-balance.md)和相同的[虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)中，以確保它們可以透過永續的私人 IP 位址互相存取。
 
 - 您已經在 Azure 傳統入口網站上，針對站台 A 將虛擬機器名稱設定為 “MachineGG1”，並針對站台 B 將虛擬機器名稱設定為 “MachineGG2”。
 
@@ -80,7 +80,7 @@ Oracle GoldenGate 包含下列主要元件：擷取、資料幫浦、複寫、�
 
 6. 確認雙向複寫程序
 
->[AZURE.IMPORTANT]本教學課程已根據下列軟體設定進行設定和測試：
+>[AZURE.IMPORTANT] 本教學課程已根據下列軟體設定進行設定和測試：
 >
 >| | **站台 A 資料庫** | **站台 B 資料庫** |
 >|------------------------|----------------------------------|----------------------------------|
@@ -602,4 +602,4 @@ Oracle GoldenGate 管理員會執行一些像是啟動其他 GoldenGate 程序�
 ##其他資源
 [適用於 Azure 的 Oracle 虛擬機器映像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

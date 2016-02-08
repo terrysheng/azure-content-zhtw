@@ -24,7 +24,7 @@
 
 ## 建立 VM 範本
 
-1. 登入 [Azure Preview 入口網站](http://portal.azure.com)。
+1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
 
 1. 點選 [瀏覽]，然後從清單中點選 [研發/測試實驗室]。
 
@@ -86,4 +86,4 @@
 
 一旦加入要在建立 VM 時使用的 VM 範本之後，下一個步驟就是[將 VM 加入研發/測試實驗室](devtest-lab-add-vm-with-artifacts)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -24,10 +24,10 @@
 
 在試用版模式下，您可以遵循集合限制，建立兩個包含 10 名使用者的集合。沒有其他限制。您可以隨時將您的試用版轉換成付費訂閱。如果在 30 天後未轉換成付費訂閱，您的集合就會進入停用狀態。
 
->[AZURE.NOTE]Azure SLA 不適用於試用版模式中建立的集合。
+>[AZURE.NOTE] Azure SLA 不適用於試用版模式中建立的集合。
 
-無法等候嗎？ 快速觀看如何[建立雲端部署](http://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/) (英文)的影片。
+無法等候嗎？ 快速觀看如何[建立雲端部署](https://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/) (英文)的影片。
 
-有人給您意見嗎？ 張貼問題到[討論區論壇](http://feedback.azure.com/forums/247748-azure-remoteapp) (英文)。如果您有 [Azure 支援方案](http://azure.microsoft.com/support/plans/)，則可以提交支援案例。每個人都可以在我們的[意見反應論壇](http://feedback.azure.com/forums/247748-azure-remoteapp) (英文) 上送出意見。
+有人給您意見嗎？ 張貼問題到[討論區論壇](https://feedback.azure.com/forums/247748-azure-remoteapp/) (英文)。如果您有 [Azure 支援方案](https://azure.microsoft.com/support/plans/)，則可以提交支援案例。每個人都可以在我們的[意見反應論壇](https://feedback.azure.com/forums/247748-azure-remoteapp/) (英文) 上送出意見。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

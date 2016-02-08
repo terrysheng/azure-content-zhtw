@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/13/2016"
 	ms.author="cephalin"/>
 
 # 開始使用 Web Apps 的生產測試
@@ -39,9 +39,9 @@
 
 在每個 TiP 案例的基本層級中，您會將預先定義百分比的實際流量路由傳送至非生產部署位置。若要這樣做，請遵循下面的步驟：
 
->[AZURE.NOTE]此處的步驟假設您已有[非生產部署位置](web-sites-staged-publishing.md)，而且所需的 Web 應用程式內容[已部署](web-sites-publish-source-control.md)給它。
+>[AZURE.NOTE] 此處的步驟假設您已有[非生產部署位置](web-sites-staged-publishing.md)，而且所需的 Web 應用程式內容[已部署](web-sites-publish-source-control.md)給它。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 在 Web 應用程式的刀鋒視窗中，按一下 [設定] > [流量路由]。![](./media/app-service-web-test-in-production/01-traffic-routing.png)
 3. 選取您要將流量路由傳送到的位置，以及您所需的總流量百分比，然後按一下 [儲存]。
 
@@ -86,4 +86,4 @@
 -   [敏捷式軟體開發 (Agile Software Development) 與 Azure App Service](app-service-agile-software-development.md)
 -	[為 Web 應用程式有效地使用 DevOps 環境](app-service-web-staged-publishing-realworld-scenarios.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

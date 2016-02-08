@@ -30,7 +30,7 @@
 
 ## 加入具有構件的 VM
 
-1. 登入 [Azure Preview 入口網站](http://portal.azure.com)。
+1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
 
 1. 點選 [瀏覽]，然後從清單中點選 [研發/測試實驗室]。
 
@@ -98,4 +98,4 @@
 
 了解如何[為您的 VM 撰寫自訂構件](devtest-lab-artifact-author.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

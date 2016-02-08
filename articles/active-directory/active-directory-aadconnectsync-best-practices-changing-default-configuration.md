@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="01/21/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -43,7 +43,7 @@ Azure AD Connect 同步處理已設定為每 3 小時同步處理身分識別資
 - 若要[變更現成可用的規則](#change-an-out-of-box-rule)，請複製原始規則並停用現成可用的規則。同步處理規則編輯器將提示您，並協助您達成此目標。
 - 使用同步處理規則編輯器，匯出您的自訂同步處理規則。這提供可用來在災害復原情況下輕鬆地重建它們的 PowerShell 指令碼。
 
->[AZURE.WARNING]現成可用的同步處理規則具有憑證指紋。如果您變更這些規則，將不再符合憑證指紋，而未來當您嘗試套用新版的 Azure AD Connect 時可能會遇到問題。僅利用本文所述的方式進行變更。
+>[AZURE.WARNING] 現成可用的同步處理規則具有憑證指紋。如果您變更這些規則，將不再符合憑證指紋，而未來當您嘗試套用新版的 Azure AD Connect 時可能會遇到問題。僅利用本文所述的方式進行變更。
 
 ### 變更屬性流程
 在某些情況下，預設屬性流程並不適合組織使用。
@@ -113,4 +113,4 @@ Fabrikam 中有對名字、姓氏和顯示名稱使用當地字母的樹系。�
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

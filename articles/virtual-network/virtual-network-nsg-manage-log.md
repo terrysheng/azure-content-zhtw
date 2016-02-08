@@ -25,12 +25,12 @@
 - **事件記錄檔︰**您可以使用此記錄檔來檢視哪些 NSG 規則會套用到以 MAC 位址為基礎的 VM 和執行個體角色。每隔 60 秒會收集一次這些規則的狀態。 
 - **計數器記錄檔︰** 您可以使用此記錄檔來檢視每個 NSG 規則套用到拒絕或允許流量的次數。
 
->[AZURE.WARNING]記錄檔僅適用於在資源管理員部署模型中部署的資源。您無法將記錄檔使用於傳統部署模型中的資源。若要深入了解這兩個模型，請參閱[了解資源管理員部署和傳統部署](resource-manager-deployment-model.md)一文。
+>[AZURE.WARNING] 記錄檔僅適用於在資源管理員部署模型中部署的資源。您無法將記錄檔使用於傳統部署模型中的資源。若要深入了解這兩個模型，請參閱[了解資源管理員部署和傳統部署](resource-manager-deployment-model.md)一文。
 
 ##啟用記錄
 每個資源管理員資源都會隨時自動啟用稽核記錄。您需要啟用事件和計數器記錄，才能開始收集可透過這些記錄檔取得的資料。若要啟用記錄，請遵循下列步驟。
 
-1.  登入 [Azure Preview 入口網站](http://portal.azure.com)。如果您還沒有現有的網路安全性群組，請在繼續之前[建立 NSG](virtual-networks-create-nsg-arm-ps.md)。 
+1.  登入 [Azure Preview 入口網站](https://portal.azure.com)。如果您還沒有現有的網路安全性群組，請在繼續之前[建立 NSG](virtual-networks-create-nsg-arm-ps.md)。 
 
 2.  在 Preview 入口網站中，按一下 [瀏覽] > [網路安全性群組]。
 
@@ -43,7 +43,7 @@
 4. 在 [設定] 刀鋒視窗中，按一下 [診斷]，然後在 [診斷] 窗格中，按一下 [狀態] 旁邊的 [開啟]
 5. 在 [設定] 刀鋒視窗中，按一下 [儲存體帳戶]，然後選取現有的儲存體帳戶或建立新的帳戶。  
 
->[AZURE.INFORMATION]稽核記錄檔不需要個別的儲存體帳戶。將儲存體用於事件和規則記錄將會產生服務費用。
+>[AZURE.INFORMATION] 稽核記錄檔不需要個別的儲存體帳戶。將儲存體用於事件和規則記錄將會產生服務費用。
 
 6. 在下拉式清單的 [儲存體帳戶] 之下，選取您是否要記錄事件、計數器或兩者，然後按一下 [儲存]。
 
@@ -107,11 +107,11 @@
 ##檢視和分析計數器和事件記錄檔 
 您需要連接到儲存體帳戶並擷取事件和計數器記錄檔的 JSON 記錄項目。下載 JSON 檔案後，您可以將它們轉換成 CSV 並在 Excel、PowerBI 或任何其他資料視覺化工具中檢視。
 
->[AZURE.TIP]如果您熟悉 Visual Studio 以及在 C# 中變更常數和變數值的基本概念，您可以使用 Github 所提供的[記錄檔轉換器工具](https://github.com/Azure-Samples/networking-dotnet-log-converter)。
+>[AZURE.TIP] 如果您熟悉 Visual Studio 以及在 C# 中變更常數和變數值的基本概念，您可以使用 Github 所提供的[記錄檔轉換器工具](https://github.com/Azure-Samples/networking-dotnet-log-converter)。
 
 ##其他資源
 
 - [使用 Power BI 視覺化您的 Azure 稽核記錄檔](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx)部落格文章。
 - [在 Power BI 和其他工具中檢視和分析 Azure 稽核記錄](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)部落格文章。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

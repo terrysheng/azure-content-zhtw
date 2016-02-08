@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="01/21/2016"
     ms.author="elizapo" />
 
 # 在 Azure RemoteApp 中使用重新導向
@@ -67,13 +67,13 @@ RemoteApp 會利用遠端桌面通訊協定 (RDP) 與 RemoteFX 來提供重新�
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "redirectclipboard:i:0”
 
-> [AZURE.IMPORTANT]在您測試變更之前，請務必將集合中的所有使用者完全登出 (而非僅中斷連線)。為確保將使用者完全登出，請在 Azure 入口網站移至該集合中的 [工作階段] 索引標籤，然後將已中斷連線或已登入的任何使用者登出。有時候可能需要花費數秒的時間，磁碟機才能顯示在工作階段內的檔案總管中。
+> [AZURE.IMPORTANT] 在您測試變更之前，請務必將集合中的所有使用者完全登出 (而非僅中斷連線)。為確保將使用者完全登出，請在 Azure 入口網站移至該集合中的 [工作階段] 索引標籤，然後將已中斷連線或已登入的任何使用者登出。有時候可能需要花費數秒的時間，磁碟機才能顯示在工作階段內的檔案總管中。
 
 ## 變更 Windows 用戶端的 USB 重新導向設定
 
 如果您想要在與 RemoteApp 連線的電腦上使用 USB 重新導向，必須進行 2 個動作。1 - 您的系統管理員必須使用 Azure PowerShell 在集合層級啟用 USB 重新導向。2 - 在您想要使用 USB 重新導向的每個裝置上，都必須啟用允許重新導向的群組原則。每個想要使用 USB 重新導向的使用者都必須完成這個步驟。
 
-> [AZURE.NOTE]只支援 Windows 電腦使用 Azure RemoteApp 提供 USB 重新導向。
+> [AZURE.NOTE] 只支援 Windows 電腦使用 Azure RemoteApp 提供 USB 重新導向。
 
 ### 為 RemoteApp 集合啟用 USB 重新導向
 使用下列 Cmdlet，在集合層級啟用 USB 重新導向：
@@ -104,4 +104,4 @@ RemoteApp 會利用遠端桌面通訊協定 (RDP) 與 RemoteFX 來提供重新�
 7. 選取 [已啟用]，然後在 [RemoteFX USB 重新導向存取權限] 中選取系統管理員與使用者。
 8. 按一下 [確定]。  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

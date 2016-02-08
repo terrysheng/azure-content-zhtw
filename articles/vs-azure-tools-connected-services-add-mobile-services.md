@@ -3,7 +3,7 @@
    description="使用 Visual Studio 的加入已連接服務對話方塊加入行動服務"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="mlhoop"
    manager="douge"
    editor="" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
    ms.date="12/16/2015"
-   ms.author="tarcher" />
+   ms.author="mlearned" />
 
 # 使用 Visual Studio 已連接服務加入行動服務
 
@@ -21,7 +21,7 @@
 
 ## 支援的專案類型
 
->[AZURE.NOTE]在 Visual Studio 2015 中，不支援使用 [加入已連接服務] 對話方塊將 Azure 行動服務加入至 Windows 通用 (Windows 10) 專案。使用 NuGet 封裝管理員為您的專案安裝適當的封裝，即可加入 Azure 行動服務。
+>[AZURE.NOTE] 在 Visual Studio 2015 中，不支援使用 [加入已連接服務] 對話方塊將 Azure 行動服務加入至 Windows 通用 (Windows 10) 專案。使用 NuGet 封裝管理員為您的專案安裝適當的封裝，即可加入 Azure 行動服務。
 
 您可以使用 [已連接服務] 對話方塊來連接到 Azure Mobile Services 中的下列專案類型。
 
@@ -51,7 +51,7 @@
 
     若要建立新的行動服務帳戶︰
     1. 選擇對話方塊底部的 [建立服務] 連結。
-        ![加入新的已連接行動服務](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
+	![加入新的已連接行動服務](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
 
 
 
@@ -85,10 +85,10 @@ Visual Studio 修改您的專案的方式視專案類型而定。若為 C# 用�
 
  - [MSDN 論壇：Azure 行動服務](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
 
- - [Microsoft Azure 團隊部落格上的 Azure 行動服務](http://azure.microsoft.com/blog/topics/mobile/)
+ - [Microsoft Azure 團隊部落格上的 Azure 行動服務](https://azure.microsoft.com/blog/topics/mobile/)
 
- - [azure.microsoft.com 上的 Azure 行動服務](http://azure.microsoft.com/services/mobile-services/)
+ - [azure.microsoft.com 上的 Azure 行動服務](https://azure.microsoft.com/services/mobile-services/)
 
- - [azure.microsoft.com 上的 Azure 行動服務文件](http://azure.microsoft.com/documentation/services/mobile-services/)
+ - [azure.microsoft.com 上的 Azure 行動服務文件](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

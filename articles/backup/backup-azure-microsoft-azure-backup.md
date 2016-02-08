@@ -1,13 +1,21 @@
 <properties
-  pageTitle="準備使用 Azure 備份伺服器來備份工作負載 | Microsoft Azure"
-  description="本文為您提供使用 Azure 備份伺服器來備份工作負載之前進行環境準備工作的必要步驟"
+  pageTitle="準備環境以使用 Azure 備份伺服器來備份工作負載 | Microsoft Azure"
+  description="確定已適當地準備您的環境，以使用 Azure 備份伺服器來備份工作負載"
   services="backup"
   documentationCenter=""
-  authors="SamirMehta"
-  manager="shreeshd"
-  editor=""/>
+  authors="Jim-Parker"
+  manager="jwhit"
+  editor=""
+  keywords="Azure 備份伺服器；備份保存庫"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/15/2015" ms.author="sammehta; jimpark"; "aashishr"/>
+<tags
+  ms.service="backup"
+  ms.workload="storage-backup-recovery"
+  ms.tgt_pltfrm="na"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.date="01/22/2016"
+  ms.author="jimpark; trinadhk;"/>
 
 # 準備使用 Azure 備份伺服器來備份工作負載
 
@@ -17,7 +25,7 @@
 
 本文說明如何準備環境，以使用 Azure 備份伺服器來備份工作負載。透過 Azure 備份伺服器，您將可從單一主控台保護 Hyper-V VM、Microsoft SQL Server、SharePoint Server、Microsoft Exchange 和 Windows 用戶端等應用程式工作負載。
 
->[AZURE.WARNING]Azure 備份伺服器承襲了 Data Protection Manager (DPM) 的工作負載備份功能。您將發現其中某些功能指向 DPM 文件的指標。不過，Azure 備份伺服器不會保護磁帶，也不會與 System Center 整合。
+>[AZURE.WARNING] Azure 備份伺服器承襲了 Data Protection Manager (DPM) 的工作負載備份功能。您將發現其中某些功能指向 DPM 文件的指標。不過，Azure 備份伺服器不會保護磁帶，也不會與 System Center 整合。
 
 ## 1\.Windows Server 機器
 
@@ -30,7 +38,7 @@
 | Azure | Azure IaaS 虛擬機器<br><br>A2 標準：2 個核心、3.5GB 的 RAM | 您可以先從 Windows Server 2012 R2 Datacenter 的簡單資源庫映像開始著手。[使用 Azure 備份伺服器 (DPM) 保護 IaaS 工作負載](https://technet.microsoft.com/library/jj852163.aspx)有許多細節需要注意。部署機器之前，請先確實閱讀相關文章。 |
 | 內部部署 | HYPER-V VM、<br> VMWare VM <br> 或實體主機<br><br>2 個核心和 4GB 的 RAM | 您可以使用 Windows Server Deduplication 為 DPM 儲存體刪除重複資料。深入了解在 Hyper-V VM 中部署時，[DPM 和重複資料刪除](https://technet.microsoft.com/library/dn891438.aspx)如何搭配運作。 |
 
-> [AZURE.NOTE]建議您在具有 Windows Server 2012 R2 Datacenter 的機器上安裝 Azure 備份伺服器。最新版的 Windows 作業系統會自動涵蓋許多必要條件。
+> [AZURE.NOTE] 建議您在具有 Windows Server 2012 R2 Datacenter 的機器上安裝 Azure 備份伺服器。最新版的 Windows 作業系統會自動涵蓋許多必要條件。
 
 如果您打算在個時間點將此伺服器加入網域中，建議您在安裝 Azure 備份伺服器之前完成網域加入活動。在部署後將現有的 Azure 備份伺服器機器移至新網域是*不受支援*的。
 
@@ -58,7 +66,7 @@
 
 6. 將有一則訊息確認保存庫已成功建立，並且該保存庫會在「復原服務」頁面中列為 [使用中] 狀態。![備份保存庫的清單](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
 
-  >[AZURE.IMPORTANT]保存庫建立之後，請立即確認是否選擇了適當的儲存體備援選項。進一步了解[在備份保存庫中設定儲存體備援選項](backup-configure-vault.md#azure-backup---storage-redundancy-options)。
+  >[AZURE.IMPORTANT] 保存庫建立之後，請立即確認是否選擇了適當的儲存體備援選項。進一步了解[在備份保存庫中設定儲存體備援選項](backup-configure-vault.md#azure-backup---storage-redundancy-options)。
 
 
 ## 3\.軟體封裝
@@ -86,7 +94,7 @@
 
 下載所有檔案之後，按一下 [MicrosoftAzureBackupInstaller.exe]。這會啟動 [Microsoft Azure 備份安裝精靈]，而將安裝程式檔案解壓縮至您所指定的位置。繼續執行精靈，然後按一下 [解壓縮] 按鈕，以開始解壓縮程序。
 
-> [AZURE.WARNING]至少 4 GB 的可用空間，才能將安裝程式檔案解壓縮。
+> [AZURE.WARNING] 至少 4 GB 的可用空間，才能將安裝程式檔案解壓縮。
 
 
 ![Microsoft Azure 備份安裝精靈](./media/backup-azure-microsoft-azure-backup/extract/03.png)
@@ -109,7 +117,7 @@
 
     如果發生失敗且建議您重新啟動電腦，請依指示進行，然後按一下 [再檢查一次]。
 
-    > [AZURE.NOTE]Azure 備份伺服器不會使用遠端 SQL Server 執行個體。Azure 備份伺服器所使用的執行個體必須是本機的。
+    > [AZURE.NOTE] Azure 備份伺服器不會使用遠端 SQL Server 執行個體。Azure 備份伺服器所使用的執行個體必須是本機的。
 
 4. 提供 Microsoft Azure 備份伺服器檔案的安裝位置，按 [下一步]。
 
@@ -123,7 +131,7 @@
 
 6. 選取是否要使用 *Microsoft Update* 檢查更新，按 [下一步]。
 
-    >[AZURE.NOTE]建議讓 Windows Update 重新導向至 Microsoft Update，此網站為 Windows 和 Microsoft Azure 備份伺服器等其他產品提供安全性和重要更新。
+    >[AZURE.NOTE] 建議讓 Windows Update 重新導向至 Microsoft Update，此網站為 Windows 和 Microsoft Azure 備份伺服器等其他產品提供安全性和重要更新。
 
     ![Microsoft Azure 備份必要條件 2](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
@@ -148,7 +156,7 @@
 
 第一個備份複本會保存在連接至 Azure 備份伺服器機器的儲存體上。如需有關新增磁碟的詳細資訊，請參閱[設定存放集區和磁碟儲存體](https://technet.microsoft.com/library/hh758075.aspx)。
 
-> [AZURE.NOTE]即使您打算將資料傳送至 Azure，也必須新增備份儲存體。在 Azure 備份伺服器目前的架構中，Azure 備份保存庫會保存資料的*第二個*複本，而本機儲存體則保存第一個 (必要的) 備份複本。
+> [AZURE.NOTE] 即使您打算將資料傳送至 Azure，也必須新增備份儲存體。在 Azure 備份伺服器目前的架構中，Azure 備份保存庫會保存資料的*第二個*複本，而本機儲存體則保存第一個 (必要的) 備份複本。
 
 ## 4\.網路連線
 
@@ -203,4 +211,4 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 - [SharePoint 伺服器備份](backup-azure-backup-sharepoint.md)
 - [替代伺服器備份](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -24,9 +24,9 @@
     此資訊適用於 v2.0 應用程式模型公開預覽。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
 
  現在，我們將使用 OWIN 來執行下列作業：
-- 使用 Azure AD 和 v2.0 應用程式模型將使用者登入應用程式。
-- 顯示使用者的部分相關資訊。
-- 將使用者登出應用程式。
+ - 使用 Azure AD 和 v2.0 應用程式模型將使用者登入應用程式。
+ - 顯示使用者的部分相關資訊。
+ - 將使用者登出應用程式。
 
 為執行此作業，您必須執行下列動作：
 
@@ -35,7 +35,7 @@
 3. 使用 OWIN 向 Azure AD 發出登入和登出要求。
 4. 列印出使用者的相關資料。
 
-本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet)。若要遵循執行，您可以[用 .zip 格式下載應用程式的基本架構](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip)，或複製基本架構：
+本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet) 上。若要遵循執行，您可以[用 .zip 格式下載應用程式的基本架構](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip)，或複製基本架構：
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
@@ -45,8 +45,8 @@
 在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。請確定：
 
 - 將指派給您應用程式的**應用程式識別碼**複製起來，您很快會需要用到這些識別碼。
-- 為應用程式新增 **Web** 平台。
-- 請輸入正確的**重新導向 URI**。重新導向 URI 會向 Azure AD 指出驗證回應應導向的位置，本教學課程的預設為 `https://localhost:44326/`。
+- 為您的應用程式新增 **Web** 平台。
+- 輸入正確的**重新導向 URI**。重新導向 URI 會向 Azure AD 指出驗證回應應導向的位置，本教學課程的預設為 `https://localhost:44326/`。
 
 ## 2\.將您的應用程式設定為使用 OWIN 驗證管道
 在這裡，我們將設定 OWIN 中介軟體使用 OpenID Connect 驗證通訊協定。OWIN 將用來發出登入和登出要求、管理使用者的工作階段，以及取得使用者相關資訊等其他作業。
@@ -99,7 +99,7 @@ public void ConfigureAuth(IAppBuilder app)
 									 ClientId = clientId,
 									 Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
 									 RedirectUri = redirectUri,
-									 Scope = "openid",
+									 Scope = "openid email profile",
 									 ResponseType = "id_token",
 									 PostLogoutRedirectUri = redirectUri,
 									 TokenValidationParameters = new TokenValidationParameters
@@ -215,4 +215,4 @@ public ActionResult About()
 - [應用程式模型 2.0 版預覽 >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

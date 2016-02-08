@@ -23,7 +23,7 @@ Azure AD B2C 支援各種現代化應用程式架構的驗證，這些架構全�
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## 基本概念
-每個使用 Azure AD B2C 的應用程式都必須透過 [Azure 入口網站](https://portal.azure.com)，註冊在 [B2C 目錄](active-directory-b2c-get-started.md)中。應用程式註冊處理序會收集與指派一些值給您的應用程式：
+每個使用 Azure AD B2C 的應用程式都必須透過 [Azure 入口網站](https://portal.azure.com/)，註冊在 [B2C 目錄](active-directory-b2c-get-started.md)中。應用程式註冊處理序會收集與指派一些值給您的應用程式：
 
 - 可唯一識別應用程式的**應用程式 ID**
 - 可用來將回應導回至應用程式的**重新導向 URI**
@@ -93,7 +93,8 @@ Accept: application/json
 
 然後 Web API 會使用這個權杖來驗證 API 呼叫端的身分識別，並從編碼在權杖中的宣告擷取呼叫端的相關資訊。[Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)可讓您了解應用程式可用的所有權杖和宣告類型。
 
-> [AZURE.NOTE]Azure AD B2C 預覽目前僅支援以各自已知的用戶端存取的 Web API。例如，完整的應用程式可能包括 iOS 應用程式、Android 應用程式和 Web API 後端。完全支援這種架構。目前不支援協力廠商用戶端 (例如另一個 iOS 應用程式) 存取相同的 Web API。實際上，完整應用程式的每個元件必須全部共用單一應用程式識別碼。
+> [AZURE.NOTE]
+	Azure AD B2C 預覽目前僅支援以各自已知的用戶端存取的 Web API。例如，完整的應用程式可能包括 iOS 應用程式、Android 應用程式和 Web API 後端。完全支援這種架構。目前不支援協力廠商用戶端 (例如另一個 iOS 應用程式) 存取相同的 Web API。實際上，完整應用程式的每個元件必須全部共用單一應用程式識別碼。
 
 Web API 接收的權杖可以來自所有類型的應用程式，包括 Web 應用程式、桌面和行動應用程式、單一頁面應用程式、伺服器端精靈，甚至是其他的 Web API。範例：Web 應用程式呼叫 Web API 的完整流程。
 
@@ -108,7 +109,8 @@ Web API 接收的權杖可以來自所有類型的應用程式，包括 Web 應�
 
 在此流程中，應用程式會執行[原則](active-directory-b2c-reference-policies.md)，並在使用者完成原則之後，從 Azure AD 接收 authorization\_code。authorization\_code 代表應用程式有權限代替目前登入的使用者呼叫後端服務。然後應用程式就可以在背景中以 authoriztion\_code 來兌換 id\_token 和 refresh\_token。應用程式可以在 HTTP 要求中使用 id\_token 向 Web API 驗證，也可以在舊的 id\_token 過期時，利用 refresh\_token 取得新的 id\_token。
 
-> [AZURE.NOTE]Azure AD B2C 預覽目前支援取得的 id\_token，僅限於用來存取應用程式本身的後端 Web 服務。例如，完整的應用程式可能包括 iOS 應用程式、Android 應用程式和 Web API 後端。完全支援這種架構。目前不支援 iOS 應用程式使用 OAuth 2.0 access\_token 存取協力廠商 Web API。實際上，完整應用程式的每個元件必須全部共用單一應用程式識別碼。
+> [AZURE.NOTE]
+	Azure AD B2C 預覽目前支援取得的 id\_token，僅限於用來存取應用程式本身的後端 Web 服務。例如，完整的應用程式可能包括 iOS 應用程式、Android 應用程式和 Web API 後端。完全支援這種架構。目前不支援 iOS 應用程式使用 OAuth 2.0 access\_token 存取協力廠商 Web API。實際上，完整應用程式的每個元件必須全部共用單一應用程式識別碼。
 
 ![原生應用程式泳道映像](./media/active-directory-b2c-apps/native.png)
 
@@ -128,4 +130,4 @@ Azure AD B2C 目前不支援此流程，也就是說，只有在進行互動式�
 
 使用 OAuth 2.0 Jwt 持有人認證授與可支援此鏈結的 Web API 案例，亦稱為「代理者流程」。不過，Azure AD B2C 預覽目前未實作代理者流程。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

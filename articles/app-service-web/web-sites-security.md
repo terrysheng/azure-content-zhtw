@@ -89,7 +89,7 @@ App Service 與 SQL Database 高度整合，使所有連接字串會全面加密
 ### 組態設定和連接字串
 將連接字串、驗證憑證和其他敏感資訊儲存於組態檔中是一種常見的做法。然而，這些檔案可能會暴露在您的網站上，或簽入公開的儲存機制，因而公開此資訊。[GitHub](https://github.com) 上的簡單搜尋，例如，會發現具有公用儲存機制中公開密碼的無數組態檔。
 
-最佳作法是將此資訊保存在您的應用程式組態檔以外的位置。App Service 可讓您將設定資訊以「應用程式設定」與「連接字串」的形式，儲存為執行階段環境的一部分。這些值會在執行階段，透過大多數程式設計語言的*環境變數*，來向您的應用程式公開。若是 .NET 應用程式，則這些值會在執行階段加入您的 .NET 組態。除了這些情況外，這些組態設定會維持加密，除非您使用 [Azure 入口網站](http://portal.azure.com)或公用程式 (例如 PowerShell 或 Azure CLI) 檢視或設定它們。
+最佳作法是將此資訊保存在您的應用程式組態檔以外的位置。App Service 可讓您將設定資訊以「應用程式設定」與「連接字串」的形式，儲存為執行階段環境的一部分。這些值會在執行階段，透過大多數程式設計語言的*環境變數*，來向您的應用程式公開。若是 .NET 應用程式，則這些值會在執行階段加入您的 .NET 組態。除了這些情況外，這些組態設定會維持加密，除非您使用 [Azure 入口網站](https://portal.azure.com)或 PowerShell 或 Azure CLI 等公用程式加以檢視或設定。
 
 將組態資訊儲存在 App Service，可讓應用程式的系統管理員鎖定生產應用程式的機密資訊。開發人員可以使用應用程式開發的一組個別的組態設定，且設定可以由 App Service 中的設定自動取代。開發人員甚至可以不需要知道為生產應用程式設定的密碼。如需在 App Service 中設定應用程式設定和連接字串的詳細資訊，請參閱[設定 Web 應用程式](web-sites-configure.md)。
 
@@ -99,7 +99,7 @@ Azure App Service 針對您的應用程式的檔案系統，提供透過 **FTPS*
 
 您的應用程式的 FTPS 連結具有下列步驟：
 
-1. 開啟 [Azure 入口網站](http://portal.azure.com)。
+1. 開啟 [Azure 入口網站](https://portal.azure.com)。
 2. 選取 [全部瀏覽]。
 3. 從 [瀏覽] 刀鋒視窗中，選取 [應用程式服務]。
 4. 從 [應用程式服務] 刀鋒視窗中，選取所需的應用程式。
@@ -111,16 +111,16 @@ Azure App Service 針對您的應用程式的檔案系統，提供透過 **FTPS*
 
 ## 後續步驟
 
-如需 Azure 平台的安全性、報告**安全性事件或不當使用**、或通知 Microsoft 您即將執行網站的**滲透測試**等詳細資訊，請參閱 [Microsoft Azure 信任中心](http://azure.microsoft.com/support/trust-center/security/)的安全性區段。
+如需 Azure 平台的安全性、報告**安全性事件或不當使用**、或通知 Microsoft 您即將執行網站的**滲透測試**等詳細資訊，請參閱 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/security/)的安全性區段。
 
-如需 App Service 應用程式的 **web.config** 或 **applicationhost.config** 檔案詳細資訊，請參閱[已在 Azure App Service Web Apps 中解除鎖定的設定選項](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)。
+如需 App Service 應用程式的 **web.config** 或 **applicationhost.config** 檔案詳細資訊，請參閱[已在 Azure App Service Web Apps 中解除鎖定的設定選項](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)。
 
 如需記錄 App Service 應用程式資訊的詳細資訊 (此資訊可能對偵測攻擊很有幫助)，請參閱[啟用診斷記錄](web-sites-enable-diagnostic-log.md)。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期的入門應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期的入門應用程式。不需要信用卡；沒有承諾。
 
 ## 變更的項目
 
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

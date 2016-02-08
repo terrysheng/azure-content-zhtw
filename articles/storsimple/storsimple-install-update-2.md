@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/12/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli" />
 
 # 在 StorSimple 裝置上安裝 Update 2
@@ -81,16 +81,16 @@ Update 2 包括裝置軟體更新、LSI 驅動程式更新和磁碟韌體更新�
 
 下表顯示透過此方法套用的 Hotfix：
 
-| 順序 | KB | 名稱 | 封裝說明 | 更新類型 |
-|--------|-----------|-------------------------|-----------------------------|-------------|
-| 1 | KB3121901 | 軟體更新 | HcsMdsSfotwareUpdate.exe <br></br> CisMdsAgentUpdateBundle.exe | 定期 |
-| 2 | KB3121900 | LSI 驅動程式 | HcsLsiUpdate.exe | 定期 |
-| 3 | KB3080728 | Storport 修正程式 | Storport-KB3080728-x64.msu | 定期 |
-| 4 | KB3090322 | Spaceport 修正程式 | Spaceport-KB3090322-x64.msu | 定期 |
-| 5 | KB3121899 | 磁碟韌體 | DiskFirmwarePackage.exe | 維護 |
+| 順序 | KB | 名稱 | 更新類型 |
+|--------|-----------|-------------------------|------------- |
+| 1 | KB3121901 | 軟體更新 | 定期 |
+| 2 | KB3121900 | LSI 驅動程式 | 定期 |
+| 3 | KB3080728 | Storport 修正程式 | 定期 |
+| 4 | KB3090322 | Spaceport 修正程式 | 定期 |
+| 5 | KB3121899 | 磁碟韌體 | 維護 |
 
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 > 
 > - 如果您的裝置正在執行 Release (GA) 版本，請連絡 [Microsoft 支援服務](storsimple-contact-microsoft-support.md)以協助您進行更新。
 > - 此程序僅需要執行一次，即可套用 Update 2。您可以使用 Azure 傳統入口網站套用後續的更新。
@@ -127,4 +127,4 @@ Update 2 包括裝置軟體更新、LSI 驅動程式更新和磁碟韌體更新�
 
 深入了解 [Update 2 版](storsimple-update2-release-notes.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

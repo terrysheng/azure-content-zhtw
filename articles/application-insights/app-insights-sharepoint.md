@@ -26,7 +26,7 @@ Visual Studio Application Insights 會監視應用程式的可用性、效能和
 ## 建立 Application Insights 資源
 
 
-在 [Azure 入口網站](http://portal.azure.com) 中，建立新的 Application Insights 資源。選擇 ASP.NET 做為應用程式類型。
+在 [Azure 入口網站](https://portal.azure.com) 中，建立新的 Application Insights 資源。選擇 ASP.NET 做為應用程式類型。
 
 ![按一下 [屬性]，選取金鑰，然後按下 CTRL+C](./media/app-insights-sharepoint/01-new.png)
 
@@ -75,7 +75,7 @@ Visual Studio Application Insights 會監視應用程式的可用性、效能和
 
 重新部署您的應用程式。
 
-返回 [Azure 入口網站](http://portal.azure.com)中的應用程式刀鋒視窗。
+返回 [Azure 入口網站](https://portal.azure.com)中的應用程式刀鋒視窗。
 
 前幾個事件將出現在搜尋中。
 
@@ -108,4 +108,4 @@ Visual Studio Application Insights 會監視應用程式的可用性、效能和
 
 <!--Link references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/13/2015"
+   ms.date="01/13/2016"
    ms.author="larryfr"/>
 
 
@@ -21,12 +21,12 @@
 
 Azure 虛擬網路可讓您延伸 Hadoop 解決方案以合併內部部署資源，例如 SQL Server，或在雲端資源間建立安全的私人網路。
 
-> [AZURE.NOTE]HDInsight 不支援同質型 Azure 虛擬網路。在使用 HDInsight 時，您必須使用位置型虛擬網路。
+> [AZURE.NOTE] HDInsight 不支援同質型 Azure 虛擬網路。在使用 HDInsight 時，您必須使用位置型虛擬網路。
 
 
 ##<a id="whatis"></a>什麼是 Azure 虛擬網路？
 
-[Azure 虛擬網路](http://azure.microsoft.com/documentation/services/virtual-network/)可讓您建立安全、持續的網路，上面有您的解決方案所需的資源。虛擬網路可讓您：
+[Azure 虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)可讓您建立安全、持續的網路，上面有您的解決方案所需的資源。虛擬網路可讓您：
 
 * 在私人網路中將雲端資源連接在一起 (僅限雲端)。
 
@@ -58,11 +58,11 @@ Azure 虛擬網路可讓您延伸 Hadoop 解決方案以合併內部部署資源
 
 如需虛擬網路特性、優點和功能的詳細資訊，請參閱＜[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)＞。
 
-> [AZURE.NOTE]您必須先建立 Azure 虛擬網路，再佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[虛擬網路組態工作](http://azure.microsoft.com/documentation/services/virtual-network/)＞。
+> [AZURE.NOTE] 您必須先建立 Azure 虛擬網路，再佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[虛擬網路組態工作](https://azure.microsoft.com/documentation/services/virtual-network/)＞。
 
 ## 虛擬網路需求
 
-> [AZURE.IMPORTANT]在虛擬網路上建立 HDInsight 叢集需要本節中所述之特定的虛擬網路設定。
+> [AZURE.IMPORTANT] 在虛擬網路上建立 HDInsight 叢集需要本節中所述之特定的虛擬網路設定。
 
 * Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。 
 
@@ -87,7 +87,7 @@ Azure 虛擬網路可讓您延伸 Hadoop 解決方案以合併內部部署資源
     
     2. 建立 HDInsight 叢集。為叢集設定虛擬網路設定時，在步驟 1 中選取建立的子網路。
 
-    > [AZURE.NOTE]上述步驟假設您未將通訊限制為虛擬網路 IP 位址範圍中的 IP 位址。如果您已限制，您可能需要修改這些限制，以允許與新的子網路進行通訊。
+    > [AZURE.NOTE] 上述步驟假設您未將通訊限制為_虛擬網路 IP 位址範圍中_的 IP 位址。如果您已限制，您可能需要修改這些限制，以允許與新的子網路進行通訊。
 
     如需網路安全性群組的詳細資訊，請參閱[網路安全性群組概觀](../virtual-network/virtual-networks-nsg.md)。如需在 Azure 虛擬網路中控制路由的詳細資訊，請參閱[使用者定義的路由和 IP 轉送](../virtual-network/virtual-networks-udr-overview.md)。
 
@@ -103,11 +103,11 @@ HDInsight 叢集會被指派特定的虛擬網路介面完整網域名稱 (FQDN)
 
 	https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/<servicename>/components/<componentname>
 
-> [AZURE.NOTE]如需如何搭配使用 Ambari 與 HDInsight 的詳細資訊，請參閱[使用 Ambari API 監視 HDInsight 中的 Hadoop 叢集](hdinsight-monitor-use-ambari-api.md)。
+> [AZURE.NOTE] 如需如何搭配使用 Ambari 與 HDInsight 的詳細資訊，請參閱[使用 Ambari API 監視 HDInsight 中的 Hadoop 叢集](hdinsight-monitor-use-ambari-api.md)。
 
 您必須指定叢集名稱和叢集上執行的服務和元件，例如 YARN 資源管理員。
 
-> [AZURE.NOTE]傳回的資料是 JavaScript 物件標記法 (JSON) 文件，其中包含許多元件相關資訊。若只要擷取 FQDN，您應該使用 JSON 剖析器來擷取 `host_components[0].HostRoles.host_name` 值。
+> [AZURE.NOTE] 傳回的資料是 JavaScript 物件標記法 (JSON) 文件，其中包含許多元件相關資訊。若只要擷取 FQDN，您應該使用 JSON 剖析器來擷取 `host_components[0].HostRoles.host_name` 值。
 
 比方說，若要從 HDInsight Hadoop 叢集傳回 FQDN，您可以使用下列其中一種方法，擷取 YARN 資源管理員的資料：
 
@@ -158,7 +158,7 @@ HDInsight 叢集會被指派特定的虛擬網路介面完整網域名稱 (FQDN)
 
 		curl -G -u <username>:<password> "https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum" | jq .items[0].properties[]
 
-> [AZURE.NOTE]如需如何搭配使用 Ambari 與 HDInsight 的詳細資訊，請參閱[使用 Ambari API 監視 HDInsight 中的 Hadoop 叢集](hdinsight-monitor-use-ambari-api.md)。
+> [AZURE.NOTE] 如需如何搭配使用 Ambari 與 HDInsight 的詳細資訊，請參閱[使用 Ambari API 監視 HDInsight 中的 Hadoop 叢集](hdinsight-monitor-use-ambari-api.md)。
 
 在擁有仲裁資訊後，請將其用於用戶端應用程式中。
 
@@ -199,4 +199,4 @@ HDInsight 叢集會被指派特定的虛擬網路介面完整網域名稱 (FQDN)
 
 若要深入了解 Azure 虛擬網路，請參閱 [Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

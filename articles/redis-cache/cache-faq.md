@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2016" 
+	ms.date="01/21/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取常見問題集
@@ -74,12 +74,12 @@
 <a name="cache-billing"></a>
 ## Azure Redis 快取如何收費？
 
-[此處](http://azure.microsoft.com/pricing/details/cache/)提供 Azure Redis 快取價格。定價頁面所列的價格為每小時的費率。快取是根據從建立快取到刪除快取的時間，以分鐘為單位來收費。沒有用於停止或暫停快取收費的選項。
+[此處](https://azure.microsoft.com/pricing/details/cache/)提供 Azure Redis 快取價格。定價頁面所列的價格為每小時的費率。快取是根據從建立快取到刪除快取的時間，以分鐘為單位來收費。沒有用於停止或暫停快取收費的選項。
 
 <a name="cache-timeouts"></a>
 ## 為什麼看到逾時？
 
-用來與 Redis 溝通的用戶端發生逾時。在大多數的情況下，Redis 伺服器不會逾時。將命令傳送到 Redis 伺服器時，會將命令排入佇列，而且 Redis 伺服器最後會挑選並執行命令。不過，用戶端可能會在此程序期間逾時，而且，如果是這樣，則會在呼叫端引發例外狀況。如需疑難排解逾時問題的詳細資訊，請參閱[調查 StackExchange.Redis 中 Azure Redis 快取的逾時例外狀況](http://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/)。
+用來與 Redis 溝通的用戶端發生逾時。在大多數的情況下，Redis 伺服器不會逾時。將命令傳送到 Redis 伺服器時，會將命令排入佇列，而且 Redis 伺服器最後會挑選並執行命令。不過，用戶端可能會在此程序期間逾時，而且，如果是這樣，則會在呼叫端引發例外狀況。如需疑難排解逾時問題的詳細資訊，請參閱[調查 StackExchange.Redis 中 Azure Redis 快取的逾時例外狀況](https://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/)。
 
 <a name="cache-monitor"></a>
 ## 如何監視快取的健全狀況和效能？
@@ -170,9 +170,18 @@ CLR 執行緒集區有兩種類型的執行緒：「背景工作」和「I/O 完
 
 -	在 ASP.NET 中，請使用 web.config 中 `<processModel>` 組態元素下的 ["minIoThreads" 組態設定][]。如果您在 Azure 網站內執行，此設定不會透過組態選項公開。不過，您應該仍然能夠透過 global.asax.cs 的 Application\_Start 方法以程式設計方式設定 (如下所示)。
 
-> **重要事項：**這個組態元素中指定的值是每一核心設定。例如，如果您有 4 核心機器，並且想要在在執行階段將您的 minIOThreads 設定為 200，您會使用 `<processModel minIoThreads="50"/>`。
+> **重要事項：**這個組態元素中指定的值是*每一核心*設定。例如，如果您有 4 核心機器，並且想要在在執行階段將您的 minIOThreads 設定為 200，您會使用 `<processModel minIoThreads="50"/>`。
 
 -	在 ASP.NET 之外，使用 [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API。
+
+<a name="server-gc"></a>
+## 使用 StackExchange.Redis 時啟用伺服器 GC 在用戶端上取得更多輸送量
+
+啟用伺服器 GC 可以最佳化用戶端，並在使用 StackExchange.Redis 時提供較佳的效能和輸送量。如需有關伺服器 GC，以及如何加以啟用的詳細資訊，請參閱下列文件。
+
+-	[啟用伺服器 GC](https://msdn.microsoft.com/library/ms229357.aspx)
+-	[Fundamentals of Garbage Collection (記憶體回收的基本概念)](https://msdn.microsoft.com/library/ee787088.aspx)
+-	[Garbage Collection and Performance (記憶體回收與效能)](https://msdn.microsoft.com/library/ee851764.aspx)
 
 <a name="cache-redis-commands"></a>
 ## 使用常見 Redis 命令時的一些考量為何？
@@ -229,12 +238,12 @@ Redis 工具 (例如 `redis-cli`) 未使用 SSL 連接埠，但您可以遵循[�
 
 Microsoft Azure Redis 快取是基於受歡迎的開放原始碼 Redis 快取，可讓您存取 Microsoft 所管理的專用安全 Redis 快取。有各種 [Redis 用戶端](http://redis.io/clients)可供許多程式設計語言使用。每個用戶端都有它自己的 API，以使用 [Redis 命令](http://redis.io/commands)來呼叫 Redis 快取執行個體。
 
-因為每個用戶端都不同，所以 MSDN 上沒有一個集中式類別參考；而是每個用戶端都會維護其專屬的參考文件。除了參考文件之外，Azure.com 上還會有數個教學課程，可顯示如何使用 [[Redis 快取文件](http://azure.microsoft.com/documentation/services/redis-cache/)] 頁面上的不同語言和快取用戶端來開始使用 Azure Redis 快取。
+因為每個用戶端都不同，所以 MSDN 上沒有一個集中式類別參考；而是每個用戶端都會維護其專屬的參考文件。除了參考文件之外，Azure.com 上還會有數個教學課程，可顯示如何使用 [[Redis 快取文件](https://azure.microsoft.com/documentation/services/redis-cache/)] 頁面上的不同語言和快取用戶端來開始使用 Azure Redis 快取。
 
 
 ## 我適合使用哪個 Azure 快取服務？
 
->[AZURE.IMPORTANT]Microsoft 建議所有新的開發採用 Azure Redis Cache。
+>[AZURE.IMPORTANT] Microsoft 建議所有新的開發採用 Azure Redis Cache。
 
 Azure 快取目前有三個提供項目：
 
@@ -273,4 +282,4 @@ In-Role Cache 已設定於 2016 年 11 月 30 日淘汰。
 
 ["minIoThreads" 組態設定]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

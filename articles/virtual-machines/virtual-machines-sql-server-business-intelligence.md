@@ -27,11 +27,11 @@ Microsoft Azure 虛擬機器資源庫含有包含 SQL Server 安裝的映像。�
 
 有兩種方式可在 Microsoft Azure 虛擬機器中授權 SQL Server：
 
-1. 屬於軟體保證的授權機動性優點。如需詳細資訊，請參閱 [Azure 上透過軟體保證的授權機動性](http://azure.microsoft.com/pricing/license-mobility/)。
+1. 屬於軟體保證的授權機動性優點。如需詳細資訊，請參閱 [Azure 上透過軟體保證的授權機動性](https://azure.microsoft.com/pricing/license-mobility/)。
 
-1. 支付安裝了 SQL Server 的 Azure 虛擬機器每小時的費用。請參閱[虛擬機器定價](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)中的＜SQL Server＞一節。
+1. 支付安裝了 SQL Server 的 Azure 虛擬機器每小時的費用。請參閱[虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)中的＜SQL Server＞一節。
 
-如需有關授權和目前費率的詳細資訊，請參閱[虛擬機器授權常見問題集](http://azure.microsoft.com/pricing/licensing-faq/%20)。
+如需有關授權和目前費率的詳細資訊，請參閱[虛擬機器授權常見問題集](https://azure.microsoft.com/pricing/licensing-faq/%20/)。
 
 ## Azure 虛擬機器資源庫中提供 SQL Server 映像
 
@@ -108,7 +108,7 @@ Microsoft Azure 虛擬機器資源庫涵蓋數個包含 Microsoft SQL Server 的
 
 	![SQL Server 服務](./media/virtual-machines-sql-server-business-intelligence/IC650107.gif)
 
-	>[AZURE.NOTE]支援的 BI 案例中需要 SQL Server 資料庫引擎。在單一伺服器 VM 拓撲中，需要資料庫引擎才能在相同的 VM 上執行。
+	>[AZURE.NOTE] 支援的 BI 案例中需要 SQL Server 資料庫引擎。在單一伺服器 VM 拓撲中，需要資料庫引擎才能在相同的 VM 上執行。
 
 	如需詳細資訊，請參閱下列：[解除安裝 Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) 和[解除安裝 Analysis Services 的執行個體](https://msdn.microsoft.com/library/ms143687.aspx)。
 
@@ -152,7 +152,7 @@ Analysis Services、Reporting Services、SQL Server Database Engine 和資料來
 
 SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式安裝，但是未設定報表伺服器。本小節中的步驟會設定 Reporting Services 報表伺服器。如需有關詳細設定 Reporting Services 原生模式的詳細資訊，請參閱[安裝 Reporting Services 原生模式報表伺服器 (SSRS)](https://msdn.microsoft.com/library/ms143711.aspx)。
 
->[AZURE.NOTE]如需使用 Windows PowerShell 指令碼來設定報表伺服器的類似內容，請參閱[使用 PowerShell 建立具有原生模式報表伺服器的 Azure VM](virtual-machines-sql-server-create-native-mode-report-server-powershell.md)。
+>[AZURE.NOTE] 如需使用 Windows PowerShell 指令碼來設定報表伺服器的類似內容，請參閱[使用 PowerShell 建立具有原生模式報表伺服器的 Azure VM](virtual-machines-sql-server-create-native-mode-report-server-powershell.md)。
 
 ### 連接到虛擬機器並啟動 Reporting Services 組態管理員
 
@@ -170,7 +170,7 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 		
 		Myservice.cloudapp.net:63133
 		
-		如需詳細資訊，請參閱[什麼是雲端服務？](http://www.windowsazure.com/manage/services/cloud-services/what-is-a-cloud-service/)。
+		如需詳細資訊，請參閱[什麼是雲端服務？](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/)。
 
 **啟動 Reporting Services 組態管理員。**
 
@@ -314,7 +314,7 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 
 或執行 C:\\SQLServer\_12.0\_full\\setup.exe 或 C:\\SQLServer\_11.0\_full\\setup.exe
 
->[AZURE.NOTE]第一次執行 SQL Server 安裝程式時，可能會下載更多安裝檔，且需要將虛擬機器重新開機和重新啟動 SQL Server 安裝程式。
+>[AZURE.NOTE] 第一次執行 SQL Server 安裝程式時，可能會下載更多安裝檔，且需要將虛擬機器重新開機和重新啟動 SQL Server 安裝程式。
 >
 >如果您需要重複自訂從 Microsoft Azure 虛擬機器選取的映像，請考慮建立您自己的 SQL Server 映像。Analysis Services SysPrep 功能是隨著 SQL Server 2012 SP1 CU2 啟用。如需詳細資訊，請參閱[使用 SysPrep 安裝 SQL Server 的考量](https://msdn.microsoft.com/library/ee210754.aspx)。
 
@@ -411,7 +411,7 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。�
 
 - [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-sql-server-infrastructure-services.md)
 
-- [虛擬機器](http://azure.microsoft.com/documentation/services/virtual-machines/)
+- [虛擬機器](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 - [在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)
 
@@ -423,7 +423,7 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。�
 
 - [多維度模型化 (Adventure Works 教學課程)](https://technet.microsoft.com/library/ms170208.aspx)
 
-- [Azure 文件中心](http://azure.microsoft.com/documentation/)
+- [Azure 文件中心](https://azure.microsoft.com/documentation/)
 
 - [在混合式環境中使用 Power BI](https://msdn.microsoft.com/library/dn798994.aspx)
 
@@ -433,4 +433,4 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。�
 
 - [使用 PowerShell 管理 Azure SQL Database](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

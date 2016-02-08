@@ -3,11 +3,18 @@
    description="了解如何從 Windows Server 或 Windows 用戶端進行還原。"
    services="backup"
    documentationCenter=""
-   authors="aashishr"
+   authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="01/25/2016"
+	 ms.author="trinadhk; jimpark; markgal;"/>
 
 # 將檔案還原到 Windows Server 或 Windows 用戶端電腦
 本文涵蓋執行兩種類型還原作業所需的步驟：
@@ -64,7 +71,7 @@
 - 「目標電腦」 – 復原資料時的目標電腦。
 - *範例保存庫* – *來源電腦*和*目標電腦*註冊的備份保存庫。<br/>
 
-> [AZURE.NOTE]從電腦進行的備份無法在執行舊版作業系統的電腦上進行還原。例如，如果從 Windows 7 電腦進行備份，則可以在 Windows 8 或更新版電腦上進行還原。不過若情況相反，便無法進行還原。
+> [AZURE.NOTE] 從電腦進行的備份無法在執行舊版作業系統的電腦上進行還原。例如，如果從 Windows 7 電腦進行備份，則可以在 Windows 8 或更新版電腦上進行還原。不過若情況相反，便無法進行還原。
 
 1. 在「目標電腦」上開啟 [Microsoft Azure 備份] 嵌入式管理單元。
 2. 確定「目標電腦」和「來源電腦」均已註冊到相同的備份保存庫。
@@ -109,4 +116,4 @@
 - [備份 Azure 虛擬機器](backup-azure-vms-introduction.md)
 - [備份 Microsoft 工作負載](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

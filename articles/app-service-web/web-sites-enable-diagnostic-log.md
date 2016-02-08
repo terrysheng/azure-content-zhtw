@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="01/06/2016"
 	ms.author="cephalin"/>
 
 # 在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能。
@@ -57,7 +57,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 啟用 [應用程式診斷] 時，也會選擇 [層級]。此設定可讓您篩選擷取至**資訊**、**警告**或**錯誤**資訊中的資訊。將此功能設為 [詳細資訊] 會記錄所有由該應用程式所產生的資訊。
 
-> [AZURE.NOTE]與變更 web.config 檔案的作法不同之處在於啟用應用程式診斷或是變更診斷記錄層級，而不會回收在其中執行應用程式的應用程式網域。
+> [AZURE.NOTE] 與變更 web.config 檔案的作法不同之處在於啟用應用程式診斷或是變更診斷記錄層級，而不會回收在其中執行應用程式的應用程式網域。
 
 在[傳統入口網站](https://manage.windowsazure.com) Web 應用程式的 [設定] 索引標籤中，您可以針對 [Web 伺服器記錄] 選取 [儲存體] 或 [檔案系統]。選取 [儲存] 可讓您選取儲存體帳戶，並接著選取可供寫入記錄的 Blob 容器。[網站診斷] 的其他所有記錄 都只會寫入檔案系統。
 
@@ -68,7 +68,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 * **Blob 儲存體** - 會將應用程式診斷資訊儲存至指定的 Azure 儲存體帳戶與 Blob 容器中。
 * **保留週期** - 依預設，所有記錄不會自動從 [Blob 儲存體] 中刪除。如果您想要讓系統自動刪除記錄的話，請選取 [set retention] 並輸入記錄保留天數。
 
->[AZURE.NOTE]如果您[重新產生儲存體帳戶的存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)，您必須重設個別的記錄組態，才能使用更新的金鑰。作法：
+>[AZURE.NOTE] 如果您[重新產生儲存體帳戶的存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)，您必須重設個別的記錄組態，才能使用更新的金鑰。作法：
 >
 > 1. 在 [設定] 索引標籤上，將個別的記錄功能設定為 [關閉]。儲存您的設定。
 > 2. 重新啟用記錄至儲存體帳戶 Blob 或資料表。儲存您的設定。
@@ -77,9 +77,9 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 雖然以上三個儲存位置全都提供相同的基本資訊供您記錄事件，[資料表儲存體] 與 [Blob 儲存體] 會比 [檔案系統] 記錄更多的資訊，例如執行個體識別碼、執行緒識別碼以及更細緻的時間戳記 (刻度格式)。
 
-> [AZURE.NOTE]儲存在 [資料表儲存體] 或 [Blob 儲存體] 內的資訊只能透過儲存用戶端，或是能夠直接使用這些儲存系統的應用程式來存取。例如，Visual Studio 2013 內含的 [儲存體總管] 可用來探索資料表或 Blob 儲存體，而 HDInsight 則可存取儲存在 Blob 儲存體內的資料。您也可以使用任何一項 [Azure SDK](/downloads/#)，撰寫可存取 Azure 儲存體的應用程式。
+> [AZURE.NOTE] 儲存在 [資料表儲存體] 或 [Blob 儲存體] 內的資訊只能透過儲存用戶端，或是能夠直接使用這些儲存系統的應用程式來存取。例如，Visual Studio 2013 內含的 [儲存體總管] 可用來探索資料表或 Blob 儲存體，而 HDInsight 則可存取儲存在 Blob 儲存體內的資料。您也可以使用任何一項 [Azure SDK](/downloads/#)，撰寫可存取 Azure 儲存體的應用程式。
 
-> [AZURE.NOTE]您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
+> [AZURE.NOTE] 您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
 
 ##<a name="download"></a> 作法：下載記錄
 
@@ -101,7 +101,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 若要使用 FTP 存取診斷資訊，請在[傳統入口網站](https://manage.windowsazure.com)中造訪您 Web 應用程式的 [儀表板]。在 [Quick Glance] 區段中，使用 **FTP Diagnostic Logs** 連結以便透過 FTP 存取記錄檔案。[Deployment/FTP User] 項目會列出應該用來存取 FTP 網站的使用者名稱。
 
-> [AZURE.NOTE]如果未設定的 [部署/FTP 使用者] 項目，或是您忘記此使用者的密碼，您可以使用 [儀表板] 的 [快速概覽] 區段中**重設部署認證**連結來建立新的使用者名稱和密碼。
+> [AZURE.NOTE] 如果未設定的 [部署/FTP 使用者] 項目，或是您忘記此使用者的密碼，您可以使用 [儀表板] 的 [快速概覽] 區段中**重設部署認證**連結來建立新的使用者名稱和密碼。
 
 ### 使用 Azure PowerShell 來下載
 
@@ -111,7 +111,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 此舉會將 **-Name** 參數所指定的 Web 應用程式記錄儲存到目前目錄中名為 **logs.zip** 的檔案中。
 
-> [AZURE.NOTE]如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
+> [AZURE.NOTE] 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
 
 ### 使用 Azure 命列列介面來下載
 
@@ -121,7 +121,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 此舉會將名為 'webappname' 的 Web 應用程式記錄儲存至目前目錄中名為 **diagnostics.zip** 的檔案。
 
-> [AZURE.NOTE]如果您尚未安裝 Azure 命令列介面 (Azure CLI)，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱[如何使用 Azure CLI](../xplat-cli-install.md)。
+> [AZURE.NOTE] 如果您尚未安裝 Azure 命令列介面 (Azure CLI)，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱[如何使用 Azure CLI](../xplat-cli-install.md)。
 
 ## 作法：在 Application Insights 中檢視記錄
 
@@ -132,7 +132,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 2. 將追蹤接聽項封裝新增至專案。
  * 以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。選取 `Microsoft.ApplicationInsights.TraceListener` [深入了解](../application-insights/app-insights-asp-net-trace-logs.md)
 3. 上傳您的專案並執行，以產生記錄資料。
-4. 在 [Azure 入口網站](http://portal.azure.com/)中，瀏覽至您新的 Application Insights 資源，然後開啟 [搜尋]。您將會看到您的記錄資料，以及要求、使用情況及其他遙測。有些遙測可能需要數分鐘才能抵達：按一下 [重新整理]。[深入了解](../application-insights/app-insights-diagnostic-search.md)
+4. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您新的 Application Insights 資源，然後開啟 [搜尋]。您將會看到您的記錄資料，以及要求、使用情況及其他遙測。有些遙測可能需要數分鐘才能抵達：按一下 [重新整理]。[深入了解](../application-insights/app-insights-diagnostic-search.md)
 
 [深入了解使用 Application Insights 的效能追蹤](../insights-perf-analytics.md)
 
@@ -140,9 +140,9 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
 開發應用程式時，如果能夠幾近即時地檢視記錄資訊，通常會很實用。您可以使用 Azure PowerShell 或 Azure 命令列介面，將記錄資訊串流至開發環境來達到這個目的。
 
-> [AZURE.NOTE]某些記錄緩衝區類型會寫入記錄檔中，進而造成串流中的事件順序錯亂。例如，使用者造訪某個網頁所產生的應用程式記錄項目，可能會比頁面要求的對應 HTTP 記錄項目優先顯示在串流中。
+> [AZURE.NOTE] 某些記錄緩衝區類型會寫入記錄檔中，進而造成串流中的事件順序錯亂。例如，使用者造訪某個網頁所產生的應用程式記錄項目，可能會比頁面要求的對應 HTTP 記錄項目優先顯示在串流中。
 
-> [AZURE.NOTE]記錄串流也會將串流資訊寫入儲存於 **D:\\home\\LogFiles\** 資料夾中的任何文字檔。
+> [AZURE.NOTE] 記錄串流也會將串流資訊寫入儲存於 **D:\\home\\LogFiles\** 資料夾中的任何文字檔。
 
 ### 使用 Azure PowerShell 來串流
 
@@ -162,7 +162,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
 若要檢視可用的路徑清單，請使用 -ListPath 參數。
 
-> [AZURE.NOTE]如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
+> [AZURE.NOTE] 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/) (英文)。
 
 ### 使用 Azure 命令列介面來串流
 
@@ -180,7 +180,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE]如果您尚未安裝 Azure 命令列介面，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱[如何使用 Azure 命令列介面](../xplat-cli-install.md)。
+> [AZURE.NOTE] 如果您尚未安裝 Azure 命令列介面，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱[如何使用 Azure 命令列介面](../xplat-cli-install.md)。
 
 ##<a name="understandlogs"></a> 作法：了解診斷記錄
 
@@ -239,7 +239,7 @@ Tid|產生事件的執行緒之執行緒識別碼
 	date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
 	2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
-> [AZURE.NOTE]記錄的第一行會包含如此範例所示的資料行標題。
+> [AZURE.NOTE] 記錄的第一行會包含如此範例所示的資料行標題。
 
 ### 失敗要求追蹤
 
@@ -255,7 +255,7 @@ Tid|產生事件的執行緒之執行緒識別碼
 
 Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)來格式化。此項資訊可透過文字編輯器來讀取，或是運用[記錄檔剖析器](http://go.microsoft.com/fwlink/?LinkId=246619) (英文) 之類的公用程式來剖析。
 
-> [AZURE.NOTE]Azure Web 應用程式所產生的記錄並不支援 __s-computername__、__s-ip__ 或 __cs-version__ 欄位。
+> [AZURE.NOTE] Azure Web 應用程式所產生的記錄並不支援 __s-computername__、__s-ip__ 或 __cs-version__ 欄位。
 
 ##<a name="nextsteps"></a> 後續步驟
 
@@ -263,11 +263,11 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.c
 - [在 Visual Studio 中疑難排解 Azure Web App](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [在 HDInsight 中分析 Web 應用程式記錄](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
-> [AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+> [AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
+* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[瀏覽 Azure 入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -33,7 +33,7 @@
 
 如果尚未建立雲端服務，請先閱讀[這裡](cloud-services-how-to-create-deploy.md)。
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE [〈websites-cloud-services-css-guided-walkthrough〉](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 
 ## 步驟 1：取得 SSL 憑證
@@ -62,12 +62,20 @@
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA" />
+                    		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
         </WebRole>
 
     **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。
+    
+    權限 (`permisionLevel` 屬性) 可設為下列其中之一：
+
+    | 權限值 | 說明 |
+    | ----------------  | ----------- |
+    | limitedOrElevated | **(預設值)** 所有角色處理序都可以存取私密金鑰。 |
+    | elevated | 只有較高權限的處理序可以存取私密金鑰。|
 
 2.  在服務定義檔中，於 **Endpoints** 區段內新增 **InputEndpoint** 元素，以啟用 HTTPS：
 
@@ -139,7 +147,7 @@
 
 2.  在網頁瀏覽器中，將連結修改為使用 **https** 而非 **http**，然後造訪網頁。
 
-    **：**如果使用自我簽署憑證，則當您在瀏覽器中瀏覽至與該自我簽署憑證相關聯的 HTTPS 端點時，您將會看見憑證錯誤。使用信任的憑證授權單位所簽署的憑證，則不會有此問題；因此，您可以忽略該錯誤。(另一個選項為新增自我簽署憑證至使用者的受信任憑證授權單位憑證存放區。)
+    **注意：**如果使用自我簽署憑證，則當您在瀏覽器中瀏覽至與該自我簽署憑證相關聯的 HTTPS 端點時，您將會看見憑證錯誤。使用信任的憑證授權單位所簽署的憑證，則不會有此問題；因此，您可以忽略該錯誤。(另一個選項為新增自我簽署憑證至使用者的受信任憑證授權單位憑證存放區。)
 
     ![SSL 範例網站][3]
 
@@ -160,4 +168,4 @@
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

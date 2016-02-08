@@ -37,7 +37,7 @@ SharePoint Online 連接器和 SharePoint Server 連接器資源庫應用程式�
 網站 URL | 是 | 輸入 SharePoint 網站的完整 URL。例如，輸入： *https://microsoft.sharepoint.com/teams/wabstest* 。
 文件庫 / 清單相對 URL | 是 | 輸入相對於 SharePoint 網站 URL、且可由連接器修改的文件庫/清單 URL。例如，輸入： *清單/工作、共用文件* 。
 
-5. 完成時，[封裝設定] 看起來如下：  
+5. 完成時，[封裝設定] 看起來如下：
 ![][1]
 
 完成後，您現在可以在相同的資源群組中建立邏輯應用程式，以便使用 SharePoint Online 連接器。
@@ -58,9 +58,9 @@ SharePoint Online 連接器和 SharePoint Server 連接器資源庫應用程式�
 使用者名稱 | 否 | 如果 [驗證模式] 不是 [預設]，請輸入可連線到 SharePoint 網站的有效使用者名稱。
 密碼 | 否 | 如果 [驗證模式] 不是 [預設]，請指定可連線到 SharePoint 網站的有效密碼。
 文件庫 / 清單相對 URL | 是 | 輸入相對於 SharePoint 網站 URL、且可由連接器修改的文件庫/清單 URL。例如，輸入： *清單/工作、共用文件* 。
-服務匯流排連接字串 | 否 | 如果您要連線至內部部署，請輸入服務匯流排轉送連接字串。<br/><br/>[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)<br/>[服務匯流排定價](http://azure.microsoft.com/pricing/details/service-bus/)
+服務匯流排連接字串 | 否 | 如果您要連線至內部部署，請輸入服務匯流排轉送連接字串。<br/><br/>[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)<br/>[服務匯流排定價](https://azure.microsoft.com/pricing/details/service-bus/)
 
-5. 完成時，[封裝設定] 看起來如下：  
+5. 完成時，[封裝設定] 看起來如下：
 ![][2]
 
 完成後，您現在可以在相同的資源群組中建立邏輯應用程式，以便使用 SharePoint Server 連接器。
@@ -76,19 +76,19 @@ SharePoint Online 連接器和 SharePoint Server 連接器資源庫應用程式�
 
 3. 如果在啟動邏輯應用程式時就選取 SharePoint 連接器，它就會像觸發程序般運作。否則，可以使用連接器在 SharePoint 帳戶上採取動作。
 
-4. 使用 SharePoint Online 連接器時，您必須驗證和授權邏輯應用程式來代表您執行作業。若要開始授權，請按一下 SharePoint 連接器上的 [**授權**]：  
+4. 使用 SharePoint Online 連接器時，您必須驗證和授權邏輯應用程式來代表您執行作業。若要開始授權，請按一下 SharePoint 連接器上的 [**授權**]：
 ![][3]
 
-5. 按一下 [授權] 便會開啟 SharePoint 的 [驗證] 對話方塊。輸入您要用來執行作業的 SharePoint 帳戶的登入詳細資料：  
+5. 按一下 [授權] 便會開啟 SharePoint 的 [驗證] 對話方塊。輸入您要用來執行作業的 SharePoint 帳戶的登入詳細資料：
 ![][4]
 
-6. 對您的帳戶授與邏輯應用程式存取權限，以便代表您執行作業：  
+6. 對您的帳戶授與邏輯應用程式存取權限，以便代表您執行作業：
 ![][5]
 
-7. 如果 SharePoint 連接器設定為觸發程序，則會顯示觸發程序。否則，動作的清單隨即顯示，您可以選擇您想要執行的適當作業：  
+7. 如果 SharePoint 連接器設定為觸發程序，則會顯示觸發程序。否則，動作的清單隨即顯示，您可以選擇您想要執行的適當作業：
 ![][6]
   
-**已設定文件庫的相對 URL**  
+**已設定文件庫的相對 URL** 
 ![][7]
 
 **已設定文件清單的相對 URL**
@@ -98,7 +98,7 @@ SharePoint Online 連接器和 SharePoint Server 連接器資源庫應用程式�
 ##  觸發程序
 如果您要起始邏輯應用程式，請使用觸發程序
 
-> [AZURE.NOTE]觸發程序會在讀取檔案後刪除檔案。若要保留這些檔案，請輸入封存位置的值。
+> [AZURE.NOTE] 觸發程序會在讀取檔案後刪除檔案。若要保留這些檔案，請輸入封存位置的值。
 
 ### 1\.共用文件中的新文件 (JSON)
 當「共用文件」中有可用的新文件時，便會啟動此觸發程序。
@@ -456,16 +456,16 @@ ItemID | 是 | 清單項目的項目識別碼。
 
 ## 混合式組態 (選用)
 
-> [AZURE.NOTE]只有當您在防火牆後方使用 SharePoint 內部部署時，才需要此步驟。
+> [AZURE.NOTE] 只有當您在防火牆後方使用 SharePoint 內部部署時，才需要此步驟。
 
 App Service 使用混合式組態管理員來安全地連線到內部部署系統。如果您的連接器使用內部部署 SharePoint Server，則需要混合式連線管理員。
 
 請參閱[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -481,4 +481,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

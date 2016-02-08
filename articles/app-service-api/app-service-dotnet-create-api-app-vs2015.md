@@ -174,7 +174,7 @@ API 應用程式的 App Service 執行階段由 [Microsoft.Azure.AppService.ApiA
 
 ## 在 Azure 中建立 API 應用程式
 
-1. 在 [Azure 預覽入口網站](https://portal.azure.com)中建立 API 應用程式。 
+1. 在 [Azure 預覽入口網站](https://portal.azure.com/)中建立 API 應用程式。 
 
 	* 按一下 **[新增] > [Web + 行動] > [API 應用程式]**。
 
@@ -256,7 +256,7 @@ API 應用程式基本上是 Azure 提供其他功能作為 Web 服務功能的 
 
 在本節中，您瀏覽至入口網站，以檢視您剛剛所建立之 API 應用程式的 API 定義。
 
-1. 在 [Azure Preview 入口網站](https://portal.azure.com)，瀏覽至您 API 應用程式的 [API 應用程式] 刀鋒視窗：依序按一下 [瀏覽] > [資源群組] > [您建立的資源群組] > [您建立的 API 應用程式]。
+1. 在 [Azure Preview 入口網站](https://portal.azure.com/)，瀏覽至您 API 應用程式的 [API 應用程式] 刀鋒視窗：依序按一下 [瀏覽] > [資源群組] > [您建立的資源群組] > [您建立的 API 應用程式]。
 
 4. 按一下 [**API 定義**]。
 
@@ -294,4 +294,4 @@ API 應用程式基本上是 Azure 提供其他功能作為 Web 服務功能的 
 您現已使用 Visual Studio 2015 RC 建立及部署 API 應用程式。如需 API 應用程式的相關文件，請參閱顯示於頁面左邊 (適用於寬瀏覽器視窗) 或頁面頂端 (適用於窄瀏覽器視窗) 的瀏覽窗格中的項目。大部分 API 應用程式文件目前顯示 Visual Studio 2013，但其中許多內容適用於 VS 2015，因為 UI 類似，您所撰寫的程式碼相同，而且入口網站 UI 也相同。
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

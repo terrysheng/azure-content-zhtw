@@ -3,7 +3,7 @@
 	description="本主題說明角色型存取控制 (RBAC) 的內建角色。"
 	services="active-directory"
 	documentationCenter=""
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/21/2016"
+	ms.author="kgremban"/>
 
 #RBAC：內建角色
 
 ## 內建角色
 
-Azure 角色型存取控制會隨附三個內建的角色，供您指派給使用者、群組與服務。您無法修改內建角色定義。在即將發佈的 Azure RBAC 版本中，您將能從可在 Azure 資源上執行的可用動作清單中撰寫一系列動作，藉此定義自訂角色。
+Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派給使用者、群組與服務。您無法修改內建角色定義。在即將發佈的 Azure RBAC 版本中，您將能從可在 Azure 資源上執行的可用動作清單中撰寫一系列動作，藉此定義自訂角色。
 
-按一下對應的連結，請參閱角色定義的 [動作] 和 [非動作] 屬性。[動作] 屬性會指定 Azure 資源上允許的動作。動作字串可以使用萬用字元。角色定義的 [非動作] 屬性可指定必須從允許的動作中排除的動作。
+按一下下列連結，即可查看角色定義的 [動作] 和 [非動作] 屬性。[動作] 屬性會指定 Azure 資源上允許的動作。動作字串可以使用萬用字元。角色定義的 [非動作] 屬性可指定必須從允許的動作中排除的動作。
 
 
 | 角色名稱 | 說明 |
@@ -34,13 +34,13 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 | [ClearDB MySQL DB 參與者](#cleardb-mysql-db-contributor) | 可以管理 ClearDB MySQL 資料庫 |
 | [參與者](#contributor) | 可以管理存取以外的所有內容。 |
 | [Data Factory 參與者](#data-factory-contributor) | 可以管理資料處理站 |
-| [研發/測試實驗室使用者](#devtest-lab-user) | 可以檢視所有項目，並連接、啟動、重新啟動和關閉虛擬機器。 |
+| [研發/測試實驗室使用者](#devtest-lab-user) | 可以檢視所有項目，並連接、啟動、重新啟動和關閉虛擬機器 |
 | [Document DB 帳戶參與者](#document-db-account-contributor) | 可以管理 Document DB 帳戶 |
 | [Intelligent Systems 帳戶參與者](#intelligent-systems-account-contributor) | 可以管理 Intelligent Systems 帳戶 |
 | [網路參與者](#network-contributor) | 可以管理網路資源 |
 | [NewRelic APM 帳戶參與者](#newrelic-apm-account-contributor) | 可以管理 NewRelic 應用程式效能管理帳戶和應用程式 |
-| [擁有者](#owner) | 擁有者可以管理所有項目，包括存取。 |
-| [讀取者](#reader) | 讀取者可以檢視所有項目，但是無法進行變更。 |
+| [擁有者](#owner) | 可以管理所有項目，包括存取 |
+| [讀取者](#reader) | 可以檢視所有項目，但是無法進行變更 |
 | [Redis 快取參與者](#redis-cache-contributor]) | 可以管理 Redis 快取 |
 | [排程器工作集合參與者](#scheduler-job-collections-contributor) | 可以管理排程器工作集合 |
 | [搜尋服務參與者](#search-service-contributor) | 可以管理搜尋服務 |
@@ -85,7 +85,7 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 | Microsoft.Support/* | 建立和管理支援票證 |
 
 ### 自動化運算子
-自動化運算子能夠啟動、停止、暫停和繼續工作
+能夠啟動、停止、暫停和繼續工作
 
 | **動作** ||
 | ------- | ------ |
@@ -128,12 +128,14 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 | Microsoft.Support/* | 建立和管理支援票證 |
 
 ### 參與者
-參與者可以管理存取以外的所有內容
+可以管理存取以外的所有內容
 
 | **動作** ||
 | ------- | ------ |
 | * | 建立和管理所有類型的資源 |
-| **無動作 |  |
+
+| **非動作** | |
+| ------- | ------ |
 | Microsoft.Authorization/*/Write | 無法建立角色和角色指派 |
 | Microsoft.Authorization/*/Delete | 無法刪除角色和角色指派 |
 
@@ -301,7 +303,9 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | 建立和管理資源群組部署 |
 | Microsoft.Insights/alertRules/* | 建立及管理警示規則 |
 | Microsoft.Support/* | 建立和管理支援票證 |
+
 | **非動作** | |
+| ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | 無法編輯稽核原則 |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | 無法編輯連接原則 |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | 無法編輯資料遮罩原則 |
@@ -341,7 +345,9 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | 建立和管理訂用帳戶資源群組部署 |
 | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
 | Microsoft.Support/* | 建立和管理支援票證 |
+
 | **非動作** | |
+| ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | 無法編輯 SQL Server 稽核原則 |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | 無法編輯 SQL Server 資料庫稽核原則 |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | 無法編輯 SQL Server 資料庫連接原則 |
@@ -483,4 +489,4 @@ Azure 角色型存取控制會隨附三個內建的角色，供您指派給使�
 ## RBAC 主題
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

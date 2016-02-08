@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="DocumentDB (NoSQL 資料庫) 上的 SQL 查詢 | Microsoft Azure" 
-	description="了解如何使用 SQL 查詢陳述式來查詢 DocumentDB (NoSQL 資料庫)。做為 JSON 查詢語言，SQL 查詢可以用於巨量資料分析。" 
-	keywords="sql 查詢, sql 語法, json 查詢語言, 資料庫概念和 sql 查詢"
+	pageTitle="DocumentDB 的 SQL 語法和 SQL 查詢 | Microsoft Azure" 
+	description="了解 DocumentDB (NoSQL 資料庫) 的 SQL 語法、資料庫概念和 SQL 查詢。SQL 可以做為 DocumentDB 中的 JSON 查詢語言。" 
+	keywords="sql 語法, sql 查詢, sql 查詢, json 查詢語言, 資料庫概念和 sql 查詢"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -17,12 +17,12 @@
 	ms.date="12/14/2015" 
 	ms.author="arramac"/>
 
-# DocumentDB 中的 SQL 查詢
+# DocumentDB 中的 SQL 查詢和 SQL 語法
 Microsoft Azure DocumentDB 支援使用 SQL (結構化查詢語言) 做為 JSON 查詢語言來查詢文件。DocumentDB 確實是無結構描述。由於它是直接在資料庫引擎內使用 JSON 資料模型，因此它提供不需明確的結構描述或建立次要索引，即可自動編製 JSON 文件索引的功能。
 
 在為 DocumentDB 設計查詢語言時，我們有兩個謹記的目標：
 
--	我們想要支援 SQL，而不是發明新的查詢語言。SQL 是一種最熟悉且熱門的查詢語言。DocumentDB SQL 提供一個正式的程式設計模型，可在 JSON 文件上進行豐富的查詢。
+-	我們想要支援 SQL，而不是發明新的 JSON 查詢語言。SQL 是一種最熟悉且熱門的查詢語言。DocumentDB SQL 提供一個正式的程式設計模型，可在 JSON 文件上進行豐富的查詢。
 -	由於 JSON 文件資料庫可以直接在資料庫引擎中執行 JavaScript，因此，我們想要使用 JavaScript 的程式設計模型做為查詢語言的基礎。DocumentDB SQL 是以 JavaScript 的類型系統、運算式評估和函數叫用為基礎。這除了其他功能之外，還進而提供自然程式設計模型來進行關聯式投射、跨 JSON 文件的階層式導覽、自我聯結、空間查詢，以及叫用完全以 JavaScript 撰寫的使用者定義函式 (UDF)。 
 
 我們相信這些功能的重點是減少應用程式與資料庫之間的摩擦，而且對開發人員的生產力而言十分重要。
@@ -90,7 +90,7 @@ Microsoft Azure DocumentDB 支援使用 SQL (結構化查詢語言) 做為 JSON 
 
 
 
-現在，讓我們嘗試對此資料執行一些查詢，以了解 DocumentDB SQL 的一些重要部分。例如，下列查詢將會傳回 id 欄位符合 `AndersenFamily` 的文件。因為它是 `SELECT *`，所以查詢的輸出是完整的 JSON 文件：
+現在，讓我們嘗試對此資料執行一些查詢，以了解 DocumentDB SQL 的一些重要部分。例如，下列查詢將會傳回 id 欄位符合 `AndersenFamily` 的文件。因為它是 `SELECT *`，所以查詢的輸出是完整 JSON 文件：
 
 **查詢**
 
@@ -997,7 +997,7 @@ DocumentDB SQL 語法已延伸，可支援使用這些使用者定義函式的�
 
 我們現在可以在投射的查詢中使用此 UDF。從查詢中呼叫 UDF 時，必須以區分大小寫的前置詞 "udf." 限定。
 
->[AZURE.NOTE]在 2015 年 3 月 17 日以前，DocumentDB 支援無需 "udf." 前置詞 的 UDF，像是 SELECT REGEX\_MATCH()。這種呼叫模式已被取代。
+>[AZURE.NOTE] 在 2015 年 3 月 17 日以前，DocumentDB 支援無需 "udf." 前置詞 的 UDF，像是 SELECT REGEX\_MATCH()。這種呼叫模式已被取代。
 
 **查詢**
 
@@ -1468,7 +1468,7 @@ DocumentDB 支援下列開放地理空間協會 (OGC) 的內建函數，以用�
       "id": "WakefieldFamily"
     }]
 
-如果您將空間索引編製包含在索引編製原則中，則「距離查詢」將會透過索引獲得有效利用。如需空間索引編製的詳細資料，請參閱下面的章節。如果您沒有指定路徑的空間索引，仍然可以透過指定 `x-ms-documentdb-query-enable-scan` 要求標頭 (且值設定為 "true") 執行空間查詢。在 .NET 中，可以傳遞選用的 **FeedOptions** 引數至查詢 (且 [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) 設定為 true)，藉此執行此作業。
+如果您將空間索引編製包含在索引編製原則中，則「距離查詢」將會透過索引獲得有效利用。如需空間索引編製的詳細資料，請參閱下面的章節。如果您沒有指定路徑的空間索引，仍然可以透過指定 `x-ms-documentdb-query-enable-scan` 要求標頭 (且值設定為 "true") 執行空間查詢。在.NET 中，可以傳遞選用的 **FeedOptions** 引數至查詢 (且 [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) 設定為 true)，藉此執行此作業。
 
 ST\_WITHIN 可用來檢查點是否在多邊形內。多邊形常用來表示邊界，例如郵遞區號、州省邊界或自然構成物。此外，如果您將空間索引編製包含在索引編製原則中，則「距離內」查詢將會透過索引獲得有效利用。
 
@@ -1489,7 +1489,7 @@ ST\_WITHIN 中的多邊形引數只可以包含單一環狀，也就是多邊形
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]與 DocumentDB 查詢中不相符類型的運作方式類似的是，如果任一引數中指定的位置值格式不正確或無效，則會評估為**未定義**，且會在查詢結果中略過已評估的文件。如果您的查詢沒有傳回任何結果，請執行 ST\_ISVALIDDETAILED 來偵錯，了解空間類型無效的原因。
+>[AZURE.NOTE] 與 DocumentDB 查詢中不相符類型的運作方式類似的是，如果任一引數中指定的位置值格式不正確或無效，則會評估為**未定義**，且會在查詢結果中略過已評估的文件。如果您的查詢沒有傳回任何結果，請執行 ST\_ISVALIDDETAILED 來偵錯，了解空間類型無效的原因。
 
 ST\_ISVALID 和 ST\_ISVALIDDETAILED 可用來檢查空間物件是否有效。例如，下列查詢以超出範圍的緯度值 (-132.8)，檢查點的有效性。ST\_ISVALID 只會傳回布林值，而 ST\_ISVALIDDETAILED 會傳回布林和字串，字串中包含被視為無效的原因。
 
@@ -1527,7 +1527,7 @@ LINQ 是一種 .NET 程式設計模型，此模型會將運算表示為對物件
 
 下圖顯示使用 DocumentDB 支援 LINQ 查詢的架構。開發人員可以使用 DocumentDB 用戶端來建立 **IQueryable** 物件，此物件會直接查詢 DocumentDB 查詢提供者，而此查詢提供者會接著將 LINQ 查詢轉譯成 DocumentDB 查詢。然後，將查詢傳遞給 DocumentDB 伺服器，以擷取一組具有 JSON 格式的結果。傳回的結果會在用戶端進行還原序列化，變成 .NET 物件的串流。
 
-![使用 DocumentDB 支援 LINQ 查詢的架構。][1]
+![使用 DocumentDB 支援 LINQ 查詢的架構 - SQL 語法、JSON 查詢語言、資料庫概念和 SQL 查詢][1]
  
 
 
@@ -1986,7 +1986,7 @@ DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用
 	}
 
 
-如果查詢的結果無法放入結果的單一頁面內，則 REST API 會透過 `x-ms-continuation-token` 回應標頭傳回接續 Token。用戶端可以透過在後續結果中包括標頭，以將結果分頁。每頁的結果數目也可以透過 `x-ms-max-item-count` 數字標頭來控制。
+如果查詢的結果無法放入結果的單一頁面內，則 REST API 會透過 `x-ms-continuation-token` 傳回接續 Token。用戶端可以透過在後續結果中包括標頭，以將結果分頁。每頁的結果數目也可以透過 `x-ms-max-item-count` 數字標頭來控制。
 
 若要管理查詢的資料一致性原則，請使用 `x-ms-consistency-level` 標頭 (例如，所有 REST API 要求)。針對工作階段一致性，也需要在查詢要求中回應最新的 `x-ms-session-token` Cookie 標頭。請注意，所查詢集合的索引原則也可能會影響查詢結果的一致性。運用預設索引原則設定，集合的索引一律會具有最新文件內容，而且查詢結果會符合針對資料所選擇的一致性。如果編索引原則放寬為 Lazy，則查詢可能會傳回過時的結果。如需詳細資訊，請參閱 [DocumentDB 一致性層級][consistency-levels]。
 
@@ -2144,4 +2144,4 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

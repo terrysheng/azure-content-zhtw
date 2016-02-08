@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # 企業營運應用程式工作負載第 2 階段：設定網域控制站
@@ -32,8 +32,8 @@
 
 項目 | 虛擬機器名稱 | 資源庫映像 | 最小大小 
 --- | --- | --- | --- 
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一個網域控制站，範例 DC1) | Windows Server 2012 R2 Datacenter | 標準\_D2
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二個網域控制站，範例 DC2) | Windows Server 2012 R2 Datacenter | 標準\_D2
+1. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第一個網域控制站，範例 DC1) | Windows Server 2012 R2 Datacenter | 標準\_D2
+2. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (第二個網域控制站，範例 DC2) | Windows Server 2012 R2 Datacenter | 標準\_D2
 3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (主要資料庫伺服器，範例 SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard\_DS4
 4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (次要資料庫伺服器，範例 SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	Standard\_DS4
 5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (叢集多數節點，範例 MN1) | Windows Server 2012 R2 Datacenter | 標準\_D1
@@ -54,7 +54,7 @@
 
 回想您在[第 1 階段：設定 Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md) 中所定義的資料表 V、S、ST 和 A。
 
-> [AZURE.NOTE]下列命令集使用 Azure PowerShell 1.0 版和更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
+> [AZURE.NOTE] 下列命令集使用 Azure PowerShell 1.0 版及更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
 
 當您提供所有適當值後，在 Azure PowerShell 提示中執行結果區塊。
 
@@ -111,7 +111,7 @@
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]因為這些虛擬機器用於內部網路應用程式，所以未獲指派公用 IP 位址或 DNS 網域名稱標籤，也不會公開到網際網路。不過，這也表示您無法從 Azure 入口網站連線到它們。當您檢視虛擬機器的屬性時，[連接] 按鈕將無法使用。使用「遠端桌面連線」配件或其他遠端桌面工具，來使用虛擬機器的私人 IP 位址或內部網路 DNS 名稱連接該虛擬機器。
+> [AZURE.NOTE] 因為這些虛擬機器用於內部網路應用程式，所以未獲指派公用 IP 位址或 DNS 網域名稱標籤，也不會公開到網際網路。不過，這也表示您無法從 Azure 入口網站連線到它們。當您檢視虛擬機器的屬性時，[連線] 按鈕將無法使用。使用「遠端桌面連線」配件或其他遠端桌面工具，來使用虛擬機器的私人 IP 位址或內部網路 DNS 名稱連接該虛擬機器。
 
 ## 設定第一個網域控制站
 
@@ -165,14 +165,14 @@
 
 接下來，您需要為您的虛擬網路更新 DNS 伺服器，讓 Azure 將兩個新網域控制站的 IP 位址指派給虛擬機器，做為他們的 DNS 伺服器。請注意，此程序會使用資料表 V (適用於虛擬網路設定) 和資料表 M (適用於虛擬機器) 的值。
 
-1.	在 Azure 入口網站的左窗格中按一下 [**虛擬網路**]，然後按一下您虛擬網路的名稱 (資料表 V – 項目 1 – 值資料行)。
+1.	在 Azure 入口網站的左側窗格中按一下 [虛擬網路]，然後按一下您的虛擬網路名稱 (資料表 V – 項目 1 – 值資料行)。
 2.	在 [設定] 窗格上，按一下 [DNS 伺服器]。
 3.	在 [DNS 伺服器] 窗格上，輸入下列項目：
 	- 針對**主要 DNS 伺服器**：資料表 V – 項目 6 – 值資料行
 	- 針對**次要 DNS 伺服器**：資料表 V – 項目 7 – 值資料行
-4.	在 Azure 入口網站的左窗格中，按一下 [**虛擬機器**]。
+4.	在 Azure 入口網站的左側窗格中按一下 [虛擬機器]。
 5.	在 [虛擬機器] 窗格中，按一下第一個網域控制站 (資料表 M – 項目 1 - 虛擬機器名稱資料行) 的名稱。
-6.	在虛擬機器的窗格中，按一下 [重新啟動]。
+6.	在虛擬機器的窗格中，按一下 [**重新啟動**]。
 7.	重新啟動第一個網域控制站時，在 [虛擬機器] 窗格上，按一下第二個網域控制站 (資料表 M – 項目 2 - 虛擬機器名稱資料行) 的名稱。
 8.	在虛擬機器的窗格中，按一下 [重新啟動]。等待第二個網域控制站啟動。
 
@@ -197,4 +197,4 @@
 
 - 依照[第 3 階段](virtual-machines-workload-high-availability-LOB-application-phase3.md)指示繼續此工作負載的設定。
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

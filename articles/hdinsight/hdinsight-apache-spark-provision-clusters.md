@@ -19,7 +19,7 @@
 
 # 使用自訂選項在 HDInsight 中建立 Apache Spark 叢集 (Windows)
 
-> [AZURE.NOTE]HDInsight 現在於 Linux 上提供 Spark 叢集。如需如何在 HDInsight Linux 上自訂/建立 Spark 叢集的資訊，請參閱[在 HDInsight 中建立 Linux 型叢集](hdinsight-hadoop-provision-linux-clusters.md)。
+> [AZURE.NOTE] HDInsight 現在於 Linux 上提供 Spark 叢集。如需如何在 HDInsight Linux 上自訂/建立 Spark 叢集的資訊，請參閱[在 HDInsight 中建立 Linux 型叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 在大部分的情況下，您可以使用[開始使用 HDInsight 上的 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md) 所述的快速建立方法建立 Spark 叢集。在某些情況下，您可能想要建立自訂叢集。比方說，您可能會想要連接外部中繼資料存放區，讓 Hive 中繼資料的持續性超越叢集存留期，或是可能會想要使用額外的儲存體來搭配叢集。
 
@@ -28,7 +28,7 @@
 
 **必要條件：**
 
-開始執行本文中的指示之前，您必須擁有 Azure 訂用帳戶。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+開始執行本文中的指示之前，您必須擁有 Azure 訂用帳戶。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 ##<a id="configuration"></a>有哪些相異的組態選項？
 
@@ -36,7 +36,7 @@
 
 在設定期間，您必須指定 Azure Blob 儲存體帳戶和預設容器。叢集以此做為預設儲存位置。您可以選擇性地指定將與叢集相關聯的其他 Azure 儲存體帳戶。
 
->[AZURE.NOTE]請不要讓多個叢集共用一個 Blob 儲存體容器。不支援此做法。
+>[AZURE.NOTE] 請不要讓多個叢集共用一個 Blob 儲存體容器。不支援此做法。
 
 如需使用次要 Blob 存放區的詳細資訊，請參閱[搭配使用 Azure Blob 儲存體與 HDInsight](hdinsight-use-blob-storage.md)。
 
@@ -53,7 +53,7 @@ Spark 可讓您透過原始資料定義結構描述和 Hive 資料表。您可�
 
 ### 虛擬網路
 
-[Azure 虛擬網路](http://azure.microsoft.com/documentation/services/virtual-network/)可讓您建立安全、持續的網路，其包含解決方案所需的資源。虛擬網路可讓您：
+[Azure 虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)可讓您建立安全、持續的網路，其包含解決方案所需的資源。虛擬網路可讓您：
 
 * 在私人網路中將雲端資源連接在一起 (僅限雲端)。
 
@@ -90,7 +90,7 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 5. 按一下 [資源群組] 來查看現有資源群組的清單，然後選取其中一個來建立叢集。或者按一下 [建立新項目]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
 
-	> [AZURE.NOTE]如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
+	> [AZURE.NOTE] 如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
 
 6. 按一下 [認證]，然後輸入 [叢集登入使用者名稱] 和 [叢集登入密碼]。若您想要啟用叢集節點上的遠端桌面功能，請為 [啟用遠端桌面] 按一下 [是]。如果叢集的遠端桌面存取過期，請選取日期並提供遠端桌面使用者的使用者名稱/密碼。按一下底部的 [選取] 以儲存認證組態。
 
@@ -110,7 +110,7 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 	- **位置**：儲存體帳戶所在或將建立的地理區域。
 
-		> [AZURE.IMPORTANT]選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
+		> [AZURE.IMPORTANT] 選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
 
 	按一下 [選取] 以儲存資料來源組態。
 
@@ -134,7 +134,7 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 		針對 [使用 Hive 現有的 SQL DB] 中繼資料按一下 [是]、選取 SQL 資料庫，然後提供該資料庫的使用者名稱/密碼。如果您想要**使用 Oozie 中繼資料現有的 SQL DB**，請重複執行這些步驟。按一下 [選取]，直到您回到 [選擇性組態] 刀鋒視窗。
 
-		>[AZURE.NOTE]用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [**設定**]，然後在 [**Azure 服務**] 按一下 [**是**]，再按 [**儲存**]。
+		>[AZURE.NOTE] 用於 metastore 的 Azure SQL Database 必須能夠連線至其他 Azure 服務 (包括 Azure HDInsight)。在 Azure SQL Database 儀表板中，按一下右側的伺服器名稱。這是指執行 SQL Database 執行個體的伺服器。一旦進入伺服器檢視後，按一下 [**設定**]，然後在 [**Azure 服務**] 按一下 [**是**]，再按 [**儲存**]。
 
 	* 若要在建立叢集時，使用自訂指令碼自訂叢集，請按一下 [指令碼動作]。如需指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。請在 [指令碼動作] 刀鋒視窗上提供如螢幕擷取畫面所示的詳細資料。
 
@@ -154,7 +154,7 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 	| ------------------ | --------------------- |
 	| ![「開始面板」上的建立指示器](./media/hdinsight-apache-spark-provision-clusters/provisioning.png) | ![已建立叢集磚](./media/hdinsight-apache-spark-provision-clusters/provisioned.png) |
 
-	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。請使用「開始面板」上的磚，或頁面左邊的 [通知] 項目來以檢查建立進度。
+	> [AZURE.NOTE] 建立叢集需要一些時間，通常約 15 分鐘左右。請使用「開始面板」上的磚，或頁面左邊的 [通知] 項目來以檢查建立進度。
 
 11. 建立完成後，在「開始面板」按一下該叢集磚，以啟動叢集刀鋒視窗。此叢集刀鋒視窗提供該叢集的基本資訊，如名稱、其所屬的資源群組、位置、作業系統、叢集儀表板 URL 等。
 
@@ -176,7 +176,7 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 	* **使用者** (![使用者圖示](./media/hdinsight-apache-spark-provision-clusters/users.png))：可讓您設定 Azure 訂用帳戶上其他使用者對此叢集的「入口網站管理」權限。
 
-		> [AZURE.IMPORTANT]這「只」會影響在 Azure Preview 入口網站對此叢集的存取和權限，對於連線至 HDInsight 叢集或將作業提交至其上的使用者則沒有作用。
+		> [AZURE.IMPORTANT] 這「只」會影響在 Azure Preview 入口網站對此叢集的存取和權限，對於連線至 HDInsight 叢集或將作業提交至其上的使用者則沒有作用。
 
 	* **標記** (![標記圖示](./media/hdinsight-apache-spark-provision-clusters/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可以建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
 
@@ -242,4 +242,4 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

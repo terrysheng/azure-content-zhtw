@@ -166,7 +166,7 @@
 ## 密碼回寫
  - **問：密碼回寫如何在幕後運作？**
  
- > **答：**請參閱「密碼回寫如何運作」以取得當您啟用密碼回寫時發生之情形的詳細說明，以及資料如何透過系統回流到您的內部部署環境。請參閱「密碼回寫如何運作」中的「密碼回寫安全性模型」，以了解我們如何確保密碼回寫是高度安全的服務。
+ > **答：**請參閱[密碼回寫如何運作](active-directory-passwords-learn-more.md#how-password-writeback-works)，以取得當您啟用密碼回寫時發生之情形的詳細說明，以及資料如何透過系統回流到您的內部部署環境。請參閱「密碼回寫如何運作」中的[密碼回寫安全性模型](active-directory-passwords-learn-more.md#password-writeback-security-model)，以了解我們如何確保密碼回寫是高度安全的服務。
 
  - **問：密碼回寫需要多久時間才會運作？ 是否有像是使用密碼雜湊同步處理的同步處理延遲？**
  
@@ -182,7 +182,7 @@
 
  - **問：密碼回寫是否安全？ 我要如何確定不會受到駭客入侵？**
  
- > **答：**密碼回寫非常安全。若要進一步了解密碼回寫服務實作的 4 個層級的安全性，請參閱「密碼回寫如何運作」中的「密碼回寫安全性模型」。
+ > **答：**密碼回寫非常安全。若要進一步了解密碼回寫服務實作的 4 個層級的安全性，請參閱「密碼回寫如何運作」中的[密碼回寫安全性模型](active-directory-passwords-learn-more.md#password-writeback-security-model)。
 
 
 <br/> <br/> <br/>
@@ -203,4 +203,4 @@
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -29,7 +29,7 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 ##安裝 Azure PowerShell 1.0 或更新版本
 
@@ -164,7 +164,7 @@ Azure PowerShell 無法在 HDInsight 建立程序期間建立 Blob 容器。您�
 ##調整叢集
 叢集調整功能可讓您變更在 Azure HDInsight 中執行的叢集所用的背景工作節點數目，而不需要重新建立叢集。
 
->[AZURE.NOTE]只支援使用 HDInsight 3.1.3 版或更高版本的叢集。如果不確定您的叢集版本，您可以檢查 [屬性] 頁面。請參閱[熟悉叢集入口網站介面](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface)。
+>[AZURE.NOTE] 只支援使用 HDInsight 3.1.3 版或更高版本的叢集。如果不確定您的叢集版本，您可以檢查 [屬性] 頁面。請參閱[熟悉叢集入口網站介面](hdinsight-adminster-use-management-portal/#Get-familiar-with-the-cluster-portal-interface)。
 
 變更 HDInsight 支援的每一種叢集所用的資料節點數目會有何影響：
 
@@ -241,7 +241,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 	
 	Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 
->[AZURE.NOTE]透過授與/撤銷存取權，您將重設叢的使用者名稱和密碼。
+>[AZURE.NOTE] 透過授與/撤銷存取權，您將重設叢的使用者名稱和密碼。
 
 這也可以透過入口網站完成。請參閱[使用 Azure 入口網站管理 HDInsight][hdinsight-admin-portal]。
 
@@ -332,4 +332,4 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

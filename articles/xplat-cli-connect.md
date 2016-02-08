@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="12/29/2015"
 	ms.author="danlep"/>
 
 # 從 Azure 命令列介面 (Azure CLI) 連接到 Azure 訂用帳戶
@@ -35,7 +35,7 @@ Azure CLI 是一組開放原始碼的跨平台命令，可供您運用在 Azure 
 
 如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][free-trial]。
 
->[AZURE.NOTE]如果您使用的是 Azure CLI 0.9.10 版之前的版本，只能搭配公司或學校帳戶身分識別使用 `azure login` 命令，無法使用 Microsoft 帳戶身分識別。不過，您可以使用 Azure CLI 0.9.10 版以上版本，透過互動式 `azure login` 命令，使用身分識別登入帳戶。
+>[AZURE.NOTE] 如果您使用的是 Azure CLI 0.9.10 版之前的版本，只能搭配公司或學校帳戶身分識別使用 `azure login` 命令，無法使用 Microsoft 帳戶身分識別。不過，您可以使用 Azure CLI 0.9.10 版以上版本，透過互動式 `azure login` 命令，使用身分識別登入帳戶。
 >
 CLI 0.9.9 版和更新版本支援多重要素驗證。
 
@@ -48,7 +48,7 @@ CLI 0.9.9 版和更新版本支援多重要素驗證。
 - 需要 Multi-Factor Authentication 的公司或學校帳戶身分識別，或
 - 當您想要存取資源管理員部署模式功能時的 Microsoft 帳戶身分識別
 
-> [AZURE.NOTE]在這兩種情況下，驗證和授權都是使用 Azure Active Directory 來執行。如果您使用 Microsoft 帳戶身分識別，登入程序就會存取您的 Azure Active Directory 預設網域(如果您註冊免費試用，可能不會發覺 Azure Active Directory 為您的帳戶建立了預設網域)。
+> [AZURE.NOTE]  在這兩種情況下，驗證和授權都是使用 Azure Active Directory 來執行。如果您使用 Microsoft 帳戶身分識別，登入程序就會存取您的 Azure Active Directory 預設網域(如果您註冊免費試用，可能不會發覺 Azure Active Directory 為您的帳戶建立了預設網域)。
 
 以互動方式登入很簡單：輸入 `azure login` 並依照提示操作，如下所示：
 
@@ -96,11 +96,11 @@ CLI 0.9.9 版和更新版本支援多重要素驗證。
 
 這會開啟您的預設瀏覽器，提示您登入 [Azure 傳統入口網站][portal]。登入後便會下載 `.publishsettings` 檔案。請記下此檔案的儲存位置。
 
-	> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
-	>
-	> Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
+> [AZURE.NOTE] 如果您的帳戶與多個 Azure Active Directory 租用戶相關聯，則可能會提示您選取要在其中下載發行設定檔的 Active Directory。
+>
+> 在使用下載頁面或是造訪 Azure 傳統入口網站選定之後，所選的 Active Directory 會成為傳統入口網站與下載頁面使用的預設值。建立好預設值之後，您會在下載頁面上方看到 [click here to return to the selection page]。請使用提供的連結，返回選取頁面。
 
-* **若要匯入發佈設定檔案**，請執行下列命令：
+* **若要匯入發佈設定檔**，請執行下列命令：
 
 		azure account import <path to your .publishsettings file>
 
@@ -123,7 +123,7 @@ CLI 0.9.9 版和更新版本支援多重要素驗證。
 
 此動作會將預設訂用帳戶變更為 Azure-sub-2。
 
-> [AZURE.NOTE]變更預設的訂用帳戶會立即生效，而且是全域變更；無論您是從相同的命令列執行個體或不同的執行個體執行新的 Azure CLI 命令，它們都會使用新的預設訂用帳戶。
+> [AZURE.NOTE] 變更預設的訂用帳戶會立即生效，而且是全域變更；無論您是從相同的命令列執行個體或不同的執行個體執行新的 Azure CLI 命令，它們都會使用新的預設訂用帳戶。
 
 如果您要 Azure CLI 使用非預設的訂用帳戶，但又不想變更目前的預設值，可以使用適用於該命令的 `--subscription` 選項，並提供希望該作業使用的訂用帳戶名稱。
 
@@ -158,4 +158,4 @@ CLI 0.9.9 版和更新版本支援多重要素驗證。
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

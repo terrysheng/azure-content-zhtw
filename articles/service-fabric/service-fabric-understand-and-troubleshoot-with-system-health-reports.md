@@ -13,22 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2015"
+   ms.date="01/26/2016"
    ms.author="oanapl"/>
 
 # 使用系統健康狀態報告進行疑難排解
 
 Azure Service Fabric 元件會針對叢集中的所有實體提供現成的報告。[健康狀態資料存放區](service-fabric-health-introduction.md#health-store)會根據系統報告來建立和刪除實體。它也會將這些實體組織為階層以擷取實體的互動。
 
-> [AZURE.NOTE]若要了解健康狀態相關概念，請詳細閱讀 [Service Fabric 健康狀態模型](service-fabric-health-introduction.md)。
+> [AZURE.NOTE] 若要了解健康狀態相關概念，請詳細閱讀 [Service Fabric 健康狀態模型](service-fabric-health-introduction.md)。
 
 系統健康狀態報告可讓您全盤掌握叢集和應用程式功能，並透過健康狀態標記問題。系統健康狀態報告會針對應用程式和服務來確認實體是否已實作，以及從 Service Fabric 的角度來確認其是行為是否正確。報告並不會監控任何服務商務邏輯的健康情況，也不會偵測是否有無回應的處理程序。使用者服務可使用其邏輯的特定資訊讓健康情況資料更豐富。
 
-> [AZURE.NOTE]監視程式健康狀態報告只有在系統元件建立實體「之後」才會顯示。刪除實體時，健康狀態資料存放區會自動刪除所有與其相關聯的健康狀態報告。建立實體之新執行個體時的處理方式也一樣 (例如，建立新的服務複本執行個體)。所有與舊執行個體相關聯的報告都會從存放區刪除及清除。
+> [AZURE.NOTE] 監視程式健康狀態報告只有在系統元件建立實體「之後」才會顯示。刪除實體時，健康狀態資料存放區會自動刪除所有與其相關聯的健康狀態報告。建立實體之新執行個體時的處理方式也一樣 (例如，建立新的服務複本執行個體)。所有與舊執行個體相關聯的報告都會從存放區刪除及清除。
 
 以「**System.**」前置詞開頭的來源會識別系統元件報告。監視程式不能對來源使用相同的前置詞，因為含有無效參數的報告將遭到拒絕。讓我們來看看部分系統報告，了解何者觸發了它們，以及如何修正它們所代表的可能問題。
 
-> [AZURE.NOTE]Service Fabric 會繼續以感興趣的條件來新增報告，藉此改善叢集和應用程式中狀況的可見性。
+> [AZURE.NOTE] Service Fabric 會繼續以感興趣的條件來新增報告，藉此改善叢集和應用程式中狀況的可見性。
 
 ## 叢集系統健康狀態報告
 叢集健康狀態實體會自動建立於健康狀態資料存放區中，因此，如果一切正常運作，就不會產生系統報告。
@@ -97,7 +97,7 @@ HealthEvents          :
 
 - **SourceId**：System.CM
 - **屬性**：狀態
-- **後續步驟**：如果已建立應用程式，它就應該包含叢集管理員健康狀態報告。否則，請發出查詢以檢查應用程式狀態 (例如 Powershell Cmdlet **Get-ServiceFabricApplication -ApplicationName applicationName**)。
+- **後續步驟**：如果已建立應用程式，它就應該包含叢集管理員健康狀態報告。否則，請發出查詢以檢查應用程式狀態 (例如 Powershell Cmdlet **Get-ServiceFabricApplication -ApplicationName *applicationName***)。
 
 以下說明 **fabric:/WordCount** 應用程式上的狀態事件：
 
@@ -443,7 +443,7 @@ HealthEvents                       :
 如果應用程式封裝下載失敗，**System.Hosting** 會回報錯誤。
 
 - **SourceId**：System.Hosting
-- **屬性**：**Download:RolloutVersion**
+- **屬性**：**Download:*RolloutVersion***
 - **後續步驟**：調查節點上下載失敗的原因。
 
 ## DeployedServicePackage 系統健康狀態報告
@@ -460,7 +460,7 @@ HealthEvents                       :
 如果成功啟用，**System.Hosting** 會針對每個程式碼封裝回報為 OK。如果啟用失敗，它會依設定回報警告。如果 **CodePackage** 無法啟用，或者因為錯誤數超過 **CodePackageHealthErrorThreshold** 的設定而結束，則 Hosting 會回報錯誤。如果服務封裝包含多個程式碼封裝，就會針對每個封裝產生啟用報告。
 
 - **SourceId**：System.Hosting
-- **屬性**：使用前置詞 **CodePackageActivation**，並以 **CodePackageActivation:CodePackageName:SetupEntryPoint/EntryPoint** 形式包含程式碼封裝的名稱和進入點 (例如，**CodePackageActivation:Code:SetupEntryPoint**)
+- **屬性**：使用前置詞 **CodePackageActivation**，並以 **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** 形式包含程式碼封裝的名稱和進入點 (例如，**CodePackageActivation:Code:SetupEntryPoint**)
 
 ### 服務類型註冊
 如果服務類型已成功註冊，**System.Hosting** 會回報為 OK。如果註冊未及時完成 (使用 **ServiceTypeRegistrationTimeout** 來設定)，則會回報錯誤。如果服務類型是從節點取消註冊，這是因為執行階段已關閉。Hosting 會回報警告。
@@ -520,7 +520,7 @@ HealthEvents          :
 如果服務封裝下載失敗，**System.Hosting** 會回報錯誤。
 
 - **SourceId**：System.Hosting
-- **屬性**：**Download:RolloutVersion**
+- **屬性**：**Download:*RolloutVersion***
 - **後續步驟**：調查節點上下載失敗的原因。
 
 ### 升級驗證
@@ -537,4 +537,4 @@ HealthEvents          :
 
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

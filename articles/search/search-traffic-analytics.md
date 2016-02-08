@@ -27,7 +27,7 @@
 ## 如何啟用搜尋流量分析
 
 ### 1\.使用入口網站
-在 [Azure 入口網站](http://portal.azure.com)中開啟 Azure 搜尋服務。您可以在 [設定] 下方找到 [搜尋流量分析] 選項。
+在 [Azure 入口網站](https://portal.azure.com)中開啟 Azure 搜尋服務。您可以在 [設定] 下方找到 [搜尋流量分析] 選項。
 
 ![][1]
 
@@ -36,7 +36,7 @@
 ![][2]
 
 
-> [AZURE.IMPORTANT]儲存體帳戶必須與您的搜尋服務位於相同的區域和訂用帳戶中。
+> [AZURE.IMPORTANT] 儲存體帳戶必須與您的搜尋服務位於相同的區域和訂用帳戶中。
 > 
 > 標準收費適用此儲存體帳戶
 
@@ -131,7 +131,7 @@ properties |物件 |請參閱下方 |包含作業特定資料的物件
 
 資料會在您的儲存體帳戶中，而我們鼓勵您以最適合您狀況的方式來探索此資料。
 
-我們建議您一開始使用 [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop) 來探索和視覺化資料。您可以輕鬆地連線到您的 Azure 儲存體帳戶，並快速開始分析您的資料。
+我們建議您一開始使用 [Power BI Desktop](https://powerbi.microsoft.com/zh-TW/desktop) 來探索和視覺化資料。您可以輕鬆地連線到您的 Azure 儲存體帳戶，並快速開始分析您的資料。
 
 請查看下列範例查詢，讓您在 Power BI Desktop 中建立自己的報表。
 
@@ -205,13 +205,13 @@ properties |物件 |請參閱下方 |包含作業特定資料的物件
 
 10. 按一下 [完成]，然後選取 [常用] 索引標籤中的 [關閉並套用]。
 
-11. 您過去 30 天的資料現在已準備好提供取用。請繼續進行，並建立一些[視覺效果](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/)。
+11. 您過去 30 天的資料現在已準備好提供取用。請繼續進行，並建立一些[視覺效果](https://powerbi.microsoft.com/zh-TW/documentation/powerbi-desktop-report-view/)。
 
 ## 後續步驟
 
 深入了解搜尋語法和查詢參數。如需詳細資訊，請參閱[搜尋文件 (Azure 搜尋服務 REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx)。
 
-深入了解如何建立令人讚嘆的報告。如需詳細資訊，請參閱[開始使用 Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/)
+深入了解如何建立令人讚嘆的報告。如需詳細資訊，請參閱[開始使用 Power BI Desktop](https://powerbi.microsoft.com/zh-TW/documentation/powerbi-desktop-getting-started/)
 
 <!--Image references-->
 
@@ -221,4 +221,4 @@ properties |物件 |請參閱下方 |包含作業特定資料的物件
 [4]: ./media/search-traffic-analytics/BlobStorage.png
 [5]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

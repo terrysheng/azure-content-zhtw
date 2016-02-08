@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/21/2016"
 	ms.author="ricksal"/>
 
 # 將影像從 Android 裝置上傳至 Azure 儲存體
@@ -35,7 +35,7 @@
 
 本教學課程還需要下列各項：
 
-+ [Azure 儲存體帳戶](../storage-create-storage-account.md)。
++ [Azure 儲存體帳戶](../storage/storage-create-storage-account.md)。
 + 內建相機的 Android 裝置
 
 ## 應用程式的運作方式
@@ -49,7 +49,7 @@
 
 那麼，什麼是 SAS？
 
-將上傳資料所需的認證儲存至用戶端應用程式中的 Azure 儲存體服務，是不安全的做法。您應該將這些認證儲存在您的行動服務中，並使用這些認證來產生共用存取簽章 (SAS)，以便提供上傳新影像的權限。行動服務會以安全的方式，將 SAS (5 分鐘後到期的認證) 傳回用戶端應用程式。應用程式會使用此暫存認證來上傳影像。如需詳細資訊，請參閱[共用存取簽章，第 1 部分：了解 SAS 模型](storage-dotnet-shared-access-signature-part-1.md)
+將上傳資料所需的認證儲存至用戶端應用程式中的 Azure 儲存體服務，是不安全的做法。您應該將這些認證儲存在您的行動服務中，並使用這些認證來產生共用存取簽章 (SAS)，以便提供上傳新影像的權限。行動服務會以安全的方式，將 SAS (5 分鐘後到期的認證) 傳回用戶端應用程式。應用程式會使用此暫存認證來上傳影像。如需詳細資訊，請參閱[共用存取簽章，第 1 部分：了解 SAS 模型](../storage/storage-dotnet-shared-access-signature-part-1.md)
 
 ## 程式碼範例
 [這裡](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages)是此應用程式中已完成的用戶端原始程式碼部分。若要執行此程式碼，您必須完成本教學課程的行動服務後端組件。
@@ -92,7 +92,7 @@
 	    <string name="preview_button_text">Take Photo</string>
 	    <string name="upload_button_text">Upload</string>
 
-2. 在 **res = > layout** 資料夾的 **activity\_to\_do.xml** 檔案中，於 [**新增**] 按鈕的現有程式碼之前加入此程式碼。
+2. 在 **res = > layout** 資料夾的 **activity_to_do.xml** 檔案中，於 [**新增**] 按鈕的現有程式碼之前加入此程式碼。
 
          <Button
              android:id="@+id/buttonPreview"
@@ -426,4 +426,4 @@
 [行動服務 .NET 作法概念性參考]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

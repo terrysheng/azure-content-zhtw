@@ -35,7 +35,7 @@
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - **Azure 儲存體帳戶** - HDInsight 叢集使用 Azure Blob 儲存體容器做為預設檔案系統。如需 Azure Blob 儲存體如何提供順暢 HDInsight 叢集使用體驗的詳細資訊，請參閱[搭配使用 Azure Blob 儲存體與 HDInsight](../hdinsight-use-blob-storage.md)。如需建立 Azure 儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](../storage-create-storage-account.md)。
 
 ##開啟入口網站
@@ -64,7 +64,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。如需已驗證和所支�
 - 在叢集建立期間，使用 HDInsight .NET SDK 或 Azure PowerShell 中的叢集自訂參數。即會在叢集的存留期保留這些組態變更，而且它們不受叢集節點重新製作映像的影響，而 Azure 平台會定期執行重新製作映像以進行維護。如需使用叢集自訂參數的詳細資訊，請參閱[建立 HDInsight 叢集](hdinsight-provision-clusters.md)。
 - 您可以使用 JAR 檔案形式在叢集上執行一些原生 Java 元件 (例如 Mahout 和 Cascading)。這些 JAR 檔案可以配送至 Azure Blob 儲存體，並透過 Hadoop 工作提交機制提交至 HDInsight 叢集。如需詳細資訊，請參閱[以程式設計方式提交 Hadoop 工作](hdinsight-submit-hadoop-jobs-programmatically.md)。
 
-	>[AZURE.NOTE]如果您在將 JAR 檔案部署至 HDInsight 叢集或在 HDInsight 叢集上呼叫 JAR 檔案時發生問題，請連絡 [Microsoft 支援](http://azure.microsoft.com/support/options/)。
+	>[AZURE.NOTE] 如果您在將 JAR 檔案部署至 HDInsight 叢集或在 HDInsight 叢集上呼叫 JAR 檔案時發生問題，請連絡 [Microsoft 支援](https://azure.microsoft.com/support/options/)。
 
 	> Cascading 不受 HDInsight 支援，而且不符合「Microsoft 支援」的資格。如需所支援元件的清單，請參閱 [HDInsight 所提供叢集版本的新功能](hdinsight-component-versioning.md) (英文)。
 
@@ -101,11 +101,11 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。如需已驗證和所支�
 	- **快速入門** (![雲和雷電圖示 = 快速入門](./media/hdinsight-administer-use-portal-linux/quickstart.png))：顯示可協助您開始使用 HDInsight 的資訊。
 	- **使用者** (![使用者圖示](./media/hdinsight-administer-use-portal-linux/users.png))：可讓您設定 Azure 訂用帳戶上，其他使用者對此叢集的「入口網站管理」權限。
 	
-		> [AZURE.IMPORTANT]這「只」會影響在 Azure Preview 入口網站對此叢集的存取和權限，對於連線至 HDInsight 叢集或將工作提交至其上的使用者則沒有作用。
-	- **標記** (![標記圖示](./media/hdinsight-administer-use-portal-linux/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可能會建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
+		> [AZURE.IMPORTANT] 這「只」會影響在 Azure Preview 入口網站對此叢集的存取和權限，對於連線至 HDInsight 叢集或將工作提交至其上的使用者則沒有作用。
+	- **標記** (![標記圖示](./media/hdinsight-administer-use-portal-linux/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
 	- **文件**：Azure HDInsight 文件的連結。
 	
-	> [AZURE.IMPORTANT]若要管理 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。如需使用 Ambari 的詳細資訊，請參閱[使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
+	> [AZURE.IMPORTANT] 若要管理 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。如需使用 Ambari 的詳細資訊，請參閱[使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
 
 	**使用量**：
 	
@@ -124,7 +124,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。如需已驗證和所支�
 	- **遠端桌面**： 啟用和停用遠端桌面 (RDP) 存取，以及設定 RDP 使用者名稱。RDP 使用者名稱必須與 HTTP 使用者名稱不同。
 	- **記錄可查夥伴**：
     
-    > [AZURE.NOTE]這是可用設定的泛型清單，並不會針對所有叢集類型顯示所有的可用設定。
+    > [AZURE.NOTE] 這是可用設定的泛型清單，並不會針對所有叢集類型顯示所有的可用設定。
 
 6. 按一下 [屬性]：
 
@@ -157,7 +157,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。如需已驗證和所支�
 ##調整叢集
 叢集調整功能可讓您變更在 Azure HDInsight 中執行的叢集所用的背景工作節點數目，而不需要重新建立叢集。
 
->[AZURE.NOTE]只支援使用 HDInsight 3.1.3 版或更高版本的叢集。如果不確定您的叢集版本，您可以檢查 [屬性] 頁面。請參閱[列出和顯示叢集](hdinsight-adminster-use-management-portal/#list-and-show-clusters)。
+>[AZURE.NOTE] 只支援使用 HDInsight 3.1.3 版或更高版本的叢集。如果不確定您的叢集版本，您可以檢查 [屬性] 頁面。請參閱[列出和顯示叢集](hdinsight-adminster-use-management-portal/#list-and-show-clusters)。
 
 變更 HDInsight 支援的每一種叢集所用的資料節點數目會有何影響：
 
@@ -249,7 +249,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 預設會授與這些服務的存取權。您可以從 Azure 入口網站撤銷/授與存取權。
 
->[AZURE.NOTE]透過授與/撤銷存取權，您將重設叢的使用者名稱和密碼。
+>[AZURE.NOTE] 透過授與/撤銷存取權，您將重設叢的使用者名稱和密碼。
 
 **授與/撤銷 HTTP Web 服務存取**
 
@@ -330,7 +330,7 @@ HDInsight 查詢主控台包括下列功能：
 
 HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用帳戶可搭配 HDInsight 使用的核心數目，以及配置給此叢集的核心數目和它們在此叢集中配置給節點的方式。請參閱[列出和顯示叢集](#list-and-show-clusters)。
 
-> [AZURE.IMPORTANT]若要監視 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。如需使用 Ambari 的詳細資訊，請參閱[使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
+> [AZURE.IMPORTANT] 若要監視 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。如需使用 Ambari 的詳細資訊，請參閱[使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
 
 
 ##開啟 Hadoop UI
@@ -355,7 +355,7 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 	![hdinsight enable disable configure remote desktop](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
 	[到期日] 的預設值是一週。
-> [AZURE.NOTE]您也可以使用 HDInsight .NET SDK，在叢集上啟用遠端桌面。以下列方式在 HDInsight 用戶端物件上使用 **EnableRdp** 方法：**client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**。同樣地，若要在叢集上停用遠端桌面，您可以使用 **client.DisableRdp(clustername, location)**。如需這些方法的詳細資訊，請參閱 [HDInsight .NET SDK 參考](http://go.microsoft.com/fwlink/?LinkId=529017)。這僅適用於在 Windows 上執行的 HDInsight 叢集。
+> [AZURE.NOTE] 您也可以使用 HDInsight .NET SDK，在叢集上啟用遠端桌面。以下列方式在 HDInsight 用戶端物件上使用 **EnableRdp** 方法：**client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**。同樣地，若要在叢集上停用遠端桌面，您可以使用 **client.DisableRdp(clustername, location)**。如需這些方法的詳細資訊，請參閱 [HDInsight .NET SDK 參考](http://go.microsoft.com/fwlink/?LinkId=529017)。這僅適用於在 Windows 上執行的 HDInsight 叢集。
 
 **使用 RDP 連線到叢集**
 
@@ -400,4 +400,4 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop 命令列"
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

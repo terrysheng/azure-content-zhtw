@@ -20,13 +20,13 @@
 
 本主題說明如何將 blob 從儲存體帳戶複製到新的 Microsoft Azure 媒體服務資產。
 
-您的 blob 可存在於與媒體服務帳戶相關聯的儲存體帳戶，或不與媒體服務帳戶相關聯的儲存體帳戶中。本主題示範如何將 blob 從儲存體帳戶複製到媒體服務資產。請注意，您也可以在資料中心之間複製。不過，這麼做可能會向您索取費用。如需有關定價的詳細資訊，請參閱[資料傳輸](http://azure.microsoft.com/pricing/#header-11)。
+您的 blob 可存在於與媒體服務帳戶相關聯的儲存體帳戶，或不與媒體服務帳戶相關聯的儲存體帳戶中。本主題示範如何將 blob 從儲存體帳戶複製到媒體服務資產。請注意，您也可以在資料中心之間複製。不過，這麼做可能會向您索取費用。如需有關定價的詳細資訊，請參閱[資料傳輸](https://azure.microsoft.com/pricing/#header-11)。
 
->[AZURE.NOTE]請勿在不使用媒體服務 API 的情況下，嘗試變更由媒體服務所產生的 blob 容器內容。
+>[AZURE.NOTE] 請勿在不使用媒體服務 API 的情況下，嘗試變更由媒體服務所產生的 blob 容器內容。
 
 ##下載範例
 
-從[這裡](http://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/)取得和執行範例。
+從[這裡](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/)取得和執行範例。
 
 ##先決條件
 
@@ -316,4 +316,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

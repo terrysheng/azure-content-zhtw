@@ -18,13 +18,13 @@
 
 # 啟用監視和診斷
 
-在 [Azure 入口網站](http://portal.azure.com)中，您可以為您的資源設定內容豐富且經常產生的監視與診斷資料。您也可以使用 [REST API](https://msdn.microsoft.com/library/azure/dn931932.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) 設定，並以程式設計方式設定診斷。
+在 [Azure 入口網站](https://portal.azure.com)中，您可以為您的資源設定內容豐富且經常產生的監視與診斷資料。您也可以使用 [REST API](https://msdn.microsoft.com/library/azure/dn931932.aspx) 或 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) 設定，並以程式設計方式設定診斷。
 
 在 Azure 中的診斷、監視和計量資料會被儲存到您所選擇的儲存體帳戶。這可讓您使用任何工具來讀取資料，從儲存體總管到 Power BI 再到協力廠商工具。
 
 ## 建立資源的時機
 
-當您在 [Azure 入口網站](http://portal.azure.com)中首次建立服務時，大部分的服務可讓您啟用診斷功能。
+當您在 [Azure 入口網站](https://portal.azure.com)中首次建立服務時，大部分的服務可讓您啟用診斷功能。
 
 1. 移至 [**新增**] 並選擇您感興趣的資源。 
 
@@ -71,4 +71,4 @@
 * [追蹤服務健康狀況](insights-service-health.md)可以找出 Azure 何時遭遇效能降低或服務中斷。 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

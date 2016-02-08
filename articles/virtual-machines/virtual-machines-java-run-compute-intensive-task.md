@@ -105,7 +105,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 ## 如何建立執行大量運算工作的 Java 應用程式
 
-1. 在您的開發電腦 (不一定要是您所建立的虛擬機器) 上，下載 [Azure SDK for Java](http://azure.microsoft.com/develop/java/) (英文)。
+1. 在您的開發電腦 (不一定要是您所建立的虛擬機器) 上，下載 [Azure SDK for Java](https://azure.microsoft.com/develop/java/) (英文)。
 2. 使用本節結尾的範例程式碼建立一個 Java 主控台應用程式。在本教學課程中，我們將使用 **TSPSolver.java** 做為 Java 檔案名稱。請將 **your\_service\_bus\_namespace**、**your\_service\_bus\_owner** 及 **your\_service\_bus\_key** 預留位置，分別修改成使用您服務匯流排 [命名空間]、[Default Issuer] 及 [預設金鑰] 的值。
 3. 編碼完成之後，將應用程式匯出至可執行的 Java 存檔 (JAR)，並將所需的程式庫封裝至產生的 JAR 中。在本教學課程中，我們將使用 **TSPSolver.jar** 做為產生的 JAR 名稱。
 
@@ -484,7 +484,8 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
  如果您沒有指定數目，它將會針對 10 個城市執行。當求解器找到目前最短的路徑時，將會把這些路徑加入佇列中。
 
-> [AZURE.NOTE]您指定的數目越大，求解器就會花越長的時間執行。例如，針對 14 個城市執行可能需花數分鐘，而針對 15 個城市執行可能需花數小時。增加至 16 個或更多城市可能需花數天執行 (最終可能達數周、數月及數年)。這是因為隨著城市數目增加，求解器所評估的排列數目也隨之激增的緣故。
+> [AZURE.NOTE]
+您指定的數目越大，求解器就會花越長的時間執行。例如，針對 14 個城市執行可能需花數分鐘，而針對 15 個城市執行可能需花數小時。增加至 16 個或更多城市可能需花數天執行 (最終可能達數周、數月及數年)。這是因為隨著城市數目增加，求解器所評估的排列數目也隨之激增的緣故。
 
 ### 如何執行監視用戶端應用程式
 1. 登入您將執行用戶端應用程式的電腦。這不一定要是執行 **TSPSolver** 應用程式的同一部電腦，但也可以是同一部電腦。
@@ -520,4 +521,4 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

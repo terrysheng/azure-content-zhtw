@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="01/21/2016"
    ms.author="alkohli" />
 
 # 更換 StorSimple 裝置上的電源和冷卻模組
@@ -26,7 +26,7 @@ Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供�
 - 取下 PCM
 - 安裝替代的 PCM
 
->[AZURE.IMPORTANT]取下及更換 PCM 之前，請閱讀 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)中的安全資訊。
+>[AZURE.IMPORTANT] 取下及更換 PCM 之前，請閱讀 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)中的安全資訊。
 
 ## 更換 PCM 之前
 
@@ -40,11 +40,14 @@ Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供�
 
 - PCM 模組的更換只需要幾分鐘即可完成，但必須在取下故障 PCM 的 10 分鐘內完成以防止過熱。
 
+- 請注意，從工廠出貨的替代 764 W PCM 模組將不會包含備用電池模組。您在執行替代作業之前，必須先取出故障 PCM 的電池，並將它插入替代模組。如需詳細資訊，請參閱如何[移除並插入備用電池模組](storsimple-battery-replacement.md)。
+
+
 ## 取下 PCM
 
 當您準備好要取下 Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM)，請遵循這些指示。
 
->[AZURE.NOTE]取下 PCM 之前，請確認您有正確的替代元件 (主要機箱使用764 W，EBOD 機箱使用 580 W)。
+>[AZURE.NOTE] 取下 PCM 之前，請確認您有正確的替代元件 (主要機箱使用764 W，EBOD 機箱使用 580 W)。
 
 #### 取下 PCM
 
@@ -114,7 +117,7 @@ Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供�
 
 ## 安裝替代的 PCM
 
-請遵循這些指示安裝 StorSimple 裝置的 PCM。
+請遵循這些指示安裝 StorSimple 裝置的 PCM。請確定您在安裝替代 PCM 之前已經插入備用電池模組 (僅適用 764 W PCM)。如需詳細資訊，請參閱如何[移除並插入備用電池模組](storsimple-battery-replacement.md)。
 
 #### 安裝 PCM
 
@@ -126,7 +129,7 @@ Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供�
 
 2. 檢查機箱有無損毀，並特別注意接頭。
 										
-    >[AZURE.NOTE]**如果接頭的任何接腳彎曲，請勿安裝該模組。**
+    >[AZURE.NOTE] **如果接頭的任何接腳彎曲，請勿安裝該模組。**
 
 3. PCM 把手在開啟的位置，將模組滑入機箱。
 
@@ -136,7 +139,7 @@ Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供�
 
 4. 手動關閉 PCM 把手。您應該會聽到喀嚓一聲，表示把手閂鎖已扣上。
 										
-    >[AZURE.NOTE]若要確保接頭的接腳確實連接，您可以用不會鬆開閂鎖的力道輕拉把手。如果 PCM 滑出來，表示接頭連接之前閂鎖就關閉了。
+    >[AZURE.NOTE] 若要確保接頭的接腳確實連接，您可以用不會鬆開閂鎖的力道輕拉把手。如果 PCM 滑出來，表示接頭連接之前閂鎖就關閉了。
 
 5. 將電源線插到電力來源和 PCM。
 
@@ -146,10 +149,10 @@ Microsoft Azure StorSimple 裝置的電源和冷卻模組 (PCM) 包含電源供�
 
 8. 確認更換成功：在 StorSimple Manager 服務的 Azure 傳統入口網站中，巡覽至 [裝置] > [維護]] > [硬體狀態]。在 [共用元件] 下，PCM 的狀態應該是綠色。
 										
-    >[AZURE.NOTE]可能需要幾分鐘的時間讓替代的 PCM 完全初始化。
+    >[AZURE.NOTE] 可能需要幾分鐘的時間讓替代的 PCM 完全初始化。
 
 ## 後續步驟
 
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

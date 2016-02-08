@@ -91,7 +91,7 @@
 ## 如何將應用程式加入 Azure AD 執行個體？
 有很多方式可以將應用程式加入 Azure AD：
 
-* 從 [Azure Active Directory 應用程式庫](http://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)新增應用程式
+* 從 [Azure Active Directory 應用程式庫](https://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)新增應用程式
 * 註冊/登入與 Azure Active Directory 整合的協力廠商應用程式 (例如：[Smartsheet](https://app.smartsheet.com/b/home) 或 [DocuSign](https://www.docusign.net/member/MemberLogin.aspx))
     * 註冊/登入期間，系統會要求使用者提供應用程式的存取權限，才能存取其設定檔及其他權限。做出同意動作的第一個人會造成代表應用程式的服務主體被新增至目錄。
 * 註冊/登入 Microsoft 線上服務 (如 [Office 365](http://products.office.com/))
@@ -146,4 +146,4 @@
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

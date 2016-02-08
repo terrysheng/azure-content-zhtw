@@ -57,7 +57,7 @@
 
 ![提供的影片](./media/storsimple-manage-backup-policies/Video_icon.png) **提供的影片**
 
-若要觀看影片示範如何建立本機或雲端備份原則，請按一下[這裡](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/)。
+若要觀看影片示範如何建立本機或雲端備份原則，請按一下[這裡](https://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/)。
 
 
 ## 新增或修改排程
@@ -90,4 +90,4 @@
 
 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

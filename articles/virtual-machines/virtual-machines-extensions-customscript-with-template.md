@@ -37,7 +37,7 @@ Azure 資源管理員範本可讓您藉由定義資源之間的相依性，以�
 
 ### 必要條件
 
-1. 從[這裡](http://azure.microsoft.com/downloads)安裝最新版的 Azure PowerShell Cmdlet 或 Azure CLI。
+1. 從[這裡](https://azure.microsoft.com/downloads/)安裝最新版的 Azure PowerShell Cmdlet 或 Azure CLI。
 2. 如果指令碼將在現有 VM 上執行，請確定會在該 VM 上啟用 VM 代理程式，如果沒有，請依照[這裡](virtual-machines-extensions-install)安裝一個 VM。
 3. 將您想要在 VM 上執行的指令碼上傳到 Azure 儲存體。指令碼可以來自單一或多個儲存體容器。
 4. 或者也能將指令碼上傳至 Github 帳戶。
@@ -102,4 +102,4 @@ Azure 資源管理員範本可讓您藉由定義資源之間的相依性，以�
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Linux VM 上的自訂指令碼擴充功能</a>。</br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Windows VM 上的自訂指令碼擴充功能</a>。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

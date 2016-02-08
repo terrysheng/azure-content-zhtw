@@ -19,7 +19,7 @@
 
 # 使用 Azure 流量管理員來控制 Azure Web 應用程式的流量
 
-> [AZURE.NOTE]本文提供與 Azure App Service Web Apps 相關之 Microsoft Azure 流量管理員的摘要資訊。如需 Azure 流量管理員本身的詳細資訊，請造訪本文結尾的連結。
+> [AZURE.NOTE] 本文提供與 Azure App Service Web Apps 相關之 Microsoft Azure 流量管理員的摘要資訊。如需 Azure 流量管理員本身的詳細資訊，請造訪本文結尾的連結。
 
 ## 簡介
 您可以使用 Azure 流量管理員，來控制如何將來自 Web 用戶端的要求分散至 Azure App Service 中的 Web 應用程式。將 Web 應用程式端點新增至 Azure 流量管理員設定檔時，Azure 流量管理員就會持續追蹤您 Web 應用程式的狀態 (執行中、已停止或已刪除)，以判定其中哪些端點應接收流量。
@@ -60,7 +60,7 @@ Azure 流量管理員使用三種不同的負載平衡方法。下列清單說�
 
 如需 Azure 流量管理員中負載平衡的詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法](../traffic-manager/traffic-manager-load-balancing-methods.md)。
 
-如需將流量管理員與 Web Apps 搭配使用的詳細資訊，請參閱[將 Azure 流量管理員與 Azure 網站搭配使用](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx)和 [Azure 流量管理員現在可以與 Azure 網站整合](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)部落格文章。
+如需將流量管理員與 Web Apps 搭配使用的詳細資訊，請參閱[將 Azure 流量管理員與 Azure 網站搭配使用](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx)和 [Azure 流量管理員現在可以與 Azure 網站整合](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)部落格文章。
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

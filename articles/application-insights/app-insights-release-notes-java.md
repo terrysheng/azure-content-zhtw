@@ -16,7 +16,7 @@
 
 # Java 適用的 Application Insights SDK 的版本資訊
 
-[Application Insights SDK for Java](app-insights-java-get-started.md) 傳送有關您作用中的應用程式遙測到 [Application Insights](http://azure.microsoft.com/services/application-insights/)，您可以在此分析它的使用情況與效能。
+[Application Insights SDK for Java](app-insights-java-get-started.md) 傳送有關您作用中的應用程式遙測到 [Application Insights](https://azure.microsoft.com/services/application-insights/)，您可以在此分析它的使用情況與效能。
 
 #### 若要在應用程式中安裝 SDK
 
@@ -26,12 +26,12 @@
 
 升級之後，必須將您對 ApplicationInsights.xml 所做的任何自訂合併回來。請取得一份複本來與新的檔案比較。
 
-如果您使用 Maven 或 Gradle
+*如果您使用 Maven 或 Gradle*
 
 1. 如果您已在 pom.xml 或 build.gradle 中指定特定的版本號碼，請更新版本號碼。
 2. 請重新整理專案的相依項目。
 
-否則
+*否則*
 
 * 請下載最新版的 [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) 取代舊版本。
 
@@ -73,4 +73,4 @@
 - 支援使用新的 ```trackDependency``` 方法 API 手動追蹤相依性。
 - 能夠藉由將 ```SyntheticSource``` 屬性加入至報告項目，將遙測項目標記為綜合。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

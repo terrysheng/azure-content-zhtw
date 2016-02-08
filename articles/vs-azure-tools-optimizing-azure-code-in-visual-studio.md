@@ -287,7 +287,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-如需詳細資訊，請參閱[分割的服務匯流排佇列和主題 | Microsoft Azure 部落格](http://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/)和 [Microsoft Azure 服務匯流排分割的佇列](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f)範例。
+如需詳細資訊，請參閱[分割的服務匯流排佇列和主題 | Microsoft Azure 部落格](https://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/)和 [Microsoft Azure 服務匯流排分割的佇列](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f)範例。
 
 ## 不要設定 SharedAccessStartTime
 
@@ -449,7 +449,7 @@ AP4001
 
 - 若是 ASP.NET vNext 應用程式，請使用 configuration.json 來儲存連接字串。
 
-如需使用 web.config 或 app.config 等組態檔的相關資訊，請參閱 [ASP.NET Web 組態指導方針] (https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx)。如需 Azure 環境變數運作方式的相關資訊，請參閱 [Azure 網站：應用程式字串與連接字串的運作方式](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。如需在原始檔控制中儲存連接字串的相關資訊，請參閱[避免將敏感資訊 (例如連接字串) 放在儲存於原始程式碼儲存機制的檔案](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)。
+如需使用 web.config 或 app.config 等組態檔的相關資訊，請參閱 [ASP.NET Web 組態指導方針] (https://msdn.microsoft.com/library/vstudio/ff400235(v=vs.100).aspx)。如需 Azure 環境變數運作方式的相關資訊，請參閱 [Azure 網站：應用程式字串與連接字串的運作方式](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。如需在原始檔控制中儲存連接字串的相關資訊，請參閱[避免將敏感資訊 (例如連接字串) 放在儲存於原始程式碼儲存機制的檔案](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)。
 
 ## 使用診斷組態檔
 
@@ -532,4 +532,4 @@ public class BlogsController : Controller
 
 若要深入了解如何最佳化和疑難排解 Azure 應用程式，請參閱[使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式](web-sites-dotnet-troubleshoot-visual-studio.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -19,7 +19,7 @@
 
 # Cortana 分析程序實務：使用 SQL Server
 
-在此教學課程，您會跟著逐步解說，使用可公開取得的資料集 ([NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/)資料集) 建置和部署模型。此程序遵循 Cortana 分析程序 (CAP) 工作流程。
+在此教學課程，您會跟著逐步解說，使用可公開取得的資料集 ([NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/)資料集) 建置和部署模型。此程序遵循 Cortana Analytics (CAP) 工作流程。
 
 
 ## <a name="dataset"></a>NYC 計程車車程資料集
@@ -80,7 +80,7 @@
 
 3. [佈建資料科學虛擬機器](machine-learning-data-science-setup-sql-server-virtual-machine.md)，這將做為 SQL Server 和 IPython Notebook 伺服器使用。
 
-	> [AZURE.NOTE]指令碼範例和 IPython Notebook 將在安裝過程中下載到您的資料科學虛擬機器上。VM 的後續安裝指令碼完成時，範例會出現在您的 VM 文件庫中：- 指令碼範例：`C:\Users<user_name>\Documents\Data Science Scripts`- IPython Notebook 範例：`C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` 其中 `<user_name>` 是 VM 的 Windows 登入名稱。我們會將範例資料夾稱為「**指令碼範例**」和「**IPython Notebook 範例**」。
+	> [AZURE.NOTE] 指令碼範例和 IPython Notebook 將在安裝過程中下載到您的資料科學虛擬機器上。VM 的後續安裝指令碼完成時，範例會出現在您的 VM 文件庫中：- 指令碼範例：`C:\Users<user_name>\Documents\Data Science Scripts`- IPython Notebook 範例：`C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples` 其中 `<user_name>` 是 VM 的 Windows 登入名稱。我們會將範例資料夾稱為「**指令碼範例**」和「**IPython Notebook 範例**」。
 
 
 根據資料集大小、資料來源位置，以及選取的 Azure 目標環境，此案例的類似案例為[案例 #5：本機檔案中的大型資料集、Azure VM 中的目標 SQL Server](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb)。
@@ -612,7 +612,7 @@
 
 2. 登入 [Azure Machine Learning Studio](https://studio.azureml.net)。
 
-3. Studio 首頁會提供豐富的資訊、影片、教學課程、與模組參考的連結，以及其他資源。如需 Azure Machine Learning 的詳細資訊，請參閱「[Azure Machine Learning 文件中心](http://azure.microsoft.com/documentation/services/machine-learning/)」。
+3. Studio 首頁會提供豐富的資訊、影片、教學課程、與模組參考的連結，以及其他資源。如需 Azure Machine Learning 的詳細資訊，請參閱「[Azure Machine Learning 文件中心](https://azure.microsoft.com/documentation/services/machine-learning/)」。
 
 典型的訓練體驗包含下列各項：
 
@@ -649,7 +649,7 @@
 
 ![Azure ML 訓練][10]
 
-> [AZURE.IMPORTANT]在前幾節中提供的模型化資料擷取和取樣查詢範例中，**這三個模型化練習的所有標籤都包含於此查詢中**。每一個模型化練習的重要 (必要) 步驟都是針對其他兩個問題**排除**不需要的標籤，以及任何其他的**目標流失**。例如，使用二進位分類時，請用 **tipped** 標籤，並排除 [**tip\_class**]、[**tip\_amount**] 和 [**total\_amount**] 欄位。後者為目標流失，因為它們意指支付的小費。
+> [AZURE.IMPORTANT] 在前幾節中提供的模型化資料擷取和取樣查詢範例中，**這三個模型化練習的所有標籤都包含於此查詢中**。每一個模型化練習的重要 (必要) 步驟都是針對其他兩個問題**排除**不需要的標籤，以及任何其他的**目標流失**。例如，使用二進位分類時，請用 **tipped** 標籤，並排除 [**tip\_class**]、[**tip\_amount**] 和 [**total\_amount**] 欄位。後者為目標流失，因為它們意指支付的小費。
 >
 > 若要排除不必要的資料行和/或目標流失，您可以使用「[專案資料行][project-columns]」模組或「[中繼資料編輯器][metadata-editor]」。如需詳細資訊，請參閱「[專案資料行][project-columns]」和「[中繼資料編輯器][metadata-editor]」的參考頁面。
 
@@ -714,4 +714,4 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。特
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

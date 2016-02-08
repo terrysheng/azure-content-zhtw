@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="event-hubs" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # 大規模擷取遙測和應用程式事件
@@ -23,7 +23,7 @@
 
 ## 瀏覽
 - [事件中樞](event-hubs-overview.md)
-- [事件中樞價格詳細資料](http://azure.microsoft.com/pricing/details/event-hubs/)
+- [事件中樞價格詳細資料](https://azure.microsoft.com/pricing/details/event-hubs/)
 - [事件中樞可用性和支援常見問題集](event-hubs-availability-and-support-faq.md)
 - [事件來源模式](http://msdn.microsoft.com/library/dn589792.aspx)
  
@@ -32,9 +32,9 @@
 - [事件中樞程式碼範例](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## 相關服務
-- [服務匯流排 (英文)](http://azure.microsoft.com/services/service-bus/)
-- [Azure 儲存體](http://azure.microsoft.com/services/storage/)
-- [HDInsight](http://azure.microsoft.com/services/hdinsight/)
+- [服務匯流排 (英文)](https://azure.microsoft.com/services/service-bus/)
+- [Azure 儲存體](https://azure.microsoft.com/services/storage/)
+- [HDInsight](https://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

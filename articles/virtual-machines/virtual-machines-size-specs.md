@@ -29,7 +29,7 @@ ms.service="virtual-machines"
 
 標準大小包含幾個系列：A、D、DS、G 與 GS。這些大小的一些考量事項包括：
 
-*   D 系列 VM 是為了執行要求更高計算能力和暫存磁碟效能的應用程式所設計。D 系列 VM 提供更快的處理器、較高的記憶體與核心比率，以及適用於暫存磁碟的固態硬碟 (SSD)。如需詳細資訊，請參閱 Azure 部落格的公告，[新 D 系列的虛擬機器大小](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)。
+*   D 系列 VM 是為了執行要求更高計算能力和暫存磁碟效能的應用程式所設計。D 系列 VM 提供更快的處理器、較高的記憶體與核心比率，以及適用於暫存磁碟的固態硬碟 (SSD)。如需詳細資訊，請參閱 Azure 部落格的公告，[新 D 系列的虛擬機器大小](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)。
 
 *   Dv2 系列是原始 D 系列的延續，擁有更強大的 CPU。Dv2 系列 CPU 比 D 系列 CPU 快約 35%。它以最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器為基礎，搭配 Intel Turbo Boost Technology 2.0，最高可達 3.2 GHz。Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
 
@@ -37,7 +37,7 @@ ms.service="virtual-machines"
 
 *   DS 系列和 GS 系列 VM 可以使用進階儲存體，針對使用大量 I/O 的工作負載提供高效能、低延遲的儲存體。這些 VM 會使用固態硬碟 (SSD) 來裝載虛擬機器的磁碟，還可提供本機 SSD 磁碟快取。僅特定地區可用進階儲存體。如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../storage-premium-storage-preview-portal.md)。
 
-虛擬機器的大小會影響定價。大小也會影響虛擬機器的處理、記憶體和儲存體容量。儲存體成本會分別根據儲存體帳戶中使用的頁面來計算。如需詳細資訊，請參閱[虛擬機器定價詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines/)和 [Azure 儲存體定價](http://azure.microsoft.com/pricing/details/storage/)。如需有關 VM 儲存體的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](virtual-machines-disks-vhds.md)。
+虛擬機器的大小會影響定價。大小也會影響虛擬機器的處理、記憶體和儲存體容量。儲存體成本會分別根據儲存體帳戶中使用的頁面來計算。如需詳細資訊，請參閱[虛擬機器定價詳細資料](https://azure.microsoft.com/pricing/details/virtual-machines/)和 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。如需有關 VM 儲存體的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](virtual-machines-disks-vhds.md)。
 
 下列考量可協助您決定大小：
 
@@ -54,7 +54,7 @@ ms.service="virtual-machines"
 
 我們已經建立「Azure 運算單位」(ACU) 概念來提供一種比較各個 Azure SKU 之運算 (CPU) 效能的方法。這將可協助您輕鬆識別哪個 SKU 最可能符合您的效能需求。ACU 目前是以「小型 (Standard\_A1)」VM 為標準 (數值為 100)，而所有其他 SKU 則大致上代表該 SKU 在執行標準基準測試上可以快多少。
 
->[AZURE.IMPORTANT]ACU 只是一個指導方針。您工作負載的結果可能會有所不同。
+>[AZURE.IMPORTANT] ACU 只是一個指導方針。您工作負載的結果可能會有所不同。
 
 <br>
 
@@ -79,7 +79,7 @@ ms.service="virtual-machines"
 
 下表顯示其所提供的大小和容量。
 
->[AZURE.NOTE]儲存體容量是使用 1024^3 位元組當作 GB 的度量單位來表示。這有時稱為 gibibyte 或基底 2 定義。比較使用不同基底系統的大小時，請記住，基底 2 的大小可能會顯示為小於基底 10，但是對於任何特定的大小 (例如 1 GB)，基底 2 的系統可提供比基底 10 系統更大的容量，因為 1024^3 大於 1000^3。
+>[AZURE.NOTE] 儲存體容量是使用 1024^3 位元組當作 GB 的度量單位來表示。這有時稱為 gibibyte 或基底 2 定義。比較使用不同基底系統的大小時，請記住，基底 2 的大小可能會顯示為小於基底 10，但是對於任何特定的大小 (例如 1 GB)，基底 2 的系統可提供比基底 10 系統更大的容量，因為 1024^3 大於 1000^3。
 
 <br>
 
@@ -189,4 +189,4 @@ ms.service="virtual-machines"
 
 [關於 A8、A9、A10 及 A11 計算密集型執行個體](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

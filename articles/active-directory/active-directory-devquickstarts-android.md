@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # 將 Azure AD 整合至 Android 應用程式
@@ -271,7 +271,7 @@ dependencies {
     ```
 
 11. **Broker**：
-  Microsoft Intune 公司入口網站應用程式將提供 Broker 元件。如果有一個使用者帳戶在這個驗證器上建立，且開發人員選擇不要略過它，Adal 會使用 Broker 帳戶。開發人員可以使用下列方法來略過 Broker 使用者：
+Microsoft Intune 公司入口網站應用程式將提供 Broker 元件。如果有一個使用者帳戶在這個驗證器上建立，且開發人員選擇不要略過它，Adal 會使用 Broker 帳戶。開發人員可以使用下列方法來略過 Broker 使用者：
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -283,8 +283,8 @@ dependencies {
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ``` 
-如果帳戶有效，則會傳回 Broker 使用者。
+ ```
+ 如果帳戶有效，則會傳回 Broker 使用者。
 
  您的應用程式資訊清單應該有使用 AccountManager 帳戶的權限：http://developer.android.com/reference/android/accounts/AccountManager.html
 
@@ -316,8 +316,8 @@ ADFS 不視為正式的 STS，因此您需要開啟執行個體探索，並在 A
 ADAL 在 SharedPrefrecens 中提供預設快取與一些簡單的快取查詢函式。您可以使用 
 ```Java
  ITokenCacheStore cache = mContext.getCache();
-``` 
-從 AuthenticationContext 取得目前的快取。如果想要自訂，您也可以提供您的快取實作。
+```
+ 從 AuthenticationContext 取得目前的快取。如果想要自訂，您也可以提供您的快取實作。
 ```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
@@ -364,8 +364,8 @@ ADAL 提供選項來指定提示行為。如果重新整理權杖無效，而且
       writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
      }
  }
- ``` 
-訊息可以寫入自訂記錄檔，如下所示。不幸的是，從裝置取得記錄檔沒有標準方法。有一些服務可協助您處理這部份。您可以也自創方法，例如將檔案傳送到伺服器。
+ ```
+ 訊息可以寫入自訂記錄檔，如下所示。不幸的是，從裝置取得記錄檔沒有標準方法。有一些服務可協助您處理這部份。您可以也自創方法，例如將檔案傳送到伺服器。
 
 ```Java
 private syncronized void writeToLogFile(Context ctx, String msg) {
@@ -395,8 +395,8 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ``` 
-adb 命令的其他範例：https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+```
+  adb 命令的其他範例：https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### 網路追蹤
 
@@ -452,6 +452,5 @@ ADAL 程式庫包含下列兩個 ProgressDialog 訊息英文字串。
 Adal 1.1.0 版支援 NTLM 對話方塊，此對話方塊是透過 WebViewClient 的 onReceivedHttpAuthRequest 事件來處理。您可以自訂對話方塊版面配置和字串。### 步驟 5：下載 iOS 原生用戶端範例程式碼
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

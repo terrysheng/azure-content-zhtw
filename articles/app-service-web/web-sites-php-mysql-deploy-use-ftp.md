@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -38,7 +38,7 @@
 
 ![Azure PHP Web Site][running-app]
 
->[AZURE.NOTE]如果您想要在註冊 Azure 帳戶之前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，讓您能夠立即在應用程式服務中建立短期的入門 Web 應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE] 如果您想要在註冊 Azure 帳戶之前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，讓您能夠立即在應用程式服務中建立短期的入門 Web 應用程式。不需要信用卡，無需承諾。
 
 
 ##建立 Web 應用程式並設定 FTP 發行
@@ -46,31 +46,27 @@
 請遵循以下步驟來建立 Web 應用程式與 MySQL 資料庫：
 
 1. 登入 [Azure 入口網站][management-portal]。
-2. 按一下 Azure 入口網站左下方的 [新增] 圖示。
+2. 按一下 Azure 入口網站左上方的 **+新增**圖示。
 
 	![Create New Azure Web Site][new-website]
 
-3. 依序按一下 [Web + 行動] 和 [Web 應用程式 + MySQL]。
+3. 在搜尋中輸入 ** Web 應用程式+ MySQL** 並按一下 [Web 應用程式+ MySQL]。
 
 	![Custom Create a new Web Site][custom-create]
 
-4. 輸入資源群組的有效名稱。
+4. 按一下 [建立]。輸入唯一的應用程式服務名稱、資源群組的有效名稱及新的服務方案。
 
     ![設定資源群組名稱][resource-group]
 
-5. 輸入新 Web 應用程式的值。
-
-     ![建立 Web 應用程式][new-web-app]
 
 6. 輸入新資料庫的值，包括同意法律條款。
 
 	![建立新的 MySQL 資料庫][new-mysql-db]
 	
-7. 建立 Web 應用程式之後，您將會看到新的資源群組。按一下 Web 應用程式名稱以進行設定。
+7. 建立 Web 應用程式之後，您將會看到新的 Web 應用程式刀鋒視窗。
 
-	![開啟 Web 應用程式][go-to-webapp]
 
-6. 向下捲動，直到您找到 [設定部署認證] 為止。
+6. 按一下 [設定] > [部署認證]。
 
 	![設定部署認證][set-deployment-credentials]
 
@@ -118,7 +114,8 @@
 		echo "<h3>Table created.</h3>";
 		?>
 
-	> [AZURE.NOTE]您需要將 <code>$user</code> 和 <code>$pwd</code> 的值，更新為您的本機 MySQL 使用者名稱和密碼。
+	> [AZURE.NOTE] 
+	您需要將 <code>$user</code> 和 <code>$pwd</code> 的值，更新為您的本機 MySQL 使用者名稱和密碼。
 
 4. 開啟網頁瀏覽器並瀏覽至 [http://localhost/registration/createtable.php][localhost-createtable]。這會在資料庫中建立 `registration_tbl` 資料表。
 
@@ -171,7 +168,8 @@
 			die(var_dump($e));
 		}
 
-	> [AZURE.NOTE]同樣地，您需要將 <code>$user</code> 和 <code>$pwd</code> 的值，更新為您的本機 MySQL 使用者名稱和密碼。
+	> [AZURE.NOTE]
+	同樣地，您需要將 <code>$user</code> 和 <code>$pwd</code> 的值，更新為您的本機 MySQL 使用者名稱和密碼。
 
 7. 在資料庫連接程式碼後面，加入可將登錄資訊插入至資料庫的程式碼。
 
@@ -222,11 +220,15 @@
 
 若要連接至在 Web Apps 中執行的 MySQL 資料庫，您需要連線資訊。若要取得 MySQL 連線資訊，請依照以下步驟執行：
 
+1. 在 [應用程式服務 Web 應用程式] 刀鋒視窗中，按一下資源群組連結：
+
+	![選取資源群組][select-resourcegroup]
+
 1. 從資源群組中，按一下資料庫：
 
 	![選取資料庫][select-database]
 
-2. 從資料庫摘要中，選取 [屬性]。
+2. 從資料庫摘要中，選取 [設定] > [屬性]。
 
     ![選取屬性][select-properties]
 	
@@ -292,6 +294,7 @@
 [resource-group]: ./media/web-sites-php-mysql-deploy-use-ftp/set_group.png
 [new-web-app]: ./media/web-sites-php-mysql-deploy-use-ftp/create_wa.png
 [select-database]: ./media/web-sites-php-mysql-deploy-use-ftp/select_database.png
+[select-resourcegroup]: ./media/web-sites-php-mysql-deploy-use-ftp/select_resourcegroup.png
 [select-properties]: ./media/web-sites-php-mysql-deploy-use-ftp/select_properties.png
 [note-properties]: ./media/web-sites-php-mysql-deploy-use-ftp/note-properties.png
 
@@ -300,4 +303,4 @@
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

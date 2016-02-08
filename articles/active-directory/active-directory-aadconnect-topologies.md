@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/02/2015"
+   ms.date="01/22/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect 的拓撲
@@ -56,9 +56,17 @@ Azure AD Connect 精靈會提供如何合併使用者的數個選項，所以即
 
 下一節中將討論常見的拓撲：[分隔拓撲](#multiple-forests-separate-topologies)、[完整網狀](#multiple-forests-full-mesh-with-optional-galsync)和[帳戶資源](#multiple-forests-account-resource-forest)。
 
-在由 Azure AD Connect 同步處理所提供的預設組態中，有以下假設：1.使用者只有一個啟用的帳戶，且此帳戶所在之樹系用於驗證使用者。這是針對密碼同步處理和同盟；userPrincipalName 和 sourceAnchor/immutableID 將來自此樹系。2.使用者只有一個信箱。3.裝載使用者信箱的樹系具有最佳品質，以供屬性在 Exchange 全域通訊清單 (GAL) 中顯示。如果使用者沒有信箱，則任何樹系皆可用於提供這些屬性值。4.如果您有連結的信箱，在不同的樹系中還會有另一個帳戶用來登入。
+在由 Azure AD Connect 同步處理所提供的預設組態中，有以下假設：
 
-如果您的環境不符合這些假設，會發生下列情形： - 如果您有一個以上的使用中帳戶或一個以上的信箱，同步處理引擎會挑選其中一個並忽略其他的。 - 如果您有已連結的信箱但沒有其他帳戶，這些帳戶不會匯出至 Azure AD，而且使用者將不會是任何群組的成員。在 DirSync 中，已連結的信箱會顯示為一般信箱，因此這是刻意的不同行為，可更有效支援多個樹系案例。
+1.	使用者只有一個啟用的帳戶，且此帳戶所在之樹系用於驗證使用者。這是針對密碼同步處理和同盟；userPrincipalName 和 sourceAnchor/immutableID 將來自此樹系。
+2.	使用者只有一個信箱。
+3.	裝載使用者信箱的樹系具有最佳品質，以供屬性在 Exchange 全域通訊清單 (GAL) 中顯示。如果使用者沒有信箱，則任何樹系皆可用於提供這些屬性值。
+4.	如果您有連結的信箱，在不同的樹系中還會有另一個帳戶用來登入。
+
+如果您的環境不符合這些假設，則會發生下列情況：
+
+-	如果您有多個使用中的帳戶或多個信箱，同步處理引擎會挑選其中一個，其他全部忽略。
+-	如果您有連結的信箱，但沒有其他帳戶，這些帳戶不會匯出至 Azure AD，而且使用者不會是任何群組的成員。在 DirSync 中，已連結的信箱會顯示為一般信箱，因此這是刻意的不同行為，可更有效支援多個樹系案例。
 
 ### 多個樹系、多部同步處理伺服器連接到單一 Azure AD 目錄
 ![MultiForestMultiSyncUnsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiSyncUnsupported.png)
@@ -142,7 +150,10 @@ Azure AD Connect 同步處理伺服器和 Azure AD 目錄之間有 1:1 的關聯
 
 利用此拓撲，只有其中一個 Azure AD 目錄可以利用內部部署 Active Directory 啟用 Exchange 混合。
 
-物件互斥集的需求也適用於寫回。這使得此拓撲不支援部分寫回功能，因為這些拓撲假設單一組態內部部署。這包括： - 利用預設組態進行群組寫回 - 裝置寫回
+物件互斥集的需求也適用於寫回。這使得此拓撲不支援部分寫回功能，因為這些拓撲假設單一組態內部部署。其中包括：
+
+-	使用預設組態的群組回寫
+-	裝置回寫
 
 ### 每個物件在 Azure AD 目錄運作多次
 ![SingleForestMultiDirectoryUnsupported](./media/active-directory-aadconnect-topologies/SingleForestMultiDirectoryUnsupported.png) ![SingleForestMultiConnectorsUnsupported](./media/active-directory-aadconnect-topologies/SingleForestMultiConnectorsUnsupported.png)
@@ -167,4 +178,4 @@ Azure AD 目錄在設計上是隔離的。它不支援將 Azure AD Connect 同�
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

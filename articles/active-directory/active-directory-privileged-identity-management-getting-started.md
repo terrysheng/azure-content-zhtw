@@ -3,7 +3,7 @@
    description="了解如何使用 Azure Privileged Identity Management 擴充功能來管理特殊權限身分識別。"
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="01/21/2016"
    ms.author="inhenk"/>
 
-# 開始使用 Azure 特殊權限身分識別管理
+# 開始使用 Azure Privileged Identity Management
 
 ## 啟動特殊權限身分識別管理擴充功能
 
 1.  在 Azure Active Directory 中建立目錄。
 2.  將使用者加入 Azure Active Directory。
 3.  在目錄中建立幾個全域管理員。
-4.  使用全域系統管理員帳戶登入 [Azure 入口網站](http://portal.azure.com)。
+4.  使用全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com/)。
 5.  按一下 Azure 入口網站左上角的**使用者名稱**。
 6.  選取您剛建立的**目錄**。
 7.  按一下左側導覽列中的 [新增] 圖示。
@@ -35,4 +35,4 @@
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

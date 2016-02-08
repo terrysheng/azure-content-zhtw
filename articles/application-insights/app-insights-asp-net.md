@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="01/26/2016" 
 	ms.author="awills"/>
 
 
@@ -43,15 +43,14 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
 ![Create an ASP.NET project](./media/app-insights-asp-net/appinsights-01-vsnewp1.png)
 
+選取具有 Azure 登入的帳戶。您可能會受邀重新輸入認證。(或者，如果您尚未登入，會新增 SDK 的程式碼，您稍後可以設定。)
+
 
 #### ... 對於現有專案
 
-在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [Add Application Insights]。
+在 [方案總管] 中以滑鼠右鍵按一下專案，然後選擇 [加入 Application Insights] 或 [設定 Application Insights]。
 
 ![Choose Add Application Insights](./media/app-insights-asp-net/appinsights-03-addExisting.png)
-
-
-
 
 
 #### 設定選項
@@ -65,10 +64,11 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
 命令執行了下列步驟 (如果想要的話，可以改為[手動執行](app-insights-start-monitoring-app-health-usage.md))：
 
-* 在 [Azure 入口網站][portal]中建立 Application Insights 資源。這是您會看到您的資料的位置。它會擷取可識別資源的 *檢測金鑰* 。
-* 將 Application Insights Web SDK NuGet 封裝加入您的專案。若要在 Visual Studio 中看到它，請以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。
-* 將檢測金鑰放在 `ApplicationInsights.config` 中。
+1. 將 Application Insights Web SDK NuGet 封裝加入您的專案。若要在 Visual Studio 中看到它，請以滑鼠右鍵按一下專案，然後選擇 [管理 NuGet 封裝]。
+2. 在 [Azure 入口網站][portal]中建立 Application Insights 資源。這是您會看到您的資料的位置。它會擷取可識別資源的「檢測金鑰」。
+3. 在 `ApplicationInsights.config` 中插入檢測金鑰，讓 SDK 可以將遙測傳送至入口網站。
 
+如果您一開始未登入 Azure，將會安裝 SDK，而不將它連接至資源。您可以在偵錯時在 Visual Studio 診斷中樞查看及搜尋 Application Insights 遙測。您可以稍後再完成其他步驟。
 
 ## <a name="run"></a>執行專案
 
@@ -76,7 +76,29 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
 在 Visual Studio 中，您可以看見已傳送到的事件計數。
 
-![](./media/app-insights-asp-net/appinsights-09eventcount.png)
+![在 Visual Studio 中，[Application Insights] 按鈕會在偵錯期間顯示。](./media/app-insights-asp-net/appinsights-09eventcount.png)
+
+按一下此按鈕以開啟診斷搜尋。
+
+
+### 診斷搜尋
+
+[搜尋] 視窗會顯示已傳送至 Application Insights 入口網站的事件。(入口網站中沒有對等的搜尋功能。)
+
+![以滑鼠右鍵按一下專案，然後選擇 [Application Insights]、[搜尋]](./media/app-insights-asp-net/34.png)
+
+任意文字搜尋適用於事件中的任何欄位。例如，搜尋頁面的 URL 的一部分；或者如用戶端城市的屬性值；或者追蹤記錄檔中的特定單字。
+
+
+[深入了解搜尋](app-insights-diagnostic-search.md)
+
+### 例外狀況
+
+如果您已[設定例外狀況監視](app-insights-asp-net-exception-mvc.md)，例外狀況報告會顯示在 [搜尋] 視窗中。
+
+按一下例外狀況以取得堆疊追蹤。如果應用程式的程式碼在 Visual Studio 中開啟，您可以從堆疊追蹤點選至程式碼的相關程式碼行。
+
+
 
 ## <a name="monitor"></a> 開啟 Application Insights
 
@@ -92,25 +114,28 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
 按一下任何圖表以查看詳細度量。[深入了解度量。][perf]
 
-* *沒有使用者或頁面資料嗎？* - [新增使用者和頁面資料](../article/application-insights/app-insights-asp-net-client.md)
+* *沒有使用者或頁面資料嗎？* - [新增使用者和頁面資料](app-insights-asp-net-client.md)
 
 ### 搜尋：個別事件
 
 開啟 [搜尋] 來調查個別要求和其相關聯的事件。
 
-![](./media/app-insights-asp-net/21-search.png)
+![在 [搜尋] 刀鋒視窗中，搜尋頁面名稱或其他屬性。](./media/app-insights-asp-net/21-search.png)
 
 [深入了解搜尋](app-insights-diagnostic-search.md)
 
-* *沒有相關聯的事件嗎？* 設定[伺服器例外狀況](../article/application-insights/app-insights-asp-net-exception-mvc.md)和[相依性](../article/application-insights/app-insights-asp-net-dependencies.md)。
+* *沒有相關聯的事件嗎？* 設定[伺服器例外狀況](app-insights-asp-net-exception-mvc.md)和[相依性](app-insights-asp-net-dependencies.md)。
 
-### 沒有資料？
 
-* 請確定您查看的是正確的項目。登入 [Azure 入口網站](https://portal.azure.com)，按一下 [瀏覽] > [Application Insights]，然後選取您的應用程式。
+## 沒有資料？
+
+* 在 Visual Studio 中，請確定您的應用程式正在傳送遙測。您應該會在 [輸出] 視窗和 [診斷中樞] 中看到追蹤。
+* 請確定您在 Azure 中查看的是正確的項目。登入 [Azure 入口網站](https://portal.azure.com)，按一下 [瀏覽] > [Application Insights]，然後選取您的應用程式。
 * 使用應用程式、開啟不同頁面，以產生一些遙測。
 * 開啟 [[搜尋][diagnostic]] 刀鋒視窗，查看個別事件。有時候，事件通過計量管線所需的時間較長。
 * 請稍等片刻，然後按一下 [重新整理]。
 * 請參閱[疑難排解][qna]。
+
 
 
 ## 發佈您的應用程式
@@ -123,7 +148,24 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
 參閱[此疑難排解項目](app-insights-troubleshoot-faq.md#NuGetBuild)。
 
-> [AZURE.NOTE]如果您的應用程式會產生大量遙測 (且您使用的是 ASP.NET SDK 版本 2.0.0-beta3 或較新)，調適性取樣模型會自動藉由僅傳送事件代表性片段，以減少傳送到入口網站的量。不過，與同一個要求相關的事件會選取或取消選取為群組，讓您可以在相關事件之間瀏覽。[了解取樣](app-insights-sampling.md)。
+> [AZURE.NOTE] 如果您的應用程式會產生大量遙測 (且您使用的是 ASP.NET SDK 版本 2.0.0-beta3 或較新)，調適性取樣模型會自動藉由僅傳送事件代表性片段，以減少傳送到入口網站的量。不過，與同一個要求相關的事件會選取或取消選取為群組，讓您可以在相關事件之間瀏覽。[了解取樣](app-insights-sampling.md)。
+
+
+## 偵錯遙測
+
+### 診斷中樞
+
+診斷中樞 (在 Visual Studio 2015 或更新版本) 會顯示其產生的 Application Insights 伺服器遙測。即使您選擇只安裝 SDK，而不連接至 Azure 入口網站中的資源，也會運作。
+
+![開啟 [診斷工具] 視窗，並檢查 Application Insights 事件。](./media/app-insights-asp-net/31.png)
+
+如果您在將遙測傳送至入口網站之前有一些[自訂遙測](app-insights-api-custom-events-metrics.md)想要偵錯，這特別有用。
+
+* *首先，我完全設定 Application Insights 將遙測傳送至入口網站。但是現在我只想要查看在 Visual Studio 中的遙測。*
+
+    從 ApplicationInsights.config 註解化 `<instrumentationkey>...` 這一行。當您準備再次將遙測傳送至入口網站時，請取消註解。
+
+
 
 ## 後續步驟
 
@@ -170,4 +212,4 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

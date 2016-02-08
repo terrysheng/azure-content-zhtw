@@ -34,7 +34,7 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 
 - [Azure Media Player](http://aka.ms/ampinfo)
 - [Azure Media Player 文件](http://aka.ms/ampdocs) 
-- [Azure Media Player 開始使用部落格](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
+- [Azure Media Player 開始使用部落格](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
 - [註冊以持續收到 Azure Media Player 的最新消息](http://aka.ms/ampsignup)
 - [加入新的功能要求、概念和意見反應](http://aka.ms/ampuservoice) 
 
@@ -82,4 +82,4 @@ Azure 媒體服務允許透過 Windows Media 平台插入廣告：Player Framewo
 [GitHub dash.js 存放庫](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

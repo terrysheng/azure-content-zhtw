@@ -125,7 +125,7 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
     使 Tomcat 自動啟動的優點在於，當虛擬機器重新開機時 (例如安裝需要重新開機的軟體更新後) 其將會啟動。
 
 ## 後續步驟
-檢視 [Java 開發人員中心](http://azure.microsoft.com/develop/java/)中的資訊，了解您可能會想要納入 Java 應用程式的其他服務 (例如 Azure 儲存體、服務匯流排和 SQL Database)。
+檢視 [Java 開發人員中心](https://azure.microsoft.com/develop/java/)中的資訊，了解您可能會想要納入 Java 應用程式的其他服務 (例如 Azure 儲存體、服務匯流排和 SQL Database)。
 
 [virtual_machine_tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
 
@@ -146,4 +146,4 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。例如，於 Azure �
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

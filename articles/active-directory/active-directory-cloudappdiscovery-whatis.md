@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 Cloud App Discovery 尋找未經約束的雲端應用程式 | Microsoft Azure"
+	pageTitle="使用 Cloud App Discovery 尋找未受管理的雲端應用程式 | Microsoft Azure"
 	description="提供有關使用 Cloud App Discovery 尋找和管理應用程式、它的優勢和運作方式的資訊。"
 	services="active-directory"
 	keywords="雲端應用程式探索, 管理應用程式"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
-	ms.author="markusvi"/>
+	ms.date="01/26/2016"
+	ms.author="markvi"/>
 
-# 使用 Cloud App Discovery 尋找未經約束的雲端應用程式
+# 使用 Cloud App Discovery 尋找未受管理的雲端應用程式
 
 ## 概觀
 在現代企業中，IT 部門通常不會知道組織的成員執行其工作所使用的所有雲端應用程式。很容易知道為什麼系統管理員必須對未經授權存取公司資料、可能的資料外洩和其他安全性風險有所顧慮。缺乏認知可能使得要建立一個可應付這些安全性風險的計劃讓人卻步。
@@ -48,4 +48,4 @@ Cloud App Discovery (AD) Premium 是 Azure Active Directory 的一個功能，�
 - [Cloud App Discovery 代理程式變更記錄](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 - [Cloud App Discovery 常見問題集](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

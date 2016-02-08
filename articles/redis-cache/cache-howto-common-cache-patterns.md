@@ -33,8 +33,8 @@
 ## 後續步驟
 深入了解如何使用 Azure Redis 快取：
  
-- [Redis Azure 快取文件](http://azure.microsoft.com/documentation/services/cache/)：此頁面提供許多使用 Redis Azure 快取的不錯連結。
-- [使用 Azure Redis 快取的 MVC 電影應用程式 (15 分鐘)](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/)：本部落格文章提供在 ASP.NET MVC 應用程式中使用 Azure Redis 快取的快速入門。
+- [Redis Azure 快取文件](https://azure.microsoft.com/documentation/services/cache/)：此頁面提供許多使用 Redis Azure 快取的不錯連結。
+- [使用 Azure Redis 快取的 MVC 電影應用程式 (15 分鐘)](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/)：本部落格文章提供在 ASP.NET MVC 應用程式中使用 Azure Redis 快取的快速入門。
 - [如何將 ASP.NET 工作階段狀態與 Azure 網站搭配使用](../app-service-web/web-sites-dotnet-session-state-caching.md)：本主題說明如何將 Azure Redis 快取服務用於工作階段狀態。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

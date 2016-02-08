@@ -19,7 +19,8 @@
 # 使用 Azure Data Factory 從 Azure 資料湖存放區來回移動資料
 本文概述如何在 Azure Data Factory 中透過複製活動，在 Azure 資料湖存放區與其他資料存放區之間移動資料。本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文呈現使用複製活動移動資料的一般概觀以及支援的資料存放區組合。
 
-> [AZURE.NOTE]您必須先建立 Azure 資料湖存放區帳戶，才能透過複製活動建立管線，以在 Azure 資料湖存放區中移入/移出資料。若要了解 Azure 資料湖存放區，請參閱[開始使用 Azure 資料湖存放區](../data-lake-store/data-lake-store-get-started-portal.md)。
+> [AZURE.NOTE]
+您必須先建立 Azure 資料湖存放區帳戶，才能透過複製活動建立管線，以在 Azure 資料湖存放區中移入/移出資料。若要了解 Azure 資料湖存放區，請參閱[開始使用 Azure 資料湖存放區](../data-lake-store/data-lake-store-get-started-portal.md)。
 >  
 > 請檢閱[建置您的第一個管線教學課程](data-factory-build-your-first-pipeline.md)，以了解建立 Data Factory、連結服務、資料集和管線的詳細步驟。搭配使用 JSON 片段和 Data Factory 編輯器或 Visual Studio 或 Azure PowerShell 來建立 Data Factory 實體。
 
@@ -74,7 +75,7 @@
 5. (選擇性步驟) 指定 JSON 中選用參數的值，例如 **accountName**、**subscriptionID** 與 **resourceGroupName**，或將這些屬性從 JSON 中刪除。
 6. 按一下命令列的 [部署]，部署連結服務。
 
-> [AZURE.IMPORTANT]您使用 [授權] 按鈕所產生的授權碼在一段時間後會到期。您必須在**權杖到期**和重新部署連結的服務時使用 [授權] 按鈕**重新授權**。如需詳細資訊，請參閱 [Azure 資料湖存放區連結服務](#azure-data-lake-store-linked-service-properties)章節。
+> [AZURE.IMPORTANT] 您使用 [授權] 按鈕所產生的授權碼在一段時間後會到期。您必須在**權杖到期**和重新部署連結的服務時使用 [授權] 按鈕**重新授權**。如需詳細資訊，請參閱 [Azure 資料湖存放區連結服務](#azure-data-lake-store-linked-service-properties)章節。
 
 
 
@@ -238,7 +239,7 @@
 	    }
 	}
 
-> [AZURE.NOTE]請參閱上個範例中的步驟，以取得授權 URL。
+> [AZURE.NOTE] 請參閱上個範例中的步驟，以取得授權 URL。
 
 **Azure 儲存體連結服務：**
 
@@ -414,8 +415,8 @@
 | 使用者類型 | 到期時間 |
 | :-------- | :----------- | 
 | 非 AAD 使用者 (@hotmail.com、@live.com 等等) | 12 小時 |
-| AAD 使用者和 OAuth 型來源是以不同[租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)做為使用者的 Data Factory 的租用戶。 | 12 小時 |
-| AAD 使用者和 OAuth 型來源是以相同租用戶做為使用者的 Data Factory 的租用戶。 | <p>如果使用者根據其 OAuth 型連結服務來源，至少每 14 天執行一次配量，最大值是 90 天。</p><p>在預期的 90 天內，一旦使用者未根據該來源在 14 內執行任何配量，認證會在最後一個配量的 14 天後立即過期。</p> |
+| AAD 使用者和以 OAuth 為基礎的來源是在與 Data Factory 的租用戶不同的[租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)中。 | 12 小時 |
+| AAD 使用者和以 OAuth 為基礎的來源是在與 Data Factory 的租用戶相同的租用戶中。 | 14 天 |
 
 若要避免/解決此錯誤，您必須在**權杖到期**和重新部署連結的服務時使用 [授權] 按鈕重新授權。您也可以使用下一節中的程式碼以程式設計方式產生 **sessionId** 和 **authorization** 屬性的值。
 
@@ -604,4 +605,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

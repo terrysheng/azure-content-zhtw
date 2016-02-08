@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory 版本 | Microsoft Azure"
-	description="說明 Azure Active Directory 免費和付費版本選擇的主題。"
+	description="說明 Azure Active Directory 免費和付費版本選擇的主題。Azure Active Directory Basic 是免費版本，而 Azure Active Directory Premium 是付費版本。"
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="01/25/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory 版本
@@ -28,7 +28,7 @@ Azure Active Directory 是一項可在雲端中為您的員工、合作夥伴和
 Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比較表中說明。
 
 
-> [AZURE.NOTE]這兩種版本的詳細價格請參閱 [Azure Active Directory 價格](https://azure.microsoft.com/pricing/details/active-directory/)。<br>目前在中國不支援 Azure Active Directory Premium 和 Azure Active Directory Basic。請透過 Azure Active Directory 論壇與我們連絡以取得詳細資訊
+> [AZURE.NOTE] 這兩種版本的詳細價格請參閱 [Azure Active Directory 價格](https://azure.microsoft.com/pricing/details/active-directory/)。<br>目前在中國不支援 Azure Active Directory Premium 和 Azure Active Directory Basic。請透過 Azure Active Directory 論壇與我們連絡以取得詳細資訊
 
 
 - **Azure Active Directory Basic** - 針對具有雲端優先需求的任務背景工作角色設計，此版本提供以雲端為中心的應用程式存取和自助身分識別管理解決方案。有了 Azure Active Directory 的 Basic 版本，您可獲得生產力增強和成本節約功能，例如：群組式存取管理、雲端應用程式的自助式密碼重設、Azure Active Directory 應用程式 Proxy (以使用 Azure Active Directory 發佈內部部署 Web 應用程式)，全都由可獲得 99.9% 運作時間的企業級 SLA 支援。
@@ -38,7 +38,8 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 若要註冊並立即開始使用 Active Directory Premium，請參閱[開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)。
 
 
-> [AZURE.NOTE]許多 Azure Active Directory 功能是透過「隨用隨付」版本提供：
+> [AZURE.NOTE] 
+許多 Azure Active Directory 功能是透過「隨用隨付」版本提供：
 >
 >- Active Directory B2C 是面向消費者應用程式適用的身分識別和存取管理解決方案。如需詳細資料，請參閱：[Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
  
@@ -95,4 +96,4 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

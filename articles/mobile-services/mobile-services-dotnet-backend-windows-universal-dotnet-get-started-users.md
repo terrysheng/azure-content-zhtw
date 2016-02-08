@@ -30,7 +30,7 @@
 
 本教學課程會以行動服務快速入門為基礎。您還必須先完成[開始使用行動服務]或[將行動服務新增至現有應用程式](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md)教學課程。
 
->[AZURE.NOTE]本教學課程說明如何在 Windows 市集與 Windows Phone 市集 8.1 應用程式中使用伺服器導向的使用者驗證。如需用戶端導向的驗證相關資訊，請參閱[使用 Google、Microsoft 和 Facebook SDK 登入 Azure 行動服務](http://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/)。
+>[AZURE.NOTE]本教學課程說明如何在 Windows 市集與 Windows Phone 市集 8.1 應用程式中使用伺服器導向的使用者驗證。如需用戶端導向的驗證相關資訊，請參閱[使用 Google、Microsoft 和 Facebook SDK 登入 Azure 行動服務](https://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/)。
 
 ##<a name="register"></a>註冊應用程式進行驗證，並設定行動服務
 
@@ -75,7 +75,7 @@
 
 ##另請參閱
 
-+ [增強型使用者功能](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> 您可藉由呼叫 .NET 後端中的 **ServiceUser.GetIdentitiesAsync()** 方法，來取得由行動服務中的身分識別提供者所維護的其他使用者資料。
++ [增強型使用者功能](https://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> 您可藉由呼叫 .NET 後端中的 **ServiceUser.GetIdentitiesAsync()** 方法，來取得由行動服務中的身分識別提供者所維護的其他使用者資料。
 
 + [行動服務 .NET 作法概念參考資料]<br/>深入了解如何搭配 .NET 用戶端使用行動服務。
 
@@ -103,4 +103,4 @@
 [行動服務 .NET 作法概念參考資料]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

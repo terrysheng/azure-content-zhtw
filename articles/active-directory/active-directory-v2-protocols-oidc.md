@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="應用程式模型 v2.0 OpenID Connect 通訊協定 | Microsoft Azure"
-	description="使用 Azure AD 的 OpenID Connect 驗證通訊協定實作來建置 Web 應用程式。"
+	pageTitle="Azure AD v2.0 OpenID Connect 通訊協定 | Microsoft Azure"
+	description="使用 Azure AD v2.0 的 OpenID Connect 驗證通訊協定實作來建置 Web 應用程式。"
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -14,14 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="01/11/2016"
 	ms.author="dastrock"/>
 
-# 應用程式模型 v2.0 預覽版：通訊協定 - OpenID Connect
+# v2.0 通訊協定 - OpenID Connect
 OpenID Connect 是建置在 OAuth 2.0 的驗證通訊協定之上，可用來將使用者安全地登入 Web 應用程式。使用應用程式模型 v2.0 實作 OpenID Connect，您可以將登入及 API 存取新增至您的 Web 型應用程式。本指南以不考慮語言的方式來示範如何這樣做，描述在不使用我們的任何開放原始碼程式庫的情況下，如何傳送和接收 HTTP 訊息。
 
-> [AZURE.NOTE]此資訊適用於 v2.0 應用程式模型公開預覽。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
-
+> [AZURE.NOTE]
+	此資訊適用於 v2.0 應用程式模型公開預覽。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
+    
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 擴充 OAuth 2.0 *授權*通訊協定，可作為*驗證*通訊協定，讓您使用 OAuth 執行單一登入。它引進 `id_token` 的概念，這是一種安全性權杖，可讓用戶端驗證使用者的身分識別，並取得有關使用者的基本設定檔資訊。因為它擴充 OAuth 2.0，所以也可讓應用程式安全地取得 **access\_tokens**，而這些權杖可用於存取[授權伺服器](active-directory-v2-protocols.md#the-basics)所保護的資源。如果您要建置的 [Web 應用程式](active-directory-v2-flows.md#web-apps)是裝載於伺服器且透過瀏覽器存取，建議使用 OpenID Connect。
 
 ## 傳送登入要求
@@ -31,54 +32,57 @@ OpenID Connect 是建置在 OAuth 2.0 的驗證通訊協定之上，可用來將
 - `response_type` 參數必須包含 `id_token`
 - 要求必須包含 `nonce` 參數
 
+
 ```
 // Line breaks for legibility only
 
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
-client_id=2d4d11a2-f814-46a7-890a-274a72a7309e		// Your registered Application Id
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e		// Your registered Application Id
 &response_type=id_token
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F 	  // Your registered Redirect Uri, url encoded
 &response_mode=query							      // 'query', 'form_post', or 'fragment'
-&scope=openid										 // Translates to the 'Read your profile' permission
+&scope=openid										 // Translates to the 'Sign you in' permission
 &state=12345						 				 // Any value, provided by your app
 &nonce=678910										 // Any value, provided by your app
+```
+
+> [AZURE.TIP] 請嘗試將下列項目貼至網頁瀏覽器！
+
+```
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910
 ```
 
 | 參數 | | 說明 |
 | ----------------------- | ------------------------------- | --------------- |
 | client\_id | 必要 | 註冊入口網站 ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) 指派給應用程式的應用程式識別碼。 |
 | response\_type | 必要 | 必須包含 OpenID Connect 登入的 `id_token`。它也可能包含其他 response\_types，例如 `code`。 |
-| redirect\_uri | 必要 | 應用程式的 redirect\_uri，您的應用程式可在此傳送及接收驗證回應。其必須完全符合您在入口網站中註冊的其中一個 redirect\_uris，不然就必須得是編碼的 url。 |
-| scope | 必要 | 範圍的空格分隔清單。針對 OpenID Connect，即必須包含範圍 `openid`，其會在同意 UI 中轉譯成「登入及讀取設定檔」。您也可以在此要求中包含其他範圍以要求同意。 |
+| redirect\_uri | 建議使用 | 應用程式的 redirect\_uri，您的應用程式可在此傳送及接收驗證回應。其必須完全符合您在入口網站中註冊的其中一個 redirect\_uris，不然就必須得是編碼的 url。 |
+| scope | 必要 | 範圍的空格分隔清單。針對 OpenID Connect，即必須包含範圍 `openid`，其會在同意 UI 中轉譯成「登入」。您也可以在此要求中包含其他範圍以要求同意。 |
 | nonce | 必要 | 由應用程式產生且包含在要求中的值，會以宣告方式包含在產生的 id\_token 中。應用程式接著便可確認此值，以減少權杖重新執行攻擊。此值通常是隨機的唯一字串，可用以識別要求的來源。 |
 | response\_mode | 建議使用 | 指定將產生的 authorization\_code 傳回到應用程式所應該使用的方法。可以是 'query'、'form\_post' 或 'fragment' 其中一種。  
-| state | 建議使用 | 同樣會隨權杖回應傳回之要求中所包含的值。其可以是您想要之任何內容的字串。隨機產生的唯一值通常用於防止跨站台要求偽造攻擊。此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
+| state | 建議使用 | 同樣會隨權杖回應傳回之要求中所包含的值。其可以是您想要之任何內容的字串。隨機產生的唯一值通常用於[防止跨站台要求偽造攻擊](http://tools.ietf.org/html/rfc6749#section-10.12)。此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
 | prompt | 選用 | 表示需要的使用者互動類型。此時的有效值為「登入」、「無」和「同意」。`prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。`prompt=none` 則相反 - 它會確保不會對使用者顯示任何互動式提示。如果要求無法透過單一登入以無訊息方式完成，v2.0 端點會傳回錯誤。`prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
-| login\_hint | 選用 | 可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。 |
-
+| login\_hint | 選用 | 如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。通常應用程式會在重新驗證期間使用此參數，已使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。 |
+| domain\_hint | 選用 | 可以是 `consumers` 或 `organizations` 其中一個。如果包含，它會略過使用者在 v2.0 登入頁面上經歷的以電子郵件為基礎的探索程序，導致稍微更佳流暢的使用者經驗。通常應用程式會在重新驗證期間使用此參數，方法是從 id\_token 擷取 `tid` 宣告。如果 `tid` 宣告值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，您應該使用 `domain_hint=consumers`。否則，使用 `domain_hint=organizations`。 |
 此時，會要求使用者輸入其認證並完成驗證。v2.0 端點也會確保使用者已經同意 `scope` 查詢參數所示的權限。如果使用者未曾同意這些權限的任何一項，就會要求使用者同意要求的權限。[這裡提供權限、同意與多租用戶應用程式](active-directory-v2-scopes.md)的詳細資料。
 
 一旦使用者驗證並同意，v2.0 端點就會使用 `response_mode` 參數中指定的方法，將回應傳回至位於指定所在 `redirect_uri` 的應用程式。
 
+#### 成功回應
 使用 `response_mode=query` 的成功回應如下所示：
 
 ```
 GET https://localhost/myapp/?
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q... 	// the id_token, truncated
-&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF			   // a value generated by the v2.0 endpoint
 &state=12345												  	// the value provided in the request
-&id_token_expires_in=3600
-
 ```
 
 | 參數 | 說明 |
 | ----------------------- | ------------------------------- |
 | id\_token | 應用程式要求的 id\_token。您可以使用 id\_token 確認使用者的身分識別，並以使用者開始工作階段。如需 Id\_token 及其內容的詳細資訊，請參閱 [v2.0 端點權杖參考](active-directory-v2-tokens.md)。 |
-| session\_state | 識別目前使用者工作階段的唯一值。這個值是 GUID，但應視為不檢查即傳遞的不透明值。 |
 | state | 如果要求中包含狀態參數，回應中就應該出現相同的值。應用程式應該確認要求和回應中的狀態值完全相同。 |
-| id\_token\_expires\_in | id\_token 的有效期 (以秒為單位)。 |
 
-
+#### 錯誤回應
 錯誤回應可能也會傳送至 `redirect_uri`，讓應用程式可以適當地處理：
 
 ```
@@ -95,23 +99,7 @@ error=access_denied
 ## 驗證 id\_token
 僅接收 id\_token 不足以驗證使用者，您必須驗證 id\_token 簽章，並依照應用程式的需求確認權杖中的宣告。v2.0 端點使用 [JSON Web Tokens (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 和公開金鑰加密簽署權杖及驗證其是否有效。
 
-v2.0 應用程式模型具有 OpenID Connect 中繼資料端點，可在執行階段讓應用程式提取 v2.0 應用程式模型的相關資訊。這項資訊包括端點、權杖內容和權杖簽署金鑰。中繼資料端點包含下列位置的 JSON 文件：
-
-`https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`
-
-此設定文件的屬性之一是 `jwks_uri`，其 v2.0 應用程式模型的值會是：
-
-`https://login.microsoftonline.com/common/discovery/v2.0/keys`。
-
-您可以使用位於此端點的 RSA256 公用金鑰驗證 id\_token 的簽章。此端點在任何指定的時間點都有列出多組金鑰，每組金鑰都由 `kid` 識別。Id\_token 標頭也包含 `kid` 宣告，其指出簽署 id\_token 所使用的金鑰。
-
-如需詳細資訊，請參閱 [v2.0 應用程式模型權杖參考](active-directory-v2-tokens.md)，包括[驗證權杖](active-directory-v2-tokens.md#validating-tokens)和[有關簽署金鑰變換的重要資訊](active-directory-v2-tokens.md#validating-tokens)。<!--TODO: Improve the information on this-->
-
-一旦驗證了 id\_token 的簽章，就會有數項宣告需要驗證：
-
-- 您應該驗證 `nonce` 宣告以防止權杖重新執行攻擊。其值應該是您在登入要求中所指定的內容。
-- 您應該驗證 `aud` 宣告以確保已為應用程式核發 id\_token。其值應該是應用程式的 `client_id`。
-- 您應該驗證 `iat` 和 `exp` 宣告以確保 id\_token 未過期。
+您可以選擇驗證用戶端程式碼中的 `id_token`，但是常見的作法是將 `id_token` 傳送至後端伺服器，並且在那裡執行驗證。一旦驗證了 id\_token 的簽章，就會有數項宣告需要驗證。如需詳細資訊，請參閱 [v2.0 權杖參考](active-directory-v2-tokens.md)，包括[驗證權杖](active-directory-v2-tokens.md#validating-tokens)和[有關簽署金鑰變換的重要資訊](active-directory-v2-tokens.md#validating-tokens)。我們建議利用程式庫來剖析和驗證權杖 - 對於大部分語言和平台至少有一個可用。<!--TODO: Improve the information on this-->
 
 您可能也希望根據自己的案例驗證其他宣告。一些常見的驗證包括：
 
@@ -157,40 +145,42 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 // Line breaks for legibility only
 
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
-client_id=2d4d11a2-f814-46a7-890a-274a72a7309e		// Your registered Application Id
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e		// Your registered Application Id
 &response_type=id_token+code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F 	  // Your registered Redirect Uri, url encoded
 &response_mode=query							      // 'query', 'form_post', or 'fragment'
 &scope=openid%20                                      // Include both 'openid' and scopes your app needs  
 offline_access%20										 
-https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20
-https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
+https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &state=12345						 				 // Any value, provided by your app
 &nonce=678910										 // Any value, provided by your app
 ```
 
+> [AZURE.TIP] 請嘗試將下列要求貼至瀏覽器！
+
+```
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910
+```
+
 在要求中包含權限範圍，並且使用 `response_type=code+id_token`，v2.0 端點可確保使用者已經同意 `scope` 查詢參數中表示的權限，並且將授權碼傳回至您的應用程式以交換存取權杖。
 
+#### 成功回應
 使用 `response_mode=query` 的成功回應如下所示：
 
 ```
 GET https://localhost/myapp/?
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q... 	// the id_token, truncated
 &code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq... 	// the authorization_code, truncated
-&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF			   // a value generated by the v2.0 endpoint
 &state=12345												  	// the value provided in the request
-&id_token_expires_in=3599
-
 ```
 
 | 參數 | 說明 |
 | ----------------------- | ------------------------------- |
 | id\_token | 應用程式要求的 id\_token。您可以使用 id\_token 確認使用者的身分識別，並以使用者開始工作階段。如需 Id\_token 及其內容的詳細資訊，請參閱 [v2.0 應用程式模型權杖參考](active-directory-v2-tokens.md)。 |
 | code | 應用程式要求的 authorization\_code。應用程式可以使用授權碼要求目標資源的存取權杖。Authorization\_code 的有效期很短，通常約 10 分鐘後即到期。 |
-| session\_state | 識別目前使用者工作階段的唯一值。這個值是 GUID，但應視為不檢查即傳遞的不透明值。 |
 | state | 如果要求中包含狀態參數，回應中就應該出現相同的值。應用程式應該確認要求和回應中的狀態值完全相同。 |
-| id\_token\_expires\_in | id\_token 的有效期 (以秒為單位)。 |
 
+#### 錯誤回應
 錯誤回應可能也會傳送至 `redirect_uri`，讓應用程式可以適當地處理：
 
 ```
@@ -212,4 +202,4 @@ error=access_denied
 
 ![OpenId Connect 區隔線](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

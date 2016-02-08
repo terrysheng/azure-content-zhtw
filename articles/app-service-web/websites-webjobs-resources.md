@@ -57,7 +57,7 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 
 * [如何使用 Visual Studio 部署 Azure WebJob](websites-dotnet-deploy-webjobs.md)
 * [如何使用 Azure 入口網站部署 WebJobs](web-sites-create-web-jobs.md)
-* [啟用 Azure WebJobs 的命令列或連續傳遞](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
+* [啟用 Azure WebJobs 的命令列或連續傳遞](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [使用 WebJobs 將 .NET 主控台應用程式部署至 Azure 的 Git](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [將 F# WebJob 部署至 Azure (英文)](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
 * [將自訂服務部署為 Azure WebJob (英文)](http://withouttheloop.com/articles/2015-06-23-deploying-custom-services-as-azure-webjobs/)
@@ -98,7 +98,7 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 * [Magnus Mårtensson 的 Azure WebJobs GA 部落格文章 (英文)](http://magnusmartensson.com/azure-webjobs-ga)
 * [在 Azure 網站上執行 Powershell WebJobs (英文)](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [在 Azure 觸發的 WebJobs 完成時接獲通知 (英文)](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
-* [WebJobs 的簡單 Web 應用程式備份保留原則 (英文)](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
+* [WebJobs 的簡單 Web 應用程式備份保留原則 (英文)](https://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
 * [第一個要求的 Azure Web Apps 和雲端服務緩慢](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/) (英文)。示範如何使用 WebJobs 來模擬僅適用於標準定價層的 AlwaysOn 功能。
 * [WebJobs 順利關機](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl) (英文)。對於 WebJobs SDK 順利關機，請參閱[順利關機](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful)。
 * [使用 Azure WebJobs & AzCopy 自動化備份 (英文)](http://markjbrown.com/azure-webjobs-azcopy/)
@@ -135,8 +135,8 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 * [StackOverflow for the WebJobs SDK](http://stackoverflow.com/questions/tagged/azure-webjobssdk)
 * [Azure 和 ASP.NET 論壇](http://forums.asp.net/1247.aspx)
 * [Azure App Service Web Apps 論壇](http://social.msdn.microsoft.com/Forums/azure/home?forum=windowsazurewebsitespreview)
-* [Azure Web Apps 使用者心聲網站](http://feedback.azure.com/forums/169385-websites)
+* [Azure Web Apps 使用者心聲網站](https://feedback.azure.com/forums/169385-websites/)
 * [Twitter](http://twitter.com/)。使用雜湊標記 #AzureWebJobs。
 * [報告 WebJobs 錯誤或問題](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

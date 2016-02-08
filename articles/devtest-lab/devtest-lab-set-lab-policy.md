@@ -26,7 +26,7 @@ ms.author="tarcher"/>
 
 若要檢視 (及變更) 實驗室的原則，請遵循下列步驟：
 
-1. 登入 [Azure Preview 入口網站](http://portal.azure.com)。
+1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
 
 1. 點選 [瀏覽]，然後從清單中點選 [研發/測試實驗室]。
 
@@ -100,4 +100,4 @@ VM 數目上限的原則讓您能夠指定可為目前的實驗室建立的 VM �
 
 1. 點選 [儲存]。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

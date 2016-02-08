@@ -26,7 +26,7 @@ Azure 事件中樞可讓您從網站、應用程式和裝置處理巨量資料�
 
 * **EventHubReader**：從事件中樞讀取資料，並將資料儲存在 Azure 資料表儲存體
 
-[AZURE.NOTE]本文件的步驟只適用於以 Windows 為基礎的 HDInsight 叢集。Java 版本的這個專案將會使用 Linux 或 Windows 叢集，請參閱[使用 Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](hdinsight-storm-develop-java-event-hub-topology.md)。
+[AZURE.NOTE] 本文件的步驟只適用於以 Windows 為基礎的 HDInsight 叢集。Java 版本的這個專案將會使用 Linux 或 Windows 叢集，請參閱[使用 Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](hdinsight-storm-develop-java-event-hub-topology.md)。
 
 ## 先決條件
 
@@ -34,7 +34,7 @@ Azure 事件中樞可讓您從網站、應用程式和裝置處理巨量資料�
 
 * [Azure 事件中樞](../service-bus/service-bus-event-hubs-csharp-ephcs-getstarted.md)
 
-* [Azure .NET SDK](http://azure.microsoft.com/downloads/)
+* [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 * [HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
@@ -42,7 +42,7 @@ Azure 事件中樞可讓您從網站、應用程式和裝置處理巨量資料�
 
 您可以從 GitHub 下載本教學課程中所建立之專案的完整版本：[eventhub-storm-hybrid](https://github.com/Blackmist/eventhub-storm-hybrid)。不過，您仍需要遵循本教學課程中的步驟，提供組態設定。
 
-> [AZURE.NOTE]使用已完成的專案時，您必須使用 [NuGet 封裝管理員] 來還原此方案所需的封裝。
+> [AZURE.NOTE] 使用已完成的專案時，您必須使用 [NuGet 封裝管理員] 來還原此方案所需的封裝。
 
 ## 事件中樞 Spout 和 Bolt
 
@@ -54,7 +54,7 @@ Spout 和 Bolt 會以名為 **eventhubs-storm-spout-0.9-jar-with-dependencies.ja
 
 最新版的 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 檔案包含在 **lib** 資料夾下的 <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight Storm 範例</a>專案。若要下載檔案，請使用下列其中一種方法。
 
-> [AZURE.NOTE]已提交 Spout 和 Bolt，以將其納入 Apache Storm 專案中。如需詳細資訊，請參閱 GitHub 中的 <a href="https://github.com/apache/storm/pull/336/files">STORM-583：Storm 事件中樞的初始簽入</a>
+> [AZURE.NOTE] 已提交 Spout 和 Bolt，以將其納入 Apache Storm 專案中。如需詳細資訊，請參閱 GitHub 中的 <a href="https://github.com/apache/storm/pull/336/files">STORM-583：Storm 事件中樞的初始簽入</a>
 
 * **下載 ZIP 檔案**：從 <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight Storm 範例</a>網站選取右窗格中的 [下載 ZIP] 來下載包含專案的 .zip 檔案。
 
@@ -76,7 +76,7 @@ Spout 和 Bolt 會以名為 **eventhubs-storm-spout-0.9-jar-with-dependencies.ja
 
 	![精靈頁面 1](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
 
-	> [AZURE.NOTE]您應該選取與 Storm on HDInsight 伺服器相同的 [位置]，以便降低延遲和成本。
+	> [AZURE.NOTE] 您應該選取與 Storm on HDInsight 伺服器相同的 [位置]，以便降低延遲和成本。
 
 2. 在 [設定事件中樞] 畫面中，輸入 [資料分割計數] 及 [訊息保留] 值。在此範例中，資料分割計數使用 10，訊息保留使用 1。請記下資料分割計數，因為您稍後會用到這個值。
 
@@ -106,7 +106,7 @@ Spout 和 Bolt 會以名為 **eventhubs-storm-spout-0.9-jar-with-dependencies.ja
 
 2. 輸入儲存體帳戶的 [名稱]、選取 [位置]，然後按一下 [核取記號] 以建立儲存體帳戶。
 
-	> [AZURE.NOTE]您應該選取與事件中樞和 Storm on HDInsight 伺服器相同的 [位置]，以便降低延遲和成本。
+	> [AZURE.NOTE] 您應該選取與事件中樞和 Storm on HDInsight 伺服器相同的 [位置]，以便降低延遲和成本。
 
 3. 佈建新的儲存體帳戶之後，請選取此帳戶，然後使用頁面底部的 [管理存取金鑰] 連結來擷取 [儲存體帳戶名稱] 和 [主要存取金鑰]。請儲存此資訊，因為稍後會用到。
 
@@ -228,7 +228,7 @@ Spout 和 Bolt 會以名為 **eventhubs-storm-spout-0.9-jar-with-dependencies.ja
 
 此時，您已完成使用 **Program.cs**。拓撲已定義完成，但現在您必須修改 **Spout.cs**，以便所產生的資料格式會是事件中樞 Bolt 可以使用的格式。
 
-> [AZURE.NOTE]此拓撲將預設為建立一個背景工作處理序，這對於示範目的已足夠。如果您要針對生產叢集採用此做法，您應可加入下列內容來變更背景工作數目：
+> [AZURE.NOTE] 此拓撲將預設為建立一個背景工作處理序，這對於示範目的已足夠。如果您要針對生產叢集採用此做法，您應可加入下列內容來變更背景工作數目：
 
     StormConfig config = new StormConfig();
     config.setNumWorkers(1);
@@ -246,7 +246,7 @@ Spout 和 Bolt 會以名為 **eventhubs-storm-spout-0.9-jar-with-dependencies.ja
 
 	讓您可以更輕鬆地使用 JSON 資料。
     
-    > [AZURE.NOTE]JSON.NET 封裝應該已安裝，因為這是 SCP.NET 架構所需，用於 C# Storm 拓樸。
+    > [AZURE.NOTE] JSON.NET 封裝應該已安裝，因為這是 SCP.NET 架構所需，用於 C# Storm 拓樸。
 
 3. 尋找下列程式碼：
 
@@ -377,11 +377,11 @@ Spout 和 Bolt 會以名為 **eventhubs-storm-spout-0.9-jar-with-dependencies.ja
 
 	此程式碼會指示拓撲使用 Bolt (於 Bolt.cs 中定義)。稍早定義的自訂序列化程式用在此處，以便此 Bolt 能使用上游 Java 元件所產生的資料。在此案例中為 EventHubSpout。
 
-    > [AZURE.IMPORTANT]SetBolt 的最後一個參數 (具有值 `true`) 能啟用此 Bolt 的 ACK 功能。這是必要的，因為 EventHubSpout 元件針對它發出的資料預期會有 ACK。如果下游元件未傳回 ACK，Spout 在處理大約 1000 則訊息之後將停止接收。
+    > [AZURE.IMPORTANT] SetBolt 的最後一個參數 (具有值 `true`) 能啟用此 Bolt 的 ACK 功能。這是必要的，因為 EventHubSpout 元件針對它發出的資料預期會有 ACK。如果下游元件未傳回 ACK，Spout 在處理大約 1000 則訊息之後將停止接收。
 
 此時，您已完成使用 **Program.cs**。拓撲已定義完成，但您現在必須建立協助程式類別來將資料寫入資料表儲存體，然後您必須修改 **Bolt.cs**，讓其可了解 Spout 所產生的資料。
 
-> [AZURE.NOTE]此拓撲將預設為建立一個背景工作處理序，這對於示範目的已足夠。如果您要針對生產叢集採用此做法，您應可加入下列內容來變更背景工作數目：
+> [AZURE.NOTE] 此拓撲將預設為建立一個背景工作處理序，這對於示範目的已足夠。如果您要針對生產叢集採用此做法，您應可加入下列內容來變更背景工作數目：
 
     StormConfig config = new StormConfig();
     config.setNumWorkers(1);
@@ -422,7 +422,7 @@ Spout 和 Bolt 會以名為 **eventhubs-storm-spout-0.9-jar-with-dependencies.ja
 
 ### 修改 Bolt
 
-1. 在 [方案總管] 中，展開 **EventHubReader** 專案，然後開啟 **Bolt.cs** 檔案。在檔案開頭處新增下列程式碼：
+1. 在 [方案總管] 中，展開 **EventHubReaderEventHubReader** 專案，然後開啟 **Bolt.cs** 檔案。在檔案開頭處新增下列程式碼：
 
 		using Newtonsoft.Json.Linq;
 		using Microsoft.WindowsAzure.Storage;
@@ -484,7 +484,7 @@ Spout 和 Bolt 會以名為 **eventhubs-storm-spout-0.9-jar-with-dependencies.ja
 
     實體插入資料表之後，會呼叫 Tuple 的 `Ack()`，來通知 Spout 我們已成功處理資料。
 
-    > [AZURE.IMPORTANT]EventHubSpout 元件預期每個來自下游元件 (例如此 Bolt) 的 Tuple 都會有 ACK。如果未收到 ACK，EventHubSpout 將假設 Tuple 的處理失敗。
+    > [AZURE.IMPORTANT] EventHubSpout 元件預期每個來自下游元件 (例如此 Bolt) 的 Tuple 都會有 ACK。如果未收到 ACK，EventHubSpout 將假設 Tuple 的處理失敗。
 
 此時，您便會有一個完整拓撲，此拓撲會從事件中樞讀取資料，並將資料儲存在資料表儲存體內名為 **events** 的資料表中。
 
@@ -534,7 +534,7 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 
 您也可以匯出及匯入保存的檢查點到 WASB (您的 HDInsight 叢集所使用的 Azure 儲存體)。 要執行此步驟的指令碼位於 Storm on HDInsight 叢集的 **c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**。
 
->[AZURE.NOTE]路徑中的版本號碼可能不同，因為叢集上安裝的 Storm 版本可能會在未來變更。
+>[AZURE.NOTE] 路徑中的版本號碼可能不同，因為叢集上安裝的 Storm 版本可能會在未來變更。
 
 此目錄中的指令碼有：
 
@@ -546,7 +546,7 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 
 匯出匯入可讓您在需要刪除叢集，但又想要在讓新的叢集回到線上時從中樞的目前位移繼續處理時，保存檢查點資料。
 
-> [AZURE.NOTE]由於資料已保存到預設儲存體容器，新的叢集**必須**使用與先前叢集相同的儲存體帳戶和容器。
+> [AZURE.NOTE] 由於資料已保存到預設儲存體容器，新的叢集**必須**使用與先前叢集相同的儲存體帳戶和容器。
 
 ## 摘要
 
@@ -557,4 +557,4 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

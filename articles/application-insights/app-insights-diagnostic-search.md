@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="01/26/2016" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中使用診斷搜尋
@@ -20,6 +20,9 @@
 「診斷搜尋」是 [Application Insights][start] 中的分頁，您會用來尋找及探索個別遙測項目，例如頁面檢視、例外狀況或 Web 要求。而您可以檢視所編寫的記錄追蹤和事件。
 
 ## 何時會看到「診斷搜尋」？
+
+
+### 在 Azure 入口網站
 
 您可以明確開啟診斷搜尋：
 
@@ -38,7 +41,21 @@
 事件出現在計量瀏覽器之前，通常會顯示在診斷搜尋中。雖然刀鋒視窗會定期自行重新整理，如果您在等待特定事件，您可以按一下 [重新整理]。
 
 
-> [AZURE.NOTE]如果您的應用程式會產生大量遙測 (且您使用的是 ASP.NET SDK 版本 2.0.0-beta3 或較新)，調適性取樣模型會自動藉由僅傳送事件代表性片段，以減少傳送到入口網站的量。不過，與同一個要求相關的事件會選取或取消選取為群組，讓您可以在相關事件之間瀏覽。[了解取樣](app-insights-sampling.md)。
+### 在 Visual Studio 中
+
+在 Visual Studio 中開啟 [搜尋] 視窗：
+
+![](./media/app-insights-diagnostic-search/32.png)
+
+[搜尋] 視窗具有與 Web 入口網站相同的功能：
+
+![](./media/app-insights-diagnostic-search/34.png)
+
+
+### 取樣
+
+如果您的應用程式會產生大量遙測 (且您使用的是 ASP.NET SDK 版本 2.0.0-beta3 或較新)，調適性取樣模型會自動藉由僅傳送事件代表性片段，以減少傳送到入口網站的量。不過，與同一個要求相關的事件會選取或取消選取為群組，讓您可以在相關事件之間瀏覽。
+> [了解取樣](app-insights-sampling.md)。
 
 
 ## 檢查個別項目
@@ -203,4 +220,4 @@ app* AND banana -(grape pear)|邏輯運算子和括號。
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

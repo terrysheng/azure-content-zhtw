@@ -1,57 +1,56 @@
-<properties 
-	pageTitle="Mobile Engagement 概觀" 
+<properties
+	pageTitle="Mobile Engagement 概觀 | Microsoft Azure"
 	description="Azure Mobile Engagement 概觀"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="piyushjo" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
+	ms.author="piyushjo;matt-gibbs" />
 
 #Azure Mobile Engagement 概觀
 
-Azure Mobile Engagement 是 SaaS (軟體即服務)、資料驅動的使用者參與平台，可進行即時細分使用者群體、應用程式使用者分析，以及在所有連線的裝置上進行可感知內容的智慧推播通知和應用程式內訊息。
+Azure Mobile Engagement 是軟體即服務 (SaaS) 的使用者參與平台，可針對應用程式使用量和即時使用者區隔提供資料導向的深入解析，以及啟用內容感知的推播通知及應用程式內的傳訊功能。
 
 ###概觀影片
 > [AZURE.VIDEO azure-mobile-engagement-overview]
 
-使用 Azure Mobile Engagement，應用程式發行者和行銷人員可以創造最先進的互動方式。
+使用 Azure Mobile Engagement，應用程式發行者和專業行銷人員就能更加了解應用程式的使用者，並以更好的方式來與這些使用者互動。
 
-##增加應用程式使用量的即時可動作分析
+##可即時採取相應動作的分析來發揮最大投資報酬率
 
-根據使用者的行為和透過結合巨量資料收集與即時處理的統計，來觸發業務開發案例。Azure Mobile Engagement 幾乎可回答任何關於特定業務需求的問題。例如，您可以建立自訂儀表板來測量 KPI、快速找出與修正使用者路徑中的使用瓶頸、追蹤保留與黏著度 (stickiness)，以及藉此判斷何種行銷活動帶來最高的 ROI。Azure Mobile Engagement 的 360° 使用者路徑檢視，讓您可以輕鬆且持續增強與優化使用者經驗 – 帶來更高的保留率和增加的應用程式使用量。
+根據使用者的行為，以及透過結合 `big data` 收集和即時訊息處理所得的統計資料，來觸發業務開發案例。Mobile Engagement 能為您解決幾乎所有與特定業務需求相關的問題。舉例來說，您可以建立自訂的儀表板來測量關鍵效能指標 (KPI)、快速找出並修正使用者漏斗型路徑中的使用瓶頸、追蹤保留期和使用者黏著度，並藉此判斷哪種行銷活動能帶來最高的投資報酬率。Mobile Engagement 的 360° 使用者路徑檢視，可讓您輕鬆、持續地增強及最佳化使用者經驗，為您帶來更高的保留率並改善應用程式的使用方式
 
 ##加值型推播和通訊平台
 
-Azure Mobile Engagement 可與原生推播通知閘道，如 Google 的 GCM、Apple 的 APNS、或 Microsoft MPNS 完美搭配，但不僅如此，藉由提供智慧的客戶區段和應用程式內訊息功能，您可以建立有目標的行銷活動。
+Mobile Engagement 提供應用程式內的傳訊功能，且能順暢地與原生推送通知閘道 (例如 Google 的 GCM、Apple 的 APNS 和 Microsoft MPNS) 合作。而且它還能讓您透過分析使用者行為來識別獨特的客戶區隔，並藉此建立有明確目標的行銷活動。
 
 這可讓應用程式開發人員以高效率和非直覺式的方式接觸客戶，因而受惠。
 
 ##開放式 API 和輕鬆整合
 
-藉由提供開放式 API 和輕鬆整合，您可以運用 CRM、CMS 和其他商務相關系統現有的資料。這讓您可以更深入地改善目標客群選取及保護您的投資。
+藉由提供能輕鬆整合資料的開放式 API 及 SDK，讓您能夠利用現有的 CRM、CMS 或其他後端系統中的資料。這讓您可以更深入地改善目標客群選取及保護您的投資。
 
 ##跨全球的資料保護和隱私權
 
-Microsoft 長期以來都非常重視隱私權的問題，這是我們的產品和服務生命週期所不可或缺的一部分。我們在隱私權的作法上採取透明的原則，也為客戶提供意義重大的隱私權選擇，並且負起責任管理我們存放的資料。 如同所有 Azure 的服務，Mobile Engagement 不會分享或銷售從客戶財產衍伸的任何資訊。Azure Mobile Engagement 是全球可部署解決方案，可支持特定地區或國家的資料隱私權法律。
+Microsoft 長期以來一直都非常重視隱私權的問題，這是我們的產品和服務週期中不可或缺的一部分。我們在隱私權的作法上採取透明的原則，為客戶提供有意義的隱私權選擇，並以負責任的態度管理我們存放的資料。 如同所有 Azure 的服務，Mobile Engagement 不會分享或銷售從客戶財產衍伸的任何資訊。我們在世界各地都提供 Mobile Engagement 服務，以維護特定地區或國家的資料隱私權法律。
 
 ###後續步驟：
 
-[建立 Azure Mobile Engagement 帳戶](mobile-engagement-create-account.md)
+[建立 Azure Mobile Engagement 應用程式](mobile-engagement-create-account.md)
 
 [建立 Mobile Engagement 的最佳做法和程序](mobile-engagement-getting-started-best-practices.md)
 
 [開始使用 (行銷人員)](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [開始使用 (開發人員)](/documentation/services/mobile-engagement/)
- 
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

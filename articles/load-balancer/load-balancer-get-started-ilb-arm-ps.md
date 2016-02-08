@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="01/21/2015"
    ms.author="joaoma" />
 
 # 開始使用 PowerShell 建立內部負載平衡器
@@ -87,7 +87,7 @@
 
 建立新的資源群組 (若使用現有的資源群組，請略過此步驟)。
 
-    PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 Azure 資源管理員需要所有的資源群組指定一個位置。這用來作為該資源群組中資源的預設位置。請確定所有建立負載平衡器的命令都是使用同一個資源群組。
 
@@ -189,8 +189,9 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 最終結果會顯示如下：
 
 
-PS C:\> $backendnic1
+	PS C:\> $backendnic1
 
+預期的輸出：
 
 	Name                 : lb-nic1-be
 	ResourceGroupName    : NRP-RG
@@ -242,6 +243,39 @@ PS C:\> $backendnic1
 
 您可以在以下文件中找到建立虛擬機器並指派給 NIC 的逐步解說：[使用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)的選項 4 或 5。
 
+或者，如果您已建立虛擬機器，您可以透過下列步驟新增網路介面：
+
+#### 步驟 1 
+
+將負載平衡器資源載入到變數之中 (如果您還沒這麼做)。所使用的變數稱為 $lb，並使用來自以上建立之負載平衡器資源的相同名稱。
+
+	$lb= Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
+
+#### 步驟 2 
+
+將後端組態載入到變數之中。
+
+	$backend= Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+
+#### 步驟 3 
+
+將已建立的網路介面載入到變數之中。所使用的變數名稱是 $nic。所使用的網路介面名稱是來自上述範例的相同名稱。
+
+	$nic=Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
+
+#### 步驟 4
+
+變更網路介面上的後端組態。
+
+	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+
+#### 步驟 5 
+
+儲存網路介面物件。
+
+	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+
+網路介面在新增至負載平衡器的後端集區後，便會開始根據該負載平衡器資源的負載平衡規則接收網路流量。
 
 ## 更新現有負載平衡器
 
@@ -271,7 +305,7 @@ PS C:\> $backendnic1
 
 	Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
->[AZURE.NOTE]您可以使用選擇性參數 -Force 以避免出現刪除提示。
+>[AZURE.NOTE] 您可以使用選擇性參數 -Force 以避免出現刪除提示。
 
 
 
@@ -282,4 +316,4 @@ PS C:\> $backendnic1
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

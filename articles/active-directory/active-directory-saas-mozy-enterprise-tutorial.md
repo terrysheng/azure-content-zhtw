@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2015" 
+    ms.date="01/26/2016" 
     ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 Mozy Enterprise 整合
@@ -76,7 +76,7 @@
 
     ![設定單一登入](./media/active-directory-saas-mozy-enterprise-tutorial/IC777311.png "設定單一登入")
 
-3.  在 [設定應用程式 URL] 頁面的 [Mozy Enterprise 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："https://\<tenant-name>.Mozyenterprise.com"，然後按一下 [下一步]。
+3.  在 [設定應用程式 URL] 頁面的 [Mozy Enterprise 登入 URL] 文字方塊中，使用下列模式輸入您的 URL："*https://\<tenant-name>.Mozyenterprise.com*"，然後按一下 [下一步]。
 
     ![設定應用程式 URL](./media/active-directory-saas-mozy-enterprise-tutorial/IC777312.png "設定應用程式 URL")
 
@@ -157,4 +157,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

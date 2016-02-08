@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2016"
+   ms.date="01/26/2016"
    ms.author="cherylmc"/>
 
 # 使用 Azure 資源管理員及 PowerShell 建立和修改 ExpressRoute 線路
@@ -183,7 +183,7 @@
 
 
 
-5. **定期檢查線路金鑰的情況和狀態。**
+6. **定期檢查線路金鑰的情況和狀態。**
 
 	這樣可讓您知道提供者何時已啟用您的線路。設定線路之後，*ServiceProviderProvisioningState* 會顯示為 *Provisioned*，如下列範例所示。
 
@@ -213,16 +213,12 @@
 		ServiceKey                       : **************************************
 		Peerings                         : []
 
-6. **建立路由設定。**
-	
-	如需逐步指示，請參閱[建立和修改 ExpressRoute 電路的路由](expressroute-howto-routing-arm.md)。
+7. **設定路由和連結 VNet**
 
->[AZURE.IMPORTANT]這些指示只適用於由提供第 2 層連線服務的服務提供者所建立的線路。如果您使用的服務提供者是提供受管理的第 3 層服務 (通常是 IPVPN，如 MPLS)，您的連線提供者會為您設定和管理路由。在此情況下，您無法建立或管理對等。
+	a.**建立路由設定。** 如需逐步指示，請參閱[建立和修改 ExpressRoute 線路的路由](expressroute-howto-routing-arm.md)。
 
-
-7. **將 VNet 連結到 ExpressRoute 線路。** 
-
-	接下來，將 VNet 連結到 ExpressRoute 線路。如需逐步指示，請參閱[將虛擬網路連結至 ExpressRoute 電路](expressroute-howto-linkvnet-arm.md)。
+		>[AZURE.NOTE] The instructions for routing only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
+	b.**將 VNet 連結到 ExpressRoute 線路。** 確認路由已設定完成後，您必須將 VNet 連結至 ExpressRoute 線路。如需逐步指示，請參閱[將虛擬網路連結至 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)。
 
 ##  取得 ExpressRoute 線路的狀態
 
@@ -289,14 +285,14 @@
 
 ## 修改 ExpressRoute 線路
 
-您可以修改 ExpressRoute 線路的某些屬性，而不會影響連線。
+您可以修改 ExpressRoute 線路的某些屬性，而不會影響連線。如需限制的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 
-您可以執行下列動作：
+您可以修改下列設定而不會發生停機：
 
 - 在完全不停機的情況下，啟用或停用 ExpressRoute 線路的 ExpressRoute Premium 附加元件。
 - 在完全不停機的情況下，增加 ExpressRoute 線路的頻寬。
 
-如需限制的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
+
 
 ### 如何啟用 ExpressRoute Premium 附加元件
 
@@ -304,7 +300,7 @@
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-		$ckt.Sku.Name = "Premium"
+		$ckt.Sku.Tier = "Premium"
 		$ckt.sku.Name = "Premium_MeteredData"
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -314,7 +310,13 @@
 
 ### 如何停用 ExpressRoute Premium 附加元件
 
-您可以使用下列 PowerShell Cmdlet，為現有的線路停用 ExpressRoute Premium 附加元件：
+您可以為現有線路停用 ExpressRoute Premium 附加元件。在停用 ExpressRoute Premium 附加元件時，請注意下列考量事項：
+
+- 從高階降級為標準之前，您必須確定連結至線路的虛擬網路數目小於 10。如果您沒有這麼做，則更新要求將會失敗，將會以高階費率向您收費。
+- 您必須取消連結其他地理政治區域中的所有虛擬網路。如果您沒有這麼做，則更新要求將會失敗，將會以高階費率向您收費。
+- 就私用對等而言，路由表必須是少於 4000 個路由。如果路由表大小超過 4000 個路由，BGP 工作階段將會中斷，而且在通告的首碼數目降到 4000 以下之前不會重新啟用。
+
+若要停用 Premium 附加元件，請使用下列 PowerShell Cmdlet 範例。如果您使用的資源超出標準線路所允許的數量，這項作業可能會失敗。
 	
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 		
@@ -323,19 +325,13 @@
 		
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-
-您的線路現在已經停用進階附加元件。
-
-請注意，如果您使用的資源超出標準線路所允許的數量，這項作業可能會失敗。
-
-- 從高階降級為標準之前，您必須確定連結至線路的虛擬網路數目小於 10。如果您沒有這麼做，則更新要求將會失敗，將會以高階費率向您收費。
-- 您必須取消連結其他地理政治區域中的所有虛擬網路。如果您沒有這麼做，則更新要求將會失敗，將會以高階費率向您收費。
-- 就私用對等而言，路由表必須是少於 4000 個路由。如果路由表大小超過 4000 個路由，BGP 工作階段將會中斷，而且在通告的首碼數目降到 4000 以下之前不會重新啟用。
-
-
 ### 如何更新 ExpressRoute 線路頻寬
 
-請查閱 [ExpressRoute 常見問題集](expressroute-faqs.md)頁面，以取得提供者支援的頻寬選項。您可以挑選任何比現有電路規模還大的大小。一旦決定需要的大小後，您可以使用下列命令來調整線路大小。
+請查閱 [ExpressRoute 常見問題集](expressroute-faqs.md)頁面，以取得提供者支援的頻寬選項。您可以挑選任何比現有電線路規模還大的大小而不會發生停機。
+
+>[AZURE.IMPORTANT] 降低 ExpressRoute 線路的頻寬時必須中斷運作。頻寬降級需要取消佈建 ExpressRoute 線路，然後重新佈建新的 ExpressRoute 線路。
+
+一旦決定需要的大小後，您可以使用下列範例來調整線路大小。在您執行 Cmdlet 後，我們就會在 Microsoft 端調整線路的大小。您必須連絡連線提供者，將他們那邊的設定更新為符合這項變更。請注意，從這個階段起，我們將開始計算更新頻寬選項的費用。
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
@@ -343,24 +339,25 @@
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-我們會在 Microsoft 端調整電路的大小。您必須連絡連線提供者，將他們那邊的設定更新為符合這項變更。請注意，從這個階段起，我們將開始計算更新頻寬選項的費用。
-
->[AZURE.IMPORTANT]降低 ExpressRoute 線路的頻寬時必須中斷運作。頻寬降級需要取消佈建 ExpressRoute 線路，然後重新佈建新的 ExpressRoute 線路。
-
 ## 刪除和佈建 ExpressRoute 線路
 
-您可以執行下列命令來刪除 ExpressRoute 線路：
+您可以刪除 ExpressRoute 線路。在刪除 ExpressRoute 線路時，請注意下列考量事項：
+
+- 您必須取消連結 ExpressRoute 的所有虛擬網路，此作業才會成功。如果此作業失敗，請檢查您是否有任何虛擬網路連結至線路。
+
+- 如果已啟用 ExpressRoute 線路服務提供者佈建狀態，狀態會從已啟用狀態變成*正在停用*。您必須與服務提供者一起合作，取消佈建他們那邊的線路。我們將繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
+
+- 若服務提供者在您執行 Cmdlet 之前已取消佈建線路 (服務提供者佈建狀態設定為 [未佈建])，我們將會取消佈建線路並停止向您收費。
+
+若要刪除 ExpressRoute 線路，請使用下列 PowerShell Cmdlet 範例。
 
 		Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
 
-請注意，您必須取消連結 ExpressRoute 的所有虛擬網路，此作業才會成功。如果此作業失敗，請檢查您是否有任何虛擬網路連結至線路。
-
-如果已啟用 ExpressRoute 線路服務提供者佈建狀態，狀態會從已啟用狀態變成*正在停用*。您必須與服務提供者一起合作，取消佈建他們那邊的線路。我們將繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
-
-若服務提供者在您執行上述 Cmdlet 之前已取消佈建線路 (服務提供者佈建狀態設定為 [未佈建])，我們將會取消佈建線路並停止向您收費。
-
 ## 後續步驟
 
-- [設定路由](expressroute-howto-routing-arm.md)
+建立好線路後，請務必執行下列作業：
 
-<!---HONumber=AcomDC_0114_2016-->
+1.  建立和修改[ ExpressRoute 線路的路由](expressroute-howto-routing-arm.md)
+2.  [將虛擬網路連結至 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)
+
+<!---HONumber=AcomDC_0128_2016-->

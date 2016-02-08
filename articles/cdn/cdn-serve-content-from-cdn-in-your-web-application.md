@@ -18,6 +18,8 @@
 
 # 在 Web 應用程式中從 Azure CDN 提供內容 #
 
+> [AZURE.NOTE] 本教學課程適用於傳統 CDN 服務。我們致力於撰寫目前版本 CDN 的更新。
+
 本教學課程說明如何利用 Azure CDN 來提升 Web 應用程式的存取性和效能。在下列情況中，Azure CDN 有助於提升 Web 應用程式的效能：
 
 - 您有許多連結指向頁面上的靜態或半靜態內容
@@ -43,7 +45,7 @@
 -	Visual Studio 2013 ([含適用於 Blob 管理 GUI 的 Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409))
 -	[Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (由[自動從 ASP.NET 應用程式中將內容上傳至 CDN 端點](#upload)使用)
 
-> [AZURE.NOTE]您必須有 Azure 帳戶才能完成本教學課程：+ 您可以[免費申請帳戶](/pricing/free-trial/?WT.mc_id=A261C142F) - 我們會提供可用來試用付費 Azure 服務的點數，即使點數用完了，您仍然可以保留帳戶，使用免費的 Azure 服務，例如網站。 + 您可以[啟用 MSDN 訂閱者權益](/pricing/member-offers/msdn-benefits-details/) - 您的 MSDN 訂用帳戶每個月都會給您可用來試用付費 Azure 服務的點數。
+> [AZURE.NOTE] 您必須有 Azure 帳戶才能完成本教學課程：+ 您可以[免費申請帳戶](/pricing/free-trial/?WT.mc_id=A261C142F) - 我們會提供可用來試用付費 Azure 服務的點數，即使點數用完了，您仍然可以保留帳戶，使用免費的 Azure 服務，例如網站。 + 您可以[啟用 MSDN 訂閱者權益](/pricing/member-offers/msdn-benefits-details/) - 您的 MSDN 訂用帳戶每個月都會給您可用來試用付費 Azure 服務的點數。
 
 <a name="static"></a>
 ## 從 Azure CDN 端點提供靜態內容 ##
@@ -63,13 +65,13 @@
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG)
 
-	>[AZURE.NOTE]請注意，我使用 [東亞] 作為區域，因為這地點夠遠，可讓我稍後從北美洲測試 CDN。
+	>[AZURE.NOTE] 請注意，我使用 [東亞] 作為區域，因為這地點夠遠，可讓我稍後從北美洲測試 CDN。
 
 2. 當新儲存體帳戶的狀態為 [**線上**] 時，請建立新的 CDN 端點來繫結至您建立的儲存體帳戶。按一下 [新增] > App Service > CDN > [快速建立]。選取您建立的儲存體帳戶，然後按一下 [**建立**]。
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG)
 
-	>[AZURE.NOTE]建立 CDN 之後，Azure 入口網站會顯示其 URL 和它所繫結的原始網域。不過，需要花費一些時間，CDN 端點的設定才能完全傳播至所有節點位置。
+	>[AZURE.NOTE] 建立 CDN 之後，Azure 入口網站會顯示其 URL 和它所繫結的原始網域。不過，需要花費一些時間，CDN 端點的設定才能完全傳播至所有節點位置。
 
 3. 利用 Ping 來測試 CDN 端點，確定它已在線上。如果 CDN 端點未傳播至所有節點，您會看到類似下列的訊息。
 
@@ -93,7 +95,7 @@
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequeryb.PNG)
 
-	>[AZURE.NOTE]雖然這部分的教學課程並不需要啟用查詢字串，但為了方便起見，請儘早這樣做，因為此處的任何變更需要花費很長時間才能傳播至剩餘的節點，您不希望任何未啟用查詢字串的內容塞滿 CDN 快取 (稍後會討論更新 CDN 內容)。您將在[透過查詢字串來立即提供最新內容](#query)中了解如何利用此功能。
+	>[AZURE.NOTE] 雖然這部分的教學課程並不需要啟用查詢字串，但為了方便起見，請儘早這樣做，因為此處的任何變更需要花費很長時間才能傳播至剩餘的節點，您不希望任何未啟用查詢字串的內容塞滿 CDN 快取 (稍後會討論更新 CDN 內容)。您將在[透過查詢字串來立即提供最新內容](#query)中了解如何利用此功能。
 
 6. 在 Visual Studio 2013 的 [伺服器總管] 中，按一下 [**連接到 Microsoft Azure**] 按鈕。
 
@@ -126,7 +128,7 @@
 
 13.	如果您看到 Blob 適當地在瀏覽器中轉譯，請將 URL 從 `http://<yourStorageAccountName>.blob.core.windows.net` 變更為 Azure CDN 的 URL。以我的情況來說，我會使用 `http://az623979.vo.msecnd.net/cdn/cephas_lin.png` 在 CDN 端點上測試第一個影像。
 
-	>[AZURE.NOTE]在 Azure 管理入口網站的 CDN 索引標籤中，您可以找到 CDN 端點的 URL。
+	>[AZURE.NOTE] 在 Azure 管理入口網站的 CDN 索引標籤中，您可以找到 CDN 端點的 URL。
 
 	如果您比較直接 Blob 存取與 CDN 存取的效能，則可以發現使用 Azure CDN 的效能較高。以下的 Internet Explorer 11 F12 開發人員工具螢幕擷取畫面是以 Blob URL 存取我的影像：
 
@@ -155,7 +157,7 @@
 
 		Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
 
-	>[AZURE.NOTE]匯入發佈設定檔案之後，它就會成為所有 Azure PowerShell 工作階段使用的預設 Azure 帳戶。這表示以上的步驟只需要執行一次。
+	>[AZURE.NOTE] 匯入發佈設定檔案之後，它就會成為所有 Azure PowerShell 工作階段使用的預設 Azure 帳戶。這表示以上的步驟只需要執行一次。
 	
 1. 從[下載頁面](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) (英文) 下載指令碼。將它儲存至 ASP.NET 應用程式的專案資料夾。
 2. 以滑鼠右鍵按一下已下載的指令碼，再按一下 [內容]。
@@ -271,4 +273,4 @@ Azure App Service 與 Azure CDN 或 Azure 雲端服務與 Azure CDN 整合將帶
 - [使用 Azure 的 CDN](cdn-how-to-use-cdn.md)
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/20/2016"
    ms.author="aprameyr"/>
 
 # 調整 Service Fabric 應用程式
@@ -52,7 +52,7 @@ Service Fabric 支援將個別服務分割為多個小型的資料分割。[資�
 
 ## 後續步驟
 
-如需 Service Fabric 概念的詳細資訊，請參閱下列項目：
+如需 Service Fabric 概念的詳細資訊，請參閱：
 
 - [Service Fabric 服務的可用性](service-fabric-availability-services.md)
 
@@ -60,4 +60,4 @@ Service Fabric 支援將個別服務分割為多個小型的資料分割。[資�
 
 - [定義和管理狀態](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,7 +23,8 @@
 
 
 
-> [AZURE.NOTE]要確認版本號碼，最簡單的方式是在 [新增/移除程式] 中查看 **Microsoft HDInsight Emulator for Azure** (1.0.0.0 或更新版本) 或 **Microsoft HDInsight 開發人員預覽** (1.0.0.0 之前的版本) 的項目。
+> [AZURE.NOTE] 
+要確認版本號碼，最簡單的方式是在 [新增/移除程式] 中查看 **Microsoft HDInsight Emulator for Azure** (1.0.0.0 或更新版本) 或 **Microsoft HDInsight 開發人員預覽** (1.0.0.0 之前的版本) 的項目。
 
 ## 2\.0.0.0 版，2014 年 8 月 29 日發行
 
@@ -89,7 +90,7 @@
 
 * 具有下列功能的新 HDInsight 儀表板：
  
-	* 連接到多個叢集，包括本機安裝，以及透過 Azure HDInsight 服務從遠端執行的叢集。如需 HDInsight 服務的詳細資訊，請參閱 [http://azure.microsoft.com/documentation/services/hdinsight/](http://azure.microsoft.com/documentation/services/hdinsight/)。
+	* 連接到多個叢集，包括本機安裝，以及透過 Azure HDInsight 服務從遠端執行的叢集。如需 HDInsight 服務的詳細資訊，請參閱 [http://azure.microsoft.com/documentation/services/hdinsight/](https://azure.microsoft.com/documentation/services/hdinsight/)。
  
 	* 在本機叢集上設定 Azure Blob 儲存體。請參閱下列詳細指示。
 
@@ -276,4 +277,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

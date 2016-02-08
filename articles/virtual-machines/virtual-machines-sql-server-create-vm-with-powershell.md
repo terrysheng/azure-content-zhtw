@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/06/2015"
+	ms.date="01/22/2016"
 	ms.author="jroth" />
 
 # 在 Azure 中建立 SQL Server 虛擬機器 (PowerShell)
@@ -67,7 +67,7 @@
 
 		(Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
 
-	>[AZURE.NOTE]如果您需要新的儲存體帳戶，請先使用 AzureStorageAccount 命令建立全部小寫的儲存體帳戶名稱，如下列範例所示：**New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**
+	>[AZURE.NOTE] 如果您需要新的儲存體帳戶，請先使用 AzureStorageAccount 命令建立全部小寫的儲存體帳戶名稱，如下列範例所示：**New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**
 
 1. 將目標儲存體帳戶名稱指派至 **$staccount**。接著，使用 **Set-AzureSubscription** 設定訂用帳戶和目前的儲存體帳戶。
 
@@ -112,7 +112,7 @@
 
 		New-AzureVM –ServiceName $svcname -VMs $vm1
 
->[AZURE.NOTE]如需其他說明及組態選項，請參閱[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)中的**建置命令集**一節。
+>[AZURE.NOTE] 如需其他說明及組態選項，請參閱[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-ps-create-preconfigure-windows-vms.md)中的**建置命令集**一節。
 
 ## PowerShell 指令碼範例
 
@@ -175,4 +175,4 @@
 
 除了上述資源，我們也建議您檢閱[在 Azure 虛擬機器中執行 SQL Server 的其他相關主題](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

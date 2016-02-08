@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # 使用案例 - 產品建議 
@@ -36,7 +36,7 @@ Azure Data Factory 是許多服務之一，可用來實作解決方案加速器�
 
 ## 解決方案概觀
 
-此範例使用已由實際 Azure 使用者利用 Azure Data Factory 和其他 Cortana 分析元件服務 (包括 [HDInsight](http://azure.microsoft.com/services/hdinsight/) 和 [Power BI](https://powerbi.microsoft.com/)) 解決及實作的案例，藉以擷取、準備、轉換、分析及發佈最終資料。
+此範例使用已由實際 Azure 使用者利用 Azure Data Factory 和其他 Cortana 分析元件服務 (包括 [HDInsight](https://azure.microsoft.com/services/hdinsight/) 和 [Power BI](https://powerbi.microsoft.com/)) 解決及實作的案例，藉以擷取、準備、轉換、分析及發佈最終資料。
 
 線上零售商使用 Azure Blob 存放區、內部部署 SQL Server、Azure SQL DB 和關聯式資料市集做為整個工作流程的資料儲存體選項。Blob 存放區包含客戶資訊、客戶行為資料和產品資訊資料。產品資訊資料包含 SQL 資料倉儲中的產品品牌資訊和產品目錄預存內部部署。
 
@@ -44,9 +44,9 @@ Azure Data Factory 是許多服務之一，可用來實作解決方案加速器�
 
 ![使用案例圖](./media/data-factory-product-reco-usecase/diagram-1.png)
 
-線上零售商網站每天都會產生數 GB 的未經處理 web 記錄檔，做為半結構化的檔案。未經處理的 web 記錄檔和客戶及產品目錄資訊會定期擷取到 Azure Blob 儲存體帳戶，使用 Data Factory 的全域部署資料移動做為服務。一天的未經處理記錄檔會在 Blob 儲存體中分割 (根據年和月) 以進行長期儲存。[Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) (Hadoop 做為服務) 可用來分割 blob 存放區中的未經處理記錄檔 (適用於較佳管理性、可用性及效能)，並使用 Hive 和 Pig 指令碼大規模處理擷取的記錄檔。接著會處理分割的 web 記錄檔資料，以擷取需要的輸入，讓機器學習建議系統產生個人化的產品建議。
+線上零售商網站每天都會產生數 GB 的未經處理 web 記錄檔，做為半結構化的檔案。未經處理的 web 記錄檔和客戶及產品目錄資訊會定期擷取到 Azure Blob 儲存體帳戶，使用 Data Factory 的全域部署資料移動做為服務。一天的未經處理記錄檔會在 Blob 儲存體中分割 (根據年和月) 以進行長期儲存。[Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) (Hadoop 做為服務) 可用來分割 blob 存放區中的未經處理記錄檔 (適用於較佳管理性、可用性及效能)，並使用 Hive 和 Pig 指令碼大規模處理擷取的記錄檔。接著會處理分割的 web 記錄檔資料，以擷取需要的輸入，讓機器學習建議系統產生個人化的產品建議。
 
-在此範例中，用於機器學習的建議系統是來自 [Apache Mahout](http://mahout.apache.org/) 的開放原始碼機器學習建議平台。請注意，任何 [Azure Machine Learning](http://azure.microsoft.com/services/machine-learning/) 或自訂模型皆適用。Mahout 模型可用來根據整體使用模式預測零售商網站上項目之間的相似性，並根據個別使用者產生個人化的建議。
+在此範例中，用於機器學習的建議系統是來自 [Apache Mahout](http://mahout.apache.org/) 的開放原始碼機器學習建議平台。請注意，任何 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 或自訂模型皆適用。Mahout 模型可用來根據整體使用模式預測零售商網站上項目之間的相似性，並根據個別使用者產生個人化的建議。
 
 最後，個人化產品建議的結果集會移到關聯式資料市集供零售商網站使用。結果集也可由另一個應用程式直接從 Blob 儲存體存取，或移至其他存放區供其他客戶及使用案例使用。
 
@@ -60,4 +60,4 @@ Azure Data Factory 是許多服務之一，可用來實作解決方案加速器�
 
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

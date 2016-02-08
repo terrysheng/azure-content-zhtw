@@ -46,7 +46,7 @@ System Center DPM 會備份檔案和應用程式資料。備份到 DPM 的資料
 
 在擷取快照集之後，Azure 備份服務會將資料傳送到備份保存庫。服務會負責識別上次備份後有所變更的區塊並只傳送這些區塊，讓備份儲存體和網路更有效率。資料傳送完畢時將移除快照集，並建立復原點。Azure 管理入口網站中可以查看此復原點。
 
->[AZURE.NOTE]Linux 虛擬機器只能進行檔案一致性的備份。
+>[AZURE.NOTE] Linux 虛擬機器只能進行檔案一致性的備份。
 
 ## 必要條件
 如下所示讓 Azure 備份做好備份 DPM 資料的準備：
@@ -90,6 +90,6 @@ System Center DPM 會備份檔案和應用程式資料。備份到 DPM 的資料
 - 壓縮資料流
 - 疏鬆資料流
 
->[AZURE.NOTE]從 System Center 2012 DPM SP1 開始，您可以使用 Microsoft Azure 備份將受到 DPM 保護的工作負載備份至 Azure。
+>[AZURE.NOTE] 從 System Center 2012 DPM SP1 開始，您可以使用 Microsoft Azure 備份將受到 DPM 保護的工作負載備份至 Azure。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

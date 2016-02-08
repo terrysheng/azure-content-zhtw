@@ -16,7 +16,7 @@
  
 # 適用於 Windows Phone 和市集的 Application Insights 版本資訊
 
-[Application Insights SDK](app-insights-windows-get-started.md) 傳送有關您作用中的應用程式遙測到 [Application Insights](http://azure.microsoft.com/services/application-insights/)，您可以在此分析它的使用情況與效能。
+[Application Insights SDK](app-insights-windows-get-started.md) 傳送有關您作用中的應用程式遙測到 [Application Insights](https://azure.microsoft.com/services/application-insights/)，您可以在此分析它的使用情況與效能。
 
 
 #### 若要在應用程式中安裝 SDK
@@ -95,4 +95,4 @@
 
 沒有可用於較舊版本的版本資訊。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

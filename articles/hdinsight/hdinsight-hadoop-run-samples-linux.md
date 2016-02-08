@@ -28,7 +28,7 @@
 
 ##必要條件
 
-- **Azure 訂用帳戶**：請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
+- **Azure 訂用帳戶**：請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
 
 - **以 Linux 為基礎的 HDInsight 叢集**：請參閱[在 Linux 上開始在 HDInsight 中搭配使用 Hadoop 與 Hive](hdinsight-hadoop-linux-tutorial-get-started.md)
 
@@ -69,7 +69,7 @@
 
 **原始程式碼**：HDInsight 叢集上的 **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples** 中含有這些範例的原始程式碼
 
-> [AZURE.NOTE]路徑中的 `2.2.4.9-1` 是 HDInsight 叢集所使用的 Hortonworks Data Platform 版本，且可能會隨著 HDInsight 的更新而變更。
+> [AZURE.NOTE] 路徑中的 `2.2.4.9-1` 是 HDInsight 叢集所使用的 Hortonworks Data Platform 版本，且可能會隨著 HDInsight 的更新而變更。
 
 ## 如何執行範例 ##
 
@@ -103,7 +103,7 @@
 
     此範例的輸出會儲存在 ****wasb:///example/data/davinciwordcount**。
 
-    > [AZURE.NOTE]如 wordcount 範例的說明所述，您也可以指定多個輸入檔。例如，`hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` 會計算 davinci.txt 和 ulysses.txt 中的字數。
+    > [AZURE.NOTE] 如 wordcount 範例的說明所述，您也可以指定多個輸入檔。例如，`hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` 會計算 davinci.txt 和 ulysses.txt 中的字數。
 
 5. 工作完成後，使用以下命令來檢視輸出：
 
@@ -144,7 +144,7 @@ Sudoku 範例的使用指示似乎有點不實用：「在命令列中包含謎�
     ? ? ? ? ? ? 2 ? ?
     ? ? ? ? 4 5 ? 7 8
 
-> [AZURE.NOTE]路徑的 `2.2.4.9-1` 部分可能會隨著 HDInsight 叢集的更新而變更。
+> [AZURE.NOTE] 路徑的 `2.2.4.9-1` 部分可能會隨著 HDInsight 叢集的更新而變更。
 
 若要在 Sudoku 範例中執行此範例，請使用以下命令：
 
@@ -236,4 +236,4 @@ GraySort 是一種效能評定排序，其度量為排序極大資料量時 (通
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

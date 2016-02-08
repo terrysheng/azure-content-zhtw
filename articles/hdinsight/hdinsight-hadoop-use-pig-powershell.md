@@ -23,13 +23,13 @@
 
 本文件提供使用 Azure PowerShell 將 Pig 工作提交至 HDInsight 叢集上的 Hadoop 的範例。Pig 可讓您使用可建立資料轉換模型的語言 (Pig Latin) 撰寫 MapReduce 工作，而不是撰寫對應和歸納函數。
 
-> [AZURE.NOTE]本文件不提供範例中使用的 Pig Latin 陳述式所執行的工作詳細的描述。如需此範例中使用的 Pig Latin 相關資訊，請參閱[在 HDInsight 上搭配 Hadoop 使用 Pig](hdinsight-use-pig.md)。
+> [AZURE.NOTE] 本文件不提供範例中使用的 Pig Latin 陳述式所執行的工作詳細的描述。如需此範例中使用的 Pig Latin 相關資訊，請參閱[在 HDInsight 上搭配 Hadoop 使用 Pig](hdinsight-use-pig.md)。
 
 ##<a id="prereq"></a>必要條件
 
 若要完成本文中的步驟，您需要下列項目。
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - **具有 Azure PowerShell 的工作站**。請參閱[安裝 Azure PowerShell 1.0 及更新版本](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)。
 
 
@@ -173,4 +173,4 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Pig
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

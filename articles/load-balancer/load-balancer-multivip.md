@@ -24,11 +24,11 @@
 
 在上述情況下，所有 VIP 都使用相同的公用連接埠 (443)，而流量會重新導向至裝載所有網站之雲端服務的內部 IP 位址中唯一私人連接埠上的一或多個負載平衡 VM。
 
->[AZURE.NOTE]使用多重 VIP 的另一個案例是在同一組虛擬機器上裝載多個 SQL AlwaysOn 可用性群組接聽程式。
+>[AZURE.NOTE] 使用多重 VIP 的另一個案例是在同一組虛擬機器上裝載多個 SQL AlwaysOn 可用性群組接聽程式。
 
 VIP 預設是動態的，這表示指派給雲端服務的實際 IP 位址會隨著時間改變。若要防止發生該狀況，您可以為您的服務保留 VIP。若要深入了解保留的 VIP，請參閱[保留的公用 IP](../virtual-networks-reserved-public-ip)。
 
->[AZURE.NOTE]如需有關 VIP 和保留的 IP 的定價資訊，請參閱 [IP 位址定價](http://azure.microsoft.com/pricing/details/ip-addresses/)。
+>[AZURE.NOTE] 如需有關 VIP 和保留的 IP 的定價資訊，請參閱 [IP 位址定價](https://azure.microsoft.com/pricing/details/ip-addresses/)。
 
 您可以使用 PowerShell 來驗證雲端服務所使用的 VIP，以及新增和移除 VIP、將 VIP 關聯到端點，以及在特定 VIP 上設定負載平衡。
 
@@ -39,7 +39,7 @@ VIP 預設是動態的，這表示指派給雲端服務的實際 IP 位址會隨
 - **僅限 IaaS**。您只能針對包含 VM 的雲端服務啟用多重 VIP。您無法在 PaaS 案例中將多重 VIP 與角色執行個體搭配使用。
 - **僅限 PowerShell**。您只能使用 PowerShell 來管理多重 VIP。
 
->[AZURE.IMPORTANT]這些限制都是暫時的，隨時可能變更。請務必再次瀏覽此頁面，以確認未來變更。
+>[AZURE.IMPORTANT] 這些限制都是暫時的，隨時可能變更。請務必再次瀏覽此頁面，以確認未來變更。
 
 
 ## 如何將 VIP 新增至雲端服務
@@ -58,7 +58,7 @@ VIP 預設是動態的，這表示指派給雲端服務的實際 IP 位址會隨
 
     Remove-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
 
->[AZURE.IMPORTANT]您只能移除沒有任何相關端點的 VIP。
+>[AZURE.IMPORTANT] 您只能移除沒有任何相關端點的 VIP。
 
 ## 如何從雲端服務擷取 VIP 資訊
 若要擷取與雲端服務相關聯的 VIP，請執行下列 PowerShell 指令碼：
@@ -91,7 +91,7 @@ VIP 預設是動態的，這表示指派給雲端服務的實際 IP 位址會隨
 - **Vip1** 是預設 VIP，您知道因為 IsDnsProgrammedName 的值已設定為 true。
 - **Vip2** 和 **Vip3** 因為沒有任何 IP 位址而不會予以使用。唯有將端點關聯到 VIP，才會予以使用。
 
->[AZURE.NOTE]有額外的 VIP 與端點相關聯時，才會向您的訂用帳戶收費。如需定價的詳細資訊，請參閱 [IP 位址定價](http://azure.microsoft.com/pricing/details/ip-addresses/)。
+>[AZURE.NOTE] 有額外的 VIP 與端點相關聯時，才會向您的訂用帳戶收費。如需定價的詳細資訊，請參閱 [IP 位址定價](https://azure.microsoft.com/pricing/details/ip-addresses/)。
 
 ## 如何將 VIP 關聯至端點
 若要將雲端服務上的 VIP 關聯至端點，請執行下列 PowerShell 命令：
@@ -155,4 +155,4 @@ VIP 預設是動態的，這表示指派給雲端服務的實際 IP 位址會隨
 [保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,7 +20,7 @@
 
 # 在 Azure HDInsight 上搭配使用 BI 工具和 Apache Spark (Windows)
 
-> [AZURE.NOTE]HDInsight 現在在 Linux 上提供 Spark 叢集。如需了解如何在 HDInsight Linux 上搭配使用 BI 工具和 Spark，請參閱 [在 Azure HDInsight 上搭配使用 BI 工具和 Apache Spark (Linux)](hdinsight-apache-spark-use-bi-tools.md)。
+> [AZURE.NOTE] HDInsight 現在在 Linux 上提供 Spark 叢集。如需了解如何在 HDInsight Linux 上搭配使用 BI 工具和 Spark，請參閱 [在 Azure HDInsight 上搭配使用 BI 工具和 Apache Spark (Linux)](hdinsight-apache-spark-use-bi-tools.md)。
 
 了解如何在 Azure HDInsight 中使用 Apache Spark 來執行下列作業：
 
@@ -31,7 +31,7 @@
 
 您必須滿足以下條件：
 
-- Azure 訂用帳戶。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- Azure 訂用帳戶。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - Apache Spark 叢集。如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](hdinsight-apache-spark-provision-clusters.md)。
 - 一台已安裝 Microsoft Spark ODBC 驅動程式的電腦 (HDInsight 上的 Spark 需要此電腦才能使用 Tableau)。您可以前往[這裡](http://go.microsoft.com/fwlink/?LinkId=616229)來安裝驅動程式。
 - BI 工具，例如 [Power BI](http://www.powerbi.com/) 或 [Tableau Desktop](http://www.tableau.com/products/desktop)。您可以從 [http://www.powerbi.com/](http://www.powerbi.com/) 取得 Power BI 的免費預覽訂用帳戶。
@@ -42,11 +42,11 @@
 
 一旦將資料儲存成 Hive 資料表之後，下一節我們將使用 Power BI 和 Tableau 等 BI 工具連接 Hive 資料表。
 
-1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您 Spark 叢集的磚 (如果您已把它釘選到開始面板)。您也可以瀏覽到自己的叢集，方法是按一下 [瀏覽全部] > [HDInsight 叢集]。   
+1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
-2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
+2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結] ，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
-	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。請用您叢集的名稱取代 __CLUSTERNAME__：
+	> [AZURE.NOTE] 您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。使用您叢集的名稱取代 __CLUSTERNAME__：
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -214,4 +214,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

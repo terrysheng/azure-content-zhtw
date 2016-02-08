@@ -187,7 +187,7 @@ Azure 排程器工作中的日期時間參考遵循 [ISO 8601 規格](http://en.
 
  [Azure 排程器的計劃和計費](scheduler-plans-billing.md)
 
- [Azure 排程器 REST API 參考](https://msdn.microsoft.com/library/dn528946)
+ [Azure 排程器 REST API 參考](https://msdn.microsoft.com/library/mt629143)
 
  [Azure 排程器 PowerShell Cmdlet 參考](scheduler-powershell-reference.md)
 
@@ -199,4 +199,4 @@ Azure 排程器工作中的日期時間參考遵循 [ISO 8601 規格](http://en.
  
   
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

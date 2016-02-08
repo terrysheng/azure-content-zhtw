@@ -28,6 +28,8 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 除了資料管理閘道器，您也需要在閘道器機器上的資料存放區安裝 ODBC 驅動程式。
 
+> [AZURE.NOTE] 如需連接/閘道器相關問題的疑難排解秘訣，請參閱[閘道器疑難排解](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)。
+
 ## 範例：從 ODBC 資料存放區複製資料到 Azure Blob
 
 下列範例顯示：
@@ -42,7 +44,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 在第一個步驟中，請根據[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文中的指示，設定資料管理閘道器。
 
-**ODBC 連結服務** 此範例會使用 Windows 驗證。請參閱 [ODBC 連結服務](#odbc-linked-service-properties)章節以了解您可以使用的各種不同類型的驗證。
+**ODBC 連結服務** 此範例會使用 Basic 驗證。請參閱 [ODBC 連結服務](#odbc-linked-service-properties)章節以了解您可以使用的各種不同類型的驗證。
 
 	{
 	    "name": "OnPremOdbcLinkedService",
@@ -51,10 +53,10 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 	        "type": "OnPremisesOdbc",
 	        "typeProperties":
 	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=<database>;",
-	            "userName": "<domain>\<user>",
-	            "password": "<password>",
+	            "authenticationType": "Basic",
+	            "connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
+	            "userName": "username",
+	            "password": "password",
 	            "gatewayName": "mygateway"
 	        }
 	    }
@@ -221,8 +223,8 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 | 類型 | 類型屬性必須設為：**OnPremisesOdbc** | 是 |
 | connectionString | 連接字串的非存取認證部分，以及選擇性的加密認證。請參閱以下範例。 | 是
 | 認證 | 以驅動程式特定屬性-值的格式指定的連接字串的存取認證部分，例如“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”。 | 否
-| authenticationType | 用來連接到 ODBC 資料存放區的驗證類型。可能的值為：匿名、基本和 Windows。 | 是 | 
-| username | 如果您使用基本或 Windows 驗證，請指定使用者名稱。 | 否 | 
+| authenticationType | 用來連接到 ODBC 資料存放區的驗證類型。可能的值為：Anonymous 和 Basic。 | 是 | 
+| username | 如果您要使用 Basic 驗證，請指定使用者名稱。 | 否 | 
 | password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 | 否 | 
 | gatewayName | Data Factory 服務應該用來連接到 ODBC 資料存放區的閘道器名稱。 | 是 |
 
@@ -263,24 +265,6 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 	        }
 	    }
 	}
-
-### 使用 Windows 驗證
-
-	{
-	    "name": "odbc",
-	    "properties":
-	    {
-	        "type": "OnPremisesOdbc",
-	        "typeProperties":
-	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=TestDatabase;",
-	            "userName": "<domain>\<user>",
-	            "password": "<password>",
-	            "gatewayName": "mygateway"
-	        }
-	    }
-	} 
 
 
 ### 使用匿名驗證
@@ -340,4 +324,4 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

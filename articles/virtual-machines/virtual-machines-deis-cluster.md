@@ -30,7 +30,7 @@
 
 若要完成下列步驟，您需要：
 
- * 有效的 Azure 訂用帳戶。如果沒有，您可以在 [azure.com](https://azure.microsoft.com) 免費取得一個。
+ * 有效的 Azure 訂用帳戶。如果沒有，您可以在 [azure.com](https://azure.microsoft.com/) 免費取得一個。
  * 用於 Azure 資源群組的工作或學校識別碼。如果您有個人帳戶且使用 Microsoft ID 登入，則您需要[以您的個人識別碼建立一個工作識別碼](resource-group-create-work-id-from-personal.md)。
  * 依您的用戶端作業系統而定 -- [Azure PowerShell](powershell-install-configure.md) 或[適用於 Mac、Linux 和 Windows 的 Azure CLI](xplat-cli-install.md)。
  * [OpenSSL](https://www.openssl.org/)。OpenSSL 是用來產生必要的憑證。
@@ -74,7 +74,7 @@
             discovery: https://discovery.etcd.io/3973057f670770a7628f917d58c2208a
         ...
 
-7. 修改 **azuredeploy parameters.json** 檔案：開啟您在步驟 4 中，於文字編輯器內建立的憑證。將 `----BEGIN CERTIFICATE-----` 和 `-----END CERTIFICATE-----` 之間的所有文字複製到 **sshKeyData** 參數中 (您必須移除所有新行的字元)。
+7. 修改 **azuredeploy parameters.json** 檔案：開啟您在步驟 4 中，於文字編輯器內建立的憑證。將 `----BEGIN CERTIFICATE-----` 和 `-----END CERTIFICATE-----` 之間的所有文字複製到 **sshKeyData** 參數中 (您必須移除所有新行字元)。
 
 8. 修改 **newStorageAccountName** 參數。這是 VM OS 磁碟的儲存體帳戶。此帳戶名稱必須是全域唯一的。
 
@@ -117,7 +117,7 @@
 
 ![負載平衡器上的 NAT 規則](media/virtual-machines-deis-cluster/nat-rules.png)
 
-> [AZURE.NOTE]範本目前僅支援 3 個節點的叢集。這是因為 Azure 資源管理員範本 NAT 規則定義不支援迴圈與法的限制。
+> [AZURE.NOTE] 範本目前僅支援 3 個節點的叢集。這是因為 Azure 資源管理員範本 NAT 規則定義不支援迴圈與法的限制。
 
 ## 安裝並啟動 Deis 平台
 
@@ -128,7 +128,7 @@
     deisctl install platform
     deisctl start platform
 
-> [AZURE.NOTE]啟動平台需要一些時間 (最多 10 分鐘)。尤其啟動建立器服務需要較長的時間。而且有時要嘗試幾次才會成功：如果作業似乎無回應，請嘗試輸入 `ctrl+c` 來中斷命令的執行，然後再試一次。
+> [AZURE.NOTE] 啟動平台需要一些時間 (最多 10 分鐘)。尤其啟動建立器服務需要較長的時間。而且有時要嘗試幾次才會成功：如果作業似乎無回應，請嘗試輸入 `ctrl+c` 來中斷命令的執行，然後再試一次。
 
 您可以使用 `deisctl list` 確認是否所有服務都在執行：
 
@@ -258,4 +258,4 @@
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 事件中樞程式設計指南
@@ -23,21 +23,21 @@
 
 將事件傳送到事件中樞可藉由使用 HTTP POST 或透過 AMQP 1.0 連線來完成。使用選擇取決於應用的特定案例。AMQP 1.0 連線是以服務匯流排中的代理連線形式計量，其較適合經常出現大量訊息且需要低延遲的案例，因為它們可提供持續的傳訊通道。
 
-您可以使用 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 類別來建立及管理事件中樞。在使用 .NET Managed API 時，用於將資料發佈到事件中樞的主要建構是 [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) 和 [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 類別。[EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) 類別提供將事件傳送到事件中樞的 AMQP 通訊通道。[EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 類別代表事件，可用來將訊息發佈到事件中樞。這個類別包含主體、一些中繼資料，以及有關事件的標頭資訊。當 [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 物件通過事件中樞時，您可以加入其他屬性。
+您可以使用 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 類別來建立及管理事件中樞。在使用 .NET Managed API 時，用於將資料發佈到事件中樞的主要建構是 [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) 和 [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 類別。[EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) 提供將事件傳送到事件中樞的 AMQP 通訊通道。[EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 類別代表事件，可用來將訊息發佈到事件中樞。這個類別包含主體、一些中繼資料，以及有關事件的標頭資訊。當 [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 物件通過事件中樞時，您可以加入其他屬性。
 
 ## 開始使用
 
-支援事件中樞的 .NET 類別屬於 Microsoft.ServiceBus.dll 組件的一部分。要參考服務匯流排 API，並設定應用程式以使用所有服務匯流排相依性，最簡單方法是下載服務匯流排 NuGet 封裝。如需詳細資訊，請參閱[使用 NuGet 服務匯流排封裝](https://msdn.microsoft.com/library/azure/dn741354.aspx)。或者，您也可以在 Visual Studio 中使用 [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)。若要這樣做，請在 [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 視窗中發出下列命令：
+Microsoft.ServiceBus.dll 組件中會提供支援事件中樞的 .NET 類別。要參考服務匯流排 API，並設定應用程式以使用所有服務匯流排相依性，最簡單方法是下載[服務匯流排 NuGet 封裝](https://www.nuget.org/packages/WindowsAzure.ServiceBus)。或者，您也可以在 Visual Studio 中使用 [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)。若要這樣做，請在 [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) 視窗中發出下列命令：
 
-```powershell
+```
 Install-Package WindowsAzure.ServiceBus
 ```
 
-## 建立事件中心
+## 建立事件中樞
 
 您可以使用 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) 類別來建立事件中樞。例如：
 
-```c
+```
 var manager = new Microsoft.ServiceBus.NamespaceManager("mynamespace.servicebus.windows.net");
 var description = manager.CreateEventHub("MyEventHub");
 ```
@@ -89,7 +89,7 @@ var client = factory.CreateEventHubClient("MyEventHub");
 
 ## 事件序列化
 
-[EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 類別具有[四個多載建構函式](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx)，它們會採用許多不同的參數，如物件和序列化程式、位元組陣列或串流。您也可以具現化 [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 類別，並在之後設定內文串流。在搭配使用 JSON 和 [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 時，您可以使用 **Encoding.UTF8.GetBytes()** 來擷取 JSON 編碼字串的位元組陣列。
+[EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 類別具有[四個多載建構函式](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.eventdata.aspx)，它們會採用許多不同的參數，如物件和序列化程式、位元組陣列或串流。您也可以具現化 [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 類別，並在之後設定內文串流。在搭配使用 JSON 和 [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) 時，您可以使用 **Encoding.UTF8.GetBytes()** 來擷取 JSON 編碼字串的位元組陣列。
 
 ## 資料分割索引鍵
 
@@ -103,7 +103,7 @@ var client = factory.CreateEventHubClient("MyEventHub");
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-請務必注意，單一批次不能超過每個事件 256 KB 的限制。此外，批次中的每個訊息都會使用相同的身分識別。確保批次未超過最大事件大小是傳送者的責任。如果超過的話，系統會產生用戶端 **Send** 錯誤。
+請注意，單一批次不能超過每個事件 256 KB 的限制。此外，批次中的每個訊息都會使用相同的身分識別。確保批次未超過最大事件大小是傳送者的責任。如果超過的話，系統會產生用戶端 **Send** 錯誤。
 
 ## 以非同步方式傳送和大規模傳送
 
@@ -148,7 +148,7 @@ while(receive)
 
 對特定資料分割來說，訊息的接收順序為傳送到事件中樞時的順序。位移是一種字串語彙基元，它能用來識別資料分割中的訊息。
 
-請務必注意，消費者群組內的單一資料分割一律不能擁有超過 5 個已連接的並行讀取器。當讀取器連接或中斷連線時，其工作階段可能會維持作用中狀態達數分鐘之久，服務才能辨識出它們已經中斷連線。在這段時間內，讀取器可能會無法重新連接資料分割。如需撰寫事件中樞之直接接收者的完整範例，請參閱[服務匯流排事件中樞直接接收者](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6)範例。
+請注意，消費者群組內的單一資料分割一律不能擁有超過 5 個已連接的並行讀取器。當讀取器連接或中斷連線時，其工作階段可能會維持作用中狀態達數分鐘之久，服務才能辨識出它們已經中斷連線。在這段時間內，讀取器可能會無法重新連接資料分割。如需撰寫事件中樞之直接接收者的完整範例，請參閱[服務匯流排事件中樞直接接收者](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6)範例。
 
 ### 事件處理器主機
 
@@ -172,7 +172,7 @@ while(receive)
 
 ## 發佈者撤銷
 
-除了 [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) 的進階執行階段功能，事件中樞還能讓您撤銷發佈者，禁止特定發佈者將事件傳送到到事件中樞。當發佈者的權杖遭到洩露，或軟體更新造成發佈者出現不當行為時，這些功能特別有用。在這些情況下，您可以封鎖發佈者 SAS 權杖中的發佈者身分識別，避免它們發佈事件。
+除了 [EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx) 的進階執行階段功能，事件中樞還能讓您撤銷發佈者，禁止特定發佈者將事件傳送到到事件中樞。當發佈者權杖遭到洩露，或軟體更新造成發佈者出現不當行為時，這些功能特別有用。在這些情況下，您可以封鎖發佈者 SAS 權杖中的發佈者身分識別，避免它們發佈事件。
 
 如需有關發佈者撤銷，以及如何以發佈者身分傳送到事件中樞的詳細資訊，請參閱[服務匯流排事件中樞大規模安全發佈](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab)範例。
 
@@ -185,4 +185,4 @@ while(receive)
 - [Event Hubs code samples](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 - [事件處理器主機 API 參考](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

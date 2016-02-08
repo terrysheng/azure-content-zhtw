@@ -169,6 +169,6 @@ NuGet 封裝參考會被移除，檔案也會移除並加以備份。根據您�
 ###Azure Active Directory 應用程式已更新
 Azure Active Directory 應用程式已更新為包含*讀取目錄資料*權限，並已建立其他的金鑰做為 **web.config** 檔案中的 *ida:ClientSecret*。
 
-[深入了解 Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[深入了解 Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

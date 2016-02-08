@@ -18,7 +18,7 @@
 
 #從預覽 API 版本 = 2014* 轉換為 API 版本 = 2015*#
 
-Azure 搜尋服務是 Microsoft Azure 上之託管的雲端搜尋服務。下列指引供客戶在 Azure 搜尋服務的預覽版本建置自訂應用程式，及目前移轉到正式運作的版本所用 (2015-02-28)。
+Azure 搜尋服務是在 Microsoft Azure 上託管的雲端搜尋服務。下列指引供客戶在 Azure 搜尋服務的預覽版本建置自訂應用程式，及目前移轉到正式運作的版本所用 (2015-02-28)。
 
 身為預覽客戶，您可能有這些舊的預覽版本之一：
 
@@ -27,7 +27,7 @@ Azure 搜尋服務是 Microsoft Azure 上之託管的雲端搜尋服務。下列
 
 既然 Azure 搜尋服務已正式推出，我們鼓勵轉換到較新的版本：2015-02-28 是 Azure 搜尋服務正式運作版本的官方 API 版本。這個版本記載於 [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx)。
 
-我們還推出下一個預覽版本 [2015-02-28-Preview](search-api-2015-02-28-preview.md)，引入還在開發中的功能。您可以透過 [Azure 搜尋服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)或我們的[意見反應頁面](http://feedback.azure.com/forums/263029-azure-search)提供有關預覽 API 的意見反應。
+我們還推出下一個預覽版本 [2015-02-28-Preview](search-api-2015-02-28-preview.md)，引入還在開發中的功能。您可以透過 [Azure 搜尋服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch)，或是我們的 [意見反應頁面] (https://feedback.azure.com/forums/263029-azure-search /)，來提供您對於預覽 API 的意見反應。
 
 ###移轉的檢查清單###
 
@@ -144,4 +144,4 @@ API 版本 `2015-02-28` 是在 SLA 下。請使用在[此頁](../support/options
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

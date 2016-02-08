@@ -24,7 +24,7 @@
 
 如果您無法存取在 Azure 虛擬機器上執行的應用程式，本文將說明以井然有序的方式，釐清問題的來源並更正。
 
-> [AZURE.NOTE]如需連接到 Azure 虛擬機器的說明，請參閱[疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線](virtual-machines-troubleshoot-remote-desktop-connections.md)或[疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線](virtual-machines-troubleshoot-ssh-connections.md)。
+> [AZURE.NOTE]  如需連接到 Azure 虛擬機器的說明，請參閱[疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線](virtual-machines-troubleshoot-remote-desktop-connections.md)或[疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線](virtual-machines-troubleshoot-ssh-connections.md)。
 
 有四個主要區域來疑難排解在 Azure 虛擬機器執行上之應用程式的存取。
 
@@ -116,8 +116,8 @@
 
 如果您已經執行本文中的以上步驟，且需要其他協助以更正問題，您可以：
 
-- 取得來自世界各地的 Azure 專家協助。提交您的問題至 MSDN Azure 或 Stack Overflow 論壇。如需詳細資訊，請參閱 [Microsoft Azure 論壇](http://azure.microsoft.com/support/forums/)。
-- 提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後在 [**技術及帳務支援**] 下方按一下 [**取得支援**]。
+- 取得來自世界各地的 Azure 專家協助。提交您的問題至 MSDN Azure 或 Stack Overflow 論壇。如需詳細資訊，請參閱 [Microsoft Azure 論壇](https://azure.microsoft.com/support/forums/)。
+- 提出 Azure 支援事件。請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後在 [**技術及帳務支援**] 下方按一下 [**取得支援**]。
 
 ## 其他資源
 
@@ -125,4 +125,4 @@
 
 [疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

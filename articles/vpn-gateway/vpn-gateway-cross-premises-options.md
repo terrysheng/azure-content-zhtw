@@ -41,9 +41,9 @@
 | **連接恢復能力** | 主動-被動 | 主動-被動 | 主動-主動 |
 | **一般使用案例** | 雲端服務和虛擬機器的原型設計、開發/測試/實驗室案例 | 雲端服務和虛擬機器的開發/測試/實驗室案例和小規模生產工作負載 | 存取所有 Azure 服務 (已驗證的清單)、企業級和關鍵任務工作負載、備份、巨量資料、Azure 即 DR 網站 |
 | **SLA** | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) | [SLA](https://azure.microsoft.com/support/legal/sla/) |
-| **定價** | [定價](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [定價](http://azure.microsoft.com/pricing/details/vpn-gateway/) | [定價](http://azure.microsoft.com/pricing/details/expressroute/) |
+| **定價** | [定價](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [定價](https://azure.microsoft.com/pricing/details/vpn-gateway/) | [定價](https://azure.microsoft.com/pricing/details/expressroute/) |
 | **技術文件** | [VPN 閘道文件](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [VPN 閘道文件](https://azure.microsoft.com/documentation/services/vpn-gateway/) | [ExpressRoute 文件](https://azure.microsoft.com/documentation/services/expressroute/) |
-| **常見問題集** | [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md) | [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md) | [ExpressRoute 常見問題集](../expressroute/expressroute-faqs.md) |
+| **常見問題集 ** | [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md) | [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md) | [ExpressRoute 常見問題集](../expressroute/expressroute-faqs.md) |
 
 
 ## 站對站連接
@@ -99,4 +99,4 @@ Azure ExpressRoute 可讓您在 Azure 資料中心和內部部署或共置環境
 
 如需詳細資訊，請參閱 [ExpressRoute 常見問題集](../expressroute/expressroute-faqs.md)和 [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md)。
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

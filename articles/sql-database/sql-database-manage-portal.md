@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="使用 Azure 傳統入口網站管理 Azure SQL Database" 
-	description="了解如何使用 Azure 傳統入口網站來管理雲端中的關聯式資料庫。" 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="使用 Azure 傳統入口網站管理 Azure SQL Database"
+	description="了解如何使用 Azure 傳統入口網站來管理雲端中的關聯式資料庫。"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.devlang="NA" 
-	ms.workload="data-management" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="NA" 
-	ms.date="09/11/2015" 
+<tags
+	ms.service="sql-database"
+	ms.devlang="NA"
+	ms.workload="data-management"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.date="01/22/2016"
 	ms.author="sstein"/>
 
 
-# 使用 Azure 傳統入口網站管理 Azure SQL Database
+# 使用 Azure 入口網站管理 Azure SQL Database
 
 
 > [AZURE.SELECTOR]
@@ -25,16 +25,14 @@
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-[Azure 傳統入口網站][Classic Portal]可讓您建立、監視和管理 Azure SQL Database 與伺服器。本文會強調顯示可使用傳統入口網站來完成的資料庫作業。
-
->[AZURE.NOTE]如果您不熟悉 Azure 傳統入口網站，[此視訊教學課程提供快速概觀][Azure Classic Portal Tour]，可讓您了解入口網站的一般功能和概念。
+[Azure 入口網站](https://portal.azure.com/)可讓您建立、監視和管理 Azure SQL Database 與邏輯伺服器。這篇文章強調一些較常見的工作。
 
 ![資料庫概觀](./media/sql-database-manage-portal/sqldatabase_annotated.png)
 
 ## 1\.資料庫管理動作
 ![資料庫管理動作](./media/sql-database-manage-portal/sqldatabase_actions.png)
 
-Azure 傳統入口網站提供一組常用的資料庫動作，您可以從資料庫刀鋒視窗頂端存取這些動作。您可以將資料庫還原至先前的時間點、在 Visual Studio 中開啟資料庫、將資料庫複製到新的伺服器，以及將資料庫匯出至 Azure 儲存體帳戶。
+Azure 入口網站提供一組常用的資料庫動作，您可以從資料庫刀鋒視窗頂端存取這些動作。您可以將資料庫還原至先前的時間點、在 Visual Studio 中開啟資料庫、將資料庫複製到新的伺服器，以及將資料庫匯出至 Azure 儲存體帳戶。
 
 - [還原 SQL 資料庫](sql-database-point-in-time-restore-tutorial-management-portal.md)
 - [在 Visual Studio 中開啟 SQL Database](sql-database-connect-query.md)
@@ -62,7 +60,7 @@ Azure SQL Database 也可以設定為對沒有權限的使用者遮罩處理機�
 ## 4\.異地複寫
 ![異地複寫](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-Azure SQL Database 可以設定為以非同步方式，將已認可的交易複寫至次要資料庫。在傳統入口網站上的異地複寫部分，可讓您選取想要放置次要資料庫的 Azure 區域。
+Azure SQL Database 可以設定為以非同步方式，將已認可的交易複寫至次要資料庫。在入口網站上的異地複寫部分，可讓您選取想要放置次要資料庫的 Azure 區域。
 
 - [異地複寫](https://msdn.microsoft.com/library/azure/dn783447.aspx)
 
@@ -74,7 +72,7 @@ Azure SQL Database 可以設定為以非同步方式，將已認可的交易複�
 * [SQL Database](sql-database-technical-overview.md)   
 * [使用動態管理檢視監視 SQL Database][]   
 * [Transact-SQL 參考 (SQL Database)][]
-  
+
   [Azure Classic Portal Tour]: https://go.microsoft.com/fwlink/?LinkID=522341
   [Classic Portal]: https://portal.azure.com
   [Azure part monitoring]: ../documentdb-monitor-accounts.md
@@ -87,7 +85,4 @@ Azure SQL Database 可以設定為以非同步方式，將已認可的交易複�
   [AzureDb Auditing]: http://azure.microsoft.com/documentation/articles/sql-database-auditing-get-started/
   [AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
 
- 
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

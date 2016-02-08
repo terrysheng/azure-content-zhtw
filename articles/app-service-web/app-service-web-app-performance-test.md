@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/11/2015"
+   ms.date="01/13/2016"
    ms.author="estfan; manasma"/>
 
 # 測試 Azure Web 應用程式在低負載下的效能
@@ -28,7 +28,7 @@
 
 *	您將需要 [Azure 訂用帳戶][AzureSubscription] (如果您還沒有的話)。了解如何[免費申請 Azure 帳戶][AzureFreeTrial]。
 
-*	您需要 [Visual Studio Team Services (VSTS)][WhatIsVSTS] 帳戶才能保留您的效能測試記錄。請在設定效能測試時建立新帳戶，如果您是帳戶擁有者，請使用現有的帳戶。[Visual Studio Team Service 帳戶還有什麼用途？](#VSTSAccount)
+*	您需要 [Visual Studio Team Services (Team Services)][WhatIsTeamServices] 帳戶才能保留您的效能測試記錄。請在設定效能測試時建立新帳戶，如果您是帳戶擁有者，請使用現有的帳戶。[Visual Studio Team Service 帳戶還有什麼用途？](#TeamServicesAccount)
 
 *	部署您的應用程式以便在非生產環境中進行測試。讓您的應用程式使用生產環境中所用方案以外的 App Service 方案。這樣一來，您不會影響任何現有的客戶或讓您的應用程式在生產環境中變慢。
 
@@ -44,11 +44,11 @@
 
 	![移至 [工具]、[效能測試]][ExpandedTools]
  
-0.	現在您需要 [Visual Studio Team Services (VSTS)][WhatIsVSTS] 帳戶才能保留您的效能測試記錄。
+0.	現在您連結 [Visual Studio Team Services (Team Services)][WhatIsTeamServices] 帳戶以保留您的效能測試記錄。
 
-	如果您已經有 VSTS 帳戶，請選取該帳戶。如果沒有，請建立新帳戶。
+	如果您已經有 Team Services 帳戶，請選取該帳戶。如果沒有，請建立新帳戶。
 
-	![選取現有的 VSTS 帳戶，或建立新的帳戶][ExistingNewVSTSAccount]
+	![選取現有的 Team Services 帳戶，或建立新的帳戶][ExistingNewTeamServicesAccount]
 
 0.	建立您的效能測試。設定詳細資料並執行測試。您可以在測試執行時即時觀看結果。
 
@@ -70,8 +70,9 @@
 
 	![完成的效能測試會顯示結果，包括失敗的要求][TestDone]
 	
-歡迎您提供的意見反應。如有疑問或問題，請與我們連絡 <vsoloadtest@microsoft.com>
+歡迎您提供的意見反應。如有疑問或問題，請與我們連絡︰
 
+<vsoloadtest@microsoft.com>
 ##	問答集
 
 #### 問：我可持續執行測試的時間是否有所限制？ 
@@ -86,30 +87,30 @@
 
 答：您可以在 Azure 入口網站中檢查此數量。
 
-![移至 VSTS 帳戶][VSTSAccount]
+![移至您的 Team Services 帳戶][TeamServicesAccount]
 
 ![檢查已使用的 VUM][CheckTestTime]
 
 <a name="VSOAccount"></a>
 #### 問：Visual Studio Team Services 帳戶還有什麼用途？
 
-答：若要尋找您的新帳戶，請移至 ```https://{accountname}.visualstudio.com```。使用任何工具或語言來共用您的程式碼、建置、測試、追蹤工作及軟體出貨 – 一切盡在雲端。深入了解 [Visual Studio Team Services][WhatIsVSTS] 功能及服務如何協助您的小組更輕鬆地共同作業及持續進行部署。
+答：若要尋找您的新帳戶，請移至 ```https://{accountname}.visualstudio.com```。使用任何工具或語言來共用您的程式碼、建置、測試、追蹤工作及軟體出貨 – 一切盡在雲端。深入了解 [Visual Studio Team Services][WhatIsTeamServices] 功能及服務如何協助您的小組更輕鬆地共同作業及持續進行部署。
 
 <!--Image references-->
 [WebApp]: ./media/app-service-web-app-performance-test/azure-np-web-apps.png
 [TestOverview]: ./media/app-service-web-app-performance-test/azure-np-perf-test-overview.png
 [ExpandedTools]: ./media/app-service-web-app-performance-test/azure-np-web-app-details-tools-expanded.png
-[ExistingNewVSTSAccount]: ./media/app-service-web-app-performance-test/azure-np-no-vso-account.png
+[ExistingNewTeamServicesAccount]: ./media/app-service-web-app-performance-test/azure-np-no-vso-account.png
 [NewTest]: ./media/app-service-web-app-performance-test/azure-np-new-performance-test.png
 [TestRunning]: ./media/app-service-web-app-performance-test/azure-np-running-perf-test.png
 [TestDone]: ./media/app-service-web-app-performance-test/azure-np-perf-test-done.png
-[VSTSAccount]: ./media/app-service-web-app-performance-test/azure-np-vso-accounts.png
+[TeamServicesAccount]: ./media/app-service-web-app-performance-test/azure-np-vso-accounts.png
 [CheckTestTime]: ./media/app-service-web-app-performance-test/azure-np-vso-accounts-vum-summary.png
 
 <!--Reference links -->
 [AzurePortal]: https://portal.azure.com
 [AzureSubscription]: https://account.windowsazure.com/subscriptions
 [AzureFreeTrial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[WhatIsVSTS]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
+[WhatIsTeamServices]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

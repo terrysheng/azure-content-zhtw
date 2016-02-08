@@ -70,7 +70,7 @@ URL 配置 | 選擇配置，或您希望 API 加以支援的配置。您可以�
 2. 選取 [所有設定]。
 3. 在 [設定]，請選取 [原則]：![][14]
 
-此原則是 [Azure API 管理](https://azure.microsoft.com/services/api-management)所支援的同一個原則。目前的原則內嵌在 XML 編輯器中。您可以編輯該內嵌原則，或上傳新的 XML 檔案。當您**儲存**變更之後，所有錯誤皆會顯示在此刀鋒視窗中，其中也包括 API 原則的所有錯誤。
+此原則是 [Azure API 管理](https://azure.microsoft.com/services/api-management/)所支援的同一個原則。目前的原則內嵌在 XML 編輯器中。您可以編輯該內嵌原則，或上傳新的 XML 檔案。當您**儲存**變更之後，所有錯誤皆會顯示在此刀鋒視窗中，其中也包括 API 原則的所有錯誤。
 
 [Azure API 管理中的原則](../api-management-howto-policies.md)十分適合用來深入了解設定及原則。
 
@@ -88,4 +88,4 @@ URL 配置 | 選擇配置，或您希望 API 加以支援的配置。您可以�
 [13]: ./media/powerapps-configure-apis/api-settings-api-definition.png
 [14]: ./media/powerapps-configure-apis/api-settings-policy.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,7 +20,7 @@
 
 # 在 Azure HDInsight 上使用 Apache Spark 建置機器學習服務應用程式 (Windows)
 
-> [AZURE.NOTE]HDInsight 現在在 Linux 上提供 Spark 叢集。如需了解如何在 HDInsight Spark Linux 叢集上建立機器學習應用程式，請參閱 [在 Azure HDInsight 上使用 Apache Spark 建置機器學習服務應用程式 (Linux)](hdinsight-apache-spark-ipython-notebook-machine-learning.md)。
+> [AZURE.NOTE] HDInsight 現在在 Linux 上提供 Spark 叢集。如需了解如何在 HDInsight Spark Linux 叢集上建立機器學習應用程式，請參閱 [在 Azure HDInsight 上使用 Apache Spark 建置機器學習服務應用程式 (Linux)](hdinsight-apache-spark-ipython-notebook-machine-learning.md)。
 
 了解如何在 HDInsight 中使用 Apache Spark 叢集建置機器學習應用程式。本文說明如何使用叢集隨附的 Jupyter Notebook 來建置及測試應用程式。應用程式使用所有叢集預設提供的範例 HVAC.csv 資料。
 
@@ -28,7 +28,7 @@
 
 您必須滿足以下條件：
 
-- Azure 訂用帳戶。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- Azure 訂用帳戶。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - Apache Spark 叢集。如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](hdinsight-apache-spark-provision-clusters.md)。 
 
 ##<a name="data"></a>顯示資料
@@ -47,9 +47,9 @@
 
 1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
-2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
+2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結] ，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
-	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。使用您叢集的名稱取代 __CLUSTERNAME__：
+	> [AZURE.NOTE] 您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。使用您叢集的名稱取代 __CLUSTERNAME__：
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -148,7 +148,7 @@
 
 		model = pipeline.fit(training)
 
-7. 驗證訓練文件以根據應用程式的進度設立檢查點。將以下程式碼片段貼入空白儲存格，然後按下 **SHIFT + ENTER**。
+7. 驗證訓練文件以根據應用程式的進度設立檢查點。將下列程式碼片段貼到空白儲存格中，然後按下 **SHIFT + ENTER**。
 
 		training.show()
 
@@ -249,4 +249,4 @@ HDInsight 上的 Apache Spark 叢集包含 Anaconda 程式庫。其中也包含�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

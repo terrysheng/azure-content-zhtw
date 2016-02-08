@@ -31,11 +31,11 @@
 
 若要設定 Azure AD 與 Alcumus Info Exchange 整合，您需要下列項目：
 
-- [Azure AD](http://azure.microsoft.com/) 訂用帳戶
+- [Azure AD](https://azure.microsoft.com/) 訂用帳戶
 - 已啟用 [Alcumus Info Exchange](http://www.alcumusgroup.com/) 單一登入的訂用帳戶
 
 
-> [AZURE.NOTE]若要測試本教學課程中的步驟，我們不建議使用生產環境。
+> [AZURE.NOTE] 若要測試本教學課程中的步驟，我們不建議使用生產環境。
 
 
 若要測試本教學課程中的步驟，您應該遵循這些建議：
@@ -99,7 +99,7 @@
  
      3\.1 在 [回覆 URL] 文字方塊中，輸入 Alcumus Info Exchange 支援小組為您設定的取用者 URL。
 
-     >[AZURE.NOTE]如果您不知道正確的值為何，請透過 [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com) 連絡 Alcumus Info Exchange 支援小組。
+     >[AZURE.NOTE] 如果您不知道正確的值為何，請透過 [helpdesk@alcumusgroup.com](mailto:helpdesk@alcumusgroup.com) 連絡 Alcumus Info Exchange 支援小組。
 
      3\.2.按一下 [下一步]。
  
@@ -116,11 +116,11 @@
 
 
 ### 建立 Azure AD 測試使用者
-本節的目標是在 Azure 入口網站中建立名為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
+本節的目標是要在 Azure 入口網站中建立名為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
 
-**若要在 Azure AD中建立測試使用者，請執行下列步驟：**
+**若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在「Azure 管理入口網站**」**的左方瀏覽窗格中，按一下 [Active Directory]。<br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_02.png) 
+1. 在 **Azure 管理入口網站**的左方瀏覽窗格中，按一下 [Active Directory]。<br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-alcumus-info-tutorial/create_aaduser_02.png) 
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
@@ -204,4 +204,4 @@
 [205]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_general_205.png
 [400]: ./media/active-directory-saas-alcumus-info-tutorial/tutorial_alcumus_402.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

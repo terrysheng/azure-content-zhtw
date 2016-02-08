@@ -28,7 +28,7 @@
 本文件假設：
 
 1. 您知道如何使用 Docker，並具備要儲存的 Docker 映像。(您不知道嗎？ [了解 Docker](https://www.docker.com))
-2. 您具有已安裝 Docker 引擎的伺服器。(您沒有嗎？ [快速在 Azure 上執行。](http://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))
+2. 您具有已安裝 Docker 引擎的伺服器。(您沒有嗎？ [快速在 Azure 上執行。](https://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))
 
 
 ## 什麼是私用 Docker Registry？
@@ -82,7 +82,7 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 3698ddfebc6f        registry:2          "registry cmd/regist   2 seconds ago       Up 1 seconds        0.0.0.0:5000->5000/tcp   registry
 ```
 
-> [AZURE.IMPORTANT]本文件未涵蓋設定 Docker Registry 的安全性，如果您開啟連接至虛擬機器端點上登錄連接埠的連接埠，根據預設，任何未經驗證的人都可以存取您的登錄，如果您使用上述的部署命令，則可存取負載平衡器。
+> [AZURE.IMPORTANT] 本文件未涵蓋設定 Docker Registry 的安全性，如果您開啟連接至虛擬機器端點上登錄連接埠的連接埠，根據預設，任何未經驗證的人都可以存取您的登錄，如果您使用上述的部署命令，則可存取負載平衡器。
 >
 > 請參閱[設定 Docker Registry][registry-config] 文件，以了解如何保護登錄執行個體和您的映像。
 
@@ -96,4 +96,4 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

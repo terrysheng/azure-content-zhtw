@@ -29,7 +29,7 @@
 
 若是實際執行的 Web 應用程式，您可能想讓使用者看到自訂網域名稱。本文說明如何使用 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 設定自訂網域。
 
-如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下**取得支援**。
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專員。或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後按一下**取得支援**。
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
@@ -61,7 +61,7 @@
 
 若 IP 位址變更，CNAME 項目仍會有效，但 A 記錄就必須更新。不過，有部分網域註冊機構不允許 CNAME 記錄使用根網域或萬用字元網域。若有該情況，則必須使用 A 記錄。
 
-> [AZURE.NOTE]若您刪除 Web 應用程式後再重新建立，或是將 Web 應用程式模式變更回免費，則 IP 位址可能會變更。
+> [AZURE.NOTE] 若您刪除 Web 應用程式後再重新建立，或是將 Web 應用程式模式變更回免費，則 IP 位址可能會變更。
 
 
 ## 尋找虛擬 IP 位址
@@ -112,7 +112,7 @@
 - **contoso.com**，對應至 168.62.48.183。
 - 對應至 **contoso.azurewebsites.net** 的 **www.contoso.com**。
 
->[AZURE.NOTE]您可以使用 Azure DNS 來裝載 web 應用程式所需的網域記錄。若要在 Azure DNS 設定您的自訂網域，並建立您的記錄，請參閱[建立 Web 應用程式的自訂 DNS 記錄](../dns-web-sites-custom-domain)。
+>[AZURE.NOTE] 您可以使用 Azure DNS 來裝載 web 應用程式所需的網域記錄。若要在 Azure DNS 設定您的自訂網域，並建立您的記錄，請參閱[建立 Web 應用程式的自訂 DNS 記錄](../dns-web-sites-custom-domain)。
 
 <a name="awverify" />
 ## 建立 awverify 記錄 (僅限 A 記錄)
@@ -128,7 +128,7 @@
 
 [AZURE.INCLUDE [模式](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
 
 ## 確認 DNS 傳播
 
@@ -136,7 +136,7 @@
 
 ![](./media/web-sites-custom-domain-name/1-digwebinterface.png)
 
-> [AZURE.NOTE]DNS 傳播最多需要 48 小時 (有時候更久)。如果您已正確設定所有項目，仍然需要等待傳播成功。
+> [AZURE.NOTE] DNS 傳播最多需要 48 小時 (有時候更久)。如果您已正確設定所有項目，仍然需要等待傳播成功。
 
 ## 後續步驟
 
@@ -155,4 +155,4 @@
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

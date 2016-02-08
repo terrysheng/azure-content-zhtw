@@ -24,7 +24,7 @@
 
 在此教學課程中，您將學到如何在使用新的混合式連接連接至本機內部部署 SQL Server 資料庫的 [Azure Preview](http://go.microsoft.com/fwlink/?LinkId=529715) 中建立 App Service API 應用程式。本教學課程假設您沒有使用 Azure 或 SQL Server 的經驗。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
 
 ## 必要條件
 
@@ -75,7 +75,7 @@
 <a name="InstallSQL"></a>
 ## 在內部部署中安裝 SQL Server Express、啟用 TCP/IP 及建立 SQL Server 資料庫
 
-本節說明如何安裝 SQL Server Express、啟用 TCP/IP 及建立資料庫，讓您的 API 應用程式可在 [Azure Preview 入口網站](https://portal.azure.com)中運作。
+本節說明如何安裝 SQL Server Express、啟用 TCP/IP 及建立資料庫，讓您的 API 應用程式可在 [Azure Preview 入口網站](https://portal.azure.com/)中運作。
 
 <a name="InstallSQLDB"></a>
 ### 安裝 SQL Server Express
@@ -202,7 +202,7 @@
 
 10. 以下列程式碼取代 `SpeakersController.cs` 檔案中的程式碼。請務必在 `connectionString` 中為 &lt;serverName> 與 &lt;password> 預留位置指定您自己的值。&lt;serverName> 值是 SQL Server 所在位置的機器名稱，而 &lt;password> 值則是當您安裝與設定 SQL Server 時所設定的值
 
-	> [AZURE.NOTE]下列程式碼片段包含密碼資訊。這麼做是為了簡化示範。在實際生產環境中，您不應該在程式碼中儲存認證。相反地，請參閱[將密碼 (和其他機密資料) 部署至 ASP.NET 和 Azure 的最佳做法](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)。
+	> [AZURE.NOTE] 下列程式碼片段包含密碼資訊。這麼做是為了簡化示範。在實際生產環境中，您不應該在程式碼中儲存認證。相反地，請參閱[將密碼 (和其他機密資料) 部署至 ASP.NET 和 Azure 的最佳做法](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)。
 
 		using System;
 		using System.Collections.Generic;
@@ -332,7 +332,7 @@
 	- 如果您有多個 Azure 訂用帳戶，請選取您要使用的訂用帳戶。
 	- 在 [**App Service 方案**] 下方，從現有的 App Service 方案中選取，或選取 [**建立新的 App Service 方案**] 並輸入新方案的名稱。 
 	- 在 [**資源群組**] 之下，從現有的資源群組進行選取，或選取 [**建立新的資源群組**] 並輸入名稱。此名稱必須是唯一的。請考慮使用應用程式名稱做為前置詞並附加一些個人資訊，例如 Microsoft ID (不含 @ 符號)。  
-	- 在 [**存取層級**] 之下，選取 [**可供任何人使用**]。此選項可讓您的 API 完全公開，這在本教學課程沒有問題。稍後您可以透過 [Azure Preview 入口網站](https://portal.azure.com)限制存取。
+	- 在 [**存取層級**] 之下，選取 [**可供任何人使用**]。此選項可讓您的 API 完全公開，這在本教學課程沒有問題。稍後您可以透過 [Azure Preview 入口網站](https://portal.azure.com/)限制存取。
 	- 選取區域。
 
 	按一下 [**確定**] 以在您的訂用帳戶中建立 API 應用程式。
@@ -355,7 +355,7 @@
 
 ## 建立混合式連線和 BizTalk 服務 ##
 
-1. 在瀏覽器中導覽至 [Azure 預覽入口網站](https://portal.azure.com)。 
+1. 在瀏覽器中導覽至 [Azure 預覽入口網站](https://portal.azure.com/)。 
 
 2. 按一下左側的 [**全部瀏覽**] 選項。
 
@@ -432,4 +432,4 @@
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

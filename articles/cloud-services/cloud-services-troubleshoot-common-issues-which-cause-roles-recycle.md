@@ -22,9 +22,9 @@
 
 ## 連絡 Azure 客戶支援
 
-如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專員。
 
-或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](http://azure.microsoft.com/support/faq/)。
+或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
 
 
 ## 遺失執行階段相依性
@@ -67,7 +67,7 @@ Azure 是 64 位元環境。因此，針對 32 位元目標編譯的 .NET 組件
 
 - `DiagnosticsConnectionString` 設定指向 Azure 中的有效儲存體帳戶。根據預設，此設定會指向模擬儲存體帳戶，因此您必須在部署應用程式封裝之前明確變更這項設定。若未變更此設定，當角色執行個體嘗試啟動診斷監視器時，將會擲回例外狀況。這可能會導致角色執行個體無限期地回收。
 
-- 連接字串會以下列[格式](../storage/storage-configure-connection-string.md)指定 (通訊協定必須指定為 HTTPS)。以您的儲存體帳戶名稱取代 MyAccountName，並以您的存取金鑰取代 MyAccountKey：
+- 連接字串會以下列[格式](../storage/storage-configure-connection-string.md)指定 (通訊協定必須指定為 HTTPS)。以您的儲存體帳戶名稱取代 *MyAccountName*，並以您的存取金鑰取代 *MyAccountKey*：
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
@@ -77,7 +77,7 @@ Azure 是 64 位元環境。因此，針對 32 位元目標編譯的 .NET 組件
 
 ## 匯出的憑證未包含私密金鑰
 
-若要在 SSL 下執行 Web 角色，您必須確保匯出的管理憑證包含私密金鑰。如果您使用 Windows 憑證管理員匯出憑證，請務必選取 [是，匯出私密金鑰] 選項。憑證必須匯出為 PFX 格式，這是目前唯一支援的格式。
+若要在 SSL 下執行 Web 角色，您必須確保匯出的管理憑證包含私密金鑰。如果您使用 *Windows 憑證管理員*匯出憑證，請務必選取 [是，匯出私密金鑰] 選項。憑證必須匯出為 PFX 格式，這是目前唯一支援的格式。
 
 
 
@@ -95,4 +95,4 @@ Azure 是 64 位元環境。因此，針對 32 位元目標編譯的 .NET 組件
 [OnStop]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [Run]: https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

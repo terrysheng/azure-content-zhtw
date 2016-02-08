@@ -25,7 +25,7 @@
 
 在本文中我們將提供機制的概觀，說明 Machine Learning 模型如何從開發實驗進展為實際運作的 Web 服務。
 
->[AZURE.NOTE]有其他方式可開發和部署機器學習模型，但本文著重在如何使用 Machine Learning Studio。如需如何使用 R 建立預測性 Web 服務的討論，請參閱部落格文章[使用 RStudio 和 Azure ML 建置和部署預測性 Web Apps](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx)。
+>[AZURE.NOTE] 有其他方式可開發和部署機器學習模型，但本文著重在如何使用 Machine Learning Studio。如需如何使用 R 建立預測性 Web 服務的討論，請參閱部落格文章[使用 RStudio 和 Azure ML 建置和部署預測性 Web Apps](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx)。
 
 雖然 Azure Machine Learning Studio 的設計主要是為了協助您開發及部署*預測性分析模型*，但可以使用 Studio 來開發未包含預測性分析模型的實驗。比方說，實驗可能只是輸入資料、操作資料，然後輸出結果。如同預測性分析實驗，您可以將這個非預測性實驗部署為 Web 服務，但此程序更簡單，因為實驗不會對機器學習模型進行定型或計分。雖然這不是 Studio 的一般使用方式，我們將會在下面的討論包含它，如此我們可以提供 Studio 運作方式的完整說明。
 
@@ -57,7 +57,7 @@
 
 在此轉換程序中不會捨棄訓練實驗。程序完成時您在 Studio 中將有兩個索引標籤：一個用於訓練實驗，而一個用於預測性實驗。以此方式，在部署您的 Web 服務之前，您可以對訓練實驗進行變更，並重建預測性實驗。或者您可以儲存一份訓練實驗，以開始另一行的實驗。
 
->[AZURE.NOTE]按一下 [設定 Web 服務] 時，會開始自動化的程序，將訓練實驗轉換為預測性實驗，而且這在大部分的情況下可正常運作。但如果訓練實驗很複雜 (例如，聯結在一起的定型有多個路徑)，您可能會想要手動進行這項轉換。如需如何進行此轉換程序工作的詳細資料，請參閱[將機器學習服務訓練實驗轉換成預測性實驗](machine-learning-convert-training-experiment-to-scoring-experiment.md)。
+>[AZURE.NOTE] 按一下 [設定 Web 服務] 時，會開始自動化的程序，將訓練實驗轉換為預測性實驗，而且這在大部分的情況下可正常運作。但如果訓練實驗很複雜 (例如，聯結在一起的定型有多個路徑)，您可能會想要手動進行這項轉換。如需如何進行此轉換程序工作的詳細資料，請參閱[將機器學習服務訓練實驗轉換成預測性實驗](machine-learning-convert-training-experiment-to-scoring-experiment.md)。
 
 ### Web 服務
 
@@ -160,4 +160,4 @@
 
 -   [逐步解說：在 Azure Machine Learning 中為信用風險評估開發預測分析解決方案](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

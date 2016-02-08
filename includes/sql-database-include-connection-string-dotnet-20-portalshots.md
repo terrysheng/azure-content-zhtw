@@ -10,7 +10,7 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 ### 從 Azure 入口網站取得連接字串
 
 
-使用 [Azure Preview 入口網站](http://portal.azure.com/)來取得用戶端程式與 Azure SQL Database 進行互動的所需的連接字串：
+使用 [Azure Preview 入口網站](https://portal.azure.com/)來取得用戶端程式與 Azure SQL Database 進行互動的所需的連接字串：
 
 
 1. 按一下 [瀏覽] > [SQL 資料庫]。
@@ -55,4 +55,4 @@ includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

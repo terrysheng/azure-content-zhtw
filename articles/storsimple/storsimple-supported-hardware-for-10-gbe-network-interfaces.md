@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/30/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # 10 GbE 網路介面在 StorSimple 裝置上支援的硬體
@@ -21,7 +21,7 @@
 
 本文章提供補充使用 Microsoft Azure StorSimple 裝置的補充硬體之相關資訊。
 
-## 受支援裝置清單
+## 已經過 Microsoft 測試的裝置清單
 
 Microsoft 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以及交換器以確保其對裝置以最佳方式運作。(下表將會在測試新硬體時更新。)
 
@@ -48,7 +48,25 @@ Microsoft 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以
 | 2\. |Cisco|N3K-C3048-ZM-F|
 | 3\. |Cisco|N5K-C5596UP-FA|
 
-## Mellanox 所支援之裝置的清單  
+## 已經過實際測試的裝置清單
+
+本節包含已由 StorSimple 客戶實際部署成功的裝置清單。這些項目尚未經過 Microsoft 測試，但可能適用您的 StorSimple 裝置。
+ 
+| 參數 | 值 |
+|-----------------------------------|------------------------------------------|
+| 交換器樣式 | Juniper |
+| 交換器型號 | ex4550-32F |
+| 交換器作業系統版本 | JunOS 12.3R9.4 |
+| 刀鋒型號 | Ports onboard (PIC 0) |
+| 收發器樣式 | Juniper |
+| 收發器型號 | 零件編號 740-021308 <br></br> 零件編號 740-030658 |
+| 收發器韌體版本 | Rev 01 Version 0.0 (已回報) |
+| 纜線型號 | Duplex jumper LC/LC 50/125µ, OM3, LSZH |
+| StorSimple 型號 | 8600 |
+| StorSimple 軟體版本 | 6\.3.9600.17491 |
+
+
+## 已經過 OEM 提供者 (Mellanox) 測試的裝置清單  
 
 Mellanox 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以及交換器以確保它們能夠對 Mellanox 網路介面以最佳方式運作，例如 StorSimple 裝置上的 10 GbE 網路介面。
 
@@ -112,4 +130,4 @@ Mellanox 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以�
 
 [深入了解 StorSimple 硬體元件與狀態](storsimple-monitor-hardware-status.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

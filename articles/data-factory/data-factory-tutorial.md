@@ -27,7 +27,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司：遊戲主機、手持裝
 
 ## 準備開始教學課程
 1.	請參閱 [Azure Data Factory 簡介][adfintroduction]，以取得 Azure Data Factory 的概觀並了解最高階的概念。
-2.	您必須擁有 Azure 訂閱，才能執行本教學課程。如需取得訂用帳戶的詳細資訊，請參閱[購買選項](http://azure.microsoft.com/pricing/purchase-options/)、[成員優惠](http://azure.microsoft.com/pricing/member-offers/)或[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+2.	您必須擁有 Azure 訂閱，才能執行本教學課程。如需取得訂用帳戶的詳細資訊，請參閱[購買選項](https://azure.microsoft.com/pricing/purchase-options/)、[成員優惠](https://azure.microsoft.com/pricing/member-offers/)或[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 3.	您必須在電腦上下載並安裝 [Azure PowerShell][download-azure-powershell]。您將會執行 Data Factory Cmdlet 將範例資料和 Pig/Hive 指令碼上傳至 Blob 儲存體。 
 2.	(建議) 檢閱並練習[開始使用 Azure Data Factory][adfgetstarted] 文章中的教學課程，透過簡易教學課程來熟悉入口網站和 Cmdlet。
 3.	(建議) 檢閱並練習[搭配 Azure Data Factory 使用 Pig 和 Hive][usepigandhive] 文章中的逐步解說，經由逐步解說建立管線，將資料從內部部署資料來源移至 Azure Blob 存放區。
@@ -192,7 +192,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司：遊戲主機、手持裝
  
 ## <a name="MainStep3"></a> 步驟 3：建立連結服務
 
-> [AZURE.NOTE]本文使用 Azure 傳統入口網站 (尤其是 Data Factory 編輯器) 建立連結的服務、資料表和管線。如果您想要使用 Azure PowerShell 執行本教學課程，請參閱[使用 Azure PowerShell 執行教學課程][adftutorial-using-powershell]。
+> [AZURE.NOTE] 本文使用 Azure 傳統入口網站 (尤其是 Data Factory 編輯器) 建立連結的服務、資料表和管線。如果您想要使用 Azure PowerShell 執行本教學課程，請參閱[使用 Azure PowerShell 執行教學課程][adftutorial-using-powershell]。
 
 在此步驟中，您將建立下列連結的服務：
 
@@ -206,8 +206,6 @@ Contoso 是為多個平台建立遊戲的遊戲公司：遊戲主機、手持裝
 1.	在 **DATA FACTORY** 刀鋒視窗中，按一下 [**製作和部署**] 磚來啟動 Data Factory 的 [**編輯器**]。
 
 	![[製作和部署] 磚][image-author-deploy-tile]
-
-	如需 Data Factory 編輯器的詳細概觀，請參閱 [Data Factory 編輯器][data-factory-editor]主題。
 
 2.  在 [編輯器] 中，按一下工具列上的 [新增資料存放區] 按鈕，然後從下拉式功能表中選取 [Azure 儲存體]。在右窗格中，您應該會看到用來建立 Azure 儲存體連結服務的 JSON 範本。
 	
@@ -421,7 +419,6 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[data-factory-editor]: data-factory-editor.md
 
 [adfsamples]: data-factory-samples.md
 [adfgetstarted]: data-factory-get-started.md
@@ -486,4 +483,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

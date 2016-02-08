@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # 企業營運應用程式工作負載第 3 階段：設定 SQL Server 基礎結構
@@ -25,7 +25,7 @@
 
 您必須先完成這個階段才能前往[第 4 階段](virtual-machines-workload-high-availability-LOB-application-phase4.md)。如需所有階段的相關資訊，請參閱[在 Azure 中部署高可用性的企業營運系統應用程式](virtual-machines-workload-high-availability-LOB-application-overview.md)。
 
-> [AZURE.NOTE]這些指示會使用 Azure 映像資源庫中的 SQL Server 映像，並根據 SQL Server 授權的使用情況產生持續性費用。您也可在 Azure 中建立虛擬機器並安裝您自己的 SQL Server 授權，但您必須擁有軟體保證和授權機動性，才能在虛擬機器上使用 SQL Server 授權，包括 Azure 虛擬機器在內。如需在虛擬機器上安裝 SQL Server 的詳細資訊，請參閱[安裝 SQL Server](https://msdn.microsoft.com/library/bb500469.aspx)。
+> [AZURE.NOTE] 這些指示會使用 Azure 映像資源庫中的 SQL Server 映像，並根據 SQL Server 授權的使用情況產生持續性費用。您也可在 Azure 中建立虛擬機器並安裝您自己的 SQL Server 授權，但您必須擁有軟體保證和授權機動性，才能在虛擬機器上使用 SQL Server 授權，包括 Azure 虛擬機器在內。如需在虛擬機器上安裝 SQL Server 的詳細資訊，請參閱[安裝 SQL Server](https://msdn.microsoft.com/library/bb500469.aspx)。
 
 ## 在 Azure 中建立 SQL Server 叢集虛擬機器
 
@@ -41,7 +41,7 @@
 
 回想您在[第 2 階段](virtual-machines-workload-high-availability-LOB-application-phase2.md)中所定義的資料表 M，以及在[第 1 階段](virtual-machines-workload-high-availability-LOB-application-phase1.md)中所定義的資料表 V、S、ST 和 A。
 
-> [AZURE.NOTE]下列命令集使用 Azure PowerShell 1.0 版和更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
+> [AZURE.NOTE] 下列命令集使用 Azure PowerShell 1.0 版和更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
 
 當您提供所有適當值後，在 Azure PowerShell 提示中執行結果區塊。
 
@@ -113,7 +113,7 @@
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]因為這些虛擬機器用於內部網路應用程式，所以未獲指派公用 IP 位址或 DNS 網域名稱標籤，也不會公開到網際網路。不過，這也表示您無法從 Azure 入口網站連線到它們。當您檢視虛擬機器的屬性時，[連線] 按鈕將無法使用。使用「遠端桌面連線」配件或其他遠端桌面工具，來使用虛擬機器的私人 IP 位址或內部網路 DNS 名稱連接該虛擬機器。
+> [AZURE.NOTE] 因為這些虛擬機器用於內部網路應用程式，所以未獲指派公用 IP 位址或 DNS 網域名稱標籤，也不會公開到網際網路。不過，這也表示您無法從 Azure 入口網站連線到它們。當您檢視虛擬機器的屬性時，[連線] 按鈕將無法使用。使用「遠端桌面連線」配件或其他遠端桌面工具，來使用虛擬機器的私人 IP 位址或內部網路 DNS 名稱連接該虛擬機器。
 
 ## 設定執行 SQL Server 的電腦
 
@@ -246,7 +246,7 @@ SQL Server AlwaysOn 可用性群組依賴 Windows Server 的容錯移轉叢集 (
 2.	在 [ 開始] 畫面中輸入 **SQL Server Configuration**，然後按一下 [**SQL Server 組態管理員**]。
 3.	在左側窗格中按一下 [**SQL Server 服務**]。
 4.	在 [内容] 窗格中按兩下 [**SQL Server (MSSQLSERVER)**]。
-5.	在 [**SQL Server (MSSQLSERVER) 屬性**] 中按一下 [**AlwaysOn 高可用性**] 索引標籤、選取 [**啟用 AlwaysOn可用性群組**]，然後按一下 [**套用**]，並在出現提示時按一下 [**確定**]。先不要關閉屬性視窗。 
+5.	在 [SQL Server (MSSQLSERVER) 屬性] 中，依序按一下 [AlwaysOn 高可用性] 索引標籤及選取 [啟用 AlwaysOn可用性群組]，然後按一下 [套用]，並在出現提示時按一下 [確定]。先不要關閉屬性視窗。 
 6.	按一下 [虛擬-機器-管理-可用性] 索引標籤，然後在 [帳戶名稱] 中輸入 [Domain]**\\sqlservice**。在 [密碼] 和 [確認密碼] 中輸入 sqlservice 帳戶密碼，然後按一下 [確定]。
 7.	在訊息視窗中按一下 [**是**]，重新開啟 SQL Server 服務。
 8.	使用 sqladmin 帳戶登入次要 SQL Server 虛擬機器，並重覆步驟 2 至 7。 
@@ -259,4 +259,4 @@ SQL Server AlwaysOn 可用性群組依賴 Windows Server 的容錯移轉叢集 (
 
 - 依照[第 4 階段](virtual-machines-workload-high-availability-LOB-application-phase4.md)指示繼續此工作負載的設定。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -49,7 +49,7 @@ Site Recovery 可藉由協調及自動執行內部部署虛擬機器與實體伺
 
 關於客體作業系統：
 
-- 如果是複寫至次要資料中心，請參閱[支援的 Hyper-V VM 客體作業系統](https://technet.microsoft.com/library/mt126277.aspx)中，針對在 Hyper-V 主機伺服器上執行的 VM 支援的客體作業系統清單。
+- 如果是複寫至次要資料中心，請參閱 [Hyper-V VM 所支援的客體作業系統](https://technet.microsoft.com/library/mt126277.aspx)中的清單，以了解 Hyper-V 主機伺服器上所執行的 VM 支援哪些客體作業系統。
 - 如果是覆寫至 Azure，則 Site Recovery 支援 [Azure 支援的](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)所有客體作業系統。
 
 Site Recovery 可以保護在所支援之 VM 上執行的任何工作負載。
@@ -61,22 +61,22 @@ Site Recovery 可以保護在所支援之 VM 上執行的任何工作負載。
 
 ### 我可以使用 Site Recovery 來保護哪些工作負載？
 
-您可以使用 Site Recovery 來保護在虛擬機器或實體伺服器上執行的大多數工作負載。Site Recovery 可以協助您部署應用程式感知 DR。它除了與 Microsoft 應用程式 (包括 SharePoint、Exchange、Dynamics、SQL Server 及 Active Directory) 整合之外，也與居領導地位的廠商 (包括 Oracle、SAP、IBM 及 Red Hat) 密切合作。您可以針對每個特定的應用程式自訂災害復原解決方案。[深入了解](site-recovery-workload.md)工作負載保護。
+您可以使用 Site Recovery 來保護在虛擬機器或實體伺服器上執行的大多數工作負載。Site Recovery 可以協助您部署應用程式感知 DR。除了與 Microsoft 應用程式 (包括 SharePoint、Exchange、Dynamics、SQL Server 及 Active Directory) 整合之外，也與產業龍頭 (包括 Oracle、SAP、IBM 及 Red Hat) 密切合作。您可以針對每個特定的應用程式自訂災害復原解決方案。[深入了解](site-recovery-workload.md)工作負載保護。
 
 
 ### 一定需要 System Center VMM 伺服器才能保護 Hyper-V 虛擬機器嗎？ 
 
-否。如果是複寫至 Azure，不論 Hyper-V 主機伺服器是否位於 VMM 雲端，您都可以複寫該主機伺服器上的 Hyper-V VM。如果是複寫至次要資料中心，Hyper-V 主機伺服器就必須在 VMM 雲端中受到管理。[閱讀更多資訊](site-recovery-hyper-v-site-to-azure.md)
+否。如果是複寫至 Azure，不論 Hyper-V 主機伺服器是否位於 VMM 雲端，您都可以複寫該主機伺服器上的 Hyper-V VM。如果是複寫至次要資料中心，就必須在 VMM 雲端中管理 Hyper-V 主機伺服器。[閱讀更多資訊](site-recovery-hyper-v-site-to-azure.md)
 
 ### 如果我只有一部 VMM 伺服器，可以部署 Site Recovery 搭配 VMM 嗎？ 
 
-是。您可以將 VMM 伺服器上雲端中的 Hyper-V VM 複寫至 Azure，或是在同一部伺服器上的 VMM 雲端之間進行複寫。請注意，建議您針對內部部署至內部部署複寫，在主要與次要站台中要有 VMM 伺服器。[閱讀更多資訊](site-recovery-single-vmm.md)
+是。您可以將 VMM 伺服器上雲端中的 Hyper-V VM 複寫至 Azure，或是在同一部伺服器上的 VMM 雲端之間進行複寫。請注意，若要在內部部署的單位間進行複寫，建議您在主要與次要站台中具有 VMM 伺服器。[閱讀更多資訊](site-recovery-single-vmm.md)
 
 ### 我可以保護哪些實體伺服器？
 
 您可以將執行 Windows 或 Linux 的實體伺服器複寫至 Azure 或次要站台來進行保護。如需作業系統需求，請參閱[我需要什麼？](site-recovery-vmware-to-azure.md/#what-do-i-need)。不論是將實體伺服器複寫至 Azure 還是次要站台，都適用相同的限制。
 
-請注意，如果您的內部部署伺服器當機，實體伺服器將會在 Azure 中以 VM 的身分執行。目前並不支援容錯回復到內部部署實體伺服器，但您可以容錯回復到在 Hyper-V 或 VMware 上執行的虛擬機器。
+請注意，如果您的內部部署伺服器當機，實體伺服器將會在 Azure 中以 VM 的身分執行。容錯回復目前並不能以內部部署的實體伺服器作為目標，但您仍可將 Hyper-V 或 VMware 上所執行的虛擬機器作為目的地。
 
 ### 我可以保護哪些 VMware VM？
 
@@ -88,7 +88,7 @@ Site Recovery 可以保護在所支援之 VM 上執行的任何工作負載。
 
 ### 我可以將 Hyper-V 第 2 代虛擬機器複寫至 Azure 嗎？
 
-是。Site Recovery 會在容錯移轉時從第 2 代轉換成第 1 代。在容錯回復時，機器會轉換回第 2 代。[閱讀更多資訊](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。
+是。Site Recovery 會在容錯移轉時從第 2 代轉換成第 1 代。在容錯回復時，機器會轉換回第 2 代。[閱讀更多資訊](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。
 
 ### 如果複寫至 Azure，我要如何支付 Azure VM 費用？ 
 
@@ -96,7 +96,7 @@ Site Recovery 可以保護在所支援之 VM 上執行的任何工作負載。
 
 ### 我可以使用 Site Recovery 來管理分公司的災害復原嗎？
 
-是。當您使用 Site Recovery 來協調您分公司中的複寫與容錯移轉時，會在一個集中位置為您提供您所有分公司工作負載的整合協調與檢視。您不需要造訪分公司，就可以從總公司輕鬆執行所有分公司的容錯移轉及管理災害復原。
+是。當您使用 Site Recovery 來協調分公司中的複寫與容錯移轉時，會為您集中提供所有分公司工作負載的整合協調與檢視。您不需要造訪分公司，就可以從總公司輕鬆執行所有分公司的容錯移轉及管理災害復原。
 
 ### 有可以用來將 Site Recovery 工作流程自動化的 SDK 嗎？
 
@@ -109,11 +109,11 @@ Site Recovery 可以保護在所支援之 VM 上執行的任何工作負載。
 
 否，Site Recovery 不會攔截您的應用程式資料，也不會擁有您虛擬機器或實體伺服器上執行哪些項目的任何相關資訊。
 
-複寫資料會在 Hyper-V 主機、 VMware Hypervisor 或您主要和次要資料中心內的實體伺服器之間進行交換，或是在您資料中心與 Azure 儲存體之間進行交換。Site Recovery 並不具有攔截該資料的能力。只有協調複寫與容錯移轉所需的中繼資料會被傳送給 Site Recovery 服務。
+複寫資料會在 Hyper-V 主機、VMware Hypervisor 或您主要和次要資料中心內的實體伺服器之間進行交換，或是在您資料中心與 Azure 儲存體之間進行交換。Site Recovery 並不具有攔截該資料的能力。只有協調複寫與容錯移轉所需的中繼資料會被傳送給 Site Recovery 服務。
 
 Site Recovery 已經過 ISO 27001:2005 認證，並且正在完成其 HIPAA、DPA 及 FedRAMP JAB 評定程序。
 
-### 為了遵循法規，甚至是來自我們內部部署環境的中繼資料也必須保留在相同的地理區域內。Site Recovery 可以幫助我們嗎？
+### 為了遵循法規，我們甚至連內部部署環境中的中繼資料也必須保留在相同的地理區域內。Site Recovery 可以幫助我們嗎？
 
 是。當您在某個區域中建立 Site Recovery 保存庫時，我們會確保我們啟用及協調複寫與容錯移轉時所需的一切中繼資料都會保留在該區域地理界限內。
 
@@ -129,28 +129,28 @@ Site Recovery 已經過 ISO 27001:2005 認證，並且正在完成其 HIPAA、DP
 
 您將需要一個搭配[標準異地備援儲存體](../storage/storage-redundancy.md/#geo-redundant-storage)的儲存體帳戶。只有當您要將 VMware 虛擬機器或 Windows/Linux 實體伺服器複寫至 Azure 時，才支援使用[進階儲存體帳戶](../storage/storage-premium-storage-preview-portal/)。
 
-對標準本機備援儲存體的支援是在待處理項目中，請在[意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support)中傳送有關這項功能的意見反應。
+對標準本機備援儲存體的支援是在待處理項目中，請在[意見反應論壇](https://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support/)中傳送有關這項功能的意見反應。
 
 ### 我可以多久複寫一次資料？
 - **Hyper-V：**可以每隔 30 秒、5 分鐘或 15 分鐘複寫一次 Hyper-V VM。如果您已設定 SAN 複寫，則複寫將會是同步的。
 - **VMware 與實體伺服器：**複寫頻率在此處並不相關。複寫將會是連續的。 
 
 ### 我可以將複寫從現有的復原網站延伸到另一個第三網站嗎？
-不支援延伸的或鏈結的複寫。請在[意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)中傳送有關這項功能的意見反應。
+不支援延伸的或鏈結的複寫。請在[意見反應論壇](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication/)中傳送有關這項功能的意見反應。
 
 
 ### 我可以在第一次複寫至 Azure 時進行離線複寫嗎？ 
 
-不支援此做法。請在[意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)中傳送有關這項功能的意見反應給我們。
+不支援此做法。請在[意見反應論壇](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from/)中傳送有關這項功能的意見反應給我們。
 
 
 ### 我可以從複寫中排除特定的磁碟嗎？
 
-不支援此做法。請在[意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication)中傳送有關這項功能的意見反應給我們。
+不支援此做法。請在[意見反應論壇](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication/)中傳送有關這項功能的意見反應給我們。
 
 ### 我可以使用動態磁碟來複寫虛擬機器嗎？
 
-複寫 Hyper-V 虛擬機器時，支援使用動態磁碟。複寫 VMware 虛擬機器或實體伺服器時，則不支援。請在[意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery)中傳送有關這項功能的意見反應給我們。
+複寫 Hyper-V 虛擬機器時，支援使用動態磁碟。複寫 VMware 虛擬機器或實體伺服器時，則不支援。請在[意見反應論壇](https://feedback.azure.com/forums/256299-site-recovery/)中傳送有關這項功能的意見反應給我們。
 
 ### 如果容錯移轉到 Azure，在容錯移轉之後，我要如何存取存取 Azure 虛擬機器？ 
 
@@ -223,4 +223,4 @@ Azure 是針對服務復原能力而設計的。Site Recovery 已經設計成可
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

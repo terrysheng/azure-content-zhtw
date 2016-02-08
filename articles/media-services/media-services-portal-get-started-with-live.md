@@ -64,7 +64,7 @@
 
 配置任何新的單元需要大約 20 分鐘的時間才能完成。
 
->[AZURE.NOTE]目前，如果串流單元從任何正值到無，可能會停用串流長達一小時。
+>[AZURE.NOTE] 目前，如果串流單元從任何正值到無，可能會停用串流長達一小時。
 >
 > 計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱＜[媒體服務定價詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)＞。
 
@@ -92,11 +92,11 @@
 
 ## 設定即時編碼器並內嵌即時串流
 
->[AZURE.NOTE]此步驟需要上一個步驟中所述的通道內嵌 URL。
+>[AZURE.NOTE] 此步驟需要上一個步驟中所述的通道內嵌 URL。
 
-如需如何設定 Wirecast 以及開始內嵌串流的詳細資訊，請參閱 [Wirecast 組態](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)。
+如需如何設定 Wirecast 以及開始內嵌串流的詳細資訊，請參閱 [Wirecast 組態](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)。
 
->[AZURE.NOTE]如果您因任何原因停止編碼器，而需要重新啟動，則您應該按一下 Azure 傳統入口網站中的 [重設] 命令，先重設通道。
+>[AZURE.NOTE] 如果您因任何原因停止編碼器，而需要重新啟動，則您應該按一下 Azure 傳統入口網站中的 [重設] 命令，先重設通道。
 
 
 ## 建立和管理程式
@@ -205,11 +205,11 @@
 
 
 ## 其他資源
-- [透過 Azure 傳統入口網站開始使用即時串流](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
+- [透過 Azure 傳統入口網站開始使用即時串流](https://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
 
 <!-- URLs. -->
 [Azure Classic Portal]: http://manage.windowsazure.com/
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

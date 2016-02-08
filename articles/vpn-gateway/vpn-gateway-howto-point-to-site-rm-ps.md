@@ -37,7 +37,7 @@
 - 名稱：**TestVNet**，使用位址空間 **192.168.0.0/16** 與 **10.254.0.0/16**。請注意，您可以針對 VNet 使用一個以上的位址空間。
 - 子網路名稱：**FrontEnd**，使用 **192.168.1.0/24**
 - 子網路名稱：**BackEnd**，使用 **10.254.1.0/24**
-- 子網路名稱：**GatewaySubnet**，使用 **192.168.200.0/24**。子網路名稱 GatewaySubnet 是閘道能夠運作的必要項目。 
+- 子網路名稱：**GatewaySubnet**，使用 **192.168.200.0/24**。子網路名稱 *GatewaySubnet* 是閘道能夠運作的必要項目。 
 - VPN 用戶端位址集區：**172.16.201.0/24**。使用這個點對站連線連線到 VNet 的 VPN 用戶端會接收來自這個集區的 IP 位址。
 - 訂用帳戶：如果您有一個以上的訂用帳戶，請確認您使用正確的訂用帳戶。
 - 資源群組：**TestRG**
@@ -50,7 +50,7 @@
 
 ## 開始之前
 
-確認您擁有 Azure 訂用帳戶，並已安裝此組態所需的 Azure PowerShell Cmdlet (1.0.2 或更新版本)。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+確認您擁有 Azure 訂用帳戶，並已安裝此組態所需的 Azure PowerShell Cmdlet (1.0.2 或更新版本)。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 	
 **關於安裝 PowerShell Cmdlet 模組**
 
@@ -94,7 +94,7 @@
 
 		New-AzureRmResourceGroup -Name $RG -Location $Location
 
-6. 為虛擬網路建立子網路設定，將其命名為 FrontEnd、BackEnd 和 GatewaySubnet。請注意，這些前置詞必須是上面宣告的 VNet 位址空間的一部分。
+6. 為虛擬網路建立子網路設定，將其命名為 *FrontEnd*、*BackEnd* 和 *GatewaySubnet*。請注意，這些前置詞必須是上面宣告的 VNet 位址空間的一部分。
 
 		$fesub = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
 		$besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
@@ -114,7 +114,7 @@
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. 將根憑證 .cer 檔案上傳至 Azure。您可以使用來自您的企業憑證環境的根憑證，或者您可以使用自我簽署的根憑證。您最多可上傳 20 個根憑證。如需使用 makecert 建立自我簽署根憑證的相關指示，請參閱 [Working with self-signed root certificates for Point-to-Site configurations (使用點對站設定的自我簽署根憑證)](vpn-gateway-certificates-point-to-site.md)。請注意，.cer 檔案不應該包含根憑證的私密金鑰。
+10. 將根憑證 .cer 檔案上傳至 Azure。您可以使用來自您的企業憑證環境的根憑證，或者您可以使用自我簽署的根憑證。您最多可上傳 20 個根憑證。如需使用 *makecert* 建立自我簽署根憑證的相關指示，請參閱 [Working with self-signed root certificates for Point-to-Site configurations (使用點對站設定的自我簽署根憑證)](vpn-gateway-certificates-point-to-site.md)。請注意，.cer 檔案不應該包含根憑證的私密金鑰。
 	
 	以下是其外觀的範例。上傳公開憑證資料的具挑戰性部分是您必須複製並貼上整個字串，且不含空格。否則，上傳將無法運作。您將需要針對此步驟使用您自己的憑證 .cer 檔案。請勿嘗試從下方複製並貼上範例。
 
@@ -147,7 +147,7 @@
 
 ## 確認您的連接
 
-1. 若要驗證您的 VPN 連線為作用中狀態，請開啟提升權限的命令提示字元，並執行 ipconfig/all。
+1. 若要驗證您的 VPN 連線為作用中狀態，請開啟提升權限的命令提示字元，並執行 *ipconfig/all*。
 
 2. 檢視結果。請注意，您接收到的 IP 位址是您在組態中指定的點對站 VPN 用戶端位址集區中的其中一個位址。結果應該類似下面的內容：
     
@@ -231,4 +231,4 @@
 
 您可以將虛擬機器新增至虛擬網路。請參閱[建立網站的虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)以取得相關步驟。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

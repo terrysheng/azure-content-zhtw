@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/10/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # 如何使用 CLI 管理 DNS 記錄
@@ -24,7 +24,7 @@
 
 本指南示範如何管理 DNS 區域的記錄集和記錄。
 
->[AZURE.NOTE]Azure DNS 是僅能以 Azure 資源管理員運作的服務。它沒有 ASM API。因此您必須確認設定 Azure CLI 以使用資源管理員模式，並使用 azure config mode arm 命令。
+>[AZURE.NOTE] Azure DNS 是僅能以 Azure 資源管理員運作的服務。它沒有 ASM API。因此您必須確認設定 Azure CLI 以使用資源管理員模式，並使用 azure config mode arm 命令。
 
 >如果您看到「錯誤：'dns' 不是 azure 命令」，可能是因為您正在 ASM 模式中使用 Azure CLI，而非資源管理員模式中。
 
@@ -34,24 +34,22 @@
 
 請使用 `azure network dns record-set create` 命令建立記錄集。您必須指定記錄集名稱、區域、存留時間 (TTL) 和記錄類型。
 
->[AZURE.NOTE]記錄集名稱必須是相對名稱，不含區域名稱。比方說，區域 'contoso.com' 中的記錄集名稱 'www' 會建立具有完整名稱 'www.contoso.com' 的記錄集。
+記錄集名稱必須是相對名稱，不含區域名稱。比方說，區域 'contoso.com' 中的記錄集名稱 'www' 會建立具有完整名稱 'www.contoso.com' 的記錄集。
 
->針對位於區域頂點的記錄集，請使用 "@"做為記錄集名稱 (包括引號)。記錄集的完整名稱就等於區域名稱，在此案例中為 "contoso.com"。
+針對位於區域頂點的記錄集，請使用 "@"做為記錄集名稱 (包括引號)。記錄集的完整名稱就等於區域名稱，在此案例中為 "contoso.com"。
 
 Azure DNS 支援下列記錄類型： A、AAAA、CNAME、MX、NS、SOA、SRV、TXT。每個區域會自動建立 SOA 類型的記錄集，無法另外建立。請注意，[DNS 標準已棄用 SPF 記錄類型，改用 TXT 記錄類型建立 SPF 記錄](http://tools.ietf.org/html/rfc7208#section-3.1)。
 
 	azure network dns record-set create myresourcegroup contoso.com  www  A --ttl 300
 
 
->[AZURE.IMPORTANT]CNAME 記錄集不能與其他具有相同名稱的記錄集共存。例如，您無法同時建立具有相對名稱 'www' 的 CNAME 和具有相對名稱 'www' 的 A 記錄。因為區域頂點 (名稱 = '@') 一定會包含建立區域時所建立的 NS 和 SOA 記錄集，這表示您無法在區域頂點建立 CNAME 記錄集。這些條件約束源自於 DNS 標準，並不是 Azure DNS 的限制。
+>[AZURE.IMPORTANT] CNAME 記錄集不能與其他具有相同名稱的記錄集共存。例如，您無法同時建立具有相對名稱 'www' 的 CNAME 和具有相對名稱 'www' 的 A 記錄。因為區域頂點 (名稱 = '@') 一定會包含建立區域時所建立的 NS 和 SOA 記錄集，這表示您無法在區域頂點建立 CNAME 記錄集。這些條件約束源自於 DNS 標準，並不是 Azure DNS 的限制。
 
 ### 萬用字元記錄
 
-Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_record)。會針對具有相符名稱的任何查詢傳回 (除非有來自非萬用字元記錄集的更接近相符項目)。
+Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_record)。會針對具有相符名稱的任何查詢傳回 (除非有來自非萬用字元記錄集的更接近相符項目)。若要建立萬用字元記錄集，請使用記錄集名稱 "*"，或其第一個標籤為 "*" 的名稱，例如 "*.foo"。
 
->[AZURE.NOTE]若要建立萬用字元記錄集，請使用記錄集名稱 "\*"，或其第一個標籤為 "\*" 的名稱，例如 "\*.foo"。
-
->針對所有記錄類型支援 NS 和 SOA 以外的所有萬用字元記錄集。
+針對所有記錄類型支援 NS 和 SOA 以外的所有萬用字元記錄集。
 
 ## 取得記錄集
 若要擷取現有的記錄集，請使用 `azure network dns record-set show`，指定資源群組、區域名稱、記錄集相對名稱以及記錄類型：
@@ -91,7 +89,7 @@ Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_
 	
 	azure network dns record-set create myresourcegroup  contoso.com "test-a"  A --ttl 300
 
->[AZURE.NOTE]若未定義 --ttl 參數，預設值為 4 (以秒為單位)。
+>[AZURE.NOTE] 若未定義 --ttl 參數，預設值為 4 (以秒為單位)。
 
 
 建立 A 記錄集之後，使用 `azure network dns record-set add-record` 將 IPv4 位址加入記錄集：
@@ -110,7 +108,7 @@ Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_
 	
 	azure network dns record-set add-record  myresourcegroup contoso.com  test-cname CNAME -c "www.contoso.com"
 
->[AZURE.NOTE]CNAME 記錄只允許一個單一字串值。
+>[AZURE.NOTE] CNAME 記錄只允許一個單一字串值。
 
 ### 建立含有單一記錄的 MX 記錄集
 
@@ -229,7 +227,7 @@ Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_
 ## 刪除記錄集
 您可以使用 Remove-AzureDnsRecordSet Cmdlet 刪除記錄集。
 
->[AZURE.NOTE]您無法在建立區域時所自動建立的區域頂點 (名稱 = ‘@’) 刪除 SOA 和 NS 記錄集。刪除區域時會自動刪除它們。
+>[AZURE.NOTE] 您無法在建立區域時所自動建立的區域頂點 (名稱 = ‘@’) 刪除 SOA 和 NS 記錄集。刪除區域時會自動刪除它們。
 
 在下列範例中，A 記錄集 "test-a" 將會從 contoso.com DNS 區域移除：
 
@@ -238,9 +236,10 @@ Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_
 選擇性的 ’-q’ 參數可用來隱藏確認提示。
 
 
-##另請參閱
+## 後續步驟
 
-[將網域委派給 Azure DNS](dns-domain-delegation.md)<BR> [ 管理 DNS 區域](dns-operations-dnszones-cli.md)<BR> [ 使用 .NET SDK 自動化作業](dns-sdk.md)
+建立 DNS 區域和記錄之後，您可以[將網域委派給 Azure DNS](dns-domain-delegation.md)。<BR> 了解如何使用 CLI [管理 DNS 區域](dns-operations-dnszones-cli.md)。<BR> 您也可以[使用 .NET SDK 自動化作業](dns-sdk.md)將 Azure DNS 作業以程式碼編寫到應用程式中。
+
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

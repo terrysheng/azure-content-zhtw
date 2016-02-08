@@ -84,7 +84,7 @@
 ### 開始之前
 
 
-- 請確認您有 Azure 訂用帳戶。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+- 請確認您有 Azure 訂用帳戶。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 - 安裝 PowerShell 模組。您將需要最新版的 Azure 資源管理員 PowerShell Cmdlet，才能設定您的連接。[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
 
@@ -262,4 +262,4 @@ VNet2 的值：
 
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。請參閱[建立虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)以取得相關步驟。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

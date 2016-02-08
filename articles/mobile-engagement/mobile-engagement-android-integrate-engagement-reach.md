@@ -18,7 +18,7 @@
 
 #如何在 Android 上整合 Engagement Reach
 
-> [AZURE.IMPORTANT]您必須遵循＜如何在 Android 上整合＞文件中所述的整合程序，才能接著遵循本指南。
+> [AZURE.IMPORTANT] 您必須遵循＜如何在 Android 上整合＞文件中所述的整合程序，才能接著遵循本指南。
 
 ##標準整合
 
@@ -87,7 +87,7 @@ Reach SDK 需要「Android 支援程式庫 (v4)」。
 
 			<meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
 
-> [AZURE.IMPORTANT]如果您打算在建立 Reach 活動時使用系統通知，則「務必」使用此區段。Android 禁止顯示沒有圖示的系統通知。因此如果您省略此區段，使用者將無法接收系統通知。
+> [AZURE.IMPORTANT] 如果您打算在建立 Reach 活動時使用系統通知，則「務必」使用此區段。Android 禁止顯示沒有圖示的系統通知。因此如果您省略此區段，使用者將無法接收系統通知。
 
 -   建立活動時，當系統通知使用大圖片，若缺少下列權限便需先行加入 (在 `</application>` 標記之後)：
 
@@ -193,7 +193,7 @@ Reach SDK 需要「Android 支援程式庫 (v4)」。
 
 若要修改通知重疊的外觀，您只需依照需求修改檔案 `engagement_notification_area.xml` 即可。
 
-> [AZURE.NOTE]檔案 `engagement_notification_overlay.xml` 是用來建立通知重疊的檔案，其中也包含檔案 `engagement_notification_area.xml`。您也可以自訂以配合您的需求 (例如在覆疊內定位通知區域)。
+> [AZURE.NOTE] 檔案 `engagement_notification_overlay.xml` 是用來建立通知重疊的檔案，其中也包含檔案 `engagement_notification_area.xml`。您也可以自訂以配合您的需求 (例如在覆疊內定位通知區域)。
 
 ##### 包含通知配置做為活動配置的一部分
 
@@ -233,7 +233,7 @@ Reach SDK 需要「Android 支援程式庫 (v4)」。
 
 Engagement Reach SDK 會自動偵測到通知配置已包含在此活動中，且不會加入此活動的覆疊。
 
-> [AZURE.TIP]如果您在應用程式中使用 ListActivity，可見的 Reach 覆疊會使您無法再對清單檢視中的被按項目做出反應。這是已知的問題。若要暫時解決這個問題，我們建議您在自己的清單活動配置中內嵌通知配置，就像在先前範例那樣。
+> [AZURE.TIP] 如果您在應用程式中使用 ListActivity，可見的 Reach 覆疊會使您無法再對清單檢視中的被按項目做出反應。這是已知的問題。若要暫時解決這個問題，我們建議您在自己的清單活動配置中內嵌通知配置，就像在先前範例那樣。
 
 ##### 停用關於活動的應用程式通知
 
@@ -249,7 +249,7 @@ Engagement Reach SDK 會自動偵測到通知配置已包含在此活動中，�
 
 若要登記通知的類別處理常式，您需要在應用程式初始化時加入呼叫。
 
-> [AZURE.IMPORTANT]請閱讀＜如何在 Android 上整合 Engagement＞主題中關於 android:process attribute <android-sdk-engagement-process> 的警告，然後再繼續。
+> [AZURE.IMPORTANT] 請閱讀＜如何在 Android 上整合 Engagement＞主題中關於 android:process attribute <android-sdk-engagement-process> 的警告，然後再繼續。
 
 下列範例假設您已知悉先前的警告，並使用 `EngagementApplication` 的子類別：
 
@@ -499,7 +499,7 @@ Engagement Reach SDK 會自動偵測到通知配置已包含在此活動中，�
 -   若為系統通知，您已覆寫 `onNotificationPrepared` 並修改 `Notification` 物件中的 `contentIntent` 或 `deleteIntent`。
 -   若為應用程式內通知，您已覆寫 `prepareInAppArea`，請務必至少將 `actionNotification` 對應到其中一個 U.I 控制項。
 
-> [AZURE.NOTE]如果 `handleNotification` 擲回例外狀況，會刪除內容然後呼叫 `dropContent`。這報告在統計資料中，並且立即可以處理接下來的活動。
+> [AZURE.NOTE] 如果 `handleNotification` 擲回例外狀況，會刪除內容然後呼叫 `dropContent`。這報告在統計資料中，並且立即可以處理接下來的活動。
 
 ### 宣告和輪詢
 
@@ -640,13 +640,9 @@ Reach SDK 使用意圖系統來解析特定類別的正確活動，如果解析�
 
 如您所見，如果您呼叫 `actionContent(this)` 然後完成活動，則可以安全地呼叫 `exitContent(this)` 而不會有任何影響。
 
-##測試
-
-現在請閱讀＜如何在 Android 上測試 Engagement 整合＞，確認您的整合。
-
 [這裡]: http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

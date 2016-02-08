@@ -34,7 +34,7 @@
 > [AZURE.NOTE]
 >
 - 某些進階的異常和資源使用情況報告僅適用於您啟用 [Azure Active Directory Premium](active-directory-get-started-premium.md) 時。進階報告可協助您改善存取安全性、回應潛在威脅，以及存取裝置存取與應用程式使用情況的分析資料。
-- Azure Active Directory Premium 和 Basic 版本適用於使用 Azure Active Directory 全球執行個體的中國客戶。由 21Vianet 在中國提供的 Microsoft Azure 服務目前不支援 Azure Active Directory Premium 和 Basic 版本。如需詳細資訊，請透過 [Azure Active Directory 論壇](http://feedback.azure.com/forums/169401-azure-active-directory)與我們連絡。
+- Azure Active Directory Premium 和 Basic 版本適用於使用 Azure Active Directory 全球執行個體的中國客戶。由 21Vianet 在中國提供的 Microsoft Azure 服務目前不支援 Azure Active Directory Premium 和 Basic 版本。如需詳細資訊，請透過 [Azure Active Directory 論壇](https://feedback.azure.com/forums/169401-azure-active-directory/)與我們連絡。
 
 ## 報告
 
@@ -221,7 +221,7 @@
 | ----------------------								| ---------		|
 | 對[存取面板](http://myapps.microsoft.com/)進行的登入 | 是 |
 | 對 [Azure 管理入口網站](https://manage.windowsazure.com/)進行的登入 | 是 |
-| 對 [Microsoft Azure 入口網站](http://portal.azure.com/)進行的登入 | 是 |
+| 對 [Microsoft Azure 入口網站](https://portal.azure.com/)進行的登入 | 是 |
 | 對 [Office 365 入口網站](http://portal.office.com/)進行的登入 | 是 |
 | 對原生應用程式進行的登入，例如 Outlook (請參閱底下的例外狀況) | 是 |
 | 透過存取面板 (例如 Salesforce) 對同盟/佈建應用程式進行的登入 | 是 |
@@ -253,7 +253,7 @@
 1. 在 Azure 管理入口網站中，按一下 [**Active Directory**]，按一下您組織的目錄名稱，後按一下 [**報告**]。
 2. 在 [報告] 頁面上，按一下您要檢視和/或下載的報告。
 
-    > [AZURE.NOTE]如果這是您第一次使用 Azure Active Directory 的報告功能，您會看到「選擇加入」的訊息。如果您同意，請按一下核取記號圖示繼續進行。
+    > [AZURE.NOTE] 如果這是您第一次使用 Azure Active Directory 的報告功能，您會看到「選擇加入」的訊息。如果您同意，請按一下核取記號圖示繼續進行。
 
 3. 按一下 [間隔] 旁邊的下拉式功能表，然後選取在產生此報告時所應使用的其中一個時間範圍：
     - 過去 24 小時
@@ -278,4 +278,4 @@
 - [開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

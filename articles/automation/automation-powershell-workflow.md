@@ -129,7 +129,7 @@ InlineScript 使用如下所示的語法。
 		$ServiceName = "MyService"
 	
 		$Output = InlineScript {
-			$Service = Get-Service -Name $Using:MyService
+			$Service = Get-Service -Name $Using:ServiceName
 			$Service.Stop()
 			$Service
 		}
@@ -206,7 +206,7 @@ Windows PowerShell 工作流程的優點之一是可平行執行一組命令，�
 		Write-Output "All files copied."
 	}
 
-> [AZURE.NOTE]我們不建議並行執行子 Runbook，因為這可能會提供不可靠的結果。有時候子 Runbook 的輸出不會出現，並且一個子 Runbook 中的設定會影響其他平行子 Runbook
+> [AZURE.NOTE]  我們不建議並行執行子 Runbook，因為這可能會提供不可靠的結果。有時候子 Runbook 的輸出不會出現，並且一個子 Runbook 中的設定會影響其他平行子 Runbook
 
 
 ## 檢查點
@@ -249,4 +249,4 @@ Windows PowerShell 工作流程的優點之一是可平行執行一組命令，�
 
 - [開始使用 Windows PowerShell 工作流程](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

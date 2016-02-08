@@ -71,7 +71,7 @@ Mobile Services SDK for Android 支援 Android 2.2 版或更新版本，但建�
 
 本節將探討 Quickstart 應用程式中的一些程式碼。如果您未完成 Quickstart，您必須將此程式碼加入至您的應用程式。
 
-> [AZURE.NOTE]"MobileServices" 字串經常出現在程式碼中：程式碼會實際參考 Mobile Apps SDK，這只是過去的暫時延續。
+> [AZURE.NOTE] "MobileServices" 字串經常出現在程式碼中：程式碼會實際參考 Mobile Apps SDK，這只是過去的暫時延續。
 
 
 ###<a name="data-object"></a>定義用戶端資料類別
@@ -125,7 +125,7 @@ Mobile Services SDK for Android 支援 Android 2.2 版或更新版本，但建�
 				"MobileAppUrl", // Replace with the above Site URL
 				this)
 
-在上述程式碼中，以行動應用程式後端的 URL 取代 `MobileAppUrl`，這可在行動應用程式後端的刀鋒視窗中的 [Azure 入口網站](https://portal.azure.com)中找到。若要編譯這一行程式碼，您也需要加入下列 **import** 陳述式：
+在上述程式碼中，以行動應用程式後端的 URL 取代 `MobileAppUrl`，這可在行動應用程式後端的刀鋒視窗中的 [Azure 入口網站](https://portal.azure.com/)中找到。若要編譯這一行程式碼，您也需要加入下列 **import** 陳述式：
 
 	import com.microsoft.windowsazure.mobileservices.*;
 
@@ -602,6 +602,85 @@ App Service 支援使用各種外部識別提供者 (Facebook、Google、Microso
 
 當您嘗試使用到期的權杖時，將會出現 *401 未授權*的回應。使用者將必須登入，以取得新權杖。您可以使用篩選器攔截對行動服務的呼叫和行動服務的回應，如此，您即無須在呼叫行動服務的應用程式中逐一撰寫處理此狀況的程式碼。篩選器程式碼將會測試 401 的回應，並視需要觸發登入程序，然後繼續執行產生 401 的要求。您也可以檢查權杖以查看到期日。
 
+
+## <a name="adal"></a>做法：使用 Active Directory Authentication Library 驗證使用者
+
+您可以使用 Active Directory Authentication Library (ADAL)，利用 Azure Active Directory 將使用者登入應用程式。這樣通常會比使用 `loginAsync()` 方法還適合，因為它提供更原生的 UX 風格，並允許其他自訂。
+
+1. 遵循[如何設定 Active Directory 登入的 App Service](app-service-mobile-how-to-configure-active-directory-authentication.md) 教學課程，針對 AAD 登入設定您的行動應用程式後端。請務必完成註冊原生用戶端應用程式的選擇性步驟。
+
+2. 安裝 ADAL，方法是修改您的 build.gradle 檔案以納入下列內容：
+
+	repositories { mavenCentral() flatDir { dirs 'libs' } maven { url "YourLocalMavenRepoPath\\.m2\\repository" } } packagingOptions { exclude 'META-INF/MSFTSIG.RSA' exclude 'META-INF/MSFTSIG.SF' } dependencies { compile fileTree(dir: 'libs', include: ['*.jar']) compile('com.microsoft.aad:adal:1.1.1') { exclude group: 'com.android.support' } // Recent version is 1.1.1 compile 'com.android.support:support-v4:23.0.0' }
+
+3. 將下列程式碼新增至您的應用程式，進行下列取代：
+
+* 將 **INSERT-AUTHORITY-HERE** 取代為您佈建應用程式的租用戶名稱。格式應該是 https://login.windows.net/contoso.onmicrosoft.com。此值可從 [Azure 傳統入口網站] 複製到 Azure Active Directory 的 [網域] 索引標籤以外。
+
+* 將 **INSERT-RESOURCE-ID-HERE** 取代為您的行動應用程式後端的用戶端識別碼。您可以從入口網站中 [Azure Active Directory 設定] 底下的 [進階] 索引標籤取得。
+
+* 將 **INSERT-CLIENT-ID-HERE** 取代為您從原生用戶端應用程式中複製的用戶端識別碼。
+
+* 使用 HTTPS 配置，將 **INSERT-REDIRECT-URI-HERE** 取代為您的網站的 _/.auth/login/done_ 端點。此值應與 \__https://contoso.azurewebsites.net/.auth/login/done_ 類似。
+
+		private AuthenticationContext mContext;
+		private void authenticate() {
+		String authority = "INSERT-AUTHORITY-HERE";
+		String resourceId = "INSERT-RESOURCE-ID-HERE";
+		String clientId = "INSERT-CLIENT-ID-HERE";
+		String redirectUri = "INSERT-REDIRECT-URI-HERE";
+		try {
+		    mContext = new AuthenticationContext(this, authority, true);
+		    mContext.acquireToken(this, resourceId, clientId, redirectUri, PromptBehavior.Auto, "", callback);
+		} catch (Exception exc) {
+		    exc.printStackTrace();
+		}
+		}
+		private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
+		@Override
+		public void onError(Exception exc) {
+		    if (exc instanceof AuthenticationException) {
+		        Log.d(TAG, "Cancelled");
+		    } else {
+		        Log.d(TAG, "Authentication error:" + exc.getMessage());
+		    }
+		}
+		@Override
+			public void onSuccess(AuthenticationResult result) {
+		    if (result == null || result.getAccessToken() == null
+		            || result.getAccessToken().isEmpty()) {
+		        Log.d(TAG, "Token is empty");
+		    } else {
+		        try {
+		            JSONObject payload = new JSONObject();
+		            payload.put("access_token", result.getAccessToken());
+		            ListenableFuture<MobileServiceUser> mLogin = mClient.login("aad", payload.toString());
+		            Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+		                @Override
+		                public void onFailure(Throwable exc) {
+		                    exc.printStackTrace();
+		                }
+		                @Override
+		                public void onSuccess(MobileServiceUser user) {
+		            		Log.d(TAG, "Login Complete");
+		                }
+		            });
+		        }
+		        catch (Exception exc){
+		            Log.d(TAG, "Authentication error:" + exc.getMessage());
+		        }
+		    }
+		}
+		};
+		@Override
+		protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (mContext != null) {
+		    mContext.onActivityResult(requestCode, resultCode, data);
+		}
+		}
+
+
 ## 如何：將推播通知新增至您的應用程式
 
 您可以[閱讀概觀](notification-hubs-overview.md/#integration-with-app-service-mobile-apps)，其描述 Microsoft Azure 通知中樞如何支援各種推播通知。
@@ -679,7 +758,7 @@ Quickstart 教學課程包含可實作離線同步處理的程式碼。尋找前
 	@com.google.gson.annotations.SerializedName("duration")
 	private String mDuration;
 
-### <a name="table"></a>如何：在用戶端與後端之間對應不同的資料表名稱
+### <a name="table"></a>做法：在用戶端與後端之間對應不同的資料表名稱
 
 要將用戶端資料表名稱對應至不同的行動服務資料表名稱並不難，只要使用 <a href="http://go.microsoft.com/fwlink/p/?LinkId=296840" target="_blank">getTable()</a> 函數的其中一項覆寫即可，如下列程式碼所示。
 
@@ -762,4 +841,4 @@ Quickstart 教學課程包含可實作離線同步處理的程式碼。尋找前
 [Azure 入口網站]: https://portal.azure.com
 [開始使用驗證]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 # 開始使用 PowerShell 在資源管理員中建立網際網路面向的負載平衡器
@@ -50,35 +50,32 @@
 
 ## 設定 PowerShell 以使用資源管理員
 
-請確定您的 PowerShell 的 Azure 模組具有最新的實際執行版本，以及正確設定 PowerShell 以存取您的 Azure 訂用帳戶。
+請確定您擁有適用於 PowerShell 之 Azure 資源管理員 (ARM) 模組的最新生產版本。
 
 ### 步驟 1
 
 		PS C:\> Login-AzureRmAccount
 
-
+系統會提示使用您的認證進行驗證。<BR>
 
 ### 步驟 2
 
 檢查帳戶的訂用帳戶
 
-		PS C:\> get-AzureRmSubscription 
-
-系統會提示使用您的認證進行驗證。<BR>
+		PS C:\> Get-AzureRmSubscription 
 
 ### 步驟 3 
 
 選擇其中一個要使用的 Azure 訂用帳戶。<BR>
 
-
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-
+		PS C:\> Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
 
 ### 步驟 4
 
 建立新的資源群組 (若使用現有的資源群組，請略過此步驟)。
 
-    PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+
+    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 
 ## 建立前端 IP 集區的虛擬網路和公用 IP 位址
@@ -87,16 +84,16 @@
 
 建立子網路和虛擬網路。
 
-	$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
-	New-AzureRmvirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
+    $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
+    New-AzureRmvirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 
 ### 步驟 2
 
-建立名為 *PublicIP* 的公用 IP 位址 (PIP)，讓具有 DNS 名稱 *loadbalancernrp.westus.cloudapp.azure.com* 的前端 IP 集區使用。下列命令會使用靜態配置類型。
+建立名為 *PublicIP* 的 Azure 公用 IP 位址 (PIP) 資源，讓具有 DNS 名稱 *loadbalancernrp.westus.cloudapp.azure.com* 的前端 IP 集區使用。下列命令會使用靜態配置類型。
 
-	$publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Static -DomainNameLabel loadbalancernrp 
+	$publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location 'West US' –AllocationMethod Static -DomainNameLabel loadbalancernrp 
 
->[AZURE.IMPORTANT]負載平衡器將使用公用 IP 的網域標籤做為其 FQDN 的前置詞。這樣會變更傳統部署模型，該部署使用雲端服務作為負載平衡器 FQDN。在此範例中，FQDN 是 *loadbalancernrp.westus.cloudapp.azure.com*。
+>[AZURE.IMPORTANT] 負載平衡器將使用公用 IP 的網域標籤做為其 FQDN 的前置詞。這樣會變更傳統部署模型，該部署使用雲端服務作為負載平衡器 FQDN。在此範例中，FQDN 是 *loadbalancernrp.westus.cloudapp.azure.com*。
 
 ## 建立前端 IP 集區與後端位址集區
 
@@ -110,7 +107,7 @@
 
 建立名為 *LB-backend* 的後端位址集區。
 
-	$beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
+	$beaddresspool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name LB-backend
 
 ## 建立 LB 規則、NAT 規則、探查及負載平衡器
 
@@ -123,40 +120,39 @@
 - 負載平衡器，使用上述所有物件。
 
 
-
 ### 步驟 1
 
 建立 NAT 規則。
 
-	$inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
+	$inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP1 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
 
-	$inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
+	$inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP2 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
 
 ### 步驟 2
 
 建立負載平衡器規則。
 
-	$lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+	$lbrule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 
 ### 步驟 3
 
 建立健全狀況探查。
 
-	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
 ### 步驟 4
 
 使用上方建立的物件建立負載平衡器。
 
-	$NRPLB = New-AzureRmLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe 
+	$NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name NRP-LB -Location 'West US' -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 
 ## 建立 NIC
 
-您需要建立 NIC (或修改現有的) 並將它們關聯至 NAT 規則、負載平衡器規則和探查。
+您需要建立網路介面 (或修改現有的) 並將它們關聯至 NAT 規則、負載平衡器規則和探查。
 
 ### 步驟 1 
 
-取得需要在其中建立 NIC 的 VNet 和子網路。
+取得需要在其中建立 NIC 的虛擬網路和虛擬網路子網路。
 
 	$vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 	$backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet 
@@ -165,13 +161,13 @@
 
 建立名為 *lb-nic1-be* 的 NIC，並將它與第一個 NAT 規則以及第一個 (唯一) 後端位址集區產生關聯。
 	
-	$backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
+	$backendnic1= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic1-be -Location 'West US' -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 
 ### 步驟 3
 
 建立名為 *lb-nic2-be* 的 NIC，並將它與第二個 NAT 規則以及第一個 (唯一) 後端位址集區產生關聯。
 
-	$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
+	$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic2-be -Location 'West US' -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 
 ### 步驟 4
 
@@ -232,6 +228,41 @@
 
 您可以在以下文件中找到建立虛擬機器並指派 NIC 的指引：[利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)，使用範例中的選項 5。
 
+
+或者，如果您已建立虛擬機器，您可以透過下列步驟新增網路介面：
+
+#### 步驟 1 
+
+將負載平衡器資源載入到變數之中 (如果您還沒這麼做)。所使用的變數稱為 $lb，並使用來自以上建立之負載平衡器資源的相同名稱。
+
+	$lb= get-azurermloadbalancer –name NRP-LB -resourcegroupname NRP-RG
+
+#### 步驟 2 
+
+將後端組態載入到變數之中。
+
+	PS C:\> $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+
+#### 步驟 3 
+
+將已建立的網路介面載入到變數之中。所使用的變數名稱是 $nic。所使用的網路介面名稱是來自上述範例的相同名稱。
+
+	$nic =get-azurermnetworkinterface –name lb-nic1-be -resourcegroupname NRP-RG
+
+#### 步驟 4
+
+變更網路介面上的後端組態。
+
+	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+
+#### 步驟 5 
+
+儲存網路介面物件。
+
+	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+
+網路介面在新增至負載平衡器的後端集區後，便會開始根據該負載平衡器資源的負載平衡規則接收網路流量。
+
 ## 更新現有負載平衡器
 
 
@@ -239,13 +270,13 @@
 
 使用上述範例中的負載平衡器，透過 Get-AzureLoadBalancer 將負載平衡器物件指派給變數 $slb
 
-	$slb=get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+	$slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
 ### 步驟 2
 
 在下列範例中，您會使用前端的連接埠 81 和後端集區的連接埠 8181，將新的輸入 NAT 規則加入現有的負載平衡器
 
-	$slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+	$slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol TCP
 
 
 ### 步驟 3
@@ -256,11 +287,11 @@
 
 ## 移除負載平衡器
 
-使用命令 Remove-AzureLoadBalancer 刪除資源群組 "NRP-RG" 中先前建立的負載平衡器 "NRP-LB"
+使用命令 `Remove-AzureLoadBalancer` 刪除資源群組 "NRP-RG" 中先前建立的負載平衡器 "NRP-LB"
 
 	Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
->[AZURE.NOTE]您可以使用選擇性參數 -Force 以避免出現刪除提示。
+>[AZURE.NOTE] 您可以使用選擇性參數 -Force 以避免出現刪除提示。
 
 ## 後續步驟
 
@@ -270,4 +301,4 @@
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

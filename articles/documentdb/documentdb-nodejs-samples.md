@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="GitHub 上適用於 DocumentDB 的 Node.js 範例 | Microsoft Azure" 
-	description="在 Github 上尋找 DocumentDB 中的一般工作所適用的 Node.js 範例，包括 NoSQL 資料庫中的 JSON 文件的 CRUD 作業。" 
+	pageTitle="DocumentDB 的 NoSQL Node.js 範例 | Microsoft Azure" 
+	description="在 Github 上尋找 DocumentDB 中的一般工作所適用的 NoSQL Node.js 範例，包括 NoSQL 資料庫中的 JSON 文件的 CRUD 作業。" 
+	keywords="node.js 範例"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -20,23 +21,23 @@
 # DocumentDB Node.js 範例
 
 > [AZURE.SELECTOR]
-- [.NET Samples](documentdb-dotnet-samples.md)
-- [Node.js Samples](documentdb-nodejs-samples.md)
+- [.NET Examples](documentdb-dotnet-samples.md)
+- [Node.js Examples](documentdb-nodejs-samples.md)
 - [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
 [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub 儲存機制中包含可對 DocumentDB 資源執行 CRUD 作業和其他常見作業的範例解決方案。本文提供：
 
-- 每個範例 Node.js 專案檔中各項工作的連結。 
+- 每個 Node.js 範例專案檔中各項工作的連結。 
 - 相關 API 參考內容的連結。
 
 **必要條件**
 
-1. 您必須要有 Azure 帳戶才能使用這些範例：
+1. 您必須要有 Azure 帳戶才能使用這些 Node.js 範例：
     - 您可以[免費申請 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如「網站」。除非您明確變更您的設定且同意付費，否則我們將不會從您的信用卡收取任何費用。
    - 您可以[啟用 Visual Studio 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)：您的 Visual Studio 訂用帳戶每個月都會提供額度，供您用在 Azure 付費服務。
 2. 您也需要 [Node.js SDK](documentdb-sdk-node.md)。 
 
-    > [AZURE.NOTE]每個範例都各自獨立，自己設定，並自行清理。據此，這些範例對 [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html) 發出多個呼叫。每當執行此動作時，即會根據所建立之集合的效能層，對您的訂用帳戶計入一小時的使用量費用。
+    > [AZURE.NOTE] 每個範例都各自獨立，自己設定，並自行清理。據此，這些範例對 [DocumentClient.createCollection](http://azure.github.io/azure-documentdb-node/DocumentClient.html) 發出多個呼叫。每當執行此動作時，即會根據所建立之集合的效能層，對您的訂用帳戶計入一小時的使用量費用。
 
 ## 資料庫範例
 
@@ -106,4 +107,4 @@
 
 如需伺服器端程式設計的詳細資訊，請參閱 [DocumentDB 伺服器端程式設計：預存程序、資料庫觸發程序和 UDF](documentdb-programming.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

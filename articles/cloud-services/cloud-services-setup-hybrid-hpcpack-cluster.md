@@ -31,7 +31,7 @@
 
 ## 必要條件
 
-* **Azure 訂用帳戶** - 如果您沒有帳戶，僅需幾分鐘就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 訂用帳戶** - 如果您沒有帳戶，僅需幾分鐘就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 * **一部執行 Windows Server 2012 R2 或 Windows Server 2012 的內部部署電腦**。這部電腦將作為 HPC 叢集的前端節點。如果您目前執行的不是 Windows Server，可以下載並安裝[評估版](http://technet.microsoft.com/evalcenter/dn205286.aspx)。
 
@@ -57,13 +57,13 @@
 
 2. 執行 HPC Pack 安裝檔中的 Setup.exe 來啟動 HPC Pack 安裝精靈。
 
-3. 在 [HPC Pack 2012 R2 Setup] 畫面上，按一下 [新安裝或在現有安裝中新增功能]。
+3. 在 [HPC Pack 2012 R2 Setup] 畫面上，按一下 [New installation or add new features to an existing installation]。
 
 	![HPC Pack 2012 Setup][install_hpc1]
 
-4. 在 [Microsoft 軟體使用者合約頁面] 頁面上，按 [下一步]。
+4. 在 [Microsoft Software User Agreement] 頁面上，按 [下一步]。
 
-5. 在 [選取安裝類型] 頁面上，按一下 [建立前端節點以建立新 HPC 叢集]，然後按 [下一步]。
+5. 在 [選取安裝類型] 頁面上，按一下 [Create a new HPC cluster by creating a head node]，然後按 [下一步]。
 
 	![Select Installation Type][install_hpc2]
 
@@ -79,7 +79,7 @@
 
 	![安裝][install_hpc6]
 
-9. 安裝完成之後，請取消核取 [啟動 HPC 叢集管理員]，然後按一下 [完成]。(您將在稍後的步驟中啟動 HPC 叢集管理員。)
+9. 安裝完成之後，請取消核取 [Start HPC Cluster Manager]，然後按一下 [完成]。(您將在稍後的步驟中啟動 HPC 叢集管理員。)
 
 	![完成][install_hpc7]
 
@@ -143,7 +143,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 	![Configure Network][config_hpc2]
 
-3. 在 [網路設定精靈] 中，選取 [All nodes only on an enterprise network] \(拓撲 5)。
+3. 在 [網路設定精靈] 中，選取 [All nodes only on an enterprise network] (拓撲 5)。
 
 	![Topology 5][config_hpc3]
 
@@ -151,7 +151,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 4. 按 [下一步] 以接受精靈剩餘頁面上的預設值。然後，在 [檢閱] 索引標籤上，按一下 [設定] 以完成網路設定。
 
-5. 在 [Deployment To-do List] 中，按一下 [提供安裝認證]。
+5. 在 [Deployment To-do List] 中，按一下 [Provide installation credentials]。
 
 6. 在 [Installation Credentials] 對話方塊中，輸入您用來安裝 HPC Pack 之網域帳戶的認證。然後按一下 [確定]。
 
@@ -167,7 +167,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 	>[AZURE.NOTE] 命名序列只會為加入網域的計算節點產生名稱。Azure 背景工作節點的名稱是自動產生的。
 
-9. 在 [Deployment To-do List] 中，按一下 [提供安裝認證]。您將使用節點範本將 Azure 節點新增至叢集。
+9. 在 [Deployment To-do List] 中，按一下 [Create a node template]。您將使用節點範本將 Azure 節點新增至叢集。
 
 10. 在 [Create Node Template Wizard] 中，執行下列動作：
 
@@ -187,7 +187,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 	e.按 [下一步] 以接受精靈剩餘頁面上的預設值。然後，在 [檢閱] 索引標籤上，按一下 [建立] 以建立節點範本。
 
-	>[AZURE.NOTE]根據預設，Azure 節點範本包含可讓您手動啟動 (佈建) 和停止節點的設定。您可以選擇性地設定排程來自動啟動和停止 Azure 節點。
+	>[AZURE.NOTE] 根據預設，Azure 節點範本包含可讓您手動啟動 (佈建) 和停止節點的設定。您可以選擇性地設定排程來自動啟動和停止 Azure 節點。
 
 ## 將 Azure 節點新增至叢集
 
@@ -218,7 +218,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 ## 啟動 Azure 節點
 當您想要使用 Azure 中的叢集資源時，請使用 HPC 叢集管理員來啟動 (佈建) Azure 節點並讓節點上線。
 
-1.	在 HPC 叢集管理員中，於 [節點管理] \(在某些版本的 HPC Pack 中稱為**資源管理**) 中按一或兩個節點，然後在 [動作] 窗格中按一下 [啟動]。
+1.	在 HPC 叢集管理員中，於 [節點管理] (在某些版本的 HPC Pack 中稱為**資源管理**) 中按一或兩個節點，然後在 [動作] 窗格中按一下 [啟動]。
 
 	![Start Nodes][add_node4]
 
@@ -348,4 +348,4 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

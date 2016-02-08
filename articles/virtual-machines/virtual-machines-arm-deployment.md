@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/20/2016"
 	ms.author="davidmu"/>
 
 # 使用 Compute、Network 和 Storage .NET Library 部署 Azure 資源
@@ -28,7 +28,7 @@
 若要完成本教學課程，您也需要：
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Azure 儲存體帳戶](../storage-create-storage-account.md)
+- [Azure 儲存體帳戶](../storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) 或 [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
@@ -41,13 +41,13 @@
 
 1. 開啟 Azure PowerShell 提示、執行此命令，然後在出現提示時，輸入您的訂用帳戶認證：
 
-	    Login-AzureRmAccount
+			Login-AzureRmAccount
 
 2. 將下列命令中的 {password} 取代成您想要使用的密碼，然後執行該命令以建立應用程式：
 
-	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
+			New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]記下建立應用程式後傳回的應用程式識別碼，因為下一個步驟會用到。您也可以在 Azure 入口網站「Active Directory」區段中應用程式的 [用戶端識別碼] 欄位內尋找應用程式識別碼。
+	>[AZURE.NOTE] 記下建立應用程式後傳回的應用程式識別碼，因為下一個步驟會用到。您也可以在 Azure 入口網站「Active Directory」區段中應用程式的 [用戶端識別碼] 欄位內尋找應用程式識別碼。
 
 3. 將 {application-id} 取代成您剛才記錄的識別碼，然後建立應用程式的服務主體：
 
@@ -73,7 +73,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 6. 在搜尋方塊中輸入 *Microsoft.Azure.Management.Network*，針對「Network .NET 程式庫」按一下 [安裝]，然後依照指示來安裝封裝。
 
-7. 在搜尋方塊中輸入 *Microsoft.Azure.Management.Storage*，針對「Network .NET 程式庫」按一下 [安裝]，然後依照指示來安裝封裝。
+7. 在搜尋方塊中輸入 *Microsoft.Azure.Management.Storage*，針對「Storage .NET 程式庫」按一下 [安裝]，然後依照指示來安裝封裝。
 
 8. 在搜尋方塊中輸入 *Microsoft.Azure.Management.Resources*，針對「Resource Management 程式庫」按一下 [安裝]。
 
@@ -489,7 +489,7 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 	}
 	```
 
-	>[AZURE.NOTE]本教學課程中會建立執行 Windows Server 作業系統版本的虛擬機器。若要深入了解如何選取其他映像，請參閱[使用 Windows PowerShell 和 Azure CLI 瀏覽和選取 Azure 虛擬機器映像](resource-groups-vm-searching.md)。
+	>[AZURE.NOTE] 本教學課程中會建立執行 Windows Server 作業系統版本的虛擬機器。若要深入了解如何選取其他映像，請參閱[使用 Windows PowerShell 和 Azure CLI 瀏覽和選取 Azure 虛擬機器映像](resource-groups-vm-searching.md)。
 
 2. 將下列程式碼新增至 Main 方法，以呼叫您剛才新增的方法：
 
@@ -536,11 +536,11 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 	Console.ReadLine();
 	```
 
-##步驟 6：執行主控台應用程式
+## 步驟 6：執行主控台應用程式
 
-1.	若要執行主控台應用程式，按一下 Visual Studio 中的 [啟動]，然後使用搭配您的訂用帳戶使用的相同使用者名稱和密碼，登入 Azure AD。
+1. 若要執行主控台應用程式，按一下 Visual Studio 中的 [啟動]，然後使用搭配您的訂用帳戶使用的相同使用者名稱和密碼，登入 Azure AD。
 
-2.	傳回每個狀態碼之後，按下 **Enter** 以建立每個資源。建立虛擬機器之後，請執行下一個步驟，再按 Enter 以刪除所有資源。
+2. 傳回每個狀態碼之後，按下 **Enter** 以建立每個資源。建立虛擬機器之後，請執行下一個步驟，再按 Enter 以刪除所有資源。
 
 	此主控台應用程式從開始到完成的完整執行應該需要 5 分鐘左右。在您按下 Enter 以開始刪除資源之前，可能需要幾分鐘時間，先確認 Azure 入口網站中建立的資源，然後再刪除。
 
@@ -548,4 +548,4 @@ NuGet 封裝是安裝完成本教學課程所需程式庫最簡單的方式。�
 
 	![建立 AD 應用程式](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

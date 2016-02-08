@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # 基本設定測試環境與 Azure 資源管理員
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-base-configuration-test-environment.md)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [傳統部署模型](virtual-machines-base-configuration-test-environment.md)。
 
 本文將逐步解說如何利用在資源管理員中建立的虛擬機器，在 Microsoft Azure 虛擬網路中建立「基本設定」測試環境。
 
@@ -50,9 +50,9 @@
 3.	設定 APP1。
 4.	設定 CLIENT1。
 
-如果您還沒有 Azure 帳戶，請到[試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 申請免費試用。如果您有 MSDN 訂用帳戶，請參閱 [MSDN 訂戶的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
+如果您還沒有 Azure 帳戶，請到[試用 Azure](https://azure.microsoft.com/pricing/free-trial/) 申請免費試用。如果您有 MSDN 訂用帳戶，請參閱 [MSDN 訂戶的 Azure 權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
-> [AZURE.NOTE]Azure 中的虛擬機器執行時，需要支付相關費用。這項成本是按照您的免費試用版、MSDN 訂用帳戶或付費訂用帳戶進行計算。如需詳細了解 Azure 虛擬機器的執行成本，請參閱[虛擬機器價格詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines/)和 [Azure 價格計算機](http://azure.microsoft.com/pricing/calculator/)。為了降低成本，請參閱[將 Azure 的測試環境虛擬機器費用降至最低](#costs)。
+> [AZURE.NOTE] Azure 中的虛擬機器執行時，需要支付相關費用。這項成本是按照您的免費試用版、MSDN 訂用帳戶或付費訂用帳戶進行計算。如需詳細了解 Azure 虛擬機器的執行成本，請參閱[虛擬機器價格詳細資料](https://azure.microsoft.com/pricing/details/virtual-machines/)和 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)。為了降低成本，請參閱[將 Azure 的測試環境虛擬機器費用降至最低](#costs)。
 
 ## 階段 1：建立虛擬網路
 
@@ -244,6 +244,8 @@ APP1 提供網頁和檔案共用服務。
 
 CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或桌上型電腦。
 
+> [AZURE.NOTE] 下列命令集能建立執行 Windows Server 2012 R2 Datacenter 的 CLIENT1。這適用於所有類型的 Azure 訂用帳戶。如果您有以 MSDN 為基礎的 Azure 訂用帳戶，您可以使用 [Azure 入口網站](virtual-machines-windows-tutorial.md)建立執行 Windows 10、Windows 8 或 Windows 7 的 CLIENT1。
+
 首先，填寫資源群組的名稱、Azure 位置以及儲存體帳戶名稱，然後在本機電腦的 Azure PowerShell 命令提示字元執行下列命令，為 CLIENT1 建立 Azure 虛擬機器。
 
 	$rgName="<resource group name>"
@@ -326,4 +328,4 @@ CLIENT1 充當 Contoso 內部網路上的一般膝上型電腦、平板電腦或
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

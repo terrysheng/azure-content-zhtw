@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/11/2016"
+   ms.date="01/21/2016"
    ms.author="shoatman;billmath"/>
 
 # 將 Windows Azure Active Directory 同步作業 (DirSync) 升級至 Azure AD Connect
@@ -37,7 +37,7 @@
 | [就地升級](#in-place-upgrade) | 如果升級預期少於 3 小時，則為慣用選項。 |
 | [平行部署](#parallel-deployment) | 如果升級預期超過 3 小時，則為慣用選項。 |
 
->[AZURE.NOTE]當您規劃從 DirSync 升級至 Azure AD Connect 時，在升級之前請勿自行解除安裝 DirSync。Azure AD Connect 會讀取和移轉來自 DirSync 的組態，並且在檢查伺服器之後解除安裝。
+>[AZURE.NOTE] 當您規劃從 DirSync 升級至 Azure AD Connect 時，在升級之前請勿自行解除安裝 DirSync。Azure AD Connect 會讀取和移轉來自 DirSync 的組態，並且在檢查伺服器之後解除安裝。
 
 **就地升級**
 
@@ -146,7 +146,7 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。這些密碼將
 8. 在 [準備設定] 頁面上，保持核取 [設定一完成，即開始同步處理程序]。伺服器將處於[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)，讓變更不會在此階段匯出至 Azure AD。
 9. 按一下 [Install]。
 
->[AZURE.NOTE]將會開始 Windows Server Active Directory 和 Azure Active Directory 之間的同步處理作業，但沒有變更會匯出到 Azure AD。一次只能有一個作用中的同步處理工具匯出變更。這稱為[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)。
+>[AZURE.NOTE] 將會開始 Windows Server Active Directory 和 Azure Active Directory 之間的同步處理作業，但沒有變更會匯出到 Azure AD。一次只能有一個作用中的同步處理工具匯出變更。這稱為[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)。
 
 ### 確認 Azure AD Connect 已準備好開始同步處理
 
@@ -169,8 +169,8 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。這些密碼將
 
 ### 解除安裝 DirSync (舊伺服器)
 
-- 從 [程式和功能] 中，尋找 [Microsoft Azure Active Directory 同步作業工具]
-- 解除安裝 [Microsoft Azure Active Directory 同步作業工具]
+- 從 [程式和功能] 中，尋找 [Windows Azure Active Directory 同步作業工具]
+- 解除安裝 [Windows Azure Active Directory 同步作業工具]
 - 請注意，可能需要 15 分鐘的時間才能完成解除安裝。
 
 解除安裝 DirSync 之後，沒有任何作用中的伺服器會匯出至 Azure AD。您在內部部署 Active Directory 中的任何變更繼續同步至 Azure AD 之前，必須完成下一個步驟。
@@ -197,4 +197,4 @@ Azure AD Connect 現在是您的作用中伺服器。
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!----HONumber=AcomDC_0121_2016--->
+<!---HONumber=AcomDC_0128_2016-->

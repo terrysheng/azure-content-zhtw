@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/18/2015"
+   ms.date="01/22/2016"
    ms.author="larryfr"/>
 
 #部署和管理以 Windows 為基礎的 HDInsight 上的 Apache Storm 拓撲
@@ -23,7 +23,7 @@ Storm Dashboard 可讓您使用網頁瀏覽器輕鬆地部署和執行 Apache St
 
 HDInsight Tools 的 Storm Dashboard 和 Storm 功能依賴 Storm REST API，此 API 可用來建立您專屬的監視和管理方案。
 
-> [AZURE.IMPORTANT]本文件中的步驟需要 HDInsight 叢集上以 Windows 為基礎的 Storm。如需使用 Linux 叢集的相關資訊，請參閱[部署和管理以 Linux 為基礎之 HDInsight 上的 Apache Storm 拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
+> [AZURE.IMPORTANT] 本文件中的步驟需要 HDInsight 叢集上以 Windows 為基礎的 Storm。如需使用 Linux 叢集的相關資訊，請參閱[部署和管理以 Linux 為基礎之 HDInsight 上的 Apache Storm 拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ##必要條件
 
@@ -41,7 +41,7 @@ HDInsight Tools 的 Storm Dashboard 和 Storm 功能依賴 Storm REST API，此 
 
 	* <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
 
-	> [AZURE.NOTE]HDInsight Tools for Visual Studio 目前只支援 Storm on HDInsight 叢集 3.2 版。
+	> [AZURE.NOTE] HDInsight Tools for Visual Studio 目前只支援 Storm on HDInsight 叢集 3.2 版。
 
 ##Storm Dashboard
 
@@ -57,7 +57,7 @@ Storm Dashboard 是可以在 Storm 叢集上使用的網頁。URL 是 **https://
 
 ![Storm UI][storm-dashboard-ui]
 
-> [AZURE.NOTE]在 Internet Explorer 的某些版本中，您可能會發現 Storm UI 在您最初到訪之後不會重新整理。例如，可能不會顯示您提交的新拓撲，或是可能將先前已停用的拓撲顯示為使用中。Microsoft 知道這個問題，並正在找出解決方案。
+> [AZURE.NOTE] 在 Internet Explorer 的某些版本中，您可能會發現 Storm UI 在您最初到訪之後不會重新整理。例如，可能不會顯示您提交的新拓撲，或是可能將先前已停用的拓撲顯示為使用中。Microsoft 知道這個問題，並正在找出解決方案。
 
 ####主頁面
 
@@ -129,7 +129,7 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。�
 
 1. 在**方案總管**中，於專案上按一下滑鼠右鍵，然後選取 [提交至 Storm on HDInsight]。
 
-	> [AZURE.NOTE]如果出現提示，請輸入您 Azure 訂用帳戶的登入認證。如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
+	> [AZURE.NOTE] 如果出現提示，請輸入您 Azure 訂用帳戶的登入認證。如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
 
 2. 從 [Storm 叢集] 下拉式清單中選取 Storm on HDInsight 叢集，然後選取 [提交]。您可以使用 [輸出] 視窗監視提交是否成功。
 
@@ -137,13 +137,15 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。�
 
 	![Visual Studio 監視器](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
-	> [AZURE.NOTE]您也可以透過展開 [Azure] > [HDInsight]，並在 Storm on HDInsight 叢集上按一下滑鼠右鍵，然後選取 [檢視 Storm 拓撲] 以從**伺服器總管**中檢視 [Storm 拓撲]。
+	> [AZURE.NOTE] 您也可以透過展開 [Azure] > [HDInsight]，並在 Storm on HDInsight 叢集上按一下滑鼠右鍵，然後選取 [檢視 Storm 拓撲] 以從**伺服器總管**中檢視 [Storm 拓撲]。
 
-	使用 Spout 或 Bolt 的連結以檢視這些元件的資訊。將會針對每個選取的項目開啟新的視窗。
+	選取 Spout 或 Bolt 的圖形以檢視這些元件的資訊。將會針對每個選取的項目開啟新的視窗。
+    
+    > [AZURE.NOTE] 拓撲的名稱是拓撲的類別名稱 (在此案例中為 `HelloWord`) 加上時間戳記。
 
 4. 從 [拓撲摘要] 檢視中，選取 [終止] 停止拓撲。
 
-	> [AZURE.NOTE]除非停止 Storm 拓撲或刪除叢集，否則 Storm 拓撲會繼續執行。
+	> [AZURE.NOTE] 除非停止 Storm 拓撲或刪除叢集，否則 Storm 拓撲會繼續執行。
 
 ##REST API
 
@@ -159,7 +161,7 @@ REST API on HDInsight 叢集的基底 URI 是 **https://&lt;clustername>.azurehd
 
 REST API 的要求必須使用**基本驗證**，因此請使用 HDInsight 叢集管理員名稱和密碼。
 
-> [AZURE.NOTE]因為使用純文字傳送基本驗證，所以您應該**一律**使用 HTTPS 來保護與叢集通訊的安全。
+> [AZURE.NOTE] 因為使用純文字傳送基本驗證，所以您應該**一律**使用 HTTPS 來保護與叢集通訊的安全。
 
 ###傳回值
 
@@ -179,4 +181,4 @@ REST API 的要求必須使用**基本驗證**，因此請使用 HDInsight 叢�
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

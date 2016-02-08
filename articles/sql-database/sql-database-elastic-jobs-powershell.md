@@ -25,7 +25,7 @@
 適用於**彈性資料庫工作** (預覽版) 的 PowerShell API 可讓您定義一組資料庫，然後針對這組資料庫執行指令碼。本文將說明如何使用 Powershell Cmdlet 建立和管理**彈性資料庫工作**。請參閱[彈性工作概觀](sql-database-elastic-jobs-overview.md)。
 
 ## 必要條件
-* Azure 訂閱。如需免費試用，請參閱[免費試用一個月](http://azure.microsoft.com/pricing/free-trial/)。
+* Azure 訂閱。如需免費試用，請參閱[免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。
 * 一組使用彈性資料庫工具所建立的資料庫。請參閱[開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)。
 * Azure PowerShell。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
 * **彈性資料庫工作** PowerShell 封裝：請參閱[安裝彈性資料庫工作](sql-database-elastic-jobs-service-installation.md)
@@ -246,7 +246,7 @@
 
 	![命令提示字元][1]
 
-2.  在命令視窗中，輸入 "1"，然後按 **Enter**。這會建立分區對應管理員，並加入兩個分區到伺服器。接著輸入 "3"，然後按 **Enter**；重複此動作四次。這會在您的分區中插入範例資料列。
+2.  在命令視窗中，輸入 "1"，然後按 **Enter**。這會建立分區對應管理員，並加入兩個分區到伺服器。然後輸入 "3"，然後按 **Enter**；重複此動作四次。這會在您的分區中插入範例資料列。
   
 3.  [Azure 入口網站](https://portal.azure.com)應該會在您的 v12 伺服器中顯示三個新的資料庫：
 
@@ -694,4 +694,4 @@
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

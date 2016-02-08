@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="01/24/2016"
 	ms.author="glenga"/>
 
 # 使用適用於 Azure 行動應用程式的 .NET 後端伺服器 SDK
@@ -25,7 +25,7 @@
 
 本主題說明如何在主要的 Azure App Service 行動應用程式案例中使用 .NET 後端伺服器 SDKAzure 行動應用程式 SDK 可協助您從 ASP.NET 應用程式使用行動用戶端。
 
->[AZURE.TIP] [適用於 Azure Mobile Apps 的 .NET 伺服器 SDK](https://github.com/Azure/azure-mobile-apps-net-server) 是在 GitHub 上的開放原始碼。儲存機制包含整個伺服器 SDK 單元測試組件以及一些範例專案。
+>[AZURE.TIP] [適用於 Azure Mobile Apps 的 .NET 伺服器 SDK](https://github.com/Azure/azure-mobile-apps-net-server) 是在 GitHub 上的開放原始碼。儲存機制包含整個伺服器 SDK 單元測試組件以及一些範例專案。
 
 ## 參考文件
 
@@ -184,7 +184,7 @@ Azure 入口網站的伺服器快速入門會呼叫 **UseDefaultConfiguration()*
 
 ## 做法：定義自訂 API 控制器
 
-自訂 API 控制器透過公開端點，提供最基本的功能給您的行動應用程式後端。您可以使用屬性 `MobileAppControllerAttribute` 來註冊行動裝置特定 API 控制器。這個屬性會註冊路由，也會設定 Mobile Apps JSON 序列化程式。
+自訂 API 控制器透過公開端點，提供最基本的功能給您的行動應用程式後端。您可以使用屬性 [MobileAppController] 來註冊行動裝置特定 API 控制器。這個屬性會註冊路由，也會設定 Mobile Apps JSON 序列化程式。
 
 1. 在 Visual Studio 中，以滑鼠右鍵按一下 [控制器] 資料夾，然後按一下 [加入] > [控制器]，選取 [Web API 2 控制器&mdash;空白]，然後按一下 [加入]。
 
@@ -194,7 +194,7 @@ Azure 入口網站的伺服器快速入門會呼叫 **UseDefaultConfiguration()*
 
 		using Microsoft.Azure.Mobile.Server.Config;
 
-4. 將 **MobileAppControllerAttribute** 套用到 API 控制器類別定義，如下列範例所示：
+4. 將 **[MobileAppController]** 套用到 API 控制器類別定義，如下列範例所示：
 
 		[MobileAppController] 
 		public class CustomController : ApiController
@@ -236,7 +236,7 @@ Mobile Apps 會使用 App Service 驗證和 ASP.NET 的功能，簡化為您的�
 
 若要了解如何在您的 Mobile Apps 後端驗證用戶端，請參閱[將驗證新增至您的應用程式](app-service-mobile-ios-get-started-users.md)。
 
-### <a name="custom-auth"></a>做法：針對應用程式使用自訂驗證
+### <a name="custom-auth"></a>如何：針對應用程式使用自訂驗證
 
 如果您不想要使用其中一個 App Service 驗證/授權提供者，您可以選擇提供自己的登入系統。若要這樣做，請安裝 [Microsoft.Azure.Mobile.Server.Login] 封裝。
 
@@ -276,23 +276,23 @@ Mobile Apps 會使用 App Service 驗證和 ASP.NET 的功能，簡化為您的�
 			}
 		}
 
-`MobileAppLoginHAppServiceLoginHandlerandler.CreateToken()` 方法包含 audience 和 issuer 參數。這兩個參數通常會使用 HTTPS 配置設定為應用程式根目錄的 URL。同樣地，您應該將 secretKey 設定為您應用程式的簽署金鑰值。這是機密值，永遠不應共用或包含於用戶端。您可以藉由參考 WEBSITE\_AUTH\_SIGNING\_KEY 環境變數，在裝載於 App Service 時取得這個值。如果在本機偵錯內容中有需要，請依照[使用驗證進行本機偵錯](#local-debug)一節中的指示以擷取金鑰，並將它儲存為應用程式設定。
+`MobileAppLoginHAppServiceLoginHandlerandler.CreateToken()` 方法包含 _audience_ 和 _issuer_ 參數。這兩個參數通常會使用 HTTPS 配置設定為應用程式根目錄的 URL。同樣地，您應該將 _secretKey_ 設定為您應用程式的簽署金鑰值。這是機密值，永遠不應共用或包含於用戶端。您可以藉由參考 _WEBSITE\_AUTH\_SIGNING\_KEY_ 環境變數，在裝載於 App Service 時取得這個值。如果在本機偵錯內容中有需要，請依照[使用驗證進行本機偵錯](#local-debug)一節中的指示以擷取金鑰，並將它儲存為應用程式設定。
 
 您也必須提供已發行權杖的存留期，以及您想要包含的任何宣告。您必須提供主體宣告，如範例程式碼所示。
 
-您也可以改為只使用 `loginAsync()` 方法 (名稱可能會視平台不同而改變) 來簡化用戶端程式碼，而不使用手動 HTTP POST 方式。您也可以使用接受額外權杖參數 (與您要 POST 的判斷提示物件關聯) 的多載。此案例中的提供者應該為您選擇的自定名稱。接著在伺服器上，您的登入動作應該會位於包含此自定名稱的路徑 /.auth/login/{customProviderName} 上。若要將控制器置於此路徑，請在套用 MobileAppConfiguration 之前新增指向 HttpConfiguration 的路由。
+您也可以改為只使用 `loginAsync()` 方法 (名稱可能會視平台不同而改變) 來簡化用戶端程式碼，而不使用手動 HTTP POST 方式。您也可以使用接受額外權杖參數 (與您要 POST 的判斷提示物件關聯) 的多載。此案例中的提供者應該為您選擇的自定名稱。接著在伺服器上，您的登入動作應該會位於包含此自定名稱的路徑 _/.auth/login/{customProviderName}_ 上。若要將控制器置於此路徑，請在套用 MobileAppConfiguration 之前新增指向 HttpConfiguration 的路由。
 
 		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" }); 
 		
 使用裝載登入動作之控制器的名稱取代上述的 "CustomAuth" 字串。
 
->[AZURE.TIP]使用 loginAsync() 方法以確保驗證權杖會附加至後續對服務的呼叫。
+>[AZURE.TIP] 使用 loginAsync() 方法以確保驗證權杖會附加至後續對服務的呼叫。
 
 ###<a name="user-info"></a>做法：擷取已驗證的使用者資訊
 
 當 App Service 驗證使用者時，您可以存取指派的使用者識別碼及其他 .NET 後端程式碼中的資訊。這可用來在後端為指定的使用者進行授權決策，例如特定的使用者是否可以存取資料表資料列或其他資源。下列程式碼說明如何取得已登入使用者的使用者識別碼：
 
-    // Get the current user SID and create a tag for the current user.
+    // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
@@ -420,7 +420,7 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
 
 ### <a name="local-debug"></a>使用驗證進行本機偵錯
 
-您可以在將變更發佈至雲端之前，在本機執行您的應用程式以測試變更。對於許多應用程式，在 Visual Studio 中時只需要按 F5 即可。不過，使用驗證時有一些其他考量。
+您可以在將變更發佈至雲端之前，在本機執行您的應用程式以測試變更。對於許多應用程式，在 Visual Studio 中時只需要按 *F5* 即可。不過，使用驗證時有一些其他考量。
 
 您必須擁有雲端式行動應用程式並且已設定 App Service 驗證/授權，而且您的用戶端必須有指定的雲端端點做為替代登入主機。請參閱您所選擇的用戶端平台的文件 ([iOS](app-service-mobile-ios-how-to-use-client-library.md)、[Windows/Xamarin](app-service-mobile-dotnet-how-to-use-client-library.md)) 以取得所需的特定步驟。
 
@@ -434,7 +434,7 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
 			TokenHandler = config.GetMobileAppTokenHandler()
 		});
 
-在上述範例中，您應該使用 HTTPS 配置，將 Web.config 檔案中的 authAudience 和 authIssuer 應用程式設定，設定為每個應用程式根目錄的 URL。同樣地，您應該將 authSigningKey 設定為您應用程式的簽署金鑰值。這是機密值，永遠不應共用或包含於用戶端。若要取得該值，請在 [Azure 入口網站]中巡覽至您的應用程式，然後按一下 [工具]。然後選取 [Kudu]，再按一下 [移至]。這樣會帶您前往您的網站的 Kudu 管理端點。按一下 [環境] 並且在 WEBSITE\_AUTH\_SIGNING\_KEY 底下尋找值。這是您應該在本機應用程式設定中用於 authSigningKey 的值。
+在上述範例中，您應該使用 HTTPS 配置，將 Web.config 檔案中的 _authAudience_ 和 _authIssuer_ 應用程式設定，設定為每個應用程式根目錄的 URL。同樣地，您應該將 _authSigningKey_ 設定為您應用程式的簽署金鑰值。這是機密值，永遠不應共用或包含於用戶端。若要取得該值，請在 [Azure 入口網站]中巡覽至您的應用程式，然後按一下 [工具]。然後選取 [Kudu]，再按一下 [移至]。這樣會帶您前往您的網站的 Kudu 管理端點。按一下 [環境] 並且在 _WEBSITE\_AUTH\_SIGNING\_KEY_ 底下尋找值。這是您應該在本機應用程式設定中用於 _authSigningKey_ 的值。
 
 您的本機執行伺服器現在已裝備，可以驗證用戶端從雲端式端點取得的權杖。
 
@@ -446,4 +446,4 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

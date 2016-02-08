@@ -39,7 +39,7 @@
 - 將關聯式結果集轉換成物件導向格式的程式碼範例。
 
 
-> [AZURE.NOTE]將會準備更多語言版本的程式碼範例，並將在本主題中新增這些範例的連結。
+> [AZURE.NOTE] 將會準備更多語言版本的程式碼範例，並將在本主題中新增這些範例的連結。
 
 
 ## Linux 上的用戶端
@@ -86,7 +86,7 @@
 ## 另請參閱
 
 
-- [適用於多種語言和平台的 SDK 與工具的下載項目](http://azure.microsoft.com/downloads/#cmd-line-tools)
+- [適用於多種語言和平台的 SDK 與工具的下載項目](https://azure.microsoft.com/downloads/#cmd-line-tools)
 - [SQL Database 和 SQL Server 的連接庫](sql-database-libraries.md)
 - [暫時性錯誤之數字代碼的清單](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>&nbsp;
 - [Azure SQL Database 開發：使用說明主題](http://msdn.microsoft.com/library/azure/ee621787.aspx)
@@ -94,4 +94,4 @@
 - [建立您的第一個 Azure SQL Database](sql-database-get-started.md)
 - [Entity Framework 6 在此處，EF 7 在 GitHub 上](http://entityframework.codeplex.com/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

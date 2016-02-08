@@ -75,8 +75,8 @@
 
  - [MSDN 論壇︰Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
 
- - [Azure AD 文件](http://azure.microsoft.com/documentation/services/active-directory/)
+ - [Azure AD 文件](https://azure.microsoft.com/documentation/services/active-directory/)
 
  - [部落格文章：Azure AD 簡介](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

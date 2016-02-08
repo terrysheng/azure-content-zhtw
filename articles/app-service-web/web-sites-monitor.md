@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="01/13/2016"
 	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>監視 Azure App Service 中的 Web 應用程式
@@ -24,7 +24,7 @@
 
 ##度量保留原則
 
->[AZURE.NOTE]應用程式度量的保留原則因資料粒度而異。
+>[AZURE.NOTE] 應用程式度量的保留原則因資料粒度而異。
 
 - **分鐘**資料粒度度量會保留 **24 小時**
 - **小時**資料粒度度量會保留 **7 天**
@@ -54,7 +54,7 @@
 
 Web 應用程式可以從 [Azure 傳統入口網站](https://manage.windowsazure.com) Web 應用程式的 [調整規模] 管理頁面，設為在**共用**或**標準**模式中執行。在 [共用] 模式中，每個 Azure 訂用帳戶都能存取針對每個區域執行最多 100 個 Web 應用程式的目的而提供的資源集區。基於此目的而提供給每個 Web 應用程式訂用帳戶使用的資源集區，將由相同地理位置中設定為在 [共用] 模式中執行的其他 Web 應用程式所共用。由於這些資源需與其他 Web 應用程式共用，因此所有訂用帳戶在使用這些資源時均會受到限制。套用在訂用帳戶上的資源使用限制，會以列於各個 Web 應用程式 [儀表板] 管理頁面之 [使用量概觀] 區段下的使用量配額來表示。
 
->[AZURE.NOTE]若將網站設定為以 [標準] 模式執行，則該網站會被配置相當於下文表格中 [小型] \(預設值)、[中型] 或 [大型] 虛擬機器大小的專用資源：[Azure 的虛擬機器和雲端服務大小][vmsizes]。對於在 [標準] 模式下運作的 Web 應用程式，其訂用帳戶可使用的資源並沒有限制。然而，每個區域容許建立的 [標準] 模式 Web 應用程式數目只有 500 個。
+>[AZURE.NOTE] 若將網站設定為以 [標準] 模式執行，則該網站會被配置相當於下文表格中 [小型] \(預設值)、[中型] 或 [大型] 虛擬機器大小的專用資源：[Azure 的虛擬機器和雲端服務大小][vmsizes]。對於在 [標準] 模式下運作的 Web 應用程式，其訂用帳戶可使用的資源並沒有限制。然而，每個區域容許建立的 [標準] 模式 Web 應用程式數目只有 500 個。
 
 ### 作法：檢視設定為共用模式的 Web 應用程式的使用量配額 ###
 若要判斷 Web 應用程式影響資源使用量配額的程度，請遵循以下步驟：
@@ -100,7 +100,7 @@ Web 應用程式可以從 [Azure 傳統入口網站](https://manage.windowsazure
 
 如需 Azure 儲存體帳戶的詳細資訊，請參閱[如何管理儲存體帳戶](/manage/services/storage/how-to-manage-a-storage-account/)。
 
-> [AZURE.NOTE]只有 .NET 應用程式才支援資料表或 Blob 儲存體的應用程式記錄功能。
+> [AZURE.NOTE] 只有 .NET 應用程式才支援資料表或 Blob 儲存體的應用程式記錄功能。
 
 由於儲存體的應用程式記錄功能須使用儲存體用戶端來檢視記錄資料，因此當您計劃使用了解如何直接讀取及處理 Azure 資料表或 Blob 儲存體之資料的服務或應用程式時，這項功能最為實用。檔案系統的記錄功能會產生可透過 FTP 或其他公用程式下載到本機電腦的檔案，如本節後續內容所述。
 
@@ -108,7 +108,7 @@ Web 應用程式可以從 [Azure 傳統入口網站](https://manage.windowsazure
 
 您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱[如何使用 Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/)。
 
-> [AZURE.NOTE]應用程式記錄功能仰賴應用程式產生的記錄資訊。用來產生記錄資訊的方法和資訊的格式取決於應用程式的撰寫語言。如需有關使用應用程式記錄功能的語言特有資訊，請參閱以下文章：
+> [AZURE.NOTE] 應用程式記錄功能仰賴應用程式產生的記錄資訊。用來產生記錄資訊的方法和資訊的格式取決於應用程式的撰寫語言。如需有關使用應用程式記錄功能的語言特有資訊，請參閱以下文章：
 >
 > - **.NET** - [使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式](web-sites-dotnet-troubleshoot-visual-studio.md)
 > - **Node.js** - [如何在 Azure 網站中偵錯 Node.js 應用程式](web-sites-nodejs-debug.md)
@@ -134,7 +134,7 @@ Web 應用程式可以從 [Azure 傳統入口網站](https://manage.windowsazure
 
 啟用 Web 應用程式的診斷之後，按一下 [設定] 管理頁面底部的 [儲存] 圖示，以套用您設定的選項。
 
-> [AZURE.IMPORTANT]「詳細的錯誤訊息」與「失敗的要求追蹤」會使 Web 應用程式的資源需求大增。建議您在重製欲疑難排解的問題後關閉這些功能。
+> [AZURE.IMPORTANT] 「詳細的錯誤訊息」與「失敗的要求追蹤」會使 Web 應用程式的資源需求大增。建議您在重製欲疑難排解的問題後關閉這些功能。
 
 ### 進階組態 ###
 
@@ -173,7 +173,7 @@ Web 應用程式可以從 [Azure 傳統入口網站](https://manage.windowsazure
 
 1. 從 [開始畫面] 或 [開始功能表] 搜尋 **Azure PowerShell**。在 [Azure PowerShell] 項目上按一下滑鼠右鍵，然後選取 [以系統管理員身份執行]。
 
-	> [AZURE.NOTE]如果您尚未安裝 **Azure PowerShell**，請參閱 [Microsoft Azure Cmdlet 使用者入門](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)以取得安裝和組態資訊。
+	> [AZURE.NOTE] 如果您尚未安裝 **Azure PowerShell**，請參閱 [Microsoft Azure Cmdlet 使用者入門](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)以取得安裝和組態資訊。
 
 2. 在 Azure PowerShell 提示字元中使用下列命令來下載記錄檔：
 
@@ -201,7 +201,7 @@ Web 應用程式可以從 [Azure 傳統入口網站](https://manage.windowsazure
 
 如此可將記錄資訊顯示在執行命令的命令提示字元、PowerShell、Bash 或終端機工作階段中。
 
-> [AZURE.NOTE]如果您尚未安裝 **azure** 命令，請參閱[如何使用 Azure CLI](../virtual-machines-command-line-tools.md)，以取得安裝和組態資訊。
+> [AZURE.NOTE] 如果您尚未安裝 **azure** 命令，請參閱[如何使用 Azure CLI](../virtual-machines-command-line-tools.md)，以取得安裝和組態資訊。
 
 ### 讀取記錄檔 ###
 
@@ -279,7 +279,7 @@ Web 應用程式可以從 [Azure 傳統入口網站](https://manage.windowsazure
 
 - [讓 Azure 網站保持運作以及端點監視 - 對談來賓 Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -289,4 +289,4 @@ Web 應用程式可以從 [Azure 傳統入口網站](https://manage.windowsazure
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

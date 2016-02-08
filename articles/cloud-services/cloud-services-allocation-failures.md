@@ -24,7 +24,7 @@
 ## 摘要
 當您部署執行個體至雲端服務或加入新的 Web 或背景工作角色執行個體時，Microsoft Azure 會配置計算資源。執行這些作業時，即使尚未達到 Azure 訂用帳戶限制，也可能偶爾發生錯誤。本文說明一些常見配置失敗的原因，並建議可能的補救方法。規劃服務的部署時，本資訊可能也很有用。
 
-如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。
+如果您對於本文章內容有任何需要進一步協助之處，您可以連絡 [MSDN Azure 和堆疊溢位論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專加。或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。
 
 ### 背景 – 配置的運作方式
 Azure 資料中心的伺服器分割成叢集。在多個叢集中嘗試新的雲端服務配置要求。當第一個執行個體部署至雲端服務 (在預備或生產環境) 後，該雲端服務會釘選至某個叢集。雲端服務的任何進一步的部署會發生在相同的叢集中。在本文中，這種情況稱為「釘選到叢集」。下圖 1 說明在多個叢集中嘗試一般配置的情況。圖 2 說明釘選到叢集 2 來配置的情況，因為現有的雲端服務 CS\_1 裝載於此處。
@@ -81,11 +81,11 @@ Azure 資料中心的伺服器分割成叢集。在多個叢集中嘗試新的�
 
 4. 移除新部署中的同質群組 - 不再建議使用同質群組。請遵循上述 #1 的步驟以部署新的雲端服務。請確定雲端服務不在同質群組中。
 
-5. 轉換至區域虛擬網路 - 請參閱[如何從同質群組移轉至區域虛擬網路 (VNet)](https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/)。
+5. 轉換至區域虛擬網路 - 請參閱[如何從同質群組移轉至區域虛擬網路 (VNet)]( https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/)。
 
 ## 其他資源
 ### 連絡 Azure 客戶支援
 
-如果本文無助於解決您的 Azure 問題，請瀏覽 [MSDN 和堆疊溢位](http://azure.microsoft.com/support/forums/)上的 Azure 論壇。也可以就您的問題提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](http://azure.microsoft.com/support/faq/)。
+如果本文未解決您的 Azure 問題，請瀏覽 [MSDN 和堆疊溢位](https://azure.microsoft.com/support/forums/)上的 Azure 論壇。也可以就您的問題提出 Azure 支援事件。請前往 [Azure 支援](https://azure.microsoft.com/support/options/)網站並按一下 [取得支援]。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=AcomDC_0128_2016-->

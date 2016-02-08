@@ -33,7 +33,7 @@
 
 在本教學課程中，您會更新[開始使用行動服務]教學課程中的通用應用程式專案，以支援 Azure 行動服務的離線功能。接著，您會在中斷連線的離線狀態下新增資料、將這些項目同步處理至線上資料庫，然後登入 [Azure 傳統入口網站]，以檢視執行應用程式時對資料所做的變更。
 
->[AZURE.NOTE]本教學課程旨在協助您深入了解如何透過行動服務，來使用 Azure 儲存並擷取 Windows 市集應用程式中的資料。如果這是您第一次接觸行動服務，您應該先完成[開始使用行動服務]教學課程。
+>[AZURE.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，來使用 Azure 儲存並擷取 Windows 市集應用程式中的資料。如果這是您第一次接觸行動服務，您應該先完成[開始使用行動服務]教學課程。
 
 ##必要條件
 
@@ -44,27 +44,27 @@
 * [Azure 行動服務 SDK 1.3.0 版 (或更新版本)][Mobile Services SDK Nuget]
 * [Azure 行動服務 SQLite Store 1.0.0 版 (或更新版本)][SQLite store nuget]
 * [SQLite for Windows 8.1](http://www.sqlite.org/download.html)
-* 一個 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)。
+* 一個 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)。
 
 ## <a name="enable-offline-app"></a>更新應用程式以支援離線功能
 
 Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時，仍可與本機資料庫互動。若要在您的應用程式中使用這些功能，您必須將 `MobileServiceClient.SyncContext` 初始化至本機存放區。接著，請透過 `IMobileServiceSyncTable` 介面參考您的資料表。在本教學課程中，我們會使用 SQLite 作為本機存放區。
 
->[AZURE.NOTE]您可以略過本節，直接從行動服務的 GitHub 範例儲存機制取得已具有離線支援的範例專案。具有離線支援的範例專案位於這裡：[TodoList 離線範例]。
+>[AZURE.NOTE] 您可以略過本節，直接從行動服務的 GitHub 範例儲存機制取得已具有離線支援的範例專案。具有離線支援的範例專案位於這裡：[TodoList 離線範例]。
 
 1. 安裝適用於 Windows 8.1 和 Windows Phone 8.1 的 SQLite Runtime。
 
     * **Windows 8.1 執行階段：**安裝 [SQLite for Windows 8.1]。
     * **Windows Phone 8.1：**安裝 [SQLite for Windows Phone 8.1]。
 
-    >[AZURE.NOTE]如果您要使用 Internet Explorer，當您按一下安裝 SQLite 的連結時，系統會提示您下載 .zip 檔案格式的 .vsix。請以 .vsix 副檔名將此檔案儲存至您的硬碟，而不要使用 .zip。在 Windows 檔案總管中按兩下此 .vsix 檔案，以執行安裝。
+    >[AZURE.NOTE] 如果您要使用 Internet Explorer，當您按一下安裝 SQLite 的連結時，系統會提示您下載 .zip 檔案格式的 .vsix。請以 .vsix 副檔名將此檔案儲存至您的硬碟，而不要使用 .zip。在 Windows 檔案總管中按兩下此 .vsix 檔案，以執行安裝。
 
 2. 在 Visual Studio 中，開啟您在[開始使用行動服務]教學課程中完成的專案。安裝適用於 Windows 8.1 執行階段和 Windows Phone 8.1 專案的 **WindowsAzure.MobileServices.SQLiteStore** NuGet 封裝。
 
     * **Windows 8.1：**在 [方案總管] 中，以滑鼠右鍵按一下 Windows 8.1 專案，然後按一下 [管理 Nuget 封裝]，以執行 NuGet 封裝管理員。搜尋 **SQLiteStore** 以安裝 `WindowsAzure.MobileServices.SQLiteStore` 封裝。
     * **Windows Phone 8.1：**以滑鼠右鍵按一下 Windows Phone 8.1 專案，然後按一下 [管理 NuGet 封裝]，以執行 NuGet 封裝管理員。搜尋 **SQLiteStore** 以安裝 `WindowsAzure.MobileServices.SQLiteStore` 封裝。
 
-    >[AZURE.NOTE]如果安裝建立舊版 SQLite 的參考，您可以只刪除該重複的參考。
+    >[AZURE.NOTE] 如果安裝建立舊版 SQLite 的參考，您可以只刪除該重複的參考。
 
     ![][2]
 
@@ -183,7 +183,7 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 
     在此範例中，我們擷取遠端 `todoTable` 中的所有記錄，但也可以藉由傳遞查詢來篩選記錄。`PullAsync` 的第一個參數是用於增量同步處理的查詢識別碼，會使用 `UpdatedAt` 時間戳記取得自從上次同步後修改過的記錄。對您應用程式中的每個邏輯查詢而言，查詢識別碼應該是唯一的描述性字串。若選擇不要增量同步處理，請傳遞 `null` 做為查詢識別碼。這會擷取每個提取作業的所有記錄，而可能降低效能。
 
-    >[AZURE.NOTE]* 若要從裝置本機存放區中移除已在您行動服務資料庫中刪除的記錄，請啟用[虛刪除]。否則，您的應用程式應定期呼叫 `IMobileServiceSyncTable.PurgeAsync()` 才能清除本機存放區。
+    >[AZURE.NOTE] * 若要從裝置本機存放區中移除已在您行動服務資料庫中刪除的記錄，請啟用[虛刪除]。否則，您的應用程式應定期呼叫 `IMobileServiceSyncTable.PurgeAsync()` 才能清除本機存放區。
 
     請注意，推送和提取作業可能會發生 `MobileServicePushFailedException`。它可能發生於提取，因為提取作業會在內部執行推入，以確定所有資料表及任何關聯性都一致。下一個教學課程[處理行動服務的離線支援衝突]示範如何處理這些同步處理相關的例外狀況。
 
@@ -283,4 +283,4 @@ Azure 行動服務的離線功能可讓您在行動服務處於離線狀態時�
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 [Azure 傳統入口網站]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

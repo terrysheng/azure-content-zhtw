@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="11/06/2015"
+	ms.date="01/26/2016"
 	ms.author="tomfitz"/>
 
 #Azure App Service 上的企業級 WordPress
@@ -26,11 +26,11 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 
 * **MySQL 資料庫** - 可透過 [Azure Marketplace 中的 ClearDB][cdbnstore] 取得，或您可在 Azure 虛擬機器上，使用 [Windows][mysqlwindows] 或 [Linux][mysqllinux] 來管理自己的 MySQL 安裝。
 
-    > [AZURE.NOTE]ClearDB 提供數個 MySQL 組態，每個組態具有不同的效能特性。請參閱 [Azure 市集][cdbnstore]，以取得透過 Azure 市集所提供的產品相關資訊，請參閱 [ClearDB 定價](http://www.cleardb.com/pricing.view)，以取得 ClearDB 直接提供的產品。
+    > [AZURE.NOTE] ClearDB 提供數個 MySQL 組態，每個組態具有不同的效能特性。請參閱 [Azure 市集][cdbnstore]，以取得透過 Azure 市集所提供的產品相關資訊，請參閱 [ClearDB 定價](http://www.cleardb.com/pricing.view)，以取得 ClearDB 直接提供的產品。
 
 * **PHP 5.2.4 或更高版本** - Azure App Service 目前提供 [PHP 5.4、5.5 和 5.6 版][phpwebsite]。
 
-	> [AZURE.NOTE]建議您務必在最新版的 PHP 上執行，以確保您擁有最新的安全性問題修正。
+	> [AZURE.NOTE] 建議您務必在最新版的 PHP 上執行，以確保您擁有最新的安全性問題修正。
 
 ###基本部署
 
@@ -53,7 +53,7 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 
 ###包含媒體儲存體和快取的多重區域部署
 
-如果網站接受上傳或主機媒體檔案，請使用 Azure Blob 儲存體。如果您需要快取，請考慮 [Redis cache][rediscache]、[Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/)、[MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) 或 [Azure 市集](http://azure.microsoft.com/gallery/store/)中的其中一個快取產品。
+如果網站接受上傳或主機媒體檔案，請使用 Azure Blob 儲存體。如果您需要快取，請考慮 [Redis cache][rediscache]、[Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/)、[MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) 或 [Azure 市集](https://azure.microsoft.com/gallery/store/)中的其中一個快取產品。
 
 ![Azure Web 應用程式，裝載於多個區域中，為 MySQLapp 使用 CDBR 高可用性路由器，搭配受管理的快取、Blob 儲存體和 CDN][performance-diagram]
 
@@ -96,7 +96,7 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 
 * **[WordPress 匯出][export]** - 這將匯出您的部落格內容，並接著使用 [WordPress 匯入工具外掛程式][import]將其匯入到 Azure App Service 上的新 WordPress 網站。
 
-	> [AZURE.NOTE]此程序可讓您移轉內容，但它無法移轉任何外掛程式、主題或其他自訂。您必須手動重新安裝這些項目。
+	> [AZURE.NOTE] 此程序可讓您移轉內容，但它無法移轉任何外掛程式、主題或其他自訂。您必須手動重新安裝這些項目。
 
 * **手動移轉** - [備份您的網站][wordpressbackup]和[資料庫][wordpressdbbackup] (英文)，然後手動將它還原成 Azure App Service 中的 Web 應用程式和相關聯 MySQL 資料庫，以移轉高度自訂的網站，並避免冗長的手動外掛程式、佈景主題或其他自訂。
 
@@ -196,43 +196,43 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 
 ## 後續步驟
 
-* [WordPress 最佳化](http://codex.wordpress.org/WordPress_Optimization) (英文)
+* [WordPress 最佳化 (英文)](http://codex.wordpress.org/WordPress_Optimization)
 
 * [在 Azure App Service 中將 WordPress 轉換成多站台](web-sites-php-convert-wordpress-multisite.md)
 
-* [適用於 Azure 的 ClearDB 升級精靈](http://www.cleardb.com/store/azure/upgrade) (英文)
+* [適用於 Azure 的 ClearDB 升級精靈 (英文)](http://www.cleardb.com/store/azure/upgrade)
 
-* [將 WordPress 裝載到 Azure App Service 中 Web 應用程式的子資料夾中](http://blogs.msdn.com/b/webapps/archive/2013/02/13/hosting-wordpress-in-a-subfolder-of-your-windows-azure-web-site.aspx) (英文)
+* [將 WordPress 裝載到 Azure App Service 中 Web 應用程式的子資料夾中 (英文)](http://blogs.msdn.com/b/webapps/archive/2013/02/13/hosting-wordpress-in-a-subfolder-of-your-windows-azure-web-site.aspx)
 
-* [逐步解說：使用 Azure 建立 WordPress 網站](http://blogs.technet.com/b/blainbar/archive/2013/08/07/article-create-a-wordpress-site-using-windows-azure-read-on.aspx) (英文)
+* [逐步解說：使用 Azure 建立 WordPress 網站 (英文)](http://blogs.technet.com/b/blainbar/archive/2013/08/07/article-create-a-wordpress-site-using-windows-azure-read-on.aspx)
 
-* [在 Azure 上裝載現有的 WordPress 部落格](http://blogs.msdn.com/b/msgulfcommunity/archive/2013/08/26/migrating-a-self-hosted-wordpress-blog-to-windows-azure.aspx) (英文)
+* [在 Azure 上裝載現有的 WordPress 部落格 (英文)](http://blogs.msdn.com/b/msgulfcommunity/archive/2013/08/26/migrating-a-self-hosted-wordpress-blog-to-windows-azure.aspx)
 
-* [在 WordPress 中啟用美化的固定連結](http://www.iis.net/learn/extensions/url-rewrite-module/enabling-pretty-permalinks-in-wordpress) (英文)
+* [在 WordPress 中啟用美化的固定連結 (英文)](http://www.iis.net/learn/extensions/url-rewrite-module/enabling-pretty-permalinks-in-wordpress)
 
-* [如何在 Azure App Service 上移轉與執行 WordPress 部落格](http://www.kefalidis.me/2012/06/how-to-migrate-and-run-your-wordpress-blog-on-windows-azure-websites/) (英文)
+* [如何在 Azure App Service 上移轉與執行 WordPress 部落格 (英文)](http://www.kefalidis.me/2012/06/how-to-migrate-and-run-your-wordpress-blog-on-windows-azure-websites/)
 
-* [如何在 Azure App Service 上免費執行 WordPress](http://architects.dzone.com/articles/how-run-wordpress-azure) (英文)
+* [如何在 Azure App Service 上免費執行 WordPress (英文)](http://architects.dzone.com/articles/how-run-wordpress-azure)
 
-* [在 2 分鐘內完成在 Azure 上安裝與執行 WordPress](http://www.sitepoint.com/wordpress-windows-azure-2-minutes-less/) (英文)
+* [在 2 分鐘內完成在 Azure 上安裝與執行 WordPress (英文)](http://www.sitepoint.com/wordpress-windows-azure-2-minutes-less/)
 
-* [ WordPress 部落格移至 Azure - 第 1 部：在 Azure 上建立 WordPress 部落格](http://www.davebost.com/2013/07/10/moving-a-wordpress-blog-to-windows-azure-part-1) (英文)
+* [ WordPress 部落格移至 Azure - 第 1 部：在 Azure 上建立 WordPress 部落格 (英文)](http://www.davebost.com/2013/07/10/moving-a-wordpress-blog-to-windows-azure-part-1)
 
-* [ WordPress 部落格移至 Azure - 第 2 部：傳輸內容](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-transferring-your-content) (英文)
+* [ WordPress 部落格移至 Azure - 第 2 部：傳輸內容 (英文)](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-transferring-your-content)
 
-* [ WordPress 部落格移至 Azure - 第 3 部：設定自訂網域](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-3-setting-up-your-custom-domain) (英文)
+* [ WordPress 部落格移至 Azure - 第 3 部：設定自訂網域 (英文)](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-3-setting-up-your-custom-domain)
 
-* [ WordPress 部落格移至 Azure - 第 4 部：美化永固定結與 URL 重新寫入規則](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-4-pretty-permalinks-and-url-rewrite-rules) (英文)
+* [ WordPress 部落格移至 Azure - 第 4 部：美化永固定結與 URL 重新寫入規則 (英文)](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-4-pretty-permalinks-and-url-rewrite-rules)
 
-* [將 WordPress 部落格移至 Azure - 第 5 部分：從子資料夾移至根目錄](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-5-moving-from-a-subfolder-to-the-root) (英文)
+* [將 WordPress 部落格移至 Azure - 第 5 部分：從子資料夾移至根目錄 (英文)](http://www.davebost.com/2013/07/11/moving-a-wordpress-blog-to-windows-azure-part-5-moving-from-a-subfolder-to-the-root)
 
-* [如何在 Azure 帳戶中設定 WordPress Web 應用程式](http://www.itexperience.net/2014/01/20/how-to-set-up-a-wordpress-website-in-your-windows-azure-account/) (英文)
+* [如何在 Azure 帳戶中設定 WordPress Web 應用程式 (英文)](http://www.itexperience.net/2014/01/20/how-to-set-up-a-wordpress-website-in-your-windows-azure-account/)
 
-* [在 Azure 上維持 WordPress](http://www.johnpapa.net/wordpress-on-azure/) (英文)
+* [在 Azure 上維持 WordPress (英文)](http://www.johnpapa.net/wordpress-on-azure/)
 
-* [在 Azure 上的 WordPress 秘訣](http://www.johnpapa.net/azurecleardbmysql/) (英文)
+* [在 Azure 上的 WordPress 秘訣 (英文)](http://www.johnpapa.net/azurecleardbmysql/)
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -282,4 +282,4 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 [cdn]: ../cdn-how-to-use.md
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

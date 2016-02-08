@@ -32,7 +32,7 @@
 
 ## 佈建的必要條件
 
-我們在此提供要在執行 Hyper-V 2008 R2、Hyper-V 2012 及 2012 R2 的主機系統上佈建虛擬裝置的必要條件。
+我們在此提供要在執行 Hyper-V 2008 R2、Hyper-V 2012，或 Hyper-V 2012 R2 之主機系統上佈建虛擬裝置的必要條件。
 
 ### 對於 StorSimple Manager 服務
 
@@ -274,4 +274,4 @@
 
 -   [Set up your StorSimple Virtual Array as an iSCSI server (將 StorSimple 虛擬陣列設定為 iSCSI 伺服器)](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

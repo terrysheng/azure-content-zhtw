@@ -21,15 +21,15 @@
 
 本主題描述 Microsoft Azure 儲存體的延展性和效能。如需其他 Azure 限制的摘要，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
 
->[AZURE.NOTE]所有儲存體帳戶都能在一般網路拓撲上執行，並支援下面說明的延展性和效能目標，無論它們在何時建立。如需 Azure 儲存體平面網路架構及延展性的詳細資訊，請參閱 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。
+>[AZURE.NOTE] 所有儲存體帳戶都能在一般網路拓撲上執行，並支援下面說明的延展性和效能目標，無論它們在何時建立。如需 Azure 儲存體平面網路架構及延展性的詳細資訊，請參閱 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。
 
 <!-- -->
 
->[AZURE.IMPORTANT]列於此處的延展性和效能目標都是高階目標，但仍可達成。在所有情況下，您的儲存體帳戶所達到的要求率和頻寬取決於已儲存物件的大小、使用的存取模式、應用程式執行的工作負載類型。請務必測試您的服務，以判斷效能是否達到您的要求。如果可能，請避免流量率突增，確保流量在不同分割之間妥善分散。
+>[AZURE.IMPORTANT] 列於此處的延展性和效能目標都是高階目標，但仍可達成。在所有情況下，您的儲存體帳戶所達到的要求率和頻寬取決於已儲存物件的大小、使用的存取模式、應用程式執行的工作負載類型。請務必測試您的服務，以判斷效能是否達到您的要求。如果可能，請避免流量率突增，確保流量在不同分割之間妥善分散。
 
 >當您的應用程式達到分割處理工作負載的限制時，Azure 儲存體會開始傳回錯誤碼 503 (伺服器忙碌) 或錯誤碼 500 (作業逾時) 回應。當發生這種情況時，應用程式應該使用指數輪詢重試原則。指數輪詢讓分割的負載減少，也能減輕該分割流量的尖峰。
 
-如果您的應用程式需求超出單一儲存體帳戶的延展性目標，您可以建置可使用多個儲存體帳戶的應用程式，並將資料物件分割到那些儲存體帳戶中。如需批量價格的相關資訊，請參閱[儲存體定價詳細資料](http://azure.microsoft.com/pricing/details/storage/)。
+如果您的應用程式需求超出單一儲存體帳戶的延展性目標，您可以建置可使用多個儲存體帳戶的應用程式，並將資料物件分割到那些儲存體帳戶中。如需批量價格的相關資訊，請參閱[儲存體定價詳細資料](https://azure.microsoft.com/pricing/details/storage/)。
 
 
 ## Blob、佇列、資料表和檔案的延展性目標
@@ -78,11 +78,11 @@
 
 ## 另請參閱
 
-- [儲存體定價詳細資料](http://azure.microsoft.com/pricing/details/storage/)
+- [儲存體定價詳細資料](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure 訂用帳戶和服務限制、配額與限制](../azure-subscription-service-limits.md)
 - [Premium 儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal/)
 - [Azure 儲存體複寫](storage-redundancy.md)
 - [Microsoft Azure 儲存體效能與延展性檢查清單](storage-performance-checklist.md)
 - [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務。](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="01/26/2015" 
 	ms.author="ryancraw"/>
 
 # 安全存取 DocumentDB 資料 #
@@ -115,7 +115,7 @@ DocumentDB 使用者資源會與 DocumentDB 資料庫相關聯。每個資料庫
 
     docUser = await client.CreateUserAsync(database.SelfLink, docUser);
 
-> [AZURE.NOTE]每個 DocumentDB 使用者都具有 PermissionsLink 屬性，可用來擷取與使用者相關聯的權限清單。
+> [AZURE.NOTE] 每個 DocumentDB 使用者都具有 PermissionsLink 屬性，可用來擷取與使用者相關聯的權限清單。
 
 DocumentDB 權限資源會與 DocumentDB 使用者相關聯。每位使用者可能包含零個或多個 DocumentDB 權限。當使用者嘗試存取特定的應用程式資源時，權限資源會提供使用者所需的安全性權杖存取權。權限資源可能會提供兩種可用的存取層級：
 
@@ -123,7 +123,7 @@ DocumentDB 權限資源會與 DocumentDB 使用者相關聯。每位使用者可
 - 讀取：使用者只能讀取資源的內容，但無法執行資源的寫入、更新或刪除作業。
 
 
-> [AZURE.NOTE]為執行 DocumentDB 預存程序，使用者必須具備即將執行預存程序之集合的「所有」權限。
+> [AZURE.NOTE] 為執行 DocumentDB 預存程序，使用者必須具備即將執行預存程序之集合的「所有」權限。
 
 
 下列程式碼片段示範如何建立權限資源，讀取權限資源的資源權杖 (token)，並將權限與先前所建立的使用者產生關聯。
@@ -154,7 +154,7 @@ DocumentDB 權限資源會與 DocumentDB 使用者相關聯。每位使用者可
             
     DocumentClient userClient = new DocumentClient(new Uri(endpointUrl),permList);
 
-> [AZURE.TIP]資源權杖有 1 小時的預設有效時間範圍。不過，您可以明確指定權杖存留期，最多 5 個小時。
+> [AZURE.TIP] 資源權杖有 1 小時的預設有效時間範圍。不過，您可以明確指定權杖存留期，最多 5 個小時。
 
 ##<a name="NextSteps"></a>接續步驟
 
@@ -163,4 +163,4 @@ DocumentDB 權限資源會與 DocumentDB 使用者相關聯。每位使用者可
 - 若要了解如何建構 DocumentDB 授權權杖，請按一下[這裡](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

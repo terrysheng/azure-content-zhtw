@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect 同步處理：一般 SQL 連接器"
+   pageTitle="Azure AD Connect 同步處理：一般 SQL 連接器 | Microsoft Azure"
    description="本文說明如何設定 Microsoft 的一般 SQL 連接器。"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/11/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # 一般 SQL 連接器技術參考
@@ -295,4 +295,4 @@
 
 -	如需如何啟用記錄來疑難排解連接器的資訊，請參閱[如何啟用連接器的 ETW 追蹤](http://go.microsoft.com/fwlink/?LinkId=335731)。
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

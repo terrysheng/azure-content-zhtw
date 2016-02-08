@@ -22,6 +22,11 @@
 
 如果您有錯過幾個版本的 SDK，您必須遵循幾個步驟。例如，如果您要從 0.10.1 移轉到 0.11.0 您必須先遵循「從 0.9.0 到 0.10.1」的程序，然後「從 0.10.1 到 0.11.0」的程序。
 
+##從 3.2.0 到 3.3.0
+
+### 資源
+此步驟僅涉及自訂資源。如果您已自訂透過 SDK (html、影像、重疊) 提供的資源，則您必須先備份這些資源，然後在已升級的資源上升級和重新套用您的自訂。
+
 ##從 3.1.0 到 3.2.0
 
 ### 資源
@@ -151,7 +156,7 @@
 
 以下說明如何將 SDK 整合從 Capptain SAS 提供的 Capptain 服務，移轉到由 Azure Mobile Engagement 提供的應用程式內。
 
-> [Azure.IMPORTANT]Capptain 和 Mobile Engagement 是不同的服務，而以下程序只專注在移轉用戶端應用程式。移轉應用程式中的 SDK「不會」將您的資料從 Capptain 伺服器移轉到 Mobile Engagement 伺服器
+> [Azure.IMPORTANT] Capptain 和 Mobile Engagement 是不同的服務，而以下程序只專注在移轉用戶端應用程式。移轉應用程式中的 SDK「不會」將您的資料從 Capptain 伺服器移轉到 Mobile Engagement 伺服器
 
 如果您要從舊版移轉，請先參閱 Capptain 網站以移轉到 1.1.1，然後再遵循以下程序
 
@@ -227,7 +232,7 @@ SDK 使用 `Engagement` 一詞。您需要更新您的專案，以符合此變�
 		</engagement:EngagementPage>
 
 4. 重疊項目頁面變更
-	> [AZURE.IMPORTANT]重疊項目也會變更。它的新命名空間為 `Microsoft.Azure.Engagement.Overlay`。在 xaml 和 cs 檔案中都必須使用它。此外，`CapptainGrid` 命名為 `EngagementGrid`，`capptain_notification_content` 和 `capptain_announcement_content` 命名為 `engagement_notification_content` 和 `engagement_announcement_content`。
+	> [AZURE.IMPORTANT] 重疊項目也會變更。它的新命名空間為 `Microsoft.Azure.Engagement.Overlay`。在 xaml 和 cs 檔案中都必須使用它。此外，`CapptainGrid` 命名為 `EngagementGrid`，`capptain_notification_content` 和 `capptain_announcement_content` 命名為 `engagement_notification_content` 和 `engagement_announcement_content`。
 	
 	針對重疊：
 	
@@ -289,4 +294,4 @@ Engagement 使用連接字串。您不需要為 Mobile Engagement 指定應用�
 
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

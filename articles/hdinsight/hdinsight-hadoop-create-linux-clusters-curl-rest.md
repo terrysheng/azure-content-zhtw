@@ -23,13 +23,13 @@
 
 Azure REST API 可讓您對裝載於 Azure 平台的服務執行管理作業，包括建立新的資源，例如以 Linux 為基礎的 HDInsight 叢集。本文件中，您將了解如何建立 Azure 資源管理員範本來設定 HDInsight 叢集和相關聯的儲存體，然後使用 cURL 將範本部署到 Azure REST API，以建立新的 HDInsight 叢集。
 
-> [AZURE.IMPORTANT]本文件中的步驟使用 HDInsight 叢集的背景工作節點預設數目 (4)。如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
+> [AZURE.IMPORTANT] 本文件中的步驟使用 HDInsight 叢集的背景工作節點預設數目 (4)。如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
 >
 > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
 ###必要條件
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 - __Azure CLI__。Azure CLI 用來建立服務主體，此主體再用於為 Azure REST API 的要求產生驗證權杖。
 
@@ -37,7 +37,7 @@ Azure REST API 可讓您對裝載於 Azure 平台的服務執行管理作業，�
 
 - __cURL__。此公用程式由封裝管理系統提供，也可以從 [http://curl.haxx.se/](http://curl.haxx.se/) 下載。
 
-    > [AZURE.NOTE]如果您使用 PowerShell 執行本文件中的命令，您必須先移除依預設建立的 `curl` 別名。當您從 PowerShell 提示字元使用 `curl` 命令時，此別名會使用 PowerShell Cmdlet 的 Invoke-WebRequest，而不是 cURL，造成本文件中使用的許多命令傳回錯誤。
+    > [AZURE.NOTE] 如果您使用 PowerShell 執行本文件中的命令，您必須先移除依預設建立的 `curl` 別名。當您從 PowerShell 提示字元使用 `curl` 命令時，此別名會使用 PowerShell Cmdlet 的 Invoke-WebRequest，而不是 cURL，造成本文件中使用的許多命令傳回錯誤。
     > 
     > 如果要移除此別名，請從 PowerShell 提示字元執行下列命令：
     >
@@ -263,7 +263,7 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 
 ##建立服務主體
 
-> [AZURE.IMPORTANT]執行下列連結文件中的步驟時，您必須進行下列變更：
+> [AZURE.IMPORTANT] 執行下列連結文件中的步驟時，您必須進行下列變更：
 > 
 > * 當步驟表示要使用的值為 __reader__ 時，您必須改用 __owner__。這會建立可在訂用帳戶上變更服務的服務主體，而這是建立 HDInsight 叢集所必要的。
 >
@@ -290,7 +290,7 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 
 如果這個要求成功，您會收到 200 系列的回應，且回應主體會包含 JSON 文件。
 
-> [AZURE.IMPORTANT]這個要求所傳回的 JSON 文件將包含名為 __access\_token__ 的元素；這個元素的值是存取權杖，必須用來驗證本文件接下來各節所使用的要求。
+> [AZURE.IMPORTANT] 這個要求所傳回的 JSON 文件將包含名為 __access\_token__ 的元素；這個元素的值是存取權杖，必須用來驗證本文件接下來各節所使用的要求。
 
 ##建立資源群組
 
@@ -315,13 +315,13 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 
     curl -X "PUT" "https://management.azure.com/subscriptions/SUBSCRIPTIONID/resourcegroups/GROUPNAME/providers/microsoft.resources/deployments/DEPLOYMENTNAME?api-version=2015-01-01" \\ -H "Authorization: Bearer ACCESSTOKEN" \\ -H "Content-Type: application/json" \\ -d "{set your body string to the template and parameters}"
 
-> [AZURE.NOTE]如果您已將包含範本和參數的 JSON 文件儲存到檔案，您可以使用下列命令，而不是 `-d "{ template and parameters}"'：
+> [AZURE.NOTE] 如果您已將包含範本和參數的 JSON 文件儲存到檔案，您可以使用下列命令，而不是 `-d "{ template and parameters}"'：
 >
 > ```--data-binary "@/path/to/file.json"```
 
 如果這個要求成功，您會收到 200 系列的回應，且回應主體會包含 JSON 文件，內含部署作業的相關資訊。
 
-> [AZURE.IMPORTANT]請注意，部署已送出，但目前尚未完成。部署通常需要大約 15 分鐘才會完成。
+> [AZURE.IMPORTANT] 請注意，部署已送出，但目前尚未完成。部署通常需要大約 15 分鐘才會完成。
 
 ##檢查部署的狀態
 
@@ -355,4 +355,4 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 * [在 HDInsight 上的 Storm 中使用 Python 元件](hdinsight-storm-develop-python-topology.md)
 * [在 HDInsight 上使用 Storm 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

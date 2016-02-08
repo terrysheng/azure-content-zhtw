@@ -28,7 +28,8 @@
 - **密碼管理活動報告**讓系統管理員得以深入了解其組織內發生的密碼重設和註冊活動。
 - **密碼回寫**允許從雲端管理內部部署密碼，以便代表或由同盟或已同步處理密碼的使用者執行上述所有案例。密碼回寫需要 Azure AD Premium。如需詳細資訊，請參閱[開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)。
 
-> [AZURE.NOTE]Azure AD Premium 可用於使用 Azure AD 全球執行個體的中國客戶。由 21Vianet 在中國提供的 Microsoft Azure 服務目前不支援 Azure AD Premium。如需詳細資訊，請透過 [Azure Active Directory 論壇](http://feedback.azure.com/forums/169401-azure-active-directory)與我們連絡。
+> [AZURE.NOTE]
+Azure AD Premium 可用於使用 Azure AD 全球執行個體的中國客戶。由 21Vianet 在中國提供的 Microsoft Azure 服務目前不支援 Azure AD Premium。如需詳細資訊，請透過 [Azure Active Directory 論壇](https://feedback.azure.com/forums/169401-azure-active-directory/)與我們連絡。
 
 使用下列連結可前往您最感興趣的文件：
 
@@ -48,4 +49,4 @@
 - [在 Azure AD 中建立或編輯使用者](active-directory-create-users.md)
 - [在 Azure AD 中管理群組](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

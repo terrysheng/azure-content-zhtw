@@ -25,7 +25,7 @@
 ### 什麼是 Microsoft Azure DocumentDB？ 
 Microsoft Azure DocumentDB 是一種極具調整性的 NoSQL 文件「資料庫即服務」，可在無結構描述的資料上進行豐富的查詢，協助提供可設定和可靠的效能，且支援快速開發，這些完全都是透過受管理的平台，背後有 Microsoft Azure 強大的功能與先進的技術做後盾。如果關鍵要求在於可預測的輸送量、低遲性和無結構描述的資料模型，則 DocumentDB 就是 Web 和行動應用程式最適當的解決方案。DocumentDB 透過原生 JSON 資料模型，提供結構描述的彈性和豐富的檢索能力，且包含多文件交易式支援與整合式 JavaScript。
   
-如需更多資料庫問題、解答，以及部署和使用此服務的指示，請參閱 [DocumentDB 文件頁面](http://azure.microsoft.com/documentation/services/documentdb/)。
+如需更多資料庫問題、解答，以及部署和使用此服務的指示，請參閱 [DocumentDB 文件頁面](https://azure.microsoft.com/documentation/services/documentdb/)。
 
 ### DocumentDB 是何種資料庫？
 DocumentDB 是 NoSQL 文件導向的資料庫，以 JSON 格式儲存資料。DocumentDB 支援巢狀、獨立式資料結構，可透過豐富的 DocumentDB [SQL 查詢文法](documentdb-sql-query.md)來查詢。DocumentDB 透過[預存程序、觸發程序和使用者定義函數](documentdb-programming.md)，提供伺服器端 JavaScript 高效能的交易式處理。資料庫也支援可由開發人員調整的一致性層級與相關聯的[效能層級](documentdb-performance-levels.md)。
@@ -52,10 +52,10 @@ DocumentDB 帳戶可以藉由加入集合，根據儲存體和輸送量來擴充
 請參閱 [DocumentDB 價格詳細資料](http://go.microsoft.com/fwlink/p/?LinkID=402317)頁面，以取得詳細資料。DocumentDB 使用量費用取決於使用中的集合數目、集合已在線上的時數，以及每個集合的[效能層級](documentdb-performance-levels.md)。
 
 ### 有免費的試用版可用嗎?
-如果您不熟悉 Azure，可以註冊 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)，就能得到 30 天免費試用以及美金 200 元，讓您試用所有 Azure 服務。或者，如果您有 Visual Studio 訂用帳戶，就可以享有[免費的 Azure 信用額度每月美金 150 元](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，可用於所有 Azure 服務。
+如果您不熟悉 Azure，可以註冊 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)，就能得到 30 天免費試用以及美金 200 元，讓您試用所有 Azure 服務。或者，如果您有 Visual Studio 訂用帳戶，就可以享有[免費的 Azure 信用額度每月美金 150 元](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，可用於所有 Azure 服務。
 
 ### 如何取得 DocumentDB 的其他說明？
-如果您需要協助，請在 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb) 和 [Azure DocumentDB MSDN 開發人員論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)聯繫我們，或者是和 [DocumentDB 工程小組安排一對一的談話](http://www.askdocdb.com/)。若想隨時知道 DocumentDB 的最新消息和功能，請追蹤我們的 [Twitter](https://twitter.com/DocumentDB)。
+如果您需要協助，請在 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb) 和 [Azure DocumentDB MSDN 開發人員論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)聯繫我們，或者是和 [DocumentDB 工程小組安排一對一的談話](http://www.askdocdb.com/)。若想隨時知道最新的 DocumentDB 新聞和功能，請追蹤我們的 [Twitter](https://twitter.com/DocumentDB)。
 
 ## 設定 Microsoft Azure DocumentDB
 
@@ -115,4 +115,4 @@ DocumentDB 透過 JavaScript 預存程序和觸發程序，支援語言整合式
 [query]: documentdb-sql-query.md
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

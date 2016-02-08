@@ -7,7 +7,7 @@
 - 將 VM 加入現有的雲端服務
 - 將 VM 加入可用性設定組
 
-> [AZURE.IMPORTANT]如果要讓虛擬機器使用虛擬網路，以便依主機名稱來連接虛擬機器，或設定跨單位連線，則必須在建立虛擬機器時指定虛擬網路。只有在建立虛擬機器時，才能將虛擬機器設定為加入虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](http://go.microsoft.com/fwlink/p/?LinkID=294063)。
+> [AZURE.IMPORTANT] 如果要讓虛擬機器使用虛擬網路，以便依主機名稱來連接虛擬機器，或設定跨單位連線，則必須在建立虛擬機器時指定虛擬網路。只有在建立虛擬機器時，才能將虛擬機器設定為加入虛擬網路。如需虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](http://go.microsoft.com/fwlink/p/?LinkID=294063)。
 
 1. 登入 [Azure 入口網站](http://manage.windowsazure.com)。
 
@@ -34,7 +34,7 @@
 	- 如果這是雲端服務中的第一個或唯一的虛擬機器，請選取 [Create a new cloud service]。然後，在 [Cloud Service DNS Name] 中，輸入使用 3 到 24 個小寫字母和數字的名稱。透過雲端服務連絡虛擬機器時，使用的 URI 中將包含此名稱。
 	- 如果要將此虛擬機器加入雲端服務，請在清單中選取它。
 
-	> [AZURE.NOTE]如需關於將虛擬機器放在相同雲端服務中的詳細資訊，請參閱[如何在雲端服務中連接虛擬機器](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/)。
+	> [AZURE.NOTE] 如需關於將虛擬機器放在相同雲端服務中的詳細資訊，請參閱[如何在雲端服務中連接虛擬機器](https://azure.microsoft.com/manage/windows/how-to-guides/connect-to-a-cloud-service/)。
 
 12. 在 [區域/同質群組/虛擬網路] 中，選取您要用於虛擬機器的區域、同質群組或虛擬網路。如需有關同質群組的詳細資訊，請參閱[關於虛擬網路的同質群組](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)。
 
@@ -58,4 +58,4 @@
 - [如何登入執行 Linux 的虛擬機器](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [如何登入執行 Windows Server 的虛擬機器](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

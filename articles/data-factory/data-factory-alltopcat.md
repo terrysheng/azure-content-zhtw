@@ -136,7 +136,6 @@
 
 | 課程名稱 | 說明 |
 | :-- | :-- |
-| [Azure Data Factory 編輯器](data-factory-editor.md) | 描述 Azure Data Factory 編輯器，它可讓您使用簡易型 Web 使用者介面，建立、編輯和部署連結服務、資料表和管線的 JSON 定義。 |
 | [Azure 資料處理站-常見問題集](data-factory-faq.md) | 關於 Azure Data Factory 的常見問題。 |
 | [Azure Data Factory - 命名規則](data-factory-naming-rules.md) | 描述 Data Factory 實體的命名規則。 |
 | [Azure Data Factory 版本資訊](data-factory-release-notes.md) | Data Factory 版本資訊 |
@@ -145,10 +144,10 @@
 
 #### 額外項目
 
-- [Data Factory 的學習路徑圖](http://azure.microsoft.com/documentation/learning-paths/data-factory/)
-- [搜尋 Microsoft Azure 文件](http://azure.microsoft.com/search/documentation/)
-- [針對 Microsoft Azure 文件的替代搜尋](http://azure.microsoft.com/searchresults/?query=)
-- [檢視 Data Factory 服務的最新更新](http://azure.microsoft.com/updates/?service=data-factory)
-- [Microsoft Azure 服務的學習路徑圖](http://azure.microsoft.com/documentation/learning-paths/)
+- [Data Factory 的學習路徑圖](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+- [搜尋 Microsoft Azure 文件](https://azure.microsoft.com/search/documentation/)
+- [針對 Microsoft Azure 文件的替代搜尋](https://azure.microsoft.com/searchresults/?query=)
+- [檢視 Data Factory 服務的最新更新](https://azure.microsoft.com/updates/?service=data-factory)
+- [Microsoft Azure 服務的學習路徑圖](https://azure.microsoft.com/documentation/learning-paths/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

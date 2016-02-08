@@ -13,40 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="07/13/2015"
+   ms.date="01/13/2016"
    ms.author="heidist"/>
 
 # 使用 Azure App Service 免費試用 Azure Search
 
-[Azure App Service](https://tryappservice.azure.com/) 是一個可試用所選「Azure 服務」(包括 Azure Search) 的完全免費新方式，最多可試用一個小時且不需註冊任何 Azure 訂用帳戶。
+[Try Azure App Service](https://tryappservice.azure.com/) 提供您一小時免費的瀏覽器式工作階段來試用 Azure 服務 (包括 **Azure 搜尋服務**)，且您不需註冊訂用帳戶。此網站可讓您從數個範本中選擇。當您選取包含 Azure 搜尋服務的 ASP.NET 範本時，您就能夠存取所選取服務支援的網站中所有的功能。
 
-此網站可讓您從數個範本中選擇。當您選取包含 Azure 搜尋服務的 ASP.NET 範本時，您就能獲得一個小時存取功能完整的網站，由您所選取的服務所支援。您將無法更新或刪除任何由 Azure 搜尋服務管理的資料 – 但是您可以執行查詢，並進行任意數目的程式碼變更，以重塑使用者體驗。如果工作階段在您完成探索之前到期，您一律可以重新開始另一個工作階段，或者如果您的目標是要直接建立或載入索引，請移至試用版或完整的訂用帳戶。
+Azure 搜尋服務也是 [Try Azure App Service](https://tryappservice.azure.com/) 的一部分，且該服務已經建立並準備好接收搜尋查詢。您無法上傳或使用自己的索引或資料，但是您可以執行查詢，以及進行幾次程式碼變更來改造使用者經驗。
 
-在 [Azure App Service](https://tryappservice.azure.com/) 網站上，Azure Search 是 Web 應用程式範本的一部分 - 在 Azure 平台上提供豐富的全文檢索搜尋體驗，以及許多只有此服務才有的以搜尋為中心的功能。
-
-雖然其他 Azure 服務，例如 SQL Database，提供全文檢索搜尋，但是類似 Azure 搜尋服務的服務可提供您調整控制項、分頁和計數；點閱數醒目提示、自動完成查詢建議、自然語言支援、多面向導覽、篩選以及更多功能。如同幾個[範例](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=search)所示範的，我們可以只使用 Azure Search 和 ASP.NET 來開發功能完整的搜尋型應用程式。
-
-您將使用的 Azure Search 服務是 [Azure App Service](https://tryappservice.azure.com/) 提供的其中一項服務，此服務已經為您建立好，並且已準備就緒，可接收搜尋查詢。您無法上傳或使用您自己的索引或資料。您將使用的資料是來自[美國地質調查局 (USGS)](http://geonames.usgs.gov/domestic/download_data.htm)，包含來自全美國大約 3 百萬個資料列的地標、歷史古蹟、建築和其他地標特色。
-
-為了協助您充分運用一個小時的工作階段，下列指示將逐步引導您了解查詢和程式碼。
-
-繼續進行之前，您可能要花幾分鐘的時間檢閱一些關於程式碼、服務和可搜尋資料的重點。如果您還不熟悉 Azure 搜尋服務，了解一些背景相當實用。
-
-## 關於程式碼與 Azure 搜尋服務的事實
-
-Azure Search 是一個完全受管理的「平台即服務」[PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) 服務，可讓開發人員將 Web 與行動應用程式中的絕佳搜尋體驗輕鬆整合。在搜尋作業中使用的資料會利用搜尋服務儲存在 Azure 中，其中資料和作業的鄰近性可確保低延遲性和一致的搜尋行為。深入探索這一點：
-
-- 可搜尋的資料會儲存在受 Azure Search 管理的索引中
-- 定義索引的結構描述是由使用者定義，並會指定可搜尋的欄位，在篩選運算式中有用的非可搜尋欄位以及建構，例如微調結果的評分設定檔。
-- 搜尋索引包含一或多個既可搜尋也可擷取的文件 (類似於資料表中的資料列)
-- 大部分的索引都會從單一資料集載入，由您預先準備來包含僅在搜尋作業的內容中才有用的欄位。 
-- 資料可以由索引子 (僅支援 Azure SQL Database 或 Azure DocumentDB) 自動載入或透過其中一個 Azure 搜尋服務 API 推送至搜尋索引。當您使用 API 時，您可以從任何資料來源推送資料，只要它是 JSON 格式即可。
-
-在 [Azure App Service](https://tryappservice.azure.com/) 選項中，[ASP.NET + Azure Search 網站] 範本提供了 Web 應用程式的原始程式碼，可在 Visual Studio Team Services (在一小時的工作階段中可以使用) 中修改。檢視或變更程式碼不需要個別的開發工具。
-
-程式碼是以 C# 撰寫，其中使用 [Azure Search .NET 用戶端程式庫](https://msdn.microsoft.com/library/dn951165.aspx)來針對索引執行查詢、提供多面向導覽，以及在網頁中顯示計數和搜尋結果。
-
-其他程式碼 (不包含在範本中) 用來建置和載入 USGS 搜尋索引。因為服務是唯讀的，所以需要寫入存取權的所有作業都必須事先完成。您可以在本文結尾看到用來建置結構描述的[結構描述副本](#schema)。
+搜尋資料來自[美國地質調查局 (USGS)](http://geonames.usgs.gov/domestic/download_data.htm)，包含來自全美國大約 3 百萬個資料列的地標、歷史古蹟、建築和其他地標特色。
 
 ## 開始使用
 
@@ -100,7 +76,7 @@ Azure Search 具有可設定的 **searchMode** 屬性，可用來控制搜尋運
 - **searchMode.Any** 規定與搜尋詞彙相符的任何項目都足以在搜尋結果中包含一個項目。如果您的搜尋片語是 `Yellowstone visitor center`，則任何包含這當中任何詞彙的文件都會包含在搜尋結果中。這種模式偏向「重新叫用」。
 - 此範例中使用的 **searchModel.All** 會要求文件中必須要有所有指定的詞彙。這個模式比 **searchMode.Any** 更嚴苛，但是如果您偏好「精確度」勝過重新叫用，它可能會是您應用程式的理想選擇。 
 
-> [AZURE.NOTE]**searchMode.Any** 在查詢建構大部分包含片語且使用最少量運算子時效果最佳。根據一般的經驗法則，搜尋消費者應用程式 (例如電子商務網站) 的人員傾向於只使用詞彙，而搜尋內容或資料的人員更有可能在搜尋片語中包含運算子。如果您認為搜尋可能會包括運算子 (尤其是 `NOT (-)` 運算子)，請以 **searchModel.All** 開始。對比之下，您的另一個選項 **searchMode.Any** 則會以 `OR` 將 `NOT` 運算子與其他搜尋詞彙連接，這會大幅擴充結果而不是削減結果。下列範例可協助您了解差異。
+> [AZURE.NOTE] **searchMode.Any** 在查詢建構大部分包含片語且使用最少量運算子時效果最佳。根據一般的經驗法則，搜尋消費者應用程式 (例如電子商務網站) 的人員傾向於只使用詞彙，而搜尋內容或資料的人員更有可能在搜尋片語中包含運算子。如果您認為搜尋可能會包括運算子 (尤其是 `NOT (-)` 運算子)，請以 **searchModel.All** 開始。對比之下，您的另一個選項 **searchMode.Any** 則會以 `OR` 將 `NOT` 運算子與其他搜尋詞彙連接，這會大幅擴充結果而不是削減結果。下列範例可協助您了解差異。
 
 在這個工作中，您將變更 **searchMode**，並根據模式比較搜尋結果。
 
@@ -173,7 +149,7 @@ Azure Search 具有可設定的 **searchMode** 屬性，可用來控制搜尋運
 
 您可能會想要儲存一份原始 **Search.cshtml** 檔案的複本來查看這兩種版本的比較。
 
-> [AZURE.NOTE]已除去註解以減少檔案大小。
+> [AZURE.NOTE] 已除去註解以減少檔案大小。
  
     @using System.Collections.Specialized
     @using System.Configuration
@@ -307,6 +283,9 @@ Azure Search 具有可設定的 **searchMode** 屬性，可用來控制搜尋運
     }
     }
 
+## 為什麼要選擇 Azure 搜尋服務？
+
+雖然其他 Azure 服務，例如 SQL Database，提供全文檢索搜尋，但是類似 Azure 搜尋服務的服務可提供您調整控制項、分頁和計數；點閱數醒目提示、自動完成查詢建議、自然語言支援、多面向導覽、篩選以及更多功能。如同幾個[範例](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=search)所示範的，我們可以只使用 Azure Search 和 ASP.NET 來開發功能完整的搜尋型應用程式。
 
 ## 後續步驟
 
@@ -318,7 +297,23 @@ Azure Search 具有可設定的 **searchMode** 屬性，可用來控制搜尋運
 
 若要執行所有工作，您需要 Azure 訂用帳戶，讓您可以在服務中建立並填入索引。如需有關如何註冊免費試用的詳細資訊，請瀏覽 [https://azure.microsoft.com/pricing/free-trial](https://azure.microsoft.com/pricing/free-trial/)。
 
-若要深入了解 Azure Search，請瀏覽 [http://azure.microsoft.com](http://azure.microsoft.com) 上的[文件頁面](http://azure.microsoft.com/documentation/services/search/)，或查看任意數目的[範例和影片](search-video-demo-tutorial-list.md)以探索 Azure Search 的完整功能。
+若要深入了解 Azure Search，請瀏覽 [http://azure.microsoft.com](https://azure.microsoft.com/) 上的[文件頁面](https://azure.microsoft.com/documentation/services/search/)，或查看任意數目的[範例和影片](search-video-demo-tutorial-list.md)以探索 Azure Search 的完整功能。
+
+## 關於程式碼與 Azure 搜尋服務的事實
+
+Azure Search 是一個完全受管理的「平台即服務」[PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) 服務，可讓開發人員將 Web 與行動應用程式中的絕佳搜尋體驗輕鬆整合。在搜尋作業中使用的資料會利用搜尋服務儲存在 Azure 中，其中資料和作業的鄰近性可確保低延遲性和一致的搜尋行為。深入探索這一點：
+
+- 可搜尋的資料會儲存在由 Azure 搜尋服務管理的索引中。
+- 定義索引的結構描述是由使用者定義，並會指定可搜尋的欄位，在篩選運算式中有用的非可搜尋欄位以及建構，例如微調結果的評分設定檔。
+- 一個搜尋索引至少包含一個以上的文件 (類似資料表中的一個資料列)，而這些文件是可搜尋，也可擷取的。
+- 大部分的索引都會從單一資料集載入，由您預先準備來包含僅在搜尋作業的內容中才有用的欄位。 
+- 資料可以由索引子 (僅支援 Azure SQL Database 或 Azure DocumentDB) 自動載入或透過其中一個 Azure 搜尋服務 API 推送至搜尋索引。當您使用 API 時，您可以從任何資料來源推送資料，只要它是 JSON 格式即可。
+
+在 [Azure App Service](https://tryappservice.azure.com/) 選項中，[ASP.NET + Azure Search 網站] 範本提供了 Web 應用程式的原始程式碼，可在 Visual Studio Team Services (在一小時的工作階段中可以使用) 中修改。檢視或變更程式碼不需要個別的開發工具。
+
+程式碼是以 C# 撰寫，其中使用 [Azure Search .NET 用戶端程式庫](https://msdn.microsoft.com/library/dn951165.aspx)來針對索引執行查詢、提供多面向導覽，以及在網頁中顯示計數和搜尋結果。
+
+其他程式碼 (不包含在範本中) 用來建置和載入 USGS 搜尋索引。因為服務是唯讀的，所以需要寫入存取權的所有作業都必須事先完成。您可以在本文結尾看到用來建置結構描述的[結構描述副本](#schema)。
 
 <a name="Schema"></a>
 ## 關於結構描述
@@ -528,4 +523,4 @@ Azure Search 具有可設定的 **searchMode** 屬性，可用來控制搜尋運
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

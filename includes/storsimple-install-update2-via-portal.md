@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/11/16-->
+<!--author=alkohli last changed: 01/26/16-->
 
 #### 從 Azure 入口網站安裝 Update 2
 
@@ -8,7 +8,7 @@
 
 3. 在相同頁面的 [**軟體更新**] 區段中，您會看到新的軟體更新可供使用。我們建議您先檢閱版本資訊，然後再於裝置上套用 Update 2。
 
-    ![安裝軟體更新](./media/storsimple-install-update2-via-portal/InstallUpdate12_11M.png)
+    ![安裝軟體更新](./media/storsimple-install-update2-via-portal/scanupdate1.png)
 
 4. 按一下頁面底部的 [**安裝更新**]。
 
@@ -39,7 +39,7 @@
    	 ![前置檢查失敗](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
 
 	
-	> [AZURE.NOTE]如果您是從 Update 1 之前的版本更新，在 StorSimple 裝置上套用 Update 2 之後，未來的更新將不再需要 DATA 2 和 DATA 3 檢查，以及閘道檢查。但仍需要其他前置檢查。如果您是從 Update 1 或更新版本更新，就不會執行 DATA 2、DATA 3 和閘道前置檢查。
+	> [AZURE.NOTE] 如果您是從 Update 1 之前的版本更新，在 StorSimple 裝置上套用 Update 2 之後，未來的更新將不再需要 DATA 2 和 DATA 3 檢查，以及閘道檢查。但仍需要其他前置檢查。如果您是從 Update 1 或更新版本更新，就不會執行 DATA 2、DATA 3 和閘道前置檢查。
 
 
 8. 升級前檢查都成功完成後，將會建立更新工作。成功建立更新工作時，系統將會通知您。
@@ -57,8 +57,10 @@
 12. 驗證您的裝置正在執行 **StorSimple 8000 系列 Update 2 (6.3.9600.17673)**。[**上次更新日期**] 應該也已修改。
 
 
-13. 您現在會看到已有維護模式更新可供使用。這些更新為干擾性更新，會導致裝置產生停機時間，且只能透過您裝置的 Windows PowerShell 介面加以套用。請依照[安裝及驗證維護模式 Hotfix](#to-install-and-verify-maintenance-mode-hotfix) 中列出的步驟安裝這些維護模式更新。
+13. 您現在會看到已有維護模式更新可供使用。在某些情況下，當您執行更新 1.2 時，您的磁碟韌體可能已經是最新狀態。在這些情況下，入口網站會自動判斷出該狀況，並將不會向您提示維護模式更新。
 
-> [AZURE.NOTE]在某些情況下，在裝置上成功套用維護模式更新之後，指出維護模式更新可供使用的訊息可能會持續顯示長達 24 小時。
+	維護模式更新為干擾性更新，會導致裝置產生停機時間，且只能透過您裝置的 Windows PowerShell 介面加以套用。請依照[安裝及驗證維護模式 Hotfix](#to-install-and-verify-maintenance-mode-hotfix) 中列出的步驟安裝這些維護模式更新。
 
-<!---HONumber=AcomDC_0114_2016-->
+> [AZURE.NOTE] 在某些情況下，在裝置上成功套用維護模式更新之後，指出維護模式更新可供使用的訊息可能會持續顯示長達 24 小時。
+
+<!---HONumber=AcomDC_0128_2016-->

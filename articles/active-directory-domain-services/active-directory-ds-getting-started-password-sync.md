@@ -4,7 +4,7 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 網域服務 (預覽) - 開始使用
@@ -46,15 +46,13 @@
 
 #### 安裝或更新 Azure AD Connect
 
-您必須在已加入網域的電腦上安裝建議的最新 Azure AD Connect 版本。如果您目前已設定 Azure AD Connect 的執行個體，就必須更新它來使用 Azure AD Connect GA 組建。請確定您使用的是目前的 Azure AD Connect 版本，以避免已知的問題/bug。
+您必須在已加入網域的電腦上安裝建議的最新 Azure AD Connect 版本。如果您目前已設定 Azure AD Connect 的執行個體，就必須更新它來使用 Azure AD Connect GA 組建。請確定您使用的是最新的 Azure AD Connect 版本，以避免已知的問題/bug。
 
 **[下載 Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-最低建議版本：**1.0.9125** - 已於 2015 年 11 月 3 日發行。
+最低建議版本：**1.0.9131** - 已於 2015 年 12 月 3 日發行。
 
-  >[AZURE.WARNING]您「必須」安裝建議的最新 Azure AD Connect 版本，才能將傳統密碼認證 (NTLM 和 Kerberos 驗證所需的認證) 同步處理到 Azure AD 租用戶。此功能無法在舊版的 Azure AD Connect 中使用，或與舊版 DirSync 工具搭配使用。
-
-注意：您不再需要利用最新的 Azure AD Connect 版本 (亦即 1.0.9125 和更新版本) 來建立 'EnableWindowsLegacyCredentialsSync' 登錄機碼。
+  >[AZURE.WARNING] 您「必須」安裝建議的最新 Azure AD Connect 版本，才能將傳統密碼認證 (NTLM 和 Kerberos 驗證所需的認證) 同步處理到 Azure AD 租用戶。此功能無法在舊版的 Azure AD Connect 中使用，或與舊版 DirSync 工具搭配使用。
 
 Azure AD Connect 的安裝指示可於下列文章中取得：[開始使用 Azure AD Connect](../active-directory/active-directory-aadconnect.md)
 
@@ -79,4 +77,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 視目錄的大小而定 (使用者的數目、群組等)，將認證同步處理到 Azure AD 需要花一點時間。將認證雜湊同步處理到 Azure AD 之後，密碼短時間內就能在 Azure AD 網域服務管理的網域上使用。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

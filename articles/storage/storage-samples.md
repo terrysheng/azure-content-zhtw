@@ -26,7 +26,7 @@
 
 ## .NET 範例
 
-若要瀏覽 .NET 範例，請從 NuGet 下載 [.NET 儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)。您也可以在 [適用於 .NET 的 Azure SDK](http://azure.microsoft.com/downloads/) 中找到 .NET 儲存體用戶端程式庫。
+若要瀏覽 .NET 範例，請從 NuGet 下載 [.NET 儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)。您也可以在 [適用於 .NET 的 Azure SDK](https://azure.microsoft.com/downloads/) 中找到 .NET 儲存體用戶端程式庫。
 
 * [在 5 分鐘內開始使用 Azure Blob、資料表和佇列](storage-getting-started-guide.md)
 * [使用 Azure 儲存體管理並行存取 - 範例應用程式](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
@@ -85,4 +85,4 @@
 - [C++ 儲存體用戶端程式庫的原始程式碼](https://github.com/Azure/azure-storage-cpp)
 - [C++ 用戶端程式庫參考](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

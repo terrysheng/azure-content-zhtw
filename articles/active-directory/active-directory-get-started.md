@@ -25,7 +25,7 @@
 準備好開始了嗎？ 建議您試用一些隨 Azure Active Directory 發表的超棒功能。使用這些功能來為您組織的身分識別與存取管理帶來更多價值。閱讀文件以了解如何設定這些功能。接著查看如何開始著手和指派試用版授權給系統管理員和使用者，以開始測試這些功能。
 
 
-> [AZURE.NOTE]Azure AD 免費提供給所有人。立即註冊 Azure 試用版訂用帳戶，您的目錄將會等著您。目錄就屬於您，而不論您是否另購任何產品。[立即試用 Azure AD](http://azure.microsoft.com/trial/get-started-active-directory/)
+> [AZURE.NOTE] Azure AD 免費提供給所有人。立即註冊 Azure 試用版訂用帳戶，您的目錄將會等著您。目錄就屬於您，而不論您是否另購任何產品。[立即試用 Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ##保護您組織的存取
 使用多重要素驗證保護您組織在雲端的身分識別資料，以確保本機和遠端存取的安全性。[深入了解多重要素驗證](../multi-factor-authentication.md)
@@ -44,4 +44,4 @@ Azure AD 為系統管理員提供了幾種報告。在 Azure AD 的付費版本�
 * [以組織身分註冊 Azure](sign-up-organization.md)
 * [Azure 身分識別](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

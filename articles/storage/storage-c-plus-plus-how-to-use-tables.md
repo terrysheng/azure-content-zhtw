@@ -23,7 +23,7 @@
 ## 概觀  
 本指南將示範如何使用 Azure 資料表儲存體服務執行一般案例。這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md)。所涵蓋的案例包括**建立和刪除資料表**，以及**使用資料表實體**。
 
->[AZURE.NOTE]本指南以 Azure Storage Client Library for C++ 1.0.0 版和更新版本為對象。建議的版本是 Storage Client Library 1.0.0，可透過 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/) 取得。
+>[AZURE.NOTE] 本指南以 Azure Storage Client Library for C++ 1.0.0 版和更新版本為對象。建議的版本是 Storage Client Library 1.0.0，可透過 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/) 取得。
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -46,12 +46,12 @@
 	#include "was/table.h"
 
 ## 設定 Azure 儲存體連接字串  
-Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。執行用戶端應用程式時，您必須提供下列格式的儲存體連接字串。使用您的儲存體帳戶名稱和儲存體存取金鑰，來輸入 [Azure 入口網站](portal.azure.com)中所列的儲存體帳戶的 AccountName 和 AccountKey 值。如需有關儲存體帳戶和存取金鑰的資訊，請參閱[關於 Azure 儲存體帳戶](storage-create-storage-account.md)。本範例將示範如何宣告靜態欄位來存放連接字串：
+Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。執行用戶端應用程式時，您必須提供下列格式的儲存體連接字串。使用您的儲存體帳戶名稱和儲存體存取金鑰，來輸入 [Azure 入口網站](https://portal.azure.com)中所列的儲存體帳戶的 AccountName 和 AccountKey 值。如需有關儲存體帳戶和存取金鑰的資訊，請參閱[關於 Azure 儲存體帳戶](storage-create-storage-account.md)。本範例將示範如何宣告靜態欄位來存放連接字串：
 
 	// Define the connection string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 
-若要在本機 Windows 電腦中測試您的應用程式，可以使用隨 [Azure SDK](http://azure.microsoft.com/downloads/) 一起安裝的 Azure [儲存體模擬器](storage-use-emulator.md)。儲存體模擬器是一個公用程式，可模擬本機開發電腦上的 Azure Blob、佇列和表格服務。下列範例示範如何宣告靜態欄位以便將連接字串存放到本機儲存體模擬器中：
+若要在本機 Windows 電腦中測試您的應用程式，可以使用隨 [Azure SDK](https://azure.microsoft.com/downloads/) 一起安裝的 Azure [儲存體模擬器](storage-use-emulator.md)。儲存體模擬器是一個公用程式，可模擬本機開發電腦上的 Azure Blob、佇列和表格服務。下列範例示範如何宣告靜態欄位以便將連接字串存放到本機儲存體模擬器中：
 
 	// Define the connection string with Azure storage emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
@@ -359,7 +359,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 		std::wcout << std::endl;
 	}
 
->[AZURE.NOTE]從實體查詢一些屬性比擷取所有屬性更有效率。
+>[AZURE.NOTE] 從實體查詢一些屬性比擷取所有屬性更有效率。
 
 ## 刪除實體
 擷取實體之後，可以輕鬆地將它刪除。擷取實體之後，請以要刪除的實體呼叫 **table\_operation::delete\_entity**。接著，呼叫 **cloud\_table.execute** 方法。下列程式碼會擷取並刪除資料分割索引鍵為 "Smith" 且資料列索引鍵為 "Jeff" 的實體。
@@ -412,6 +412,6 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 -	[如何使用 C++ 的佇列儲存體](storage-c-plus-plus-how-to-use-queues.md)
 -	[以 C++ 列出 Azure 儲存體資源](storage-c-plus-plus-enumeration.md)
 -	[Storage Client Library for C++ 參考資料](http://azure.github.io/azure-storage-cpp)
--	[Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
+-	[Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

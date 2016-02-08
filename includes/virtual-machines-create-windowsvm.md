@@ -1,4 +1,4 @@
-1. 登入[傳統入口網站](http://manage.windowsazure.com)。如果您還沒有訂用帳戶，請參考[免費試用](http://azure.microsoft.com/pricing/free-trial/)優惠。
+1. 登入[傳統入口網站](http://manage.windowsazure.com)。如果您還沒有訂用帳戶，請參考[免費試用](https://azure.microsoft.com/pricing/free-trial/)優惠。
 
 2. 在視窗底部的命令列上，按一下 [新增]。
 
@@ -20,16 +20,16 @@
 
 	- 在 [區域/同質群組/虛擬網路] 中，使用適合您位置的區域。您也可以改選指定虛擬網路。
 
-	>[AZURE.NOTE]如果您想要讓虛擬機器使用虛擬網路，就「必須」在建立虛擬機器時指定虛擬網路。在建立 VM 後，您無法將虛擬機器加入虛擬網路。如需詳細資訊，請參閱 [Azure 虛擬網路概觀](virtual-networks-overview.md)。
+	>[AZURE.NOTE] 如果您想要讓虛擬機器使用虛擬網路，就「必須」在建立虛擬機器時指定虛擬網路。在建立 VM 後，您無法將虛擬機器加入虛擬網路。如需詳細資訊，請參閱 [Azure 虛擬網路概觀](virtual-networks-overview.md)。
 	>
 	> 如需有關設定端點的詳細資料，請參閱[如何設定虛擬機器的端點](../articles/virtual-machines-set-up-endpoints.md)。
 
 7. 第四個組態畫面可讓您安裝 VM 代理程式及設定部分可用延伸模組。
 
-	>[AZURE.NOTE]VM 代理程式提供環境讓您安裝延伸模組，以協助您與虛擬機器互動或管理虛擬機器。如需詳細資訊，請參閱[關於 VM 代理程式與擴充程式](virtual-machines-extensions-agent-about.md)。
+	>[AZURE.NOTE] VM 代理程式提供環境讓您安裝延伸模組，以協助您與虛擬機器互動或管理虛擬機器。如需詳細資訊，請參閱[關於 VM 代理程式與擴充程式](virtual-machines-extensions-agent-about.md)。
 
 8. 建立虛擬機器後，傳統入口網站會在 [虛擬機器] 底下列出新的虛擬機器。並建立對應的雲端服務和儲存體帳戶，且列於這些區段中。虛擬機器和雲端服務都會自動啟動，而且它們的狀態會顯示為 [執行中]。
 
 	![設定 VM 代理程式和需擬機器端點](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -42,7 +42,7 @@ Microsoft 資料科學虛擬機器可快速啟動分析專案。它能讓您處�
 
 您必須先具有下列項目，才可以建立 Microsoft 資料科學虛擬機器：
 
-- **Azure 訂用帳戶**：若要取得訂用帳戶，請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**：若要取得訂用帳戶，請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 *   **Azure 儲存體帳戶**：若要建立帳戶，請參閱[建立 Azure 儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)。或者，如果您不想使用現有帳戶，可以在建立 VM 時建立儲存體帳戶。
 
@@ -51,7 +51,7 @@ Microsoft 資料科學虛擬機器可快速啟動分析專案。它能讓您處�
 
 建立 Microsoft 資料科學虛擬機器執行個體的步驟如下：
 
-1.	瀏覽至 [Azure 入口網站](https://portal.azure.com/#gallery/microsoft-ads.standard-data-science-vmstandard-data-science-vm)上的虛擬機器清單。
+1.	瀏覽至 [Azure 入口網站](https://ms.portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm)上的虛擬機器清單。
 2.	 按一下底部的 [建立] 按鈕以進入精靈。![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 下列各節提供用來建立 Microsoft 資料科學虛擬機器的精靈中每個步驟 (共有 **5 個步驟**列舉在上圖的右邊) 的**輸入**。以下是設定每個步驟所需的輸入：
 
@@ -111,21 +111,21 @@ Microsoft 資料科學虛擬機器可快速啟動分析專案。它能讓您處�
 如果您想要將 R 用於分析，VM 已安裝 Microsoft R Server Developer Edition。Microsoft R Server 是一個能夠廣泛部署的企業級分析平台，以支援的 R 為基礎，可調整規模且安全性。支援各種巨量資料統計資料、預測性模型化和機器學習能力、R Server 支援全範圍分析 – 瀏覽、分析、視覺化及模型化。透過使用及擴充開放原始碼 R，Microsoft R Server 能夠與 R 指令碼、函式及 CRAN 封裝完全相容，以分析企業規模的資料。它也透過在 Microsoft R Server 中加入資料的平行和區塊處理，解決了開放原始碼 R 的記憶體內部限制問題，讓使用者能夠執行遠大於主記憶體可負荷之資料量的資料分析。VM 中也封裝了適用於 R 的整合式開發環境 (IDE)，可透過按一下開始功能表或桌面上的「Revolution R Enterprise 8.0」圖示來存取。您也可以自由下載並使用其他整合式開發環境 (IDE)，例如 [RStudio](http://www.rstudio.com)。
 
 ### Python
-為了能夠使用 Python 進行開發，我們已安裝了 Anaconda Python 散佈 2.7 與 3.5。這個散佈包含基本的 Python 以及大約 300 個最受歡迎的數學運算、工程設計和資料分析封裝。您可以使用安裝在 Visual Studio 2015 Community 版本內的 Python Tools for Visual Studio (PTVS)，或隨附於 Anaconda 的其中一個整合式開發環境 (IDE)，像是 IDLE 或 Spyder。您可以藉由在搜尋列 (**Win** + **S** 鍵) 上搜尋以啟動其中一個。
+為了能夠使用 Python 進行開發，我們已安裝了 Anaconda Python 散佈 2.7 與 3.5。這個散佈包含基本的 Python 以及大約 300 個最受歡迎的數學運算、工程設計和資料分析封裝。您可以使用安裝在 Visual Studio 2015 Community 版本內的 Python Tools for Visual Studio (PTVS)，或隨附於 Anaconda 的其中一個整合式開發環境 (IDE)，像是 IDLE 或 Spyder。您可以藉由在搜尋列 (**Win** + **S** 鍵) 上搜尋以啟動其中一個。**注意**：若要在 Anaconda Python 2.7 和 3.5 指向 Python Tools for Visual Studio，您必須為每個版本建立自訂環境，方法是瀏覽至 [工具]-> [Python 工具]-> [Python 環境]，然後按一下 Visual Studio 2015 Community 版本中的 [+ 自訂] 並設定環境路徑。Anaconda Python 2.7 安裝在 C:\\Anaconda 之下，Anaconda Python 3.5 則安裝在 c:\\Anaconda\\envs\\py35 之下。如需詳細步驟，請參閱 [PTVS 文件](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it)。
 
 ### Jupyter Notebook
 Jupyter Notebook 中也隨附 Anaconda 散佈，這是一個共用程式碼與分析的環境。Jupyter Notebook 伺服器已經預先設定 Python 2、Python 3 及 R 核心。有一個名為 Jupyter Notebook 的桌面圖示可以啟動瀏覽器來存取 Notebook 伺服器。如果您是透過遠端桌面登入 VM，您也可以造訪 [https://localhost:9999/](https://localhost:9999/) 以存取 Jupyter Notebook 伺服器 (附註：如果您收到任何憑證警告，只要繼續作業即可。)我們已封裝範例筆記本 - 一個使用 Python，另一個使用 R。當您使用在較早步驟中建立的密碼向 Jupyter Notebook 驗證之後，您就可以在 Notebook 首頁看到範例的連結。
 
 ### Visual Studio 2015 Community 版本
-VM 上安裝的 Visual Studio Community 版本。它是 Microsoft 提供的熱門整合式開發環境 (IDE)E 的免費版本，您可以用於評估用途，適合非常小型的團隊。您可以在[這裡](https://www.visualstudio.com/support/legal/mt171547)查看授權條款。按兩下桌面圖示或 [開始] 功能表以開啟 Visual Studio。您也可以使用 **Win** + **S** 並輸入「Visual Studio」來搜尋程式。
+VM 上安裝的 Visual Studio Community 版本。它是 Microsoft 提供的熱門整合式開發環境 (IDE)E 的免費版本，您可以用於評估用途，適合非常小型的團隊。您可以在[這裡](https://www.visualstudio.com/support/legal/mt171547)查看授權條款。按兩下桌面圖示或 [開始] 功能表以開啟 Visual Studio。您也可以使用 **Win** + **S** 並輸入「Visual Studio」來搜尋程式。之後您就可以使用像是 C#、Python 等語言來建立專案。您也將會看到已安裝的外掛程式，它們可以讓您更方便使用 Azure 服務，例如 Azure 資料目錄、Azure HDInsight (Hadoop、Spark) 及 Azure 資料湖。
 
-附註：您可能會收到訊息，表示您的評估期間已過期。您可以輸入 Microsoft 帳戶認證或建立認證並輸入，以取得 Visual Studio Community 版本的存取權。之後您就可以使用像是 C#、Python 等語言來建立專案。您也將會看到已安裝的外掛程式，它們可以讓您更方便使用 Azure 服務，例如 Azure 資料目錄、Azure HDInsight (Hadoop、Spark) 及 Azure 資料湖。
+附註：您可能會收到訊息，表示您的評估期間已過期。您可以輸入 Microsoft 帳戶認證或建立認證並輸入，以取得 Visual Studio Community 版本的存取權。
 
 ### SQL Server Express
 受限的 SQL Server 版本也會與 Visual Studio Community 版本 一起封裝。您可以藉由啟動 [SQL Server Management Studio] 來存取 SQL Server。您的 VM 名稱會填入做為伺服器名稱。在 Windows 上以系統管理員身分登入時，使用 Windows 驗證。當您在 SQL Server Management Studio 中，可以建立其他使用者、建立資料庫、匯入資料以及執行 SQL 查詢。
 
 ### Azure 
-VM 上已安裝數個 Azure 工具：- 有一個桌面捷徑可以存取 Azure SDK 文件。- **AzCopy** 是用來將資料移入和移出您的 Microsoft Azure 儲存體帳戶。- **Azure 儲存體總管**是用來瀏覽您儲存在 Azure 儲存體帳戶內的物件。- **Microsoft Azure Powershell** - 指令碼語言，使用同樣安裝在您 VM 上的指令碼語言管理您的 Azure 資源。
+VM 上已安裝數個 Azure 工具：- 有一個桌面捷徑可以存取 Azure SDK 文件。- **AzCopy** 是用來將資料移入和移出您的 Microsoft Azure 儲存體帳戶。- **Azure 儲存體總管**是用來瀏覽您儲存在 Azure 儲存體帳戶內的物件。- **Microsoft Azure Powershell** - 用來以 Powershell 指令碼語言管理 Azure 資源的工具，此工具也會安裝在 VM 上。
 
 ###Power BI
 
@@ -144,4 +144,4 @@ VM 上已安裝數個 Azure 工具：- 有一個桌面捷徑可以存取 Azure S
 * 了解如何使用[資料科學程序](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)以系統化方式建置端對端分析方案
 * 請造訪 [Cortana 分析資源庫](http://gallery.cortanaanalytics.com)以取得使用 Cortana Analytics Suite 的機器學習和資料分析範例。我們也已經在虛擬機器的開始功能表與桌面上提供圖示以方便存取 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

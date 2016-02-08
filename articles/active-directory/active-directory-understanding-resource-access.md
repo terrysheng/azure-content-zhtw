@@ -1,26 +1,26 @@
 <properties 
-                pageTitle="了解 Azure 中的資源存取" 
-                description="本主題說明有關使用訂用帳戶管理員來控制整個 Azure 入口網站中資源存取的概念。" 
-                services="active-directory" 
-                documentationCenter="" 
-                authors="markusvi" 
-                manager="stevenpo" 
-                editor=""/>
+    pageTitle="了解 Azure 中的資源存取" 
+    description="本主題說明有關使用訂用帳戶管理員來控制整個 Azure 入口網站中資源存取的概念。" 
+    services="active-directory" 
+    documentationCenter="" 
+    authors="markusvi" 
+    manager="stevenpo" 
+    editor=""/>
 
 <tags 
-                ms.service="active-directory" 
-                ms.workload="identity" 
-                ms.tgt_pltfrm="na" 
-                ms.devlang="na" 
-                ms.topic="article" 
-                ms.date="10/30/2015" 
-                ms.author="markusvi"/>
+    ms.service="active-directory" 
+    ms.workload="identity" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="01/26/2016" 
+    ms.author="markusvi"/>
 
 
 # 了解 Azure 中的資源存取
 
 
-> [AZURE.NOTE]本主題說明有關使用訂用帳戶管理員來控制整個 Azure 入口網站中資源存取的概念。此外，Azure 預覽入口網站提供[以角色為基礎的存取控制](role-based-access-control-configure.md)，因此可以更精確地管理 Azure 資源。
+> [AZURE.NOTE] 本主題說明有關使用訂用帳戶管理員來控制整個 Azure 入口網站中資源存取的概念。此外，Azure 預覽入口網站提供[以角色為基礎的存取控制](role-based-access-control-configure.md)，因此可以更精確地管理 Azure 資源。
 
 在 2013 年 10 月，Azure 管理入口網站和服務管理 API 已與 Azure Active Directory 進行整合，為改善使用者經驗及管理 Azure 資源存取奠定基礎。Azure Active Directory 已提供絕佳功能，例如使用者管理、內部部署目錄同步、Multi-Factor Authentication 和應用程式存取控制。當然，這些也應該能夠用於全面管理 Azure 資源。
 
@@ -37,7 +37,7 @@ Azure 管理入口網站內的功能可讓使用 Microsoft 帳戶登入的 SA，
 
 
 
-> [AZURE.NOTE]Azure 管理入口網站中的 [編輯目錄] 命令不適用於使用公司或學校帳戶登入的使用者，因為這些帳戶只可以登入其所屬的目錄。
+> [AZURE.NOTE] Azure 管理入口網站中的 [編輯目錄] 命令不適用於使用公司或學校帳戶登入的使用者，因為這些帳戶只可以登入其所屬的目錄。
 
 <br><br>![簡單的使用者登入流程][3]
 
@@ -64,4 +64,4 @@ Azure 管理入口網站內的功能可讓使用 Microsoft 帳戶登入的 SA，
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

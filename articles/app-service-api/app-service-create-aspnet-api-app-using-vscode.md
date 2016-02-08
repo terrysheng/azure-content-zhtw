@@ -24,7 +24,7 @@
 
 本教學課程示範如何使用 [Visual Studio 程式碼](http://code.visualstudio.com//Docs/whyvscode)建立 ASP.NET 5 API 應用程式。ASP.NET 5 是大幅重新設計的 ASP.NET。ASP.NET 5 是新的開放原始碼和跨平台架構，用於使用 .NET 建置現代雲端 Web 應用程式。如需詳細資訊，請參閱 [ASP.NET 5 簡介](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html)。如需 API 應用程式的詳細資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有帳戶，則可以[申請免費試用](/pricing/free-trial/)或[啟用自己的 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/)。您也可以免費試用 [App Service 應用程式範例](http://tryappservice.azure.com)。
+> [AZURE.NOTE] 若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有帳戶，則可以[申請免費試用](/pricing/free-trial/)或[啟用自己的 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/)。您也可以免費試用 [App Service 應用程式範例](http://tryappservice.azure.com)。
 
 ## 必要條件  
 
@@ -35,7 +35,7 @@
 ## 安裝 ASP.NET 5 和 DNX
 ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上執行的現代雲端和 Web 應用程式。它已從頭建置，以將最佳化的開發架構提供給已部署至雲端或執行內部部署的應用程式。其由額外負荷最低的模組化元件組成，以便您可以在建構解決方案時保留彈性。
 
-> [AZURE.NOTE]OS X 和 Linux 上的 ASP.NET 5 和 DNX (.NET 執行環境) 處於早期 Beta/預覽狀態。
+> [AZURE.NOTE] OS X 和 Linux 上的 ASP.NET 5 和 DNX (.NET 執行環境) 處於早期 Beta/預覽狀態。
 
 本教學課程的設計旨在讓您使用最新開發版本的 ASP.NET 5 和 DNX 開始建置應用程式。如果您想要更穩定的發行經驗，請移至 [http://www.asp.net/vnext](http://www.asp.net/vnext)。下列是 Windows 特有的指示。如需 OS X、Linux 和 Windows 的更詳細安裝指示，請參閱[安裝 ASP.NET 5 和 DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx)。
 
@@ -96,8 +96,8 @@ yo aspnet
 
 5. 將新 ASP.NET API 應用程式的名稱設為 **ContactsList**。此名稱將用於本教學課程稍後提供的程式碼。<br>
 	Yeoman 將建立名為 **ContactsList** 的新資料夾，以及新應用程式必要的檔案。
-6. 開啟 **Visual Studio 程式碼**。<br> 
-	輸入 **code**，即可從 [命令視窗] 中開啟 VSCode。
+6. 開啟 **Visual Studio 程式碼**。<br>
+	 輸入 **code**，即可從 [命令視窗] 中開啟 VSCode。
 7. 從 [**檔案**] 功能表中，選取 [**開啟資料夾**]，然後選取您 ASP.NET API 應用程式所在的資料夾。
 
 	![[選取資料夾] 對話方塊](./media/app-service-create-aspnet-api-app-using-vscode/02-open-folder.png)
@@ -186,7 +186,7 @@ dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server
 可讓 ASP.NET API 專案部署為 API 應用程式的中繼資料必須包含在專案根目錄的 *apiapp.json* 檔案中。
 
 1. 在 VSCode 中，以滑鼠右鍵按一下 *wwwroot* 資料夾，然後選取 [**新增檔案**] 選項。
-2. 將新檔案命名為 *apiapp.json*。<br\>
+2. 將新檔案命名為 *apiapp.json*。<br\> 
 	請確定 *apiapp.json* 位於 *wwwroot* 資料夾中。
 3. 將下列程式碼加入 *apiapp.json* 檔案：
 
@@ -319,9 +319,9 @@ dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server
 
 ## 在 Azure Preview 入口網站中建立 API 應用程式
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有帳戶，則可以[申請免費試用](/pricing/free-trial/)或[啟用自己的 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/)。您也可以免費試用 [App Service 應用程式範例](http://tryappservice.azure.com)。
+> [AZURE.NOTE] 若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有帳戶，則可以[申請免費試用](/pricing/free-trial/)或[啟用自己的 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/)。您也可以免費試用 [App Service 應用程式範例](http://tryappservice.azure.com)。
 
-1. 登入 [Azure 預覽入口網站](https://portal.azure.com)。
+1. 登入 [Azure 預覽入口網站](https://portal.azure.com/)。
 
 2. 按一下入口網站左上角的 [**新增**]。
 
@@ -436,23 +436,23 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 [new branch]      master -> master
 </pre>
 
-> [AZURE.NOTE]如果您變更應用程式，則可以重新發佈，方法是在 VSCode 中選取 [**全部認可**] 核取方塊，然後在 **GitBash** 中輸入 **git push azure master** 命令。
+> [AZURE.NOTE] 如果您變更應用程式，則可以重新發佈，方法是在 VSCode 中選取 [**全部認可**] 核取方塊，然後在 **GitBash** 中輸入 **git push azure master** 命令。
 
 ## 在 Azure Preview 入口網站中檢視 API 定義
 現已將 API 部署到您的 API 應用程式，您可在 Azure Preview 入口網站中查看 API 定義。一開始要先重新啟動閘道器，這可讓 Azure 認可 API 應用程式的 API 定義已經變更。閘道是一個 Web 應用程式，可處理資源群組中 API 應用程式的 API 管理和授權。
 
-1. 在 Azure 預覽入口網站中，移至您稍早建立之 API 應用程式的 [**API 應用程式**] 刀鋒視窗，然後按一下 [**閘道器**] 連結。
+1. 在 Azure Preview 入口網站中，移至您稍早建立之 API 應用程式的 [**API 應用程式**] 刀鋒視窗，然後按一下 [**閘道器**] 連結。
 2. 在 [**閘道器**] 刀鋒視窗中，按一下 [**重新啟動**]。您現在可以關閉此刀鋒視窗。
 3. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [**重新啟動**]。 
 4. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。<br>
 	[API 定義] 刀鋒視窗會顯示兩種方法。如果您未立即看到 GET 和 POST 方法，請等候幾秒的時間，讓 Azure 重新整理應用程式。然後，在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。
 
 ## 在 Azure 中執行應用程式
-在 Azure 預覽入口網站中，移至 API 應用程式的 [**API 應用程式主機**] 刀鋒視窗，然後按一下 [**瀏覽**]。然後，在 URL 結尾加入 **api/Contacts**，以檢視連絡人詳細資料。
+在 Azure Preview 入口網站中，移至 API 應用程式的 [**API 應用程式主機**] 刀鋒視窗，然後按一下 [**瀏覽**]。然後，在 URL 結尾加入 **api/Contacts**，以檢視連絡人詳細資料。
 
 
 ## 結論
 在本教學課程中，您學到如何在 Visual Studio 程式碼中建立 API 應用程式。如需 Visual Studio 程式碼的詳細資訊，請參閱 [Visual Studio 程式碼](https://code.visualstudio.com/Docs/)。如需 API 應用程式的相關資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

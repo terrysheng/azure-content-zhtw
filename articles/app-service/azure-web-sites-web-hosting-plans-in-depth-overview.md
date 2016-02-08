@@ -61,7 +61,7 @@
  
 ## 將應用程式移到不同的應用程式服務方案
 
-您可以在 [Azure 入口網站](http://portal.azure.com)中將應用程式移到不同的應用程式服務方案。應用程式可以在相同地理區域的不同方案之間移動。
+您可以在 [Azure 入口網站](https://portal.azure.com)中將應用程式移到不同的應用程式服務方案。應用程式可以在相同地理區域的不同方案之間移動。
 
 若要將應用程式移到另一個方案，請瀏覽至您想要移動的應用程式，然後按一下 [**變更應用程式服務方案**]。
  
@@ -90,14 +90,11 @@
 ## 變更的項目
 
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
- 
- 
- 
- <!-- Images. -->
+   
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

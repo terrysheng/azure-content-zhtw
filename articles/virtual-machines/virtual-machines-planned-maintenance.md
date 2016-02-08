@@ -50,7 +50,7 @@
 
 相較之下，單一執行個體組態會用於未放置在可用性集合的獨立虛擬機器。這些虛擬機器並不符合服務等級協定 (SLA) 的資格，服務等級協定需要在相同可用性集合底下部署兩部以上的虛擬機器。
 
-如需 SLA 的詳細資訊，請參閱[服務等級協定](http://azure.microsoft.com/support/legal/sla/)中的〈雲端服務、虛擬機器和虛擬網路〉一節。
+如需 SLA 的詳細資訊，請參閱[服務等級協定](https://azure.microsoft.com/support/legal/sla/)中的〈雲端服務、虛擬機器和虛擬網路〉一節。
 
 
 ## 多重執行個體組態更新
@@ -126,4 +126,4 @@ Azure 將會組織一組區域配對。在虛擬機器使用單一執行個體�
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

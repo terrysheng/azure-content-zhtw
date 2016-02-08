@@ -30,6 +30,8 @@
 
 若要讓資料管理閘道器連接至 Teradata 資料庫，您必須在與資料管理閘道器相同的系統上安裝 [Teradata 的 .NET 資料提供者](http://go.microsoft.com/fwlink/?LinkId=278886)。
 
+> [AZURE.NOTE] 如需連接/閘道器相關問題的疑難排解秘訣，請參閱[閘道器疑難排解](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)。
+
 ### 範例：從 Teradata 複製資料到 Azure Blob
 
 下列範例顯示：
@@ -312,4 +314,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

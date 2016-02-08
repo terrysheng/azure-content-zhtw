@@ -3,7 +3,7 @@
    description="了解要針對具備 Azure 特殊權限身分識別管理擴充功能的特殊權限身分識別使用哪些角色。"
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="inhenk"/>
+   ms.date="01/21/2016"
+   ms.author="kgremban"/>
 
 # Azure 特殊權限身分識別管理：角色
 
@@ -22,7 +22,7 @@
 
 ## 來自 Azure Active Directory、Office 365 和其他來源的角色
 
-Azure PIM 會使用下列角色做為預設的管理員角色。
+Azure Privileged Identity Management (PIM) 會使用下列角色做為預設的管理員角色：
 
 - 全域管理員
 - 計費管理員
@@ -30,7 +30,7 @@ Azure PIM 會使用下列角色做為預設的管理員角色。
 - 使用者管理員
 - 密碼管理員
 
-如需來自 Office 365、Exchange Online、Sharepoint Online 及商務用 Skype 的角色詳細資料，請按一下這裡。[在 Office 365 中指派管理員角色](https://support.office.com/zh-TW/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=zh-TW&rs=zh-TW&ad=US)
+如需來自 Office 365、Exchange Online、SharePoint Online 及商務用 Skype 的角色詳細資料，請移至[在 Office 365 中指派管理員角色](https://support.office.com/zh-TW/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504?ui=zh-TW&rs=zh-TW&ad=US)。
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 
@@ -42,7 +42,7 @@ Azure PIM 會使用下列角色做為預設的管理員角色。
 
 ## 將授權指派給 Azure AD 中的使用者
 
-> [AZURE.NOTE]授權選項只會顯示適用於此訂用帳戶的授權是否實際存在。
+> [AZURE.NOTE] 授權選項只會顯示適用於此訂用帳戶的授權是否實際存在。
 
 1. 使用全域管理員帳戶或共同管理員帳戶，登入 [http://manage.windowsazure.com](http://manage.windowsazure.com)。
 2. 在主功能表中按一下 [所有項目]。
@@ -57,4 +57,4 @@ Azure PIM 會使用下列角色做為預設的管理員角色。
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/14/2016" 
 	ms.author="team-pi@sendgrid.com"/>
 
 
@@ -48,7 +48,7 @@ SendGrid 是[雲端架構電子郵件服務]，能提供可靠的[交易式電�
 
 [SendGrid NuGet 封裝](https://www.nuget.org/packages/Sendgrid)是取得 SendGrid API 及透過所有相依性設定應用程式的最簡單方式。NuGet 是 Microsoft Visual Studio 2015 隨附的 Visual Studio 延伸模組，能輕鬆地安裝及更新程式庫和工具。
 
-> [AZURE.NOTE]如果您是執行 Visual Studio 2015 之前的 Visual Studio 版本，若要安裝 NuGet，請造訪 [http://www.nuget.org](http://www.nuget.org)，然後按一下**安裝 NuGet** 按鈕。
+> [AZURE.NOTE] 如果您是執行 Visual Studio 2015 之前的 Visual Studio 版本，若要安裝 NuGet，請造訪 [http://www.nuget.org](http://www.nuget.org)，然後按一下**安裝 NuGet** 按鈕。
 
 若要在應用程式中安裝 SendGrid NuGet 封裝，請執行下列動作：
 
@@ -261,4 +261,4 @@ SendGrid 提供的網頁式 API 與 Webhook 可供從 Azure 應用程式運用�
   [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

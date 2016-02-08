@@ -2,13 +2,14 @@
  pageTitle="遠端監視預先設定解決方案逐步解說 | Microsoft Azure"
  description="說明 Azure IoT 預先設定解決方案遠端監視及其架構。"
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="stevehob"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -144,4 +145,4 @@ Web 應用程式中的此頁面會使用 PowerBI javascript 控制項 (請參閱
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

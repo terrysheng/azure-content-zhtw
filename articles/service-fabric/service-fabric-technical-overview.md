@@ -53,4 +53,4 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆建置可擴充�
 - [應用程式模型](service-fabric-application-model.md)
 - [應用程式案例](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

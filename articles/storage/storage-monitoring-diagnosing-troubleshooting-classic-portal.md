@@ -125,7 +125,7 @@
 
 ### <a name="monitoring-service-health"></a>監視服務健康情況
 
-您可以使用 [Azure 傳統入口網站](manage.windowsazure.com)來檢視全球所有 Azure 區域中「儲存體」服務 (及其他 Azure 服務) 的健康情況。藉此可以立即瞭解，不受您控制的問題所影響的區域，是否也涵蓋了您為應用程式使用儲存體服務區域。
+您可以使用 [Azure 傳統入口網站](https://manage.windowsazure.com)來檢視全球所有 Azure 區域中「儲存體」服務 (及其他 Azure 服務) 的健康情況。藉此可以立即瞭解，不受您控制的問題所影響的區域，是否也涵蓋了您為應用程式使用儲存體服務區域。
 
 「Azure 傳統入口網站」也可以提供會影響各種 Azure 服務的事件通知。注意：這項資訊之前是與歷程資料一起在「Azure 服務儀表板」(網址 <a href="http://status.azure.com" target="_blank">http://status.azure.com</a>) 上提供。
 
@@ -135,7 +135,7 @@
 
 儲存體度量只會儲存 Blob 服務的容量度量，這是因為 Blob 通常佔已儲存的資料最大宗 (寫入期間無法使用儲存體度量來監視資料表與佇列的容量)。如果您為 Blob 服務啟用監視功能的話，可以在 **$MetricsCapacityBlob** 資料表中找到這項資料。儲存體度量每天會記錄這項資料一次，而您可以使用 **RowKey** 的值來判斷資料列是否包含與使用者資料 (值 **data**) 或分析資料 (值 **analytics**) 相關聯的實體。每一個儲存的實體都含有使用的儲存體容量相關資訊 (以位元組數測量的 **Capacity**)，以及儲存體帳戶中使用的目前容器編號 (**ContainerCount**) 及 Blob (**ObjectCount**)。如需 **$MetricsCapacityBlob** 資料表中儲存的容量度量詳細資訊，請參閱 MSDN 上的<a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">儲存體分析度量資料表結構描述</a>。
 
-> [AZURE.NOTE]建議您監視這些數值，以便在儲存體帳戶接近容量限制時提早收到警告。在「Azure 傳統入口網站」中，您可以在儲存體帳戶的 [監視] 頁面上新增警示規則，以便在彙總儲存體使用量超出或低於您指定的閾值時通知您。
+> [AZURE.NOTE] 建議您監視這些數值，以便在儲存體帳戶接近容量限制時提早收到警告。在「Azure 傳統入口網站」中，您可以在儲存體帳戶的 [監視] 頁面上新增警示規則，以便在彙總儲存體使用量超出或低於您指定的閾值時通知您。
 
 如需估計各種儲存體物件 (例如 Blob) 大小的說明，請參閱部落格文章<a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx" target="_blank">了解 Azure 儲存體計費 - 頻寬、交易與容量</a>。
 
@@ -198,7 +198,7 @@
 
 您的應用程式使用者可能會通知您用戶端應用程式所回報的一些錯誤。儲存體度量還會記錄來自儲存體服務的不同錯誤類型計數，例如 **NetworkError**、**ClientTimeoutError** 或 **AuthorizationError**。雖然儲存體度量只會記錄不同的錯誤類型計數，不過您還是可以藉由檢視伺服器端、用戶端與網路記錄來取得個別要求的詳細資料。一般來說，儲存體服務所傳回的 HTTP 狀態碼會指示要求失敗的原因。
 
-> [AZURE.NOTE]請記住，您應該會看到一些間歇性錯誤：例如，因為暫時性的網路狀況而導致的錯誤或應用程式錯誤。
+> [AZURE.NOTE] 請記住，您應該會看到一些間歇性錯誤：例如，因為暫時性的網路狀況而導致的錯誤或應用程式錯誤。
 
 以下位於 MSDN 的資源有助您了解儲存體相關狀態與錯誤碼：
 
@@ -219,7 +219,7 @@ Azure SDK 包含一個儲存體模擬器，可供您在開發工作站上執行�
 
 Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體操作，收集與其相關的用戶端記錄資料。如需如何啟用用戶端記錄及存取記錄資料的詳細資訊，請參閱 MSDN 上的<a href="http://go.microsoft.com/fwlink/?LinkId=510868" target="_blank">使用儲存體用戶端程式庫的用戶端記錄</a>。
 
-> [AZURE.NOTE]在某些情況下 (例如 SAS 授權失敗)，使用者可能會回報無法在伺服器端儲存體記錄中找到任何要求資料的錯誤。您可以使用儲存體用戶端程式庫裡的記錄功能，調查問題是否出現在用戶端，或是使用網路監視工具來調查網路。
+> [AZURE.NOTE] 在某些情況下 (例如 SAS 授權失敗)，使用者可能會回報無法在伺服器端儲存體記錄中找到任何要求資料的錯誤。您可以使用儲存體用戶端程式庫裡的記錄功能，調查問題是否出現在用戶端，或是使用網路監視工具來調查網路。
 
 ### <a name="using-network-logging-tools"></a>使用網路記錄工具
 
@@ -248,7 +248,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 - 以 Fiddler 所擷取的網路追蹤為例，用戶端要求 ID 會顯示在要求訊息中，並呈現為 **x-ms-client-request-id** HTTP 標頭值。
 - 在伺服器端的儲存體記錄中，用戶端要求 ID 會顯示在 [用戶端要求 ID] 資料欄。
 
-> [AZURE.NOTE]多個要求可以共用同一個用戶端要求 ID，這是因為用戶端可以指派此值 (雖然儲存體用戶端程式庫會自動指派新的值)。如果重試來自用戶端，則所有嘗試都共用相同的用戶端要求 ID。如果批次是從用戶端傳送，則該批次具有單一用戶端要求 ID。
+> [AZURE.NOTE] 多個要求可以共用同一個用戶端要求 ID，這是因為用戶端可以指派此值 (雖然儲存體用戶端程式庫會自動指派新的值)。如果重試來自用戶端，則所有嘗試都共用相同的用戶端要求 ID。如果批次是從用戶端傳送，則該批次具有單一用戶端要求 ID。
 
 
 ### <a name="server-request-id"></a>伺服器要求 ID
@@ -259,7 +259,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 - 以 Fiddler 所擷取的網路追蹤為例，伺服器要求 ID 會顯示在回應訊息中，並呈現為 **x-ms-request-id** HTTP 標頭值。
 - 在儲存體用戶端程式庫所建立的用戶端記錄中，伺服器要求 ID 會顯示在內含伺服器回應詳細資料之記錄項目的 [Operation Text] 資料欄。
 
-> [AZURE.NOTE]儲存體服務一律會為每個收到的要求指派唯一的伺服器要求 ID，因此用戶端的每一次重試以及批次裡所包含的每一項操作，都會具備唯一的伺服器要求 ID。
+> [AZURE.NOTE] 儲存體服務一律會為每個收到的要求指派唯一的伺服器要求 ID，因此用戶端的每一次重試以及批次裡所包含的每一項操作，都會具備唯一的伺服器要求 ID。
 
 如果儲存體用戶端程式庫在用戶端擲回 **StorageException**，則 **RequestInformation** 屬性所包含的 **RequestResult** 物件裡會出現 **ServiceRequestID** 屬性。您可以從 **OperationContext** 執行個體存取 **RequestResult** 物件。
 
@@ -363,7 +363,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 請注意，儲存體服務只會計算成功要求的度量 **AverageE2ELatency**，不像 **AverageServerLatency** 會將用戶端用來傳送資料與接收儲存體服務認可所需的時間納入計算。因此，**AverageE2ELatency** 與 **AverageServerLatency** 之間的差異可能是因為用戶端應用程式回應速度太慢，或是其他網路狀況所引起。
 
-> [AZURE.NOTE]您也可以在儲存體記錄資料中，檢視個別儲存體作業的 **E2ELatency** 與 **ServerLatency**。
+> [AZURE.NOTE] 您也可以在儲存體記錄資料中，檢視個別儲存體作業的 **E2ELatency** 與 **ServerLatency**。
 
 #### 調查用戶端效能問題
 
@@ -407,7 +407,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 高 **AverageServerLatency** 值同時也是資料表或查詢設計不良的徵兆，這種情況可能導致掃描作業，或是因為資料表或查詢遵循結尾附加/開頭附加的反模式而引起。如需詳細資訊，請參閱「[度量顯示 PercentThrottlingError 增加]」。
 
-> [AZURE.NOTE]您可以在[設計以可擴充且高效能的儲存體為基礎的應用程式檢查清單](storage-performance-checklist.md)中，找到完整的檢查清單，包括其他要注意的問題。
+> [AZURE.NOTE] 您可以在[設計以可擴充且高效能的儲存體為基礎的應用程式檢查清單](storage-performance-checklist.md)中，找到完整的檢查清單，包括其他要注意的問題。
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>佇列上的訊息傳遞出現非預期的延遲
 
@@ -435,7 +435,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 如果應用程式中與高活動期間同時發生的 **PercentThrottlingError** 值突然增加，則您應該在用戶端中針對重試作業實作指數型 (而非線性) 撤退策略：這會減少資料分割上的即時負載，協助應用程式緩和突然增加的流量。如需有關如何使用「儲存體用戶端程式庫」實作重試原則的詳細資訊，請參閱 MSDN 上的 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx" target="_blank">Microsoft.WindowsAzure.Storage.RetryPolicies 命名空間</a>。
 
-> [AZURE.NOTE]**PercentThrottlingError** 值的突然增加也可能與應用程式的大量活動期間非同時發生：最可能的原因是儲存體服務移動資料分割以改善負載平衡。
+> [AZURE.NOTE] **PercentThrottlingError** 值的突然增加也可能與應用程式的大量活動期間非同時發生：最可能的原因是儲存體服務移動資料分割以改善負載平衡。
 
 #### <a name="permanent-increase-in-PercentThrottlingError"></a>PercentThrottlingError 錯誤的永久性增加
 
@@ -445,13 +445,13 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 
 當查詢設計不敷使用時，也會導致資料表分割到達延展性限制。舉例來說，當查詢中的篩選器只會選取資料分割中實體的 1%，但卻會掃描資料分割中所有實體時，需要存取每個實體。每個實體讀取動作都會記入該資料分割的總交易數，因此，您可以輕鬆地達到延展性目標。
 
-> [AZURE.NOTE]您的效能測試作業應該會顯示應用程式中任何不敷使用的查詢設計。
+> [AZURE.NOTE] 您的效能測試作業應該會顯示應用程式中任何不敷使用的查詢設計。
 
 ### <a name="metrics-show-an-increase-in-PercentTimeoutError"></a>度量顯示 PercentTimeoutError 增加
 
 您的度量顯示其中一個儲存體服務的 **PercentTimeoutError** 有增加情況。同時，用戶端從儲存體作業中收到大量的「500 作業逾時」HTTP 狀態訊息。
 
-> [AZURE.NOTE]由於儲存服務會將資料分割移至新的伺服器來達到負載平衡目的，因此可能會暫時出現逾時錯誤。
+> [AZURE.NOTE] 由於儲存服務會將資料分割移至新的伺服器來達到負載平衡目的，因此可能會暫時出現逾時錯誤。
 
 **PercentTimeoutError** 度量是下列度量的彙總：**ClientTimeoutError**、**AnonymousClientTimeoutError**、**SASClientTimeoutError**、**ServerTimeoutError**、**AnonymousServerTimeoutError** 及 **SASServerTimeoutError**。
 
@@ -613,7 +613,7 @@ e2d06d78-... | 重試原則不允許重試。失敗時遠端伺服器傳回錯�
     SEC7120: Origin http://localhost:56309 not found in Access-Control-Allow-Origin header.
     SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 
-> [AZURE.NOTE]當您需要為用戶端的 JavaScript 問題進行疑難排解時，可以使用 Internet Explorer 中的 F12 開發人員工具，追蹤瀏覽器與儲存體服務之間所交換的訊息。
+> [AZURE.NOTE] 當您需要為用戶端的 JavaScript 問題進行疑難排解時，可以使用 Internet Explorer 中的 F12 開發人員工具，追蹤瀏覽器與儲存體服務之間所交換的訊息。
 
 之所以發生這些錯誤，是因為網頁瀏覽器實作了<a href="http://www.w3.org/Security/wiki/Same_Origin_Policy" target="_blank">同源原則</a>安全性限制，這會防止網頁呼叫與其來源網域不同之網域中的 API。
 
@@ -747,7 +747,7 @@ Timestamp|作業|結果|容器名稱|用戶端要求 ID
 
 在您分析用戶端應用程式與您所使用的 Azure 儲存體服務之間的 HTTP 與 HTTPS 流量時，Fiddler 便能派上用場。您可以從 <a href="http://www.telerik.com/fiddler" target="_blank">http://www.telerik.com/fiddler</a> 下載 Fiddler。
 
-> [AZURE.NOTE]Fiddler 可以解碼 HTTPS 流量；請仔細閱讀 Fiddler 文件，了解其運作原理，並了解其安全性意涵。
+> [AZURE.NOTE] Fiddler 可以解碼 HTTPS 流量；請仔細閱讀 Fiddler 文件，了解其運作原理，並了解其安全性意涵。
 
 本附錄簡略地概述如何設定 Fiddler 來擷取安裝了 Fiddler 的本機電腦以及 Azure 儲存體服務之間的流量。
 
@@ -785,7 +785,7 @@ WireShark 會反白顯示任何存在 **packetlist** 視窗的錯誤。您也可
 
 ![][8]
 
-> [AZURE.NOTE]如需有關使用 Wireshark 的詳細資訊，請參閱 <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Wireshark 使用者指南</a>。
+> [AZURE.NOTE] 如需有關使用 Wireshark 的詳細資訊，請參閱 <a href="http://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Wireshark 使用者指南</a>。
 
 ### <a name="appendix-3"></a>附錄 3：使用 Microsoft Message Analyzer 擷取網路流量
 
@@ -797,7 +797,7 @@ WireShark 會反白顯示任何存在 **packetlist** 視窗的錯誤。您也可
 
     contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
 
-> [AZURE.NOTE]空格字元可分隔主機名稱。
+> [AZURE.NOTE] 空格字元可分隔主機名稱。
 
 當您準備好收集追蹤資料時，按一下 [Start With] 按鈕。
 
@@ -914,4 +914,4 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

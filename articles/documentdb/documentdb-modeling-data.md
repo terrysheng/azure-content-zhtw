@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="在 Azure DocumentDB 中模型化資料 | Microsoft Azure" 
-	description="了解如何為 NoSQL 文件資料庫 (如 Azure DocumentDB) 的資料建立模型。" 
+	description="了解如何將 DocumentDB (NoSQL 文件資料庫) 的資料模型化。" 
+	keywords="模型化資料"
 	services="documentdb" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
@@ -88,7 +89,7 @@
 - 內嵌的資料不會**無限的成長**。
 - 內嵌的資料是文件中資料的**整數**。
 
-> [AZURE.NOTE]通常反正規化的資料模型可提供較佳的**讀取**效能。
+> [AZURE.NOTE] 通常反正規化的資料模型可提供較佳的**讀取**效能。
 
 ###不要內嵌的時機
 
@@ -114,7 +115,7 @@
 
 如果我們要模型化一般的部落格或 CMS 系統，這可能是具有內嵌註解的文章實體的外觀。此範例的問題在於註解陣列是 **unbounded**，表示任何單一文章可以具備的註解數目沒有 (實際) 的限制。因為文件的大小可能會大幅成長，這會成為問題。
 
-> [AZURE.TIP]DocumentDB 中的文件有大小上限。如需詳細資訊，請參閱 [DocumentDB 限制](documentdb-limits.md)。
+> [AZURE.TIP] DocumentDB 中的文件有大小上限。如需詳細資訊，請參閱 [DocumentDB 限制](documentdb-limits.md)。
 
 隨著文件大小的增加，透過網路傳輸資料以及大規模讀取和更新文件的能力，將會受到影響。
 
@@ -221,7 +222,7 @@
 
 不過，這個方法目前的缺點是您的應用程式是否需要在顯示人員的組合時顯示持有的每個股票的相關資訊；在此情況下，您必須對資料庫中進行多個來回行程，才能載入每個股票文件的資訊。在這裡，我們決定提升全天經常發生之寫入作業的效率，但反而對此特定的系統效能影響較小的讀取作業有害。
 
-> [AZURE.NOTE]正規化的資料模型**可能需要更多來回行程**到伺服器。
+> [AZURE.NOTE] 正規化的資料模型**可能需要更多來回行程**到伺服器。
 
 ### 外部索引鍵呢？
 因為目前沒有條件約束、外部索引鍵之類的概念，您在文件中具有的任何文件間關聯性實際上是「弱式連結」，並且將不會由資料庫本身驗證。如果您想要確定文件所參考的資料實際上存在，您就需要在您的應用程式中這麼做，或在 DocumentDB 上透過使用伺服器端觸發程序或預存程序。
@@ -234,7 +235,7 @@
 - 相關資料**經常變更**。
 - 參考資料可能是 **unbounded**。
 
-> [AZURE.NOTE]通常正規化可提供較佳的**寫入**效能。
+> [AZURE.NOTE] 通常正規化可提供較佳的**寫入**效能。
 
 ###放置關聯性的位置為何？
 關聯性的成長將有助於判斷用來儲存參考的文件。
@@ -393,4 +394,4 @@
 最後，如需資料模型化和多租用戶應用程式分區化的指引，請參閱[使用 Azure DocumentDB 調整多租用戶應用程式](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)。
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

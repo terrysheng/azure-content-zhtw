@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 預覽：OAuth 2.0 授權碼流程
@@ -74,8 +74,8 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | 參數 | | 說明 |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com)指派給應用程式的應用程式識別碼。 |
-| response\_type | 必要 | 以授權碼流程而言，必須包含 `code`。 |
+| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
+| response\_type | 必要 | 授權碼流程必須包含 `code`。 |
 | redirect\_uri | 必要 | 您的應用程式可在應用程式的 redirect\_uri 傳送及接收驗證回應。其必須完全符合您在入口網站中註冊的其中一個 redirect\_uris，不然就必須得是編碼的 url。 |
 | scope | 必要 | 範圍的空格分隔清單。單一範圍值向 Azure AD 表示同時要求的兩個權限。`openid` 範圍表示讓使用者登入和以 **id\_token** 形式取得使用者相關資料的權限 (這方面還有更多說明)。`offline_access` 範圍表示您的應用程式將需要 **refresh\_token**，才能長久存取資源。 |
 | response\_mode | 建議使用 | 指定將產生的 authorization\_code 傳回到應用程式所應該使用的方法。可以是 'query'、'form\_post' 或 'fragment' 其中一種。
@@ -134,8 +134,8 @@ Content-Type: application/json
 | 參數 | | 說明 |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | 必要 | 用來取得授權碼的原則。您不可在此要求中使用不同的原則。**請注意，此參數會加入至查詢字串**，而不是在 POST 本文中。 |
-| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com)指派給應用程式的應用程式識別碼。 |
-| grant\_type | 必要 | 以授權碼流程而言，必須是 `authorization_code`。 |
+| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
+| grant\_type | 必要 | 必須是授權碼流程的 `authorization_code`。 |
 | scope | 必要 | 範圍的空格分隔清單。單一範圍值向 Azure AD 表示同時要求的兩個權限。`openid` 範圍表示讓使用者登入和以 **id\_token** 形式取得使用者相關資料的權限。它可以用來為應用程式本身的後端 Web API 取得權杖，由與用戶端相同的應用程式識別碼代表。`offline_access` 範圍表示您的應用程式將需要 **refresh\_token**，才能長久存取資源。 |
 | code | 必要 | 您在流程的第一個階段中取得的 authorization\_code。 |
 | redirect\_uri | 必要 | 應用程式的 redirect\_uri，指出您在此處收到 authorization\_code。 |
@@ -165,7 +165,8 @@ Content-Type: application/json
 | refresh\_token | OAuth 2.0 重新整理權杖。在目前的權杖過期之後，應用程式可以使用這個權杖來取得其他權杖。Refresh\_token 的有效期很長，而且可以用來延長保留資源存取權的時間。如需詳細資訊，請參閱 [B2C 權杖參考](active-directory-b2c-reference-tokens.md)。 |
 | refresh\_token\_expires\_in | 重新整理權杖的最長有效時間 (以秒為單位)。不過，重新整理權杖隨時都可能失效。 |
 
-> [AZURE.NOTE]如果您現在問：「access\_token 在哪裡？」，請考慮下列問題。當您要求 `openid` 範圍時，Azure AD 會在回應中發出 JWT `id_token`。嚴格來說，雖然這個 `id_token` 不是 OAuth 2.0 access\_token，但在與應用程式本身的後端服務通訊時可以這樣用，由與用戶端相同的 client\_id 代表。`id_token` 仍然是已簽署的 JWT 持有人權杖，可在 HTTP 授權標頭中傳送給資源，並用來驗證要求。差別在於 `id_token` 沒有機制可縮小特定用戶端應用程式可能擁有的存取範圍。不過，當用戶端應用程式是唯一能夠與後端服務進行通訊的用戶端時 (如同目前的 Azure AD B2C 預覽一樣)，則不需要這種範圍設定機制。當 Azure AD B2C 預覽增加功能讓用戶端與第一方和第三方資源通訊時，將會引進 access\_token。不過，即便如此，使用 `id_tokens` 來與應用程式本身的後端服務通訊，仍然只是建議的模式。如需有關可使用 Azure AD B2C 預覽來建置的應用程式類型的詳細資訊，請參閱[這篇文章](active-directory-b2c-apps.md)。
+> [AZURE.NOTE]
+	如果您現在問：「access\_token 在哪裡？」，請考慮下列問題。當您要求 `openid` 範圍時，Azure AD 會在回應中發出 JWT `id_token`。嚴格來說，雖然這個 `id_token` 不是 OAuth 2.0 access\_token，但在與應用程式本身的後端服務通訊時可以這樣用，由與用戶端相同的 client\_id 代表。`id_token` 仍然是已簽署的 JWT 持有人權杖，可在 HTTP 授權標頭中傳送給資源，並用來驗證要求。差別在於 `id_token` 沒有機制可縮小特定用戶端應用程式可能擁有的存取範圍。不過，當用戶端應用程式是唯一能夠與後端服務進行通訊的用戶端時 (如同目前的 Azure AD B2C 預覽一樣)，則不需要這種範圍設定機制。當 Azure AD B2C 預覽增加功能讓用戶端與第一方和第三方資源通訊時，將會引進 access\_token。不過，即便如此，使用 `id_tokens` 來與應用程式本身的後端服務通訊，仍然只是建議的模式。如需有關可使用 Azure AD B2C 預覽來建置的應用程式類型的詳細資訊，請參閱[這篇文章](active-directory-b2c-apps.md)。
 
 錯誤回應格式如下：
 
@@ -210,8 +211,8 @@ Content-Type: application/json
 | 參數 | | 說明 |
 | ----------------------- | ------------------------------- | -------- |
 | p | 必要 | 用來取得原始重新整理權杖的原則。您不可在此要求中使用不同的原則。**請注意，此參數會加入至查詢字串**，而不是在 POST 本文中。 |
-| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com)指派給應用程式的應用程式識別碼。 |
-| grant\_type | 必要 | 以授權碼流程的這個階段而言，必須是 `refresh_token`。 |
+| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
+| grant\_type | 必要 | 必須是授權碼流程此階段的 `refresh_token`。 |
 | scope | 必要 | 範圍的空格分隔清單。單一範圍值向 Azure AD 表示同時要求的兩個權限。`openid` 範圍表示讓使用者登入和以 **id\_token** 形式取得使用者相關資料的權限。它可以用來為應用程式本身的後端 Web API 取得權杖，由與用戶端相同的應用程式識別碼代表。`offline_access` 範圍表示您的應用程式將需要 **refresh\_token**，才能長久存取資源。 |
 | redirect\_uri | 必要 | 應用程式的 redirect\_uri，指出您在此處收到 authorization\_code。 |
 | refresh\_token | 必要 | 您在流程的第二個階段中取得的原始 refresh\_token。 |
@@ -256,11 +257,11 @@ Content-Type: application/json
 | error\_description | 協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
 
 
-<!-- 
+<!--
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
 
-![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
 
 -->
 
@@ -272,4 +273,4 @@ Here is the entire flow for a native  app; each request is detailed in the secti
 - [建立應用程式](active-directory-b2c-app-registration.md)來取得應用程式識別碼和 redirect\_uri。您可以在應用程式中加入**原生用戶端**。
 - [建立您的原則](active-directory-b2c-reference-policies.md)來取得原則名稱。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

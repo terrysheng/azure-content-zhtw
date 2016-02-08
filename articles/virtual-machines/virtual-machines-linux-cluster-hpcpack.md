@@ -41,9 +41,9 @@
 
 * **HPC Pack IaaS 部署指令碼** - 從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=44949)下載並解壓縮最新版的指令碼。執行 `New-HPCIaaSCluster.ps1 –Version` 即可檢查指令碼的版本。這篇文章根據 4.4.0 版或更新版本的指令碼。
 
-* **Azure 訂用帳戶** - 您可以在 Azure 全域或 Azure China 服務中使用訂用帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 訂用帳戶** - 您可以在 Azure 全域或 Azure China 服務中使用訂用帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-* **核心配額** - 您可能需要增加核心的配額，特別是如果您選擇部署多核心 VM 大小的數個叢集節點。對於本文中的範例，您需要至少 12 個可用核心。若要增加配額，請[開立線上客戶支援要求](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) (免費)。
+* **核心配額** - 您可能需要增加核心的配額，特別是如果您選擇部署多核心 VM 大小的數個叢集節點。對於本文中的範例，您需要至少 12 個可用核心。若要增加配額，請[開立線上客戶支援要求](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) (免費)。
 
 ### 建立組態檔
 
@@ -292,7 +292,7 @@ HPC Pack **clusrun** 工具可透過命令提示字元或 HPC 叢集管理員用
     > clusrun /interleaved /nodegroup:linuxnodes echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
->[AZURE.NOTE]您可能需要在 **clusrun** 命令中使用逸出字元。如此範例所示，在命令視窗中使用 ^ 來逸出 ">" 符號。
+>[AZURE.NOTE] 您可能需要在 **clusrun** 命令中使用逸出字元。如此範例所示，在命令視窗中使用 ^ 來逸出 ">" 符號。
 
 ## 後續步驟
 
@@ -316,4 +316,4 @@ HPC Pack **clusrun** 工具可透過命令提示字元或 HPC 叢集管理員用
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

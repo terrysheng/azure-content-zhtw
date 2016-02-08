@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="01/22/2016"
    ms.author="larryfr"/>
 
 #從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop
@@ -25,7 +25,7 @@
 
 [安全殼層 (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) 可讓您使用命令列介面在以 Linux 為基礎的 HDInsight 叢集上遠端執行作業。本文件提供從 Linux、Unix 或 OS X 用戶端搭配使用 SSH 與 HDInsight 的資訊。
 
-> [AZURE.NOTE]本文中的步驟假設您是使用 Linux、Unix 或 OS X 用戶端。雖然在安裝有提供 `ssh` 和 `ssh-keygen` 的封裝 (例如 Git for Windows) 後可以在以 Windows 為基礎的用戶端上執行這些步驟，但建議以 Windows 為基礎的用戶端遵循[從 Windows 搭配使用 SSH 與以 Linux 為基礎的 HDInsight (Hadoop)](hdinsight-hadoop-linux-use-ssh-windows.md) 中的步驟。
+> [AZURE.NOTE] 本文中的步驟假設您是使用 Linux、Unix 或 OS X 用戶端。雖然在安裝有提供 `ssh` 和 `ssh-keygen` 的封裝 (例如 Git for Windows) 後可以在以 Windows 為基礎的用戶端上執行這些步驟，但建議以 Windows 為基礎的用戶端遵循[從 Windows 搭配使用 SSH 與以 Linux 為基礎的 HDInsight (Hadoop)](hdinsight-hadoop-linux-use-ssh-windows.md) 中的步驟。
 
 ##必要條件
 
@@ -77,7 +77,7 @@ SSH 使用者可以使用密碼或公開金鑰來驗證。密碼是您自己設�
 	* 檔案位置 - 預設位置為 ~/.ssh/id\_rsa。
 	* 複雜密碼 - 系統會提示您再次輸入此密碼。
 
-		> [AZURE.NOTE]強烈建議您對此金鑰使用安全的複雜密碼。不過如果您忘記此複雜密碼，將無法加以復原。
+		> [AZURE.NOTE] 強烈建議您對此金鑰使用安全的複雜密碼。不過如果您忘記此複雜密碼，將無法加以復原。
 
 	命令完成後，您會擁有兩個新檔案，即私密金鑰 (例如 **id\_rsa**) 和公開金鑰 (例如 **id\_rsa.pub**)。
 
@@ -99,7 +99,7 @@ SSH 使用者可以使用密碼或公開金鑰來驗證。密碼是您自己設�
 
 ![要求公開金鑰的表單映像](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
 
-> [AZURE.NOTE]金鑰檔就只是文字檔案。其內容類似下面這樣：```
+> [AZURE.NOTE] 金鑰檔就只是文字檔案。其內容類似下面這樣：```
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KGz90pgMk3VRJk4PEUSELfXKxP3NtsVwLVPN1l09utI/tKHQ6WL3qy89WVVVLiwzL7tfJ2B08Gmcw8mC/YoieT/YG+4I4oAgPEmim+6/F9S0lU2I2CuFBX9JzauX8n1Y9kWzTARST+ERx2hysyA5ObLv97Xe4C2CQvGE01LGAXkw2ffP9vI+emUM+VeYrf0q3w/b1o/COKbFVZ2IpEcJ8G2SLlNsHWXofWhOKQRi64TMxT7LLoohD61q2aWNKdaE4oQdiuo8TGnt4zWLEPjzjIYIEIZGk00HiQD+KCB5pxoVtp user@system
 > ```
 
@@ -127,7 +127,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 如果您使用以複雜密碼保護的 SSH 金鑰，系統會提示您輸入複雜密碼。否則，SSH 會嘗試使用您的用戶端上的其中一個本機私密金鑰，進行自動驗證。
 
-> [AZURE.NOTE]如果 SSH 沒有以正確私密金鑰自動進行驗證，請使用 **-i** 參數並指定私密金鑰的路徑。下列範例會從 `~/.ssh/id_rsa` 載入私密金鑰：
+> [AZURE.NOTE] 如果 SSH 沒有以正確私密金鑰自動進行驗證，請使用 **-i** 參數並指定私密金鑰的路徑。下列範例會從 `~/.ssh/id_rsa` 載入私密金鑰：
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
@@ -166,7 +166,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 請使用下列步驟連接到您的叢集的背景工作節點。
 
-> [AZURE.IMPORTANT]如果您使用 SSH 金鑰驗證您的使用者帳戶，您必須完成上述步驟以驗證代理程式轉送正在運作。
+> [AZURE.IMPORTANT] 如果您使用 SSH 金鑰驗證您的使用者帳戶，您必須完成上述步驟以驗證代理程式轉送正在運作。
 
 1. 使用 SSH 連接到 HDInsight 叢集，如先前所述。
 
@@ -184,7 +184,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
     將 *USERNAME* 取代為您的 SSH 使用者名稱，將 *FQDN* 取代為背景工作節點的 FQDN。例如，`workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`。
 
-    > [AZURE.NOTE]如果您使用密碼以驗證您的 SSH 工作階段，則系統會提示您再次輸入密碼。如果您使用 SSH 金鑰，連線應該沒有任何提示即會完成。
+    > [AZURE.NOTE] 如果您使用密碼以驗證您的 SSH 工作階段，則系統會提示您再次輸入密碼。如果您使用 SSH 金鑰，連線應該沒有任何提示即會完成。
 
 4. 建立工作階段之後，終端機提示會從 `username@hn0-clustername` 變更為 `username@wk0-clustername`，以指出您已連接至背景工作節點。目前您執行的任何命令會在背景工作節點上執行。
 
@@ -194,7 +194,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 1. 為新的使用者帳戶產生新的公開金鑰和私密金鑰，如[建立 SSH 金鑰](#create-an-ssh-key-optional)章節所述。
 
-	> [AZURE.NOTE]私密金鑰應該在使用者用來連接到叢集的用戶端上產生，或在建立後安全地傳輸到這個用戶端。
+	> [AZURE.NOTE] 私密金鑰應該在使用者用來連接到叢集的用戶端上產生，或在建立後安全地傳輸到這個用戶端。
 
 1. 在連往叢集的 SSH 工作階段中，使用下列命令加入新使用者：
 
@@ -222,7 +222,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 SSH 可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDInsight 叢集。要求便會路由至要求的資源，彷彿要求是在 HDInsight 叢集前端節點上產生。
 
-> [AZURE.IMPORTANT]SSH 通道是存取某些 Hadoop 服務之 Web UI 的必要項目。例如，[作業記錄] UI 或 [資源管理員] UI 都只能使用 SSH 通道存取。
+> [AZURE.IMPORTANT] SSH 通道是存取某些 Hadoop 服務之 Web UI 的必要項目。例如，[作業記錄] UI 或 [資源管理員] UI 都只能使用 SSH 通道存取。
 
 如需建立及使用 SSH 通道的詳細資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
 
@@ -238,4 +238,4 @@ SSH 可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDInsi
 
 [preview-portal]: https://portal.azure.com/
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

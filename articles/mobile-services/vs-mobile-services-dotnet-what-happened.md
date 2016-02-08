@@ -3,7 +3,7 @@
 	description="描述使用連接服務加入 Azure 行動服務之後，您的 Visual Studio.NET 專案發生什麼狀況"
 	services="mobile-services"
 	documentationCenter=""
-	authors="TomArcher"
+	authors="mlhoop"
 	manager="douge"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="01/05/2016"
-	ms.author="tarcher"/>
+	ms.author="mlearned"/>
 
 # 使用連接服務加入 Azure 行動服務之後，我的 Visual Studio.NET 專案發生什麼狀況？
 
@@ -39,6 +39,6 @@ Azure 行動服務 NuGet 封裝加入至專案。因此，下列 .NET 參考已�
 如果在連線服務提供者中建立 .NET 行動服務，則會建立行動服務專案並將其加入至方案。
 
 
-[深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
+[深入了解行動服務](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -109,7 +109,7 @@ XUF99EW9OIQOMV7Q7 | 家庭房車
 
 [Vehicle Telematics Simulator Visual Studio 方案](http://go.microsoft.com/fwlink/?LinkId=717075)
 
-[Azure 事件中樞](http://azure.microsoft.com/services/event-hubs/)
+[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)
 
 [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
@@ -163,7 +163,7 @@ XUF99EW9OIQOMV7Q7 | 家庭房車
 
 
 ## 準備
->[AZURE.ALERT]方案中的此步驟僅適用於批次處理。
+>[AZURE.ALERT] 方案中的此步驟僅適用於批次處理。
 
 在資料準備步驟中，原始的半結構化車輛訊號和診斷資料集分割成 YEAR/MONTH 格式，以利於提高查詢效率和使用可擴充的長期儲存體 (也就是說，能夠在第一個 blob 帳戶填滿時切換到下一個 blob 帳戶)。輸出資料 (標示為 *PartitionedCarEventsTable*) 應該在客戶的「資料湖」中以基本/「最原始」的資料形式長期保存。通常會捨棄此管線的輸入資料，因為輸出資料會完整無缺地呈現輸入 - 只是方便後續使用而儲存 (分割)。
 
@@ -396,7 +396,7 @@ XUF99EW9OIQOMV7Q7 | 家庭房車
 
 *圖 19 – RealtimeDashboardApp：登入 PowerBI*
 
->[AZURE.NOTE]附註：如果您想要排清 PowerBI 資料集，請指定 ‘flushdata’ 來執行 RealtimeDashboardApp：
+>[AZURE.NOTE] 附註：如果您想要排清 PowerBI 資料集，請指定 ‘flushdata’ 來執行 RealtimeDashboardApp：
 
 	RealtimeDashboardApp.exe -flushdata
 
@@ -706,4 +706,4 @@ Power BI 給此方案一個豐富的儀表板來提供即時資料和預測性�
 
 本文件包含車輛遙測資料分析方案的詳細探討。這以預測和動作示範即時和批次分析的 Lambda 架構模式。此模式適用於需要最忙碌路徑 (即時) 和不忙碌路徑 (批次) 分析的各種使用案例。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

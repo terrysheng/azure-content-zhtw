@@ -18,16 +18,16 @@
 	
 # 從 Visual Studio 部署
 
-雖然 [Azure 入口網站](https://portal.azure.com)有很好的方法讓您設計和管理邏輯應用程式，但您也可以從 Visual Studio 部署邏輯應用程式。這帶來一些重要的功能：
+雖然 [Azure 入口網站](https://portal.azure.com/)有很好的方法讓您設計和管理邏輯應用程式，但您也可以從 Visual Studio 部署邏輯應用程式。這帶來一些重要的功能：
 
 - 將邏輯應用程式連同其他資產一起儲存在方案中，因此可含括應用程式的所有層面。
 - 保持邏輯應用程式簽入原始檔控制中，讓您利用 TFS 或 Git 來追蹤它的修訂 
 
-您必須安裝 Azure SDK 2.7 或更新版本才能執行下列步驟。在這裡尋找[最新版的 SDK for VS](http://azure.microsoft.com/downloads/)。
+您必須安裝 Azure SDK 2.7 或更新版本才能執行下列步驟。在這裡尋找[最新版的 SDK for VS](https://azure.microsoft.com/downloads/)。
 
 ## 建立專案
 
-1. 移至 [檔案] 功能表，選取 [新增] > [專案] \(或者，移至 [加入]，再選取 [新增專案]，以加入至現有的方案)：![[檔案] 功能表](./media/app-service-logic-deploy-from-vs/filemenu.png)
+1. 移至 [檔案] 功能表，選取 [新增] > [專案] (或者，移至 [加入]，再選取 [新增專案]，以加入至現有的方案)：![[檔案] 功能表](./media/app-service-logic-deploy-from-vs/filemenu.png)
 
 2. 在對話方塊中，尋找 [雲端]，然後選取 [Azure 資源群組]。輸入 [**名稱**]，然後按一下 [**確定**]。![加入新的專案](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
@@ -65,4 +65,4 @@
 
 如果您不想使用 Visual Studio，但仍想使用工具從原始檔控制來部署邏輯應用程式，您可以直接使用 [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 或 [PowerShell](../powershell-azure-resource-manager.md) 將部署作業自動化。
 
-<!-----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

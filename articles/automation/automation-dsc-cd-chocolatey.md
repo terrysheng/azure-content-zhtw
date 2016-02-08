@@ -187,5 +187,4 @@ PowerShell 資源庫中的 cChoco DSC 資源版本的原始檔並不是最新的
 - [Azure 自動化 DSC Cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)
 - [上架由 Azure 自動化 DSC 管理的機器](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_1203_2015-->
-<!---Line 54: Add slash-->
+<!---HONumber=AcomDC_0128_2016-->

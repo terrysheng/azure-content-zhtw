@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="10/23/2015"
+   ms.date="01/13/2016"
    ms.author="sdanie" />
 
 # Azure Redis 快取的 ASP.NET 輸出快取提供者
@@ -23,11 +23,11 @@ Redis 輸出快取提供者為輸出快取資料的程序外儲存體機制。�
 
 ## 將 ASP.NET 頁面輸出儲存在快取中
 
-若要在 Visual Studio 中使用「Redis 輸出快取提供者 NuGet 封裝」來設定用戶端應用程式，請在 [**方案總管**] 中的專案上按一下滑鼠右鍵，然後選擇 [**管理 NuGet 封裝**]。
+若要在 Visual Studio 中使用「Redis 輸出快取提供者 NuGet 封裝」來設定用戶端應用程式，請在 [方案總管] 中的專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。
 
 ![Azure Redis 快取管理 NuGet 封裝](./media/cache-asp.net-output-cache-provider/IC729541.png)
 
-在 [**線上搜尋**] 文字方塊中輸入 **RedisOutputCacheProvider**，從結果中選取後按一下 [**安裝**]。
+在 [線上搜尋] 文字方塊中輸入 **RedisOutputCacheProvider**，從結果中選取後按一下 [安裝]。
 
 ![Azure Redis 快取輸出快取提供者](./media/cache-asp.net-output-cache-provider/IC751727.jpg)
 
@@ -81,4 +81,4 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 請查看 [Azure Redis 快取的 ASP.NET 工作階段狀態提供者](cache-asp.net-session-state-provider.md)。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

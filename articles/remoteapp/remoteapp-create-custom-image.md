@@ -20,7 +20,7 @@
 Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與使用者共用的所有程式。若要建立自訂 RemoteApp 範本映像，您可以從現有的映像建立，或是建立新映像。
 
 
-> [AZURE.TIP]您知道您可以從 Azure VM 建立映像嗎？ 這是真的，而且它可以減少匯入映像所花費的時間。請在[這裡](remoteapp-image-on-azurevm.md)查明步驟。
+> [AZURE.TIP] 您知道您可以從 Azure VM 建立映像嗎？ 這是真的，而且它可以減少匯入映像所花費的時間。請在[這裡](remoteapp-image-on-azurevm.md)查明步驟。
 
 可上傳用於 Azure RemoteApp 的映像有下列需求：
 
@@ -43,7 +43,7 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 
 在建立服務之前，您必須執行下列作業：
 
-- [註冊](http://azure.microsoft.com/services/remoteapp/) RemoteApp。
+- [註冊](https://azure.microsoft.com/services/remoteapp/) RemoteApp。
 - 在 Active Directory 中建立使用者帳戶，以做為 RemoteApp 服務帳戶。限制此帳戶的權限，使其只能將機器加入網域中。如需詳細資訊，請參閱[設定 RemoteApp 的 Azure Active Directory](remoteapp-ad.md)。
 - 收集內部部署網路的相關資訊：IP 位址資訊和 VPN 裝置詳細資料。
 - 安裝 [Azure PowerShell](../install-configure-powershell.md) 模組。
@@ -142,4 +142,4 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 - [如何建立 RemoteApp 的雲端收藏](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

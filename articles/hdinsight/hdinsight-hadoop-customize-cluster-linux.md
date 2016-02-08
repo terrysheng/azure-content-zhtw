@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="01/22/2016"
 	ms.author="larryfr"/>
 
 # 使用指令碼動作自訂 Linux 型 HDInsight 叢集
@@ -23,7 +23,7 @@
 
 HDInsight 提供一個稱為「**指令碼動作**」的組態選項，此指令碼動作可叫用自訂指令碼，以定義建立程序期間要在叢集上執行的自訂。這些指令碼可用來在叢集上安裝額外的軟體或變更叢集上的應用程式組態。
 
-> [AZURE.NOTE]本文的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需本文中以 Windows 為基礎的叢集的特定版本，請參閱[使用指令碼動作自訂 HDInsight 叢集 (Windows)](hdinsight-hadoop-customize-cluster.md)
+> [AZURE.NOTE] 本文的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需本文中以 Windows 為基礎的叢集的特定版本，請參閱[使用指令碼動作自訂 HDInsight 叢集 (Windows)](hdinsight-hadoop-customize-cluster.md)
 
 ## 叢集建立程序中的指令碼動作
 
@@ -33,11 +33,11 @@ HDInsight 提供一個稱為「**指令碼動作**」的組態選項，此指令
 
 當設定 HDInsight 時，已執行指令碼。在此階段，指令碼會以平行方式在叢集中所有指定的節點上執行，在節點上會以根權限執行。
 
-> [AZURE.NOTE]因為您在指令碼執行時具有叢集節點上的根權限，所以您可以執行作業，例如停止和啟動服務，包括 Hadoop 相關服務。如果您停止服務，您必須在指令碼完成執行之前，確定 Ambari 服務及其他 Hadoop 相關服務已啟動並且正在執行。這些服務必須在叢集建立時，成功地確定叢集的健康情況和狀態。
+> [AZURE.NOTE] 因為您在指令碼執行時具有叢集節點上的根權限，所以您可以執行作業，例如停止和啟動服務，包括 Hadoop 相關服務。如果您停止服務，您必須在指令碼完成執行之前，確定 Ambari 服務及其他 Hadoop 相關服務已啟動並且正在執行。這些服務必須在叢集建立時，成功地確定叢集的健康情況和狀態。
 
 每個叢集可接受多個指令碼動作，這些指令碼會依其指定順序被叫用。指令碼可在前端節點、背景工作角色節點或同時在兩者執行。
 
-> [AZURE.IMPORTANT]指令碼動作必須在 60 分鐘內完成，否則就會逾時。在節點佈建期間，會同時執行指令碼與其他安裝和設定程序。與在您開發環境中的執行時間相較，爭用 CPU 時間和網路頻寬等資源可能會導致指令碼需要較長的時間才能完成。
+> [AZURE.IMPORTANT] 指令碼動作必須在 60 分鐘內完成，否則就會逾時。在節點佈建期間，會同時執行指令碼與其他安裝和設定程序。與在您開發環境中的執行時間相較，爭用 CPU 時間和網路頻寬等資源可能會導致指令碼需要較長的時間才能完成。
 > 
 > 若要讓執行指令碼所花費的時間降到最低，請避免從原始程式碼下載和編譯應用程式之類的工作。您應預先編譯相關應用程式，並將二進位檔儲存在 Azure Blob 儲存體中，這樣可讓其能夠快速地下載到叢集。
 
@@ -255,7 +255,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
 		Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
-    > [AZURE.NOTE]您可以使用 `Get-AzureRmSubscription` 來取得與您帳戶關聯的所有訂用帳戶清單，同時也包含每個訂用帳戶的訂閱 Id。
+    > [AZURE.NOTE] 您可以使用 `Get-AzureRmSubscription` 來取得與您帳戶關聯的所有訂用帳戶清單，同時也包含每個訂用帳戶的訂閱 Id。
 
 5. 如果您沒有現有資源群組，請建立新的資源群組。提供您的解決方案所需的資源群組名稱和位置。隨即傳回新資源群組的摘要。
 
@@ -391,11 +391,11 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 	![作業的螢幕擷取畫面](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
 	在其下，記錄檔會個別針對前端節點、背景工作節點和 Zookeeper 節點進行組織。範例如：
-	* **Headnode** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
-	* **Worker node** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+	* **Headnode** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net` 
+	* **Worker node** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net` 
 	* **Zookeeper node** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* 對應主機的所有 stdout 和 stderr 都會上傳至儲存體帳戶。每個指令碼動作分別有一個 **output-*.txt** 和  **errors-\*.txt** 。output-*.txt 檔案包含在主機上執行之指令碼的 URI 相關資訊。例如
+* 對應主機的所有 stdout 和 stderr 都會上傳至儲存體帳戶。每個指令碼動作分別有一個 **output-*.txt** 和 **errors-*.txt**。output-*.txt 檔案包含在主機上執行之指令碼的 URI 相關資訊。例如
 
 		'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -412,7 +412,7 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 ## 支援在 HDInsight 叢集上使用開放原始碼軟體
 
-Microsoft Azure HDInsight 服務是彈性的平台，可讓您使用以 Hadoop 形成之開放原始碼技術的生態系統，在雲端中建置巨量資料應用程式。Microsoft Azure 提供對開放原始碼技術的一般層級支援，如 [Azure 支援常見問題集網站](http://azure.microsoft.com/support/faq/)的＜**支援範圍**＞章節中所述。HDInsight 服務對於某些元件提供額外層級的支援，如下所述。
+Microsoft Azure HDInsight 服務是彈性的平台，可讓您使用以 Hadoop 形成之開放原始碼技術的生態系統，在雲端中建置巨量資料應用程式。Microsoft Azure 提供對開放原始碼技術的一般層級支援，如 [Azure 支援常見問題集網站](https://azure.microsoft.com/support/faq/)的＜**支援範圍**＞章節中所述。HDInsight 服務對於某些元件提供額外層級的支援，如下所述。
 
 HDInsight 服務中有兩種類型的開放原始碼元件可用：
 
@@ -420,7 +420,7 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 
 - **自訂元件** - 身為叢集使用者的您可以安裝社群中可用或是您建立的任何元件，或者在工作負載中使用。
 
-> [AZURE.WARNING]透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務將協助釐清與解決這些元件的相關問題。
+> [AZURE.WARNING] 透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務將協助釐清與解決這些元件的相關問題。
 >
 > 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/zh-TW/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如：[Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 
@@ -446,4 +446,4 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "叢集建立期間的階段"
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

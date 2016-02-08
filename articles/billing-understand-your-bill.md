@@ -24,7 +24,7 @@ Microsoft Azure 訂用帳戶的費用會因費率方案而異。某些費率方�
 
 請注意，先前計費期間的最多 24 小時潛在使用量可以列於您的目前計費期間。
 
-如需耗用量和費率方案的詳細資訊，請參閱 [Microsoft Azure 購買選項頁面](http://azure.microsoft.com/pricing/purchase-options/)。
+如需耗用量和費率方案的詳細資訊，請參閱 [Microsoft Azure 購買選項頁面](https://azure.microsoft.com/pricing/purchase-options/)。
 
 下列連結涵蓋所有 Microsoft Azure 服務的完整清單。
 
@@ -262,4 +262,4 @@ N/A | 標記 | _**新增資料行。**_ Azure 中的新資源類型可讓您標�
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/22/2016"
 	ms.author="SilviaDoomra" />
 
 # 開始使用彈性查詢進行分區化 (水平資料分割)
@@ -44,7 +44,7 @@ Azure SQL Database 彈性資料庫查詢 (預覽) 可讓您執行使用單一連
 ## 建立彈性的查詢資料庫
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com)並登入。
-2. 在與分區安裝程式相同的伺服器中建立新的 Azure SQL Database。將資料庫命名為 "ElasticDBQuery"。 
+2. 在與分區安裝程式相同的伺服器中建立新的 Azure SQL Database。將資料庫命名為 "ElasticDBQuery"。
 
 	![Azure 入口網站和定價層][3]
 
@@ -129,7 +129,7 @@ Azure SQL Database 彈性資料庫查詢 (預覽) 可讓您執行使用單一連
 ### 成本
 使用彈性資料庫查詢功能不另行收費。
 
-如需價格資訊，請參閱 [SQL Database 價格詳細資料](http://azure.microsoft.com/pricing/details/sql-database/)。
+如需價格資訊，請參閱 [SQL Database 價格詳細資料](https://azure.microsoft.com/pricing/details/sql-database/)。
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -142,4 +142,4 @@ Azure SQL Database 彈性資料庫查詢 (預覽) 可讓您執行使用單一連
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

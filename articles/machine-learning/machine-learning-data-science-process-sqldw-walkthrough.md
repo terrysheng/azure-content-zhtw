@@ -96,7 +96,7 @@
 
 開啟 Windows PowerShell 命令主控台。執行下列 PowerShell 命令，將我們在 Github 上與您分享的範例 SQL 指令碼檔案，下載到您使用 *-DestDir* 參數所指定的本機目錄中。您可以將 *-DestDir* 參數的值變更為任何本機目錄。如果 *-DestDir* 不存在，PowerShell 指令碼會加以建立。
 
->[AZURE.NOTE]如果需要系統管理員權限才能建立或寫入到 *DestDir*，您可能需要在執行下列 PowerShell 指令碼時**以系統管理員身分執行**。
+>[AZURE.NOTE] 如果需要系統管理員權限才能建立或寫入到 *DestDir*，您可能需要在執行下列 PowerShell 指令碼時**以系統管理員身分執行**。
 
 	$source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
 	$ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
@@ -124,9 +124,9 @@
 
 當 PowerShell 指令碼第一次執行時，系統會要求您輸入 Azure SQL DW 和 Azure Blob 儲存體帳戶的資訊。當這個 PowerShell 指令碼完成第一次執行時，您所輸入的認證即已寫入現在的工作目錄中的組態檔 SQLDW.conf。日後再次執行這個 PowerShell 指令碼檔案時，就會有從這個組態檔讀取所有所需參數的選項。如果您需要變更一些參數，您可以選擇在提示時於畫面上輸入參數 (方法是刪除此組態檔，並依提示輸入參數值)，或是變更參數值 (方法是編輯組態檔)。
 
->[AZURE.NOTE]為了避免結構描述名稱與 Azure SQL DW 中現存的名稱發生衝突，在直接從 .conf 檔案讀取參數時，都會對 .conf 檔案中的結構描述名稱加上 3 位數的隨機數字，以做為每次執行的預設結構描述名稱。
+>[AZURE.NOTE] 為了避免結構描述名稱與 Azure SQL DW 中現存的名稱發生衝突，在直接從 .conf 檔案讀取參數時，都會對 .conf 檔案中的結構描述名稱加上 3 位數的隨機數字，以做為每次執行的預設結構描述名稱。
 
->[AZURE.NOTE]根據私人 Blob 儲存體帳戶所在的地理位置，將公用 Blob 中的資料複製到私人儲存體帳戶的程序可能需要大約 15 分鐘或更久時間，而將儲存體帳戶中的資料載入到 Azure SQL DW 的程序則可能需要 20 分鐘或更久時間。
+>[AZURE.NOTE] 根據私人 Blob 儲存體帳戶所在的地理位置，將公用 Blob 中的資料複製到私人儲存體帳戶的程序可能需要大約 15 分鐘或更久時間，而將儲存體帳戶中的資料載入到 Azure SQL DW 的程序則可能需要 20 分鐘或更久時間。
 
 >[Azure 附註] 如果私人 Blob 儲存體帳戶中已有要從公用 Blob 儲存體複製到私人 Blob 儲存體帳戶的檔案，AzCopy 會詢問您是否要加以覆寫。如果不想加以覆寫，請在出現提示時輸入 **n**。如果想**全部**加以覆寫，請在出現提示時輸入 **a**。您也可以輸入 **y** 來個別進行覆寫。
 
@@ -632,7 +632,7 @@
 
 2. 登入 [Azure Machine Learning Studio](https://studio.azureml.net)。
 
-3. Studio 首頁會提供豐富的資訊、影片、教學課程、與模組參考的連結，以及其他資源。如需 Azure Machine Learning 的詳細資訊，請參閱 [Azure Machine Learning 文件中心](http://azure.microsoft.com/documentation/services/machine-learning/)。
+3. Studio 首頁會提供豐富的資訊、影片、教學課程、與模組參考的連結，以及其他資源。如需 Azure Machine Learning 的詳細資訊，請參閱 [Azure Machine Learning 文件中心](https://azure.microsoft.com/documentation/services/machine-learning/)。
 
 典型的訓練實驗包含下列步驟：
 
@@ -669,7 +669,7 @@
 
 ![Azure ML 訓練][10]
 
-> [AZURE.IMPORTANT]在前幾節中提供的模型化資料擷取和取樣查詢範例中，**這三個模型化練習的所有標籤都包含於此查詢中**。每一個模型化練習的重要 (必要) 步驟都是針對其他兩個問題**排除**不需要的標籤，以及任何其他的**目標流失**。例如，使用二進位分類時，請用 **tipped** 標籤，並排除 [tip\_class]、[tip\_amount] 和 [total\_amount] 欄位。後者為目標流失，因為它們意指支付的小費。
+> [AZURE.IMPORTANT] 在前幾節中提供的模型化資料擷取和取樣查詢範例中，**這三個模型化練習的所有標籤都包含於此查詢中**。每一個模型化練習的重要 (必要) 步驟都是針對其他兩個問題**排除**不需要的標籤，以及任何其他的**目標流失**。例如，使用二進位分類時，請用 **tipped** 標籤，並排除 [tip\_class]、[tip\_amount] 和 [total\_amount] 欄位。後者為目標流失，因為它們意指支付的小費。
 >
 > 若要排除不必要的資料行或目標流失，您可以使用「[專案資料行][project-columns]」模組或「[中繼資料編輯器][metadata-editor]」。如需詳細資訊，請參閱「[專案資料行][project-columns]」和「[中繼資料編輯器][metadata-editor]」的參考頁面。
 
@@ -744,4 +744,4 @@ Azure Machine Learning 將根據訓練實驗的元件來建立計分實驗。特
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

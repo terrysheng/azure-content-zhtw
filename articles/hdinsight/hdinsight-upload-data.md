@@ -56,7 +56,7 @@ Microsoft 提供下列公用程式來使用 Azure Blob 儲存體：
 | [AzCopy][azure-azcopy] | | | ✔ |
 | [Hadoop 命令](#commandline) | ✔ | ✔ | ✔ |
 
-> [AZURE.NOTE]雖然 Azure CLI、Azure PowerShell 與 AzCopy 都可從外部 Azure 使用，但是 Hadoop 命令只能在 HDInsight 叢集上使用，而且只允許將資料從本機檔案系統載入到 Azure Blob 儲存體。
+> [AZURE.NOTE] 雖然 Azure CLI、Azure PowerShell 與 AzCopy 都可從外部 Azure 使用，但是 Hadoop 命令只能在 HDInsight 叢集上使用，而且只允許將資料從本機檔案系統載入到 Azure Blob 儲存體。
 
 ###<a id="xplatcli"></a>Azure CLI
 
@@ -94,7 +94,7 @@ Azure CLI 是可讓您管理 Azure 服務的跨平台工具。使用以下步驟
 
 			azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]如果您會持續使用同一個儲存體帳戶，可以設定以下環境變數，而不是為每個命令指定帳戶和金鑰：
+> [AZURE.NOTE] 如果您會持續使用同一個儲存體帳戶，可以設定以下環境變數，而不是為每個命令指定帳戶和金鑰：
 >
 > * **AZURE\_STORAGE\_ACCOUNT**：儲存體帳戶名稱
 >
@@ -220,7 +220,7 @@ Azure Data Factory 服務是完全受管理的服務，可將資料儲存、資�
 
 Azure Data Factory 可用來將資料移至 Azure Blob 儲存體，或建立資料管線直接使用 HDInsight 功能，例如 Hive 和 Pig。
 
-如需詳細資訊，請參閱 [Azure Data Factory 文件](http://azure.microsoft.com/documentation/services/data-factory/)。
+如需詳細資訊，請參閱 [Azure Data Factory 文件](https://azure.microsoft.com/documentation/services/data-factory/)。
 
 ###<a id="sqoop"></a>Apache Sqoop
 
@@ -239,7 +239,7 @@ Azure Blob 儲存體也可以使用 Azure SDK，透過下列程式設計語言�
 * Python
 * Ruby
 
-如需安裝 Azure SDK 的詳細資訊，請參閱 [Azure 下載](http://azure.microsoft.com/downloads/)
+如需安裝 Azure SDK 的詳細資訊，請參閱 [Azure 下載](https://azure.microsoft.com/downloads/)
 
 
 ## 後續步驟
@@ -284,4 +284,4 @@ Azure Blob 儲存體也可以使用 Azure SDK，透過下列程式設計語言�
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

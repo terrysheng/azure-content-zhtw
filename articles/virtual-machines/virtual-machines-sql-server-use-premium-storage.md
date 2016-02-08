@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="使用 Azure 高階儲存體搭配 SQL Server | Microsoft Azure"
 	description="本文會使用以傳統部署模型建立的資源，並提供使用 Azure 高階儲存體搭配 Azure 虛擬機器上執行之 SQL Server 的指導方針。"
 	services="virtual-machines"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/06/2015"
+	ms.date="01/22/2016"
 	ms.author="jroth"/>
 
 # 在虛擬機器上搭配使用 Azure 高階儲存體和 SQL Server
@@ -22,10 +22,10 @@
 
 ## 概觀
 
-[Azure 高階儲存體](../storage-premium-storage-preview-portal.md)是新一代儲存體，可提供低延遲和高輸送量 IO。它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](http://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。
+[Azure 高階儲存體](../storage-premium-storage-preview-portal.md)是新一代儲存體，可提供低延遲和高輸送量 IO。它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](https://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
- 
+
 
 本文提供移轉執行 SQL Server 的虛擬機器來執行高階儲存體的規劃與指導方針。這包括 Azure 基礎結構 (網路功能、儲存體) 和客體 Windows VM 步驟。[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)中的範例示範一個全方位的端對端移轉，說明如何透過 PowerShell 移動更大規模的 VM，來利用 改善的本機 SSD 儲存體。
 
@@ -58,7 +58,7 @@
 ### 區域 VNET
 
 針對 DS* VM，您必須將裝載 VM 的虛擬網路 (VNET) 設定為區域的。這會「拓寬」VNET 的範圍，以便在其他叢集中佈建更大規模的 VM，並允許在它們之間進行通訊。在下列螢幕擷取畫面中，反白顯示的位置會顯示區域 VNET，而第一個結果顯示的是「範圍縮小」的 VNET。
- 
+
 ![RegionalVNET][1]
 
 您可以提高 Microsoft 支援票證以移轉到區域 VNET、Microsoft 將進行變更，然後完成區域 VNET 的移轉，在網路設定中變更屬性 AffinityGroup。先匯出 PowerShell 中的網路設定，然後使用 **Location** 屬性來取代 **VirtualNetworkSite** 元素中的 **AffinityGroup** 屬性。指定 `Location = XXXX`，其中 `XXXX` 為 Azure 區域。接著匯入新設定。
@@ -84,19 +84,19 @@
     <Subnets>
     ...
     </VirtualNetworkSite>
-    
+
 ### 儲存體帳戶
 
 您需要建立新的儲存體帳戶，此帳戶是針對高階儲存體所設定。請注意，高階儲存體的用法是設定於儲存體帳戶上，而非個別的 VHD 上，但在使用 DS* 系列 VM 時，您可以從高階和標準儲存體帳戶連結 VHD 的儲存體帳戶。如果您不想將作業系統 VHD 放置於高階儲存體帳戶上，可考慮使用此項。
 
-以下含有 "Premium_LRS" **類型**的 **New-AzureStorageAccountPowerShell** 命令會建立高階儲存體帳戶：
+以下含有 "Premium\_LRS" **類型**的 **New-AzureStorageAccountPowerShell** 命令會建立高階儲存體帳戶：
 
-    $newstorageaccountname = "danpremstor" 
+    $newstorageaccountname = "danpremstor"
     New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "West Europe" -Type "Premium_LRS"   
 
 ### VHD 快取設定
 
-在建立屬於高階儲存體帳戶一部分的磁碟間的主要差異在於磁碟快取設定。針對 SQL Server 資料磁碟區磁碟，建議使用 [讀取快取]***。針對交易記錄磁碟區，應該將磁碟快取設定設為 [無]***。這與適用於標準儲存體帳戶的建議不同。
+在建立屬於高階儲存體帳戶一部分的磁碟間的主要差異在於磁碟快取設定。針對 SQL Server 資料磁碟區磁碟，建議使用 [讀取快取]****。針對交易記錄磁碟區，應該將磁碟快取設定設為 [無]****。這與適用於標準儲存體帳戶的建議不同。
 
 一旦連結 VHD 之後，就無法更改快取設定。您需要中斷連結 VHD，然後使用更新的快取設定重新連結。
 
@@ -110,7 +110,7 @@
 
 因為對於連結的 VHD 有不同的快取設定建議，所以您可能決定將 VHD 複製到高階儲存體帳戶。但是，當您將它們重新連結到新的 DS 系列 VM 時，可能需要更改快取設定。如果您擁有分別適用於 SQL 資料檔案和記錄檔的 VHD (而不是包含這兩者的單一 VHD)，就能以更簡單的方式套用高階儲存體的建議快取設.定。
 
-> [AZURE.NOTE]如果您在相同磁碟區上擁有 SQL Server 資料和記錄檔，則您選擇的快取選項取決於適用於資料庫工作負載的 IO 存取模式。只有測試可以示範哪一個快取選項最適合這個案例。
+> [AZURE.NOTE] 如果您在相同磁碟區上擁有 SQL Server 資料和記錄檔，則您選擇的快取選項取決於適用於資料庫工作負載的 IO 存取模式。只有測試可以示範哪一個快取選項最適合這個案例。
 
 但是，如果您正在使用由多個 VHD 組成的 Windows 儲存空間，就需要查看原始指令碼，以識別哪些連結的 VHD 位於哪個特定集區，然後就能針對每個磁碟據以設定快取設定。
 
@@ -140,18 +140,18 @@
     Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
 	![GetStoragePool][5]
- 
+
 現在您可以使用此資訊，將連結的 VHD 關聯至儲存集區中的實體磁碟。
 
 將 VHD 對應到儲存集區中的實體磁碟之後，接著就可以中斷連結，並將它們複製到高階儲存體帳戶，然後使用正確的快取設定來連結它們。請參閱[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)中的範例，步驟 8 到 12。這些步驟示範如何將與 VM 連結的 VHD 磁碟設定擷取至 CSV 檔案、複製 VHD、更改磁碟設定快取設定，最後重新部署 VM 成為含有所有連結磁碟的 DS 系列 VM。
 
-### VM 儲存體寬頻和 VHD 儲存體輸送量 
+### VM 儲存體頻寬和 VHD 儲存體輸送量
 
 儲存體效能的程度取決於指定的 DS* VM 大小與 VHD 大小。VM 對於連結的 VHD 數量以及它們將支援的最大頻寬 (MB/秒) 有不同的容許程度。如需特定頻寬數，請參閱 [Azure 的虛擬機器和雲端服務大小](virtual-machines-size-specs.md)。
 
 提高 IOPS 可透過更大的磁碟大小來達成。當您考量移轉路徑時，應將這點納入考慮。如需詳細資訊，請參閱[適用於 IOPS 和磁碟類型的表格](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whzh-TWing-premium-storage)。
 
-最後，請考量 VM 對於所有連結磁碟支援的磁碟頻寬上限各有不同。在高負載下，您可針對該 VM 角色大小充分使用可用的最大磁碟頻寬。例如，Standard_DS14 最多將支援 512MB/秒；因此，透過三個 P30 磁碟，您就能充分使用 VM 的磁碟頻寬。但在此範例中，根據讀取和寫入 IO 的組合而定，可能會超過輸送量限制。
+最後，請考量 VM 對於所有連結磁碟支援的磁碟頻寬上限各有不同。在高負載下，您可針對該 VM 角色大小充分使用可用的最大磁碟頻寬。例如，Standard\_DS14 最多將支援 512MB/秒；因此，透過三個 P30 磁碟，您就能充分使用 VM 的磁碟頻寬。但在此範例中，根據讀取和寫入 IO 的組合而定，可能會超過輸送量限制。
 
 ## 新的部署
 
@@ -159,7 +159,7 @@
 
 第一個範例示範使用現有的 Azure 資源庫映像。第二個範例示範如何使用您在現有標準儲存體帳戶中擁有的自訂 VM 映像。
 
-> [AZURE.NOTE]這些範例假設您已經建立區域 VNET。
+> [AZURE.NOTE] 這些範例假設您已經建立區域 VNET。
 
 ### 使用資源庫映像建立含有高階儲存體的新 VM
 
@@ -167,117 +167,117 @@
 
     $mysubscription = "DansSubscription"
     $location = "West Europe"
-    
-    #Set up subscription 
-    Set-AzureSubscription -SubscriptionName $mysubscription 
+
+    #Set up subscription
+    Set-AzureSubscription -SubscriptionName $mysubscription
     Select-AzureSubscription -SubscriptionName $mysubscription -Current  
 
 #### 步驟 1：建立高階儲存體帳戶
 
 
     #Create Premium Storage account, note Type
-    $newxiostorageaccountname = "danspremsams" 
+    $newxiostorageaccountname = "danspremsams"
     New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
 
- 
+
 #### 步驟 2：建立新的雲端服務
 
-    $destcloudsvc = "danNewSvcAms" 
-    New-AzureService $destcloudsvc -Location $location 
+    $destcloudsvc = "danNewSvcAms"
+    New-AzureService $destcloudsvc -Location $location
 
 
 #### 步驟 3：保留雲端服務 VIP (選用)
     #check exisitng reserved VIP
     Get-AzureReservedIP
-    
-    $reservedVIPName = “sqlcloudVIP” 
-    New-AzureReservedIP –ReservedIPName $reservedVIPName –Label $reservedVIPName –Location $location 
+
+    $reservedVIPName = “sqlcloudVIP”
+    New-AzureReservedIP –ReservedIPName $reservedVIPName –Label $reservedVIPName –Location $location
 
 #### 步驟 4：建立 VM 容器
-    #Generate storage keys for later 
-    $xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname 
-    
-    ##Generate storage acc contexts 
+    #Generate storage keys for later
+    $xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname
+
+    ##Generate storage acc contexts
     $xioContext = New-AzureStorageContext –StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary   
-    
+
     #Create container
     $containerName = 'vhds'
     New-AzureStorageContainer -Name $containerName -Context $xioContext
 
 #### 步驟 5：在標準或高階儲存體上放置作業系統 VHD
     #NOTE: Set up subscription and default storage account which will be used to place the OS VHD in
-    
+
     #If you want to place the OS VHD Premium Storage Account
     Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $newxiostorageaccountname  
-    
+
     #If you wanted to place the OS VHD Standard Storage Account but attach Premium Storage VHDs then you would run this instead:
-    $standardstorageaccountname = "danstdams" 
-    
+    $standardstorageaccountname = "danstdams"
+
     Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $standardstorageaccountname
 
 #### 步驟 6：建立 VM
     #Get list of available SQL Server Images from the Azure Image Gallery.
-    $galleryImage = Get-AzureVMImage | where-object {$_.ImageName -like "*SQL*2014*Enterprise*"} 
-    $image = $galleryImage.ImageName 
-    
+    $galleryImage = Get-AzureVMImage | where-object {$_.ImageName -like "*SQL*2014*Enterprise*"}
+    $image = $galleryImage.ImageName
+
     #Set up Machine Specific Information
     $vmName = "dsDan1"
     $vnet = "dansvnetwesteur"
     $subnet = "SQL"
     $ipaddr = "192.168.0.8"
-    
+
     #Remember to change to DS series VM
     $newInstanceSize = "Standard_DS1"
-    
-    #create new Avaiability Set 
+
+    #create new Avaiability Set
     $availabilitySet = "cloudmigAVAMS"
-    
+
     #Machine User Credentials
     $userName = "myadmin"
     $pass = "mycomplexpwd4*"
-    
+
     #Create VM Config
     $vmConfigsl = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $image  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
-    
+
     #Add Data and Log Disks to VM Config
     #Note the size specified ‘-DiskSizeInGB 1023’, this will attach 2 x P30 Premium Storage Disk Type
     #Utilising the Premium Storage enabled Storage account
-    
+
     $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-data1.vhd"
     $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 1 -HostCaching "None"  -DiskLabel "logDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-log1.vhd"
-    
+
     #Create VM
     $vmConfigsl  | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet ## Optional (-ReservedIPName $reservedVIPName)  
-    
+
     #Add RDP Endpoint
     $EndpointNameRDPInt = "3389"
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmName | Add-AzureEndpoint -Name "EndpointNameRDP" -Protocol "TCP" -PublicPort "53385" -LocalPort $EndpointNameRDPInt  | Update-AzureVM
-    
-    #Check VHD storage account, these should be in $newxiostorageaccountname 
+
+    #Check VHD storage account, these should be in $newxiostorageaccountname
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmName | Get-AzureDataDisk
     Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
-     
 
-### 建立新 VM 以搭配使用高階儲存體和自訂映像
+
+### 建立新 VM 以搭配使用進階儲存體和自訂映像
 
 這個案例示範您現有的自訂映像是位於標準儲存體帳戶中。如前所述，如果您想要將作業系統 VHD 放置於高階儲存體上，就需要複製存在於標準儲存體帳戶中的映像，並將其傳輸到高階儲存體，然後才能加以使用。如果您擁有內部部署的映像，也可以使用這個方法，直接將它複製到高階儲存體帳戶。
 
 #### 步驟 1：建立儲存體帳戶
     $mysubscription = "DansSubscription"
     $location = "West Europe"
-    
-    #Create Premium Storage account
-    $newxiostorageaccountname = "danspremsams" 
-    New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
-    
-    #Standard Storage account
-    $origstorageaccountname = "danstdams" 
- 
-#### 步驟 2：建立雲端服務
-    $destcloudsvc = "danNewSvcAms" 
-    New-AzureService $destcloudsvc -Location $location 
 
- 
+    #Create Premium Storage account
+    $newxiostorageaccountname = "danspremsams"
+    New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
+
+    #Standard Storage account
+    $origstorageaccountname = "danstdams"
+
+#### 步驟 2：建立雲端服務
+    $destcloudsvc = "danNewSvcAms"
+    New-AzureService $destcloudsvc -Location $location
+
+
 #### 步驟 3：使用現有的映像
 您可以使用現有的映像。或者，您可以[取得現有機器的映像](virtual-machines-capture-image-windows-server.md)。請注意，您取得映像的機器不一定是 DS* 機器。一旦取得映像之後，下列步驟示範如何使用 **Start-AzureStorageBlobCopy** PowerShell commandlet，將它複製到高階儲存體帳戶。
 
@@ -286,30 +286,30 @@
     $originalstorage =  Get-AzureStorageKey -StorageAccountName $origstorageaccountname
     #Premium Storage account
     $xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname
-    
+
     #Set up contexts for the storage accounts:
     $origContext = New-AzureStorageContext  –StorageAccountName $origstorageaccountname -StorageAccountKey $originalstorage.Primary
     $destContext = New-AzureStorageContext  –StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
- 
+
 #### 步驟 4：在儲存帳戶間複製 Blob
-    #Get Image VHD 
+    #Get Image VHD
     $myImageVHD = "dansoldonorsql2k14-os-2015-04-15.vhd"
     $containerName = 'vhds'
-    
+
     #Copy Blob between accounts
     $blob = Start-AzureStorageBlobCopy -SrcBlob $myImageVHD -SrcContainer $containerName `
     -DestContainer vhds -Destblob "prem-$myImageVHD" `
     -Context $origContext -DestContext $destContext  
 
 #### 步驟 5：定期檢查複製狀態：
-    $blob | Get-AzureStorageBlobCopyState 
+    $blob | Get-AzureStorageBlobCopyState
 
 #### 步驟 6：將映像磁碟新增到訂用帳戶中的 Azure 磁碟儲存機制
-    $imageMediaLocation = $destContext.BlobEndPoint+"/"+$myImageVHD 
+    $imageMediaLocation = $destContext.BlobEndPoint+"/"+$myImageVHD
     $newimageName = "prem"+"dansoldonorsql2k14"
-    
+
     Add-AzureVMImage -ImageName $newimageName -MediaLocation $imageMediaLocation
- 
+
 > [AZURE.NOTE] 您可能會發現，即使狀態回報為成功，仍會得到磁碟租用錯誤。在此情況下，請等待大約 10 分鐘的時間。
 
 #### 步驟 7：建置 VM
@@ -321,30 +321,30 @@
     $vnet = "westeur"
     $subnet = "Clients"
     $ipaddr = "192.168.0.41"
-    
+
     #This will need to be a new cloud service
     $destcloudsvc = "danregsvcamsxio2"
-    
+
     #Use to DS Series VM
     $newInstanceSize = "Standard_DS1"
-    
-    #create new Avaiability Set 
+
+    #create new Avaiability Set
     $availabilitySet = "cloudmigAVAMS3"
-    
+
     #Machine User Credentials
     $userName = "myadmin"
     $pass = "theM)stC0mplexP@ssw0rd!”
-     
-    
+
+
     #Create VM Config
     $vmConfigsl2 = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $newimageName  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
-    
-    $vmConfigsl2 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-Datadisk-1.vhd" 
-    $vmConfigsl2 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 1 -HostCaching "None"  -DiskLabel "LogDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-logdisk-1.vhd" 
-     
-    
-    
-    $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet 
+
+    $vmConfigsl2 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-Datadisk-1.vhd"
+    $vmConfigsl2 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 1 -HostCaching "None"  -DiskLabel "LogDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-logdisk-1.vhd"
+
+
+
+    $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 
 ## 未使用 AlwaysOn 可用性群組的現有部署
 
@@ -366,7 +366,7 @@
 本節一開始，我們將查看 AlwaysOn 與 Azure 網路互動的方式。然後將移轉細分為兩種案例：可容許一段停機時間的移轉，以及必須達到最低停機時間的移轉。
 
 內部部署的 SQL Server AlwaysOn 可用性群組會使用內部部署的接聽程式，來註冊虛擬 DNS 名稱以及 IP 位址，其可在一或多部 SQL Server 之間共用。當用戶端連結時，即會透過接聽程式 IP 將它們路由傳送到主要的 SQL Server。這是當時擁有 AlwaysOn IP 資源的伺服器。
- 
+
 ![DeploymentsUseAlwaysOn][6]
 
 在 Microsoft Azure 中，您只能有一個已指派至 VM 上 NIC 的 IP 位址，因此，為了達到和內部部署一樣的抽象層，Azure 會利用已指派給內部/外部負載平衡器 (ILB/ELB) 的 IP 位址。在伺服器之間共用的 IP 資源已設為與 ILB/ELB 相同的 IP。這會在 DNS 中發佈，而用戶端流量是透過 ILB/ELB 傳遞到主要的 SQL Server 複本。ILB/ELB 知道哪一部是主要的 SQL Server，因為它會使用探查來探查 AlwaysOn IP 資源。在上一個範例中，它會探查每個擁有 ELB/ILB 所參考之端點的節點，無論哪個回應都是主要的 SQL Server。
@@ -380,7 +380,7 @@
 1. **在現有的 AlwaysOn 叢集中新增更多次要複本**
 1. **移轉到新的 AlwaysOn 叢集**
 
-#### 1.在現有的 AlwaysOn 叢集中新增更多次要複本
+#### 1\.在現有的 AlwaysOn 叢集中新增更多次要複本
 
 有一個策略是在 AlwaysOn 可用性群組中新增更多次要項目。您需要將這些項目新增到新的雲端服務，然後使用新的負載平衡器 IP 來更新接聽程式。
 
@@ -407,10 +407,10 @@
 
 1. 停止使用者/應用程式存取 SQL Server (如果正在使用儲存集區)。
 1. 停止所有節點上的 SQL Server 引擎服務 (如果正在使用儲存集區)。
-1. 將新節點新增到叢集，然後執行完整驗證。 
+1. 將新節點新增到叢集，然後執行完整驗證。
 1. 驗證成功之後，啟動所有 SQL Server 服務。
 1. 備份交易記錄，然後還原使用者資料庫。
-1. 將新節點新增到 AlwaysOn 可用性群組，並使複寫可以**同步**。 
+1. 將新節點新增到 AlwaysOn 可用性群組，並使複寫可以**同步**。
 1. 根據[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)中的多站台範例，透過適用於 AlwaysOn 的 PowerShell，來新增新雲端服務 ILB/ELB 的 IP 位址資源。在 Windows 叢集中，將 [IP 位址] 資源的 [可能的擁有者] 設為之前的新節點。請參閱[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
 1. 容錯移轉到其中一個新節點。
 1. 使新節點成為自動容錯移轉夥伴並測試容錯移轉。
@@ -423,12 +423,12 @@
 - 您可以控制將 DB 備份傳輸到次要複本的開始時機。這與使用 Azure **Start-AzureStorageBlobCopy** commandlet 來複製 VHD 不同，因為那是非同步的複本。
 
 ##### 缺點
-- 使用 Windows 儲存集區時，會在為新的其他節點進行完整叢集驗證期間產生叢集停機時間。 
+- 使用 Windows 儲存集區時，會在為新的其他節點進行完整叢集驗證期間產生叢集停機時間。
 - 根據 SQL Server 版本和次要複本的現有數目而定，您可能無法在不移除現有次要項目的情況下新增更多次要複本。
 - 在設定次要項目時，可能需要較長的 SQL 資料傳輸時間。
 - 當您平行執行新機器時，會在移轉期間產生額外成本。
 
-#### 2.移轉到新的 AlwaysOn 叢集
+#### 2\.移轉到新的 AlwaysOn 叢集
 
 另一種策略是在新的雲端服務中，使用全新的節點來建立全新的 AlwaysOn 叢集，然後重新導向用戶端來使用該節點。
 
@@ -460,7 +460,7 @@
 1. **利用現有的次要項目：單一站台**
 1. **利用現有的次要項目：多站台**
 
-#### 1.利用現有的次要項目：單一站台
+#### 1\.利用現有的次要項目：單一站台
 
 將停機時間降至最低的其中一種策略是取得現有的雲端次要項目，並從目前的雲端服務中移除它。然後將 VHD 複製到新的高階儲存體帳戶，並在新的雲端服務中建立 VM。接著在叢集設定和容錯移轉中更新接聽程式。
 
@@ -491,7 +491,7 @@
 ##### 高階步驟
 
 本文不會示範完整的端對端範例，但是，[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)會提供用來執行此動作的詳細資訊。
- 
+
 ![MinimalDowntime][8]
 
 - 蒐集磁碟設定，並移除節點 (不要刪除連結的 VHD)。
@@ -499,14 +499,14 @@
 - 建立新的雲端服務，並在該雲端服務中重新部署 SQL2 VM。使用複製的原始作業系統 VHD 並連結複製的 VHD 來建立 VM。
 - 設定 ILB / ELB 並新增端點。
 - 使用下列任一種方法來更新接聽程式：
-	- 使 AlwaysOn 群組離線，並使用新的 ILB / ELB IP 位址來更新 AlwaysOn 接聽程式。 
+	- 使 AlwaysOn 群組離線，並使用新的 ILB / ELB IP 位址來更新 AlwaysOn 接聽程式。
 	- 或者，透過 PowerShell，將新雲端服務 ILB/ELB 的 IP 位址資源新增到 Windows 叢集。接著，將 IP 位資源的 [可能的擁有者] 設為移轉的節點 SQL2，並在 [網路名稱] 中將此設為 OR 相依性。請參閱[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
 - 檢查連到用戶端的 DNS 設定/傳播。
 - 移轉 SQL1 VM，然後執行步驟 2 - 4。
 - 如果使用步驟 5ii，則新增 SQL1 做為新增 IP 位址資源的 [可能的擁有者]
 - 測試容錯移轉。
 
-#### 2.利用現有的次要項目：多站台
+#### 2\.利用現有的次要項目：多站台
 
 如果您的節點分佈於一個以上的 Azure 資料中心 (DC)，或者您擁有混合式環境，則您可在這個環境中使用 AlwaysOn 設定來將停機時間降至最低。
 
@@ -532,15 +532,15 @@
 - 將 VHD 複製到高階儲存體的時間可能會變長。這可能會影響您對於是否要在可用性群組中保留該節點所做的決策。如果需要在移轉期間執行需要大量記錄的工作負載，請將這點納入考慮，因為主要節點將必須在其交易記錄中保留未複寫的交易。因此，這可能會顯著成長。
 - 在此情況下，應使用 Azure **Start-AzureStorageBlobCopy** commandlet (這是非同步的)。完成時沒有 SLA。複製的時間各有不同，儘管這取決於在佇列中等候的時間，但它還是會根據要傳輸的資料量來決定。因此，在第 2 個資料中心只需一個節點，而您應該在複製所需時間比測試時間還長的情況下，採取移轉步驟。這可能包括下列概念。
 	- 在進行具有議定之停機時間的移轉之前，為 HA 新增第 2 個 SQL 暫時節點。
-	- 在 Azure 排定的維護期間以外執行移轉。 
-	- 確保您已正確設定叢集仲裁。 
+	- 在 Azure 排定的維護期間以外執行移轉。
+	- 確保您已正確設定叢集仲裁。
 
 此案例假設您已記錄安裝且知道儲存體的對應方式，以進行變更來取得最佳的磁碟快取設定。
 
 ##### 高階步驟
 ![Multisite2][10]
 
-- 使內部部署 / 替代 Azure DC 成為 SQL Server 主要項目，並使其成為另一個自動容錯移轉夥伴 (AFP)。 
+- 使內部部署 / 替代 Azure DC 成為 SQL Server 主要項目，並使其成為另一個自動容錯移轉夥伴 (AFP)。
 - 從 SQL2 蒐集磁碟設定資訊，並移除節點 (不要刪除連結的 VHD)。
 - 建立高階儲存體帳戶，並從標準儲存體帳戶複製 VHD。
 - 建立新的雲端服務，並使用其連結的高階儲存體磁碟來建立 SQL2 VM。
@@ -551,7 +551,7 @@
 - 測試容錯移轉。
 - 將 AFP 切換回 SQL1 和 SQL2
 
-## 附錄：將多站台 AlwaysOn 叢集移轉到高階儲存體 
+## 附錄：將多站台 AlwaysOn 叢集移轉到高階儲存體
 
 本主題的剩餘內容提供將多站台 AlwaysOn 叢集轉換為高階儲存體的詳盡範例。它還會將接聽程式從使用外部負載平衡器 (ELB) 轉換為內部負載平衡器 (ILB)。
 
@@ -562,9 +562,9 @@
 - 每個節點 2 x 個儲存集區
 
 ![Appendix1][11]
- 
+
 ### VM：
- 
+
 在此範例中，我們即將示範從 ELB 移動到 ILB 的方式。ELB 可在 ILB 之前取得，因此，這會示範如何在移轉期間切換到前者。
 
 ![Appendix2][12]
@@ -572,49 +572,49 @@
 ### 預先步驟：連線到訂用帳戶
 
     Add-AzureAccount
-    
+
     #Set up subscription
-    Get-AzureSubscription 
+    Get-AzureSubscription
 
 #### 步驟 1：建立新的儲存體帳戶和雲端服務
     $mysubscription = "DansSubscription"
     $location = "West Europe"
-    
+
     #Storage accounts
     #current storage account where the vm to migrate resides
     $origstorageaccountname = "danstdams"
-    
+
     #Create Premium Storage account
-    $newxiostorageaccountname = "danspremsams" 
+    $newxiostorageaccountname = "danspremsams"
     New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
-    
+
     #Generate storage keys for later
     $originalstorage =  Get-AzureStorageKey -StorageAccountName $origstorageaccountname
     $xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname
-    
+
     #Generate storage acc contexts
     $origContext = New-AzureStorageContext  –StorageAccountName $origstorageaccountname -StorageAccountKey $originalstorage.Primary
     $xioContext = New-AzureStorageContext  –StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
-    
+
     #Set up subscription and default storage account
     Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $origstorageaccountname
-    Select-AzureSubscription -SubscriptionName $mysubscription -Current 
-    
+    Select-AzureSubscription -SubscriptionName $mysubscription -Current
+
     #CREATE NEW CLOUD SVC
     $vnet = "dansvnetwesteur"
-    
+
     ##Existing cloud service
     $sourceSvc="dansolSrcAms"
-    
+
     ##Create new cloud service
-    $destcloudsvc = "danNewSvcAms" 
-    New-AzureService $destcloudsvc -Location $location 
+    $destcloudsvc = "danNewSvcAms"
+    New-AzureService $destcloudsvc -Location $location
 
 #### 步驟 2：提高資源上允許發生的失敗數 <Optional>
 在隸屬於 AlwaysOn 可用性群組的特定資源上有下列限制：可以在一段期間內發生的失敗次數，而叢集服務將嘗試在其中重新啟動資源群組。儘管您正在逐步執行此程序，但還是建議您提高此限制， 因為，如果您不會手動進行容錯移轉，以及藉由關閉機器來觸發容錯移轉，就會更接近這個限制。
 
 明智的做法是將容錯度加倍，若要在容錯移轉叢集管理員中執行這個動作，請移至 AlwaysOn 資源群組的 [屬性]：
- 
+
 ![Appendix3][13]
 
 將 [最大失敗數目] 變更為 6。
@@ -641,7 +641,7 @@
 ![Appendix4][14]
 
 如果 ‘RegisterAllIpProviders’ 是 1：
- 
+
 ![Appendix5][15]
 
 下列程式碼將傾印出 VNN 設定，並為您設定它，請注意，若要讓變更生效，您需要使 VNN 離線，並使它再度上線，使接聽程式離線會導致用戶端連線中斷。
@@ -650,8 +650,8 @@
     $ListenerName = "Mylistener"
     ##Get AlwaysOn Network Name Settings
     Get-ClusterResource $ListenerName| Get-ClusterParameter
-    ##Set RegisterAllProvidersIP 
-    Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  1 
+    ##Set RegisterAllProvidersIP
+    Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  1
 
 在後續的移轉步驟中，您需要使用參考負載平衡器的更新 IP 位址來更新 AlwaysOn 接聽程式，這將涉及 IP 位址資源的移除與新增。更新 IP 之後，您需要確定新的 IP 位址已在 DNS 區域中更新，而且用戶端正在更新它們的本機 DNS 快取。
 
@@ -663,9 +663,9 @@
     $ListenerName = "Mylistener"
     #Look at HostRecordTTL
     Get-ClusterResource $ListenerName| Get-ClusterParameter
-    
+
     #Set HostRecordTTL Examples
-    Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 120 
+    Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 120
 
 請注意，‘HostRecordTTL’ 越低，所造成的 DNS 流量就越高。
 
@@ -695,7 +695,7 @@
 #### 步驟 7：變更容錯移轉夥伴和複寫模式
 
 如果您有 2 部以上的 SQL Server，就應該將另一個 DC 上或內部部署中另一個次要項目的容錯移轉變更為 [同步]，並使其成為自動容錯移轉夥伴 (AFP)，這樣一來您就能在進行變更的同時保留 HA。您可以透過 TSQL 執行這個動作，或透過 SSMS 來修改：
- 
+
 ![Appendix6][16]
 
 #### 步驟 8：從雲端服務移除次要的 VM
@@ -703,16 +703,16 @@
 您應該規劃為先移轉雲端次要節點，如果這是目前的主要節點，就應該初始手動容錯移轉。
 
     $vmNameToMigrate="dansqlams2"
-    
-    #Check machine status 
-    Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate 
-    
+
+    #Check machine status
+    Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
+
     #Shutdown secondary VM
     Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | stop-AzureVM
-    
-    
+
+
     #Extract disk configuration
-    
+
     ##Building Existing Data Disk Configuration
     $file = "C:\Azure Storage Testing\mydiskconfig_$vmNameToMigrate.csv"
     $datadisks = @(Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureDataDisk )
@@ -720,50 +720,50 @@
     foreach ($disk in $datadisks)
     {
       $vhdname = $disk.MediaLink.AbsolutePath -creplace  "/vhds/"
-      $disk.Lun, , $disk.HostCaching, $vhdname, $disk.DiskLabel,$disks.DiskName 
+      $disk.Lun, , $disk.HostCaching, $vhdname, $disk.DiskLabel,$disks.DiskName
     # Write-Host "copying disk $disk"
-    $adddisk = "{0},{1},{2},{3},{4}" -f $disk.Lun,$vhdname, $disk.HostCaching, $disk.DiskLabel, $disk.DiskName 
+    $adddisk = "{0},{1},{2},{3},{4}" -f $disk.Lun,$vhdname, $disk.HostCaching, $disk.DiskLabel, $disk.DiskName
     $adddisk | add-content -path $file
     }
-    
+
     #Get OS Disk
     $osdisks = Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureOSDisk ## | select -ExpandProperty MediaLink
     $osvhdname = $osdisks.MediaLink.AbsolutePath -creplace  "/vhds/"
     $osdisks.OS, $osdisks.HostCaching, $osvhdname, $osdisks.DiskLabel, $osdisks.DiskName
-    $addosdisk = "{0},{1},{2},{3},{4}" -f $osdisks.OS,$osvhdname, $osdisks.HostCaching, $osdisks.Disklabel , $osdisks.DiskName 
+    $addosdisk = "{0},{1},{2},{3},{4}" -f $osdisks.OS,$osvhdname, $osdisks.HostCaching, $osdisks.Disklabel , $osdisks.DiskName
     $addosdisk | add-content -path $file
-    
+
     #Import disk config
     $diskobjects  = Import-CSV $file
-    
+
     #Check disk config, make sure below returns the disks associated with the VM
-    $diskobjects 
-    
+    $diskobjects
+
     #Identify OS Disk
     $osdiskimport = $diskobjects | where {$_.lun -eq "Windows"}
     $osdiskforbuild = $osdiskimport.diskName
-    
+
     #Check machibe is off
-    Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate 
-    
+    Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate
+
     #Drop machine and rebuild to new cls
-    Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate 
+    Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 
 #### 步驟 9：在 CSV 檔案中變更磁碟快取設定，然後儲存
 
 針對資料磁碟區，應該這些設定設為 READONLY。
 
 針對 TLOG 磁碟區，應該這些設定設為 NONE。
- 
+
 ![Appendix7][17]
 
 #### 步驟 10：複製 VHDS
     #Ensure you have created the container for these:
     $containerName = 'vhds'
-    
+
     #Create container
-    New-AzureStorageContainer -Name $containerName -Context $xioContext 
-    
+    New-AzureStorageContainer -Name $containerName -Context $xioContext
+
     ####DISK COPYING####
     #Get disks from csv, get settings for each VHDs and copy to Premium Storage accoun
     ForEach ($disk in $diskobjects)
@@ -774,7 +774,7 @@
        $disklabel = $disk.DiskLabel
        $diskName = $disk.DiskName
        Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname has cache setting : $cacheoption"
-    
+
        #Start async copy
        Start-AzureStorageBlobCopy -srcUri "https://$origstorageaccountname.blob.core.windows.net/vhds/$vhdname" `
     -SrcContext $origContext `
@@ -782,8 +782,8 @@
     -DestBlob $vhdname `
     -DestContext $xioContext
        }
-     
- 
+
+
 
 您可以檢查 VHD 對高階儲存體帳戶的複製狀態：
 
@@ -794,30 +794,30 @@
        $cacheoption = $disk.HostCaching
        $disklabel = $disk.DiskLabel
        $diskName = $disk.DiskName
-      
+
        $copystate = Get-AzureStorageBlobCopyState -Blob $vhdname -Container $containerName -Context $xioContext
-    Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname, STATUS = " $copystate.Status 
+    Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname, STATUS = " $copystate.Status
        }
- 
+
 ![Appendix8][18]
 
 繼續等待，直到這所有設定都記錄為成功為止。
 
 適用於個別 Blob 的資訊：
 
-    Get-AzureStorageBlobCopyState -Blob "blobname.vhd" -Container $containerName -Context $xioContext 
+    Get-AzureStorageBlobCopyState -Blob "blobname.vhd" -Container $containerName -Context $xioContext
 
 #### 步驟 11：註冊作業系統磁碟
 
     #Change storage account
-    Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $newxiostorageaccountname 
-    Select-AzureSubscription -SubscriptionName $mysubscription -Current 
-    
+    Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $newxiostorageaccountname
+    Select-AzureSubscription -SubscriptionName $mysubscription -Current
+
     #Register OS disk
     $osdiskimport = $diskobjects | where {$_.lun -eq "Windows"}
     $osvhd = $osdiskimport.vhdname
     $osdiskforbuild = $osdiskimport.diskName
-    
+
     #Registering OS disk, but as XIO disk
     $xioDiskName = $osdiskforbuild + "xio"
     Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$osvhd"  -Label "BootDisk" -OS "Windows"
@@ -831,102 +831,102 @@
     #Remember to change to XIO
     $newInstanceSize = "Standard_DS13"
     $subnet = "SQL"
-    
-    #Create new Avaiability Set 
+
+    #Create new Avaiability Set
     $availabilitySet = "cloudmigAVAMS"
-    
+
     #build machine config into object
     $vmConfig = New-AzureVMConfig -Name $vmNameToMigrate -InstanceSize $newInstanceSize -DiskName $xioDiskName -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
-    
+
     #Reload disk config
     $diskobjects  = Import-CSV $file
     $datadiskimport = $diskobjects | where {$_.lun -ne "Windows"}
-    
-    ForEach ( $attachdatadisk in $datadiskimport) 
+
+    ForEach ( $attachdatadisk in $datadiskimport)
        {
     $label = $attachdatadisk.disklabel
     $lunNo = $attachdatadisk.lun
     $hostcach = $attachdatadisk.hostcaching
     $datadiskforbuild = $attachdatadisk.diskName
     $vhdname = $attachdatadisk.vhdname
-    
+
     ###Attaching disks to a VM during a deploy to a new cloud service and new storage account is different from just attaching VHDs to just a redeploy in a new cloud service
     $vmConfig | Add-AzureDataDisk -ImportFrom -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vhdname" -LUN $lunNo -HostCaching $hostcach -DiskLabel $label
-    
+
     }
-    
+
     #Create VM
     $vmConfig  | New-AzureVM –ServiceName $destcloudsvc –Location $location -VNetName $vnet ## Optional (-ReservedIPName $reservedVIPName)
- 
+
 #### 步驟 13：在新的雲端服務上建立 ILB，新增負載平衡的端點和 ACL
     #Check for existing ILB
     GET-AzureInternalLoadBalancer -ServiceName $destcloudsvc
-    
+
     $ilb="sqlIntIlbDest"
     $subnet = "SQL"
     $IP="192.168.0.25"
     Add-AzureInternalLoadBalancer -ServiceName $destcloudsvc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
-    
+
     #Endpoints
     $epname="sqlIntEP"
     $prot="tcp"
     $locport=1433
     $pubport=1433
     Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport -ProbePort 59999 -ProbeIntervalInSeconds 5 -ProbeTimeoutInSeconds 11  -ProbeProtocol "TCP" -InternalLoadBalancerName $ilb -LBSetName $ilb -DirectServerReturn $true | Update-AzureVM
-    
-    #SET Azure ACLs or Network Security Groups & Windows FWs 
-     
+
+    #SET Azure ACLs or Network Security Groups & Windows FWs
+
     #http://msdn.microsoft.com/library/azure/dn495192.aspx
-    
+
     ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 
-####步驟 14：更新 AlwaysOn 
+####步驟 14：更新 AlwaysOn
     #Code to be executed on a Cluster Node
     $ClusterNetworkNameAmsterdam = "Cluster Network 2" # the azure cluster subnet network name
-    $newCloudServiceIPAmsterdam = "192.168.0.25" # IP address of your cloud service 
-    
+    $newCloudServiceIPAmsterdam = "192.168.0.25" # IP address of your cloud service
+
     $AGName = "myProductionAG"
-    $ListenerName = "Mylistener" 
-    
-    
-    Add-ClusterResource "IP Address $newCloudServiceIPAmsterdam" -ResourceType "IP Address" -Group $AGName -ErrorAction Stop |  Set-ClusterParameter -Multiple @{"Address"="$newCloudServiceIPAmsterdam";"ProbePort"="59999";SubnetMask="255.255.255.255";"Network"=$ClusterNetworkNameAmsterdam;"OverrideAddressMatch"=1;"EnableDhcp"=0} -ErrorAction Stop 
-    
+    $ListenerName = "Mylistener"
+
+
+    Add-ClusterResource "IP Address $newCloudServiceIPAmsterdam" -ResourceType "IP Address" -Group $AGName -ErrorAction Stop |  Set-ClusterParameter -Multiple @{"Address"="$newCloudServiceIPAmsterdam";"ProbePort"="59999";SubnetMask="255.255.255.255";"Network"=$ClusterNetworkNameAmsterdam;"OverrideAddressMatch"=1;"EnableDhcp"=0} -ErrorAction Stop
+
     #set dependancy and NETBIOS, then remove old IP address
-    
+
     #set NETBIOS, then remove old IP address
-    Get-ClusterGroup $AGName | Get-ClusterResource -Name "IP Address $newCloudServiceIPAmsterdam" | Set-ClusterParameter -Name EnableNetBIOS -Value 0 
-     
+    Get-ClusterGroup $AGName | Get-ClusterResource -Name "IP Address $newCloudServiceIPAmsterdam" | Set-ClusterParameter -Name EnableNetBIOS -Value 0
+
     #set dependency to Listener (OR Dependency) and delete previous IP Address resource that references:
-    
-    #Make sure no static records in DNS 
-    
+
+    #Make sure no static records in DNS
+
 ![Appendix9][19]
 
 現在，移除舊的雲端服務 IP 位址。
 
 ![Appendix10][20]
- 
+
 #### 步驟 15：DNS 更新檢查
 
 您現在應該檢查 SQL Server 用戶端網路上的 DNS 伺服器，並確定已針對新增的 IP 位址將叢集新增為額外的主機記錄。如果這些 DNS 伺服器尚未更新，請考慮強制執行 DNS 區域傳輸，並確保子網路中的用戶端能夠解析這兩個 AlwaysOn IP 位址，這樣一來，您就不需要等待進行自動 DNS 複寫。
 
-#### 步驟 16：重新設定 AlwaysOn 
+#### 步驟 16：重新設定 AlwaysOn
 
 此時，您要等待已移轉之節點的次要項目與內部部署節點重新進行完整的同步處理，並切換到同步複寫節點，使它成為 AFP。
 
 #### 步驟 17：移轉第二個節點
     $vmNameToMigrate="dansqlams1"
-    
-    Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate 
-    
+
+    Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
+
     #Get endpoint information
     $endpoint = Get-AzureVM -ServiceName $sourceSvc  -Name $vmNameToMigrate | Get-AzureEndpoint
-    
+
     #Shutdown VM
     Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | stop-AzureVM
-    
+
     #Get disk config
-    
+
     #Building Existing Data Disk Configuration
     $file = "C:\Azure Storage Testing\mydiskconfig_$vmNameToMigrate.csv"
     $datadisks = @(Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureDataDisk )
@@ -934,67 +934,67 @@
     foreach ($disk in $datadisks)
     {
       $vhdname = $disk.MediaLink.AbsolutePath -creplace  "/vhds/"
-      $disk.Lun, , $disk.HostCaching, $vhdname, $disk.DiskLabel,$disks.DiskName 
+      $disk.Lun, , $disk.HostCaching, $vhdname, $disk.DiskLabel,$disks.DiskName
     # Write-Host "copying disk $disk"
-    $adddisk = "{0},{1},{2},{3},{4}" -f $disk.Lun,$vhdname, $disk.HostCaching, $disk.DiskLabel, $disk.DiskName 
+    $adddisk = "{0},{1},{2},{3},{4}" -f $disk.Lun,$vhdname, $disk.HostCaching, $disk.DiskLabel, $disk.DiskName
     $adddisk | add-content -path $file
     }
-    
+
     #Get OS Disk
     $osdisks = Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureOSDisk ## | select -ExpandProperty MediaLink
     $osvhdname = $osdisks.MediaLink.AbsolutePath -creplace  "/vhds/"
     $osdisks.OS, $osdisks.HostCaching, $osvhdname, $osdisks.DiskLabel, $osdisks.DiskName
-    $addosdisk = "{0},{1},{2},{3},{4}" -f $osdisks.OS,$osvhdname, $osdisks.HostCaching, $osdisks.Disklabel , $osdisks.DiskName 
+    $addosdisk = "{0},{1},{2},{3},{4}" -f $osdisks.OS,$osvhdname, $osdisks.HostCaching, $osdisks.Disklabel , $osdisks.DiskName
     $addosdisk | add-content -path $file
-    
+
     #Import disk config
     $diskobjects  = Import-CSV $file
-    
+
     #Check disk configuration
-    $diskobjects 
-    
+    $diskobjects
+
     #Identify OS Disk
     $osdiskimport = $diskobjects | where {$_.lun -eq "Windows"}
     $osdiskforbuild = $osdiskimport.diskName
-    
+
     #Check machine is off
-    Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate 
-    
+    Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate
+
     #Drop machine and rebuild to new cls
-    Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate 
+    Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 
 #### 步驟 18：在 CSV 檔案中變更磁碟快取設定，然後儲存
 
 針對資料磁碟區，應該這些設定設為 READONLY。
 
 針對 TLOG 磁碟區，應該這些設定設為 NONE。
- 
+
 ![Appendix11][21]
 
 #### 步驟 19：為次要節點建立新的獨立儲存體帳戶
-    $newxiostorageaccountnamenode2 = "danspremsams2" 
+    $newxiostorageaccountnamenode2 = "danspremsams2"
     New-AzureStorageAccount -StorageAccountName $newxiostorageaccountnamenode2 -Location $location -Type "Premium_LRS"  
-    
+
     #Reset the storage account src if node 1 in a different storage account
     $origstorageaccountname2nd = "danstdams2"
-    
+
     #Generate storage keys for later
     $xiostoragenode2 = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountnamenode2
-    
+
     #Generate storage acc contexts
     $xioContextnode2 = New-AzureStorageContext  –StorageAccountName $newxiostorageaccountnamenode2 -StorageAccountKey $xiostoragenode2.Primary  
-    
+
     #Set up subscription and default storage account
     Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $newxiostorageaccountnamenode2
-    Select-AzureSubscription -SubscriptionName $mysubscription -Current 
+    Select-AzureSubscription -SubscriptionName $mysubscription -Current
 
 #### 步驟 20：複製 VHDS
     #Ensure you have created the container for these:
     $containerName = 'vhds'
-    
+
     #Create container
     New-AzureStorageContainer -Name $containerName -Context $xioContextnode2  
-    
+
     ####DISK COPYING####
     ##get disks from csv, get settings for each VHDs and copy to Premium Storage accoun
     ForEach ($disk in $diskobjects)
@@ -1005,7 +1005,7 @@
        $disklabel = $disk.DiskLabel
        $diskName = $disk.DiskName
        Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname has cache setting : $cacheoption"
-      
+
        #Start async copy
        Start-AzureStorageBlobCopy -srcUri "https://$origstorageaccountname2nd.blob.core.windows.net/vhds/$vhdname" `
 	    -SrcContext $origContext `
@@ -1013,19 +1013,19 @@
 	    -DestBlob $vhdname `
 	    -DestContext $xioContextnode2
        }
-    
+
     #Check for copy progress
-    
+
     #check induvidual blob status
     Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContext
-     
-    
+
+
 您可以檢查所有 VHD 的 VHD 複製狀態：ForEach ($disk in $diskobjects) { $lun = $disk.Lun $vhdname = $disk.vhdname $cacheoption = $disk.HostCaching $disklabel = $disk.DiskLabel $diskName = $disk.DiskName
-      
+
        $copystate = Get-AzureStorageBlobCopyState -Blob $vhdname -Container $containerName -Context $xioContextnode2
-    Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname, STATUS = " $copystate.Status 
+    Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname, STATUS = " $copystate.Status
        }
-     
+
 ![Appendix12][22]
 
 繼續等待，直到這所有設定都記錄為成功為止。
@@ -1035,44 +1035,44 @@
 #### 步驟 21：註冊作業系統磁碟
     #change storage account to the new XIO storage account
     Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $newxiostorageaccountnamenode2
-    Select-AzureSubscription -SubscriptionName $mysubscription -Current 
-    
+    Select-AzureSubscription -SubscriptionName $mysubscription -Current
+
     #Register OS disk
     $osdiskimport = $diskobjects | where {$_.lun -eq "Windows"}
     $osvhd = $osdiskimport.vhdname
     $osdiskforbuild = $osdiskimport.diskName
-    
+
     #Registering OS disk, but as XIO disk
     $xioDiskName = $osdiskforbuild + "xio"
-    Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageaccountnamenode2.blob.core.windows.net/vhds/$osvhd"  -Label "BootDisk" -OS "Windows" 
-    
+    Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageaccountnamenode2.blob.core.windows.net/vhds/$osvhd"  -Label "BootDisk" -OS "Windows"
+
     #Build VM Config
     $ipaddr = "192.168.0.4"
     $newInstanceSize = "Standard_DS13"
-    
-    #Join to existing Avaiability Set 
-    
+
+    #Join to existing Avaiability Set
+
     #Build machine config into object
     $vmConfig = New-AzureVMConfig -Name $vmNameToMigrate -InstanceSize $newInstanceSize -DiskName $xioDiskName -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
-    
+
     #Reload disk config
     $diskobjects  = Import-CSV $file
     $datadiskimport = $diskobjects | where {$_.lun -ne "Windows"}
-    
-    ForEach ( $attachdatadisk in $datadiskimport) 
+
+    ForEach ( $attachdatadisk in $datadiskimport)
        {
     $label = $attachdatadisk.disklabel
     $lunNo = $attachdatadisk.lun
     $hostcach = $attachdatadisk.hostcaching
     $datadiskforbuild = $attachdatadisk.diskName
     $vhdname = $attachdatadisk.vhdname
-    
+
     ###This is different to just a straight cloud service change
     #note if you do not have a disk label the command below will fail, populate as required.
     $vmConfig | Add-AzureDataDisk -ImportFrom -MediaLocation "https://$newxiostorageaccountnamenode2.blob.core.windows.net/vhds/$vhdname" -LUN $lunNo -HostCaching $hostcach -DiskLabel $label
-    
+
     }
-    
+
     #Create VM
     $vmConfig  | New-AzureVM –ServiceName $destcloudsvc –Location $location -VNetName $vnet -Verbose
 
@@ -1083,12 +1083,12 @@
     $locport=1433
     $pubport=1433
     Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport -ProbePort 59999 -ProbeIntervalInSeconds 5 -ProbeTimeoutInSeconds 11  -ProbeProtocol "TCP" -InternalLoadBalancerName $ilb -LBSetName $ilb -DirectServerReturn $true | Update-AzureVM
-    
-    
+
+
     #STOP!!! CHECK in the Azure classic portal or Machine Endpoints through powershell that these Endpoints are created!
-    
-    #SET ACLs or Azure Network Security Groups & Windows FWs 
-     
+
+    #SET ACLs or Azure Network Security Groups & Windows FWs
+
     #http://msdn.microsoft.com/library/azure/dn495192.aspx
 
 #### 步驟 23：測試容錯移轉
@@ -1097,7 +1097,7 @@
 
 您應該在所有節點之間測試容錯移轉，並且完整執行混亂測試，以確保容錯移轉會如預期般及時執行。
 
-#### 步驟 24：回復叢集仲裁設定 / DNS TTL / 容錯移轉夥伴 / 同步設定 
+#### 步驟 24：回復叢集仲裁設定 / DNS TTL / 容錯移轉夥伴 / 同步設定
 ##### 在同一個子網路上新增 IP 位址資源
 
 如果您只有 2 部 SQL Server 且想要將它們移轉到新的雲端服務，但卻想讓它們保留於同一個子網路中，則可在您刪除原始的 AlwaysOn IP 位址並加入新的 IP 位址時，避免使接聽程式離線。如果您想要將 VM 移轉到其他子網路，就不需要執行這個動作，因為將有其他叢集網路會參考該子網路。
@@ -1120,7 +1120,7 @@
 
 ## 其他資源
 - [Azure 高階儲存體](../storage-premium-storage-preview-portal.md)
-- [虛擬機器](http://azure.microsoft.com/services/virtual-machines/)
+- [虛擬機器](https://azure.microsoft.com/services/virtual-machines/)
 - [Azure 虛擬機器中的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)
 
 <!-- IMAGES -->
@@ -1149,6 +1149,5 @@
 [23]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_13.png
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
- 
 
-<!-----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

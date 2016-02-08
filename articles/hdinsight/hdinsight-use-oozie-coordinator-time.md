@@ -22,7 +22,7 @@
 
 在本文中，您將了解如何定義工作流程和協調器，以及如何觸發以時間為基礎的協調器工作。閱讀本文之前，請先閱讀[搭配 HDInsight 使用 Oozie][hdinsight-use-oozie]，這將對您有所幫助。若要了解 Azure Data Factory，請參閱[搭配 Data Factory 使用 Pig 和 Hive ](../data-factory/data-factory-pig-hive-activities.md)。
 
-> [AZURE.NOTE]本文章需有以 Windows 為基礎的 HDInsight 叢集。如需在以 Linux 為基礎之叢集上使用 Oozie (包括以時間為基礎的作業) 的相關資訊，請參閱[在以 Linux 為基礎的 HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程](hdinsight-use-oozie-linux-mac.md)
+> [AZURE.NOTE] 本文章需有以 Windows 為基礎的 HDInsight 叢集。如需在以 Linux 為基礎之叢集上使用 Oozie (包括以時間為基礎的作業) 的相關資訊，請參閱[在以 Linux 為基礎的 HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程](hdinsight-use-oozie-linux-mac.md)
 
 ##<a id="whatisoozie"></a>什麼是 Oozie
 
@@ -54,16 +54,16 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 
 2.  Sqoop 動作會將 HiveQL 動作的輸出匯出至 Azure SQL Database 中的資料表。如需 Sqoop 的詳細資訊，請參閱[搭配 HDInsight 使用 Sqoop][hdinsight-use-sqoop]。
 
-> [AZURE.NOTE]如需 HDInsight 叢集支援的 Oozie 版本，請參閱 [HDInsight 所提供叢集版本的新功能][hdinsight-versions]。
+> [AZURE.NOTE] 如需 HDInsight 叢集支援的 Oozie 版本，請參閱 [HDInsight 所提供叢集版本的新功能][hdinsight-versions]。
 
-> [AZURE.NOTE]本教學課程將執行於 HDInsight 從 2.1 和 3.0 版。本文並未使用 HDInsight 模擬器進行測試。
+> [AZURE.NOTE] 本教學課程將執行於 HDInsight 從 2.1 和 3.0 版。本文並未使用 HDInsight 模擬器進行測試。
 
 
 ##<a id="prerequisites"></a>必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。若要執行 Windows PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。如需詳細資訊，請參閱[執行 Windows PowerShell 指令碼][powershell-script] (英文)。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。若要執行 Windows PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。如需詳細資訊，請參閱[執行 Windows PowerShell 指令碼][powershell-script] (英文)。
 - **HDInsight 叢集**。如需關於建立 HDInsight 叢集的資訊，請參閱[佈建 HDInsight 叢集][hdinsight-provision]或[開始使用 HDInsight][hdinsight-get-started]。進行教學課程時，您將需要下列資料：
 
 	<table border = "1">
@@ -78,14 +78,13 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 - **Azure SQL Database**。您必須設定 SQL Database Server 的防火牆規則，以允許從您的工作站加以存取。如需關於建立 Azure SQL Database 和設定防火牆的指示，請參閱[開始使用 Azure SQL Database][sqldatabase-get-started]。本文會提供 Windows PowerShell 指令碼，以建立本教學課程所需的 Azure SQL Database 資料表。
 
 	<table border = "1">
-	<tr><th>SQL Database 屬性</th><th>Windows PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
-	<tr><td>SQL Database 伺服器名稱</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop 會將資料匯出至其中的 SQL Database 伺服器。</td></tr>
-	<tr><td>SQL Database 登入名稱</td><td>$sqlDatabaseLogin</td><td></td><td>SQL Database 登入名稱。</td></tr>
-	<tr><td>SQL Database 登入密碼</td><td>$sqlDatabaseLoginPassword</td><td></td><td>SQL Database 登入密碼。</td></tr>
-	<tr><td>SQL Database 名稱</td><td>$sqlDatabaseName</td><td></td><td>Sqoop 會將資料匯出至其中的 Azure SQL Database。</td></tr>
+<tr><th>SQL Database 屬性</th><th>Windows PowerShell 變數名稱</th><th>值</th><th>說明</th></tr>
+<tr><td>SQL Database 伺服器名稱</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop 會將資料匯出至其中的 SQL Database 伺服器。</td></tr>
+<tr><td>SQL Database 登入名稱</td><td>$sqlDatabaseLogin</td><td></td><td>SQL Database 登入名稱。</td></tr>
+<tr><td>SQL Database 登入密碼</td><td>$sqlDatabaseLoginPassword</td><td></td><td>SQL Database 登入密碼。</td></tr>
+<tr><td>SQL Database 名稱</td><td>$sqlDatabaseName</td><td></td><td>Sqoop 會將資料匯出至其中的 Azure SQL Database。</td></tr>
 	</table>
-
-	> [AZURE.NOTE]根據預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDInsight) 的連線。如果此防火牆設定為停用，您必須在 Azure 入口網站中加以啟用。如需建立 SQL Database 和設定防火牆規則的相關指示，請參閱 [建立及設定 SQL Database](sqldatabase-create-configure)。
+	> [AZURE.NOTE] 根據預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDInsight) 的連線。如果此防火牆設定為停用，您必須在 Azure 入口網站中加以啟用。如需建立 SQL Database 和設定防火牆規則的相關指示，請參閱 [建立及設定 SQL Database][sqldatabase-create-configure]。
 
 
 > [AZURE.NOTE] 在資料表中填入值。這將有助於本教學課程的執行。
@@ -99,7 +98,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。預
 
 1. **DROP TABLE 陳述式**會刪除 log4j Hive 資料表 (如果資料表存在)。
 2. **CREATE TABLE 陳述式**會建立指向 log4j 記錄檔位置的 log4j Hive 外部資料表。
-3.  **log4j 記錄檔的位置**。欄位分隔符號為 ","。預設的行分隔符號為 "\\n"。Hive 外部資料表可讓您在需要執行 Oozie 工作流程多次時，避免資料檔案從原始位置遭到移除。
+3.  **log4j 記錄檔的位置**。欄位分隔符號為 ","。預設的行分隔符號為 "\n"。Hive 外部資料表可讓您在需要執行 Oozie 工作流程多次時，避免資料檔案從原始位置遭到移除。
 3. **INSERT OVERWRITE 陳述式**可從 log4j Hive 資料表中計算每個記錄層級類型的出現次數，並將輸出儲存至 Azure Blob 儲存體的位置。
 
 **注意**：Hive 路徑有已知問題。此問題會在您提交 Oozie 工作時發生。如需修正此問題的指示，請參閱 TechNet Wiki：[HDInsight Hive 錯誤：無法重新命名][technetwiki-hive-error] (英文)。
@@ -120,7 +119,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。預
 
 	工作流程定義檔 (在本教學課程中為 workflow.xml) 會在執行階段將這些值傳遞至此 HiveQL 指令碼。
 
-2. 使用 ANSI (ASCII) 編碼將檔案另存為 **C:\\Tutorials\\UseOozie\\useooziewf.hql**(如果您的文字編輯器沒有此選項，請使用「記事本」)。 稍後本教學課程會將此指令碼檔案部署至 HDInsight 叢集。
+2. 使用 ANSI (ASCII) 編碼將檔案另存為 **C:\Tutorials\UseOozie\useooziewf.hql**(如果您的文字編輯器沒有此選項，請使用「記事本」)。 稍後本教學課程會將此指令碼檔案部署至 HDInsight 叢集。
 
 
 
@@ -188,23 +187,26 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。預
 	RunHiveScript 有數個變數。當您使用 Azure PowerShell 從工作站提交 Oozie 工作時，要傳入這些值。
 
 	<table border = "1">
-<tr><th>工作流程變數</th><th>說明</th></tr>
-<tr><td>${jobTracker}</td><td>指定 Hadoop 工作追蹤器的 URL。請在 HDInsight 叢集 3.0 和 2.0 版上使用 <strong>jobtrackerhost:9010</strong>。</td></tr>
-<tr><td>${nameNode}</td><td>指定 Hadoop 名稱節點的 URL。使用預設檔案系統 wasb:// 位址，例如 <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>。</td></tr>
-<tr><td>${queueName}</td><td>指定要將工作提交過去的佇列名稱。請使用 [預設值]<strong></strong>。</td></tr>
-</table><table border = "1">
-<tr><th>Hive 動作變數</th><th>說明</th></tr>
-<tr><td>${hiveDataFolder}</td><td>Hive Create Table 命令的來源目錄。</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>INSERT OVERWRITE 陳述式的輸出資料夾。</td></tr>
-<tr><td>${hiveTableName}</td><td>參考 log4j 資料檔案之 Hive 資料表的名稱。</td></tr>
-</table><table border = "1">
-<tr><th>Sqoop 動作變數</th><th>說明</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>SQL Database 連接字串。</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>要匯入資料的 Azure SQL Database 資料表。</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Hive INSERT OVERWRITE 陳述式的輸出資料夾。這是 Sqoop 匯出 (export-dir) 的相同資料夾。</td></tr>
-</table>如需關於 Oozie 工作流程和使用工作流程動作的詳細資訊，請參閱 [Apache Oozie 4.0 文件][apache-oozie-400] (英文，適用於 HDInsight 叢集 3.0 版) 或 [Apache Oozie 3.3.2 文件][apache-oozie-332] (英文，適用於 HDInsight 叢集 2.1 版)。
+	<tr><th>工作流程變數</th><th>說明</th></tr>
+	<tr><td>${jobTracker}</td><td>指定 Hadoop 工作追蹤器的 URL。請在 HDInsight 叢集 3.0 和 2.0 版上使用 <strong>jobtrackerhost:9010</strong>。</td></tr>
+	<tr><td>${nameNode}</td><td>指定 Hadoop 名稱節點的 URL。使用預設檔案系統 wasb:// 位址，例如 <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>。</td></tr>
+	<tr><td>${queueName}</td><td>指定要將工作提交過去的佇列名稱。請使用 [預設值]<strong></strong>。</td></tr>
+	</table>
+	<table border = "1">
+	<tr><th>Hive 動作變數</th><th>說明</th></tr>
+	<tr><td>${hiveDataFolder}</td><td>Hive Create Table 命令的來源目錄。</td></tr>
+	<tr><td>${hiveOutputFolder}</td><td>INSERT OVERWRITE 陳述式的輸出資料夾。</td></tr>
+	<tr><td>${hiveTableName}</td><td>參考 log4j 資料檔案之 Hive 資料表的名稱。</td></tr>
+	</table>
+	<table border = "1">
+	<tr><th>Sqoop 動作變數</th><th>說明</th></tr>
+	<tr><td>${sqlDatabaseConnectionString}</td><td>SQL Database 連接字串。</td></tr>
+	<tr><td>${sqlDatabaseTableName}</td><td>要匯入資料的 Azure SQL Database 資料表。</td></tr>
+	<tr><td>${hiveOutputFolder}</td><td>Hive INSERT OVERWRITE 陳述式的輸出資料夾。這是 Sqoop 匯出 (export-dir) 的相同資料夾。</td></tr>
+	</table>
+	如需關於 Oozie 工作流程和使用工作流程動作的詳細資訊，請參閱 [Apache Oozie 4.0 文件][apache-oozie-400] (英文，適用於 HDInsight 叢集 3.0 版) 或 [Apache Oozie 3.3.2 文件][apache-oozie-332] (英文，適用於 HDInsight 叢集 2.1 版)。
 
-2. 使用 ANSI (ASCII) 編碼將檔案另存為 **C:\\Tutorials\\UseOozie\\workflow.xml**(如果您的文字編輯器沒有此選項，請使用「記事本」)。
+2. 使用 ANSI (ASCII) 編碼將檔案另存為 **C:\Tutorials\UseOozie\workflow.xml**(如果您的文字編輯器沒有此選項，請使用「記事本」)。
 
 **定義協調器**
 
@@ -228,7 +230,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。預
     | ${coordTimezone} | Oozie 在固定時區處理協調器工作，不受日光節約時間影響 (通常使用 UTC 表示)。此時區稱為「Oozie 處理時區」。 |
 	| ${wfPath} | workflow.xml 的路徑。如果工作流程檔案名稱不是預設檔案名稱 (workflow.xml)，您必須加以指定。 |
 
-2. 使用 ANSI (ASCII) 編碼將檔案另存為 **C:\\Tutorials\\UseOozie\\coordinator.xml**(如果您的文字編輯器沒有此選項，請使用「記事本」)。
+2. 使用 ANSI (ASCII) 編碼將檔案另存為 **C:\Tutorials\UseOozie\coordinator.xml**(如果您的文字編輯器沒有此選項，請使用「記事本」)。
 
 ##<a id="deploy"></a>部署 Oozie 專案及進行教學課程前置工作
 
@@ -248,9 +250,9 @@ HDInsight 使用 Azure Blob 儲存體來儲存資料。wasb:// 是 Azure Blob �
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE]只有 HDInsight 叢集 3.0 版才支援 **wasb://* 語法。HDInsight 2.1 和 1.6 版叢集支援較舊的 **asv://* 語法，但 HDInsight 3.0 版叢集已不支援該語法。
+> [AZURE.NOTE] 只有 HDInsight 叢集 3.0 版才支援 **wasb://* 語法。HDInsight 2.1 和 1.6 版叢集支援較舊的 **asv://* 語法，但 HDInsight 3.0 版叢集已不支援該語法。
 
-> [AZURE.NOTE]wasb:// 路徑為虛擬路徑。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
+> [AZURE.NOTE] wasb:// 路徑為虛擬路徑。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
 
 您可以使用下列任一 URI (我使用 workflow.xml 做為範例)，從 HDInsight 存取儲存在預設檔案系統容器中的檔案：
 
@@ -276,14 +278,14 @@ HDInsight 使用 Azure Blob 儲存體來儲存資料。wasb:// 是 Azure Blob �
 
 **教學課程前置工作**
 
-1. 開啟 Windows PowerShell ISE (在 Windows 8 的 [開始] 畫面上輸入 **PowerShell\_ISE**，然後按一下 [Windows PowerShell ISE]。如需詳細資訊，請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start] (英文))。
+1. 開啟 Windows PowerShell ISE (在 Windows 8 的 [開始] 畫面上輸入 **PowerShell_ISE**，然後按一下 [Windows PowerShell ISE]。如需詳細資訊，請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start] (英文))。
 2. 在底部窗格中執行下列命令，以連接到您的 Azure 訂用帳戶：
 
 		Add-AzureAccount
 
 	系統會提示您輸入 Azure 帳號認證。這種新增訂用帳戶連線的方法會逾時，且在 12 小時後，您將必須重新執行 Cmdlet。
 
-	> [AZURE.NOTE]如果您有多個 Azure 訂用帳戶，且預設訂用帳戶並非您要使用的訂用帳戶，請使用 <strong>Select-AzureSubscription</strong> Cmdlet 以選取目前的訂用帳戶。
+	> [AZURE.NOTE] 如果您有多個 Azure 訂用帳戶，且預設訂用帳戶並非您要使用的訂用帳戶，請使用 <strong>Select-AzureSubscription</strong> Cmdlet 以選取目前的訂用帳戶。
 
 3. 將以下指令碼複製到指令碼窗格中，然後設定前六個變數：
 
@@ -373,7 +375,7 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 
 **提交 Oozie 工作**
 
-1. 開啟 Windows PowerShell ISE (在 Windows 8 的 [開始] 畫面上輸入 **PowerShell\_ISE**，然後按一下 [Windows PowerShell ISE]。如需詳細資訊，請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start] (英文))。
+1. 開啟 Windows PowerShell ISE (在 Windows 8 的 [開始] 畫面上輸入 **PowerShell_ISE**，然後按一下 [Windows PowerShell ISE]。如需詳細資訊，請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start] (英文))。
 
 3. 將以下指令碼複製到指令碼窗格中，然後設定前十四個變數 (但請略過 **$storageUri**)。
 
@@ -514,7 +516,7 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 		</configuration>
 		"@
 
-	>[AZURE.NOTE]與工作流程提交裝載檔案的主要差異在於變數 **oozie.coord.application.path**。提交工作流程工作時，您必須改用 **oozie.wf.application.path**。
+	>[AZURE.NOTE] 與工作流程提交裝載檔案的主要差異在於變數 **oozie.coord.application.path**。提交工作流程工作時，您必須改用 **oozie.wf.application.path**。
 
 4. 將下列程式碼附加至指令碼：這部分會檢查 Oozie Web 服務狀態：
 
@@ -552,7 +554,7 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 		    return $oozieJobId
 		}
 
-	> [AZURE.NOTE]提交工作流程工作時，您必須在工作建立後發出另一個 Web 服務呼叫，以啟動工作。在此情況下，協調器工作會依時間觸發。工作將會自動啟動。
+	> [AZURE.NOTE] 提交工作流程工作時，您必須在工作建立後發出另一個 Web 服務呼叫，以啟動工作。在此情況下，協調器工作會依時間觸發。工作將會自動啟動。
 
 6. 將下列程式碼附加至指令碼：這部分會檢查 Oozie 工作狀態：
 
@@ -637,7 +639,7 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 
 **檢查工作錯誤記錄**
 
-若要進行工作流程的疑難排解，您可以從叢集前端節點，找出位於 C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log 的 Oozie 記錄檔。如需 RDP 的相關資訊，請參閱[使用 Azure 預覽入口網站管理 HDInsight 叢集][hdinsight-admin-portal]。
+若要進行工作流程的疑難排解，您可以從叢集前端節點，找出位於 C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log 的 Oozie 記錄檔。如需 RDP 的相關資訊，請參閱[使用 Azure 預覽入口網站管理 HDInsight 叢集][hdinsight-admin-portal]。
 
 **重新執行教學課程**
 
@@ -736,4 +738,4 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

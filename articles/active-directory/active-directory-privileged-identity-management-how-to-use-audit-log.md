@@ -3,7 +3,7 @@
    description="了解如何在 Azure 特殊權限身分識別管理擴充功能中使用稽核記錄。"
    services="active-directory"
    documentationCenter=""
-   authors="IHenkel"
+   authors="kgremban"
    manager="stevenpo"
    editor=""/>
 
@@ -13,13 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="inhenk"/>
+   ms.date="01/21/2016"
+   ms.author="kgremban"/>
 
-# Azure 特殊權限身分識別管理：如何使用稽核記錄
+# Azure Privileged Identity Management：如何使用稽核記錄
 
-## 使用稽核記錄
-您可以使用「特殊權限身分識別管理」稽核記錄，來查看指定期間內的所有使用者指派與啟用。
+您可以使用 Privileged Identity Management (PIM) 稽核記錄，來查看指定期間內的所有使用者指派與啟用。
 
 ## 瀏覽到稽核記錄
 您可以按一下 PIM 儀表板中的 [稽核記錄]，來存取稽核記錄。
@@ -51,10 +50,10 @@
 
 選取或取消選取您想要從記錄中包含或排除之每個角色旁邊的 [角色] 核取方塊。
 
-為稽核記錄設定所有篩選之後，按一下更新來篩選記錄中的資料。如果資料並未立即出現，可按一下 [重新整理] 按鈕。
+為稽核記錄設定所有篩選之後，按一下更新來篩選記錄中的資料。如果資料並未立即出現，請重新整理頁面。
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

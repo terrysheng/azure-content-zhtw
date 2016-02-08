@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽： 如何自訂 Azure AD B2C 使用者介面 (UI)
 
 使用者經驗是取用者面向應用程式中最重要的。這是良好應用程式和絕佳應用程式之間，以及只是作用中的取用者與真正投入的取用者之間的差別。Azure Active Directory (AD) B2C 可讓您以精準的控制，自訂取用者註冊、登入 (*請參閱下面的注意事項*) 及設定檔編輯頁面。
 
-> [AZURE.NOTE]目前僅可使用[公司品牌功能](./active-directory/active-directory-add-company-branding.md) (而不是經由本文中所述的機制)，自訂本機帳戶登入頁面、驗證電子郵件和自助式密碼重設頁面。
+> [AZURE.NOTE]
+目前僅可使用[公司品牌功能](./active-directory/active-directory-add-company-branding.md) (而不是經由本文中所述的機制)，自訂本機帳戶登入頁面、驗證電子郵件和自助式密碼重設頁面。
 
 在本文中，您將了解：
 
@@ -45,7 +46,8 @@
 
 您會在下列章節中找到 Azure AD B2C 合併至 <div id="api"></div> 元素 (位於您的內容中) 的 HTML5 片段範例 (適用於每種頁面)。您可以使用自己的樣式表來自訂這些 UI 元素。這些樣式表將覆寫我們在 <head> 片段中加入這些頁面的預設樣式表。
 
-> [AZURE.IMPORTANT]在預覽期間，確切的 UI 元素應會隨著我們了解您的意見反應並據以調整而改變。請務必檢查預設頁面的原始程式碼有無最新更新。事實上，第一項考慮的變更就是移除我們的預設樣式表；這表示您務必要針對內容中的這些 UI 項目，提供自己的樣式表。
+> [AZURE.IMPORTANT]
+	在預覽期間，確切的 UI 元素應會隨著我們了解您的意見反應並據以調整而改變。請務必檢查預設頁面的原始程式碼有無最新更新。事實上，第一項考慮的變更就是移除我們的預設樣式表；這表示您務必要針對內容中的這些 UI 項目，提供自己的樣式表。
 
 ## 身分識別提供者選取頁面
 
@@ -57,7 +59,7 @@
 	<div class="intro">
          <p>Sign up</p>
 	</div>
-	
+
 	<div>
 		<ul>
 			<li>
@@ -81,21 +83,21 @@
 
 ```HTML
 
-<div id="api" data-name="SelfAsserted"> 
-	<div class="intro"> 
+<div id="api" data-name="SelfAsserted">
+	<div class="intro">
 		<p>Create your account by providing the following details</p>
 	</div>
-	
-	<div id="attributeVerification"> 
+
+	<div id="attributeVerification">
 		<div class="errorText" id="passwordEntryMismatch" style="display: none;">The password entry fields do not match. Please enter the same password in both fields and try again.</div>
 		<div class="errorText" id="requiredFieldMissing" style="display: none;">A required field is missing. Please fill out all required fields and try again.</div>
 		<div class="errorText" id="fieldIncorrect" style="display: none;">One or more fields are filled out incorrectly. Please check your entries and try again.</div>
 		<div class="errorText" id="claimVerificationServerError" style="display: none;"></div>
-		<div class="attr" id="attributeList"> 
+		<div class="attr" id="attributeList">
 			<ul>
-				<li> 
+				<li>
 					<div class="attrEntry validate">
-						<div> 
+						<div>
 							<div class="verificationInfoText" id="email_intro" style="display: inline;">Verification is necessary. Please click Send button.</div>
 							<div class="verificationInfoText" id="email_info" style="display:none">Verification code has been sent to your inbox. Please copy it to the input box below.</div>
 							<div class="verificationSuccessText" id="email_success" style="display:none">E-mail address verified. You can now continue.</div>
@@ -109,40 +111,40 @@
 						<label>Email</label>
 						<input id="email" class="textInput" type="text" placeholder="Email" required="" autofocus=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Email address that can be used to contact you.');" class="tiny">What is this?</a>
 
-					<div class="buttons verify" claim_id="email"> 
+					<div class="buttons verify" claim_id="email">
 						<div id="email_ver_wait" class="working" style="display: none;"></div>
-							<label id="email_ver_input_label" for="email_ver_input" style="display: none;">Verification code</label> 
+							<label id="email_ver_input_label" for="email_ver_input" style="display: none;">Verification code</label>
 							<input id="email_ver_input" type="text" placeholder="Verification code" style="display:none">
 							<button id="email_ver_but_send" class="sendButton" type="button" style="display: inline;">Send verification code</button>
 							<button id="email_ver_but_verify" class="verifyButton" type="button" style="display:none">Verify code</button>
 							<button id="email_ver_but_resend" class="sendButton" type="button" style="display:none">Send new code</button>
 							<button id="email_ver_but_edit" class="editButton" type="button" style="display:none">Change e-mail</button>
-							<button id="email_ver_but_default" class="defaultButton" type="button" style="display:none">Default</button> 
+							<button id="email_ver_but_default" class="defaultButton" type="button" style="display:none">Default</button>
 						</div>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .This information is required</div>
 						<label>Enter password</label>
 						<input id="password" class="textInput" type="password" placeholder="Enter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*-_+=[]{}|\\:',?/`~";();!]|\.(?!@)){8,16}$" title="8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ "; ( ) ; ." required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Enter password');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"> This information is required</div>
 						<label>Reenter password</label>
 						<input id="reenterPassword" class="textInput" type="password" placeholder="Reenter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*-_+=[]{}|\\:',?/`~";();!]|\.(?!@)){8,16}$" title=" " required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Reenter password');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText">This information is required</div>
 						<label>Name</label>
 						<input id="displayName" class="textInput" type="text" placeholder="Name" required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Your display name.');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"></div>
 						<label>Gender</label>
@@ -153,14 +155,14 @@
 						<a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"></div>
 						<label>Loyalty number</label>
 						<input id="extension_MemNum" class="textInput" type="text" placeholder="Loyalty number"><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Membership number');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText"></div>
 						<label>State</label>
@@ -173,18 +175,18 @@
 						<a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Your residential state or province.');" class="tiny">What is this?</a>
 					</div>
 				</li>
-				<li> 
+				<li>
 					<div class="attrEntry">
 						<div class="helpText">This information is required</div>
 						<label>Zip code</label>
 						<input id="postalCode" class="textInput" type="text" placeholder="Zip code" required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('The postal code of your address.');" class="tiny">What is this?</a>
 					</div>
 				</li>
-			</ul> 
+			</ul>
 		</div>
 		<div class="buttons"> <button id="continue" disabled="">Create</button> <button id="cancel">Cancel</button></div>
 	</div>
-	<div class="verifying-modal"> 
+	<div class="verifying-modal">
 		<div class="preloader"> <img src="https://login.microsoftonline.com/static/img/win8loader.gif" alt="Please wait"></div>
 		<div id="verifying_blurb"></div>
 	</div>
@@ -265,7 +267,7 @@
 如果您打算使用頁面 UI 自訂功能，請檢閱以下最佳作法：
 
 - 不要透過 Azure AD B2C 的預設範本複製並嘗試修改它。最好是從頭建置您的 HTML5 內容並使用預設範本作為參考。
-- 基於安全性理由，我們不允許您在內容中包含任何 JavaScript。您所需的大多數功能應可立即使用。如果沒有，請使用 [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) 來要求新功能。
+- 基於安全性理由，我們不允許您在內容中包含任何 JavaScript。您所需的大多數功能應可立即使用。如果沒有，請使用 [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/) 來要求新功能。
 - 支援的瀏覽器版本︰
 	- Internet Explorer 11
 	- Internet Explorer 10
@@ -276,4 +278,4 @@
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

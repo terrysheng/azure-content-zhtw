@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何管理雲端服務 | Microsoft Azure" 
+	pageTitle="常見的雲端服務管理工作 | Microsoft Azure" 
 	description="了解如何在 Azure 入口網站中管理雲端服務。這些範例使用 Azure 入口網站。" 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/20/2016"
 	ms.author="adegeo"/>
 
 
@@ -44,7 +44,7 @@
 
 5. 如果更新會造成角色數目或任何角色的大小變更，請選取 [如果角色大小或角色數目變更則允許更新] 核取方塊，讓更新能夠繼續。
 
-	>[AZURE.WARNING]請注意，如果您變更角色的大小 (亦即，角色執行個體所裝載於之虛擬機器的大小) 或角色數目，則必須重新製作每個角色執行個體 (虛擬機器) 的映像，因而遺失本機資料。
+	>[AZURE.WARNING] 請注意，如果您變更角色的大小 (亦即，角色執行個體所裝載於之虛擬機器的大小) 或角色數目，則必須重新製作每個角色執行個體 (虛擬機器) 的映像，因而遺失本機資料。
 
 6. 如果有任何服務角色只有一個角色執行個體，請選取 [即使一或多個角色包含單一執行個體也允許更新] 核取方塊，讓升級能夠繼續。
 
@@ -102,7 +102,8 @@ Azure 入口網站不會像目前 Azure 傳統入口網站一樣將資源連結�
 
 5. 若要刪除雲端服務，請按一下 [刪除雲端服務]。然後，在確認提示處按一下 [是]。
 
-> [AZURE.NOTE]如果對雲端服務設定了詳細資訊監視，則當您刪除該雲端服務時，Azure 並不會從您的儲存體帳戶中刪除監視資料。您將需要手動刪除資料。如需何處可找到這些度量表的相關資訊，請參閱[這篇](cloud-services-how-to-monitor.md)文章。
+> [AZURE.NOTE]
+如果對雲端服務設定了詳細資訊監視，則當您刪除該雲端服務時，Azure 並不會從您的儲存體帳戶中刪除監視資料。您將需要手動刪除資料。如需何處可找到這些度量表的相關資訊，請參閱[這篇](cloud-services-how-to-monitor.md)文章。
 
 [Azure 入口網站]: https://portal.azure.com
 
@@ -113,4 +114,4 @@ Azure 入口網站不會像目前 Azure 傳統入口網站一樣將資源連結�
 * 設定[自訂網域名稱](cloud-services-custom-domain-name-portal.md)。
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

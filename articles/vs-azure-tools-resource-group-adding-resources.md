@@ -1,19 +1,19 @@
 <properties 
    pageTitle="使用 Visual Studio 編輯資源管理員範本 | Microsoft Azure"
    description="了解如何使用 Visual Studio 將資源加入至 Azure 資源管理員範本。"
-   services="visual-studio-online"
+   services="azure-resource-manager"
    documentationCenter="na"
-   authors="TomArcher"
-   manager="douge"
+   authors="tfitzmac"
+   manager="wpickett"
    editor="" />
 <tags 
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="11/13/2015"
-   ms.author="tarcher" />
+   ms.author="tomfitz" />
 
 # 使用 Visual Studio 編輯資源管理員範本
 
@@ -69,4 +69,4 @@ Visual Studio 可讓您針對資源群組編輯資源管理員範本。您可以
 
 [Channel 9 影片：Azure 資源管理員](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

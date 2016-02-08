@@ -2,13 +2,14 @@
    pageTitle="在 Linux 上使用 C 連接裝置| Microsoft Azure"
    description="描述如何在 Linux 上使用已寫入 C 的應用程式，將裝置連接至 Azure IoT Suite 預先設定遠端監視方案。"
    services=""
+   suite="iot-suite"
    documentationCenter="na"
    authors="dominicbetts"
    manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="iot-suite"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -36,7 +37,7 @@
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
 
-4. 從遠端監視方案的儀表板將 [**裝置識別碼**] 和 [**裝置金鑰**] 取代為裝置的值。
+4. 從遠端監視方案的儀表板將 [裝置識別碼] 和 [裝置金鑰] 取代為裝置的值。
 
 5. 使用儀表板中的 **IoT 中樞主機名稱**取代 **[IoTHub 名稱]** 和 **[IoTHub 後置詞，也就是 azure-devices.net**]。例如您的 **IoT 中樞主機名稱**為 **contoso.azure-devices.net**，則使用 **contoso** 取代 **[IoTHub 名稱]**，並使用 **azure-devices.net** 取代 [**IoTHub 後置詞，也就是 azure-devices.net**]，如下所示：
 
@@ -55,4 +56,4 @@
 
 [lnk-setup-linux]: https://github.com/azure/azure-iot-sdks/blob/develop/c/doc/devbox_setup.md#linux
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

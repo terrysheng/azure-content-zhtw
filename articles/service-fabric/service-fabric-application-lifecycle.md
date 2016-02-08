@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
+   ms.date="01/20/2016"
    ms.author="ryanwi; mani-ramaswamy"/>
 
 
@@ -46,13 +46,13 @@
 
 2. *運算子*會使用 [**CopyApplicationPackage** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx)或 [**Copy-ServiceFabricApplicationPackage** Cmdlet](https://msdn.microsoft.com/library/azure/mt125905.aspx)，將應用程式封裝上傳至叢集映像存放區。應用程式封裝包含應用程式資訊清單和服務封裝集合。Service Fabric 會從儲存在映像存放區 (可以是 Azure Blob 存放區或 Service Fabric 系統服務) 中的應用程式封裝部署應用程式。
 
-3. 然後，*運算子*會使用 [**ProvisionApplicationAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx)、[**Register-ServiceFabricApplicationType** Cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx)，或 [**Create Application** REST 作業](https://msdn.microsoft.com/library/azure/dn707692.aspx)，從上傳的應用程式封裝在目標叢集中佈建應用程式類型。
+3. 然後，「運算子」會使用 [**ProvisionApplicationAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx)、[**Register-ServiceFabricApplicationType** Cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx)，或[**佈建應用程式** REST 作業](https://msdn.microsoft.com/library/azure/dn707672.aspx)，從上傳的應用程式封裝在目標叢集中佈建應用程式類型。
 
-3. 佈建應用程式之後，*運算子*會使用*應用程式系統管理員*提供的參數啟動應用程式，方法是使用 [**CreateApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync.aspx) 方法、[**New-ServiceFabricApplication** Cmdlet](https://msdn.microsoft.com/library/azure/mt125913.aspx)，或[**建立應用程式** REST 作業](https://msdn.microsoft.com/library/azure/dn707692.aspx)。
+4. 佈建應用程式之後，*運算子*會使用*應用程式系統管理員*提供的參數啟動應用程式，方法是使用 [**CreateApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync.aspx) 方法、[**New-ServiceFabricApplication** Cmdlet](https://msdn.microsoft.com/library/azure/mt125913.aspx)，或[**建立應用程式** REST 作業](https://msdn.microsoft.com/library/azure/dn707676.aspx)。
 
-4. 在部署應用程式之後，*運算子*會使用 [**CreateServiceAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.createserviceasync.aspx)、[**New-ServiceFabricService** Cmdlet](https://msdn.microsoft.com/library/azure/mt125874.aspx)，或[**建立應用程式** REST 作業](https://msdn.microsoft.com/library/azure/dn707692.aspx)，根據可用的服務類型針對應用程式建立新的服務執行個體。
+5. 在部署應用程式之後，「運算子」會使用 [**CreateServiceAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.createserviceasync.aspx)、[**New-ServiceFabricService** Cmdlet](https://msdn.microsoft.com/library/azure/mt125874.aspx)，或[**建立服務** REST 作業](https://msdn.microsoft.com/library/azure/dn707657.aspx)，根據可用的服務類型針對應用程式建立新的服務執行個體。
 
-5. 應用程式現在會在 Service Fabric 叢集中執行。
+6. 應用程式現在會在 Service Fabric 叢集中執行。
 
 如需範例，請參閱[部署應用程式](service-fabric-deploy-remove-applications.md)。
 
@@ -72,15 +72,15 @@
 
 4. *運算子*會使用 [**CopyApplicationPackage** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx)或 [**Copy-ServiceFabricApplicationPackage** Cmdlet](https://msdn.microsoft.com/library/azure/mt125905.aspx)，將更新的應用程式封裝上傳至叢集映像存放區。應用程式封裝包含應用程式資訊清單和服務封裝集合。
 
-5. *運算子*使用 [**ProvisionApplicationAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx)、[**Register-ServiceFabricApplicationType** Cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx)，或[**佈建應用程式** REST 作業](https://msdn.microsoft.com/library/azure/dn707692.aspx)，在目標叢集中佈建新版本的應用程式。
+5. *運算子*使用 [**ProvisionApplicationAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx)、[**Register-ServiceFabricApplicationType** Cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx)，或[**佈建應用程式** REST 作業](https://msdn.microsoft.com/library/azure/dn707672.aspx)，在目標叢集中佈建新版本的應用程式。
 
-6. *運算子*使用 [**UpgradeApplicationAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx)、[**Start-ServiceFabricApplicationUpgrade** Cmdlet](https://msdn.microsoft.com/library/azure/mt125975.aspx) 或[**藉由應用程式類型 REST** 作業升級應用程式](https://msdn.microsoft.com/library/azure/dn707692.aspx)，將目標應用程式升級為新版本。
+6. 「運算子」使用 [**UpgradeApplicationAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.upgradeapplicationasync.aspx)、[**Start-ServiceFabricApplicationUpgrade** Cmdlet](https://msdn.microsoft.com/library/azure/mt125975.aspx) 或[**升級應用程式** REST 作業升級應用程式](https://msdn.microsoft.com/library/azure/dn707633.aspx)，將目標應用程式升級為新版本。
 
-7. *運算子*使用 [**GetApplicationUpgradeProgressAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx)、[**Get-ServiceFabricApplicationUpgrade** Cmdlet](https://msdn.microsoft.com/library/azure/mt125988.aspx)，或[**取得應用程式升級進度** REST 作業](https://msdn.microsoft.com/library/azure/dn707692.aspx)，檢查升級進度。
+7. *運算子*使用 [**GetApplicationUpgradeProgressAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.getapplicationupgradeprogressasync.aspx)、[**Get-ServiceFabricApplicationUpgrade** Cmdlet](https://msdn.microsoft.com/library/azure/mt125988.aspx)，或[**取得應用程式升級進度** REST 作業](https://msdn.microsoft.com/library/azure/dn707631.aspx)，檢查升級進度。
 
-8. 如果需要，*運算子*使用 [**UpdateApplicationUpgradeAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx)、[**Update-ServiceFabricApplicationUpgrade** Cmdlet](https://msdn.microsoft.com/library/azure/mt126030.aspx)，或[**更新應用程式升級** REST 作業](https://msdn.microsoft.com/library/azure/dn707692.aspx)，修改並重新套用目前應用程式升級的參數。
+8. 如果需要，*運算子*使用 [**UpdateApplicationUpgradeAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.updateapplicationupgradeasync.aspx)、[**Update-ServiceFabricApplicationUpgrade** Cmdlet](https://msdn.microsoft.com/library/azure/mt126030.aspx)，或[**更新應用程式升級** REST 作業](https://msdn.microsoft.com/library/azure/mt628489.aspx)，修改並重新套用目前應用程式升級的參數。
 
-9. 如果需要，*運算子*使用 [**RollbackApplicationUpgradeAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx)、[**Start-ServiceFabricApplicationRollback** Cmdlet](https://msdn.microsoft.com/library/azure/mt125833.aspx)，或[**回復應用程式升級** REST 作業](https://msdn.microsoft.com/library/azure/dn707692.aspx)，回復目前的應用程式升級。
+9. 如果需要，*運算子*使用 [**RollbackApplicationUpgradeAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.rollbackapplicationupgradeasync.aspx)、[**Start-ServiceFabricApplicationRollback** Cmdlet](https://msdn.microsoft.com/library/azure/mt125833.aspx)，或[**回復應用程式升級** REST 作業](https://msdn.microsoft.com/library/azure/mt628494.aspx)，回復目前的應用程式升級。
 
 10. Service Fabric 會升級在叢集中執行的目標應用程式，而不會遺失任何其組成服務的可用性。
 
@@ -98,11 +98,11 @@
 5. 當新的節點加入至叢集或從叢集移除現有節點時，Service Fabric 會自動對叢集中所有節點的執行中應用程式進行負載平衡，以達到最佳效能。
 
 ## Remove
-1. *運算子*可以使用 [**DeleteServiceAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx)、[**Remove-ServiceFabricService** Cmdlet](https://msdn.microsoft.com/library/azure/mt126033.aspx)，或[**刪除服務** REST 作業](https://msdn.microsoft.com/library/azure/dn707692.aspx)，刪除叢集內執行中服務的特定執行個體，而不需要移除整個應用程式。  
+1. *運算子*可以使用 [**DeleteServiceAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx)、[**Remove-ServiceFabricService** Cmdlet](https://msdn.microsoft.com/library/azure/mt126033.aspx)，或[**刪除服務** REST 作業](https://msdn.microsoft.com/library/azure/dn707687.aspx)，刪除叢集內執行中服務的特定執行個體，而不需要移除整個應用程式。  
 
-2. *運算子*也可以使用 [**DeleteApplicationAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync.aspx)、[**Remove-ServiceFabricApplication** Cmdlet](https://msdn.microsoft.com/library/azure/mt125914.aspx)，或[**刪除應用程式** REST 作業](https://msdn.microsoft.com/library/azure/dn707692.aspx)，刪除應用程式執行個體及其所有服務。
+2. *運算子*也可以使用 [**DeleteApplicationAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync.aspx)、[**Remove-ServiceFabricApplication** Cmdlet](https://msdn.microsoft.com/library/azure/mt125914.aspx)，或[**刪除應用程式** REST 作業](https://msdn.microsoft.com/library/azure/dn707651.aspx)，刪除應用程式執行個體及其所有服務。
 
-3. 應用程式和服務停止之後，*運算子*可以使用 [**UnprovisionApplicationAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync.aspx)、[**Unregister-ServiceFabricApplicationType** Cmdlet](https://msdn.microsoft.com/library/azure/mt125885.aspx)，或[**解除佈建應用程式** REST 作業](https://msdn.microsoft.com/library/azure/dn707692.aspx)，解除佈建應用程式類型。解除佈建應用程式類型不會從 ImageStore 移除應用程式封裝。您必須手動移除應用程式封裝。
+3. 應用程式和服務停止之後，*運算子*可以使用 [**UnprovisionApplicationAsync** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync.aspx)、[**Unregister-ServiceFabricApplicationType** Cmdlet](https://msdn.microsoft.com/library/azure/mt125885.aspx)，或[**解除佈建應用程式** REST 作業](https://msdn.microsoft.com/library/azure/dn707671.aspx)，解除佈建應用程式類型。解除佈建應用程式類型不會從 ImageStore 移除應用程式封裝。您必須手動移除應用程式封裝。
 
 4. *運算子*會使用 [**RemoveApplicationPackage** 方法](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage.aspx)或 [**Remove-ServiceFabricApplicationPackage** Cmdlet](https://msdn.microsoft.com/library/azure/mt163532.aspx)，從 ImageStore 移除應用程式封裝。
 
@@ -119,4 +119,4 @@
 - [Testability 概觀](service-fabric-testability-overview.md)
 - [REST 架構應用程式生命週期範例](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

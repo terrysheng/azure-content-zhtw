@@ -35,7 +35,7 @@
 
 下一步是設定裝載在 Azure 中的開發/測試內部網路 SharePoint 伺服器陣列。
 
-> [AZURE.NOTE]Microsoft 已發行 SharePoint Server 2016 IT 預覽版。若要輕鬆安裝和測試此預覽版，您可以搭配 SharePoint Server 2016 IT 預覽版和其預先安裝的必要元件來使用 Azure 虛擬機器資源庫映像。如需詳細資訊，請參閱[在 Azure 中測試 SharePoint Server 2016 IT 預覽版](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/) (英文)。
+> [AZURE.NOTE] Microsoft 已發行 SharePoint Server 2016 IT 預覽版。若要輕鬆安裝和測試此預覽版，您可以搭配 SharePoint Server 2016 IT 預覽版和其預先安裝的必要元件來使用 Azure 虛擬機器資源庫映像。如需詳細資訊，請參閱[在 Azure 中測試 SharePoint Server 2016 IT 預覽版](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/) (英文)。
 
 ## 建立裝載在 Azure 中的開發/測試內部網路 SharePoint 伺服器陣列。
 
@@ -44,7 +44,7 @@
 - 純雲端虛擬網路
 - 跨單位虛擬網路
 
-您可以使用您的 [MSDN 訂用帳戶](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/)或 [Visual Studio 訂用帳戶](http://azure.microsoft.com/pricing/free-trial/)免費建立這些開發/測試環境。
+您可以使用您的 [MSDN 訂用帳戶](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)或 [Visual Studio 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)免費建立這些開發/測試環境。
 
 ### 純雲端虛擬網路
 
@@ -102,4 +102,4 @@
 
 - 在設定組態前先取得生產工作負載[概觀](virtual-machines-workload-intranet-sharepoint-overview.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 
@@ -56,4 +56,10 @@ Contoso 有自訂內建的軟體保存庫應用程式，其中包含 Web 前端�
 
 - 確定應用程式使用使用者名稱/密碼進行驗證。Azure AD 網域服務不支援憑證/智慧卡式驗證。
 
-<!---HONumber=AcomDC_1217_2015-->
+
+## Azure RemoteApp
+Azure RemoteApp 可讓 Contoso 的系統管理員建立加入網域的集合。這可讓由 Azure RemoteApp 提供服務的遠端應用程式在加入網域的電腦上執行，並使用 Windows 整合式驗證存取其他資源。Contoso 可以使用 Azure AD 網域服務，提供 Azure RemoteApp 加入網域的集合所使用的受管理網域。
+
+如需此部署案例的詳細資訊，請參閱標題為[使用 Azure RemoteApp 和 Azure AD 網域服務隨即移轉您的工作負載](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)的遠端桌面服務部落格文章。
+
+<!---HONumber=AcomDC_0128_2016-->

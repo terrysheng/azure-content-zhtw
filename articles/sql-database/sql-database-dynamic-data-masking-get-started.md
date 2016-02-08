@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="12/01/2015"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 
@@ -96,7 +96,7 @@ DDM 建議引擎會將您資料庫中的特定欄位標示為潛在敏感性欄�
 
     ![導覽窗格](./media/sql-database-dynamic-data-masking-get-started/8_ddm_excluded_users.png)
 
-	>[AZURE.TIP]若要讓應用程式層級可以對具有特殊權限的應用程式使用者顯示敏感性資料，請新增應用程式用於查詢資料庫的 SQL 使用者或 ADD 身分識別。強烈建議此清單應包含最少的特殊權限使用者數目，以儘可能減少公開的敏感性資料。
+	>[AZURE.TIP] 若要讓應用程式層級可以對具有特殊權限的應用程式使用者顯示敏感性資料，請新增應用程式用於查詢資料庫的 SQL 使用者或 ADD 身分識別。強烈建議此清單應包含最少的特殊權限使用者數目，以儘可能減少公開的敏感性資料。
 
 10. 按一下資料遮罩組態刀鋒視窗中的 [儲存]，以儲存新的或更新的遮罩原則。
 
@@ -109,4 +109,4 @@ DDM 建議引擎會將您資料庫中的特定欄位標示為潛在敏感性欄�
 
 請參閱 [Azure SQL Database 的作業](https://msdn.microsoft.com/library/dn505719.aspx)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

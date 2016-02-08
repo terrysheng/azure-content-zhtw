@@ -64,7 +64,7 @@
 
 ## 定價
 
-如需定價詳細資料，請參閱[排程器定價](http://azure.microsoft.com/pricing/details/scheduler/)。
+如需定價詳細資料，請參閱[排程器定價](https://azure.microsoft.com/pricing/details/scheduler/)。
 
 ## 另請參閱
  
@@ -75,7 +75,7 @@
 
  [在 Azure 入口網站中開始使用排程器](scheduler-get-started-portal.md)
 
- [Azure 排程器 REST API 參考](https://msdn.microsoft.com/library/dn528946)
+ [Azure 排程器 REST API 參考](https://msdn.microsoft.com/library/mt629143)
 
  [Azure 排程器 PowerShell Cmdlet 參考](scheduler-powershell-reference.md)
 
@@ -89,4 +89,4 @@
 
   
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

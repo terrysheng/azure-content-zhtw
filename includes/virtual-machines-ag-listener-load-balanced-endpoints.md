@@ -6,7 +6,7 @@
 
 1. 針對您想要使用的接聽程式端點，確認**名稱**和**公用連接埠**並未處於使用中狀態。在下列範例中，名稱是「MyEndpoint」，而通訊埠為「1433」。
 
-1. 在您的本機用戶端上，下載並安裝[最新的 PowerShell 模組](http://azure.microsoft.com/downloads/)。
+1. 在您的本機用戶端上，下載並安裝[最新的 PowerShell 模組](https://azure.microsoft.com/downloads/)。
 
 1. 啟動 **Azure PowerShell**。新的 PowerShell 工作階段會使用載入的 Azure 系統管理模組來開啟。
 
@@ -18,4 +18,4 @@
 
 	一旦匯入發佈設定檔案，您便可以在 PowerShell 工作階段中管理 Azure 訂用帳戶。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

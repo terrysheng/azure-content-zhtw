@@ -69,7 +69,7 @@ Azure AD 每隔五到十分鐘就會檢查變更。如果 SaaS 應用程式傳�
 
 **我要如何提交意見反應給工程小組？**
 
-請透過 [Azure Active Directory 意見反應論壇](http://feedback.azure.com/forums/169401-azure-active-directory)與我們連絡。
+請透過 [Azure Active Directory 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/)與我們連絡。
 
 ##自動化佈建如何運作？
 
@@ -104,8 +104,8 @@ Azure AD 會藉由連接到每個應用程式廠商所提供的佈建端點，�
 
 為了讓應用程式支援自動化使用者佈建，它必須先提供必要的端點，讓外部程式自動化建立、維護及移除使用者。因此，並非所有 SaaS 應用程式都與此功能相容。針對支援此功能的應用程式，Azure AD 工程小組則是能夠建置與這些應用程式的佈建連接器，這項工作是以目前和潛在客戶的需求來排定優先順序。
 
-若要連絡 Azure AD 工程小組以要求對於其他應用程式的佈建支援，請透過 [Azure Active Directory 意見反應論壇](http://feedback.azure.com/forums/169401-azure-active-directory)提交訊息。
+若要連絡 Azure AD 工程小組以要求對於其他應用程式的佈建支援，請透過 [Azure Active Directory 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/)提交訊息。
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

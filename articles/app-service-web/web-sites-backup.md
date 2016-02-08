@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/07/2015" 
+	ms.date="01/26/2016" 
 	ms.author="cephalin"/>
 
 # 在 Azure App Service 中備份 Web 應用程式
@@ -35,14 +35,14 @@ Web Apps 可以備份下列資訊：
 
 這項資訊會備份至您指定的 Azure 儲存體帳戶和容器。
 
-> [AZURE.NOTE]每個備份都是應用程式的完整離線複本，而不是增量更新。
+> [AZURE.NOTE] 每個備份都是應用程式的完整離線複本，而不是增量更新。
 
 <a name="requirements"></a>
 ## 需求和限制
 
 * 若要使用「備份與還原」功能，App Service 方案必須屬於「標準」層或更高階層。如需有關調整 App Service 方案以使用更高階層的詳細資訊，請參閱[在 Azure App Service 中調整 Web 應用程式規模](web-sites-scale.md)。請注意，「進階」層所允許的每日備份數量比「標準」層多。
 
-* 使用備份和還原功能時，Azure 儲存體帳戶和容器必須與您即將備份的 Web 應用程式隸屬於相同的訂用帳戶。如果您還沒有儲存體帳戶，可以建立一個帳戶，做法是按一下 [Azure 入口網站](http://portal.azure.com)上 [**備份**] 刀鋒視窗中的 [**儲存體帳戶**]，然後從 [**目的地**] 刀鋒視窗中選擇 [**儲存體帳戶**] 和 [**容器**]。如需 Azure 儲存體帳戶的詳細資訊，請參閱本文結尾處的[連結](#moreaboutstorage)。
+* 使用備份和還原功能時，Azure 儲存體帳戶和容器必須與您即將備份的 Web 應用程式隸屬於相同的訂用帳戶。如果您還沒有儲存體帳戶，可以建立一個帳戶，做法是按一下 [Azure 入口網站](https://portal.azure.com/)上 [**備份**] 刀鋒視窗中的 [**儲存體帳戶**]，然後從 [**目的地**] 刀鋒視窗中選擇 [**儲存體帳戶**] 和 [**容器**]。如需 Azure 儲存體帳戶的詳細資訊，請參閱本文結尾處的[連結](#moreaboutstorage)。
 
 * 備份和還原功能支援最多 10GB 的網站和資料庫內容。如果備份功能因承載超出此限制而無法繼續進行，系統將會指出錯誤。
 
@@ -66,7 +66,7 @@ Web Apps 可以備份下列資訊：
 
 	![Choose storage account](./media/web-sites-backup/03ConfigureDatabase.png)
 
-	> [AZURE.NOTE]資料庫若要出現在此清單中，其連接字串必須存在於入口網站之 [Web 應用程式設定] 刀鋒視窗的 [連接字串] 區段中。
+	> [AZURE.NOTE] 	資料庫若要出現在此清單中，其連接字串必須存在於入口網站之 [Web 應用程式設定] 刀鋒視窗的 [連接字串] 區段中。
 
 6. 在 [設定備份設定] 刀鋒視窗中，按一下 [儲存]。
 6. 在 [**備份**] 刀鋒視窗中，選取 [**備份目的地**]。您必須選擇現有的儲存體帳戶和容器。
@@ -98,7 +98,7 @@ Web Apps 可以備份下列資訊：
 
 	![Choose storage account](./media/web-sites-backup/03ConfigureDatabase.png)
 
-	> [AZURE.NOTE]資料庫若要出現在此清單中，其連接字串必須存在於入口網站之 [Web 應用程式設定] 刀鋒視窗的 [連接字串] 區段中。
+	> [AZURE.NOTE] 	資料庫若要出現在此清單中，其連接字串必須存在於入口網站之 [Web 應用程式設定] 刀鋒視窗的 [連接字串] 區段中。
 
 6. 在 [設定備份設定] 刀鋒視窗中，按一下 [儲存]。
 
@@ -107,7 +107,7 @@ Web Apps 可以備份下列資訊：
 
 * 請確定會在 Web 應用程式 [**設定**] 中的 [**Web 應用程式設定**] 刀鋒視窗上，適當地設定每個資料庫的連接字串，使備份和還原功能可納入您的資料庫。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 <a name="partialbackups"></a>
 ## 只備份您 Web 應用程式的一部分
@@ -126,7 +126,7 @@ Web Apps 可以備份下列資訊：
 
 假設您有一個 Web 應用程式，其中包含過去幾年的記錄檔和靜態影像，且以後不再變更。您已完整備份 Web 應用程式，包括舊的影像。現在您想要每天備份 Web 應用程式，但不想付費儲存從未變更的記錄檔或靜態影像檔案。
 
-![Logs 資料夾][LogsFolder]
+![Logs 資料夾][LogsFolder] 
 ![Images 資料夾][ImagesFolder]
 	
 下列步驟顯示如何從備份中排除這些檔案。
@@ -139,7 +139,7 @@ Web Apps 可以備份下列資訊：
 		D:\home\site\wwwroot\Images\2014
 		D:\home\site\wwwroot\Images\brand.png
 
-	[AZURE.NOTE]最後一行說明您可以排除個人檔案以及資料夾。
+	[AZURE.NOTE] 最後一行說明您可以排除個人檔案以及資料夾。
 
 2. 建立名為 `_backup.filter` 的檔案並將上述清單放入此檔案中，但請移除 `D:\home`。一行列出一個目錄或檔案。因此，檔案的內容應該如下：
 
@@ -151,7 +151,7 @@ Web Apps 可以備份下列資訊：
 
 現在，將會從備份中排除 `_backup.filter` 中指定的所有檔案和資料夾。在此範例中，將不再備份記錄檔和 2013年和 2014 年影像檔，以及 brand.png。
 
->[AZURE.NOTE]以您[還原定期備份](web-sites-restore.md)的相同方式還原您網站的部分備份。還原程序將執行正確事項。
+>[AZURE.NOTE] 以您[還原定期備份](web-sites-restore.md)的相同方式還原您網站的部分備份。還原程序將執行正確事項。
 >
 >還原完整備份時，網站上的所有內容都會取代為備份中的內容。如果檔案在網站上，但不在備份裡，即會遭到刪除。但是，還原部分備份時，位於其中一個黑名單目錄或任何黑名單檔案中的任何內容都會保持原狀。
 
@@ -163,7 +163,7 @@ Web Apps 可以備份下列資訊：
 
 Web 應用程式的資料庫備份則儲存在 .zip 檔案的根目錄中。若是 SQL 資料庫，這會是 BACPAC 檔案 (無副檔名)，而且可以匯入。若要根據 BACPAC 匯出內容建立新的 SQL 資料庫，請參閱[匯入 BACPAC 檔案以建立新的使用者資料庫](http://technet.microsoft.com/library/hh710052.aspx)。
 
-> [AZURE.WARNING]對 **websitebackups** 容器中的檔案進行任何變更，都可能導致備份失效，進而無法還原。
+> [AZURE.WARNING] 對 **websitebackups** 容器中的檔案進行任何變更，都可能導致備份失效，進而無法還原。
 
 <a name="nextsteps"></a>
 ## 後續步驟
@@ -190,4 +190,4 @@ Web 應用程式的資料庫備份則儲存在 .zip 檔案的根目錄中。若�
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

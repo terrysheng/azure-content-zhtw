@@ -25,7 +25,7 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 ## 必要條件
 
-- Azure 訂閱。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- Azure 訂閱。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 * 具備 [Power BI](https://powerbi.com) 存取權的 Azure Active Directory 使用者
 
@@ -49,7 +49,7 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 * **Data.cs**：描述會傳送給 Power BI 的資料物件/列
 
-> [AZURE.WARNING]Power BI 似乎允許建立具有相同名稱的多個資料集。如果資料集不存在，而且您的拓撲建立了 Power BI Bolt 的多個執行個體，就可能會發生。若要避免這個問題，請將 bolt 的平行處理原則提示設為 1 (如同此範例)，或在部署拓撲之前建立資料集。
+> [AZURE.WARNING] Power BI 似乎允許建立具有相同名稱的多個資料集。如果資料集不存在，而且您的拓撲建立了 Power BI Bolt 的多個執行個體，就可能會發生。若要避免這個問題，請將 bolt 的平行處理原則提示設為 1 (如同此範例)，或在部署拓撲之前建立資料集。
 >
 > 提供包含在此方案中的 **CreateDataset** 主控台應用程式做為如何建立拓撲外部資料集的範例。
 
@@ -59,7 +59,7 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 2. 請遵循[註冊應用程式](https://msdn.microsoft.com/library/dn877542.aspx)中的步驟來建立應用程式註冊。這會在存取 Power BI REST API 時使用。
 
-    > [AZURE.IMPORTANT]儲存 **用戶端識別碼** 以進行應用程式註冊。
+    > [AZURE.IMPORTANT] 儲存 **用戶端識別碼** 以進行應用程式註冊。
 
 ## 下載範例
 
@@ -91,7 +91,7 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
     ![已選取 WordCount 拓撲的拓撲](./media/hdinsight-storm-power-bi-topology/topologysummary.png)
 
-    > [AZURE.NOTE]您也可以從伺服器總管檢視 Storm 拓撲：依序展開 Azure 和 HDInsight，並以滑鼠右鍵按一下 Storm on HDInsight 叢集，然後選取 [檢視 Storm 拓撲]。
+    > [AZURE.NOTE] 您也可以從伺服器總管檢視 Storm 拓撲：依序展開 Azure 和 HDInsight，並以滑鼠右鍵按一下 Storm on HDInsight 叢集，然後選取 [檢視 Storm 拓撲]。
 
 3. 檢視**拓樸摘要**時，捲動直到您看到 **Bolt** 一節。在本節中，記下 **PowerBI** bolt 的 **Executed** 資料行。使用頁面頂端的 [重新整理] 按鈕，重新整理直到值變更為零以外的數目。當這個數字開始增加時，表示項目正在寫入至 Power BI。
 
@@ -139,4 +139,4 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0128_2016-->

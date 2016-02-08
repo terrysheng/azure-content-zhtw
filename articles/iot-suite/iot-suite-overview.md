@@ -2,13 +2,14 @@
 	pageTitle="Microsoft Azure IoT Suite 概觀 | Microsoft Azure"
 	description="這提供 Azure IoT 套件概觀，包括封裝和預先設定解決方案。"
 	services=""
+    suite="iot-suite"
 	documentationCenter=""
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"
@@ -69,4 +70,4 @@ IoT 套件包括預先設定的解決方案，可讓您快速地開始使用，�
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

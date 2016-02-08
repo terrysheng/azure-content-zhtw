@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="01/22/2016"
 	ms.author="dkshir"/>
 
 # 建立及上傳包含 Linux 作業系統的虛擬硬碟
@@ -26,7 +26,7 @@
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-Azure 中的虛擬機器會執行根據您建立虛擬機器時所選擇映像的作業系統。您的映像會以 VHD 格式的 .vhd 檔案儲存在儲存體帳戶中。如需詳細資訊，請參閱 [Azure 中的磁碟](virtual-machines-disks-vhds.md)和 [Azure 中的映像](virtual-machines-images.md)。
+Azure 虛擬機器執行的作業系統，根據您在建立期間所選擇的映像而定。這些映像會以 VHD 格式，儲存在儲存體帳戶中的 .vhd 檔案。如需詳細資訊，請參閱 [Azure 中的磁碟](virtual-machines-disks-vhds.md)和 [Azure 中的映像](virtual-machines-images.md)。
 
 在建立虛擬機器時，您可以自訂部分作業系統設定，使用它們適合您要執行的應用程式。如需指示，請參閱[如何建立自訂虛擬機器](virtual-machines-create-custom.md)。
 
@@ -46,7 +46,7 @@ Azure 中的虛擬機器會執行根據您建立虛擬機器時所選擇映像�
 
 - **Azure 命令列介面** - 如果您要使用 Linux 作業系統來建立映像，則您可以使用 [Azure 命令列介面](../virtual-machines-command-line-tools.md)來上傳 VHD。
 
-- **Azure Powershell 工具** - `Add-AzureVhd` Cmdlet 也可用來上傳 VHD。若要下載 Azure Powershell Cmdlet，請參閱 [Azure 下載](http://azure.microsoft.com/downloads/)。如需參照資訊，請參閱 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx)。
+- **Azure Powershell 工具** - `Add-AzureVhd` Cmdlet 也可用來上傳 VHD。若要下載 Azure Powershell Cmdlet，請參閱 [Azure 下載](https://azure.microsoft.com/downloads/)。如需參照資訊，請參閱 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx)。
 
 <a id="prepimage"> </a>
 ## 步驟 1：準備要上傳的映像
@@ -107,7 +107,7 @@ Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-en
 
 	其中 `<PathToFile>` 是 .publishsettings 檔案的完整路徑。
 
-	如需詳細資訊，請參閱[從 Azure CLI 連接到 Azure](../xplat-cli-connect.md)。
+	如需詳細資訊，請參閱[從 Azure CLI 連接至 Azure](../xplat-cli-connect.md)。
 
 
 ### 如果使用 Azure PowerShell
@@ -142,22 +142,26 @@ Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-en
 
 	如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)
 
-> [AZURE.NOTE]建議您使用更新的 Azure Active Directory 方法，從 Azure CLI 或 Azure PowerShell 登入您的 Azure 訂用帳戶。
+> [AZURE.NOTE] 建議您使用更新的 Azure Active Directory 方法，從 Azure CLI 或 Azure PowerShell 登入您的 Azure 訂用帳戶。
 
 <a id="upload"> </a>
 ## 步驟 3：將映像上傳至 Azure
 
+您需要一個可供上傳 VHD 檔案的儲存體帳戶。您可以選取現有的或建立新的儲存體帳戶。若要建立儲存體帳戶，請參閱[建立儲存體帳戶](../storage-create-storage-account.md)。
+
+在上傳 .vhd 檔案時，您可以將 .vhd 檔案放在 Blob 儲存體中的任一處。在下列命令範例中，**BlobStorageURL** 是您打算使用的儲存體帳戶的 URL，**YourImagesFolder** 是您在 blob 儲存體中要用來儲存映像的容器。**VHDName** 是 [Azure 入口網站](http://portal.azure.com)或 [Azure 傳統入口網站](http://manage.windowsazure.com)中，用來識別虛擬硬碟的顯示標籤。**PathToVHDFile** 是 .vhd 檔案在您電腦上的完整路徑和名稱。
+
+
 ### 如果使用 Azure CLI
 
-使用 Azure CLI 上傳映像。您可以使用下列命令來上傳映像：
+使用 Azure CLI 上傳映像，方法是使用下列命令：
 
-		azure vm image create <image-name> --location <location-of-the-data-center> --os Linux <source-path-to the vhd>
+		azure vm image create <ImageName> --blob-url <BlobStorageURL>/<YourImagesFolder>/<VHDName> --os Linux <PathToVHDFile>
+
+如需詳細資訊，請參閱 [Azure 服務管理的 Azure CLI 參考](virtual-machines-command-line-tools.md)。
+
 
 ### 如果使用 PowerShell
-
-您需要一個可供上傳 VHD 檔案的儲存體帳戶。您可以選取現有的或建立新的儲存體帳戶。若要建立儲存體帳戶，請參閱[建立儲存體帳戶](../storage-create-storage-account.md)
-
-在上傳 .vhd 檔案時，您可以將 .vhd 檔案放在 Blob 儲存體中的任一處。在下列命令範例中，**BlobStorageURL** 是您打算使用的儲存體帳戶的 URL，**YourImagesFolder** 是您在 blob 儲存體中要用來儲存映像的容器。**VHDName** 是 [Azure 傳統入口網站](http://manage.windowsazure.com)中，用來識別虛擬硬碟的顯示標籤。**PathToVHDFile** 是 .vhd 檔案的完整路徑和名稱。
 
 從您在上一個步驟使用的 Azure PowerShell 視窗中，輸入：
 
@@ -165,11 +169,9 @@ Azure 支援各種 Linux 散發套件 (請參閱[背書散發套件](../linux-en
 
 如需詳細資訊，請參閱 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx)。
 
-> [AZURE.NOTE] [Azure Powershell 1.0 預覽版本](https://azure.microsoft.com/blog/azps-1-0-pre/)大幅變更了其處理傳統和資源管理員部署模型之 Cmdlet 的方式。本文尚未使用「預覽」版本。
-
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!-------HONumber=AcomDC_1210_2015----->
+<!---HONumber=AcomDC_0128_2016-->

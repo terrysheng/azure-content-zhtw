@@ -55,7 +55,7 @@ Azure AD 支援的共用帳戶適用於任何Enterprise Mobility Suite (EMS)、�
 - [應用程式使用量儀表板/報告](active-directory-passwords-get-insights.md)
 - 使用者存取入口網站
 - [應用程式 proxy](active-directory-application-proxy-get-started.md)
-- [Active Directory 市集](http://azure.microsoft.com/marketplace/active-directory/all/)
+- [Active Directory 市集](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## 共用帳戶
 若要使用 Azure AD 來共用帳戶，您必須：
@@ -72,4 +72,4 @@ Azure AD 支援的共用帳戶適用於任何Enterprise Mobility Suite (EMS)、�
 - [使用條件式存取來保護應用程式](active-directory-conditional-access.md)
 - [自助式群組管理/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

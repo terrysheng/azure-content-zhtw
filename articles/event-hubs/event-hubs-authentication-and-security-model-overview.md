@@ -1,6 +1,6 @@
 <properties 
    pageTitle="事件中樞驗證和安全性模型概觀 | Microsoft Azure"
-   description="事件中樞常見問題集"
+   description="事件中樞驗證和安全性模型概觀。"
    services="event-hubs"
    documentationCenter="na"
    authors="sethmanheim"
@@ -11,8 +11,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="10/07/2015"
+   ms.workload="na"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 事件中樞驗證和安全性模型概觀
@@ -31,7 +31,7 @@
 
 系統會為每個裝置指派一個唯一權杖，該權杖會上傳至裝置。權杖的產生機制讓每個唯一權杖都能授與相異唯一發佈者的存取權限。擁有權杖的裝置只能傳送到一個發佈者，無法再傳送到其他發佈者。如果多個裝置共用同一個權杖，這些裝置會共用一個發佈者。
 
-您可以為裝置配備授與事件中樞直接存取權限的權杖，不過我們不建議這樣做。任何擁有這類權杖的裝置都可以將訊息直接傳送到該事件中樞。這類裝置將不受節流所約束。此外，您無法將這類裝置加入封鎖清單，禁止其傳送到該事件中樞。
+您可以為裝置配備授與事件中樞直接存取權限的權杖，不過我們不建議這樣做。任何擁有此權杖的裝置都可以將訊息直接傳送到該事件中樞。這類裝置將不受節流所約束。此外，您無法將這類裝置加入黑名單，禁止其傳送到該事件中樞。
 
 所有權杖都經過 SAS 金鑰簽署。一般而言，所有權杖都會經過同一個金鑰簽署。裝置無法感知金鑰，如此能避免裝置製造權杖。
 
@@ -50,7 +50,7 @@ Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, string.
 TokenProvider td = TokenProvider.CreateSharedAccessSignatureTokenProvider(namespaceManageKeyName, namespaceManageKey);
 NamespaceManager nm = new NamespaceManager(namespaceUri, namespaceManageTokenProvider);
 
-// Create Event Hub with a SAS rule that allows sending to that Event Hub.
+// Create Event hub with a SAS rule that allows sending to that Event hub
 EventHubDescription ed = new EventHubDescription("MY_EVENT_HUB") { PartitionCount = 32 };
 string eventHubSendKeyName = "EventHubSendKey";
 string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
@@ -89,9 +89,9 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 當裝置將資料傳送到事件中樞時，裝置會為自己的權杖加上傳送要求標記。若要預防攻擊者竊聽及竊取權杖，裝置和事件中樞之間的通訊必須透過加密通道。
 
-### 將裝置列入封鎖清單
+### 將裝置列入黑名單
 
-如果權杖遭攻擊者竊取，攻擊者便可以模擬權杖遭竊的裝置。將裝置列入封鎖清單能使裝置無法使用，直到裝置擁有使用不同發佈者的權杖為止。
+如果權杖遭攻擊者竊取，攻擊者便可以模擬權杖遭竊的裝置。將裝置列入黑名單能使裝置無法使用，直到裝置擁有使用不同發佈者的權杖為止。
 
 ## 後端應用程式的驗證
 
@@ -154,4 +154,4 @@ ACS 支援以多種方法來建立服務身分識別、信賴憑證者及規則�
 [佇列訊息解決方案]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

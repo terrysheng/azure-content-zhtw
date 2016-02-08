@@ -36,7 +36,7 @@
 
 	- **儲存體記錄**可將對 Azure 儲存體服務的每項要求記錄至伺服器端記錄檔。記錄檔可追蹤每項要求的詳細資料，包括執行的作業、作業的狀態及延遲資訊。如需 Storage Analytics 寫入記錄檔的要求和回應資料詳細資訊，請參閱 [Storage Analytics 記錄檔格式](http://msdn.microsoft.com/library/azure/hh343259.aspx)。
 
-- **Azure 傳統入口網站**。您可以在 [Azure 傳統入口網站](manage.windowsazure.com)中設定儲存體帳戶的度量和記錄。您也可以檢視圖表和圖形 (其中顯示應用程式在一段時間內的執行狀況)，並設定警示，通知應用程式是否對指定的度量以超乎預期的方式執行。
+- **Azure 傳統入口網站**。您可以在 [Azure 傳統入口網站](https://manage.windowsazure.com)中設定儲存體帳戶的度量和記錄。您也可以檢視圖表和圖形 (其中顯示應用程式在一段時間內的執行狀況)，並設定警示，通知應用程式是否對指定的度量以超乎預期的方式執行。
 	
 	如需在 Azure 傳統入口網站中進行設定和監控的相關資訊，請參閱[如何監控儲存體帳戶](storage-monitor-storage-account.md)。
 
@@ -88,13 +88,13 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 
 ### 設定伺服器端記錄和度量
 
-首先，我們必須設定 Azure 儲存體記錄和度量，如此我們才有用戶端應用程式提供的資料可分析。您可以用各種方式設定記錄和度量 - 透過 [Azure 傳統入口網站](manage.windowsazure.com)，或使用 PowerShell，或以程式設計的方式。如需設定記錄和度量的詳細資訊，請參閱 MSDN 上的[啟用儲存體度量和檢視度量資料](http://msdn.microsoft.com/library/azure/dn782843.aspx)和[啟用儲存體記錄和存取記錄檔資料](http://msdn.microsoft.com/library/azure/dn782840.aspx)。
+首先，我們必須設定 Azure 儲存體記錄和度量，如此我們才有用戶端應用程式提供的資料可分析。您可以用各種方式設定記錄和度量 - 透過 [Azure 傳統入口網站](https://manage.windowsazure.com)，或使用 PowerShell，或以程式設計的方式。如需設定記錄和度量的詳細資訊，請參閱 MSDN 上的[啟用儲存體度量和檢視度量資料](http://msdn.microsoft.com/library/azure/dn782843.aspx)和[啟用儲存體記錄和存取記錄檔資料](http://msdn.microsoft.com/library/azure/dn782840.aspx)。
 
 **透過 Azure 傳統入口網站**
 
 若要使用入口網站設定儲存體帳戶的記錄和度量，請依照[如何監控儲存體帳戶](storage-monitor-storage-account.md)上的指示執行。
 
-> [AZURE.NOTE]不可能使用 Azure 傳統入口網站設定分鐘度量。不過，我們建議您不要為了本教學課程的目的，以及為了調查您的應用程式的效能問題，而設定這類度量。您可以使用 PowerShell (如下所示)，或以程式設計方式，或透過 Azure 傳統入口網站設定分鐘度量。
+> [AZURE.NOTE] 不可能使用 Azure 傳統入口網站設定分鐘度量。不過，我們建議您不要為了本教學課程的目的，以及為了調查您的應用程式的效能問題，而設定這類度量。您可以使用 PowerShell (如下所示)，或以程式設計方式，或透過 Azure 傳統入口網站設定分鐘度量。
 >
 > 請注意，Azure 傳統入口網站無法顯示分鐘度量，只能顯示每小時度量。
 
@@ -164,7 +164,7 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 
 7. 結束對話方塊，然後按一下 [重新啟動] 以開始使用主機名稱篩選條件來收集追蹤，以便追蹤中只包含 Azure 儲存體網路流量。
 
->[AZURE.NOTE]完成網路追蹤收集之後，強烈建議您還原您在 Fiddler 中變更的設定，以解密 HTTPS 流量。在 [Fiddler 選項] 對話方塊中，取消選取 [擷取 HTTPS CONNECT] 和 [解密 HTTPS 流量] 核取方塊。
+>[AZURE.NOTE] 完成網路追蹤收集之後，強烈建議您還原您在 Fiddler 中變更的設定，以解密 HTTPS 流量。在 [Fiddler 選項] 對話方塊中，取消選取 [擷取 HTTPS CONNECT] 和 [解密 HTTPS 流量] 核取方塊。
 
 如需詳細資訊，請參閱 Technet 上的[使用網路追蹤功能](http://technet.microsoft.com/library/jj674819.aspx)。
 
@@ -172,7 +172,7 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 
 一旦您的應用程式已執行了一段時間，您即可檢閱 Azure 傳統入口網站中顯示的度量圖表，以觀察您服務的執行狀況。首先，我們會將 [成功百分比] 度量新增至 [監控] 頁面：
 
-1. 瀏覽至 [Azure 傳統入口網站](manage.windowsazure.com)中您儲存體帳戶的 [儀表板]，然後選取 [監視] 以檢視監控頁面。
+1. 瀏覽至 [Azure 傳統入口網站](https://manage.windowsazure.com)中您儲存體帳戶的 [儀表板]，然後選取 [監視] 以檢視監控頁面。
 2. 按一下 [新增度量] 以顯示 [選擇度量] 對話方塊。
 3. 向下捲動以尋找 [成功百分比] 群組，加以展開，然後選取 [彙總]，如下圖所示。此度量會彙總所有 Blob 作業的成功百分比資料。
 
@@ -184,7 +184,7 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 
 如需將度量新增至 [監控] 頁面的詳細資訊，請參閱[作法︰將度量新增至度量表](storage-monitor-storage-account.md#addmonitoringmetrics)。
 
-> [AZURE.NOTE]在您啟用儲存體度量之後，度量資料可能需要一些時間才會出現在 Azure 傳統入口網站中。這是因為過了這個小時，前一個小時的每小時度量才會顯示在 Azure 傳統入口網站中。此外，分鐘度量不會顯示在 Azure 傳統入口網站中。因此視您啟用度量的時間而定，有可能需要兩個小時才看得見度量資料。
+> [AZURE.NOTE] 在您啟用儲存體度量之後，度量資料可能需要一些時間才會出現在 Azure 傳統入口網站中。這是因為過了這個小時，前一個小時的每小時度量才會顯示在 Azure 傳統入口網站中。此外，分鐘度量不會顯示在 Azure 傳統入口網站中。因此視您啟用度量的時間而定，有可能需要兩個小時才看得見度量資料。
 
 ## 使用 AzCopy 將伺服器記錄檔複製到本機目錄
 
@@ -194,7 +194,7 @@ Azure 儲存體會將伺服器記錄檔資料寫入至 Blob，而度量會寫入
 
 	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
-在 [Azure 下載](http://azure.microsoft.com/downloads/)頁面可以下載 AzCopy。如需使用 AzCopy 的詳細資訊，請參閱[如何搭配使用 AzCopy 與 Microsoft Azure 儲存體](storage-use-azcopy.md)。
+在 [Azure 下載](https://azure.microsoft.com/downloads/)頁面可以下載 AzCopy。如需使用 AzCopy 的詳細資訊，請參閱[如何搭配使用 AzCopy 與 Microsoft Azure 儲存體](storage-use-azcopy.md)。
 
 如需下載伺服器端記錄檔的詳細資訊，請參閱[啟用儲存體記錄和存取記錄檔資料](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata)。
 
@@ -219,7 +219,7 @@ Message Analyzer 包含 Azure 儲存體資產，可協助您分析伺服器、�
 
 ![Message Analyzer 起始頁](./media/storage-e2e-troubleshooting-classic-portal/mma-start-page-1.png)
 
-> [AZURE.NOTE]安裝針對此教學課程的目的而顯示的所有 Azure 儲存體資產。
+> [AZURE.NOTE] 安裝針對此教學課程的目的而顯示的所有 Azure 儲存體資產。
 
 ### 將記錄檔匯入 Message Analyzer 中
 
@@ -263,7 +263,7 @@ Azure 儲存體用戶端程式庫會自動為每一項要求產生唯一的用�
 
 ![Azure 儲存體檢視版面配置](./media/storage-e2e-troubleshooting-classic-portal/view-layout-client-request-id-module.png)
 
->[AZURE.NOTE]不同的記錄檔有不同的資料行，因此當分析方格中顯示來自多個記錄檔的資料時，某些資料行可能不會包含指定資料列的資料。例如，在上圖中，用戶端記錄檔資料列不會顯示 **Timestamp**、**TimeElapsed**、**Source** 和 **Destination** 資料行的任何資料，因為這些資料行不存在於用戶端記錄檔中，但存在於網路追蹤中。同樣地，**Timestamp** 資料行會顯示伺服器記錄檔中的時間戳記資料，但不會顯示 **TimeElapsed**、**Source** 和 **Destination** 資料行 (不屬於伺服器記錄檔) 的資料。
+>[AZURE.NOTE] 不同的記錄檔有不同的資料行，因此當分析方格中顯示來自多個記錄檔的資料時，某些資料行可能不會包含指定資料列的資料。例如，在上圖中，用戶端記錄檔資料列不會顯示 **Timestamp**、**TimeElapsed**、**Source** 和 **Destination** 資料行的任何資料，因為這些資料行不存在於用戶端記錄檔中，但存在於網路追蹤中。同樣地，**Timestamp** 資料行會顯示伺服器記錄檔中的時間戳記資料，但不會顯示 **TimeElapsed**、**Source** 和 **Destination** 資料行 (不屬於伺服器記錄檔) 的資料。
 
 除了使用 Azure 儲存體檢視版面配置，您也可以定義和儲存自己的檢視版面配置。您可以選取其他所需的欄位來進行資料分組，並將群組儲存在您自訂的版面配置中。
 
@@ -294,7 +294,7 @@ Azure 儲存體用戶端程式庫會自動為每一項要求產生唯一的用�
 
 套用此篩選條件之後，您會看到用戶端記錄檔中的資料列遭到排除，因為用戶端記錄檔不包含 **StatusCode** 資料行。首先，我們會檢閱伺服器和網路追蹤記錄檔以找出 404 錯誤，然後我們會返回用戶端記錄檔，以檢查導致這些錯誤的用戶端作業。
 
->[AZURE.NOTE]您可以篩選 **StatusCode** 資料行，而如果將運算式加入至可納入狀態碼為 null 之記錄檔項目的篩選條件，則仍會顯示來自所有三個記錄檔 (包括用戶端記錄檔) 的資料。若要建構此篩選運算式，請使用：
+>[AZURE.NOTE] 您可以篩選 **StatusCode** 資料行，而如果將運算式加入至可納入狀態碼為 null 之記錄檔項目的篩選條件，則仍會顯示來自所有三個記錄檔 (包括用戶端記錄檔) 的資料。若要建構此篩選運算式，請使用：
 >
 > <code>&#42;StatusCode >= 400 或 !&#42;StatusCode</code>
 >
@@ -375,4 +375,4 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

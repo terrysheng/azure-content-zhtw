@@ -27,7 +27,7 @@ StorSimple Manager 服務 [備份類別目錄] 頁面會顯示在進行手動或
 
 本教學課程說明如何使用備份組來複製個別磁碟區。它也會說明「暫時性」與「永久」複製之間的差異。
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 >固定在本機的磁碟區將會複製為分層磁碟區。如果您需要將複製的磁碟區固定在本機，可以在複製作業成功完成之後，再將複製品轉換為固定在本機的磁碟區。如需將分層磁碟區轉換為固定在本機的磁碟區的詳細資訊，請移至[變更磁碟區類型](storsimple-manage-volumes-u2.md#change-the-volume-type)。
 >
@@ -82,7 +82,7 @@ StorSimple Manager 服務 [備份類別目錄] 頁面會顯示在進行手動或
   1. 移至 [裝置] 頁面，然後選取 [磁碟區容器] 索引標籤。
   2. 選取與複製的來源磁碟區相關聯的磁碟區容器。您應該會在磁碟區清單中看到剛才建立的複製。
 
->[AZURE.NOTE]複製的磁碟區上會自動停用監視和預設備份。
+>[AZURE.NOTE] 複製的磁碟區上會自動停用監視和預設備份。
 
 以這種方式建立的複製就是暫時性複製。如需複製類型的詳細資訊，請參閱[暫時性與永久複製](#transient-vs.-permanent-clones)。
 
@@ -104,7 +104,7 @@ StorSimple Manager 服務 [備份類別目錄] 頁面會顯示在進行手動或
  
 ![提供的影片](./media/storsimple-clone-volume-u2/Video_icon.png)**提供的影片**
 
-若要觀看影片示範如何使用 StorSimple 的複製和還原功能來復原已刪除的檔案，請按一下[這裡](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/)。
+若要觀看影片示範如何使用 StorSimple 的複製和還原功能來復原已刪除的檔案，請按一下[這裡](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/)。
 
 ### 利用永久複製在實際執行環境中進行測試
 
@@ -117,4 +117,4 @@ StorSimple Manager 服務 [備份類別目錄] 頁面會顯示在進行手動或
 
  
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

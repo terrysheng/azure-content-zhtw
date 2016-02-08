@@ -198,7 +198,7 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 
 ## 步驟 7 - 連線 VPN 閘道
 
-所有先前的步驟都完成後，您要將 IPsec/IKE 預先共用的金鑰設為相同。您可以使用 REST API 或 PowerShell Cmdlet 完成。如果您使用 PowerShell，請確認您擁有[最新版](http://azure.microsoft.com/downloads/)的 Microsoft Azure PowerShell Cmdlet。下列範例會使用 PowerShell Cmdlet，將金鑰值設為 A1b2C3D4。請注意，兩者都使用相同的金鑰值。編輯下列範例，以反映您自己的值。
+所有先前的步驟都完成後，您要將 IPsec/IKE 預先共用的金鑰設為相同。您可以使用 REST API 或 PowerShell Cmdlet 完成。如果您使用 PowerShell，請確認您擁有[最新版](https://azure.microsoft.com/downloads/)的 Microsoft Azure PowerShell Cmdlet。下列範例會使用 PowerShell Cmdlet，將金鑰值設為 A1b2C3D4。請注意，兩者都使用相同的金鑰值。編輯下列範例，以反映您自己的值。
 
 對於 Vnet1
 
@@ -223,4 +223,4 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

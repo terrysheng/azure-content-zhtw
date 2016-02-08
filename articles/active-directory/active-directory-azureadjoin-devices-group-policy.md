@@ -68,14 +68,17 @@ Azure AD Connect 可讓內部部署電腦佈建為雲端中的裝置物件。若
 
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
->[AZURE.NOTE]請將 [連接器帳戶名稱] 取代為作為 AD 連接器帳戶的網域帳戶。
 
->[AZURE.NOTE]Get-Credential 快顯視窗顯示時輸入的認證使用者名稱必須採用 *user@example.com* 格式
+>[AZURE.NOTE] 請將 [連接器帳戶名稱] 取代為作為 AD 連接器帳戶的網域帳戶。
+
+
+>[AZURE.NOTE] Get-Credential 快顯視窗顯示時輸入的認證使用者名稱必須採用 *user@example.com* 格式
 
 ### 設定 AD FS 宣告規則
 這可讓電腦使用 Kerberos/NTLM 透過 AD FS 進行驗證，進而透過 Azure DRS 讓電腦即時註冊。若未進行此步驟，電腦將會以延遲的方式進入 Azure AD (受限於 Azure AD Connect 同步處理的時間)。
 
->[AZURE.NOTE]如果您未以 AD FS 作為內部部署的同盟伺服器，請遵循廠商的指示建立宣告規則。
+
+>[AZURE.NOTE] 如果您未以 AD FS 作為內部部署的同盟伺服器，請遵循廠商的指示建立宣告規則。
 
 在 AD FS 伺服器上執行下列 PowerShell 命令 (或在連接到 AD FS 伺服器的工作階段上執行)：
 
@@ -109,7 +112,8 @@ Azure AD Connect 可讓內部部署電腦佈建為雲端中的裝置物件。若
  
     Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
 
->[AZURE.NOTE]Windows 10 電腦將會使用 Windows 整合式驗證，對 AD FS 所裝載的作用中 WS-Trust 端點進行驗證。您必須確定此端點已啟用。如果您使用 Web 驗證 Proxy，則也必須確定此端點已透過 Proxy 發佈。若要進行此確認，您可以檢查 adfs/services/trust/13/windowstransport 在 AD FS 管理主控台中的 [服務] > [端點] 下是否顯示為已啟用。
+
+>[AZURE.NOTE] Windows 10 電腦將會使用 Windows 整合式驗證，對 AD FS 所裝載的作用中 WS-Trust 端點進行驗證。您必須確定此端點已啟用。如果您使用 Web 驗證 Proxy，則也必須確定此端點已透過 Proxy 發佈。若要進行此確認，您可以檢查 adfs/services/trust/13/windowstransport 在 AD FS 管理主控台中的 [服務] > [端點] 下是否顯示為已啟用。
 
 
 ## 步驟 2：透過 Active Directory 中的群組原則設定自動裝置註冊
@@ -127,14 +131,15 @@ Azure AD Connect 可讓內部部署電腦佈建為雲端中的裝置物件。若
  - AD 中將放置加入網域的 Windows 10 電腦的特定組織單位 (OU)。
  - 加入網域而會向 Azure AD 自動註冊的 Windows 10 電腦所屬的特定安全性群組。
  
->[AZURE.NOTE]此群組原則範本在 Windows 10 中已重新命名。如果您從 Windows 10 電腦執行群組原則工具，原則將會顯示為：<br> [註冊加入網域的電腦為裝置]，且原則將會位於下列位置之下：<br> 電腦設定/原則/系統管理範本 /Windows 元件/裝置註冊
+
+>[AZURE.NOTE] 此群組原則範本在 Windows 10 中已重新命名。如果您從 Windows 10 電腦執行群組原則工具，原則將會顯示為：<br> [註冊加入網域的電腦為裝置]，且原則將會位於下列位置之下：<br> 電腦設定/原則/系統管理範本 /Windows 元件/裝置註冊
 
  
 ## 其他資訊
 * [適合企業使用的 Windows 10：使用裝置工作的方式](active-directory-azureadjoin-windows10-devices-overview.md)
 * [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-user-upgrade.md)
 * [了解適用於 Azure AD Join 的使用案例](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [將已加入網域的裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

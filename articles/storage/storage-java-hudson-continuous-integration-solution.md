@@ -86,11 +86,11 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 2. 在 [**管理 Hudson**] 頁面中，按一下 [**設定系統**]。
 3. 在 [Microsoft Azure Storage Account Configuration] 區段中：
 
-    a.輸入您的儲存體帳戶名稱，您可從 [Azure 入口網站](portal.azure.com)取得此名稱。
+    a.輸入您的儲存體帳戶名稱，您可從 [Azure 入口網站](https://portal.azure.com)取得此名稱。
 
-    b.輸入您的儲存體帳戶金鑰，這項資訊也可以從 [Azure 入口網站](portal.azure.com)取得。
+    b.輸入您的儲存體帳戶金鑰，這項資訊也可以從 [Azure 入口網站](https://portal.azure.com)取得。
 
-    c.如果您使用的是公用 Azure 雲端，請在 [Blob Service Endpoint URL] 使用預設值。如果您使用的是其他 Azure 雲端，請使用 [Azure 入口網站](portal.azure.com)中為您儲存體帳戶所指定的端點。
+    c.如果您使用的是公用 Azure 雲端，請在 [Blob Service Endpoint URL] 使用預設值。如果您使用的是其他 Azure 雲端，請使用 [Azure 入口網站](https://portal.azure.com)中為您儲存體帳戶所指定的端點。
 
     d.按一下 [Validate storage credentials] 以驗證您的儲存體帳戶。
 
@@ -129,7 +129,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 13. 在 Hudson 儀表板中，按一下 [Build Now] 以執行 **MyJob**。檢查主控台輸出中的狀態。當建置後動作開始上傳組建成品時，主控台輸出將會包含 Azure 儲存體的狀態訊息。
 14. 順利完成作業時，您就可以開啟公用 Blob 來檢查組建成品。
 
-    a.登入 [Azure 入口網站](portal.azure.com)。
+    a.登入 [Azure 入口網站](https://portal.azure.com)。
 
     b.按一下 [儲存體]。
 
@@ -166,7 +166,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
 
-    (上述格式適用於公用 Azure 雲端。如果您使用其他 Azure 雲端，請使用 [Azure 入口網站](portal.azure.com)中的端點來判斷您的 URL 端點。)
+    (上述格式適用於公用 Azure 雲端。如果您使用其他 Azure 雲端，請使用 [Azure 入口網站](https://portal.azure.com)中的端點來判斷您的 URL 端點。)
 
     在上述格式中，`storageaccount` 代表您的儲存體帳戶名稱，`container_name` 代表您的容器名稱，而 `blob_name` 代表您的 Blob 名稱。容器名稱中可以有多個路徑，這些路徑彼此以正斜線 **/** 分隔。本教學課程中的範例容器名稱為 **MyJob**，使用的共同虛擬路徑則是 **${BUILD\_ID}/${BUILD\_NUMBER}**，產生的 Blob URL 格式如下：
 
@@ -177,4 +177,4 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
   [如何建立儲存體帳戶]: http://go.microsoft.com/fwlink/?LinkId=279823
   [認識 Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

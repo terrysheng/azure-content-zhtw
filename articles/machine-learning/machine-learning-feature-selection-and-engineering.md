@@ -40,7 +40,7 @@
 * **特性工程設計**：此程序嘗試從資料中的現有原始特性建立其他相關特性，以及增加學習演算法的預測功效。
 * **特性選取**：此程序嘗試選取主要的原始資料特性子集，以縮小定型問題的維度。
 
-本主題僅涵蓋資料增強程序的特性工程設計和特性選取層面。如需資料前處理步驟的其他資訊，請參閱[在 Azure ML Studio 中進行資料前處理](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)影片。
+本主題僅涵蓋資料增強程序的特性工程設計和特性選取層面。如需資料前處理步驟的其他資訊，請參閱[在 Azure ML Studio 中進行資料前處理](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)影片。
 
 
 ## 從您的資料建立特性 - 特性工程設計
@@ -135,4 +135,4 @@ Azure Machine Learning Studio 中有針對特性選取而提供的模組。如�
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

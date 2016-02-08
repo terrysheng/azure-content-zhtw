@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/14/2015"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
 # 部署和管理 Azure 中的 StorSimple 虛擬裝置 (Update 2)
@@ -40,7 +40,7 @@ StorSimple 虛擬裝置可以在兩種模型中使用，標準 8010 和進階 80
 | **儲存體類型** | 使用 Azure 標準儲存體<br></br>了解如何[建立標準儲存體帳戶]() | 使用 Azure 進階儲存體<br></br>了解如何[建立進階儲存體帳戶](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **工作負載指引** | 從備份的檔案的項目層級擷取 | 雲端開發和測試案例、低延遲、較高效能工作負載<br></br>災害復原的次要裝置 |
  
-<sup>1</sup> 前身為 1100。
+<sup>1</sup> *前身為 1100*。
 
 
 本文說明在 Azure 中部署 StorSimple 虛擬裝置的逐步程序。閱讀本文之後，您將能夠：
@@ -236,7 +236,7 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
 
 災害復原 (DR) 是針對其設計 StorSimple 虛擬裝置的重要案例之一。在此案例中，實體 StorSimple 裝置或整個資料中心可能無法使用。幸運的是，您可以使用虛擬裝置，在替代位置中還原作業。在 DR 期間，來源裝置的磁碟區容器會變更擁有權，並移轉到虛擬裝置。DR 的必要條件是必須已建立並設定虛擬裝置、磁碟區容器內的所有磁碟區都要離線，以及磁碟區容器應該具有相關聯的雲端快照。
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 
 >
 > - 當使用虛擬裝置作為 DR 的次要裝置時，請記住，8010 有 30 TB 的標準儲存體，8020 有 64 TB 的進階儲存體。較高容量的 8020 虛擬裝置可能比較適合 DR 案例。
 > - 您無法從執行 Update 2 的裝置容錯移轉或複製到執行 Update 1 之前版本軟體的裝置。但是，您可以將執行 Update 2 的裝置容錯移轉至執行 Update 1 (1.1 或 1.2) 的裝置。
@@ -260,4 +260,4 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
  
 - 了解如何[從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

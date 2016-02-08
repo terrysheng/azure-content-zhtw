@@ -140,9 +140,9 @@ SQL DB 中的彈性資料庫交易目前有下列限制：
 
 ## 詳細資訊
 
-您的 Azure 應用程式還未使用彈性資料庫功能嗎？ 請瀏覽我們的[文件導引圖](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)。如有問題，請在 [SQL Database 論壇](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)上與我們連絡，如需要求增加功能，請將這些功能新增至 [SQLSQL Database 意見反應論壇](http://feedback.azure.com/forums/217321-sql-database)。
+您的 Azure 應用程式還未使用彈性資料庫功能嗎？ 請瀏覽我們的[文件導引圖](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)。如有問題，請在 [SQL Database 論壇](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)上與我們連絡，如需要求增加功能，請將這些功能新增至 [SQLSQL Database 意見反應論壇](https://feedback.azure.com/forums/217321-sql-database/)。
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

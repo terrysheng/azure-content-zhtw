@@ -22,7 +22,7 @@ Azure 內容傳遞網路 (CDN) 透過將計算執行個體 Blob 與靜態內容�
 
 若要建立儲存體帳戶，您必須是服務管理員或是相關聯訂用帳戶的共同管理員。
 
-> [AZURE.NOTE]如需關於使用 Azure 服務管理 API 來執行此作業的詳細資訊，請參閱[建立儲存體帳戶](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx)參考主題。
+> [AZURE.NOTE] 如需關於使用 Azure 服務管理 API 來執行此作業的詳細資訊，請參閱[建立儲存體帳戶](http://msdn.microsoft.com/library/windowsazure/hh264518.aspx)參考主題。
 
 **為 Azure 訂用帳戶建立儲存體帳戶**
 
@@ -43,9 +43,9 @@ Azure 內容傳遞網路 (CDN) 透過將計算執行個體 Blob 與靜態內容�
 
 	此值也用作這個儲存體帳戶在入口網站中的名稱，或用於透過程式設計方式存取此帳戶時。
 
-5.  從 [區域/同質群組] 下拉式清單中，選取儲存體帳戶的區域或同質群組。如果您希望儲存體服務位於與您目前使用的其他 Microsoft Azure 服務相同的資料中心，請選取同質群組而非區域。這麼做可改善效能，而且出口流量不會產生任何費用。
+5.  從 [區域/同質群組] 下拉式清單中，選取儲存體帳戶的區域或同質群組。如果您希望儲存體服務位於與您目前使用的其他 Windows Azure 服務相同的資料中心，請選取同質群組而非區域。這麼做可改善效能，而且出口流量不會產生任何費用。
 
-    **注意：**若要建立同質群組，請開啟管理入口網站的 [**設定**] 區域，並按一下 [**同質群組**]，然後按一下 [**新增同質群組**] 或 [**新增**]。您也可以使用 Microsoft Azure 服務管理 API 建立和管理同質群組。如需詳細資訊，請參閱 [同質群組的相關作業]。
+    **注意：**若要建立同質群組，請開啟管理入口網站的 [**設定**] 區域，並按一下 [**同質群組**]，然後按一下 [**新增同質群組**] 或 [**新增**]。您也可以使用 Windows Azure 服務管理 API 建立和管理同質群組。如需詳細資訊，請參閱 [同質群組的相關作業]。
 
 6. 從 [訂用帳戶] 下拉式清單中，選取將與儲存體帳戶搭配使用的訂用帳戶。
 7.  按一下 [建立儲存體帳戶]。建立儲存體帳戶的程序可能需要幾分鐘才能完成。
@@ -70,7 +70,7 @@ Azure 內容傳遞網路 (CDN) 透過將計算執行個體 Blob 與靜態內容�
 	原始網域是指 CDN 從其快取內容過來的位置。原始網域可以是儲存體帳戶或雲端服務；就此範例的目的而言，我們使用的是儲存體帳戶。根據您指定的 cache-control 設定或是根據快取網路的預設啟發學習法，儲存體內容會被快取至 Edge Server。
 
 
-    > [AZURE.NOTE]為端點建立的組態無法立即使用，最多需要 60 分鐘進行註冊，以透過 CDN 網路傳播。嘗試立即使用 CDN 網域名稱的使用者可能會收到狀態碼 400 (不正確的要求)，直到可透過 CDN 使用內容為止。
+    > [AZURE.NOTE] 為端點建立的組態無法立即使用，最多需要 60 分鐘進行註冊，以透過 CDN 網路傳播。嘗試立即使用 CDN 網域名稱的使用者可能會收到狀態碼 400 (不正確的要求)，直到可透過 CDN 使用內容為止。
 
 <a id="Step3"> </a> <h2>步驟 3：存取 CDN 內容</h2>
 
@@ -83,13 +83,13 @@ http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 如果不想要將內容快取到 Azure 內容傳遞網路 (CDN) 中，您可以採取下列其中一個步驟：
 
 -   對於 Azure Blob，您可以從公用容器中刪除 Blob。
--   您可以將容器設為私人而非公用。如需詳細資訊，請參閱[限制對容器和 Blob 的存取](http://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs)。
+-   您可以將容器設為私人而非公用。如需詳細資訊，請參閱[限制對容器和 Blob 的存取](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs)。
 -   您可以使用管理入口網站來停用或刪除 CDN 端點。
 -   您可以修改託管服務，使其不再回應物件的要求。
 
 已在 CDN 中快取的物件會保持快取狀態，直到物件的有效存留期已滿。有效存留期間已滿時，CDN 將查看 CDN 端點是否仍然有效，以及物件是否仍可匿名存取。如果不是的話，將不再快取物件。
 
-Azure 管理入口網站目前不支援立即清除內容的功能。如果您需要立即清除內容，請連絡 [Azure 支援](http://azure.microsoft.com/support/options/)。
+Azure 管理入口網站目前不支援立即清除內容的功能。如果您需要立即清除內容，請連絡 [Azure 支援](https://azure.microsoft.com/support/options/)。
 
 ## 其他資源
 
@@ -111,4 +111,4 @@ Azure 管理入口網站目前不支援立即清除內容的功能。如果您�
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

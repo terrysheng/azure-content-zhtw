@@ -28,7 +28,7 @@
 
 本主題說明如何在 Azure 行動服務中註冊您的應用程式，使其能夠採用 Google 驗證。
 
->[AZURE.NOTE]本教學課程有關 [Azure 行動服務](http://azure.microsoft.com/services/mobile-services/)，此方案可協助您建置適用於任何平台的可擴充行動應用程式。行動服務讓同步處理資料、驗證使用者及推播通知等作業變得簡單。此頁面是[開始使用驗證](mobile-services-ios-get-started-users.md)教學課程的輔助，說明如何將使用者登入您的應用程式。<br/>如果這是您第一次使用行動服務，請完成[開始使用行動服務](mobile-services-ios-get-started.md)教學課程。
+>[AZURE.NOTE] 本教學課程有關 [Azure 行動服務](https://azure.microsoft.com/services/mobile-services/)，此方案可協助您建置適用於任何平台的可擴充行動應用程式。行動服務讓同步處理資料、驗證使用者及推播通知等作業變得簡單。此頁面是[開始使用驗證](mobile-services-ios-get-started-users.md)教學課程的輔助，說明如何將使用者登入您的應用程式。<br/>如果這是您第一次使用行動服務，請完成[開始使用行動服務](mobile-services-ios-get-started.md)教學課程。
 
 若要完成本主題的程序，您必須具有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>。
 
@@ -51,7 +51,7 @@
 
 8. 在下一個畫面上，記下用戶端識別碼和用戶端密碼的值。
 
-    > [AZURE.IMPORTANT]用戶端密碼是重要的安全性認證。請勿與任何人共用此密碼，或在用戶端應用程式中加以散發。
+    > [AZURE.IMPORTANT] 用戶端密碼是重要的安全性認證。請勿與任何人共用此密碼，或在用戶端應用程式中加以散發。
 
 您現在已經準備好設定您的行動服務來使用 Google 登入，以在您的應用程式中進行驗證。
 
@@ -64,4 +64,4 @@
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/21/2016"
 	ms.author="wesmc"/>
 
 # 處理資料庫寫入衝突
@@ -125,7 +125,7 @@
 			public string Version { set; get; }
 		}
 
-	> [AZURE.NOTE]使用不具型別的資料表時，開放式並行存取的啟用方式，是在資料表的 SystemProperties 中新增 Version 旗標。
+	> [AZURE.NOTE] 使用不具型別的資料表時，開放式並行存取的啟用方式，是在資料表的 SystemProperties 中新增 Version 旗標。
 	>
 	>`````
 	//Enable optimistic concurrency by retrieving __version
@@ -369,4 +369,4 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [系統屬性]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

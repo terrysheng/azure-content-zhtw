@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="01/24/2016"
     ms.author="dineshm"/>
 
 # 如何使用 C++ 的 Blob 儲存體  
@@ -23,7 +23,7 @@
 ## 概觀
 本指南將示範如何使用 Azure Blob 儲存體服務執行一般案例。這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md)。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。
 
->[AZURE.NOTE]本指南以 Azure Storage Client Library for C++ 1.0.0 版和更新版本為對象。建議的版本是 Storage Client Library 1.0.0，可透過 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 取得。
+>[AZURE.NOTE] 本指南以 Azure Storage Client Library for C++ 1.0.0 版和更新版本為對象。建議的版本是 Storage Client Library 1.0.0，可透過 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 取得。
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -47,12 +47,12 @@
 	#include "was/blob.h"
 
 ## 設定 Azure 儲存體連接字串
-Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。在用戶端應用程式中執行時，您必須以下列格式提供儲存體連接字串 (其中的 *AccountName* 和 *AccountKey* 值要使用您儲存體帳戶的名稱，以及在[ Azure 入口網站](portal.azure.com)中針對該儲存體帳戶而列出的儲存體存取金鑰)。如需有關儲存體帳戶和存取金鑰的資訊，請參閱[關於 Azure 儲存體帳戶](storage-create-storage-account.md)。本範例將示範如何宣告靜態欄位來存放連接字串：
+Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。在用戶端應用程式中執行時，您必須以下列格式提供儲存體連接字串 (其中的 *AccountName* 和 *AccountKey* 值要使用您儲存體帳戶的名稱，以及在[ Azure 入口網站](https://portal.azure.com)中針對該儲存體帳戶而列出的儲存體存取金鑰)。如需有關儲存體帳戶和存取金鑰的資訊，請參閱[關於 Azure 儲存體帳戶](storage-create-storage-account.md)。本範例將示範如何宣告靜態欄位來存放連接字串：
 
 	// Define the connection-string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 
-若要在本機 Windows 電腦中測試您的應用程式，可以使用隨 [Azure SDK](http://azure.microsoft.com/downloads/) 一起安裝的 Microsoft Azure [儲存體模擬器](https://msdn.microsoft.com/library/azure/hh403989.aspx)。儲存體模擬器是一個公用程式，可在本機開發電腦上模擬 Azure 提供的 Blob、佇列和表格服務。下列範例示範如何宣告靜態欄位以便將連接字串存放到本機儲存體模擬器中：
+若要在本機 Windows 電腦中測試您的應用程式，可以使用隨 [Azure SDK](https://azure.microsoft.com/downloads/) 一起安裝的 Microsoft Azure [儲存體模擬器](https://msdn.microsoft.com/library/azure/hh403989.aspx)。儲存體模擬器是一個公用程式，可在本機開發電腦上模擬 Azure 提供的 Blob、佇列和表格服務。下列範例示範如何宣告靜態欄位以便將連接字串存放到本機儲存體模擬器中：
 
 	// Define the connection-string with Azure Storage Emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
@@ -235,7 +235,7 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 -	[如何使用 C++ 的資料表儲存體](storage-c-plus-plus-how-to-use-tables.md)
 -	[以 C++ 列出 Azure 儲存體資源](storage-c-plus-plus-enumeration.md)
 -	[Storage Client Library for C++ 參考資料](http://azure.github.io/azure-storage-cpp)
--	[Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
+-	[Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
 - [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

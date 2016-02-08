@@ -16,7 +16,7 @@
  
 # .NET 適用的 Application Insights SDK 的版本資訊
 
-[Application Insights SDK for .NET](app-insights-asp-net.md) 傳送有關您作用中的應用程式遙測到 [Application Insights](http://azure.microsoft.com/services/application-insights/)，您可以在此分析它的使用情況與效能。
+[Application Insights SDK for .NET](app-insights-asp-net.md) 傳送有關您作用中的應用程式遙測到 [Application Insights](https://azure.microsoft.com/services/application-insights/)，您可以在此分析它的使用情況與效能。
 
 
 #### 若要在應用程式中安裝 SDK
@@ -136,4 +136,4 @@ See [Get started with Application Insights for .NET](app-insights-asp-net.md).
 
  
 
-<!----HONumber=AcomDC_0121_2016-->
+<!----HONumber=AcomDC_0128_2016-->

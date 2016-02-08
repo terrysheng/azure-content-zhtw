@@ -48,7 +48,7 @@ Azure 平台正在轉換。不論您是 Azure 新手或已使用它數年，務�
 Azure 有兩個入口網站︰
 
 - **[Azure 入口網站](https://manage.windowsazure.com)︰**如果您已使用 Azure 一段時間，您便已使用過此入口網站。它用來建立及設定可支援傳統部署模型的較舊 Azure 資源。您無法使用它來建立或設定僅支援資源管理員的資源。 
-- **[Azure Preview 入口網站](http://azure.microsoft.com/overview/preview-portal/)︰**如果您使用較新的 Azure 資源，您可能已使用過此入口網站。它可以用來建立及設定某些 Azure 資源。您最終能使用它來建立和設定所有的 Azure 資源。對於支援兩種部署模型的某些資源，此入口網站可用來建立及設定使用任何一種部署模型的資源。 
+- **[Azure Preview 入口網站](https://azure.microsoft.com/overview/preview-portal/)︰**如果您使用較新的 Azure 資源，您可能已使用過此入口網站。它可以用來建立及設定某些 Azure 資源。您最終能使用它來建立和設定所有的 Azure 資源。對於支援兩種部署模型的某些資源，此入口網站可用來建立及設定使用任何一種部署模型的資源。 
 
 某些資源和功能只可以在其中一個入口網站中建立及設定。某些資源或功能還不能在任一個入口網站中建立或設定，而只能透過 PowerShell、CLI 或兩者進行設定。每個 Azure 資源的文件會詳述可用以建立該資源的方法。
 
@@ -57,7 +57,7 @@ Azure 有兩個入口網站︰
 
 - **僅限 PowerShell Cmdlet︰**您可以使用每個資源的 Cmdlet，個別建立及設定每個 Azure 資源。從命令列執行這項操作，或在 PowerShell 指令碼中包含您可儲存和設定版本的多個命令。
 
-- **具有 Azure 資源管理員範本的 PowerShell Cmdlet︰**您可以使用 PowerShell，透過 Azure 資源管理員範本建立 Azure 資源。範本可予以儲存及設定版本。如需詳細資訊，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)一文。常見解決方案也有數個 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)可供下載和修改。
+- **具有 Azure 資源管理員範本的 PowerShell Cmdlet︰**您可以使用 PowerShell，透過 Azure 資源管理員範本建立 Azure 資源。範本可予以儲存及設定版本。如需詳細資訊，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)一文。常見解決方案也有數個 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)可供下載和修改。
 
 ## CLI
 您可以從使用 CLI 的 Windows、OS X 或 Linux 電腦建立及設定 Azure 資源。請閱讀[安裝 Azure CLI](xplat-cli-install.md) 一文，以在您選擇的作業系統上安裝 CLI。如同 PowerShell，根據您是使用[資源管理員](xplat-cli-azure-resource-manager.md)或[傳統 (服務管理)](virtual-machines-command-line-tools.md) 部署模型建立資源，而必須使用不同的命令。
@@ -68,4 +68,4 @@ Azure 有兩個入口網站︰
 - 了解如何[設計範本](/best-practices-resource-manager-design-templates.md)。
 - 使用[最佳作法](/best-practices-resource-manager-examples.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,4 +1,4 @@
- 限制取決於您選擇的[定價層](http://azure.microsoft.com/pricing/details/application-insights/)。
+ 限制取決於您選擇的[定價層](https://azure.microsoft.com/pricing/details/application-insights/)。
 
 **Resource** | **預設限制** | **上限**
 -------- | ------------- | -------------
@@ -21,4 +21,4 @@
  
 [關於 Application Insights 中的定價和配額](app-insights-pricing.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

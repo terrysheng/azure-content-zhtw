@@ -34,7 +34,7 @@
 
 若要完成此教學課程，您需要下列項目：
 
-* 使用中的 Azure 帳戶。如果您還沒有帳戶，註冊 Azure 試用版並取得最多 10 個免費的行動應用程式。試用結束之後您仍可以繼續使用它們。查看 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+* 使用中的 Azure 帳戶。如果您還沒有帳戶，註冊 Azure 試用版並取得最多 10 個免費的行動應用程式。試用結束之後您仍可以繼續使用它們。查看 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 * 已安裝 [Xamarin Studio] 和 [Xcode] v4.4 或更新版本的 Mac。如果想要，您可以在 Windows 電腦上使用 Visual Studio 執行 Xamarin.Forms 應用程式，但這樣會比較複雜，因為您必須連線到已加入網路並正在執行 Xamarin.iOS 組建主機的 Mac。如果您想這麼做，請參閱[在 Windows 上安裝 Xamarin.iOS]。
 
@@ -307,7 +307,7 @@
  
 2. 按 [執行] 按鈕以建置專案並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [確定] 以接受推播通知。
 	
-	> [AZURE.NOTE]您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
+	> [AZURE.NOTE] 您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
 
 2. 在應用程式中輸入一項工作，然後按一下加號 (**+**) 圖示。
 
@@ -415,7 +415,7 @@
 
 2. 在 Visual Studio 中按下 [執行] 按鈕或 **F5** 以建置專案，並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [確定] 以接受推播通知。
 	
-	> [AZURE.NOTE]您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
+	> [AZURE.NOTE] 您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
 
 3. 在應用程式中輸入一項工作，然後按一下加號 (**+**) 圖示。
 
@@ -520,7 +520,7 @@
 
 2. 按 [執行] 按鈕以建置專案並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [確定] 以接受推播通知。
 	
-	> [AZURE.NOTE]您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
+	> [AZURE.NOTE] 您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
 
 3. 在應用程式中輸入一項工作，然後按一下加號 (**+**) 圖示。
 
@@ -537,4 +537,4 @@
 [在 Windows 上安裝 Xamarin.iOS]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

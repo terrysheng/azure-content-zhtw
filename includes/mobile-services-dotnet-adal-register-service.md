@@ -5,7 +5,7 @@
 
 1. 您可以依照[如何註冊 Azure Active Directory] 主題的指示，向 Azure Active Directory 註冊應用程式。
 
-2. 在 [Azure 傳統入口網站](https://manage.windowsazure.com/) 中，回到 Azure Active Directory 擴充功能，並按一下您的 Active Directory。
+2. 在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中，回到 Azure Active Directory 擴充功能，並按一下您的 Active Directory。
 
 3. 按一下 [應用程式] 索引標籤，然後按一下您的應用程式。
 
@@ -38,4 +38,4 @@
 <!-- URLs. -->
 [如何註冊 Azure Active Directory]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -74,9 +74,9 @@
 
 如果您的參考資料是不常變更的資料集，可以啟用重新整理參考資料的支援，方法是使用 {date} 與 {time} 權杖指定輸入設定內的路徑模式。串流分析會根據此路徑模式採用更新的參考資料定義。例如，日期格式為 “YYYY-MM-DD” 且時間格式為 “HH:mm” 的模式 ````"/sample/{date}/{time}/products.csv"````，會告知「串流分析」在 UTC 時區 2015 年 4 月 16 日的下午 5:30 擷取更新的 Blob ````"/sample/2015-04-16/17:30/products.csv"````。
 
-> [AZURE.NOTE]目前串流分析工作只有在機器時間與 Blob 名稱中編碼的時間一致時，才會尋找 blob 重新整理。例如，工作會在 UTC 時區 2015 年 4 月 16 日的下午 5:30 到下午5:30:59.9 之間尋找 /sample/2015-04-16/17:30/products.csv。當機器時間為下午 5:31 時，就會停止尋找 /sample/2015-04-16/17:30/products.csv，並開始尋找 /sample/2015-04-16/17:31/products.csv。此情況有例外，就是當工作需要回到之前來重新處理資料，或當工作第一次啟動的時候。啟動時，工作會尋找在指定工作啟動時間之前產生的最新 Blob。這是為了確保在工作啟動時，會有非空白的參考資料集。如果無法找到，工作就會失敗，並向使用者顯示診斷注意事項。
+> [AZURE.NOTE] 目前串流分析工作只有在機器時間與 Blob 名稱中編碼的時間一致時，才會尋找 blob 重新整理。例如，工作會在 UTC 時區 2015 年 4 月 16 日的下午 5:30 到下午5:30:59.9 之間尋找 /sample/2015-04-16/17:30/products.csv。當機器時間為下午 5:31 時，就會停止尋找 /sample/2015-04-16/17:30/products.csv，並開始尋找 /sample/2015-04-16/17:31/products.csv。此情況有例外，就是當工作需要回到之前來重新處理資料，或當工作第一次啟動的時候。啟動時，工作會尋找在指定工作啟動時間之前產生的最新 Blob。這是為了確保在工作啟動時，會有非空白的參考資料集。如果無法找到，工作就會失敗，並向使用者顯示診斷注意事項。
 
-[Azure Data Factory](http://azure.microsoft.com/documentation/services/data-factory/) 可用來針對「串流分析」更新參考資料定義時所需的已更新 Blob，協調建立這些 Blob 的工作。Data Factory 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。Data Factory 可[連線到大量雲端式和內部部署的資料存放區](./articles/data-factory-data-movement-activities.md)，也可根據您指定的定期排程輕鬆移動資料。如需詳細資訊及逐步解說指南，瞭解該如何設定 Data Factory 管線才能產生依預先定義排程重新整理的「串流分析」參考資料，請查看此 [GitHub 範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs)。
+[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 可用來針對「串流分析」更新參考資料定義時所需的已更新 Blob，協調建立這些 Blob 的工作。Data Factory 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。Data Factory 可[連線到大量雲端式和內部部署的資料存放區](./articles/data-factory-data-movement-activities.md)，也可根據您指定的定期排程輕鬆移動資料。如需詳細資訊及逐步解說指南，瞭解該如何設定 Data Factory 管線才能產生依預先定義排程重新整理的「串流分析」參考資料，請查看此 [GitHub 範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs)。
 
 ## 重新整理參考資料的秘訣 ##
 
@@ -103,4 +103,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

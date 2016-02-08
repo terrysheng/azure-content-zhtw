@@ -32,7 +32,7 @@ Apache Tomcat (或直接稱為 Tomcat，以往也稱為 Jakarta Tomcat) 是 Apac
 -	如何準備 tomcat7 的虛擬機器。
 -	如何安裝 tomcat7。
 
-假設讀者已具備 Azure 訂用帳戶。若還不是，您可以在 [http://azure.microsoft.com](http://azure.microsoft.com) 註冊免費試用。如果您擁有 MSDN 訂用帳戶，請參閱 [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39)。若要深入了解 Azure，請參閱[什麼是 Azure？](http://azure.microsoft.com/overview/what-is-azure/)。
+假設讀者已具備 Azure 訂用帳戶。若還不是，您可以在 [http://azure.microsoft.com](https://azure.microsoft.com/) 註冊免費試用。如果您擁有 MSDN 訂用帳戶，請參閱 [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39)。若要深入了解 Azure，請參閱[什麼是 Azure？](https://azure.microsoft.com/overview/what-is-azure/)。
 
 本主題假設您有 tomcat 和 Linux 的基本操作知識。
 
@@ -306,4 +306,4 @@ tomcat7 伺服器將在您安裝時自動啟動。您也可以自行使用下列
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

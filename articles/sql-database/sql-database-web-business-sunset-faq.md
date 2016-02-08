@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Azure SQL Database Web 和 Business 版本終止常見問題集 | Microsoft Azure"
    description="了解 Azure SQL Web 和 Business 資料庫將淘汰，並了解新服務層的特性和功能。"
    services="sql-database"
@@ -6,13 +6,13 @@
    authors="stevestein"
    manager="jeffreyg"
    editor="monicar" />
-<tags 
+<tags
    ms.service="sql-database"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/30/2015"
+   ms.date="12/01/2015"
    ms.author="sstein" />
 
 # Web 和 Business 版本終止常見問題集
@@ -26,7 +26,7 @@ Azure SQL Web 和 Business 資料庫現已淘汰。基本、標準、高階和�
 - [使用 Azure 入口網站升級至 SQL Database V12](sql-database-upgrade-server-portal.md)
 - [使用 PowerShell 升級至 SQL Database V12](sql-database-upgrade-server-powershell.md)
 - [變更 Web 或 Business 資料庫的定價層](sql-database-service-tier-advisor.md)
- 
+
 
 
 ## 為什麼 Azure 入口網站沒有將我的 Web 和 Business 版本資料庫顯示為「已淘汰」？
@@ -45,7 +45,7 @@ Azure SQL Web 和 Business 資料庫現已淘汰。基本、標準、高階和�
 
 ## 我可以在何處進一步了解新的服務層？
 
-如需新服務層和效能模型的詳細資訊，請參閱[服務層](sql-database-service-tiers.md)。如需新服務層的詳細價格資訊，請參閱 [SQL Database 價格](http://azure.microsoft.com/pricing/details/sql-database/)。
+如需新服務層和效能模型的詳細資訊，請參閱[服務層](sql-database-service-tiers.md)。如需新服務層的詳細價格資訊，請參閱 [SQL Database 價格](https://azure.microsoft.com/pricing/details/sql-database/)。
 
 ## 基本、標準和高階中無法使用哪些特性或功能？
 
@@ -55,7 +55,7 @@ Microsoft 也會變更 Premium 資料庫的資料庫複製體驗。先前由於 
 
 ## 基本、標準和高階如何改善我的計費體驗？
 
-基本、標準和高階 Azure SQL Database 是以小時計費，您可以在 24 小時內向上或向下調整每個資料庫 4 次。將根據您每小時選擇的最高服務層和效能層級，以固定費率向您計費。此外，效能層級 (範例：Basic、S1 和 P2) 會在帳單中細分，讓您更易於查看針對每個效能層級在單一月份中產生的資料庫天數或時數。Web 和 Business 資料庫仍會繼續基於「資料庫單位」根據資料庫大小計費。請瀏覽 [SQL Database 價格頁面](http://azure.microsoft.com/pricing/details/sql-database/)，以深入了解新服務層之間的價格和差異。
+基本、標準和高階 Azure SQL Database 是以小時計費，您可以在 24 小時內向上或向下調整每個資料庫 4 次。將根據您每小時選擇的最高服務層和效能層級，以固定費率向您計費。此外，效能層級 (範例：Basic、S1 和 P2) 會在帳單中細分，讓您更易於查看針對每個效能層級在單一月份中產生的資料庫天數或時數。Web 和 Business 資料庫仍會繼續基於「資料庫單位」根據資料庫大小計費。請瀏覽 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)，以深入了解新服務層之間的價格和差異。
 
 
 ## 另請參閱
@@ -68,4 +68,4 @@ Microsoft 也會變更 Premium 資料庫的資料庫複製體驗。先前由於 
 
 [將 SQL Database Web/Business 資料庫升級至新的服務層](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

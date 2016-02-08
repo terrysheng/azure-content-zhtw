@@ -34,7 +34,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器和實體伺服
 
 ### Azure 必要條件
 
-- 您將需要 [Microsoft Azure](http://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。
+- 您將需要 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。
 - 您需要 Azure 儲存體帳戶來儲存複寫的資料。此帳戶必須啟用異地複寫。它應該與 Azure Site Recovery 保存庫位於相同的區域，且和同一個訂用帳戶產生關聯。[深入了解 Azure 儲存體](../storage/storage-introduction.md)。
 - 您將需要 Azure 虛擬網路，如此一來，當您從主要網站容錯移轉時，Azure 虛擬機器就會連接至網路。
 
@@ -208,7 +208,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器和實體伺服
 
 將虛擬機器新增到保護群組，為其啟用保護。
 
->[AZURE.NOTE]不支援保護使用靜態 IP 位址執行 Linux 的 VM。
+>[AZURE.NOTE] 不支援保護使用靜態 IP 位址執行 Linux 的 VM。
 
 1. 在保護群組的 [機器] 索引標籤上，按一下 [新增虛擬機器至保護群組以啟用保護]****。
 2. 在 [啟用虛擬機器保護] 頁面上，選取要保護的虛擬機器。
@@ -292,4 +292,4 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器和實體伺服
 
 在您的部署設定完成並開始執行之後，[深入了解](site-recovery-failover.md)容錯移轉。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

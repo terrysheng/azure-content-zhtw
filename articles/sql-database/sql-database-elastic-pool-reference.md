@@ -1,27 +1,26 @@
-<properties 
-	pageTitle="Azure SQL 彈性資料庫集區參考" 
-	description="這份參考提供了彈性資料庫集區文章和可程式性資訊的連結與詳細資料。" 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="SQL Database 的彈性資料庫集區參考 |Microsoft Azure" 
+	description="這份參考提供了彈性資料庫集區文章和可程式性資訊的連結與詳細資料。"
+	keywords="eDTU"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="12/01/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
 # SQL Database 彈性資料庫集區參考
 
-對於擁有數十、數百或甚至數千個資料庫的 SaaS 開發人員而言，彈性資料庫集區可以簡化在整個資料庫群組中，進行建立、維護及管理流程的效能和成本。
-
-這份參考提供了彈性資料庫集區文章和可程式性資訊的連結與詳細資料。
+這份參考提供了彈性資料庫集區文章和可程式性資訊的連結與詳細資料。對於擁有數十、數百或甚至數千個資料庫的 SaaS 開發人員而言，彈性資料庫集區可以簡化在整個資料庫群組中，進行建立、維護及管理流程的效能和成本。
 
 ## 概觀
 
@@ -45,7 +44,7 @@
 
     | 服務層 | 每個集區的最大資料庫* | 每個集區的最大 eDTU* |
     | :-- | :-- | :-- |
-    | 基本 | 200 | 1200 | 
+    | 基本 | 200 | 1200 |
     | 標準 | 200 | 1200 |
     | 高級 | 50 | 1500 |
 
@@ -140,8 +139,8 @@ Azure SQL Database V12 伺服器位於資源群組中。
 
 ## 彈性集區的作業延遲
 
-- 每個資料庫的保證 eDTU 數 (databaseDtuMin) 或每個資料庫的最大 eDTU 數 (databaseDtuMax) 變更作業通常在 5 分鐘內即可完成。 
-- 集區之 eDTU/儲存體限制 (storageMB) 的變更作業，則需視集區中所有資料庫使用的總空間量而定。變更作業平均每 100 GB 會在 90 分鐘以內完成。舉例來說，如果集區中所有資料庫使用的總空間為 200 GB，則集區 eDTU/儲存體限制變更作業的預期延遲時間會少於 3 小時。 
+- 每個資料庫的保證 eDTU 數 (databaseDtuMin) 或每個資料庫的最大 eDTU 數 (databaseDtuMax) 變更作業通常在 5 分鐘內即可完成。
+- 集區之 eDTU/儲存體限制 (storageMB) 的變更作業，則需視集區中所有資料庫使用的總空間量而定。變更作業平均每 100 GB 會在 90 分鐘以內完成。舉例來說，如果集區中所有資料庫使用的總空間為 200 GB，則集區 eDTU/儲存體限制變更作業的預期延遲時間會少於 3 小時。
 
 
 
@@ -183,7 +182,7 @@ Azure SQL Database V12 伺服器位於資源群組中。
 - 彈性集區的價格是以集區的 eDTU 數為計算基礎。彈性集區的價格與其中所使用的彈性資料庫無關。
 - 價格的計算方式為 (集區的 eDTU 數) x (每 eDTU 的單價)。
 
-在同一個服務層中，彈性集區的 eDTU 單價大於獨立資料庫的 DTU 單價。如需詳細資訊，請參閱 [SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)。
+在同一個服務層中，彈性集區的 eDTU 單價大於獨立資料庫的 DTU 單價。如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。
 
 ## 彈性資料庫集區錯誤
 
@@ -210,4 +209,4 @@ Azure SQL Database V12 伺服器位於資源群組中。
 | 40891 | EX\_USER | 每個資料庫最小 DTU (%d) 不能超過每個資料庫最大 DTU (%d)。| 每個資料庫最小 DTU；每個資料庫最大 DTU。| 嘗試設定高於每個資料庫最大 DTU 的每個資料庫最小 DTU。| 請確定每個資料庫最小 DTU 不會超過每個資料庫最大 DTU。|
 | TBD | EX\_USER | 彈性集區中個別資料庫的儲存空間大小不能超過 '%.*ls' 服務層彈性集區允許的最大大小。| 彈性集區服務層 | 資料庫的最大大小超過彈性集區服務層允許的最大大小。| 請設定彈性集區服務層允許之最大大小限制內的資料庫最大大小。|
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

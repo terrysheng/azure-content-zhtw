@@ -38,8 +38,8 @@ Azure 虛擬機器可讓您在雲端中建立和使用虛擬機器。提供所�
 
 VM 應考量的其他優點包括：
 
-**預付方案** -- Azure 可依據 VM 的大小和作業系統，以每小時價格方式收費。針對不足一小時的部分，Azure 只會收取使用分鐘數的費用。儲存體是個別定價與收費。如需詳細資訊，請參閱[虛擬機器定價](http://azure.microsoft.com/pricing/details/virtual-machines/)。
+**預付方案** -- Azure 可依據 VM 的大小和作業系統，以每小時價格方式收費。針對不足一小時的部分，Azure 只會收取使用分鐘數的費用。儲存體是個別定價與收費。如需詳細資訊，請參閱[虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/)。
 
 **恢復功能** -- Azure 會監視裝載各個執行中 VM 的實體硬體。如果執行 VM 的實體伺服器失敗，Azure 會在發現這個狀況時，將 VM 移至新硬體並重新啟動 VM。此程序有時稱為服務修復。Azure 也會透過在 Blob 儲存體中保留 VHD 的備援複本，以保護虛擬機器的資料。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

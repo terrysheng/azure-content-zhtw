@@ -27,13 +27,13 @@
 ##必要條件##
 本文假設您具有下列項目：
 
-- **Azure 訂用帳戶** - 如果您沒有的話，只需要幾分鐘的時間就可以建立帳戶。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。否則，請參閱[建立免費試用帳戶](http://azure.microsoft.com/pricing/free-trial/)。  
+- **Azure 訂用帳戶** - 如果您沒有的話，只需要幾分鐘的時間就可以建立帳戶。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。否則，請參閱[建立免費試用帳戶](https://azure.microsoft.com/pricing/free-trial/)。  
 
-- **Azure PowerShell 工具** - 您已安裝 Microsoft Azure PowerShell 模組，並設定為使用您的訂用帳戶。若要下載此模組，請參閱 [Azure 下載](http://azure.microsoft.com/downloads/)。這裡有安裝和設定模組的教學課程。您將使用 [Azure Downloads](http://azure.microsoft.com/downloads/) Cmdlet 上傳 VHD。
+- **Azure PowerShell 工具** - 您已安裝 Microsoft Azure PowerShell 模組，並設定為使用您的訂用帳戶。若要下載此模組，請參閱 [Azure 下載](https://azure.microsoft.com/downloads/)。這裡有安裝和設定模組的教學課程。您將使用 [Azure Downloads](https://azure.microsoft.com/downloads/) Cmdlet 上傳 VHD。
 
 - **安裝在 .vhd 檔案中的 FreeBSD 作業系統** - 您已將支援的 FreeBSD 作業系統安裝到虛擬硬碟中。有多項工具可用來建立 .vhd 檔案，例如，您可以使用虛擬化解決方案 (例如 Hyper-V) 來建立 .vhd 檔案並安裝作業系統。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
-> [AZURE.NOTE]Azure 不支援較新的 VHDX 格式。您可以使用 Hyper-V 管理員或 [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx) Cmdlet，將磁碟轉換為 VHD 格式。
+> [AZURE.NOTE] Azure 不支援較新的 VHDX 格式。您可以使用 Hyper-V 管理員或 [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx) Cmdlet，將磁碟轉換為 VHD 格式。
 
 這項工作包含下列五個步驟。
 
@@ -141,7 +141,7 @@
 
 	![容器名稱](./media/virtual-machines-freebsd-create-upload-vhd/storageaccount_containervalues.png)
 
-    > [AZURE.NOTE]容器預設為私人，且只能由帳戶擁有者存取。若要允許對容器中 Blob 的公開讀取存取，但不允許存取容器屬性和中繼資料，請使用 [公用 Blob] 選項。若要允許對容器及 Blob 的完整公開讀取存取，請使用 [公開容器] 選項。
+    > [AZURE.NOTE] 容器預設為私人，且只能由帳戶擁有者存取。若要允許對容器中 Blob 的公開讀取存取，但不允許存取容器屬性和中繼資料，請使用 [公用 Blob] 選項。若要允許對容器及 Blob 的完整公開讀取存取，請使用 [公開容器] 選項。
 
 ## 步驟 3：準備 Microsoft Azure 的連線 ##
 
@@ -209,4 +209,4 @@
 
 	![azure 中的 freebsd 映像](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

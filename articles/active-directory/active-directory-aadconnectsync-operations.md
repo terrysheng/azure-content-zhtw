@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect 同步處理：作業工作和考量
@@ -52,7 +52,7 @@
 1. 選取 [連接器]，並選取第一個類型為 [Active Directory 網域服務] 的連接器。按一下 [執行]，選取 [完整匯入] 和 [確定]。對這種類型的所有連接器執行此動作。
 2. 選取 [Azure Active Directory (Microsoft)] 類型的連接器。按一下 [執行]，選取 [完整匯入] 和 [確定]。
 4. 確定仍然選取連接器，並針對每一個 [Active Directory 網域服務] 類型的連接器按一下 [執行]、選取 [差異同步處理] 和 [確定]。
-5. 選取 [Azure Active Directory (Microsoft)] 類型的連接器。按一下 [執行]，選取 [差異同步處理]，然後選取 [確定]。
+5. 選取 **Azure Active Directory (Microsoft)** 類型的連接器。按一下 [執行]，選取 [差異同步處理]，然後選取 [確定]。
 
 您現在已預備匯出變更至 Azure AD 和內部部署 AD (如果您正在使用 Exchange 混合部署)。接下來的步驟可讓您在實際開始匯出至目錄之前，檢查將要變更的項目。
 
@@ -110,8 +110,8 @@
 如果未使用隨附於 Azure AD Connect 的 SQL Server Express，也應該考慮 SQL Server 的高可用性。唯一受支援的高可用性解決方案是 SQL 叢集。不支援的解決方案包括鏡像和永遠開啟。
 
 ## 後續步驟
-深入了解 [Azure AD Connect 同步處理](active-directory-aadconnectsync-whatis.md)組態。
+深入了解 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)組態。
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

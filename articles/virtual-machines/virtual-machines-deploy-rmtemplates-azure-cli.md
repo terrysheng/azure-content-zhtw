@@ -23,7 +23,7 @@
 - [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 - [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-本文會為您示範如何使用 Azure 資源管理員範本和 Azure CLI，執行下列部署和管理 Azure 虛擬機器的常見工作。如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[使用範本的應用程式架構](virtual-machines-app-frameworks.md)。
+本文會為您示範如何使用 Azure 資源管理員範本和 Azure CLI，執行下列部署和管理 Azure 虛擬機器的常見工作。如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)和[使用範本的應用程式架構](virtual-machines-app-frameworks.md)。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。您無法在傳統的部署模型中使用範本。
 
@@ -58,11 +58,11 @@
 
 ### 設定 Azure 帳戶和訂用帳戶
 
-如果您還沒有 Azure 訂閱帳戶，但是有 MSDN 訂閱帳戶，請啟用 [MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。或者申請[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+如果您還沒有 Azure 訂閱帳戶，但是有 MSDN 訂閱帳戶，請啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。或者申請[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 現在，輸入 `azure login` 並遵循提示來進行 Azure 帳戶的互動式登入體驗，[以互動方式登入您的 Azure 帳戶](../xplat-cli-connect.md#use-the-log-in-method)。
 
-> [AZURE.NOTE]如果您有公司或學校識別碼，而且知道尚未啟用雙因素驗證，則您「也」可以使用 `azure login -u` 再加上公司或學校識別碼，在「沒有」互動式工作階段的情況下進行登入。如果沒有公司或學校識別碼，您可以[從個人 Microsoft 帳戶建立公司或學校識別碼](resource-group-create-work-id-from-personal.md)，使用相同方式來登入。
+> [AZURE.NOTE] 如果您有公司或學校識別碼，而且知道尚未啟用雙因素驗證，則您「也」可以使用 `azure login -u` 再加上公司或學校識別碼，在「沒有」互動式工作階段的情況下進行登入。如果沒有公司或學校識別碼，您可以[從個人 Microsoft 帳戶建立公司或學校識別碼](resource-group-create-work-id-from-personal.md)，使用相同方式來登入。
 
 您的帳戶可能會有一個以上的訂閱帳戶。您可以輸入 `azure account list`，即可列出訂閱帳戶，如以下所示：
 
@@ -124,7 +124,7 @@
 
 第二，您將需要映像。若要利用 Azure CLI 尋找映像，請參閱[利用 PowerShell 和 Azure CLI 瀏覽和選取 Azure 虛擬機器映像](resource-groups-vm-searching.md)。不過在本文中，以下是常用映像的簡要清單。我們會使用 CoreOS 的 Stable 映像，縮短整個建立流程。
 
-> [AZURE.NOTE]對於 ComputeImageVersion，您也可以只提供 'latest' 做為範本語言和 Azure CLI 中的參數。這可讓您永遠使用最新且經過修補的映像版本，而不必修改您的指令碼或範本。如下所示。
+> [AZURE.NOTE] 對於 ComputeImageVersion，您也可以只提供 'latest' 做為範本語言和 Azure CLI 中的參數。這可讓您永遠使用最新且經過修補的映像版本，而不必修改您的指令碼或範本。如下所示。
 
 | PublisherName | 提供項目 | SKU | 版本 |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
@@ -1171,7 +1171,7 @@
     data:    vmSize                 String        Standard_A1
     info:    group deployment create command OK
 
-請注意，這個範本會部署 Windows Server 映像。不過，任何 Linux 映像都可以輕易取代它。想要建立一個具備多個 swarm 管理員的 Docker 叢集嗎？ [您做得到](http://azure.microsoft.com/documentation/templates/docker-swarm-cluster/)。
+請注意，這個範本會部署 Windows Server 映像。不過，任何 Linux 映像都可以輕易取代它。想要建立一個具備多個 swarm 管理員的 Docker 叢集嗎？ [您做得到](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/)。
 
 ## <a id="remove-a-resource-group"></a>工作：移除資源群組
 
@@ -1264,7 +1264,7 @@
     info:    vm show command OK
 
 
-> [AZURE.NOTE]如果您想要以程式設計方式儲存和操作主控台命令的輸出，可以使用 JSON 剖析工具，例如 **[jq](https://github.com/stedolan/jq)** 或 **[jsawk](https://github.com/micha/jsawk)** 或適用於該工作的語言程式庫。
+> [AZURE.NOTE] 如果您想要以程式設計方式儲存和操作主控台命令的輸出，可以使用 JSON 剖析工具，例如 **[jq](https://github.com/stedolan/jq)** 或 **[jsawk](https://github.com/micha/jsawk)** 或適用於該工作的語言程式庫。
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>工作：登入 Linux 架構的虛擬機器
 
@@ -1276,7 +1276,7 @@
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]萬一它是 Vnet 的最後一個 VM，您可以使用這個參數來保留 Vnet 的虛擬 IP (VIP)。<br><br>如果您使用 `StayProvisioned` 參數，仍需支付 VM 的費用。
+>[AZURE.IMPORTANT] 萬一它是 Vnet 的最後一個 VM，您可以使用這個參數來保留 Vnet 的虛擬 IP (VIP)。<br><br>如果您使用 `StayProvisioned` 參數，仍需支付 VM 的費用。
 
 ## <a id="start-a-virtual-machine"></a>工作：啟動 VM
 
@@ -1303,6 +1303,6 @@
 
 如需其他有關 Azure CLI 搭配 **arm** 模式使用的範例，請參閱[搭配 Azure 資源管理員使用適用於 Mac、Linux 和 Windows 的 Azure CLI](xplat-cli-azure-resource-manager.md)。若要深入了解 Azure 資源和概念，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。
 
-如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)和[使用範本的應用程式架構](virtual-machines-app-frameworks.md)。
+如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)和[使用範本的應用程式架構](virtual-machines-app-frameworks.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -47,7 +47,7 @@
 ## 必要條件
 
 - 您必須有儲存體帳戶可進行擴充，以儲存產生的 zip 檔案。
-- 您必須確定使用的是 Azure PowerShell Cmdlet V0.8.0 或更新版本。如需詳細資訊，請參閱 [Azure 下載](http://azure.microsoft.com/downloads/)。
+- 您必須確定使用的是 Azure PowerShell Cmdlet V0.8.0 或更新版本。如需詳細資訊，請參閱 [Azure 下載](https://azure.microsoft.com/downloads/)。
 
 ## 新增延伸模組
 
@@ -126,7 +126,7 @@
         $AdditionalDataList+= $a1
               #more locations can be added....
   
-    > [AZURE.NOTE]您可以使用權杖 `%roleroot%` 來指定角色的根磁碟機，因為它不會使用固定磁碟機。
+    > [AZURE.NOTE] 您可以使用權杖 `%roleroot%` 來指定角色的根磁碟機，因為它不會使用固定磁碟機。
 
 4. 提供收集到的檔案要上傳到的 Azure 儲存體帳戶名稱和金鑰。
 
@@ -521,4 +521,4 @@ SetAzureVMLogCollector.ps1
 
 現在，您可以從一個非常簡單的位置檢查或複製您的記錄檔。
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 預覽：驗證通訊協定
@@ -23,12 +23,12 @@ Azure AD B2C 支援 OpenID Connect 與 OAuth 2.0 兩種業界標準通訊協定�
 <!-- TODO: Need link to libraries above -->
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-	
-## 基本概念
-使用 Azure AD B2C 的每個應用程式都必須在 [Azure 入口網站](https://portal.azure.com)中您的 B2C 目錄中註冊。應用程式註冊處理序會收集與指派一些值給您的應用程式：
 
-- 可唯一識別應用程式的**應用程式 ID**
-- 可將回應導回應用程式的**重新導向 URI** 或**封裝識別碼**
+## 基本概念
+使用 Azure AD B2C 的每個應用程式都必須在 [Azure 入口網站](https://portal.azure.com/)中您的 B2C 目錄中註冊。應用程式註冊處理序會收集與指派一些值給您的應用程式：
+
+- 可唯一識別應用程式的**應用程式識別碼**
+- 可將回應導回至應用程式的**重新導向 URI**或**封裝識別碼**
 - 其他幾個狀況特定的值。如需詳細資訊，請瞭解關於如何[註冊應用程式](active-directory-b2c-app-registration.md)的資訊。
 
 註冊完成後，應用程式即會向 v2.0 端點傳送要求以與 Azure AD 通訊：
@@ -44,7 +44,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 - **授權伺服器**為 Azure AD v2.0 端點。其負責確保使用者的身分識別、授與及撤銷資源存取權，以及核發權杖。其也稱作為識別提供者：安全地處理與使用者資訊、使用者存取權，以及流程中合作對象彼此間信任關係有關的任何項目。
 - **資源擁有者**通常是使用者。其是擁有資料的一方，而且有權允許第三方存取該資料或資源。
-- **OAuth 用戶端**是您的應用程式，系統會透過其「應用程式識別碼」加以識別。其通常是與使用者互動的對象，而且會向授權伺服器要求權杖。用戶端必須獲得資源擁有者授權才能存取資源。
+- **OAuth 用戶端**是您的應用程式，透過其應用程式識別碼加以識別。其通常是與使用者互動的對象，而且會向授權伺服器要求權杖。用戶端必須獲得資源擁有者授權才能存取資源。
 - **資源伺服器**是資源或資料所在位置。其信任授權伺服器會安全地驗證及授權 OAuth 用戶端，並使用 Bearer access\_token 來確保可以授與資源的存取權。
 
 ## 原則
@@ -70,4 +70,4 @@ Azure AD B2C 的 OAuth 2.0 和 OpenID Connect 實作廣泛運用持有人權杖�
 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

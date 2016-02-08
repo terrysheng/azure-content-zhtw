@@ -19,7 +19,7 @@
 	
 # Azure App Service：調整 App Service 應用程式
 
-Azure App Service 可裝載[大規模](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage)的應用程式；不過，調整應用程式是十分複雜的問題，沒有「一體適用」的解決方案。若要正確調整您的應用程式，下列 3 項要點可協助您順利進行：
+Azure App Service 可裝載[大規模](https://azure.microsoft.com/blog/canadian-broadcasting-corporation-radio-canada-leverage-azure-for-smooth-election-coverage/)的應用程式；不過，調整應用程式是十分複雜的問題，沒有「一體適用」的解決方案。若要正確調整您的應用程式，下列 3 項要點可協助您順利進行：
 
 1. 了解您的應用程式架構和其缺點。
 	* 您的應用程式是否可設定狀態？ 沒有狀態？
@@ -38,4 +38,4 @@ Azure App Service 可裝載[大規模](https://azure.microsoft.com/blog/canadian
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

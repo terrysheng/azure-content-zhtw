@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tdykstra"/>
 
 # 使用 WebJob 執行背景工作
@@ -42,7 +42,7 @@ Azure WebJobs SDK 能簡化許多 WebJobs 程式設計工作。如需詳細資�
 
 ## <a name="CreateOnDemand"></a>在入口網站中建立依需求執行的 WebJob
 
-1. 在 [Azure 入口網站](http://portal.azure.com)的 [**Web 應用程式**] 刀鋒視窗中，按一下 **[所有設定] > [WebJob]** 以顯示 [**WebJob**] 刀鋒視窗。
+1. 在 [Azure 入口網站](https://portal.azure.com)的 [**Web 應用程式**] 刀鋒視窗中，按一下 **[所有設定] > [WebJob]** 以顯示 [**WebJob**] 刀鋒視窗。
 	
 	![WebJob 刀鋒視窗](./media/web-sites-create-web-jobs/wjblade.png)
 	
@@ -70,7 +70,7 @@ Azure WebJobs SDK 能簡化許多 WebJobs 程式設計工作。如需詳細資�
 
 2. 若要開始或停止連續執行的 WebJob，可在清單中使用滑鼠右鍵按一下該 WebJob，然後按一下 [**開始**] 或 [**停止**]。
 	
-> [AZURE.NOTE]如果您的 Web 應用程式會執行多個執行個體，則連續執行的 WebJob 將會在您的所有執行個體上執行。依需求和排定的 WebJob 會在 Microsoft Azure 為負載平衡而選取的單一執行個體上執行。
+> [AZURE.NOTE] 如果您的 Web 應用程式會執行多個執行個體，則連續執行的 WebJob 將會在您的所有執行個體上執行。依需求和排定的 WebJob 會在 Microsoft Azure 為負載平衡而選取的單一執行個體上執行。
 	
 > 若要讓連續 WebJobs 能夠在所有執行個體上可靠地執行，請對 Web 應用程式啟用 [永遠開啟] 組態設定，否則當 SCM 主機網站閒置太久時，其可能會停止執行。
 
@@ -201,7 +201,7 @@ Azure 入口網站尚未具備建立排程 WebJob 的能力，但在加入該功
 - [基本] 和 [標準] 模式能提供「永遠開啟」功能，此功能在啟用後能預防 Web 應用程式進入閒置狀態。
 - 您僅可偵錯連續執行的 WebJobs。不支援偵錯排程或隨選的 WebJobs。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## <a name="NextSteps"></a>後續步驟
  
@@ -239,4 +239,4 @@ Azure 入口網站尚未具備建立排程 WebJob 的能力，但在加入該功
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

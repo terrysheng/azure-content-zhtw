@@ -26,6 +26,7 @@
 - 位於裝載資料庫的同一部電腦上或個別電腦上的資料管理閘道，可避免與資料庫競用資源。資料管理閘道是一套透過安全且可管理的方式，將內部部署資料來源連結至雲端服務的軟體。如需資料管理閘道的詳細資訊，請參閱[在內部部署和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文。 
 - [適用於 Windows 的 Oracle 資料存取元件 (ODAC)](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html)。它必須安裝於安裝閘道的主機電腦上。
 
+> [AZURE.NOTE] 如需連接/閘道器相關問題的疑難排解秘訣，請參閱[閘道器疑難排解](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)。
 
 ## 範例：從 Oracle 複製資料到 Azure Blob
 
@@ -300,4 +301,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

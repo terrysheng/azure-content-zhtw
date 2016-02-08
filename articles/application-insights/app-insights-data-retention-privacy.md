@@ -92,7 +92,7 @@ Application Insights SDK 可用於多種應用程式類型：裝載於您自己�
 
 ## 資料保留多久？ 
 
-這取決於您的[定價方案](http://azure.microsoft.com/pricing/details/application-insights/)。
+這取決於您的[定價方案](https://azure.microsoft.com/pricing/details/application-insights/)。
 
 未處理的資料點 (即您可以在 [診斷搜尋] 中檢查的項目)：7 至 30 天。
 
@@ -264,4 +264,4 @@ SDK 診斷 | 追蹤訊息或例外狀況
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

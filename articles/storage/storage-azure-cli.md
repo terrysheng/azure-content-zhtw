@@ -19,19 +19,19 @@
 
 ## 概觀
 
-Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用在 Azure 平台上。它提供許多與 [Azure 入口網站](portal.azure.com)相同的功能，以及豐富的資料存取功能。
+Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用在 Azure 平台上。它提供許多與 [Azure 入口網站](https://portal.azure.com)相同的功能，以及豐富的資料存取功能。
 
 在本指南中，我們將探討如何使用 [Azure 命令列介面 (Azure CLI)](../xplat-cli-install.md) 搭配 Azure 儲存體執行各種開發和管理工作。建議您在使用本指南之前，先下載並安裝或升級至最新的 Azure CLI。
 
 本指南假設您已了解 Azure 儲存體的基本概念。本指南提供許多指令碼示範如何使用 Azure CLI 搭配 Azure 儲存體。在執行每個指令碼之前，請務必先根據您的組態更新指令碼變數。
 
-> [AZURE.NOTE]本指南提供在 Azure 服務管理模式 (ASM) 中執行的 Azure CLI 命令和指令碼範例。如需在 Azure 資源管理(ARM) 模式中適用儲存體的 Azure CLI 命令，請參閱[使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 資源管理](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)。
+> [AZURE.NOTE] 本指南提供在 Azure 服務管理模式 (ASM) 中執行的 Azure CLI 命令和指令碼範例。如需在 Azure 資源管理(ARM) 模式中適用儲存體的 Azure CLI 命令，請參閱[使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 資源管理](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)。
 
 ## 在 5 分鐘內開始使用 Azure 儲存體和 Azure CLI
 
 本指南使用 Ubuntu 作為範例，但其他作業系統平台也同樣能夠執行。
 
-**Azure 新手：**取得 Microsoft Azure 訂用帳戶和與該訂用帳戶相關聯的 Microsoft 帳戶。如需 Azure 購買選項的資訊，請參閱[免費試用](http://azure.microsoft.com/pricing/free-trial/)、[購買選項](http://azure.microsoft.com/pricing/purchase-options/)和[會員優惠](http://azure.microsoft.com/pricing/member-offers/) (適用於 MSDN、Microsoft 合作夥伴網路、BizSpark 和其他 Microsoft 方案的成員)。
+**Azure 新手：**取得 Microsoft Azure 訂用帳戶和與該訂用帳戶相關聯的 Microsoft 帳戶。如需 Azure 購買選項的資訊，請參閱[免費試用](https://azure.microsoft.com/pricing/free-trial/)、[購買選項](https://azure.microsoft.com/pricing/purchase-options/)和[會員優惠](https://azure.microsoft.com/pricing/member-offers/) (適用於 MSDN、Microsoft 合作夥伴網路、BizSpark 和其他 Microsoft 方案的成員)。
 
 如需有關 Azure 帳戶的詳細資訊，請參閱[管理帳戶、訂用帳戶和系統管理角色](https://msdn.microsoft.com/library/azure/hh531793.aspx)。
 
@@ -129,7 +129,7 @@ Azure 儲存體中的每個 Blob 必須位於一個容器中。您可以使用 `
 
         azure storage container create mycontainer
 
-> [AZURE.NOTE]匿名讀取權限有三個層級：**Off**、**Blob** 和 **Container**。若要防止匿名存取 Blob，請將 Permission 參數設定為 **Off**。新容器預設為私人，且只能由帳戶擁有者存取。若要允許 Blob 資源的匿名公開讀取權限，但不允許容器中繼資料或容器中 Blob 清單的匿名公開讀取權限，請將 Permission 參數設定為 **Blob**。若要允許 Blob 資源、容器中繼資料或容器中 Blob 清單的完整公開讀取權限，請將 Permission 參數設定為 **Container**。如需詳細資訊，請參閱[管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)。
+> [AZURE.NOTE] 匿名讀取權限有三個層級：**Off**、**Blob** 和 **Container**。若要防止匿名存取 Blob，請將 Permission 參數設定為 **Off**。新容器預設為私人，且只能由帳戶擁有者存取。若要允許 Blob 資源的匿名公開讀取權限，但不允許容器中繼資料或容器中 Blob 清單的匿名公開讀取權限，請將 Permission 參數設定為 **Blob**。若要允許 Blob 資源、容器中繼資料或容器中 Blob 清單的完整公開讀取權限，請將 Permission 參數設定為 **Container**。如需詳細資訊，請參閱[管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)。
 
 ### 將 Blob 上傳至容器
 
@@ -215,10 +215,10 @@ Azure 檔案共用是 Azure 中的 SMB 檔案共用。所有目錄和檔案都�
 
 以下是有助於您深入了解 Azure 儲存體的一些相關文章和資源。
 
-- [Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
+- [Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
 - [Azure 儲存體 REST API 參考](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

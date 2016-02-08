@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/25/2015"
+	ms.date="01/28/2016"
 	ms.author="jgao"/>
 
 
@@ -22,9 +22,9 @@
 
 Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智慧 (BI) 元件與 Azure HDInsight 上的 Hadoop 叢集相整合。舉例來說，此整合可讓您使用 Microsoft Power Query for Excel 增益集，將 Excel 連接到包含 Hadoop 叢集相關聯資料的 Azure 儲存體帳戶。本文將逐步解說如何設定及使用 Power Query，以查詢受 HDInsight 管理的 Hadoop 叢集相關聯資料。
 
-> [AZURE.NOTE]本文中的步驟雖然可以與 Linux 或 Windows 架構的 HDInsight 叢集搭配使用，但用戶端工作站需要有 Windows。
+> [AZURE.NOTE] 本文中的步驟雖然可以與 Linux 或 Windows 架構的 HDInsight 叢集搭配使用，但用戶端工作站需要有 Windows。
 
-## 必要條件
+### 必要條件
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
@@ -33,13 +33,13 @@ Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智�
 - **Office 2013 Professional Plus、Office 365 Pro Plus、Excel 2013 Standalone 或 Office 2010 Professional Plus**。
 
 
-## <a id="InstallPowerQuery"></a>安裝 Microsoft Power Query for Excel
+## 安裝 Power Query
 
 Power Query 可讓您將各種來源的資料匯入 Microsoft Excel 中，以輔助 BI 工具 (例如 PowerPivot 和 Power View) 的運作。特別是，Power Query 可匯入在 HDInsight 叢集上執行的 Hadoop 工作所匯出或產生的資料。
 
 從 [Microsoft 下載中心][powerquery-download]下載並安裝 Microsoft Power Query for Excel。
 
-## <a id="ImportData"></a>將 HDInsight 資料匯入 Excel 中
+## 將 HDInsight 資料匯入 Excel 中
 
 Power Query add-in for Excel 可協助您將 HDInsight 叢集中的資料匯入至 Excel，以便使用 PowerPivot 和 Power Map 等 BI 工具來檢查、分析及呈現資料。
 
@@ -57,21 +57,21 @@ Power Query add-in for Excel 可協助您將 HDInsight 叢集中的資料匯入�
 
 	**附註：** Power Query 也可讓您從 HDFS 匯入資料，方法是按一下 [從其他來源]。
 
-3. 對於 [**帳戶名稱**]，輸入叢集相關 Azure Blob 儲存體帳戶的名稱，然後按一下 [**確定**]。
+3. 對於 [**帳戶名稱**]，輸入叢集相關 Azure Blob 儲存體帳戶的名稱，然後按一下 [**確定**]。這可以是[預設儲存體帳戶](hdinsight-administer-use-management-portal.md#find-the-default-storage-account)或連結儲存體帳戶。其格式為 *https://<StorageAccountName>.blob.core.windows.net/*。
 
 4. 對於 [**帳戶金鑰**]，輸入 Blob 儲存體帳戶的金鑰，然後按一下 [**儲存**]。(只有在第一次存取此存放區時需要執行此動作。)
 
 5. 在 [查詢編輯器] 左側的 [**瀏覽器**] 窗格中，按兩下 Blob 儲存體容器名稱。依預設，容器名稱與叢集名稱相同。
 
-6. 在 [名稱] 欄中找出 **HiveSampleData.txt** (資料夾路徑為 **../hive/warehouse/hivesampletable/**)，然後按一下 HiveSampleData.txt 左側的 [二進位]。
+6. 在 [名稱] 欄中找出 **HiveSampleData.txt** (資料夾路徑為 **../hive/warehouse/hivesampletable/**)，然後按一下 HiveSampleData.txt 左側的 [二進位]。HiveSampleData.txt 隨附於所有叢集。您也可以選擇使用您自己的檔案。
 
 	![HDI.PowerQuery.ImportData][image-hdi-powerquery-importdata]
 
-7. 如有需要，您可以將欄名稱重新命名。請在準備就緒後，按一下 [Apply & Close]。
+7. 如有需要，您可以將欄名稱重新命名。請在準備就緒後，按一下 [關閉並載入]。資料已載入至您的活頁簿：
 
 	![HDI.PowerQuery.ImportedTable][image-hdi-powerquery-imported-table]
 
-## <a id="NextSteps"></a>接續步驟
+## 後續步驟
 
 在本文中，您已了解到如何使用 Power Query 將 HDInsight 中的資料擷取至 Excel。同樣地，您也可以將 HDInsight 中的資料擷取至 Azure SQL Database。此外也可以將資料上傳至 HDInsight。若要深入了解，請參閱下列文章：
 
@@ -88,4 +88,4 @@ Power Query add-in for Excel 可協助您將 HDInsight 叢集中的資料匯入�
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -106,13 +106,13 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
 
 ###使用 Azure AD 應用程式庫
 
-[Azure Active Directory 應用程式資源庫](http://azure.microsoft.com/marketplace/active-directory/all/)提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單。
+[Azure Active Directory 應用程式資源庫](https://azure.microsoft.com/marketplace/active-directory/all/)提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單。
 
 ![][1]
 
 以下是尋找應用程式支援哪些功能的一些提示：
 
-*	Azure AD 支援自動佈建和解除佈建 [Azure Active Directory 應用程式資源庫](http://azure.microsoft.com/marketplace/active-directory/all/)中所有「精選的」應用程式。
+*	Azure AD 支援自動佈建和解除佈建 [Azure Active Directory 應用程式資源庫](https://azure.microsoft.com/marketplace/active-directory/all/)中所有「精選的」應用程式。
 
 *	在[這裡](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx)則可以找到特別支援使用如 SAML，WS-同盟或 OpenID Connect 通訊協定之同盟單一登入的同盟應用程式清單。
 
@@ -131,7 +131,7 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
-*	**要求應用程式整合** - 使用 [Azure AD 意見反應論壇](http://feedback.azure.com/forums/169401-azure-active-directory)要求所需應用程式的支援。
+*	**要求應用程式整合** - 使用 [Azure AD 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/)要求所需應用程式的支援。
 
 ###使用 Azure 管理入口網站
 
@@ -168,7 +168,7 @@ Azure AD 提供幾種可自訂的方式，來對您組織中的使用者部署�
 
 ###Azure AD 存取面板
 
-位於 https://myapps.microsoft.com 的 [存取面板] 是一種 Web 入口網站，可讓 Azure Active Directory 中擁有組織帳戶的使用者檢視和啟動 Azure AD 系統管理員已授與他們存取權的雲端應用程式。如果您是 [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/) 的使用者，您也可以透過 [存取面板] 使用自助式群組管理功能。
+位於 https://myapps.microsoft.com 的 [存取面板] 是一種 Web 入口網站，可讓 Azure Active Directory 中擁有組織帳戶的使用者檢視和啟動 Azure AD 系統管理員已授與他們存取權的雲端應用程式。如果您是 [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/) 的使用者，您也可以透過 [存取面板] 使用自助式群組管理功能。
 
 ![][3]
 
@@ -220,4 +220,4 @@ Azure AD 也支援對支援密碼單一登入、現有單一登入，以及任�
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

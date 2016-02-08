@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 
@@ -25,7 +25,7 @@
 
 本文件將逐步引導您安裝和設定適用於 AD FS 的 Azure AD Connect Health 代理程式與同步處理。
 
->[AZURE.NOTE]請記住，在 Azure AD Connect Health 執行個體中出現任何 AD FS 資料之前，您必須先在目標伺服器上安裝 Azure AD Connect Health 代理程式。請務必在安裝代理程式之前，先完成[這裡](active-directory-aadconnect-health.md#requirements)的需求。您可以在[這裡](http://go.microsoft.com/fwlink/?LinkID=518973)下載代理程式：
+>[AZURE.NOTE]請記住，您必須先在目標伺服器上安裝 Azure AD Connect Health 代理程式，才會在 Azure AD Connect Health 執行個體中看見 AD FS 資料。請務必在安裝代理程式之前，先完成[這裡](active-directory-aadconnect-health.md#requirements)的需求。您可以在[這裡](http://go.microsoft.com/fwlink/?LinkID=518973)下載代理程式：
 
 
 ## 安裝適用於 AD FS 的 Azure AD Connect Health 代理程式
@@ -112,7 +112,7 @@
 
 ![AD FS 稽核記錄](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 
-> [AZURE.WARNING]如果您有即將停用 AD FS 稽核的群組原則，則 Azure AD Connect Health 代理程式將無法收集資訊。請確定您沒有可能即將停用稽核的群組原則。
+> [AZURE.WARNING] 如果您有即將停用 AD FS 稽核的群組原則，則 Azure AD Connect Health 代理程式將無法收集資訊。請確定您沒有可能即將停用稽核的群組原則。
 
 [//]: # "Start of Agent Proxy Configuration Section"
 
@@ -126,7 +126,7 @@
  
 ![驗證適用於同步處理的 Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/services.png)
 
->[Azure.NOTE]請記住，使用 Azure AD Connect Health 需要 Azure AD Premium。如果您沒有 Azure AD Premium，將無法完成 Azure 入口網站中的組態。如需詳細資訊，請參閱[此處](active-directory-aadconnect-health.md#requirements)的需求。
+>[Azure.NOTE] 請記住，使用 Azure AD Connect Health 需要 Azure AD Premium。如果您沒有 Azure AD Premium，將無法完成 Azure 入口網站中的組態。如需詳細資訊，請參閱[此處](active-directory-aadconnect-health.md#requirements)的需求。
 
 
 
@@ -134,12 +134,13 @@
 ## 設定 Azure AD Connect Health 代理程式使用 HTTP Proxy
 您可以設定 Azure AD Connect Health 代理程式使用 HTTP Proxy。
 
->[AZURE.NOTE]- 使用 “Netsh WinHttp set ProxyServerAddress” 將無作用，因為代理程式使用 System.Net (而非 Microsoft Windows HTTP 服務) 產生 Web 要求。- 已設定的 Http Proxy 位址將用於傳遞已加密的 Https 訊息。- 不支援已驗證的 Proxy (使用 HTTPBasic)。
+>[AZURE.NOTE]
+- 使用 “Netsh WinHttp set ProxyServerAddress” 將無作用，因為代理程式使用 System.Net (而非 Microsoft Windows HTTP 服務) 產生 Web 要求。- 已設定的 Http Proxy 位址將用於傳遞已加密的 Https 訊息。- 不支援已驗證的 Proxy (使用 HTTPBasic)。
 
 ### 變更健康情況代理程式 Proxy 組態
 您有下列選項來設定 Azure AD Connect Health 代理程式使用 HTTP Proxy。
 
->[AZURE.NOTE]您必須重新啟動所有 Azure AD Connect Health 代理程式服務，Proxy 設定才會更新。執行下列命令：<br> Restart-Service AdHealth*
+>[AZURE.NOTE] 您必須重新啟動所有 Azure AD Connect Health 代理程式服務，Proxy 設定才會更新。執行下列命令：<br> Restart-Service AdHealth*
 
 #### 匯入現有的 Proxy 設定
 
@@ -182,8 +183,8 @@
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health 操作](active-directory-aadconnect-health-operations.md)
-* [使用 Azure AD Connect Health 來搭配 AD FS](active-directory-aadconnect-health-adfs.md)
+* [在 AD FS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
 * [使用 Azure AD Connect Health 進行同步處理](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

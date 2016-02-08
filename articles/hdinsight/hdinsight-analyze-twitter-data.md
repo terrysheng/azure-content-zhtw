@@ -20,17 +20,17 @@
 
 社群網站是驅使採用巨量資料的其中一個主要動力。像 Twitter 之類的網站所提供的公開 API，是分析和了解流行趨勢的一項實用的資料來源。在本教學課程中，您將使用 Twitter 串流 API 取得推文，然後使用 Apache Hive on Azure HDInsight 取得傳送了最多內含特定文字之推文的 Twitter 使用者清單。
 
-> [AZURE.NOTE]此文件中的步驟需要以 Windows 為基礎的 HDInsight 叢集。如需 Linux 型叢集的特定步驟，請參閱[在 HDInsight (Linux) 中使用 Hive 分析 Twitter 資料](hdinsight-analyze-twitter-data-linux.md)。
+> [AZURE.NOTE] 此文件中的步驟需要以 Windows 為基礎的 HDInsight 叢集。如需 Linux 型叢集的特定步驟，請參閱[在 HDInsight (Linux) 中使用 Hive 分析 Twitter 資料](hdinsight-analyze-twitter-data-linux.md)。
 
 
 
-> [AZURE.TIP]HDInsight 範例資源庫中有類似範例。觀看 Channel 9 影片：<a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">使用 Apache Hive in HDInsight 分析 Twitter 趨勢</a>
+> [AZURE.TIP] HDInsight 範例資源庫中有類似範例。觀看 Channel 9 影片：<a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">使用 Apache Hive in HDInsight 分析 Twitter 趨勢</a>
 
 ###必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- 已安裝並設定 Azure PowerShell 的**工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。若要執行 Windows PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[執行 Windows PowerShell 指令碼][powershell-script]。
+- 已安裝並設定 Azure PowerShell 的**工作站**。請參閱[安裝和使用 Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。若要執行 Windows PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[執行 Windows PowerShell 指令碼][powershell-script]。
 
 	執行 Windows PowerShell 指令碼之前，請確定您已使用下列 Cmdlet 連接到 Azure 訂用帳戶：
 
@@ -57,7 +57,7 @@ tutorials/twitter/twitter.hql|HiveQL 指令碼檔案。
 
 在本教學課程中，您將使用 [Twitter 串流 API][twitter-streaming-api]。您將使用的特定 Twitter 串流 API 為 [statuses/filter][twitter-statuses-filter]。
 
->[AZURE.NOTE]已在公用 Blob 容器中上傳含有 10,000 則推文的檔案和 Hive 指令碼檔案 (下一節說明)。如果想要使用上傳的檔案，可以略過這一節。
+>[AZURE.NOTE] 已在公用 Blob 容器中上傳含有 10,000 則推文的檔案和 Hive 指令碼檔案 (下一節說明)。如果想要使用上傳的檔案，可以略過這一節。
 
 [推文資料](https://dev.twitter.com/docs/platform-objects/tweets)會以包含複雜巢狀結構的 JavaScript 物件標記法 (JSON) 格式儲存。您可以不要使用慣用的程式設計語言撰寫多行程式碼，而將此巢狀結構轉換成 Hive 資料表，以利用 HiveQL 這種類似結構化查詢語言 (SQL) 的語言來查詢資料表。
 
@@ -86,7 +86,7 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 
 在本教學課程中，您將使用 Windows PowerShell 發出 Web 服務呼叫。如需 .NET C# 範例，請參閱[使用 HDInsight 中的 HBase 分析即時的 Twitter 情緒][hdinsight-hbase-twitter-sentiment]。另一項常用來發出 Web 服務呼叫的工具，是 [*Curl*][curl]。Curl 可從[這裡][curl-download]下載取得。
 
->[AZURE.NOTE]在 Windows 上使用 curl 命令時，對選項值請使用雙引號，而不要使用單引號。
+>[AZURE.NOTE] 在 Windows 上使用 curl 命令時，對選項值請使用雙引號，而不要使用單引號。
 
 **取得推文**
 
@@ -224,10 +224,10 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 變數|說明
 ---|---
 $clusterName|這是您要執行應用程式的 HDInsight 叢集名稱。
-$oauth\_consumer\_key|這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式**消費者金鑰**。
-$oauth\_consumer\_secret|這是您先前記下的 Twitter 應用程式**消費者密碼**。
-$oauth\_token|這是您先前記下的 Twitter 應用程式**存取權杖**。
-$oauth\_token\_secret|這是您先前記下的 Twitter 應用程式**存取權杖密碼**。
+$oauth_consumer_key|這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式**消費者金鑰**。
+$oauth_consumer_secret|這是您先前記下的 Twitter 應用程式**消費者密碼**。
+$oauth_token|這是您先前記下的 Twitter 應用程式**存取權杖**。
+$oauth_token_secret|這是您先前記下的 Twitter 應用程式**存取權杖密碼**。
 $destBlobName|這是輸出 Blob 名稱。預設值為 **tutorials/twitter/data/tweets.txt**。如果您變更預設值，則 Windows PowerShell 指令碼也必須隨之變更。
 $trackString|Web 服務會傳回這些關鍵字的相關推文。預設值為 **Azure, Cloud, HDInsight**。如果您變更預設值，則 Windows PowerShell 指令碼也要隨之變更。
 $lineMax|此值會決定指令碼所將讀取的推文數。讀取 100 則推文大約需要三分鐘。您可以設定更大的數目，但下載時間將會較久。
@@ -243,7 +243,7 @@ $lineMax|此值會決定指令碼所將讀取的推文數。讀取 100 則推文
 
 使用 Azure PowerShell 可讓您逐一執行多個 HiveQL 陳述式，或將 HiveQL 陳述式封裝到指令碼檔案中。在本教學課程中，您將會建立 HiveQL 指令碼。指令碼檔案必須上傳至 Azure Blob 儲存體。在下一節中，您將使用 Azure PowerShell 執行指令碼檔案。
 
->[AZURE.NOTE]已在公用 Blob 容器中上傳 Hive 指令碼檔案和含有 10,000 則推文的檔案。如果想要使用上傳的檔案，可以略過這一節。
+>[AZURE.NOTE] 已在公用 Blob 容器中上傳 Hive 指令碼檔案和含有 10,000 則推文的檔案。如果想要使用上傳的檔案，可以略過這一節。
 
 HiveQL 指令碼將執行下列作業：
 
@@ -454,7 +454,7 @@ $hqlScriptFile|HiveQL 指令碼檔案的位置和檔案名稱。您無須變更�
 
 使用下列 Window PowerShell 指令碼可執行 Hive 指令碼。您必須設定第一個變數。
 
->[AZURE.NOTE]若要使用您在上兩節中上傳的推文和 HiveQL 指令碼，請將 $hqlScriptFile 設定為 "/tutorials/twitter/twitter.hql"。若要使用已為您上傳至公用 Blob 的檔案，請將 $hqlScriptFile 設定為 "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"。
+>[AZURE.NOTE] 若要使用您在上兩節中上傳的推文和 HiveQL 指令碼，請將 $hqlScriptFile 設定為 "/tutorials/twitter/twitter.hql"。若要使用已為您上傳至公用 Blob 的檔案，請將 $hqlScriptFile 設定為 "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql"。
 
 	#region variables and constants
 	$clusterName = "<Existing Azure HDInsight Cluster Name>"
@@ -527,7 +527,7 @@ $hqlScriptFile|HiveQL 指令碼檔案的位置和檔案名稱。您無須變更�
 	Write-Host "==================================" -ForegroundColor Green
 	#end region
 
-> [AZURE.NOTE]Hive 資料表會使用 \\001 做為欄位分隔符號。此分隔符號不會顯示在輸出中。
+> [AZURE.NOTE] Hive 資料表會使用 \\001 做為欄位分隔符號。此分隔符號不會顯示在輸出中。
 
 分析結果列示在 Azure Blob 儲存體之後，您可以將資料匯出至 Azure SQL Database/SQL Server，使用 Power Query 將資料匯出至 Excel，或使用 Hive ODBC 驅動程式將應用程式連接到資料。如需詳細資訊，請參閱[搭配 HDInsight 使用 Sqoop][hdinsight-use-sqoop]、[使用 HDInsight 分析航班延誤資料][hdinsight-analyze-flight-delay-data]、[使用 Power Query 將 Excel 連接到 HDInsight][hdinsight-power-query] 和[使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight][hdinsight-hive-odbc]。
 
@@ -565,4 +565,4 @@ $hqlScriptFile|HiveQL 指令碼檔案的位置和檔案名稱。您無須變更�
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

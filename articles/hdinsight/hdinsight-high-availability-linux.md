@@ -21,7 +21,7 @@
 
 第二個前端節點會由 Azure HDInsight 部署之以 Linux 為基礎的 Hadoop 叢集使用。這可讓 Azure 中執行的 Hadoop 服務與工作更加可用和可靠。
 
-> [AZURE.NOTE]此文件中使用的步驟是針對以 Linux 為基礎的 HDInsight 叢集。如果您使用以 Windows 為主的叢集，如需 Windows 特定的資訊，請參閱 [HDInsight 上以 Windows 為主的 Hadoop 叢集可用性和可靠性](hdinsight-high-availability.md)。
+> [AZURE.NOTE] 此文件中使用的步驟是針對以 Linux 為基礎的 HDInsight 叢集。如果您使用以 Windows 為主的叢集，如需 Windows 特定的資訊，請參閱 [HDInsight 上以 Windows 為主的 Hadoop 叢集可用性和可靠性](hdinsight-high-availability.md)。
 
 ##了解前端節點
 
@@ -29,7 +29,7 @@ Hadoop 的某些實作具有單一前端節點，其可裝載服務和元件，�
 
 HDInsight 叢集提供次要的前端節點，在主要節點失敗時，可讓主要服務和元件繼續在次要節點上執行。
 
-> [AZURE.IMPORTANT]這兩個前端節點會同時為作用中和在叢集中執行。某些服務，例如 HDFS 或 YARN，在任何給定的時間僅能在其中一個前端節點上為「作用中」(而在其他前端節點上為「待命」)。HiveServer2 或 Hive MetaStore 等其他服務可同時在這兩個前端節點上作用。
+> [AZURE.IMPORTANT] 這兩個前端節點會同時為作用中和在叢集中執行。某些服務，例如 HDFS 或 YARN，在任何給定的時間僅能在其中一個前端節點上為「作用中」(而在其他前端節點上為「待命」)。HiveServer2 或 Hive MetaStore 等其他服務可同時在這兩個前端節點上作用。
 
 [ZooKeeper](http://zookeeper.apache.org/) 節點 (ZK) 用於前端節點上主要服務的前置選擇，並可確保服務、資料 (背景工作角色) 節點和閘道知道主要服務在哪一個前端節點上為作用中。
 
@@ -128,7 +128,7 @@ Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。將 **CLUST
 
 ###Ambari
 
-> [AZURE.NOTE]因為個別服務的網站不會在網際網路上公開，所以透過 Ambari 存取記錄檔需要 SSH 通道。如需使用 SSH 通道的相關資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
+> [AZURE.NOTE] 因為個別服務的網站不會在網際網路上公開，所以透過 Ambari 存取記錄檔需要 SSH 通道。如需使用 SSH 通道的相關資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
 
 從 Ambari Web UI 中，選取您想要檢視記錄檔的服務 (例如 YARN)，然後使用 [快速連結] 選取要檢視哪一個前端節點的記錄檔。
 
@@ -136,7 +136,7 @@ Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。將 **CLUST
 
 ## 如何設定前端節點的大小 ##
 
-只能在叢集建立期間選取前端節點的大小。您可以在 [HDInsight 定價頁面](http://azure.microsoft.com/pricing/details/hdinsight/)找到 HDInsight 可用之不同 VM 大小的清單，包括個別的核心、記憶體和本機儲存體。
+只能在叢集建立期間選取前端節點的大小。您可以在 [HDInsight 定價頁面](https://azure.microsoft.com/pricing/details/hdinsight/)找到 HDInsight 可用之不同 VM 大小的清單，包括個別的核心、記憶體和本機儲存體。
 
 建立新的叢集時，您可以指定該節點的大小。下列提供如何使用 [Azure 入口網站][preview-portal]、[Azure PowerShell][azure-powershell] 和 [Azure CLI][azure-cli] 指定大小的相關資訊：
 
@@ -166,4 +166,4 @@ Ambari Web UI 可在 https://CLUSTERNAME.azurehdinsight.net 檢視。將 **CLUST
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

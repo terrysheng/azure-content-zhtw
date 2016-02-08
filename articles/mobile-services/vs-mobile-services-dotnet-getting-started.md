@@ -3,7 +3,7 @@
 	description="如何在 Visual Studio .NET 專案中開始使用 Azure 行動服務"
 	services="mobile-services"
 	documentationCenter=""
-	authors="TomArcher"
+	authors="mlhoop"
 	manager="douge"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="01/05/2016"
-	ms.author="tarcher"/>
+	ms.author="mlearned"/>
 
 # 開始使用行動服務 (.NET 專案)
 
@@ -81,6 +81,6 @@
 	await todoTable.DeleteAsync(item);
 
 
-[深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
+[深入了解行動服務](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2015"
+   ms.date="01/08/2016"
    ms.author="telmos" />
 
 # 使用 Azure 入口網站部署使用靜態公用 IP 的 VM
@@ -31,7 +31,7 @@
 
 若要在 Azure 入口網站中使用靜態公用 IP 位址建立 VM，請遵循下列步驟。
 
-1. 透過瀏覽器瀏覽至 [Azure 入口網站](http://portal.azure.com)，並使用您的 Azure 帳戶登入。
+1. 透過瀏覽器瀏覽至 [Azure 入口網站](https://portal.azure.com)，並視需要使用您的 Azure 帳戶登入。
 2. 在入口網站左上角，按一下 [新增] >> [計算] > [Windows Server 2012 R2 Datacenter]。
 3. 在 [選取部署模型] 清單中，選取 [資源管理員]，然後按一下 [建立]。
 4. 在 [基本] 刀鋒視窗中，輸入如下所示的 VM 資訊，然後按一下 [確定]。
@@ -59,4 +59,4 @@
 
 	![Azure 入口網站 - 建立公用 IP 位址](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

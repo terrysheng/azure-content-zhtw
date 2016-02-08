@@ -129,17 +129,17 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
         PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
 
-	> [AZURE.IMPORTANT]務必使用唯一的名稱，否則發行程序會失敗。部署完成之後，瀏覽器會開啟並瀏覽至已部署的服務。
+	> [AZURE.IMPORTANT] 務必使用唯一的名稱，否則發行程序會失敗。部署完成之後，瀏覽器會開啟並瀏覽至已部署的服務。
 	> 
-	> 如果出現錯誤指出匯入的發行設定檔中沒有您所提供的訂閱名稱，則在部署至 Azure 之前，您必須下載並匯入訂閱的發行設定檔。請參閱＜**建立 Node.js 應用程式並部署至 Azure 雲端服務**＞的＜[將應用程式部署至 Azure](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)＞一節 (英文)
+	> 如果出現錯誤指出匯入的發行設定檔中沒有您所提供的訂閱名稱，則在部署至 Azure 之前，您必須下載並匯入訂閱的發行設定檔。請參閱＜**建立 Node.js 應用程式並部署至 Azure 雲端服務**＞的＜[將應用程式部署至 Azure](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)＞一節 (英文)
 
     ![A browser window displaying the service hosted on Azure][completed-app]
 
-	> [AZURE.NOTE]如果出現錯誤指出匯入的發行設定檔中沒有您所提供的訂閱名稱，則在部署至 Azure 之前，您必須下載並匯入訂閱的發行設定檔。請參閱＜**建立 Node.js 應用程式並部署至 Azure 雲端服務**＞的＜[將應用程式部署至 Azure](https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/)＞一節 (英文)
+	> [AZURE.NOTE] 如果出現錯誤指出匯入的發行設定檔中沒有您所提供的訂閱名稱，則在部署至 Azure 之前，您必須下載並匯入訂閱的發行設定檔。請參閱＜**建立 Node.js 應用程式並部署至 Azure 雲端服務**＞的＜[將應用程式部署至 Azure](https://azure.microsoft.com/develop/nodejs/tutorials/getting-started/)＞一節 (英文)
 
 應用程式現在已在 Azure 上執行，且可以使用 Socket.IO 在不同用戶端之間轉送聊天訊息。
 
-> [AZURE.NOTE]為了簡化起見，此範例只能讓連線至相同執行個體的使用者聊天。這表示如果雲端服務建立兩個背景工作角色執行個體，則使用者只能夠與連線至相同背景工作角色執行個體的其他使用者交談。若要擴充應用程式來處理多個角色執行個體，您可以使用服務匯流排之類的技術，以便跨執行個體來共用 Socket.IO 儲存狀態。如需相關範例，請參閱＜[Azure SDK for Node.js GitHub 儲存機制](https://github.com/WindowsAzure/azure-sdk-for-node)＞(英文) 中的服務匯流排佇列和主題使用範例。
+> [AZURE.NOTE] 為了簡化起見，此範例只能讓連線至相同執行個體的使用者聊天。這表示如果雲端服務建立兩個背景工作角色執行個體，則使用者只能夠與連線至相同背景工作角色執行個體的其他使用者交談。若要擴充應用程式來處理多個角色執行個體，您可以使用服務匯流排之類的技術，以便跨執行個體來共用 Socket.IO 儲存狀態。如需相關範例，請參閱＜[Azure SDK for Node.js GitHub 儲存機制](https://github.com/WindowsAzure/azure-sdk-for-node)＞(英文) 中的服務匯流排佇列和主題使用範例。
 
 ##後續步驟
 
@@ -170,4 +170,4 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
   
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

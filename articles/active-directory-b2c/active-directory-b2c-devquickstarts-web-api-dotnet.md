@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 預覽：從 .NET Web 應用程式呼叫 Web API
@@ -28,16 +28,16 @@
 
 ## 1\.取得 Azure AD B2C 目錄
 
-您必須先建立目錄或租用戶，才可使用 Azure AD B2C。目錄為所有使用者、應用程式、群組等項目的容器。如果您尚未擁有目錄，請先[建立 B2C 目錄](active-directory-b2c-get-started.md)，再繼續下一個步驟。
+您必須先建立目錄或租用戶，才可使用 Azure AD B2C。目錄為所有使用者、應用程式、群組等項目的容器。如果您尚未建立目錄，請先[建立 B2C 目錄](active-directory-b2c-get-started.md)，再繼續下一個步驟。
 
 ## 2\.建立應用程式
 
 您現在需要在 B2C 目錄中建立應用程式，以提供一些必要資訊給 Azure AD，讓它與應用程式安全地通訊。在此案例中，因為 Web 應用程式與 Web API 會組成一個邏輯應用程式，所以將由單一**應用程式識別碼**代表。若要建立應用程式，請遵循[這些指示](active-directory-b2c-app-registration.md)。請務必
 
 - 在應用程式中加入 **Web 應用程式/Web API**
-- 輸入 `https://localhost:44316/` 作為**回覆 URL** -它是此程式碼範例的預設 URL。
-- 為您的應用程式建立**應用程式密碼**，並複製下來。稍後您將會用到此資訊。
-- 複製指派給應用程式的**應用程式識別碼**。稍後您也會用到此資訊。
+- 輸入 `https://localhost:44316/` 作為**回覆 URL**。此 URL 為此程式碼範例的預設 URL。
+- 為您的應用程式建立**應用程式密碼**，並複製起來。稍後您將會用到此資訊。
+- 複製指派給您應用程式的**應用程式識別碼**。稍後您也會用到此資訊。
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
@@ -45,15 +45,15 @@
 
 在 Azure AD B2C 中，每個使用者經驗皆是由某個[**原則**](active-directory-b2c-reference-policies.md)所定義。此 Web 應用程式包含三種身分識別體驗 - 註冊、登入和編輯設定檔。您必須為每個類型建立一個原則，如[原則參考](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)一文中所述。建立您的三個原則時，請務必：
 
-- 在註冊原則中選擇 [顯示名稱] 和其他一些註冊屬性。
-- 在每個原則中選擇 [顯示名稱] 和 [物件識別碼] 應用程式宣告。您也可以選擇其他宣告。
-- 建立每個原則後，請抄下原則的 [名稱]。其前置詞應該為 `b2c_1_`。稍後您將需要這些原則名稱。
+- 在註冊原則中，選擇 [**顯示名稱**] 和其他一些註冊屬性。
+- 在每個原則中選擇 [**顯示名稱**] 和 [**物件識別碼**] 應用程式宣告。您也可以選擇其他宣告。
+- 建立每個原則後，請複製原則的**名稱**。其前置詞應該為 `b2c_1_`。稍後您將需要這些原則名稱。
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 當您成功建立三個原則後，就可以開始建置您的應用程式。
 
-請注意，本文不會說明如何使用您剛才建立的原則。若您想要了解 Azure AD B2C 中的原則如何運作，您應該從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始。
+請注意，本文不會說明如何使用您剛才建立的原則。如果您想要了解 Azure AD B2C 中的原則如何運作，應該從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始。
 
 ## 4\.下載程式碼
 
@@ -83,7 +83,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Web
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
 </appSettings>
 ```
-  
+
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
@@ -246,7 +246,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 	// The token will be stored in the ADAL token cache, for use in our controllers
 	AuthenticationResult result = await authContext.AcquireTokenByAuthorizationCodeAsync(notification.Code, new Uri(redirectUri), credential, new string[] { clientId }, mostRecentPolicy);
 }
-``` 
+```
 
 #### 在控制器中取得存取權杖
 
@@ -266,7 +266,7 @@ public async Task<ActionResult> Index()
 
 		// We don't care which policy is used to access the TaskService, so let's use the most recent policy
 		string mostRecentPolicy = ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value;
-		
+
 		// Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
 		// AcquireTokenSilentAsync will return a token from the token cache, and throw an exception if it cannot do so.
 		AuthenticationContext authContext = new AuthenticationContext(authority, new NaiveSessionCache(userObjectID));
@@ -281,7 +281,7 @@ public async Task<ActionResult> Index()
 	}
 	...
 }
-``` 
+```
 
 ADAL 會負責快取權杖、在快取權杖過期時重新整理，並經由擲回例外狀況，讓您知道使用者必須重新登入。每當應用程式中需要權杖時，您只需要呼叫 `AuthenticationContext.AcquireTokenSilentAsync(...)` 即可。
 
@@ -294,9 +294,9 @@ ADAL 會負責快取權杖、在快取權杖過期時重新整理，並經由擲
 
 public async Task<ActionResult> Index()
 {
-	... 
-	
-	try 
+	...
+
+	try
 	{
 		HttpClient client = new HttpClient();
 		HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, serviceUrl + "/api/tasks");
@@ -314,7 +314,7 @@ public async Task<ActionResult> Index()
 		}
 		else
 		{
-			// If the call failed with access denied, then drop the current access token from the cache, 
+			// If the call failed with access denied, then drop the current access token from the cache,
 			// and show the user an error indicating they might need to sign-in again.
 			if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 			{
@@ -359,8 +359,8 @@ public void SignOut()
 
 		HttpContext.GetOwinContext().Authentication.SignOut(
 		new AuthenticationProperties(
-			new Dictionary<string, string> 
-			{ 
+			new Dictionary<string, string>
+			{
 				{Startup.PolicyKey, ClaimsPrincipal.Current.FindFirst(Startup.AcrClaimType).Value}
 			}), OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType);
 	}
@@ -371,9 +371,11 @@ public void SignOut()
 
 最後，建置並執行 `TaskClient` 和 `TaskService`。註冊或登入應用程式，並為登入的使用者建立工作。登出後，再以不同使用者重新登入，並為該使用者建立工作。請注意每位使用者的工作如何儲存於 API，因為 API 會從它收到的存取權杖中擷取使用者的身分識別。
 
-如需參考，[此處以 .zip 格式提供](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip)完整範例，您也可以從 GitHub 予以複製：
+為了方便參考，您可以[在此處取得 .zip 格式](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip)的完整範例，或者從 GitHub 中複製：
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git
+```
 
 <!--
 
@@ -387,4 +389,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

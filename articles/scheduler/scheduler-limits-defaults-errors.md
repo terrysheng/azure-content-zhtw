@@ -49,13 +49,7 @@
 |ConflictError|衝突 (409)|發生衝突，致使作業無法完成。|
 |TemporaryRedirect|暫時重新導向 (307)|無法使用要求的物件。可從回應中的 [位置] 欄位取得物件的新位置的暫時 URI。可在新的 URI 上重複原始要求。|
 
-API 作業也可能傳回管理服務所定義的其他錯誤資訊。此其他錯誤資訊是以回應本文傳回。錯誤回應的本文遵循底下顯示的基本格式。
-
-		<?xml version="1.0" encoding="utf-8"?>  
-		<Error>  
-			<Code>string-code</Code>  
-			<Message>detailed-error-message</Message>  
-		</Error>  
+API 作業也可能傳回管理服務所定義的其他錯誤資訊。此其他錯誤資訊是以回應本文傳回。
 
 ## 另請參閱
 
@@ -68,7 +62,7 @@ API 作業也可能傳回管理服務所定義的其他錯誤資訊。此其他�
 
  [Azure 排程器的計劃和計費](scheduler-plans-billing.md)
 
- [Azure 排程器 REST API 參考](https://msdn.microsoft.com/library/dn528946)
+ [Azure 排程器 REST API 參考](https://msdn.microsoft.com/library/mt629143)
 
  [Azure 排程器 PowerShell Cmdlet 參考](scheduler-powershell-reference.md)
 
@@ -78,4 +72,4 @@ API 作業也可能傳回管理服務所定義的其他錯誤資訊。此其他�
  
   
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

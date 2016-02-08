@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="01/21/2016"
 	ms.author="cynthn"/>
 
 # 在 Azure 中執行 OpenSUSE Linux 的虛擬機器上安裝 MySQL
@@ -26,8 +26,6 @@
 
 <br>
 
-
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## 建立執行 OpenSUSE Linux 的虛擬機器
 
@@ -43,4 +41,4 @@
 [MySQLDocs]: http://dev.mysql.com/doc/index-topic.html
 [MySQL]: http://www.mysql.com
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

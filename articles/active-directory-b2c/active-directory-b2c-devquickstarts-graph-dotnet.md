@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 預覽：使用圖形 API
@@ -23,7 +23,7 @@
 Azure AD B2C 租用戶通常會很龐大，這表示許多常見的租用戶管理工作需要以程式設計方式執行。一個主要的例子是使用者管理 - 您可能需要將現有的使用者存放區移轉到 B2C 租用戶，也可能想要在自己的網頁上主控使用者註冊，在幕後於 Azure AD 中建立使用者帳戶。這類工作需要能夠建立、讀取、更新和刪除使用者帳戶 - 這些都能透過 Azure AD 圖形 API 達成。
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-	
+
 對於 B2C 租用戶，與圖形 API 通訊主要有兩種模式。
 
 - 對於互動式、執行一次的工作，您可能想要以 B2C 租用戶中的系統管理員帳戶來執行管理工作。此模式需要系統管理員先以認證登入，才能對圖形 API進行任何呼叫。
@@ -39,14 +39,15 @@ Azure AD B2C 租用戶通常會很龐大，這表示許多常見的租用戶管�
 
 既然您已經有 B2C 租用戶，您需要使用 Azure AD Powershell Cmdlet 建立服務應用程式。首先，下載並安裝 [Microsoft Online Services 登入小幫手](http://go.microsoft.com/fwlink/?LinkID=286152)。接著可以下載並安裝[適用於 Windows PowerShell 的 64 位元 Azure Active Directory 模組](http://go.microsoft.com/fwlink/p/?linkid=236297)。
 
-> [AZURE.NOTE]若要使用圖形 API 搭配 B2C 租用戶，您必須使用 Powershell 註冊專用的應用程式，並遵循下列指示。您不能重複使用已經在 Azure 入口網站中註冊的現有 B2C 應用程式。這是 Azure AD B2C 預覽的一項限制，將在不久的將來移除，屆時我們將會更新本文章。
+> [AZURE.NOTE]
+若要使用圖形 API 搭配 B2C 租用戶，您必須使用 Powershell 註冊專用的應用程式，並遵循下列指示。您不能重複使用已經在 Azure 入口網站中註冊的現有 B2C 應用程式。這是 Azure AD B2C 預覽的一項限制，將在不久的將來移除，屆時我們將會更新本文章。
 
 安裝 Powershell 模組後，開啟 Powershell 並連線到 B2C 租用戶。執行 `Get-Credential` 之後，將提示您輸入使用者名稱和密碼，請輸入您 B2C 租用戶系統管理員帳戶的使用者名稱和密碼。
 
 ```
 > $msolcred = Get-Credential
 > Connect-MsolService -credential $msolcred
-``` 
+```
 
 建立應用程式之前，您必須產生新的「用戶端密碼」。您的應用程式將使用此用戶端密碼向 Azure AD 驗證，並取得存取權杖。您可以在 Powershell 中產生有效的密碼：
 
@@ -57,7 +58,7 @@ Azure AD B2C 租用戶通常會很龐大，這表示許多常見的租用戶管�
 > $rand.Dispose()
 > $newClientSecret = [System.Convert]::ToBase64String($bytes)
 > $newClientSecret
-``` 
+```
 
 上述最後一個命令應該會印出新的用戶端密碼。將它複製到某個安全的地方，稍後需要用到。現在您可以建立應用程式，並提供新的用戶端密碼作為應用程式的認證：
 
@@ -127,7 +128,8 @@ git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 
 對圖形 API 發出任何要求時，需要有存取權杖進行驗證。B2CGraphClient 使用開放原始碼 Active Directory 驗證程式庫 (ADAL) 來協助取得存取權杖。您當然不一定要使用 ADAL 來取得權杖，您可以製作自己的 HTTP 要求來取得權杖。ADAL 提供簡單的 API 並處理一些重要的細節，例如快取存取權杖，可讓您輕鬆取得權杖。
 
-> [AZURE.NOTE]此程式碼範例刻意使用 ADAL v2 (ADAL 公開上市版本)。「不」使用 ADAL v4，因為這是專門用於 Azure AD B2C 的預覽版本。在 Azure AD B2C 預覽中，您必須使用 ADAL v2 才能與圖形 API 進行通訊。未來，我們將支援以 ADAL v4 存取圖形 API，您不需要在完整的 Azure AD B2C 方案中使用兩個不同版本的 ADAL。
+> [AZURE.NOTE]
+	此程式碼範例刻意使用 ADAL v2 (ADAL 公開上市版本)。「不」使用 ADAL v4，因為這是專門用於 Azure AD B2C 的預覽版本。在 Azure AD B2C 預覽中，您必須使用 ADAL v2 才能與圖形 API 進行通訊。未來，我們將支援以 ADAL v4 存取圖形 API，您不需要在完整的 Azure AD B2C 方案中使用兩個不同版本的 ADAL。
 
 B2CGraphClient 執行時會建立 `B2CGraphClient` 類別的執行個體。這個類別的建構函式會設定 ADAL 的驗證架構：
 
@@ -142,7 +144,7 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 	// The AuthenticationContext is ADAL's primary class, in which you indicate the tenant to use.
 	this.authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenant);
 
-	// The ClientCredential is where you pass in your client_id and client_secret, which are 
+	// The ClientCredential is where you pass in your client_id and client_secret, which are
 	// provided to Azure AD in order to receive an access_token using the app's identity.
 	this.credential = new ClientCredential(clientId, clientSecret);
 }
@@ -157,7 +159,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 	// The first parameter is the resource we want an access_token for; in this case, the Graph API.
 	AuthenticationResult result = authContext.AcquireToken("https://graph.windows.net", credential);
 
-	... 
+	...
 
 ```
 
@@ -177,14 +179,15 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
  ```
  > B2C Get-User
  ```
- 
+
 這裡有兩個重點值得注意：
 
 - 透過 ADAL 取得的存取權杖已利用 `Bearer` 配置加入 `Authorization` 標頭。
 - 對於 B2C 租用戶，您必須使用查詢參數 `api-version=beta`。
 
 
-> [AZURE.NOTE]Azure AD 圖形 API 的 Beta 版提供預覽功能。如需 Beta 版的詳細資訊，請參閱[這篇圖形 API 小組部落格文章](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx)。
+> [AZURE.NOTE]
+	Azure AD 圖形 API 的 Beta 版提供預覽功能。如需 Beta 版的詳細資訊，請參閱[這篇圖形 API 小組部落格文章](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx)。
 
 這兩個細節都在 `B2CGraphClient.SendGraphGetRequest(...)` 方法中處理：
 
@@ -192,7 +195,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 public async Task<string> SendGraphGetRequest(string api, string query)
 {
 	...
-	
+
 	// For B2C user managment, be sure to use the beta Graph API version.
 	HttpClient http = new HttpClient();
 	string url = "https://graph.windows.net/" + tenant + api + "?" + "api-version=beta";
@@ -200,16 +203,16 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 	{
 		url += "&" + query;
 	}
-	
+
 	// Append the access token for the Graph API to the Authorization header of the request, using the Bearer scheme.
 	HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, url);
 	request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 	HttpResponseMessage response = await http.SendAsync(request);
-	
-	... 
+
+	...
 ```
-		
-### 建立取用者的使用者帳戶 
+
+### 建立取用者的使用者帳戶
 
 在 B2C 租用戶中建立使用者帳戶時，您可以傳送 HTTP POST 要求給 `/users` 端點：
 
@@ -221,7 +224,7 @@ Content-Length: 338
 
 {
 	// These properties are all required for creating consumer users.
-	 
+
 	"accountEnabled": true,
 	"alternativeSignInNamesInfo": [             // controls what identifier the user uses to sign into their account
 		{
@@ -278,7 +281,7 @@ Content-Length: 37
 > B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
 > B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 ```
-	
+
 如需有關如何傳送此要求的詳細資訊，請檢閱 `B2CGraphClient.SendGraphPatchRequest(...)` 方法。
 
 ### 刪除使用者
@@ -345,8 +348,9 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 - 呼叫圖形 API 時，請使用 [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx)。
 - 當建立和更新取用者使用者，有幾個必要的屬性，如上所述。
 
-> [AZURE.IMPORTANT]在 B2C 應用程式中使用 Azure AD 圖形 API 時，您需要考慮目錄服務基礎 Azure AD B2C 的複寫特性 (閱讀[本文](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx)以深入了解)。取用者使用**註冊**原則註冊您的 B2C 應用程式後，如果您反過來立即嘗試讀取在您的應用程式中使用 Azure AD 圖形 API 的使用者物件，它可能會無法使用。您必須等候數秒鐘讓複寫程序完成。在正式發行的版本中，我們將發行關於 Azure AD 圖形 API 和目錄服務提供的「讀寫一致性保證 」的更具體指引。
+> [AZURE.IMPORTANT]
+在 B2C 應用程式中使用 Azure AD 圖形 API 時，您需要考慮目錄服務基礎 Azure AD B2C 的複寫特性 (閱讀[本文](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx)以深入了解)。取用者使用**註冊**原則註冊您的 B2C 應用程式後，如果您反過來立即嘗試讀取在您的應用程式中使用 Azure AD 圖形 API 的使用者物件，它可能會無法使用。您必須等候數秒鐘讓複寫程序完成。在正式發行的版本中，我們將發行關於 Azure AD 圖形 API 和目錄服務提供的「讀寫一致性保證 」的更具體指引。
 
 對於您想要使用圖形 API 在 B2C 租用戶上執行的動作，如果您有任何問題或要求，我們洗耳恭聽！ 請在文章上留言，或在程式碼範例 GitHub 儲存機制中提出問題。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

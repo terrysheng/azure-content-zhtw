@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/27/2016" 
 	ms.author="spelluru"/>
 
 # 使用 Data Factory 進行排程和執行
@@ -22,7 +22,7 @@
 
 ## 排程活動
 
-使用活動 JSON 中的 [**排程器**] 區段，您可以指定活動的週期性排程。例如，您可以排程活動每小時執行，如下所示：
+使用活動 JSON 中的 [**排程器**] 區段，您可以指定活動的週期性排程。例如，您可以排程每小時進行一次的活動，如下所示：
 
 	"scheduler": {
 		"frequency": "Hour",
@@ -31,11 +31,11 @@
     
 ![排程器範例](./media/data-factory-scheduling-and-execution/scheduler-example.png)
 
-如上所示，指定每小時排程會建立對應到一系列輪轉視窗的活動執行。輪轉視窗是一系列的固定大小、非重疊和連續的時間間隔。
+如上所示，為活動指定排程將會建立一系列輪轉視窗。輪轉視窗是一系列的固定大小、非重疊和連續的時間間隔。活動的這些邏輯輪轉視窗稱為**活動視窗**。
  
-對於目前執行的活動執行，視窗時間間隔可以使用活動 JSON 中的 **WindowStart** 和 **WindowEnd** 系統變數來存取。您可以在您的活動 JSON 和與活動 (包括從輸入選取資料、輸出代表時間序列資料的資料集) 相關聯的指令碼中針對不同用途使用這些變數。
+對於目前正在執行的活動視窗，其相關聯的時間間隔可以使用活動 JSON 中的 **WindowStart** 和 **WindowEnd** 系統變數來存取。您可以在您的活動 JSON 和與活動 (包括從輸入選取資料、輸出代表時間序列資料的資料集) 相關聯的指令碼中針對不同用途使用這些變數。
 
-如需可用於排程器 (包括在特定時間位移排程、設定模式以針對視窗在間隔的開始或結束對齊處理) 之不同屬性的詳細資訊，請參閱[建立管線](data-factory-create-pipelines.md)文章。
+如需可用於排程器 (包括在特定時間位移排程、設定模式以針對活動視窗在間隔的開始或結束對齊處理) 之不同屬性的詳細資訊，請參閱[建立管線](data-factory-create-pipelines.md)文章。
 
 ## 時間序列資料集和資料配量
 
@@ -523,7 +523,7 @@ WindowEnd | 目前活動執行時段的時間間隔結束 | 活動 | 同上
 SliceStart | 所產生之資料配量的時間間隔開始 | 活動<br/>資料集 | <ol><li>指定使用 [Azure Blob](data-factory-azure-blob-connector.md) 和[檔案系統資料集](data-factory-onprem-file-system-connector.md)時的動態資料夾路徑與檔案名稱。</li><li>使用 Data Factory 函式在活動輸入集合中指定輸入相依性。</li></ol>
 SliceEnd | 所產生之目前資料配量的時間間隔結束 | 活動<br/>資料集 | 同上。 
 
-> [AZURE.NOTE]目前 Data Factory 需要活動中指定的排程與輸出資料集之可用性中指定的排程完全相符。這表示 WindowStart、WindowEnd 和 SliceStart 與 SliceEnd 一律對應到相同的時間期間和單一輸出配量。
+> [AZURE.NOTE] 目前 Data Factory 需要活動中指定的排程與輸出資料集之可用性中指定的排程完全相符。這表示 WindowStart、WindowEnd 和 SliceStart 與 SliceEnd 一律對應到相同的時間期間和單一輸出配量。
  
 ## Data Factory 函式參考
 
@@ -577,7 +577,7 @@ DateTime | Ticks(X) | X：DateTime | 取得參數 X 的刻度屬性。一個刻�
 	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
 	}
 
-> [AZURE.NOTE]在另一個函式中使用函式時，您不需要針對內部函式使用 **$$** 前置詞。例如：$$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6))。在此範例中，請注意 **$$** 前置詞不能用於 **Time.AddHours** 函式。
+> [AZURE.NOTE] 在另一個函式中使用函式時，您不需要針對內部函式使用 **$$** 前置詞。例如：$$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6))。在此範例中，請注意 **$$** 前置詞不能用於 **Time.AddHours** 函式。
   
 
 ## 資料相依性的深入探討
@@ -678,4 +678,4 @@ Data Factory 中資料配量的各種狀態涵蓋於[監視和管理管線](data
 
   
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

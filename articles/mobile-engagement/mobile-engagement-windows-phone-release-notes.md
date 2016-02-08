@@ -18,6 +18,12 @@
 
 #Windows Phone Silverlight SDK 版本資訊
 
+##3\.2.0 (01/22/2016)
+*MicrosoftAzure.MobileEngagement* Nuget 封裝 **v3.3.0** 的一部分。
+
+-   動作 URL 現在可使用自訂配置、ms-appx 及 ms-appdata。
+-   穩定性改進。
+  
 ##3\.1.0 (11/20/2015)
 *MicrosoftAzure.MobileEngagement* Nuget 套件 **v3.2.0** 的一部分。
 
@@ -37,4 +43,4 @@
 -   增強安全性。
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

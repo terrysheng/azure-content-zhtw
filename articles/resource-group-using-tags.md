@@ -27,7 +27,7 @@
 
 每個資源或資源群組最多可以有 15 個標記。標記名稱上限為 512 個字元，且標記值上限為 256 字元。
 
-> [AZURE.NOTE]您只能將標籤套用到支援資源管理員作業的資源。如果您透過傳統部署模型 (例如透過 Azure 入口網站或[服務管理 API](../services/api-management/)) 建立虛擬機器、虛擬網路或儲存體，則無法將標記套用至該資源。您必須透過資源管理員重新部署這些資源才能支援標記。所有其他資源皆支援標記。
+> [AZURE.NOTE] 您只能將標籤套用到支援資源管理員作業的資源。如果您透過傳統部署模型 (例如透過 Azure 入口網站或[服務管理 API](../services/api-management/)) 建立虛擬機器、虛擬網路或儲存體，則無法將標記套用至該資源。您必須透過資源管理員重新部署這些資源才能支援標記。所有其他資源皆支援標記。
 
 ## 範本中的標記
 
@@ -183,4 +183,4 @@
 - 如需部署資源時使用 Azure CLI 的簡介，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](./xplat-cli-azure-resource-manager.md)。
 - 如需使用入口網站的簡介，請參閱[使用 Azure 入口網站來管理您的 Azure 資源](./resource-group-portal.md)  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

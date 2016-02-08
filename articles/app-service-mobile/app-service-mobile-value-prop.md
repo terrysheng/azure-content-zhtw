@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="01/12/2016"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>什麼是行動應用程式？
@@ -36,7 +36,7 @@ Azure 應用程式服務是完全受管理的平台即服務 (PaaS) 產品，適
 ## 行動應用程式概念
 - **單一登入** - 從不斷成長的身分識別提供者 (包括 Azure Active Directory、Facebook、Google、Twitter 和 Microsoft 帳戶) 清單中選取，並運用行動應用程式，在數分鐘內將驗證加入至您的應用程式。
 - **離線同步** - 行動應用程式可讓您輕鬆建置強大和回應靈敏的應用程式，以便員工在無法連線時離線工作，然後在裝置恢復連線時與您的企業後端系統同步處理。所有用戶端平台都可支援離線同步功能，該功能適用於任何的資料來源，包括 SQL、資料表儲存體、Mongo 或 Document DB 和任何 SaaS API (包括 Office 365、Salesforce、Dynamics 或在內部部署資料庫)。
-- **推播通知** - 行動應用程式提供了可大幅擴充的行動推播通知引擎 (即「通知中樞」)，能在數秒內將數以百萬計的個人化推播通知傳送至使用 iOS、Android、Windows 或 Kindle 裝置之觀眾的動態區段。您可以輕鬆地將「通知中樞」掛接至任何現有的應用程式後端，不論該後端裝載在內部或雲端。
+- **推播通知** - Mobile Apps 提供了可大幅調整的行動推播通知引擎 (即「通知中樞」)，能在數秒內將數以百萬計的個人化推播通知傳送至使用 iOS、Android、Windows 或 Kindle 裝置之觀眾的動態區段。您可以輕鬆地將「通知中樞」掛接至任何現有的應用程式後端，不論該後端裝載在內部或雲端。
 - **自動調整** - App Service 可讓您快速地相應增加或相應放大，以處理任何傳入的客戶負載。手動選取 VM 的數目和大小，或設定自動調整以根據負載或排程調整行動應用程式後端。
 
 ## 開始使用 ##
@@ -44,7 +44,7 @@ Azure 應用程式服務是完全受管理的平台即服務 (PaaS) 產品，適
 
 如需 Azure App Service 平台的詳細資訊，請參閱 [Azure App Service]。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](https://tryappservice.azure.com/?appServiceName=mobile)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](https://tryappservice.azure.com/?appServiceName=mobile)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 <!-- URLs. -->
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
@@ -54,4 +54,4 @@ Azure 應用程式服務是完全受管理的平台即服務 (PaaS) 產品，適
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

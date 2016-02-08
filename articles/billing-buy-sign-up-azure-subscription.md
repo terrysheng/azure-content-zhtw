@@ -22,9 +22,9 @@
 
 ## 註冊 Azure 免費試用訂用帳戶
 
-若要註冊 Azure 免費試用訂用帳戶，您必須提供電話號碼、信用卡和 Microsoft 帳戶您的 Microsoft 帳戶是您搭配密碼用來登入所有 Windows Live 程式或服務 (例如 Outlook、Hotmail 或 OneDrive) 的電子郵件地址。您可以使用您名下的電子郵件地址建立 Microsoft 帳戶，包括公司的電子郵件地址都適用。如需詳細資訊，請參閱 [Microsoft 帳戶常見問題](https://www.microsoft.com/en-us/account/faq.aspx)。
+若要註冊 Azure 免費試用訂用帳戶，您必須提供電話號碼、信用卡和 Microsoft 帳戶您的 Microsoft 帳戶是您搭配密碼用來登入所有 Windows Live 程式或服務 (例如 Outlook、Hotmail 或 OneDrive) 的電子郵件地址。您可以使用您名下的電子郵件地址建立 Microsoft 帳戶，包括公司的電子郵件地址都適用。如需詳細資訊，請參閱 [Microsoft 帳戶常見問題](https://www.microsoft.com/zh-TW/account/faq.aspx)。
 
->[AZURE.NOTE]您的電話號碼和信用卡資料只會用於身分識別驗證。雖然不會向您的信用卡收費，但 Microsoft 會預扣最小額度的金額，以驗證信用卡是否有效。此預扣的金額將會在 3-5 個工作天內返還 (依您的財務機構原則而定)。
+>[AZURE.NOTE] 您的電話號碼和信用卡資料只會用於身分識別驗證。雖然不會向您的信用卡收費，但 Microsoft 會預扣最小額度的金額，以驗證信用卡是否有效。此預扣的金額將會在 3-5 個工作天內返還 (依您的財務機構原則而定)。
 
 1. 開啟 [Azure 免費試用頁面](https://azure.microsoft.com/pricing/free-trial/)，然後選取 [立即試用]。
 2. 使用您的 Microsoft 帳戶或學校/工作帳戶登入。
@@ -44,7 +44,7 @@
 
  ![註冊](./media/billing-buy-sign-up-azure-subscription/Signup.png)</br></br> 系統可能會花幾分鐘的時間來設定您的訂用帳戶。如果訂用帳戶沒有在 15 分鐘內完成設定，請連絡 [Azure 支援服務](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以尋求協助。</br> 如果您看到錯誤訊息，請依照訊息中的步驟來解決問題。常見的錯誤訊息為：
 
- **抱歉，我們無法完成作業。請稍後再試一次或重新載入網頁** </br>
+ **很抱歉，我們無法完成作業。請稍後再試一次或重新載入網頁** </br>
 
  在此情況下，請嘗試使用其他瀏覽器完成註冊程序。如果問題沒有解決，請連絡 [Azure 支援服務](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以尋求協助。</br> 7.當訂用帳戶就緒時，選取 [開始管理我的服務]。</br> ![startservice](./media/billing-buy-sign-up-azure-subscription/startservice.png)
 
@@ -62,7 +62,7 @@
 
 1. 前往 azure.com 的[訂用帳戶摘要頁面](https://account.windowsazure.com/subscriptions)。
 
-2. 選取 [Azure in Open]。在 [Azure in Open 授權金鑰][](http://azure.microsoft.com/offers/ms-azr-0111p/) 頁面中，選取 [啟用新的訂用帳戶] 或 [啟用現有的訂用帳戶]。
+2. 選取 [Azure in Open]。在 [Azure in Open 授權金鑰][](https://azure.microsoft.com/offers/ms-azr-0111p/) 頁面中，選取 [啟用新的訂用帳戶] 或 [啟用現有的訂用帳戶]。
 
 3. 輸入產品金鑰，然後查看合約選項。
 
@@ -71,7 +71,7 @@
 請透過您的權益方案頻道驗證，來確認您是否符合所選方案的資格：
 
 ### MSDN
-- [請比較訂閱權益](https://www.visualstudio.com/en-us/products/msdn-subscriptions-vs/#AdditionalPageSections_1)
+- [請比較訂閱權益](https://www.visualstudio.com/zh-TW/products/msdn-subscriptions-vs/#AdditionalPageSections_1)
 - 請在您的 [MSDN 帳戶頁面](https://msdn.microsoft.com/subscriptions/manage/default.aspx)驗證自己的資格狀態。
 - 如果您無法驗證自己的狀態，請連絡 [MSDN 訂閱客服中心](https://msdn.microsoft.com/subscriptions/contactus.aspx)
 - [MSDN 開發和測試隨用隨付](https://azure.microsoft.com/offers/ms-azr-0023p/)
@@ -92,4 +92,4 @@
 
 - [Microsoft BizSpark Plus 入口網站](http://www.microsoft.com/bizspark/plus/default.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

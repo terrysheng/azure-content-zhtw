@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # 使用 Data Factory .NET SDK 來建立、監視及管理 Azure Data Factory
@@ -86,7 +86,7 @@
 
         DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
 
-	> [AZURE.NOTE]用您的 Azure 資源群組名稱取代 **resourcegroupname**。若要建立資源群組，請使用 [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) Cmdlet。
+	> [AZURE.NOTE] 用您的 Azure 資源群組名稱取代 **resourcegroupname**。若要建立資源群組，請使用 [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) Cmdlet。
 
 7. 將下列會建立 **Data Factory** 的程式碼加入 **Main** 方法中。
 
@@ -106,7 +106,7 @@
 
 8. 將下列會建立**連結服務**的程式碼加入 **Main** 方法中。
 
-	> [AZURE.NOTE]使用您 Azure 儲存體帳戶的**帳戶名稱**和**帳戶金鑰**做為 **ConnectionString**。
+	> [AZURE.NOTE] 使用您 Azure 儲存體帳戶的**帳戶名稱**和**帳戶金鑰**做為 **ConnectionString**。
 
         // create a linked service
         Console.WriteLine("Creating a linked service");
@@ -379,7 +379,7 @@
 
 
 
-> [AZURE.NOTE]上述範例程式碼會啟動一個對話方塊供您輸入 Azure 認證。如果您需要以程式設計的方式登入，而不使用對話方塊，請參閱[使用 Azure 資源管理員驗證服務主體](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell)。
+> [AZURE.NOTE] 上述範例程式碼會啟動一個對話方塊供您輸入 Azure 認證。如果您需要以程式設計的方式登入，而不使用對話方塊，請參閱[使用 Azure 資源管理員驗證服務主體](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell)。
 
 
 [data-factory-introduction]: data-factory-introduction.md
@@ -392,4 +392,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

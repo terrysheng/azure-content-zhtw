@@ -24,7 +24,7 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
 本教學課程以[使用 IoT 中樞傳送雲端到裝置訊息]中的程式碼建置，以示範如何使用雲端到裝置訊息來安全地提供用來上傳檔案之 Azure Blob URI 給裝置，以及如何使用 IoT 中樞傳遞通知來觸發來自您應用程式後端的檔案處理。此方法的優點是重複使用 IoT 中樞裝置身分識別以及雲端到裝置訊息的傳遞通知，來通知應用程式後端檔案已經順利上傳。
 
-> [AZURE.NOTE]這裡使用的相同方法可用來讓裝置安全地由雲端下載檔案。
+> [AZURE.NOTE] 這裡使用的相同方法可用來讓裝置安全地由雲端下載檔案。
 
 您可以在 [IoT 中心開發人員指南]中找到有關雲端到裝置訊息和 IoT 中心安全性的詳細資訊。
 
@@ -33,13 +33,13 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 * **SimulatedDevice**，[使用 IoT 中心傳送雲端到裝置訊息]中建立之 App 的修改版本，可連接到您的 IoT 中心、接收包含 Azure Blob URI 的雲端到裝置訊息。針對每個接收到的雲端到裝置訊息，它會觸發將檔案上傳至指定的 Blob URI。
 * **SendCloudToDevice**，這會建置 Azure Blob URI (如[使用 Blob 服務建立與使用 SAS](../storage/storage-dotnet-shared-access-signature-part-2.md) 中所說明)，在雲端到裝置訊息中透過 IoT 中心將 Azure Blob URI 傳送到模擬裝置，然後接收其傳遞通知。
 
-> [AZURE.NOTE]IoT 中心透過 Azure IoT 裝置 SDK 提供許多裝置平台和語言的 SDK 支援 (包括 C、Java 和 Javascript)。如需如何將您的裝置與本教學課程中之程式碼連接 (通常是連接到 Azure IoT 中樞) 的逐步指示，請參閱 [Azure IoT 開發人員中心]。適用於 Java 和 Node 的 Azure IoT 服務 SDK 即將推出。
+> [AZURE.NOTE] IoT 中心透過 Azure IoT 裝置 SDK 提供許多裝置平台和語言的 SDK 支援 (包括 C、Java 和 Javascript)。如需如何將您的裝置與本教學課程中之程式碼連接 (通常是連接到 Azure IoT 中樞) 的逐步指示，請參閱 [Azure IoT 開發人員中心]。適用於 Java 和 Node 的 Azure IoT 服務 SDK 即將推出。
 
 若要完成本教學課程，您需要下列項目：
 
 + Microsoft Visual Studio 2015，
 
-+ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank")。
++ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank")。
 
 
 [AZURE.INCLUDE [iot-hub-file-upload-cloud-csharp](../../includes/iot-hub-file-upload-cloud-csharp.md)]
@@ -79,12 +79,11 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 <!-- Links -->
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
-[透過 IoT 中心傳送雲端對裝置的訊息]: iot-hub-csharp-csharp-c2d.md
 
 [Azure 入口網站]: https://portal.azure.com/
 
-[Azure Data Factory]: https://azure.microsoft.com/en-us/documentation/services/data-factory/
-[Hadoop]: https://azure.microsoft.com/en-us/documentation/services/hdinsight/
+[Azure Data Factory]: https://azure.microsoft.com/zh-TW/documentation/services/data-factory/
+[Hadoop]: https://azure.microsoft.com/zh-TW/documentation/services/hdinsight/
 
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [使用 IoT 中心傳送雲端到裝置訊息]: iot-hub-csharp-csharp-c2d.md
@@ -100,4 +99,4 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT 開發人員中心]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

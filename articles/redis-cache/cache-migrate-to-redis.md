@@ -71,7 +71,7 @@ Azure Redis 快取中的快取可以透過 [Azure 入口網站](https://portal.a
 -	若要使用 Azure PowerShell 建立快取，請參閱[使用 Azure PowerShell 管理 Azure Redis 快取](cache-howto-manage-redis-cache-powershell.md)。
 -	若要使用 Azure CLI 建立快取，請參閱[如何使用 Azure 命令列介面 (Azure CLI) 建立並管理 Azure Redis 快取](cache-manage-cli.md)。
 
->[AZURE.NOTE]若要使用 Azure Redis 快取，您需要 Azure 帳戶。如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero)。
+>[AZURE.NOTE] 若要使用 Azure Redis 快取，您需要 Azure 帳戶。如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero)。
 
 ## 設定快取用戶端
 
@@ -143,7 +143,7 @@ StackExchange.Redis 快取用戶端的 API 類似受管理的快取服務。本�
 								
 如果此命名空間並未解析，請確定您已如[設定快取用戶端](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients)中所述加入 StackExchange.Redis NuGet 封裝。
 
->[AZURE.NOTE]請注意，StackExchange.Redis 用戶端需要 .NET Framework 4 或更高版本。
+>[AZURE.NOTE] 請注意，StackExchange.Redis 用戶端需要 .NET Framework 4 或更高版本。
 
 若要連接至 Azure Redis 快取執行個體，請呼叫靜態 `ConnectionMultiplexer.Connect` 方法並傳入端點和金鑰。在您的應用程式中共用 `ConnectionMultiplexer` 執行個體的其中一種方法，就是擁有可傳回已連接執行個體的靜態屬性，類似下列範例。這會提供安全執行緒方式，只初始化單一已連接的 `ConnectionMultiplexer` 執行個體。在此範例中，`abortConnect` 已設為 false，這表示即使無法建立與快取的連接，呼叫也會成功。`ConnectionMultiplexer` 的主要功能之一，就是一旦網路問題或其他原因獲得解決，它就會自動恢復與快取的連接。
 
@@ -195,4 +195,4 @@ Azure Redis 快取有適用於 ASP.NET 工作階段狀態和頁面輸出快取�
 
 瀏覽 [Azure Redis 快取文件](https://azure.microsoft.com/documentation/services/cache/)中的教學課程、範例、影片及其他資訊。
 
-<!--------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

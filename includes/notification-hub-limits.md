@@ -6,6 +6,6 @@
 | 廣播標記大小 | 10K | 10K | 無限 |
 | 標記數量 (廣播群組) | 3K | 3K，除非廣播到少於 5 個裝置 | 無限 |
 
-如需這些限制的其他詳細資料和價格的相關資訊，請參閱[通知中樞價格](http://azure.microsoft.com/pricing/details/notification-hubs/)。
+如需這些限制的其他詳細資料和價格的相關資訊，請參閱[通知中樞價格](https://azure.microsoft.com/pricing/details/notification-hubs/)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

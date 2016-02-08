@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="01/21/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -35,7 +35,7 @@
 
 在合併與收購時使用 GALSync 解決方案橋接兩個或多個 Exchange 樹系之後，常會有多個連絡人代表不同樹系中的某個使用者。連絡人物件一律從連接器空間使用 mail 屬性加入 Metaverse。如果已經有具相同郵件地址的連絡人物件或使用者物件，則物件會一起加入。這設定在規則 **In from AD – Contact Join** 中。另外還有一個名為 **In from AD – Contact Common** 的規則，其屬性流程是使用常數 **Contact** 提供給 Metaverse 屬性 **sourceObjectType**。此規則的優先順序非常低，因此，如果已將任何使用者物件聯結到同一個 Metaverse 物件，則規則 **In from AD – User Common** 會提供 User 值給這個屬性。有了這項規則，如果沒有使用者加入，此屬性的值就會是 Contact，如果至少找到了一個使用者，則屬性的值就會是 User。
 
-將物件佈建到 Azure AD 時，如果將 Metaverse 屬性 **sourceObjectType** 設定為 **Contact**，輸出規則 **Out to AAD – Contact Join** 就會建立連絡人物件。如果將此屬性設定為 **User**，則規則 **Out to AAD – User Join** 將改為建立使用者物件。當有多個來源 Active Directory 匯入並同步處理時，可以將物件從 Contact 升級為 User。
+當佈建物件到 Azure AD 時，如果 Metaverse 屬性 **sourceObjectType** 設為 **Contact**，輸出規則 **Out to AAD – Contact Join** 就會建立連絡人物件。如果將此屬性設定為 **User**，則規則 **Out to AAD – User Join** 將改為建立使用者物件。當有多個來源 Active Directory 匯入並同步處理時，可以將物件從 Contact 升級為 User。
 
 例如，在 GALSync 拓撲中，當我們匯入第一個樹系時，我們會在第二個樹系中找到每個人的連絡人物件。這會在 AAD 連接器中暫存新的連絡人物件。當我們之後匯入和同步處理第二個樹系時，我們會找到真正的使用者，並將他們加入現有的 Metaverse 物件。然後我們就可以刪除 AAD 中的連絡人物件，然後改為建立新的使用者物件。
 
@@ -56,4 +56,4 @@
 * [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

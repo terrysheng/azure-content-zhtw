@@ -28,7 +28,7 @@
 - [**Pi 估算器**][hdinsight-sample-pi-estimator]：此程式使用統計 (擬蒙特卡羅法) 方法來估計 Pi 的值。
 - [**10-GB Graysort**][hdinsight-sample-10gb-graysort]：使用 HDInsight 在 10 GB 檔案上執行一般用途的 GraySort。有三個工作可執行：Teragen、Terasort 和 Teravalidate，分別用來產生資料、排序資料，以及確認資料已適當排序。
 
->[AZURE.NOTE]原始程式碼可以在附錄中找到。
+>[AZURE.NOTE] 原始程式碼可以在附錄中找到。
 
 網路上有許多 Hadoop 相關技術 (例如 Java 型 MapReduce 程式設計和串流) 的文件可供參考，此外也有適用於 Windows PowerShell 指令碼之 Cmdlet 的相關文件。如需有關這些資源的詳細資訊，請參閱：
 
@@ -44,7 +44,7 @@
  
 **必要條件**：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - **HDInsight 叢集**。如需可建立此類叢集之各種方式的指示，請參閱[在 HDInsight 中使用 Hadoop 叢集](hdinsight-provision-clusters.md)。
 - **具有 Azure PowerShell 的工作站**。請參閱[安裝 Azure PowerShell 1.0 及更新版本](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)。
 
@@ -118,7 +118,7 @@
 
 Hadoop 提供 MapReduce 一個串流 API，可讓您以 Java 以外的語言撰寫 map 和 reduce 函數。
 
-> [AZURE.NOTE]本教學課程的步驟只適用於 Windows HDInsight 叢集。如需 Linux HDInsight 叢集的串流範例，請參閱[開發適用於 HDInsight 的 Python 串流程式](hdinsight-hadoop-streaming-python.md)。
+> [AZURE.NOTE] 本教學課程的步驟只適用於 Windows HDInsight 叢集。如需 Linux HDInsight 叢集的串流範例，請參閱[開發適用於 HDInsight 的 Python 串流程式](hdinsight-hadoop-streaming-python.md)。
 
 在範例中，mapper 與 reducer 是從 [stdin][stdin-stdout-stderr] (逐行) 讀取輸入並將輸出發出到 [stdout][stdin-stdout-stderr] 的可執行檔。程式會計算內容中的所有文字。
 
@@ -998,4 +998,4 @@ wc.cs 檔案中的 reducer 程式碼會使用 [StreamReader][streamreader] 物�
 [streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,12 +1,13 @@
 
 <properties
 	pageTitle="從備份還原虛擬機器 | Microsoft Azure"
-	description="了解如何還原 Azure 虛擬機器"
+	description="了解如何從復原點還原 Azure 虛擬機器"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
-	editor=""/>
+	editor=""
+	keywords="還原備份；如何還原；復原點；"/>
 
 <tags
 	ms.service="backup"
@@ -14,13 +15,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="trinadhk"; "jimpark"/>
+	ms.date="01/22/2016"
+	ms.author="trinadhk; jimpark;"/>
+
 
 # 還原 Azure 中的虛擬機器
-您可以使用還原動作，利用儲存在 Azure 備份保存庫的備份，將虛擬機器還原至新的 VM。
+
+使用下列步驟，利用 Azure 備份保存庫中儲存的備份，將虛擬機器還原到新的 VM。
 
 ## 還原工作流程
+
 ### 1\.選擇要還原的項目
 
 1. 瀏覽至 [**受保護項目**] 索引標籤，然後選取您想要還原至新 VM 的虛擬機器。
@@ -104,7 +108,7 @@ VM 可以從 Azure 入口網站或使用 PowerShell 還原 (就像任何其他 V
 
 由於Azure 中不存在 DSRM 模式，就會產生的挑戰。因此若要還原這類的 VM，您無法使用 Azure 入口網站。唯一受支援的還原機制是使用 PowerShell 進行以磁碟為基礎的還原。
 
->[AZURE.WARNING]對於多 DC 環境中的網域控制站 VM，請勿使用 Azure 入口網站還原！ 僅支援以 PowerShell 為基礎的還原
+>[AZURE.WARNING] 對於多 DC 環境中的網域控制站 VM，請勿使用 Azure 入口網站還原！ 僅支援以 PowerShell 為基礎的還原
 
 深入了解 [USN 回復問題](https://technet.microsoft.com/library/dd363553) 以及修正此問題的建議策略。
 
@@ -117,7 +121,7 @@ Azure 備份支援備份虛擬機器的以下特殊網路組態。
 
 這些組態可在還原組態時授權以下考量項目。
 
->[AZURE.TIP]請使用 PowerShell 型還原流程重新建立 VM 後續還原的特殊網路組態。
+>[AZURE.TIP] 請使用 PowerShell 型還原流程重新建立 VM 後續還原的特殊網路組態。
 
 ### 從 UI 還原：
 從 UI 還原時，請**一律選擇新的雲端服務**。請注意，入口網站在還原流程中只接受強制參數，使用 UI 還原的 VM 將會失去它們擁有的特殊網路組態。也就是說，還原後的 VM 將會是一般的 VM，不具有負載平衡器組態、多個 NIC 或多個保留的 IP。
@@ -131,13 +135,13 @@ PowerShell 能夠只從備份還原 VM 磁碟，而不建立虛擬機器。在�
 
 2. 使用 PowerShell Cmdlet 建立負載平衡器/多個 NIC/多個保留的 IP 所需的 VM 組態，並使用該組態建立具備想要之組態的 VM。
 	- 使用[內部負載平衡器](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)在雲端服務中建立 VM
-	- 建立 VM 來連線至[網際網路對向負載平衡器](https://azure.microsoft.com/zh-TW/documentation/articles/load-balancer-internet-getstarted)
-	- 建立具有[多個 NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics) 的 VM
+	- 建立 VM 來連線至[網際網路對向負載平衡器](https://azure.microsoft.com/zh-TW/documentation/articles/load-balancer-internet-getstarted/)
+	- 建立具有[多個 NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/) 的 VM
 	- 建立具有[多個保留的 IP](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/) 的 VM
-  
+
 
 ## 後續步驟
 - [錯誤疑難排解](backup-azure-vms-troubleshoot.md#restore)
 - [管理虛擬機器](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

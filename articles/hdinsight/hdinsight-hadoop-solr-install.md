@@ -67,7 +67,7 @@
 
 您必須從以某些資料檔案編製 Solr 的索引來開始。然後，您可以使用 Solr 來對已編製索引的資料執行搜尋查詢。執行下列步驟以在 HDInsight 叢集中使用 Solr：
 
-1. **使用遠端桌面通訊協定 (RDP) 遠端登入到已安裝 Solr 的 HDInsight 叢集**。從 Azure 入口網站，針對您所建立且已安裝 Solr 的叢集啟用遠端桌面，然後遠端登入到叢集。如需指示，請參閱<a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>。
+1. **使用遠端桌面通訊協定 (RDP) 遠端登入到已安裝 Solr 的 HDInsight 叢集**。從 Azure 入口網站，針對您所建立且已安裝 Solr 的叢集啟用遠端桌面，然後遠端登入到叢集。如需指示，請參閱 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連線到 HDInsight 叢集</a>。
 
 2. **上傳資料檔案以對 Solr 編製索引**。在對 Solr 編製索引時，會在其中放置可能需要搜尋的文件。若要對 Solr 編製索引，請使用 RDP 遠端登入到叢集、瀏覽至桌面、開啟 Hadoop 命令列，然後瀏覽至 **C:\\apps\\dist\\solr-4.7.2\\example\\exampledocs**。執行以下命令：
 
@@ -198,4 +198,4 @@
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO3--->

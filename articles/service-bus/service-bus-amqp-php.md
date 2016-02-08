@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 搭配使用 PHP 的服務匯流排與 AMQP 1.0
@@ -25,7 +25,7 @@ Proton-PHP 是繫結至 Proton-C 的 PHP 語言；也就是說，Proton-PHP 會�
 
 您可以從 [http://qpid.apache.org/download.html](http://qpid.apache.org/download.html) 下載 Proton-C 及其相關聯的繫結 (包括 PHP)。下載採用原始程式碼形式。若要建置程式碼，請遵循下載的套件中所包含的指示。
 
-> [AZURE.IMPORTANT]在撰寫本文時，Proton-C 中的 SSL 支援只適用於 Linux 作業系統。因為 Azure 服務匯流排需要使用 SSL，所以 Proton-C (和語言繫結) 此時僅可用來從 Linux 存取服務匯流排。在 Windows 上啟用 Proton-C 與 SSL 正在進行中，請經常檢查更新。
+> [AZURE.IMPORTANT] 在撰寫本文時，Proton-C 中的 SSL 支援只適用於 Linux 作業系統。因為 Azure 服務匯流排需要使用 SSL，所以 Proton-C (和語言繫結) 此時僅可用來從 Linux 存取服務匯流排。在 Windows 上啟用 Proton-C 與 SSL 正在進行中，請經常檢查更新。
 
 ## 從 PHP 使用服務匯流排佇列、主題和訂用帳戶
 
@@ -82,7 +82,7 @@ $message->properties["TestString"] = "Service Bus";
 $message->properties["TestObject"] = new UUID("1234123412341234");   
 ```
 
-在服務匯流排 .NET API 中，訊息應用程式屬性位於 [BrokeredMessage][] 的 [屬性] 集合中。下列程式碼示範如何讀取從 PHP 用戶端接收之訊息的應用程式屬性。
+在服務匯流排 .NET API 中，訊息應用程式屬性包含在 [BrokeredMessage][] 的**屬性**集合中。下列程式碼示範如何讀取從 PHP 用戶端接收之訊息的應用程式屬性。
 
 ```
 if (message.Properties.Keys.Count > 0)
@@ -156,7 +156,7 @@ if ($message->properties != null)
 
 | .NET 屬性類型 | PHP 屬性類型 | 注意事項 |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | integer | - | | sbyte | integer | - | | char | Char | Proton-PHP 類別 | | short | integer | - | | ushort | integer | - | | int | integer | - | | uint | Integer | - | | long | integer | - | | ulong | integer | - | | float | double | - | | double | double | - | | decimal | string | Proton 目前不支援 decimal。 | | bool | boolean | - | | Guid | UUID | Proton-PHP class | | string | string | - | | DateTime | integer | - | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks 會對應至 AMQP 類型︰<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | Timespan.Ticks 會對應至 AMQP 類型︰<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | Uri.AbsoluteUri 會對應至 AMQP 類型︰<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | integer | - | | sbyte | integer | - | | char | Char | Proton-PHP 類別 | | short | integer | - | | ushort | integer | - | | int | integer | - | | uint | Integer | - | | long | integer | - | | ulong | integer | - | | float | double | - | | double | double | - | | decimal | string | Proton 目前不支援 decimal。 | | bool | boolean | - | | Guid | UUID | Proton-PHP class | | string | string | - | | DateTime | integer | - | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks 會對應至 AMQP 類型︰<type name="datetime-offset" class=restricted source="long"> <descriptor name="com.microsoft:datetime-offset" /></type> | | TimeSpan | DescribedType | Timespan.Ticks 會對應至 AMQP 類型︰<type name="timespan" class=restricted source="long"> <descriptor name="com.microsoft:timespan" /></type> | | Uri | DescribedType | Uri.AbsoluteUri 會對應至 AMQP 類型︰<type name="uri" class=restricted source="string"> <descriptor name="com.microsoft:uri" /></type> |
 
 ### 標準屬性
 
@@ -173,7 +173,7 @@ if ($message->properties != null)
 
 | 服務匯流排 .NET | Proton-PHP | 注意事項 |
 |-------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| ContentType | Message->content\_type | - | | CorrelationId | Message->correlation\_id | - | | EnqueuedTimeUtc | Message->annotations[x-opt-enqueued-time] | - | | Label | Message->subject | - | | MessageId | Message->id | - | | ReplyTo | Message->reply\_to | - | | ReplyToSessionId | Message->reply\_to\_group\_id | - | | ScheduledEnqueueTimeUtc | Message->annotations [“x-opt-scheduled-enqueue-time”] | - | | SessionId | Message->group\_id | - | | TimeToLive | Message->ttl | 轉換，Proton-PHP TTL 是以毫秒定義。 | | To | Message->address | - |
+| ContentType | Message->content\_type | - | | CorrelationId | Message->correlation\_id | - | | EnqueuedTimeUtc | Message->annotations[x-opt-enqueued-time] | - | | Label | Message->subject | - | | MessageId | Message->id | - | | ReplyTo | Message->reply\_to | - | | ReplyToSessionId | Message->reply\_to\_group\_id | - | | ScheduledEnqueueTimeUtc | Message->annotations ["x-opt-scheduled-enqueue-time"] | - | | SessionId | Message->group\_id | - | | TimeToLive | Message->ttl | 轉換，Proton-PHP TTL 是以毫秒定義。 | | To | Message->address | - |
 
 ## 後續步驟
 
@@ -184,9 +184,7 @@ if ($message->properties != null)
 
 
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-
 [Windows Server 服務匯流排中的 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
-
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

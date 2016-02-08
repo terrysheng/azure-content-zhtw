@@ -30,7 +30,7 @@
 
 **必要條件：**
 
-開始進行本教學課程之前，您必須擁有 Azure 訂用帳戶。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+開始進行本教學課程之前，您必須擁有 Azure 訂用帳戶。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 ##<a name="storage"></a>建立 Azure 儲存體帳戶
 
@@ -44,7 +44,7 @@
 
 	![Azure 入口網站，您可以在此入口網站中使用「快速建立」設定新的儲存體帳戶。](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.storageaccount.quickcreate.png "Azure 入口網站，您可以在此入口網站中使用「快速建立」設定新的儲存體帳戶。")
 
->[AZURE.NOTE]請務必在支援叢集的位置建立您的儲存體帳戶。
+>[AZURE.NOTE]  請務必在支援叢集的位置建立您的儲存體帳戶。
 
 從清單中選取新儲存體帳戶，並按一下頁面底部的 [**管理存取金鑰**]。請記下 [**主要存取金鑰**] \(或 [**次要存取金鑰**]，任一金鑰皆可)。稍後在教學課程中需要這些資訊。如需詳細資訊，請參閱＜[如何建立儲存體帳戶][azure-create-storageaccount]＞。
 	
@@ -52,7 +52,7 @@
 
 在本節中，您將建立採用 Spark 1.3.1 版的 HDInsight 3.2 版叢集。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱〈[HDInsight 元件版本設定](hdinsight-component-versioning.md)〉。
 
->[AZURE.NOTE]本文章中的步驟能使用基本組態設定在 HDInsight 中建立 Apache Spark 叢集。如需其他叢集組態設定 (例如使用其他儲存體、Azure 虛擬網路或 Hive 中繼存放區) 的相關資訊，請參閱[使用自訂選項建立 HDInsight 叢集](hdinsight-apache-spark-provision-clusters.md)。
+>[AZURE.NOTE] 本文章中的步驟能使用基本組態設定在 HDInsight 中建立 Apache Spark 叢集。如需其他叢集組態設定 (例如使用其他儲存體、Azure 虛擬網路或 Hive 中繼存放區) 的相關資訊，請參閱[使用自訂選項建立 HDInsight 叢集](hdinsight-apache-spark-provision-clusters.md)。
 
 
 **如何建立 Spark 叢集**
@@ -68,11 +68,11 @@
 
 建立叢集之後，您就可以使用 Web 型 Zeppelin Notebook 來針對 Spark HDInsight 叢集執行 Spark SQL 互動式查詢。在本節中，我們將使用叢集預設提供的範例資料檔案 (hvac.csv) 來執行一些互動式 Spark SQL 查詢。
 
->[AZURE.NOTE]叢集也預設會提供遵循以下指示建立的 Notebook。啟動 Zeppelin 之後，您可以用名稱「Zeppelin HVAC tutorial」來尋找這個 Notebook。
+>[AZURE.NOTE] 叢集也預設會提供遵循以下指示建立的 Notebook。啟動 Zeppelin 之後，您可以用名稱「Zeppelin HVAC tutorial」來尋找這個 Notebook。
 
 1. 按一下 [Azure 入口網站][azure-management-portal]左窗格中的 [HDInsight]，然後按一下您建立的 Spark 叢集。在 Spark 叢集頁面上，按一下下方窗格中的 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
-	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您叢集的 Zeppelin Notebook。請用您叢集的名稱取代 __CLUSTERNAME__：
+	> [AZURE.NOTE] 您也可以在瀏覽器中開啟下列 URL，來連接到您叢集的 Zeppelin Notebook。使用您叢集的名稱取代 __CLUSTERNAME__：
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
@@ -142,7 +142,7 @@
 
 	![使用 Notebook 執行 Spark SQL 陳述式](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.note.sparksqlquery2.png "使用 Notebook 執行 Spark SQL 陳述式")
 
-	對於後續的查詢，您可以從下拉式清單選取新的值，然後再次執行查詢。按一下 [設定] 以選擇構成輸出中索引鍵和值的項目。在上方的螢幕擷取畫面中，索引鍵為 **buildingID**，值為 **temp\_diff** 的平均值，而群組為 **targettemp**。
+	對於後續的查詢，您可以從下拉式清單選取新的值，然後再次執行查詢。按一下 [設定] 以選擇構成輸出中索引鍵和值的項目。上述螢幕擷取畫面使用 **buildingID** 做為索引鍵、平均 **temp\_diff** 做為值，而 **targettemp** 做為群組。
 
 7. 重新啟動 Spark SQL 解譯器以結束應用程式。按一下頂端的 [解譯器] 索引標籤，然後針對 Spark 解譯器按一下 [重新啟動]。
 
@@ -152,11 +152,11 @@
 
 在本節中，您會使用 Jupyter Notebook 來針對 Spark 叢集執行 Spark SQL 查詢。
 
->[AZURE.NOTE]叢集也預設會提供遵循以下指示建立的 Notebook。啟動 Jupyter 之後，您可以用名稱「HVACTutorial.ipynb」來尋找這個 Notebook。
+>[AZURE.NOTE] 叢集也預設會提供遵循以下指示建立的 Notebook。啟動 Jupyter 之後，您可以用名稱「HVACTutorial.ipynb」來尋找這個 Notebook。
 
 1. 按一下 [Azure 入口網站][azure-management-portal]左窗格中的 [HDInsight]，然後按一下您建立的 Spark 叢集。在 Spark 叢集頁面上，按一下下方窗格中的 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
-	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。請用您叢集的名稱取代 __CLUSTERNAME__：
+	> [AZURE.NOTE] 您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。使用您叢集的名稱取代 __CLUSTERNAME__：
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -256,4 +256,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

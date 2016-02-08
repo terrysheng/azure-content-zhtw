@@ -93,7 +93,7 @@ public void ConfigureAuth(IAppBuilder app)
 
 					ClientId = clientId,
 					Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
-					Scope = "openid offline_access",
+					Scope = "openid email profile offline_access",
 					RedirectUri = redirectUri,
 					PostLogoutRedirectUri = redirectUri,
 					TokenValidationParameters = new TokenValidationParameters
@@ -119,7 +119,9 @@ public void ConfigureAuth(IAppBuilder app)
 
 - 首先，安裝 ADAL 預覽版本：
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
+```
+PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease
+``` 
 - 將另一個 `using` 陳述式新增至 ADAL 的 `App_Start\Startup.Auth.cs`。
 - 現在加入新的方法 (`OnAuthorizationCodeReceived` 事件處理常式)。此處理常式會使用 ADAL 取得待辦事項清單 API 的存取權杖，並將 ADAL 權杖中的權杖儲存起來以供日後使用：
 
@@ -204,7 +206,7 @@ catch (AdalException ee)
 ## 後續步驟
 
 如需其他資源，請查看：
-- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md)
+- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md) 
 - [StackOverflow "adal" 標記 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

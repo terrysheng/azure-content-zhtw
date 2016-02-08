@@ -57,7 +57,7 @@
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
 
-1.  以 **StorSimpleAdmin** 的帳戶名稱登入虛擬裝置的 Web UI。請輸入您在 [Provision a StorSimple Virtual Array in Hyper-V (在 Hyper-V 中佈建 StorSimple 虛擬陣列)](storsimple-ova-deploy2-provision-hyperv.md) 或 [Provision a StorSimple Virtual Array in VMware (在 VMware 中佈建 StorSimple 虛擬陣列)](storsimple-ova-deploy2-provision-vmware.md) 一文的 Step 3: Start the virtual device (步驟 3：啟動虛擬裝置) 中所變更的裝置系統管理員密碼。
+1.  以 **StorSimpleAdmin** 的帳戶名稱登入虛擬裝置的 Web UI。請輸入您在 [Provision a StorSimple Virtual Array in Hyper-V (在 Hyper-V 中佈建 StorSimple Virtual Array)](storsimple-ova-deploy2-provision-hyperv.md) 或 [Provision a StorSimple Virtual Array in VMware (在 VMware 中佈建 StorSimple Virtual Array)](storsimple-ova-deploy2-provision-vmware.md) 一文的 Step 3: Start the virtual device (步驟 3：啟動虛擬裝置) 中所變更的裝置系統管理員密碼。
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 
@@ -169,7 +169,7 @@
  ![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
 
 
-> [AZURE.NOTE]
+> [AZURE.NOTE]                                                              
 >
 > 您可以藉由存取 [設定] 頁面，隨時修改所有的其他裝置設定。
 
@@ -199,7 +199,7 @@
 
 1.  按一下箭頭圖示 ![](./media/storsimple-ova-deploy3-fs-setup/image19.png) 以移至下一頁。
 
-1.  在 [其他設定] 頁面上，指派權限給將會存取此共用的使用者或群組。請以下列格式指定使用者或使用者群組的名稱：<john@contoso.com>。我們建議您利用使用者群組 (而非單一使用者)，來授予可存取這些共用的系統管理員權限。當您在此指派權限之後，就可以使用 Windows 檔案總管來修改這些權限。
+1.  在 [其他設定] 頁面上，指派權限給將會存取此共用的使用者或群組。請以下列格式指定使用者或使用者群組的名稱：*<john@contoso.com>*。我們建議您利用使用者群組 (而非單一使用者)，來授予可存取這些共用的系統管理員權限。當您在此指派權限之後，就可以使用 Windows 檔案總管來修改這些權限。
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image20.png)
 
@@ -211,7 +211,7 @@
 
 #### 如何連線至共用
 
-1.  按下 ![](./media/storsimple-ova-deploy3-fs-setup/image22.png) + R鍵，然後在 [執行] 視窗中將 \<file server name> 指定為路徑，同時以您指派給檔案伺服器的裝置名稱取代「檔案伺服器名稱」。按一下 [確定]。
+1.  按下 ![](./media/storsimple-ova-deploy3-fs-setup/image22.png) + R鍵，然後在 [執行] 視窗中將 *\<file server name>* 指定為路徑，同時以您指派給檔案伺服器的裝置名稱取代「檔案伺服器名稱」。按一下 [確定]。
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image23.png)
 
@@ -231,4 +231,4 @@
 
 了解如何使用本機 Web UI 來[管理您的 StorSimple 虛擬陣列](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/23/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 # 開始在 PowerShell 中建立網際網路面向的負載平衡器 (傳統)
@@ -60,10 +60,8 @@
 
 ## 後續步驟
 
-[開始設定內部負載平衡器](load-balancer-internal-getstarted.md)
+您也可以[開始建立內部負載平衡器](load-balancer-get-started-ilb-classic-ps.md)，以及為特定負載平衡器的網路流量行為設定何種[分配模式](load-balancer-distribution-mode.md)。
 
-[設定負載平衡器分配模式](load-balancer-distribution-mode.md)
+如果您的應用程式需要讓負載平衡器後方的伺服器保持連接狀態，您可以深入了解[負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)。當您使用 Azure 負載平衡器時，該文章可幫助您了解閒置連接行為。
 
-[設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

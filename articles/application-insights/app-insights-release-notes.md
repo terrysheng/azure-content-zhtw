@@ -32,6 +32,6 @@
 * [Visual Studio 工具](app-insights-release-notes-vsix.md)
 * [其他平台](https://github.com/Microsoft/ApplicationInsights-Home)
 
-另請閱讀[服務更新](http://azure.microsoft.com/updates/?service=application-insights)，其總結了 Application Insights 服務整體的主要改進。
+另請閱讀[服務更新](https://azure.microsoft.com/updates/?service=application-insights)，其總結了 Application Insights 服務整體的主要改進。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

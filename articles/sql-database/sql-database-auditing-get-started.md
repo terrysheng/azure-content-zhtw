@@ -21,7 +21,7 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
 
 稽核可協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
 
-稽核工具啟用及推動遵循法規標準，但不保證符合法規。如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 [Azure 信任中心](http://azure.microsoft.com/support/trust-center/compliance)。
+稽核工具啟用及推動遵循法規標準，但不保證符合法規。如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/compliance/)。
 
 + [Azure SQL Database 稽核基本概念]
 + [設定資料庫的稽核]
@@ -37,7 +37,7 @@ SQL Database 稽核可讓您：
 - **報告**資料庫活動。您可以使用預先設定的報告和儀表板，以便快速開始使用活動和事件報告。
 - **分析**報告。您可以尋找可疑事件、異常活動及趨勢。
 
-> [AZURE.NOTE]您現在可以使用新的「威脅偵測」功能 (目前為預覽版) 來接收與可能指示潛在安全性威脅的異常資料庫活動相關的主動式警示。您可以從稽核組態刀鋒視窗內開啟和設定「威脅偵測」。如需詳細資料，請參閱[開始使用威脅偵測](sql-database-threat-detection-get-started.md)。
+> [AZURE.NOTE] 您現在可以使用新的「威脅偵測」功能 (目前為預覽版) 來接收與可能指示潛在安全性威脅的異常資料庫活動相關的主動式警示。您可以從稽核組態刀鋒視窗內開啟和設定「威脅偵測」。如需詳細資料，請參閱[開始使用威脅偵測](sql-database-threat-detection-get-started.md)。
 
 您可以設定下列事件類別的稽核：
 
@@ -178,4 +178,4 @@ SQL Database 稽核可讓您：
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

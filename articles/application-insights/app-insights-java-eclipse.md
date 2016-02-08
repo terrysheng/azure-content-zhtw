@@ -27,7 +27,7 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 您需要：
 
 * Oracle JRE 1.6 或更新版本
-* [Microsoft Azure](http://azure.microsoft.com/) 訂用帳戶。(您可以從[免費試用](http://azure.microsoft.com/pricing/free-trial/)開始。)
+* [Microsoft Azure](https://azure.microsoft.com/) 訂用帳戶。(您可以從[免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。)
 * [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/)、Indigo 或更新版本。
 * Windows 7 或更新版本，或 Windows Server 2008 或更新版本
 
@@ -260,4 +260,4 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

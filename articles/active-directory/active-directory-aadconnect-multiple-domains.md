@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 #多網域支援
@@ -50,8 +50,8 @@
 我會在 Azure AD 中得到下列組態：
 
 - DomainName：fabrikam.com
-- IssuerURI：http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl：https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI：http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl：https://fs.contoso100.com/adfs/ls/
 
 請注意，當已根據我的網域為 IssuerURI 設定一個值時，唯一的端點 url 值仍然設定為指向我在 fs.contoso100.com 上的同盟服務，就像對原始 contoso.com 網域一樣。因此，所有網域仍會指向相同的 AD FS 系統。
 
@@ -74,11 +74,11 @@ SupportMultipleDomain 所做的另外一件事是確保 AD FS 系統將在針對
 完成此動作後，我們在 Azure AD 中會有兩個網域的組態：
 
 - DomainName：contoso.com
-- IssuerURI：http://contoso.com/adfs/services/trust 
-- PassiveClientSignInUrl：https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI：http://contoso.com/adfs/services/trust
+- PassiveClientSignInUrl：https://fs.contoso100.com/adfs/ls/
 - DomainName：fabrikam.com
-- IssuerURI：http://fabrikam.com/adfs/services/trust 
-- PassiveClientSignInUrl：https://fs.contoso100.com/adfs/ls/ 
+- IssuerURI：http://fabrikam.com/adfs/services/trust
+- PassiveClientSignInUrl：https://fs.contoso100.com/adfs/ls/
 
 使用者從 contoso.com 同盟登入後，fabrikam.com 網域現在將可正常運作。現在只剩下一個問題：使用者在子網域中登入。
 
@@ -91,4 +91,4 @@ Azure AD 實作的標準規則，會將含簽發者的權杖產生為 http://sub
 
 總而言之，您可以有多個具有不同名稱的網域，以及子網域，且全都同盟至相同 AD FS 伺服器，現在只需要幾個額外的步驟，便可確保為所有使用者正確設定簽發者值。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

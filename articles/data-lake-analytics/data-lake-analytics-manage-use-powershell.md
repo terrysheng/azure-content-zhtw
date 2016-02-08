@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/15/2016"
+   ms.date="01/26/2016"
    ms.author="jgao"/>
 
 # 使用 Azure PowerShell 管理 Azure 資料湖分析
@@ -26,7 +26,7 @@
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱 [取得 Azure 免費試用]https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 
 <!-- ################################ -->
@@ -35,7 +35,7 @@
 
 ##安裝 Azure PowerShell 1.0 或更新版本
 
-請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](powershell-azure-resource-manager.md#prerequisites)的「必要條件」一節。
+請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](powershell-azure-resource-manager.md#prerequisites)的＜必要條件＞一節。
 	
 ## 管理帳戶
 
@@ -242,7 +242,7 @@ Cmdlet 將傳回 **True** 或 **False**。
 		-Name $jobName `
 		-Script $scriptContents
 
-> [AZURE.NOTE]工作的預設優先順序為 1000，工作的平行處理原則預設程度是 1。
+> [AZURE.NOTE] 工作的預設優先順序為 1000，工作的平行處理原則預設程度是 1。
 
 
 ### 取消工作
@@ -392,4 +392,4 @@ U-SQL 目錄是用來建構資料和程式碼，讓 U-SQL 指令碼可以共用�
 	  }
 	}
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

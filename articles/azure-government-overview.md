@@ -27,7 +27,7 @@ Azure Government 是一個政府社群雲端 (GCC)，設計來支援美國政府
 
 此外，Azure Government 的設計符合法規(例如，聯邦政府風險與授權管理計畫 (FedRAMP)、國防部企業雲端服務仲介 (ECSB)、刑事犯罪資料 (CJIS) 安全性政策與健康保險可攜與責任法 (HIPAA)) 中機密專用之美國公共部門工作量，更高層級的安全性與法務遵循需求。
 
-以下是可用來協助政府組織建置混合式雲端解決方案，以滿足其目標的 Azure Government 基礎結構、網狀架構、服務和架構的摘要檢視。請參閱[區域頁面](http://azure.microsoft.com/regions/#services)中所列出之正式運作的最新服務。
+以下是可用來協助政府組織建置混合式雲端解決方案，以滿足其目標的 Azure Government 基礎結構、網狀架構、服務和架構的摘要檢視。請參閱[區域頁面](https://azure.microsoft.com/regions/#services)中所列出之正式運作的最新服務。
 
 ![][2]
 
@@ -60,7 +60,7 @@ Azure Government 也讓組織維持其現有的技術投資，並實現雲端服
 
 
 ## <a name="Features"></a> Microsoft Azure Government 中目前可用的功能
-「美國政府愛荷華州」(US GOV IOWA) 及「美國政府維吉尼亞州」(US GOV VIRGINIA) 區域提供的 Azure Government 服務包括：
+「美國愛荷華州政府」及「美國維吉尼亞州政府」區域提供的 Azure Government 服務包括：
 
 - 虛擬機器
 - 雲端服務
@@ -80,7 +80,7 @@ Azure Government 也讓組織維持其現有的技術投資，並實現雲端服
 - ExpressRoute
 - 等
 
-有其他服務可用，並且會持續新增更多服務。如需最新的服務清單，請參閱[區域頁面](http://azure.microsoft.com/regions/#services)，當中將醒目提示每個可用的區域及其服務。
+有其他服務可用，並且會持續新增更多服務。如需最新的服務清單，請參閱[區域頁面](https://azure.microsoft.com/regions/#services)，當中將醒目提示每個可用的區域及其服務。
 
 目前，「美國政府愛荷華州」和「美國政府維吉尼亞州」是支援 Azure Government 的資料中心。如需目前的資料中心及可用的服務，請參閱上述區域頁面。
 
@@ -98,7 +98,7 @@ Azure Government 也讓組織維持其現有的技術投資，並實現雲端服
 
 - **[Azure Government 部落格](http://blogs.msdn.com/b/azuregov/)**
 
-- **[Azure 法規遵循](http://azure.microsoft.com/support/trust-center/compliance/)**
+- **[Azure 法規遵循](https://azure.microsoft.com/support/trust-center/compliance/)**
 
 
 
@@ -117,4 +117,4 @@ Azure Government 也讓組織維持其現有的技術投資，並實現雲端服
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

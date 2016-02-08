@@ -123,7 +123,7 @@ Azure App Service 是此案例的絕佳解決方案，因為您可先免費使�
 
 ### <a id="lob"></a>我有個主要商務應用程式需要連線至公司網路。
 
-若要建立企業營運系統應用程式，您的網站可能需要直接存取公司網路上的服務或資料。在 App Service、雲端服務和虛擬機器上利用 [Azure 虛擬網路服務](/services/virtual-network/)即可達成。在 App Service 上，您可以使用 [VNET 整合功能](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)，讓您的 Azure 應用程式彷彿就像在公司網路上執行一樣。
+若要建立企業營運系統應用程式，您的網站可能需要直接存取公司網路上的服務或資料。在 App Service、雲端服務和虛擬機器上利用 [Azure 虛擬網路服務](/services/virtual-network/)即可達成。在 App Service 上，您可以使用 [VNET 整合功能](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)，讓您的 Azure 應用程式彷彿就像在公司網路上執行一樣。
 
 ### <a id="mobile"></a>我想要裝載 REST API 或 Web 服務供行動用戶端使用
 
@@ -170,7 +170,8 @@ Web 伺服器執行個體會共用內容和組態，這表示您在調整規模�
 可接聽 ETW 事件||X|X|
 
 
-> [AZURE.NOTE]如果您要在註冊帳戶前開始使用 Azure App Service，請移至 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>，您可以在 Azure App Service 中立即建立短期的免費簡易版應用程式。不需要信用卡，沒有承諾。
+> [AZURE.NOTE]
+如果您要在註冊帳戶前開始使用 Azure App Service，請移至 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>，您可以在 Azure App Service 中立即建立短期的免費簡易版應用程式。不需要信用卡，沒有承諾。
 
 
 ## <a id="nextsteps"></a> 後續步驟
@@ -204,4 +205,4 @@ Web 伺服器執行個體會共用內容和組態，這表示您在調整規模�
   [儲存體]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

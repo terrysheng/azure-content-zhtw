@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 服務匯流排範例
 
-服務匯流排範例會示範服務匯流排 (雲端服務) 和 Service Bus for Windows Server 中的重要功能。本主題分類及描述可用的範例與每個範例的連結。
+服務匯流排範例會示範[服務匯流排](https://azure.microsoft.com/services/service-bus/) (雲端服務) 和 [Windows Server 服務匯流排](https://msdn.microsoft.com/library/dn282144.aspx)中的重要功能。本主題分類及描述可用的範例與每個範例的連結。
 
->[AZURE.NOTE]服務匯流排範例不會與 SDK 一起安裝。若要取得範例，請造訪 [Azure SDK 範例頁面](https://code.msdn.microsoft.com)。
+>[AZURE.NOTE] 服務匯流排範例不會與 SDK 一起安裝。若要取得範例，請造訪 [Azure SDK 範例頁面](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5)。
 
 ## 服務匯流排代理傳訊
 
@@ -126,10 +126,10 @@
 
 ## 後續步驟
 
-請參閱下列主題以取得服務匯流排的其他概觀。
+請參閱下列主題以取得服務匯流排的概念性概觀。
 
 - [服務匯流排訊息概觀](service-bus-messaging-overview.md)
 - [服務匯流排架構](service-bus-architecture.md)
 - [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

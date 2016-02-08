@@ -53,7 +53,7 @@
 
 ### 先決條件
 
-1.  **Azure 訂用帳戶**。如果您沒有 Azure 訂用帳戶，則只需要幾分鐘的時間就可以建立免費試用帳戶。請參閱[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+1.  **Azure 訂用帳戶**。如果您沒有 Azure 訂用帳戶，則只需要幾分鐘的時間就可以建立免費試用帳戶。請參閱[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 2.  **Azure 儲存體帳戶**。在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)。範例解決方案會使用 Blob 儲存體。
 
@@ -460,9 +460,9 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 		outputBlob.UploadText(output);
 
 
-### 建立 Data Factory
+## 建立 Data Factory
 
-在 [建立自訂活動](#create-the-custom-activity) 區段中，您建立自訂活動，並將包含二進位檔和 PDB 檔案的 zip 檔案上傳到 Azure blob 容器。在本節中，您將透過使用**自訂活動**的**管線**建立 Azure **Data Factory**。
+在 [建立自訂活動][](#create-the-custom-activity) 區段中，您建立自訂活動，並將包含二進位檔和 PDB 檔案的 zip 檔案上傳到 Azure blob 容器。在本節中，您將透過使用**自訂活動**的**管線**建立 Azure **Data Factory**。
 
 自訂活動的輸入資料集代表 blob 儲存體中輸入資料夾 (mycontainer\\inputfolder) 的 blob (檔案)。活動的輸出資料集代表 blob 儲存體中輸出資料夾 (mycontainer\\outputfolder) 的輸出 blob。
 
@@ -500,7 +500,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 
 ### 步驟 1：建立 Data Factory
 
-1.  登入 [Azure 入口網站](http://portal.azure.com/)之後，請執行下列動作：
+1.  登入 [Azure 入口網站](https://portal.azure.com/)之後，請執行下列動作：
 
     1.  按一下左側功能表上的 [新增]。
 
@@ -707,7 +707,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 
 在此步驟中，您將建立具有一個活動的管線，也就是您先前建立的自訂活動。
 
-> [AZURE.IMPORTANT]如果尚未將 **file.txt** 上傳至 blob 容器中的輸入資料夾，請先執行此動作，再建立管線。在管線 JSON 中，**IsPaused** 屬性會設定為 false，使管線會在**開始**日期到達後立即執行。
+> [AZURE.IMPORTANT] 如果尚未將 **file.txt** 上傳至 blob 容器中的輸入資料夾，請先執行此動作，再建立管線。在管線 JSON 中，**IsPaused** 屬性會設定為 false，使管線會在**開始**日期到達後立即執行。
 
 1.  在 Data Factory 編輯器中，按一下工具列上的 [**新增管線**]。如果看不到此命令，請按一下 [...] \(省略符號) 就可看到。
 
@@ -761,7 +761,7 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 
 	-   **AssemblyName** 會設定為 DLL 的名稱：**MyDotNetActivity.dll**。
 
-	-   **EntryPoint** 設定為 **MyDotNetActivityNS.MyDotNetActivity**。在您的程式碼中，它基本上是 \<namespace\>.\<classname\>。
+	-   **EntryPoint** 設定為 **MyDotNetActivityNS.MyDotNetActivity**。在您的程式碼中，它基本上是 <namespace>.<classname>。
 
 	-   **PackageLinkedService** 設為 **StorageLinkedService**，會指向包含自訂活動 zip 檔案的 Blob 儲存體。如果您將不同的 Azure 儲存體帳戶用於輸入/輸出檔案和自訂活動 zip 檔案，您必須建立另一個 Azure 儲存體連結服務。本文假設您使用相同的 Azure 儲存體帳戶。
 
@@ -929,4 +929,4 @@ Data Factory 自訂活動是此範例解決方案的核心。範例解決方案�
 
     -   [開始使用 Azure Batch 程式庫 .NET](../batch/batch-dotnet-get-started.md)
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

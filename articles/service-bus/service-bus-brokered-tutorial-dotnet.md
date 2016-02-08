@@ -94,7 +94,7 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下您的專案名稱 (在此例中為 **QueueSample**)、按一下 [加入]，然後按一下 [現有項目]。
 
-1. 瀏覽至您在步驟 6 中建立的 Data.csv 檔案。按一下該檔案，然後按一下 [新增] 按鈕。確定已在檔案類型清單中選取 [所有檔案 (.)]。
+1. 瀏覽至您在步驟 6 中建立的 Data.csv 檔案。按一下該檔案，然後按一下 [新增] 按鈕。確定已在檔案類型清單中選取 [所有檔案 (*.*)]。
 
 ### 建立可剖析訊息清單的函式
 
@@ -103,7 +103,7 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
-	    publicclass Program
+	    public class Program
 	    {
 	
 	        private static DataTable issues;
@@ -202,14 +202,16 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 	```
 	namespace Microsoft.ServiceBus.Samples
 	{
-	    publicclass Program
+	    public class Program
 	    {
 	
-	        privatestatic DataTable issues;
-	        privatestatic List<BrokeredMessage> MessageList; 
-	        // Add these variablesprivatestaticstring ServiceNamespace;
-	        privatestaticstring sasKeyName = "RootManageSharedAccessKey";
-	        privatestaticstring sasKeyValue;
+	        private static DataTable issues;
+	        private static List<BrokeredMessage> MessageList; 
+
+	        // Add these variables
+			private static string ServiceNamespace;
+	        private static string sasKeyName = "RootManageSharedAccessKey";
+	        private static string sasKeyValue;
 	        …
 	```
 
@@ -219,11 +221,11 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 	static void CollectUserInput()
 	{
 	    // User service namespace
-	    Console.Write("Please enter the service namespace to use: ");
+	    Console.Write("Please enter the namespace to use: ");
 	    ServiceNamespace = Console.ReadLine();
 	
 	    // Issuer key
-	    Console.Write("Please enter the SAS key to use: ");
+	    Console.Write("Enter the SAS key to use: ");
 	    sasKeyValue = Console.ReadLine();
 	}
 	```
@@ -247,10 +249,6 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 
 從 Visual Studio 的 [建置] 功能表中，按一下 [建置方案] 或按 F6，以確認您的工作到目前為止是否正確無誤。
 
-建立管理認證
-
-這是服務匯流排傳訊功能教學課程中的第二個步驟。在此步驟中，您可定義將用於建立共用存取簽章 (SAS) 認證的管理作業，以便授權您的應用程式。
-
 ## 建立管理認證
 
 在此步驟中，您可定義將用於建立共用存取簽章 (SAS) 認證的管理作業，以便授權您的應用程式。
@@ -262,7 +260,7 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 	{
 	…
 	}
-	staticvoid Queue()
+	static void Queue()
 	{
 	}
 	```
@@ -270,7 +268,7 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 1. 下一步是使用 [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) 物件建立 SAS 認證。建立方法會採用在 `CollectUserInput()` 方法中取得的 SAS 金鑰名稱和值。將下列程式碼新增至 `Queue()` 方法：
 
 	```
-	staticvoid Queue()
+	static void Queue()
 	{
 	    // Create management credentials
 	    TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
@@ -278,7 +276,7 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 	```
 ### 建立命名空間管理員
 
-1. 建立新的命名空間管理物件，以包含在最後一個步驟中取得之命名空間名稱和管理認證的 URI 作為引數。將此程式碼直接加在上一個步驟中新增的程式碼之下︰
+1. 建立新的命名空間管理物件，以包含在上一個步驟中取得之命名空間名稱和管理認證的 URI 作為引數。將此程式碼直接加在上一個步驟中新增的程式碼之下︰
 	
 	```
 	NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", <namespaceName>, string.Empty), credentials);
@@ -455,7 +453,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ### 結束 `Queue()` 方法並清除資源
 
-緊接在先前的程式碼之下，加入下列程式碼來清除訊息工廠和佇列資源：
+緊接在先前的程式碼之後，加入下列程式碼來清除訊息工廠和佇列資源：
 
 	```
 	factory.Close();
@@ -642,7 +640,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## 後續步驟
 
-本教學課程示範了如何使用服務匯流排代理傳訊功能，建置服務匯流排用戶端應用程式和服務。如需使用服務匯流排[轉送傳訊](service-bus-messaging-overview.md/#Relayed-messaging)的類似教學課程，請參閱[服務匯流排轉送傳訊教學課程](service-bus-relay-tutorial.md)。
+本教學課程示範了如何使用服務匯流排代理傳訊功能，建置服務匯流排用戶端應用程式和服務。如需使用服務匯流排[轉送傳訊](service-bus-messaging-overview.md#Relayed-messaging)的類似教學課程，請參閱[服務匯流排轉送傳訊教學課程](service-bus-relay-tutorial.md)。
 
 若要深入了解[服務匯流排](https://azure.microsoft.com/services/service-bus/)，請參閱下列主題。
 
@@ -652,4 +650,4 @@ namespace Microsoft.ServiceBus.Samples
 
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

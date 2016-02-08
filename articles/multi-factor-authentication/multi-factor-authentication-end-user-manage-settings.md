@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="使用 Azure Multi-Factor Authentication 時碰到困難 | Microsoft Azure" 
 	description="本文件將提供如果使用者使用 Azure Multi-Factor Authentication 遇到問題時，該怎麼辦的資訊。" 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords = "多重要素驗證用戶端, 驗證的問題, 相互關聯識別碼"
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
@@ -13,11 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # 使用 Azure Multi-Factor Authentication 時碰到困難
->[AZURE.IMPORTANT]協助我們改進此頁面。如果您在此頁面上找不到您的問題的解答，請提供詳細的意見反應，讓我們可以新增。
+>[AZURE.IMPORTANT]
+協助我們改進此頁面。如果您在此頁面上找不到您的問題的解答，請提供詳細的意見反應，讓我們可以新增。
 
 下列資訊可協助您解決一些常見問題。
 
@@ -63,7 +65,8 @@
 
 ![備用手機](./media/multi-factor-authentication-end-user-manage/altphone2.png)
 
->[AZURE.IMPORTANT]請務必設定次要驗證電話號碼。由於您的主要電話號碼與行動應用程式可能在同一個手機上，因此如果您的手機遺失或遭竊，您只能依靠次要電話號碼恢復使用您的帳戶。
+>[AZURE.IMPORTANT]
+請務必設定次要驗證電話號碼。由於您的主要電話號碼與行動應用程式可能在同一個手機上，因此如果您的手機遺失或遭竊，您只能依靠次要電話號碼恢復使用您的帳戶。
 
 如果您尚未設定次要驗證電話號碼，則必須連絡您的管理員清除您的設定，讓您下次登入時，會再次出現[設定多重要素驗證](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again)的提示。
 
@@ -129,7 +132,8 @@
 
 ![備用手機](./media/multi-factor-authentication-end-user-manage/altphone2.png)
 
->[AZURE.IMPORTANT]請務必設定次要驗證電話號碼。由於您的主要電話號碼與行動應用程式可能在同一個手機上，因此如果您的手機遺失或遭竊，您只能依靠次要電話號碼恢復使用您的帳戶。
+>[AZURE.IMPORTANT]
+請務必設定次要驗證電話號碼。由於您的主要電話號碼與行動應用程式可能在同一個手機上，因此如果您的手機遺失或遭竊，您只能依靠次要電話號碼恢復使用您的帳戶。
 
 第二個方式是連絡您的系統管理員或為您設定 MFA 的人員。只有在您尚未設定次要驗證電話號碼時，才需要這麼做。否則，您必須連絡您的系統管理員或為您設定 MFA 的人員，由他們清除您的設定，讓您下次登入時，會再次出現[設定多重要素驗證](multi-factor-authentication-manage-users-and-devices.md#require-selected-users-to-provide-contact-methods-again)的提示。
 
@@ -168,4 +172,4 @@
 
 最後，請務必在此頁面上留下一些詳細的意見反應，讓我們可以更新此頁面，並藉由提供更多的資訊，持續讓它更加完善。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

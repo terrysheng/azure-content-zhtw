@@ -13,13 +13,12 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="12/11/2015"
+	ms.topic="article"
+	ms.date="01/27/2016"
 	ms.author="jodebrui"/>
 
 
 # 在 SQL Database 中開始使用 In-Memory (預覽)
-
 
 In-Memory 功能大幅提升適當情況下交易和分析工作負載的效能。
 
@@ -83,7 +82,7 @@ In-Memory [Analytics](#install_analytics_manuallink) 的功能如下：
 [本主題稍後](#preview_considerations_for_in_memory)會描述 In-Memory 功能在預覽階段的注意事項。
 
 
-> [AZURE.NOTE]這些預覽階段功能僅適用於 [Premium](sql-database-service-tiers.md) Azure SQL 資料庫，不適用於標準或基本服務層上的資料庫。
+> [AZURE.NOTE] 這些預覽階段功能僅適用於 [Premium](sql-database-service-tiers.md) Azure SQL 資料庫，不適用於標準或基本服務層上的資料庫。
 
 
 
@@ -93,7 +92,7 @@ In-Memory [Analytics](#install_analytics_manuallink) 的功能如下：
 
 ## A.安裝 In-Memory OLTP 範例
 
-在 [Azure 入口網站](http://portal.azure.com/)中按幾下滑鼠，即可建立 AdventureWorksLT [V12] 範例資料庫。本節中的步驟說明如何擴充 AdventureWorksLT 資料庫：
+在 [Azure 入口網站](https://portal.azure.com/)中按幾下滑鼠，即可建立 AdventureWorksLT [V12] 範例資料庫。本節中的步驟說明如何擴充 AdventureWorksLT 資料庫：
 
 - 記憶體內資料表。
 - 原生編譯預存程序。
@@ -101,7 +100,7 @@ In-Memory [Analytics](#install_analytics_manuallink) 的功能如下：
 
 #### 安裝步驟
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，在 V12 伺服器上建立高階資料庫。將 [來源] 設定為 AdventureWorksLT [V12] 範例資料庫。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，在 V12 伺服器上建立高階資料庫。將 [來源] 設定為 AdventureWorksLT [V12] 範例資料庫。
  - 如需詳細指示，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。
 
 2. 使用 SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx) 連接到資料庫。
@@ -227,6 +226,7 @@ WHILE (@i < 20)
 begin;
 	EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
 		@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+	SET @i = @i + 1;
 end
 ```
 
@@ -237,7 +237,7 @@ end
 ### 安裝 RML 公用程式和 ostress
 
 
-您最好規劃在 Azure VM 上執行 ostress.exe。您會在 AdventureWorksLT 資料庫所在的相同 Azure 地理區域中建立 [Azure 虛擬機器](http://azure.microsoft.com/documentation/services/virtual-machines/)。但是您可以改在您的膝上型電腦上執行 ostress.exe。
+您最好規劃在 Azure VM 上執行 ostress.exe。您會在 AdventureWorksLT 資料庫所在的相同 Azure 地理區域中建立 [Azure 虛擬機器](https://azure.microsoft.com/documentation/services/virtual-machines/)。但是您可以改在您的膝上型電腦上執行 ostress.exe。
 
 
 在 VM 上，或在任何選擇的主機上，安裝包含 ostress.exe 的 Replay Markup Language (RML) 公用程式。
@@ -317,10 +317,7 @@ EXECUTE Demo.usp_DemoReset;
 
 #### 預期的比較結果
 
-在與資料庫相同的 Azure 區域的 Azure VM 上執行 ostress，In-Memory 測試已顯示此簡化工作負載大約有 **9 倍**的效能改善。
-
-
-加入轉換成原生編譯的預存程序時，效能可以獲得更大改善。
+在與資料庫相同之 Azure 區域的 Azure VM 上執行 ostress，In-Memory 測試已顯示此簡化工作負載大約有 **9 倍**的效能改善。
 
 
 ## B.安裝 In-Memory Analytics 範例
@@ -452,7 +449,7 @@ GO
 ## In-Memory OLTP 預覽版本注意事項
 
 
-Azure SQL Database 中的 In-Memory OLTP 功能[於 2015 年 10 月 28 日進入預覽階段](http://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/)。
+Azure SQL Database 中的 In-Memory OLTP 功能[於 2015 年 10 月 28 日進入預覽階段](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/)。
 
 
 在公開上市 (GA) 前的預覽階段期間，只對下列資料庫支援 In-Memory OLTP：
@@ -528,4 +525,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - 適用於 In-Memory OLTP 的[監視記憶體內部儲存體](sql-database-in-memory-oltp-monitoring.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

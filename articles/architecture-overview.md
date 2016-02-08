@@ -104,8 +104,8 @@ CnE 符號都為 Visio 和 PNG 格式。集合中包含如何在 PowerPoint 中�
 
 ##架構資訊圖
 
-Microsoft 出版了數個與架構相關的海報/資訊圖。其中包括[建置真實世界的雲端應用程式](http://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)和[使用雲端服務調整](http://azure.microsoft.com/documentation/infographics/cloud-services/)。
+Microsoft 出版了數個與架構相關的海報/資訊圖。其中包括[建置真實世界的雲端應用程式](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)和[使用雲端服務調整](https://azure.microsoft.com/documentation/infographics/cloud-services/)。
 
 ![Azure 架構資訊圖](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

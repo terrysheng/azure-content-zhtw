@@ -25,11 +25,31 @@
 
 若要監視 ASP.NET 應用程式，您必須在應用程式中[加入 Application Insights SDK][greenbrown]，或[在 IIS 伺服器上安裝狀態監視器][redfield]，或者，如果您的應用程式是 Azure Web 應用程式，加入 [Application Insights 延伸模組][azure]。
 
-## 診斷錯誤 
+## 使用 Visual Studio 診斷例外狀況
 
-從 [概觀] 刀鋒視窗上，失敗磚會顯示例外狀況和失敗的 HTTP 要求的圖表，以及導致最頻繁失敗的要求 URL 的清單。
+在 Visual Studio 中開啟應用程式解決方案以協助偵錯。
 
-![選取失敗](./media/app-insights-asp-net-exceptions/012-start.png)
+在您的伺服器上或開發機器上使用 F5 執行應用程式。
+
+在 Visual Studio 中開啟 [Application Insights 搜尋] 視窗，並將它設定為顯示您的應用程式的事件。當您偵錯時，您只要按一下 [Application Insights] 按鈕即可執行此操作。
+
+![以滑鼠右鍵按一下專案，然後選擇 [Application Insights]、[開啟]。](./media/app-insights-asp-net-exceptions/34.png)
+
+請注意，您可以篩選報告僅顯示例外狀況。
+
+*未顯示例外狀況？ 請參閱[擷取例外狀況](#exceptions)。*
+
+按一下例外狀況報告以顯示其堆疊追蹤。
+
+![逐一點選例外狀況。](./media/app-insights-asp-net-exceptions/35.png)
+
+按一下堆疊追蹤中的行參考，以開啟相關檔案。
+
+## 使用 Azure 入口網站診斷失敗
+
+從應用程式的 [Application Insights] 概要，失敗磚會顯示例外狀況和失敗的 HTTP 要求的圖表，以及導致最頻繁失敗的要求 URL 的清單。
+
+![選取 [設定]、[失敗]](./media/app-insights-asp-net-exceptions/012-start.png)
 
 點選清單中其中一個失敗要求類型，以取得失敗的個別發生次數。從該處按一下例外狀況或任何與其相關聯的追蹤資料：
 
@@ -49,6 +69,8 @@
 ![鑽研](./media/app-insights-asp-net-exceptions/050-exception-properties.png)
 
 [深入了解診斷搜尋][diagnostic]。
+
+
 
 ## 相依性失敗
 
@@ -79,7 +101,7 @@
 ![鑽研](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
 
 
-> [AZURE.NOTE]如果您的應用程式會產生大量遙測，調適性取樣模型會自動藉由僅傳送事件代表性片段，減少傳送到入口網站的量。為相同作業之一部分的事件會選取或取消選取為群組，讓您可以在相關事件之間瀏覽。[了解取樣。](app-insights-sampling.md)
+> [AZURE.NOTE] 如果您的應用程式會產生大量遙測，調適性取樣模型會自動藉由僅傳送事件代表性片段，減少傳送到入口網站的量。為相同作業之一部分的事件會選取或取消選取為群組，讓您可以在相關事件之間瀏覽。[了解取樣。](app-insights-sampling.md)
 
 ### 如何查看要求 POST 資料
 
@@ -455,4 +477,4 @@ VB
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

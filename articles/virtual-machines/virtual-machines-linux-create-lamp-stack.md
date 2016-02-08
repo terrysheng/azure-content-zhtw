@@ -32,7 +32,7 @@
 -	如何準備用於 LAMP 堆疊的虛擬機器。
 -	如何在虛擬機器上安裝 LAMP 伺服器所需的軟體。
 
-假設讀者已具備 Azure 訂用帳戶。若還不是，您可以在 [http://azure.microsoft.com](http://azure.microsoft.com) 註冊免費試用。如果您擁有 MSDN 訂用帳戶，請參閱 [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39)。若要深入了解 Azure，請參閱[什麼是 Azure？](http://azure.microsoft.com/overview/what-is-azure/)。
+假設讀者已具備 Azure 訂用帳戶。若還不是，您可以在 [http://azure.microsoft.com](https://azure.microsoft.com/) 註冊免費試用。如果您擁有 MSDN 訂用帳戶，請參閱 [Microsoft Azure 特價：MSDN、MPN 及 Bizspark 優惠](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39)。若要深入了解 Azure，請參閱[什麼是 Azure？](https://azure.microsoft.com/overview/what-is-azure/)。
 
 除了本主題以外，如果您已經有虛擬機器，而只是想了解在不同 Linux 散發套件上安裝 LAMP 堆疊的基本概念，請參閱[在 Azure 中的 Linux 虛擬機器上安裝 LAMP 堆疊](virtual-machines-linux-install-lamp-stack.md)。
 
@@ -350,7 +350,7 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 		sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
-	>[AZURE.NOTE]如果您想要修改 /var/www/html/ 中的檔案，您可能需要重新登入。
+	>[AZURE.NOTE] 如果您想要修改 /var/www/html/ 中的檔案，您可能需要重新登入。
 -	使用 SFTP 用戶端 (例如 FileZilla) 連接至您虛擬機器的 DNS 名稱 (例如 lampdemo.cloudapp.net)，並瀏覽至 /**var/www/html** 以發佈您的網站。![][18]
 
 
@@ -456,4 +456,4 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -41,6 +41,10 @@ Azure 搜尋服務是包含 HTTP 架構 API 的雲端型服務，可用於自訂
 
 當您準備註冊時，請參閱[在入口網站中建立搜尋服務](search-create-service-portal.md)。
 
+##搜尋分析
+
+您可以啟用針對使用者搜尋活動的資料收集功能，以了解您搜尋服務的執行狀況、使用者目前使用哪些字詞，以及那些字詞是否傳回命中結果。而分析和視覺化這種資料的最佳方式，就是透過 Power BI 內容套件。第一個步驟是啟用搜尋流量分析。請參閱 [Analyzing your Azure Search traffic (分析您的 Azure 搜尋服務流量)](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) 來了解該如何進行。
+
 <a id="sub-2"></a>
 ## 管理工作
 
@@ -105,7 +109,7 @@ Azure 搜尋服務是包含 HTTP 架構 API 的雲端型服務，可用於自訂
 +	[取得索引統計資料](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[文件計數](http://msdn.microsoft.com/library/dn798924.aspx)
 
-> [AZURE.NOTE]快取行為可暫時放寬限制。例如，使用共用服務時，您可能會看到文件計數超過固定限制的 10,000 份文件。這種「超出限制」是暫時的，並且將會在下一次的限制強制檢核中偵測出來。
+> [AZURE.NOTE] 快取行為可暫時放寬限制。例如，使用共用服務時，您可能會看到文件計數超過固定限制的 10,000 份文件。這種「超出限制」是暫時的，並且將會在下一次的限制強制檢核中偵測出來。
 
 
 <a id="sub-6"></a>
@@ -145,6 +149,9 @@ Azure 搜尋服務是包含 HTTP 架構 API 的雲端型服務，可用於自訂
 
 若要協助進行未來規劃，您可能需要檢查儲存體 (使用[取得索引統計資料](http://msdn.microsoft.com/library/dn798942.aspx)) 以了解實際上您可以使用的空間大小。
 
+### 為數個資料中心來調整規模及部署服務的最佳作法 (影片)
+
+> [AZURE.VIDEO azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications]
 
 <a id="sub-7"></a>
 ## 啟用或停止服務
@@ -193,4 +200,4 @@ Azure 特別為透過入口網站管理的所有服務，或在 Azure 資源管�
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

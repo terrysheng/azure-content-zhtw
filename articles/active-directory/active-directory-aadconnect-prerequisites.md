@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/12/2016"
+   ms.date="01/21/2016"
    ms.author="andkjell;billmath"/>
 
 # Azure AD Connect 的必要條件
@@ -23,7 +23,7 @@
 安裝 Azure AD Connect 之前，您需要注意一些事項。
 
 ### Azure AD
-- Azure 訂用帳戶或 [Azure 試用版訂用帳戶](http://azure.microsoft.com/pricing/free-trial/)。這僅需要用來存取 Azure 入口網站，而不會用於 Azure AD Connect。如果您正在使用 PowerShell 或 Office 365，則您不需要 Azure 訂用帳戶來使用 Azure AD Connect。如果您有 Office 365 授權，也可以使用 Office 365 入口網站。使用付費的 Office 365 授權，您也可以從 Office 365 入口網站登入 Azure 入口網站。
+- Azure 訂用帳戶或 [Azure 試用版訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)。這僅需要用來存取 Azure 入口網站，而不會用於 Azure AD Connect。如果您正在使用 PowerShell 或 Office 365，則您不需要 Azure 訂用帳戶來使用 Azure AD Connect。如果您有 Office 365 授權，也可以使用 Office 365 入口網站。使用付費的 Office 365 授權，您也可以從 Office 365 入口網站登入 Azure 入口網站。
 - [新增並驗證](active-directory-add-domain.md)您計畫使用於 Azure AD 中的網域。例如，如果您計畫讓使用者使用 contoso.com，請確定此網域已經過驗證，而且您不是只使用 contoso.onmicrosoft.com 預設網域。
 - Azure AD 目錄預設允許 5 萬個物件。當您驗證網域後，此限額會增加到 30 萬個物件。如果您在 Azure AD 中需要更多的物件，您必須洽詢支援人員以增加此限額。如果您需要 50 萬個以上的物件，您需要如 Office 365、Azure AD Basic、Azure AD Premium 或 Enterprise Mobility Suite 等授權。
 
@@ -166,4 +166,4 @@ Azure AD Connect 需要 Microsoft PowerShell 和 .NET Framework 4.5.1。依您�
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 搭配使用 Java 的服務匯流排與 AMQP 1.0
 
 [AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-Java 訊息服務 (JMS) 是在 Java 平台上搭配訊息導向中介軟體一起使用的標準 API。我們已根據 Apache Qpid 專案開發的 JMS 用戶端程式庫，使用 AMQP 1.0 測試過 Azure 服務匯流排。此程式庫支援完整的 JMS 1.1 API，可以搭配 AMQP 1.0 相容的任何訊息服務一起使用。在 Service Bus for Windows Server (服務匯流排內部部署) 中也支援這種情況。如需詳細資訊，請參閱 [Service Bus for Windows Server 中的 AMQP][]。
+Java 訊息服務 (JMS) 是在 Java 平台上搭配訊息導向中介軟體一起使用的標準 API。我們已根據 Apache Qpid 專案開發的 JMS 用戶端程式庫，使用 AMQP 1.0 測試過 Microsoft Azure 服務匯流排。此程式庫支援完整的 JMS 1.1 API，可以搭配 AMQP 1.0 相容的任何訊息服務一起使用。在 [Windows Server 服務匯流排](https://msdn.microsoft.com/library/dn282144.aspx) (內部部署服務匯流排) 中也支援這種情況。如需詳細資訊，請參閱 [Service Bus for Windows Server 中的 AMQP][]。
 
 ## 下載 Apache Qpid AMQP 1.0 JMS 用戶端程式庫
 
@@ -86,7 +86,7 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 | `[username]` | 從 [Azure 傳統入口網站][]取得的服務匯流排發行者名稱。 | | | | |
 | `[password]` | 從 [Azure 傳統入口網站][]取得的 URL 編碼格式的服務匯流排發行者金鑰。 | | | | |
 
-> [AZURE.NOTE]您必須手動使用 URL 將密碼編碼。[http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp) 中提供實用的 URL 編碼公用程式。
+> [AZURE.NOTE] 您必須手動使用 URL 將密碼編碼。[http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp) 中提供實用的 URL 編碼公用程式。
 
 例如，如果從入口網站取得的資訊如下：
 
@@ -95,7 +95,7 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 | 發行者名稱： | owner |
 | 發行者金鑰： | abcdefg |
 
-為了定義名為 `SBCONNECTIONFACTORY` 的 **ConnectionFactory**，我們提供下列組態字串：
+為了定義名為 `SBCONNECTIONFACTORY` 的 **ConnectionFactory**，組態字串如下：
 
 ```
 connectionfactory.SBCONNECTIONFACTORY = amqps://owner:abcdefg@test.servicebus.windows.net
@@ -447,4 +447,4 @@ JMS over AMQP 1.0 和服務匯流排一起使用時有下列限制：
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

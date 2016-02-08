@@ -61,7 +61,7 @@ Microsoft Azure 流量管理員可讓您控制使用者流量，將流量分散�
    - **建立流量管理員設定檔** - 若要使用 Azure 傳統入口網站中的 [快速建立] 建立設定檔，請參閱[管理流量管理員設定檔](traffic-manager-manage-profiles.md)。
    - **設定流量路由方法設定** – 使用 [快速建立] 時，您必須為設定檔選取流量路由方法。此設定可以在完成「快速建立」步驟之後隨時變更。如需設定步驟，請參閱流量路由方法對應的主題：[設定效能流量路由方法](traffic-manager-configure-performance-load-balancing.md)、[設定容錯移轉流量路由方法](traffic-manager-configure-failover-load-balancing.md)、[設定循環配置資源流量路由方法](traffic-manager-configure-round-robin-load-balancing.md)。
    
-   >[AZURE.NOTE]流量路由方法的循環配置資源方法現在支援網路流量的加權散發。不過，您目前必須使用 REST API 或 Windows PowerShell 才能設定權數。如需詳細資訊和範例組態，請參閱 Azure 部落格中的 [Azure 流量管理員外部端點和透過 PowerShell 的加權循環配置資源](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/)。
+   >[AZURE.NOTE] 流量路由方法的循環配置資源方法現在支援網路流量的加權散發。不過，您目前必須使用 REST API 或 Windows PowerShell 才能設定權數。如需詳細資訊和範例組態，請參閱 Azure 部落格中的 [Azure 流量管理員外部端點和透過 PowerShell 的加權循環配置資源](https://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/)。
 
    - **設定端點** – 在「快速建立」期間並不會設定端點。建立設定檔並指定流量路由方法之後，接著您必須讓流量管理員知道端點。如需設定端點的步驟，請參閱[在流量管理員中管理端點](traffic-manager-endpoints.md)
 
@@ -79,7 +79,7 @@ Microsoft Azure 流量管理員可讓您控制使用者流量，將流量分散�
 
 如需適用流量管理員的 Windows PowerShell Cmdlet 的詳細資訊，請參閱 [Azure 流量管理員 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)。
 
->[AZURE.NOTE]Azure 傳統入口網站目前並不支援設定外部端點 (type = 'Any')、循環配置資源流量路由方法的加權，以及巢狀設定檔。您必須使用 REST (請參閱[建立定義](http://go.microsoft.com/fwlink/p/?LinkId=400772)) 或 Windows PowerShell (請參閱 [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx))。
+>[AZURE.NOTE] Azure 傳統入口網站目前並不支援設定外部端點 (type = 'Any')、循環配置資源流量路由方法的加權，以及巢狀設定檔。您必須使用 REST (請參閱[建立定義](http://go.microsoft.com/fwlink/p/?LinkId=400772)) 或 Windows PowerShell (請參閱 [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx))。
 
 ### 在 Azure 傳統入口網站中進行設定
 
@@ -172,4 +172,4 @@ Microsoft Azure 流量管理員可讓您控制使用者流量，將流量分散�
 
 [Azure 流量管理員 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

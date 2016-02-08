@@ -65,9 +65,9 @@
 
 ##相關主題
 
-[Azure SDK for .NET](http://azure.microsoft.com/downloads/archive-net-downloads/)
+[Azure SDK for .NET](https://azure.microsoft.com/downloads/archive-net-downloads/)
 
 [MSDN 上的 Azure SDK 版本資訊](https://msdn.microsoft.com/library/azure/dn627519.aspx)
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,36 +1,36 @@
-<properties 
-	pageTitle="儲存體簡介 | Microsoft Azure" 
-	description="Microsoft Azure 儲存體的概觀。" 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="carmonm" 
+<properties
+	pageTitle="儲存體簡介 | Microsoft Azure"
+	description="Azure 儲存體概觀，Microsoft 的線上雲端資料儲存體。了解如何在您的應用程式中使用可用的最佳雲端儲存體解決方案。"
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/22/2016"
 	ms.author="tamram"/>
 
 # Microsoft Azure 儲存體簡介
 
 ## 概觀
 
-本文針對開發人員、IT 專業人員和業務決策者，提供 Microsoft Azure 儲存體的延伸簡介。在閱讀本文後，您將學到：
+Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應用程式仰賴持續性、可用性和可調整性來滿足其客戶的需求。透過閱讀此文件，開發人員、IT 專業人員，以及商業決策人員可以了解：
 
 - 何謂 Azure 儲存體，以及可以如何在雲端、行動、伺服器和桌面應用程式中加以充分運用
-- 可在 Azure 儲存體服務中儲存的資料種類：Blob、資料表、佇列和檔案儲存體
+- 您可以使用 Azure 儲存體儲存哪些資料：Blob (物件) 資料、NoSQL 資料表資料、佇列訊息，以及檔案共用。
 - 如何管理 Azure 儲存體的資料存取
-- 如何透過備援和複寫來保護 Azure 儲存體資料 
+- 如何透過備援和複寫來保護 Azure 儲存體資料
 - 若要打造第一個 Azure 儲存體應用程式下一步該怎麼做
 
-若要快速開始使用 Azure 儲存體，請參閱[在 5 分鐘內開始使用 Azure Blob、資料表和佇列](storage-getting-started-guide.md)
+若要快速開始使用 Azure 儲存體，請參閱[在 5 分鐘內開始使用 Azure Blob、資料表和佇列](storage-getting-started-guide.md)。
 
-如果您要尋找儲存體的快速概觀，請看看這裡，或者如需產品特定的概觀，請參閱 Azure Blob、Azure 資料表、Azure 佇列和 Azure 檔案。
+如需使用 Azure 儲存體的工具、程式庫及其他資源的詳細資訊，請參閱下方的[後續步驟](next-steps)。
 
 ## 何謂 Azure 儲存體？
 
@@ -55,18 +55,18 @@ Azure 儲存體帳戶是可讓您存取 Azure 儲存體服務的安全帳戶。�
 - 標準儲存體帳戶包含 Blob、資料表、佇列和檔案儲存體。
 - Premium 儲存體帳戶目前僅支援 Azure 虛擬機器磁碟。
 
-在建立儲存體帳戶之前，您必須擁有 Azure 訂閱，訂閱是指可讓您存取各種 Azure 服務的方案。[單一訂用帳戶可讓您建立最多 100 個唯一命名的儲存體帳戶。](../azure-subscription-service-limits.md) 如需批量價格的相關資訊，請參閱[儲存體定價詳細資料](http://azure.microsoft.com/pricing/details/storage/)。
+在建立儲存體帳戶之前，您必須擁有 Azure 訂閱，訂閱是指可讓您存取各種 Azure 服務的方案。[單一訂用帳戶可讓您建立最多 100 個唯一命名的儲存體帳戶。](../azure-subscription-service-limits.md) 如需批量價格的相關資訊，請參閱[儲存體定價詳細資料](https://azure.microsoft.com/pricing/details/storage/)。
 
-您可以利用[免費試用版](http://azure.microsoft.com/pricing/free-trial/)來開始使用 Azure。在決定購買方案之後，您便可以選擇各種[購買選項](http://azure.microsoft.com/pricing/purchase-options/)。如果您是 [MSDN 訂閱者](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，您將取得可在 Azure 服務 (包括 Azure 儲存體) 中使用的每月免費額度。
+您可以利用[免費試用版](https://azure.microsoft.com/pricing/free-trial/)來開始使用 Azure。在決定購買方案之後，您便可以選擇各種[購買選項](https://azure.microsoft.com/pricing/purchase-options/)。如果您是 [MSDN 訂閱者](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，您將取得可在 Azure 服務 (包括 Azure 儲存體) 中使用的每月免費額度。
 
 ### 標準儲存體帳戶
 
 標準儲存體帳戶可供您存取 Blob 儲存體、資料表儲存體、佇列儲存體和檔案儲存體：
 
-- 「Blob 儲存體」可儲存檔案資料。Blob 可以是任何類型的文字或二進位資料，例如文件、媒體檔案或應用程式安裝程式。「Blob 儲存體」有時稱為物件儲存體。 
+- 「Blob 儲存體」可儲存檔案資料。Blob 可以是任何類型的文字或二進位資料，例如文件、媒體檔案或應用程式安裝程式。「Blob 儲存體」有時稱為物件儲存體。
 - 「表格儲存體」可儲存結構化資料集。資料表儲存體屬於 NoSQL 索引鍵屬性資料儲存，可允許快速開發和迅速存取大量資料。
 - 「佇列儲存體」可為工作流程處理及雲端服務元件間的通訊，提供可靠的訊息服務。
-- 「檔案儲存體」可為使用標準 SMB 通訊協定的舊版應用程式提供共用儲存體。Azure 虛擬機器和雲端服務可以透過掛接的共用，在應用程式元件之間共用檔案資料，而內部部署應用程式可以透過檔案服務 REST API，存取共用中的檔案資料。 
+- 「檔案儲存體」可為使用標準 SMB 通訊協定的舊版應用程式提供共用儲存體。Azure 虛擬機器和雲端服務可以透過掛接的共用，在應用程式元件之間共用檔案資料，而內部部署應用程式可以透過檔案服務 REST API，存取共用中的檔案資料。
 
 每個標準儲存體帳戶都可包含多達 500 TB 的 Blob、佇列、資料表和檔案資料的組合。如需標準儲存體帳戶容量的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md)。
 
@@ -86,7 +86,7 @@ Azure Premium 儲存體目前僅支援 Azure 虛擬機器磁碟。如需 Azure P
 
 若是擁有大量非結構化資料要儲存於雲端的使用者，Blob 儲存體提供具有成本效益且可擴充的解決方案。您可以使用 Blob 儲存體來儲存如下所示的內容：
 
-- 文件 
+- 文件
 - 社交資料 (例如照片、視訊、音樂和部落格)
 - 檔案、電腦、資料庫和裝置的備份
 - Web 應用程式的影像和文字
@@ -155,7 +155,7 @@ Azure 檔案儲存體提供雲端架構的 SMB 檔案共用，可讓您快速地
 
 儲存體容量是指您用於儲存資料的儲存體帳戶配額。若只是儲存資料，則成本是由您所儲存的資料量和複寫資料的方式來決定。對 Azure 儲存體進行的每個讀取和寫入操作也會對服務提出要求。出口流量是指傳出 Microsoft Azure 區域的資料。當您儲存體帳戶中的資料受不同地區中執行的應用程式存取時，不論該應用程式是雲端服務還是其他某類應用程式，您都要負擔出口流量的費用。(若為 Microsoft Azure 服務，您可以採取步驟，將資料和服務群組在相同的資料中心，以減少或消除處理和出口流量費用)。
 
-[儲存體定價詳細資料](http://azure.microsoft.com/pricing/details/storage/)頁面提供了儲存體容量、複寫和交易的詳細定價資料。[資料傳輸定價詳細資料](http://azure.microsoft.com/pricing/details/data-transfers/)則提供了出口流量的詳細定價資訊。您可以使用 [Azure 儲存體定價計算機](http://azure.microsoft.com/pricing/calculator/?scenario=data-management)，以協助消除成本。
+[儲存體定價詳細資料](https://azure.microsoft.com/pricing/details/storage/)頁面提供了儲存體容量、複寫和交易的詳細定價資料。[資料傳輸定價詳細資料](https://azure.microsoft.com/pricing/details/data-transfers/)則提供了出口流量的詳細定價資訊。您可以使用 [Azure 儲存體定價計算機](https://azure.microsoft.com/pricing/calculator/?scenario=data-management)，以協助消除成本。
 
 ## 針對儲存體進行開發
 
@@ -177,7 +177,7 @@ Azure 儲存體可透過 [REST API](http://msdn.microsoft.com/library/azure/dd17
 ### 下載
 
 - [Azure 儲存體 NuGet 封裝 - .NET、Windows Phone 和 Windows Runtime 的用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Azure SDK 及工具](http://azure.microsoft.com/downloads/)
+- [Azure SDK 及工具](https://azure.microsoft.com/downloads/)
 - [Azure 儲存體模擬器](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
 - [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409)
 
@@ -187,7 +187,7 @@ Azure 儲存體可透過 [REST API](http://msdn.microsoft.com/library/azure/dd17
 
 ### 文件
 
-- [Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
+- [Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
 - [Azure 儲存體服務 REST API 參考](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [AzCopy 命令列工具參考](storage-use-azcopy.md)
 
@@ -234,6 +234,5 @@ Azure 儲存體可透過 [REST API](http://msdn.microsoft.com/library/azure/dd17
 - [如何使用 Python 的 Blob 儲存體](storage-python-how-to-use-blob-storage.md)
 - [如何使用 Python 的資料表儲存體](storage-python-how-to-use-table-storage.md)
 - [如何使用 Python 的佇列儲存體](storage-python-how-to-use-queue-storage.md)
- 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

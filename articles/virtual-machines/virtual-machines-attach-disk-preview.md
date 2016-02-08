@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="01/21/2016"
 	ms.author="cynthn"/>
 
 # 如何在 Azure 入口網站連接資料磁碟
@@ -27,21 +27,17 @@
 - 若要使用進階儲存體，您需要 DS 系列或 GS 系列的虛擬機器。您可以使用進階或標準儲存體帳戶的磁碟搭配這些虛擬機器。僅特定地區可用進階儲存體。如需詳細資訊，請參閱[高階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../storage/storage-premium-storage-preview-portal.md)。
 - 連接至虛擬機器的磁碟實際上是 Azure 儲存體帳戶中的 .vhd 檔案。如需詳細資訊，請參閱[有關虛擬機器的磁碟和 VHD](virtual-machines-disks-vhds.md)。
 - 對於新的磁碟，當您連接的時候 Azure 會建立該磁碟，所以您不需要建立它。
-- 對於現有的磁碟，該 .vhd 檔案必須可在 Azure 儲存體帳戶中取得。您可以使用現有的磁碟 (若尚未連接至其他虛擬機器)，或上傳您自己的 .vhd 檔案至儲存體帳戶。
+- 對於現有的磁碟，該 .vhd 檔案必須可在 Azure 儲存體帳戶中取得。您可以使用現有的 .vhd 檔案 (若尚未連接至其他虛擬機器)，或上傳您自己的 .vhd 檔案至儲存體帳戶。
 
 ## 尋找虛擬機器
 
 1. 登入 Azure 入口網站。
 
-2. 在 [中樞] 功能表上，按一下 [瀏覽]。
+2. 在 [中樞] 功能表上，按一下 [虛擬機器]。
 
-3. 在搜尋刀鋒視窗上，向下捲動，然後按一下 [虛擬機器]。
+3.	然後從清單中選取虛擬機器。
 
-	![搜尋虛擬機器](./media/virtual-machines-attach-disk-preview/search-blade-preview-portal.png)
-
-4.	然後從清單中選取虛擬機器。
-
-5. 在右側的 [Essentials] 底下，按一下 [所有設定]，然後按一下 [磁碟]。
+4. 在右側的 [Essentials] 底下，按一下 [所有設定]，然後按一下 [磁碟]。
 
 	![開啟磁碟設定](./media/virtual-machines-attach-disk-preview/find-disk-settings.png)
 
@@ -73,7 +69,7 @@
 
 5.	在 [連接現有磁碟] 底下，您剛才選取的檔案會列在 [VHD 檔案] 底下。按一下 [確定]。
 
-6.	在 Azure 將該磁碟連接至虛擬機器之後，該磁碟就會列在虛擬機器之磁碟設定中的 [資料磁碟] 底下。
+6.	Azure 將磁碟連接至虛擬機器之後，該磁碟會列在虛擬機器磁碟設定中的 [資料磁碟] 下面。
 
 ## 後續步驟
 
@@ -90,4 +86,4 @@
 
 [關於 Azure 儲存體帳戶]: ../storage-whatis-account/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

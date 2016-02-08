@@ -27,7 +27,7 @@
 
 您可以在許多新組態中使用 ILB 中，包括下列各項：
 
-Azure 內部負載平衡 (ILB) 可在位於雲端服務或虛擬網路 (具有區域範圍) 中的虛擬機器之間提供負載平衡。如需使用和設定具有區域範圍之虛擬網路的相關資訊，請參閱 Azure 部落格中的[區域虛擬網路](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。已針對同質群組設定的現有虛擬網路無法使用 ILB。
+Azure 內部負載平衡 (ILB) 可在位於雲端服務或虛擬網路 (具有區域範圍) 中的虛擬機器之間提供負載平衡。如需使用和設定具有區域範圍之虛擬網路的相關資訊，請參閱 Azure 部落格中的[區域虛擬網路](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。已針對同質群組設定的現有虛擬網路無法使用 ILB。
 
 ILB 能夠達到下列幾種新的負載平衡類型：
 
@@ -92,4 +92,4 @@ LOB 的另一個案例是有站台對站台 VPN 至 ILB 端點設定所在的虛
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="01/25/2016"
    ms.author="mcoskun"/>
 
 # 備份與還原 Reliable Services
@@ -87,7 +87,7 @@ private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo)
 
 服務作者必須執行下列動作來復原：
 
-- 覆寫 **IReliableStateManager** 以傳回新的 **ReliableStateManager**，並提供要在遺失資料時呼叫的回呼函式。
+- 覆寫 **CreateReliableStateManager** 以傳回新的 **ReliableStateManager**，並提供要在遺失資料時呼叫的回呼函式。
 
 - 在包含服務備份的外部位置尋找最新的備份。
 
@@ -118,7 +118,7 @@ protected override async Task<bool> OnDataLossAsync(CancellationToken cancellati
 }
 ```
 
->[AZURE.NOTE]RestorePolicy 預設設定為 [安全]。這表示如果 **RestoreAsync** API 偵測到備份資料夾包含早於或等於這個複本所包含之狀態的狀態，則它將會失敗且具有 ArgumentException。**RestorePolicy.Force** 可以用來略過這項安全檢查。
+>[AZURE.NOTE] RestorePolicy 預設設定為 [安全]。這表示如果 **RestoreAsync** API 偵測到備份資料夾包含早於或等於這個複本所包含之狀態的狀態，則它將會失敗且具有 ArgumentException。**RestorePolicy.Force** 可以用來略過這項安全檢查。
 
 ## 已刪除或遺失的服務
 
@@ -158,4 +158,4 @@ protected override async Task<bool> OnDataLossAsync(CancellationToken cancellati
 
 **RestoreAsync** 會先卸除過去呼叫的主要複本中的所有現有狀態。然後，可靠的狀態管理員會建立存在於備份資料夾中所有可靠的物件。接下來，可靠的物件會獲得指示從其備份資料夾中的檢查點還原。最後，可靠的狀態管理員會從備份資料夾中的記錄檔記錄復原自己的狀態，並執行復原。做為復原程序的一部分，作業是從「開始點」開始，在備份資料夾中認可記錄檔記錄，並對可靠的物件重新執行。這個步驟可確保復原的狀態一致。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

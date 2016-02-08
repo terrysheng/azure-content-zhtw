@@ -3,7 +3,7 @@
 	description="說明在使用 Visual Studio 連接服務將 Cordova 專案連接至 Azure 行動服務後，您可以採用的第一個步驟。"
 	services="mobile-services"
 	documentationCenter=""
-	authors="TomArcher"
+	authors="mlhoop"
 	manager="douge"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="01/05/2016"
-	ms.author="tarcher"/>
+	ms.author="mlearned"/>
 
 # 開始使用行動服務 (Cordova 專案)
 
@@ -88,6 +88,6 @@
         items.splice(items.indexOf(todoItem), 1);
     });
 
-[深入了解行動服務](http://azure.microsoft.com/documentation/services/mobile-services/)
+[深入了解行動服務](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

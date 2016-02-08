@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="01/07/2016"
 	ms.author="cephalin"/>
 
 
@@ -67,15 +67,15 @@
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
-> [AZURE.NOTE]您需要 Azure 帳戶才能完成本教學課程：+ 您可以[免費申請 Azure 帳戶](/pricing/free-trial/?WT.mc_id=A261C142F) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如 Web Apps。+ 您可以[啟用 Visual Studio 訂用帳戶權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - 您的 Visual Studio 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
+> [AZURE.NOTE] 您需要 Azure 帳戶才能完成本教學課程：+ 您可以[免費申請 Azure 帳戶](/pricing/free-trial/) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如 Web Apps。+ 您可以[啟用 Visual Studio 訂用帳戶權益](/pricing/member-offers/msdn-benefits-details/) - 您的 Visual Studio 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
 >
 > 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 設定生產環境 ##
 
->[AZURE.NOTE]本教學課程中使用的指令碼會自動從 GitHub 儲存機制設定連續發行。這需要您的 GitHub 認證已儲存在 Azure 中，否則，嘗試設定 Web 應用程式的原始檔控制設定時，指令碼部署會失敗。
+>[AZURE.NOTE] 本教學課程中使用的指令碼會自動從 GitHub 儲存機制設定連續發行。這需要您的 GitHub 認證已儲存在 Azure 中，否則，嘗試設定 Web 應用程式的原始檔控制設定時，指令碼部署會失敗。
 >
->若要在 Azure 中儲存您的 GitHub 認證，請在 [Azure 入口網站](https://portal.azure.com)中建立 Web 應用程式，並[設定 GitHub 部署](web-sites-publish-source-control.md#Step7)。您只需要做一次這個動作。
+>若要在 Azure 中儲存您的 GitHub 認證，請在 [Azure 入口網站](https://portal.azure.com/)中建立 Web 應用程式，並[設定 GitHub 部署](web-sites-publish-source-control.md#Step7)。您只需要做一次這個動作。
 
 在一般 DevOps 案例中，應用程式是在 Azure 中即時執行，而且您想要透過連續發行對它進行變更。在此案例中，您會有您所開發、測試以及用來部署生產環境的範本。您將在本節中設定它。
 
@@ -99,7 +99,7 @@
 
 	![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
  
-	>[AZURE.TIP]查看 *&lt;repository\_root>*\\ARMTemplates\\Deploy.ps1，以了解其如何產生具有唯一識別碼的資源。您可以使用相同的方法來建立相同部署的複製品，而不需擔心衝突的資源名稱。
+	>[AZURE.TIP] 查看 *&lt;repository\_root>*\\ARMTemplates\\Deploy.ps1，以了解其如何產生具有唯一識別碼的資源。您可以使用相同的方法來建立相同部署的複製品，而不需擔心衝突的資源名稱。
  
 6.	回到 Git Shell 工作階段，並執行：
 
@@ -109,7 +109,7 @@
 
 7.	指令碼完成時，請返回瀏覽至前端的位址 (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/)，以查看在生產環境中執行的應用程式。
  
-5.	登入 [Azure 入口網站](https://portal.azure.com)，並查看建立的內容。
+5.	登入 [Azure 入口網站](https://portal.azure.com/)，並查看建立的內容。
 
 	您應可在相同的資源群組中看到兩個 Web 應用程式，其中一個的名稱具有 `Api` 後置詞。如果您查看資源群組檢視，則也會看到 SQL Database 和伺服器、App Service 方案以及 Web 應用程式的預備位置。瀏覽不同的資源，並將其與 *&lt;repository\_root>*\\ARMTemplates\\ProdAndStage.json 比較以查看其在範本中的設定方式。
 
@@ -152,7 +152,7 @@
 	-	您的開發環境是即時在 Azure 中執行。
 	-	刪除開發環境，就像刪除資源群組一樣簡單。您將了解[稍後](#delete)如何執行這項作業。
 
->[AZURE.NOTE]有多位開發人員處理新的更新時，只要執行下列動作，每一位都可以輕鬆地建立分支和專用開發環境：
+>[AZURE.NOTE] 有多位開發人員處理新的更新時，只要執行下列動作，每一位都可以輕鬆地建立分支和專用開發環境：
 >
 >1.	在 GitHub 建立其在儲存機制中的專屬分叉 (請參閱[分叉儲存機制](https://help.github.com/articles/fork-a-repo/))。
 >2.	複製其本機電腦上的分岔
@@ -166,7 +166,7 @@
 
 ![](./media/app-service-agile-software-development/test-2-all-webapps.png)
  
->[AZURE.NOTE]請注意，ProdandStage.json 指定生產環境來使用**標準**定價層，這適用於生產應用程式的延展性。
+>[AZURE.NOTE] 請注意，ProdandStage.json 指定生產環境來使用**標準**定價層，這適用於生產應用程式的延展性。
 
 ## 建置和測試每個認可 ##
 
@@ -180,7 +180,7 @@
 
 	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
-	>[AZURE.NOTE]如果您無法讀取上述的影像：
+	>[AZURE.NOTE] 如果您無法讀取上述的影像：
 	>
 	>- 在第 18 行，將 `check-list` 變更為 `list-group`。
 	>- 在第 19 行，將 `class="check-list-item"` 變更為 `class="list-group-item"`。
@@ -258,9 +258,8 @@
 	git push origin :Dev
 	git branch -d NewUpdate
 	git push origin :NewUpdate
-	Switch-AzureMode AzureResourceManager
-	Remove-AzureResourceGroup -Name ToDoApp<unique_string>dev-group -Force -Verbose
-	Remove-AzureResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
+	Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>dev-group -Force -Verbose
+	Remove-AzureRmResourceGroup -Name ToDoApp<unique_string>newupdate-group -Force -Verbose
 
 ## 摘要 ##
 
@@ -281,4 +280,4 @@
 -	[在 Azure AD 中建立或編輯使用者](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[專案 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

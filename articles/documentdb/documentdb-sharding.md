@@ -131,7 +131,7 @@ foreach (UserProfile activeUser in query)
 
 這些範例是開放原始碼，我們鼓勵您提交提取要求，並附上可幫助其他 DocumentDB 開發人員的貢獻。請參閱[貢獻指導方針](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md)，以取得有關如何貢獻的指引。
 
->[AZURE.NOTE]DocumentDB 會限制建立集合的速率，因此此處顯示的部分範例方法可能需要幾分鐘才能完成。
+>[AZURE.NOTE] DocumentDB 會限制建立集合的速率，因此此處顯示的部分範例方法可能需要幾分鐘才能完成。
 
 ##常見問題集
 **DocumentDB 為什麼支援用戶端與伺服器端資料分割？**
@@ -164,7 +164,7 @@ DocumentDB 支援用戶端資料分割的幾個原因如下：
 * [在 MSDN 的 DocumentDB .NET SDK 文件](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [DocumentDB .NET 範例](https://github.com/Azure/azure-documentdb-net)
 * [DocumentDB 限制](documentdb-limits.md)
-* [有關效能秘訣的 DocumentDB 部落格](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
+* [有關效能秘訣的 DocumentDB 部落格](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

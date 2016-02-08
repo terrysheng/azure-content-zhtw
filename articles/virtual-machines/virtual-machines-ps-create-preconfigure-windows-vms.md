@@ -257,7 +257,7 @@
 
 ## 其他資源
 
-[虛擬機器文件](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[虛擬機器文件](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Azure 虛擬機器常見問題集](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 
@@ -265,4 +265,4 @@
 
 [如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

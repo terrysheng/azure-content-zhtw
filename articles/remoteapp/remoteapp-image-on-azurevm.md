@@ -1,18 +1,18 @@
-<properties 
+<properties
     pageTitle="建立以 Azure VM 為基礎的 Azure RemoteApp 映像 | Microsoft Azure"
-    description="了解如何開始使用 Azure 虛擬機器來建立 Azure RemoteApp 映像。" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
+    description="了解如何開始使用 Azure 虛擬機器來建立 Azure RemoteApp 映像。"
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/02/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/21/2016" 
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@
 
 使用這些步驟來建立以 Azure VM 為基礎的映像。
 
-1. 建立 Azure 虛擬機器。您可以使用「Windows Server 遠端桌面工作階段主機」或來自 Azure 虛擬機器映像庫的「Windows Server 遠端桌面工作階段主機與 Microsoft Office 365 ProPlus」映像。此映像符合所有的 Azure RemoteApp 範本映像需求。 
+1. 建立 Azure 虛擬機器。您可以使用「Windows Server 遠端桌面工作階段主機」或來自 Azure 虛擬機器映像庫的「Windows Server 遠端桌面工作階段主機與 Microsoft Office 365 ProPlus」映像。此映像符合所有的 Azure RemoteApp 範本映像需求。
 
 	如需詳細資訊，請參閱[建立執行 Windows 的 VM](virtual-machines-windows-tutorial.md)。
 
@@ -39,14 +39,14 @@
 
 4. SYSPREP 一般化和擷取映像。如需相關指示，請參閱[如何擷取 Windows 虛擬機器作為範本使用](../virtual-machines-capture-image-windows-server.md)。
 
- 
+
 
 ## 將映像匯入 Azure RemoteApp 映像庫
 
 使用下列步驟將新的映像匯入 Azure RemoteApp：
 
 1. 在 [**範本映像**] 索引標籤中：
-	- 如果您沒有現有的映像，請按一下 [**上傳或匯入範本映像**]。 
+	- 如果您沒有現有的映像，請按一下 [**上傳或匯入範本映像**]。
 	- 如果您已經有一個以上的映像，請按一下 [**+**] 以新增映像。
 
 2. 選取 [**從您的虛擬機器映像庫匯入映像**]，然後按 [**下一步**]。
@@ -54,9 +54,8 @@
 3. 在下一個頁面上，從清單中選取自訂映像，並確認您已遵循建立映像時的所列步驟進行。按 [下一步]。
 4. 輸入新 RemoteApp 映像的名稱，並挑選一個位置，然後按一下核取記號以開始匯入程序。
 
-> [AZURE.NOTE]您可以將映像從 Azure 虛擬機器支援的任何 Azure 位置，匯入到 Azure RemoteApp 支援的任何 Azure 位置。視位置而定，匯入可能需要多達 25 分鐘的時間。
+> [AZURE.NOTE] 您可以將映像從 Azure 虛擬機器支援的任何 Azure 位置，匯入到 Azure RemoteApp 支援的任何 Azure 位置。視位置而定，匯入可能需要多達 25 分鐘的時間。
 
 現在您已經準備好開始建立新的收藏 ([雲端](remoteapp-create-cloud-deployment.md)收藏或[混合式](remoteapp-create-hybrid-deployment.md))，視您的需求而定。
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

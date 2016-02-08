@@ -31,6 +31,9 @@
 
 IBM 回報了在 Windows 8 上安裝 IBM DB2 Data Server Driver 的相關已知問題，其中需要其他安裝步驟。如需有關 Windows 8 上 IBM DB2 Data Server Driver 的詳細資訊，請參閱 [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434)。
 
+> [AZURE.NOTE] 如需連接/閘道器相關問題的疑難排解秘訣，請參閱[閘道器疑難排解](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)。
+
+
 ## 範例：從 DB2 複製資料到 Azure Blob
 
 下列範例顯示：
@@ -309,4 +312,4 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

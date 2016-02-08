@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/23/2015"
+	ms.date="01/19/2016"
 	ms.author="bwren" />
 
 # 在 Azure 自動化中編輯文字式 Runbook
@@ -21,7 +21,7 @@ Azure 自動化中的文字式編輯器可以用來編輯 [PowerShell Runbook](a
 
 文字式編輯器包含將活動、資產和子 Runbook 的程式碼插入 Runbook 的功能。並非是自行輸入程式碼，您可以從可用資源的清單中選取，並且讓適當的程式碼插入到 Runbook。
 
-Azure 自動化中的每個 Runbook 有兩個版本，「草稿」和「已發佈」。您編輯工作流程的「草稿」版本然後發佈，讓它可以執行。無法編輯「已發佈」版本。如需詳細資訊，請參閱[發佈 Runbook](automation-creating-importing-runbook.md#publishing-a-runbook)。
+Azure 自動化中的每個 Runbook 有兩個版本，「草稿」和「已發佈」。您編輯 Runbook 的「草稿」版本然後發佈，讓它可以執行。無法編輯「已發佈」版本。如需詳細資訊，請參閱[發佈 Runbook](automation-creating-importing-runbook.md#publishing-a-runbook)。
 
 若要使用[圖形化 Runbook](automation-runbook-types.md#graphical-runbooks)，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)。
 
@@ -58,7 +58,7 @@ Azure 自動化中的每個 Runbook 有兩個版本，「草稿」和「已發�
 2. 在文字式編輯器的 [畫布] 中，將游標移至您要放置子 Runbook 程式碼的位置。
 3. 在程式庫控制項中，展開 [資產] 節點。 
 4. 展開您想要的資產類型的節點。
-3. 以滑鼠右鍵按一下要插入的資產，然後選取 [新增至畫布]。針對[變數資產](variable-assets.md)，選取 [將「取得變數」新增至畫布] 或 [將「設定變數」新增至畫布]，根據您要取得或設定變數而定。
+3. 以滑鼠右鍵按一下要插入的資產，然後選取 [新增至畫布]。針對[變數資產](automation-variables.md)，選取 [將「取得變數」新增至畫布] 或 [將「設定變數」新增至畫布]，根據您要取得或設定變數而定。
 4. 資產的程式碼會插入至 Runbook。
 
 
@@ -107,7 +107,7 @@ Azure 自動化中的每個 Runbook 有兩個版本，「草稿」和「已發�
 
 ## 使用 Windows PowerShell 編輯 Azure 自動化 Runbook
 
-若要使用 Windows PowerShell 編輯 Runbook，請使用您選擇的編輯器編輯工作流程，然後將它儲存為 .ps1 檔案。您可以使用 [Get-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) Cmdlet 以擷取 Runbook 的內容，然後使用 [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) Cmdlet 以使用修改的工作流程取代現有的草稿工作流程。
+若要使用 Windows PowerShell 編輯 Runbook，請使用您選擇的編輯器，然後將它儲存為 .ps1 檔案。您可以使用 [Get-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) Cmdlet 以擷取 Runbook 的內容，然後使用 [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) Cmdlet 以使用修改的 Runbook 取代現有的草稿 Runbook。
 
 ### 使用 Windows PowerShell 擷取 Runbook 的內容
 
@@ -124,7 +124,7 @@ Azure 自動化中的每個 Runbook 有兩個版本，「草稿」和「已發�
 
 ### 使用 Windows PowerShell 變更 Runbook 的內容
 
-下列範例命令顯示如何以包含工作流程的指令碼檔案內容取代現有 Runbook 的內容。請注意，這是與[使用 Windows PowerShell 從指令碼檔案匯入 Runbook](../automation-creating-or-importing-a-runbook#ImportRunbookScriptPS) 相同的範例程序。
+下列範例命令顯示如何以指令碼檔案內容取代現有 Runbook 的內容。請注意，這是與[使用 Windows PowerShell 從指令碼檔案匯入 Runbook](../automation-creating-or-importing-a-runbook#ImportRunbookScriptPS) 相同的範例程序。
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
@@ -135,7 +135,7 @@ Azure 自動化中的每個 Runbook 有兩個版本，「草稿」和「已發�
 
 ## 相關文章
 
-- [在 Azure 自動化中建立或匯入 Runbook](automation-creatnig-importing-runbook.md)
+- [在 Azure 自動化中建立或匯入 Runbook](automation-creating-importing-runbook.md)
 - [了解 PowerShell 工作流程](automation-powershell-workflow.md)
 - [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)
 - [憑證](automation-certificates.md)
@@ -144,4 +144,4 @@ Azure 自動化中的每個 Runbook 有兩個版本，「草稿」和「已發�
 - [排程](automation-schedules.md)
 - [變數](automation-variables.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

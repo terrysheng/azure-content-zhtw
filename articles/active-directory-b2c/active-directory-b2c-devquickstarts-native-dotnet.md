@@ -84,7 +84,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 如果您想要了解 Web API 如何安全地使用 Azure AD B2C 驗證要求，請查看 [Web API 使用者入門文章](active-directory-b2c-devquickstarts-api-dotnet.md)。
 
-## 6\.執行原則
+## 6.執行原則
 既然 `TaskService` 已準備好驗證要求，我們便可以實作 `TaskClient`。您的應用程式與 Azure AD B2C 通訊時會傳送 HTTP 驗證要求，並指定它想要在要求中執行的原則。對於 .NET 桌面應用程式，您可以使用 **Active Directory Authentication Library (ADAL)** 來傳送 OAuth 2.0 驗證訊息、執行原則，並取得呼叫 Web API 的權杖。
 
 #### 安裝 ADAL
@@ -329,7 +329,9 @@ private void SignOut(object sender, RoutedEventArgs e)
 
 為了方便參考，您可以[在此處取得 .zip 格式](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip)的完整範例，或者從 GitHub 中複製：
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
+```
 
 <!--
 

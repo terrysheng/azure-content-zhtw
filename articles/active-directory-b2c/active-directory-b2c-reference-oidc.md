@@ -133,7 +133,8 @@ Azure AD B2C 具有 OpenID Connect 中繼資料端點，可讓應用程式在執
 
 若要判斷哪個原則用來簽署 id\_token (以及何處可擷取中繼資料)，您有兩個選項。首先，原則名稱包含在 id\_token 的 `acr` 宣告中。如需有關如何剖析 id\_token 中的宣告的相關資訊，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)。另一個選項是當您發出要求時，在 `state` 參數的值中將原則編碼，然後將它解碼來判斷已使用的原則。任一種方法都絕對有效。
 
-當您從 OpenID Connect 中繼資料端點取得中繼資料文件後，您可以使用位於此端點的 RSA256 公用金鑰驗證 id\_token 的簽章。此端點可能隨時會列出多個金鑰，每個金鑰由 `kid` 識別。Id\_token 的標頭也包含 `kid` 宣告，指出用來簽署 id\_token 的金鑰。如需詳細資訊，包括[驗證權杖](active-directory-b2c-reference-tokens.md#validating-tokens)和[有關簽署金鑰變換的重要資訊](active-directory-b2c-reference-tokens.md#validating-tokens)，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)。<!--TODO: Improve the information on this-->
+當您從 OpenID Connect 中繼資料端點取得中繼資料文件後，您可以使用位於此端點的 RSA256 公用金鑰驗證 id\_token 的簽章。此端點可能隨時會列出多個金鑰，每個金鑰由 `kid` 識別。Id\_token 的標頭也包含 `kid` 宣告，指出用來簽署 id\_token 的金鑰。如需詳細資訊，包括[驗證權杖](active-directory-b2c-reference-tokens.md#validating-tokens)和[有關簽署金鑰變換的重要資訊](active-directory-b2c-reference-tokens.md#validating-tokens)，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)。
+<!--TODO: Improve the information on this-->
 
 一旦驗證了 id\_token 的簽章，就會有數項宣告需要驗證：
 
@@ -207,7 +208,7 @@ Content-Type: application/json
 | refresh\_token\_expires\_in | 重新整理權杖的最長有效時間 (以秒為單位)。不過，重新整理權杖隨時都可能失效。 |
 
 > [AZURE.NOTE]
-	如果您現在問：「access\_token 在哪裡？」，請考慮下列問題。當您要求 `openid` 範圍時，Azure AD 會在回應中發出 JWT `id_token`。嚴格來說，雖然這個 `id_token` 不是 OAuth 2.0 access\_token，但在與應用程式本身的後端服務通訊時可以這樣用，由與用戶端相同的 client\_id 代表。`id_token` 仍然是已簽署的 JWT 持有人權杖，可在 HTTP 授權標頭中傳送給資源，並用來驗證要求。差別在於 `id_token` 沒有機制可縮小特定用戶端應用程式可能擁有的存取範圍。不過，當用戶端應用程式是唯一能夠與後端服務進行通訊的用戶端時 (如同目前的 Azure AD B2C 預覽一樣)，則不需要這種範圍設定機制。當 Azure AD B2C 預覽增加功能讓用戶端與第一方和第三方資源通訊時，將會引進 access\_token。不過，即便如此，使用 `id_tokens` 來與應用程式本身的後端服務通訊，仍然只是建議的模式。如需有關可使用 Azure AD B2C 預覽來建置的應用程式類型的詳細資訊，請參閱[這篇文章](active-directory-b2c-apps.md)。
+> 如果您現在問：「access\_token 在哪裡？」，請考慮下列問題。當您要求 `openid` 範圍時，Azure AD 會在回應中發出 JWT `id_token`。嚴格來說，雖然這個 `id_token` 不是 OAuth 2.0 access\_token，但在與應用程式本身的後端服務通訊時可以這樣用，由與用戶端相同的 client\_id 代表。`id_token` 仍然是已簽署的 JWT 持有人權杖，可在 HTTP 授權標頭中傳送給資源，並用來驗證要求。差別在於 `id_token` 沒有機制可縮小特定用戶端應用程式可能擁有的存取範圍。不過，當用戶端應用程式是唯一能夠與後端服務進行通訊的用戶端時 (如同目前的 Azure AD B2C 預覽一樣)，則不需要這種範圍設定機制。當 Azure AD B2C 預覽增加功能讓用戶端與第一方和第三方資源通訊時，將會引進 access\_token。不過，即便如此，使用 `id_tokens` 來與應用程式本身的後端服務通訊，仍然只是建議的模式。如需有關可使用 Azure AD B2C 預覽來建置的應用程式類型的詳細資訊，請參閱[這篇文章](active-directory-b2c-apps.md)。
 
 錯誤回應格式如下：
 
@@ -326,7 +327,7 @@ p=b2c_1_sign_in
 | post\_logout\_redirect\_uri | 建議使用 | 使用者在成功登出後應該重新導向的 URL。如果未包含，Azure AD B2C 會向使用者顯示一般訊息。 |
 
 > [AZURE.NOTE]
-	雖然將使用者導向至 `end_session_endpoint` 會清除使用者與 Azure AD 之間的一些單一登入狀態，但目前不會實際登出使用者。反之，使用者將選取他們要用來登入的 IDP，然後重新經過驗證，而不需要輸入認證。如果是使用社交 IDP，這是可預期的行為。如果使用者想要登出 B2C 目錄，並不一定表示他們想要完全登出 Facebook 帳戶。不過，如果是使用本機帳戶，則應該可以正確地結束使用者工作階段。本機帳戶登出無法正常運作是 Azure AD 預覽的一項已知[限制](active-directory-b2c-limitations.md)。目前的因應措施是在每個驗證要求中傳送 `&prompt=login` 參數，這將會呈現理想的行為，但會造成 B2C 目錄中各應用程式之間的單一登入中斷。
+> 雖然將使用者導向至 `end_session_endpoint` 會清除使用者與 Azure AD 之間的一些單一登入狀態，但目前不會實際登出使用者。反之，使用者將選取他們要用來登入的 IDP，然後重新經過驗證，而不需要輸入認證。如果是使用社交 IDP，這是可預期的行為。如果使用者想要登出 B2C 目錄，並不一定表示他們想要完全登出 Facebook 帳戶。不過，如果是使用本機帳戶，則應該可以正確地結束使用者工作階段。本機帳戶登出無法正常運作是 Azure AD 預覽的一項已知[限制](active-directory-b2c-limitations.md)。目前的因應措施是在每個驗證要求中傳送 `&prompt=login` 參數，這將會呈現理想的行為，但會造成 B2C 目錄中各應用程式之間的單一登入中斷。
 
 ## 使用您自己 B2C 目錄
 

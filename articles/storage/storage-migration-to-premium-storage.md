@@ -115,14 +115,14 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 
 如果您要上傳將用於建立多個一般 Azure VM 執行個體的 VHD，您必須先使用 sysprep 公用程式將 VHD 一般化。這適用於內部部署或雲端的 VHD。Sysprep 會移除 VHD 中所有電腦特定的資訊。
 
->[AZURE.IMPORTANT] 將 VM 一般化之前，請先擷取快照或備份。執行 sysprep 會刪除 VM 執行個體。按照下方的步驟操作，以在 Windows OS VHD 中執行 sysprep。請注意，執行 Sysprep 命令會要求您關閉虛擬機器。如需 Sysprep 的詳細資訊，請參閱 [Sysprep 概觀](http://technet.microsoft.com/library/hh825209.aspx)或 Sysprep 技術參考http://technet.microsoft.com/library/cc766049(v=ws.10).aspx)。
+>[AZURE.IMPORTANT] 將 VM 一般化之前，請先擷取快照或備份。執行 sysprep 會刪除 VM 執行個體。按照下方的步驟操作，以在 Windows OS VHD 中執行 sysprep。請注意，執行 Sysprep 命令會要求您關閉虛擬機器。如需 Sysprep 的詳細資訊，請參閱 [Sysprep 概觀](http://technet.microsoft.com/library/hh825209.aspx)或 [Sysprep 技術參考](http://technet.microsoft.com/library/cc766049(v=ws.10).aspx)。
 
 1. 以系統管理員身分開啟 [命令提示字元] 視窗。
 2. 輸入下列命令以開啟 Sysprep：
 
 		%windir%\system32\sysprep\sysprep.exe
 
-4. 在 [系統準備工具] 中依序選取 [進入系統全新體驗 (OOBE)]、[一般化] 核取方塊、[關機]，然後按一下 [確定] (如下方圖片所示)。這會將作業系統一般化，並關閉系統。
+4. 在 [系統準備工具] 中依序選取 [進入系統全新體驗 (OOBE)]、[一般化] 核取方塊、[關機]，然後按一下 [確定] \(如下方圖片所示)。這會將作業系統一般化，並關閉系統。
 
 	![][1]
 
@@ -170,7 +170,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 
 	![][2]
 
-2. 從 S3 貯體下載 VHD 檔案。然後選取 VHD 檔案，再依序按一下 [Actions] (動作) > [Download] (下載)。
+2. 從 S3 貯體下載 VHD 檔案。然後選取 VHD 檔案，再依序按一下 [Actions] \(動作) > [Download] \(下載)。
 
 	![][3]|
 
@@ -312,7 +312,9 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 
 ## 將現有的 Azure VM 移轉至 Azure 進階儲存體
 
-如果您目前有使用標準儲存體磁碟的 Azure VM，請依照下列程序將其移轉至進階儲存體。概括來看，移轉牽涉到兩個階段：將磁碟從標準儲存體帳戶移轉至進階儲存體帳戶 - 將 VM 大小從 A/D/G 轉換成使用進階儲存體所需的 DS 或 GS。
+如果您目前有使用標準儲存體磁碟的 Azure VM，請依照下列程序將其移轉至進階儲存體。概括來看，移轉牽涉到兩個階段：
+-	將磁碟從標準儲存體帳戶移轉至進階儲存體帳戶 
+- 	將 VM 大小從 A/D/G 轉換成使用進階儲存體所需的 DS 或 GS。
 
 此外，請參閱上一節中有關於「注意事項」的內容，以了解您可以為進階儲存體執行的各種最佳化。根據您的應用程式所適用的最佳化，移轉程序可能屬於下列其中一個移轉案例。
 

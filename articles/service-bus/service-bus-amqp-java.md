@@ -362,7 +362,25 @@ while (propertyNames.hasMoreElements())
 
 | .NET 屬性類型 | JMS 屬性類型 | 注意事項 |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | UnsignedByte | - | | sbyte | Byte | - | | char | Character | - | | short | Short | - | | ushort | UnsignedShort | - | | int | Integer | - | | uint | UnsignedInteger | - | | long | Long | - | | ulong | UnsignedLong | - | | float | Float | - | | double | Double | - | | decimal | BigDecimal | - | | bool | Boolean | - | | Guid | UUID | - | | string | String | - | | DateTime | Date | - | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks 對應至 AMQP 類型：<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | Timespan.Ticks 對應至 AMQP 類型：<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | Uri.AbsoluteUri 對應至 AMQP 類型：<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | UnsignedByte | - |
+| sbyte | Byte | - |
+| char | Character | - |
+| short | Short | - |
+| ushort | UnsignedShort | - |
+| int | Integer | - |
+| uint | UnsignedInteger | - |
+| long | Long | - |
+| ulong | UnsignedLong | - |
+| float | Float | - |
+| double | Double | - |
+| decimal | BigDecimal | - |
+| bool | Boolean | - |
+| Guid | UUID | - |
+| string | String | - |
+| DateTime | Date | - |
+| DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks 對應至 AMQP 類型：<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
+| TimeSpan | DescribedType | Timespan.Ticks 對應至 AMQP 類型：<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> |
+| Uri | DescribedType | Uri.AbsoluteUri 對應至 AMQP 類型：<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### 標準標頭
 
@@ -372,13 +390,32 @@ while (propertyNames.hasMoreElements())
 
 | JMS | 服務匯流排 .NET | 注意事項 |
 |------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| JMSCorrelationID | Message.CorrelationID | - | | JMSDeliveryMode | 目前無法使用 | 不論指定何者，服務匯流排僅支援永久訊息；例如 DeliveryMode.PERSISTENT。| | JMSDestination | Message.To | - | | JMSExpiration | Message。TimeToLive | Conversion | | JMSMessageID | Message.MessageID | 根據預設，JMSMessageID 在 AMQP 訊息中以二進位格式編碼。收到二進位訊息識別碼時，.NET 用戶端程式庫會根據位元組的 unicode 值，將它轉換為字串表示法。若要將 JMS 程式庫切換為使用字串訊息識別碼，請將 “binary-messageid=false” 字串附加至 JNDI ConnectionURL 的查詢參數。例如："“amqps://[username]:[password]@[namespace].servicebus.windows.net? binary-messageid=false”。| | JMSPriority | 目前無法使用 | 服務匯流排不支援訊息優先順序。| | JMSRedelivered | 目前無法使用 | - | | JMSReplyTo | Message。ReplyTo | - | | JMSTimestamp | Message.EnqueuedTimeUtc | Conversion | | JMSType | Message.Properties[“jms-type”] | - |
+| JMSCorrelationID | Message.CorrelationID | - |
+| JMSDeliveryMode | 目前無法使用 | 不論指定何者，服務匯流排僅支援永久訊息；例如 DeliveryMode.PERSISTENT。|
+| JMSDestination | Message.To | - |
+| JMSExpiration | Message。TimeToLive | Conversion |
+| JMSMessageID | Message.MessageID | 根據預設，JMSMessageID 在 AMQP 訊息中以二進位格式編碼。收到二進位訊息識別碼時，.NET 用戶端程式庫會根據位元組的 unicode 值，將它轉換為字串表示法。若要將 JMS 程式庫切換為使用字串訊息識別碼，請將 “binary-messageid=false” 字串附加至 JNDI ConnectionURL 的查詢參數。例如："“amqps://[username]:[password]@[namespace].servicebus.windows.net? binary-messageid=false”。|
+| JMSPriority | 目前無法使用 | 服務匯流排不支援訊息優先順序。|
+| JMSRedelivered | 目前無法使用 | - |
+| JMSReplyTo | Message。ReplyTo | - |
+| JMSTimestamp | Message.EnqueuedTimeUtc | Conversion |
+| JMSType | Message.Properties[“jms-type”] | - |
 
 #### 服務匯流排 .NET API 至 JMS
 
 | 服務匯流排 .NET | JMS | 注意事項 |
 |-------------------------|------------------|-------------------------|
-| ContentType | - | 目前無法使用 | | CorrelationId | JMSCorrelationID | - | | EnqueuedTimeUtc | JMSTimestamp | Conversion | | Label | n/a | 目前無法使用 | | MessageId | JMSMessageID | - | | ReplyTo | JMSReplyTo | - | | ReplyToSessionId | n/a | 目前無法使用 | | ScheduledEnqueueTimeUtc | n/a | 目前無法使用 | | SessionId | n/a | 目前無法使用 | | TimeToLive | JMSExpiration | Conversion | | To | JMSDestination | - |
+| ContentType | - | 目前無法使用 |
+| CorrelationId | JMSCorrelationID | - |
+| EnqueuedTimeUtc | JMSTimestamp | Conversion |
+| Label | n/a | 目前無法使用 |
+| MessageId | JMSMessageID | - |
+| ReplyTo | JMSReplyTo | - |
+| ReplyToSessionId | n/a | 目前無法使用 |
+| ScheduledEnqueueTimeUtc | n/a | 目前無法使用 |
+| SessionId | n/a | 目前無法使用 |
+| TimeToLive | JMSExpiration | Conversion |
+| To | JMSDestination | - |
 
 ## 不支援的功能和限制
 

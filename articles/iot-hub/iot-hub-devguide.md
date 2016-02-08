@@ -171,7 +171,7 @@ IoT 方案通常具有不同的方案專屬存放區，其中包含應用程式�
 
 匯出工作接受 Blob 共用存取簽章 URI 做為參數。這會授與 Blob 容器的寫入權限，讓工作輸出其結果。
 
-工作會將輸出結果寫入名為 **job\_{job\_id}\_devices.txt** 之檔案中指定的 Blob 容器。這個檔案包含依[裝置身分識別屬性](#deviceproperties)中所指定而序列化為 JSON 的裝置身分識別。如果 **includeKeysInExport** 設定為 **false**，安全性資料將會設定為 **null**。
+工作會將輸出結果寫入名為 **job_{job_id}_devices.txt** 之檔案中指定的 Blob 容器。這個檔案包含依[裝置身分識別屬性](#deviceproperties)中所指定而序列化為 JSON 的裝置身分識別。如果 **includeKeysInExport** 設定為 **false**，安全性資料將會設定為 **null**。
 
 **範例**：
 

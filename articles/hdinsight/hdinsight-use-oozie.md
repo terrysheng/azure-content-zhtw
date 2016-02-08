@@ -121,26 +121,26 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。預
 
 RunHiveScript 有數個變數。當您使用 Azure PowerShell 從工作站提交 Oozie 工作時，要傳入這些值。
 
-<table border = "1">
-<tr><th>工作流程變數</th><th>說明</th></tr>
-<tr><td>${jobTracker}</td><td>指定 Hadoop 工作追蹤器的 URL。在 HDInsight 3.0 和 2.1 版中使用 <strong>jobtrackerhost:9010</strong>。</td></tr>
-<tr><td>${nameNode}</td><td>指定 Hadoop 名稱節點的 URL。使用預設檔案系統位址，例如 <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>。</td></tr>
-<tr><td>${queueName}</td><td>指定要將工作提交過去的佇列名稱。使用<strong>預設值</strong>。</td></tr>
-</table>
+	<table border = "1">
+	<tr><th>工作流程變數</th><th>說明</th></tr>
+	<tr><td>${jobTracker}</td><td>指定 Hadoop 工作追蹤器的 URL。在 HDInsight 3.0 和 2.1 版中使用 <strong>jobtrackerhost:9010</strong>。</td></tr>
+	<tr><td>${nameNode}</td><td>指定 Hadoop 名稱節點的 URL。使用預設檔案系統位址，例如 <i>wasb://&lt;containerName>@&lt;storageAccountName>.blob.core.windows.net</i>。</td></tr>
+	<tr><td>${queueName}</td><td>指定要將工作提交過去的佇列名稱。使用<strong>預設值</strong>。</td></tr>
+	</table>
 
-<table border = "1">
-<tr><th>Hive 動作變數</th><th>說明</th></tr>
-<tr><td>${hiveDataFolder}</td><td>指定 Hive Create Table 命令的來源目錄。</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>指定 INSERT OVERWRITE 陳述式的輸出資料夾。</td></tr>
-<tr><td>${hiveTableName}</td><td>指定參考 log4j 資料檔案的 Hive 資料表名稱。</td></tr>
-</table>
+	<table border = "1">
+	<tr><th>Hive 動作變數</th><th>說明</th></tr>
+	<tr><td>${hiveDataFolder}</td><td>指定 Hive Create Table 命令的來源目錄。</td></tr>
+	<tr><td>${hiveOutputFolder}</td><td>指定 INSERT OVERWRITE 陳述式的輸出資料夾。</td></tr>
+	<tr><td>${hiveTableName}</td><td>指定參考 log4j 資料檔案的 Hive 資料表名稱。</td></tr>
+	</table>
 
-<table border = "1">
-<tr><th>Sqoop 動作變數</th><th>說明</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>指定 Azure SQL Database 連接字串。</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>指定要將資料匯出至其中的 Azure SQL Database 資料表。</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>指定 Hive INSERT OVERWRITE 陳述式的輸出資料夾。這和 Sqoop 匯出 (export-dir) 使用同一個資料夾。</td></tr>
-</table>
+	<table border = "1">
+	<tr><th>Sqoop 動作變數</th><th>說明</th></tr>
+	<tr><td>${sqlDatabaseConnectionString}</td><td>指定 Azure SQL Database 連接字串。</td></tr>
+	<tr><td>${sqlDatabaseTableName}</td><td>指定要將資料匯出至其中的 Azure SQL Database 資料表。</td></tr>
+	<tr><td>${hiveOutputFolder}</td><td>指定 Hive INSERT OVERWRITE 陳述式的輸出資料夾。這和 Sqoop 匯出 (export-dir) 使用同一個資料夾。</td></tr>
+	</table>
 
 如需關於 Oozie 工作流程和使用工作流程動作的詳細資訊，請參閱 [Apache Oozie 4.0 文件][apache-oozie-400] (英文，適用於 HDInsight 3.0 版) 或 [Apache Oozie 3.3.2 文件][apache-oozie-332] (英文，適用於 HDInsight 2.1 版)。
 

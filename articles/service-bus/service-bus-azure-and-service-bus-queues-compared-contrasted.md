@@ -204,7 +204,8 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 |比較準則|Azure 佇列|服務匯流排佇列|
 |---|---|---|
 |管理通訊協定|**REST over HTTP/HTTPS**|**REST over HTTPS**|
-|執行階段通訊協定|**REST over HTTP/HTTPS**|**REST over HTTPS**<br/><br/>**AMQP 1.0 標準 (TCP 和 TLS)**| |.NET Managed API|**是**<br/><br/>(.NET 受管理的儲存體用戶端 API)|**是**<br/><br/>(.NET Managed 代理傳訊 API)|
+|執行階段通訊協定|**REST over HTTP/HTTPS**|**REST over HTTPS**<br/><br/>**AMQP 1.0 標準 (TCP 和 TLS)**|
+|.NET Managed API|**是**<br/><br/>(.NET 受管理的儲存體用戶端 API)|**是**<br/><br/>(.NET Managed 代理傳訊 API)|
 |Native C++|**是**|**否**|
 |Java API|**是**|**是**|
 |PHP API|**是**|**是**|

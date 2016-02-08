@@ -15,13 +15,13 @@
 
 #設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入
 
-Azure Active Directory 應用程式資源庫提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單，如[本文](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/)所說明。一旦您 (假設您是 IT 專業人員或組織中的系統整合者) 找到所要連接的應用程式，您就可以遵循應 Azure 管理入口網站中顯示的逐步指示，啟用單一登入。
+Azure Active Directory 應用程式資源庫提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單，如[本文]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/)所說明。一旦您 (假設您是 IT 專業人員或組織中的系統整合者) 找到所要連接的應用程式，您就可以遵循應 Azure 管理入口網站中顯示的逐步指示，啟用單一登入。
 
 具有 [Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx) 授權的客戶可獲得下列額外的功能，而這些功能可從 Azure AD 應用程式庫的 [自訂] 類別來叫用：
 
 * 任何支援 SAML 2.0 身分識別提供者的應用程式皆可進行自助式連線
 * Web 應用程式可在使用密碼型 SSO 的 HTML 登入頁面上進行自助式連線
-* 能夠在 [Office 365 應用程式啟動器](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/)中新增任何應用程式的連結
+* 能夠在 [Office 365 應用程式啟動器]( https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/)中新增任何應用程式的連結
 * 應用程式可使用 SCIM 通訊協定進行自助式連線，以執行使用者佈建 ([說明請見此處](active-directory-scim-provisioning))
 
 這不僅包括您所使用、但尚未在 Azure AD 應用程式庫中上線的 SaaS 應用程式，也包括您的組織已部署至您所控制的伺服器 (在雲端或內部部署中) 的第三方 Web 應用程式。
@@ -105,7 +105,7 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 
 選取此選項，可將應用程式的連結新增至組織的 Azure AD 存取面板或 Office 365 入口網站。使用此選項，可讓您新增目前使用 Azure Active Directory 同盟服務 (或其他同盟服務)、而不是使用 Azure AD 的自訂 Web 應用程式的連結，以進行驗證。或者，您可以新增特定 SharePoint 網頁或其他只要出現在使用者存取面板上的網頁的深層連結。
 
-選取 [下一步] 之後，系統會提示您輸入要連結到的應用程式的 URL。完成之後，使用者和群組即可指派給應用程式，而使應用程式出現在這些使用者的 [Office 365 應用程式啟動器](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/)中。
+選取 [下一步] 之後，系統會提示您輸入要連結到的應用程式的 URL。完成之後，使用者和群組即可指派給應用程式，而使應用程式出現在這些使用者的 [Office 365 應用程式啟動器]( https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/)中。
 
 注意：您可以在應用程式的 [設定] 索引標籤上使用 [上傳標誌] 按鈕，來上傳應用程式的磚標誌。
 
@@ -118,4 +118,4 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

@@ -387,7 +387,8 @@ Azure 角色型存取控制 (RBAC) 會隨附三個內建的角色，供您指派
 
 | **動作** ||
 | ------- | ------ |
-| */read | 讀取密碼以外的所有類型資源。 | | Microsoft.Authorization/* | 讀取授權 |
+| */read | 讀取密碼以外的所有類型資源。 |
+| Microsoft.Authorization/* | 讀取授權 |
 | Microsoft.Support/* | 建立和管理支援票證 |
 
 ### 傳統虛擬機器參與者

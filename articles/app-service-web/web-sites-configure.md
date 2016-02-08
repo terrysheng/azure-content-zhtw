@@ -76,10 +76,10 @@
 
 如果是 PHP、Python、Java 及 Node 應用程式，您可以在執行階段將這些設定視為環境變數使用，並加上連線類型前置詞。環境變數首碼如以下所示：
 
-- SQL Server：SQLCONNSTR\_
-- MySQL：MYSQLCONNSTR\_
-- SQL 資料庫：SQLAZURECONNSTR\_
-- 自訂：CUSTOMCONNSTR\_
+- SQL Server：SQLCONNSTR_
+- MySQL：MYSQLCONNSTR_
+- SQL 資料庫：SQLAZURECONNSTR_
+- 自訂：CUSTOMCONNSTR_
 
 例如，如果 MySql 連接字串命名為 `connectionstring1`，則可透過環境變數 `MYSQLCONNSTR_connectionString1` 加以存取。
 
@@ -132,7 +132,7 @@ Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理�
 ![](./media/web-sites-configure/configure03.png)
 
 
-完整的 FTP 使用者名稱為 「app\\username」，其中 *app* 部分為您 Web 應用程式的名稱。username 則列於 Web 應用程式刀鋒視窗的 **Essentials** 部分。
+完整的 FTP 使用者名稱為 「app\username」，其中 *app* 部分為您 Web 應用程式的名稱。username 則列於 Web 應用程式刀鋒視窗的 **Essentials** 部分。
 
 ![](./media/web-sites-configure/configure02.png)
 

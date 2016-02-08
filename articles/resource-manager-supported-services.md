@@ -35,7 +35,9 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | Dynamics 週期服務 | 是 | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (Preview) | 是 | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | 虛擬機器 | 是 | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| 虛擬機器 (傳統) | 有限 | - | - | | 遠端應用程式 | 否 | - | - | | 雲端服務 (傳統) | 有限 (請參閱下文) | - | - | - |
+| 虛擬機器 (傳統) | 有限 | - | - | 
+| 遠端應用程式 | 否 | - | - | 
+| 雲端服務 (傳統) | 有限 (請參閱下文) | - | - | - |
 
 虛擬機器 (傳統) 是指已透過傳統部署模型部署的資源，而不是透過資源管理員部署模型部署的資源。一般而言，這些資源不支援資源管理員作業，但已啟用某些作業。如需這些部署模型的詳細資訊，請參閱[了解資源管理員部署和傳統部署](resource-manager-deployment-model.md)。
 

@@ -147,7 +147,11 @@ Azure 發佈入口網站可用來發佈和管理您的優惠。您可以在發�
 
   >[AZURE.TIP] 如需參與原則的說明，請參閱 [Azure 網站](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)。
 
-  > 如果在開發人員中心註冊時發生問題，請記錄支援票證，如下所示：1.連絡[支援人員](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=zh-TW&pesid=15635&ccsid=635847950577064286)。2.選擇 [開發人員中心]。3.選擇 [設定檔]。4.選擇連絡方法。
+  > 如果在開發人員中心註冊時發生問題，請記錄支援票證，如下所示：
+  1.連絡[支援人員](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=zh-TW&pesid=15635&ccsid=635847950577064286)。
+  2.選擇 [開發人員中心]。
+  3.選擇 [設定檔]。
+  4.選擇連絡方法。
 
 
 

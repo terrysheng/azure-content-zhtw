@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/22/2016" ms.author="markgal"; "aashishr"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/22/2016"
+ 	ms.author="markgal"; "aashishr"; "jimpark"/>
 
 
 # 使用 PowerShell 部署和管理 Windows Server/Windows 用戶端的 Azure 備份
@@ -39,7 +46,7 @@ PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg”
 
 
 ## 安裝 Azure 備份代理程式
-在安裝 Azure 備份代理程式之前，您必須在 Windows Server 上下載並提供安裝程式。您可以從 [Microsoft 下載中心](http://aka.ms/azurebackup_agent)或從備份保存庫的 [儀表板] 頁面取得最新版的安裝程式。請將安裝程式儲存至容易存取的位置，例如 *C:\\Downloads*。
+在安裝 Azure 備份代理程式之前，您必須在 Windows Server 上下載並提供安裝程式。您可以從 [Microsoft 下載中心](http://aka.ms/azurebackup_agent)或從備份保存庫的 [儀表板] 頁面取得最新版的安裝程式。請將安裝程式儲存至容易存取的位置，例如 *C:\\Downloads* 。
 
 若要安裝代理程式，請在已提升權限的 PowerShell 主控台中執行下列命令：
 
@@ -65,7 +72,16 @@ PS C:\> MARSAgentInstaller.exe /?
 
 | 選項 | 詳細資料 | 預設值 |
 | ---- | ----- | ----- |
-| /q | 無訊息安裝 | - | | /p:"location" | Azure 備份代理程式的安裝資料夾路徑。 | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"location" | Azure 備份代理程式的快取資料夾路徑。 | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | 選擇加入 Microsoft Update | - | | /nu | 安裝完成後不要檢查更新 | - | | /d | 解除安裝 Microsoft Azure 復原服務代理程式 | - | | /ph | Proxy 主機位址 | - | | /po | Proxy 主機連接埠號碼 | - | | /pu | Proxy 主機使用者名稱 | - | | /pw | Proxy 密碼 | - |
+| /q | 無訊息安裝 | - |
+| /p:"location" | Azure 備份代理程式的安裝資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"location" | Azure 備份代理程式的快取資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /m | 選擇加入 Microsoft Update | - |
+| /nu | 安裝完成後不要檢查更新 | - |
+| /d | 解除安裝 Microsoft Azure 復原服務代理程式 | - |
+| /ph | Proxy 主機位址 | - |
+| /po | Proxy 主機連接埠號碼 | - |
+| /pu | Proxy 主機使用者名稱 | - |
+| /pw | Proxy 密碼 | - |
 
 
 ## 向 Azure 備份服務進行註冊

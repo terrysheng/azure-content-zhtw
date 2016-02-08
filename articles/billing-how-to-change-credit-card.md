@@ -20,7 +20,7 @@
 
 # 如何變更用來支付 Azure 訂用帳戶的信用卡
 
-您可以使用信用卡或金融卡付款，或經過核准按發票支付。如需按發票支付的詳細資訊，請參閱 [Azure 發票開立](https://azure.microsoft.com/zh-TW/pricing/invoicing/)。
+您可以使用信用卡或金融卡付款，或經過核准按發票支付。如需按發票支付的詳細資訊，請參閱 [Azure 發票開立](https://azure.microsoft.com/pricing/invoicing/)。
 
 ## 編輯現有信用卡的付款資訊
 1. 以帳戶管理員登入 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)。
@@ -44,4 +44,4 @@
 3. 在頁面右側，選取 [變更付款方式]。
 4. 在 [選擇付款方式] 頁面上，依序選取信用卡旁邊的下拉式箭號、您要使用的信用卡，然後再選取 ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png) 關閉視窗。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

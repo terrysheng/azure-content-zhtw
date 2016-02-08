@@ -1,4 +1,11 @@
-<properties pageTitle="使用 Azure Site Recovery 將 VMware 虛擬機器和實體伺服器複寫至 Azure (舊版) | Microsoft Azure" description="描述設定 Azure Site Recovery 以協調內部部署 VMware 虛擬機器和 Windows/Linux 實體伺服器至 Azure 的複寫、容錯移轉及復原的舊版部署。" " services="site-recovery" documentationCenter="" authors="rayne-wiselman" manager="jwhit" editor=""/>
+<properties
+	pageTitle="使用 Azure Site Recovery 將 VMware 虛擬機器和實體伺服器複寫至 Azure (舊版) | Microsoft Azure" 
+	description="描述設定 Azure Site Recovery 以協調內部部署 VMware 虛擬機器和 Windows/Linux 實體伺服器至 Azure 的複寫、容錯移轉及復原的舊版部署。" " 
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
+	editor=""/>
 
 <tags
 	ms.service="site-recovery"
@@ -806,4 +813,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428).Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

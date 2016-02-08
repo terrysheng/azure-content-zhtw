@@ -159,7 +159,9 @@ App Service 環境是隔離和專用的環境，可安全地執行您的所有�
 
 1. 選取您剛才建立的 App Service 環境。
 2. 在 [基本功能] 中，選取 [資源群組] 屬性。這樣會開啟包含 App Service 環境的資源群組：![][7]
-3. 選取 RBAC 圖示來管理權限：![][8]新增使用者和指派角色就像在 Azure 內使用[角色型存取控制](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)一樣。
+3. 選取 RBAC 圖示來管理權限：
+![][8]  
+	新增使用者和指派角色就像在 Azure 內使用 [角色型存取控制]( https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) 一樣。
 
 > [AZURE.NOTE] 目前，您無法提供 App Service 環境的 RBAC 權限。您可以在父資源群組層級提供 RBAC 權限。
 
@@ -181,4 +183,4 @@ App Service 環境是隔離和專用的環境，可安全地執行您的所有�
 [7]: ./media/powerapps-get-started-azure-portal/aseessentials.png
 [8]: ./media/powerapps-get-started-azure-portal/resourcegrouprbac.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

@@ -20,8 +20,9 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-
-> [AZURE.NOTE] 本文不涵蓋如何使用 Azure AD B2C 實作登入、註冊和管理設定檔。而會著重在如何在使用者已通過驗證後呼叫 Web API。您應該先從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始 (如果還沒有進行)，以了解 Azure AD B2C 的基本概念。
+> [AZURE.NOTE]
+ 	本文不涵蓋如何使用 Azure AD B2C 實作登入、註冊和管理設定檔。而會著重在如何在使用者已通過驗證後呼叫 Web API。
+您應該先從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始 (如果還沒有進行)，以了解 Azure AD B2C 的基本概念。
 
 
 > [AZURE.NOTE]	此寫入範例已連線至我們的 [iOS B2C 範例應用程式。](active-directory-b2c-devquickstarts-ios.md) 請先執行本逐步解說，然後遵循該範例操作。
@@ -36,11 +37,13 @@
 
 本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs) 上。若要遵循執行，您可以[用 .zip 格式下載應用程式的基本架構](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/skeleton.zip)，或複製基本架構：
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
+```
+git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
+```
 
 本教學課程最後也會提供完整的應用程式。
 
-> [AZURE.WARNING] 	在我們的 B2C 預覽中，您必須對 Web-API 工作伺服器和與其連接之用戶端，使用相同的用戶端識別碼/應用程式識別碼和原則。這適用於 iOS 及 Android 教學課程。如果您先前已在任何一個快速入門中建立過應用程式，請直接使用那些值，無需再如下列所示建立新值。
+> [AZURE.WARNING] 在我們的 B2C 預覽中，您必須對 Web-API 工作伺服器和與其連接之用戶端，使用相同的用戶端識別碼/應用程式識別碼和原則。這適用於 iOS 及 Android 教學課程。如果您先前已在任何一個快速入門中建立過應用程式，請直接使用那些值，無需再如下列所示建立新值。
 
 
 ## 1\.取得 Azure AD B2C 目錄
@@ -752,7 +755,7 @@ server.use(passport.session()); // Provides session support
 ```
 
 > [AZURE.TIP]
-撰寫 API 時，您應一律將資料連結到使用者無法證明其在權杖中是唯一的項目。此伺服器儲存 TODO 項目時，會根據我們放在 [擁有者] 欄位的權杖 (透過 token.sub 呼叫) 中使用者的物件識別碼來儲存這些項目。這確保只有該使用者可以存取他的 TODO，而且沒有其他人可存取輸入的 TODO。不會在「擁有者」API 中公開，因此，外部使用者可以要求其他的 TODO，即使它們已經過驗證也一樣。
+> 撰寫 API 時，您應一律將資料連結到使用者無法證明其在權杖中是唯一的項目。此伺服器儲存 TODO 項目時，會根據我們放在 [擁有者] 欄位的權杖 (透過 token.sub 呼叫) 中使用者的物件識別碼來儲存這些項目。這確保只有該使用者可以存取他的 TODO，而且沒有其他人可存取輸入的 TODO。不會在「擁有者」API 中公開，因此，外部使用者可以要求其他的 TODO，即使它們已經過驗證也一樣。
 
 接下來，我們將使用隨附於 passport-azure-ad 的 Bearer 策略。目前只需看一下此程式碼，我很快就會討論到它。將這段程式碼放在您貼上上述內容的後方：
 
@@ -802,7 +805,7 @@ passport.use(oidcStrategy);
 Passport 會使用適用於它的所有策略 (Twitter、Facebook 等) 且所有策略寫入器都依循的類似模式。查看此策略，您會看見我們將它當成 function() 來傳遞，其中含有一個 token 和一個 done 做為參數。一旦策略完成所有工作之後，便會盡責地返回。當它完成之後，我們會想要儲存使用者並隱藏權杖，因此我們不需再次要求它。
 
 > [AZURE.IMPORTANT]
-上述程式碼會讓所有使用者經歷伺服器的驗證。這就是所謂的自動註冊。在生產伺服器中，您想要讓所有人都必須先經歷您所決定的註冊過程。這通常是您在取用者 App 中看到的模式，可讓您向 Facebook 註冊，但接著會要求您填寫其他資訊。如果這不是命令列程式，我們就只能從傳回的權杖物件中擷取電子郵件，然後要求他們填寫其他資訊。由於這是測試伺服器，因此，我們只會將它們直接加入記憶體中的資料庫。
+> 上述程式碼會讓所有使用者經歷伺服器的驗證。這就是所謂的自動註冊。在生產伺服器中，您想要讓所有人都必須先經歷您所決定的註冊過程。這通常是您在取用者 App 中看到的模式，可讓您向 Facebook 註冊，但接著會要求您填寫其他資訊。如果這不是命令列程式，我們就只能從傳回的權杖物件中擷取電子郵件，然後要求他們填寫其他資訊。由於這是測試伺服器，因此，我們只會將它們直接加入記憶體中的資料庫。
 
 ### 2\.最後，保護某些端點
 
@@ -882,7 +885,9 @@ Transfer-Encoding: chunked
 
 如需參考，[此處以 .zip 格式提供](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip)完整範例 (不含您的組態值)，您也可以從 GitHub 予以複製：
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
+```
 
 
 ## 後續步驟

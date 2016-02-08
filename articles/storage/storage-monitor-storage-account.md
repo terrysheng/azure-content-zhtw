@@ -120,7 +120,7 @@
 	![ExpandCollapse](./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png)
 
 
-6. 選取所有服務的度量後，按一下 [確定] (核取記號) 更新監視組態。選取的度量隨即新增到度量表。
+6. 選取所有服務的度量後，按一下 [確定] \(核取記號) 更新監視組態。選取的度量隨即新增到度量表。
 
 7. 若要從資料表刪除度量，請按一下度量加以選取，然後按一下 [刪除度量]。
 

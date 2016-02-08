@@ -39,7 +39,7 @@
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
+1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] \(Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
 
 2.  在命令視窗中輸入 **npm install azure-storage**。此命令的輸出類似下列範例。
 
@@ -149,8 +149,8 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 > [AZURE.NOTE] 依預設，訊息只會隱藏 30 秒，之後又會被其他用戶端看見。您可以使用具有 **getMessages** 的 `options.visibilityTimeout` 指定其他值。
 
-> [AZURE.NOTE]
-當佇列中沒有任何訊息時，使用 **getMessages** 並不會傳回錯誤，不過也不會傳回任何訊息。
+
+> [AZURE.NOTE] 當佇列中沒有任何訊息時，使用 **getMessages** 並不會傳回錯誤，不過也不會傳回任何訊息。
 
 ## 作法：變更佇列訊息的內容
 

@@ -44,7 +44,7 @@
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
+        針對運算、儲存體及網路資源，您可以選擇使用資源管理員或傳統部署。 選擇**資源管理員**。
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -93,7 +93,7 @@
 
         ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        或安裝 Preview 入口網站並指定進行**傳統**部署 (範圍包括運算、儲存體及網路).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 

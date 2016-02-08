@@ -81,11 +81,11 @@ Azure 資料中心的伺服器分割成叢集。在多個叢集中嘗試新的�
 
 4. 移除新部署中的同質群組 - 不再建議使用同質群組。請遵循上述 #1 的步驟以部署新的雲端服務。請確定雲端服務不在同質群組中。
 
-5. 轉換至區域虛擬網路 - 請參閱[如何從同質群組移轉至區域虛擬網路 (VNet)](https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/)。
+5. 轉換至區域虛擬網路 - 請參閱[如何從同質群組移轉至區域虛擬網路 (VNet)]( https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/)。
 
 ## 其他資源
 ### 連絡 Azure 客戶支援
 
 如果本文未解決您的 Azure 問題，請瀏覽 [MSDN 和堆疊溢位](https://azure.microsoft.com/support/forums/)上的 Azure 論壇。也可以就您的問題提出 Azure 支援事件。請前往 [Azure 支援](https://azure.microsoft.com/support/options/)網站並按一下 [取得支援]。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

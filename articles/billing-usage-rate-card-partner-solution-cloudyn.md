@@ -31,7 +31,7 @@ Cloudyn (Microsoft 開發夥伴和雲端管理功能的領導提供者) 是為�
 ## 整合 Cloudyn 和 RateCard 使用情況 API
 RateCard API 需要數個輸入參數 -- 例如區域資訊、貨幣及區域設定 --，但最重要的一種是 OfferDurableID，它會指定客戶正在使用的 Azure 優惠類型 (隨收隨付、舊版 6 及 12 個月的承諾方案、MSDN 優惠、MPN 優惠、促銷優惠和其他類型)。OfferDurableID 位於指定訂用帳戶之「優惠識別碼」下的 [Azure 使用情況和計費入口網站](https://account.windowsazure.com/Subscriptions)。
 
-在註冊 [Cloudyn for Azure](https://www.cloudyn.com/microsoft-azure/) 服務時，客戶可以加入其 OfferDurableID 程式碼，可讓 Cloudyn 透過 RateCard API 提取其相關定價資訊。如需各種類型的優惠資訊，請參閱 [Microsoft Azure 優惠詳細資料](https://azure.microsoft.com/en-gb/support/legal/offer-details/)頁面。
+在註冊 [Cloudyn for Azure](https://www.cloudyn.com/microsoft-azure/) 服務時，客戶可以加入其 OfferDurableID 程式碼，可讓 Cloudyn 透過 RateCard API 提取其相關定價資訊。如需各種類型的優惠資訊，請參閱 [Microsoft Azure 優惠詳細資料](https://azure.microsoft.com/support/legal/offer-details/)頁面。
 
 ![Cloudyn ITFM 引擎概觀][2]
 
@@ -90,4 +90,4 @@ RateCard API 需要數個輸入參數 -- 例如區域資訊、貨幣及區域設
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

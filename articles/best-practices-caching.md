@@ -427,9 +427,20 @@ Redis 支援在字串值上進行一系列不可部分完成的取得和設定�
 
 - `INCR`、`INCRBY`、`DECR` 和 `DECRBY`，用來在整數數字資料值上執行不可部分完成的遞增和遞減作業。StackExchange 程式庫會提供 `IDatabase.StringIncrementAsync` 和 `IDatabase.StringDecrementAsync` 方法的多載版本，用來執行這些作業，並傳回儲存在快取中的產生值。下列程式碼片段說明如何使用這些方法：
 
-  ```csharp ConnectionMultiplexer redisHostConnection = ...; IDatabase cache = redisHostConnection.GetDatabase(); ... await cache.StringSetAsync("data:counter", 99); ... long oldValue = await cache.StringIncrementAsync("data:counter"); // 遞增值為 1 (預設值) // oldValue 必須為 100
+  ```csharp 
+  ConnectionMultiplexer redisHostConnection = ...; 
+  IDatabase cache = redisHostConnection.GetDatabase(); 
+  ... 
+  await cache.StringSetAsync("data:counter", 99); 
+  ... 
+  long oldValue = await cache.StringIncrementAsync("data:counter");
+   // 遞增值為 1 (預設值) 
+   // oldValue 必須為 100
 
-  long newValue = await cache.StringDecrementAsync("data:counter", 50); // 遞減值為 50 // newValue 必須為 50 ```
+  long newValue = await cache.StringDecrementAsync("data:counter", 50); 
+  // 遞減值為 50 
+  // newValue 必須為 50 
+  ```
 
 - `GETSET` 用來擷取具有與索引鍵相關聯的值，並會將其變更為新值。StackExchange 程式庫會透過 `IDatabase.StringGetSetAsync` 方法讓這項作業可供使用。下方的程式碼片段會顯示這個方法的範例。此程式碼會從先前範例傳回目前與索引鍵 "data:counter" 相關聯的值，並將此索引鍵的值重設回零，這些都是作為相同作業的一部分：
 
@@ -442,9 +453,28 @@ Redis 支援在字串值上進行一系列不可部分完成的取得和設定�
 
 - `MGET` 和 `MSET` 可以作為單一作業傳回或變更一組字串值。`IDatabase.StringGetAsync` 和 `IDatabase.StringSetAsync` 是多載方法，用來支援這項功能，如下列範例所示：
 
-  ```csharp ConnectionMultiplexer redisHostConnection = ...; IDatabase cache = redisHostConnection.GetDatabase(); ... // 建立索引鍵/值配對的清單 var keysAndValues = new List<KeyValuePair<RedisKey  RedisValue>>() { new KeyValuePair<RedisKey  RedisValue>("data:key1", "value1"), new KeyValuePair<RedisKey  RedisValue>("data:key99", "value2"), new KeyValuePair<RedisKey  RedisValue>("data:key322", "value3") };
+  ```csharp 
+  ConnectionMultiplexer redisHostConnection = ...; 
+  IDatabase cache = redisHostConnection.GetDatabase(); 
+  ... 
+  // 建立索引鍵/值配對的清單 
+  var keysAndValues = 
+  	new List<KeyValuePair<RedisKey  RedisValue>>()
+ 	{ 
+	new KeyValuePair<RedisKey  RedisValue>("data:key1", "value1"), 
+	new KeyValuePair<RedisKey  RedisValue>("data:key99", "value2"), 
+	new KeyValuePair<RedisKey  RedisValue>("data:key322", "value3")
+	};
 
-  // 在快取中儲存索引鍵/值配對的清單 cache.StringSet(keysAndValues.ToArray()); ... // 找出所有符合索引鍵清單的值 RedisKey keys = { "data:key1", "data:key99", "data:key322"}; RedisValue values = null; values = cache.StringGet(keys); // 值應包含 { "value1", "value2", "value3" } ```
+  // 在快取中儲存索引鍵/值配對的清單 
+  cache.StringSet(keysAndValues.ToArray()); 
+  ... 
+  // 找出所有符合索引鍵清單的值 
+  RedisKey[] keys = { "data:key1", "data:key99", "data:key322"};
+  RedisValue[] values = null;
+  values = cache.StringGet(keys);
+  // values should contain { "value1", "value2", "value3" }
+  ```
 
 您也可以將多項作業結合到單一 Redis 交易，如同本指引的＜Redis 交易與批次＞一節中所述。StackExchange 程式庫可透過 `ITransaction` 介面提供交易支援。您可以使用 IDatabase.CreateTransaction 方法來建立一個 ITransaction 物件，並使用 `ITransaction` 物件所提供的方法叫用交易的命令。`ITransaction` 介面提供一組如同 `IDatabase` 介面的類似方法，但不包含所有非同步的方法；它們僅在叫用 `ITransaction.Execute` 方法時執行。Execute 方法所傳回的值表示是否已成功建立交易 (true) 或建立失敗 (false)。
 
@@ -735,7 +765,8 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 
 - 多個訂閱者可以訂閱相同的通道，且他們都將接收發佈至該通道的訊息。
 - 訂閱者僅會接收訂閱後發佈的訊息。通道不會進行緩衝處理，且一旦發佈訊息之後，Redis 基礎結構會將訊息推播至每個訂閱者並將它移除。
-- 依預設，訂閱者會根據傳送的順序來接收訊息。在具有大量訊息和許多訂閱者和發行者的高度活躍系統中，保證循序傳遞訊息可能會降低系統效能。如果每個訊息各自獨立，且順序並不重要，則您可以透過 Redis 系統啟用並行處理，以協助改善回應性。您可以針對訂閱者所使用的連接，將 PreserveAsyncOrder 設定為 false，以便在 StackExchange 用戶端達到這個目的：```csharp
+- 依預設，訂閱者會根據傳送的順序來接收訊息。在具有大量訊息和許多訂閱者和發行者的高度活躍系統中，保證循序傳遞訊息可能會降低系統效能。如果每個訊息各自獨立，且順序並不重要，則您可以透過 Redis 系統啟用並行處理，以協助改善回應性。您可以針對訂閱者所使用的連接，將 PreserveAsyncOrder 設定為 false，以便在 StackExchange 用戶端達到這個目的：
+```csharp
   ConnectionMultiplexer redisHostConnection = ...;
   redisHostConnection.PreserveAsyncOrder = false;
   ISubscriber subscriber = redisHostConnection.GetSubscriber();

@@ -40,7 +40,7 @@
 
 針對集區層級的平行工作執行，您會在 Batch 解決方案中設定計算節點。使用 Batch .NET 程式庫時，您會在建立集區時設定 [CloudPool.MaxTasksPerComputeNode][maxtasks_net] 屬性。如果您使用 Batch REST API，您會在集區建立期間於要求主體中設定 [maxTasksPerNode][maxtasks_rest] 元素。
 
-Azure Batch 允許您將每個節點的最大工作數目設定為多達節點核心數目的 4 倍 (4x)。例如，如果集區設定的節點大小為 [大] (四個核心)，則 `maxTasksPerNode` 可以設定為 16。如需每個節點大小的核心數目的詳細資料，請參閱[雲端服務的大小](./../cloud-services/cloud-services-sizes-specs.md)。如需服務限制的詳細資訊，請參閱 [Azure Batch 服務的配額和限制](batch-quota-limit.md)。
+Azure Batch 允許您將每個節點的最大工作數目設定為多達節點核心數目的 4 倍 (4x)。例如，如果集區設定的節點大小為 [大] \(四個核心)，則 `maxTasksPerNode` 可以設定為 16。如需每個節點大小的核心數目的詳細資料，請參閱[雲端服務的大小](../cloud-services/cloud-services-sizes-specs.md)。如需服務限制的詳細資訊，請參閱 [Azure Batch 服務的配額和限制](batch-quota-limit.md)。
 
 > [AZURE.TIP] 為您的集區建構[自動調整公式][enable_autoscaling]時，請務必考慮 `maxTasksPerNode` 值。例如，評估 `$RunningTasks` 的公式可能大幅受到每個節點的工作增加的影響。如需詳細資訊，請參閱[自動調整 Azure Batch 集區中的運算節點](batch-automatic-scaling.md)。
 

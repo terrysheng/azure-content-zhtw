@@ -49,7 +49,9 @@
 
 1. 在 [Azure 行動服務] 對話方塊中，選擇現有的行動服務 (如果有的話)。如果您需要建立新的 Azure 行動服務，請遵循下面的程序。否則請跳到下一步。
 
-    若要建立新的行動服務帳戶︰1. 選擇對話方塊底部的 [建立服務] 連結。![加入新的已連接行動服務](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
+    若要建立新的行動服務帳戶︰
+    1. 選擇對話方塊底部的 [建立服務] 連結。
+	![加入新的已連接行動服務](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
 
 
 

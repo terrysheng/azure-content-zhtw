@@ -118,7 +118,7 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 * 在切換表單、頁面或索引標籤上的 `TrackPageView(pageName)`
 * 其他使用者動作的 `TrackEvent(eventName)`
 * 背景工作中的 `TrackMetric(name, value)`，可傳送未附加到特定事件之度量的一般報告。
-* [診斷記錄][][diagnostic] 的 `TrackTrace(logEvent)`
+* [診斷記錄][diagnostic] 的 `TrackTrace(logEvent)`
 * catch 子句中的 `TrackException(exception)`
 * `Flush()` 確定所有遙測在關閉應用程式之前都已傳送。只有當您只使用核心 API (Microsoft.ApplicationInsights) 時才可以使用此選項。Web SDK 會自動實作這個行為。(如果您的應用程式會在不一定有網際網路的內容中執行，請參閱[持續性通道](#persistence-channel)。)
 
@@ -169,7 +169,7 @@ Application Insights 可讓您監視所部署應用程式的使用量和效能�
 
 如果您預期有更多資料，請在幾秒之後按一下 [重新整理]。
 
-如果您使用 TrackMetric 或 TrackEvent 的測量參數，請開啟 [計量瀏覽器][][metrics]，並開啟 [篩選器] 刀鋒視窗。您應該會看到您的度量，但是它們有時可能需要一些時間才能通過管線，所以您可能必須關閉篩選器刀鋒視窗、稍待片刻，然後重新整理。
+如果您使用 TrackMetric 或 TrackEvent 的測量參數，請開啟 [計量瀏覽器][metrics]，並開啟 [篩選器] 刀鋒視窗。您應該會看到您的度量，但是它們有時可能需要一些時間才能通過管線，所以您可能必須關閉篩選器刀鋒視窗、稍待片刻，然後重新整理。
 
 
 

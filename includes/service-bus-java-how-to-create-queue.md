@@ -22,9 +22,11 @@
 
 2.  在入口網站的左方瀏覽窗格中，按一下 [服務匯流排]。
 
-3.  在入口網站的下方窗格中，按一下 [建立]。![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
+3.  在入口網站的下方窗格中，按一下 [建立]。
+	![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
 
-4.  在 [Add a new namespace] 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用。![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
+4.  在 [Add a new namespace] 對話方塊中，輸入命名空間名稱。系統會立即檢查此名稱是否可用。
+	![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
 
 5.  確定命名空間名稱可用之後，請選擇要代管命名空間的國家或區域 (必須使用您要部署計算資源的相同國家/區域)。
 
@@ -40,11 +42,13 @@
 
 若要在新的命名空間上執行管理作業，例如建立佇列，您必須取得命名空間的管理認證。您可以從入口網站取得這些認證。
 
-1.  在左方瀏覽窗格中，按一下 [服務匯流排] 節點，以顯示可用的命名空間清單：![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
+1.  在左方瀏覽窗格中，按一下 [服務匯流排] 節點，以顯示可用的命名空間清單：
+	![](./media/service-bus-java-how-to-create-queue/sb-queues-13.png)
 
 2.  從顯示的清單中，選取您剛建立的命名空間。
 
-3.  按一下 [**設定**]，檢視您的命名空間的共用存取原則。![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
+3.  按一下 [**設定**]，檢視您的命名空間的共用存取原則。
+	![](./media/service-bus-java-how-to-create-queue/sb-queues-14.png)
 
 4.  記下主要金鑰，或將它複製到剪貼簿。
 

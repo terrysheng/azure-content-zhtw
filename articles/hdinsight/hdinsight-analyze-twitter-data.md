@@ -224,10 +224,10 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。OAuth 是一項驗證
 變數|說明
 ---|---
 $clusterName|這是您要執行應用程式的 HDInsight 叢集名稱。
-$oauth\_consumer\_key|這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式**消費者金鑰**。
-$oauth\_consumer\_secret|這是您先前記下的 Twitter 應用程式**消費者密碼**。
-$oauth\_token|這是您先前記下的 Twitter 應用程式**存取權杖**。
-$oauth\_token\_secret|這是您先前記下的 Twitter 應用程式**存取權杖密碼**。
+$oauth_consumer_key|這是您先前在建立 Twitter 應用程式時所記下的 Twitter 應用程式**消費者金鑰**。
+$oauth_consumer_secret|這是您先前記下的 Twitter 應用程式**消費者密碼**。
+$oauth_token|這是您先前記下的 Twitter 應用程式**存取權杖**。
+$oauth_token_secret|這是您先前記下的 Twitter 應用程式**存取權杖密碼**。
 $destBlobName|這是輸出 Blob 名稱。預設值為 **tutorials/twitter/data/tweets.txt**。如果您變更預設值，則 Windows PowerShell 指令碼也必須隨之變更。
 $trackString|Web 服務會傳回這些關鍵字的相關推文。預設值為 **Azure, Cloud, HDInsight**。如果您變更預設值，則 Windows PowerShell 指令碼也要隨之變更。
 $lineMax|此值會決定指令碼所將讀取的推文數。讀取 100 則推文大約需要三分鐘。您可以設定更大的數目，但下載時間將會較久。

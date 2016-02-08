@@ -167,21 +167,21 @@
     [PSObject[]] $AdditionDataLocationList = $null
     )
 
-- *ServiceName*：您的雲端服務名稱。
+- *ServiceName*: 您的雲端服務名稱。
 
-- *Roles*：一份角色清單，例如 “WebRole1” 或 ”WorkerRole1”。
+- *Roles*: 一份角色清單，例如 “WebRole1” 或 ”WorkerRole1”。
 
-- *Instances*：一份以逗號分隔的角色執行個體名稱 -- 所有角色執行個體皆使用萬用字元字串 ("*")。
+- *Instances*: 一份以逗號分隔的角色執行個體名稱 -- 所有角色執行個體皆使用萬用字元字串 ("*")。
 
-- *Slot*：位置名稱。「生產」或「預備」。
+- *Slot*: 位置名稱。「生產」或「預備」。
 
-- *Mode*：收集模式。「完整」或「GA」。
+- *Mode*: 收集模式。「完整」或「GA」。
 
-- *StorageAccountName*：用來儲存收集之資料的 Azure 儲存體帳戶名稱。
+- *StorageAccountName*: 用來儲存收集之資料的 Azure 儲存體帳戶名稱。
 
-- *StorageAccountKey*：Azure 儲存體帳戶金鑰的名稱。
+- *StorageAccountKey*: Azure 儲存體帳戶金鑰的名稱。
 
-- *AdditionalDataLocationList*：下列結構的清單：
+- *AdditionalDataLocationList*: 下列結構的清單：
 
       {字串名稱、字串位置、字串 SearchPattern、布林遞迴}
              

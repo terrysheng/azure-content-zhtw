@@ -22,11 +22,13 @@
 
 Service Fabric 執行階段會使用 ETW 來取得診斷資訊 (追蹤)。它也是 Service Fabric 應用程式取得其診斷資訊的建議方法。這可讓執行階段提供和應用程式提供的追蹤之間相互關聯，使疑難排解更輕鬆。Visual Studio 中的 Service Fabric 專案範本包含記錄 API (根據.NET **EventSource** 類別)，依預設會發出 ETW 追蹤。如需使用 ETW 的 Service Fabric 應用程式追蹤的一般概觀，請參閱[監視和診斷本機開發設定中的服務](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)。
 
-需要在 Service Fabric 叢集節點上即時 (當應用程式正在執行時) 擷取追蹤並傳送至 Elasticsearch 端點，Elasticsearch 中才會顯示追蹤。追蹤擷取有兩個主要選項：
+需要在 Service Fabric 叢集節點上即時 (當應用程式正在執行時) 擷取追蹤並傳送至 ElasticSearch 端點，ElasticSearch 中才會顯示追蹤。追蹤擷取有兩個主要選項：
 
-+ **同處理序追蹤擷取** 應用程式 (更準確來說是服務處理序) 負責將診斷資料送出到追蹤存放區 (Elasticsearch)。
++ **同處理序追蹤擷取**  
+應用程式 (更準確來說是服務處理序) 負責將診斷資料送出到追蹤存放區 (ElasticSearch)。
 
-+ **跨處理序追蹤擷取** 另外的代理程式擷取來自一或多個服務處理序的追蹤，並傳送至追蹤存放區。
++ **跨處理序追蹤擷取**  
+另外的代理程式擷取來自一或多個服務處理序的追蹤，並傳送至追蹤存放區。
 
 以下說明如何在 Azure 上設定 Elasticsearch、討論這兩種擷取選項的優缺點，並說明如何設定 Service Fabric 服務將資料傳送至 Elasticsearch。
 

@@ -163,8 +163,8 @@ Azure AD Connect 只會刪除其曾經認為是在範圍內的物件。如果 Az
 1. 使用隸屬於 **ADSyncAdmins** 安全性群組成員的帳戶，登入執行 Azure AD Connect 同步處理的伺服器。
 2. 從 [開始] 功能表啟動 [同步處理規則編輯器]。
 3. 確定已選取 [輸入]，然後按一下 [新增規則]。
-4. 賦予規則描述性名稱，例如 "*In from AD – User DoNotSyncFilter*"。選取正確的樹系，並依序選取 [User] (使用者) 做為 [CS 物件類型] 和 [Person] (人員) 做為 [MV 物件類型]。選取 [Join] (聯結) 做為 [連結類型]，然後在優先順序中，輸入另一個同步處理規則目前未使用的值 (例如：500)，然後按 [下一步]。![輸入 1 描述](./media/active-directory-aadconnectsync-configure-filtering/inbound1.png)  
-5. 在 [範圍設定篩選] 中，依序按一下 [新增群組] 和 [新增子句]，然後在屬性中選取 [ExtensionAttribute15]。確定已將 [運算子] 設為 [EQUAL] (等於)，並在 [值] 方塊中輸入值 **NoSync**。按 [下一步]。![輸入 2 範圍](./media/active-directory-aadconnectsync-configure-filtering/inbound2.png)  
+4. 賦予規則描述性名稱，例如 "*In from AD – User DoNotSyncFilter*"。選取正確的樹系，並依序選取 [User] \(使用者) 做為 [CS 物件類型] 和 [Person] \(人員) 做為 [MV 物件類型]。選取 [Join] \(聯結) 做為 [連結類型]，然後在優先順序中，輸入另一個同步處理規則目前未使用的值 (例如：500)，然後按 [下一步]。![輸入 1 描述](./media/active-directory-aadconnectsync-configure-filtering/inbound1.png)  
+5. 在 [範圍設定篩選] 中，依序按一下 [新增群組] 和 [新增子句]，然後在屬性中選取 [ExtensionAttribute15]。確定已將 [運算子] 設為 [EQUAL] \(等於)，並在 [值] 方塊中輸入值 **NoSync**。按 [下一步]。![輸入 2 範圍](./media/active-directory-aadconnectsync-configure-filtering/inbound2.png)  
 6. 讓 [聯結] 規則保留空白，然後按 [下一步]。
 7. 按一下 [新增轉換]、在 [FlowType] 中選取 [Constant] (常數)、在 [目標屬性] 中選取 [cloudFiltered]，然後在 [來源] 文字方塊中輸入 **True**。按一下 [新增] 以儲存規則。![輸入 3 轉換](./media/active-directory-aadconnectsync-configure-filtering/inbound3.png)
 8. 若要完成設定，請[套用並驗證變更](#apply-and-verify-changes)。
@@ -179,7 +179,7 @@ Azure AD Connect 只會刪除其曾經認為是在範圍內的物件。如果 Az
 1. 使用隸屬於 **ADSyncAdmins** 安全性群組成員的帳戶，登入執行 Azure AD Connect 同步處理的伺服器。
 2. 從 [開始] 功能表啟動 [同步處理規則編輯器]。
 3. 確定已選取 [輸入]，然後按一下 [新增規則]。
-4. 賦予規則描述性名稱，例如 "*In from AD – User Sales sync*"。選取正確的樹系，並依序選取 [User] (使用者) 做為 [CS 物件類型] 和 [Person] (人員) 做為 [MV 物件類型]。選取 [Join] (聯結) 做為 [連結類型]，然後在優先順序中，輸入另一個同步處理規則目前未使用的值 (例如：501)，然後按 [下一步]。![輸入 4 描述](./media/active-directory-aadconnectsync-configure-filtering/inbound4.png)  
+4. 賦予規則描述性名稱，例如 "*In from AD – User Sales sync*"。選取正確的樹系，並依序選取 [User] \(使用者) 做為 [CS 物件類型] 和 [Person] \(人員) 做為 [MV 物件類型]。選取 [Join] \(聯結) 做為 [連結類型]，然後在優先順序中，輸入另一個同步處理規則目前未使用的值 (例如：501)，然後按 [下一步]。![輸入 4 描述](./media/active-directory-aadconnectsync-configure-filtering/inbound4.png)  
 5. 在 [範圍設定篩選] 中，依序按一下 [新增群組] 和 [新增子句]，然後在屬性中選取 [department] (部門)。確定已將 [運算子] 設為 [EQUAL] (等於)，並在 [值] 方塊中輸入值 **Sales**。按一下 [下一步]。![輸入 5 範圍](./media/active-directory-aadconnectsync-configure-filtering/inbound5.png)  
 6. 讓 [聯結] 規則保留空白，然後按 [下一步]。
 7. 按一下 [新增轉換]、在 [FlowType] 中選取 [Constant] (常數)、在 [目標屬性] 中選取 [cloudFiltered]，然後在 [來源] 文字方塊中輸入 **False**。按一下 [新增] 以儲存規則。![輸入 6 轉換](./media/active-directory-aadconnectsync-configure-filtering/inbound6.png) 這是特殊案例，在此我們將 cloudFiltered 明確設定為 False。

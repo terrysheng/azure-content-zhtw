@@ -75,7 +75,11 @@
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	在 [建立混合式連線分頁] 上：- 在 [名稱] 中，提供連線的名稱。- 在 [主機名稱] 中，輸入主控資源的內部部署電腦名稱。- 在 [連接埠] 中，輸入內部部署資源使用的連接埠號碼 (若是 SQL Server 預設執行個體，請輸入 1433)。- 按一下 [Biz Talk 服務]
+	在 [建立混合式連線分頁] 上：
+	- 在 [名稱] 中，提供連線的名稱。
+	- 在 [主機名稱] 中，輸入主控資源的內部部署電腦名稱。
+	- 在 [連接埠] 中，輸入內部部署資源使用的連接埠號碼 (若是 SQL Server 預設執行個體，請輸入 1433)。
+	- 按一下 [Biz Talk 服務]
 
 
 4. [建立 BizTalk 服務] 分頁隨即開啟。輸入 BizTalk 服務的名稱，然後按一下 [確定]。
@@ -91,16 +95,16 @@
 6. 當程序完成時，入口網站中的通知區域會通知您已成功建立連線。
 	<!-- TODO
 
-Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
-(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-Create hybrid conn step, you get the following error
-Failed to create hybrid connection RelecIoudHC. The 
-resource type could not be found in the namespace 
-'Microsoft.BizTaIkServices for api version 2014-06-01'.
+    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+	Create hybrid conn step, you get the following error
+	Failed to create hybrid connection RelecIoudHC. The 
+	resource type could not be found in the namespace 
+	'Microsoft.BizTaIkServices for api version 2014-06-01'.
 
-The error indicates it couldn't find the type, not the instance.
-![Success notification][CreateHCSuccessNotification]
--->
+	The error indicates it couldn't find the type, not the instance.
+	![Success notification][CreateHCSuccessNotification]
+	-->
 7. 在 Web 應用程式的刀鋒視窗上，[混合式連線] 圖示現在會顯示已建立 1 個混合式連線。
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]

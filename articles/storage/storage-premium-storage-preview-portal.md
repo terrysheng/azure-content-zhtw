@@ -63,7 +63,7 @@ Azure 使用儲存體帳戶做為作業系統 (OS) 和資料磁碟的容器。�
 
 如需有關將現有虛擬機器移轉到「進階儲存體」的資訊，請參閱＜[移轉到 Azure 進階儲存體](storage-migration-to-premium-storage.md)＞。
 
-為充分利用 Premium 儲存體的優點，請先使用 *Premium\_LRS* 帳戶類型建立一個 Premium 儲存體帳戶。作法是，使用 [Azure 入口網站](https://portal.azure.com)、[Azure PowerShell](../install-configure-powershell.md) 或[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)。如需逐步指示，請參閱[建立和使用 Premium 儲存體帳戶的磁碟](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
+為充分利用 Premium 儲存體的優點，請先使用 *Premium_LRS* 帳戶類型建立一個 Premium 儲存體帳戶。作法是，使用 [Azure 入口網站](https://portal.azure.com)、[Azure PowerShell](../install-configure-powershell.md) 或[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)。如需逐步指示，請參閱[建立和使用 Premium 儲存體帳戶的磁碟](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
 
 ### 重要事項：
 

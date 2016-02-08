@@ -372,14 +372,21 @@
   </repositories>
  ```
 
-Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
+在 `<repositories>` 下，輸入生產網站 URL URL 和使用者資訊。 如果您使用預設的 Umbraco Membership 提供者，請在 <user> 區段中新增管理使用者的識別碼。 如果您使用自訂 Umbraco Membership 提供者，使用 `<login>`,`<password>` Courier2 模組相關知識連接到生產網站。 如需更多詳細資訊，請檢閱 [文件](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation)了解 Courier 模組。
 
-Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
+同樣地，在您的生產網站中安裝 Courier 模組，並將其設定為指向這裡顯示的相關 courier.config 檔案中的階段 Web 應用程式
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
+  <repositories> 
+  	<!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> 
+	<repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> 
+		<url>http://umbracositecms-1-stage.azurewebsites.net</url> 
+		<user>0</user> 
+		</repository> 
+   </repositories> 
+```
 
 在 Umbraco CMS Web 應用程式儀表板中的 Courier2 索引標籤上按一下，並選取位置。您應該會看到 `courier.config` 中所提及的儲存機制名稱。請在生產和預備 Web 應用程式上執行這項操作。
 

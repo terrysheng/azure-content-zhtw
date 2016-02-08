@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # 如何使用服務匯流排主題和訂用帳戶
@@ -63,7 +63,7 @@ bus_service.create_topic('mytopic', topic_options)
 
 **ServiceBusService** 物件也能用來建立主題的訂用帳戶。訂用帳戶是具名的，它們能擁有選用的篩選器，以限制傳遞至訂用帳戶之虛擬佇列的訊息集合。
 
-> [AZURE.NOTE]訂用帳戶是持續性的，它們會持續存在，直到本身或它們訂閱的主題遭到刪除為止。
+> [AZURE.NOTE] 訂用帳戶是持續性的，它們會持續存在，直到本身或它們訂閱的主題遭到刪除為止。
 
 ### 使用預設 (MatchAll) 篩選器建立訂用帳戶
 
@@ -81,7 +81,7 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 您可以使用 **ServiceBusService** 物件的 **create\_rule** 方法將篩選器新增至訂用帳戶。此方法可讓您將篩選器新增至現有的訂閱中。
 
-> [AZURE.NOTE]由於預設篩選器會自動套用至所有新的訂用帳戶，因此您必須先移除預設篩選器，否則 **MatchAll** 將會覆寫您指定的任何其他篩選器。您可以使用 **ServiceBusService** 物件的 **delete\_rule** 方法移除預設規則。
+> [AZURE.NOTE] 由於預設篩選器會自動套用至所有新的訂用帳戶，因此您必須先移除預設篩選器，否則 **MatchAll** 將會覆寫您指定的任何其他篩選器。您可以使用 **ServiceBusService** 物件的 **delete\_rule** 方法移除預設規則。
 
 以下範例將建立名為 `HighMessages` 的訂用帳戶，而且所含的 **SqlFilter** 只會選取自訂 **messagenumber** 屬性大於 3 的訊息：
 
@@ -182,4 +182,4 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Azure 佇列與服務匯流排佇列]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

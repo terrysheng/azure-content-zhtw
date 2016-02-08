@@ -36,7 +36,7 @@ DocumentDB 的常見使用案例是針對 Web 和行動應用程式儲存和查�
 
 與各種社交網路整合的應用程式必須回應這些網路不斷變更的結構描述。由於 DocumentDB 依預設會自動編製資料的索引，您可以隨時查詢資料。因此，這些應用程式可以有彈性地根據其各自的需求擷取投影。
 
-許多社交應用程式是以全球的規模運作，而且可能出現無法預期的使用模式。調整資料存放區的彈性十分重要，因為應用程式層會進行調整以符合使用需求。您可以透過在 DocumentDB 帳戶下新增其他資料分割區來進一步向外延伸。此外，您也可以跨多個區域建立其他 DocumentDB 帳戶。如需 DocumentDB 服務區域可用性，請參閱 [Azure 區域](http://azure.microsoft.com/regions/#services)。
+許多社交應用程式是以全球的規模運作，而且可能出現無法預期的使用模式。調整資料存放區的彈性十分重要，因為應用程式層會進行調整以符合使用需求。您可以透過在 DocumentDB 帳戶下新增其他資料分割區來進一步向外延伸。此外，您也可以跨多個區域建立其他 DocumentDB 帳戶。如需 DocumentDB 服務區域可用性，請參閱 [Azure 區域](https://azure.microsoft.com/regions/#services)。
 
 ## 目錄資料
 目錄資料使用方式案例涉及儲存和查詢一組實體屬性，例如人員、地點和產品。目錄資料的一些範例包括使用者帳戶、產品目錄、IoT 的裝置註冊，和材料表系統。這項資料的屬性可能會有所不同，而且可以隨時間變更，以符合應用程式需求。
@@ -68,7 +68,7 @@ Azure 事件中樞可以擷取暴增的資料量，因為它提供高輸送量�
 
 ## 後續步驟
  
-若要開始使用 DocumentDB，您可以建立[帳戶](http://azure.microsoft.com/pricing/free-trial/)，然後依照我們的[學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)執行，以了解 DocumentDB 並找到所需的資訊。
+若要開始使用 DocumentDB，您可以建立[帳戶](https://azure.microsoft.com/pricing/free-trial/)，然後依照我們的[學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)執行，以了解 DocumentDB 並找到所需的資訊。
 
 或者，如果您想要閱讀更多有關使用 DocumentDB 的客戶，您也可以使用下列客戶案例：
 
@@ -79,4 +79,4 @@ Azure 事件中樞可以擷取暴增的資料量，因為它提供高輸送量�
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667)。未來存放區的運作基礎會是快速搜尋和簡單資料流程。
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

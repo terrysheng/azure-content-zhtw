@@ -11,9 +11,9 @@
 
 ## 搭配使用 Azure CLI 與 Azure 資源管理員 (ARM)
 
-您必須具有 Azure 的帳戶，才能搭配使用 Azure CLI 與資源管理員命令和範本，使用資源群組來部署 Azure 資源和工作負載 (理所當然)。如果您沒有帳戶，可以取得[此處免費試用的 Azure 帳戶](http://azure.microsoft.com/pricing/free-trial/)。
+您必須具有 Azure 的帳戶，才能搭配使用 Azure CLI 與資源管理員命令和範本，使用資源群組來部署 Azure 資源和工作負載 (理所當然)。如果您沒有帳戶，可以取得[此處免費試用的 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
-> [AZURE.NOTE]如果您還沒有 Azure 帳戶，但是擁有 MSDN 訂用帳戶的訂用帳戶，您可以藉由啟用[此處的 MSDN 訂閱者權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)來取得免費的 Azure 點數，或者您可以使用免費帳戶。這其中一種方式將可用來存取 Azure。
+> [AZURE.NOTE] 如果您還沒有 Azure 帳戶，但是擁有 MSDN 訂用帳戶的訂用帳戶，您可以藉由啟用[此處的 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)來取得免費的 Azure 點數，或者您可以使用免費帳戶。這其中一種方式將可用來存取 Azure。
 
 ### 步驟 1：確認 Azure CLI 版本
 
@@ -62,6 +62,6 @@
     $ azure config mode arm
     info:    New mode is arm
 
-> [AZURE.NOTE]您可以輸入 `azure config mode asm`，切換回使用 Azure 服務管理命令。
+> [AZURE.NOTE] 您可以輸入 `azure config mode asm`，切換回使用 Azure 服務管理命令。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

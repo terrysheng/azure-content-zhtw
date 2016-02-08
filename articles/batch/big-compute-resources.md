@@ -25,14 +25,14 @@
 
 * [批次和 HPC 解決方案](batch-hpc-solutions.md)
 
-* [影片：Azure 和 HPC 在雲端的大量運算](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
+* [影片：Azure 和 HPC 在雲端的大量運算](https://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
 
 
 ## Azure 批次
 
-[批次](http://azure.microsoft.com/services/batch/)是一種平台服務，可以輕鬆地啟用您應用程式的雲端功能，並無需設定和管理叢集及工作排程器即可執行工作。使用 SDK 透過各種不同語言、接移資料至 Azure和建立工作執行管線，將用戶端應用程式與 Azure 批次整合。
+[批次](https://azure.microsoft.com/services/batch/)是一種平台服務，可以輕鬆地啟用您應用程式的雲端功能，並無需設定和管理叢集及工作排程器即可執行工作。使用 SDK 透過各種不同語言、接移資料至 Azure和建立工作執行管線，將用戶端應用程式與 Azure 批次整合。
 
-* [說明文件](http://azure.microsoft.com/documentation/services/batch/)
+* [說明文件](https://azure.microsoft.com/documentation/services/batch/)
 
 * [API 參考資料](https://msdn.microsoft.com/library/azure/dn820177.aspx)
 
@@ -68,9 +68,9 @@ HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 
 
 透過開放原始碼工具使用 Azure 快速入門範本部署 Linux HPC 叢集。
 
-* [加速 SLURM 叢集](http://azure.microsoft.com/documentation/templates/slurm/)和[部落格文章](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
+* [加速 SLURM 叢集](https://azure.microsoft.com/documentation/templates/slurm/)和[部落格文章](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
-* [加速扭力叢集](http://azure.microsoft.com/documentation/templates/torque-cluster/)
+* [加速扭力叢集](https://azure.microsoft.com/documentation/templates/torque-cluster/)
 
 ## Microsoft MPI
 
@@ -102,23 +102,23 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)�
 
 ## 相關的 Azure 服務
 
-* [Data Factory](http://azure.microsoft.com/documentation/services/data-factory/)
+* [Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
-* [機器學習服務](http://azure.microsoft.com/documentation/services/machine-learning/)
+* [機器學習服務](https://azure.microsoft.com/documentation/services/machine-learning/)
 
-* [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+* [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 
-* [虛擬機器](http://azure.microsoft.com/documentation/services/virtual-machines/)
+* [虛擬機器](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-* [雲端服務](http://azure.microsoft.com/documentation/services/cloud-services/)
+* [雲端服務](https://azure.microsoft.com/documentation/services/cloud-services/)
 
-* [媒體服務](http://azure.microsoft.com/documentation/services/media-services/)
+* [媒體服務](https://azure.microsoft.com/documentation/services/media-services/)
 
 
 
 ## 後續步驟
 
-* 最新宣告請參閱 [Microsoft HPC 和批次的小組部落格](http://blogs.technet.com/b/windowshpc/)以及[Azure 部落格](http://azure.microsoft.com/blog/tag/hpc/)。
-* 另請參閱[批次的新功能](http://azure.microsoft.com/updates/?service=batch)或訂閱 [RSS 摘要](http://azure.microsoft.com/updates/feed/?service=batch)。
+* 最新宣告請參閱 [Microsoft HPC 和批次的小組部落格](http://blogs.technet.com/b/windowshpc/)以及[Azure 部落格](https://azure.microsoft.com/blog/tag/hpc/)。
+* 另請參閱[批次的新功能](https://azure.microsoft.com/updates/?service=batch)或訂閱 [RSS 摘要](https://azure.microsoft.com/updates/feed/?service=batch)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

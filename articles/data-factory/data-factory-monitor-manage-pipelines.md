@@ -25,7 +25,7 @@ Data Factory 服務提供一個可靠且完整的儲存、處理和資料移動�
 您可使用 Azure 入口網站，以圖表檢視您的 Data Factory、檢視管線中的活動、檢視輸入與輸出資料集等。本節也提供配量從某個狀態轉換至另一個狀態的方法。
 
 ### 瀏覽至您的 Data Factory
-1.	登入 [[Azure 入口網站](http://portal.azure.com)]。
+1.	登入 [[Azure 入口網站](https://portal.azure.com)]。
 2.	按一下 [全部瀏覽]，選取 [資料處理站]。
 	
 	![全部瀏覽 -> 資料處理站](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -96,6 +96,7 @@ Data Factory 中的資料集配量可以有下列狀態之一：
 <td>ValidationRetry</td><td>正在等待重試驗證。</td>
 </tr>
 <tr>
+&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>驗證進行中。</td>
 </tr>
 <td></td>
@@ -319,7 +320,7 @@ Azure 事件可讓您深入了解 Azure 資源的情況。當建立、更新或�
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                            "subStatus": "FailedExecution"   
+	                        "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -392,7 +393,7 @@ OnDemandClusterDeleted | Succeeded
 
 - 您可以看到按一下 [**作業**] 磚後所產生的所有事件，而且也可以在 [**事件**] 刀鋒視窗中針對這些作業設定顯示警示：
 
-![作業](./media/data-factory-monitor-manage-pipelines/operations.png)
+	![作業](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
 - 如需可用於新增/取得/移除警示的 PowerShell Cmdlet 資訊，請參閱 [Azure Insight Cmdlet](https://msdn.microsoft.com/library/mt282452.aspx) 一文。以下是一些關於使用 **Get AlertRule** Cmdlet 的範例：
@@ -539,9 +540,7 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
  
 以適當的值取代上述範例中的 subscriptionId、resourceGroupName、和 dataFactoryName。
 
-*metricName* 目前支援 2 個值：
-- FailedRuns
-- SuccessfulRuns
+*metricName* 目前支援 2 個值：- FailedRuns - SuccessfulRuns
 
 **部署警示：**
 
@@ -568,4 +567,4 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 
 您也可以使用 **Add-AlertRule** Cmdlet 來部署警示規則。請參閱 [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) 主題，以取得詳細資料和範例。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

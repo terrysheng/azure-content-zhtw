@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="01/19/2016"
    ms.author="bwren" />
 
 # Azure 自動化中的圖形化編寫
@@ -40,6 +40,10 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。圖
 
 ### 畫布
 畫布是您設計 Runbook 的位置。您會從程式庫控制項中的節點將活動加入至 Runbook，並以連結將它們連接來定義 Runbook 的邏輯。
+
+您可以使用畫布底部的控制項來放大或縮小。
+
+![圖形化工作區](media/automation-graphical-authoring-intro/canvas-zoom.png)
 
 ### 程式庫控制項
 
@@ -141,6 +145,38 @@ Azure 自動化中的每個 Runbook 有草稿和已發行的版本。只可執�
 
 所有的 Cmdlet 可選擇提供額外的參數。這些是 PowerShell 一般參數或其他自訂參數。您會看到一個文字方塊，您可以在其中使用 PowerShell 語法提供參數。例如，若要使用 **Verbose** 一般參數時，您會指定 **"-Verbose:$True"**。
 
+### 重試活動
+
+**重試行為**可讓活動執行多次，直到符合特定條件為止。您可以對應該執行多次的活動，或是容易出錯和可能需要嘗試一次以上才會成功的活動，使用這項功能。
+
+當您對活動啟用重試時，您可以設定延遲和條件。延遲是時間 (以秒或分鐘計算)，Runbook 再次執行活動之前會等待的時間量。如果未指定延遲，則活動會在完成之後立即再次執行。
+
+![活動重試延遲](media/automation-graphical-authoring-intro/retry-delay.png)
+
+重試條件是 PowerShell 運算式，在每次活動執行之後評估。如果運算式解析為 True，則活動會再次執行。如果運算式解析為 False，則活動不會再次執行，且 Runbook 會移至下一個活動。
+
+![活動重試延遲](media/automation-graphical-authoring-intro/retry-condition.png)
+
+重試條件可以使用名為 $RetryData 的變數，提供活動重試相關資訊的存取權。此變數具有下表中的屬性。
+
+| 屬性 | 說明 |
+|:--|:--|
+| NumberOfAttempts | 活動已執行的次數。 |
+| 輸出 | 活動上次執行的輸出。 |
+| TotalDuration | 活動第一次開始之後的經過時間。 |
+| StartedAt | 活動第一次開始的時間 (UTC 格式)。 |
+
+以下是活動重試條件的範例。
+
+	# Run the activity exactly 10 times.
+	$RetryData.NumberOfAttempts -ge 10 
+
+	# Run the activity repeatedly until it produces any output.
+	$RetryData.Output.Count -ge 1 
+
+	# Run the activity repeatedly until 2 minutes has elapsed. 
+	$RetryData.TotalDuration.TotalMinutes -ge 2
+
 ### 工作流程指令碼控制項
 
 工作流程指令碼控制項是一種特殊的活動，會接受 PowerShell 工作流程程式碼，以便提供可能無法使用的功能。這不是完整的工作流程，但必須包含有效的 PowerShell 工作流程程式碼行。它不能接受參數，但它可以對活動輸出和 Runbook 輸入參數使用變數。活動的任何輸出會加入至資料匯流排中，除非它在加入至 Runbook 的輸出中沒有連出的連結。
@@ -239,7 +275,11 @@ Azure 自動化中的每個 Runbook 有草稿和已發行的版本。只可執�
 
 ### 檢查點
 
-在您的 Runbook 中設定[檢查點](automation-powershell-workflow/#checkpoints)的相同指示適用於圖形化 Runbook。您可以在您要設定檢查點的位置加入 Checkpoint-Workflow Cmdlet 的活動。然後，如果 Runbook 在不同的背景工作從這個檢查點開始，您應該使用 Add-AzureAccount 遵循此活動。
+您可以在圖形化 Runbook 中設定[檢查點](automation-powershell-workflow/#checkpoints)，方法是在任何活動上選取*檢查點 Runbook*。這會導致在執行活動之後設定檢查點。
+
+![檢查點](media/automation-graphical-authoring-intro/set-checkpoint.png)
+
+在您的 Runbook 中設定檢查點的相同指示適用於圖形化 Runbook。如果 Runbook 使用 Azure Cmdlet，當 Runbook 暫停並且在不同的背景工作從這個檢查點開始時，您應該使用 Add-AzureRMAccount 遵循任何檢查點活動。
 
 
 ## 向 Azure 資源驗證
@@ -379,4 +419,4 @@ Runbook 可能需要使用者透過 Azure 預覽入口網站啟動 Runbook 時�
 - [運算子](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

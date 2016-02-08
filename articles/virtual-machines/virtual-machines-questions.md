@@ -32,7 +32,7 @@
 
 • 針對 Linux VM -- [Azure 背書之散發套件上的 Linux](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
-針對 Windows 用戶端映像，特定版本的 Windows 7 和 Windows 8.1 可供 MSDN Azure 權益訂閱者和 MSDN 開發與測試隨用隨付訂閱者 (針對開發與測試工作) 使用。如需詳細資訊 (包括指示和限制)，請參閱 [MSDN 訂閱者的 Windows 用戶端映像](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/)。
+針對 Windows 用戶端映像，特定版本的 Windows 7 和 Windows 8.1 可供 MSDN Azure 權益訂閱者和 MSDN 開發與測試隨用隨付訂閱者 (針對開發與測試工作) 使用。如需詳細資訊 (包括指示和限制)，請參閱 [MSDN 訂閱者的 Windows 用戶端映像](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/)。
 
 ## 我可以使用多少的儲存體搭配虛擬機器？
 
@@ -67,7 +67,7 @@ Azure 僅支援固定的 VHD 格式虛擬硬碟。如果您想要在 Azure 中�
 您需要建立遠端連線以登入虛擬機器，針對 Windows VM，請使用遠端桌面連線，針對 Linux VM，請使用安全殼層 (SSH)。如需相關指示，請參閱：
 
 - [如何登入執行 Windows Server 的虛擬機器](virtual-machines-log-on-windows-server.md)：最多支援 2 個並行連線，除非伺服器設定為遠端桌面服務工作階段主機。  
-- [如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)：根據預設，SSH 允許最多 10 個並行連線。您可以編輯組態檔以增加這個數字。
+- [如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)。根據預設，SSH 允許最多 10 個並行連線。您可以編輯組態檔以增加這個數字。
 
 如果您遇到遠端桌面或 SSH 的相關問題，請安裝並使用 [VMAccess](virtual-machines-extensions-features.md) 擴充功能來協助修正問題。
 
@@ -118,7 +118,7 @@ Azure 提供數個防毒軟體解決方案的選項，但管理則掌握在您�
 
 - [如何在 Azure VM 上安裝和設定 Symantec Endpoint Protection](http://go.microsoft.com/fwlink/p/?LinkId=404207)
 - [如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service](http://go.microsoft.com/fwlink/p/?LinkId=404206)
-- [在 Azure 虛擬機器上部署反惡意程式碼解決方案](http://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
+- [在 Azure 虛擬機器上部署反惡意程式碼解決方案](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## 備份和復原有哪些選擇？
 
@@ -136,7 +136,7 @@ Azure 可依據 VM 的大小和作業系統，以每小時價格方式收費。�
 - 使用 Stop-AzureVM Cmdlet (在 Azure PowerShell 模組中可用)。
 - 在服務管理 REST API 中使用關機角色作業，並為 PostShutdownAction 元素指定 StoppedDeallocated。
 
-如需更多詳細資料，請參閱[虛擬機器定價](http://azure.microsoft.com/pricing/details/virtual-machines/)。
+如需更多詳細資料，請參閱[虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/)。
 
 ## Azure 會因為維護重新啟動我的 VM 嗎？
 
@@ -146,7 +146,7 @@ Azure 有時會重新啟動您的 VM，這是 Azure 資料中心中定期、計�
 
 針對任何獨立的 VM (表示 VM 並非可用性集合的一部份)，Azure 在計劃性維護之前，至少每一個星期會使用電子郵件通知訂用帳戶的服務管理員，因為 VM 可能會在更新期間重新啟動。在 VM上執行的應用程式可能會遭遇停機時間。
 
-當因為計畫性維護而發生重新啟動時，您也可以使用 Azure 傳統入口網站或 Azure PowerShell 來檢視重新啟動記錄。如需詳細資訊，請參閱[檢視 VM 重新啟動記錄檔](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)。
+當因為計畫性維護而發生重新啟動時，您也可以使用 Azure 傳統入口網站或 Azure PowerShell 來檢視重新啟動記錄。如需詳細資訊，請參閱[檢視 VM 重新啟動記錄檔](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)。
 
 若要提供備援，請在相同的可用性集合中放入兩個以上同樣設定的 VM。這有助於確保在計劃性或非計劃性的維護期間，至少有一個 VM 仍可使用。Azure 保證此組態的 VM 可用性特定層級。如需詳細資訊，請參閱[管理虛擬機器的可用性](virtual-machines-manage-availability.md)。
 
@@ -158,4 +158,4 @@ Azure 有時會重新啟動您的 VM，這是 Azure 資料中心中定期、計�
 
 [建立 Windows 虛擬機器的不同方式](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

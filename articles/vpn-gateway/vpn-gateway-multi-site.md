@@ -41,13 +41,13 @@
 
 開始設定之前，請確認您具有下列必要條件：
 
-- Azure 訂用帳戶。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+- Azure 訂用帳戶。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 - 每個內部部署位置都有相容的 VPN 硬體。查看[關於虛擬網路連線的 VPN 裝置](http://go.microsoft.com/fwlink/p/?linkid=615099)，確認您想要使用的裝置是否為已知相容的項目。
 
 - 每個 VPN 裝置都有對外的公用 IPv4 IP 位址。此 IP 位址不能位於 NAT 後方。這是必要條件。
 
-- 最新版的 Azure PowerShell Cmdlet。您可以從[下載](http://azure.microsoft.com/downloads/)頁面的＜Windows PowerShell＞區段下載並安裝最新版本。
+- 最新版的 Azure PowerShell Cmdlet。您可以從[下載](https://azure.microsoft.com/downloads/)頁面的＜Windows PowerShell＞區段下載並安裝最新版本。
 
 - 熟悉如何設定 VPN 硬體的人員。您無法使用從 Azure 傳統入口網站自動產生的 VPN 指令碼來設定 VPN 裝置。這表示您必須非常了解如何設定 VPN 裝置，或是與了解的人員一起進行。
 
@@ -177,4 +177,4 @@
 
 若要深入了解 VPN 閘道，請參閱[關於 VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

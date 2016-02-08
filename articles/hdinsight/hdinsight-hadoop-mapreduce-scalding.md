@@ -24,7 +24,7 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 
 ## 必要條件
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * **HDInsight 叢集上 Windows 或 Linux 架構的 Hadoop**。如需詳細資訊，請參閱[在 HDInsight 上佈建 Linux 架構的 Hadoop](hdinsight-hadoop-provision-linux-clusters.md) 或[在 HDInsight 上佈建 Windows 架構的 Hadoop](hdinsight-provision-clusters.md)。
 
 * **[Maven](http://maven.apache.org/)**
@@ -185,7 +185,7 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 
 ## 在以 Linux 為基礎的叢集上執行工作
 
-> [AZURE.NOTE]下列步驟使用 SSH 和 Hadoop 命令。如需執行 MapReduce 工作的其他方法，請參閱[在 HDInsight 上的 Hadoop 中使用 MapReduce](hdinsight-use-mapreduce.md)。
+> [AZURE.NOTE] 下列步驟使用 SSH 和 Hadoop 命令。如需執行 MapReduce 工作的其他方法，請參閱[在 HDInsight 上的 Hadoop 中使用 MapReduce](hdinsight-use-mapreduce.md)。
 
 1. 使用下列命令將封裝上傳至 HDInsight 叢集。
 
@@ -193,13 +193,13 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 
     這樣就會將檔案從本機系統複製到前端節點。
 
-    > [AZURE.NOTE]如果您使用密碼保護 SSH 帳戶，系統會提示您輸入密碼。如果您使用 SSH 金鑰，您可能必須使用 `-i` 參數和私密金鑰的路徑。例如，`scp -i /path/to/private/key target/scaldingwordcount-1.0-SNAPSHOT.jar username@clustername-ssh.azurehdinsight.net:.`
+    > [AZURE.NOTE] 如果您使用密碼保護 SSH 帳戶，系統會提示您輸入密碼。如果您使用 SSH 金鑰，您可能必須使用 `-i` 參數和私密金鑰的路徑。例如，`scp -i /path/to/private/key target/scaldingwordcount-1.0-SNAPSHOT.jar username@clustername-ssh.azurehdinsight.net:.`
 
 2. 使用下列命令來連接到叢集前端節點：
 
         ssh username@clustername-ssh.azurehdinsight.net
 
-    > [AZURE.NOTE]如果您使用密碼保護 SSH 帳戶，系統會提示您輸入密碼。如果您使用 SSH 金鑰，您可能必須使用 `-i` 參數和私密金鑰的路徑。例如，`ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
+    > [AZURE.NOTE] 如果您使用密碼保護 SSH 帳戶，系統會提示您輸入密碼。如果您使用 SSH 金鑰，您可能必須使用 `-i` 參數和私密金鑰的路徑。例如，`ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
 
 3. 連接到前端節點之後，請使用下列命令來執行字數統計工作
 
@@ -229,7 +229,7 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 
 ## 在以 Windows 為基礎的叢集上執行工作
 
-> [AZURE.NOTE]下列步驟會使用 Windows PowerShell。如需執行 MapReduce 工作的其他方法，請參閱[在 HDInsight 上的 Hadoop 中使用 MapReduce](hdinsight-use-mapreduce.md)。
+> [AZURE.NOTE] 下列步驟會使用 Windows PowerShell。如需執行 MapReduce 工作的其他方法，請參閱[在 HDInsight 上的 Hadoop 中使用 MapReduce](hdinsight-use-mapreduce.md)。
 
 1. [安裝並設定 Azure PowerShell](../powershell-install-configure.md)。
 
@@ -245,7 +245,7 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 
 		Select-AzureRMSubscription -SubscriptionID <YourSubscriptionId>
 
-    > [AZURE.NOTE]您可以使用 `Get-AzureRMSubscription` 來取得與您帳戶關聯的所有訂用帳戶清單，同時也包含每個訂用帳戶的訂閱 Id。
+    > [AZURE.NOTE] 您可以使用 `Get-AzureRMSubscription` 來取得與您帳戶關聯的所有訂用帳戶清單，同時也包含每個訂用帳戶的訂閱 Id。
 
 4. 使用下列指令碼來上傳和執行 WordCount 工作。使用您 HDInsight 叢集的名稱取代 `CLUSTERNAME`，並確定 `$fileToUpload` 是指向 __scaldingwordcount-1.0-SNAPSHOT.jar__ 檔案的正確路徑。
 
@@ -344,4 +344,4 @@ Scalding 是可讓您輕鬆建立 Hadoop MapReduce 工作的 Scala 程式庫。�
 
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

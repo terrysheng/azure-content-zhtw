@@ -34,10 +34,10 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 1. 從應用程式層到資料庫的連接發生永久性失敗。
 2. 您的 Azure 傳統入口網站顯示有關區域中影響廣泛之事件的警示。
 
-> [AZURE.NOTE]復原資料庫之後，您可以遵循[在復原後設定資料庫](#postrecovery)指南，設定資料庫以供使用。
+> [AZURE.NOTE] 復原資料庫之後，您可以遵循[在復原後設定資料庫](#postrecovery)指南，設定資料庫以供使用。
 
 ## 容錯移轉至異地複寫的次要資料庫
-> [AZURE.NOTE]您必須進行設定，以取得可用於容錯移轉的次要資料庫。異地複寫僅適用於標準和高階資料庫。了解[如何設定異地複寫](sql-database-business-continuity-design.md)
+> [AZURE.NOTE] 您必須進行設定，以取得可用於容錯移轉的次要資料庫。異地複寫僅適用於標準和高階資料庫。了解[如何設定異地複寫](sql-database-business-continuity-design.md)
 
 ###Azure 傳統入口網站
 使用 Azure 傳統入口網站終止與地理複寫次要資料庫的連續複製關聯性。
@@ -64,7 +64,7 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 
 如果發生資料庫中斷的情況，您可以使用異地還原，從資料庫最新的異地備援備份來復原資料庫。
 
-> [AZURE.NOTE]復原資料庫會建立新的資料庫。請務必確定您要復原到的伺服器有足夠的 DTU 容量供新的資料庫使用。您可以[連絡支援人員](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)，要求增加此配額。
+> [AZURE.NOTE] 復原資料庫會建立新的資料庫。請務必確定您要復原到的伺服器有足夠的 DTU 容量供新的資料庫使用。您可以[連絡支援人員](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)，要求增加此配額。
 
 ###Azure 傳統入口網站
 若要使用 Azure 傳統入口網站中的異地還原還原 SQL Database，請使用下列步驟。
@@ -131,4 +131,4 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 
 如果需要稽核才能存取您的資料庫，則您必須在資料庫復原之後啟用稽核。用戶端應用程式必須在 *.database.secure.windows.net 的模式中使用安全連接字串，才能有良好的稽核指標。如需詳細資訊，請參閱[開始使用 SQL 資料庫稽核](sql-database-auditing-get-started.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

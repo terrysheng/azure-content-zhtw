@@ -26,7 +26,7 @@
 
 本文將介紹各種不同的資料處理概念和工作，讓您可以在將資料擷取到 Azure Machine Learning 前後執行這些工作。
 
-如需在 Azure Machine Learning Studio 內執行資料探索和前置處理的範例，請參閱[在 Azure ML Studio 中前置處理資料](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)影片。
+如需在 Azure Machine Learning Studio 內執行資料探索和前置處理的範例，請參閱[在 Azure ML Studio 中前置處理資料](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)影片。
 
 
 ## 為何要前置處理和清除資料？
@@ -111,4 +111,4 @@
 >*Data Mining: Concepts and Techniques* (資料採礦：觀念與技術)，第三版，Morgan Kaufmann，2011，Jiawei Han、Micheline Kamber 及 Jian Pei
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -41,7 +41,7 @@ Azure IoT 中樞是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 * **ProcessDeviceToCloudMessages**，它會使用 [EventProcessorHost] 類別從事件中樞相容端點擷取訊息，然後將資料點訊息可靠地儲存在 Azure Blob 中，並將互動式訊息轉送至服務匯流排佇列。
 * **ProcessD2cInteractiveMessages**，它可將互動式訊息從服務匯流排佇列中清除。
 
-> [AZURE.NOTE]IoT 中樞對於許多裝置平台和語言 (包括 C、Java 和 JavaScript) 提供 SDK 支援。如需如何以實體裝置取代本教學課程中模擬的裝置，以及通常如何將裝置連接到 Azure IoT 中樞的逐步指示，請參閱 [Azure IoT 開發人員中心]。
+> [AZURE.NOTE] IoT 中樞對於許多裝置平台和語言 (包括 C、Java 和 JavaScript) 提供 SDK 支援。如需如何以實體裝置取代本教學課程中模擬的裝置，以及通常如何將裝置連接到 Azure IoT 中樞的逐步指示，請參閱 [Azure IoT 開發人員中心]。
 
 本教學課程可直接適用於使用事件中樞相容訊息的其他方式，例如 [HDInsight (Hadoop)] 專案。如需詳細資訊，請參閱 [Azure IoT 中樞開發人員指南 - 裝置到雲端]。
 
@@ -49,7 +49,7 @@ Azure IoT 中樞是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
 + Microsoft Visual Studio 2015。
 
-+ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank")。
++ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank")。
 
 您應具備 [Azure 儲存體]和 [Azure 服務匯流排]的基本知識。
 
@@ -69,7 +69,7 @@ Azure IoT 中樞是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
   ![][50]
 
-> [AZURE.NOTE]若要查看您的 Blob 檔案中的更新，您需要將 **StoreEventProcessor** 類別中的 **MAX\_BLOCK\_SIZE** 常數降低為較小的值，例如 **1024**。這是因為達到模擬裝置所傳送之資料的區塊大小限制需要一些時間。區塊大小比較小，您就不需要等待這麼久才來查看所建立和更新的 Blob。不過，使用比較大的區塊大小可讓應用程式更有彈性。
+> [AZURE.NOTE] 若要查看您的 Blob 檔案中的更新，您需要將 **StoreEventProcessor** 類別中的 **MAX\_BLOCK\_SIZE** 常數降低為較小的值，例如 **1024**。這是因為達到模擬裝置所傳送之資料的區塊大小限制需要一些時間。區塊大小比較小，您就不需要等待這麼久才來查看所建立和更新的 Blob。不過，使用比較大的區塊大小可讓應用程式更有彈性。
 
 ## 後續步驟
 
@@ -98,7 +98,6 @@ Azure IoT 中樞是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
-[暫時性錯誤處理]: https://msdn.microsoft.com/zh-TW/library/hh680901(v=pandp.50).aspx
 
 [Azure IoT 中樞開發人員指南 - 裝置到雲端]: https://azure.microsoft.com/zh-TW/documentation/articles/iot-hub-devguide/#d2c
 
@@ -108,7 +107,6 @@ Azure IoT 中樞是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
 
 [使用 IoT 中樞傳送雲端到裝置訊息]: iot-hub-csharp-csharp-c2d.md
-[處理裝置到雲端訊息]: iot-hub-csharp-csharp-process-d2c.md
 [從裝置上傳檔案]: iot-hub-csharp-csharp-file-upload.md
 
 [IoT 中心概觀]: iot-hub-what-is-iot-hub.md
@@ -118,4 +116,4 @@ Azure IoT 中樞是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT 開發人員中心]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

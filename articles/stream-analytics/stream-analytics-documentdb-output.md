@@ -19,7 +19,7 @@
 
 # 從串流分析為適用於 JSON 輸出的 Azure DocumentDB 設定目標
 
-串流分析可以為適用於 JSON 輸出的 [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 設定目標，以啟用針對非結構化 JSON 資料的資料封存及低延遲查詢功能。您將了解此整合作業的最佳實行方式。
+串流分析可以為適用於 JSON 輸出的 [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 設定目標，以啟用針對非結構化 JSON 資料的資料封存及低延遲查詢功能。您將了解此整合作業的最佳實行方式。
 
 如果您不熟悉 DocumentDB，請先參閱 [DocumentDB 的學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)。
 
@@ -62,4 +62,4 @@ DocumentDB 集合可讓您根據查詢模式和應用程式的效能需求來分
 -   **分割索引鍵**：輸出事件中的欄位名稱，用來指定跨集合資料分割輸出的索引鍵。若為單一集合輸出，則可使用任何任意的輸出欄，例如 PartitionId。  
 -   **文件識別碼**：可省略。輸出事件中的欄位名稱會用來指定主索引鍵，此為插入或更新作業的依據。  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

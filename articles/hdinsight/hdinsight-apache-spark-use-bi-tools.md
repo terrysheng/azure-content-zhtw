@@ -25,14 +25,14 @@
 * 取得原始範例資料並儲存成 Hive 資料表
 * 使用 Power BI 和 Tableau 之類的 BI 工具來分析及視覺化資料。
 
-> [AZURE.TIP]本教學課程也適用於您在 HDInsight 中所建立 Spark (Linux) 叢集上的 Jupyter Notebook。Notebook 的體驗能讓您從 Notebook 本身執行 Python 程式碼片段。如要從 Notebook 中執行本教學課程，請建立 Spark 叢集、啟動 Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`)，然後執行 **Python** 資料夾中的 Notebook [搭配 HDInsight.ipynb 上的 Apache Spark 來使用 BI 工具]。
+> [AZURE.TIP] 本教學課程也適用於您在 HDInsight 中所建立 Spark (Linux) 叢集上的 Jupyter Notebook。Notebook 的體驗能讓您從 Notebook 本身執行 Python 程式碼片段。如要從 Notebook 中執行本教學課程，請建立 Spark 叢集、啟動 Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`)，然後執行 **Python** 資料夾中的 Notebook [搭配 HDInsight.ipynb 上的 Apache Spark 來使用 BI 工具]。
 
 **必要條件：**
 
 您必須滿足以下條件：
 
-- Azure 訂用帳戶。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-- 在 HDInsight Linux 上的 Apache Spark 叢集如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](hdinsight-apache-spark-jupyter-spark-sql.md)。
+- Azure 訂用帳戶。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- HDInsight Linux 上的 Apache Spark 叢集。如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](hdinsight-apache-spark-jupyter-spark-sql.md)。
 - 一台已安裝 Microsoft Spark ODBC 驅動程式的電腦 (HDInsight 上的 Spark 需要此電腦才能使用 Tableau)。您可以前往[這裡](http://go.microsoft.com/fwlink/?LinkId=616229)來安裝驅動程式。
 - BI 工具，例如 [Power BI](http://www.powerbi.com/) 或 [Tableau Desktop](http://www.tableau.com/products/desktop)。您可以從 [http://www.powerbi.com/](http://www.powerbi.com/) 取得 Power BI 的免費預覽訂用帳戶。
 
@@ -42,11 +42,11 @@
 
 一旦將資料儲存成 Hive 資料表之後，下一節我們將使用 Power BI 和 Tableau 等 BI 工具連接 Hive 資料表。
 
-1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您 Spark 叢集的磚 (如果您已把它釘選到開始面板)。您也可以瀏覽到自己的叢集，方法是按一下 [瀏覽全部] > [HDInsight 叢集]。   
+1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
-2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
+2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結] ，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
-	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。請用您叢集的名稱取代 __CLUSTERNAME__：
+	> [AZURE.NOTE] 您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。使用您叢集的名稱取代 __CLUSTERNAME__：
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -94,7 +94,7 @@
 		dfw = DataFrameWriter(hvacTable)
 		dfw.saveAsTable('hvac')
 
-5. 確認資料表已成功建立。將下列程式碼片段貼到 Notebook 的空白儲存格中，然後按下 **SHIFT + ENTER**。
+5. 確認資料表已成功建立。將以下程式碼片段貼入 Notebook 中的空白儲存格，然後按下 **SHIFT + ENTER**。
 
 		hiveCtx.sql("SHOW TABLES").show()
 
@@ -204,7 +204,7 @@
 
 * [Spark 和機器學習：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Spark 和機器學習：使用 HDInsight 中的 Spark 來預測食物檢查結果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
 * [Spark 串流：使用 HDInsight 中的 Spark 來建置即時串流應用程式](hdinsight-apache-spark-eventhub-streaming.md)
 
@@ -212,15 +212,15 @@
 
 ### 建立及執行應用程式
 
-* [使用 Scala 來建立獨立的應用程式](hdinsight-apache-spark-create-standalone-application.md)
+* [使用 Scala 建立獨立應用程式](hdinsight-apache-spark-create-standalone-application.md)
 
-* [利用 Livy 在 Spark 叢集上遠端執行工作](hdinsight-apache-spark-livy-rest-interface.md)
+* [利用 Livy 在 Spark 叢集上遠端執行作業](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### 擴充功能
 
 * [利用 HDInsight 上的 Spark 叢集來使用 Zeppelin Notebook](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [HDInsight 的 Spark 叢集中之 Jupyter Notebook 可用的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [HDInsight 的 Spark 叢集中 Jupyter Notebook 可用的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
 ### 管理資源
 
@@ -237,4 +237,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

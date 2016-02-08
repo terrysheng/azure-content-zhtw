@@ -19,7 +19,7 @@ ms.author="bbenz" />
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
 
 ##Windows 虛擬機器映像
-以下是可用的 Oracle 虛擬機器映像清單，可在 Azure 的 Windows Server 上執行。這些映像是「隨用隨付」，表示 Oracle 授權費用已包含在這些映像的使用量中。您也可以使用自己的授權，在 Windows 或 Linux 上執行 Oracle 軟體。在 [Azure 虛擬機器與虛擬機器資源庫映像的價格與授權](http://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software)中有完整的詳細資料。如需特定的 Oracle 價格詳細資料，請按一下 [**Oracle**] 索引標籤。
+以下是可用的 Oracle 虛擬機器映像清單，可在 Azure 的 Windows Server 上執行。這些映像是「隨用隨付」，表示 Oracle 授權費用已包含在這些映像的使用量中。您也可以使用自己的授權，在 Windows 或 Linux 上執行 Oracle 軟體。在 [Azure 虛擬機器與虛擬機器資源庫映像的價格與授權](https://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software)中有完整的詳細資料。如需特定的 Oracle 價格詳細資料，請按一下 [**Oracle**] 索引標籤。
 
 ###Oracle 資料庫虛擬機器映像
 - Oracle Database 12c Enterprise Edition on Windows Server 2012
@@ -63,4 +63,4 @@ ms.author="bbenz" />
 
 [Oracle 虛擬機器映像 - 其他考量](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

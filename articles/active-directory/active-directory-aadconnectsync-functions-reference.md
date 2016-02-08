@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="01/21/2016"
 	ms.author="markusvi"/>
 
 
@@ -1058,4 +1058,4 @@ Value 也可以是會傳回自訂字串的 Error 函式。
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

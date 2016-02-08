@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016"  
+	ms.date="01/27/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #具有多重 DRM 及存取控制的 CENC：Azure 與 Azure 媒體服務的參考設計和實作
@@ -22,13 +22,39 @@
  
 Azure Active Directory、Azure 媒體服務、Azure 媒體播放器、動態加密、授權傳遞、PlayReady、Widevine、FairPlay、Common Encryption (CENC)、多重 DRM、Axinom、DASH、EME、MSE、JSON Web Token (JWT)、宣告、現代瀏覽器、金鑰變換、對稱金鑰、非對稱金鑰、OpenID Connect、x509 憑證。
 
+##本文內容
+
+本文章涵蓋下列主題：
+
+- [簡介](media-services-cenc-with-multidrm-access-control.md#introduction)
+	- [本文概觀：](media-services-cenc-with-multidrm-access-control.md#overview-of-this-article)
+- [參考設計](media-services-cenc-with-multidrm-access-control.md#a-reference-design)
+- [將設計對應至技術以進行實作](media-services-cenc-with-multidrm-access-control.md#mapping-design-to-technology-for-implementation)
+- [實作](media-services-cenc-with-multidrm-access-control.md#implementation)
+	- [實作程序](media-services-cenc-with-multidrm-access-control.md#implementation-procedures)
+	- [實作中的一些錯誤](media-services-cenc-with-multidrm-access-control.md#some-gotchas-in-implementation)
+- [Additional Topics for Implementation (其他關於實作的主題)](media-services-cenc-with-multidrm-access-control.md#additional-topics-for-implementation)
+	- [HTTP or HTTPS (HTTP 或 HTTPS)](media-services-cenc-with-multidrm-access-control.md#http-or-https)
+	- [Azure Active Directory 簽署金鑰變換](media-services-cenc-with-multidrm-access-control.md#azure-active-directory-signing-key-rollover)
+	- [存取權杖在哪裡？](media-services-cenc-with-multidrm-access-control.md#where-is-the-access-token)
+	- [即時串流呢？](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
+	- [在 Azure 媒體服務外部的授權伺服器呢？](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
+	- [如果我想要使用自訂 STS？](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
+	- [技術提示](media-services-cenc-with-multidrm-access-control.md#tech-note)
+- [完整的系統和測試](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
+	- [使用者登入](media-services-cenc-with-multidrm-access-control.md#user-login)
+	- [Using Encrypted Media Extensions for PlayReady (使用 PlayReady 的加密媒體擴充)](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensipons-for-playready)
+	- [針對 Widevine 使用 EME](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
+	- [不是有權限的使用者](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
+	- [Running custom Secure Token Service (執行自訂安全權杖服務)](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
+
 ##簡介
 
 針對 OTT 或線上串流解決方案設計和建置 DRM 子系統是相當複雜的工作已眾所皆知。運算子/線上視訊提供者將這個部分外包給專門的 DRM 服務提供者是常見的做法。這份文件的目標是呈現 OTT 或線上串流解決方案中端對端 DRM 子系統的參考設計和實作。
 
 這份文件的目標讀者是使用 OTT 或線上串流/多重螢幕解決方案的 DRM 子系統的工程師，或對於 DRM 子系統有興趣的任何讀者。假設讀者都熟悉市場上至少一個 DRM 技術，例如 PlayReady、Widevine、FairPlay 或 Adobe Access。
 
-根據 DRM，我們也包含 CENC (Common Encryption) 與多重 DRM。線上串流和 OTT 業界中的主要趨勢是在各種用戶端平台上使用 CENC 與多重原生 DRM，是從先前對於各種用戶端平台使用單一 DRM 及其用戶端 SDK 的趨勢變化而來。使用 CENC 與多重原生 DRM 時，PlayReady 和 Widevine 是依照 [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271) 規格加密。
+根據 DRM，我們也包含 CENC (Common Encryption) 與多重 DRM。線上串流和 OTT 業界中的主要趨勢是在各種用戶端平台上使用 CENC 與多重原生 DRM，是從先前對於各種用戶端平台使用單一 DRM 及其用戶端 SDK 的趨勢變化而來。使用 CENC 與多重原生 DRM 時，PlayReady 和 Widevine 會依照 [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) 規格加密。
 
 使用 CENC 與多重 DRM 的優點如下：
 
@@ -36,23 +62,9 @@ Azure Active Directory、Azure 媒體服務、Azure 媒體播放器、動態加�
 1. 降低管理加密資產的成本，因為只需要一份加密資產；
 1. 排除 DRM 用戶端授權成本，因為原生 DRM 用戶端在其原生平台上通常是免費的。
 
-Microsoft 已經成為 DASH 和 CENC 與其他一些主要業界播放器的積極推動者。Microsoft Azure 媒體服務已提供 DASH 和 CENC 的支援。如需最新的通知，請參閱 Mingfei 的部落格：[宣佈 Azure 媒體服務中的 Google Widevine 授權傳遞服務公開預覽版本](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)，和 [Azure 媒體服務新增 Google Widevine 封裝來傳遞多重 DRM 串流](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)。
+Microsoft 已經成為 DASH 和 CENC 與其他一些主要業界播放器的積極推動者。Microsoft Azure 媒體服務已提供 DASH 和 CENC 的支援。如需最新的通知，請參閱 Mingfei 的部落格：[Announcing Google Widevine license delivery services public preview in Azure Media Services (宣佈在 Azure 媒體服務中推出 Google Widevine 授權傳遞服務公開預覽版本)](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)，和 [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream (Azure 媒體服務新增 Google Widevine 封裝來傳遞多重 DRM 串流)](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)。
 
-###本文概觀：
-
-在本文中，「多重 DRM」涵蓋下列主題：
-
-1. Microsoft PlayReady (英文)
-1. Google Widevine
-1. Apple FairPlay (尚未受 Azure 媒體服務支援)
-
-下表摘要說明每個 DRM 支援的原生平台/原生應用程式和瀏覽器。
-
-**DRM**|**原生 OS/原生應用程式**|**支援的桌面瀏覽器**|**支援的行動瀏覽器**|**支援的串流格式**
-----|------|----|-----|----
-**PlayReady**|Windows、Windows Phone、Xbox|Windows 8.1+ 的 IE11、Microsoft Edge|Windows Phone 8.1+|DASH、Smooth Streaming
-**Widevine**|Android|在所有 PC 和 Mac 上的 Chrome 34+|Android 4.3+|DASH
-**FairPlay**|Mac OS、iOS|Safari||HLS
+### 本文概觀：
 
 本文的目標包含下列項目：
 
@@ -60,7 +72,39 @@ Microsoft 已經成為 DASH 和 CENC 與其他一些主要業界播放器的積�
 1. 提供 Microsoft Azure/Azure 媒體服務平台上的參考實作；
 1. 討論某些設計和實作主題。
 
-##參考設計
+在本文章中，「多重 DRM」涵蓋下列主題：
+
+1. Microsoft PlayReady (英文)
+1. Google Widevine
+1. Apple FairPlay (尚未受 Azure 媒體服務支援)
+
+下表摘要說明每個 DRM 支援的原生平台/原生應用程式和瀏覽器。
+
+**用戶端平台**|**原生 DRM 支援**|**瀏覽器/應用程式**|**串流格式**
+----|------|----|----
+**智慧型電視、運算子 STB、OTT STB**|主要為 PlayReady，及/或 Widevine，及/或其他的 DRM|Linux、Opera、WebKit 及其他瀏覽器/應用程式|各種格式
+**Windows 10 裝置 (Windows 電腦、Windows 平板電腦、Windows Phone、Xbox)**|PlayReady|MS Edge/IE11/EME<br/><br/><br/>UWP|DASH (HLS 並不支援 PlayReady)<br/><br/>DASH、Smooth Streaming (HLS 並不支援 PlayReady) 
+**Android 裝置 (電話、平板電腦、電視)**|Widevine|Chrome/EME|DASH
+**iOS (iPhone、iPad)、OS X 用戶端和 Apple 電視**|FairPlay|Safari 8+/EME|HLS
+**外掛程式：Adobe Primetime**|Primetime Access|瀏覽器外掛程式|HDS、HLS
+
+就目前每種 DRM 的部署狀態而言，服務通常會想要實作 2 或 3 個 DRM，以確保您能以最佳方式來處理所有類型的端點。
+
+您必須在服務邏輯複雜度和用戶端複雜度之間做出取捨，以便在各種不同的用戶端上讓使用者經驗能達到某種等級。
+
+當您下決定時，請記住下列這幾點：
+
+- PlayReady 原生實作在每種 Windows 裝置及部分 Android 裝置中，且可透過軟體 SDK 在幾乎所有平台上實作
+- Widevine 原生實作在每種 Android 裝置、Chrome 及部分其他的裝置中
+- FairPlay 只使用在 iOS 和 Mac OS 用戶端中，或是透過 iTunes 來提供。
+
+因此典型的多重 DRM 會是：
+
+- 選項 1：PlayReady 及 Widevine
+- 選項 2：PlayReady、Widevine 和 FairPlay
+
+
+## 參考設計
 
 在本節中，我們將探討與用來實作它的技術無關的參考設計。
 
@@ -103,7 +147,7 @@ DRM 子系統可能包含下列元件：
 ------|---------------------------
 1 對 1|最簡單的案例。它提供最佳的控制。但是，通常會產生最高的授權傳遞成本。每個受保護的資產需要至少一個授權要求。
 1 對多|您可以對多個資產使用相同的內容金鑰。例如，對於如內容類型或內容類型子集 (或 Movie Gene) 的邏輯群組中的所有資產，您可以使用單一內容金鑰。
-多對 1|每個資產需要有多個內容金鑰。<br/><br/>例如，如果您需要針對 MPEG-DASH 套用具有多重 DRM 的 動態 CENC 保護，針對 HLS 套用動態 AES-128 加密，您需要兩個不同的內容金鑰，各有專屬的 ContentKeyType。(對於用於動態 CENC 保護的內容金鑰，應該使用 ContentKeyType.CommonEncryption，而對於用於動態 AES-128 加密的內容金鑰，應該使用 ContentKeyType.EnvelopeEncryption。)<br/><br/>另一個範例，在 DASH 內容的 CENC 保護中，理論上，可以使用一個內容金鑰來保護視訊串流，使用另一個內容金鑰來保護音訊串流。 
+多對 1|每個資產需要有多個內容金鑰。<br/><br/>舉例來說，如果您需要針對 MPEG-DASH 套用具有多重 DRM 的 動態 CENC 保護，且針對 HLS 套用動態 AES-128 加密，您需要兩個不同的內容金鑰，兩者分別有自己的 ContentKeyType。(對於用於動態 CENC 保護的內容金鑰，應該使用 ContentKeyType.CommonEncryption，而對於用於動態 AES-128 加密的內容金鑰，應該使用 ContentKeyType.EnvelopeEncryption。)<br/><br/>再舉一個例子，DASH 內容在 CENC 的保護下，理論上您可以使用一個內容金鑰來保護視訊串流，並使用另一個內容金鑰來保護音訊串流。 
 多對多|結合上述兩種案例：對於相同資料「群組」中的每個多重資產，使用一組內容金鑰。
 
 
@@ -125,7 +169,7 @@ DRM 子系統可能包含下列元件：
 
 您可以輕易地發現，如果授權傳遞服務是由如 Azure 媒體服務的公用雲端提供，則兩個不同的設計會導致大不相同的授權要求模式，進而造成授權傳遞成本的不同。
 
-##將設計對應至技術以進行實作
+## 將設計對應至技術以進行實作
 
 接下來，我們會將我們的一般設計對應至 Microsoft Azure/Azure 媒體服務平台上的技術，方法是指定要用於每個建置組塊的技術。
 
@@ -133,7 +177,7 @@ DRM 子系統可能包含下列元件：
 
 **建置組塊**|**Technology**
 ------|-------
-**播放器**|[Azure Media Player](http://azure.microsoft.com/services/media-services/media-player/)
+**播放器**|[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/)
 **身分識別提供者 (IDP)**|Azure Active Directory
 **安全權杖服務 (STS)**|Azure Active Directory
 **DRM 保護工作流程**|Azure 媒體服務動態保護
@@ -171,7 +215,6 @@ DRM 子系統可能包含下列元件：
 
 1. 播放器會根據支援的瀏覽器/DRM 進行授權取得要求。在授權取得要求中，也會提交金鑰識別碼和 JWT 權杖。授權傳遞服務會驗證 JWT 權杖，在發行所需的授權之前包含宣告。
 
-
 ##實作
 
 ###實作程序
@@ -180,8 +223,8 @@ DRM 子系統可能包含下列元件：
 
 1. 準備測試資產：編碼/封裝測試視訊為 Azure 媒體服務中的多位元速率分散 MP4。這項資產不受 DRM 保護。DRM 保護稍後會由動態保護完成。
 1. 建立金鑰識別碼和內容金鑰 (選擇性地從金鑰種子)。對於我們的目的，不需要金鑰管理系統，因為我們只會針對一些測試資產處理一組金鑰識別碼和內容金鑰；
-1. 使用 AMS API 來針對測試資產設定多重 DRM 授權傳遞服務。如果您使用貴公司或貴公司的廠商的自訂授權伺服器，而不是 Azure 媒體服務中的授權服務，您可以略過此步驟，並且在設定授權傳遞的步驟中指定授權取得 URL。需要 AMS API 以指定一些詳細組態，例如不同 DRM 授權服務的授權原則限制、授權回應範本等等。目前，Azure 入口網站尚未提供此組態所需的 UI。您可以在 Julia Kornich 的文件中尋找 API 層級資訊和範例程式碼：[使用 PlayReady 和/或 Widevine 動態一般加密](media-services-protect-with-drm.md)。 
-1. 使用 AMS API 來針對測試資產設定資產傳遞原則。您可以在 Julia Kornich 的文件中尋找 API 層級資訊和範例程式碼：[使用 PlayReady 和/或 Widevine 動態一般加密](media-services-protect-with-drm.md)。
+1. 使用 AMS API 來針對測試資產設定多重 DRM 授權傳遞服務。如果您使用貴公司或貴公司的廠商的自訂授權伺服器，而不是 Azure 媒體服務中的授權服務，您可以略過此步驟，並且在設定授權傳遞的步驟中指定授權取得 URL。需要 AMS API 以指定一些詳細組態，例如不同 DRM 授權服務的授權原則限制、授權回應範本等等。目前，Azure 入口網站尚未提供此組態所需的 UI。您可以在 Julia Kornich 的文件中尋找 API 層級資訊和範例程式碼：[使用 PlayReady 和/或 Widevine Dynamic Common Encryption](media-services-protect-with-drm.md)。 
+1. 使用 AMS API 來針對測試資產設定資產傳遞原則。您可以在 Julia Kornich 的文件中尋找 API 層級資訊和範例程式碼：[使用 PlayReady 和/或 Widevine Dynamic Common Encryption](media-services-protect-with-drm.md)。
 1. 在 Azure 中建立和設定 Azure Active Directory 租用戶；
 1. 在 Azure Active Directory 租用戶中建立幾個使用者帳戶和群組：您應該至少建立「EntitledUser」群組，並將使用者新增至此群組。此群組中的使用者會通過授權取得的權利檢查，而不在此群組中的使用者將無法通過驗證檢查，且無法取得任何授權。成為此「EntitledUser」群組的成員，是由 Azure AD 發出的 JWT 權杖中的必要「群組」宣告。這個宣告需求應該在設定多重 DRM 授權傳遞服務步驟中指定。
 1. 建立 ASP.NET MVC 應用程式，它將會裝載視訊播放器。此 ASP.NET 應用程式會根據 Azure Active Directory 租用戶受到使用者驗證的保護。使用者驗證之後，適當的宣告會包含在取得的存取權杖中。建議在此步驟使用 OpenID Connect API。您將需要安裝下列 NuGet 封裝：
@@ -190,7 +233,7 @@ DRM 子系統可能包含下列元件：
 	- Install-Package Microsoft.Owin.Security.Cookies
 	- Install-Package Microsoft.Owin.Host.SystemWeb
 	- Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-1. 使用 [Azure 媒體播放器 API](http://amp.azure.net/libs/amp/latest/docs/) 建立播放器。[Azure 媒體播放器的 ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) 可讓您指定要在不同的 DRM 平台上使用哪個 DRM 技術。
+1. 使用 [Azure 媒體播放器 API](http://amp.azure.net/libs/amp/latest/docs/) 來建立播放器。[Azure 媒體播放器的 ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) 可讓您指定要在不同的 DRM 平台上使用哪個 DRM 技術。
 1. 測試矩陣：
 
 **DRM**|**[瀏覽器]**|**有權限的使用者的結果**|**無權限的使用者的結果**
@@ -199,29 +242,27 @@ DRM 子系統可能包含下列元件：
 **Widevine**|Windows 10 上的 Chrome|成功|不合格
 **FairPlay** |TBD||
 
-Azure 媒體服務團隊的 George Trifonov 所撰寫的部落格提供針對 ASP.NET MVC 播放器應用程式設定 Azure Active Directory 的詳細步驟：[整合 Azure 媒體服務 OWIN MVC 型應用程式與 Azure Active Directory 並根據 JWT 宣告限制內容金鑰傳遞](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)。
+Azure 媒體服務團隊的 George Trifonov 所撰寫的部落格提供針對 ASP.NET MVC 播放器應用程式來設定 Azure Active Directory 的詳細步驟：[Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims (整合 Azure 媒體服務 OWIN MVC 型應用程式與 Azure Active Directory，並根據 JWT 宣告來限制內容金鑰傳遞)](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)。
 
-George 也撰寫關於 [Azure 媒體服務和動態加密中的 JWT 權杖驗證](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)的部落格。以下是他的 [Azure AD 與 Azure 媒體服務金鑰傳遞整合的範例](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration)。
+George 也撰寫了一篇相關的部落格文章：[JWT token Authentication in Azure Media Services and Dynamic Encryption (Azure 媒體服務和動態加密中的 JWT 權杖驗證)](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)。以下是他[整合 Azure AD 與 Azure 媒體服務金鑰傳遞的範例](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/)。
 
 如需 Azure Active Directory 的詳細資訊：
 
-- 您可以在 [Azure Active Directory 開發人員指南](../active-directory/active-directory-developers-guide.md)中找到開發人員資訊。
-- 您可以在[管理您的 Azure AD 目錄](../active-directory/active-directory-administer.md)中找到系統管理員資訊。
+- 您可以在 [Azure Active Directory 開發人員指南](../active-directory/active-directory-developers-guide.md)中找到開發人員的資訊。
+- 您可以在[管理 Azure AD 目錄](../active-directory/active-directory-administer.md)中找到系統管理員的資訊。
 
-###實作中的一些錯誤
+### 實作中的一些錯誤
 
 實作中有一些「錯誤」。希望下列「錯誤」清單可以在您遇到問題時協助您疑難排解。
 
+1. **簽發者**的 URL 結尾應該是 **"/"**。  
 
-
-1. **簽發者** URL 結尾應該是 **"/"**。  
-
-	**對象**應該是播放器應用程式用戶端識別碼，而且您還應該在簽發者 URL 的結尾新增 **"/"**。
+	**受眾**應該是播放器應用程式用戶端識別碼，且您也應該在簽發者 URL 的結尾新增 **"/"**。
 
 		<add key="ida:audience" value="[Application Client ID GUID]" />
 		<add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" /> 
 
-	在 [JWT 解碼器](http://jwt.calebb.net/) 中，您應該會在 JWT 權杖中看到 **aud** 和 **iss**，如下所示：
+	在 [JWT 解碼器](http://jwt.calebb.net/)中，您應該會在 JWT 權杖裡看到 **aud** 和 **iss**，如下所示：
 	
 	![第 1 個錯誤](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
 
@@ -251,9 +292,8 @@ George 也撰寫關於 [Azure 媒體服務和動態加密中的 JWT 權杖驗證
 
 	由於新增除了 SWT (ACS) 以外的 JWT (AAD) 支援，預設 TokenType 是 TokenType.JWT。如果您使用 SWT/ACS，您必須設定為 TokenType.SWT。
 
-##設計和實作中的其他主題
-
-接下來我們將會討論設計和實作中的其他主題。
+## Additional Topics for Implementation (其他關於實作的主題)
+接下來，我們將討論設計和實作中的其他主題。
 
 ###HTTP 或 HTTPS？
 
@@ -261,7 +301,7 @@ George 也撰寫關於 [Azure 媒體服務和動態加密中的 JWT 權杖驗證
 
 1. 透過 Azure AD (需要在 HTTPS 底下) 的使用者驗證；
 1. 用戶端與 Azure AD (需要在 HTTPS 底下) 之間的 JWT 權杖交換；
-1. 透過用戶端 (需要在 HTTPS 底下) 的 DRM 授權取得。
+1. 用戶端 (需要在 HTTPS 底下) 的 DRM 授權取得，如果授權傳遞是由 Azure 媒體服務提供。當然，PlayReady 產品套件不會針對授權傳遞來授權 HTTPS。如果您的 PlayReady 授權伺服器位於 Azure 媒體服務以外的地方，則可以使用 HTTP 或 HTTPS。
 
 因此，ASP.NET 播放器應用程式會使用 HTTPS 做為最佳作法。這表示 Azure Media Player 會在 HTTPS 底下的頁面上。不過，對於串流我們比較喜歡 HTTP，因此我們必須考慮混合內容的問題。
 
@@ -271,15 +311,15 @@ George 也撰寫關於 [Azure 媒體服務和動態加密中的 JWT 權杖驗證
 
 在參考實作中，對於 DRM 保護內容，應用程式和串流都會在 HTTTPS 之下。對於開啟內容，播放器不需要驗證或授權，因此您可以自由使用 HTTP 或 HTTPS。
 
-###Azure Active Directory 簽署金鑰變換
+### Azure Active Directory 簽署金鑰變換
 
 這是對於您的實作需要納入考量的要點。如果您未在實作中納入考量，整個系統最終會在最多 6 週之後完全停止運作。
 
 Azure AD 使用業界標準，使用 Azure AD 在本身和應用程式之間建立信任。具體而言，Azure AD 使用簽署金鑰，該金鑰是由公開和私密金鑰組所組成。當 Azure AD 建立包含使用者相關資訊的安全性權杖時，此權杖是由 Azure AD 在其私密金鑰傳送回應用程式之前，使用該私密金鑰來簽署。若要確認該權杖有效且確實來自 Azure AD，應用程式必須使用由 Azure AD 公開，包含在租用戶的同盟中繼資料文件中的公開金鑰來驗證權杖的簽章。此公開金鑰 – 和它從其衍生的簽署金鑰 – 是用於 Azure AD 中所有租用戶的相同金鑰。
 
-Azure AD 金鑰變換的詳細資訊可以在下列文件中找到：[Azure AD 中簽署金鑰變換的相關重要資訊](http://msdn.microsoft.com/library/azure/dn641920.aspx)。
+下列文件中提供 Azure AD 金鑰變換的詳細資訊：[Azure AD 中簽署金鑰變換的相關重要資訊](http://msdn.microsoft.com/library/azure/dn641920.aspx/)。
 
-[公開-私密金鑰組](https://login.windows.net/common/discovery/keys)之間，
+在[公開/私密金鑰組](https://login.windows.net/common/discovery/keys/)之間，
 
 - 私密金鑰是由 Azure Active Directory 用來產生 JWT 權杖；
 - 公開金鑰是由如 AMS 中的 DRM 授權傳遞服務的應用程式用來驗證 JWT 權杖；
@@ -301,18 +341,17 @@ DRM 授權傳遞服務永遠會檢查來自 Azure AD 的目前/有效公開金�
 
 因為金鑰可能會在任何時間變換，同盟中繼資料文件中永遠有一個以上的有效公開金鑰可用。Azure 媒體服務授權傳遞可以使用文件中指定的任何金鑰，因為某個金鑰可能很快就會替換，而另一個可能會取代它，依此類推。
 
+### 存取權杖在哪裡？
 
-###存取權杖在哪裡？
+如果您在＜[採用 OAuth 2.0 用戶端認證授與的應用程式識別](active-directory-authentication-scenarios.md#web-application-to-web-api)＞一節中查看 Web 應用程式如何呼叫 API 應用程式，驗證流程如下：
 
-如果您在[採用 OAuth 2.0 用戶端認證授與的應用程式身分識別](active-directory-authentication-scenarios.md#web-application-to-web-api)下查看 Web 應用程式如何呼叫 API 應用程式，驗證流程如下：
-
-1.	使用者在 Web 應用程式中登入 Azure AD (請參閱 [Web 瀏覽器到 Web 應用程式](active-directory-authentication-scenarios.md#web-browser-to-web-application))。
+1.	使用者在 Web 應用程式中登入 Azure AD (請參閱＜[Web 瀏覽器到 Web 應用程式](active-directory-authentication-scenarios.md#web-browser-to-web-application)＞)。
 2.	Azure AD 授權端點會將使用者代理程式重新導向回到具有授權碼的用戶端應用程式。使用者代理程式會將授權碼傳回用戶端應用程式的重新導向 URI。
 3.	Web 應用程式需要取得存取權杖，才能向 Web API 驗證和擷取所需的資源。它向 Azure AD 的權杖端點提出要求，並提供認證、用戶端識別碼和 Web API 的應用程式識別碼 URI。它會呈現授權碼以證明使用者已同意。
 4.	Azure AD 驗證應用程式，並傳回用來呼叫 Web API 的 JWT 存取權杖。
 5.	Web 應用程式使用傳回的 JWT 存取權杖，透過 HTTPS，在對 Web API 的要求的 Authorization 標頭中加上 JWT 字串並指定 "Bearer"。接著，Web API 驗證 JWT 權杖，如果驗證成功，則傳回所需的資源。
 
-在此「應用程式身分識別」流程中，Web API 信任 Web 應用程式已驗證使用者。基於這個理由，這種模式稱為受信任子系統。[此頁面上的圖表](http://msdn.microsoft.com/library/azure/dn645542.aspx)說明授權碼授與流程的運作方式。
+在此「應用程式身分識別」流程中，Web API 信任 Web 應用程式已驗證使用者。基於這個理由，這種模式稱為受信任子系統。[此頁面上的圖表](http://msdn.microsoft.com/library/azure/dn645542.aspx/)說明授權碼授與流程的運作方式。
 
 在具有權杖限制的授權取得中，我們遵循相同的受信任子系統模式。Azure 媒體服務中的授權傳遞服務是 Web API 資源，Web 應用程式需要存取的「後端資源」。那麼存取權杖在哪裡？
 
@@ -322,10 +361,9 @@ DRM 授權傳遞服務永遠會檢查來自 Azure AD 的目前/有效公開金�
 
 1.	在 Azure AD 租用戶中
 
-
 	- 新增應用程式 (資源) 與登入 URL： 
 
-	https://[resource_name].azurewebsites.net/和
+	https://[resource_name].azurewebsites.net/ 和
 
 	- 應用程式識別碼 URL： 
 	
@@ -336,7 +374,7 @@ DRM 授權傳遞服務永遠會檢查來自 Azure AD 的目前/有效公開金�
 	
 因此，Azure AD 所發出的 JWT 權杖確實是存取此「指標」資源的存取權杖。
 
-###即時串流呢？
+### 即時串流呢？
 
 以上的討論將重點放在隨選資產。即時串流呢？
 
@@ -344,14 +382,14 @@ DRM 授權傳遞服務永遠會檢查來自 Azure AD 的目前/有效公開金�
 
 具體來說，大家都知道，若要在 Azure 媒體服務中執行即時串流，您需要建立通道，然後在通道底下建立程式。若要建立程式，您需要建立資產，它包含程式的即時封存。為了提供即時內容的 CENC 與多重 DRM 保護，您需要做的是在啟動程式之前將相同設定/處理套用至資產，如同它是「VOD 資產」一般。
 
-###在 Azure 媒體服務外部的授權伺服器呢？
+### 在 Azure 媒體服務外部的授權伺服器呢？
 
 通常，客戶可能會在他們自己的資料中心或由 DRM 服務提供者裝載的位置，投資授權伺服器陣列。幸運的是，Azure 媒體服務內容保護可讓您在混合模式中運作：內容會在 Azure 媒體服務中裝載並且以動態方式保護，而 DRM 授權是由 Azure 媒體服務外部的伺服器傳遞。在此情況下，有下列的變更考量：
 
-1. 安全權杖服務必須發出權杖，授權伺服器陣列可接受及驗證該權杖。例如，Axinom 所提供的 Widevine 授權伺服器要求特定 JWT 權杖，其中包含「權利訊息」。因此，您需要有 STS 以發出這類的 JWT 權杖。作者已完成這類實作，您可以在 [Azure 文件中心](https://azure.microsoft.com/documentation/)的下列文件中找到詳細資料：[使用 Axinom 將 Widevine 授權傳遞到 Azure 媒體服務](media-services-axinom-integration.md)。 
+1. 安全權杖服務必須發出權杖，授權伺服器陣列可接受及驗證該權杖。例如，Axinom 所提供的 Widevine 授權伺服器要求特定 JWT 權杖，其中包含「權利訊息」。因此，您需要有 STS 以發出這類的 JWT 權杖。作者已完成這類實作，而您可以在 [Azure 文件中心](https://azure.microsoft.com/documentation/)的下列文件中找到詳細資料：[使用 Axinom 將 Widevine 授權傳遞到 Azure 媒體服務](media-services-axinom-integration.md)。 
 1. 您不再需要在 Azure 媒體服務中設定授權傳遞服務 (ContentKeyAuthorizationPolicy)。您需要做的是當您在設定 CENC 與多重 DRM 中設定 AssetDeliveryPolicy 時，提供授權取得 URL (針對 PlayReady、Widevine 和 FairPlay)。
  
-###如果我想要使用自訂 STS？
+### 如果我想要使用自訂 STS？
 
 可能有幾個原因讓客戶想要選擇使用自訂 STS (安全權杖服務) 提供 JWT 權杖。以下是其中一些原因：
 
@@ -368,23 +406,23 @@ DRM 授權傳遞服務永遠會檢查來自 Azure AD 的目前/有效公開金�
 1.	對稱金鑰：相同金鑰用於產生和驗證 JWT 權杖；
 2.	非對稱金鑰：搭配使用 x509 憑證中的私密-公開金鑰組，私密金鑰用來加密/產生 JWT 權杖，公開金鑰用來驗證權杖。
 
-####技術提示：
+###技術提示
 
 如果您使用 .NET Framework/C# 做為開發平台，用於非對稱安全性金鑰的 x509 憑證的金鑰長度必須至少為 2048。這是 .NET Framework 中的 System.IdentityModel.Tokens.X509AsymmetricSecurityKey 類別的需求。否則，會擲回下列例外狀況：
 
 IDX10630：用於簽署的 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' 不能小於 '2048' 位元。
 
-##完整的系統和測試
+## 完整的系統和測試
 
 我們將在完整的端對端系統中逐步進行幾個案例，讓讀者在取得登入帳戶之前可以有行為的基本「印象」。
 
-播放器 Web 應用程式及其登入可以在[這裡](https://openidconnectweb.azurewebsites.net/)找到。
+您可以在[這裡](https://openidconnectweb.azurewebsites.net/)找到播放器 Web 應用程式及其登入。
 
 如果您需要的是「非整合式」案例：裝載在 Azure 媒體服務的視訊資產，未受保護或受 DRM 保護，但是沒有權杖驗證 (對任何提出要求的對象發出授權)，您可以測試它而不用登入 (方法是切換為 HTTP，如果您的視訊串流是透過 HTTP)。
 
 如果您需要的是端對端整合案例：視訊資產是在 Azure 媒體服務的動態 DRM 保護下，權杖驗證與 JWT 權杖是由 Azure AD 產生，則您需要登入。
 
-###使用者登入
+### 使用者登入
 
 為了測試端對端整合 DRM 系統，您必須建立或新增「帳戶」。
 
@@ -408,7 +446,7 @@ IDX10630：用於簽署的 'System.IdentityModel.Tokens.X509AsymmetricSecurityKe
 
 ![自訂 Azure AD 租用戶網域帳戶](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
-**具有智慧卡的 Microsoft 網域帳戶**：在此案例中，您會看到由 Microsoft 公司 IT 自訂、具有雙因素驗證的登入頁面。
+**採用智慧卡的 Microsoft 網域帳戶**：在此案例中，您會看到由 Microsoft Corporate 的 IT 自訂、採用雙因素驗證的登入頁面。
 
 ![自訂 Azure AD 租用戶網域帳戶](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
@@ -416,9 +454,9 @@ IDX10630：用於簽署的 'System.IdentityModel.Tokens.X509AsymmetricSecurityKe
 
 ![自訂 Azure AD 租用戶網域帳戶](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
 
-###針對 PlayReady 使用加密媒體擴充 (EME)
+### Using Encrypted Media Extensions for PlayReady (使用 PlayReady 的加密媒體擴充)
 
-在支援 EME/PlayReady 的現代瀏覽器上，例如 Windows 8.1 和更新版本上的 IE 11 和 Windows 10 上的 Microsoft Edge 瀏覽器，PlayReady 是 EME 的基本 DRM。
+在支援 PlayReady 的加密媒體擴充 (EME) 的最新瀏覽器 (例如 Windows 8.1 和更新版本上的 IE 11，以及 Windows 10 上的 Microsoft Edge 瀏覽器) 上，PlayReady 是 EME 的基本 DRM。
 
 ![針對 PlayReady 使用 EME](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-playready1.png)
 
@@ -428,7 +466,12 @@ IDX10630：用於簽署的 'System.IdentityModel.Tokens.X509AsymmetricSecurityKe
 
 ![針對 PlayReady 使用 EME](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-playready2.png)
 
-####針對 Widevine 使用 EME
+Windows 10 的 Microsoft Edge 及 IE 11 中的 EME，允許支援 [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/) 的 Windows 10 裝置上的 PlayReady SL3000 叫用。PlayReady SL3000 會解除增強型付費內容 (4K、HDR 等)，以及新的內容傳遞模型 (增強型內容的早期視窗) 流程的鎖定。
+
+將焦點放在 Windows 裝置上：PlayReady 是 Windows 裝置可用的 HW 中唯一的 DRM (PlayReady SL3000)。串流服務可透過 EME 或 UWP 應用程式來使用 PlayReady，並利用 PlayReady SL3000 來提供比其他 DRM 所能提供更高的影片品質，一般而言，2K 內容將會流經 Chrome 或 Firefox，而 4K 內容會流過 Microsoft Edge/IE11 或相同裝置上的 UWP 應用程式 (取決於服務的設定及實作)。
+
+
+#### 針對 Widevine 使用 EME
 
 在支援 EME/Widevine 的現代瀏覽器上，例如 Windows 10、Windows 8.1、Mac OSX Yosemite 上的 Chrome 41+，以及 Android 4.4.4 上的 Chrome，Google Widevine 是 EME 背後的 DRM。
 
@@ -438,15 +481,15 @@ IDX10630：用於簽署的 'System.IdentityModel.Tokens.X509AsymmetricSecurityKe
 
 ![針對 Widevine 使用 EME](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-widevine2.png)
 
-###不是有權限的使用者
+### 不是有權限的使用者
 
 如果使用者不是「有權限的使用者」群組的成員，使用者將無法通過「權利檢查」，且多重 DRM 授權服務將拒絕發出要求的授權，如下所示。詳細的描述是「授權取得失敗」，這是根據設計。
 
-![無權限的使用者](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png.png)
+![無權限的使用者](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
 
-###執行自訂安全權杖服務 (STS)
+### Running custom Secure Token Service (執行自訂安全權杖服務)
 
-對於執行自訂 STS 的案例，JWT 權杖將會由自訂 STS 使用對稱或非對稱金鑰發出。
+對於執行自訂安全權杖服務 (STS) 的案例，JWT 權杖將會由自訂 STS 使用對稱或非對稱金鑰來發出。
 
 使用對稱金鑰的案例 (使用 Chrome)：
 
@@ -458,7 +501,7 @@ IDX10630：用於簽署的 'System.IdentityModel.Tokens.X509AsymmetricSecurityKe
 
 在上述兩個案例中，使用者驗證相同 – 透過 Azure AD。唯一的差別在於，JWT 權杖是由自訂 STS 發出，而不是 Azure AD。當然，設定動態 CENC 保護時，授權傳遞服務的限制會指定 JWT 權杖的類型，是對稱或非對稱金鑰。
 
-##摘要
+## 摘要
 
 在本文件中，我們討論了透過權杖驗證的 CENC 與多重原生 DRM 和存取控制：它的設計和實作使用 Azure、Azure 媒體服務和 Azure Media Player。
 
@@ -477,6 +520,6 @@ IDX10630：用於簽署的 'System.IdentityModel.Tokens.X509AsymmetricSecurityKe
 
 ###通知 
 
-William Zhang、Mingfei Yan、Kilroy Hughes、Julia Kornich
+William Zhang、Mingfei Yan、Kilroy Hughes、Roland Le Franc、Julia Kornich
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

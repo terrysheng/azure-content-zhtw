@@ -32,7 +32,7 @@
 
 #### 付費能得到什麼？
 
-* 較大的[每月資料配額](http://azure.microsoft.com/pricing/details/application-insights/)。
+* 較大的[每月資料配額](https://azure.microsoft.com/pricing/details/application-insights/)。
 * 能夠選擇針對超額部分付費，以繼續收集超過每月配額的資料。如果您的資料超過配額，我們將會以每 Mb 來收費。
 * [連續匯出](app-insights-export-telemetry.md)
 
@@ -155,7 +155,7 @@
 #### 我曾經看到資料，但是已停止
 
 * 檢查[狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
-* 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。請參閱[定價配置](http://azure.microsoft.com/pricing/details/application-insights/)。
+* 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。請參閱[定價配置](https://azure.microsoft.com/pricing/details/application-insights/)。
 
 
 #### 我並沒有看到預期的所有資料
@@ -252,4 +252,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -17,7 +17,7 @@ ms.author="heidist" />
 
 #索引子作業 (Azure 搜尋服務 REST API：2015-02-28-Preview)#
 
-> [AZURE.NOTE]本文說明 [2015-02-28-Preview](./search-api-2015-02-28-preview) 的索引子。目前 [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) 上記載的 `2015-02-28` 版本與此處說明的 `2015-02-28-Preview` 版本並無差異。即便此 API 正好未經變更，本文主要目的是提供 `2015-02-28-Preview` 的完整文件。
+> [AZURE.NOTE] 本文說明 [2015-02-28-Preview](./search-api-2015-02-28-preview) 的索引子。目前 [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) 上記載的 `2015-02-28` 版本與此處說明的 `2015-02-28-Preview` 版本並無差異。即便此 API 正好未經變更，本文主要目的是提供 `2015-02-28-Preview` 的完整文件。
 
 ## 概觀 ##
 
@@ -38,7 +38,7 @@ Azure 搜尋服務是 Microsoft Azure 上之託管的雲端搜尋服務。Azure 
 - Azure SQL Database 和 Azure VM 中的 SQL Server
 - Azure DocumentDB 
 
-我們考慮在未來增加支援其他資料來源。為了協助我們確定決策的優先順序，請您在 [Azure 搜尋服務意見反應論壇](http://feedback.azure.com/forums/263029-azure-search)上提供寶貴意見。
+我們考慮在未來增加支援其他資料來源。為了協助我們確定決策的優先順序，請您在 [Azure 搜尋服務意見反應論壇](https://feedback.azure.com/forums/263029-azure-search/)上提供寶貴意見。
 
 如需索引子和資料來源資源相關的最大限制，請參閱[服務限制](search-limits-quotas-capacity.md)。
 
@@ -776,4 +776,4 @@ Azure 搜尋服務是 Microsoft Azure 上之託管的雲端搜尋服務。Azure 
 </tr>
 </table>
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,11 +1,12 @@
 <properties
 	pageTitle="準備環境以備份 Azure 虛擬機器 | Microsoft Azure"
-	description="確認備份 Azure 虛擬機器的環境已準備就緒"
+	description="確認在 Azure 中備份虛擬機器的環境已準備就緒"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="備份；備份；"/>
 
 <tags
 	ms.service="backup"
@@ -13,12 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="01/22/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
-# 準備環境以備份 Azure 虛擬機器
-備份 Azure 虛擬機器 (VM) 之前，您需要完成下面準備環境的必要條件。如果您已經這麼做，您就可以開始[備份您的 VM](backup-azure-vms.md)。否則，請繼續進行下列所有步驟，以確保您的環境準備就緒。
 
+# 準備環境以備份 Azure 虛擬機器
+
+備份 Azure 虛擬機器 (VM) 之前，您需要完成這些必要條件。如果您已經準備您的環境以進行備份，您就可以開始[備份您的 VM](backup-azure-vms.md)。否則，請繼續進行下列所有步驟，以確保您的環境準備就緒。
 
 ## 1\.備份保存庫
 
@@ -79,9 +81,9 @@
 ### 使用 HTTP Proxy 進行 VM 備份
 備份 VM 時，會使用 HTTPS API 將快照管理命令從備份擴充功能傳送到 Azure 儲存體。此流量必須透過 Proxy 從擴充功能路由傳送，因為只有 Proxy 會被設定為具有公用網際網路存取權。
 
->[AZURE.NOTE]對於應該使用什麼 Proxy 軟體，並無任何建議。請務必挑選與下面設定步驟相容的 Proxy。
+>[AZURE.NOTE] 對於應該使用什麼 Proxy 軟體，並無任何建議。請務必挑選與下面設定步驟相容的 Proxy。
 
-在下面的範例中，必須將「應用程式 VM」設定為針對前往公用網際網路的所有 HTTP 流量使用 Proxy VM。必須將 Proxy VM 設定為允許來自虛擬網路中 VM 的連入流量。最後，NSG (名為 NSG-lockdown) 需要新的安全性規則，以允許來自 Proxy VM 的輸出網際網路流量。
+在下面的範例中，必須將「應用程式 VM」設定為針對前往公用網際網路的所有 HTTP 流量使用 Proxy VM。必須將 Proxy VM 設定為允許來自虛擬網路中 VM 的連入流量。最後，NSG (名為 *NSG-lockdown*) 需要新的安全性規則，以允許來自 Proxy VM 的輸出網際網路流量。
 
 ![包含 HTTP Proxy 部署圖表的 NSG](./media/backup-azure-vms-prepare/nsg-with-http-proxy.png)
 
@@ -140,7 +142,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 
 此命令會新增 NSG 例外，以允許從 10.0.0.5 上任何連接埠傳輸至 80 (HTTP) 或 443 (HTTPS) 連接埠上任何網際網路位址的 TCP 流量。如果您需要叫用公用網際網路中的特定連接埠，請務必一併將該連接埠新增至 ```-DestinationPortRange```。
 
-務必以適合您的部署的詳細資料取代範例中的名稱。
+*務必以適合您的部署的詳細資料取代範例中的名稱。*
 
 ## 3\.VM 代理程式
 
@@ -156,10 +158,10 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 | --- | --- | --- |
 | 安裝 VM 代理程式 | <li>下載並安裝[代理程式 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。您需要有系統管理員權限，才能完成安裝。<li>[更新 VM 屬性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)以表示已安裝代理程式。 | <li>從 GitHub 安裝最新的 [Linux 代理程式](https://github.com/Azure/WALinuxAgent)。您需要有系統管理員權限，才能完成安裝。<li> [更新 VM 屬性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)以表示已安裝代理程式。 |
 | 更新 VM 代理程式 | 更新 VM 代理程式與重新安裝 [VM 代理程式二進位檔](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)一樣簡單。<br><br>確定在更新 VM 代理程式時，沒有任何執行中的備份作業。 | 請遵循[更新 Linux VM 代理程式](../virtual-machines-linux-update-agent.md)上的指示。<br><br>確定在更新 VM 代理程式時，沒有任何執行中的備份作業。 |
-| 驗證 VM 代理程式安裝 | <li>瀏覽至 Azure VM 中的 C:\\WindowsAzure\\Packages 資料夾。<li>您應該會發現有 WaAppAgent.exe 檔案。<li> 在該檔案上按一下滑鼠右鍵，移至 [屬性]，然後選取 [詳細資料] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更新的版本。| - |
+| 驗證 VM 代理程式安裝 | <li>瀏覽至 Azure VM 中的 *C:\\WindowsAzure\\Packages* 資料夾。<li>您應該會發現有 WaAppAgent.exe 檔案。<li> 在該檔案上按一下滑鼠右鍵，移至 [屬性]，然後選取 [詳細資料] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更新的版本。| - |
 
 
-深入了解 [VM 代理程式](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409)和[如何安裝](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)。
+深入了解 [VM 代理程式](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409)和[如何安裝](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)。
 
 ### 備份擴充功能
 
@@ -176,7 +178,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 - 不支援備份具有保留的 IP 且沒有已定義之端點的虛擬機器。
 - 不支援在還原期間取代現有的虛擬機器。先刪除現有的虛擬機器及任何相關聯的磁碟，然後從備份還原資料。
 - 不支援跨區域備份和還原。
-- Azure 的所有公用區域皆支援使用「Azure 備份」服務來備份虛擬機器 (請參閱支援的區域[檢查清單](http://azure.microsoft.com/regions/#services))。如果您尋找的區域目前不受支援，在建立保存庫期間，該區域就不會顯示在下拉式清單中。
+- Azure 的所有公用區域皆支援使用「Azure 備份」服務來備份虛擬機器 (請參閱支援的區域[檢查清單](https://azure.microsoft.com/regions/#services))。如果您尋找的區域目前不受支援，在建立保存庫期間，該區域就不會顯示在下拉式清單中。
 - 只有特定的作業系統版本才支援使用「Azure 備份」服務來備份虛擬機器：
   - **Linux**：請參閱[經 Azure 背書的散發套件清單](../virtual-machines/virtual-machines-linux-endorsed-distributions.md)。只要虛擬機器上有 VM 代理程式，其他「攜帶您自己的 Linux」散發套件應該也可以運作。
   - **Windows Server**：不支援比 Windows Server 2008 R2 更舊的版本。
@@ -195,4 +197,4 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 - [備份虛擬機器](backup-azure-vms.md)
 - [管理虛擬機器備份](backup-azure-manage-vms.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

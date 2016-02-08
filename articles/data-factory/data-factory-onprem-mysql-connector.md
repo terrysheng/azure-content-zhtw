@@ -29,6 +29,8 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 ## 安裝 
 若要讓資料管理閘道器連接至 MySQL 資料庫，您必須在與資料管理閘道相同的系統上安裝 [MySQL 連接器/Net 6.6.5 for Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885)。
 
+> [AZURE.NOTE] 如需連接/閘道器相關問題的疑難排解秘訣，請參閱[閘道器疑難排解](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)。
+
 ## 範例：從 MySQL 複製資料到 Azure Blob
 
 下列範例顯示：
@@ -310,4 +312,4 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

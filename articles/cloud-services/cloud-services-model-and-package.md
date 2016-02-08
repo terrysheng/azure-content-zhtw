@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/09/2015"
+    ms.date="01/21/2016"
     ms.author="adegeo"/>
 
 # 什麼是雲端服務模型？如何封裝？
@@ -138,7 +138,7 @@
 
 <p/>
 
- >[AZURE.NOTE]憑證的指紋可以使用文字編輯器加入至組態檔，或是在 Visual Studio 中角色的 [屬性] 頁面的 [憑證] 索引標籤上加入此值。
+ >[AZURE.NOTE] 憑證的指紋可以使用文字編輯器加入至組態檔，或是在 Visual Studio 中角色的 [屬性] 頁面的 [憑證] 索引標籤上加入此值。
 
 
 
@@ -190,16 +190,16 @@ Azure 對於 Web 角色，僅允許一個進入點。這表示所有流量都是
 - **變更憑證指紋**：當角色執行個體離線時，您可以只更新憑證。如果在角色執行個體上線時加入、刪除或變更憑證，Azure 會讓執行個體正常離線以更新憑證，並在變更完成後讓它再次上線。
 
 ### 使用服務執行階段事件處理組態變更
-[Azure 執行階段程式庫](https://msdn.microsoft.com/library/azure/dn511024.aspx)包含 [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) 命名空間，可從角色執行個體中執行的程式碼，提供與 Azure 環境互動的類別。[RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) 類別會定義組態變更前後會引發的下列事件：
+[Azure 執行階段程式庫](https://msdn.microsoft.com/library/azure/mt419365.aspx)包含 [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) 命名空間，可從角色執行個體中執行的程式碼，提供與 Azure 環境互動的類別。[RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) 類別會定義組態變更前後會引發的下列事件：
 
 - **[Changing](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) 事件**：這會在組態變更套用至指定的角色執行個體之前發生，讓您有機會記下角色執行個體 (如有需要)。
 - **[Changed](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) 事件**：在組態變更套用至指定的角色執行個體之後發生。
 
-> [AZURE.NOTE]由於憑證變更時，一律會讓角色執行個體離線，因此不會引發 RoleEnvironment.Changing 或 RoleEnvironment.Changed 事件。
+> [AZURE.NOTE] 由於憑證變更時，一律會讓角色執行個體離線，因此不會引發 RoleEnvironment.Changing 或 RoleEnvironment.Changed 事件。
 
 <a name="cspkg"></a>
 ## ServicePackage.cspkg
-若要將應用程式部署為 Azure 中的雲端服務，您必須先使用適當的格式封裝應用程式。您可以使用 **CSPack** 命令列工具 (隨 [Azure SDK](http://azure.microsoft.com/downloads/) 安裝) 做為 Visual Studio 的替代方案，以建立封裝檔案。
+若要將應用程式部署為 Azure 中的雲端服務，您必須先使用適當的格式封裝應用程式。您可以使用 **CSPack** 命令列工具 (隨 [Azure SDK](https://azure.microsoft.com/downloads/) 安裝) 做為 Visual Studio 的替代方案，以建立封裝檔案。
 
 **CSPack** 會使用服務定義檔和服務組態檔的內容，定義封裝的內容。**CSPack** 會產生應用程式封裝檔案 (.cspkg)，您可以使用 [Azure 傳統入口網站](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service)，將其上傳至 Azure。根據預設，封裝的名稱為 `[ServiceDefinitionFileName].cspkg`，但是您可以使用 **CSPack** 的 `/out` 選項指定不同的名稱。
 
@@ -209,13 +209,15 @@ Azure 對於 Web 角色，僅允許一個進入點。這表示所有流量都是
 | 1\.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\[sdk-version]\\bin\\ |
 | &lt;1.6 | C:\\Program Files\\Azure SDK\\[sdk-version]\\bin\\ |
 
->[AZURE.NOTE]CSPack.exe (在 Windows 上) 可以透過執行隨 SDK 一起安裝的 **Microsoft Azure 命令提示字元**捷徑來使用。
+>[AZURE.NOTE]
+CSPack.exe (在 Windows 上) 可以透過執行隨 SDK 一起安裝的 **Microsoft Azure 命令提示字元**捷徑來使用。
 >  
 >執行 CSPack.exe 程式本身，以查看所有可能的參數和命令的相關文件。
 
 <p />
 
->[AZURE.TIP]在本機上使用 **Microsoft Azure 運算模擬器**執行雲端服務 (使用 **/copyonly** 選項)。此選項會將應用程式的二進位檔案複製到目錄配置，您可以使用運算模擬器，從該目錄配置執行這些二進位檔案。
+>[AZURE.TIP]
+在本機上使用 **Microsoft Azure 運算模擬器**執行雲端服務 (使用 **/copyonly** 選項)。此選項會將應用程式的二進位檔案複製到目錄配置，您可以使用運算模擬器，從該目錄配置執行這些二進位檔案。
 
 ### 封裝雲端服務的範例命令
 下列範例會建立應用程式封裝，其中包含 Web 角色的資訊。此命令會指定要使用的服務定義檔、可以找到二進位檔案所在的目錄，以及封裝檔案的名稱。
@@ -262,12 +264,11 @@ Azure 對於 Web 角色，僅允許一個進入點。這表示所有流量都是
 * [部署雲端服務專案][vs_deploy]
 * [設定雲端服務執行個體的遠端桌面][vs_remote]
 
-
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
-[vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
+[vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
+[vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
+[vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
+[vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

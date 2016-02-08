@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # 企業營運應用程式工作負載第 4 階段：設定 Web 伺服器
@@ -31,7 +31,7 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 
 首先，您將設定內部負載平衡，讓 Azure 在兩部 Web 伺服器之間將用戶端流量平均分散到企業營運應用程式。這需要您指定內部負載平衡執行個體，其中包含名稱和從子網路位址空間 (指派至 Azure 虛擬網路) 所指派的專屬 IP 位址。
 
-> [AZURE.NOTE]下列命令集使用 Azure PowerShell 1.0 版和更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
+> [AZURE.NOTE] 下列命令集使用 Azure PowerShell 1.0 版和更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
 
 指定變數的值，並移除 < and > 字元。請注意，下列 Azure PowerShell 命令集使用下表中的值：
 
@@ -109,7 +109,7 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]因為這些虛擬機器用於內部網路應用程式，所以未獲指派公用 IP 位址或 DNS 網域名稱標籤，也不會公開到網際網路。不過，這也表示您無法從 Azure 入口網站連線到它們。當您檢視虛擬機器的屬性時，[連線] 按鈕將無法使用。
+> [AZURE.NOTE] 因為這些虛擬機器用於內部網路應用程式，所以未獲指派公用 IP 位址或 DNS 網域名稱標籤，也不會公開到網際網路。不過，這也表示您無法從 Azure 入口網站連線到它們。當您檢視虛擬機器的屬性時，[連線] 按鈕將無法使用。
 
 使用您選擇的遠端桌面用戶端，並建立每個 Web 伺服器虛擬機器的遠端桌面連接。使用其內部網路 DNS 或電腦名稱，以及本機系統管理員帳戶的認證。
 
@@ -151,4 +151,4 @@ Web 伺服器虛擬機器共有兩部，您可以在其中部署 ASP.NET 應用�
 
 - 依照[第 5 階段](virtual-machines-workload-high-availability-LOB-application-phase5.md)指示完成此工作負載的設定。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

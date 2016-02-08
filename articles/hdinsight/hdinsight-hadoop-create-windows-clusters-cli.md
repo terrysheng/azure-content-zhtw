@@ -27,7 +27,7 @@
 
 開始執行本文中的指示之前，您必須擁有以下項目：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - **Azure CLI** - 請參閱 [安裝及設定 Azure CLI](../xplat-cli-install.md) 以取得安裝和設定資訊。
 
 ##連接到 Azure
@@ -70,7 +70,7 @@
 	
 		azure storage account create "<Azure Storage Account Name>" -g "<Resource Group Name>" -l "<Azure Location>" --type LRS
 
-	> [AZURE.NOTE]儲存體帳戶必須與 HDInsight 並存於資料中心內。儲存體帳戶類型不能是 ZRS，因為 ZRS 不支援資料表。
+	> [AZURE.NOTE] 儲存體帳戶必須與 HDInsight 並存於資料中心內。儲存體帳戶類型不能是 ZRS，因為 ZRS 不支援資料表。
 
 	如需使用 Azure 入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱 [建立、管理或刪除儲存體帳戶] [azure-create-storageaccount]。
 	
@@ -134,4 +134,4 @@
 - [使用 Azure CLI 管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-command-line.md)
 - [使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理](virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

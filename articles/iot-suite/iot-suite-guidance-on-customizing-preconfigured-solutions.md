@@ -2,13 +2,14 @@
 	pageTitle="自訂預先設定解決方案 | Microsoft Azure"
 	description="提供如何自訂 Azure IoT 套件預先設定解決方案的指引。"
 	services=""
+    suite="iot-suite"
 	documentationCenter=".net"
 	authors="stevehob"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
@@ -30,7 +31,7 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 
 ## 變更預先設定規則
 
-遠端監視解決方案包含二個 [Azure 串流分析](http://azure.microsoft.com/services/stream-analytics)工作，以實作顯示在儀表板上遙測和警示邏輯。
+遠端監視解決方案包含二個 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)工作，以實作顯示在儀表板上遙測和警示邏輯。
 
 第一個工作會選取所有來自遙測傳入資料流的資料，並建立二個不同的輸出。工作的名稱會是 **[solution name]-Telemetry**。
 
@@ -41,7 +42,7 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 
 第二個工作的作業是針對解決方案 [規則] 頁面中建立的「裝置對臨界值」值。此工作會使用參考資料 (針對各裝置設定的臨界值)。它會比較臨界值以查看是否大於 (`>`) 實際值。您可以修改此工作，例如變更比較運算子。
 
-> [AZURE.NOTE]遠端監視儀表板依賴特定資料，因此變更工作可能會造成儀表板失敗。
+> [AZURE.NOTE] 遠端監視儀表板依賴特定資料，因此變更工作可能會造成儀表板失敗。
 
 ## 新增自己的規則
 
@@ -65,8 +66,8 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 
 ## 後續步驟
 
-如需 IoT 裝置的詳細資訊，請參閱 [Azure IoT 開發人員網站](http://azure.microsoft.com/develop/iot)來尋找連結和文件。
+如需 IoT 裝置的詳細資訊，請參閱 [Azure IoT 開發人員網站](https://azure.microsoft.com/develop/iot/)來尋找連結和文件。
 
 [IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

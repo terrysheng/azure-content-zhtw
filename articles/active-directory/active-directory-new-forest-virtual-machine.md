@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="在 Azure 虛擬網路上安裝 Active Directory 樹系 | Microsoft Azure" 
 	description="說明如何在 Azure 虛擬網路之虛擬機器 (VM) 上建立新 Active Directory 樹系的教學課程。" 
-	services="active-directory, virtual-network" 
+	services="active-directory, virtual-network"
+    keywords="active directory 虛擬機器, 安裝 active directory 樹系, azure active directory 影片"
 	documentationCenter="" 
 	authors="markusvi" 
 	manager="stevenpo" 
@@ -13,7 +14,7 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="01/05/2016" 
+	ms.date="01/25/2016" 
 	ms.author="markusvi"/>
 
 
@@ -31,7 +32,7 @@
 
 在此案例中，外部使用者需要存取在加入網域的伺服器上執行的應用程式。執行應用程式伺服器的 VM 和執行網域控制站的 VM 會安裝在 Azure 虛擬網路內自己的雲端服務中。它們也會包含在可用性設定檔內，以改進容錯能力。
 
-![][1] 7
+![Azure 虛擬網路中虛擬機器上的 Active Directory 樹系][1] 7
 ## 這與內部部署有何不同？
 
 在 Azure 或在內部部署上安裝網域控制台，差異並不會很多。下表列出主要差異。
@@ -137,4 +138,4 @@
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

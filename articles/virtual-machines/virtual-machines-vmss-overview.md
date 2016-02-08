@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-ps-include.md)]
 
-對於需要相應放大計算資源的應用程式，調整作業會隱含地平衡分散到容錯網域和更新網域。如需 VM 調整集的簡介，請參閱最近的 [Azure 部落格通知](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview)。
+對於需要相應放大計算資源的應用程式，調整作業會隱含地平衡分散到容錯網域和更新網域。如需 VM 調整集的簡介，請參閱最近的 [Azure 部落格通知](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/)。
 
 若想進一步了解 VM 調整集，請觀看下列影片：
 
@@ -153,4 +153,4 @@ VM 調整集可以使用 JSON 範本和 [REST API](https://msdn.microsoft.com/li
 
 **答：** 是。VM 調整集是隱含的可用性設定組，具有 3 個 FD 和 5 個 UD。您不需要在 virtualMachineProfile 下進行任何設定。在未來的版本中，VM 調整集有可能跨越多個租用戶，但目前調整集只是單一可用性設定組。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

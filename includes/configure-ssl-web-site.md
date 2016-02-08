@@ -1,9 +1,9 @@
 
-本文將說明如何在 Azure App Service 中設定 Web 應用程式的 HTTPS。這份文件未涵蓋用戶端憑證驗證，如需相關資訊，請參閱[如何設定 Web 應用程式的 TLS 相互驗證](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md)。
+本文章將說明如何在 Azure App Service 中設定 Web 應用程式的 HTTPS。這份文件未涵蓋用戶端憑證驗證，如需相關資訊，請參閱[如何設定 Web 應用程式的 TLS 相互驗證](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md)。
 
-根據預設，Azure 已使用 *.azurewebsites.net 網域的萬用字元憑證來啟用您的應用程式 HTTP。如果您不打算設定自訂網域，您可以直接利用預設的 HTTPS 憑證。但是，就像[所有萬用字元網域](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)一樣，這並不如使用自訂網域搭配自己的憑證那麼安全。
+根據預設，Azure 已使用 *.azurewebsites.net 網域的萬用字元憑證來啟用您的應用程式 HTTPS。如果您不打算設定自訂網域，您可以直接利用預設的 HTTPS 憑證。但是，就像[所有萬用字元網域](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)一樣，這並不如使用自訂網域搭配自己的憑證那麼安全。
 
-本文件的其餘內容提供關於為自訂網域 (如 **contoso.com**、**www.contoso.com** 或 **\*.contoso.com**) 啟用 HTTPS 的詳細資料。
+本文件的其餘內容提供關於為自訂網域 (如 **contoso.com**、**www.contoso.com** 或 ***.contoso.com**) 啟用 HTTPS 的詳細資料。
 
 <a name="bkmk_domainname"></a>
 ## 為自訂網域啟用 SSL
@@ -11,24 +11,24 @@
 若要為自訂網域 (如 **contoso.com**) 啟用 HTTPS，首先必須[在 Azure App Service 中設定自訂的網域名稱](../articles/app-service-web/web-sites-custom-domain-name.md)。然後執行下列動作：
 
 1. [取得 SSL 憑證](#bkmk_getcert)
-2. [設定標準定價層](#bkmk_standardmode)
+2. [設定標準或高階定價層](#bkmk_standardmode)
 2. [在應用程式中設定 SSL](#bkmk_configuressl)
 3. [在應用程式上強制使用 SSL](#bkmk_enforce) (選擇性)
 
-若您對本文中的任何步驟有需要進一步協助的地方，請連絡 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專家。或者，您也可以提出 Azure 支援事件。請至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下 [**取得支援**]。
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後按一下**取得支援**。
 
 <a name="bkmk_getcert"></a>
 ## 1\.取得 SSL 憑證
 
 在要求 SSL 憑證之前，您必須先決定有哪些網域名稱要由該憑證保護。這將決定您必須取得的憑證類型。如果您只需要保護單一網域名稱 (如 **contoso.com** 或 **www.contoso.com**)，則基本憑證就已足夠。如果您需要保護多個網域名稱 (如 **contoso.com**、**www.contoso.com** 與 **mail.contoso.com**)，則您可以取得[萬用字元憑證](http://en.wikipedia.org/wiki/Wildcard_certificate)，或包含[主體替代名稱](http://en.wikipedia.org/wiki/SubjectAltName) (subjectAltName) 的憑證。
 
-搭配 App Service 使用的 SSL 憑證必須由[憑證授權單位](http://en.wikipedia.org/wiki/Certificate_authority) (CA) 簽署。如果您還沒有此類憑證，則必須向發行 SSL 憑證的公司取得。如需憑證授權單位的清單，請參閱 Microsoft TechNet Wiki 上的 [Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)][cas]。
+搭配 App Service 使用的 SSL 憑證必須由 [Certificate Authority (憑證授權單位)](http://en.wikipedia.org/wiki/Certificate_authority) (CA) 簽署。如果您還沒有此類憑證，則必須向發行 SSL 憑證的公司取得。如需憑證授權單位的清單，請參閱 Microsoft TechNet Wiki 上的 [Windows 與 Windows Phone 8 SSL 根憑證計劃 (成員 CA)][cas]。
 
 憑證必須符合 Azure 中對於 SSL 憑證的下列要求：
 
 * 憑證必須包含私密金鑰。
 * 憑證必須是為了進行金鑰交換而建立，且可匯出成個人資訊交換檔 (.pfx)。
-* 憑證的主體名稱必須符合用來存取應用程式的網域。如果您需要利用此憑證來供應多個網域，則必須如前文所討論，使用萬用字元值或指定 subjectAltName 值。
+* 憑證的主體名稱必須和用來存取應用程式的網域相符。如果您需要利用此憑證來供應多個網域，則必須如前文所討論，使用萬用字元值或指定 subjectAltName 值。
 * 憑證至少應該要以 2048 位元加密。
 * Azure App Service 不支援私人 CA 伺服器所核發的憑證。
 
@@ -40,11 +40,11 @@
 - [使用 OpenSSL 取得 SubjectAltName 憑證](#bkmk_subjectaltname)
 - [產生自我簽署的憑證 (僅供測試)](#bkmk_selfsigned)
 
-> [AZURE.NOTE]遵循步驟時，系統會提示您輸入 [**一般名稱**]，例如 `www.contoso.com`。對於萬用字元憑證，這個值應該是 \*.domainname (例如，\*.contoso.com)。如果您需要同時支援萬用字元名稱 (如 \*.contoso.com) 和根網域名稱 (如 contoso.com)，則可以使用萬用字元 subjectAltName 憑證。
+> [AZURE.NOTE] 遵循步驟時，系統會提示您輸入 [**一般名稱**]，例如 `www.contoso.com`。對於萬用字元憑證，這個值應該是 *.domainname (例如，*.contoso.com)。如果您需要同時支援萬用字元名稱 (如 *.contoso.com) 和根網域名稱 (如 contoso.com)，則可以使用萬用字元 subjectAltName 憑證。
 >
 > Azure App Service 支援橢圓曲線密碼編譯 (ECC) 憑證；不過，它們相對而言比較新，您應該在具體步驟中使用 CA 來建立 CSR。
 
-如果 CA 使用**[中繼憑證](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** (也稱為鏈結憑證)，則您還需要取得這些中繼憑證。使用中繼憑證比使用「未鏈結憑證」安全，因此常會見到 CA 使用中繼憑證。中繼憑證通常是從 CA 網站個別下載而得。本文中的步驟提供關於如何確保任何中繼憑證與已上傳至應用程式的憑證相合併的步驟。
+如果 CA 使用**[中繼憑證](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** (也稱為鏈結憑證)，則您還需要取得這些中繼憑證。使用中繼憑證比使用「未鏈結憑證」安全，因此常會見到 CA 使用中繼憑證。中繼憑證通常是從 CA 網站個別下載而得。本文章中的步驟提供關於如何確保任何中繼憑證與已上傳至應用程式的憑證相合併的步驟。
 
 <a name="bkmk_certreq"></a>
 ### 使用 Certreq.exe 取得憑證 (僅限 Windows)
@@ -66,7 +66,7 @@ Certreq.exe 是一項用來建立憑證要求的 Windows 公用程式。自 Wind
 		[EnhancedKeyUsageExtension]
 		OID=1.3.6.1.5.5.7.3.1
 
-	如需上述指定選項以及其他可用選項的詳細資訊，請參閱 [Certreq 參考文件](http://technet.microsoft.com/library/cc725793.aspx) (英文)。
+	如需上述指定選項以及其他可用選項的詳細資訊，請參閱 [Certreq 參考文件](http://technet.microsoft.com/library/cc725793.aspx)。
 
 2. 將文字檔儲存為 **myrequest.txt**。
 
@@ -169,7 +169,7 @@ Certreq.exe 是一項用來建立憑證要求的 Windows 公用程式。自 Wind
 
 	當系統提示時，輸入 .pfx 檔案的保護密碼。
 
-	> [AZURE.NOTE]如果 CA 使用中繼憑證，您必須先安裝這些憑證，再於接下來的步驟匯出憑證。這些憑證通常是從 CA 個別下載而得，並且有分數種格式來用於不同的網頁伺服器類型。請選取以 PEM 檔案 (副檔名為 .pem) 形式提供的版本。
+	> [AZURE.NOTE] 如果 CA 使用中繼憑證，您必須先安裝這些憑證，再於接下來的步驟匯出憑證。這些憑證通常是從 CA 個別下載而得，並且有分數種格式來用於不同的網頁伺服器類型。請選取以 PEM 檔案 (副檔名為 .pem) 形式提供的版本。
 	>
 	> 下列命令示範如何建立內註有中繼憑證 (其包含在 **intermediate-cets.pem** 檔案中) 的 .pfx 檔案：
 	>
@@ -197,9 +197,9 @@ Certreq.exe 是一項用來建立憑證要求的 Windows 公用程式。自 Wind
 
 4. 從 IIS 管理員匯出憑證。如需匯出憑證的詳細資訊，請參閱[匯出伺服器憑證 (IIS 7)][exportcertiis]。後面的步驟會將匯出的檔案上傳至 Azure，以搭配應用程式使用。
 
-	> [AZURE.NOTE]在匯出程序期間，請務必選取 [<strong>是，匯出私密金鑰</strong>] 選項。這樣會在匯出的憑證中納入私密金鑰。
+	> [AZURE.NOTE] 在匯出程序期間，請務必選取 [<strong>是，匯出私密金鑰</strong>] 選項。這樣會在匯出的憑證中納入私密金鑰。
 
-	> [AZURE.NOTE]在匯出程序期間，請務必選取 [**包含憑證路徑中的所有憑證**] 和 [**匯出所有延伸內容**] 選項。這樣會在匯出的憑證中納入所有中繼憑證。
+	> [AZURE.NOTE] 在匯出程序期間，請務必選取 [**包含憑證路徑中的所有憑證**] 和 [**匯出所有延伸內容**] 選項。這樣會在匯出的憑證中納入所有中繼憑證。
 
 <a name="bkmk_subjectaltname"></a>
 ### 使用 OpenSSL 取得 SubjectAltName 憑證
@@ -289,7 +289,7 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 
 	當系統提示時，輸入 .pfx 檔案的保護密碼。
 
-	> [AZURE.NOTE]如果 CA 使用中繼憑證，您必須先安裝這些憑證，再於接下來的步驟匯出憑證。這些憑證通常是從 CA 個別下載而得，並且有分數種格式來用於不同的網頁伺服器類型。請選取以 PEM 檔案 (副檔名為 .pem) 形式提供的版本。
+	> [AZURE.NOTE] 如果 CA 使用中繼憑證，您必須先安裝這些憑證，再於接下來的步驟匯出憑證。這些憑證通常是從 CA 個別下載而得，並且有分數種格式來用於不同的網頁伺服器類型。請選取以 PEM 檔案 (副檔名為 .pem) 形式提供的版本。
 	>
 	> 下列命令示範如何建立內註有中繼憑證 (其包含在 **intermediate-cets.pem** 檔案中) 的 .pfx 檔案：
 	>
@@ -386,23 +386,21 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 	此命令所產生的 **myserver.pfx** 可用來保護您的應用程式，以供測試之用。
 
 <a name="bkmk_standardmode"></a>
-## 2\.設定標準定價層
+## 2\.設定標準或高階定價層
 
-啟用自訂網域的 HTTPS 只適用於 Azure App Service 中的 [**標準**] 層。請使用下列步驟將您的 App Service 方案切換至 [**標準**] 層。
+在 Azure App Service 中針對自訂網域啟用 HTTPS 僅適用於「標準」和「高階」定價層。請使用下列步驟將您的 App Service 方案切換至「標準」層。
 
-> [AZURE.NOTE]在將應用程式從 [**免費**] 層切換至 [**標準**] 層之前，您應該先移除訂用帳戶的支出費用上限，以免帳單期間還未結束，應用程式就因為已達支出費用上限而變得無法使用。如需共用與 [**標準**] 層的詳細資訊，請參閱[定價詳細資料][pricing]。
+> [AZURE.NOTE] 在將應用程式從「免費」層切換至「標準」層之前，您應該先移除訂用帳戶的支出費用上限，以免帳單期間還未結束，應用程式就因為已達支出費用上限而變得無法使用。如需共用與「標準」層的詳細資訊，請參閱[定價詳細資料][pricing]。
 
 1.	在瀏覽器中，開啟 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)。
 2.	按一下頁面左側的 [**瀏覽**] 選項。
 3.	按一下 [**Web Apps**] 刀鋒視窗。
 4.	按一下應用程式的名稱。
 5.	在 [**基本功能**] 頁面中，按一下 [**設定**]。
-6.	按一下 [**調整**]。
-	![調整索引標籤][scale]
-7.	在 [**調整**] 區段中，按一下 [**選取**]，設定 App Service 的方案模式。
-	![The Pricing tier][sslreserved]
+6.	按一下 [**調整**]。![調整索引標籤][scale]
+7.	在 [**調整**] 區段中，按一下 [**選取**]，設定 App Service 的方案模式。![The Pricing tier][sslreserved]
 
-	> [AZURE.NOTE]如果發生「設定 Web 應用程式 '&lt;應用程式名稱&gt;' 的規模失敗」錯誤，您可以利用詳細資料按鈕來取得詳細資訊。您可能會收到 [可用標準執行個體伺服器不足，無法滿足此要求] 錯誤。如果您收到此錯誤，請連絡 [Azure 支援](/support/options/)。
+	> [AZURE.NOTE] 如果發生「設定 Web 應用程式 '&lt;應用程式名稱&gt;' 的規模失敗」錯誤，您可以利用詳細資料按鈕來取得詳細資訊。您可能會收到 [可用標準執行個體伺服器不足，無法滿足此要求] 錯誤。如果您收到此錯誤，請連絡 [Azure 支援](/support/options/)。
 
 <a name="bkmk_configuressl"></a>
 ## 3\.在應用程式中設定 SSL
@@ -414,11 +412,9 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 3.	按一下 [**Web Apps**] 刀鋒視窗。
 4.	按一下應用程式的名稱。
 5.	在 [**基本功能**] 頁面中，按一下 [**設定**]。
-6.	按一下 [**自訂網域和 SSL**]。
-	![The config tab][sslconfig]
+6.	按一下 [**自訂網域和 SSL**]。![The config tab][sslconfig]
 7.	在 [**憑證**] 區段中，按一下 [**上傳**]。
-8.	使用 [上傳憑證] 對話方塊，選取之前以 IIS 管理員或 OpenSSL 建立的 .pfx 憑證檔案。指定當初用來保護 .pfx 檔案的密碼 (如果有的話)。最後，按一下 [**儲存**]，以上傳憑證。
-	![ssl upload][ssluploadcert]
+8.	使用 [上傳憑證] 對話方塊，選取之前以 IIS 管理員或 OpenSSL 建立的 .pfx 憑證檔案。指定當初用來保護 .pfx 檔案的密碼 (如果有的話)。最後，按一下 [**儲存**]，以上傳憑證。![ssl upload][ssluploadcert]
 9. 在 [**SSL 設定**] 索引標籤的 [**SSL 繫結**] 區段中，使用下拉式清單選取要以 SSL 保護的網域名稱，以及要使用的憑證。您也可以選擇使用[伺服器名稱指示][sni] (SNI) 還是 IP SSL。
 
 	![SSL 繫結][sslbindings]
@@ -429,9 +425,9 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 
 10. 按一下 [儲存]，儲存變更並啟用 SSL。
 
-> [AZURE.NOTE]如果您已選取 [**IP SSL**]，而且您的自訂網域是以 A 記錄設定，則必須執行下列額外步驟：
+> [AZURE.NOTE] 如果您已選取 [**IP SSL**]，而且您的自訂網域是以 A 記錄設定，則必須執行下列額外步驟：
 >
-> 1. 設定 IP SSL 繫結之後，您的應用程式將會獲派專用的 IP 位址。您可以在應用程式 [**儀表板**] 頁面上的 [**快速概覽**] 區段中，找到這個 IP 位址。它將會列出成為 [虛擬 IP 位址]：
+> 1. 設定 IP SSL 繫結之後，您的應用程式將會獲派專用的 IP 位址。您可以在應用程式 [儀表板] 頁面上的 [快速概覽] 區段中，找到這個 IP 位址。它將會列出成為 [虛擬 IP 位址]：
 >    
 >     ![虛擬 IP 位址](./media/configure-ssl-web-site/staticip.png)
 >    
@@ -447,7 +443,7 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 
 Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTTP 存取您的應用程式，而這可能會危及應用程式的安全性。如果想要強制您的應用程式使用 HTTPS，則可使用 **URL Rewrite** 模組。Azure App Service 隨附 URL Rewrite 模組，此模組可讓您定義連入要求在送達應用程式之前要套用的規則。**它可用於以任何 Azure 支援的程式設計語言所撰寫的應用程式。**
 
-> [AZURE.NOTE].NET MVC 應用程式應使用 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 篩選，而非 URL Rewrite。如需使用 RequireHttps 的詳細資訊，請參閱[將安全的 ASP.NET MVC 5 應用程式部署至 Web 應用程式](../articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)。
+> [AZURE.NOTE] .NET MVC 應用程式應使用 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 篩選，而非 URL Rewrite。如需使用 RequireHttps 的詳細資訊，請參閱[將安全的 ASP.NET MVC 5 應用程式部署至 Web 應用程式](../articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)。
 >
 > 如需使用其他程式設計語言和架構的程式設計方式重新導向要求的相關資訊，請參閱這些技術的文件。
 
@@ -474,7 +470,7 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 
 此規則的運作方式是當使用者使用 HTTP 要求頁面時，便傳回 HTTP 狀態碼 301 (永久重新導向)。301 會將要求重新導向至與訪客要求相同的 URL，但使用 HTTPS 來取代要求的 HTTP 部分。例如，HTTP://contoso.com 會重新導向至 HTTPS://contoso.com。
 
-> [AZURE.NOTE]如果您的應用程式是以 **Node.js**、**PHP**、**Python Django** 或 **Java** 撰寫而成，則它可能不包含 web.config 檔案。不過，裝載於 Azure App Service 時，**Node.js**、**Python Django** 和 **Java** 都會確實用到 web.config - Azure 會在部署期間自動建立此檔案，因此您永遠看不到此檔案。如果您在應用程式中加入一個 web.config 檔案，則它將覆寫 Azure 自動產生的同名檔案。
+> [AZURE.NOTE] 如果您的應用程式是以 **Node.js**、**PHP**、**Python Django** 或 **Java** 撰寫而成，則它可能不包含 web.config 檔案。不過，裝載於 Azure App Service 時，**Node.js**、**Python Django** 和 **Java** 都會確實用到 web.config - Azure 會在部署期間自動建立此檔案，因此您永遠看不到此檔案。如果您在應用程式中加入一個 web.config 檔案，則它將覆寫 Azure 自動產生的同名檔案。
 
 ###.NET
 
@@ -519,7 +515,7 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 - [在 Azure App Service 中設定 Web 應用程式](../articles/app-service-web/web-sites-configure.md)
 - [Azure 管理入口網站](https://manage.windowsazure.com)
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期的入門應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期的入門應用程式。不需要信用卡；沒有承諾。
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -549,4 +545,4 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

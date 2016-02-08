@@ -69,7 +69,7 @@
 	- [標準] 定價層
 	- 上表中的預設大小或您想要的大小來做為 [執行個體大小]
 
-> [AZURE.NOTE]「Azure 價格計算機」並未納入兩個執行 SQL Server 2014 Enterprise 之虛擬機器的額外 SQL Server 授權費用。如需詳細資訊，請參閱[虛擬機器價格-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)。
+> [AZURE.NOTE] 「Azure 價格計算機」並未納入兩個執行 SQL Server 2014 Enterprise 之虛擬機器的額外 SQL Server 授權費用。如需詳細資訊，請參閱[虛擬機器價格-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)。
 
 ## 部署的階段
 
@@ -95,10 +95,10 @@
 
 如需包含 SQL Server AlwaysOn 可用性群組的 SharePoint 的其他資訊，請參閱[為 SharePoint 2013 設定 SQL Server 2012 AlwaysOn 可用性群組 ](https://technet.microsoft.com/library/jj715261.aspx)。
 
-> [AZURE.NOTE]Microsoft 已發行 SharePoint Server 2016 IT 預覽版。若要輕鬆安裝和測試此預覽版，您可以搭配 SharePoint Server 2016 IT 預覽版和其預先安裝的必要元件來使用 Azure 虛擬機器資源庫映像。如需詳細資訊，請參閱[在 Azure 中測試 SharePoint Server 2016 IT Preview](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)。
+> [AZURE.NOTE] Microsoft 已發行 SharePoint Server 2016 IT 預覽版。若要輕鬆安裝和測試此預覽版，您可以搭配 SharePoint Server 2016 IT 預覽版和其預先安裝的必要元件來使用 Azure 虛擬機器資源庫映像。如需詳細資訊，請參閱[在 Azure 中測試 SharePoint Server 2016 IT Preview](https://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)。
 
 ## 後續步驟
 
 - 依照[第 1 階段](virtual-machines-workload-intranet-sharepoint-phase1.md)指示開始設定此工作負載。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

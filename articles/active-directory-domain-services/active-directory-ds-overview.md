@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 網域服務 *(預覽)*
@@ -81,4 +81,4 @@ Azure AD 網域服務所佈建的受管理網域的幾個顯著層面如下所�
 
 -	**符合成本效益** - 有了 Azure AD 網域服務，您可以免除為支援傳統目錄感知應用程式所需承受與管理身分識別基礎結構相關聯的基礎結構和管理負擔。您可以將這些應用程式移至 Azure 基礎結構服務，並受益於營運費用的大幅節約。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

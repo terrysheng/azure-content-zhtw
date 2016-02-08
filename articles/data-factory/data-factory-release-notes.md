@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 版本資訊
@@ -270,10 +270,7 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 
 按一下清單的標題或 **...** (省略符號)，查看更長的配量清單。按一下工具列上的 [篩選] 以篩選配量。
  
-您仍然可以按一下 [資料配量 (依配量時間)] 磚，檢視依配量時間排序的配量。這些集合中的配量會依配量時間排序。例如，如果是以小時排程，則配量為：
-- 4/4/2015 5pm 進行中
-- 4/4/2015 4pm 失敗
-- 4/4/2015 3pm 失敗
+您仍然可以按一下 [資料配量 (依配量時間)] 磚，檢視依配量時間排序的配量。這些集合中的配量會依配量時間排序。例如，如果是以小時排程，則配量為：- 4/4/2015 5pm 進行中 - 4/4/2015 4pm 失敗 - 4/4/2015 3pm 失敗
 
 但是，如果重新執行較舊的配量，即使這可能是使用者最感興趣的配量，也不會顯示在此清單頂端。
 
@@ -290,12 +287,12 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 -  您可以對 Azure Blob 中的文字檔案指定編碼。請參閱新的 [encodingName 屬性](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob)。 
 - 複製到 SQL 接收器時，您可以搭配其他參數來叫用預存程序。    
 
-如需詳細資訊，包括範例，請參閱 Blob 文章：[Azure Data Factory 更新 - 新的資料存放區](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/)。
+如需詳細資訊，包括範例，請參閱 Blob 文章：[Azure Data Factory 更新 - 新的資料存放區](https://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/)。
 
 ## Data Factory 2015/2/27 版本的注意事項
 
 ### 新的改進功能
-- **Azure Data Factory 編輯器**。Data Factory 編輯器是 Azure 入口網站的一部分，可讓您建立、編輯及部署 JSON 檔案，此檔案定義連結服務、資料集和管線。編輯器的主要目標是提供快速又輕巧的使用者介面 (UI)，讓您不需要安裝 Azure PowerShell 或學習使用 PowerShell Cmdlet，即可建立 Azure Data Factory 成品。如需 Data Factory 編輯器的快速概觀和影片，請參閱 [Azure Data Factory 編輯器 - 輕量型 Web 編輯器][adf-editor-blog]部落格文章。如需編輯器的詳細概觀，請參閱 [Data Factory 編輯器][adf-editor]文章。          
+- **Azure Data Factory 編輯器**。Data Factory 編輯器是 Azure 入口網站的一部分，可讓您建立、編輯及部署 JSON 檔案，此檔案定義連結服務、資料集和管線。編輯器的主要目標是提供快速又輕巧的使用者介面 (UI)，讓您不需要安裝 Azure PowerShell 或學習使用 PowerShell Cmdlet，即可建立 Azure Data Factory 成品。如需 Data Factory 編輯器的快速概觀和影片，請參閱 [Azure Data Factory 編輯器 - 輕量型 Web 編輯器][adf-editor-blog]部落格文章。  
 
 ### 變更
 
@@ -343,7 +340,6 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 
 [adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
-[adf-editor]: data-factory-editor.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
@@ -357,4 +353,4 @@ HDInsight 活動 (Hive、Pig、MapReduce、Hadoop 串流) 支援新的屬性：*
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

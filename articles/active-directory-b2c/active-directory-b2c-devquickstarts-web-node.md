@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # B2C 預覽：將登入功能加入至 nodeJS Web 應用程式
@@ -21,7 +21,8 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]本文不涵蓋如何使用 Azure AD B2C 實作登入、註冊和管理設定檔。而會著重在如何在使用者已通過驗證後呼叫 Web API。您應該先從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始 (如果還沒有進行)，以了解 Azure AD B2C 的基本概念。
+> [AZURE.NOTE]
+	本文不涵蓋如何使用 Azure AD B2C 實作登入、註冊和管理設定檔。而會著重在如何在使用者已通過驗證後呼叫 Web API。您應該先從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始 (如果還沒有進行)，以了解 Azure AD B2C 的基本概念。
 
 **Passport** 是 Node.js 的驗證中介軟體。您可以暗中將極具彈性且模組化的 Passport 放入任何 Express 或 Resitify Web 應用程式。一組完整的策略可支援使用使用者名稱和密碼、Facebook、Twitter 及其他等驗證。我們已為 Microsoft Azure Active Directory 開發一項策略。我們將安裝此模組，然後加入 Microsoft Azure Active Directory `passport-azure-ad` 外掛程式。
 
@@ -32,44 +33,42 @@
 3. 使用 Passport，向 Azure AD 發出登入和登出要求。
 4. 列印出使用者的相關資料。
 
-本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS)。若要遵循執行，您可以[用 .zip 格式下載應用程式的基本架構](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip)，或複製基本架構：
+本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS) 上。若要遵循執行，您可以[用 .zip 格式下載應用程式的基本架構](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip)，或複製基本架構：
 
-```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git
-```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 
 本教學課程最後也會提供完整的應用程式。
 
-> [AZURE.WARNING]在我們的 B2C 預覽中，您必須對 Web-API 工作伺服器和與其連接之用戶端，使用相同的用戶端識別碼/應用程式識別碼和原則。這適用於 iOS 及 Android 教學課程。如果您先前已在任何一個快速入門中建立過應用程式，請直接使用那些值，無需再如下列所示建立新值。
+> [AZURE.WARNING] 	在我們的 B2C 預覽中，您必須對 Web-API 工作伺服器和與其連接之用戶端，使用相同的用戶端識別碼/應用程式識別碼和原則。這適用於 iOS 及 Android 教學課程。如果您先前已在任何一個快速入門中建立過應用程式，請直接使用那些值，無需再如下列所示建立新值。
 
 ## 1\.取得 Azure AD B2C 目錄
 
-您必須先建立目錄或租用戶，才可使用 Azure AD B2C。目錄為所有使用者、應用程式、群組等項目的容器。如果您尚未擁有目錄，請先[建立 B2C 目錄](active-directory-b2c-get-started.md)，再繼續下一個步驟。
+您必須先建立目錄或租用戶，才可使用 Azure AD B2C。目錄為所有使用者、應用程式、群組等項目的容器。如果您尚未建立目錄，請先[建立 B2C 目錄](active-directory-b2c-get-started.md)，再繼續下一個步驟。
 
 ## 2\.建立應用程式
 
-您現在需要在 B2C 目錄中建立應用程式，以提供一些必要資訊給 Azure AD，讓它與應用程式安全地通訊。在此案例中，因為用戶端應用程式和 Web API 會組成一個邏輯應用程式，所以將由單一**應用程式識別碼**代表。若要建立應用程式，請遵循[這些指示](active-directory-b2c-app-registration.md)。請務必
+您現在需要在 B2C 目錄中建立應用程式，以提供一些必要資訊給 Azure AD，讓它與應用程式安全地通訊。在此案例中，因為用戶端應用程式和 Web API 會組成一個邏輯應用程式，所以將由單一**應用程式識別碼**表示。如果要建立應用程式，請遵循[這些指示](active-directory-b2c-app-registration.md)。請務必
 
 - 在應用程式中加入 **Web 應用程式/Web API**
-- 輸入 `http://localhost/TodoListService` 作為**回覆 URL** -它是此程式碼範例的預設 URL。
-- 為您的應用程式建立**應用程式密碼**，並複製下來。稍後您將會用到此資訊。
-- 複製指派給應用程式的**應用程式識別碼**。稍後您也會用到此資訊。
+- 輸入 `http://localhost/TodoListService` 作為**回覆 URL**。此 URL 為此程式碼範例的預設 URL。
+- 為您的應用程式建立**應用程式密碼**，並複製起來。稍後您將會用到此資訊。
+- 複製指派給您應用程式的**應用程式識別碼**。稍後您也會用到此資訊。
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\.建立您的原則
 
-在 Azure AD B2C 中，每個使用者體驗皆是由某個[**原則**](active-directory-b2c-reference-policies.md)定義的。此應用程式包含三種身分識別體驗 - 註冊、登入，以及使用 Facebook 登入。您必須為每個類型建立一個原則，如[原則參考文章](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)所述。建立您的三個原則時，請務必：
+在 Azure AD B2C 中，每個使用者體驗皆由某個[**原則**](active-directory-b2c-reference-policies.md)定義。此應用程式包含三種身分識別體驗 - 註冊、登入，以及使用 Facebook 登入。如[原則參考文章](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)所述，您必須為每個類型建立一個原則。建立您的三個原則時，請務必：
 
-- 在註冊原則中選擇 [顯示名稱] 和其他一些註冊屬性。
-- 在每個原則中選擇 [顯示名稱] 和 [物件識別碼] 應用程式宣告。您也可以選擇其他宣告。
-- 建立每個原則後，複製原則的 [名稱]。其前置詞應該為 `b2c_1_`。稍後您將需要這些原則名稱。 
+- 在註冊原則中，選擇 [**顯示名稱**] 和其他一些註冊屬性。
+- 在每個原則中選擇 [**顯示名稱**] 和 [**物件識別碼**] 應用程式宣告。您也可以選擇其他宣告。
+- 建立每個原則後，請複製原則的**名稱**。其前置詞應該為 `b2c_1_`。稍後您將需要這些原則名稱。
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 當您成功建立三個原則後，就可以開始建置您的應用程式。
 
-請注意，本文不會說明如何使用您剛才建立的原則。若您想要了解 Azure AD B2C 中的原則如何運作，您應該從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始。
+請注意，本文不會說明如何使用您剛才建立的原則。如果您想要了解 Azure AD B2C 中的原則如何運作，應該從 [.NET Web 應用程式使用者入門教學課程](active-directory-b2c-devquickstarts-web-dotnet.md)開始。
 
 
 
@@ -122,8 +121,8 @@ var log = bunyan.createLogger({
 - 之後，請使用我們僅供參考的策略來處理登入要求
 
 ```JavaScript
-// Use the OIDCStrategy within Passport. (Section 2) 
-// 
+// Use the OIDCStrategy within Passport. (Section 2)
+//
 //   Strategies in passport require a `validate` function, which accept
 //   credentials (in this case, an OpenID identifier), and invoke a callback
 //   with a user object.
@@ -159,7 +158,8 @@ passport.use(new OIDCStrategy({
 ```
 Passport 會使用適用於它的所有策略 (Twitter、Facebook 等) 且所有策略寫入器都依循的類似模式。查看此策略，您會看見我們將它當成 function() 來傳遞，其中含有一個 token 和一個 done 做為參數。一旦策略完成所有工作之後，便會盡責地返回。當它完成之後，我們會想要儲存使用者並隱藏權杖，因此我們不需再次要求它。
 
-> [AZURE.IMPORTANT]上述程式碼會讓所有使用者經歷伺服器的驗證。這就是所謂的自動註冊。在生產伺服器中，您想要讓所有人都必須先經歷您所決定的註冊過程。這通常是您在取用者 App 中看到的模式，可讓您向 Facebook 註冊，但接著會要求您填寫其他資訊。如果這不是範例應用程式，我們就只能從傳回的權杖物件中擷取電子郵件，然後要求他們填寫其他資訊。由於這是測試伺服器，因此，我們直接將它們加入至記憶體中的資料庫。
+> [AZURE.IMPORTANT]
+上述程式碼會讓所有使用者經歷伺服器的驗證。這就是所謂的自動註冊。在生產伺服器中，您想要讓所有人都必須先經歷您所決定的註冊過程。這通常是您在取用者 App 中看到的模式，可讓您向 Facebook 註冊，但接著會要求您填寫其他資訊。如果這不是範例應用程式，我們就只能從傳回的權杖物件中擷取電子郵件，然後要求他們填寫其他資訊。由於這是測試伺服器，因此，我們直接將它們加入至記憶體中的資料庫。
 
 - 接下來，我們會新增方法，依 Passport 所要求，允許我們持續追蹤已登入的使用者。這包括將使用者資訊序列化和還原序列化：
 
@@ -224,7 +224,7 @@ app.configure(function() {
 
 ```
 
-- 最後，加入 POST 路由，這會將實際的登入要求遞交至 `passport-azure-ad` 引擎：
+- 最後會加入 POST 路由，這會將實際的登入要求遞交至 `passport-azure-ad` 引擎：
 
 ```JavaScript
 
@@ -252,7 +252,7 @@ app.get('/auth/openid',
 app.get('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 
@@ -265,7 +265,7 @@ app.get('/auth/openid/return',
 app.post('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 ```
@@ -414,9 +414,7 @@ exports.list = function(req, res){
 
 如需參考，[此處以 .zip 格式提供](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip)完整範例 (不含您的組態值)，您也可以從 GitHub 予以複製：
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git```
 
 您現在可以進入更進階的主題。您可以嘗試：
 
@@ -433,4 +431,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,11 +23,11 @@
 
 本文章提供診斷和修正複雜的以 Windows 為基礎的 Azure 虛擬機器的遠端桌面錯誤的詳細疑難排解步驟。
 
-> [AZURE.IMPORTANT]若要解決較常見的遠端桌面錯誤，請務必閱讀[遠端桌面的基本疑難排解文章](virtual-machines-troubleshoot-remote-desktop-connections.md)再繼續進行。
+> [AZURE.IMPORTANT] 若要解決較常見的遠端桌面錯誤，請務必閱讀[遠端桌面的基本疑難排解文章](virtual-machines-troubleshoot-remote-desktop-connections.md)再繼續進行。
 
 如果您收到遠端桌面錯誤訊息，不像[基本遠端桌面疑難排解指南](virtual-machines-troubleshoot-remote-desktop-connections.md)中所涵蓋的任何特定錯誤訊息，您可以依照下列步驟，嘗試找出遠端桌面 (或 [RDP](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol)) 用戶端無法連線至 Azure VM 的 RDP 服務的原因。
 
-如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專家。或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下**取得支援**。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](http://azure.microsoft.com/support/faq/)。
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後按一下**取得支援**。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
 
 
 ## 遠端桌面連線的元件
@@ -100,7 +100,7 @@
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_3.png)
 
-> [AZURE.NOTE]如果是在資源管理員中建立的虛擬機器，請跳到[來源 4：網路安全性群組](#nsgs)。
+> [AZURE.NOTE] 如果是在資源管理員中建立的虛擬機器，請跳到[來源 4：網路安全性群組](#nsgs)。
 
 如果在同一個雲端服務或虛擬網路中沒有另一部虛擬機器，可以建立一部新的，方法是使用[在 Azure 中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial.md)中的步驟。測試完成之後，請刪除額外的虛擬機器。
 
@@ -195,4 +195,4 @@ PortNumber 屬性會顯示目前的連接埠號碼。如有需要，請使用此
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

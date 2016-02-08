@@ -3,7 +3,7 @@
 	description="使用 Windows PowerShell 管理角色存取控制"
 	services="active-directory"
 	documentationCenter="na"
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/25/2016"
+	ms.author="kgremban"/>
 
 # 使用 Windows PowerShell 管理角色存取控制 #
 
 > [AZURE.SELECTOR]
-- [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [Windows PowerShell](role-based-access-control-powershell.md)
+- [Azure CLI](role-based-access-control-xplat-cli.md)
 
 在 Azure 入口網站和 Azure 資源管理員 API 中，以角色為基礎的存取控制 (RBAC) 可讓您以精細的層級管理訂用帳戶存取。透過這項功能，您可以為 Active Directory 使用者、群組或是服務主體指派特定範圍的一些角色，藉此賦予其存取權限。
 
@@ -39,11 +38,11 @@
 
 本教學課程是專為 Windows PowerShell 初學者所設計的，但它會假設您已了解基本概念，例如模組、Cmdlet 和工作階段。如需 Windows PowerShell 的詳細資訊，請參閱[開始使用 Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx) (英文)。
 
-若要取得您在本教學課程中任何所見 Cmdlet 的詳細說明，請使用 Get-Help Cmdlet。
+若要取得您在本教學課程中任何所見 Cmdlet 的詳細說明，請使用 `Get-Help` Cmdlet。
 
 	Get-Help <cmdlet-name> -Detailed
 
-例如，如需取得 Add-AzureAccount Cmdlet 的說明，請輸入：
+例如，如需取得 `Add-AzureAccount` Cmdlet 的說明，請輸入：
 
 	Get-Help Add-AzureAccount -Detailed
 
@@ -55,19 +54,19 @@
 
 ## 連線到您的訂閱
 
-由於 RBAC 只能搭配 Azure 資源管理員使用，您必須切換至 Azure 資源管理員模式。請輸入：
+由於 RBAC 只能搭配 Azure 資源管理員一起運作，因此您必須先切換至 Azure 資源管理員模式：
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
 如需詳細資訊，請參閱[搭配使用 Windows PowerShell 與資源管理員](../powershell-azure-resource-manager.md)。
 
-若要連線到您的 Azure 訂閱，請輸入：
+若要連線至您的 Azure 訂閱，請輸入：
 
     PS C:\> Add-AzureAccount
 
 在快顯瀏覽器控制項中，輸入您的 Azure 帳戶使用者名稱與密碼。PowerShell 會取得您在此帳戶上的所有訂閱項目，並假設 PowerShell 預設會使用第一個訂閱。請注意，使用 RBAC 時，只有當您具備共同管理員身分或是具有某些角色指派時，才有取得訂閱項目的一些權限。
 
-如果您有多個訂閱，而且想要切換至另一個訂閱，請輸入：
+如果您有多個訂用帳戶，而且想要切換至另一個訂用帳戶，請使用下列命令：
 
     # This will show you the subscriptions under the account.
     PS C:\> Get-AzureSubscription
@@ -84,7 +83,7 @@
 
 如此會傳回訂閱中的所有角色指派。請注意以下兩點：
 
-1. 您需要擁有訂閱層級的讀取權限。
+1. 您需要擁有訂用帳戶層級的讀取權限。
 2. 如果訂閱內含許多角色指派，您可能需要一點時間才能取得所有訂閱資料。
 
 您也可以在特定範圍中，針對特定角色定義查看指派給特定使用者的現有角色指派。輸入：
@@ -94,7 +93,7 @@
 此指令會針對 AD 租用戶中具有資源群組「group1」之「Owner」角色指派的特定使用者，傳回該特定使用者的所有角色指派。角色指派可能來自兩個地方：
 
 1. 針對資源群組使用者的「Owner」角色指派。
-2. 針對資源群組父系使用者的「Owner」角色指派 (在此案例中為訂閱)，因為如果您在特定層級擁有訂閱，將對所有子系具有相同的權限。
+2. 針對資源群組父系使用者的「Owner」角色指派 (在此案例中為訂閱)，因為如果您在父層級擁有訂用帳戶，將對所有子系具有相同的權限。
 
 此 Cmdlet 的所有參數都是選擇性參數。您可以組合運用這些參數與不同的篩選器，來檢查角色指派。
 
@@ -113,29 +112,20 @@
 
     PS C:\> Get-AzureRoleDefinition
 
-您想要指派的範圍：有三個範圍層級
-
-    - The current subscription
-    - A resource group, to get a list of resource groups, type `PS C:\> Get-AzureResourceGroup`
-    - A resource, to get a list of resources, type `PS C:\> Get-AzureResource`
+您想要指派的範圍：範圍分為三個層級 - 目前的訂用帳戶 - 資源群組；若要取得資源群組清單，請輸入 `PS C:\> Get-AzureResourceGroup` - 資源；若要取得資源清單，請輸入 `PS C:\> Get-AzureResource`
 
 接下來，使用 `New-AzureRoleAssignment` 來建立角色指派。例如：
 
+	#This will create a role assignment at the current subscription level for a user as a reader.
+	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
-如此會在目前的訂閱層級中，為使用者建立讀者的角色指派。
-
-	 PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
-
-如此會在資源群組層級中建立角色指派。
-
+	#This will create a role assignment at a resource group level.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
-如此會在資源群組層級中針對群組建立角色指派。
-
+	#This will create a role assignment for a group at a resource group level.
 	PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
 
-此舉會在資源層級中建立角色指派。
-
+	#This will create a role assignment at a resource level.
 	PS C:\> $resources = Get-AzureResource
     PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
@@ -149,7 +139,7 @@
 
 這兩組 Cmdlet 只會傳回您擁有讀取權限的資源群組或資源。而且會同時顯示您擁有的權限。
 
-接下來，當您嘗試執行 `New-AzureResourceGroup` 等其他 Cmdlet 時，如果您沒有權限，將會出現拒絕存取錯誤。
+接著當您嘗試執行其他 Cmdlet 時 (像是 `New-AzureResourceGroup`)，如果您沒有權限就會傳回存取拒絕錯誤。
 
 ## 後續步驟
 
@@ -164,4 +154,4 @@
 - [使用 Azure CLI 設定角色存取控制](role-based-access-control-xplat-cli-install.md)
 - [為角色存取控制進行疑難排解](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

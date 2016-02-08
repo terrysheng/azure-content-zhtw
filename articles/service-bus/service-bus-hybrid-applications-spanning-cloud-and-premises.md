@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # 啟用橫跨雲端與內部部署的混合式應用程式
@@ -35,16 +35,16 @@
  
 ## 熱門
 
-- [服務匯流排定價資訊](http://azure.microsoft.com/pricing/details/service-bus/)
+- [服務匯流排定價資訊](https://azure.microsoft.com/pricing/details/service-bus/)
 - [服務匯流排定價常見問題集](service-bus-pricing-faq.md)
 - [服務匯流排 REST API 參考](http://msdn.microsoft.com/library/azure/hh780717.aspx)
-- [申請免費 Azure 試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
+- [申請免費 Azure 試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
  
 ## 相關服務
 
-- [BizTalk 服務](http://azure.microsoft.com/services/biztalk-services/)
-- [行動服務](http://azure.microsoft.com/services/mobile-services/)
-- [雲端服務](http://azure.microsoft.com/services/cloud-services/) 
+- [BizTalk 服務](https://azure.microsoft.com/services/biztalk-services/)
+- [行動服務](https://azure.microsoft.com/services/mobile-services/)
+- [雲端服務](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

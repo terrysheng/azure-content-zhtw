@@ -22,7 +22,7 @@
 Azure SQL [Web 和 Business 資料庫即將淘汰](sql-database-web-business-sunset-faq.md)，因此現在正是升級現有的 Web 或 Business 資料庫為 [Basic、Standard、Premium 或 Elastic 服務層](sql-database-service-tiers.md)的時候。
 
 
-> [AZURE.IMPORTANT]將 Web 或 Business 資料庫升級到新的服務層，並不會讓資料庫離線。資料庫會維持在線上而且可在整個升級作業可供使用。
+> [AZURE.IMPORTANT] 將 Web 或 Business 資料庫升級到新的服務層，並不會讓資料庫離線。資料庫會維持在線上而且可在整個升級作業可供使用。
 
 
 為了協助您完成升級，SQL Database 服務建議為每個資料庫選擇適當的服務層和效能層級 (定價層)。SQL Database 服務會透過分析每個資料庫的使用歷史記錄，建議最適合用於執行您現有資料庫工作負載的層。
@@ -67,7 +67,7 @@ Azure SQL [Web 和 Business 資料庫即將淘汰](sql-database-web-business-sun
 2. 依據歷史資源使用量判斷可接受的效能層級
 3. 為什麼 Web 或 Business 資料庫的現有效能對應到較高階層級？
 4. 微調您的工作負載以符合較低的效能層級
-5. 升級至新的服務層/效能層級
+5. *升級至新的服務層/效能層級*
 6. 監視新服務層/效能層級的升級
 7. 在升級後監視資料庫
 
@@ -91,7 +91,7 @@ Azure SQL [Web 和 Business 資料庫即將淘汰](sql-database-web-business-sun
 |:--|:--|
 |[Azure SQL Database 服務層和效能層級](sql-database-service-tiers.md)| 各服務層的概觀、度量和功能 (以及如何在傳統入口網站中使用 DMV 監視資料庫使用量)。 |
 |[Azure SQL Database 商務持續性](sql-database-business-continuity.md)|不同服務層可用的商務持續性及災害復原功能 (時間點還原、異地還原、異地複寫) 的詳細資料。|
-|[SQL Database 定價](http://azure.microsoft.com/pricing/details/sql-database/)|不同服務層和效能層級的詳細定價資訊。|
+|[SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)|不同服務層和效能層級的詳細定價資訊。|
 
 <br>
 
@@ -150,7 +150,7 @@ Azure 入口網站會在將伺服器升級至 SQL Database V12 的程序中，�
 
 在目前資料庫所在的邏輯伺服器的 master 資料庫中，Web 和 Business 資料庫資源耗用資料是透過 [sys.resource\_stats](http://msdn.microsoft.com/library/azure/dn269979.aspx) 檢視存取。它是以效能層級限制的百分比顯示資源耗用量資料。此檢視最早可提供 14 天前的資料，間隔是 5 分鐘。
 
-> [AZURE.NOTE]您現在可在 Web 和 Business 資料庫中使用 [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) 檢視，以取得資源耗用量資料的較高粒度檢視 (每 15 秒)。因為 sys.dm\_db\_resource\_stats 只會將歷程記錄資料保留一小時，所以您可以每小時查詢此 DMV，並儲存資料以供進一步分析。
+> [AZURE.NOTE] 您現在可在 Web 和 Business 資料庫中使用 [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) 檢視，以取得資源耗用量資料的較高粒度檢視 (每 15 秒)。因為 sys.dm\_db\_resource\_stats 只會將歷程記錄資料保留一小時，所以您可以每小時查詢此 DMV，並儲存資料以供進一步分析。
 
 在 master 資料庫上執行下列查詢可擷取資料庫的平均 DTU 耗用量：
 
@@ -317,4 +317,4 @@ Azure SQL Database 服務提供遙測資料和工具，可用於評估您的 Web
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

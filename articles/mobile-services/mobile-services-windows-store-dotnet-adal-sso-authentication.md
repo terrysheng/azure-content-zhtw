@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="01/14/2016"
 	ms.author="wesmc"/>
 
 # 使用 Active Directory Authentication Library 單一登入驗證您的應用程式
@@ -32,7 +32,7 @@
 要能夠驗證使用者，您必須向 Azure Active Directory (AAD) 註冊您的應用程式。此作業有兩個階段。第一，您必須註冊行動服務，並公開其權限。第二，您必須註冊 Windows 市集應用程式，並為其授與對這些權限的存取權
 
 
->[AZURE.NOTE]本教學課程旨在協助您深入了解如何透過行動服務，使用[用戶端主導登入作業](http://msdn.microsoft.com/library/azure/jj710106.aspx)對 Windows 市集應用程式執行單一登入 Azure Active Directory 驗證。如果這是您第一次接觸行動服務，請先完成教學課程[開始使用行動服務]。
+>[AZURE.NOTE] 本教學課程旨在協助您深入了解如何透過行動服務，使用[用戶端主導登入作業](http://msdn.microsoft.com/library/azure/jj710106.aspx)對 Windows 市集應用程式執行單一登入 Azure Active Directory 驗證。如果這是您第一次接觸行動服務，請先完成教學課程[開始使用行動服務]。
 
 
 ##必要條件
@@ -76,21 +76,14 @@
 
     ![][3]
 
-2. 然後按一下 [服務]
+2. 然後按一下 [應用程式管理] > [應用程式身分識別]，然後複製頁面上的封裝 SID。
 
     ![][4]
 
-3. 然後按一下 [Live 服務網站]。
-
-    ![][5]
-
-4. 從頁面頂端複製您的封裝 SID。
-
-    ![][6]
 
 ###建立原生應用程式註冊
 
-1. 導覽至 [Azure 傳統入口網站]中的 Active Directory，然後按一下您的目錄。
+1. 瀏覽至[傳統入口網站]的 [Active Directory]，然後按一下您的目錄。
 
     ![][7]
 
@@ -130,7 +123,7 @@
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-install-nuget](../../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
-4. 在 Visual Studio 的 [方案總管] 視窗中開啟 MainPage.xaml.cs 檔案，然後使用陳述式新增下列項目。
+4. 在 Visual Studio 的 [方案總管] 視窗中開啟 MainPage.cs 檔案，然後使用陳述式新增下列項目。
 
         using Windows.UI.Popups;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -217,7 +210,8 @@
 <!-- URLs. -->
 [如何向 Azure Active Directory 註冊]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
+[傳統入口網站]: https://manage.windowsazure.com/
 [開始使用行動服務]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Windows 開發人員中心儀表板]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

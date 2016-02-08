@@ -33,7 +33,7 @@
 
 **Azure 服務匯流排進階傳訊**提供 CPU 和記憶體層級的資源隔離，讓每個客戶工作負載能隔離執行。此資源容器稱為「傳訊單位」。每個進階命名空間都會被配置至少一個傳訊單位。您可以為每個服務匯流排進階命名空間購買 1、2 或 4 個傳訊單位。單一工作負載或實體可以跨越多個傳訊單位，而傳訊單位數目可以隨意變更，雖然計費是依 24 小時或每日費率收費。結果是您的服務匯流排方案的效能可預測並可重複。
 
-此效能不僅更可預測並可取得，而且還更快速。Azure 服務匯流排進階傳訊是以 [Azure 事件中樞](http://azure.microsoft.com/services/event-hubs/)中引進的儲存引擎為建置基礎。使用進階訊息，尖峰效能的速度比標準層級的速度快很多。
+此效能不僅更可預測並可取得，而且還更快速。Azure 服務匯流排進階傳訊是以 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)中引進的儲存引擎為建置基礎。使用進階訊息，尖峰效能的速度比標準層級的速度快很多。
 
 ## 進階傳訊技術差異
 
@@ -57,4 +57,4 @@
 - [Azure 服務匯流排架構概觀](service-bus-fundamentals-hybrid-solutions.md)
 - [如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

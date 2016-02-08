@@ -18,7 +18,7 @@
 
 # 使用 DocumentDB 指令碼總管檢視、編輯和建立預存程序、觸發程序和使用者定義函式。
 
-本文章提供 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) [指令碼總管] 的概述，它是讓您檢視 DocumentDB 伺服器端程式設計成品 (包括預存程序、觸發程序和使用者定義函數) 的 Azure 入口網站工具。在[這裡](documentdb-programming.md)閱讀更多有關 DocumentDB 伺服器端程式設計的資訊。
+本文章提供 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) [指令碼總管] 的概述，它是讓您檢視 DocumentDB 伺服器端程式設計成品 (包括預存程序、觸發程序和使用者定義函數) 的 Azure 入口網站工具。在[這裡](documentdb-programming.md)閱讀更多有關 DocumentDB 伺服器端程式設計的資訊。
 
 完成本教學課程後，您將能夠回答下列問題：
 
@@ -91,7 +91,7 @@
 
 	![[指令碼總管] 指令碼屬性檢視螢幕擷取畫面](./media/documentdb-view-scripts/scriptproperties.png)
 
-	> [AZURE.NOTE]時間戳記 (\_ts) 屬性在內部會以 Epoch 時間表示，但是 [指令碼總管] 會以一般人可判讀的 GMT 格式顯示此值。
+	> [AZURE.NOTE] 時間戳記 (\_ts) 屬性在內部會以 Epoch 時間表示，但是 [指令碼總管] 會以一般人可判讀的 GMT 格式顯示此值。
 
 - 若要刪除指令碼，請在 [指令碼總管] 中選取，然後按一下 [刪除] 命令。
 
@@ -106,4 +106,4 @@
 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0128_2016-->

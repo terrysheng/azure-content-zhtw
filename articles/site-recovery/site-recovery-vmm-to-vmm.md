@@ -40,7 +40,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
 **必要條件** | **詳細資料** 
 --- | ---
-**Azure**| 您將需要 [Microsoft Azure](http://azure.microsoft.com/) 帳戶。您可以從[免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。[深入了解](https://azure.microsoft.com/pricing/details/site-recovery/) Site Recovery 定價。 
+**Azure**| 您將需要 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。您可以從[免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。[深入了解](https://azure.microsoft.com/pricing/details/site-recovery/) Site Recovery 定價。 
 **VMM** | 您至少需要一個 VMM 伺服器。<br/><br/>VMM 伺服器應至少執行附帶最新累積更新的 System Center 2012 SP1。<br/><br/>如果您想要利用單一 VMM 伺服器設定保護，您必須在伺服器上設定至少兩個雲端。<br/><br/>如果您想要利用兩部 VMM 伺服器部署保護，每部伺服器都必須在您想要保護的主要 VMM 伺服器上至少設定一個雲端設定，以及在您想要用於保護和復原的次要 VMM 伺服器上設定一個雲端<br/><br/>所有的 VMM 雲端都必須設定 Hyper-V 容量設定檔。<br/><br/>您要保護的來源雲端必須包含一或多個 VMM 主機群組。<br/><br/>在 [Configuring the VMM cloud fabric (設定 VMM 雲端網狀架構)](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) 和 [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM (逐步解說：使用 System Center 2012 SP1 VMM 建立私人雲端)](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) 中深入了解如何設定 VMM 雲端。
 **Hyper-V** | 您在主要和次要 VMM 主機群組中需要一或多個 Hyper-V 主機伺服器，在每個 Hyper-V 主機伺服器上需要有一或多個虛擬機器。<br/><br/>主機和目標 Hyper-V 伺服器必須至少執行具有 Hyper-V 角色的 Windows Server 2012，並安裝最新的更新。<br/><br/>任何包含您要保護之 VM 的 Hyper-V 伺服器必須位於 VMM 雲端。<br/><br/>如果您在叢集中執行 Hyper-V，請注意，當您擁有靜態 IP 位址叢集時，並不會自動建立叢集代理人。您必須手動設定叢集代理人。[閱讀更多資訊](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx)。
 **網路對應** | 您可以設定網路對應，以確保在容錯移轉後，會以最佳方式將已複寫的虛擬機器置於次要 Hyper-V 主機伺服器上，而且這些虛擬機器可以連線到適當的 VM 網路。如果您未設定網路對應，複本 VM 在容錯移轉後將無法連線到任何網路。<br/><br/>若要在部署期間設定網路對應，請確定來源 Hyper-V 主機伺服器上的虛擬機器已連線到 VMM VM 網路。該網路應該連結到與雲端相關聯的邏輯網路。<br/<br/>在您用於復原的次要 VMM 伺服器上的目標雲端應該設定相對應的 VM 網路，而該網路應該連結到與目標雲端相關聯的相對應邏輯網路。<br/><br/>[深入了解](site-recovery-network-mapping.md)網路對應。
@@ -106,12 +106,12 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 	- 如果您想要使用自訂 proxy，您應該在安裝提供者之前進行設定。當您進行自訂 proxy 設定時，會執行一項測試以檢查 proxy 連線。
 	- 如果您使用自訂 proxy，或者您的預設 proxy 需要驗證，您必須輸入 proxy 詳細資料，包含 proxy 位址和連接埠。
 	- 下列 URL 應可從 VMM 伺服器和 Hyper-V 主機存取
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- 允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- 允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 	- 如果您使用的是自訂 proxy，則會使用指定的 proxy 認證自動建立 VMM RunAs 帳戶 (DRAProxyAccount)。設定 proxy 伺服器，讓此帳戶可以成功進行驗證。在 VMM 主控台中，可以修改 VMM RunAs 帳戶設定。若要這樣做，請開啟 [設定] 工作區、展開 [安全性]、按一下 [執行身分帳戶]，然後修改 DRAProxyAccount 的密碼。您必須重新啟動 VMM 服務，這項設定才會生效。
 
 8. 在 [註冊金鑰] 中，選取您從 Azure Site Recovery 下載並複製到 VMM 伺服器的金鑰。
@@ -375,4 +375,4 @@ VMM 伺服器上的提供者會收到來自服務的事件通知，並在 Hyper-
 
 - **選擇**：這是服務不可或缺的一部分，而且無法關閉。如果您不想將此資訊傳送給服務，請勿使用此服務。
 
-<!------HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -28,7 +28,7 @@ Azure 應用程式服務是根據可擴充性和通用連線性的原則，透�
 
 Azure 應用程式服務中有不同的服務「層」可用。所有層都包含連接器和 API 應用程式，包括其完整功能。
 
-[應用程式服務定價](http://azure.microsoft.com/pricing/details/app-service/)會描述這些服務層，也會列出這些層內含的項目。下列各節描述 BizTalk API 應用程式和連接器的各種類別。
+[應用程式服務定價](https://azure.microsoft.com/pricing/details/app-service/)會描述這些服務層，也會列出這些層內含的項目。下列各節描述 BizTalk API 應用程式和連接器的各種類別。
 
 
 ## 標準連接器
@@ -48,4 +48,4 @@ Azure 應用程式服務中有不同的服務「層」可用。所有層都包�
 請參閱[連接器和 API 應用程式清單](app-service-logic-connectors-list.md)，以取得各類別內含的完整連接器和 API 應用程式清單，包括標準連接器、BizTalk EAI、高階連接器等。
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

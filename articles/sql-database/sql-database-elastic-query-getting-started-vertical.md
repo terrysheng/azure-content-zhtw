@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/26/2016"
 	ms.author="torsteng" />
 
 # 開始使用跨資料庫查詢 (垂直資料分割) 
@@ -109,4 +109,4 @@ Azure SQL Database 彈性資料庫查詢 (預覽) 可讓您執行使用單一連
 
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

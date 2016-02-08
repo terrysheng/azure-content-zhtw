@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App 模型 v2 權杖參考 | Microsoft Azure"
+	pageTitle="Azure AD v2.0 權杖參考 | Microsoft Azure"
 	description="v2.0 端點所發出的權杖和宣告的類型"
 	services="active-directory"
 	documentationCenter=""
@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="01/11/2016"
 	ms.author="dastrock"/>
 
-# 應用程式模型 v2.0 預覽版本：權杖參考
+# V2.0 權杖參考
 
 V2.0 端點會在每個[驗證流程](active-directory-v2-flows.md)的處理中發出數種安全性權杖。本文件說明每種權杖的格式、安全性特性和內容。
 
-> [AZURE.NOTE]此資訊適用於 v2.0 應用程式模型公開預覽版本。如需有關如何整合公開上市 Azure AD 服務的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
+> [AZURE.NOTE]
+	此資訊適用於 v2.0 應用程式模型公開預覽版本。如需有關如何整合公開上市 Azure AD 服務的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
 
 ## 權杖的類型
 
@@ -28,62 +29,48 @@ V2.0 端點支援 [OAuth 2.0 授權通訊協定](active-directory-v2-protocols.m
 
 持有人權杖是輕巧型的安全性權杖，授權「持有者」存取受保護的資源。從這個意義上說，「持有者」是可出示權杖的任何一方。雖然某一方必須先向 Azure AD 驗證以收到持有人權杖，但如果傳輸和儲存時未採取必要的步驟來保護權杖，它可能會被非預期的一方攔截和使用。雖然某些安全性權杖都有內建的機制，可防止未經授權的人士使用權杖，但持有者權杖沒有這項機制，而必須以安全通道來傳輸，例如傳輸層安全性 (HTTPS)。如果持有人權杖以純文字傳輸，惡意人士可能使用攔截式攻擊來取得權杖，然後未經授權存取受保護的資源。儲存或快取持有者權杖供以後使用時，也適用相同的安全性原則。務必確定您的應用程式以安全的方式傳輸和儲存持有人權杖。關於持有者權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](http://tools.ietf.org/html/rfc6750)。
 
-許多由 v2.0 端點所簽發的權杖都會實作為 Json Web 權杖或 JWT。JWT 是一種精簡的 URL 安全方法，可在兩方之間傳輸資訊。JWT 中包含的資訊也稱為權杖持有人及主體相關資訊的「宣告」或判斷提示。JWT 中的宣告是為了傳輸而編碼和序列化的 JSON 物件。因為 v2.0 端點所簽發的 JWT 已簽署但未加密，所以您可以輕鬆地檢查 JWT 的內容以便偵錯。有數個工具可以進行這項操作，例如 [calebb.net](https://calebb.net)。如需 JWT 的詳細資訊，您可以參考 [JWT 規格](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。
+許多由 v2.0 端點所簽發的權杖都會實作為 Json Web 權杖或 JWT。JWT 是一種精簡的 URL 安全方法，可在兩方之間傳輸資訊。JWT 中包含的資訊也稱為權杖持有人及主體相關資訊的「宣告」或判斷提示。JWT 中的宣告是為了傳輸而編碼和序列化的 JSON 物件。因為 v2.0 端點所簽發的 JWT 已簽署但未加密，所以您可以輕鬆地檢查 JWT 的內容以便偵錯。有數個工具可以進行這項操作，例如 [calebb.net](http://jwt.calebb.net)。如需 JWT 的詳細資訊，您可以參考 [JWT 規格](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。
 
-## Id\_Token
+## Id\_tokens
 
 Id\_token 是您的應用程式使用 [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow) 執行驗證時收到的一種登入安全性權杖形式。其以 [JWT](#types-of-tokens) 表示，而且包含可用於讓使用者登入您的應用程式的宣告。您可以適時使用 id\_token 中的宣告 - 通常用來顯示顯示帳戶資訊或在應用程式中進行存取控制決策。V2.0 端點只會簽發一種類型的 id\_token，而不論使用者登入的類型為何，都具有一組一致的宣告。這表示 id\_token 的格式和內容會與個人 Microsoft 帳戶使用者及公司或學校帳戶的格式和內容相同。
 
 Id\_token 已簽署，但這次不加密。當您的應用程式收到 id\_token 時，它必須[驗證簽章](#validating-tokens)以證明權杖的真實性，以及驗證權杖中的幾個宣告來證明其有效性。應用程式所驗證的宣告會視案例需求而有所不同，但您的應用程式必須在每一種案例中執行一些[常見的宣告驗證](#validating-tokens)。
 
-下面提供 id\_token 中宣告的完整詳細資料以及範例 id\_token。請注意，id\_token 中的宣告不依任何特定順序傳回。此外，新的宣告可以隨時引進 id\_token 中 - 您的應用程式不會在引進新的宣告時中斷。以下清單包含您的應用程式在此書寫時能確實地解譯的宣告。練習時，請試著將範例 id\_token 中的宣告貼入 [calebb.net](https://calebb.net) 中進行檢查。如有需要，在 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html)中可找到更多詳細資料。
+下面提供 id\_token 中宣告的完整詳細資料以及範例 id\_token。請注意，id\_token 中的宣告不依任何特定順序傳回。此外，新的宣告可以隨時引進 id\_token 中 - 您的應用程式不會在引進新的宣告時中斷。以下清單包含您的應用程式在此書寫時能確實地解譯的宣告。如有需要，在 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html)中可找到更多詳細資料。
 
-#### 範例 Id\_Token
+#### 範例 id\_token
+
 ```
-// Line breaks for display purposes only
-
-eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ
-19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiI0OTIxMDI1My0wYmExLTRhOWEtYTQyNC02MTY5OTlmYWI2MjAiL
-CJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vYjk0MTAzMTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMW
-YzNzZlL3YyLjAvIiwiaWF0IjoxNDM4NTM1NTQzLCJuYmYiOjE0Mzg1MzU1NDMsImV4cCI6MTQzODUzOTQ0MywidmVyIjoiMi4
-wIiwidGlkIjoiYjk0MTAzMTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMWYzNzZlIiwib2lkIjoiYTFlYmRkZTgtZTRmOS00NTcx
-LWFkOTMtMzA1OWUzNzUwZDIzIiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2FtcGxlLmFkbWluQHN0cm9ja2lzZGV2Lm9ubWljc
-m9zb2Z0LmNvbSIsInN1YiI6IjJvMmQ5SVBGVzI5MGo0RVkySXg0RUdoaEtlWnVGaC1LcFhHS2tuZkNxRWMiLCJuYW1lIjoiU2
-FtcGxlIEFkbWluIiwibm9uY2UiOiIxMjM0NSIsImNfaGFzaCI6IngxeU92VTZRaXE0Y1lVcVIxeDBvM2cifQ.Qk9exyv04I6a
-P6Sju2xNG9O2sj8dG-aEoJeS5dmnjdLo8k1ZzgZd7w-6yCrKXgPh4FJ1YY-08DZnHNmP3oxm3zmEv3RUIBEyTmo3598PRYLWl
-vttis1KD5PoNgAyKfHqiOCL5q_Owd0m9oAKDagbJhRVZOS89phllA0AQnaI6hJOKvMsbOYJt-w00y6TXf1Nkzp_Yey8EmRiwN
-7gqvudL1UfZ7_UbST2DBjPIyZsv0gT8gpApz6CecCOyX1NNWpUg8ZRkNnOjGL-IMhq4okPCTTfYriOo93z9Y9v6NmaJxV5bBN
-V-DIguXSzLVKnnflfSLyvhinsjLKCnu9L3oXHxw
+eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiI2NzMxZGU3Ni0xNGE2LTQ5YWUtOTdiYy02ZWJhNjkxNDM5MWUiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vYjk0MTk4MTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMWYzNzZlL3YyLjAiLCJpYXQiOjE0NTIyODUzMzEsIm5iZiI6MTQ1MjI4NTMzMSwiZXhwIjoxNDUyMjg5MjMxLCJuYW1lIjoiQmFiZSBSdXRoIiwibm9uY2UiOiIxMjM0NSIsIm9pZCI6ImExZGJkZGU4LWU0ZjktNDU3MS1hZDkzLTMwNTllMzc1MGQyMyIsInByZWZlcnJlZF91c2VybmFtZSI6InRoZWdyZWF0YmFtYmlub0BueXkub25taWNyb3NvZnQuY29tIiwic3ViIjoiTUY0Zi1nZ1dNRWppMTJLeW5KVU5RWnBoYVVUdkxjUXVnNWpkRjJubDAxUSIsInRpZCI6ImI5NDE5ODE4LTA5YWYtNDljMi1iMGMzLTY1M2FkYzFmMzc2ZSIsInZlciI6IjIuMCJ9.p_rYdrtJ1oCmgDBggNHB9O38KTnLCMGbMDODdirdmZbmJcTHiZDdtTc-hguu3krhbtOsoYM2HJeZM3Wsbp_YcfSKDY--X_NobMNsxbT7bqZHxDnA2jTMyrmt5v2EKUnEeVtSiJXyO3JWUq9R0dO-m4o9_8jGP6zHtR62zLaotTBYHmgeKpZgTFB9WtUq8DVdyMn_HSvQEfz-LWqckbcTwM_9RNKoGRVk38KChVJo4z5LkksYRarDo8QgQ7xEKmYmPvRr_I7gvM2bmlZQds2OeqWLB1NSNbFZqyFOCgYn3bAQ-nEQSKwBaA36jYGPOVG2r2Qv1uKcpSOxzxaQybzYpQ
 ```
 
-#### Id\_Token 中的宣告
+> [AZURE.TIP] 練習時，請試著將範例 id\_token 中的宣告貼入 [calebb.net](https://calebb.net) 中進行檢查。
+
+#### id\_tokens 中的宣告
 | 名稱 | 宣告 | 範例值 | 說明 |
 | ----------------------- | ------------------------------- | ------------ | --------------------------------- |
-| 對象 | `aud` | `49210253-0ba1-4a9a-a424-616999fab620` | 識別權杖的預定接收者。在 id\_token 中，對象是在應用程式註冊入口網站中指派給應用程式的應用程式識別碼。您的應用程式應驗證此值並拒絕不相符的權杖。 |
-| Issuer | `iss` | `https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0/` | 識別可建構並傳回權杖的 Security Token Service (STS)，以及用以使用者驗證的 Azure AD 租用戶。您的應用程式應驗證簽發者宣告，以確保權杖來自 v2.0 端點。它也可以使用宣告的 guid 部分來限制允許登入應用程式的租用戶集合。 |
-| 發出時間 | `iat` | `1438535543` | 簽發權杖的時間 (以新紀元 (Epoch) 時間表示)。 |
-| 到期時間 | `exp` | `1438539443` | 權杖失效的時間 (以新紀元 (Epoch) 時間表示)。您的應用程式應使用此宣告來驗證權杖存留期的有效性。 |
+| 對象 | `aud` | `6731de76-14a6-49ae-97bc-6eba6914391e` | 識別權杖的預定接收者。在 id\_token 中，對象是在應用程式註冊入口網站中指派給應用程式的應用程式識別碼。您的應用程式應驗證此值並拒絕不相符的權杖。 |
+| Issuer | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0` | 識別可建構並傳回權杖的 Security Token Service (STS)，以及用以使用者驗證的 Azure AD 租用戶。您的應用程式應驗證簽發者宣告，以確保權杖來自 v2.0 端點。它也可以使用宣告的 guid 部分來限制允許登入應用程式的租用戶集合。 |
+| 發出時間 | `iat` | `1452285331` | 簽發權杖的時間 (以新紀元 (Epoch) 時間表示)。 |
+| 到期時間 | `exp` | `1452289231` | 權杖失效的時間 (以新紀元 (Epoch) 時間表示)。您的應用程式應使用此宣告來驗證權杖存留期的有效性。 |
+| 生效時間 | `nbf` | `1452285331` | 權杖生效的時間 (以新紀元 (Epoch) 時間表示)。這通常與簽發時間相同。您的應用程式應使用此宣告來驗證權杖存留期的有效性。 |
 | 版本 | `ver` | `2.0` | Azure AD 所定義的 id\_token 版本。在應用程式模型 v2.0 中，此值會是 `2.0`。 |
-| 租用戶識別碼 | `tid` | `b9410318-09af-49c2-b0c3-653adc1f376e` | 代表使用者來自之 Azure AD 租用戶的 guid。若為公司與學校帳戶，guid 就是使用者所屬組織的不可變租用戶識別碼。若為個人帳戶，此值會是 `9188040d-6c67-4c5b-b112-36a304b66dad`。 |
+| 租用戶識別碼 | `tid` | `b9419818-09af-49c2-b0c3-653adc1f376e` | 代表使用者來自之 Azure AD 租用戶的 guid。若為公司與學校帳戶，guid 就是使用者所屬組織的不可變租用戶識別碼。若為個人帳戶，此值會是 `9188040d-6c67-4c5b-b112-36a304b66dad`。需要 `profile` 範圍才能接收此宣告。 |
 | 程式碼雜湊 | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | 只有在 id\_token 隨著 OAuth 2.0 授權碼一起簽發時，雜湊程式碼才會包含在 id\_token 中。它可用來驗證授權碼的真實性。如需有關執行此驗證的詳細資訊，請參閱 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html)。 |
 | 存取權杖雜湊 | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | 只有在 id\_token 隨著 OAuth 2.0 存取權杖一起簽發時，存取權杖才會包含在 id\_token 中。它可用來驗證存取權杖的真實性。如需有關執行此驗證的詳細資訊，請參閱 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html)。 |
 | Nonce | `nonce` | `12345` | Nonce 是緩和權杖重新執行攻擊的策略。您的應用程式可以使用 `nonce` 查詢參數，在授權要求中指定 Nonce。您在要求中提供的值將會在 id\_token 的 `nonce` 宣告中發出 (未經修改)。這可讓您的應用程式根據在要求上指定的值驗證此值，使應用程式的工作階段與給定的 id\_token 產生關聯。您的應用程式應在 id\_token 驗證程序中執行這項驗證。 |
-| 名稱 | `name` | `Leonardo DaVinci` | 名稱宣告提供人類看得懂的值，用以識別權杖的主體。此值不保證是唯一值，可變動，且僅限使用於顯示目的。 |
-| 慣用的使用者名稱 | `preferred_username` | `leo@outlook.com` | 用來代表 v2.0 端點中使用者的主要使用者名稱。它可以是電子郵件地址、電話號碼或未指定格式的一般使用者名稱。其值可變動，對指定的使用者而言會隨著時間改變。 |
-| 主旨 | `sub` | `AAAAAAAAAAAAAAAAAAAAAOUtxUJsxQtHuMcFCIA1NC0` | 權杖判斷提示其相關資訊的主體，例如應用程式的使用者。這個值不可變，而且無法重新指派或重複使用，因此可用來安全地執行授權檢查，例如當權杖用於存取資源時。因為主體一律存在於 Azure AD 簽發的權杖中，所以建議您將此值使用於一般用途授權系統中。 |
-| ObjectId | `oid` | `27cb5cec-7c0c-40b4-a69a-22500b6ea853` | Azure AD 系統中公司或學校帳戶的物件識別碼。不會針對個人 Microsoft 帳戶發出此宣告。 |
-
-<!---
-| Not Before | `nbf` | `1438535543` |  The time at which the token becomes valid, represented in epoch time. It is usually the same as the issuance time.  Your app should use this claim to verify the validity of the token lifetime.  |
--->
+| 名稱 | `name` | `Babe Ruth` | 名稱宣告提供人類看得懂的值，用以識別權杖的主體。此值不保證是唯一值，可變動，且僅限使用於顯示目的。需要 `profile` 範圍才能接收此宣告。 |
+| 電子郵件 | `email` | `thegreatbambino@nyy.onmicrosoft.com` | 與使用者帳戶相關聯的主要電子郵件地址 (如果有的話)。其值可變動，對指定的使用者而言會隨著時間改變。需要 `email` 範圍才能接收此宣告。 |
+| 慣用的使用者名稱 | `preferred_username` | `thegreatbambino@nyy.onmicrosoft.com` | 用來代表 v2.0 端點中使用者的主要使用者名稱。它可以是電子郵件地址、電話號碼或未指定格式的一般使用者名稱。其值可變動，對指定的使用者而言會隨著時間改變。需要 `profile` 範圍才能接收此宣告。 |
+| 主旨 | `sub` | `MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | 權杖判斷提示其相關資訊的主體，例如應用程式的使用者。這個值不可變，而且無法重新指派或重複使用，因此可用來安全地執行授權檢查，例如當權杖用於存取資源時。因為主體一律存在於 Azure AD 簽發的權杖中，所以建議您將此值使用於一般用途授權系統中。 |
+| ObjectId | `oid` | `a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Azure AD 系統中公司或學校帳戶的物件識別碼。不會針對個人 Microsoft 帳戶發出此宣告。需要 `profile` 範圍才能接收此宣告。 |
 
 
 
 ## 存取權杖
 
-v2.0 端點所簽發的存取權杖有兩種不同的格式。代表公司或學校帳戶簽發的存取權杖為 JWT，類似 id\_token。代表個人 Microsoft 帳戶簽發的存取權杖會採用所謂的「壓縮票證」格式。基於這個理由，在開發過程中，您可能會發現 v2.0 端點所簽發的存取權杖使用不同的字串格式。經過一段時間，存取權杖中的這項差異會從 v2.0 端點中排除。
-
-雖然如此，v2.0 端點所簽發的存取權杖此時僅適用於 Microsoft 服務。在任何目前支援的案例中，您的應用程式應該不需要執行任何的存取權杖驗證或檢查。您可以將存取權杖視為完全不透明 - 這些都是您的應用程式可以在 HTTP 要求中傳遞給 Microsoft 的字串。
+v2.0 端點所簽發的存取權杖此時僅適用於 Microsoft 服務。在任何目前支援的案例中，您的應用程式應該不需要執行任何的存取權杖驗證或檢查。您可以將存取權杖視為完全不透明 - 這些都是您的應用程式可以在 HTTP 要求中傳遞給 Microsoft 的字串。
 
 在不久的將來，v2.0 端點將引進可讓您的應用程式從其他用戶端接收存取權杖的功能。屆時，此資訊將會更新為應用程式執行存取權杖驗證和其他類似工作所需的資訊。
 
@@ -101,6 +88,7 @@ v2.0 端點所簽發的存取權杖有兩種不同的格式。代表公司或學
 
 當您兌換重新整理權杖做為新的存取權杖 (而且如果您的應用程式已獲得 `offline_access` 範圍) 時，您會在權杖回應中收到新的重新整理權杖。您應儲存新簽發的重新整理權杖，並取代您使用於要求中的重新整理權杖。這將保證您的重新整理權杖盡可能長期保持有效。
 
+
 ## 驗證權杖
 
 此時，您的應用程式必須執行的唯一權杖驗證就是驗證 id\_token。若要驗證 id\_token，您的應用程式應該驗證 id\_token 簽章和 id\_token 中的宣告。
@@ -115,35 +103,40 @@ Id\_Token 會使用業界標準非對稱式加密演算法 (例如 RSA 256) 進�
 
 ```
 {
-		typ: "JWT",
-		alg: "RS256",
-		x5t: "GvnPApfWMdLRi8PDmisFn7bprKg"
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "MnC_VZcATfM5pOYiJHMba9goEKY"
 }
 ```
 
-`alg` 宣告表示用來簽署權杖的演算法，而 `kid` 或 `x5t` 宣告表示用來簽署權杖的特定公用金鑰。
+`alg` 宣告表示用來簽署權杖的演算法，而 `kid` 宣告表示用來簽署權杖的特定公用金鑰。
 
 在任何指定的時間點，v2.0 端點可能會使用一組特定公開-私密金鑰組的其中一個金鑰組來簽署 id\_token。V2.0 端點會定期替換一組可能的金鑰，所以應將您的應用程式撰寫成自動處理這些金鑰變更。檢查 v2.0 端點所用公開金鑰的更新的合理頻率大約為 24 小時。
 
 您可以使用位於下列位置的 OpenID Connect 中繼資料文件來取得驗證簽章所需的簽署金鑰資料：
 
-`https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`
+```
+https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
+```
 
-此中繼資料文件是 JSON 物件，內含幾項實用的資訊，例如執行 OpenID Connect 驗證所需的各種端點的位置。此外，還包含 `jwks_uri`，其提供用來簽署權杖的公用金鑰組的位置。該位置如下所示，但最好使用中繼資料文件並剖析出 `jwks_uri` 來動態抓取該位置：
+> [AZURE.TIP] 在瀏覽器中嘗試此 URL！
 
-`https://login.microsoftonline.com/common/discovery/v2.0/keys`
+此中繼資料文件是 JSON 物件，內含幾項實用的資訊，例如執行 OpenID Connect 驗證所需的各種端點的位置。
 
-位於此 url 的 JSON 文件包含在該特定時間點使用的所有公開金鑰資訊。您的應用程式可以使用 JWT 標頭中的 `kid` 或 `x5t` 宣告來選取此文件中的哪一個公開金鑰已用來簽署特定權杖。接著可以使用正確的公開金鑰和指定的演算法來執行簽章驗證。
+此外，還包含 `jwks_uri`，其提供用來簽署權杖的公用金鑰組的位置。位於 `jwks_uri` 的 JSON 文件包含在該特定時間點使用的所有公開金鑰資訊。您的應用程式可以使用 JWT 標頭中的 `kid` 宣告來選取此文件中的哪一個公開金鑰已用來簽署特定權杖。接著可以使用正確的公開金鑰和指定的演算法來執行簽章驗證。
 
 執行簽章驗證已超出本文件的範圍 - 有許多開放原始碼程式庫可協助您這麼做 (如有必要)。
 
 #### 驗證宣告
-當您的應用程式在使用者登入時收到 id\_token，還應該對 id\_token 中的宣告執行一些檢查。其中包含：
+當您的應用程式在使用者登入時收到 id\_token，還應該對 id\_token 中的宣告執行一些檢查。包含但不限於：
 
 - **對象**宣告 - 確認 id\_token 預定要提供給您的應用程式。
-- **發出時間**和**到期時間**宣告 - 確認 id\_token 尚未過期。
+- **生效時間**和**到期時間**宣告 - 確認 id\_token 尚未過期。
 - **簽發者**宣告 - 確認權杖確實是由 v2.0 端點簽發給您的應用程式。
 - **Nonce** - 緩和權杖重新執行攻擊。
+- 不勝枚舉...
+
+如需您的應用程式應該執行的宣告驗證的完整清單，請參閱 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)。
 
 這些宣告的預期值詳細資料包含在上面的 [id\_token 一節](#id_tokens)中。
 
@@ -163,4 +156,4 @@ Id\_Token 會使用業界標準非對稱式加密演算法 (例如 RSA 256) 進�
 | 授權碼 (公司或學校帳戶) | 10 分鐘 | 授權碼的存留期特意較短，且應在收到時立即兌換 access\_token 和 refresh\_token。 |
 | 授權碼 (個人帳戶) | 5 分鐘 | 授權碼的存留期特意較短，且應在收到時立即兌換 access\_token 和 refresh\_token。代表個人帳戶簽發的授權碼也是單次使用。 |
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

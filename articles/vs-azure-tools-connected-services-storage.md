@@ -90,8 +90,8 @@
 
      - [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
 
-     - [azure.microsoft.com 上的儲存體](http://azure.microsoft.com/services/storage)
+     - [azure.microsoft.com 上的儲存體](https://azure.microsoft.com/services/storage/)
 
-     - [azure.microsoft.com 上的儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
+     - [azure.microsoft.com 上的儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

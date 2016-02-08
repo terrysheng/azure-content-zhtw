@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 網域服務 (預覽) - 開始使用
@@ -23,7 +23,7 @@
 ## 步驟 1：建立「AAD DC 系統管理員」群組
 第一個步驟是在您的 Azure Active Directory 租用戶中建立系統管理群組。這個特殊的系統管理群組稱為 **AAD DC 系統管理員**。此群組的成員會被授與電腦的系統管理權限，這類電腦已加入您將設定的 Azure AD 網域服務網域的網域。加入網域之後，即會在這些已加入網域的電腦上將這個群組新增到「系統管理員」群組。此外，此群組的成員也能夠使用遠端桌面，遠端連接到已加入網域的電腦。
 
-> [AZURE.NOTE]您無法在使用 Azure AD 網域服務建立的網域內，行使「網域系統管理員」或「企業系統管理員」權限。由於這是受管理的網域，因此服務會保留這些權限，並不會提供給租用戶中的使用者使用。不過，您將能夠使用在此組態步驟中建立的這個特殊系統管理員群組，來執行某些具備特殊權限的作業，例如，將電腦加入網域、使其屬於已加入網域之電腦上的系統管理員群組、設定群組原則等。
+> [AZURE.NOTE] 您無法在使用 Azure AD 網域服務建立的網域內，行使「網域系統管理員」或「企業系統管理員」權限。由於這是受管理的網域，因此服務會保留這些權限，並不會提供給租用戶中的使用者使用。不過，您將能夠使用在此組態步驟中建立的這個特殊系統管理員群組，來執行某些具備特殊權限的作業，例如，將電腦加入網域、使其屬於已加入網域之電腦上的系統管理員群組、設定群組原則等。
 
 在這個組態步驟中，您將會設定群組，並將租用戶中的一或多位使用者新增至該群組。執行下列步驟，以建立適用於 Azure AD 網域服務的系統管理群組：
 
@@ -37,7 +37,7 @@
 5. 從頁面底部的工作窗格中，按一下 [新增群組]，將群組新增至您的目錄。
 6. 建立名為 **AAD DC 系統管理員**的群組。
 
-    > [AZURE.WARNING]您建立的群組名稱必須與此名稱完全相同，才能啟用 Azure AD 網域服務內的存取權。
+    > [AZURE.WARNING] 您建立的群組名稱必須與此名稱完全相同，才能啟用 Azure AD 網域服務內的存取權。
 
 	![建立系統管理員群組](./media/active-directory-domain-services-getting-started/create-admin-group.png)
 
@@ -50,4 +50,4 @@
 ---
 [**下一個步驟 - 建立或選取 Azure 虛擬網路。**](active-directory-ds-getting-started-vnet.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

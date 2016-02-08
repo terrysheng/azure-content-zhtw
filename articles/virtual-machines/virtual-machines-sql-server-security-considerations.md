@@ -25,7 +25,7 @@
 
 如需關於 SQL Server 安全性作法的詳細資訊，請參閱 [SQL Server 2008 R2 安全性最佳作法 - 操作與管理工作](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL_Server_2008_R2_Security_Best_Practice_Whitepaper.docx)
 
-Azure 符合多種業界規範及標準，可讓您使用在虛擬機器中執行的 SQL Server，建置相容的解決方案。如需 Azure 的法規相符性資訊，請參閱 [Azure 信任中心](http://azure.microsoft.com/support/trust-center/)。
+Azure 符合多種業界規範及標準，可讓您使用在虛擬機器中執行的 SQL Server，建置相容的解決方案。如需 Azure 的法規相符性資訊，請參閱 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/)。
 
 以下是設定及連接到 Azure VM 中的 SQL Server 執行個體時，應考量的安全性建議清單。
 
@@ -62,4 +62,4 @@ Azure 符合多種業界規範及標準，可讓您使用在虛擬機器中執�
 
 如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/17/2015"
+   	ms.date="01/22/2016"
    	ms.author="larryfr"/>
 
 #使用 Azure CLI 建立 HDInsight 上的 Linux 型叢集
@@ -27,13 +27,13 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 
 本文件中的步驟將逐步完成使用 Azure CLI 和範本建立新 HDInsight 叢集的程序。
 
-> [AZURE.IMPORTANT]本文件中的步驟使用 HDInsight 叢集的背景工作節點預設數目 (4)。如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
+> [AZURE.IMPORTANT] 本文件中的步驟使用 HDInsight 叢集的背景工作節點預設數目 (4)。如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
 >
 > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
 ##必要條件
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 - __Azure CLI__。如需安裝 CLI 的相關資訊，請參閱[安裝 Azure CLI](../xplat-cli-install.md)。
 
@@ -84,7 +84,7 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 
         azure group create RESOURCEGROUPNAME LOCATION
     
-    > [AZURE.NOTE]如果位置名稱包含空格，請將它放在引號中。例如 "South Central US"。
+    > [AZURE.NOTE] 如果位置名稱包含空格，請將它放在引號中。例如 "South Central US"。
 
 6. 使用下列命令來建立此資源群組的初始部署。以 __azuredeploy.json__ 範本檔案的路徑取代 __PATHTOTEMPLATE__。以 __azuredeploy.parameters.json__ 檔案的路徑取代 __PATHTOPARAMETERSFILE__。以您在上一個步驟中建立的群組名稱取代 __RESOURCEGROUPNAME__︰
 
@@ -121,4 +121,4 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 * [在 HDInsight 上的 Storm 中使用 Python 元件](hdinsight-storm-develop-python-topology.md)
 * [在 HDInsight 上使用 Storm 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,11 +23,11 @@
 
 Microsoft Azure SQL Database 有三個[服務層](sql-database-service-tiers.md)，基本、標準和高階。這些服務層全都會嚴密區隔提供給您的 Azure SQL Database 的資源，並保證可預測的效能。為您的資料庫保證的輸送量會從基本層、標準層、高階層一路提高。
 
->[AZURE.NOTE]2015 年 9 月將會淘汰商務和 Web 服務層。如需詳細資訊，請參閱 [Web 和 Business Edition 終止常見問題集](https://msdn.microsoft.com/library/azure/dn741330.aspx)。如需將現有的 Web 及商務資料庫升級至新服務層的詳細資訊，請參閱[將 SQL Database Web/商務資料庫升級至新的服務層](sql-database-upgrade-new-service-tiers.md)。
+>[AZURE.NOTE] 2015 年 9 月將會淘汰商務和 Web 服務層。如需詳細資訊，請參閱 [Web 和 Business Edition 終止常見問題集](https://msdn.microsoft.com/library/azure/dn741330.aspx)。如需將現有的 Web 及商務資料庫升級至新服務層的詳細資訊，請參閱[將 SQL Database Web/商務資料庫升級至新的服務層](sql-database-upgrade-new-service-tiers.md)。
 
 本文提供指引以幫助您判斷哪一個服務層適合您的應用程式，並提供微調應用程式以充分利用 Azure SQL Database 的建議。
 
->[AZURE.NOTE]本文著重在 SQL Database 中單一資料庫的效能指引。如需彈性資料庫集區的相關效能指引，請參閱[彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)。不過請注意，本文中許多單一資料庫的微調建議可應用於彈性集區內的資料庫，且具有類似的效能優勢。
+>[AZURE.NOTE] 本文著重在 SQL Database 中單一資料庫的效能指引。如需彈性資料庫集區的相關效能指引，請參閱[彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)。不過請注意，本文中許多單一資料庫的微調建議可應用於彈性集區內的資料庫，且具有類似的效能優勢。
 
 **作者：**Conor Cunningham、Kun Cheng、Jan Engelsberg
 
@@ -117,7 +117,7 @@ Microsoft 也包含 Azure SQL Database 中的許多自動管理功能，例如�
 ### OLTP 記憶體內部儲存體上限
 **OLTP 記憶體內部儲存體上限**是指可供高階資料庫的[記憶體內部 OLTP 預覽](sql-database-in-memory.md)使用的儲存體數量上限。這有時候也稱為 「XTP 記憶體內部儲存體」。您可以使用 Azure 傳統入口網站或 **sys.dm\_db\_resource\_stats** 檢視來監視記憶體內部儲存體的使用情形。如需有關監視的詳細資訊，請參閱[監視 OLTP 記憶體內部儲存體](sql-database-in-memory-oltp-monitoring.md)。
 
->[AZURE.NOTE]記憶體內部 OLTP 預覽目前只支援用於單一資料庫，並不支援用於彈性資料庫集區中的資料庫。
+>[AZURE.NOTE] 記憶體內部 OLTP 預覽目前只支援用於單一資料庫，並不支援用於彈性資料庫集區中的資料庫。
 
 ### 並行要求數上限
 
@@ -139,7 +139,7 @@ Microsoft 也包含 Azure SQL Database 中的許多自動管理功能，例如�
 
 **並行登入數上限**代表同一時間嘗試登入資料庫的使用者或應用程式數目限制。請注意，即使這些用戶端使用相同的連接字串，服務仍會驗證每一個登入。因此，如果有十位使用者同時以相同使用者名稱和密碼連接到資料庫，將會有十個並行登入。這項限制只適用於登入和驗證期間。所以如果相同的十位使用者是依序連接到資料庫，並行登入數目絕對不會高於一。
 
->[AZURE.NOTE]這項限制目前不適用於彈性資料庫集區中的資料庫。
+>[AZURE.NOTE] 這項限制目前不適用於彈性資料庫集區中的資料庫。
 
 沒有任何查詢或 DMV 可以向您顯示並行登入計數或歷程記錄。您可以分析您的使用者和應用程式模式以了解登入頻率。您也可以在測試環境中執行真實世界的負載，藉此確定您不會達到本主題中所說的這項限制或其他限制。
 
@@ -168,7 +168,7 @@ Microsoft 也包含 Azure SQL Database 中的許多自動管理功能，例如�
 - [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
->[AZURE.NOTE]您也可以使用 Azure 傳統入口網站來檢視資源使用量。如需範例，請參閱[服務層 - 監視效能](sql-database-service-tiers.md#monitoring-performance)。
+>[AZURE.NOTE] 您也可以使用 Azure 傳統入口網站來檢視資源使用量。如需範例，請參閱[服務層 - 監視效能](sql-database-service-tiers.md#monitoring-performance)。
 
 ### 使用 sys.dm\_db\_resource\_stats
 每一個 SQL Database 都有 [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) 檢視，其可提供相對於服務層的最新資源使用量資料。每隔 15 秒鐘就會記錄一次 CPU、資料 IO、記錄檔寫入和記憶體的平均百分比，並且會維持一個小時。
@@ -202,7 +202,7 @@ Microsoft 也包含 Azure SQL Database 中的許多自動管理功能，例如�
 
 Azure SQL Database 會在每個伺服器 **master** 資料庫的 **sys.resource\_stats** 檢視中公開每個作用中資料庫的耗用資源資訊。資料表中的資料會以 5 分鐘的間隔彙總。利用基本、標準和高階服務層，資料可能要花 5 分鐘以上的時間才會出現在資料表中，表示此資料比較適合進行歷程記錄分析而不是近乎即時的分析。查詢 **sys.resource\_stats** 檢視時，會顯示資料庫的近期歷程記錄以驗證挑選的保留是否在必要時提供所需的效能。
 
->[AZURE.NOTE]您必須連接到邏輯 SQL Database 伺服器的 **master** 資料庫才能在下列範例中查詢 **sys.resource\_stats**。
+>[AZURE.NOTE] 您必須連接到邏輯 SQL Database 伺服器的 **master** 資料庫才能在下列範例中查詢 **sys.resource\_stats**。
 
 下列範例會示範如何公開此檢視中的資料：
 
@@ -215,7 +215,7 @@ Azure SQL Database 會在每個伺服器 **master** 資料庫的 **sys.resource\
 
 下列範例示範不同方式，以供您使用 **sys.resource\_stats** 目錄檢視來了解 SQL Database 資源使用量。
 
->[AZURE.NOTE]目前的 V12 資料庫中已變更 **sys.resource\_stats** 的某些資料行，因此下列範例中的範例查詢可能會產生錯誤。本主題日後更新時將會提供可解決此問題的新版查詢。
+>[AZURE.NOTE] 目前的 V12 資料庫中已變更 **sys.resource\_stats** 的某些資料行，因此下列範例中的範例查詢可能會產生錯誤。本主題日後更新時將會提供可解決此問題的新版查詢。
 
 1. 例如，若要查看 "userdb1" 資料庫在過去一週的資源使用量，您可以執行下列查詢。
 	
@@ -324,7 +324,7 @@ OLTP 資料庫效能中常見的問題與實體資料庫設計相關。資料庫
 
 Azure SQL Database 包含協助提示資料庫管理員如何尋找和修正常見遺漏索引狀況的功能。Azure SQL Database 內建的動態管理檢視 (DMV) 會查看查詢編譯，其中的索引會大幅減少執行查詢的估計成本。執行查詢期間，它會追蹤每個查詢計劃的執行頻率，以及執行查詢計劃和其中存在該索引之假設查詢計劃之間的落差。這樣可讓資料庫管理員快速推測哪些實體資料庫設計變更可能會改善指定資料庫和其實際工作負載的整體工作負載成本。
 
->[AZURE.NOTE]在使用 DMV 來尋找遺漏索引之前，請先檢閱[查詢效能深入解析與索引顧問](query-performance-insight-and-index-advisor.md)一節。
+>[AZURE.NOTE] 在使用 DMV 來尋找遺漏索引之前，請先檢閱[查詢效能深入解析與索引顧問](query-performance-insight-and-index-advisor.md)一節。
 
 下列查詢可用來評估潛在的遺漏索引。
 
@@ -459,7 +459,7 @@ SQL Server 中也適用於 Azure SQL Database 的一個常見範例是關於如�
 
 ![查詢微調](./media/sql-database-performance-guidance/query_tuning_4.png)
 
->[AZURE.NOTE]雖然這裡使用的範例已刻意簡化，次佳參數的影響還是很明顯，尤其是對於較大型的資料庫。在極端的情況下，快速和緩慢案例之間的差異可介於數秒到數小時之間。
+>[AZURE.NOTE] 雖然這裡使用的範例已刻意簡化，次佳參數的影響還是很明顯，尤其是對於較大型的資料庫。在極端的情況下，快速和緩慢案例之間的差異可介於數秒到數小時之間。
 
 您可以檢查 **sys.resource\_stats** 來判斷指定測試使用的資源比另一個測試多或少。比較資料時，請在 **sys.resource\_stats** 檢視中以足夠的時間隔開測試，以免它們都位在同一個 5 分鐘時間範圍內。此外，請注意練習的目標是要最小化使用的總資源，而不是最小化尖峰資源本身。一般而言，最佳化一段延遲的程式碼也會減少資源耗用量。請確定在任何應用程式中考量的變更實際上都是必要的，而且不會讓使用應用程式的任何人在使用查詢提示時對客戶體驗造成負面影響。
 
@@ -468,7 +468,7 @@ SQL Server 中也適用於 Azure SQL Database 的一個常見範例是關於如�
 ### 跨資料庫分區化
 因為 Azure SQL Database 會在商用硬體上執行，所以單一資料庫的容量限制通常會比傳統的內部部署 SQL Server 安裝更低。因此，有許多客戶在他們不符合 Azure SQL Database 中的單一資料庫限制時，使用分區化技術在多個資料庫散佈資料庫作業。今天在 Azure SQL Database 上使用分區化技術的大部分客戶都會在跨多個資料庫的單一維度上分割其資料。此方法包括了解 OLTP 應用程式通常會執行的交易只會在結構描述內套用到一個資料列或一小組的資料列。
 
->[AZURE.NOTE]SQL Database 現在提供可協助分區化的程式庫。如需詳細資訊，請參閱[彈性資料庫用戶端程式庫概觀](sql-database-elastic-database-client-library.md)。
+>[AZURE.NOTE] SQL Database 現在提供可協助分區化的程式庫。如需詳細資訊，請參閱[彈性資料庫用戶端程式庫概觀](sql-database-elastic-database-client-library.md)。
 
 例如，如果資料庫包含客戶、訂單及訂單詳細資料 (如 SQL Server 隨附的傳統範例 Northwind 資料庫中所示)，則這項資料可以透過利用相關訂單和訂單詳細資料等資訊來分組客戶，並保證它會保留在單一資料庫內，藉以分割至多個資料庫。應用程式會跨資料庫分割不同的客戶，跨多個資料庫有效分配負載。這樣不但能讓客戶避免資料庫大小上限，也能讓 Azure SQL Database 處理明顯大於不同效能等級限制的工作負載，前提是每個個別資料庫符合其 DTU。
 
@@ -485,10 +485,10 @@ SQL Server 使用者通常會在單一資料庫內結合許多功能。例如，
 某些應用程式是寫入密集型的。有時候，可以藉由考慮如何一併批次處理寫入來減少資料庫上的 IO 總負載。這通常與在預存程序及特定查詢內使用明確的交易而不是自動認可的交易一樣容易。如需可使用的不同技術評估，請參閱 [Azure 中 SQL Database 應用程式的批次處理技術](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx)。實驗您自己的工作負載來尋找正確的批次處理模型，請仔細了解指定的模型在交易一致性保證上可能稍有不同。要尋找可最小化資源使用的適當工作負載，就必須找出一致性與效能權衡取捨的正確組合。
 
 ### 應用程式層快取
-有些資料庫應用程式包含大量讀取工作負載。可以利用快取層來減少資料庫上的負載，並且可能降低支援使用 Azure SQL Database 之資料庫所需的效能等級。[Azure Redis 快取](https://azure.microsoft.com/services/cache)可讓具有大量讀取工作負載的客戶一次讀取資料 (或可能每個應用程式層電腦讀取一次，取決於設定方式) 並將該資料儲存在 Azure SQL Database 外部。如此就能減少資料庫負載 (CPU 和讀取 IO)，但會對交易一致性造成影響，因為相較於資料庫中的資料，從快取讀取的資料可能是過期的。雖然許多應用程式中的不一致性尚可接受，但是並非所有工作負載都是這樣。請充分了解任何應用程式的需求，然後再採用應用程式層快取策略。
+有些資料庫應用程式包含大量讀取工作負載。可以利用快取層來減少資料庫上的負載，並且可能降低支援使用 Azure SQL Database 之資料庫所需的效能等級。[Azure Redis 快取](https://azure.microsoft.com/services/cache/)可讓具有大量讀取工作負載的客戶一次讀取資料 (或可能每個應用程式層電腦讀取一次，取決於設定方式) 並將該資料儲存在 Azure SQL Database 外部。如此就能減少資料庫負載 (CPU 和讀取 IO)，但會對交易一致性造成影響，因為相較於資料庫中的資料，從快取讀取的資料可能是過期的。雖然許多應用程式中的不一致性尚可接受，但是並非所有工作負載都是這樣。請充分了解任何應用程式的需求，然後再採用應用程式層快取策略。
 
 ## 結論
 
 Azure SQL Database 中的服務層可讓您提升您在雲端建置的應用程式類型。與努力的應用程式微調結合，您可以讓您的應用程式功能強大且可預測效能。本文概述最佳化資料庫的資源耗用量的建議技術，可完全符合其中一個效能等級。微調是雲端模型中持續的活動，而服務層與其效能等級可讓系統管理員將 Microsoft Azure 平台上的效能最大化同時將成本降到最低。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

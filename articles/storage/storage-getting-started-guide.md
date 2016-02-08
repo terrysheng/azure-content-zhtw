@@ -30,7 +30,7 @@
 
 1. 若要編譯及建置應用程式，您必須先在電腦上安裝 [Visual Studio](https://www.visualstudio.com/) 的版本。 
 
-2. 安裝最新版 [Azure SDK for .NET](http://azure.microsoft.com/downloads/)。此 SDK 包含 Azure 快速入門範例專案、Azure 儲存體模擬器和 [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)。
+2. 安裝最新版 [Azure SDK for .NET](https://azure.microsoft.com/downloads/)。此 SDK 包含 Azure 快速入門範例專案、Azure 儲存體模擬器和 [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)。
 
 3. 請確定您已在電腦上安裝 [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653)，因為此為我們在本教學課程使用的 Azure 快速入門範例專案所需。
 
@@ -38,7 +38,7 @@
 
 4. 您將需要 Azure 訂用帳戶和 Azure 儲存體帳戶。
 
-    - 若要取得 Azure 訂用帳戶，請參閱[免費試用版](http://azure.microsoft.com/pricing/free-trial/)、[購買選項](http://azure.microsoft.com/pricing/purchase-options/)和[會員優惠](http://azure.microsoft.com/pricing/member-offers/) (適用於 MSDN、Microsoft Partner Network、BizSpark 和其他 Microsoft 方案的成員)。
+    - 若要取得 Azure 訂用帳戶，請參閱[免費試用版](https://azure.microsoft.com/pricing/free-trial/)、[購買選項](https://azure.microsoft.com/pricing/purchase-options/)和[會員優惠](https://azure.microsoft.com/pricing/member-offers/) (適用於 MSDN、Microsoft Partner Network、BizSpark 和其他 Microsoft 方案的成員)。
     - 若要在 Azure 中建立儲存體帳戶，請參閱[如何建立、管理或刪除儲存體帳戶](storage-create-storage-account.md)。
 
 ## 針對雲端 Azure 儲存體執行第一個 Azure 儲存體應用程式
@@ -102,11 +102,11 @@
 * [如何使用 .NET 的資料表儲存體](storage-dotnet-how-to-use-tables.md)
 * [如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)
 * [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
-* [Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
+* [Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure 儲存體用戶端程式庫](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 * [Azure 儲存體 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -4,7 +4,7 @@
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
-   manager="Adinah" 
+   manager="carmon" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # 如何使用 PowerShell 管理 DNS 記錄
@@ -32,9 +32,9 @@
 
 記錄集是使用 New-AzureRmDnsRecordSet cmdlet 來建立。您必須指定記錄集名稱、區域、存留時間 (TTL) 和記錄類型。
 
->[AZURE.NOTE]記錄集名稱必須是相對名稱，不含區域名稱。比方說，區域 'contoso.com' 中的記錄集名稱 'www' 會建立具有完整名稱 'www.contoso.com' 的記錄集。
+記錄集名稱必須是相對名稱，不含區域名稱。比方說，區域 'contoso.com' 中的記錄集名稱 'www' 會建立具有完整名稱 'www.contoso.com' 的記錄集。
 
->針對位於區域頂點的記錄集，請使用 "@"做為記錄集名稱 (包括引號)。記錄集的完整名稱就等於區域名稱，在此案例中為 "contoso.com"。
+針對位於區域頂點的記錄集，請使用 "@"做為記錄集名稱 (包括引號)。記錄集的完整名稱就等於區域名稱，在此案例中為 "contoso.com"。
 
 Azure DNS 支援下列記錄類型： A、AAAA、CNAME、MX、NS、SOA、SRV、TXT。每個區域會自動建立 SOA 類型的記錄集，無法另外建立。
 
@@ -48,15 +48,15 @@ Azure DNS 支援下列記錄類型： A、AAAA、CNAME、MX、NS、SOA、SRV、T
 
 New-AzureRmDnsRecordSet 傳回本機物件，代表 Azure DNS 中建立的記錄集。
 
->[AZURE.NOTE]CNAME 記錄集不能與其他具有相同名稱的記錄集共存。例如，您無法同時建立具有相對名稱 'www' 的 CNAME 和具有相對名稱 'www' 的 A 記錄。因為區域頂點 (名稱 = '@') 一定會包含建立區域時所建立的 NS 和 SOA 記錄集，這表示您無法在區域頂點建立 CNAME 記錄集。這些條件約束源自於 DNS 標準，並不是 Azure DNS 的限制。
+>[AZURE.IMPORTANT] CNAME 記錄集不能與其他具有相同名稱的記錄集共存。例如，您無法同時建立具有相對名稱 'www' 的 CNAME 和具有相對名稱 'www' 的 A 記錄。因為區域頂點 (名稱 = '@') 一定會包含建立區域時所建立的 NS 和 SOA 記錄集，這表示您無法在區域頂點建立 CNAME 記錄集。這些條件約束源自於 DNS 標準，並不是 Azure DNS 的限制。
 
 ### 萬用字元記錄
 
 Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_record)。會針對具有相符名稱的任何查詢傳回 (除非有來自非萬用字元記錄集的更接近相符項目)。
 
->[AZURE.NOTE]若要建立萬用字元記錄集，請使用記錄集名稱 "*"，或其第一個標籤為 "*" 的名稱，例如 "*.foo"。
+若要建立萬用字元記錄集，請使用記錄集名稱 "*"，或其第一個標籤為 "*" 的名稱，例如 "*.foo"。
 
->針對所有記錄類型支援 NS 和 SOA 以外的所有萬用字元記錄集。
+針對所有記錄類型支援 NS 和 SOA 以外的所有萬用字元記錄集。
 
 ## 取得記錄集
 
@@ -169,7 +169,7 @@ Set-AzureRmDnsRecordSet Cmdlet 使用 ‘etag’ 檢查，以確保不會覆寫�
 
 ### 修改 SOA 記錄
 
->[AZURE.NOTE]您無法從區域頂點 (名稱 = '@') 自動建立的 SOA 記錄集加入或移除記錄，但是您可以修改 SOA 記錄內的參數和記錄集 TTL。
+>[AZURE.NOTE] 您無法從區域頂點 (名稱 = '@') 自動建立的 SOA 記錄集加入或移除記錄，但是您可以修改 SOA 記錄內的參數和記錄集 TTL。
 
 下列範例示範如何變更 SOA 記錄的 'Email' 屬性：
 
@@ -179,7 +179,7 @@ Set-AzureRmDnsRecordSet Cmdlet 使用 ‘etag’ 檢查，以確保不會覆寫�
 
 ### 在區域頂點修改 NS 記錄
 
->[AZURE.NOTE]您無法在區域頂點 (名稱 = '@') 自動建立的 NS 記錄集加入、移除或修改記錄。修改記錄集 TTL 是唯一允許的變更。
+>[AZURE.NOTE] 您無法在區域頂點 (名稱 = '@') 自動建立的 NS 記錄集加入、移除或修改記錄。修改記錄集 TTL 是唯一允許的變更。
 
 下列範例示範如何變更 NS 記錄集的 TTL 屬性：
 
@@ -252,7 +252,7 @@ Set-AzureRmDnsRecordSet Cmdlet 使用 ‘etag’ 檢查，以確保不會覆寫�
 ## 刪除記錄集
 您可以使用 Remove-AzureRmDnsRecordSet Cmdlet 刪除記錄集。
 
->[AZURE.NOTE]您無法在建立區域時所自動建立的區域頂點 (名稱 = ‘@’) 刪除 SOA 和 NS 記錄集。刪除區域時會自動刪除它們。
+>[AZURE.NOTE] 您無法在建立區域時所自動建立的區域頂點 (名稱 = ‘@’) 刪除 SOA 和 NS 記錄集。刪除區域時會自動刪除它們。
 
 使用下列三種方式之一來移除記錄集：
 
@@ -287,4 +287,4 @@ Set-AzureRmDnsRecordSet Cmdlet 使用 ‘etag’ 檢查，以確保不會覆寫�
 [開始建立記錄集和記錄](dns-getstarted-create-recordset.md)<BR> [管理 DNS 區域](dns-operations-dnszones.md)<BR> [使用 .NET SDK 將作業自動化](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

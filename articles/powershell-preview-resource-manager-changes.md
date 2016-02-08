@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="powershell"
 	ms.workload="na"
-	ms.date="10/09/2015"
+	ms.date="01/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 #對於 Azure 資源管理員管理 PowerShell Cmdlet 的變更
@@ -91,4 +91,4 @@
 
 我們已新增對於 Azure 資源管理員的原則支援。這個版本中已新增可用來管理原則的 PowerShell Cmdlet。如需原則的詳細資訊，請參閱[使用原則來管理資源和控制存取](resource-manager-policy.md)。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

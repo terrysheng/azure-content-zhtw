@@ -47,7 +47,7 @@ Azure Active Directory 租用戶 (或其委派) 的系統管理員可以從 Azur
 
 ### 代理程式收集的資料
 
-下列清單中描述的資訊是在連線到 Web 應用程式時由代理程式所收集的資訊。只會針對系統管理員已設定進行探索的應用程式收集此資訊。<br> 您可以透過 Microsoft [Azure 入口網站](https://portal.azure.com)中的 [Cloud App Discovery] 刀鋒視窗，在 [設定] -> [資料收集] -> [應用程式集合清單] 下方，編輯代理程式監視的雲端應用程式清單。如需詳細資料，請參閱[開始使用 Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx) <br> **資訊類別**：使用者資訊 <br> **說明**：<br> 向目標 Web 應用程式提出要求之處理序的 Windows 使用者名稱 (例如：DOMAIN\\username) 以及該使用者的 Windows 安全性識別碼 (SID)。
+下列清單中描述的資訊是在連線到 Web 應用程式時由代理程式所收集的資訊。只會針對系統管理員已設定進行探索的應用程式收集此資訊。<br> 您可以透過 Microsoft [Azure 入口網站](https://portal.azure.com/)中的 [Cloud App Discovery] 刀鋒視窗，在 [設定] -> [資料收集] -> [應用程式集合清單] 下方，編輯代理程式監視的雲端應用程式清單。如需詳細資料，請參閱[開始使用 Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx) <br> **資訊類別**：使用者資訊 <br> **說明**：<br> 向目標 Web 應用程式提出要求之處理序的 Windows 使用者名稱 (例如：DOMAIN\\username) 以及該使用者的 Windows 安全性識別碼 (SID)。
 
 
 **資訊類別**：處理序資訊 <br> **說明**：<br> 向目標 Web 應用程式提出要求的處理序名稱 (例如：“iexplore.exe”)
@@ -88,7 +88,7 @@ Azure Active Directory 租用戶 (或其委派) 的系統管理員可以從 Azur
 
 
 
-> [AZURE.NOTE]所有非加密的連線都會收集上述 HTTP 資訊。如果是 TLS 連線，只有在入口網站中開啟 [深度檢查] 設定時，才會擷取這項資訊。設定預設為 [開啟]。如需詳細資料，請參閱下方內容以及[開始使用 Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
+> [AZURE.NOTE] 所有非加密的連線都會收集上述 HTTP 資訊。如果是 TLS 連線，只有在入口網站中開啟 [深度檢查] 設定時，才會擷取這項資訊。設定預設為 [開啟]。如需詳細資料，請參閱下方內容以及[開始使用 Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
 
 除了代理程式所收集有關網路活動的資料外，它也會收集關於軟體和硬體組態的匿名資訊、錯誤報告和代理程式使用情形的相關資訊。
@@ -168,7 +168,7 @@ Cloud App Discovery Endpoint Agent 只會收集上列**代理程式收集的資�
 
 
 
-> [AZURE.NOTE]如需詳細資訊，請參閱[開始使用 Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
+> [AZURE.NOTE] 如需詳細資訊，請參閱[開始使用 Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
 <br> 要在入口網站中存取資料的所有使用者都必須擁有 Azure AD Premium 授權。
 
@@ -179,4 +179,4 @@ Cloud App Discovery Endpoint Agent 只會收集上列**代理程式收集的資�
 
 * [如何探索組織內使用未經批准的雲端應用程式](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

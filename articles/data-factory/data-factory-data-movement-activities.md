@@ -47,7 +47,7 @@
 | <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure 資料表](data-factory-azure-table-connector.md)</li><li>[Azure SQL Database](data-factory-azure-sql-connector.md)</li><li>[Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (請參閱下列附註)](data-factory-azure-documentdb-connector.md)</li><li>[Azure 資料湖存放區](data-factory-azure-datalake-connector.md)</li><li>[SQL Server 內部部署/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[檔案系統內部部署/Azure IaaS](data-factory-onprem-file-system-connector.md)</li><li>[Oracle Database 內部部署/Azure IaaS](data-factory-onprem-oracle-connector.md)</li><li>[MySQL 資料庫內部部署/Azure IaaS ](data-factory-onprem-mysql-connector.md)</li><li>[DB2 資料庫內部部署/Azure IaaS](data-factory-onprem-db2-connector.md)</li><li>[Teradata 資料庫內部部署/Azure IaaS ](data-factory-onprem-teradata-connector.md)</li><li>[Sybase 資料庫內部部署/Azure IaaS](data-factory-onprem-sybase-connector.md)</li><li>[PostgreSQL 資料庫內部部署/Azure IaaS](data-factory-onprem-postgresql-connector.md)</li><li>[ODBC 資料來源](data-factory-odbc-connector.md)</li><li>[Hadoop 分散式檔案系統 (HDFS)](data-factory-hdfs-connector.md)</li></ul> | <ul><li>[Azure Blob](data-factory-azure-blob-connector.md)</li><li>[Azure 資料表](data-factory-azure-table-connector.md)</li><li>[Azure SQL Database](data-factory-azure-sql-connector.md)</li><li>[Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md)</li><li>[Azure DocumentDB (請參閱下列附註)](data-factory-azure-documentdb-connector.md)</li><li>[Azure 資料湖存放區](data-factory-azure-datalake-connector.md)</li><li>[SQL Server 內部部署/Azure IaaS](data-factory-sqlserver-connector.md)</li><li>[檔案系統內部部署/Azure IaaS](data-factory-onprem-file-system-connector.md)</li></ul> |
 
 
-> [AZURE.NOTE]您只可在 Azure DocumentDB 和其他 Azure 服務 (例如 Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、Azure DocumentDB 和 Azure 資料湖存放區) 之間來回移動。短期內也會支援 Azure Document DB 的完整矩陣。
+> [AZURE.NOTE] 您只可在 Azure DocumentDB 和其他 Azure 服務 (例如 Azure Blob、Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、Azure DocumentDB 和 Azure 資料湖存放區) 之間來回移動。短期內也會支援 Azure Document DB 的完整矩陣。
 
 ## 教學課程
 如需使用複製活動的快速教學課程，請參閱[教學課程：在 Azure Data Factory 管線中使用複製活動](data-factory-get-started.md)。在教學課程中，您會使用複製活動將資料從 Azure Blob 儲存體複製到 Azure SQL 資料庫。下列區段列出複製活動支援的所有來源與接收。
@@ -115,4 +115,4 @@
 ### 複製活動的效能及微調 
 請參閱「[複製活動的效能及微調指南](data-factory-copy-activity-performance.md)」一文，其中說明在 Azure Data Factory 中會影響資料移動 (複製活動) 效能的重要因素。它也列出在內部測試期間所觀察到的效能，並討論要讓複製活動效能最佳化的各種方式。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

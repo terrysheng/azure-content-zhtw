@@ -34,7 +34,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器和實體伺服
 
 ### Azure 必要條件
 
-- 您將需要 [Microsoft Azure](http://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。
+- 您將需要 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。
 - 您需要 Azure 儲存體帳戶來儲存複寫的資料。此帳戶必須啟用異地複寫。它應該與 Azure Site Recovery 保存庫位於相同的區域，且和同一個訂用帳戶產生關聯。[深入了解 Azure 儲存體](../storage/storage-introduction.md)。
 - 您將需要 Azure 虛擬網路，如此一來，當您從主要網站容錯移轉時，Azure 虛擬機器就會連接至網路。
 
@@ -56,11 +56,11 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器和實體伺服
 - 建議您一律執行最新版本的提供者和代理程式。這些程式可以在 Site Recovery 入口網站中取得。
 - 保存庫中的所有 Hyper-V 伺服器應該有相同版本的提供者和代理程式。
 - 伺服器上執行的提供者會透過網際網路連接到 Site Recovery。您不需要使用 Poxy 就能選擇執行這個動作，方法是使用目前設定於 Hyper-V 伺服器上的 Poxy 設定，或使用您在提供者安裝期間所設定的自訂 Poxy 設定。您必須確定您想要使用的 Proxy 伺服器可以存取這些 URL 以連接到 Azure：
-	- *.hypervrecoverymanager.windowsazure.com
-	- *.accesscontrol.windows.net
-	- *.backup.windowsazure.com
-	- *.blob.core.windows.net
-	- *.store.core.windows.net
+	- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
 	
 - 此外，允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/zh-TW/download/details.aspx?id=41653)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 
@@ -208,7 +208,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器和實體伺服
 
 將虛擬機器新增到保護群組，為其啟用保護。
 
->[AZURE.NOTE]不支援保護使用靜態 IP 位址執行 Linux 的 VM。
+>[AZURE.NOTE] 不支援保護使用靜態 IP 位址執行 Linux 的 VM。
 
 1. 在保護群組的 [機器] 索引標籤上，按一下 [新增虛擬機器至保護群組以啟用保護]****。
 2. 在 [啟用虛擬機器保護] 頁面上，選取要保護的虛擬機器。
@@ -292,4 +292,4 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器和實體伺服
 
 在您的部署設定完成並開始執行之後，[深入了解](site-recovery-failover.md)容錯移轉。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

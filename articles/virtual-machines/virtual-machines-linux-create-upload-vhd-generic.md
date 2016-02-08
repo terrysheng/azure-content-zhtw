@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
-	ms.author="szarkos"/>
+	ms.date="01/22/2016"
+	ms.author="szark"/>
 
 # <a id="nonendorsed"> </a>非背書散發套件的資訊 #
 
@@ -32,7 +32,9 @@
 基於這個原因，我們建議您盡可能從其中一個 [Azure 背書散發套件上的 Linux](../linux-endorsed-distributions.md) 開始著手。下列文章會逐步引導您如何準備 Azure 支援的各種 Linux 背書散發套件：
 
 - **[CentOS 型散發套件](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES 和 openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 
@@ -76,7 +78,7 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。一般而言
 
 若要解決這個問題，您可以使用 Hyper-V 管理員主控台或 [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) Powershell Cmdlet 調整 VM 的大小。如果您不在 Windows 環境中執行，建議使用 qemu-img 來轉換 VHD (如果需要) 及調整其大小。
 
-> [AZURE.NOTE]qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。這個問題將於即將推出的 qemu-img 版本中獲得修正。目前建議使用 qemu-img 2.2.0 版或更低版本。參考：https://bugs.launchpad.net/qemu/+bug/1490611
+> [AZURE.NOTE] qemu-img >=2.2.1 的版本中已知有 Bug 會導致 VHD 的格式不正確。這個問題將於即將推出的 qemu-img 版本中獲得修正。目前建議使用 qemu-img 2.2.0 版或更低版本。參考：https://bugs.launchpad.net/qemu/+bug/1490611
 
 
  1. 直接使用工具 (例如 `qemu-img` 或 `vbox-manage`) 調整 VHD 的大小，可能會導致 VHD 無法開機。因此，建議先將 VHD 轉換為 RAW 磁碟映像。如果 VM 映像已建立為 RAW 磁碟映像 (有些 Hypervisor 的預設值，例如 KVM)，您可以省略此步驟：
@@ -193,4 +195,4 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。一般而言
 
 - 接著，您必須關閉虛擬機器，並將 VHD 上傳至 Azure。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

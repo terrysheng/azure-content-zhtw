@@ -3,7 +3,7 @@
 	description="使用 Azure 命令列介面管理角色型存取控制"
 	services="active-directory"
 	documentationCenter="na"
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/25/2016"
+	ms.author="kgremban"/>
 
 # 使用 Azure 命令列介面 (Azure CLI) 管理角色型存取控制 #
 
@@ -24,7 +24,7 @@
 
 Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (RBAC) 功能，可讓您深入地管理訂用帳戶與資源的存取。透過這項功能，您可以為 Active Directory 使用者、群組或是服務主體指派特定範圍的一些角色，藉此賦予其存取權限。
 
-在本教學課程中，您將學習如何使用 Azure CLI 來管理角色型存取控制。本課程將帶您逐一了解建立與檢查角色指派的程序。
+在本教學課程裡，您將學習如何使用 Azure CLI 來管理 RBAC。本課程將帶您逐一了解建立與檢查角色指派的程序。
 
 **預估完成時間：**15 分鐘
 
@@ -55,7 +55,7 @@ Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (
 
     azure login -u <username>
 
-在命令列提示字元中，輸入您的 Azure 帳戶密碼 (僅使用組織帳戶)。Azure CLI 會取得您在此帳戶上的所有訂閱項目，並將自己預設為使用第一個訂閱。請注意，使用角色型存取控制時，只有當您具備共同管理員身分或是具有某些角色指派時，才能取得訂閱項目的一些權限。
+在命令列提示字元中，輸入您的 Azure 帳戶密碼 (僅使用組織帳戶)。Azure CLI 會取得您在此帳戶上的所有訂閱項目，並將自己預設為使用第一個訂閱。請注意，使用角色型存取控制時，只有當您具備共同管理員身分或是具有某些角色指派時，才能取得訂閱項目的部分權限。
 
 如果您有多個訂閱，而且想要切換至另一個訂閱，請輸入：
 
@@ -108,7 +108,7 @@ Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (
 
     `azure role list`
 
-- 您想要指派的範圍：有三個範圍層級：
+- 您想要指派的範圍：有三個範圍層級
 
     - 目前的訂用帳戶
     - 資源群組。若要取得資源群組清單，請輸入 `azure group list`
@@ -116,16 +116,13 @@ Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (
 
 接下來，使用 `azure role assignment create` 來建立角色指派。例如：
 
- - 此舉會在目前的訂閱層級中，為使用者建立讀取者的角色指派：
-
+ 	#This will create a role assignment at the current subscription level for a user as a reader:
     `azure role assignment create --upn <user's email> -o Reader`
 
-- 此舉會在資源群組層級中建立角色指派：
-
+	#This will create a role assignment at a resource group level:
     `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
 
-- 此舉會在資源層級中建立角色指派：
-
+	#This will create a role assignment at a resource level:
     `azure role assignment create --upn <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
 
 ## <a id="verify"></a>驗證權限 ##
@@ -151,4 +148,4 @@ Azure 入口網站以及 Azure 資源管理員 API 裡的角色型存取控制 (
 - [使用 Windows PowerShell 來設定角色型存取控制](role-based-access-control-powershell.md)
 - [為角色型存取控制進行疑難排解](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

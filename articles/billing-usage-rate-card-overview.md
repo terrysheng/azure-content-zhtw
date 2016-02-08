@@ -1,5 +1,5 @@
 <properties
-   pageTitle="深入瞭解 Microsoft Azure 資源耗用量 | Microsoft Azure"
+   pageTitle="深入了解 Microsoft Azure 資源耗用量 | Microsoft Azure"
    description="提供 Azure 計費使用情況和 RateCard API 的概念性概觀，可用來提供 Azure 資源耗用量和趨勢的見解。"
    services="billing"
    documentationCenter=""
@@ -56,7 +56,7 @@ Azure 資源使用情況和 RateCard API 會實作為資源提供者，並由 Az
 
 - **預測計費** – 客戶和合作夥伴可以取得預估的耗用量及雲端花費，並應用機器學習演算法來預測他們在計費週期結束時的計費情形。
 
-- **耗用前成本分析** – 如果客戶要藉由提供所需的使用量，將其工作負載移至 Azure，他們也可以使用 RateCard API 預測計費。如果客戶有其他雲端或私用雲端中的現有工作負載，他們也可以對應其使用情況和 Azure 費率，取得已評估 Azure 花費的較佳評估。這樣可增強檢視透過 [Azure 定價計算機](http://azure.microsoft.com/pricing/calculator/)取得的內容，因為計費合作夥伴 (舉例而言) 會提供優惠的樞紐分析功能，並比較/對比超越隨收隨付的不同優惠類型，包含貨幣承諾和貨幣信用額度。API 也會根據區域提供成本評估變更的功能，使假設分析的類型成為部署決策的必要條件，因為在全世界的不同 DC 中部署資源可以對總成本產生直接的影響。
+- **耗用前成本分析** – 如果客戶要藉由提供所需的使用量，將其工作負載移至 Azure，他們也可以使用 RateCard API 預測計費。如果客戶有其他雲端或私用雲端中的現有工作負載，他們也可以對應其使用情況和 Azure 費率，取得已評估 Azure 花費的較佳評估。這樣可增強檢視透過 [Azure 定價計算機](https://azure.microsoft.com/pricing/calculator/)取得的內容，因為計費合作夥伴 (舉例而言) 會提供優惠的樞紐分析功能，並比較/對比超越隨收隨付的不同優惠類型，包含貨幣承諾和貨幣信用額度。API 也會根據區域提供成本評估變更的功能，使假設分析的類型成為部署決策的必要條件，因為在全世界的不同 DC 中部署資源可以對總成本產生直接的影響。
 
 - **假設分析** -
 
@@ -78,4 +78,4 @@ Azure 資源使用情況和 RateCard API 會實作為資源提供者，並由 Az
 + 請參閱 [Azure 資源管理員概觀](resource-group-overview.md)一文，以深入了解 Azure 資源管理員。
 + 如需協助了解雲端花費之必要工具套件的其他資訊，請參閱 Gartner 文章 [IT 財務管理 (ITFM) 工具的市場指南](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb)。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="01/21/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -27,7 +27,7 @@
 
 密碼同步處理是 Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理) 的一項功能，可將使用者密碼從您的內部部署 Active Directory 同步至 Azure Active Directory (Azure AD)。此功能可讓您的使用者以登入您內部部署網路的相同密碼登入其 Azure Active Directory 服務 (如 Office 365、Microsoft Intune 和 CRM Online)。
 
-> [AZURE.NOTE]如需針對 FIPS 和密碼同步處理設定的 Active Directory 網域服務的詳細資訊，請參閱[密碼同步處理和 FIPS](#password-synchronization-and-fips)。
+> [AZURE.NOTE] 如需針對 FIPS 和密碼同步處理設定的 Active Directory 網域服務的詳細資訊，請參閱[密碼同步處理和 FIPS](#password-synchronization-and-fips)。
 
 ### 密碼同步處理的可用性
 
@@ -45,7 +45,7 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 密碼同步處理不會影響目前已登入的使用者。如果使用者已登入雲端服務並變更內部部署密碼，則雲端服務工作階段將會繼續運作不受干擾。不過，一旦雲端服務要求使用者重新驗證，就需要提供新的密碼。此時，使用者必須提供新的密碼 – 也就是最近從內部部署 Active Directory 同步至雲端的密碼。
 
-> [AZURE.NOTE]只有 Active Directory 的物件類型使用者才支援密碼同步。不支援 iNetOrgPerson 物件類型。
+> [AZURE.NOTE] 只有 Active Directory 的物件類型使用者才支援密碼同步。不支援 iNetOrgPerson 物件類型。
 
 ### 密碼同步處理對 Azure AD 網域服務的運作方式
 
@@ -68,7 +68,7 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 當您啟用密碼同步處理之後，內部部署 Active Directory 中設定的密碼複雜性原則，會覆寫任何可能針對已同步使用者在雲端定義的複雜性原則。這表示任何在客戶內部部署 Active Directory 環境中有效的密碼，都可用來存取 Azure AD 服務。
 
-> [AZURE.NOTE]直接在雲端建立的使用者的密碼仍受制於在雲端定義的密碼原則。
+> [AZURE.NOTE] 直接在雲端建立的使用者的密碼仍受制於在雲端定義的密碼原則。
 
 **密碼到期原則**
 
@@ -160,4 +160,4 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 * [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

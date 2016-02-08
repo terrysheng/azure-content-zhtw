@@ -1,33 +1,35 @@
-#### To create a new service
+#### 建立新服務
 
-1.  Using your Microsoft account credentials, log on to the Azure classic portal at this URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/)
+1.  使用您的 Microsoft 帳戶認證登入 Azure 傳統入口網站，URL 如下：[https://manage.windowsazure.com/](https://manage.windowsazure.com/)
 
-2.  In the portal, click **New > Data Services > StorSimple Manager > Quick Create**.
+2.  在入口網站中，按一下 [新增] > [資料服務] > [StorSimple Manager] > [快速建立]。
 
-3.  In the form that is displayed, do the following:
+3.  在顯示的表單中，執行下列動作：
 
-	1.  Supply a unique **Name** for your service. This is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
+	1.  為服務提供唯一的 [名稱]。這是可以用來識別服務的易記名稱。名稱長度可介於 2 到 50 個字元之間，且可以是字母、數字和連字號。名稱必須以字母或數字為開頭或結尾。
 
-	2.  For a service to manage a StorSimple virtual device, from the drop down list for **Managed devices type**, choose **Virtual device series**.
+	2.  對於要管理 StorSimple 虛擬裝置的服務，請從 [受管理的裝置類型] 下拉式清單中選擇 [虛擬裝置系列]。
 
-	3.  Supply a **Location** for your service. Location refers to the geographical region where you want to deploy your device.
+	3.  提供服務的 [位置]。位置是指您要部署裝置的地理區域。
 
-	 -   If you have other workloads in Azure that you intend to deploy with your StorSimple device, we recommend that you use that datacenter.
+	 -   如果您在 Azure 中還有其他您想利用 StorSimple 裝置來部署的工作負載，建議您使用該資料中心。
 
-   	 -   The StorSimple Manager and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After this account is created, add this account to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](#optional-step-configure-a-new-storage-account-for-the-service).
+   	 -   StorSimple Manager 和 Azure 儲存體可以分別位於兩個不同的位置。如此一來，您需要分別建立 StorSimple Manager 和 Azure 儲存體帳戶。若要建立 Azure 儲存體帳戶，請前往入口網站中的 [Azure 儲存體服務]，並依照[建立 Azure 儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)中的步驟進行。建立帳戶之後，請依照[設定服務的新儲存體帳戶](#optional-step-configure-a-new-storage-account-for-the-service)中的步驟，將此帳戶新增到 StorSimple Manager 服務中。
    	 
-   	 -   Note that in preview, you can create StorSimple Manager service only in US West and Japan East.
+   	 -   請注意，在預覽版中，您只能建立在美國西部和日本東部的 StorSimple Manager 服務。
 	
-	1.  Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present when you have only one subscription.
+	1.  從下拉式清單選擇 [訂用帳戶]。訂用帳戶會連結到您的帳單帳戶。當您只有一個訂用帳戶時，這個欄位不會出現。
 
-	1.  Select **Create a new Azure storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf". If you need your data in a different location, clear this check box.
+	1.  選取 [建立新的 Azure 儲存體帳戶] 來自動建立具有此服務的儲存體帳戶。這個儲存體帳戶將會有特殊的名稱，例如「storsimplebwv8c6dcnf」。如果您需要讓資料存放在不同的位置，請清除此核取方塊。
 
-	1.  Click **Create StorSimple Manager** to create the service.
+	1.  按一下 [建立 StorSimple Manager] 來建立服務。
 
 		![](./media/storsimple-ova-create-new-service/image1-include.png)
 
-	You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately.
+	系統會將您導向至 [服務] 登陸頁面。服務建立需要幾分鐘的時間。當帳戶成功建立之後，系統將會通知您。
 
 	![](./media/storsimple-ova-create-new-service/image2-include.png)
 
-	The status of the service will change to **Active**.
+	服務狀態會變更為 [使用中]。
+
+<!---HONumber=AcomDC_0128_2016-->

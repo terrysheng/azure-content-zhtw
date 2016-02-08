@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/21/2016"
 	ms.author="donnam"/>
 
 # 在行動服務中使用離線資料同步
@@ -34,7 +34,7 @@
 * 讓使用者即使在沒有網路存取的情況下仍能建立及修改資料，而支援連線微弱或無連線的情況
 * 同步多個裝置之間的資料，並在兩個裝置修改相同的記錄時偵測衝突
 
->[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。
+>[AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，您可以註冊 Azure 試用版並取得高達 10 項的免費行動服務。此外，在試用期間結束後您仍可繼續使用這些服務。如需詳細資訊，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。
 >
 > 如果這是您第一次接觸行動服務，您應先完成[開始使用行動服務]。
 
@@ -99,7 +99,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
     在此範例中，我們擷取遠端 `TodoItem` 資料表中的所有記錄，但也可以藉由傳遞查詢來篩選記錄。`PullAsync()` 的第一個參數是用於增量同步處理的查詢識別碼，會使用 `UpdatedAt` 時間戳記取得自從上次同步後修改過的記錄。對您應用程式中的每個邏輯查詢而言，查詢識別碼應該是唯一的描述性字串。若選擇不要增量同步處理，請傳遞 `null` 做為查詢識別碼。這會擷取每個提取作業的所有記錄，而可能降低效能。
 
-    >[AZURE.NOTE]若要從裝置本機存放區中移除已在您行動服務資料庫中刪除的記錄，請啟用[虛刪除]。否則，您的應用程式應定期呼叫 `IMobileServiceSyncTable.PurgeAsync()` 才能清除本機存放區。
+    >[AZURE.NOTE] 若要從裝置本機存放區中移除已在您行動服務資料庫中刪除的記錄，請啟用[虛刪除]。否則，您的應用程式應定期呼叫 `IMobileServiceSyncTable.PurgeAsync()` 才能清除本機存放區。
 
     請注意，推送和提取作業可能會發生 `MobileServicePushFailedException`。下一個教學課程[處理行動服務的離線支援衝突]示範如何處理這些同步處理相關的例外狀況。
 
@@ -115,7 +115,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
     - `InsertTodoItemAsync`
     - `CompleteItemAsync`
-    - `RefreshAsync`
+    - `RefreshDataAsync`
 
     現在，`RefreshAsync()` 將只會從本機存放區中載入資料，但不會連接到應用程式後端。
 
@@ -166,8 +166,6 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 ## 後續步驟
 
-* [處理行動服務的離線支援衝突]
-
 * [如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端]
 
 <!-- Anchors. -->
@@ -178,7 +176,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 <!-- Images -->
 
 <!-- URLs. -->
-[處理行動服務的離線支援衝突]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
+[處理行動服務的離線支援衝突]: mobile-services-xamarin-ios-handling-conflicts-offline-data.md
 [開始使用行動服務]: mobile-services-ios-get-started.md
 [如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [虛刪除]: mobile-services-using-soft-delete.md
@@ -187,4 +185,4 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 [Xamarin 延伸]: http://xamarin.com/visual-studio
 [Azure 傳統入口網站]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

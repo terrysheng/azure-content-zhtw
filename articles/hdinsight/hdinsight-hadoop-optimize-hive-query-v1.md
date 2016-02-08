@@ -34,7 +34,7 @@
 	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
 - 在執行階段，您可以也相應放大叢集，而不需重新一個叢集。這如以下所示。![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
 
-如需 HDInsight 支援的各種虛擬機器的詳細資訊，請參閱 [HDInsight 定價](http://azure.microsoft.com/pricing/details/hdinsight/)。
+如需 HDInsight 支援的各種虛擬機器的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
 ##啟用 Tez
 
@@ -218,4 +218,4 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

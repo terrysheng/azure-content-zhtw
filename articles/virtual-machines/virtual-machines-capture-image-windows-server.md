@@ -33,9 +33,9 @@ Azure 會將映像儲存在 [我的映像] 之下。這個位置與您已上傳�
 - [從映像建立虛擬機器](virtual-machines-create-custom.md)
 - [如何將資料磁碟連結至虛擬機器](storage-windows-attach-disk.md)
 
-> [AZURE.WARNING]此程序會在擷取原始虛擬機器後將其刪除。
+> [AZURE.WARNING] 此程序會在擷取原始虛擬機器後將其刪除。
 
-這並不適合做為備份虛擬機器的方式。若要執行此操作，一個可行的方法是使用 Azure Backup，可提供特定區域中的預覽功能。如需詳細資訊，請參閱[備份 Azure 虛擬機器](../backup/backup-azure-vms.md)。來自認證合作夥伴的其他解決方案也可供使用。若要了解目前可用的項目，請搜尋 Azure Marketplace。
+擷取 Azure 虛擬機器映像之前，建議先備份目標虛擬機器。Azure 虛擬機器可使用 Azure 備份進行備份。如需詳細資訊，請參閱[備份 Azure 虛擬機器](../backup/backup-azure-vms.md)。來自認證合作夥伴的其他解決方案也可供使用。若要了解目前可用的項目，請搜尋 Azure Marketplace。
 
 
 ##擷取虛擬機器
@@ -90,4 +90,4 @@ Azure 會將映像儲存在 [我的映像] 之下。這個位置與您已上傳�
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

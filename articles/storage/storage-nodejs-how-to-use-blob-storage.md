@@ -40,7 +40,7 @@
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] \(Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
+1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
 
 2.  在命令視窗中輸入 **npm install azure-storage**。此命令的輸出類似下列程式碼範例。
 
@@ -67,7 +67,7 @@
 
 Azure 模組會讀取環境變數 `AZURE_STORAGE_ACCOUNT` 及 `AZURE_STORAGE_ACCESS_KEY`，或讀取 `AZURE_STORAGE_CONNECTION_STRING` 以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則呼叫 **createBlobService** 時必須指定帳戶資訊。
 
-如需在 Azure web 應用程式的 [Azure 入口網站](portal.azure.com)中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]。
+如需在 Azure web 應用程式的 [Azure 入口網站](https://portal.azure.com)中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]。
 
 ## 建立容器
 
@@ -75,7 +75,7 @@ Azure 模組會讀取環境變數 `AZURE_STORAGE_ACCOUNT` 及 `AZURE_STORAGE_ACC
 
     var blobSvc = azure.createBlobService();
 
-> [AZURE.NOTE]使用 **createBlobServiceAnonymous** 並提供主機位址，可匿名存取 Blob。例如，使用 `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`。
+> [AZURE.NOTE] 使用 **createBlobServiceAnonymous** 並提供主機位址，可匿名存取 Blob。例如，使用 `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`。
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -182,7 +182,7 @@ Blob 可以區塊或分頁為基礎。Block 區塊可讓您更有效率地上傳
 	  }
 	});
 
-> [AZURE.NOTE]分頁 Blob 由 512 位元組的「分頁」組成。如果上傳的資料大小不是 512 的倍數，可能會發生錯誤。
+> [AZURE.NOTE] 分頁 Blob 由 512 位元組的「分頁」組成。如果上傳的資料大小不是 512 的倍數，可能會發生錯誤。
 
 ## 列出容器中的 Blob
 
@@ -270,7 +270,7 @@ Blob 可以區塊或分頁為基礎。Block 區塊可讓您更有效率地上傳
 
 **myblob** 的後續作業必須提供 `options.leaseId` 參數。租用識別碼會從 **acquireLease** 作為 `result.id` 傳回。
 
-> [AZURE.NOTE]依預設，租用期間無限制。若要指定有限期間 (15 到 60 秒)，您可以提供 `options.leaseDuration` 參數。
+> [AZURE.NOTE] 依預設，租用期間無限制。若要指定有限期間 (15 到 60 秒)，您可以提供 `options.leaseDuration` 參數。
 
 若要移除租用，請使用 **releaseLease**。若要中止租用，但在原始期間到期之前不讓其他人取得新的租用，請使用 **breakLease**。
 
@@ -278,7 +278,7 @@ Blob 可以區塊或分頁為基礎。Block 區塊可讓您更有效率地上傳
 
 共用存取簽章 (SAS) 可安全地提供對 Blob 和容器的精確存取，而不必提供您的儲存體帳戶名稱或金鑰。共用存取簽章通常用來提供對資料的有限存取，例如允許行動應用程式存取 Blob。
 
-> [AZURE.NOTE]雖然您也可以用匿名方式存取 Blob，但共用存取簽章可讓您提供更受控制的存取，因為您必須產生 SAS。
+> [AZURE.NOTE] 雖然您也可以用匿名方式存取 Blob，但共用存取簽章可讓您提供更受控制的存取，因為您必須產生 SAS。
 
 信任的應用程式 (例如雲端型服務) 會使用 **BlobService** 的 **generateSharedAccessSignature** 來產生共用存取簽章，並提供它給不信任或不完全信任的應用程式 (例如行動應用程式)。共用存取簽章是使用原則來產生，該原則描述共用存取簽章有效期間的開始和結束日期，以及授與共用存取簽章持有者的存取等級。
 
@@ -377,4 +377,4 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Storage SDK for Node API 參考]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

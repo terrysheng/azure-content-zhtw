@@ -27,7 +27,7 @@
 ## 必要條件
 使用 Powershell cmdlet 的需求：
 
-- 最新的 Azure 命令列 SDK [可在這裡取得](http://azure.microsoft.com/downloads/)
+- 最新的 Azure 命令列 SDK [可在這裡取得](https://azure.microsoft.com/downloads/)
 
 在您的 VM 上使用延伸模組的需求：
 
@@ -49,7 +49,7 @@
 
 Set-AzureVMSqlServerExtension [-VM] <IPersistentVM> [[-Version] <string>] [-AutoBackupSettings <AutoBackupSettings>] [-AutoPatchingSetttings <AutoPatchingSetttings>] [-Confirm] [-WhatIf] [<CommonParameters>]
 
-> [AZURE.NOTE]建議省略 –Version 參數。若沒有該參數，預設值為最新版本的延伸模組。
+> [AZURE.NOTE] 建議省略 –Version 參數。若沒有該參數，預設值為最新版本的延伸模組。
 
 ### 範例
 	Get-AzureVM –ServiceName serviceName –Name vmName | Set-AzureVMSqlServerExtension –AutoBackupSettings $abs | Update-AzureVM**
@@ -65,7 +65,7 @@ Set-AzureVMSqlServerExtension [-VM] <IPersistentVM> [[-Version] <string>] [-Auto
 
 Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<CommonParameters>]
 
-> [AZURE.NOTE]您可以省略 –Version 參數。若沒有該參數，預設值為最新版本的延伸模組。
+> [AZURE.NOTE] 您可以省略 –Version 參數。若沒有該參數，預設值為最新版本的延伸模組。
 
 ### 範例
 	Get-AzureVM –ServiceName "service" –Name "vmname" | Get-AzureVMSqlServerExtension
@@ -78,4 +78,4 @@ Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<Co
 ### 語法
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

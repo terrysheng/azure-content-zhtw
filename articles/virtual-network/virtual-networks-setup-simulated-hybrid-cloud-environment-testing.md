@@ -19,7 +19,7 @@
 
 # 設定用於測試的模擬混合式雲端環境
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 資源管理員模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
 本文會引導您使用兩個不同的 Azure 虛擬網路逐步建立 Microsoft Azure 的模擬混合式雲端環境進行測試。當您沒有直接的網際網路連線和可用的公用 IP 位址時，使用此組態做為[設定用於測試的混合式雲端環境](virtual-networks-setup-hybrid-cloud-environment-testing.md)的替代方案。以下是產生的組態。
 
@@ -44,7 +44,7 @@
 3.	建立 VNet 對 VNet VPN 連線。
 4.	設定 DC2。 
 
-如果您仍沒有 Azure 訂用帳戶，可以在[試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 上註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
+如果您仍沒有 Azure 訂用帳戶，可以在[試用 Azure](https://azure.microsoft.com/pricing/free-trial/) 上註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
 >[AZURE.NOTE] Azure 中的虛擬機器和虛擬網路閘道會在執行時持續耗用成本。這項成本是按照您的免費試用版、MSDN 訂用帳戶或付費訂用帳戶進行計算。若要在您不使用時降低執行這個測試環境的成本，請參閱本文中的[將這個環境的持續成本降至最低](#costs)，以取得更多資訊。
 
@@ -81,7 +81,7 @@
 
 接下來，按照[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md) 中的操作方法，在本機電腦安裝 Azure PowerShell。
 
-接著，建立 TestVNET 虛擬網路的新雲端服務。您必須選擇唯一的名稱。例如，您可以將它命名為 **TestVNET-**UniqueSequence，其中的 UniqueSequence 是貴公司的縮寫。例如，如果貴公司名稱為 Tailspin Toys，您可以將雲端服務命名為 **TestVNET-Tailspin**。
+接著，建立 TestVNET 虛擬網路的新雲端服務。您必須選擇唯一的名稱。例如，您可以將它命名為 **TestVNET-***UniqueSequence*，其中的 *UniqueSequence* 是貴公司的縮寫。例如，如果貴公司名稱為 Tailspin Toys，您可以將雲端服務命名為 **TestVNET-Tailspin**。
 
 您可以在本機電腦使用這個 Azure PowerShell 命令，測試名稱是否不重複。
 
@@ -187,7 +187,7 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.4 的 4 次成功回覆。這�
 接著，將額外的資料磁碟新增為磁碟機代號 F: 的新磁碟區。
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] \([磁碟分割] 設為 [不明])。
+2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] ([磁碟分割] 設為 [不明])。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
 4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
 5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
@@ -231,7 +231,7 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.4 的 4 次成功回覆。這�
 
 若要將在此環境中執行虛擬機器的成本降至最低，請盡速執行所需的測試和示範，然後在不使用時予以刪除或關閉虛擬機器。例如，您可以使用 Azure 自動化和 Runbook 在每個營業日結束時自動關閉 TestLab 和 Test\_VNET 虛擬網路中的虛擬機器。如需詳細資訊，請參閱[開始使用 Azure 自動化](../automation-create-runbook-from-samples.md)。您再次啟動公司網路子網路上的虛擬機器時，請先啟動 DC1。
 
-Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機器。如需詳細資訊，請參閱[定價 - 虛擬網路](http://azure.microsoft.com/pricing/details/virtual-network/)。若要將這兩個 VPN 閘道 (一個用於 TestLab，另一個用於 TestVNET) 的成本降至最低，請使用這些步驟建立測試環境，並盡速執行所需的測試和示範或刪除閘道。
+Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機器。如需詳細資訊，請參閱[定價 - 虛擬網路](https://azure.microsoft.com/pricing/details/virtual-network/)。若要將這兩個 VPN 閘道 (一個用於 TestLab，另一個用於 TestVNET) 的成本降至最低，請使用這些步驟建立測試環境，並盡速執行所需的測試和示範或刪除閘道。
  
 1.	在本機電腦上的 Azure 管理入口網站中，按一下左窗格中的 [網路]，再按一下 [TestLab]，然後再按一下 [儀表板]。
 2.	在工作列中，按一下 [刪除閘道]。出現提示時，按一下 [是]。等候閘道刪除而且其狀態變更為 [尚未建立閘道]。
@@ -266,4 +266,4 @@ Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機
 接著，在 Azure 管理入口網站的 [網路] 頁面上，按一下 [TestLab] 虛擬網路，然後按一下工作列中的 [連接]。等候 TestLab 虛擬網路顯示 TestVNET 區域網路的連線狀態。
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

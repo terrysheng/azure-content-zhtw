@@ -27,7 +27,7 @@ Azure Site Recovery 中的 InMage Scout 可提供內部部署 VMware 網站之�
 
 ## 必要條件
 
-- **Azure 帳戶** — 您將需要一個 [Microsoft Azure](http://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。
+- **Azure 帳戶** — 您將需要一個 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。
 
 
 ## 步驟 1：建立保存庫
@@ -130,4 +130,4 @@ Azure Site Recovery 中的 InMage Scout 可提供內部部署 VMware 網站之�
 
 若有任何問題，請造訪 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) (英文)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

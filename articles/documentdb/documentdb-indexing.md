@@ -28,13 +28,13 @@
 
 ##<a id="HowDocumentDBIndexingWorks"></a>DocumentDB 索引編製的運作方式
 
-[Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 是真正為 JSON 建置的無結構描述資料庫用途。它不會要求或需要任何結構描述或次要索引定義，就能大規模地編製資料索引。這可讓您使用 DocumentDB 快速地定義並逐一查看應用程式資料模型。將文件新增至集合時，DocumentDB 會自動為所有文件屬性編製索引，讓它們可供您查詢。自動編製索引可讓您儲存屬於完全任意結構描述的文件，而不需擔心結構描述或次要索引。
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 是真正為 JSON 建置的無結構描述資料庫用途。它不會要求或需要任何結構描述或次要索引定義，就能大規模地編製資料索引。這可讓您使用 DocumentDB 快速地定義並逐一查看應用程式資料模型。將文件新增至集合時，DocumentDB 會自動為所有文件屬性編製索引，讓它們可供您查詢。自動編製索引可讓您儲存屬於完全任意結構描述的文件，而不需擔心結構描述或次要索引。
 
 DocumentDB 利用 JSON 的簡易性及其缺乏結構描述規格，達到排除資料庫與應用程式撰寫模型之間阻抗失配的目的。它不會對文件做出任何假設，並允許 DocumentDB 集合內的文件除了執行個體特定值之外，在結構描述上也有所變化。相較於其他文件資料庫，DocumentDB 的資料庫引擎是直接在 JSON 語法層級運作，無須了解文件結構描述的概念，使得文件的結構和執行個體值之間的界限變得模糊不清。這種情況相對地可讓它自動編製文件索引，而不需要結構描述或次要索引。
 
-DocumentDB 中的索引編製利用了 JSON 文法允許**以樹狀結構表示**文件的事實。若要以樹狀結構表示 JSON 文件，必須建立一個虛擬根節點，做為其下文件中其餘實際節點的父系。每個包括 JSON 文件中陣列索引的標籤都會成為樹狀結構的節點。下圖說明範例 JSON 文件及其對應的樹狀結構表示法。
+DocumentDB 中的索引編製利用了 JSON 語法允許**以樹狀結構表示**文件的這一點。若要以樹狀結構表示 JSON 文件，必須建立一個虛擬根節點，做為其下文件中其餘實際節點的父系。每個包括 JSON 文件中陣列索引的標籤都會成為樹狀結構的節點。下圖說明範例 JSON 文件及其對應的樹狀結構表示法。
 
->[AZURE.NOTE]JSON 具有自我描述的特性，也就是說，每個文件都包含結構描述 (中繼資料) 和資料，例如 `{"locationId": 5, "city": "Moscow"}` 會顯示有兩個屬性 `locationId` 和 `city`，而且具有數值和字串屬性值。DocumentDB 能夠推斷文件的結構描述，並在插入或取代文件時編製索引，而不需要您定義結構描述或次要索引。
+>[AZURE.NOTE] JSON 具有自我描述的特性，也就是說，每個文件都包含結構描述 (中繼資料) 和資料，例如 `{"locationId": 5, "city": "Moscow"}` 會顯示有兩個屬性 `locationId` 和 `city`，而且具有數值和字串屬性值。DocumentDB 能夠推斷文件的結構描述，並在插入或取代文件時編製索引，而不需要您定義結構描述或次要索引。
 
 
 **以樹狀結構表示 JSON 文件：**
@@ -67,4 +67,4 @@ DocumentDB 的索引編製功能是針對儲存效率而設計，並可處理多
 - 在[這裡](documentdb-indexing-policies.md)了解如何自訂 DocumentDB 索引
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

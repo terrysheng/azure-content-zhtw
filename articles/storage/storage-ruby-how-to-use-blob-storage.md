@@ -59,7 +59,7 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 
 若要取得這些值，請執行下列動作：
 
-1. 登入 [Azure 入口網站](portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽到您要使用的儲存體帳戶。
 3. 按一下導覽窗格底部的 [管理金鑰]。
 4. 在快顯對話方塊中，您將會看到儲存體帳戶名稱、主要存取金鑰和次要存取金鑰。如需存取金鑰，您可以使用主要存取金鑰或次要存取金鑰。
@@ -146,4 +146,4 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 - GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 存放庫
 - [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

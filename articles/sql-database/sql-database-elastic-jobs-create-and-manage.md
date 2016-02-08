@@ -27,7 +27,7 @@
 
 ## 必要條件
 
-* Azure 訂閱。如需免費試用，請參閱[免費試用一個月](http://azure.microsoft.com/pricing/free-trial/)。
+* Azure 訂閱。如需免費試用，請參閱[免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。
 * 彈性資料庫集區。請參閱[關於彈性資料庫集區](sql-database-elastic-pool.md)。
 * 安裝彈性資料庫工作服務元件。請參閱[安裝彈性資料庫工作服務](sql-database-elastic-jobs-service-installation.md)。
 
@@ -115,4 +115,4 @@
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

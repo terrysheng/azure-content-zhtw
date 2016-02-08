@@ -8,7 +8,14 @@
    editor=""
    keywords="備份解決方案；備份服務"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="01/26/2016"
+	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure 備份服務常見問題集
 下列是關於 Azure 備份常見問題的清單。若您有任何關於 Azure 備份解決方案的問題，請前往[論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)並張貼您的問題。我們社群的服務人員將協助您找到答案。若遇到常見問題，我們會將其加入此文章，以便您可以快速且輕鬆地找到。
@@ -41,7 +48,7 @@
 
 **Q6.我應該將保存庫視為計費實體嗎？** <br/> A6.雖然可以取得每個保存庫的詳細計費，但強烈建議您考慮 Azure 訂用帳戶作為計費實體。這在所有服務皆保持一致，而且您可以更輕鬆地進行管理。
 
-**Q7.針對每個保存庫註冊的伺服器/電腦具有任何數目限制嗎？** <br/> A7.是，您可以針對每個保存庫註冊最多 50 個電腦。對於 Azure IaaS 虛擬機器，限制為每個保存庫 100 個 VM。若您需要註冊更多電腦，請建立新的保存庫。
+**Q7.針對每個保存庫註冊的伺服器/電腦具有任何數目限制嗎？** <br/> A7.是，您可以針對每個保存庫註冊最多 50 個電腦。對於 Azure IaaS 虛擬機器，限制為每個保存庫 200 個 VM。若您需要註冊更多電腦，請建立新的保存庫。
 
 **Q8.從 Windows Server/用戶端或 SCDPM 伺服器進行備份的資料量具有任何限制嗎？** <br/> A8.編號
 
@@ -176,4 +183,4 @@
 
 一旦利用新快取位置成功備份，您就可以移除原始的快取資料夾。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

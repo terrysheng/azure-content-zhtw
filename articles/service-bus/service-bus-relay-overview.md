@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 
@@ -31,12 +31,11 @@
 
 ## 後續步驟
 
-如需服務匯流排轉送的詳細資訊，請參閱下列主題。
+如需服務匯流排轉送的深入詳細資訊，請參閱下列主題。
 
 - [Azure 服務匯流排架構概觀](service-bus-fundamentals-hybrid-solutions.md)
-
 - [如何使用服務匯流排轉送服務](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

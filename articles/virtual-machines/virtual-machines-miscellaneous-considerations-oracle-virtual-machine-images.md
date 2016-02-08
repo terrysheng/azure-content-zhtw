@@ -35,7 +35,7 @@ Azure 目前不支援 Oracle 資料庫的 Oracle Real Application Clusters (RAC)
 
 ### 無靜態內部 IP
 
-Azure 會指派每部虛擬機器各一個內部 IP 位址。除非虛擬機器屬於虛擬網路的一部分，否則虛擬機器的 IP 位址將是動態位址，且虛擬機器重新啟動之後可能會改變。這可能會造成問題，因為 Oracle 資料庫預期的是靜態 IP 位址。若要避免這個問題，請考慮將虛擬機器加入 Azure 虛擬網路。如需詳細資訊，請參閱[虛擬網路](http://azure.microsoft.com/documentation/services/virtual-network/)和[在 Azure 中建立虛擬網路](create-virtual-network.md)。
+Azure 會指派每部虛擬機器各一個內部 IP 位址。除非虛擬機器屬於虛擬網路的一部分，否則虛擬機器的 IP 位址將是動態位址，且虛擬機器重新啟動之後可能會改變。這可能會造成問題，因為 Oracle 資料庫預期的是靜態 IP 位址。若要避免這個問題，請考慮將虛擬機器加入 Azure 虛擬網路。如需詳細資訊，請參閱[虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)和[在 Azure 中建立虛擬網路](create-virtual-network.md)。
 
 ### 連接的磁碟組態選項
 
@@ -53,13 +53,13 @@ Azure 會指派每部虛擬機器各一個內部 IP 位址。除非虛擬機器�
 
 	![](media/virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images/image3.png)
 
->[AZURE.IMPORTANT]依個別情況評估寫入效能與讀取效能之間的取捨。您的實際結果可能因您使用這些方法而有所不同。
+>[AZURE.IMPORTANT] 依個別情況評估寫入效能與讀取效能之間的取捨。您的實際結果可能因您使用這些方法而有所不同。
 
 ### 高可用性和災害復原考量
 
 在 Azure 虛擬機器中使用 Oracle 資料庫時，您必須負責實作高可用性和災害復原解決方案，以避免任何停機。您也需負責備份自己的資料和應用程式。
 
-Azure 上的 Oracle Database Enterprise Edition (不含 RAC) 可以使用 [Data Guard、Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 或 [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate) 來達成高可用性和嚴重損壞修復，且兩個資料庫位於不同的虛擬機器上。這兩個虛擬機器應該位於相同的[雲端服務](cloud-services-connect-virtual-machine.md)和[虛擬網路](http://azure.microsoft.com/documentation/services/virtual-network/)中，以確保它們可以透過永續私人 IP 位址互相存取。此外，建議您將虛擬機器放在相同的[可用性設定組](manage-availability-virtual-machines.md)中，讓 Azure 可將其放置於不同的容錯網域和升級網域。請注意，只有相同雲端服務內的虛擬機器可以參與相同的可用性集合。每部虛擬機器必須至少有 2 GB 的記憶體和 5 GB 的磁碟空間。
+Azure 上的 Oracle Database Enterprise Edition (不含 RAC) 可以使用 [Data Guard、Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 或 [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate) 來達成高可用性和嚴重損壞修復，且兩個資料庫位於不同的虛擬機器上。這兩個虛擬機器應該位於相同的[雲端服務](cloud-services-connect-virtual-machine.md)和[虛擬網路](https://azure.microsoft.com/documentation/services/virtual-network/)中，以確保它們可以透過永續私人 IP 位址互相存取。此外，建議您將虛擬機器放在相同的[可用性設定組](manage-availability-virtual-machines.md)中，讓 Azure 可將其放置於不同的容錯網域和升級網域。請注意，只有相同雲端服務內的虛擬機器可以參與相同的可用性集合。每部虛擬機器必須至少有 2 GB 的記憶體和 5 GB 的磁碟空間。
 
 使用 Oracle Data Guard，可以藉由某個虛擬機器中的主要資料庫、另一個虛擬機器中的次要 (待命) 資料庫以及它們之間的單向複寫設定，達到高可用性。這樣讀取作業存取的會是資料庫的複本。使用 Oracle GoldenGate，您則可以設定兩個資料庫之間的雙向複寫。若要了解如何使用這些工具為資料庫設定高可用性解決方案，請參閱 Oracle 網站上的 [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) 和 [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) 文件 (英文)。如需資料庫複本的讀取-寫入存取權，您可以使用 [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)。
 
@@ -108,4 +108,4 @@ Azure 上的 Oracle Database Enterprise Edition (不含 RAC) 可以使用 [Data 
 ##其他資源
 [Azure 的 Oracle 虛擬機器影像](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

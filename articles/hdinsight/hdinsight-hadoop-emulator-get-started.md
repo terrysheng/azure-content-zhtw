@@ -24,12 +24,12 @@
 
 安裝模擬器後，請遵循字數統計的 MapReduce 教學課程，然後執行範例。
 
-> [AZURE.NOTE]HDInsight Emulator 只包含 Hadoop 叢集。不含 HBase 或 Storm。
+> [AZURE.NOTE] HDInsight Emulator 只包含 Hadoop 叢集。不含 HBase 或 Storm。
 
 
 HDInsight Emulator 提供本機部署環境，與 Hadoop 沙箱極為相似。如果您熟悉 Hadoop，可以透過 Hadoop 分散式檔案系統 (HDFS) 開始使用 HDInsight Emulator。在 HDInsight 中，預設檔案系統是 Azure Blob 儲存體。所以您最終會使用 Azure Blob 儲存體來開發工作。若要搭配使用 Azure Blob 儲存體和 HDInsight Emulator，您必須變更模擬器的組態。
 
-> [AZURE.NOTE]HDInsight Emulator 只會使用一個節點部署。
+> [AZURE.NOTE] HDInsight Emulator 只會使用一個節點部署。
 
 
 ## 必要條件
@@ -41,14 +41,14 @@ HDInsight Emulator 提供本機部署環境，與 Hadoop 沙箱極為相似。�
 	- Windows 8
 	- Windows Server 2012
 
-- **Azure PowerShell** (英文)。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
+- **Azure PowerShell** (英文)。請參閱[安裝和使用 Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
 
 ##<a name="install"></a>安裝 HDInsight Emulator
 
 可以透過 Microsoft Web Platform Installer 安裝 Microsoft HDInsight Emulator。
 
-> [AZURE.NOTE]HDInsight Emulator 目前僅支援英文版作業系統。如果已安裝舊版的 Emulator，您必須從 [控制台/程式和功能] 中解除安裝下列兩個元件，再安裝最新版的 Emulator：<ul> <li>Microsoft HDInsight Emulator for Azure 或 HDInsight Developer Preview，視何者已安裝</li> <li>Hortonworks Data Platform</li> </ul>
+> [AZURE.NOTE] HDInsight Emulator 目前僅支援英文版作業系統。如果已安裝舊版的 Emulator，您必須從 [控制台/程式和功能] 中解除安裝下列兩個元件，再安裝最新版的 Emulator：<ul> <li>Microsoft HDInsight Emulator for Azure 或 HDInsight Developer Preview，視何者已安裝</li> <li>Hortonworks Data Platform</li> </ul>
 
 
 **安裝 HDInsight Emulator**
@@ -117,7 +117,7 @@ HDInsight Emulator 提供本機部署環境，與 Hadoop 沙箱極為相似。�
 			<value>*</value>
 		</property>
 
-3. 當 Visual Studio 嘗試連接到 WebHCat 服務時，您可能會收到錯誤 (「錯誤：找不到工作 job\_XXXX\_0001」)。若是如此，您必須重新啟動 WebHCat 服務，然後再試一次。若要重新啟動 WebHCat 服務，請啟動 [**服務**] MMC、以滑鼠右鍵按一下 [**Apache Hadoop Templeton**] \(這是 WebHCat 服務的舊名稱)，然後按一下 [**重新啟動**]。
+3. 當 Visual Studio 嘗試連接到 WebHCat 服務時，您可能會收到錯誤 (「錯誤：找不到工作 job\_XXXX\_0001」)。若是如此，您必須重新啟動 WebHCat 服務，然後再試一次。若要重新啟動 WebHCat 服務，請啟動 [**服務**] MMC、以滑鼠右鍵按一下 [**Apache Hadoop Templeton**] (這是 WebHCat 服務的舊名稱)，然後按一下 [**重新啟動**]。
 
 ##<a name="runwordcount"></a>字數統計 MapReduce 教學課程
 
@@ -294,7 +294,7 @@ jar 檔及原始程式檔位在 C:\\Hadoop\\GettingStarted\\Java 資料夾。
 
 5. 執行下列命令執行 **w3ccreate.hql** 指令碼檔案。該指令碼建立 Hive 表格，並且將資料載入到 Hive 表格：
 
-	> [AZURE.NOTE]目前，您也可以使用 HDInsight Visual Studio 工具來執行 Hive 查詢。開啟 Visual Studio，建立新的專案，然後從 HDInsight 範本中選取 [**Hive 應用程式**]。開啟專案之後，將查詢新增為新的項目。查詢位於 **C:/hdp/GettingStarted/Hive/w3c**。查詢新增至專案之後，將 **${hiveconf:input}** 取代為 **/w3c/hive/input**，然後按 [**提交**]。
+	> [AZURE.NOTE] 目前，您也可以使用 HDInsight Visual Studio 工具來執行 Hive 查詢。開啟 Visual Studio，建立新的專案，然後從 HDInsight 範本中選取 [**Hive 應用程式**]。開啟專案之後，將查詢新增為新的項目。查詢位於 **C:/hdp/GettingStarted/Hive/w3c**。查詢新增至專案之後，將 **${hiveconf:input}** 取代為 **/w3c/hive/input**，然後按 [**提交**]。
 
 		C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ccreate.hql -hiveconf "input=/w3c/hive/input/data_w3c_small.txt"
 
@@ -313,7 +313,7 @@ jar 檔及原始程式檔位在 C:\\Hadoop\\GettingStarted\\Java 資料夾。
 
 6. 執行下列命令來執行 **w3ctotalhitsbypage.hql** HiveQL 指令碼檔案：
 
-	> [AZURE.NOTE]如同前面的說明，您也可以使用 HDInsight Visual Studio 工具執行此查詢。
+	> [AZURE.NOTE] 如同前面的說明，您也可以使用 HDInsight Visual Studio 工具執行此查詢。
 
         C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ctotalhitsbypage.hql
 
@@ -390,7 +390,7 @@ The samples currently contain all the required binaries, so building is not requ
 ##<a name="blobstorage"></a>連線至 Azure Blob 儲存體
 HDInsight Emulator 使用 HDFS 做為預設檔案系統。不過，Azure HDInsight 使用 Azure Blob 儲存體做為預設檔案系統。可設定 HDInsight Emulator 來使用 Azure Blob 儲存體，代替本機儲存體。請依照下列指示，在 Azure 中建立儲存體空器，並將它連接到 HDInsight Emulator。
 
->[AZURE.NOTE]如需有關 HDInsight 如何使用 Azure Blob 儲存體的詳細資訊，請參閱[在 HDInsight 上使用 Azure Blob 儲存體](../hdinsight-use-blob-storage.md)。
+>[AZURE.NOTE] 如需有關 HDInsight 如何使用 Azure Blob 儲存體的詳細資訊，請參閱[在 HDInsight 上使用 Azure Blob 儲存體](../hdinsight-use-blob-storage.md)。
 
 開始依照下列指示執行之前，您必須先建立儲存體帳戶。如需相關指示，請參閱[如何建立儲存體帳戶](../storage-create-storage-account.md)。
 
@@ -497,4 +497,4 @@ HDInsight Emulator 也支援部分 Azure PowerShell Cmdlet。這些 Cmdlet 包�
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

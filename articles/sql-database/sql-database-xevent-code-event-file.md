@@ -41,7 +41,7 @@
 ## 必要條件
 
 
-- Azure 帳戶和訂用帳戶。您可以註冊[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+- Azure 帳戶和訂用帳戶。您可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 
 - 您可以在當中建立資料表的任何資料庫。
@@ -597,4 +597,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

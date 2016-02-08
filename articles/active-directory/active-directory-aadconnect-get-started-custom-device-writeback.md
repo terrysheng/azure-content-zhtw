@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath;andkjell"/>
 
 # 在 Azure AD Connect 中啟用裝置回寫
@@ -24,11 +24,11 @@
 
 這提供額外的安全性，確保只授權信任的裝置才能存取應用程式。如需條件式存取的詳細資訊，請參閱[使用條件式存取管理風險](active-directory-conditional-access.md)和[使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](https://msdn.microsoft.com/library/azure/dn788908.aspx)。
 
->[AZURE.NOTE]需要 Azure AD Premium 的訂用帳戶才能使用裝置回寫功能。
+>[AZURE.NOTE] 需要 Azure AD Premium 的訂用帳戶才能使用裝置回寫功能。
 
 。
 
->[AZURE.IMPORTANT]裝置必須位於使用者所在的樹系中。由於裝置必須回寫到單一樹系中，因此這項功能目前並不支援利用多重使用者樹系的部署。
+>[AZURE.IMPORTANT] 裝置必須位於使用者所在的樹系中。由於裝置必須回寫到單一樹系中，因此這項功能目前並不支援利用多重使用者樹系的部署。
 
 ## 第 1 部分：安裝 Azure AD Connect
 1. 使用自訂或快速設定安裝 Azure AD Connect。建議您在啟用裝置回寫之前，一開始先讓所有使用者和群組成功進行同步處理。
@@ -129,4 +129,4 @@ Description:
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

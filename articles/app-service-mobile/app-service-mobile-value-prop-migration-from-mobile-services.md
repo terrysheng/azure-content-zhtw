@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="01/12/2016"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>我使用行動服務，App Service 有何幫助？
@@ -64,9 +64,7 @@
 ##準備上場 ！
 利用 *Azure App Service*，您現在可以為行動應用程式建立多個私人測試和預備環境。您可以在部署之前，使用這些環境來執行測試。不需停機即可切換至生產環境。Web 應用程式已預先載入，可確保最佳的客戶體驗。
 
-
-
-當 *Azure App Service 行動應用程式* 功能公開推出的時候，我們將提供從現有行動服務移轉至 App Service 的順暢體驗 (如果您選擇移轉的話)。在此同時，您即可開始探索 *App Service*，並遵循此 [教學課程](app-service-mobile-migrating-from-mobile-services.md)，將 *App Service* 運用於您現有的行動服務。
+您可以藉由遵循此[教學課程](app-service-mobile-migrating-from-mobile-services.md)，開始將 *App Service* 運用於您現有的行動服務。
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

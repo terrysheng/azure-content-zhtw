@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/22/2016"
 	ms.author="micurd"/>
 
 # 如何使用 Xamarin 的 Blob 儲存體 (預覽)
@@ -173,10 +173,6 @@ Xamarin 可讓開發人員使用共用的 C# 程式碼基底，使用其原生�
 
 參閱下列連結以深入了解 Blob、資料表和佇列：
 
-[Microsoft Azure 儲存體簡介](storage-introduction.md)  
-[如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)  
-[如何使用 .NET 的資料表儲存體](storage-dotnet-how-to-use-tables.md)  
-[如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)
-[使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
+[Microsoft Azure 儲存體簡介](storage-introduction.md) [如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md) [如何使用 .NET 的資料表儲存體](storage-dotnet-how-to-use-tables.md) [如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md) [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

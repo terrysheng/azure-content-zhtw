@@ -41,7 +41,7 @@
 
 1. **登入 Microsoft Azure** -在命令列介面 (Bash、終端機、命令提示字元) 中，輸入 `azure config mode arm` 以確定您在資源管理員模式，然後輸入 `azure login` 以[使用您的工作或學校識別碼登入](../xplat-cli-connect.md#use-the-log-in-method)，接著依照您的 Azure 帳戶互動式登入體驗的提示進行。
 
-	> [AZURE.NOTE]如果您有工作或學校識別碼，而且知道未啟用雙因素驗證，則可以使用 `azure login -u` 以及工作或學校識別碼，在沒有互動式工作階段的情況下進行登入。如果沒有工作或學校識別碼，您可以[從個人 Microsoft 帳戶建立工作或學校識別碼](resource-group-create-work-id-from-personal.md)。
+	> [AZURE.NOTE] 如果您有工作或學校識別碼，而且知道未啟用雙因素驗證，則可以使用 `azure login -u` 以及工作或學校識別碼，在沒有互動式工作階段的情況下進行登入。如果沒有工作或學校識別碼，您可以[從個人 Microsoft 帳戶建立工作或學校識別碼](resource-group-create-work-id-from-personal.md)。
 
 2. **建立資源群組** – 所有資源都必須部署至資源群組。在本教學課程中，我們將資源群組命名為 **vmsstest1**：
 
@@ -604,4 +604,4 @@
 
 請參閱[自動調整執行 Ubuntu/Apache/PHP 應用程式範本以設定 LAMP 堆疊的 VM 調整集](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale)，以執行虛擬機器調整集的自動調整功能。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

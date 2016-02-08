@@ -164,14 +164,14 @@ Azure WebJobs 具有下列特性：
 
 ### 詳細資訊
 
-- [計算資源彙總模式](http://msdn.microsoft.com/library/dn589778.aspx) (英文)
+- [計算資源彙總模式 (英文)](http://msdn.microsoft.com/library/dn589778.aspx)
 - [開始使用 Azure WebJobs SDK (英文)](websites-dotnet-webjobs-sdk-get-started.md)
 
 ## Azure 虛擬機器
 
 背景工作的實作方式可能會讓自己無法部署到 Azure Web 應用程式或雲端服務，或是讓這些選項都不可行。常見的範例有 Windows 服務、協力廠商公用程式和可執行程式。它也可以包含為裝載應用程式以外的執行環境所撰寫的程式；比方說，可能是您想要從 Windows 或 .NET 應用程式執行的 Unix 或 Linux 程式。您可以選擇各式各樣的 Azure 虛擬機器的作業系統，並在該虛擬機器上執行您的服務或可執行檔。
 
-如要了解如何選擇使用虛擬機器的時機，請參閱 [Azure App Services、雲端服務與虛擬機器之比較](choose-web-site-cloud-service-vm.md)。如需[虛擬機器選項的詳細資訊，請參閱「Azure 的虛擬機器和雲端服務大小」](http://msdn.microsoft.com/library/azure/dn197896.aspx)(英文)。如需虛擬機器可用的作業系統和預先建立映像的詳細資訊，請參閱 [Azure 虛擬機器資源庫](http://azure.microsoft.com/gallery/virtual-machines/)。
+如要了解如何選擇使用虛擬機器的時機，請參閱 [Azure App Services、雲端服務與虛擬機器之比較](choose-web-site-cloud-service-vm.md)。如需[虛擬機器選項的詳細資訊，請參閱「Azure 的虛擬機器和雲端服務大小」](http://msdn.microsoft.com/library/azure/dn197896.aspx)(英文)。如需虛擬機器可用的作業系統和預先建立映像的詳細資訊，請參閱 [Azure 虛擬機器資源庫](https://azure.microsoft.com/gallery/virtual-machines/)。
 
 若要在個別虛擬機器中起始背景工作，您有一系列的選項可選：
 
@@ -191,7 +191,7 @@ Azure WebJobs 具有下列特性：
 
 ### 詳細資訊
 
-- Azure 上的[虛擬機器](http://azure.microsoft.com/services/virtual-machines/)
+- Azure 上的[虛擬機器](https://azure.microsoft.com/services/virtual-machines/)
 - [Azure 虛擬機器常見問題集](virtual-machines-questions.md)
 
 ## 設計考量
@@ -294,27 +294,27 @@ Web 和背景工作角色在啟動、執行和停止時會經歷一組不同的�
 
 ## 相關的模式
 
-- [非同步傳訊入門](http://msdn.microsoft.com/library/dn589781.aspx) (英文)
-- [自動調整指引](http://msdn.microsoft.com/library/dn589774.aspx) (英文)
-- [補償交易模式](http://msdn.microsoft.com/library/dn589804.aspx) (英文)
-- [競爭取用者模式](http://msdn.microsoft.com/library/dn568101.aspx) (英文)
-- [計算分割指引](http://msdn.microsoft.com/library/dn589773.aspx) (英文)
-- [計算資源彙總模式](http://msdn.microsoft.com/library/dn589778.aspx) (英文)
-- [閘道管理員模式](http://msdn.microsoft.com/library/dn589793.aspx) (英文)
-- [選出領導者模式](http://msdn.microsoft.com/library/dn568104.aspx) (英文)
-- [管道與篩選器](http://msdn.microsoft.com/library/dn568100.aspx) (英文)
-- [優先順序佇列模式](http://msdn.microsoft.com/library/dn589794.aspx) (英文)
-- [佇列型負載調節模式](http://msdn.microsoft.com/library/dn589783.aspx) (英文)
-- [排程器代理程式監督員模式](http://msdn.microsoft.com/library/dn589780.aspx) (英文)
+- [非同步傳訊入門 (英文)](http://msdn.microsoft.com/library/dn589781.aspx)
+- [自動調整指引 (英文)](http://msdn.microsoft.com/library/dn589774.aspx)
+- [補償交易模式 (英文)](http://msdn.microsoft.com/library/dn589804.aspx)
+- [競爭取用者模式 (英文)](http://msdn.microsoft.com/library/dn568101.aspx)
+- [計算分割指引 (英文)](http://msdn.microsoft.com/library/dn589773.aspx)
+- [計算資源彙總模式 (英文)](http://msdn.microsoft.com/library/dn589778.aspx)
+- [閘道管理員模式 (英文)](http://msdn.microsoft.com/library/dn589793.aspx)
+- [選出領導者模式 (英文)](http://msdn.microsoft.com/library/dn568104.aspx)
+- [管道與篩選器 (英文)](http://msdn.microsoft.com/library/dn568100.aspx)
+- [優先順序佇列模式 (英文)](http://msdn.microsoft.com/library/dn589794.aspx)
+- [佇列型負載調節模式 (英文)](http://msdn.microsoft.com/library/dn589783.aspx)
+- [排程器代理程式監督員模式 (英文)](http://msdn.microsoft.com/library/dn589780.aspx)
 
 ## 詳細資訊
 
-- [調整使用背景工作角色的 Azure 應用程式](http://msdn.microsoft.com/library/hh534484.aspx#sec8) (英文)
-- [執行背景工作](http://msdn.microsoft.com/library/ff803365.aspx) (英文)
+- [調整使用背景工作角色的 Azure 應用程式 (英文)](http://msdn.microsoft.com/library/hh534484.aspx#sec8)
+- [執行背景工作 (英文)](http://msdn.microsoft.com/library/ff803365.aspx)
 - [Azure 角色啟動生命週期](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (英文) (部落格文章)
 - [Azure 雲端服務角色生命週期](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (英文) (影片)
 - [開始使用 Azure WebJobs SDK (英文)](websites-dotnet-webjobs-sdk-get-started.md)
 - [Azure 佇列和服務匯流排佇列 - 異同比較 (英文)](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [如何在雲端服務中啟用診斷 (英文)](cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

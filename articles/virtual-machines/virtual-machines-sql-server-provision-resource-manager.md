@@ -45,11 +45,11 @@ Azure 虛擬機器 (VM) 資源庫涵蓋數個包含 Microsoft SQL Server 的映�
 
 - [後續步驟](#Next)
 
-本教學課程假設您已經有 Azure 帳戶。如果您沒有 Azure 帳戶，請造訪 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+本教學課程假設您已經有 Azure 帳戶。如果您沒有 Azure 帳戶，請造訪 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a id="Provision">使用資源管理員部署模型從資源庫佈建 SQL VM 映像
 
-1. 使用您的帳戶登入 [Azure 入口網站](http://portal.azure.com)。
+1. 使用您的帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 1. 在 Azure 入口網站上，按一下 [+新增]。入口網站將會開啟 [新增] 刀鋒視窗。SQL Server VM 範本位於 Marketplace 的 [計算] 群組中。
 
 1. 在 [新增] 刀鋒視窗中，按一下 [計算]。
@@ -87,7 +87,7 @@ Azure 入口網站中有五個用來設定 SQL Server 虛擬機器的刀鋒視�
 
 - 在 [儲存體] 底下，指定磁碟類型。針對生產環境工作負載，建議使用進階儲存體。
 
->[AZURE.NOTE]預設會啟用進階儲存體。這會自動將您機器的大小調整成支援「進階儲存體」的大小。如果您停用「進階儲存體」，則會使用您先前選取的機器大小。
+>[AZURE.NOTE] 預設會啟用進階儲存體。這會自動將您機器的大小調整成支援「進階儲存體」的大小。如果您停用「進階儲存體」，則會使用您先前選取的機器大小。
 
 - 在 [儲存體帳戶] 底下，您可以接受自動佈建的儲存體帳戶名稱，或是按一下 [儲存體帳戶] 以選擇現有的帳路並設定儲存體帳戶類型。Azure 預設會建立具有本地備援儲存體的新儲存體帳戶。
 
@@ -129,7 +129,7 @@ Azure 入口網站中有五個用來設定 SQL Server 虛擬機器的刀鋒視�
 
 如果您啟用「SQL Server 驗證」，請指定 [登入名稱] 和 [密碼]。這個使用者名稱將會是「SQL Server 驗證」登入，以及系統管理員 (sysadmin) 固定伺服器角色的成員。如需有關「驗證模式」的詳細資訊，請參閱[選擇驗證模式](http://msdn.microsoft.com/library/ms144284.aspx)。SQL Server 預設不會啟用「SQL Server 驗證」。在此情況下，虛擬機器上的本機系統管理員可以連線到 SQL Server 執行個體。
 
->[AZURE.NOTE]如果您打算透過網際網路存取 SQL Server (也就是 [公用] 連線選項)，您應該在這裡啟用 SQL 驗證。對 SQL Server 進行公用存取需要使用「SQL 驗證」。
+>[AZURE.NOTE] 如果您打算透過網際網路存取 SQL Server (也就是 [公用] 連線選項)，您應該在這裡啟用 SQL 驗證。對 SQL Server 進行公用存取需要使用「SQL 驗證」。
 
 ### 儲存體最佳化
 按一下 [儲存體組態] 以指定儲存體需求。您可以用每秒輸入/輸出作業數 (IOPs)、輸送量 (單位為 MB/s) 及總儲存體大小來指定需求。請使用滑動標尺來設定這些項目。入口網站會自動根據這些需求計算磁碟數目。
@@ -142,7 +142,7 @@ Azure 預設會針對 5000 IOPs、200 MBs 及 1 TB 的儲存體空間進行最�
 
 下列影像顯示 [儲存體組態] 刀鋒視窗。<br/>![SQL ARM 儲存體](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-storage.png) <br/>
 
->[AZURE.NOTE]儲存體組態限制取決於虛擬機器大小。如需詳細資訊，請參閱[虛擬機器的大小](virtual-machines-size-specs.md)。
+>[AZURE.NOTE] 儲存體組態限制取決於虛擬機器大小。如需詳細資訊，請參閱[虛擬機器的大小](virtual-machines-size-specs.md)。
 
 ### 修補
 預設會啟用 [SQL 自動修補]。自動修補可讓 Azure 自動修補 SQL Server 和作業系統。請為維護期間指定一週當中的某一天、時間及持續時間。Azure 將會在維護期間執行修補。維護期間排程會使用 VM 地區設定做為時間。如果您不想要讓 Azure 自動修補 SQL Server 和作業系統，請按一下 [停用]。
@@ -197,7 +197,7 @@ Azure 預設會針對 5000 IOPs、200 MBs 及 1 TB 的儲存體空間進行最�
 
 如果您使用入口網站以資源管理員佈建 SQL Server 虛擬機器映像，則當您在 SQL 連線選項選取 [公用] 並啟用 SQL Server 驗證時，即已為您完成這些步驟。不過，還有一些剩餘的步驟要完成，才能透過網際網路存取您的 SQL Server 執行個體。
 
->[AZURE.NOTE]如果在佈建時您沒有選取 [公用]，則還必須執行其他步驟，才能透過網際網路存取您的 SQL Server 執行個體。如需詳細資訊，請參閱[連線到 SQL Server 虛擬機器 (資源管理員) | Microsoft Azure](virtual-machines-sql-server-connectivity-resource-manager.md)。
+>[AZURE.NOTE] 如果在佈建時您沒有選取 [公用]，則還必須執行其他步驟，才能透過網際網路存取您的 SQL Server 執行個體。如需詳細資訊，請參閱[連線到 SQL Server 虛擬機器 (資源管理員) | Microsoft Azure](virtual-machines-sql-server-connectivity-resource-manager.md)。
 
 如果您只需要在本機或從相同的「虛擬網路」內存取您的虛擬機器，則不需要執行下列步驟。
 
@@ -206,4 +206,4 @@ Azure 預設會針對 5000 IOPs、200 MBs 及 1 TB 的儲存體空間進行最�
 ##<a id="Next">後續步驟
 如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

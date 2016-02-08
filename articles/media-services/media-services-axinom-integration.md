@@ -209,4 +209,4 @@ Widevine 授權取得 URL|必須用於設定 DASH 串流資產傳遞原則 (請�
 
 我們想要向下列為建立此文件貢獻心力的人員致謝：Kristjan Jõgi of Axinom、Mingfei Yan 及 Amit Rajput。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

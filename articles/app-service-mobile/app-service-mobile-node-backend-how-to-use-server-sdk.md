@@ -18,13 +18,11 @@
 
 # 如何使用 Azure Mobile Apps Node.js SDK
 
-[AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
 本文提供詳細的資訊及範例，說明如何在 Azure App Service Mobile Apps 中使用 Node.js 後端。
 
-> [AZURE.NOTE]此 SDK 目前為預覽狀態。因此，不建議您在生產環境中使用此 SDK。本文件中的範例使用 v2.0.0-beta2 的 [azure-mobile-apps]。
+> [AZURE.NOTE] 此 SDK 目前為預覽狀態。因此，不建議您在生產環境中使用此 SDK。本文件中的範例使用 v2.0.0-rc2 的 [azure-mobile-apps]。
 
 ## <a name="Introduction"></a>簡介
 
@@ -163,6 +161,14 @@ Azure App Service 提供 Node.js 應用程式方面的具體建議，您應該�
 - 如何[指定 Node 版本]
 - 如何[使用 Node 模組]
 
+### <a name="howto-enable-homepage"></a>做法：啟用您的應用程式的首頁
+
+許多應用程式是 Web 和行動應用程式的組合，ExpressJS 架構可讓您結合兩方面。但是有時候，您可能只想要實作行動介面。它對於提供登陸頁面以確保 App Service 已啟動並執行很有用。您可以提供您自己的首頁，或啟用暫時的首頁。若要啟用暫時的首頁，將行動應用程式建構函式調整為以下內容：
+
+    var mobile = azureMobileApps({ homePage: true });
+
+如果您想要讓此選項僅在本機開發時可供使用，您可以將此設定新增至您的 `azureMobile.js` 檔案。
+
 ## <a name="TableOperations"></a>資料表作業
 
 azure-mobile-apps Node.js Server SDK 提供將儲存在 Azure SQL Database 中的資料表公開為 WebAPI 的機制。提供的作業有五種。
@@ -246,7 +252,7 @@ Azure Mobile Apps AzureMobile Apps Node SDK 提供三種現成可用的資料提
 
 Azure Mobile Apps Node.js SDK 會使用 [mssql Node.js 封裝]來建立及使用 SQL Express 和 SQL Database 的連線。要使用此封裝，您必須在 SQL Express 執行個體上啟用 TCP 連線。
 
-> [AZURE.TIP]記憶體驅動程式未提供完整的測試工具集。如果您想要在本機上測試後端，建議您使用 SQL Express 資料存放區和 mssql 驅動程式。
+> [AZURE.TIP] 記憶體驅動程式未提供完整的測試工具集。如果您想要在本機上測試後端，建議您使用 SQL Express 資料存放區和 mssql 驅動程式。
 
 1. 下載並安裝 [Microsoft SQL Server 2014 Express]。請確實安裝 SQL Server 2014 Express with Tools 版。除非您明確需要 64 位元支援，32 位元版本在執行時會耗用較少的記憶體。
 
@@ -368,7 +374,7 @@ _azureMobile.js_ 檔案中的大部分設定在 [Azure 入口網站]中都有對
 
 行動應用程式後端建立後，您可以選擇將現有的 SQL Database 連接到您的行動應用程式後端，或建立新的 SQL Database。在這一節中，您將建立新的 SQL Database。
 
-> [AZURE.NOTE]如果在與新行動應用程式後端相同的位置中已經有資料庫，您可以改為選取 [使用現有的資料庫]，然後選取該資料庫。不建議您使用位在不同位置的資料庫，因為這會需要額外的頻寬成本和產生更高的延遲。
+> [AZURE.NOTE] 如果在與新行動應用程式後端相同的位置中已經有資料庫，您可以改為選取 [使用現有的資料庫]，然後選取該資料庫。不建議您使用位在不同位置的資料庫，因為這會需要額外的頻寬成本和產生更高的延遲。
 
 6. 在新「行動應用程式」後端中，依序按一下 [設定] > [行動應用程式] > [資料] > [+加入]。
 
@@ -543,6 +549,24 @@ _azureMobile.js_ 檔案中的大部分設定在 [Azure 入口網站]中都有對
 
 建議您明確呼叫 initialize () 方法，以在服務開始執行時建立資料表。
 
+### <a name="Swagger"></a>啟用 Swagger 支援
+
+Azure App Service Mobile Apps 隨附內建 [Swagger] 支援。若要啟用 Swagger 支援，請先安裝 swagger-ui 做為相依性：
+
+    npm install --save swagger-ui
+
+安裝之後，您可以在 Azure Mobile Apps 建構函式中啟用 Swagger 支援：
+
+    var mobile = azureMobileApps({ swagger: true });
+
+您可能只想要在開發版本中啟用 Swagger 支援。您可以使用 `NODE_ENV` 應用程式設定來執行這項工作：
+
+    var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
+
+swagger 端點位於 http://\_yoursite\_.azurewebsites.net/swagger。您可以透過 `/swagger/ui` 端點存取 Swagger UI。請注意，如果您選擇需要跨整個應用程式驗證，Swagger 會產生 / 端點的錯誤。為了獲得最佳結果，選擇允許透過 Azure App Service 驗證/授權設定的未經驗證要求，然後使用 `table.access` 屬性控制驗證。
+
+如果您想要讓 Swagger 支援僅在本機開發時使用，您可以將 Swagger 選項新增至您的 `azureMobile.js` 檔案。
+
 ## <a name="CustomAPI"></a>自訂 API
 
 除了透過 /tables 端點的資料存取 API 以外，Azure Mobile Apps 也可提供自訂 API 涵蓋範圍。自訂 API 會以類似於資料表定義的方法定義，並且可存取所有相同功能，包括驗證。
@@ -707,6 +731,7 @@ Azure 入口網站可讓您在 Visual Studio Team Services 中編輯 Node.js 後
 [Create a new Azure App Service]: ../app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
+[Swagger]: http://swagger.io/
 
 [Azure 入口網站]: https://portal.azure.com/
 [OData]: http://www.odata.org
@@ -722,4 +747,4 @@ Azure 入口網站可讓您在 Visual Studio Team Services 中編輯 Node.js 後
 [ExpressJS 中介軟體]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+	ms.date="01/21/2016" 
 	ms.author="awills"/>
 
 # 在 Application Insights 中探索 Java 追蹤記錄
@@ -87,9 +87,9 @@
 
 記錄器 | 下載 | 程式庫
 ----|----|----
-Logback|[具有 Logback 附加器的 SDK](http://dl.windowsazure.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
-Log4J v2.0|[具有 Log4J v2 附加器的 SDK](http://dl.windowsazure.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[具有 Log4J v1.2 附加器的 SDK](http://dl.windowsazure.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
+Logback|[具有 Logback 附加器的 SDK](https://azuredownloads.blob.core.windows.net/applicationinsights/logbackAppender.zip)|applicationinsights-logging-logback
+Log4J v2.0|[具有 Log4J v2 附加器的 SDK](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j2Appender.zip)|applicationinsights-logging-log4j2 
+Log4j v1.2|[具有 Log4J v1.2 附加器的 SDK](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
 
 
 
@@ -149,4 +149,4 @@ Application Insights 附加器可由任何設定的記錄器參考，而不一�
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,9 +20,9 @@
 # 要於 Logic Apps 中使用的連接器和 API Apps 清單
 深入了解所有由 Microsoft 建立可用於邏輯應用程式中的連接器和 API 應用程式。
 
-如需定價資訊，以及每個服務層隨附項目的清單，請參閱 [Azure App Service 定價](http://azure.microsoft.com/pricing/details/app-service/)。
+如需定價資訊，以及每個服務層隨附項目的清單，請參閱 [Azure App Service 定價](https://azure.microsoft.com/pricing/details/app-service/)。
 
-> [AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡；沒有承諾。
+> [AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡；沒有承諾。
 
 ## 核心連接器
 下表列出所有由 Microsoft 建立且可做為核心連接器使用的可用連接器和 API Apps：
@@ -94,4 +94,4 @@ MQ | 連接至內部部署和執行 Windows 作業系統的 Azure 虛擬機器�
 ## 連接器和 API Apps 的詳細資訊
 [什麼是連接器和 BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md) [在 Azure App Service 中使用混合式連接管理員](app-service-logic-hybrid-connection-manager.md) [管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

@@ -8,7 +8,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/25/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # 管理和監視 Azure 虛擬機器備份
 
@@ -39,7 +46,7 @@
 
 若要進行虛擬機器的隨選備份：
 
-1. 瀏覽至 [受保護項目] 頁面，並選取 [Azure 虛擬機器] 做為 [類型] \(若尚未選取)，然後按一下 [選取] 按鈕。
+1. 瀏覽至 [受保護項目] 頁面，並選取 [Azure 虛擬機器] 做為 [類型] (若尚未選取)，然後按一下 [選取] 按鈕。
 
     ![VM 類型](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -51,7 +58,7 @@
 
     ![建立備份作業](./media/backup-azure-manage-vms/creating-job.png)
 
-    >[AZURE.NOTE]若要檢視與虛擬機器相關聯的原則，請向下切入到 [**受保護項目**] 頁面中的虛擬機器，並移至 [備份原則] 索引標籤。
+    >[AZURE.NOTE] 若要檢視與虛擬機器相關聯的原則，請向下切入到 [**受保護項目**] 頁面中的虛擬機器，並移至 [備份原則] 索引標籤。
 
 3. 建立作業之後，您可以按一下快顯通知列中的 [**檢視作業**]，以在 [作業] 頁面中查看對應的作業。
 
@@ -65,11 +72,11 @@
 - 保留 Azure 備份保存庫中與虛擬機器相關聯的備份資料
 - 刪除與虛擬機器相關聯的備份資料
 
-如果您選取保留與虛擬機器相關聯的備份資料，您可以使用備份資料還原虛擬機器。如需這類虛擬機器的定價詳細資訊，請按一下[這裡](http://azure.microsoft.com/pricing/details/backup/)。
+如果您選取保留與虛擬機器相關聯的備份資料，您可以使用備份資料還原虛擬機器。如需這類虛擬機器的定價詳細資訊，請按一下[這裡](https://azure.microsoft.com/pricing/details/backup/)。
 
 若要停止虛擬機器的保護：
 
-1. 瀏覽至 [受保護項目] 頁面，並選取 [Azure 虛擬機器] 做為篩選類型 (若尚未選取)，然後按一下 [選取] 按鈕。
+1. 瀏瀏覽至 [受保護項目] 頁面，並選取 [Azure 虛擬機器] 作為篩選類型 (若尚未選取)，然後按一下 [選取] 按鈕。
 
     ![VM 類型](./media/backup-azure-manage-vms/vm-type.png)
 
@@ -104,7 +111,7 @@
 
   ![重新保護的 VM](./media/backup-azure-manage-vms/reprotected-status.png)
 
->[AZURE.NOTE]重新保護虛擬機器時，您可以選擇與最初用於保護虛擬機器不同的原則。
+>[AZURE.NOTE] 重新保護虛擬機器時，您可以選擇與最初用於保護虛擬機器不同的原則。
 
 ## 取消註冊虛擬機器
 
@@ -153,7 +160,7 @@
 
 ![儀表板](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
->[AZURE.NOTE]儀表板中的值會每隔 24 小時重新整理一次。
+>[AZURE.NOTE] 儀表板中的值會每隔 24 小時重新整理一次。
 
 ## 稽核作業
 Azure 備份提供由客戶觸發之備份作業的「作業記錄檔」檢閱，可輕鬆查看備份保存庫上執行了哪些管理作業。作業記錄檔會啟用備份作業的絕佳事後剖析和稽核支援。
@@ -249,4 +256,4 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 - [還原 Azure VM](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -51,7 +51,7 @@ Oracle 資料庫連接器提供下列觸發程序和動作：
 資料來源 | 是 | 安裝 Oracle 用戶端的電腦上的 tnsnames.ora 檔案中所指定的資料來源 (網路服務) 名稱。如需資料來源名稱和 tnsnames.ora 的詳細資訊，請參閱[設定 Oracle 用戶端](http://msdn.microsoft.com/library/dd787872.aspx)。
 使用者名稱 | 是 | 輸入用來連線到 Oracle 伺服器的使用者名稱。
 密碼 | 是 | 輸入使用者名稱密碼。
-服務匯流排連接字串 | 是 | 如果您要連線至內部部署，請輸入服務匯流排轉送連接字串。<br/><br/>[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)<br/>[服務匯流排定價](http://azure.microsoft.com/pricing/details/service-bus/)
+服務匯流排連接字串 | 是 | 如果您要連線至內部部署，請輸入服務匯流排轉送連接字串。<br/><br/>[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)<br/>[服務匯流排定價](https://azure.microsoft.com/pricing/details/service-bus/)
 資料表 | 否 | 輸入資料庫中允許連接器修改的資料表。例如，輸入 *OrdersTable, EmployeeTable*。
 預存程序 | 否 | 輸入資料庫中可供連接器呼叫的預存程序。例如，輸入 *IsEmployeeEligible,CalculateOrderDiscount*。
 函式 | 否 | 輸入資料庫中可供連接器呼叫的函式。例如，輸入 *IsEmployeeEligible,CalculateOrderDiscount*。
@@ -91,16 +91,16 @@ Oracle 資料庫連接器提供下列觸發程序和動作：
 
 ## 混合式組態
 
-> [AZURE.NOTE]只有當您在防火牆後方使用 Oracle 內部部署時，才需要此步驟。
+> [AZURE.NOTE] 只有當您在防火牆後方使用 Oracle 內部部署時，才需要此步驟。
 
 App Service 使用混合式組態管理員來安全地連線到內部部署系統。如果您的連接器使用內部部署 Oracle，則需要混合式連線管理員。
 
 請參閱[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -118,4 +118,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/21/2015"
+   ms.date="01/19/2016"
    ms.author="seanmck"/>
 
 
@@ -42,7 +42,7 @@ ASP.NET 5 是輕量型、跨平台的 Web 開發架構，可供您用來建立�
 
     建立 Web API 專案後，您的應用程式中會有兩個服務。隨著您繼續建置應用程式，您將以完全相同的方式加入更多服務。每個服務都可以獨立設定版本和升級。
 
->[AZURE.NOTE]自 Service Fabric 11 月公用預覽版本開始，便已知在處理 ASP.NET 專案時會有長路徑方面的問題。在建立這類專案時，最好是為應用程式和服務類型，以及程式碼和組態封裝名稱選擇簡短名稱，以避免發生任何問題。
+>[AZURE.NOTE] 自 Service Fabric 11 月公用預覽版本開始，便已知在處理 ASP.NET 專案時會有長路徑方面的問題。在建立這類專案時，最好是為應用程式和服務類型，以及程式碼和組態封裝名稱選擇簡短名稱，以避免發生任何問題。
 
 ## 執行應用程式
 
@@ -139,7 +139,7 @@ ASP.NET 5 是輕量型、跨平台的 Web 開發架構，可供您用來建立�
 
 實作 `ICounter` 介面後，讓具狀態服務可從其他服務呼叫的最後一個步驟是開啟通訊通道。對於具狀態服務，Service Fabric 會提供稱為 `CreateServiceReplicaListeners` 的可覆寫方法。透過此方法，您可以根據想要為服務啟用的通訊類型，指定一或多個通訊接聽程式。
 
->[AZURE.NOTE]用於開啟無狀態服務之通訊通道的對等方法稱為 `CreateServiceInstanceListeners`。
+>[AZURE.NOTE] 用於開啟無狀態服務之通訊通道的對等方法稱為 `CreateServiceInstanceListeners`。
 
 在此情況下，我們將取代現有的 `CreateServiceReplicaListeners` 方法，並提供 `ServiceRemotingListener` 的執行個體，其會透過 `ServiceProxy` 來建立可從用戶端呼叫的 RPC 端點。
 
@@ -189,7 +189,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
     第一行程式碼是關鍵程式碼。若要建立具狀態服務的 ICounter Proxy，您必須提供兩項資訊：資料分割識別碼和服務名稱。
 
-    您可以使用資料分割，根據您定義的索引鍵 (例如客戶識別碼或郵遞區號) 將具狀態服務的狀態劃分為不同的值區，藉此調整具狀態服務。在我們的簡單應用程式中，具狀態服務只有一個資料分割，所以索引鍵並不重要。您所提供的任何索引鍵將會造成相同的資料分割。如深入了解分割服務，請參閱[如何分割 Service Fabric 可靠的服務](service-fabric-concepts-partitioning)。
+    您可以使用資料分割，根據您定義的索引鍵 (例如客戶識別碼或郵遞區號) 將具狀態服務的狀態劃分為不同的值區，藉此調整具狀態服務。在我們的簡單應用程式中，具狀態服務只有一個資料分割，所以索引鍵並不重要。您所提供的任何索引鍵將會造成相同的資料分割。如深入了解分割服務，請參閱[如何分割 Service Fabric 可靠的服務](service-fabric-concepts-partitioning.md)。
 
     服務名稱是 fabric:/&lt;application\_name&gt;/&lt;service\_name&gt; 形式的 URI。
 
@@ -237,4 +237,4 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

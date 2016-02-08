@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="01/22/2016"
    ms.author="larryfr"/>
 
 #從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop
@@ -25,7 +25,7 @@
 
 [安全殼層 (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) 可讓您使用命令列介面在以 Linux 為基礎的 HDInsight 叢集上遠端執行作業。本文提供從以 Windows 為基礎的用戶端使用 PuTTY SSH 用戶端連接到 HDInsight 的資訊。
 
-> [AZURE.NOTE]本文中的步驟假設您是使用以 Windows 為基礎的用戶端。如果您使用 Linux、Unix 或 OS X 用戶端，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)。
+> [AZURE.NOTE] 本文中的步驟假設您是使用以 Windows 為基礎的用戶端。如果您使用 Linux、Unix 或 OS X 用戶端，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ##必要條件
 
@@ -73,15 +73,15 @@ SSH 使用者可以使用密碼或公開金鑰來驗證。密碼是您自己設�
 
 	![複雜密碼](./media/hdinsight-hadoop-linux-use-ssh-windows/key.png)
 
-	> [AZURE.NOTE]強烈建議您對此金鑰使用安全的複雜密碼。不過如果您忘記此複雜密碼，將無法加以復原。
+	> [AZURE.NOTE] 強烈建議您對此金鑰使用安全的複雜密碼。不過如果您忘記此複雜密碼，將無法加以復原。
 
 5. 按一下 [**儲存私密金鑰**] 將金鑰儲存到 **.ppk** 檔案。此金鑰會用來驗證以 Linux 為基礎的 HDInsight 叢集。
 
-	> [AZURE.NOTE]此金鑰可用來存取以 Linux 為基礎的 HDInsight 叢集，因此請將它儲存在安全的位置。
+	> [AZURE.NOTE] 此金鑰可用來存取以 Linux 為基礎的 HDInsight 叢集，因此請將它儲存在安全的位置。
 
 6. 按一下 [**儲存公開金鑰**] 將金鑰儲存為 **.txt** 檔案。這可讓您在日後建立其他以 Linux 為基礎的 HDInsight 叢集時重複使用此公開金鑰。
 
-	> [AZURE.NOTE]PuTTYGen 的頂端也會顯示此公開金鑰。當您使用 Azure 入口網站建立叢集時，可以用滑鼠右鍵按一下此欄位，複製值並將其貼入表單。
+	> [AZURE.NOTE] PuTTYGen 的頂端也會顯示此公開金鑰。當您使用 Azure 入口網站建立叢集時，可以用滑鼠右鍵按一下此欄位，複製值並將其貼入表單。
 
 ##建立以 Linux 為基礎的 HDInsight 叢集
 
@@ -129,11 +129,11 @@ SSH 使用者可以使用密碼或公開金鑰來驗證。密碼是您自己設�
 
 5. 按一下 [**開啟**] 來連線到叢集。
 
-	> [AZURE.NOTE]如果這是您第一次連線到叢集，您會收到安全性警示。這是正常現象。請選取 [**是**] 快取伺服器的 RSA2 金鑰以繼續進行。
+	> [AZURE.NOTE] 如果這是您第一次連線到叢集，您會收到安全性警示。這是正常現象。請選取 [**是**] 快取伺服器的 RSA2 金鑰以繼續進行。
 
 6. 出現提示時，輸入您建立叢集時所輸入的使用者。如果您對使用者提供密碼，系統會提示您一併輸入密碼。
 
-> [AZURE.NOTE]上述步驟假設您使用連接埠 22，這將會連接到 HDInsight 叢集上的前端節點 0。如果您使用連接埠 23，您將會連接到前端節點 1。如需前端節點的詳細資訊，請參閱 [HDInsight 上 Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)。
+> [AZURE.NOTE] 上述步驟假設您使用連接埠 22，這將會連接到 HDInsight 叢集上的前端節點 0。如果您使用連接埠 23，您將會連接到前端節點 1。如需前端節點的詳細資訊，請參閱 [HDInsight 上 Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)。
 
 ###連接至背景工作節點
 
@@ -149,7 +149,7 @@ SSH 使用者可以使用密碼或公開金鑰來驗證。密碼是您自己設�
 
 3. 當瀏覽對話方塊顯示時，請選取包含金鑰的 .ppk 檔案，然後按一下 [**開啟**]。這樣會將金鑰新增至 Pageant，在連接至叢集時將金鑰提供給 PuTTY。
 
-    > [AZURE.IMPORTANT]如果您使用 SSH 金鑰來保護您的帳戶的安全，您必須先完成上述步驟，才能連接至背景工作節點。
+    > [AZURE.IMPORTANT] 如果您使用 SSH 金鑰來保護您的帳戶的安全，您必須先完成上述步驟，才能連接至背景工作節點。
 
 4. 開啟 PuTTY。
 
@@ -175,7 +175,7 @@ SSH 使用者可以使用密碼或公開金鑰來驗證。密碼是您自己設�
 
     將 *USERNAME* 取代為您的 SSH 使用者名稱，將 *FQDN* 取代為背景工作節點的 FQDN。例如，`workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.cloudapp.net`。
 
-    > [AZURE.NOTE]如果您使用密碼以驗證您的 SSH 工作階段，則系統會提示您再次輸入密碼。如果您使用 SSH 金鑰，連線應該沒有任何提示即會完成。
+    > [AZURE.NOTE] 如果您使用密碼以驗證您的 SSH 工作階段，則系統會提示您再次輸入密碼。如果您使用 SSH 金鑰，連線應該沒有任何提示即會完成。
 
 9. 建立工作階段之後，針對 PuTTY 的提示會從 `username@hn0-clustername` 變更為 `username@wn0-clustername`，以指出您已連接至背景工作節點。目前您執行的任何命令會在背景工作節點上執行。
 
@@ -213,7 +213,7 @@ SSH 使用者可以使用密碼或公開金鑰來驗證。密碼是您自己設�
 
 SSH 可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDInsight 叢集。要求便會路由至要求的資源，彷彿要求是在 HDInsight 叢集前端節點上產生。
 
-> [AZURE.IMPORTANT]SSH 通道是存取某些 Hadoop 服務之 Web UI 的必要項目。例如，[作業記錄] UI 或 [資源管理員] UI 都只能使用 SSH 通道存取。
+> [AZURE.IMPORTANT] SSH 通道是存取某些 Hadoop 服務之 Web UI 的必要項目。例如，[作業記錄] UI 或 [資源管理員] UI 都只能使用 SSH 通道存取。
 
 如需建立及使用 SSH 通道的詳細資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
 
@@ -229,4 +229,4 @@ SSH 可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDInsi
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

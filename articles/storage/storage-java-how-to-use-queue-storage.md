@@ -46,7 +46,7 @@
 
 ## 設定 Azure 儲存體連接字串
 
-Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。在用戶端應用程式中執行時，您必須以下列格式提供儲存體連接字串 (其中的 AccountName 和 AccountKey 值要使用您儲存體帳戶的名稱，以及在 [Azure 入口網站](portal.azure.com)中針對該儲存體帳戶而列出的主要存取金鑰)。本範例將示範如何宣告靜態欄位來存放連接字串：
+Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管理服務時所用的端點與認證。在用戶端應用程式中執行時，您必須以下列格式提供儲存體連接字串 (其中的 AccountName 和 AccountKey 值要使用您儲存體帳戶的名稱，以及在 [Azure 入口網站](https://portal.azure.com)中針對該儲存體帳戶而列出的主要存取金鑰)。本範例將示範如何宣告靜態欄位來存放連接字串：
 
     // Define the connection-string with your values.
     public static final String storageConnectionString =
@@ -391,4 +391,4 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 [Azure 儲存體 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

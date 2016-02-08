@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="01/22/2016"
 	ms.author="larryfr"/>
 
 # 使用 Azure 入口網站管理 HDInsight 中的 Hadoop 叢集
@@ -24,7 +24,7 @@
 
 使用 [Azure 入口網站][preview-portal]，您可以佈建和管理 Azure HDInsight 中的 Linux 型 Hadoop 叢集。
 
-> [AZURE.NOTE]此文件中的步驟是針對 Linux 型 Hadoop 叢集。如需使用 Windows 型叢集的相關資訊，請參閱[使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集](hdinsight-administer-use-management-portal.md)。
+> [AZURE.NOTE] 此文件中的步驟是針對 Linux 型 Hadoop 叢集。如需使用 Windows 型叢集的相關資訊，請參閱[使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集](hdinsight-administer-use-management-portal.md)。
 
 
 [AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal-nolink.md)]
@@ -41,7 +41,7 @@
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 ## 佈建 HDInsight 叢集
 
@@ -61,13 +61,13 @@
 
 5. 針對 [資源群組]，您可以選取此項目以查看現有資源群組的清單，然後選取其中一個用來建立叢集。或者選取 [建立新群組]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
 
-	> [AZURE.NOTE]如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
+	> [AZURE.NOTE] 如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
 
 6. 選取 [認證]，然後輸入 [叢集登入使用者名稱] 的 [叢集登入密碼]。您也必須輸入 [SSH 使用者名稱] 和 [密碼] 或 [公開金鑰]，這會用來驗證 SSH 使用者。最後，使用 [選取] 按鈕來設定認證。本文件中不會使用遠端桌面，所以您可以將其停用。
 
 	![叢集認證刀鋒視窗](./media/hdinsight-administer-use-portal-linux/clustercredentials.png)
     
-    > [AZURE.NOTE]SSH 可透過命令列遠端存取 HDInsight 叢集。您在此使用的使用者名稱和密碼或公開金鑰將會在透過 SSH 連接到叢集時使用。
+    > [AZURE.NOTE] SSH 可透過命令列遠端存取 HDInsight 叢集。您在此使用的使用者名稱和密碼或公開金鑰將會在透過 SSH 連接到叢集時使用。
 
     如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列文章：
 
@@ -89,19 +89,20 @@
 
 	- __位置__：儲存體帳戶所在地或將建立的地理區域。
 
-		> [AZURE.IMPORTANT]選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
+		> [AZURE.IMPORTANT] 選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
 
 	- __選取__：用來儲存資料來源組態。
 
 	
 8. 選取 [節點定價層] 會顯示將針對此叢集建立之節點的相關資訊。背景工作節點數目預設會設為 __4__。
 
-
 	該叢集的預估成本將會顯示在此刀鋒視窗的底部。
 
 	![節點定價層刀鋒視窗](./media/hdinsight-administer-use-portal-linux/nodepricingtiers.png)
 
 	使用 [選取] 按鈕以儲存 [節點定價層] 資訊。
+    
+    > [AZURE.NOTE] 叢集所使用的節點不會算做虛擬機器，因為節點所使用的虛擬機器映像是 HDInsight 服務的實作詳細資料。不過，節點所使用的計算核心則會算入訂用帳戶可用的計算核心總數。您可以在建立 HDInsight 叢集時，於 [節點定價層] 刀鋒視窗的摘要區段中查看叢集將會使用的核心數目以及可用核心數目。
 
 9. 選取 [選用設定]。此刀鋒視窗可讓您設定下列項目：
 
@@ -111,13 +112,13 @@
 
 	* __虛擬網路__：這可讓您將 HDInsight 叢集放在與其他資源相同的虛擬網路上，例如 SQL Database 或 Azure 虛擬機器。將資源放在虛擬網路上可讓彼此直接通訊，並略過可處理來自網際網路之連入流量的公用閘道器。
     
-        如需搭配虛擬網路 (包含虛擬網路特定設定需求) 使用 HDInsight 的詳細資訊，請參閱[使用 Azure 虛擬網路延伸 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
+        如需有關搭配虛擬網路 (包含虛擬網路特定設定需求) 使用 HDInsight 的資訊，請參閱[使用 Azure 虛擬網路延伸 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
 
 	* __指令碼動作__︰這可讓您指定 Bash 指令碼，以便在佈建期間自訂 HDInsight 叢集。例如，有一個[可安裝 Hue 的指令碼](hdinsight-hadoop-hue-linux.md) (Hue 為可處理 Hadoop 的圖形化用戶端)。 如需指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 	* __Azure 儲存體金鑰__︰可讓您將其他儲存體帳戶與 HDInsight 伺服器產生關聯。
 
-		> [AZURE.NOTE]HDInsight 只能存取用來做為預設資料存放區、透過此組態區段加入或可公開存取的 Azure 儲存體帳戶。
+		> [AZURE.NOTE] HDInsight 只能存取用來做為預設資料存放區、透過此組態區段加入或可公開存取的 Azure 儲存體帳戶。
 
 	![選用設定刀鋒視窗](./media/hdinsight-administer-use-portal-linux/optionalconfiguration.png)
 
@@ -127,7 +128,7 @@
 	| ------------------ | --------------------- |
 	| ![「開始面板」上的佈建指示器](./media/hdinsight-administer-use-portal-linux/provisioning.png) | ![佈建的叢集磚](./media/hdinsight-administer-use-portal-linux/provisioned.png) |
 
-	> [AZURE.NOTE]建立叢集需要一些時間，通常約 15 分鐘左右。使用 [「開始面板」] 上的磚，或頁面左邊的 [通知] 項目，以檢查佈建進度。
+	> [AZURE.NOTE] 建立叢集需要一些時間，通常約 15 分鐘左右。使用 [「開始面板」] 上的磚，或頁面左邊的 [通知] 項目，以檢查佈建進度。
 
 ## 管理叢集
 
@@ -151,13 +152,13 @@
 
 * __使用者 (![使用者圖示](./media/hdinsight-administer-use-portal-linux/users.png))__：可讓您設定 Azure 訂用帳戶上其他使用者對此叢集的「入口網站管理」權限。
 
-	> [AZURE.IMPORTANT]這_只_會影響在 Azure 入口網站對此叢集的存取和權限，對於連線到 HDInsight 叢集或將工作提交到 HDInsight 叢集的使用者沒有影響。
+	> [AZURE.IMPORTANT] 這_只_會影響在 Azure 入口網站對此叢集的存取和權限，對於連線到 HDInsight 叢集或將工作提交到 HDInsight 叢集的使用者沒有影響。
 
 * __標記 (![標記圖示](./media/hdinsight-administer-use-portal-linux/tags.png))__：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
 
 * __文件__：Azure HDInsight 文件的連結。
 
-> [AZURE.IMPORTANT]若要管理 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。如需使用 Ambari 的詳細資訊，請參閱[使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
+> [AZURE.IMPORTANT] 若要管理 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。如需使用 Ambari 的詳細資訊，請參閱[使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
 
 ### <a name="scaling"></a>調整
 
@@ -173,7 +174,7 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 
 ![使用量資訊](./media/hdinsight-administer-use-portal-linux/usage.png)
 
-> [AZURE.IMPORTANT]若要監視 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。如需使用 Ambari 的詳細資訊，請參閱[使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
+> [AZURE.IMPORTANT] 若要監視 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。如需使用 Ambari 的詳細資訊，請參閱[使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
 
 ## 後續步驟
 在本文中，您已了解如何使用 Azure 入口網站建立 HDInsight 叢集，以及如何開啟 Hadoop 命令列工具。若要深入了解，請參閱下列文章：
@@ -187,4 +188,4 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -302,7 +302,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 	![二進位輸出檔案](./media/data-factory-use-custom-activities/Binaries.png)
 13. 將 **MyDotNetActivity.zip** 當做 Blob 上傳至 Blob 容器：Azure Blob 儲存體中的 **customactvitycontainer**，由 **ADFTutorialDataFactory** 中的 **StorageLinkedService** 連結服務使用。如果不存在 Blob 容器 **customactivitycontainer**，請自行建立。
 
-> [AZURE.NOTE]如果您將這個 .NET 活動專案加入 Visual Studio 中包含 Data Factory 專案的方案，您就不需要執行最後兩個步驟，也就是建立 zip 檔案，和手動上傳到 Azure Blob 儲存體。當您使用 Visual Studio 發佈 Data Factory 實體時，發佈程序會自動完成這些步驟。請參閱[使用 Visual Studio 建置您的第一個管線](data-factory-build-your-first-pipeline-using-vs.md)和[從 Azure Blob 複製資料到 Azure SQL](data-factory-get-started-using-vs.md)一文，以了解如何使用 Visual Studio 建立並發佈 Data Factory 實體。
+> [AZURE.NOTE] 如果您將這個 .NET 活動專案加入 Visual Studio 中包含 Data Factory 專案的方案，您就不需要執行最後兩個步驟，也就是建立 zip 檔案，和手動上傳到 Azure Blob 儲存體。當您使用 Visual Studio 發佈 Data Factory 實體時，發佈程序會自動完成這些步驟。請參閱[使用 Visual Studio 建置您的第一個管線](data-factory-build-your-first-pipeline-using-vs.md)和[從 Azure Blob 複製資料到 Azure SQL](data-factory-get-started-using-vs.md)一文，以了解如何使用 Visual Studio 建立並發佈 Data Factory 實體。
 
 ### 執行方法
 
@@ -422,7 +422,7 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 #### 建立 Azure HDInsight 連結服務 
 Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來產生輸出資料。您也可以使用自己的叢集執行相同作業。當您使用隨選 HDInsight 叢集時，系統會為每個配量建立叢集。然而，如果您使用自己的 HDInsight 叢集，叢集已經準備好立即處理配量。因此，在使用隨選叢集時，可能無法像使用自己的叢集那麼快看到輸出資料。
 
-> [AZURE.NOTE]在執行階段，.NET 活動的執行個體只在 HDInsight 叢集的一個背景工作角色節點上執行，無法擴展到多個節點上執行。.NET 活動的多個執行個體可以在 HDInsight 叢集的不同節點上平行執行。
+> [AZURE.NOTE] 在執行階段，.NET 活動的執行個體只在 HDInsight 叢集的一個背景工作角色節點上執行，無法擴展到多個節點上執行。.NET 活動的多個執行個體可以在 HDInsight 叢集的不同節點上平行執行。
 
 如果您已透過[搭配 Azure Data Factory 使用 Pig 和 Hive][hivewalkthrough] 的逐步解說來延伸[開始使用 Azure Data Factory][adfgetstarted] 的教學課程，則可以略過建立此連結服務，並使用 ADFTutorialDataFactory 中已有的連結服務。
 
@@ -552,7 +552,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 ### 建立並執行使用自訂活動的管線
 
-1. 在 Data Factory 編輯器中，按一下工具列上的 [**新增管線**]。如果看不到此命令，請按一下 ... (省略符號) 就可看到。
+1. 在 Data Factory 編輯器中，按一下工具列上的 [**新增管線**]。如果看不到此命令，請按一下 [...] (省略符號) 就可看到。
 2. 使用下列 JSON 指令碼取代右窗格中的 JSON。如果您想要使用自己的叢集，且已遵循步驟建立 **HDInsightLinkedService** 連結服務，請在下列 JSON 中以 **HDInsightLinkedService** 取代 **HDInsightOnDemandLinkedService**。
 
 		{
@@ -701,7 +701,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 
 ## <a name="AzureBatch"></a> 使用 Azure Batch 連結服務
-> [AZURE.NOTE]請參閱 [Azure Batch 基本知識][batch-technical-overview]，以取得 Azure Batch 服務的概觀，另請參閱[開始使用適用於 .NET 的 Azure Batch 程式庫][batch-get-started]，以快速開始使用 Azure Batch 服務。
+> [AZURE.NOTE] 請參閱 [Azure Batch 基本知識][batch-technical-overview]，以取得 Azure Batch 服務的概觀，另請參閱[開始使用適用於 .NET 的 Azure Batch 程式庫][batch-get-started]，以快速開始使用 Azure Batch 服務。
 
 您可以將 Azure Batch 當作計算資源使用，執行您的自訂 .NET 活動。您必須建立自己的 Azure Batch 集區，並指定 VM 數量和其他組態。Azure Batch 集區為客戶提供下列功能：
 
@@ -762,11 +762,11 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 	![Azure Batch 工作][image-data-factory-azure-batch-tasks]
 
-> [AZURE.NOTE]與支援 HDInsight 的情況不同，Data Factory 服務不支援 Azure Batch 的隨選選項。您只能使用 Azure Data Factory 中自己的 Azure Batch 集區。
+> [AZURE.NOTE] 與支援 HDInsight 的情況不同，Data Factory 服務不支援 Azure Batch 的隨選選項。您只能使用 Azure Data Factory 中自己的 Azure Batch 集區。
 
 ## 另請參閱
 
-[Azure Data Factory 更新：使用 Azure Batch 執行 ADF 自訂 .NET 活動](http://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/)。
+[Azure Data Factory 更新：使用 Azure Batch 執行 ADF 自訂 .NET 活動](https://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/)。
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
@@ -803,4 +803,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0107_2016--->
+<!---HONumber=AcomDC_0128_2016-->

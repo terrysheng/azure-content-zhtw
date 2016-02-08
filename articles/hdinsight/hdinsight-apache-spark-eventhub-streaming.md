@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/29/2015" 
+	ms.date="01/27/2016" 
 	ms.author="nitinme"/>
 
 
@@ -24,13 +24,13 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 在本教學課程中，您將學習如何建立 Azure 事件中樞、使用以 Java 撰寫的主控台應用程式將訊息擷取到事件中樞，以及使用以 Scala 撰寫的 Spark 應用程式平行擷取它們。此應用程式會取用透過事件中樞串流處理的資料，並將其路由傳送至不同的輸出 (Azure 儲存體 Blob、Hive 資料表和 SQL 資料表)。
 
-> [AZURE.NOTE]若要遵循這篇文章中的指示，您必須使用兩種版本的 Azure 入口網站。若要建立事件中樞，您會用到 [Azure 入口網站](https://manage.windowsazure.com)。若要使用 HDInsight Spark 叢集，您會用到 [Azure Preview 入口網站](https://ms.portal.azure.com/)。
+> [AZURE.NOTE] 若要遵循這篇文章中的指示，您必須使用兩種版本的 Azure 入口網站。若要建立事件中樞，您會用到 [Azure 入口網站](https://manage.windowsazure.com)。若要使用 HDInsight Spark 叢集，您會用到 [Azure Preview 入口網站](https://ms.portal.azure.com/)。
 
 **必要條件：**
 
 您必須滿足以下條件：
 
-- Azure 訂用帳戶。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- Azure 訂用帳戶。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - Apache Spark 叢集。如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](hdinsight-apache-spark-jupyter-spark-sql.md)。
 - Oracle Java Development Kit。您可以從[這裡](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)加以安裝。
 - Java IDE。本文使用 IntelliJ IDEA 15.0.1。您可以從[這裡](https://www.jetbrains.com/idea/download/)加以安裝。
@@ -55,7 +55,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 	![精靈頁面 1](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub.png "建立 Azure 事件中樞")
 
-	> [AZURE.NOTE]您應該選取與 HDInsight 中 Apache Spark 叢集相同的**位置**，以便降低延遲的情況和成本。
+	> [AZURE.NOTE] 您應該選取與 HDInsight 中 Apache Spark 叢集相同的**位置**，以便降低延遲的情況和成本。
 
 3. 在 [設定事件中樞] 畫面中，輸入 [資料分割計數] 及 [訊息保留期] 的值，然後按一下核取記號。在此範例中，資料分割計數使用 10，訊息保留使用 1。請記下資料分割計數，因為您稍後會用到這個值。
 
@@ -88,7 +88,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 	
 2. 建置專案。在 [建置] 功能表中，按一下 [建立專案]。輸出 jar 會建立在 **\\out\\artifacts** 下。
 
->[AZURE.TIP]您也可以使用 IntelliJ IDEA 提供的選項，直接從 GitHub 儲存機制建立專案。若要了解如何使用該方法，請參考下一節中的指示。請注意，下一節所說明的步驟，有許多並不適用於您在此步驟中建立的 Scala 應用程式。例如：
+>[AZURE.TIP] 您也可以使用 IntelliJ IDEA 提供的選項，直接從 GitHub 儲存機制建立專案。若要了解如何使用該方法，請參考下一節中的指示。請注意，下一節所說明的步驟，有許多並不適用於您在此步驟中建立的 Scala 應用程式。例如：
 
 > * 您將無須更新 POM 以包含 Spark 版本。這是因為建立此應用程式時並不需要倚賴 Spark。
 > * 您無須將某些相依性 jar 新增至專案程式庫。這是因為此專案並不需要這些 jar。
@@ -121,9 +121,9 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 5. 應用程式需要兩個相依性 jar：
 
-	* **EventHub 接收者 jar**。必須要有此項目，Spark 才能從事件中樞接收訊息。此 jar 位於您的 Spark Linux 叢集上：`/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar`。您可以使用 pscp 將 jar 複製到您的本機電腦。
+	* **EventHub 接收者 jar**。必須要有此項目，Spark 才能從事件中樞接收訊息。此 jar 位於您的 Spark Linux 叢集上：`/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`。您可以使用 pscp 將 jar 複製到您的本機電腦。
 
-			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar C:/eventhubjar
+			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net:/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar C:/eventhubjar
 
 		這會將 jar 檔案從 Spark 叢集複製到您的本機電腦上。
 
@@ -209,7 +209,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 * **numExecutors** 是 Spark 用來執行串流應用程式的核心數目。此數目一律至少應為事件中樞資料分割數目的兩倍。
 * **executorMemory**、**executorCores**、**driverMemory** 是用來將必要資源指派給串流應用程式的參數。
 
->[AZURE.NOTE]您不需要建立做為參數的輸出資料夾 (EventCheckpoint、EventCount/EventCount10)。串流應用程式會為您建立。
+>[AZURE.NOTE] 您不需要建立做為參數的輸出資料夾 (EventCheckpoint、EventCount/EventCount10)。串流應用程式會為您建立。
 	
 執行命令時，您應該會看到如下的輸出：
 
@@ -370,4 +370,4 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

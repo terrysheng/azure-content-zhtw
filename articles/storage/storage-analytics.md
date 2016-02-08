@@ -22,7 +22,7 @@
 
 Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料。您可以使用此資料來追蹤要求、分析使用量趨勢，以及診斷儲存體帳戶的問題。
 
-若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 入口網站](portal.azure.com)加以啟用。如需詳細資訊，請參閱[如何監視儲存體帳戶](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。針對每個服務，使用[取得 Blob 服務屬性](https://msdn.microsoft.com/library/hh452239.aspx)、[取得佇列服務屬性](https://msdn.microsoft.com/library/hh452243.aspx)，以及[取得表格服務屬性](https://msdn.microsoft.com/library/hh452238.aspx)作業來啟用儲存體分析。
+若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 入口網站](https://portal.azure.com)加以啟用。如需詳細資訊，請參閱[如何監視儲存體帳戶](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。針對每個服務，使用[取得 Blob 服務屬性](https://msdn.microsoft.com/library/hh452239.aspx)、[取得佇列服務屬性](https://msdn.microsoft.com/library/hh452243.aspx)，以及[取得表格服務屬性](https://msdn.microsoft.com/library/hh452238.aspx)作業來啟用儲存體分析。
 
 彙總的資料會儲存於已知的 Blob (用於記錄) 和已知的資料表 (用於度量) 中，您可以使用 Blob 服務和資料表服務 API 來存取。
 
@@ -67,7 +67,7 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 ### 記錄檔的儲存方式
 所有記錄檔都會儲存在名為 $logs 的容器內的區塊 Blob 中，該容器是在針對儲存體帳戶啟用儲存體分析時自動建立的。$logs 容器位於儲存體帳戶的 Blob 命名空間中，例如：`http://<accountname>.blob.core.windows.net/$logs`。一旦啟用儲存體分析之後便無法刪除此容器，不過您可以刪除其內容。
 
->[Azure.NOTE]$logs 容器不會在執行容器列示作業時顯示，例如 [ListContainers](https://msdn.microsoft.com/library/ee758348.aspx) 方法。您必須直接存取它。例如，您可以使用 [ListBlobs](https://msdn.microsoft.com/library/ee772878.aspx) 方法來存取 `$logs` 容器中的 Blob。記錄要求時，儲存體分析將會以區塊形式上傳中繼結果。儲存體分析會定期認可這些區塊，並提供它們做為 Blob。
+>[Azure.NOTE] $logs 容器不會在執行容器列示作業時顯示，例如 [ListContainers](https://msdn.microsoft.com/library/ee758348.aspx) 方法。您必須直接存取它。例如，您可以使用 [ListBlobs](https://msdn.microsoft.com/library/ee772878.aspx) 方法來存取 `$logs` 容器中的 Blob。記錄要求時，儲存體分析將會以區塊形式上傳中繼結果。儲存體分析會定期認可這些區塊，並提供它們做為 Blob。
 
 在同一個小時內建立的記錄檔可能會有重複的記錄。您可以藉由檢查 **RequestId** 和 **Operation** 數字來判斷記錄是否重複。
 
@@ -126,7 +126,7 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 
 儲存體分析可以儲存包含與儲存體服務要求相關之彙總的交易統計資料及容量資料的度量。報告的交易是屬於 API 作業層級以及儲存體服務層級，而報告的容量則是屬於儲存體服務層級。度量資料可用來分析儲存體服務使用量、診斷針對儲存體服務提出之要求的問題，以及提升使用服務的應用程式效能。
 
-若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 入口網站](portal.azure.com)加以啟用。如需詳細資訊，請參閱[如何監視儲存體帳戶](../how-to-monitor-a-storage-account.md)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。針對每個服務，[使用取得 Blob 服務屬性、取得佇列服務屬性](https://msdn.microsoft.com/library/hh452239.aspx)，以及[取得表格服務屬性作業來啟用儲存體分析](https://msdn.microsoft.com/library/hh452238.aspx)。
+若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 入口網站](https://portal.azure.com)加以啟用。如需詳細資訊，請參閱[如何監視儲存體帳戶](../how-to-monitor-a-storage-account.md)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。針對每個服務，[使用取得 Blob 服務屬性、取得佇列服務屬性](https://msdn.microsoft.com/library/hh452239.aspx)，以及[取得表格服務屬性作業來啟用儲存體分析](https://msdn.microsoft.com/library/hh452238.aspx)。
 
 ### 交易度量
 
@@ -140,7 +140,7 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 
 ### 容量度量
 
->[AZURE.NOTE]容量度量目前僅適用於 Blob 服務。適用於資料表服務和佇列服務的容量度量將可在儲存體分析的未來版本中使用。
+>[AZURE.NOTE] 容量度量目前僅適用於 Blob 服務。適用於資料表服務和佇列服務的容量度量將可在儲存體分析的未來版本中使用。
 
 系統每日都會針對儲存體帳戶的 Blob 服務記錄容量資料，並寫入兩個資料表實體。其中一個實體會提供使用者資料的統計資料，而另一個實體則會提供有關儲存體分析所使用之 `$logs` Blob 容器的統計資料。`$MetricsCapacityBlob` 資料表包含下列統計資料：
 
@@ -206,4 +206,4 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 - [儲存體分析度量資料表結構描述](https://msdn.microsoft.com/library/hh343264.aspx)
 - [儲存體分析記錄作業和狀態訊息](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

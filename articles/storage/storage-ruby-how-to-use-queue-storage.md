@@ -58,7 +58,7 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 
 若要取得這些值，請執行下列動作：
 
-1. 登入 [Azure 入口網站](portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽到您要使用的儲存體帳戶
 3. 按一下導覽窗格底部的 [管理金鑰]。
 4. 在快顯對話方塊中，您將會看到儲存體帳戶名稱、主要存取金鑰和次要存取金鑰。如需存取金鑰，您可以選取主要存取金鑰或次要存取金鑰。
@@ -152,4 +152,4 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 若要比較本文所討論的 Azure 佇列服務與[如何使用服務匯流排佇列](/develop/ruby/how-to-guides/service-bus-queues/)一文中討論的 Azure 服務匯流排佇列，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照](http://msdn.microsoft.com/library/azure/hh767287.aspx)。
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

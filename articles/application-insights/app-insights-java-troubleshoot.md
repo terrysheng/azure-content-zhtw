@@ -44,7 +44,7 @@
 #### 我曾經看到資料，但是已停止
 
 * 檢查[狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
-* 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。請參閱[定價機制](http://azure.microsoft.com/pricing/details/application-insights/)。
+* 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。請參閱[定價機制](https://azure.microsoft.com/pricing/details/application-insights/)。
 
 
 
@@ -89,7 +89,7 @@
 
 ## Azure 開始畫面
 
-*我正在查看 [Azure 入口網站](http://portal.azure.com)。地圖是否告知有關我的應用程式的相關資訊？*
+*我正在查看 [Azure 入口網站](https://portal.azure.com)。地圖是否告知有關我的應用程式的相關資訊？*
 
 否，它會顯示世界各地 Azure 伺服器的健全狀況。
 
@@ -138,4 +138,4 @@
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

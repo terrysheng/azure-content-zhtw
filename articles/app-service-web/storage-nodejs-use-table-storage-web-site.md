@@ -21,7 +21,7 @@
 
 ## 概觀
 
-本教學課程說明如何使用 Azure 資料管理所提供的表格服務，儲存及存取 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web 應用程式代管的 [node] 應用程式資料。本教學課程假設您先前有過一些使用節點及 [Git] 的經驗。
+本教學課程說明如何使用 Azure 資料管理所提供的表格服務，儲存及存取 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps 代管的 [node] 應用程式資料。本教學課程假設您先前有過一些使用節點及 [Git] 的經驗。
 
 您將了解：
 
@@ -53,7 +53,7 @@
 
 建立 Azure 儲存體帳戶。應用程式會使用此帳戶來儲存待辦事項。
 
-1.  登入 [Azure 入口網站](https://portal.azure.com)。
+1.  登入 [Azure 入口網站](https://portal.azure.com/)。
 
 2. 按一下入口網站左下方的 [新增] 圖示，然後按一下 [資料 + 儲存體] >[ 儲存體]。為儲存體帳戶指定唯一名稱，並為它建立新的[資源群組](../resource-group-overview.md)。
 
@@ -88,7 +88,7 @@
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	> [AZURE.NOTE]'-g' 參數會全域安裝模組。這樣我們就可以使用 **express** 來產生 Web 應用程式樣板，而不需額外輸入路徑資訊。
+	> [AZURE.NOTE] '-g' 參數會全域安裝模組。這樣我們就可以使用 **express** 來產生 Web 應用程式樣板，而不需額外輸入路徑資訊。
 
 4. 若要建立應用程式的樣板，請輸入 **express** 命令：
 
@@ -336,7 +336,7 @@
 		var accountName = nconf.get("STORAGE_NAME");
 		var accountKey = nconf.get("STORAGE_KEY");
 
-	> [AZURE.NOTE]nconf 會從環境變數或 **config.json** 檔案 (我們稍後會建立) 載入組態值。
+	> [AZURE.NOTE] nconf 會從環境變數或 **config.json** 檔案 (我們稍後會建立) 載入組態值。
 
 3. 在 app.js 檔中，向下捲動到看見此行處：
 
@@ -441,7 +441,7 @@
 	    "TABLE_NAME": "tasks"
 	}
 
-將此檔案儲存在比 **tasklist** 目錄高一個目錄層級的位置，像這樣：
+將此檔案儲存在比 **tasklist** 目錄*高一個目錄層級*的位置，像這樣：
 
 	parent/
 	  |-- config.json
@@ -478,7 +478,7 @@
 
 本節的步驟使用 Azure 命令列工具在 App Service 中建立新的 Web 應用程式，然後使用 Git 部署應用程式。若要執行這些步驟，必須有 Azure 訂閱。
 
-> [AZURE.NOTE]您也可以使用 [Azure 入口網站](https://portal.azure.com)執行這些步驟。請參閱[在 Azure App Service 中建置和部署 Node.js Web 應用程式]。
+> [AZURE.NOTE] 您也可以使用 [Azure 入口網站](https://portal.azure.com/)執行這些步驟。請參閱[在 Azure App Service 中建置和部署 Node.js Web 應用程式]。
 >
 > 如果這是您建立的第一個 Web 應用程式，您必須使用 Azure 入口網站部署此應用程式。
 
@@ -496,8 +496,7 @@
 
 	此命令會啟動瀏覽器並瀏覽至下載頁面。若出現提示，請使用與您的 Azure 訂用帳戶相關聯的帳戶登入。
 
-	<!-- ![The download page][download-publishing-settings] -->
-	檔案下載會自動開始；如果沒有，您可以按一下頁面頂端的連結，以手動下載檔案。儲存檔案，並記下檔案路徑。
+	<!-- ![The download page][download-publishing-settings] -->檔案下載會自動開始；如果沒有，您可以按一下頁面頂端的連結，以手動下載檔案。儲存檔案，並記下檔案路徑。
 
 2. 輸入下列命令以匯入設定：
 
@@ -534,7 +533,7 @@
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	> [AZURE.NOTE]如果這是您的訂用帳戶的第一個 App Service Web 應用程式，系統將指示您使用 Azure 入口網站來建立 Web 應用程式。如需詳細資訊，請參閱[在 Azure App Service 中建置和部署 Node.js Web 應用程式]。
+	> [AZURE.NOTE] 如果這是您的訂用帳戶的第一個 App Service Web 應用程式，系統將指示您使用 Azure 入口網站來建立 Web 應用程式。如需詳細資訊，請參閱[在 Azure App Service 中建置和部署 Node.js Web 應用程式]。
 
 ### 設定環境變數
 
@@ -546,9 +545,9 @@
 
 將 **<storage account name>** 取代為您先前建立的儲存體帳戶名稱，並將 **<storage access key>** 取代為您儲存體帳戶的主要存取金鑰。(使用與您稍早建立的 config.json 檔案相同的值)。
 
-或者，您可以在 [Azure 入口網站](https://portal.azure.com)中設定環境變數：
+或者，您可以在 [Azure 入口網站](https://portal.azure.com/)中設定環境變數：
 
-1.  依序按一下 [瀏覽] > [Web 應用程式] > Web 應用程式名稱，開啟 Web 應用程式的刀鋒視窗。
+1.  依序按一下 [瀏覽] > [Web Apps] > Web 應用程式名稱，開啟 Web 應用程式的刀鋒視窗。
 
 1.  在您的 Web 應用程式刀鋒視窗中，按一下 [所有設定] > [應用程式設定]。
 
@@ -636,4 +635,4 @@
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

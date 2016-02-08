@@ -28,7 +28,7 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]建議您在升級之前，先[執行移轉](app-service-mobile-migrating-from-mobile-services.md)。如此一來，您就能夠在同一個 App Service 方案中放置兩個版本的應用程式，而不需支付額外成本。
+>[AZURE.TIP] 建議您在升級之前，先[執行移轉](app-service-mobile-migrating-from-mobile-services.md)。如此一來，您就能夠在同一個 App Service 方案中放置兩個版本的應用程式，而不需支付額外成本。
 
 ###Mobile Apps .NET 伺服器 SDK 中的增強功能
 
@@ -46,11 +46,11 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 
 在許多情況下，只需切換到新的 Mobile Apps 伺服器 SDK 並將程式碼重新發佈至新的行動 App 執行個體，即可完成升級。但在某些情況下則需要一些額外的設定，例如進階驗證案例和使用排程工作。後續各節將逐一加以討論。
 
->[AZURE.TIP]建議您先閱讀並徹底了解本主題的其餘部分，再開始升級。請記下您使用的下列任何功能。
+>[AZURE.TIP] 建議您先閱讀並徹底了解本主題的其餘部分，再開始升級。請記下您使用的下列任何功能。
 
-行動服務用戶端 SDK 與新的 Mobile Apps 伺服器 SDK「不」相容。為了提供您 app 的服務持續性，您不應該將變更發佈至目前正在服務已發佈之用戶端的網站。而是應該建立新的行動應用程式做為重複項目。您可以在同一個 App Service 方案中放置此應用程式，以避免產生額外的財務成本。
+行動服務用戶端 SDK 與新的 Mobile Apps 伺服器 SDK「不」相容。為了提供您應用程式的服務持續性，您不應該將變更發佈至目前正在服務已發佈之用戶端的網站。而是應該建立新的行動應用程式做為重複項目。您可以在同一個 App Service 方案中放置此應用程式，以避免產生額外的財務成本。
 
-您之後會有兩個版本的應用程式：一個維持不變並為已發佈的現有 app 提供服務，另一個則可升級且目標為新的用戶端版本。您可依自己的步調移動並測試程式碼，但應該確定您所進行的任何錯誤修正都會套用到這兩個版本。當您覺得已將現有用戶端 app 的所需數量升級到最新版本，就可以視需要刪除原本移轉的 app。
+您之後會有兩個版本的應用程式：一個維持不變並為已發佈的現有應用程式提供服務，另一個則可升級且目標為新的用戶端版本。您可依自己的步調移動並測試程式碼，但應該確定您所進行的任何錯誤修正都會套用到這兩個版本。當您覺得已將現有用戶端應用程式的所需數量升級到最新版本，就可以視需要刪除原本移轉的應用程式。
 
 完整的升級程序大致如下：
 
@@ -60,17 +60,17 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 4. (選擇性) 刪除原始已移轉的執行個體
 
 ##<a name="mobile-app-version"></a>建立第二個應用程式執行個體
-升級的第一個步驟是建立將主控新版應用程式的行動 App 資源。如果您已經移轉現有的行動服務，則您會想要在同一個主控方案中建立這個版本。開啟 [Azure 入口網站]，並瀏覽到您移轉的應用程式。請記下其正在其上執行的 App Service 方案。
+升級的第一個步驟是建立將主控新版應用程式的行動 App 資源。如果您已經移轉現有的行動服務，則您會想要在同一個主控方案中建立這個版本。請開啟 [Azure 入口網站]，並瀏覽到您已移轉的應用程式。請記下其正在其上執行的 App Service 方案。
 
 接下來，依照 [.NET 後端建立指示](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app)建立第二個應用程式執行個體。當系統提示選取您的 App Service 方案或「主控方案」時，請選擇已移轉之應用程式的方案。
 
-您可能會想要使用與行動服務中相同的資料庫和通知中心。您可以複製這些值，方法是開啟 [Azure 入口網站]、瀏覽至原始的應用程式，然後按一下 [設定] > [應用程式設定]。在 [**連接字串**] 下，複製 `MS_NotificationHubConnectionString` 和 `MS_TableConnectionString`。瀏覽至新的升級網站並將它們貼上，覆寫任何現有的值。針對您的 app 需要的任何其他應用程式設定重複執行此程序。如果不使用移轉的服務，您可以從 [Azure 傳統入口網站]上 [行動服務] 區段的 [設定] 索引標籤，讀取連接字串和 app 設定。
+您可能會想要使用與行動服務中相同的資料庫和通知中心。您可以複製這些值，方法是開啟 [Azure 入口網站]、瀏覽至原始的應用程式，然後依序按一下 [設定] > [應用程式設定]。在 [**連接字串**] 下，複製 `MS_NotificationHubConnectionString` 和 `MS_TableConnectionString`。瀏覽至新的升級網站並將它們貼上，覆寫任何現有的值。針對您的應用程式需要的任何其他應用程式設定重複執行此程序。如果不使用移轉的服務，您可以從 [Azure 傳統入口網站]上 [行動服務] 區段的 [設定] 索引標籤，讀取連接字串和應用程式設定。
 
 針對您的應用程式製作 ASP.NET 專案的複本，然後將它發佈到新的網站。透過利用新 URL 更新的用戶端應用程式複本，驗證一切運作正常。
 
 ## 更新伺服器專案
 
-行動應用程式有新的[行動應用程式伺服器 SDK]，提供許多與行動服務執行階段相同的功能。首先，您應該移除對行動服務封裝的所有參考。在 NuGet 封裝管理員中，搜尋 `WindowsAzure.MobileServices.Backend`。大部分的 app 將會在此處看見數個封裝，包括 `WindowsAzure.MobileServices.Backend.Tables` 和 `WindowsAzure.MobileServices.Backend.Entity`。在這種情況下，請從相依性樹狀目錄中的最低封裝 (例如 `Entity`) 開始，然後將它移除。出現提示時，請勿移除所有相依的封裝。重複執行此程序，直到您移除了 `WindowsAzure.MobileServices.Backend` 本身為止。
+行動應用程式有新的[行動應用程式伺服器 SDK]，提供許多與行動服務執行階段相同的功能。首先，您應該移除對行動服務封裝的所有參考。在 NuGet 封裝管理員中，搜尋 `WindowsAzure.MobileServices.Backend`。大部分的應用程式將會在此處看見數個封裝，包括 `WindowsAzure.MobileServices.Backend.Tables` 和 `WindowsAzure.MobileServices.Backend.Entity`。在這種情況下，請從相依性樹狀目錄中的最低封裝 (例如 `Entity`) 開始，然後將它移除。出現提示時，請勿移除所有相依的封裝。重複執行此程序，直到您移除了 `WindowsAzure.MobileServices.Backend` 本身為止。
 
 此時，您的專案將不再參考行動服務 SDK。
 
@@ -95,9 +95,9 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
             .UseDefaultConfiguration()
         .ApplyTo(config);
 
->[AZURE.NOTE]如果您想要深入了解新的 .NET 伺服器 SDK 以及如何從您的 app 新增/移除功能，請參閱[如何使用 .NET 伺服器 SDK] 主題。
+>[AZURE.NOTE] 如果您想要深入了解新的 .NET 伺服器 SDK 以及如何從您的應用程式新增/移除功能，請參閱[如何使用 .NET 伺服器 SDK] 主題。
 
-如果您的 app 會使用驗證功能，您也必須註冊 OWIN 中介軟體。在此情況下，您應該將上述組態程式碼移入新的 OWIN 啟動類別。
+如果您的應用程式會使用驗證功能，您也必須註冊 OWIN 中介軟體。在此情況下，您應該將上述組態程式碼移入新的 OWIN 啟動類別。
  
 1. 如果 NuGet 封裝 `Microsoft.Owin.Host.SystemWeb` 尚未包含於專案中，請新增它。
 2. 在 Visual Studio 中，以滑鼠右鍵按一下專案，然後選取 [新增] -> [新項目]。依序選取 [Web] -> [一般] -> [OWIN 啟動類別]。 
@@ -144,9 +144,9 @@ Mobile Apps 用戶端 SDK 會使用新的系統屬性名稱，因此不需要對
 
 #### 本機存放區 
 
-變更系統屬性的名稱，表示適用於行動服務的離線同步處理本機資料庫與 Mobile Apps 不相容。如果可能，在將暫止的變更傳送到伺服器之前，您應該避免將用戶端 app 從行動服務升級為 Mobile Apps。接著，升級的 app 應該使用新的資料庫檔案名稱。
+變更系統屬性的名稱，表示適用於行動服務的離線同步處理本機資料庫與 Mobile Apps 不相容。如果可能，在將暫止的變更傳送到伺服器之前，您應該避免將用戶端應用程式從行動服務升級為 Mobile Apps。接著，升級的應用程式應該使用新的資料庫檔案名稱。
 
-如果用戶端 app 是從行動服務升級為 Mobile Apps，但同時在操作佇列中有暫止的離線變更，則系統資料庫必須更新，才能使用新的資料行名稱。在 iOS 上，可以使用輕量型移轉來變更資料行名稱，以達成這一點。在 Android 和 .NET Managed 用戶端上，您應該撰寫自訂的 SQL，為資料物件資料表的資料行重新命名。
+如果用戶端應用程式是從行動服務升級為 Mobile Apps，但同時在操作佇列中有暫止的離線變更，則系統資料庫必須更新，才能使用新的資料行名稱。在 iOS 上，可以使用輕量型移轉來變更資料行名稱，以達成這一點。在 Android 和 .NET Managed 用戶端上，您應該撰寫自訂的 SQL，為資料物件資料表的資料行重新命名。
 
 在 iOS 上，您應該變更資料實體的核心資料結構描述，來符合下列內容。請注意，屬性 `createdAt`、`updatedAt` 和 `version` 不再需要 `ms_` 前置詞：
 
@@ -218,7 +218,7 @@ Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任�
 
 ##<a name="authentication"></a>驗證考量
 
-行動服務的驗證元件現在已移到 App Service 驗證/授權功能中。您可以閱讀[在您的行動服務應用程式中新增驗證](app-service-mobile-ios-get-started-users.md)主題，以了解為網站啟用此功能的方式。
+行動服務的驗證元件現在已移到 App Service 驗證/授權功能中。您可以閱讀[將驗證新增至您行動應用程式](app-service-mobile-ios-get-started-users.md)一文，以了解如何為網站啟用此功能。
 
 對於某些提供者 (例如 AAD、Facebook 及 Google)，您應該能夠運用來自您複製應用程式的現有註冊。您只需瀏覽至身分識別提供者的入口網站，並將新的重新導向 URL 新增至註冊即可。接著，利用用戶端識別碼和密碼來設定 App Service 驗證/授權。
 
@@ -235,16 +235,16 @@ Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任�
 
         string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
         
-如果您的 app 依存於使用者識別碼，請務必盡可能使用相同的身分識別提供者註冊。使用者識別碼的範圍通常限定在已使用的應用程式註冊，因此引入新的註冊，可能會讓使用者在比對其資料時發生問題。
+如果您的應用程式依存於使用者識別碼，請務必盡可能使用相同的身分識別提供者註冊。使用者識別碼的範圍通常限定在已使用的應用程式註冊，因此引入新的註冊，可能會讓使用者在比對其資料時發生問題。
 
 ### 自訂驗證
 
-如果您的 app 使用自訂的驗證解決方案，您會想要確定已升級的網站具備系統的存取權。請依照 [.NET 伺服器 SDK 概觀]中適用於自訂驗證的新指示來整合您的解決方案。請注意，自訂驗證元件仍處於預覽狀態。
+如果您的應用程式使用自訂的驗證解決方案，您會想要確定已升級的網站具備系統的存取權。請依照 [.NET 伺服器 SDK 概觀]中適用於自訂驗證的新指示來整合您的解決方案。請注意，自訂驗證元件仍處於預覽狀態。
 
 ##<a name="updating-clients"></a>更新用戶端
 在您擁有可運作的行動 App 後端之後，就能在取用它的新版用戶端應用程式上運作。Mobile Apps 也會包含新版的用戶端 SDK，而且與上述的伺服器升級類似，您必須先移除所有對行動服務 SDK 的參考，然後安裝 Mobile Apps 版本。
 
-版本間的其中一個主要變更是建構函式不再需要應用程式金鑰。您現在只需傳入行動 App 的 URL。例如，在 .NET 用戶端上，`MobileServiceClient` 建構函式現在如下：
+版本間的其中一個主要變更是建構函式不再需要應用程式金鑰。您現在只需傳入行動 App 的 URL。例如，在 .NET 用戶端上，`MobileServiceClient` 建構函式現在是：
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
             "https://contoso.azurewebsites.net", // URL of the Mobile App
@@ -257,7 +257,7 @@ Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任�
 
 如果您的應用程式會使用推播通知，請記下每個平台特定的註冊指示，因為也已有一些變更。
 
-當您準備好新的用戶端版本時，請嘗試對已升級的伺服器專案執行該版本。驗證它的運作方式之後，您就能將新版的應用程式發行給客戶。最後，在您的客戶有機會接收這些更新後，您就能刪除 app 的行動服務版本。現在，您已使用最新的 Mobile Apps 伺服器 SDK 完全升級為 App Service 行動應用程式。
+當您準備好新的用戶端版本時，請嘗試對已升級的伺服器專案執行該版本。驗證它的運作方式之後，您就能將新版的應用程式發行給客戶。最後，在您的客戶有機會接收這些更新後，您就能刪除應用程式的行動服務版本。現在，您已使用最新的 Mobile Apps 伺服器 SDK 完全升級為 App Service 行動應用程式。
 
 <!-- URLs. -->
 
@@ -277,4 +277,4 @@ Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任�
 [App Service 定價]: https://azure.microsoft.com/zh-TW/pricing/details/app-service/
 [.NET 伺服器 SDK 概觀]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

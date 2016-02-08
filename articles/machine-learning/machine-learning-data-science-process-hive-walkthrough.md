@@ -19,7 +19,7 @@
 
 # Cortana 分析程序實務：使用 HDInsight Hadoop 叢集
 
-在本逐步解說中，您會對採用 [Azure HDInsight Hadoop 叢集](http://azure.microsoft.com/services/hdinsight/)的端對端案例使用 Cortana 分析程序，以對 [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/)資料集內可公開使用的資料進行儲存、探索和特徵工程，並縮減取樣資料。資料的模型是使用 Azure Machine Learning 建置，以處理二元和多元分類和迴歸預測工作。
+在本逐步解說中，您會對採用 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)的端對端案例使用 Cortana 分析程序，以對 [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/)資料集內可公開使用的資料進行儲存、探索和特徵工程，並縮減取樣資料。資料的模型是使用 Azure Machine Learning 建置，以處理二元和多元分類和迴歸預測工作。
 
 如需示範如何使用 HDInsight Hadoop 叢集，針對類似的案例處理更大 (1 TB) 資料集資料的逐步解說，請參閱 [Cortana 分析程序 - 在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集](machine-learning-data-science-process-hive-criteo-walkthrough.md)。
 
@@ -75,7 +75,7 @@
 
 ## <a name="setup"></a>設定進階分析的 HDInsight Hadoop 叢集
 
->[AZURE.NOTE]這通常是**管理**工作。
+>[AZURE.NOTE] 這通常是**管理**工作。
 
 您可以採取三個步驟，為利用 HDInsight 叢集的進階分析設定 Azure 環境：
 
@@ -91,7 +91,7 @@
 
 ## <a name="getdata"></a>從公用來源取得資料
 
->[AZURE.NOTE]這通常是**管理**工作。
+>[AZURE.NOTE] 這通常是**管理**工作。
 
 若要從 [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/)資料集的公用位置取得該資料集，您可以使用[從 Azure Blob 儲存體來回移動資料](machine-learning-data-science-move-azure-blob.md)中所述的任何一種方法，將資料複製到您的電腦。
 
@@ -107,7 +107,7 @@
 
 ## <a name="upload"></a>將資料上傳至 Azure HDInsight Hadoop 叢集的預設容器
 
->[AZURE.NOTE]這通常是**管理**工作。
+>[AZURE.NOTE] 這通常是**管理**工作。
 
 在下列 AzCopy 命令中，以建立 Hadoop 叢集和解壓縮資料檔案時指定的實際值取代下列參數。
 
@@ -130,7 +130,7 @@
 
 ## <a name="#download-hql-files"></a>登入 Hadoop 叢集的前端節點，並準備進行探索資料分析
 
->[AZURE.NOTE]這通常是**管理**工作。
+>[AZURE.NOTE] 這通常是**管理**工作。
 
 若要存取叢集的前端節點以進行資料的探索資料分析和縮小取樣，請遵循[存取 Hadoop 叢集的前端節點](machine-learning-data-science-customize-hadoop-cluster.md#headnode)中所述的程序進行。
 
@@ -146,13 +146,13 @@
 
 ## <a name="#hive-db-tables"></a>建立依月份分割的 Hive 資料庫和資料表
 
->[AZURE.NOTE]這通常是**管理**工作。
+>[AZURE.NOTE] 這通常是**管理**工作。
 
 我們現在已準備好為我們的 NYC 計程車資料集建立 Hive 資料表。在 Hadoop 叢集的前端節點中，於前端節點的桌面上開啟 ***Hadoop 命令列***，然後輸入命令以進入 Hive 目錄
 
     cd %hive_home%\bin
 
->[AZURE.NOTE]**請從上述的 Hive bin/ 目錄提示字元執行本逐步解說中的所有 Hive 命令。如此可自動處理路徑相關問題。我們將在本逐步解說中交替使用詞彙「Hive 目錄提示字元」、「Hive bin/ 目錄提示字元」和「Hadoop 命令列」。**
+>[AZURE.NOTE] **請從上述的 Hive bin/ 目錄提示字元執行本逐步解說中的所有 Hive 命令。如此可自動處理路徑相關問題。我們將在本逐步解說中交替使用詞彙「Hive 目錄提示字元」、「Hive bin/ 目錄提示字元」和「Hadoop 命令列」。**
 
 從 Hive 目錄提示字元，於前端節點的 Hadoop 命令列中輸入下列命令，以提交 Hive 查詢來建立 Hive 資料庫和資料表：
 
@@ -208,7 +208,7 @@
 
 ## <a name="#load-data"></a>依資料分割將資料載入 Hive 資料表
 
->[AZURE.NOTE]這通常是**管理**工作。
+>[AZURE.NOTE] 這通常是**管理**工作。
 
 NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處理和查詢時間。下列 PowerShell 命令 (使用 **Hadoop 命令列**從 Hive 目錄發出) 會將資料載入至依月份分割的 "trip" 和 "fare" Hive 資料表。
 
@@ -275,7 +275,7 @@ NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處�
 
 ## <a name="#explore-hive"></a>Hive 中的資料探索和特徵工程
 
->[AZURE.NOTE]這通常是**資料科學家**工作。
+>[AZURE.NOTE] 這通常是**資料科學家**工作。
 
 適用於已載入 Hive 資料表之資料的資料探索和功能工程工作可以使用 Hive 查詢來完成。以下是我們將在本節中逐步引導您執行的這類工作範例：
 
@@ -287,7 +287,7 @@ NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處�
 
 ### 探索：檢視 trip 資料表中的前 10 筆記錄
 
->[AZURE.NOTE]這通常是**資料科學家**工作。
+>[AZURE.NOTE] 這通常是**資料科學家**工作。
 
 為了查看資料的外觀，我們檢查每個資料表的 10 筆記錄。從 Hadoop 命令列主控台的 Hive 目錄提示字元，個別執行下列兩個查詢來檢查記錄。
 
@@ -305,7 +305,7 @@ NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處�
 
 ### 探索：檢視 12 個資料分割中每一個資料分割的記錄數目。
 
->[AZURE.NOTE]這通常是**資料科學家**工作。
+>[AZURE.NOTE] 這通常是**資料科學家**工作。
 
 令人感興趣的是車程數目在日曆年度的變化。依月份分組可讓我們查看這個車程的大約分佈情況。
 
@@ -373,7 +373,7 @@ NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處�
 
 ### 探索：依據 medallion 的車程分佈
 
->[AZURE.NOTE]這通常是**資料科學家**工作。
+>[AZURE.NOTE] 這通常是**資料科學家**工作。
 
 此範例會識別在特定期間內超過 100 趟車程的圓形徽章 (計程車數目)。由於這個查詢受到資料分割變數 **month** 的條件約束，因此使用資料分割資料表會很有幫助。查詢結果會寫入前端節點上 `C:\temp` 中的本機檔案 queryoutput.tsv。
 
@@ -405,7 +405,7 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 
 ### 探索：依據 medallion 和 hack\_license 的車程分佈
 
->[AZURE.NOTE]這通常是**資料科學家**工作。
+>[AZURE.NOTE] 這通常是**資料科學家**工作。
 
 當探索資料集時，我們通常會想要檢查共同出現的值群組數目。本節提供如何為計程車和駕駛執行這項作業的範例。
 
@@ -428,7 +428,7 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 
 ### 探索：藉由檢查無效的經度/緯度記錄來評估資料品質
 
->[AZURE.NOTE]這通常是**資料科學家**工作。
+>[AZURE.NOTE] 這通常是**資料科學家**工作。
 
 常見的探索資料分析目標是去掉無效或不正確的記錄。本節的範例會判斷經度或緯度欄位是否包含遠離 NYC 區域的值。由於這類記錄可能具有錯誤的經度-緯度值，因此我們想要從用來建立模型的任何資料中排除這些錯誤值。
 
@@ -794,9 +794,7 @@ b.對於迴歸問題，我們會藉由查看預測中的平方誤差、決定係
 
 ## 參考
 
-•	[Andrés Monroy NYC 計程車車程下載頁面](http://www.andresmh.com/nyctaxitrips/) (Andrés Monroy NYC Taxi Trips Download Page)  
-•	[FOIL NYC 的計程車車程資料 (作者為 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/) (FOILing NYC’s Taxi Trip Data by Chris Whong)   
-•	[NYC 計程車和禮車委託研究和統計資料](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml) (NYC Taxi and Limousine Commission Research and Statistics)
+• [Andrés Monroy NYC 計程車車程下載頁面](http://www.andresmh.com/nyctaxitrips/) (Andrés Monroy NYC Taxi Trips Download Page) • [FOIL NYC 的計程車車程資料 (作者為 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/) (FOILing NYC’s Taxi Trip Data by Chris Whong) • [NYC 計程車和禮車委託研究和統計資料](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml) (NYC Taxi and Limousine Commission Research and Statistics)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +808,4 @@ b.對於迴歸問題，我們會藉由查看預測中的平方誤差、決定係
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

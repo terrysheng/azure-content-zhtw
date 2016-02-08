@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/12/2016"
 	ms.author="erikre"/>
 
 # 在 Azure App Service 中設定自訂網域名稱 (直接向 GoDaddy 購買)
@@ -50,13 +50,13 @@
 
 	若要 [編輯] 現有記錄，請選取該記錄旁的 [紙筆] 圖示。
 
-	> [AZURE.NOTE]新增記錄之前，請注意，GoDaddy 已為熱門子網域 (在編輯器中稱為「**主機**」) 建立 DNS 記錄，例如**電子郵件**、**檔案**、**郵件**及其他。如果您要使用的名稱已存在，請修改現有記錄，而非建立新記錄。
+	> [AZURE.NOTE] 新增記錄之前，請注意，GoDaddy 已為熱門子網域 (在編輯器中稱為「**主機**」) 建立 DNS 記錄，例如**電子郵件**、**檔案**、**郵件**及其他。如果您要使用的名稱已存在，請修改現有記錄，而非建立新記錄。
 
 4. 新增記錄時，您必須先選取記錄類型。
 
 	![選取記錄類型](./media/web-sites-godaddy-custom-domain-name/godaddy-selectrecordtype.png)
 
-	接下來，您必須提供 [主機] \(自訂網域或子網域) 及其 [指向] 位置。
+	接下來，您必須提供 [主機] (自訂網域或子網域) 及其 [指向] 位置。
 
 	![新增區域記錄](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)
 
@@ -67,7 +67,7 @@
 5. 按一下 [加入另一個]。
 6. 選取 [CNAME] 做為記錄類型，然後將 [主機] 值指定為 [awverify]，並將 [指向] 值指定為 [awverify.&lt;您的 Web 應用程式名稱&gt;.azurewebsites.net]。
 
-	> [AZURE.NOTE]Azure 會使用 CNAME 記錄來驗證您擁有 A 記錄或第一筆 CNAME 記錄所述的網域。一旦網域對應至 Azure 入口網站中的 Web 應用程式，即可移除 [awverify] 項目。
+	> [AZURE.NOTE] Azure 會使用 CNAME 記錄來驗證您擁有 A 記錄或第一筆 CNAME 記錄所述的網域。一旦網域對應至 Azure 入口網站中的 Web 應用程式，即可移除 [awverify] 項目。
 
 5. 當您完成新增或修改記錄時，請按一下 [完成] 以儲存變更。
 
@@ -76,9 +76,9 @@
 
 [AZURE.INCLUDE [模式](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

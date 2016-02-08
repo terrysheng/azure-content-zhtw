@@ -54,7 +54,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 ## 開始升級
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，瀏覽至您想要升級的伺服器，方法是選取 [瀏覽全部] > [SQL Server]，然後選取所需的伺服器。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您想要升級的伺服器，方法是選取 [瀏覽全部] > [SQL Server]，然後選取所需的伺服器。
 2. 選取 [**最新的 SQL Database 更新**]，然後選取 [**升級此伺服器**]。
 
       ![升級伺服器][1]
@@ -111,7 +111,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 ## 在升級至 SQL Database V12 後監視資料庫
 
->[AZURE.IMPORTANT]升級至最新版本的 SQL Server Management Studio (SSMS) 來使用新的 v12 功能。[下載 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)。
+>[AZURE.IMPORTANT] 升級至最新版本的 SQL Server Management Studio (SSMS) 來使用新的 v12 功能。[下載 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)。
 	
 升級之後，建議您主動監視資料庫，以確保應用程式達到所需的執行效能，並視需要將使用情況調整到最佳狀態。
 
@@ -169,4 +169,4 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

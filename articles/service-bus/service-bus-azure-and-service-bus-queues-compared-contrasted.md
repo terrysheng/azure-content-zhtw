@@ -23,9 +23,9 @@
 
 Microsoft Azure 支援兩種佇列機制：**Azure 佇列**和**服務匯流排佇列**。
 
-**Azure 佇列**是 [Azure 儲存體](http://azure.microsoft.com/services/storage/) 基礎結構的一部分，具有簡單的 REST 架構 Get/Put/Peek 介面，而且能夠在服務內部和服務之間提供可靠且持續的訊息傳遞。
+**Azure 佇列**是 [Azure 儲存體](https://azure.microsoft.com/services/storage/) 基礎結構的一部分，具有簡單的 REST 架構 Get/Put/Peek 介面，而且能夠在服務內部和服務之間提供可靠且持續的訊息傳遞。
 
-**服務匯流排佇列**是較廣泛之 [Azure 訊息](http://azure.microsoft.com/services/service-bus/)基礎結構的一部分，這個基礎結構支援佇列處理，以及發佈/訂閱、Web 服務遠端處理和整合模式。如需服務匯流排佇列、主題/訂用帳戶和轉送的詳細資訊，請參閱[服務匯流排訊息的概觀](service-bus-messaging-overview.md)。
+**服務匯流排佇列**是較廣泛之 [Azure 訊息](https://azure.microsoft.com/services/service-bus/)基礎結構的一部分，這個基礎結構支援佇列處理，以及發佈/訂閱、Web 服務遠端處理和整合模式。如需服務匯流排佇列、主題/訂用帳戶和轉送的詳細資訊，請參閱[服務匯流排訊息的概觀](service-bus-messaging-overview.md)。
 
 雖然這兩種佇列技術同時存在，不過 Azure 佇列較早引進，做為建置在 Azure 儲存體服務之上的專用佇列儲存機制。服務匯流排佇列則是建置在較廣泛的「代理傳訊」基礎結構之上，這個基礎結構的設計目的是為了整合可能跨多種通訊協定、資料合約、信任網域和 (或) 網路環境的應用程式或應用程式元件。
 
@@ -204,8 +204,7 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 |比較準則|Azure 佇列|服務匯流排佇列|
 |---|---|---|
 |管理通訊協定|**REST over HTTP/HTTPS**|**REST over HTTPS**|
-|執行階段通訊協定|**REST over HTTP/HTTPS**|**REST over HTTPS**<br/><br/>**AMQP 1.0 標準 (TCP 和 TLS)**|
-|.NET Managed API|**是**<br/><br/>(.NET 受管理的儲存體用戶端 API)|**是**<br/><br/>(.NET Managed 代理傳訊 API)|
+|執行階段通訊協定|**REST over HTTP/HTTPS**|**REST over HTTPS**<br/><br/>**AMQP 1.0 標準 (TCP 和 TLS)**| |.NET Managed API|**是**<br/><br/>(.NET 受管理的儲存體用戶端 API)|**是**<br/><br/>(.NET Managed 代理傳訊 API)|
 |Native C++|**是**|**否**|
 |Java API|**是**|**是**|
 |PHP API|**是**|**是**|
@@ -289,7 +288,7 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 
 - 由於支援長期輪詢，因此在需要低度延遲傳遞的情況下使用服務匯流排佇列可能會符合成本效益。
 
->[AZURE.NOTE]所有成本都可能會變更。上表反映撰寫本文時的目前定價，不包括目前可能適用的任何促銷優惠方案。如需 Azure 的最新定價資訊，請參閱 [Azure 定價](http://azure.microsoft.com/pricing/)頁面。如需服務匯流排定價的詳細資訊，請參閱[服務匯流排價格](http://azure.microsoft.com/pricing/details/service-bus/)。
+>[AZURE.NOTE] 所有成本都可能會變更。上表反映撰寫本文時的目前定價，不包括目前可能適用的任何促銷優惠方案。如需 Azure 的最新定價資訊，請參閱 [Azure 定價](https://azure.microsoft.com/pricing/)頁面。如需服務匯流排定價的詳細資訊，請參閱[服務匯流排價格](https://azure.microsoft.com/pricing/details/service-bus/)。
 
 ## 結論
 
@@ -315,4 +314,4 @@ Azure 佇列和服務匯流排佇列都是 Microsoft Azure 目前所提供之訊
 [Azure 傳統入口網站]: http://manage.windowsazure.com
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

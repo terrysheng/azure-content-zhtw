@@ -29,11 +29,11 @@
 
 您也可以對雲端服務中執行的一個或所有角色啟用遠端桌面連線。遠端桌面可讓您存取執行中應用程式的桌面，然後疑難排解和診斷問題。即使您未在應用程式開發期間對服務定義檔 (.csdef) 設定遠端桌面，還是可以對您的角色啟用遠端桌面連線。您不需要重新部署應用程式，就可以啟用遠端桌面連線。
 
-每個角色至少必須有兩個角色執行個體，Azure 才能確保服務在組態更新期間有 99.95% 的可用性。如此才能讓一個虛擬機器在受到更新時，還有另一個虛擬機器可以處理用戶端要求。如需詳細資訊，請參閱[服務等級協定](http://azure.microsoft.com/support/legal/sla/)。
+每個角色至少必須有兩個角色執行個體，Azure 才能確保服務在組態更新期間有 99.95% 的可用性。如此才能讓一個虛擬機器在受到更新時，還有另一個虛擬機器可以處理用戶端要求。如需詳細資訊，請參閱[服務等級協定](https://azure.microsoft.com/support/legal/sla/)。
 
 ## 變更雲端服務
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)，瀏覽至您的雲端服務。
+1. 在 [Azure 入口網站](https://portal.azure.com/)，瀏覽至您的雲端服務。
 
 2. 按一下**設定**圖示或 [**基本功能/所有設定**] 連結，開啟 [**設定**] 刀鋒視窗。
 
@@ -53,13 +53,14 @@
     
     ![雲端服務執行個體按鈕](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
->[AZURE.NOTE]您無法使用 **Azure 入口網站**來變更用於雲端服務的作業系統，只能透過 [Azure 傳統入口網站](http://manage.windowsazure.com/)變更此設定。[這裡](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file)有詳細說明。
+>[AZURE.NOTE]
+您無法使用 **Azure 入口網站**來變更用於雲端服務的作業系統，只能透過 [Azure 傳統入口網站](http://manage.windowsazure.com/)變更此設定。[這裡](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file)有詳細說明。
 
 ## 更新雲端服務組態檔
 
 1. 首先，下載現有的雲端服務組態檔 (.cscfg)。
 
-    1. 在 [Azure 入口網站](http://portal.azure.com/)，瀏覽至您的雲端服務。
+    1. 在 [Azure 入口網站](https://portal.azure.com/)，瀏覽至您的雲端服務。
 
     2. 按一下**設定**圖示或 [**基本功能/所有設定**] 連結，開啟 [**設定**] 刀鋒視窗。
 
@@ -94,4 +95,4 @@
 * [管理您的雲端服務](cloud-services-how-to-manage-portal.md)。
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

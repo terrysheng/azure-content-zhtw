@@ -22,7 +22,7 @@
 
 ## 概觀 
 
-本佈建教學課程僅適用於執行 1.1.1.0 版 (公開預覽版) 的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。本教學課程說明如何在執行 Hyper-V 2008 R2、Hyper-V 2012 或 Hyper-V 2012 R2 之主機系統上佈建 StorSimple 虛擬陣列。
+本佈建教學課程僅適用於執行 1.1.1.0 版 (公開預覽版) 的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。本教學課程說明如何在執行 Hyper-V 2008 R2、Hyper-V 2012，或 Hyper-V 2012 R2 之主機系統上佈建 StorSimple Virtual Array。
 
 您需要系統管理員權限，才能佈建及設定虛擬裝置。佈建及初始安裝程序可能需要大約 10 分鐘的時間才能完成。
 
@@ -32,7 +32,7 @@
 
 ## 佈建的必要條件
 
-我們在此提供要在執行 Hyper-V 2008 R2、Hyper-V 2012 及 2012 R2 的主機系統上佈建虛擬裝置的必要條件。
+我們在此提供要在執行 Hyper-V 2008 R2、Hyper-V 2012，或 Hyper-V 2012 R2 之主機系統上佈建虛擬裝置的必要條件。
 
 ### 對於 StorSimple Manager 服務
 
@@ -178,7 +178,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
 
-1.  在 [選擇磁碟類型] 頁面上，將虛擬硬碟類型設定為 [動態擴充] \(建議選項)。您也可以選擇 [固定大小] 磁碟，但你可能會需要等待很長一段時間。我們建議您不要使用 [差異] 選項。按 [下一步]。請注意，在 Hyper-V 2012 及 Hyper-V 2012 R2 中，預設選項為 [動態擴充]。而在 Hyper-V 2008 R2 中，預設選項是 [固定大小]。
+1.  在 [選擇磁碟類型] 頁面上，將虛擬硬碟類型設定為 [動態擴充] (建議選項)。您也可以選擇 [固定大小] 磁碟，但你可能會需要等待很長一段時間。我們建議您不要使用 [差異] 選項。按 [下一步]。請注意，在 Hyper-V 2012 及 Hyper-V 2012 R2 中，預設選項為 [動態擴充]。而在 Hyper-V 2008 R2 中，預設選項是 [固定大小]。
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image16.png)
 
@@ -274,4 +274,4 @@
 
 -   [Set up your StorSimple Virtual Array as an iSCSI server (將 StorSimple 虛擬陣列設定為 iSCSI 伺服器)](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

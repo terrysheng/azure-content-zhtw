@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="tomfitz"/>
 
 # 在「Azure 資源管理員」中連結資源
@@ -50,11 +50,11 @@
 
 properties 元素包含第二個資源的識別碼。
 
-如需其他範例，包括如何擷取連結的相關資訊，請參閱[連結的資源](https://msdn.microsoft.com/library/azure/mt238499.aspx)。
+如需其他範例，包括如何抓取連結的相關資訊，請參閱[連結的資源](https://msdn.microsoft.com/library/azure/mt238499.aspx)。
 
 ## 後續步驟
 
 - 您也可以使用標記來組織您的資源。若要了解如何標記資源，請參閱[使用標記來組織資源](resource-group-using-tags.md)。
 - 如需如何建立範本並定義要部署之資源的說明，請參閱[撰寫範本](resource-group-authoring-templates.md)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

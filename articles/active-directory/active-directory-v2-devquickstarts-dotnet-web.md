@@ -23,10 +23,7 @@
   >[AZURE.NOTE]
     此資訊適用於 v2.0 應用程式模型公開預覽。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
 
- 現在，我們將使用 OWIN 來執行下列作業：
-- 使用 Azure AD 和 v2.0 應用程式模型將使用者登入應用程式。
-- 顯示使用者的部分相關資訊。
-- 將使用者登出應用程式。
+ 現在，我們將使用 OWIN 來執行下列作業：- 使用 Azure AD 和 v2.0 應用程式模型將使用者登入應用程式。- 顯示使用者的部分相關資訊。- 將使用者登出應用程式。
 
 為執行此作業，您必須執行下列動作：
 
@@ -35,7 +32,7 @@
 3. 使用 OWIN 向 Azure AD 發出登入和登出要求。
 4. 列印出使用者的相關資料。
 
-本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet)。若要遵循執行，您可以[用 .zip 格式下載應用程式的基本架構](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip)，或複製基本架構：
+本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet) 上。若要遵循執行，您可以[用 .zip 格式下載應用程式的基本架構](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip)，或複製基本架構：
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
@@ -45,8 +42,8 @@
 在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。請確定：
 
 - 將指派給您應用程式的**應用程式識別碼**複製起來，您很快會需要用到這些識別碼。
-- 為應用程式新增 **Web** 平台。
-- 請輸入正確的**重新導向 URI**。重新導向 URI 會向 Azure AD 指出驗證回應應導向的位置，本教學課程的預設為 `https://localhost:44326/`。
+- 為您的應用程式新增 **Web** 平台。
+- 輸入正確的**重新導向 URI**。重新導向 URI 會向 Azure AD 指出驗證回應應導向的位置，本教學課程的預設為 `https://localhost:44326/`。
 
 ## 2\.將您的應用程式設定為使用 OWIN 驗證管道
 在這裡，我們將設定 OWIN 中介軟體使用 OpenID Connect 驗證通訊協定。OWIN 將用來發出登入和登出要求、管理使用者的工作階段，以及取得使用者相關資訊等其他作業。
@@ -83,9 +80,7 @@ namespace TodoList_WebApp
 -	Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIdConnectAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.  You'll also need to set up Cookie Authentication - the OpenID Connect middleware uses cookies underneath the covers.
 
 ```C#
-public void ConfigureAuth(IAppBuilder app)
-			 {
-					 app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+public void ConfigureAuth(IAppBuilder app) { app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
 					 app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
@@ -99,7 +94,7 @@ public void ConfigureAuth(IAppBuilder app)
 									 ClientId = clientId,
 									 Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
 									 RedirectUri = redirectUri,
-									 Scope = "openid",
+									 Scope = "openid email profile",
 									 ResponseType = "id_token",
 									 PostLogoutRedirectUri = redirectUri,
 									 TokenValidationParameters = new TokenValidationParameters
@@ -114,17 +109,13 @@ public void ConfigureAuth(IAppBuilder app)
 			 }
 ```
 
-## 3. 使用 OWIN 向 Azure AD 發出登入和登出要求
-您的應用程式現在已正確設定，將使用 OpenID Connect 驗證通訊協定與 v2.0 端點通訊。  OWIN 已經處理所有製作驗證訊息、驗證 Azure AD 的權杖和維護使用者工作階段的瑣碎詳細資料。  剩餘的工作就是提供使用者一個登入和登出的方式。
+## 3. Use OWIN to issue sign-in and sign-out requests to Azure AD
+Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  OWIN has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in and sign out.
 
-- 您可以在控制器中使用授權標記，要求使用者在存取特定頁面時登入。  開啟 `Controllers\HomeController.cs`，並在 [關於] 控制器中加入 `[Authorize]` 標記。
+- You can use authorize tags in your controllers to require that user signs in before accessing a certain page.  Open `Controllers\HomeController.cs`, and add the `[Authorize]` tag to the About controller.
 
 ```C#
-[Authorize]
-public ActionResult About()
-{
-  ...
-```
+[Authorize] public ActionResult About() { ... ```
 
 -	您也可以使用 OWIN 從程式碼中直接發出驗證要求。開啟 `Controllers\AccountController.cs`。在 SignIn() 和 SignOut() 動作中，將分別發出 OpenID Connect 挑戰和登出要求。
 
@@ -211,8 +202,6 @@ public ActionResult About()
 
 [使用 v2.0 應用程式模型保護 Web API >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-如需其他資源，請查看：
-- [應用程式模型 2.0 版預覽 >>](active-directory-appmodel-v2-overview.md)
-- [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+如需其他資源，請查看：- [應用程式模型 2.0 版預覽 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

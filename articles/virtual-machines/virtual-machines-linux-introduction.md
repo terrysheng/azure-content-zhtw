@@ -68,7 +68,7 @@ Azure Linux 代理程式包括可自動偵測此名稱變更、適當地設定�
 **Ubuntu** 和 **CoreOS** 映像會在 Azure 上利用 Cloud-Init，提供用來啟動虛擬機器的額外功能。
 
  - [如何插入自訂資料](virtual-machines-how-to-inject-custom-data.md)
- - [Microsoft Azure 上的自訂資料和 Cloud-Init](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
+ - [Microsoft Azure 上的自訂資料和 Cloud-Init](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
  - [使用 Cloud-Init 建立 Azure Swap 磁碟分割](https://wiki.ubuntu.com/AzureSwapPartitions)
  - [如何在 Azure 上使用 CoreOS](virtual-machines-linux-coreos-how-to.md)
 
@@ -93,10 +93,10 @@ Azure 可將現有虛擬機器的狀態擷取到映像中，供以後用來部�
 在 Linux 上，資源磁碟通常由 Azure Linux 代理程式管理，並自動掛接到 **/mnt/resource** (或 Ubuntu 映像中的 **/mnt**)。
 
 
->[AZURE.NOTE]請注意，資源磁碟是**暫存**磁碟，可能會在 VM 重新開機時遭到刪除及重新格式化。
+>[AZURE.NOTE] 請注意，資源磁碟是**暫存**磁碟，可能會在 VM 重新開機時遭到刪除及重新格式化。
 
 在 Linux 上，核心可能會將資料磁碟命名為 `/dev/sdc`，而使用者必須分割、格式化及掛接該資源。[如何將資料磁碟連接至虛擬機器](virtual-machines-linux-how-to-attach-disk.md)的教學課程中涵蓋這部分的逐步指示。
 
  - **另請參閱：** [在 Linux 上設定軟體 RAID](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

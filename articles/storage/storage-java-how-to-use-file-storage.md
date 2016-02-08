@@ -50,7 +50,7 @@
 	    "AccountName=your_storage_account_name;" +
 	    "AccountKey=your_storage_account_key";
 
-> [AZURE.NOTE]將 your\_storage\_account\_name 和 your\_storage\_account\_key 取代為您的儲存體帳戶的實際值。
+> [AZURE.NOTE] 將 your\_storage\_account\_name 和 your\_storage\_account\_key 取代為您的儲存體帳戶的實際值。
 
 ## 連接到 Azure 儲存體帳戶
 
@@ -222,4 +222,4 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 [Azure 儲存體 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

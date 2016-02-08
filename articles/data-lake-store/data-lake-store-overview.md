@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="01/22/2016"
    ms.author="nitinme"/>
 
 # Azure 資料湖存放區概觀
 
 Azure 資料湖存放區是容納巨量資料分析工作負載的企業級超大規模存放庫。Azure 資料湖可讓您在單一位置擷取任何大小、類型和擷取速度的資料，以便進行運作和探究分析。
 
-> [AZURE.TIP]使用[資料湖存放區學習路徑](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/)開始探索 Azure 資料湖存放區服務。
+> [AZURE.TIP] 使用[資料湖存放區學習路徑](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/)開始探索 Azure 資料湖存放區服務。
 
 使用 WebHDFS 相容的 REST API，可以從 Hadoop (HDInsight 叢集所提供) 存取 Azure 資料湖存放區。它專為預存資料分析而設計，並針對資料分析案例而調整效能。根據預設，它包含真實企業使用案例不可或缺的所有企業級功能：安全性、管理性、延展性、可靠性和可用性。
 
@@ -55,6 +55,8 @@ Azure 資料湖存放區提供符合業界標準的可用性和可靠性。您�
 
 Azure 資料湖存放區可以原生格式 (原樣) 儲存任何資料，而不需要任何先前的轉換。載入資料前，資料湖存放區不需要定義結構描述，而是留待個別的分析架構在分析時解譯資料和定義結構描述。資料湖存放區能夠儲存任意大小和格式的檔案，因此可以處理結構化、半結構化和非結構化資料。
 
+Azure 資料湖存放區的資料容器基本上是資料夾和檔案。您可以使用 SDK、Azure 入口網站和 Azure Powershell 來操作儲存的資料。只要您使用這些介面和適當容器將資料放入存放區中，就可以儲存任何類型的資料。資料湖存放區不會根據其儲存的資料類型來對資料執行任何特殊處理。
+
 
 ## <a name="DataLakeStoreSecurity"></a>在 Azure 資料湖存放區中保護資料
 
@@ -86,4 +88,4 @@ Azure 資料湖存放區會使用 Azure Active Directory 進行驗證，並使�
 - [使用 .NET SDK 開始使用 Azure 資料湖存放區](data-lake-store-get-started-net-sdk.md)
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

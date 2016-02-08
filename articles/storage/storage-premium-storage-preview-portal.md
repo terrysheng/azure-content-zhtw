@@ -27,9 +27,9 @@ Azure VM 支援連接數個「進階儲存體」磁碟，讓您應用程式的�
 
 Azure 使用進階儲存體，提供您將要求較高的企業應用程式 (例如 Dynamics AX、Dynamics CRM、Exchange Server、SharePoint Farms 與 SAP Business Suite) 真正提升並轉移至雲端的能力。您可以在進階儲存體上執行強調效能、需要持續高效能和低延遲的資料庫工作負載，例如 SQL Server、Oracle、MongoDB、MySQL、Redis。
 
->[AZURE.NOTE]建議您將任何需要高 IOPS 的虛擬機器磁碟移轉到「Azure 進階儲存體」，以發揮應用程式最佳效能。如果您的磁碟不需要高 IOPS，您可以在「標準儲存體」中維護它來限制成本，這會將虛擬機器磁碟資料儲存在「硬碟機 (HDD)」上而非 SSD 上。
+>[AZURE.NOTE] 建議您將任何需要高 IOPS 的虛擬機器磁碟移轉到「Azure 進階儲存體」，以發揮應用程式最佳效能。如果您的磁碟不需要高 IOPS，您可以在「標準儲存體」中維護它來限制成本，這會將虛擬機器磁碟資料儲存在「硬碟機 (HDD)」上而非 SSD 上。
 
-若要開始使用 Azure Premium 儲存體，請造訪[免費開始](http://azure.microsoft.com/pricing/free-trial/)頁面。如需有關將現有虛擬機器移轉到「進階儲存體」的資訊，請參閱＜移轉到 Azure 進階儲存體＞[](storage-migration-to-premium-storage.md)。
+若要開始使用 Azure Premium 儲存體，請造訪[免費開始](https://azure.microsoft.com/pricing/free-trial/)頁面。如需有關將現有虛擬機器移轉到「進階儲存體」的資訊，請參閱＜移轉到 Azure 進階儲存體＞[](storage-migration-to-premium-storage.md)。
 
 ## Premium 儲存體重要須知
 
@@ -37,9 +37,9 @@ Azure 使用進階儲存體，提供您將要求較高的企業應用程式 (例
 
 - 若要使用 Premium 儲存體，您必須有 Premium 儲存體帳戶。若要了解如何建立 Premium 儲存體帳戶，請參閱[建立和使用 Premium 儲存體帳戶的磁碟](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
 
-- 進階儲存體只在 [Azure 入口網站](portal.azure.com)提供，您可透過下列 SDK 程式庫來存取：2014-02-14 版或更新版本的 [儲存體 REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx)、2014-10-01 版或更新版本的[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)，以及 0.8.10 版或更新版本的 [Azure PowerShell](../install-configure-powershell.md)。
+- 進階儲存體只在 [Azure 入口網站](https://portal.azure.com)提供，您可透過下列 SDK 程式庫來存取：2014-02-14 版或更新版本的 [儲存體 REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx)、2014-10-01 版或更新版本的[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)，以及 0.8.10 版或更新版本的 [Azure PowerShell](../install-configure-powershell.md)。
 
-- 如需目前支援進階儲存體的地區清單，請參閱[依區域提供的 Azure 服務](http://azure.microsoft.com/regions/#services)。
+- 如需目前支援進階儲存體的地區清單，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/#services)。
 
 - Premium 儲存體僅支援 Azure 分頁 Blob，用於保存適用於 Azure 虛擬機器 (VM) 的耐久性磁碟。如需 Azure 分頁 Blob 的詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx)。Premium 儲存體不支援 Azure 區塊 Blob、Azure 檔案、Azure 表格或 Azure 佇列。
 
@@ -51,7 +51,7 @@ Azure 使用進階儲存體，提供您將要求較高的企業應用程式 (例
 
 - Premium 儲存體帳戶無法對應到自訂網域名稱。
 
-- Premium 儲存體目前不支援儲存體分析。若要分析使用 Premium 儲存體帳戶磁碟的 VM 效能度量，請使用作業系統工具，例如適用於 Windows VM 的 [Windows 效能監視器](https://technet.microsoft.com/library/cc749249.aspx)和適用於 Linux VM 的 [IOSTAT](http://linux.die.net/man/1/iostat)。您也可以在 Azure Preview 入口網站啟用 Azure VM 診斷。如需詳細資料，請參閱[使用 Azure 診斷擴充功能監視 Microsoft Azure 虛擬機器](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)。
+- Premium 儲存體目前不支援儲存體分析。若要分析使用 Premium 儲存體帳戶磁碟的 VM 效能度量，請使用作業系統工具，例如適用於 Windows VM 的 [Windows 效能監視器](https://technet.microsoft.com/library/cc749249.aspx)和適用於 Linux VM 的 [IOSTAT](http://linux.die.net/man/1/iostat)。您也可以在 Azure Preview 入口網站啟用 Azure VM 診斷。如需詳細資料，請參閱[使用 Azure 診斷擴充功能監視 Microsoft Azure 虛擬機器](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)。
 
 ## 使用 Premium 磁碟儲存體
 有兩種方式可使用 Premium 磁碟儲存體：
@@ -63,7 +63,7 @@ Azure 使用儲存體帳戶做為作業系統 (OS) 和資料磁碟的容器。�
 
 如需有關將現有虛擬機器移轉到「進階儲存體」的資訊，請參閱＜[移轉到 Azure 進階儲存體](storage-migration-to-premium-storage.md)＞。
 
-為充分利用 Premium 儲存體的優點，請先使用 *Premium\_LRS* 帳戶類型建立一個 Premium 儲存體帳戶。作法是，使用 [Azure 入口網站](portal.azure.com)、[Azure PowerShell](../install-configure-powershell.md) 或[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)。如需逐步指示，請參閱[建立和使用 Premium 儲存體帳戶的磁碟](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
+為充分利用 Premium 儲存體的優點，請先使用 *Premium\_LRS* 帳戶類型建立一個 Premium 儲存體帳戶。作法是，使用 [Azure 入口網站](https://portal.azure.com)、[Azure PowerShell](../install-configure-powershell.md) 或[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)。如需逐步指示，請參閱[建立和使用 Premium 儲存體帳戶的磁碟](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
 
 ### 重要事項：
 
@@ -75,7 +75,7 @@ Azure 使用儲存體帳戶做為作業系統 (OS) 和資料磁碟的容器。�
 
 	如需 DS 系列和 GS 系列 VM 的最大 IOPS 和輸送量 (頻寬) 的最新資訊，請參閱＜[Azure 的虛擬機器和雲端服務大小](../virtual-machines/virtual-machines-size-specs.md)＞。若要了解有關「進階儲存體」磁碟及其 IOPS 與輸送量限制，請參閱本文＜[使用進階儲存體時的延展性和效能目標](#scalability-and-performance-targets-whzh-TWing-premium-storage)＞一節中的表格。
 
-> [AZURE.NOTE]快取命中數不會受到磁碟配置 IOPS/輸送量的限制。也就是說，當您在 DS 系列 VM 或 GS 系列 VM 上使用具 ReadOnly 快取設定的資料磁碟時，來自快取的讀取數不會受到進階儲存體磁碟的限制。因此，如果工作負載以讀取為主，可以從磁碟獲得極高的輸送量。請注意，快取會根據 VM 大小，受到 VM 層級個別 IOPS / 輸送量的限制。DS 系列 VM 大約有 4000 IOPS，快取與本機 SSD IO 是每個核心 33 MB/秒。
+> [AZURE.NOTE] 快取命中數不會受到磁碟配置 IOPS/輸送量的限制。也就是說，當您在 DS 系列 VM 或 GS 系列 VM 上使用具 ReadOnly 快取設定的資料磁碟時，來自快取的讀取數不會受到進階儲存體磁碟的限制。因此，如果工作負載以讀取為主，可以從磁碟獲得極高的輸送量。請注意，快取會根據 VM 大小，受到 VM 層級個別 IOPS / 輸送量的限制。DS 系列 VM 大約有 4000 IOPS，快取與本機 SSD IO 是每個核心 33 MB/秒。
 
 - 您可在 DS 系列 VM 或 GS 系列 VM 中同時使用 Premium 和 Standard 儲存體磁碟。
 - 使用 Premium 儲存體，您可以佈建 DS 系列 VM 並將幾個永久性的資料磁碟連接到 VM。如有需要，您可以跨磁碟等量磁碟區以增加磁碟區的容量和效能。如果您使用[儲存空間](http://technet.microsoft.com/library/hh831739.aspx)等量 Premium 儲存體資料磁碟，應該為所使用的每個磁碟，以一個資料行進行設定。否則，等量磁碟區的整體效能可能會因為磁碟流量分配不平均而比預期的效能還低。根據預設，伺服器管理員使用者介面 (UI) 可讓您設定最多 8 個磁碟的資料行。但是，如果您有 8 個以上的磁碟，您就必須使用 PowerShell 來建立磁碟區，並且手動指定資料行數目。否則，即使您擁有更多磁碟，伺服器管理員 UI 還是會繼續使用 8 個資料行。例如，如果您在單一等量磁碟區組有 32 個磁碟，您應該指定 32 個資料行。您可以使用 [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell Cmdlet 的 *NumberOfColumns* 參數，指定虛擬磁碟所使用的資料行數目。如需詳細資訊，請參閱[儲存體空間概觀](http://technet.microsoft.com/library/jj822938.aspx)和[儲存體空間常見問題集](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)。
@@ -123,7 +123,7 @@ Azure 使用儲存體帳戶做為作業系統 (OS) 和資料磁碟的容器。�
 </tbody>
 </table>
 
-> [AZURE.NOTE]請確定如本文稍早[使用 Premiun 儲存體的磁碟](#using-premium-storage-for-disks)一節所述，在您的 VM 上有足夠的頻寬可運送磁碟流量。否則，您的磁碟輸送量和 IOPS 將會根據 VM 限制而不是上表所述的磁碟限制而受限於較低的值。
+> [AZURE.NOTE] 請確定如本文稍早[使用 Premiun 儲存體的磁碟](#using-premium-storage-for-disks)一節所述，在您的 VM 上有足夠的頻寬可運送磁碟流量。否則，您的磁碟輸送量和 IOPS 將會根據 VM 限制而不是上表所述的磁碟限制而受限於較低的值。
 
 Azure 會將磁碟大小對應 (無條件進位) 至表格中指定之最接近的 Premium 儲存體磁碟選項。例如，大小為 100 GB 的磁碟會分類為 P10 選項，每秒最多可執行 500 個 IO 單位，每秒輸送量可達 100 MB。同樣地，大小為 400 GB 的磁碟會分類為 P20 選項，每秒最多可執行 2300 個 IO 單位，每秒輸送量可達 150 MB。
 
@@ -133,7 +133,7 @@ Azure 會將磁碟大小對應 (無條件進位) 至表格中指定之最接近�
 
 當您在 Azure 建立磁碟後，請依據您應用程式的容量、效能、延展性和尖峰負載需求來選取最適合的 Premium 儲存體磁碟解決方案。
 
-> [AZURE.NOTE]您可以輕易增加現有磁碟的大小。例如，如果您想要將 30 GB 大小的磁碟增加到 128 GB 或 1 TB。或者，如果您想要將 P20 磁碟轉換為 P30 磁碟，因為您需要更多容量或更多的 IOPS 和輸送量。您可以使用 "Update-AzureDisk" PowerShell 命令搭配 "-ResizedSizeInGB" 屬性來擴充磁碟。若要執行這個動作，必須先從 VM 卸離磁碟或停止 VM。
+> [AZURE.NOTE] 您可以輕易增加現有磁碟的大小。例如，如果您想要將 30 GB 大小的磁碟增加到 128 GB 或 1 TB。或者，如果您想要將 P20 磁碟轉換為 P30 磁碟，因為您需要更多容量或更多的 IOPS 和輸送量。您可以使用 "Update-AzureDisk" PowerShell 命令搭配 "-ResizedSizeInGB" 屬性來擴充磁碟。若要執行這個動作，必須先從 VM 卸離磁碟或停止 VM。
 
 下表描述 Premium 儲存體帳戶的延展性目標：
 
@@ -237,12 +237,12 @@ DS4 VM 連接了兩個 P30 磁碟。每個 P30 磁碟有每秒 200 MB 的輸送�
 
 - Premium 儲存體磁碟的計費依據是磁碟的佈建大小。Azure 會將磁碟大小 (無條件進位) 對應至[使用 Premium 儲存體時的延展性和效能目標](#scalability-and-performance-targets-whzh-TWing-premium-storage)一節的表格中最接近的 Premium 儲存體磁碟選項。任何已佈建的磁碟都是按每月的 Premium 儲存體優惠價格以每小時的方式計費。例如，如果您在佈建完 P10 磁碟的 20 小時後刪除它，則會以 20 小時計算 P10 解決方案的費用。這與寫入磁碟的實際資料量或使用的 IOPS/輸送量無關。
 - Premium 儲存體上的快照會因為使用的額外容量而產生費用。如需有關快照的資訊，請參閱[建立 Blob 的快照](http://msdn.microsoft.com/library/azure/hh488361.aspx)。
-- [輸出資料傳輸](http://azure.microsoft.com/pricing/details/data-transfers/) (Azure 資料中心送出的資料) 會產生頻寬使用量費用。
+- [輸出資料傳輸](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure 資料中心送出的資料) 會產生頻寬使用量費用。
 
 如需進階儲存體、DS 系列 VM 和 GS 系列 VM 的價格詳細資訊，請參閱：
 
-- [Azure 儲存體定價](http://azure.microsoft.com/pricing/details/storage/)
-- [虛擬機器定價](http://azure.microsoft.com/pricing/details/virtual-machines/)
+- [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)
+- [虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/)
 
 ## 為虛擬機器資料磁碟建立和使用 Premium 儲存體帳戶
 
@@ -252,7 +252,7 @@ DS4 VM 連接了兩個 P30 磁碟。每個 P30 磁碟有每秒 200 MB 的輸送�
 
 本節說明如何使用 Azure Preview 入口網站建立 Premium 儲存體帳戶。
 
-1.	登入 [Azure 入口網站](portal.azure.com)。如果您還沒有訂閱，請參考[免費試用](http://azure.microsoft.com/pricing/free-trial/)優惠。
+1.	登入 [Azure 入口網站](https://portal.azure.com)。如果您還沒有訂閱，請參考[免費試用](https://azure.microsoft.com/pricing/free-trial/)優惠。
 
 2.	在 [中心] 功能表上，按一下 [新增]。
 
@@ -332,8 +332,8 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [移轉到 Azure 進階儲存體](storage-migration-to-premium-storage.md)。
 - [建立執行 Windows 的虛擬機器](../virtual-machines-windows-tutorial-azure-preview.md)
 - [Azure 的虛擬機器和雲端服務大小](../virtual-machines/virtual-machines-size-specs.md)
-- [儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
+- [儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

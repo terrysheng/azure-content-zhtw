@@ -33,9 +33,9 @@ New Relic 會追蹤 Web 交易的載入時間和輸送量，包括來自伺服�
 
 New Relic Standard 供 Azure 使用者免費使用。New Relic Pro 依 Azure 雲端服務的執行個體大小來報價
 
-如需定價資訊，請參閱＜[Azure 市集的 New Relic 頁面](http://azure.microsoft.com/marketplace/partners/newrelic/newrelic)＞。
+如需定價資訊，請參閱＜[Azure 市集的 New Relic 頁面](https://azure.microsoft.com/marketplace/partners/newrelic/newrelic/)＞。
 
-> [AZURE.NOTE]最多只列出 10 個運算執行個體的定價。若超過 10 個，請連絡 New Relic (sales@newrelic.com) 詢問批量價格。
+> [AZURE.NOTE] 最多只列出 10 個運算執行個體的定價。若超過 10 個，請連絡 New Relic (sales@newrelic.com) 詢問批量價格。
 
 Azure 客戶部署 New Relic 代理程式時享有 New Relic Pro 試用訂閱 2 週。
 
@@ -120,10 +120,10 @@ New Relic 與 Azure Web 角色和背景工作角色緊密整合。
 | 如果您想要... | 執行此動作... |
 | ----------------- | ---------- |
 | 顯示所選取應用程式的伺服器或瀏覽器的儀表板資訊。 | 按一下 [App Server] 或 [Browser] 按鈕。 |
-| 檢視應用程式的 [Apdex](https://newrelic.com/docs/site/apdex) 分數的臨界值層級。 | 指向 Apdex 分數 **?** 圖示。 |
-| 檢視全球 Apdex 詳細資料。 | 從 [Overview] 的 [Browser] 檢視中，指向 Global Apdex 地圖的任意處。**秘訣：**若要直接移至選取之應用程式的 [Geography](https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard") 儀表板，請按一下 [Global Apdex] 標題，或按一下 Global Apdex 地圖的任意處。 |
-| 檢視 [Web Transactions](https://newrelic.com/docs/applications-dashboards/web-transactions) 儀表板。 | 按一下 [Applications Overview] 儀表板的 [Web Transactions] 資料表。或者，若要檢視特定 Web 交易 (包括 [Key Transactions](https://newrelic.com/docs/site/key-transactions")) 的詳細資料，請按一下其名稱。 |
-| 檢視 [Errors](https://newrelic.com/docs/site/errors) 儀表板。 | 按一下 [Applications Overview] 儀表板的 [Error rate] 圖表標題。**祕訣：**您也可以從 [Applications] > (您的應用程式) > [Events] > [Errors] 來檢視 [Errors] 儀表板。 |
+| 檢視應用程式的 [Apdex](https://newrelic.com/docs/site/apdex) 分數臨界值層級。 | 指向 Apdex 分數 **?** 圖示。 |
+| 檢視全球 Apdex 詳細資料。 | 從 [Overview] 的 [Browser] 檢視中，指向 Global Apdex 地圖的任意處。**秘訣：**若要直接移至選取之應用程式的[地理位置](https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard")儀表板，請按一下 [全球 Apdex] 標題，或按一下全球 Apdex 地圖的任何一處。 |
+| 檢視 [Web 交易](https://newrelic.com/docs/applications-dashboards/web-transactions)儀表板。 | 按一下 [Applications Overview] 儀表板的 [Web Transactions] 資料表。或者，若要檢視特定 Web 交易 (包括[金鑰交易](https://newrelic.com/docs/site/key-transactions")) 的詳細資料，請按一下其名稱。 |
+| 檢視[錯誤](https://newrelic.com/docs/site/errors)儀表板。 | 按一下 [Applications Overview] 儀表板的 [Error rate] 圖表標題。**祕訣：**您也可以從 [Applications] > (您的應用程式) > [Events] > [Errors] 來檢視 [Errors] 儀表板。 |
 
 
 此外，如果您想要檢視應用程式的伺服器詳細資料，請執行下列任何動作：
@@ -148,4 +148,4 @@ New Relic 與 Azure Web 角色和背景工作角色緊密整合。
  * [實際使用者監控](https://newrelic.com/docs/features/real-user-monitoring) (英文)：RUM 如何詳述使用者瀏覽器載入網頁所需的時間、使用者來自何方及使用什麼瀏覽器的概觀
  * [尋找說明](https://newrelic.com/docs/site/finding-help) (英文)：New Relic 線上說明中心提供的資源
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

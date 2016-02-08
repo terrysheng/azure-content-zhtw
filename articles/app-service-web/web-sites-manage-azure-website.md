@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="01/12/2016" 
 	ms.author="erikre"/>
 
 # 在 Azure App Service 中管理 Web 應用程式
@@ -65,7 +65,7 @@ Azure App Service 提供了五種階層：免費、共用、基本、標準和�
  
 ### 備份
 
-- 設定 Web 應用程式的[自動備份](web-sites-backup.md)。透過[本視訊](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/)深入了解備份。
+- 設定 Web 應用程式的[自動備份](web-sites-backup.md)。透過[本視訊](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/)深入了解備份。
 - 深入了解 Azure SQL Database 中的[資料庫復原](../sql-database-business-continuity.md)選項。
 
 ### 疑難排解
@@ -103,4 +103,4 @@ Azure App Service 提供了五種階層：免費、共用、基本、標準和�
 
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

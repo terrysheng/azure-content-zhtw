@@ -39,7 +39,7 @@ Azure 提供您建立在虛擬機器上的絕佳雲端解決方案，虛擬機�
 
 ## 虛擬機器與容器之間的差異
 
-虛擬機器是在 [Hypervisor](http://en.wikipedia.org/wiki/Hypervisor) 提供的獨立硬體虛擬化環境內執行。在 Azure 中，[虛擬機器](http://azure.microsoft.com/services/virtual-machines/)服務會為您處理所有作業：您只需要選擇作業系統、依您想要執行的方式加以設定，或者上傳您自己自訂的 VM 映像，就可以建立虛擬機器。「虛擬機器」是一種經過長時間測試、歷經考驗而根深蒂固的技術，而且有許多工具可用來管理作業系統，以及設定您安裝及執行的應用程式。從主機作業系統並不會看見虛擬機器中執行的任何事物，而從虛擬機器內執行的應用程式或使用者的角度來看，虛擬機器就像是一部獨立存在的實體電腦。
+虛擬機器是在 [Hypervisor](http://en.wikipedia.org/wiki/Hypervisor) 提供的獨立硬體虛擬化環境內執行。在 Azure 中，[虛擬機器](https://azure.microsoft.com/services/virtual-machines/)服務會為您處理所有作業：您只需要選擇作業系統、依您想要執行的方式加以設定，或者上傳您自己自訂的 VM 映像，就可以建立虛擬機器。「虛擬機器」是一種經過長時間測試、歷經考驗而根深蒂固的技術，而且有許多工具可用來管理作業系統，以及設定您安裝及執行的應用程式。從主機作業系統並不會看見虛擬機器中執行的任何事物，而從虛擬機器內執行的應用程式或使用者的角度來看，虛擬機器就像是一部獨立存在的實體電腦。
 
 [Linux 容器](http://en.wikipedia.org/wiki/LXC)&mdash;包含使用 docker 工具以及其他方法建立及裝載的容器&mdash;不需要或不使用 Hypervisor 提供隔離。相反地，容器主機使用 Linux 核心的程序和檔案系統隔離功能，但是容器 (及其應用程式) 只能使用某些核心功能及其專屬隔離的檔案系統 (最低限度)。從容器內執行的應用程式的角度來看，容器就像是唯一的作業系統執行個體。包含在其中的應用程式看不見處理程序或其容器以外的任何其他資源。
 
@@ -63,7 +63,7 @@ Windows 容器對於任何在 Windows 執行的應用程式提供與 Linux 容�
 
 ## 容器適用的情況？
 
-容器適用很多情況，但是比較鼓勵 ([Azure 雲端服務](http://azure.microsoft.com/services/cloud-services/)和 [Azure Service Fabric](service-fabric-overview.md) 亦同) 建立單一服務、[微服務]導向的分散式應用程式，這類應用程式的設計是基於多個較小型、可組合的組件，而非基於較大型、強烈相關聯的元件。
+容器適用很多情況，但是比較鼓勵 ([Azure 雲端服務](https://azure.microsoft.com/services/cloud-services/)和 [Azure Service Fabric](service-fabric-overview.md) 亦同) 建立單一服務、[微服務]導向的分散式應用程式，這類應用程式的設計是基於多個較小型、可組合的組件，而非基於較大型、強烈相關聯的元件。
 
 尤其是對於像 Azure 這種您在需要時可以租用 VM 的公用雲端環境，特別適合。您不只可以獲得隔離、快速的部署以及協調流程工具，還能更有效率決定應用程式基礎結構。
 
@@ -121,7 +121,7 @@ Windows 容器對於任何在 Windows 執行的應用程式提供與 Linux 容�
 
 到目前為止，任何架構師、開發人員或 IT 作業專家可能會想：「我如果可以自動化所有這些事物，這就真的是「資料中心即服務！」。
 
-沒錯，它的確可以，而且有任意數目的系統，您可能已經使用其中一些系統。您可以使用指令碼 (通常使用 [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) 或 [CustomScriptingExtension for Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)) 管理 Azure VM 的群組並插入自訂程式碼。您可以 (而且可能已經) 使用 PowerShell 或 Azure CLI 指令碼自動化您的 Azure 部署，[像是這樣](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)。
+沒錯，它的確可以，而且有任意數目的系統，您可能已經使用其中一些系統。您可以使用指令碼 (通常使用 [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) 或 [CustomScriptingExtension for Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)) 管理 Azure VM 的群組並插入自訂程式碼。您可以 (而且可能已經) 使用 PowerShell 或 Azure CLI 指令碼自動化您的 Azure 部署，[像是這樣](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)。
 
 這些功能通常會移轉到如 [Puppet](https://puppetlabs.com/) 和 [Chef](https://www.chef.io/) 等工具，大量自動化建立和設定 VM。([這裡](#tools-for-working-with-containers)有許多搭配 Azure 使用這些工具的連結)。
 
@@ -142,7 +142,7 @@ Docker 有自己的 VM 建立工具 ([docker-machine](virtual-machines-docker-ma
 
 此外，您可以試試 [Mesosphere 的資料中心作業系統 (DCOS)](http://docs.mesosphere.com/install/azurecluster/)。DCOS 是根據開放原始碼 [Mesos](http://mesos.apache.org/) 的「分散式系統核心」，可讓您將您的資料中心視為一個可定址的服務。DCOS 擁有幾個重要系統的內建套件，例如 [Spark](http://spark.apache.org/) 和 [Kafka](http://kafka.apache.org/) (以及其他)，以及例如 [Marathon](https://mesosphere.github.io/marathon/) (容器控制系統) 和 [Chronos](https://mesosphere.github.io/chronos/) (分散式排程器) 的內建服務。Mesos 衍生自在 Twitter、AirBnb 和其他 Web 規模的企業學習到的工作。
 
-而 [Kubernetes](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure) 則是一個 VM 和容器群組管理的開放原始碼系統，衍生自在 Google 學習到的工作。您甚至可以使用 [Kubernetes 搭配 Weave 提供網路支援](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)。
+而 [Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) 則是一個 VM 和容器群組管理的開放原始碼系統，衍生自在 Google 學習到的工作。您甚至可以使用 [Kubernetes 搭配 Weave 提供網路支援](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)。
 
 [Deis](http://deis.io/overview/) 是一個開放原始碼的「平台即服務」(PaaS)，可以輕鬆部署和管理您自己伺服器上的應用程式。Deis 建立在 Docker 和 CoreOS 上，提供輕量級 PaaS 以及以 Heroku 為靈感來源的工作流程。您可以輕鬆[建立 3 個節點的 Azure VM 群組，並且在 Azure 上安裝 Deis](virtual-machines-deis-cluster.md)，然後[安裝 Hello World Go 應用程式](virtual-machines-deis-cluster.md#deploy-and-scale-a-hello-world-application)。
 
@@ -154,7 +154,7 @@ Ubuntu 是另一個非常受歡迎的 Linux 散發套件，能完整支援 Docke
 
 要使用容器和 Azure VM 必須使用工具。本節提供的清單，只包含與容器、群組和較大型組態相關、一些最有用或最重要的概念與工具，以及搭配這些工具所使用的協調流程工具。
 
-> [AZURE.NOTE]這個領域的變化出乎意料地快速，我們將盡全力讓本主題及其連結保持在最新狀態，不過這可能也是個不可能的任務。請確定搜尋有興趣的主題，以獲得最新資訊！
+> [AZURE.NOTE] 這個領域的變化出乎意料地快速，我們將盡全力讓本主題及其連結保持在最新狀態，不過這可能也是個不可能的任務。請確定搜尋有興趣的主題，以獲得最新資訊！
 
 ### 容器和 VM 技術
 
@@ -209,7 +209,7 @@ Linux 散發套件和 Azure 範例：
 	
 -	Kubernetes
 	- [使用 CoreOS 和 Weave 自動部署 Kubernetes 叢集的完整指南](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
-	- [Kubernetes Visualizer](http://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure)
+	- [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
 	
 -	[Mesos](http://mesos.apache.org/)
 	-	[Mesosphere 的資料中心作業系統 (DCOS)。](http://beta-docs.mesosphere.com/install/azurecluster/)
@@ -224,7 +224,7 @@ Linux 散發套件和 Azure 範例：
 	- [Chef 和虛擬機器](virtual-machines-windows-install-chef-client.md)
 	- [影片：Chef 是什麼，以及如何運作？](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
 
--	[Azure 自動化](http://azure.microsoft.com/services/automation/)
+-	[Azure 自動化](https://azure.microsoft.com/services/automation/)
 	- [影片：如何在 Linux VM 上使用 Azure 自動化](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
 	
 -	Powershell DSC for Linux
@@ -240,4 +240,4 @@ Linux 散發套件和 Azure 範例：
 [微服務]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

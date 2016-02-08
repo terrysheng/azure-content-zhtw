@@ -27,7 +27,7 @@ Azure 應用程式閘道可以設定為在閘道終止安全通訊端層 (SSL) �
 
 ## 開始之前
 
-1. 使用 Web Platform Installer 安裝最新版的 Azure PowerShell Cmdlet。您可以從[下載](http://azure.microsoft.com/downloads/)頁面的 **Windows PowerShell** 區段下載並安裝最新版本。
+1. 使用 Web Platform Installer 安裝最新版的 Azure PowerShell Cmdlet。您可以從[下載頁面](https://azure.microsoft.com/downloads/)的 **Windows PowerShell** 區段下載並安裝最新版本。
 2. 請確認您的運作中虛擬網路具有有效子網路。
 3. 請確認您的後端伺服器位於虛擬網路中，或已指派公用 IP/VIP。
 
@@ -235,4 +235,4 @@ Azure 應用程式閘道可以設定為在閘道終止安全通訊端層 (SSL) �
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

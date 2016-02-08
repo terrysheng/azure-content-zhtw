@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
+	ms.date="01/19/2015" 
 	ms.author="yuaxu"/>
 
 # 使用行動服務註冊目前使用者以取得推播通知
@@ -57,7 +57,7 @@
 
 	這會更新 **deviceToken** 屬性。
 
-	> [AZURE.NOTE]此時，此方法中不應有任何其他程式碼。如果您已呼叫您在完成[開始使用通知中樞](/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank")教學課程時所新增的 **registerNativeWithDeviceToken** 方法，您必須註解化或移除該呼叫。
+	> [AZURE.NOTE] 此時，此方法中不應有任何其他程式碼。如果您已呼叫您在完成[開始使用通知中樞](/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank")教學課程時所新增的 **registerNativeWithDeviceToken** 方法，您必須註解化或移除該呼叫。
 
 5.  (選用) 在 QSAppDelegate.m 檔案中，新增下列處理常式方法：
 
@@ -105,7 +105,7 @@
 			    }];
 			}
 
-	> [AZURE.NOTE]這會確使在每次載入頁面時都會要求註冊。在您的應用程式中，您可能只想定期進行此註冊，以確保註冊是最新的。
+	> [AZURE.NOTE] 這會確使在每次載入頁面時都會要求註冊。在您的應用程式中，您可能只想定期進行此註冊，以確保註冊是最新的。
 	
 現在，用戶端應用程式已更新，請回到[使用通知中心來通知使用者]，並更新行動服務，以使用通知中心傳送通知。
 
@@ -121,4 +121,4 @@
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

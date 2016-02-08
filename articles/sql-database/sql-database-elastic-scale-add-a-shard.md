@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="01/27/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # 使用彈性資料庫工具加入分區
@@ -25,7 +25,7 @@
 如果索引鍵值的新範圍尚不屬於現有的對應，則新增分區並將新的索引鍵或範圍與該分區產生關聯就非常簡單。
 
 ### 範例：將分區及其範圍加入至現有的分區對應
-在下列範例中，已建立名為 **sample\_shard\_2** 的資料庫及其中的所有必要結構描述物件，以保存範圍 [300, 400)。
+這個範例會使用 [TryGetShard](https://msdn.microsoft.com/library/azure/dn823929.aspx)、[CreateShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx)、[CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn807221.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeShardMap`1.CreateRangeMapping(Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeMappingCreationInfo{`0})) 方法，並建立 [ShardLocation](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation.shardlocation.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardLocation.) 類別的執行個體。在下列範例中，已建立名為 **sample\_shard\_2** 的資料庫及其中的所有必要結構描述物件，以保存範圍 [300, 400)。
 
     // sm is a RangeShardMap object.
     // Add a new shard to hold the range being added. 
@@ -79,4 +79,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

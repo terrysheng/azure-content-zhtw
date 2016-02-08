@@ -48,7 +48,7 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 - 強制通道必須與具有動態路由 VPN 閘道 (非靜態閘道) 的 VNet 相關聯。您需要在連接到虛擬網路的內部部署本機網站間設定「預設網站」。
 
-- 請注意，ExpressRoute 強制通道不會透過這項機制進行設定，相反地，將由透過 ExpressRoute BGP 對等互連工作階段的廣告預設路由進行啟用。請參閱 [ExpressRoute 文件](https://azure.microsoft.com/documentation/services/expressroute/)，以取得詳細資訊。
+- 請注意，ExpressRoute 強制通道不會透過這項機制進行設定，相反地，將由透過 ExpressRoute BGP 對等互連工作階段的廣告預設路由進行啟用。請參閱《[ExpressRoute 文件](https://azure.microsoft.com/documentation/services/expressroute/)》以取得詳細資訊。
 
 ## 組態概觀
 
@@ -98,7 +98,7 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 - 已設定的虛擬網路。
 
-- 最新版的 Azure PowerShell Cmdlet 使用 Web Platform Installer。您可以從[下載頁面](http://azure.microsoft.com/downloads/)的 **Windows PowerShell** 區段下載並安裝最新版本。
+- 最新版的 Azure PowerShell Cmdlet 使用 Web Platform Installer。您可以從[下載頁面](https://azure.microsoft.com/downloads/)的 **Windows PowerShell** 區段下載並安裝最新版本。
 
 ## 設定強制通道
 
@@ -157,4 +157,4 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

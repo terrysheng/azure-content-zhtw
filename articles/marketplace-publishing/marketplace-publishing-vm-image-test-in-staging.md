@@ -28,7 +28,7 @@
 
 2. 如果發佈入口網站通知您任何錯誤，修正它們。
 3.	在 [**誰可以存取您預備的供應項目？**] 對話方塊中，輸入您要用來在 [Azure Preview 入口網站](https://portal.azure.com)中預覽供應項目的 Azure 訂用帳戶清單。
-4. 使用上一個步驟中列出的其中一個 Azure 訂用帳戶登入 [Azure Preview 入口網站](http://portal.azure.com)。
+4. 使用上一個步驟中列出的其中一個 Azure 訂用帳戶登入 [Azure Preview 入口網站](https://portal.azure.com)。
 5. 尋找您的供應項目，並驗證您的 VM 映像點：
   1. 請確定該行銷內容可在 MarketPlace 中正確顯示。
 
@@ -36,9 +36,9 @@
 
   2. VM 映像的端對端部署
 
-> [AZURE.IMPORTANT]您的供應項目將留在預備環境中，直到您透過發佈入口網站 [**發佈** > **"要求核准以推送至生產環境"**] 通知 Microsoft 您已準備好推送至生產環境為止。這是所有團隊成員為您即將上市的供應項目做好萬全準備並徹底檢查的最佳時機。
+> [AZURE.IMPORTANT] 您的供應項目將留在預備環境中，直到您透過發佈入口網站 [**發佈** > **"要求核准以推送至生產環境"**] 通知 Microsoft 您已準備好推送至生產環境為止。這是所有團隊成員為您即將上市的供應項目做好萬全準備並徹底檢查的最佳時機。
 
-> 跨資料中心的複寫作業最多需要 48 小時的時間。複寫完成時，您的供應項目會列在 [Azure Marketplace](http://azure.microsoft.com/marketplace) 中。
+> 跨資料中心的複寫作業最多需要 48 小時的時間。複寫完成時，您的供應項目會列在 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 中。
 
 ## 後續步驟
 現在您的供應項目「預備」好了，您已經測試過它的功能和行銷內容，您可以繼續進行最終的發佈階段，即**步驟 4**：[將您的供應項目部署至 Marketplace](marketplace-publishing-push-to-production.md)。
@@ -46,4 +46,4 @@
 ## 另請參閱
 - [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

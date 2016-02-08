@@ -25,9 +25,9 @@ Azure Machine Learning 開發人員體驗是一個 Web 服務 API，可即時或
 若要了解如何使用 Studio 建立和部署 Azure 機器學習 Web 服務，請參閱：
 
 - [部署機器學習 Web 服務](machine-learning-publish-a-machine-learning-web-service.md)
-- [開始使用 ML Studio](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
+- [開始使用 ML Studio](https://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Azure Machine Learning 預覽](https://studio.azureml.net/)
-- [Machine Learning 文件中心](http://azure.microsoft.com/documentation/services/machine-learning/)
+- [Machine Learning 文件中心](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 ## Azure Machine Learning Web 服務 ##
 
@@ -103,4 +103,4 @@ Azure Machine Learning 有兩種類型的服務：
 2. 使用來自 Web 服務的金鑰指派 apikey。請了解如何取得 Azure ML 授權金鑰。
 3. 使用要求 URI 指派 serviceUri。請了解如何取得要求 URI。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

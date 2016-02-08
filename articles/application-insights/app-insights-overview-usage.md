@@ -42,7 +42,7 @@ Application Insights 適用於獨立應用程式 (在 iOS、Android 和 Windows 
 
 ### 執行您的專案並查看第一批結果
 
-以偵錯模式執行您的專案數分鐘，然後移至 [Azure 入口網站](http://portal.azure.com)並瀏覽至 Application Insights 中的專案資源。
+以偵錯模式執行您的專案數分鐘，然後移至 [Azure 入口網站](https://portal.azure.com)並瀏覽至 Application Insights 中的專案資源。
 
 ![在 Azure 中，按一下 [瀏覽]、[Application Insights]，然後選取您的專案。](./media/app-insights-overview-usage/00-start.png)
 
@@ -288,4 +288,4 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

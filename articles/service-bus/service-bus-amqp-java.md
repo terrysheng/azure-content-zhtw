@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 搭配使用 Java 的服務匯流排與 AMQP 1.0
 
 [AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-Java 訊息服務 (JMS) 是在 Java 平台上搭配訊息導向中介軟體一起使用的標準 API。我們已根據 Apache Qpid 專案開發的 JMS 用戶端程式庫，使用 AMQP 1.0 測試過 Azure 服務匯流排。此程式庫支援完整的 JMS 1.1 API，可以搭配 AMQP 1.0 相容的任何訊息服務一起使用。在 Service Bus for Windows Server (服務匯流排內部部署) 中也支援這種情況。如需詳細資訊，請參閱 [Service Bus for Windows Server 中的 AMQP][]。
+Java 訊息服務 (JMS) 是在 Java 平台上搭配訊息導向中介軟體一起使用的標準 API。我們已根據 Apache Qpid 專案開發的 JMS 用戶端程式庫，使用 AMQP 1.0 測試過 Microsoft Azure 服務匯流排。此程式庫支援完整的 JMS 1.1 API，可以搭配 AMQP 1.0 相容的任何訊息服務一起使用。在 [Windows Server 服務匯流排](https://msdn.microsoft.com/library/dn282144.aspx) (內部部署服務匯流排) 中也支援這種情況。如需詳細資訊，請參閱 [Service Bus for Windows Server 中的 AMQP][]。
 
 ## 下載 Apache Qpid AMQP 1.0 JMS 用戶端程式庫
 
@@ -86,7 +86,7 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 | `[username]` | 從 [Azure 傳統入口網站][]取得的服務匯流排發行者名稱。 | | | | |
 | `[password]` | 從 [Azure 傳統入口網站][]取得的 URL 編碼格式的服務匯流排發行者金鑰。 | | | | |
 
-> [AZURE.NOTE]您必須手動使用 URL 將密碼編碼。[http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp) 中提供實用的 URL 編碼公用程式。
+> [AZURE.NOTE] 您必須手動使用 URL 將密碼編碼。[http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp) 中提供實用的 URL 編碼公用程式。
 
 例如，如果從入口網站取得的資訊如下：
 
@@ -95,7 +95,7 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 | 發行者名稱： | owner |
 | 發行者金鑰： | abcdefg |
 
-為了定義名為 `SBCONNECTIONFACTORY` 的 **ConnectionFactory**，我們提供下列組態字串：
+為了定義名為 `SBCONNECTIONFACTORY` 的 **ConnectionFactory**，組態字串如下：
 
 ```
 connectionfactory.SBCONNECTIONFACTORY = amqps://owner:abcdefg@test.servicebus.windows.net
@@ -362,25 +362,7 @@ while (propertyNames.hasMoreElements())
 
 | .NET 屬性類型 | JMS 屬性類型 | 注意事項 |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | UnsignedByte | - |
-| sbyte | Byte | - |
-| char | Character | - |
-| short | Short | - |
-| ushort | UnsignedShort | - |
-| int | Integer | - |
-| uint | UnsignedInteger | - |
-| long | Long | - |
-| ulong | UnsignedLong | - |
-| float | Float | - |
-| double | Double | - |
-| decimal | BigDecimal | - |
-| bool | Boolean | - |
-| Guid | UUID | - |
-| string | String | - |
-| DateTime | Date | - |
-| DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks 對應至 AMQP 類型：<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
-| TimeSpan | DescribedType | Timespan.Ticks 對應至 AMQP 類型：<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> |
-| Uri | DescribedType | Uri.AbsoluteUri 對應至 AMQP 類型：<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | UnsignedByte | - | | sbyte | Byte | - | | char | Character | - | | short | Short | - | | ushort | UnsignedShort | - | | int | Integer | - | | uint | UnsignedInteger | - | | long | Long | - | | ulong | UnsignedLong | - | | float | Float | - | | double | Double | - | | decimal | BigDecimal | - | | bool | Boolean | - | | Guid | UUID | - | | string | String | - | | DateTime | Date | - | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks 對應至 AMQP 類型：<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | Timespan.Ticks 對應至 AMQP 類型：<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | Uri.AbsoluteUri 對應至 AMQP 類型：<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### 標準標頭
 
@@ -390,32 +372,13 @@ while (propertyNames.hasMoreElements())
 
 | JMS | 服務匯流排 .NET | 注意事項 |
 |------------------|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| JMSCorrelationID | Message.CorrelationID | - |
-| JMSDeliveryMode | 目前無法使用 | 不論指定何者，服務匯流排僅支援永久訊息；例如 DeliveryMode.PERSISTENT。|
-| JMSDestination | Message.To | - |
-| JMSExpiration | Message。TimeToLive | Conversion |
-| JMSMessageID | Message.MessageID | 根據預設，JMSMessageID 在 AMQP 訊息中以二進位格式編碼。收到二進位訊息識別碼時，.NET 用戶端程式庫會根據位元組的 unicode 值，將它轉換為字串表示法。若要將 JMS 程式庫切換為使用字串訊息識別碼，請將 “binary-messageid=false” 字串附加至 JNDI ConnectionURL 的查詢參數。例如："“amqps://[username]:[password]@[namespace].servicebus.windows.net? binary-messageid=false”。|
-| JMSPriority | 目前無法使用 | 服務匯流排不支援訊息優先順序。|
-| JMSRedelivered | 目前無法使用 | - |
-| JMSReplyTo | Message。ReplyTo | - |
-| JMSTimestamp | Message.EnqueuedTimeUtc | Conversion |
-| JMSType | Message.Properties[“jms-type”] | - |
+| JMSCorrelationID | Message.CorrelationID | - | | JMSDeliveryMode | 目前無法使用 | 不論指定何者，服務匯流排僅支援永久訊息；例如 DeliveryMode.PERSISTENT。| | JMSDestination | Message.To | - | | JMSExpiration | Message。TimeToLive | Conversion | | JMSMessageID | Message.MessageID | 根據預設，JMSMessageID 在 AMQP 訊息中以二進位格式編碼。收到二進位訊息識別碼時，.NET 用戶端程式庫會根據位元組的 unicode 值，將它轉換為字串表示法。若要將 JMS 程式庫切換為使用字串訊息識別碼，請將 “binary-messageid=false” 字串附加至 JNDI ConnectionURL 的查詢參數。例如："“amqps://[username]:[password]@[namespace].servicebus.windows.net? binary-messageid=false”。| | JMSPriority | 目前無法使用 | 服務匯流排不支援訊息優先順序。| | JMSRedelivered | 目前無法使用 | - | | JMSReplyTo | Message。ReplyTo | - | | JMSTimestamp | Message.EnqueuedTimeUtc | Conversion | | JMSType | Message.Properties[“jms-type”] | - |
 
 #### 服務匯流排 .NET API 至 JMS
 
 | 服務匯流排 .NET | JMS | 注意事項 |
 |-------------------------|------------------|-------------------------|
-| ContentType | - | 目前無法使用 |
-| CorrelationId | JMSCorrelationID | - |
-| EnqueuedTimeUtc | JMSTimestamp | Conversion |
-| Label | n/a | 目前無法使用 |
-| MessageId | JMSMessageID | - |
-| ReplyTo | JMSReplyTo | - |
-| ReplyToSessionId | n/a | 目前無法使用 |
-| ScheduledEnqueueTimeUtc | n/a | 目前無法使用 |
-| SessionId | n/a | 目前無法使用 |
-| TimeToLive | JMSExpiration | Conversion |
-| To | JMSDestination | - |
+| ContentType | - | 目前無法使用 | | CorrelationId | JMSCorrelationID | - | | EnqueuedTimeUtc | JMSTimestamp | Conversion | | Label | n/a | 目前無法使用 | | MessageId | JMSMessageID | - | | ReplyTo | JMSReplyTo | - | | ReplyToSessionId | n/a | 目前無法使用 | | ScheduledEnqueueTimeUtc | n/a | 目前無法使用 | | SessionId | n/a | 目前無法使用 | | TimeToLive | JMSExpiration | Conversion | | To | JMSDestination | - |
 
 ## 不支援的功能和限制
 
@@ -447,4 +410,4 @@ JMS over AMQP 1.0 和服務匯流排一起使用時有下列限制：
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

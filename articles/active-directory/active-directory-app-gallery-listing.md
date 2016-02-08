@@ -19,7 +19,7 @@
 
 # 在 Azure Active Directory 應用程式庫中列出您的應用程式
 
-若要在 [Azure AD 資源庫](http://azure.microsoft.com/marketplace/active-directory/all/)中列出某個支援單一登入搭配 Azure Active Directory 的應用程式 ，該應用程式首先必須實作下列其中一項整合模式：
+若要在 [Azure AD 資源庫](https://azure.microsoft.com/marketplace/active-directory/all/)中列出某個支援單一登入搭配 Azure Active Directory 的應用程式 ，該應用程式首先必須實作下列其中一項整合模式：
 
 * **OpenID Connect** - 直接整合 Azure AD，使用 OpenID Connect 進行驗證，使用 Azure AD 同意 API 進行設定。如果您是剛開始整合，而您的應用程式不支援 SAML，這是建議的模式。
 
@@ -33,7 +33,7 @@
 
 * 提供可由 Azure AD 小組搭配您的應用程式來測試整合的測試租用戶或帳戶的認證。  
 
-* 提供有關 Azure AD 小組如何使用 [Azure AD 同意架構](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework)登入並連接 Azure AD 執行個體到您的應用程式的指示。
+* 提供有關 Azure AD 小組如何使用 [Azure AD 同意架構](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework/)登入並連接 Azure AD 執行個體到您的應用程式的指示。
 
 * 提供 Azure AD 小組搭配您的應用程式測試單一登入所需的任何進一步指示。
 
@@ -97,4 +97,4 @@
 > 
 > 附加應用程式標誌 (PNG 檔案、150px x 122px、透明背景色彩)：
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

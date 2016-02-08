@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/22/2016"
    ms.author="tomfitz"/>
 
 # 了解資源管理員部署和傳統部署
@@ -22,19 +22,17 @@
 
 您可能也知道傳統部署模型也就是服務管理模型。
 
-本主題描述這兩個模型之間的差異，以及從傳統模型轉換為資源管理員時可能會遇到的部分問題。它提供模型的概觀但未詳述個別服務的差異。如需轉換運算、儲存體和網路資源的詳細資訊，請參閱 [Azure 資源管理員下的 Azure 運算、網路和儲存體提供者](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)。
+本主題描述這兩個模型之間的差異，以及從傳統模型轉換為資源管理員時可能會遇到的部分問題。它提供模型的概觀但未詳述個別服務的差異。
 
 許多資源可同時在傳統模型和資源管理員中沒有問題的運作。即使是在傳統的模型中建立，這些資源也能完全支援資源管理員。您可以在無需任何顧慮或額外動作下轉換為資源管理員。
 
 不過，由於模型之間的架構差異，一些資源提供者會提供兩個版本的資源 (一個用於傳統和一個用於資源管理員)。區別兩種模型之間的資源提供者是：
 
-- 計算
-- 儲存體
-- 網路
+- **計算** - 支援虛擬機器和選擇性可用性設定組的執行個體。
+- **儲存體** - 支援儲存虛擬機器之 VHD 所需的儲存體帳戶，包括它們的作業系統和其他資料磁碟。
+- **網路** - 支援必要的 NIC、虛擬機器 IP 位址及虛擬網路內的子網路，以及選擇性的負載平衡器、負載平衡器 IP 位址與網路安全性群組。
 
-針對這些資源類型，您必須知道您使用哪一個版本，因為支援的作業將會不同。
-
-若要了解兩個模型之間的架構差異，請參閱 [Azure 資源管理員架構](virtual-machines/virtual-machines-azure-resource-manager-architecture.md)。
+針對這些資源類型，您必須知道您使用哪一個版本，因為支援的作業將會不同。如需轉換運算、儲存體和網路資源的詳細資訊，請參閱 [Azure 資源管理員下的 Azure 運算、網路和儲存體提供者](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)。
 
 ## 資源管理員特性
 
@@ -46,7 +44,7 @@
 
         ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        針對運算、儲存體及網路資源，您可以選擇使用資源管理員或傳統部署。 選擇**資源管理員**。
+        For Compute, Storage, and Networking resources, you have the option of using either Resource Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -67,7 +65,25 @@
 
     ![Web 應用程式](./media/resource-manager-deployment-model/resource-manager-type.png)
 
+下圖所示的應用程式示範如何將透過資源管理員所部署的資源包含在單一資源群組中。
+
+  ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
+
+此外，位於資源提供者內的資源之間具有關聯性：
+
+- 虛擬機器取決於定義於 SRP 的特定儲存體帳戶，以將其磁碟儲存於 Blob 儲存體中。
+- 虛擬機器會參考定義於 NRP 的特定 NIC (必要)，以及定義於 CRP 的可用性設定組 (選擇性)。
+- NIC 會參考虛擬機器指派的 IP 位址 (必要)、虛擬機器之虛擬網路的子網路 (必要)，以及網路安全性群組 (選擇性)。
+- 虛擬網路內的子網路會參考網路安全性群組 (選擇性)。
+- 負載平衡器執行個體會參考 IP 位址的後端集區，其中包含虛擬機器的 NIC (選擇性)，以及參考負載平衡器的公用或私人 IP 位址 (選擇性)。
+
 ## 傳統部署特性
+
+在 Azure 服務管理中，用以裝載虛擬機器的計算、儲存體或網路資源是透過下列方式來提供：
+
+- 用來做為裝載虛擬機器 (計算) 之容器所需的雲端服務。虛擬機器是利用網路介面卡 (NIC) 和 Azure 所指派的 IP 位址自動提供。此外，雲端服務包含外部負載平衡器執行個體、共用 IP 位址及預設端點，以允許 Windows 架構虛擬機器的遠端桌面與遠端 PowerShell 流量，以及 Linux 架構虛擬機器的安全殼層 (SSH) 流量。
+- 儲存虛擬機器之 VHD 所需的儲存體帳戶，包括作業系統、暫存磁碟及其他資料磁碟 (儲存體)。
+- 可用來做為額外容器的選擇性虛擬網路，您可以在其中建立子網路的結構，並指定虛擬機器所在的子網路 (網路)。
 
 在傳統部署模型中建立的資源都具有下列特性：
 
@@ -97,13 +113,17 @@
 
 您仍然可以使用入口網站來管理透過傳統部署所建立的資源。
 
+以下是 Azure 服務管理的元件及其關聯性。
+
+  ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
+
 ## 使用資源管理員及資源群組的優點
 
 資源管理員加入資源群組的概念。透過資源管理員建立的每個資源都會存在於資源群組內。資源管理員部署模型可提供數個優點：
 
 - 您可以以群組形式部署、管理及監視方案的所有服務，而不是個別處理這些服務。
 - 您可以在整個應用程式週期重複部署應用程式，並確信您的資源會部署在一致的狀態中。
-- 您可以使用宣告式範本來定義您的部署。 
+- 您可以使用宣告式範本來定義您的部署。
 - 您可以定義之間的相依性，使得以正確的順序部署資源。
 - 因為角色型存取控制 (RBAC) 會原生整合至管理平台，您可以將存取控制套用至資源群組中的所有服務。
 - 您可以將標籤套用至資源，以便以邏輯方式組織訂用帳戶中的所有資源。
@@ -168,4 +188,4 @@
 - 若要了解如何建立宣告式部署範本，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要查看部署範本的命令，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

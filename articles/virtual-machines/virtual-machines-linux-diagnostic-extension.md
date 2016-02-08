@@ -41,7 +41,7 @@ Linux 診斷延伸模組可利用下列功能協助使用者監視在 Microsoft 
 ## 如何啟用延伸模組
 透過 [Azure 入口網站](https://ms.portal.azure.com/#)、Azure PowerShell 或 Azure CLI 指令碼，可以啟用擴充功能。
 
-若要直接從 Azure 入口網站檢視和設定系統和效能資料，請遵循這些[步驟](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "Windows 部落格的 URL")進行。
+若要直接從 Azure 入口網站檢視及設定系統和效能資料，請遵循這些[步驟](https://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "Windows 部落格的 URL"/)。
 
 
 本文將著重在透過 Azure CLI 命令啟動及設定延伸模組。這可讓您直接從儲存體資料表讀取和檢視資料。
@@ -143,4 +143,4 @@ Linux 診斷延伸模組可利用下列功能協助使用者監視在 Microsoft 
 ## 已知問題
 - 若為 2.0 版，只能透過指令碼存取 Rsyslog 資訊和客戶指定記錄檔。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

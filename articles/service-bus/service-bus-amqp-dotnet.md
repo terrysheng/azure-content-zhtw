@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 搭配使用 .NET 的服務匯流排與 AMQP 1.0
@@ -21,7 +21,7 @@
 
 ## 下載服務匯流排 SDK
 
-服務匯流排 SDK 2.1 版或更新版本提供 AMQP 1.0 支援。您可以從 [NuGet][] 下載最新的 SDK。
+服務匯流排 SDK 2.1 版或更新版本提供 AMQP 1.0 支援。您可以從 [NuGet][] 下載最新的服務匯流排位元。
 
 ## 設定 .NET 應用程式以使用 AMQP 1.0
 
@@ -198,10 +198,9 @@
   [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
 [適用於服務匯流排分割的佇列和主題的 AMQP 1.0 支援]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Windows Server 服務匯流排中的 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

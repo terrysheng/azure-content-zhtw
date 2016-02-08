@@ -49,7 +49,7 @@
 
 ###將您的實驗室連接至 GitHub 儲存機制
 
-1. 登入 [Azure Preview 入口網站](http://portal.azure.com)。
+1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
 
 1. 點選 [瀏覽]，然後從清單中點選 [研發/測試實驗室]。
 
@@ -115,4 +115,4 @@
     3. 在構件儲存機制中輸入儲存的**個人存取權杖**。
     4. 點選 [儲存]。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

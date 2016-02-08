@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # 從 Data Factory 叫用 MapReduce 程式
-本文說明如何使用 **HDInsight MapReduce 活動**，從 Azure Data Factory 管線叫用 **MapReduce** 程式。
+Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight MapReduce 活動會在[您自己的](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)或[隨選](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)的以 Windows/Linux 為基礎的 HDInsight 叢集上執行 MapReduce 程式。本文是根據[資料轉換活動](data-factory-data-transformation-activities.md)一文，它呈現資料轉換和支援的轉換活動的一般概觀。
 
 ## 簡介 
 Azure Data Factory 中的「管線」會使用連結的計算服務，來處理連結的儲存體服務中的資料。它包含一系列活動，其中每個活動都會執行特定的處理作業。本文說明如何使用「HDInsight MapReduce 活動」。
@@ -131,7 +131,6 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 	    }
 	}
 
-
 ### 資料集
 
 #### 輸出資料集
@@ -221,4 +220,4 @@ linkedServiceName | 表示您先前建立的 HDInsight 連結服務。
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,19 +20,19 @@
 
 # Spark 串流：在 HDInsight 上使用 Apache Spark 處理來自 Azure 事件中樞的事件 (Windows)
 
-> [AZURE.NOTE]HDInsight 現在在 Linux 上提供 Spark 叢集。如需了解如何在 HDInsight Spark Linux 叢集上執行串流應用程式資訊，請參閱 [Spark 串流: 在 HDInsight 上使用 Apache Spark 處理來自 Azure 事件中樞的事件 (Linux)](hdinsight-apache-spark-eventhub-streaming.md)。
+> [AZURE.NOTE] HDInsight 現在在 Linux 上提供 Spark 叢集。如需了解如何在 HDInsight Spark Linux 叢集上執行串流應用程式資訊，請參閱 [Spark 串流: 在 HDInsight 上使用 Apache Spark 處理來自 Azure 事件中樞的事件 (Linux)](hdinsight-apache-spark-eventhub-streaming.md)。
 
 Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、容錯的串流處理應用程式。資料能擷取自許多來源。在本文章中，我們使用事件中樞來擷取資料。事件中樞是可高度調整的擷取系統，每秒可以吸收數以百萬計的事件。
 
 在本教學課程中，您將學習如何建立 Azure 事件中樞、使用以 C# 撰寫的主控台應用程式將訊息擷取到事件中樞，以及使用針對 HDInsight 中 Apache Spark 設定的 Zeppelin Notebook 平行擷取它們。
 
-> [AZURE.NOTE]若要遵循這篇文章中的指示，您必須使用兩種版本的 Azure 入口網站。若要建立事件中樞，您會用到 [Azure 入口網站](https://manage.windowsazure.com)。若要使用 HDInsight Spark 叢集，您會用到 [Azure Preview 入口網站](https://ms.portal.azure.com/)。
+> [AZURE.NOTE] 若要遵循這篇文章中的指示，您必須使用兩種版本的 Azure 入口網站。若要建立事件中樞，您會用到 [Azure 入口網站](https://manage.windowsazure.com)。若要使用 HDInsight Spark 叢集，您會用到 [Azure Preview 入口網站](https://ms.portal.azure.com/)。
 
 **必要條件：**
 
 您必須滿足以下條件：
 
-- Azure 訂用帳戶。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- Azure 訂用帳戶。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - Apache Spark 叢集。如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](hdinsight-apache-spark-provision-clusters.md)。
 - [Azure 事件中樞](service-bus-event-hubs-csharp-ephcs-getstarted.md)。
 - 安裝 Microsoft Visual Studio 2013 的工作站。如需指示，請參閱[安裝 Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx)。
@@ -45,9 +45,9 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 	![精靈頁面 1](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.create.event.hub.png "建立 Azure 事件中樞")
 
-	> [AZURE.NOTE]您應該選取與 HDInsight 中 Apache Spark 叢集相同的**位置**，以便降低延遲的情況和成本。
+	> [AZURE.NOTE] 您應該選取與 HDInsight 中 Apache Spark 叢集相同的**位置**，以便降低延遲的情況和成本。
 
-3. 在 [設定事件中樞] 畫面中，輸入 [資料分割計數] 及 [訊息保留] 的值，然後按一下核取記號。在此範例中，資料分割計數使用 10，訊息保留使用 1。請記下資料分割計數，因為您稍後會用到這個值。
+3. 在 [設定事件中樞] 畫面中，輸入 [資料分割計數] 及 [訊息保留期] 的值，然後按一下核取記號。在此範例中，資料分割計數使用 10，訊息保留使用 1。請記下資料分割計數，因為您稍後會用到這個值。
 
 	![精靈頁面 2](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.create.event.hub2.png "指定事件中樞的資料分割大小和保留天數")
 
@@ -96,7 +96,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
-	> [AZURE.NOTE]您也可以在瀏覽器中開啟下列 URL，來連接到您叢集的 Zeppelin Notebook。請用您叢集的名稱取代 __CLUSTERNAME__：
+	> [AZURE.NOTE] 您也可以在瀏覽器中開啟下列 URL，來連接到您叢集的 Zeppelin Notebook。使用您叢集的名稱取代 __CLUSTERNAME__：
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
@@ -112,7 +112,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 4. 將以下程式碼片段貼入新 Notebook 中預設建立的空白段落中，並取代預留位置以使用您的事件中樞組態。在此程式碼片段中，您會接收來自事件中樞的串流，並將串流註冊到名為 **mytemptable** 的暫存資料表。在下一節中，我們會啟動傳送者應用程式。接著，您可以直接從資料表讀取資料。
 
-	> [AZURE.NOTE]在下列程式碼片段中，必須將 **eventhubs.checkpoint.dir** 設定為您預設儲存體容器中的目錄。如果目錄不存在，串流處理應用程式即會建立它。您可以指定像是 "**wasb://container@storageaccount.blob.core.windows.net/mycheckpointdir/**" 的目錄完整路徑，或者只指定目錄的相對路徑，例如 "**/mycheckpointdir**"。
+	> [AZURE.NOTE] 在下列程式碼片段中，必須將 **eventhubs.checkpoint.dir** 設定為您預設儲存體容器中的目錄。如果目錄不存在，串流處理應用程式即會建立它。您可以指定像是 "**wasb://container@storageaccount.blob.core.windows.net/mycheckpointdir/**" 的目錄完整路徑，或者只指定目錄的相對路徑，例如 "**/mycheckpointdir**"。
 
 		import org.apache.spark.streaming.{Seconds, StreamingContext}
 		import org.apache.spark.streaming.eventhubs.EventHubsUtils
@@ -171,7 +171,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 3. RDP 到叢集，並將應用程式 jar 複製到叢集的前端節點。
 3. RDP 到叢集，並在叢集節點上執行應用程式。
 
-如需如何執行這些步驟的指示，以及串流應用程式的範例，請從 GitHub 下載：[https://github.com/hdinsight/hdinsight-spark-examples](https://github.com/hdinsight/hdinsight-spark-examples)。
+如需執行這些步驟的相關指示和串流處理應用程式範例，請從 GitHub 下載：[https://github.com/hdinsight/hdinsight-spark-examples](https://github.com/hdinsight/hdinsight-spark-examples)。
 
 
 ##<a name="seealso"></a>另請參閱
@@ -194,4 +194,4 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

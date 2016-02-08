@@ -131,7 +131,7 @@ Visual Studio 提供工具來協助您建立範本。如需有關如何以您的
 
 若要將參數指定為選用，請將其預設值設定為空字串。
 
->[AZURE.NOTE]所有密碼、金鑰和其他密碼都應該使用 **secureString** 類型。部署資源後，無法讀取類型為 secureString 的範本參數。
+>[AZURE.NOTE] 所有密碼、金鑰和其他密碼都應該使用 **secureString** 類型。部署資源後，無法讀取類型為 secureString 的範本參數。
 
 下列範例示範如何定義參數：
 
@@ -168,6 +168,8 @@ Visual Studio 提供工具來協助您建立範本。如需有關如何以您的
           "minValue": 1
        }
     }
+
+如需如何在部署期間輸入參數值的資訊，請參閱[利用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md/#parameter-file)。
 
 ## 變數
 
@@ -470,4 +472,4 @@ resources 區段包含要部署的資源陣列。在每個資源內，您也可�
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)
 - 若要查看可用的結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

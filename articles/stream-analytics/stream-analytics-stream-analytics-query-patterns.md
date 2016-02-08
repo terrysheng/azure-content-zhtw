@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/04/2015"
+	ms.date="01/25/2016"
 	ms.author="jeffstok"/>
 
 
@@ -22,21 +22,21 @@
 
 ## 簡介 ##
 
-在 Azure 串流分析中的查詢以類似 SQL 的查詢語言表示，記錄於[這裡](https://msdn.microsoft.com/library/azure/dn834998.aspx)。本文根據真實世界案例概述幾個常見查詢模式的解決方案。這是進行中的工作，並將繼續不間斷使用新模式進行更新。
+Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以參閱[串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)指南來進一步了解。本文章根據真實世界案例概述幾個常見查詢模式的解決方案。這是進行中的工作，並將繼續不間斷使用新模式進行更新。
 
 ## 查詢範例：資料類型轉換 ##
-**描述**：在輸入資料流上定義屬性類型。例如，汽車權數即將出現在輸入資料流做為字串，並且需要轉換為 INT 以執行總結。
+**描述**：在輸入資料流上定義屬性類型。例如，汽車權數即將出現在輸入資料流做為字串，並且需要轉換為 INT 以執行 SUM 來加總。
 
 **輸入**：
 
-| 請確定 | 時間 | 重量 |
+| Make | Time | Weight |
 | --- | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z | "1000" |
 | Honda | 2015-01-01T00:00:02.0000000Z | "2000" |
 
 **輸出**：
 
-| 請確定 | 重量 |
+| Make | Weight |
 | --- | --- |
 | Honda | 3000 |
 
@@ -58,7 +58,7 @@
 
 **輸入**：
 
-| 請確定 | LicensePlate | 時間 |
+| Make | LicensePlate | Time |
 | --- | --- | --- |
 | Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 | Toyota | AAA-999 | 2015-01-01T00:00:02.0000000Z |
@@ -66,7 +66,7 @@
 
 **輸出**：
 
-| 請確定 | LicensePlate | 時間 |
+| Make | LicensePlate | Time |
 | --- | --- | --- |
 | Toyota | AAA-999 | 2015-01-01T00:00:02.0000000Z |
 | Nissan | ABC-369 | 2015-01-01T00:00:03.0000000Z |
@@ -87,7 +87,7 @@
 
 **輸入**：
 
-| 請確定 | 時間 |
+| Make | Time |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
@@ -95,7 +95,7 @@
 
 **輸出**：
 
-| CarsPassed | 時間 |
+| CarsPassed | Time |
 | --- | --- | --- |
 | 1 Honda | 2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas | 2015-01-01T00:00:10.0000000Z |
@@ -121,7 +121,7 @@
 
 **輸入**：
 
-| 請確定 | 時間 |
+| Make | Time |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Honda | 2015-01-01T00:00:02.0000000Z |
@@ -131,7 +131,7 @@
 
 **Output1**：
 
-| 請確定 | 時間 |
+| Make | Time |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Honda | 2015-01-01T00:00:02.0000000Z |
@@ -141,7 +141,7 @@
 
 **Output2**：
 
-| 請確定 | 時間 | 計數 |
+| Make | Time | Count |
 | --- | --- | --- |
 | Toyota | 2015-01-01T00:00:10.0000000Z | 3 |
 
@@ -186,7 +186,7 @@
 
 **輸入**：
 
-| 請確定 | 時間 |
+| Make | Time |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Honda | 2015-01-01T00:00:02.0000000Z |
@@ -196,12 +196,12 @@
 
 **輸出：**
 
-| 計數 | 時間 |
+| Count | Time |
 | --- | --- |
 | 2 | 2015-01-01T00:00:02.000Z |
 | 1 | 2015-01-01T00:00:04.000Z |
 
-**解決方法：**
+**解決方案：**
 
 	WITH Makes AS (
 	    SELECT
@@ -229,14 +229,14 @@
 
 **輸入**：
 
-| 請確定 | 時間 |
+| Make | Time |
 | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 
 **輸出**：
 
-| 請確定 | 時間 |
+| Make | Time |
 | --- | --- |
 | Toyota | 2015-01-01T00:00:02.0000000Z |
 
@@ -257,7 +257,7 @@
 
 **輸入**：
 
-| LicensePlate | 請確定 | 時間 |
+| LicensePlate | Make | Time |
 | --- | --- | --- |
 | DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
 | YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
@@ -269,7 +269,7 @@
 
 **輸出**：
 
-| LicensePlate | 請確定 | 時間 |
+| LicensePlate | Make | Time |
 | --- | --- | --- |
 | DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
 | QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
@@ -287,7 +287,7 @@
 
 現在讓我們來變更問題，每隔 10 分鐘尋找特定品牌的第一輛車。
 
-| LicensePlate | 請確定 | 時間 |
+| LicensePlate | Make | Time |
 | --- | --- | --- |
 | DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
 | YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
@@ -311,7 +311,7 @@
 
 **輸入**：
 
-| LicensePlate | 請確定 | 時間 |
+| LicensePlate | Make | Time |
 | --- | --- | --- |
 | DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
 | YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
@@ -323,7 +323,7 @@
 
 **輸出**：
 
-| LicensePlate | 請確定 | 時間 |
+| LicensePlate | Make | Time |
 | --- | --- | --- |
 | VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
 | MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
@@ -349,14 +349,14 @@
 		ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
 		AND Input.Time = LastInWindow.LastEventTime
 
-**說明**：查詢中有兩個步驟，第一個步驟會在 10 分鐘的時間範圍內尋找最新的時間戳記。第二個步驟會聯結第一個查詢的結果與原始串流，以在每個視窗中尋找符合最後一個時間戳記的事件。
+**說明**：查詢中有兩個步驟 – 第一個是在 10 分鐘視窗中尋找最新的時間戳記。第二個步驟會聯結第一個查詢的結果與原始串流，以在每個視窗中尋找符合最後一個時間戳記的事件。
 
 ## 查詢範例：偵測到事件不存在 ##
 **描述**：查看沒有值的串流是否符合特定準則。例如，在 90 秒鐘內，是否有連續 2 輛相同品牌的汽車進入收費道路？
 
 **輸入**：
 
-| 請確定 | LicensePlate | 時間 |
+| Make | LicensePlate | Time |
 | --- | --- | --- |
 | Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 | Honda | AAA-999 | 2015-01-01T00:00:02.0000000Z |
@@ -365,7 +365,7 @@
 
 **輸出**：
 
-| 請確定 | 時間 | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| Make | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
 | Honda | 2015-01-01T00:00:02.0000000Z | AAA-999 | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 
@@ -384,12 +384,41 @@
 
 **說明**：使用 LAG 查看前一個事件的輸入串流，並取得品牌值。然後將其和目前事件中的品牌比較，在兩者相同時輸出事件並使用 LAG 取得上一輛車的相關資料。
 
+## 查詢範例：偵測事件與事件之間的持續時間
+**描述**：尋找特定事件的時序時間。例如，假設某個 Web 點選流會判斷花在某個功能上的時間。
+
+**輸入**：
+  
+| User | Feature | Event | Time |
+| --- | --- | --- | --- |
+| user@location.com | RightMenu | Start | 2015-01-01T00:00:01.0000000Z |
+| user@location.com | RightMenu | End | 2015-01-01T00:00:08.0000000Z |
+  
+**輸出**：
+  
+| User | Feature | Duration |
+| --- | --- | --- |
+| user@location.com | RightMenu | 7 |
+  
+
+**解決方案**
+
+````
+    SELECT
+    	[user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+    FROM input TIMESTAMP BY Time
+    WHERE
+    	Event = 'end'
+````
+
+**說明**：使用 LAST 函式，在事件類型為「Start」時擷取最後一個時間值。請注意，LAST 函式使用 PARTITION BY [user] 來表示，應該要分別為每位獨特的使用者來計算結果。查詢的「Start」與「Stop」事件之間時間差的上限為 1 小時，但該值可以在必要時變更 (LIMIT DURATION(hour, 1)。
+
 ## 查詢範例：偵測某個情況的持續時間 ##
 **描述**：找出某個情況的持續時間。例如，假設有個錯誤導致所有車輛的重量不正確 (超過 20,000 磅)，而我們想要計算該錯誤的持續時間。
 
 **輸入**：
 
-| 請確定 | 時間 | 重量 |
+| Make | Time | Weight |
 | --- | --- | --- |
 | Honda | 2015-01-01T00:00:01.0000000Z | 2000 |
 | Toyota | 2015-01-01T00:00:02.0000000Z | 25000 |
@@ -413,32 +442,17 @@
 
 **解決方案**：
 
-	SELECT
-	    PrevGood.Time AS StartFault,
-	    ThisGood.Time AS Endfault,
-	    DATEDIFF(second, PrevGood.Time, ThisGood.Time) AS FaultDuraitonSeconds
-	FROM
-	    Input AS ThisGood TIMESTAMP BY Time
-	    INNER JOIN Input AS PrevGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, ThisGood) BETWEEN 1 AND 3600
-	    AND PrevGood.Weight < 20000
-	    INNER JOIN Input AS Bad TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, Bad) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, Bad, ThisGood) BETWEEN 1 AND 3600
-	    AND Bad.Weight >= 20000
-	    LEFT JOIN Input AS MidGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, MidGood) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, MidGood, ThisGood) BETWEEN 1 AND 3600
-	    AND MidGood.Weight < 20000
-	WHERE
-	    ThisGood.Weight < 20000
-	    AND MidGood.Weight IS NULL
+````
+SELECT 
+    LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN weight < 20000 ) [StartFault],
+    [time] [EndFault]
+FROM input
+WHERE
+    [weight] < 20000
+    AND LAG(weight) OVER (LIMIT DURATION(hour, 24)) > 20000
+````
 
-**說明**：我們要尋找 2 個良好事件，且兩者之間有 1 個錯誤事件，而沒有良好事件；這代表這 2 個事件是至少 1 個錯誤事件前後出現的第一個事件。取得 2 個良好事件且兩者之間包含 1 個錯誤事件很容易，只要使用 2 個 JOIN，並藉由檢查重量和比較時間戳記來驗證我們已取得良好 -> 錯誤 -> 良好事件。
-
-藉由使用我們在「左方外部聯結包含 NULL 或執行事件不存在」中了解的內容，我們知道要如何檢查我們挑選的 2 個良好事件之間沒有其他良好事件。
-
-將這些內容撰寫在一起，我們就能取得良好 -> 錯誤 -> 良好事件，中間不會包含其他良好事件。我們現在可以計算開頭和結尾良好事件之間的持續時間，進而取得錯誤的持續時間。
+**說明**：使用 LAG 來檢視 24 小時內的輸入資料流，並尋找其中的 StartFault 和 StopFault 被 weight < 20000 合併的執行個體。
 
 ## 取得說明
 如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
@@ -452,4 +466,4 @@
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

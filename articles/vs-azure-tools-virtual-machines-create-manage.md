@@ -49,11 +49,11 @@
 
     - [私人映像] 可列出您已建立的特殊和一般虛擬機器映像。
 
-    若要了解特殊和一般虛擬機器，請參閱 [VM 映像](http://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/)。如需如何將虛擬機器轉換成範本，以便您快速建立預先設定的新虛擬機器的相關資訊，請參閱[如何擷取 Windows 虛擬機器作為範本使用](http://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/)。
+    若要了解特殊和一般虛擬機器，請參閱 [VM 映像](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/)。如需如何將虛擬機器轉換成範本，以便您快速建立預先設定的新虛擬機器的相關資訊，請參閱[如何擷取 Windows 虛擬機器作為範本使用](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/)。
 
     按一下虛擬機器映像名稱，即可查看頁面右側的映像相關資訊。
 
-    >[AZURE.NOTE]您無法將虛擬機器映像新增至 [公用映像] 或 [MSDN 映像] 清單，因為這些清單是唯讀的。您建立的所有虛擬機器會新增至 [私人映像] 清單。
+    >[AZURE.NOTE] 您無法將虛擬機器映像新增至 [公用映像] 或 [MSDN 映像] 清單，因為這些清單是唯讀的。您建立的所有虛擬機器會新增至 [私人映像] 清單。
 
     >如果您是具有 Visual Studio 層級訂用帳戶的 MSDN 訂閱者，您可以建立一個預先建置的 Azure 虛擬機器，其中包含 Visual Studio 以及其他數個映像。如需詳細資訊，請參閱[使用映像在 Visual Studio 中建立虛擬機器、MSDN 訂閱者的 Visual Studio 2013 資源庫映像](http://visualstudio2013msdngalleryimage.azurewebsites.net)和 [MSDN 訂閱](https://www.visualstudio.com/products/msdn-subscriptions-vs)。|
 
@@ -61,17 +61,17 @@
 
     您將透過遠端桌面使用新名稱和密碼來登入電腦，所以最好能記新名稱和密碼，以免忘記。在 Visual Studio 中建立 Azure 虛擬機器之後，您可以在 [Azure 管理入口網站](http://go.microsoft.com/fwlink/?LinkID=253103)中變更其大小和其他設定。
 
-        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
+        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
 
 1. 在 Visual Studio 中建立的虛擬機器需要雲端服務。在 [雲端服務設定] 頁面上，選取虛擬機器的雲端服務，如果您還沒有雲端服務或想使用新的雲端服務，請按一下下拉式清單中的 [<建立新的...>]。儲存體帳戶也是必要的，所以請在 [儲存體帳戶] 下拉式清單方塊中選擇儲存體帳戶 (或建立新的儲存體帳戶)。如需詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](./storage/storage-introduction/)。
 
 1. 如果您想要指定虛擬網路 (這是選擇性的)，請在 [虛擬網路] 和 [子網路] 下拉式清單方塊中進行選取。
 
-    屬於可用性集合的虛擬機器會部署到不同的容錯網域。如需詳細資訊，請參閱 [Azure 虛擬網路](http://www.windowsazure.com/services/virtual-network/)。
+    屬於可用性集合的虛擬機器會部署到不同的容錯網域。如需詳細資訊，請參閱 [Azure 虛擬網路](https://azure.microsoft.com/services/virtual-network/)。
 
 1. 如果您希望虛擬機器屬於可用性集合 (也是選擇性的)，請選取 [指定可用性集合] 核取方塊，然後選擇下拉式清單方塊中的可用性集合。完成時，選擇 [下一步] 按鈕。
 
-    將虛擬機器新增至可用性集合，有助於讓應用程式在網路故障、本機磁碟硬體故障和任何規劃停機期間仍可使用。您必須使用 [Azure 管理入口網站](http://go.microsoft.com/fwlink/?LinkID=253103)來建立虛擬網路、子網路和可用性集合。如需詳細資訊，請參閱[管理虛擬機器的可用性](http://www.windowsazure.com/documentation/articles/manage-availability-virtual-machines/)。
+    將虛擬機器新增至可用性集合，有助於讓應用程式在網路故障、本機磁碟硬體故障和任何規劃停機期間仍可使用。您必須使用 [Azure 管理入口網站](http://go.microsoft.com/fwlink/?LinkID=253103)來建立虛擬網路、子網路和可用性集合。如需詳細資訊，請參閱[管理虛擬機器的可用性](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/)。
 
 1. 在 [端點] 頁面上，指定您要提供給您的虛擬機器使用者使用的公用端點。例如，除了預設啟用的遠端桌面和 PowerShell 端點以外，您可以選擇啟用 HTTP (連接埠 80)。若要新增端點，請選擇在 [連接埠名稱] 下拉式清單方塊中選擇一個端點，然後選擇 [加入] 按鈕。若要移除端點，請選擇端點清單中名稱旁邊的紅色 **X**。
 
@@ -79,7 +79,7 @@
 
     可用的端點取決於您為虛擬機器選取的雲端服務。如需詳細資訊，請參閱 [Azure 服務端點](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/)。
 
-    >[AZURE.NOTE]啟用公用端點，讓虛擬機器上的服務可用於網際網路。請務必在您的虛擬機器上安裝及正確設定端點和服務，例如設定端點的存取控制清單 (ACL)。如需詳細資訊，請參閱[如何設定虛擬機器的端點](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/)。
+    >[AZURE.NOTE] 啟用公用端點，讓虛擬機器上的服務可用於網際網路。請務必在您的虛擬機器上安裝及正確設定端點和服務，例如設定端點的存取控制清單 (ACL)。如需詳細資訊，請參閱[如何設定虛擬機器的端點](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/)。
 
 1. 設定好虛擬機器設定之後，選擇 [建立] 按鈕可建立虛擬機器。
 
@@ -141,7 +141,7 @@
 
 1. 如果您已在此虛擬機器上執行 Sysprep，請選取 [我已在虛擬機器上執行 Sysprep] 方塊。
 
-    Sysprep 是一個工具，可從虛擬機器的 Windows 版本中移除系統特定資料，讓其成為其他人可使用的範本。如需詳細資訊，請參閱[如何擷取 Windows 虛擬機器作為範本使用](http://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/)。
+    Sysprep 是一個工具，可從虛擬機器的 Windows 版本中移除系統特定資料，讓其成為其他人可使用的範本。如需詳細資訊，請參閱[如何擷取 Windows 虛擬機器作為範本使用](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/)。
 
 1. 設定好擷取設定之後，選擇 [擷取] 按鈕可建立檢查點。
 
@@ -177,4 +177,4 @@
 
 若要了解建立虛擬機器的詳細資訊，請參閱[建立執行 Linux 的虛擬機器](virtual-machines-linux-tutorial.md)和[在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

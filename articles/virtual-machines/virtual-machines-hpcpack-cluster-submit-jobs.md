@@ -39,7 +39,7 @@ ms.service="virtual-machines"
 
 如需詳細程序，請參閱[安裝 Microsoft HPC Pack Web 元件](http://technet.microsoft.com/library/hh314627.aspx)。
 
->[AZURE.TIP]某些 Azure 快速入門範本會自動安裝和設定 Web 元件。如果您使用 [HPC Pack IaaS 部署指令碼](virtual-machines-hpcpack-cluster-powershell-script.md)來建立叢集，您可以選擇性地安裝 Web 元件並將其設定為部署的一部分。
+>[AZURE.TIP] 某些 Azure 快速入門範本會自動安裝和設定 Web 元件。如果您使用 [HPC Pack IaaS 部署指令碼](virtual-machines-hpcpack-cluster-powershell-script.md)來建立叢集，您可以選擇性地安裝 Web 元件並將其設定為部署的一部分。
 
 **安裝 Web 元件**
 
@@ -64,9 +64,9 @@ ms.service="virtual-machines"
     .\Set-HPCWebComponents.ps1 –Service REST –enable
     ```
 
-4. 當系統提示您選取憑證時，請選擇與前端節點的公用 DNS 名稱相對應的憑證。例如，如果您使用 HPC Pack IaaS 部署指令碼來建立叢集，憑證名稱的格式為 CN=&lt;HeadNodeDnsName&gt;.cloudapp.net。如果您使用 Azure 快速入門範本，憑證名稱的格式為 CN=&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure。
+4. 當系統提示您選取憑證時，請選擇與前端節點的公用 DNS 名稱相對應的憑證。例如，如果您使用 HPC Pack IaaS 部署指令碼來建立叢集，憑證名稱的格式為 CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net。如果您使用 Azure 快速入門範本，憑證名稱的格式為 CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure。
 
-    >[AZURE.NOTE]您必須選取此憑證，後續才能工作從內部部署電腦提交至前端節點。請勿選取或設定與 Active Directory 網域中前端節點的電腦名稱相對應的憑證 (例如 CN=*MyHPCHeadNode.HpcAzure.local*)。
+    >[AZURE.NOTE] 您必須選取此憑證，後續才能工作從內部部署電腦提交至前端節點。請勿選取或設定與 Active Directory 網域中前端節點的電腦名稱相對應的憑證 (例如 CN=*MyHPCHeadNode.HpcAzure.local*)。
 
 5. 若要設定 Web 入口網站以提交工作，請輸入下列命令：
 
@@ -114,7 +114,7 @@ ms.service="virtual-machines"
 
 
 
->[AZURE.SECURITY]您可能會看到安全性警告，因為用戶端電腦無法辨識前端節點上的憑證授權單位。基於測試目的，您可以忽略此警告並完成憑證匯入。
+>[AZURE.SECURITY] 您可能會看到安全性警告，因為用戶端電腦無法辨識前端節點上的憑證授權單位。基於測試目的，您可以忽略此警告並完成憑證匯入。
 
 ## 步驟 3：在叢集上執行測試工作
 
@@ -134,7 +134,7 @@ ms.service="virtual-machines"
     job list /scheduler:https://<HeadNodeDnsName>.<region>.cloudapp.azure.com /all
     ```
 
-    >[AZURE.TIP]在排程器 URL 中請使用前端節點的完整 DNS 名稱，而不是 IP 位址。如果您指定 IP 位址，則會看到如下的錯誤：「伺服器憑證必須具有有效的信任鏈結，或放在受信任的根存放區」。
+    >[AZURE.TIP] 在排程器 URL 中請使用前端節點的完整 DNS 名稱，而不是 IP 位址。如果您指定 IP 位址，則會看到如下的錯誤：「伺服器憑證必須具有有效的信任鏈結，或放在受信任的根存放區」。
 
 3. 出現提示時，請輸入使用者名稱 (格式為 &lt;DomainName&gt;&lt;UserName&gt;) 和 HPC 叢集系統管理員或您所設定之其他叢集使用者的密碼。您可以選擇將認證儲存在本機，以供更多工作運用。
 
@@ -188,4 +188,4 @@ ms.service="virtual-machines"
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

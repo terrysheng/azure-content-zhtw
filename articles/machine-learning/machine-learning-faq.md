@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="01/25/2016"
 	ms.author="paulettm"/>
 
 # Azure Machine Learning 常見問題集 (FAQ)：計費、功能、限制及支援
@@ -47,7 +47,7 @@ Machine Learning API 服務可讓您將 Machine Learning Studio 中內建的預�
 
 **機器學習服務如何計費？**
 
-如需計費和定價資訊，請參閱[機器學習服務定價](http://azure.microsoft.com/pricing/details/machine-learning/)。
+如需計費和定價資訊，請參閱[機器學習服務定價](https://azure.microsoft.com/pricing/details/machine-learning/)。
 
 **機器學習服務是否有免費試用版？**
 
@@ -163,7 +163,7 @@ Machine Learning Studio 提供頂級演算法，例如 Scalable Boosted Decision
 
 **Machine Learning Studio 中可使用什麼 R 套件？**
 
-Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在持續增加。若要了解如何取得支援的 R 封裝的清單，請參閱 [透過 R 擴展您的實驗](machine-learning-extend-your-experiment-with-r.md)。如果您要的封裝不在此清單中，請在[使用者意見反映論壇](http://go.microsoft.com/fwlink/?LinkId=404231)中提供封裝名稱。
+Machine Learning Studio 目前支援 400 個以上的 CRAN R 封裝，且數量仍在持續增加。若要了解如何取得支援的 R 封裝的清單，請參閱 [透過 R 擴展您的實驗](machine-learning-extend-your-experiment-with-r.md)。如果您要的封裝不在此清單中，請在[使用者意見反映論壇](http://go.microsoft.com/fwlink/?LinkId=404231)中提供封裝名稱。
 
 **是否可以建置自訂的 R 模組？**
 
@@ -219,6 +219,8 @@ Machine Learning Studio 目前支援 400 個以上的 R 封裝，且數量仍在
 針對 RRS，通常您可在 Web 服務回應查看此結果。您可以也將資料寫入 Blob。BES 的輸出預設會寫入至 Blob。您也可以使用寫入器模組將輸出寫入資料庫或資料表。
 
  **** 只能從這個 Studio 中建立的模型來建立 Web 服務嗎? 不，您也可以直接從 Jupyter Notebook 和 RStudio 建立 Web 服務。
+ 
+ ****哪裡可以找到有關錯誤碼的詳細資訊？ [這裡](https://msdn.microsoft.com/library/azure/dn905910.aspx)有提供錯誤碼的說明。
 
 ## 延展性
 
@@ -310,4 +312,4 @@ Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

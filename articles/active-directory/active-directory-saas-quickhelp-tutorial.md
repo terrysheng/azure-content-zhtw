@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2015"
+	ms.date="01/26/2016"
 	ms.author="jeedes"/>
 
 
@@ -35,7 +35,7 @@
 - 啟用 QuickHelp 單一登入的訂用帳戶
 
 
-> [AZURE.NOTE]若要測試本教學課程中的步驟，我們不建議使用生產環境。
+> [AZURE.NOTE] 若要測試本教學課程中的步驟，我們不建議使用生產環境。
 
 
 若要測試本教學課程中的步驟，您應該遵循這些建議：
@@ -93,7 +93,7 @@
  
      a.在 [登入 URL] 文字方塊中，輸入您的使用者用來登入 QuickHelp 網站的 URL (例如：*https://quickhelp.com/bsiazure/*))。
 
-     >[AZURE.NOTE]如果您不知道登入 URL 的值，請連絡您的 QuickHelp 支援小組。
+     >[AZURE.NOTE] 如果您不知道登入 URL 的值，請連絡您的 QuickHelp 支援小組。
 
      b.按 [下一步]。
 
@@ -255,4 +255,4 @@ QuickHelp 支援 Just-in-Time 佈建。這表示如果需要，會在 QuickHelp 
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

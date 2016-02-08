@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 事件中樞 API 概觀
 
 本文將摘要列出一些主要事件中樞 .NET 用戶端 API。有兩種類別：管理和執行階段 API。執行階段 API 是由傳送和接收訊息所需的所有作業組成。管理作業可讓您管理事件中樞實體狀態，方法是建立、更新和刪除實體。
 
-監視案例跨越管理和執行階段。如需 .NET API 的詳細參考文件，請參閱 [.NET 類別庫](https://msdn.microsoft.com/library/azure/mt419900.aspx)和 [EventProcessorHost API](https://msdn.microsoft.com/library/azure/mt445521.aspx) 參考。
+監視案例跨越管理和執行階段。如需 .NET API 的詳細參考文件，請參閱[服務匯流排 .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) 和 [EventProcessorHost API](https://msdn.microsoft.com/library/azure/mt445521.aspx) 參考。
 
 ## 管理 API
 
@@ -84,7 +84,7 @@ await client.SendAsync(data);
 ### 建立取用者
 
 ```
-// Create the Event Hub client
+// Create the Event Hubs client
 EventHubClient eventHubClient = EventHubClient.Create(EventHubName);
 
 // Get the default consumer group
@@ -120,6 +120,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
 // Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
+
 string eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
 string blobConnectionString = System.Configuration.ConfigurationManager.AppSettings["AzureStorageConnectionString"]; // Required for checkpoint/state
 
@@ -188,4 +189,4 @@ public class SimpleEventProcessor : IEventProcessor
 - [服務匯流排和事件中樞 .NET API 參考](https://msdn.microsoft.com/library/azure/mt419900.aspx)
 - [事件處理器主機 API 參考](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

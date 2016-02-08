@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="01/22/2016" 
 	ms.author="awills"/>
  
 # 使用 PowerShell 建立 Application Insights 資源
@@ -117,6 +117,27 @@ find | 取代為
 `"myappname"` (小寫) | `"[toLower(parameters('appName'))]"`
 `"<WebTest Name="myWebTest" ...`<br/>` Url="http://fabrikam.com/home" ...>"`|`[concat('<WebTest Name="',` <br/> `parameters('webTestName'),` <br/> `'" ... Url="', parameters('Url'),` <br/> `'"...>')]" `
 
+## 如果您的應用程式是 Azure Web 應用程式
+
+加入這個資源，或如果 `siteextensions` 資源已存在，將它參數化，如下所示：
+
+```json
+    {
+      "apiVersion": "2014-04-01",
+      "name": "Microsoft.ApplicationInsights.AzureWebSites",
+      "type": "siteextensions",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]",
+        "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]",
+        "[resourceId('Microsoft.Web/sites/sourcecontrols', parameters('siteName'), 'web')]"
+      ],
+      "properties": { }
+    }
+
+```
+
+此資源會將 Application Insights SDK 部署至您的 Azure Web 應用程式。
+
 ## 設定資源間的相依性
 
 Azure 應以嚴格的順序設定資源。為確保一項設定完成後再開始下一項設定，請加入相依性命令行：
@@ -145,6 +166,7 @@ Azure 應以嚴格的順序設定資源。為確保一項設定完成後再開�
                -webTestName aWebTest `
                -Url http://myapp.com `
                -text "Welcome!"
+               -siteName "MyAzureSite"
 
     ``` 
 
@@ -154,6 +176,7 @@ Azure 應以嚴格的順序設定資源。為確保一項設定完成後再開�
     * -webTestName 是要建立的 Web 測試的名稱。
     * -Url 是 Web 應用程式的 URL。
     * -text 是網頁中顯示的字串。
+    * -siteName - 如果它是 Azure 網站則使用
 
 
 ## 定義計量警示
@@ -288,4 +311,4 @@ Azure 應以嚴格的順序設定資源。為確保一項設定完成後再開�
 
 ```
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

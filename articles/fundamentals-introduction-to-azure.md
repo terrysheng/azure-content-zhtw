@@ -31,7 +31,7 @@ Azure 總是不斷增加，因此很容易便會超載。本文章先前已列�
 
 ## Azure 元件
 
-Azure 在管理入口網站和各種視覺輔助工具 (如[什麼是 Azure 資訊圖表](http://azure.microsoft.com/documentation/infographics/azure/)) 中，將服務劃分為不同類別。您可使用管理入口網站來管理 Azure 中的大部分 (但並非全部) 服務。
+Azure 在管理入口網站和各種視覺輔助工具 (如[什麼是 Azure 資訊圖表](https://azure.microsoft.com/documentation/infographics/azure/)) 中，將服務劃分為不同類別。您可使用管理入口網站來管理 Azure 中的大部分 (但並非全部) 服務。
 
 本文將使用**不同的組織**來討論採用類似功能的服務，並叫出屬於大型服務一部分的重要子服務。
 
@@ -124,7 +124,7 @@ Azure Web Apps 允許建立此種 Web 應用程式，但有一些限制。例如
 ### Azure SQL Database
 ![Azure 儲存體 SQL Database](./media/fundamentals-introduction-to-azure/StorageAzureSQLDatabaseIntroNew.png)
 
-圖：Azure SQL Database 提供雲端中的受管理的關聯式資料庫服務。
+*圖：Azure SQL Database 提供雲端中的受管理的關聯式資料庫服務。*
 
 對於關聯式儲存體，Azure 提供了功能 SQL Database。千萬別小看這個名稱。這與在 Windows Server 上運作之 SQL Server 所提供的傳統 SQL Database 有所不同。
 
@@ -141,7 +141,7 @@ SQL Database 不僅是雲端的 DBMS，也是一項 PaaS 服務。您仍可控�
 ### 資料表
 ![Azure 儲存體資料表](./media/fundamentals-introduction-to-azure/StorageTablesIntroNew.png)
   
-圖：Azure 資料表提供儲存資料的一般 NoSQL 方式。
+*圖：Azure 資料表提供儲存資料的一般 NoSQL 方式。*
 
 因為此功能屬於稱為「Azure 儲存體」大型功能的一部分，它有時候又會被叫做不同的名稱。如果您看到「資料表」、「Azure 資料表」或「儲存體資料表」，他們都代表相同的東西。
 
@@ -217,7 +217,7 @@ Azure 目前已在全球許多資料中心內運作。當您執行應用程式�
 
 ![ExpressRoute](./media/fundamentals-introduction-to-azure/ExpressRouteIntroNew.png)
 
-圖：ExpressRoute 會使用 Azure 虛擬網路，但透過較快的專用線路 (而不是公用網際網路) 來路由連線。
+*圖：ExpressRoute 會使用 Azure 虛擬網路，但透過較快的專用線路 (而不是公用網際網路) 來路由連線。*
 
 如果您需要比 Azure 虛擬網路連線可提供還要高的頻寬或安全性，您可以考慮 ExpressRoute。在某些情況下，ExpressRoute 還可為您節省開支。您仍然需要 Azure 虛擬網路，但 Azure 和站台之間的連結會使用不經由公用網際網路的專用連線。為了能夠使用此服務，您必須與網路服務提供者或 Exchange 提供者訂定一份協議。
 
@@ -229,7 +229,7 @@ Azure 目前已在全球許多資料中心內運作。當您執行應用程式�
 
 ![TrafficManager](./media/fundamentals-introduction-to-azure/TrafficManagerIntroNew.png)
 
-圖：Azure 流量管理員可讓您根據智慧型規則，將全域流量路由到您的服務。
+*圖：Azure 流量管理員可讓您根據智慧型規則，將全域流量路由到您的服務。*
  
 如果 Azure 應用程式正在多個資料中心內執行，您可使用 Azure 流量管理員，以智慧方式將使用者的要求路由傳送到應用程式的各執行個體。您也可以將流量路由到不是在 Azure 中執行的服務，只要可以從網際網路存取這些服務即可。
 
@@ -246,7 +246,7 @@ Azure 提供數種工具，可用來協助開發人員和 IT 專業人員建立�
 ### Azure SDK
 回顧 2008 年，Azure 的第一個發行前版本僅支援 .NET 開發。不過，您現在可以用很多種語言建立 Azure 應用程式。Microsoft 目前提供 .NET、Java、PHP、Node.js、Ruby 和 Python 語言特有的 SDK。此外，還有一般 Azure SDK 可提供任何語言 (如 C++) 的基本支援。
 
-這些 SDK 可協助您建置、部署及管理 Azure 應用程式。從 [www.microsoftazure.com](http://azure.microsoft.com/downloads/) 或 GitHub 即可取得 SDK，並可搭配 Visual Studio 和 Eclipse 使用。此外，Azure 還提供了開發人員可搭配任何編輯器或開發環境使用的命令列工具，包括可供從 Linux 和 Macintosh 系統將應用程式部署到 Azure 的工具。
+這些 SDK 可協助您建置、部署及管理 Azure 應用程式。從 [www.microsoftazure.com](https://azure.microsoft.com/downloads/) 或 GitHub 即可取得 SDK，並可搭配 Visual Studio 和 Eclipse 使用。此外，Azure 還提供了開發人員可搭配任何編輯器或開發環境使用的命令列工具，包括可供從 Linux 和 Macintosh 系統將應用程式部署到 Azure 的工具。
 
 除了協助您建置 Azure 應用程式，這些 SDK 還提供了用戶端程式庫，協助您建立使用 Azure 服務的軟體。例如，您可以建置一個可讀取和寫入 Azure Blob 的應用程式，或建立一個可透過 Azure 管理介面部署 Azure 應用程式的工具。
 
@@ -333,7 +333,7 @@ Azure Active Directory 存取控制是這項服務的另一個功能，可讓應
 ### Multi-Factor Authentication
 ![Azure Multi-Factor Authentication](./media/fundamentals-introduction-to-azure/MFAIntroNew.png)
 
-圖：Multi-Factor Authentication 為應用程式提供多種身分識別格式的驗證功能
+*圖：Multi-Factor Authentication 為應用程式提供多種身分識別格式的驗證功能*
  
 安全性總是很重要。多因素驗證 (MFA) 可協助確保只有使用者本身可存取他們的帳戶。MFA (又稱為雙因素驗證或 "2FA") 要求使用者提供使用者登入和交易的三種身分識別驗證方法中的其中兩種。
 
@@ -363,7 +363,7 @@ Azure Active Directory 存取控制是這項服務的另一個功能，可讓應
 
 ![Mobile Apps](./media/fundamentals-introduction-to-azure/MobileServicesIntroNew.png)
   
-圖：Mobile Apps 為應用程式提供與行動裝置通訊時經常需要用到的功能。
+*圖：Mobile Apps 為應用程式提供與行動裝置通訊時經常需要用到的功能。*
 
 Azure Mobile Apps 提供許多有用的功能，可讓您減少花費在建置行動裝置應用程式後端的時間。它可讓您對 SQL Database 中儲存的資料進行簡單的佈建和管理。利用伺服器端程式碼，即可輕鬆地使用其他資料儲存選項，如 Blob 儲存體或 MongoDB。Mobile Apps 提供通知支援，但在某些情況下，您可以改為使用「通知中樞」(如後續所述)。服務包括一個 REST API，您的行動應用程式可呼叫此 API 以完成工作。Mobile Apps 還提供透過 Microsoft 和 Active Directory 以及其他知名身分識別提供者 (如 Facebook、Twitter 和 Google) 來驗證使用者的能力。
 
@@ -380,7 +380,7 @@ Android、iOS、HTML/JavaScript、Windows Phone 和 Windows 市集的原生用�
 
 ![NotificationHubs](./media/fundamentals-introduction-to-azure/NotificationHubsIntroNew.png)
 
-圖：「通知中樞」為應用程式提供與行動裝置通訊時經常需要用到的功能。
+*圖：「通知中樞」為應用程式提供與行動裝置通訊時經常需要用到的功能。*
 
 雖然您可以撰寫程式碼以處理 Azure Mobile Apps 中的通知，「通知中樞」已經過最佳化，可在數分鐘內廣播數百萬則高度個人化的推播通知。您無需煩惱如行動業者或裝置製造商等詳細資料。您可以透過單一 API 呼叫，即可鎖定個人或數百萬位使用者。
 
@@ -407,7 +407,7 @@ Site Recovery 使用現有的技術，例如 Hyper-V 複本、System Center 和 
 ### Azure 備份
 ![Azure 備份](./media/fundamentals-introduction-to-azure/AzureBackupIntroNew.png)
 
-圖：Azure 備份會將資料從內部部署 Windows Server 備份到雲端。
+*圖：Azure 備份會將資料從內部部署 Windows Server 備份到雲端。*
 
 Azure 備份會將資料從執行 Windows Server 的內部部署伺服器備份到雲端。您可以從 Windows Server 2012、Windows Server 2012 Essentials 或 System Center 2012 - Data Protection Manager 中的備份工具直接管理備份。或者，您也可以使用專業的備份代理程式。
 
@@ -426,7 +426,7 @@ Azure 備份會將資料從執行 Windows Server 的內部部署伺服器備份�
 ### 佇列
 ![Azure 服務匯流排轉送](./media/fundamentals-introduction-to-azure/QueuesIntroNew.png)
 
-圖：佇列可讓您在應用程式的各組件之間進行鬆散耦合，而且可以讓您調整規模。
+*圖：佇列可讓您在應用程式的各組件之間進行鬆散耦合，而且可以讓您調整規模。*
 
 佇列是一個簡單構想：一個應用程式可將訊息放入佇列中，而該訊息最終會由其他應用程式所讀取。如果您的應用程式只需要這項直接服務，Azure 佇列會是最佳選擇。
 
@@ -453,7 +453,7 @@ Azure 備份會將資料從執行 Windows Server 的內部部署伺服器備份�
 #### Service Bus 轉送
 ![Azure 服務匯流排轉送](./media/fundamentals-introduction-to-azure/ServiceBusRelayIntroNew.png)
 
-圖：服務匯流排轉送允許位在防火牆不同側的應用程式進行通訊。
+*圖：服務匯流排轉送允許位在防火牆不同側的應用程式進行通訊。*
 
 服務匯流排允許透過其轉送服務直接通訊，並提供通過防火牆的安全互動方式。服務匯流排轉送可透過在雲端 (而非本機) 主控的端點交換訊息，讓應用程式進行通訊。
 
@@ -611,4 +611,4 @@ SendGrid 是 Azure Store 中可讓您傳送電子郵件的應用程式。它提�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

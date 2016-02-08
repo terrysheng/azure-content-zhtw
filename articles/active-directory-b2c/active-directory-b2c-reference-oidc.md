@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 預覽：使用 OpenID Connect 的 Web 登入
@@ -77,7 +77,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | 參數 | | 說明 |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com)指派給應用程式的應用程式識別碼。 |
+| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
 | response\_type | 必要 | 以 OpenID Connect 而言，必須包含 `id_token`。如果您的 Web 應用程式也需要權杖來呼叫 Web API，您可以使用 `code+id_token`，如同這裡的作法一樣。 |
 | redirect\_uri | 必要 | 您的應用程式可在應用程式的 redirect\_uri 傳送及接收驗證回應。其必須完全符合您在入口網站中註冊的其中一個 redirect\_uris，不然就必須得是編碼的 url。 |
 | scope | 必要 | 範圍的空格分隔清單。單一範圍值向 Azure AD 表示同時要求的兩個權限。`openid` 範圍表示讓使用者登入和以 **id\_token** 形式取得使用者相關資料的權限 (這方面還有更多說明)。對於 Web 應用程式，`offline_access` 範圍是選擇性。它表示您的應用程式將需要 **refresh\_token**，才能長久存取資源。 |
@@ -133,8 +133,7 @@ Azure AD B2C 具有 OpenID Connect 中繼資料端點，可讓應用程式在執
 
 若要判斷哪個原則用來簽署 id\_token (以及何處可擷取中繼資料)，您有兩個選項。首先，原則名稱包含在 id\_token 的 `acr` 宣告中。如需有關如何剖析 id\_token 中的宣告的相關資訊，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)。另一個選項是當您發出要求時，在 `state` 參數的值中將原則編碼，然後將它解碼來判斷已使用的原則。任一種方法都絕對有效。
 
-當您從 OpenID Connect 中繼資料端點取得中繼資料文件後，您可以使用位於此端點的 RSA256 公用金鑰驗證 id\_token 的簽章。此端點可能隨時會列出多個金鑰，每個金鑰由 `kid` 識別。Id\_token 的標頭也包含 `kid` 宣告，指出用來簽署 id\_token 的金鑰。如需詳細資訊，包括[驗證權杖](active-directory-b2c-reference-tokens.md#validating-tokens)和[有關簽署金鑰變換的重要資訊](active-directory-b2c-reference-tokens.md#validating-tokens)，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)。
-<!--TODO: Improve the information on this-->
+當您從 OpenID Connect 中繼資料端點取得中繼資料文件後，您可以使用位於此端點的 RSA256 公用金鑰驗證 id\_token 的簽章。此端點可能隨時會列出多個金鑰，每個金鑰由 `kid` 識別。Id\_token 的標頭也包含 `kid` 宣告，指出用來簽署 id\_token 的金鑰。如需詳細資訊，包括[驗證權杖](active-directory-b2c-reference-tokens.md#validating-tokens)和[有關簽署金鑰變換的重要資訊](active-directory-b2c-reference-tokens.md#validating-tokens)，請參閱 [Azure AD B2C 權杖參考](active-directory-b2c-reference-tokens.md)。<!--TODO: Improve the information on this-->
 
 一旦驗證了 id\_token 的簽章，就會有數項宣告需要驗證：
 
@@ -175,12 +174,12 @@ Content-Type: application/json
 | 參數 | | 說明 |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | 必要 | 用來取得授權碼的原則。您不可在此要求中使用不同的原則。**請注意，此參數會加入至查詢字串**，而不是在 POST 本文中。 |
-| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com)指派給應用程式的應用程式識別碼。 |
-| grant\_type | 必要 | 以授權碼流程而言，必須是 `authorization_code`。 |
+| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
+| grant\_type | 必要 | 必須是授權碼流程的 `authorization_code`。 |
 | scope | 必要 | 範圍的空格分隔清單。單一範圍值向 Azure AD 表示同時要求的兩個權限。`openid` 範圍表示讓使用者登入和以 **id\_token** 形式取得使用者相關資料的權限。它可以用來為應用程式本身的後端 Web API 取得權杖，由與用戶端相同的應用程式識別碼代表。`offline_access` 範圍表示您的應用程式將需要 **refresh\_token**，才能長久存取資源。 |
 | code | 必要 | 您在流程的第一個階段中取得的 authorization\_code。 |
 | redirect\_uri | 必要 | 應用程式的 redirect\_uri，指出您在此處收到 authorization\_code。 |
-| client\_secret | 必要 | 您在 [Azure 入口網站](https://portal.azure.com)中產生的應用程式密碼。這個應用程式密碼是重要的安全性構件，應該安全地儲存在伺服器上。您也應該注意定期輪換此用戶端密碼。 |
+| client\_secret | 必要 | 您在 [Azure 入口網站](https://portal.azure.com/)中產生的應用程式密碼。這個應用程式密碼是重要的安全性構件，應該安全地儲存在伺服器上。您也應該注意定期輪換此用戶端密碼。 |
 
 成功的權杖回應如下：
 
@@ -207,7 +206,8 @@ Content-Type: application/json
 | refresh\_token | OAuth 2.0 重新整理權杖。在目前的權杖過期之後，應用程式可以使用這個權杖來取得其他權杖。Refresh\_token 的有效期很長，而且可以用來延長保留資源存取權的時間。如需詳細資訊，請參閱 [B2C 權杖參考](active-directory-b2c-reference-tokens.md)。請注意，您必須在授權和權杖要求中使用範圍 `offline_access`，才能接收重新整理權杖。 |
 | refresh\_token\_expires\_in | 重新整理權杖的最長有效時間 (以秒為單位)。不過，重新整理權杖隨時都可能失效。 |
 
-> [AZURE.NOTE]如果您現在問：「access\_token 在哪裡？」，請考慮下列問題。當您要求 `openid` 範圍時，Azure AD 會在回應中發出 JWT `id_token`。嚴格來說，雖然這個 `id_token` 不是 OAuth 2.0 access\_token，但在與應用程式本身的後端服務通訊時可以這樣用，由與用戶端相同的 client\_id 代表。`id_token` 仍然是已簽署的 JWT 持有人權杖，可在 HTTP 授權標頭中傳送給資源，並用來驗證要求。差別在於 `id_token` 沒有機制可縮小特定用戶端應用程式可能擁有的存取範圍。不過，當用戶端應用程式是唯一能夠與後端服務進行通訊的用戶端時 (如同目前的 Azure AD B2C 預覽一樣)，則不需要這種範圍設定機制。當 Azure AD B2C 預覽增加功能讓用戶端與第一方和第三方資源通訊時，將會引進 access\_token。不過，即便如此，使用 `id_tokens` 來與應用程式本身的後端服務通訊，仍然只是建議的模式。如需有關可使用 Azure AD B2C 預覽來建置的應用程式類型的詳細資訊，請參閱[這篇文章](active-directory-b2c-apps.md)。
+> [AZURE.NOTE]
+	如果您現在問：「access\_token 在哪裡？」，請考慮下列問題。當您要求 `openid` 範圍時，Azure AD 會在回應中發出 JWT `id_token`。嚴格來說，雖然這個 `id_token` 不是 OAuth 2.0 access\_token，但在與應用程式本身的後端服務通訊時可以這樣用，由與用戶端相同的 client\_id 代表。`id_token` 仍然是已簽署的 JWT 持有人權杖，可在 HTTP 授權標頭中傳送給資源，並用來驗證要求。差別在於 `id_token` 沒有機制可縮小特定用戶端應用程式可能擁有的存取範圍。不過，當用戶端應用程式是唯一能夠與後端服務進行通訊的用戶端時 (如同目前的 Azure AD B2C 預覽一樣)，則不需要這種範圍設定機制。當 Azure AD B2C 預覽增加功能讓用戶端與第一方和第三方資源通訊時，將會引進 access\_token。不過，即便如此，使用 `id_tokens` 來與應用程式本身的後端服務通訊，仍然只是建議的模式。如需有關可使用 Azure AD B2C 預覽來建置的應用程式類型的詳細資訊，請參閱[這篇文章](active-directory-b2c-apps.md)。
 
 錯誤回應格式如下：
 
@@ -246,19 +246,19 @@ Content-Type: application/json
 	"scope": "openid offline_access",
 	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
 	"redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
-	"client_secret": "<your-application-secret>"	
+	"client_secret": "<your-application-secret>"
 }
 ```
 
 | 參數 | | 說明 |
 | ----------------------- | ------------------------------- | -------- |
 | p | 必要 | 用來取得原始重新整理權杖的原則。您不可在此要求中使用不同的原則。**請注意，此參數會加入至查詢字串**，而不是在 POST 本文中。 |
-| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com)指派給應用程式的應用程式識別碼。 |
-| grant\_type | 必要 | 以授權碼流程的這個階段而言，必須是 `refresh_token`。 |
+| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
+| grant\_type | 必要 | 必須是授權碼流程此階段的 `refresh_token`。 |
 | scope | 必要 | 範圍的空格分隔清單。單一範圍值向 Azure AD 表示同時要求的兩個權限。`openid` 範圍表示讓使用者登入和以 **id\_token** 形式取得使用者相關資料的權限。它可以用來為應用程式本身的後端 Web API 取得權杖，由與用戶端相同的應用程式識別碼代表。`offline_access` 範圍表示您的應用程式將需要 **refresh\_token**，才能長久存取資源。 |
 | redirect\_uri | 必要 | 應用程式的 redirect\_uri，指出您在此處收到 authorization\_code。 |
 | refresh\_token | 必要 | 您在流程的第二個階段中取得的原始 refresh\_token。請注意，您必須在授權和權杖要求中使用範圍 `offline_access`，才能接收重新整理權杖。 |
-| client\_secret | 必要 | 您在 [Azure 入口網站](https://portal.azure.com)中產生的應用程式密碼。這個應用程式密碼是重要的安全性構件，應該安全地儲存在伺服器上。您也應該注意定期輪換此用戶端密碼。 |
+| client\_secret | 必要 | 您在 [Azure 入口網站](https://portal.azure.com/)中產生的應用程式密碼。這個應用程式密碼是重要的安全性構件，應該安全地儲存在伺服器上。您也應該注意定期輪換此用戶端密碼。 |
 
 成功的權杖回應如下：
 
@@ -300,11 +300,11 @@ Content-Type: application/json
 | error\_description | 協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
 
 
-<!-- 
+<!--
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
 
-![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
 
 -->
 
@@ -325,7 +325,8 @@ p=b2c_1_sign_in
 | p | 必要 | 使用者最近用來登入應用程式的原則。 |
 | post\_logout\_redirect\_uri | 建議使用 | 使用者在成功登出後應該重新導向的 URL。如果未包含，Azure AD B2C 會向使用者顯示一般訊息。 |
 
-> [AZURE.NOTE]雖然將使用者導向至 `end_session_endpoint` 會清除使用者與 Azure AD 之間的一些單一登入狀態，但目前不會實際登出使用者。反之，使用者將選取他們要用來登入的 IDP，然後重新經過驗證，而不需要輸入認證。如果是使用社交 IDP，這是可預期的行為。如果使用者想要登出 B2C 目錄，並不一定表示他們想要完全登出 Facebook 帳戶。不過，如果是使用本機帳戶，則應該可以正確地結束使用者工作階段。本機帳戶登出無法正常運作是 Azure AD 預覽的一項已知[限制](active-directory-b2c-limitations.md)。目前的因應措施是在每個驗證要求中傳送 `&prompt=login` 參數，這將會呈現理想的行為，但會造成 B2C 目錄中各應用程式之間的單一登入中斷。
+> [AZURE.NOTE]
+	雖然將使用者導向至 `end_session_endpoint` 會清除使用者與 Azure AD 之間的一些單一登入狀態，但目前不會實際登出使用者。反之，使用者將選取他們要用來登入的 IDP，然後重新經過驗證，而不需要輸入認證。如果是使用社交 IDP，這是可預期的行為。如果使用者想要登出 B2C 目錄，並不一定表示他們想要完全登出 Facebook 帳戶。不過，如果是使用本機帳戶，則應該可以正確地結束使用者工作階段。本機帳戶登出無法正常運作是 Azure AD 預覽的一項已知[限制](active-directory-b2c-limitations.md)。目前的因應措施是在每個驗證要求中傳送 `&prompt=login` 參數，這將會呈現理想的行為，但會造成 B2C 目錄中各應用程式之間的單一登入中斷。
 
 ## 使用您自己 B2C 目錄
 
@@ -345,4 +346,4 @@ image goes here
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

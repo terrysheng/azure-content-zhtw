@@ -35,7 +35,7 @@
 * 跨多個裝置同步資料
 * 在兩個裝置修改同一筆記錄時偵測到衝突
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得[免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務](http://azure.microsoft.com/pricing/details/mobile-services/)。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank")。
+> [AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得[免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務](https://azure.microsoft.com/pricing/details/mobile-services/)。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank")。
 
 本教學課程以[行動服務快速入門教學課程]為基礎，您必須先完成該教學課程。我們先來檢閱在＜快速入門＞中與離線同步相關的程式碼。
 
@@ -102,7 +102,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 ```
 
 
->[AZURE.NOTE]若要從裝置本機存放區中移除已在您行動服務資料庫中刪除的記錄，請啟用 [虛刪除][]。否則，您的應用程式應定期呼叫 `MSSyncTable.purgeWithQuery` 才能清除本機存放區。
+>[AZURE.NOTE] 若要從裝置本機存放區中移除已在您行動服務資料庫中刪除的記錄，請啟用 [虛刪除][]。否則，您的應用程式應定期呼叫 `MSSyncTable.purgeWithQuery` 才能清除本機存放區。
 
 
 * 在 **QSTodoService.m** 中，`addItem` 和 `completeItem` 方法會在修改資料之後叫用 `syncData`。在 **QSTodoListViewController.m** 中，`refresh` 方法也會叫用 `syncData` 讓 UI 在每次重新整理和啟動時 (`init` 呼叫 `refresh`) 顯示最新的資料。
@@ -120,7 +120,7 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
       * MS\_TableConfig：用來追蹤所有提取作業最後一次同步處理作業的上次更新時間
       * TodoItem：用來儲存 todo 項目。系統資料行 **ms\_createdAt**、**ms\_updatedAt** 和 **ms\_version** 為選擇性系統屬性。
 
->[AZURE.NOTE]行動服務 SDK 會保留以 "**`ms_`**" 開頭的資料行名稱。請不要在系統資料行以外的項目使用此前置詞。否則，您的資料行名稱會在使用遠端服務時被修改。
+>[AZURE.NOTE] 行動服務 SDK 會保留以 "**`ms_`**" 開頭的資料行名稱。請不要在系統資料行以外的項目使用此前置詞。否則，您的資料行名稱會在使用遠端服務時被修改。
 
 - 使用離線同步功能時，您必須先定義系統資料表，如下所示。
 
@@ -275,4 +275,4 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 [行動服務快速入門教學課程]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

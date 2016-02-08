@@ -30,6 +30,8 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Sybase
 
 若要讓資料管理閘道器連接至 Sybase 資料庫，您必須在與資料管理閘道器相同的系統上安裝 [Sybase 的資料提供者](http://go.microsoft.com/fwlink/?linkid=324846)。
 
+> [AZURE.NOTE] 如需連接/閘道器相關問題的疑難排解秘訣，請參閱[閘道器疑難排解](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)。
+
 ## 範例：從 Sybase 複製資料到 Azure Blob
 
 下列範例顯示：
@@ -264,4 +266,4 @@ Sybase 支援 T-SQL 和 T-SQL 類型。如需從 sql 類型到.NET 類型的對�
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

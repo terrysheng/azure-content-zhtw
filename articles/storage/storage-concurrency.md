@@ -93,10 +93,7 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 取得容器中繼資料|	是|	否|
 設定容器中繼資料|	是|	是|
 取得容器 ACL|	是|	否|
-設定容器 ACL|	是|	是 (*)|
-刪除容器| 否| 是|
-租用容器| 是| 是|
-列出 Blob| 否| 否 
+設定容器 ACL|	是|	是 (*)| 刪除容器| 否| 是| 租用容器| 是| 是| 列出 Blob| 否| 否 
 
 (*) 系統會快取由 SetContainerACL 定義的權限，而這些權限的更新約需 30 秒來完成填入，在此期間，更新並不一定會一致。
 
@@ -110,16 +107,7 @@ Azure 儲存體服務對這三種策略都可支援，但此服務依其設計�
 設定 Blob 屬性|	是|	是|
 取得 Blob 中繼資料|	是|	是|
 設定 Blob 中繼資料|	是|	是|
-租用 Blob (*) | 是| 是|
-快照 Blob| 是| 是|
-複製 Blob| 是| 是 (針對來源和目的地 blob)|
-中止複製 Blob| 否| 否|
-刪除 Blob| 否| 是|
-放置區塊| 否| 否|
-放置區塊清單| 是| 是|
-取得區塊清單| 是| 否|
-放置分頁| 是| 是|
-取得分頁範圍| 是| 是
+租用 Blob (*) | 是| 是| 快照 Blob| 是| 是| 複製 Blob| 是| 是 (針對來源和目的地 blob)| 中止複製 Blob| 否| 否| 刪除 Blob| 否| 是| 放置區塊| 否| 否| 放置區塊清單| 是| 是| 取得區塊清單| 是| 否| 放置分頁| 是| 是| 取得分頁範圍| 是| 是
 
 (*) 租用 Blob 並不會變更 Blob 上的 ETag。
 
@@ -278,9 +266,9 @@ Microsoft Azure 儲存體服務的設計已符合最複雜的線上應用程式�
 
 如需 Azure 儲存體的詳細資訊，請參閱：
 
-- [Microsoft Azure 儲存體首頁](http://azure.microsoft.com/services/storage/)
+- [Microsoft Azure 儲存體首頁](https://azure.microsoft.com/services/storage/)
 - [Azure 儲存體簡介](storage-introduction.md)
 - 開始為 [Blob](storage-dotnet-how-to-use-blobs.md)、[資料表](storage-dotnet-how-to-use-tables.md)和[佇列](storage-dotnet-how-to-use-queues.md)使用儲存體
 - 儲存體架構 – [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

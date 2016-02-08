@@ -21,21 +21,21 @@
 
 了解如何在 Spark 叢集上安裝 Zeppelin Notebook 以及如何使用 Zeppelin Notebook。
 
-> [AZURE.IMPORTANT]Zeppelin Notebook for HDInsight Spark 叢集是一個供應項目，僅是為了展示如何在 Azure HDInsight Spark 環境中使用 Zeppelin。如果您想要使用 Notebook 來使用 HDInsight Spark，我們建議您改為使用 Jupyter Notebook。Jupyter Notebook 也會提供不同的核心選項，例如 Scala，並將繼續改良功能。如需有關如何使用 Jupyter Notebook 和 HDInsight Spark 的指示，請參閱[使用 Jupyter Notebook 執行 Spark SQL 查詢](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter)。
+> [AZURE.IMPORTANT] Zeppelin Notebook for HDInsight Spark 叢集是一個供應項目，僅是為了展示如何在 Azure HDInsight Spark 環境中使用 Zeppelin。如果您想要使用 Notebook 來使用 HDInsight Spark，我們建議您改為使用 Jupyter Notebook。Jupyter Notebook 也會提供不同的核心選項，例如 Scala，並將繼續改良功能。如需有關如何使用 Jupyter Notebook 和 HDInsight Spark 的指示，請參閱[使用 Jupyter Notebook 執行 Spark SQL 查詢](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter)。
 
 **必要條件：**
 
-* 開始進行本教學課程之前，您必須擁有 Azure 訂用帳戶。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* 開始進行本教學課程之前，您必須擁有 Azure 訂用帳戶。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * Apache Spark 叢集。如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](hdinsight-apache-spark-provision-clusters.md)。
 * SSH 用戶端。若為 Linux 和 Unix 發佈或 Macintosh OS X，`ssh` 命令會隨作業系統提供。若為 Windows，我們建議使用 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)。
 
-	> [AZURE.NOTE]如果您想要使用 `ssh` 或 PuTTY 以外的 SSH 用戶端，請參考您用戶端的說明文件，了解如何建立 SSH 通道。
+	> [AZURE.NOTE] 如果您想要使用 `ssh` 或 PuTTY 以外的 SSH 用戶端，請參考您用戶端的說明文件，了解如何建立 SSH 通道。
 
 * 可以設定為使用 SOCKS Proxy 的網頁瀏覽器。
 
 * __(選擇性)__：如 [FoxyProxy](http://getfoxyproxy.org/,) 之類的外掛程式，其可套用的規則是只將特定要求透過通道進行路由傳送。
 
-	> [AZURE.WARNING]若無 FoxyProxy 之類的外掛程式，所有透過瀏覽器建立的要求可能都會透過通道進行路由傳送。這會導致瀏覽器中的網頁載入速度較慢。
+	> [AZURE.WARNING] 若無 FoxyProxy 之類的外掛程式，所有透過瀏覽器建立的要求可能都會透過通道進行路由傳送。這會導致瀏覽器中的網頁載入速度較慢。
 
 ## 在建立叢集時安裝 Zeppelin
 
@@ -151,13 +151,13 @@
 
 ### 從瀏覽器使用通道
 
-> [AZURE.NOTE]本節中的步驟使用 FireFox 瀏覽器，因為它在 Linux、Unix、Macintosh OS X 和 Windows 系統上均可隨意運用。其他最新的瀏覽器，如 Google Chrome、Microsoft Edge 或 Apple Safari 等應該也可以運作；不過，某些步驟中所使用的 FoxyProxy 外掛程式可能無法適用於所有瀏覽器。
+> [AZURE.NOTE] 本節中的步驟使用 FireFox 瀏覽器，因為它在 Linux、Unix、Macintosh OS X 和 Windows 系統上均可隨意運用。其他最新的瀏覽器，如 Google Chrome、Microsoft Edge 或 Apple Safari 等應該也可以運作；不過，某些步驟中所使用的 FoxyProxy 外掛程式可能無法適用於所有瀏覽器。
 
 1. 將瀏覽器設定為使用 **localhost:9876** 做為 **SOCKS v5** Proxy。Firefox 的設定如下所示。如果您使用與 9876 不同的連接埠，請將連接埠變更為您所用的連接埠：
 
 	![Firefox 設定的影像](./media/hdinsight-apache-spark-use-zeppelin-notebook/socks.png)
 
-	> [AZURE.NOTE]選取 [**遠端 DNS**] 會使用 HDInsight 叢集解析網域名稱系統 (DNS) 要求。若未選取，則會在本機解析 DNS。
+	> [AZURE.NOTE] 選取 [**遠端 DNS**] 會使用 HDInsight 叢集解析網域名稱系統 (DNS) 要求。若未選取，則會在本機解析 DNS。
 
 2. 在 Firefox 中啟用和停用 Proxy 設定的情況下造訪網站，例如 [http://www.whatismyip.com/](http://www.whatismyip.com/)，即可驗證是否透過通道路由傳送流量。在啟用設定時，是使用 Microsoft Azure 資料中心內之機器的 IP 位址。
 
@@ -191,7 +191,7 @@
 
 	* **模式名稱** - **zeppelinnotebook** - 這是易記的模式名稱。
 
-	* **URL 模式** - **hn0** - 這會定義符合 Zeppelin Notebook 裝載所在端點之內部完整網域名稱的模式。因為 Zeppelin Notebook 僅適用於叢集的 headnode0，而且端點通常是 `http://hn0-<string>.internal.cloudapp.net`，所以使用模式 **hn0** 可確保要求會重新導向至 Zeppelin 端點。
+	* **URL 模式** - ***hn0*** - 這會定義符合 Zeppelin Notebook 裝載所在端點之內部完整網域名稱的模式。因為 Zeppelin Notebook 僅適用於叢集的 headnode0，而且端點通常是 `http://hn0-<string>.internal.cloudapp.net`，所以使用模式 **hn0** 可確保要求會重新導向至 Zeppelin 端點。
 
 		![foxyproxy 模式](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 
@@ -330,4 +330,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

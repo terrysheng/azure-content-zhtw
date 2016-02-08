@@ -51,7 +51,7 @@
 ## 必要條件
 
 
-- Azure 帳戶和訂用帳戶。您可以註冊[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+- Azure 帳戶和訂用帳戶。您可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 
 - 您可以在當中建立資料表的任何資料庫。
@@ -385,4 +385,4 @@ Azure SQL Database 上擴充事件的主要主題是：
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

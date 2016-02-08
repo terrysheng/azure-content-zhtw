@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="10/28/2015"
 	ms.author="jodebrui"/>
 
@@ -32,7 +32,7 @@
 
 ## 監視和警示
 
-您可以在 Azure [入口網站](http://portal.azure.com/)中，透過[效能層的儲存上限](sql-database-service-tiers.md#service-tiers-for-single-databases)的百分比來監視記憶體內部儲存體使用情形：
+您可以在 Azure [入口網站](https://portal.azure.com/)中，透過[效能層的儲存上限](sql-database-service-tiers.md#service-tiers-for-single-databases)的百分比來監視記憶體內部儲存體使用情形：
 
 - 在 [資料庫] 刀鋒視窗上，找出 [資源使用率方塊] 並按一下 [編輯]。
 - 然後選取度量 XTP 記憶體內部儲存空間百分比。
@@ -49,7 +49,7 @@
 
 錯誤訊息 41805 指出記憶體最佳化資料表和資料表變數已超過大小上限。
 
-若要解決此錯誤，請：
+若要解決此錯誤，您可以：
 
 
 - 從記憶體最佳化資料表中刪除資料，可能會將資料卸載至傳統、以磁碟為基礎的資料表；或者，
@@ -58,4 +58,4 @@
 ## 後續步驟
 深入了解[使用動態管理檢視監視 Azure SQL Database](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

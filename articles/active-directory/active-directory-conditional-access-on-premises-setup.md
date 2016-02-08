@@ -21,7 +21,8 @@
 
 藉由要求使用者到工作地點將其裝置加入至 Azure Active Directory 裝置註冊服務，使用者個人擁有的裝置可標記為組織已知的裝置。以下是在 Windows Server 2012 R2 中使用 Active Directory Federation Service (AD FS) 啟用內部部署應用程式之條件式存取的逐步指南。
 
-> [AZURE.NOTE]使用以 Azure Active Directory 裝置註冊服務條件式存取原則註冊的裝置時，需要 Office 365 授權或 Azure AD Premium 授權。這包括由 Active Directory Federation Services (AD FS) 對內部部署資源強制執行的原則。
+> [AZURE.NOTE]
+使用以 Azure Active Directory 裝置註冊服務條件式存取原則註冊的裝置時，需要 Office 365 授權或 Azure AD Premium 授權。這包括由 Active Directory Federation Services (AD FS) 對內部部署資源強制執行的原則。
 
 如需有關內部部署之條件式存取案例的詳細資訊，請參閱[從任何裝置加入工作場所網路，並在公司的各個應用程式提供 SSO 和無縫式的次要因素驗證](https://technet.microsoft.com/library/dn280945.aspx)。
 
@@ -118,13 +119,14 @@
 5.	在 [部署和管理] 區段之下，遵循步驟 1 到 3 來整合 Azure Active Directory 與您的本機目錄。
   1.	新增網域。
   2.	安裝和執行 Azure AD Connect︰使用[自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)中的指示來安裝 Azure AD Connect。
-  3. 驗證及管理目錄同步作業。此步驟中可取得單一登入的指示。>[AZURE.NOTE]如上面連結的文件所述設定與 AD FS 同盟。>[AZURE.NOTE]您不需要設定任何預覽功能。
+  3. 驗證及管理目錄同步作業。此步驟中可取得單一登入的指示。>[AZURE.NOTE] 如上面連結的文件所述設定與 AD FS 同盟。>[AZURE.NOTE] 您不需要設定任何預覽功能。
   
    
 
 
 ## 升級您的 Active Directory 網域服務結構描述
-> [AZURE.NOTE]升級您的 Active Directory 結構描述無法回復。建議您先在測試環境中執行此作業。
+> [AZURE.NOTE]
+升級您的 Active Directory 結構描述無法回復。建議您先在測試環境中執行此作業。
 
 1. 使用具有企業系統管理員與結構描述系統管理員權限的帳戶登入網域控制站。
 2. 將 **[media]\\support\\adprep** 目錄和子目錄複製到其中一個 Active Directory 網域控制站。 
@@ -132,12 +134,13 @@
 4. 從命令提示字元，瀏覽至 adprep 目錄並執行：**adprep.exe /forestprep**。請遵循畫面上的指示完成結構描述升級。
 
 ## 準備您的 Active Directory 以支援裝置
->[AZURE.NOTE]這是您必須執行的一次性作業，以準備 Active Directory 樹系支援裝置。您必須以企業系統管理員權限登入，且您的 Active Directory 樹系必須具有 Windows Server 2012 R2 結構描述才能完成此程序。
+>[AZURE.NOTE] 這是您必須執行的一次性作業，以準備 Active Directory 樹系支援裝置。您必須以企業系統管理員權限登入，且您的 Active Directory 樹系必須具有 Windows Server 2012 R2 結構描述才能完成此程序。
 
 
 ##準備您的 Active Directory 樹系以支援裝置
 
-> [AZURE.NOTE]這是您必須執行的一次性作業，以準備 Active Directory 樹系支援裝置。您必須以企業系統管理員權限登入，且您的 Active Directory 樹系必須具有 Windows Server 2012 R2 結構描述才能完成此程序。
+> [AZURE.NOTE]
+這是您必須執行的一次性作業，以準備 Active Directory 樹系支援裝置。您必須以企業系統管理員權限登入，且您的 Active Directory 樹系必須具有 Windows Server 2012 R2 結構描述才能完成此程序。
 
 ### 準備您的 Active Directory 樹系
 
@@ -183,6 +186,9 @@ Azure Active Directory 裝置註冊使用 iOS 裝置的空中下載設定檔註�
 3. 選取 [加入]。
 4. 出現提示時，請使用您的認證登入。裝置會隨即加入。
 
+###使用 Azure Active Directory 裝置註冊加入 Windows 7 裝置
+若要註冊加入網域的 Windows 7 裝置，您需要部署裝置註冊軟體套件。此軟體套件稱為 Workplace Join for Windows 7，可以從 [Microsoft Connect 網站](https://connect.microsoft.com/site1164)下載。在[為加入網域的 Windows 7 裝置設定自動註冊裝置](active-directory-conditional-access-automatic-device-registration-windows7.md)可取得如何使用此套件的指示。
+
 ### 使用 Azure Active Directory 裝置註冊加入 Android 裝置
 
 [Android 的 Azure Authenticator 主題](active-directory-conditional-access-azure-authenticator-app.md)包含如何在 Android 裝置上安裝 Azure Authenticator 應用程式並加入工作帳戶的指示。在 Android 裝置上成功建立工作帳戶時，該裝置是加入至組織的工作場所。
@@ -198,7 +204,8 @@ Azure Active Directory 裝置註冊使用 iOS 裝置的空中下載設定檔註�
 請考慮下列案例：您在 AD FS 中建立應用程式信賴憑證者信任，並設定只允許已註冊裝置的發佈授權規則。現在只允許已註冊的裝置存取應用程式。若要讓使用者輕鬆存取應用程式，您可以設定自訂拒絕存取訊息，包含如何加入其裝置的指示。現在您的使用者可順暢地註冊其裝置以存取應用程式。
 
 下列步驟說明如何實作此案例。
->[AZURE.NOTE]本節假設您已在 AD FS 中為您的應用程式設定信賴憑證者信任。
+>[AZURE.NOTE]
+本節假設您已在 AD FS 中為您的應用程式設定信賴憑證者信任。
 
 1. 開啟 AD FS MMC 工具並瀏覽至 [AD FS] > [信任關係] > [信賴憑證者信任]。
 2. 找出新存取規則將套用的應用程式。以滑鼠右鍵按一下應用程式並選取 [編輯宣告規則...]
@@ -237,4 +244,4 @@ Azure Active Directory 裝置註冊使用 iOS 裝置的空中下載設定檔註�
 
 ![使用者尚未向 Azure AD 註冊其裝置時的錯誤螢幕擷取畫面](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

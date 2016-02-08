@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na" 
-   ms.date="10/15/2015"
+   ms.date="01/25/2016"
    ms.author="coreyp"/>
    
 #編譯 Azure 自動化 DSC 中的組態#
@@ -56,9 +56,9 @@
     $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
     
     while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)       	
-    {$CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
+    {
+    	$CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
     	Start-Sleep -Seconds 3
-    
     }
     
     $CompilationJob | Get-AzureRmAutomationDscCompilationJobOutput –Stream Any 
@@ -70,33 +70,34 @@ DSC 組態中的參數宣告 (包括參數類型和屬性) 的運作方式與 Az
 
 下列範例使用名為 **FeatureName** 和 **IsPresent** 的兩個參數，來判斷在編譯期間產生的 **ParametersExample.sample** 節點組態中的屬性值。
 
-    Configuration ParametersExample {
+    Configuration ParametersExample
+    {
     	param(
-    	[Parameter(Mandatory=$true)]
+    		[Parameter(Mandatory=$true)]
     
-    	[string] $FeatureName,
+    		[string] $FeatureName,
     
-    	[Parameter(Mandatory=$true)]
-    	[boolean] $IsPresent
+    		[Parameter(Mandatory=$true)]
+    		[boolean] $IsPresent
+    	)
     
-    )
+    	$EnsureString = "Present"
+    	if($IsPresent -eq $false)
+    	{
+    		$EnsureString = "Absent"
+    	}
     
-    $EnsureString = "Present"
-    if($IsPresent -eq $false) {
-    	$EnsureString = "Absent"
-    
-    }
-    
-    Node "sample" {
-    
-    	WindowsFeature ($FeatureName + "Feature") {
-    		Ensure = $EnsureString
-    		Name = $FeatureName
+    	Node "sample"
+    	{
+    		WindowsFeature ($FeatureName + "Feature")
+    		{
+    			Ensure = $EnsureString
+    			Name = $FeatureName
     		}
     	}
     }
 
-您可以在 Azure 自動化 DSC 入口網站或 Azure PowerShell 中編譯使用基本參數的 DSC 組態：
+您可以在 Azure Automation DSC 入口網站或 Azure PowerShell 中編譯使用基本參數的 DSC 組態：
 
 ###入口網站###
 
@@ -123,31 +124,28 @@ PowerShell 會要求您將參數放入 [hashtable](http://technet.microsoft.com/
 
 **ConfigurationData** 可讓您在使用 PowerShell DSC 時區隔結構化組態與任何環境特定組態。請參閱[區隔 PowerShell DSC 中的 "What" 與 "Where"](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx)，以深入了解 **ConfigurationData**。
 
->[AZURE.NOTE]使用 Azure PowerShell 在 Azure 自動化 DSC 中進行編譯時可以使用 **ConfigurationData**，但使用 Azure 入口網站時則否。
+>[AZURE.NOTE] 使用 Azure PowerShell 在 Azure 自動化 DSC 中進行編譯時可以使用 **ConfigurationData**，但使用 Azure 入口網站時則否。
 
 下列範例 DSC 組態會透過 **$ConfigurationData** 和 **$AllNodes** 關鍵字來使用 **ConfigurationData**。在此範例中也將需要 [**xWebAdministration** 模組](https://www.powershellgallery.com/packages/xWebAdministration/)：
 
-     Configuration ConfigurationDataSample {
+     Configuration ConfigurationDataSample
+     {
     	Import-DscResource -ModuleName xWebAdministration -Name MSFT_xWebsite
     
     	Write-Verbose $ConfigurationData.NonNodeData.SomeMessage 
     
     	Node $AllNodes.Where{$_.Role -eq "WebServer"}.NodeName
     	{
-    
     		xWebsite Site
     		{
-    
     			Name = $Node.SiteName
     			PhysicalPath = $Node.SiteContents
     			Ensure   = "Present"
     		}
-    
     	}
- 
     }
 
-您可以使用 PowerShell 編譯上述 DSC 組態，將兩個節點組態新增至 Azure 自動化 DSC 提取伺服器 **ConfigurationDataSample.MyVM1** 和 **ConfigurationDataSample.MyVM3**：
+您可以使用 PowerShell 編譯上述 DSC 組態。PowerShell 會將以下兩個節點組態新增至 Azure Automation DSC 提取伺服器：**ConfigurationDataSample.MyVM1** 和 **ConfigurationDataSample.MyVM3**：
 
     $ConfigData = @{
     	AllNodes = @(
@@ -195,45 +193,39 @@ Azure 自動化 DSC 組態和 Runbook 中的資產參考是相同的。如需詳
 
 下列範例說明使用自動化認證資產的 DSC 組態。
 
-    Configuration CredentialSample {
-    
+    Configuration CredentialSample
+    {
        $Cred = Get-AutomationPSCredential -Name "SomeCredentialAsset"
     
-    	Node $AllNodes.NodeName { 
-    
-    		File ExampleFile { 
+    	Node $AllNodes.NodeName
+    	{ 
+    		File ExampleFile
+    		{ 
     			SourcePath = "\\Server\share\path\file.ext" 
     			DestinationPath = "C:\destinationPath" 
     			Credential = $Cred 
-    
        		}
-    
     	}
-    
     }
 
-您可以使用 PowerShell 編譯上述 DSC 組態，將兩個節點組態新增至 Azure 自動化 DSC 提取伺服器：**CredentialSample.MyVM1** 和 **CredentialSample.MyVM2**。
+您可以使用 PowerShell 編譯上述 DSC 組態。PowerShell 會將以下兩個節點組態新增至 Azure Automation DSC 提取伺服器：**CredentialSample.MyVM1** 和 **CredentialSample.MyVM2**：
 
 
     $ConfigData = @{
     	AllNodes = @(
-    		 @{
+    		@{
     			NodeName = "*"
     			PSDscAllowPlainTextPassword = $True
     		},
-    
     		@{
     			NodeName = "MyVM1"
     		},
-    
     		@{
     			NodeName = "MyVM2"
     		}
     	)
-    } 
-    
-    
+    }
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

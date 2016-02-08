@@ -24,7 +24,7 @@
 
 ### 地理區域備援服務部署
 
-今日可在 Azure 的幾乎每個地理區域中透過 UI 使用 Azure 排程器。可以使用 Azure 排程器的區域清單[列於這裡](http://azure.microsoft.com/regions/#services)。如果裝載區域中的資料中心表現出無法使用，則 Azure 排程器的容錯移轉功能可從另一個資料中心使用服務。
+今日可在 Azure 的幾乎每個地理區域中透過 UI 使用 Azure 排程器。可以使用 Azure 排程器的區域清單[列於這裡](https://azure.microsoft.com/regions/#services)。如果裝載區域中的資料中心表現出無法使用，則 Azure 排程器的容錯移轉功能可從另一個資料中心使用服務。
 
 ### 地理區域工作複寫
 
@@ -72,10 +72,9 @@ Azure 排程器可讓您設定重試原則。根據預設，如果工作失敗�
 
  [如何使用 Azure 排程器建立複雜的排程和進階週期](scheduler-advanced-complexity.md)
 
- [Azure 排程器 REST API 參考](https://msdn.microsoft.com/library/dn528946)
+ [Azure 排程器 REST API 參考](https://msdn.microsoft.com/library/mt629143)
 
  [Azure 排程器 PowerShell Cmdlet 參考](scheduler-powershell-reference.md)
-
 
  [Azure 排程器限制、預設值和錯誤碼](scheduler-limits-defaults-errors.md)
 
@@ -88,4 +87,4 @@ Azure 排程器可讓您設定重試原則。根據預設，如果工作失敗�
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

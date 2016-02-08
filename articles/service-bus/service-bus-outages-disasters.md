@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 將應用程式與服務匯流排中斷和災難隔絕的最佳做法
@@ -37,7 +37,7 @@
 
 ## 保護佇列和主題免於發生訊息存放區失敗
 
-非分割的佇列或主題會指派給一個訊息存放區。如果此訊息存放區無法使用，該佇列或主題上的所有作業都會失敗。另一方面，分割佇列包含多個片段。每個片段都儲存在不同的訊息存放區。當訊息傳送至分割的佇列或主題時，服務匯流排會指派訊息到其中一個片段。如果對應的訊息存放區無法使用，服務匯流排會盡可能將訊息寫入至不同的片段。如需分割實體的詳細資訊，請參閱[分割訊息實體][]。
+非分割的佇列或主題會指派給一個訊息存放區。如果此訊息存放區無法使用，該佇列或主題上的所有作業都會失敗。另一方面，分割佇列包含多個片段。每個片段都儲存在不同的訊息存放區。當訊息傳送至分割的佇列或主題時，服務匯流排會指派訊息到其中一個片段。如果對應的訊息存放區無法使用，服務匯流排會盡可能將訊息寫入至不同的片段。如需分割實體的詳細資訊，請參閱[分割的傳訊實體][]。
 
 ## 保護資料中心免於中斷或災害
 
@@ -67,7 +67,7 @@
 
 [搭配服務匯流排代理訊息的異地複寫][]範例示範訊息實體的主動複寫。
 
-> [AZURE.NOTE]主動複寫方法會讓作業數目加倍，因此這個方法會導致更高的成本。
+> [AZURE.NOTE] 主動複寫方法會讓作業數目加倍，因此這個方法會導致更高的成本。
 
 ## 被動複寫
 
@@ -99,14 +99,14 @@
 - [Azure 業務持續性技術指引][]
 
   [服務匯流排驗證]: service-bus-authentication-and-authorization.md
-  [分割訊息實體]: service-bus-partitioning.md
-  [非同步傳訊模式和高可用性]: https://msdn.microsoft.com/library/azure/dn292562.aspx
+  [分割的傳訊實體]: service-bus-partitioning.md
+  [非同步傳訊模式和高可用性]: service-bus-async-messaging.md
   [搭配服務匯流排轉送訊息的異地複寫]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
   [BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
   [BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
   [搭配服務匯流排代理訊息的異地複寫]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
   [持續訊息傳送者]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
-  [Azure SQL Database 商務持續性]: https://msdn.microsoft.com/library/azure/hh852669.aspx
+  [Azure SQL Database 商務持續性]: ../sql-database/sql-database-business-continuity.md
   [Azure 業務持續性技術指引]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

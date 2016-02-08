@@ -20,7 +20,7 @@
 
 Azure 搜尋服務是託管的雲端搜尋服務，讓提供絕佳的搜尋體驗變得更容易。可以搜尋之前，您需要使用您的資料填入 Azure 搜尋服務索引。如果 Azure SQL Database 中有您的資料，您可以在 Azure 搜尋服務中，使用全新**適用於 Azure SQL Database 的 Azure 搜尋服務索引子** (或簡稱 **Azure SQL 索引子**)，自動化編製索引的程序。這表示您可以減少編寫程式碼的工作，並且減少需要處理的基礎結構。
 
-目前索引子僅適用於 Azure SQL Database、Azure VM 上的 SQL Server，以及 [Azure DocumentDB](../documentdb/documentdb-search-indexer.md)。在本文中，我們將重點放在如何針對 Azure SQL Database 使用索引子。如果您想參閱其他資料來源的支援，請您在 [Azure 搜尋意見反應論壇](http://feedback.azure.com/forums/263029-azure-search)上提供寶貴意見。
+目前索引子僅適用於 Azure SQL Database、Azure VM 上的 SQL Server，以及 [Azure DocumentDB](../documentdb/documentdb-search-indexer.md)。在本文中，我們將重點放在如何針對 Azure SQL Database 使用索引子。如果您想參閱其他資料來源的支援，請您在 [Azure 搜尋意見反應論壇](https://feedback.azure.com/forums/263029-azure-search/)上提供寶貴意見。
 
 本文將介紹使用索引子的機制，但我們也會深入了解僅在 SQL 資料庫上出現的功能與行為 (例如，整合變更追蹤)。
 
@@ -279,4 +279,4 @@ Azure 搜尋服務是託管的雲端搜尋服務，讓提供絕佳的搜尋體�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -31,7 +31,7 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 開始閱讀本文之前，您必須符合下列必要條件：
 
 - 安裝 Visual Studio 2012 或 2013。
-- 下載並安裝 [Azure .NET SDK](http://azure.microsoft.com/downloads/)。
+- 下載並安裝 [Azure .NET SDK](https://azure.microsoft.com/downloads/)。
 - 在您的訂閱中建立 Azure 資源群組。下列是 PowerShell 指令碼範例。如需 Azure PowerShell 資訊，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。  
 
 
@@ -366,4 +366,4 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

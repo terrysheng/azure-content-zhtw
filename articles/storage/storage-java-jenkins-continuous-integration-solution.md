@@ -80,9 +80,9 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 1. 在 Jenkins 儀表板中，按一下 [Manage Jenkins]。
 2. 在 [Manage Jenkins] 頁面中，按一下 [Configure System]。
 3. 在 [Microsoft Azure Storage Account Configuration] 區段中：
-    1. 輸入您的儲存體帳戶名稱，您可從 [Azure 入口網站](portal.azure.com)取得此名稱。
-    2. 輸入您的儲存體帳戶金鑰，這項資訊也可以從 [Azure 入口網站](portal.azure.com)取得。
-    3. 如果您使用的是公用 Azure 雲端，請在 [Blob Service Endpoint URL] 使用預設值。如果您使用的是其他 Azure 雲端，請使用 [Azure 入口網站](portal.azure.com)中為您儲存體帳戶所指定的端點。 
+    1. 輸入您的儲存體帳戶名稱，您可從 [Azure 入口網站](https://portal.azure.com)取得此名稱。
+    2. 輸入您的儲存體帳戶金鑰，這項資訊也可以從 [Azure 入口網站](https://portal.azure.com)取得。
+    3. 如果您使用的是公用 Azure 雲端，請在 [Blob Service Endpoint URL] 使用預設值。如果您使用的是其他 Azure 雲端，請使用 [Azure 入口網站](https://portal.azure.com)中為您儲存體帳戶所指定的端點。 
     4. 按一下 [Validate storage credentials] 以驗證您的儲存體帳戶。 
     5. [選用] 如果您有其他儲存體帳戶要提供給 Jenkins CI 使用，請按一下 [Add more Storage Accounts]。
     6. 按一下 [Save] 儲存您的設定。
@@ -111,13 +111,13 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
     在您為 [Execute Windows batch command] 輸入指令碼的 [Command] 區段底下有一個 Jenkins 所辨識環境變數的連結。按一下該連結即可了解各環境變數名稱和描述。請注意，含有特殊字元的環境變數 (例如 **BUILD\_URL** 環境變數) 不能當做容器名稱或共同虛擬路徑。
 
 8. 在此範例中，請按一下 [Make new container public by default]。(如果您想要使用私用容器，則需要建立共用存取簽章來允許存取。這已超出本主題的範圍。若要深入了解共用存取簽章，請參閱[建立共用存取簽章](http://go.microsoft.com/fwlink/?LinkId=279889)。)
-9. [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [Clean container before uploading]\(若不想清除容器的內容，請維持不核取)。
+9. [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [Clean container before uploading] (若不想清除容器的內容，請維持不核取)。
 10. 在 [List of Artifacts to upload]，輸入 **text/*.txt**。
 11. 在 [Common virtual path for uploaded artifacts] 中，基於本教學課程的目的，輸入 **${BUILD\_ID}/${BUILD\_NUMBER}**。
 12. 按一下 [Save] 儲存您的設定。
 13. 在 Jenkins 儀表板中，按一下 [Build Now] 執行 **MyJob**。檢查主控台輸出中的狀態。當建置後動作開始上傳組建成品時，主控台輸出中將會包含 Azure 儲存體的狀態訊息。
 14. 順利完成作業時，您就可以開啟公用 Blob 來檢查組建成品。
-    1. 登入 [Azure 入口網站](portal.azure.com)。
+    1. 登入 [Azure 入口網站](https://portal.azure.com)。
     2. 按一下 [儲存體]。
     3. 按一下用於 Jenkins 的儲存體帳戶名稱。
     4. 按一下 [容器]。
@@ -150,7 +150,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
     
-    (上述格式適用於公用 Azure 雲端。如果您使用其他 Azure 雲端，請使用 [Azure 入口網站](portal.azure.com)中的端點來判斷您的 URL 端點。)
+    (上述格式適用於公用 Azure 雲端。如果您使用其他 Azure 雲端，請使用 [Azure 入口網站](https://portal.azure.com)中的端點來判斷您的 URL 端點。)
 
     在上述格式中，`storageaccount` 代表您的儲存體帳戶名稱，`container_name` 代表您的容器名稱，而 `blob_name` 代表您的 Blob 名稱。容器名稱中可以有多個路徑，這些路徑彼此以正斜線 **/** 分隔。本教學課程中的範例容器名稱為 **MyJob**，使用的共同虛擬路徑則是 **${BUILD\_ID}/${BUILD\_NUMBER}**，產生的 Blob URL 格式如下：
 
@@ -162,4 +162,4 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
   [認識 Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

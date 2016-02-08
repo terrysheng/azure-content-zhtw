@@ -27,7 +27,7 @@
 - 請確定 Azure 發佈程序中的專案關係人會收到寄到這個地址的電子郵件。電子郵件地址必須受到監控並且有所回應才能完成發佈程序。
 - 請避免讓帳戶只與一個人關聯。否則如果該位人員離職，可能會影響您存取 SKU 相關資訊和發佈 SKU 的能力。
 
-> [AZURE.IMPORTANT]如果您只要發佈免費項目 (或自備授權)，就不必填寫公司稅務和銀行資訊。
+> [AZURE.IMPORTANT] 如果您只要發佈免費項目 (或自備授權)，就不必填寫公司稅務和銀行資訊。
 
 > 您必須先完成公司註冊才能開始使用。不過，您的公司在開發人員中心帳戶中處理稅務和銀行資訊時，開發人員就可以開始著手在[發佈入口網站](https://publish.windowsazure.com)中建立虛擬機器映像、取得認證以及在 Azure 預備環境中加以測試。只有在將供應項目發佈到 Azure Marketplace 的最後一個步驟時，才必須完成賣方帳戶的核准程序。
 
@@ -35,10 +35,11 @@
 
 
 ## 取得 Azure「隨用隨付」訂用帳戶
-這是您要用來建立 VM 映像和提交映像到 [Azure Marketplace](http://azure.microsoft.com/marketplace) 的訂用帳戶。如果您沒有現有的訂用帳戶，請在 https://account.windowsazure.com/signup?offer=ms-azr-0003p 註冊。
+這是您要用來建立 VM 映像和提交映像到 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 的訂用帳戶。如果您沒有現有的訂用帳戶，請在 https://account.windowsazure.com/signup?offer=ms-azr-0003p 註冊。
 
 ## 「銷售來源」國家/地區
-> [AZURE.WARNING]如果要在 Azure Marketplace 上銷售服務，請務必確認您的註冊實體是其中一個經過核准的「銷售來源」國家/地區。這項限制是基於付款和稅務理由。我們正積極在不久的將來擴充這份國家/地區清單，所以請密切注意。如需完整清單，請參閱 [Azure Marketplace 參與原則](http://go.microsoft.com/fwlink/?LinkID=526833)的第 1 節 b 項。
+> [AZURE.WARNING]
+如果要在 Azure Marketplace 上銷售服務，請務必確認您的註冊實體是其中一個經過核准的「銷售來源」國家/地區。這項限制是基於付款和稅務理由。我們正積極在不久的將來擴充這份國家/地區清單，所以請密切注意。如需完整清單，請參閱 [Azure Marketplace 參與原則](http://go.microsoft.com/fwlink/?LinkID=526833)的第 1 節 b 項。
 
 ## 後續步驟
 接下來是每個供應項目類型的技術性必要條件。按一下您想要在 Azure Marketplace 建立之個別供應項目類型的文章連結。
@@ -50,4 +51,4 @@
 ## 另請參閱
 - [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

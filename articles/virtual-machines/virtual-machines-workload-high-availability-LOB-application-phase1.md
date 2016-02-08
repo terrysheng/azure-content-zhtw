@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # 企業營運應用程式工作負載第 1 階段：設定 Azure
@@ -62,7 +62,7 @@
 
 **表格 S：虛擬網路中的子網路**
 
-> [AZURE.NOTE]為求簡化，這個預先定義的架構會使用單一子網路。如果您想要涵蓋一組流量篩選器來模擬子網路隔離，可以使用 Azure [網路安全性群組](virtual-networks-nsg.md)。
+> [AZURE.NOTE] 為求簡化，這個預先定義的架構會使用單一子網路。如果您想要涵蓋一組流量篩選器來模擬子網路隔離，可以使用 Azure [網路安全性群組](virtual-networks-nsg.md)。
 
 如果這兩部內部部署的 DNS 伺服器是您最初在虛擬網路上設定網域控制站時想要使用的伺服器，請填寫表格 D。請為每部 DNS 伺服器指定易記名稱和單一 IP 位址。這個易記名稱不需要與 DNS 伺服器的主機名稱或電腦名稱相符。請注意，其中列出兩個空白項目，但您可以增加更多項目。與您的 IT 部門合作來決定這份清單。
 
@@ -87,7 +87,7 @@
 
 首先，開啟 Azure PowerShell 提示字元。
 
-> [AZURE.NOTE]下列命令集使用 Azure PowerShell 1.0 版和更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
+> [AZURE.NOTE] 下列命令集使用 Azure PowerShell 1.0 版和更新版本。如需詳細資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
 
 首先，開啟 Azure PowerShell 提示字元並登入您的帳戶。
 
@@ -184,7 +184,7 @@
 
 若要設定內部部署 VPN 裝置，您將需要下列項目：
 
-- 適用於虛擬網路之 Azure VPN 閘道器的公用 IPv4 位址 (從 **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName** 命令顯示)。
+- 顯示自 **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName** 命令的虛擬網路 Azure VPN 閘道的公用 IPv4 位址。
 - 適用於站對站 VPN 連接的 IPsec 預先共用金鑰 (資料表 V- 項目 8 – 值資料行)。
 
 接著，確定可從您的內部部署網路連線到虛擬網路的位址空間。這通常是藉由將對應到虛擬網路位址空間的路由新增到您的 VPN 裝置，然後將該路由公告至組織網路中路由基礎結構的剩餘部分。與您的 IT 部門合作來決定如何執行這個動作。
@@ -220,4 +220,4 @@
 
 - 依照[第 2 階段](virtual-machines-workload-high-availability-LOB-application-phase2.md)指示繼續此工作負載的設定。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

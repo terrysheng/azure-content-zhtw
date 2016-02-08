@@ -18,7 +18,7 @@
 
 # Cortana 分析程序實務 - 在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集
 
-在這個逐步解說中，我們會示範使用 Cortana 分析程序端對端搭配 [Azure HDInsight Hadoop 叢集](http://azure.microsoft.com/services/hdinsight/)來儲存、探索、號召工程人員，並從其中一個公開可用的 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 資料集縮減取樣資料。我們使用 Azure Machine Learning 在此資料上建置二進位的分類模型。我們也會顯示如何將其中一個模型發佈為 Web 服務。
+在這個逐步解說中，我們會示範使用 Cortana 分析程序端對端搭配 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)來儲存、探索、號召工程人員，並從其中一個公開可用的 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 資料集縮減取樣資料。我們使用 Azure Machine Learning 在此資料上建置二進位的分類模型。我們也會顯示如何將其中一個模型發佈為 Web 服務。
 
 此外，也可以使用 IPython Notebook 來完成此逐步解說中說明的工作。想要嘗試這種方法的使用者，應該查閱[使用 Hive ODBC 連線的 Criteo 逐步解說](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb)主題。
 
@@ -663,4 +663,4 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 這包含我們的端對端逐步解說，示範如何使用 Azure Machine Learning 處理大型資料集。我們開始使用 1 TB 的資料、建構預測模型，並將其部署為雲端中的 Web 服務。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,11 +20,11 @@
 
 了解如何使用 Apache Storm on HDInsight 處理 Azure 事件中樞的感應器資料，並使用 D3.js 將其視覺化呈現。本文件也將說明如何透過 Azure 虛擬網路，將 Storm on HDInsight 與 HBase on HDInsight 連線，並將拓撲的資料儲存至 HBase。
 
-> [AZURE.NOTE]本文件中的資訊以在 HDInsight 叢集上使用以 Windows 為基礎的 Storm 為基礎。如需從 HDInsight 上以 Linux 為基礎的 Storm 使用 Azure 事件中樞的相關資訊，請參閱[使用 HDInsight 上的 Storm 處理 Azure 事件中樞的事件](hdinsight-storm-develop-java-event-hub-topology.md)
+> [AZURE.NOTE] 本文件中的資訊以在 HDInsight 叢集上使用以 Windows 為基礎的 Storm 為基礎。如需從 HDInsight 上以 Linux 為基礎的 Storm 使用 Azure 事件中樞的相關資訊，請參閱[使用 HDInsight 上的 Storm 處理 Azure 事件中樞的事件](hdinsight-storm-develop-java-event-hub-topology.md)
 
 ## 必要條件
 
-* Azure 訂閱。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* Azure 訂閱。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 * [Apache Storm on HDInsight 叢集](../hdinsight-storm-getting-started.md)
 
@@ -36,7 +36,7 @@
 
 * [Git](http://git-scm.com/)
 
-> [AZURE.NOTE]您也可以透過 [Chocolatey NuGet](http://chocolatey.org/) 封裝管理員取得 Java、JDK、Maven 和 Git。
+> [AZURE.NOTE] 您也可以透過 [Chocolatey NuGet](http://chocolatey.org/) 封裝管理員取得 Java、JDK、Maven 和 Git。
 
 ## 架構
 
@@ -58,7 +58,7 @@
 
 	* [Socket.io](http://socket.io/) 用於 Storm 拓撲及網站間的即時通訊。
 
-		> [AZURE.NOTE]這是實作的詳細資料。您可以使用任何通訊架構，例如原始 WebSockets 或 SignalR。
+		> [AZURE.NOTE] 這是實作的詳細資料。您可以使用任何通訊架構，例如原始 WebSockets 或 SignalR。
 
 	* [D3.js](http://d3js.org/) 用於為傳送至網站的資料繪圖。
 
@@ -70,7 +70,7 @@
 
 ![拓撲圖](./media/hdinsight-storm-sensor-data-analysis/sensoranalysis.png)
 
-> [AZURE.NOTE]這是相當簡化的拓撲樣貌。執行過程中，系統會針對正在讀取之事件中樞的每個分割區，為各個元件建立執行個體。這些執行個體會分散至叢集的節點上，而資料在節點間路由傳送的情形如下：
+> [AZURE.NOTE] 這是相當簡化的拓撲樣貌。執行過程中，系統會針對正在讀取之事件中樞的每個分割區，為各個元件建立執行個體。這些執行個體會分散至叢集的節點上，而資料在節點間路由傳送的情形如下：
 >
 > * 從 Spout 傳送至剖析器的資料會經過負載平衡。
 > * 從剖析器傳送至儀表板及 HBase (若有使用) 的資料會依照裝置識別碼分組，讓相同裝置的訊息一律傳送至相同元件。
@@ -87,7 +87,7 @@
 
 使用此範例之前，您必須建立 Azure 事件中樞供 Storm 拓撲讀取。由於用以讀取事件中樞資料的元件只能透過叢集取得，因此您也必須建立 Storm on HDInsight 拓撲。
 
-> [AZURE.NOTE]最後將能透過 Maven 取得事件中樞 Spout。
+> [AZURE.NOTE] 最後將能透過 Maven 取得事件中樞 Spout。
 
 ### 設定事件中樞
 
@@ -123,7 +123,7 @@
 
 5. 輸入 1 做為要用於此叢集的 [資料節點] 數目。
 
-	> [AZURE.NOTE]為了將本文使用的叢集成本降到最低，請將 [叢集大小] 降到 1，並於使用完畢之後刪除叢集。
+	> [AZURE.NOTE] 為了將本文使用的叢集成本降到最低，請將 [叢集大小] 降到 1，並於使用完畢之後刪除叢集。
 
 6. 輸入系統管理員的 [使用者名稱] 和 [密碼]，然後按一下箭頭以繼續。
 
@@ -155,7 +155,7 @@
 			dashboard/ - this is the node.js web dashboard
 			SendEvents/ - utilities to send fake sensor data
 
-> [AZURE.NOTE]本文件不會深入探究此範例包含的程式碼，不過會附上程式碼的完整註解。
+> [AZURE.NOTE] 本文件不會深入探究此範例包含的程式碼，不過會附上程式碼的完整註解。
 
 開啟 **Config.properties** 檔案，並新增您先前建立事件中樞時使用的資訊。資訊新增完畢後，請儲存檔案。
 
@@ -202,7 +202,7 @@
 
 ### 開始產生資料
 
-> [AZURE.NOTE]本節所示步驟採用 Node.js，因此可在任何平台上執行。如需其他語言的範例，請查看 [SendEvents] 目錄。
+> [AZURE.NOTE] 本節所示步驟採用 Node.js，因此可在任何平台上執行。如需其他語言的範例，請查看 [SendEvents] 目錄。
 
 
 1. 開啟新的命令提示字元或終端機，將目錄變更至 **hdinsight-eventhub-example/SendEvents/nodejs**，然後使用以下命令安裝應用程式需要的相依項目：
@@ -316,7 +316,7 @@
 
 9. 在頁面底部，可看到預設的子網路名稱為 Subnet-1。使用 [加入子網路] 按鈕來加入 **Subnet-2**。這些子網路中將存放 Storm 和 HBase 叢集。
 
-	> [AZURE.NOTE]在本文中，我們使用只有一個節點的叢集。如果您建立多節點的叢集，則必須驗證叢集使用之子網路的 [CIDR (位址計數)]。位址計數必須大於背景工作節點數量加上 7 的數目 (閘道器：2、前端節點：2、Zookeeper：3)。例如，如果您需要 10 個節點的 HBase 叢集，那麼子網路的位址計數必須大於 17 (10 + 7)。否則，部署作業將會失敗。
+	> [AZURE.NOTE] 在本文中，我們使用只有一個節點的叢集。如果您建立多節點的叢集，則必須驗證叢集使用之子網路的 [CIDR (位址計數)]。位址計數必須大於背景工作節點數量加上 7 的數目 (閘道器：2、前端節點：2、Zookeeper：3)。例如，如果您需要 10 個節點的 HBase 叢集，那麼子網路的位址計數必須大於 17 (10 + 7)。否則，部署作業將會失敗。
 	>
 	> 強烈建議您一個叢集只指定一個子網路。
 
@@ -334,7 +334,7 @@
 
 5. 輸入 1 做為要用於此叢集的 [資料節點] 數目。在 [區域/虛擬網路] 中，選取稍早建立的 Azure 虛擬網路。在 [虛擬網路子網路] 中，選取 [Subnet-1]。
 
-	> [AZURE.NOTE]為了將本文使用的叢集成本降到最低，請將 [叢集大小] 降到 1，並於使用完畢之後刪除叢集。
+	> [AZURE.NOTE] 為了將本文使用的叢集成本降到最低，請將 [叢集大小] 降到 1，並於使用完畢之後刪除叢集。
 
 6. 輸入系統管理員的 [使用者名稱] 和 [密碼]，然後按一下箭頭以繼續。
 
@@ -377,7 +377,7 @@
 
 	這樣會啟用 HBase bolt。
 
-	> [AZURE.NOTE]只有在部署至 Storm 叢集時，才應啟用 HBase Bolt，在本機上測試時則不應啟用。
+	> [AZURE.NOTE] 只有在部署至 Storm 叢集時，才應啟用 HBase Bolt，在本機上測試時則不應啟用。
 
 ### HBase 與 Storm 資料
 
@@ -422,4 +422,4 @@
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

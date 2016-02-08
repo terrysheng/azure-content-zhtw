@@ -49,7 +49,7 @@ Azure RemoteApp 可讓您在任何裝置上與使用者共用應用程式和資�
 - 提供內部部署網路 + Azure VNET 的完整存取權限。
 - 包含應用程式和資料的網域加入存取權限。遠端應用程式可以向您內部部署的 Active Directory 驗證 - 接著便能存取您網域中的資源。
 - 以現有的 System Center 解決方案和 Windows 群組原則啟用進階監視和管理功能 (透過在 Windows Server 2012 R2 上建置的自訂映像)
-- 支援[快速路由](http://azure.microsoft.com/services/expressroute/)，可將您的 Azure VNET 連線到本機 VNET。
+- 支援[快速路由](https://azure.microsoft.com/services/expressroute/)，可將您的 Azure VNET 連線到本機 VNET。
 
 使用 [使用 VNET 建立] 選項建立，並「選擇」加入網域。
 
@@ -91,4 +91,4 @@ AD Connect 有兩種案例 - 使用密碼同步化或使用 AD 同盟。請參�
 
 [建立雲端集合](remoteapp-create-cloud-deployment.md)或[建立混合式集合](remoteapp-create-hybrid-deployment.md) -立即建立。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

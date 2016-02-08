@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/15/2015"
+    ms.date="01/22/2016"
     ms.author="torsteng" />
 
 # Azure SQL Database 彈性資料庫查詢概觀 (預覽)
@@ -21,7 +21,7 @@
 
 ## 彈性資料庫查詢的新功能
 
-* 現在可以用 T-SQL 完全定義具有單一遠端資料庫的跨資料庫查詢案例。如此即可進行遠端資料庫的唯讀查詢。目前內部部署 SQL Server 客戶可選擇使用三和四部分的名稱或 SQL DB 的連結伺服器來移轉應用程式。 
+* 現在可以用 T-SQL 完全定義具有單一遠端資料庫的跨資料庫查詢案例。如此即可進行遠端資料庫的唯讀查詢。目前內部部署 SQL Server 客戶可選擇使用三和四部分的名稱或 SQL DB 的連結伺服器來移轉應用程式。
 * 除了進階效能層以外，標準效能層現在也支援彈性查詢。請參閱下面「預覽限制」一節中較低效能層級的效能限制。
 * 彈性查詢現在可以將 SQL 參數發送至遠端資料庫以供執行。
 * 使用 sp\_execute\_fanout 的遠端預存程序呼叫或遠端函式引動現在可以使用類似於 [sp\_executesql](https://msdn.microsoft.com/library/ms188001.aspx) 的參數。
@@ -39,9 +39,9 @@
 彈性查詢的客戶案例可依下列拓撲區分特性：
 
 * **垂直資料分割 - 跨資料庫查詢** (拓撲 1)：資料會垂直分割於資料層中的數個資料庫。一般而言，不同的資料表集位於不同的資料庫。這表示不同資料庫的結構描述不同。比方說，庫存的所有資料表都位於一個資料庫上，而所有會計相關資料表則位於另一個資料庫上。此拓撲的常見使用案例會要求使用者跨多個資料庫中的資料表進行查詢或編譯報表。
-* **水平資料分割 - 分區化** (拓撲 2)：資料會進行水平分割，以將資料列分散於相應放大的資料層。使用此方法時，所有參與資料庫的結構描述都相同。這個方法也稱為「分區化」。使用 (1) 彈性資料庫工具程式庫或 (2) 自行分區化可以執行和管理分區化。彈性查詢用於查詢或編譯跨多個分區的報表。 
+* **水平資料分割 - 分區化** (拓撲 2)：資料會進行水平分割，以將資料列分散於相應放大的資料層。使用此方法時，所有參與資料庫的結構描述都相同。這個方法也稱為「分區化」。使用 (1) 彈性資料庫工具程式庫或 (2) 自行分區化可以執行和管理分區化。彈性查詢用於查詢或編譯跨多個分區的報表。
 
-> [AZURE.NOTE]彈性資料庫查詢最適合可在資料層執行大部分處理的非經常性報告案例。對於繁重的報告工作負載或有更多複雜查詢的資料倉儲案例，也請考慮使用 [Azure SQL 資料倉儲](http://azure.microsoft.com/services/sql-data-warehouse/)。
+> [AZURE.NOTE] 彈性資料庫查詢最適合可在資料層執行大部分處理的非經常性報告案例。對於繁重的報告工作負載或有更多複雜查詢的資料倉儲案例，也請考慮使用 [Azure SQL 資料倉儲](https://azure.microsoft.com/services/sql-data-warehouse/)。
 
 
 ## 彈性資料庫查詢案例
@@ -74,7 +74,7 @@
 
 ![水平資料分割 - 使用彈性查詢來報告分區化資料層][5]
 
-> [AZURE.NOTE]專用彈性資料庫查詢資料庫必須是 SQL DB v12 資料庫。分區本身沒有任何限制。
+> [AZURE.NOTE] 專用彈性資料庫查詢資料庫必須是 SQL DB v12 資料庫。分區本身沒有任何限制。
 
 
 ## 實作彈性資料庫查詢
@@ -85,19 +85,19 @@
 
 下列步驟可針對需要存取位於某個遠端 SQLDB 資料庫上的某個資料表的垂直資料分割案例，設定彈性資料庫查詢：
 
-*    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey 
+*    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
 *    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource (類型為 **RDBMS**)
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
 
 執行 DDL 陳述式之後，您可以存取遠端資料表 "mytable"，就像存取本機資料表一樣。Azure SQL Database 會自動開啟遠端資料庫的連線、處理您對遠端資料庫的要求，以及傳回結果。如需垂直資料分割案例所需步驟的詳細資訊，請參閱[垂直資料分割的彈性查詢](sql-database-elastic-query-vertical-partitioning.md)。
 
-### 水平資料分割 - 分區化 
+### 水平資料分割 - 分區化
 
 下列步驟可針對需要存取 (通常) 位於數個遠端 SQLDB 資料庫上的一組資料表的水平資料分割案例，設定彈性資料庫查詢：
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) mymasterkey
-*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential 
+*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) mycredential
 *    使用彈性資料庫用戶端程式庫，建立代表您的資料層的[分區對應](sql-database-elastic-scale-shard-map-management.md)。   
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) mydatasource (類型為 **SHARD\_MAP\_MANAGER**)
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) mytable
@@ -117,7 +117,7 @@
 ## 預覽限制
 * 在標準效能層上執行第一個彈性查詢最多可能需要幾分鐘的時間。需要這些時間才能載入彈性查詢功能；較高效能層級改善了載入效能。
 * 尚未支援來自 SSMS 或 SSDT 的外部資料來源或外部資料表的指令碼。
-* SQL DB 匯入/匯出還不支援外部資料來源和外部資料表。如果您需要使用匯入/匯出，請在匯出前卸除這些物件，然後在匯入後予以重新建立。 
+* SQL DB 匯入/匯出還不支援外部資料來源和外部資料表。如果您需要使用匯入/匯出，請在匯出前卸除這些物件，然後在匯入後予以重新建立。
 * 彈性資料庫查詢目前僅支援外部資料表的唯讀存取。不過，您可以在定義外部資料表的資料庫上使用完整的 T-SQL 功能。這很有用，例如，使用 SELECT <column_list> INTO <local_table> 保存暫存結果，或在彈性查詢資料庫上定義預存程序來參考外部資料表。
 * 除了 nvarchar (max) 以外，外部資料表定義不支援 LOB 類型。若要解決此問題，您可以在將 LOB 類型轉型成 nvarchar (max) 的遠端資料庫上建立檢視表、透過此檢視表而非基底資料表定義外部資料表，然後在查詢中將它轉換回原始的 LOB 類型。
 * 目前不支援外部資料表的資料行統計資料。支援資料表統計資料，但必須以手動方式建立。
@@ -135,7 +135,7 @@
 
 以下可取得更多有關水平資料分割和分區化案例的資訊：
 
-* [水平資料分割和分區化概觀](sql-database-elastic-query-horizontal-partitioning.md) 
+* [水平資料分割和分區化概觀](sql-database-elastic-query-horizontal-partitioning.md)
 * 請嘗試我們的逐步教學課程，立即體驗完整的實用範例：[開始使用彈性資料庫查詢進行垂直資料分割 (分區化)](sql-database-elastic-query-getting-started.md)。
 
 
@@ -150,4 +150,4 @@
 
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

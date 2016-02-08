@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 預覽：建置 Windows 桌面應用程式
@@ -26,7 +26,7 @@
 
 ## 1\.取得 Azure AD B2C 目錄
 
-您必須先建立目錄或租用戶，才可使用 Azure AD B2C。目錄為所有使用者、應用程式、群組等項目的容器。如果您尚未擁有目錄，請先[建立 B2C 目錄](active-directory-b2c-get-started.md)，再繼續下一個步驟。
+您必須先建立目錄或租用戶，才可使用 Azure AD B2C。目錄為所有使用者、應用程式、群組等項目的容器。如果您尚未建立目錄，請先[建立 B2C 目錄](active-directory-b2c-get-started.md)，再繼續下一個步驟。
 
 ## 2\.建立應用程式
 
@@ -40,12 +40,12 @@
 
 ## 3\.建立您的原則
 
-在 Azure AD B2C 中，每個使用者經驗皆是由某個[**原則**](active-directory-b2c-reference-policies.md)定義的。此程式碼範例包含三種身分識別體驗 - 註冊、登入和編輯設定檔。您必須為每個類型建立一個原則，如[原則參考文章](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)所述。建立您的三個原則時，請務必：
+在 Azure AD B2C 中，每個使用者經驗皆是由某個[**原則**](active-directory-b2c-reference-policies.md)所定義。此程式碼範例包含三種身分識別體驗 - 註冊、登入和編輯設定檔。您必須為每個類型建立一個原則，如[原則參考文章](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)所述。建立您的三個原則時，請務必：
 
-- 在身分識別提供者刀鋒視窗中，選擇 [使用者識別碼註冊] 或 [電子郵件註冊]。
+- 在身分識別提供者刀鋒視窗中選擇 [使用者識別碼註冊] 或 [電子郵件註冊]。
 - 在註冊原則中選擇 [顯示名稱] 和其他一些註冊屬性。
-- 在每個原則中選擇 [顯示名稱] 和 [物件識別碼] 宣告做為應用程式宣告。您也可以選擇其他宣告。
-- 建立每個原則後，請複製原則的 [名稱]。其前置詞應該為 `b2c_1_`。稍後您將需要這些原則名稱。 
+- 在每個原則中選擇 [顯示名稱] 和 [物件識別碼]宣告做為應用程式宣告。您也可以選擇其他宣告。
+- 建立每個原則後，請複製原則的**名稱**。其前置詞應該為 `b2c_1_`。稍後您將需要這些原則名稱。
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -53,19 +53,19 @@
 
 ## 4\.下載程式碼
 
-本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet) 上。若要遵循指示建立範例，您可以[下載 .zip 格式的基本架構專案](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip)，或複製基本架構：
+本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet) 上。若要遵循指示建立範例，您可以[下載 .zip 格式的基本架構專案](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip)或複製基本架構：
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
 ```
 
-完整的應用程式也提供 [.zip 格式](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip)；您也可以在相同儲存機制的 `complete` 分支取得。
+完整的 App 也[提供 .zip 格式](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip)，或放在相同儲存機制的 `complete` 分支。
 
-下載範例程式碼後，請開啟 Visual Studio `.sln` 檔案開始進行。您會看到方案中有兩個專案：`TaskClient` 專案和 `TaskService` 專案。`TaskClient` 是使用者與之互動的 WPF 桌面應用程式。`TaskService` 是應用程式的後端 Web API，可儲存每位使用者的待辦事項清單。在此案例中，因為 `TaskClient` 和 `TaskService` 會組成一個邏輯應用程式，所以將以單一**應用程式識別碼**表示。
+下載範例程式碼後，請開啟 Visual Studio `.sln` 檔案開始進行。您會看到方案中有兩個專案：`TaskClient` 專案和 `TaskService` 專案。`TaskClient` 是與使用者互動的 WPF 傳統型應用程式。`TaskService` 是應用程式的後端 Web API，可儲存每位使用者的待辦事項清單。在此案例中，因為 `TaskClient` 和 `TaskService` 會組成一個邏輯應用程式，所以將以單一**應用程式識別碼**表示。
 
 ## 5\.設定工作服務
 
-當 `TaskService` 收到 `TaskClient` 的要求時，它會檢查存取權杖是否有效，進而驗證要求。為了驗證存取權杖，您必須將應用程式的一些資訊提供給 `TaskService`。在 `TaskService` 專案中，開啟專案根目錄中的 `web.config` 檔案，並取代 `<appSettings>` 區段中的值：
+當 `TaskService` 收到 `TaskClient` 的要求時，它會檢查存取權杖是否有效可驗證要求。為了驗證存取權杖，您必須提供應用程式的一些資訊給 `TaskService`。在 `TaskService` 專案中，開啟專案根目錄中的 `web.config` 檔案，取代 `<appSettings>` 區段中的值：
 
 ```
 <appSettings>
@@ -79,12 +79,12 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
   </appSettings>
 ```
-  
+
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 如果您想要了解 Web API 如何安全地使用 Azure AD B2C 驗證要求，請查看 [Web API 使用者入門文章](active-directory-b2c-devquickstarts-api-dotnet.md)。
 
-## 6.執行原則
+## 6\.執行原則
 既然 `TaskService` 已準備好驗證要求，我們便可以實作 `TaskClient`。您的應用程式與 Azure AD B2C 通訊時會傳送 HTTP 驗證要求，並指定它想要在要求中執行的原則。對於 .NET 桌面應用程式，您可以使用 **Active Directory Authentication Library (ADAL)** 來傳送 OAuth 2.0 驗證訊息、執行原則，並取得呼叫 Web API 的權杖。
 
 #### 安裝 ADAL
@@ -111,7 +111,7 @@ public static class Globals
 	public static string redirectUri = "urn:ietf:wg:oauth:2.0:oob";
 
 }
-``` 
+```
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
@@ -130,7 +130,7 @@ public partial class MainWindow : Window
 		base.OnInitialized(e);
 
 		// The authority parameter can be constructed by appending the name of your tenant to 'https://login.microsoftonline.com/'.
-		// ADAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app, 
+		// ADAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app,
 		// we've extended the ADAL TokenCache and created a simple FileCache in this app.
 		authContext = new AuthenticationContext("https://login.microsoftonline.com/contoso.onmicrosoft.com", new FileCache());
 		...
@@ -158,14 +158,14 @@ private async void SignUp(object sender, RoutedEventArgs e)
 		SignUpButton.Visibility = Visibility.Collapsed;
 		EditProfileButton.Visibility = Visibility.Visible;
 		SignOutButton.Visibility = Visibility.Visible;
-		
+
 		// When the request completes successfully, you can get user information form the AuthenticationResult
 		UsernameLabel.Content = result.UserInfo.Name;
 
 		// After the sign up successfully completes, display the user's To-Do List
 		GetTodoList();
 	}
-	
+
 	// Handle any exeptions that occurred during execution of the policy.
 	catch (AdalException ex)
 	{
@@ -234,12 +234,12 @@ private async void GetTodoList()
 		TokenCacheItem tci = authContext.TokenCache.ReadItems().Where(i => i.Scope.Contains(Globals.clientId) && !string.IsNullOrEmpty(i.Policy)).FirstOrDefault();
 		string existingPolicy = tci == null ? null : tci.Policy;
 
-		// We use the PromptBehavior.Never flag to indicate that ADAL should throw an exception if a token 
-		// could not be acquired from the cache, rather than automatically prompting the user to sign in. 
+		// We use the PromptBehavior.Never flag to indicate that ADAL should throw an exception if a token
+		// could not be acquired from the cache, rather than automatically prompting the user to sign in.
 		result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
 			null, Globals.clientId, new Uri(Globals.redirectUri),
 			new PlatformParameters(PromptBehavior.Never, null), existingPolicy);
-	
+
 	}
 
 	// If a token could not be acquired silently, we'll catch the exception and show the user a message.
@@ -282,7 +282,7 @@ private async void GetTodoList()
 	// Call the To Do list service.
 	HttpResponseMessage response = await httpClient.GetAsync(taskServiceUrl + "/api/tasks");
 	...
-``` 
+```
 
 每當您想要檢查權杖快取中的權杖時，就可以採用這種相同的模式，而不需要提示使用者登入。例如，當應用程式啟動時，我們想要檢查 `FileCache` 中是否有任何現有的權杖，以便每次應用程式執行時，都能維持使用者的登入工作階段。在 `MainWindow` 的 `OnInitialized` 事件中 (處理首次執行)，您會看到相同的程式碼。
 
@@ -314,16 +314,16 @@ private void SignOut(object sender, RoutedEventArgs e)
 
 ## 10\.新增社交 IDP
 
-目前，應用程式只支援以所謂的**本機帳戶** (連同使用者名稱與密碼一起儲存在 B2C 目錄中的帳戶) 進行使用者註冊和登入。透過 Azure AD B2C，您可以增加支援其他**識別提供者** (簡稱 IDP)，而不需要變更任何程式碼。
+目前，應用程式只支援以所謂的**本機帳戶** (連同使用者名稱與密碼一起儲存在 B2C 目錄中的帳戶) 執行使用者註冊和登入。有了 Azure AD B2C，您可以增加支援其他**身分識別提供者** (簡稱 IDP)，而不需變更任何程式碼。
 
 若要將社交 IDP 加入至應用程式，請依照下面一篇或兩篇文章中的詳細指示開始。針對您想要支援的每個 IDP，您必須在其系統中註冊應用程式並取得用戶端識別碼。
 
 - [將 Facebook 設定為 IDP](active-directory-b2c-setup-fb-app.md)
 - [將 Google 設定為 IDP](active-directory-b2c-setup-goog-app.md)
 - [將 Amazon 設定為 IDP](active-directory-b2c-setup-amzn-app.md)
-- [將 LinkedIn 設定為 IDP](active-directory-b2c-setup-li-app.md) 
+- [將 LinkedIn 設定為 IDP](active-directory-b2c-setup-li-app.md)
 
-將識別提供者加入 B2C 目錄之後，您必須回來編輯所有三個原則以包含新的 IDP，如[原則參考文章](active-directory-b2c-reference-policies.md)所述。儲存您的原則之後，重新執行應用程式。在每一次的身分識別體驗中，您應該會看到新的 IDP 已加入成為登入和註冊選項。
+將身分識別提供者加入 B2C 目錄之後，您必須回來編輯您的所有三個原則以包含新的 IDP，如[原則參考](active-directory-b2c-reference-policies.md)文章所述。儲存您的原則之後，重新執行應用程式。在每一次的身分識別體驗中，您應該會看到新的 IDP 已加入成為登入和註冊選項。
 
 您可以自由試驗您的原則，並觀察範例應用程式上有何效果 - 新增/移除 IDP、操作應用程式宣告、變更註冊屬性。試驗到您開始了解原則、驗證要求和 ADAL 如何結合在一起為止。
 
@@ -343,4 +343,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

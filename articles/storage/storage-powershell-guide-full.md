@@ -12,18 +12,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="01/24/2016"
 	ms.author="robinsh"/>
 
 # 搭配使用 Azure PowerShell 與 Azure 儲存體
 
 ## 概觀
 
-在本指南中，我們將探討如何透過[適用於儲存體的 Azure 服務管理 Cmdlet](https://msdn.microsoft.com/library/azure/dn806401.aspx)，使用 Azure 儲存體執行各種開發和管理工作。
+Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows PowerShell 管理 Azure。它是以工作為基礎的命令列殼層和指令碼語言，特別為系統管理所設計。使用 PowerShell，您可以輕鬆控制和自動執行 Azure 服務和應用程式的管理。例如，您可透過 [Azure 入口網站](https://portal.azure.com)執行的工作，大多也可使用 Cmdlet 來執行。
 
-Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows PowerShell 管理 Azure。它是以工作為基礎的命令列殼層和指令碼語言，特別為系統管理所設計。使用 PowerShell，您可以輕鬆控制和自動執行 Azure 服務和應用程式的管理。例如，您可透過 [Azure 入口網站](portal.azure.com)執行的工作，大多也可使用 Cmdlet 來執行。
+在本指南中，我們將探討如何使用 [Azure 儲存體 Cmdlet](https://msdn.microsoft.com/library/azure/mt269418.aspx)，以 Azure 儲存體執行各種開發和管理工作。
 
-本指南假設您過去有使用 [Azure 儲存體](http://azure.microsoft.com/documentation/services/storage/)和 [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx) 的經驗。本指南提供的一些指令碼示範如何搭配使用 PowerShell 與 Azure 儲存體。您應該在執行每個指令碼之前，先根據您的組態更新指令碼變數。
+本指南假設您過去有使用 [Azure 儲存體](https://azure.microsoft.com/documentation/services/storage/)和 [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx) 的經驗。本指南提供的一些指令碼示範如何搭配使用 PowerShell 與 Azure 儲存體。您應該在執行每個指令碼之前，先根據您的組態更新指令碼變數。
 
 本指南的第一節提供 Azure 儲存體和 PowerShell 的快速概覽。如需詳細資訊和指示，請從[搭配使用 Azure PowerShell 與 Azure 儲存體的先決條件](#prerequisites-for-using-azure-powershell-with-azure-storage)開始閱讀。
 
@@ -32,7 +32,7 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 
 本節說明如何在 5 分鐘內透過 PowerShell 存取 Azure 儲存體。
 
-**Azure 新手：**取得 Microsoft Azure 訂用帳戶和與該訂用帳戶相關聯的 Microsoft 帳戶。如需 Azure 購買選項的資訊，請參閱[免費試用](http://azure.microsoft.com/pricing/free-trial/)、[購買選項](http://azure.microsoft.com/pricing/purchase-options/)和[會員優惠](http://azure.microsoft.com/pricing/member-offers/) (適用於 MSDN、Microsoft 合作夥伴網路、BizSpark 和其他 Microsoft 方案的成員)。
+**Azure 新手：**取得 Microsoft Azure 訂用帳戶和與該訂用帳戶相關聯的 Microsoft 帳戶。如需 Azure 購買選項的資訊，請參閱[免費試用](https://azure.microsoft.com/pricing/free-trial/)、[購買選項](https://azure.microsoft.com/pricing/purchase-options/)和[會員優惠](https://azure.microsoft.com/pricing/member-offers/) (適用於 MSDN、Microsoft 合作夥伴網路、BizSpark 和其他 Microsoft 方案的成員)。
 
 如需有關 Azure 帳戶的詳細資訊，請參閱[管理帳戶、訂用帳戶和系統管理角色](https://msdn.microsoft.com/library/azure/hh531793.aspx)。
 
@@ -106,7 +106,7 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 			Add-AzureAccount
 				Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
 		
-		b.若要在 [Azure 入口網站](portal.azure.com)中尋找並複製您的訂用帳戶名稱，請按一下左側 [中樞] 功能表，再按一下 [訂用帳戶]。複製您想要在執行本指南中的指令碼時使用的訂用帳戶名稱。
+		b.若要在 [Azure 入口網站](https://portal.azure.com)中尋找並複製您的訂用帳戶名稱，請按一下左側 [中樞] 功能表，再按一下 [訂用帳戶]。複製您想要在執行本指南中的指令碼時使用的訂用帳戶名稱。
 		
 		![Azure 入口網站][Image2]
 		  
@@ -131,7 +131,7 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 ![下載 Blob][Image3]
 
 
-> [AZURE.NOTE]「在 5 分鐘內開始使用 Azure 儲存體和 PowerShell」一節提供有關如何搭配使用 Azure PowerShell 與 Azure 儲存體的快速簡介。如需詳細資訊和指示，我們鼓勵您閱讀下列各節。
+> [AZURE.NOTE] 「在 5 分鐘內開始使用 Azure 儲存體和 PowerShell」一節提供有關如何搭配使用 Azure PowerShell 與 Azure 儲存體的快速簡介。如需詳細資訊和指示，我們鼓勵您閱讀下列各節。
 
 ## 搭配使用 Azure PowerShell 與 Azure 儲存體的先決條件
 您需要有 Azure 訂用帳戶和帳戶，才能如上面說明的方法執行本指南提供的 PowerShell Cmdlet。
@@ -185,7 +185,7 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 	    $StorageAccountName = "yourstorageaccount"
 	    New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $location
 
-> [AZURE.IMPORTANT]儲存體帳戶的名稱在 Azure 中必須是獨一無二的且必須小寫。如需命名慣例與限制，請參閱[關於 Azure 儲存體帳戶](storage-create-storage-account.md)和[命名和參考容器、Blob 及中繼資料](http://msdn.microsoft.com/library/azure/dd135715.aspx)。
+> [AZURE.IMPORTANT] 儲存體帳戶的名稱在 Azure 中必須是獨一無二的且必須小寫。如需命名慣例與限制，請參閱[關於 Azure 儲存體帳戶](storage-create-storage-account.md)和[命名和參考容器、Blob 及中繼資料](http://msdn.microsoft.com/library/azure/dd135715.aspx)。
 
 ### 如何設定預設 Azure 儲存體帳戶
 您可以在訂用帳戶中有多個儲存體帳戶。您可以選擇其中一個儲存體帳戶，並將它設為相同 PowerShell 工作階段中所有儲存體命令的預設儲存體帳戶。這可讓您執行 Azure PowerShell 儲存體命令，而不需明確指定儲存體內容。
@@ -244,7 +244,7 @@ Azure 儲存體中的每個 Blob 必須位於一個容器中。您可以使用 N
     $StorageContainerName = "yourcontainername"
     New-AzureStorageContainer -Name $StorageContainerName -Permission Off
 
-> [AZURE.NOTE]匿名讀取權限有三個層級：**Off**、**Blob** 和 **Container**。若要防止匿名存取 Blob，請將 Permission 參數設定為 **Off**。新容器預設為私人，且只能由帳戶擁有者存取。若要允許 Blob 資源的匿名公開讀取權限，但不允許容器中繼資料或容器中 Blob 清單的匿名公開讀取權限，請將 Permission 參數設定為 **Blob**。若要允許 Blob 資源、容器中繼資料或容器中 Blob 清單的完整公開讀取權限，請將 Permission 參數設定為 **Container**。如需詳細資訊，請參閱[管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)。
+> [AZURE.NOTE] 匿名讀取權限有三個層級：**Off**、**Blob** 和 **Container**。若要防止匿名存取 Blob，請將 Permission 參數設定為 **Off**。新容器預設為私人，且只能由帳戶擁有者存取。若要允許 Blob 資源的匿名公開讀取權限，但不允許容器中繼資料或容器中 Blob 清單的匿名公開讀取權限，請將 Permission 參數設定為 **Blob**。若要允許 Blob 資源、容器中繼資料或容器中 Blob 清單的完整公開讀取權限，請將 Permission 參數設定為 **Container**。如需詳細資訊，請參閱[管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)。
 
 ### 如何將 Blob 上傳到容器中
 Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。如需詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx)。
@@ -647,7 +647,7 @@ Azure 檔案儲存體為使用標準 SMB 通訊協定的應用程式提供共用
 
 
 ## 如何使用適用於美國政府和 Azure China 的 Azure 儲存體
-Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府的 Azure Government](http://azure.microsoft.com/features/gov/)、[適用於全球 Azure 的 AzureCloud](https://manage.windowsazure.com) 和[由中國世紀互聯運作的AzureChinaCloud for Azure](http://www.windowsazure.cn/)。您可以針對美國政府與 Azure 中國部署新的 Azure 環境。
+Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府的 Azure Government](https://azure.microsoft.com/features/gov/)、[適用於全球 Azure 的 AzureCloud](https://manage.windowsazure.com) 和[由中國世紀互聯運作的AzureChinaCloud for Azure](http://www.windowsazure.cn/)。您可以針對美國政府與 Azure 中國部署新的 Azure 環境。
 
 若要搭配使用 Azure 儲存體與 AzureChinaCloud，您需要建立與 AzureChinaCloud 相關聯的儲存體內容。遵循下列步驟，以便開始使用產品：
 
@@ -663,7 +663,7 @@ Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府�
 
     	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
 
-若要將 Azure 儲存體與[適用於美國政府的 Azure Government ](http://azure.microsoft.com/features/gov/) 搭配使用，請定義一個新環境，然後在此環境中建立新的儲存體內容：
+若要將 Azure 儲存體與[適用於美國政府的 Azure Government ](https://azure.microsoft.com/features/gov/) 搭配使用，請定義一個新環境，然後在此環境中建立新的儲存體內容：
 
 1. 呼叫 [Add-AzureEnvironment](http://msdn.microsoft.com/library/azure/dn790364.aspx) Cmdlet，以便為您的私人資料中心建立新的 Azure 環境。
 
@@ -681,7 +681,7 @@ Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府�
 ## 後續步驟
 在本指南，您已了解如何使用 Azure PowerShell 管理 Azure 儲存體。以下是有助於您深入了解的一些相關文章和資源。
 
-- [Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
+- [Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
 - [Azure 儲存體 PowerShell Cmdlet](http://msdn.microsoft.com/library/azure/dn806401.aspx)
 - [Windows PowerShell 參考](https://msdn.microsoft.com/library/ms714469.aspx)
 
@@ -730,4 +730,4 @@ Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府�
 [Next Steps]: #next
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

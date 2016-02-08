@@ -29,7 +29,7 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 
 使用 ADF，您可將現有的資料處理服務組合成具高可用性的資料管線，並在雲端中管理。這些資料管線可排程來內嵌、準備、轉換、分析和發佈資料，而 ADF 會管理並協調所有複雜的資料和處理中的相依項目。您可以快速地在雲端中建置和部署解決方案，藉此連接逐漸增加的內部部署和雲端資料來源。
 
-若資料需要持續在同時存取內部部署和雲端資源的混合式案例中移轉，或是資料有交易、需要修改，或者在移轉過程中新增了商務邏輯，請考慮使用 ADF。ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排程和監視的工作。ADF 也有其他功能，例如支援複雜作業。如需 ADF 的詳細資訊，請參閱 [Azure Data Factory (ADF)](http://azure.microsoft.com/services/data-factory/) 上的文件。
+若資料需要持續在同時存取內部部署和雲端資源的混合式案例中移轉，或是資料有交易、需要修改，或者在移轉過程中新增了商務邏輯，請考慮使用 ADF。ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排程和監視的工作。ADF 也有其他功能，例如支援複雜作業。如需 ADF 的詳細資訊，請參閱 [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/) 上的文件。
 
 ## <a name="scenario"></a>案例
 
@@ -44,12 +44,12 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 ## <a name="prereqs"></a>必要條件
 本教學課程假設您有：
 
-* 一個 **Azure 訂用帳戶**。如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* 一個 **Azure 儲存體帳戶**。在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱[檢視、複製和重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
+* **Azure 訂用帳戶**。如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 儲存體帳戶**。在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱[檢視、複製和重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
 * 存取 **Azure SQL Database**。如果您必須設定 Azure SQL Database，[開始使用 Microsoft Azure SQL Database](sql-database-get-started.md) 一文中提供如何佈建 Azure SQL Database 之新執行個體的相關資訊。
 * 已在本機上安裝和設定 **Azure PowerShell**。如需指示，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
 
-> [AZURE.NOTE]此程序會使用 [Azure 入口網站](https://ms.portal.azure.com/)。
+> [AZURE.NOTE] 此程序會使用 [Azure 入口網站](https://ms.portal.azure.com/)。
 
 ##<a name="upload-data"></a>將資料上傳至您的內部部署 SQL Server
 
@@ -94,7 +94,7 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 
 使用下列指令碼型程序，建立指定資料集結構、位置及可用性的資料表。JSON 檔案可用來定義資料表。如需這些檔案結構的詳細資訊，請參閱[資料集](data-factory-create-datasets.md)。
 
-> [AZURE.NOTE]您應該先執行 `Add-AzureAccount` Cmdlet，再執行 [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) Cmdlet，以確認已選取正確的 Azure 訂用帳戶來執行命令。如需此 Cmdlet 的文件，請參閱 [Add-AzureAccount](https://msdn.microsoft.com/library/azure/dn790372.aspx)。
+> [AZURE.NOTE]  您應該先執行 `Add-AzureAccount` Cmdlet，再執行 [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) Cmdlet，以確認已選取正確的 Azure 訂用帳戶來執行命令。如需此 Cmdlet 的文件，請參閱 [Add-AzureAccount](https://msdn.microsoft.com/library/azure/dn790372.aspx)。
 
 資料表中的 JSON 型定義使用下列名稱：
 
@@ -107,7 +107,7 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 2. [Blob 資料表](#adf-table-blob-store)
 3. [SQL Azure 資料表](#adf-table-azure-sql)
 
-> [AZURE.NOTE]下列程序會使用 Azure PowerShell 來定義和建立 ADF 活動。但是，這些工作也可以透過 Azure 入口網站來完成。如需詳細資料，請參閱[建立輸入和輸出資料集](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets)。
+> [AZURE.NOTE]  下列程序會使用 Azure PowerShell 來定義和建立 ADF 活動。但是，這些工作也可以透過 Azure 入口網站來完成。如需詳細資料，請參閱[建立輸入和輸出資料集](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets)。
 
 ###<a name="adf-table-onprem-sql"></a>SQL 內部部署資料表
 
@@ -211,7 +211,7 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 * 指令碼假設**管線名稱**為 *AMLDSProcessPipeline*。
 * 此外請注意，我們會設定管線週期以每日執行，並使用預設的作業執行時間 (12 am UTC)。
 
-> [AZURE.NOTE]下列程序會使用 Azure PowerShell 來定義和建立 ADF 管線。但是，此工作也可以透過 Azure 入口網站來完成。如需詳細資料，請參閱[建立和執行管線](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline)。
+> [AZURE.NOTE]  下列程序會使用 Azure PowerShell 來定義和建立 ADF 管線。但是，此工作也可以透過 Azure 入口網站來完成。如需詳細資料，請參閱[建立和執行管線](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline)。
 
 使用上面提供的資料表定義，將 ADF 的管線定義指定為：
 
@@ -299,6 +299,6 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 
 當管線執行時，您應該可以看到資料在選取用於 Blob 的容器中顯示 (每天一個檔案)。
 
-請注意，我們尚未運用 ADF 提供的功能，以遞增方式輸送資料。如需關於如何執行此功能和 ADF 提供之其他功能的詳細資料，請參閱 [ADF 文件](http://azure.microsoft.com/services/data-factory/)。
+請注意，我們尚未運用 ADF 提供的功能，以遞增方式輸送資料。如需關於如何執行此功能和 ADF 提供之其他功能的詳細資料，請參閱 [ADF 文件](https://azure.microsoft.com/services/data-factory/)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

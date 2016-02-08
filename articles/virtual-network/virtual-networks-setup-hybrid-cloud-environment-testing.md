@@ -46,9 +46,9 @@
 4.	建立站對站 VPN 連線。
 5.	設定 DC2。 
 
-如果您仍沒有 Azure 訂用帳戶，可以在[試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 上註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
+如果您仍沒有 Azure 訂用帳戶，可以在[試用 Azure](https://azure.microsoft.com/pricing/free-trial/) 上註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
->[AZURE.NOTE]Azure 中的虛擬機器和虛擬網路閘道會在執行時持續耗用成本。這項成本是按照您的免費試用版、MSDN 訂閱或付費訂閱進行計算。若要在您不使用時降低執行這個測試環境的成本，請參閱此主題中的[將這個環境的持續成本降至最低](#costs)，以取得更多資訊。
+>[AZURE.NOTE] Azure 中的虛擬機器和虛擬網路閘道會在執行時持續耗用成本。這項成本是按照您的免費試用版、MSDN 訂閱或付費訂閱進行計算。若要在您不使用時降低執行這個測試環境的成本，請參閱此主題中的[將這個環境的持續成本降至最低](#costs)，以取得更多資訊。
 
 此設定要求一個測試子網路，其中最多包含四部使用公用 IP 位址直接連線到網際網路的電腦。如果您沒有這些資源，您也可以[設定用於測試的模擬混合式雲端環境](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)。模擬的混合式雲端測試環境僅要求 Azure 訂用帳戶。
 
@@ -309,7 +309,7 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。這�
 
 若要將在此環境中執行虛擬機器的成本降至最低，請盡速執行所需的測試和示範，然後在不使用時予以刪除或關閉虛擬機器。例如，您可以使用 Azure 自動化和 Runbook 在每個營業日結束時自動關閉 Test\_VNET 虛擬網路中的虛擬機器。如需詳細資訊，請參閱[開始使用 Azure 自動化](../automation-create-runbook-from-samples.md)。
 
-Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機器。如需詳細資訊，請參閱[定價 - 虛擬網路](http://azure.microsoft.com/pricing/details/virtual-network/)。若要將這個 VPN 閘道的成本降至最低，請使用這些步驟建立測試環境，並盡速執行所需的測試和示範或刪除閘道。
+Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機器。如需詳細資訊，請參閱[定價 - 虛擬網路](https://azure.microsoft.com/pricing/details/virtual-network/)。若要將這個 VPN 閘道的成本降至最低，請使用這些步驟建立測試環境，並盡速執行所需的測試和示範或刪除閘道。
 
 1.	從本機電腦的 Azure 管理入口網站中，依序按一下左窗格中的 [網路]、[TestVNET] 及 [儀表板]。
 2.	在工作列中，按一下 [刪除閘道]。出現提示時，按一下 [是]。等候閘道刪除而且其狀態變更為 [尚未建立閘道]。
@@ -329,4 +329,4 @@ Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機
 接著，移至您本機電腦上的 Azure 管理入口網站，等候 TestVNET 虛擬網路顯示連線狀態。
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

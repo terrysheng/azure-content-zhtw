@@ -21,7 +21,7 @@
 
 這些版本資訊彙總了舊版的變更和已知問題。
 
->[AZURE.NOTE]我們想要收到客戶的意見，並專注於修正會影響您的問題。若要回報問題或提問，請在 [Azure 媒體服務 MSDN 論壇]中貼文。
+>[AZURE.NOTE] 我們想要收到客戶的意見，並專注於修正會影響您的問題。若要回報問題或提問，請在 [Azure 媒體服務 MSDN 論壇]中貼文。
 
 - [目前的已知問題](#issues)
 - [REST API 版本歷程記錄](#rest_version_history)
@@ -92,9 +92,9 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](http://github.com/Azure/a
 
 ##<a id="nov_changes_15"></a>2015 年 11 月版本
 
-Azure 媒體服務現在在雲端提供 Google Widevine 授權傳遞服務。如需詳細資訊，請閱讀[本公告部落格](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)。同時也參閱[本教學課程](media-services-protect-with-drm.md)和 [GitHub 儲存機制](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)。
+Azure 媒體服務現在在雲端提供 Google Widevine 授權傳遞服務。如需詳細資訊，請閱讀[本公告部落格](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)。同時也參閱[本教學課程](media-services-protect-with-drm.md)和 [GitHub 儲存機制](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)。
 
-請注意，Azure 媒體服務所提供的 Widevine 授權傳遞服務為預覽狀態。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)。
+請注意，Azure 媒體服務所提供的 Widevine 授權傳遞服務為預覽狀態。如需詳細資訊，請參閱[此部落格](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)。
 
 ##<a id="oct_changes_15"></a>2015 年 10 月版本
 
@@ -106,24 +106,24 @@ Azure 媒體服務 (AMS) 現在也在下列資料中心推出：巴西南部、�
 
 ##<a id="september_changes_15"></a>2015 年 9 月版本 
 
-- AMS 現在提供以 Widevine Modular DRM 技術，保護點播視訊 (VOD) 和即時資料流的能力。您可以使用下列傳遞服務合作夥伴來協助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)。
+- AMS 現在提供以 Widevine Modular DRM 技術，保護點播視訊 (VOD) 和即時資料流的能力。您可以使用下列傳遞服務合作夥伴來協助您傳遞 Widevine 授權：[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/)、[EZDRM](http://ezdrm.com/)、[castLabs](http://castlabs.com/company/partners/azure/)。如需詳細資訊，請參閱[此部落格](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)。
 
 	您可以使用 [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (從版本 3.5.1 開始) 或 REST API 來設定 AssetDeliveryConfiguration 以使用 Widevine。
 
-- AMS 已新增對 Apple ProRes 影片的支援。您現在可以上傳使用 Apple ProRes 或其他轉碼器的 QuickTime 來源視訊檔案。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/)。
+- AMS 已新增對 Apple ProRes 影片的支援。您現在可以上傳使用 Apple ProRes 或其他轉碼器的 QuickTime 來源視訊檔案。如需詳細資訊，請參閱[此部落格](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/)。
 
-- 您現在可以使用 Media Encoder Standard 進行字幕裁剪和即時封存解壓縮。如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)。
+- 您現在可以使用 Media Encoder Standard 進行字幕裁剪和即時封存解壓縮。如需詳細資訊，請參閱[此部落格](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)。
 
 - 進行了下列篩選更新：
 
 	- 您現在可以使用 Apple HTTP Live Streaming (HLS) 格式搭配僅限音訊的篩選條件。這項更新可讓您在 URL 中指定 (audio-only=false) 來移除僅限音訊的曲目。
 	- 在定義您的資產篩選條件時，現在您可以結合多個 (最多 3 個) 篩選器到單一 URL 中。
 
-	如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)。
+	如需詳細資訊，請參閱[此](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)部落格。
 
 - AMS 現在支援 HLS v4 的 I-Frames。 I-Frames 支援最佳化向前快轉和倒轉的作業。根據預設，所有 HLS v4 輸出都包含 I-Frames 播放清單 (EXT-X-I-FRAME-STREAM-INF)。
  
-	如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support)。
+	如需詳細資訊，請參閱[此](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)部落格。
 
 ##<a id="august_changes_15"></a>2015 年 8 月版本
 
@@ -136,7 +136,7 @@ Azure 媒體服務 (AMS) 現在也在下列資料中心推出：巴西南部、�
 
 ##<a id="july_changes_15"></a>2015 年 7 月版本
 
-- 宣布 Media Encoder Standard 的一般可用性。如需詳細資訊，請參閱[此部落格文章](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
+- 宣布 Media Encoder Standard 的一般可用性。如需詳細資訊，請參閱[此部落格文章](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
 
 	Media Encoder Standard 使用[本節](http://go.microsoft.com/fwlink/?LinkId=618336)描述的預設值。請注意，使用 4k 編碼的預設值時，您應該取得**進階**保留單元類型。如需詳細資訊，請參閱[如何調整編碼](media-services-portal-encoding-units)。
 - 直播即時字幕與 Azure 媒體服務和播放器。如需詳細資訊，請參閱[此部落格文章](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
@@ -171,19 +171,19 @@ Azure 媒體服務 .NET SDK 現在是版本 3.3.0.0。此版本中加入了下�
 
 - [使用媒體服務進行即時編碼的預覽功能](media-services-manage-live-encoder-enabled-channels.md)
 - [動態資訊清單](media-services-dynamic-manifest-overview.md)
-- [Azure Media Hyperlapse 媒體處理器的預覽功能](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
+- [Azure Media Hyperlapse 媒體處理器的預覽功能](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ##<a id="april_changes_15"></a>2015 年 4 月版本
 
 ###一般媒體服務更新
 
-- [發表 Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)。
+- [發表 Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)。
 - 從媒體服務 REST 2.10 開始，設定為擷取 RTMP 通訊協定的通道，會和主要與次要擷取 URL 一起建立。如需詳細資訊，請參閱[通道擷取組態](media-services-manage-channels-overview.md#channel_input)
 - Azure 媒體索引器更新
 	- 支援西班牙文語言
 	- 新的組態 xml 格式
 	
-	如需詳細資訊，請參閱[此部落格](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)。
+	如需詳細資訊，請參閱[此部落格](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)。
 ###媒體服務 .NET SDK 更新
 
 Azure 媒體服務 .NET SDK 現在是版本 3.2.0.0。
@@ -202,7 +202,7 @@ Azure 媒體服務 .NET SDK 現在是版本 3.2.0.0。
 ### 一般媒體服務更新
 
 - 媒體服務也提供 Azure CDN 整合。為了支援整合，已將 **CdnEnabled** 屬性加入至 **StreamingEndpoint**。從版本 2.9 開始，**CdnEnabled** 可以與 REST API 搭配使用 (如需詳細資訊，請參閱 [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx))。從版本 3.1.0.2 開始，**CdnEnabled** 可以與 .NET SDK 搭配使用 (如需詳細資訊，請參閱 [StreamingEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint(v=azure.10).aspx))。
-- 發表**媒體編碼器高階工作流程**。如需詳細資訊，請參閱[介紹 Azure 媒體服務中的高階編碼](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services) (英文)。
+- 發表**媒體編碼器高階工作流程**。如需詳細資訊，請參閱[介紹 Azure 媒體服務中的高階編碼](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/) (英文)。
  
 
 
@@ -216,7 +216,7 @@ Azure 媒體服務 .NET SDK 現在是版本 3.2.0.0。
 
 ### 一般媒體服務更新
 
-內容保護與動態加密通用版本上市 (GA) 的公告。如需詳細資訊，請參閱 [Azure 媒體服務以正式推出的 DRM 技術增強串流安全性](http://azure.microsoft.com/blog/2015/01/29/azure-media-services-enhances-streaming-security-with-general-availability-of-drm-technology/) (英文)。
+內容保護與動態加密通用版本上市 (GA) 的公告。如需詳細資訊，請參閱 [Azure 媒體服務以正式推出的 DRM 技術增強串流安全性](https://azure.microsoft.com/blog/2015/01/29/azure-media-services-enhances-streaming-security-with-general-availability-of-drm-technology/) (英文)。
 
 ###媒體服務 .NET SDK 更新
 
@@ -231,7 +231,7 @@ Azure 媒體服務 .NET SDK 現在是版本 3.1.0.1。
 
 ###一般媒體服務更新
 
-- 部分更新和新功能已加入到 Azure Media Indexer 處理器。如需詳細資訊，請參閱 [Azure 媒體索引器 1.1.6.7 的版本資訊](http://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/) (英文)。
+- 部分更新和新功能已加入到 Azure Media Indexer 處理器。如需詳細資訊，請參閱 [Azure 媒體索引器 1.1.6.7 的版本資訊](https://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/) (英文)。
 - 加入了新的 REST API，讓您可以更新編碼保留單元：[EncodingReservedUnitType 與 REST](http://msdn.microsoft.com/library/azure/dn859236.aspx)。
 - 已加入金鑰傳遞服務的 CORS 支援。
 - 已完成查詢授權原則選項的效能改進。
@@ -408,7 +408,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 ### <a name="dec_13_donnet_changes"></a>Azure 媒體服務 .NET SDK 3.0.0.0
 
->[AZURE.NOTE]3.0.x.x 版本沒有與 2.4.x.x 版本回溯相容。
+>[AZURE.NOTE] 3.0.x.x 版本沒有與 2.4.x.x 版本回溯相容。
 
 媒體服務 SDK 目前的最新版本為 3.0.0.0。您可以從 Nuget 下載最新套件，或從 [Github] 取得。
 
@@ -635,4 +635,4 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

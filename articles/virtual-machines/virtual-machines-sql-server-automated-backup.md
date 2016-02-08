@@ -38,7 +38,7 @@
 
 在建立新的 SQL Server 2014 虛擬機器時，您可以透過 Azure 入口網站設定自動備份。
 
->[AZURE.NOTE]自動備份相依於 SQL Server IaaS 代理程式。若要安裝並設定該代理程式，您必須要有在目標虛擬機器上執行的 Azure VM 代理程式。較新的虛擬機器資源庫映像預設會啟用此選項，但現有的 VM 上可能會遺失了 Azure VM 代理程式。如果您正在使用自己的 VM 映像，也需要安裝 SQL Server IaaS 代理程式。如需詳細資訊，請參閱 [VM 代理程式和延伸模組](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)。
+>[AZURE.NOTE] 自動備份相依於 SQL Server IaaS 代理程式。若要安裝並設定該代理程式，您必須要有在目標虛擬機器上執行的 Azure VM 代理程式。較新的虛擬機器資源庫映像預設會啟用此選項，但現有的 VM 上可能會遺失了 Azure VM 代理程式。如果您正在使用自己的 VM 映像，也需要安裝 SQL Server IaaS 代理程式。如需詳細資訊，請參閱 [VM 代理程式和延伸模組](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)。
 
 下列 Azure 入口網站螢幕擷取畫面顯示 [選用組態] | [SQL 自動備份] 下的選項。
 
@@ -48,7 +48,7 @@
 
 ![Azure 入口網站中的自動備份設定](./media/virtual-machines-sql-server-automated-backup/IC792133.jpg)
 
->[AZURE.NOTE]當您第一次啟用自動備份時，Azure 會在背景中設定 SQL Server IaaS 代理程式。在此期間，Azure 入口網站不會顯示已設定自動備份。請等候幾分鐘的時間來安裝及設定代理程式。之後，Azure 入口網站將會反映新的設定。
+>[AZURE.NOTE] 當您第一次啟用自動備份時，Azure 會在背景中設定 SQL Server IaaS 代理程式。在此期間，Azure 入口網站不會顯示已設定自動備份。請等候幾分鐘的時間來安裝及設定代理程式。之後，Azure 入口網站將會反映新的設定。
 
 ## 使用 PowerShell 設定自動備份
 
@@ -90,7 +90,7 @@
 
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Remove-AzureVMSqlServerExtension | Update-AzureVM
 
->[AZURE.NOTE]停用及解除安裝 SQL Server IaaS 代理程式不會移除先前設定的受管理備份設定。在停用或解除安裝 SQL Server IaaS 代理程式之前，應先停用自動備份。
+>[AZURE.NOTE] 停用及解除安裝 SQL Server IaaS 代理程式不會移除先前設定的受管理備份設定。在停用或解除安裝 SQL Server IaaS 代理程式之前，應先停用自動備份。
 
 ## 相容性
 
@@ -114,4 +114,4 @@ Azure 中的 SQL Server VM 相關功能為 [Azure 虛擬機器中的 SQL Server 
 
 請檢閱其他[在 Azure 虛擬機器中執行 SQL Server 的資源](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

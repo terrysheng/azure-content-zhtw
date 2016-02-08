@@ -39,7 +39,7 @@
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] \(Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
+1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
 
 2.  在命令視窗中輸入 **npm install azure-storage**。此命令的輸出類似下列範例。
 
@@ -66,7 +66,7 @@
 
 Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_ACCESS\_KEY 或 AZURE\_STORAGE\_CONNECTION\_STRING，以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則在呼叫 **createQueueService** 時必須指定帳戶資訊。
 
-如需在 Azure 網站的 [Azure 入口網站](portal.azure.com)中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]
+如需在 Azure 網站的 [Azure 入口網站](https://portal.azure.com)中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]
 
 ## 作法：建立佇列
 
@@ -123,7 +123,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 `result` 包含訊息。
 
-> [AZURE.NOTE]當佇列中沒有任何訊息時，使用 **peekMessages** 並不會傳回錯誤，不過也不會傳回任何訊息。
+> [AZURE.NOTE] 當佇列中沒有任何訊息時，使用 **peekMessages** 並不會傳回錯誤，不過也不會傳回任何訊息。
 
 ## 作法：清除下一個佇列訊息
 
@@ -147,9 +147,10 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	  }
 	});
 
-> [AZURE.NOTE]依預設，訊息只會隱藏 30 秒，之後又會被其他用戶端看見。您可以使用具有 **getMessages** 的 `options.visibilityTimeout` 指定其他值。
+> [AZURE.NOTE] 依預設，訊息只會隱藏 30 秒，之後又會被其他用戶端看見。您可以使用具有 **getMessages** 的 `options.visibilityTimeout` 指定其他值。
 
-> [AZURE.NOTE]當佇列中沒有任何訊息時，使用 **getMessages** 並不會傳回錯誤，不過也不會傳回任何訊息。
+> [AZURE.NOTE]
+當佇列中沒有任何訊息時，使用 **getMessages** 並不會傳回錯誤，不過也不會傳回任何訊息。
 
 ## 作法：變更佇列訊息的內容
 
@@ -330,4 +331,4 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
   [使用 WebMatrix 的網站]: ../web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

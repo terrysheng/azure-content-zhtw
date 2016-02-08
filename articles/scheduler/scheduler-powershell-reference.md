@@ -46,7 +46,7 @@
 
  [Azure 排程器的計劃和計費](scheduler-plans-billing.md)
 
- [Azure 排程器 REST API 參考](https://msdn.microsoft.com/library/dn528946)
+ [Azure 排程器 REST API 參考](https://msdn.microsoft.com/library/mt629143)
 
  [Azure 排程器高可用性和可靠性](scheduler-high-availability-reliability.md)
 
@@ -59,4 +59,4 @@
 
   
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

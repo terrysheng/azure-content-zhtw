@@ -24,7 +24,7 @@
 
 ## 什麼是 Azure 自動化？
 
-[Azure 自動化](http://azure.microsoft.com/services/automation/) 是一項 Azure 服務，可經由程序自動化簡化雲端管理。使用 Azure 自動化，可以自動執行手動、經常重複、長時間執行及容易出錯的工作，以提高您的組織的可靠性、 效率和時間價值。
+[Azure 自動化](https://azure.microsoft.com/services/automation/) 是一項 Azure 服務，可經由程序自動化簡化雲端管理。使用 Azure 自動化，可以自動執行手動、經常重複、長時間執行及容易出錯的工作，以提高您的組織的可靠性、 效率和時間價值。
 
 Azure 自動化提供高度可靠、高度可用的工作流程執行引擎，可加以調整以符合您的需求。在 Azure 自動化中，可以手動方式、由協力廠商系統或依排定的間隔開始執行程序，讓工作只發生在必要時刻。
 
@@ -33,9 +33,9 @@ Azure 自動化提供高度可靠、高度可用的工作流程執行引擎，�
 
 ## Azure 自動化如何協助管理 Azure 金鑰保存庫？
 
-您可以使用 [Azure PowerShell 工具](https://msdn.microsoft.com/library/azure/jj156055.aspx)中可用的 [Azure 金鑰保存庫 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)，在 Azure 自動化中管理金鑰保存庫。Azure 自動化提供這些立即可用的 Cmdlet，讓您在服務內執行許多金鑰保存庫管理工作。您也可以將 Azure 自動化中的這些 Cmdlet 與其他 Azure 服務的 Cmdlet 搭配，以透過 Azure 服務和協力廠商系統自動執行複雜的工作。
+您可以使用 [PowerShell 資源庫](https://azure.microsoft.com/blog/azps-1-0/)中可用的 [Azure 金鑰保存庫 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)，在 Azure 自動化中管理金鑰保存庫。您可以將此模組匯入 Azure 自動化，讓您在服務內執行許多金鑰保存庫管理工作。您也可以將 Azure 自動化中的這些 Cmdlet 與其他 Azure 服務的 Cmdlet 搭配，以透過 Azure 服務和協力廠商系統自動執行複雜的工作。
 
-Azure 金鑰保存庫 Cmdlet 可讓您執行這些工作：建立或匯入金鑰、建立或更新密碼、更新金鑰的屬性、取得金鑰或密碼，或是刪除金鑰或密碼。
+Azure 金鑰保存庫 Cmdlet 可讓您執行以下這些工作和其他工作：建立或匯入金鑰、建立或更新密碼、更新金鑰的屬性、取得金鑰或密碼、刪除金鑰或密碼。
 
 
 ## 後續步驟
@@ -45,4 +45,4 @@ Azure 金鑰保存庫 Cmdlet 可讓您執行這些工作：建立或匯入金鑰
 * 請參閱 Azure 自動化[快速入門教學課程](../automation-create-runbook-from-samples.md)。
 * 請參閱 [Azure 金鑰保存庫 PowerShell 指令碼](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

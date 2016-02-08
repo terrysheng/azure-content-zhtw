@@ -21,9 +21,9 @@
 
 ## 概觀
 
-StorSimple Manager 服務 [**備份類別目錄**] 頁面會顯示在進行手動或自動備份時建立的所有備份組。您可以使用此頁面來列出備份原則或磁碟區的所有備份、選取或刪除備份，或是使用備份來還原或複製磁碟區。
+StorSimple Manager 服務 [備份類別目錄] 頁面會顯示在進行手動或自動備份時所建立的所有備份組。您可以使用此頁面來列出備份原則或磁碟區的所有備份、選取或刪除備份，或是使用備份來還原或複製磁碟區。
 
-  ![備份類別目錄頁面](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
+![備份類別目錄頁面](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
 
 本教學課程說明如何使用備份組來複製個別磁碟區。它也會說明「暫時性」與「永久」複製之間的差異。
 
@@ -45,9 +45,9 @@ StorSimple Manager 服務 [**備份類別目錄**] 頁面會顯示在進行手�
 
   1. 識別目標裝置。這是即將建立複製的位置。您可以選擇相同的裝置，或指定另一個裝置。如果您選擇與其他雲端服務提供者相關的磁碟區 (非 Azure)，目標裝置的下拉式清單將只會顯示實體裝置。您無法在虛擬裝置上複製與其他雲端服務提供者相關聯的磁碟區。
 
-        >  [AZURE.NOTE] 確定要複製的容量小於目標裝置中可用的容量。
+        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. 為複製指定唯一的磁碟區名稱。此名稱必須包含 3 到 127 個字元。
-  3. 按一下箭頭圖示 ![arrow-icon](./media/storsimple-clone-volume/HCS_ArrowIcon.png) 以繼續前往下一頁。
+  3. 按一下箭頭圖示 ![arrow-icon](./media/storsimple-clone-volume/HCS_ArrowIcon.png)，繼續前往下一頁。
 
 5. 在 [指定可以使用此磁碟區的主機] 下：
 
@@ -61,7 +61,7 @@ StorSimple Manager 服務 [**備份類別目錄**] 頁面會顯示在進行手�
   1. 移至 [裝置] 頁面，然後選取 [磁碟區容器] 索引標籤。
   2. 選取與複製的來源磁碟區相關聯的磁碟區容器。您應該會在磁碟區清單中看到剛才建立的複製。
 
->[AZURE.NOTE]複製的磁碟區上會自動停用監視和預設備份。
+>[AZURE.NOTE] 複製的磁碟區上會自動停用監視和預設備份。
 
 以這種方式建立的複製就是暫時性複製。如需複製類型的詳細資訊，請參閱[暫時性與永久複製](#transient-vs.-permanent-clones)。
 
@@ -83,7 +83,7 @@ StorSimple Manager 服務 [**備份類別目錄**] 頁面會顯示在進行手�
  
 ![提供的影片](./media/storsimple-clone-volume/Video_icon.png)**提供的影片**
 
-若要觀看影片示範如何使用 StorSimple 的複製和還原功能，將已刪除的檔案復原，請按一下[這裡](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/)。
+若要觀看影片示範如何使用 StorSimple 的複製和還原功能來復原已刪除的檔案，請按一下[這裡](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/)。
 
 ### 利用永久複製在實際執行環境中進行測試
 
@@ -96,4 +96,4 @@ StorSimple Manager 服務 [**備份類別目錄**] 頁面會顯示在進行手�
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

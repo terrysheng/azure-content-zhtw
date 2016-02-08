@@ -28,7 +28,7 @@
 
  - 如需以程式碼操作佇列的詳細資訊，請參閱[如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)。
  - 如需 Azure 儲存體的一般資訊，請參閱[儲存體文件](https://azure.microsoft.com/documentation/services/storage/)。
- - 如需 Azure 雲端服務的一般資訊，請參閱[雲端服務文件](http://azure.microsoft.com/documentation/services/cloud-services/)。
+ - 如需 Azure 雲端服務的一般資訊，請參閱[雲端服務文件](https://azure.microsoft.com/documentation/services/cloud-services/)。
  - 如需 ASP.NET 應用程式設計的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
 
 
@@ -192,4 +192,4 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

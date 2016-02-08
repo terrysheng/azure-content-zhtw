@@ -34,7 +34,7 @@ StorSimple Manager 服務可在 Microsoft Azure 中執行，並且連接至多�
 
 #### 連接至此服務
 
-1. 瀏覽至 [http://azure.microsoft.com](http://azure.microsoft.com/)
+1. 瀏覽至 [http://azure.microsoft.com](https://azure.microsoft.com/)
 
 1. 使用您的 Microsoft 帳戶認證，登入 Microsoft Azure 傳統入口網站 (位於窗格右上角)。
 
@@ -57,15 +57,15 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 |登陸頁面|服務層級頁面|裝置層級頁面|裝置層級頁面|
 |---|---|---|---|
 |StorSimple Manager 服務|服務儀表板|裝置儀表板||
-||裝置 →|監視|
-||備份類別目錄|磁碟區容器 →|磁碟區|
-||設定 (服務)|備份原則||
-||作業|設定 (裝置)|
-||Alerts|維護|
+|裝置 →|監視|
+|備份類別目錄|磁碟區容器 →|磁碟區|
+|設定 (服務)|備份原則||
+|作業|設定 (裝置)|
+|Alerts|維護|
 
 ![提供的影片](./media/storsimple-manager-service-administration/Video_icon.png)**提供的影片**
 
-若要觀看逐步引導您使用 StorSimple Manager 服務使用者介面的影片，請按一下[這裡](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/)。
+若要觀看逐步引導您使用 StorSimple Manager 服務使用者介面的影片，請按一下[這裡](https://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/)。
 
 ## 使用 StorSimple Manager 服務管理 StorSimple 裝置
 
@@ -114,4 +114,4 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 
 如果您不能解決問題，且您必須建立服務要求，請參閱：[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

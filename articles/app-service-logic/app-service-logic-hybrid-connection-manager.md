@@ -21,11 +21,11 @@
 
 混合式連線管理員 (HCM) 是 Click Once 安裝程式，安裝在您的網路內防火牆後方的 IIS 伺服器上。HCM 會使用 Azure 服務匯流排轉送，向 Azure 中的連接器驗證內部部署系統。
 
-> [AZURE.NOTE]只有當您連接到防火牆後方的內部部署資源時，才需要混合式連線管理員。如果您未連接至內部部署系統時，則不需要混合式連線管理員。
+> [AZURE.NOTE] 只有當您連接到防火牆後方的內部部署資源時，才需要混合式連線管理員。如果您未連接至內部部署系統時，則不需要混合式連線管理員。
 
 若要開始，您需要：
 
-- Azure 服務匯流排轉送命名空間 SAS 連接字串。請參閱[服務匯流排定價](http://azure.microsoft.com/pricing/details/service-bus/)，判斷哪一層包含轉送。
+- Azure 服務匯流排轉送命名空間 SAS 連接字串。請參閱[服務匯流排定價](https://azure.microsoft.com/pricing/details/service-bus/)，判斷哪一層包含轉送。
 - 內部部署系統登入資訊，包括使用者名稱和密碼。例如，如果您要連線至內部部署 SQL Server，您需要 SQL Server 登入帳戶和密碼。
 - 內部部署伺服器資訊，包括連接埠號碼和伺服器名稱。例如，如果您要連線至內部部署 SQL Server，您需要 SQL Server 名稱和 TCP 連接埠號碼。
 
@@ -56,7 +56,7 @@
 
 現在當您重新瀏覽至連接器時，混合式連線狀態為 [**已連接**]。您可能必須關閉連接器，再重新開啟它：<br/> ![][4]
 
-> [AZURE.NOTE]若要切換至次要連接字串，請重新執行混合式連線設定，並輸入 [**次要組態字串**]。
+> [AZURE.NOTE] 若要切換至次要連接字串，請重新執行混合式連線設定，並輸入 [**次要組態字串**]。
 
 
 ## TCP 連接埠與安全性
@@ -119,7 +119,7 @@ TCP 連接埠 | 理由
 
 ## 閱讀更多資訊
 
-[監視 Logic Apps](app-service-logic-monitor-your-logic-apps.md)<br/> [服務匯流排定價](http://azure.microsoft.com/pricing/details/service-bus/)
+[監視 Logic Apps](app-service-logic-monitor-your-logic-apps.md)<br/> [服務匯流排定價](https://azure.microsoft.com/pricing/details/service-bus/)
 
 
 
@@ -133,4 +133,4 @@ TCP 連接埠 | 理由
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

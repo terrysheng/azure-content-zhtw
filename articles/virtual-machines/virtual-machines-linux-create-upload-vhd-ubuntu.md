@@ -14,29 +14,33 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
-	ms.author="szarkos"/>
+	ms.date="01/22/2016"
+	ms.author="szark"/>
 
 # 準備執行 Azure 的 Ubuntu 虛擬機器
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##必要條件##
+## 官方 Ubuntu 雲端映像
+Ubuntu 現在發佈官方 Azure VHD 提供下載 ([http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/))。如果您需要針對 Azure 建置您專用的 Ubuntu 映像，而不使用下面的手動程序，建議您視需要從使用這些已知可運作的 VHD 並加以自訂來開始建置。
+
+
+## 先決條件
 
 本文假設您已將 Ubuntu Linux 作業系統安裝到虛擬硬碟。有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
 **Ubuntu 安裝注意事項**
 
 - Azure 不支援 VHDX 格式，只支援**固定 VHD**。您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。
-
 - 安裝 Linux 系統時，建議您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。如果願意，您可以在資料磁碟上使用 LVM 或 [RAID](virtual-machines-linux-configure-raid.md)。
-
 - 請勿在作業系統磁碟上設定交換磁碟分割。您可以設定 Linux 代理程式在暫存資源磁碟上建立交換檔。您可以在以下步驟中找到與此有關的詳細資訊。
-
 - 所有 VHD 的大小都必須是 1 MB 的倍數。
 
 
-## <a id="ubuntu"> </a>Ubuntu 12.04 ##
+## 手動步驟
+
+> [AZURE.NOTE] 在針對 Azure 建立您自訂的 Ubuntu 映像之前，請考慮改用來自 [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) 的映像。
+
 
 1. 在 Hyper-V 管理員的中央窗格中，選取虛擬機器。
 
@@ -122,4 +126,4 @@ Ubuntu 硬體啟用 (HWE) 核心
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -53,7 +53,8 @@
 6.	在 [初始問候語期間以代碼報告詐騙] 文字方塊中，輸入可在通話驗證期間使用的數字代碼。如果使用者輸入此代碼加上 #，而不只是 # 符號，系統將會提報詐騙警示。 
 7.	在底部按一下 [儲存]。
 
->[AZURE.NOTE]Microsoft 的預設語音問候語會指示使用者按 0# 以提交詐騙警示。如果您使用 0 以外的代碼，您必須記錄下來，並上傳您自己的自訂語音問候語與適當的指示。
+>[AZURE.NOTE]
+Microsoft 的預設語音問候語會指示使用者按 0# 以提交詐騙警示。如果您使用 0 以外的代碼，您必須記錄下來，並上傳您自己的自訂語音問候語與適當的指示。
 
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)</center>
@@ -80,7 +81,7 @@
 
 ### 檢視詐騙報告
 
-1. 登入 [http://azure.microsoft.com](http://azure.microsoft.com)
+1. 登入 [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. 在左側選取 [Active Directory]。
 3. 在頂端選取 [Multi-Factor Auth Provider]。這會顯示您的 Multi-Factor Auth Provider 清單。
 4. 如果您有一個以上的 Multi-Factor Auth Provider，請選取要檢視詐騙警示報告的提供者，然後按一下頁面底部的 [管理]。如果您只有一個，只要按一下 [管理] 即可。這會開啟 Azure Multi-factor Authentication 管理入口網站。
@@ -106,7 +107,7 @@
 
 ### 檢視一次性略過報告
 
-1. 登入 [http://azure.microsoft.com](http://azure.microsoft.com)
+1. 登入 [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. 在左側選取 [Active Directory]。
 3. 在頂端選取 [Multi-Factor Auth Provider]。這會顯示您的 Multi-Factor Auth Provider 清單。
 4. 如果您有一個以上的 Multi-Factor Auth Provider，請選取要檢視詐騙警示報告的提供者，然後按一下頁面底部的 [管理]。如果您只有一個，只要按一下 [管理] 即可。這會開啟 Azure Multi-factor Authentication 管理入口網站。
@@ -210,7 +211,7 @@ Azure AD 租用戶類型| 可用的信任 IP 選項
 
 在 Office 2010 或更舊版本和 Apple Mail 等某些應用程式中，您無法使用 Multi-Factor Authentication。若要使用這些應用程式，您需要使用「應用程式密碼」來取代傳統的密碼。應用程式密碼可讓應用程式略過 Multi-Factor Authentication 並繼續運作。
 
->[AZURE.NOTE]適用於 Office 2013 用戶端的新式驗證
+>[AZURE.NOTE] 適用於 Office 2013 用戶端的新式驗證
 >
 > Office 2013 用戶端 (包括 Outlook) 現在支援新的驗證通訊協定，而且可以啟用 Multi-Factor Authentication 支援。這表示一旦啟用後，應用程式密碼就不需要使用於 Office 2013 用戶端。如需詳細資訊，請參閱[發表的 Office 2013 新式驗證公開預覽](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)。
 
@@ -230,7 +231,7 @@ Azure AD 租用戶類型| 可用的信任 IP 選項
 - 每位使用者的密碼目前以 40 組為限。系統會提示您刪除某一個現有的應用程式密碼，才能再建立新密碼。
 - 一旦使用者的帳戶啟用 Multi-Factor Authentication，應用程式密碼即可用於大部分的非瀏覽器用戶端 (例如 Outlook 和 Lync)，但是透過非瀏覽器應用程式 (例如 Windows PowerShell) 無法使用應用程式密碼執行系統管理動作，即使具備系統管理員帳戶也一樣。請確保您建立的服務帳戶是使用強式密碼來執行 PowerShell 指令碼，並且請勿將帳戶用於 Multi-Factor Authentication。
 
->[AZURE.WARNING]應用程式密碼無法在用戶端會同時與內部部署及雲端自動探索端點通訊的混合環境作用。
+>[AZURE.WARNING]  應用程式密碼無法在用戶端會同時與內部部署及雲端自動探索端點通訊的混合環境作用。
 >
 >請留意，應用程式密碼無法在用戶端會同時與內部部署及雲端自動探索端點通訊的混合環境中作用，因為網域密碼需要內部部署驗證，而應用程式密碼則需要與雲端驗證。
 
@@ -338,7 +339,7 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 - 當他們的公司帳戶遭到入侵
 - 當已記住的裝置遺失或遭竊
 
-> [AZURE.NOTE]這項功能的實作方式採用瀏覽器 Cookie 快取。如果未啟用瀏覽器 Cookie，它便無法運作。
+> [AZURE.NOTE] 這項功能的實作方式採用瀏覽器 Cookie 快取。如果未啟用瀏覽器 Cookie，它便無法運作。
 
 ### 如何啟用/停用及設定暫停對已記住之裝置進行 MFA
 
@@ -351,4 +352,4 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 <li>在 [服務設定] 頁面上，於管理使用者裝置設定下方選取/取消選取 [藉由讓系統記住裝置來允許使用者暫停 Multi-Factor Authentication]。</li>
 ![暫停裝置](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>設定要允許暫停的天數。預設值為 14 天。</li> <li>按一下 [儲存]。</li> <li>按一下 [關閉]。</li>
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

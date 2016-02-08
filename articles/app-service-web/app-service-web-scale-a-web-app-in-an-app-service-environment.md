@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
 # 在 App Service 環境中調整應用程式 #
@@ -58,7 +58,7 @@
 
 將 ASP 從一個背景工作角色集區移到另一個集區之前，請務必確定您有足夠的容量可容納該 ASP。在背景工作集區清單中，不只會列出背景工作集區名稱，您也可以查看該背景工作集區中有多少可用的背景工作。請確定有足夠的執行個體可包含您的 App Service 方案。如果您需要在背景工作集區中移入更多計算資雲，則必須讓您的 ASE 系統管理員加以新增。
 
-> [AZURE.NOTE]從一個背景工作角色集區移出 ASP，會導致該 ASP 中的應用程式重新啟動。這會造成應用程式短暫停機 (實際時間長短視重新啟動應用程式所花費的時間而定)。
+> [AZURE.NOTE] 從一個背景工作角色集區移出 ASP，會導致該 ASP 中的應用程式重新啟動。這會造成應用程式短暫停機 (實際時間長短視重新啟動應用程式所花費的時間而定)。
 
 ## 開始使用
 
@@ -83,4 +83,4 @@
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [AppScale]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

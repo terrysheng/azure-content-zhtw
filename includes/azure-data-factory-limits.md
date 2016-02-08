@@ -7,10 +7,10 @@
 每個資料集的並行配量 | 10 | 10
 管線物件的每個物件位元組大小<sup>1</sup> | 200 KB | 2000 KB
 資料集和 linkedservice 物件的每個物件位元組大小<sup>1</sup> | 30 KB | 2000 KB
-物件的欄位數目 | 100 | [請連絡支援人員](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-每一欄位名稱或識別碼的位元組大小 | 2 KB | [請連絡支援人員](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-每一欄位的位元組大小 | 30 KB | [請連絡支援人員](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-訂用帳戶中的 HDInsight 隨選叢集核心<sup>2</sup> | 48 | [請連絡支援人員](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+物件的欄位數目 | 100 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+每一欄位名稱或識別碼的位元組大小 | 2 KB | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+每一欄位的位元組大小 | 30 KB | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+訂用帳戶中的 HDInsight 隨選叢集核心<sup>2</sup> | 48 | [請連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 管線活動執行的重試計數 | 1000 | MaxInt (32 位元)
 
 <sup>1</sup>管線、 資料集和連結的服務物件代表您工作負載的邏輯群組。這些物件的限制與您可使用 Azure Data Factory 服務移動或處理的資料量無關。資料處理站可視需要調整以處理數 PB 的資料。
@@ -29,4 +29,4 @@
 
 Azure 資源管理員有 API 呼叫限制。您可使用 [Azure 資源管理員 API 限制](azure-subscription-service-limits/#resource-group-limits)內的速率進行 API 呼叫。
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,13 +20,13 @@
 
 雲端服務背景工作角色或 Web 角色的預設暫存目錄大小上限為 100 MB，可能會在某個時間點達到。本文說明如何避免用盡暫存目錄的空間。
 
->[AZURE.NOTE]這只適用於使用 Web 和背景工作角色的 Azure SDK 1.0 到 SDK 1.4。
+>[AZURE.NOTE] 這只適用於使用 Web 和背景工作角色的 Azure SDK 1.0 到 SDK 1.4。
 
 ## 連絡 Azure 客戶支援
 
-如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專員。
 
-或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](http://azure.microsoft.com/support/faq/)。
+或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
 
 
 ## 為何會用盡空間？
@@ -82,4 +82,4 @@ namespace WorkerRole1
 
 若要了解如何利用 Azure PaaS 電腦的診斷資料來疑難排解雲端服務角色的問題，請檢視 [Kevin Williamson 的部落格系列](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

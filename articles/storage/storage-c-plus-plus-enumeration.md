@@ -19,7 +19,7 @@
 
 列表作業是許多使用 Azure 儲存體的開發案例的關鍵。本文說明如何使用 Microsoft Azure Storage Client Library for C++ 中提供的列表 API，以最有效率的方式列舉 Azure 儲存體中的物件。
 
->[AZURE.NOTE]本指南以 Azure Storage Client Library for C++ 1.x 版為對象 (其可透過 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 取得)。
+>[AZURE.NOTE] 本指南以 Azure Storage Client Library for C++ 1.x 版為對象 (其可透過 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 取得)。
 
 Storage Client Library 提供各種方法來列出或查詢 Azure 儲存體中的物件。本文說明下列案例：
 
@@ -182,6 +182,6 @@ SDK 中的這些窮盡列表 API 不存在於 C#、Java 或 JavaScript Node.js �
 -	[如何使用 C++ 的佇列儲存體](storage-c-plus-plus-how-to-use-queues.md)
 -	[Azure Storage Client Library for C++ API 文件。](http://azure.github.io/azure-storage-cpp/)
 -	[Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
--	[Azure 儲存體文件](http://azure.microsoft.com/documentation/services/storage/)
+-	[Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

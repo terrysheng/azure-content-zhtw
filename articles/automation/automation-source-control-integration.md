@@ -22,7 +22,7 @@
 原始檔控制可讓您從 Azure 自動化推送程式碼至原始檔控制，或將 Runbook 從原始檔控制提取至 Azure 自動化。本文說明如何在 Azure 自動化環境中設定原始檔控制。我們將先設定 Azure 自動化存取 GitHub 儲存機制，並逐步解說可使用原始檔控制整合完成的不同作業。
 
 
->[AZURE.NOTE]原始檔控制支援提取和推送 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 以及 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks)，但尚未支援[圖形化 Runbook](automation-runbook-types.md#graphical-runbooks)。<br><br>
+>[AZURE.NOTE] 原始檔控制支援提取和推送 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 以及 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks)，但尚未支援[圖形化 Runbook](automation-runbook-types.md#graphical-runbooks)。<br><br>
 
 
 為您的自動化帳戶設定原始檔控制時，必須執行兩個簡單的步驟，而如果您已經有 GitHub 帳戶，則只需要執行一個步驟。如下：
@@ -52,7 +52,7 @@
 
     1. 若要從**儲存機制**同步處理 Runbook，則 Runbook 資料夾路徑為 */*
     2. 若要從 **RootFolder** 同步處理 Runbook，則 Runbook 資料夾路徑為 */RootFolder*
-    3. 若要從 **SubFolder** 同步處理 Runbook，則 Runbook 資料夾路徑為 */RootFolder/SubFolder* 。
+    3. 若要從 **SubFolder** 同步處理 Runbook，則 Runbook 資料夾路徑為 */RootFolder/SubFolder*。
   
 
 4. 設定參數之後，它們會顯示在 [設定原始檔控制] 刀鋒視窗上。
@@ -104,7 +104,7 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
     ![簽入按鈕](media/automation-source-control-integration/automation_06_CheckinButton.png)
 
 
-     >[AZURE.NOTE]從 Azure 自動化簽入會覆寫原始檔控制中目前存在的程式碼。要簽入的 Git 對等命令列指示為 **git add + git commit + git push**
+     >[AZURE.NOTE] 從 Azure 自動化簽入會覆寫原始檔控制中目前存在的程式碼。要簽入的 Git 對等命令列指示為 **git add + git commit + git push**
 
 3. 當您按一下 [簽入] 時，將會出現一個確認訊息，按一下 [是] 繼續進行。
 
@@ -114,13 +114,13 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
 
     ![簽入 Runbook](media/automation-source-control-integration/automation_08_CheckinRunbook.png)
 
-    >[AZURE.NOTE]原始檔控制 Runbook 是特殊的自動化 Runbook，無法檢視或編輯。雖然它們不會出現在 Runbook 清單上，但您會看到同步處理工作顯示在您的工作清單。
+    >[AZURE.NOTE] 原始檔控制 Runbook 是特殊的自動化 Runbook，無法檢視或編輯。雖然它們不會出現在 Runbook 清單上，但您會看到同步處理工作顯示在您的工作清單。
  
 5. 修改過的 Runbook 名稱會當作輸入參數傳送至簽入 Runbook。在 [儲存機制同步處理] 刀鋒視窗中展開 Runbook，即可[檢視工作詳細資料](automation-runbook-execution.md#viewing-job-status-using-the-azure-management-portal)。
 
     ![簽入輸入](media/automation-source-control-integration/automation_09_CheckinInput.png)
 
-6. 在工作完成時重新整理您的 GitHub 儲存機制，即可檢視變更。您的儲存機制中應有一項認可，其認可訊息為：**已在 Azure 自動化中更新 *Runbook 名稱* 。**
+6. 在工作完成時重新整理您的 GitHub 儲存機制，即可檢視變更。您的儲存機制中應有一項認可，其認可訊息為：**已在 Azure 自動化中更新 *Runbook 名稱*。**
 
 
 
@@ -137,7 +137,7 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
     ![同步處理 Runbook](media/automation-source-control-integration/automation_11_SyncRunbook.png)
 
  
-    >[AZURE.NOTE]從原始檔控制進行的同步處理會針對目前在原始檔控制中的**所有** Runbook，覆寫目前存在於您的自動化帳戶中的 Runbook 草稿版本。要同步處理的 Git 對等命令列指示為 **git pull**
+    >[AZURE.NOTE] 從原始檔控制進行的同步處理會針對目前在原始檔控制中的**所有** Runbook，覆寫目前存在於您的自動化帳戶中的 Runbook 草稿版本。要同步處理的 Git 對等命令列指示為 **git pull**
 
 
 ## 原始檔控制問題的疑難排解
@@ -158,4 +158,4 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
 
 如需原始檔控制整合的詳細資訊，請參閱下列資源：- [Azure 自動化：Azure 自動化中的原始檔控制整合](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [選出您最愛的原始檔控制系統](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Azure 自動化：使用 Visual Studio Team Services 整合 Runbook 原始檔控制](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

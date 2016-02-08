@@ -1,4 +1,4 @@
-下表列出服務匯流排訊息的特定配額資訊。事件中樞限制包含在此資料表中，但如需有關事件中樞的其他特定資訊，請參閱[事件中樞價格](http://azure.microsoft.com/pricing/details/event-hubs/)。如需有關服務匯流排的價格及其他配額的詳細資訊，請參閱[服務匯流排價格](http://azure.microsoft.com/pricing/details/service-bus/)概觀。
+下表列出服務匯流排訊息的特定配額資訊。事件中樞限制包含在此資料表中，但如需有關事件中樞的其他特定資訊，請參閱[事件中樞價格](https://azure.microsoft.com/pricing/details/event-hubs/)。如需有關服務匯流排的價格及其他配額的詳細資訊，請參閱[服務匯流排價格](https://azure.microsoft.com/pricing/details/service-bus/)概觀。
 
 |配額名稱|Scope|類型|超出時的行為|值|
 |---|---|---|---|---|
@@ -13,4 +13,4 @@
 
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

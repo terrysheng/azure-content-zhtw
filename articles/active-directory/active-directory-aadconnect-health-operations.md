@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # Azure AD Connect Health 操作
@@ -22,7 +22,7 @@
 
 ## 啟用電子郵件通知
 您可以設定 Azure AD Connect Health 服務在產生表示您的身分識別基礎結構狀況不良的警示時傳送電子郵件通知。產生警示時，以及當該警示標示為已解決時，會發生這個情況。請依照下列指示，設定電子郵件通知。
->[AZURE.NOTE]電子郵件通知預設為停用狀態。
+>[AZURE.NOTE] 電子郵件通知預設為停用狀態。
 
 
 ### 啟用 Azure AD Connect Health 電子郵件通知
@@ -105,32 +105,28 @@ Azure AD Connect 支援兩個層級的管理存取：
 ### 如何允許使用者或群組存取 Azure AD Connect Health
 #### 步驟 1：選取適當的存取範圍
 若要允許 Azure AD Connect Health 內的「所有服務執行個體」層級使用者存取，請開啟 Azure AD Connect Health 中的主要刀鋒視窗。<br>
-[//]: # (RBAC\_MainBladeSS)
 #### 步驟 2：新增使用者、群組及指派角色
-1. 按一下 [設定] 區段中的 [使用者] 組件。<br>
-![Azure AD Connect Health RBAC Main Blade](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+1. 按一下 [設定] 區段中的「使用者」部分。<br> ![Azure AD Connect Health RBAC 主要刀鋒視窗](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. 選取 [新增]
-3. 選取 [角色] <br>
-![Azure AD Connect Health RBAC Add User ](./media/active-directory-aadconnect-health/RBAC_add.png)
-4. 輸入目標使用者或群組的名稱或識別碼。您可以同時選取一或多個使用者或群組。
+3. 選取「角色」(例如「擁有者」)<br> ![Azure AD Connect Health RBAC 加入使用者](./media/active-directory-aadconnect-health/RBAC_add.png)
+4. 輸入目標使用者或群組的名稱或識別碼。您可以同時選取一或多個使用者或群組。按一下 [選取]。![Azure AD Connect Health RBAC 選取使用者](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. 選取 [確定]。<br>
-![Azure AD Connect Health RBAC Select User](./media/active-directory-aadconnect-health/RBAC_select_users.png)
-6. 一旦完成角色指派，使用者和/或群組將會出現在清單中。<br>
-![Azure AD Connect Health RBAC User List](./media/active-directory-aadconnect-health/RBAC_user_list.png)
+
+6. 一旦完成角色指派，使用者和/或群組將會在清單中顯示。<br> ![Azure AD Connect Health RBAC 使用者清單](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 這些步驟可為列出的使用者和群組提供存取權 (依據被指派的角色)。
->[AZURE.NOTE]- 全域系統管理員一律擁有所有作業的完整存取權，但全域系統管理員帳戶不會出現在上述清單中。[邀請使用者] 功能在 Azure AD Connect Health 內不受支援。
+>[AZURE.NOTE]
+- 全域系統管理員一律擁有所有作業的完整存取權，但全域系統管理員帳戶不會出現在上述清單中。[邀請使用者] 功能在 Azure AD Connect Health 內不受支援。
 
 #### 步驟 3：與使用者或群組共用刀鋒視窗位置
-1. 指派權限之後，使用者可以前往 [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth) 存取 Azure AD Connect Health。
-2. 在刀鋒視窗上，使用者可以釘選刀鋒視窗或其他組件到儀表板，只要按一下 [釘選到儀表板] 即可<br>
-![Azure AD Connect Health RBAC pin blade](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
+1. 指派權限之後，使用者可以前往 [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth) 以存取 Azure AD Connect Health。
+2. 在刀鋒視窗上，使用者可以釘選刀鋒視窗或其他組件到儀表板，只要按一下 [釘選到儀表板] 即可<br> ![Azure AD Connect Health RBAC 釘選刀鋒視窗](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
->[AZURE.NOTE]被指派「讀取者」角色的使用者將無法執行「建立」作業，以從 Azure Marketplace 取得 Azure AD Connect Health 擴充。這位使用者仍可前往上述連結以存取刀鋒視窗。為方便之後使用，使用者可以將刀鋒視窗釘選到儀表板。
+
+>[AZURE.NOTE] 被指派「讀取者」角色的使用者將無法執行「建立」作業，以從 Azure Marketplace 取得 Azure AD Connect Health 擴充。這位使用者仍可前往上述連結以存取刀鋒視窗。為方便之後使用，使用者可以將刀鋒視窗釘選到儀表板。
 
 ### 移除使用者和/或群組
-您可以移除新增到 Azure AD Connect Health 角色型存取控制組件的使用者或群組，方法是以滑鼠右鍵按一下並選取移除。<br>
-![Azure AD Connect Health RBAC Remove User](./media/active-directory-aadconnect-health/RBAC_remove.png)
+您可以移除新增到 Azure AD Connect Health 角色型存取控制組件的使用者或群組，方法是以滑鼠右鍵按一下並選取 [移除]。<br> ![Azure AD Connect Health RBAC 移除使用者](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
 [//]: # "End of RBAC section"
 
@@ -138,8 +134,8 @@ Azure AD Connect 支援兩個層級的管理存取：
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health 代理程式安裝](active-directory-aadconnect-health-agent-install.md)
-* [使用 Azure AD Connect Health 來搭配 AD FS](active-directory-aadconnect-health-adfs.md)
+* [在 AD FS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
 * [使用 Azure AD Connect Health 進行同步處理](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

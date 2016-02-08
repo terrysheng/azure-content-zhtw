@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Azure 自動化中的憑證資產
 
 憑證可以安全地儲存在 Azure 自動化中，使得 Runbook 或 DSC 組態可以透過使用 **Get-AutomationCertificate** 活動來存取憑證。這可讓您建立使用憑證進行驗證的 Runbook 和 DSC 組態，或將它們新增至 Azure 或協力廠商的資源。
 
->[AZURE.NOTE]Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一索引鍵儲存在 Azure 自動化中。這個索引鍵是由主要憑證加密，並且儲存在 Azure 自動化中。儲存安全資產之前，會使用主要憑證解密自動化帳戶的金鑰，然後用來加密資產。
+>[AZURE.NOTE] Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一索引鍵儲存在 Azure 自動化中。這個索引鍵是由主要憑證加密，並且儲存在 Azure 自動化中。儲存安全資產之前，會使用主要憑證解密自動化帳戶的金鑰，然後用來加密資產。
 
 ## Windows PowerShell Cmdlet
 
@@ -40,7 +40,7 @@
 |:---|:---|
 |Get-AutomationCertificate|取得要在 Runbook 或 DSC 組態中使用的憑證。|
 
->[AZURE.NOTE]您應該避免在 Get-AutomationCertificate 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 或 DSC 組態與憑證資產之間的相依性變得複雜。
+>[AZURE.NOTE] 您應該避免在 Get-AutomationCertificate 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 或 DSC 組態與憑證資產之間的相依性變得複雜。
 
 ## 建立新憑證
 
@@ -107,4 +107,4 @@
 
 - [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

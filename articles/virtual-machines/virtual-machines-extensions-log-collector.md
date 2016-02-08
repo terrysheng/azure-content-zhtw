@@ -47,7 +47,7 @@
 ## 必要條件
 
 - 您必須有儲存體帳戶可進行擴充，以儲存產生的 zip 檔案。
-- 您必須確定使用的是 Azure PowerShell Cmdlet V0.8.0 或更新版本。如需詳細資訊，請參閱 [Azure 下載](http://azure.microsoft.com/downloads/)。
+- 您必須確定使用的是 Azure PowerShell Cmdlet V0.8.0 或更新版本。如需詳細資訊，請參閱 [Azure 下載](https://azure.microsoft.com/downloads/)。
 
 ## 新增延伸模組
 
@@ -126,7 +126,7 @@
         $AdditionalDataList+= $a1
               #more locations can be added....
   
-    > [AZURE.NOTE]您可以使用權杖 `%roleroot%` 來指定角色的根磁碟機，因為它不會使用固定磁碟機。
+    > [AZURE.NOTE] 您可以使用權杖 `%roleroot%` 來指定角色的根磁碟機，因為它不會使用固定磁碟機。
 
 4. 提供收集到的檔案要上傳到的 Azure 儲存體帳戶名稱和金鑰。
 
@@ -167,21 +167,21 @@
     [PSObject[]] $AdditionDataLocationList = $null
     )
 
-- *ServiceName*: 您的雲端服務名稱。
+- *ServiceName*：您的雲端服務名稱。
 
-- *Roles*: 一份角色清單，例如 “WebRole1” 或 ”WorkerRole1”。
+- *Roles*：一份角色清單，例如 “WebRole1” 或 ”WorkerRole1”。
 
-- *Instances*: 一份以逗號分隔的角色執行個體名稱 -- 所有角色執行個體皆使用萬用字元字串 ("*")。
+- *Instances*：一份以逗號分隔的角色執行個體名稱 -- 所有角色執行個體皆使用萬用字元字串 ("*")。
 
-- *Slot*: 位置名稱。「生產」或「預備」。
+- *Slot*：位置名稱。「生產」或「預備」。
 
-- *Mode*: 收集模式。「完整」或「GA」。
+- *Mode*：收集模式。「完整」或「GA」。
 
-- *StorageAccountName*: 用來儲存收集之資料的 Azure 儲存體帳戶名稱。
+- *StorageAccountName*：用來儲存收集之資料的 Azure 儲存體帳戶名稱。
 
-- *StorageAccountKey*: Azure 儲存體帳戶金鑰的名稱。
+- *StorageAccountKey*：Azure 儲存體帳戶金鑰的名稱。
 
-- *AdditionalDataLocationList*: 下列結構的清單：
+- *AdditionalDataLocationList*：下列結構的清單：
 
       {字串名稱、字串位置、字串 SearchPattern、布林遞迴}
              
@@ -521,4 +521,4 @@ SetAzureVMLogCollector.ps1
 
 現在，您可以從一個非常簡單的位置檢查或複製您的記錄檔。
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

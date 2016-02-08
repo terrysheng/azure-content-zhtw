@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/02/2015"
+   ms.date="01/27/2016"
    ms.author="cgronlun"/>
 
 
@@ -85,7 +85,7 @@ HDInsight 提供 Apache Hadoop、 Spark、HBase 或 Storm 的叢集設定。您�
 
 HDInsight 叢集包含下列元件及公用程式。
 
-* **[Ambari](#ambari)**：叢集佈建、管理和監視。
+* **[Ambari](#ambari)**：叢集佈建、管理、監視和公用程式。
 
 * **[Avro](#avro)** (Microsoft .NET Library for Avro)：Microsoft.NET 環境的資料序列化。
 
@@ -93,7 +93,7 @@ HDInsight 叢集包含下列元件及公用程式。
 
 * **[Mahout](#mahout)**：機器學習。
 
-* **[MapReduce 和 YARN](#mapreduce)**：分散式處理和資源管理。
+* **[MapReduce](#mapreduce)**：Hadoop 分散式處理和資源管理的傳統架構。請參閱新一代的資源架構 [YARN](#yarn)。
 
 * **[Oozie](#oozie)**：工作流程管理。
 
@@ -105,13 +105,15 @@ HDInsight 叢集包含下列元件及公用程式。
 
 * **[Tez](#tez)**：允許資料密集程序有效率地大規模執行。
 
+* **[YARN](#yarn)**：Hadoop 核心程式庫的一部分，並且是新一代的 MapReduce 軟體架構。
+
 * **[ZooKeeper](#zookeeper)**：協調分散式系統中的程序。
 
-> [AZURE.NOTE]如需特定元件及版本的相關資訊，請參閱 [HDInsight 所提供 Hadoop 叢集版本的新功能][component-versioning]
+> [AZURE.NOTE] 如需特定元件及版本的相關資訊，請參閱 [HDInsight 所提供 Hadoop 叢集版本的新功能][component-versioning]
 
-###<a name="ambari"></a>Ambari
+### <a name="ambari"></a>Ambari
 
-Apache Ambari 可用來佈建、管理及監視 Apache Hadoop 叢集。其中包含一組直接易懂的操作員工具和健全的 API 集，可消除 Hadoop 的複雜性，並簡化叢集作業。以 Linux 為基礎的 HDInsight 叢集同時提供 Ambari Web UI 和 Ambari REST API，而 Windows 叢集提供 REST API 的子集。
+Apache Ambari 可用來佈建、管理及監視 Apache Hadoop 叢集。其中包含一組直接易懂的操作員工具和健全的 API 集，可消除 Hadoop 的複雜性，並簡化叢集作業。以 Linux 為基礎的 HDInsight 叢集同時提供 Ambari Web UI 和 Ambari REST API，而 Windows 叢集提供 REST API 的子集。HDInsight 叢集上的 Ambari 檢視允許外掛程式 UI 功能。
 
 請參閱 [使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md) (僅限 Linux)、[使用 Ambari API 監視 HDInsight 上的 Hadoop 叢集](hdinsight-monitor-use-ambari-api.md)及 <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">Apache Ambari API 參考資料</a>。
 
@@ -134,12 +136,12 @@ Hadoop Distributed File System (HDFS) 是分散式檔案系統，加上 MapReduc
 
 <a target="_blank" href="https://mahout.apache.org/">Apache Mahout</a> 是 Hadoop 上執行的機器學習演算法的可擴充程式庫。機器學習應用程式採用統計學的原理，教導系統從資料中學習，根據過去的結果來研判未來的行為。請參閱＜[在 Hadoop 上使用 Mahout 來產生電影推薦](hdinsight-mahout.md)＞。
 
-### <a name="mapreduce"></a>MapReduce 和 YARN
-Hadoop MapReduce 是一套軟體架構，可讓您撰寫應用程式來平行處理巨量資料集。MapReduce 工作可分割大型資料集，並將資料組織成機碼值組以便於處理。
+### <a name="mapreduce"></a>MapReduce
+MapReduce 是供 Hadoop 撰寫應用程式來以平行方式批次處理巨量資料集的傳統軟體架構。MapReduce 工作可分割大型資料集，並將資料組織成機碼值組以便於處理。
 
-Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 JobTracker 的兩項主要工作 (資源管理和工作排程/監視) 分割成個別實體。
+[YARN](#yarn) 則稱為 MapReduce 2.0，是 Hadoop 新一代的資源管理員和應用程式架構。MapReduce 作業將會在 YARN 上執行。
 
-如需 MapReduce 的詳細資訊，請參閱 Hadoop Wiki 上的 <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a>。如需了解 YARN，請參閱 <a target="_blank" href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">Apache Hadoop NextGen MapReduce (YARN)</a>。
+如需 MapReduce 的詳細資訊，請參閱 Hadoop Wiki 上的 <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a>。
 
 ### <a name="oozie"></a>Oozie
 <a target="_blank" href="http://oozie.apache.org/">Apache Oozie</a> 是可管理 Hadoop 工作的工作流程協調系統。它可與 Hadoop 堆疊相整合，並支援 MapReduce、Pig、Hive 和 Sqoop 的 Hadoop 工作。它也可用來排程系統的特定工作，例如 Java 程式或 Shell 指令碼。請參閱[搭配 Hadoop 使用以時間為基礎的 Oozie 協調器](hdinsight-use-oozie-coordinator-time.md)。
@@ -157,9 +159,49 @@ Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 
 ### <a name="tez"></a>Tez
 <a  target="_blank" href="http://tez.apache.org/">Apache Tez</a> 是以 Hadoop YARN 為建置基礎的應用程式架構，可執行一般資料處理的複雜非循環圖。它是更有彈性且功能更強大的 MapReduce 架構後繼版本，可讓資料密集程序 (例如 Hive) 更有效率地大規模執行。請參閱[＜使用 Hive 和 HiveQL＞中的＜使用 Apache Tez 以提升效能＞](hdinsight-use-hive.md#usetez)。
 
+### <a name="yarn"></a>YARN
+Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱 MRv2)，可支援比 MapReduce 批次處理還要多的資料處理案例，並具有更佳的延展性和即時處理能力。YARN 能提供資源管理和分散式應用程式架構。MapReduce 作業將會在 YARN 上執行。
+
+如需了解 YARN，請參閱 <a target="_blank" href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">Apache Hadoop NextGen MapReduce (YARN)</a>。
+
 
 ### <a name="zookeeper"></a>ZooKeeper
 <a  target="_blank" href="http://zookeeper.apache.org/">Apache ZooKeeper</a> 利用資料暫存器 (znode) 的共用階層式命名空間，協調大型分散式系統中的程序。Znodes 包含協調程序所需的少量中繼資訊：狀態、位置、組態等。
+
+## HDInsight 上的程式設計語言
+
+HDInsight 叢集 (Hadoop、HBase、Storm 和 Spark 叢集) 支援許多種程式設計語言，但某些語言並未預設安裝。針對未預設安裝的程式庫、模組或封裝，請使用指令碼動作來安裝元件。請參閱[使用 HDInsight 開發指令碼動作](hdinsight-hadoop-script-actions-linux.md)。
+
+### 預設的程式設計語言支援
+
+根據預設，HDInsight 叢集可支援：
+
+* Java
+
+* Python
+
+其他語言則可以使用指令碼動作來加以安裝：[使用 HDInsight 開發指令碼動作](hdinsight-hadoop-script-actions-linux.md)。
+
+### Java 虛擬機器 (JVM) 語言
+
+使用 Java 虛擬機器 (JVM) 即可執行 Java 以外的許多語言，不過，若要執行其中的某些語言，您可能必須在叢集上安裝其他元件。
+
+HDInsight 叢集上支援下列以 JVM 為基礎的語言：
+
+* Clojure
+
+* Jython (適用於 Java 的 Python)
+
+* Scala
+
+### Hadoop 專屬語言
+
+HDInsight 叢集提供下列 Hadoop 生態系統專屬語言的支援：
+
+* 適用於 Pig 工作的 Pig Latin
+
+* 適用於 Hive 工作和 SparkSQL 的 HiveQL
+
 
 ## <a name="advantage"></a>Hadoop 在雲端中的優點
 
@@ -189,7 +231,7 @@ Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 
 
 ### HDInsight 的 Hadoop 文件
 
-* [HDInsight 文件](http://azure.microsoft.com/documentation/services/hdinsight/)：Azure HDInsight 的文件頁面，其中包含文章、視訊和其他資源的連結。
+* [HDInsight 文件](https://azure.microsoft.com/documentation/services/hdinsight/)：Azure HDInsight 的文件頁面，其中包含文章、視訊和其他資源的連結。
 
 * [開始使用 Linux 上的 HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)：在 Linux 上佈建 HDInsight Hadoop 叢集以及執行範例 Hive 查詢的快速入門教學課程。
 
@@ -250,4 +292,4 @@ Apache YARN 是新一代的 MapReduce (MapReduce 2.0，簡稱為 MRv2)，可將 
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

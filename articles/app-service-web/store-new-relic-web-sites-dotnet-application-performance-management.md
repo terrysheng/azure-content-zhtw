@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="01/21/2016" 
 	ms.author="stepsic"/>
 
 
@@ -34,7 +34,7 @@ New Relic Standard 供 Azure 使用者免費使用。根據您所使用的網站
 
 如需定價資訊，請參閱[Azure Marketplace 的 New Relic 頁面](/marketplace/partners/newrelic/newrelic)。
 
-> [AZURE.NOTE]最多只列出 10 個運算執行個體的定價。若超過 10 個，請連絡 New Relic (sales@newrelic.com) 詢問批量價格。
+> [AZURE.NOTE] 最多只列出 10 個運算執行個體的定價。若超過 10 個，請連絡 New Relic (sales@newrelic.com) 詢問批量價格。
 
 Azure 客戶部署 New Relic 代理程式時享有 New Relic Pro 試用訂閱 2 週。
 
@@ -46,7 +46,7 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 
 ## 步驟 1.建立 New Relic 帳戶
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下角落的 [新增]。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)，然後按一下角落的 [新增]。
 3. 按一下 [開發人員服務] > [New Relic APM]。
 4. 指定下列各項來設定 New Relic 帳戶，然後按一下 [建立]。
 	- **Name**
@@ -62,7 +62,7 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 
 ## 步驟 2：設定 Web 應用程式的 New Relic 整合
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，開啟 Web 應用程式的刀鋒視窗。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟 Web 應用程式的刀鋒視窗。
 2. 按一下刀鋒視窗頂端的 [...] 功能表，並選取**加入磚**。
 3. 在 [**監視**] 索引標籤上選取**應用程式摘要**，並將它拖曳到您想要讓磚出現在 Web 應用程式刀鋒視窗上的位置。
 4. 按一下 [完成] 以完成加入磚。
@@ -73,7 +73,7 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 
 	完成儲存操作之後，在 Web 應用程式刀鋒視窗中，按一下 [所有設定]，然後按一下 [應用程式設定]。您應會看見 **NEWRELIC\_LICENSEKEY** 設定已新增至刀鋒視窗的 [應用程式設定] 區段，以支援 New Relic：
 
-	>[AZURE.NOTE]新的應用程式設定最多可能需要 30 秒的時間才能生效。若要強制設定立即生效，請重新啟動 Web 應用程式。
+	>[AZURE.NOTE] 新的應用程式設定最多可能需要 30 秒的時間才能生效。若要強制設定立即生效，請重新啟動 Web 應用程式。
 
 ## 步驟 3：發佈 ASP.NET Web 應用程式
 
@@ -83,7 +83,7 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 
 檢視 New Relic 儀表板：
 
-2. 在 [Azure 入口網站](https://portal.azure.com)中，開啟 Web 應用程式的刀鋒視窗。
+2. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟 Web 應用程式的刀鋒視窗。
 3. 按一下 [應用程式監視] > [應用程式名稱] > [在 New Relic 檢視]。
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/view-new-relic-data.png)
@@ -153,14 +153,14 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 
 如需詳細資訊，請參閱下列其他資源：
 
- * [為 Azure 網站安裝 .NET 代理程式](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-websites#manual) (英文)：New Relic .NET 代理程式安裝程序 
+ * [在 Azure Web Apps 上安裝 .NET 代理程式](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-preview-portal#install-new-relic-azure-webapps)：New Relic .NET 代理程式安裝程序 
  * [New Relic 使用者介面](https://newrelic.com/docs/site/the-new-relic-ui) (英文)：New Relic UI、設定使用者權限和設定檔，以及使用標準功能和儀表板向下鑽研詳細資料的概觀
  * [應用程式概觀](https://newrelic.com/docs/site/applications-overview) (英文)：使用 New Relic 的 [Applications Overview] 儀表板時可用的功能
  * [Apdex](https://newrelic.com/docs/site/apdex) (英文)：Apdex 如何衡量應用程式的使用者滿意度概觀
  * [實際使用者監控](https://newrelic.com/docs/features/real-user-monitoring) (英文)：RUM 如何詳述使用者瀏覽器載入網頁所需的時間、使用者來自何方及使用什麼瀏覽器的概觀
  * [尋找說明](https://newrelic.com/docs/site/finding-help) (英文)：New Relic 線上說明中心提供的資源
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -177,4 +177,4 @@ New Relic 與 Azure Web 角色、背景工作角色和 Azure App Service 緊密�
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

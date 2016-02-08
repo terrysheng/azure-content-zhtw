@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # 如何使用服務匯流排佇列
@@ -28,7 +28,7 @@
 
 若要建立 PHP 應用程式並使其存取 Azure Blob 服務，唯一要求就是在您的程式碼中參考 [Azure SDK for PHP](../php-download-sdk.md) 中的類別。您可以使用任何開發工具來建立應用程式，或記事本。
 
-> [AZURE.NOTE]您的 PHP 安裝也必須已安裝並啟用 [OpenSSL 延伸](http://php.net/openssl)。
+> [AZURE.NOTE] 您的 PHP 安裝也必須已安裝並啟用 [OpenSSL 延伸](http://php.net/openssl)。
 
 在本指南中，您將使用可從 PHP 應用程式內本機呼叫的服務功能，或可從 Azure Web 角色、背景工作角色或網站內執行的程式碼中呼叫的資料表服務功能。
 
@@ -38,21 +38,21 @@
 
 ## 設定應用程式以使用服務匯流排
 
-若要使用 Azure 服務匯流排佇列 API，請執行下列動作：
+若要使用服務匯流排佇列 API，請執行下列動作：
 
 1. 參考使用 [require\_once][require_once] 陳述式的自動換片器檔案。
 2. 參考任何您可能使用的類別。
 
 下列範例顯示如何納入自動換片器檔案及參考 **ServicesBuilder** 類別。
 
-> [AZURE.NOTE]此範例 (和本文中的其他範例) 假設您已透過編輯器安裝 PHP Client Libraries for Azure。如果您以手動方式或以 PEAR 套件方式安裝程式庫，則必須參考 **WindowsAzure.php** 自動換片器檔案。
+> [AZURE.NOTE] 此範例 (和本文中的其他範例) 假設您已透過編輯器安裝 PHP Client Libraries for Azure。如果您以手動方式或以 PEAR 套件方式安裝程式庫，則必須參考 **WindowsAzure.php** 自動換片器檔案。
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 在下列各範例中，一律會顯示 `require_once` 陳述式，但只會參考要執行之範例所需的類別。
 
-## 設定 Azure 服務匯流排連接
+## 設定服務匯流排連接
 
 若要具現化服務匯流排用戶端，您必須具備符合下列格式的有效連接字串：
 
@@ -108,7 +108,7 @@
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE]您可以在 `ServiceBusRestProxy` 物件上使用 `listQueues` 方法，來檢查服務命名空間內是否已有指定名稱的佇列存在。
+> [AZURE.NOTE] 您可以在 `ServiceBusRestProxy` 物件上使用 `listQueues` 方法，來檢查服務命名空間內是否已有指定名稱的佇列存在。
 
 ## 如何傳送訊息至佇列
 
@@ -209,4 +209,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

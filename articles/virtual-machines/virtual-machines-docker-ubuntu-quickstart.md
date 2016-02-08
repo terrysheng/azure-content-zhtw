@@ -29,7 +29,7 @@
 
 ## 登入入口網站
 
-這部分很簡單，除非您沒有 Azure 帳戶。[即使沒有，也可以輕鬆地免費取得](http://azure.microsoft.com/pricing/free-trial/)！
+這部分很簡單，除非您沒有 Azure 帳戶。[即使沒有，也可以輕鬆地免費取得](https://azure.microsoft.com/pricing/free-trial/)！
 
 ## 使用 Docker 映像從 Canonical 和 MSOpenTech 建立 VM
 
@@ -78,4 +78,4 @@
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

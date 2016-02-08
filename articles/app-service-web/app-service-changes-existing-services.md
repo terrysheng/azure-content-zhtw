@@ -20,15 +20,15 @@
 
 # Azure App Service 和現有的 Azure 服務
 
-本文概述現有 Azure 服務的變更做為將數個 Azure 服務一起帶入 [Azure App Service](http://azure.microsoft.com/services/app-service/) (新的整合服務) 的變更一部分。
+本文概述現有 Azure 服務的變更做為將數個 Azure 服務一起帶入 [Azure App Service](https://azure.microsoft.com/services/app-service/) (新的整合服務) 的變更一部分。
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 概觀 
 
-[Azure App Service](http://azure.microsoft.com/services/app-service/) 是一種新的且唯一的雲端服務，可讓開發人員建立適用於任何平台和任何裝置的 Web 和行動應用程式。App Service 是一種整合解決方案，設計目的是簡化重複的程式碼撰寫函式、整合企業和 SaaS 系統，並自動化商務程序，同時滿足您的安全性、可靠性和延展性需求。
+[Azure App Service](https://azure.microsoft.com/services/app-service/) 是一種新的且唯一的雲端服務，可讓開發人員建立適用於任何平台和任何裝置的 Web 和行動應用程式。App Service 是一種整合解決方案，設計目的是簡化重複的程式碼撰寫函式、整合企業和 SaaS 系統，並自動化商務程序，同時滿足您的安全性、可靠性和延展性需求。
 
-App Service 會將下列現有 Azure 服務 - [網站](http://azure.microsoft.com/services/websites/)、[行動服務](http://azure.microsoft.com/services/mobile-services/)和 [Biztalk 服務](http://azure.microsoft.com/services/biztalk-services/)整合為單一結合服務，同時新增強大的功能。App Service 可讓您裝載下列應用程式類型：
+App Service 會將下列現有 Azure 服務 - [網站](https://azure.microsoft.com/services/websites/)、[行動服務](https://azure.microsoft.com/services/mobile-services/)和 [Biztalk 服務](https://azure.microsoft.com/services/biztalk-services/)整合為單一結合服務，同時新增強大的功能。App Service 可讓您裝載下列應用程式類型：
 
 -   Web Apps
 -   行動應用程式
@@ -90,7 +90,7 @@ App Service 會將下列現有 Azure 服務 - [網站](http://azure.microsoft.co
 </tbody>
 </table>
 
-若要深入了解，請瀏覽 [App Service 文件](http://azure.microsoft.com/documentation/services/app-service/)。
+若要深入了解，請瀏覽 [App Service 文件](https://azure.microsoft.com/documentation/services/app-service/)。
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -22,7 +22,7 @@
 
 本教學課程說明如何將 Azure Site Recovery 與 Azure 自動化整合在一起，以提供復原計畫的擴充性。復原計畫可以協調使用 Azure Site Recovery 保護的虛擬機器復原，以便同時複寫至次要雲端和 Azure 案例。復原計畫也有助於讓復原**一致精確**、**可重複**而且**自動化**。如果您要將虛擬機器容錯移轉至 Azure，與 Azure 自動化整合可擴充復原計畫，並讓您能夠執行 Runbook，進而允許進行功能強大的自動化工作。
 
-如果您還沒聽過 Azure 自動化，請在[這裡](http://azure.microsoft.com/services/automation/)註冊，並在[這裡](http://azure.microsoft.com/documentation/scripts/)下載其範例指令碼。使用[這裡](http://azure.microsoft.com/blog/?p=166264)的復原計畫進一步了解 [Azure Site Recovery](http://azure.microsoft.com/services/site-recovery/)，以及如何將復原協調到 Azure。
+如果您還沒聽過 Azure 自動化，請在[這裡](https://azure.microsoft.com/services/automation/)註冊，並在[這裡](https://azure.microsoft.com/documentation/scripts/)下載其範例指令碼。使用[這裡](https://azure.microsoft.com/blog/?p=166264)的復原計畫進一步了解 [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)，以及如何將復原協調到 Azure。
 
 在本教學課程中，我們將會探討如何將 Azure 自動化 Runbook 整合到復原計畫。我們會將先前需要手動介入的簡單工作自動化，並了解如何將多步驟復原轉換成單鍵復原動作。我們也將探討簡單的指令碼發生錯誤時如何進行疑難排解。
 
@@ -310,4 +310,4 @@ CloudServiceName | 在其下建立虛擬機器的 Azure 雲端服務名稱。
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

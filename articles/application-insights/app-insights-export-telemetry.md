@@ -19,7 +19,7 @@
 
 想要對您的遙測執行一些自訂的分析？ 或也許您想要對具有特定屬性的事件以電子郵件寄送警示？ 連續匯出很適合此用途。在 Application Insights 入口網站中看見的事件，可以使用 JSON 格式匯出到 Microsoft Azure 中的儲存體。從那裡，您可以下載資料並編寫處理所需的任何程式碼。
 
-在免費試用期間，或是使用[標準及高階定價方案](http://azure.microsoft.com/pricing/details/application-insights/)時，都可使用「連續匯出」功能。
+在免費試用期間，或是使用[標準及高階定價方案](https://azure.microsoft.com/pricing/details/application-insights/)時，都可使用「連續匯出」功能。
 
 (如果您只想要[一次性匯出](app-insights-metrics-explorer.md#export-to-excel)您在度量或搜尋刀鋒視窗上看到的內容，請按一下分頁頂端的 [匯出]。如果您想要查看 Power BI 的資料，請使用[配接器](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) (*不*使用「連續匯出」。)
 
@@ -75,13 +75,13 @@
 
 該資料也包含您曾設定之[可用性 Web 測試](app-insights-monitor-web-app-availability.md)的任何結果。
 
-> [AZURE.NOTE]**取樣** 如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則調適性取樣功能可能會運作，並只傳送一部分的遙測資料。[深入了解取樣。](app-insights-sampling.md)
+> [AZURE.NOTE] **取樣** 如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則調適性取樣功能可能會運作，並只傳送一部分的遙測資料。[深入了解取樣。](app-insights-sampling.md)
 
 ## <a name="get"></a> 檢查資料
 
 您可以直接在入口網站中檢查儲存體。按一下 [瀏覽]、選取您的儲存體帳戶，然後開啟 [容器]。
 
-若要在 Visual Studio 中檢查 Azure 儲存體，請依序開啟 [檢視]、[雲端總管]。(如果您沒有該功能表命令，則必須安裝 Azure SDK：開啟 [新增專案] 對話方塊，展開 [Visual C#]/[Cloud]，然後選擇 [取得 Microsoft Azure SDK for .NET]。)
+若要在 Visual Studio 中檢查 Azure 儲存體，請依序開啟 [檢視]、[Cloud Explorer]。(如果您沒有該功能表命令，則必須安裝 Azure SDK：開啟 [新增專案] 對話方塊，展開 [Visual C#]/[Cloud]，然後選擇 [取得 Microsoft Azure SDK for .NET]。)
 
 當您開啟 Blob 存放區時，您會看到含有一組 Blob 檔案的容器。衍生自您 Application Insights 的資源名稱、其檢測金鑰、遙測-類型/日期/時間之每個檔案的 URI。(資源名稱全部小寫，而檢測金鑰會省略連字號。)
 
@@ -152,7 +152,7 @@
  * 請注意這不是使用 Power BI 的標準方式。您可使用[配接器](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) (不需要「連續匯出」)。
 
 
-就更大型規模而言，請考慮 [HDInsight](http://azure.microsoft.com/services/hdinsight/) - 雲端中的 Hadoop 叢集。HDInsight 提供各種技術，用於管理和分析巨量資料。
+就更大型規模而言，請考慮 [HDInsight](https://azure.microsoft.com/services/hdinsight/) - 雲端中的 Hadoop 叢集。HDInsight 提供各種技術，用於管理和分析巨量資料。
 
 
 
@@ -210,4 +210,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

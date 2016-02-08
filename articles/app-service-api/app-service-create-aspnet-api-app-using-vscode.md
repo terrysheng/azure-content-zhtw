@@ -24,18 +24,17 @@
 
 本教學課程示範如何使用 [Visual Studio 程式碼](http://code.visualstudio.com//Docs/whyvscode)建立 ASP.NET 5 API 應用程式。ASP.NET 5 是大幅重新設計的 ASP.NET。ASP.NET 5 是新的開放原始碼和跨平台架構，用於使用 .NET 建置現代雲端 Web 應用程式。如需詳細資訊，請參閱 [ASP.NET 5 簡介](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html)。如需 API 應用程式的詳細資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有帳戶，則可以[申請免費試用](/pricing/free-trial/)或[啟用自己的 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/)。您也可以免費試用 [App Service 應用程式範例](http://tryappservice.azure.com)。
+> [AZURE.NOTE] 若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有帳戶，則可以[申請免費試用](/pricing/free-trial/)或[啟用自己的 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/)。您也可以免費試用 [App Service 應用程式範例](http://tryappservice.azure.com)。
 
 ## 必要條件  
 
 * 安裝和設定 [Visual Studio 程式碼](http://code.visualstudio.com/Docs/setup)。
-* 安裝 [Node.js](http://nodejs.org/download/)。<br\>
-	[Node.js](http://nodejs.org/) 是一種平台，可使用 JavaScript 建置快速和可擴充的伺服器應用程式。節點是執行階段 (節點)，而 [npm](http://www.npmjs.com/) 是節點模組的封裝管理員。您將使用 npm，在本教學課程中建立 ASP.NET 5 API 應用程式的結構。
+* 安裝 [Node.js](http://nodejs.org/download/)。<br>[Node.js](http://nodejs.org/) 是一種平台，可使用 JavaScript 建置快速和可擴充的伺服器應用程式。節點是執行階段 (節點)，而 [npm](http://www.npmjs.com/) 是節點模組的封裝管理員。您將使用 npm，在本教學課程中建立 ASP.NET 5 API 應用程式的結構。
 
 ## 安裝 ASP.NET 5 和 DNX
 ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上執行的現代雲端和 Web 應用程式。它已從頭建置，以將最佳化的開發架構提供給已部署至雲端或執行內部部署的應用程式。其由額外負荷最低的模組化元件組成，以便您可以在建構解決方案時保留彈性。
 
-> [AZURE.NOTE]OS X 和 Linux 上的 ASP.NET 5 和 DNX (.NET 執行環境) 處於早期 Beta/預覽狀態。
+> [AZURE.NOTE] OS X 和 Linux 上的 ASP.NET 5 和 DNX (.NET 執行環境) 處於早期 Beta/預覽狀態。
 
 本教學課程的設計旨在讓您使用最新開發版本的 ASP.NET 5 和 DNX 開始建置應用程式。如果您想要更穩定的發行經驗，請移至 [http://www.asp.net/vnext](http://www.asp.net/vnext)。下列是 Windows 特有的指示。如需 OS X、Linux 和 Windows 的更詳細安裝指示，請參閱[安裝 ASP.NET 5 和 DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx)。
 
@@ -43,16 +42,14 @@ ASP.NET 5/DNX 是精簡的 .NET 堆疊，可建置 OS X、Linux 和 Windows 上�
 
 	<pre class="prettyprint">
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "&amp;{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
-	</pre> 
-	這將下載 DNVM 指令碼，並將它放在您的使用者設定檔中。
+</pre>這將下載 DNVM 指令碼，並將它放在您的使用者設定檔中。
 
 2. 您可能需要在輸入上述命令之後登出，PATH 環境變數的變更才會生效。
 3. 在 [命令視窗] 中執行下列命令，以檢查 DNVM 的位置： 
 
 	<pre class="prettyprint">
 where dnvm
-	</pre>
-	[命令視窗] 將顯示如下路徑：
+</pre>[命令視窗] 將顯示如下路徑：
 
 	![dnvm 位置](./media/app-service-create-aspnet-api-app-using-vscode/00-where-dnvm.png)
 
@@ -66,8 +63,7 @@ dnvm upgrade
 
 	<pre class="prettyprint">
 dnvm list
-	</pre>
-	[命令視窗] 將顯示使用中執行階段的詳細資料：
+</pre>[命令視窗] 將顯示使用中執行階段的詳細資料：
 
 	![dnvm 位置](./media/app-service-create-aspnet-api-app-using-vscode/00b-dnvm-list.png)
 
@@ -94,10 +90,8 @@ yo aspnet
 
 	![Yoman - ASP.NET 5 產生器](./media/app-service-create-aspnet-api-app-using-vscode/01-yo-aspnet.png)
 
-5. 將新 ASP.NET API 應用程式的名稱設為 **ContactsList**。此名稱將用於本教學課程稍後提供的程式碼。<br>
-	Yeoman 將建立名為 **ContactsList** 的新資料夾，以及新應用程式必要的檔案。
-6. 開啟 **Visual Studio 程式碼**。<br> 
-	輸入 **code**，即可從 [命令視窗] 中開啟 VSCode。
+5. 將新 ASP.NET API 應用程式的名稱設為 **ContactsList**。此名稱將用於本教學課程稍後提供的程式碼。<br>Yeoman 將建立名為 **ContactsList** 的新資料夾，以及新應用程式必要的檔案。
+6. 開啟 **Visual Studio 程式碼**。<br> 輸入 **code**，即可從 [命令視窗] 中開啟 VSCode。
 7. 從 [**檔案**] 功能表中，選取 [**開啟資料夾**]，然後選取您 ASP.NET API 應用程式所在的資料夾。
 
 	![[選取資料夾] 對話方塊](./media/app-service-create-aspnet-api-app-using-vscode/02-open-folder.png)
@@ -111,8 +105,7 @@ yo aspnet
 
 	<pre class="prettyprint">
 dnx:dnu restore - (ContactsList)
-	</pre>
-	當您開始輸入時，您將從清單中看到完整的命令列。
+</pre>當您開始輸入時，您將從清單中看到完整的命令列。
 
 	![Restore 命令](./media/app-service-create-aspnet-api-app-using-vscode/04-dnu-restore.png)
 
@@ -129,26 +122,26 @@ dnx:dnu restore - (ContactsList)
 2. 以滑鼠右鍵按一下 **Models** 資料夾，使用下列程式碼加入名為 *Contact.cs* 的新類別檔案：
 
 	<pre class="prettyprint">
-	namespace ContactsList.Models
-	{
+namespace ContactsList.Models
+{
     public class Contact
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string EmailAddress { get; set; }
     }
-	}
-	</pre>
+}
+</pre>
 
 3. 以滑鼠右鍵按一下 **Controllers** 資料夾，並加入 *ContactsController.cs* 檔案使其出現，如下所示：
 
 	<pre class="prettyprint">
-	using System.Collections.Generic;
-	using Microsoft.AspNet.Mvc;
-	using ContactsList.Models;
+using System.Collections.Generic;
+using Microsoft.AspNet.Mvc;
+using ContactsList.Models;
 
-	namespace ContactsList.Controllers
-	{
+namespace ContactsList.Controllers
+{
     [Route("api/[controller]")]
     public class ContactsController : Controller
     {
@@ -163,20 +156,19 @@ dnx:dnu restore - (ContactsList)
             };
         }
     }
-	}
-	</pre>
+}
+</pre>
 
 4. 選取 [**檔案**] > [**全部儲存**]，確定儲存您的所有檔案。
 5. 從 [**命令調色盤**] 中，輸入下列命令以在本機執行應用程式：
 
 	<pre class="prettyprint">
 dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
-	</pre>
-	命令視窗將在其中顯示 [*已啟動*]。如果命令視窗未顯示 [*已啟動*]，請檢查 VSCode 左下角，找出專案中的錯誤。
+</pre>命令視窗將在其中顯示 [*已啟動*]。如果命令視窗未顯示 [*已啟動*]，請檢查 VSCode 左下角，找出專案中的錯誤。
 
 5. 開啟瀏覽器，並巡覽至下列 URL：
 
-	**http://localhost:5001/api/Contacts**
+	****http://localhost:5001/api/Contacts**
 
 	然後，您可以檢視 *Contacts.json* 的內容。檢視檔案時，您會看到下列內容：
 
@@ -186,8 +178,7 @@ dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server
 可讓 ASP.NET API 專案部署為 API 應用程式的中繼資料必須包含在專案根目錄的 *apiapp.json* 檔案中。
 
 1. 在 VSCode 中，以滑鼠右鍵按一下 *wwwroot* 資料夾，然後選取 [**新增檔案**] 選項。
-2. 將新檔案命名為 *apiapp.json*。<br\>
-	請確定 *apiapp.json* 位於 *wwwroot* 資料夾中。
+2. 將新檔案命名為 *apiapp.json*。<br> 請確定 *apiapp.json* 位於 *wwwroot* 資料夾中。
 3. 將下列程式碼加入 *apiapp.json* 檔案：
 
 	<pre class="prettyprint">
@@ -319,9 +310,9 @@ dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server
 
 ## 在 Azure Preview 入口網站中建立 API 應用程式
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有帳戶，則可以[申請免費試用](/pricing/free-trial/)或[啟用自己的 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/)。您也可以免費試用 [App Service 應用程式範例](http://tryappservice.azure.com)。
+> [AZURE.NOTE] 若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有帳戶，則可以[申請免費試用](/pricing/free-trial/)或[啟用自己的 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/)。您也可以免費試用 [App Service 應用程式範例](http://tryappservice.azure.com)。
 
-1. 登入 [Azure 預覽入口網站](https://portal.azure.com)。
+1. 登入 [Azure 預覽入口網站](https://portal.azure.com/)。
 
 2. 按一下入口網站左上角的 [**新增**]。
 
@@ -425,8 +416,7 @@ git remote add azure [URL for remote repository]
 
 	<pre class="prettyprint">
 git push azure master
-	</pre>
-	系統會提示您輸入先前建立的密碼。**注意：將看不到您的密碼。**
+</pre>系統會提示您輸入先前建立的密碼。**注意：將看不到您的密碼。**
 
 	上述命令的輸出結尾會出現部署成功的訊息：
 
@@ -436,23 +426,22 @@ To https://user@testsite.scm.azurewebsites.net/testsite.git
 [new branch]      master -> master
 </pre>
 
-> [AZURE.NOTE]如果您變更應用程式，則可以重新發佈，方法是在 VSCode 中選取 [**全部認可**] 核取方塊，然後在 **GitBash** 中輸入 **git push azure master** 命令。
+> [AZURE.NOTE] 如果您變更應用程式，則可以重新發佈，方法是在 VSCode 中選取 [**全部認可**] 核取方塊，然後在 **GitBash** 中輸入 **git push azure master** 命令。
 
 ## 在 Azure Preview 入口網站中檢視 API 定義
 現已將 API 部署到您的 API 應用程式，您可在 Azure Preview 入口網站中查看 API 定義。一開始要先重新啟動閘道器，這可讓 Azure 認可 API 應用程式的 API 定義已經變更。閘道是一個 Web 應用程式，可處理資源群組中 API 應用程式的 API 管理和授權。
 
-1. 在 Azure 預覽入口網站中，移至您稍早建立之 API 應用程式的 [**API 應用程式**] 刀鋒視窗，然後按一下 [**閘道器**] 連結。
+1. 在 Azure Preview 入口網站中，移至您稍早建立之 API 應用程式的 [**API 應用程式**] 刀鋒視窗，然後按一下 [**閘道器**] 連結。
 2. 在 [**閘道器**] 刀鋒視窗中，按一下 [**重新啟動**]。您現在可以關閉此刀鋒視窗。
 3. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [**重新啟動**]。 
-4. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。<br>
-	[API 定義] 刀鋒視窗會顯示兩種方法。如果您未立即看到 GET 和 POST 方法，請等候幾秒的時間，讓 Azure 重新整理應用程式。然後，在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。
+4. 在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。<br> [API 定義] 刀鋒視窗會顯示兩種方法。如果您未立即看到 GET 和 POST 方法，請等候幾秒的時間，讓 Azure 重新整理應用程式。然後，在 [**API 應用程式**] 刀鋒視窗中，按一下 [**API 定義**]。
 
 ## 在 Azure 中執行應用程式
-在 Azure 預覽入口網站中，移至 API 應用程式的 [**API 應用程式主機**] 刀鋒視窗，然後按一下 [**瀏覽**]。然後，在 URL 結尾加入 **api/Contacts**，以檢視連絡人詳細資料。
+在 Azure Preview 入口網站中，移至 API 應用程式的 [**API 應用程式主機**] 刀鋒視窗，然後按一下 [**瀏覽**]。然後，在 URL 結尾加入 **api/Contacts**，以檢視連絡人詳細資料。
 
 
 ## 結論
 在本教學課程中，您學到如何在 Visual Studio 程式碼中建立 API 應用程式。如需 Visual Studio 程式碼的詳細資訊，請參閱 [Visual Studio 程式碼](https://code.visualstudio.com/Docs/)。如需 API 應用程式的相關資訊，請參閱[什麼是 API 應用程式？](app-service-api-apps-why-best-platform.md)。
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

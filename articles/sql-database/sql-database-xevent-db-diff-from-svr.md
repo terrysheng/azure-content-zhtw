@@ -33,9 +33,9 @@
 *XEvents* 是非正式暱稱，有時在部落格或其他非正式位置用於「擴充事件」。
 
 
-> [AZURE.NOTE]從 2015 年 10 月起，擴充事件工作階段功能會在 Azure SQL Database 的預覽層級中啟動。尚未設定公開上市 (GA) 日期。
+> [AZURE.NOTE] 從 2015 年 10 月起，擴充事件工作階段功能會在 Azure SQL Database 的預覽層級中啟動。尚未設定公開上市 (GA) 日期。
 > 
-> Azure [服務更新](http://azure.microsoft.com/updates/?service=sql-database)頁面在進行 GA 宣告時會有文章發佈。
+> Azure [服務更新](https://azure.microsoft.com/updates/?service=sql-database)頁面在進行 GA 宣告時會有文章發佈。
 
 
 ## 必要條件
@@ -44,7 +44,7 @@
 本主題假設您已經有一些下列項目的知識：
 
 
-- [Azure SQL Database 服務](http://azure.microsoft.com/services/sql-database/)。
+- [Azure SQL Database 服務](https://azure.microsoft.com/services/sql-database/)。
 
 
 - Microsoft SQL Server 中的[擴充事件](http://msdn.microsoft.com/library/bb630282.aspx)。
@@ -54,7 +54,7 @@
 當選擇事件檔案做為[目標](#AzureXEventsTargets)時，事先公開下列項目很有幫助：
 
 
-- [Azure 儲存體服務](http://azure.microsoft.com/services/storage/)
+- [Azure 儲存體服務](https://azure.microsoft.com/services/storage/)
 
 
 - PowerShell
@@ -269,4 +269,4 @@ SELECT
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

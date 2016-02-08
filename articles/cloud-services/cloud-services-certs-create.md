@@ -33,7 +33,7 @@ Azure 所使用的憑證可以包含私密或公開金鑰。憑證具有指紋�
 ## 什麼是管理憑證？
 管理憑證可讓您使用 Azure 傳統所提供的服務管理 API 進行驗證。許多程式和工具 (例如 Visual Studio 或 Azure SDK) 會使用這些憑證，將各種 Azure 服務的設定與部署自動化。這些並不是真的與雲端服務相關。
 
->[AZURE.WARNING]請務必小心！ 這些憑證類型允許使用它們進行驗證的任何人管理與他們相關聯的訂用帳戶。
+>[AZURE.WARNING] 請務必小心！ 這些憑證類型允許使用它們進行驗證的任何人管理與他們相關聯的訂用帳戶。
 
 ### 限制
 每個訂用帳戶有 100 個管理憑證的限制。此外，在特定服務管理員的使用者識別碼底下的所有訂用帳戶也有 100 個管理憑證的限制。如果帳戶系統管理員的使用者識別碼已經用來加入 100 個管理憑證，而且還需要有更多憑證，您可以新增共同管理員來加入其他憑證。
@@ -51,7 +51,7 @@ Azure 所使用的憑證可以包含私密或公開金鑰。憑證具有指紋�
 * 主體名稱必須符合用來存取雲端服務的網域。
     > 您無法取得 cloudapp.net 網域 (或針對任何 Azure 相關網域) 的 SSL 憑證；憑證的主體名稱必須符合用來存取應用程式的自訂網域名稱。例如，**contoso.net**，而非**contoso.cloudapp.net**。
 * 至少為 2048 位元加密。
-* **僅限服務憑證**：用戶端憑證必須位於個人憑證存放區。
+* **僅限服務憑證**：用戶端憑證必須位於*個人*憑證存放區。
 
 在 Windows 上建立憑證有兩個簡單的方法：使用 `makecert.exe` 公用程式或 IIS。
 
@@ -74,10 +74,10 @@ Azure 所使用的憑證可以包含私密或公開金鑰。憑證具有指紋�
 
 ## 後續步驟
 
-[將服務憑證上傳至 Azure 傳統入口網站](cloud-services-configure-ssl-certificate.md) (或 [Azure 入口網站](cloud-services-configure-ssl-certificate-portal.md))，並針對雲端服務[進行設定](cloud-services-xml-certs.md)。
+[將服務憑證上傳至 Azure 傳統入口網站](cloud-services-configure-ssl-certificate.md) (或 [Azure 入口網站](cloud-services-configure-ssl-certificate-portal.md))。
 
 將[管理 API 憑證](../azure-api-management-certs.md)上傳至 Azure 傳統入口網站。
 
->[AZURE.NOTE]Azure 入口網站不會使用管理憑證存取 API，但是會使用使用者帳戶。
+>[AZURE.NOTE] Azure 入口網站不會使用管理憑證存取 API，但是會使用使用者帳戶。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

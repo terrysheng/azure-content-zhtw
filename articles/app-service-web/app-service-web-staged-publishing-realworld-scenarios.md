@@ -71,45 +71,46 @@
 
 ```
 	
-<?php
-// MySQL settings
-/** The name of the database for WordPress */
-
-define('DB_NAME', 'yourdatabasename');
-
-/** MySQL database username */
-define('DB_USER', 'yourdbuser');
-
-/** MySQL database password */
-define('DB_PASSWORD', 'yourpassword');
-
-/** MySQL hostname */
-define('DB_HOST', 'localhost');
-/**
- * For developers: WordPress debugging mode.
- * * Change this to true to enable the display of notices during development.
- * It is strongly recommended that plugin and theme developers use WP_DEBUG
- * in their development environments.
- */
-define('WP_DEBUG', true);
-
-//Security key settings
-define('AUTH_KEY',         'put your unique phrase here');
-define('SECURE_AUTH_KEY',  'put your unique phrase here');
-define('LOGGED_IN_KEY',    'put your unique phrase here');
-define('NONCE_KEY',        'put your unique phrase here');
-define('AUTH_SALT',        'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT',   'put your unique phrase here');
-define('NONCE_SALT',       'put your unique phrase here');
-
-/**
- * WordPress Database Table prefix.
- *
- * You can have multiple installations in one database if you give each a unique
- * prefix. Only numbers, letters, and underscores please!
- */
-$table_prefix  = 'wp_';
+	<?php
+	
+	// MySQL settings
+	/** The name of the database for WordPress */
+	
+	define('DB_NAME', 'yourdatabasename');
+	
+	/** MySQL database username */
+	define('DB_USER', 'yourdbuser');
+	
+	/** MySQL database password */
+	define('DB_PASSWORD', 'yourpassword');
+	
+	/** MySQL hostname */
+	define('DB_HOST', 'localhost');
+	/**
+	 * For developers: WordPress debugging mode.
+	 * * Change this to true to enable the display of notices during development.
+	 * It is strongly recommended that plugin and theme developers use WP_DEBUG
+	 * in their development environments.
+	 */
+	define('WP_DEBUG', true);
+	
+	//Security key settings
+	define('AUTH_KEY',         'put your unique phrase here');
+	define('SECURE_AUTH_KEY',  'put your unique phrase here');
+	define('LOGGED_IN_KEY',    'put your unique phrase here');
+	define('NONCE_KEY',        'put your unique phrase here');
+	define('AUTH_SALT',        'put your unique phrase here');
+	define('SECURE_AUTH_SALT', 'put your unique phrase here');
+	define('LOGGED_IN_SALT',   'put your unique phrase here');
+	define('NONCE_SALT',       'put your unique phrase here');
+	
+	/**
+	 * WordPress Database Table prefix.
+	 *
+	 * You can have multiple installations in one database if you give each a unique
+	 * prefix. Only numbers, letters, and underscores please!
+	 */
+	$table_prefix  = 'wp_';
 ```
 
 設定上述的安全性金鑰可以協助防止您的 Web 應用程式受到駭客攻擊，因此請使用唯一值。如果您需要為先前所述的安全性金鑰產生字串，您可透過此[連結](https://api.wordpress.org/secret-key/1.1/salt)，使用自動產生器來建立新金鑰/值
@@ -119,54 +120,54 @@ $table_prefix  = 'wp_';
 
 ```
 
-<?php
-// MySQL settings
-/** The name of the database for WordPress */
-
-define('DB_NAME', getenv('DB_NAME'));
-
-/** MySQL database username */
-define('DB_USER', getenv('DB_USER'));
-
-/** MySQL database password */
-define('DB_PASSWORD', getenv('DB_PASSWORD'));
-
-/** MySQL hostname */
-define('DB_HOST', getenv('DB_HOST'));
-
-/**
-* For developers: WordPress debugging mode.
-*
-* Change this to true to enable the display of notices during development.
-* It is strongly recommended that plugin and theme developers use WP_DEBUG
-* in their development environments.
-* Turn on debug logging to investigate issues without displaying to end user. For WP_DEBUG_LOG to
-* do anything, WP_DEBUG must be enabled (true). WP_DEBUG_DISPLAY should be used in conjunction
-* with WP_DEBUG_LOG so that errors are not displayed on the page */
-
-*/
-define('WP_DEBUG', getenv('WP_DEBUG'));
-define('WP_DEBUG_LOG', getenv('TURN_ON_DEBUG_LOG'));
-define('WP_DEBUG_DISPLAY',false);
-
-//Security key settings
-/** If you need to generate the string for security keys mentioned above, you can go the automatic generator to create new keys/values: https://api.wordpress.org/secret-key/1.1/salt **/
-define('AUTH_KEY' ,getenv('DB_AUTH_KEY'));
-define('SECURE_AUTH_KEY',  getenv('DB_SECURE_AUTH_KEY'));
-define('LOGGED_IN_KEY', getenv('DB_LOGGED_IN_KEY'));
-define('NONCE_KEY', getenv('DB_NONCE_KEY'));
-define('AUTH_SALT',  getenv('DB_AUTH_SALT'));
-define('SECURE_AUTH_SALT', getenv('DB_SECURE_AUTH_SALT'));
-define('LOGGED_IN_SALT',   getenv('DB_LOGGED_IN_SALT'));
-define('NONCE_SALT',   getenv('DB_NONCE_SALT'));
-
-/**
-* WordPress Database Table prefix.
-*
-* You can have multiple installations in one database if you give each a unique
-* prefix. Only numbers, letters, and underscores please!
-*/
-$table_prefix  = getenv('DB_PREFIX');
+	<?php
+	// MySQL settings
+	/** The name of the database for WordPress */
+	
+	define('DB_NAME', getenv('DB_NAME'));
+	
+	/** MySQL database username */
+	define('DB_USER', getenv('DB_USER'));
+	
+	/** MySQL database password */
+	define('DB_PASSWORD', getenv('DB_PASSWORD'));
+	
+	/** MySQL hostname */
+	define('DB_HOST', getenv('DB_HOST'));
+	
+	/**
+	* For developers: WordPress debugging mode.
+	*
+	* Change this to true to enable the display of notices during development.
+	* It is strongly recommended that plugin and theme developers use WP_DEBUG
+	* in their development environments.
+	* Turn on debug logging to investigate issues without displaying to end user. For WP_DEBUG_LOG to
+	* do anything, WP_DEBUG must be enabled (true). WP_DEBUG_DISPLAY should be used in conjunction
+	* with WP_DEBUG_LOG so that errors are not displayed on the page */
+	
+	*/
+	define('WP_DEBUG', getenv('WP_DEBUG'));
+	define('WP_DEBUG_LOG', getenv('TURN_ON_DEBUG_LOG'));
+	define('WP_DEBUG_DISPLAY',false);
+	
+	//Security key settings
+	/** If you need to generate the string for security keys mentioned above, you can go the automatic generator to create new keys/values: https://api.wordpress.org/secret-key/1.1/salt **/
+	define('AUTH_KEY' ,getenv('DB_AUTH_KEY'));
+	define('SECURE_AUTH_KEY',  getenv('DB_SECURE_AUTH_KEY'));
+	define('LOGGED_IN_KEY', getenv('DB_LOGGED_IN_KEY'));
+	define('NONCE_KEY', getenv('DB_NONCE_KEY'));
+	define('AUTH_SALT',  getenv('DB_AUTH_SALT'));
+	define('SECURE_AUTH_SALT', getenv('DB_SECURE_AUTH_SALT'));
+	define('LOGGED_IN_SALT',   getenv('DB_LOGGED_IN_SALT'));
+	define('NONCE_SALT',   getenv('DB_NONCE_SALT'));
+	
+	/**
+	* WordPress Database Table prefix.
+	*
+	* You can have multiple installations in one database if you give each a unique
+	* prefix. Only numbers, letters, and underscores please!
+	*/
+	$table_prefix  = getenv('DB_PREFIX');
 ```
 
 #### 使用相對路徑
@@ -178,7 +179,7 @@ $table_prefix  = getenv('DB_PREFIX');
 
     define('WP_HOME', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
 	define('WP_SITEURL', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
-    define('WP_CONTENT_URL', '/wp-content');
+	define('WP_CONTENT_URL', '/wp-content');
 	define('DOMAIN_CURRENT_SITE', filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
 ```
 
@@ -189,47 +190,47 @@ $table_prefix  = getenv('DB_PREFIX');
 
 ```
 
-<?php
-/**
- * The base configurations of the WordPress.
- *
- * This file has the following configurations: MySQL settings, Table Prefix,
- * Secret Keys, and ABSPATH. You can find more information by visiting
- *
- * Codex page. You can get the MySQL settings from your web host.
- *
- * This file is used by the wp-config.php creation script during the
- * installation. You don't have to use the web web app, you can just copy this file
- * to "wp-config.php" and fill in the values.
- *
- * @package WordPress
- */
-
-// Support multiple environments
-// set the config file based on current environment
-if (strpos($_SERVER['HTTP_HOST'],'localhost') !== false) { // local development
-    $config_file = 'config/wp-config.local.php';
-}
-elseif  ((strpos(getenv('WP_ENV'),'stage') !== false) ||  (strpos(getenv('WP_ENV'),'prod' )!== false )){
-    $config_file = 'config/wp-config.azure.php';
-}
-
-
-$path = dirname(__FILE__) . '/';
-if (file_exists($path . $config_file)) {
-    // include the config file if it exists, otherwise WP is going to fail
-    require_once $path . $config_file;
-}
-
-/** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8');
-
-/** The Database Collate type. Don't change this if in doubt. */
-define('DB_COLLATE', '');
-
-
-/* That's all, stop editing! Happy blogging. */
-
+	<?php
+	/**
+	 * The base configurations of the WordPress.
+	 *
+	 * This file has the following configurations: MySQL settings, Table Prefix,
+	 * Secret Keys, and ABSPATH. You can find more information by visiting
+	 *
+	 * Codex page. You can get the MySQL settings from your web host.
+	 *
+	 * This file is used by the wp-config.php creation script during the
+	 * installation. You don't have to use the web web app, you can just copy this file
+	 * to "wp-config.php" and fill in the values.
+	 *
+	 * @package WordPress
+	 */
+	
+	// Support multiple environments
+	// set the config file based on current environment
+	if (strpos($_SERVER['HTTP_HOST'],'localhost') !== false) { // local development
+	    $config_file = 'config/wp-config.local.php';
+	}
+	elseif  ((strpos(getenv('WP_ENV'),'stage') !== false) ||  (strpos(getenv('WP_ENV'),'prod' )!== false )){
+	    $config_file = 'config/wp-config.azure.php';
+	}
+	
+	
+	$path = dirname(__FILE__) . '/';
+	if (file_exists($path . $config_file)) {
+	    // include the config file if it exists, otherwise WP is going to fail
+	    require_once $path . $config_file;
+	}
+	
+	/** Database Charset to use in creating database tables. */
+	define('DB_CHARSET', 'utf8');
+	
+	/** The Database Collate type. Don't change this if in doubt. */
+	define('DB_COLLATE', '');
+	
+	
+	/* That's all, stop editing! Happy blogging. */
+	
 	define('WP_HOME', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
 	define('WP_SITEURL', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
 	define('WP_CONTENT_URL', '/wp-content');
@@ -244,7 +245,7 @@ define('DB_COLLATE', '');
 ```
 
 #### 設定預備環境
-假設您已經在 Azure 網站上執行您的 WordPress Web 應用程式，請登入 [Azure 入口網站](http://portal.azure.com)並移至 WordPress Web 應用程式。如果沒有，您可以從 Marketplace 建立一個。若要深入了解，請按一下[這裡](web-sites-php-web-site-gallery.md)。按一下 [設定] -> [部署位置] -> [新增]，以建立具有 stage 名稱的部署位置。部署位置是與以上建立的主要的 Web 應用程式共用相同資源的另一個 Web 應用程式。
+假設您已經在 Azure 網站上執行您的 WordPress Web 應用程式，請登入 [Azure 入口網站](https://portal.azure.com/)並移至 WordPress Web 應用程式。如果沒有，您可以從 Marketplace 建立一個。若要深入了解，請按一下[這裡](web-sites-php-web-site-gallery.md)。按一下 [設定] -> [部署位置] -> [新增]，以建立具有 stage 名稱的部署位置。部署位置是與以上建立的主要的 Web 應用程式共用相同資源的另一個 Web 應用程式。
 
 ![建立階段部署位置](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
@@ -286,7 +287,8 @@ define('DB_COLLATE', '');
 
 ![交換 WordPress 的變更的預覽](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE]> 如果您有只需要推送檔案的案例 (沒有資料庫更新)，那麼請在執行交換之前，於 Azure 入口網站的 Web 應用程式設定刀鋒視窗中**勾選**所有資料庫相關的 [應用程式設定] 和 [連接字串設定] 的 [位置設定]。在此情況下，DB\_NAME、DB\_HOST、DB\_PASSWORD、DB\_USER 預設連接字串設定在執行**交換**的時候應該不會顯示在預覽變更中。在此時，當您完成 [交換] 作業，WordPress Web 應用程式將**只會**有更新檔案。
+ >[AZURE.NOTE]
+ > 如果您有只需要推送檔案的案例 (沒有資料庫更新)，那麼請在執行交換之前，於 Azure 入口網站的 Web 應用程式設定刀鋒視窗中**勾選**所有資料庫相關的 [應用程式設定] 和 [連接字串設定] 的 [位置設定]。在此情況下，DB\_NAME、DB\_HOST、DB\_PASSWORD、DB\_USER 預設連接字串設定在執行**交換**的時候應該不會顯示在預覽變更中。在此時，當您完成 [交換] 作業，WordPress Web 應用程式將**只會**有更新檔案。
 
 執行交換之前，這裡是生產 WordPress Web 應用程式 ![交換位置之前的生產 Web 應用程式](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
@@ -370,21 +372,14 @@ define('DB_COLLATE', '');
   </repositories>
  ```
 
-在 `<repositories>` 下，輸入生產網站 URL URL 和使用者資訊。 如果您使用預設的 Umbraco Membership 提供者，請在 <user> 區段中新增管理使用者的識別碼。 如果您使用自訂 Umbraco Membership 提供者，使用 `<login>`,`<password>` Courier2 模組相關知識連接到生產網站。 如需更多詳細資訊，請檢閱 [文件](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation)了解 Courier 模組。
+Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-同樣地，在您的生產網站中安裝 Courier 模組，並將其設定為指向這裡顯示的相關 courier.config 檔案中的階段 Web 應用程式
+Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
-            <user>0</user>
-           </repository>
-  </repositories>
-```
+  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
 
 在 Umbraco CMS Web 應用程式儀表板中的 Courier2 索引標籤上按一下，並選取位置。您應該會看到 `courier.config` 中所提及的儲存機制名稱。請在生產和預備 Web 應用程式上執行這項操作。
 
@@ -426,7 +421,7 @@ define('DB_COLLATE', '');
 
 ![交換部署 Umbraco CMS 的預覽](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-交換 Web 應用程式和資料庫的優點：1.如果發生任何應用程式問題，能讓您利用另一個**交換**回復至舊版的 Web 應用程式。2.針對升級，您需要將來自預備 Web 應用程式的檔案和資料庫部署到生產 Web 應用程式和資料庫。部署檔案和資料庫有許多項目可能出錯。使用位置的 [交換] 功能，我們可以在升級期間減少停機時間，並降低部署變更時可能發生的失敗風險。3.可讓您使用 [在生產環境中測試](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)功能執行 **A/B 測試**
+交換 Web 應用程式和資料庫的優點：1.如果發生任何應用程式問題，能讓您利用另一個**交換**回復至舊版的 Web 應用程式。2.針對升級，您需要將來自預備 Web 應用程式的檔案和資料庫部署到生產 Web 應用程式和資料庫。部署檔案和資料庫有許多項目可能出錯。使用位置的 [交換] 功能，我們可以在升級期間減少停機時間，並降低部署變更時可能發生的失敗風險。3.可讓您使用 [在生產環境中測試](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)功能執行 **A/B 測試**
 
 此範例將示範平台的彈性，讓您得以建置類似於 Umbraco Courier 模組的自訂模組，以便管理整個環境的部署。
 
@@ -437,4 +432,4 @@ define('DB_COLLATE', '');
 
 [封鎖對非生產部署位置的 Web 存取](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

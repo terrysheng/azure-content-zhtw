@@ -22,9 +22,9 @@
 
 ## 連絡 Azure 客戶支援
 
-如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專員。
 
-或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](http://azure.microsoft.com/support/faq/)。
+或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
 
 
 ## 遺失 Dll 或相依性
@@ -107,7 +107,7 @@
 
 若要讓這種診斷方法獲得最佳結果，您應該使用具有 Windows 全新安裝的電腦或虛擬機器。若要達到模擬 Azure 環境的最佳效果，您應使用 Windows Server 2008 R2 x64。
 
-1. 安裝獨立版的 [Azure SDK](https://azure.microsoft.com/downloads)
+1. 安裝獨立版的 [Azure SDK](https://azure.microsoft.com/downloads/)
 
 2. 在開發電腦上建置雲端服務專案。
 
@@ -167,4 +167,4 @@
 
 若要了解如何利用 Azure PaaS 電腦的診斷資料來疑難排解雲端服務角色的問題，請參閱 [Kevin Williamson 的部落格系列](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

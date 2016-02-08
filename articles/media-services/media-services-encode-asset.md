@@ -132,13 +132,13 @@ Azure 媒體編碼器使用[這裡](https://msdn.microsoft.com/library/azure/dn6
 
 ###概觀
 
-[介紹 Azure 媒體服務中的 Premium 編碼](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+[介紹 Azure 媒體服務中的 Premium 編碼](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
 ###使用方式
 
 Media Encoder Premium Workflow 使用複雜的工作流程設定。您可以使用[工作流程設計工具](media-services-workflow-designer.md)建立和更新工作流程檔案。
 
-[如何使用 Azure 媒體服務中的 Premium 編碼](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+[如何使用 Azure 媒體服務中的 Premium 編碼](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
 ##<a id="compare_encoders"></a>比較編碼器
 
@@ -290,4 +290,4 @@ TransientError|涵蓋暫時性問題 (例如 Azure 儲存體暫時性網路問�
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="01/05/2016" 
 	ms.author="omark"/>
 
 # 什麼是 Azure 應用程式服務？
 Azure 應用程式服務是唯一整合您所需的一切，用以快速而輕鬆地為任何平台和任何裝置建置 Web 和行動應用程式的雲端服務。App Service 是針對開發人員而建置的，它是一個受到完整管理的平台且具有強大的功能，例如內建的營運開發，Visual Studio Team Services 和 GitHub 的連續整合、預備和生產支援，以及自動修補等功能。
 
-Azure 應用程式服務是包含 Azure 網站、Azure 行動服務和 Azure Biztalk 服務的所有現有功能，同時又加入新功能整合而成的單一服務。[深入了解](http://azure.microsoft.com/documentation/services/app-service/)應用程式服務與這些現有服務有何關聯。
+Azure 應用程式服務是包含 Azure 網站、Azure 行動服務和 Azure Biztalk 服務的所有現有功能，同時又加入新功能整合而成的單一服務。[深入了解](https://azure.microsoft.com/documentation/services/app-service/)應用程式服務與這些現有服務有何關聯。
 
 ## 為何要使用應用程式服務？
 Azure 應用程式著重於 Web 和行動應用程式的快速開發以及商務程序的自動化，因而透過單一開發和管理使用性，提供了一組整合式的企業功能，讓您享有下列好處：
@@ -29,7 +29,7 @@ Azure 應用程式著重於 Web 和行動應用程式的快速開發以及商務
 
 - **連接到任何服務，解除鎖定您的資料** - 使用內建的連接器，在幾分鐘內將您的 Web 或行動應用程式連接到企業系統或 SaaS。有超過 50 種適用於企業系統 (例如 SAP、Siebel 和 Oracle)、常用的企業 SaaS 服務 (例如 Salesforce 和 Office 365)，以及常用的網際網路服務 (例如 Facebook、Twitter 和 Dropbox) 的連接器可供選擇。
 
-- **整合更為容易** - 透過簡單的視覺化設計使用性，在幾分鐘內整合不同雲端間的資料，並將商務程序自動化。透過標準 REST API 整合您的邏輯與任何行動或 Web 應用程式。使用 EDI、商務原則 (規則引擎) 等項目，根據領先業界的 BizTalk 平台，建置精密的企業應用程式整合 B2B 解決方案。
+- **整合更為容易** - 透過簡單的視覺化設計使用性，在幾分鐘內整合不同雲端間的資料，並將商務程序自動化。透過標準 REST API，輕鬆地將您的邏輯整合到任何行動或 Web 應用程式。使用 EDI、商務原則 (規則引擎) 等項目，根據領先業界的 BizTalk 平台，建置精密的企業應用程式整合 B2B 解決方案。
 
 - **無可比擬的開發人員生產力** - 對 Visual Studio Team Services 和 Github 的連續整合可最佳化營運開發，讓您可以專注於快速改善應用程式，而不需擔心基礎結構的問題。利用內建的預備、回復和生產環境測試功能來部署應用程式更新。
 
@@ -47,7 +47,7 @@ Azure 應用程式著重於 Web 和行動應用程式的快速開發以及商務
 - [**API Apps**](../app-service-api-apps-why-best-platform) - 輕鬆建置和取用雲端 API。
 - [**邏輯應用程式**](../app-service-logic-what-are-logic-apps) - 將跨雲端的資料存取和使用自動化，而不需要撰寫程式碼。
 
-做為單一的整合式服務，應用程式服務可讓您輕鬆地將上述應用程式類型撰寫成單一方案，進而建置以使用相同後端的 Web 和行動用戶端為目標的應用程式，同時與內部部署系統和常用服務 (例如 Office 365 和 salesforce.com) 整合。
+做為單一的整合式服務，App Service 可讓您輕鬆地將上述應用程式類型撰寫成單一方案，進而建置以使用相同後端的 Web 和行動用戶端為目標的應用程式，同時與內部部署系統和常用服務 (例如 Office 365 和 salesforce.com) 整合。
 
 ### App Service 方案
 應用程式服務計劃代表一組您可以在應用程式之間共用的特性和功能。應用程式服務計劃支援一些價格層 (例如，免費、共用、基本、標準及進階)，每一層都有它自己的功能。您可以快速變更要由哪個應用程式服務計劃主控某個應用程式，不需要停止運作。[深入了解應用程式服務計劃](../web-sites-web-hosting-plan-overview.md)。
@@ -60,4 +60,4 @@ Azure 應用程式著重於 Web 和行動應用程式的快速開發以及商務
 立即免費[建立新的應用程式](http://go.microsoft.com/fwlink/?LinkId=523751)。不需要信用卡，無需承諾和繁複程序。
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

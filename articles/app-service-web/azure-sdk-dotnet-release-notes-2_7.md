@@ -26,7 +26,7 @@
 
 本文件也包含 Azure SDK for .NET 2.7.1 版的版本資訊。
 
-只有在 Visual Studio 2015 和 Visual Studio 2013 中才支援 Azure SDK 2.7。[Azure SDK 2.6](http://azure.microsoft.com/downloads/) 是 Visual Studio 2012 最後一個支援的 SDK。
+只有在 Visual Studio 2015 和 Visual Studio 2013 中才支援 Azure SDK 2.7。[Azure SDK 2.6](https://azure.microsoft.com/downloads/) 是 Visual Studio 2012 最後一個支援的 SDK。
 
 如需此版本的詳細資訊，請參閱 [Azure SDK 2.7 公告文章](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)和 [Azure SDK 2.7.1 公告文章](http://go.microsoft.com/fwlink/?LinkId=623850)。
 
@@ -159,4 +159,4 @@ LightSwitch 專案與這個版本不相容。這個問題將在下個 SDK 版本
 
 [Azure SDK for .NET 和 API 的支援和停用資訊](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

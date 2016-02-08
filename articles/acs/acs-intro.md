@@ -28,7 +28,7 @@ ACS 會使用 Docker，確保您的應用程式容器具有完全的可攜式特
 
 Azure 容器服務可讓您充分利用 Azure 的企業級功能，同時仍可保有應用程式可攜性，包括協調流程層在內。
 
-在預覽服務的同時，我們會要求對服務測試感興趣的人[自我推薦](http://aka.ms/acspreview)。提供預覽存取之後，我們會傳送一封電子郵件，內含進一步詳細資料，包括部署範本以及快速入門指示。若要使用服務，您將需要 Azure 訂閱，如果您尚未訂閱，請註冊[免費試用版](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)。
+在預覽服務的同時，我們會要求對服務測試感興趣的人[自我推薦](http://aka.ms/acspreview)。提供預覽存取之後，我們會傳送一封電子郵件，內含進一步詳細資料，包括部署範本以及快速入門指示。若要使用服務，您將需要 Azure 訂閱，如果您尚未訂閱，請註冊[免費試用版](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
 
 使用 Azure 容器服務
 -----------------------------
@@ -104,16 +104,16 @@ Docker Swarm 為 Docker 提供原生叢集。由於 Docker Swarm 可作為標準
 獲得存取權限
 --------------
 
-在預覽服務的同時，我們會要求對服務測試感興趣的人[自我推薦](http://aka.ms/acspreview)。您首先需要 Azure 訂閱，如果您尚未訂閱，請註冊[免費試用版](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935)。
+在預覽服務的同時，我們會要求對服務測試感興趣的人[自我推薦](http://aka.ms/acspreview)。您首先需要 Azure 訂閱，如果您尚未訂閱，請註冊[免費試用版](https://azure.microsoft.com/zh-TW/pricing/free-trial/)。
 
 影片
 ------
 AzureCon 通知：
 
-> [AZURE.VIDEO azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
+> [AZURE.VIDEO azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]  
 
 開始使用 ACS：
 
 > [AZURE.VIDEO connect-2015-getting-started-developing-with-docker-and-azure-container-service]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

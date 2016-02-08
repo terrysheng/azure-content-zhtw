@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/19/2016"
+    ms.date="01/22/2016"
     ms.author="elizapo" />
 
 
@@ -30,7 +30,7 @@
 *	 https://*remoteapp.windowsazure.com  
 *	 https://*.core.windows.net  
 *	 輸出：TCP：443、TCP：10101-10175 
-*	 選用 – UDP：10201-10275 
+*	 選用 – UDP：10201-10275  
  
 ## Azure RemoteApp 用戶端必須存取以下端點和 URL： 
 
@@ -44,6 +44,6 @@
 -  https://**.remoteapp.windowsazure.com  
 -  https://*.core.windows.net  
 -  輸出：TCP：443  
--  選用 - UDP：10201-10275
+-  選用 - UDP：3391 
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

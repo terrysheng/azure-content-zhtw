@@ -204,7 +204,7 @@
 	   }
 	}
 
-> [AZURE.NOTE]在上述範例中，已為 SqlSource 指定 **sqlReaderQuery**。複製活動會針對 SQL Server 資料庫來源執行這項查詢以取得資料。
+> [AZURE.NOTE] 在上述範例中，已為 SqlSource 指定 **sqlReaderQuery**。複製活動會針對 SQL Server 資料庫來源執行這項查詢以取得資料。
 >  
 > 或者，您可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數) 來指定預存程序。
 >  
@@ -447,7 +447,7 @@
 
 如需可用來定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
 
-> [AZURE.NOTE]複製活動只會採用一個輸入，而且只產生一個輸出。
+> [AZURE.NOTE] 複製活動只會採用一個輸入，而且只產生一個輸出。
 
 另一方面，活動的 typeProperties 區段中可用的屬性會隨著每個活動類型而有所不同，而在複製活動的案例中，可用的屬性會根據來源與接收的類型而有所不同。
 
@@ -499,7 +499,10 @@
 5. 在電腦上建立 **Windows 防火牆規則**，以允許透過此連接埠的連入流量。  
 6. **確認連線**：使用 SQL Server Management Studio 從另一部電腦使用完整名稱連接到 SQL Server。例如：<machine>.<domain>.corp.<company>.com,1433。
 
-	> [AZURE.IMPORTANT]如需詳細資訊，請參閱[連接埠和安全性考量](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations)。
+	> [AZURE.IMPORTANT] 
+	如需詳細資訊，請參閱[連接埠和安全性考量](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations)。
+	>   
+	> 如需連接/閘道器相關問題的疑難排解秘訣，請參閱[閘道器疑難排解](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)。
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -562,4 +565,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

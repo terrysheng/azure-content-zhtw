@@ -36,7 +36,7 @@
 
 - 您可以調整與您雲端服務連結的資源。如需關於連結資源的詳細資訊，請參閱[作法：將資源連結到雲端服務](cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service)。
 
-- 若要對應用程式啟用高可用性，您應該確定應用程式是以兩個以上的角色執行個體或虛擬機器來部署。如需詳細資訊，請參閱[服務等級協定](http://azure.microsoft.com/support/legal/sla/)。
+- 若要對應用程式啟用高可用性，您應該確定應用程式是以兩個以上的角色執行個體或虛擬機器來部署。如需詳細資訊，請參閱[服務等級協定](https://azure.microsoft.com/support/legal/sla/)。
 
 
 ## 手動調整執行 Web 角色或背景工作角色的應用程式
@@ -227,4 +227,4 @@
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

@@ -20,14 +20,14 @@
 
 為使用者啟用自助式功能是常見的企業 IT 案例。許多使用者、許多應用程式，以及最有把握做出存取權授與決策的人員可能都不是目錄管理員。通常決定誰可以存取應用程式的最佳人選是小組負責人或其他委派的系統管理員。但是在一天結束時，這就是使用應用程式的使用者，而使用者知道他們需要什麼才能進行其作業。
 
-自助式應用程式存取是 [Azure Active Directory Premium](http://azure.microsoft.com/trial/get-started-active-directory/) 的一項功能，可讓目錄管理員：
+自助式應用程式存取是 [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) 的一項功能，可讓目錄管理員：
 
 * 使用 [Azure AD 存取面板](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)中的 [取得更多應用程式] 磚，讓使用者要求存取應用程式
 * 設定使用者可以要求存取哪些應用程式
 * 設定使用者是否需要竟過核准，才能夠自我分派應用程式的存取權
 * 設定誰應該核准要求及管理每個應用程式的存取權
 
-目前在 [Azure Active Directory 應用程式庫](http://azure.microsoft.com/marketplace/active-directory/all/)中支援同盟或密碼型單一登入的所有預先整合和自訂應用程式都支援這項功能，包括 Salesforce、Dropbox、Google Apps 等等。這篇文章說明如何：
+目前在 [Azure Active Directory 應用程式庫](https://azure.microsoft.com/marketplace/active-directory/all/)中支援同盟或密碼型單一登入的所有預先整合和自訂應用程式都支援這項功能，包括 Salesforce、Dropbox、Google Apps 等等。這篇文章說明如何：
 
 * 設定一般使用者的自助式應用程式存取權，包括設定選擇性核准工作流程 
 * 將特定應用程式的存取管理委派給您組織中最適當的人員，讓他們能使用 Azure AD 存取面板來核准存取要求，直接將存取權指派給選取的使用者，或者 (選擇性) 在設定密碼型單一登入時設定應用程式存取的認證
@@ -106,4 +106,4 @@
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

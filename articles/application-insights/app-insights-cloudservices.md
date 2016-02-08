@@ -21,7 +21,7 @@
 
 *Application Insights 目前僅供預覽*
 
-[Microsoft Azure 雲端服務應用程式](http://azure.microsoft.com/services/cloud-services/)可以由 [Visual Studio Application Insights][start] 監視可用性、效能、失敗和使用方式。當您取得有關應用程式在現實世界的效能和效率的意見反應時，您可以在每個開發生命週期中針對設計方向做出明智的抉擇。
+[Microsoft Azure 雲端服務應用程式](https://azure.microsoft.com/services/cloud-services/)可以由 [Visual Studio Application Insights][start] 監視可用性、效能、失敗和使用方式。當您取得有關應用程式在現實世界的效能和效率的意見反應時，您可以在每個開發生命週期中針對設計方向做出明智的抉擇。
 
 ![範例](./media/app-insights-cloudservices/sample.png)
 
@@ -279,4 +279,4 @@ Application Insights SDK 可以報告應用程式對外部相依性的呼叫，�
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

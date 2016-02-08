@@ -17,7 +17,7 @@
  
 # 逐步解說：使用串流分析從 Application Insights 匯出至 SQL
 
-本文將說明如何使用[連續匯出][export]和 [Azure 串流分析](http://azure.microsoft.com/services/stream-analytics/)，將您的遙測資料從 [Visual Studio Application Insights][start] 移入 Azure SQL Database。
+本文將說明如何使用[連續匯出][export]和 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)，將您的遙測資料從 [Visual Studio Application Insights][start] 移入 Azure SQL Database。
 
 連續匯出會以 JSON 格式將遙測資料移入 Azure 儲存體。我們將使用 Azure 串流分析來剖析 JSON 物件，並在資料庫資料表中建立資料列。
 
@@ -35,7 +35,7 @@
 
 開始進行之前：
 
-1. 取得 [Microsoft Azure 帳戶](http://azure.microsoft.com/pricing/)。
+1. 取得 [Microsoft Azure 帳戶](https://azure.microsoft.com/pricing/)。
 2. 在 [Azure 入口網站][portal]中，為您的應用程式加入新的 Application Insights 資源：
 
     ![依序選擇 [新增]、[開發人員服務]、[Application Insights]，然後選擇應用程式類型](./media/app-insights-code-sample-export-sql-stream-analytics/010-new-asp.png)
@@ -196,7 +196,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-請務必將 [日期格式] 設為 [YYYY-MM-DD] \(含**連接號**)。
+請務必將 [日期格式] 設為 [YYYY-MM-DD] (含**連接號**)。
 
 [路徑前置詞模式] 會指定串流分析在儲存體中尋找輸入檔案的方式。您需要將它設定為與連續匯出儲存資料的方式相對應。請設定如下：
 
@@ -219,7 +219,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 關閉精靈，並等候設定完成。
 
->[AZURE.TIP]使用範例函數來檢查您是否已正確設定輸入路徑。如果此方法失敗：請檢查儲存體中您所選擇的範例時間範圍的資料。編輯輸入定義，並檢查您是否已正確設定儲存體帳戶、路徑前置詞和日期格式。
+>[AZURE.TIP] 使用範例函數來檢查您是否已正確設定輸入路徑。如果此方法失敗：請檢查儲存體中您所選擇的範例時間範圍的資料。編輯輸入定義，並檢查您是否已正確設定儲存體帳戶、路徑前置詞和日期格式。
 
 ## 設定查詢
 
@@ -315,4 +315,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

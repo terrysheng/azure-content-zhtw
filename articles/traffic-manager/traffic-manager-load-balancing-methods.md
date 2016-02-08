@@ -31,7 +31,7 @@
 
 請注意，不論網站模式為何，Azure 網站已為資料中心內的網站提供容錯移轉和循環配置資源流量路由方法功能。流量管理員可讓您在不同的資料中心網站中指定容錯移轉和循環配置資源流量路由。
 
->[AZURE.NOTE]DNS 存留時間 (TTL) 會通知 DNS 用戶端和 DNS 伺服器上的解析程式快取解析名稱要多久的時間 。用戶端在解析其網域名稱時將繼續使用指定的端點，直到本機 DNS 快取名稱的項目過期為止。
+>[AZURE.NOTE] DNS 存留時間 (TTL) 會通知 DNS 用戶端和 DNS 伺服器上的解析程式快取解析名稱要多久的時間 。用戶端在解析其網域名稱時將繼續使用指定的端點，直到本機 DNS 快取名稱的項目過期為止。
 
 ## 容錯移轉流量路由方法
 
@@ -85,7 +85,7 @@
 
 如需使用 REST API 的相關資訊，請參閱[流量管理員的相關作業 (REST API 參考)](http://go.microsoft.com/fwlink/p/?LinkId=313584)。
 
-如需使用 Azure PowerShell Cmdlet 的相關資訊，請參閱 [Azure 流量管理員 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)。如需組態範例，請參閱 Azure 部落格中的 [Azure 流量管理員外部端點和透過 PowerShell 的加權循環配置資源](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/)。
+如需使用 Azure PowerShell Cmdlet 的相關資訊，請參閱 [Azure 流量管理員 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)。如需組態範例，請參閱 Azure 部落格中的 [Azure 流量管理員外部端點和透過 PowerShell 的加權循環配置資源](https://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/)。
 
 若要測試單一用戶端的設定檔，並觀察相等或加權的循環配置資源行為，請確認已根據設定檔中的相等或加權值，將 DNS 名稱解析成不同的端點 IP 位址。測試時，您必須停用用戶端 DNS 快取或清除每次嘗試之間的 DNS 快取，以確保送出新的 DNS 名稱查詢。
 
@@ -137,4 +137,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

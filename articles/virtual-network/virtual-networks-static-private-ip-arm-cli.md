@@ -233,7 +233,7 @@
 ## 如何將靜態私人 IP 位址新增至現有的 VM
 若要將靜態私人 IP 位址新增至使用上述指令碼建立之 VM 所使用的 NIC，請執行下列命令：
 
-	azure netwrok nic set -g TestRG -n TestNIC2 -a 192.168.1.101
+	azure network nic set -g TestRG -n TestNIC2 -a 192.168.1.101
 
 預期的輸出：
 
@@ -260,8 +260,8 @@
 
 ## 後續步驟
 
-- 了解[保留的公用 IP](../virtual-networks-reserved-public-ip) 位址。
-- 了解[執行個體層級公用 IP (ILPIP)](../virtual-networks-instance-level-public-ip) 位址。
+- 深入了解[保留的公用 IP](../virtual-networks-reserved-public-ip) 位址。
+- 深入了解[執行個體層級公用 IP (ILPIP)](../virtual-networks-instance-level-public-ip) 位址。
 - 請參閱[保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

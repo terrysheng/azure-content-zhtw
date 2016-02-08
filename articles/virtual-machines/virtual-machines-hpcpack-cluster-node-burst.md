@@ -25,7 +25,7 @@ ms.service="virtual-machines"
 
 ![高載節點][burst]
 
->[AZURE.TIP]如果您使用 [HPC Pack IaaS 部署指令碼](virtual-machines-hpcpack-cluster-powershell-script.md)在 Azure 中建立叢集，則可以在自動化部署中包含 Azure 高載節點。請參閱該文件中的範例。
+>[AZURE.TIP] 如果您使用 [HPC Pack IaaS 部署指令碼](virtual-machines-hpcpack-cluster-powershell-script.md)在 Azure 中建立叢集，則可以在自動化部署中包含 Azure 高載節點。請參閱該文件中的範例。
 
 本文中的步驟可協助您將 Azure 節點快速新增至雲端架構 HPC Pack 前端節點 VM，以測試或證明部署概念。此程序基本上相當於將雲端運算能力新增至內部部署 HPC Pack 叢集的「將量擴大到 Azure」程序。如需教學課程，請參閱[使用 Microsoft HPC Pack 設定混合式計算叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)。如需生產部署的詳細指引和考量，請參閱[使用 Microsoft HPC Pack 將量擴大到 Azure](https://technet.microsoft.com/library/gg481749.aspx)。
 
@@ -37,7 +37,7 @@ ms.service="virtual-machines"
 
 * **Azure 訂用帳戶** - 若要新增 Azure 節點，您可以選擇用來部署前端節點 VM 的同一個訂用帳戶，或選擇一或多個不同的訂用帳戶。
 
-* **核心配額** - 您可能需要增加核心的配額，特別是當您選擇部署數個具有多核心大小的 Azure 節點時。若要增加配額，請[開立線上客戶支援要求](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) (免費)。
+* **核心配額** - 您可能需要增加核心的配額，特別是當您選擇部署數個具有多核心大小的 Azure 節點時。若要增加配額，請[開立線上客戶支援要求](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) (免費)。
 
 ## 步驟 1：建立雲端服務和儲存體帳戶以新增 Azure 節點。
 
@@ -46,7 +46,7 @@ ms.service="virtual-machines"
 * 新的 Azure 雲端服務
 * 新的 Azure 儲存體帳戶
 
->[AZURE.NOTE]請勿重複使用您的訂用帳戶中現有的雲端服務。也不要將個別的自訂雲端服務套件部署至此雲端服務。HPC Pack 會在您啟動 (佈建) Azure 節點時自動部署雲端服務套件。
+>[AZURE.NOTE] 請勿重複使用您的訂用帳戶中現有的雲端服務。也不要將個別的自訂雲端服務套件部署至此雲端服務。HPC Pack 會在您啟動 (佈建) Azure 節點時自動部署雲端服務套件。
 
 **考量**
 
@@ -69,7 +69,7 @@ ms.service="virtual-machines"
 
 
 
-在此案例中新增及啟動 Azure 節點的步驟，通常與用於內部部署前端節點的步驟相同。如需詳細資訊，請參閱 [使用 Microsoft HPC Pack 部署 Azure 節點的步驟](https://technet.microsoft.com/library/gg481758(v=ws.10).aspx) 中的下列小節：
+在此案例中新增及啟動 Azure 節點的步驟，通常與用於內部部署前端節點的步驟相同。如需詳細資訊，請參閱[使用 Microsoft HPC Pack 部署 Azure 節點的步驟](https://technet.microsoft.com/library/gg481758.aspx)中的下列小節：
 
 * 建立 Azure 節點範本
 
@@ -88,4 +88,4 @@ ms.service="virtual-machines"
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

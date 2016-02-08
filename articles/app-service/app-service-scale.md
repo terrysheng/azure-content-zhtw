@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="01/09/2016" 
 	ms.author="stepsic"/>
 
 # 在 Azure App Service 中調整定價層
@@ -28,7 +28,7 @@ App Service 方案的服務層級是以[方案的*定價層*](/pricing/details/a
 
 最後，如果您想要使用的專用的 [App Service 環境](app-service-app-service-environment-intro.md)，調整的運作方式會有所不同。如需詳細資訊，請參閱[在 App Service 環境中調整 Web Apps](app-service-web-scale-a-web-app-in-an-app-service-environment.md)。
 
-> [AZURE.NOTE] 從 [免費] 模式切換為 [基本]、[標準] 或 [進階] 模式之前，您必須先適當地移除 Azure App Service 訂用帳戶的支出費用上限。若要檢視或變更 Microsoft Azure App Service 訂用帳戶的選項，請參閱 [Microsoft Azure 訂用帳戶][azuresubscriptions]。
+> [AZURE.NOTE]  從 [免費] 模式切換為 [基本]、[標準] 或 [進階] 模式之前，您必須先適當地移除 Azure App Service 訂用帳戶的支出費用上限。若要檢視或變更 Microsoft Azure App Service 訂用帳戶的選項，請參閱 [Microsoft Azure 訂用帳戶][azuresubscriptions]。
 
 <a name="scalingsharedorbasic"></a> <a name="scalingstandard"></a>
 
@@ -85,7 +85,7 @@ App Service 方案的服務層級是以[方案的*定價層*](/pricing/details/a
 
 - 如需應用程式服務計劃其他所有功能的詳細資訊，包括所有使用者 (包括開發人員) 關心的定價和功能，請參閱[App Service 定價詳細資料](/pricing/details/web-sites/)。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 <a name="Next Steps"></a>
 ## 後續步驟
@@ -130,4 +130,4 @@ App Service 方案的服務層級是以[方案的*定價層*](/pricing/details/a
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

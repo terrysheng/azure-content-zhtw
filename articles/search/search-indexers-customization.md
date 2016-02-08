@@ -114,7 +114,7 @@ Azure 搜尋服務會將文件索引鍵欄位內的字元限制為 URL 安全字
 
 即使您選擇容許某些失敗，[取得索引子狀態 API](https://msdn.microsoft.com/library/azure/dn946884.aspx) 還是會傳回哪個文件失敗的資訊。
 
-目前是如此。如果您有任何未來內容的想法和建議，請使用 #AzureSearch 雜湊標記推文給我們，或者在我們的 [UserVoice 頁面](http://feedback.azure.com/forums/263029-azure-search)上提出您的想法。
+目前是如此。如果您有任何未來內容的想法和建議，請使用 #AzureSearch 雜湊標記推文給我們，或者在我們的 [UserVoice 頁面](https://feedback.azure.com/forums/263029-azure-search/)上提出您的想法。
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

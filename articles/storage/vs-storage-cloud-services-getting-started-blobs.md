@@ -28,7 +28,7 @@ Azure 二進位大型物件 (Microsoft Azure Blob) 儲存是一項儲存大量�
 
 - 如需以程式設計方式操作 Blob 的詳細資訊，請參閱[如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)。
 - 如需 Azure 儲存體的一般資訊，請參閱[儲存體文件](https://azure.microsoft.com/documentation/services/storage/)。
-- 如需 Azure 雲端服務的一般資訊，請參閱[雲端服務文件](http://azure.microsoft.com/documentation/services/cloud-services/)。
+- 如需 Azure 雲端服務的一般資訊，請參閱[雲端服務文件](https://azure.microsoft.com/documentation/services/cloud-services/)。
 - 如需 ASP.NET 應用程式設計的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
 
 ## 在程式碼中存取 blob 容器
@@ -58,11 +58,11 @@ Azure 二進位大型物件 (Microsoft Azure Blob) 儲存是一項儲存大量�
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-> [AZURE.NOTE]請將前一個程序中顯示的所有程式碼使用於後續章節中顯示的程式碼之前。
+> [AZURE.NOTE] 請將前一個程序中顯示的所有程式碼使用於後續章節中顯示的程式碼之前。
 
 ## 在程式碼中建立容器
 
-> [AZURE.NOTE]有些對外向 ASP.NET 中 Azure 儲存體執行呼叫的 API 是非同步的。如需詳細資訊，請參閱[使用 Async 和 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。以下範例中的程式碼假設使用非同步程式設計方法。
+> [AZURE.NOTE] 有些對外向 ASP.NET 中 Azure 儲存體執行呼叫的 API 是非同步的。如需詳細資訊，請參閱[使用 Async 和 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。以下範例中的程式碼假設使用非同步程式設計方法。
 
 若要在儲存體帳戶中建立容器，您只需要新增對 **CreateIfNotExistsAsync** 的呼叫，如下列程式碼所示：
 
@@ -257,4 +257,4 @@ Azure 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，建議
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

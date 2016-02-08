@@ -31,7 +31,7 @@
 
 開始進行之前：
 
-1. 取得 [Microsoft Azure 帳戶](http://azure.microsoft.com/pricing/)。
+1. 取得 [Microsoft Azure 帳戶](https://azure.microsoft.com/pricing/)。
 2. 在 [Azure 入口網站][portal]中，為您的應用程式加入新的 Application Insights 資源：
 
     ![依序選擇 [新增]、[開發人員服務]、[Application Insights]，然後選擇應用程式類型](./media/app-insights-code-sample-export-telemetry-sql-database/010-new-asp.png)
@@ -467,7 +467,7 @@
 
 這是將為 PageView 產生之資料表的結構描述。
 
-> [AZURE.NOTE]您不需要執行這個指令碼。JSON 中的屬性決定了資料表中的資料行。
+> [AZURE.NOTE] 您不需要執行這個指令碼。JSON 中的屬性決定了資料表中的資料行。
 
     CREATE TABLE [dbo].[PageViewPerformances](
 	[Id] [uniqueidentifier] NOT NULL,
@@ -543,4 +543,4 @@
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -59,9 +59,9 @@ Azure 免費試用優惠僅限於啟用免費試用一次。
 
 建議：
 
-如果您因為以前已啟用過 Azure 訂用帳戶，而導致免費試用啟用失敗，請使用 [Microsoft Azure 優惠詳細資料](http://azure.microsoft.com/support/legal/offer-details/)中列出的另一個可用的 Azure 方案，而不是 Azure 免費試用方案。
+如果您因為以前已啟用過 Azure 訂用帳戶，而導致免費試用啟用失敗，請使用 [Microsoft Azure 優惠詳細資料](https://azure.microsoft.com/support/legal/offer-details/)中列出的另一個可用的 Azure 方案，而不是 Azure 免費試用方案。
 
 ## 連絡 Azure 支援
 如果您在遵循這些疑難排解步驟之後仍有註冊問題，請連絡 [Azure 支援](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

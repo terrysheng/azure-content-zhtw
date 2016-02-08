@@ -53,13 +53,15 @@
 說明 | 說明活動用途的文字 | 否
 類型 | SqlServerStoredProcedure | 是
 輸入 | 輸入資料集必須可供使用 (「就緒」狀態)，才能執行預存程序活動。將預存程序活動與其他活動鏈結時，此活動的輸入僅用於相依性管理。在預存程序中輸入資料集無法做為參數取用 | 否
-輸出 | 預存程序活動產生的輸出資料集。請確定輸出資料表會使用連結的服務，該服務將 Azure SQL Database 或 Azure SQL 資料倉儲連結至 Data Factory。預存程序活動中的輸出，可以做為傳遞預存程序活動結果的方式，以進行後續的處理，及/或在此活動與其他活動鏈結時，用於相依性管理 | 是
+輸出 | 預存程序活動產生的輸出資料集。請確定輸出資料表會使用連結的服務，該服務將 Azure SQL Database 或 Azure SQL 資料倉儲或 SQL Server 資料庫連結至 Data Factory。預存程序活動中的輸出，可以做為傳遞預存程序活動結果的方式，以進行後續的處理，及/或在此活動與其他活動鏈結時，用於相依性管理 | 是
 storedProcedureName | 指定 Azure SQL Database 或 Azure SQL 資料倉儲中預存程序的名稱，由輸出資料表使用的連結的服務代表。 | 是
 storedProcedureParameters | 指定預存程序參數的值 | 否
 
 ## 範例逐步解說
 
 ### 範例資料表與預存程序
+> [AZURE.NOTE] 這個範例雖使用 Azure SQL Database，但對於 Azure SQL 資料倉儲和 SQL Server 資料庫也同樣適用。
+
 1. 在您的 Azure SQL Database 中，使用 SQL Server Management Studio 或任何其他您很熟悉的工具，來建立下列**資料表**。Datetimestamp 資料行是產生對應識別碼的日期和時間。 
 
 		CREATE TABLE dbo.sampletable
@@ -72,8 +74,7 @@ storedProcedureParameters | 指定預存程序參數的值 | 否
 		CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
 		GO
 
-	Id 是可唯一識別的，而 datetimestamp 資料行是產生對應識別碼的日期和時間。
-	![範例資料](./media/data-factory-stored-proc-activity/sample-data.png)
+	Id 是可唯一識別的，而 datetimestamp 資料行是產生對應識別碼的日期和時間。![範例資料](./media/data-factory-stored-proc-activity/sample-data.png)
 
 2. 建立下列**預存程序**，將資料插入 **sampletable**。
 
@@ -85,10 +86,10 @@ storedProcedureParameters | 指定預存程序參數的值 | 否
 		    VALUES (newid(), @DateTime)
 		END
 
-	> [AZURE.IMPORTANT]參數 (在此範例中是 DateTime) 的**名稱**和**大小寫**必須與下列管線/活動 JSON 中指定的參數相符。在預存程序定義中，請務必使用 **@** 做為參數前置詞。
+	> [AZURE.IMPORTANT] 參數 (在此範例中是 DateTime) 的**名稱**和**大小寫**必須與下列管線/活動 JSON 中指定的參數相符。在預存程序定義中，請務必使用 **@** 做為參數前置詞。
 	
 ### 建立 Data Factory  
-4. 登入 [Azure 入口網站](http://portal.azure.com/)之後，執行下列動作：
+4. 登入 [Azure 入口網站](https://portal.azure.com/)之後，執行下列動作：
 	1.	按一下左側功能表上的 [新增]。 
 	2.	按一下 [建立] 刀鋒視窗中的 [資料分析]。
 	3.	按一下 [資料分析] 刀鋒視窗上的 [Data Factory]。
@@ -107,7 +108,7 @@ storedProcedureParameters | 指定預存程序參數的值 | 否
 
 7.	在適用於 **SProcDF** 的 [DATA FACTORY] 刀鋒視窗中，按一下 [製作和部署]。這會啟動 Data Factory 編輯器。 
 2.	在命令列上按一下 [新增資料儲存區]，然後選擇 [Azure SQL]。您應該會在編輯器中看到用來建立 Azure SQL 連結服務的 JSON 指令碼。 
-4. 使用您的 Azure SQL Database 伺服器名稱來取代 **servername**、使用您在其中建立資料表和預存程序的資料庫來取代 **databasename**、使用有權存取資料庫的使用者帳戶來取代 **username@servername**，以及使用該使用者帳戶的密碼來取代 **password**。
+4. 使用您的 Azure SQL Database 伺服器名稱來取代 **servername**、使用您在其中建立資料表和預存程序的資料庫來取代 **databasename**、使用有權存取資料庫的使用者帳戶來取代 ****username@servername**，以及使用該使用者帳戶的密碼來取代 **password**。
 5. 按一下命令列的 [部署]，部署連結服務。
 
 ### 建立輸出資料表
@@ -178,7 +179,7 @@ storedProcedureParameters | 指定預存程序參數的值 | 否
 
 	如需監視 Azure Data Factory 管線的詳細資訊，請參閱[監視管線](data-factory-monitor-manage-pipelines.md) 。
 
-> [AZURE.NOTE]在上述範例中，SprocActivitySample 沒有輸入。如果您想要鏈結此活動與活動上游 (例如預先處理)，可以使用上游活動的輸出做為此活動的輸入。在此情況下，上游活動完成且能使用上游活動的輸出 (處於就緒狀態) 之前，此活動不會執行。輸入無法直接做為預存程序活動的參數使用。
+> [AZURE.NOTE] 在上述範例中，SprocActivitySample 沒有輸入。如果您想要鏈結此活動與活動上游 (例如預先處理)，可以使用上游活動的輸出做為此活動的輸入。在此情況下，上游活動完成且能使用上游活動的輸出 (處於就緒狀態) 之前，此活動不會執行。輸入無法直接做為預存程序活動的參數使用。
 
 ## 傳遞靜態值 
 現在我們來考量在包含稱為「文件範例」的靜態值的資料表中，新增另一個名為「案例」的資料行。
@@ -206,4 +207,4 @@ storedProcedureParameters | 指定預存程序參數的值 | 否
 		}
 	}
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

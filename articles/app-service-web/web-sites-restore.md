@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/07/2015" 
+	ms.date="01/26/2016" 
 	ms.author="cephalin"/>
 
 # 在 Azure App Service 中還原應用程式
@@ -22,7 +22,7 @@
 
 App Service「還原」功能可讓您依需求，將應用程式及其連結的資料庫 (SQL Database 或 MySQL) 還原成先前的狀態，或是根據您其中一個原始的應用程式備份來建立新應用程式。建立與最新版本平行執行的新應用程式，對進行 A/B 測試來說，會相當有用。
 
-只有「標準」和「進階」定價層才提供 App Service「還原」功能 (在 [Azure 入口網站](http://portal.azure.com)的 [備份] 刀鋒視窗上提供)。如需有關使用「標準」和「進階」層來調整應用程式規模的資訊，請參閱[在 Azure App Service 中調整應用程式規模](web-sites-scale.md)。請注意，「進階」層所允許執行的每日備份數量比「標準」層多。
+只有「標準」和「進階」定價層才提供 App Service「還原」功能 (在 [Azure 入口網站](https://portal.azure.com)的 [備份] 刀鋒視窗上提供)。如需有關使用「標準」和「進階」層來調整應用程式規模的資訊，請參閱[在 Azure App Service 中調整應用程式規模](web-sites-scale.md)。請注意，「進階」層所允許執行的每日備份數量比「標準」層多。
 
 <a name="PreviousBackup"></a>
 ## 從先前製作的備份還原應用程式
@@ -41,7 +41,7 @@ App Service「還原」功能可讓您依需求，將應用程式及其連結的
 
 	![](./media/web-sites-restore/022ChooseDestination.png)
 	
-	>[AZURE.WARNING]如果您選擇 [覆寫]，則與您現有應用程式相關的所有資料都會被清除。按一下 [確定] 之前，請確定這確實是您想要執行的動作。
+	>[AZURE.WARNING] 如果您選擇 [覆寫]，則與您現有應用程式相關的所有資料都會被清除。按一下 [確定] 之前，請確定這確實是您想要執行的動作。
 	
 	您可以選取 [現有應用程式]，將應用程式備份還原到相同資源群組中的另一個應用程式。使用此選項之前，您應該已經在資源群組中，建立具有應用程式備份中所定義之資料庫組態的鏡像資料庫組態的另一個應用程式。
 	
@@ -80,7 +80,7 @@ App Service「還原」功能可讓您依需求，將應用程式及其連結的
 	
 [詳細資料] 刀鋒視窗將會顯示與該作業有關的可用資訊。
 	
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 後續步驟
 
@@ -106,4 +106,4 @@ App Service「還原」功能可讓您依需求，將應用程式及其連結的
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

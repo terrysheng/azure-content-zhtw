@@ -61,7 +61,7 @@
  
 ## 將應用程式移到不同的應用程式服務方案
 
-您可以在 [Azure 入口網站](http://portal.azure.com)中將應用程式移到不同的應用程式服務方案。應用程式可以在相同地理區域的不同方案之間移動。
+您可以在 [Azure 入口網站](https://portal.azure.com)中將應用程式移到不同的應用程式服務方案。應用程式可以在相同地理區域的不同方案之間移動。
 
 若要將應用程式移到另一個方案，請瀏覽至您想要移動的應用程式，然後按一下 [**變更應用程式服務方案**]。
  
@@ -77,7 +77,7 @@
 
 - 變更方案的**定價層**。例如，[**基本**] 層中的方案可以轉換成 [**標準**] 或 [**高階**] 層，而且與該方案相關聯的所有應用程式都可以利用新服務層所提供的功能。
 - 變更方案的**執行個體大小** (例如 [**基本**] 層中使用**小型**執行個體的方案可以變更為使用**大型**執行個體。與該方案相關聯的所有應用程式都可以利用較大執行個體大小所提供的額外記憶體和 CPU 資源。
-- 變更方案的**執行個體計數**。例如，向外延展為 3 個執行個體的 [**標準**] 方案可以延展為 10 個執行個體，而 [**高階**] \(預覽) 方案可以向外延展為 20 個執行個體 (在某些限制下)。與該方案相關聯的所有應用程式都可以利用較大執行個體計數所提供的額外記憶體和 CPU 資源。
+- 變更方案的**執行個體計數**。例如，向外延展為 3 個執行個體的 [**標準**] 方案可以延展為 10 個執行個體，而 [**高階**] (預覽) 方案可以向外延展為 20 個執行個體 (在某些限制下)。與該方案相關聯的所有應用程式都可以利用較大執行個體計數所提供的額外記憶體和 CPU 資源。
 
 在下圖中，您可以看到 [**應用程式服務方案**] 刀鋒視窗和 [**定價層**] 刀鋒視窗。按一下 [**應用程式服務方案**] 刀鋒視窗的 [**定價層**] 部分，將會展開 [**定價層**] 刀鋒視窗，您可以在其中變更方案的定價層和執行個體大小。
  
@@ -90,14 +90,11 @@
 ## 變更的項目
 
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
- 
- 
- 
- <!-- Images. -->
+   
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

@@ -48,7 +48,7 @@
 
 應用程式層描述應用程式中功能與元件的邏輯群組；而層則描述個別實體伺服器、電腦、網路或遠端位置上功能與元件的實體分佈。應用程式層可位於同一部實體電腦 (同一層)，或分散在不同電腦 (多層式架構)，而每個層中的元件可透過定義明確的介面，與其他層中的元件進行通訊。您可以將「層」這個詞彙視為實體分佈模式，例如兩層、三層和多層式架構。**2 層應用程式模式**包含兩個應用程式層：應用程式伺服器和資料庫伺服器。應用程式伺服器和資料庫伺服器之間會進行直接通訊。應用程式伺服器包含 Web 層和商務層元件。在 **3 層應用程式模式**中，有三個應用程式層：Web 伺服器、應用程式伺服器 (其中包含商務邏輯層和/或商務層資料存取元件)，以及資料庫伺服器。Web 伺服器和資料庫伺服器之間會透過應用程式伺服器進行通訊。如需應用程式層和各層的詳細資訊，請參閱 [Microsoft 應用程式架構指南](https://msdn.microsoft.com/library/ff650706.aspx)。
 
-開始閱讀本文之前，您應該先了解 SQL Server 和 Azure 的基本概念。如需相關資訊，請參閱 [SQL Server 線上叢書](https://msdn.microsoft.com/library/bb545450.aspx)、[Azure 虛擬機器中的 SQL Server](virtual-machines-sql-server-infrastructure-services.md) 以及 [Azure.com](http://azure.microsoft.com)。
+開始閱讀本文之前，您應該先了解 SQL Server 和 Azure 的基本概念。如需相關資訊，請參閱 [SQL Server 線上叢書](https://msdn.microsoft.com/library/bb545450.aspx)、[Azure 虛擬機器中的 SQL Server](virtual-machines-sql-server-infrastructure-services.md) 以及 [Azure.com](https://azure.microsoft.com/)。
 
 本文會說明一些應用程式模式，它們適用於簡單的應用程式以及複雜度高的企業應用程式。在詳述每個模式之前，我們建議您應該先熟悉 Azure 中可用的資料儲存體服務，例如 [Azure 儲存體](../storage/storage-introduction.md)、[Azure SQL Database](../sql-database/sql-database-technical-overview.md) 和 [Azure 虛擬機器中的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。若要為應用程式做出最佳設計決策，您必須清楚地了解何時要使用哪一種資料儲存體服務。
 
@@ -61,7 +61,7 @@
 - 您想要利用 Azure 環境的功能，但 Azure SQL Database 不支援您應用程式需要的所有功能。這可能包括下列部分：
 
 	- **資料庫大小**：本文更新時，SQL Database 支援的資料庫最多可有 500 GB 的資料。如果應用程式需要超過 500 GB 的資料，且您不想要實作自訂分區化解決方案，則建議使用 Azure 虛擬機器中的 SQL Server。如需最新資訊，請參閱[向外延展 Azure SQL Database](https://msdn.microsoft.com/library/azure/dn495641.aspx) 和 [Azure SQL Database 服務層和效能等級](../sql-database/sql-database-service-tiers.md)。
-	- **HIPAA 法規遵循**：醫療保健產業的客戶和獨立軟體廠商 (ISV) 可以選擇使用 [Azure 虛擬機器中 SQL Server](virtual-machines-sql-server-infrastructure-services.md) 而不是 [Azure SQL Database](../sql-database/sql-database-technical-overview.md)，因為 HIPAA 業務合作協議 (BAA) 已涵蓋 Azure 虛擬機器中的 SQL Server。如需法規遵循的資訊，請參閱 [Microsoft Azure 信任中心：法規遵循](http://azure.microsoft.com/support/trust-center/compliance/)。
+	- **HIPAA 法規遵循**：醫療保健產業的客戶和獨立軟體廠商 (ISV) 可以選擇使用 [Azure 虛擬機器中 SQL Server](virtual-machines-sql-server-infrastructure-services.md) 而不是 [Azure SQL Database](../sql-database/sql-database-technical-overview.md)，因為 HIPAA 業務合作協議 (BAA) 已涵蓋 Azure 虛擬機器中的 SQL Server。如需法規遵循的資訊，請參閱 [Microsoft Azure 信任中心：法規遵循](https://azure.microsoft.com/support/trust-center/compliance/)。
 	- **執行個體層級功能**：目前 SQL Database 不支援存在於資料庫外的功能 (例如連結的伺服器、代理程式作業、FileStream、Service Broker 等等)。如需詳細資訊，請參閱 [Azure SQL Database 方針和限制](https://msdn.microsoft.com/library/azure/ff394102.aspx)。
 
 ## 1 層 (簡單)：單一虛擬機器
@@ -110,7 +110,7 @@
 
 在圖表中，網際網路通訊協定可以是 TCP、UDP、HTTP 或 HTTPS。
 
->[AZURE.NOTE]在 Azure 中設定虛擬網路是免費的。不過，您必須為連接到內部部署的 VPN 閘道付費。此費用取決於佈建和可用的連接時間量。
+>[AZURE.NOTE] 在 Azure 中設定虛擬網路是免費的。不過，您必須為連接到內部部署的 VPN 閘道付費。此費用取決於佈建和可用的連接時間量。
 
 ## 展示層向外延展的 2 層和 3 層
 
@@ -198,7 +198,7 @@
 
 ## 使用 Azure VM 和雲端服務的 2 層和 3 層
 
-在此應用程式模式中，您會使用 [Azure 雲端服務](cloud-services-choose-me.md#tellmecs) (Web 和背景工作角色 - 平台即服務 (PaaS)) 和 [Azure 虛擬機器](virtual-machines/) (基礎結構即服務 (IaaS))，將 2 層或 3 層應用程式部署至 Azure。針對展示層/商務層使用 [Azure 雲端服務](http://azure.microsoft.com/documentation/services/cloud-services/)，以及針對資料層使用 [Azure 虛擬機器](virtual-machines-about.md)中的 SQL Server，對於大多數在 Azure 上執行的應用程式會較有幫助。原因是在雲端服務上執行的計算執行個體，可讓您輕鬆管理、部署、監視和向外延展。
+在此應用程式模式中，您會使用 [Azure 雲端服務](cloud-services-choose-me.md#tellmecs) (Web 和背景工作角色 - 平台即服務 (PaaS)) 和 [Azure 虛擬機器](virtual-machines/) (基礎結構即服務 (IaaS))，將 2 層或 3 層應用程式部署至 Azure。針對展示層/商務層使用 [Azure 雲端服務](https://azure.microsoft.com/documentation/services/cloud-services/)，以及針對資料層使用 [Azure 虛擬機器](virtual-machines-about.md)中的 SQL Server，對於大多數在 Azure 上執行的應用程式會較有幫助。原因是在雲端服務上執行的計算執行個體，可讓您輕鬆管理、部署、監視和向外延展。
 
 有了雲端服務，Azure 就能為您維護基礎結構、執行例行性維護、修補作業系統，以及嘗試從服務和硬體故障中復原。當您的應用程式需要向外延展時，藉由增加或減少應用程式所使用的執行個體或虛擬機器數目，即可為您的雲端服務專案自動或手動向外延展。此外，您還可以使用內部部署 Visual Studio，將應用程式部署至 Azure 中的雲端服務專案。
 
@@ -222,7 +222,7 @@
 
 ![應用程式模式搭配雲端服務](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728013.png)
 
-實作此應用程式模式的另一種方法是使用合併的 Web 角色 (包含展示層和商務層元件)，如下圖所示。如果應用程式需要可設定狀態的設計，此應用程式模式就很實用。由於 Azure 在 Web 和背景工作角色上提供無狀態的計算節點，因此建議您實作邏輯，以使用下列其中一種技術來儲存工作階段狀態：[Azure 快取](http://azure.microsoft.com/documentation/services/redis-cache/)、[Azure 資料表儲存體](../storage/storage-dotnet-how-to-use-tables.md)或 [Azure SQL Database](../sql-database/sql-database-technical-overview.md)。
+實作此應用程式模式的另一種方法是使用合併的 Web 角色 (包含展示層和商務層元件)，如下圖所示。如果應用程式需要可設定狀態的設計，此應用程式模式就很實用。由於 Azure 在 Web 和背景工作角色上提供無狀態的計算節點，因此建議您實作邏輯，以使用下列其中一種技術來儲存工作階段狀態：[Azure 快取](https://azure.microsoft.com/documentation/services/redis-cache/)、[Azure 資料表儲存體](../storage/storage-dotnet-how-to-use-tables.md)或 [Azure SQL Database](../sql-database/sql-database-technical-overview.md)。
 
 ![應用程式模式搭配雲端服務](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728014.png)
 
@@ -230,7 +230,7 @@
 
 此應用程式模式的主要目標是示範如何在解決方案中，將 Azure 基礎結構即服務 (IaaS) 元件與 Azure 平台即服務元件 (PaaS) 加以結合。此模式著重於關聯式資料存放區的 Azure SQL Database。這不包括 Azure 虛擬機器中的 SQL Server，因為其已包含在 Azure 基礎結構即服務的供應項目中。
 
-在此應用程式模式中，您會將展示層和商務層放在同一個虛擬機器中，並存取 Azure SQL Database (SQL Database) 伺服器中的資料庫，藉此將資料庫應用程式部署到 Azure。您可以使用傳統的 IIS 型 Web 解決方案來實作展示層。或者，您可以使用 [Azure Web Apps](http://azure.microsoft.com/documentation/services/app-service/web/)，實作結合的展示層和商業層。
+在此應用程式模式中，您會將展示層和商務層放在同一個虛擬機器中，並存取 Azure SQL Database (SQL Database) 伺服器中的資料庫，藉此將資料庫應用程式部署到 Azure。您可以使用傳統的 IIS 型 Web 解決方案來實作展示層。或者，您可以使用 [Azure Web Apps](https://azure.microsoft.com/documentation/services/app-service/web/)，實作結合的展示層和商業層。
 
 若有下列情況，此應用程式模式會很適用：
 
@@ -272,7 +272,7 @@
 
 ![多層式架構的應用程式模式](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728016.png)
 
-在 Azure 中，您可以使用 Active Directory 做為貴組織的獨立雲端目錄，或者您也可以將現有的內部部署 Active Directory 與 [Azure Active Directory](http://azure.microsoft.com/documentation/services/active-directory/) 整合。如圖所示，商務層元件可以存取多個資料來源，例如透過私人內部 IP 位址存取 [Azure 中的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)，或透過 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)存取內部部署 SQL Server，或是使用 .NET Framework 資料提供者技術存取 [SQL Database](../sql-database/sql-database-technical-overview)。在此圖中，Azure SQL Database 是選用的資料儲存體服務。
+在 Azure 中，您可以使用 Active Directory 做為貴組織的獨立雲端目錄，或者您也可以將現有的內部部署 Active Directory 與 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/) 整合。如圖所示，商務層元件可以存取多個資料來源，例如透過私人內部 IP 位址存取 [Azure 中的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)，或透過 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)存取內部部署 SQL Server，或是使用 .NET Framework 資料提供者技術存取 [SQL Database](../sql-database/sql-database-technical-overview)。在此圖中，Azure SQL Database 是選用的資料儲存體服務。
 
 在多層式架構混合式應用程式模式中，您可以依指定的順序，實作下列工作流程：
 
@@ -312,14 +312,14 @@
 
 關於 Azure 虛擬機器中的 SQL Server，下表提供傳統 Web 開發與 Azure 雲端服務和 Azure Web Apps 的比較。表格中包含 Azure Web Apps，因為它可以透過其公用虛擬 IP 位址或 DNS 名稱，使用 Azure VM 中的 SQL Server 當做 Azure Web Apps 的資料來源。
 
-||Azure 虛擬機器中的傳統 Web 開發|Azure 中的雲端服務|虛擬主機搭配 Azure Web Apps|
+|Azure 虛擬機器中的傳統 Web 開發|Azure 中的雲端服務|虛擬主機與 Azure Web Apps|
 |---|---|---|---|
-|**從內部部署移轉應用程式**|現有應用程式按原狀。|應用程式需要 Web 和背景工作角色。|現有應用程式按原狀，但適用於需要可快速延展的獨立 Web 應用程式和 Web 服務。|
-|**開發和部署**|Visual Studio、WebMatrix、Visual Web Developer、WebDeploy、FTP、TFS、IIS Manager、 PowerShell。|Visual Studio、Azure SDK、TFS、PowerShell。每一個雲端服務都有兩個環境，可供您部署服務封裝和組態：預備環境和生產環境。您可以將雲端服務部署到預備環境以進行測試，然後再將其升至生產環境。|Visual Studio、WebMatrix、Visual Web Developer、FTP、GIT、BitBucket、CodePlex、DropBox、GitHub、Mercurial、TFS、Web Deploy、PowerShell。|
-|**管理與設定**|您負責應用程式、資料、防火牆規則、虛擬網路和作業系統的管理工作。|您負責應用程式、資料、防火牆規則和虛擬網路的管理工作。|您只負責應用程式和資料的管理工作。|
-|**高可用性和災害復原 (HADR)**|我們建議您在相同的可用性設定組和相同雲端服務中放置虛擬機器。將 VM 置於相同的可用性設定組中，可讓 Azure 將高可用性節點放入分隔的容錯網域和升級網域。同樣地，將 VM 放在相同雲端服務中，可實現負載平衡，而 VM 之間可以透過 Azure 資料中心內的本機網路直接與彼此通訊。<br/><br/>您負責針對 Azure 虛擬機器中的 SQL Server，實作高可用性和災害復原解決方案，以免遇到任何停機狀況。如需支援的 HADR 技術，請參閱 [Azure 虛擬機器中的 SQL Server 高可用性和災害復原](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)。<br/><br/>您負責備份自己的資料和應用程式。<br/><br/>如果資料中心內的主機電腦因為硬體問題而故障，Azure 可以移動虛擬機器。此外，當主機電腦因安全性或軟體更新而有更新時，VM 可能會按計劃停機。因此，建議您在每個應用程式層中至少維護兩個 VM ，以確保持續可用性。Azure 沒有為單一虛擬機器提供 SLA。如需詳細資訊，請參閱 [Azure 業務續航力技術指引](https://msdn.microsoft.com/library/azure/hh873027.aspx)。|Azure 會管理因為基礎硬體或作業系統軟體所導致的失敗或故障。我們建議您實作多個 Web 角色或背景工作角色執行個體，以確保應用程式的高可用性。如需詳細資訊，請參閱 [雲端服務、虛擬機器和虛擬網路服務等級協定](http://www.microsoft.com/download/details.aspx?id=38427)和 [Azure 應用程式災害復原與高可用性](https://msdn.microsoft.com/library/azure/dn251004.aspx)<br/><br/>您負責備份自己的資料和應用程式。<br/><br/>您負責對位於 Azure VM 中 SQL Server 資料庫內的資料庫，實作高可用性和災害復原解決方案，以免遇到任何停機情況。如需支援的 HADR 技術，請參閱「Azure 虛擬機器中的 SQL Server 高可用性和災害復原」。<br/><br/>**SQL Server 資料庫鏡像**：搭配使用 Azure 雲端服務 (Web 角色/背景工作角色)。SQL Server VM 和雲端服務專案可位於相同的 Azure 虛擬網路。如果 SQL Server VM 不在相同的虛擬網路中，您便必須建立 SQL Server 別名，以將通訊路由傳送至 SQL Server 執行個體。此外，別名名稱必須符合 SQL Server 名稱。|高可用性是繼承自 Azure 背景工作角色、Azure Blob 儲存體和 Azure SQL Database。例如，Azure 儲存體會維護所有 Blob、資料表和佇列資料的三個複本。不論何時，Azure SQL Database 都會保留三個執行中的資料複本—一個主要複本和兩個次要複本。如需詳細資訊，請參閱 [Azure 儲存體](http://azure.microsoft.com/documentation/services/storage)和 [Azure SQL Database](../sql-database/sql-database-technical-overview.md)。<br/><br/>使用 Azure VM 中的 SQL Server 當做 Azure Web Apps 的資料來源時，請記住，Azure Web 應用程式不支援 Azure 虛擬網路。換言之，從 Azure Web Apps 到 Azure 中 SQL Server VM 的所有連線，都必須透過虛擬機器的公用端點。這可能會對高可用性和災害復原案例造成一些限制。例如，在 Azure Web Apps 上使用資料庫鏡像連接到 SQL Server VM 的用戶端應用程式，會無法連接至新的主要伺服器，因為您必須在 Azure 中的 SQL Server 主機 VM 之間設定 Azure 虛擬網路才能使用資料庫鏡像。因此，目前不支援搭配 Azure Web Apps 使用 **SQL Server 資料庫鏡像**。<br/><br/>**SQL Server AlwaysOn 可用性群組**：搭配 Azure 中的 SQL Server VM 使用 Azure Web Apps 時，可以設定 AlwaysOn 可用性群組。但您必須設定 AlwaysOn 可用性群組接聽程式，才能將通訊透過公用負載平衡端點路由傳送至主要複本。|
-|**跨單位連接能力**|您可以使用 Azure 虛擬網路連接至內部部署。|您可以使用 Azure 虛擬網路連接至內部部署。|支援 Azure 虛擬網路。如需詳細資訊，請參閱 [Web Apps 虛擬網路整合](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)。|
-|**延展性**|藉由增加虛擬機器大小或新增更多磁碟以調升規模。如需虛擬機器大小的詳細資訊，請參閱 [Azure 的虛擬機器大小](virtual-machines-size-specs.md)。<br/><br/>**針對資料庫伺服器**：向外延展可透過資料庫資料分割技術和 SQL Server AlwaysOn 可用性群組來進行。<br/><br/>如果是讀取密集工作負載，可以使用多個次要節點上的 [AlwaysOn 可用性群組](https://msdn.microsoft.com/library/hh510230.aspx)，以及 SQL Server 複寫。<br/><br/>如果是寫入密集工作負載，可以在多個實體伺服器上實作水平分割資料，提供應用程式向外延展。<br/><br/>此外，您可以使用 [SQL Server 搭配資料依存路由](https://technet.microsoft.com/library/cc966448.aspx)實作向外延展。使用資料依存路由 (DDR) 時，您必須在用戶端應用程式 (通常是在商務層) 中，實作資料分割機制，以將資料庫要求路由傳送至多個 SQL Server 節點。商務層中包含如何分割資料，以及哪個節點包含資料的對應。<br/><br/>您可以為執行虛擬機器的應用程式調整規模。如需詳細資訊，請參閱[如何調整應用程式](../cloud-services/cloud-services-how-to-scale.md)。<br/><br/>**重要注意事項**：Azure 中的**自動調整規模**功能可讓您自動增加或減少應用程式所使用的虛擬機器數量。這項功能可保證使用者的體驗不會在尖峰期間受到影響，且 VM 不會在需求降低時關機。如果雲端服務含有 SQL Server VM，建議您不要為雲端服務設定「自動調整規模」選項。原因是「自動調整規模」功能會讓 Azure 在該 VM 中的 CPU 使用率高於某個臨界值時，開啟虛擬機器；以及在 CPU 使用率低於該臨界值時，關閉虛擬機器。「自動調整規模」功能對於無狀態的應用很實用，例如 Web 伺服器，其中所有 VM 均可管理工作負載，且不用參考任何先前的狀態。但「自動調整規模」功能不適用於可設定狀態的應用，例如 SQL Server，其中只有一個執行個體允許寫入資料庫。|可使用多個 Web 角色和背景工作角色調升規模。如需 Web 角色和背景工作角色的虛擬機器大小的詳細資訊，請參閱[設定雲端服務大小](../cloud-services/cloud-services-sizes-specs.md)。<br/><br/>使用 **雲端服務**時，您可以定義多個角色來分散處理，也能彈性調整應用程式。每個雲端服務包含一或多個 Web 角色和/或背景工作角色，且各有自己的應用程式檔案和組態。您可以增加針對某個角色而部署的角色執行個體 (虛擬機器) 數目，藉此調升雲端服務的規模；或是減少角色執行個體數目，以調降雲端服務的規模。如需詳細資訊，請參閱 [Azure 執行模型](fundamentals-application-models.md)。<br/><br/>若要向外延展，可透過[雲端服務、虛擬機器和虛擬網路服務等級協定](http://www.microsoft.com/download/details.aspx?id=38427)，以及負載平衡器，利用內建的 Azure 高可用性支援進行。<br/><br/>若為多層式應用程式，建議您將 Web 角色/背景工作角色應用程式，透過 Azure 虛擬網路連接至資料庫伺服器 VM。此外，Azure 會為相同雲端服務中的 VM 提供負載平衡，以平均分配使用者要求。虛擬機器之間可以這種方式，透過 Azure 資料中心內的本機網路彼此連接並直接通訊。<br/><br/>您可以在管理入口網站中設定**自動調整規模**，以及排程時間。如需詳細資訊，請參閱[如何調整應用程式](../cloud-services/cloud-services-how-to-scale.md)。|**相應增加和降低**：您可以增加/減少為網站保留的執行個體 (VM) 大小。<br/><br/>向外延展：您可以為網站新增更多保留的執行個體數目 (VM)。<br/><br/>您可以在管理入口網站中設定**自動調整規模**，以及排程時間。如需詳細資訊，請參閱[如何調整 Web Apps](../app-service-web/web-sites-scale.md)。|
+|**從內部部署進行應用程式移轉**|現有的應用程式維持不變。|應用程式需要 Web 角色和背景工作角色。|現有的應用程式維持不變，但仍適用於需要快速擴充的獨立式 Web 應用程式和 Web 服務。|
+|**開發和部署**|Visual Studio、WebMatrix、Visual Web Developer、WebDeploy、FTP、TFS、IIS Manager，PowerShell。|Visual Studio、Azure SDK、TFS，PowerShell。每一個雲端服務都有兩個環境，可供您部署服務封裝和組態：預備環境和生產環境。在將雲端服務升級到生產環境之前，您可以先在預備環境中測試雲端服務。|Visual Studio、WebMatrix、Visual Web Developer、FTP、GIT、BitBucket、CodePlex、DropBox、GitHub、Mercurial、TFS、Web Deploy、PowerShell。|
+|**系統管理和設定**|您必須負責應用程式、資料、防火牆規則、虛擬網路，和作業系統上的系統管理工作。|您必須負責應用程式、資料、防火牆規則，和虛擬網路上的系統管理工作。|您只需負責應用程式和資料的系統管理工作。|
+|**高可用性和災害復原 (HADR)**|建議您將虛擬機器放置於相同的可用性設定組和相同的雲端服務中。將 VM 置於相同的可用性設定組中，可讓 Azure 將高可用性節點放入分隔的容錯網域和升級網域。同樣地，將 VM 放在相同雲端服務中，可實現負載平衡，而 VM 之間可以透過 Azure 資料中心內的本機網路直接與彼此通訊。<br/><br/>您負責針對 Azure 虛擬機器中的 SQL Server，實作高可用性和災害復原解決方案，以免遇到任何停機狀況。如需支援的 HADR 技術，請參閱 [Azure 虛擬機器中的 SQL Server 高可用性和災害復原](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)。<br/><br/>您負責備份自己的資料和應用程式。<br/><br/>如果資料中心內的主機電腦因為硬體問題而故障，Azure 可以移動虛擬機器。此外，當主機電腦因安全性或軟體更新而有更新時，VM 可能會按計劃停機。因此，建議您在每個應用程式層中至少維護兩個 VM ，以確保持續可用性。Azure 沒有為單一虛擬機器提供 SLA。如需詳細資訊，請參閱 [Azure 業務續航力技術指引](https://msdn.microsoft.com/library/azure/hh873027.aspx)。|Azure 會管理從基礎硬體或作業系統軟體導致的失敗。我們建議您實作多個 Web 角色或背景工作角色執行個體，以確保應用程式的高可用性。如需詳細資訊，請參閱 [雲端服務、虛擬機器和虛擬網路服務等級協定](http://www.microsoft.com/download/details.aspx?id=38427)和 [Azure 應用程式災害復原與高可用性](https://msdn.microsoft.com/library/azure/dn251004.aspx)<br/><br/>您負責備份自己的資料和應用程式。<br/><br/>您負責對位於 Azure VM 中 SQL Server 資料庫內的資料庫，實作高可用性和災害復原解決方案，以免遇到任何停機情況。如需支援的 HADR 技術，請參閱「Azure 虛擬機器中的 SQL Server 高可用性和災害復原」。<br/><br/>**SQL Server 資料庫鏡像**：搭配使用 Azure 雲端服務 (Web 角色/背景工作角色)。SQL Server VM 和雲端服務專案可位於相同的 Azure 虛擬網路。如果 SQL Server VM 不在相同的虛擬網路中，您便必須建立 SQL Server 別名，以將通訊路由傳送至 SQL Server 執行個體。此外，別名必須與 SQL Server 名稱相符。|高可用性是繼承自 Azure 背景工作角色、Azure Blob 儲存體和 Azure SQL Database。例如，Azure 儲存體會維護所有 Blob、資料表和佇列資料的三個複本。不論何時，Azure SQL Database 都會保留三個執行中的資料複本—一個主要複本和兩個次要複本。如需詳細資訊，請參閱 [Azure 儲存體](https://azure.microsoft.com/documentation/services/storage/)和 [Azure SQL Database](../sql-database/sql-database-technical-overview.md)。<br/><br/>使用 Azure VM 中的 SQL Server 當做 Azure Web Apps 的資料來源時，請記住，Azure Web 應用程式不支援 Azure 虛擬網路。換言之，從 Azure Web Apps 到 Azure 中 SQL Server VM 的所有連線，都必須透過虛擬機器的公用端點。這可能會對高可用性和災害復原案例造成一些限制。例如，在 Azure Web Apps 上使用資料庫鏡像連接到 SQL Server VM 的用戶端應用程式，會無法連接至新的主要伺服器，因為您必須在 Azure 中的 SQL Server 主機 VM 之間設定 Azure 虛擬網路才能使用資料庫鏡像。因此，目前不支援搭配 Azure Web Apps 使用 **SQL Server 資料庫鏡像**。<br/><br/>**SQL Server AlwaysOn 可用性群組**：搭配 Azure 中的 SQL Server VM 使用 Azure Web Apps 時，可以設定 AlwaysOn 可用性群組。但您必須設定 AlwaysOn 可用性群組接聽程式，將通訊透過公用負載平衡的端點路由至主要複本。|
+|**跨單位連線**|您可以使用 Azure 虛擬網路連線到內部部署。|您可以使用 Azure 虛擬網路連線到內部部署。|支援 Azure 虛擬網路。如需詳細資訊，請參閱 [Web Apps 虛擬網路整合](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)。|
+|**延展性**|可透過增加虛擬機器大小或新增更多硬碟來相應增加。如需虛擬機器大小的詳細資訊，請參閱 [Azure 的虛擬機器大小](virtual-machines-size-specs.md)。<br/><br/>**針對資料庫伺服器**：向外延展可透過資料庫資料分割技術和 SQL Server AlwaysOn 可用性群組來進行。<br/><br/>如果是讀取密集工作負載，可以使用多個次要節點上的 [AlwaysOn 可用性群組](https://msdn.microsoft.com/library/hh510230.aspx)，以及 SQL Server 複寫。<br/><br/>如果是寫入密集工作負載，可以在多個實體伺服器上實作水平分割資料，提供應用程式向外延展。<br/><br/>此外，您可以使用 [SQL Server 搭配資料依存路由](https://technet.microsoft.com/library/cc966448.aspx)實作向外延展。使用資料依存路由 (DDR) 時，您必須在用戶端應用程式 (通常是在商務層) 中，實作資料分割機制，以將資料庫要求路由傳送至多個 SQL Server 節點。商務層中包含如何分割資料，以及哪個節點包含資料的對應。<br/><br/>您可以為執行虛擬機器的應用程式調整規模。如需詳細資訊，請參閱[如何調整應用程式](../cloud-services/cloud-services-how-to-scale.md)。<br/><br/>**重要注意事項**：Azure 中的**自動調整規模**功能可讓您自動增加或減少應用程式所使用的虛擬機器數量。這項功能可保證使用者的體驗不會在尖峰期間受到影響，且 VM 不會在需求降低時關機。如果雲端服務含有 SQL Server VM，建議您不要為雲端服務設定「自動調整規模」選項。原因是「自動調整規模」功能會讓 Azure 在該 VM 中的 CPU 使用率高於某個臨界值時，開啟虛擬機器；以及在 CPU 使用率低於該臨界值時，關閉虛擬機器。「自動調整規模」功能對於無狀態的應用很實用，例如 Web 伺服器，其中所有 VM 均可管理工作負載，且不用參考任何先前的狀態。但「自動調整規模」功能不適用於可設定狀態的應用程式，例如 SQL Server，其中只有一個執行個體允許寫入資料庫。|透過使用多個 Web 角色和背景工作角色來相應增加。如需 Web 角色和背景工作角色的虛擬機器大小的詳細資訊，請參閱[設定雲端服務大小](../cloud-services/cloud-services-sizes-specs.md)。<br/><br/>使用 **雲端服務**時，您可以定義多個角色來分散處理，也能彈性調整應用程式。每個雲端服務包含一或多個 Web 角色和/或背景工作角色，且各有自己的應用程式檔案和組態。您可以增加針對某個角色而部署的角色執行個體 (虛擬機器) 數目，藉此調升雲端服務的規模；或是減少角色執行個體數目，以調降雲端服務的規模。如需詳細資訊，請參閱 [Azure 執行模型](fundamentals-application-models.md)。<br/><br/>若要向外延展，可透過[雲端服務、虛擬機器和虛擬網路服務等級協定](http://www.microsoft.com/download/details.aspx?id=38427)，以及負載平衡器，利用內建的 Azure 高可用性支援進行。<br/><br/>若為多層式應用程式，建議您將 Web 角色/背景工作角色應用程式，透過 Azure 虛擬網路連接至資料庫伺服器 VM。此外，Azure 會為相同雲端服務中的 VM 提供負載平衡，以平均分配使用者要求。虛擬機器之間可用這種方式，透過 Azure 資料中心內的本機網路彼此連接並直接通訊。<br/><br/>您可以在 Azure 傳統入口網站中設定**自動調整規模**，以及排程時間。如需詳細資訊，請參閱[如何調整應用程式](../cloud-services/cloud-services-how-to-scale.md)。|**相應增加與相應減少**：您可以增加/減少為網站保留的執行個體 (VM) 大小。<br/><br/>相應放大：您可以為網站新增更多保留的執行個體 (VM)。<br/><br/>您可以在入口網站中設定**自動調整規模**以及排程時間。如需詳細資訊，請參閱[如何調整 Web Apps](../app-service-web/web-sites-scale.md)。|
 
 如需如何選擇這些程式設計方法的詳細資訊，請參閱 [Azure Web Apps、雲端服務和 VM：每一項的使用時機？](../app-service-web/choose-web-site-cloud-service-vm.md)。
 
@@ -327,5 +327,4 @@
 
 如需在 Azure 虛擬機器中執行 SQL Server 的詳細資訊，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
-<!-------Line 322: deleting extra string--->
+<!---HONumber=AcomDC_0128_2016-->

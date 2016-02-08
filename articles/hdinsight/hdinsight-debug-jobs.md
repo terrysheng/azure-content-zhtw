@@ -14,18 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/28/2016"
 	ms.author="jgao"/>
 
 # 在 HDInsight 上對 Hadoop 進行偵錯：檢視記錄與解譯錯誤訊息
 
 本主題列舉的錯誤訊息可協助 Azure HDInsight 的 Hadoop 使用者了解，他們在使用 Azure PowerShell 來管理服務時可能遭遇的錯誤狀況，並建議一些步驟供他們從錯誤中回復。
 
-使用 Azure 入口網站管理 HDinsight 叢集時也可能會看到其中某些錯誤訊息。但由於此情況下可能採取的補救動作有其限制，您可能看到的其他錯誤訊息比較不詳細。在很顯然有緩和措施的情況下，則會提供其他錯誤訊息。舉例來說，如果違反參數的限制，則輸入值的方塊右上角會彈出訊息。以下是要求太多資料節點的例子。補救方法是將數量減少到 33 以下的允許值。
+使用 Azure 入口網站管理 HDinsight 叢集時也可能會看到其中某些錯誤訊息。但由於此情況下可能採取的補救動作有其限制，您可能看到的其他錯誤訊息比較不詳細。在很顯然有緩和措施的情況下，則會提供其他錯誤訊息。
 
-![HDInsight 入口網站錯誤訊息][image-hdi-debugging-error-messages-portal]
-
-若發生了 Azure HDInsight 特定的錯誤，最好是能夠了解錯誤的相關資訊。請參閱 [HDInsight 錯誤碼](#hdi-error-codes)，以了解不同的錯誤碼，以及如何修正這些錯誤。在某些情況下，您可能想要存取 Hadoop 記錄本身。您可以直接從 Azure 入口網站進行。
+若發生了 Azure HDInsight 特定的錯誤，最好是能夠了解錯誤的相關資訊。請參閱 [HDInsight 錯誤碼](#hdinsight-error-codes)，以了解不同的錯誤碼，以及如何修正這些錯誤。在某些情況下，您可能想要存取 Hadoop 記錄本身。您可以直接從 Azure 入口網站進行。
 
 ## 檢視叢集健康情況和工作記錄檔
 
@@ -51,65 +49,9 @@
 
 * **存取 HBase UI**。從 Azure 入口網站中，按一下 HDInsight HBase 叢集名稱以開啟叢集刀鋒視窗。從叢集刀鋒視窗中，按一下 [儀表板]。出現提示時，輸入叢集系統管理員認證。在開啟的查詢主控台中，按一下 [HBase UI]。
 
-## <a id="hdi-error-codes"></a>HDInsight 錯誤碼
+## HDInsight 錯誤代碼
 
-使用者可能會在 Azure PowerShell 或入口網站中遇到的錯誤，會按照名稱的字母順序列出。錯誤會依次連結到[錯誤的描述與緩和](#discription-mitigation-errors)一節中的項目，其會針對錯誤提供下列資訊：
-
-- **描述**：使用者看見的錯誤訊息
-- **緩和**：可採取以便從錯誤中回復的步驟。
-
-
-
-- [AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided)
-- [AzureRegionNotSupported](#AzureRegionNotSupported)
-- [ClusterContainerRecordNotFound](#ClusterContainerRecordNotFound)
-- [ClusterDnsNameInvalidReservedWord](#ClusterDnsNameInvalidReservedWord)
-- [ClusterNameUnavailable](#ClusterNameUnavailable)
-- [ClusterUserNameInvalid](#ClusterUserNameInvalid)
-- [ClusterUserNameInvalidReservedWord](#ClusterUserNameInvalidReservedWord)
-- [ContainerNameMisMatchWithDnsName](#ContainerNameMisMatchWithDnsName)
-- [DataNodeDefinitionNotFound](#DataNodeDefinitionNotFound)
-- [DeploymentDeletionFailure](#DeploymentDeletionFailure)
-- [DnsMappingNotFound](#DnsMappingNotFound)
-- [DuplicateClusterContainerRequest](#DuplicateClusterContainerRequest)
-- [DuplicateClusterInHostedService](#DuplicateClusterInHostedService)
-- [FailureToUpdateDeploymentStatus](#FailureToUpdateDeploymentStatus)
-- [HdiRestoreClusterAltered](#HdiRestoreClusterAltered)
-- [HeadNodeConfigNotFound](#HeadNodeConfigNotFound)
-- [HeadNodeConfigNotFound](#HeadNodeConfigNotFound)
-- [HostedServiceCreationFailure](#HostedServiceCreationFailure)
-- [HostedServiceHasProductionDeployment](#HostedServiceHasProductionDeployment)
-- [HostedServiceNotFound](#HostedServiceNotFound)
-- [HostedServiceWithNoDeployment](#HostedServiceWithNoDeployment)
-- [InsufficientResourcesCores](#InsufficientResourcesCores)
-- [InsufficientResourcesHostedServices](#InsufficientResourcesHostedServices)
-- [InternalErrorRetryRequest](#InternalErrorRetryRequest)
-- [InvalidAzureStorageLocation](#InvalidAzureStorageLocation)
-- [InvalidNodeSizeForDataNode](#InvalidNodeSizeForDataNode)
-- [InvalidNodeSizeForHeadNode](#InvalidNodeSizeForHeadNode)
-- [InvalidRightsForDeploymentDeletion](#InvalidRightsForDeploymentDeletion)
-- [InvalidStorageAccountBlobContainerName](#InvalidStorageAccountBlobContainerName)
-- [InvalidStorageAccountConfigurationSecretKey](#InvalidStorageAccountConfigurationSecretKey)
-- [InvalidVersionHeaderFormat](#InvalidVersionHeaderFormat)
-- [MoreThanOneHeadNode](#MoreThanOneHeadNode)
-- [OperationTimedOutRetryRequest](#OperationTimedOutRetryRequest)
-- [ParameterNullOrEmpty](#ParameterNullOrEmpty)
-- [PreClusterCreationValidationFailure](#PreClusterCreationValidationFailure)
-- [RegionCapabilityNotAvailable](#RegionCapabilityNotAvailable)
-- [StorageAccountNotColocated](#StorageAccountNotColocated)
-- [SubscriptionIdNotActive](#SubscriptionIdNotActive)
-- [SubscriptionIdNotFound](#SubscriptionIdNotFound)
-- [UnableToResolveDNS](#UnableToResolveDNS)
-- [UnableToVerifyLocationOfResource](#UnableToVerifyLocationOfResource)
-- [VersionCapabilityNotAvailable](#VersionCapabilityNotAvailable)
-- [VersionNotSupported](#VersionNotSupported)
-- [VersionNotSupportedInRegion](#VersionNotSupportedInRegion)
-- [WasbAccountConfigNotFound](#WasbAccountConfigNotFound)
-
-
-
-## <a id="discription-mitigation-errors"></a>錯誤的診斷和緩和
-
+使用者可能會在 Azure PowerShell 或入口網站中遇到的錯誤，會按照名稱的字母順序列出：
 
 ### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
 - **描述**：請至少提供一個元件的 Azure SQL Database 詳細資料，以便使用 Hive 和 Oozie metastore 的自訂設定。
@@ -296,8 +238,8 @@
 
 * [Azure HDInsight SDK 文件][hdinsight-sdk-documentation]
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
+[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn469975.aspx
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

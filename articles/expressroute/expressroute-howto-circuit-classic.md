@@ -29,7 +29,7 @@
 
 ## 組態必要條件
 
-- 您需要最新版的 Azure PowerShell 模組。您可以從 [Azure 下載頁面](http://azure.microsoft.com/downloads)的 PowerShell 區段下載最新的 PowerShell 模組。遵循[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md) 頁面上的指示，來取得如何設定您的電腦以使用 Azure PowerShell 模組的逐步指引。 
+- 您需要最新版的 Azure PowerShell 模組。您可以從 [Azure 下載頁面](https://azure.microsoft.com/downloads/)的 PowerShell 區段下載最新的 PowerShell 模組。遵循[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md) 頁面上的指示，來取得如何設定您的電腦以使用 Azure PowerShell 模組的逐步指引。 
 - 開始設定之前，請確定您已經檢閱過[必要條件](expressroute-prerequisites.md)頁面和[工作流程](expressroute-workflows.md)頁面。
 
 ## 建立和佈建 ExpressRoute 線路
@@ -43,7 +43,7 @@
 
 2. **取得支援的提供者、位置和頻寬清單。**
 
-	建立 ExpressRoute 線路之前，您需要有連線提供者、支援的位置和頻寬選項等清單。PowerShell Cmdlet Get-AzureDedicatedCircuitServiceProvider 會傳回此資訊，在稍後的步驟中將會用到。
+	建立 ExpressRoute 線路之前，您需要有連線提供者、支援的位置和頻寬選項等清單。PowerShell Cmdlet *Get-AzureDedicatedCircuitServiceProvider* 會傳回此資訊，在稍後的步驟中將會用到。
 
 		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
@@ -121,7 +121,7 @@
 
 4. **列出所有 ExpressRoute 線路。**
 
-	您可以執行 Get-AzureDedicatedCircuit 命令，取得您已建立之所有 ExpressRoute 線路的清單。
+	您可以執行 *Get-AzureDedicatedCircuit* 命令，取得您已建立之所有 ExpressRoute 線路的清單。
 
 		#Getting service key
 		Get-AzureDedicatedCircuit
@@ -137,7 +137,7 @@
 		Sku                              : Standard
 		Status                           : Enabled
 
-	您隨時可以使用 Get-AzureDedicatedCircuit Cmdlet 擷取此資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。ServiceKey 欄位會列出您的服務金鑰。
+	您隨時可以使用 *Get-AzureDedicatedCircuit* Cmdlet 擷取此資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。*ServiceKey* 欄位會列出您的服務金鑰。
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -162,7 +162,7 @@
 		
 		Status                           : Enabled
 
-	ServiceProviderProvisioningState 提供目前在服務提供者端的佈建狀態，Status 提供 Microsoft 端的狀態。ExpressRoute 線路必須處於下列狀態，才可供您使用。
+	*ServiceProviderProvisioningState* 提供目前在服務提供者端的佈建狀態，Status 提供 Microsoft 端的狀態。ExpressRoute 線路必須處於下列狀態，才可供您使用。
 
 		ServiceProviderProvisioningState : Provisioned
 		
@@ -178,7 +178,7 @@
 
 5. **定期檢查線路金鑰的情況和狀態。**
 
-	這樣可讓您知道提供者何時已啟用您的線路。設定線路之後，ServiceProviderProvisioningState 會顯示為 Provisioned，如下列範例所示。
+	這樣可讓您知道提供者何時已啟用您的線路。設定線路之後，*ServiceProviderProvisioningState* 會顯示為 *Provisioned*，如下列範例所示。
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -201,7 +201,7 @@
 
 ##  取得 ExpressRoute 線路的狀態
 
-您隨時可以使用 Get-AzureCircuit Cmdlet 擷取此資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。
+您隨時可以使用 *Get-AzureCircuit* Cmdlet 擷取此資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -286,7 +286,7 @@
 
 您的線路現在已經停用進階附加元件。
 
->[AZURE.IMPORTANT]如果您使用的資源超出標準線路所允許的數量，這項作業可能會失敗。
+>[AZURE.IMPORTANT] 如果您使用的資源超出標準線路所允許的數量，這項作業可能會失敗。
 >
 >- 從高階降級為標準之前，您必須確定連結至線路的虛擬網路數目小於 10。如果您沒有這麼做，則更新要求將會失敗，將會以高階費率向您收費。
 - 您必須取消連結其他地理政治區域中的所有虛擬網路。如果您沒有這麼做，則更新要求將會失敗，將會以高階費率向您收費。
@@ -310,7 +310,7 @@
 
 我們會在 Microsoft 端調整電路的大小。您必須連絡連線提供者，將他們那邊的設定更新為符合這項變更。請注意，從這個階段起，我們將開始計算更新頻寬選項的費用。
 
->[AZURE.IMPORTANT]降低 ExpressRoute 線路的頻寬時必須中斷運作。頻寬降級需要取消佈建 ExpressRoute 線路，然後重新佈建新的 ExpressRoute 線路。
+>[AZURE.IMPORTANT] 降低 ExpressRoute 線路的頻寬時必須中斷運作。頻寬降級需要取消佈建 ExpressRoute 線路，然後重新佈建新的 ExpressRoute 線路。
 
 ##  刪除和佈建 ExpressRoute 線路
 
@@ -320,7 +320,7 @@
 
 請注意，您必須取消連結 ExpressRoute 的所有虛擬網路，此作業才會成功。如果此作業失敗，請檢查您是否有任何虛擬網路連結至線路。
 
-如果已啟用 ExpressRoute 線路服務提供者佈建狀態，狀態會從已啟用狀態變成正在停用。您必須與服務提供者一起合作，取消佈建他們那邊的線路。我們將繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
+如果已啟用 ExpressRoute 線路服務提供者佈建狀態，狀態會從已啟用狀態變成*正在停用*。您必須與服務提供者一起合作，取消佈建他們那邊的線路。我們將繼續保留資源並向您收取費用，直到線路服務提供者完成取消佈建並通知我們。
 
 若服務提供者在您執行上述 Cmdlet 之前已取消佈建線路 (服務提供者佈建狀態設定為 [未佈建])，我們將會取消佈建線路並停止向您收費。
 
@@ -328,4 +328,4 @@
 
 - [設定路由](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

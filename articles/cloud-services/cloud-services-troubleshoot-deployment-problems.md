@@ -25,13 +25,13 @@
 * 在 Azure 入口網站中：依序按一下雲端服務的部署、[所有設定] 和 [屬性]。
 * 在 Azure 傳統入口網站：按一下雲端服務的部署、按一下 [儀表板]，移至頁面右下角 ([快速概覽] 下)。請注意，此窗格中並沒有「屬性」二字。
 
-> [AZURE.NOTE]您可以按一下窗格右上角的圖示，將 [屬性] 窗格的內容複製到剪貼簿。
+> [AZURE.NOTE] 您可以按一下窗格右上角的圖示，將 [屬性] 窗格的內容複製到剪貼簿。
 
 ## 連絡 Azure 客戶支援
 
-如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](http://azure.microsoft.com/support/forums/)上的 Azure 專員。
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專員。
 
-或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](http://azure.microsoft.com/support/faq/)。
+或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
 
 
 
@@ -41,7 +41,7 @@
 
 1. 在 Azure 入口網站中，按一下您的雲端服務部署。
 2. 在 Azure 入口網站的 [屬性] 窗格中，查看角色執行個體的連接埠 (在 [輸入端點] 下方)。
-3. 如果連接埠不是 80，請在存取應用程式時將正確的連接埠值新增至 URL。若要指定非預設連接埠，請輸入 URL，後面依序加上冒號 (:) 和不含空格的連接埠號碼。
+3. 如果連接埠不是 *80*，請在存取應用程式時將正確的連接埠值新增至 URL。若要指定非預設連接埠，請輸入 URL，後面依序加上冒號 (:) 和不含空格的連接埠號碼。
 
 ## 問題：我的角色執行個體無故自行重新啟動
 
@@ -80,7 +80,7 @@
    * 如果角色執行個體處於 [忙碌] 狀態，請檢查應用程式的程式碼，查看 [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) 事件是否已處理。您可能需要新增或修正處理此事件的程式碼。
    * 請瀏覽部落格文章 [Azure PaaS 計算診斷資料] 中的診斷資料及疑難排解案例。
 
->[AZURE.WARNING]如果您重新啟動雲端服務，您會重設部署的屬性，而有效清除原始問題的資訊。
+>[AZURE.WARNING] 如果您重新啟動雲端服務，您會重設部署的屬性，而有效清除原始問題的資訊。
 
 ## 後續步驟
 
@@ -88,4 +88,4 @@
 
 若要了解如何利用 Azure PaaS 電腦的診斷資料來疑難排解雲端服務角色的問題，請參閱 [Kevin Williamson 的部落格系列](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

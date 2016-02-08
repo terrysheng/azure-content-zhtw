@@ -24,11 +24,11 @@ Azure Active Directory (Azure AD) 是 Microsoft 的「身分識別即服務 (IDa
 
 [立即試用 Azure AD Premium。](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 
-> [AZURE.NOTE]Azure AD 管理入口網站是 Azure 傳統入口網站的一部分。雖然使用 Azure AD 不需要購買任何 Azure，但是存取此入口網站需要有效的 Azure 訂用帳戶或 [Azure 試用版訂用帳戶](http://azure.microsoft.com/pricing/free-trial/)。
+> [AZURE.NOTE] Azure AD 管理入口網站是 Azure 傳統入口網站的一部分。雖然使用 Azure AD 不需要購買任何 Azure，但是存取此入口網站需要有效的 Azure 訂用帳戶或 [Azure 試用版訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
-如需 Azure AD 服務功能的一般概觀，請參閱[什麼是 Azure AD](active-directory-whatis.md)。[深入了解 Azure AD 服務等級](http://azure.microsoft.com/support/legal/sla/)
+如需 Azure AD 服務功能的一般概觀，請參閱[什麼是 Azure AD](active-directory-whatis.md)。[深入了解 Azure AD 服務等級](https://azure.microsoft.com/support/legal/sla/)
 
-> [AZURE.NOTE]Azure 預付型訂用帳戶則不同：雖然也會在您的目錄中表示，但是這些訂用帳戶可以建立 Azure 資源，而且會將資源對應到您的付款方法。在這種情況下，訂用帳戶「沒有」相關聯的授權計數。使用者與訂用帳戶的關聯就是使用者管理訂用帳戶資源的存取權，是透過授與使用者權限來達成，讓他們能夠操作與訂用帳戶對應的 Azure 資源。
+> [AZURE.NOTE]  Azure 預付型訂用帳戶則不同：雖然也會在您的目錄中表示，但是這些訂用帳戶可以建立 Azure 資源，而且會將資源對應到您的付款方法。在這種情況下，訂用帳戶「沒有」相關聯的授權計數。使用者與訂用帳戶的關聯就是使用者管理訂用帳戶資源的存取權，是透過授與使用者權限來達成，讓他們能夠操作與訂用帳戶對應的 Azure 資源。
 
 
 ##Azure AD 授權如何運作？
@@ -41,9 +41,9 @@ Azure Active Directory (Azure AD) 是 Microsoft 的「身分識別即服務 (IDa
 
 一般而言，Azure AD 訂用帳戶資訊是透過 Azure 傳統入口網站在特定目錄的 [授權] 索引標籤下進行管理。Azure AD 訂用帳戶 (除了 Azure AD Premium 之外)「不會」顯示在 Office 入口網站中。
 
-> [AZURE.IMPORTANT]Azure AD Premium 和 Basic，以及 Enterprise Mobility Suite 訂用帳戶，會受限於其佈建的目錄/租用戶。訂用帳戶無法分割至不同目錄，或用來賦予權利給其他目錄中的使用者。在目錄之間可以移動訂用帳戶，但是需要提交支援票證，如果是直接購買的情況，則需要取消並重新購買。
+> [AZURE.IMPORTANT] Azure AD Premium 和 Basic，以及 Enterprise Mobility Suite 訂用帳戶，會受限於其佈建的目錄/租用戶。訂用帳戶無法分割至不同目錄，或用來賦予權利給其他目錄中的使用者。在目錄之間可以移動訂用帳戶，但是需要提交支援票證，如果是直接購買的情況，則需要取消並重新購買。
 
-> [AZURE.IMPORTANT]透過大量授權購買 Azure AD 或 Enterprise Mobility Suite 時，如果協議包含其他 Microsoft Online Services (例如 Office 365)，將會自動啟用訂用帳戶。
+> [AZURE.IMPORTANT] 透過大量授權購買 Azure AD 或 Enterprise Mobility Suite 時，如果協議包含其他 Microsoft Online Services (例如 Office 365)，將會自動啟用訂用帳戶。
 
 付費 Azure AD 功能可以擴展目錄的範圍。範例包括：- 以群組為基礎的應用程式指派，可在您管理的特定應用程式下啟用。- 進階和自助式群組管理功能可在目錄組態下或特定群組內使用。- Premium 安全性報告位於 [報告] 索引標籤上。- 雲端應用程式探索會出現在 Azure 入口網站的 [身分識別] 下。
 
@@ -60,7 +60,7 @@ Azure Active Directory (Azure AD) 是 Microsoft 的「身分識別即服務 (IDa
 
 以下是幾種最佳作法：- 如果您已經在使用任何 Microsoft 的組織服務，您就已經有 Azure AD 目錄。在此情況下，您應該為其他服務繼續使用相同的目錄，以便可以跨服務使用核心身分識別管理 (包括佈建和混合式 SSO)。您的使用者將會擁有單一登入經驗，而且將從跨服務更豐富的功能受益。因此，如果您決定為員工購買 Azure AD 付費服務，我們建議您使用相同的目錄來進行。- 如果您打算為不同一組使用者 (夥伴、客戶等等) 使用 Azure AD，或如果您想要評估 Azure AD 服務，且想要隔離實際執行服務進行，或如果您想要為您的服務設定沙箱環境，我們建議您先透過 Azure 傳統入口網站建立新的目錄。[深入了解在 Azure 傳統入口網站中建立新的 Azure AD 目錄](active-directory-licensing-directory-independence.md)。您的帳戶將會建立新的目錄，成為具有全域系統管理員權限的外部使用者。當您使用此帳戶登入 Azure 傳統入口網站時，您將會看到這個目錄，並且能夠存取所有的目錄管理工作。我們建議您建立一個具有適當權限的本機帳戶，來管理其他 Microsoft 服務 (即無法透過 Azure 傳統入口網站存取的服務)。[深入了解在 Azure AD 中建立使用者帳戶](active-directory-create-users.md)。
 
-> [AZURE.NOTE]Azure AD 支援「外部使用者」，這是在 Azure AD 執行個體中，使用 Microsoft 帳戶 (MSA) 或另一個目錄中的 Azure AD 身分識別所建立的使用者帳戶。雖然我們忙著將此功能擴充到所有 Microsoft 的組織服務，但是目前在某些服務體驗中不支援這些帳戶。例如，Office 365 系統管理入口網站目前不支援這些使用者。因此，使用 Microsoft 帳戶的外部使用者將無法存取 Office 365 系統管理入口網站，而來自其他 Azure AD 目錄的外部使用者將會被忽略。在後者的情況中，只有使用者的本機帳戶，最初建立使用者的 Azure AD 或 Office 365 目錄，才能透過這些體驗存取。
+> [AZURE.NOTE] Azure AD 支援「外部使用者」，這是在 Azure AD 執行個體中，使用 Microsoft 帳戶 (MSA) 或另一個目錄中的 Azure AD 身分識別所建立的使用者帳戶。雖然我們忙著將此功能擴充到所有 Microsoft 的組織服務，但是目前在某些服務體驗中不支援這些帳戶。例如，Office 365 系統管理入口網站目前不支援這些使用者。因此，使用 Microsoft 帳戶的外部使用者將無法存取 Office 365 系統管理入口網站，而來自其他 Azure AD 目錄的外部使用者將會被忽略。在後者的情況中，只有使用者的本機帳戶，最初建立使用者的 Azure AD 或 Office 365 目錄，才能透過這些體驗存取。
 
 如之前所述，Azure AD 有不同的付費版本。這些版本在其購買可用性有些微的差異：
 
@@ -132,4 +132,4 @@ Azure Active Directory (Azure AD) 是 Microsoft 的「身分識別即服務 (IDa
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [直接購買 Azure AD Premium 授權](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

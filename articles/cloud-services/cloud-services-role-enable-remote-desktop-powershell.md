@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="09/17/2015" 
+ms.date="01/19/2016" 
 ms.author="saurabh"/>
 
 # 使用 PowerShell 啟用 Azure 雲端服務中角色的遠端桌面連線
@@ -20,12 +20,12 @@ ms.author="saurabh"/>
 >[AZURE.SELECTOR]
 - [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
+- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
 遠端桌面可讓您存取 Azure 內執行中角色的桌面。您可以使用遠端桌面連線來疑難排解和診斷執行中應用程式的問題。
 
-這篇文章描述如何使用 PowerShell 在雲端服務角色上啟用遠端桌面。如需這篇文章所需要的必要條件，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。PowerShell 會使用遠端桌面延伸模組方法，因此即使在應用程式部署之後，您也可以啟用遠端桌面。
+這篇文章描述如何使用 PowerShell 在雲端服務角色上啟用遠端桌面。如需這篇文章所需要的必要條件，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。PowerShell 會使用遠端桌面延伸模組方法，因此即使在應用程式部署之後，您也可以啟用遠端桌面。
 
 
 ## 從 PowerShell 設定遠端桌面
@@ -50,7 +50,7 @@ ms.author="saurabh"/>
 
 一旦建立密碼檔案 (password.txt)，您只需要使用此檔案，不需要以純文字指定密碼。如果您需要更新密碼，您可以用新密碼再次執行上述 PowerShell，以產生新的 password.txt 檔案。
 
->[AZURE.IMPORTANT]設定密碼設定時，請確定您符合[複雜性需求](https://technet.microsoft.com/library/cc786468.aspx)。
+>[AZURE.IMPORTANT] 設定密碼設定時，請確定您符合[複雜性需求](https://technet.microsoft.com/library/cc786468.aspx)。
 
 若要從安全的密碼檔案建立認證物件，您必須讀取檔案內容，並使用 [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx) 將它們轉換回安全字串。除了認證，[Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) Cmdlet 也接受 *Expiration* 參數，它可指定使用者帳戶到期的日期時間。您可以指定靜態的日期和時間，或直接選擇讓帳戶在目前的日期幾天之後到期。
 
@@ -94,7 +94,7 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 ```  
 
->[AZURE.NOTE]*UninstallConfiguration* 參數將會解除安裝任何已套用到服務的延伸模組組態。所有的延伸模組組態都與服務組態相關聯，才會在部署上啟動延伸模組。部署必須與該延伸模組組態相關聯。如果呼叫 Remove Cmdlet 時未指定 *UninstallConfiguration*，將會取消部署與延伸模組組態的關聯，因而實際上會從部署移除延伸模組。不過，延伸模組組態仍然與服務相關聯。若要完全移除延伸模組組態，您應該在呼叫 Remove Cmdlet 時指定 *UninstallConfiguration* 參數。
+>[AZURE.NOTE] *UninstallConfiguration* 參數將會解除安裝任何已套用到服務的延伸模組組態。所有的延伸模組組態都與服務組態相關聯，才會在部署上啟動延伸模組。部署必須與該延伸模組組態相關聯。如果呼叫 Remove Cmdlet 時未指定 *UninstallConfiguration*，將會取消部署與延伸模組組態的關聯，因而實際上會從部署移除延伸模組。不過，延伸模組組態仍然與服務相關聯。若要完全移除延伸模組組態，您應該在呼叫 Remove Cmdlet 時指定 *UninstallConfiguration* 參數。
 
 
 
@@ -102,4 +102,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [如何設定雲端服務](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

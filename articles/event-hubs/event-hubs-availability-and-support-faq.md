@@ -11,8 +11,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="10/07/2015"
+   ms.workload="na"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 事件中樞可用性和支援常見問題集
@@ -23,7 +23,7 @@
 
 ## 定價資訊
 
-如需事件中樞定價的完整資訊，請參閱[事件中樞定價詳細資料](http://azure.microsoft.com/pricing/details/event-hubs/)。
+如需事件中樞定價的完整資訊，請參閱[事件中樞價格詳細資料](https://azure.microsoft.com/pricing/details/event-hubs/)。
 
 ## 事件中樞輸入事件的計算方式為何？
 
@@ -73,11 +73,11 @@
 
 ## 代理連線費用適用於事件中樞嗎？
 
-對傳送者來說，只有在使用 AMQP 通訊協定時才需要支付連線費用。不論傳送系統或裝置的數目多寡，使用 HTTP 來傳送事件不需要支付連線費用。如果您打算使用 AMQP (例如，為了實現更有效率的事件串流，或針對物聯網命令和控制案例啟用雙向通訊)，請參閱[服務匯流排定價資訊](http://azure.microsoft.com/pricing/details/service-bus/)頁面，以取得構成代理連線之元素和其計量方式的相關資訊。
+對傳送者來說，只有在使用 AMQP 通訊協定時才需要支付連線費用。不論傳送系統或裝置的數目多寡，使用 HTTP 來傳送事件不需要支付連線費用。如果您打算使用 AMQP (例如，為了實現更有效率的事件串流，或針對物聯網命令和控制案例啟用雙向通訊)，請參閱[服務匯流排定價資訊](https://azure.microsoft.com/pricing/details/service-bus/)頁面，以取得構成代理連線之元素和其計量方式的相關資訊。
 
 ## 事件中樞基本層和標準層之間的差異為何？
 
-事件中樞標準層提供事件中樞基本層和一些競爭系統未提供的功能。這些功能包括超過 24 小時的保留期間，以及在延遲時間少於一秒的情況下使用單一 AMQP 連線將命令傳送到大量裝置，外加從這些裝置將遙測傳送到事件中樞等能力。如需功能清單，請參閱 [定價詳細資料] ([事件中樞定價詳細資料](http://azure.microsoft.com/pricing/details/event-hubs/))。
+事件中樞標準層提供事件中樞基本層和一些競爭系統未提供的功能。這些功能包括超過 24 小時的保留期間，以及在延遲時間少於一秒的情況下使用單一 AMQP 連線將命令傳送到大量裝置，外加從這些裝置將遙測傳送到事件中樞等能力。如需功能清單，請參閱[事件中樞價格詳細資料](https://azure.microsoft.com/pricing/details/event-hubs/)。
 
 ## 各地區上市情況
 
@@ -96,7 +96,7 @@
 
 事件中樞的技術支援可透過[社群論壇](https://social.msdn.microsoft.com/forums/azure/home)取得。計費及訂用帳戶管理支援均為免費提供。
 
-若要深入了解 SLA，請瀏覽[服務等級協定](http://azure.microsoft.com/support/legal/sla/)頁面。
+若要深入了解 SLA，請瀏覽[服務等級協定](https://azure.microsoft.com/support/legal/sla/)頁面。
 
 ## 後續步驟
 
@@ -110,4 +110,4 @@
 [使用事件中樞的完整範例應用程式]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [佇列訊息解決方案]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

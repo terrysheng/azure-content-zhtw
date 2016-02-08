@@ -31,13 +31,13 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 * **SimulatedDevice**，[IoT 中心入門]中建立之應用程式的修改版本，可連接到您的 IoT 中心，並接收雲端到裝置的訊息。
 * **SendCloudToDevice**，將雲端到裝置的訊息透過 IoT 中心傳送到模擬的裝置，然後收到其傳遞通知。
 
-> [AZURE.NOTE]IoT 中心透過 Azure IoT 裝置 SDK 提供許多裝置平台和語言的 SDK 支援 (包括 C、Java 和 Javascript)。如需如何將您的裝置與本教學課程中之程式碼連接 (通常是連接到 Azure IoT 中樞) 的逐步指示，請參閱 [Azure IoT 開發人員中心]。適用於 Java 和 Node 的 Azure IoT 服務 SDK 即將推出。
+> [AZURE.NOTE] IoT 中心透過 Azure IoT 裝置 SDK 提供許多裝置平台和語言的 SDK 支援 (包括 C、Java 和 Javascript)。如需如何將您的裝置與本教學課程中之程式碼連接 (通常是連接到 Azure IoT 中樞) 的逐步指示，請參閱 [Azure IoT 開發人員中心]。適用於 Java 和 Node 的 Azure IoT 服務 SDK 即將推出。
 
 若要完成本教學課程，您需要下列項目：
 
 + Microsoft Visual Studio 2015，
 
-+ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank")。
++ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fiot%2Ftutorials%2Fc2d%2F target="\_blank")。
 
 [AZURE.INCLUDE [iot-hub-c2d-device-csharp](../../includes/iot-hub-c2d-device-csharp.md)]
 
@@ -82,4 +82,4 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT 開發人員中心]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

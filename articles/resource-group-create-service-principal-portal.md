@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/17/2015"
+   ms.date="01/20/2016"
    ms.author="tomfitz"/>
 
 # 使用入口網站建立 Active Directory 應用程式和服務主體
 
 ## 概觀
-當您的自動化程序或應用程式必須存取或修改您訂用帳戶中資源時，可以使用傳統入口網站來建立 Active Directory 應用程式，並將它指派給擁有正確權限的角色。當您經由入口網站建立 Active Directory 應用程式時，入口網戰其實會建立應用程式和服務主體。於設定權限時使用服務主體。
+當您的自動化程序或應用程式必須存取或修改資源時，您可以使用傳統入口網站來建立 Active Directory 應用程式。當您經由入口網站建立 Active Directory 應用程式時，入口網戰其實會建立應用程式和服務主體。您可以用應用程式自己的身分識別或應用程式之登入使用者的身分識別執行應用程式。這兩種應用程式驗證方法分別稱為互動式 (使用者登入) 和非互動式 (應用程式提供自己的認證) 方法。在非互動式模式中，您必須將服務主體指派給具有正確權限的角色。
 
 本主題說明如何使用 Azure 入口網站來建立新的應用程式和服務主體。目前，您必須使用傳統入口網站來建立新的 Active Directory 應用程式。Azure 入口網站會在稍後的版本中新增這項功能 。您可以使用入口網站來將應用程式指派給角色。您也可以透過 Azure PowerShell 或 Azure CLI 執行下列步驟。如需了解搭配服務主體來使用 PowerShell 或 CLI 的詳細資訊，請參閱[使用 Azure 資源管理員驗證服務主體](resource-group-authenticate-service-principal.md)。
 
@@ -31,7 +31,9 @@
 如需應用程式和服務主體的詳細說明，請參閱[應用程式物件和服務主體物件](active-directory/active-directory-application-objects.md)。如需 Active Directory 驗證的詳細資訊，請參閱 [Azure AD 的驗證案例](active-directory/active-directory-authentication-scenarios.md)。
 
 
-## 建立應用程式和服務主體物件
+## 建立應用程式
+
+對於互動式和非互動式應用程式，您必須建立和設定 Active Directory 應用程式。
 
 1. 透過[傳統入口網站](https://manage.windowsazure.com/)登入 Azure 帳戶。
 
@@ -59,16 +61,29 @@
 
      ![新的應用程式][10]
 
-6. 填寫應用程式名稱，然後選取您想要使用的應用程式類型。因為我們想要搭配使用這個應用程式的服務主體與 Azure 資源管理員來進行驗證，所以將選擇建立 **WEB 應用程式和 (或) WEB API**，然後按 [下一步] 按鈕。
+6. 填寫應用程式名稱，然後選取您想要使用的應用程式類型。選取您要建立的應用程式類型。在本教學課程中，我們將選擇建立 [WEB 應用程式和/或 WEB API]，然後按 [下一步] 按鈕。
 
      ![名稱應用程式][9]
 
-7. 填寫您應用程式的屬性。針對 [**登入 URL**]，提供描述您應用程式之網站的 URI。不會驗證網站是否存在。針對 [**應用程式識別碼 URI**]，提供識別您應用程式的 URI。不會驗證端點的唯一性或其是否存在。按一下 [**完成**] 建立 AAD 應用程式。
+7. 填寫您應用程式的屬性。針對 [**登入 URL**]，提供描述您應用程式之網站的 URI。不會驗證網站是否存在。針對 [**應用程式識別碼 URI**]，提供識別您應用程式的 URI。不會驗證端點的唯一性或其是否存在。如果您已選取 [原生用戶端應用程式] 做為應用程式類型，您將需要提供 [重新導向 URI] 值。按一下 [**完成**] 建立 AAD 應用程式。
 
      ![應用程式屬性][4]
 
-## 為應用程式建立驗證金鑰
-入口網站現在應該已選取您的應用程式。
+您已建立好應用程式。
+
+## 取得用戶端識別碼和租用戶識別碼
+
+以程式設計方式存取應用程式時，您需要應用程式的識別碼。選取 [設定] 索引標籤並複製 [用戶端識別碼]。
+  
+   ![用戶端識別碼][5]
+
+在某些情況下，您需要將您的驗證要求傳遞給租用戶識別碼。您可以透過選取畫面底部的 [檢視端點]，然後擷取如下所示的識別碼，來擷取租用戶識別碼。
+
+   ![租用戶識別碼](./media/resource-group-create-service-principal-portal/save-tenant.png)
+
+## 建立驗證金鑰
+
+如果應用程式要使用自己的認證來執行，您必須為應用程式建立金鑰。
 
 1. 按一下 [**設定**] 索引標籤設定您應用程式的密碼。
 
@@ -86,22 +101,36 @@
 
      ![儲存的金鑰][8]
 
-4. 您現在可以使用金鑰來驗證為服務主體。除了 [**金鑰**] 之外，您還需要 [**用戶端識別碼**] 才能登入。移至 [**用戶端識別碼**] 並複製它。
-  
-     ![用戶端識別碼][5]
-
-5. 在某些情況下，您需要將您的驗證要求傳遞給租用戶識別碼。您可以擷取租用戶識別碼，方法是選取 [檢視端點]，然後擷取識別碼，如下所示。
-
-     ![租用戶識別碼](./media/resource-group-create-service-principal-portal/save-tenant.png)
-
 您的應用程式現在已就緒，並且已在租用戶上建立服務主體。以服務主體身分登入時，請務必使用：
 
 * **用戶端識別碼** - 做為使用者名稱。
 * **金鑰** - 做為密碼。
 
+## 設定委派權限
+
+如果應用程式代表登入使用者來存取資源，您必須對應用程式授與用來存取其他應用程式的委派權限。您可以在 [設定] 索引標籤的 [其他應用程式的權限] 區段進行此作業。根據預設，Azure Active Directory 已啟用委派權限。請將這個委派權限保持不變。
+
+1. 選取 [新增應用程式]。
+
+2. 在清單中選取 [Windows Azure 服務管理 API]。
+
+      ![選取應用程式](./media/resource-group-create-service-principal-portal/select-app.png)
+
+3. 為服務管理 API 新增 [存取 Azure 服務管理 (預覽)] 委派權限。
+
+       ![選取權限](./media/resource-group-create-service-principal-portal/select-permissions.png)
+
+4. 儲存變更。
+
+## 設定多租用戶應用程式
+
+如果其他 Azure Active Directory 的使用者可以連線到應用程式並登入，您必須啟用多重租用。在 [設定] 索引標籤上，將 [應用程式為多租用戶] 設定為 [是]。
+
+![多租用戶](./media/resource-group-create-service-principal-portal/multi-tenant.png)
+
 ## 將應用程式指派給角色
 
-您必須將應用程式指派給某個角色，以便授與它執行動作的權限。如要指派應用程式給角色，請從傳統入口網站切換到 [Azure 入口網站](https://portal.azure.com)。您必須決定要讓哪個角色新增應用程式，以及範圍為何。如要深入了解可用的角色，請參閱 [RBAC：內建角色](./active-directory/role-based-access-built-in-roles.md)。您可以針對訂用帳戶、資源群組或資源的層級設定範圍。較低的範圍層級會繼承較高層級的權限 (舉例來說，為資源群組的讀取者角色新增應用程式，代表該角色可以讀取資源群組及其所包含的任何資源)。
+如果應用程式不是用登入使用者的身分識別來執行，您必須將應用程式指派給角色，以授與它執行動作的權限。如要指派應用程式給角色，請從傳統入口網站切換到 [Azure 入口網站](https://portal.azure.com)。您必須決定要讓哪個角色新增應用程式，以及範圍為何。如要深入了解可用的角色，請參閱 [RBAC：內建角色](./active-directory/role-based-access-built-in-roles.md)。您可以針對訂用帳戶、資源群組或資源的層級設定範圍。較低的範圍層級會繼承較高層級的權限 (舉例來說，為資源群組的讀取者角色新增應用程式，代表該角色可以讀取資源群組及其所包含的任何資源)。
 
 1. 在入口網站中，瀏覽至您想要讓應用程式指派至的範圍層級。而對於本主題，您可以瀏覽至某個資源群組，然後選取 [資源群組] 刀鋒視窗上的**存取**圖示。
 
@@ -138,7 +167,7 @@
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
     PM> Update-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Safe
 
-在您的應用程式中，新增如下所示的方法來擷取權杖。
+若要使用應用程式識別碼和密碼來登入，請使用下列方法來擷取權杖。
 
     public static string GetAccessToken()
     {
@@ -154,6 +183,28 @@
 
         return token;
     }
+
+若要代表使用者登入，請使用下列方法來擷取權杖。
+
+    public static string GetAcessToken()
+    {
+        var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+        var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", {application id}, new Uri({redirect uri});
+
+        if (result == null) {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+        }
+
+        string token = result.AccessToken;
+
+        return token;
+    }
+
+您可以使用下列程式碼在要求標頭中傳遞權杖：
+
+    string token = GetAcessToken();
+    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+
 
 ## 後續步驟
 
@@ -178,4 +229,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -453,7 +453,7 @@
 
 ## Upload certificate
 
-在 [Azure 傳統入口網站](http://portal.azure.com/)中，
+在 [Azure 傳統入口網站](https://portal.azure.com/)中，
 
 1. 選取 [雲端服務]。
 2. 選取雲端服務。
@@ -473,4 +473,4 @@
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

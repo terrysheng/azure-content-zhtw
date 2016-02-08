@@ -49,9 +49,9 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 ##必要條件
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
 	執行 PowerShell 指令碼之前，請確定您已使用下列 Cmdlet 連接到 Azure 訂用帳戶：
 
@@ -62,7 +62,7 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 		Select-AzureSubscription <AzureSubscriptionName>
 
 
->[AZURE.NOTE]Azure 服務名稱和虛擬機器名稱必須是唯一的。本教學課程中所使用的名稱為 Contoso-[Azure Service/VM name]-[EU/US]。例如，Contoso-VNet-EU 是指位於北歐資料中心的 Azure 虛擬網路；Contoso-DNS-US 是指位於美國東部資料中心的 DNS 伺服器 VM。您必須提供自己的名稱。
+>[AZURE.NOTE] Azure 服務名稱和虛擬機器名稱必須是唯一的。本教學課程中所使用的名稱為 Contoso-[Azure Service/VM name]-[EU/US]。例如，Contoso-VNet-EU 是指位於北歐資料中心的 Azure 虛擬網路；Contoso-DNS-US 是指位於美國東部資料中心的 DNS 伺服器 VM。您必須提供自己的名稱。
  
 
 ##建立兩個 Azure Vnet
@@ -270,4 +270,4 @@ Vnet 閘道會使用共用金鑰來驗證虛擬網路之間的連線。此金鑰
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

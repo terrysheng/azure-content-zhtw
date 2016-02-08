@@ -35,7 +35,7 @@
 
 熱門的 Web 開發工具支援一或多個這些部署程序。雖然您選擇的工具會決定可以利用的部署程序，但可供您使用的實際 DevOps 功能取決於部署程序的組合以及且您選擇的特定工具。例如，如果您從 [Visual Studio with Azure SDK](#vspros) 執行 Web 部署，即使您未從 Kudu 獲得自動化，您仍然可在 Visual Studio 中獲得套件還原和 MSBuild 自動化。Azure SDK 也提供簡單使用的精靈，可幫助您直接在 Visual Studio 介面中建立所需的 Azure 資源。
 
->[AZURE.NOTE]這些部署程序實際上不會[佈建 Azure 資源](resource-group-portal)，而這些資源可能是您的應用程式需要的，例如 App Service 方案、App Service 應用程式和 SQL Database。然而，大部分連結的作法文章會說明如何以端對端的方式佈建應用程式及將程式碼部署到應用程式。您也可以在[使用命令列工具自動化部署](#automate)一節中找到佈建 Azure 資源的其他選項。
+>[AZURE.NOTE] 這些部署程序實際上不會[佈建 Azure 資源](resource-group-portal)，而這些資源可能是您的應用程式需要的，例如 App Service 方案、App Service 應用程式和 SQL Database。然而，大部分連結的作法文章會說明如何以端對端的方式佈建應用程式及將程式碼部署到應用程式。您也可以在[使用命令列工具自動化部署](#automate)一節中找到佈建 Azure 資源的其他選項。
 
 ## <a name="ftp"></a>手動將檔案部署到 Azure
 如果您習慣以手動方式將您的網站內容複製到 Web 主機服務提供者，這也是 PHP 開發人員常見的工作流程，您可以使用 [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) 公用程式來複製檔案，例如 Windows 檔案總管或 [FileZilla](https://filezilla-project.org/)。
@@ -201,8 +201,8 @@ Visual Studio Team Services 會使用 Web 部署以部署至 App Service，而�
 ###<a name="cloudgitmercurial"></a>如何從雲端型 Git 或 Mercurial 儲存機制進行部署
 
 - [使用 Git 從原始檔控制發行至 Web Apps](web-sites-publish-source-control.md)。如何為儲存機制啟用從 GitHub、CodePlex 或 BitBucket 的連續部署。此教學課程說明的是發佈 Git 儲存機制的方式，但在 CodePlex 或 BitBucket 中受到代管的 Mercurial 儲存機制其實也採用類似的程序。
-- [使用 Kudu 透過 GitHub 部署至 Web Apps](http://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/)。由 Scott Hanselman 和 David Ebbo 提供的影片，示範如何從 GitHub 直接將 Web 應用程式部署至 App Service。
-- [部署至 Web Apps 的 Azure 按鈕](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/)。觸發從 Git 儲存機制部署之方法的相關部落格。
+- [使用 Kudu 透過 GitHub 部署至 Web Apps](https://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/)。由 Scott Hanselman 和 David Ebbo 提供的影片，示範如何從 GitHub 直接將 Web 應用程式部署至 App Service。
+- [部署至 Web Apps 的 Azure 按鈕](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/)。觸發從 Git 儲存機制部署之方法的相關部落格。
 - [Git、Mercurial 和 Dropbox 的 Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)。
 
 如需詳細資訊，請參閱下列資源：
@@ -264,7 +264,7 @@ Visual Studio Team Services 會使用 Web 部署以部署至 App Service，而�
 
 如需詳細資訊，請參閱下列資源：
 
-* [簡單的 Web Apps：部署](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/)。David Ebbo 所撰寫使 Web Deploy 更容易使用之工具的部落格。
+* [簡單的 Web 應用程式：部署](https://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/)。David Ebbo 所撰寫使 Web Deploy 更容易使用之工具的部落格。
 * [Web 部署工具](http://technet.microsoft.com/library/dd568996)。這是 Microsoft TechNet 網站上的正式文件。雖已過時，但仍適合入門使用。
 * [使用 Web Deploy](http://www.iis.net/learn/publish/using-web-deploy)。這是 Microsoft IIS.NET 網站上的正式文件。同樣也已過時，但仍適合入門使用。
 * [StackOverflow](http://www.stackoverflow.com)。如果您需要如何從命令列使用 Web Deploy 的最新相關資訊，這將是您的最佳選擇。
@@ -276,7 +276,7 @@ Visual Studio Team Services 會使用 Web 部署以部署至 App Service，而�
 
 具有備份及還原計劃是部署工作流程中相當重要的環節。如需 Web Apps 備份和還原功能的相關資訊，請參閱 [Web Apps 備份](web-sites-backup.md)。
 
-如需如何使用 Azure 的角色型存取控制來管理 Web Apps 部署存取的相關資訊，請參閱 [RBAC 和 Web 應用程式發行](http://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing)。
+如需如何使用 Azure 的角色型存取控制來管理 Web Apps 部署存取的相關資訊，請參閱 [RBAC 和 Web 應用程式發行](https://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing/)。
 
 如需其他部署主題的相關資訊，請參閱[ Web Apps 文件](/documentation/services/web-sites/)中的 [部署] 一節。
 
@@ -284,4 +284,4 @@ Visual Studio Team Services 會使用 Web 部署以部署至 App Service，而�
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

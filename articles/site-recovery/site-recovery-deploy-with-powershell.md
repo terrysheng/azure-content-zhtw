@@ -36,7 +36,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 ### Azure 必要條件
 
-- 您將需要 [Microsoft Azure](http://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。
+- 您將需要 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。
 - 您需要 Azure 儲存體帳戶來儲存複寫的資料。此帳戶必須啟用異地複寫。它應該與 Azure Site Recovery 保存庫位於相同的區域，且和同一個訂用帳戶產生關聯。[深入了解 Azure 儲存體](../storage/storage-introduction.md)。
 - 您必須確定您要保護的虛擬機器符合 [Azure 虛擬機器必要條件](site-recovery-best-practices.md#virtual-machines)。
 
@@ -67,7 +67,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 - [深入了解](site-recovery-network-mapping.md)網路對應：
 
 ###PowerShell 必要條件
-確定 Azure PowerShell 已經準備就緒。如果您已經使用 PowerShell，您必須升級至 0.8.10 版或更新版本。如需設定 PowerShell 的詳細資訊，請參閱[如何安裝及設定 Azure PowerShell](powershell-install-configure.md)。當您安裝及設定 PowerShell 之後，可以在[這裡](https://msdn.microsoft.com/library/dn850420.aspx)檢視該服務所能使用的所有 Cmdlet。
+確定 Azure PowerShell 已經準備就緒。如果您已經使用 PowerShell，您必須升級至 0.8.10 版或更新版本。如需設定 PowerShell 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。一旦已安裝並設定 PowerShell，您可以檢視[這裡](https://msdn.microsoft.com/library/dn850420.aspx)之服務的所有可用的 Cmdlet。
 
 如需深入了解可協助您使用這些 Cmdlet 的提示 (例如參數值、輸入及輸出在 Azure PowerShell 中的處理方式)，請參閱 [Azure Cmdlet 使用者入門](https://msdn.microsoft.com/library/azure/jj554332.aspx)。
 
@@ -449,4 +449,4 @@ if($isJobLeftForProcessing)
 
 [閱讀更多](https://msdn.microsoft.com/library/dn850420.aspx) Azure Site Recovery PowerShell Cmdlet 的相關資訊。</a>。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

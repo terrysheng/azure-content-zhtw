@@ -32,9 +32,9 @@
 
 * **用戶端電腦** - 您需要 Windows 用戶端電腦才能執行 Azure PowerShell 叢集部署指令碼 (如果您選擇該部署方法) 以及提交範例 Excel 和 SOA 工作至叢集。
 
-* **Azure 訂用帳戶** - 如果您沒有帳戶，僅需幾分鐘就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 訂用帳戶** - 如果您沒有帳戶，僅需幾分鐘就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-* **核心配額** - 您可能需要增加核心的配額，特別是如果您選擇部署多核心 VM 大小的數個叢集節點。如果您使用 Azure 快速入門範本，請注意資源管理員中的核心配額為每個 Azure 區域，您可能需要增加特定區域中的配額。請參閱 [Azure 訂用帳戶限制、配額與限制](../azure-subscription-service-limits.md)。若要增加配額，您可以[開啟線上客戶支援要求](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)，不另外加收費用。
+* **核心配額** - 您可能需要增加核心的配額，特別是如果您選擇部署多核心 VM 大小的數個叢集節點。如果您使用 Azure 快速入門範本，請注意資源管理員中的核心配額為每個 Azure 區域，您可能需要增加特定區域中的配額。請參閱 [Azure 訂用帳戶限制、配額與限制](../azure-subscription-service-limits.md)。若要增加配額，您可以[開啟線上客戶支援要求](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)，不另外加收費用。
 
 
 ## 步驟 1.在 Azure 中設定 HPC Pack 叢集
@@ -61,7 +61,7 @@
 
     ![輸入參數][parameters]
 
-    >[AZURE.NOTE]前端節點 VM 會在 Windows Server 2012 R2 上從 HPC Pack 2012 R2 的[最新 Marketplace 映像](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)自動建立。目前此映像以 HPC Pack 2012 R2 Update 3 為基礎。
+    >[AZURE.NOTE]前端節點 VM 會在 Windows Server 2012 R2 上從 HPC Pack 2012 R2 的[最新 Marketplace 映像](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)自動建立。目前此映像以 HPC Pack 2012 R2 Update 3 為基礎。
     >
     >運算節點 VM 會從選取之運算節點系列的最新映像建立。選取 **ComputeNode** 選項做為一般用途的最新 HPC Pack 2012 R2 Update 3 計算映像。選取 **ComputeNodeWithExcel** 選項做為最新的 HPC Pack 運算節點映像，包含評估版 Microsoft Excel Professional Plus 2013。如果您想要部署一般 SOA 工作階段或 Excel UDF 卸載的叢集，請選擇 **ComputeNode** 選項 (不需安裝 Excel)。
     >
@@ -258,13 +258,13 @@ You have enabled REST API or web portal on HPC Pack head node. Please import the
 
 9.	將 Excel 活頁簿複製到上載目錄，例如 D:\\Excel\\Upload，如同 VBA 巨集中的 HPC\_DependsFiles 常數中所指定。
 
-10.	按一下工作表上的 [叢集] 按鈕以在 Azure IaaS 叢集上執行活頁簿。
+10.	按一下工作表上的 [**叢集**] 按鈕以在 Azure IaaS 叢集上執行活頁簿。
 
 ### 執行 Excel UDF
 
 若要執行 Excel UDF，請遵循上述的步驟 1 - 3 來設定用戶端電腦。關於 Excel UDF，您不需要在運算節點上安裝 Excel 應用程式，因此您可以在步驟 1 中選擇一般運算節點映像，而不是具有 Excel 的運算節點映像。
 
->[AZURE.NOTE] [Excel 2010 和 2013 叢集連接器] 對話方塊中有 34 個字元的限制。如果完整的叢集名稱過長，例如 hpcexcelhn01.southeastasia.cloudapp.azure.com，該名稱就無法放入對話方塊中。解決方法是以長叢集名稱的值設定電腦全域變數 (例如 *CCP\_IAASHN*) 並在對話方塊中輸入 *%CCP\_IAASHN%* 做為叢集前端節點名稱。請注意對於 Update 2 叢集，在用戶端電腦的 SOA 工作階段 API 需要 Update 2 QFE KB3085833 (請在[這裡](http://www.microsoft.com/zh-TW/download/details.aspx?id=48725)下載)，以支援這個因應措施。
+>[AZURE.NOTE] [Excel 2010 和 2013 叢集連接器] 對話方塊中有 34 個字元的限制。如果完整的叢集名稱過長，例如 hpcexcelhn01.southeastasia.cloudapp.azure.com，該名稱就無法放入對話方塊中。解決方法是以長叢集名稱的值設定電腦全域變數 (例如 *CCP\_IAASHN*) 並在對話方塊中輸入 *%CCP\_IAASHN%* 做為叢集前端節點名稱。請注意對於 Update 2 叢集，在用戶端電腦的 SOA 工作階段 API 需要 Update 2 QFE KB3085833 (請在[這裡](http://www.microsoft.com/zh-TW/download/details.aspx?id=48725)下載)，以支援這個因應措施。
 
 成功部署叢集之後，繼續進行下列步驟來執行內建的範例 Excel UDF。關於自訂的 Excel UDF，請參閱這些[資源](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx)以建置 XLL 並將其部署在 IaaS 叢集上。
 
@@ -381,4 +381,4 @@ SOA 用戶端應用程式不需要變更，除了將標頭名稱改變為 IaaS �
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

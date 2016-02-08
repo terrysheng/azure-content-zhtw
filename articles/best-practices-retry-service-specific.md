@@ -41,7 +41,7 @@
 | **[Active Directory](#azure-active-directory-retry-guidelines)** | Topaz* (具有自訂偵測策略) | 宣告與程式設計 | 程式碼區塊 | 自訂 |
 **Topaz 是 <a href="http://msdn.microsoft.com/library/dn440719.aspx">Enterprise Library 6.0</a> 中所包含暫時性錯誤處理應用程式區塊的好記名稱。您可以將自訂偵測策略與 Topaz 搭配，用於大多數的服務，如本指引所述。Topaz 的預設策略顯示在本指引結尾的[暫時性錯誤處理應用程式區塊 (Topaz) 策略](#transient-fault-handling-application-block-topaz-strategies)一節中。請注意，區塊現在是開放原始碼的架構，且 Microsoft 不直接支援。
 
-> [AZURE.NOTE]對於大多數的 Azure 內建重試機制而言，目前還無法為重試原則中所包含功能之外的不同類型錯誤或例外狀況套用不同的重試原則。因此在撰寫本文時的最佳指引是，設定一個可提供最佳平均效能和可用性的原則。微調原則的一種方法，就是分析記錄檔來判斷正在發生的暫時性錯誤類型。例如，如果大部分的錯誤與網路連線問題有關，您可能會嘗試立即重試，而非等待一段時間後才第一次重試。
+> [AZURE.NOTE] 對於大多數的 Azure 內建重試機制而言，目前還無法為重試原則中所包含功能之外的不同類型錯誤或例外狀況套用不同的重試原則。因此在撰寫本文時的最佳指引是，設定一個可提供最佳平均效能和可用性的原則。微調原則的一種方法，就是分析記錄檔來判斷正在發生的暫時性錯誤類型。例如，如果大部分的錯誤與網路連線問題有關，您可能會嘗試立即重試，而非等待一段時間後才第一次重試。
 
 ## Azure 儲存體重試指引
 
@@ -212,7 +212,7 @@ namespace RetryCodeSamples
 
 ## 詳細資訊
 
-- [Azure 儲存體用戶端程式庫重試原則建議](http://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
+- [Azure 儲存體用戶端程式庫重試原則建議](https://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
 - [儲存體用戶端程式庫 2.0 – 實作重試原則](http://gauravmantri.com/2012/12/30/storage-client-library-2-0-implementing-retry-policies/)
 
 ## 使用 Entity Framework 6 的 SQL Database 重試指引
@@ -302,7 +302,7 @@ public class BloggingContextConfiguration : DbConfiguration
 | 互動式、UI <br />或前景 | 2 秒 | 指數 | MaxRetryCount<br />MaxDelay | 3<br />750 毫秒 | 嘗試 1 - 延遲 0 秒<br />嘗試 2 - 延遲 750 毫秒<br />嘗試 3 - 延遲 750 毫秒 |
 | 背景<br />或批次 | 30 秒 | 指數 | MaxRetryCount<br />MaxDelay | 5<br />12 秒 | 嘗試 1 - 延遲 0 秒<br />嘗試 2 - 延遲 ~1 秒<br />嘗試 3 - 延遲 ~3 秒<br />嘗試 4 - 延遲 ~7 秒<br />嘗試 5 - 延遲 12 秒 |
 
-> [AZURE.NOTE]端對端延遲目標會假設服務連接的預設逾時值。如果您指定較長的連接逾時值，則系統會為每個重試嘗試增加這段時間，來延長端對端延遲。
+> [AZURE.NOTE] 端對端延遲目標會假設服務連接的預設逾時值。如果您指定較長的連接逾時值，則系統會為每個重試嘗試增加這段時間，來延長端對端延遲。
 
 ## 範例 (使用 Entity Framework 6 的 SQL Database)
 
@@ -429,7 +429,7 @@ RetryManager.SetDefault(new RetryManager(
 | 互動式、UI <br />或前景 | 2 秒 | FixedInterval | 重試計數<br />重試間隔<br />第一個快速重試 | 3<br />500 毫秒<br />true | 嘗試 1 - 延遲 0 秒<br />嘗試 2 - 延遲 500 毫秒<br />嘗試 3 - 延遲 500 毫秒 |
 | 背景<br />或批次 | 30 秒 | ExponentialBackoff | 重試計數<br />最小退避<br />最大退退避<br />差異退退避<br />第一個快速重試 | 5<br />0 秒<br />60 秒<br />2 秒<br />false | 嘗試 1 - 延遲 0 秒<br />嘗試 2 - 延遲 ~2 秒<br />嘗試 3 - 延遲 ~6 秒<br />嘗試 4 - 延遲 ~14 秒<br />嘗試 5 - 延遲 ~30 秒 |
 
-> [AZURE.NOTE]端對端延遲目標會假設服務連接的預設逾時值。如果您指定較長的連接逾時值，則系統會為每個重試嘗試增加這段時間，來延長端對端延遲。
+> [AZURE.NOTE] 端對端延遲目標會假設服務連接的預設逾時值。如果您指定較長的連接逾時值，則系統會為每個重試嘗試增加這段時間，來延長端對端延遲。
 
 ### 範例 (使用 ADO.NET 的 SQL Database)
 
@@ -437,7 +437,7 @@ RetryManager.SetDefault(new RetryManager(
 
 但在暫時性錯誤處理應用程式區塊的目前版本中，這些方法不是天生就支援對 SQL Database 的非同步作業。好的做法會要求您使用唯一的非同步技術來存取 Azure 服務，例如 SQL Database，所以您應該考慮採用下列技術，將暫時性錯誤處理應用程式區塊搭配 SQL Database 使用。
 
-您可以使用第 5 版 C# 語言中簡化的非同步支援，來建立區塊提供的非同步版本方法。例如，下列程式碼顯示要如何建立 **ExecuteReaderWithRetry** 擴充方法的非同步版本。原始程式碼中的變更與新增內容會反白顯示。有關 Topaz 的原始程式碼，請參閱 GitHub 上的[暫時性錯誤處理應用程式區塊 ("Topaz")](http://topaz.codeplex.com/SourceControl/latest)。
+您可以使用第 5 版 C# 語言中簡化的非同步支援，來建立區塊提供的非同步版本方法。例如，下列程式碼顯示要如何建立 **ExecuteReaderWithRetry** 擴充方法的非同步版本。原始程式碼中的變更與新增內容會反白顯示。有關 Topaz 的原始程式碼，請參閱 Codeplex 上的[暫時性錯誤處理應用程式區塊 ("Topaz")](http://topaz.codeplex.com/SourceControl/latest)。
 
 ```csharp
 public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlCommand command, RetryPolicy cmdRetryPolicy,
@@ -713,7 +713,7 @@ var conn = ConnectionMultiplexer.Connect("redis0:6380,redis1:6380,connectRetry=3
 |----------------------|-----------------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ConfigurationOptions | ConnectRetry<br /><br />ConnectTimeout<br /><br />SyncTimeout | 3<br /><br />最多 5000 毫秒加上 SyncTimeout<br />1000 | 初始連接作業期間重複連接嘗試的次數。<br />連接作業的逾時 (毫秒)。非重試嘗試之間的延遲。<br />允許同步作業的時間 (毫秒)。 |
 
-> [AZURE.NOTE]SyncTimeout 會造成作業的端對端延遲。不過一般而言，不建議使用同步作業。如需詳細資訊，請參閱[管線與多工器](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md)。
+> [AZURE.NOTE] SyncTimeout 會造成作業的端對端延遲。不過一般而言，不建議使用同步作業。如需詳細資訊，請參閱[管線與多工器](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md)。
 
 ## 重試使用指引
 
@@ -1107,4 +1107,4 @@ var result = await policy.ExecuteAsync(() => authContext.AcquireTokenAsync(resou
 | **線性 (固定間隔)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 秒<br />true | 重試次數。<br />重試之間的延遲。<br />是否立即進行第一次重試嘗試。 |
 如需使用暫時性錯誤處理應用程式區塊的範例，請參閱本指引中稍早＜範例＞各節中有關使用 ADO.NET 和 Azure Active Directory 的 Azure SQL Database 說明。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -47,7 +47,7 @@ Azure 服務匯流排支援一套以雲端為基礎、訊息導向的中介軟�
 
 ## 示範程式碼
 
-[建立使用服務匯流排佇列的應用程式](service-bus-create-queues.md)說明如何註冊服務匯流排帳戶，並建立服務命名空間。若要使用服務匯流排命名空間，應用程式必須參考服務匯流排組件，也就是 Microsoft.ServiceBus.dll。參考服務匯流排相依性的最簡單方式是，安裝服務匯流排 [Nuget 封裝](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)。您也可以在 Azure SDK 中找到此組件。您可以在 [Azure SDK 下載頁面](http://azure.microsoft.com/downloads/)中下載。
+[建立使用服務匯流排佇列的應用程式](service-bus-create-queues.md)說明如何註冊服務匯流排帳戶，並建立服務命名空間。若要使用服務匯流排命名空間，應用程式必須參考服務匯流排組件，也就是 Microsoft.ServiceBus.dll。參考服務匯流排相依性的最簡單方式是，安裝服務匯流排 [Nuget 封裝](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)。您也可以在 Azure SDK 中找到此組件。您可以在 [Azure SDK 下載頁面](https://azure.microsoft.com/downloads/)中下載。
 
 ### 建立主題和訂用帳戶
 
@@ -150,4 +150,4 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 請參閱[建立使用服務匯流排佇列的應用程式](service-bus-create-queues.md)，了解如何在 POS 零售案例中使用佇列的相關資訊。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

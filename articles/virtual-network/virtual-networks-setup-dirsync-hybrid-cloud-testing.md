@@ -45,7 +45,7 @@
 2.	設定 Office 365 FastTrack 試用。
 3.	設定 DirSync 伺服器 (DS1)。
 
-如果您還沒有 Azure 訂用帳戶，則可以在[試用 Azure](http://azure.microsoft.com/pricing/free-trial/) 註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
+如果您還沒有 Azure 訂用帳戶，則可以在[試用 Azure](https://azure.microsoft.com/pricing/free-trial/) 註冊免費試用版。如果您有 MSDN 訂閱，請參閱 [MSDN 訂閱者的 Azure 權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。
 
 ## 第 1 階段：設定混合式雲端環境
 
@@ -55,7 +55,7 @@
 
 ![](./media/virtual-networks-setup-dirsync-hybrid-cloud-testing/CreateDirSyncHybridCloud_1.png)
 
-> [AZURE.NOTE]針對第 1 階段，您也可以設定模擬混合式雲端測試環境。如需指示，請參閱[設定用於測試的模擬混合式雲端環境](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)。
+> [AZURE.NOTE] 針對第 1 階段，您也可以設定模擬混合式雲端測試環境。如需指示，請參閱[設定用於測試的模擬混合式雲端環境](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)。
 
 ## 第 2 階段：設定 Office 365 FastTrack 試用
 
@@ -153,7 +153,7 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 接著，示範 Lynda Myer Active Directory 帳戶的 Office 365 密碼同步。
 
 1.	在 CLIENT1 上，於 [作用中使用者] 頁面中，選取 [Lynda Meyer] 帳戶。
-2.	在 Lynda Meyer 帳戶內容中的 [指派的授權] 下，按一下 [編輯]。
+2.	在 Lynda Meyer 帳戶內容中的 [已指派的授權] 下，按一下 [編輯]。
 3.	在 [指派授權] 索引標籤上，選取 [設定使用者位置] 中的位置 (例如美國)。
 4.	選取 [Microsoft Office 365 方案 E3]，然後按一下 [儲存]。
 5.	關閉 Internet Explorer。
@@ -185,4 +185,4 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 
 [Azure 基礎結構服務實作指導方針](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

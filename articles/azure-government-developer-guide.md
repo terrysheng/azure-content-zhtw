@@ -42,7 +42,7 @@ Microsoft 提供一些工具來建立雲端應用程式並部署至 Microsoft �
 
 建立應用程式並部署至 Azure Government 服務時，由於這與全域服務相反，因此開發人員必須知道這兩種服務的主要差異。特別是針對安裝及設定其程式設計環境、設定端點、撰寫應用程式，以及將其部署為 Azure Government 的服務等方面。
 
-本文件中的資訊將概述這些差異，並以 [Azure Government](http://www.azure.com/gov "Azure Government") 站台及 MSDN 上 [Microsoft Azure 技術文件庫](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN")中提供的資訊做補充。正式資訊也可以在其他許多位置中找到，例如 [Microsoft Azure 信任中心](http://azure.microsoft.com/support/trust-center/ "Microsoft Azure 信任中心")、[Azure 文件中心](http://azure.microsoft.com/documentation/)及 [Azure 部落格](http://azure.microsoft.com/blog/ "Azure 部落格")。
+本文件中的資訊將概述這些差異，並以 [Azure Government](http://www.azure.com/gov "Azure Government") 站台及 MSDN 上 [Microsoft Azure 技術文件庫](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN")中提供的資訊做補充。正式資訊也可以在其他許多位置中找到，例如 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/ "Microsoft Azure 信任中心"/)、[Azure 文件中心](https://azure.microsoft.com/documentation/)及 [Azure 部落格](https://azure.microsoft.com/blog/ "Azure 部落格"/)。
 
 此內容的適用對象是要對 Microsoft Azure Government 進行部署的合作夥伴和開發人員。
 
@@ -77,7 +77,7 @@ Azure Government 目前在在「美國政府愛荷華州」(US GOV IOWA) 及「�
 - ExpressRoute
 - 等
 
-有其他服務可用，並且會持續新增更多服務。如需最新的服務清單，請參閱[區域頁面](http://azure.microsoft.com/regions/#services)，當中將醒目提示每個可用的區域及其服務。
+有其他服務可用，並且會持續新增更多服務。如需最新的服務清單，請參閱[區域頁面](https://azure.microsoft.com/regions/#services)，當中將醒目提示每個可用的區域及其服務。
 
 目前，「美國政府愛荷華州」和「美國政府維吉尼亞州」是支援 Azure Government 的資料中心。如需目前的資料中心及可用的服務，請參閱上述區域頁面。
 
@@ -112,7 +112,7 @@ ARM 負載平衡端點|https://management.windows.net|https://management.usgovcl
 
 - **[Azure Government 部落格](http://blogs.msdn.com/b/azuregov/)**
 
-- **[Azure 法規遵循](http://azure.microsoft.com/support/trust-center/compliance/)**
+- **[Azure 法規遵循](https://azure.microsoft.com/support/trust-center/compliance/)**
 
 <!--Anchors-->
 
@@ -128,4 +128,4 @@ ARM 負載平衡端點|https://management.windows.net|https://management.usgovcl
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

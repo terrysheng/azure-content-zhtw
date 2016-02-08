@@ -76,7 +76,7 @@
 	}
 	```
 
-	> [AZURE.TIP]在可能的情況下利用預設路由，並且避免定義許多複雜的自訂路由，因為這可能導致損毀 (將方法加入至導致模稜兩可路由的控制器很容易) 和效能降低 (路由表愈大，Web API 架構必須執行更多工作才能找出哪個路由符合指定的 URI)。簡化 API 和路由。如需詳細資訊，請參閱＜API 設計指引＞中的＜組織以資源為主的 Web API＞一節。如果您必須定義自訂路由，比較理想的方法是使用以屬性為基礎的路由 (本節稍後說明)。
+	> [AZURE.TIP] 在可能的情況下利用預設路由，並且避免定義許多複雜的自訂路由，因為這可能導致損毀 (將方法加入至導致模稜兩可路由的控制器很容易) 和效能降低 (路由表愈大，Web API 架構必須執行更多工作才能找出哪個路由符合指定的 URI)。簡化 API 和路由。如需詳細資訊，請參閱＜API 設計指引＞中的＜組織以資源為主的 Web API＞一節。如果您必須定義自訂路由，比較理想的方法是使用以屬性為基礎的路由 (本節稍後說明)。
 
 	如需以慣例為基礎的路由詳細資訊，請參閱 Microsoft 網站上的 [ASP.NET Web API 中的路由](http://www.asp.net/web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api)頁面。
 
@@ -157,7 +157,7 @@
 
 	實作這些要求的程式碼應該不會造成任何副作用。對相同資源重複提出的相同要求應該會導致相同的狀態。例如，將多個 DELETE 要求傳送至相同的 URI 應該有相同的效果，雖然回應訊息中的 HTTP 狀態碼可能不同 (第一個 DELETE 要求可能會傳回狀態碼 204 (沒有內容)，而後續的 DELETE 要求可能會傳回狀態碼 404 (找不到))。
 
-> [AZURE.NOTE]Jonathan Oliver 部落格上的[冪等模式](http://blog.jonathanoliver.com/idempotency-patterns/)一文提供冪等概觀，以及其與資料管理作業有何相關。
+> [AZURE.NOTE] Jonathan Oliver 部落格上的[冪等模式](http://blog.jonathanoliver.com/idempotency-patterns/)一文提供冪等概觀，以及其與資料管理作業有何相關。
 
 - **建立新資源的 POST 動作應該這麼做，但沒有不相關的副作用**。
 
@@ -226,7 +226,7 @@
 
 	如果用戶端未指定 Accept 標頭，則對回應內文使用合理的預設格式。例如，對於以文字為基礎的資料，ASP.NET Web API 架構會預設為 JSON。
 
-	> [AZURE.NOTE]ASP.NET Web API 架構會執行 Accept 標頭的自動偵測，並自行根據回應訊息內文中的資料類型處理這些標頭。例如，如果回應訊息內文包含 CLR (common language runtime) 物件，則 ASP.NET Web API 會將回應自動格式化為回應的 Content-Type 標頭設為 "application/json" 的 JSON 格式，除非用戶端表示需要 XML 格式的結果，而在這種情況下，ASP.NET Web API 架構會將回應格式化為 XML 並將回應的 Content-Type 標頭設定為 "text/xml"。不過，可能必須處理 Accept 標頭，以在作業的實作程式碼中明確指定不同的媒體類型。
+	> [AZURE.NOTE] ASP.NET Web API 架構會執行 Accept 標頭的自動偵測，並自行根據回應訊息內文中的資料類型處理這些標頭。例如，如果回應訊息內文包含 CLR (common language runtime) 物件，則 ASP.NET Web API 會將回應自動格式化為回應的 Content-Type 標頭設為 "application/json" 的 JSON 格式，除非用戶端表示需要 XML 格式的結果，而在這種情況下，ASP.NET Web API 架構會將回應格式化為 XML 並將回應的 Content-Type 標頭設定為 "text/xml"。不過，可能必須處理 Accept 標頭，以在作業的實作程式碼中明確指定不同的媒體類型。
 
 - **提供連結，以支援資源的 HATEOAS 式導覽和探索**。
 
@@ -362,9 +362,9 @@
 	}
 	```
 
-	> [AZURE.TIP]請勿包含可能有利於攻擊者嘗試滲透您的 Web API 的資訊。如需詳細資訊，請瀏覽 Microsoft 網站上的 [ASP.NET Web API 中的例外狀況處理](http://www.asp.net/web-api/overview/error-handling/exception-handling)頁面。
+	> [AZURE.TIP] 請勿包含可能有利於攻擊者嘗試滲透您的 Web API 的資訊。如需詳細資訊，請瀏覽 Microsoft 網站上的 [ASP.NET Web API 中的例外狀況處理](http://www.asp.net/web-api/overview/error-handling/exception-handling)頁面。
 
-	> [AZURE.NOTE]許多 Web 伺服器會在連上 Web API 之前，自行設陷錯誤條件。例如，如果您設定網站的驗證，而使用者無法提供正確的驗證資訊，Web 伺服器應該以狀態碼 401 (未經授權) 回應。用戶端經過驗證後，您的程式碼可以執行自己的檢查，確認用戶端應能夠存取所要求的資源。如果此授權失敗，您應該傳回狀態碼 403 (禁止)。
+	> [AZURE.NOTE] 許多 Web 伺服器會在連上 Web API 之前，自行設陷錯誤條件。例如，如果您設定網站的驗證，而使用者無法提供正確的驗證資訊，Web 伺服器應該以狀態碼 401 (未經授權) 回應。用戶端經過驗證後，您的程式碼可以執行自己的檢查，確認用戶端應能夠存取所要求的資源。如果此授權失敗，您應該傳回狀態碼 403 (禁止)。
 
 - **以一致的方式處理例外狀況並記錄有關錯誤的資訊**。
 
@@ -465,13 +465,13 @@
     }
 	```
 
-	> [AZURE.NOTE]HTTP 通訊協定也會定義 Cache-Control 標頭的 _no-cache_ 快取。令人不解的是，此指示詞並非表示「不快取 」，而是「在傳回快取的資訊前使用伺服器進行重新驗證」；此資料仍會快取，但每次用來確保其仍為當前資料時會進行檢查。
+	> [AZURE.NOTE] HTTP 通訊協定也會定義 Cache-Control 標頭的 _no-cache_ 快取。令人不解的是，此指示詞並非表示「不快取 」，而是「在傳回快取的資訊前使用伺服器進行重新驗證」；此資料仍會快取，但每次用來確保其仍為當前資料時會進行檢查。
 
 	快取管理是用戶端應用程式或中繼伺服器的責任，但若已正確實作，則可藉由移除提取最近擷取之資料的需求來節省頻寬及改善效能。
 
 	Cache-Control 標頭中的 _max-age_ 值只是指南，但不保證對應的資料在指定的時間內不會變更。Web API 應該根據預期的資料變動性，將 max-age 設定為適當的值。在此期間過期時，用戶端應捨棄快取中的物件。
 
-	> [AZURE.NOTE]大部分的新式網頁瀏覽器都支援用戶端快取，其做法是將適當的 cache-control 標頭加入至要求，並檢查結果的標頭。不過，有些較舊的瀏覽器不會快取從包含查詢字串的 URL 傳回的值。對於根據此處討論的通訊協定，實作自己的快取管理策略的自訂用戶端應用程式而言，這通常不是問題。
+	> [AZURE.NOTE] 大部分的新式網頁瀏覽器都支援用戶端快取，其做法是將適當的 cache-control 標頭加入至要求，並檢查結果的標頭。不過，有些較舊的瀏覽器不會快取從包含查詢字串的 URL 傳回的值。對於根據此處討論的通訊協定，實作自己的快取管理策略的自訂用戶端應用程式而言，這通常不是問題。
 	>
 	> 某些較舊的 Proxy 會出現相同的行為，而且可能不會根據包含查詢字串的 URL 快取要求。對於透過這類 Proxy 連接到 Web 伺服器的自訂用戶端應用程式而言，這可能會是個問題。
 
@@ -517,7 +517,7 @@
 	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
-	> [AZURE.TIP]基於安全性理由，不允許快取機密資料或透過已驗證 (HTTPS) 連線傳回的資料。
+	> [AZURE.TIP] 基於安全性理由，不允許快取機密資料或透過已驗證 (HTTPS) 連線傳回的資料。
 
 	用戶端應用程式可以發出後續的 GET 要求以便隨時擷取相同的資源，而如果資源已變更 (有不同的 ETag)，則應捨棄快取的版本並在快取中加入新的版本。如果資源很大且需要大量頻寬才能傳送回用戶端，提取相同資料的重複要求可能沒有效率。為了克服這點，HTTP 通訊協定定義了下列程序，以供最佳化您應在 Web API 中支援的 GET 要求：
 
@@ -539,7 +539,7 @@
 
 	- 用戶端會使用狀態碼來維護快取。如果資料尚未變更 (狀態碼 304)，則物件可維持快取狀態，而用戶端應用程式應繼續使用此版本的物件。如果資料已經變更 (狀態碼 200)，則應捨棄快取的物件並插入新物件。如果資料已無法使用 (狀態碼 404)，則應從快取中移除此物件。
 
-	> [AZURE.NOTE]如果回應標頭包含 Cache-Control 標頭 no-store，則應一律從快取中移除此物件 (不論 HTTP 狀態碼為何)。
+	> [AZURE.NOTE] 如果回應標頭包含 Cache-Control 標頭 no-store，則應一律從快取中移除此物件 (不論 HTTP 狀態碼為何)。
 
 	以下程式碼顯示擴充為支援 If-None-Match 標頭的 `FindOrderByID` 方法。請注意，如果省略 If-None-Match 標頭，則一律會擷取指定的訂單：
 
@@ -631,7 +631,7 @@
     }
 	```
 
-	> [AZURE.TIP]在此範例中，雜湊從基礎資料來源擷取的資料，可以產生資料的 ETag。如果以其他方式計算 ETag，則可進一步最佳化程序，而如果資料已經變更，只需從資料來源提取。如果是大型資料或存取資料來源可能導致明顯延遲 (例如，如果資料來源是遠端資料庫)，這個方法特別有用。
+	> [AZURE.TIP] 在此範例中，雜湊從基礎資料來源擷取的資料，可以產生資料的 ETag。如果以其他方式計算 ETag，則可進一步最佳化程序，而如果資料已經變更，只需從資料來源提取。如果是大型資料或存取資料來源可能導致明顯延遲 (例如，如果資料來源是遠端資料庫)，這個方法特別有用。
 
 - **使用 Etag 支援開放式並行存取**。
 
@@ -732,7 +732,7 @@
     }
 	```
 
-	> [AZURE.TIP]使用 If-Match 標頭完全是選擇性的，而如果省略，Web API 將永遠嘗試更新指定的訂單，可能會盲目地覆寫其他使用者所做的更新。若要避免遺失更新所衍生的問題，一定要提供 If-match 標頭。
+	> [AZURE.TIP] 使用 If-Match 標頭完全是選擇性的，而如果省略，Web API 將永遠嘗試更新指定的訂單，可能會盲目地覆寫其他使用者所做的更新。若要避免遺失更新所衍生的問題，一定要提供 If-match 標頭。
 
 <a name="considerations-for-handling-large"></a>
 ## 處理大量要求和回應的考量
@@ -873,11 +873,11 @@
     }
 	```
 
-	> [AZURE.TIP]您可以上傳至 Web 服務的資料量不受串流處理限制，而單一要求可能會導致耗用相當多資源的巨大物件。在串流處理過程中，如果 Web API 判定要求中的資料量超過一些可接受的界限，則可以中止作業並傳回具有狀態碼 413 (要求實體太大) 的回應訊息。
+	> [AZURE.TIP] 您可以上傳至 Web 服務的資料量不受串流處理限制，而單一要求可能會導致耗用相當多資源的巨大物件。在串流處理過程中，如果 Web API 判定要求中的資料量超過一些可接受的界限，則可以中止作業並傳回具有狀態碼 413 (要求實體太大) 的回應訊息。
 
 	您可以使用 HTTP 壓縮，將透過網路傳輸的大型物件最小化。此方法有助於減少網路流量和相關聯的網路延遲，但代價是需要在用戶端和裝載 Web API 的伺服器上進行其他處理。例如，預計收到壓縮資料的用戶端應用程式可以包含 Accept-Encoding: gzip 要求標頭 (也可以指定其他資料壓縮演算法)。如果伺服器支援壓縮，則應以訊息內文中以 gzip 格式保留的內容和 Content-Encoding: gzip 回應標頭回應。
 
-	> [AZURE.TIP]您可以結合編碼壓縮與串流；在串流前先壓縮資料，並在訊息標頭中指定 gzip 內容編碼和區塊傳輸編碼。另請注意，可將某些 Web 伺服器 (例如 Internet Information Server) 設定為自動壓縮 HTTP 回應 (不論 Web API 是否壓縮資料)。
+	> [AZURE.TIP] 您可以結合編碼壓縮與串流；在串流前先壓縮資料，並在訊息標頭中指定 gzip 內容編碼和區塊傳輸編碼。另請注意，可將某些 Web 伺服器 (例如 Internet Information Server) 設定為自動壓縮 HTTP 回應 (不論 Web API 是否壓縮資料)。
 
 - **針對不支援非同步作業的用戶端實作部份回應**。
 
@@ -926,7 +926,7 @@
 
 	用戶端應用程式可以發出要求，使用 URI \__http://www.adventure-works.com/api/orders?limit=30&offset=50_ 來擷取從位移 50 開始的 30 張訂單。
 
-	> [AZURE.TIP]避免讓用戶端應用程式指定會導致長度超過 2000 個字元的 URI 的查詢字串。許多 Web 用戶端和伺服器都無法處理此種長度的 URI。
+	> [AZURE.TIP] 避免讓用戶端應用程式指定會導致長度超過 2000 個字元的 URI 的查詢字串。許多 Web 用戶端和伺服器都無法處理此種長度的 URI。
 
 <a name="considerations-for-maintaining-responsiveness"></a>
 ## 維護回應性、延展性和可用性的考量
@@ -937,7 +937,7 @@
 
 	執行可能需花很長時間處理的要求時，不應封鎖送出此要求的用戶端。Web API 可以執行一些初始檢查來驗證要求、起始個別工作來執行工作，然後傳回具有 HTTP 狀態碼 202 (已接受) 的回應訊息。此工作可以非同步方式當作 Web API 的一部分執行，或者可以卸載到 Azure WebJob (如果 Web API 由 Azure 網站裝載) 或背景工作角色 (如果 Web API 是以 Azure 雲端服務的方式實作)。
 
-	> [AZURE.NOTE]如需有關搭配使用 WebJobs 與 Azure 網站的詳細資訊，請瀏覽 Microsoft 網站上的[使用 WebJobs 在 Microsoft Azure 網站中執行背景工作](web-sites-create-web-jobs.md)頁面。
+	> [AZURE.NOTE] 如需有關搭配使用 WebJobs 與 Azure 網站的詳細資訊，請瀏覽 Microsoft 網站上的[使用 WebJobs 在 Microsoft Azure 網站中執行背景工作](web-sites-create-web-jobs.md)頁面。
 
 	Web API 也應提供一種機制，將處理的結果傳回給用戶端應用程式。提供輪詢機制，以供用戶端應用程式定期查詢處理是否已完成並取得結果，或讓 Web API 在作業完成時傳送通知，即可達到此目的。
 
@@ -965,7 +965,7 @@
 
 	- 使用 SignalR 並透過持續性網路連線，即時將資料從 Web 伺服器推送到用戶端。SignalR 可以 NuGet 封裝形式使用於 ASP.NET Web 應用程式。您可以在 [ASP.NET SignalR](http://signalr.net/) 網站上找到更多資訊。
 
-	> [AZURE.NOTE]Comet 與 SignalR 均利用 Web 伺服器與用戶端應用程式之間的持續性網路連線。這可能會影響延展性，因為大量用戶端可能需要同樣大量的並行連線。
+	> [AZURE.NOTE] Comet 與 SignalR 均利用 Web 伺服器與用戶端應用程式之間的持續性網路連線。這可能會影響延展性，因為大量用戶端可能需要同樣大量的並行連線。
 
 - **確保每個要求都是無狀態**。
 
@@ -981,7 +981,7 @@
 
 	讓連線保持開啟可減少延遲和網路壅塞，有助於改善回應能力，但是讓不必要的連線保持開啟的時間超過必要時間，可能會危害到延展性，進而限制其他並行用戶端的連接能力。如果用戶端應用程式是在行動裝置上執行，這也可能影響電池壽命；如果應用程式只對伺服器提出非經常性要求，維持開啟的連線可能會導致電池更快耗盡。若要使用 HTTP 1.1 確保連線不會持續，用戶端可以在訊息中包含 Connection:Close 標頭以覆寫預設行為。同樣地，如果伺服器正在處理非常大量的用戶端，則可以在回應訊息中包含應關閉連線並儲存伺服器資源的 Connection:Close 標頭。
 
-	> [AZURE.NOTE]持續性 HTTP 連線純粹是選擇性功能，可減少與重複建立通訊通道相關聯的網路負荷。Web API 和用戶端應用程式都不應該依賴持續性 HTTP 連線才可使用。請勿使用持續性 HTTP 連線來實作 Comet 式通知系統；而是應該利用 TCP 層的通訊端 (或可用的 Websocket)。最後請注意，如果用戶端應用程式透過 Proxy 與伺服器進行通訊，則 Keep-Alive 標頭的使用受限；只有與用戶端和 Proxy 的連線具持續性。
+	> [AZURE.NOTE] 持續性 HTTP 連線純粹是選擇性功能，可減少與重複建立通訊通道相關聯的網路負荷。Web API 和用戶端應用程式都不應該依賴持續性 HTTP 連線才可使用。請勿使用持續性 HTTP 連線來實作 Comet 式通知系統；而是應該利用 TCP 層的通訊端 (或可用的 Websocket)。最後請注意，如果用戶端應用程式透過 Proxy 與伺服器進行通訊，則 Keep-Alive 標頭的使用受限；只有與用戶端和 Proxy 的連線具持續性。
 
 ## 發佈和管理 Web API 的考量
 
@@ -1003,7 +1003,7 @@
 ## 測試 Web API 的考量
 Web API 應與軟體的任何其他部分一樣徹底進行測試。您應考慮建立單位測試來驗證每個作業的功能，就像處理任何其他類型的應用程式一樣。如需詳細資訊，請參閱 Microsoft 網站上的[使用單位測試驗證程式碼](https://msdn.microsoft.com/library/dd264975.aspx)頁面。
 
-> [AZURE.NOTE]本指引提供的範例 Web API 包含示範如何在選取的作業上執行單位測試的測試專案。
+> [AZURE.NOTE] 本指引提供的範例 Web API 包含示範如何在選取的作業上執行單位測試的測試專案。
 
 Web API 的本質帶來自己額外的需求，以便確認運作正常。您應該特別注意下列層面：
 
@@ -1013,13 +1013,13 @@ Web API 的本質帶來自己額外的需求，以便確認運作正常。您應
 
 - 確認所有路由都得到適當保護，而且都遵守適當的驗證和授權檢查。
 
-	> [AZURE.NOTE]某些安全性層面 (例如使用者驗證) 大都可能是主機環境 (而不是 Web API) 的責任，但仍必須將安全性測試納入部署程序中。
+	> [AZURE.NOTE] 某些安全性層面 (例如使用者驗證) 大都可能是主機環境 (而不是 Web API) 的責任，但仍必須將安全性測試納入部署程序中。
 
 - 測試每項作業執行的例外狀況處理，並確認已將適當且有意義的 HTTP 回應傳遞回用戶端應用程式。
 - 驗證要求和回應訊息的格式是否正確。例如，如果 HTTP POST 要求包含新資源的資料 (採用 x-www-form-urlencoded 格式)，請確認對應的作業正確剖析資料、建立資源，並傳回包含新資源詳細資料的回應 (包括正確的 Location 標頭)。
 - 驗證回應訊息中的所有連結和 URI。例如，HTTP POST 訊息應該會傳回新建資源的 URI。所有 HATEOAS 連結都應該有效。
 
-	> [AZURE.IMPORTANT]如果您透過 API 管理服務發佈 Web API，這些 URI 應反映管理服務的 URL，而非裝載 Web API 之 Web 伺服器的 URL。
+	> [AZURE.IMPORTANT] 如果您透過 API 管理服務發佈 Web API，這些 URI 應反映管理服務的 URL，而非裝載 Web API 之 Web 伺服器的 URL。
 
 - 確保每項作業都會針對不同的輸入組合傳回正確的狀態碼。例如：
 	- 如果查詢成功，則應傳回狀態碼 200 (確定)
@@ -1039,13 +1039,13 @@ Web API 的本質帶來自己額外的需求，以便確認運作正常。您應
 
 ## 使用 Azure API 管理服務來發佈和管理 Web API
 
-Azure 提供 [API 管理服務](http://azure.microsoft.com/documentation/services/api-management/)，您可用於發佈和管理 Web API。您可以使用這項工具來產生一個服務，以做為一或多個 Web API 的 façade。此服務本身是可使用 Azure 管理入口網站建立及設定的可延伸 Web 服務。您可以使用這項服務來發佈和管理 Web API，如下所示：
+Azure 提供 [API 管理服務](https://azure.microsoft.com/documentation/services/api-management/)，您可用於發佈和管理 Web API。您可以使用這項工具來產生一個服務，以做為一或多個 Web API 的 façade。此服務本身是可使用 Azure 管理入口網站建立及設定的可延伸 Web 服務。您可以使用這項服務來發佈和管理 Web API，如下所示：
 
 1. 將 Web API 部署到網站、Azure 雲端服務或 Azure 虛擬機器。
 
 2. 將 API 管理服務連接到 Web API。傳送至管理 API 之 URL 的要求會對應至 Web API 中的 URI。相同的 API 管理服務可將要求路由傳送到多個 Web API。這可讓您將多個 Web API 彙總成單一管理服務。同樣地，如果您需要限制或分割不同應用程式可用的功能，可以從一個以上的 API 管理服務參考相同的 Web API。
 
-	> [AZURE.NOTE]HATEOAS 連結中產生成為 HTTP GET 要求的回應一部分的 URI，應參考 API 管理服務 (而非裝載 Web API 的 Web 伺服器) 的 URL。
+	> [AZURE.NOTE] HATEOAS 連結中產生成為 HTTP GET 要求的回應一部分的 URI，應參考 API 管理服務 (而非裝載 Web API 的 Web 伺服器) 的 URL。
 
 3. 對每個 Web API，指定 Web API 公開的 HTTP 作業，以及作業可作為輸入使用的任何選擇性參數。您也可以設定 API 管理服務是否應快取從 Web API 收到的回應，以最佳化相同資料的重複要求。記錄每項作業可產生之 HTTP 回應的詳細資料。此資訊用來產生開發人員適用的文件，因此一定要精確且完整。
 
@@ -1055,13 +1055,13 @@ Azure 提供 [API 管理服務](http://azure.microsoft.com/documentation/service
 
 5. 建立產品。產品是發佈的單位；您會將先前連接的 Web API 加入至產品的管理服務。發佈產品時，Web API 即可供開發人員使用。
 
-	> [AZURE.NOTE]在發佈產品之前，您也可以定義可存取產品的使用者群組，並將使用者加入至這些群組。這可讓您控制可使用 Web API 的開發人員和應用程式。如果 Web API 需獲得核准，開發人員必須先將要求傳送給產品系統管理員，才能夠加以存取。系統管理員可以授與或拒絕程式開發人員的存取。如果情況變更，也可能會封鎖現有的開發人員。
+	> [AZURE.NOTE] 在發佈產品之前，您也可以定義可存取產品的使用者群組，並將使用者加入至這些群組。這可讓您控制可使用 Web API 的開發人員和應用程式。如果 Web API 需獲得核准，開發人員必須先將要求傳送給產品系統管理員，才能夠加以存取。系統管理員可以授與或拒絕程式開發人員的存取。如果情況變更，也可能會封鎖現有的開發人員。
 
 6.	設定每個 Web API 的原則。原則可管理許多層面，例如是否應該允許跨網域呼叫、如何驗證用戶端、是否以透明方式在 XML 與 JSON 資料格式間轉換、是否限制來自指定 IP 範圍的呼叫、使用量配額，以及是否限制呼叫率。原則可以全面套用於整個產品、針對產品中的單一 Web API 套用，或針對 Web API 中的個別作業套用。
 
-您可以在 Microsoft 網站的 [API 管理](http://azure.microsoft.com/services/api-management/)頁面上找到說明如何執行這些工作的完整詳細資料。Azure API 管理服務也提供自己的 REST 介面，讓您建置自訂介面，以簡化設定 Web API 的程序。如需詳細資訊，請瀏覽 Microsoft 網站上的 [Azure API 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn776326.aspx)頁面。
+您可以在 Microsoft 網站的 [API 管理](https://azure.microsoft.com/services/api-management/)頁面上找到說明如何執行這些工作的完整詳細資料。Azure API 管理服務也提供自己的 REST 介面，讓您建置自訂介面，以簡化設定 Web API 的程序。如需詳細資訊，請瀏覽 Microsoft 網站上的 [Azure API 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn776326.aspx)頁面。
 
-> [AZURE.TIP]Azure 提供了 Azure 流量管理員，可讓您實作容錯移轉和負載平衡，並且讓網站上裝載於不同地理位置的多個執行個體減少延遲。您可以使用 Azure 流量管理員搭配 API 管理服務；API 管理服務可以透過 Azure 流量管理員，將要求路由傳送至網站的執行個體。如需詳細資訊，請瀏覽 Microsoft 網站上的[關於流量管理員負載平衡方法](../traffic-manager/traffic-manager-load-balancing-methods.md)頁面。
+> [AZURE.TIP] Azure 提供了 Azure 流量管理員，可讓您實作容錯移轉和負載平衡，並且讓網站上裝載於不同地理位置的多個執行個體減少延遲。您可以使用 Azure 流量管理員搭配 API 管理服務；API 管理服務可以透過 Azure 流量管理員，將要求路由傳送至網站的執行個體。如需詳細資訊，請瀏覽 Microsoft 網站上的[關於流量管理員負載平衡方法](../traffic-manager/traffic-manager-load-balancing-methods.md)頁面。
 
 > 在此結構中，如果您使用您網站的自訂 DNS 名稱，則應該為每個網站設定適當的 CNAME 記錄，以指向 Azure 流量管理員網站的 DNS 名稱。
 
@@ -1127,7 +1127,7 @@ Microsoft 網站上的 [Application Insights - 開始監控應用程式的健全
 
 您可以使用這項資訊來判斷是否特定 Web API 或作業造成瓶頸，以及視需要調整主機環境並加入更多伺服器。您也可以確定一或多個應用程式是否使用不相稱的資源量，並套用適當的原則來設定配額及限制呼叫率。
 
-> [AZURE.NOTE]您可以變更已發佈產品的詳細資料，而您所做的變更會立即套用。例如，您可以在 Web API 中新增或移除作業，而不需要重新發佈含有 Web API 的產品。
+> [AZURE.NOTE] 您可以變更已發佈產品的詳細資料，而您所做的變更會立即套用。例如，您可以在 Web API 中新增或移除作業，而不需要重新發佈含有 Web API 的產品。
 
 ## 相關的模式
 - [façade](http://en.wikipedia.org/wiki/Facade_pattern) 模式描述如何提供 Web API 的介面。
@@ -1145,11 +1145,11 @@ Microsoft 網站上的 [Application Insights - 開始監控應用程式的健全
 - Microsoft 網站上的 [Web API 全域錯誤處理](http://www.asp.net/web-api/overview/error-handling/web-api-global-error-handling)一文說明如何實作 Web API 的全域錯誤處理和記錄策略。
 - Microsoft 網站上的[使用 WebJob 在 Microsoft Azure 網站中執行背景工作](web-sites-create-web-jobs.md)頁面提供有關使用 WebJob 在 Azure 網站上執行背景作業的資訊和範例。
 - Microsoft 網站上的 [Azure 通知中樞通知使用者](notification-hubs-aspnet-backend-windows-dotnet-notify-users/)頁面會顯示如何使用 Azure 通知中樞將非同步回應推送至用戶端應用程式。
-- Microsoft 網站上的 [API 管理](http://azure.microsoft.com/services/api-management/)頁面說明如何發佈產品，以提供受控制且安全的 Web API 存取。
+- Microsoft 網站上的 [API 管理](https://azure.microsoft.com/services/api-management/)頁面說明如何發佈產品，以提供受控制且安全的 Web API 存取。
 - Microsoft 網站上的 [Azure API 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn776326.aspx)頁面說明如何使用 API 管理 REST API 來建置自訂管理應用程式。
 - Microsoft 網站上的[關於流量管理員負載平衡方法](../traffic-manager/traffic-manager-load-balancing-methods.md)頁面摘要說明 Azure 流量管理員如何用來平衡裝載 Web API 的網站上多個執行個體的要求負載。
 - Microsoft 網站上的 [Application Insights - 開始監控應用程式的健全狀況和使用量](app-insights-start-monitoring-app-health-usage.md)頁面提供有關在 ASP.NET Web API 專案中安裝和設定 Application Insights 的詳細資訊。
 - Microsoft 網站上的[驗證使用單位測試的程式碼](https://msdn.microsoft.com/library/dd264975.aspx)頁面提供有關使用 Visual Studio 建立和管理單位測試的詳細資訊。
 - Microsoft 網站上的[在發行前執行應用程式的效能測試](https://msdn.microsoft.com/library/dn250793.aspx)頁面說明如何使用 Visual Studio Ultimate 建立 Web 效能和負載測試專案。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

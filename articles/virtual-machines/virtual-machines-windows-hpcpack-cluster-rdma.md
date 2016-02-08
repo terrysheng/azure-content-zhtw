@@ -39,10 +39,10 @@ Microsoft HPC Pack 是在 Azure 中建立 Windows Server 型 HPC 叢集時建議
 * **檢閱關於大量運算執行個體的[背景資訊和考量](virtual-machines-a8-a9-a10-a11-specs.md)**
 
 
-* **Azure 訂用帳戶** - 如果您沒有帳戶，僅需幾分鐘就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+* **Azure 訂用帳戶** - 如果您沒有帳戶，僅需幾分鐘就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 
-* **核心配額** - 您可能需要增加核心配額以部署 A8 或 A9 VM 的叢集。例如，如果您想要使用 HPC Pack 部署 8 個 A9 執行個體，將需要至少 128 個核心。若要增加配額，請[開啟線上客戶支援要求](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)，不另外加收費用。
+* **核心配額** - 您可能需要增加核心配額以部署 A8 或 A9 VM 的叢集。例如，如果您想要使用 HPC Pack 部署 8 個 A9 執行個體，將需要至少 128 個核心。若要增加配額，請[開啟線上客戶支援要求](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)，不另外加收費用。
 
 ## 案例 1.部署大量運算背景工作角色執行個體 (PaaS)
 
@@ -51,7 +51,7 @@ Microsoft HPC Pack 是在 Azure 中建立 Windows Server 型 HPC 叢集時建議
 
 以下是從現有的 (通常是內部部署) 叢集將量擴大到 A8 或 A9 Azure 執行個體的考量與步驟。使用類似的程序，可將背景工作角色執行個體新增至部署在 Azure VM 中的 HPC Pack 前端節點。
 
->[AZURE.NOTE]如需使用 HPC Pack 將量擴大到 Azure 的教學課程，請參閱[使用 HPC Pack 設定混合式叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)。請留意下列步驟中僅適用於 A8 和 A9 大小之 Azure 節點的考量。
+>[AZURE.NOTE] 如需使用 HPC Pack 將量擴大到 Azure 的教學課程，請參閱[使用 HPC Pack 設定混合式叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)。請留意下列步驟中僅適用於 A8 和 A9 大小之 Azure 節點的考量。
 
 ![將量擴大到 Azure][burst]
 
@@ -181,7 +181,7 @@ Microsoft HPC Pack 是在 Azure 中建立 Windows Server 型 HPC 叢集時建議
     task view <JobID>.1
     ```
 
-    其中，&lt;JobID&gt; 是已提交之工作的 ID。
+    其中，&lt;*JobID*&gt; 是已提交之工作的 ID。
 
     輸出會包含如下的延遲結果。
 
@@ -226,7 +226,7 @@ Microsoft HPC Pack 是在 Azure 中建立 Windows Server 型 HPC 叢集時建議
 
 * 若要在 Azure 執行個體上執行 MPI 應用程式，請執行 **hpcfwutil** 命令，對 Windows 防火牆註冊執行個體上的每個 MPI 應用程式。如此，即可在防火牆動態指派的連接埠上進行 MPI 通訊。
 
-    >[AZURE.NOTE]針對「將量擴大到 Azure」部署，您也可以設定防火牆例外狀況命令，使其在所有新增至您的叢集的新 Azure 節點上自動執行。在您執行 **hpcfwutil** 命令並驗證應用程式可運作之後，請將命令新增至 Azure 節點的啟動指令碼。如需詳細資訊，請參閱 [Use a Startup Script for Azure Nodes (使用 Azure 節點的啟動指令碼)](https://technet.microsoft.com/library/jj899632.aspx)。
+    >[AZURE.NOTE] 針對「將量擴大到 Azure」部署，您也可以設定防火牆例外狀況命令，使其在所有新增至您的叢集的新 Azure 節點上自動執行。在您執行 **hpcfwutil** 命令並驗證應用程式可運作之後，請將命令新增至 Azure 節點的啟動指令碼。如需詳細資訊，請參閱 [Use a Startup Script for Azure Nodes (使用 Azure 節點的啟動指令碼)](https://technet.microsoft.com/library/jj899632.aspx)。
 
 
 
@@ -249,4 +249,4 @@ Microsoft HPC Pack 是在 Azure 中建立 Windows Server 型 HPC 叢集時建議
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

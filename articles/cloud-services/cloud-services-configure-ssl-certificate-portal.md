@@ -27,7 +27,7 @@
 
 安全通訊端層 (SSL) 加密是最常用來保護在網際網路上傳送之資料的方法。此常見工作會討論如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。
 
-> [AZURE.NOTE]此工作的程序適用於 Azure 雲端服務；若為 應用程式服務，請參閱[此處](../app-service-web/web-sites-configure-ssl-certificate.md)。
+> [AZURE.NOTE] 此工作的程序適用於 Azure 雲端服務；若為 應用程式服務，請參閱[此處](../app-service-web/web-sites-configure-ssl-certificate.md)。
 
 此工作將使用生產部署；本主題最後將提供關於如何使用預備部署的資訊。
 
@@ -62,12 +62,20 @@
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA" />
+                    		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
         </WebRole>
 
     **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。
+    
+    權限 (`permisionLevel` 屬性) 可設為下列其中之一：
+
+    | 權限值 | 說明 |
+    | ----------------  | ----------- |
+    | limitedOrElevated | **(預設值)** 所有角色處理序都可以存取私密金鑰。 |
+    | elevated | 只有較高權限的處理序可以存取私密金鑰。|
 
 2.  在服務定義檔中，於 **Endpoints** 區段內新增 **InputEndpoint** 元素，以啟用 HTTPS：
 
@@ -145,11 +153,11 @@
 
 2.  在網頁瀏覽器中，將連結修改為使用 **https** 而非 **http**，然後造訪網頁。
 
-    >[AZURE.NOTE]如果使用自我簽署憑證，則當您在瀏覽器中瀏覽至與該自我簽署憑證相關聯的 HTTPS 端點時，您將會看見憑證錯誤。使用信任的憑證授權單位所簽署的憑證，則不會有此問題；因此，您可以忽略該錯誤。(另一個選項為新增自我簽署憑證至使用者的受信任憑證授權單位憑證存放區。)
+    >[AZURE.NOTE] 如果使用自我簽署憑證，則當您在瀏覽器中瀏覽至與該自我簽署憑證相關聯的 HTTPS 端點時，您將會看見憑證錯誤。使用信任的憑證授權單位所簽署的憑證，則不會有此問題；因此，您可以忽略該錯誤。(另一個選項為新增自我簽署憑證至使用者的受信任憑證授權單位憑證存放區。)
 
     ![網站預覽](media/cloud-services-configure-ssl-certificate-portal/show-site.png)
 
-    >[AZURE.TIP]若要對預備部署而不是對生產部署使用 SSL，首先您需要判定要在預備部署中使用的 URL。部署雲端服務之後，預備環境的 URL 即由**部署 ID** GUID 決定，格式如下：`https://deployment-id.cloudapp.net/`
+    >[AZURE.TIP] 若要對預備部署而不是對生產部署使用 SSL，首先您需要判定要在預備部署中使用的 URL。部署雲端服務之後，預備環境的 URL 即由**部署 ID** GUID 決定，格式如下：`https://deployment-id.cloudapp.net/`
       
     >建立與 GUID 型 URL 相同的一般名稱 (CN) (例如，**328187776e774ceda8fc57609d404462.cloudapp.net**) 的憑證、使用入口網站將該憑證新增至預備雲端服務、將憑證資訊新增至 CSDEF 與 CSCFG 檔案、重新封裝應用程式，然後將預備部署更新為使用新的套件與 CSCFG 檔。
 
@@ -160,4 +168,4 @@
 * 設定[自訂網域名稱](cloud-services-custom-domain-name-portal.md)。
 * [管理您的雲端服務](cloud-services-how-to-manage-portal.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

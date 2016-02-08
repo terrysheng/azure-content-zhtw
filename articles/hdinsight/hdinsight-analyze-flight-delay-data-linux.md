@@ -14,24 +14,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="02/26/2015" 
 	ms.author="larryfr"/>
 
 #在 HDInsight 上使用 Hadoop 分析航班延誤資料
 
 了解如何在以 Linux 為基礎的 HDInsight 上使用 Hive 分析航班延誤資料，然後使用 Sqoop 將資料匯出到 Azure SQL Database。
 
-> [AZURE.NOTE]本文章中的個別部分適用於以 Windows 為基礎的 HDInsight 叢集 (例如 Python 與 Hive)，許多步驟則針對以 Linux 為基礎的叢集。如需適用於以 Windows 為基礎的叢集的步驟，請參閱[在 HDInsight 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data.md)
+> [AZURE.NOTE] 本文章中的個別部分適用於以 Windows 為基礎的 HDInsight 叢集 (例如 Python 與 Hive)，許多步驟則針對以 Linux 為基礎的叢集。如需適用於以 Windows 為基礎的叢集的步驟，請參閱[在 HDInsight 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data.md)
 
 ###必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 - __HDInsight 叢集__。請參閱[在 Linux 上於 HDInsight 中搭配使用 Hadoop 與 Hive 入門](hdinsight-hadoop-linux-tutorial-get-started.md)，取得建立新的以 Linux 為基礎的 HDInsight 叢集的步驟。
 
-- __Azure SQL Database__。您會使用 Azure SQL Database 做為目的地資料存放區。如果您還沒有 SQL Database，請參閱[如何建立與設定 Azure SQL Database](../sql-database/sql-database-create.md) 以建立一個。
+- __Azure SQL Database__。您會使用 Azure SQL Database 做為目的地資料存放區。如果您還沒有 SQL Database，請參閱 [SQL Database 教學課程：在幾分鐘內建立 SQL Database](../sql-database/sql-database-get-started.md)。
 
 - __Azure CLI__。如果您尚未安裝 Azure CLI，請參閱[安裝與設定 Azure CLI](../xplat-cli-install.md) 的詳細步驟。
 
@@ -53,7 +53,7 @@
 
 	以 zip 檔案名稱取代 __FILENAME__。以 HDInsight 叢集的 SSH 登入取代 __USERNAME__。將 CLUSTERNAME 取代為 HDInsight 叢集的名稱。
 	
-	> [AZURE.NOTE]如果您使用密碼來驗證您的 SSH 登入，系統會提示您輸入密碼。如果您使用的是公開金鑰，您可能必須使用 `-i` 參數並指定對應的私密金鑰路徑。例如 `scp -i ~/.ssh/id_rsa FILENAME.csv USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`。
+	> [AZURE.NOTE] 如果您使用密碼來驗證您的 SSH 登入，系統會提示您輸入密碼。如果您使用的是公開金鑰，您可能必須使用 `-i` 參數並指定對應的私密金鑰路徑。例如 `scp -i ~/.ssh/id_rsa FILENAME.csv USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`。
 
 2. 完成上傳之後，使用 SSH 連線到叢集：
 
@@ -179,7 +179,7 @@
 		data:    Server Name i1qwc540ts
 		info:    sql server create command OK
 
-> [AZURE.IMPORTANT]請注意此命令傳回的伺服器名稱。這是所建立的 SQL Database 伺服器的簡短名稱。完整網域名稱 (FQDN) 為 `<shortname>.database.windows.net`。
+> [AZURE.IMPORTANT] 請注意此命令傳回的伺服器名稱。這是所建立的 SQL Database 伺服器的簡短名稱。完整網域名稱 (FQDN) 為 `<shortname>.database.windows.net`。
 
 2. 使用下列命令，在 SQL Database 伺服器上建立名為 **sqooptest** 的資料庫：
 
@@ -187,13 +187,13 @@
 
     完成時會傳回 [確定] 訊息。
 
-	> [AZURE.NOTE]如果您收到的錯誤指出您沒有存取權，您可能需要使用下列命令，將用戶端工作站的 IP 位址加入至 SQL Database 防火牆：
+	> [AZURE.NOTE] 如果您收到的錯誤指出您沒有存取權，您可能需要使用下列命令，將用戶端工作站的 IP 位址加入至 SQL Database 防火牆：
 	>
 	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ##建立 SQL Database 資料表
 
-> [AZURE.NOTE]連接至 SQL Database 建立資料表的方法有很多種。下列步驟會從 HDInsight 叢集使用 [FreeTDS](http://www.freetds.org/)。
+> [AZURE.NOTE] 連接至 SQL Database 建立資料表的方法有很多種。下列步驟會從 HDInsight 叢集使用 [FreeTDS](http://www.freetds.org/)。
 
 1. 使用 SSH 連線到以 Linux 為基礎的 HDInsight，並從 SSH 工作階段執行下列步驟。
 
@@ -304,4 +304,4 @@
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

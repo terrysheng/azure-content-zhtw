@@ -28,7 +28,7 @@
 每一儲存體帳戶的輸入上限<sup>2</sup> (歐洲和亞洲地區)|如果啟用 GRS/ZRS<sup>3</sup>，則為 5 Gbps，LRS 為 10 Gbps
 每一儲存體帳戶的輸出上限<sup>2</sup> (歐洲和亞洲地區)|如果啟用 RA-GRS/GRS/ZRS<sup>3</sup>，則為 10 Gbps，LRS 為 15 Gbps
 
-<sup>1</sup>如果您需要超過 100 個儲存體帳戶，請連絡 [Azure 支援](http://azure.microsoft.com/support/faq/)尋求協助。
+<sup>1</sup>如果您需要超過 100 個儲存體帳戶，請連絡 [Azure 支援](https://azure.microsoft.com/support/faq/)尋求協助。
 
 <sup>2</sup>*輸入*是指傳送至某個儲存體帳戶的所有資料 (要求)。*輸出*是指從某個儲存體帳戶接收的所有資料 (回應)。
 
@@ -39,4 +39,4 @@
 - **ZRS**：區域備援儲存體。僅適用於區塊 Blob。 
 - **LRS**：本地備援儲存體。 
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect 同步處理：PowerShell 連接器"
+   pageTitle="Azure AD Connect 同步處理：PowerShell 連接器 | Microsoft Azure"
    description="本文說明如何設定 Microsoft 的 Windows PowerShell 連接器。"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # WIndows PowerShell 連接器技術參考
@@ -370,4 +370,4 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

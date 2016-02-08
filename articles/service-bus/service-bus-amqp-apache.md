@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # 在 Azure Linux VM 上安裝 Apache Qpid Proton-C
@@ -104,7 +104,7 @@
 
 準備好進行深入了解嗎？ 請造訪下列連結：
 
-- [服務匯流排 AMQP 概觀]
+- [服務匯流排 AMQP 概觀][]
 
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
 [0]: ./media/service-bus-amqp-apache/amqp-apache-1.png
@@ -114,4 +114,4 @@
 
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="01/26/2016"
 	ms.author="danlep"/>
 
 
@@ -24,7 +24,7 @@
 
 如果您計劃執行實際執行 Batch 工作負載，您可能需要增加一或多個高於預設值的配額。若要提升配額，請開啟線上客戶支援要求，不另外加收費用。
 
->[AZURE.NOTE]配額是一種信用限制，不是容量保證。如果您有大規模的容量需求，請連絡 Azure 支援。
+>[AZURE.NOTE] 配額是一種信用限制，不是容量保證。如果您有大規模的容量需求，請連絡 Azure 支援。
 
 ## 訂用帳戶配額
 資源|預設限制|上限
@@ -53,11 +53,11 @@ Batch 帳戶 (每一區域的每一訂用帳戶)|1|50
 
 ## 增加配額
 
-使用下列步驟在 Azure 入口網站中要求配額增加 (您也可以在 [Azure 傳統入口網站](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)中要求增加)。
+使用下列步驟在 Azure 入口網站中要求配額增加 (您也可以在 [Azure 傳統入口網站](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)中要求增加)。
 
-1. 在預覽入口網站的儀表板中，按一下 [說明 + 支援]。
+1. 在入口網站的儀表板中，按一下 [說明 + 支援]。
 
-2. 按一下 [建立支援要求] > [基本]。
+2. 按一下 [新增支援要求] > [基本]。
 
 3. 在 [基本] 刀鋒視窗上，執行下列動作：
 
@@ -65,7 +65,7 @@ Batch 帳戶 (每一區域的每一訂用帳戶)|1|50
 
 	b.選取您的訂閱。
 
-	c.在 [服務] 中，選取 [Batch 服務]。
+	c.在 [配額類型] 中，選取 [Batch]。
 
 	d.在 [支援計劃] 中，選取 [Azure 支援計劃 - 開發人員]。
 
@@ -73,7 +73,7 @@ Batch 帳戶 (每一區域的每一訂用帳戶)|1|50
 
 4. 在 [問題] 刀鋒視窗中，執行下列動作：
 
-	a.在 [問題類型] 中，選取 [Batch]。
+	a.根據商業影響選取 [嚴重性]。
 
 	b.在 [詳細資料] 中，列出您要在特定帳戶中變更的配額和您想要的新的限制。
 
@@ -95,4 +95,4 @@ Azure 支援會與您連絡。完成要求需要花費最多 2 個工作天。
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

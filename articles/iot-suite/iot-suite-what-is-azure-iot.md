@@ -2,13 +2,14 @@
  pageTitle="適用於物聯網的 Azure 解決方案 | Microsoft Azure"
  description="Azure 上的 IoT 概觀，包括範例解決方案架構，以及它如何與 Azure IoT 套件及預先設定解決方案相關聯"
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -46,4 +47,4 @@ Microsoft Azure IoT 套件是企業級解決方案，可讓您快速開始使用
 [Azure Machine Learning]: https://azure.microsoft.com/zh-TW/services/machine-learning/
 [Azure 儲存體]: https://azure.microsoft.com/zh-TW/services/storage/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

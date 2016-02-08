@@ -18,7 +18,7 @@
 
 # Microsoft Azure 安全性和稽核記錄管理
 
-Azure 可讓客戶執行安全性事件產生和集合，從 Azure 基礎結構即服務 (IaaS) 和平台即服務 (PaaS) 角色至其訂用帳戶中的中央儲存體。客戶可使用 [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/) 來彙總並分析收集的事件。此外，這些收集的事件可以匯出到進行中監視的內部部署安全性資訊和事件管理 (SIEM) 系統。
+Azure 可讓客戶執行安全性事件產生和集合，從 Azure 基礎結構即服務 (IaaS) 和平台即服務 (PaaS) 角色至其訂用帳戶中的中央儲存體。客戶可使用 [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/) 來彙總並分析收集的事件。此外，這些收集的事件可以匯出到進行中監視的內部部署安全性資訊和事件管理 (SIEM) 系統。
 
 Azure 安全性記錄、分析和監視生命週期包括：
 
@@ -32,9 +32,9 @@ Azure 安全性記錄、分析和監視生命週期包括：
 ## 記錄檔產生
 在 Windows 事件記錄檔中會針對虛擬機器的**系統**、**安全性**和**應用程式**等通道引發安全性事件。若要確保記錄事件時不會遺失潛在資料，請務必正確設定事件記錄檔的大小。以稽核原則設定所產生的事件和定義的事件集合原則等數目做為事件記錄檔大小的基礎。如需詳細資訊，請參閱[規劃安全性稽核監視和管理](http://technet.microsoft.com/library/ee513968.aspx#BKMK_4)。
 
->[AZURE.NOTE]使用 Windows 事件轉送 (WEF) 或 Azure 診斷 (在[記錄集合](#log-collection)一節中說明) 從雲端服務或虛擬機器提取記錄檔時，請考量系統中斷的潛在影響。比方說，如果您的 WEF 環境關閉了一段時間，您必須確定記錄檔大小足以讓帳戶維持較長的時間，或為可能的記錄檔資料遺失做準備。
+>[AZURE.NOTE] 使用 Windows 事件轉送 (WEF) 或 Azure 診斷 (在[記錄集合](#log-collection)一節中說明) 從雲端服務或虛擬機器提取記錄檔時，請考量系統中斷的潛在影響。比方說，如果您的 WEF 環境關閉了一段時間，您必須確定記錄檔大小足以讓帳戶維持較長的時間，或為可能的記錄檔資料遺失做準備。
 
-針對部署於 Azure 和從 [Azure 虛擬機器 Marketplace](http://azure.microsoft.com/marketplace/virtual-machines/#microsoft) 建立之虛擬機器中的雲端服務應用程式，預設會啟用一組作業系統安全性事件。客戶可以新增、移除或修改可藉由自訂作業系統稽核原則加以稽核的事件。如需詳細資訊，請參閱[安全性原則設定參考](http://technet.microsoft.com/library/jj852210.aspx)。
+針對部署於 Azure 和從 [Azure 虛擬機器 Marketplace](https://azure.microsoft.com/marketplace/virtual-machines/#microsoft) 建立之虛擬機器中的雲端服務應用程式，預設會啟用一組作業系統安全性事件。客戶可以新增、移除或修改可藉由自訂作業系統稽核原則加以稽核的事件。如需詳細資訊，請參閱[安全性原則設定參考](http://technet.microsoft.com/library/jj852210.aspx)。
 
 您可以使用下列方法從作業系統 (例如稽核原則變更) 和 Windows 元件 (例如 IIS) 產生其他記錄：
 
@@ -93,7 +93,7 @@ ConfigureIISLogging:cmd 的內容
 ##	使用 Windows 事件轉送的安全性事件資料收集
 對於已加入網域的 Azure 虛擬機器，您可以使用群組原則設定，透過與內部部署已加入網域的電腦相同的方式來設定 WEF。如需詳細資訊，請參閱[混合式雲端](http://www.microsoft.com/server-cloud/solutions/hybrid-cloud.aspx)。
 
-使用這種方式，組織可以購買 IaaS 訂用帳戶、使用 [ExpressRoute](http://azure.microsoft.com/services/expressroute/) 或站對站 VPN 將其與他們的公司網路連線，然後將您在 Azure 中擁有的虛擬機器加入至公司網域。之後您就可以從加入網域的機器設定 WEF。
+使用這種方式，組織可以購買 IaaS 訂用帳戶、使用 [ExpressRoute](https://azure.microsoft.com/services/expressroute/) 或站對站 VPN 將其與他們的公司網路連線，然後將您在 Azure 中擁有的虛擬機器加入至公司網域。之後您就可以從加入網域的機器設定 WEF。
 
 事件轉送功能分為兩個部分：來源和收集器。來源是安全性記錄檔在其中產生的電腦。收集器是會收集並合併事件記錄檔的集中式伺服器。IT 系統管理員可以訂閱事件，進而接收並儲存從遠端電腦 (事件來源) 轉送的事件。如需詳細資訊，請參閱[設定電腦以轉送和收集事件](http://technet.microsoft.com/library/cc748890.aspx)。
 
@@ -218,7 +218,7 @@ $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
 
 - 時間戳記是日期/時間值，可在伺服器上進行維護，用來追蹤上次修改實體的時間。
 
->[AZURE.NOTE]Azure 儲存體資料表中的資料列大小上限會限制為 1 MB。如果儲存體帳戶是在 2012 年 6 月之後所建立，此帳戶可包含多達 200 TB 來自 blob、佇列和資料表的資料。因此，如果 blob 和佇列不佔用任何儲存空間，資料表大小可以成長到多達 200 TB。2012 年 6 月之前建立的帳戶有 100 TB 的限制。
+>[AZURE.NOTE] Azure 儲存體資料表中的資料列大小上限會限制為 1 MB。如果儲存體帳戶是在 2012 年 6 月之後所建立，此帳戶可包含多達 200 TB 來自 blob、佇列和資料表的資料。因此，如果 blob 和佇列不佔用任何儲存空間，資料表大小可以成長到多達 200 TB。2012 年 6 月之前建立的帳戶有 100 TB 的限制。
 
 儲存體總管也可讓您選擇編輯資料表資料。在資料表檢視中按兩下特定資料列以開啟 [編輯實體] 視窗，如下所示：
 
@@ -230,7 +230,7 @@ $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
 ##### 步驟 1：更新組態檔以包含相關的事件
 在先前的範例中建立的 Azure 診斷檔案需要更新為包含 Windows 應用程式事件記錄檔錯誤類型。
 
->[AZURE.NOTE]任何現有的 Azure 診斷組態設定都需要和新的組態檔合併。在新檔案中定義的設定會覆寫現有的組態。
+>[AZURE.NOTE] 任何現有的 Azure 診斷組態設定都需要和新的組態檔合併。在新檔案中定義的設定會覆寫現有的組態。
 
 若要擷取現有的組態設定，您可以使用 **Get-AzureVMDiagnosticsExtension** cmdlet。以下是要擷取現有組態的範例 Azure PowerShell 指令碼：
 
@@ -396,7 +396,7 @@ $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
 為了偵測防火牆變更，我們將會更新現有的組態以包含防火牆變更事件。
 
 #### 步驟 1：取得現有的組態
->[AZURE.NOTE]新的組態設定會覆寫現有的組態。因此，任何現有的 Azure 診斷組態設定都必須和新的組態檔合併。
+>[AZURE.NOTE] 新的組態設定會覆寫現有的組態。因此，任何現有的 Azure 診斷組態設定都必須和新的組態檔合併。
 
 若要擷取現有的組態設定，您可以使用 **Get-AzureServiceDiagnosticsExtension** cmdlet：
 
@@ -527,7 +527,7 @@ $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
 - 合併現有的 Azure 診斷組態設定和您所做的變更。新的組態檔會覆寫現有的組態設定。
 - 明智地選擇**排程的傳輸期間**間隔。較短的傳輸時間將會提高資料相關性，但是可能會增加儲存成本和處理負荷。
 
->[AZURE.NOTE]會大幅影響收集資料量的另一個變數是記錄層級。以下是如何利用記錄層級篩選記錄檔的範例：
+>[AZURE.NOTE] 會大幅影響收集資料量的另一個變數是記錄層級。以下是如何利用記錄層級篩選記錄檔的範例：
 
     System!*[System[(Level =2)]]
 
@@ -535,7 +535,7 @@ $VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
 
 - 定期清除不再需要的 Azure 儲存體的診斷資料。
 
->[AZURE.NOTE]若要深入了解診斷資料，請參閱[在 Azure 儲存體中儲存和檢視診斷資料](https://msdn.microsoft.com/library/azure/hh411534.aspx)。儲存診斷資料的容器和資料表就像其他容器和資料表一樣，您可以從其中刪除 blob 和實體，方法和其他資料相同。您可以程式設計方式透過其中一個儲存體用戶端程式庫，或以視覺化方式透過[儲存體總管用戶端](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)刪除診斷資料。
+>[AZURE.NOTE] 若要深入了解診斷資料，請參閱[在 Azure 儲存體中儲存和檢視診斷資料](https://msdn.microsoft.com/library/azure/hh411534.aspx)。儲存診斷資料的容器和資料表就像其他容器和資料表一樣，您可以從其中刪除 blob 和實體，方法和其他資料相同。您可以程式設計方式透過其中一個儲存體用戶端程式庫，或以視覺化方式透過[儲存體總管用戶端](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)刪除診斷資料。
 
 - 這是在個別儲存體帳戶中儲存服務資料和安全性記錄資料的最佳作法。這種隔離能確保安全性記錄資料的儲存不會影響生產服務資料的儲存體效能。
 - 根據貴組織的法規原則和資料分析及監視需求，選擇記錄檔保留持續時間。
@@ -572,7 +572,7 @@ Azure Active Directory (Azure AD) 包含一組安全性、使用方式與稽核�
 ## 其他資源
 下列資源提供有關 Microsoft Azure 和相關 Microsoft 服務的一般資訊：
 
-- [Microsoft Azure 信任中心](http://azure.microsoft.com/support/trust-center/)
+- [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/)
 
     如何將安全性和隱私權內嵌至 Azure 的開發，以及 Azure 如何符合一組廣泛的國際及業界專屬法規標準等相關資訊
 
@@ -614,4 +614,4 @@ Azure Active Directory (Azure AD) 包含一組安全性、使用方式與稽核�
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

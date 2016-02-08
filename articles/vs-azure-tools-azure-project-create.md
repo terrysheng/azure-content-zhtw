@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="使用 Visual Studio 建立 Azure 私人雲端 | Microsoft Azure"
    description="使用 Visual Studio 建立 Azure 專案"
    services="visual-studio-online"
@@ -6,13 +6,13 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-<tags 
+<tags
    ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="01/22/2016"
    ms.author="tarcher" />
 
 # 使用 Visual Studio 建立 Azure 專案
@@ -21,12 +21,12 @@ Azure Tools for Visual Studio 提供可讓您建立 Azure 雲端服務的範本�
 
 Azure 雲端服務解決方案包含下列專案類型：
 
-- **Azure 專案** 
-    
-    Azure 專案與方案中的角色專案有關。它還包含服務定義檔和服務組態檔。服務定義檔可定義應用程式的執行階段設定，包括需要哪些角色、端點和虛擬機器大小。服務組態檔可設定一個角色可以執行的執行個體數目，以及為角色定義的設定值。如需有關這些設定的詳細資訊，請參閱[如何：使用 Visual Studio 設定 Azure 雲端服務的角色](https://msdn.microsoft.com/library/azure/hh369931.aspx)。
+- **Azure 專案**
+
+    Azure 專案與方案中的角色專案有關。它還包含服務定義檔和服務組態檔。服務定義檔可定義應用程式的執行階段設定，包括需要哪些角色、端點和虛擬機器大小。服務組態檔可設定一個角色可以執行的執行個體數目，以及為角色定義的設定值。如需有關這些設定的詳細資訊，請參閱[如何：使用 Visual Studio 設定 Azure 雲端服務的角色](vs-azure-tools-configure-roles-for-cloud-service.md)。
 
 - **Web 角色專案**
- 
+
     背景工作角色會執行背景處理。背景工作角色可以與儲存體服務和其他網際網路服務進行通訊。背景工作角色可以有任意數目的 HTTP、HTTPS 或 TCP 端點。
 
     - **ASP.NET Web 角色**：適用於建置 ASP.NET 應用程式與 Web 前端
@@ -62,4 +62,4 @@ Azure 雲端服務解決方案包含下列專案類型：
 
 1. 若要重新命名已加入至專案的角色，請將游標放在 [新增 Azure 專案] 對話方塊中的角色上面，然後選擇角色右側的 [重新命名]。您也可以為已加入方案的角色重新命名。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

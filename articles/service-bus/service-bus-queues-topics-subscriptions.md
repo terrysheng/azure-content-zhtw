@@ -158,7 +158,7 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 ## 事件中樞
 
-[事件中樞](http://azure.microsoft.com/services/event-hubs/)是事件處理服務，用於提供大規模進入 Azure 的事件和遙測入口，並具備低延遲和高可靠性等特性。當搭配其他下游服務時，該服務特別適合用於應用程式檢測、使用者經驗或工作流程處理及物聯網 (IoT) 案例。
+[事件中樞](https://azure.microsoft.com/services/event-hubs/)是事件處理服務，用於提供大規模進入 Azure 的事件和遙測入口，並具備低延遲和高可靠性等特性。當搭配其他下游服務時，該服務特別適合用於應用程式檢測、使用者經驗或工作流程處理及物聯網 (IoT) 案例。
 
 事件中樞是訊息串流結構，雖然類似於佇列和主題，但仍有非常不同的特性。例如，事件中樞不提供訊息 TTL、寄不出的信件、交易或通知，因為這些都是傳統代理傳訊功能，而不是串流功能。事件中樞會提供其他串流相關功能，例如資料分割、保留順序和串流重播。
 
@@ -172,4 +172,4 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 - [事件中樞開發人員指南](../event-hubs/event-hubs-programming-guide.md)
 - [代理傳訊︰進階篩選器](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

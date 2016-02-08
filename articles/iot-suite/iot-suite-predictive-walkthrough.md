@@ -2,13 +2,14 @@
  pageTitle="預測性維護逐步解說 |Microsoft Azure"
  description="預先設定之 Azure IoT 預測性維護解決方案的逐步解說。"
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="aguilaaj"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -123,4 +124,4 @@ Web 應用程式中的此頁面會使用 PowerBI JavaScript 控制項 (請參閱
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

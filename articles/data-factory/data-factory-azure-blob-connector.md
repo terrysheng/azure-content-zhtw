@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 Azure Blob 來回移動資料
@@ -53,6 +53,8 @@
 	    }
 	  }
 	}
+
+Azure Data Factory 支援兩種類型的 Azure 儲存體連結服務：**AzureStorage** 和 **AzureStorageSas**。對於前者指定連接字串，包含帳戶金鑰，對於後者指定共用存取簽章 (SAS) Uri。請參閱[連結服務](#linked-services)章節以取得詳細資料。
 
 **Azure Blob 輸入資料集：**
 
@@ -225,6 +227,9 @@
 	  }
 	}
 
+Azure Data Factory 支援兩種類型的 Azure 儲存體連結服務：**AzureStorage** 和 **AzureStorageSas**。對於前者指定連接字串，包含帳戶金鑰，對於後者指定共用存取簽章 (SAS) Uri。請參閱[連結服務](#linked-services)章節以取得詳細資料。
+
+
 **Azure SQL 輸入資料集：**
 
 此範例假設您已在 SQL Azure 中建立資料表 "MyTable"，其中包含時間序列資料的資料行 (名稱為 "timestampcolumn")。
@@ -254,9 +259,11 @@
 	  }
 	}
 
+
 **Azure Blob 輸出資料集：**
 
 資料會每小時寫入至新的 Blob (頻率：小時，間隔：1)。根據正在處理之配量的開始時間，以動態方式評估 Blob 的資料夾路徑。資料夾路徑會使用開始時間的年、月、日和小時部分。
+
 	
 	{
 	  "name": "AzureBlobOutput",
@@ -362,14 +369,10 @@
 		}
 	}
 
-## Azure 儲存體連結服務屬性
+## 連結的服務
+您可以使用兩種類型的連結服務，將 Azure Blob 儲存體連結至 Azure Data Factory。它們是：**AzureStorage** 連結服務和 **AzureStorageSas** 連結服務。Azure 儲存體連結服務可將 Azure 儲存體的全域存取權提供給 Data Factory。而 Azure 儲存體 SAS (共用存取簽章) 連結服務會將 Azure 儲存體的受限制/時間繫結存取權提供給 Data Factory。這兩個連結服務之間沒有其他差異。選擇符合您需求的連結服務。以下章節提供這兩個連結服務的詳細資料。
 
-您可以使用 Azure 儲存體連結服務，將 Azure 儲存體帳戶連結至 Azure Data Factory。下表提供 Azure 儲存體連結服務專屬 JSON 元素的描述。
-
-| 屬性 | 說明 | 必要 |
-| -------- | ----------- | -------- |
-| 類型 | 類型屬性必須設為：**AzureStorage** | 是 |
-| connectionString | 針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。您可以從 Azure 傳統入口網站取得 Azure 儲存體的 connectionString。 | 是 |
+[AZURE.INCLUDE [data-factory-azure-storage-linked-services](../../includes/data-factory-azure-storage-linked-services.md)]
 
 ## Azure Blob 資料集類型屬性
 
@@ -505,4 +508,4 @@ false | mergeFiles | <p>對於有下列結構的來源資料夾 Folder1：</p> <
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

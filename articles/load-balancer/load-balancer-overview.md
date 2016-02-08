@@ -108,7 +108,7 @@ Azure 負載平衡器可供探查各種伺服器執行個體的健全狀況。�
 Azure 負載平衡器組態支援 UDP 的完全錐形 NAT。在完全錐形 NAT 中，連接埠允許來自任何外部主機的輸入連線 (以回應輸出要求)。
 
 
->[AZURE.NOTE]對於 VM 起始的每個新輸出連線，Azure 負載平衡器也會配置輸出連接埠。外部主機將會看到流量以虛擬 IP (VIP) 配置的連接埠送來。如果您的案例需要大量輸出連線，則建議 VM 使用執行個體層級的公用 IP，以便有專用的輸出 IP 位址可進行來源網路位址轉譯 (SNAT)。這會降低連接埠耗盡的風險。
+>[AZURE.NOTE] 對於 VM 起始的每個新輸出連線，Azure 負載平衡器也會配置輸出連接埠。外部主機將會看到流量以虛擬 IP (VIP) 配置的連接埠送來。如果您的案例需要大量輸出連線，則建議 VM 使用執行個體層級的公用 IP，以便有專用的輸出 IP 位址可進行來源網路位址轉譯 (SNAT)。這會降低連接埠耗盡的風險。
 >
 >可供 VIP 或執行個體層級公用 IP (PIP) 使用的連接埠數目上限為 64000。這是 TCP 標準限制。
 
@@ -119,7 +119,7 @@ Azure 負載平衡器組態支援 UDP 的完全錐形 NAT。在完全錐形 NAT 
 
 **透過 Azure 資源管理員的範本型部署**
 
-Azure 資源管理員是 Azure 中新的服務管理架構。Azure 負載平衡器現在可以透過以 Azure 資源管理員為基礎的 API 和工具來管理。若要深入了解資源管理員，請參閱 [Iaas 因為 Azure 資源管理員變得更容易](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)。
+Azure 資源管理員是 Azure 中新的服務管理架構。Azure 負載平衡器現在可以透過以 Azure 資源管理員為基礎的 API 和工具來管理。若要深入了解資源管理員，請參閱 [Iaas 因為 Azure 資源管理員變得更容易](https://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)。
 
 
 ## 後續步驟
@@ -130,4 +130,4 @@ Azure 資源管理員是 Azure 中新的服務管理架構。Azure 負載平衡�
 
 [開始建立網際網路面向的負載平衡器](load-balancer-internet-getstarted.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

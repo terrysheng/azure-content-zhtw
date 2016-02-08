@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
 # 使用 Web UI 來管理 StorSimple Virtual Array (預覽版)
@@ -23,7 +23,7 @@
 
 本文中的教學課程適用於執行 1.1.1.0 版 (預覽版) 的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置)。本文將說明一些可以在 StorSimple Virtual Array 執行的複雜工作流程和管理工作。有兩個可用來管理 StorSimple Virtual Array 的 UI：StorSimple Manager 服務 UI (又稱為入口網站 UI) 和裝置的本機 Web UI。本文著重於可使用 Web UI 執行的工作。
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- StorSimple Virtual Array 目前是預覽版，僅供評估及部署規劃之用。不支援在生產環境中安裝此預覽版。 
 >- 如果您遇到任何 StorSimple Virtual Array 的問題，請在 [StorSimple MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple)提出問題。
@@ -132,14 +132,8 @@
 
     重新啟動時，將會中斷 UI 連線。您可以定期重新整理 UI 以監視重新啟動的情況。或者，您可以透過 Hyper-V 管理員監視裝置重新啟動狀態。
 
-![video\_icon](./media/storsimple-ova-web-ui-admin/video_icon.png)**提供的影片**
-
-觀看影片以了解如何在 StorSimple Virtual Array 上建立共用、備份共用和還原資料。
-
-> [AZURE.VIDEO use-the-storsimple-virtual-array]
-
 ## 後續步驟
 
 了解如何[使用 StorSimple Manager 服務管理裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

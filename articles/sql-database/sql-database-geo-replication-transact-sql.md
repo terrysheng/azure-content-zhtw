@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management"
-    ms.date="11/10/2015"
+    ms.date="01/25/2015"
     ms.author="carlrab"/>
 
 # 使用 Transact-SQL 為 Azure SQL Database 設定異地複寫
@@ -46,9 +46,9 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 ## 加入次要資料庫
 
-您可以使用 **ALTER DATABASE** 陳述式，在夥伴伺服器上建立異地複寫的次要資料庫。您在包含要複寫的資料庫伺服器的 master 資料庫上執行此陳述式。異地複寫資料庫 (「主要資料庫」) 會具備與要複寫的資料庫相同的名稱，並且預設與主要資料庫具有相同的服務層級。次要資料庫可以是可讀取或不可讀取，並且可以是單一資料庫或彈性資料庫。如需詳細資訊，請參閱 [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) 和[服務層](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/)。建立次要資料庫並植入之後，資料就會開始以非同步方式從主要資料庫複寫。下列步驟說明如何使用 Management Studio 設定異地複寫。提供使用單一資料庫或彈性資料庫建立不可讀取和可讀取次要複本的步驟。
+您可以使用 **ALTER DATABASE** 陳述式，在夥伴伺服器上建立異地複寫的次要資料庫。您在包含要複寫的資料庫伺服器的 master 資料庫上執行此陳述式。異地複寫資料庫 (「主要資料庫」) 會具備與要複寫的資料庫相同的名稱，並且預設與主要資料庫具有相同的服務層級。次要資料庫可以是可讀取或不可讀取，並且可以是單一資料庫或彈性資料庫。如需詳細資訊，請參閱 [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) 和[服務層](sql-database-service-tiers.md)。建立次要資料庫並植入之後，資料就會開始以非同步方式從主要資料庫複寫。下列步驟說明如何使用 Management Studio 設定異地複寫。提供使用單一資料庫或彈性資料庫建立不可讀取和可讀取次要複本的步驟。
 
-> [AZURE.NOTE]如果指定的夥伴伺服器上存在次要資料庫 (例如，因為目前存在或先前存在的異地複寫關係，命令將會失敗。
+> [AZURE.NOTE] 如果指定的夥伴伺服器上存在次要資料庫 (例如，因為目前存在或先前存在的異地複寫關係，命令將會失敗。
 
 
 ### 加入不可讀取次要複本 (單一資料庫)
@@ -57,12 +57,12 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 1. 使用版本 13.0.600.65 或 SQL Server Management Studio 的更新版本。
 
- 	 >[AZURE.IMPORTANT]下載[最新](https://msdn.microsoft.com/library/mt238290.aspx)版本的 SQL Server Management Studio。建議您一律使用最新版本的 Management Studio 保持與 Azure 入口網站更新同步。
+ 	 >[AZURE.IMPORTANT] 下載[最新](https://msdn.microsoft.com/library/mt238290.aspx)版本的 SQL Server Management Studio。建議您一律使用最新版本的 Management Studio 保持與 Azure 入口網站更新同步。
 
 
 2. 開啟 Databases 資料夾、展開 **System Databases** 資料夾、在 **master** 上按一下滑鼠右鍵，然後按一下 [新增查詢]。
 
-3. 使用下列 **ALTER DATABASE** 陳述式，使本機資料庫成為具有 <MySecondaryServer1> 上不可讀取次要資料庫的異地複寫主要複本。
+3. 使用下列 **ALTER DATABASE** 陳述式，使本機資料庫成為 MySecondaryServer1 (您的易記伺服器名稱) 上具有不可讀取次要資料庫的異地複寫主要複本。
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
@@ -96,8 +96,8 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 3. 使用下列 **ALTER DATABASE** 陳述式，使本機資料庫成為具有彈性集區中次要伺服器上不可讀取次要資料庫的異地複寫主要複本。
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool1);
+           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 
 4. 按一下 [執行] 來執行查詢。
 
@@ -113,8 +113,8 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 3. 使用下列 **ALTER DATABASE** 陳述式，使本機資料庫成為具有彈性集區中次要伺服器上可讀取次要資料庫的異地複寫主要複本。
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool2);
+           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = ALL
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool2));
 
 4. 按一下 [執行] 來執行查詢。
 
@@ -122,7 +122,7 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 ## 移除次要資料庫
 
-您可以使用 **ALTER DATABASE** 陳述式以永久終止次要資料庫與其主要資料庫之間的複寫關係。此陳述式是在主要資料庫所在的 master 資料庫上執行。關聯性終止之後，次要資料庫會成為一般的讀寫資料庫。如果與次要資料庫的連線中斷，命令將會成功，但次要資料庫必須等到連線恢復後才會變成可讀寫。如需詳細資訊，請參閱 [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) 和[服務層](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/)。
+您可以使用 **ALTER DATABASE** 陳述式以永久終止次要資料庫與其主要資料庫之間的複寫關係。此陳述式是在主要資料庫所在的 master 資料庫上執行。關聯性終止之後，次要資料庫會成為一般的讀寫資料庫。如果與次要資料庫的連線中斷，命令將會成功，但次要資料庫必須等到連線恢復後才會變成可讀寫。如需詳細資訊，請參閱 [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) 和[服務層](sql-database-service-tiers.md)。
 
 使用下列步驟從異地複寫關係移除異地複寫的次要複本。
 
@@ -148,10 +148,10 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 2. 切換異地複寫關係中兩個資料庫的角色。
 
-這個順序可確保不會發生任何資料遺失。切換角色時，會有一小段時間無法使用這兩個資料庫 (大約為 0 到 25 秒)。在正常情況下，完成整個作業所需的時間應該少於一分鐘。如需詳細資訊，請參閱 [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) 和[服務層](https://azure.microsoft.com/documentation/articles/sql-database-service-tiers/)。
+這個順序可確保不會發生任何資料遺失。切換角色時，會有一小段時間無法使用這兩個資料庫 (大約為 0 到 25 秒)。在正常情況下，完成整個作業所需的時間應該少於一分鐘。如需詳細資訊，請參閱 [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) 和[服務層](sql-database-service-tiers.md)。
 
 
-> [AZURE.NOTE]發出命令時如果主要資料庫無法使用，命令將會失敗並出現一則錯誤訊息指出沒有可用的主要伺服器。在少數情況下，作業會無法完成並且可能會出現停滯。在此情況下，使用者可以執行強制容錯移轉命令並接受資料遺失。
+> [AZURE.NOTE] 發出命令時如果主要資料庫無法使用，命令將會失敗並出現一則錯誤訊息指出沒有可用的主要伺服器。在少數情況下，作業會無法完成並且可能會出現停滯。在此情況下，使用者可以執行強制容錯移轉命令並接受資料遺失。
 
 使用下列步驟來起始規劃的容錯移轉。
 
@@ -175,7 +175,7 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 不過，因為次要資料庫上不支援還原時間點，發生強制容錯移轉之前，如果使用者想要復原已認可到舊主要資料庫但尚未複寫到新主要資料庫的資料，使用者應該接洽支援人員復源遺失的資料。
 
-> [AZURE.NOTE]如果在主要資料庫和次要資料庫上線時發出此命令，舊的主要會變成新的次要資料庫，但不會嘗試資料同步處理。因此可能發生部分資料遺失。
+> [AZURE.NOTE] 如果在主要資料庫和次要資料庫上線時發出此命令，舊的主要會變成新的次要資料庫，但不會嘗試資料同步處理。因此可能發生部分資料遺失。
 
 
 如果主要資料庫中有多個次要資料庫，命令將只會在執行命令的次要伺服器上成功。不過，其他次要資料庫不會知道發生強制容錯移轉。使用者必須使用「移除次要複本」API 手動修復此組態，然後在這些額外的次要複本上重新設定異地複寫。
@@ -228,9 +228,9 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 ## 其他資源
 
-- [新異地複寫功能的要點](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication)
+- [新異地複寫功能要點](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [使用異地複寫設計業務持續性的雲端應用程式](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [業務續航力概觀](sql-database-business-continuity.md)
-- [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
+- [SQL Database 文件](sql-database.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

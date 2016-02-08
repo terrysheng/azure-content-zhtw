@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Azure 自動化中的連接資產
@@ -21,7 +21,7 @@
 
 建立連接時，您必須指定*連接類型*。連接類型是定義一組屬性的範本。連接會定義在其連接類型中定義的每一個屬性的值。連接類型是在整合模組中加入 Azure 自動化或使用 [Azure 自動化 API](http://msdn.microsoft.com/library/azure/mt163818.aspx) 建立。當您建立連接時，唯一可用的連接類型是安裝在您的自動化帳戶中的那些。
 
->[AZURE.NOTE]Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一索引鍵儲存在 Azure 自動化中。這個索引鍵是由主要憑證加密，並且儲存在 Azure 自動化中。儲存安全資產之前，會使用主要憑證解密自動化帳戶的金鑰，然後用來加密資產。
+>[AZURE.NOTE] Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一索引鍵儲存在 Azure 自動化中。這個索引鍵是由主要憑證加密，並且儲存在 Azure 自動化中。儲存安全資產之前，會使用主要憑證解密自動化帳戶的金鑰，然後用來加密資產。
 
 ## Windows PowerShell Cmdlet
 
@@ -42,7 +42,7 @@
 |---|---|
 |Get-AutomationConnection|取得要使用的連接。傳回具有連線屬性的雜湊表。|
 
->[AZURE.NOTE]您應該避免在 **Get-AutomationConnection** 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 或 DSC 設定與連接資產之間的相依性變得複雜。
+>[AZURE.NOTE] 您應該避免在 **Get-AutomationConnection** 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 或 DSC 設定與連接資產之間的相依性變得複雜。
 
 ## 建立新連接
 
@@ -120,4 +120,4 @@
 - [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

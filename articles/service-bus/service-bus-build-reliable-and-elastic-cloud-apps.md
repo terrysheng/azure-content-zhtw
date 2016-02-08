@@ -23,16 +23,16 @@
 ## 瀏覽
 
 - [Microsoft Azure 服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
-- [佇列型負載調節模式](http://msdn.microsoft.com/library/dn589783.aspx) (英文)
-- [競爭取用者](http://msdn.microsoft.com/library/dn568101.aspx) (英文)
+- [佇列型負載調節模式 (英文)](http://msdn.microsoft.com/library/dn589783.aspx)
+- [競爭取用者 (英文)](http://msdn.microsoft.com/library/dn568101.aspx)
 - [客戶案例](https://customers.microsoft.com/Pages/Home.aspx)
  
 ## 建置
 
 - [如何使用服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md) 
 - [服務匯流排代理傳訊中寄不出的信件 (2011 年 10 月 21 日部落格文章) (英文)](http://geekswithblogs.net/asmith/articles/147398.aspx) 
-- [將服務匯流排應用程式與服務匯流排中斷和災難隔絕的最佳作法](service-bus-outages-disasters.md) (英文)
-- [代理傳訊：要求回應範例](https://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf) (英文) 
+- [將服務匯流排應用程式與服務匯流排中斷和災難隔絕的最佳作法 (英文)](service-bus-outages-disasters.md)
+- [代理傳訊：要求回應範例 (英文)](https://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf) 
 - [使用 Azure 服務匯流排的多層式應用程式](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
  
 ## 熱門
@@ -42,7 +42,7 @@
 
 ## 相關服務
 
-- [雲端服務](http://azure.microsoft.com/services/cloud-services/) 
+- [雲端服務](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

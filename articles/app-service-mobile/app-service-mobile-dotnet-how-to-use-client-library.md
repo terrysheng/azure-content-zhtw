@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/05/2015" 
+	ms.date="01/20/2016" 
 	ms.author="glenga"/>
 
 # 如何針對 Azure Mobile Apps 使用受管理的用戶端
@@ -50,7 +50,7 @@ C# 中對應的具類型用戶端類型如下：
 
 請注意，[JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) 是用來定義用戶端類型與資料表之間的 *PropertyName* 對應。
 
-若要了解如何在您的 Mobile Apps 後端建立新的資料表，請參閱[作法：定義資料表控制器](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET 後端) 或[使用動態結構描述定義資料表](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js 後端)。對於 Node.js 後端，您也可以使用 [Azure 入口網站](https://portal.azure.com)中的 [簡單資料表] 設定。
+若要了解如何在您的 Mobile Apps 後端建立新的資料表，請參閱[作法：定義資料表控制器](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET 後端) 或[使用動態結構描述定義資料表](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js 後端)。對於 Node.js 後端，您也可以使用 [Azure 入口網站](https://portal.azure.com/)中的 [簡單資料表] 設定。
 
 ##<a name="create-client"></a>如何：建立行動應用程式用戶端
 
@@ -58,7 +58,7 @@ C# 中對應的具類型用戶端類型如下：
 
 	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
-在上述程式碼中，以行動應用程式後端 URL 取代 `MOBILE_APP_URL`，這位於 [Azure 入口網站](https://portal.azure.com)的行動應用程式後端刀鋒視窗中。
+在上述程式碼中，以行動應用程式後端 URL 取代 `MOBILE_APP_URL`，這位於 [Azure 入口網站](https://portal.azure.com/)的行動應用程式後端刀鋒視窗中。
 
 ##<a name="instantiating"></a>作法：建立資料表參考
 
@@ -84,7 +84,7 @@ C# 中對應的具類型用戶端類型如下：
 - [選取特定資料欄]
 - [按識別碼查詢資料]
 
->[AZURE.NOTE]系統會強制使用伺服器控制的頁面大小，以防止傳回所有資料列。這可避免預設的大型資料集要求對服務造成負面影響。若要傳回 50 筆以上的資料列，請依照[以分頁方式傳回資料]的說明，使用 `Take` 方法。
+>[AZURE.NOTE] 系統會強制使用伺服器控制的頁面大小，以防止傳回所有資料列。這可避免預設的大型資料集要求對服務造成負面影響。若要傳回 50 筆以上的資料列，請依照[以分頁方式傳回資料]的說明，使用 `Take` 方法。
 
 ### <a name="filtering"></a>作法：篩選傳回的資料
 
@@ -472,6 +472,111 @@ Mobile Apps 支援開放式並行存取控制項，方法是使用 `__version` �
 
 最後，想像您的資料表有許多欄位，但您只想要在控制項中顯示其中部分欄位。您可以使用上述[選取特定資料欄](#selecting)一節中的指引，以選取要在 UI 中顯示的特定資料欄。
 
+## <a name="adal"></a>做法：使用 Active Directory Authentication Library 驗證使用者
+
+您可以使用 Active Directory Authentication Library (ADAL)，利用 Azure Active Directory 將使用者登入應用程式。這樣通常會比使用 `loginAsync()` 方法還適合，因為它提供更原生的 UX 風格，並允許其他自訂。
+
+1. 遵循[如何設定 Active Directory 登入的 App Service](app-service-mobile-how-to-configure-active-directory-authentication.md) 教學課程，針對 AAD 登入設定您的行動應用程式後端。請務必完成註冊原生用戶端應用程式的選擇性步驟。
+
+2. 在 Visual Studio 或 Xamarin Studio 中，開啟您的專案，並將參考新增至 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 封裝。搜尋時，包含發行前版本。
+
+3. 根據您使用的平台，將下列程式碼新增至您的應用程式。在每個程式碼中，進行下列取代：
+
+* 將 **INSERT-AUTHORITY-HERE** 取代為您佈建應用程式的租用戶名稱。格式應該是 https://login.windows.net/contoso.onmicrosoft.com。此值可從 [Azure 傳統入口網站] 複製到 Azure Active Directory 的 [網域] 索引標籤以外。
+
+* 將 **INSERT-RESOURCE-ID-HERE** 取代為您的行動應用程式後端的用戶端識別碼。您可以從入口網站中 [Azure Active Directory 設定] 底下的 [進階] 索引標籤取得。
+
+* 將 **INSERT-CLIENT-ID-HERE** 取代為您從原生用戶端應用程式中複製的用戶端識別碼。
+
+* 使用 HTTPS 配置，將 **INSERT-REDIRECT-URI-HERE** 取代為您的網站的 _/.auth/login/done_ 端點。此值應與 \__https://contoso.azurewebsites.net/.auth/login/done_ 類似。
+
+每個平台所需的程式碼如下：
+
+**Windows：**
+
+        private MobileServiceUser user;
+        private async Task AuthenticateAsync()
+        {
+            string authority = "INSERT-AUTHORITY-HERE";
+            string resourceId = "INSERT-RESOURCE-ID-HERE";
+            string clientId = "INSERT-CLIENT-ID-HERE";
+            string redirectUri = "INSERT-REDIRECT-URI-HERE";
+            while (user == null)
+            {
+                string message;
+                try
+                {
+                  AuthenticationContext ac = new AuthenticationContext(authority);
+                  AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(PromptBehavior.Auto, false) );
+                  JObject payload = new JObject();
+                  payload["access_token"] = ar.AccessToken;
+                  user = await App.MobileService.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+                  message = string.Format("You are now logged in - {0}", user.UserId);
+                }
+                catch (InvalidOperationException)
+                {
+                  message = "You must log in. Login Required";
+                }
+                var dialog = new MessageDialog(message);
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+        }
+
+**Xamarin.iOS**
+
+        private MobileServiceUser user;
+        private async Task AuthenticateAsync(UIViewController view)
+        {
+            string authority = "INSERT-AUTHORITY-HERE";
+            string resourceId = "INSERT-RESOURCE-ID-HERE";
+            string clientId = "INSERT-CLIENT-ID-HERE";
+            string redirectUri = "INSERT-REDIRECT-URI-HERE";
+            try
+			{
+				AuthenticationContext ac = new AuthenticationContext(authority);
+				AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(view));
+				JObject payload = new JObject();
+				payload["access_token"] = ar.AccessToken;
+				user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+			}
+			catch (Exception ex)
+			{
+				Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
+			}
+        }
+
+**Xamarin.Android**
+
+        private MobileServiceUser user;
+        private async Task AuthenticateAsync()
+        {
+            string authority = "INSERT-AUTHORITY-HERE";
+            string resourceId = "INSERT-RESOURCE-ID-HERE";
+            string clientId = "INSERT-CLIENT-ID-HERE";
+            string redirectUri = "INSERT-REDIRECT-URI-HERE";
+            try
+			{
+				AuthenticationContext ac = new AuthenticationContext(authority);
+				AuthenticationResult ar = await ac.AcquireTokenAsync(resourceId, clientId, new Uri(redirectUri), new PlatformParameters(this));
+				JObject payload = new JObject();
+				payload["access_token"] = ar.AccessToken;
+				user = await client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, payload);
+			}
+			catch (Exception ex)
+			{
+				AlertDialog.Builder builder = new AlertDialog.Builder(this);
+				builder.SetMessage(ex.Message);
+				builder.SetTitle("You must log in. Login Required");
+				builder.Create().Show();
+			}
+        }
+		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+		{
+			base.OnActivityResult(requestCode, resultCode, data);
+			AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
+		}
+
 ## <a name="package-sid"></a>如何：取得 Windows 市集封裝 SID
 
 針對 Windows 應用程式，需要封裝 SID 才能啟用推播通知與特定驗證模式。若要取得這個值：
@@ -756,4 +861,4 @@ Mobile Apps 用戶端程式庫使用 Json.NET 在用戶端上將 JSON 回應轉�
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

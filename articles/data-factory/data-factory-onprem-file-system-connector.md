@@ -22,7 +22,10 @@
 
 資料處理站支援透過資料管理閘道器連接至內部部署檔案系統。請參閱[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文來了解資料管理閘道器和設定閘道器的逐步指示。
 
-**請注意：**除了資料管理閘道器，不需要安裝其他二進位檔即可和內部部署檔案系統進行通訊。
+> [AZURE.NOTE] 
+除了資料管理閘道器，不需要安裝其他二進位檔即可和內部部署檔案系統進行通訊。
+> 
+> 如需連接/閘道器相關問題的疑難排解秘訣，請參閱[閘道器疑難排解](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)。
 
 ## Linux 檔案共用 
 
@@ -480,10 +483,10 @@ folderPath | 資料夾的路徑。範例：myfolder<p>使用逸出字元 ‘ \\ 
 fileName | 如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。如果您未指定此屬性的任何值，資料表會指向資料夾中的所有檔案。<p>沒有為輸出資料集指定 fileName 時，所產生的檔案名稱會是下列格式：</p><p>Data.<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | 否
 partitionedBy | partitionedBy 可以用來指定時間序列資料的動態 folderPath 和 filename。例如，folderPath 可針對每小時的資料進行參數化。 | 否
 格式 | 支援兩種格式類型：**TextFormat**、**AvroFormat**。若為此值，您需要將格式底下的 type 屬性設定為其中之一。如果 forAvroFormatmat 為 TextFormat，您可以指定格式的其他選擇性屬性。如需詳細資料，請參閱下面的格式一節。**內部部署檔案系統目前不支援 Format 屬性，但該屬性應該很快就會啟用，如本文所示。** | 否
-fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。<p>允許的值為：* (多個字元) 和 ? (單一字元)。</p><p>範例 1："fileFilter": ".log"</p>範例 2："fileFilter": 2014-1-?.txt"</p><p>*請注意**：fileFilter 適用於輸入 FileShare 資料集</p> | 否
+fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。<p>允許的值為：* (多個字元) 和 ? (單一字元)。</p><p>範例 1："fileFilter": "*.log"</p>範例 2："fileFilter": 2014-1-?.txt"</p><p>**請注意**：fileFilter 適用於輸入 FileShare 資料集</p> | 否
 | compression | 指定此資料的壓縮類型和層級。支援的類型為：GZip、Deflate 和 BZip2，而支援的層級為：最佳和最快。如需詳細資訊，請參閱[壓縮支援](#compression-support)一節。 | 否 |
 
-> [AZURE.NOTE]無法同時使用檔名和 fileFilter。
+> [AZURE.NOTE] 無法同時使用檔名和 fileFilter。
 
 ### 運用 partionedBy 屬性
 
@@ -603,4 +606,4 @@ false | mergeFiles | <p>對於有下列結構的來源資料夾 Folder1：</p> <
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

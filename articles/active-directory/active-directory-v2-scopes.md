@@ -20,7 +20,8 @@
 
 與 Azure AD 整合的應用程式會遵循可讓使用者控制應用程式如何存取其資料的特定授權模型。在應用程式模型 v2.0 中，已更新此授權模型的實作，並變更應用程式必須與 Azure AD 互動的方式。本主題涵蓋此授權模型的基本概念，包括範圍、權限及同意。
 
-> [AZURE.NOTE]此資訊適用於 v2.0 應用程式模型公開預覽版本。如需有關如何整合公開上市 Azure AD 服務的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
+> [AZURE.NOTE]
+	此資訊適用於 v2.0 應用程式模型公開預覽版本。如需有關如何整合公開上市 Azure AD 服務的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
 
 ## 範圍和權限
 
@@ -100,20 +101,29 @@ Content-Type: application/json
 
 如需 OAuth 2.0 通訊協定以及如何取得存取權杖的詳細資訊，請參閱[應用程式模型 v2.0 通訊協定參考](active-directory-v2-protocols.md)。
 
-## OpenId 和 Offline\_Access
 
-應用程式模型 v2.0 有兩個定義妥善但不會套用至特定資源的的範圍 - `openid` 和 `offline_access`。
+## OpenId Connect 範圍
+
+OpenID Connect 的 v2.0 實作有一些定義妥善但不會套用至任何特定資源的範圍 - `openid`、`email`、`profile` 和 `offline_access`。
 
 #### OpenId
 
-如果應用程式使用 [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow) 執行登入，則必須要求 `openid` 範圍。`openid` 範圍會在公司帳戶同意畫面上顯示為「讓您登入」權限，而在個人 Microsoft 帳戶同意畫面上顯示為「檢視您的設定檔並使用您的 Microsoft 帳戶連接到應用程式和服務」權限。此權限可讓應用程式存取 OpenID Connect 使用者資訊端點，因而需要使用者核准。`openid` 範圍也可用於 v2.0 權杖端點來取得 id\_token，而該權杖可用來保護應用程式的不同元件之間的 HTTP 呼叫。
+如果應用程式使用 [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow) 執行登入，則必須要求 `openid` 範圍。`openid` 範圍會在公司帳戶同意畫面上顯示為「讓您登入」權限，而在個人 Microsoft 帳戶同意畫面上顯示為「檢視您的設定檔並使用您的 Microsoft 帳戶連接到應用程式和服務」權限。此權限可讓應用程式以 `sub` 宣告的形式接收使用者的唯一識別碼。它也會提供使用者資訊端點的應用程式存取權。`openid` 範圍也可用於 v2.0 權杖端點來取得 id\_token，而該權杖可用來保護應用程式的不同元件之間的 HTTP 呼叫。
 
-#### Offline\_Access
+#### 電子郵件
 
-`offline_access` 範圍可讓您的應用程式代表使用者存取資源的期間延長。在公司帳戶同意畫面上，此範圍會顯示為「隨時存取您的資料」權限。在個人 Microsoft 帳戶同意畫面上，則會顯示為「隨時存取您的資訊」權限。當使用者核准 `offline_access` 範圍時，您的應用程式將會啟用以接收來自 v2.0 權杖端點的重新整理權杖。重新整理權杖屬於長效權杖，可讓您的應用程式在舊的存取權杖過期時取得新的存取權杖。
+`email` 範圍可以連同 `openid` 範圍和任何其他範圍一起納入。它會以 `email` 宣告的形式提供使用者主要電子郵件地址的應用程式存取權。如果電子郵件地址與使用者帳戶相關聯 (情況並非永遠如此)，則 `email` 宣告只會包含在權杖中。如果使用 `email` 範圍，您的應用程式應該準備好要處理 `email` 宣告不存在於權杖中的情況。
+
+#### 設定檔
+
+`profile` 範圍可以連同 `openid` 範圍和任何其他範圍一起納入。它會提供大量使用者資訊的應用程式存取權。這包括但不限於使用者的名字、姓氏、慣用使用者名稱、物件識別碼等等。如需指定使用者的可用 id\_token 中可用的設定檔宣告完整清單，請參閱 [v2.0 權杖參照](active-directory-v2-tokens.md)。
+
+#### Offline\_access
+
+[`offline_access` 範圍](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess)可讓您的應用程式代表使用者存取資源的期間延長。在公司帳戶同意畫面上，此範圍會顯示為「隨時存取您的資料」權限。在個人 Microsoft 帳戶同意畫面上，則會顯示為「隨時存取您的資訊」權限。當使用者核准 `offline_access` 範圍時，您的應用程式將會啟用以接收來自 v2.0 權杖端點的重新整理權杖。重新整理權杖屬於長效權杖，可讓您的應用程式在舊的存取權杖過期時取得新的存取權杖。
 
 如果您的應用程式未要求 `offline_access` 範圍，則不會收到 refresh\_token。這表示當您在 [OAuth 2.0 授權碼流程](active-directory-v2-protocols.md#oauth2-authorization-code-flow)中兌換 authorization\_code 時，您只會從 `/token` 端點接收 access\_token。該 access\_token 會短時間維持有效 (通常是一小時)，但最後終將過期。屆時，您的應用程式必須將使用者重新導向回到 `/authorize` 端點以擷取新的 authorization\_code。在此重新導向期間，視應用程式的類型而定，使用者或許不需要再次輸入其認證或重新同意權限。
 
-如需有關如何取得及使用重新整理權杖的詳細資訊，請參閱[應用程式模型 v2.0 通訊協定參考](active-directory-v2-protocols.md)。
+如需有關如何取得及使用重新整理權杖的詳細資訊，請參閱 [v2.0 通訊協定參考](active-directory-v2-protocols.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

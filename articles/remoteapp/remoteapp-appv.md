@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="搭配 Azure RemoteApp 使用 App-V 應用程式 | Microsoft Azure" 
-    description="了解如何在 Azure RemoteApp 中使用 App-V 應用程式" 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="ericorman" 
+<properties
+    pageTitle="搭配 Azure RemoteApp 使用 App-V 應用程式 | Microsoft Azure"
+    description="了解如何在 Azure RemoteApp 中使用 App-V 應用程式"
+    services="remoteapp"
+	documentationCenter=""
+    authors="ericorman"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/19/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/21/2016" 
     ms.author="elizapo" />
 
 
@@ -36,4 +36,4 @@
 
  您建立自訂映像和混合式集合之後，發佈您的應用程式、指派使用者並享受裝載於傳遞至任何位置任何裝置的 Azure RemoteApp 中的現有 App-V 應用程式。
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

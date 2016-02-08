@@ -35,7 +35,7 @@ Azure SQL database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料
 
 2.  在命令視窗中，輸入 "1"，然後按 **Enter**。這會建立分區對應管理員，並加入兩個分區到伺服器。接著輸入 "3"，然後按 **Enter**；重複此動作四次。這會在您的分區中插入範例資料列。
 
-3.  [Azure 入口網站](https://portal.azure.com)應該在 v12 伺服器中顯示三個新的資料庫：
+3.  [Azure 入口網站](https://portal.azure.com)應該會在您的 v12 伺服器中顯示三個新的資料庫：
 
 	![Visual Studio 確認][2]
 
@@ -434,7 +434,7 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。如果
 ### 成本
 使用彈性資料庫查詢功能不另行收費。不過，目前這項功能僅適用於 Premium 資料庫做為端點，但分區可以是任何服務層。
 
-如需價格資訊，請參閱 [SQL Database 價格詳細資料](http://azure.microsoft.com/pricing/details/sql-database/)。
+如需價格資訊，請參閱 [SQL Database 價格詳細資料](https://azure.microsoft.com/pricing/details/sql-database/)。
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -447,4 +447,4 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。如果
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

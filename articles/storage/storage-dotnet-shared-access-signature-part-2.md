@@ -34,7 +34,7 @@
 
 ## 第 1 部份：建立主控台應用程式以產生共用存取簽章
 
-首先，請確定您已安裝 Azure Storage Client Library for .NET。您可以安裝包含最新用戶端程式庫組件的 [NuGet 封裝](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 封裝")，這是確定您具有最新修正程式的建議方法。您也可以在最新版 [Azure SDK for .NET](http://azure.microsoft.com/downloads/) 中一起下載用戶端程式庫。
+首先，請確定您已安裝 Azure Storage Client Library for .NET。您可以安裝包含最新用戶端程式庫組件的 [NuGet 封裝](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 封裝")，這是確定您具有最新修正程式的建議方法。您也可以在最新版 [Azure SDK for .NET](https://azure.microsoft.com/downloads/) 中一起下載用戶端程式庫。
 
 在 Visual Studio 中，建立新的 Windows 主控台應用程式，並將它命名為 **GenerateSharedAccessSignatures**。使用下列任一種方法，新增對 **Microsoft.WindowsAzure.Configuration.dll** 及 **Microsoft.WindowsAzure.Storage.dll** 的參照：
 
@@ -311,7 +311,7 @@
 
 為了測試前面範例中建立的共用存取簽章，我們將建立第二個主控台應用程式，使用簽章以在容器和 blob 上執行操作。
 
-> [AZURE.NOTE]如果在您完成本教學課程的第一個部分之後已超過 24 小時，您所產生的簽章將不再有效。在此情況下，您應該在第一個主控台應用程式中執行程式碼以產生新的共用存取簽章，並在第二個部分的教學課程中使用。
+> [AZURE.NOTE] 如果在您完成本教學課程的第一個部分之後已超過 24 小時，您所產生的簽章將不再有效。在此情況下，您應該在第一個主控台應用程式中執行程式碼以產生新的共用存取簽章，並在第二個部分的教學課程中使用。
 
 在 Visual Studio 中，建立新的 Windows 主控台應用程式，並將它命名為 **ConsumeSharedAccessSignatures**。如您前面作法一樣，新增對 **Microsoft.WindowsAzure.Configuration.dll** 及 **Microsoft.WindowsAzure.Storage.dll** 的參照。
 
@@ -554,4 +554,4 @@
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

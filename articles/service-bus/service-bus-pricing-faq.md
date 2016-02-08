@@ -17,9 +17,9 @@
 
 # 服務匯流排定價常見問題集
 
-本節提供服務匯流排價格結構的一些常見問題解答。您也可以造訪 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)，以取得一般 Microsoft Azure 價格資訊。如需服務匯流排價格的完整資訊，請參閱[服務匯流排價格詳細資料](http://azure.microsoft.com/pricing/details/service-bus/)。
+本節提供服務匯流排價格結構的一些常見問題解答。您也可以造訪 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)，以取得一般 Microsoft Azure 價格資訊。如需服務匯流排價格的完整資訊，請參閱[服務匯流排價格詳細資料](https://azure.microsoft.com/pricing/details/service-bus/)。
 
->[AZURE.NOTE] [事件中樞可用性和支援常見問題集](event-hubs-availability-and-support-faq.md)主題說明事件中樞的價格結構，而[事件中樞價格](http://azure.microsoft.com/pricing/details/event-hubs/)主題中有更詳細的資訊。
+>[AZURE.NOTE] [事件中樞可用性和支援常見問題集](event-hubs-availability-and-support-faq.md)主題說明事件中樞的價格結構，而[事件中樞價格](https://azure.microsoft.com/pricing/details/event-hubs/)主題中有更詳細的資訊。
 
 - [服務匯流排的收費方式為何？](#how-do-you-charge-for-service-bus)
 - [何種服務匯流排用法需支付資料傳輸費用？ 何種不需？](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
@@ -32,7 +32,7 @@
 
 ## 服務匯流排的收費方式為何？
 
-如需服務匯流排價格的完整資訊，請參閱[服務匯流排價格和計費](https://msdn.microsoft.com/library/dn831889.aspx)和[服務匯流排價格詳細資料](http://azure.microsoft.com/pricing/details/service-bus/)。除了註明的價格，您還需支付您的應用程式佈建所在資料中心外部的輸出相關資料傳輸費用。如需詳細資訊，請參閱下面的[何種服務匯流排用法需支付資料傳輸費用？ 何種不需？](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)。
+如需服務匯流排價格的完整資訊，請參閱[服務匯流排價格和計費](https://msdn.microsoft.com/library/dn831889.aspx)和[服務匯流排價格詳細資料](https://azure.microsoft.com/pricing/details/service-bus/)。除了註明的價格，您還需支付您的應用程式佈建所在資料中心外部的輸出相關資料傳輸費用。如需詳細資訊，請參閱下面的[何種服務匯流排用法需支付資料傳輸費用？ 何種不需？](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)。
 
 ## 何種服務匯流排用法需支付資料傳輸費用？ 何種不需？
 
@@ -116,4 +116,4 @@
 
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

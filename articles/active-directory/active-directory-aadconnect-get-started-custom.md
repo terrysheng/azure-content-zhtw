@@ -1,7 +1,8 @@
 <properties
 	pageTitle="Azure AD Connect：自訂安裝 | Microsoft Azure"
-	description="這份文件詳述了 Azure AD Connect 的自訂安裝選項。"
+	description="這份文件詳述了 Azure AD Connect 的自訂安裝選項。使用下列指示，透過 Azure AD Connect 安裝 Active Directory。"
 	services="active-directory"
+    keywords="何謂 Azure AD Connect、安裝 Active Directory、Azure AD 的必要元件"
 	documentationCenter=""
 	authors="billmath"
 	manager="stevenpo"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/25/2016"
 	ms.author="billmath;andkjell"/>
 
 # 自訂 Azure AD Connect 安裝
@@ -99,7 +100,7 @@ sAMAccountName 與 MailNickName|此選項會在預期可以找到使用者登入
 
 - **UserPrincipalName**：屬性 userPrincipalName 是使用者登入 Azure AD 和 Office 365 時會使用的屬性。使用的網域 (也稱為 UPN 尾碼)，應該會在同步處理使用者前於 Azure AD 中進行驗證。強烈建議保留預設屬性 userPrincipalName。如果此屬性不可路由傳送且無法驗證，則可以選取另一個屬性，例如選取 email 做為保存登入 ID 的屬性。這就是所謂的**替代 ID**。替代 ID 屬性值必須遵循 RFC822 標準。替代 ID 可以搭配密碼單一登入 (SSO) 和同盟 SSO 做為登入解決方案使用。
 
->[AZURE.WARNING]使用替代 ID 會與所有 Office 365 工作負載不相容。如需詳細資訊，請參閱[設定替代的登入 ID](https://technet.microsoft.com/library/dn659436.aspx)。
+>[AZURE.WARNING] 使用替代 ID 會與所有 Office 365 工作負載不相容。如需詳細資訊，請參閱[設定替代的登入 ID](https://technet.microsoft.com/library/dn659436.aspx)。
 
 
 
@@ -108,7 +109,7 @@ sAMAccountName 與 MailNickName|此選項會在預期可以找到使用者登入
 
 若要使用這項功能，您會在自訂路徑中看見此頁面：![同步處理篩選](./media/active-directory-aadconnect-get-started-custom/filter2.png)
 
->[AZURE.WARNING]這項功能只用來支援試驗部署，不應用於成熟的生產部署。
+>[AZURE.WARNING] 這項功能只用來支援試驗部署，不應用於成熟的生產部署。
 
 在成熟的生產部署中，維護含有所有要同步處理之物件的單一群組將非常困難。您應該改用[設定篩選](active-directory-aadconnectsync-configure-filtering.md)中的其中一種方法。
 
@@ -118,7 +119,7 @@ sAMAccountName 與 MailNickName|此選項會在預期可以找到使用者登入
 
 ![選用功能](./media/active-directory-aadconnect-get-started-custom/optional.png)
 
-> [AZURE.WARNING]如果您目前啟用 DirSync 或 Azure AD Sync，請不要在 Azure AD Connect 中啟動任何回寫功能
+> [AZURE.WARNING] 如果您目前啟用 DirSync 或 Azure AD Sync，請不要在 Azure AD Connect 中啟動任何回寫功能
 
 選用功能 | 說明
 -------------------    | ------------- |
@@ -165,7 +166,7 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 您會在這裡輸入想要在其中安裝 AD FS 的特定伺服器。您可以根據容量規劃需求，加入一或多部伺服器。這些伺服器必須先全部加入 Active Directory 網域，才能執行這項設定。我們建議安裝一部用於測試和試驗部署的 AD FS 伺服器，並開啟 Azure AD Connect 以部署其他伺服器，然後將 AD FS 部署至其他伺服器以符合您的擴充需求。
 
 
-> [AZURE.NOTE]請先確認所有伺服器均已加入 AD 網域，再執行這項設定。
+> [AZURE.NOTE] 請先確認所有伺服器均已加入 AD 網域，再執行這項設定。
 
 ![AD FS 伺服器](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
@@ -175,7 +176,8 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 您會在這裡輸入您要做為 Web 應用程式 Proxy 伺服器的特定伺服器。Web 應用程式 Proxy 伺服器會部署在您的 DMZ (外部網路對應) 中，且支援來自外部網路的驗證要求。您可以根據容量規劃需求，加入一或多部伺服器。我們建議安裝一部用於測試和試驗部署的 Web 應用程式 Proxy 伺服器，並開啟 Azure AD Connect 以部署其他伺服器，然後將 Web 應用程式 Proxy 部署至其他伺服器。我們通常建議準備一部同樣數目的 Proxy 伺服器，以滿足來自內部網路的驗證需求。
 
 
-> [AZURE.NOTE]- 如果您用來安裝 Azure AD Connect 的帳戶不是 AD FS 伺服器上的本機系統管理員，則系統會提示您提供具有足夠的權限的帳戶認證。- 設定此步驟前，請先確認 Azure AD Connect 伺服器與 Web 應用程式 Proxy 伺服器之間的 HTTP/HTTPS 連線能力。- 此外，請確定 Web 應用程式伺服器和 AD FS 伺服器之間的 HTTP/HTTPS 連線能力，以允許驗證要求通過。
+> [AZURE.NOTE]
+- 如果您用來安裝 Azure AD Connect 的帳戶不是 AD FS 伺服器上的本機系統管理員，則系統會提示您提供具有足夠的權限的帳戶認證。- 設定此步驟前，請先確認 Azure AD Connect 伺服器與 Web 應用程式 Proxy 伺服器之間的 HTTP/HTTPS 連線能力。- 此外，請確定 Web 應用程式伺服器和 AD FS 伺服器之間的 HTTP/HTTPS 連線能力，以允許驗證要求通過。
 
 
 ![Web 應用程式](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
@@ -251,4 +253,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

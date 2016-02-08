@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="01/28/2016"
 	ms.author="anhoh"/>
 
 # 要求增加 DocumentDB 帳戶限制
@@ -38,8 +38,8 @@
 |每個查詢的 UDF 數目上限 |2
 |每個查詢的 JOIN 數目上限 |5
 |每個查詢的 AND 子句數目上限 |20
-|每個查詢的 OR 子句數目上限 |10
-|每個 IN 運算式的值數目上限 |100
+|每個查詢的 OR 子句數目上限 |20
+|每個 IN 運算式的值數目上限 |200
 |ST\_WITHIN 查詢中多邊形引數的點數上限 |16
 |每分鐘建立集合的數目上限 |5
 |每分鐘縮放作業的數目上限 |5
@@ -75,4 +75,4 @@
 ##<a name="NextSteps"></a> 後續步驟
 - 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

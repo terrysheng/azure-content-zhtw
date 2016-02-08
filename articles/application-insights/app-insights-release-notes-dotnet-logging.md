@@ -16,7 +16,7 @@
  
 # .NET 記錄配接器的版本資訊
 
-如果您已經使用 log4net、NLog 或 System.Diagnostics.Trace 等紀錄架構，您可以擷取這些記錄檔，並將其傳送至 [Application Insights](http://azure.microsoft.com/services/application-insights/)，在這邊讓記錄追蹤與使用者動作、例外狀況和其他事件相互關聯。
+如果您已經使用 log4net、NLog 或 System.Diagnostics.Trace 等紀錄架構，您可以擷取這些記錄檔，並將其傳送至 [Application Insights](https://azure.microsoft.com/services/application-insights/)，在這邊讓記錄追蹤與使用者動作、例外狀況和其他事件相互關聯。
 
 
 #### 若要開始使用
@@ -32,4 +32,4 @@
 ## 1\.2.5 版
 - 第一個開放原始碼版本：參考 Application Insights API 1.2.3 版或更高版本。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

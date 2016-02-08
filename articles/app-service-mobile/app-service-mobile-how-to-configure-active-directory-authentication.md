@@ -24,7 +24,7 @@
 
 本主題說明如何設定 Azure 應用程式服務，以使用 Azure Active Directory 做為驗證提供者。
 
-> [AZURE.NOTE]本主題示範 App Service 驗證/授權功能的用法。這會取代大部分應用程式的 App Service 閘道器。如果使用閘道器，請參閱[另一種方法]。該小節中使用閘道器所產生的差異都列在注意事項中。
+> [AZURE.NOTE] 本主題示範 App Service 驗證/授權功能的用法。這會取代大部分應用程式的 App Service 閘道器。如果使用閘道器，請參閱[另一種方法]。該小節中使用閘道器所產生的差異都列在注意事項中。
 
 
 ## <a name="express"> </a>使用快速設定設定 Azure Active Directory
@@ -71,7 +71,8 @@
     ![][3]
 	
 	
-	> [AZURE.NOTE]如果您使用的是 App Service 閘道器，而不是App Service 驗證/授權功能，回覆 URL 會改用閘道器 URL 加上 _/signin-aad_ 路徑。
+	> [AZURE.NOTE]
+	如果您使用的是 App Service 閘道器，而不是App Service 驗證/授權功能，回覆 URL 會改用閘道器 URL 加上 _/signin-aad_ 路徑。
 
 
 9. 按一下 [儲存]。然後，複製應用程式的 [**用戶端識別碼**]。稍後您會設定您的應用程式使用此資訊。
@@ -82,7 +83,8 @@
 
 ### <a name="secrets"> </a>將 Azure Active Directory 資訊新增至應用程式
 
-> [AZURE.NOTE]如果您使用 App Service 閘道器，請忽略此章節，並改為在入口網站中瀏覽至您的閘道器。依序選取 [設定]、[身分識別]，[Azure Active Directory]。貼入 ClientID 並將租用戶識別碼新增至 [允許的租用戶] 清單。按一下 [儲存]。
+> [AZURE.NOTE]
+如果您使用 App Service 閘道器，請忽略此章節，並改為在入口網站中瀏覽至您的閘道器。依序選取 [設定]、[身分識別]，[Azure Active Directory]。貼入 ClientID 並將租用戶識別碼新增至 [允許的租用戶] 清單。按一下 [儲存]。
 
 
 13. 回到 [Azure 入口網站]，並瀏覽到您的應用程式。依序按一下 [**設定**] 及 [**驗證/授權**]。
@@ -119,7 +121,7 @@ Azure Active Directory 也可讓您註冊更能控制權限對應的原生用戶
 
 7. 將頁面向下捲動至 [**其他應用程式的權限**] 區段，然後按一下 [**新增應用程式**]。
 
-8. 搜尋先前註冊的 Web 應用程式，再按一下加號圖示。然後按一下核取標記以關閉對話方塊。
+8. 搜尋先前註冊的 Web 應用程式，再按一下加號圖示。然後按一下核取標記以關閉對話方塊。如果找不到 Web 應用程式，瀏覽至其註冊並加入新的回覆 URL (例如，您目前 URL 的 HTTP 版本)，按一下 [儲存]，然後重複這些步驟 - 應用程式應該會顯示在清單中。
 
 9. 在您剛才加入的新項目上，開啟 [**委派的權限**] 下拉式清單，然後選取 [**存取 (appName)**]。然後按一下 [儲存]。
 
@@ -143,4 +145,4 @@ Azure Active Directory 也可讓您註冊更能控制權限對應的原生用戶
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [另一種方法]: #advanced
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

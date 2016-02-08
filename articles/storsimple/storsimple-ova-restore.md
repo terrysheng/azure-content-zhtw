@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/14/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli"/>
 
 # 從 StorSimple Virtual Array 備份中還原 (預覽版)
@@ -77,8 +77,6 @@
 
 3.  瀏覽回到 [備份類別目錄] 索引標籤，並選取備份組。
 
-4.  按一下頁面底部的 [還原為新的]。
-
 5.  按一下頁面底部的 [還原為新的]。將會啟動 [還原為新的磁碟區] 精靈。
 
 1.  在 [指定名稱和位置] 頁面上：
@@ -104,16 +102,16 @@
 
 4.  您現在可以在裝置的磁碟區清單中檢視新的已還原磁碟區。
 
-	> [AZURE.NOTE]還原是對相同類型的磁碟區進行。階層式磁碟區會還原為階層式，固定在本機的磁碟區則會還原為固定在本機的磁碟區。
+	> [AZURE.NOTE] 還原是對相同類型的磁碟區進行。階層式磁碟區會還原為階層式，固定在本機的磁碟區則會還原為固定在本機的磁碟區。
 
 ## 項目層級復原 (ILR)
 
 
 此版本引進設定為檔案伺服器之 StorSimple 虛擬裝置上的項目層級復原 (ILR)。此功能可讓您從 StorSimple 裝置上所有共用的雲端備份執行檔案和資料夾的細微復原。使用者可以使用自助式模型，從最新的備份中擷取已刪除的檔案。
 
-每個共用都有包含最新備份的 .backups 資料夾。使用者可以導覽至想要的備份，並從備份中複製相關的檔案和資料夾，然後進行還原。這樣就不需要要求系統管理員從備份中還原檔案。
+每個共用都有包含最新備份的 *.backups* 資料夾。使用者可以導覽至想要的備份，並從備份中複製相關的檔案和資料夾，然後進行還原。這樣就不需要要求系統管理員從備份中還原檔案。
 
-1.  執行 ILR 時，您可以透過 Windows 檔案總管檢視備份。按一下您想要查看備份的特定共用。在儲存所有備份的共用下，會建立 .backups 資料夾。展開 .backups 資料夾來檢視備份。這個資料夾會顯示整個備份階層的展開檢視。此檢視是依需求建立，而且通常只需要數秒的時間就能建立完成。
+1.  執行 ILR 時，您可以透過 Windows 檔案總管檢視備份。按一下您想要查看備份的特定共用。在儲存所有備份的共用下，會建立 *.backups* 資料夾。展開 *.backups* 資料夾來檢視備份。這個資料夾會顯示整個備份階層的展開檢視。此檢視是依需求建立，而且通常只需要數秒的時間就能建立完成。
 
 	最後 5 個備份是使用這種方式顯示。這包括預設排程和手動備份。
 
@@ -130,9 +128,14 @@
 
 3.  將檔案或資料夾複製到您的 StorSimple 檔案伺服器上的適當共用。
 
+![video\_icon](./media/storsimple-ova-restore/video_icon.png)**提供的影片**
+
+觀看影片以了解如何在 StorSimple Virtual Array 上建立共用、備份共用和還原資料。
+
+> [AZURE.VIDEO use-the-storsimple-virtual-array]
 
 ## 後續步驟
 
-深入了解如何 [administer your StorSimple Virtual Array using the local web UI (使用本機 Web UI 管理 StorSimple Virtual Array)](storsimple-ova-web-ui-admin.md)。
+深入了解如何[使用本機 Web UI 管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

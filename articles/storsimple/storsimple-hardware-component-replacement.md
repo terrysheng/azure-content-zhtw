@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # StorSimple 硬體元件更換
 
 ## 概觀
 
-硬體元件更換教學課程將說明 Microsoft Azure StorSimple 裝置的硬體元件，以及取下並更換這些元件所需的步驟。本文說明安全圖示、提供詳細教學課程的重點，並列出可替換的元件。
+硬體元件更換教學課程將說明 Microsoft Azure StorSimple 8000 系列裝置的硬體元件，以及取下並更換這些元件所需的步驟。本文說明安全圖示、提供詳細教學課程的重點，並列出可替換的元件。
 
->[AZURE.IMPORTANT]在嘗試取下或更換任何 StorSimple 元件之前，請確定先閱讀[安全圖示慣例](#safety-icon-conventions)和其他[安全性預防措施](storsimple-safety.md)。
+>[AZURE.IMPORTANT] 在嘗試取下或更換任何 StorSimple 元件之前，請確定先閱讀[安全圖示慣例](#safety-icon-conventions)和其他[安全性預防措施](storsimple-safety.md)。
  
 ### 安全性圖示慣例
 
@@ -53,11 +53,11 @@
 
 ![警告圖示](./media/storsimple-hardware-component-replacement/Warning.png) ![注意事項圖示](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **注意事項：**
 
-當更換模組時，**絕不在機箱背面留下空白機架**。在取下問題組件之前，請取得更換或空白模組。
+當更換模組時，**決不在機箱背面留下空白機架**。在取下問題組件之前，請取得更換或空白模組。
 
 ## 硬體元件更換程序
 
-Microsoft Azure StorSimple 裝置由主要和/或 EBOD 機箱的數個外掛程式模組所組成。8100 具有單一主要機箱，而 8600 是具有主要機箱與 EBOD 機箱的雙重機箱裝置。
+StoreSimple 8000 系列裝置由主要和/或 EBOD 機箱的數個外掛程式模組所組成。8100 具有單一主要機箱，而 8600 是具有主要機箱與 EBOD 機箱的雙重機箱裝置。
 
 下表彙總裝置中的主要硬體元件。按一下 [更換程序] 資料行中的連結，即可移到相關聯的教學課程。
 
@@ -122,9 +122,9 @@ Microsoft Azure StorSimple 裝置由主要和/或 EBOD 機箱的數個外掛程�
 
 - 底座 (包括整合的操作面板)
 
-- 764 瓦 AC 電源和冷卻模組
+- 764 W AC PCM
 
-- 580 瓦 AC 電源和冷卻模組
+- 580 W AC PCM
 
 - 具有磁碟機載具模組的硬碟機
 
@@ -142,4 +142,4 @@ Microsoft Azure StorSimple 裝置由主要和/或 EBOD 機箱的數個外掛程�
 
 請先閱讀所有[安全資訊](storsimple-safety.md)，再嘗試更換 StorSimple 硬體元件。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

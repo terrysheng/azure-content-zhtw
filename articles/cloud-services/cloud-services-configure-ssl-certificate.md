@@ -33,7 +33,7 @@
 
 如果尚未建立雲端服務，請先閱讀[這裡](cloud-services-how-to-create-deploy.md)。
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE [〈websites-cloud-services-css-guided-walkthrough〉](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 
 ## 步驟 1：取得 SSL 憑證
@@ -62,12 +62,20 @@
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA" />
+                    		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
         </WebRole>
 
     **Certificates** 區段定義憑證的名稱、位置，以及其所在的存放區名稱。
+    
+    權限 (`permisionLevel` 屬性) 可設為下列其中之一：
+
+    | 權限值 | 說明 |
+    | ----------------  | ----------- |
+    | limitedOrElevated | **(預設值)** 所有角色處理序都可以存取私密金鑰。 |
+    | elevated | 只有較高權限的處理序可以存取私密金鑰。|
 
 2.  在服務定義檔中，於 **Endpoints** 區段內新增 **InputEndpoint** 元素，以啟用 HTTPS：
 
@@ -127,7 +135,7 @@
 
     ![上傳](./media/cloud-services-configure-ssl-certificate/upload-button.png)
     
-6. 提供 [**檔案**]、[**密碼**]，然後按一下 [**完成**] \(核取記號)。
+6. 提供 [**檔案**]、[**密碼**]，然後按一下 [**完成**] (核取記號)。
 
 ## 步驟 4：使用 HTTPS 來連線至角色執行個體
 
@@ -160,4 +168,4 @@
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

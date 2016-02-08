@@ -37,7 +37,7 @@
 
 + Visual Studio 2012 Express for Windows Phone 8 和在 Windows 8 上執行的 [Windows Phone 8 SDK]。若要完成本教學課程，以建立新的 Windows Phone 8.1 應用程式，您必須使用 Visual Studio 2013 Update 2 或更新版本。
 
-+ 一個 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F)。
++ 一個 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F)。
 
 ##<a name="download-app"></a>下載 GetStartedWithData 專案
 
@@ -136,13 +136,13 @@
 
         items = await todoTable.ToCollectionAsync();
 
-   	這會對 todoTable 中的項目集合設定繫結，其中包含從行動服務傳回的所有 TodoItem 物件
+   	This sets the binding to the collection of items in the todoTable, which contains all TodoItem objects returned from the mobile service.
 
 9. 在 **UpdateCheckedTodoItem** 方法中，將 **async** 修正因子新增至方法，並取消註解下列程式碼行：
 
          await todoTable.UpdateAsync(item);
 
-   	這會將項目更新傳送到行動服務。
+   	This sends an item update to the mobile service.
 
 應用程式現已更新為使用行動服務進行後端儲存，我們可以開始在行動服務中測試應用程式。
 
@@ -168,14 +168,11 @@
 
 本教學課程將示範啟用 Windows Phone 8 應用程式，進而使用行動服務資料的基本概念。接著，請考慮閱讀下列其他主題：
 
-* [將驗證新增至您的應用程式](mobile-services-windows-phone-get-started-users.md)
-  <br/>了解如何驗證應用程式的使用者。
+* [將驗證新增至您的應用程式](mobile-services-windows-phone-get-started-users.md) <br/>了解如何驗證應用程式的使用者。
 
-* [將推播通知新增至您的應用程式](mobile-services-javascript-backend-windows-phone-get-started-push.md)
-  <br/>了解如何使用行動服務將非常基本的推播通知傳送到應用程式。
+* [將推播通知新增至您的應用程式](mobile-services-javascript-backend-windows-phone-get-started-push.md) <br/>了解如何使用行動服務將非常基本的推播通知傳送到應用程式。
 
-* [行動服務 C# 做法概念性參考](mobile-services-windows-dotnet-how-to-use-client-library.md)
-  <br/>深入了解如何搭配 .NET使用行動服務。
+* [行動服務 C# 做法概念性參考](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>深入了解如何搭配 .NET使用行動服務。
 
 <!-- Anchors. -->
 [Download the Windows Phone 8 app project]: #download-app
@@ -199,4 +196,4 @@
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [開發人員程式碼範例網站]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

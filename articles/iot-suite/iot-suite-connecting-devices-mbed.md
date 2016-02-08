@@ -2,13 +2,14 @@
    pageTitle="在 mbed 上使用 C 連接裝置 | Microsoft Azure"
    description="描述如何在 mbed 上使用已寫入 C 的應用程式，將裝置連接至 Azure IoT Suite 預先設定遠端監視方案。"
    services=""
+   suite="iot-suite"
    documentationCenter="na"
    authors="dominicbetts"
    manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="iot-suite"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -101,4 +102,4 @@
 [lnk-mbed-getstarted]: https://developer.mbed.org/platforms/FRDM-K64F/#getting-started-with-mbed
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

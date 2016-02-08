@@ -116,19 +116,25 @@ Service Fabric 有三個資料分割配置可選擇：
 撰寫任何程式碼之前，您必須考慮資料分割和資料分割索引鍵。您需要 26 個資料分割，每個字母英文各一個資料分割，但如何處理低和高索引鍵？ 因為我們真的想要每個字母有一個資料分割，我們可以把 0 當做低索引鍵，25 當做高索引鍵，因為每個字母就是它自己的索引鍵。
 
 
->[AZURE.NOTE]這是簡化的案例，因為現實上分佈會不平均。"S" 或 "M" 字母開頭的姓氏比 "X" 或 "Y" 開頭的姓氏更常見。
+>[AZURE.NOTE] 這是簡化的案例，因為現實上分佈會不平均。"S" 或 "M" 字母開頭的姓氏比 "X" 或 "Y" 開頭的姓氏更常見。
 
 
 1. 開啟 [Visual Studio] > [檔案] > [新增] > [專案]。
 2. 在 [新增專案] 對話方塊中，選擇 Service Fabric 應用程式
 3. 將專案命名為 "AlphabetPartitions"。
-4. 在 [建立服務] 對話方塊中，選擇 [具狀態] 服務，命名為 "Alphabet.Processing"，如下圖所示。![具狀態服務螢幕擷取畫面](./media/service-fabric-concepts-partitioning/alphabetstatefulnew.png)
+4. 在 [建立服務] 對話方塊中，選擇 [具狀態] 服務，命名為 "Alphabet.Processing"，如下圖所示。
+
+    ![具狀態服務螢幕擷取畫面](./media/service-fabric-concepts-partitioning/alphabetstatefulnew.png)
+
 5. 設定資料分割數目。開啟 AlphabetPartitions 專案中的 ApplicationManifest.xml 檔案，將參數 Processing\_PartitionCount 更新為 26，如下所示。
 
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
-    您也需要更新 StatefulService 元素的 LowKey 和 HighKey 屬性，如下所示。```xml
+    
+    您也需要更新 StatefulService 元素的 LowKey 和 HighKey 屬性，如下所示。
+    
+    ```xml
     <Service Name="Processing">
       <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
         <UniformInt64Partition PartitionCount="[Processing_PartitionCount]" LowKey="0" HighKey="25" />
@@ -146,84 +152,93 @@ Service Fabric 有三個資料分割配置可選擇：
 
 7. 接下來，您必須覆寫 Processing 類別的 `CreateServiceReplicaListeners()` 方法。
 
-    >[AZURE.NOTE]在這個範例中，我們假設您使用簡單的 HttpCommunicationListener。如需可靠服務通訊的詳細資訊，請參閱 [Reliable Service 通訊模型](service-fabric-reliable-services-communication.md)。
+    >[AZURE.NOTE] 在這個範例中，我們假設您使用簡單的 HttpCommunicationListener。如需可靠服務通訊的詳細資訊，請參閱 [Reliable Service 通訊模型](service-fabric-reliable-services-communication.md)。
 
 8. 關於複本接聽的 URL，建議的模式是下列格式：`{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`。所以您可以設定通訊接聽程式接聽正確的端點並使用此模式。
 
-相同電腦上可能裝載此服務的多個複本，因此複本的此位址必須是唯一的。這就是為什麼我們在 URL 中有資料分割識別碼 + 複本識別碼。只要 URL 首碼是唯一的，HttpListener 就可以在相同連接埠上的多個位址接聽。
+    相同電腦上可能裝載此服務的多個複本，因此複本的此位址必須是唯一的。這就是為什麼我們在 URL 中有資料分割識別碼 + 複本識別碼。只要 URL 首碼是唯一的，HttpListener 就可以在相同連接埠上的多個位址接聽。
 
-在進階案例中，次要複本也會接聽唯讀要求，所以有額外 GUID。在這種情況下，從主要轉換到次要時，您想要確保使用新的唯一位址以強制用戶端重新解析位址。這裡使用 '+' 做為位址，因此複本會接聽所有可用的主機 (IP、FQDM、localhost 等等)。 下列程式碼顯示範例。
+    在進階案例中，次要複本也會接聽唯讀要求，所以有額外 GUID。在這種情況下，從主要轉換到次要時，您想要確保使用新的唯一位址以強制用戶端重新解析位址。這裡使用 '+' 做為位址，因此複本會接聽所有可用的主機 (IP、FQDM、localhost 等等)。 下列程式碼顯示範例。
 
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
-            return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
+        return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
     }
     private ICommunicationListener CreateInternalListener(StatefulServiceInitializationParameters args)
     {
         EndpointResourceDescription internalEndpoint = args.CodePackageActivationContext.GetEndpoint("ProcessingServiceEndpoint");
 
         string uriPrefix = String.Format(
-                "{0}://+:{1}/{2}/{3}-{4}/",
-                internalEndpoint.Protocol,
-                internalEndpoint.Port,
-                this.ServiceInitializationParameters.PartitionId,
-                this.ServiceInitializationParameters.ReplicaId,
-                Guid.NewGuid());
+            "{0}://+:{1}/{2}/{3}-{4}/",
+            internalEndpoint.Protocol,
+            internalEndpoint.Port,
+            this.ServiceInitializationParameters.PartitionId,
+            this.ServiceInitializationParameters.ReplicaId,
+            Guid.NewGuid());
 
         string nodeIP = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
         string uriPublished = uriPrefix.Replace("+", nodeIP);
         return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInternalRequest);
     }
     ```
-另外值得注意的是，發佈的 URL 稍微不同於接聽 URL 首碼。接聽 URL 提供給 HttpListener。發佈的 URL 是發佈給 Service Fabric 命名服務 (用於服務探索) 的 URL。用戶端會透過該探索服務來要求這個位址。用戶端取得的位址必須有節點的實際 IP 或 FQDN 才能連接。所以您必須以節點的 IP 或 FQDN 取代 '+'，如上所示。9.最後一個步驟是將處理邏輯加入至服務，如下所示。
+
+    另外值得注意的是，發佈的 URL 稍微不同於接聽 URL 首碼。接聽 URL 提供給 HttpListener。發佈的 URL 是發佈給 Service Fabric 命名服務 (用於服務探索) 的 URL。用戶端會透過該探索服務來要求這個位址。用戶端取得的位址必須有節點的實際 IP 或 FQDN 才能連接。所以您必須以節點的 IP 或 FQDN 取代 '+'，如上所示。
+    
+9. 最後一個步驟是將處理邏輯加入至服務，如下所示。
 
     ```CSharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
-          string output = null;
-          string user = context.Request.QueryString["lastname"].ToString();
+        string output = null;
+        string user = context.Request.QueryString["lastname"].ToString();
 
-          try
-          {
-              output = await this.AddUserAsync(user);
-          }
-          catch (Exception ex)
-          {
-              output = ex.Message;
-          }
+        try
+        {
+            output = await this.AddUserAsync(user);
+        }
+        catch (Exception ex)
+        {
+            output = ex.Message;
+        }
 
-          using (HttpListenerResponse response = context.Response)
-          {
-              if (output != null)
-              {
-                  byte[] outBytes = Encoding.UTF8.GetBytes(output);
-                  response.OutputStream.Write(outBytes, 0, outBytes.Length);
-              }
-          }
-      }
-      private async Task<string> AddUserAsync(string user)
-      {
-          IReliableDictionary<String, String> dictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<String, String>>("dictionary");
+        using (HttpListenerResponse response = context.Response)
+        {
+            if (output != null)
+            {
+                byte[] outBytes = Encoding.UTF8.GetBytes(output);
+                response.OutputStream.Write(outBytes, 0, outBytes.Length);
+            }
+        }
+    }
+    private async Task<string> AddUserAsync(string user)
+    {
+        IReliableDictionary<String, String> dictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<String, String>>("dictionary");
 
-          using (ITransaction tx = this.StateManager.CreateTransaction())
-          {
-              bool addResult = await dictionary.TryAddAsync(tx, user.ToUpperInvariant(), user);
+        using (ITransaction tx = this.StateManager.CreateTransaction())
+        {
+            bool addResult = await dictionary.TryAddAsync(tx, user.ToUpperInvariant(), user);
 
-              await tx.CommitAsync();
+            await tx.CommitAsync();
 
-              return String.Format(
-                  "User {0} {1}",
-                  user,
-                  addResult ? "sucessfully added" : "already exists");
-          }
-      }
+            return String.Format(
+                "User {0} {1}",
+                user,
+                addResult ? "sucessfully added" : "already exists");
+        }
+    }
     ```
+        
+    `ProcessInternalRequest` 讀取用來呼叫資料分割的查詢字串參數的值，並呼叫 `AddUserAsync` 將 lastname 加入可靠的字典 `dictionary`。
+    
+10. 讓我們將無狀態服務加入至專案，瞭解如何呼叫特定的資料分割。
 
-    `ProcessInternalRequest` 讀取用來呼叫資料分割的查詢字串參數的值，並呼叫 `AddUserAsync` 將 lastname 加入可靠的字典 `m_name`。
-
-10. 讓我們將無狀態服務加入至專案，瞭解如何呼叫特定的資料分割。這項服務做為簡單的 Web 介面，將接受 lastname 做為查詢字串參數、決定資料分割索引鍵，然後將它傳送給 Alphabet.Processing 服務來處理。
-11. 在 [建立服務] 對話方塊中，選擇 [無狀態] 服務，命名為 "Alphabet.WebApi"，如下圖所示。![無狀態服務螢幕擷取畫面](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png)。
+    這項服務做為簡單的 Web 介面，將接受 lastname 做為查詢字串參數、決定資料分割索引鍵，然後將它傳送給 Alphabet.Processing 服務來處理。
+    
+11. 在 [建立服務] 對話方塊中，選擇 [無狀態] 服務，命名為 "Alphabet.WebApi"，如下圖所示。
+    
+    ![無狀態服務螢幕擷取畫面](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png)。
+    
 12. 更新 Alphabet.WebApi 服務的 ServiceManifest.xml 中的端點資訊，以開啟連接埠，如下所示。
 
     ```xml
@@ -235,62 +250,64 @@ Service Fabric 有三個資料分割配置可選擇：
     ```CSharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
-           return new[] {new ServiceInstanceListener(this.CreateInputListener, "Input")};
+        return new[] {new ServiceInstanceListener(this.CreateInputListener, "Input")};
     }
     private ICommunicationListener CreateInputListener(StatelessServiceInitializationParameters args)
     {
-           // Service instance's URL is the node's IP & desired port
-           EndpointResourceDescription inputEndpoint = args.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
-           string uriPrefix = String.Format("{0}://+:{1}/alphabetpartitions/", inputEndpoint.Protocol, inputEndpoint.Port);
-           var uriPublished = uriPrefix.Replace("+", m_nodeIP);
-           return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
-     }
-     ```
+        // Service instance's URL is the node's IP & desired port
+        EndpointResourceDescription inputEndpoint = args.CodePackageActivationContext.GetEndpoint("WebApiServiceEndpoint")
+        string uriPrefix = String.Format("{0}://+:{1}/alphabetpartitions/", inputEndpoint.Protocol, inputEndpoint.Port);
+        var uriPublished = uriPrefix.Replace("+", m_nodeIP);
+        return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
+    }
+    ```
+     
 14. 現在您需要實作處理邏輯。有要求傳入時，HttpCommunicationListener 會呼叫 `ProcessInputRequest`。讓我們繼續並加入下列程式碼。
 
     ```CSharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
-           String output = null;
-           try
-           {
-               string lastname = context.Request.QueryString["lastname"];
-               char firstLetterOfLastName = lastname.First();
-               int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+        String output = null;
+        try
+        {
+            string lastname = context.Request.QueryString["lastname"];
+            char firstLetterOfLastName = lastname.First();
+            int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
 
-               ResolvedServicePartition partition = await this.servicePartitionResolver.ResolveAsync(alphabetServiceUri, partitionKey, cancelRequest);
-               ResolvedServiceEndpoint ep = partition.GetEndpoint();
-               JObject addresses = JObject.Parse(ep.Address);
-               string primaryReplicaAddress = addresses["Endpoints"].First()["Value"].Value<string>();
+            ResolvedServicePartition partition = await this.servicePartitionResolver.ResolveAsync(alphabetServiceUri, partitionKey, cancelRequest);
+            ResolvedServiceEndpoint ep = partition.GetEndpoint();
+            JObject addresses = JObject.Parse(ep.Address);
+            string primaryReplicaAddress = addresses["Endpoints"].First()["Value"].Value<string>();
 
-               UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
-               primaryReplicaUriBuilder.Query = "lastname=" + lastname;
+            UriBuilder primaryReplicaUriBuilder = new UriBuilder(primaryReplicaAddress);
+            primaryReplicaUriBuilder.Query = "lastname=" + lastname;
 
-               string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
+            string result = await this.httpClient.GetStringAsync(primaryReplicaUriBuilder.Uri);
 
-               output = String.Format(
-               "Result: {0}. Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. Processing service partition ID: {4}. Processing service replica address: {5}",
-               result,
-               partitionKey,
-               firstLetterOfLastName,
-               lastname,
-               partition.Info.Id,
-               primaryReplicaAddress);
+            output = String.Format(
+                    "Result: {0}. Partition key: '{1}' generated from the first letter '{2}' of input value '{3}'. Processing service partition ID: {4}. Processing service replica address: {5}",
+                    result,
+                    partitionKey,
+                    firstLetterOfLastName,
+                    lastname,
+                    partition.Info.Id,
+                    primaryReplicaAddress);
+        }
+        catch (Exception ex) { output = ex.Message; }
+        
+        using (var response = context.Response)
+        {
+            if (output != null)
+            {
+                output = output + "added to Partition: " + primaryReplicaAddress;
+                byte[] outBytes = Encoding.UTF8.GetBytes(output);
+                response.OutputStream.Write(outBytes, 0, outBytes.Length);
+            }
+        }
     }
-    catch (Exception ex) { output = ex.Message; }
-    using (var response = context.Response)
-    {
-               if (output != null)
-               {
-                   output = output + "added to Partition: " + primaryReplicaAddress;
-                   byte[] outBytes = Encoding.UTF8.GetBytes(output);
-                   response.OutputStream.Write(outBytes, 0, outBytes.Length);
-               }
-           }
-      }
-      ```
+    ```
 
-    讓我們帶您逐步了解。 程式碼將查詢字串參數 `lastname` 的第一個字母讀取為字元。 並從姓氏第一個字母的十六進位值中擷取 `A` 的十六進位值，判斷此字母的分割區索引鍵。
+    讓我們帶您逐步了解。程式碼將查詢字串參數 `lastname` 的第一個字母讀取為字元。並從姓氏第一個字母的十六進位值中擷取 `A` 的十六進位值，判斷此字母的分割區索引鍵。
 
     ```CSharp
     string lastname = context.Request.QueryString["lastname"];
@@ -330,11 +347,16 @@ Service Fabric 有三個資料分割配置可選擇：
     <Parameters>
       <Parameter Name="Processing_PartitionCount" Value="26" />
       <Parameter Name="WebApi_InstanceCount" Value="1" />
-  </Parameters>
-  ```
+    </Parameters>
+    ```
 
-16. 完成部署之後，您可以在 Service Fabric 總管中檢查服務及其所有資料分割。![Service Fabric 總管螢幕擷取畫面](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-17. 您可以在瀏覽器中輸入 `http://localhost:8090/?lastname=somename` 來測試分割邏輯。您會看到以相同字母開頭的每個姓氏儲存在相同的資料分割中。![瀏覽器螢幕擷取畫面](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
+16. 完成部署之後，您可以在 Service Fabric 總管中檢查服務及其所有資料分割。
+    
+    ![Service Fabric 總管螢幕擷取畫面](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
+    
+17. 您可以在瀏覽器中輸入 `http://localhost:8090/?lastname=somename` 來測試分割邏輯。您會看到以相同字母開頭的每個姓氏儲存在相同的資料分割中。
+    
+    ![瀏覽器螢幕擷取畫面](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 範例的完整原始程式碼位於 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)。
 
@@ -350,4 +372,4 @@ Service Fabric 有三個資料分割配置可選擇：
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -32,7 +32,7 @@
 
   ![繪圖](media/marketplace-publishing-push-to-staging/pubportal-02.png)
 
-  優惠標題、描述和標誌
+  *優惠標題、描述和標誌*
 
 ### 連結
 在左側工具列的 [連結] 索引標籤上，輸入任何可能對客戶有幫助的資訊連結。輸入每個連結的名稱和 URL。
@@ -40,7 +40,7 @@
 ![繪圖](media/marketplace-publishing-push-to-staging/pubportal-02.png)
 
 ### 範例影像 (選擇性)
-> [AZURE.NOTE]加入範例影像是選擇性步驟。您可以填寫其他行銷內容來符合推送至預備環境的需求。
+> [AZURE.NOTE] 加入範例影像是選擇性步驟。您可以填寫其他行銷內容來符合推送至預備環境的需求。
 
 在左側功能表的 [範例影像] 索引標籤上，按一下 [上傳新的影像] 以上傳新的影像。如果目前已有影像而您想要取代它，請按一下 [取代影像]。
 
@@ -52,7 +52,7 @@
 ### 法律
 在 [法律聲明] 索引標籤上，提供您的使用原則/條款連結。在大型 [使用條款] 方塊中輸入或貼上條款。
 
-> [AZURE.IMPORTANT]所有欄位都必須填入內容 (包含影像)，才能推送至預備環境。
+> [AZURE.IMPORTANT] 所有欄位都必須填入內容 (包含影像)，才能推送至預備環境。
 
 
 ## 步驟 2：設定價格
@@ -67,7 +67,7 @@
 
 **依供應項目類型的價格模式**
 
-> [AZURE.IMPORTANT]依供應項目類型可用的某些價格模式。請參閱下表。
+> [AZURE.IMPORTANT] 依供應項目類型可用的某些價格模式。請參閱下表。
 
 | | 僅基本 | 僅耗用量 | 基本 + 耗用量 |
 |---|---|---|---|
@@ -76,14 +76,14 @@
 | 資料服務 | 是 | 否 | 否 |
 
 ### 2\.1.設定 VM 價格
-> [AZURE.NOTE]僅虛擬機器才支援 BYOL。
+> [AZURE.NOTE] 僅虛擬機器才支援 BYOL。
 
 1.	[定價] 索引標籤下方會出現所有支援的市場。選取適當的市場移至價格欄位。
 2.	發佈入口網站上提供的連結將會顯示定價資訊，協助您決定 SKU 的價格。
 3.	如果您的 SKU 是 BYOL，請選取外部授權 (BYOL) SKU 可用性的核取方塊。
 4.	如果您的 SKU 為每小時，請輸入軟體的價格。沒有價格的 SKU 無法購買或使用。
 
-  >[AZURE.NOTE]如果您同時有 BYOL 和每小時 SKU，請確定已涵蓋這兩個必要條件：BYOL 核取方塊和每小時的價格值。
+  >[AZURE.NOTE] 如果您同時有 BYOL 和每小時 SKU，請確定已涵蓋這兩個必要條件：BYOL 核取方塊和每小時的價格值。
 
 5.	定價精靈隨即開啟。請繼續進行此程序以完成您的定價，如果您選擇允許在您指定市場之外購買，請為其他國家定價。
 6.	有些國家採用 ISV 匯款。若要在 ISV 匯款國家銷售，您必須能夠在您的 SKU 上索取與收集稅金，而且您應該計算與支付稅金給該國政府。Microsoft 不負責提供法務或稅務指導。如需銷售目標國家/地區的相關資訊，請參閱本文件簡介中的＜優惠的銷售目標國家/地區＞一節。
@@ -115,36 +115,36 @@
 [類別] 索引標籤會提供選取項目的陣列。您的優惠可能會落在這些選取項目中，而且您最多可選取五個類別。
 
 ## 行銷活動的呈現方式
-以下是如何在 [Azure Marketplace 網站](http://azure.microsoft.com/marketplace)上和 [Azure Preview 入口網站](https://ms.portal.azure.com)中使用優惠行銷資訊的詳細檢視。
+以下是如何在 [Azure Marketplace 網站](https://azure.microsoft.com/marketplace/)上和 [Azure Preview 入口網站](https://ms.portal.azure.com)中使用優惠行銷資訊的詳細檢視。
 
 ### Azure Marketplace
 ![繪圖](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
 
 ![繪圖](media/marketplace-publishing-push-to-staging/acom-catalog-02.png)
 
-Azure.com Marketplace 網站上的優惠清單
+*Azure.com Marketplace 網站上的優惠清單*
 
 ![繪圖](media/marketplace-publishing-push-to-staging/acom-listing-details-01.png)
 
-Azure.com Marketplace 網站上的優惠描述詳細資料
+*Azure.com Marketplace 網站上的優惠描述詳細資料*
 
 ![繪圖](media/marketplace-publishing-push-to-staging/acom-listing-details-02.png)
 
-Azure.com Marketplace 網站上的優惠定價詳細資料
+*Azure.com Marketplace 網站上的優惠定價詳細資料*
 
 ### Azure Preview 入口網站
 ![繪圖](media/marketplace-publishing-push-to-staging/portal-catalog-01.png)
 
-Azure Preview 入口網站中的優惠清單
+*Azure Preview 入口網站中的優惠清單*
 
 ![繪圖](media/marketplace-publishing-push-to-staging/portal-listing-details-01.png)
 
-Azure Preview 入口網站中的優惠描述詳細資料
+*Azure Preview 入口網站中的優惠描述詳細資料*
 
 ## 後續步驟
 既然已載入您的 Marketplace 內容，讓我們繼續在預備環境中測試您的優惠。不過，您必須從下列清單選取適當的優惠類型，因為步驟會隨著優惠類型而有所不同。
 
-||虛擬機器映像 |開發人員服務 | 資料服務 | 解決方案範本 |
+|虛擬機器映像 |開發人員服務 | 資料服務 | 解決方案範本 |
 |----|----|----|----|----|
 | **步驟 3：推送優惠至預備環境** | [在預備環境中測試您的 VM 優惠](marketplace-publishing-vm-image-test-in-staging.md) | 在預備環境中測試您的開發人員服務優惠 | [在預備環境中測試您的資料服務優惠](marketplace-publishing-data-service-test-in-staging.md) | [在預備環境中測試您的解決方案範本](marketplace-publishing-solution-template-test-in-staging.md) |
 
@@ -160,4 +160,4 @@ Azure Preview 入口網站中的優惠描述詳細資料
 [link-pubportal]: https://publish.windowsazure.com
 [link-push-to-production]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

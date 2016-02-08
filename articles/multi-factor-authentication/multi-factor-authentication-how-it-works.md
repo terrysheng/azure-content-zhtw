@@ -94,7 +94,7 @@ MFA SDK| | | *
 - **每位使用者**。通常適用於想要為一群定期需要驗證之固定數量員工啟用 Multi-Factor Authentication 的企業。
 - **每次驗證**。通常適用於想要為大量不定期需要驗證之外部使用者啟用 Multi-Factor Authentication 的企業。
 
-如需定價詳細資料，請參閱 [Azure MFA 定價](http://azure.microsoft.com/pricing/details/multi-factor-authentication/)。
+如需定價詳細資料，請參閱 [Azure MFA 定價](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)。
 
 選擇最適合您組織的每一基座或消費型模型。接下來，若要開始使用，請參閱[開始使用](multi-factor-authentication-get-started.md)
 
@@ -102,4 +102,4 @@ MFA SDK| | | *
 
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -79,7 +79,7 @@
 **免費**的 [應用程式服務](http://go.microsoft.com/fwlink/?LinkId=529714)方案模式不支援將自訂網域新增至 Web Apps。您需要切換至 [共用] 或 [標準] 模式。作法：
 
 * 登入 Azure 入口網站，並找出您的 Web 應用程式。 
-* 按一下主內容區域的 [調整模規] 索引標籤
+* 按一下 [設定] 中的 [相應增加] 索引標籤。
 * 在 [一般] 下，選取 [共用] 或 [標準]
 * 按一下 [儲存]
 
@@ -122,7 +122,7 @@ DNS 變更需要一些時間才會完全生效，如果無法立即執行下列�
 
 WordPress 多網站目前沒有內建的方法可對應自訂網域。不過，有一個稱為 [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] 的外掛程式可為您增加此功能。請登入網站的 [Network Admin] 部分，並安裝 **WordPress MU Domain Mapping** 外掛程式。
 
-安裝並啟動此外掛程式之後，請移至 [Settings] > [Domain Mapping] 來設定外掛程式。在第一個文字方塊 [Server IP Address] 中，輸入您用來設定網域 A 記錄的 IP 位址。設定您要的任何 [Domain Options] \(預設值通常就很適合)，然後按一下 [Save]。
+安裝並啟動此外掛程式之後，請移至 [Settings] > [Domain Mapping] 來設定外掛程式。在第一個文字方塊 [Server IP Address] 中，輸入您用來設定網域 A 記錄的 IP 位址。設定您要的任何 [Domain Options] (預設值通常就很適合)，然後按一下 [Save]。
 
 ## 對應網域
 
@@ -134,7 +134,7 @@ WordPress 多網站目前沒有內建的方法可對應自訂網域。不過，�
 
 Azure Web Apps 可讓您將不限數量的網域加入至 Web 應用程式。若要加入其他網域，您需要對每一個網域執行＜**驗證網域**＞和＜**設定網域 A 記錄**＞兩節。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -153,4 +153,4 @@ Azure Web Apps 可讓您將不限數量的網域加入至 Web 應用程式。若
 
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

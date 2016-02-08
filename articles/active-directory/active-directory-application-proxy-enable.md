@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/22/2016"
 	ms.author="kgremban"/>
 
 # 啟用 Azure AD 應用程式 Proxy
-> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
+> [AZURE.NOTE] 應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
 Microsoft Azure Active Directory 應用程式 Proxy 可讓您在私人網路內發行應用程式 (例如 SharePoint 網站、Outlook Web Access 和 IIS 應用程式)，並提供網路外部使用者的安全存取。員工可以從家裡使用自己的裝置登入您的應用程式，並透過這個雲端 Proxy 進行驗證。
 
@@ -30,7 +30,7 @@ Microsoft Azure Active Directory 應用程式 Proxy 可讓您在私人網路內�
 
 - Microsoft Azure AD [基本或進階訂用帳戶](active-directory-editions.md)以及您是全域管理員的 Azure AD 目錄。
 - 執行 Windows Server 2012 R2 或 Windows 8.1 或更高版本的伺服器，您可以在該伺服器上安裝應用程式 Proxy 連接器。伺服器必須能夠將 HTTPS 要求傳送至雲端的應用程式 Proxy 服務，而且必須有您想要發佈的應用程式的 HTTPS 連線。
-- 如果防火牆置於路徑中，請確定已開啟防火牆，以允許源自連接器到應用程式 Proxy 的 HTTPS (TCP) 要求。連接器會將這些連接埠與屬於高層級網域的子網域一起使用：msappproxy.net。請務必開啟下列**所有**的連接埠以**輸出**流量：
+- 如果防火牆置於路徑中，請確定已開啟防火牆，以允許源自連接器到應用程式 Proxy 的 HTTPS (TCP) 要求。連接器會將這些連接埠與屬於高層級網域的子網域一起使用：msappproxy.net 和 servicebus.windows.net。請務必開啟下列**所有**的連接埠以**輸出**流量：
 
 連接埠號碼 | 說明
 --- | ---
@@ -60,10 +60,10 @@ Microsoft Azure Active Directory 應用程式 Proxy 可讓您在私人網路內�
 2. 依照精靈中的指示進行安裝。
 3. 在安裝期間，系統將提示您使用您 Azure AD 租用戶的應用程式 Proxy 註冊連接器。
 
-  <p>- 提供您的 Azure AD 全域管理員認證。您的全域管理員租用戶可能與您的 Microsoft Azure 認證不同。
-  <p>- 請確定註冊連接器的系統管理員與您啟用應用程式 Proxy 服務所在位於相同的目錄，例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com，或在該網域上的其他別名。
-  <p>- 如果 [IE 增強式安全性設定] 在您要安裝 Azure AD 連接器所在的伺服器上設定為 [開啟]，可能會封鎖註冊畫面。如果發生這種情況，請依照錯誤訊息中的指示允許存取。請確定已停用 [Internet Explorer 增強式安全性]。
-  <p>- 如果連接器註冊不成功，請參閱[疑難排解應用程式 Proxy](active-directory-application-proxy-troubleshoot.md)。  
+  - 提供您的 Azure AD 全域管理員認證。您的全域管理員租用戶可能與您的 Microsoft Azure 認證不同。
+  - 請確定註冊連接器的系統管理員與您啟用應用程式 Proxy 服務所在位於相同的目錄，例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com，或在該網域上的其他別名。
+  - 如果 [IE 增強式安全性設定] 在您要安裝 Azure AD 連接器所在的伺服器上設定為 [開啟]，可能會封鎖註冊畫面。如果發生這種情況，請依照錯誤訊息中的指示允許存取。請確定已停用 [Internet Explorer 增強式安全性]。
+  - 如果連接器註冊不成功，請參閱[疑難排解應用程式 Proxy](active-directory-application-proxy-troubleshoot.md)。  
 
 4. 安裝完成後，兩個新的服務會新增到您的伺服器中，如下所示。這些是允許連線的連接器服務，以及可定期檢查連接器新版本，並在需要時更新連接器的自動更新服務。按一下安裝視窗中的 [完成]，以完成安裝
 
@@ -95,4 +95,4 @@ Microsoft Azure Active Directory 應用程式 Proxy 可讓您在私人網路內�
 * [Azure 身分識別](fundamentals-identity.md)
 * [使用應用程式 Proxy 發行應用程式](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -24,7 +24,7 @@
 
 >[AZURE.NOTE]僅 Azure 帳戶管理員有權存取帳戶中心。
 
-1. 請移至 [Azure 支援](http://azure.microsoft.com/support)網站，然後按一下 [取得支援]。您也可以從 Microsoft Azure 入口網站或 Azure 帳戶中心提交事件。
+1. 請移至 [Azure 支援](https://azure.microsoft.com/support/)網站，然後按一下 [取得支援]。您也可以從 Microsoft Azure 入口網站或 Azure 帳戶中心提交事件。
 
  * 如需從 [Azure 入口網站](https://manage.windowsazure.com/)提交支援票證，按一下您的帳戶名稱和 [連絡 Microsoft 支援服務]。
  * 如需從 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)提交支援票證，請選取訂用帳戶和 [連絡 Microsoft 支援服務]。
@@ -49,4 +49,4 @@
 
 Azure 支援代表將會根據合約條款來與您聯絡。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

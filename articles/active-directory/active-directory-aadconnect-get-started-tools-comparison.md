@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="billmath"/>
 
 # 目錄整合工具比較
 
 目錄整合工具已經經過多年的成長和發展。本文件是為了整合檢視這些工具，並比較各個工具中所提供的功能。
 
->[AZURE.NOTE]Azure AD Connect 包含先前發行為 Dirsync 和 AAD Sync 的元件和功能。這些工具已不會再個別發行，而且所有未來的增強功能都會包含在 Azure AD Connect 的更新中，因此，您一定會知道可以到哪裡取得最新的功能。
+>[AZURE.NOTE] Azure AD Connect 包含先前發行為 Dirsync 和 AAD Sync 的元件和功能。這些工具已不會再個別發行，而且所有未來的增強功能都會包含在 Azure AD Connect 的更新中，因此，您一定會知道可以到哪裡取得最新的功能。
 >
 >目前 Dirsync 仍然受到支援，但是在未來某個時間點將會被取代。一旦被取代之後，它將只支援一段時間。在這段時間之後，Dirsync 的支援將會結束。
 
@@ -91,4 +91,4 @@
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="01/25/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 資料倉儲中的並行存取和工作負載管理
@@ -34,7 +34,7 @@
 2. 使用者隸屬的**資源類別**
 3. 查詢或作業是否由並行存取插槽模型所控管 
 
-> [AZURE.NOTE]值得注意的是，不是每個查詢都由並行存取插槽查詢規則所控管。但大多數使用者查詢是如此。某些查詢和作業完全不會耗用並行存取插槽。這些查詢和作業仍然受限於並行查詢限制，這就是為什麼要同時描述這兩個規則。如需詳細資料，請參閱下節的[資源類別例外狀況](#exceptions)。
+> [AZURE.NOTE] 值得注意的是，不是每個查詢都由並行存取插槽查詢規則所控管。但大多數使用者查詢是如此。某些查詢和作業完全不會耗用並行存取插槽。這些查詢和作業仍然受限於並行查詢限制，這就是為什麼要同時描述這兩個規則。如需詳細資料，請參閱下節的[資源類別例外狀況](#exceptions)。
 
 下表描述並行查詢和並行存取插槽的限制。其中假設您的查詢受資源控管。
 
@@ -75,7 +75,7 @@ SQL 資料倉儲已透過使用資料庫角色來實作資源類別。若要成�
 
 您可以使用 `sp_addrolemember` 和 `sp_droprolemember` 程序，將自己新增和移除至工作負載管理資料庫角色。請注意，您需要 `ALTER ROLE` 權限才能執行此動作。您不能使用 ALTER ROLE DDL 語法。您必須使用上述的預存程序。本文最後的 [管理使用者) [#managing-users] 一節提供如何建立登入和使用者的完整範例。
 
-> [AZURE.NOTE]相較於在工作負載管理群組內外新增使用者，通常更容易的做法是透過永久指派給較高資源類別的個別登入/使用者，起始更密集的作業。
+> [AZURE.NOTE] 相較於在工作負載管理群組內外新增使用者，通常更容易的做法是透過永久指派給較高資源類別的個別登入/使用者，起始更密集的作業。
 
 ### 記憶體配置
 
@@ -183,7 +183,7 @@ Removed as these two are not confirmed / supported under SQLDW
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE 
 -->
-> [AZURE.NOTE]值得強調的是，只針對動態管理檢視和目錄檢視執行的 `SELECT` 查詢**不是**由資源類別控管。
+> [AZURE.NOTE] 值得強調的是，只針對動態管理檢視和目錄檢視執行的 `SELECT` 查詢**不是**由資源類別控管。
 
 請務必記得，大部分的使用者查詢很可能由資源類別控管。一般來說，使用中的查詢工作負載必須落在並行查詢和並行存取插槽臨界值內，除非已被平台明確排除。一般使用者無法選擇從並行存取插槽模型中排除查詢。一旦超越任何一個臨界值，查訊就會開始排入佇列。排入佇列的查詢將根據提交時間的優先順序解決。
 
@@ -267,7 +267,7 @@ ORDER BY
 ;
 ```
 
-> [AZURE.NOTE]上述查詢也可以在疑難排解時，用來分析工作負載群組的作用中和歷史的使用情況
+> [AZURE.NOTE] 上述查詢也可以在疑難排解時，用來分析工作負載群組的作用中和歷史的使用情況
 
 ## 工作負載管理範例
 
@@ -285,7 +285,7 @@ CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 CREATE USER newperson for LOGIN newperson
 ```
 
-[AZURE.NOTE]您最好在同時使用 Azure SQL Database 和 SQL 資料倉儲時，為主要資料庫的登入建立使用者。此層級有兩個可用的伺服器角色，需要登入才能在主要資料庫中擁有使用者以授與成員資格。這些角色為 `Loginmanager` 和 `dbmanager`。在 Azure SQL Database 和 SQL 資料倉儲中，這些角色會授與管理登入以及建立資料庫的權限。這與 SQL Server 有所不同。如需詳細資料，請參閱[管理 Azure SQL Database 中的資料庫和登入]。
+> [AZURE.NOTE] 您最好在 Azure SQL Database 和 SQL 資料倉儲建立登入主要資料庫的使用者。此層級有兩個可用的伺服器角色，需要登入才能在主要資料庫中擁有使用者以授與成員資格。這些角色為 `Loginmanager` 和 `dbmanager`。在 Azure SQL Database 和 SQL 資料倉儲中，這些角色會授與管理登入以及建立資料庫的權限。這與 SQL Server 有所不同。如需詳細資料，請參閱[管理 Azure SQL Database 中的資料庫和登入]。
 
 一旦已建立登入，現在必須新增使用者帳戶。
 
@@ -323,7 +323,7 @@ EXEC sp_addrolemember 'largerc', 'newperson'
 EXEC sp_droprolemember 'largerc', 'newperson' 
 ```
 
-> [AZURE.NOTE]您不可能從 smallrc 移除使用者。
+> [AZURE.NOTE] 您不可能從 smallrc 移除使用者。
 
 若要查看哪些使用者是指定角色的成員，請使用下列查詢：
 
@@ -452,4 +452,4 @@ FROM	sys.dm_pdw_wait_stats w
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

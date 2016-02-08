@@ -1,6 +1,7 @@
-<properties 
-	pageTitle="SQL Database 用戶端程式的錯誤訊息"
-	description="針對每個錯誤，這會提供數字識別碼和文字訊息。歡迎您交互參照自己偏好的易用錯誤訊息文字 (如果適當)。"
+<properties
+	pageTitle="SQL 錯誤碼 - 資料庫連線錯誤 | Microsoft Azure"
+	description="了解 SQL Database 用戶端應用程式的 SQL 錯誤碼，例如常見的資料庫連線錯誤、資料庫副本問題，以及一般錯誤。"
+	keywords="sql error code,access sql,database connection error,sql error codes,sql 錯誤碼,存取 sql,資料庫連線錯誤,sql 錯誤碼"
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -8,17 +9,17 @@
 	editor="" />
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/06/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/06/2015"
 	ms.author="genemi"/>
 
 
-# SQL Database 用戶端程式的錯誤訊息
+# SQL Database 用戶端應用程式的 SQL 錯誤碼：資料庫連線錯誤和其他問題
 
 
 <!--
@@ -28,25 +29,19 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 -->
 
 
-本主題列出數個分類的錯誤訊息。大多數分類是專門針對 Azure SQL Database，並不適用 Microsoft SQL Server。
+本文列出 SQL Database 用戶端應用程式的 SQL 錯誤碼，包括資料庫連線錯誤、暫時性錯誤、資源管理錯誤、資料庫副本錯誤，以及其他錯誤。大多數分類是專門針對 Azure SQL Database，並不適用 Microsoft SQL Server。
 
-
-在用戶端程式中，您可以選擇針對任何特定錯誤提供您的使用者由您自訂的替代訊息。
-
-
-> [AZURE.TIP]特別重要的是下列有關＜[*暫時性錯誤*＞錯誤一節](#bkmk_connection_errors)。
-
-
+如果您的用戶端應用程式中發生任何指定錯誤，您可以向您的使用者提供您自訂的訊息。
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
 
 
-## 暫時性錯誤、連接遺失和其他暫時錯誤
+## 資料庫連線錯誤、暫時性錯誤及和其他暫時錯誤
 
-下表涵蓋透過網際網路使用 Azure SQL Database 時可能會遇到的連接遺失錯誤和其他暫時性錯誤。
+下表涵蓋您的應用程式嘗試存取 SQL Database 可能發生之連線遺失錯誤和其他暫時性錯誤的 SQL 錯誤碼。
 
 
-### 最常見的暫時性錯誤
+### 最常見的資料庫連線錯誤和暫時性錯誤
 
 
 暫時性錯誤通常是資訊清單，在您用戶端程式中的下列錯誤訊息之一：
@@ -67,10 +62,10 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [修正 SQL Database 中連接錯誤和暫時性錯誤的動作](sql-database-connectivity-issues.md)
 
 
-### 暫時性錯誤錯誤號碼
+### 暫時性錯誤錯誤碼
 
 
-| 錯誤號碼 | 嚴重性 | 說明 |
+| 錯誤碼 | 嚴重性 | 說明 |
 | ---: | ---: | :--- |
 | 4060 | 16 | 無法開啟登入所要求的資料庫 "%.&#x2a;ls"。登入失敗。 |
 |40197|17|服務處理您的要求時發生錯誤。請再試一次。錯誤代碼 %d。<br/><br/>當服務因為軟體或硬體升級、硬體故障或任何其他容錯移轉問題而關閉時，您會收到這個錯誤。內嵌在錯誤 40197 訊息中的錯誤代碼 (%d) 提供發生的失敗或容錯移轉種類的其他資訊。內嵌在錯誤 40197 訊息中錯誤代碼的一些範例包括包括 40020、40143、40166 和 40540。<br/><br/>重新連接至 SQL Database 伺服器會將您自動連接至狀況良好的資料庫副本。您的應用程式必須攔截錯誤 40197、記錄訊息中內嵌的錯誤碼 (%d) 以進行疑難排解，並嘗試重新連接到 SQL Database 直到資源可供使用，並再次建立您的連線。|
@@ -89,7 +84,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 下表涵蓋在 Azure SQL Database 中複製資料庫時您可能遇到的各種錯誤。如需詳細資訊，請參閱[複製 Azure SQL Database](sql-database-copy.md)。
 
 
-|錯誤號碼|嚴重性|說明|
+|錯誤碼|嚴重性|說明|
 |---:|---:|:---|
 |40635|16|IP 位址 '%.&#x2a;ls' 的用戶端已暫時停用。|
 |40637|16|建立資料庫副本目前已停用。|
@@ -126,7 +121,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [Azure SQL Database 資源限制](sql-database-resource-limits.md)
 
 
-|錯誤號碼|嚴重性|說明|
+|錯誤碼|嚴重性|說明|
 |---:|---:|:---|
 |10928|20|資源識別碼：%d。資料庫的 %s 限制是 %d，且已達到。如需詳細資訊，請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。<br/><br/>資源識別碼可指出已達到限制的資源。對於背景工作執行緒，資源識別碼 = 1。對於工作階段，資源識別碼 = 2。<br/><br/>*注意：*如需有關此錯誤以及如何解決它的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-resource-limits.md)。 |
 |10929|20|資源識別碼：%d。%s 最小保證是 %d，最大限制是 %d，而資料庫的目前使用量是 %d。但伺服器目前太忙碌，無法針對此資料庫支援大於 %d 的要求。如需詳細資訊，請參閱 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637)。否則，請稍後再試。<br/><br/>資源識別碼可指出已達到限制的資源。對於背景工作執行緒，資源識別碼 = 1。對於工作階段，資源識別碼 = 2。<br/><br/>*注意：*如需有關此錯誤以及如何解決它的詳細資訊，請參閱：<br/>• [Azure SQL Database 資源限制](sql-database-resource-limits.md)。|
@@ -150,10 +145,10 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 ## 一般錯誤
 
 
-下表列出所有不屬於任何先前的類別目錄的一般錯誤。
+下表列出所有不屬於任何先前類別目錄的一般錯誤。
 
 
-|錯誤號碼|嚴重性|說明|
+|錯誤碼|嚴重性|說明|
 |---:|---:|:---|
 |15006|16|<AdministratorLogin> 不是有效的名稱，因為它包含無效字元。|
 |18452|14|登入失敗。登入是來自不受信任的網域並且無法用於 Windows 驗證。%.&#x2a;ls (這個版本的 SQL Server 中不支援 Windows 登入)。|
@@ -216,9 +211,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 |40651|16|無法建立伺服器，因為訂用帳戶 <subscription-id> 已停用。|
 |40652|16|無法移動或建立伺服器。訂用帳戶 <subscription-id> 會超出伺服器配額。|
 |40671|17|閘道器與管理服務之間的通訊失敗。請稍後重試。|
-|40852|16|無法開啟登入所要求的資料庫 '%.*ls' (在伺服器 '%.*ls' 上)。只允許使用已啟用安全性的連接字串存取資料庫。若要存取此資料庫，將連接字串修改成在伺服器 FQDN 中包含 'secure'。也就是說，'server name'.database.windows.net 應修改為 'server name'.database.`secure`.windows.net.|
-|45168|16|SQL Azure 系統未達負載，並正在對單一伺服器的並行 DB CRUD 作業 (例如，建立資料庫) 放置上限。錯誤訊息中指定的伺服器已超過最大並行連接數目。請稍後再試。|
-|45169|16|SQL Azure 系統未達負載，並正在對單一訂用帳戶的並行伺服器 CRUD 作業 (例如，建立資料庫) 的數量放置上限。錯誤訊息中指定的訂用帳戶已超出最大並行連接數目，因此要求已遭到拒絕。請稍後再試。|
+|40852|16|無法開啟登入所要求的資料庫 '%.*ls' (在伺服器 '%.*ls' 上)。只允許使用已啟用安全性的連接字串存取資料庫。若要存取此資料庫，將連接字串修改成在伺服器 FQDN 中包含 'secure'。也就是說，'server name'.database.windows.net 應修改為 'server name'.database.`secure`.windows.net.| |45168|16|SQL Azure 系統未達負載，並正在對單一伺服器的並行 DB CRUD 作業 (例如，建立資料庫) 放置上限。錯誤訊息中指定的伺服器已超過最大並行連接數目。請稍後再試。| |45169|16|SQL Azure 系統未達負載，並正在對單一訂用帳戶的並行伺服器 CRUD 作業 (例如，建立資料庫) 的數量放置上限。錯誤訊息中指定的訂用帳戶已超出最大並行連接數目，因此要求已遭到拒絕。請稍後再試。|
 
 
 ## 相關連結
@@ -226,4 +219,4 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [Azure SQL Database 一般限制與方針](sql-database-general-limitations.md)
 - [Azure SQL Database 資源限制](sql-database-resource-limits.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

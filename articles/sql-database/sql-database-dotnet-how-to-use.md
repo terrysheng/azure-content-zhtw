@@ -32,7 +32,7 @@ SQL Database 可為 Azure 提供關聯式資料庫管理系統，並以 SQL Serv
 
 SQL Database 可在 Azure 上提供關聯式資料儲存體、存取和管理服務。若要加以使用，您必須要有 Azure 訂閱。
 
-1. 開啟網頁瀏覽器，並瀏覽到 [http://azure.microsoft.com/](http://azure.microsoft.com)。若要開始使用免費帳戶，請按一下右上角的 [免費試用]，並依照步驟進行。
+1. 開啟網頁瀏覽器，並瀏覽到 [http://azure.microsoft.com/](https://azure.microsoft.com/)。若要開始使用免費帳戶，請按一下右上角的 [免費試用]，並依照步驟進行。
 
 2. 現在已建立您的帳戶。您可以隨時開始使用。
 
@@ -211,4 +211,4 @@ Entity Framework 可讓開發人員對概念式的應用程式模型進行程式
 既然您了解連接到 SQL Database 的基本概念，請參閱[開發：作法主題 (SQL Database)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -25,12 +25,12 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 - SQL Server 2012 SP2 Enterprise，適用於小型到中型的資料大小
 - SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads，適用於大型到非常大型的資料大小
 
- >[AZURE.NOTE]SQL Server 2012 SP2 Enterprise 的映像**不包含資料磁碟**。您必須新增和 (或) 連接一或多個虛擬硬碟來儲存資料。當您建立 Azure 虛擬機器時，它會有一個作業系統的磁碟對應至 C 磁碟機，還有一個暫存磁碟對應至 D 磁碟機。請勿使用 D 磁碟機來儲存資料。顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。
+ >[AZURE.NOTE] SQL Server 2012 SP2 Enterprise 的映像**不包含資料磁碟**。您必須新增和 (或) 連接一或多個虛擬硬碟來儲存資料。當您建立 Azure 虛擬機器時，它會有一個作業系統的磁碟對應至 C 磁碟機，還有一個暫存磁碟對應至 D 磁碟機。請勿使用 D 磁碟機來儲存資料。顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。
 
 
 ##<a name="Provision"></a>連線到 Azure 傳統入口網站並佈建 SQL Server 虛擬機器
 
-1.  使用您的帳戶登入 [Azure 傳統入口網站](http://manage.windowsazure.com/)。如果您沒有 Azure 帳戶，請造訪 [Azure 免費試用](http://www.windowsazure.com/pricing/free-trial/)。
+1.  使用您的帳戶登入 [Azure 傳統入口網站](http://manage.windowsazure.com/)。如果您沒有 Azure 帳戶，請造訪 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 2.  在 Azure 傳統入口網站中，依序按一下網頁左下角的 [+新增]、[計算]、[虛擬機器] 和 [從資源庫]。
 
@@ -46,7 +46,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
     -   在 [**確認密碼**] 方塊中，重新輸入密碼。
     -   從 [**大小**] 下拉式清單中選取適當的大小。
 
-     >[AZURE.NOTE]在佈建期間指定虛擬機器的大小：A2 是建議用於生產工作負載的最小大小。使用 SQL Server Enterprise Edition 時，虛擬機器的最小建議大小為 A3。當您使用 SQL Server Enterprise Edition 時，請選取 A3 或以上的大小。使用 SQL Server 2012 或 2014 Enterprise Optimized for Transactional Workloads 映像時，請選取 A4。使用 SQL Server 2012 或 2014 Enterprise Optimized for Data Warehousing Workloads 映像時，請選取 A7。選取的大小會限制可設定的資料磁碟數目。如需可用之虛擬機器大小和可連接至虛擬機器之資料磁碟數目的最新資訊，請參閱[虛擬機器](http://msdn.microsoft.com/library/azure/dn197896.aspx)。如需定價資訊，請參閱「[虛擬機器定價](http://azure.microsoft.com/pricing/details/virtual-machines/)」。
+     >[AZURE.NOTE] 在佈建期間指定虛擬機器的大小：A2 是建議用於生產工作負載的最小大小。使用 SQL Server Enterprise Edition 時，虛擬機器的最小建議大小為 A3。當您使用 SQL Server Enterprise Edition 時，請選取 A3 或以上的大小。使用 SQL Server 2012 或 2014 Enterprise Optimized for Transactional Workloads 映像時，請選取 A4。使用 SQL Server 2012 或 2014 Enterprise Optimized for Data Warehousing Workloads 映像時，請選取 A7。選取的大小會限制可設定的資料磁碟數目。如需可用之虛擬機器大小和可連接至虛擬機器之資料磁碟數目的最新資訊，請參閱[虛擬機器](http://msdn.microsoft.com/library/azure/dn197896.aspx)。如需定價資訊，請參閱「[虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/)」。
 
     按一下右下角的 [下一步] 箭頭以繼續操作。
 
@@ -119,7 +119,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 如果您的 VM 映像不包含資料磁碟，亦即，磁碟不是 C 磁碟機 (作業系統磁碟) 和 D 磁碟機 (暫存磁碟)，您就需要新增一或多個資料磁碟來儲存資料。SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads 的 VM 映像是使用其他磁碟預先設定的，可供 SQL Server 資料和記錄檔使用。
 
- >[AZURE.NOTE]請勿使用 D 磁碟機來儲存資料。顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。
+ >[AZURE.NOTE] 請勿使用 D 磁碟機來儲存資料。顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。
 
 若要連接其他資料磁碟，請依照「[如何將資料磁碟連接至 Windows 虛擬機器](storage-windows-attach-disk.md)」中所述的步驟執行，這將引導您完成：
 
@@ -143,7 +143,7 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 	<br>
 
-	 >[AZURE.TIP]您可以使用 Windows 登錄機碼變更，或使用 SQL Server Management Studio，來變更 SQL Server 驗證模式。若要使用登錄機碼變更來變更驗證模式，請啟動 [**新增查詢**]，然後執行下列指令碼：
+	 >[AZURE.TIP] 您可以使用 Windows 登錄機碼變更，或使用 SQL Server Management Studio，來變更 SQL Server 驗證模式。若要使用登錄機碼變更來變更驗證模式，請啟動 [**新增查詢**]，然後執行下列指令碼：
 
 		USE master
     	go
@@ -174,7 +174,7 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 若要從另一部電腦連接 Database Engine，您至少必須建立一個 SQL Server 驗證登入。
 
-> [AZURE.TIP]您也可以透過程式設計方式或使用 SQL Server Management Studio，來建立新的 SQL Server 登入。若要以程式設計的方式透過 SQL 驗證建立新的系統管理員使用者，請啟動下 [**新增查詢**]，然後執行下列指令碼。使用您選擇的使用者名稱和密碼取代 <new user name> 和 <new password>。視需要調整密碼原則 (程式碼範例會關閉原則檢查及密碼到期日)。如需 SQL Server 登入的詳細資訊，請參閱[建立登入](http://msdn.microsoft.com/library/aa337562.aspx)。
+> [AZURE.TIP] 您也可以透過程式設計方式或使用 SQL Server Management Studio，來建立新的 SQL Server 登入。若要以程式設計的方式透過 SQL 驗證建立新的系統管理員使用者，請啟動下 [**新增查詢**]，然後執行下列指令碼。使用您選擇的使用者名稱和密碼取代 <new user name> 和 <new password>。視需要調整密碼原則 (程式碼範例會關閉原則檢查及密碼到期日)。如需 SQL Server 登入的詳細資訊，請參閱[建立登入](http://msdn.microsoft.com/library/aa337562.aspx)。
 
     USE master
     go
@@ -259,7 +259,7 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費**」。為了確保未使用虛擬機器時不會被計費，您必須將虛擬機器的狀態設為 [**已停止 (已解除配置)**]。
 
-> [AZURE.NOTE]從 VM 內部關閉虛擬機器 (使用 Windows 電源選項) 時，雖然 VM 已停止，但仍然處於已配置狀態。為了確保您不會繼續被計費，請一律在[Azure 傳統入口網站](http://manage.windowsazure.com/)中停止虛擬機器。您也可以藉由呼叫 ShutdownRoleOperation 搭配相當於 "StoppedDeallocated" 的 "PostShutdownAction"，透過 Powershell 來停止 VM。
+> [AZURE.NOTE] 從 VM 內部關閉虛擬機器 (使用 Windows 電源選項) 時，雖然 VM 已停止，但仍然處於已配置狀態。為了確保您不會繼續被計費，請一律在[Azure 傳統入口網站](http://manage.windowsazure.com/)中停止虛擬機器。您也可以藉由呼叫 ShutdownRoleOperation 搭配相當於 "StoppedDeallocated" 的 "PostShutdownAction"，透過 Powershell 來停止 VM。
 
 關閉及取消配置虛擬機器：
 
@@ -298,4 +298,4 @@ Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

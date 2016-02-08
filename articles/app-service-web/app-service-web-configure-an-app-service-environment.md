@@ -39,7 +39,7 @@ App Service 環境是由數個主要元件所組成：
 
 資料庫會保存定義環境及詳細說明其中執行之應用程式的資訊。這同樣也屬於 Azure 訂用帳戶的一部分，且客戶無法直接加以操作。
 
-與 ASE 搭配使用的虛擬網路，可以是您在建立 ASE 時所設定的虛擬網路，或是您既有的虛擬網路。如果您想要讓 ASE 所屬的資源群組不同於用在 ASE 的資源群組，您必須在 ASE 建立流程以外個別設定 VNET。同時建立您想要使用的子網路是個不錯的主意，因為在 ASE 建立期間建立子網路，會強制 ASE 進入與 VNET 相同的資源群組。目前僅支援 V1「傳統」VNET。
+與 ASE 搭配使用的虛擬網路，可以是您在建立 ASE 時所設定的虛擬網路，或是您既有的虛擬網路。如果您想要讓 VNET 所屬的資源群組不同於用在 ASE 的資源群組，您必須在 ASE 建立流程以外個別設定 VNET。同時建立您想要使用的子網路是個不錯的主意，因為在 ASE 建立期間建立子網路，會強制 ASE 進入與 VNET 相同的資源群組。目前僅支援 V1「傳統」VNET。
 
 用來管理和監視 App Service 環境的 UI，可從 Azure 入口網站使用。如果您有 ASE，則可能會在資訊看板上看到 App Service 符號。這個符號用來代表 Azure 入口網站中的 App Service 環境。
 
@@ -200,4 +200,4 @@ App Service 環境可設定為最多總計使用 55 個計算資源。在這 55 
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

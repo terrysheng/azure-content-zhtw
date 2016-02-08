@@ -40,7 +40,7 @@
 
 ![](./media/virtual-machines-workload-high-availability-LOB-application/CreateLOBAppHybridCloud_3.png)
  
-您可以使用您的 [MSDN 訂用帳戶](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/)或 [Azure 試用版訂用帳戶](http://azure.microsoft.com/pricing/free-trial/)免費建立這個開發/測試環境。
+您可以使用您的 [MSDN 訂用帳戶](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)或 [Azure 試用版訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)免費建立這個開發/測試環境。
 
 下一步是在 Azure 中建立高可用性的企業營運應用程式。
 
@@ -86,4 +86,4 @@
 
 - 在設定組態前先取得生產工作負載[概觀](virtual-machines-workload-high-availability-lob-application-overview.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="第一次使用 Azure Multi-Factor Authentication 登入" 
 	description="本頁面描述使用者第一次登入經驗的經驗。" 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords="如何使用 Azure Directory, 雲端中的 Active Directory, Active Directory 教學課程" 
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenp" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 # Azure Multi-factor Authentication 的設定體驗
 
@@ -36,4 +37,4 @@
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0128_2016-->

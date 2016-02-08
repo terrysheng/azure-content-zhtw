@@ -40,9 +40,9 @@
 ##必要條件
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝和使用 Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
 	執行 PowerShell 指令碼之前，請確定您已使用下列 Cmdlet 連接到 Azure 訂用帳戶：
 
@@ -54,7 +54,7 @@
 
 - **具備 VPN 連線的兩個 Azure 虛擬網路**。如需相關指示，請參閱[設定兩個 Azure 虛擬網路之間的 VPN 連線][hdinsight-hbase-geo-replication-vnet]。
 
->[AZURE.NOTE]Azure 服務名稱和虛擬機器名稱必須是唯一的。本教學課程中所使用的名稱為 Contoso-[Azure Service/VM name]-[EU/US]。例如，Contoso-VNet-EU 是指位於北歐資料中心的 Azure 虛擬網路；Contoso-DNS-US 是指位於美國東部資料中心的 DNS 伺服器 VM。您必須提供自己的名稱。
+>[AZURE.NOTE] Azure 服務名稱和虛擬機器名稱必須是唯一的。本教學課程中所使用的名稱為 Contoso-[Azure Service/VM name]-[EU/US]。例如，Contoso-VNet-EU 是指位於北歐資料中心的 Azure 虛擬網路；Contoso-DNS-US 是指位於美國東部資料中心的 DNS 伺服器 VM。您必須提供自己的名稱。
  
  
 ##建立要做為 DNS 伺服器使用的 Azure 虛擬機器
@@ -220,4 +220,4 @@ DNS 伺服器需要靜態 IP 位址。此步驟無法在 Azure 傳統入口網�
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

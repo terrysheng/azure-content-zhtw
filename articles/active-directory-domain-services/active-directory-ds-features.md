@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Azure AD 網域服務 (預覽)
@@ -39,10 +39,10 @@
 
 - **群組原則：**您可以針對每個使用者和電腦容器來利用單一內建的 GPO，針對使用者帳戶以及已加入網域的電腦強制採用符合安全性原則的規範。
 
-- **可在多個 Azure 區域中使用：**如需可使用 Azure AD 網域服務的 Azure 區域清單，請參閱[支援的 Azure 區域](active-directory-ds-regions.md)頁面。
+- **可在多個 Azure 區域中使用：**請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/#services/)頁面，以了解可使用 Azure AD 網域服務的 Azure 區域。
 
 - **高可用性：**Azure AD 網域服務可針對您的網域提供高可用性。這提供了對於更高的服務運作時間以及失敗恢復措施的保證。內建的狀況監控功能可提供失敗的自動補救措施，做法是啟動新的執行個體來取代失敗的執行個體，並為您的網域提供繼續執行的服務。
 
 - **使用熟悉的管理工具：**您可以使用 Active Directory 管理中心或 PowerShell 的 Active Directory 等熟悉的 Windows Server Active Directory 管理工具，來管理 Azure AD 網域服務所提供的網域。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -47,7 +47,7 @@
 
 如果無法使用上述方法，則請以手動方式移轉資料庫。使用此方法時，您通常會從進行資料庫備份開始，後面接著將一份資料庫備份複製到 Azure，然後再執行資料庫還原。您也可以將資料庫檔案本身複製到 Azure，然後再連接它們。若要將資料庫移轉到 Azure VM，有數種方法可以完成此手動程序。
 
-> [AZURE.NOTE]當您從舊版 SQL Server 升級至 SQL Server 2014 或 SQL Server 2016 時，您應該考慮是否需要變更。我們建議您先解決所有新版本 SQL Server 不支援的功能相依性作為移轉專案的一部分。如需有關支援版本和案例的詳細資訊，請參閱[升級至 SQL Server](https://msdn.microsoft.com/library/bb677622.aspx)。
+> [AZURE.NOTE] 當您從舊版 SQL Server 升級至 SQL Server 2014 或 SQL Server 2016 時，您應該考慮是否需要變更。我們建議您先解決所有新版本 SQL Server 不支援的功能相依性作為移轉專案的一部分。如需有關支援版本和案例的詳細資訊，請參閱[升級至 SQL Server](https://msdn.microsoft.com/library/bb677622.aspx)。
 
 下表會列出每個主要的移轉方法，並討論何時使用每個方法是最合適的。
 
@@ -164,7 +164,7 @@
 2.	使用 [Add-AzureVHD Cmdlet](https://msdn.microsoft.com/library/windowsazure/dn495173.aspx)，將 VHD 檔案上傳至 Azure 儲存體。
 3.	使用上傳的 VHD 來部署新的虛擬機器。
 
-> [AZURE.NOTE]若要移轉整個應用程式，請考慮使用 [Azure Site Recovery](../services/site-recovery/)。
+> [AZURE.NOTE] 若要移轉整個應用程式，請考慮使用 [Azure Site Recovery](../services/site-recovery/)。
 
 ## 寄送硬碟機
 
@@ -174,4 +174,4 @@
 
 如需在 Azure 虛擬機器上執行 SQL Server 的詳細資訊，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

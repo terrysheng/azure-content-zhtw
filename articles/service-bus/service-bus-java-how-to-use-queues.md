@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="01/26/2016"
 	ms.author="sethm"/>
 
 # 如何使用服務匯流排佇列
@@ -92,7 +92,7 @@ import javax.xml.datatype.*;
         System.exit(-1);
     }
 
-傳送至 (和接收自) 服務匯流排佇列的訊息是 [BrokeredMessage][] 類別的執行個體。[BrokeredMessage][] 物件具有一組標準屬性 (例如 [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) 和 [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx))、一個用來保存自訂應用程式特定屬性的目錄，以及一堆任意的應用程式資料。應用程式可設定訊息內文，方法是將任何可序列化物件傳遞到 [BrokeredMessage][] 的建構函式，接著系統便會使用適當的序列化程式來序列化物件。此外，您也可以提供 **java.IO.InputStream** 物件。
+傳送至和擷取自服務匯流排佇列的訊息是 [BrokeredMessage][] 類別的執行個體。[BrokeredMessage][] 物件具有一組標準屬性 (例如 [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) 和 [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx))、一個用來保存自訂應用程式特定屬性的目錄，以及一堆任意的應用程式資料。應用程式可設定訊息內文，方法是將任何可序列化物件傳遞到 [BrokeredMessage][] 的建構函式，接著系統便會使用適當的序列化程式來序列化物件。此外，您也可以提供 **java.IO.InputStream** 物件。
 
 下列範例示範如何將五則測試訊息傳送至上述程式碼片段中所取得的 `TestQueue` **MessageSender**：
 
@@ -189,4 +189,4 @@ import javax.xml.datatype.*;
   [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

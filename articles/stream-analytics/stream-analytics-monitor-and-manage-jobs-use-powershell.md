@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="01/25/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -30,14 +30,10 @@
  		# Log in to your Azure account
 		Add-AzureAccount
 
-		# Select the Azure subscription you want to use to create the resource group
+		# Select the Azure subscription you want to use to create the resource group if you have more than one subscription on your account.
 		Select-AzureSubscription -SubscriptionName <subscription name>
  
-		# Set the appropriate Azure mode to access Stream Analytics cmdlets
-		Switch-AzureMode AzureResourceManager
-
-		# Optional - Create an Azure resource group	
-			# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+		# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
 		#Register-AzureProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
 		# Create an Azure resource group
@@ -45,7 +41,7 @@
 		
 
 
-> [AZURE.NOTE]以程式控制方式建立的串流分析工作預設不會啟用監視功能。您可以在 Azure 入口網站中瀏覽到該工作的 [監視] 頁面，然後按一下 [啟用] 按鈕來手動啟用監視，或是按照[Azure 串流分析 - 以程式設計方式監視串流分析工作](stream-analytics-monitor-jobs.md)中的步驟執行，以程式設計方式來啟用。
+> [AZURE.NOTE] 以程式控制方式建立的串流分析工作預設不會啟用監視功能。您可以在 Azure 入口網站中瀏覽到該工作的 [監視] 頁面，然後按一下 [啟用] 按鈕來手動啟用監視，或是按照[Azure 串流分析 - 以程式設計方式監視串流分析工作](stream-analytics-monitor-jobs.md)中的步驟執行，以程式設計方式來啟用。
 
 ## 用於串流分析的 Azure PowerShell Cmdlet
 下表列出可用來監視和管理 Azure 串流分析工作的 Azure PowerShell Cmdlet。
@@ -289,4 +285,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="DocumentDB SQL 功能提要 | Microsoft Azure" 
-	description="可列印的功能提要 PDF 檔，能夠協助您使用 DocumentDB SQL 語法，於 JSON 文件所在的 NoSQL 資料庫中查詢 JSON 文件。" 
+	description="可列印的 SQL 功能提要 PDF，能夠協助您使用 DocumentDB 的 SQL 語法，於 JSON 文件所在的 NoSQL 資料庫中查詢 JSON 文件 - SQL 快速參考" 
 	keywords="SQL 功能提要、SQL 功能提要 PDF 檔、SQL 查詢功能提要"
 	services="documentdb" 
 	documentationCenter="" 
@@ -29,7 +29,7 @@ DocumentDB 支援使用 [SQL](documentdb-sql-query.md) 的關聯式、階層式�
 
 **請在此下載 SQL 功能提要：[Microsoft Azure DocumentDB SQL 功能提要](http://go.microsoft.com/fwlink/?LinkId=623215)**
 
-![DocumentDB SQL 查詢功能提要：DocumentDB 支援之 SQL 語法的快速參考。][cheat-sheet]
+![DocumentDB 的 SQL 查詢功能提要：DocumentDB 所支援 SQL 語法的快速參考 PDF - SQL 功能提要、SQL 功能提要 PDF、SQL 快速參考][cheat-sheet]
 
 [cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v2.png
 
@@ -39,4 +39,4 @@ DocumentDB 支援使用 [SQL](documentdb-sql-query.md) 的關聯式、階層式�
 - 如需 DocumentDB 中可用查詢選項的逐步說明，請參閱[查詢 DocumentDB](documentdb-sql-query.md)。
 - 如需相關的參考文件，請參閱 [DocumentDB SQL 查詢語言](https://msdn.microsoft.com/library/azure/dn782250.aspx)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

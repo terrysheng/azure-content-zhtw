@@ -50,13 +50,13 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 
 2.  Sqoop 動作會將 HiveQL 的輸出匯出至 Azure SQL Database 中的資料表。如需 Sqoop 的詳細資訊，請參閱[搭配 HDInsight 使用 Hadoop Sqoop][hdinsight-use-sqoop]。
 
-> [AZURE.NOTE]如需 HDInsight 叢集支援的 Oozie 版本，請參閱 [HDInsight 所提供 Hadoop 叢集版本的新功能][hdinsight-versions]。
+> [AZURE.NOTE] 如需 HDInsight 叢集支援的 Oozie 版本，請參閱 [HDInsight 所提供 Hadoop 叢集版本的新功能][hdinsight-versions]。
 
 ###必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。若要執行 Windows PowerShell 指令碼，您必須以系統管理員的身分執行，並將執行原則設為 *RemoteSigned*。如需詳細資訊，請參閱[執行 Windows PowerShell 指令碼][powershell-script] (英文)。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。若要執行 Windows PowerShell 指令碼，您必須以系統管理員的身分執行，並將執行原則設為 *RemoteSigned*。如需詳細資訊，請參閱[執行 Windows PowerShell 指令碼][powershell-script] (英文)。
 
 ##定義 Oozie 工作流程和相關的 HiveQL 指令碼
 
@@ -680,4 +680,4 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

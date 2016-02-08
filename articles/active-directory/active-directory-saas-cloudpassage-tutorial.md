@@ -3,7 +3,7 @@
 	description="了解如何設定 Azure Active Directory 與 CloudPassage 之間的單一登入。"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="markvi"/>
+	ms.date="01/26/2016"
+	ms.author="jeedes"/>
 
 
 # 教學課程：Azure Active Directory 與 CloudPassage 整合
@@ -23,7 +23,8 @@
 
 - 您可以在 Azure AD 中控制可存取 CloudPassage 的人員 
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 CloudPassage (單一登入)
-- 您可以在 Azure Active Directory 入口網站集中管理您的帳戶。
+- 您可以在 Azure Active Directory 集中管理您的帳戶 
+- 
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
@@ -35,7 +36,7 @@
 - 已啟用 CloudPassage 單一登入的訂用帳戶
 
 
-> [AZURE.NOTE]若要測試本教學課程中的步驟，我們不建議使用生產環境。
+> [AZURE.NOTE] 若要測試本教學課程中的步驟，我們不建議使用生產環境。
 
 
 若要測試本教學課程中的步驟，您應該遵循這些建議：
@@ -56,12 +57,12 @@
 
 ### 若要從資源庫新增 CloudPassage，請執行下列步驟：
 
-1. 在 **Azure 管理入口網站**的左側瀏覽窗格中，按一下 [Active Directory]。<br><br> ![Active Directory][1]
+1. 在 **Azure 傳統入口網站**中，按一下左方瀏覽窗格中的 [Active Directory]。<br><br> ![Active Directory][1]
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 若要開啟應用程式檢視，可在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br> ![應用程式][2]
-4. 按一下頁面底部的 [加入]。<br><br> ![應用程式][3]
+3. 若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br> ![應用程式][2]
+4. 按一下頁面底部的 [新增]。<br><br> ![應用程式][3]
 5. 在 [您想要執行什麼動作] 對話方塊中，按一下 [從資源庫新增應用程式]。<br><br> ![應用程式][4]
 6. 在搜尋方塊中，輸入 **CloudPassage**。<br><br> ![應用程式][5]
 7. 在結果窗格中，選取 [CloudPassage]，然後按一下 [完成] 以新增應用程式。<br><br> ![應用程式][6]
@@ -79,15 +80,15 @@
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[建立 CloudPassage 測試使用者](#creating-a-halogen-software-test-user)** - 使 CloudPassage 中對應的 Britta Simon 連結到她在 Azure AD 中的代表項目。
 5. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#testing-single-sign-on)** - 驗證設定是否能運作。
+5. **[測試單一登入](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### 設定 Azure AD 單一登入
 
-本節目標是在 Azure AD 入口網站啟用 Azure AD 單一登入，並在您的 CloudPassage 應用程式中設定單一登入。<br> 您的 CloudPassage 應用程式需要特定格式的 SAML 判斷提示，其會要求您將自訂屬性對應新增到 SAML Token 屬性設定。以下螢幕擷取畫面顯示了上述範例。<br><br> ![設定單一登入][21]
+本節的目標是在 Azure AD 入傳統口網站啟用 Azure AD 單一登入，並在您的 CloudPassage 應用程式中設定單一登入。<br> 您的 CloudPassage 應用程式需要特定格式的 SAML 判斷提示，其會要求您將自訂屬性對應新增到 SAML Token 屬性設定。以下螢幕擷取畫面顯示了上述範例。<br><br> ![設定單一登入][21]
 
 **若要使用 CloudPassage 設定 Azure AD 單一登入，請執行下列步驟：**
 
-1. 在 Azure AD 入口網站的 [CloudPassage] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。<br><br> ![設定單一登入][7]
+1. 在 Azure AD 傳統入口網站的 [CloudPassage] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。<br><br> ![設定單一登入][7]
 
 2. 在 [您希望使用者如何登入 CloudPassage] 頁面上，選取 [Azure AD 單一登入]，然後按 [下一步]。<br><br> ![設定單一登入][8]
 
@@ -113,22 +114,22 @@
 8. 在 [單一登入設定] 區段中，執行下列步驟：<br><br> ![設定單一登入][14]
 
 
-     8\.1.在 Azure 入口網站的 [設定在 CloudPassage 單一登入] 對話方塊頁面上，複製 [簽發者 URL] 值，然後將它貼到 [SAML 簽發者] 文字方塊中。
+     8\.1.在 Azure 傳統入口網站的 [設定在 CloudPassage 單一登入] 對話方塊頁面上，複製 [簽發者 URL] 值，然後將它貼到 [SAML 簽發者] 文字方塊中。
 
-     8\.2.在 Azure 入口網站的 [設定在 CloudPassage 單一登入] 對話方塊頁面上，複製 [服務提供者 (SP) 啟始的端點] 值，然後將它貼到 [SAML 端點 URL] 文字方塊中。
+     8\.2.在 Azure 傳統入口網站的 [設定在 CloudPassage 單一登入] 對話方塊頁面上，複製 [服務提供者 (SP) 啟始的端點] 值，然後將它貼到 [SAML 端點 URL] 文字方塊中。
 
-     8\.3.在 Azure 入口網站的 [設定在 CloudPassage 單一登入] 對話方塊頁面上，複製 [登出 URL] 值，然後將它貼到 [登出登陸頁面] 文字方塊中。
+     8\.3.在 Azure 傳統入口網站的 [設定在 CloudPassage 單一登入] 對話方塊頁面上，複製 [登出 URL] 值，然後將它貼到 [登出登陸頁面] 文字方塊中。
 
      8\.4.從您下載的憑證中建立 **Base-64 ** 編碼的檔案。
           
-      >[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
+      >[AZURE.TIP] 如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
 
      8\.5.在記事本中開啟 Base-64 編碼的憑證、將其內容複製到剪貼簿，然後將它貼到 [X.509 憑證] 文字方塊中。
 
      8\.6.按一下 [儲存]。
 
 
-9. 在 Azure AD 入口網站上，選取單一登入設定確認，然後按 [下一步]。<br><br>![設定單一登入][15]
+9. 在 Azure AD 傳統入口網站上，選取單一登入設定確認，然後按 [下一步]。<br><br> ![設定單一登入][15]
 
 
 10. 在 [單一登入確認] 頁面上，按一下 [完成]。<br><br>![設定單一登入][16]
@@ -158,21 +159,21 @@
 
 ### 建立 Azure AD 測試使用者
 
-本節目標是在 Azure 入口網站中建立名為 Britta Simon 的測試使用者。.<br><br> 在 [使用者] 清單中，選取 [Britta Simon]。<br>![建立 Azure AD 測試使用者](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_01.png)
+本節的目標是在 Azure 傳統入口網站中建立名稱為 Britta Simon 的測試使用者。<br><br> 在 [使用者] 清單中，選取 [Britta Simon]。<br>![建立 Azure AD 測試使用者](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_01.png)
 
-**若要在 Azure AD中建立測試使用者，請執行下列步驟：**
+**若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在 **Azure 管理入口網站**的左側瀏覽窗格中，按一下 [Active Directory]。<br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_02.png) 
+1. 在 **Azure 傳統入口網站**中，按一下左方瀏覽窗格中的 [Active Directory]。<br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_02.png) 
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 若要顯示使用者清單，可在頂端功能表中按一下 [使用者]。<br>![建立 Azure AD 測試使用者](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_03.png)
+3. 若要顯示使用者清單，請按一下功能表頂端的 [使用者]。<br>![建立 Azure AD 測試使用者](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_03.png)
  
-4. 若要開啟 [新增使用者] 對話方塊，可按一下底部工具列上的 [新增使用者]。<br>![建立 Azure AD 測試使用者](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_04.png)
+4. 若要開啟 [加入使用者] 對話方塊，請按一下底部工具列上的 [加入使用者]。<br>![建立 Azure AD 測試使用者](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_04.png)
 
 5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行下列步驟：<br>![建立 Azure AD 測試使用者](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_05.png)
   1. 針對 [使用者類型]，選取 [您組織中的新使用者]。
-  2. 在 [使用者名稱] 文字方塊中，輸入 **Britta Simon**。
+  2. 在 [使用者名稱] 文字方塊中輸入 **BrittaSimon**。
   3. 按 [下一步]。
 
 6.  在 [使用者設定檔] 對話方塊頁面上，執行下列步驟：<br>![建立 Azure AD 測試使用者](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_06.png)
@@ -185,7 +186,7 @@
 7. 在 [取得暫時密碼] 對話方塊頁面上，按一下 [建立]。<br>![建立 Azure AD 測試使用者](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_07.png)
  
 8. 在 [取得暫時密碼] 對話方塊頁面上，執行下列步驟：<br>![建立 Azure AD 測試使用者](./media/active-directory-saas-cloudpassage-tutorial/create_aaduser_08.png)
-  1. 請記下 [新密碼] 的值。
+  1. 記下 [新密碼] 的值。
   2. 按一下 [完成]。   
 
 
@@ -230,12 +231,12 @@
 
 **若要將 Britta Simon 指派到 CloudPassage，請執行以下步驟：**
 
-1. 在 Azure 入口網站中，若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br> <br><br>![指派使用者][26]
+1. 在 Azure 傳統入口網站中，若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br> <br><br>![指派使用者][26]
 2. 在應用程式清單中，選取 [CloudPassage]。<br><br>![指派使用者][27]
 1. 在頂端功能表中，按一下 [使用者]。<br> <br><br>![指派使用者][25]
 1. 在 [使用者] 清單中，選取 [Britta Simon]。
 
-2. 在底部工具列中，按一下 [指派]。<br><br>![指派使用者][29]
+2. 在底部的工具列中，按一下 [指派]。<br><br>![指派使用者][29]
 
 
 
@@ -281,4 +282,4 @@
 [29]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_16.png
 [30]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_17.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

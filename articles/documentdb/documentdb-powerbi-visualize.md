@@ -66,38 +66,38 @@
 
 您想要從 DocumentDB 帳戶擷取火山資料，並在如下的互動式 Power BI 報告中視覺化資料。
 
-![具視覺化資料的 Power BI Desktop 火山報告](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
+![藉由使用 Power BI 連接器完成這個 Power BI 教學課程，您將可以使用 Power BI Desktop 火山報告將資料視覺化](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
 準備好要試試看了嗎？ 現在就開始吧。
 
 
 1. 在您的工作站上執行 Power BI Desktop。
-2. Power BI Desktop 啟動時，會顯示 *歡迎使用* 畫面。
+2. Power BI Desktop 啟動時，會顯示 [歡迎使用] 畫面。
 
-	![Power BI Desktop 歡迎使用畫面](./media/documentdb-powerbi-visualize/power_bi_connector_welcome.png)
+	![Power BI Desktop 歡迎使用畫面 - Power BI 連接器](./media/documentdb-powerbi-visualize/power_bi_connector_welcome.png)
 
 3. 您可以 [取得資料]、檢視 [最近的來源]，或直接從 [歡迎使用] 畫面 [開啟其他報告]。按一下右上角的 X，以關閉畫面。Power BI Desktop 的 [報告] 檢視隨即顯示。
 
-	![Power BI Desktop 報告檢視](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview.png)
+	![Power BI Desktop 報告檢視 - Power BI 連接器](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview.png)
 
 4. 選取 [首頁] 功能區，然後按一下 [取得資料]。此時應會出現 [取得資料] 視窗。
 
 5. 按一下 [Azure]、選取 [Microsoft Azure DocumentDB (Beta)]，然後按一下 [連接]。此時應會出現 [Microsoft Azure DocumentDB 連接] 視窗。
 
-	![Power BI Desktop 取得資料](./media/documentdb-powerbi-visualize/power_bi_connector_pbigetdata.png)
+	![Power BI Desktop 取得資料 - Power BI 連接器](./media/documentdb-powerbi-visualize/power_bi_connector_pbigetdata.png)
 
 6. 依照下列方式指定您要從中擷取資料的 DocumentDB 帳戶端點 URL，然後按一下 [確定]。您可以從 Azure 入口網站之 [金鑰] 刀鋒視窗的 [URI] 方塊中擷取 URL，或使用上面提供的示範帳戶資訊。如需詳細資訊，請參閱[金鑰](documentdb-manage-account.md#keys)。
 
 
 	*注意。在本教學課程中，我們不會指定資料庫名稱、集合名稱或 SQL 陳述式，因為這些欄位是選用的。我們將使用「瀏覽器」來選取資料庫和集合，以識別資料來自何處。*
 
-    ![Power BI Desktop 連接視窗](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
+    ![DocumentDB Power BI 連接器的 Power BI 教學課程 - 桌面連接視窗](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
 
 7. 如果您是第一次連接到此端點，系統會提示您提供帳戶金鑰。輸入帳戶金鑰，然後按一下 [連接]。
 	
 	*注意。建議您在建置報告時使用唯讀金鑰。這樣可避免非必要地將主要金鑰暴露於潛在的安全性風險下。唯讀金鑰可從 Azure 入口網站的 [唯讀金鑰] 刀鋒視窗取得，或使用上面提供的示範帳戶資訊取得。*
 
-    ![Power BI Desktop 帳戶金鑰](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
+    ![DocumentDB Power BI 連接器的 Power BI 教學課程 - 帳戶金鑰](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
 
 8. 順利連接帳戶後，會出現 [瀏覽器]。[瀏覽器] 會顯示帳戶下的資料庫清單。
 9. 按一下並展開作為報告資料來源的資料庫。此時會在資料庫下顯示集合清單。  
@@ -106,7 +106,7 @@
 
 	*注意。[預覽] 窗格會顯示 [記錄] 項目的清單。一份文件會顯示為 Power BI 中的 [記錄] 類型。同樣地，文件內的巢狀 JSON 區塊也是 [記錄]。*
 
-    ![Power BI Desktop 瀏覽器](./media/documentdb-powerbi-visualize/power_bi_connector_pbinavigator.png)
+    ![DocumentDB Power BI 連接器的 Power BI 教學課程 - 瀏覽器視窗](./media/documentdb-powerbi-visualize/power_bi_connector_pbinavigator.png)
 
 11. 按一下 [編輯] 以啟動 [查詢編輯器]，以便轉換資料。
 
@@ -115,20 +115,20 @@
 
 2. 按一下位於 [文件] 資料行標頭右側的展開器。此時會出現含有欄位清單的內容功能表。選取您的報告所需的欄位，例如火山名稱、國家、區域、位置、高度、類型、狀態和已知的上次爆發時間，然後按一下 [確定]。
     
-	![Power BI Desktop 展開文件](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
+	![DocumentDB Power BI 連接器的 Power BI 教學課程 - 展開文件](./media/documentdb-powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png)
 
 3. 中央窗格會顯示所選欄位的結果預覽。
 
-	![Power BI Desktop 簡維化結果](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflatten.png)
+	![DocumentDB Power BI 連接器的 Power BI 教學課程 - 壓平合併結果](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflatten.png)
 
 4. 在我們的範例中，[位置] 屬性是文件中的 GeoJSON 區塊。如您所見，[位置] 顯示為 Power BI Desktop 中的 [記錄] 類型。
 5. 按一下位於 [位置] 資料行標頭右側的展開器。此時會出現含有類型和座標欄位的內容功能表。我們選取座標欄位，然後按一下 [確定]。
 
-    ![Power BI Desktop 位置記錄](./media/documentdb-powerbi-visualize/power_bi_connector_pbilocationrecord.png)
+    ![DocumentDB Power BI 連接器的 Power BI 教學課程 - 位置記錄](./media/documentdb-powerbi-visualize/power_bi_connector_pbilocationrecord.png)
 
 6. 中央窗格現在會顯示 [清單] 類型的座標資料行。如本教學課程一開始所說明，本教學課程中的 GeoJSON 資料屬於 Point 類型，具有座標陣列中所記錄的緯度和經度值。
 
-	*注意：coordinates[0] 項目代表經度，coordinates[1] 則代表緯度。* ![Power BI Desktop 座標清單](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
+	*注意：coordinates[0] 項目代表經度，coordinates[1] 則代表緯度。* ![DocumentDB Power BI 連接器的 Power BI 教學課程 - 座標清單](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 
 7. 為了將座標陣列簡維化，我們將建立名為 LatLong 的 [自訂資料行]。選取 [新增資料行] 功能區，然後按一下 [新增自訂資料行]。此時應會出現 [新增自訂資料行] 視窗。
 
@@ -138,24 +138,24 @@
 	
     *注意。如需資料分析運算式 (DAX) (包括 DAX 函數) 的詳細資訊，請瀏覽 [Power BI Desktop 中的 DAX 基礎](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop)。*
 
-    ![Power BI Desktop 自訂資料行](./media/documentdb-powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
+    ![DocumentDB Power BI 連接器的 Power BI 教學課程 - 新增自訂資料行](./media/documentdb-powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 
 10. 現在，中央窗格會顯示新的 LatLong 資料行，並且已填入以逗號分隔的緯度和經度值。
 
-	![Power BI Desktop 自訂 LatLong](./media/documentdb-powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
+	![DocumentDB Power BI 連接器的 Power BI 教學課程 - 自訂 LatLong 資料行](./media/documentdb-powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
 
 11. 現在我們已將資料簡維化成表格式格式。您可以利用查詢編輯器中所有可用的功能，將 DocumentDB 中的資料圖形化及進行轉換。例如，您可以在 [首頁] 功能區上變更 [資料類型]，以將 [高度] 的資料類型變更為 [十進位數字]。
 
-    ![Power BI Desktop 變更類型](./media/documentdb-powerbi-visualize/power_bi_connector_pbichangetype.png)
+    ![DocumentDB Power BI 連接器的 Power BI 教學課程 - 變更資料行類型](./media/documentdb-powerbi-visualize/power_bi_connector_pbichangetype.png)
 
 12. 按一下 [關閉並套用] 以儲存資料模型。
     
-    ![Power BI Desktop 關閉套用](./media/documentdb-powerbi-visualize/power_bi_connector_pbicloseapply.png)
+    ![DocumentDB Power BI 連接器的 Power BI 教學課程 - 關閉並套用](./media/documentdb-powerbi-visualize/power_bi_connector_pbicloseapply.png)
 
 ## 建置報告
 [Power BI Desktop 報告] 檢視可做為您開始建立報告以視覺化資料的起始點。您可以將欄位拖放到 [報告] 畫布上，以建立報告。
 
-![Power BI Desktop 報告檢視](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview2.png)
+![Power BI Desktop 報告檢視 - Power BI 連接器](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportview2.png)
  
 在 [報告] 檢視中，您應該會看到：
 
@@ -180,7 +180,7 @@
 
 6. 現在您已建立基本報告。您可以新增更多視覺效果，以進一步自訂報告。在本例中，我們新增 [火山類型] 交叉分析篩選器，讓報告更具互動性。
 
-    ![Power BI Desktop 報告結果](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
+    ![完成 DocumentDB 的 Power BI 教學課程後的最終 Power BI Desktop 報告的螢幕擷取畫面](./media/documentdb-powerbi-visualize/power_bi_connector_pbireportfinal.png)
 
 ## 發佈和共用您的報告
 若要共用您的報告，您必須有 PowerBI.com 中的帳戶。
@@ -191,7 +191,7 @@
 4. 然後，您就可以在 PowerBI.com 中共用您的報告。
 
 ## 後續步驟
-- 若要深入了解 Power BI，請按一下 [這裡](https://support.powerbi.com/knowledgebase)。
+- 若要深入了解 Power BI，請按一下 [這裡][](https://support.powerbi.com/knowledgebase)。
 - 若要深入了解 DocumentDB，請按一下[這裡](https://azure.microsoft.com/documentation/services/documentdb/)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

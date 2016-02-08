@@ -1,9 +1,9 @@
 <properties
    pageTitle="建立和部署 Azure 資源群組 Visual Studio 專案 | Microsoft Azure"
    description="使用 Visual Studio 建立 Azure 資源群組專案，並將資源部署至 Azure。"
-   services="visual-studio-online"
+   services="azure-resource-manager"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="tfitzmac"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/13/2015"
-   ms.author="tarcher" />
+   ms.author="tomfitz" />
 
 # 透過 Visual Studio 建立與部署 Azure 資源群組
 
@@ -39,7 +39,7 @@ Azure 資源管理員有許多不同的資源提供者可供使用，可以用�
 
     稍後您也可以將更多資源加入至資源群組。
 
-    >[AZURE.NOTE]可用範本的清單可從線上擷取，而且可能有所變更。
+    >[AZURE.NOTE] 可用範本的清單可從線上擷取，而且可能有所變更。
 
     Visual Studio 會建立 web 應用程式的 Azure 資源群組部署專案。
 
@@ -92,7 +92,7 @@ JSON 檔案使用的結構描述在每個檔案的頂端提供做為參考。如
 
     ![[建立資源群組] 對話方塊](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796674.png)
 
-    >[AZURE.NOTE]通常當您開始新的部署專案時，您會想要建立新的資源群組以部署至其中。
+    >[AZURE.NOTE] 通常當您開始新的部署專案時，您會想要建立新的資源群組以部署至其中。
 
 1. 輸入資源群組的名稱和位置，然後選擇 [建立] 按鈕。
 
@@ -108,15 +108,15 @@ JSON 檔案使用的結構描述在每個檔案的頂端提供做為參考。如
 
     - *siteName* 參數是網頁 URL 的第一個部分。例如，對於 URL mywebsitename.azurewebsites.net 而言，網站名稱是 **mywebsitename**。
 
-    - *hostingPlanName* 參數會指定您的主控方案。在此範例中，您可以使用「免費」。如需 App Service 方案的詳細資訊，請參閱 [Azure App Service 方案深入概觀](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)。
+    - *hostingPlanName* 參數會指定您的主控方案。在此範例中，您可以使用「免費」。如需 App Service 方案的詳細資訊，請參閱 [Azure App Service 方案深入概觀](https://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)。
 
-    - *siteLocation* 參數是指裝載網站所在的 Azure 區域，例如「美國西部」。如需可用區域的清單，請參閱 [Azure 區域](http://azure.microsoft.com/regions/)。
+    - *siteLocation* 參數是指裝載網站所在的 Azure 區域，例如「美國西部」。如需可用區域的清單，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。
 
 1. 選擇 [部署] 按鈕以將專案部署至 Azure。
 
     您可在 [輸出] 視窗中查看部署的進度。部署可能需要幾分鐘才能完成，取決於您的組態。
 
-    >[AZURE.NOTE]系統可能會要求您安裝 Microsoft Azure PowerShell cmdlet。因為要有這些 cmdlet 才能部署 Azure 資源群組，所以您需要安裝它們。
+    >[AZURE.NOTE] 系統可能會要求您安裝 Microsoft Azure PowerShell cmdlet。因為要有這些 cmdlet 才能部署 Azure 資源群組，所以您需要安裝它們。
 
 1. 在瀏覽器中，開啟 [Azure Preview 入口網站](https://portal.azure.com/)。由於這是新的變更，[通知] 索引標籤中應該會提供新的通知訊息。選擇它以檢視新 Azure 資源群組的詳細資料。若要查看所有可用資源群組的清單，您可以選擇 [瀏覽] 索引標籤，然後選擇 [資源群組]。
 
@@ -196,4 +196,4 @@ JSON 檔案使用的結構描述在每個檔案的頂端提供做為參考。如
 
 若要了解如何將資源新增至 Visual Studio 中的 Azure 資源群組，請參閱[使用 Visual Studio 編輯資源管理員範本](vs-azure-tools-resource-group-adding-resources.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

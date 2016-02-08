@@ -83,7 +83,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
     ![Create a namespace dialog][create_namespace_dialog]
 5.  確定命名空間名稱可用之後，請選擇要代管命名空間的區域 (務必使用要代管虛擬機器的相同區域)。
 
-    > [AZURE.IMPORTANT]挑選您使用或打算使用於虛擬機器的**相同區域**。這樣可以獲得最佳效能。
+    > [AZURE.IMPORTANT] 挑選您使用或打算使用於虛擬機器的**相同區域**。這樣可以獲得最佳效能。
 
 6. 如果您用以登入的帳戶有一個以上的 Azure 訂閱，請選取要用於命名空間的訂閱(如果您用以登入的帳戶只有一個訂用帳戶，您就不會看到含有訂用帳戶的下拉式清單。)
 7. 按一下核取記號。此時系統會建立並啟用服務命名空間。系統為帳戶提供資源時，您可能需要等幾分鐘。
@@ -103,7 +103,7 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 ## 如何建立 .NET 應用程式以便執行需密集運算的工作
 
-1. 在您的部署機器 (不一定是您建立的虛擬機器) 上，下載 [Azure SDK for .NET](http://azure.microsoft.com/develop/net/)。
+1. 在您的部署機器 (不一定是您建立的虛擬機器) 上，下載 [Azure SDK for .NET](https://azure.microsoft.com/develop/net/)。
 2. 利用名為 TSPSolver 的專案建立 .NET 主控台應用程式。請確定已針對 .**NET Framework 4** 或更新版本 (而非 **.NET Framework 4 用戶端設定檔**) 設定目標 Framework。執行下列動作，即可在您建立專案後設定此目標 Framework：在 Visual Studio 的功能表中，依序按一下 [專案]、[屬性]、[應用程式] 索引標籤，然後設定 [目標 Framework] 的值。
 3. 加入 Microsoft ServiceBus 程式庫。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPSolver]，然後依序按一下 [加入參考] 和 [瀏覽] 索引標籤，瀏覽至 Azure .NET SDK (例如 C:\\Program Files\\Microsoft SDKs\\Azure.NET SDK\\v2.5\\ToolsRef)，然後選取 **Microsoft.ServiceBus.dll** 做為參考。
 4. 加入 System Runtime Serialization 程式庫。在 Visual Studio 方案總管中，以滑鼠右鍵按一下 [TSPSolver]，按一下 [加入參考] 及 [.NET] 索引標籤，然後選取 **System.Runtime.Serialization** 做為參考。
@@ -515,7 +515,8 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 
 求解器將會執行直到完成所有路徑檢查為止。
 
-> [AZURE.NOTE]您指定的數目越大，求解器就會花越長的時間執行。例如，針對 14 個城市執行可能需花數分鐘，而針對 15 個城市執行可能需花數小時。增加至 16 個或更多城市可能需花數天執行 (最終可能達數周、數月及數年)。這是因為隨著城市數目增加，求解器所評估的排列數目也隨之激增的緣故。
+> [AZURE.NOTE]
+您指定的數目越大，求解器就會花越長的時間執行。例如，針對 14 個城市執行可能需花數分鐘，而針對 15 個城市執行可能需花數小時。增加至 16 個或更多城市可能需花數天執行 (最終可能達數周、數月及數年)。這是因為隨著城市數目增加，求解器所評估的排列數目也隨之激增的緣故。
 
 ### 如何執行監視用戶端應用程式
 1. 登入您將執行用戶端應用程式的電腦。這不一定要是執行 TSPSolver 應用程式的同一部電腦，但也可以是同一部電腦。
@@ -550,4 +551,4 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

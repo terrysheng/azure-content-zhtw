@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Azure 自動化中的變數資產
@@ -21,7 +21,7 @@
 
 - 在多個 Runbook 或 DSC 設定之間共用值。
 
-- 在相同 Runbook 或 DSC 設定的多個工作之間共用值。
+- 在相同 Runbook 或 DSC 設定的多個作業之間共用值。
 
 - 從入口網站或 Windows PowerShell 命令列管理 Runbook 或 DSC 設定使用的值。
 
@@ -55,7 +55,7 @@
 |Get-AutomationVariable|擷取現有變數的值。|
 |Set-AutomationVariable|設定現有的變數的值。|
 
->[AZURE.NOTE]您應該避免在 Runbook 或 DSC 設定中 **Get-AutomationVariable** 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 或 DSC 設定與自動化變數之間的相依性變得複雜。
+>[AZURE.NOTE] 您應該避免在 Runbook 或 DSC 設定中 **Get-AutomationVariable** 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 或 DSC 設定與自動化變數之間的相依性變得複雜。
 
 ## 建立新自動化變數
 
@@ -188,4 +188,4 @@
 - [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0128_2016-->

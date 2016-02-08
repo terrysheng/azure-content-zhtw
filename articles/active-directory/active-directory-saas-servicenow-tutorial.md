@@ -2,7 +2,7 @@
     pageTitle="教學課程：Azure Active Directory 與 ServiceNow 整合 | Microsoft Azure" 
     description="了解如何使用 ServiceNow 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,14 +11,14 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/02/2015" 
-    ms.author="markvi" />
+    ms.date="01/26/2016" 
+    ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 ServiceNow 整合
   
 本教學課程的目的是要示範 Azure 與 ServiceNow 的整合。本教學課程中說明的案例假設您已經具有下列項目：
 
--   有效的 Azure 訂用帳戶
+-   有效的 Azure 訂閱
 -   ServiceNow 中的租用戶
   
 完成本教學課程之後，您已指派至 ServiceNow 的 Azure AD 使用者將能夠在 ServiceNow 公司網站 (服務提供者起始登入)，或使用[存取面板簡介](active-directory-saas-access-panel-introduction.md)執行單一登入來登入應用程式。
@@ -37,7 +37,7 @@
 
 ###若要啟用 ServiceNow 的應用程式整合，請執行下列步驟：
 
-1.  在 Azure 管理入口網站的左方瀏覽窗格中，按一下 [Active Directory]。
+1.  在 Azure 傳統入口網站中，按一下左方瀏覽窗格的 [Active Directory]。
 
     ![Active Directory](./media/active-directory-saas-servicenow-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@
 
 ###若要設定單一登入，請執行下列步驟：
 
-1.  在 Azure AD 入口網站的 **ServiceNow** 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1.  在 Azure AD 傳統入口網站的 [ServiceNow] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-servicenow-tutorial/IC749323.png "設定單一登入")
 
@@ -94,7 +94,7 @@
 
 
 
-4.  在 [設定在 ServiceNow 單一登入] 頁面上，按一下 [下載憑證]，然後在本機電腦上儲存憑證檔案，然後按 [下一步]。
+4.  在 [在 ServiceNow 設定單一登入] 頁面上，按一下 [下載憑證]，然後在本機電腦上儲存憑證檔案，然後按 [下一步]。
 
     ![設定單一登入](./media/active-directory-saas-servicenow-tutorial/IC749325.png "設定單一登入")
 
@@ -139,12 +139,12 @@
 
     c.選取 [使用中]。
 
-    d.在 [格式] 選取 [PEM]。
+    d.針對 [格式]，選取 [PEM]。
 
     e.針對 [類型，選取 [信任存放區憑證]。
 
     f.從您下載的憑證中建立 Base-64 編碼的檔案。
-    > [AZURE.NOTE]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
+    > [AZURE.NOTE] 如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
     
     g.在記事本中開啟您的 Base-64 編碼的憑證，將其內容複製到剪貼簿，然後貼到 [PEM 憑證] 文字方塊。
 
@@ -174,15 +174,15 @@
 
     b.在 [使用者欄位] 文字方塊中，輸入 **email**。
 
-    c.在 Azure AD 入口網站中，複製**身分識別提供者 ID** 值，然後貼到 [身分識別提供者 URL] 文字方塊中。
+    c.在 Azure AD 傳統入口網站中，複製**身分識別提供者 ID** 值，然後貼到 [身分識別提供者 URL] 文字方塊中。
 
-    d.在 Azure AD 入口網站中，複製**驗證要求 URL** 值，然後貼到 [身分識別提供者的 AuthnRequest] 文字方塊中。
+    d.在 Azure AD 傳統入口網站中，複製**驗證要求 URL** 值，然後貼到 [身分識別提供者的 AuthnRequest] 文字方塊中。
 
-    e.在 Azure AD 入口網站中，複製**單一登出服務 URL** 值，然後貼到 [身分識別別提供者的 SingleLogoutRequest] 文字方塊中。
+    e.在 Azure AD 傳統入口網站中，複製**單一登出服務 URL** 值，然後貼到 [識別提供者的 SingleLogoutRequest] 文字方塊中。
 
     f.在 [ServiceNow 首頁] 文字方塊中，輸入您的 ServiceNow 執行個體首頁的 URL。
 
-    > [AZURE.NOTE]ServiceNow 執行個體首頁是您的 **ServieNow 租用戶 URL** 和 **/navpage.do** 的串連 (例如：**https://fabrikam.service-now.com/navpage.do*)。
+    > [AZURE.NOTE] ServiceNow 執行個體首頁是您的 **ServieNow 租用戶 URL** 和 **/navpage.do** 的串連 (例如：**https://fabrikam.service-now.com/navpage.do*)。
  
 
     g.在 [對象識別碼/核發者] 文字方塊中，輸入您的 ServiceNow 租用戶 URL。
@@ -207,7 +207,7 @@
 
 
 
-6. 在 Azure AD 入口網站上，選取單一登入組態確認，然後按 [下一步]。
+6. 在 Azure AD 傳統入口網站上，選取單一登入設定確認，然後按 [下一步]。
 
     ![設定單一登入](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "設定單一登入")
 
@@ -224,10 +224,10 @@
 
 ### 若要設定使用者佈建，請執行下列步驟：
 
-1. 在 Azure 管理入口網站中的 **ServiceNow** 應用程式整合頁面上，按一下 [設定使用者佈建]。<br><br> ![使用者佈建](./media/active-directory-saas-servicenow-tutorial/IC769498.png "使用者佈建")
+1. 在 Azure 傳統管理入口網站中的 **ServiceNow** 應用程式整合頁面上，按一下 [設定使用者佈建]。<br><br> ![使用者佈建](./media/active-directory-saas-servicenow-tutorial/IC769498.png "使用者佈建")
 
 
-2. 在 [輸入您的 ServiceNow 認證，以啟用自動使用者佈建] 頁面上，提供以下組態設定：設定使用者佈建
+2. 在 [輸入您的 ServiceNow 沙箱認證來啟用自動使用者佈建] 頁面上，提供以下組態設定：設定使用者佈建
 
      2\.1.在 [ServiceNow 執行個體名稱] 文字方塊中，輸入 ServiceNow 執行個體名稱。
 
@@ -239,9 +239,9 @@
 
      2\.5.按 [下一步] 按鈕以開啟 [後續步驟] 頁面。
 
-     2\.6.如果您想要將所有使用者佈建到此應用程式，請選取 [自動將此目錄中的所有使用者帳戶佈建到這個應用程式]。<br><br> ![後續步驟](./media/active-directory-saas-servicenow-tutorial/IC698804.png "後續步驟")
+     2\.6.如果您想要將所有使用者佈建到此應用程式，請選取 [自動將此目錄中的所有使用者帳戶佈建到此應用程式]。<br><br> ![後續步驟](./media/active-directory-saas-servicenow-tutorial/IC698804.png "後續步驟")
 
-     2\.7.在 [後續步驟] 頁面上，按一下 [完成] 來儲存您的設定。
+     2\.7.在 [後續步驟] 頁面上，按一下 [完成] 來儲存您的組態。
 
 
 
@@ -259,9 +259,9 @@
 
 ###若要將使用者指派給 ServiceNow，請執行下列步驟：
 
-1.  在 Azure AD 入口網站中建立測試帳戶。
+1.  在 Azure AD 傳統入口網站中建立測試帳戶。
 
-2.  在 **ServiceNow** 應用程式整合頁面上，按一下 [指派使用者]。
+2.  在 [ServiceNow] 應用程式整合頁面上，按一下 [指派使用者]。
 
     ![指派使用者](./media/active-directory-saas-servicenow-tutorial/IC769499.png "指派使用者")
 
@@ -277,4 +277,4 @@
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0128_2016-->

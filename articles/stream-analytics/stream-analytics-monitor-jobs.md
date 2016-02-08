@@ -27,7 +27,7 @@
 開始閱讀本文之前，您必須符合下列必要條件：
 
 - Visual Studio 2012 或 2013。
-- 下載並安裝 [Azure .NET SDK](http://azure.microsoft.com/downloads/)。
+- 下載並安裝 [Azure .NET SDK](https://azure.microsoft.com/downloads/)。
 - 一項需要啟用監視的現有串流分析工作。
 
 ## 設定專案
@@ -139,7 +139,8 @@
 
 下列程式碼將為「現有」串流分析工作啟用監視。程式碼的第一部分會對串流分析服務執行 GET 要求，以擷取特定串流分析工作的相關資訊。在程式碼的第二部分使用 “Id” 屬性 (擷取自 GET 要求) 當成 Put 方法的參數，將 PUT 要求傳送至 Insights 服務，來為串流分析工作啟用監視。
 
-> [AZURE.WARNING]如果您先前已經為不同的串流分析工作啟用監視 (不論是透過 Azure 入口網站，還是以程式設計方式透過以下的程式碼)，**建議您提供先前啟用監視時所提供的相同儲存體帳戶名稱。**
+> [AZURE.WARNING]
+如果您先前已經為不同的串流分析工作啟用監視 (不論是透過 Azure 入口網站，還是以程式設計方式透過以下的程式碼)，**建議您提供先前啟用監視時所提供的相同儲存體帳戶名稱。**
 > 
 > 儲存體帳戶會連結到您建立串流分析工作所在的區域，而不是明確地連結到工作本身。
 > 
@@ -179,4 +180,4 @@
 - [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

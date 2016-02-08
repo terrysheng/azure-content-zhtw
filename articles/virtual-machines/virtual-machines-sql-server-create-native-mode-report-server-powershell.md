@@ -23,7 +23,7 @@
 
 本主題說明並逐步引導您在 Azure 虛擬機器中，部署並設定 SQL Server Reporting Services 原生模式報表伺服器。本文件的步驟採用一連串手動步驟的組合建立虛擬機器，並使用 Windows PowerShell 指令碼設定 VM 上的 Reporting Services。組態指令碼包含針對 HTTP 或 HTTPS 開啟防火牆連接埠。
 
->[AZURE.NOTE]如果報表伺服器不需要 **HTTPS**，請**略過步驟 2**。
+>[AZURE.NOTE] 如果報表伺服器不需要 **HTTPS**，請**略過步驟 2**。
 >
 >在步驟 1 建立 VM 之後，請移至＜使用指令碼設定報表伺服器和 HTTP＞一節。執行指令碼之後，就可以使用報表伺服器。
 
@@ -33,13 +33,13 @@
 	
 	- 若要確認訂用帳戶的核心限制，請在 Azure 傳統入口網站中按一下左窗格中的 [設定]，然後按一下上層功能表中的 [使用方式]。
 	
-	- 若要增加核心配額，請連絡 [Azure 支援](http://azure.microsoft.com/support/options/)。如需 VM 大小的資訊，請參閱 [Azure 的虛擬機器大小](virtual-machines-size-specs.md)。
+	- 若要增加核心配額，請連絡 [Azure 支援](https://azure.microsoft.com/support/options/)。如需 VM 大小的資訊，請參閱 [Azure 的虛擬機器大小](virtual-machines-size-specs.md)。
 
 - **Windows PowerShell 指令碼**：本主題假設您對 Windows PowerShell 已有基本的技術知識。如需有關如何使用 Windows PowerShell 的詳細資訊，請參閱下列文章：
 
-	- [在 Windows Server 上啟動 Windows PowerShell](https://technet.microsoft.com/library/hh847814.aspx) (英文)
+	- [在 Windows Server 上啟動 Windows PowerShell (英文)](https://technet.microsoft.com/library/hh847814.aspx)
 	
-	- [開始使用 Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx) (英文)
+	- [開始使用 Windows PowerShell (英文)](https://technet.microsoft.com/library/hh857337.aspx)
 
 ## 步驟 1：佈建 Azure 虛擬機器
 
@@ -71,7 +71,7 @@
 	
 	- [層]：標準
 	
-	- [大小：A3] 是建議 SQL Server 工作負載採用的 VM 大小。若 VM 只作為報表伺服器使用，那麼除非報表伺服器需處理大量的工作負載，否則 A2 的 VM 大小就已經足夠。如需 VM 的價格資訊，請參閱[虛擬機器定價](http://azure.microsoft.com/pricing/details/virtual-machines/)。
+	- [大小：A3] 是建議 SQL Server 工作負載採用的 VM 大小。若 VM 只作為報表伺服器使用，那麼除非報表伺服器需處理大量的工作負載，否則 A2 的 VM 大小就已經足夠。如需 VM 的價格資訊，請參閱[虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/)。
 	
 	- [新的使用者名稱]：系統會使用您提供的名稱建立 VM 上的系統管理員。
 	
@@ -99,7 +99,7 @@
 	
 	- 按 [下一步]。![下一步](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC692021.gif)
 
-1. 在精靈的最後一頁，保持選取預設值 [安裝 VM 代理程式]。本主題的步驟不會使用 VM 代理程式，但若您打算保留此 VM，VM 代理程式和延伸模組可讓您增強 CM。如需有關 VM 代理程式的詳細資訊，請參閱 [VM 代理程式和延伸模組 – 第 1 部分](http://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/)。其中一個已安裝並執行的預設延伸模組是「BGINFO」延伸模組，它會在 VM 桌面上顯示系統資訊，例如內部 IP 和可用磁碟空間。
+1. 在精靈的最後一頁，保持選取預設值 [安裝 VM 代理程式]。本主題的步驟不會使用 VM 代理程式，但若您打算保留此 VM，VM 代理程式和延伸模組可讓您增強 CM。如需有關 VM 代理程式的詳細資訊，請參閱 [VM 代理程式和延伸模組 – 第 1 部分](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/)。其中一個已安裝並執行的預設延伸模組是「BGINFO」延伸模組，它會在 VM 桌面上顯示系統資訊，例如內部 IP 和可用磁碟空間。
 
 1. 按一下 [完成]。![確定](./media/virtual-machines-sql-server-create-native-mode-report-server-powershell/IC660122.gif)
 
@@ -107,7 +107,7 @@
 
 ## 步驟 2：建立伺服器憑證
 
->[AZURE.NOTE]如果報表伺服器不需要 HTTPS，可以**略過步驟 2**，並移至**使用指令碼設定報表伺服器和 HTTP**一節。透過 HTTP 指令碼快速設定報表伺服器，報表伺服器即可供使用。
+>[AZURE.NOTE] 如果報表伺服器不需要 HTTPS，可以**略過步驟 2**，並移至**使用指令碼設定報表伺服器和 HTTP**一節。透過 HTTP 指令碼快速設定報表伺服器，報表伺服器即可供使用。
 
 您需要信任的 SSL 憑證，才能在 VM 上使用 HTTPS。您可以根據您的情況，使用下列其中一種方法：
 
@@ -129,7 +129,7 @@
 
 	[管理 Windows Server 2012 的安全性工具 (英文)](https://technet.microsoft.com/library/jj730960.aspx)
 
-	>[AZURE.NOTE]信任的 SSL 憑證的 [核發給] 欄位應該與新 VM 的 [雲端服務 DNS 名稱] 相同。
+	>[AZURE.NOTE] 信任的 SSL 憑證的 [核發給] 欄位應該與新 VM 的 [雲端服務 DNS 名稱] 相同。
 
 1. **在 Web 伺服器上安裝伺服器憑證**。此案例中的 Web 伺服器是作為裝載報表伺服器的 VM，而我們會在後面設定 Reporting Services 的步驟中建立網站。如需有關如何使用憑證 MMC 嵌入式管理單元，在 Web 伺服器上安裝伺服器憑證的詳細資訊，請參閱[安裝伺服器憑證](https://technet.microsoft.com/library/cc740068)。
 	
@@ -161,7 +161,7 @@
 	
 	1. 展開 [信任的根憑證授權] 節點，接著以滑鼠右鍵按一下 [憑證]，然後按一下 [貼上]。
 	
-	1. 若要驗證，請按兩下 [信任的根憑證授權] 下的憑證名稱，確認沒有任何錯誤，且您能看到您的憑證。若您要使用本主題中的 HTTPS 指令碼設定報表伺服器，需將 [指紋] 憑證的值做為指令碼的參數。**若要取得憑證指紋值**，請完成下列步驟。在[使用指令碼設定報表伺服器和 HTTPS](#use-script-to-configure-the-report-server-and-HTTPS) 一節中，還有可擷取憑證指紋的 PowerShell 範例。
+	1. 若要驗證，請按兩下 [信任的根憑證授權] 下的憑證名稱，確認沒有任何錯誤，且您能看到您的憑證。若您要使用本主題中的 HTTPS 指令碼設定報表伺服器，需將 [指紋] 憑證的值做為指令碼的參數。**若要取得憑證指紋值**，請完成下列步驟。在＜[使用指令碼設定報表伺服器和 HTTPS](#use-script-to-configure-the-report-server-and-HTTPS)＞一節中，還有可擷取憑證指紋的 PowerShell 範例。
 		
 		1. 按兩下憑證名稱，例如 ssrsnativecloud.cloudapp.net。
 		
@@ -565,7 +565,7 @@
 
 1. 在 VM 的 [開始] 功能表中，鍵入 **Reporting Services**，並開啟 [Reporting Services 組態管理員]。
 
-1. 保留 [伺服器名稱] 和 [報告伺服器執行個體] 的預設值。按一下 [連接]。
+1. 保留 [伺服器名稱] 和 [報表伺服器執行個體] 的預設值。按一下 [連接]。
 
 1. 按一下左窗格中的 [Web 服務 URL]。
 
@@ -599,13 +599,13 @@
 
 ## 步驟 4：開啟 Windows 防火牆連接埠
 
->[AZURE.NOTE]如果您使用其中一個指令碼來設定報表伺服器，則可略過本節。指令碼已包含可開啟防火牆連接埠的步驟。預設值為連接埠 80 用於 HTTP，而連接埠 443 用於 HTTPS。
+>[AZURE.NOTE] 如果您使用其中一個指令碼來設定報表伺服器，則可略過本節。指令碼已包含可開啟防火牆連接埠的步驟。預設值為連接埠 80 用於 HTTP，而連接埠 443 用於 HTTPS。
 
 若要遠端連接報表管理員或虛擬機器上的報表伺服器，則 VM 必須有 TCP 端點。 必須在 VM 的防火牆中開啟相同的連接埠。端點是在佈建 VM 時建立。
 
 本節提供有關如何開啟防火牆連接埠的基本資訊。如需詳細資訊，請參閱[為報告伺服器存取設定防火牆](https://technet.microsoft.com/library/bb934283.aspx)。
 
->[AZURE.NOTE]如果您使用指令碼來設定報表伺服器，則可略過本節。指令碼已包含可開啟防火牆連接埠的步驟。
+>[AZURE.NOTE] 如果您使用指令碼來設定報表伺服器，則可略過本節。指令碼已包含可開啟防火牆連接埠的步驟。
 
 如果您為 HTTPS 設定的私用連接埠不是 443，請據以修改下列指令碼。若要開啟 Windows 防火牆上的連接埠 **443**，請完成下列步驟：
 
@@ -633,7 +633,7 @@
 
 		http://localhost/Reports
 
-- 從本機電腦瀏覽至 VM 上的**遠端**報告管理員。視需要更新下列範例中的 DNS 名稱。如果系統提示輸入密碼，請使用您佈建 VM 時所建立的系統管理員認證。使用者名稱的格式是 [網域]\[使用者名稱]，其中的網域是 VM 電腦名稱，例如 ssrsnativecloud\\testuser。如果您不是使用 HTTP**S**，請移除 URL 中的 **s**。如需有關如何在 VM 上建立其他使用者的資訊，請參閱下一節。
+- 從本機電腦瀏覽至 VM 上的**遠端**報告管理員。視需要更新下列範例中的 DNS 名稱。如果系統提示輸入密碼，請使用您佈建 VM 時所建立的系統管理員認證。使用者名稱的格式是 [網域][使用者名稱]，其中的網域是 VM 電腦名稱，例如 ssrsnativecloud\\testuser。如果您不是使用 HTTP**S**，請移除 URL 中的 **s**。如需有關如何在 VM 上建立其他使用者的資訊，請參閱下一節。
 
 		https://ssrsnativecloud.cloudapp.net/Reports
 
@@ -661,7 +661,7 @@
 
 	1. 以管理權限啟動瀏覽器。
 	
-	1. 瀏覽至虛擬機器上的報告管理員，然後按一下功能區中的 [報告產生器]。
+	1. 瀏覽至虛擬機器上的報表管理員，然後按一下功能區中的 [報表產生器]。
 
 	如需詳細資訊，請參閱[安裝、解除安裝和支援報告產生器](https://technet.microsoft.com/library/dd207038.aspx)。
 
@@ -683,7 +683,7 @@
 
 ## 在不使用 VM 時將成本降至最低
 
->[AZURE.NOTE]若要在不使用 Azure 虛擬機器時將費用降至最低，請從 Azure 傳統入口網站關閉 VM。如果您使用 VM 內的 Windows 電源選項關閉 VM，則仍需針對 VM 支付相同金額。為了降低費用，您必須在 Azure 傳統入口網站關閉 VM。如果您不再需要 VM，請記得刪除 VM 和相關聯的 .vhd 檔案，以節省儲存空間費用。如需詳細資訊，請參閱[虛擬機器價格詳細資料](http://azure.microsoft.com/pricing/details/virtual-machines)的「常見問題集」一節。
+>[AZURE.NOTE] 若要在不使用 Azure 虛擬機器時將費用降至最低，請從 Azure 傳統入口網站關閉 VM。如果您使用 VM 內的 Windows 電源選項關閉 VM，則仍需針對 VM 支付相同金額。為了降低費用，您必須在 Azure 傳統入口網站關閉 VM。如果您不再需要 VM，請記得刪除 VM 和相關聯的 .vhd 檔案，以節省儲存空間費用。如需詳細資訊，請參閱[虛擬機器價格詳細資料](https://azure.microsoft.com/pricing/details/virtual-machines/)的「常見問題集」一節。
 
 ## 相關資訊
 
@@ -695,7 +695,7 @@
 
 - 如需與 Azure 虛擬機器的 SQL Server Business Intelligence 部署相關的一般資訊，請參閱 [Azure 虛擬機器的 SQL Server Business Intelligence](virtual-machines-sql-server-business-intelligence.md)。
 
-- 如需有關 Azure 計算費用成本的詳細資訊，請參閱 [Azure 價格計算機](http://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines)中的 [虛擬機器] 索引標籤。
+- 如需有關 Azure 計算費用成本的詳細資訊，請參閱 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines)中的 [虛擬機器] 索引標籤。
 
 ### 社群內容
 
@@ -705,4 +705,4 @@
 
 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-sql-server-infrastructure-services.md)
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

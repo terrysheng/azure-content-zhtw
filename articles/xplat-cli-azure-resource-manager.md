@@ -27,7 +27,7 @@
 
 此文描述如何在 Azure 資源管理員模式中使用 Mac、Linux 和 Windows 適用的 Azure 命令列介面 (CLI)，建立及管理 Azure 資源。
 
->[AZURE.NOTE]若要使用命令列建立與管理 Azure 資源，您必須有 Azure 帳戶 ([免費試用版](http://azure.microsoft.com/pricing/free-trial/))。您還需要[安裝 Azure CLI](xplat-cli-install.md)，並[登入使用您帳戶的相關 Azure 資源](xplat-cli-connect.md)。如果上述事項都已完成，您就能開始進行了。
+>[AZURE.NOTE] 若要使用命令列建立與管理 Azure 資源，您必須有 Azure 帳戶 ([免費試用版](https://azure.microsoft.com/pricing/free-trial/))。您還需要[安裝 Azure CLI](xplat-cli-install.md)，並[登入使用您帳戶的相關 Azure 資源](xplat-cli-connect.md)。如果上述事項都已完成，您就能開始進行了。
 
 ## Azure 資源
 
@@ -35,7 +35,7 @@
 
 Azure 資源管理員的優點之一就是您可以用「宣告」的方式建立 Azure 資源，亦即描述可在 JSON「範本」中部署的資源群組的結構與關係。範本會識別可在執行命令時內嵌的參數，或儲存於個別 JSON azuredeploy-parameters.json 檔案中的參數。如此一來，您只要提供不同的參數，就能使用相同的範本輕易建立新資源。例如，建立網站的範本將具有網站名稱的參數、網站將放置的區域，以及其他共同設定。
 
-使用範本修改或建立群組時，會建立部署，接著將其套用至群組。如需 Azure 資源管理員的詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
+使用範本修改或建立群組時，會建立_部署_，接著將其套用至群組。如需 Azure 資源管理員的詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
 
 建立部署之後，您可以在命令列上以命令管理個別的資源，就如同在傳統 (服務管理) 部署模型中一樣。例如，使用 Azure 資源管理員 CLI 命令來啟動、停止或刪除資源，例如 [Azure 資源管理員虛擬機器](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)。
 
@@ -45,7 +45,7 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 如需 Microsoft Azure 驗證的詳細資訊，請參閱[從 Azure CLI 連線至 Azure 訂用帳戶](xplat-cli-connect.md)。
 
->[AZURE.NOTE]當您使用公司或學校帳戶 (這些帳戶由 Azure Active Directory 管理) 時，您也可以使用 Azure 角色型存取控制 (RBAC) 管理 Azure 資源的存取與使用。如需詳細資料，請參閱[角色型存取控制](./active-directory/role-based-access-control-configure.md)。
+>[AZURE.NOTE] 當您使用公司或學校帳戶 (這些帳戶由 Azure Active Directory 管理) 時，您也可以使用 Azure 角色型存取控制 (RBAC) 管理 Azure 資源的存取與使用。如需詳細資料，請參閱[角色型存取控制](./active-directory/role-based-access-control-configure.md)。
 
 ## 設定 Azure 資源管理員模式
 
@@ -53,7 +53,7 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 	azure config mode arm
 
->[AZURE.NOTE]Azure 資源管理員模式與 Azure 服務管理模式是互斥的。亦即，任一模式所建立的資源，將無法由另一種模式來管理。
+>[AZURE.NOTE] Azure 資源管理員模式與 Azure 服務管理模式是互斥的。亦即，任一模式所建立的資源，將無法由另一種模式來管理。
 
 ## 尋找位置
 
@@ -65,7 +65,7 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 ## 建立資源群組
 
-資源群組是網路、儲存體和其他資源的邏輯群組。Azure 資源管理員模式中幾乎所有命令都需要資源群組。例如，您可以使用下列命令建立名為 testRG 的資源群組。
+資源群組是網路、儲存體和其他資源的邏輯群組。Azure 資源管理員模式中幾乎所有命令都需要資源群組。例如，您可以使用下列命令建立名為 _testRG_ 的資源群組。
 
 	azure group create -n "testRG" -l "West US"
 
@@ -78,13 +78,13 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 使用範本時，您可以[建立自己的範本](resource-group-authoring-templates.md)，或使用 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)中的範本 (也可以在 [GitHub](https://github.com/Azure/azure-quickstart-templates) 上取得範本)。
 
-建立新範本已超出本文的範圍，所以我們就從使用可在[範本庫](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/)取得的 101-simple-vm-from-image 範本著手。根據預設，這會在美國西部區域具有單一子網路的新虛擬網路中，建立單一 Ubuntu 14.04.2-LTS 虛擬機器。您只需要指定下列幾個參數即可使用此範本：
+建立新範本已超出本文的範圍，所以我們就從使用可在[範本庫](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/)取得的 _101-simple-vm-from-image_ 範本著手。根據預設，這會在美國西部區域具有單一子網路的新虛擬網路中，建立單一 Ubuntu 14.04.2-LTS 虛擬機器。您只需要指定下列幾個參數即可使用此範本：
 
 * VM 的系統管理員使用者名稱 = `adminUsername`
 * 密碼 = `adminPassword`
 * VM 的網域名稱 = `dnsLabelPrefix`
 
->[AZURE.TIP]下列步驟將示範搭配 Azure CLI 使用 VM 範本的一種方法。如需其他範例，請參閱[使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)。
+>[AZURE.TIP] 下列步驟將示範搭配 Azure CLI 使用 VM 範本的一種方法。如需其他範例，請參閱[使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md)。
 
 1. 遵循「深入了解 GitHub」連結從 GitHub 將 azuredeploy.json 和 azuredeploy.parameters.json 檔案下載到本機電腦上的工作資料夾。(請務必選取 GitHub 中每個檔案的「原始」格式。)
 
@@ -117,7 +117,7 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 	azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
 	```
 
-	這個範例會建立名為 testRGDeploy 的部署，而該部署會部署到資源群組 testRG 中。`-e` 選項會指定您在上一個步驟中修改的 azuredeploy.parameters.json 檔案。`-f` 選項會指定 azuredeploy.json 範本檔案。
+	這個範例會建立名為 _testRGDeploy_ 的部署，而該部署會部署到資源群組 _testRG_ 中。`-e` 選項會指定您在上一個步驟中修改的 azuredeploy.parameters.json 檔案。`-f` 選項會指定 azuredeploy.json 範本檔案。
 
 	上傳部署之後及將部署套用至群組中的資源之前，此命令會傳回 [確定]。
 
@@ -149,7 +149,7 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 		data:    ubuntuOSVersion        String        14.04.2-LTS
 		info:    group deployment show command OK
 
-	>[AZURE.NOTE]如果您認為您的設定不正確，並需要停止長時間執行的部署，請使用下列命令。
+	>[AZURE.NOTE] 如果您認為您的設定不正確，並需要停止長時間執行的部署，請使用下列命令。
 	>
 	> `azure group deployment stop "testRG" "testDeploy"`
 	>
@@ -168,13 +168,13 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 系統會提示您輸入必要的範本參數。
 
-> [AZURE.NOTE]請務必以 [原始] 模式開啟 JSON 範本。瀏覽器網址列中出現的 URL，與一般模式中出現的不同。在 GitHub 上檢視檔案時，若要以 [原始] 模式開啟檔案，請按一下右上角的 [原始]。
+> [AZURE.NOTE] 請務必以 [原始] 模式開啟 JSON 範本。瀏覽器網址列中出現的 URL，與一般模式中出現的不同。在 GitHub 上檢視檔案時，若要以 [原始] 模式開啟檔案，請按一下右上角的 [原始]。
 
 ## 使用資源
 
 雖然範本可讓您宣告設定中整個群組的變更，但有時您只需要使用特定的資源。您可以使用 `azure resource` 命令執行此工作。
 
-> [AZURE.NOTE]使用 `list` 命令以外的 `azure resource` 命令時，必須指定您正透過 `-o` 參數使用之資源的 API 版本。如果不確定要使用的 API 版本，請咨詢範本檔案並尋找資源的 **apiVersion** 欄位。
+> [AZURE.NOTE] 使用 `list` 命令以外的 `azure resource` 命令時，必須指定您正透過 `-o` 參數使用之資源的 API 版本。如果不確定要使用的 API 版本，請咨詢範本檔案並尋找資源的 **apiVersion** 欄位。
 
 1. 若要列出群組中的所有資源，請使用下列命令。
 
@@ -192,7 +192,7 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 		azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json
 
-	>[AZURE.NOTE]您可以使用 &gt; 字元將輸出導向檔案，藉此將 JSON 資料儲存至檔案。例如：
+	>[AZURE.NOTE] 您可以使用 &gt; 字元將輸出導向檔案，藉此將 JSON 資料儲存至檔案。例如：
 	>
 	> `azure resource show "testRG" "MyUbuntuVM" Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
 
@@ -202,7 +202,7 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 
 ## 記錄
 
-若要檢視群組上執行之作業的記錄資訊，請使用 `azure group log show` 命令。依預設，這會列出在群組上執行的最後一個作業。若要檢視所有作業，請使用選用的 `--all` 參數。針對前次部署，使用 `--last-deployment`。針對特定部署，使用 `--deployment` 並指定部署名稱。下列範例會傳回針對群組 MyGroup 執行的所有作業記錄。
+若要檢視群組上執行之作業的記錄資訊，請使用 `azure group log show` 命令。依預設，這會列出在群組上執行的最後一個作業。若要檢視所有作業，請使用選用的 `--all` 參數。針對前次部署，使用 `--last-deployment`。針對特定部署，使用 `--deployment` 並指定部署名稱。下列範例會傳回針對群組 *MyGroup* 執行的所有作業記錄。
 
 	azure group log show MyGroup --all
 
@@ -215,4 +215,4 @@ Azure 資源管理員的優點之一就是您可以用「宣告」的方式建�
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

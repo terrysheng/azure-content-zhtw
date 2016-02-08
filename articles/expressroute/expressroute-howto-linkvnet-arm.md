@@ -31,7 +31,6 @@
 
 - 您需要最新版的 Azure PowerShell 模組 (版本 1.0 或更新版本)。 
 - 開始設定之前，請確定您已經檢閱過[必要條件](expressroute-prerequisites.md)頁面、[路由需求](expressroute-routing.md)頁面和[工作流程](expressroute-workflows.md)頁面。
-- 您必須擁有作用中的 ExpressRoute 線路。繼續之前，請遵循指示來[建立 ExpressRoute 線路](expressroute-howto-circuit-classic.md)，並由您的連線提供者來啟用該線路。ExpressRoute 線路必須處於已佈建和已啟用狀態，您才能執行如下所述的 Cmdlet。
 - 您必須擁有作用中的 ExpressRoute 線路。 
 	- 遵循指示來[建立 ExpressRoute 線路](expressroute-howto-circuit-arm.md)，並由您的連線提供者來啟用該線路。 
 	- 確定您已針對循環設定了 Azure 私用對等。請參閱[設定路由](expressroute-howto-routing-arm.md)一文，以取得路由指示。 
@@ -52,7 +51,7 @@
 
 多個訂用帳戶間可共用一個 ExpressRoute 循環。此圖顯示簡單的圖解，示範如何在多個訂用帳戶間共用 ExpressRoute 循環的方式。大型雲端內的每個較小型雲端，會用來代表屬於組織內不同部門的訂用帳戶。組織內的每個部門都可以使用自己的訂用帳戶來部署它們的服務，但可共用單一 ExpressRoute 循環，以連接回內部部署網路。單一部門 (在此範例中：IT) 可以擁有 ExpressRoute 循環。組織內的其他訂用帳戶可以使用 ExpressRoute 電路。
 
->[AZURE.NOTE]ExpressRoute 循環擁有者需支付專用循環的連線和頻寬費用。所有虛擬網路都會共用相同的頻寬。
+>[AZURE.NOTE] ExpressRoute 循環擁有者需支付專用循環的連線和頻寬費用。所有虛擬網路都會共用相同的頻寬。
 
 ![跨訂用帳戶的連線能力](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
 
@@ -137,4 +136,4 @@
 
 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

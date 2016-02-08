@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/02/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect︰版本發行歷程記錄
@@ -50,7 +50,7 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 **新的預覽功能：**
 
 - [適用於同步的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)。
-- 支援 [Azure AD 網域服務](active-directory-ds-getting-started.md)密碼同步處理。
+- 支援 [Azure AD 網域服務](active-directory-get-started.md)密碼同步處理。
 
 **新的支援案例：**
 
@@ -209,4 +209,4 @@ AD 帳戶必須獲得其他權限，才能讀取來自 AD 的密碼雜湊。要�
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

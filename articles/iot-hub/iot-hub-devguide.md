@@ -66,7 +66,7 @@ Azure IoT 中樞是多租用戶服務，且公開功能給各種執行者。下�
 
     ![][img-eventhubcompatible]
 
-> [AZURE.NOTE]SDK 有時需要 [主機名稱] 或 [命名空間] 值。在此情況下，請從 [事件中樞相容端點] 移除配置。比方說，如果您的事件中樞相容端點為 ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**，**主機名稱**會是 **iothub-ns-myiothub-1234.servicebus.windows.net**，而**命名空間**會是 **iothub-ns-myiothub-1234**。
+> [AZURE.NOTE] SDK 有時需要 [主機名稱] 或 [命名空間] 值。在此情況下，請從 [事件中樞相容端點] 移除配置。比方說，如果您的事件中樞相容端點為 ****sb://iothub-ns-myiothub-1234.servicebus.windows.net/**，**主機名稱**會是 **iothub-ns-myiothub-1234.servicebus.windows.net**，而**命名空間**會是 **iothub-ns-myiothub-1234**。
 
 然後，您可以使用具有 **ServiceConnect** 權限的任何共用存取安全性原則，連接至指定的事件中樞。
 
@@ -88,7 +88,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 
 總括來說，裝置身分識別登錄是支援 REST 的裝置身分識別資源集合。下列各節將詳細說明裝置身分識別資源屬性，以及登錄對身分識別啟用的作業。
 
-> [AZURE.NOTE]如需您可用來與裝置身分識別登錄互動的 HTTP 通訊協定和 SDK 的詳細資訊，請參閱 [IoT 中樞 API 和 SDK][lnk-apis-sdks]。
+> [AZURE.NOTE] 如需您可用來與裝置身分識別登錄互動的 HTTP 通訊協定和 SDK 的詳細資訊，請參閱 [IoT 中樞 API 和 SDK][lnk-apis-sdks]。
 
 ### 裝置身分識別屬性 <a id="deviceproperties"></a>
 
@@ -108,7 +108,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 | connectionStateUpdatedTime | 唯讀 | 上次更新連線狀態的日期和時間。 |
 | lastActivityTime | 唯讀 | 裝置上次連接、接收或傳送訊息的日期和時間。 |
 
-> [AZURE.NOTE]連線狀態只能代表連線狀態的 IoT 中樞檢視。根據網路狀況和組態而定，可能會延遲此狀態的更新。
+> [AZURE.NOTE] 連線狀態只能代表連線狀態的 IoT 中樞檢視。根據網路狀況和組態而定，可能會延遲此狀態的更新。
 
 ### 裝置身分識別作業
 
@@ -122,7 +122,7 @@ IoT 中樞裝置身分識別登錄會公開下列作業︰
 
 上述所有作業允許使用 [RFC7232][lnk-rfc7232] 中指定的開放式並行存取。
 
-> [AZURE.IMPORTANT]如果要擷取中心的身分識別登錄中的所有身分識別，唯一方法是使用[匯出](#importexport)功能。
+> [AZURE.IMPORTANT] 如果要擷取中心的身分識別登錄中的所有身分識別，唯一方法是使用[匯出](#importexport)功能。
 
 IoT 中樞的裝置身分識別登錄不包含任何應用程式中繼資料、可如同字典一樣使用 **deviceId** 做為索引鍵來存取，而且不支援表達式查詢。
 
@@ -147,7 +147,7 @@ IoT 方案通常具有不同的方案專屬存放區，其中包含應用程式�
 * 擷取執行中工作的狀態
 * 取消執行中的工作
 
-> [AZURE.NOTE]在任何指定的時間，每個中心只可以有一項執行中的工作。
+> [AZURE.NOTE] 在任何指定的時間，每個中心只可以有一項執行中的工作。
 
 如須匯入和匯出 API 的詳細資訊，請參閱 [Azure IoT 中樞 - 資源提供者 API][lnk-resource-provider-apis]。
 
@@ -217,7 +217,7 @@ Azure IoT 中樞可根據共用存取原則和裝置身分識別登錄安全性�
 
 安全性認證 (例如對稱金鑰) 決不會在網路上傳送。
 
-> [AZURE.NOTE]如同 [Azure 資源管理員][lnk-azure-resource-manager]中的所有提供者一樣，Azure IoT 中樞資源提供者也是透過您的 Azure 訂用帳戶而受保護。
+> [AZURE.NOTE] 如同 [Azure 資源管理員][lnk-azure-resource-manager]中的所有提供者一樣，Azure IoT 中樞資源提供者也是透過您的 Azure 訂用帳戶而受保護。
 
 #### 安全性權杖格式 <a id="tokenformat"></a>
 
@@ -229,10 +229,10 @@ Azure IoT 中樞可根據共用存取原則和裝置身分識別登錄安全性�
 
 | 值 | 說明 |
 | ----- | ----------- |
-| {signature} | HMAC-SHA256 簽章字串，格式為：`{URL-encoded-resourceURI} + "\n" + expiry` |
+| {signature} | HMAC-SHA256 簽章字串，格式為：`{URL-encoded-resourceURI} + "\n" + expiry`。**重要事項**：金鑰是從 base64 解碼而來，並且會做為用來執行 HMAC-SHA256 計算的金鑰。 |
 | {resourceURI} | 可使用此權杖存取之端點的 URI 前置詞 (由區段)。例如，`/events` |
 | {expiry} | 從新紀元時間 (Epoch) 1970 年 1 月 1日 00:00:00 UTC 時間至今秒數的 UTF8 字串。 |
-| {URL-encoded-resourceURI} | URL 編碼的資源 URI (小寫) |
+| {URL-encoded-resourceURI} | 小寫資源 URI 的小寫 URL 編碼 |
 | {policyName} | 此權杖所參考的共用存取原則名稱。在權杖參考裝置登錄認證的情況下不存在。 |
 
 **前置詞的注意事項**︰URI 前置詞是依區段 (而不是依字元) 計算。例如，`/a/b` 是 `/a/b/c` 的前置詞，而不是 `/a/bc` 的前置詞。
@@ -341,6 +341,8 @@ IoT 中樞實作裝置到雲端傳訊的方式類似於[事件中樞][lnk-event-
 
 如需如何使用裝置到雲端傳訊的詳細資訊，請參閱 [IoT 中樞 API 和 SDK][lnk-apis-sdks]。
 
+> [AZURE.NOTE] 使用 HTTP 來傳送裝置到雲端的訊息時，下列字串只能包含 ASCII 字元：系統屬性值，以及應用程式屬性名稱和值。
+
 #### 非遙測流量
 
 在許多情況下，除了遙測資料點之外，裝置也會傳送*互動式*訊息，以及需要執行與處理應用程式商務邏輯層要求的要求。例如，必須在後端觸發特定動作的重大警示，或對由後端傳送之命令的裝置回應。
@@ -386,6 +388,8 @@ IoT 中樞會公開下列屬性，讓您控制裝置到雲端傳訊。
 
 **重要事項**︰每個裝置佇列最多可以保留 50 則雲端到裝置的訊息。嘗試將更多訊息傳送至相同的裝置會導致錯誤。
 
+> [AZURE.NOTE] 在傳送雲端到裝置的訊息時，下列字串只能包含 ASCII 字元：系統屬性值，以及應用程式屬性名稱和值。
+
 #### 訊息生命週期 <a id="message lifecycle"></a>
 
 為了實作*至少一次*傳遞保證，雲端到裝置的訊息會保存在每一裝置的佇列中，而裝置必須明確地認可*完成*，IoT 中樞才會從佇列中移除訊息。這保證連線失敗和裝置故障能夠恢復。
@@ -402,7 +406,7 @@ IoT 中樞會公開下列屬性，讓您控制裝置到雲端傳訊。
 
 如需雲端到裝置訊息的教學課程，請參閱[開始使用 Azure IoT 中樞雲端到裝置訊息][lnk-getstarted-c2d-tutorial]。如需有關不同 API 和 SDK 如何公開雲端到裝置功能的參考主題，請參閱 [IoT 中樞 API 和 SDK][lnk-apis-sdks]。
 
-> [AZURE.NOTE]通常只要遺失訊息不會影響應用程式邏輯，就應該完成雲端到裝置的訊息。這可能會在許多不同的情況下發生。例如：訊息內容已成功保存在本機儲存體，或已成功執行作業，或訊息帶有遺失時不會影響應用程式功能的暫時性資訊。有時候，對於長時間執行的工作，在本機儲存體上保存工作描述之後，您可以完成雲端到裝置的訊息，然後在工作進度的各個階段，以一或多則裝置到雲端的訊息通知應用程式後端。
+> [AZURE.NOTE] 通常只要遺失訊息不會影響應用程式邏輯，就應該完成雲端到裝置的訊息。這可能會在許多不同的情況下發生。例如：訊息內容已成功保存在本機儲存體，或已成功執行作業，或訊息帶有遺失時不會影響應用程式功能的暫時性資訊。有時候，對於長時間執行的工作，在本機儲存體上保存工作描述之後，您可以完成雲端到裝置的訊息，然後在工作進度的各個階段，以一或多則裝置到雲端的訊息通知應用程式後端。
 
 #### 存留時間 <a id="ttl"></a>
 
@@ -441,19 +445,19 @@ IoT 中樞會公開下列屬性，讓您控制裝置到雲端傳訊。
 **範例**。以下是意見反應訊息的主體範例。
 
 ```
-    [
-        {
-            "OriginalMessageId": "0987654321",
-            "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
-            "Description": "Success",
-            "DeviceId": "123",
-            "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
-        },
-        {
-            ...
-        },
-        ...
-    ]
+[
+  {
+    "OriginalMessageId": "0987654321",
+    "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
+    "Description": "Success",
+    "DeviceId": "123",
+    "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
+  },
+  {
+    ...
+  },
+  ...
+]
 ```
 
 #### 雲端到裝置的設定選項 <a id="c2dconfiguration"></a>
@@ -542,4 +546,4 @@ IoT 中樞允許每天每個單位 (不管 SKU) 最多有 1100 次裝置更新 (
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0107_2016--->
+<!---HONumber=AcomDC_0128_2016-->

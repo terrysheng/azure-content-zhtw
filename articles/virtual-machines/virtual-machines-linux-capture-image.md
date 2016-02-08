@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="01/22/2016"
 	ms.author="dkshir"/>
 
 
@@ -29,9 +29,7 @@ Azure 會將映像儲存在 [**映像**] 底下。這也是您已上傳的任何
 
 ## 開始之前
 
-這些步驟假設您已使用傳統部署模型建立 Azure 虛擬機器，並設定好作業系統，包括連接任何資料磁碟。如果您還沒這麼做，請參閱下列指示：
-
-- [如何建立執行 Linux 的虛擬機器][]
+這些步驟假設您已使用傳統部署模型建立 Azure 虛擬機器，並設定好作業系統，包括連接任何資料磁碟。如果您尚未這麼做，請參閱[如何建立 Linux 虛擬機器][]。
 
 
 ## 擷取虛擬機器
@@ -51,7 +49,7 @@ Azure 會將映像儲存在 [**映像**] 底下。這也是您已上傳的任何
 	- 將主機名稱重設為 localhost.localdomain
 	- 刪除最後佈建的使用者帳戶 (取自於 /var/lib/waagent) **和相關聯的資料**。
 
-	>[AZURE.NOTE]解除佈建會刪除檔案與資料，以將映象「一般化」。請只在您想要擷取做為新映像範本的虛擬機器上執行這個命令。這不能保證映像檔中的所有機密資訊都會清除完畢或適合轉散發給第三方。
+	>[AZURE.NOTE] 解除佈建會刪除檔案與資料，以將映象「一般化」。請只在您想要擷取做為新映像範本的虛擬機器上執行這個命令。這不能保證映像檔中的所有機密資訊都會清除完畢或適合轉散發給第三方。
 
 
 3. 輸入 **y** 繼續。您可以加入 `-force` 參數，便不用進行此確認步驟。
@@ -59,7 +57,7 @@ Azure 會將映像儲存在 [**映像**] 底下。這也是您已上傳的任何
 4. 輸入 **Exit** 關閉 SSH 用戶端。
 
 
-	>[AZURE.NOTE]接下來的步驟假設您已經在用戶端電腦上[安裝 Azure CLI](../xplat-cli-install.md)。您也可以在 [Azure 傳統入口網站][]中完成下方所有步驟。
+	>[AZURE.NOTE] 接下來的步驟假設您已經在用戶端電腦上[安裝 Azure CLI](../xplat-cli-install.md)。您也可以在 [Azure 傳統入口網站][]中完成下方所有步驟。
 
 5. 從用戶端電腦，開啟 Azure CLI 並登入您的 Azure 訂用帳戶。如需詳細資料，請閱讀[從 Azure CLI 連接到 Azure 訂用帳戶](../xplat-cli-connect.md)。
 
@@ -71,7 +69,7 @@ Azure 會將映像儲存在 [**映像**] 底下。這也是您已上傳的任何
 
 	`azure vm shutdown <your-virtual-machine-name>`
 
-	>[AZURE.NOTE]您可以使用 `azure vm list`，找出訂用帳戶中建立的所有虛擬機器
+	>[AZURE.NOTE] 您可以使用 `azure vm list`，找出訂用帳戶中建立的所有虛擬機器
 
 8. 當虛擬機器停止時，使用下列命令來擷取映像：
 
@@ -98,6 +96,6 @@ Azure 會將映像儲存在 [**映像**] 底下。這也是您已上傳的任何
 [關於 Azure 中的虛擬機器映像]: virtual-machines-images.md
 [如何建立自訂虛擬機器]: virtual-machines-linux-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
-[如何建立執行 Linux 的虛擬機器]: virtual-machines-linux-tutorial.md
+[如何建立 Linux 虛擬機器]: virtual-machines-linux-create-custom.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -30,7 +30,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 - 如需以程式設計方式操作資料表的詳細資訊，請參閱[如何使用 .NET 的表格儲存體](storage-dotnet-how-to-use-tables.md)。
 - 如需 Azure 儲存體的一般資訊，請參閱[儲存體文件](https://azure.microsoft.com/documentation/services/storage/)。
-- 如需 Azure 雲端服務的一般資訊，請參閱[雲端服務文件](http://azure.microsoft.com/documentation/services/cloud-services/)。
+- 如需 Azure 雲端服務的一般資訊，請參閱[雲端服務文件](https://azure.microsoft.com/documentation/services/cloud-services/)。
 - 若需要如何編寫 ASP.NET 應用程式的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
 
 ## 在程式碼中存取資料表
@@ -50,7 +50,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage account name>
          _AzureStorageConnectionString"));
-> [AZURE.NOTE]請在下列範例中的程式碼前面使用上述所有程式碼。
+> [AZURE.NOTE]  請在下列範例中的程式碼前面使用上述所有程式碼。
 
 3. 取得 **CloudTableClient** 物件，以參考您儲存體帳戶中的資料表物件。
 
@@ -269,4 +269,4 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

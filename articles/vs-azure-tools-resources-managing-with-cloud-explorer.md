@@ -30,7 +30,7 @@
 - Visual Studio 2015 RTM。
 
 - Visual Studio Tools for Azure SDK。
-- 您也必須擁有 Azure 帳戶並登入，才能在 [雲端總管] 中檢視 Azure 資源。如果沒有的話，只需要幾分鐘的時間就可以建立帳戶。如果您有 MSDN 訂用帳戶，請參閱 [MSDN 訂戶的 Azure 權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。否則，請參閱[建立免費試用帳戶](http://azure.microsoft.com/pricing/free-trial/)。
+- 您也必須擁有 Azure 帳戶並登入，才能在 [雲端總管] 中檢視 Azure 資源。如果沒有的話，只需要幾分鐘的時間就可以建立帳戶。如果您有 MSDN 訂用帳戶，請參閱 [MSDN 訂戶的 Azure 權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。否則，請參閱[建立免費試用帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 - 如果看不到 [雲端總管]，您可以在功能表列上選擇 [檢視]、[其他視窗]、[雲端總管] ，就能看到。
 
@@ -95,4 +95,4 @@
 
 當您在 [搜尋] 方塊中輸入字元時，只有符合這些字元的資源才會出現在資源樹狀目錄中。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

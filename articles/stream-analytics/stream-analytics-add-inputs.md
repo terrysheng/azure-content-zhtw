@@ -22,7 +22,7 @@
 
 # 將串流資料輸入新增至串流分析工作中
 
-Azure 串流分析工作可以連線至一或多個輸入，且每個輸入都定義了一個與現有資料來源之間的連線。當資料傳送到該資料來源時，串流分析工作會即時取用該資料，並把它當做串流資料來處理。在工作訂用帳戶內外，串流分析具有與 [Azure 事件中樞](http://azure.microsoft.com/services/event-hubs/)和 [Azure Blob 儲存體](./storage/storage-dotnet-how-to-use-blobs.md)的第一級整合。串流分析有兩種不同的輸入類型：資料流和參考資料。
+Azure 串流分析工作可以連線至一或多個輸入，且每個輸入都定義了一個與現有資料來源之間的連線。當資料傳送到該資料來源時，串流分析工作會即時取用該資料，並把它當做串流資料來處理。在工作訂用帳戶內外，串流分析具有與 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)和 [Azure Blob 儲存體](./storage/storage-dotnet-how-to-use-blobs.md)的第一級整合。串流分析有兩種不同的輸入類型：資料流和參考資料。
 
 - **資料流**：串流分析工作必須至少包含一個由工作取用和轉換的資料流輸入。支援將 Azure Blob 儲存體和 Azure 事件中樞當成資料流輸入來源。Azure 事件中樞是用於從多個連接的裝置和服務收集事件資料流。Azure Blob 儲存體可用於擷取大量資料作為資料流的輸入來源。  
 - **參考資料**：串流分析會支援稱為參考資料的第二類型輔助輸入。與動態資料相反，這種資料是靜態或變化緩慢的。其通常與資料流搭配使用來執行查閱和關聯，以建立更豐富的資料集。在預覽版本中，Azure Blob 儲存體是目前唯一支援當成參考資料的輸入來源。  
@@ -80,4 +80,4 @@ Azure 串流分析工作可以連線至一或多個輸入，且每個輸入都�
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

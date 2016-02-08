@@ -75,6 +75,6 @@
     &lt;/html>
 </pre>
 
-[深入了解 Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+[深入了解 Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

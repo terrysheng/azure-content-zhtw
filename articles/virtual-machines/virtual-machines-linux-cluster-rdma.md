@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="09/21/2015"
+ ms.date="01/21/2015"
  ms.author="danlep"/>
 
 # 設定 Linux RDMA 叢集以執行 MPI 應用程式
@@ -23,7 +23,7 @@ ms.service="virtual-machines"
 
 本文說明如何在 Azure 中使用[ A8 和 A9 大小的虛擬機器](virtual-machines-a8-a9-a10-a11-specs.md)設定 Linux RDMA 叢集，以便執行平行訊息傳遞介面 (MPI) 應用程式。當您設定 A8 和 A9 大小的 Linux VM 以執行支援的 MPI 實作時，MPI 應用程式可透過低延遲、高輸送量網路，在運用遠端直接記憶體存取 (RDMA) 技術的 Azure 中進行有效率的通訊。
 
->[AZURE.NOTE]Azure Linux RDMA 目前支援在 SUSE Linux Enterprise Server 12 (SLES 12) 上執行的 Intel MPI Library 第 5 版。這篇文章根據 Intel MPI 5.0.3.048 版。
+>[AZURE.NOTE] Azure Linux RDMA 目前支援在 Azure Marketplace 中的 SUSE Linux Enterprise Server 12 (SLES 12) 映像上執行的 Intel MPI Library 第 5 版。這篇文章根據 Intel MPI 5.0.3.048 版。
 >
 > Azure 也提供 A10 和 A11 大量運算執行個體，包含與 A8 和 A9 執行個體相同的處理能力，但不含 RDMA 後端網路的連接。若要在 Azure 中執行 MPI 工作負載，使用 A8 和 A9 執行個體通常可獲得最佳效能。
 
@@ -32,27 +32,27 @@ ms.service="virtual-machines"
 
 您可以使用下列方法來建立包含或不含工作排程器的 Linux RDMA 叢集。
 
-* **HPC Pack** - 在 Azure 中建立 Microsoft HPC Pack 叢集，並加入執行受支援 Linux 散發套件 (Linux 運算節點支援在 HPC Pack 2012 R2 Update 2 中啟動) 的運算節點。某些 Linux 節點可以設定為存取 RDMA 網路。請參閱[開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點](virtual-machines-linux-cluster.md)。
+* **HPC Pack** - 在 Azure 中建立 Microsoft HPC Pack 叢集並加入執行支援之 Linux 發行版本的計算節點。某些 Linux 節點可以設定為存取 RDMA 網路。請參閱[開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點](virtual-machines-linux-cluster.md)。
 
 * **Azure CLI 指令碼** - 如同本文中其他部分的步驟所示，請使用適用於 Mac、Linux 和 Windows 的 [Azure 命令列介面](../xplat-cli-install.md) (CLI)，建置虛擬網路部署的指令碼和其他必要元件以建立 Linux 叢集。傳統 (服務管理) 部署模式中的 CLI 將循序建立叢集節點，因此如果您正在部署許多運算節點，則可能需要花費幾分鐘才能完成部署。
 
-* **Azure 資源管理員範本** - 藉由建立簡單的 Azure 資源管理員 JSON 範本檔案和執行資源管理員的 Azure CLI 命令，或使用 Azure 入口網站，部署多個的 A8 和 A9 Linux VM，以及定義虛擬網路、靜態 IP 位址、DNS 設定和其他資源，以便建立可利用 RDMA 網路執行 MPI 工作負載的運算叢集。您可以[建立自己的範本](../resource-group-authoring-templates.md)，或檢查 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/) 頁面，取得由 Microsoft 或社群貢獻的範本以部署想要的方案。資源管理員範本通常會提供最快速且最可靠的方式來部署 Linux 叢集。
+* **Azure 資源管理員範本** - 使用 Azure 資源管理員部署模型來部署多個 A8 和 A9 Linux VM，以及定義虛擬網路、靜態 IP 位址、DNS 設定和其他資源，以便建立可利用 RDMA 網路執行 MPI 工作負載的計算叢集。您可以[建立自己的範本](../resource-group-authoring-templates.md)，或檢查 [Azure 快速入門範本][](https://azure.microsoft.com/documentation/templates/) 頁面，取得由 Microsoft 或社群貢獻的範本以部署想要的方案。資源管理員範本可以提供快速可靠的方式來部署 Linux 叢集。
 
 ## Azure 服務管理中使用 Azure CLI 指令碼的部署
 
-下列步驟可協助您使用 Azure CLI 部署 SLES 12 VM、安裝 Intel MPI Library 和其他自訂項目、建立自訂的 VM 映像，然後再編寫 A8 或 A9 VM 叢集部署的指令碼。
+下列步驟可協助您使用 Azure CLI 部署 SUSE Linux Enterprise Server 12 VM、安裝 Intel MPI Library 和其他自訂項目、建立自訂的 VM 映像，然後再編寫 A8 或 A9 VM 叢集部署的指令碼。
 
-### 必要條件
+### 先決條件
 
 *   **用戶端電腦** - 您將需要 Mac、Linux 或 Windows 用戶端電腦才能與 Azure 進行通訊。這些步驟假設您使用 Linux 用戶端。
 
-*   **Azure 訂用帳戶** - 如果您沒有帳戶，僅需幾分鐘就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+*   **Azure 訂用帳戶** - 如果您沒有帳戶，僅需幾分鐘就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-*   **核心配額** - 您可能需要增加核心配額以部署 A8 或 A9 VM 的叢集。例如，如果您想要部署 8 個 A9 VM，將需要至少 128 個核心，如這篇文章中所示。若要增加配額，請[開啟線上客戶支援要求](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)，不另外加收費用。
+*   **核心配額** - 您可能需要增加核心配額以部署 A8 或 A9 VM 的叢集。例如，如果您想要部署 8 個 A9 VM，將需要至少 128 個核心，如這篇文章中所示。若要增加配額，請[開啟線上客戶支援要求](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)，不另外加收費用。
 
 *   **Azure CLI** - [安裝](../xplat-cli-install.md) Azure CLI 並[進行設定](../xplat-cli-connect.md)，以便從用戶端電腦連接至您的 Azure 訂用帳戶。
 
-*   **Intel MPI** - 為您的叢集自訂 Linux VM 映像的過程中 (請參閱本文稍後的詳細資料)，您必須從您佈建之 Azure Linux VM 上的 [Intel.com 網站](https://software.intel.com/zh-TW/intel-mpi-library/)下載並安裝 Intel MPI Library 5 執行階段。若要為此做準備，註冊 Intel 之後，請遵循確認電子郵件中相關網頁的連結，並針對適當版本的 Intel MPI 複製 .tgz 檔案的下載連結。這篇文章根據 Intel MPI 5.0.3.048 版。
+*   **Intel MPI** - 為您的叢集自訂 Linux VM 映像的過程中 (請參閱本文稍後的詳細資料)，您必須從 [Intel.com 網站](https://software.intel.com/zh-TW/intel-mpi-library/)下載並安裝 Intel MPI Library 5 執行階段。若要為此做準備，註冊 Intel 之後，請遵循確認電子郵件中相關網頁的連結，並針對適當版本的 Intel MPI 複製 .tgz 檔案的下載連結。這篇文章根據 Intel MPI 5.0.3.048 版。
 
 ### 佈建 SLES 12 VM
 
@@ -176,7 +176,7 @@ VM 完成佈建之後，使用 VM 的外部 IP 位址 (或 DNS 名稱) 以及您
 sudo waagent -deprovision
 ```
 
-然後，從用戶端電腦，執行下列 Azure CLI 命令來擷取映像。如需詳細資料，請參閱＜[如何擷取 Linux 虛擬機器作為範本使用](virtual-machines-linux-capture-image.md)＞。
+然後，從用戶端電腦，執行下列 Azure CLI 命令來擷取映像。如需詳細資訊，請參閱[如何將傳統 Linux 虛擬機器擷取成映像](virtual-machines-linux-capture-image.md)。
 
 ```
 azure vm shutdown <vm-name>
@@ -221,8 +221,64 @@ for (( i=11; i<19; i++ )); do
         azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i -w <network-name> -b Subnet-1 <image-name>
 done
 
-# Save this script with a name like makecluster.sh and run it in your shell environnment to provision your cluster
+# Save this script with a name like makecluster.sh and run it in your shell environment to provision your cluster
 ```
+
+## 為 SLES 12 更新 Linux RDMA 驅動程式
+
+在您建立以 SLES 12 HPC 映像為基礎的 Linux RDMA 叢集之後，您可能需要針對 RDMA 網路連線更新 VM 上的 RDMA 驅動程式。
+
+>[AZURE.IMPORTANT]目前在大部分的 Azure 區域中，這是使用 Linux RDMA 叢集部署的**必要**步驟。**只有在下列 Azure 區域中建立的 SLES 12 VM 不應更新：美國西部、西歐，及日本東部。**
+
+更新驅動程式之前，請先停止 VM 上所有的 **zypper** 處理程序或任何鎖定 SUSE 儲存機制資料庫的處理程序。否則驅動程式可能無法正確更新。
+
+
+在您的用戶端電腦上執行下列 Azure CLI 命令的其中一組，更新每部 VM 上的 Linux RDMA 驅動程式。
+
+**若 VM 以 Azure 服務管理佈建**
+
+```
+azure config mode asm
+
+azure vm extension set <vm-name> RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+```
+
+**若 VM 以 Azure 資源管理員佈建**
+
+```
+azure config mode arm
+
+azure vm extension set <resource-group> <vm-name> RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+```
+
+>[AZURE.NOTE]可能需要一些時間來安裝驅動程式，且命令會在沒有輸出的情況下傳回。更新之後，您的 VM 將會重新啟動，並應該在幾分鐘內準備好以供使用。
+
+您可以針對跨叢集中所有節點的驅動程式更新編寫指令碼。例如，下列指令碼會更新在先前步驟中由指令碼建立之 8 節點叢集的驅動程式。
+
+```
+
+#!/bin/bash -x
+
+# Define a prefix naming scheme for compute nodes, e.g., cluster11, cluster12, etc.
+
+vmname=cluster
+
+# Plug in appropriate numbers in the for loop below.
+
+for (( i=11; i<19; i++ )); do
+
+# For ASM VMs use the following command in your script.
+
+azure vm extension set $vmname$i RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+
+# For ARM VMs use the following command in your script.
+
+# azure vm extension set <resource-group> $vmname$i RDMAUpdateForLinux Microsoft.OSTCExtensions 0.1
+
+done
+
+```
+
 ## 設定和執行 Intel MPI
 
 若要在 Azure Linux RDMA 上執行 MPI 應用程式，您需要設定 Intel MPI 專用的特定環境變數。以下範例 Bash 指令碼，可供您設定變數並執行應用程式。
@@ -370,4 +426,4 @@ cluster12
 
 * 如需 Intel MPI 的指引，請參閱＜[Intel MPI Library 文件](https://software.intel.com/zh-TW/articles/intel-mpi-library-documentation/)＞。
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

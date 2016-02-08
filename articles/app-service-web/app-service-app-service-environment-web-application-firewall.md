@@ -19,7 +19,7 @@
 # 設定 App Service 環境的 Web 應用程式防火牆 (WAF)
 
 ## 概觀 ##
-[Azure Marketplace](http://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) 上的 Web 應用程式防火牆 (如 [Barracuda WAF for Azure](https://www.barracuda.com/programs/azure)) 有助於保護 Web 應用程式安全，方法是檢查輸入 Web 流量來封鎖 SQL 插入、跨站台指令碼，惡意上傳和應用程式 DDoS 以及其他攻擊。它也會針對資料外洩防護 (DLP) 檢查來自後端 Web 伺服器的回應。這與隔離以及 App Service 環境所提供的額外調整合併使用，以提供裝載商務關鍵 Web 應用程式的理想環境，而這些 Web 應用程式需要防禦惡意要求和大量流量。
+[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) 上的 Web 應用程式防火牆 (如 [Barracuda WAF for Azure](https://www.barracuda.com/programs/azure)) 有助於保護 Web 應用程式安全，方法是檢查輸入 Web 流量來封鎖 SQL 插入、跨站台指令碼，惡意上傳和應用程式 DDoS 以及其他攻擊。它也會針對資料外洩防護 (DLP) 檢查來自後端 Web 伺服器的回應。這與隔離以及 App Service 環境所提供的額外調整合併使用，以提供裝載商務關鍵 Web 應用程式的理想環境，而這些 Web 應用程式需要防禦惡意要求和大量流量。
 
 \+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -35,7 +35,7 @@
 Barracuda 具有在 Azure 中於虛擬機器上部署其 WAF 的[詳細文章](https://techlib.barracuda.com/WAF/AzureDeploy)。但是，因為我們想要具有備援性，但不想要引進單一失敗點，所以您想要在遵循這些指示時將至少 2 個 WAF 執行個體 VM 部署至相同的雲端服務。
 
 ### 將端點加入雲端服務 ###
-雲端服務中有 2 個以上的 WAF VM 執行個體之後，即可使用 [Azure 入口網站](https://portal.azure.com)加入應用程式所使用的 HTTP 和 HTTPS 端點 (如下圖所示)。
+雲端服務中有 2 個以上的 WAF VM 執行個體之後，即可使用 [Azure 入口網站](https://portal.azure.com/)加入應用程式所使用的 HTTP 和 HTTPS 端點 (如下圖所示)。
 
 ![設定端點][ConfigureEndpoint]
 
@@ -99,4 +99,4 @@ Barracuda WAF 使用 TCP 連接埠 8000，以透過其管理入口網站進行�
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

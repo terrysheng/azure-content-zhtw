@@ -18,13 +18,13 @@
 
 # 在 Azure 應用程式服務中使用 Active Directory 進行驗證 #
 
-無論使用者是從內部部署環境或公用網際網路存取應用程式，[Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 都可藉由支援使用者單一登入 (SSO) 來啟用企業營運應用程式案例。它可整合 [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) (AAD) 或內部部署的 Secure Token Service (STS)，例如 Active Directory Federation Services (AD FS)，以驗證您的內部 Active Directory (AD) 使用者並適當地授權。
+無論使用者是從內部部署環境或公用網際網路存取應用程式，[Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 都可藉由支援使用者單一登入 (SSO) 來啟用企業營運應用程式案例。它可整合 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) (AAD) 或內部部署的 Secure Token Service (STS)，例如 Active Directory Federation Services (AD FS)，以驗證您的內部 Active Directory (AD) 使用者並適當地授權。
 
 ## 零阻力的驗證與授權 ##
 
-只要按幾下按鈕，就能啟用 Web 應用程式的驗證和授權機制。每個 Azure Web 應用程式中的核取方塊樣式設定均可提供企業營運 Web 應用程式的基本存取控制。它是在授與使用者您的 Web 應用程式內容的存取權之前，藉由對您選擇的 Azure AD 租用戶強制執行 HTTPS 和驗證，來達到存取控制的目的。如需詳細資訊，請參閱 [Web 應用程式驗證 / 授權](http://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/)。
+只要按幾下按鈕，就能啟用 Web 應用程式的驗證和授權機制。每個 Azure Web 應用程式中的核取方塊樣式設定均可提供企業營運 Web 應用程式的基本存取控制。它是在授與使用者您的 Web 應用程式內容的存取權之前，藉由對您選擇的 Azure AD 租用戶強制執行 HTTPS 和驗證，來達到存取控制的目的。如需詳細資訊，請參閱 [Web 應用程式驗證 / 授權](https://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/)。
 
->[AZURE.NOTE]這項功能目前只能預覽。
+>[AZURE.NOTE] 這項功能目前只能預覽。
 
 ## 手動實作驗證與授權 ##
 
@@ -46,10 +46,10 @@
 	-	可依據每一應用程式基礎來管理[宣告](http://technet.microsoft.com/library/ee913571.aspx)。
 	-	必須有透過公司防火牆存取內部部署 AD 資料的獨立解決方案。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

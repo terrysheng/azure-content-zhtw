@@ -223,7 +223,7 @@
 
 3. 命令完成時，__wordcountjava/target__ 目錄將包含一個名為 __wordcountjava-1.0-SNAPSHOT.jar__ 的檔案。
 
-	> [AZURE.NOTE]__Wordcountjava-1.0-SNAPSHOT.jar__ 檔案是 uberjar，其中不只含有 WordCount 工作，還有工作在執行階段所需的相依性。
+	> [AZURE.NOTE] __Wordcountjava-1.0-SNAPSHOT.jar__ 檔案是 uberjar，其中不只含有 WordCount 工作，還有工作在執行階段所需的相依性。
 
 
 ##<a id="upload"></a>上傳 jar
@@ -236,7 +236,7 @@
 
 這樣就會將檔案從本機系統複製到前端節點。
 
-> [AZURE.NOTE]如果您使用密碼保護 SSH 帳戶，系統會提示您輸入密碼。如果您使用 SSH 金鑰，您可能必須使用 `-i` 參數和私密金鑰的路徑。例如，`scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`。
+> [AZURE.NOTE] 如果您使用密碼保護 SSH 帳戶，系統會提示您輸入密碼。如果您使用 SSH 金鑰，您可能必須使用 `-i` 參數和私密金鑰的路徑。例如，`scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`。
 
 ##<a name="run"></a>執行 MapReduce 工作
 
@@ -268,9 +268,9 @@
 
 - [搭配 HDInsight 使用 Hivet][hdinsight-use-hive]
 - [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
-- 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
+- [〈搭配 HDInsight 使用 MapReduce〉](hdinsight-use-mapreduce.md)
 
-如需詳細資訊，也請參閱 [Java 開發人員中心](http://azure.microsoft.com/develop/java/)。
+如需詳細資訊，也請參閱 [Java 開發人員中心](https://azure.microsoft.com/develop/java/)。
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -292,4 +292,4 @@
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

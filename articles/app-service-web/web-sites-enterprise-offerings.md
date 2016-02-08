@@ -49,7 +49,7 @@ App Service Web Apps 是裝載此類應用程式的最佳選項，提供可擴�
 
 - [App Service 環境](../app-service-app-service-environment-intro.md) -「App Service 環境」(ASE) 是最近新增到 Microsoft Azure App Service 供應項目中的新「進階」功能。ASE 提供一個完全隔離且專用的環境，在相當高的程度上可安全地執行 Azure App Service app，同時又提供隔離且安全的網路存取。   
 - [混合式連線](../integration-hybrid-connection-overview.md) – 混合式連線是 Microsoft Azure BizTalk 服務的一個功能，可讓 Web Apps 安全連線到內部部署資源，例如 SQL Server、MySQL、Web API 和自訂 Web 服務。 
-- [虛擬網路整合](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) – Web Apps 與 Azure 虛擬網路整合可讓您將 Web 應用程式連線到 Azure 虛擬網路，此虛擬網路會透過站台對站台 VPN 依序連線到您的內部部署基礎結構。 
+- [虛擬網路整合](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) – Web Apps 與 Azure 虛擬網路整合可讓您將 Web 應用程式連線到 Azure 虛擬網路，此虛擬網路會透過站台對站台 VPN 依序連線到您的內部部署基礎結構。 
 
 下列圖表說明一個內含內部部署資源連線選項的範例概略解決方案。第一個範例示範如何使用標準 Azure App Service 功能來達成此解決方案，第二個範例則示範如何使用進階提供項目 (App Service 環境) 來達成此解決方案。
 
@@ -159,4 +159,4 @@ App Service Web Apps 針對快速發展環境中的企業動態需求，提供�
  
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

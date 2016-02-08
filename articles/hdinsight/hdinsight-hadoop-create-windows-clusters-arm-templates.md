@@ -27,7 +27,7 @@
 
 開始執行本文中的指示之前，您必須擁有以下項目：
 
-- [Azure 訂用帳戶](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- [Azure 訂用帳戶](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) 和/或 [Azure CLI](xplat-cli-install.md)。 
 
 ## ARM 範本
@@ -444,4 +444,4 @@ ARM 範本可讓您在單一的協調作業中，輕鬆地為您的應用程式�
 	  }
 	}
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="在 Azure 自動化中啟動 Runbook"
+   pageTitle="在 Azure 自動化中開始 Runbook | Microsoft Azure"
    description="摘要說明可以用來在 Azure 自動化中啟動 Runbook 的不同的方法，並提供使用 Azure 入口網站和 Windows PowerShell 的詳細資訊。"
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/13/2015"
+   ms.date="01/19/2016"
    ms.author="bwren;sngun"/>
 
 # 在 Azure 自動化中啟動 Runbook
@@ -106,6 +106,9 @@
 <br>
 
 
+下圖說明 Runbook 生命週期中的詳細逐步程序，它包含 Runbook 在 Azure 自動化中開始的不同方式、內部部署機器執行 Azure 自動化 Runbook 所需的元件，以及不同元件之間的互動。若要深入了解在您的資料中心中執行自動化 Runbook，請參閱[混合式 Runbook 背景工作角色](automation-hybrid-runbook-worker.md)
+
+![Runbook 架構](media/automation-starting-runbook/runbooks-architecture.png)
 
 ## 使用 Azure 入口網站啟動 Runbook
 
@@ -156,7 +159,7 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 
 ### 具名的值
 
-如果參數是資料型別 [object]，則您可以使用下列 JSON 格式，將它傳送的具名值清單：*{"Name1":Value1, "Name2":Value2, "Name3":Value3}* 。這些值必須是簡單型別。Runbook 將會以 [PSCustomObject](http://msdn.microsoft.com/library/azure/system.management.automation.pscustomobject(v=vs.85).aspx) 收到參數，並具有與每個具名的值對應的屬性。
+如果參數是資料型別 [object]，則您可以使用下列 JSON 格式，將它傳送的具名值清單：*{"Name1":Value1, "Name2":Value2, "Name3":Value3}*。這些值必須是簡單型別。Runbook 將會以 [PSCustomObject](http://msdn.microsoft.com/library/azure/system.management.automation.pscustomobject(v=vs.85).aspx) 收到參數，並具有與每個具名的值對應的屬性。
 
 請考慮可接受稱為 user 的參數的下列測試 Runbook。
 
@@ -186,7 +189,7 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 
 ### 陣列
 
-如果參數是陣列，例如 [array] 或 [string]，則您可以使用下列 JSON 格式對其傳送值清單：*[Value1,Value2,Value3]* 。這些值必須是簡單型別。
+如果參數是陣列，例如 [array] 或 [string]，則您可以使用下列 JSON 格式對其傳送值清單：*[Value1,Value2,Value3]*。這些值必須是簡單型別。
 
 請考慮可接受稱為 *user* 的參數的下列測試 Runbook。
 
@@ -232,12 +235,12 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 
 	My Credential
 
-假設在認證中的使用者名稱是 *jsmith* ，這會導致下列輸出。
+假設在認證中的使用者名稱是 *jsmith*，這會導致下列輸出。
 
 	jsmith
 
-## 相關文章
+## 後續步驟
 
-- [Azure 自動化中的子 Runbook](automation-child-runbooks.md) 
+- 目前文件中的 Runbook 架構提供有關混合式 Runbook 的高階描述，如需詳細資料，請參閱 [Azure 自動化中的子 Runbook](automation-child-runbooks.md) 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

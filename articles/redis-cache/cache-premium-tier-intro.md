@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="01/09/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 高階層簡介
@@ -54,4 +54,4 @@ Azure Redis Cache 是一種分散式受管理快取，可提供超快速的資�
 -	[如何設定高階 Azure Redis Cache 的叢集](cache-how-to-premium-clustering.md)
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0128_2016-->

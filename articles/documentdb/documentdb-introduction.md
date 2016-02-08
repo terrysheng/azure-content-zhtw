@@ -23,8 +23,8 @@ DocumentDB 是一種適用於巨量資料解決方案的 NoSQL 文件資料庫�
 
 若要快速了解此 JSON 資料庫並實際觀看其運作方式，請遵循這三個步驟：
 
-1. 請觀看兩分鐘的[什麼是 DocumentDB？](http://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/)影片，當中會介紹使用 DocumentDB 的優點。
-2. 請觀看三分鐘的[在 Azure 上建立 DocumentDB](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) 影片，當中會重點說明如何透過 Azure 入口網站開始使用 DocumentDB。
+1. 請觀看兩分鐘的[什麼是 DocumentDB？](https://azure.microsoft.com/documentation/videos/what-is-azure-documentdb/)影片，當中會介紹使用 DocumentDB 的優點。
+2. 請觀看三分鐘的[在 Azure 上建立 DocumentDB](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) 影片，當中會重點說明如何透過 Azure 入口網站開始使用 DocumentDB。
 3. 請瀏覽[查詢遊樂場](http://www.documentdb.com/sql/demo)，您可以在其中逐步執行不同的活動，以了解 DocumentDB 中可用的豐富查詢功能。接著，請前往 [沙箱] 索引標籤，執行您自訂的 SQL 查詢並實驗 DocumentDB。
 
 然後，回到這篇文章，我們將進行深入探討，讓您在此找到下列問題的答案：
@@ -54,7 +54,7 @@ Azure DocumentDB 提供下列重要功能和優點：
 
 -	**可彈性調整的輸送量和儲存體：**輕鬆相應增加或相應減少 DocumentDB JSON 資料庫，以符合您應用程式需求。透過增減預留的 SSD 備用儲存體和輸送量的基本單位 (集合)，即可調整大小。隨著應用程式的成長，您可以建立更多單位，依據可預測的效能彈性調整 DocumentDB。
 
--	**開放式設計：**使用現有技能和工具就能讓您快速上手。針對 DocumentDB 進行程式設計十分簡單、容易達成，而且不需要採用新工具或符合 JSON 或 JavaScript 的自訂擴充功能。您可以透過簡單的 RESTful HTTP 介面來存取所有資料庫功能，包括 CRUD、查詢和 JavaScript 處理。DocumentDB 既採用現有的格式、語言和標準，同時又能提供凌駕於它們之上的高價值資料庫功能。
+-	**開放式設計：**使用現有技能和工具讓您快速上手。針對 DocumentDB 進行程式設計十分簡單、容易達成，而且不需要採用新工具或符合 JSON 或 JavaScript 的自訂擴充功能。您可以透過簡單的 RESTful HTTP 介面來存取所有資料庫功能，包括 CRUD、查詢和 JavaScript 處理。DocumentDB 既採用現有的格式、語言和標準，同時又能提供凌駕於它們之上的高價值資料庫功能。
 
 您可以使用 DocumentDB 來儲存需要查詢抓取和交易式處理的彈性資料集。應用程式案例可能包括互動式 Web 和行動應用程式的使用者資料，以及儲存、抓取和處理應用程式 JSON 資料。資料庫可以儲存任意數目的 JSON 文件，因為 DocumentDB 相當適用於在網際網路上依規模執行的應用程式。
 
@@ -103,12 +103,12 @@ DocumentDB 可讓您將應用程式邏輯撰寫成完全以 JavaScript 撰寫的
 若您沒有 Azure 帳戶，您可以：
 
 - 註冊 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)，您可獲得 30 天的免費試用資格及美金 200 元的信用額度，來讓您試用所有 Azure 服務。 
-- 如果您有 MSDN 訂用帳戶，就有資格獲得[每個月美金 150 元的免費 Azure 信用額度](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，可讓您用在任何 Azure 服務上。 
+- 如果您有 MSDN 訂用帳戶，就有資格獲得[每個月美金 150 元的免費 Azure 信用額度](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，可讓您用在任何 Azure 服務上。 
 
-然後，當您準備好深入了解時，請前往我們的[學習路徑](http://azure.microsoft.com/documentation/learning-paths/documentdb/)來瀏覽所有您可用的學習資源。
+然後，當您準備好深入了解時，請前往我們的[學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)來瀏覽所有您可用的學習資源。
 
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

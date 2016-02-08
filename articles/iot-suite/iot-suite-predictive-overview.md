@@ -2,13 +2,14 @@
  pageTitle="預先設定的預防性維護解決方案 |Microsoft Azure"
  description="預先設定之 Azure IoT 預防性維護解決方案的說明。"
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="stevehob"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -55,4 +56,4 @@ Azure IoT 預先設定的預防性維護解決方案會利用此範本所建立�
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -31,8 +31,8 @@
 
 **其他資源**
 
-* [Microsoft Azure 部落格](http://azure.microsoft.com/blog/)
+* [Microsoft Azure 部落格](https://azure.microsoft.com/blog/)
 * [什麼是 Azure AD？](active-directory-whatis.md)
 * [在雲端中使用內部部署身分識別基礎結構](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -23,7 +23,7 @@
 Azure Active Directory (Azure AD) 是一個身分識別與存取管理的綜合性解決方案，提供許多強大的功能來管理內部部署和雲端應用程式和資源的存取權，包括如 Office 365 的 Microsoft 線上服務，以及非 Microsoft 的 SaaS 應用程式。
 
 
-> [AZURE.NOTE]若要使用 Azure Active Directory，您需要 Azure 帳戶。如果您沒有帳戶，您可以[註冊免費的 Azure 帳戶](http://azure.microsoft.com/pricing/free-trial/)。
+> [AZURE.NOTE] 若要使用 Azure Active Directory，您需要 Azure 帳戶。如果您沒有帳戶，您可以[註冊免費的 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 
 Azure Active Directory 的其中一項主要功能是管理資源的存取權。這些資源可以是目錄的一部分，例如透過目錄中的角色或目錄外部的資源 (例如 SaaS 應用程式、Azure 服務以及 SharePoint 網站或內部部署資源) 管理物件的權限。有四種方式可以指派使用者存取資源的權限：
@@ -98,4 +98,4 @@ Azure Active Directory 的存取管理解決方案的重點是安全性群組。
 
 * [群組的圖形 API 參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0128_2016-->

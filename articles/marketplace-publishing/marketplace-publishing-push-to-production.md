@@ -31,9 +31,9 @@
 
   ![繪圖][img-pubportal-publish-pushproduction]
 
-> [AZURE.IMPORTANT]當供應項目的狀態為 [**草稿**] 時 (也就是永遠不會 [**推送至預備環境**] 或 [**推送至生產環境**])，您可隨時將其刪除。在 [**歷程記錄**] 索引標籤中，按一下頁面底部的 [**捨棄草稿**] 按鈕以刪除草稿。
+> [AZURE.IMPORTANT] 當供應項目的狀態為 [**草稿**] 時 (也就是永遠不會 [**推送至預備環境**] 或 [**推送至生產環境**])，您可隨時將其刪除。在 [**歷程記錄**] 索引標籤中，按一下頁面底部的 [**捨棄草稿**] 按鈕以刪除草稿。
 
-> 針對虛擬機器映像，跨資料中心的複寫作業需要 24-48 小時的時間。複寫完成時，您的供應項目會列在 [Azure Marketplace](http://azure.microsoft.com/marketplace) 中。
+> 針對虛擬機器映像，跨資料中心的複寫作業需要 24-48 小時的時間。複寫完成時，您的供應項目會列在 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 中。
 
 ## 後續步驟
 一旦供應項目上線，請測試客戶案例，如同在預備環境中進行測試和驗證一樣，驗證在生產環境中的所有合約和功能都運作正常。
@@ -45,4 +45,4 @@
 [img-pubportal-menu-publish]: media/marketplace-publishing-push-to-production/pubportal-menu-publish.png
 [img-pubportal-publish-pushproduction]: media/marketplace-publishing-push-to-production/pubportal-publish-pushproduction.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

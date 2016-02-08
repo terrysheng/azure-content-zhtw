@@ -83,8 +83,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 
 如有任何度量長時間超過 80% 使用率，則可能表示效能有問題。如需關於了解資料庫使用率的詳細資訊，請參閱[了解資源使用情形](http://msdn.microsoft.com/library/azure/dn369873.aspx#Resource)。
 
-如果度量指出您的資料庫造成高使用率，請考慮以 [scaling up the database to a higher service tier] 作為第一個因應步驟。若要立即解決問題，請考慮使用資料庫的 [調整] 索引標籤向上擴充您的資料庫。這樣會增加您的費用。
-![Azure 傳統入口網站 - SQL Database 調整][PortalSqlScale]
+如果度量指出您的資料庫造成高使用率，請考慮以 [scaling up the database to a higher service tier] 作為第一個因應步驟。若要立即解決問題，請考慮使用資料庫的 [調整] 索引標籤向上擴充您的資料庫。這樣會增加您的費用。![Azure 傳統入口網站 - SQL Database 調整][PortalSqlScale]
 
 請儘快考慮使用下列進一步的因應步驟：
 
@@ -193,7 +192,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 - **實作分頁。** 查詢資料庫有時可能會導致大量記錄傳回至用戶端。若要盡可能減少作業的大小和延遲，請考慮實作分頁。
 
     - 根據預設，您的行動服務會將任何傳入查詢的頁面大小限定為 50，而您可以手動要求提高到 1,000 筆記錄。如需詳細資訊，請參閱 [Windows 市集](mobile-services-windows-dotnet-how-to-use-client-library.md#paging)、[iOS](mobile-services-ios-how-to-use-client-library.md#paging)、[Android](mobile-services-android-how-to-use-client-library.md#paging)、[HTML/JavaScript](mobile-services-html-how-to-use-client-library#paging) 和 [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging) 的「以分頁方式傳回資料」。
-    - 從行動服務程式碼發出的查詢並沒有預設頁面大小。如果您的應用程式未實作分頁，或將其視為防護措施，請考慮將預設限制套用至您的查詢。在 JavaScript 後端中，請在 [查詢物件](http://msdn.microsoft.com/library/azure/jj613353.aspx)上使用 **take** 運算子。如果您使用 .NET 後端，請考慮以 [Take 方法]作為 LINQ 查詢的一部分。  
+    - 從行動服務程式碼發出的查詢並沒有預設頁面大小。如果您的應用程式未實作分頁，或將其視為防護措施，請考慮將預設限制套用至您的查詢。在 JavaScript 後端中，請在**查詢物件**上使用 [take](http://msdn.microsoft.com/library/azure/jj613353.aspx) 運算子。如果您使用 .NET 後端，請考慮以 [Take 方法]作為 LINQ 查詢的一部分。  
 
 
 如需改善查詢設計的詳細資訊，請參閱本文結尾處的[進階查詢設計](#AdvancedQuery)。
@@ -205,7 +204,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 
 - **將負載分散到不同時間。** 如果您對特定事件 (例如廣播推播通知) 的執行時機進行控制，並預期這些事件會產生需求上的暴衝，且這些事件的執行時機並不重要，請考慮將其分散到不同時間。在前述範例中，或許您的應用程式客戶可以在一天的不同時間分批取得新應用程式內容的通知，而無需在幾乎相同的時間取得。請考慮將您的客戶分成允許交錯傳遞至各個批次的群組。在使用通知中心時，套用附加標記以追蹤批次，然後將推播通知傳遞至該標記，將可提供實作此策略的簡單途徑。如需關於標記的詳細資訊，請參閱[使用通知中心傳送即時新聞](../notification-hubs-windows-store-dotnet-send-breaking-news.md)。
 - **在情況允許時使用 Blob 和資料表儲存體。** 通常，客戶在暴衝期間所將檢視的內容是較為靜態的，且不需要儲存在 SQL 資料庫中，因為您不可能需要對該項內容的關聯式查詢功能。在此情況下，請考慮將內容儲存在 Blob 或資料表儲存體中。您可以直接從裝置存取 Blob 儲存體中的公用 Blob。若要以安全的方式存取 Blob 或使用資料表儲存體，您必須透過行動服務自訂 API 以保護您的儲存體存取金鑰。如需詳細資訊，請參閱[使用行動服務將影像上傳到 Azure 儲存體](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)。
-- **使用記憶體內部快取**。另一個替代方式，是將資料 (通常是在流量暴衝期間存取的) 儲存在記憶體內部快取 (例如 [Azure 快取](http://azure.microsoft.com/services/cache/)) 中。這表示傳入的要求將可從記憶體中提取其所需的資訊，而無須重複查詢資料庫。
+- **使用記憶體內部快取**。另一個替代方式，是將資料 (通常是在流量暴衝期間存取的) 儲存在記憶體內部快取 (例如 [Azure 快取](https://azure.microsoft.com/services/cache/)) 中。這表示傳入的要求將可從記憶體中提取其所需的資訊，而無須重複查詢資料庫。
 
 <a name="Advanced"></a>
 ## 進階疑難排解
@@ -214,7 +213,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 ### 必要條件
 若要執行本節中的某些診斷工作，您必須存取 SQL 資料庫的管理工具 (例如 **SQL Server Management Studio**) 或 **Azure 傳統入口網站**的內建管理功能。
 
-SQL Server Management Studio 是一項免費的 Windows 應用程式，可提供最進階的功能。如果您無法存取 Windows 機器 (例如，如果您使用 Mac)，請考慮依照[建立執行 Windows Server 的虛擬機器](../virtual-machines-windows-tutorial.md)中的說明在 Azure 中佈建虛擬機器，然後從遠端加以連接。如果您使用 VM 的主要目的是要執行 SQL Server Management Studio，則一個 [基本 A0] \(先前稱為「超小型」) 執行個體即應夠用。
+SQL Server Management Studio 是一項免費的 Windows 應用程式，可提供最進階的功能。如果您無法存取 Windows 機器 (例如，如果您使用 Mac)，請考慮依照[建立執行 Windows Server 的虛擬機器](../virtual-machines-windows-tutorial.md)中的說明在 Azure 中佈建虛擬機器，然後從遠端加以連接。如果您使用 VM 的主要目的是要執行 SQL Server Management Studio，則一個 [基本 A0] (先前稱為「超小型」) 執行個體即應夠用。
 
 Azure 傳統入口網站提供內建的管理功能，雖然功能有限，但不需本機安裝即可使用。
 
@@ -256,7 +255,7 @@ Azure 傳統入口網站提供內建的管理功能，雖然功能有限，但�
 <a name="AdvancedDiagnosing" />
 ### 進階診斷
 
-許多診斷工作都可直接在 \[Azure 傳統入口網站\] 中輕易完成，但有些進階診斷工作則只能透過 [SQL Server Management Studio] 或 [SQL Database 管理入口網站] 來執行。我們將利用動態管理檢視的功能，這是一組會以資料庫的相關診斷資訊自動填入的檢視。本節將提供一組可用來對這些檢視執行以檢查各種度量的查詢。如需詳細資訊，請參閱[使用動態管理檢視監視 SQL Database][]。
+許多診斷工作都可直接在 [Azure 傳統入口網站] 中輕易完成，但有些進階診斷工作則只能透過 [SQL Server Management Studio] 或 [SQL Database 管理入口網站] 來執行。我們將利用動態管理檢視的功能，這是一組會以資料庫的相關診斷資訊自動填入的檢視。本節將提供一組可用來對這些檢視執行以檢查各種度量的查詢。如需詳細資訊，請參閱[使用動態管理檢視監視 SQL Database][]。
 
 完成上一節中的步驟而連接到您在 SQL Server Management Studio 中的資料庫後，請在 [物件總管] 中選取您的資料庫。展開 [檢視]，[系統檢視] 會顯現管理檢視清單。若要執行下方的查詢，請選取 [新增查詢]，而您先前已在 [物件總管] 中選取您的資料庫，請在貼上查詢後選取 [執行]。
 
@@ -281,7 +280,7 @@ Azure 傳統入口網站提供內建的管理功能，雖然功能有限，但�
     ORDER BY start_time DESC
 
 > [AZURE.NOTE]
-> 請在伺服器的 **master** 資料庫上執行此查詢，**sys.resource\_stats** 檢視只會出現在該資料庫上。
+請在伺服器的 **master** 資料庫上執行此查詢，**sys.resource\_stats** 檢視只會出現在該資料庫上。
 
 結果將會包含下列好用的度量：CPU (層限制百分比)、儲存體 (MB)、實體資料讀取 (層限制百分比)、記錄寫入 (層限制百分比)、記憶體 (層限制百分比)、背景工作計數、工作階段計數等。
 
@@ -295,7 +294,7 @@ Azure 傳統入口網站提供內建的管理功能，雖然功能有限，但�
     order by start_time desc
 
 > [AZURE.NOTE]
-> 請在伺服器的 **master** 資料庫上執行此查詢，**sys.event\_log** 檢視只會出現在該資料庫上。
+請在伺服器的 **master** 資料庫上執行此查詢，**sys.event\_log** 檢視只會出現在該資料庫上。
 
 <a name="AdvancedIndexing" ></a>
 ### 進階索引
@@ -309,7 +308,7 @@ Azure 傳統入口網站提供內建的管理功能，雖然功能有限，但�
 提供實際比喻：試想書籍或技術手冊。每一頁的內容都是一筆記錄，頁碼是叢集索引，而書後的主題索引則是非叢集索引。主題索引中的每個項目都會指向叢集索引，即頁碼。
 
 > [AZURE.NOTE]
-> 根據預設，Azure 行動服務的 JavaScript 後端會將 **\_createdAt** 設為叢集索引。如果您移除此資料行，或是想要有不同的叢集索引，請務必遵循下方的[叢集索引設計指引](#ClusteredIndexes)。在 .NET 後端中，類別 `EntityData` 會使用註解 `[Index(IsClustered = true)]` 將 `CreatedAt` 定義為叢集索引。
+根據預設，Azure 行動服務的 JavaScript 後端會將 **\_createdAt** 設為叢集索引。如果您移除此資料行，或是想要有不同的叢集索引，請務必遵循下方的[叢集索引設計指引](#ClusteredIndexes)。在 .NET 後端中，類別 `EntityData` 會使用註解 `[Index(IsClustered = true)]` 將 `CreatedAt` 定義為叢集索引。
 
 <a name="ClusteredIndexes"></a>
 #### 叢集索引設計指引
@@ -492,4 +491,4 @@ Azure 傳統入口網站提供內建的管理功能，雖然功能有限，但�
 <!-- BLOG LINKS -->
 [該索引鍵的成本為何？]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!--------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

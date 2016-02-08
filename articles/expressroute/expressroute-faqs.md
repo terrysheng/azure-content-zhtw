@@ -34,7 +34,7 @@ ExpressRoute 目前支援大多數的 Microsoft Azure 服務，包括 Office 365
 您可以在區域載波和陸地乙太網路連線中選取其中一個支援的 Exchange 提供者位置。您接著可以在提供者位置上與 Microsoft 對等互連。檢查 [ExpressRoute 合作夥伴和位置](expressroute-locations.md)的最後一部分，以查看您的服務提供者是否存在於任何 Exchange 位置中。您接著可以訂購一個 ExpressRoute 電路，透過服務提供者連線至 Azure。
 
 ### ExpressRoute 需要多少錢？
-如需價格資訊，請查看[價格詳細資訊](http://azure.microsoft.com/pricing/details/expressroute/)。
+如需價格資訊，請查看[價格詳細資訊](https://azure.microsoft.com/pricing/details/expressroute/)。
 
 ### 如果我支付指定頻寬的 ExpressRoute 電路，則我是否必須從網路服務提供者購買相同速度的 VPN 連線？
 否。您可以從服務提供者購買任何速度的 VPN 連線。不過，您與 Azure 的連線將會受限於您所購買的 ExpressRoute 電路頻寬。
@@ -46,7 +46,7 @@ ExpressRoute 目前支援大多數的 Microsoft Azure 服務，包括 Office 365
 是。設定 ExpressRoute 電路之後，您可以同時存取虛擬網路內部的服務和其他 Azure 服務。您將透過私人對等互連路徑連線至虛擬網路，並透過公用對等互連路徑連線至其他服務。
 
 ### ExpressRoute 是否提供服務等級協定 (SLA)？
-如需詳細資訊，請參閱 [ExpressRoute SLA 頁面](http://azure.microsoft.com/support/legal/sla/)。
+如需詳細資訊，請參閱 [ExpressRoute SLA 頁面](https://azure.microsoft.com/support/legal/sla/)。
 
 ## 支援的服務
 ExpressRoute 支援大多數的 Azure 雲端服務。
@@ -65,7 +65,7 @@ ExpressRoute 支援大多數的 Azure 雲端服務。
 ## 資料與連線
 
 ### 我可以使用 ExpressRoute 傳輸的資料量是否有所限制？
-我們不會設定資料傳輸量的限制。如需頻寬費率的相關資訊，請參閱[價格詳細資訊](http://azure.microsoft.com/pricing/details/expressroute/)。
+我們不會設定資料傳輸量的限制。如需頻寬費率的相關資訊，請參閱[價格詳細資訊](https://azure.microsoft.com/pricing/details/expressroute/)。
 
 ### ExpressRoute 支援的連線速度為何？
 支援的頻寬優惠：
@@ -208,7 +208,7 @@ ExpressRoute Premium 是下面所列功能的集合。
 否。您無法挑選所需功能。當您開啟 ExpressRoute Premium 時，我們便會將所有功能啟用。
 
 ### ExpressRoute Premium 需要多少錢？
-如需成本相關資訊，請參閱[價格詳細資訊](http://azure.microsoft.com/pricing/details/expressroute/)。
+如需成本相關資訊，請參閱[價格詳細資訊](https://azure.microsoft.com/pricing/details/expressroute/)。
 
 ### 除了標準的 ExpressRoute 費用以外，我是否仍需支付 ExpressRoute Premium？
 是。除了 ExpressRoute 電路費用和連線提供者所需費用以外，還需另行支付 ExpressRoute Premium 費用。
@@ -249,7 +249,7 @@ ExpressRoute Premium 是下面所列功能的集合。
 您可以透過網際網路與這些服務連線。
 
 ### ExpressRoute for Office 365 需要多少錢？
-透過 ExpressRoute 連線到 Office 365 不會產生額外的費用。[價格詳細資料頁面](http://azure.microsoft.com/pricing/details/expressroute/)提供 ExpressRoute 費用的詳細資料。
+透過 ExpressRoute 連線到 Office 365 不會產生額外的費用。[價格詳細資料頁面](https://azure.microsoft.com/pricing/details/expressroute/)提供 ExpressRoute 費用的詳細資料。
 
 ### 哪些區域支援 ExpressRoute for Office 365？
 如需支援 ExpressRoute 的合作夥伴和位置清單詳細資訊，請參閱 [ExpressRoute 合作夥伴和位置](expressroute-locations.md)。
@@ -258,4 +258,4 @@ ExpressRoute Premium 是下面所列功能的集合。
 是。即使 ExpressRoute 已設定供我的組織使用，您仍可以透過網際網路存取 Office 365 服務端點。如果所處位置已設定透過 ExpressRoute 連線到 Office 365 服務，您將會透過 ExpressRoute 進行連線。
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

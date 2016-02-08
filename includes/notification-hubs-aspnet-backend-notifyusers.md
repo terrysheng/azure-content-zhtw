@@ -9,11 +9,11 @@
 下列步驟說明如何建立新的 ASP.NET WebAPI 後端：
 
 
-> [AZURE.NOTE]**重要事項**：開始本教學課程之前，請確定您已安裝最新版本的 NuGet 封裝管理員。若要檢查版本，請啟動 Visual Studio。在 [工具] 功能表中，按一下 [擴充功能和更新]。搜尋 **NuGet Package Manager for Visual Studio 2013**，然後確定您已安裝 2.8.50313.46 版或更新版本。否則的話，請解除安裝，然後重新安裝 NuGet Package Manager。
+> [AZURE.NOTE] **重要事項**：開始本教學課程之前，請確定您已安裝最新版本的 NuGet 封裝管理員。若要檢查版本，請啟動 Visual Studio。在 [工具] 功能表中，按一下 [擴充功能和更新]。搜尋 **NuGet Package Manager for Visual Studio 2013**，然後確定您已安裝 2.8.50313.46 版或更新版本。否則的話，請解除安裝，然後重新安裝 NuGet Package Manager。
 > 
 > ![][B4]
 
-> [AZURE.NOTE]確定您已安裝 Visual Studio [Azure SDK](http://azure.microsoft.com/downloads/) 以供網站部署。
+> [AZURE.NOTE] 確定您已安裝 Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) 以供網站部署。
 
 1. 啟動 Visual Studio 或 Visual Studio Express。按一下 [伺服器總管] 並登入您的 Azure 帳戶。Visual Studio 將需要您登入，才能在您的帳戶上建立網站資源。
 2. 在 Visual Studio 中，依序按一下 [**檔案**]、[**新增**]、[**專案**]，展開 [**範本**]、[**Visual C#**]，再按一下 [**Web**] 和 [**ASP.NET Web 應用程式**]，輸入名稱 **AppBackend**，然後按一下 [**確定**]。 
@@ -101,7 +101,7 @@
 	        }
 	    }
 
-	> [AZURE.NOTE]**安全性注意事項**：`AuthenticationTestHandler` 類別未提供真正的驗證。它僅可用於模仿基本驗證而且並不安全。您必須在生產應用程式和服務中實作安全的驗證機制。
+	> [AZURE.NOTE] **安全性注意事項**：`AuthenticationTestHandler` 類別未提供真正的驗證。它僅可用於模仿基本驗證而且並不安全。您必須在生產應用程式和服務中實作安全的驗證機制。
 
 4. 在 **App\_Start/WebApiConfig.cs** 類別中 `Register` 方法的結尾加入下列程式碼以註冊訊息處理常式：
 
@@ -364,4 +364,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

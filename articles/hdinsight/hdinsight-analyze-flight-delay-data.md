@@ -20,7 +20,7 @@
 
 Hive 可透過一種稱為 *[HiveQL][hadoop-hiveql]* 的 SQL 式指令碼語言來執行 Hadoop MapReduce 工作，可用來彙總、查詢和分析大量資料。
 
-> [AZURE.NOTE]此文件中的步驟需要以 Windows 為基礎的 HDInsight 叢集。如需與 Linux 叢集搭配使用的步驟，請參閱[在 HDInsight (Linux) 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)。
+> [AZURE.NOTE] 此文件中的步驟需要以 Windows 為基礎的 HDInsight 叢集。如需與 Linux 叢集搭配使用的步驟，請參閱[在 HDInsight (Linux) 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)。
 
 Azure HDInsight 的其中一個主要優點就是區隔資料儲存和運算。HDInsight 會使用 Azure Blob 儲存體來儲存資料。典型的工作包含 3 個部分：
 
@@ -43,13 +43,13 @@ Azure HDInsight 的其中一個主要優點就是區隔資料儲存和運算。H
 
 在附錄中，您可以找到上傳航班延誤資料、建立/上傳 Hive 查詢字串和針對 Sqoop 工作準備 Azure SQL Database 的指示。
 
-> [AZURE.NOTE]此文件中的步驟是針對以 Windows 為基礎的 HDInsight 叢集。如需與 Linux 叢集搭配使用的步驟，請參閱[在 HDInsight (Linux) 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)
+> [AZURE.NOTE] 此文件中的步驟是針對以 Windows 為基礎的 HDInsight 叢集。如需與 Linux 叢集搭配使用的步驟，請參閱[在 HDInsight (Linux) 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)
 
 ###必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
 - **具有 Azure PowerShell 的工作站**。請參閱[安裝 Azure PowerShell 1.0 及更新版本](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater)。
 
@@ -239,7 +239,7 @@ Hadoop MapReduce 是批次處理。執行 Hive 工作時，最具成本效益的
 - **使用 HDInsight 將使用的相同 Azure 儲存體帳戶，作為預設檔案系統。** 由於 HDInsight 叢集將具有儲存體帳戶存取金鑰，您將不需進行任何額外的變更。
 - **使用與 HDInsight 叢集預設檔案系統不同的 Azure 儲存體帳戶。** 如果是這樣，您必須修改 Windows PowerShell 指令碼的建立部分 (可在[建立 HDInsight 叢集和執行 Hive/Sqoop 工作](#runjob)中找到)，以將儲存體帳戶納入為額外的儲存體帳戶。如需指示，請參閱[在 HDInsight 中建立 Hadoop 叢集][hdinsight-provision]。HDInsight 叢集便會知道儲存體帳戶的存取金鑰。
 
->[AZURE.NOTE]資料檔案的 Blob 儲存體路徑會在 HiveQL 指令碼檔案中硬式編碼。您必須據以更新。
+>[AZURE.NOTE] 資料檔案的 Blob 儲存體路徑會在 HiveQL 指令碼檔案中硬式編碼。您必須據以更新。
 
 **下載航班資料**
 
@@ -348,7 +348,7 @@ Hadoop MapReduce 是批次處理。執行 Hive 工作時，最具成本效益的
 
 tutorials/flightdelay/data 路徑是您在上傳檔案時所建立的虛擬資料夾。請確認共有 12 個檔案，每個月份各一個。
 
->[AZURE.NOTE]您必須更新 Hive 查詢，以從新位置讀取。
+>[AZURE.NOTE] 您必須更新 Hive 查詢，以從新位置讀取。
 
 > 您必須設定容器存取權限，使其成為公用，或將儲存體帳戶繫結至 HDInsight 叢集。否則，Hive 查詢字串將無法存取資料檔案。
 
@@ -689,7 +689,7 @@ HiveQL 指令碼將執行下列作業：
 		
 		Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
 
-	>[AZURE.NOTE]指令碼使用具象狀態傳輸 (REST) 服務 (http://bot.whatismyipaddress.com) 來擷取外部 IP 位址。IP 位址用來建立 SQL Database 伺服器的防火牆規則。
+	>[AZURE.NOTE] 指令碼使用具象狀態傳輸 (REST) 服務 (http://bot.whatismyipaddress.com) 來擷取外部 IP 位址。IP 位址用來建立 SQL Database 伺服器的防火牆規則。
 
 	以下是指令碼中使用的一些常數：
 
@@ -742,4 +742,4 @@ HiveQL 指令碼將執行下列作業：
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

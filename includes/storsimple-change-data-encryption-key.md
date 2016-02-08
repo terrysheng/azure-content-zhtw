@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 12/01/15-->
 
-### 步驟 1：在管理入口網站中授權裝置以變更服務資料加密金鑰
+### 步驟 1：在 Azure 傳統入口網站中授權裝置以變更服務資料加密金鑰
 
 一般而言，裝置系統管理員將會要求服務管理員授權裝置，以變更服務資料加密金鑰。然後服務管理員就會授權裝置來變更金鑰。
 
@@ -20,7 +20,8 @@
 
 - 如果有些已向服務註冊的裝置已變換加密，而某些裝置還沒有，則您可以授權裝置。在這種情況下，有資格的裝置就是已完成服務資料加密金鑰變更的裝置。
 
-> [AZURE.NOTE]在 Azure 傳統入口網站中，可獲授權以啟動金鑰變更的裝置清單不會顯示 StorSimple 虛擬裝置。
+> [AZURE.NOTE]
+在 Azure 傳統入口網站中，可獲授權以啟動金鑰變更的裝置清單不會顯示 StorSimple 虛擬裝置。
 
 請執行下列步驟，選取並授權裝置以起始服務資料加密金鑰變更。
 
@@ -38,7 +39,7 @@
 
 這個步驟是在 Windows PowerShell for StorSimple 介面中，對已獲授權的 StorSimple 裝置執行。
 
-> [AZURE.NOTE]除非金鑰變換完成，否則無法在 Azure 傳統入口網站對 StorSimple Manager 服務執行任何作業。
+> [AZURE.NOTE] 除非金鑰變換完成，否則無法在 Azure 傳統入口網站對 StorSimple Manager 服務執行任何作業。
 
 如果您使用裝置序列主控台連接到 Windows PowerShell 介面，請執行下列步驟。
 
@@ -52,7 +53,7 @@
 
 3. Cmdlet 順利完成之後，您就會得到新的服務資料加密金鑰。複製並儲存此金鑰，以供此程序的步驟 3 使用。此金鑰將用來更新已向 StorSimple Manager 服務註冊的其餘所有裝置。
 
-    > [AZURE.NOTE]此程序必須在授權 StorSimple 裝置後的四個小時內起始。
+    > [AZURE.NOTE] 此程序必須在授權 StorSimple 裝置後的四個小時內起始。
 
    然後，新金鑰就會傳送至服務並推播至所有已向服務註冊的裝置。之後，服務儀表板上將出現警示。此服務會停用已註冊的裝置上的所有作業，然後裝置管理員就必須在其他裝置上更新服務資料加密金鑰。不過，不會中斷 I/O (將資料傳送至雲端的主機)。
 
@@ -74,4 +75,4 @@
 
 3. 提供您在[步驟 2：使用 Windows PowerShell for StorSimple 起始服務資料加密金鑰變更](#to-initiate-the-service-data-encryption-key-change)中取得的服務資料加密金鑰。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="01/25/2015" 
 	ms.author="donnam"/>
 
 # 在您的行動服務應用程式中新增驗證
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
+>[AZURE.NOTE]這是關於 Azure 行動服務的主題。Microsoft Azure 建議為所有新的行動後端部署使用 Azure App Service Mobile Apps。如需詳細資訊，請參閱 [Mobile Apps 文件中對等的教學課程](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md)。
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
-
-本主題顯示如何在 Azure 行動服務中從應用程式驗證使用者。在本教學課程中，您將使用行動服務支援的身分識別提供者，將驗證加入至快速入門專案。由行動服務成功驗證並授權之後，就會顯示使用者識別碼值。
+本主題說明如何從您的應用程式在行動服務中驗證使用者。在本教學課程中，您將使用行動服務支援的身分識別提供者，將驗證加入至快速入門專案。由行動服務成功驗證並授權之後，就會顯示使用者識別碼值。
 
 本教學課程帶領您執行下列基本步驟，在您的應用程式中啟用驗證：
 
@@ -45,11 +44,9 @@
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-<ol start="6">
-<li><p>在 Visual Studio 或 Xamarin Studio 中，在裝置或模擬器上執行用戶端專案。確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。</p>
+&nbsp;&nbsp;&nbsp;6.在 Visual Studio 或 Xamarin Studio 中，在裝置或模擬器上執行用戶端專案。確認在應用程式啟動後，發生狀態代碼 401 (未經授權) 的未處理例外狀況。
 
-   	<p>這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 <em>TodoItem</em> 資料表現在需要驗證。</p></li>
-</ol>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;會發生這種情況的原因，是應用程式嘗試以未經驗證的使用者身分來存取行動服務，但 *TodoItem* 資料表現在需要驗證。
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
@@ -77,50 +74,31 @@
             }
         }
 
-> [AZURE.NOTE]如果您使用的身分識別提供者不是 Facebook，請將傳給上述 **LoginAsync** 的值變更為下列其中一個：_MicrosoftAccount_、_Twitter_、_Google_ 或 _WindowsAzureActiveDirectory_。
+	> [AZURE.NOTE] 當您使用 Facebook 以外的身分識別提供者時，請將上述傳遞給 **LoginAsync** 的值變更為下列其中一項值：_MicrosoftAccount_、_Twitter_、_Google_ 或 _WindowsAzureActiveDirectory_。
 
-3. 開啟 **QSTodoListViewController.cs**。修改 **ViewDidLoad** 的方法定義，以移除結尾附近的 **RefreshAsync()** 呼叫：
+3. 開啟 **QSTodoListViewController.cs** 並修改 **ViewDidLoad** 的方法定義，以移除或註解化結尾附近對 **RefreshAsync()** 的呼叫。
 
-		public override async void ViewDidLoad ()
-		{
-			base.ViewDidLoad ();
+4. 在 **RefreshAsync** 方法定義的頂端新增下列程式碼：
 
-			todoService = QSTodoService.DefaultService;
-
-			todoService.BusyUpdate += (bool busy) => {
-				if (busy)
-					activityIndicator.StartAnimating ();
-				else
-					activityIndicator.StopAnimating ();
-			};
-
-			// Comment out the call to RefreshAsync
-			// await RefreshAsync ();
-
-			AddRefreshControl ();
-		}
-
-
-4. 修改要驗證的方法 **RefreshAsync**，並在 [使用者] 屬性為 null 時顯示登入畫面。在方法定義最上方的下列程式碼上：
-
-		// start of RefreshAsync method
+		// Add at the start of the RefreshAsync method.
 		if (todoService.User == null) {
 			await QSTodoService.DefaultService.Authenticate (this);
 			if (todoService.User == null) {
-				Console.WriteLine ("couldn't login!!");
+				Console.WriteLine ("You must sign in.");
 				return;
 			}
 		}
-		// rest of RefreshAsync method
+		
+	這會在 **User** 屬性為 Null 時顯示登入畫面來嘗試驗證。登入成功時，**User** 屬性即設定完畢。
 
-5. 按 [執行] 按鈕以建置專案，並在 iPhone 模擬器中啟動應用程式。確認應用程式未顯示資料。
+5. 按 [執行] 按鈕以建置專案，並在 iPhone 模擬器中啟動應用程式。確認應用程式未顯示資料。此時尚未呼叫 **Refreshasync ()**。
 
-	將項目清單往下拉以執行重新整理動作，這會使登入畫面出現。在您成功輸入有效認證後，應用程式將會顯示 todo 項目清單，且您可以對資料進行更新。
+6. 拉下項目清單來執行重新整理的動作 (稱為 **RefreshAsync()**)。這會呼叫 **Authenticate()** 來開始驗證程序，同時顯示登入畫面。當您驗證成功之後，應用程式會顯示代辦項目的清單，而您可以更新資料。
 
-<!-- ## <a name="next-steps"> </a>Next steps
+## <a name="next-steps"> </a>後續步驟
 
-In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.
- -->
+在下一個[行動服務使用者的伺服器端授權][Authorize users with scripts]教學課程中，您將使用由行動服務根據經驗證的使用者而提供的使用者識別碼值，來篩選行動服務傳回的資料。
+
 
 <!-- Anchors. -->
 [註冊應用程式進行驗證，並設定行動服務]: #register
@@ -139,4 +117,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

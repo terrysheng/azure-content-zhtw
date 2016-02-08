@@ -46,7 +46,7 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
 
 ### 設定 Azure 帳戶和訂用帳戶
 
-如果您還沒有 Azure 訂用帳戶，但是有 Visual Studio 訂用帳戶，請啟用您的 [Visual Studio 訂閱者權益](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。或者申請[免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+如果您還沒有 Azure 訂用帳戶，但是有 Visual Studio 訂用帳戶，請啟用您的 [Visual Studio 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。或者申請[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 您需要有公司帳戶或學校帳戶或是 Microsoft 帳戶識別碼 ，才能使用 Azure 資源管理範本。如果您有這其中一個帳戶，請輸入下列命令。
 
@@ -59,7 +59,7 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE]如果您沒有 Azure 帳戶，就會看到錯誤訊息，指出您需要不同類型的帳戶。若要從目前的 Azure 帳戶建立一個帳戶，請參閱[在 Azure Active Directory 中建立工作或學校身分識別](../virtual-machines/resource-group-create-work-id-from-personal.md)。
+> [AZURE.NOTE] 如果您沒有 Azure 帳戶，就會看到錯誤訊息，指出您需要不同類型的帳戶。若要從目前的 Azure 帳戶建立一個帳戶，請參閱[在 Azure Active Directory 中建立工作或學校身分識別](../virtual-machines/resource-group-create-work-id-from-personal.md)。
 
 在瀏覽器中開啟 [https://aka.ms/devicelogin](https://aka.ms/devicelogin)，然後輸入命令輸出中提供的代碼。
 
@@ -136,7 +136,7 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
 
 在命令提示字元中輸入下列命令，於新的或現有的資源群組中建立 DocumentDB 帳戶：
 
-> [AZURE.TIP]如果您在 Azure PowerShell 或 Windows PowerShell 中執行此命令，將會收到關於未預期之權杖的錯誤。請改為在 Windows 命令提示字元中執行此命令。
+> [AZURE.TIP] 如果您在 Azure PowerShell 或 Windows PowerShell 中執行此命令，將會收到關於未預期之權杖的錯誤。請改為在 Windows 命令提示字元中執行此命令。
 
     azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o "2015-04-08" -l <databaseaccountlocation> -p "{"databaseAccountOfferType":"Standard"}" 
 
@@ -314,7 +314,7 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
 
 如果您在建立資源群組或資料庫帳戶時收到錯誤 (例如 `Deployment provisioning state was not successful`)，您有一些疑難排解選項可用。
 
-> [AZURE.NOTE]在資料庫帳戶名稱中提供不正確的字元，或提供無法使用 DocumentDB 的位置將會導致部署錯誤。資料庫帳戶名稱只能使用小寫字母、數字及 '-' 字元，且長度必須為 3 到 50 個字元。所有有效的資料庫帳戶位置都會列在 [Azure 區域頁面](https://azure.microsoft.com/regions/#services)上。
+> [AZURE.NOTE] 在資料庫帳戶名稱中提供不正確的字元，或提供無法使用 DocumentDB 的位置將會導致部署錯誤。資料庫帳戶名稱只能使用小寫字母、數字及 '-' 字元，且長度必須為 3 到 50 個字元。所有有效的資料庫帳戶位置都會列在 [Azure 區域頁面](https://azure.microsoft.com/regions/#services)上。
 
 - 如果您的輸出包含下列 `Error information has been recorded to C:\Users\wendy\.azure\azure.err`，則檢閱 azure.err 檔案中的錯誤資訊。
 
@@ -349,6 +349,6 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
 -	[DocumentDB 的學習途徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[DocumentDB 資源模型和概念](documentdb-resources.md)
 
-如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](http://azure.microsoft.com/documentation/templates/)。
+如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0128_2016-->

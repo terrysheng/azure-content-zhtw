@@ -40,13 +40,13 @@ Microsoft Azure 媒體服務是一個可延伸的雲端型平台，供開發人�
 
 您可以在此檢視 AMS 學習路徑：
 
-- [AMS 即時資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS 隨選資料流工作流程](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [AMS 即時資料流工作流程](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 隨選資料流工作流程](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##海報
 
 
-[這裡](http://azure.microsoft.com/documentation/infographics/media-services/)您可以檢視說明 AMS 工作流程的 Azure 媒體服務海報，說明從媒體建立到取用的步驟。
+[這裡](https://azure.microsoft.com/documentation/infographics/media-services/)您可以檢視說明 AMS 工作流程的 Azure 媒體服務海報，說明從媒體建立到取用的步驟。
 
 ##必要條件
 
@@ -206,7 +206,7 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 
 ##支援
 
-[Azure 支援](http://azure.microsoft.com/support/options/)提供 Azure 的支援選項，包括媒體服務。
+[Azure 支援](https://azure.microsoft.com/support/options/)提供 Azure 的支援選項，包括媒體服務。
 
 ##模式與實例指南
 
@@ -225,7 +225,7 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 - 對於內容保護，我們保證至少 99.9% 的時間將會成功滿足金鑰要求。
 - 對於索引子，我們將會在 99.9% 的時間成功服務編碼保留單元處理的索引子工作要求。
 
-	如需詳細資訊，請參閱 [Microsoft Azure SLA](http://azure.microsoft.com/support/legal/sla/)。
+	如需詳細資訊，請參閱 [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/)。
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
@@ -234,4 +234,4 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0128_2016-->

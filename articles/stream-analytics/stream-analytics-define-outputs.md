@@ -26,7 +26,7 @@
 
 ## SQL Database ##
 
-如果資料的本質上具備關聯性，或者應用程式所需的內容需由關聯式資料庫提供時，就可使用 [Azure SQL Database](http://azure.microsoft.com/services/sql-database/) 做為資料輸出。串流分析工作會寫入至 Azure SQL Database 中的現有資料表。請注意，資料表結構描述必須完全符合工作輸出的欄位及其類型。下表列出屬性名稱及其描述以建立 SQL Database 輸出。
+如果資料的本質上具備關聯性，或者應用程式所需的內容需由關聯式資料庫提供時，就可使用 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 做為資料輸出。串流分析工作會寫入至 Azure SQL Database 中的現有資料表。請注意，資料表結構描述必須完全符合工作輸出的欄位及其類型。下表列出屬性名稱及其描述以建立 SQL Database 輸出。
 
 | 屬性名稱 | 說明 |
 |---------------|-------------|
@@ -118,7 +118,7 @@
 
 您可以把 [Power BI](https://powerbi.microsoft.com/) 當做串流分析工作的輸出，來為分析結果提供豐富的視覺體驗。這項功能可以用於可運作的儀表板、產生報告，以及度量驅動的報告。
 
-> [AZURE.NOTE]在此階段，Azure Preview 入口網站不支援 Power BI 輸出的建立及設定。
+> [AZURE.NOTE] 在此階段，Azure Preview 入口網站不支援 Power BI 輸出的建立及設定。
 
 ### 授權 Power BI 帳戶
 
@@ -145,7 +145,7 @@
 
 如需設定 Power BI 輸出和儀表板的逐步解說，請參閱 [Azure 串流分析與 Power BI](stream-analytics-power-bi-dashboard.md) 一文。
 
-> [AZURE.NOTE]未在 Power BI 儀表板中明確建立資料集和資料表。當工作開始並將輸出提取至 Power BI 時，就會自動填入資料集和資料表。請注意，如果工作查詢沒有產生任何結果，將不會建立資料集和資料表。也請注意，如果 Power BI 已經具有與串流分析工作中提供的名稱相同的資料集和資料表，可能會覆寫現有的資料。
+> [AZURE.NOTE] 未在 Power BI 儀表板中明確建立資料集和資料表。當工作開始並將輸出提取至 Power BI 時，就會自動填入資料集和資料表。請注意，如果工作查詢沒有產生任何結果，將不會建立資料集和資料表。也請注意，如果 Power BI 已經具有與串流分析工作中提供的名稱相同的資料集和資料表，可能會覆寫現有的資料。
 
 ### 更新 Power BI 授權
 
@@ -210,7 +210,7 @@
 
 ## DocumentDB
 
-[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) 是完全受管理的 NoSQL 文件資料庫服務，可提供透過無結構描述資料進行的查詢和交易，並且提供既可預測又可靠的效能，還能讓您快速開發。
+[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 是完全受管理的 NoSQL 文件資料庫服務，可提供透過無結構描述資料進行的查詢和交易，並且提供既可預測又可靠的效能，還能讓您快速開發。
 
 下表列出用於建立 DocumentDB 輸出的屬性名稱及其描述。
 
@@ -267,4 +267,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

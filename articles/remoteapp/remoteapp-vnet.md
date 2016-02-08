@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="01/22/2016"
     ms.author="elizapo" />
 
 
@@ -33,8 +33,8 @@
 
 如需端對端混合式收藏工作流程的詳細資訊，請參閱下列文章：
 
-- [如何針對 Azure RemoteApp 規劃您的虛擬網路](remoteapp-planvpn.md)
+- [如何針對 Azure RemoteApp 規劃您的虛擬網路](remoteapp-planvnet.md)
 - [建立混合式收藏](remoteapp-create-hybrid-deployment.md)
 - [將 Azure RemoteApp 收藏部署到 Azure 虛擬網路 (支援 ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0128_2016-->

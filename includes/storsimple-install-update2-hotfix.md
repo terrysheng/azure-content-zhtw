@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/15-->
+<!--author=alkohli last changed: 01/26/16-->
 
 #### 下載 Hofix
 
@@ -20,7 +20,7 @@
  
 6. 按一下 [下載]。指定或**瀏覽**至您想要儲存下載項目的本機位置。更新將會下載到所選位置的資料夾 (名稱與更新相同) 中。資料夾也可以複製到裝置可連線的網路共用位置。
        
-	> [AZURE.NOTE]
+	> [AZURE.NOTE] 
 	> 
 	> - 您也需要下載 **LSI 驅動程式更新** (適用於 StorSimple 8000 系列的 SAS 控制器更新 2.0 - KB3121900)、**Storport 更新** (適用於 Windows Server 2012 R2 x64 版本的 Hotfix - KB3080728)、**Spaceport 更新** (適用於 Windows Server 2012 R2 x64 版本的 Hotfix - KB3090322)，以及**磁碟韌體更新** (適用於 StorSimple 8000 系列的累積磁碟韌體更新 2.0 - KB3121899)，並複製到相同的共用資料夾。
 	> - Hotfix 必須可同時從兩個控制器偵測任何來自對等控制器的潛在錯誤訊息。
@@ -85,7 +85,7 @@
         ````
 		
 
-	> [AZURE.NOTE]有時在更新進行期間，Cmdlet 會回報 `False`。若要確保此 Hotfix 已完成，請等待幾分鐘的時間、重新執行此命令並確認 `RunInProgress` 為 `False`。如果的確為 False 的話，則 Hotfix 已完成。
+	> [AZURE.NOTE] 有時在更新進行期間，Cmdlet 會回報 `False`。若要確保此 Hotfix 已完成，請等待幾分鐘的時間、重新執行此命令並確認 `RunInProgress` 為 `False`。如果的確為 False 的話，則 Hotfix 已完成。
 	
 8. 軟體更新完成之後，請重複步驟 3-5 來使用 `CisMdsAgentUpdateBundle.exe` 安裝及監視 SaaS 代理程式和 MDS 代理程式。確定您是先安裝 `HcsMdsSoftwareUpdate.exe`，然後再安裝 `CisMdsAgentUpdateBundle.exe`。
 
@@ -109,7 +109,11 @@
 
 #### 安裝及驗證維護模式 Hotfix
 
-使用 `DiskFirmwarePackage.exe` 封裝 (KB3121899) 來安裝磁碟韌體更新。這些是干擾性更新，且需要約 30 分鐘來完成。您可以藉由連接至裝置序列主控台，以選擇在預計的維護視窗中安裝這些更新。若要安裝磁碟韌體更新，請依照下面的指示執行。
+使用 `DiskFirmwarePackage.exe` 封裝 (KB3121899) 來安裝磁碟韌體更新。這些是干擾性更新，且需要約 30 分鐘來完成。您可以藉由連接至裝置序列主控台，以選擇在預計的維護視窗中安裝這些更新。
+
+請注意，如果您的磁碟韌體已是最新版本，便不需要安裝這些更新。從裝置序列主控台執行 `Get-HcsUpdateAvailability` Cmdlet。系統將通知您是否有可用的更新，以及更新是否為干擾性 (維護模式更新) 或非干擾性 (一般更新) 更新。
+ 
+若要安裝磁碟韌體更新，請依照下面的指示執行。
 
 1. 使裝置處於維護模式。請注意，連線至處於維護模式的裝置時，您不應該使用 Windows PowerShell 遠端執行功能。透過裝置序列主控台連線時，您需要在裝置控制器上執行此 Cmdlet。輸入：
 		
@@ -235,4 +239,4 @@
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0128_2016-->

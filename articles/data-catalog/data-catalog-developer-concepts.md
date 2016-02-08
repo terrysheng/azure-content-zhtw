@@ -90,7 +90,7 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 
 這些屬性套用至所有根資產類型和所有註解類型。
 
-> [AZURE.NOTE]名稱開頭為雙底線的屬性是系統類型。
+> [AZURE.NOTE] 名稱開頭為雙底線的屬性是系統類型。
 
 <table><tr><td><b>屬性名稱</b></td><td><b>資料類型</b></td><td><b>註解</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>上次修改根目錄的時間。這是由用戶端設定(伺服器不維護此值)。</td></tr><tr><td>__id</td><td>String</td><td>項目的識別碼 (唯讀)。此識別碼是目錄資產中的唯一識別碼。</td></tr><tr><td>__type</td><td>String</td><td>資產的類型 (唯讀)</td></tr><tr><td>__creatorId</td><td>String</td><td>由資產建立者用來唯一識別資產的字串。</td></tr></table>
 
@@ -172,7 +172,7 @@ Azure 資料目錄使用兩種授權機制：
 
 <table><tr><td><b>角色</b></td><td><b>範圍</b></td><td><b>權限</b></td></tr><tr><td>系統管理員</td><td>目錄 (也就是目錄中的所有資產/註解)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>擁有者</td><td>每個資產 (也就是根項目)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>參與者</td><td>每個個別的資產和註解</td><td>Read Update Delete ViewRoles 注意事項：如果撤銷 Contributor 在項目上的 Read 權限，則會撤鎖所有權限</td></tr></table>
 
-> [AZURE.NOTE]**Read**、**Update**、**Delete**、**ViewRoles** 權限適用於任何項目 (資產或註解)，而 **TakeOwnership**、**ChangeOwnership**、**ChangeVisibility**、**ViewPermissions** 只適用於根資產。
+> [AZURE.NOTE] **Read**、**Update**、**Delete**、**ViewRoles** 權限適用於任何項目 (資產或註解)，而 **TakeOwnership**、**ChangeOwnership**、**ChangeVisibility**、**ViewPermissions** 只適用於根資產。
 >
 >**Delete** 權限適用於項目及其底下的任何子項目或單一項目。例如，刪除資產時，也會刪除該資產的任何註解。
 
@@ -190,7 +190,7 @@ Azure 資料目錄使用兩種授權機制：
 
 > [AZURE.NOTE]
 >
-> **\_\_permissions** 僅適用於根項目。
+> **__**\_\_permissions** 僅適用於根項目。
 >
 > **擁有者** 角色僅適用於根項目。
 >
@@ -257,9 +257,9 @@ Azure 資料目錄使用兩種授權機制：
 	    ]
 	}
 
-> [AZURE.NOTE]在 PUT 中，不需要在內文中指定項目裝載：PUT 可以用來直接更新角色和 (或) 權限。
+> [AZURE.NOTE] 在 PUT 中，不需要在內文中指定項目裝載：PUT 可以用來直接更新角色和 (或) 權限。
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0128_2016-->

@@ -25,11 +25,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]如果您是使用 Microsoft Azure 進行行動開發的新手，[請從 Azure Mobile Apps 開始](app-service-mobile-dotnet-backend-ios-get-started-preview.md)，而非 Azure 行動服務，因為 Mobile Apps 能讓您擁有[更多優勢](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)。
+>[AZURE.TIP] 如果您是使用 Microsoft Azure 進行行動開發的新手，[請從 Azure Mobile Apps 開始](app-service-mobile-dotnet-backend-ios-get-started-preview.md)，而非 Azure 行動服務，因為 Mobile Apps 能讓您擁有[更多優勢](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)。
 
 本教學課程說明如何使用 Azure 行動服務在 iOS 應用程式中新增雲端型後端服務。在本教學課程中，您將建立新的行動服務和簡單的_待辦事項清單_應用程式，後者會在前者儲存應用程式資料。行動服務會使用 .NET 和 Visual Studio 於伺服器端商務邏輯。若要以 JavaScript 中伺服器端商務邏輯建立行動服務，請參閱本主題中的 [JavaScript 後端版本]。
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得[免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務](http://azure.microsoft.com/pricing/details/mobile-services/)。如需詳細資訊，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-ios-get-started%2F)。
+> [AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得[免費的行動服務，即使在試用期結束之後仍可繼續使用這些服務](https://azure.microsoft.com/pricing/details/mobile-services/)。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-ios-get-started%2F)。
 
 ## <a name="create-new-service"> </a>建立新的行動服務
 
@@ -69,7 +69,7 @@
 
 * [在限有的應用程式中新增驗證功能] <br/>了解如何利用身分識別提供者來驗證您應用程式的使用者。
 
-* [將推播通知新增至現有的應用程式中] <br/>了解如何將非常基本的推播通知傳送至應用程式。
+* [將推播通知新增至現有應用程式] <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
 * [行動服務 .NET 後端疑難排解] <br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
 
@@ -97,10 +97,10 @@
 <!-- URLs. -->
 [開始使用離線資料同步]: mobile-services-ios-get-started-offline-data.md
 [在限有的應用程式中新增驗證功能]: mobile-services-dotnet-backend-ios-get-started-users.md
-[將推播通知新增至現有的應用程式中]: mobile-services-dotnet-backend-ios-get-started-push.md
+[將推播通知新增至現有應用程式]: mobile-services-dotnet-backend-ios-get-started-push.md
 [行動服務 .NET 後端疑難排解]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript 後端版本]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0128_2016-->

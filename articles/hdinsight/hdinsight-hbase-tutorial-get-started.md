@@ -299,10 +299,13 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 
 如需詳細資訊，請參閱：
 
-- [HDInsight HBase 概觀][hdinsight-hbase-overview]HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
-- [在 Azure 虛擬網路上建立 HBase 叢集][hdinsight-hbase-provision-vnet]。由於 HBase 叢集已與虛擬網路整合，因此能夠部署到與您應用程式相同的虛擬網路，讓應用程式得以和 HBase 直接通訊。
+- [HDInsight HBase 概觀][hdinsight-hbase-overview]
+HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
+- [在 Azure 虛擬網路上建立 HBase 叢集][hdinsight-hbase-provision-vnet]。
+由於 HBase 叢集已與虛擬網路整合，因此能夠部署到與您應用程式相同的虛擬網路，讓應用程式得以和 HBase 直接通訊。
 - [在 HDInsight 中設定 HBase 複寫](hdinsight-hbase-geo-replication.md)了解如何跨兩個 Azure 資料中心設定 HBase 複寫。
-- [使用 HDInsight 中的 HBase 分析 Twitter 情緒][hbase-twitter-sentiment]了解如何在 HDInsight 中使用 Hadoop 叢集中的 HBase 針對巨量資料進行即時[情緒分析](http://en.wikipedia.org/wiki/Sentiment_analysis)。
+- [使用 HDInsight 中的 HBase 分析 Twitter 情緒][hbase-twitter-sentiment]
+了解如何在 HDInsight 中使用 Hadoop 叢集中的 HBase 針對巨量資料進行即時[情緒分析](http://en.wikipedia.org/wiki/Sentiment_analysis)。
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md

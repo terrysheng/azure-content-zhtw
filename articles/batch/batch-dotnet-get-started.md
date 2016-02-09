@@ -84,7 +84,8 @@ private const string StorageAccountKey  = "";
 
 您可以在 [Azure 入口網站][azure_portal]中每項服務的帳戶刀鋒視窗中尋找您的 Batch 和儲存體帳戶認證：
 
-![入口網站中的 Batch 認證][9] ![入口網站中的 Storage 認證][10]<br/>
+![入口網站中的 Batch 認證][9] 
+![入口網站中的 Storage 認證][10]<br/>
 
 您現已使用您的認證更新專案，以滑鼠右鍵按一下 [方案總管] 中的方案，然後按一下 [建置方案]。出現提示時，請確認任何 NuGet 封裝的還原。
 
@@ -96,7 +97,8 @@ private const string StorageAccountKey  = "";
 
 ## 步驟 1：建立儲存體容器
 
-![在 Azure 儲存體中建立容器][1] <br/>
+![在 Azure 儲存體中建立容器][1] 
+<br/>
 
 Batch 包含與 Azure 儲存體進行互動的內建支援。儲存體帳戶內的容器會提供可在您的 Batch 帳戶中執行的工作，以及其所需執行的檔案。容器也會提供一個位置來儲存工作所產生的輸出資料。*DotNetTutorial* 用戶端應用程式首先會在 [Azure Blob 儲存體](./../storage/storage-introduction.md)中建立三個容器：
 
@@ -152,7 +154,8 @@ private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobCli
 
 ## 步驟 2：上傳工作應用程式和輸入檔案
 
-![將工作應用程式和輸入 (資料) 檔案上傳至容器][2] <br/>
+![將工作應用程式和輸入 (資料) 檔案上傳至容器][2] 
+<br/>
 
 在檔案上傳作業中，*DotNetTutorial* 會先定義**應用程式**和**輸入** 檔案路徑的集合 (因為其存在於本機電腦上)。然後將這些檔案上傳到在上一個步驟中建立的容器。
 
@@ -238,7 +241,8 @@ DotNetTutorial 範例應用程式不會使用 JobPreparationTask 或 JobReleaseT
 
 ## 步驟 3：建立 Batch 集區
 
-![建立 Batch 集區][3] <br/>
+![建立 Batch 集區][3] 
+<br/>
 
 將應用程式和資料檔案上傳至儲存體帳戶之後，*DotNetTutorial* 會使用 Batch .NET 程式庫開始與 Batch 服務互動。若要這樣做，會先建立 [BatchClient][net_batchclient]：
 
@@ -323,7 +327,8 @@ private static async Task CreateJobAsync(BatchClient batchClient, string jobId, 
 
 ## 步驟 5：將工作加入至作業
 
-![將工作加入至作業][5]<br/> *(1) 工作已加入至作業，(2) 工作已排定在節點上執行，以及 (3) 工作會下載要處理的資料檔案*
+![將工作加入至作業][5]<br/> 
+*(1) 工作已加入至作業，(2) 工作已排定在節點上執行，以及 (3) 工作會下載要處理的資料檔案*
 
 若要實際進行工作，必須將工作加入至作業。每個 [CloudTask][net_task] 都是使用命令列屬性以及工作在其命令列自動執行前下載至節點的 [ResourceFiles][net_task_resourcefiles] (如同集區的 StartTask) 進行設定。在 *DotNetTutorial* 範例專案中，每個工作只會處理一個檔案。因此其 ResourceFiles 集合只包含單一元素。
 
@@ -341,7 +346,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
     foreach (ResourceFile inputFile in inputFiles)
     {
         string taskId = "topNtask" + inputFiles.IndexOf(inputFile);
-        string taskCommandLine = String.Format("cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 "{1}"", inputFile.FilePath, outputContainerSasUrl);
+        string taskCommandLine = String.Format("cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 \"{1}\"", inputFile.FilePath, outputContainerSasUrl);
 
         CloudTask task = new CloudTask(taskId, taskCommandLine);
         task.ResourceFiles = new List<ResourceFile> { inputFile };
@@ -402,7 +407,8 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 
 ## 步驟 6：監視工作
 
-![監視工作][6]<br/> *用戶端應用程式 (1) 會監視工作的完成和成功狀態，以及 (2) 將結果資料上傳至 Azure 儲存體的工作*
+![監視工作][6]<br/> 
+*用戶端應用程式 (1) 會監視工作的完成和成功狀態，以及 (2) 將結果資料上傳至 Azure 儲存體的工作*
 
 工作新增至作業時，會自動排入佇列及排程，以便在與作業相關聯的集區中的計算節點上執行。根據您指定的設定，Batch 會為您處理所有工作佇列、排程、重試和其他工作管理責任。監視工作執行的方法有許多種。DotNetTutorial 顯示了一個只報告完成和工作失敗或成功狀態的簡單範例。
 

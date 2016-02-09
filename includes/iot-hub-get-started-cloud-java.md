@@ -22,7 +22,7 @@
     
 4. 儲存並關閉 pom.xml 檔案。
 
-5. 使用文字編輯器開啟 create-device-identity\\src\\main\\java\\com\\mycompany\\app\\App.java 檔案。
+5. 使用文字編輯器開啟 create-device-identity\src\main\java\com\mycompany\app\App.java 檔案。
 
 6. 在此檔案中新增下列 **import** 陳述式：
 
@@ -110,7 +110,7 @@
 
 4. 儲存並關閉 pom.xml 檔案。
 
-5. 使用文字編輯器開啟 read-d2c-messages\\src\\main\\java\\com\\mycompany\\app\\App.java 檔案。
+5. 使用文字編輯器開啟 read-d2c-messages\src\main\java\com\mycompany\app\App.java 檔案。
 
 6. 在此檔案中新增下列 **import** 陳述式：
 

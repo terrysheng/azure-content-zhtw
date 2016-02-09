@@ -110,7 +110,7 @@
 
 3. 將 ToDoListAPI 專案部署到新的 API 應用程式。
 
-	a.在 ToDoListAPI 專案中，開啟 *Controllers\\ToDoListController.cs*，並將 `http://localhost:45914` 變更為 `https://{your ToDoListDataAPI app name}.azurewebsites.net`。
+	a.在 ToDoListAPI 專案中，開啟 *Controllers\ToDoListController.cs*，並將 `http://localhost:45914` 變更為 `https://{your ToDoListDataAPI app name}.azurewebsites.net`。
 
 	b.遵循您在 ToDoListDataAPI 專案時所遵循的相同程序來部署 ToDoListAPI 專案。請記得將類型變更為 [API 應用程式]。
 

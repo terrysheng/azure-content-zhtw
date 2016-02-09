@@ -505,7 +505,7 @@
 	
 	這應該就是要讓應用程式開始運作所需的所有程式碼。
 
-5. 開啟 **public\\stylesheets** 目錄中的 **style.css** 檔案，然後使用下列內容取代程式碼：
+5. 開啟 **public\stylesheets** 目錄中的 **style.css** 檔案，然後使用下列內容取代程式碼：
 
 		body {
 		  padding: 50px;

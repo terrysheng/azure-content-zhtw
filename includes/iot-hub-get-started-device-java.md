@@ -156,6 +156,6 @@
 > [AZURE.NOTE] 為了簡單起見，本教學課程不會實作任何重試原則。在實際程式碼中，您應該如 MSDN 文章[暫時性錯誤處理][lnk-transient-faults]所建議，實作重試原則 (例如指數型輪詢)。
 
 <!-- Links -->
-[lnk-transient-faults]: https://msdn.microsoft.com/zh-TW/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 <!---HONumber=AcomDC_0204_2016-->

@@ -141,4 +141,4 @@ Azure IoT 中樞是一項完全受管理的服務，可在數百萬個 IoT 裝�
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

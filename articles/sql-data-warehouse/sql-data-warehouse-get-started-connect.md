@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/01/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # 使用 Visual Studio 連接到 SQL 資料倉儲
@@ -26,7 +26,7 @@
 
 ## 必要條件
 
-+ SQL 資料倉儲中的 AdventureWorksDW 範例資料庫。若要建立此資料庫，請參閱[建立 SQL 資料倉儲資料庫](sql-data-warehouse-get-started-create.md)。 
++ SQL 資料倉儲中的 AdventureWorksDW 範例資料庫。若要建立此資料庫，請參閱[建立 SQL 資料倉儲資料庫](sql-data-warehouse-get-started-provision.md)。 
 + Visual Studio 的 SQL Server Data Tools。如需安裝指示和選項，請參閱[安裝 Visual Studio 和/或 SSDT](sql-data-warehouse-install-visual-studio.md)
 
 ## 步驟 1：尋找完整的 Azure SQL 伺服器名稱
@@ -108,4 +108,4 @@
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

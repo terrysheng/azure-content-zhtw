@@ -42,7 +42,7 @@
 * 如何使用 Visual Studio 的 [伺服器總管] 開啟遠端檔案並啟動遠端偵錯工作階段。 
 * 說明如何使用 [Azure 入口網站](/overview/preview-portal/)來監控及管理您的 Web 應用程式。
 
-> [AZURE.NOTE]本教學課程有關於搭配 Azure App Service 使用 ASP.NET；不會教導如何開發 ASP.NET Web 應用程式。如需 ASP.NET MVC 5 的簡介，請參閱 [ASP.NET](http://asp.net/) 網站的[開始使用 ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)。如需其他更深入探討如何使用 Azure App Service 的文章連結，請參閱＜[後續步驟](#next-steps)＞一節。
+> [AZURE.NOTE] 本教學課程有關於搭配 Azure App Service 使用 ASP.NET；不會教導如何開發 ASP.NET Web 應用程式。如需 ASP.NET MVC 5 的簡介，請參閱 [ASP.NET](http://asp.net/) 網站的[開始使用 ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)。如需其他更深入探討如何使用 Azure App Service 的文章連結，請參閱＜[後續步驟](#next-steps)＞一節。
 > 
 > 幫助我們規劃本教學課程的範圍和方法 -- 如果您有希望涵蓋在入門教學課程中的主題，請在本教學課程結尾的 [Disqus 註解](#comments)中留下意見反應。
 
@@ -296,9 +296,9 @@
 
 * [如何選擇或建立 App Service 方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
-* [如何選擇或建立資源群組](../azure-preview-portal-using-resource-groups.md)
+* [如何選擇或建立資源群組](../azure-portal/resource-group-portal.md)
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 及現有的 Azure 服務](http://go.microsoft.com/fwlink/?LinkId=529714)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

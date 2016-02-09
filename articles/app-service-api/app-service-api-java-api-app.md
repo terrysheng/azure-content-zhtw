@@ -141,7 +141,7 @@
 
     ![檢視 Swagger 產生的文件](media/app-service-api-java-api-app/view-swagger-generated-docs.png)
 
-1. 依序選取 [Generate Server] \(產生伺服器) -> [JAX RS] 功能表選項，來建立伺服器端的程式碼結構，讓您稍後能拿來新增模擬實作。
+1. 依序選取 [Generate Server] (產生伺服器) -> [JAX RS] 功能表選項，來建立伺服器端的程式碼結構，讓您稍後能拿來新增模擬實作。
 
     ![產生程式碼功能表項目](media/app-service-api-java-api-app/generate-code-menu-item.png)
 	
@@ -150,7 +150,7 @@
 ## 編輯程式碼來新增 API 實作
 在本節中，您將使用您自訂的程式碼，來取代編輯器所產生程式碼的伺服器端實作。新的程式碼會把連絡人實體的 ArrayList 傳回給呼叫中的用戶端。
 
-1. 使用 [Visual Studio Code](https://code.visualstudio.com) 或您偏好的文字編輯器，來開啟 *Contact.java* 模型檔案 (位於 *src/gen/java/swagger/model* 資料夾)。 
+1. 使用 [Visual Studio Code](https://code.visualstudio.com) 或您偏好的文字編輯器，來開啟 *Contact.java* 模型檔案 (位於 *src/gen/java/io/swagger/model* 資料夾)。 
 
     ![開啟連絡人模型檔案](media/app-service-api-java-api-app/open-contact-model-file.png)
 
@@ -163,7 +163,7 @@
 			this.emailAddress = email;
 		}
 
-1. 使用 [Visual Studio Code](https://code.visualstudio.com) 或您偏好的文字編輯器，來開啟 *ContactsApiServiceImpl.java* 服務實作檔案 (位於 *src/main/java/swagger/api/impl* 資料夾)。
+1. 使用 [Visual Studio Code](https://code.visualstudio.com) 或您偏好的文字編輯器，來開啟 *ContactsApiServiceImpl.java* 服務實作檔案 (位於 *src/main/java/io/swagger/api/impl* 資料夾)。
 
     ![開啟連絡人服務程式碼](media/app-service-api-java-api-app/open-contact-service-code-file.png)
 
@@ -295,4 +295,4 @@
 
 如需有關在 Azure 中使用 Java 的詳細資訊，請參閱 [ 開發人員中心](/develop/java/)。
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

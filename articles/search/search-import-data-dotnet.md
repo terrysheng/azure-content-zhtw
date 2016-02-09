@@ -98,7 +98,8 @@
 
         try
         {
-            indexClient.Documents.Index(IndexBatch.Create(documents.Select(doc => IndexAction.Create(doc))));
+            var batch = IndexBatch.Upload(sitecoreItems);
+            indexClient.Documents.Index(batch);
         }
         catch (IndexBatchException e)
         {
@@ -107,7 +108,7 @@
             // retrying. For this simple demo, we just log the failed document keys and continue.
             Console.WriteLine(
                 "Failed to index some of the documents: {0}",
-                String.Join(", ", e.IndexResponse.Results.Where(r => !r.Succeeded).Select(r => r.Key)));
+                String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
         }
 
         // Wait a while for indexing to complete.
@@ -118,10 +119,10 @@
 
 第二部分會為每個 `Hotel` 建立 `IndexAction`，然後將建立的項目群組在一起為新的 `IndexBatch`。接著以 `Documents.Index` 方法將該 Batch 上傳至 Azure 搜尋服務索引。
 
-> [AZURE.NOTE]在此範例中，我們只上傳文件。如果您想將執行的變更合併至現有文件，或刪除文件，可以用對應的 `IndexActionType` 建立 `IndexAction`。在此範例中不需指定 `IndexActionType`，因為預設為 `Upload`。
+> [AZURE.NOTE] 在此範例中，我們只上傳文件。如果您要將變更合併至現有文件或刪除文件，可以相應地使用對應的 `Merge`、`MergeOrUpload` 或 `Delete` 方法。
 
 此方法的第三部分是擷取區塊，該區塊會為編制索引處理重要錯誤情況。如果您的 Azure Search 服務無法將 Batch 中的一些文件編制索引，則 `Documents.Index` 會擲回 `IndexBatchException`。如果您在服務負載過重時編制文件的索引，就會發生此情況。**我們強烈建議您在程式碼中明確處理此情況。** 您可以延遲，然後重新嘗試將失敗的文件編制索引，或像範例一樣加以記錄並繼續，或是根據您應用程式的資料一致性需求執行其他操作。
 
 最後，方法會延遲兩秒。您的 Azure 搜尋服務中會發生非同步索引編製，因此範例應用程式必須稍待一會，才能確定文件已準備好可供搜尋。通常只有在示範、測試和範例應用程式中，才需要這類延遲。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

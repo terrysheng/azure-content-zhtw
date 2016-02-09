@@ -16,7 +16,7 @@
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.0-preview.9</version>
+      <version>1.0.0</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -27,7 +27,7 @@
 
 4. 儲存並關閉 pom.xml 檔案。
 
-5. 使用文字編輯器開啟 simulated-device\src\main\java\com\mycompany\app\App.java 檔案。
+5. 使用文字編輯器開啟 simulated-device\\src\\main\\java\\com\\mycompany\\app\\App.java 檔案。
 
 6. 在此檔案中新增下列 **import** 陳述式：
 
@@ -158,4 +158,4 @@
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-TW/library/hh680901(v=pandp.50).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

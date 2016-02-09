@@ -38,7 +38,7 @@
 
 ## 替代架構：網站和 WebJobs
 
-本教學課程示範如何在 Azure 雲端服務中執行前端與後端。替代方式是在 [Azure 網站](/services/web-sites/)中執行前端，並且將 [WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) 功能 (目前處於預覽) 用於後端。如需使用 WebJob 的教學課程，請參閱[開始使用 Azure WebJob SDK](../websites-dotnet-webjobs-sdk-get-started.md)。如需如何選擇最符合您的案例之服務的詳細資訊，請參閱 [Azure 網站、雲端服務和虛擬機器比較](../choose-web-site-cloud-service-vm.md)。
+本教學課程示範如何在 Azure 雲端服務中執行前端與後端。替代方式是在 [Azure 網站](/services/web-sites/)中執行前端，並且將 [WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) 功能 (目前處於預覽) 用於後端。如需使用 WebJob 的教學課程，請參閱[開始使用 Azure WebJob SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)。如需如何選擇最符合您的案例之服務的詳細資訊，請參閱 [Azure 網站、雲端服務和虛擬機器比較](../app-service-web/choose-web-site-cloud-service-vm.md)。
 
 ## 您將學到什麼
 
@@ -51,7 +51,7 @@
 
 ## 必要條件
 
-本教學課程假設您了解 [Azure 雲端服務的基本概念](fundamentals-application-models.md#CloudServices)，例如「 *Web 角色* 」和「 *背景工作角色* 」術語。同時也假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 或 [Web Form](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) 專案。範例應用程式使用 MVC，但大多數的教學課程內容亦適用於 Web Form。
+本教學課程假設您了解 [Azure 雲端服務的基本概念](fundamentals-application-models.md#CloudServices)，例如「*Web 角色*」和「*背景工作角色*」術語。同時也假設您知道如何在 Visual Studio 中使用 [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) 或 [Web Form](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) 專案。範例應用程式使用 MVC，但大多數的教學課程內容亦適用於 Web Form。
 
 您不需 Azure 訂閱即可在本機執行應用程式，但需要訂閱才能將應用程式部署至雲端。如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668)或是[申請免費試用](/pricing/free-trial/?WT.mc_id=A55E3C668)。
 
@@ -157,7 +157,7 @@ Azure 雲端服務是應用程式將執行所在的環境。
 
 1. 在 [Azure 傳統入口網站](http://manage.windowsazure.com)中，依序按一下 [新增] > [資料服務] > [SQL Database] > [快速建立]。
 
-1. 在 [**資料庫名稱**] 方塊中，輸入 *contosoads* 。
+1. 在 [**資料庫名稱**] 方塊中，輸入 *contosoads*。
 
 1. 從 [伺服器] 下拉式清單，選取 [新增 SQL Database 伺服器]。
 
@@ -219,7 +219,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 您將對 Web 角色使用 [Web.config 轉換](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)，以及對背景工作角色使用雲端服務環境設定。
 
->[AZURE.NOTE]在本節與下一節中，您將把認證儲存在專案檔中。[請勿將敏感性資料儲存在公用原始程式碼存放庫](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)。
+>[AZURE.NOTE] 在本節與下一節中，您將把認證儲存在專案檔中。[請勿將敏感性資料儲存在公用原始程式碼存放庫](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets)。
 
 1. 在 ContosoAdsWeb 專案中，開啟應用程式 *Web.config* 檔案的 *Web.Release.config* 轉換檔、刪除包含 `<connectionStrings>` 元素的註解區塊，並將下列程式碼貼上至其位置。
 
@@ -347,7 +347,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 9. 您可以透過建立、檢視和編輯一些廣告來測試應用程式，正如同您在本機執行應用程式一般。
 
->[AZURE.NOTE]完成測試後，請刪除或停止雲端服務。即使您未使用雲端服務，因為已為其保留虛擬機器資源，因此仍會累積費用。如果您讓它保持執行，找到您 URL 的任何人都可以建立和檢視廣告。在 [Azure 傳統入口網站](http://manage.windowsazure.com)中，移至您雲端服務的 [儀表板] 索引標籤，然後按一下頁面底部的 [刪除] 按鈕。如果您只想暫時避免他們存取網站，請改為按一下 [**停止**]。在那個情況下，將持續累積費用。當您不再需要 SQL 資料庫和儲存體帳戶時，可以遵循類似程序來加以刪除。
+>[AZURE.NOTE] 完成測試後，請刪除或停止雲端服務。即使您未使用雲端服務，因為已為其保留虛擬機器資源，因此仍會累積費用。如果您讓它保持執行，找到您 URL 的任何人都可以建立和檢視廣告。在 [Azure 傳統入口網站](http://manage.windowsazure.com)中，移至您雲端服務的 [儀表板] 索引標籤，然後按一下頁面底部的 [刪除] 按鈕。如果您只想暫時避免他們存取網站，請改為按一下 [**停止**]。在那個情況下，將持續累積費用。當您不再需要 SQL 資料庫和儲存體帳戶時，可以遵循類似程序來加以刪除。
 
 ## 從頭開始建立應用程式
 
@@ -391,7 +391,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 11. 在 [加入新的專案] 對話方塊中，於左窗格的 [Visual C#] 下選擇 [Windows]，然後按一下 [類別庫] 範本。
 
-10. 將專案命名為 *ContosoAdsCommon* ，然後按一下 [確定]。
+10. 將專案命名為 *ContosoAdsCommon*，然後按一下 [確定]。
 
 	您需要自 Web 和背景工作角色專案參考 Entity Framework 內容和資料模型。作為替代方式，您可以在 Web 角色專案中定義 EF 相關的類別，並從背景工作角色專案參考該專案。但在替代方法中，您的背景工作角色專案會有 Web 組件的參考，而這是專案所不需要的內容。
 
@@ -445,7 +445,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 	將 [服務組態] 保持設為 [所有組態]。
 
-4. 加入名為 *StorageConnectionString* 的新設定。將 [**類型**] 設為 *ConnectionString* ，並將 [**值**] 設為 *UseDevelopmentStorage=true* 。
+4. 加入名為 *StorageConnectionString* 的新設定。將 [**類型**] 設為 *ConnectionString*，並將 [**值**] 設為 *UseDevelopmentStorage=true*。
 
 	![New connection string](./media/cloud-services-dotnet-get-started/scall.png)
 
@@ -470,13 +470,13 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 3. 在 ContosoAdsCommon 專案中，刪除 *Class1.cs* 檔案，並在其位置加入來自所下載專案的 *Ad.cs* 和 *ContosoAdscontext.cs* 檔案。
 
 3. 在 ContosoAdsWeb 專案中，從所下載的專案加入下列檔案。
-	- *Global.asax.cs* 。  
+	- *Global.asax.cs*。  
 	- *Views\\Shared* 資料夾中的 <em>\_Layout.cshtml</em> 檔案。
-	- *Views\\Home* 資料夾中的 *Index.cshtml* 。
-	- *Controllers* 資料夾中的 *AdController.cs* 。
+	- *Views\\Home* 資料夾中的 *Index.cshtml*。
+	- *Controllers* 資料夾中的 *AdController.cs*。
 	- *Views\\Ad* 資料夾中 (請先建立此資料夾) 的五個 *.cshtml* 檔案。
 
-3. 在 ContosoAdsWorker 專案中，從所下載的專案加入 *WorkerRole.cs* 。
+3. 在 ContosoAdsWorker 專案中，從所下載的專案加入 *WorkerRole.cs*。
 
 您現在可以如本教學課程中稍早所指示般建置並執行應用程式，而應用程式將使用本機資料庫和儲存體模擬器資源。
 
@@ -736,7 +736,7 @@ Azure 背景工作角色環境會在背景工作角色開始時呼叫 `WorkerRol
 
 在每次迴圈的反覆運算之後，如果沒有找到佇列訊息，程式會休息一秒。如此可避免背景工作角色產生過度的 CPU 時間和儲存體交易成本。Microsoft 客戶諮詢小組曾經遇過一個案例是，開發人員忘記納入這一點便部署到生產環境，之後便離開去度假。當他回到工作崗位時，因為他疏忽所造成的代價比度假費用還高。
 
-有時佇列訊息的內容會造成處理錯誤。這稱為 *有害訊息* ，而如果您只是記錄錯誤並重新啟動迴圈，可能會不斷的嘗試處理該訊息。因此，Catch 區塊包含 If 陳述式，檢查以查看應用程式已嘗試處理目前訊息的次數，而如果已超過 5 次，即會從佇列中刪除訊息。
+有時佇列訊息的內容會造成處理錯誤。這稱為*有害訊息*，而如果您只是記錄錯誤並重新啟動迴圈，可能會不斷的嘗試處理該訊息。因此，Catch 區塊包含 If 陳述式，檢查以查看應用程式已嘗試處理目前訊息的次數，而如果已超過 5 次，即會從佇列中刪除訊息。
 
 找到佇列訊息時，系統會呼叫 `ProcessQueueMessage`。
 
@@ -769,7 +769,7 @@ Azure 背景工作角色環境會在背景工作角色開始時呼叫 `WorkerRol
 
 此程式碼會讀取資料庫以取得影像 URL、將影像轉換為縮圖、將縮圖儲存在 Blob 中，以縮圖 Blob URL 更新資料庫，並刪除佇列訊息。
 
->[AZURE.NOTE]為求簡化，`ConvertImageToThumbnailJPG` 方法中的程式碼會使用 SSystem.Drawing namespace 中的類別。不過，此命名空間中類別的設計原意是要與 Windows Form 搭配使用。不支援將它們用於 Windows 或 ASP.NET 服務。如需影像處理選項的詳細資訊，請參閱[動態影像產生](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx)和[深入調整影像大小](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na)。
+>[AZURE.NOTE] 為求簡化，`ConvertImageToThumbnailJPG` 方法中的程式碼會使用 SSystem.Drawing namespace 中的類別。不過，此命名空間中類別的設計原意是要與 Windows Form 搭配使用。不支援將它們用於 Windows 或 ASP.NET 服務。如需影像處理選項的詳細資訊，請參閱[動態影像產生](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx)和[深入調整影像大小](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na)。
 
 ## 疑難排解
 
@@ -815,4 +815,4 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
 * [如何管理雲端服務](cloud-services-how-to-manage.md)
 * [Azure 儲存體](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

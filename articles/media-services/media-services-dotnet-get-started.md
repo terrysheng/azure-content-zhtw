@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/18/2016"
+	ms.date="01/28/2016"
 	ms.author="juliako"/>
 
 
 # 使用 .NET SDK 傳遞點播內容入門
+
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -130,12 +131,12 @@
 
 4. 開啟 App.config 檔案 (如果尚未新增，則預設會將檔案新增至您的專案)，並將 *appSettings* 區段新增至此檔案。設定 Azure 媒體服務帳戶名稱和帳戶金鑰的值 (如下列範例所示)。若要取得帳戶名稱和金鑰資訊，請開啟 Azure 傳統入口網站，並選取媒體服務帳戶，然後按一下 [管理金鑰] 按鈕。
 
-<configuration>
+		<configuration>
 		...
-	<appSettings> 
-		<add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> 
-		<add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> 
-</appSettings>
+		  <appSettings>
+		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+		  </appSettings>
 		  
 		</configuration>
 
@@ -150,7 +151,7 @@
 		using System.Threading;
 		using System.IO;
 		using Microsoft.WindowsAzure.MediaServices.Client;
-		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+		
 
 6. 在 projects 目錄下建立新的資料夾，並複製您想要編碼和串流處理或漸進式下載的 .mp4 或 .wmv 檔案。在此範例中，使用 "C:\\VideoFiles" 路徑。
 
@@ -255,7 +256,7 @@
 - 將您的夾層 (來源) 檔編碼或轉換為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案。  
 - 為您計畫從該處傳遞內容的串流端點至少取得一個串流單元。
 
-下列程式碼顯示如何提交編碼工作。此工作包含一項作業，指定使用 **Azure 媒體編碼器**將夾層檔轉碼為一組調適性位元速率 MP4。此程式碼會提交工作，並等到工作完成。
+下列程式碼顯示如何提交編碼工作。此工作包含一項作業，指定使用**媒體編碼器標準**，將夾層檔轉碼為一組調適性位元速率 MP4。此程式碼會提交工作，並等到工作完成。
 
 工作完成之後，就可以串流處理資產，或漸進式下載轉碼後所建立的 MP4 檔案。請注意，您不需要擁有任何串流單元，即可漸進式下載 MP4 檔案。
 
@@ -452,4 +453,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

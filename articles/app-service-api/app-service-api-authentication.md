@@ -18,7 +18,7 @@
 
 # Azure App Service 中的 API Apps 驗證與授權
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [選取器](../../includes/app-service-api-auth-selector.md)]
 
 ## 概觀 
 
@@ -53,16 +53,14 @@ App Service 可以防止匿名 HTTP 要求進入您的 API 應用程式、傳遞
 
 1. 只允許通過驗證的要求進入 API 應用程式。
 
-	如果 App Service 收到來自瀏覽器的匿名要求，便會將其重新導向至登入頁面。
+	如果 App Service 收到來自瀏覽器的匿名要求，便會將其重新導向至您所選驗證提供者 (Azure AD、Google、Twitter 等) 的登入頁面。
 
-	如果您事先知道所要使用的驗證提供者 (Google、Twitter 等)，您可以設定 App Service 來為您處理登入程序。或者，您也可以指定 App Service 將匿名要求重新導向至自有 URL。然後您就可以讓使用者選擇驗證提供者。
-
-	使用此選項時，您不需要在應用程式中撰寫任何驗證程式碼，並且因為 HTTP 標頭中已提供最重要的宣告，所以授權程序會變得相當簡單。
+	使用此選項時，您不需要在應用程式中撰寫任何驗證程式碼，並且因為 HTTP 標頭中已提供最重要的宣告，所以授權碼會變得相當簡單。
 
 2. 允許所有要求進入 API 應用程式，但只讓通過驗證的要求生效，並在 HTTP 標頭中傳遞驗證資訊。
 
-	此選項可讓您更彈性地處理匿名要求，並輕鬆地撰寫需要存取最常見宣告的程式碼。不同於選項 1，如果您想要防止匿名使用者使用 API，則必須撰寫程式碼。
-
+	此選項可讓您更彈性地處理匿名要求，但如果想要防止匿名使用者使用您的 API，則必須撰寫程式碼。因為最受歡迎的宣告會在 HTTP 要求的標頭中傳遞，所以授權碼相對簡單。
+	
 3. 允許所有要求進入 API，不對要求中的驗證資訊採取任何動作。
 
 	這個選項會將驗證和授權工作全部交由應用程式程式碼來處理。
@@ -118,4 +116,4 @@ App Service 邏輯應用程式至 API 應用程式的服務帳戶驗證屬於特
 
 如需在 Azure App Service 中使用 Node 和 Java 的詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)和 [Java 開發人員中心](/develop/java/)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

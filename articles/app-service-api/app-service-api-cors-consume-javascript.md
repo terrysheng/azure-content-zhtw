@@ -18,8 +18,6 @@
 
 # 使用 CORS 從 JavaScript 取用 API 應用程式
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
-
 ## 概觀
 
 本文包含兩個部分：
@@ -240,4 +238,4 @@ Web API CORS 支援比 App Service CORS 支援更有彈性。例如，在程式�
 
 在本教學課程中，您已看到如何啟用 App Service CORS 支援，以便用戶端 JavaScript 程式碼可以呼叫不同網域中的 API。在下一篇 API Apps 入門系列文章中，您將了解 [App Service API 應用程式的驗證](app-service-api-authentication.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

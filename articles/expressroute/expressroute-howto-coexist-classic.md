@@ -18,7 +18,7 @@
 
 # 設定 ExpressRoute 和站對站 VPN 連線並存於 VNet
 
-能夠設定站對站 VPN 和 ExpressRoute 有諸多好處。您可以將站對站 VPN 設定為 ExressRoute 的安全容錯移轉路徑，或使用站對站 VPN 來連線至不在您網路中但透過 ExpressRoute 連接的網站。本文中將說明設定這兩個案例的步驟。本文適用於使用傳統部署模型所建立的連線。
+能夠設定站對站 VPN 和 ExpressRoute 有諸多好處。您可以將站對站 VPN 設定為 ExressRoute 的安全容錯移轉路徑，或使用站對站 VPN 來連線至不在您網路中但透過 ExpressRoute 連接的網站。本文中將說明設定這兩個案例的步驟。您目前只能使用傳統部署模型來建立此組態。當我們有適用於資源管理員部署模型的文件時，我們將在此提供其連結。
 
 >[AZURE.IMPORTANT] 請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的相關資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
 
@@ -211,4 +211,4 @@
 
 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -18,7 +18,7 @@
 
 # Azure App Service 中 API Apps 的使用者驗證
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [選取器](../../includes/app-service-api-auth-selector.md)]
 
 ## 概觀
 
@@ -110,7 +110,7 @@
 
 3. 將 ToDoListAPI 專案部署到新的 API 應用程式。
 
-	a.在 ToDoListAPI 專案中，開啟 *Controllers\ToDoListController.cs*，並將 `http://localhost:45914` 變更為 `https://{your ToDoListDataAPI app name}.azurewebsites.net`。
+	a.在 ToDoListAPI 專案中，開啟 *Controllers\\ToDoListController.cs*，並將 `http://localhost:45914` 變更為 `https://{your ToDoListDataAPI app name}.azurewebsites.net`。
 
 	b.遵循您在 ToDoListDataAPI 專案時所遵循的相同程序來部署 ToDoListAPI 專案。請記得將類型變更為 [API 應用程式]。
 
@@ -168,7 +168,7 @@
 
 	![](./media/app-service-api-dotnet-user-principal-auth/aadsettings.png)
 
-	在使用 [快速] 選項時，App Service 可以自動在 Azure AD [租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)中建立 Azure AD 應用程式。
+	在使用 [快速] 選項時，App Service 可以自動在 Azure AD [租用戶](https://msdn.microsoft.com/zh-TW/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)中建立 Azure AD 應用程式。
 
 	您不必建立租用戶，因為每個 Azure 帳戶都會自動擁有一個。
 
@@ -391,4 +391,4 @@ ToDoListAPI 專案目前會將 "*" 做為 `owner` 值傳送到 ToDoListDataAPI�
 
 在本教學課程中，您已了解如何使用 API 應用程式的 App Service 驗證，以及如何利用 ADAL JS 程式庫呼叫 API 應用程式。在下一個教學課程中，您將學習如何[對於服務對服務的案例保護您的 API 應用程式存取](app-service-api-dotnet-service-principal-auth.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

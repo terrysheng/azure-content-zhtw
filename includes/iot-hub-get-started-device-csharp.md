@@ -8,7 +8,7 @@
 
 2. 在 [方案總管] 中，以滑鼠右鍵按一下 **SimulatedDevice** 專案，然後按一下 [管理 NuGet 封裝]。
 
-3. 在 [NuGet 封裝管理員] 視窗中，請確認已選取 [包含發行前版本] 選項。搜尋 **Microsoft Azure 裝置用戶端**，按一下 [安裝] 然後接受使用規定。
+3. 在 [NuGet 封裝管理員] 視窗中，搜尋 [Microsoft Azure 裝置用戶端]，按一下 [安裝] 並接受使用規定。
 
 	這會下載及安裝參考，並將其加入 [Azure IoT - 裝置 SDK NuGet 封裝][lnk-device-nuget]。
 
@@ -63,7 +63,7 @@
   根據預設，**Create** 方法會建立一個使用 AMQP 通訊協定的 **DeviceClient** 來和 IoT 中樞通訊。若要使用 HTTPS 通訊協定，請使用可讓您指定通訊協定的 **Create** 方法的覆寫。若您選擇使用 HTTPS 通訊協定，您也應該將 **Microsoft.AspNet.WebApi.Client** NuGet 封裝新增至您的專案，以包含 **System.Net.Http.Formatting** 命名空間。
 
 
-> [AZURE.NOTE]為了簡單起見，本教學課程不會實作任何重試原則。在實際程式碼中，您應該如 MSDN 文章[暫時性錯誤處理][lnk-transient-faults]所建議，實作重試原則 (例如指數型輪詢)。
+> [AZURE.NOTE] 為了簡單起見，本教學課程不會實作任何重試原則。在實際程式碼中，您應該如 MSDN 文章[暫時性錯誤處理][lnk-transient-faults]所建議，實作重試原則 (例如指數型輪詢)。
 
 <!-- Links -->
 
@@ -73,4 +73,4 @@
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

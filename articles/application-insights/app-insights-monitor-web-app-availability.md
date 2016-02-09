@@ -207,6 +207,20 @@ Web 測試外掛程式提供這種作法。
 
 現在將您的測試上傳至入口網站。在每次執行測試時，它會使用動態值。
 
+## OAuth 登入
+
+如果使用者使用其 OAuth 密碼 (例如 Microsoft、Google 或 Facebook) 登入您的應用程式，您可以使用 SAML 外掛程式在多個步驟的 Web 測試中模擬登入。
+
+![OAuth 的範例 Web 測試](./media/app-insights-monitor-web-app-availability/81.png)
+
+範例測試會執行下列步驟：
+
+1. 要求進行測試的 Web 應用程式提供 OAuth 端點的位址。
+2. 使用 SAML 外掛程式登入。
+3. 在已登入的狀態下執行測試的其餘部分。
+
+SAML 外掛程式會設定步驟 2 中所用的變數 `Assert`。
+
 ## <a name="edit"></a> 編輯或停用測試
 
 開啟個別測試來編輯或停用。
@@ -249,4 +263,4 @@ Web 測試外掛程式提供這種作法。
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

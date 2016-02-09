@@ -1,5 +1,5 @@
 <properties
-	pageTitle="HBase 教學課程：開始在 Hadoop 中使用 HBase |Microsoft Azure"
+	pageTitle="HBase 教學課程：開始在 Hadoop 中使用以 Linux 為基礎的 HBase 叢集 | Microsoft Azure"
 	description="遵循本 HBase 教學課程，開始在 HDInsight 中搭配 Hadoop 使用 Apache HBase。使用 Hive 從 HBase Shell 建立資料表並加以查詢。"
 	keywords="apache hbase,hbase,hbase shell,hbase 教學課程"
 	services="hdinsight"
@@ -14,64 +14,53 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/02/2015"
+	ms.date="02/01/2016"
 	ms.author="jgao"/>
 
 
 
-# HBase 教學課程：開始在 HDInsight (Linux) 中搭配 Hadoop 使用 Apache HBase
+# HBase 教學課程：開始在 HDInsight 中搭配以 Linux 為基礎的 Hadoop 使用 Apache HBase 
 
 [AZURE.INCLUDE [HBase 選取器](../../includes/hdinsight-hbase-selector.md)]
 
-
 了解如何使用 Hive 在 HDInsight 中建立 HBase 叢集、建立 HBase 資料表，以及查詢資料表。如需一般 HBase 資訊，請參閱 [HDInsight HBase 概觀][hdinsight-hbase-overview]。
 
-> [AZURE.NOTE] 本文件的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需以 Windows 為基礎之叢集的資訊，請參閱[ 開始在 HDInsight (Windows) 中搭配 Hadoop 使用 Apache HBase](hdinsight-hbase-tutorial-get-started.md)。
+本文件的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需 windows 叢集相關資訊，請使用頁面頂端的索引標籤選取器進行切換。
 
-###必要條件
+###先決條件
 
 開始進行本 HBase 教學課程之前，您必須具備下列條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-- 適用於 Windows 用戶端的 PuTTY 和 PuTTYGen。您可從下列位置取得這些公用程式：[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)。
+- [安全殼層 (SSU)](hdinsight-hadoop-linux-use-ssh-unixl.md)。 
 - [cURL](http://curl.haxx.se/download.html)。
 
-## 建立 HBase 資料表
+## 建立 HBase 叢集
 
-[AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
+下列程序使用 Azure ARM 範本來建立 HBase 叢集。若要了解此程序與其他叢集建立方法中使用的參數，請參閱[在 HDInsight 中建立以 Linux 為基礎的 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
-**如何使用 Azure Preview 入口網站建立 HBase 叢集**
+1. 按一下以下影像，以在 Azure 入口網站中開啟 ARM 範本。ARM 範本位於公用 Blob 容器中。 
 
+    [![部署至 Azure](./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2FHbase.json)
 
-1. 登入 [Azure 預覽入口網站][azure-portal]。
-2. 按一下左上角的 [新增]，再依序按一下 [資料 + 分析]、[HDInsight]。
-3. 輸入下列值：
+2. 從 [參數] 刀鋒視窗，輸入下列項目：
 
+    - **ClusterName**：輸入您將建立的 HBase 叢集名稱。
+    - **ClusterStorageAccountName**：每個叢集均有 Azure Blob 儲存體帳戶相依性。刪除叢集之後，資料會保留在儲存體帳戶中。
+    - **叢集登入名稱和密碼**：預設登入名稱是 **admin**。
+    - **SSH 使用者名稱和密碼**：預設使用者名稱是 **sshuser**。您可以將它重新命名。其他參數都是選擇性的。  
+3. 按一下 [確定] 儲存參數。
+4. 在 [自訂部署] 刀鋒視窗中，按一下 [資源群組] 下拉式方塊，然後再按一下 [新增] 來建立新的資源群組。資源群組是聚集叢集、相依儲存體帳戶和其他已連結資源的容器。
+5. 按一下 [法律條款]，然後按一下 [建立]。
+6. 按一下 [建立]。大約需要 20 分鐘的時間來建立叢集。
 
-	- **叢集名稱**：請輸入可識別此叢集的名稱。
-	- **叢集類型**：請選取 [HBase]。
-	- **叢集作業系統**：請選取 [Linux]。如需建立以 Windows 為基礎的叢集，請參閱 [HBase 教學課程：開始在 HDInsight (Windows) 中搭配 Hadoop 使用 Apache HBase](hdinsight-hbase-tutorial-get-started.md)。
-	- **版本**：請選取 HBase 的版本。
-	- **訂用帳戶**：請選取要用來建立此叢集的 Azure 訂用帳戶。
-	- **資源群組**：請建立新的 Azure 資源群組，或選取現有的資源群組。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
-	- **認證**。輸入 HTTP Web 服務使用者的密碼。預設的使用者名稱為 **admin**。您也必須輸入 [SSH 使用者名稱]，然後輸入會用來驗證 SSH 使用者的 [密碼] 或 [公開金鑰]。建議使用公開金鑰的方法。如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列文章：
-
-		- [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)
-		- [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md) 按一下 [選取] 以儲存變更。
-	- **資料來源**：請建立新的 Azure 儲存體帳戶，或選取現有的 Azure 儲存體帳戶，來做為叢集的預設檔案系統。預設儲存體帳戶的位置，會決定叢集的位置。預設儲存體帳戶和叢集必須位於同一個資料中心。
-	- **節點定價層**：請選取 HBase 叢集的區域伺服器數目。
-
-		> [AZURE.WARNING] 若要讓 HBase 服務擁有高可用性，您必須建立包含至少**三個**節點的叢集。這可確保如果一個節點故障，仍可在其他節點上使用 HBase 資料區域。
-
-		> 若仍處於 HBase 的學習階段，請務必選擇 1 做為叢集大小，並在每次使用叢集後予以刪除，以降低成本。
-
-	- **選用組態**：請設定 Azure 虛擬網路、設定指令碼動作，以及新增其他的儲存體帳戶。
-
-4. 按一下 [建立]。
 
 >[AZURE.NOTE] 刪除 HBase 叢集之後，您可以使用相同的預設 Blob 容器建立另一個 HBase 叢集。這個新叢集將選取您在原始叢集中建立的 HBase 資料表。
 
-## 使用 HBase Shell
+## 建立資料表和插入資料
+
+您可以使用 SSH 來連接到 HBase 叢集，並使用 HBase Shell 來建立 HBase 資料表、插入及查詢資料。如需從 Linux、Unix、OS X 和 Windows 使用 SSH 的詳細資訊，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配以 Linux 為基礎的 Hadoop 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)和[從 Windows 在 HDInsight 上搭配以 Linux 為基礎的 Hadoop 使用 SSH](hdinsight-hadoop-linux-use-ssh-windows.md)。
+ 
 
 對大多數人而言，資料會以表格形式出現：
 
@@ -86,20 +75,7 @@
 
 **使用 HBase Shell**
 
->[AZURE.NOTE] 以下提供 Windows 電腦的步驟。如需從 Linux、Unix 或 OS X 連線到以 Linux 為基礎的 HDInsight 叢集的指示，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop (預覽)](hdinsight-hadoop-linux-use-ssh-unix.md) 
-1.開啟 PuTTY。請參閱文章開頭所列的必要條件。
-2.如果您在建立期間，於建立使用者帳戶時提供 SSH 金鑰，您就必須執行下列步驟來選取要在驗證叢集時使用的私密金鑰：
-
-	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
-
-3. 在 [**類別**] 中，按一下 [**工作階段**]。
-4. 從您 PuTTY 工作階段螢幕的基本選項，輸入下列值：
-
-	- 主機名稱：在 [主機名稱 (或 IP 位址)] 欄位中輸入您 HDInsight 伺服器的 SSH 位址。SSH 位址是叢集名稱加上 **-ssh.azurehdinsight.net**。例如，*mycluster-ssh.azurehdinsight.net*。
-	- 連接埠：22。前端節點 0 上的 ssh 連接埠為 22。請參閱[在 Linux 上使用 HDInsight 的相關資訊 (預覽)](hdinsight-hadoop-linux-information.md#remote-access-to-services)。
-4. 按一下 [**開啟**] 來連線到叢集。
-5. 出現提示時，輸入您建立叢集時所輸入的使用者。如果您對使用者提供密碼，系統會提示您一併輸入密碼。
-6. 執行以下命令：
+1. 從 SSH，執行下列命令：
 
 		hbase shell
 
@@ -125,7 +101,6 @@
 
 	如需 HBase 資料表結構描述的詳細資訊，請參閱 [HBase 結構描述設計簡介][hbase-schema]。如需其他 HBase 命令，請參閱 [Apache HBase 參考指南][hbase-quick-start]。
 
-
 6. 結束 Shell
 
 		exit
@@ -135,7 +110,7 @@
 HBase 包含數個將資料載入資料表的方法。如需詳細資訊，請參閱[大量載入](http://hbase.apache.org/book.html#arch.bulk.load)。
 
 
-範例資料檔案已上傳到公用 Blob 容器：wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt。資料檔案的內容：
+範例資料檔案已上傳到公用 Blob 容器，**wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*。資料檔案的內容：
 
 	8396	Calvin Raji		230-555-0191	230-555-0191	5415 San Gabriel Dr.
 	16600	Karen Wu		646-555-0113	230-555-0192	9265 La Paz
@@ -152,8 +127,7 @@ HBase 包含數個將資料載入資料表的方法。如需詳細資訊，請�
 
 > [AZURE.NOTE] 此程序會使用您在上一個程序中建立的連絡人 HBase 資料表。
 
-1. 開啟 **PuTTY**，然後連線到叢集。請參閱先前程序中的指示。
-3. 執行下列命令，將資料檔案轉換成 StoreFiles 並存放在 Dimporttsv.bulk.output 所指定的相對路徑：
+1. 從 SSH，執行下列命令，將資料檔案轉換成 StoreFiles 並存放在 Dimporttsv.bulk.output 所指定的相對路徑：如果您在 HBase Shell 中，請使用 exit 命令來結束。
 
 		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
@@ -165,10 +139,9 @@ HBase 包含數個將資料載入資料表的方法。如需詳細資訊，請�
 
 
 
-## 使用 Hive 查詢 HBase 資料表
+## 使用 Hive 查詢 HBase
 
 您可以使用 Hive 查詢 HBase 資料表中的資料。本節將建立對應至 HBase 資料表的 Hive 資料表，並用以查詢您 HBase 資料表中的資料。
-
 
 1. 開啟 **PuTTY**，然後連線到叢集。請參閱先前程序中的指示。
 2. 開啟 Hive 殼層。
@@ -212,13 +185,13 @@ HBase 包含數個將資料載入資料表的方法。如需詳細資訊，請�
 
 3. 使用下列命令建立含兩個資料欄系列的新 HBase 資料表：
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{"@name":"test","ColumnSchema":[{"name":"Personal"},{"name":"Office"}]}"
+		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"@name\":\"test\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}"
 
 	結構描述是以 JSON 格式提供。
 
 4. 使用下列命令插入一些資料：
 
-		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{"Row":{"key":"1000","Cell":{"column":"Personal:Name", "$":"John Dole"}}}"
+		curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"Row\":{\"key\":\"1000\",\"Cell\":{\"column\":\"Personal:Name\", \"$\":\"John Dole\"}}}"
 
 5. 使用下列命令取得資料列：
 
@@ -315,4 +288,4 @@ HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="02/04/2016"
 	ms.author="joseidz"/>
 
 
@@ -46,7 +46,7 @@
 
 4.	在 [登入認證] 區段中，按一下 [使用下列的使用者名稱和密碼]，輸入您在建立 SQL Database 時針對它所建立的**使用者名稱**和**密碼**，然後按 [下一步]。
 
-	> [AZURE.TIP]Excel 的 [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102) 和 [Power Query](https://www.microsoft.com/download/details.aspx?id=39379) 增益集都有非常相似的體驗。
+	> [AZURE.TIP] Excel 的 [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102) 和 [Power Query](https://www.microsoft.com/download/details.aspx?id=39379) 增益集都有非常相似的體驗。
 
 5. 在 [選取資料庫及資料表]對話方塊中，從下拉式功能表選取 [AdventureWorks] 資料庫，然後從資料表和檢視清單中選取 [vGetAllCategories]，然後按 [下一步]。
 
@@ -77,4 +77,4 @@
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

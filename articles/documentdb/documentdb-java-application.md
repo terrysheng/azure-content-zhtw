@@ -6,7 +6,7 @@
 	documentationCenter="java" 
 	authors="aliuy" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="mimig"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="10/20/2015" 
+	ms.date="01/29/2015" 
 	ms.author="andrl"/>
 
 # 使用 DocumentDB 來建置 Java Web 應用程式
@@ -34,7 +34,7 @@
 
 ![我的待辦事項清單 Java 應用程式](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP]本應用程式開發教學課程假設您先前已有使用 Java 的經驗。如果您不熟悉 Java 或[必備工具](#Prerequisites)，我們建議您從 GitHub 下載完整的[待辦事項](https://github.com/Azure-Samples/documentdb-java-todo-app)專案，並使用[本文結尾的指示](#GetProject)開始建置。建置完成後，您可以檢閱文件，以加深對專案內容中程式碼的了解。
+> [AZURE.TIP] 本應用程式開發教學課程假設您先前已有使用 Java 的經驗。如果您不熟悉 Java 或[必備工具](#Prerequisites)，我們建議您從 GitHub 下載完整的[待辦事項](https://github.com/Azure-Samples/documentdb-java-todo-app)專案，並使用[本文結尾的指示](#GetProject)開始建置。建置完成後，您可以檢閱文件，以加深對專案內容中程式碼的了解。
 
 ##<a id="Prerequisites"></a>針對此 Java Web 應用程式教學課程的必要條件
 開始進行本應用程式開發教學課程之前，您必須具備下列條件：
@@ -95,7 +95,7 @@
 4. 在 [選取相依性] 視窗中，執行下列動作：
  - 在 [GroupId] 方塊中，輸入 com.microsoft.azure。
  - 在 [成品 ID] 方塊中，輸入 azure documentdb。
- - 在 [版本] 方塊中，輸入 1.4.0。
+ - 在 [版本] 方塊中，輸入 1.5.1。
 
 	![安裝 DocumentDB Java 應用程式 SDK](./media/documentdb-java-application/image13.png)
 
@@ -104,7 +104,7 @@
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.4.0</version>
+		    <version>1.5.1</version>
 	    </dependency>
 
 5. 按一下 [確定]，Maven 便會開始安裝 DocumentDB Java SDK。
@@ -786,4 +786,4 @@
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

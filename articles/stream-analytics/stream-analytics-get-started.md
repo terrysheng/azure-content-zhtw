@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="12/04/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok" />
 
 
@@ -107,7 +107,7 @@
 3.	選取 [事件中樞]，然後按一下右鍵。
 4.	在第三頁上輸入或選取下列值：
 
-	* **輸入別名**：輸入此工作輸入的易記名稱，例如 *CallStream* 。請注意，此名稱將用於後續的查詢。
+	* **輸入別名**：輸入此工作輸入的易記名稱，例如 *CallStream*。請注意，此名稱將用於後續的查詢。
 	* **事件中樞**：如果您建立的事件中樞與串流分析工作位於相同的訂用帳戶中，請選取事件中樞所在的命名空間。
 
 	如果事件中樞位於不同的訂閱中，請選取 [使用其他訂閱中的事件中樞]，並手動輸入 [服務匯流排命名空間]、[事件中樞名稱]、[事件中樞原則名稱]、[事件中樞原則索引鍵] 和 [事件中樞資料分割計數] 的資訊。
@@ -259,4 +259,4 @@
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

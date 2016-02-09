@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="01/26/2015" 
+	ms.date="02/03/2016" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>使用 DocumentDB 建置 Node.js Web 應用程式
@@ -183,8 +183,7 @@
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP] createCollection 會採用選擇性的 requestOptions 參數，可以用來指定集合的優惠類型。如果未提供 requestOptions.offerType 值，則將會使用預設的優惠類型來建立集合。
-> 如需 DocumentDB 優惠類型的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels.md)
+> [AZURE.TIP] createCollection 會採用選擇性的 requestOptions 參數，可以用來指定集合的優惠類型。如果未提供 requestOptions.offerType 值，則將會使用預設的優惠類型來建立集合。如需 DocumentDB 優惠類型的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels.md)
 		
 3. 儲存並關閉 **docdbUtils.js** 檔案。
 
@@ -570,4 +569,4 @@
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

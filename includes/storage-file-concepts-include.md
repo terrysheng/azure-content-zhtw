@@ -19,7 +19,7 @@
 
 ![files-concepts][files-concepts]
 
--   **儲存體帳戶：**一律透過儲存體帳戶來存取 Azure 儲存體。如需關於儲存體帳戶容量的詳細資訊，請參閱＜[Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/library/azure/dn249410.aspx)＞(英文)。
+-   **儲存體帳戶：**一律透過儲存體帳戶來存取 Azure 儲存體。如需關於儲存體帳戶容量的詳細資訊，請參閱＜[Azure 儲存體延展性和效能目標](../articles/storage/storage-scalability-targets.md)＞(英文)。
 
 -   **共用：**檔案儲存體共用是 Azure 中的 SMB 檔案共用。所有的目錄和檔案必須在上層共用中建立。帳戶可包含無限制數目的共用，而共用可儲存無限制數目的檔案，最多可達 5 TB 總容量的檔案共用。
 
@@ -36,4 +36,4 @@
 
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

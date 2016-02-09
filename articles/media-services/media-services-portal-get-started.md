@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/05/2015"
+	ms.date="01/28/2016"
 	ms.author="juliako"/>
 
 
@@ -25,7 +25,8 @@
 
 本教學課程將逐步引導您透過 Azure 傳統入口網站實作基本的點播視訊 (VoD) 內容傳遞應用程式。
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 免費試用</a>。
+> [AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如需詳細資訊，請參閱 [Azure 免費試用](/pricing/free-trial/?WT.mc_id=A261C142F)。
+
 
 本教學課程內容包括以下工作：
 
@@ -91,7 +92,7 @@
 
 	配置任何新的單元需要大約 20 分鐘的時間才能完成。
 
-	>[AZURE.NOTE]目前，如果串流單元從任何正值到無，可能會停用串流長達一小時。
+	>[AZURE.NOTE] 目前，如果串流單元從任何正值到無，可能會停用串流長達一小時。
 	>
 	> 計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱＜[媒體服務定價詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)＞。
 
@@ -120,6 +121,7 @@
 ## 編碼內容
 
 ### 概觀
+
 若要透過網際網路傳遞數位視訊，您必須壓縮媒體。媒體服務提供媒體編碼程式，可讓您指定要如何為您的內容編碼 (例如，要使用的轉碼器、檔案格式、解析度及位元速率)。
 
 使用 Azure 媒體服務時，其中一個最常見案例是提供調適性位元速率串流給您的用戶端。使用調適性位元速率串流，用戶端可以在視訊顯示時，根據目前網路頻寬、CPU 使用率以及其他因素，切換成較高或較低的位元速率串流。媒體服務支援下列調適性位元速率串流技術：HTTP 即時串流 (HLS)、Smooth Streaming、MPEG DASH 和 HDS (僅適用於 Adobe PrimeTime/Access 授權)。
@@ -140,21 +142,12 @@
 本章說明當您要使用 Azure 傳統入口網站來透過 Azure 媒體編碼器為您的內容編碼時，可以採取的步驟。
 
 1.  選取您想要編碼的檔案。如果支援此檔案類型的編碼，[內容] 頁面底部的 [處理] 按鈕將會啟用。
-4. 在 [處理] 對話方塊中，選取 **[Azure 媒體編碼器]**處理器。
+4. 在 [處理] 對話方塊中，選取 [媒體編碼器標準] 處理器。
 5. 選擇其中一種**編碼組態**。
 
 	![Process2][process2]
 
-	[Azure 媒體編碼器的工作預設字串](https://msdn.microsoft.com/library/azure/dn619392.aspx)主題說明**調適性串流 (動態封裝) 的預設**、**漸進式下載的預設**、**調適性串流的傳統預設**等類別各代表什麼意思。
-
-	**其他**組態如下所述。
-
-	+ **使用 PlayReady 內容保護進行編碼**。此預設格式會產生以 PlayReady 內容保護編碼的資產。  
-
-		依預設會使用媒體服務 PlayReady 授權服務。若要指定其他可讓用戶端從中取得授權以播放 PlayReady 加密內容的服務，請使用 REST 或媒體服務 .NET SDK API。如需詳細資訊，請參閱[使用靜態加密保護您的內容]()，並在媒體編碼程式預設中設定 **licenseAcquisitionUrl** 屬性。或者，您可以使用動態加密，並依照**使用 PlayReady 動態加密和授權傳遞服務**來設定 [PlayReadyLicenseAcquisitionUrl](http://go.microsoft.com/fwlink/?LinkId=507720) 屬性。
-	+ **在 PC/Mac 上播放 (透過 Flash/Silverlight)**。此預設會產生具有下列特性的 Smooth Streaming 資產：使用 AAC 編碼的 44.1 kHz 16 位元/樣本立體音訊 CBR (96 kbps)，以及使用 H.264 主要設定檔編碼的 720p 視訊 CBR (6 位元速率，範圍從 3400 kbps 到 400 kbps)，與兩秒 GOP。
-	+ **透過 HTML5 播放 (IE/Chrome/Safari)**。此預設會產生具有下列特性的單一 MP4 檔案：使用 AAC 編碼的 44.1 kHz 16 位元/樣本立體音訊 CBR (128 kbps)，以及使用 H.264 主要設定檔編碼的 720p 視訊 CBR (4500 kbps)。
-	+ **在 iOS 裝置和 PC/Mac 上播放**。此預設格式會產生特性與 Smooth Streaming 資產 (如先前所述) 相同、但是其格式可以用來將 Apple HLS 資料流傳遞至 iOS 裝置的資產。
+	[媒體編碼器標準的工作預設字串](https://msdn.microsoft.com/zh-TW/library/mt269960)主題說明每個預設格式的意義。
 
 5. 接著，輸入想要的好記輸出內容名稱或接受預設值。然後，按一下核取按鈕以啟動編碼作業，而您可以在入口網站底部追蹤進度。
 6. 選取 [確定]。
@@ -193,7 +186,7 @@ SAS URL 具有下列格式。
 
 定位器有到期日。使用入口網站來發佈您的資產時，建立的定位器會在 100 年後失效。
 
->[AZURE.NOTE]如果您在 2015 年 3 月前使用入口網站來建立定位器，則建立的定位器 2 年後便告失效。
+>[AZURE.NOTE] 如果您在 2015 年 3 月前使用入口網站來建立定位器，則建立的定位器 2 年後便告失效。
 
 若要更新定位器的到期日，請使用 [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) 或 [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API。請注意，當您更新 SAS 定位器的到期日，URL 也會隨之變更。
 
@@ -260,4 +253,4 @@ Azure 傳統入口網站提供內容播放程式，可讓您用來測試視訊�
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

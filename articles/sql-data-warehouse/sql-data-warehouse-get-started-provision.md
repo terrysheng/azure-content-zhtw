@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/01/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # 建立 SQL 資料倉儲
@@ -31,7 +31,7 @@
 - 建立將要裝載您的資料庫的伺服器。
 - 建立包含 AdventureWorksDW 範例資料庫的資料庫。
 
-如果您嘗試將現有的資料庫移轉至 SQL 資料倉儲，請參閱[移轉概觀](./sql-data-warehouse-get-started-overview-migrate.md)或使用[移轉公用程式](./sql-data-warehouse-migrate-migration-utility.md)。
+如果您嘗試將現有的資料庫移轉至 SQL 資料倉儲，請參閱[移轉概觀](./sql-data-warehouse-overview-migrate.md)或使用[移轉公用程式](./sql-data-warehouse-migrate-migration-utility.md)。
 
 若要將資料載入 SQL 資料倉儲，請參閱[載入概觀](./sql-data-warehouse-overview-load.md)。
 
@@ -54,10 +54,10 @@
 
 在 SQL Database 和 SQL 資料倉儲中，每個資料庫都會指派給一部伺服器，而每部伺服器會指派給一個地理位置。此伺服器稱為邏輯 SQL Server。
 
-> [AZURE.NOTE]<a name="note"></a>邏輯 SQL Server︰
+> [AZURE.NOTE] <a name="note"></a>邏輯 SQL Server：
   >
   > + 提供一致的方式在相同的地理位置設定多個資料庫。
-  > + 不是內部部署伺服器的實體硬體。它是服務軟體的一部分。這就是為什麼我們將它稱為邏輯伺服器。
+  > + 不是內部部署伺服器的實體硬體。它是服務軟體的一部分。這就是為什麼我們將它稱為「邏輯」伺服器。
   > + 可以裝載多個資料庫，而不會影響其效能。
   > + 在其名稱中使用小寫 *s*。SQL **s**erver 是 Azure 邏輯伺服器，而 SQL **S**erver 則是 Microsoft 的內部部署資料庫產品。
 
@@ -74,7 +74,7 @@
 	- **建立 V12 伺服器**。[是] 是 SQL 資料倉儲的唯一選項。 
 	- **允許 Azure 服務存取伺服器**。SQL 資料倉儲一律會核取這個選項。
 
-    >[AZURE.NOTE]請務必將伺服器名稱、伺服器系統管理員名稱及密碼儲存於他處。您需要此資訊才能登入伺服器。
+    >[AZURE.NOTE] 請務必將伺服器名稱、伺服器系統管理員名稱及密碼儲存於他處。您需要此資訊才能登入伺服器。
 
 1. 按一下 [確定] 以儲存邏輯 SQL 伺服器組態設定並返回 [SQL 資料倉儲] 刀鋒視窗。
 
@@ -90,7 +90,7 @@
     
     - **效能**：我們建議從 400 DWU 開始。您可以將滑桿向左邊或向右移動來調整您的資料庫的效能層級，現在與之後都會建立資料庫。 
 
-        > [AZURE.NOTE]SQL 資料倉儲會以資料倉儲單位 (DWU) 測量效能。當您增加 DWU 時，SQL 資料倉儲會為您的資料庫作業增加可用的運算資源。當您執行您的工作負載時，將能夠看到 DWU 與您的工作負載效能的關係。
+        > [AZURE.NOTE] SQL 資料倉儲會以資料倉儲單位 (DWU) 測量效能。當您增加 DWU 時，SQL 資料倉儲會為您的資料庫作業增加可用的運算資源。當您執行您的工作負載時，將能夠看到 DWU 與您的工作負載效能的關係。
         > 
         > 在資料庫建立後，您可以快速、輕鬆地變更效能等級。例如，如果您目前未使用資料庫，向左移動滑桿可降低成本。或是在需要更多資源時提高效能。若不要產生成本，您可以暫停資料庫。這是 SQL 資料倉儲的可擴充功能。
 
@@ -123,7 +123,7 @@
 
 1. 建立某個 IP 位址範圍的防火牆規則。您可以現在或稍後執行這項操作。
 
-	>[AZURE.IMPORTANT]您的 IP 位址可能會不時變動，且在您建立新的防火牆規則前，將可能無法存取伺服器。若要確保一致的存取，建議您新增 IP 位址範圍。如需詳細資訊，請參閱[如何設定防火牆設定](../sql-database/sql-database-configure-firewall-settings.md)。
+	>[AZURE.IMPORTANT] 您的 IP 位址可能會不時變動，且在您建立新的防火牆規則前，將可能無法存取伺服器。若要確保一致的存取，建議您新增 IP 位址範圍。如需詳細資訊，請參閱[如何設定防火牆設定](../sql-database/sql-database-configure-firewall-settings.md)。
 
     若要建立規則，請輸入名稱和 IP 位址範圍，然後按一下 [儲存]。
 
@@ -135,4 +135,4 @@
 
 既然您已建立 SQL 資料倉儲的範例資料庫，表示已準備好[連接](./sql-data-warehouse-get-started-connect.md)到您的資料庫。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

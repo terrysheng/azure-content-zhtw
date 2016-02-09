@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # Azure 資源管理員概觀
@@ -87,7 +87,7 @@
 
 如需如何建構您的範本的相關指引，請參閱[設計 Azure 資源管理員範本的最佳做法](best-practices-resource-manager-design-templates.md)。
 
-如需將您的方案部署到不同環境的指引，請參閱 [Microsoft Azure 中的開發和測試環境](solution-dev-test-environments-preview-portal.md)。
+如需將您的方案部署到不同環境的指引，請參閱 [Microsoft Azure 中的開發和測試環境](solution-dev-test-environments.md)。
 
 ## 標記
 
@@ -119,7 +119,7 @@
 
 如需 PowerShell 的相關資訊，請參閱 [Azure PowerShell 搭配資源管理員使用](./powershell-azure-resource-manager.md)和 [Azure 資源管理員 Cmdlet](https://msdn.microsoft.com/library/azure/dn757692.aspx)
 
-如需 Azure CLI 的相關資訊，請參閱 [Azure CLI for Mac、Linux 和 Windows 搭配 Azure 資源管理使用](./virtual-machines/xplat-cli-azure-resource-manager.md)。
+如需 Azure CLI 的相關資訊，請參閱 [Azure CLI for Mac、Linux 和 Windows 搭配 Azure 資源管理使用](./xplat-cli-azure-resource-manager.md)。
 
 如需 REST API 的相關資訊，請參閱 [Azure 資源管理員 REST API 參考](https://msdn.microsoft.com/library/azure/dn790568.aspx)。
 
@@ -138,4 +138,4 @@ Azure 資源管理員支援跨原始資源共用 (CORS)。利用 CORS，您可�
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

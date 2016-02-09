@@ -43,7 +43,7 @@
 
 |**地緣政治區域**|**Azure 區域**|**ExpressRoute 位置**|
 |---|---|---|---|
-|**美國政府雲端**|美國政府愛荷華州、美國政府維吉尼亞州|愛荷華州、維吉尼亞州|芝加哥、華盛頓特區|
+|**美國政府雲端**|美國政府愛荷華州、美國政府維吉尼亞州|芝加哥、華盛頓特區|
 |**中國雲端**|中國北部、中國東部|北京、上海|
 
 
@@ -94,8 +94,8 @@
 | **服務提供者** |**Microsoft Azure** | **Office 365** | **位置** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 支援 | 不支援 | 芝加哥、華盛頓特區 |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 支援 | 不支援 | 芝加哥+、華盛頓特區 |
-| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 支援 | 不支援 | 芝加哥+、華盛頓特區 |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 支援 | 不支援 | 芝加哥、華盛頓特區 |
+| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 支援 | 不支援 | 芝加哥、華盛頓特區 |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 支援 | 不支援 | 芝加哥、華盛頓特區 |
 
 #### 中國雲端
@@ -141,4 +141,4 @@
 - 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 - 請確定符合所有必要條件。請參閱 [ExpressRoute 必要條件](expressroute-prerequisites.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

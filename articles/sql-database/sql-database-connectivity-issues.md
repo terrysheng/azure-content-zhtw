@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/06/2016"
+	ms.date="02/02/2016"
 	ms.author="daleche"/>
 
 
@@ -33,9 +33,11 @@
 
 ### 連接與命令
 
-視下列情況而定，您將會重試 SQL 連接或再次建立連接：
-* **連接嘗試期間發生暫時性錯誤**：應該在延遲數秒後重試連接。
-* **SQL 查詢命令期間發生暫時性錯誤**：不應立即重試命令。而是在延遲之後，應該建立全新的連接。然後，可以重試命令。
+根據下列建立情況，您將重試 SQL 連接或再次建立 SQL 連接：
+
+* **嘗試連接期間發生暫時性錯誤**：應該在延遲數秒後重試連接。
+
+* **執行 SQL 查詢命令期間發生暫時性錯誤**：不應該立即重試命令。而是在延遲之後，應該建立全新的連接。然後，可以重試命令。
 
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
@@ -104,7 +106,7 @@
 
 
 您可以測試重試邏輯的方法，就是在程式執行時中斷用戶端電腦與網路的連接。錯誤將是：
-- **SqlException.Number** = 11001
+- **SqlException.Number** = 11001 
 - 訊息：「沒有這類已知的主機」
 
 
@@ -112,12 +114,12 @@
 
 
 若要使這個動作可行，請從網路拔除電腦，再啟動您的程式。然後，您的程式會辨識執行階段參數，其會導致程式：
-1.暫時將 11001 加入至其錯誤清單，視為暫時性。
-2.如往常般嘗試其第一個連接。
-3.在攔截到錯誤之後，請從清單中移除 11001。
-4.顯示一則訊息，告訴使用者將電腦插入網路中。
-- 使用 **Console.ReadLine** 方法或含 [確定] 按鈕的對話方塊，暫停進一步執行。將電腦插入網路中之後。使用者按下 Enter 鍵。
-5.重新嘗試連接，預期成功。
+1. 暫時將 11001 加入至其錯誤清單，視為暫時性。
+2. 如往常般嘗試其第一個連接。
+3. 在攔截到錯誤之後，請從清單中移除 11001。
+4. 顯示一則訊息，告訴使用者將電腦插入網路中。
+ - 使用 **Console.ReadLine** 方法或含 [確定] 按鈕的對話方塊，暫停進一步執行。將電腦插入網路中之後。使用者按下 Enter 鍵。
+ 5.重新嘗試連接，預期成功。
 
 
 ### 連接時拼錯資料庫名稱以進行測試
@@ -125,18 +127,18 @@
 
 在第一次連接嘗試之前，您的程式可以故意拼錯使用者名稱。錯誤將為：
 - **SqlException.Number** = 18456 
-- 訊息：「使用者 'WRONG_MyUserName' 登入失敗。」
+- 訊息：「使用者 'WRONG\_MyUserName' 登入失敗。」
 
 
 第一次重試時，您的程式可以更正拼字錯誤，然後嘗試連接。
 
 
 若要使這個動作可行，您的程式會辨識執行階段參數，其會導致程式：
-1.暫時將 18456 加入至其錯誤清單，視為暫時性。
-2.故意將 'WRONG_' 加入至使用者名稱。
-3.在攔截到錯誤之後，請從清單中移除 18456。
-4.從使用者名稱中移除 'WRONG_'。
-5.重新嘗試連接，預期成功。
+1. 暫時將 18456 加入至其錯誤清單，視為暫時性。
+2. 故意將 'WRONG\_' 加入至使用者名稱。
+3. 在攔截到錯誤之後，請從清單中移除 18456。
+4. 從使用者名稱中移除 'WRONG\_'。
+5. 重新嘗試連接，預期成功。
 
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
@@ -255,7 +257,7 @@ ADO.NET 4.6.1：
 
 
 如果您是使用 ADO.NET 4.0 或更舊版本，建議您升級到最新的 ADO.NET。
-- 從 2015年 11 月開始，您可以[下載 ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx)。
+- 從 2015 年 11 月開始，您可以[下載 ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx)。
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
@@ -435,7 +437,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 
 - 免費的[書籍下載：Microsoft Enterprise Library 開發人員指南第 2 版](http://www.microsoft.com/download/details.aspx?id=41145)
 
-- 最佳作法：[重試一般指引](best-practices-retry-general.md)深入探討重試邏輯。
+- 最佳作法：[重試一般指引](../best-practices-retry-general.md)深入探討重試邏輯。
 
 - 可在 NuGet 下載 [Enterprise Library - 暫時性錯誤處理應用程式區塊 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
@@ -539,4 +541,4 @@ public bool IsTransient(Exception ex)
 
 - [*重試*是 Apache 2.0 授權的一般用途重試文件庫，以 **Python** 撰寫，幾乎可對任何案例加入重試作業。](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

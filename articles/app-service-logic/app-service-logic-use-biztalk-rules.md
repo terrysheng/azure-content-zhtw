@@ -251,4 +251,4 @@ BizTalk 規則支援明確向前鏈結，因此，如果使用者想要重新評
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!-------HONumber=AcomDC_0121_2016-->
+<!-------HONumber=AcomDC_0121_2016--->

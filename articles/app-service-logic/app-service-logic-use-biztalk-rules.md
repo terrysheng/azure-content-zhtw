@@ -111,7 +111,8 @@ IF 金額小於或等於可用資金 THEN 執行交易並列印收據
    ![替代文字][4]
 
 2.選取 [詞彙定義]。詞彙撰寫畫面將顯示。
-3.選取 [新增]，開始加入新的詞彙定義。目前支援兩種類型的詞彙定義 – 常值和 XML。
+3.選取 [新增]，開始加入新的詞彙定義。
+目前支援兩種類型的詞彙定義 – 常值和 XML。
 
 ##常值定義
 1.	按一下 [新增] 後，新的 [新增定義] 分頁隨即開啟。輸入下列值
@@ -250,4 +251,4 @@ BizTalk 規則支援明確向前鏈結，因此，如果使用者想要重新評
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!------HONumber=AcomDC_0121_2016-->
+<!-------HONumber=AcomDC_0121_2016-->

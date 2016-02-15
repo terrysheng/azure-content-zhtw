@@ -121,7 +121,7 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 原因：目標 VM 在認證的使用者名稱部分找不到安全性授權。
 
-若您的使用者名稱格式為 *SecurityAuthority*\*UserName* (範例：CORP\\User1)，則 *SecurityAuthority* 部分便應輸入虛擬機器的電腦名稱 (做為本機的安全性授權) 或 Active Directory 網域名稱。
+若您的使用者名稱格式為 *SecurityAuthority\UserName* (範例：CORP\\User1)，則 *SecurityAuthority* 部分便應輸入虛擬機器的電腦名稱 (做為本機的安全性授權) 或 Active Directory 網域名稱。
 
 可能的解決方案：
 
@@ -136,8 +136,8 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 以 Windows 為基礎的電腦可以驗證本機帳戶或網域帳戶之認證。
 
-- 如果是本機帳戶，請使用 *ComputerName*\*UserName* 語法 (範例：SQL1\\Admin4798)。
-- 如果是網域帳戶，請使用 *DomainName*\*UserName* 語法 (範例：CONTOSO\\johndoe)。
+- 如果是本機帳戶，請使用 *ComputerName\UserName* 語法 (範例：SQL1\\Admin4798)。
+- 如果是網域帳戶，請使用 *DomainName\UserName* 語法 (範例：CONTOSO\\johndoe)。
 
 如果您在新的 Active Directory 樹系將 VM 提升為網域控制站，您用來登入的本機系統管理員帳戶也會轉換為對等的帳戶，在新樹系和網域中使用相同的密碼。本機帳戶隨即刪除。例如，如果您以本機帳戶 DC1\\DCAdmin 登入，並提升此虛擬機器為 corp.contoso.com 網域中新樹系的網域控制器，則會刪除 DC1\\DCAdmin 本機帳戶，並且以相同密碼建立一個新的網域帳戶 (CORP\\DCAdmin)。
 

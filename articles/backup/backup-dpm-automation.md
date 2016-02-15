@@ -98,7 +98,16 @@ PS C:\> MARSAgentInstaller.exe /?
 
 | 選項 | 詳細資料 | 預設值 |
 | ---- | ----- | ----- |
-| /q | 無訊息安裝 | - | | /p:"location" | Azure 備份代理程式的安裝資料夾路徑。 | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"location" | Azure 備份代理程式的快取資料夾路徑。 | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | 選擇加入 Microsoft Update | - | | /nu | 安裝完成後不要檢查更新 | - | | /d | 解除安裝 Microsoft Azure 復原服務代理程式 | - | | /ph | Proxy 主機位址 | - | | /po | Proxy 主機連接埠號碼 | - | | /pu | Proxy 主機使用者名稱 | - | | /pw | Proxy 密碼 | - |
+| /q | 無訊息安裝 | - |
+| /p:"location" | Azure 備份代理程式的安裝資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"location" | Azure 備份代理程式的快取資料夾路徑。 | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /m | 選擇加入 Microsoft Update | - |
+| /nu | 安裝完成後不要檢查更新 | - |
+| /d | 解除安裝 Microsoft Azure 復原服務代理程式 | - |
+| /ph | Proxy 主機位址 | - |
+| /po | Proxy 主機連接埠號碼 | - |
+| /pu | Proxy 主機使用者名稱 | - |
+| /pw | Proxy 密碼 | - |
 
 ### 向 Azure 備份服務進行註冊
 在可註冊 Azure 備份服務之前，您必須確定已符合[先決條件](backup-azure-dpm-introduction.md)。您必須：
@@ -159,7 +168,7 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-在上述範例中，臨時區域將在 PowerShell 物件 ```$setting``` 中設定為 *C:\\StagingArea*。請確保指定的資料夾已經存在，否則訂閱設定的最終認可將會失敗。
+在上述範例中，臨時區域將在 PowerShell 物件 ```$setting``` 中設定為 *C:\StagingArea*。請確保指定的資料夾已經存在，否則訂閱設定的最終認可將會失敗。
 
 
 ### 加密設定

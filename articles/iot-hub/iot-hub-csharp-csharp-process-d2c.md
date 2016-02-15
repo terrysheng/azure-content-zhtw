@@ -98,6 +98,7 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
+[暫時性錯誤處理]: https://msdn.microsoft.com/zh-TW/library/hh680901(v=pandp.50).aspx
 
 [Azure IoT 中樞開發人員指南 - 裝置到雲端]: https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/#d2c
 
@@ -107,6 +108,7 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
 
 [使用 IoT 中樞傳送雲端到裝置訊息]: iot-hub-csharp-csharp-c2d.md
+[處理裝置到雲端訊息]: iot-hub-csharp-csharp-process-d2c.md
 [從裝置上傳檔案]: iot-hub-csharp-csharp-file-upload.md
 
 [IoT 中心概觀]: iot-hub-what-is-iot-hub.md

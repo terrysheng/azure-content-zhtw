@@ -48,7 +48,9 @@
 -	使用中的 [Microsoft Azure 帳戶](/account/)
 -	Visual Studio 2015 (含 [Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409))
 
-> [AZURE.NOTE] 您必須有 Azure 帳戶才能完成本教學課程：+ 您可以[免費申請帳戶](/pricing/free-trial/) - 我們會提供可用來試用付費 Azure 服務的點數，即使點數用完了，您仍然可以保留帳戶，使用免費的 Azure 服務，例如網站。 + 您可以[啟用 MSDN 訂閱者權益](/pricing/member-offers/msdn-benefits-details/) - 您的 MSDN 訂用帳戶每個月都會給您可用來試用付費 Azure 服務的點數。
+> [AZURE.NOTE] 您必須有 Azure 帳戶才能完成本教學課程：
+> + 您可以[免費申請帳戶](/pricing/free-trial/) - 我們會提供可用來試用付費 Azure 服務的點數，即使點數用完了，您仍然可以保留帳戶，使用免費的 Azure 服務，例如網站。 
+> + 您可以[啟用 MSDN 訂閱者權益](/pricing/member-offers/msdn-benefits-details/) - 您的 MSDN 訂用帳戶每個月都會給您可用來試用付費 Azure 服務的點數。
 
 <a name="deploy"></a>
 ## 部署雲端服務 ##
@@ -175,7 +177,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 -	任何控制器/動作 
 -	任何含有查詢字串的 URL (若 CDN 端點已啟用查詢字串的話)
 
-實際上，上述組態可讓您從 **http://*&lt;cdnName>*.azureedge.net/** 託管整個雲端服務。若瀏覽至 ****http://camservice.azureedge.net/**，則會從 Home/Index 取得動作結果。
+實際上，上述組態可讓您從 **http://*&lt;cdnName>*.azureedge.net/** 託管整個雲端服務。若瀏覽至 **http://camservice.azureedge.net/**，則會從 Home/Index 取得動作結果。
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -199,7 +201,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 	  ...
 	</system.webServer>
 
-這樣做時，雲端服務中的所有靜態檔案會在您的 CDN 快取中遵守相同規則。若要更精確控制快取設定，請將 *Web.config* 檔案加入至資料夾，並在檔案中新增您的設定。例如，將 *Web.config* 檔案加入至 *\\Content* 資料夾，並將內容改成下列 XML：
+這樣做時，雲端服務中的所有靜態檔案會在您的 CDN 快取中遵守相同規則。若要更精確控制快取設定，請將 *Web.config* 檔案加入至資料夾，並在檔案中新增您的設定。例如，將 *Web.config* 檔案加入至 *\Content* 資料夾，並將內容改成下列 XML：
 
 	<?xml version="1.0"?>
 	<configuration>
@@ -210,7 +212,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 	  </system.webServer>
 	</configuration>
 
-此設定會將 *\\Content* 資料夾中的所有靜態檔案快取 15 天。
+此設定會將 *\Content* 資料夾中的所有靜態檔案快取 15 天。
 
 如需有關如何設定 `<clientCache>` 元素的詳細資訊，請參閱[用戶端快取 &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache)。
 
@@ -335,7 +337,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 
 	![](media/cdn-cloud-service-with-cdn/cdn-7-configureview.PNG)
 
-4. 開啟新的 *Views\\MemeGenerator\\Index.cshtml*，將內容改成下列簡單的 HTML 來提交笑梗：
+4. 開啟新的 *Views\MemeGenerator\Index.cshtml*，將內容改成下列簡單的 HTML 來提交笑梗：
 
 		<h2>Meme Generator</h2>
 		
@@ -407,7 +409,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 		...
     }
 
-第一個 `bundles.Add()` 陳述式將指令碼套件組合加入至虛擬目錄 `~/bundles/jquery`。然後，開啟 *Views\\Shared\_Layout.cshtml*，查看指令碼套件組合標籤如何轉譯。您應該可以找到下列這一行 Razor 程式碼：
+第一個 `bundles.Add()` 陳述式將指令碼套件組合加入至虛擬目錄 `~/bundles/jquery`。然後，開啟 *Views\Shared_Layout.cshtml*，查看指令碼套件組合標籤如何轉譯。您應該可以找到下列這一行 Razor 程式碼：
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -466,7 +468,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 	
 	-	此 CDN URL 的來源是 `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`，事實上就是雲端服務中指令碼套件組合的虛擬目錄。
 	-	由於是使用 CDN 建構函式，套件組合的 CDN 指令碼標籤在轉譯的 URL 中已不再包含自動產生的版本字串。指令碼套件組合每次修改時，您都必須手動產生唯一的版本字串，以強制在 Azure CDN 上發生快取遺漏。同時，在部署套件組合之後，此唯一的版本字串在部署的整個存在期間內必須保持不變，讓 Azure CDN 的快取命中率達到最高。
-	-	查詢字串 v=<W.X.Y.Z> 會從 Web 角色專案的 *Properties\\AssemblyInfo.cs* 中提取。您的部署工作流程中可以包含每次發佈至 Azure 時就遞增組件版本。或者，您可以直接修改專案中的 *Properties\\AssemblyInfo.cs*，使用萬用字元 '*' 表示每次建置時就自動遞增版本字串。例如：
+	-	查詢字串 v=<W.X.Y.Z> 會從 Web 角色專案的 *Properties\AssemblyInfo.cs* 中提取。您的部署工作流程中可以包含每次發佈至 Azure 時就遞增組件版本。或者，您可以直接修改專案中的 *Properties\AssemblyInfo.cs*，使用萬用字元 '*' 表示每次建置時就自動遞增版本字串。例如：
 
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
@@ -517,7 +519,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 
 [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) 類別包含一個稱為 [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) 的屬性，可讓您設定 CDN 失敗時的後援機制。若要使用此屬性，請遵循下列步驟：
 
-1. 在 Web 角色專案中，開啟 *App\_Start\\BundleConfig.cs* (您已在該檔案中，將 CDN URL 加入每個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx))，透過下列醒目提示的變更將後援機制加入預設套件組合：  
+1. 在 Web 角色專案中，開啟 *App_Start\BundleConfig.cs* (您已在該檔案中，將 CDN URL 加入每個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx))，透過下列醒目提示的變更將後援機制加入預設套件組合：  
 
 		public static void RegisterBundles(BundleCollection bundles)
 		{

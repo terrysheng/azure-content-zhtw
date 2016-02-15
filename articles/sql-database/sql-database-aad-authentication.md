@@ -66,8 +66,8 @@ Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身�
 ## Azure AD 功能和限制
 
 下列 Azure Active Directory 的成員可在 Azure SQL Server 中佈建： 
-- 原生成員：在受管理的網域或客戶網域的 Azure AD 中建立的成員。如需詳細資訊，請參閱[將您自己的網域名稱新增至 Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/)。
-- 同盟網域成員：利用同盟網域在 Azure AD 中建立的成員。如需詳細資訊，請參閱 [Microsoft Azure 現在支援 Windows Server Active Directory 的同盟](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)。 
+- 原生成員：在受管理的網域或客戶網域的 Azure AD 中建立的成員。如需詳細資訊，請參閱 [將您自己的網域名稱新增至 Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-add-domain/)。
+- 同盟網域成員：利用同盟網域在 Azure AD 中建立的成員。如需詳細資訊，請參閱 [Microsoft Azure 現在支援 Windows Server Active Directory 的同盟]( https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)。 
 - 從其他 Azure Active Directory 匯入的成員，他們是原生或同盟網域成員。
 - 建立 Active Directory 群組做為安全性群組。
 
@@ -92,7 +92,7 @@ Azure Active Directory 驗證是 Azure Active Directory (Azure AD) 中使用身�
 - 將內部部署 Active Directory 網域服務與 Azure Active Directory 建立同盟。
 - 使用 **AD FS** 工具 (位於 [服務]、[端點] 區段) 來針對 URL 路徑 **/adfs/services/trust/13/windowstransport** 啟用 **WS-Trust 1.3**。
 
-如需詳細資訊，請參閱[將您自己的網域名稱新增至 Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/)、[Microsoft Azure 現在支援 Windows Server Active Directory 的同盟](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)、[管理您的 Azure AD 目錄](https://msdn.microsoft.com/library/azure/hh967611.aspx)和[使用 Windows PowerShell 管理 Azure AD](https://msdn.microsoft.com/library/azure/jj151815.aspx)。
+如需詳細資訊，請參閱 [將您自己的網域名稱新增至 Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-add-domain/) 、 [Microsoft Azure 現在支援 Windows Server Active Directory 的同盟]( https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) 、 [管理您的 Azure AD 目錄]( https://msdn.microsoft.com/library/azure/hh967611.aspx) 和 [使用 Windows PowerShell 管理 Azure AD]( https://msdn.microsoft.com/library/azure/jj151815.aspx)。
 
 ## 2\.請確定您的資料庫是 Azure SQL Database V12
 
@@ -334,4 +334,4 @@ Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別�
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0204_2016---->

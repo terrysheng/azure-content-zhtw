@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/05/2016"
+   ms.date="02/01/2016"
    ms.author="curtand;kenhoff"/>
 
 # 開始使用 Azure Active Directory 報告
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) 包括您的目錄的安全性、活動和稽�
 
 - 目錄稽核報告
 
-> [AZURE.TIP]如需有關 Azure AD 報告的更多文件，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
+> [AZURE.TIP] 如需有關 Azure AD 報告的更多文件，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
 
 
 
@@ -71,7 +71,7 @@ Azure Active Directory (Azure AD) 包括您的目錄的安全性、活動和稽�
 
 ![每個報告頂端的說明文字](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
 
-> [AZURE.TIP]如需有關 Azure AD 報告的更多文件，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
+> [AZURE.TIP] 如需有關 Azure AD 報告的更多文件，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
 
 
 
@@ -92,7 +92,7 @@ Azure Active Directory (Azure AD) 包括您的目錄的安全性、活動和稽�
 
 ### 瀏覽每個報告
 
-瀏覽每個報告以查看收集的資料，以及處理的登入。您可以[在此找到所有報告的清單](active-directory-reporting-what-it-is.md)。
+瀏覽每個報告以查看收集的資料，以及處理的登入。您可以[在此找到所有報告的清單](active-directory-reporting-guide.md)。
 
 ![所有報告](./media/active-directory-reporting-getting-started/reportsMain.png)
 
@@ -104,7 +104,7 @@ Azure Active Directory (Azure AD) 包括您的目錄的安全性、活動和稽�
 
 ![[下載] 按鈕](./media/active-directory-reporting-getting-started/downloadButton.png)
 
-> [AZURE.TIP]如需有關 Azure AD 報告的更多文件，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
+> [AZURE.TIP] 如需有關 Azure AD 報告的更多文件，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
 
 
 
@@ -134,7 +134,7 @@ Azure Active Directory (Azure AD) 包括您的目錄的安全性、活動和稽�
 
 ![畫面底部的 [Multi-Factor Authentication] 按鈕](./media/active-directory-reporting-getting-started/mfaButton.png)
 
-> [AZURE.TIP]如需有關 Azure AD 報告的更多文件，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
+> [AZURE.TIP] 如需有關 Azure AD 報告的更多文件，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
 
 
 
@@ -154,6 +154,6 @@ Azure Active Directory (Azure AD) 包括您的目錄的安全性、活動和稽�
 
 如有任何意見回饋、需要說明，或有任何問題，請寄送電子郵件給 [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com)。
 
-> [AZURE.TIP]如需有關 Azure AD 報告的更多文件，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
+> [AZURE.TIP] 如需有關 Azure AD 報告的更多文件，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -58,7 +58,7 @@ CoreOS 是 Linux 的輕量級版本，旨在支援快速建立可能的大型 VM
 
 使用[如何對 Azure 上的 Linux 使用 SSH](virtual-machines-linux-use-ssh-key.md)中的指示，建立 SSH 的公開和私密金鑰。(您可在下面的指示中找到基本步驟。) 您打算使用這些金鑰來與叢集中的 VM 連線，以驗證他們是否可正常運作並可互相通訊。
 
-> [AZURE.NOTE]本主題假設您沒有這些金鑰，為了讓您確實明瞭操作過程，將要求您建立 `myPrivateKey.pem` 和 `myCert.pem` 檔案。如果已將公開和私密金鑰組儲存至 `~/.ssh/id_rsa`，只要鍵入 `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` 就能取得需要上傳至 Azure 的 .pem 檔案。
+> [AZURE.NOTE] 本主題假設您沒有這些金鑰，為了讓您確實明瞭操作過程，將要求您建立 `myPrivateKey.pem` 和 `myCert.pem` 檔案。如果已將公開和私密金鑰組儲存至 `~/.ssh/id_rsa`，只要鍵入 `openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem` 就能取得需要上傳至 Azure 的 .pem 檔案。
 
 1. 在工作目錄中，鍵入 `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem` 以建立私密金鑰和與其相關聯的 X.509 憑證。
 
@@ -79,7 +79,7 @@ curl https://discovery.etcd.io/new | grep ^http.* > etcdid
 
 在相同的工作目錄中，使用您喜愛的文字編輯器建立包含下列文字的檔案，並將儲存為 `cloud-config.yaml`。(您可以為其設定任何檔案名稱，但在下一個步驟中建立 VM 時，您必須在 **azure create vm** 命令的 **--custom-data** 選項中參照此檔案的名稱。)
 
-> [AZURE.NOTE]請記得鍵入 `cat etcdid`，以從之前建立的 `etcdid` 檔案中擷取 etcd 探索識別碼，並使用從 `etcdid` 檔案產生的數字取代下列 `cloud-config.yaml` 檔案中的 `<token>`。如果您在最後無法驗證叢集，這有可能是您遺漏了其中一個步驟！
+> [AZURE.NOTE] 請記得鍵入 `cat etcdid`，以從之前建立的 `etcdid` 檔案中擷取 etcd 探索識別碼，並使用從 `etcdid` 檔案產生的數字取代下列 `cloud-config.yaml` 檔案中的 `<token>`。如果您在最後無法驗證叢集，這有可能是您遺漏了其中一個步驟！
 
 ```
 #cloud-config
@@ -110,7 +110,7 @@ coreos:
 
 3. 鍵入`azure service create <cloud-service-name>` (當中的 <*cloud-service-name*> 是您的 CoreOS 雲端服務名稱) 可建立基本叢集的雲端服務。此範例會使用 **`coreos-cluster`** 名稱；您必須重複使用您所選擇的名稱來建立雲端服務內的 CoreOS VM 執行個體。
 
-	附註：如果您在 [Preview 入口網站](https://portal.azure.com)中觀察您到目前為止的工作，您會在資源群組和網域中看到您的雲端服務名稱，如下圖所示：
+	請注意：如果您在 [Azure 入口網站](https://portal.azure.com)中觀察自己到目前為止的工作，就會在資源群組和網域中看到自己的雲端服務名稱，如下圖所示：
 
 	![][CloudServiceInNewPortal]
 
@@ -166,7 +166,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 `ssh-add ./myPrivateKey.key`
 
-> [AZURE.NOTE]如果您目前已使用 `~/.ssh/id_rsa` 金鑰，請使用 `ssh-add ~/.ssh/id_rsa` 新增。
+> [AZURE.NOTE] 如果您目前已使用 `~/.ssh/id_rsa` 金鑰，請使用 `ssh-add ~/.ssh/id_rsa` 新增。
 
 現在，您可以使用和您在 **node-1** 中使用的相同 **fleetctl** 命令準備開始遠端測試，但傳遞部分遠端引數：
 
@@ -209,4 +209,4 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 [YAML]: http://yaml.org/
 [開始在 Azure 上的 CoreOS 使用 Fleet]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

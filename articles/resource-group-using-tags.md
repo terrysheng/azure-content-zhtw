@@ -27,7 +27,7 @@
 
 每個資源或資源群組最多可以有 15 個標記。標記名稱上限為 512 個字元，且標記值上限為 256 字元。
 
-> [AZURE.NOTE] 您只能將標籤套用到支援資源管理員作業的資源。如果您透過傳統部署模型 (例如透過 Azure 入口網站或[服務管理 API](../services/api-management/)) 建立虛擬機器、虛擬網路或儲存體，則無法將標記套用至該資源。您必須透過資源管理員重新部署這些資源才能支援標記。所有其他資源皆支援標記。
+> [AZURE.NOTE] 您只能將標籤套用到支援資源管理員作業的資源。如果您透過傳統部署模型 (例如透過傳統入口網站或服務管理 API) 建立虛擬機器、虛擬網路或儲存體，則無法將標記套用至該資源。您必須透過資源管理員重新部署這些資源才能支援標記。所有其他資源皆支援標記。
 
 ## 範本中的標記
 
@@ -168,7 +168,7 @@
 
 ## 標記和計費
 
-對於支援的服務，您可以使用標記來分組您的計費資料。例如，[和 Azure 資源管理員整合的虛擬機器](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)可讓您定義並套用標記，以組織虛擬機器的計費使用情況。如果您執行不同組織的多個 VM，您可以使用標記根據成本中心來分組使用情況。您也可以使用標記來根據執行階段環境分類成本。例如，在生產環境中執行之 VM 的計費使用情況。
+對於支援的服務，您可以使用標記來分組您的計費資料。例如，[和 Azure 資源管理員整合的虛擬機器](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)可讓您定義並套用標記，以組織虛擬機器的計費使用情況。如果您執行不同組織的多個 VM，您可以使用標記根據成本中心來分組使用情況。您也可以使用標記來根據執行階段環境分類成本。例如，在生產環境中執行之 VM 的計費使用情況。
 
 您可以透過 [Azure 資源使用狀況和 RateCard API](billing-usage-rate-card-overview.md) 或使用情況逗號分隔值 (CSV) 檔案 (您可以從 [Azure 帳戶入口網站](https://account.windowsazure.com/)或 [EA 入口網站](https://ea.azure.com)下載)，擷取關於標記的資訊。如需以程式設計方式存取帳單資訊的詳細資訊，請參閱[深入了解 Microsoft Azure 資源耗用量](billing-usage-rate-card-overview.md)。若為 REST API 作業，請參閱 [Azure 計費 REST API 參考](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)。
 
@@ -181,6 +181,6 @@
 - 您可以使用自訂原則，在訂用帳戶內套用限制和慣例。您所定義的原則可能會需要為所有資源設定特定標記。如需詳細資訊，請參閱[使用原則來管理資源和控制存取](resource-manager-policy.md)。
 - 如需部署資源時使用 Azure PowerShell 的簡介，請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](./powershell-azure-resource-manager.md)。
 - 如需部署資源時使用 Azure CLI 的簡介，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理](./xplat-cli-azure-resource-manager.md)。
-- 如需使用入口網站的簡介，請參閱[使用 Azure 入口網站來管理您的 Azure 資源](./resource-group-portal.md)  
+- 如需使用入口網站的簡介，請參閱[使用 Azure 入口網站來管理您的 Azure 資源](./azure-portal/resource-group-portal.md)  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

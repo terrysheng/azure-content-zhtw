@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="01/22/2016"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Azure Active Directory (Azure AD) B2B 共同作業預覽：簡單安全的合作夥伴雲端整合
+# Azure AD B2B 共同作業預覽：簡單安全的合作夥伴雲端整合
 
 當公司更專注在核心業務，與其他企業結盟成為合作夥伴的需求便隨之增加。公司需要能與其合作夥伴輕鬆安全地共用資源 (例如存取公司的應用程式)，以利於有效率的共同作業。Azure Active Directory B2B 共同作業支援公司間的關係，可以讓合作夥伴使用由它們自行管理的身分識別，選擇性地存取您公司應用程式和資料。Azure AD B2B 共同作業有以下特點：
 
@@ -28,7 +28,7 @@
 
 請看[宣佈公用預覽的部落格文章](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx)和[這段深入探討的影片](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-B2B-collaboration-demo)，詳細了解 Azure AD B2B 共同作業。
 
-如需 Azure AD B2B 共同作業、Azure AD B2C 和 Azure AD 多租用戶應用程式的不同使用案例比較，請參閱[使用 Azure Active Directory 比較用於管理外部身分識別的功能](active-directory-b2b-compare-external-identities.md)。
+如需 Azure AD B2B 共同作業、Azure AD B2C 和 Azure AD 多租用戶應用程式的使用案例比較，請參閱[使用 Azure AD 比較用於管理外部身分識別的功能](active-directory-b2b-compare-external-identities.md)。
 
 ## 相關文章
 請瀏覽有關 Azure B2B 共同作業的其他文章：
@@ -40,4 +40,4 @@
 - [外部使用者物件屬性變更](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [目前的預覽版本限制](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

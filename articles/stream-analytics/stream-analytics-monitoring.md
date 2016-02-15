@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 # 了解串流分析工作監視功能，以及如何監視查詢
@@ -35,7 +35,8 @@ Azure 管理入口網站和 Azure Preview 入口網站都會顯示關鍵效能�
 
   ![Azure Preview 入口網站設定查詢診斷](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
 
-## 可供串流分析使用的度量  
+## 可供串流分析使用的度量
+
 
 | 度量 | 定義 |
 |--------|-------------|
@@ -45,7 +46,9 @@ Azure 管理入口網站和 Azure Preview 入口網站都會顯示關鍵效能�
 | 輸出事件 | 串流分析工作傳送的資料量，以事件計數表示。 |
 | 順序錯亂事件 | 所收到順序錯亂的事件數目，這些事件會根據事件順序原則，予以捨棄或指定調整後的時間戳記。順序錯亂容錯視窗設定的組態可能會造成影響。 |
 | 資料轉換錯誤 | 串流分析工作所造成的錯誤訊息數目。 |
+| 執行階段錯誤 | 在執行串流分析工作期間所發生的錯誤數目。 |
 | 延遲輸入事件 | 從來源延遲抵達的事件數目，這些事件已根據延遲抵達容錯視窗設定的事件順序原則組態卸除或調整其時間戳記。 |
+
 ## 在 Azure 管理入口網站中自訂監視 ##
 
 圖表上最多可以顯示 6 個度量。
@@ -94,7 +97,7 @@ Azure 管理入口網站和 Azure Preview 入口網站都會顯示關鍵效能�
   ![查詢診斷](./media/stream-analytics-monitoring/05-stream-analytics-monitoring.png)
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 
@@ -104,4 +107,4 @@ Azure 管理入口網站和 Azure Preview 入口網站都會顯示關鍵效能�
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

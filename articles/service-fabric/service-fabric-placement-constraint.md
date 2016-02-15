@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
-   ms.author="abhic"/>
+   ms.date="02/03/2016"
+   ms.author="masnider"/>
 
 # 位置限制概觀
 
@@ -24,9 +24,9 @@ Azure Service Fabric 可讓開發人員將服務複本的位置限制在滿足�
 ## 功能
 使用位置限制可讓您：
 
-- 透過定義節點上的 NodeProperties 將不同類型的服務侷限在不同類型的節點上。
+- 透過定義節點上的 NodeProperties，來將不同類型的服務侷限在不同類型的節點上。
 
-- 將某些限制套用到主要複本，但不套用到次要複本。
+- 把條件約束做為目標來同時套用到服務的主要和次要複本，或是把條件約束做為目標的來只套用到主要複本。
 
 
 ## 重要概念
@@ -38,4 +38,4 @@ NodeProperty--使用者定義或系統定義從字串對值的對應，其會隨
 
 如需詳細資訊，請參閱：[應用程式案例](../service-fabric-application-scenarios)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

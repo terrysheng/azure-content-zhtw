@@ -25,7 +25,7 @@
 
 ## 裝置驗證
 
-事件中樞安全性模型是以[共用存取簽章 (SAS)](service-bus-shared-access-signature-authentication.md) 權杖和事件發佈者的組合為基礎。事件發佈者能定義事件中樞的虛擬端點。發佈者只能用來將訊息傳送到事件中樞。您無法接收來自發佈者的訊息。
+事件中樞安全性模型是以[共用存取簽章 (SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) 權杖和事件發佈者的組合為基礎。事件發佈者能定義事件中樞的虛擬端點。發佈者只能用來將訊息傳送到事件中樞。您無法接收來自發佈者的訊息。
 
 一般而言，事件中樞會針對每個裝置採用一個發佈者。系統會將所有傳送到事件中樞之任何發佈行者的訊息排入該事件中樞內的佇列。發佈者允許更精密的存取控制和節流。
 
@@ -154,4 +154,4 @@ ACS 支援以多種方法來建立服務身分識別、信賴憑證者及規則�
 [佇列訊息解決方案]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

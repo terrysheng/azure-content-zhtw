@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # 企業營運應用程式工作負載第 5 階段：建立可用性群組並新增應用程式資料庫
@@ -119,4 +119,4 @@
 
 - 如果您要在 Azure 中部署自己的 IT 工作負載，請參閱這些[指導方針](virtual-machines-infrastructure-services-implementation-guidelines.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

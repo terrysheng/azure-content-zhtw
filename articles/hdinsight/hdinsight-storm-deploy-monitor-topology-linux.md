@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # 部署和管理以 Linux 為基礎的 HDInsight 上的 Apache Storm 拓撲
 
 在本文件中，了解在 HDInsight 叢集上管理和監視於以 Linux 為基礎的 Storm 上執行的 Storm 拓撲的基本概念。
 
-> [AZURE.IMPORTANT]本文中的步驟需要 HDInsight 叢集上以 Linux 為基礎的 Storm。如需部署和監視以 Windows 為基礎的 HDInsight 上的拓撲的詳細資訊，請參閱[部署和管理以 Windows 為基礎的 HDInsight 上的Apache Storm 拓撲](hdinsight-storm-deploy-monitor-topology.md)
+> [AZURE.IMPORTANT] 本文中的步驟需要 HDInsight 叢集上以 Linux 為基礎的 Storm。如需部署和監視以 Windows 為基礎的 HDInsight 上的拓撲的詳細資訊，請參閱[部署和管理以 Windows 為基礎的 HDInsight 上的Apache Storm 拓撲](hdinsight-storm-deploy-monitor-topology.md)
 
 ## 必要條件
 
-- **HDInsight 叢集上以 Linux 為基礎的 Storm**：請參閱[開始使用 Apache Storm on HDInsight](hdinsight-storm-get-started-linux.md) 以取得建立叢集的步驟
+- **HDInsight 叢集上以 Linux 為基礎的 Storm**：請參閱[開始使用 Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) 以取得建立叢集的步驟
 
 - **了解 SSH 和 SCP**：如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列文章：
     - **Linux、Unix 或 OS X 用戶端**：請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -50,7 +50,7 @@
 
     這會在叢集上啟動範例 WordCount 拓撲。它會隨機產生句子並計算句子中每個字詞的出現次數。
 
-    > [AZURE.NOTE]將拓撲提交至叢集時，您必須先複製包含叢集的 jar 檔案，再使用 `storm` 命令。而您可以從檔案所在的用戶端使用 `scp` 命令來完成這個動作。例如，`scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+    > [AZURE.NOTE] 將拓撲提交至叢集時，您必須先複製包含叢集的 jar 檔案，再使用 `storm` 命令。而您可以從檔案所在的用戶端使用 `scp` 命令來完成這個動作。例如，`scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
     > WordCount 範例和其他 Storm 入門範例已經包含在叢集上，位置是 `/usr/hdp/current/storm-client/contrib/storm-starter/`。
 
@@ -88,7 +88,7 @@ Storm 拓撲一旦啟動之後，將會繼續執行直到停止。若要停止�
 
 重新平衡拓撲可以讓系統修訂拓撲的平行處理原則。例如，如果您已調整叢集的大小以新增更多節點，重新平衡可讓執行中的拓撲使用新的節點。
 
-> [AZURE.WARNING]重新平衡拓撲首先會停用拓撲，然後跨叢集平均重新分佈背景工作角色，最後讓拓撲返回發生重新平衡之前的狀態。因此如果拓撲是作用中，它會再次變成作用中。如果已停用，它將保持停用。
+> [AZURE.WARNING] 重新平衡拓撲首先會停用拓撲，然後跨叢集平均重新分佈背景工作角色，最後讓拓撲返回發生重新平衡之前的狀態。因此如果拓撲是作用中，它會再次變成作用中。如果已停用，它將保持停用。
 
     storm rebalance TOPOLOGYNAME
 
@@ -96,7 +96,7 @@ Storm 拓撲一旦啟動之後，將會繼續執行直到停止。若要停止�
 
 Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsight 叢集中。若要檢視 Storm UI，請使用網頁瀏覽器開啟 \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__ ，其中 __CLUSTERNAME__ 是叢集的名稱。
 
-> [AZURE.NOTE]如果要求您提供使用者名稱和密碼，請輸入叢集系統管理員 (admin) 和建立叢集時使用的密碼。
+> [AZURE.NOTE] 如果要求您提供使用者名稱和密碼，請輸入叢集系統管理員 (admin) 和建立叢集時使用的密碼。
 
 
 ### 主頁面
@@ -126,7 +126,7 @@ Storm UI 是以 REST API 為建置基礎，因此您可以使用 REST API 執行
 
 如需詳細資訊，請參閱 [Storm UI REST API](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md)。下列資訊專用於搭配使用 REST API 與 Apache Storm on HDInsight。
 
-> [AZURE.IMPORTANT]Storm REST API 不是透過網際網路公開可用，而是必須使用 HDInsight 叢集前端節點的 SSH 通道來存取。如需建立及使用 SSH 通道的詳細資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
+> [AZURE.IMPORTANT] Storm REST API 不是透過網際網路公開可用，而是必須使用 HDInsight 叢集前端節點的 SSH 通道來存取。如需建立及使用 SSH 通道的詳細資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
 
 ### 基底 URI
 
@@ -143,7 +143,7 @@ Storm UI 是以 REST API 為建置基礎，因此您可以使用 REST API 執行
 
 REST API 的要求必須使用**基本驗證**，因此請使用 HDInsight 叢集管理員名稱和密碼。
 
-> [AZURE.NOTE]因為使用純文字傳送基本驗證，所以您應該**一律**使用 HTTPS 來保護與叢集通訊的安全。
+> [AZURE.NOTE] 因為使用純文字傳送基本驗證，所以您應該**一律**使用 HTTPS 來保護與叢集通訊的安全。
 
 ### 傳回值
 
@@ -155,4 +155,4 @@ REST API 的要求必須使用**基本驗證**，因此請使用 HDInsight 叢�
 
 若需更多範例拓撲的清單，請參閱 [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

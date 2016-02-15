@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/21/2016"
+   ms.date="02/01/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL Database Transact-SQL 差異
@@ -95,6 +95,7 @@ SQL Database V12 支援部分而非全部的引數，這些引數存在於對應
 - 觸發程序：伺服器範圍或登入觸發程序
 - USE 陳述式
 
+
 ## 完整 Transact-SQL 參考
 
 如需 Transact-SQL 文法、使用方式和範例的詳細資訊，請參閱《SQL Server 線上叢書》中的＜[Transact-SQL 參考 (資料庫引擎)](https://msdn.microsoft.com/library/bb510741.aspx)＞。
@@ -107,4 +108,4 @@ Transact-SQL 參考包括從 SQL Server 版本 2008 到目前版本的相關主�
 
 在某些情況下，一般主題的主旨可用於產品中，但產品之間會有些微的差異。依適當情況會在主題的中間點指出差異。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

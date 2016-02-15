@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/04/2015" 
+	ms.date="01/28/2016" 
 	ms.author="larryfr"/>
 
 #在 HDInsight 中搭配 Hive 與 Pig 來使用 Python
 
 Hive 與 Pig 很適合在 HDInsight 中處理資料，但您有時需要更通用的語言。Hive 與 Pig 都可讓您使用各種程式設計語言來建立使用者定義函數 (UDF)。在本文中，您將了解如何從 Hive 和 Pig 中使用 Python UDF。
 
-> [AZURE.NOTE]本文中的步驟適用於 HDInsight 叢集 2.1、3.0、3.1 和 3.2 版。
+> [AZURE.NOTE] 本文中的步驟適用於 HDInsight 叢集 2.1、3.0、3.1 和 3.2 版。
 
 
 ##<a name="python"></a>HDInsight 上的 Python
@@ -54,7 +54,7 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 	FROM hivesampletable
 	ORDER BY clientid LIMIT 50;
 
-> [AZURE.NOTE]在以 Windows 為基礎的 HDInsight 叢集上，**USING** 子句必須指定至 python.exe 的完整路徑。這一律為 `D:\Python27\python.exe`
+> [AZURE.NOTE] 在以 Windows 為基礎的 HDInsight 叢集上，**USING** 子句必須指定至 python.exe 的完整路徑。這一律為 `D:\Python27\python.exe`
 
 以下是此範例所執行的動作：
 
@@ -217,7 +217,7 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 ###PowerShell
 
-這些步驟使用 Azure PowerShell。如果尚未在開發機器上安裝和設定此元件，則使用下列步驟之前，請參閱[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)。
+這些步驟使用 Azure PowerShell。如果尚未在開發機器上安裝和設定此元件，則使用下列步驟之前，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 
 1. 使用 Python 範例 [streaming.py](#streamingpy) 和 [jython.py](#jythonpy)，在開發機器上建立檔案的本機複本。
 
@@ -255,7 +255,7 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 	此指令碼會擷取 HDInsight 叢集的資訊，然後擷取預設儲存體帳戶的帳戶和金鑰，再將檔案上傳至容器的根目錄。
 
-	> [AZURE.NOTE]關於其他的指令碼上傳方法，請參閱[在 HDInsight 上將 Hadoop 工作的資料上傳](hdinsight-upload-data.md)文件。
+	> [AZURE.NOTE] 關於其他的指令碼上傳方法，請參閱[在 HDInsight 上將 Hadoop 工作的資料上傳](hdinsight-upload-data.md)文件。
 
 上傳檔案之後，請使用下列 PowerShell 指令碼來啟動工作。當工作完成時，輸出應該會寫入至 PowerShell 主控台。
 
@@ -422,6 +422,6 @@ Pig|/PigPython/stderr<p>/PigPython/stdout
 
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 
-* 〈[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)〉
+* [〈搭配 HDInsight 使用 MapReduce〉](hdinsight-use-mapreduce.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

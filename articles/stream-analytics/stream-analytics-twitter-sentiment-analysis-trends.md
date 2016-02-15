@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/04/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"/>
 
 
@@ -63,7 +63,7 @@
 
 	請注意，您必須建立一個空白應用程式，才能產生權杖。  
 3.	將 App.config 中的 EventHubConnectionString 和 EventHubName 值換成事件中樞連接字串和名稱。
-4.	*選用：* 調整搜尋關鍵字。根據預設，這個應用程式會尋找 Azure、Skype、XBox、Microsoft、Seattle。如有需要，您可以調整 App.config 的 twitter\_keywords 值。
+4.	*選用：*調整搜尋關鍵字。根據預設，這個應用程式會尋找 Azure、Skype、XBox、Microsoft、Seattle。如有需要，您可以調整 App.config 的 twitter\_keywords 值。
 5.	建立解決方案
 6.	啟動應用程式。您會看到推文事件連同 CreatedAt、Topic 和 SentimentScore 值，一起傳送到事件中樞：
 
@@ -83,7 +83,6 @@
 	* **儲存體帳戶**：選擇您為在此區域內執行的所有 Stream Analytics 工作儲存監視資料時所要使用的儲存體帳戶。您可以選擇現有的儲存體帳戶，或建立新帳戶。
 
 3.	按一下左窗格中的 [STREAM ANALYTICS]，以列出 Stream Analytics 工作。
-	![Stream Analytics service icon](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
 
 4.	新工作會以 [已建立] 的狀態列出。請注意，頁面底部的 [啟動] 按鈕會停用。您必須先設定工作輸入、輸出、查詢等項目，才能啟動工作。
 
@@ -238,4 +237,4 @@
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!--------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

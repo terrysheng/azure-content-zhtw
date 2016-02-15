@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="10/27/2015" 
+    ms.date="02/03/2016" 
     ms.author="arramac"/>
     
 # 使用 Azure DocumentDB 中的地理空間資料
@@ -350,9 +350,9 @@ DocumentDB.NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提�
 ## 後續步驟
 既然您已經學會如何開始使用 DocumentDB 中的地理空間支援，您可以：
 
-- 使用 [Github 的地理空間 .NET 程式碼範例](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)開始撰寫程式碼
+- 使用 [Github 的地理空間 .NET 程式碼範例](https://github.com/Azure/azure-documentdb-dotnet/blob/e880a71bc03c9af249352cfa12997b51853f47e5/samples/code-samples/Geospatial/Program.cs)開始撰寫程式碼
 - 在 [DocumentDB 查詢遊樂場](http://www.documentdb.com/sql/demo#geospatial)中實際操作地理空間查詢
 - 深入了解 [DocumentDB 查詢](documentdb-sql-query.md)
 - 深入了解 [DocumentDB 索引編製原則](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/28/2015"
+   ms.date="01/26/2016"
    ms.author="sumukhs"/>
 
 # 設定 Reliable Actors - KVSActorStateProvider
@@ -21,7 +21,7 @@
 
 Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 settings.xml 檔案中尋找預先定義的區段名稱，並使用組態值。
 
->[AZURE.NOTE]請**不要**刪除或修改在 Visual Studio 方案中產生之 settings.xml 檔案中的下列組態區段名稱。
+>[AZURE.NOTE] 請**不要**刪除或修改在 Visual Studio 方案中產生之 settings.xml 檔案中的下列組態區段名稱。
 
 ## 複寫器安全性組態
 複寫器安全性組態用來保護在複寫期間使用的通訊通道。這表示服務將無法看到彼此的複寫流量，並且也會確保高度可用資料的安全。依預設，空白的安全性組態區段會妨礙複寫安全性。
@@ -86,4 +86,4 @@ Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 s
 
 BatchAcknowledgementInterval 參數會控制複寫延遲性。值為 '0' 時延遲可能性最低，但代價是降低輸送量 (隨著必須傳送與處理的通知訊息增加，每個訊息包含的通知會變少)。BatchAcknowledgementInterval 的值越大，整體複寫輸送量越高，代價是作業延遲變高。這會直接轉換成交易認可的延遲。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

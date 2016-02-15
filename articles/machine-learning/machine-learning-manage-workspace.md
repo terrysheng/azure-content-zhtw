@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 
@@ -29,12 +29,12 @@
 
 此外，儀表板索引標籤會提供工作區使用方式的概觀和工作區資訊的快速概覽。
 
-> [AZURE.TIP]在 Azure Machine Learning Studio 中，您可以在 [**Web 服務**] 索引標籤上加入、更新或刪除 Machine Learning Web 服務。
+> [AZURE.TIP] 在 Azure Machine Learning Studio 中，您可以在 [**Web 服務**] 索引標籤上加入、更新或刪除 Machine Learning Web 服務。
 
 若要管理工作區：
 
-1.	登入 Microsoft Azure 帳戶 - 使用與 Azure 訂用帳戶相關聯的帳戶。
-2.	在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中，在 Microsoft Azure 服務面板中，按一下 [機器學習服務]。
+1.	使用您的 Microsoft Azure 帳戶登入 [Azure 傳統入口網站](https://manage.windowsazure.com/) - 使用與 Azure 訂用帳戶相關聯的帳戶。
+2.	在 Microsoft Azure 服務面板中，按一下 [機器學習]。
 3.	按一下您想要管理的工作區。
 
 工作區頁面有三個索引標籤：
@@ -81,7 +81,7 @@ Web 服務可能會有一個或多個定義的端點。
 
 - 若要刪除端點 (您無法刪除「預設」端點)，請按一下端點列上的任何位置 (名稱除外)，然後在頁面的底部按一下 [**刪除端點**]。這會從 Web 服務移除端點。
 
-    > [AZURE.NOTE]如果刪除端點時應用程式使用 Web 服務端點，應用程式會在下一次嘗試存取服務時收到錯誤。
+    > [AZURE.NOTE] 如果刪除端點時應用程式使用 Web 服務端點，應用程式會在下一次嘗試存取服務時收到錯誤。
 
 按一下 Web 服務端點的名稱以開啟它。使用量圖表會顯示 Web 服務端點正在使用的運算和預測資源。您可以變更檢視來顯示相對或絕對值，並且可以變更圖表中顯示的時間範圍。
 
@@ -94,4 +94,4 @@ Web 服務可能會有一個或多個定義的端點。
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!----HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0204_2016-->

@@ -15,32 +15,34 @@
 
 #設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入
 
-Azure Active Directory 應用程式資源庫提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單，如[本文]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/)所說明。一旦您 (假設您是 IT 專業人員或組織中的系統整合者) 找到所要連接的應用程式，您就可以遵循應 Azure 管理入口網站中顯示的逐步指示，啟用單一登入。
+本文是關於可讓系統管理員設定單一登入不存在於 Azure Active Directory 應用程式資源庫的應用程式，而「不需要撰寫程式碼」的功能。此功能已在 2015 年 11 月 18 日的技術預覽發行，並包含在 [Azure Active Directory Premium](active-directory-editions.md) 中。如果您要改為尋找有關如何透過程式碼整合自訂應用程式與 Azure AD 的開發人員指引，請參閱 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。
 
-具有 [Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx) 授權的客戶可獲得下列額外的功能，而這些功能可從 Azure AD 應用程式庫的 [自訂] 類別來叫用：
+Azure Active Directory 應用程式資源庫提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單，如[本文](active-directory-appssoaccess-whatis.md)所說明。一旦您 (假設您是 IT 專業人員或組織中的系統整合者) 找到所要連接的應用程式，您就可以遵循應 Azure 管理入口網站中顯示的逐步指示，啟用單一登入。
 
-* 任何支援 SAML 2.0 身分識別提供者的應用程式皆可進行自助式連線
-* Web 應用程式可在使用密碼型 SSO 的 HTML 登入頁面上進行自助式連線
-* 能夠在 [Office 365 應用程式啟動器]( https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/)中新增任何應用程式的連結
+具有 [Azure Active Directory Premium](active-directory-editions.md) 授權的客戶也會取得以下額外功能：
+
+* 任何支援 SAML 2.0 身分識別提供者的應用程式皆可進行自助式整合
+* Web 應用程式可在使用[密碼型 SSO](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on) 的 HTML 登入頁面上進行自助式整合
 * 應用程式可使用 SCIM 通訊協定進行自助式連線，以執行使用者佈建 ([說明請見此處](active-directory-scim-provisioning))
+* 能夠在 [Office 365 應用程式啟動器](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)中新增任何應用程式的連結
 
 這不僅包括您所使用、但尚未在 Azure AD 應用程式庫中上線的 SaaS 應用程式，也包括您的組織已部署至您所控制的伺服器 (在雲端或內部部署中) 的第三方 Web 應用程式。
 
-注意：應用程式開發人員若想要測試其應用程式與這項功能之間的相容性，可以使用 [Azure Active Directory Premium 免費試用版](https://azure.microsoft.com/trial/get-started-active-directory/)來執行測試，但建議取得[內部使用權的授權](https://mspartner.microsoft.com/en/us/pages/membership/internal-use-software.aspx)。
+這些功能 (也稱為「應用程式整合範本」)，為支援 SAML、SCIM 或表單型驗證的應用程式提供標準型連接點，包括有彈性的選項和與廣泛應用程式相容性的設定。
 
-##新增未列出或自訂的應用程式 
+##新增未列出的應用程式
 
-若要設定應用程式，使用您的 Azure Active Directory 系統管理員帳戶登入 Azure 管理入口網站，並瀏覽至 [Active Directory] > [目錄] > [應用程式] 區段、選取 [新增]，然後選取 [從資源庫中新增應用程式]。
+若要使用應用程式整合範本連接應用程式，使用您的 Azure Active Directory 系統管理員帳戶登入 Azure 管理入口網站，並瀏覽至 [Active Directory] > [目錄] > [應用程式] 區段、選取 [新增]，然後選取 [從資源庫中新增應用程式]。
 
 ![][1]
 
-在應用程式資源庫，您可以使用左側的 [自訂] 類別來新增自訂應用程式；找不到您想要的應用程式，可以選取顯示在搜尋結果中的 [新增未列出的應用程式] 連結來進行新增。輸入應用程式的名稱之後，您可以設定單一登入選項和行為。
+在應用程式資源庫，您可以使用左側的 [自訂] 類別來新增未列出的應用程式；找不到您想要的應用程式，可以選取顯示在搜尋結果中的 [新增未列出的應用程式] 連結來進行新增。輸入應用程式的名稱之後，您可以設定單一登入選項和行為。
 
 **快速提示**：最佳作法是使用搜尋函式來查看應用程式是否已存在於應用程式庫中。如果找到應用程式，且其描述提及「單一登入」，則應用程式已支援同盟單一登入。
 
 ![][2]
 
-新增自訂應用程式所提供的體驗，非常類似於預先整合的應用程式所提供的體驗。若要開始作業，請選取 [設定單一登入] 。下一個畫面會呈現下列三個單一登入設定選項，其說明將在後續幾節提供。
+以這樣的方式新增應用程式所提供的體驗，非常類似於預先整合的應用程式所提供的體驗。若要開始作業，請選取 [設定單一登入] 。下一個畫面會呈現下列三個單一登入設定選項，其說明將在後續幾節提供。
 
 ![][3]
 
@@ -105,7 +107,7 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 
 選取此選項，可將應用程式的連結新增至組織的 Azure AD 存取面板或 Office 365 入口網站。使用此選項，可讓您新增目前使用 Azure Active Directory 同盟服務 (或其他同盟服務)、而不是使用 Azure AD 的自訂 Web 應用程式的連結，以進行驗證。或者，您可以新增特定 SharePoint 網頁或其他只要出現在使用者存取面板上的網頁的深層連結。
 
-選取 [下一步] 之後，系統會提示您輸入要連結到的應用程式的 URL。完成之後，使用者和群組即可指派給應用程式，而使應用程式出現在這些使用者的 [Office 365 應用程式啟動器]( https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/)中。
+選取 [下一步] 之後，系統會提示您輸入要連結到的應用程式的 URL。完成之後，使用者和群組即可指派給應用程式，而使應用程式出現在這些使用者的 [Office 365 應用程式啟動器](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)中。
 
 注意：您可以在應用程式的 [設定] 索引標籤上使用 [上傳標誌] 按鈕，來上傳應用程式的磚標誌。
 
@@ -118,4 +120,4 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

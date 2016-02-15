@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 
@@ -23,7 +23,7 @@
 
 您也可能對以下相關主題有興趣：
 
--  您可以在 Azure 虛擬網路上選擇性安裝新的 Active Directory 樹系。如需相關步驟，請參閱[在 Azure 虛擬網路上安裝新的 Active Directory 樹系](../active-directory-new-forest-virtual-machine.md)。
+-  您可以在 Azure 虛擬網路上選擇性安裝新的 Active Directory 樹系。如需相關步驟，請參閱[在 Azure 虛擬網路上安裝新的 Active Directory 樹系](../active-directory/active-directory-new-forest-virtual-machine.md)。
 -  如需在 Azure 虛擬網路上安裝 Active Directory 網域服務 (AD DS) 的概念指引，請參閱[在 Azure 虛擬機器上部署 Windows Server Active Directory 的方針](https://msdn.microsoft.com/library/azure/jj156090.aspx) (英文)。
 
 
@@ -31,7 +31,7 @@
 
 在此案例中，外部使用者需要存取在加入網域的伺服器上執行的應用程式。執行應用程式伺服器和複本 DC 的 VM 安裝在 Azure 虛擬網路中。虛擬網路可透過[站對站 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) 連線方式來連線到內部部署網路，如下圖所示，或者您可以使用 [ExpressRoute](../../services/expressroute/) 進行更快速的連線。
 
-應用程式伺服器和網域控制站會部署在個別[雲端服務](../cloud-services-what-is.md)內分散運算處理，以及在[可用性集合](../virtual-machines/virtual-machines-manage-availability.md)內改良容錯功能。網域控制站會使用 Active Directory 複寫功能，在彼此之間以及與內部部署網域控制站互相複寫。不需要任何同步處理工具。
+應用程式伺服器和網域控制站會部署在不同的雲端服務中來分散計算處理工作，以及部署在[可用性設定組](../virtual-machines/virtual-machines-manage-availability.md)中來改善容錯功能。網域控制站會使用 Active Directory 複寫功能，在彼此之間以及與內部部署網域控制站互相複寫。不需要任何同步處理工具。
 
 ![][1]
 
@@ -121,4 +121,4 @@
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

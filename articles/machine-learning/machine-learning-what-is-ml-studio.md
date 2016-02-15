@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 # 什麼是 Azure Machine Learning Studio？
@@ -31,7 +31,7 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 
 **Azure Machine Learning Studio** 提供互動式的視覺化工作區，讓您輕鬆建置、測試和反覆運算預測分析模型。您可以將***資料集***和分析***模組***拖放到互動式***畫布***，將它們連接在一起以構成***實驗***，然後在 Machine Learning Studio 中***執行***。若要反覆調整模型設計，請***編輯***實驗，***儲存***複本 (若需要)，然後重新提交。當您準備好時，可以將您的***定型實驗***轉換成***預測實驗***，然後***發佈***為 ***Web 服務***，讓其他人可以存取您的模型。
 
->[AZURE.TIP]若要下載並列印提供 Machine Learning Studio 功能概觀的圖表，請參閱 [Azure Machine Learning Studio 功能的概觀圖](machine-learning-studio-overview-diagram.md)。
+>[AZURE.TIP] 若要下載並列印提供 Machine Learning Studio 功能概觀的圖表，請參閱 [Azure Machine Learning Studio 功能的概觀圖](machine-learning-studio-overview-diagram.md)。
 
 不需要設計程式，只要在視覺上連接資料集和模組，即可建構預測分析模型。
 
@@ -93,7 +93,7 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 模組是指您在資料上可執行的演算法。Machine Learning Studio 有許多模組，從資料輸入函數到訓練、評分和驗證程序都有。以下是隨附模組的一些例子：
 
 - [轉換成 ARFF][convert-to-arff] - 將 .NET 序列化資料集轉換為屬性關聯性檔案格式 (ARFF)。
-- [基本統計資料][elementary-statistics] - 計算基本統計資料，例如平均值、標準差等。
+- [計算基本統計資料][elementary-statistics] - 計算基本統計資料，例如平均值、標準差等。
 - [線性迴歸][linear-regression] - 建立線上梯度下降線性迴歸模型
 - [評分模型][score-model] - 給訓練的分類或迴歸模型評分
 
@@ -115,4 +115,4 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

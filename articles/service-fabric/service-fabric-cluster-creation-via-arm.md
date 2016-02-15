@@ -1,6 +1,6 @@
 <properties
-   pageTitle="使用 ARM 範本設定 Service Fabric 叢集 | Microsoft Azure"
-   description="使用 ARM 範本設定 Service Fabric 叢集。"
+   pageTitle="使用 Azure 資源管理員範本來設定 Service Fabric 叢集 | Microsoft Azure"
+   description="使用 Azure 資源管理員範本來設定 Service Fabric 叢集。"
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -13,48 +13,54 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/19/2015"
+   ms.date="01/29/2016"
    ms.author="chackdan"/>
 
-# 使用 ARM 範本設定 Service Fabric 叢集
 
-本頁面可協助您使用 ARM 範本來設定「Service Fabric 叢集」。這會假設您的訂用帳戶有足夠的核心來部署將構成此叢集的 IaaS VM。
+# 使用 Azure 資源管理員範本來設定 Service Fabric 叢集
 
-## 必要條件
+本頁將協助您使用 Azure 資源管理員範本來設定 Service Fabric 叢集。但您的訂用帳戶必須要有足夠的核心，來部署將構成此叢集的 IaaS VM。
 
-- 如果您想要設定安全的叢集，請確定您已將 X509 憑證上傳到您的金鑰保存庫。您將需要「來源保存庫 URL」、「憑證 URL」及「憑證」指紋。
--  如需有關此做法的詳細資訊，請參閱 [Service Fabric 叢集安全性](service-fabric-cluster-security.md)。
+## 先決條件
 
-## 取得範例 ARM 範本
+- 如要設定安全叢集，您必須先將 X.509 憑證上傳到自己的金鑰保存庫。您將需要來源保存庫 URL、憑證 URL，以及憑證指紋。
+- 如需如何設定安全叢集的詳細資訊，請參閱 [Service Fabric 叢集安全性](service-fabric-cluster-security.md)。
 
-1. 您可以從 [github 上的 Azure 快速入門範本庫](https://github.com/Azure/azure-quickstart-templates)取得範例 ARM 範本。所有 Service Fabric 範本都是以 "service-fabric-.." 名稱開頭。您可以搜尋存放庫中的 "fabric"，或直接向下捲動到一組範例範本。
-2. 為了協助您快速找出您可能要尋找的目標，範本已經依下列方式命名：
-	1. [service-fabric-unsecure-cluster-5-node-1-nodetype](http://go.microsoft.com/fwlink/?LinkId=716923) 用以表示 5 節點單節點非安全叢集範本。 
-	3. [service-fabric-secure-cluster-5-node-1-nodetype-wad](http://go.microsoft.com/fwlink/?LinkID=716924) 用以表示已啟用 WAD 的 5 節點單節點安全叢集範本。 
-	4. [service-fabric-secure-cluster-10-node-2-nodetype-wad](http://go.microsoft.com/fwlink/?LinkId=716925) 用以表示已啟用 WAD 的 10 節點單節點安全叢集範本。 
-	
+## 取得範例資源管理員範本
 
-## 建立自訂 ARM 範本
+您可以從 [GitHub 上的 Azure 快速啟動範本資源庫](https://github.com/Azure/azure-quickstart-templates)取得範例資源管理員範本。所有 Service Fabric 範本的名稱開頭都是「service-fabric...」。您可以在存放庫中搜尋「fabric」，或是向下捲動到範例範本集。為協助您迅速找出您在尋找的項目，範本已經依照下列方式命名：
 
-2. 您有兩種選擇 
-	1. 您可以從 [Github 上的 Azure 快速入門範本庫](https://github.com/Azure/azure-quickstart-templates)取得範例範本，並對其進行變更。
-	2. 登入 Azure 入口網站，然後使用 Service Fabric 入口網站頁面來產生可供您自訂的範本。此做法的程序說明如下。
-3. 登入「Azure 入口網站」[http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal)。
-2. 依照[透過入口網站建立 Service Fabric 叢集](service-fabric-cluster-creation-via-portal.md)所述，進行建立叢集的程序，但請不要按 [建立]，而是到 [摘要] 下載範本。
+- [service-fabric-unsecure-cluster-5-node-1-nodetype](http://go.microsoft.com/fwlink/?LinkId=716923)：代表 5 節點單節點非安全叢集範本。
 
- ![DownloadTemplate][DownloadTemplate]
+- [service-fabric-secure-cluster-5-node-1-nodetype-wad](http://go.microsoft.com/fwlink/?LinkID=716924)：代表已啟用 WAD 的 5 節點單節點安全叢集範本。
 
-## 使用 Azure PS 將 ARM 範本部署到 Azure
+- [service-fabric-secure-cluster-10-node-2-nodetype-wad](http://go.microsoft.com/fwlink/?LinkId=716925)：代表已啟用 WAD 的 10 節點雙節點安全叢集範本。
 
-如需如何使用 PowerShell 部署範本的詳細指引，請參閱[使用 PS 部署 ARM 範本](resource-group-template-deploy.md)。
+## 建立自訂的資源管理員範本
+
+建立自訂的資源管理員範本的方式有兩種：
+
+1. 您可以從 [Github 上的 Azure 快速啟動範本資源庫](https://github.com/Azure/azure-quickstart-templates)取得範例範本，然後加以變更。
+
+2. 您可以登入 Azure 入口網站，然後使用 Service Fabric 入口網站頁面來產生可供您自訂的範本。若要這樣做，請遵循下列步驟：
+
+    a.登入 [Azure 入口網站](https://portal.azure.com/)。
+
+    b.依照[透過 Azure 入口網站建立 Service Fabric 叢集](service-fabric-cluster-creation-via-portal.md)一文所述的叢集建立程序來進行，但不要按一下 [建立]，而是要前往 [摘要] 並下載範本，如下列螢幕擷取畫面所示。
+
+ ![Service Fabric 叢集頁面的螢幕擷取畫面，顯示下載資源管理員範本的連結][DownloadTemplate]
+
+## 使用 Azure PowerShell 來將資源管理員範本部署到 Azure
+
+如需如何使用 PowerShell 部署範本的詳細指示，請參閱[使用 PowerShell 部署資源管理員範本](resource-group-template-deploy.md)。
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
-- [Service Fabric 叢集安全性](service-fabric-cluster-security.md) 
+- [Service Fabric 叢集安全性](service-fabric-cluster-security.md)
 - [在 Visual Studio 中管理 Service Fabric 應用程式](service-fabric-manage-application-in-visual-studio.md)。
 - [Service Fabric 健康情況模型簡介](service-fabric-health-introduction.md)
 
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

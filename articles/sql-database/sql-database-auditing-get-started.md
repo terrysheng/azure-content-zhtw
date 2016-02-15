@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="02/03/2016"
 	ms.author="jeffreyg; ronitr"/>
  
 # 開始使用 SQL Database 稽核
@@ -29,7 +29,7 @@ Azure SQL Database 稽核會追蹤資料庫事件，並將稽核事件寫入 Azu
 
 ##<a id="subheading-1"></a>Azure SQL Database 稽核基本概念
 
-下節描述使用 Azure 入口網站進行稽核的設定。您也可以[使用 Azure 傳統入口網站設定資料庫的稽核]。
+下節描述使用 Azure 入口網站進行稽核的設定。您也可以[使用 Azure 傳統入口網站來設定資料庫的稽核]。
 
 SQL Database 稽核可讓您：
 
@@ -99,7 +99,7 @@ SQL Database 稽核可讓您：
 ![導覽窗格][4]
 
 
-##<a id="subheading-4"></a>使用 Azure 傳統入口網站設定資料庫的稽核
+##<a id="subheading-4"></a>使用 Azure 傳統入口網站來設定資料庫的稽核
 
 1. 啟動 [Azure 傳統入口網站](https://manage.windowsazure.com/)，網址是 https://manage.windowsazure.com/。
 
@@ -123,7 +123,7 @@ SQL Database 稽核可讓您：
 
 
 ##<a id="subheading-5">生產環境中的使用方式作法</a>
-本節的說明與以上的畫面截圖有關。可以使用 [Azure 入口網站](https://portal.azure.com)或 [Azure 傳統入口網站](https://manage.windowsazure.com/)。
+本節的說明與以上的畫面截圖有關。可以會是 [Azure 入口網站](https://portal.azure.com)或 [Azure 傳統入口網站](https://manage.windowsazure.com/)。
 
 
 ##<a id="subheading-6"></a>儲存體金鑰重新產生
@@ -159,7 +159,7 @@ SQL Database 稽核可讓您：
 [Azure SQL Database 稽核基本概念]: #subheading-1
 [設定資料庫的稽核]: #subheading-2
 [分析稽核記錄和報告]: #subheading-3
-[使用 Azure 傳統入口網站設定資料庫的稽核]: #subheading-4
+[使用 Azure 傳統入口網站來設定資料庫的稽核]: #subheading-4
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
 [Automation]: #subheading-7
@@ -178,4 +178,4 @@ SQL Database 稽核可讓您：
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

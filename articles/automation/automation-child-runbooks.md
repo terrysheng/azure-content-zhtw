@@ -53,7 +53,7 @@ Azure 自動化中的最佳作法是撰寫可重複使用、模組化的 Runbook
 
 您可以依照[使用 Windows PowerShell 啟動 Runbook](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell) 中的說明，使用 [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/dn690259.aspx) Cmdlet 啟動 Runbook。當您從 Cmdlet 啟動子 Runbook 時，在子 Runbook 的工作建立後，父 Runbook 會隨即移動到下一行。如果您需要從 Runbook 擷取任何輸出，則您需要使用 [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/dn690268.aspx) 來存取工作。
 
-使用 Cmdlet 啟動之子 Runbook 的工作，將會與父 Runbook 的工作分開執行。這會使產生的工作比叫用指令碼內嵌更多，並使它們更難以困難。父 Runbook 可以啟動多個子 Runbook，不需要等候每個子 Runbook 完成。對於呼叫子 Runbook 內嵌的同類型平行執行作業，父 Runbook 將需要使用[平行關鍵字](automation-powershell-workflow.md#parallel-processing)。
+使用 Cmdlet 啟動之子 Runbook 的工作，將會與父 Runbook 的工作分開執行。這會使產生的作業比叫用指令碼內嵌更多，並使它們更難以困難。父 Runbook 可以啟動多個子 Runbook，不需要等候每個子 Runbook 完成。對於呼叫子 Runbook 內嵌的同類型平行執行作業，父 Runbook 將需要使用[平行關鍵字](automation-powershell-workflow.md#parallel-processing)。
 
 使用 Cmdlet 啟動之子 Runbook 的參數是以雜湊表方式提供，如 [Runbook 參數](automation-starting-a-runbook.md#runbook-parameters)中所述。只能使用簡單資料類型。若 Runbook 有複雜資料類型的參數，必須以內嵌方式呼叫。
 
@@ -62,7 +62,7 @@ Azure 自動化中的最佳作法是撰寫可重複使用、模組化的 Runbook
 下列範例使用參數啟動子 Runbook，然後等待其完成。完成後，父 Runbook 會從工作收集其輸出。
 
 	$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test- ChildRunbook" –Parameters $params
+	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" –Parameters $params
 	
 	$doLoop = $true
 	While ($doLoop) {
@@ -94,4 +94,4 @@ Azure 自動化中的最佳作法是撰寫可重複使用、模組化的 Runbook
 - [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md)
 - [Azure 自動化中的 Runbook 輸出與訊息](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

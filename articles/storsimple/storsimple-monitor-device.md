@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="01/29/2016"
    ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務監視 StorSimple 裝置 
@@ -45,6 +45,7 @@
 
 **容量使用率**會追蹤由磁碟區、磁碟區容器，或裝置所使用之資料儲存體空間數量的相關計量。您可以根據您的主要儲存體、雲端儲存體，或裝置儲存空間的容量使用率來建立報告。容量使用率可以在特定磁碟區、特定磁碟區容器，或所有磁碟區容器上測量。
 
+
 主要、雲端和裝置儲存體容量說明如下：
 
 ###主要儲存體容量使用率
@@ -57,9 +58,9 @@
 
 	這也可以由下列方程式來說明：
 
-	「主要資料 (所有磁碟區) = (主要資料 (磁碟區 i) + 快照資料 (磁碟區 i) 大小) 的總和」
+	*「主要資料 (所有磁碟區) = (主要資料 (磁碟區 i) + 快照資料 (磁碟區 i) 大小) 的總和」*
 	
-	「其中，主要資料 (磁碟區 i) = 配置給磁碟區 i 的主要資料大小」
+	*「其中，主要資料 (磁碟區 i) = 配置給磁碟區 i 的主要資料大小」*
  
 	如果透過服務刪除快照，將會在背景中以非同步方式進行刪除。刪除快照之後，可能需要一些時間才會更新磁碟區資料大小。
  
@@ -74,6 +75,10 @@
 ![建立雲端快照集前的主要容量使用率](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
 
 ![建立雲端快照集後的主要容量使用率](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
+
+如果您在執行 Update 2 或更新版本，就能夠以個別磁碟區、所有磁碟區、所有分層磁碟區，及所有本機磁碟區來切割主要儲存體容量使用率，如下所示。如果您以所有本機磁碟區來切割，就能讓您快速地確認已用完多少本機層。
+
+![所有本機磁碟區的主要容量使用率](./media/storsimple-monitor-device/localvolumes.png)
 
 
 ###雲端儲存體容量使用率
@@ -121,4 +126,4 @@
 
 - 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

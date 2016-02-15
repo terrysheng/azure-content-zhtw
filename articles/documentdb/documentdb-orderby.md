@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 
 # 使用 Order By 排序 DocumentDB 資料
@@ -79,7 +79,7 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 
 請回想支援兩種類型索引 (雜湊和範圍)的 DocumentDB，它可以針對特定路徑/屬性、資料類型 (字串/數字)，並且以不同的精確度值 (最大精確度或固定精確度值) 進行設定。因為 DocumentDB 使用雜湊索引做為預設值，您必須以具有數字、字串或兩者之「範圍」的自訂索引編製原則建立新集合，才能使用 Order By。
 
->[AZURE.NOTE]字串範圍索引是在 2015 年 7 月 7 日的 REST API 2015-06-03 版本中引進。若要針對字串建立 Order By 的原則，您必須使用 .NET SDK 的 SDK 1.2.0 版，或 Python、Node.js 或 Java SDK 的 1.1.0 版。
+>[AZURE.NOTE] 字串範圍索引是在 2015 年 7 月 7 日的 REST API 2015-06-03 版本中引進。若要針對字串建立 Order By 的原則，您必須使用 .NET SDK 的 SDK 1.2.0 版，或 Python、Node.js 或 Java SDK 的 1.1.0 版。
 >
 >在 REST API 2015-06-03 版之前的版本，對於字串和數字的預設集合索引編製原則是「雜湊」。已經變更為「雜湊」用於字串，以及「範圍」用於數字。
 
@@ -100,7 +100,7 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
     await client.CreateDocumentCollectionAsync(databaseLink, 
         booksCollection);  
 
->[AZURE.NOTE]請注意，Order By 只會傳回使用 RangeIndex 編製索引的資料類型 (字串和數字) 的結果。例如，如果您有預設的索引編製原則，只有數字的 RangeIndex，則針對具有字串值之路徑的 Order By 不會傳回任何文件。
+>[AZURE.NOTE] 請注意，Order By 只會傳回使用 RangeIndex 編製索引的資料類型 (字串和數字) 的結果。例如，如果您有預設的索引編製原則，只有數字的 RangeIndex，則針對具有字串值之路徑的 Order By 不會傳回任何文件。
 
 ### 針對單一屬性編制 Order By 的索引
 以下是僅針對字串的 Title 屬性利用編制 Order By 索引來建立集合的方式。有兩種路徑，一個用於 Title 屬性 ("/Title/?") 與「範圍」索引編製，而另一個用於具有預設索引編製配置的其他每個屬性，「雜湊」用於字串及「範圍」用於數字。
@@ -126,13 +126,6 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 
 ## 範例
 請參閱示範如何使用 Order By 的 [Github 範例專案](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)，其內容包括使用 Order By 建立索引編製原則和分頁。這些範例是開放原始碼，我們鼓勵您提交提取要求，並附上可幫助其他 DocumentDB 開發人員的貢獻。請參閱[貢獻指導方針](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md)，以取得有關如何貢獻的指引。
-
-## 未來將推出哪些新功能？
-
-我們將藉由此處介紹的 Order By 支援擴充未來的服務更新。我們正在著手開發以下新增功能，並且會根據您的意見反應排定這些改善功能的發行順序：
-
-- 動態索引編製原則：支援在集合建立後以及在 Azure 傳統入口網站中修改索引編製原則
-- 支援複合索引以提升 Order By 和針對多重屬性之 Order By 的效率。
 
 ## 常見問題集
 
@@ -177,4 +170,4 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 * [DocumentDB Order By 範例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

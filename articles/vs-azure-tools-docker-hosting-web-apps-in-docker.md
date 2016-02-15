@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/18/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # 在 Docker 中裝載 Web Apps
@@ -145,7 +145,7 @@
     Set DOCKER_TLS_VERIFY=1
     ```
 
-    叫用這些命令可讓您在每個發出的命令中省略 `–H (Host) tcp://<NameofAzureVM>.cloudapp.net:2376` 和 `--TLSVERIFY`。
+    叫用這些命令可讓您不必加入 `–H (Host) tcp://<NameofAzureVM>.cloudapp.net:2376` 和 `--TLSVERIFY` 到您發出的每個命令。
 
 1. 現在您可以發出這類命令來測試 Docker 主機是否已存在且正常運作。
 
@@ -163,7 +163,7 @@
 
 既然已具備 Docker 主機，您可以發出 Docker 命令給它。若要深入了解 Docker，請參閱 [Docker 文件](https://docs.docker.com/)和 [Docker 線上教學課程](https://www.docker.com/tryit/)。
 
-若要了解如何在 Azure 上使用 Linux 的 Docker VM 擴充程式，請參閱 [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)。
+若要了解如何在 Azure 上使用 Linux 的 Docker VM 擴充程式，請參閱 [Azure 上 Linux 的 Docker 虛擬機器擴充程式](/virtual-machines/virtual-machines-docker-vm-extension.md)。
 
 若是與在 Visual Studio 中使用 Docker 的相關問題，請參閱[使用 Visual Studio 疑難排解 Windows 上的 Docker 用戶端錯誤](vs-azure-tools-docker-troubleshooting-docker-errors.md)。
 
@@ -177,4 +177,4 @@
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

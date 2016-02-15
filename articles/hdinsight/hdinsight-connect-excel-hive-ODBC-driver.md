@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/15/2015"
+   ms.date="01/28/2016"
    ms.author="jgao"/>
 
 #使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 Hadoop
@@ -25,7 +25,7 @@ Microsoft 巨量資料方案會將 Microsoft 商業智慧 (BI) 元件與 Azure H
 
 您也可以從 Excel 使用 Microsoft Power Query for Excel，連接與 HDInsight 叢集和其他資料來源 (包括其他 (非 HDInsight) Hadoop 叢集) 相關聯的資料。如需安裝和使用 Power Query 的相關資訊，請參閱[使用 Power Query 將 Excel 連接到 HDInsight][hdinsight-power-query]。
 
-> [AZURE.NOTE]本文中的步驟雖然可以與 Linux 或 Windows 架構的 HDInsight 叢集搭配使用，但用戶端工作站需要有 Windows。
+> [AZURE.NOTE] 本文中的步驟雖然可以與 Linux 或 Windows 架構的 HDInsight 叢集搭配使用，但用戶端工作站需要有 Windows。
 
 **必要條件**：
 
@@ -55,35 +55,35 @@ Microsoft 巨量資料方案會將 Microsoft 商業智慧 (BI) 元件與 Azure H
 
 5. 輸入或選取下列值：
 
-屬性|說明
----|---
-資料來源名稱|為資料來源指定名稱
-Host|輸入 <HDInsightClusterName>.azurehdinsight.net。例如，myHDICluster.azurehdinsight.net
-連接埠|使用 <strong>443</strong>。(此連接埠已從 563 變更為 443。)
-資料庫|使用<strong>預設值</strong>
-Hive 伺服器類型|選取 [Hive Server 2]<strong></strong>
-機制|選取 [Azure HDInsight 服務]<strong></strong>
-HTTP 路徑|保留為空白。
-使用者名稱|輸入 HDInsight 叢集使用者的使用者名稱。這是在叢集佈建程序中所建立的使用者名稱。如果您使用快速建立選項，預設使用者名稱會是 <strong>admin</strong>。
-密碼|輸入 HDInsight 叢集使用者的密碼。
-</table>
+    屬性|說明
+    ---|---
+    資料來源名稱|為資料來源指定名稱
+    Host|輸入 <HDInsightClusterName>.azurehdinsight.net。例如，myHDICluster.azurehdinsight.net
+    連接埠|使用 <strong>443</strong>。(此連接埠已從 563 變更為 443。)
+    資料庫|使用<strong>預設值</strong>
+    Hive 伺服器類型|選取 [Hive Server 2]<strong></strong>
+    機制|選取 [Azure HDInsight 服務]<strong></strong>
+    HTTP 路徑|保留為空白。
+    使用者名稱|輸入 HDInsight 叢集使用者的使用者名稱。這是在叢集佈建程序中所建立的使用者名稱。如果您使用快速建立選項，預設使用者名稱會是 <strong>admin</strong>。
+    密碼|輸入 HDInsight 叢集使用者的密碼。
+    </table>
 
-當您按一下 [進階選項] 時，您必須留意某些重要參數：
+    當您按一下 [進階選項] 時，您必須留意某些重要參數：
 
-參數|說明
----|---
-使用原生查詢|選取此選項時，ODBC 驅動程式不會嘗試將 TSQL 轉換為 HiveQL。只有在百分之百確定您所提交的是純 HiveQL 陳述式時，才應使用此選項。連接到 SQL Server 或 Azure SQL Database 時，您應將其保留為未勾選。
-每個區塊擷取的資料列|在擷取大量記錄時可能必須調整此參數，以確保最佳效能。
-預設字串資料行長度、二進位資料行長度、十進位資料行小數位數|資料類型的長度和精確度可能會影響傳回資料的方式。如果失去精確度且 (或) 發生截斷狀況，將會傳回不正確的資訊。
+    參數|說明
+    ---|---
+    使用原生查詢|選取此選項時，ODBC 驅動程式不會嘗試將 TSQL 轉換為 HiveQL。只有在百分之百確定您所提交的是純 HiveQL 陳述式時，才應使用此選項。連接到 SQL Server 或 Azure SQL Database 時，您應將其保留為未勾選。
+    每個區塊擷取的資料列|在擷取大量記錄時可能必須調整此參數，以確保最佳效能。
+    預設字串資料行長度、二進位資料行長度、十進位資料行小數位數|資料類型的長度和精確度可能會影響傳回資料的方式。如果失去精確度且 (或) 發生截斷狀況，將會傳回不正確的資訊。
 
 
-	![Advanced options][img-HiveOdbc-DataSource-AdvancedOptions]
+	![進階選項][img-HiveOdbc-DataSource-AdvancedOptions]
 
 6. 按一下 [測試] 以測試資料來源。資料來源正確設定時，會顯示*「測試順利完成！」*。
 7. 按一下 [確定] 以關閉 [測試] 對話方塊。新的資料來源此時應會列示在 [ODBC 資料來源管理員] 中。
 8. 按一下 [確定] 以結束精靈。
 
-##從 HDInsight 叢集將資料匯入 Excel 中
+##從 HDInsight 將資料匯入 Excel 中
 
 下列步驟將說明，如何使用您在前述步驟中建立的 ODBC 資料來源，將資料從 Hive 資料表匯入 Excel 活頁簿中。
 
@@ -131,4 +131,4 @@ HTTP 路徑|保留為空白。
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

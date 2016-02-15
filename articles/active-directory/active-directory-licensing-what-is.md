@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="01/05/2016"
+    ms.date="02/01/2016"
     ms.author="curtand"/>
 
 # 什麼是 Microsoft Azure Active Directory 授權？
@@ -43,7 +43,7 @@ Azure Active Directory (Azure AD) 是 Microsoft 的「身分識別即服務 (IDa
 
 > [AZURE.IMPORTANT] Azure AD Premium 和 Basic，以及 Enterprise Mobility Suite 訂用帳戶，會受限於其佈建的目錄/租用戶。訂用帳戶無法分割至不同目錄，或用來賦予權利給其他目錄中的使用者。在目錄之間可以移動訂用帳戶，但是需要提交支援票證，如果是直接購買的情況，則需要取消並重新購買。
 
-> [AZURE.IMPORTANT] 透過大量授權購買 Azure AD 或 Enterprise Mobility Suite 時，如果協議包含其他 Microsoft Online Services (例如 Office 365)，將會自動啟用訂用帳戶。
+> 透過大量授權購買 Azure AD 或 Enterprise Mobility Suite 時，如果協議包含其他 Microsoft Online Services (例如 Office 365)，將會自動啟用訂用帳戶。
 
 付費 Azure AD 功能可以擴展目錄的範圍。範例包括：- 以群組為基礎的應用程式指派，可在您管理的特定應用程式下啟用。- 進階和自助式群組管理功能可在目錄組態下或特定群組內使用。- Premium 安全性報告位於 [報告] 索引標籤上。- 雲端應用程式探索會出現在 Azure 入口網站的 [身分識別] 下。
 
@@ -129,7 +129,7 @@ Azure Active Directory (Azure AD) 是 Microsoft 的「身分識別即服務 (IDa
 - [自助式群組管理](active-directory-accessmanagement-self-service-group-management.md)
 - [Azure AD Connect 健康情況](active-directory-aadconnect-health.md)
 - [群組指派給應用程式](active-directory-manage-groups.md)
-- [Azure Multi-Factor Authentication](multi-factor-authentication.md)
+- [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [直接購買 Azure AD Premium 授權](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

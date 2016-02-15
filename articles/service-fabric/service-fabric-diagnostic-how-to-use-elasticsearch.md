@@ -16,18 +16,18 @@
    ms.date="01/20/2016"
    ms.author="karolz@microsoft.com"/>
 
-# 使用 ElasticSearch 做為 Service Fabric 應用程式追蹤存放區
+# 把 Elasticsearch 當做 Service Fabric 應用程式追蹤存放區來使用
 ## 簡介
 本文將說明 [Azure Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric/) 應用程式如何使用 **Elasticsearch** 和 **Kibana** 來儲存、檢索和搜尋應用程式追蹤。[Elasticsarch](https://www.elastic.co/guide/index.html) 是開放原始碼、分散式和可調整的即時搜尋和分析引擎，很適合執行這項工作。它可以安裝在 Microsoft Azure 中執行的 Windows 和 Linux 虛擬機器上。Elasticsearch 可以非常有效率地處理使用「Windows 事件追蹤 (ETW)」之類的技術所產生的「結構化」追蹤。
 
 Service Fabric 執行階段會使用 ETW 來取得診斷資訊 (追蹤)。它也是 Service Fabric 應用程式取得其診斷資訊的建議方法。這可讓執行階段提供和應用程式提供的追蹤之間相互關聯，使疑難排解更輕鬆。Visual Studio 中的 Service Fabric 專案範本包含記錄 API (根據.NET **EventSource** 類別)，依預設會發出 ETW 追蹤。如需使用 ETW 的 Service Fabric 應用程式追蹤的一般概觀，請參閱[監視和診斷本機開發設定中的服務](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)。
 
-需要在 Service Fabric 叢集節點上即時 (當應用程式正在執行時) 擷取追蹤並傳送至 ElasticSearch 端點，ElasticSearch 中才會顯示追蹤。追蹤擷取有兩個主要選項：
+需要在 Service Fabric 叢集節點上即時 (當應用程式正在執行時) 擷取追蹤並傳送至 Elasticsearch 端點，Elasticsearch 中才會顯示追蹤。追蹤擷取有兩個主要選項：
 
-+ **同處理序追蹤擷取**  
-應用程式 (更準確來說是服務處理序) 負責將診斷資料送出到追蹤存放區 (ElasticSearch)。
++ **同處理序追蹤擷取** 
+應用程式 (更準確來說是服務處理序) 負責將診斷資料送出到追蹤存放區 (Elasticsearch)。
 
-+ **跨處理序追蹤擷取**  
++ **跨處理序追蹤擷取** 
 另外的代理程式擷取來自一或多個服務處理序的追蹤，並傳送至追蹤存放區。
 
 以下說明如何在 Azure 上設定 Elasticsearch、討論這兩種擷取選項的優缺點，並說明如何設定 Service Fabric 服務將資料傳送至 Elasticsearch。
@@ -39,7 +39,7 @@ Service Fabric 執行階段會使用 ETW 來取得診斷資訊 (追蹤)。它也
 此處我們將使用 [Microsoft 模式和作法 ELK 分支](https://github.com/mspnp/semantic-logging/tree/elk/)中的另一個範本，稱為 **ES-MultiNode**。此範本比較容易使用，依預設會建立由 HTTP 基本驗證所保護的 Elasticsearch 叢集。繼續之前，請從 GitHub 將 [Microsoft 模式和做法 ELK 儲存機制](https://github.com/mspnp/semantic-logging/tree/elk/)下載到您的電腦 (透過複製儲存機制或下載 zip 檔案)。ES-MultiNode 範本位於具有相同名稱的資料夾中。
 >[AZURE.NOTE] ES-MultiNode 範本和相關聯的指令碼目前支援 Elasticsearch 1.7 版。日後將加入 Elasticsearch 2.0 的支援。
 
-### 準備電腦以執行 ElasticSearch 安裝指令碼
+### 準備電腦以執行 Elasticsearch 安裝指令碼
 若要使用 ES-MultiNode 範本，最簡單的方式是透過提供的 Azure PowerShell 指令碼，稱為 `CreateElasticSearchCluster`。若要使用這個指令碼，您需要安裝 PowerShell 模組和名為 **openssl** 的工具。需要後者，才能建立可用來從遠端管理 Elasticsearch 叢集的 SSH 金鑰。
 
 注意：`CreateElasticSearchCluster` 指令碼主要是為了從 Windows 電腦輕鬆使用 ES-MultiNode 範本。可以在非 Windows 電腦上使用此範本，但這已超出本文的範圍。
@@ -248,4 +248,4 @@ Elasticsearch 連接資料應該放在服務組態檔 (**PackageRoot\\Config\\Se
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

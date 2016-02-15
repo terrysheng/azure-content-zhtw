@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="在 Visual Studio 中進行 Azure 雲端服務或虛擬機器的偵錯 | Microsoft Azure"
-   description="在 Visual Studio 中進行雲端服務或虛擬機器的偵錯"
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="TomArcher"
-   manager="douge"
-   editor="tlee" />
+	pageTitle="在 Visual Studio 中進行 Azure 雲端服務或虛擬機器的偵錯 | Microsoft Azure"
+	description="在 Visual Studio 中進行雲端服務或虛擬機器的偵錯"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="TomArcher"
+	manager="douge"
+	editor="tlee" />
 <tags 
-   ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="multiple"
-   ms.workload="na"
-   ms.date="10/28/2015"
-   ms.author="tarcher" />
+	ms.service="visual-studio-online"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="02/03/2016"
+	ms.author="tarcher" />
 
 # 在 Visual Studio 中進行 Azure 雲端服務或虛擬機器的偵錯
 
@@ -48,7 +48,7 @@ Visual Studio 提供您偵錯 Azure 雲端服務和虛擬機器的不同選項�
 
 如果您啟用雲端服務的遠端偵錯，它不會出現效能降低或產生其他費用。您不應該對生產環境服務使用遠端偵錯，因為可能會對使用服務的用戶端造成不良影響。
 
->[AZURE.NOTE]從 Visual Studio 發佈雲端服務時，您可以為該服務中以 .NET Framework 4 或 .NET Framework 4.5 為目標的任何角色啟用 **IntelliTrace**。藉由使用 **IntelliTrace**，您可以檢查角色執行個體在過去發生的事件，並重現當時的情況。請參閱[使用 IntelliTrace 和 Visual Studio 偵錯發佈的雲端服務](http://go.microsoft.com/fwlink/?LinkID=623016)和[使用 IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx)。
+>[AZURE.NOTE] 從 Visual Studio 發佈雲端服務時，您可以為該服務中以 .NET Framework 4 或 .NET Framework 4.5 為目標的任何角色啟用 **IntelliTrace**。藉由使用 **IntelliTrace**，您可以檢查角色執行個體在過去發生的事件，並重現當時的情況。請參閱[使用 IntelliTrace 和 Visual Studio 偵錯發佈的雲端服務](http://go.microsoft.com/fwlink/?LinkID=623016)和[使用 IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx)。
 
 ### 啟用雲端服務的遠端偵錯
 
@@ -82,7 +82,7 @@ Visual Studio 提供您偵錯 Azure 雲端服務和虛擬機器的不同選項�
 
     ![偵錯處理序](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC690787.gif)
 
->[AZURE.WARNING]進行遠端偵錯時，避免長時間在中斷點停止運作。Azure 會將停止超過幾分鐘時間的程序視為沒有回應，並停止將流量傳送到該執行個體。如果您停止太久，msvsmon.exe 會從處理序中斷連結。
+>[AZURE.WARNING] 進行遠端偵錯時，避免長時間在中斷點停止運作。Azure 會將停止超過幾分鐘時間的程序視為沒有回應，並停止將流量傳送到該執行個體。如果您停止太久，msvsmon.exe 會從處理序中斷連結。
 
 若要將偵錯工具與您的執行個體或角色中的所有處理序中斷連結，請開啟您要偵錯的角色或執行個體的捷徑功能表，然後按一下 [中斷連結偵錯工具]。
 
@@ -103,7 +103,7 @@ Visual Studio 提供您偵錯 Azure 雲端服務和虛擬機器的不同選項�
 
 您可以在 Visual Studio 中使用伺服器總管偵錯 Azure 虛擬機器上執行的程式。當您在 Azure 虛擬機器上啟用遠端偵錯時，Azure 會在虛擬機器上安裝遠端偵錯延伸模組。然後，您可以附加至虛擬機器上的處理序，並像平常一樣偵錯。
 
->[AZURE.NOTE]透過 Azure 資源管理員堆疊建立的虛擬機器可以使用 Visual Studio 2015 中的雲端總管進行遠端偵錯。如需詳細資訊，請參閱[使用雲端總管管理 Azure 資源](http://go.microsoft.com/fwlink/?LinkId=623031)。
+>[AZURE.NOTE] 透過 Azure 資源管理員堆疊建立的虛擬機器可以使用 Visual Studio 2015 中的雲端總管進行遠端偵錯。如需詳細資訊，請參閱[使用雲端總管管理 Azure 資源](http://go.microsoft.com/fwlink/?LinkId=623031)。
 
 ### 偵錯 Azure 虛擬機器
 
@@ -127,7 +127,7 @@ Visual Studio 提供您偵錯 Azure 雲端服務和虛擬機器的不同選項�
 
     ![選取程式碼類型對話方塊](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC718346.png)
 
-1. 按一下您想要在虛擬機器上偵錯的處理序，然後按一下 [附加]。例如，如果您想要在虛擬機器上偵錯 Web 應用程式，可以選擇 w3wp.exe 處理序。如需詳細資訊，請參閱在 [Visual Studio 中偵錯一或多個處理序](https://msdn.microsoft.com/library/jj919165.aspx)和 [Azure 角色架構](https://msdn.microsoft.com/library/jj919165.aspx)。
+1. 按一下您想要在虛擬機器上偵錯的處理序，然後按一下 [附加]。例如，如果您想要在虛擬機器上偵錯 Web 應用程式，可以選擇 w3wp.exe 處理序。如需詳細資訊，請參閱[在 Visual Studio 中偵錯一或多個處理序](https://msdn.microsoft.com/library/jj919165.aspx)和 [Azure 角色架構](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx)。
 
 ## 建立 Web 專案和虛擬機器進行偵錯
 
@@ -191,4 +191,4 @@ Visual Studio ASP.NET 專案提供選項，讓您建立可用於測試應用程�
 - 使用 **Intellitrace** 從發行伺服器收集呼叫和事件的記錄檔。請參閱[使用 IntelliTrace 和 Visual Studio 偵錯發佈的雲端服務](http://go.microsoft.com/fwlink/?LinkID=623016)。
 - 不論角色是在開發環境中或在 Azure 中執行，請使用 **Azure 診斷**來記錄在角色內執行的程式碼的詳細資訊。請參閱[使用 Azure 診斷收集記錄資料](http://go.microsoft.com/fwlink/p/?LinkId=400450)。
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

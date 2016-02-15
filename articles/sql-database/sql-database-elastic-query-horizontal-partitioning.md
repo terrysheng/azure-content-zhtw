@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/06/2016"
-    ms.author="sidneyh;torsteng" />
+    ms.date="01/28/2016"
+    ms.author="torsteng;sidneyh" />
 
 # 分區化的彈性資料庫查詢 (水平資料分割)
 
@@ -200,7 +200,7 @@ DISTRIBUTION 子句會指定用於此資料表的資料散發：
 * 分區對應資料庫名稱 (nvarchar)：分區對應資料庫的名稱。 
 * 使用者名稱 (nvarchar)：用來登入分區對應資料庫的使用者名稱。 
 * 密碼 (nvarchar)：使用者密碼。 
-* 分區對應名稱 (nvarchar)：用於查詢之分區對應的名稱。 
+* 分區對應名稱 (nvarchar)：用於查詢之分區對應的名稱。該名稱位於 \_ShardManagement.ShardMapsGlobal 資料表中，而它是在利用[開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)一文中的範例應用程式來建立資料庫時，所使用的預設名稱。應用程式中的預設名稱是 「CustomerIDShardMap」。
 *  查詢：對每個分區執行的查詢。 
 *  參數宣告 (nvarchar) - 選用：含有查詢參數 (如 sp\_executesql) 中所用參數的資料類型定義的字串。 
 *  參數值清單 - 選用：以逗號分隔的參數值清單 (如 sp\_executesql)  
@@ -212,7 +212,7 @@ sp\_execute\_fanout 會使用叫用參數中提供的分區對應資訊，在所
 範例：
 
 	sp_execute_fanout 
-		’myserver.database.windows.net', 
+		N'myserver.database.windows.net', 
 		N'ShardMapDb', 
 		N'myuser', 
 		N'MyPwd', 
@@ -241,4 +241,4 @@ sp\_execute\_fanout 會使用叫用參數中提供的分區對應資訊，在所
 [1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

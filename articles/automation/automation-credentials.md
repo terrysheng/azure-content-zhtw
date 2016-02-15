@@ -45,7 +45,7 @@
 ## 建立新認證
 
 
-### 使用 Azure 入口網站建立新的變數
+### 使用 Azure 傳統入口網站網站建立新變數
 
 1. 從您的自動化帳戶，在視窗的頂端按一下 [**資產**]。
 1. 在視窗的底端按一下 [**加入設定**]。
@@ -54,7 +54,7 @@
 1. 完成精靈，然後按一下核取方塊以儲存新認證。
 
 
-### 使用 Azure 預覽入口網站建立新認證
+### 使用 Azure 入口網站建立新認證
 
 1. 從您的自動化帳戶，按一下 [**資產**] 部分，以開啟 [**資產**] 分頁。
 1. 按一下 [**認證**] 部分，以開啟 [**認證**] 分頁。
@@ -92,7 +92,7 @@
 
 ![加入認證至畫布](media/automation-credentials/credential-add-canvas.png)
 
-下圖顯示在圖形化 Runbook 中使用認證的範例。在此情況下，它是用來向 Azure 資源提供 Runbook 的驗證，如[設定對 Azure 資源的驗證](#automation-configuring.md)中所述。第一個活動會擷取可存取 Azure 訂用帳戶的認證。然後 **Add-AzureAccount** 活動會使用這個認證來為隨後的任何活動提供驗證。因為 **Get-AutomationPSCredential** 需要單一物件，因此推出了[管線連結](automation-graphical-authoring-intro.md#links-and-workflow)。
+下圖顯示在圖形化 Runbook 中使用認證的範例。在此情況下，它是用來向 Azure 資源提供 Runbook 的驗證，如[設定對 Azure 資源的驗證](automation-configuring.md)中所述。第一個活動會擷取可存取 Azure 訂用帳戶的認證。然後 **Add-AzureAccount** 活動會使用這個認證來為隨後的任何活動提供驗證。因為 **Get-AutomationPSCredential** 需要單一物件，因此推出了[管線連結](automation-graphical-authoring-intro.md#links-and-workflow)。
 
 ![加入認證至畫布](media/automation-credentials/get-credential.png)
 
@@ -105,4 +105,4 @@
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="02/01/2016"
  ms.author="larryfr"/>
 
 # 使用 HDInsight 上的 Storm 和 HBase 讓事件隨著時間而相互關聯
@@ -59,7 +59,7 @@
 
 當工作階段開始時，**START** 事件會由拓撲接收並記錄至 HBase。收到 **END** 事件時，拓撲會擷取 **START** 事件並計算兩個事件之間的時間。此 [**持續時間**] 值接著會連同 **END** 事件資訊儲存在 HBase 中。
 
-> [AZURE.IMPORTANT]雖然此拓撲示範基本模式，但生產方案必須採用下列案例的設計：
+> [AZURE.IMPORTANT] 雖然此拓撲示範基本模式，但生產方案必須採用下列案例的設計：
 >
 > - 未按順序抵達的事件
 > - 重複的事件
@@ -93,11 +93,11 @@
 
 -	VERSIONS：'Cf' 系列會設定為每個資料列保留 5 個版本
 
-	> [AZURE.NOTE]版本是針對特定資料列索引鍵儲存的先前值的記錄檔。根據預設，HBase 只會針對資料列的最新版本傳回此值。在此情況下，相同的資料列使用於所有事件 (START、END)，而資料列的每個版本都是以時間戳記值識別。這提供針對特定識別碼記錄之事件的歷程記錄檢視。
+	> [AZURE.NOTE] 版本是針對特定資料列索引鍵儲存的先前值的記錄檔。根據預設，HBase 只會針對資料列的最新版本傳回此值。在此情況下，相同的資料列使用於所有事件 (START、END)，而資料列的每個版本都是以時間戳記值識別。這提供針對特定識別碼記錄之事件的歷程記錄檢視。
 
 ## 下載專案
 
-您可以從 [hdinsight-storm-eventcorrelation](https://github.com/Blackmist/hdinsight-storm-eventcorrelation) 下載範例專案。
+您可以從 [https://github.com/Azure-Samples/hdinsight-storm-dotnet-event-correlation](https://github.com/Azure-Samples/hdinsight-storm-dotnet-event-correlation) 下載範例專案。
 
 此下載包含下列 C# 專案：
 
@@ -147,7 +147,7 @@
 
 	- 	HBaseTableColumnFamily：資料行系列名稱。此項應該包含 SessionInfo 專案中使用的相同資料行系列名稱
 
-	> [AZURE.IMPORTANT]請勿變更 HBaseTableColumnNames，因為預設值是 **SessionInfo** 用來擷取資料的名稱。
+	> [AZURE.IMPORTANT] 請勿變更 HBaseTableColumnNames，因為預設值是 **SessionInfo** 用來擷取資料的名稱。
 
 4.  儲存屬性，然後建置專案。
 
@@ -157,7 +157,7 @@
 
 6.	在 [**提交拓樸**] 對話方塊中，選取將執行此拓樸的 Storm 叢集。
 
-	> [AZURE.NOTE]第一次提交拓撲時，可能需要幾秒鐘的時間來擷取您的 HDInsight 叢集名稱。
+	> [AZURE.NOTE] 第一次提交拓撲時，可能需要幾秒鐘的時間來擷取您的 HDInsight 叢集名稱。
 
 7.	拓撲上傳並提交至叢集後，[**Storm 拓撲檢視**] 將會開啟並顯示執行中的拓撲。選取 **CorrelationTopology**，並使用頁面右上方的 [重新整理] 按鈕來重新整理拓撲資訊。
 
@@ -165,7 +165,7 @@
 
 	拓撲開始產生資料時，[**已發出**] 中的值將會遞增。
 
-	> [AZURE.NOTE]如果 [**Storm 拓撲檢視**] 並未自動開啟，請使用下列步驟來開啟：
+	> [AZURE.NOTE] 如果 [**Storm 拓撲檢視**] 並未自動開啟，請使用下列步驟來開啟：
 	>
 	> 1. 在 [**方案總管**] 中，展開 **Azure**，然後展開 **HDInsight**。
 	>
@@ -189,7 +189,7 @@
 
 	Session fc9fa8e6-6892-4073-93b3-a587040d892e lasted 2 minutes, and ended at 6/5/2015 6:12:15 PM
 
-> [AZURE.NOTE]雖然您輸入的時間值都是當地時間，但查詢所傳回的時間會是 UTC。
+> [AZURE.NOTE] 雖然您輸入的時間值都是當地時間，但查詢所傳回的時間會是 UTC。
 
 ##停止拓撲
 
@@ -200,4 +200,4 @@
 如需更多 Storm 範例，請參閱 [Storm on HDInsight 上的範例拓撲](hdinsight-storm-example-topology.md)。
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

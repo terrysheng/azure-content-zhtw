@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Add owners and users to a DevTest Lab | Microsoft Azure"
-	description="Securely add a user who is not in your subscription to your Azure DevTest Lab."
+<properties
+	pageTitle="將擁有者和使用者加入研發/測試實驗室 | Microsoft Azure"
+	description="將不在訂用帳戶內的使用者安全地加入 Azure 研發/測試實驗室。"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # 將擁有者和使用者加入研發/測試實驗室
@@ -26,7 +26,7 @@
 
  - **擁有者**：已在 Azure 訂用帳戶層級指派給**擁有者**角色的使用者具備實驗室的完整存取權 (包括管理和監視功能)。
 
-     >[AZURE.NOTE] 研發/測試實驗室中不支援在訂用帳戶層級以外的 RBAC 層級指派的**擁有者**角色。不支援在研發/測試實驗室中將使用者指派給**擁有者**角色。
+     > [AZURE.NOTE] 研發/測試實驗室中不支援在訂用帳戶層級以外的 RBAC 層級指派的**擁有者**角色。不支援在研發/測試實驗室中將使用者指派給**擁有者**角色。
 
  -  **研發/測試實驗室使用者**：已指派給**研發/測試實驗室使用者**角色的使用者可以建立、更新和刪除指定實驗室中的 VM。使用者可以是*內部* (訂用帳戶的 Azure Active Directory 成員) 或*外部* (不屬於 Azure AD 成員的使用者，例如合作夥伴組織的成員)。
 	-  **研發/測試實驗室使用者**角色必須透過實驗室的 [新增使用者] 磚來指派。
@@ -101,4 +101,4 @@
 
 	1. [使用者] 刀鋒視窗會顯示新增的角色及使用者。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

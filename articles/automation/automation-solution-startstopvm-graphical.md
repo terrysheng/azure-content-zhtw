@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/25/2015"
+	ms.date="01/27/2016"
 	ms.author="bwren" />
 
 # Azure 自動化解決方案 - 啟動和停止虛擬機器
@@ -28,11 +28,11 @@
 - [Graphical](automation-solution-startstopvm-graphical.md)
 - [PowerShell Workflow](automation-solution-startstopvm-psworkflow.md)
 
-這是此解決方案的圖形化 Runbook 版本。也可以使用 [PowerShell 工作流程 Runbook](automation-solutions-startstopvm-psworkflow.md) 取得。
+這是此解決方案的圖形化 Runbook 版本。也可以使用 [PowerShell 工作流程 Runbook](automation-solution-startstopvm-psworkflow.md) 取得。
 
 ## 取得解決方案
 
-此解決方案包含兩個可以從下列連結下載的圖形化 Runbook。請參閱這個解決方案的 [PowerShell 工作流程版本](automation-solutions-startstopvm-psworkflow.md)，以取得 PowerShell 工作流程 Runbook 的連結。
+此解決方案包含兩個可以從下列連結下載的圖形化 Runbook。請參閱這個解決方案的 [PowerShell 工作流程版本](automation-solution-startstopvm-psworkflow.md)，以取得 PowerShell 工作流程 Runbook 的連結。
 
 
 | Runbook | 連結 | 類型 | 說明 |
@@ -153,4 +153,4 @@ Runbook 的最後一個步驟是傳送輸出，而不論是否成功提交每個
 - [Azure 自動化中的子 Runbook](automation-child-runbooks.md) 
 - [Azure 自動化中的 Runbook 輸出與訊息](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

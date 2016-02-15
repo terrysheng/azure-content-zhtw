@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/01/2016" 
 	ms.author="torsteng;sidneyh"/>
 
 # 搭配使用彈性資料庫用戶端程式庫與 Dapper 
@@ -174,4 +174,4 @@ Microsoft 模式和作法小組已發佈[暫時性錯誤處理應用程式區塊
 [1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

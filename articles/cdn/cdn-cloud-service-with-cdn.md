@@ -49,7 +49,7 @@
 -	Visual Studio 2015 (含 [Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409))
 
 > [AZURE.NOTE] 您必須有 Azure 帳戶才能完成本教學課程：
-> + 您可以[免費申請帳戶](/pricing/free-trial/) - 我們會提供可用來試用付費 Azure 服務的點數，即使點數用完了，您仍然可以保留帳戶，使用免費的 Azure 服務，例如 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps。 
+> + 您可以[免費申請帳戶](/pricing/free-trial/) - 我們會提供可用來試用付費 Azure 服務的點數，即使點數用完了，您仍然可以保留帳戶，使用免費的 Azure 服務，例如網站。 
 > + 您可以[啟用 MSDN 訂閱者權益](/pricing/member-offers/msdn-benefits-details/) - 您的 MSDN 訂用帳戶每個月都會給您可用來試用付費 Azure 服務的點數。
 
 <a name="deploy"></a>
@@ -90,57 +90,57 @@
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[AZURE.NOTE]雲端服務的發行程序會花費很長時間。[啟用所有 Web 角色的 Web Deploy] 選項可快速 (但暫時) 提供更新給 Web 角色，加速偵測您的雲端服務。如需此選項的詳細資訊，請參閱[使用 Azure Tools 發行雲端服務](http://msdn.microsoft.com/library/ff683672.aspx)。
+	>[AZURE.NOTE] 雲端服務的發行程序會花費很長時間。[啟用所有 Web 角色的 Web Deploy] 選項可快速 (但暫時) 提供更新給 Web 角色，加速偵測您的雲端服務。如需此選項的詳細資訊，請參閱[使用 Azure Tools 發行雲端服務](http://msdn.microsoft.com/library/ff683672.aspx)。
 
 	當 [**Microsoft Azure 活動記錄**] 的發佈狀態為 [**已完成**] 時，您便可建立與此雲端服務整合的 CDN 端點。
 	
-	>[AZURE.WARNING]若在發佈後部署的雲端服務顯示錯誤畫面，原因可能在於您已部署的雲端服務使用[不含 .NET 4.5.2 的客體 OS](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates)。您可[將 .NET 4.5.2 部署為啟動工作](../cloud-services/cloud-services-dotnet-install-dotnet.md)，以解決此問題。
+	>[AZURE.WARNING] 若在發佈後部署的雲端服務顯示錯誤畫面，原因可能在於您已部署的雲端服務使用[不含 .NET 4.5.2 的客體 OS](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates)。您可[將 .NET 4.5.2 部署為啟動工作](../cloud-services/cloud-services-dotnet-install-dotnet.md)，以解決此問題。
 
 ## 建立新的 CDN 設定檔
 
-CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 端點。您可能會想要使用多個設定檔，依網際網路網域、Web 應用程式或其他準則來組織您的 CDN 端點。
+CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 端點。您可能會想要使用多個設定檔，依網際網路網域、Web 應用程式或其他準則來組織您的 CDN 端點。
 
-> [AZURE.TIP]若您已有您想要用於本教學課程的 CDN 設定檔，請繼續參閱「[建立新的 CDN 端點](#create-a-new-cdn-endpoint)」。
+> [AZURE.TIP] 若您已有您想要用於本教學課程的 CDN 設定檔，請繼續參閱「[建立新的 CDN 端點](#create-a-new-cdn-endpoint)」。
 
 **建立新的 CDN 設定檔**
 
-1. 在 [[Azure 管理入口網站](https://portal.azure.com)] 的左上角，按一下 [**新增**]。在 [**新增**] 刀鋒視窗中，選取 [**媒體 + CDN**]，然後再選取 [**CDN**]。
+1. 在 [Azure 管理入口網站](https://portal.azure.com)的左上角，按一下 [新增]。在 [新增] 刀鋒視窗中，依序選取 [媒體 + CDN] 和 [CDN]。
 
-    此時會顯示新的 CDN 設定檔刀鋒視窗。
+    此時會顯示新的 [CDN 設定檔] 刀鋒視窗。
     
     ![新增 CDN 設定檔][new-cdn-profile]
 
 2. 輸入 CDN 設定檔的名稱。
 
-3. 選取 [**定價層**] 或使用預設值。
+3. 選取 [定價層] 或使用預設值。
 
 4. 選取或建立 [**資源群組**]。此資源群組並不必然是與您儲存體帳戶相同的資源群組。
 
 5. 針對此 CDN 設定檔選取 [**訂用帳戶**]。基於本教學課程用途，此訂用帳戶必須為與儲存體帳戶相同的訂用帳戶。
 
-6. 選取 [**位置**]。此為儲存您 CDN 設定檔資訊的所在 Azure 位置。其不會影響 CDN 端點位置。此位置並不必然是與儲存體帳戶的相同位置。
+6. 選取 [**位置**]。此為儲存您 CDN 設定檔資訊的所在 Azure 位置。其不會影響 CDN 端點位置。此位置不一定是與儲存體帳戶相同的位置。
 
-7. 按一下 [**建立**] 按鈕，以建立新設定檔。
+7. 按一下 [建立] 按鈕，以建立新的設定檔。
 
 ## 建立新的 CDN 端點
 
 **為儲存體帳戶建立新的 CDN 端點**
 
-1. 在 [[Azure 管理入口網站](https://portal.azure.com)] 中，瀏覽至您的 CDN 設定檔。您可能已在先前步驟中將其釘選至儀表板。若否，則您可依序按一下 [**瀏覽**]、[**CDN 設定檔**] 尋找該設定檔，然後再按一下您要在其中新增端點的設定檔。
+1. 在 [Azure 管理入口網站](https://portal.azure.com)中，巡覽至您的 CDN 設定檔。您可能已在先前步驟中將其釘選至儀表板。若否，則您可依序按一下 [瀏覽]、[CDN 設定檔] 尋找該設定檔，然後再按一下您要在其中加入端點的設定檔。
 
-    此時會顯示 CDN 設定檔刀鋒視窗。
+    此時會顯示 [CDN 設定檔] 刀鋒視窗。
     
     ![CDN 設定檔][cdn-profile-settings]
     
-2. 按一下 [**新增端點**] 按鈕。
+2. 按一下 [新增端點] 按鈕。
 
-    ![新增端點按鈕][cdn-new-endpoint-button]
+    ![[加入端點] 按鈕][cdn-new-endpoint-button]
 
-    此時會顯示 [**新增端點**] 刀鋒視窗。
+    此時會顯示 [加入端點] 刀鋒視窗。
     
     ![新增端點刀鋒視窗][cdn-add-endpoint]
 
-3. 輸入此 CDN 端點的 [**名稱**]。此名稱會用於存取位於網域 `<EndpointName>.azureedge.net` 的快取資源。
+3. 輸入這個 CDN 端點的 [名稱]。此名稱會用於存取位於網域 `<EndpointName>.azureedge.net` 的快取資源。
 
 4. 在 [**原始類型**] 下拉式清單中，選取 [*雲端服務*]。
 
@@ -154,7 +154,7 @@ CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 
 
     ![CDN 端點][cdn-endpoint-success]
 
-    > [AZURE.NOTE]端點將無法立即可用。註冊可能需要 90 分鐘的處理時間，以透過 CDN 網路傳播。若使用者嘗試立即使用 CDN 網域名稱，則可能會顯示狀態碼 404，直到可透過 CDN 使用內容為止。
+    > [AZURE.NOTE] 端點將無法立即可用。註冊可能需要 90 分鐘的處理時間，以透過 CDN 網路傳播。若使用者嘗試立即使用 CDN 網域名稱，則可能會顯示狀態碼 404，直到可透過 CDN 使用內容為止。
 	
 ## 測試 CDN 端點
 
@@ -177,7 +177,7 @@ CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 
 -	任何控制器/動作 
 -	任何含有查詢字串的 URL (若 CDN 端點已啟用查詢字串的話)
 
-實際上，上述組態可讓您從 **http://*&lt;cdnName>*.azureedge.net/** 託管整個雲端服務。若瀏覽至 ****http://camservice.azureedge.net/**，則會從 Home/Index 取得動作結果。
+實際上，上述組態可讓您從 **http://*&lt;cdnName>*.azureedge.net/** 託管整個雲端服務。若瀏覽至 **http://camservice.azureedge.net/**，則會從 Home/Index 取得動作結果。
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -201,7 +201,7 @@ CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 
 	  ...
 	</system.webServer>
 
-這樣做時，雲端服務中的所有靜態檔案會在您的 CDN 快取中遵守相同規則。若要更精確控制快取設定，請將 *Web.config* 檔案加入至資料夾，並在檔案中新增您的設定。例如，將 *Web.config* 檔案加入至 *\\Content* 資料夾，並將內容改成下列 XML：
+這樣做時，雲端服務中的所有靜態檔案會在您的 CDN 快取中遵守相同規則。若要更精確控制快取設定，請將 *Web.config* 檔案加入至資料夾，並在檔案中新增您的設定。例如，將 *Web.config* 檔案加入至 *\Content* 資料夾，並將內容改成下列 XML：
 
 	<?xml version="1.0"?>
 	<configuration>
@@ -212,7 +212,7 @@ CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 
 	  </system.webServer>
 	</configuration>
 
-此設定會將 *\\Content* 資料夾中的所有靜態檔案快取 15 天。
+此設定會將 *\Content* 資料夾中的所有靜態檔案快取 15 天。
 
 如需有關如何設定 `<clientCache>` 元素的詳細資訊，請參閱[用戶端快取 &lt;clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache)。
 
@@ -337,7 +337,7 @@ CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 
 
 	![](media/cdn-cloud-service-with-cdn/cdn-7-configureview.PNG)
 
-4. 開啟新的 *Views\\MemeGenerator\\Index.cshtml*，將內容改成下列簡單的 HTML 來提交笑梗：
+4. 開啟新的 *Views\MemeGenerator\Index.cshtml*，將內容改成下列簡單的 HTML 來提交笑梗：
 
 		<h2>Meme Generator</h2>
 		
@@ -409,7 +409,7 @@ CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 
 		...
     }
 
-第一個 `bundles.Add()` 陳述式將指令碼套件組合加入至虛擬目錄 `~/bundles/jquery`。然後，開啟 *Views\\Shared\_Layout.cshtml*，查看指令碼套件組合標籤如何轉譯。您應該可以找到下列這一行 Razor 程式碼：
+第一個 `bundles.Add()` 陳述式將指令碼套件組合加入至虛擬目錄 `~/bundles/jquery`。然後，開啟 *Views\Shared_Layout.cshtml*，查看指令碼套件組合標籤如何轉譯。您應該可以找到下列這一行 Razor 程式碼：
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -468,7 +468,7 @@ CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 
 	
 	-	此 CDN URL 的來源是 `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`，事實上就是雲端服務中指令碼套件組合的虛擬目錄。
 	-	由於是使用 CDN 建構函式，套件組合的 CDN 指令碼標籤在轉譯的 URL 中已不再包含自動產生的版本字串。指令碼套件組合每次修改時，您都必須手動產生唯一的版本字串，以強制在 Azure CDN 上發生快取遺漏。同時，在部署套件組合之後，此唯一的版本字串在部署的整個存在期間內必須保持不變，讓 Azure CDN 的快取命中率達到最高。
-	-	查詢字串 v=<W.X.Y.Z> 會從 Web 角色專案的 *Properties\\AssemblyInfo.cs* 中提取。您的部署工作流程中可以包含每次發佈至 Azure 時就遞增組件版本。或者，您可以直接修改專案中的 *Properties\\AssemblyInfo.cs*，使用萬用字元 '*' 表示每次建置時就自動遞增版本字串。例如：
+	-	查詢字串 v=<W.X.Y.Z> 會從 Web 角色專案的 *Properties\AssemblyInfo.cs* 中提取。您的部署工作流程中可以包含每次發佈至 Azure 時就遞增組件版本。或者，您可以直接修改專案中的 *Properties\AssemblyInfo.cs*，使用萬用字元 '*' 表示每次建置時就自動遞增版本字串。例如：
 
 			[assembly: AssemblyVersion("1.0.0.*")]
 	
@@ -519,7 +519,7 @@ CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 
 
 [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) 類別包含一個稱為 [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) 的屬性，可讓您設定 CDN 失敗時的後援機制。若要使用此屬性，請遵循下列步驟：
 
-1. 在 Web 角色專案中，開啟 *App\_Start\\BundleConfig.cs* (您已在該檔案中，將 CDN URL 加入每個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx))，透過下列醒目提示的變更將後援機制加入預設套件組合：  
+1. 在 Web 角色專案中，開啟 *App_Start\BundleConfig.cs* (您已在該檔案中，將 CDN URL 加入每個 [Bundle 建構函式](http://msdn.microsoft.com/library/jj646464.aspx))，透過下列醒目提示的變更將後援機制加入預設套件組合：  
 
 		public static void RegisterBundles(BundleCollection bundles)
 		{
@@ -626,10 +626,9 @@ CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 
 
 ## 相關資訊 ##
 - [Azure 內容傳遞網路 (CDN) 概觀](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [在 Web 應用程式中從 Azure CDN 提供內容](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [整合 Azure 網站與 Azure CDN](cdn-websites-with-cdn.md)
+- [使用 Azure 的 CDN](cdn-how-to-use-cdn.md)
 - [ASP.NET 統合和縮製](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [使用 Azure 的 CDN](cdn-how-to-use.md)
+
 
 
 [new-cdn-profile]: ./media/cdn-cloud-service-with-cdn/cdn-new-profile.png
@@ -638,4 +637,4 @@ CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

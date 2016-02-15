@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/05/2015"
+	ms.date="01/28/2016"
 	ms.author="juliako"/>
 
 
@@ -38,7 +38,7 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 
 ##常見的案例
 
-1. 上傳輸入檔案 (稱為夾層檔)。例如，H.264、MP4 或 WMV (如需支援格式清單，請參閱[媒體服務編碼器所支援的格式](media-services-azure-media-encoder-formats))。
+1. 上傳輸入檔案 (稱為夾層檔)。例如，H.264、MP4 或 WMV (如需支援格式清單，請參閱[媒體編碼器標準所支援的格式](media-services-media-encoder-standard-formats.md))。
 
 1. 將夾層檔編碼為 H.264 MP4 自動調整位元速率集。
 
@@ -46,56 +46,31 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 
 1. 建置串流 URL 來存取和串流您的內容。
 
->[AZURE.NOTE]並非所有的 MP4 檔案格式都受動態封裝支援，如需詳細資訊，請參閱[動態封裝不支援的格式](media-services-dynamic-packaging-overview.md#unsupported_formats)。
 
 ##準備動態串流的資產
 
 若要準備動態串流的資產，您有兩個選項：
 
-- 上傳主檔案，並使用 Azure 媒體編碼器產生 H.264 MP4 自動調整位元速率集。
-- 上傳現有的自動調整位元速率集，並使用 Media Packager 加以驗證。
+1. [上傳主檔案](media-services-dotnet-upload-files.md)。
+2. [使用媒體編碼器標準編碼器產生 H.264 MP4 自動調整位元速率集](media-services-dotnet-encode-with-media-encoder-standard.md)。
+3. [串流處理內容](media-services-deliver-content-overview.md)。
 
-###上傳主檔案，並使用 Azure 媒體編碼器產生 H.264 MP4 自動調整位元速率集
+-或-
+ 
+1. 上傳預先編碼的 MP4 檔案。 
 
-如需如何上傳與編碼資產的相關資訊，請參閱下列文章：
-
-
-使用 **Azure 傳統入口網站**、**.NET** 或 **REST API** 上傳檔案。
-
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
-
-使用 **Azure 傳統入口網站**、**.NET** 或 **REST API**，以 **Azure 媒體編碼器**進行編碼。
-
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
-
-
-###上傳現有的自動調整位元速率集，並使用 Media Packager 加以驗證
-
-如果您正在上傳一組不以媒體服務編碼器編碼的自動調整位元速率 MP4 檔案，您通常會想要執行這項工作。 [驗證以外部編碼器編碼的自動調整位元速率 MP4](https://msdn.microsoft.com/library/azure/dn750842.aspx) 主題示範如何達成這項工作。
-
-##將內容串流到用戶端
-
-如果您有自動調整位元速率集，您就可以藉由建立隨選定位器來發行您的資產，並撰寫 Smooth Steaming、MPEG DASH、HLS 和 HDS 的串流 URL (僅適用於 Adobe PrimeTime/存取被授權者)。
-
-如需如何建立定位器，並使用動態封裝串流內容的資訊，請參閱下列主題：
-
-[將內容傳遞給客戶概觀](media-services-deliver-content-overview.md)。
-
-使用 **.NET** 或 **REST API** 設定資產傳遞原則。
-
-[AZURE.INCLUDE [媒體-服務-選取器-資產-傳遞-原則](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-使用 **Azure 傳統入口網站**或 **.NET** (藉由建立定位器) 發行資產。
-
-[AZURE.INCLUDE [媒體-服務-選取器-發行](../../includes/media-services-selector-publish.md)]
+	>[AZURE.NOTE] 但不建議您這樣做。
+	
+2. [驗證預先編碼的檔案](media-services-static-packaging.md#validating-adaptive-bitrate-mp4s-encoded-with-external-encoders)。
+3. [串流處理內容](media-services-deliver-content-overview.md)。
 
 
 ##<a id="unsupported_formats"></a>動態封裝不支援的格式
 
 動態封裝不支援下列來源檔案格式。
 
-- Dolby digital 加上 mp4 檔案。
-- Dolby digital 加上 smooth 檔案。
+- Dolby digital mp4 檔案。
+- Dolby digital smooth 檔案。
 
 ##媒體服務學習路徑
 
@@ -105,4 +80,4 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

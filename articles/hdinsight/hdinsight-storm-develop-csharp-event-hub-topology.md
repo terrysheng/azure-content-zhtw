@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # 利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)
@@ -30,11 +30,11 @@ Azure 事件中樞可讓您從網站、應用程式和裝置處理巨量資料�
 
 ## 先決條件
 
-* [Apache Storm on HDInsight 叢集](hdinsight-storm-getting-started.md)
+* [Apache Storm on HDInsight 叢集](hdinsight-apache-storm-tutorial-get-started.md)
 
-* [Azure 事件中樞](../service-bus/service-bus-event-hubs-csharp-ephcs-getstarted.md)
+* [Azure 事件中樞](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-* [Azure .NET SDK](https://azure.microsoft.com/downloads/)
+* [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 
 * [HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
@@ -557,4 +557,4 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

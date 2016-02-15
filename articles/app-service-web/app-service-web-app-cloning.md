@@ -35,7 +35,7 @@
 
 若要建立新的 App Service 方案，我們可以使用 New-AzureRmAppServicePlan 命令，如下列範例所示
 
-	New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan
+	New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
 
 使用 New-AzureRmWebApp 命令，我們可以在美國中北部區域中建立新的 Web 應用程式，並將它連接至現有的 Premium 層 App Service 方案，而且我們可以使用相同的資源群組作為來源 Web 應用程式，或定義新的資源群組，範例如下：
 
@@ -77,7 +77,7 @@
 
 ## 設定流量管理員同時複製應用程式 ##
 
-建立新的 Web 應用程式時設定流量管理員，同時從現有的應用程式複製，您可以選擇連接這兩個 Web 應用程式到新的流量管理員設定檔或現有的設定檔 - 請注意，僅支援 ARM 版本的流量管理員。
+建立多重區域 Web 應用程式，並設定 Azure 流量管理員，將流量路由到這些 Web 應用程式，重要的案例是確保客戶的應用程式為高可用性，當複製現有的 Web 應用程式時，您可以選擇將兩個 Web 應用程式連接到新的流量管理員設定檔或現有的設定檔 - 請注意，僅支援 ARM 版本的流量管理員。
 
 ### 建立新流量管理員設定檔同時複製應用程式 ###
 
@@ -114,4 +114,4 @@
 - [App Service 環境簡介](app-service-app-service-environment-intro.md)
 - [搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # 使用 Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)
@@ -30,9 +30,9 @@ Azure 事件中樞可讓您從網站、應用程式和裝置處理巨量資料�
 
     - [以 Windows 為基礎的叢集](hdinsight-apache-storm-tutorial-get-started.md)：若您想要使用 PowerShell 搭配 Windows 用戶端的叢集，則選取此選項
 
-    > [AZURE.NOTE]兩個叢集類型之間唯一的差異是您是否使用 SSH 將拓撲提交至叢集或 Web 表單。
+    > [AZURE.NOTE] 兩個叢集類型之間唯一的差異是您是否使用 SSH 將拓撲提交至叢集或 Web 表單。
 
-* [Azure 事件中樞](../event-hubs/service-bus-event-hubs-csharp-ephcs-getstarted.md)。
+* [Azure 事件中樞](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)。
 
 * [Oracle Java Developer Kit (JDK) 第 7版](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)或同等版本，例如 [OpenJDK](http://openjdk.java.net/)
 
@@ -40,7 +40,7 @@ Azure 事件中樞可讓您從網站、應用程式和裝置處理巨量資料�
 
 * 文字編輯器或 Java 整合式開發環境 (IDE)
 
-	> [AZURE.NOTE]您的編輯器或 IDE 可能具有處理 Maven 的特定功能，但未記載在這份文件中。如需編輯環境功能的詳細資訊，請參閱所使用產品的文件。
+	> [AZURE.NOTE] 您的編輯器或 IDE 可能具有處理 Maven 的特定功能，但未記載在這份文件中。如需編輯環境功能的詳細資訊，請參閱所使用產品的文件。
 
  * SSH 用戶端。如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列其中一篇文章：
 
@@ -78,7 +78,7 @@ __com.microsoft.example.EventHubReader__ 從事件中樞讀取資料 (EventHubWr
 
 這樣會加入 eventhubs-storm-spout 封裝的相依性，包含用以從事件中樞讀取的 Spout 和寫入事件中樞的 Bolt。
 
-> [AZURE.NOTE]此封裝並不適用於 Maven，並且會在稍後的步驟中手動安裝在您的本機 Maven 儲存機制。
+> [AZURE.NOTE] 此封裝並不適用於 Maven，並且會在稍後的步驟中手動安裝在您的本機 Maven 儲存機制。
 
 ####HdfsBolt 和 WASB 元件
 
@@ -141,7 +141,7 @@ HdfsBolt 一般是用來將資料儲存至 Hadoop 分散式檔案系統 HDFS。�
        <version>0.6.0</version>
      </dependency>
 
-> [AZURE.NOTE]用於啟用 WASB 的封裝不適用於 Maven 儲存機制，將會在稍後的步驟中手動安裝。
+> [AZURE.NOTE] 用於啟用 WASB 的封裝不適用於 Maven 儲存機制，將會在稍後的步驟中手動安裝。
 
 ####maven-compiler-plugin
 
@@ -269,7 +269,7 @@ HdfsBolt 一般是用來將資料儲存至 Hadoop 分散式檔案系統 HDFS。�
 
 	![精靈頁面 1](./media/hdinsight-storm-develop-csharp-event-hub-topology/wiz1.png)
 
-	> [AZURE.NOTE]您應該選取與 Storm on HDInsight 伺服器相同的 [位置]，以便降低延遲和成本。
+	> [AZURE.NOTE] 您應該選取與 Storm on HDInsight 伺服器相同的 [位置]，以便降低延遲和成本。
 
 2. 在 [設定事件中樞] 畫面中，輸入 [資料分割計數] 及 [訊息保留] 值。在此範例中，資料分割計數使用 10，訊息保留使用 1。請記下資料分割計數，因為您稍後會用到這個值。
 
@@ -311,7 +311,7 @@ HdfsBolt 一般是用來將資料儲存至 Hadoop 分散式檔案系統 HDFS。�
 
 		mvn -q org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom -DpomFile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom
 
-	> [AZURE.NOTE]如果您使用 Powershell，您必須以引號括住 `-D` 參數。例如，`"-Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom"`。
+	> [AZURE.NOTE] 如果您使用 Powershell，您必須以引號括住 `-D` 參數。例如，`"-Dfile=lib/hadoop/hadoop-main-3.0.0-SNAPSHOT.pom"`。
 
 	這些檔案也是來自 https://github.com/hdinsight/hdinsight-storm-examples，因此可以在那裡找到最新版本。
 
@@ -333,7 +333,7 @@ HdfsBolt 一般是用來將資料儲存至 Hadoop 分散式檔案系統 HDFS。�
 
     如果您針對 SSH 帳戶使用密碼，系統會提示您輸入密碼。如果您搭配帳戶使用 SSH 金鑰，可能需要使用 `-i` 參數來指定金鑰檔的路徑。例如，`scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`。
 
-    > [AZURE.NOTE]如果您的用戶端是 Windows 工作站，您可能沒有安裝 SCP 命令。我們建議 PSCP，它可從 [PuTTY 下載頁面](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)下載。
+    > [AZURE.NOTE] 如果您的用戶端是 Windows 工作站，您可能沒有安裝 SCP 命令。我們建議 PSCP，它可從 [PuTTY 下載頁面](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)下載。
 
     此命令會將檔案複製到叢集上 SSH 使用者的主目錄中。
 
@@ -341,13 +341,13 @@ HdfsBolt 一般是用來將資料儲存至 Hadoop 分散式檔案系統 HDFS。�
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    > [AZURE.NOTE]如果您對 SSH 帳戶使用密碼，系統會提示您輸入密碼。如果您搭配帳戶使用 SSH 金鑰，可能需要使用 `-i` 參數來指定金鑰檔的路徑。下列範例會從 `~/.ssh/id_rsa` 載入私密金鑰：
+    > [AZURE.NOTE] 如果您對 SSH 帳戶使用密碼，系統會提示您輸入密碼。如果您搭配帳戶使用 SSH 金鑰，可能需要使用 `-i` 參數來指定金鑰檔的路徑。下列範例會從 `~/.ssh/id_rsa` 載入私密金鑰：
     >
     > `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
     如果您使用 PuTTY，在 [主機名稱 (或 IP 位址)] 欄位輸入 `CLUSTERNAME-ssh.azurehdinsight.net`，然後再按一下 [開啟] 以連接。系統會提示您輸入 SSH 帳戶名稱。
 
-    > [AZURE.NOTE]如果您針對 SSH 帳戶使用密碼，系統會提示您輸入密碼。如果您搭配帳戶使用 SSH 金鑰，可能需要使用下列步驟來選取金鑰：
+    > [AZURE.NOTE] 如果您針對 SSH 帳戶使用密碼，系統會提示您輸入密碼。如果您搭配帳戶使用 SSH 金鑰，可能需要使用下列步驟來選取金鑰：
     >
     > 1. 在 [**類別**] 中，依序展開 [**連接**] 和 [**SSH**]，然後選取 [**驗證**]。
     > 2. 按一下 [瀏覽]，然後選取內含私密金鑰的 .ppk 檔案。
@@ -372,7 +372,7 @@ HdfsBolt 一般是用來將資料儲存至 Hadoop 分散式檔案系統 HDFS。�
         -rw-r--r--   1 storm supergroup      10267 2015-08-11 19:36 /devicedata/wasbbolt-14-11-1439321761090.txt
         -rw-r--r--   1 storm supergroup      10259 2015-08-11 19:36 /devicedata/wasbbolt-14-12-1439321762679.txt
 
-    > [AZURE.NOTE]某些檔案可能會顯示大小為 0，因為它們是由 EventHubReader 建立，但是資料尚未儲存至該處。
+    > [AZURE.NOTE] 某些檔案可能會顯示大小為 0，因為它們是由 EventHubReader 建立，但是資料尚未儲存至該處。
 
     您可以使用下列命令檢視這些檔案的內容：
 
@@ -448,7 +448,7 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 
 您可以匯出及匯入保存的檢查點到 WASB (您的 HDInsight 叢集所使用的 Azure 儲存體)。 要執行此步驟的指令碼位於 Storm on HDInsight 叢集的 **c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**。
 
->[AZURE.NOTE]路徑中的版本號碼可能不同，因為叢集上安裝的 Storm 版本可能會在未來變更。
+>[AZURE.NOTE] 路徑中的版本號碼可能不同，因為叢集上安裝的 Storm 版本可能會在未來變更。
 
 此目錄中的指令碼有：
 
@@ -460,7 +460,7 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 
 匯出匯入可讓您在需要刪除叢集，但又想要在讓新的叢集回到線上時從中樞的目前位移繼續處理時，保存檢查點資料。
 
-> [AZURE.NOTE]由於資料已保存到預設儲存體容器，新的叢集**必須**使用與先前叢集相同的儲存體帳戶和容器。
+> [AZURE.NOTE] 由於資料已保存到預設儲存體容器，新的叢集**必須**使用與先前叢集相同的儲存體帳戶和容器。
 
 ##疑難排解
 
@@ -476,4 +476,4 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

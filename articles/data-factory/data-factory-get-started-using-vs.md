@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="11/02/2015" 
+	ms.topic="article" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # 教學課程：使用 Visual Studio 建立和監視 Data Factory
@@ -35,9 +35,7 @@
 ## 使用 Visual Studio 建立和部署 Data Factory 實體 
 
 ### 必要條件
-您必須在電腦上安裝下列項目：
-- Visual Studio 2013 
-- 下載 Azure SDK for Visual Studio 2013。瀏覽至 [Azure 下載頁面](https://azure.microsoft.com/downloads/)並按一下 **.NET** 區段中的 [VS 2013 安裝]。
+您必須在電腦上安裝下列項目：- Visual Studio 2013 - 下載 Azure SDK for Visual Studio 2013。瀏覽至 [Azure 下載頁面](https://azure.microsoft.com/downloads/)並按一下 **.NET** 區段中的 [VS 2013 安裝]。
 
 ### 逐步介紹
 
@@ -227,10 +225,8 @@
 ## 使用 [伺服器總管] 檢視 Data Factory 實體
 
 1. 在 **Visual Studio** 中，按一下功能表上的 [檢視]，然後按一下 [伺服器總管]。
-2. 在 [伺服器總管] 視窗中，依序展開 **Azure** 和 **Data Factory**。如果您看到 [登入 Visual Studio]，請輸入和 Azure 訂用帳戶相關聯的**帳戶**，然後按一下 [繼續]。輸入**密碼**，然後按一下 [登入]。Visual Studio 會嘗試取得訂用帳戶中所有 Azure Data Factory 的相關資訊。您會在 [Data Factory 工作清單] 視窗中看到這項作業的狀態。
-	![Server Explorer](./media/data-factory-get-started-using-vs/server-explorer.png)
-3. 您可以在 Data Factory 上按一下滑鼠右鍵，並選取 [將 Data Factory 匯出至新的專案]，以便根據現有的 Data Factory 建立 Visual Studio 專案。
-	![匯出 Data Factory 至 VS 專案](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
+2. 在 [伺服器總管] 視窗中，依序展開 **Azure** 和 **Data Factory**。如果您看到 [登入 Visual Studio]，請輸入和 Azure 訂用帳戶相關聯的**帳戶**，然後按一下 [繼續]。輸入**密碼**，然後按一下 [登入]。Visual Studio 會嘗試取得訂用帳戶中所有 Azure Data Factory 的相關資訊。您會在 [Data Factory 工作清單] 視窗中看到這項作業的狀態。![Server Explorer](./media/data-factory-get-started-using-vs/server-explorer.png)
+3. 您可以在 Data Factory 上按一下滑鼠右鍵，並選取 [將 Data Factory 匯出至新的專案]，以便根據現有的 Data Factory 建立 Visual Studio 專案。![匯出 Data Factory 至 VS 專案](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## 更新 Visual studio 的 Data Factory 工具
 若要更新 Visual Studio 的 Azure Data Factory 工具，請執行下列作業：
@@ -241,4 +237,4 @@
 
 如需如何使用 Azure 入口網站來監視您在本教學課程中建立的管線和資料集的指示，請參閱[監視資料集和管線](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

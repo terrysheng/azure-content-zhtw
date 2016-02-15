@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="kenazk"/>
+	ms.date="02/02/2016"
+	ms.author="cjiang"/>
 
 
 
 # 在 Azure 中建立、重新啟動或調整 VM 大小時，對配置失敗進行疑難排解
 
-建立 VM、重新啟動已停止 (已取消配置) 的 VM，或重新調整 VM 大小時，Microsoft Azure 會配置計算資源給您的訂用帳戶。執行這些作業時，即使尚未達到 Azure 訂用帳戶限制，也可能偶爾發生錯誤。本文說明一些常見配置失敗的原因，並建議可能的補救方法。規劃服務的部署時，本資訊可能也很有用。
+建立 VM、重新啟動已停止 (已取消配置) 的 VM，或重新調整 VM 大小時，Microsoft Azure 會配置計算資源給您的訂用帳戶。當您執行這些作業時，即使您尚未達到 Azure 訂用帳戶的限制，也可能偶爾收到錯誤訊息。本文說明一些常見配置失敗的原因，並建議可能的補救方法。規劃服務的部署時，本資訊可能也很有用。
 
-若本文中未提及您的 Azure 問題，請前往 [MSDN 及 Stack Overflow 上的 Azure 論壇](https://azure.microsoft.com/support/forums/)。您可以在這些論壇上，或前往 Twitter 的 @AzureSupport 上張貼您的問題。此外，您也可以選取 [Azure 支援](https://azure.microsoft.com/support/options/)網站上的 [取得支援]，提出 Azure 支援要求。
+＜一般疑難排解步驟＞一節列出解決常見問題的步驟。＜詳細的疑難排解步驟＞一節依照特定的錯誤訊息提供解決問題的步驟。在您開始之前，請參考這裡提供的背景資訊，來了解配置的運作方式及配置失敗的原因。
 
-在本文中，＜針對常見的配置失敗進行疑難排解＞一節會列出解決常見問題的步驟。＜針對特定的配置失敗案例進行疑難排解＞一節針對特定的錯誤訊息提供解決步驟。開始之前，以下是了解配置運作方式及配置失敗原因的一些背景資訊。
+若本文中未提及您的 Azure 問題，請前往 [MSDN 及 Stack Overflow 上的 Azure 論壇](https://azure.microsoft.com/support/forums/)。您可以在這些論壇上，或前往 Twitter 的 @AzureSupport 上張貼您的問題。此外，您也可以選取 [Azure 支援](https://azure.microsoft.com/support/options/)網站上的 [取得支援]，來提出 Azure 支援要求。
 
 ## 背景資訊
 ### 配置的運作方式
@@ -72,7 +72,7 @@ Azure 資料中心的伺服器分割成叢集。通常會嘗試向多個叢集�
 
 圖 5 顯示 (釘選的) 配置案例的分類。![釘選配置分類](./media/virtual-machines-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] 每個配置案例中列出的錯誤是簡短格式。如需詳細的錯誤字串，請參閱[附錄](#appendix)。
+> [AZURE.NOTE] 每個配置案例中列出的錯誤是簡短格式。請參閱＜[錯誤字串查詢](#Error string lookup)＞一節來取得詳細的錯誤字串。
 
 #### 配置案例：調整 VM 大小，或將 VM 或角色執行個體加入至現有的雲端服務
 **錯誤**
@@ -119,7 +119,7 @@ GeneralError*
 #### 配置案例：預備/生產環境部署 (僅適用於平台即服務)
 **錯誤**
 
-New\_General 或 New\_VMSizeNotSupported
+New\_General* 或 New\_VMSizeNotSupported*
 
 **叢集釘選的原因**
 
@@ -132,7 +132,7 @@ New\_General 或 New\_VMSizeNotSupported
 #### 配置案例：同質群組 (VM/服務鄰近性)
 **錯誤**
 
-New\_General 或 New\_VMSizeNotSupported
+New\_General* 或 New\_VMSizeNotSupported*
 
 **叢集釘選的原因**
 
@@ -145,7 +145,7 @@ New\_General 或 New\_VMSizeNotSupported
 #### 配置案例：同質群組式虛擬網路
 **錯誤**
 
-New\_General 或 New\_VMSizeNotSupported
+New\_General* 或 New\_VMSizeNotSupported*
 
 **叢集釘選的原因**
 
@@ -171,7 +171,7 @@ New\_General 或 New\_VMSizeNotSupported
 #### 配置案例：調整 VM 大小，或將 VM 加入至現有的可用性設定組
 **錯誤**
 
-Upgrade\_VMSizeNotSupported 或 GeneralError
+Upgrade\_VMSizeNotSupported* 或 GeneralError*
 
 **叢集釘選的原因**
 
@@ -209,8 +209,7 @@ GeneralError*
 
 選取新的 VM 大小以進行配置。如果仍無法解決問題，請稍後再試。
 
-## 附錄
-### 錯誤字串查詢
+## 錯誤字串查詢
 **New\_VMSizeNotSupported***
 
 「由於部署要求條件約束，無法佈建此部署所需的 VM 大小 (或 VM 大小的總和)。可能的話，請嘗試放寬約束條件 (例如虛擬網路繫結)、部署至不具有其他部署的託管服務及不同的同質群組 (或不具有同質群組的託管服務)，或嘗試部署至不同的區域。」
@@ -227,4 +226,4 @@ GeneralError*
 
 「伺服器發生內部錯誤。請重試要求。」 或「無法產生服務的配置。」
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

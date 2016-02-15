@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="01/21/2015"
+	ms.date="02/03/2015"
     ms.author="donnam"/>
 
 #連接至 Xamarin.Forms 應用程式中的 Azure 儲存體
@@ -718,7 +718,7 @@ Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：用戶端 SDK �
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
-[了解共用存取簽章]: https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/
-[建立 Azure 儲存體帳戶]: https://azure.microsoft.com/zh-TW/documentation/articles/storage-create-storage-account/#create-a-storage-account
+[了解共用存取簽章]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[建立 Azure 儲存體帳戶]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

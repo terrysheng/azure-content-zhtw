@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="01/29/2015" 
 	ms.author="anhoh"/>
 
 # DocumentDB 階層式資源模型和概念
@@ -34,8 +34,7 @@ DocumentDB 管理的資料庫實體稱為**資源**。每個資源可透過邏�
 
 >[AZURE.NOTE] DocumentDB 提供高效率的 TCP 通訊協定，此 TCP 通訊協定在通訊模型中也符合 REST 限制，並且可以透過 [.NET 用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 取得。
 
-![DocumentDB 階層式資源模型][1]
-**階層式資源模型**
+![DocumentDB 階層式資源模型][1]**階層式資源模型**
 
 若要開始使用資源，您必須使用 Azure 訂用帳戶[建立 DocumentDB 資料庫帳戶](documentdb-create-account.md)。資料庫帳戶可以由一組**資料庫**組成，每個資料庫都包含多個**集合**，而每個集合又依序包含**預存程序、觸發程序、UDF、文件**及相關**附件** (預覽功能)。資料庫也有相關聯的**使用者**，每位使用者都有一組可存取集合、預存程序、觸發程序、UDF、文件或附件的**權限**。雖然資料庫、使用者、權限和集合都是具有已知結構描述的系統定義資源，但是文件和附件包含任意使用者定義 JSON 內容。
 
@@ -61,9 +60,9 @@ DocumentDB 管理的資料庫實體稱為**資源**。每個資源可透過邏�
 
 屬性 |可由使用者設定或由系統產生？|目的
 ---|---|---
-__rid|由系統產生|系統產生的唯一階層式資源識別碼
-_etag|由系統產生|開放式並行存取控制所需的資源 etag
-_ts|由系統產生|資源上次更新的時間戳記
+_rid|由系統產生|系統產生的唯一階層式資源識別碼 
+_etag|由系統產生|開放式並行存取控制所需的資源 etag 
+_ts|由系統產生|資源上次更新的時間戳記 
 _self|由系統產生|資源的唯一可定址 URI 
 id|可由使用者設定|資源的使用者定義唯一名稱。如果使用者未指定 id，系統產生將會 id
 
@@ -73,17 +72,17 @@ DocumentDB 不會要求您提供用於 JSON 標準或特殊編碼的專屬延伸
 ### 資源定址
 所有資源都能以 URI 定址。資源的 **\_self** 屬性值代表資源的相對 URI。URI 的格式是由 /<feed>/{\_rid} 路徑片段所組成：
 
-|_self 的值 |描述
-|-------------------|-----------
-|/dbs |資料庫帳戶下的資料庫摘要
-|/dbs/{_rid-db} |id 符合值 {_rid-db} 的資料庫
-|/dbs/{_rid-db}/colls/ |資料庫下的集合摘要
-|/dbs/{_rid-db}/colls/{_rid-coll} |id 符合值 {_rid-coll} 的集合
-|/dbs/{_rid-db}/colls/{_rid-coll}/docs |集合下的文件摘要
-|/dbs/{_rid-db}/colls/{_rid-coll}/docs/{_rid-doc}|id 符合值 {_rid-doc} 的文件
-|/dbs/{_rid-db}/users/ |資料庫下的使用者摘要
-|/dbs/{_rid-db}/users/{_rid-user} |id 符合值 {_rid-user} 的使用者
-|/dbs/{_rid-db}/users/{_rid-user}/permissions |使用者下的權限摘要
+|self 的值 |描述 
+|-------------------|----------- 
+|/dbs |資料庫帳戶下的資料庫摘要 
+|/dbs/{_rid-db} |id 符合值 {_rid-db} 的資料庫 
+|/dbs/{_rid-db}/colls/ |資料庫下的集合摘要 
+|/dbs/{_rid-db}/colls/{_rid-coll} |id 符合值 {_rid-coll} 的集合 
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs |集合下的文件摘要 
+|/dbs/{_rid-db}/colls/{_rid-coll}/docs/{_rid-doc} |id 符合值 {_rid-doc} 的文件 
+|/dbs/{_rid-db}/users/ |資料庫下的使用者摘要 
+|/dbs/{_rid-db}/users/{_rid-user} |id 符合值 {_rid-user} 的使用者 
+|/dbs/{_rid-db}/users/{_rid-user}/permissions |使用者下的權限摘要 
 |/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |id 符合值 {_rid-permission} 的權限
   
 每項資源都具有一個使用者所定義的不重複名稱，並會透過 id 屬性公開。注意：對於文件，如果使用者未指定識別碼，則系統會自動產生文件的唯一識別碼。id 是使用者定義的字串，最多 256 個字元，且在特定父系資源的內容中會是唯一的。例如，給定集合內所有文件的 id 屬性值都是唯一的，但是在不同集合中則不一定如此。同樣地，給定使用者之所有權限的 id 屬性值是唯一的，但是在所有使用者中則不一定如此。\_rid 屬性可用來建構資源的可定址 \_self 連結。
@@ -95,7 +94,7 @@ DocumentDB 不會要求您提供用於 JSON 標準或特殊編碼的專屬延伸
 ## 資料庫帳戶
 您可以使用 Azure 訂用帳戶佈建一或多個 DocumentDB 資料庫帳戶。系統將會為每個標準層資料庫帳戶提供一個 S1 集合中的最小容量。
 
-您可以透過 Azure 傳統入口網站 [http://portal.azure.com/](https://portal.azure.com/) [建立和管理 DocumentDB 資料庫帳戶](documentdb-create-account.md)。建立和管理資料庫帳戶都需要管理存取權，而且只有在 Azure 訂用帳戶下才能執行。
+您可以透過 Azure 入口網站網址 [http://portal.azure.com/](https://portal.azure.com/) [建立和管理 DocumentDB 資料庫帳戶](documentdb-create-account.md)。建立和管理資料庫帳戶都需要管理存取權，而且只有在 Azure 訂用帳戶下才能執行。
 
 ### 資料庫帳戶屬性
 在佈建和管理資料庫帳戶時，您可以設定和讀取下列屬性：
@@ -107,13 +106,13 @@ DocumentDB 不會要求您提供用於 JSON 標準或特殊編碼的專屬延伸
 MaxMediaStorageUsageInMB (READ)|資料庫帳戶可用的媒體儲存體數量上限。
 MediaStorageUsageInMB (READ)|資料庫帳戶的目前媒體儲存體使用情形。
 
-請注意，除了從 Azure 傳統入口網站佈建、設定和管理資料庫帳戶之外，您還可以使用程式設計方式，透過 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 及[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 建立和管理 DocumentDB 資料庫帳戶。
+請注意，除了從 Azure 入口網站佈建、設定和管理資料庫帳戶之外，您還可以使用程式設計方式，透過 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 以及[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 來建立和管理 DocumentDB 資料庫帳戶。
 
 ## 資料庫
 DocumentDB 資料庫是一個或多個集合和使用者的邏輯容器，如下圖所示。您可以在 DocumentDB 資料庫帳戶下，根據供應項目限制建立任意數目的資料庫。
 
 ![資料庫帳戶和集合階層式模型][2]
- **資料庫是使用者和集合的邏輯容器**
+**資料庫是使用者和集合的邏輯容器**
 
 資料庫可以包含依集合分割的虛擬無限制文件儲存體，進而形成其內所含文件的交易網域。
 
@@ -144,7 +143,7 @@ DocumentDB 是真正無結構描述資料庫系統。它不會假設或不需要
 -	選擇在文件中包括還是排除索引中的特定路徑或模式。做法是分別在集合的 indexingPolicy 上設定 includedPaths 和 excludedPaths。您也可以針對特定路徑模式的範圍和雜湊查詢，設定儲存體和效能取捨。 
 -	選擇同步 (一致) 與非同步 (緩慢) 索引更新。每次在集合中插入、取代或刪除文件時，預設會同步更新索引。這個行為讓查詢能夠使用與文件的讀取相同的一致性層級。雖然 DocumentDB 的寫入已經過最佳化處理，並支援持續的文件寫入數量以及同步索引維護和提供一致的查詢，但是您還是可以設定特定集合，讓集合的索引更新速度變慢。緩慢索引會進一步地促進寫入效能，而且適合在主要進行大量讀取集合時大量擷取案例。
 
-在集合上執行 PUT 即可變更索引原則。此目的透過[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)、[Azure 傳統入口網站](https://portal.azure.com)或 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 即可達成。
+在集合上執行 PUT 即可變更索引原則。透過[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)、[Azure 入口網站](https://portal.azure.com)或 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 即可達成。
 
 ### 查詢集合
 集合內的文件可以有任意結構描述，而且您可以查詢集合內的文件，而不需要預先提供任何結構描述或次要索引。您可以利用 [DocumentDB SQL 語法](https://msdn.microsoft.com/library/azure/dn782250.aspx)，透過使用 JavaScript 之 UDF 所提供的豐富階層式及關聯式運算子與擴充能力來查詢集合。JSON 文法允許用於將 JSON 文件建模為標籤做為樹狀節點的樹狀目錄。這會同時應用 DocumentDB 的自動編製索引技術與 DocumentDB 的 SQL 方言。DocumentDB 查詢語言包含三個主要部分：
@@ -395,8 +394,8 @@ DocumentDB 使用者代表用於分組權限的邏輯命名空間。DocumentDB �
 
 不論您選擇的特定分區化策略為何，您可以將實際使用者建模為 DocumentDB 資料庫中的使用者，並將微調權限關聯至每個使用者。
 
-![使用者集合][3]
- **分區化策略和模型化使用者**
+![使用者集合][3] 
+**分區化策略和模型化使用者**
 
 與所有其他資源相同，使用 REST API 或任何用戶端 SDK，即可輕鬆地在 DocumentDB 中建立、取代、刪除、讀取或列舉使用者。DocumentDB 一律提供讀取或查詢使用者資源之中繼資料的強式一致性。這值得指出刪除使用者時會自動確保您無法存取其內所含的任何權限。即使 DocumentDB 在背景回收佈建為所刪除使用者一部分的權限配額，但是所刪除權限還是立即可以再度使用。
 
@@ -415,4 +414,4 @@ DocumentDB 使用者代表用於分組權限的邏輯命名空間。DocumentDB �
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

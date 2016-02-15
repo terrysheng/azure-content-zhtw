@@ -1,19 +1,19 @@
 <properties
-   pageTitle="如何使用群組原則部署 Internet Explorer 的存取面板延伸模組 | Microsoft Azure"
-   description="如何使用群組原則針對我的應用程式入口網站部署 Internet Explorer 附加元件。"
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="如何使用群組原則部署 Internet Explorer 的存取面板延伸模組 | Microsoft Azure"
+    description="如何使用群組原則針對我的應用程式入口網站部署 Internet Explorer 附加元件。"
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="11/18/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #如何使用群組原則部署 Internet Explorer 的存取面板延伸模組
 
@@ -62,7 +62,7 @@
 
 3. 在 [群組原則管理] 視窗的左窗格中，檢視您的組織單位 (OU) 階層並決定您想要套用群組原則的範圍。例如，您可能決定針對測試挑選小型 OU 以部署到少數使用者，或者您可能會挑選最上層 OU 以部署到整個組織。
 
-	> [AZURE.NOTE]如果您想要建立或編輯您的組織單位 (OU)，切換回 [伺服器管理員]，然後移至 [工具] > [Active Directory 使用者和電腦]。
+	> [AZURE.NOTE] 如果您想要建立或編輯您的組織單位 (OU)，切換回 [伺服器管理員]，然後移至 [工具] > [Active Directory 使用者和電腦]。
 
 4. 一旦您選取 OU，以滑鼠右鍵按一下它然後選取 [在這個網域中建立 GPO 並連結到...]。
 
@@ -90,7 +90,7 @@
 
 4. 移至共用資料夾，該資料夾包含[步驟 1：建立發佈點](#step-1-create-the-distribution-point)的安裝程式套件，選取 .msi 檔案，然後按一下 [開啟]。
 
-	> [AZURE.IMPORTANT]如果共用位於相同的伺服器上，確認您是透過網路檔案路徑存取此 .msi，，而不是本機檔案路徑。
+	> [AZURE.IMPORTANT] 如果共用位於相同的伺服器上，確認您是透過網路檔案路徑存取此 .msi，，而不是本機檔案路徑。
 
 	![從共用資料夾中選取安裝套件。](./media/active-directory-saas-ie-group-policy/select-package.png)
 
@@ -141,7 +141,7 @@
 
 2. 尋找名為 [開啟表單上使用者名稱和密碼的自動完成功能] 的設定。
 
-	> [AZURE.NOTE]舊版的 Active Directory 可能會列出這項設定，但名為 [不允許以自動完成儲存密碼]。該設定的組態不同於本教學課程中所描述的設定。
+	> [AZURE.NOTE] 舊版的 Active Directory 可能會列出這項設定，但名為 [不允許以自動完成儲存密碼]。該設定的組態不同於本教學課程中所描述的設定。
 
 	![記得要在 [使用者設定] 下尋找此項目。](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
 
@@ -155,7 +155,7 @@
 
 使用者不能再繼續儲存其認證，或使用自動完成來存取之前儲存的認證。不過，這項原則允許使用者對其他類型的表單欄位可繼續使用自動完成，例如搜尋欄位。
 
-> [AZURE.WARNING]如果在使用者選擇儲存某些認證之後才啟用這項原則，此原則*不*會清除已儲存的認證。
+> [AZURE.WARNING] 如果在使用者選擇儲存某些認證之後才啟用這項原則，此原則*不*會清除已儲存的認證。
 
 ##步驟 6：測試部署
 
@@ -177,4 +177,4 @@
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

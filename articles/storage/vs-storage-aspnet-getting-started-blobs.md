@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # 開始使用 Blob 儲存體和 Visual Studio 已連接服務 (ASP.NET)
@@ -45,12 +45,12 @@ Azure 二進位大型物件 (Microsoft Azure Blob) 儲存是一項儲存大量�
 		using Microsoft.WindowsAzure.Storage.Blob;
 
 
-2. 取得代表您的儲存體帳戶資訊的 **CloudStorageAccount** 物件。使用下列程式碼，從 Azure 服務組態取得您的儲存體連接字串和儲存體帳戶資訊。
+2. 取得 **CloudStorageAccount** 物件，其代表您的儲存體帳戶資訊。使用下列程式碼，從 Azure 服務組態取得您的儲存體連接字串和儲存體帳戶資訊。
 
 		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    > [AZURE.NOTE]請將前述這整段程式碼用於後續章節的程式碼之前。
+    > [AZURE.NOTE] 請將前述這整段程式碼用於後續章節的程式碼之前。
 
 3. 取得 **CloudBlobClient** 物件，以參考您儲存體帳戶中的現有容器。
 
@@ -60,7 +60,7 @@ Azure 二進位大型物件 (Microsoft Azure Blob) 儲存是一項儲存大量�
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-> [AZURE.NOTE]對外向 ASP.NET 5 中的 Azure 儲存體執行呼叫的部分 API 是非同步的。如需詳細資訊，請參閱[使用 Async 和 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。
+> [AZURE.NOTE] 對外向 ASP.NET 5 中的 Azure 儲存體執行呼叫的部分 API 是非同步的。如需詳細資訊，請參閱[使用 Async 和 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。
 
 
 ## 在程式碼中建立 blob 容器
@@ -237,4 +237,4 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

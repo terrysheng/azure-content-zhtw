@@ -165,10 +165,10 @@ RDP 檔案中的位址部分有雲端服務的完整網域名稱，包含 VM (�
 
 [如何重設 Windows 虛擬機器的密碼或遠端桌面服務](virtual-machines-windows-reset-password.md)
 
-[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
+[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)
 
 [疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線](virtual-machines-troubleshoot-ssh-connections.md)
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

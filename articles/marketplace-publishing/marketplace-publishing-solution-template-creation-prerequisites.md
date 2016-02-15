@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="01/28/2016"
    ms.author="hascipio; v-divte" />
 
 # 建立 Azure Marketplace 解決方案範本的技術必要條件
@@ -29,9 +29,9 @@
   - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## 後續步驟
-現在您已經檢閱必要條件並完成必要的工作，可以繼續建立您的解決方案範本提供項目，如[建立解決方案範本指南](marketplace-publishing-solution-template-creation.md)中所述。如需最佳做法，請參閱[建立解決方案範本最佳做法](marketplace-publishing-solution-template-best-practices.md)。若要返回發行者工作的主頁面，請參閱[快速入門：如何發佈供應項目到 Azure Marketplace](marketplace-publishing-getting-started.md)。
+現在您已經檢閱必要條件並完成必要的工作，可以繼續建立您的解決方案範本提供項目，如[建立解決方案範本指南](marketplace-publishing-solution-template-creation.md)中所述。若要返回發行者工作的主頁面，請參閱[快速入門：如何發佈供應項目到 Azure Marketplace](marketplace-publishing-getting-started.md)。
 
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

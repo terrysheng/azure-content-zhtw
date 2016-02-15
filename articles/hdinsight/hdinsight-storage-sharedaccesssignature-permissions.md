@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/15/2016"
+ms.date="02/01/2016"
 ms.author="larryfr"/>
 
 #使用 Azure 儲存體共用存取簽章來限制使用 HDInsight 對資料的存取
@@ -34,7 +34,7 @@ HDInsight 會使用 Azure 儲存體 Blob 來儲存資料。HDInsight 必須具�
 
 * 以 Linux 為基礎的 HDInsight 叢集或者 [Azure PowerShell][powershell] - 如果您有現有的以 Linux 為基礎的叢集，您可以使用 Ambari 將共用存取簽章新增至叢集。如果沒有，您可以使用 Azure PowerShell 建立新的叢集，並在叢集建立期間新增共用存取簽章。
 
-* [https://github.com/Blackmist/hdinsight-azure-storage-sas](https://github.com/Blackmist/hdinsight-azure-storage-sas) 的範例檔案。此儲存機制具有下列項目：
+* 範例檔案來自 [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)。此儲存機制具有下列項目：
 
     * Visual Studio 專案，可以建立儲存體容器、預存原則，以及搭配 HDInsight 使用的 SAS
     
@@ -60,7 +60,7 @@ HDInsight 會使用 Azure 儲存體 Blob 來儲存資料。HDInsight 必須具�
 
 4. 系統會重新產生用來建立 SAS 的帳戶金鑰。請注意，這麼做將會導致所有使用該帳戶金鑰的應用程式元件無法進行驗證，直到他們已更新為使用其他有效帳戶金鑰或重新產生帳戶金鑰為止。
 
-> [AZURE.IMPORTANT]共用存取簽章 URI 會與用來建立簽章的帳戶金鑰，以及相關聯的預存的存取原則 (如果有的話) 產生關聯。如果未指定任何預存的存取原則，則撤銷共用存取簽章的唯一方式是變更帳戶金鑰。
+> [AZURE.IMPORTANT] 共用存取簽章 URI 會與用來建立簽章的帳戶金鑰，以及相關聯的預存的存取原則 (如果有的話) 產生關聯。如果未指定任何預存的存取原則，則撤銷共用存取簽章的唯一方式是變更帳戶金鑰。
 
 建議您一律使用預存存取原則，以便可以視需要撤銷簽章或延長到期日。此文件的步驟使用預存存取原則來產生 SAS。
 
@@ -68,7 +68,7 @@ HDInsight 會使用 Azure 儲存體 Blob 來儲存資料。HDInsight 必須具�
 
 ##建立預存原則並產生 SAS
 
-目前您必須以程式設計方式建立預存原則。您可以在下列位置找到建立預存原則和 SAS 的 C# 與 Python 範例：[https://github.com/Blackmist/hdinsight-azure-storage-sas](https://github.com/Blackmist/hdinsight-azure-storage-sas)。
+目前您必須以程式設計方式建立預存原則。您可以在下列位置找到建立預存原則和 SAS 的 C# 與 Python 範例：[https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)。
 
 ###使用 C# 建立預存原則和 SAS
 
@@ -169,7 +169,7 @@ HDInsight 會使用 Azure 儲存體 Blob 來儲存資料。HDInsight 必須具�
     
     如果您是建立以 Linux 為基礎的叢集，還會提示您輸入 SSH 使用者帳戶名稱和密碼。這是用來遠端登入叢集。
     
-    > [AZURE.IMPORTANT]出現 HTTP/s 或 SSH 使用者名稱和密碼提示時，您必須提供符合下列準則的密碼：
+    > [AZURE.IMPORTANT] 出現 HTTP/s 或 SSH 使用者名稱和密碼提示時，您必須提供符合下列準則的密碼：
     >
     > - 長度必須小於 10 個字元
     > - 必須包含至少一個數字
@@ -201,7 +201,7 @@ HDInsight 會使用 Azure 儲存體 Blob 來儲存資料。HDInsight 必須具�
 
     變更都完成時按一下 [確定]。
 
-    > [AZURE.IMPORTANT]這樣會儲存組態變更，但是您必須重新啟動數個服務，變更才會生效。
+    > [AZURE.IMPORTANT] 這樣會儲存組態變更，但是您必須重新啟動數個服務，變更才會生效。
 
 6. 在 Ambari Web UI 中，選取左側清單中的 [HDFS]，然後從右側 [服務動作] 下拉式清單中選取 [全部重新啟動]。出現提示時，選取 [開啟維護模式]，然後選取 [確認全部重新啟動]。
 
@@ -290,4 +290,4 @@ __解決方案__：使用符合下列準則的密碼：
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

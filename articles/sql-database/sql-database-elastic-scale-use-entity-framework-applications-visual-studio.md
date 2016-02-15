@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="搭配使用彈性資料庫用戶端程式庫與 Entity Framework | Microsoft Azure" 
-	description="使用彈性資料庫用戶端程式庫與和 Entity Framework 編寫資料庫" 
+	description="使用彈性資料庫用戶端程式庫與和 Entity Framework 來編寫資料庫" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="torsteng;sidneyh"/>
 
 # 搭配使用彈性資料庫用戶端程式庫與 Entity Framework 
  
-這份文件說明為了與[彈性資料庫工具](sql-database-elastic-scale-introduction.md)整合，Entity Framework 應用程式中需要做的變更。重點在於使用 Entity Framework **Code First** 方法來編寫[分區對應管理](sql-database-elastic-scale-shard-map-management.md)和[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)。整份文件中以 EF 的 [Code First – 新的資料庫](http://msdn.microsoft.com/data/jj193542.aspx)教學課程作為執行範例。本文所附的範例程式碼取自於 Visual Studio 程式碼範例中的彈性資料庫工具範例集。
+這份文件說明 Entity Framework 應用程式為了要與[彈性資料庫工具](sql-database-elastic-scale-introduction.md)整合所需做的變更。重點在於使用 Entity Framework **Code First** 方法來編寫[分區對應管理](sql-database-elastic-scale-shard-map-management.md)和[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)。整份文件中以 EF 的 [Code First – 新的資料庫](http://msdn.microsoft.com/data/jj193542.aspx)教學課程作為執行範例。本文所附的範例程式碼取自於 Visual Studio 程式碼範例中的彈性資料庫工具範例集。
   
 ## 下載並執行範例程式碼
 若要下載本文的程式碼：
@@ -26,11 +26,11 @@
 * 需要 visual Studio 2012 或更新版本。 
 * 啟動 Visual Studio。 
 * 在 Visual Studio 中，選取 [檔案] -> [新增專案]。 
-* 在 [新增專案] 對話方塊中，瀏覽至 [Visual C#] 的 [線上範例]，然後在右上方的搜尋方塊中輸入 "elastic db"。
+* 在 [新增專案] 對話方塊中，瀏覽至 [**Visual C#**] 的 [**線上範例**]，然後在右上方的搜尋方塊中輸入 "elastic db"。
     
     ![Entity Framework 和彈性資料庫範例應用程式][1]
 
-    選取範例 [Elastic DB Tools for Azure SQL – Entity Framework Integration]。接受授權之後，就會載入範例。
+    選取範例 [**Elastic DB Tools for Azure SQL – Entity Framework Integration**]。接受授權之後，就會載入範例。
 
 若要執行範例，您在 Azure SQL Database 中需要建立三個空的資料庫：
 
@@ -64,7 +64,7 @@ Entity Framework 開發人員依賴下列四種工作流程來建置應用程式
 
 當使用彈性資料庫用戶端程式庫和 Entity Framework API 時，我們希望保留下列屬性：
 
-* **相應放大**：依需要在分區化應用程式資料層中新增或移除資料庫，以滿足應用程式的容量需求。這表示控制資料庫的建立和刪除，以及使用彈性資料庫分區對應管理員 API 來管理資料庫，還有 Shardlet 的對應。 
+* **相應放大**：我們想要依需要在分區化應用程式資料層中新增或移除資料庫，以滿足應用程式的容量需求。這表示控制資料庫的建立和刪除，以及使用彈性資料庫分區對應管理員 API 來管理資料庫，還有 Shardlet 的對應。 
 
 * **一致性**：應用程式採用分區化，並且使用用戶端程式庫的資料相依路由功能。為了避免查詢結果損毀或錯誤，由分區對應管理員來代理連接。這也會保留驗證和一致性。
  
@@ -157,7 +157,7 @@ Entity Framework 開發人員依賴下列四種工作流程來建置應用程式
      … 
     }
 
-新的建構函式會對分區開啟連接，此分區保留 **tenantid1** 值所識別之 shardlet 的資料。**using** 區塊中的程式碼維持不變，可在 **tenantid1** 的分區上使用 EF 存取部落格的 **DbSet**。這會變更 using 區塊中的程式碼語意，使得所有資料庫作業現在以一個保留 **tenantid1** 的分區為範圍。例如，在部落格 **DbSet** 上的 LINQ 查詢只傳回目前分區上儲存的部落格，而不是儲存在其他分區的部落格。
+新的建構函式會對分區開啟連接，此分區保留 **tenantid1** 值所識別的分區的資料。**using** 區塊中的程式碼維持不變，可在 **tenantid1** 的分區上使用 EF 存取部落格的 **DbSet**。這會變更 using 區塊中的程式碼語意，使得所有資料庫作業現在以一個保留 **tenantid1** 的分區為範圍。例如，在部落格 **DbSet** 上的 LINQ 查詢只傳回目前分區上儲存的部落格，而不是儲存在其他分區的部落格。
 
 #### 暫時性錯誤處理
 Microsoft 模式和作法小組已發佈[暫時性錯誤處理應用程式區塊](https://msdn.microsoft.com/library/dn440719.aspx)。此程式庫搭配 Elastic Scale 用戶端程式庫並結合 EF 一起使用。不過，請確定任何暫時性例外狀況都傳回至某處，讓我們可以確定暫時性失敗後會使用新的建構函式，以便使用我們已調整的建構函式來進行任何新的連接嘗試。否則，無法保證連接至正確的分區，也不能確保分區對應變更發生時會保持連接。
@@ -270,9 +270,9 @@ MyContext(DbConnection, DbCompiledModel,bool) |ElasticScaleContext(ShardMap, TKe
 
 * 提出要求時，將會假定所有資料庫處理都包含在要求所提供的分區化索引鍵所識別的單一分區內。不過，這項假設不一定永遠成立。例如，有時無法提供分區化索引鍵。為了解決這個問題，用戶端程式庫提供 **MultiShardQuery** 類別，此類別實作連接抽象來查詢數個分區。學習搭配 EF 來使用 **MultiShardQuery** 已超出本文的範圍
 
-## 結論 
+## 結論
 
-Entity Framework 應用程式可以輕易地受益於 Azure SQL Database 的彈性資料庫工具。透過本文件中所述的步驟，EF 應用程式可以使用彈性資料庫用戶端程式庫的資料相依路由功能，重構 EF 應用程式中使用的 **DbContext** 子類別的建構函式。已存在 **DbContext** 類別的地方不需要做太多變更。此外，EF 應用程式可以結合叫用必要 EF 移轉的步驟，以及將新的分區和對應註冊在分區對應中的步驟，以繼續受益於自動結構描述部署。
+透過本文件中所述的步驟，EF 應用程式可以使用彈性資料庫用戶端程式庫的資料相依路由功能，重構 EF 應用程式中使用的 **DbContext** 子類別的建構函式。已存在 **DbContext** 類別的地方不需要做太多變更。此外，EF 應用程式可以結合叫用必要 EF 移轉的步驟，以及將新的分區和對應註冊在分區對應中的步驟，以繼續受益於自動結構描述部署。
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -281,4 +281,4 @@ Entity Framework 應用程式可以輕易地受益於 Azure SQL Database 的彈�
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

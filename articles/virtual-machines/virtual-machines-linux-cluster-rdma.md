@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="01/21/2015"
+ ms.date="01/21/2016"
  ms.author="danlep"/>
 
 # 設定 Linux RDMA 叢集以執行 MPI 應用程式
@@ -32,7 +32,7 @@ ms.service="virtual-machines"
 
 您可以使用下列方法來建立包含或不含工作排程器的 Linux RDMA 叢集。
 
-* **HPC Pack** - 在 Azure 中建立 Microsoft HPC Pack 叢集並加入執行支援之 Linux 發行版本的計算節點。某些 Linux 節點可以設定為存取 RDMA 網路。請參閱[開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點](virtual-machines-linux-cluster.md)。
+* **HPC Pack** - 在 Azure 中建立 Microsoft HPC Pack 叢集並加入執行支援之 Linux 發行版本的計算節點。某些 Linux 節點可以設定為存取 RDMA 網路。請參閱[開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點](virtual-machines-linux-cluster-hpcpack.md)。
 
 * **Azure CLI 指令碼** - 如同本文中其他部分的步驟所示，請使用適用於 Mac、Linux 和 Windows 的 [Azure 命令列介面](../xplat-cli-install.md) (CLI)，建置虛擬網路部署的指令碼和其他必要元件以建立 Linux 叢集。傳統 (服務管理) 部署模式中的 CLI 將循序建立叢集節點，因此如果您正在部署許多運算節點，則可能需要花費幾分鐘才能完成部署。
 
@@ -426,4 +426,4 @@ cluster12
 
 * 如需 Intel MPI 的指引，請參閱＜[Intel MPI Library 文件](https://software.intel.com/zh-TW/articles/intel-mpi-library-documentation/)＞。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

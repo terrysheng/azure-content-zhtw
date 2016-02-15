@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/13/2015"
+   ms.date="01/26/2016"
    ms.author="rsinha"/>
 
 # Testability 概觀
@@ -115,4 +115,4 @@ System.Fabric.Testability.dll 中有 Testability 功能。此 dll 位於 Microso
   - [模擬服務工作負載期間的失敗案例](service-fabric-testability-workload-tests.md)
   - [服務對服務間通訊的失敗案例](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

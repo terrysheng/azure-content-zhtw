@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="02/02/2016"
    ms.author="jesseb"/>
 
 # 使用 Visual Studio 簡化撰寫及管理 Service Fabric 應用程式。
 
-您可以透過 Visual Studio 管理 Azure Service Fabric 應用程式與服務。[設定開發環境](service-fabric-setup-your-development-environment.md)後，您可以使用 Visual Studio 在本機開發叢集中建立 Service Fabric 應用程式、新增服務，或是封裝、註冊及部署應用程式。
+您可以透過 Visual Studio 管理 Azure Service Fabric 應用程式與服務。[設定開發環境](service-fabric-get-started.md)後，您可以使用 Visual Studio 在本機開發叢集中建立 Service Fabric 應用程式、新增服務，或是封裝、註冊及部署應用程式。
 
 若要管理應用程式，請在 [方案總管] 中，於應用程式專案上按一下滑鼠右鍵。
 
@@ -97,4 +97,4 @@
 [preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
 [preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

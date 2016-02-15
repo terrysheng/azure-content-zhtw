@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="01/27/2016"
    ms.author="anmola"/>
 
 # 模擬服務工作負載期間的失敗案例
@@ -152,4 +152,4 @@ class Test
 }
 ```
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

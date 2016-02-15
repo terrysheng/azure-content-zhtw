@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="01/27/2016" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"
 />
 
@@ -417,10 +417,10 @@ PowerShell 指令碼會自動利用 TollApp 範例應用程式來開始傳送事
 
 因此我們必須聯結包含 EntryTime 的串流與包含 ExitTime 的串流。我們將會聯結 TollId 和 LicencePlate 資料欄的串流。JOIN 運算子需要指定時間性的彈性時間，來說明已聯結事件之間可接受的時間差。我們將使用 DATEDIFF 函式來指定事件之間的時間差不能超過 15 分鐘。我們也會將 DATEDIFF 函式套用到 Exit 及 Entry 時間，以便計算車輛經過收費亭的實際時間。請注意在 JOIN 條件相較之下，當 DATEDIFF 用在 SELECT 陳述式中時，DATEDIFF 使用方式的差異。
 
-    SELECT EntryStream.TollId, EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream .ExitTime) AS Duration InMinutes
+    SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
     FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN ExitStream TIMESTAMP BY ExitTim e
-    ON (Entry Stream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
+    JOIN ExitStream TIMESTAMP BY ExitTime
+    ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
     AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 如要測試此查詢，請更新您工作中 [查詢] 索引標籤上的查詢：
@@ -445,7 +445,7 @@ Azure 串流分析可使用靜態的資料快照，來與時間資料流聯結�
     FROM EntryStream TIMESTAMP BY EntryTime
     JOIN Registration
     ON EntryStream.LicensePlate = Registration.LicensePlate
-    WHERE Registration.Expired = ‘1’
+    WHERE Registration.Expired = '1'
 
 請注意，如要測試利用參考資料的查詢，就必須定義參考資料的輸入來源，而我們已經在步驟 5 完成這項作業。
 
@@ -534,4 +534,4 @@ Setup.ps1 指令碼會建立 2 個 Azure 事件中樞，以及 Azure SQL 資料�
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

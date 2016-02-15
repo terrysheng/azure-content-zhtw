@@ -3,7 +3,7 @@
 	description="了解如何設定 Azure Active Directory 與 GaggleAMP 之間的單一登入。"
 	services="active-directory"
 	documentationCenter=""
-	authors="ashimaabrol"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
-	ms.author="v-aabrol"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # 教學課程：Azure Active Directory 與 GaggleAMP 整合
@@ -35,7 +35,7 @@
 - 啟用 GaggleAMP 單一登入的訂用帳戶
 
 
-> [AZURE.NOTE]若要測試本教學課程中的步驟，我們不建議使用生產環境。
+> [AZURE.NOTE] 若要測試本教學課程中的步驟，我們不建議使用生產環境。
 
 
 若要測試本教學課程中的步驟，您應該遵循這些建議：
@@ -121,7 +121,7 @@
     d.將下載的憑證傳送給您的 [GaggleAMP 銷售小組](mailto:sales@gaggleamp.com)。
 
 
-6. 在 Azure 傳統入口網站中，選取單一登入設定確認項目，然後按一下 [下一步]。<br><br>![Azure AD 單一登入][10]<br>
+6. 在 Azure 傳統入口網站中，選取單一登入組態確認，然後按 [下一步]。<br><br>![Azure AD 單一登入][10]<br>
 
 7. 在 [單一登入確認] 頁面上，按一下 [完成]。<br><br>![Azure AD 單一登入][11]
 
@@ -129,7 +129,7 @@
 
 
 ### 建立 Azure AD 測試使用者
-本節的目標是要在 Azure 傳統入口網站中建立名為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
+本節目標是在 Azure 傳統入口網站中建立名稱為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
@@ -137,11 +137,11 @@
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 按一下頂端功能表中的 [使用者]，來顯示使用者清單。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_03.png) <br>
+3. 若要顯示使用者清單，請按一下功能表頂端的 [使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_03.png) <br>
 
-4. 按一下底部工具列上的 [加入使用者]，來開啟 [加入使用者] 對話方塊。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_04.png) <br>
+4. 若要開啟 [新增使用者] 對話方塊，請按一下底部工具列上的 [新增使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_04.png) <br>
 
-5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_05.png)<br>
+5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行以下步驟：<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_05.png) <br>
 
     a.針對 [使用者類型]，選取 [您組織中的新使用者]。
 
@@ -149,7 +149,7 @@
 
     c.按 [下一步]。
 
-6.  在 [使用者設定檔]對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_06.png)<br>
+6.  在 [使用者設定檔]對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-gaggleamp-tutorial/create_aaduser_06.png) <br>
 
     a.在 [名字] 文字方塊中，輸入 **Britta**。
 
@@ -157,7 +157,7 @@
 
     c.在 [顯示名稱] 文字方塊中，輸入 **Britta Simon**。
 
-    d.在 [角色] 清單中，選取 [使用者]。
+    d.在 [角色] 清單中選取 [使用者]。
 
     e.按 [下一步]。
 
@@ -225,4 +225,4 @@
 [204]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="02/02/2016" 
     ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 Benefitsolver 整合
@@ -82,10 +82,8 @@
 
     ![設定 App 設定](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "設定 App 設定")
 
-    1.  在 [登入 URL] 文字方塊中，輸入您的使用者用來登入 Benefitsolver 應用程式的 URL (例如：“*http://azure-dev.benefitsolver.com*)
-    2.  在 [回覆 URL] 文字方塊中，輸入您的 Benefitsolver AssertionConsumerService URL (例如："*https://dev.benefitsolver.com/benefits/BenefitSolverView?page\_name=single\_signon\_saml*”))。  
-
-        >[AZURE.NOTE]您可以向 Benefitsolver 支援小組取得您環境的實際值。
+    1.  在 [登入 URL] 文字方塊中，輸入 ****http://azure.benefitsolver.com**。
+2.  在 [回覆 URL] 文字方塊中，輸入 ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**。
 
     3.  按 [下一步]。
 
@@ -95,7 +93,7 @@
 
 5.  將下載的中繼資料檔傳送給 Benefitsolver 支援小組。
 
-    >[AZURE.NOTE]Benefitsolver 支援小組必須執行實際的 SSO 組態。當您的訂用帳戶啟用 SSO 之後，您會收到通知。
+    >[AZURE.NOTE] Benefitsolver 支援小組必須執行實際的 SSO 組態。當您的訂用帳戶啟用 SSO 之後，您會收到通知。
 
 6.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
 
@@ -122,11 +120,12 @@
     4.  按一下 [完成]。
 
 9.  按一下 [套用變更]。
+
 ##設定使用者佈建
 
-若要讓 Azure AD 使用者可以登入 Benefitsolver，必須將他們佈建到 Benefitsolver。Benefitsolver 的使用者必須由 Benefitsolver 支援小組以手動建立。
+若要讓 Azure AD 使用者可以登入 Benefitsolver，必須將他們佈建到 Benefitsolver。在 Benefitsolver 案例中，員工資料是透過您的 HRIS 系統的普查檔案填入應用程式中 (通常是每晚)。
 
->[AZURE.NOTE]您可以使用任何其他的 Benefitsolver 使用者帳戶建立工具或 Benefitsolver 提供的 API 來佈建 AAD 使用者帳戶。
+>[AZURE.NOTE] 您可以使用任何其他的 Benefitsolver 使用者帳戶建立工具或 Benefitsolver 提供的 API 來佈建 AAD 使用者帳戶。
 
 ##指派使用者
 
@@ -146,4 +145,4 @@
 
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

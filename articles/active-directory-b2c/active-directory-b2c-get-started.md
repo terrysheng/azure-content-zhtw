@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：如何建立 Azure AD B2C 租用戶
@@ -24,7 +24,7 @@
 
 ## 步驟 1：註冊 Azure 訂用帳戶
 
-若您已有 Azure 訂用帳戶，請繼續進行下一個步驟。若沒有，請註冊 [Azure 訂用帳戶](sign-up-organization.md)並存取 Azure AD B2C。
+若您已有 Azure 訂用帳戶，請繼續進行下一個步驟。若沒有，請註冊 [Azure 訂用帳戶](../active-directory/sign-up-organization.md)並存取 Azure AD B2C。
 
 > [AZURE.NOTE]
 Azure AD B2C 預覽目前提供免費使用但有限制 (每個租用戶最多允許 50,000 位使用者)。必須有 Azure 訂用帳戶才能存取 [Azure 傳統入口網站](http://manage.windowsazure.com/)。
@@ -74,4 +74,4 @@ Azure AD B2C 預覽目前提供免費使用但有限制 (每個租用戶最多�
 
 移至[使用 Azure AD B2C 註冊應用程式並建置快速啟動應用程式](active-directory-b2c-app-registration.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

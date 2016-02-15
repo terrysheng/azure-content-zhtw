@@ -22,7 +22,7 @@
 
 ## 瀏覽
 
-- [事件中樞](event-hubs-overview.md)
+- [事件中樞](../event-hubs/event-hubs-overview.md)
 - [共用模式](http://msdn.microsoft.com/library/dn589797.aspx)
 - [服務匯流排和 AMQP 1.0](service-bus-amqp-overview.md)
 - [服務匯流排簡介](https://azure.microsoft.com/services/service-bus/)
@@ -45,4 +45,4 @@
 - [雲端服務](https://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,20 +1,20 @@
 <properties
-   pageTitle="教學課程：整合 NetSuite 與 Azure Active Directory | Microsoft Azure"
-   description="了解如何使用 NetSuite 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！"
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="教學課程：Azure Active Directory 與 NetSuite 整合 | Microsoft Azure"
+    description="了解如何使用 NetSuite 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！"
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="10/20/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #教學課程：如何整合 NetSuite 與 Azure Active Directory
 
@@ -42,7 +42,7 @@
 
 	![按一下 [新增] 以加入新的應用程式。][2]
 
-5. 在 [您想要執行什麼動作] 對話方塊中，按一下 [從資源庫新增應用程式]。
+5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。
 
 	![按一下 [從資源庫新增應用程式]。][3]
 
@@ -64,7 +64,7 @@
 
 	![選取 [Azure AD 單一登入]][7]
 
-	> [AZURE.NOTE]若要深入了解有關不同單一登入的選項，請[按一下這裡](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
+	> [AZURE.NOTE] 若要深入了解有關不同單一登入的選項，請[按一下這裡](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
 3. 在 [設定應用程式設定] 頁面的 [回覆 URL] 欄位中，使用下列其中一種格式輸入您的 NetSuite 租用戶 URL：
 	- `https://<tenant-name>.netsuite.com/saml2/acs`
@@ -186,7 +186,7 @@
 
 ##步驟 3：啟用自動的使用者佈建
 
-> [AZURE.NOTE]根據預設，您已佈建的使用者會新增到您 NetSuite 環境的根子公司。
+> [AZURE.NOTE] 根據預設，您已佈建的使用者會新增到您 NetSuite 環境的根子公司。
 
 1. 在 Azure Active Directory 中 NetSuite 的 [快速入門] 頁面上，按一下 [設定使用者佈建]。
 
@@ -256,4 +256,4 @@
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

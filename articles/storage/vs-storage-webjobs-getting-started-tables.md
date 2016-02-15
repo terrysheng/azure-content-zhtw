@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # 開始使用 Azure 儲存體 (Azure WebJob 專案)
 
 ## 概觀
 
-本文提供了 C# 程式碼範例，示範如何透過 Azure 資料表儲存體服務使用 Azure WebJobs SDK 1.x 版。此程式碼範例會使用 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 1.x 版。
+本文提供了 C# 程式碼範例，示範如何透過 Azure 資料表儲存體服務使用 Azure WebJobs SDK 1.x 版。此程式碼範例會使用 [WebJobs SDK](/app-service-web/websites-dotnet-webjobs-sdk.md) 1.x 版。
 
 Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。Azure 資料表很適合儲存結構化、非關聯式資料。如需詳細資訊，請參閱[如何使用 .NET 的資料表儲存體](storage-dotnet-how-to-use-tables.md/#create-a-table "如何使用 .NET 的資料表儲存體")。
 
@@ -142,7 +142,7 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 		    tableBinding.Execute(insertOperation);
 		}
 
-如需如何使用 **CloudTable** 物件的詳細資訊，請參閱[如何使用 .NET 的資料表儲存體](../storage-dotnet-how-to-use-tables.md)。
+如需如何使用 **CloudTable** 物件的詳細資訊，請參閱[如何使用 .NET 的資料表儲存體](./storage-dotnet-how-to-use-tables.md)。
 
 ## 佇列操作說明文章所涵蓋的相關主題
 
@@ -154,4 +154,4 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 本文提供的程式碼範例示範如何處理使用 Azure 資料表的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/09/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 # 何謂 Azure IoT 中心？
@@ -24,6 +24,7 @@ Azure IoT 中樞是一項完全受管理的服務，可在數百萬個 IoT 裝�
 
 - 提供可靠的裝置到雲端和雲端到裝置的大規模傳訊。
 - 使用每一裝置的安全性認證和存取控制來啟用安全通訊。
+- 可廣泛監視裝置的連線情況和裝置的身分識別管理事件。
 - 包括適用於最受歡迎的語言和平台的裝置程式庫。
 
 ![IoT 中樞做為雲端閘道][img-architecture]
@@ -48,9 +49,11 @@ Azure IoT 中樞會以下列方式解決裝置連線能力面臨的挑戰：
 
 -   **每一裝置的驗證和安全連線能力**。您可以提供每個裝置獨有的安全性金鑰讓它連線到 IoT 中樞。[IoT 中樞身分識別註冊][lnk-devguide-identityregistry]會在解決方案中儲存裝置身分識別和金鑰。解決方案後端可將個別裝置加入白名單或黑名單，以達到完全控制裝置存取權。
 
+-   **裝置連線作業的監視**。您可以收到有關裝置身分識別管理作業與裝置連線事件的詳細作業記錄檔。這可讓 IoT 解決方案輕鬆找出連線問題，例如，嘗試使用錯誤認證來連線的裝置、訊息傳送太頻繁，或拒絕所有雲端到裝置的訊息。
+
 -   **一組廣泛的裝置程式庫**。Azure IoT 裝置 SDK 可供各種語言和平台使用並受其支援：C 表示許多 Linux 散發套件、Windows 和即時作業系統。Azure IoT 裝置 SDK 也支援 C#、Java 和 JavaScript 等 Managed 語言。
 
--   **IoT 通訊協定和擴充性**。如果您的解決方案不能使用裝置程式庫，Azure IoT 中樞會公開可讓裝置以原生方式使用 HTTP 1.1 和 AMQP 1.0 通訊協定的公用通訊協定。您也可以擴充 IoT 中樞，以利用 [Azure IoT 通訊協定閘道器][protocol-gateway]開放原始碼元件，來提供支援給 MQTT v3.1.1。您可以在雲端或內部部署中執行 Azure IoT 通訊協定閘道器。也可以將其擴充以支援自訂通訊協定。
+-   **IoT 通訊協定和擴充性**。如果您的解決方案不能使用裝置程式庫，Azure IoT 中樞會公開可讓裝置以原生方式使用 MQTT v3.1.1、HTTP 1.1 或 AMQP 1.0 通訊協定的公用通訊協定。您也可以透過自訂 [Azure IoT 通訊協定閘道器][protocol-gateway]開放原始碼元件，以將 IoT 中樞擴充為支援自訂通訊協定。您可以在雲端或內部部署中執行 Azure IoT 通訊協定閘道器。
 
 -   **調整**。Azure IoT 中樞會調整為數百萬個同時連接的裝置，以及每秒數百萬個事件。
 
@@ -109,4 +112,4 @@ Azure IoT 中樞會在實作[服務輔助通訊][lnk-service-assisted-pattern]�
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

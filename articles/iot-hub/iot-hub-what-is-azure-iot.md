@@ -13,14 +13,14 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/05/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## 後續步驟
 
-Azure IoT 中樞是一項 Azure 服務，可從您的裝置大規模接收遙測資料，並將該資料路由至串流事件處理器。您可以使用 IoT 中樞來實作自己的方案後端。IoT 中樞也可以將雲端到裝置的命令傳送到特定裝置。此外，IoT 中樞包含裝置識別登錄，您可用來佈建裝置，以及管理哪些裝置可連接到中樞。若要深入了解，請參閱：
+Azure IoT 中樞是一項 Azure 服務，可讓應用程式後端與數百萬個裝置進行安全可靠的雙向通訊。它可讓應用程式後端接收裝置的大規模遙測資料，將該資料路由傳送至串流事件處理器，而且還能對特定裝置傳送雲端到裝置的命令。您可以使用 IoT 中樞來實作自己的方案後端。此外，IoT 中樞還包含裝置身分識別登錄，可供用來佈建裝置、其安全性認證和其連線到中樞的權限。若要深入了解，請參閱：
 
 - [何謂 IoT 中樞？][lnk-iot-hub]
 - [開始使用 IoT 中樞][lnk-getstarted]
@@ -35,4 +35,4 @@ Azure IoT 中樞是一項 Azure 服務，可從您的裝置大規模接收遙測
 [lnk-iot-suite]: http://azure.microsoft.com/solutions/iot/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

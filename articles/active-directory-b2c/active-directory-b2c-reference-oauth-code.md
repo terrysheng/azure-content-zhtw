@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 預覽：OAuth 2.0 授權碼流程
@@ -26,7 +26,7 @@ OAuth 2.0 授權碼授與可用於裝置上所安裝的應用程式中，以存�
 
 關於 OAuth 2.0 授權碼流程的說明，請參閱 [OAuth 2.0 規格 4.1 節](http://tools.ietf.org/html/rfc6749)。它可在大部分的應用程式類型中用於執行驗證與授權，包括 [Web 應用程式](active-directory-b2c-apps.md#web-apps)和[原始安裝的應用程式](active-directory-b2c-apps.md#mobile-and-native-apps)。它可讓應用程式安全地取得 **access\_token**，而這些權杖可用於存取[授權伺服器](active-directory-b2c-reference-protocols.md#the-basics)所保護的資源。本指南將焦點集中在一種特別的 OAuth 2.0 授權碼流程 - **公開用戶端**。公開用戶端是指不可信任會安全地維護密碼完整性的任何用戶端應用程式。這包括行動應用程式、桌面應用程式，以及幾乎任何在裝置上執行且需要取得 access\_token 的應用程式。如果您想要使用 Azure AD B2C 將身分識別管理加入至 Web 應用程式，您應該使用 [OpenID Connect](active-directory-b2c-reference-oidc.md)，而不是 OAuth 2.0。
 
-Azure AD B2C 擴充標準的 OAuth 2.0 流程，功能更強大，而不僅止於簡單的驗證和授權。它引進[**原則參數**](active-directory-b2c-reference-poliices.md)，可讓您使用 OAuth 2.0 將使用者體驗加入至應用程式，例如註冊、登入和設定檔管理。以下我們將示範如何使用 OAuth 2.0 和原則，在原生應用程式中實作上述每一種體驗，並取得 access\_token 來存取 Web API。
+Azure AD B2C 擴充標準的 OAuth 2.0 流程，功能更強大，而不僅止於簡單的驗證和授權。它引進[**原則參數**](active-directory-b2c-reference-policies.md)，可讓您使用 OAuth 2.0 將使用者體驗加入至應用程式，例如註冊、登入和設定檔管理。以下我們將示範如何使用 OAuth 2.0 和原則，在原生應用程式中實作上述每一種體驗，並取得 access\_token 來存取 Web API。
 
 下面的範例 HTTP 要求將使用我們的範例 B2C 目錄 **fabrikamb2c.onmicrosoft.com**，以及我們的範例應用程式和原則。您可以隨意使用這些值來自行嘗試要求，也可以換成您自己的值。了解如何[取得您自己的 B2C 目錄、應用程式和原則](#use-your-own-b2c-directory)。
 
@@ -74,7 +74,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | 參數 | | 說明 |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
+| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com)指派給應用程式的應用程式識別碼。 |
 | response\_type | 必要 | 授權碼流程必須包含 `code`。 |
 | redirect\_uri | 必要 | 您的應用程式可在應用程式的 redirect\_uri 傳送及接收驗證回應。其必須完全符合您在入口網站中註冊的其中一個 redirect\_uris，不然就必須得是編碼的 url。 |
 | scope | 必要 | 範圍的空格分隔清單。單一範圍值向 Azure AD 表示同時要求的兩個權限。`openid` 範圍表示讓使用者登入和以 **id\_token** 形式取得使用者相關資料的權限 (這方面還有更多說明)。`offline_access` 範圍表示您的應用程式將需要 **refresh\_token**，才能長久存取資源。 |
@@ -134,7 +134,7 @@ Content-Type: application/json
 | 參數 | | 說明 |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | 必要 | 用來取得授權碼的原則。您不可在此要求中使用不同的原則。**請注意，此參數會加入至查詢字串**，而不是在 POST 本文中。 |
-| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
+| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com)指派給應用程式的應用程式識別碼。 |
 | grant\_type | 必要 | 必須是授權碼流程的 `authorization_code`。 |
 | scope | 必要 | 範圍的空格分隔清單。單一範圍值向 Azure AD 表示同時要求的兩個權限。`openid` 範圍表示讓使用者登入和以 **id\_token** 形式取得使用者相關資料的權限。它可以用來為應用程式本身的後端 Web API 取得權杖，由與用戶端相同的應用程式識別碼代表。`offline_access` 範圍表示您的應用程式將需要 **refresh\_token**，才能長久存取資源。 |
 | code | 必要 | 您在流程的第一個階段中取得的 authorization\_code。 |
@@ -211,7 +211,7 @@ Content-Type: application/json
 | 參數 | | 說明 |
 | ----------------------- | ------------------------------- | -------- |
 | p | 必要 | 用來取得原始重新整理權杖的原則。您不可在此要求中使用不同的原則。**請注意，此參數會加入至查詢字串**，而不是在 POST 本文中。 |
-| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com/)指派給應用程式的應用程式識別碼。 |
+| client\_id | 必要 | [Azure 入口網站](https://portal.azure.com)指派給應用程式的應用程式識別碼。 |
 | grant\_type | 必要 | 必須是授權碼流程此階段的 `refresh_token`。 |
 | scope | 必要 | 範圍的空格分隔清單。單一範圍值向 Azure AD 表示同時要求的兩個權限。`openid` 範圍表示讓使用者登入和以 **id\_token** 形式取得使用者相關資料的權限。它可以用來為應用程式本身的後端 Web API 取得權杖，由與用戶端相同的應用程式識別碼代表。`offline_access` 範圍表示您的應用程式將需要 **refresh\_token**，才能長久存取資源。 |
 | redirect\_uri | 必要 | 應用程式的 redirect\_uri，指出您在此處收到 authorization\_code。 |
@@ -257,11 +257,11 @@ Content-Type: application/json
 | error\_description | 協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
 
 
-<!--
+<!-- 
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
 
-![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
 
 -->
 
@@ -273,4 +273,4 @@ Here is the entire flow for a native  app; each request is detailed in the secti
 - [建立應用程式](active-directory-b2c-app-registration.md)來取得應用程式識別碼和 redirect\_uri。您可以在應用程式中加入**原生用戶端**。
 - [建立您的原則](active-directory-b2c-reference-policies.md)來取得原則名稱。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

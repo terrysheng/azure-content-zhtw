@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+	ms.date="01/28/2016" 
 	ms.author="juliako"/>
 
 #篩選器與動態資訊清單
@@ -120,7 +120,7 @@
  
 ![轉譯篩選範例][renditions2]
 
-下列範例使用 Azure Media Encoder 將夾層資產編碼成七個 ISO MP4 視訊轉譯 (從 180p 到 1080p)。編碼的資產可以動態地封裝至下列任何一個資料流通訊協定：HLS、Smooth、MPEG DASH 及 HDS。圖表頂端顯示不含篩選器的資產其 HLS 資訊清單 (包含全部七個轉譯)。左下角顯示名為 "ott" 的篩選器已套用到 HLS 資訊清單。"ott" 篩選器指定要移除所有不到 1Mbps 的位元速率，因此將最差的兩個品質等級從回應中去除。右下角顯示名為 "mobile" 的篩選器已套用到 HLS 資訊清單中。"mobile" 篩選器指定要移除的解析度大於 720p 的轉譯，因此去除兩個 1080p 的轉譯。
+下列範例使用編碼器將夾層資產編碼成七個 ISO MP4 視訊轉譯 (從 180p 到 1080p)。編碼的資產可以動態地封裝至下列任何一個資料流通訊協定：HLS、Smooth、MPEG DASH 及 HDS。圖表頂端顯示不含篩選器的資產其 HLS 資訊清單 (包含全部七個轉譯)。左下角顯示名為 "ott" 的篩選器已套用到 HLS 資訊清單。"ott" 篩選器指定要移除所有不到 1Mbps 的位元速率，因此將最差的兩個品質等級從回應中去除。右下角顯示名為 "mobile" 的篩選器已套用到 HLS 資訊清單中。"mobile" 篩選器指定要移除的解析度大於 720p 的轉譯，因此去除兩個 1080p 的轉譯。
 
 ![轉譯篩選][renditions1]
 
@@ -236,4 +236,4 @@
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

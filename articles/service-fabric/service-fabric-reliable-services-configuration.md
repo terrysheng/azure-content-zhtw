@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/28/2015"
+   ms.date="01/26/2016"
    ms.author="sumukhs"/>
 
 # 設定具狀態的 Reliable Services
@@ -24,7 +24,7 @@
 
 Azure Service Fabric 執行階段預設會在建立基礎執行階段元件時，在 Settings.xml 檔案中尋找預先定義的區段名稱，並使用組態值。
 
->[AZURE.NOTE]除非您打算透過程式碼設定服務，否則請**不要**刪除在 Visual Studio 方案中產生之 Settings.xml 檔案中的下列組態區段名稱。設定 ReliableStateManager 時，重新命名組態封裝或區段名稱將需要變更程式碼。
+>[AZURE.NOTE] 除非您打算透過程式碼設定服務，否則請**不要**刪除在 Visual Studio 方案中產生之 Settings.xml 檔案中的下列組態區段名稱。設定 ReliableStateManager 時，重新命名組態封裝或區段名稱將需要變更程式碼。
 
 
 ## 複寫器安全性組態
@@ -33,7 +33,7 @@ Azure Service Fabric 執行階段預設會在建立基礎執行階段元件時�
 ### 預設區段名稱
 ReplicatorSecurityConfig
 
->[AZURE.NOTE]若要變更此區段名稱，請在建立此服務的 ReliableStateManager 時，將 replicatorSecuritySectionName 參數覆寫至 ReliableStateManagerConfiguration 建構函式。
+>[AZURE.NOTE] 若要變更此區段名稱，請在建立此服務的 ReliableStateManager 時，將 replicatorSecuritySectionName 參數覆寫至 ReliableStateManagerConfiguration 建構函式。
 
 
 ## 複寫器組態
@@ -42,7 +42,7 @@ ReplicatorSecurityConfig
 ### 預設區段名稱
 ReplicatorConfig
 
->[AZURE.NOTE]若要變更此區段名稱，請在建立此服務的 ReliableStateManager 時，將 replicatorSettingsSectionName 參數覆寫至 ReliableStateManagerConfiguration 建構函式。
+>[AZURE.NOTE] 若要變更此區段名稱，請在建立此服務的 ReliableStateManager 時，將 replicatorSettingsSectionName 參數覆寫至 ReliableStateManagerConfiguration 建構函式。
 
 
 ### 組態名稱
@@ -107,4 +107,4 @@ MaxRecordSizeInKB 設定會定義複寫器可以寫入記錄檔的記錄大小�
 
 SharedLogId 和 SharedLogPath 設定永遠會一起使用，以便讓服務使用與節點的預設共用記錄檔不同的共用記錄檔。如需最佳效率，請儘可能讓所有服務指定相同的共用記錄檔。共用記錄檔應該放在共用記錄檔專用的磁碟上，以減少磁頭移動爭用情形。預期此值只會在極少數的情況下需要變更。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

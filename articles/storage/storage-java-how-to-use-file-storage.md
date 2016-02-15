@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="02/03/2016"
 	ms.author="jutang"/>
 
 # 如何使用 Java 的檔案儲存體
@@ -30,7 +30,7 @@
 
 ## 建立 Java 應用程式
 
-若要建置範例，您將需要 Java Development Kit (JDK) 和 [適用於 Java 的 Azure 儲存體 SDK][]。您也應該建立 Azure 儲存體帳戶。
+如要建置範例，您將需要 Java Development Kit (JDK) 和 適用於 Java 的 Azure 儲存體 SDK。您也應該建立 Azure 儲存體帳戶。
 
 ## 設定您的應用程式以使用檔案儲存體
 
@@ -208,18 +208,12 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 
 如果您想要深入了解其他 Azure 儲存體 API，請參考下列連結。
 
-- [Azure Storage SDK for Java]
-- [Azure 儲存體用戶端 SDK 參考]
-- [Azure 儲存體 REST API]
-- [Azure 儲存體團隊部落格]
-- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
+- [Azure SDK for Java](http://azure.microsoft.com/develop/java/)
+- [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
+- [Azure Storage SDK for Android](https://github.com/azure/azure-storage-android)
+- [Azure 儲存體用戶端 SDK 參考](http://dl.windowsazure.com/storage/javadoc/)
+- [Azure 儲存體 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
-[Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
-[適用於 Java 的 Azure 儲存體 SDK]: https://github.com/azure/azure-storage-java
-[Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
-[Azure 儲存體 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

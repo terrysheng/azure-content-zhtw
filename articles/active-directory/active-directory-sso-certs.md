@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="liviodlc"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/29/2015"
+	ms.date="02/02/2016"
 	ms.author="liviodlc"/>
 
 #在 Azure Active Directory 中管理同盟單一登入的憑證
@@ -72,10 +72,10 @@
 
 	- 在 Azure AD 中，選取對話方塊底部的確認核取方塊啟用新的憑證，然後按 [下一步] 送出。
 
-	> [AZURE.IMPORTANT]只完成這兩個步驟的任何其中一步時會停用應用程式的單一登入，但是完成第二個步驟後會再次啟用。因此，為了減少停機時間，請準備好在短時間內互相完成這兩個步驟。
+	> [AZURE.IMPORTANT] 只完成這兩個步驟的任何其中一步時會停用應用程式的單一登入，但是完成第二個步驟後會再次啟用。因此，為了減少停機時間，請準備好在短時間內互相完成這兩個步驟。
 
 	![下載，然後上傳憑證](./media/active-directory-sso-certs/renew-config-app.PNG)
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

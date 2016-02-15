@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/31/2016"  
 	ms.author="juliako"/>
 
 
@@ -37,7 +37,7 @@
 ## 必要條件
 需要有下列項目，才能完成教學課程。
 
-- 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](azure.microsoft.com)。
+- 若要完成此教學課程，您需要 Azure 帳戶。如需詳細資訊，請參閱 [Azure 免費試用](/pricing/free-trial/?WT.mc_id=A261C142F)。 
 - 媒體服務帳戶。若要建立媒體服務帳戶，請參閱[建立帳戶](media-services-create-account.md)。
 - 網路攝影機以及可以傳送多位元速率即時串流的編碼器。
 
@@ -88,7 +88,7 @@
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-如需內嵌 URL 的詳細資訊，請參閱[使用內部部署編碼器將多位元速率即時串流傳送至通道](../media-services-channels-overview.md)。
+如需內嵌 URL 的詳細資訊，請參閱[使用內部部署編碼器將多位元速率即時串流傳送至通道](media-services-channels-overview.md)。
 
 ## 設定即時編碼器並內嵌即時串流
 
@@ -212,4 +212,4 @@
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

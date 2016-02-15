@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # 如何保持雲端服務的固定虛擬 IP 位址
 
-當您更新裝載於 Azure 中的雲端服務時，您可能需要確保服務的虛擬 IP 位址 (VIP) 不會變更。許多網域管理服務都使用網域名稱系統 (DNS) 註冊網域名稱。DNS 只有在 VIP 保持不變時才能運作。您可以使用 Azure 工具中的 [發佈精靈] 確保雲端服務的 VIP 不會在您更新它時變更。如需有關如何使用雲端服務的 DNS 網域管理的詳細資訊，請參閱[設定 Azure 雲端服務的自訂網域名稱](cloud-services-custom-domain-name.md)。
+當您更新裝載於 Azure 中的雲端服務時，您可能需要確保服務的虛擬 IP 位址 (VIP) 不會變更。許多網域管理服務都使用網域名稱系統 (DNS) 註冊網域名稱。DNS 只有在 VIP 保持不變時才能運作。您可以使用 Azure 工具中的 [發佈精靈] 確保雲端服務的 VIP 不會在您更新它時變更。如需有關如何使用雲端服務的 DNS 網域管理的詳細資訊，請參閱[設定 Azure 雲端服務的自訂網域名稱](/cloud-services/cloud-services-custom-domain-name.md)。
 
 ## 發佈雲端服務而不變更其 VIP
 
@@ -39,10 +39,10 @@
 
 1. 在精靈的 [摘要] 頁面上，請確認您的設定，然後選擇 [發佈] 按鈕。
 
-  >[AZURE.WARNING]如果部署失敗，您應該找出失敗原因並立即重新部署，以避免讓您的雲端服務保持在損毀狀態。
+  >[AZURE.WARNING] 如果部署失敗，您應該找出失敗原因並立即重新部署，以避免讓您的雲端服務保持在損毀狀態。
 
 ## 後續步驟
 
 若要了解如何從 Visual Studio 發佈至 Azure，請參閱[發佈 Azure 應用程式精靈](vs-azure-tools-publish-azure-application-wizard.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

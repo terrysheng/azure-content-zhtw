@@ -13,12 +13,12 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="01/07/2016"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 # Azure IoT 中樞開發人員指南
 
-Azure IoT 中樞是一項完全受管理的服務，可讓數百萬個 IoT 裝置和一個應用程式後端進行可靠且安全的雙向通訊。
+Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝置和一個應用程式後端進行可靠且安全的雙向通訊。
 
 Azure IoT 中樞能夠︰
 
@@ -44,9 +44,11 @@ Azure IoT 中樞是多租用戶服務，且公開功能給各種執行者。下�
 
 * **資源提供者**：IoT 中樞資源提供者會公開 [Azure 資源管理員][lnk-arm]介面，可讓 Azure 訂用帳戶擁有者建立 IoT 中樞、更新 IoT 中樞屬性及刪除 IoT 中樞。IoT 中樞屬性可管理中心層級的安全性原則，相對於裝置層級的存取控制 (請參閱下面的[存取控制](#accesscontrol)) 和雲端到裝置和裝置到雲端傳訊的功能選項。資源提供者也可讓您[匯出裝置身分識別](#importexport)。
 * **裝置身分識別管理**：每個 IoT 中樞會公開一組用來管理裝置身分識別的 HTTP REST 端點 (建立、擷取、更新和刪除)。裝置識別用於裝置驗證和存取控制。如需詳細資訊，請參閱[裝置身分識別登錄](#device-identity-registry)。
-* **裝置端點**：針對裝置身分識別登錄中所佈建的各個裝置，IoT 中樞會公開裝置可用來傳送並接收訊息的一組端點。這些端點目前是使用 HTTP 和 [AMQP][lnk-amqp] 通訊協定公開：
+* **裝置端點**：針對裝置身分識別登錄中所佈建的各個裝置，IoT 中樞會公開裝置可用來傳送並接收訊息的一組端點：
     - *傳送裝置到雲端的訊息*。使用這個端點傳送裝置到雲端的訊息。如需詳細資訊，請參閱[裝置到雲端傳訊](#d2c)。
     - *接收雲端到裝置的訊息*。使用此端點來接收目標雲端到裝置訊息的裝置。如需詳細資訊，請參閱[雲端到裝置傳訊](#c2d)。
+
+    這些端點會使用 HTTP、[MQTT][lnk-mqtt] 和 [AMQP][lnk-amqp] 通訊協定加以公開。請注意，AMQP 也可透過連接埠 443 上的 [WebSockets][lnk-websockets] 來取得。
 * **服務端點**：各 IoT 中樞會公開您的應用程式後端可用來與您的裝置通訊的一組端點。目前僅使用 [AMQP][lnk-amqp] 通訊協定公開這些端點。
     - *接收裝置到雲端的訊息*。此端點與 [Azure 事件中樞][lnk-event-hubs]相容，且後端服務可用它來讀取由您的裝置所傳送的所有裝置到雲端訊息。如需詳細資訊，請參閱[裝置到雲端傳訊](#d2c)。
     - *傳送雲端到裝置的訊息及接收傳遞通知*。這些端點可讓您的應用程式後端傳送可靠的雲端到裝置訊息，以及接收相對應的傳遞或到期通知。如需詳細資訊，請參閱[雲端到裝置傳訊](#c2d)。
@@ -104,7 +106,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 | status | 必要 | 可以是 [已啟用] 或 [已停用]。如果為 [已啟用]，則允許連接裝置。如果為 [已停用]，此裝置無法存取任何裝置面向的端點。 |
 | statusReason | 選用 | 128 個字元的字串，用來儲存裝置身分識別狀態的原因。允許所有 UTF-8 字元。 |
 | statusUpdateTime | 唯讀 | 上次狀態更新的日期和時間。 |
-| connectionState | 唯讀 | [已連線] 或 [已中斷連線]，代表裝置連線狀態的 IoT 中樞檢視。 |
+| connectionState | 唯讀 | [已連線] 或 [已中斷連線]，代表裝置連線狀態的 IoT 中樞檢視。**重要事項**：此欄位只應用於開發/偵錯用途。只有使用 AMQP 或 MQTT 的裝置會更新連線狀態。此外，它是以通訊協定層級的偵測 (MQTT 偵測或 AMQP 偵測) 為基礎，並且會有最多 5 分鐘的延遲。基於這些理由，其中可能會有誤判情形，例如將裝置回報為已連線，但實際上已中斷連線。 |
 | connectionStateUpdatedTime | 唯讀 | 上次更新連線狀態的日期和時間。 |
 | lastActivityTime | 唯讀 | 裝置上次連接、接收或傳送訊息的日期和時間。 |
 
@@ -119,14 +121,22 @@ IoT 中樞裝置身分識別登錄會公開下列作業︰
 * 依照 ID 擷取裝置身分識別別
 * 刪除裝置身分識別
 * 列出多達 1000 個識別
+* 將所有身分識別匯出至 Blob 儲存體
+* 從 Blob 儲存體匯入身分識別
 
 上述所有作業允許使用 [RFC7232][lnk-rfc7232] 中指定的開放式並行存取。
 
 > [AZURE.IMPORTANT] 如果要擷取中心的身分識別登錄中的所有身分識別，唯一方法是使用[匯出](#importexport)功能。
 
-IoT 中樞的裝置身分識別登錄不包含任何應用程式中繼資料、可如同字典一樣使用 **deviceId** 做為索引鍵來存取，而且不支援表達式查詢。
+IoT 中樞裝置身分識別登錄：
+
+- 不包含任何應用程式中繼資料。
+- 可以將 **deviceId** 做為索引鍵來進行存取，就像字典一樣。
+- 不支援表達式查詢。
 
 IoT 方案通常具有不同的方案專屬存放區，其中包含應用程式特定的中繼資料。例如，智慧建置方案中的解決方案專用存放區會記錄部署溫度感應器的空間。
+
+> [AZURE.IMPORTANT] 請只將裝置身分識別登錄用於裝置管理和佈建作業。執行階段的高輸送量作業不應該仰賴在裝置身分識別登錄中執行作業。例如，在傳送命令前先檢查裝置的連線狀態就不是支援的模式。請務必檢查裝置身分識別登錄的[節流速率](#throttling)以及[裝置活動訊號][lnk-guidance-heartbeat]模式。
 
 ### 停用裝置
 
@@ -137,7 +147,7 @@ IoT 方案通常具有不同的方案專屬存放區，其中包含應用程式�
 
 ### 匯出裝置身分識別 <a id="importexport"></a>
 
-匯出是長時間執行的工作，需要使用客戶提供的 Blob 容器來讀取和寫入裝置身分識別資料。
+匯出是長時間執行的作業，其使用客戶提供的 Blob 容器來儲存讀取自身分識別登錄的裝置身分識別資料。
 
 您可以使用 [IoT 中樞資源提供者端點](#endpoints)上的非同步作業，從 IoT 中樞的身分識別登錄大量匯出裝置身分識別。
 
@@ -151,7 +161,9 @@ IoT 方案通常具有不同的方案專屬存放區，其中包含應用程式�
 
 如須匯入和匯出 API 的詳細資訊，請參閱 [Azure IoT 中樞 - 資源提供者 API][lnk-resource-provider-apis]。
 
-#### 作業
+若要深入了解如何執行匯入和匯出作業，請參閱[大量管理 IoT 中樞的裝置身分識別][lnk-bulk-identity]
+
+### 匯出工作
 
 所有匯出工作都具有下列屬性︰
 
@@ -160,26 +172,79 @@ IoT 方案通常具有不同的方案專屬存放區，其中包含應用程式�
 | jobId | 由系統產生，建立時略過 | |
 | creationTime | 由系統產生，建立時略過 | |
 | endOfProcessingTime | 由系統產生，建立時略過 | |
-| 類型 | 唯讀 | **匯出** |
+| 類型 | 唯讀 | **ExportDevices** |
 | status | 由系統產生，建立時略過 | [已加入佇列]、[已啟動]、[已完成]、[失敗] |
 | progress | 由系統產生，建立時略過 | 完成百分比的整數值。 |
 | outputBlobContainerURI | 所有工作都需要 | 具有 Blob 容器寫入權限的 Blob 共用存取簽章 URI (請參閱[搭配 Blob 服務建立與使用 SAS][lnk-createuse-sas])。這用來輸出工作的狀態和結果。 |
-| includeKeysInExport | 選用 | 若為 **true**，則金鑰會包含在匯出輸出中；否則將金鑰匯出為 **null**。預設值為 **false**。 |
+| excludeKeysInExport | 選用 | 若為 **false**，則金鑰會包含在匯出輸出中；否則將金鑰匯出為 **null**。預設值為 **false**。 |
 | failureReason | 由系統產生，建立時略過 | 如果狀態為 [失敗]，則為包含原因的字串。 |
-
-#### 匯出工作
 
 匯出工作接受 Blob 共用存取簽章 URI 做為參數。這會授與 Blob 容器的寫入權限，讓工作輸出其結果。
 
-工作會將輸出結果寫入名為 **job_{job_id}_devices.txt** 之檔案中指定的 Blob 容器。這個檔案包含依[裝置身分識別屬性](#deviceproperties)中所指定而序列化為 JSON 的裝置身分識別。如果 **includeKeysInExport** 設定為 **false**，安全性資料將會設定為 **null**。
+作業會將輸出結果寫入名為 **devices.txt** 之檔案中指定的 Blob 容器。這個檔案包含依[裝置身分識別屬性](#deviceproperties)中所指定而序列化為 JSON 的裝置身分識別。如果 **excludeKeysInExport** 參數設為 **true**，**devices.txt** 檔案中的每個裝置的驗證值就會設定為 **null**。
 
 **範例**：
 
 ```
-{"deviceId":"devA","auth":{"symKey":{"primaryKey":"123"}},"status":"enabled"}
-{"deviceId":"devB","auth":{"symKey":{"primaryKey":"234"}},"status":"enabled"}
-{"deviceId":"devC","auth":{"symKey":{"primaryKey":"345"}},"status":"enabled"}
-{"deviceId":"devD","auth":{"symKey":{"primaryKey":"456"}},"status":"enabled"}
+{"id":"devA","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
+{"id":"devB","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
+{"id":"devC","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
+```
+
+### 匯入裝置身分識別
+
+匯入是長時間執行的作業，其使用客戶提供的 Blob 容器中的資料，將裝置身分識別資料寫入至裝置身分識別登錄。
+
+您可以使用 [IoT 中樞資源提供者端點](#endpoints)上的非同步作業，將裝置身分識別大量匯入到 IoT 中樞的身分識別登錄。
+
+以下是可能對匯入作業執行的作業︰
+
+* 建立匯入作業
+* 擷取執行中工作的狀態
+* 取消執行中的工作
+
+> [AZURE.NOTE] 在任何指定的時間，每個中心只可以有一項執行中的工作。
+
+如須匯入和匯出 API 的詳細資訊，請參閱 [Azure IoT 中樞 - 資源提供者 API][lnk-resource-provider-apis]。
+
+若要深入了解如何執行匯入和匯出作業，請參閱[大量管理 IoT 中樞的裝置身分識別][lnk-bulk-identity]
+
+### 匯入作業
+
+所有匯入作業都具有下列屬性︰
+
+| 屬性 | 選項 | 說明 |
+| -------- | ------- | ----------- |
+| jobId | 由系統產生，建立時略過 | |
+| creationTime | 由系統產生，建立時略過 | |
+| endOfProcessingTime | 由系統產生，建立時略過 | |
+| 類型 | 唯讀 | **ImportDevices** |
+| status | 由系統產生，建立時略過 | [已加入佇列]、[已啟動]、[已完成]、[失敗] |
+| progress | 由系統產生，建立時略過 | 完成百分比的整數值。 |
+| outputBlobContainerURI | 所有工作都需要 | 具有 Blob 容器寫入權限的 Blob 共用存取簽章 URI (請參閱[搭配 Blob 服務建立與使用 SAS][lnk-createuse-sas])。這用來輸出作業的狀態。 |
+| inputBlobContainerURI | 必要 | 具有 Blob 容器讀取權限的 Blob 共用存取簽章 URI (請參閱[搭配 Blob 服務建立與使用 SAS][lnk-createuse-sas])。作業會讀取裝置資訊以從此 Blob 匯入。 |
+| failureReason | 由系統產生，建立時略過 | 如果狀態為 [失敗]，則為包含原因的字串。 |
+
+匯入作業接受兩個 Blob 共用存取簽章 URI 做為參數。其中一個會授與 Blob 容器的寫入權限以讓作業輸出其狀態，另一個則會授與 Blob 容器的讀取權限以讓作業讀取其輸入資料。
+
+作業會從名為 **devices.txt** 之檔案中指定的 Blob 容器讀取輸入資料。這個檔案包含依[裝置身分識別屬性](#deviceproperties)中所指定而序列化為 JSON 的裝置身分識別。您可以藉由新增 **importMode** 屬性覆寫每個裝置的預設匯入行為。此屬性可以接受下列其中一個值：
+
+| importMode | 說明 |
+| -------- | ----------- |
+| **createOrUpdate** | 如果不存在具有指定**識別碼**的裝置，則表示是新註冊的裝置。<br/>如果裝置已存在，則會以所提供的輸入資料覆寫現有資訊，而不管 **ETag** 值為何。 |
+| **create** | 如果不存在具有指定**識別碼**的裝置，則表示是新註冊的裝置。<br/>如果裝置已存在，則會在記錄檔中寫入錯誤。 |
+| **update** | 如果已存在具有指定**識別碼**的裝置，則會以所提供的輸入資料覆寫現有資訊，而不管 **ETag** 值為何。<br/>如果裝置不存在，則會在記錄檔中寫入錯誤。 |
+| **updateIfMatchETag** | 如果已存在具有指定**識別碼**的裝置，則當 **ETag** 相符時，才會以所提供的輸入資料覆寫現有資訊。<br/>如果裝置不存在，則會在記錄檔中寫入錯誤。<br/>如果 **ETag** 不相符，則會在記錄檔中寫入錯誤。 |
+| **createOrUpdateIfMatchETag** | 如果不存在具有指定**識別碼**的裝置，則表示是新註冊的裝置。<br/>如果裝置已存在，則當 **ETag** 相符時，才會以所提供的輸入資料覆寫現有資訊。<br/>如果 **ETag** 不相符，則會在記錄檔中寫入錯誤。 |
+| **delete** | 如果已存在具有指定**識別碼**的裝置，則會遭到刪除，而不管 **ETag** 值為何。<br/>如果裝置不存在，則會在記錄檔中寫入錯誤。 |
+| **deleteIfMatchETag** | 如果已存在具有指定**識別碼**的裝置，則只會在 **ETag** 相符時予以刪除。如果裝置不存在，則會在記錄檔中寫入錯誤。<br/>如果 ETag 不相符，則會在記錄檔中寫入錯誤。 |
+
+**範例**：
+
+```
+{"id":"devA","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"delete"}
+{"id":"devB","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"createOrUpdate"}
+{"id":"devC","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"create"}
 ```
 
 ## 安全性 <a id="security"></a>
@@ -237,9 +302,15 @@ Azure IoT 中樞可根據共用存取原則和裝置身分識別登錄安全性�
 
 **前置詞的注意事項**︰URI 前置詞是依區段 (而不是依字元) 計算。例如，`/a/b` 是 `/a/b/c` 的前置詞，而不是 `/a/bc` 的前置詞。
 
+您可以在 IoT 裝置和服務 SDK 中找到簽章演算法的實作：
+
+* [適用於 Java 的 IoT 服務 SDK](https://github.com/Azure/azure-iot-sdks/tree/master/java/service/iothub-service-sdk/src/main/java/com/microsoft/azure/iot/service/auth)
+* [適用於 Java 的 IoT 裝置 SDK](https://github.com/Azure/azure-iot-sdks/tree/master/java/device/iothub-java-client/src/main/java/com/microsoft/azure/iothub/auth)
+* [適用於 Node.js 的 IoT 裝置和服務 SDK](https://github.com/Azure/azure-iot-sdks/blob/master/node/common/core/lib/shared_access_signature.js)
+
 #### 通訊協定詳細規格
 
-每個支援的通訊協定 (例如 AMQP 和 HTTP) 會以不同的方式傳輸權杖。
+每個支援的通訊協定 (例如 AMQP、MQTT 和 HTTP) 會以不同的方式傳輸權杖。
 
 HTTP 會透過在 **Authorization** 要求標頭中包含有效的權杖來實作驗證。稱為 [授權] 的查詢參數也可以傳輸權杖。
 
@@ -249,10 +320,12 @@ HTTP 會透過在 **Authorization** 要求標頭中包含有效的權杖來實�
 
 在 SASL PLAIN 中，**username** 可以是：
 
-* 以中樞層級權杖而言，`{policyName}&commat;sas.root.{iothubName}`。
+* 以中樞層級權杖而言，`{policyName}@sas.root.{iothubName}`。
 * 以裝置範圍權杖而言，`{deviceId}`。
 
 在這兩種情況下，密碼欄位都包含[權杖格式](#tokenformat)一節所述的權杖。
+
+使用 MQTT 時，CONNECT 封包具有做為 ClientId 的 deviceId，在 [使用者名稱] 欄位中具有 {iothubhostname}/{deviceId}，並且在 [密碼] 欄位中具有 SAS 權杖。{iothubhostname} 應該是 IoT 中樞的完整 CName (例如，contoso.azure-devices.net)。
 
 > [AZURE.NOTE] [Azure IoT 中樞 SDK][lnk-apis-sdks] 會在連接至服務時自動產生權杖。在某些情況下，SDK 不支援所有的通訊協定或所有驗證方法。
 
@@ -305,17 +378,25 @@ IoT 中樞訊息包含︰
 
 ### 選擇您的通訊協定 <a id="amqpvshttp"></a>
 
-在裝置端通訊方面，Iot 中樞同時支援 [AMQP][lnk-amqp] 和 HTTP/1 通訊協定。以下是有關其用途的考量清單。
+在裝置端通訊方面，Iot 中樞支援 [AMQP][lnk-amqp]、透過 WebSockets 的 AMQP、MQTT 和 HTTP/1 通訊協定。以下是有關其用途的考量清單。
 
-* **雲端到裝置的模式**。HTTP/1 沒有有效的方式可實作伺服器發送。因此，使用 HTTP/1 時，裝置會向 IoT 中樞輪詢雲端到裝置的訊息。這對於裝置和 IoT 中樞而言都非常沒有效率。在目前的指導方針中，使用 HTTP/1 時，每個裝置的輪詢間隔會設定為小於每 25 分鐘一次。另一方面，AMQP 在接收雲端到裝置的訊息時支援伺服器推送，而且能立即將訊息從 IoT 中樞推送至裝置。如果傳遞延遲是一大考量，最好使用 AMQP 通訊協定。另一方面，HTTP/1 也適用於幾乎不連接的裝置。
-* **現場閘道器**。由於伺服器推送方面的 HTTP/1 限制，這不適用於[現場閘道器案例][lnk-azure-gateway-guidance]。
-* **低資源裝置**。HTTP/1 程式庫比 AMQP 程式庫小得多。因此，裝置擁有的資源很少 (例如，小於 1 Mb RAM)，HTTP/1 可能是唯一可用的通訊協定實作。
-* **網路周遊**。AMQP 標準會在連接埠 5672 上接聽。這可能會導致對非 HTTP 通訊協定關閉的網路發生問題。
-* **承載大小**。AMQP 是明顯比 HTTP/1 更為精簡的二進位通訊協定。
+* **雲端到裝置的模式**。HTTP/1 沒有有效的方式可實作伺服器發送。因此，使用 HTTP/1 時，裝置會向 IoT 中樞輪詢雲端到裝置的訊息。這對於裝置和 IoT 中樞而言都非常沒有效率。使用 HTTP/1 時，目前的指導方針是讓每個裝置每隔 25 分鐘或以上輪詢一次。另一方面，AMQP 和 MQTT 在接收雲端到裝置的訊息時支援伺服器推送，而且能立即將訊息從 IoT 中樞推送至裝置。如果傳遞延遲是一大考量，最好使用 AMQP 或 MQTT 通訊協定。另一方面，HTTP/1 也適用於幾乎不連接的裝置。
+* **現場閘道器**。使用 HTTP/1 和 MQTT 時，您無法使用相同的 TLS 連線來連線到多個裝置 (各有自己的每一裝置認證)。可見在實作[現場閘道器案例][lnk-azure-gateway-guidance]時，這些並不是最理想的通訊協定，因為對於每個連線至現場閘道器的裝置，這些通訊協定需要一個現場閘道器和 IoT 中樞之間的 TLS 連線。
+* **低資源裝置**。MQTT 和 HTTP/1 程式庫的使用量比 AMQP 程式庫更小。因此，如果裝置擁有的資源很少 (例如，小於 1 Mb RAM)，這些通訊協定可能是唯一可用的通訊協定實作。
+* **網路周遊**。MQTT 標準會在連接埠 8883 上接聽。這可能會導致對非 HTTP 通訊協定關閉的網路發生問題。HTTP 和 AMQP (透過 WebSockets) 皆可用在此案例中。
+* **承載大小**。AMQP 和 MQTT 是二進位通訊協定，因此明顯比 HTTP/1 更加精簡。
 
-總括來說，您應該盡可能使用 AMQP，並只有在裝置資源或網路設定不允許 AMQP 時才使用 HTTP/1。此外，使用 HTTP/1 時，每個裝置的輪詢頻率應設定為小於每 25 分鐘一次。很顯然在開發期間，可接受更頻繁的輪詢頻率。
+概括而言，您應該盡可能使用 AMQP (或透過 WebSockets 的 AMQP)，而且只在資源的條件約束會禁止使用 AMQP 時才使用 MQTT。只有當網路周遊和網路設定會阻止使用 MQTT 和 AMQP 時，才應該使用 HTTP/1。此外，在使用 HTTP/1 時，每個裝置應該每隔 25 分鐘或以上輪詢一次雲端到裝置的訊息。
 
-最後請務必參閱 [Azure IoT 通訊協定閘道器][lnk-azure-protocol-gateway]，它可讓您部署直接與 IoT 中樞互動的高效能 MQTT 閘道器。MQTT 通訊協定支援伺服器發送 (因此能夠將雲端到裝置訊息立即傳遞到裝置)，而且適用於資源非常少的裝置。這個方法的主要缺點是需要自我裝載和管理通訊協定閘道器。
+> [AZURE.NOTE] 很顯然地，在開發期間以比每隔 25 分鐘一次還頻繁地進行輪詢是可接受的情況。
+
+#### MQTT 支援的注意事項
+IoT 中樞會實作 MQTT v3.1.1 通訊協定，但其具有下列限制和特定行為：
+
+  * **QoS 2 不受支援**：若裝置用戶端使用 **QoS 2** 發佈訊息，IoT 中樞會關閉網路連接。當裝置用戶端訂閱具有 **QoS 2** 的主題時，IoT 中樞會在 **SUBACK** 封包中授與最大 QoS 層級 1。
+  * **保留**：如果裝置用戶端發佈 RETAIN 旗標設為 1 的訊息，IoT 中樞會在訊息中新增 **x-opt-retain** 應用程式屬性。這表示 IoT 中樞不會持續保留訊息，而是改為將它傳遞至後端應用程式。
+
+最後請檢閱 [Azure IoT 通訊協定閘道器][lnk-azure-protocol-gateway]，它可讓您部署直接與 IoT 中樞互動的高效能自訂通訊協定閘道器。Azure IoT 通訊協定閘道器可讓您自訂裝置通訊協定，以順應要重建的 MQTT 部署或其他自訂通訊協定。這個方法的代價是需要自我裝載和運作自訂的通訊協定閘道器。
 
 ### 裝置到雲端 <a id="d2c"></a>
 
@@ -345,7 +426,7 @@ IoT 中樞實作裝置到雲端傳訊的方式類似於[事件中樞][lnk-event-
 
 #### 非遙測流量
 
-在許多情況下，除了遙測資料點之外，裝置也會傳送*互動式*訊息，以及需要執行與處理應用程式商務邏輯層要求的要求。例如，必須在後端觸發特定動作的重大警示，或對由後端傳送之命令的裝置回應。
+在許多情況下，除了遙測資料點之外，裝置也會傳送訊息，以及需要執行與處理應用程式商務邏輯層要求的要求。例如，必須在後端觸發特定動作的重大警示，或對由後端傳送之命令的裝置回應。
 
 如需有關處理這些類型訊息的最佳方式。請參閱[裝置到雲端處理][lnk-guidance-d2c-processing]。
 
@@ -475,13 +556,9 @@ IoT 中樞會公開下列屬性，讓您控制裝置到雲端傳訊。
 
 每個 Azure 訂用帳戶最多可以有 10 個 IoT 中樞。
 
-每個 IoT 中樞都會以特定 SKU 佈建特定數目的單位 (如需詳細資訊，請參閱 [Azure IoT 中樞定價][lnk-pricing])。SKU 和單位數目可決定可以傳送的每日訊息配額上限以及身分識別登錄中的裝置身分識別數目上限。同時連接的裝置數目受限於登錄中的身分識別數目。
+每個 IoT 中樞都會以特定 SKU 佈建特定數目的單位 (如需詳細資訊，請參閱 [Azure IoT 中樞定價][lnk-pricing])。SKU 和單位數目會決定可以傳送之訊息的每日配額上限。
 
-SKU 也會決定 IoT 中樞在作業上強制執行的節流限制。
-
-### 裝置身分識別登錄配額
-
-IoT 中樞允許每天每個單位 (不管 SKU) 最多有 1100 次裝置更新 (建立、更新、刪除)。
+SKU 也會決定 IoT 中樞在所有作業上強制執行的節流限制。
 
 ### 作業節流
 
@@ -491,12 +568,15 @@ IoT 中樞允許每天每個單位 (不管 SKU) 最多有 1100 次裝置更新 (
 
 | 節流 | 每個中心的值 |
 | -------- | ------------- |
-| 身分識別登錄作業 (建立、擷取、列出、更新、刪除)，個別或大量匯入/匯出 | 100/分鐘/單位，最高 5000/分鐘 |
-| 裝置連線 | 100/秒/單位 |
+| 身分識別登錄作業 (建立、擷取、列出、更新、刪除) | 100/分鐘/單位，最高 5000/分鐘 |
+| 裝置連線 | 120/秒/單位 (適用於 S2), 12/秒/單位 (適用於 S1)。最小值為 100/秒。 |
 | 裝置到雲端傳送 | 120/秒/單位 (適用於 S2), 12/秒/單位 (適用於 S1)。最小值為 100/秒。 |
-| 雲端到裝置作業 (傳送、接收、意見反應) | 100/分鐘/單位 |
+| 雲端到裝置的傳送 | 100/分鐘/單位 |
+| 雲端到裝置的接收 | 1000/分鐘/單位 |
 
 **注意**。不論何時，都可以藉由增加 IoT 中樞佈建的單位來提高配額或節流限制。
+
+**重要事項**：身分識別登錄作業適用於裝置管理與佈建案例中的執行階段用途。透過[匯入/匯出作業](#importexport)即可支援讀取或更新大量的裝置身分識別。
 
 ## 後續步驟
 
@@ -524,6 +604,7 @@ IoT 中樞允許每天每個單位 (不管 SKU) 最多有 1100 次裝置更新 (
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
 [lnk-guidance-scale]: iot-hub-scaling.md
 [lnk-guidance-security]: iot-hub-guidance.md#customauth
+[lnk-guidance-heartbeat]: iot-hub-guidance.md#heartbeat
 
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
@@ -531,6 +612,8 @@ IoT 中樞允許每天每個單位 (不管 SKU) 最多有 1100 次裝置更新 (
 [lnk-getstarted-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 
 [lnk-amqp]: https://www.amqp.org/
+[lnk-mqtt]: http://mqtt.org/
+[lnk-websockets]: https://tools.ietf.org/html/rfc6455
 [lnk-arm]: ../resource-group-overview.md
 [lnk-azure-resource-manager]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 [lnk-cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
@@ -545,5 +628,6 @@ IoT 中樞允許每天每個單位 (不管 SKU) 最多有 1100 次裝置更新 (
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
+[lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

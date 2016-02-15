@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/01/2016" 
 	ms.author="torsteng;sidneyh"/>
 
 # 多分區查詢
@@ -24,7 +24,7 @@
 
 ## 概觀
 
-您可以使用[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)管理分區。程式庫包含名為 **Microsoft.Azure.SqlDatabase.ElasticScale.Query** 的命名空間，提供使用單一查詢和結果來查詢多個分區的功能。它提供一組分區的查詢抽象方法。它也提供替代執行原則，特別是部分結果，以處理查詢許多分區時的失敗。
+您可以使用[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)來管理分區。程式庫包含名為 **Microsoft.Azure.SqlDatabase.ElasticScale.Query** 的命名空間，提供使用單一查詢和結果來查詢多個分區的功能。它提供一組分區的查詢抽象方法。它也提供替代執行原則，特別是部分結果，以處理查詢許多分區時的失敗。
 
 多分區查詢的主要進入點是 **MultiShardConnection** 類別。如同資料相依路由一樣，API 的用法類似於 ****[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)** 類別和方法。使用 **SqlClient** 程式庫時，第一個步驟是建立 **SqlConnection**，再建立連接的 **SqlCommand**，然後透過其中一個 **Execute** 方法執行命令。最後，**SqlDataReader** 逐一查看從命令執行傳回的結果集。多分區查詢 API 的用法依照下列步驟：
 
@@ -33,7 +33,7 @@
 3. 執行命令。
 4. 透過 **MultiShardDataReader** 來使用結果。 
 
-主要差異是多分區連接的建構方式。其中，**SqlConnection** 在單一資料庫上運作，**MultiShardConnection** 接受**分區集合**做為輸入。您可以從分區分區來填入對應的集合。然後，使用 **UNION ALL** 語意在分區集合上執行查詢，以組成單一的整體結果。(選擇性) 在命令上使用**ExecutionOptions** 屬性，可將資料列的來源分區名稱加入至輸出。
+主要差異是多分區連接的建構方式。其中，**SqlConnection** 在單一資料庫上運作，**MultiShardConnection** 接受 ***分區集合*** 做為輸入。您可以從分區分區來填入對應的集合。然後，使用 **UNION ALL** 語意在分區集合上執行查詢，以組成單一的整體結果。(選擇性) 在命令上使用**ExecutionOptions** 屬性，可將資料列的來源分區名稱加入至輸出。
 
 ## 範例
 
@@ -75,4 +75,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

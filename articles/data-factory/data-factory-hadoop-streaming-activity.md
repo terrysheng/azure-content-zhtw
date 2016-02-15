@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Hadoop 串流活動
@@ -81,7 +81,7 @@ HDInsight 叢集會使用範例程式 (wc.exe 和 cat.exe) 和資料 (將 davinc
 9. 針對 **arguments** 屬性，指定串流工作的引數。
 10. **getDebugInfo** 屬性是選擇性的元素。該屬性設定為 [失敗] 時，只能在執行失敗時下載記錄檔。當其設定為「所有」時，無論執行狀態為何，一律下載記錄檔。
 
-> [AZURE.NOTE]如範例所示，您必須為 Hadoop 串流活動的 **outputs** 屬性指定輸出資料集。這只是驅動管線排程所需的空資料集。您不需要為活動的 **input** 屬性指定任何輸入資料集。
+> [AZURE.NOTE] 如範例所示，您必須為 Hadoop 串流活動的 **outputs** 屬性指定輸出資料集。這只是驅動管線排程所需的空資料集。您不需要為活動的 **input** 屬性指定任何輸入資料集。
 
 	
 ## 範例
@@ -89,7 +89,7 @@ HDInsight 叢集會使用範例程式 (wc.exe 和 cat.exe) 和資料 (將 davinc
 
 ### 連結的服務
 
-#### 儲存體連結服務
+#### Azure 儲存體連結服務
 首先，建立連結的服務，將 Azure HDInsight 叢集使用的 Azure 儲存體連結到 Azure Data Factory。如果您複製/貼上下列程式碼，請記得使用 Azure 儲存體的名稱和金鑰來取代帳戶名稱和帳戶金鑰。
 
 	{
@@ -192,4 +192,4 @@ HDInsight 叢集會使用範例程式 (wc.exe 和 cat.exe) 和資料 (將 davinc
 	    }
 	}
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

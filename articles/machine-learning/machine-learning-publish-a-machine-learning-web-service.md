@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="02/01/2016"
 	ms.author="garye"/>
 
 # 部署 Azure Machine Learning Web 服務
@@ -50,7 +50,7 @@ Azure Machine Learning 可讓您建置、測試以及部署預測性分析解決
 
 - [在 Azure Machine Learning Studio 中建立簡單實驗](machine-learning-create-experiment.md)
 - [使用 Azure Machine Learning 開發預測解決方案](machine-learning-walkthrough-develop-predictive-solution.md)
-- [將訓練資料匯入 Azure Machine Learning Studio](machine-learning-import-data.md)
+- [將訓練資料匯入 Azure Machine Learning Studio](machine-learning-data-science-import-data.md)
 - [在 Azure Machine Learning Studio 中管理實驗逐一查看](machine-learning-manage-experiment-iterations.md)
 
 ## 將訓練實驗轉換為預測實驗
@@ -108,8 +108,8 @@ For more information on how to manage Azure Machine Learning web service endpoin
 
 若要更新 Web 服務，請開啟您用來部署 Web 服務的原始預測實驗，然後按一下 [另存新檔] 以製作可編輯的複本。進行變更，然後按一下 [部署 Web 服務]。因為您以前已部署過這個實驗，所以 Machine Learning Studio 會提示您以詢問是否要覆寫現有服務。如果您按一下 [是]，則現有 Web 服務會停止，新的預測實驗會在其位置部署。
 
-> [AZURE.NOTE]如果您在原始 Web 服務中進行組態變更，例如輸入新的顯示名稱或說明，則您必須再次輸入這些值。
+> [AZURE.NOTE] 如果您在原始 Web 服務中進行組態變更，例如輸入新的顯示名稱或說明，則您必須再次輸入這些值。
 
 更新 Web 服務的一個選擇是以程式設計方式重新定型模型。如需詳細資訊，請參閱[以程式設計方式重塑機器學習模型](machine-learning-retrain-models-programmatically.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

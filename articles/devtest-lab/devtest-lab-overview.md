@@ -1,6 +1,6 @@
-    <properties 
-	pageTitle="What is the DevTest Lab service? | Microsoft Azure"
-	description="Learn how DevTest Lab can make it easy to create, manage, and monitor Azure virtual machines"
+<properties 
+	pageTitle="什麼是研發/測試實驗室服務？| Microsoft Azure"
+	description="了解研發/測試實驗室如何讓您輕鬆地建立、管理和監視 Azure 虛擬機器"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 #什麼是研發/測試實驗室？
@@ -52,7 +52,7 @@ Azure 研發/測試實驗室是一項服務，可協助開發人員和測試人�
 - 您想要在 VM 上執行的動作 - 例如，複製儲存機制。
 - 您想要測試的應用程式。
 
-構件是 Azure 資源管理員 (ARM) 架構的 JSON 檔案，其中包含執行部署並套用組態的指示。您可以在 [Azure 資源管理員概觀](resource-group-overview.md)中閱讀更多有關 ARM 的資訊。
+構件是 Azure 資源管理員 (ARM) 架構的 JSON 檔案，其中包含執行部署並套用組態的指示。您可以在 [Azure 資源管理員概觀](/resource-group-overview.md)中閱讀更多有關 ARM 的資訊。
 
 **構件儲存機制**是已簽入構件的 Git 儲存機制。相同的構件儲存機制可以加入組織中的多個實驗室，以便重複使用及共用。
 
@@ -66,4 +66,4 @@ Azure 研發/測試實驗室是一項服務，可協助開發人員和測試人�
 
 若要開始使用研發/測試實驗室，請遵循[建立 Azure 研發/測試實驗室](devtest-lab-create-lab.md)逐步教學課程。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

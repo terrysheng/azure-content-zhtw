@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/29/2016"
    ms.author="larryfr"/>
 
 #使用 HDInsight 上的 Apache Storm 和 Maven 開發基本字數統計應用程式的 Java 型拓撲
@@ -23,7 +23,9 @@
 
 完成這份文件中的步驟之後，就會有可部署到 Apache Storm on HDInsight 的基本拓撲。
 
-##必要條件
+> [AZURE.NOTE]\: [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount) 有提供此拓撲的完整版本。
+
+##先決條件
 
 * <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank">Java Developer Kit (JDK) 第 7 版</a>
 
@@ -31,7 +33,7 @@
 
 * 文字編輯器，例如記事本、<a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>、<a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>、<a href="https://atom.io/" target="_blank">Atom.io</a>、<a href="http://brackets.io/" target="_blank">Brackets.io</a>。或者您可以使用整合式開發環境 (IDE)，例如 <a href="https://eclipse.org/" target="_blank">Eclipse</a> (Luna 版本或更新版本)。
 
-	> [AZURE.NOTE]您的編輯器或 IDE 可能具有處理 Maven 的特定功能，但未記載在這份文件中。如需編輯環境功能的詳細資訊，請參閱所使用產品的文件。
+	> [AZURE.NOTE] 您的編輯器或 IDE 可能具有處理 Maven 的特定功能，但未記載在這份文件中。如需編輯環境功能的詳細資訊，請參閱所使用產品的文件。
 
 ##設定環境變數
 
@@ -85,7 +87,7 @@
 
 在編譯期間，Maven 會使用此資訊來查閱 Maven 儲存機制中的 **storm-core**。它會先查看本機電腦上的儲存機制。如果檔案不存在，則會從公用 Maven 儲存機制進行下載，並將它們儲存在本機儲存機制中。
 
-> [AZURE.NOTE] 請注意在我們加入之區段中的 `<scope>provided</scope>` 行。此行要求 Maven 從我們建立的任何 JAR 檔案中排除 **storm-core**，因為其將由系統提供。這可讓您建立的封裝變得較小，並確保它們將使用 Storm on HDInsight 叢集上所含的 **storm-core** 位元。
+> [AZURE.NOTE]  請注意在我們加入之區段中的 `<scope>provided</scope>` 行。此行要求 Maven 從我們建立的任何 JAR 檔案中排除 **storm-core**，因為其將由系統提供。這可讓您建立的封裝變得較小，並確保它們將使用 Storm on HDInsight 叢集上所含的 **storm-core** 位元。
 
 ##建置組態
 
@@ -148,7 +150,7 @@ Java 型 Storm 拓撲包含三個您必須編寫 (或參考) 為相依性的元�
 
 若要減少設定外部資料來源的需求，下列 Spout 只會發出隨機的句子。它是隨附於 (<a href="https://github.com/apache/storm/blob/master/examples/storm-starter/" target="_blank">Storm-Starter 範例</a>) 的 Spout 修正版。
 
-> [AZURE.NOTE]如需從外部資料來源讀取之 Spout 的範例，請參閱下列其中一個範例：
+> [AZURE.NOTE] 如需從外部資料來源讀取之 Spout 的範例，請參閱下列其中一個範例：
 >
 > * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout</a>從 Twitter 讀取的 Spout 範例
 >
@@ -240,7 +242,7 @@ Java 型 Storm 拓撲包含三個您必須編寫 (或參考) 為相依性的元�
 
 請用一些時間閱讀程式碼註解，以了解此 Spout 的運作方式。
 
-> [AZURE.NOTE]雖然此拓撲只使用一個 Spout，但是其他拓撲可能會有將資料從不同來源送入拓撲的數個 Spout。
+> [AZURE.NOTE] 雖然此拓撲只使用一個 Spout，但是其他拓撲可能會有將資料從不同來源送入拓撲的數個 Spout。
 
 ###建立 Bolt
 
@@ -250,7 +252,7 @@ Bolt 會處理資料的處理。針對此拓撲，我們有兩個 Bolt：
 
 * **WordCount**：計算每個單字的出現次數。
 
-> [AZURE.NOTE]Bolt 幾乎可以包辦任何作業，例如計算、持續性或與外部元件交談。
+> [AZURE.NOTE] Bolt 幾乎可以包辦任何作業，例如計算、持續性或與外部元件交談。
 
 在 **src\\main\\java\\com\\microsoft\\example** 目錄中，建立兩個新的檔案：**SplitSentence.java** 和 **WordCount.Java**。使用下列項目做為檔案的內容：
 
@@ -467,4 +469,4 @@ Trident 是 Storm 提供的高層級抽象。它支援具狀態的處理。Tride
 
 您可透過瀏覽 [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)找到更多範例 Storm 拓撲。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

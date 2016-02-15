@@ -8,13 +8,13 @@
 
 事件處理器會使用事件中樞訊息位移做為區塊識別碼。這可以讓其在認可新區塊至儲存體之前，先執行重複資料刪除檢查，查看認可的區塊和檢查點之間是否有損毀。
 
-> [AZURE.NOTE]本教學課程使用單一儲存體帳戶來寫入從 IoT 中心擷取的所有訊息。請參閱 [Azure 儲存體延展性指導方針]來決定方案中是否需要使用多個 Azure 儲存體帳戶。
+> [AZURE.NOTE] 本教學課程使用單一儲存體帳戶來寫入從 IoT 中心擷取的所有訊息。請參閱 [Azure 儲存體延展性指導方針]來決定方案中是否需要使用多個 Azure 儲存體帳戶。
 
 應用程式會使用服務匯流排重複資料刪除功能，來於處理互動式訊息時避免重複項目。模擬的裝置會藉由使用唯一的 **MessageId** 為每個互動式訊息加上時間戳記，讓服務匯流排能夠確保在指定的重複資料刪除時間範圍中，不會有兩個具有相同 **MessageId** 的訊息傳遞給接收者。此重複資料刪除功能和服務匯流排佇列所提供的每一訊息完成語意，使其能夠很容易地實作可靠的互動訊息處理。
 
 為確保不會在重複資料刪除時間範圍之外重新提交任何訊息，程式碼會同步 **EventProcessorHost** 檢查點機制與服務匯流排佇列重複資料刪除時間範圍。完成此作業的方法是在每次重複資料刪除時間範圍過去時 (在本教學課程中為 1 小時)，強制檢查點至少執行一次。
 
-> [AZURE.NOTE]本教學課程使用單一分割服務匯流排佇列來處理所有擷取自 IoT 中心的互動式訊息。請參閱[服務匯流排文件]，以取得如何使用服務匯流排佇列來滿足您解決方案之擴展性需求的詳細資訊。
+> [AZURE.NOTE] 本教學課程使用單一分割服務匯流排佇列來處理所有擷取自 IoT 中心的互動式訊息。請參閱[服務匯流排文件]，以取得如何使用服務匯流排佇列來滿足您解決方案之擴展性需求的詳細資訊。
 
 ### 佈建 Azure 儲存體帳戶和服務匯流排佇列
 為使用 [EventProcessorHost] 類別，您必須擁有 Azure 儲存體帳戶才能讓 **EventProcessorHost** 記錄檢查點資訊。您可以使用現有的儲存體帳戶，或是依照[關於 Azure 儲存體]中的指示建立新的帳戶。請記下儲存體帳戶連接字串。
@@ -41,11 +41,9 @@
 
 2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ProcessDeviceToCloudMessages** 專案，然後按一下 [管理 NuGet 封裝]。就會顯示 [NuGet 封裝管理員] 對話方塊。
 
-3. 搜尋 **WindowsAzure.ServiceBus**，按一下 [安裝] 並接受使用規定。
-    這會下載、安裝並加入 [Azure 服務匯流排 NuGet 封裝](https://www.nuget.org/packages/WindowsAzure.ServiceBus)的參考與其所有相依性。
+3. 搜尋 **WindowsAzure.ServiceBus**，按一下 [安裝] 並接受使用規定。這會下載、安裝並加入 [Azure 服務匯流排 NuGet 封裝](https://www.nuget.org/packages/WindowsAzure.ServiceBus)的參考與其所有相依性。
 
-4. 搜尋 **Microsoft Azure 服務匯流排事件中樞 - EventProcessorHost**，並按一下 [安裝]，然後接受使用規定。
-    這會下載、安裝並加入 [Azure 服務匯流排事件中樞 - EventProcessorHost NuGet 封裝](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)的參考與其所有相依性。
+4. 搜尋 **Microsoft Azure 服務匯流排事件中樞 - EventProcessorHost**，並按一下 [安裝]，然後接受使用規定。這會下載、安裝並加入 [Azure 服務匯流排事件中樞 - EventProcessorHost NuGet 封裝](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)的參考與其所有相依性。
 
 5. 以滑鼠右鍵按一下 **ProcessDeviceToCloudMessages** 專案、按一下 [新增]，然後按一下 [類別]。將新類別命名為 **StoreEventProcessor**，然後按一下 [確定] 以建立該類別。
 
@@ -202,7 +200,7 @@
 
     **AppendAndCheckpoint** 方法會先為要附加的區塊產生區塊識別碼。Azure 儲存體需要所有區塊識別碼都具有相同的長度，此方法才能以前置的零來填補位移 - `currentBlockInitOffset.ToString("0000000000000000000000000")`。如果具有此識別碼的區塊已在 Blob 中，此方法會使用緩衝區目前的內容將它覆寫。
 
-    > [AZURE.NOTE]若要簡化程式碼，本教學課程會使用每個分割的單一 blob 檔案來儲存訊息。實際的解決方案會實作檔案復原，使用的方法是在檔案到達特定大小時 (請注意，Azure 區塊 Blob 大小上限為 195 Gb)，或在某段時間之後建立其他檔案。
+    > [AZURE.NOTE] 若要簡化程式碼，本教學課程會使用每個分割的單一 blob 檔案來儲存訊息。實際的解決方案會實作檔案復原，使用的方法是在檔案到達特定大小時 (請注意，Azure 區塊 Blob 大小上限為 195 Gb)，或在某段時間之後建立其他檔案。
 
 8. 在 **Program** 類別中，於頂端新增下列 **using** 陳述式：
 
@@ -210,7 +208,7 @@
     using Microsoft.ServiceBus.Messaging;
     ```
 
-9. 如下所示修改 **Program** 類別中的 **Main** 方法，使用名為 **d2ctutorial** 之佇列的 [傳送] 權限取代 IoT 中樞 **iothubowner** 連接字串 (來自 [開始使用 IoT 中樞][] 教學課程)、儲存體連接字串，以及服務匯流排連接字串：
+9. 如下所示修改 **Program** 類別中的 **Main** 方法，使用名為 **d2ctutorial** 之佇列的 [傳送] 權限取代 IoT 中樞 **iothubowner** 連接字串 (來自 [開始使用 IoT 中樞] 教學課程)、儲存體連接字串，以及服務匯流排連接字串：
 
     ```
     static void Main(string[] args)
@@ -231,7 +229,7 @@
     }
     ```
     
-    > [AZURE.NOTE]為了簡單起見，本教學課程使用 [EventProcessorHost] 類別的單一執行個體。請參閱[事件中樞程式設計指南]了解詳細資訊。
+    > [AZURE.NOTE] 為了簡單起見，本教學課程使用 [EventProcessorHost] 類別的單一執行個體。請參閱[事件中樞程式設計指南]了解詳細資訊。
 
 ## 接收互動式訊息
 在本節中，您將撰寫 Windows 主控台應用程式，它會接收來自服務匯流排佇列的互動式訊息。如需有關如何使用服務匯流排架構解決方案的詳細資訊，請參考[使用服務匯流排建置多層式應用程式][]。
@@ -295,7 +293,6 @@
 [Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [事件中樞程式設計指南]: ../event-hubs/event-hubs-programming-guide.md
-[Azure preview portal]: https://portal.azure.com/
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure 入口網站]: https://manage.windowsazure.com/
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
@@ -315,4 +312,4 @@
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

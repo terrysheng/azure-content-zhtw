@@ -19,13 +19,14 @@
 
 # 如何在傳統的 Azure 虛擬機器上設定端點
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。針對資源管理員部署，請參閱[開始使用 Azure 資源管理員設定網際網路面向的負載平衡器](../load-balancer/load-balancer-arm-powershell.md)和[關於網路安全性群組](virtual-networks-nsg.md)。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+
 
 您在 Azure 中使用傳統部署模型建立的所有虛擬機器，都可以自動透過私人網路通道與同一雲端服務或虛擬網路中的其他虛擬機器通訊。不過，網際網路或其他虛擬網路上的電腦需要端點，才能將傳入網路流量導向至虛擬機器。
 
 視您選擇的作業系統而定，當您在 Azure 傳統入口網站建立虛擬機器時，通常也會自動為您建立像是遠端桌面、Windows PowerShell 遠端和安全殼層 (SSH) 等的通用端點。建立虛擬機器或日後有需要時，您可以設定其他端點。
 
-每個端點都有一個公用連接埠和一個私人連接埠：
+每個端點都有一個「公用連接埠」和一個「私人連接埠」：
 
 - Azure 負載平衡器使用公用連接埠接聽從網際網路到虛擬機器的連入流量。
 - 虛擬機器使用私人連接埠接聽目的地通常為虛擬機器上執行的應用程式或服務的連入流量。
@@ -66,7 +67,7 @@
 
 為了定義可以傳送流量的電腦集合，端點上的 ACL 能夠根據來源 IP 位址限制流量。請依照這些步驟，在端點上新增、修改或移除 ACL。
 
-> [AZURE.NOTE]如果端點屬於負載平衡集合，則對端點上的 ACL 所做的任何變更，都將套用至此集合的所有端點。
+> [AZURE.NOTE] 如果端點屬於負載平衡集合，則對端點上的 ACL 所做的任何變更，都將套用至此集合的所有端點。
 
 如果虛擬機器位於 Azure 虛擬網路，建議使用網路安全性群組而非 ACL。如需詳細資訊，請參閱[關於網路安全性群組](virtual-networks-nsg.md)。
 
@@ -88,8 +89,9 @@
 
 若要使用 Azure PowerShell Cmdlet 來進行這項設定，請參閱[使用 PowerShell 管理端點的存取控制清單 (ACL)](../virtual-network/virtual-networks-acl-powershell.md)。
 
+
 ## 其他資源
 
-[Azure 基礎結構服務的負載平衡](virtual-machines-load-balance.md)
+[開始使用 PowerShell 在資源管理員中建立網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

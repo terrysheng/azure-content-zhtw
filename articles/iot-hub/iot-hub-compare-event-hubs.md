@@ -24,8 +24,10 @@ Azure IoT 中心的主要使用案例之一是從裝置收集遙測。因此，�
 
 | 領域 | IoT 中心 | 事件中樞 |
 | ---- | ------- | ---------- |
-| 通訊模式 | 提供裝置到雲端事件輸入和雲端到裝置傳訊。 | 僅提供事件輸入 (通常視為裝置到雲端案例)。 |
-| 安全性 | 提供每個裝置的身分識別與可撤銷的存取控制。請參閱 [IoT 中樞開發人員指南的安全性章節]。 | 提供全事件中樞的[共用存取原則][Event Hub - security]，以及透過[發行者原則][Event Hub publisher policies]的有限撤銷支援。在 IoT 解決方案的內容中，通常需要實作自訂解決方案來支援每個裝置的認證以及防詐騙措施。 |
+| 通訊模式 | 啟用裝置到雲端及雲端到裝置的傳訊功能。 | 僅提供事件輸入 (通常視為裝置到雲端案例)。 |
+| 裝置通訊協定支援 | 支援 AMQP、透過 WebSockets 的 AMQP、MQTT 和 HTTP/1。此外，IoT 中樞還可搭配 [Azure IoT 通訊協定閘道][lnk-azure-protocol-gateway]來使用，後者是支援自訂通訊協定的可自訂通訊協定閘道實作。 | 支援 AMQP、透過 WebSockets 的 AMQP 和 HTTP/1。 |
+| 安全性 | 提供每個裝置的身分識別與可撤銷的存取控制。請參閱 [IoT 中樞開發人員指南的安全性章節]。 | 提供全事件中樞的[共用存取原則][Event Hub - security]，以及透過[發行者原則][Event Hub publisher policies]的有限撤銷支援。IoT 解決方案通常需要實作自訂解決方案來支援每個裝置的認證以及防詐騙措施。 |
+| 作業監視 | 可讓 IoT 解決方案訂閱一組豐富的裝置身分識別管理和連線事件，例如個別裝置驗證錯誤、節流和格式錯誤的例外狀況。這些事件可讓您快速識別個別裝置層級的連線問題。 | 僅公開彙總的度量。 |
 | 調整 | 已最佳化以支援數百萬同時連接的裝置。 | 可支援更多同時連接的限制數目：每個 [Azure 服務匯流排配額][]高達 5,000 個 AMQP 連接。另一方面，事件中樞可讓您指定每個傳送訊息的分割。 |
 | 裝置 SDK | 提供[裝置 SDK][Azure IoT Hub SDKs] 給各種平台和語言。 | 在 .NET 和 C 上都支援，且事件中樞提供 AMQP 和 HTTP 傳送介面。 |
 
@@ -48,5 +50,6 @@ Azure IoT 中心的主要使用案例之一是從裝置收集遙測。因此，�
 [Azure IoT Hub SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [何謂 Azure IoT 中心？]: iot-hub-what-is-iot-hub.md
+[lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

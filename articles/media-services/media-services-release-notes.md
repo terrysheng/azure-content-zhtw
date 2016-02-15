@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/09/2015"   
+	ms.date="01/29/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [目前的已知問題](#issues)
 - [REST API 版本歷程記錄](#rest_version_history)
+- [2016 年 1 月版本](#jan_changes_16)
 - [2015 年 12 月版本](#dec_changes_15)
 - [2015 年 11 月版本](#nov_changes_15)
 - [2015 年 10 月版本](#oct_changes_15)
@@ -76,6 +77,13 @@ SDK 中的媒體服務物件無法序列化，因此無法與 Azure 快取搭配
 ##<a id="rest_version_history"></a>REST API 版本歷程記錄
 
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
+
+
+##<a id="jan_changes_16"></a>2016 年 1 月版本
+
+編碼保留單元已重新命名，以減少和編碼器名稱混淆。
+
+基本、標準和高階編碼保留單元已分別重新命名為 S1、S2 和 S3 保留單元。目前使用基本編碼保留單元的客戶在 Azure 入口網站 (和帳單中) 將會看到 S1 的標籤，標準和高階的客戶將分別看到 S2 和 S3 的標籤。
 
 ##<a id="dec_changes_15"></a>2015 年 12 月版本
 
@@ -635,4 +643,4 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

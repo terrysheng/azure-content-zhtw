@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="12/15/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 # 設定和管理 IoT 中心的存取權
@@ -22,12 +22,14 @@
 
 ## 網路連線
 
-裝置使用 AMQP 或 HTTPS 通訊協定與 Azure 中的 IoT 中心通訊。一般而言，選擇的通訊協定是根據方案的特定需求而定。下表列出必須要為裝置開啟的輸出連接埠，以使用特定的通訊協定：
+裝置可以在 Azure 中使用各種通訊協定來與 IoT 中樞通訊。一般而言，選擇的通訊協定是根據方案的特定需求而定。下表列出必須要為裝置開啟的輸出連接埠，以使用特定的通訊協定：
 
 | 通訊協定 | 連接埠 |
 | -------- | ------- |
 | HTTPS | 443 |
 | AMQP | 5671 |
+| 透過 WebSockets 的 AMQP | 443 |
+| MQTT | 8883 |
 
 當您在 Azure 區域中建立 IoT 中心後，中心將在該中心的存留期間，保留相同的 IP 位址。不過，在嚴重損壞修復案例中，如果 Microsoft 將 IoT 中心移至不同的縮放單位，則它會獲派新的 IP 位址。
 
@@ -49,4 +51,4 @@ IoT 中心內對其他管理端點的存取權，也是透過一組權限來控�
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

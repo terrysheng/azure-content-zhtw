@@ -19,7 +19,7 @@
 
 # 搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理員
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines/virtual-machines-command-line-tools.md)。
 
 本文說明如何在 Azure 資源管理員模式下使用 Azure 命令列介面 (CLI)，在 Mac、Linux 和 Windows 電腦的命令列上建立、管理和刪除服務。您可以使用 Azure SDK 的各種程式庫、透過 Azure PowerShell，以及使用 Azure 入口網站來執行其中許多相同的工作。
 
@@ -1879,4 +1879,4 @@ Azure 資源管理員可讓您建立資源群組，包含虛擬機器、網站�
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,20 +1,20 @@
 <properties
-   pageTitle="教學課程：整合 Salesforce 與 Azure Active Directory | Microsoft Azure"
-   description="了解如何使用 Salesforce 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！"
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="教學課程：Azure Active Directory 與 Salesforce 整合 | Microsoft Azure"
+    description="了解如何使用 Salesforce 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！"
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="10/20/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #教學課程：如何整合 Salesforce 與 Azure Active Directory
 
@@ -26,7 +26,7 @@
 
 2. 您在 [Salesforce.com](https://www.salesforce.com/) 中必須具備有效的租用戶。
 
-> [AZURE.IMPORTANT]如果您使用 Salesforce.com **試用**帳戶，您將無法設定自動化的使用者佈建。試用帳戶沒有必要的 API 存取權，必須購買之後才會擁有。
+> [AZURE.IMPORTANT] 如果您使用 Salesforce.com **試用**帳戶，您將無法設定自動化的使用者佈建。試用帳戶沒有必要的 API 存取權，必須購買之後才會擁有。
 > 
 > 您可以使用[免費的開發人員帳戶](https://developer.salesforce.com/signup)克服這項限制完成本教學課程。
 
@@ -60,7 +60,7 @@
 
 	![按一下 [新增] 以加入新的應用程式。][2]
 
-5. 在 [您想要執行什麼動作] 對話方塊中，按一下 [從資源庫新增應用程式]。
+5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。
 
 	![按一下 [從資源庫新增應用程式]。][3]
 
@@ -84,7 +84,7 @@
 
 	![選取 [Azure AD 單一登入]][7]
 
-	> [AZURE.NOTE]若要深入了解有關不同單一登入的選項，請[按一下這裡](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
+	> [AZURE.NOTE] 若要深入了解有關不同單一登入的選項，請[按一下這裡](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
 
 4. 在 [設定應用程式設定] 頁面上，使用下列格式在 [登入 URL] 輸入您的 Salesforce 網域 URL：
  - 企業帳戶：`https://<domain>.my.salesforce.com`
@@ -106,7 +106,7 @@
 
 	![按一下 [編輯] 按鈕][11]
 
-	> [AZURE.NOTE]如果您的 Salesforce 帳戶無法啟用單一登入設定，您可能需要連絡 Salesforce 的支援人員為您啟用功能。
+	> [AZURE.NOTE] 如果您的 Salesforce 帳戶無法啟用單一登入設定，您可能需要連絡 Salesforce 的支援人員為您啟用功能。
 
 9. 選取 [啟用 SAML]，然後按一下 [儲存]。
 
@@ -152,7 +152,7 @@
 
 	![選取您的 SSO 組態][17]
 
-	> [AZURE.NOTE]如果選取了一個以上的驗證服務，則當使用者嘗試啟動單一登入到您的 Salesforce 環境時，將會提示他們選取登入時想要使用的驗證服務。如果您不想發生這種情形，您應該**不要核取其他所有的驗證服務**。
+	> [AZURE.NOTE] 如果選取了一個以上的驗證服務，則當使用者嘗試啟動單一登入到您的 Salesforce 環境時，將會提示他們選取登入時想要使用的驗證服務。如果您不想發生這種情形，您應該**不要核取其他所有的驗證服務**。
 
 15. 在 Azure AD 中，選取單一登入組態確認核取方塊以啟用您上傳到 Salesforce 的憑證。然後按 [下一步]。
 
@@ -174,7 +174,7 @@
 
 	![輸入您的系統管理員使用者名稱或密碼][21]
 
-	> [AZURE.NOTE]如果您要設定生產環境，最佳作法是特別針對此步驟在 Salesforce 中建立新的系統管理員帳戶。此帳戶在 Salesforce 中必須具備指派給他的「系統管理員」設定檔。
+	> [AZURE.NOTE] 如果您要設定生產環境，最佳作法是特別針對此步驟在 Salesforce 中建立新的系統管理員帳戶。此帳戶在 Salesforce 中必須具備指派給他的「系統管理員」設定檔。
 
 3. 若要取得您的 Salesforce 安全性權杖，請開啟新索引標籤並登入相同的 Salesforce 系統管理員帳戶。在頁面右上角，按一下您的名稱，然後按一下 [我的設定]。
 
@@ -253,4 +253,4 @@
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

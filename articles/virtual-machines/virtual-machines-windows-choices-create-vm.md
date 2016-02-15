@@ -67,7 +67,7 @@ Azure 傳統入口網站的圖形化使用者介面是用來嘗試設定虛擬�
 [利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器]: virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
 [使用 Azure 資源管理員範本和 PowerShell 部署以及管理虛擬機器]: virtual-machines-deploy-rmtemplates-powershell.md
 [以資源管理員和 PowerShell 建立 Windows VM]: virtual-machines-create-windows-powershell-resource-manager.md
-[利用 Resource Manager 範本和 PowerShell 建立 Windows 虛擬機器]: virtual-machines-create-windows-powershell-resource-manager-template-simple.md
+[利用 Resource Manager 範本和 PowerShell 建立 Windows 虛擬機器]: virtual-machines-create-windows-powershell-resource-manager-template.md
 
 
 [使用 Windows PowerShell 和 Azure CLI 巡覽和選取 Azure 虛擬機器映像]: resource-groups-vm-searching.md
@@ -79,4 +79,4 @@ Azure 傳統入口網站的圖形化使用者介面是用來嘗試設定虛擬�
 
 [Azure hybrid cloud test environments]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

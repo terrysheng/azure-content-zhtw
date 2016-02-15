@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 # 如何為串流分析建立資料分析處理工作
@@ -33,7 +33,7 @@ Azure 串流分析中的最上層資源就是串流分析工作。其包含一�
     ![建立資料分析處理工作](./media/stream-analytics-create-a-job/4-stream-analytics-create-a-job.png)
 
 3.  為串流分析工作指定所需的組態。
-	- 請在 [工作名稱] 方塊輸入名稱，以識別串流分析工作。當工作名稱通過驗證之後，[工作名稱] 方塊中便會出現綠色核取記號。「工作名稱」只能包含英數字元及「-」字元，且長度必須介於 3 到 63 個字元之間。
+	- 請在 [工作名稱] 方塊輸入名稱，以識別串流分析工作。[工作名稱] 經驗證後，[工作名稱] 方塊中便會出現綠色的核取記號。此 [工作名稱] 只能包含英數及 '-' 字元，且長度必須介於 3 到 63 個字元。
 	- 請使用 Azure 入口網站的 [區域] 或 Azure Preview 入口網站的 [位置]，來指定您要用來執行工作的地理位置。
 	- 如果您使用的是 Azure 入口網站，請選取或建立儲存體帳戶來做為「區域監視儲存體帳戶」。此儲存體帳戶會用來儲存在此區域內執行之所有串流分析工作的監視資料。
 	- 如果您使用的是 Azure Preview 入口網站，請指定新的或現有的「資源群組」來保存您應用程式的相關資源。
@@ -61,4 +61,4 @@ Azure 串流分析中的最上層資源就是串流分析工作。其包含一�
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

@@ -61,9 +61,7 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 
 - Azure 訂用帳戶。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-- Azure PowerShell Cmdlet (1.0 或更新版本)。您可以從[下載頁面](https://azure.microsoft.com/downloads/)的 Windows PowerShell 區段下載並安裝此版本。本文件是針對 PowerShell 1.0 或更新版本而撰寫的。此組態的必要 Cmdlet 不存在於較早的版本中。
-
-- 如果您不熟悉 Azure 資源管理員和 PowerShell 的使用操作，請參閱[這篇文章](../articles/powershell-azure-resource-manager.md)以取得詳細資訊。
+- Azure PowerShell Cmdlet (1.0 或更新版本)。比 1.0 更早的版本並不包含此組態所需的 Cmdlet。您可以從[下載頁面](https://azure.microsoft.com/downloads/)的 Windows PowerShell 區段下載並安裝此版本。如果您不是很了解如何安裝及設定 PowerShell，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md) 以取得詳細資訊。
 
 ### 組態步驟
 
@@ -136,4 +134,4 @@ Azure 中的強制通道會透過虛擬網路使用者定義的路由進行設�
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

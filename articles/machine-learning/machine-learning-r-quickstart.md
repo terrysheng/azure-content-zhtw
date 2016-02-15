@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="02/04/2016"
 	ms.author="larryfr"/>
 
 # Azure Machine Learning 之 R 程式設計語言的快速入門教學課程
@@ -238,13 +238,24 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
 	source("src/yourfile.R") # Reads a zipped R script
 	load("src/yourData.rdata") # Reads a zipped R data file
 
-> [AZURE.NOTE]Azure Machine Learning 會將 Zip 中的檔案視為在 src/ 目錄中，因此您必須在您的檔案名稱前面加上此目錄名稱。
+> [AZURE.NOTE] Azure Machine Learning 會將 Zip 中的檔案視為在 src/ 目錄中，因此您必須在您的檔案名稱前面加上此目錄名稱。例如，如果 Zip 在其根目錄中包含檔案 `yourfile.R` 和 `yourData.rdata`，使用 `source` 和 `load` 時，您會將這些處理為 `src/yourfile.R` 和 `src/yourData.rdata`。
 
 我們已經在[載入資料集](#loading)中討論過如何載入資料集在您建立並測試上一節中所示的 R 指令碼之後，請執行下列作業：
 
-1. 將 R 指令碼儲存成 .R 檔案。我將我的指令碼檔案稱為 "simpleplot.R"。  
+1. 將 R 指令碼儲存成 .R 檔案。我將我的指令碼檔案稱為 "simpleplot.R"。內容如下。
 
-2.  建立一個 Zip 檔案，然後將您的指令碼複製到此 Zip 檔案。
+        ## Only one of the following two lines should be used
+        ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
+        ## If in RStudio, use the second line with read.csv()
+        cadairydata <- maml.mapInputPort(1)
+        # cadairydata  <- read.csv("cadairydata.csv", header = TRUE, stringsAsFactors = FALSE)
+        str(cadairydata)
+        pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata)
+        ## The following line should be executed only when running in
+        ## Azure Machine Learning Studio
+        maml.mapOutputPort('cadairydata')
+
+2.  建立一個 Zip 檔案，然後將您的指令碼複製到此 Zip 檔案。在 Windows 中，以滑鼠右鍵按一下檔案，選取 [傳送到]、[壓縮的 (zipped) 資料夾]。這會建立包含 "simpleplot.R" 檔案的新 Zip 檔案。
 
 3.	將您的檔案新增到 Machine Learning Studio 中的 [**資料集**]，將類型指定為 **zip**。您現在應該會在您的資料集內看到的此 Zip 檔案。
 
@@ -252,7 +263,7 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
 
 5.	將 [**Zip 資料**] 圖示的輸出連接到[執行 R 指令碼][execute-r-script]模組的 [**指令碼組合**] 輸入。
 
-6.	在[執行 R 指令碼][execute-r-script]模組的程式碼視窗中，輸入含有您 Zip 檔案名稱的 `source()` 函式。在我的案例中，我鍵入了 `source("src/SimplePlot.R")`。
+6.	在[執行 R 指令碼][execute-r-script]模組的程式碼視窗中，輸入含有您 Zip 檔案名稱的 `source()` 函式。在我的案例中，我鍵入了 `source("src/simpleplot.R")`。
 
 7.	確定按一下 [**儲存**]。
 
@@ -279,7 +290,7 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
     [ModuleOutput]  "ColumnTypes":System.Int32,3,System.Double,5,System.String,1
     [ModuleOutput] }
 
-在頁面上按兩次會載入額外的資料，看起來如下所示。
+頁面更下方有更詳細的資料行資訊，看起來與下列類似。
 
 	[ModuleOutput] [1] "Loading variable port1..."
 	[ModuleOutput]
@@ -305,7 +316,7 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
 
 這些結果大致上如預期，資料框架中有 228 個觀察值和 9 個資料行。我們可以看到資料行名稱、R 資料類型及每個資料行的範例。
 
-> [AZURE.NOTE]從[執行 R 指令碼][execute-r-script]模組的 [R 裝置] 輸出可以便利地取得這個相同的列印輸出。我們將在下一節中討論[執行 R 指令碼][execute-r-script]模組的輸出。
+> [AZURE.NOTE] 從[執行 R 指令碼][execute-r-script]模組的 [R 裝置] 輸出可以便利地取得這個相同的列印輸出。我們將在下一節中討論[執行 R 指令碼][execute-r-script]模組的輸出。
 
 ####資料集2
 
@@ -462,7 +473,7 @@ R 資料框架支援強大的篩選功能。藉由在資料列或資料行使用
 
 有一些篩選是我們應該在資料集上執行的。如果您看一下 cadariydata 資料框架中的資料行，您會看到兩個不必要的資料行。第一個資料行只存放了資料列編號，這不是很有用。第二個資料行 Year.Month 包含重複的資訊。我們可以使用下列 R 程式碼輕鬆地排除這些資料行。
 
-> [AZURE.NOTE]從現在起，在本節中，我將只會示範要在[執行 R 指令碼][execute-r-script]模組中新增的額外程式碼。我會在 `str()` 函式**之前**新增每個新程式碼行。我會使用此函式在 Azure Machine Learning Studio 中確認我的結果。
+> [AZURE.NOTE] 從現在起，在本節中，我將只會示範要在[執行 R 指令碼][execute-r-script]模組中新增的額外程式碼。我會在 `str()` 函式**之前**新增每個新程式碼行。我會使用此函式在 Azure Machine Learning Studio 中確認我的結果。
 
 我在[執行 R 指令碼][execute-r-script]模組的 R 程式碼中新增下列程式碼行。
 
@@ -1347,4 +1358,4 @@ Paul Cowpertwait 與 Andrew Metcalfe 所著的 《Introductory Time Series with 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

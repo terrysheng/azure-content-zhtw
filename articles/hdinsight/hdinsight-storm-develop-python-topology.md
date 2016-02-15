@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/01/2016"
    ms.author="larryfr"/>
 
 #在 HDInsight 上使用 Python 開發 Apache Storm 拓撲
@@ -25,6 +25,8 @@ Apache Storm 支援多種語言，甚至可讓您將數種語言的元件結合�
 * Python 2.7 或更新版本
 
 * Java JDK 1.7 或更新版本
+
+* [Leiningen](http://leiningen.org/)
 
 ##Storm 多語言支援
 
@@ -54,7 +56,7 @@ Storm 模組 (https://github.com/apache/storm/blob/master/storm-multilang/python
 
 ##使用 Java 拓撲的 Python 元件
 
-> [AZURE.NOTE]此範例位於 https://github.com/Blackmist/hdinsight-python-storm-wordcount 的 __JavaTopology__ 目錄中。這是一個 Maven 型專案。如果您不熟悉 Maven，請參閱 [在 HDInsight 上使用 Apache Storm 開發以 Java 為基礎的拓撲](hdinsight-storm-develop-java-topology.md)，以取得有關為 Storm 拓撲建立 Maven 專案的詳細資訊。
+> [AZURE.NOTE] 此範例可於 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) 的 __JavaTopology__ 目錄中取得。這是一個 Maven 型專案。如果您不熟悉 Maven，請參閱 [在 HDInsight 上使用 Apache Storm 開發以 Java 為基礎的拓撲](hdinsight-storm-develop-java-topology.md)，以取得有關為 Storm 拓撲建立 Maven 專案的詳細資訊。
 
 使用 Python (或其他 JVM 語言元件) 的 Java 型拓樸乍看之下是使用 Java 元件，但如果查看每個 Java spout/bolt，您會看到類似下列的程式碼：
 
@@ -70,7 +72,7 @@ Java 在這裡叫用 Python，並執行含有實際 blot 邏輯的指令碼。Ja
 
 這會將 `/multilang` 資料夾中的所有檔案，併入到從這個專案建置的 jar 中。
 
-> [AZURE.IMPORTANT]請注意，這僅指定 `/multilang` 目錄，而不是 `/multilang/resources`。Storm 預期非 JVM 資源都在 `resources` 目錄中，因此在內部已尋找過它。將元件放在此資料夾中，可讓您在 Java 程式碼中直接依名稱參考。例如，`super("python", "countbolt.py");`。另一種看法是 Storm 存取多語言的資源時會將 `resources` 目錄視為根目錄 (/)。
+> [AZURE.IMPORTANT] 請注意，這僅指定 `/multilang` 目錄，而不是 `/multilang/resources`。Storm 預期非 JVM 資源都在 `resources` 目錄中，因此在內部已尋找過它。將元件放在此資料夾中，可讓您在 Java 程式碼中直接依名稱參考。例如，`super("python", "countbolt.py");`。另一種看法是 Storm 存取多語言的資源時會將 `resources` 目錄視為根目錄 (/)。
 >
 > 針對此範例專案，`storm.py` 模組位於 `/multilang/resources` 目錄中。
 
@@ -106,11 +108,11 @@ Java 在這裡叫用 Python，並執行含有實際 blot 邏輯的指令碼。Ja
 
         最後，選取 [提交] 啟動拓撲。
 
-> [AZURE.NOTE]Storm 拓撲啟動之後會一直執行到停止 (刪除) 為止。 若要停止拓撲，請從命令列 (例如，Linux 叢集的 SSH 工作階段) 使用 `storm kill TOPOLOGYNAME` 命令，或使用 Storm UI 選取拓撲，然後選取 [刪除] 按鈕。
+> [AZURE.NOTE] Storm 拓撲啟動之後會一直執行到停止 (刪除) 為止。 若要停止拓撲，請從命令列 (例如，Linux 叢集的 SSH 工作階段) 使用 `storm kill TOPOLOGYNAME` 命令，或使用 Storm UI 選取拓撲，然後選取 [刪除] 按鈕。
 
 ##使用 Clojure 拓撲的 Python 元件
 
-> [AZURE.NOTE]此範例位於 https://github.com/Blackmist/hdinsight-python-storm-wordcount 的 __ClojureTopology__ 目錄中。
+> [AZURE.NOTE] 此範例可於 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) 的 __ClojureTopology__ 目錄中取得。
 
 此拓撲由 [Leiningen](http://leiningen.org) 建立，用於[建立新的 Clojure 專案](https://github.com/technomancy/leiningen/blob/stable/doc/TUTORIAL.md#creating-a-project)。之後，已建立結構的專案經過下列修改：
 
@@ -165,7 +167,7 @@ __如果要建置 Uberjar 並部署至 HDInsight__，請使用下列步驟：
 
             最後，選取 [提交] 啟動拓撲。
 
-> [AZURE.NOTE]Storm 拓撲啟動之後會一直執行到停止 (刪除) 為止。 若要停止拓撲，請從命令列 (Linux 叢集的 SSH 工作階段) 使用 `storm kill TOPOLOGYNAME` 命令，或使用 Storm UI 選取拓撲，然後選取 [刪除] 按鈕。
+> [AZURE.NOTE] Storm 拓撲啟動之後會一直執行到停止 (刪除) 為止。 若要停止拓撲，請從命令列 (Linux 叢集的 SSH 工作階段) 使用 `storm kill TOPOLOGYNAME` 命令，或使用 Storm UI 選取拓撲，然後選取 [刪除] 按鈕。
 
 ##Pyleus 架構
 
@@ -175,7 +177,7 @@ __如果要建置 Uberjar 並部署至 HDInsight__，請使用下列步驟：
 * __以 MessagePack 為基礎的序列化程式__：使用 MessagePack 做為預設序列化，而不是 JSON。這可以加速元件之間的傳訊
 * __相依性管理__：使用 Virtualenv 確保 Python 相依性部署至所有背景工作角色節點。這需要在背景工作角色節點上安裝 Virtualenv
 
-> [AZURE.IMPORTANT]Pyleus 要求您的開發環境上必須有 Storm。使用基本 Apache Storm 0.9.3 散發可能會導致 jar 與 HDInsight 隨附的 Storm 版本不相容。因此，下列步驟使用 HDInsight 做為開發環境。
+> [AZURE.IMPORTANT] Pyleus 要求您的開發環境上必須有 Storm。使用基本 Apache Storm 0.9.3 散發可能會導致 jar 與 HDInsight 隨附的 Storm 版本不相容。因此，下列步驟使用 HDInsight 做為開發環境。
 
 使用 HDInsight 前端節點做為建置環境，就可以順利建置範例 Pyleus 拓撲。
 
@@ -184,7 +186,7 @@ __如果要建置 Uberjar 並部署至 HDInsight__，請使用下列步驟：
     * __名稱__：在這裡提供易記名稱
     * \_\_ 指令碼 URI\_\_：使用 `https://hditutorialdata.blob.core.windows.net/customizecluster/pythonvirtualenv.sh` 做為值。此指令碼會在節點上安裝 Python Virtualenv。
     
-        > [AZURE.NOTE]它也會建立一些目錄，供本文件稍後的 Streamparse 架構使用。
+        > [AZURE.NOTE] 它也會建立一些目錄，供本文件稍後的 Streamparse 架構使用。
         
     * __Nimbus__：勾選此項目將指令碼套用到 Nimbus (前端) 節點。
     * __監督員__：勾選此項目將指令碼套用到監督員 (背景工作角色) 節點
@@ -230,7 +232,7 @@ __如果要建置 Uberjar 並部署至 HDInsight__，請使用下列步驟：
 * __相依性管理__：使用 Virtualenv 確保 Python 相依性部署至所有背景工作角色節點。這需要在背景工作角色節點上安裝 Virtualenv
 * __遠端部署__：Streamparse 可以使用 SSH 自動化將元件部署至背景工作角色節點，而且可以建立 SSH 通道來與 Nimbus 進行通訊。讓您輕鬆地從開發環境部署至以 Linux 為基礎的叢集，例如 HDInsight
 
-> [AZURE.IMPORTANT]Streamparse 依賴的元件需要有 [Unix 訊號](https://en.wikipedia.org/wiki/Unix_signal) (在 Windows 上沒有)。您的開發環境必須是 Linux、Unix 或 OS X，而且 HDInsight 叢集必須以 Linux 為基礎。
+> [AZURE.IMPORTANT] Streamparse 依賴的元件需要有 [Unix 訊號](https://en.wikipedia.org/wiki/Unix_signal) (在 Windows 上沒有)。您的開發環境必須是 Linux、Unix 或 OS X，而且 HDInsight 叢集必須以 Linux 為基礎。
 
 1. 在 HDInsight 叢集上佈建新的 Storm 時，您必須確定 Python Virtualenv 存在於叢集節點上。建立以 Linux 為基礎的新 HDInsight 叢集時，請使用下列指令碼動作設定執行[叢集自訂](hdinsight-hadoop-customize-cluster.md)：
 
@@ -241,7 +243,7 @@ __如果要建置 Uberjar 並部署至 HDInsight__，請使用下列步驟：
     
     將其他項目保留空白。
     
-    > [AZURE.WARNING]您也必須使用__公開金鑰__來保護 HDInsight 叢集的 SSH 使用者，才能使用 Streamparse 從遠端部署。
+    > [AZURE.WARNING] 您也必須使用__公開金鑰__來保護 HDInsight 叢集的 SSH 使用者，才能使用 Streamparse 從遠端部署。
     >
     > 如需有關在 HDInsight 上搭配使用密碼與 SSH 的詳細資訊，請參閱下列其中一份文件：
     >
@@ -304,7 +306,7 @@ __如果要建置 Uberjar 並部署至 HDInsight__，請使用下列步驟：
     
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
     
-    > [AZURE.NOTE]根據您的作業系統，完整路徑可能有所不同。例如，在 OS X 上，路徑可能類似於 `/private/tmp/com.apple.launchd.vq2rfuxaso/Listeners`。但是如果代理程式正在執行，應該會傳回某些路徑。
+    > [AZURE.NOTE] 根據您的作業系統，完整路徑可能有所不同。例如，在 OS X 上，路徑可能類似於 `/private/tmp/com.apple.launchd.vq2rfuxaso/Listeners`。但是如果代理程式正在執行，應該會傳回某些路徑。
     
     如果未傳回任何資訊，請使用 `ssh-agent` 命令啟動代理程式。
     
@@ -345,4 +347,4 @@ __如果要建置 Uberjar 並部署至 HDInsight__，請使用下列步驟：
 * [如何使用 Python 串流處理 MapReduce 工作](hdinsight-hadoop-streaming-python.md)
 * [如何在 Pig 和 Hive 中使用 Python 使用者定義函數 (UDF)](hdinsight-python.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

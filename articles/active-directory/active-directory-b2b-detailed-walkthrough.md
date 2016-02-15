@@ -3,7 +3,6 @@
    description="Azure Active Directory B2B 可讓企業合作夥伴選擇性地存取您的公司應用程式，以支援公司間的關係"
    services="active-directory"
    authors="viv-liu"
-   documentationCenter="na"
    manager="cliffdi"
    editor=""
    tags=""/>
@@ -14,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Azure Active Directory (Azure AD) B2B 共同作業預覽版本的詳細逐步解說
+# Azure AD B2B 共同作業預覽：詳細逐步解說
+
 本逐步解說概述如何使用 Azure AD B2B 共同作業。身為 Contoso 的 IT 系統管理員，我們想要與三家合作夥伴公司的員工共用應用程式。所有合作夥伴公司都不需要有 Azure AD。
 
 - 來自簡單合作夥伴組織的 Alice
@@ -80,4 +80,4 @@
 - [外部使用者物件屬性變更](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [目前的預覽版本限制](active-directory-b2b-current-preview-limitations.md)
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

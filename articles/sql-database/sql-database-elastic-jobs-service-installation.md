@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/02/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # 安裝彈性資料庫工作概觀
@@ -24,7 +24,7 @@
 
 ## 必要條件
 * Azure 訂用帳戶。如需免費試用版，請參閱[免費試用版](https://azure.microsoft.com/pricing/free-trial/)。
-* Azure PowerShell 版本 >= 0.8.16。透過 [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376) 安裝最新版本 (0.9.5)。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
+* Azure PowerShell 版本 >= 0.8.16。透過 [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376) 安裝最新版本 (0.9.5)。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 * [NuGet 命令列公用程式](https://nuget.org/nuget.exe)可用來安裝彈性資料庫工作封裝。如需詳細資訊，請參閱 http://docs.nuget.org/docs/start-here/installing-nuget。
 
 ## 下載並匯入彈性資料庫工作 PowerShell 封裝
@@ -167,7 +167,7 @@
 
 	![建立使用者名稱和密碼][2]
 
-6. 按一下 [確定] 按鈕。幾分鐘後會在新的[資源群組](../resource-group-portal.md)中為您建立元件。新的資源群組已釘選到「開始面板」，如下所示。建立後，會在群組中建立所有彈性資料庫工作 (雲端服務、SQL Database、服務匯流排和儲存體)。
+6. 按一下 [確定] 按鈕。幾分鐘後會在新的[資源群組](../azure-portal/resource-group-portal.md)中為您建立元件。新的資源群組已釘選到「開始面板」，如下所示。建立後，會在群組中建立所有彈性資料庫工作 (雲端服務、SQL Database、服務匯流排和儲存體)。
 
 	![「開始面板」中的資源群組][3]
 
@@ -188,4 +188,4 @@
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

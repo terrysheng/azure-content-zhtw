@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="01/26/2016"
    ms.author="rsinha"/>
 
 # Service Fabric 架構
@@ -61,4 +61,4 @@ Service Fabric 類似於任何平台，是由許多子系統建置。這些子�
 ## 可測試性子系統
 可測試性是一組工具套件，專門用來測試建置於 Service Fabric 上的服務。這些工具可讓開發人員輕鬆誘發有意義的錯誤及執行測試案例，並在受控制的安全情況下，執行及驗證服務在其生命週期會發生的各種狀態和轉換情形。可測試性也會提供一種機制，透過執行長時間執行測試以逐一查看各種可能的失敗，而不會減損可用性。這可提供使用者生產環境中的測試。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

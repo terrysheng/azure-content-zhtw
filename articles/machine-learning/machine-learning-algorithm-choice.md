@@ -7,7 +7,7 @@
 	manager="paulettm"
 	editor="cgronlun"
     tags=""/>
-
+    
 <tags
 	ms.service="machine-learning"
     ms.devlang="na"
@@ -25,7 +25,7 @@
 
 **Microsoft Azure Machine Learning 演算法小祕技**可協助您從 Microsoft Azure Machine Learning 演算法資源庫中選擇適合您預測性分析解決方案的機器學習演算法。本文將引導您如何使用它。
 
-> [AZURE.NOTE]若要下載小祕技，並搭配本文使用，請移至[適用於 Microsoft Azure Machine Learning Studio 的機器學習演算法小祕技](machine-learning-algorithm-cheat-sheet.md)。
+> [AZURE.NOTE] 若要下載小祕技，並搭配本文使用，請移至[適用於 Microsoft Azure Machine Learning Studio 的機器學習演算法小祕技](machine-learning-algorithm-cheat-sheet.md)。
 
 請記住，這份小祕技有非常特定的預設對象：一位剛起步的資料科學家，其機器學習的經驗為大學生程度，正試著在 Azure Machine Learning Studio 中選擇要開始使用的演算法。這表示小祕技可能會比較概括且過於簡化，但它可指引您一個可靠的方向。同時這也意味著還有許多演算法並未列入其中。當 Azure 機器學習成長到擁有一組更完整的可用方法時，我們就會新增這些演算法。
 
@@ -37,7 +37,7 @@
 
 以下是 [Cortana 分析資源庫](http://gallery.azureml.net/)中的實驗範例，該實驗對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92)。
 
->[AZURE.TIP]若要下載並列印提供 Machine Learning Studio 功能概觀的圖表，請參閱 [Azure Machine Learning Studio 功能的概觀圖](machine-learning-studio-overview-diagram.md)。
+>[AZURE.TIP] 若要下載並列印提供 Machine Learning Studio 功能概觀的圖表，請參閱 [Azure Machine Learning Studio 功能的概觀圖](machine-learning-studio-overview-diagram.md)。
 
 ## 機器學習的類型
 
@@ -119,11 +119,11 @@
 |[決策叢林](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|低記憶體使用量|
 |[類神經網路](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[支援其他自訂項目](http://go.microsoft.com/fwlink/?LinkId=402867)|
 |[一對多](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|請參閱選定之雙類別的屬性|
-|**迴歸**| | | | | |
-|[線性](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |●|●|4| |
-|[貝氏線性](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| |
-|[決策樹系](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| |
-|[促進式決策樹](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|高記憶體使用量|
+ |**迴歸**| | | | | | 
+ |[線性](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |●|●|4| | 
+ |[貝氏線性](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | 
+ |[決策樹系](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | 
+ |[促進式決策樹](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|高記憶體使用量| 
 |[快速樹系分量](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|分佈而非點預測|
 |[類神經網路](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[支援其他自訂項目](http://go.microsoft.com/fwlink/?LinkId=402867)|
 |[Poisson ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|技術上的對數線性，用於預測計數|
@@ -156,7 +156,7 @@
 
 ![羅吉斯迴歸與只有一項特徵的雙類別資料][4]
 
-***羅吉斯迴歸與只有一項特徵的雙類別資料*** *：類別界限的點就是羅吉斯曲線接近這兩個類別的地方*
+***羅吉斯迴歸與只有一項特徵的雙類別資料****：類別界限的點就是羅吉斯曲線接近這兩個類別的地方*
 
 ### 樹、樹系和叢林
 
@@ -209,7 +209,7 @@
 
 ![以 PCA 為基礎的異常偵測][8]
 
-***以 PCA 為基礎的異常偵測*** *：大部分的資料均可分成舊式的散佈；而大幅偏離該散佈的點都是可疑之處*
+***以 PCA 為基礎的異常偵測****：大部分的資料均可分成舊式的散佈；而大幅偏離該散佈的點都是可疑之處*
 
 ![使用 K-means 分組的資料集][9]
 
@@ -237,4 +237,4 @@ Azure 機器學習中也可存取 [Vowpal Wabbit](https://msdn.microsoft.com/lib
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

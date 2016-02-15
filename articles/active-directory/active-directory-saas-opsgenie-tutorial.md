@@ -3,7 +3,7 @@
 	description="了解如何設定 Azure Active Directory 與 OpsGenie 之間的單一登入"
 	services="active-directory"
 	documentationCenter=""
-	authors="ashimaabrol"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
-	ms.author="v-aabrol"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # 教學課程：Azure Active Directory 與 OpsGenie 整合
@@ -35,7 +35,7 @@
 - 已啟用 OpsGenie 單一登入的訂用帳戶
 
 
-> [AZURE.NOTE]若要測試本教學課程中的步驟，我們不建議使用生產環境。
+> [AZURE.NOTE] 若要測試本教學課程中的步驟，我們不建議使用生產環境。
 
 
 若要測試本教學課程中的步驟，您應該遵循這些建議：
@@ -97,7 +97,7 @@
 
     a.在 [登入 URL] 文字方塊中，輸入使用者用來登入您 OpsGenie 應用程式的 URL (請以下列模式輸入：**“https://app.opsgenie.com/auth/login”**)。
 
-    > [AZURE.NOTE]如果您需要自己的登入 URL，請連絡您的 [OpsGenie 支援小組](mailto:support@opsgenie.com)。
+    > [AZURE.NOTE] 如果您需要自己的登入 URL，請連絡您的 [OpsGenie 支援小組](mailto:support@opsgenie.com)。
 
     b.按 [下一步]。
 
@@ -123,7 +123,7 @@
 
     b.從您下載的憑證建立 Base-64 編碼檔案。
     
-    > [AZURE.NOTE]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](https://www.youtube.com/watch?v=PlgrzUZ-Y1o&feature=youtu.be)。
+    > [AZURE.NOTE] 如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](https://www.youtube.com/watch?v=PlgrzUZ-Y1o&feature=youtu.be)。
 
     c.在記事本中開啟您的 Base-64 編碼憑證，然後把憑證內容複製到剪貼簿，再把該內容貼到 [X.500 憑證] 文字方塊中。
 
@@ -146,11 +146,11 @@
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 按一下頂端功能表中的 [使用者]，來顯示使用者清單。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_03.png) <br>
+3. 若要顯示使用者清單，請按一下功能表頂端的 [使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_03.png) <br>
 
-4. 按一下底部工具列上的 [加入使用者]，來開啟 [加入使用者] 對話方塊。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_04.png) <br>
+4. 若要開啟 [新增使用者] 對話方塊，請按一下底部工具列上的 [新增使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_04.png) <br>
 
-5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_05.png)<br>
+5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行以下步驟：<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_05.png) <br>
 
     a.針對 [使用者類型]，選取 [您組織中的新使用者]。
 
@@ -158,7 +158,7 @@
 
     c.按 [下一步]。
 
-6.  在 [使用者設定檔]對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_06.png)<br>
+6.  在 [使用者設定檔]對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_06.png) <br>
 
     a.在 [名字] 文字方塊中，輸入 **Britta**。
 
@@ -166,7 +166,7 @@
 
     c.在 [顯示名稱] 文字方塊中，輸入 **Britta Simon**。
 
-    d.在 [角色] 清單中，選取 [使用者]。
+    d.在 [角色] 清單中選取 [使用者]。
 
     e.按 [下一步]。
 
@@ -248,4 +248,4 @@ Britta 將會收到一封指示如何設定她的設定檔的電子郵件。
 [204]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-opsgenie-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

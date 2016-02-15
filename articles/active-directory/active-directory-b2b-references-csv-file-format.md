@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Azure Active Directory (Azure AD) B2B 共同作業預覽版本的 CSV 檔案格式
+# Azure AD B2B 共同作業預覽：CSV 檔案格式
 
 預覽版本的 Azure AD B2B 共同作業需要指定合作夥伴使用者資訊的 CSV 檔案透過 Azure AD 入口網站上傳。CSV 檔案應該包含下列必要的標籤，以及視需要包含選擇性欄位。修改範例 CSV 檔案 (如下) 而不變更第一個資料列中的標籤拼字或重新排列資料行。
 
->[AZURE.NOTE]需要標籤的第一列 (例如電子郵件、DisplayName...)，才能成功剖析 CSV 檔案。拼字必須符合以下指定的欄位。這些標籤會識別在其下的內容。對於不必要的選擇性欄位，可以從 CSV 檔案移除它們的標籤。整個資料行可以是空白。
+>[AZURE.NOTE] 需要標籤的第一列 (例如電子郵件、DisplayName...)，才能成功剖析 CSV 檔案。拼字必須符合以下指定的欄位。這些標籤會識別在其下的內容。對於不必要的選擇性欄位，可以從 CSV 檔案移除它們的標籤。整個資料行可以是空白。
 
 ## 必要欄位：<br/>
 **電子郵件：**受邀使用者的電子郵件地址。<br/> **DisplayName：**受邀使用者的顯示名稱 (通常是名字和姓氏)。<br/> **InviteContactUsUrl：**可加入電子郵件邀請中的 URL，方便受邀使用者連絡您的組織。<br/>
@@ -31,9 +31,9 @@
 ## CSV 檔案範例
 以下是您可以修改的範例 CSV 範例。
 
->[AZURE.NOTE]將這個項目複製並貼上至 [記事本]，然後以 '.csv' 副檔名儲存。然後在 Excel 中編輯它。它會結構化成為在第一個資料列中具有標籤的資料表。
+>[AZURE.NOTE] 將這個項目複製並貼上至 [記事本]，然後以 '.csv' 副檔名儲存。然後在 Excel 中編輯它。它會結構化成為在第一個資料列中具有標籤的資料表。
 
->[AZURE.NOTE]在 Excel 中新增更多選擇性欄位，方法是指定標籤及填入其下方的資料行。
+>[AZURE.NOTE] 在 Excel 中新增更多選擇性欄位，方法是指定標籤及填入其下方的資料行。
 
 ```
 Email,DisplayName,InviteAppID,InviteReplyUrl,InviteAppResources,InviteGroupResources,InviteContactUsUrl
@@ -52,4 +52,4 @@ bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.m
 - [外部使用者物件屬性變更](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [目前的預覽版本限制](active-directory-b2b-current-preview-limitations.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

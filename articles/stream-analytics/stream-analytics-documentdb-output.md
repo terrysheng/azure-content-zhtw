@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/23/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"/>
 
 # 從串流分析為適用於 JSON 輸出的 Azure DocumentDB 設定目標
@@ -62,4 +62,4 @@ DocumentDB 集合可讓您根據查詢模式和應用程式的效能需求來分
 -   **分割索引鍵**：輸出事件中的欄位名稱，用來指定跨集合資料分割輸出的索引鍵。若為單一集合輸出，則可使用任何任意的輸出欄，例如 PartitionId。  
 -   **文件識別碼**：可省略。輸出事件中的欄位名稱會用來指定主索引鍵，此為插入或更新作業的依據。  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

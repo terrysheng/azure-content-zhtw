@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 
 # 如何在 DocumentDB 中使用 .NET SDK 分割資料
 
-Azure DocumentDB 是一項文件資料庫服務，可讓您在佈建集合期間，使用 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 和 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) (亦稱為**分區化**) 順利調整帳戶。為了讓您更輕鬆地開發資料分割應用程式，並減少分割工作所需的樣板程式碼數量，我們已在 .NET SDK 中加入功能，讓您可以輕鬆地建立跨多個資料分割向外延展的應用程式。
+Azure DocumentDB 是一項文件資料庫服務，可讓您在佈建集合期間，使用 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 和 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) (亦稱為**分區化**) 順利調整帳戶。為了讓您更輕鬆地開發資料分割應用程式，並減少分割工作所需的樣板程式碼數量，我們已在 .NET、Node.js 和 Java SDK 中加入功能，讓您可以輕鬆地建立跨多個資料分割向外延展的應用程式。
 
 在本文中，我們將探討在 .NET SDK 中的類別和介面，以及如何使用它們來開發資料分割應用程式。
 
@@ -141,10 +141,6 @@ DocumentDB 支援用戶端資料分割的幾個原因如下：
 - 真的很難從開發人員中抽走集合的概念，而不會影響到下列其中任何一項：一致性索引/查詢、高可用性和 ACID 交易保證。 
 - 文件資料庫通常在定義資料分割策略方面需要彈性，而伺服器端方法可能無法容納。 
 
-**為什麼其他平台 (Node.js、Java 或 Python) 不支援資料分割？**
-
-我們將根據 .NET SDK 客戶的意見反映，逐漸推出其他平台的資料分割支援。
-
 **如何將集合新增或移除至我的資料分割配置？**
 
 如需如何實作重新分割的範例，請查看範例專案中的 DocumentClientHashPartitioningManager 實作。
@@ -167,4 +163,4 @@ DocumentDB 支援用戶端資料分割的幾個原因如下：
 * [有關效能秘訣的 DocumentDB 部落格](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="02/03/2016"
 	ms.author="chhavib;cgronlun;garye"/>
 
 
@@ -136,4 +136,4 @@ Cortana 分析資源庫可讓您只要按一個按鍵，就可以輕鬆地將預
 
 **[帶領我到資源庫 >>](http://gallery.cortanaanalytics.com)**
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

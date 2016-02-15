@@ -62,7 +62,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器和實體伺服
 	- *.blob.core.windows.net
 	- *.store.core.windows.net
 	
-- 此外，允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/zh-TW/download/details.aspx?id=41653)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
+- 此外，允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 
 
 下圖顯示 Site Recovery 為協調流程與複寫所使用的不同通訊通道與連接埠
@@ -292,4 +292,4 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器和實體伺服
 
 在您的部署設定完成並開始執行之後，[深入了解](site-recovery-failover.md)容錯移轉。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

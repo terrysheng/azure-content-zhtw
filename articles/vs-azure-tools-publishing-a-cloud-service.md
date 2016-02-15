@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # 使用 Azure Tools 發佈雲端服務
@@ -21,7 +21,7 @@
 
 您必須具有 Azure 訂用帳戶才可以發佈 Azure 應用程式。您也必須設定要供應用程式使用的雲端服務和儲存體帳戶。在 [Azure 管理入口網站](http://go.microsoft.com/fwlink/?LinkID=213885)即可進行這些設定。
 
->[AZURE.IMPORTANT]在發佈時，您可以為雲端服務選取部署環境。您也必須選取用來儲存部署所需應用程式套件的儲存體帳戶。在部署後，就會從儲存體帳戶移除應用程式套件。如需如何設定這些服務的詳細資訊，請參閱[設定從 Visual Studio 發佈雲端服務所需的服務](vs-azure-tools-setting-up-services-required-to-publish-a-cloud-service-from-visual-studio.md)。
+>[AZURE.IMPORTANT] 在發佈時，您可以為雲端服務選取部署環境。您也必須選取用來儲存部署所需應用程式套件的儲存體帳戶。在部署後，就會從儲存體帳戶移除應用程式套件。
 
 在開發和測試 Azure 應用程式時，可以使用 Web Deploy 以累加方式對 Web 角色發佈變更。在將應用程式發佈至部署環境後，Web Deploy 可讓您直接將變更部署至執行 Web 角色的虛擬機器。您不必在每次想要更新 Web 角色以測試變更時封裝和發佈整個 Azure 應用程式。透過這個方法，即可在雲端提供 Web 角色變更來進行測試，而不必等到應用程式發佈至部署環境後才進行。
 
@@ -61,7 +61,7 @@
 
 1. (選用) 若要取消部署程序，請在活動記錄檔細目的捷徑功能表上，選擇 [取消並移除]。這會停止部署程序，並從 Azure 中刪除部署環境。
 
-    >[AZURE.NOTE]若要在部署此部署環境後將其移除，您必須使用 Azure 管理入口網站。
+    >[AZURE.NOTE] 若要在部署此部署環境後將其移除，您必須使用 Azure 管理入口網站。
 
 1. (選用) 角色執行個體啟動後，Visual Studio 會自動在 [伺服器總管] 的 [雲端服務] 節點中顯示部署環境。您可以從這裡檢視個別角色執行個體的狀態。請參閱[使用雲端總管管理 Azure 資源](vs-azure-tools-resources-managing-with-cloud-explorer.md)。下圖顯示仍處於初始化狀態的角色執行個體：
 
@@ -97,7 +97,7 @@
 
     雲端服務隨即進行發佈。所建立的虛擬機器已啟用遠端連線的 IIS 功能，因此可以使用 Web Deploy 來更新 Web 角色，而不必重新發佈。
 
-    >[AZURE.NOTE]如果您對 Web 角色設定了多個執行個體，則會出現警告訊息，指出在為了發佈應用程式所建立的封裝中，每個 Web 角色限制只能有一個執行個體。按一下 [確定] 以繼續。如＜需求＞一節所述，您可以有多個 Web 角色，但每個角色只能有一個執行個體。
+    >[AZURE.NOTE] 如果您對 Web 角色設定了多個執行個體，則會出現警告訊息，指出在為了發佈應用程式所建立的封裝中，每個 Web 角色限制只能有一個執行個體。按一下 [確定] 以繼續。如＜需求＞一節所述，您可以有多個 Web 角色，但每個角色只能有一個執行個體。
 
 ### 使用 Web Deploy 更新 Web 角色
 
@@ -131,7 +131,7 @@
 
   1. 若要新增 SSL 憑證，請開啟 IIS 管理員中的管理服務。在 IIS 管理員中，開啟 [動作] 窗格中的 [繫結] 連結來啟用 SSL。[新增站台繫結] 對話方塊隨即出現。選擇 [新增]，然後在 [類型] 下拉式清單中選擇 HTTPS。在 [SSL 憑證] 清單中，選擇您已透過 CA 簽署並上傳至 Azure 管理入口網站的 SSL 憑證。如需詳細資訊，請參閱[設定管理服務的連線設定](http://go.microsoft.com/fwlink/?LinkId=215824)。
 
-      >[AZURE.NOTE]如果您新增受信任的 SSL 憑證，[發佈精靈] 中就不會再出現黃色警告三角形。
+      >[AZURE.NOTE] 如果您新增受信任的 SSL 憑證，[發佈精靈] 中就不會再出現黃色警告三角形。
 
 ## 將檔案納入服務封裝
 
@@ -173,4 +173,4 @@
 
 若要深入了解如何從 Visual Studio 發佈至 Azure，請參閱[發佈 Azure 應用程式精靈](vs-azure-tools-publish-azure-application-wizard.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

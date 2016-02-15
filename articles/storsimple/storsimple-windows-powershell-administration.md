@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/28/2015"
+   ms.date="01/29/2016"
    ms.author="alkohli@microsoft.com" />
 
 # 使用 Windows PowerShell for StorSimple 管理您的裝置
@@ -31,7 +31,7 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 
 - 在 Windows PowerShell for StorSimple 中取得說明。
 
->[AZURE.NOTE]
+>[AZURE.NOTE] 	
 
 >- Windows PowerShell for StorSimple 的 Cmdlet 可讓您從序列主控台管理 StorSimple 裝置或透過「Windows PowerShell 遠端」進行管理。如需此介面可使用的各個 Cmdlet 的詳細資訊，請移至 [Windows PowerShell for StorSimple 的 Cmdlet 參考資料](https://technet.microsoft.com/library/dn688168.aspx).
 
@@ -47,49 +47,15 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 
 您可以[下載 PuTTY](http://www.putty.org/) 或類似的終端機模擬軟體，以連線至 Windows PowerShell for StorSimple。您需要將 PuTTY 設定為專門存取 Microsoft Azure StorSimple 裝置。下列主題包含如何設定 PuTTy 並連接至裝置的詳細步驟。並且說明序列主控台中的各種功能表選項。
 
-### 關於序列主控台
-
-當您透過序列主控台存取 StorSimple 裝置的 Windows PowerShell 介面時，會顯示一則橫幅訊息，後面接著功能表選項。
-
-橫幅訊息包含基本的 StorSimple 裝置資訊，例如：型號、名稱、已安裝的軟體版本、您要存取的控制器的狀態等。下圖為橫幅訊息的範例。
-
-![序列橫幅訊息](./media/storsimple-windows-powershell-administration/IC741098.png)
-
-
-
->[AZURE.IMPORTANT]您可以從橫幅中辨別出您連線的控制器是主動或被動。
-
-
-下圖顯示序列主控台功能表中可用的各種 Runspace 選項。
-
-![註冊裝置 2](./media/storsimple-windows-powershell-administration/IC740906.png)
-
-您可選擇下列設定：
-
-1. **登入並具備完整存取權** 此選項可讓您連線 (使用適當的認證) 至本機控制器上的 **SSAdminConsole** Runspace。(本機控制器是您目前正透過 StorSimple 裝置序列主控台存取的控制器)。 也可使用此選項讓「Microsoft 支援」存取不受限制的 Runspace (支援工作階段)，以對任何可能的裝置問題進行疑難排解。使用選項 1 登入之後，您可以允許 Microsoft 支援工程師執行特定 Cmdlet 去存取不受限制的 Runspace。如需詳細資訊，請參閱[啟動支援工作階段](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)。
-
-1. **登入對等控制器並具備完整存取權** 此選項和選項 1 相同，不過是讓您連線 (使用適當的認證) 至對等控制器上的 **SSAdminConsole** Runspace。因為 StorSimple 裝置是高可用性的裝置，具有兩個主動-被動組態的控制器；對等指的是您透過序列主控台存取的裝置中的其他控制器。和選項 1 類似，此選項也可用於讓「Microsoft 支援」存取對等控制器上不受限制的 Runspace。
-
-1. **連線並具備有限存取權** 此選項用於在有限制的模式下存取 Windows PowerShell 介面。系統不會提示您輸入存取認證。相較於選項 1 和 2，此選項會連線至更多限制的 Runspace。採取選項 1 可使用的工作，其中一些在此 Runspace 中不能執行：
-
-	- 重設為原廠設定
-	- 變更密碼
-	- 啟用或停用支援存取
-	- 套用更新
-	- 安裝 Hotfix 
-												
-
-	>[AZURE.NOTE]**如果您忘記裝置管理員密碼並透過選項 1 或 2無法連線，這是慣用的選項。**
-
-1. **變更語言** 此選項可讓您變更 Windows PowerShell 介面上的顯示語言。支援的語言有英文、日文、俄文、法文、南韓文、西班牙文、義大利文、德文、中文和巴西葡萄牙文。
+### PuTTY 設定
 
 請確定您使用下列的 PuTTY 設定從序列主控台連線到 Windows PowerShell 介面。
 
 #### 設定 PuTTY
 
-1. 在 PuTTY [重新設定] 對話方塊的 [**類別**] 窗格中，選取 [**鍵盤**]。
+1. 在 PuTTY [重新設定] 對話方塊的 [類別] 窗格中，選取 [鍵盤]。
 
-1. 請確定已選取下列選項 (當您啟動新的工作階段時，這些是預設設定)。
+2. 請確定已選取下列選項 (當您啟動新的工作階段時，這些是預設設定)。
 
  	|鍵盤項目|選取|
  	|---|---|
@@ -102,31 +68,65 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 
 	![支援的 PuTTY 設定](./media/storsimple-windows-powershell-administration/IC740877.png)
 
-1. 按一下 [Apply (套用)]。
+3. 按一下 [Apply (套用)]。
 
-1. 在 [**類別**] 窗格中，選取 [**轉譯**]。
+4. 在 [**類別**] 窗格中，選取 [**轉譯**]。
 
-1. 在 [**遠端字元集**] 清單方塊中，選取 [**UTF-8**]。
+5. 在 [**遠端字元集**] 清單方塊中，選取 [**UTF-8**]。
 
-1. 在 [**線條繪圖字元的處理**] 下，選取 [**使用 Unicode 線條繪圖字碼指標**]。下圖顯示正確的 PuTTY 選取。
+6. 在 [**線條繪圖字元的處理**] 下，選取 [**使用 Unicode 線條繪圖字碼指標**]。下圖顯示正確的 PuTTY 選取。
 
 	![UTF PuTTY 設定](./media/storsimple-windows-powershell-administration/IC740878.png)
 
-1. 按一下 [Apply (套用)]。
+7. 按一下 [Apply (套用)]。
 
 
-您可以執行以下步驟使用 PuTTY 來連線至裝置序列主控台：
+現在，您可以執行下列步驟，來使用 PuTTY 連線至裝置序列主控台。
 
 [AZURE.INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
 
+### 關於序列主控台
+
+當您透過序列主控台存取 StorSimple 裝置的 Windows PowerShell 介面時，會顯示一則橫幅訊息，後面接著功能表選項。
+
+橫幅訊息包含基本的 StorSimple 裝置資訊，例如：型號、名稱、已安裝的軟體版本、您要存取的控制器的狀態等。下圖為橫幅訊息的範例。
+
+![序列橫幅訊息](./media/storsimple-windows-powershell-administration/IC741098.png)
+
+>[AZURE.IMPORTANT] 您可以從橫幅中辨別出您連線的控制器是主動或被動。
+
+下圖顯示序列主控台功能表中可用的各種 Runspace 選項。
+
+![註冊裝置 2](./media/storsimple-windows-powershell-administration/IC740906.png)
+
+您可選擇下列設定：
+
+1. **登入並具備完整存取權** 此選項可讓您連線 (使用適當的認證) 至本機控制器上的 **SSAdminConsole** Runspace。(本機控制器是您目前正透過 StorSimple 裝置序列主控台存取的控制器)。 也可使用此選項讓「Microsoft 支援」存取不受限制的 Runspace (支援工作階段)，以對任何可能的裝置問題進行疑難排解。使用選項 1 登入之後，您可以允許 Microsoft 支援工程師執行特定 Cmdlet 去存取不受限制的 Runspace。如需詳細資訊，請參閱[啟動支援工作階段](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)。
+
+2. **登入對等控制器並具備完整存取權** 此選項和選項 1 相同，不過是讓您連線 (使用適當的認證) 至對等控制器上的 **SSAdminConsole** Runspace。因為 StorSimple 裝置是高可用性的裝置，具有兩個主動-被動組態的控制器；對等指的是您透過序列主控台存取的裝置中的其他控制器。和選項 1 類似，此選項也可用於讓「Microsoft 支援」存取對等控制器上不受限制的 Runspace。
+
+3. **連線並具備有限存取權** 此選項用於在有限制的模式下存取 Windows PowerShell 介面。系統不會提示您輸入存取認證。相較於選項 1 和 2，此選項會連線至更多限制的 Runspace。採取選項 1 可使用的工作，其中一些在此 Runspace 中不能執行：
+
+	- 重設為原廠設定
+	- 變更密碼
+	- 啟用或停用支援存取
+	- 套用更新
+	- 安裝 Hotfix 
+												
+
+	>[AZURE.NOTE] **如果您忘記裝置管理員密碼並透過選項 1 或 2無法連線，這是慣用的選項。**
+
+4. **變更語言** 此選項可讓您變更 Windows PowerShell 介面上的顯示語言。支援的語言有英文、日文、俄文、法文、南韓文、西班牙文、義大利文、德文、中文和巴西葡萄牙文。
+
+
 ## 使用 Windows PowerShell 遠端連線至 StorSimple
-使用 Windows PowerShell 遠端連線到 StorSimple 裝置。當您以這種方式連線時，將不會看到功能表。(只有當您使用裝置上的序列主控台進行連線時，才會看到功能表)。 使用 Windows PowerShell 遠端連線到特定的 Runspace。您也可以指定顯示語言。
+
+使用 Windows PowerShell 遠端連線到 StorSimple 裝置。當您以這種方式連線時，將不會看到功能表。(只有在您使用裝置上的序列主控台來連線時，才會看到功能表。遠端連線會直接帶您前往與序列主控台上「選項 1：完整存取」對等的地方。) 使用 Windows PowerShell 遠端連線到特定的 Runspace。您也可以指定顯示語言。
 
 您使用序列主控台功能表中的 [變更語言] 選項設定的語言，和顯示語言無關。若未指定您的連線裝置的地區設定，遠端 PowerShell 將會自動為其挑選。
 
->[AZURE.NOTE]如果您正在使用 Microsoft Azure 虛擬主機和 StorSimple 虛擬裝置，您可以使用「Windows PowerShell 遠端」和虛擬主機來連線至虛擬裝置。如果您已從 Windows PowerShell 工作階段設定用來儲存資訊的主機上的共用位置，應該留意「所有人」主體只包含已驗證的使用者。因此，如果您設定共用為允許所有人存取，且您連線未指定認證，則系統將使用未經驗證的「匿名」主體，而您將會看到錯誤。若要修正此問題，在共用主機上您必須啟用「來賓」帳戶，然後給來賓帳戶完整存取權以進行共用，或您必須指定有效的認證以及 Windows PowerShell Cmdlet。
-
+>[AZURE.NOTE] 如果您正在使用 Microsoft Azure 虛擬主機和 StorSimple 虛擬裝置，您可以使用「Windows PowerShell 遠端」和虛擬主機來連線至虛擬裝置。如果您已經在主機上設定共用位置，來儲存 Windows PowerShell 工作階段的資訊，請注意「所有人」主體只能包含已經過驗證的使用者。因此，如果您將共用設定為允許所有人存取，且您連線時未指定認證，則系統將會使用未經驗證的匿名主體，而您會看到錯誤訊息。若要修正此問題，在共用主機上您必須啟用「來賓」帳戶，然後給來賓帳戶完整存取權以進行共用，或您必須指定有效的認證以及 Windows PowerShell Cmdlet。
 
 您可以透過 Windows PowerShell 遠端使用 HTTP 或 HTTPS 進行連線。使用下列教學課程中的指示：
 
@@ -137,15 +137,15 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 
 當您決定如何連線到 Windows PowerShell for StorSimple 時，請考慮下列事項：
 
-- 直接連線至裝置序列主控台是安全的，但透過網路交換器連線至序列主控台則不是。透過網路交換器連線至裝置序列主控台時，請務必注意安全性風險。
+- 直接連線至裝置序列主控台是安全的，但透過網路交換器連線至序列主控台則否。透過網路交換器連線至裝置序列主控台時，請務必注意安全性風險。
 
 - 透過 HTTP 工作階段連線的安全性，比在網路上透過序列主控台連線更高。雖然這不是最安全的方法，但在受信任的網路上是可接受的做法。
 
-- 透過 HTTP 工作階段連線並使用自我簽署憑證，是最安全且建議的選項。
+- 透過 HTTP 工作階段連線是我們建議，且最安全的選項。
 
 
 ## 使用 Windows PowerShell for StorSimple 管理 StorSimple 裝置
-下表摘要顯示所有可在 StorSimple 裝置的Windows PowerShell 介面中執行的一般管理工作和複雜工作流程。如需每個工作流程的詳細資訊，請按一下表格中的適當項目。
+下表顯示所有一般管理工作及複雜工作流程 (可在您 StorSimple 裝置的 Windows PowerShell 介面執行) 的摘要。如需每個工作流程的詳細資訊，請按一下資料表中適當的項目。
 
 #### Windows PowerShell for StorSimple 的工作流程
 
@@ -183,7 +183,7 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 
 #### 更新 Cmdlet 說明
 
-1. 請使用 [以系統管理員身分執行] 選項啟動 Windows PowerShell。
+1. 請使用 [**以系統管理員身分執行**] 選項啟動 Windows PowerShell。
 
 1. 在命令提示字元中，輸入：`Update-Help`
 
@@ -192,9 +192,9 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 1. 在說明檔案安裝之後，輸入：`Get-Help Get-Command`。將會顯示可用說明的 Cmdlet 清單。
 
 
->[AZURE.NOTE]若要取得任何 Runspace 中所有可用 Cmdlet 的清單，請登入對應的功能表選項並執行 `Get-Command` Cmdlet。
+>[AZURE.NOTE] 若要取得任何 Runspace 中所有可用 Cmdlet 的清單，請登入對應的功能表選項並執行 `Get-Command` Cmdlet。
 
 ## 後續步驟
 如果您在執行上述任何工作流程時遇到任何 StorSimple 裝置的問題，請參閱[適用於疑難排解 StorSimple 部署的工具](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

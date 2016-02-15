@@ -215,9 +215,8 @@
 
 7. **設定路由和連結 VNet**
 
-	a.**建立路由設定。** 如需逐步指示，請參閱[建立和修改 ExpressRoute 線路的路由](expressroute-howto-routing-arm.md)。
-
-		>[AZURE.NOTE] The instructions for routing only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
+	a.**建立路由設定。** 如需逐步指示，請參閱[建立和修改 ExpressRoute 線路的路由](expressroute-howto-routing-arm.md)。請注意，這些路由指示只適用於由提供第 2 層連線服務的服務提供者所建立的線路。如果您使用的服務提供者是提供受管理的第 3 層服務 (通常是 IPVPN，如 MPLS)，您的連線提供者會為您設定和管理路由。在此情況下，您無法建立或管理對等。
+	
 	b.**將 VNet 連結到 ExpressRoute 線路。** 確認路由已設定完成後，您必須將 VNet 連結至 ExpressRoute 線路。如需逐步指示，請參閱[將虛擬網路連結至 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)。
 
 ##  取得 ExpressRoute 線路的狀態
@@ -357,7 +356,7 @@
 
 建立好線路後，請務必執行下列作業：
 
-1.  建立和修改[ ExpressRoute 線路的路由](expressroute-howto-routing-arm.md)
+1.  [建立和修改 ExpressRoute 線路的路由](expressroute-howto-routing-arm.md)
 2.  [將虛擬網路連結至 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

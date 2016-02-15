@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="12/11/2015" 
+	ms.date="02/03/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -114,7 +114,8 @@
 * **Description** 元素的內容長度不能超過 128 個字元。
 * **Owner** 元素的內容長度不能超過 32 個字元。
 
-** 表示模組的結果具決定性或不具決定性
+
+**表示模組的結果具決定性或不具決定性**
 
 預設會將所有模組視為具決定性。也就是說，如果提供一組不變的參數，模組每次執行時都應該傳回相同的結果。在這個行為下，除非參數或輸入資料有所變更，否則 Azure Machine Learning Studio 不會重新執行標示為具決定性的模組。傳回的快取結果會使實驗執行更快。
 
@@ -170,8 +171,6 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。�
 	</Output>
 
 對於自訂 R 模組中的輸出，**id** 屬性值不一定要對應至 R 指令碼中的任何項目，但它必須是唯一的。對於單一模組輸出，R 函數中的傳回值必須是 *data.frame*。若要輸出多個支援的資料類型的物件，必須在 XML 定義檔中指定適當的輸出連接埠，而且必須以清單形式傳回物件。輸出物件將從左到右指派給輸出連接埠，以反映物件置於傳回清單中的順序。
- 
-例如，如果您要將 dataset、Dataset1 和 Dataset2 從左到右分別輸出到輸出連接埠 dataset、dataset1 和 dataset2，請在 ‘CustomAddRows.xml’ 檔案中定義輸出連接埠，如下所示：
 
 例如，如果您要修改 [自訂新增資料列] 模組，使其除了新加入的資料集 *dataset* 之外，還要輸出兩個原始資料集 *dataset1* 和 *dataset2* (依照從左到右的順序：*dataset*、*dataset1*、*dataset2*)，請在 CustomAddRows.xml 檔案中定義輸出連接埠，如下所示：
 
@@ -363,4 +362,4 @@ R 指令碼的執行環境使用與 **Execute R Script** 模組相同的 R 版�
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：限制
@@ -28,7 +28,7 @@ Azure Active Directory (AD) B2C 有幾項功能在預覽期間還不支援。在
 
 ## 驗證電子郵件上的商標問題
 
-預設驗證電子郵件包含 "Microsoft" 商標。未來我們會將它移除。目前，您可以使用[公司商標功能](./active-directory/active-directory-add-company-branding.md)將它移除。
+預設驗證電子郵件包含 "Microsoft" 商標。未來我們會將它移除。目前，您可以使用[公司商標功能](../active-directory/active-directory-add-company-branding.md)將它移除。
 
 ## 支援實際執行應用程式
 
@@ -68,7 +68,7 @@ Azure AD B2C 預覽支援 OpenID Connect 和 OAuth 2.0。不過，並非每個�
 
 ## 權杖的限制
 
-許多由 Azure AD B2C 預覽所簽發的權杖都實作為 JSON Web Token (簡稱 JWT)。不過，並非 JWT 中包含的所有資訊 (又稱為「宣告」) 都相當完備，不然就是有所疏漏。例如 "sub" 和 "preferred\_username" 宣告。在預覽期間，此處的資訊會有很大的變化。若要進一步了解目前 Azure AD B2C 服務所發出的權杖，請參閱[權杖參考](active-directory-b2c-tokens.md)。
+許多由 Azure AD B2C 預覽所簽發的權杖都實作為 JSON Web Token (簡稱 JWT)。不過，並非 JWT 中包含的所有資訊 (又稱為「宣告」) 都相當完備，不然就是有所疏漏。例如 "sub" 和 "preferred\_username" 宣告。在預覽期間，此處的資訊會有很大的變化。若要進一步了解目前 Azure AD B2C 服務所發出的權杖，請參閱[權杖參考](active-directory-b2c-reference-tokens.md)。
 
 ## Azure 傳統入口網站上的使用者管理問題
 
@@ -94,6 +94,6 @@ Azure AD B2C 預覽支援 OpenID Connect 和 OAuth 2.0。不過，並非每個�
 
 ## Azure 入口網站上的警告訊息
 
-當您在 Azure 入口網站上存取 B2C 設定刀鋒視窗時，您會在 [通知] \(位於右上角) 底下看到一則警告訊息。訊息內容指出：「您在 <B2CTenantName> 目錄中沒有任何訂用帳戶。您有可以切換至的其他目錄。」其中 <B2CTenantName> 是 B2C 租用戶的名稱。您可以放心忽略此訊息，並繼續存取 B2C 功能。我們正在和 Azure 入口網站團隊合作修正此問題。
+當您在 Azure 入口網站上存取 B2C 設定刀鋒視窗時，您會在 [通知] (位於右上角) 底下看到一則警告訊息。訊息內容指出：「您在 <B2CTenantName> 目錄中沒有任何訂用帳戶。您有可以切換至的其他目錄。」其中 <B2CTenantName> 是 B2C 租用戶的名稱。您可以放心忽略此訊息，並繼續存取 B2C 功能。我們正在和 Azure 入口網站團隊合作修正此問題。
 
-<!----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

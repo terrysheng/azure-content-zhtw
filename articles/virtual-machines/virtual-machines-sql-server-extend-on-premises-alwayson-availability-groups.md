@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="將內部部署 AlwaysOn 可用性群組延伸至 Azure | Microsoft Azure"
 	description="本教學課程使用隨傳統部署模型建立的資源，並說明如何在 SQL Server Management Studio (SSMS) 中使用 [加入複本精靈]，以在 Azure 中加入 AlwaysOn 可用性群組複本。"
 	services="virtual-machines"
@@ -8,13 +8,13 @@
 	editor="monicar"
 	tags="azure-service-management"/>
 
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # 將內部部署 AlwaysOn 可用性群組延伸至 Azure
@@ -65,7 +65,7 @@ AlwaysOn 可用性群組可透過新增次要複本，為資料庫群組提供�
 |**VM 使用者名稱**|指定將成為 VM 系統管理員帳戶的使用者名稱|
 |**VM 系統管理員密碼**|指定新帳戶的密碼|
 |**確認密碼**|確認新帳戶的密碼|
-|**虛擬網路**|指定新 VM 應使用的 Azure 虛擬網路。如需虛擬網路的詳細資訊，請參閱[虛擬網路概觀](..\virtual-network\virtual-networks-overview.md)。|
+|**虛擬網路**|指定新 VM 應使用的 Azure 虛擬網路。如需虛擬網路的詳細資訊，請參閱[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。|
 |**虛擬網路子網路**|指定新 VM 應使用的虛擬網路子網路|
 |**網域**|請確認預先填入的網域值是正確的|
 |**網域使用者名稱**|指定位於本機叢集節點上之本機系統管理員群組的帳戶|
@@ -91,7 +91,7 @@ AlwaysOn 可用性群組可透過新增次要複本，為資料庫群組提供�
 
 1. 佈建程序隨即開始。當精靈成功完成時，按一下 [關閉] 以結束精靈。
 
->[AZURE.NOTE] [加入 Azure 複本精靈] 會在 <Users><使用者名稱>\\AppData\\Local\\SQL Server\\AddReplicaWizard 中建立記錄檔。此記錄檔可用來疑難排解失敗的 Azure 複本部署。如果精靈無法執行任何動作，則所有先前的作業皆會回復，包括刪除佈建的 VM。
+>[AZURE.NOTE] [加入 Azure 複本精靈] 會在下列位置建立記錄檔：Users\\User Name\\AppData\\Local\\SQL Server\\AddReplicaWizard。此記錄檔可用來疑難排解失敗的 Azure 複本部署。如果精靈無法執行任何動作，則所有先前的作業皆會回復，包括刪除佈建的 VM。
 
 ## 建立可用性群組接聽程式
 
@@ -103,4 +103,4 @@ AlwaysOn 可用性群組可透過新增次要複本，為資料庫群組提供�
 
 如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

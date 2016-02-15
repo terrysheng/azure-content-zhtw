@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="11/06/2015"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"/>
 
 # 協助您選擇串流分析平台：Apache Storm 與 Azure 串流分析之間的比較
@@ -122,7 +122,7 @@
                     串流分析是依所處理的資料量，和需要的串流單位數量 (根據每小時執行的工作數量) 計費。
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">如需進一步的價格資訊，請參閱這裡</a>。
+                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">如需進一步的價格資訊，請參閱這裡。</a>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -588,4 +588,4 @@
     </tbody>
 </table>
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -30,19 +30,19 @@
 2. 如要執行模組，請在開始視窗中鍵入 **Microsoft Azure PowerShell**。
 3. 如果您尚未將帳戶加入電腦，請執行下列 Cmdlet。(如需詳細資訊，請參閱[如何安裝及設定 Azure PowerShell]()：
 
-```
-Add-AzureAccount
-```
+	```
+	Login-AzureRmAccount
+	```
 
 3. 針對您想要暫停或繼續的資料庫選取您的訂用帳戶。這將會選取名稱為 "MySubscription" 的訂用帳戶。
 
-```
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
-```
+	```
+	Select-AzureRmSubscription -SubscriptionName "MySubscription"
+	```
 
 ## Suspend-AzureRmSqlDatabase
 
-如需命令參考，請參閱 [Suspend-AzureRmSQLDatabase](https://msdn.microsoft.com/library/mt619337.aspx)。
+如需命令的參考資料，請參閱 [Suspend-AzureRmSQLDatabase](https://msdn.microsoft.com/library/mt619337.aspx)。
 
 ### 範例 1：依名稱在伺服器上暫停資料庫
 
@@ -64,7 +64,7 @@ $resultDatabase
 
 ## Resume-AzureSqlDatabase
 
-如需命令參考，請參閱 [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)
+如需命令的參考資料，請參閱 [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)。
 
 ### 範例 1：依名稱在伺服器上繼續資料庫
 
@@ -113,7 +113,7 @@ $retorePoints
 ```
 
 
-> [AZURE.NOTE]請注意，如果您的伺服器是 foo.database.windows.net，請使用 "foo" 作為 Powershell Cmdlet 中的 -ServerName。
+> [AZURE.NOTE] 請注意，如果您的伺服器是 foo.database.windows.net，請使用 "foo" 作為 Powershell Cmdlet 中的 -ServerName。
 
 
 ## 後續步驟
@@ -133,4 +133,4 @@ $retorePoints
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

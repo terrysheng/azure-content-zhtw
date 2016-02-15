@@ -1,20 +1,20 @@
 <properties
-   pageTitle="疑難排解 Internet explorer 的存取面板延伸模組 | Microsoft Azure"
-   description="如何使用群組原則針對我的 app 入口網站部署 Internet Explorer 附加元件。"
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="疑難排解 Internet explorer 的存取面板延伸模組 | Microsoft Azure"
+    description="如何使用群組原則針對我的 app 入口網站部署 Internet Explorer 附加元件。"
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/28/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/02/2016"
+    ms.author="liviodlc"/>
 
 #疑難排解 Internet explorer 的存取面板延伸模組
 
@@ -29,7 +29,7 @@
 
 您可以下載並執行「存取面板」診斷工具來診斷存取面板延伸模組的安裝問題：
 
-1. [按一下這裡下載診斷工具](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)。
+1. [按一下這裡下載診斷工具。](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
 
 2. 開啟檔案，然後按下 [解壓縮全部] 按鈕。
 
@@ -105,4 +105,4 @@
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

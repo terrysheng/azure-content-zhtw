@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 #透過在 HDInsight 上將 Apache Mahout 與 Linux 架構的 Hadoop 搭配使用來產生電影推薦 (預覽)
@@ -25,7 +25,7 @@
 
 Mahout 是 Apache Hadoop 的[機器學習][ml]庫。Mahout 包含可處理資料的演算法，例如篩選、分類和叢集化。在本文中，您將使用推薦引擎，其將根據朋友看過的電影來產生電影推薦。
 
-> [AZURE.NOTE]本文件中的步驟要求 HDInsight 叢集上有 Linux 架構的 Hadoop (預覽)。如需搭配使用 Mahout 與 Windows 叢集的資訊，請參閱[透過在 HDInsight 上將 Apache Mahout 與 Windows 架構的 Hadoop 搭配使用來產生電影推薦](hdinsight-mahout.md)
+> [AZURE.NOTE] 本文件中的步驟要求 HDInsight 叢集上有 Linux 架構的 Hadoop (預覽)。如需搭配使用 Mahout 與 Windows 叢集的資訊，請參閱[透過在 HDInsight 上將 Apache Mahout 與 Windows 架構的 Hadoop 搭配使用來產生電影推薦](hdinsight-mahout.md)
 
 ##必要條件
 
@@ -35,7 +35,7 @@ Mahout 是 Apache Hadoop 的[機器學習][ml]庫。Mahout 包含可處理資料
 
 如需關於 HDInsight 叢集隨附的 Mahout 版本詳細資訊，請參閱 [HDInsight 版本和 Hadoop 元件](hdinsight-component-versioning.md)。
 
-> [AZURE.WARNING]雖然可以將 Mahout 的不同版本上傳至 HDInsight 叢集，但只有 HDInsight 叢集隨附的元件可獲得完整支援，且 Microsoft 支援服務將助您釐清及解決與這些元件相關的問題。
+> [AZURE.WARNING] 雖然可以將 Mahout 的不同版本上傳至 HDInsight 叢集，但只有 HDInsight 叢集隨附的元件可獲得完整支援，且 Microsoft 支援服務將助您釐清及解決與這些元件相關的問題。
 >
 > 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/zh-TW/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 
@@ -94,7 +94,7 @@ Mahout 提供的其中一項功能是推薦引擎。這個引擎接受 `userID``
 
 	mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /example/data/u.data -o /example/data/mahoutout --tempDir /temp/mahouttemp
 
-> [AZURE.NOTE]此工作可能需要幾分鐘的時間才能完成，並可能執行多項 MapReduce 工作。
+> [AZURE.NOTE] 此工作可能需要幾分鐘的時間才能完成，並可能執行多項 MapReduce 工作。
 
 ##檢視輸出
 
@@ -241,7 +241,7 @@ Mahout 工作不會移除處理工作時所建立的暫存資料。範例工作�
 
 	hdfs dfs -rm -f -r /temp/mahouttemp
 
-> [AZURE.WARNING]如果您要再次執行該命令，您必須也刪除輸出目錄。使用以下命令刪除此目錄：
+> [AZURE.WARNING] 如果您要再次執行該命令，您必須也刪除輸出目錄。使用以下命令刪除此目錄：
 >
 > ```hdfs dfs -rm -f -r /example/data/mahoutout```
 
@@ -249,9 +249,9 @@ Mahout 工作不會移除處理工作時所建立的暫存資料。範例工作�
 
 您現在已了解如何使用 Mahout，請繼續探索在 HDInsight 上使用資料的其他方法：
 
-* [搭配 HDInsight 使用 Hive](hadoop-use-hive.md)
-* [搭配 HDInsight 使用 Pig](hadoop-use-pig.md)
-* [搭配 HDInsight 使用 MapReduce](hadoop-use-mapreduce.md)
+* [搭配 HDInsight 使用 Hive](hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
+* [搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [movielens]: http://grouplens.org/datasets/movielens/
@@ -267,4 +267,4 @@ Mahout 工作不會移除處理工作時所建立的暫存資料。範例工作�
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

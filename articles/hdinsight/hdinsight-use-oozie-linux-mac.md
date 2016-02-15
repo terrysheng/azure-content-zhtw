@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 
@@ -26,15 +26,15 @@
 
 Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 Hadoop 堆疊相整合，並支援 Apache MapReduce、Apache Pig、Apache Hive 和 Apache Sqoop 的 Hadoop 工作。它也可用來排程系統的特定工作，例如 Java 程式或 Shell 指令碼。
 
-> [AZURE.NOTE]還有另一個選項可以定義與 HDInsight 搭配的工作流程，那就是 Azure Data Factory。若要進一步了解 Azure Data Factory，請參閱[搭配 Data Factory 使用 Pig 和 Hive][azure-data-factory-pig-hive]。
+> [AZURE.NOTE] 還有另一個選項可以定義與 HDInsight 搭配的工作流程，那就是 Azure Data Factory。若要進一步了解 Azure Data Factory，請參閱[搭配 Data Factory 使用 Pig 和 Hive][azure-data-factory-pig-hive]。
 
 ##必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **Azure 訂用帳戶**：請參閱[取得 Azure 免費試用](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md)。
+- **Azure 訂用帳戶**：請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-- **Azure CLI**：請參閱[安裝和設定 Azure CLI](xplat-cli-install.md)
+- **Azure CLI**：請參閱[安裝和設定 Azure CLI](../xplat-cli-install.md)
 
 - **HDInsight 叢集**：請參閱[開始使用 Linux 上的 HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 
@@ -58,7 +58,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 
 2.  Sqoop 動作會將新的 Hive 資料表內容匯出至 Azure SQL Database 中的資料表。如需 Sqoop 的詳細資訊，請參閱[搭配 HDInsight 使用 Hadoop Sqoop][hdinsight-use-sqoop]。
 
-> [AZURE.NOTE]如需 HDInsight 叢集支援的 Oozie 版本，請參閱 [HDInsight 所提供 Hadoop 叢集版本的新功能][hdinsight-versions]。
+> [AZURE.NOTE] 如需 HDInsight 叢集支援的 Oozie 版本，請參閱 [HDInsight 所提供 Hadoop 叢集版本的新功能][hdinsight-versions]。
 
 ##建立工作目錄
 
@@ -66,7 +66,7 @@ Oozie 的工作所需資源必須儲存在同一個目錄中。此範例使用 *
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
-> [AZURE.NOTE]`-p` 參數會使系統建立路徑中的所有目錄 (如果這些目錄尚未存在)。**data** 目錄將用來保存 **useooziewf.hql** 指令碼所使用的資料。
+> [AZURE.NOTE] `-p` 參數會使系統建立路徑中的所有目錄 (如果這些目錄尚未存在)。**data** 目錄將用來保存 **useooziewf.hql** 指令碼所使用的資料。
 
 此外，也請執行以下命令，確保 Oozie 在執行 Hive 和 Sqoop 工作時可以模擬您的使用者帳戶。將 **USERNAME** 替換為您的登入名稱：
 
@@ -185,7 +185,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 
 	- **RunSqoopExport**：此動作會使用 Sqoop 將建立的資料從 Hive 指令碼匯出到 SQL Database。只有 **RunHiveScript** 動作成功時才會執行此動作。
 
-		> [AZURE.NOTE]如需關於 Oozie 工作流程和使用工作流程動作的詳細資訊，請參閱 [Apache Oozie 4.0 文件][apache-oozie-400] (英文，適用於 HDInsight 3.0 版) 或 [Apache Oozie 3.3.2 文件][apache-oozie-332] (英文，適用於 HDInsight 2.1 版)。
+		> [AZURE.NOTE] 如需關於 Oozie 工作流程和使用工作流程動作的詳細資訊，請參閱 [Apache Oozie 4.0 文件][apache-oozie-400] (英文，適用於 HDInsight 3.0 版) 或 [Apache Oozie 3.3.2 文件][apache-oozie-332] (英文，適用於 HDInsight 2.1 版)。
 
 	請注意，工作流程有數個項目，例如 `${jobTracker}` 會替換為您在本文件稍後的工作定義中所使用的值。
 
@@ -201,7 +201,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 
 下列步驟會建立要接收匯出資料的 Azure SQL Database。
 
-> [AZURE.IMPORTANT]您必須先[安裝和設定 Azure CLI](xplat-cli-install.md)，才能執行這些步驟。您可以在 HDInsight 叢集，或在本機工作站中，執行 CLI 安裝作業並依照下列步驟建立資料庫。
+> [AZURE.IMPORTANT] 您必須先[安裝和設定 Azure CLI](xplat-cli-install.md)，才能執行這些步驟。您可以在 HDInsight 叢集，或在本機工作站中，執行 CLI 安裝作業並依照下列步驟建立資料庫。
 
 1. 使用以下命令建立新的 Azure SQL Database 伺服器：
 
@@ -216,7 +216,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]請記下此命令傳回的伺服器名稱 (在上述範例中為 **i1qwc540ts**)。 這是所建立的 SQL Database 伺服器的簡短名稱。完整的網域名稱 (FQDN) 為 **&lt;shortname&gt;.database.windows.net**。上述範例中，FQDN 會是 **i1qwc540ts.database.windows.net**。
+    > [AZURE.IMPORTANT] 請記下此命令傳回的伺服器名稱 (在上述範例中為 **i1qwc540ts**)。 這是所建立的 SQL Database 伺服器的簡短名稱。完整的網域名稱 (FQDN) 為 **&lt;shortname&gt;.database.windows.net**。上述範例中，FQDN 會是 **i1qwc540ts.database.windows.net**。
 
 2. 使用以下命令，在 SQL Database 伺服器上建立名為 **oozietest** 的資料庫：
 
@@ -224,13 +224,13 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 
     完成時會傳回 [確定] 訊息。
 
-	> [AZURE.NOTE]如果收到的錯誤指出您沒有存取權，您可能需要使用以下命令，將系統的 IP 位址加入至 SQL Database 防火牆：
+	> [AZURE.NOTE] 如果收到的錯誤指出您沒有存取權，您可能需要使用以下命令，將系統的 IP 位址加入至 SQL Database 防火牆：
     >
     > `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ###建立資料表
 
-> [AZURE.NOTE]連接至 SQL Database 建立資料表的方法有很多種。下列步驟會從 HDInsight 叢集使用 [FreeTDS](http://www.freetds.org/)。
+> [AZURE.NOTE] 連接至 SQL Database 建立資料表的方法有很多種。下列步驟會從 HDInsight 叢集使用 [FreeTDS](http://www.freetds.org/)。
 
 3. 使用以下命令在 HDInsight 叢集上安裝 FreeTDS：
 
@@ -363,7 +363,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 
 	* 將 ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** 的所有執行個體替換為您之前收到的值。
 
-	> [AZURE.WARNING]您必須使用完整的 WASB 路徑，其中包含容器和儲存體帳戶做為路徑的一部分。使用簡短格式 (wasb:///) 會在工作開始時導致 RunHiveScript 動作失敗。
+	> [AZURE.WARNING] 您必須使用完整的 WASB 路徑，其中包含容器和儲存體帳戶做為路徑的一部分。使用簡短格式 (wasb:///) 會在工作開始時導致 RunHiveScript 動作失敗。
 
 	* 將 **JOBTRACKERADDRESS** 替換為您之前收到的 JobTracker/ResourceManager 位址。
 
@@ -373,7 +373,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 
 	此檔案中大部分的資訊都會用來填入 workflow.xml 或 ooziewf.hql 檔案中所使用的值 (例如 ${nameNode})。
 
-	> [AZURE.NOTE]**oozie.wf.application.path** 項目會定義要在何處尋找 workflow.xml 檔案，該檔案包含此工作執行過的工作流程。
+	> [AZURE.NOTE] **oozie.wf.application.path** 項目會定義要在何處尋找 workflow.xml 檔案，該檔案包含此工作執行過的工作流程。
 
 2. 依序按 Ctrl-X、**Y** 和 **Enter** 鍵以儲存檔案。
 
@@ -381,7 +381,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 
 下列步驟使用 Oozie 命令提交及管理叢集上的 Oozie 工作流程。Oozie 命令是 [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html) 上的易記介面。
 
-> [AZURE.IMPORTANT]使用 Oozie 命令時，您必須使用 HDInsight 前端節點的 FQDN。只有從叢集才能存取此 FQDN，或者，如果叢集位於 Azure 虛擬網路，就必須從同一個網路中的其他電腦來存取。
+> [AZURE.IMPORTANT] 使用 Oozie 命令時，您必須使用 HDInsight 前端節點的 FQDN。只有從叢集才能存取此 FQDN，或者，如果叢集位於 Azure 虛擬網路，就必須從同一個網路中的其他電腦來存取。
 
 1. 使用以下命令取得 Oozie 服務的 URL：
 
@@ -640,7 +640,7 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 	sudo adduser USERNAME users
 
-> [AZURE.NOTE]這可能需要幾分鐘，HDInsight 才能辨識出使用者已新增至該群組。
+> [AZURE.NOTE] 這可能需要幾分鐘，HDInsight 才能辨識出使用者已新增至該群組。
 
 ###啟動器錯誤 (Sqoop)
 
@@ -672,7 +672,7 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 - [在 HDInsight 上搭配 Hadoop 使用 Sqoop][hdinsight-use-sqoop]
 - [在 HDInsight 上搭配 Hadoop 使用 Hive][hdinsight-use-hive]
 - [搭配使用 Pig 與 HDInsight 上的 Hadoop][hdinsight-use-pig]
-- 〈[開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]〉
+- [〈開發 HDInsight 的 Java MapReduce 程式〉][hdinsight-develop-mapreduce]
 
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
@@ -721,4 +721,4 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

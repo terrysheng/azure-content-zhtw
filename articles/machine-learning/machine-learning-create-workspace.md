@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="02/03/2016" 
 	ms.author="garye;bradsev"/>
 
 
@@ -29,7 +29,7 @@
 
 ## 建立工作區
 
-1. 登入 Microsoft Azure 帳戶。
+1. 登入 [Microsoft Azure 傳統入口網站](https://manage.windowsazure.com/)。
 2. 在 Microsoft Azure 服務面板中，按一下 [機器學習]。
 
     ![機器學習服務][1]
@@ -41,7 +41,7 @@
 
 5. 輸入工作區的 [**工作區名稱**]，並指定 [**工作區擁有者**]。工作區擁有者必須是有效的 Microsoft 帳戶 (例如 name@outlook.com))。
 
-    > [AZURE.NOTE]稍後，您可以邀請他人到您的工作區，共用您正在執行的實驗。您可以在 Machine Learning Studio 中的 [**設定**] 頁面上執行此動作。您只需要每個使用者的 Microsoft 帳戶或組織帳戶。
+    > [AZURE.NOTE] 稍後，您可以邀請他人到您的工作區，共用您正在執行的實驗。您可以在 Machine Learning Studio 中的 [**設定**] 頁面上執行此動作。您只需要每個使用者的 Microsoft 帳戶或組織帳戶。
 
 6. 指定 Azure **位置**，然後輸入現有的 Azure **儲存體帳戶**或選取 [**建立新的儲存體帳戶**] 來新建一個。
 7. 按一下 [建立 ML 工作區]。
@@ -67,4 +67,4 @@
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

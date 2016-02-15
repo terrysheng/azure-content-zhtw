@@ -8,13 +8,13 @@
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="01/21/2016"
-   ms.author="inhenk"/>
+   ms.author="kgremban"/>
 
 # Azure Privileged Identity Management：如何設定安全性警示
 
@@ -59,4 +59,4 @@ Azure Privileged Identity Management (PIM) 提供下列可設定的警示。您�
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

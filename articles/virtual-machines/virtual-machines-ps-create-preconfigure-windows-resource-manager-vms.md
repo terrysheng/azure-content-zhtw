@@ -271,7 +271,7 @@ $NicName 字串必須是資源群組中獨特的字串。最佳作法是將虛�
 	$avName="<availability set name>"
 	Get-AzureRmVMSize -ResourceGroupName $rgName -AvailabilitySetName $avName | Select Name
 
-> [AZURE.NOTE]利用資源管理員，您目前只能在建立虛擬機器期間，將其新增至可用性集合。
+> [AZURE.NOTE] 利用資源管理員，您目前只能在建立虛擬機器期間，將其新增至可用性集合。
 
 若要將其他資料磁碟新增至 VM，請將這幾行複製到您的命令集，並指定磁碟設定。
 
@@ -391,8 +391,8 @@ $NicName 字串必須是資源群組中獨特的字串。最佳作法是將虛�
 
 [使用資源管理員範本和 PowerShell 部署以及管理 Azure 虛擬機器](virtual-machines-deploy-rmtemplates-powershell.md)
 
-[利用 Resource Manager 範本和 PowerShell 建立 Windows 虛擬機器](virtual-machines-create-windows-powershell-resource-manager-template-simple)
+[利用 Resource Manager 範本和 PowerShell 建立 Windows 虛擬機器](virtual-machines-create-windows-powershell-resource-manager-template.md)
 
-[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)
+[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

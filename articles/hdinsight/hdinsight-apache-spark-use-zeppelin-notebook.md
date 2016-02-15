@@ -212,7 +212,7 @@
 		http://hn0-myspar:9995
 
 	* **hn0** 代表 headnode0
-	* **myspar** 是 Spark 叢集的前五個字母。
+	* **myspar** 是 Spark 叢集名稱的前六個字母。
 	* **9995** 是 Zeppelin Notebook 可存取的連接埠。
 
 2. 建立新的 Notebook。按一下標頭窗格中的 [Notebook]，然後按一下 [建立新 Note]。
@@ -330,4 +330,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

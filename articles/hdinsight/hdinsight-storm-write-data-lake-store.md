@@ -13,14 +13,14 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/14/2016"
+ms.date="01/28/2016"
 ms.author="larryfr"/>
 
 #搭配使用 Azure 資料湖存放區與 HDInsight 上的 Apache Storm
 
 Azure 資料湖存放區是 HDFS 相容的雲端儲存體服務，可為資料提供高輸送量、可用性、持久性及可靠性。在本文件中，您將學習如何使用 Java 型 Storm 拓撲，透過 Apache Storm 中所提供的 [HdfsBolt](http://storm.apache.org/javadoc/apidocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 元件將資料寫入至 Azure 資料湖存放區。
 
-> [AZURE.IMPORTANT]本文件中使用的範例拓撲需依賴 Storm on HDInsight 叢集隨附的元件，而且可能需要進行修改才能在搭配其他 Apache Storm 叢集使用時使用 Azure 資料湖存放區。
+> [AZURE.IMPORTANT] 本文件中使用的範例拓撲需依賴 Storm on HDInsight 叢集隨附的元件，而且可能需要進行修改才能在搭配其他 Apache Storm 叢集使用時使用 Azure 資料湖存放區。
 
 ##必要條件
 
@@ -63,7 +63,7 @@ ADLStoreBolt 是用於拓撲中寫入至 Azure 資料湖之 HdfsBolt 執行個�
 
 具體來說，當您建立 HDInsight 叢集時，您可以將其關聯至 Azure 資料湖存放區。這會將項目寫入至所選取資料湖存放區的核心網站，hadoop-client 和 hadoop-hdfs 等元件會使用這些項目來與資料湖存放區進行通訊。
 
-> [AZURE.NOTE]Microsoft 已為 Apache Hadoop 和 Storm 專案提供可與 Azure 資料湖存放區和 Azure Blob 儲存體進行通訊的程式碼，但其他 Hadoop 和 Storm 散發套件依預設不一定會包含這項功能。
+> [AZURE.NOTE] Microsoft 已為 Apache Hadoop 和 Storm 專案提供可與 Azure 資料湖存放區和 Azure Blob 儲存體進行通訊的程式碼，但其他 Hadoop 和 Storm 散發套件依預設不一定會包含這項功能。
 
 拓撲中的 HdfsBolt 組態如下所示：
 
@@ -96,9 +96,9 @@ ADLStoreBolt 是用於拓撲中寫入至 Azure 資料湖之 HdfsBolt 執行個�
 
 ##建立 HDInsight 叢集和資料湖存放區
 
-使用[使用 Azure 來搭配使用 HDInsight 與資料湖存放區](data-lake-store-hdinsight-hadoop-use-portal.md)文件中的步驟建立新的 Storm on HDInsight 叢集。本文件中的步驟將逐步引導您建立新的 HDInsight 叢集和 Azure 資料湖存放區。
+使用[使用 Azure 來搭配使用 HDInsight 與資料湖存放區](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)文件中的步驟建立新的 Storm on HDInsight 叢集。本文件中的步驟將逐步引導您建立新的 HDInsight 叢集和 Azure 資料湖存放區。
 
-> [AZURE.IMPORTANT]當您建立 HDInsight 叢集時，您必須選取 __Storm__ 做為叢集類型。作業系統可以是 Windows 或 Linux。
+> [AZURE.IMPORTANT] 當您建立 HDInsight 叢集時，您必須選取 __Storm__ 做為叢集類型。作業系統可以是 Windows 或 Linux。
 
 ##建置和封裝拓撲
 
@@ -123,7 +123,7 @@ ADLStoreBolt 是用於拓撲中寫入至 Azure 資料湖之 HdfsBolt 執行個�
     
     出現提示時，請輸入建立叢集的 SSH 使用者時所使用的密碼。如果您使用公開金鑰而非密碼，則可能必須使用 `-i` 參數來指定相對應私密金鑰的路徑。
     
-    > [AZURE.NOTE]如果您使用 Windows 用戶端進行開發，則可能沒有 `scp` 命令。若是如此，您可以使用 `pscp`，其可從下列位置取得：[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)。
+    > [AZURE.NOTE] 如果您使用 Windows 用戶端進行開發，則可能沒有 `scp` 命令。若是如此，您可以使用 `pscp`，其可從下列位置取得：[http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)。
 
 2. 上傳完成後，使用下列命令來透過 SSH 連接到 HDInsight 叢集。將 __USER__ 取代為建立叢集時所使用的 SSH 使用者名稱。將 __CLUSTERNAME__ 取代為叢集的名稱。
 
@@ -131,7 +131,7 @@ ADLStoreBolt 是用於拓撲中寫入至 Azure 資料湖之 HdfsBolt 執行個�
 
     出現提示時，請輸入建立叢集的 SSH 使用者時所使用的密碼。如果您使用公開金鑰而非密碼，則可能必須使用 `-i` 參數來指定相對應私密金鑰的路徑。
     
-    > [AZURE.NOTE]如果您使用 Windows 用戶端進行開發，請依照[從 Windows 使用 SSH 連接至 Linux 型 HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) 中的資訊，來取得使用 PuTTY 用戶端連接到叢集的資訊。
+    > [AZURE.NOTE] 如果您使用 Windows 用戶端進行開發，請依照[從 Windows 使用 SSH 連接至 Linux 型 HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) 中的資訊，來取得使用 PuTTY 用戶端連接到叢集的資訊。
     
 3. 連線之後，使用下列命令啟動拓撲：
 
@@ -162,11 +162,11 @@ ADLStoreBolt 是用於拓撲中寫入至 Azure 資料湖之 HdfsBolt 執行個�
 
 有數種方法能夠檢視資料。在本節中，我們使用 Azure 入口網站和 `hdfs` 命令來檢視資料。
 
-> [AZURE.NOTE]您應該讓拓撲先執行幾分鐘後再檢查輸出資料，這樣才能讓資料同步至 Azure 資料湖存放區上的數個檔案。
+> [AZURE.NOTE] 您應該讓拓撲先執行幾分鐘後再檢查輸出資料，這樣才能讓資料同步至 Azure 資料湖存放區上的數個檔案。
 
 * __從 [Azure 入口網站](https://portal.azure.com)__：在入口網站中，選取搭配 HDInsight 使用的 Azure 資料湖存放區。
 
-    > [AZURE.NOTE]如果未將資料湖存放區固定至 Azure 入口網站的儀表板，其尋找方式是選取左側清單底部的 [瀏覽]，然後是 [資料湖存放區]，最後再選取該存放區。
+    > [AZURE.NOTE] 如果未將資料湖存放區固定至 Azure 入口網站的儀表板，其尋找方式是選取左側清單底部的 [瀏覽]，然後是 [資料湖存放區]，最後再選取該存放區。
     
     從資料湖存放區頂端的圖示，選取 [資料總管]。
     
@@ -221,4 +221,4 @@ __若為 Windows 型 HDInsight__：
 
 現在，您已學到如何使用 Storm 來寫入至 Azure 資料湖存放區，接下來請探索其他 [HDInsight 的 Storm 範例](hdinsight-storm-example-topology.md)。
 
-<!---HONumber=AcomDC_0114_2016--->
+<!----HONumber=AcomDC_0204_2016-->

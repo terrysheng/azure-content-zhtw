@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="08/10/2015"
+	ms.date="02/01/2016"
 	ms.author="mingzhan"/>
 
 
@@ -30,7 +30,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。它�
 
 ## 安裝 PostgreSQL
 
-> [AZURE.NOTE]您必須已經具有執行 Linux 的 Azure 虛擬機器，才能完成本教學課程。若要建立並設定 Linux VM 再繼續進行，請參閱 [Azure Linux VM 教學課程](virtual-machines-linux-tutorial.md)。
+> [AZURE.NOTE] 您必須已經具有執行 Linux 的 Azure 虛擬機器，才能完成本教學課程。若要建立並設定 Linux VM 再繼續進行，請參閱 [Azure Linux VM 教學課程](virtual-machines-linux-tutorial.md)。
 
 在此情況下，使用連接埠 1999 做為 PostgreSQL 連接埠。
 
@@ -94,7 +94,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。它�
 
 		# su - postgres
 
-   >[AZURE.NOTE]基於安全性理由，PostgreSQL 會使用非根使用者初始化、啟動或關閉資料庫。
+   > [AZURE.NOTE] 基於安全性理由，PostgreSQL 會使用非根使用者初始化、啟動或關閉資料庫。
 
 
 4. 輸入下列命令以編輯 *bash\_profile* 檔。這幾行將會加入至 *bash\_profile* 檔案的結尾：
@@ -255,4 +255,4 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。它�
 ##取得 PostgreSQL 的詳細資訊
 既然您已完成在 Azure Linux VM 中的 PostgreSQL 安裝，您可以在 Azure 中享用它。若要深入了解 PostgreSQL，請造訪 [PostgreSQL 網站](http://www.postgresql.org/)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

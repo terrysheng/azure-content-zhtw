@@ -1,4 +1,13 @@
-<properties pageTitle="將資料移至 Azure SQL Database 供 Azure 機器學習 | Azure" description="建立 SQL 資料表以及將資料載入 SQL 資料表" services="machine-learning" documentationCenter="" authors="fashah" manager="jacob.spoelstra" editor="" videoId="" [hee scriptId="" />
+<properties 
+	pageTitle="移動資料至 Azure 機器學習的 Azure SQL Database | Azure" 
+	description="建立 SQL 資料表以及將資料載入 SQL 資料表" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="fashah" 
+	manager="jacob.spoelstra" 
+	editor="" 
+	videoId=""
+	scriptId="" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -32,9 +41,9 @@
 此處概述的程序要求您須擁有：
 
 * **Azure 訂用帳戶**。如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* 一個 **Azure 儲存體帳戶**。在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱[檢視、複製及重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
-* 存取 **Azure SQL Database**。如果您必須設定 Azure SQL Database，[開始使用 Microsoft Azure SQL Database](sql-database-get-started.md) 一文提供如何佈建 Azure SQL Database 新執行個體的相關資訊。
-* 已在本機上安裝及設定 **Azure PowerShell**。如需指示，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
+* **Azure 儲存體帳戶**。在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱[檢視、複製和重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
+* 存取 **Azure SQL Database**。如果您必須設定 Azure SQL Database，[開始使用 Microsoft Azure SQL Database](sql-database-get-started.md) 一文中提供如何佈建 Azure SQL Database 之新執行個體的相關資訊。
+* 已在本機上安裝和設定 **Azure PowerShell**。如需指示，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
 
 **資料**：移轉程序會使用 [NYC 計程車資料集](http://chriswhong.com/open-data/foil_nyc_taxi/)進行示範。在 Azure Blob 儲存體上如該文中所述，NYC 計程車資料集包含且提供有關車程資料與費用的相關資訊：[NYC 計程車資料](http://www.andresmh.com/nyctaxitrips/)。[NYC 計程車車程資料集說明](machine-learning-data-science-process-sql-walkthrough.md#dataset)中提供這些檔案的範例與說明。
  
@@ -69,7 +78,7 @@
 
 ###<a name="db-migration"></a>資料庫備份和還原
 
-使用資料庫備份與還原的步驟與[資料庫備份與還原](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-backup)所說明的步驟類似。
+使用資料庫備份和還原的步驟與[資料庫備份和還原](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-backup)所說明的步驟類似。
 
 ###<a name="adf"></a>Azure Data Factory
 
@@ -77,4 +86,4 @@
 
 若資料需要持續在同時存取內部部署和雲端資源的混合式案例中移轉，或是資料有交易、需要修改，或者在移轉過程中新增了商務邏輯，請考慮使用 ADF。ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排程和監視的工作。ADF 也有其他功能，例如支援複雜作業。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

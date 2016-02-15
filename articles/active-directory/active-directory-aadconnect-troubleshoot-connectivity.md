@@ -37,7 +37,9 @@ Proxy 伺服器也必須開啟必要的 URL。官方清單記載 [Office 365 URL
 | URL | 連接埠 | 說明 |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | 用來下載 CRL 清單。 |
-| **.verisign.com | HTTP/80 | 用來下載 CRL 清單。| | *.windows.net | HTTPS/443 | 用來登入 Azure AD。| | *.microsoftonline.com | HTTPS/443 | 用來設定您的 Azure AD 目錄和匯入/匯出資料。|
+| *.verisign.com | HTTP/80 | 用來下載 CRL 清單。|
+| *.windows.net | HTTPS/443 | 用來登入 Azure AD。|
+| *.microsoftonline.com | HTTPS/443 | 用來設定您的 Azure AD 目錄和匯入/匯出資料。|
 
 ## 精靈中的錯誤
 安裝精靈會使用兩種不同的安全性內容。在 [連線到 Azure AD] 頁面上，正使用目前登入的使用者。在 [設定] 頁面上，它變更為[執行同步處理引擎服務的帳戶](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)。我們進行的電腦全域的 Proxy 設定，因此在發生問題時，最有可能出現在精靈中的 [連線到 Azure AD] 頁面。
@@ -124,4 +126,4 @@ PowerShell 會使用 machine.config 中的組態來連絡 Proxy。winhttp/netsh 
 1/11/2016 8:49 | connect://*bba900-anchor*.microsoftonline.com:443
 1/11/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

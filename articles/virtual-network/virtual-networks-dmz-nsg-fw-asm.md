@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # 範例 2 – 建置 DMZ 以透過防火牆和 NSG 保護應用程式
@@ -30,12 +30,12 @@
 - 兩個雲端服務：“FrontEnd001” 和 “BackEnd001”
 - 一個虛擬網路 “CorpNetwork”，包含兩個子網路：“FrontEnd” 和 “BackEnd”
 - 套用至這兩個子網路的單一網路安全性群組
-- 一個網路虛擬應用裝置，在此範例中為 Barracuda NG 防火牆，並連接到 Frontend 子網路
+- 一個網路虛擬應用裝置 (在此範例中為 Barracuda NextGen 防火牆)，且已連線到 Frontend 子網路
 - 一個代表應用程式 Web 伺服器的 Windows Server (“IIS01”)
 - 兩個代表應用程式後端伺服器的 Windows Server (“AppVM01”、“AppVM02”)
 - 一個代表 DNS 伺服器的 Windows Server ("DNS01")
 
->[AZURE.NOTE]雖然此範例使用 Barracuda NG 防火牆，但有許多不同的網路虛擬應用裝置都能用於此範例。
+>[AZURE.NOTE] 雖然此範例使用 Barracuda NextGen 防火牆，但還有許多不同的網路虛擬應用裝置能夠用於此範例。
 
 在下面的＜參考＞一節中有提供 PowerShell 指令碼，其可建置上述的大部分環境。至於 VM 和虛擬網路的建置，雖然也是由此範例指令碼來完成，但本文不會詳加敘述。
  
@@ -57,7 +57,7 @@
 ## 網路安全性群組 (NSG)
 此範例會建置 NSG 群組，然後在其中載入六個規則。
 
->[AZURE.TIP]一般而言，您應該先建立特定的「允許」規則，最後再建立較一般的「拒絕」規則。所指定的優先順序會決定要先評估哪些規則。一旦發現流量適用特定規則，就不會再評估後續規則。NSG 規則可以套用在輸入或輸出方向 (從子網路的觀點出發)。
+>[AZURE.TIP] 一般而言，您應該先建立特定的「允許」規則，最後再建立較一般的「拒絕」規則。所指定的優先順序會決定要先評估哪些規則。一旦發現流量適用特定規則，就不會再評估後續規則。NSG 規則可以套用在輸入或輸出方向 (從子網路的觀點出發)。
 
 指令碼會以宣告方式為輸入流量建置下列規則：
 
@@ -79,7 +79,7 @@
 
 適用於下載用戶端和連線到此範例所用 Barracuda 的指示，可以在這裡找到：[Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
-防火牆上必須建立轉送規則。此範例只會將網際網路流量往內路由傳送到防火牆，再傳送到 Web 伺服器，因此只需要一個轉送 NAT 規則。在此範例使用的 Barracuda NG 防火牆上，這個規則會是目的地 NAT 規則 (“Dst NAT”)，由其傳遞此流量。
+防火牆上必須建立轉送規則。此範例只會將網際網路流量往內路由傳送到防火牆，再傳送到 Web 伺服器，因此只需要一個轉送 NAT 規則。在此範例所使用的 Barracuda NextGen 防火牆上，傳送此流量的這個規則是目的地 NAT 規則 (“Dst NAT”)。
 
 若要建立下列規則 (或驗證現有的預設規則)，請先從 Barracuda NG Admin 用戶端儀表板瀏覽至 [設定] 索引標籤，在 [作業組態] 區段中按一下 [規則集]。此時會出現「主要規則」方格，顯示此防火牆現有的作用中規則和已停用規則。此方格右上角有一個小型的綠色 "+" 按鈕，按一下此按鈕即可建立新規則 (注意：您的防火牆可能會遭「鎖定」不準變更，如果您看到標示為 [鎖定] 的按鈕且無法建立或編輯規則，請按一下此按鈕以「解除鎖定」規則集並允許編輯)。如果您想要編輯現有規則，請選取該規則，以滑鼠右鍵按一下並選取 [編輯規則]。
 
@@ -108,7 +108,7 @@
 
 在啟用防火牆規則集後，這個範例環境的建置便已完成。(選擇性) 您可以執行＜參考＞一節中的後續建置指令碼，將應用程式新增至此環境來測試下方的流量案例。
 
->[AZURE.IMPORTANT]請務必了解您不會直接到達 Web 伺服器。當瀏覽器從 FrontEnd001.CloudApp.Net 要求 HTTP 頁面時，HTTP 端點 (連接埠 80) 會將此流量傳遞至防火牆而非 Web 伺服器。然後，防火牆會根據上面建立的規則，將該要求 NAT 處理到 Web 伺服器。
+>[AZURE.IMPORTANT] 請務必了解您不會直接到達 Web 伺服器。當瀏覽器從 FrontEnd001.CloudApp.Net 要求 HTTP 頁面時，HTTP 端點 (連接埠 80) 會將此流量傳遞至防火牆而非 Web 伺服器。然後，防火牆會根據上面建立的規則，將該要求 NAT 處理到 Web 伺服器。
 
 ## 流量案例
 
@@ -227,7 +227,7 @@ Web 伺服器、IIS01 和防火牆都在相同的雲端服務中，因此共用�
 
 此 PowerShell 指令碼應該在連線到網際網路的電腦或伺服器上本機執行。
 
->[AZURE.IMPORTANT]此指令碼在執行時，PowerShell 中可能會跳出警告或其他參考訊息。只有紅色字體的錯誤訊息才需要擔心。
+>[AZURE.IMPORTANT] 此指令碼在執行時，PowerShell 中可能會跳出警告或其他參考訊息。只有紅色字體的錯誤訊息才需要擔心。
 
 
 	<# 
@@ -239,7 +239,7 @@ Web 伺服器、IIS01 和防火牆都在相同的雲端服務中，因此共用�
 	   - A default storage account for VM disks
 	   - Two new cloud services
 	   - Two Subnets (FrontEnd and BackEnd subnets)
-	   - A Network Virtual Appliance (NVA), in this case a Barracuda NG Firewall
+	   - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
 	   - One server on the FrontEnd Subnet (plus the NVA on the FrontEnd subnet)
 	   - Three Servers on the BackEnd Subnet
 	   - Network Security Groups to allow/deny traffic patterns as declared
@@ -303,7 +303,7 @@ Web 伺服器、IIS01 和防火牆都在相同的雲端服務中，因此共用�
 	
 	  # VM Base Disk Image Details
 	    $SrvImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Windows Server 2012 R2 Datacenter'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
-	    $FWImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Barracuda NG Firewall'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
+	    $FWImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Barracuda NextGen Firewall'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
 	
 	  # NSG Details
 	    $NSGName = "MyVNetSG"
@@ -566,4 +566,4 @@ Web 伺服器、IIS01 和防火牆都在相同的雲端服務中，因此共用�
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

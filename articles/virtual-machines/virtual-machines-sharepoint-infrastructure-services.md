@@ -31,7 +31,7 @@
 
 請參閱 Azure 入口網站的 Azure Marketplace 中的 [SharePoint 2013 非 HA 伺服器陣列](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/)項目。這會為連結網際網路的 SharePoint 網站建立基本開發/測試伺服器陣列。如需其他詳細資訊，請參閱[建立 SharePoint 伺服器陣列](virtual-machines-sharepoint-farm-azure-preview.md)。
 
-您也可以使用 Azure 資源管理員範本。請參閱[部署一個包含三部伺服器的 SharePoint 伺服器陣列](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm)。
+您也可以使用 Azure 資源管理員範本。請參閱 [SharePoint](virtual-machines-app-frameworks.md)。
 
 > [AZURE.NOTE] Azure 入口網站的 Azure Marketplace 中的 **SharePoint 伺服器陣列**項目已移除。
 
@@ -61,4 +61,4 @@
 
 - 探索 Azure 基礎結構服務中其他的 [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) 設定。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

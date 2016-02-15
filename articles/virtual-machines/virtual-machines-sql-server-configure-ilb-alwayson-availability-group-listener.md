@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="設定 AlwaysOn 可用性群組的 ILB 接聽程式 | Microsoft Azure"
 	description="本教學課程使用以傳統部署模型建立的資源，並使用內部負載平衡器 (ILB) 在 Azure 中建立 AlwaysOn 可用性群組接聽程式。"
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" 
+	editor="monicar"
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/06/2015"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # 設定 Azure 中 AlwaysOn 可用性群組的 ILB 接聽程式
@@ -27,7 +27,7 @@
 本主題說明如何使用**內部負載平衡器 (ILB)** 來設定 AlwaysOn 可用性群組的接聽程式。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
- 
+
 
 您的可用性群組可包含的複本為僅限內部部署、僅限 Azure，或同時跨內部部署和 Azure 的混合式組態。Azure 複本可位於相同區域內，或使用多個虛擬網路 (VNet) 跨多個區域。下列步驟假設您已[設定可用性群組](virtual-machines-sql-server-alwayson-availability-groups-gui.md)，但尚未設定接聽程式。
 
@@ -72,19 +72,19 @@
 		$SubnetName = "<MySubnetName>" # subnet name that the replicas use in the VNet
 		$ILBStaticIP = "<MyILBStaticIPAddress>" # static IP address for the ILB in the subnet
 		$ILBName = "AGListenerLB" # customize the ILB name or use this default value
-		
+
 		# Create the ILB
 		Add-AzureInternalLoadBalancer -InternalLoadBalancerName $ILBName -SubnetName $SubnetName -ServiceName $ServiceName -StaticVNetIPAddress $ILBStaticIP
-		
+
 		# Configure a load balanced endpoint for each node in $AGNodes using ILB
 		ForEach ($node in $AGNodes)
 		{
-			Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM 
+			Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
 		}
 
 1. 一旦您已設定變數，請從文字編輯器將指令碼複製到您的 Azure PowerShell 工作階段來執行它。如果提示依然顯示「>>」，請再次按 ENTER 鍵以確定指令碼開始執行。注意
 
->[AZURE.NOTE]Azure 傳統入口網站目前不支援內部負載平衡器，因此您不會看到 ILB 或 Azure 傳統入口網站中的端點。不過，如果負載平衡器正在其中執行，**Get-AzureEndpoint** 便會傳回內部 IP 位址。否則，它會傳回 null。
+>[AZURE.NOTE] Azure 傳統入口網站目前不支援內部負載平衡器，因此您不會看到 ILB 或 Azure 傳統入口網站中的端點。不過，如果負載平衡器正在其中執行，**Get-AzureEndpoint** 便會傳回內部 IP 位址。否則，它會傳回 null。
 
 ## 必要時，請確認已安裝 KB2854082
 
@@ -108,13 +108,13 @@
 
 		# Define variables
 		$ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-		$IPResourceName = "<IPResourceName>" # the IP Address resource name 
+		$IPResourceName = "<IPResourceName>" # the IP Address resource name
 		$ILBIP = “<X.X.X.X>” # the IP Address of the Internal Load Balancer (ILB)
-		
+
 		Import-Module FailoverClusters
-		
-		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code. 
-		
+
+		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
+
 		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
 		# cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
@@ -138,4 +138,4 @@
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

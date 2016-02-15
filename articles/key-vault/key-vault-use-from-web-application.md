@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="01/29/2016" 
 	ms.author="adhurwit"/>
 
 # 從 Web 應用程式使用 Azure 金鑰保存庫 #
@@ -27,7 +27,7 @@
 - 已在 Azure Active Directory 註冊，且有權存取您金鑰保存庫之 Web 應用程式的用戶端識別碼和用戶端密碼
 - Web 應用程式。我們將會說明 ASP.NET MVC 應用程式在 Azure 中做為 Web 應用程式部署的步驟。 
 
-> [AZURE.NOTE]在本教學課程中，完成在[開始使用 Azure 金鑰保存庫](key-vault-get-started.md)中所列步驟是很重要的，這樣您才會有 Web 應用程式的密碼 URI 和用戶端識別碼和用戶端密碼。
+> [AZURE.NOTE]  在本教學課程中，完成在[開始使用 Azure 金鑰保存庫](key-vault-get-started.md)中所列步驟是很重要的，這樣您才會有 Web 應用程式的密碼 URI 和用戶端識別碼和用戶端密碼。
 
 已在 Azure Active Directory 註冊、且已獲權存取金鑰保存庫的 Web 應用程式將會被用來存取金鑰保存庫。如果情況不是這樣，請回到開始使用教學課程中的註冊應用程式，並重複列出的步驟。
 
@@ -90,7 +90,7 @@
 	    return result.AccessToken;
     }
 
-> [AZURE.NOTE]透過用戶端識別碼和密碼，使用用戶端密碼來驗證 Azure AD 應用程式是最簡單的方法。此外，如果在 Web 應用程式中使用該密碼，您將能夠區分職責，並充分掌控您的金鑰管理。但是，要這樣做就必須將用戶端密碼保存在組態設定中。在某種程度上，這樣的做法與將您要保護的密碼保存在組態設定中的方法相較而言，兩者的風險是一樣的。如需關於如何使用用戶端識別碼與憑證 (而非用戶端識別碼與用戶端密碼) 來驗證 Azure AD 應用程式的討論，請參閱以下內容。
+> [AZURE.NOTE] 透過用戶端識別碼和密碼，使用用戶端密碼來驗證 Azure AD 應用程式是最簡單的方法。此外，如果在 Web 應用程式中使用該密碼，您將能夠區分職責，並充分掌控您的金鑰管理。但是，要這樣做就必須將用戶端密碼保存在組態設定中。在某種程度上，這樣的做法與將您要保護的密碼保存在組態設定中的方法相較而言，兩者的風險是一樣的。如需關於如何使用用戶端識別碼與憑證 (而非用戶端識別碼與用戶端密碼) 來驗證 Azure AD 應用程式的討論，請參閱以下內容。
 
 
 
@@ -243,4 +243,4 @@
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

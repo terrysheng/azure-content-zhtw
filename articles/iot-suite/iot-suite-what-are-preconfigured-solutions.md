@@ -37,8 +37,7 @@ Azure IoT 套件預先設定的解決方案是常見 IoT 解決方案模式的�
 
 | 方案 | 資料擷取 | 裝置身分識別 | 命令和控制 | 規則和動作 | 預測性分析 |
 |------------------------|-----|-----|-----|-----|-----|
-| 遠端監視 | 是 | 是 | 是 | 是 | - | 
-| 預測性維護 | 是 | 是 | 是 | 是 | 是 |
+| 遠端監視 | 是 | 是 | 是 | 是 | - | | 預測性維護 | 是 | 是 | 是 | 是 | 是 |
 
 ## 遠端監視預先設定解決方案概觀
 
@@ -116,4 +115,4 @@ IoT 中樞會透過取用者群組端點讓收到的遙測可供使用。
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

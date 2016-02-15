@@ -12,16 +12,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="11/04/2015" 
+    ms.date="02/02/2016" 
     ms.author="ddove;sidneyh" />
 
 # 使用彈性資料庫分割合併工具來縮放
 
-[彈性資料庫工具](sql-database-elastic-scale-introduction.md)包含的工具可重新平衡資料分佈及管理分區化應用程式的作用區。**分割合併工具**管理相應縮小和相應放大；您可以在分區集加入或移除資料庫，並使用分割合併工具重新平衡它們之間的 Shardlet 分佈。(關於詞彙定義，請參閱 [Elastic Scale 詞彙](sql-database-elastic-scale-glossary.md))。
+[彈性資料庫工具](sql-database-elastic-scale-introduction.md)包含的工具可用來重新平衡資料分佈，以及管理分區化應用程式的作用區。**分割合併工具**管理相應縮小和相應放大；您可以在分區集新增或移除資料庫，並使用分割合併工具來重新平衡資料庫之間的 Shardlet 分佈。(關於詞彙定義，請參閱 [Elastic Scale 名詞解釋](sql-database-elastic-scale-glossary.md))。
 
-此工具在不同資料庫之間隨需求移動 Shardlet，並與[分區對應管理](sql-database-elastic-scale-shard-map-management.md)整合來維持一致的對應。
+這個工具會依需求在不同資料庫之間移動 Shardlet，並與[分區對應管理](sql-database-elastic-scale-shard-map-management.md)整合來維持對應的一致性。
 
-若要開始，請參閱[彈性資料庫分割合併工具](sql-database-elastic-scale-configure-deploy-split-and-merge.md)。
+如要開始，請參閱[彈性資料庫分割合併工具教學課程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)。
 
 ## 分割合併的新功能
 
@@ -169,7 +169,7 @@
 
 ### Azure 診斷
 
-分割合併服務會根據 Azure SDK 2.5 使用 Azure 診斷來監控與診斷。您可以如這裡所述控制診斷組態：[在 Azure 雲端服務和虛擬機器中啟用診斷](../cloud-services-dotnet-diagnostics.md)。下載封裝包含兩個診斷組態 – 一個用於 Web 角色，另一個用於背景工作角色。這些服務診斷組態遵循 [Microsoft Azure 雲端服務基本概念](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649)中的指引。其中包含定義來記錄效能計數器、IIS 記錄檔、Windows 事件記錄檔，以及分割合併應用程式事件記錄檔。
+分割合併服務會根據 Azure SDK 2.5 使用 Azure 診斷來監控與診斷。您可以如這裡所述控制診斷組態：[在 Azure 雲端服務和虛擬機器中啟用診斷](../service-fabric/cloud-services-dotnet-diagnostics.md)。下載封裝包含兩個診斷組態 – 一個用於 Web 角色，另一個用於背景工作角色。這些服務診斷組態遵循 [Microsoft Azure 雲端服務基本概念](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649)中的指引。其中包含定義來記錄效能計數器、IIS 記錄檔、Windows 事件記錄檔，以及分割合併應用程式事件記錄檔。
 
 ## 部署診斷 
 
@@ -239,4 +239,4 @@
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

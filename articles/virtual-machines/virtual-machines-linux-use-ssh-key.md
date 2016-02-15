@@ -23,7 +23,7 @@
 - [Windows](../articles/virtual-machines/virtual-machines-windows-use-ssh-key.md)
 - [Linux/Mac](../articles/virtual-machines/virtual-machines-linux-use-ssh-key.md)
 
-本主題描述如何在 Linux 和 Mac 上使用 **ssh-keygen** 和 **openssl**，以建立和使用 **ssh-rsa** 格式和 **.pem** 格式檔案來保護與 Linux 型 Azure VM 的安全通訊。建議您建立新的部署時，使用資源管理員部署模型建立以 Linux 為基礎的 Azure 虛擬機器，並採用 *ssh-rsa* 類型的公開金鑰檔案或字串 (取決於部署用戶端)。[預覽入口網站](https://portal.azure.com) 目前僅接受 **ssh-rsa** 格式的字串，不論是傳統或資源管理員的部署。
+本主題描述如何在 Linux 和 Mac 上使用 **ssh-keygen** 和 **openssl**，以建立和使用 **ssh-rsa** 格式和 **.pem** 格式檔案來保護與 Linux 型 Azure VM 的安全通訊。建議您建立新的部署時，使用資源管理員部署模型建立以 Linux 為基礎的 Azure 虛擬機器，並採用 *ssh-rsa* 類型的公開金鑰檔案或字串 (取決於部署用戶端)。[Azure 入口網站](https://portal.azure.com)目前只接受 **ssh-rsa** 格式的字串，無論是傳統部署或資源管理員部署。
 
 > [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]若要建立這些類型的檔案，用於Windows 電腦與 Azure 中的 Linux VM 進行安全通訊 ，請參閱[在 Windows 上使用 SSH 金鑰](virtual-machines-windows-use-ssh-key.md)。
 
@@ -33,7 +33,7 @@ Azure 的基本 SSH 安裝程式包含 2048 位元的 **ssh-rsa** 公用和私�
 
 以下是部署案例，以及您在每個案例中使用的檔案類型：
 
-1. 無論部署模型為何，使用[預覽入口網站](https://portal.azure.com)的任何部署都需要 **ssh-rsa** 金鑰。
+1. 任何使用 [Azure 入口網站](https://portal.azure.com)的部署都需要 **ssh-rsa** 金鑰，無論部署模型為何
 2. 需要 .pem 檔案才能使用[傳統入口網站](https://manage.windowsazure.com)來建立 VM。使用 [Azure CLI](xplat-cli-install.md) 的傳統部署也支援 .pem 檔案。 
 
 ## 建立金鑰與 SSH 搭配使用
@@ -72,7 +72,7 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
 
 	如果您想要從不同的私密金鑰檔案建立.pem 檔案，請修改 `-key` 引數。
 
-> [AZURE.NOTE]如果您打算管理使用傳統部署模型部署的服務，您可能也想要建立 **.cer** 格式檔案以上傳至入口網站 - 雖然這不牽涉到 **ssh** 或連接到 Linux VM，這是本文的主題。若要在 Linux 或 Mac 上建立這些檔案，輸入：<br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer
+> [AZURE.NOTE] 如果您打算管理使用傳統部署模型部署的服務，您可能也想要建立 **.cer** 格式檔案以上傳至入口網站 - 雖然這不牽涉到 **ssh** 或連接到 Linux VM，這是本文的主題。若要在 Linux 或 Mac 上建立這些檔案，輸入：<br /> openssl.exe x509 -outform der -in myCert.pem -out myCert.cer
 
 將.pem 檔案轉換成 DER 編碼的 x509 憑證檔案。
 
@@ -145,11 +145,11 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
 	-l "West US" -n testpemasm \
 	-P -t myCert.pem -e 22 \
 	testpemasm \
-	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-zh-TW-30GB \
+	b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-en-us-30GB \
 	ops
 	info:    Executing command vm create
 	warn:    --vm-size has not been specified. Defaulting to "Small".
-	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-zh-TW-30GB
+	+ Looking up image b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-en-us-30GB
 	+ Looking up cloud service
 	info:    cloud service testpemasm not found.
 	+ Creating cloud service
@@ -186,11 +186,11 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
 	data:    IPAddress "100.116.160.154"
 	data:    InstanceStatus "ReadyRole"
 	data:    InstanceSize "Small"
-	data:    Image "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-zh-TW-30GB"
+	data:    Image "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-en-us-30GB"
 	data:    OSDisk hostCaching "ReadWrite"
 	data:    OSDisk name "testpemasm-testpemasm-0-201510102050230517"
 	data:    OSDisk mediaLink "https://portalvhds4blttsxgjj1rf.blob.core.windows.net/vhd-store/testpemasm-2747c9c432b043ff.vhd"
-	data:    OSDisk sourceImageName "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-zh-TW-30GB"
+	data:    OSDisk sourceImageName "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_3-LTS-amd64-server-20150908-en-us-30GB"
 	data:    OSDisk operatingSystem "Linux"
 	data:    OSDisk iOType "Standard"
 	data:    ReservedIPName ""
@@ -296,4 +296,4 @@ Azure 需要 **ssh-rsa** 格式 2048 位元的金鑰檔案，或對等的.pem �
  
 既然您已連接到您的 VM，請務必先更新您所選的散發套件，再繼續使用它。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

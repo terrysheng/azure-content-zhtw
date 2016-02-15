@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/03/2016"
 	ms.author="yuaxu"/>
 
 # 將推播通知新增至 Android 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;
 
 ## 概觀
 在本教學課程中，您會將推播通知新增至 [Android 快速入門]專案，以便在每次插入一筆記錄時傳送推播通知。本教學課程以 [Android 快速入門]教學課程為基礎，您必須先完成該教學課程。如果您不要使用下載的快速入門伺服器專案，必須將推播通知擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
@@ -31,7 +29,7 @@
 
 * 具有已驗證電子郵件地址的 [Google 帳戶](http://go.microsoft.com/fwlink/p/?LinkId=268302)。
 * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) &mdash; Node.js 後端專案則不需要。
-* 完成[快速入門教學課程](../app-service-mobile-android-get-started.md)。
+* 完成[快速入門教學課程](app-service-mobile-android-get-started.md)。
 
 ##<a name="create-hub"></a>建立通知中樞
 
@@ -80,4 +78,4 @@
 <!-- URLs -->
 [Android 快速入門]: app-service-mobile-android-get-started.md
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

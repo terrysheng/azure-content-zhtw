@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/28/2015"
+   ms.date="01/26/2016"
    ms.author="sumukhs"/>
 
 # 設定 Reliable Actors - ReliableDictionaryActorStateProvider
@@ -21,7 +21,7 @@
 
 Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 settings.xml 檔案中尋找預先定義的區段名稱，並使用組態值。
 
->[AZURE.NOTE]請**不要**刪除或修改在 Visual Studio 方案中產生之 settings.xml 檔案中的下列組態區段名稱。
+>[AZURE.NOTE] 請**不要**刪除或修改在 Visual Studio 方案中產生之 settings.xml 檔案中的下列組態區段名稱。
 
 ## 複寫器安全性組態
 複寫器安全性組態用來保護在複寫期間使用的通訊通道。這表示服務將無法看到彼此的複寫流量，並且也會確保高度可用資料的安全。依預設，空白的安全性組態區段會妨礙複寫安全性。
@@ -84,4 +84,4 @@ MaxRecordSizeInKB 設定會定義複寫器可以寫入記錄檔的記錄大小�
 
 SharedLogId 和 SharedLogPath 設定永遠會一起使用，以便讓服務使用與節點的預設共用記錄檔不同的共用記錄檔。如需最佳效率，請儘可能讓所有服務指定相同的共用記錄檔。共用記錄檔應該放在共用記錄檔專用的磁碟上，以減少磁頭移動爭用情形。預期這些值只會在極少數的情況下需要變更。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

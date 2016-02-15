@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # 為 Azure 雲端服務和虛擬機器設定診斷功能
 
-當您需要疑難排解 Azure 雲端服務或 Azure 虛擬機器時，您可以使用 Visual Studio 更輕鬆地設定 Azure 診斷。Azure 診斷會在執行雲端服務的虛擬機器和虛擬機器執行個體上擷取系統資料和記錄資料，並將該資料傳送到您所選擇的儲存體帳戶。如需有關 Azure 中診斷記錄的詳細資訊，請參閱[在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能](web-sites-enable-diagnostic-log.md)。
+當您需要疑難排解 Azure 雲端服務或 Azure 虛擬機器時，您可以使用 Visual Studio 更輕鬆地設定 Azure 診斷。Azure 診斷會在執行雲端服務的虛擬機器和虛擬機器執行個體上擷取系統資料和記錄資料，並將該資料傳送到您所選擇的儲存體帳戶。如需有關 Azure 中診斷記錄的詳細資訊，請參閱[在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能](/app-service-web/web-sites-enable-diagnostic-log.md)。
 
 本主題說明如何在部署前後啟用及設定 Visual Studio 以及 Azure 虛擬機器中的 Azure 診斷。它也說明如何選取要收集的診斷資訊類型，以及如何在收集之後檢視資訊。
 
@@ -133,7 +133,7 @@
 
     ![安裝 Azure 虛擬機器延伸模組](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766024.png)
 
-    >[AZURE.NOTE]其他可供您的虛擬機器使用的診斷延伸模組。如需詳細資訊，請參閱 Azure VM 延伸模組和功能。
+    >[AZURE.NOTE] 其他可供您的虛擬機器使用的診斷延伸模組。如需詳細資訊，請參閱 Azure VM 延伸模組和功能。
 
 1. 選擇 [新增] 按鈕來新增延伸模組及檢視其 [診斷組態] 對話方塊。
 
@@ -221,7 +221,7 @@
 
   ![ETW 記錄檔](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766025.png)
 
-  ASP.NET 中透過 [System.Diagnostics.aspx] (https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) 命名空間中的類別支援 ETW 架構。Microsoft.WindowsAzure.Diagnostics 命名空間 (繼承自標準 [System.Diagnostics.aspx] (https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) 類別並將其延伸) 會啟用 [System.Diagnostics.aspx] (https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) 做為 Azure 環境中的記錄架構。如需詳細資訊，請參閱[在 Microsoft Azure 中控制記錄和追蹤](https://msdn.microsoft.com/magazine/ff714589.aspx)和[在 Azure 雲端服務和虛擬機器中啟用診斷](cloud-services-dotnet-diagnostics.md)。
+  ASP.NET 中透過 [System.Diagnostics.aspx] (https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) 命名空間中的類別支援 ETW 架構。Microsoft.WindowsAzure.Diagnostics 命名空間 (繼承自標準 [System.Diagnostics.aspx] (https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) 類別並將其延伸) 會啟用 [System.Diagnostics.aspx] (https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) 做為 Azure 環境中的記錄架構。如需詳細資訊，請參閱[在 Microsoft Azure 中控制記錄和追蹤](https://msdn.microsoft.com/magazine/ff714589.aspx)和[在 Azure 雲端服務和虛擬機器中啟用診斷](/cloud-services/cloud-services-dotnet-diagnostics.md)。
 
 ### 損毀傾印
 
@@ -357,4 +357,4 @@ RoleEntryPoint 的方法是在 WAIISHost.exe 的內容中呼叫，而不是 IIS�
 
 若要深入了解 Azure 中的診斷記錄，請參閱[在 Azure 雲端服務和虛擬機器中啟用診斷](cloud-services-dotnet-diagnostics.md)和[在 Azure App Service 中啟用 web 應用程式的診斷記錄](web-sites-enable-diagnostic-log.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

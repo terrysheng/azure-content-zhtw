@@ -19,6 +19,9 @@
 # 使用 Azure Data Factory 從 Azure Blob 來回移動資料
 本文概述如何在 Azure Data Factory 中使用複製活動，在 Azure Blob 與其他資料存放區之間移動資料。本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文呈現使用複製活動移動資料的一般概觀以及支援的資料存放區組合。
 
+下列範例顯示如何在 Azure Blob 儲存體和 Azure SQL Database 將資料複製進來和複製出去。不過，您可以在 Azure Data Factory 中使用複製活動，從任何來源**直接**將資料複製到[這裡](data-factory-data-movement-activities.md#supported-data-stores)所說的任何接收器。
+ 
+
 ## 範例：從 Azure Blob 複製資料到 Azure SQL
 下列範例顯示：
 
@@ -508,4 +511,4 @@ false | mergeFiles | <p>對於有下列結構的來源資料夾 Folder1：</p> <
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

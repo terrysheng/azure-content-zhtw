@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="12/22/2015"
+  ms.date="01/29/2015"
   ms.author="andrl"/>
 
 # 社群入口網站
@@ -56,7 +56,7 @@ DoQmentDB 是一個以 Node.js Promise 為基礎的用戶端，可在 DocumentDB
 
 ### DocumentDB 的 Swagger REST API
 
-由 Howard Edidin 撰寫
+*由 Howard Edidin 撰寫*
 
 可以輕鬆部署為 API 應用程式的 DocumentDB REST API Swagger 檔案。
 
@@ -80,6 +80,8 @@ DoQmentDB 是一個以 Node.js Promise 為基礎的用戶端，可在 DocumentDB
 
 **社群貼文：**
 
+* [**Azure DocumentDB 伺服器端指令碼**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *作者 Robert Sheldon*
+
 * [**把 DocumentDB 當做 Azure 串流分析的資料接收器**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - 由 Jan Hentschel 撰寫
 
 * [**開發中的 Azure DocumentDB！**](http://blog.nexapp.ca/2015/11/30/azure-documentdb-in-production/) - 由 Alexandre Walsh 和 Marc-Olivier Duval 撰寫
@@ -100,7 +102,7 @@ DoQmentDB 是一個以 Node.js Promise 為基礎的用戶端，可在 DocumentDB
 
 * [**處理 Azure DocumentDB 中的 RequestRateTooLarge 錯誤，以及測試效能**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - 由 Azim Uddin 撰寫
 
-* [**資料點 - Microsoft Azure DocumentDB 概觀**](https://msdn.microsoft.com/magazine/mt147238.aspx) - 由 Julie Lerman 撰寫
+* [**資料點 - Microsoft Azure DocumentDB 概觀**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *由 Julie Lerman 撰寫*
 
 * [**搭配 F# 來使用 DocumentDB **](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) - 由 Jamie Dixon 撰寫
 
@@ -124,6 +126,7 @@ DoQmentDB 是一個以 Node.js Promise 為基礎的用戶端，可在 DocumentDB
 
 | 活動名稱 | 主講人 | 位置 | 日期 | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Andrew Liu | Bellevue, WA | 2016 年 3 月 3 日 | n/a
 | SQLBits XV | TBD | 英國利物浦 | 2016 年 5 月 4-7 日 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
 
 您在演講或舉辦活動嗎？ [請告訴我們](mailto:askdocdb@microsoft.com)該如何協助您！
@@ -132,6 +135,7 @@ DoQmentDB 是一個以 Node.js Promise 為基礎的用戶端，可在 DocumentDB
 
 | 活動名稱 | 主講人 | 位置 | 日期 | 記錄 |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, TX | 2016 年 1 月 28 日 | n/a |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | 加拿大魁北克省蒙特婁 | 2015 年 12 月 1 日 | n/a |
 | [聚會：SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | 美國華盛頓州西雅圖 | 2015 年 11 月 12 日 | n/a |
 | [PASS Summit 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz、Andrew Hoh、Aravind Ramachandran、John Macintyre | 美國華盛頓州西雅圖 | 2015 年 10 月 27-30 日 | n/a |
@@ -213,14 +217,6 @@ DoQmentDB 是一個以 Node.js Promise 為基礎的用戶端，可在 DocumentDB
 
 <br/><br/>
 
-### 多人線上交談系統 + 上班時間
-
-您可以在透過 IRC 與我們即時交談，方法是使用 [IRC 用戶端](http://www.irchelp.org/)前往 `chat.freenode.net` 的 `#documentdb` 頻道，或是使用 Freenode 的 [WebChat](http://webchat.freenode.net/?channels=documentdb) 來將您的 Web 頻道連線至該頻道。
-
-我們在 IRC 的上班時間為每星期五上午 11 點至下午 12 點 (太平洋時間)。
-
-<br/><br/>
-
 <hr/>
 
 ## 連絡小組
@@ -271,4 +267,4 @@ DocumentDB 精靈是社群領導者，他們是在協助其他人充分利用他
 
 想要成為 DocumentDB 精靈？ 由於是否能成為 DocumentDB 精靈並沒有任何評斷基準，因此我們會針對部分條件來評估，包括被提名人在線上論壇 (例如 StackOverflow 和 MSDN；Wiki 和線上內容；會議和使用者群組；播客；網站；部落格和社群媒體；以及文章與書籍) 中提供之貢獻所產生的影響。如果您想提名自己或其他人，請[傳送電子郵件給我們](mailto:askdocdb@microsoft.com)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

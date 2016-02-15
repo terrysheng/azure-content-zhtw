@@ -11,8 +11,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="ddove; sidneyh" />
+	ms.date="02/02/2016" 
+	ms.author="ddove;sidneyh" />
 
 # 使用 PowerShell 建立和管理 SQL Database 彈性資料庫工作 (預覽)
 
@@ -27,7 +27,7 @@
 ## 必要條件
 * Azure 訂閱。如需免費試用，請參閱[免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。
 * 一組使用彈性資料庫工具所建立的資料庫。請參閱[開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)。
-* Azure PowerShell。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
+* Azure PowerShell。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 * **彈性資料庫工作** PowerShell 封裝：請參閱[安裝彈性資料庫工作](sql-database-elastic-jobs-service-installation.md)
 
 ### 選取您的 Azure 訂用帳戶
@@ -655,7 +655,7 @@
 
 ## 建立資料層應用程式 (DACPAC) 以跨資料庫執行
 
-若要建立 DACPAC，請參閱[資料層應用程式](https://msdn.microsoft.com/library/ee210546.aspx)。若要部署 DACPAC、請使用 [New-AzureSqlJobContent Cmdlet](https://msdn.microsoft.com/library/mt346085.aspx)。DACPAC 必須可供服務存取。建議將建立的 DACPAC 上傳至 Azure 儲存體，並且為 DACPAC 建立[共用存取簽章](storage-dotnet-shared-access-signature-part-1.md)。
+若要建立 DACPAC，請參閱[資料層應用程式](https://msdn.microsoft.com/library/ee210546.aspx)。若要部署 DACPAC、請使用 [New-AzureSqlJobContent Cmdlet](https://msdn.microsoft.com/library/mt346085.aspx)。DACPAC 必須可供服務存取。建議將建立的 DACPAC 上傳至 Azure 儲存體，並且為 DACPAC 建立[共用存取簽章](../storage/storage-dotnet-shared-access-signature-part-1.md)。
 
 	$dacpacUri = "{Uri}"
 	$dacpacName = "{Dacpac Name}"
@@ -694,4 +694,4 @@
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

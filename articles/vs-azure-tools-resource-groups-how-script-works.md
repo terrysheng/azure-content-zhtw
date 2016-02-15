@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/17/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher" />
 
 # Azure 資源群組專案部署指令碼的概觀
@@ -35,7 +35,7 @@ Deploy-AzureResourceGroup.ps1 指令碼會執行兩個動作，對於部署工�
 
 以下是 Deploy-AzureResourceGroup.ps1 Azure PowerShell 指令碼選取部分所執行動作的描述。
 
->[AZURE.NOTE]說明 Deploy-AzureResourceGroup.ps1 指令碼的 1.0 版。
+>[AZURE.NOTE] 說明 Deploy-AzureResourceGroup.ps1 指令碼的 1.0 版。
 
 1.	宣告 Azure 資源管理員部署專案需要的參數。部分參數已有在建立專案時設定的預設值。您可以在指令碼中變更這些預設值，或在執行指令碼之前新增不同的參數值。
 
@@ -209,7 +209,7 @@ Deploy-AzureResourceGroup.ps1 指令碼會執行兩個動作，對於部署工�
 
     ![][3]
 
-	>[AZURE.NOTE]如果任何必要的參數需要值，這個對話方塊會在您部署時自動出現。
+	>[AZURE.NOTE] 如果任何必要的參數需要值，這個對話方塊會在您部署時自動出現。
 
     ![][4]
 
@@ -264,4 +264,4 @@ $(Build.StagingDirectory)/AzureResourceGroup1/Scripts/Deploy-AzureResourceGroup.
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

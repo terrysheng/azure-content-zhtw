@@ -393,14 +393,20 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 > [AZURE.NOTE] 在將應用程式從「免費」層切換至「標準」層之前，您應該先移除訂用帳戶的支出費用上限，以免帳單期間還未結束，應用程式就因為已達支出費用上限而變得無法使用。如需共用與「標準」層的詳細資訊，請參閱[定價詳細資料][pricing]。
 
 1.	在瀏覽器中，開啟 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)。
+	
 2.	按一下頁面左側的 [**瀏覽**] 選項。
+
 3.	按一下 [**Web Apps**] 刀鋒視窗。
+
 4.	按一下應用程式的名稱。
+
 5.	在 [**基本功能**] 頁面中，按一下 [**設定**]。
-6.	按一下 [**調整**]。
+
+6.	按一下 [級別]。
+	
 	![調整索引標籤][scale]
-7.	在 [**調整**] 區段中，按一下 [**選取**]，設定 App Service 的方案模式。
-	![The Pricing tier][sslreserved]
+
+7.	在 [級別] 區段中，按一下 [選取] 以設定 App Service 計劃模式。
 
 	> [AZURE.NOTE] 如果發生「設定 Web 應用程式 '&lt;應用程式名稱&gt;' 的規模失敗」錯誤，您可以利用詳細資料按鈕來取得詳細資訊。您可能會收到 [可用標準執行個體伺服器不足，無法滿足此要求] 錯誤。如果您收到此錯誤，請連絡 [Azure 支援](/support/options/)。
 
@@ -410,15 +416,25 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 在執行本節中的步驟之前，您必須先建立自訂網域名稱與應用程式的關聯。如需詳細資訊，請參閱[設定 Web 應用程式的自訂網域名稱][customdomain]。
 
 1.	在瀏覽器中開啟 [Azure 管理入口網站](https://portal.azure.com)。
+
 2.	按一下頁面左側的 [**瀏覽**] 選項。
+
 3.	按一下 [**Web Apps**] 刀鋒視窗。
+
 4.	按一下應用程式的名稱。
-5.	在 [**基本功能**] 頁面中，按一下 [**設定**]。	
+
+5.	在 [**基本功能**] 頁面中，按一下 [**設定**]。
+
 6.	按一下 [**自訂網域和 SSL**]。
-	![The config tab][sslconfig]
+
+	![設定索引標籤][configure]
+
 7.	在 [**憑證**] 區段中，按一下 [**上傳**]。
-8.	使用 [上傳憑證] 對話方塊，選取之前以 IIS 管理員或 OpenSSL 建立的 .pfx 憑證檔案。指定當初用來保護 .pfx 檔案的密碼 (如果有的話)。最後，按一下 [**儲存**]，以上傳憑證。
-	![ssl upload][ssluploadcert]
+
+8.	使用 [上傳憑證] 對話方塊，選取之前以 IIS 管理員或 OpenSSL 建立的 .pfx 憑證檔案。指定當初用來保護 .pfx 檔案的密碼 (如果有的話)。最後，按一下 [儲存] 以上傳憑證。
+
+	![SSL 上傳][uploadcert]
+
 9. 在 [**SSL 設定**] 索引標籤的 [**SSL 繫結**] 區段中，使用下拉式清單選取要以 SSL 保護的網域名稱，以及要使用的憑證。您也可以選擇使用[伺服器名稱指示][sni] (SNI) 還是 IP SSL。
 
 	![SSL 繫結][sslbindings]
@@ -549,4 +565,4 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

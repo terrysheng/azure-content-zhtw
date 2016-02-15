@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager,azure-service-management"/>
 
@@ -68,4 +68,4 @@ Azure 有兩個入口網站︰
 - 了解如何[設計範本](/best-practices-resource-manager-design-templates.md)。
 - 使用[最佳作法](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

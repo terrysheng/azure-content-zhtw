@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="02/01/2016" 
 	ms.author="nitinme"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用色調
@@ -34,28 +34,26 @@
 
 ## 使用指令碼動作安裝色調
 
-[https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh) 指令碼動作是用來在 HDInsight 叢集上安裝色調。本節提供有關如何在使用 Azure 傳統入口網站佈建叢集時使用指令碼的指示。
+[https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh) 指令碼動作是用來在 HDInsight 叢集上安裝色調。本節提供有關如何在使用 Azure 傳統入口網站佈建叢集時使用指令碼的指示。
 
-> [AZURE.NOTE]您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+> [AZURE.NOTE] 您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 1. 使用[在 Linux 上佈建 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md#portal)中的步驟開始佈建叢集，但是不完成佈建。
 
-	> [AZURE.NOTE]若要在 HDInsight 叢集上安裝色調，建議的 HeadNode 大小為至少 A4 (8 核心、14 GB 記憶體)。
+	> [AZURE.NOTE] 若要在 HDInsight 叢集上安裝色調，建議的 HeadNode 大小為至少 A4 (8 核心、14 GB 記憶體)。
 
 2. 在 [選用組態] 刀鋒視窗中，選取 [指令碼動作]，並提供如下所示的資訊：
 
 	![提供 Hue 的指令碼動作參數](./media/hdinsight-hadoop-hue-linux/hue_script_action.png "提供 Hue 的指令碼動作參數")
 
 	* __名稱__：輸入指令碼動作的易記名稱。
-	* __指令碼 URI__：https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh
+	* __指令碼 URI__：https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
 	* __前端__：勾選此選項。
 	* __背景工作角色__：將此選項保留空白。
 	* __ZOOKEEPER__：將此選項保留空白。
-	* __參數__：指令碼預期 **cluster admin password** 是參數。這是您在佈建叢集時指定的密碼。同時提供密碼時的重要考量：
-		* 如果叢集的使用者名稱是 "admin"，則您只需要在單引號內指定密碼即可。
-		* 如果叢集的使用者名稱是 "admin" 以外的任何名稱，您必須將參數指定為 `-u [username] [password in single quotes]`。
+	* __參數__：將此選項保留空白。
 
-3. 在 [指令碼動作] 底部，使用 [選取] 按鈕儲存組態。最後，使用 [選用組態] 刀鋒視窗底部的 [選取] 按鈕，儲存選用組態資訊。
+3. 在 [指令碼動作] 底部，使用 [選取] 按鈕以儲存組態。最後，使用 [選用組態] 刀鋒視窗底部的 [選取] 按鈕，儲存選用組態資訊。
 
 4. 繼續如[在 Linux 上佈建 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md#portal)中所述佈建叢集。
 
@@ -71,11 +69,11 @@
     
     2. 在頁面頂端的功能表中，選取 [主機]。
     
-    3. 選取開頭為 __hn0__ 的項目。當頁面開啟時，主機名稱會顯示在頂端。主機名稱的格式為 __hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__。這是您連接到色調時必須使用的主機名稱。
+    3. 選取以 __hn0__ 開頭的項目。當頁面開啟時，主機名稱會顯示在頂端。主機名稱的格式為 __hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__。這是您連接到色調時必須使用的主機名稱。
 
 2. 一旦您建立了 SSH 通道，並設定您的瀏覽器透過該通道代理流量，即可使用此瀏覽器來開啟色調入口網站，網址為 http://HOSTNAME:8888。以您在先前步驟從 Ambari 取得的名稱取代 HOSTNAME：
 
-    > [AZURE.NOTE]當您第一次登入時，系統會提示您建立帳戶來登入色調入口網站。您在此處指定的認證會限制為入口網站，並且與佈建叢集時您指定的系統管理員或 SSH 使用者認證不相關。
+    > [AZURE.NOTE] 當您第一次登入時，系統會提示您建立帳戶來登入色調入口網站。您在此處指定的認證會限制為入口網站，並且與佈建叢集時您指定的系統管理員或 SSH 使用者認證不相關。
 
 	![登入色調入口網站](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "指定色調入口網站的認證")
 
@@ -101,7 +99,7 @@
 
 3. 以滑鼠右鍵按一下檔案或資料夾，以查看可用的作業。使用右邊的 [上傳] 按鈕，將檔案上傳至目前的目錄。使用 [新增] 按鈕建立新的檔案或目錄。
 
-> [AZURE.NOTE]色調檔案瀏覽器只會顯示與 HDInsight 叢集相關聯的預設容器的內容。已與叢集相關聯的任何額外儲存體帳戶/容器將無法使用檔案瀏覽器存取。不過，與叢集相關聯的其他容器一律可供 Hive 工作存取。例如，如果您在 Hive 編輯器中輸入 `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` 命令，則您也可以看到其他容器的內容。在這個命令中，**newcontainer** 不是與叢集相關聯的預設容器。
+> [AZURE.NOTE] 色調檔案瀏覽器只會顯示與 HDInsight 叢集相關聯的預設容器的內容。已與叢集相關聯的任何額外儲存體帳戶/容器將無法使用檔案瀏覽器存取。不過，與叢集相關聯的其他容器一律可供 Hive 工作存取。例如，如果您在 Hive 編輯器中輸入 `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` 命令，則您也可以看到其他容器的內容。在這個命令中，**newcontainer** 不是與叢集相關聯的預設容器。
 
 ## 重要考量︰
 
@@ -137,4 +135,4 @@
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

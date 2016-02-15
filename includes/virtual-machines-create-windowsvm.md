@@ -12,17 +12,17 @@
 
 	- [虛擬機器名稱] 只能包含字母、數字及連字號。名稱必須以字母開頭，並以字母或數字結尾。
 	- [新使用者名稱] 是指用來管理伺服器的系統管理帳戶。密碼長度必須介於 8-123 個字元，並且具有至少 3 個下列項目：1 個小寫字元、1 個大寫字元、1 個數字和 1 個特殊字元。**您將需要使用者名稱和密碼才能登入虛擬機器**。
-	- 虛擬機器的大小會影響其使用成本以及組態選項 (例如您可連接的資料磁碟數目)。如需詳細資訊，請參閱[虛擬機器的大小](../articles/virtual-machines-size-specs.md)。
+	- 虛擬機器的大小會影響其使用成本以及組態選項 (例如您可連接的資料磁碟數目)。如需詳細資訊，請參閱[虛擬機器的大小](virtual-machines-size-specs.md)。
 
 6. 第三個畫面可讓您設定網路、儲存體和可用性的資源。以下是一些祕訣：
 
-	- [Cloud Service DNS Name] 是全域 DNS 名稱，它會成為用來連絡虛擬機器的 URI 一部分。您將必須想出自己的雲端服務名稱，因為它在 Azure 中必須是唯一的。雲端服務對於使用[多個虛擬機器](../articles/cloud-services-connect-virtual-machine.md)的案例十分重要。
+	- [Cloud Service DNS Name] 是全域 DNS 名稱，它會成為用來連絡虛擬機器的 URI 一部分。您將必須想出自己的雲端服務名稱，因為它在 Azure 中必須是唯一的。雲端服務對於使用[多個虛擬機器](cloud-services-connect-virtual-machine.md)的案例十分重要。
 
 	- 在 [區域/同質群組/虛擬網路] 中，使用適合您位置的區域。您也可以改選指定虛擬網路。
 
 	>[AZURE.NOTE] 如果您想要讓虛擬機器使用虛擬網路，就「必須」在建立虛擬機器時指定虛擬網路。在建立 VM 後，您無法將虛擬機器加入虛擬網路。如需詳細資訊，請參閱 [Azure 虛擬網路概觀](virtual-networks-overview.md)。
 	>
-	> 如需有關設定端點的詳細資料，請參閱[如何設定虛擬機器的端點](../articles/virtual-machines-set-up-endpoints.md)。
+	> 如需有關設定端點的詳細資料，請參閱[如何設定虛擬機器的端點](virtual-machines-set-up-endpoints.md)。
 
 7. 第四個組態畫面可讓您安裝 VM 代理程式及設定部分可用延伸模組。
 
@@ -32,4 +32,4 @@
 
 	![設定 VM 代理程式和需擬機器端點](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

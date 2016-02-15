@@ -26,7 +26,7 @@ ms.service="virtual-machines"
 
 ![HPC Pack 前端節點][headnode]
 
->[AZURE.NOTE]目前 HPC Pack VM 映像是基於 Windows Server 2012 R2 Datacenter，並預先安裝 HPC Pack 2012 R2 更新 2。也會預先安裝 Microsoft SQL Server 2014 Express。
+>[AZURE.NOTE] 目前 HPC Pack VM 映像是基於 Windows Server 2012 R2 Datacenter，並預先安裝 HPC Pack 2012 R2 更新 2。也會預先安裝 Microsoft SQL Server 2014 Express。
 
 
 針對 Azure 中的 HPC Pack 叢集生產環境部署，我們建議採用自動化部署方法，例如 [HPC Pack IaaS 部署指令碼](virtual-machines-hpcpack-cluster-powershell-script.md)或 Azure 資源管理員[快速入門範本](https://azure.microsoft.com/documentation/templates/)。
@@ -42,7 +42,7 @@ ms.service="virtual-machines"
 以下是建立 HPC Pack 前端節點的 Azure VM 的高階步驟。您可以在 Azure 傳統 (服務管理) 部署模型中使用各種 Azure 工具來執行這些步驟。
 
 
-1. 如果您打算建立前端節點 VM 的 VNet，請參閱[使用 Azure 入口網站建立虛擬網路 (傳統)](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md)。
+1. 如果您打算建立前端節點 VM 的 VNet，請參閱[使用 Azure 入口網站建立虛擬網路 (傳統)](../virtual-networks/virtual-networks-create-vnet-classic-portal.md)。
 
     **考量**
 
@@ -102,4 +102,4 @@ ms.service="virtual-machines"
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

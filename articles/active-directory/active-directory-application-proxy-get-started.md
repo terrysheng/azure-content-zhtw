@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="kgremban"/>
 
 # 如何為內部部署應用程式提供安全的遠端存取
 
-> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
+> [AZURE.NOTE] 應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
 您想要為擁有各種裝置 (受管理及未受管理；平板電腦、智慧型手機和膝上型電腦) 的遠端使用者提供存取。但是，為大量的資源提供安全的存取可能會很複雜。近年來，反向 Proxy 是提供安全的遠端存取的一種常見方式，但它們必須在難以保護，且難以提供高度可用性的防火牆後面。
 
@@ -59,7 +59,7 @@ Azure AD 應用程式 Proxy 針對使用整合式 Windows 驗證 (IWA)，或宣�
 - [觀看我們在 Channel 9 上的影片！](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## 其他資源
-* [以組織身分註冊 Azure](../sign-up-organization.md)
-* [Azure 身分識別](../fundamentals-identity.md)
+* [以組織身分註冊 Azure](sign-up-organization.md)
+* [Azure 身分識別](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

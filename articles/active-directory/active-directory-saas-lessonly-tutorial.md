@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -35,7 +35,7 @@
 - 啟用 Lesson.ly 單一登入功能的訂用帳戶
 
 
-> [AZURE.NOTE]若要測試本教學課程中的步驟，我們不建議使用生產環境。
+> [AZURE.NOTE] 若要測試本教學課程中的步驟，我們不建議使用生產環境。
 
 
 若要測試本教學課程中的步驟，您應該遵循這些建議：
@@ -56,7 +56,7 @@
 
 **若要從資源庫加入 Lesson.ly，請執行下列步驟：**
 
-1. 在 **Azure 傳統入口網站**中，按一下左方瀏覽窗格中的 [Active Directory]。<br><br> ![Active Directory][1]<br>
+1. 在「Azure 管理入口網站」中，按一下左方瀏覽窗格上的 [Active Directory]。<br><br> ![Active Directory][1]<br>
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
@@ -64,52 +64,59 @@
 4. 按一下頁面底部的 [加入]。<br><br> ![應用程式][3]<br>
 5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br> ![應用程式][4]<br>
 6. 在搜尋方塊中，輸入 **Lesson.ly**。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_01.png)<br>
-7. 在結果窗格中，選取 [Lesson.ly]，然後按一下 [完成] 以加入應用程式。<br><br>
-
+7. 在結果窗格中，選取 [Lesson.ly]，然後按一下 [完成] 以加入應用程式。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_02.png)<br>
 ##  設定並測試 Azure AD 單一登入
 本節目標是示範如何根據名為 "Britta Simon" 的測試使用者，使用 Lesson.ly 設定及測試 Azure AD 單一登入功能。
 
-若要讓單一登入作用，Azure AD 必須能知道 Lesson.ly 與 Azure AD 中互相對應的使用者。換句話說，必須建立 Azure AD 使用者和 Lesson.ly 中相關使用者之間的連結關聯性。<br> 建立此連結關聯性的方法是指派 Azure AD 中 [使用者名稱] 的值做為 Lesson.ly 中 [Username] 的值。
+若要讓單一登入作用，Azure AD 必須能知道 Lesson.ly 與 Azure AD 中互相對應的使用者。換句話說，必須建立 Azure AD 使用者和 Lesson.ly 中相關使用者之間的連結關聯性。<br> 建立此連結關聯性的方法是指派 Azure AD 中 [使用者名稱] 的值做為 Lesson.ly 中 [使用者名稱] 的值。
 
 若要使用 Lesson.ly 設定及測試 Azure AD 單一登入功能，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[建立 Lesson.ly 測試使用者](#creating-a-Lesson.ly-test-user)** - 使 Lesson.ly 中，Britta Simon 的對應使用者能夠連結到代表她在 Azure AD 中的項目。
+4. **[建立 Lesson.ly 測試使用者](#creating-a-Lessonly-test-user)** - 使 Lesson.ly 中，Britta Simon 的對應使用者能夠連結到代表她在 Azure AD 中的項目。
 5. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[測試單一登入](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### 設定 Azure AD 單一登入
 
-本節的目標是要在 Azure 傳統入口網站中啟用 Azure AD 單一登入，並在您的 Lesson.ly 應用程式中設定單一登入。
+本節的目的是要說明如何依據 SAML 通訊協定來使用同盟，讓使用者能夠用自己的 Azure AD 帳戶驗證至 Lesson.ly。
 
-
+Lesson.ly 應用程式需要特定格式的 SAML 判斷提示，需要您加入自訂屬性對應到您的 **saml token 屬性**設定。以下螢幕擷取畫面顯示上述的範例。<br><br> ![設定單一登入](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_06.png) <br>
 
 **若要使用 Lesson.ly 設定 Azure AD 單一登入功能，請執行下列步驟：**
 
-1. 在 Azure 傳統入口網站的 [Lesson.ly] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。<br><br> ![設定單一登入][6] <br>
+1. 在 Azure AD 入口網站的 Lesson.ly 應用程式整合頁面中，按一下最上面功能表中的 [屬性] 來開啟 [SAML Token 屬性] 對話方塊。<br><br> ![設定單一登入](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_07.png) <br>
 
-2. 在 [要如何讓使用者登入 Lesson.ly] 頁面上，選取 [Azure AD 單一登入]，然後按 [下一步]。<br><br> ![設定單一登入](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_03.png) <br>
+2. 若要加入必要的屬性對應，請執行下列步驟：<br><br> ![設定單一登入](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_08.png) <br> a.針對上表中的每個資料列，按一下 [新增使用者屬性]<br> b.在 [屬性名稱] 文字方塊中，輸入針對該資料列顯示的屬性名稱。<br> c.在 [屬性值] 清單中，選取該資料列所顯示的屬性名稱。<br> d.按一下 [完成]
 
-3. 在 [設定應用程式設定] 對話方塊頁面，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_04.png) <br>
+3. 按一下 [套用變更]。
+
+4. 在您的瀏覽器中，按一下 [返回] 以再次開啟 [快速啟動] 對話方塊
+
+5. 按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。<br><br> ![設定單一登入][6] <br>
+
+6. 在 [要如何讓使用者登入 Lesson.ly] 頁面上，選取 [Azure AD 單一登入]，然後按 [下一步]。<br><br> ![設定單一登入](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_03.png) <br>
+
+7. 在 [設定應用程式設定] 對話方塊頁面，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_04.png) <br>
 
 
-    a.在 [登入 URL] 文字方塊中，使用以下模式輸入您的使用者用來登入 Lesson.ly 應用程式的 URL：**“https://<company name>.Lesson.ly/signin”**。
+    a.在 [登入 URL] 文字方塊中，使用下列形式輸入您的使用者用來登入 Lesson.ly 應用程式的 URL：**“https://companyname.Lesson.ly/signin”**。參考一般名稱時，**companyname** 需要由實際名稱取代。
 
 
-4. 在 [在 Lesson.ly 單一登入設定] 頁面上，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_05.png) <br>
+8. 在 [在 Lesson.ly 單一登入設定] 頁面上，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_05.png) <br>
 
     a.按一下 [下載憑證]，然後將檔案儲存在您的電腦上。
 
     b.按 [下一步]。
 
 
-5. 若要為您的應用程式設定 SSO，請透過 dev@lesson.ly 連絡您的 Lesson.ly 支援小組。將下載的憑證檔案附加至您的郵件，並與 Lesson.ly 小組分享中繼資料 URL (實體識別碼、SSO 登入 URL 和登出 URL)，以在其端設定 SSO。
+9. 若要為您的應用程式設定 SSO，請透過 dev@lesson.ly 連絡您的 Lesson.ly 支援小組。將下載的憑證檔案附加至您的郵件，並與 Lesson.ly 小組分享中繼資料 URL (實體識別碼、SSO 登入 URL 和登出 URL)，以在其端設定 SSO。
 
 
-6. 在 Azure 傳統入口網站中，選取單一登入設定確認項目，然後按一下 [下一步]。<br><br>![Azure AD 單一登入][10]<br>
+10. 在 Azure AD 入口網站中，選取單一登入設定確認項目，然後按一下 [下一步]。<br><br>![Azure AD 單一登入][10]<br>
 
-7. 在 [單一登入確認] 頁面上，按一下 [完成]。<br><br>![Azure AD 單一登入][11]
+11. 在 [單一登入確認] 頁面上，按一下 [完成]。<br><br>![Azure AD 單一登入][11]
 
 
 
@@ -119,7 +126,7 @@
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在 **Azure 傳統入口網站**中，按一下左方瀏覽窗格中的 [Active Directory]。<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-lessonly-tutorial/create_aaduser_09.png) <br>
+1. 在 **Azure 管理入口網站**中，按一下左方瀏覽窗格中的 [Active Directory]。<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-lessonly-tutorial/create_aaduser_09.png) <br>
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
@@ -161,9 +168,9 @@
 
 本節的目標是要在 Lesson.ly 中建立名為 Britta Simon 的使用者。Lesson.ly 支援預設啟用的 Just-In-Time 佈建。
 
-在這一節沒有您需要進行的動作項目。嘗試存取 Lesson.ly 時，如果使用者還不存在，就會建立新使用者。
+在這一節沒有您需要進行的動作項目。嘗試存取 Lesson.ly 時，如果使用者還不存在，就會建立新使用者。[設定 Azure AD 單一登入](#configuring-azure-ad-single-single-sign-on)。
 
-> [AZURE.NOTE]如果您需要手動建立使用者，您需要連絡 Lesson.ly 支援小組。
+> [AZURE.NOTE] 如果您需要手動建立使用者，您需要連絡 Lesson.ly 支援小組。
 
 
 ### 指派 Azure AD 測試使用者
@@ -213,4 +220,4 @@
 [204]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

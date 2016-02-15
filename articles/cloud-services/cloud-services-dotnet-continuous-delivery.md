@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Azure 中雲端服務的連續傳遞
@@ -46,12 +46,11 @@
 
     如果組建伺服器上未安裝 Visual Studio，請開啟命令提示字元，並確定可在路徑上存取 MSBuild.exe。MSBuild 會與 .NET Framework 一起安裝在路徑 %WINDIR%\\Microsoft.NET\\Framework\*Version* 中。例如，若要在已安裝 .NET Framework 4 時，將 MSBuild.exe 新增至 PATH 環境變數，請在命令提示字元中輸入下列命令：
 
-
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
 2.  在命令提示字元中，瀏覽至包含您要建置之 Azure 專案檔案的資料夾。
 
-3.  搭配 /target:Publish 選項執行 msbuild，如下列範例所示：
+3.  搭配 /target:Publish 選項執行 MSBuild，如下列範例所示：
 
         MSBuild /target:Publish
 
@@ -140,7 +139,7 @@
 
 7.  直接從 Azure PowerShell 呼叫指令碼，或將此指令碼接到主機組建自動化程序中，以在建置套件之後執行。
 
-    >[AZURE.IMPORTANT]依預設，指令碼如果偵測到現有的部署，會一律加以刪除或取代。此為不得不的方式，因為如此一來，完全省去使用者互動過程的自動化程序才有辦法進行連續傳遞。
+    >[AZURE.IMPORTANT] 依預設，指令碼如果偵測到現有的部署，會一律加以刪除或取代。此為不得不的方式，因為如此一來，完全省去使用者互動過程的自動化程序才有辦法進行連續傳遞。
 
     **範例案例 1：**連續部署至服務的預備環境：
 
@@ -178,7 +177,7 @@
 
     若要停用升級部署，可在指令碼中停用 ($enableDeploymentUpgrade = 0) 或傳遞 *-enableDeploymentUpgrade 0* 當作參數，如此會將指令碼行為改變為先刪除任何現有的部署，再建立新的部署。
 
-    >[AZURE.IMPORTANT]依預設，指令碼如果偵測到現有的部署，會一律加以刪除或取代。此為不得不的方式，因為如此一來，完全省去使用者/作業員互動過程的自動化程序才有辦法進行連續傳遞。
+    >[AZURE.IMPORTANT] 依預設，指令碼如果偵測到現有的部署，會一律加以刪除或取代。此為不得不的方式，因為如此一來，完全省去使用者/作業員互動過程的自動化程序才有辦法進行連續傳遞。
 
 ## 步驟 5：使用 TFS Team Build 發佈套件
 
@@ -574,4 +573,4 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

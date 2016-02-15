@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/02/2016"
 	ms.author="billmath"/>
 
 # 判斷目錄同步處理需求
@@ -57,12 +57,13 @@
  - 如果貴公司不知道這個問題的解答，請檢閱[安裝 Azure Active Directory 同步處理服務](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService)一文中的＜密碼同步化的權限 ＞一節，並判斷您是否已經擁有具備這些權限的帳戶，或者您是否需要建立一個帳戶。
 - 如果您擁有多重樹系的同步處理，則同步處理伺服器能夠送達每個樹系嗎？
  
->[AZURE.NOTE]請確定會記下每個答案，並了解答案背後的原理。[判斷事件因應需求](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)將介紹可用的選項。回答這些問題之後，您就能選取最適合業務需求的選項。
+>[AZURE.NOTE]
+請確定會記下每個答案，並了解答案背後的原理。[判斷事件因應需求](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)將介紹可用的選項。回答這些問題之後，您就能選取最適合業務需求的選項。
 
 ## 後續步驟
 [判斷多重要素驗證需求](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## 另請參閱
-[設計考量概觀](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

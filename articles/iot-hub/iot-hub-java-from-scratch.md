@@ -26,7 +26,7 @@
 
 如需了解 Windows 或 Linux 的必要條件，及如何在這兩種平台上設定開發環境的資訊，請參閱 [準備開發環境][devbox-setup]。
 
-> [AZURE.NOTE]在開始本教學課程的安裝必要元件作業，以及將所需的 JAR 檔案加入本機 Maven 儲存機制中之前，請務必先完成[準備開發環境][devbox-setup]中的步驟。
+> [AZURE.NOTE] 在開始本教學課程的安裝必要元件作業，以及將所需的 JAR 檔案加入本機 Maven 儲存機制中之前，請務必先完成[準備開發環境][devbox-setup]中的步驟。
 
 ## 建立專案
 
@@ -36,7 +36,7 @@
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=iot-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    > [AZURE.NOTE]這只是一個非常長的命令。若要將其貼至命令列工具，請務必複製完整的命令。
+    > [AZURE.NOTE] 這只是一個非常長的命令。若要將其貼至命令列工具，請務必複製完整的命令。
 
     此命令會建立具有標準 Maven 專案結構，名為 *iot-device* 的專案資料夾。如需詳細資訊，請參閱 Apache 網站上的 [5 分鐘認識 Maven][maven-five-minutes]。
 
@@ -48,7 +48,7 @@
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-client</artifactId>
-      <version>1.0.0-preview.4</version>
+      <version>1.0.0</version>
     </dependency>
     ```
 
@@ -214,7 +214,7 @@
 .level = {LOGGING_LEVEL}
 ```
 
-> [AZURE.NOTE]您可以閱讀不同[記錄層級](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html)的說明。
+> [AZURE.NOTE]  您可以閱讀不同[記錄層級](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html)的說明。
 
 接著設定 JVM 屬性 `java.util.logging.config.file={Path to your config.properties file}`。
 
@@ -229,4 +229,4 @@
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 [lnk-iothub-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/doc/provision_device.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

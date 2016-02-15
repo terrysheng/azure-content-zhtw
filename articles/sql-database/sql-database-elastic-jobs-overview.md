@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="ddove; sidneyh" />
+	ms.date="02/01/2016" 
+	ms.author="ddove;sidneyh" />
 
 # 彈性資料庫工作概觀
 
@@ -91,7 +91,7 @@
 * **Azure 雲端服務**：彈性資料庫工作 (預覽) 會以客戶託管的 Azure 雲端服務來傳遞，以執行所要求的工作。您可以從入口網站，在 Microsoft Azure 訂用帳戶中部署及託管服務。預設至少會使用兩個背景工作角色來執行已部署的服務，以取得高可用性。每個背景工作角色 (ElasticDatabaseJobWorker) 都會以預設大小在 A0 執行個體上執行。如需價格，請參閱[雲端服務價格](https://azure.microsoft.com/pricing/details/cloud-services/)。 
 * **Azure SQL Database**：服務會使用稱為**控制資料庫**的 Azure SQL Database 來儲存所有的工作中繼資料。預設服務層為 S0。如需價格，請參閱 [SQL Database 價格](https://azure.microsoft.com/pricing/details/sql-database/)。
 * **Azure 服務匯流排**：Azure 服務匯流排可協調 Azure 雲端服務內的工作。請參閱[服務匯流排價格](https://azure.microsoft.com/pricing/details/service-bus/)。
-* **Azure 儲存體**：Azure 儲存體帳戶可用來儲存事件中需要進一步偵錯之問題的診斷輸出記錄 ([Azure 診斷](cloud-services-dotnet-diagnostics.md)的常見作法)。如需價格，請參閱 [Azure 儲存體價格](https://azure.microsoft.com/pricing/details/storage/)。
+* **Azure 儲存體**：Azure 儲存體帳戶可用來儲存在問題需要進一步偵錯的事件中所記錄的診斷輸出 (請參閱[在 Azure 雲端服務和虛擬機器中啟用診斷](../service-fabric/cloud-services-dotnet-diagnostics.md))。如需價格，請參閱 [Azure 儲存體價格](https://azure.microsoft.com/pricing/details/storage/)。
 
 ## 彈性資料庫工作的運作方式
 1.	Azure SQL Database 會指定控制資料庫，它會儲存所有中繼資料和狀態資料。
@@ -124,4 +124,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

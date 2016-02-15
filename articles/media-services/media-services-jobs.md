@@ -45,7 +45,7 @@
 
 ##編碼
 
-使用 **Azure 傳統入口網站**、**.NET** 或 **REST API**，以 **Azure 媒體編碼器**進行編碼。
+使用「Azure 傳統入口網站」、**.NET** 或 **REST API**，以「媒體編碼器標準」進行編碼。
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
@@ -80,4 +80,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

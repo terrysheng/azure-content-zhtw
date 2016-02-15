@@ -1,6 +1,6 @@
 <properties
    pageTitle="在 Visual Studio 中進行應用程式偵錯 | Microsoft Azure"
-   description="透過在 Visual Studio 和本機開發叢集中開發及偵錯服務，改善您服務的可靠性和效能。"
+   description="利用本機開發叢集上的 Visual Studio 來開發服務及為服務偵錯，以便改善您服務的可靠性和效能。"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="01/28/2016"
    ms.author="jesseb"/>
 
 # 使用 Visual Studio 偵錯 Service Fabric 應用程式
@@ -28,7 +28,7 @@
 
 3. 透過按一下 [偵錯] 功能表中的命令，在您的程式碼中設定中斷點並逐步執行應用程式。
 
-    > [AZURE.NOTE]Visual Studio 將附加至您應用程式的所有執行個體。當您逐步執行程式碼時，系統可能會透過多個程序叫用中斷點而導致並行工作階段。若要嘗試在叫用中斷點之後停用它們，請在執行緒識別碼上條件化每個中斷點，或使用診斷事件。
+    > [AZURE.NOTE] Visual Studio 將附加至您應用程式的所有執行個體。當您逐步執行程式碼時，系統可能會透過多個程序叫用中斷點而導致並行工作階段。若要嘗試在叫用中斷點之後停用它們，請在執行緒識別碼上條件化每個中斷點，或使用診斷事件。
 
 4. [診斷事件] 視窗將自動開啟，讓您可以即時檢視診斷事件。
 
@@ -65,4 +65,4 @@
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -87,7 +87,7 @@
 
 	> [AZURE.NOTE] 有時在更新進行期間，Cmdlet 會回報 `False`。若要確保此 Hotfix 已完成，請等待幾分鐘的時間、重新執行此命令並確認 `RunInProgress` 為 `False`。如果的確為 False 的話，則 Hotfix 已完成。
 	
-8. 軟體更新完成之後，請重複步驟 3-5 來使用 `CisMdsAgentUpdateBundle.exe` 安裝及監視 SaaS 代理程式和 MDS 代理程式。確定您是先安裝 `HcsMdsSoftwareUpdate.exe`，然後再安裝 `CisMdsAgentUpdateBundle.exe`。
+8. 軟體更新完成之後，請重複步驟 3 至 5 來安裝及監視 SaaS 代理程式和 MDS 代理程式。請確保您是先安裝 `all-hcsmdssoftwareupdate_0b438ddf0d5b686aada2378b754fac8c7f2160e9.exe`，再安裝 `all-cismdsagentupdatebundle_f98e62f4d56c79e2a6644d027af7a2393a93827a.exe`。
 
 9. 驗證系統軟體版本。輸入：
 
@@ -103,15 +103,15 @@
     
 9. 重複步驟 3-5 來安裝及監視剩餘的一般 Hotfix。
 
-	- 使用 `HcsLsiUpdate.exe` 封裝 (KB3121900) 的 LSI 驅動程式。
-	- 使用 `Storport-KB3080728-x64.msu` 封裝 (KB3080728) 的 Storport 修正程式。
-	- 使用 `spaceport-KB3090322-x64.msu` 封裝 (KB3090322) 的 Spaceport 修正程式。
+	- 使用 KB3121900 的 LSI 驅動程式。
+	- 使用 KB3080728 的 Storport 修正程式。
+	- 使用 KB3090322 的 Spaceport 修正程式。
 
 #### 安裝及驗證維護模式 Hotfix
 
-使用 `DiskFirmwarePackage.exe` 封裝 (KB3121899) 來安裝磁碟韌體更新。這些是干擾性更新，且需要約 30 分鐘來完成。您可以藉由連接至裝置序列主控台，以選擇在預計的維護視窗中安裝這些更新。
+請使用 KB3121899 來安裝磁碟韌體更新。這些是干擾性更新，且需要約 30 分鐘來完成。您可以藉由連接至裝置序列主控台，以選擇在預計的維護視窗中安裝這些更新。
 
-請注意，如果您的磁碟韌體已是最新版本，便不需要安裝這些更新。從裝置序列主控台執行 `Get-HcsUpdateAvailability` Cmdlet。系統將通知您是否有可用的更新，以及更新是否為干擾性 (維護模式更新) 或非干擾性 (一般更新) 更新。
+請注意，如果您的磁碟韌體已是最新版本，便不需要安裝這些更新。請從裝置序列主控台執行 `Get-HcsUpdateAvailability` Cmdlet。系統將通知您是否有可用的更新，以及更新是否為干擾性 (維護模式更新) 或非干擾性 (一般更新) 更新。
  
 若要安裝磁碟韌體更新，請依照下面的指示執行。
 
@@ -159,7 +159,7 @@
 		WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 	
 
-1.  使用 `Get-HcsUpdateStatus` 命令監視安裝進度。當 `RunInProgress` 變成 `False` 時，代表更新完成。
+1.  使用 `Get-HcsUpdateStatus` 命令來監視安裝進度。當 `RunInProgress` 變成 `False` 時，即代表更新完成。
  
 2.  安裝完成之後，維護模式 Hotfix 安裝所在的控制器將會重新開機。以具有完整存取權的選項 1 登入，並驗證磁碟韌體版本。輸入：
 	
@@ -225,7 +225,7 @@
     	  SEAGATE:ST4000NM0023:XMGG
     	  SEAGATE:ST4000NM0023:XMGG
 
-	 在第二個控制器上執行 `Get-HcsFirmwareVersion` 命令來驗證軟體版本已經更新。然後您就可以結束維護模式。針對每個裝置控制器輸入以下命令：
+	 請在第二個控制器上執行 `Get-HcsFirmwareVersion` 命令，來驗證軟體版本已經更新。然後您就可以結束維護模式。針對每個裝置控制器輸入以下命令：
 
     `Exit-HcsMaintenanceMode`
      
@@ -239,4 +239,4 @@
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

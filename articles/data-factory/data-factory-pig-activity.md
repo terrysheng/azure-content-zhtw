@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Pig 活動
@@ -100,7 +100,7 @@ script | 指定 Pig 指令碼內嵌 | 否
 3.	建立指向輸入和輸出資料的[資料集](data-factory-create-datasets.md)。讓我們分別命名輸入資料集為 "PigSampleIn" 和輸出資料集為 "PigSampleOut"。
 4.	將檔案中的 Pig 查詢複製到上述步驟 #2 中設定的 Azure Blob 儲存體。如果裝載資料的連結服務和裝載此查詢檔案的服務不同，請建立個別的 Azure 儲存體連結服務並在活動組態中參考它。使用 **scriptPath** 指定 Pig 指令碼檔案的路徑並使用 **scriptLinkedService** 指定包含指令碼檔案的 Azure 儲存體。
 	
-	> [AZURE.NOTE]您也可以使用**指令碼**屬性提供活動定義中內嵌的 Pig 指令碼，但是不建議這麼做，因為 JSON 文件內指令碼中的所有特殊字元需要逸出，而且可能會造成偵錯問題。最佳做法是遵循步驟 #4。
+	> [AZURE.NOTE] 您也可以使用**指令碼**屬性提供活動定義中內嵌的 Pig 指令碼，但是不建議這麼做，因為 JSON 文件內指令碼中的所有特殊字元需要逸出，而且可能會造成偵錯問題。最佳做法是遵循步驟 #4。
 5. 利用 HDInsightPig 活動建立下列管線來處理資料。
 
 		{
@@ -186,4 +186,4 @@ script | 指定 Pig 指令碼內嵌 | 否
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

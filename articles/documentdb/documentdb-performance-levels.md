@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="01/29/2016" 
 	ms.author="johnmac"/>
 
 #DocumentDB 中的效能等級
@@ -31,7 +31,7 @@
 
 在標準帳戶下建立的每個 DocumentDB 集合將會佈建相關聯的效能等級。效能等級可指定為 S1、S2 或 S3，效能範圍從最低到最高。集合的效能等級決定保留給您應用程式的要求處理資源量。在資料庫中的每一個集合可以有不同的效能等級，讓您為經常存取的集合指定較多的輸送量，以及為較不常存取的集合指定較少的輸送量。任何集合的最小效能等級為 S1。
 
-每個效能等級都有相關聯的要求單位 (RU) 費率限制。這是依以效能等級為基礎保留給集合的輸送量，而且是該集合所專用。可以透過 [Azure 傳統入口網站](https://portal.azure.com)或任何 [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 建立集合。DocumentDB API 可讓您指定集合的效能等級。
+每個效能等級都有相關聯的要求單位 (RU) 費率限制。這是依以效能等級為基礎保留給集合的輸送量，而且是該集合所專用。可以透過 [Microsoft Azure 入口網站](https://portal.azure.com)或任何 [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 建立集合。DocumentDB API 可讓您指定集合的效能等級。
 
 集合效能等級|保留的輸送量
 ---|---
@@ -41,7 +41,7 @@ S3|2500 RU/秒
 
 DocumentDB 可供進行許多的資料庫作業，包括查詢、使用者定義函數 (UDF) 的查詢、預存程序和觸發程序。與上述各項作業相關聯的處理成本，會因為完成作業所需的 CPU、IO 和記憶體而不同。您不需要考慮和管理硬體資源，您可以將要求單位想成是執行各種資料庫作業以及服務應用程式要求時所需的資源數量。
 
-> [AZURE.NOTE] 效能等級是依要求單位測量。每個效能等級有相關聯的每秒最大要求單位速率。您可以透過 API 或 [Azure 傳統入口網站](https://portal.azure.com/)調整集合的效能等級。
+> [AZURE.NOTE] 效能等級是依要求單位測量。每個效能等級有相關聯的每秒最大要求單位速率。您可以透過 API 或 [Microsoft Azure 入口網站](https://portal.azure.com/)調整集合的效能等級。效能層級變更預期會在 3 分鐘內完成。
 
 ##設定集合的效能等級
 一旦建立集合，將保留集合根據指定效能等級的 RU 完整配置。例如，如果集合設為 S3，集合便可處理 2500 RU/秒。每個集合會保留其指定的輸送量和 10 GB 的資料庫儲存體。集合的價格會隨著選擇的效能等級而不同 (S1、S2、S3)。請注意，DocumentDB 會根據容量保留運作；藉由建立集合，已保留某個應用程式，並對其就保留的輸送量和資料庫儲存體收費，不論該儲存體和輸送量中有多少在使用中。
@@ -71,7 +71,7 @@ DocumentDB 集合可讓您根據查詢模式和應用程式的效能需求來分
 
 Azure 入口網站是您在管理集合的效能層級的其中一個選項。請遵循下列步驟以從 Azure 傳統入口網站變更集合的效能層級。
 
-1. 從瀏覽器導覽至 [**Azure 入口網站**](https://portal.azure.com)。
+1. 從瀏覽器導覽至 [**Microsoft Azure 入口網站**](https://portal.azure.com)。
 2. 從左側導向列按一下 [瀏覽]。
 3. 在 [瀏覽] 中樞，按一下 [篩選依據] 標籤底下的 [DocumentDB 帳戶]。
 4. 在 [DocumentDB 帳戶] 刀鋒視窗中，按一下包含想要之集合的 DocumentDB 帳戶。
@@ -122,4 +122,4 @@ Azure 入口網站是您在管理集合的效能層級的其中一個選項。�
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

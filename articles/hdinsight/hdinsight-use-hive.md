@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/03/2015"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 # 搭配 HDInsight 中的 Hadoop 使用 Hive 和 HiveQL 來分析範例 Apache Log4j 檔案
@@ -38,7 +38,7 @@ Hive 也可透過**使用者定義函數 (UDF)** 延伸。UDF 可讓您在 HiveQ
 
 * [在 HDInsight 中搭配 Hive 與 Pig 使用 C#](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [如何將自訂 Hive UDF 新增至 HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx) (英文)
+* [如何將自訂 Hive UDF 新增至 HDInsight (英文)](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 
 ## Hive 內部和外部資料表比較。
@@ -62,7 +62,7 @@ Hive 也可透過**使用者定義函數 (UDF)** 延伸。UDF 可讓您在 HiveQ
 
 在上一個範例中，記錄層級是「錯誤」。
 
-> [AZURE.NOTE]您也可以使用 [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) 記錄工具產生 log4j 檔案，然後將該檔案上傳至 Blob 容器。如需指示，請參閱[將資料上傳至 HDInsight](hdinsight-upload-data.md)。如需關於如何搭配 HDInsight 使用 Azure Blob 儲存體的詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](../hdinsight-use-blob-storage.md)。
+> [AZURE.NOTE] 您也可以使用 [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) 記錄工具產生 log4j 檔案，然後將該檔案上傳至 Blob 容器。如需指示，請參閱[將資料上傳至 HDInsight](hdinsight-upload-data.md)。如需關於如何搭配 HDInsight 使用 Azure Blob 儲存體的詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-hadoop-use-blob-storage.md)。
 
 範例資料儲存在 Azure Blob 儲存體中，供 HDInsight 做為預設檔案系統使用。HDInsight 可使用 **wasb** 字首存取儲存在 Blob 中的檔案。例如，若要存取 sample.log 檔案，您應使用下列語法：
 
@@ -70,7 +70,7 @@ Hive 也可透過**使用者定義函數 (UDF)** 延伸。UDF 可讓您在 HiveQ
 
 因為 Azure Blob 儲存體是 HDInsight 的預設儲存體，所以您也可以從 HiveQL 中的 **/example/data/sample.log** 存取檔案。
 
-> [AZURE.NOTE]語法 ****wasb:///** 是用來存取您 HDInsight 叢集的預設儲存體容器所儲存的檔案。如果您在佈建叢集時指定其他儲存體帳戶，並想要存取儲存在這些帳戶上的檔案，您可以指定容器名稱和儲存體帳戶位址來存取資料，例如 ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**。
+> [AZURE.NOTE] 語法 ****wasb:///** 是用來存取您 HDInsight 叢集的預設儲存體容器所儲存的檔案。如果您在佈建叢集時指定其他儲存體帳戶，並想要存取儲存在這些帳戶上的檔案，您可以指定容器名稱和儲存體帳戶位址來存取資料，例如 ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**。
 
 ##<a id="job"></a>範例工作：將資料行投影至帶分隔符號的資料上
 
@@ -89,9 +89,9 @@ Hive 也可透過**使用者定義函數 (UDF)** 延伸。UDF 可讓您在 HiveQ
 * **ROW FORMAT**：告訴 Hive 如何格式化資料。在此情況下，每個記錄中的欄位會以空格隔開。
 * **STORED AS TEXTFILE LOCATION**：告訴 Hive 資料的儲存位置 (example/data 目錄) 且資料儲存為文字。資料可以在目錄的一個檔案中，也可以分散在多個檔案中。
 * **SELECT**：選取資料行 **t4** 包含 **[ERROR]** 值的所有資料列計數。這應該會傳回值 **3**，因為有三個資料列包含此值。
-* **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - 告訴 Hive 我們只應該從檔名以 log 結尾的檔案傳回資料。這將限制包含此資料的 sample.log 檔案搜尋，對於不符合我們所定義結構描述的其他範例資料檔案，會防止其傳回資料。
+* **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - 告訴 Hive 我們只應該從檔名以 log 結尾的檔案中傳回資料。這將限制包含此資料的 sample.log 檔案搜尋，對於不符合我們所定義結構描述的其他範例資料檔案，會防止其傳回資料。
 
-> [AZURE.NOTE]當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，並希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
+> [AZURE.NOTE] 當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，並希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
 >
 > 捨棄外部資料表並「不會」刪除資料，只會刪除資料表定義。
 
@@ -108,13 +108,13 @@ Hive 也可透過**使用者定義函數 (UDF)** 延伸。UDF 可讓您在 HiveQ
 * **STORED AS ORC**：以最佳化資料列單欄式 (ORC) 格式儲存資料。這是高度最佳化且有效率的 Hive 資料儲存格式。
 * **INSERT OVERWRITE ...SELECT**：從 **log4jLogs** 資料表選取包含 **[ERROR]** 的資料列，然後將資料插入 **errorLogs** 資料表。
 
-> [AZURE.NOTE]與外部資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
+> [AZURE.NOTE] 與外部資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
 
 ##<a id="usetez"></a>使用 Apache Tez 以提升效能
 
 [Apache Tez](http://tez.apache.org) 是可讓資料高用量應用程式 (例如 Hive)，以大規模而更有效率方式執行作業的架構。在最新版的 HDInsight 中，Hive 已支援在 Tez 上執行。對於以 Linux 為基礎的 HDInsight 叢集，Tez 預設為開啟。
 
-> [AZURE.NOTE]對於 Windows 型的 HDInsight 叢集，Tez 目前預設為關閉，因而必須啟用。若要充分發揮 Tez 的效益，您必須設定 Hive 查詢的下列值：
+> [AZURE.NOTE] 對於 Windows 型的 HDInsight 叢集，Tez 目前預設為關閉，因而必須啟用。若要充分發揮 Tez 的效益，您必須設定 Hive 查詢的下列值：
 >
 > ```set hive.execution.engine=tez;```
 >
@@ -161,8 +161,6 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
-[1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
-
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -184,12 +182,12 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
 [Powershell-install-configure]: ../install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
@@ -201,4 +199,4 @@ HDInsight 可以使用各種方法執行 Hive QL 工作。請使用下表決定�
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

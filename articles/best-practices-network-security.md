@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/06/2016"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # Microsoft 雲端服務和網路安全性
@@ -334,7 +334,7 @@ UDR 隨附 IP 轉送功能。這是虛擬應用裝置的一項設定，以允許
  
 ![防火牆規則的邏輯視圖][10]
 
->[AZURE.NOTE] 根據所使用的網路虛擬應用裝置，會有不同的管理連接埠。在此範例中，所參考的 Barracuda NG 防火牆使用連接埠 22、801 和 807。請參閱應用裝置廠商的說明文件來尋找用於管理所使用裝置的確切連接埠。
+>[AZURE.NOTE] 根據所使用的網路虛擬應用裝置，會有不同的管理連接埠。在此範例中，所參考的 Barracuda NextGen 防火牆使用連接埠 22、801 和 807。請參閱應用裝置廠商的說明文件來尋找用於管理所使用裝置的確切連接埠。
 
 #### 防火牆規則描述
 安全性子網路上只有防火牆這個資源，所以上述邏輯視圖未顯示該子網路，而且這個視圖會顯示防火牆規則以及這些規則在邏輯上是如何允許或拒絕流量的流動，而不會顯示實際的路由路徑。此外，針對 RDP 流量選取的外部連接埠皆為較高範圍的連接埠 (8014 – 8026)，且在選取時會稍微配合本機 IP 位址的最後兩個八位元數字，以方便閱讀 (例如，本機伺服器位址 10.0.1.4 會與外部連接埠 8014 相關聯)，不過您可以使用任何更高範圍的連接埠，只要連接埠未衝突即可。
@@ -511,4 +511,4 @@ UDR 隨附 IP 轉送功能。這是虛擬應用裝置的一項設定，以允許
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

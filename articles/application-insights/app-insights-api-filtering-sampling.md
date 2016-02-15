@@ -17,7 +17,7 @@
 
 # 在 Application Insights SDK 中取樣、篩選及前置處理遙測
 
-Application Insights 目前僅供預覽。
+*Application Insights 目前僅供預覽。*
 
 您可以針對 Application Insights SDK 撰寫與設定外掛程式，以自訂在遙測傳送至 Application Insights 服務之前，擷取與處理它的方式。
 
@@ -32,13 +32,13 @@ Application Insights 目前僅供預覽。
 
 開始之前：
 
-* 在應用程式中安裝 [Application Insights SDK](app-insights-asp-net.md)。手動安裝 NuGet 封裝並選取最新的發行前版本。
+* 在應用程式中安裝 [Application Insights SDK](app-insights-asp-net.md)。手動安裝 NuGet 封裝並選取最新的*發行前版本*。
 * 試用 [Application Insights API](app-insights-api-custom-events-metrics.md)。 
 
 
 ## 取樣
 
-這項功能處於 Beta 版。
+*這項功能處於 Beta 版。*
 
 [取樣](app-insights-sampling.md)是減少流量同時保留準確的統計資料所建議的方式。篩選器會選取相關的項目，使得您可以瀏覽診斷中的項目。事件計數會在計量瀏覽器中調整，以補償所篩選的項目。
 
@@ -57,7 +57,7 @@ Application Insights 目前僅供預覽。
 
 若要取得源自網頁固定取樣率的資料，請在您插入 (通常是如 \_Layout.cshtml 的主要頁面) 的 [Application Insights 程式碼片段](app-insights-javascript.md)中放置額外的程式碼行：
 
-JavaScript
+*JavaScript*
 
 ```JavaScript
 
@@ -80,7 +80,7 @@ JavaScript
 
 若要篩選遙測，請撰寫遙測處理器，並將它向 SDK 註冊。所有遙測都會通過處理器，您可以選擇從串流中卸除或加入屬性。這包括來自標準模組 (例如 HTTP 要求收集器和相依性收集器) 的遙測，以及您自己撰寫的遙測。比方說，您可以篩選出有關來自傀儡程式要求或成功的相依性呼叫的遙測。
 
-> [AZURE.WARNING]篩選傳送自使用處理器的 SDK 的遙測可能會曲解您在入口網站中看到的統計資料，並且難以追蹤相關的項目。
+> [AZURE.WARNING] 篩選傳送自使用處理器的 SDK 的遙測可能會曲解您在入口網站中看到的統計資料，並且難以追蹤相關的項目。
 > 
 > 請考慮改用[取樣](#sampling)。
 
@@ -154,7 +154,7 @@ JavaScript
 
 您可以在類別中提供公開具名屬性，以從 .config 檔案傳遞字串值。
 
-> [AZURE.WARNING]仔細地將 .config 檔案中的類型名稱和任何屬性名稱與程式碼中的類別和屬性名稱做比對。如果 .config 檔案參考不存在的類型或屬性，SDK 可能無法傳送任何遙測，而且不會產生任何訊息。
+> [AZURE.WARNING] 仔細地將 .config 檔案中的類型名稱和任何屬性名稱與程式碼中的類別和屬性名稱做比對。如果 .config 檔案參考不存在的類型或屬性，SDK 可能無法傳送任何遙測，而且不會產生任何訊息。
 
  
 或者，您也可以在程式碼中初始化篩選。在適當的初始化類別中 - 例如在 Global.asax.cs 中的 AppStart - 插入您的處理器至鏈結：
@@ -217,7 +217,7 @@ public void Process(ITelemetry item)
 
 如果您只想要診斷速度很慢的呼叫，請篩選出快的項目。
 
-> [AZURE.NOTE]這樣會曲解您在入口網站上看到的統計資料。相依性圖表將看起來好像相依性呼叫均失敗。
+> [AZURE.NOTE] 這樣會曲解您在入口網站上看到的統計資料。相依性圖表將看起來好像相依性呼叫均失敗。
 
 ``` C#
 
@@ -245,7 +245,7 @@ public void Process(ITelemetry item)
 
 **定義您的初始設定式**
 
-C#
+*C#*
 
 ```C#
 
@@ -296,7 +296,7 @@ C#
       </TelemetryInitializers>
     </ApplicationInsights>
 
-或者，您也可以在程式碼 (如 Global.aspx.cs) 中具現化初始設定式：
+*或者*，您也可以在程式碼 (如 Global.aspx.cs) 中具現化初始設定式：
 
 
 ```C#
@@ -314,7 +314,7 @@ C#
 <a name="js-initializer"></a>
 ### JavaScript 遙測初始設定式
 
-JavaScript
+*JavaScript*
 
 在您從入口網站取得的初始化程式碼之後立即插入遙測初始設定式：
 
@@ -358,7 +358,7 @@ JavaScript
     </script>
 ```
 
-如需 telemetryItem 上可用的非自訂屬性摘要，請參閱[資料模型](app-insights-export-data-model.md/#lttelemetrytypegt)。
+如需 telemetryItem 上可用的非自訂屬性摘要，請參閱[資料模型](app-insights-export-data-model.md#lttelemetrytypegt)。
 
 您可以依需要加入多個初始設定式。
 
@@ -404,4 +404,4 @@ JavaScript
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

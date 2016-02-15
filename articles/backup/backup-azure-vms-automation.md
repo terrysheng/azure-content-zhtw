@@ -7,13 +7,16 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2016" ms.author="aashishr";"trinadhk" />
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/28/2016" ms.author="aashishr";"trinadhk" />
 
 
 # 使用 PowerShell 部署和管理 Azure VM 的備份
 本文說明如何使用 Azure PowerShell 來備份和復原 Azure IaaS VM。
 
 ## 概念
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 取得 Azure 備份文件中的 [Azure IaaS VM 備份簡介](backup-azure-vms-introduction.md)。
 
 > [AZURE.WARNING] 開始之前，請確定您已了解使用 Azure 備份需要的[必要條件](backup-azure-vms-prepare.md)的重點，以及目前的 VM 備份解決方案的[限制](backup-azure-vms-prepare.md#limitations)。
@@ -70,7 +73,7 @@ PowerShell 可以自動化下列設定和註冊工作：
 
 ### 建立備份保存庫
 
-> [AZURE.WARNING] 對於第一次使用 Azure 備份的客戶，您需要註冊 Azure 備份提供者以搭配您的訂用帳戶使用。這可以透過執行下列命令來完成：Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] 對於第一次使用 Azure 備份的客戶，您需要註冊 Azure 備份提供者以搭配您的訂用帳戶使用。這可以透過執行下列命令來完成：Register-AzureRMResourceProvider -ProviderNamespace "Microsoft.Backup"
 
 您可以使用 **New-AzureRMBackupVault** Cmdlet 建立新的備份保存庫。備份保存庫是 ARM 資源，因此您必須將它放在資源群組內。在提高權限的 Azure PowerShell 主控台中，執行下列命令：
 
@@ -327,4 +330,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 如果想要將製作圖表的功能加入這個報表輸出，請在 TechNet 部落格上了解[使用 PowerShell 製作圖表](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

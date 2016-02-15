@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2015"
+	ms.date="02/01/2016"
 	ms.author="mingzhan"/>
 
 
@@ -32,7 +32,7 @@ RDP (遠端桌面通訊協定) 是用於 Windows 的專屬通訊協定。我們�
 Xrdp 是開放原始碼 RDP 伺服器，可讓您從 Windows 電腦使用遠端桌面連接 Linux 伺服器。其執行效果比 VNC (虛擬網路運算) 好多了。VNC 具有 "JPEG"品質和緩慢行為，而 RDP 既快速又清楚。
 
 
-> [AZURE.NOTE]您必須已經有執行 Linux 的 Microsoft Azure VM。若要建立並設定 Linux VM，請參閱 [Azure Linux VM 教學課程](virtual-machines-linux-tutorial.md)。
+> [AZURE.NOTE] 您必須已經有執行 Linux 的 Microsoft Azure VM。若要建立並設定 Linux VM，請參閱 [Azure Linux VM 教學課程](virtual-machines-linux-tutorial.md)。
 
 
 ##建立遠端桌面的端點
@@ -67,7 +67,7 @@ Xrdp 是開放原始碼 RDP 伺服器，可讓您從 Windows 電腦使用遠端�
 
 針對 OpenSUSE，使用︰
 
-> [AZURE.NOTE]在以下命令中，使用您正在使用的版本更新 OpenSUSE 版本，以下是 `OpenSUSE 13.2` 的範例命令。
+> [AZURE.NOTE] 在以下命令中，使用您正在使用的版本更新 OpenSUSE 版本，以下是 `OpenSUSE 13.2` 的範例命令。
 
 	#sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
     #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
@@ -116,4 +116,4 @@ Xrdp 是開放原始碼 RDP 伺服器，可讓您從 Windows 電腦使用遠端�
 ##下一步
 如需使用 xrdp 的詳細資訊，您可以參考[這裡](http://www.xrdp.org/) (英文)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

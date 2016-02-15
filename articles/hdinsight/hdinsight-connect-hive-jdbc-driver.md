@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="02/01/2016"
  ms.author="larryfr"/>
 
 #使用 Hive JDBC 驅動程式連接到 Azure HDInsight 上的 Hive
@@ -61,7 +61,7 @@
 
 ##範例 Java 專案
 
-如需在 HDInsight 上使用 Hive 查詢的 Java 用戶端範例，請造訪 [https://github.com/Blackmist/hdinsight-hive-jdbc](https://github.com/Blackmist/hdinsight-hive-jdbc)。遵循儲存機制中的指示建置和執行範例。
+如需在 HDInsight 上使用 Java 用戶端查詢 Hive 的範例，請造訪 [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc)。遵循儲存機制中的指示建置和執行範例。
 
 ##後續步驟
 
@@ -72,4 +72,4 @@
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

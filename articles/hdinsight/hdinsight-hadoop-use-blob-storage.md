@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/29/2016"
 	ms.author="jgao"/>
 
 
@@ -27,7 +27,7 @@ Azure Blob 儲存體是強大的一般用途儲存體解決方案，其完美整
 
 將資料儲存在 Blob 儲存體中，您便可安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
 
-> [AZURE.NOTE]在 HDInsight 3.0 版叢集中不支援 **asv://* 語法。這表示任何提交至 HDInsight 3.0 版叢集且明確使用 **asv://* 語法的工作都會失敗。請改用 **wasb://* 語法。另外，如果工作提交至任何以現有中繼存放區建立的 HDInsight 3.0 版叢集，且中繼存放區中使用 asv:// 語法來明確參考資源，也會失敗。必須使用 wasb:// 來定址資源以重新建立這些中繼存放區。
+> [AZURE.NOTE]	在 HDInsight 3.0 版叢集中不支援 **asv://* 語法。這表示任何提交至 HDInsight 3.0 版叢集且明確使用 **asv://* 語法的工作都會失敗。請改用 **wasb://* 語法。另外，如果工作提交至任何以現有中繼存放區建立的 HDInsight 3.0 版叢集，且中繼存放區中使用 asv:// 語法來明確參考資源，也會失敗。必須使用 wasb:// 來定址資源以重新建立這些中繼存放區。
 
 > HDInsight 目前僅支援區塊 Blob。
 
@@ -58,7 +58,8 @@ Hadoop 支援預設檔案系統的概念。預設檔案系統意指預設配置�
 
 - **儲存體帳戶中未連線至叢集的公用容器或公用 Blob：**您對容器中的 Blob 只有唯讀權限。
 
-	> [AZURE.NOTE]> 公用容器可讓您取得該容器中所有可用的 Blob 清單，並取得容器中繼資料。公用 Blob 只在您知道確切的 URL 時才可讓您存取 Blob。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">限制對容器和 Blob 的存取</a>。
+	> [AZURE.NOTE]
+        > 公用容器可讓您取得該容器中所有可用的 Blob 清單，並取得容器中繼資料。公用 Blob 只在您知道確切的 URL 時才可讓您存取 Blob。如需詳細資訊，請參閱<a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">限制對容器和 Blob 的存取</a>。
 
 - **儲存體帳戶中未連接至叢集的私人容器：**除非在提交 WebHCat 工作時定義儲存體帳戶，否則不能存取容器中的 Blob。稍後在本文中會加以說明。
 
@@ -67,7 +68,7 @@ Hadoop 支援預設檔案系統的概念。預設檔案系統意指預設配置�
 
 多個 WebHCat 工作 (包括 Hive、MapReduce、Hadoop 資料流和 Pig) 可隨身夾帶儲存體帳戶的說明和中繼資料。(目前適用於含儲存體帳戶的 Pig，但不適用於中繼資料)。 在本文的[使用 Azure PowerShell 存取 Blob](#powershell) 一節中，提供了此功能的範例。如需詳細資訊，請參閱[在其他儲存體帳戶和 Metastores 上使用 HDInsight 叢集](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
 
-Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以機碼/值組來儲存資料，沒有目錄階層。但是，機碼名稱中可使用 ( / ) 斜線字元，使檔案變成好像儲存在目錄結構中一樣。例如，Blob 的機碼可能是 input/log1.txt。實際上，input 目錄並不存在，只是因為機碼名稱中有斜線字元，才形成檔案路徑的樣子。
+Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以機碼/值組來儲存資料，沒有目錄階層。但是，機碼名稱中可使用 ( / ) 斜線字元，使檔案變成好像儲存在目錄結構中一樣。例如，Blob 的機碼可能是 *input/log1.txt*。實際上，*input* 目錄並不存在，只是因為機碼名稱中有斜線字元，才形成檔案路徑的樣子。
 
 ###<a id="benefits"></a>Blob 儲存體的優點
 計算叢集和儲存體叢集未並存於同處所隱含的效能損失，可經由將計算叢集建立到靠近 Azure 資料中心內的儲存體帳戶資源來彌補，其中的高速網路可讓計算節點非常有效率地存取 Azure Blob 儲存體內的資料。
@@ -106,7 +107,7 @@ Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以�
 
 	azure storage account create <storageaccountname> --type LRS
 
-> [AZURE.NOTE]`--type` 參數表示儲存體帳戶的複寫方式。如需詳細資訊，請參閱 [Azure 儲存體複寫](../storage/storage-redundancy.md)。請勿使用 ZRS，因為 ZRS 不支援分頁 Blob、檔案、資料表或佇列。
+> [AZURE.NOTE] `--type` 參數表示儲存體帳戶的複寫方式。如需詳細資訊，請參閱 [Azure 儲存體複寫](../storage/storage-redundancy.md)。請勿使用 ZRS，因為 ZRS 不支援分頁 Blob、檔案、資料表或佇列。
 
 系統會提示您指定將放置儲存體帳戶的地理區域。您應該在您計劃建立 HDInsight 叢集的相同區域中建立儲存體帳戶。
 
@@ -150,28 +151,28 @@ Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以�
 	wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
 
-> [AZURE.NOTE]在儲存體模擬器 (在 HDInsight 模擬器上執行) 上定址檔案的語法是 <i>wasb://&lt;ContainerName&gt;@storageemulator</i>。
+> [AZURE.NOTE] 在儲存體模擬器 (在 HDInsight 模擬器上執行) 上定址檔案的語法是 <i>wasb://&lt;ContainerName&gt;@storageemulator</i>。
 
 
 
-URI 配置提供未加密存取 (使用wasb: 首碼) 和 SSL 加密存取 (使用 wasbs)。建議盡可能使用 wasbs，即使存取相同 Azure 資料中心內的資料也一樣。
+URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使用 *wasbs*)。建議盡可能使用 *wasbs*，即使存取相同 Azure 資料中心內的資料也一樣。
 
 &lt;BlobStorageContainerName&gt; 是指 Azure Blob 儲存體中的容器名稱。&lt;StorageAccountName&gt; 是指 Azure 儲存體帳戶名稱。需要使用完整網域名稱 (FQDN)。
 
-如果 &lt;BlobStorageContainerName&gt; 和 &lt;StorageAccountName&gt; 都未指定，則會使用預設檔案系統。對於預設檔案系統上的檔案，您可以使用相對路徑或絕對路徑。例如，可使用下列語法來參考 HDInsight 叢集隨附的 hadoop-mapreduce-examples.jar 檔案：
+如果 &lt;BlobStorageContainerName&gt; 和 &lt;StorageAccountName&gt; 都未指定，則會使用預設檔案系統。對於預設檔案系統上的檔案，您可以使用相對路徑或絕對路徑。例如，可使用下列語法來參考 HDInsight 叢集隨附的 *hadoop-mapreduce-examples.jar* 檔案：
 
 	wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
 	wasb:///example/jars/hadoop-mapreduce-examples.jar
 	/example/jars/hadoop-mapreduce-examples.jar
 
-> [AZURE.NOTE]在 HDInsight 2.1 和 1.6 版叢集中的檔案名稱是 <i>hadoop-examples.jar</i>。
+> [AZURE.NOTE] 在 HDInsight 2.1 和 1.6 版叢集中的檔案名稱是 <i>hadoop-examples.jar</i>。
 
 
-&lt;path&gt; 是檔案或目錄 HDFS 路徑名稱。因為 Azure Blob 儲存體中的容器僅是機碼值存放區，所以並沒有真正的階層式檔案系統。Blob 機碼內的斜線字元 ( / ) 會被解釋為目錄分隔符號。例如，hadoop-mapreduce-examples.jar 的 Blob 名稱為：
+&lt;path&gt; 是檔案或目錄 HDFS 路徑名稱。因為 Azure Blob 儲存體中的容器僅是機碼值存放區，所以並沒有真正的階層式檔案系統。Blob 機碼內的斜線字元 ( / ) 會被解釋為目錄分隔符號。例如，*hadoop-mapreduce-examples.jar* 的 Blob 名稱為：
 
 	example/jars/hadoop-mapreduce-examples.jar
 
-> [AZURE.NOTE]在 HDInsight 外部使用 Blob 時，大部分的公用程式無法辨識 WASB 格式而改為預期基本的路徑格式，例如 `example/jars/hadoop-mapreduce-examples.jar`。
+> [AZURE.NOTE] 在 HDInsight 外部使用 Blob 時，大部分的公用程式無法辨識 WASB 格式而改為預期基本的路徑格式，例如 `example/jars/hadoop-mapreduce-examples.jar`。
 
 ## 使用 Azure CLI 存取 Blob
 
@@ -197,7 +198,7 @@ URI 配置提供未加密存取 (使用wasb: 首碼) 和 SSL 加密存取 (使�
 
 ## 使用 Azure PowerShell 存取 Blob
 
-> [AZURE.NOTE]本章中的命令會提供使用 PowerShell 來存取儲存在 Blob 中的資料的基本範例。如需使用 HDInsight 的更完整範例，請參閱 [HDInsight 工具](https://github.com/Blackmist/hdinsight-tools)。
+> [AZURE.NOTE] 本章中的命令會提供使用 PowerShell 來存取儲存在 Blob 中的資料的基本範例。如需使用 HDInsight 的更完整範例，請參閱 [HDInsight 工具](https://github.com/Blackmist/hdinsight-tools)。
 
 請使用下列命令來列出 Blob 相關的 Cmdlet：
 
@@ -299,4 +300,4 @@ URI 配置提供未加密存取 (使用wasb: 首碼) 和 SSL 加密存取 (使�
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

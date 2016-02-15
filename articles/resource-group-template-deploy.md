@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/23/2015"
+   ms.date="02/02/2015"
    ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員範本部署應用程式
 
 本主題說明如何使用 Azure 資源管理員範本，將您的應用程式部署至 Azure。它會說明如何使用 Azure PowerShell、Azure CLI、REST API 或 Azure 入口網站部署您的應用程式。
 
-如需資源管理員的簡介，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。若要了解如何建立範本，請參閱[撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
+如需資源管理員的簡介，請參閱 [Azure 資源管理員概觀](./resource-group-overview.md)。若要了解如何建立範本，請參閱[撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 
 使用範本部署應用程式時，您可以提供參數值，以自訂建立資源的方式。您可以透過內嵌方式或在參數檔案中指定這些參數的值。
 
@@ -274,12 +274,12 @@
 如需如何在範本中定義參數的資訊，請參閱[撰寫範本](resource-group-authoring-templates.md/#parameters)。如需用來傳遞安全值的金鑰保存庫參考的詳細資料，請參閱[在部署期間傳遞安全值](resource-manager-keyvault-parameter.md)。
 
 ## 後續步驟
-- 如需透過 .NET 用戶端程式庫部署資源的範例，請參閱[使用 .NET 程式庫和範本部署資源](arm-template-deployment.md)
+- 如需透過 .NET 用戶端程式庫部署資源的範例，請參閱[使用 .NET 程式庫和範本部署資源](./virtual-machines/arm-template-deployment.md)
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)
-- 如需如何將解決方案部署到不同環境的指南，請參閱[Microsoft Azure 中開發和測試環境](solution-dev-test-environments-preview-portal.md)。
+- 如需如何將解決方案部署到不同環境的指南，請參閱[Microsoft Azure 中開發和測試環境](solution-dev-test-environments.md)。
 - 如要了解 Azure 資源管理員範本的區段，請參閱[編寫範本](resource-group-authoring-templates.md)
 - 如需可以在 Azure 資源管理員範本中使用的函式清單，請參閱[範本函式](resource-group-template-functions.md)
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

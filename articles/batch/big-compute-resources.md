@@ -1,6 +1,6 @@
 <properties
-   pageTitle="大量運算：批次和高效能運算 (HPC) 的技術資源 | Microsoft Azure"
-   description="列出技術資源，用以協助您在 Azure 中執行您的大規模平行、批次和 HPC 工作負載。"
+   pageTitle="雲端中的 Batch 和 HPC 工作負載的資源 | Microsoft Azure"
+   description="列出技術資源，用以協助您在 Azure 中執行您的大規模平行、批次和高效能運算 (HPC) 工作負載。"
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="09/29/2015"
+   ms.date="01/26/2016"
    ms.author="danlep"/>
 
 # Azure 中的大量運算：批次和高效能運算 (HPC) 的技術資源
@@ -34,11 +34,11 @@
 
 * [說明文件](https://azure.microsoft.com/documentation/services/batch/)
 
-* [API 參考資料](https://msdn.microsoft.com/library/azure/dn820177.aspx)
+* [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) 和 [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API 參考
 
 * [教學課程：開始使用適用於 .NET 的 Azure 批次程式庫](batch-dotnet-get-started.md)
 
-* [批次論壇](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
+* [批次論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch)
 
 * [批次影片](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -50,7 +50,7 @@
 
 HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 免費 HPC 解決方案，可執行 Windows 和 Linux HPC 工作負載。
 
-* [下載 HPC Pack 2012 R2 Update 3](https://www.microsoft.com/zh-TW/download/details.aspx?id=49922)
+* [下載 HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49922)
 
 * [說明文件](https://technet.microsoft.com/library/jj899572.aspx)
 
@@ -62,7 +62,7 @@ HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 
 * [使用 HPC Pack 將量擴大到 Azure Batch](https://technet.microsoft.com/library/mt612877.aspx)
 
 
-* [Windows HPC 論壇](https://social.microsoft.com/Forums/home?category=windowshpc)
+* [Windows HPC 論壇](https://social.microsoft.com/Forums/en-us/home?category=windowshpc)
 
 ### Linux 與 OSS 叢集解決方案
 
@@ -81,12 +81,12 @@ HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 
 
 * [MS-MPI 參考資料](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [MPI 論壇](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
+* [MPI 論壇](https://social.microsoft.com/Forums/en-us/home?forum=windowshpcmpi)
 
 
 ## 計算密集型執行個體
 
-Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)，包括運算密集的 [A8、A9、A10 和 A11 執行個體](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md)，以執行您的 Linux 和 Windows HPC 工作負載。
+Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)，包括計算密集的 [A8 和 A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) 執行個體，能夠連接到後端 RDMA 網路，以執行您的 Linux 和 Windows HPC 工作負載。
 
 * [設定 Linux RDMA 叢集以執行 MPI 應用程式](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
@@ -94,7 +94,7 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)�
 
 ## 架構藍圖
 
-* Microsoft Azure Batch 和 Azure Data Factory：大規模資料處理 ([PDF](http://go.microsoft.com/fwlink/?linkid=717686) 和[文章](../data-factory/data-factory-data-processing-using-batch.md)) 的架構說明 Data Factory 如何協調資料移動和處理以及 Azure Batch 如何以平行方式處理資料。
+* [使用 Azure Batch 和 Data Factory 的 HPC 和資料協調](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) 和[文章](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## 範例和示範
 
@@ -121,4 +121,4 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)�
 * 最新宣告請參閱 [Microsoft HPC 和批次的小組部落格](http://blogs.technet.com/b/windowshpc/)以及[Azure 部落格](https://azure.microsoft.com/blog/tag/hpc/)。
 * 另請參閱[批次的新功能](https://azure.microsoft.com/updates/?service=batch)或訂閱 [RSS 摘要](https://azure.microsoft.com/updates/feed/?service=batch)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

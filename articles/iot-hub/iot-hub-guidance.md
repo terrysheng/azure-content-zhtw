@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/10/2015"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 # 設計您的解決方案
@@ -52,7 +52,7 @@ IoT 解決方案會儲存個別裝置的相關資料，例如：
 - 轉換遙測資料，以協助您解決方案後端的處理。
 - 執行通訊協定轉譯可讓裝置與 IoT 中樞進行通訊，即使它們未使用 IoT 中樞所支援的傳輸通訊協定亦然。
 
-> [AZURE.NOTE]雖然您通常會將現場閘道器在本機部署到您的裝置，在某些情況下，您可能會在雲端中部署[通訊協定閘道][lnk-gateway]。
+> [AZURE.NOTE] 雖然您通常會將現場閘道器在本機部署到您的裝置，在某些情況下，您可能會在雲端中部署[通訊協定閘道][lnk-gateway]。
 
 ### 現場閘道器的類型
 
@@ -63,6 +63,8 @@ IoT 解決方案會儲存個別裝置的相關資料，例如：
 | 儲存在 IoT 中樞身分識別登錄中的身分識別 | 所有連接裝置的身分識別 | 僅現場閘道器的身分識別 |
 | IoT 中樞可以提供[裝置身分識別反詐騙][lnk-devguide-antispoofing] | 是 | 否 |
 | [節流和配額][lnk-throttles-quotas] | 套用至每個裝置 | 套用至現場閘道器 |
+
+> [AZURE.IMPORTANT]  使用不透明的閘道器模式時，所有透過該閘道器連線的裝置會共用相同的雲端到裝置的佇列，此佇列中最多可包含 50 則訊息。因此，不透明的閘道器模式的使用時機，應該為只有很少的裝置是透過每個現場閘道器連線，且其雲端到裝置的流量很低時。
 
 ### 其他考量
 
@@ -83,7 +85,7 @@ IoT 解決方案會儲存個別裝置的相關資料，例如：
 3. 權杖服務會傳回權杖。使用 `/devices/{deviceId}` 做為 `resourceURI` (其中 `deviceId` 是要驗證的裝置)，並根據 [IoT 中樞開發人員指南的安全性一節][lnk-devguide-security]建立權杖。權杖服務會使用共用存取原則來建構權杖。
 4. 裝置直接透過 IoT 中心使用權杖。
 
-> [AZURE.NOTE]您可以使用 .NET 類別 [SharedAccessSignatureBuilder][lnk-dotnet-sas] 或 Java 類別 [IotHubServiceSasToken][lnk-java-sas] 在權杖服務中建立權杖。
+> [AZURE.NOTE] 您可以使用 .NET 類別 [SharedAccessSignatureBuilder][lnk-dotnet-sas] 或 Java 類別 [IotHubServiceSasToken][lnk-java-sas] 在權杖服務中建立權杖。
 
 權杖服務可以視需要設定權杖到期日。權杖到期時，IoT 中樞會切斷裝置連線。然後，裝置必須向權杖服務要求新權杖。如果您使用過短的到期時間，這會增加裝置與權杖服務上的負載。
 
@@ -92,6 +94,14 @@ IoT 解決方案會儲存個別裝置的相關資料，例如：
 ### 和自訂閘道器的比較
 
 權杖服務模式為使用 IoT 中樞實作自訂身分識別登錄/驗證配置的建議方式。這麼建議是因為 IoT 中樞會繼續處理大部份的解決方案流量。不過，在一些情況下，自訂驗證配置和通訊協定過度交織，因此需要可處理所有流量 (*自訂閘道器*) 的服務。[傳輸層安全性 (TLS) 和預先共用金鑰 (PSK)][lnk-tls-psk] 是服務範例之一。如需詳細資訊，請參閱[通訊協定閘道器][lnk-gateway]主題。
+
+## 裝置活動訊號 <a id="heartbeat"></a>
+
+[IoT 中樞身分識別登錄][lnk-devguide-identityregistry]包含名為 [connectionState] 的欄位。您只應該在開發和偵錯期間使用 [connectionState] 欄位，IoT 解決方案不應該在執行階段查詢該欄位 (例如，為了檢查裝置是否已連線，以便決定是否要傳送雲端到裝置的訊息或 SMS)。如果 IoT 解決方案需要知道裝置是否已連線 (在執行階段，或比 **connectionState** 屬性所提供的更精確時)，解決方案應該實作*活動訊號模式*。
+
+在活動訊號模式中，裝置每隔固定時間就會至少傳送一次裝置到雲端的訊息 (例如，每小時至少一次)。這表示即使裝置沒有任何要傳送的資料，它仍會傳送空的裝置到雲端的訊息 (通常具有可供識別其屬於活動訊號的屬性)。在服務端，解決方案會維護一份地圖，裡面有每個裝置所收到的最後一次活動訊號，並假設如果裝置沒有在預期時間內收到活動訊號訊息，即表示裝置有問題。
+
+更複雜的實作可以包含來自[作業監視][lnk-devguide-opmon]的資訊，以便識別嘗試連線或通訊但失敗的裝置。當您實作活動訊號模式時，請務必檢查 [IoT 中樞配額與節流][]。
 
 ## 後續步驟
 
@@ -104,6 +114,7 @@ IoT 解決方案會儲存個別裝置的相關資料，例如：
 
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
 [lnk-device-management]: iot-hub-device-management.md
+[lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
 [lnk-device-sdks]: iot-hub-sdks-summary.md
 [lnk-devguide-security]: iot-hub-devguide.md#security
@@ -118,5 +129,6 @@ IoT 解決方案會儲存個別裝置的相關資料，例如：
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
+[IoT 中樞配額與節流]: iot-hub-devguide.md#throttling
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

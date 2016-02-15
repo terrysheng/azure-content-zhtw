@@ -47,10 +47,10 @@ Azure 的基本 SSH 安裝程式包含 2048 位元的 **ssh-rsa** 公用和私�
 
 以下是部署案例，以及您在每個案例中使用的檔案類型：
 
-1. 無論部署模型為何，使用[預覽入口網站](https://portal.azure.com)的任何部署都需要 **ssh-rsa** 金鑰。
+1. 任何使用 [Azure 入口網站](https://portal.azure.com)的部署都需要 **ssh-rsa** 金鑰，無論部署模型為何
 2. 需要 .pem 檔案才能使用[傳統入口網站](https://manage.windowsazure.com)建立 VM。使用 [Azure CLI](../xplat-cli-install.md) 的傳統部署也支援 .pem 檔案。
 
-> [AZURE.NOTE]如果您打算管理使用傳統部署模型部署的服務，您可能也想要建立 **.cer** 格式檔案以上傳至入口網站 - 雖然這不牽涉到 **ssh** 或連接到 Linux VM，這是本文的主題。若要在 Linux 或 Mac 上建立這些檔案，請輸入
+> [AZURE.NOTE] 如果您打算管理使用傳統部署模型部署的服務，您可能也想要建立 **.cer** 格式檔案以上傳至入口網站 - 雖然這不牽涉到 **ssh** 或連接到 Linux VM，這是本文的主題。若要在 Linux 或 Mac 上建立這些檔案，請輸入
 
 ## 取得 Windows 相關的 ssh-keygen 和 openssl ##
 
@@ -68,7 +68,7 @@ Azure 的基本 SSH 安裝程式包含 2048 位元的 **ssh-rsa** 公用和私�
 1.	從下列位置下載並安裝 GitHub for Windows：[http://windows.github.com/](http://windows.github.com/)
 2.	從 [開始] 功能表 > [所有程式] > [GitHub, Inc] 執行 Git Shell
 
-> [AZURE.NOTE]當您執行上述的 `openssl` 命令時，可能會遇到下列錯誤：
+> [AZURE.NOTE] 當您執行上述的 `openssl` 命令時，可能會遇到下列錯誤：
 
         Unable to load config info from /usr/local/ssl/openssl.cnf
 
@@ -155,4 +155,4 @@ Azure 的基本 SSH 安裝程式包含 2048 位元的 **ssh-rsa** 公用和私�
 5.	按一下 [開啟] 以連線到虛擬機器。
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

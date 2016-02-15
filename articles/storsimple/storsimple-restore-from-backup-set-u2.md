@@ -31,7 +31,7 @@
 
 在您啟動還原作業之前，您應該注意下列事情：
 
-- **必須使磁碟區離線** – 起始還原作業之前，同時讓主機和裝置上的磁碟區離線。雖然還原作業會自動使裝置上的磁碟區連線，但您必須手動讓主機上的裝置連線。在裝置上的磁碟區連線之後，您就可以立即讓主機上的磁碟區連線。(不需要等到還原作業完成。) 如需程序，請移至[使磁碟區離線](storsimple-manage-volumes.md#take-a-volume-offline)
+- **必須使磁碟區離線** – 起始還原作業之前，同時讓主機和裝置上的磁碟區離線。雖然還原作業會自動使裝置上的磁碟區連線，但您必須手動讓主機上的裝置連線。在裝置上的磁碟區連線之後，您就可以立即讓主機上的磁碟區連線。(不需要等到還原作業完成。) 如需程序，請前往[使磁碟區離線](storsimple-manage-volumes-u2.md#take-a-volume-offline)
 
 - **還原後的磁碟區類型** – 已刪除的磁碟區會根據快照集中的類型還原；亦即，固定在本機的磁碟機會還原為固定在本機的磁碟機，而分層磁碟機會還原為分層磁碟機。
 
@@ -45,7 +45,7 @@
 
 - **還原本機磁碟區時，您可以執行備份** – 如需程序，請移至[使用 StorSimple Manager 服務來管理備份原則](storsimple-manage-backup-policies.md)。
 
-- **可以取消還原作業** – 如果您取消還原工作，磁碟區將會回復到起始還原作業之前的狀態。如需程序，請移至[取消工作](storsimple-manage-jobs.md#cancel-a-job)。
+- **可以取消還原作業** – 如果您取消還原工作，磁碟區將會回復到起始還原作業之前的狀態。如需程序，請移至[取消工作](storsimple-manage-jobs-u2.md#cancel-a-job)。
 
 ## 如何使用備份類別目錄
 
@@ -113,6 +113,6 @@
 
 - 了解如何[管理 StorSimple 磁碟區](storsimple-manage-volumes-u2.md)。
 
-- 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration-u2.md)。
+- 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

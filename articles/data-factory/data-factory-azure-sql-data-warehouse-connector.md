@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 Azure SQL 資料倉儲來回移動資料
 
 本文概述如何使用 Data Factory 複製活動，在 Azure SQL 資料倉儲與其他資料存放區之間移動資料。本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文呈現使用複製活動移動資料的一般概觀以及支援的資料存放區組合。
+
+下列範例顯示如何在 Azure SQL 資料倉儲和 Azure Blob 儲存體將資料複製進來和複製出去。不過，您可以在 Azure Data Factory 中使用複製活動，從任何來源**直接**將資料複製到[這裡](data-factory-data-movement-activities.md#supported-data-stores)所說的任何接收器。
+
 
 ## 範例：將資料從 Azure SQL 資料倉儲複製到 Azure Blob
 
@@ -193,7 +196,7 @@
 	   }
 	}
 
-> [AZURE.NOTE]在上述範例中，已為 SqlDWSource 指定 **sqlReaderQuery**。複製活動會針對 Azure SQL 資料倉儲來源執行這項查詢以取得資料。
+> [AZURE.NOTE] 在上述範例中，已為 SqlDWSource 指定 **sqlReaderQuery**。複製活動會針對 Azure SQL 資料倉儲來源執行這項查詢以取得資料。
 >  
 > 或者，您可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數) 來指定預存程序。
 >  
@@ -404,7 +407,7 @@
 
 ### SqlDWSource
 
-在複製活動的案例中，如果來源的類型為 **SqlDWSource**，則 **typeProperties** 區段有下列可用屬性：
+在複製活動的案例中，如果來源類型為 **SqlDWSource**，則 **typeProperties** 區段可使用下列屬性：
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
@@ -473,14 +476,14 @@
 
 ### Azure SQL 資料倉儲的類型對應
 
-如同[資料移動活動](data-factory-data-movement-activities.md)一文所述，複製活動會使用下列 2 個步驟的方法，執行自動類型轉換，將來源類型轉換成接收類型：
+如[資料移動活動](data-factory-data-movement-activities.md)一文所述，複製活動會使用下列 2 個步驟的方法，執行從來源類型轉換成接收類型的自動類型轉換：
 
 1. 從原生來源類型轉換成 .NET 類型
 2. 從 .NET 類型轉換成原生接收類型
 
 從 Azure SQL、SQL Server、Sybase 來回移動資料時，將使用下列從 SQL 類型到 .NET 類型的對應，反之亦然。
 
-此對應與 [ADO.NET 的 SQL Server 資料類型對應](https://msdn.microsoft.com/library/cc716729.aspx)相同。
+此對應與 [ADO.NET 的 SQL Server 資料類型對應相同](https://msdn.microsoft.com/library/cc716729.aspx)。
 
 | SQL Server Database Engine 類型 | .NET Framework 類型 |
 | ------------------------------- | ------------------- |
@@ -523,4 +526,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

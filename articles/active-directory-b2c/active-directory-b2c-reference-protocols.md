@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 預覽：驗證通訊協定
@@ -23,9 +23,9 @@ Azure AD B2C 支援 OpenID Connect 與 OAuth 2.0 兩種業界標準通訊協定�
 <!-- TODO: Need link to libraries above -->
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-
+	
 ## 基本概念
-使用 Azure AD B2C 的每個應用程式都必須在 [Azure 入口網站](https://portal.azure.com/)中您的 B2C 目錄中註冊。應用程式註冊處理序會收集與指派一些值給您的應用程式：
+使用 Azure AD B2C 的每個應用程式都必須在 [Azure 入口網站](https://portal.azure.com)中您的 B2C 目錄中註冊。應用程式註冊處理序會收集與指派一些值給您的應用程式：
 
 - 可唯一識別應用程式的**應用程式識別碼**
 - 可將回應導回至應用程式的**重新導向 URI**或**封裝識別碼**
@@ -68,6 +68,4 @@ Azure AD B2C 的 OAuth 2.0 和 OpenID Connect 實作廣泛運用持有人權杖�
 - 透過 OAuth 2.0 資源擁有者密碼認證流程，取得採用使用者名稱和密碼的權杖 (敬請期待)
 - 透過 OAuth 2.0 代理者流程在 Web API 中取得權杖 (敬請期待)
 
-<!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

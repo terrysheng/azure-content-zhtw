@@ -3,7 +3,7 @@
 	description="航太、公用事業和運輸中預測性維護的 Microsoft Cortana Analytics 解決方案範本的技術指南。"
 	services="cortana-analytics"
 	documentationCenter=""
-	authors="garyericson"
+	authors="fboylu"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/20/2016"
-	ms.author="garye" />
+	ms.date="01/29/2016"
+	ms.author="fboylu" />
 
 # 航太與其他業務中預測性維護的 Cortana Analytics 解決方案範本的技術指南
 
+## **通知**
+本文是由 Microsoft 的資料科學家 Yan Zhang、Gauher Shaheen、Fidan Boylu Uz 和軟體工程師 Dan Grecoe 所共同撰寫。
+
 ## **概觀**
 
-解決方案範本的設計是要加速在 Cortana Analytics 套件之上建置 E2E 示範的程序。已部署的範本會以所需的 Cortana Analytics 元件佈建您的訂用帳戶，並在它們之間建立關聯性。它也會將資料模擬應用程式 (在部署解決方案範本之後，您將會在您的本機電腦下載並安裝) 所產生的範例資料植入資料管線。從模擬器產生的資料將會產生資料管線，並開始產生機器學習預測，進而在 Power BI 儀表板上視覺化。部署程序將引導您完成數個步驟來設定解決方案的認證。務必記錄這些認證，例如您在部署期間提供的解決方案名稱、使用者名稱和密碼。
+解決方案範本的設計是要加速在 Cortana Analytics 套件之上建置 E2E 示範的程序。已部署的範本會以所需的 Cortana Analytics 元件佈建您的訂用帳戶，並在它們之間建立關聯性。它也會在資料管線內植入由資料產生器應用程式所產生的範例資料，供您在部署解決方案範本之後下載並安裝到本機電腦上。由產生器產生的資料將會產生資料管線，並開始產生機器學習服務預測，然後您可以在 Power BI 儀表板上將其視覺化。部署程序將引導您完成數個步驟來設定解決方案的認證。務必記錄這些認證，例如您在部署期間提供的解決方案名稱、使用者名稱和密碼。
 
 這份文件的目標在於說明參考架構與隨著此方案範本佈建在您的訂用帳戶的不同元件。文件也會示範如何使用您自己的實際資料來取代範例資料，以便看到您自己的資料的見解和預測。此外，文件將說明如果想要以您自己的資料自訂解決方案，您需要修改的解決方案範本部份。最後會提供如何建置此方案範本的 Power BI 儀表板的指示。
 
@@ -30,7 +33,7 @@
 
 ![](media/cortana-analytics-technical-guide-predictive-maintenance\predictive-maintenance-architecture.png)
 
-部署方案時，會啟動 Cortana Analytics 套件中的各種 Azure 服務 (*也就是* 事件中樞、串流分析、HDInsight、Data Factory，機器學習服務等)。架構圖顯示在高層從端對端為航太解決方案範本建構預測性維護的方式。您將可以調查這些服務，方法是在隨著解決方案部署而建立的解決方案範本圖表上按一下。您可以下載[完整大小版本的圖表](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png)。
+部署方案時，會啟動 Cortana Analytics 套件中的各種 Azure 服務 (*也就是* 事件中樞、串流分析、HDInsight、Data Factory，機器學習服務等)。架構圖顯示在高層從端對端為航太解決方案範本建構預測性維護的方式。您將可以在 Azure 入口網站調查這些服務，方法是對部署解決方案時所建立的解決方案範本圖表上的服務按一下，但 HDInsight 除外，因為當需要相關的管線活動才能執行時才會隨選佈建此服務，並且會於隨後刪除。您可以下載[完整大小版本的圖表](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png)。
 
 下列章節說明每個片段。
 
@@ -38,7 +41,7 @@
 
 ### 綜合資料來源
 
-針對此範本，使用的資料來源是從桌面應用程式產生，您將會下載應用程式並於部署成功後在本機執行。當您在解決方案範本圖表上選取稱為「預測性維護資料模擬器」的第一個節點時，可以在屬性列中找到下載及安裝此應用程式的指示。此應用程式會將在解決方案流程的其餘部分使用的資料點或事件送入 [Azure 事件中樞](#azure-event-hub)服務。此資料來源的組成為或衍生自使用 [Turbofan 引擎降低模擬資料集](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan)從 [NASA 資料儲存機制](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/)公開取得的資料。
+針對此範本，使用的資料來源是從桌面應用程式產生，您將會下載應用程式並於部署成功後在本機執行。當您在解決方案範本圖表上選取稱為「預測性維護資料產生器」的第一個節點時，可以在屬性列中找到下載及安裝此應用程式的指示。此應用程式會將在解決方案流程的其餘部分使用的資料點或事件送入 [Azure 事件中樞](#azure-event-hub)服務。此資料來源的組成為或衍生自使用 [Turbofan 引擎降低模擬資料集](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan)從 [NASA 資料儲存機制](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/)公開取得的資料。
 
 只有當它在您的電腦上執行時，事件產生應用程式才會填入 Azure 事件中樞。
 
@@ -154,7 +157,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的[串流分析查�
 
 用於此解決方案範本的 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 實驗會提供飛機引擎的剩餘使用年限 (RUL)。實驗因取用的資料集而不同，因而需要特別針對帶入的資料進行修改或取代。
 
-如需如何建立 Azure Machine Learning 實驗的詳細資訊，請參閱[預測性維護：步驟 1/3，資料準備和特徵設計](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)。
+如需如何建立 Azure Machine Learning 實驗的詳細資訊，請參閱[預測性維護：步驟 3 之 1，資料準備和特徵設計](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)。
 
 ## **監視進度**
  一旦資料產生器啟動，管線會開始合成，解決方案的不同元件會遵循 Data Factory 發出的命令開始動作。您有兩種方式可以監視管線。
@@ -204,9 +207,9 @@ Power BI 會連接到 Azure SQL Database 做為其資料來源，即預測結果
 
 	-	您會看到兩個資料表，**RemainingUsefulLife** 和 **PMResult**。選取第一個資料表，然後在右側 [查詢設定] 面板中 [套用的步驟] 下按一下 [來源] 旁的 ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-query-settings.png)。略過任何出現的警告訊息。
 
-    -   在快顯視窗中，將 [伺服器] 和 [資料庫] 取代為您自己的伺服器和資料庫名稱，然後按一下 [確定]。針對伺服器名稱，請確定您指定連接埠 1433 (**YourSoutionName.database.windows.net, 1433**)。忽略畫面上出現的警告訊息。
+    -   在快顯視窗中，將 [伺服器] 和 [資料庫] 取代為您自己的伺服器和資料庫名稱，然後按一下 [確定]。針對伺服器名稱，請確定您指定連接埠 1433 (**YourSoutionName.database.windows.net, 1433**)。讓 [資料庫] 欄位保持 [pmaintenancedb]。忽略畫面上出現的警告訊息。
 
-    -   在下一個快顯視窗中，您會在左側窗格上看到兩個選項 (**Windows** 和**資料庫**)。按一下 [資料庫]，填入您的 [使用者名稱] 和 [密碼] \(這是當您首次部署解決方案並建立 Azure SQL Database 時輸入的使用者名稱和密碼)。在 [選取要套用這些設定的層級] 中，請勾選資料庫層級選項。然後按一下 [連接]。
+    -   在下一個快顯視窗中，您會在左側窗格上看到兩個選項 (**Windows** 和**資料庫**)。按一下 [資料庫]，填入您的 [使用者名稱] 和 [密碼] (這是當您首次部署解決方案並建立 Azure SQL Database 時輸入的使用者名稱和密碼)。在 [選取要套用這些設定的層級] 中，請勾選資料庫層級選項。然後按一下 [連接]。
 
     -   按一下第二個資料表 **PMResult**，然後在右側 [查詢設定] 面板中 [套用的步驟] 下按一下 [來源] 旁的 ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-navigation.png)，並如上述步驟更新伺服器和資料庫名稱，然後按一下 [確定]。
 
@@ -218,7 +221,7 @@ Power BI 會連接到 Azure SQL Database 做為其資料來源，即預測結果
 
     -   若要建立新儀表板：在左側窗格中按一下 [儀表板] 區段旁的 **+** 號。為這個新儀表板輸入名稱「預測性維護示範」。
 
-    -   一旦您開啟報告，請按一下 ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-pin.png)，將所有視覺效果釘選到儀表板。若要尋找詳細的指示，請參閱[從報告將磚釘選至 Power BI 儀表板](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report)。前往儀表板頁面並調整視覺效果的大小和位置，以及編輯其標題。若要尋找如何編輯您的磚的詳細說明，請參閱[編輯磚 -- 調整大小、移動、重新命名、釘選、刪除、加入超連結](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename)。以下是具有釘選了一些冷路徑視覺效果的範例儀表板。根據執行資料模擬器的時間長度，在視覺效果上的數字可能會不同。<br/> ![](media\cortana-analytics-technical-guide-predictive-maintenance\final-view.png) <br/>
+    -   一旦您開啟報告，請按一下 ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-pin.png)，將所有視覺效果釘選到儀表板。若要尋找詳細的指示，請參閱[從報告將磚釘選至 Power BI 儀表板](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report)。前往儀表板頁面並調整視覺效果的大小和位置，以及編輯其標題。若要尋找如何編輯您的磚的詳細說明，請參閱[編輯磚 -- 調整大小、移動、重新命名、釘選、刪除、加入超連結](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename)。以下是具有釘選了一些冷路徑視覺效果的範例儀表板。根據執行資料產生器的時間長度，在視覺效果上的數字可能會不同。<br/> ![](media\cortana-analytics-technical-guide-predictive-maintenance\final-view.png) <br/>
     -   若要排程資料的重新整理，請將滑鼠移 **PredictiveMaintenanceAerospace** 資料集，按一下 ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png)，然後選擇 [排程重新整理]。<br/> **附註：**如果您看到警告訊息，請按一下 [編輯認證]，並確定您的資料庫認證與步驟 1 中所述相同。<br/> ![](media\cortana-analytics-technical-guide-predictive-maintenance\schedule-refresh.png) <br/>
     -   展開**排程重新整理**一節。開啟「將您的資料保持最新」。<br/>
     -   根據您的需求排程重新整理。若要尋找詳細資訊，請參閱 [Power BI 中的資料重新整理](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi)。
@@ -230,16 +233,19 @@ Power BI 會連接到 Azure SQL Database 做為其資料來源，即預測結果
 1.  在 Azure 串流分析 (ASA) 中加入 Power BI 輸出。
 
     -  您必須依照 [Azure 串流分析及 Power BI：適用於串流資料即時可見度的即時分析儀表板](stream-analytics-power-bi-dashboard.md)中的指示來將 Azure 串流分析作業的輸出設定為 Power BI 儀表板。
-	- 在 [Azure 入口網站](https://manage.windowsazure.com)中找出串流分析作業 **maintenancesa02asapbi**。
-	- 設定 ASA 查詢的三個輸出，其為 **aircraftmonitor**、**aircraftalert** 和 **flightsbyhour**。確定**輸出別名**、**資料集名稱**和**資料表名稱**與查詢 (**aircraftmonitor**、**aircraftalert** 和 **flightsbyhour**) 中相同。一旦您加入這三個輸出資料表，並啟動串流分析作業，應該會取得確認訊息 (*例如*，「啟動串流分析作業 maintenancesa02asapbi 成功」)。
+	- ASA 查詢有三個輸出，分別是 **aircraftmonitor**、**aircraftalert** 和 **flightsbyhour**。按一下 [查詢] 索引標籤，就可以檢視查詢。對應至每一個資料表，您必須將輸出新增到 ASA。當您新增第一個輸出 (*例如* **aircraftmonitor**) 時，請確定**輸出別名**、**資料集名稱**和**資料表名稱**皆相同 (**aircraftmonitor**)。重複這些步驟來新增 **aircraftalert** 和 **flightsbyhour** 的輸出。一旦您加入這三個輸出資料表，並啟動 ASA 作業，應該會取得確認訊息 (*例如*，「啟動串流分析作業 maintenancesa02asapbi 成功」)。
 
 2. 登入 [Power BI 線上版](http://www.powerbi.com)
 
-    -   在左側面板 [我的工作區] 的 [資料集] 區段上，之前在 Power BI 輸出設定中定義的 ***資料集*** 名稱 **aircraftmonitor**、**aircraftalert** 和 **flightsbyhour** 應該會出現在 ASA 作業中。
-
+    -   在 [我的工作區] 中的左側面板 [資料集] 區段，***DATASET*** 名稱 **aircraftmonitor**、**aircraftalert** 和 **flightsbyhour** 應該會出現。這是您在上一個步驟中從 Azure 串流分析推送的串流資料。由於其背後的 SQL 查詢本質使然，資料集 **flightsbyhour** 可能不會和其他兩個資料集同時顯示。不過，它應該會在一個小時之後出現。
     -   請確定 [視覺效果] 窗格開啟，並顯示在螢幕的右邊。
 
-3. 建立「感應器 11 與閾值 48.26 的機隊檢視」磚：
+3. 將資料傳送到 Power BI 之後，您就可以開始視覺化串流資料。以下是具有釘選了一些最忙碌路徑視覺效果的範例儀表板。您可以根據適當的資料集建立其他儀表板磚。根據執行資料產生器的時間長度，在視覺效果上的數字可能會不同。
+
+
+    ![](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+
+4. 以下是一些用來建立上述其中一個磚的步驟 -「感應器 11 與閾值 48.26 的機隊檢視」磚：
 
     -   在左側面板 [資料集] 區段中按一下資料集 **aircraftmonitor**。
 
@@ -255,9 +261,8 @@ Power BI 會連接到 Azure SQL Database 做為其資料來源，即預測結果
 
     -   在儀表板上將滑鼠停留在此磚中，按一下右上角的 [編輯] 圖示可將其標題變更為「感應器 11 與閾值 48.26 的機隊檢視」和副標題變更為「機隊經過一段時間的平均值」。
 
-4.  根據適當的資料集建立其他儀表板磚。以下是具有釘選了一些最忙碌路徑視覺效果的範例儀表板。根據執行資料模擬器的時間長度，在視覺效果上的數字可能會不同。
-
-    ![](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+## **如何刪除解決方案**
+請確定您在未積極使用解決方案時有停止資料產生器，因為執行資料產生器將會產生較高的成本。如果不使用解決方案，請將其刪除。刪除解決方案時，將會刪除您在部署解決方案時於訂用帳戶中佈建的所有元件。若要刪除解決方案，請在解決方案範本左側面板中的解決方案名稱上按一下滑鼠右鍵，然後按一下 [刪除]。
 
 ## **成本估計工具**
 
@@ -267,4 +272,4 @@ Power BI 會連接到 Azure SQL Database 做為其資料來源，即預測結果
 
 -   [Microsoft Azure Cost Estimator Tool (桌面版)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

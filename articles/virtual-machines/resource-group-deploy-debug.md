@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="01/06/2016"
+   ms.date="01/28/2016"
    ms.author="tomfitz;rasquill"/>
 
 # 在 Azure 中疑難排解資源群組部署
@@ -23,7 +23,7 @@
 
 本主題主要著重於使用部署命令來排解部署疑難問題。如需使用稽核記錄檔來追蹤您的資源上所有作業的詳細資訊，請參閱[稽核作業與資源管理員](../resource-group-audit.md)。
 
-本主題說明如何透過 Azure PowerShell、Azure CLI 和 REST API 擷取疑難排解資訊。如需使用 Preview 入口網站來排解部署疑難問題的相關資訊，請參閱[使用 Azure 入口網站管理 Azure 資源](../azure-portal/resource-group-portal.md)。
+本主題說明如何透過 Azure PowerShell、Azure CLI 和 REST API 擷取疑難排解資訊。如需使用入口網站來排解部署問題的相關資訊，請參閱[使用 Azure 入口網站管理 Azure 資源](../azure-portal/resource-group-portal.md)。
 
 本主題也說明了使用者遇到的常見錯誤的解決方案。
 
@@ -160,7 +160,7 @@
 
 如果您的 Azure 認證已過期或您尚未登入您的 Azure 帳戶，您的部署將會失敗。如果您的工作階段的開啟時間太長，您的認證可能會過期。您可以使用下列選項重新整理您的認證︰
 
-- 針對 PowerShell，若是比 PowerShell 1.0 Preview 更早的版本，請使用 **Login-AzureRmAccount** Cmdlet (或 **Add-AzureAccount**)。發行設定檔中的認證無法滿足 AzureResourceManager 模組中 Cmdlet 的需求。
+- 針對 PowerShell，請使用 **Login-AzureRmAccount** Cmdlet。發行設定檔中的認證無法滿足 AzureResourceManager 模組中 Cmdlet 的需求。
 - 針對 Azure CLI，請使用 **azure login**。　如需驗證錯誤的協助，請確定您[已正確地設定 Azure CLI](../xplat-cli-connect.md)。
 
 ## 檢查範本和參數的格式
@@ -169,7 +169,7 @@
 
 ### PowerShell
 
-針對 PowerShell，若是比 PowerShell 1.0 Preview 更早的版本，請使用 **Test-AzureRmResourceGroupDeployment** (或 **Test-AzureResourceGroupTemplate**)。
+針對 PowerShell，請使用 **Test-AzureRmResourceGroupDeployment**。
 
     PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
     VERBOSE: 12:55:32 PM - Template is valid.
@@ -201,7 +201,7 @@
 
 ### PowerShell
 
-針對比 PowerShell 1.0 Preview 更早的版本，您可以利用 **Get-AzureLocation** 命令來查看完整的資源和位置清單。
+針對比 PowerShell 1.0 更早的版本，您可以利用 **Get-AzureLocation** 命令來查看完整的資源和位置清單。
 
     PS C:\> Get-AzureLocation
 
@@ -222,7 +222,7 @@
                                                                 North Europe, West Europe, East Asia, Southeast Asia,
                                                                 Japan East, Japan West
 
-針對 PowerShell 1.0 Preview，使用 **Get AzureRmResourceProvider** 取得支援的位置。
+針對 PowerShell 1.0 Preview，請使用 **Get AzureRmResourceProvider** 來取得支援的位置。
 
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
 
@@ -275,7 +275,7 @@
 
 當部署達到預設配額 (可能是每個資源群組、訂用帳戶、帳戶及其他範圍的配額) 時，也可能會發生問題。請確保您有可正確部署的足夠資源。如需完整的配額資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](../azure-subscription-service-limits.md)。
 
-若要檢查您自己的訂用帳戶核心配額，應使用 Azure CLI 中的 `azure vm list-usage` 命令以及 PowerShell 中的 **Get-AzureVMUsage** Cmdlet。以下顯示 Azure CLI 中的命令，並說明免費試用帳戶的核心配額為 4：
+如要檢查您訂用帳戶的核心配額，請使用 Azure CLI 中的 `azure vm list-usage` 命令，以及 PowerShell 中的 **Get-AzureVMUsage** Cmdlet。以下顯示 Azure CLI 中的命令，並說明免費試用帳戶的核心配額為 4：
 
     azure vm list-usage
     info:    Executing command vm list-usage
@@ -293,25 +293,7 @@
 
 在這些情況下，您應該移至入口網站，並提出支援問題，以針對您想要部署的區域提高配額。
 
-> [AZURE.NOTE] 請記住，對於資源群組，配額適用於每個個別區域，而不是整個訂用帳戶。如果您需要在美國西部部署 30 個核心，就必須要求在美國西部擁有 30 個資源管理員核心。如果您需要在任何具有存取權限的區域中部署 30 個核心，就應該要求在所有區域中擁有 30 個資源管理員核心。
-<!-- -->
-舉例來說，若要更明確地了解核心，您可以使用下列命令來檢查應該要求適當配額數目的區域，這個命令可以使用管線傳送到 **jq** 以進行 JSON 剖析。 
-<!-- --> 
-	azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' 
-	{ 
-	  "name": "virtualMachines", 
-	  "apiVersions": [ 
-	    "2015-05-01-preview", 
-	    "2014-12-01-preview" 
-	    ], 
-	    "locations": [ 
-	      "East US", 
-	      "West US", 
-	      "West Europe", 
-	      "East Asia", 
-	      "Southeast Asia" 
-	      ] 
-	  }
+> [AZURE.NOTE] 請記住，對於資源群組，配額適用於每個個別區域，而不是整個訂用帳戶。如果您需要在美國西部部署 30 個核心，就必須要求在美國西部擁有 30 個資源管理員核心。如果您需要在任何具有存取權限的區域中部署 30 個核心，就應該要求在所有區域中擁有 30 個資源管理員核心。<!-- --> 舉例來說，若要更明確地了解核心，您可以使用下列命令來檢查應該要求適當配額數目的區域，這個命令可以使用管線傳送到 **jq** 以進行 JSON 剖析。 <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
 
 
 ## 檢查資源提供者註冊
@@ -320,7 +302,7 @@
 
 ### PowerShell
 
-如果使用比 PowerShell 1.0 Preview 更早的版本，若要取得資源提供者的清單及您的註冊狀態，請使用 **Get-AzureProvider**。
+針對比 PowerShell 1.0 更早的版本，如要取得資源提供者的清單及您的註冊狀態，請使用 **Get-AzureProvider**。
 
     PS C:\> Get-AzureProvider
 
@@ -333,7 +315,7 @@
 
 若要註冊提供者，請使用 **Register-AzureProvider**。
 
-針對 PowerShell 1.0 Preview，使用 **Get-AzureRmResourceProvider**。
+針對 PowerShell 1.0，請使用 **Get-AzureRmResourceProvider**。
 
     PS C:\> Get-AzureRmResourceProvider -ListAvailable
 
@@ -435,4 +417,4 @@ PowerShell 有幾個基本命令來執行相同的程序。
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,5 +1,5 @@
 
-如需有關磁碟的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](../articles/virtual-machines-disks-vhds.md)。
+如需有關磁碟的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](virtual-machines-disks-vhds.md)。
 
 <a id="attachempty"></a>
 ## 做法：連接空的磁碟
@@ -62,7 +62,7 @@
 		uploaded successfully
 		info:    vm disk create command OK
 
-	您也可以使用 `azure vm disk upload` 命令，將 VHD 上傳至特定的儲存體帳戶。在[這裡](../virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks)閱讀管理 Azure 虛擬機器資料磁碟之命令的詳細資訊。
+	您也可以使用 `azure vm disk upload` 命令，將 VHD 上傳至特定的儲存體帳戶。在[這裡](virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks)閱讀管理 Azure 虛擬機器資料磁碟之命令的詳細資訊。
 
 5.  輸入下列命令，以將所需的已上傳 VHD 連接至您的虛擬機器：
 
@@ -90,6 +90,7 @@
 		info:    vm disk list command OK
 
 
-> [AZURE.NOTE]新增資料磁碟之後，您必須登入虛擬機器並初始化磁碟，這樣虛擬機器才能使用磁碟來儲存資料。
+> [AZURE.NOTE]
+新增資料磁碟之後，您必須登入虛擬機器並初始化磁碟，這樣虛擬機器才能使用磁碟來儲存資料。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

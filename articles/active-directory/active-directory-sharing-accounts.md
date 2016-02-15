@@ -13,7 +13,7 @@
  	ms.tgt_pltfrm="na"
  	ms.devlang="na"
  	ms.topic="article"
- 	ms.date="10/16/2015"  
+ 	ms.date="02/01/2015"  
  	ms.author="stevenpo"/>
 
 # 使用 Azure AD 共用帳戶
@@ -44,7 +44,7 @@ Azure AD 提供使用共用帳戶的新方法，可以消除這些缺點。
 
 共用帳戶不只增加監督的方便性和改善可用性，也可增強安全性。具有認證使用權限的使用者看不到共用密碼，而是會在協調的驗證流程當中取得密碼的使用權限。此外，使用某些密碼 SSO 應用程式時，您可選擇讓 Azure AD 定期使用字元數多的複雜密碼來變換 (更新) 密碼，以提升帳戶安全性。系統管理員可以輕易地授與或撤銷應用程式的存取權，也可以知道誰有權存取帳戶以及誰曾經存取帳戶。
 
-Azure AD 支援的共用帳戶適用於任何Enterprise Mobility Suite (EMS)、進階或基本型的授權使用者，含括所有類型的密碼單一登入應用程式。您可以共用應用程式庫中數千個預先整合的應用程式的帳戶，並可加入含有[自訂 SSO 應用程式](active-directory-single-sign-on-newly-acquired-saas-apps.md)的密碼驗證應用程式。
+Azure AD 支援的共用帳戶適用於任何Enterprise Mobility Suite (EMS)、進階或基本型的授權使用者，含括所有類型的密碼單一登入應用程式。您可以共用應用程式庫中數千個預先整合的應用程式的帳戶，並可加入含有[自訂 SSO 應用程式](active-directory-sso-integrate-saas-apps.md)的密碼驗證應用程式。
 
 啟用帳戶共用的 Azure AD 功能包括：
 
@@ -72,4 +72,4 @@ Azure AD 支援的共用帳戶適用於任何Enterprise Mobility Suite (EMS)、�
 - [使用條件式存取來保護應用程式](active-directory-conditional-access.md)
 - [自助式群組管理/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

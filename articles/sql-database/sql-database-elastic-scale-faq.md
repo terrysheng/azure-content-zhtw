@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure SQL 彈性延展常見問題集 | Microsoft Azure" 
+	pageTitle="Azure SQL Elastic Scale 常見問題集 | Microsoft Azure" 
 	description="有關 Azure SQL Database 彈性延展的常見問題集。" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/01/2016" 
 	ms.author="sidneyh"/>
 
 # 彈性資料庫工具常見問題集 
@@ -56,4 +56,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

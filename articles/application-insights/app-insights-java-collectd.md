@@ -40,7 +40,7 @@
 在您的 Unix 伺服器機器上：
 
 1. 安裝 [collectd](http://collectd.org/) 5.4.0 版或更新版本。
-2. 下載 [Application Insights collectd 寫入器外掛程式](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html)。記下版本號碼。
+2. 下載 [Application Insights collectd 寫入器外掛程式](https://azuredownloads.blob.core.windows.net/applicationinsights/applicationinsights-collectd-1.0.1.jar)。記下版本號碼。
 3. 將外掛程式 JAR 複製到 `/usr/share/collectd/java`。
 3. 編輯 `/etc/collectd/collectd.conf`：
  * 確定 [Java 外掛程式](https://collectd.org/wiki/index.php/Plugin:Java)已啟用。
@@ -143,4 +143,4 @@
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="12/07/2015"
+	ms.date="02/02/2016"
 	ms.author="billmath"/>
 
 # 判斷混合式身分識別解決方案的身分識別需求
@@ -47,7 +47,8 @@
 您也需要知道公司可能有的雲端服務。執行評估以了解您的環境中目前與 SaaS、IaaS 或 PaaS 模型的整合，是非常重要的。在此評估期間請確實回答下列問題：- 您的公司是否整合了任何雲端服務提供者？- 如果是，正在使用哪些服務？- 此整合目前是在生產環境中，還是處於試驗階段？
 
 
->[AZURE.NOTE]如果您無法正確對應您的應用程式與雲端服務，您可以使用雲端應用程式探索工具。這項工具可讓您的 IT 部門深入了解組織的所有商業和取用者雲端應用程式。尋找組織中的「影子 IT」從未如此容易，就連使用模式的詳細資料，以及正在存取雲端應用程式的使用者都能找到。若要存取此工具，請移至 [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
+>[AZURE.NOTE]
+如果您無法正確對應您的應用程式與雲端服務，您可以使用雲端應用程式探索工具。這項工具可讓您的 IT 部門深入了解組織的所有商業和取用者雲端應用程式。尋找組織中的「影子 IT」從未如此容易，就連使用模式的詳細資料，以及正在存取雲端應用程式的使用者都能找到。若要存取此工具，請移至 [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
 
 ## 評估身分識別整合需求
 接下來，您必須評估身分識別整合需求。要定義使用者執行驗證的方式、組織存在於雲端中的型態、組織提供授權的方式以及將會有何種使用者經驗的技術需求，這項評估是很重要的。請確實回答下列問題：
@@ -94,6 +95,6 @@
 [判斷目錄同步處理需求](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## 另請參閱
-[設計考量概觀]((active-directory-hybrid-identity-design-considerations-overview.md)
+[設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

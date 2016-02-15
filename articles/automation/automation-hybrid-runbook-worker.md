@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/25/2016"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Azure 自動化混合式 Runbook 背景工作
@@ -60,7 +60,7 @@ Azure 自動化中的 Runbook 無法存取您的本機資料中心中的資源�
 下列程序描述如何安裝和設定 Hybrid Runbook Worker。對您的自動化環境執行一次前兩個步驟，再對每一台背景工作角色電腦重複其餘步驟。
 
 ### 1\.建立 Operations Management Suite 工作區
-如果尚無 Operations Management Suite 工作區，請使用[ 設定 Operational Insights 工作區](../operational-insights/operational-insights-onboard-in-minutes.md) 中的指示建立工作區。如果您已經有工作區，可以使用現有的工作區。
+如果尚無 Operations Management Suite 工作區，請使用[設定工作區](https://technet.microsoft.com/library/mt484119.aspx)中的指示建立工作區。如果您已經有工作區，可以使用現有的工作區。
 
 ### 2\.將自動化解決方案加入至 Operations Management Suite 工作區
 解決方案會將功能加入至 Operations Management Suite。自動化解決方案會增加 Azure 自動化的功能，包括支援 Hybrid Runbook Worker。將解決方案加入至工作區時，它會自動將背景工作角色元件往下推送給您在下一步將安裝的代理程式電腦。
@@ -190,4 +190,4 @@ Runbook 可以使用 Azure 自動化環境中安裝的模組中定義的任何�
 - [在 Azure 自動化中編輯 Runbook](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

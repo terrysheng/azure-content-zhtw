@@ -19,7 +19,7 @@
 
 [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) 類別提供 ADO.Net 應用程式輕鬆偵測，並修正分區化資料庫環境中全域分區對應 (GSM) 和本機分區對應 (LSM) 中任何不一致的能力。
 
-GSM 和 LSM 會追蹤分區化環境中每個資料庫的對應。有時候，GSM 和 LSM 之間會發生中斷。在此情況下，請使用 RecoveryManager 類別來偵測及修復中斷。
+GSM 和 LSM 會追蹤分區化環境中每個資料庫的對應。但偶爾 GSM 和 LSM 之間會發生中斷的情況。此時，請使用 RecoveryManager 類別來偵測並修復中斷的問題。
 
 RecoveryManager 類別是[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)的一部分。
 
@@ -155,4 +155,4 @@ GSM 和 LSM 可能因為以下原因變成不同步：
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

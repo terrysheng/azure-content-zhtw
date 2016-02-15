@@ -43,9 +43,9 @@ Azure 流量管理員使用名為「流量管理員設定檔」的設定集合�
 
 - 使用現有的 (非 ARM) Azure 服務管理 (ASM) API、工具和「傳統」入口網站所建立的流量管理員設定檔無法透過 ARM 使用，反之亦然。目前不支援將設定檔從 ASM 移轉至 ARM API，但可以藉由先刪除再重新建立設定檔來達到此目的。
 
-
 - 「巢狀」流量管理員端點是透過 ARM API、ARM PowerShell 及 ARM-mode Azure CLI 來支援。Azure 入口網站 (也是使用 ARM API) 目前不支援它們。
 
+- 類型「AzureEndpoints」的流量管理員端點在參考 Web 應用程式時，只能參考預設 (生產) [Web 應用程式位置](../app-service-web/web-sites-staged-publishing.md)。目前尚未支援自訂位置。而為了因應這個問題，您可以使用「ExternalEndpoints」類型來設定自訂位置。
 
 ## 設定 Azure PowerShell
 
@@ -190,9 +190,9 @@ Azure 端點會參考在 Azure 中託管的其他服務。目前支援的 Azure 
 
 流量管理員可讓您將流量管理員設定檔 (稱為「子設定檔」) 設為另一個流量管理員設定檔 (稱為「父設定檔」) 內的端點。
 
-巢狀流量管理員可讓您建立更有彈性且功能強大的流量路由和容錯移轉配置，以支援更大型且更複雜的部署需求。[此部落格文章 (英文)](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/) 提供數個範例。
+巢狀流量管理員可讓您建立更有彈性且功能強大的流量路由和容錯移轉配置，以支援更大型且更複雜的部署需求。[這篇部落格文章](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/) 提供數個範例。
 
-巢狀端點是在父設定檔中使用特定的端點類型 ('NestedEndpoints') 來設定。在指定巢狀端點時：- 必須使用 'targetResourceId' 參數指定端點端點 (如子設定檔)。- 如果使用 'Performance' 流量路由方法，'targetResourceId' 為必要項目，否則為選用項目。此值必須是[有效的 Azure 區域名稱](http://azure.microsoft.com/regions/)。 - 和用於 Azure 端點時一樣，'Weight' 和 'Priority' 是選用項目。 - 'MinChildEndpoints' 參數是選用項目 (預設值為 1)。如果子設定檔中可用的端點數目低於此臨界值，父設定檔會將子設定檔視為「已降級」，並將流量導向其他父設定檔端點。
+巢狀端點是在父設定檔中使用特定的端點類型 ('NestedEndpoints') 來設定。在指定巢狀端點時：- 必須使用 'targetResourceId' 參數指定端點端點 (如子設定檔)。- 如果使用 'Performance' 流量路由方法，'targetResourceId' 為必要項目，否則為選用項目。該值必須是[有效的 Azure 區域名稱](http://azure.microsoft.com/regions/)。- 至於 Azure 端點，'Weight' 和 'Priority' 是可省略的。- 'MinChildEndpoints' 參數是可省略的，預設值為 '1'。如果子設定檔中可用的端點數目低於此臨界值，父設定檔會將子設定檔視為「已降級」，並將流量導向其他父設定檔端點。
 
 
 #### 範例 1：使用 Add-AzureRmTrafficManagerEndpointConfig 和 Set-AzureRmTrafficManagerProfile 新增巢狀端點
@@ -285,4 +285,4 @@ Disable-AzureRmTrafficManagerProfile Cmdlet 會顯示確認提示，但使用 '-
 [流量管理員的效能考量](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

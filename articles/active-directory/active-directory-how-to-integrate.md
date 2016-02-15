@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/17/2015"
+   ms.date="02/02/2016"
    ms.author="mbaldwin"/>
 
 # 與 Azure Active Directory 整合
@@ -30,7 +30,7 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 **減少登入的不便，並降低支援成本。** 透過使用 Azure AD 來登入您的應用程式，您的使用者會少一個要記住的名稱和密碼。身為開發人員，您會少一個要儲存及保護的密碼。單單無需處理忘記密碼重設就可以省下大量時間與金錢。Azure AD 支援部分世界上最受歡迎雲端應用程式 (包括 Office 365 和 Microsoft Azure) 的登入。有來自數百萬個組織的數百萬名使用者，可能是您的使用者已經登入 Azure AD。深入了解[新增 Azure AD 登入支援](active-directory-authentication-scenarios.md)。
 
-**簡化應用程式的註冊程序。** 註冊應用程式的過程中，Azure AD 會寄出使用者的基本資訊，讓您可以預先填入註冊表單，或者完全不需要用到。使用者可以透過類似社交媒體和行動應用程式所使用的常見同意程序，使用其 Azure AD 帳戶來註冊應用程式。任何使用者都可以註冊並登入已與 Azure AD 整合的應用程式，而無需 IT 人員的介入。深入了解[註冊應用程式以進行 Azure AD 帳戶登入](../mobile-services-how-to-register-active-directory-authentication.md)。
+**簡化應用程式的註冊程序。** 註冊應用程式的過程中，Azure AD 會寄出使用者的基本資訊，讓您可以預先填入註冊表單，或者完全不需要用到。使用者可以透過類似社交媒體和行動應用程式所使用的常見同意程序，使用其 Azure AD 帳戶來註冊應用程式。任何使用者都可以註冊並登入已與 Azure AD 整合的應用程式，而無需 IT 人員的介入。深入了解[註冊應用程式以進行 Azure AD 帳戶登入](../mobile-services/mobile-services-how-to-register-active-directory-authentication.md)。
 
 ### 瀏覽以尋找使用者、管理使用者佈建，及控制存取應用程式
 
@@ -90,4 +90,4 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 
 [使用 Azure AD 登入使用者](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/22/2016"
+   ms.date="01/29/2016"
    ms.author="yurid"/>
 
 #Azure 資訊安全中心的安全性健康情況監視
@@ -41,7 +41,7 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 ###虛擬機器
 按一下 [資源健全狀況] 磚中的 [虛擬機器] 時，將會開啟 [虛擬機器] 刀鋒視窗，內含有關訓練與預防步驟的更多詳細資訊，以及受 Azure 資訊安全中心監視的所有 VM 清單，如下所示：
 
-![遺漏系統更新 (依 VM)](./media/security-center-monitoring/security-center-monitoring-fig2-new.png)
+![遺漏系統更新 (依 VM)](./media/security-center-monitoring/security-center-monitoring-fig2-2-new.png)
 
 開啟此刀鋒視窗後，您會看到三個區段：
 
@@ -60,7 +60,7 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 ####虛擬機器建議
 本節提供一組 Azure 資訊安全中心所監視的每個 VM 的建議。第一個資料行提供建議的說明，第二個資料行提供受到該建議影響的 VM 總數，第三個資料行指示嚴重性，如下所示：
 
-![VM 建議](./media/security-center-monitoring/security-center-monitoring-fig4-new.png)
+![VM 建議](./media/security-center-monitoring/security-center-monitoring-fig4-2-new.png)
 
 每個建議會有一組可在您按一下它之後執行的動作。例如，如果您按一下 [遺失系統更新]，將會開啟 [遺失系統更新]刀鋒視窗，內含遺失修補程式的 VM 清單及每個 VM 的嚴重性層級，如下所示：
 
@@ -173,4 +173,4 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 - [Azure 安全性中心常見問題集](security-center-faq.md) - 尋找使用服務的常見問題
 - [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) – 尋找有關 Azure 安全性與相容性的部落格文章
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/25/2015"
+   ms.date="02/01/2016"
    ms.author="rickbyh"/>
 
 # SQL Database 安全性：管理資料庫存取與登入安全性  
@@ -27,6 +27,8 @@
 在 Microsoft Azure SQL Database 中，當您登入服務時，佈建程序會建立 Azure SQL Database 伺服器、名為 **master** 的資料庫，以及 Azure SQL Database 伺服器之伺服器層級主體的登入。該登入類似於 SQL Server 內部部署執行個體的伺服器層級主體 (**sa**)。
 
 Azure SQL Database 伺服器層級主體帳戶一律擁有管理所有伺服器層級和資料庫層級安全性的權限。本主題描述如何使用伺服器層級主體和其他帳戶來管理 SQL Database 的登入和資料庫。
+
+透過 Azure 角色型存取控制及 Azure 資源管理員 REST API 來存取 SQL Database 的 Azure 使用者，會接收來自自己 Azure 角色的權限。而 Azure 角色成員的動作，是由資料庫引擎為這些成員執行的。他們不會受到資料庫引擎的權限模型的影響，因此不在本主題的討論範圍內。如需詳細資訊，請參閱 [RBAC：內建角色](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#sql-db-contributor)。
 
 > [AZURE.IMPORTANT] SQL Database V12 可讓使用者使用自主資料庫使用者在資料庫進行驗證。自主資料庫使用者不需要登入。這可讓資料庫更具可攜性，但會降低伺服器層級主體控制資料庫存取權的能力。啟用自主資料庫使用者會有重大的安全性影響。如需詳細資訊，請參閱[自主資料庫使用者 - 讓資料庫具有可攜性](https://msdn.microsoft.com/library/ff929188.aspx)、[自主資料庫](https://technet.microsoft.com/library/ff929071.aspx)、[CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) 和[使用 Azure Active Directory 驗證連線到 SQL Database](sql-database-aad-authentication.md)。
 
@@ -174,4 +176,4 @@ SELECT * FROM sys.databases;
 
 [Azure SQL Database 安全性方針和限制](sql-database-security-guidelines.md) [利用 Azure Active Directory 驗證連線到 SQL Database](sql-database-aad-authentication.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

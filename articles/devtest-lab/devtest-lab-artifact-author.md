@@ -1,6 +1,6 @@
-    <properties 
-	pageTitle="Create custom artifacts for your DevTest Lab VM | Microsoft Azure"
-	description="Learn how to author your own artifacts for use with DevTest Labs"
+<properties 
+	pageTitle="為您的研發/測試實驗室 VM 建立自訂構件 | Microsoft Azure"
+	description="了解如何撰寫自己的構件以用於研發/測試實驗室"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 #為您的研發/測試實驗室 VM 建立自訂構件
@@ -121,4 +121,4 @@
 
 了解如何[將 Git 構件儲存機制加入研發/測試實驗室](devtest-lab-add-artifact-repo.md)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

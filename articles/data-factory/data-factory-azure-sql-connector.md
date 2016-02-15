@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# 使用 Azure Data Factory 從 Azure SQL 來回移動資料
+# 使用 Azure Data Factory 從 Azure SQL Database 來回移動資料
 
 本文概述如何在 Azure Data Factory 中使用複製活動，在 Azure SQL 與其他資料存放區之間移動資料。本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文呈現使用複製活動移動資料的一般概觀以及支援的資料存放區組合。
 
-## 範例：從 Azure SQL 複製資料到 Azure Blob
+下列範例顯示如何在 Azure SQL Database 和 Azure Blob 儲存體將資料複製進來和複製出去。不過，您可以在 Azure Data Factory 中使用複製活動，從任何來源**直接**將資料複製到[這裡](data-factory-data-movement-activities.md#supported-data-stores)所說的任何接收器。
+
+
+## 範例：將資料從 Azure SQL Database 複製到 Azure Blob
 
 下列範例顯示：
 
@@ -200,7 +203,7 @@
 	   }
 	}
 
-> [AZURE.NOTE]在上述範例中，已為 SqlSource 指定 **sqlReaderQuery**。複製活動會針對 Azure SQL Database 來源執行這項查詢以取得資料。
+> [AZURE.NOTE] 在上述範例中，已為 SqlSource 指定 **sqlReaderQuery**。複製活動會針對 Azure SQL Database 來源執行這項查詢以取得資料。
 >  
 > 或者，您可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數) 來指定預存程序。
 >  
@@ -210,7 +213,7 @@
 如需 SqlSource 和 BlobSink 所支援屬性的清單，請參閱 [SQL 來源](#sqlsource)小節和 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)。
 
 
-## 範例：從 Azure Blob 複製資料到 Azure SQL
+## 範例：從 Azure Blob 複製資料到 Azure SQL Database
 
 下列範例顯示：
 
@@ -418,13 +421,13 @@
 
 如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
 
-> [AZURE.NOTE]複製活動只會採用一個輸入，而且只產生一個輸出。
+> [AZURE.NOTE] 複製活動只會採用一個輸入，而且只產生一個輸出。
 
 另一方面，活動的 typeProperties 區段中可用的屬性會隨著每個活動類型而有所不同，而在複製活動的案例中，可用的屬性會根據來源與接收的類型而有所不同。
 
 ### SqlSource
 
-在複製活動的案例中，如果來源類型為 **SqlSource**，則 **typeProperties** 區段可使用下列屬性：
+在複製活動的案例中，如果來源的類型為 **SqlSource**，則 **typeProperties** 區段有下列可用屬性：
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
@@ -504,9 +507,9 @@
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### SQL Server 和 Azure SQL 的類型對應
+### SQL Server 和 Azure SQL Database 的類型對應
 
-如同[資料移動活動](data-factory-data-movement-activities.md)一文所述，複製活動會使用下列 2 個步驟的方法，執行自動類型轉換，將來源類型轉換成接收類型：
+如[資料移動活動](data-factory-data-movement-activities.md)一文所述，複製活動會使用下列 2 個步驟的方法，執行從來源類型轉換成接收類型的自動類型轉換：
 
 1. 從原生來源類型轉換成 .NET 類型
 2. 從 .NET 類型轉換成原生接收類型
@@ -560,4 +563,4 @@
 
 	 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

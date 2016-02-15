@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/11/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 # 如何在串流分析中撰寫查詢
@@ -42,7 +42,7 @@
 
 您可以透過在瀏覽器中執行一或多個包含測試資料的本機 JSON 檔案，來測試查詢是否如預期執行。這不會開始工作，也不會以任何方式計費。
 
-> [AZURE.NOTE]Azure Preview 入口網站目前不支援瀏覽器內查詢測試。
+> [AZURE.NOTE] Azure Preview 入口網站目前不支援瀏覽器內查詢測試。
 
 1.	請確定查詢中沒有任何錯誤 (否則 [測試] 按鈕將會停用) 然後按一下 [測試] 按鈕。  
 
@@ -71,4 +71,4 @@
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

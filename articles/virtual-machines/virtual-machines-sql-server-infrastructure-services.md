@@ -1,9 +1,9 @@
-<properties 
+<properties
 	pageTitle="虛擬機器上的 SQL Server 概觀 | Microsoft Azure"
-	description="本文章簡介 Azure 虛擬機器上架設的 SQL Server。本文章也提供深度內容的連結。" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="rothja" 
+	description="本文章簡介 Azure 虛擬機器上架設的 SQL Server。本文章也提供深度內容的連結。"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="rothja"
 	manager="jeffreyg"
 	editor=""
 	tags="azure-service-management"/>
@@ -13,8 +13,8 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="11/12/2015"
+	ms.workload="infrastructure-services"
+	ms.date="02/03/2016"
 	ms.author="jroth"/>
 
 # Azure 虛擬機器上的 SQL Server 概觀
@@ -28,9 +28,11 @@
 
 ### 在單一 VM 上部署 SQL Server 執行個體
 
-在註冊訂用帳戶之後，若要在 Azure 中部署 SQL Server 虛擬機器，最簡單的方式就是[在 Azure 傳統入口網站中佈建 SQL Server 機器資源庫映像](virtual-machines-provision-sql-server.md)。這些映像包含的 SQL Server 授權，是以 VM 為計價單位。
+當您註冊訂用帳戶之後，在 Azure 中部署 SQL Server 虛擬機器最簡單的方式，就是[在 Azure 中佈建 SQL Server 機器資源庫映像](virtual-machines-sql-server-provision-resource-manager.md)。這些映像包含的 SQL Server 授權，是以 VM 為計價單位。
 
->[AZURE.NOTE] 使用 Azure 入口網站佈建及管理 SQL Server 虛擬機器。預設使用進階儲存體，並提供自動化修補、自動化備份及 AlwaysOn 組態。
+請務必注意，建立及管理 Azure 虛擬機器的模型有兩種：傳統及資源管理員。Microsoft 建議讓大部分的新部署使用資源管理員模式。某些 Azure VM 的 SQL Server 文件仍舊只提到傳統模式。這些主題正隨時間更新，以便使用新的 Azure 入口網站和資源管理員模型。如需詳細資訊，請參閱[了解資源管理員部署和傳統部署](../resource-manager-deployment-model.md)。
+
+>[AZURE.NOTE] 請盡可能使用最新的 [Azure 入口網站](https://portal.azure.com/)來佈建及管理 SQL Server 虛擬機器。預設使用進階儲存體，並提供自動化修補、自動化備份及 AlwaysOn 組態。
 
 下表提供虛擬機器資源庫中的可用 SQL Server 映像比較。
 
@@ -44,16 +46,14 @@
 |SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise、Standard 和 Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|評估|
 
->[AZURE.NOTE] 用於資料倉儲和交易式工作負載的虛擬機器資源庫映像 (非上方所示)，已被取代且即將從資源庫移除。請使用上表中的標準映像並最佳化特定工作負載的效能。
-
-除了這些預先設定的映像之外，您也可以在不預先安裝 SQL Server 的狀況下，[建立 Azure 虛擬機器](virtual-machines-windows-tutorial.md)。您可以安裝任何您擁有授權的 SQL Server 執行個體。將您的授權移轉至 Azure，以使用 [Azure 上透過軟體保證的授權流動性](https://azure.microsoft.com/pricing/license-mobility/)，在 Azure 虛擬機器中執行 SQL Server。在此案例中，您只需支付與虛擬機器相關聯的 Azure 計算和儲存體[成本](https://azure.microsoft.com/pricing/details/virtual-machines/)。
+除了這些預先設定的映像，您也可以[建立 Azure 虛擬機器](virtual-machines-windows-tutorial.md)，而不需要預先安裝的 SQL Server。您可以安裝任何您擁有授權的 SQL Server 執行個體。將您的授權移轉至 Azure，以使用 [Azure 上透過軟體保證的授權流動性](https://azure.microsoft.com/pricing/license-mobility/)，在 Azure 虛擬機器中執行 SQL Server。在此案例中，您只需支付與虛擬機器相關聯的 Azure 計算和儲存體[成本](https://azure.microsoft.com/pricing/details/virtual-machines/)。
 
 為判斷 SQL Server 映像的最佳虛擬機器組態設定，請檢閱 [Azure 虛擬機器中的 SQL Server 效能最佳做法](virtual-machines-sql-server-performance-best-practices.md)。針對生產環境的工作負載，建議的 SQL Server Enterprise Edition 的虛擬機器大小至少為 **DS3**，Standard Edition 的虛擬機器大小至少為 **DS2**。
 
 除了檢閱效能最佳作法、 其他初始工作還包括：
 
 - [檢閱 Azure VM 中的 SQL Server 安全性最佳作法](virtual-machines-sql-server-security-considerations.md)
-- [設定連線](virtual-machines-sql-server-connectivity.md)
+- [設定連線](virtual-machines-sql-server-connectivity-resource-manager.md)
 
 ### 遷移資料
 
@@ -63,11 +63,10 @@
 
 如果您需要高可用性，請考慮設定 SQL Server AlwaysOn 可用性群組。這牽涉到虛擬網路中多個 Azure VM。Azure 入口網站有一個範本，己經有您需要的設定。如需詳細資訊，請參閱 [ Azure 資源庫提供的 SQL Server AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)。
 
-如果您想要手動設定可用性群組和相關聯的接聽程式，請參閱下列文章：
+如果您想要手動設定可用性群組及相關聯的接聽程式，請參閱下列以傳統部署為基礎的文章：
 
 - [在 Azure (GUI) 中設定 AlwaysOn 可用性群組](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [設定 Azure 中 AlwaysOn 可用性群組的 ILB 接聽程式](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
-- [使用 Azure 資源管理員範本部署 SQL Server AlwaysOn](virtual-machines-workload-template-sql-alwayson.md)
 - [將內部部署 AlwaysOn 可用性群組延伸至 Azure](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)
 
 如需其他高可用性注意事項，請參閱 [Azure 虛擬機器中的 SQL Server 高可用性和災害復原](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)。
@@ -142,10 +141,10 @@
 
 ## 資源
 
-- [在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)
+- [在 Azure (資源管理員) 上佈建 SQL Server 虛擬機器](virtual-machines-sql-server-provision-resource-manager.md)
 - [將資料庫移轉至 Azure VM 上的 SQL Server](virtual-machines-migrate-onpremises-database.md)
 - [Azure 虛擬機器中的 SQL Server 高可用性和災害復原](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
 - [Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
-- [Azure 虛擬機器](virtual-machines-about.md) 
+- [Azure 虛擬機器](virtual-machines-about.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

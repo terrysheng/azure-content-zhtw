@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 #在串流分析工作中替換輸入和輸出的登入認證
@@ -58,7 +58,7 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 
 ###SQL Database
 
->[AZURE.NOTE]注意：您必須連接到 SQL 資料庫服務。為了示範整個過程，我們會借鑑 Azure 管理入口網站的管理經驗，不過您也可以選擇使用其他類似 SQL Server Management Studio 的用戶端工具。
+>[AZURE.NOTE] 注意：您必須連接到 SQL 資料庫服務。為了示範整個過程，我們會借鑑 Azure 管理入口網站的管理經驗，不過您也可以選擇使用其他類似 SQL Server Management Studio 的用戶端工具。
 
 1.  在 Azure 管理入口網站中，瀏覽至 [SQL 資料庫] 擴充：![graphic14][graphic14]
 2.  找出工作使用的 SQL 資料庫，然後在同一行上**按一下伺服器**連結：![graphic15][graphic15]
@@ -194,4 +194,4 @@ Azure Stream Analytics 目前不允許在工作執行的時候，取代輸入/�
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

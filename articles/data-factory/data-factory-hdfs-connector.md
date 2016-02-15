@@ -21,6 +21,7 @@
 
 Data Factory 目前只支援將資料從內部部署 HDFS 移動到其他資料存放區，而不支援將資料從其他資料存放區移動到內部部署 HDFS。
 
+
 ## 啟用連線
 Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS。請參閱[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文來了解資料管理閘道器和設定閘道器的逐步指示。即使 HDFS 裝載於 Azure IaaS VM 中，您還是需要運用閘道器與其連接。
 
@@ -28,7 +29,9 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 
 ## 範例：將資料從內部部署 HDFS 複製到 Azure Blob
 
-下列範例顯示：
+此範例示範如何將資料從內部部署 HDFS 複製到 Azure Blob 儲存體。不過，您可以在 Azure Data Factory 中使用複製活動，**直接**將資料複製到[這裡](data-factory-data-movement-activities.md#supported-data-stores)所說的任何接收器。
+ 
+此範例具有下列 Data Factory 實體：
 
 1.	[OnPremisesHdfs](#hdfs-linked-service-properties) 類型的連結服務。
 2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 類型的連結服務。
@@ -260,12 +263,12 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 folderPath | 資料夾的路徑。範例：myfolder<p>使用逸出字元 ‘ \\ ’ 做為字串中的特殊字元。例如：若為 folder\\subfolder，指定 folder\\subfolder，若為 d:\\samplefolder，指定 d:\\samplefolder。</p><p>您可以將其與 **partitionBy** 結合，使資料夾路徑以配量開始/結束日期時間為基礎。</p> | 是
 fileName | 如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。如果您未指定此屬性的任何值，資料表會指向資料夾中的所有檔案。<p>沒有為輸出資料集指定 fileName 時，所產生的檔案名稱會是下列格式：</p><p>Data.<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | 否
 partitionedBy | partitionedBy 可以用來指定時間序列資料的動態 folderPath 和 filename。例如，folderPath 可針對每小時的資料進行參數化。 | 否
-fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。<p>允許的值為：* (多個字元) 和 ? (單一字元)。</p><p>範例 1："fileFilter": ".log"</p>範例 2："fileFilter": 2014-1-?.txt"</p><p>*請注意**：fileFilter 適用於輸入 FileShare 資料集</p> | 否
+fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。<p>允許的值為：* (多個字元) 和 ? (單一字元)。</p><p>範例 1："fileFilter": "*.log"</p>範例 2："fileFilter": 2014-1-?.txt"</p><p>**請注意**：fileFilter 適用於輸入 FileShare 資料集</p> | 否
 | compression | 指定此資料的壓縮類型和層級。支援的類型為：GZip、Deflate 和 BZip2，而支援的層級為：最佳和最快。如需詳細資訊，請參閱[壓縮支援](#compression-support)一節。 | 否 |
 | format | 支援兩種格式類型：**TextFormat**、**AvroFormat**。您需要將格式底下的 type 屬性設定為這些值。如果格式為 TextFormat，您可以指定格式的其他選擇性屬性。如需詳細資訊，請參閱以下[指定 TextFormat](#specifying-textformat) 一節。 | 否
 
 
-> [AZURE.NOTE]無法同時使用檔名和 fileFilter。
+> [AZURE.NOTE] 無法同時使用檔名和 fileFilter。
 
 
 ### 運用 partionedBy 屬性
@@ -346,7 +349,7 @@ fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔�
 
 ## HDFS 複製活動類型屬性
 
-如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
+如需可用來定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
 
 另一方面，活動的 typeProperties 區段中可用的屬性會隨著每個活動類型而有所不同，而在複製活動的案例中，可用的屬性會根據來源與接收的類型而有所不同。
 
@@ -362,4 +365,4 @@ fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔�
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

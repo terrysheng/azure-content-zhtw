@@ -242,7 +242,7 @@ VPN 閘道基本上是一個多重主目錄的裝置，擁有一個使用客戶�
 
 ### 是否可以將使用 IPsec VPN 的虛擬網路連接到我的 ExpressRoute 電路？
 
-是，支援此做法。如需詳細資訊，請參閱[設定並存的 ExpressRoute 和站對站 VPN 連線](../expressroute/expressroute-coexist.md)。
+是，支援此做法。如需詳細資訊，請參閱[設定並存的 ExpressRoute 和站對站 VPN 連線](../expressroute/expressroute-howto-coexist-classic.md)。
 
 ## 跨單位連線與 VM
 
@@ -267,4 +267,4 @@ VPN 閘道基本上是一個多重主目錄的裝置，擁有一個使用客戶�
 
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

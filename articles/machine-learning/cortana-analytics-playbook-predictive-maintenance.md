@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/15/2016"
-	ms.author="garye" />
+	ms.author="fboylu" />
 
 # 航太與其他業務中預測性維護的 Cortana Analytics 解決方案範本的腳本
 
@@ -333,4 +333,4 @@
 
 如需此架構的每個元件的詳細資訊，請參閱 [Azure](https://azure.microsoft.com/) 文件。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

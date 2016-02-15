@@ -86,7 +86,7 @@
 - 若為使用服務管理 API 建立的虛擬機器，其虛擬機器的端點組態允許連入流量，特別是通訊協定 (TCP 或 UDP) 和公用與私人連接埠號碼。如需詳細資訊，請參閱[如何設定虛擬機器的端點](virtual-machines-set-up-endpoints.md)。
 - 若為使用服務管理 API 建立的虛擬機器，其端點上的存取控制清單 (ACL) 不會阻擋來自網際網路的連入流量。如需詳細資訊，請參閱[如何設定虛擬機器的端點](virtual-machines-set-up-endpoints.md)。
 - 針對資源管理員中建立的虛擬機器，其虛擬機器的輸入 NAT 規則組態允許連入流量，特別是通訊協定 (TCP 或 UDP) 和公開與私人連接埠號碼。
-- 網路安全性群組允許輸入要求與輸出回應的流量。如需詳細資訊，請參閱[什麼是網路安全性群組 (NSG)？](virtual-networks-nsg.md)。
+- 網路安全性群組允許輸入要求與輸出回應的流量。如需詳細資訊，請參閱[什麼是網路安全性群組 (NSG)？](../virtual-network/virtual-networks-nsg.md)。
 
 如果虛擬機器或端點是負載平衡集的成員：
 
@@ -125,4 +125,4 @@
 
 [疑難排解以 Linux 為基礎之 Azure 虛擬機器的安全殼層 (SSH) 連線](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

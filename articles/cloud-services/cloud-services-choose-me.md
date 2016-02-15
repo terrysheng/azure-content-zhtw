@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 的雲端服務會是符合我需求的計算選項嗎？" 
+	pageTitle="雲端服務是適合我的計算 Azure 選項嗎？| Microsoft Azure" 
 	description="了解 Azure 計算裝載選項以及其運作方式：App Service、雲端服務和虛擬機器" 
 	services="cloud-services"
     documentationCenter=""
@@ -32,8 +32,8 @@ Azure 對於執行的應用程式提供不同的裝載模型。每個模型都�
 ## 後續步驟
 [在.NET 中建立雲端服務應用程式](cloud-services-dotnet-get-started.md)<br/> (英文) [在 Node.js 中建立雲端服務應用程式](cloud-services-nodejs-develop-deploy-app.md)<br/> (英文) [在 PHP 中建立雲端服務應用程式](../cloud-services-php-create-web-role.md)<br/> (英文) [在 Python 中建立雲端服務應用程式](../cloud-services-python-ptvs.md)<br/> (英文)
 
-[App Service]: app-service-choose-me.md
-[虛擬機器]: ../virtual-machines-about.md
+[App Service]: ../app-service-web/app-service-web-overview.md
+[虛擬機器]: ../virtual-machines/virtual-machines-about.md
 [雲端服務]: #tellmecs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

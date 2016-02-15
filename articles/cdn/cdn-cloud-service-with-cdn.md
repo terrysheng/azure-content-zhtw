@@ -48,9 +48,7 @@
 -	使用中的 [Microsoft Azure 帳戶](/account/)
 -	Visual Studio 2015 (含 [Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409))
 
-> [AZURE.NOTE] 您必須有 Azure 帳戶才能完成本教學課程：
-> + 您可以[免費申請帳戶](/pricing/free-trial/) - 我們會提供可用來試用付費 Azure 服務的點數，即使點數用完了，您仍然可以保留帳戶，使用免費的 Azure 服務，例如 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps。 
-> + 您可以[啟用 MSDN 訂閱者權益](/pricing/member-offers/msdn-benefits-details/) - 您的 MSDN 訂用帳戶每個月都會給您可用來試用付費 Azure 服務的點數。
+> [AZURE.NOTE] 您必須有 Azure 帳戶才能完成本教學課程：+ 您可以[免費申請帳戶](/pricing/free-trial/) - 我們會提供可用來試用付費 Azure 服務的點數，即使點數用完了，您仍然可以保留帳戶，使用免費的 Azure 服務，例如網站。 + 您可以[啟用 MSDN 訂閱者權益](/pricing/member-offers/msdn-benefits-details/) - 您的 MSDN 訂用帳戶每個月都會給您可用來試用付費 Azure 服務的點數。
 
 <a name="deploy"></a>
 ## 部署雲端服務 ##
@@ -90,57 +88,57 @@
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[AZURE.NOTE]雲端服務的發行程序會花費很長時間。[啟用所有 Web 角色的 Web Deploy] 選項可快速 (但暫時) 提供更新給 Web 角色，加速偵測您的雲端服務。如需此選項的詳細資訊，請參閱[使用 Azure Tools 發行雲端服務](http://msdn.microsoft.com/library/ff683672.aspx)。
+	>[AZURE.NOTE] 雲端服務的發行程序會花費很長時間。[啟用所有 Web 角色的 Web Deploy] 選項可快速 (但暫時) 提供更新給 Web 角色，加速偵測您的雲端服務。如需此選項的詳細資訊，請參閱[使用 Azure Tools 發行雲端服務](http://msdn.microsoft.com/library/ff683672.aspx)。
 
 	當 [**Microsoft Azure 活動記錄**] 的發佈狀態為 [**已完成**] 時，您便可建立與此雲端服務整合的 CDN 端點。
 	
-	>[AZURE.WARNING]若在發佈後部署的雲端服務顯示錯誤畫面，原因可能在於您已部署的雲端服務使用[不含 .NET 4.5.2 的客體 OS](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates)。您可[將 .NET 4.5.2 部署為啟動工作](../cloud-services/cloud-services-dotnet-install-dotnet.md)，以解決此問題。
+	>[AZURE.WARNING] 若在發佈後部署的雲端服務顯示錯誤畫面，原因可能在於您已部署的雲端服務使用[不含 .NET 4.5.2 的客體 OS](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates)。您可[將 .NET 4.5.2 部署為啟動工作](../cloud-services/cloud-services-dotnet-install-dotnet.md)，以解決此問題。
 
 ## 建立新的 CDN 設定檔
 
-CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 端點。您可能會想要使用多個設定檔，依網際網路網域、Web 應用程式或其他準則來組織您的 CDN 端點。
+CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 端點。您可能會想要使用多個設定檔，依網際網路網域、Web 應用程式或其他準則來組織您的 CDN 端點。
 
-> [AZURE.TIP]若您已有您想要用於本教學課程的 CDN 設定檔，請繼續參閱「[建立新的 CDN 端點](#create-a-new-cdn-endpoint)」。
+> [AZURE.TIP] 若您已有您想要用於本教學課程的 CDN 設定檔，請繼續參閱「[建立新的 CDN 端點](#create-a-new-cdn-endpoint)」。
 
 **建立新的 CDN 設定檔**
 
-1. 在 [[Azure 管理入口網站](https://portal.azure.com)] 的左上角，按一下 [**新增**]。在 [**新增**] 刀鋒視窗中，選取 [**媒體 + CDN**]，然後再選取 [**CDN**]。
+1. 在 [Azure 管理入口網站](https://portal.azure.com)的左上角，按一下 [新增]。在 [新增] 刀鋒視窗中，依序選取 [媒體 + CDN] 和 [CDN]。
 
-    此時會顯示新的 CDN 設定檔刀鋒視窗。
+    此時會顯示新的 [CDN 設定檔] 刀鋒視窗。
     
     ![新增 CDN 設定檔][new-cdn-profile]
 
 2. 輸入 CDN 設定檔的名稱。
 
-3. 選取 [**定價層**] 或使用預設值。
+3. 選取 [定價層] 或使用預設值。
 
 4. 選取或建立 [**資源群組**]。此資源群組並不必然是與您儲存體帳戶相同的資源群組。
 
 5. 針對此 CDN 設定檔選取 [**訂用帳戶**]。基於本教學課程用途，此訂用帳戶必須為與儲存體帳戶相同的訂用帳戶。
 
-6. 選取 [**位置**]。此為儲存您 CDN 設定檔資訊的所在 Azure 位置。其不會影響 CDN 端點位置。此位置並不必然是與儲存體帳戶的相同位置。
+6. 選取 [**位置**]。此為儲存您 CDN 設定檔資訊的所在 Azure 位置。其不會影響 CDN 端點位置。此位置不一定是與儲存體帳戶相同的位置。
 
-7. 按一下 [**建立**] 按鈕，以建立新設定檔。
+7. 按一下 [建立] 按鈕，以建立新的設定檔。
 
 ## 建立新的 CDN 端點
 
 **為儲存體帳戶建立新的 CDN 端點**
 
-1. 在 [[Azure 管理入口網站](https://portal.azure.com)] 中，瀏覽至您的 CDN 設定檔。您可能已在先前步驟中將其釘選至儀表板。若否，則您可依序按一下 [**瀏覽**]、[**CDN 設定檔**] 尋找該設定檔，然後再按一下您要在其中新增端點的設定檔。
+1. 在 [Azure 管理入口網站](https://portal.azure.com)中，巡覽至您的 CDN 設定檔。您可能已在先前步驟中將其釘選至儀表板。若否，則您可依序按一下 [瀏覽]、[CDN 設定檔] 尋找該設定檔，然後再按一下您要在其中加入端點的設定檔。
 
-    此時會顯示 CDN 設定檔刀鋒視窗。
+    此時會顯示 [CDN 設定檔] 刀鋒視窗。
     
     ![CDN 設定檔][cdn-profile-settings]
     
-2. 按一下 [**新增端點**] 按鈕。
+2. 按一下 [新增端點] 按鈕。
 
-    ![新增端點按鈕][cdn-new-endpoint-button]
+    ![[加入端點] 按鈕][cdn-new-endpoint-button]
 
-    此時會顯示 [**新增端點**] 刀鋒視窗。
+    此時會顯示 [加入端點] 刀鋒視窗。
     
     ![新增端點刀鋒視窗][cdn-add-endpoint]
 
-3. 輸入此 CDN 端點的 [**名稱**]。此名稱會用於存取位於網域 `<EndpointName>.azureedge.net` 的快取資源。
+3. 輸入這個 CDN 端點的 [名稱]。此名稱會用於存取位於網域 `<EndpointName>.azureedge.net` 的快取資源。
 
 4. 在 [**原始類型**] 下拉式清單中，選取 [*雲端服務*]。
 
@@ -154,7 +152,7 @@ CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 
 
     ![CDN 端點][cdn-endpoint-success]
 
-    > [AZURE.NOTE]端點將無法立即可用。註冊可能需要 90 分鐘的處理時間，以透過 CDN 網路傳播。若使用者嘗試立即使用 CDN 網域名稱，則可能會顯示狀態碼 404，直到可透過 CDN 使用內容為止。
+    > [AZURE.NOTE] 端點將無法立即可用。註冊可能需要 90 分鐘的處理時間，以透過 CDN 網路傳播。若使用者嘗試立即使用 CDN 網域名稱，則可能會顯示狀態碼 404，直到可透過 CDN 使用內容為止。
 	
 ## 測試 CDN 端點
 
@@ -626,10 +624,9 @@ CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 
 
 ## 相關資訊 ##
 - [Azure 內容傳遞網路 (CDN) 概觀](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [在 Web 應用程式中從 Azure CDN 提供內容](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [整合 Azure 網站與 Azure CDN](cdn-websites-with-cdn.md)
+- [使用 Azure 的 CDN](cdn-how-to-use-cdn.md)
 - [ASP.NET 統合和縮製](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [使用 Azure 的 CDN](cdn-how-to-use.md)
+
 
 
 [new-cdn-profile]: ./media/cdn-cloud-service-with-cdn/cdn-new-profile.png
@@ -638,4 +635,4 @@ CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

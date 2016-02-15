@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="02/03/2016"
    ms.author="nitinme"/>
 
 # 適用於 Azure 資料湖存放區的開放原始碼巨量資料應用程式
@@ -38,7 +38,7 @@
 
 ## 另請參閱
 
-- [Azure 資料湖存放區概觀](data-lake-store-overview.md)
+- [Azure 資料湖儲存區概觀](data-lake-store-overview.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/19/2016"
+   ms.date="01/31/2016"
    ms.author="juliako"/>
 
 # Azure SDK for .NET 2.8、2.8.1 和 2.8.2
@@ -91,6 +91,8 @@ Azure 資源群組專案提供的 PowerShell 指令碼在這個版本中已更�
 - 如果您使用 Windows 10，且尚未安裝 Internet Explorer，您可能會收到「找不到 Internet Explorer」的錯誤。若要解決此問題，請使用 [新增/移除 Windows 元件] 對話方塊來安裝 Internet Explorer。
 
 如果您發現這個問題，請使用 [傳送笑臉] 功能來報告它。
+
+如需詳細資訊，請參閱[這篇](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-2-for-net/)文章。
 ##其他更新
 
 如需其他更新，請參閱 [Azure SDK 2.8 公告文章](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)。
@@ -101,4 +103,4 @@ Azure 資源群組專案提供的 PowerShell 指令碼在這個版本中已更�
 
 [Azure SDK for .NET 和 API 的支援和停用資訊](https://msdn.microsoft.com/library/azure/dn479282.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

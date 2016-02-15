@@ -27,6 +27,6 @@
 - 請確保保存庫認證儲存在可從您電腦存取的位置。如果它儲存在檔案共用/SMB，請檢查存取權限。
 - 保存庫認證檔僅在註冊工作流程期間使用。
 - 保存庫認證檔會在 48 小時後過期，並且可以從入口網站下載。
-- 若您有關於工作流程的任何問題，請參閱 Azure 備份的[常見問題集](backup-azure-backup-faq.md)。
+- 如有關於工作流程的任何問題，請參閱 Azure 備份 [常見問題集](](../articles/backup/backup-azure-backup-faq.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

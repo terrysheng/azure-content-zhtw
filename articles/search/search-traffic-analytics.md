@@ -14,7 +14,7 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="12/17/2015" 
+	ms.date="01/26/2016" 
 	ms.author="betorres"
 />
 
@@ -27,7 +27,7 @@
 ## 如何啟用搜尋流量分析
 
 ### 1\.使用入口網站
-在 [Azure 入口網站](https://portal.azure.com)中開啟 Azure 搜尋服務。您可以在 [設定] 下方找到 [搜尋流量分析] 選項。
+在 [Azure 入口網站](http://portal.azure.com)中開啟 Azure 搜尋服務。您可以在 [設定] 下方找到 [搜尋流量分析] 選項。
 
 ![][1]
 
@@ -131,26 +131,32 @@ properties |物件 |請參閱下方 |包含作業特定資料的物件
 
 資料會在您的儲存體帳戶中，而我們鼓勵您以最適合您狀況的方式來探索此資料。
 
-我們建議您一開始使用 [Power BI Desktop](https://powerbi.microsoft.com/zh-TW/desktop) 來探索和視覺化資料。您可以輕鬆地連線到您的 Azure 儲存體帳戶，並快速開始分析您的資料。
+我們建議您一開始使用 [Power BI](https://powerbi.microsoft.com) 來探索和視覺化資料。您可以輕鬆地連線到您的 Azure 儲存體帳戶，並快速開始分析您的資料。
 
-請查看下列範例查詢，讓您在 Power BI Desktop 中建立自己的報表。
+#### Power BI 線上版
 
-### 範例的指示
+[Power BI 內容套件](https://app.powerbi.com/getdata/services/azure-search)：建立 Power BI 儀表板，及一組 Power BI 報表，且該報表會自動顯示您資料，並以視覺化的方式提供您搜尋服務相關的深入分析。請參閱[內容套件的說明網頁](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-search/)。
+
+![][3]
+
+#### Power BI Desktop
+
+[Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop)：探索您的資料，並將您的資料視覺化。我們提供下列的入門查詢來協助您。
 
 1. 開啟新的 PowerBI Desktop 報表
 2. 選取 [取得資料] -> [更多...]
 
-	![][3]
+	![][4]
 
 3. 依序選取 [Microsoft Azure Blob 儲存體] 和 [連接]
 
-	![][4]
+	![][5]
 
 4. 輸入您儲存體帳戶的名稱和帳戶金鑰
 5. 選取 [insight-logs-operationlogs] 和 [insights-metrics-pt1m]，接著按一下 [編輯]
 6. 隨即會開啟 [查詢編輯器]，請確定已選取左方的 [insight-logs-operationlogs]。現在依序選取 [檢視]-> [進階編輯器] 來開啟 [進階編輯器]
 
-	![][5]
+	![][6]
 
 7. 保留前 2 行，並使用下列查詢來取代其餘部分：
 
@@ -205,20 +211,21 @@ properties |物件 |請參閱下方 |包含作業特定資料的物件
 
 10. 按一下 [完成]，然後選取 [常用] 索引標籤中的 [關閉並套用]。
 
-11. 您過去 30 天的資料現在已準備好提供取用。請繼續進行，並建立一些[視覺效果](https://powerbi.microsoft.com/zh-TW/documentation/powerbi-desktop-report-view/)。
+11. 您過去 30 天的資料現在已準備好提供取用。請繼續進行，並建立一些[視覺效果](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/)。
 
 ## 後續步驟
 
 深入了解搜尋語法和查詢參數。如需詳細資訊，請參閱[搜尋文件 (Azure 搜尋服務 REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx)。
 
-深入了解如何建立令人讚嘆的報告。如需詳細資訊，請參閱[開始使用 Power BI Desktop](https://powerbi.microsoft.com/zh-TW/documentation/powerbi-desktop-getting-started/)
+深入了解如何建立令人讚嘆的報告。如需詳細資訊，請參閱[開始使用 Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/)
 
 <!--Image references-->
 
 [1]: ./media/search-traffic-analytics/SettingsBlade.png
 [2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
-[3]: ./media/search-traffic-analytics/GetData.png
-[4]: ./media/search-traffic-analytics/BlobStorage.png
-[5]: ./media/search-traffic-analytics/QueryEditor.png
+[3]: ./media/search-traffic-analytics/Dashboard.png
+[4]: ./media/search-traffic-analytics/GetData.png
+[5]: ./media/search-traffic-analytics/BlobStorage.png
+[6]: ./media/search-traffic-analytics/QueryEditor.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

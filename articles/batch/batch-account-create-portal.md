@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
-	ms.author="danlep"/>
-
-
+	ms.date="01/28/2016"
+	ms.author="marsma"/>
 
 # 在 Azure 入口網站中建立和管理 Azure Batch 帳戶
 
@@ -24,13 +22,13 @@
 - [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
-本文將說明如何使用 [Azure 入口網站](https://portal.azure.com)來建立和管理 Azure Batch 帳戶以及帳戶金鑰的設定。您需要 Batch 帳戶 URL 和相關聯的存取金鑰以驗證所有 Batch API 要求。將 Batch 工作負載的所有 Batch 資源 (例如集區、工作 (job) 和工作 (task)) 與特定 Batch 帳戶產生關聯。
+本文將說明如何使用 [Azure 入口網站][azure_portal]來建立和管理 Azure Batch 帳戶，包括在哪裡尋找如帳戶 URL 和帳戶金鑰的設定。您需要 Batch 帳戶 URL 和相關聯的存取金鑰以驗證所有 Batch API 要求。將計算工作負載的所有 Batch 資源 (例如集區、作業和工作) 與特定 Batch 帳戶產生關聯。
 
->[AZURE.NOTE]目前預覽入口網站支援 Batch 帳戶管理和檢視一些帳戶資源的功能。完整的 Batch 功能可以透過 Batch API 讓開發人員使用。
+>[AZURE.NOTE] Azure 入口網站目前支援 Batch 帳戶管理和檢視一些帳戶資源的功能。完整的 Batch 功能集可以透過 Batch API 讓開發人員使用。
 
 ## 建立批次帳戶：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站][azure_portal]。
 
 2. 按一下 [**新增**] > [**計算**] > [**Batch 服務**]。
 
@@ -42,7 +40,7 @@
 
 	a.在 [**帳戶名稱**] 中，輸入要在批次帳戶 URL 中使用的唯一名稱。
 
-	>[AZURE.NOTE]Batch 帳戶名稱對 Azure 必須是唯一的，介於 3 到 24 個字元，並只能使用小寫字母和數字。
+	>[AZURE.NOTE] Batch 帳戶名稱對 Azure 必須是唯一的，介於 3 到 24 個字元，並只能使用小寫字母和數字。
 
 	b.如果您有多個訂用帳戶，請按一下 [**訂用帳戶**] 以選取將建立帳戶的可用訂用帳戶。
 
@@ -65,10 +63,9 @@ Batch 帳戶 URL 會出現在 [**Essentials**] 中。此為格式 `https://<acco
 
 ## 其他關於 Batch 帳戶的注意事項
 
-* 建立和管理 Batch 帳戶的其他方法包括 [Batch PowerShell cmdlet](batch-powershell-cmdlets-get-started.md) 和 [Batch Management .NET 程式庫](http://www.nuget.org/packages/Microsoft.Azure.Management.Batch/)。
+* 建立和管理 Batch 帳戶的其他方法包括 [Batch PowerShell cmdlet](batch-powershell-cmdlets-get-started.md) 和 [Batch Management .NET 程式庫](batch-management-dotnet.md)。
 
-
-* Azure 不會針對 Batch 帳戶向您收取費用。當您使用 Azure 的計算資源和其他服務時，只有在您執行工作負載時才會收取費用 (請參閱 [Batch 價格](https://azure.microsoft.com/pricing/details/batch/))。
+* Azure 不會針對 Batch 帳戶向您收取費用。當您使用 Azure 的計算資源和其他服務時，只有在您執行工作負載時才會收取費用 (請參閱 [Batch 價格][batch_pricing])。
 
 * 您可以在單一 Batch 帳戶中執行多個 Batch 工作負載，或在不同 Azure 區域的 Batch 帳戶之間散佈工作負載。
 
@@ -80,8 +77,11 @@ Batch 帳戶 URL 會出現在 [**Essentials**] 中。此為格式 `https://<acco
 
 * 使用 [Batch .NET 用戶端程式庫](batch-dotnet-get-started.md) 開始開發您的第一個應用程式。
 
+[azure_portal]: https://portal.azure.com
+[batch_pricing]: https://azure.microsoft.com/pricing/details/batch/
+
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

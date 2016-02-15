@@ -29,14 +29,14 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 -->
 
 
-本文列出 SQL Database 用戶端應用程式的 SQL 錯誤碼，包括資料庫連線錯誤、暫時性錯誤、資源管理錯誤、資料庫副本錯誤，以及其他錯誤。大多數分類是專門針對 Azure SQL Database，並不適用 Microsoft SQL Server。
+本文章列出 SQL Database 用戶端應用程式的 SQL 錯誤碼，包括資料庫連線錯誤、暫時性錯誤、資源管理錯誤、資料庫副本問題，以及其他錯誤。大多數分類是專門針對 Azure SQL Database，並不適用 Microsoft SQL Server。
 
 如果您的用戶端應用程式中發生任何指定錯誤，您可以向您的使用者提供您自訂的訊息。
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
 
 
-## 資料庫連線錯誤、暫時性錯誤及和其他暫時錯誤
+## 資料庫連線錯誤、暫時性錯誤，以及其他暫時的錯誤
 
 下表涵蓋您的應用程式嘗試存取 SQL Database 可能發生之連線遺失錯誤和其他暫時性錯誤的 SQL 錯誤碼。
 
@@ -59,7 +59,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 
 - [SQL Database 的用戶端開發和快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
 
-- [修正 SQL Database 中連接錯誤和暫時性錯誤的動作](sql-database-connectivity-issues.md)
+- [修正 SQL Database 中連線錯誤和暫時性錯誤的動作](sql-database-connectivity-issues.md)
 
 
 ### 暫時性錯誤錯誤碼
@@ -211,9 +211,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 |40651|16|無法建立伺服器，因為訂用帳戶 <subscription-id> 已停用。|
 |40652|16|無法移動或建立伺服器。訂用帳戶 <subscription-id> 會超出伺服器配額。|
 |40671|17|閘道器與管理服務之間的通訊失敗。請稍後重試。|
-|40852|16|無法開啟登入所要求的資料庫 '%.*ls' (在伺服器 '%.*ls' 上)。只允許使用已啟用安全性的連接字串存取資料庫。若要存取此資料庫，將連接字串修改成在伺服器 FQDN 中包含 'secure'。也就是說，'server name'.database.windows.net 應修改為 'server name'.database.`secure`.windows.net.|
-|45168|16|SQL Azure 系統未達負載，並正在對單一伺服器的並行 DB CRUD 作業 (例如，建立資料庫) 放置上限。錯誤訊息中指定的伺服器已超過最大並行連接數目。請稍後再試。|
-|45169|16|SQL Azure 系統未達負載，並正在對單一訂用帳戶的並行伺服器 CRUD 作業 (例如，建立資料庫) 的數量放置上限。錯誤訊息中指定的訂用帳戶已超出最大並行連接數目，因此要求已遭到拒絕。請稍後再試。|
+|40852|16|無法開啟登入所要求的資料庫 '%.*ls' (在伺服器 '%.*ls' 上)。只允許使用已啟用安全性的連接字串存取資料庫。若要存取此資料庫，將連接字串修改成在伺服器 FQDN 中包含 'secure'。也就是說，'server name'.database.windows.net 應修改為 'server name'.database.`secure`.windows.net.| |45168|16|SQL Azure 系統未達負載，並正在對單一伺服器的並行 DB CRUD 作業 (例如，建立資料庫) 放置上限。錯誤訊息中指定的伺服器已超過最大並行連接數目。請稍後再試。| |45169|16|SQL Azure 系統未達負載，並正在對單一訂用帳戶的並行伺服器 CRUD 作業 (例如，建立資料庫) 的數量放置上限。錯誤訊息中指定的訂用帳戶已超出最大並行連接數目，因此要求已遭到拒絕。請稍後再試。|
 
 
 ## 相關連結
@@ -221,4 +219,4 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [Azure SQL Database 一般限制與方針](sql-database-general-limitations.md)
 - [Azure SQL Database 資源限制](sql-database-resource-limits.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

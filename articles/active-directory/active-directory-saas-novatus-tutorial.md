@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,12 +64,12 @@
 4. 按一下頁面底部的 [加入]。<br><br> ![應用程式][3]<br>
 5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br> ![應用程式][4]<br>
 6. 在搜尋方塊中，輸入 **Novatus**。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_01.png)<br>
-7. 在結果窗格中，選取 [Novatus]，然後按一下 [完成] 以加入應用程式。<br><br>
+7. 在結果窗格中，選取 [Novatus]，然後按一下 [完成] 以加入應用程式。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_02.png)<br>
 
 ##  設定並測試 Azure AD 單一登入
 本節的目標是要說明如何以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 Novatus 搭配運作的 Azure AD 單一登入。
 
-若要讓單一登入運作，Azure AD 必須知道 Novatus 與 Azure AD 中互相對應的使用者。換句話說，必須在 Azure AD 使用者與 Novatus 中的相關使用者之間建立連結關聯性。<br> 建立此連結關聯性的方法，是將 Azure AD 中**使用者名稱**的值指派為 Novatus 中 **Username** 的值。
+若要讓單一登入運作，Azure AD 必須知道 Novatus 與 Azure AD 中互相對應的使用者。換句話說，必須在 Azure AD 使用者與 Novatus 中的相關使用者之間建立連結關聯性。<br> 建立此連結關聯性的方法，是將 Azure AD 中 [使用者名稱]的值指派為 Novatus 中 [使用者名稱] 的值。
 
 若要設定及測試與 Novatus 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
@@ -94,7 +94,7 @@
 3. 在 [設定應用程式設定] 對話方塊頁面，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_04.png) <br>
 
 
-    a.在 [登入 URL] 文字方塊中，輸入使用者用來登入您 Novatus 應用程式的 URL (請以下列模式輸入：**“https://sso.novatuscontracts.com/companyname”**)。參考一般名稱時，**companyname** 需要由實際名稱取代。
+    a.在 [登入 URL] 文字方塊中，輸入使用者用來登入您 Novatus 應用程式的 URL (請以下列形式輸入：**“https://sso.novatuscontracts.com/companyname”**)。參考一般名稱時，**companyname** 需要由實際名稱取代。
 
 
 4. 在 [設定在 Novatus 單一登入] 頁面上，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_05.png) <br>
@@ -174,7 +174,7 @@
 
 1. 在 Azure 傳統入口網站中，若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br>![指派使用者][201] <br>
 
-2. 在應用程式清單中，選取 [**Novatus**]。<br><br>![設定單一登入](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_50.png) <br>
+2. 在應用程式清單中，選取 [Novatus]。<br><br>![設定單一登入](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_50.png) <br>
 
 1. 在頂端的功能表中，按一下 [使用者]。<br><br>![指派使用者][203] <br>
 
@@ -213,4 +213,4 @@
 [204]: ./media/active-directory-saas-novatus-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-novatus-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

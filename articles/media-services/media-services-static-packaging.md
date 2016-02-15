@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015"   
+	ms.date="01/28/2016"   
 	ms.author="juliako"/>
 
 
 # 使用 Azure Media Packager 完成靜態封裝工作
 
->[AZURE.NOTE]Microsoft Azure Media Packager 和 Microsoft Azure Media Encryptor 的生命週期將於 2016 年 3 月 1 日結束。屆時，這些元件將不再可用。格式轉換和加密功能將可透過動態封裝與動態加密進行。
+>[AZURE.NOTE]Windows Azure Media Packager 和 Windows Azure Media Encryptor 的生命週期結束日已展延至 2017 年 3 月 1 日。在此日期之前，這些處理器的功能將會新增到媒體編碼器標準 (MES)。客戶將會收到有關如何移轉工作流程以傳送工作到 MES 的指示。格式轉換和加密功能也可透過動態封裝與動態加密進行。
 
 ## 概觀
 
@@ -968,7 +968,7 @@
 
 如果您要使用 PlayReady 來保護內容，則可以選擇使用[動態加密](media-services-protect-with-drm.md) (建議選項)，或者使用靜態加密 (如本節所述)。
 
->[AZURE.NOTE]若要使用 PlayReady 保護您的內容，您必須先將其轉換/編碼為 Smooth Streaming 格式。
+>[AZURE.NOTE] 若要使用 PlayReady 保護您的內容，您必須先將其轉換/編碼為 Smooth Streaming 格式。
 
 本節中的範例會將夾層檔案 (本例中為 MP4) 編碼為多位元速率 MP4 檔案。接著，該範例會將 MP4 封裝為 Smooth Streaming，然後使用 PlayReady 將其加密。若要產生使用 PlayReady 加密的 HTTP Live Streaming (HLS)，必須將 PlayReady Smooth Streaming 資產封裝為 HLS。本主題將示範如何執行這些步驟。
 
@@ -1447,4 +1447,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

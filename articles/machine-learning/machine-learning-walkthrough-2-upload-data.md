@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015" 
+	ms.date="02/01/2016" 
 	ms.author="garye"/>
 
 
@@ -73,10 +73,10 @@ UCI 網站提供了功能向量的屬性說明，這些屬性包括財務資訊�
 
 這會將資料上傳至我們可在實驗中使用的資料集模組。
 
-如需將各種資料類型匯入試驗的詳細資訊，請參閱[將訓練資料匯入 Azure Machine Learning Studio](machine-learning-import-data.md)。
+如需將各種資料類型匯入試驗的詳細資訊，請參閱[將訓練資料匯入 Azure Machine Learning Studio](machine-learning-data-science-import-data.md)。
 
 **下一步：[建立新實驗](machine-learning-walkthrough-3-create-new-experiment.md)**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,18 +64,18 @@
 4. 按一下頁面底部的 [加入]。<br><br> ![應用程式][3]<br>
 5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br> ![應用程式][4]<br>
 6. 在搜尋方塊中，輸入 **Ariba**。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_01.png)<br>
-7. 在結果窗格中，選取 [Ariba]，然後按一下 [完成] 加入應用程式。<br><br>
+7. 在結果窗格中，選取 [Ariba]，然後按一下 [完成] 加入應用程式。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_02.png)<br>
 
 ##  設定並測試 Azure AD 單一登入
 本節的目標是要說明如何以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 Ariba 搭配運作的 Azure AD 單一登入。
 
-若要讓單一登入運作，Azure AD 必須知道 Ariba 與 Azure AD 中互相對應的使用者。換句話說，必須建立 Azure AD 使用者和 Ariba 中相關使用者之間的連結關聯性。<br> 建立此連結關聯性的方法，就是將 Azure AD 中 [使用者名稱] 的值，指派為 Ariba 中 [Username] 的值。
+若要讓單一登入運作，Azure AD 必須知道 Ariba 與 Azure AD 中互相對應的使用者。換句話說，必須建立 Azure AD 使用者和 Ariba 中相關使用者之間的連結關聯性。<br> 建立此連結關聯性的方法，就是將 Azure AD 中 [使用者名稱] 的值，指派為 Ariba 中 [使用者名稱] 的值。
 
 若要設定及測試與 Ariba 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[建立 Ariba 測試使用者](#creating-a-Ariba-test-user)** - 使 Ariba 中對應的 Britta Simon 連結到她在 Azure AD 中的代表項目。
+4. **[建立 Ariba 測試使用者](#creating-a-ariba-test-user)** - 使 Ariba 中對應的 Britta Simon 連結到她在 Azure AD 中的代表項目。
 5. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[測試單一登入](#testing-single-sign-on)** - 驗證組態是否能運作。
 
@@ -214,4 +214,4 @@
 [204]: ./media/active-directory-saas-ariba-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ariba-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

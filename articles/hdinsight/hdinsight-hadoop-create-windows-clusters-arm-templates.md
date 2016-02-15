@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="02/02/2016"
    ms.author="jgao"/>
 
 # 使用 ARM 範本在 HDInsight 中建立 Windows 型 Hadoop 叢集
@@ -128,7 +128,7 @@ ARM 範本可讓您在單一的協調作業中，輕鬆地為您的應用程式�
 
 - 如需透過 .NET 用戶端程式庫部署資源的範例，請參閱[使用 .NET 程式庫和範本部署資源](arm-template-deployment.md)。
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](app-service-deploy-complex-application-predictably.md)。
-- 如需將您的方案部署到不同環境的指引，請參閱 [Microsoft Azure 中的開發和測試環境](solution-dev-test-environments-preview-portal.md)。
+- 如需將您的方案部署到不同環境的指引，請參閱 [Microsoft Azure 中的開發和測試環境](solution-dev-test-environments.md)。
 - 如要了解 Azure 資源管理員範本的區段，請參閱[編寫範本](resource-group-authoring-templates.md)。
 - 如需可以在 Azure 資源管理員範本中使用的函數清單，請參閱[範本函數](resource-group-template-functions.md)。
 
@@ -444,4 +444,4 @@ ARM 範本可讓您在單一的協調作業中，輕鬆地為您的應用程式�
 	  }
 	}
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

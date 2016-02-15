@@ -24,7 +24,7 @@
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) 隨附大量適用於您預測性分析解決方案的機器學習演算法。這些演算法可以分為一般機器學習服務類別：***迴歸***、***分類***、***叢集***和***異常偵測***，而每個類別均設計用來處理不同類型的機器學習服務問題。
 
-> [AZURE.NOTE]如需使用此小祕技的詳細指南，請參閱文章[如何選擇 Microsoft Azure Machine Learning 的演算法](machine-learning-algorithm-choice.md)。
+> [AZURE.NOTE] 如需使用此小祕技的詳細指南，請參閱文章[如何選擇 Microsoft Azure Machine Learning 的演算法](machine-learning-algorithm-choice.md)。
 
 ## 下載機器學習演算法小祕技
 
@@ -79,7 +79,7 @@
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
 <img src="C:\Users\garye\azure-content-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
 </a>
--->
+--> \\
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
@@ -87,4 +87,4 @@
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

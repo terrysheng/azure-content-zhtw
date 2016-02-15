@@ -48,22 +48,22 @@ Azure SDK for .NET 將安裝下列產品：
 
 這可讓您使用 Azure 網站：
 
-* [發行 Web 專案至 Azure 網站](web-sites-dotnet-get-started.md) (英文)。
-* [發行主控台應用程式專案至 Azure WebJobs](websites-dotnet-deploy-webjobs.md) (英文)。
-* [在建立新的 Web 專案或發行 Web 專案時，建立 Azure 網站和 SQL Database 資源](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) (英文)。
+* [發行 Web 專案至 Azure 網站](app-service-web/web-sites-dotnet-get-started.md) (英文)。
+* [發行主控台應用程式專案至 Azure WebJobs](app-service-web/websites-dotnet-deploy-webjobs.md) (英文)。
+* [在建立新的 Web 專案或發行 Web 專案時，建立 Azure 網站和 SQL Database 資源](app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) (英文)。
 * [使用 Windows PowerShell 指令碼來發行至開發和測試環境](http://msdn.microsoft.com/library/dn642480.aspx)。
-* [在伺服器總管中管理和疑難排解 Azure 網站](web-sites-dotnet-troubleshoot-visual-studio.md#sitemanagement) (英文)。
-* [針對網站和 WebJobs 以偵錯模式從遠端執行](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) (英文)。 
+* [在伺服器總管中管理和疑難排解 Azure 網站](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#sitemanagement) (英文)。
+* [針對網站和 WebJobs 以偵錯模式從遠端執行](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) (英文)。 
 
->[AZURE.NOTE]您不一定要安裝 Azure SDK for .NET 才能使用這些功能；Visual Studio 的更新中也包括這些功能。
+>[AZURE.NOTE] 您不一定要安裝 Azure SDK for .NET 才能使用這些功能；Visual Studio 的更新中也包括這些功能。
 
 ###<a id="tools"></a>Microsoft Azure Tools for Microsoft Visual Studio
 
 這可讓您使用 Azure 資源，主要是 Azure 雲端服務和虛擬機器：
 
-* [建立、開啟及發行雲端服務專案](cloud-services-dotnet-get-started.md) (英文)。
+* [建立、開啟及發行雲端服務專案](cloud-services/cloud-services-dotnet-get-started.md) (英文)。
 * [使用 Azure Tools 發行雲端服務](http://msdn.microsoft.com/library/ff683672.aspx)。
-* [在建立新的 Web 專案時，建立 Azure 虛擬機器](virtual-machines-dotnet-create-visual-studio-powershell.md) (英文)。
+* [在建立新的 Web 專案時，建立 Azure 虛擬機器](virtual-machines/virtual-machines-dotnet-create-visual-studio-powershell.md) (英文)。
 * [使用 Windows PowerShell 指令碼來發行至開發和測試環境](http://msdn.microsoft.com/library/dn642480.aspx)。
 * [設定 Azure 專案](http://msdn.microsoft.com/library/ee405486.aspx)。
 * 在 [伺服器總管]中，檢視和管理[雲端服務](http://msdn.microsoft.com/library/ff683675.aspx)、[虛擬機器](http://msdn.microsoft.com/library/jj131259.aspx)與[服務匯流排](http://msdn.microsoft.com/library/jj149828.aspx)。 
@@ -99,11 +99,11 @@ Azure SDK for .NET 將安裝下列產品：
 
 ###<a id="hdinsight"></a>HDInsight Tools for Visual Studio 和 Microsoft Hive ODBC 驅動程式
 
-伺服器總管中的 HDInsight 工具可讓您瀏覽 Hive 資料庫，和 HDInsight 叢集的連結儲存體帳戶、建立資料表，以及建立並送出 Hive 查詢。如需詳細資訊，請參閱〈[開始使用 HDInsight Hadoop Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)〉。
+伺服器總管中的 HDInsight 工具可讓您瀏覽 Hive 資料庫，和 HDInsight 叢集的連結儲存體帳戶、建立資料表，以及建立並送出 Hive 查詢。如需詳細資訊，請參閱〈[開始使用 HDInsight Hadoop Tools for Visual Studio](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md)〉。
 
 ###<a id="mobile">Microsoft Azure Mobile App SDK
 
-可使用 [Azure App Service Mobile Apps](app-service-mobile-value-prop-preview.md) 的工具。
+可使用 [Azure App Service Mobile Apps](app-service-mobile/app-service-mobile-value-prop-preview.md) 的工具。
 
 ###<a id="ps"></a>Microsoft Azure PowerShell
 
@@ -119,9 +119,9 @@ Azure PowerShell 可讓您[將 Azure 環境的建立及部署自動化](http://w
 
   	**用戶端程式庫的本機複本。** Azure SDK for .NET 會將適用於某些 Azure 用戶端程式庫 (例如儲存體、服務匯流排及快取等) 的 NuGet 封裝，複製到您的電腦。新的雲端服務專案會自動納入這些用戶端程式庫，因此本機的 NuGet 封裝可讓 Visual Studio 在未連線到網際網路的狀態下建立專案。一般來說，用戶端程式庫的更新頻率比發行 SDK 新版本的頻率還要高，因此 NuGet.org 上的用戶端程式庫通常會比透過 SDK 取得的版本還要新。
 
-	**包含用戶端程式庫的專案範本。** 只有 [Azure 雲端服務](cloud-services-dotnet-get-started.md)和 [Azure 行動服務](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md)專案範本會自動包含某些用戶端程式庫。如需其他程式庫或其他範本，請安裝您需要的[用戶端程式庫 NuGet 封裝](http://go.microsoft.com/fwlink/?LinkId=510472)。
+	**包含用戶端程式庫的專案範本。** 只有 [Azure 雲端服務](cloud-services/cloud-services-dotnet-get-started.md)和 [Azure 行動服務](mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md)專案範本會自動包含某些用戶端程式庫。如需其他程式庫或其他範本，請安裝您需要的[用戶端程式庫 NuGet 封裝](http://go.microsoft.com/fwlink/?LinkId=510472)。
 
-* [Azure 行動服務專案範本](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md) (英文)。
+* [Azure 行動服務專案範本](mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md) (英文)。
 
 	只有 Visual Studio 2013 Update 2 和更新版本會提供行動服務範本。即使您安裝 Azure SDK for .NET，Visual Studio 2012 或更早版本以及 Visual Studio 2013 Update 1 或更早版本也不提供行動服務範本。
 
@@ -186,4 +186,4 @@ Azure PowerShell 可讓您[將 Azure 環境的建立及部署自動化](http://w
 
 如需 Azure 用戶端程式庫的參考文件，請參閱 [Azure .NET 參考](/documentation/api/) (英文)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

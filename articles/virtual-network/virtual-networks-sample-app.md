@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/20/2016"
+   ms.date="02/01/2016"
    ms.author="jonor"/>
 
 # 與安全性界限環境搭配使用的範例應用程式
@@ -148,7 +148,7 @@
 4.	將目錄和檔案的權限設為匿名以允許存取
 5.	關閉 IE 增強式安全性以允許更輕鬆地從這部伺服器瀏覽 
 
->[AZURE.IMPORTANT]**最佳做法**：永遠不要關閉實際執行伺服器上的「IE 增強式安全性」，而且從實際執行伺服器上網通常不是個好主意。此外，最好不要開啟檔案共用來供匿名存取，這裡這樣做是為了簡單起見。
+>[AZURE.IMPORTANT] **最佳做法**：永遠不要關閉實際執行伺服器上的「IE 增強式安全性」，而且從實際執行伺服器上網通常不是個好主意。此外，最好不要開啟檔案共用來供匿名存取，這裡這樣做是為了簡單起見。
 
 在透過遠端桌面 (RDP) 存取 AppVM01 時，這個 PowerShell 指令碼應該會在本機執行。PowerShell 必須以系統管理員身分執行，才能成功執行。
 	
@@ -188,4 +188,4 @@
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

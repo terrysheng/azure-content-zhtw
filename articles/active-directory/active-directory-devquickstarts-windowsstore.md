@@ -62,7 +62,7 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 -	在 DirectorySearcher 專案中，開啟 `MainPage.xaml.cs`。取代 [`Config Values`] 區域中的值以反映您在 Azure 入口網站中所輸入的值。每當使用 ADAL 時，您的程式碼便會參考這些值。
     -	`tenant` 是指您的 Azure AD 租用戶網域，例如 contoso.onmicrosoft.com
     -	`clientId` 是指您從入口網站複製的應用程式 clientId。
--	您現在必須找出 Windows Phone 應用程式的回呼 uri。在 `MainPage` 方法的這一行上設定中斷點：
+-	您現在必須找出 Windows 市集應用程式的回呼 uri。在 `MainPage` 方法的這一行上設定中斷點：
 
 ```
 redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
@@ -146,4 +146,4 @@ ADAL 可讓您輕鬆地將這些常見的身分識別功能全部納入您的應
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

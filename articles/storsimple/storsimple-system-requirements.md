@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="01/08/2016"
+   ms.date="02/01/2016"
    ms.author="alkohli"/>
 
 # StorSimple 軟體、高可用性和網路需求
@@ -35,11 +35,11 @@
 
 | 受支援的作業系統 | 必要版本 | 其他需求/注意事項 |
 | --------------------------- | ---------------- | ------------- |
-| Windows Server | 2008R2 SP1、2012、2012R2 |僅支援在下列 Windows 磁碟類型上使用 StorSimple iSCSI 磁碟區：<ul><li>基本磁碟上的簡單磁碟區</li><li>動態磁碟上的簡單和鏡像磁碟區</li></ul>使用 StorSimple iSCSI 磁碟區時，支援 Windows Server 2012 精簡佈建和 ODX 功能。<br><br>StorSimple 只能建立精簡佈建磁碟區。它無法建立完整佈建或部分佈建的磁碟區。<br><br>重新格式化精簡佈建的磁碟區，可能需要很長的時間。建議刪除磁碟區，然後建立新的磁碟區，而不是重新格式化。但是，如果您仍然偏好重新格式化磁碟區：<ul><li>在重新格式化之前先執行下列命令，以避免空間回收延遲：<br>`fsutil behavior set disabledeletenotify 1`</br></li><li>完成格式化之後，使用下列命令重新啟用空間回收：<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>如 [KB 2878635](https://support.microsoft.com/kb/2870270) 所述，將 Windows Server 2012 Hotfix 套用到 Windows Server 電腦。</li></ul></li></ul></ul> 如果您要設定 StorSimple Snapshot Manager 或 StorSimple Adapter for SharePoint，請移至[選用元件的軟體需求](#software-requirements-for-optional-components)。|
-| VMWare ESX | 5\.1 | 支援以 VMWare vSphere 5.1 作為 iSCSI 用戶端。StorSimple 裝置上的 VMWare vSphere 5.1 版支援 VAAI 區塊功能。 
+| Windows Server | 2008R2 SP1、2012、2012R2 |僅支援在下列 Windows 磁碟類型上使用 StorSimple iSCSI 磁碟區：<ul><li>基本磁碟上的簡單磁碟區</li><li>動態磁碟上的簡單和鏡像磁碟區</li></ul>使用 StorSimple iSCSI 磁碟區時，支援 Windows Server 2012 精簡佈建和 ODX 功能。<br><br>StorSimple 能建立精簡佈建及完整佈建磁碟區。它無法建立部分佈建的磁碟區。<br><br>將精簡佈建的磁碟區重新格式化，可能需要很長的時間。建議刪除磁碟區，然後建立新的磁碟區，而不是重新格式化。但是，如果您仍然偏好重新格式化磁碟區：<ul><li>在重新格式化之前先執行下列命令，以避免空間回收延遲：<br>`fsutil behavior set disabledeletenotify 1`</br></li><li>完成格式化之後，使用下列命令重新啟用空間回收：<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>如 [KB 2878635](https://support.microsoft.com/kb/2870270) 所述，將 Windows Server 2012 Hotfix 套用到 Windows Server 電腦。</li></ul></li></ul></ul> 如果您要設定 StorSimple Snapshot Manager 或 StorSimple Adapter for SharePoint，請移至[選用元件的軟體需求](#software-requirements-for-optional-components)。|
+| VMWare ESX | 5\.5 | 受 VMWare vSphere 支援為 iSCSI 用戶端。StorSimple 裝置上的 VMWare vSphere 支援 VAAI 區塊功能。 
 | Linux RHEL/CentOS | 5 和 6 | 支援具備 Open-iSCSI 啟動器第 5 版和第 6 版的 Linux iSCSI 用戶端。 |
 | Linux | SUSE Linux 11 | |
- >[AZURE.NOTE]StorSimple 目前不支援 IBM AIX。
+ > [AZURE.NOTE] StorSimple 目前不支援 IBM AIX。
 
 ## 選用元件的軟體需求
 
@@ -71,7 +71,7 @@
 
 <sup>3</sup> StorSimple 裝置上的控制器固定 IP 必須可路由傳送，且能夠連線到網際網路。固定的 IP 位址用來為裝置更新提供服務。如果裝置控制器無法透過固定 IP 連線到網際網路，您將無法更新您的 StorSimple 裝置。
 
-> [AZURE.IMPORTANT]請確定防火牆不會修改或解密 StorSimple 裝置和 Azure 之間的任何 SSL 流量。
+> [AZURE.IMPORTANT] 請確定防火牆不會修改或解密 StorSimple 裝置和 Azure 之間的任何 SSL 流量。
 
 ### 路由度量
 
@@ -108,12 +108,7 @@ Update 2 有幾項網路相關的改進且路由度量已變更。行為可以�
 		
 	| 網路介面 | 已啟用雲端 | 已停用雲端且具有閘道器 |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - 雲端流量透過網路介面路由的順序為：
@@ -261,4 +256,4 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

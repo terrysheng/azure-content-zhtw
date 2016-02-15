@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/01/2016"
 	ms.author="mingzhan"/>
 
 
@@ -28,7 +28,7 @@
 
 ##在虛擬機器上安裝 MySQL
 
-> [AZURE.NOTE]您必須已經具有執行 Linux 的 Microsoft Azure 虛擬機器，才能完成本教學課程。請參閱 [Azure Linux VM 教學課程](virtual-machines-linux-tutorial.md)，建立並設定以 `mysqlnode` 為 VM 名稱，`azureuser` 為使用者的 Linux VM，然後再繼續進行下一步。
+> [AZURE.NOTE] 您必須已經具有執行 Linux 的 Microsoft Azure 虛擬機器，才能完成本教學課程。請參閱 [Azure Linux VM 教學課程](virtual-machines-linux-tutorial.md)，建立並設定以 `mysqlnode` 為 VM 名稱，`azureuser` 為使用者的 Linux VM，然後再繼續進行下一步。
 
 在此情況下，請使用連接埠 3306 作為 MySQL 連接埠。
 
@@ -185,4 +185,4 @@
 ###下一步
 按一下[這裡](https://www.mysql.com/)，了解更多 MySQL 使用方式和相關資訊。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

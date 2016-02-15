@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="01/28/2015"
    ms.author="sstein"/>
 
 # SQL Database 定價層建議
 
  提供的各種定價層建議會針對最適合執行現有 Azure SQL Database 工作負載的服務層和效能等級提供建議。
 
-> [AZURE.NOTE]定價層建議僅適用於 Web 和 Business 資料庫，以及彈性資料庫集區，而且只有在 [Azure 入口網站](https://portal.azure.com/)中才可看到建議。
+> [AZURE.NOTE] 定價層建議僅適用於 Web 和 Business 資料庫，以及彈性資料庫集區，而且只有在 [Azure 入口網站](https://portal.azure.com/)中才可看到建議。
 
 
 經由下列工作取得定價層建議：
@@ -56,7 +56,7 @@ SQL Database 服務會評估 SQL Database 的歷程記錄資源使用狀況，�
 
 ## 取得定價層建議
 
-選取現有的 Web 或商務資料庫，然後按一下 [定價層] 磚，可取得定價層建議。(當您[將 Azure SQL Server 升級至 V12](sql-database-v12-upgrade.md) 時也會獲得定價層建議。)
+如要取得定價層建議，請選取現有的 Web 或商務資料庫，然後按一下 [所有設定]，再按一下 [定價層 (級別 DTU)]。(當您[將 Azure SQL Server 升級至 V12](sql-database-v12-upgrade.md) 時也會獲得定價層建議。)
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下 [瀏覽] > [SQL 資料庫]。
@@ -64,12 +64,10 @@ SQL Database 服務會評估 SQL Database 的歷程記錄資源使用狀況，�
 
     ![選取資料庫][1]
 
-5. 在資料庫刀鋒視窗中，選取 [定價層] 磚。
-
-    ![定價層][2]
+5. 在資料庫刀鋒視窗中，選取 [所有設定]，然後選取 [定價層 (級別 DTU)]。
 
 
-7. 按一下 [定價層] 磚之後，會看到 [建議的定價層] 刀鋒視窗，您可以在此按一下建議的層，然後按一下 [選取] 按鈕變更為該層。
+7. **建議的定價層**會隨即開啟，讓您可以按一下上面的建議定價層，然後按一下 [選取] 按鈕來變更至該定價層。
 
     ![註冊預覽版][4]
 
@@ -81,7 +79,7 @@ SQL Database 服務會評估 SQL Database 的歷程記錄資源使用狀況，�
 
 ## 摘要
 
-定價層建議能夠自動收集每個 SQL Database 的遙測資料，並且根據資料庫的實際效能需求和功能需求建議最佳的服務層/效能等級組合。按一下資料庫刀鋒視窗中的 [定價層] 磚，以查看定價層建議。
+定價層建議能夠自動收集每個 SQL Database 的遙測資料，並且根據資料庫的實際效能需求和功能需求建議最佳的服務層/效能等級組合。只要按一下 [設定] 刀鋒視窗上的 [定價層 (級別 DTU)]，就能查看所有 Web 和商務資料庫的建議定價層。
 
 
 
@@ -92,12 +90,10 @@ SQL Database 服務會評估 SQL Database 的歷程記錄資源使用狀況，�
 
 <!--Image references-->
 [1]: ./media/sql-database-service-tier-advisor/select-database.png
-[2]: ./media/sql-database-service-tier-advisor/pricing-tier.png
-[3]: ./media/sql-database-service-tier-advisor/preview-sign-up.png
 [4]: ./media/sql-database-service-tier-advisor/choose-pricing-tier.png
 [5]: ./media/sql-database-service-tier-advisor/usage-details.png
 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

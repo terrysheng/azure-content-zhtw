@@ -22,7 +22,7 @@
 原始檔控制可讓您從 Azure 自動化推送程式碼至原始檔控制，或將 Runbook 從原始檔控制提取至 Azure 自動化。本文說明如何在 Azure 自動化環境中設定原始檔控制。我們將先設定 Azure 自動化存取 GitHub 儲存機制，並逐步解說可使用原始檔控制整合完成的不同作業。
 
 
->[AZURE.NOTE] 原始檔控制支援提取和推送 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 以及 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks)，但尚未支援[圖形化 Runbook](automation-runbook-types.md#graphical-runbooks)。<br><br>
+>[AZURE.NOTE] 原始檔控制支援提取和推送 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 以及 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks)。[圖形化 Runbook](automation-runbook-types.md#graphical-runbooks) 尚未支援。<br><br>
 
 
 為您的自動化帳戶設定原始檔控制時，必須執行兩個簡單的步驟，而如果您已經有 GitHub 帳戶，則只需要執行一個步驟。如下：
@@ -52,7 +52,7 @@
 
     1. 若要從**儲存機制**同步處理 Runbook，則 Runbook 資料夾路徑為 */*
     2. 若要從 **RootFolder** 同步處理 Runbook，則 Runbook 資料夾路徑為 */RootFolder*
-    3. 若要從 **SubFolder** 同步處理 Runbook，則 Runbook 資料夾路徑為 */RootFolder/SubFolder* 。
+    3. 若要從 **SubFolder** 同步處理 Runbook，則 Runbook 資料夾路徑為 */RootFolder/SubFolder*。
   
 
 4. 設定參數之後，它們會顯示在 [設定原始檔控制] 刀鋒視窗上。
@@ -79,8 +79,8 @@
 
     |**參數** |**值** |
     |:---|:---|
-    | 名稱 | Microsoft.Azure.Automation.SourceControl.OauthToken |
-    | 型別 | Unknown(Encrypted) |
+    | 名稱 | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+    | 類型 | Unknown(Encrypted) |
     | 值 | <*已加密的 OAuthToken*> |  
 
     ![變數](media/automation-source-control-integration/automation_04_Variables.png)
@@ -120,7 +120,7 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
 
     ![簽入輸入](media/automation-source-control-integration/automation_09_CheckinInput.png)
 
-6. 在工作完成時重新整理您的 GitHub 儲存機制，即可檢視變更。您的儲存機制中應有一項認可，其認可訊息為：**已在 Azure 自動化中更新 *Runbook 名稱* 。**
+6. 在工作完成時重新整理您的 GitHub 儲存機制，即可檢視變更。您的儲存機制中應有一項認可，其認可訊息為：**已在 Azure 自動化中更新 *Runbook 名稱*。**
 
 
 
@@ -158,4 +158,4 @@ Runbook 簽入可讓您將對 Azure 自動化中的 Runbook 所做的變更推�
 
 如需原始檔控制整合的詳細資訊，請參閱下列資源：- [Azure 自動化：Azure 自動化中的原始檔控制整合](https://azure.microsoft.com/blog/azure-automation-source-control-13/) - [選出您最愛的原始檔控制系統](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) - [Azure 自動化：使用 Visual Studio Team Services 整合 Runbook 原始檔控制](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

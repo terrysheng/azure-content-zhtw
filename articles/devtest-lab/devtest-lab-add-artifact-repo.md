@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Add a Git artifact repository to your DevTest Lab | Microsoft Azure"
-	description="Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts to your lab"
+<properties
+	pageTitle="將 Git 構件儲存機制加入研發/測試實驗室 | Microsoft Azure"
+	description="將適用於自訂構件的 GitHub 或 Visual Studio Team Services Git 儲存機制加入至實驗室"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # 將 Git 構件儲存機制加入研發/測試實驗室
@@ -115,4 +115,4 @@
     3. 在構件儲存機制中輸入儲存的**個人存取權杖**。
     4. 點選 [儲存]。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

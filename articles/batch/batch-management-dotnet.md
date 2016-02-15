@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="11/10/2015"
-	ms.author="v-marsma"/>
+	ms.date="01/28/2016"
+	ms.author="marsma"/>
 
 # 使用 Batch Management .NET 管理 Azure Batch 帳戶和配額
 
@@ -30,7 +30,7 @@
 - **檢查帳戶配額**並採取反復試驗的猜測，判斷哪一個 Batch 帳戶有哪些限制。藉由開始作業、建立集區或加入計算節點之前檢查您的帳戶配額，您可以主動地調整建立計算資源的位置或時機。您可以決定在帳戶中配置其他資源之前，哪些帳戶需要增加配額。
 - 藉由在同一個應用程式中利用 Batch Management .NET、[Azure Active Directory][aad_about] 和 [Azure 資源管理員][resman_overview]，**結合其他 Azure 服務的功能**可獲得完整功能的管理體驗。透過使用這些功能和其 API，您可以提供順暢的驗證體驗、建立和刪除資源群組的能力，以及上面所述的功能，以獲得端對端管理解決方案。
 
-> [AZURE.NOTE]雖然這篇文章著重在以程式設計方式管理 Batch 帳戶、金鑰和配額，您可以使用 [Azure 入口網站][azure_portal]執行許多活動。如需詳細資訊，請參閱[在 Azure 入口網站中建立和管理 Azure Batch 帳戶](batch-account-create-portal.md)和 [Azure Batch 服務的配額和限制](batch-quota-limit.md)。
+> [AZURE.NOTE] 雖然這篇文章著重在以程式設計方式管理 Batch 帳戶、金鑰和配額，您可以使用 [Azure 入口網站][azure_portal]執行許多活動。如需詳細資訊，請參閱[在 Azure 入口網站中建立和管理 Azure Batch 帳戶](batch-account-create-portal.md)和 [Azure Batch 服務的配額和限制](batch-quota-limit.md)。
 
 ## 建立和刪除 Batch 帳戶
 
@@ -52,7 +52,7 @@ AccountResource account = getResponse.Resource;
 await batchManagementClient.Accounts.DeleteAsync("MyResourceGroup", account.Name);
 ```
 
-> [AZURE.NOTE]使用 Batch Management .NET 程式庫和其 BatchManagementClient 類別的應用程式需要**服務管理員**或**共同管理員**存取權，以使用擁有要管理的 Batch 帳戶的訂用帳戶。如需詳細資訊，請參閱以下的 [Azure Active Directory](#aad) 一節和 [AccountManagement][acct_mgmt_sample] 程式碼範例。
+> [AZURE.NOTE] 使用 Batch Management .NET 程式庫和其 BatchManagementClient 類別的應用程式需要**服務管理員**或**共同管理員**存取權，以使用擁有要管理的 Batch 帳戶的訂用帳戶。如需詳細資訊，請參閱以下的 [Azure Active Directory](#aad) 一節和 [AccountManagement][acct_mgmt_sample] 程式碼範例。
 
 ## 擷取和重新產生帳戶金鑰
 
@@ -71,7 +71,7 @@ BatchAccountRegenerateKeyResponse newKeys = await batchManagementClient.Accounts
 	new BatchAccountRegenerateKeyParameters() { KeyName = AccountKeyType.Primary });
 ```
 
-> [AZURE.TIP]您可以為您的管理應用程式建立簡化的連線工作流程。首先，取得您想要使用 [ListKeysAsync][net_list_keys] 管理的 Batch 帳戶的帳戶金鑰。接著，在初始化 Batch .NET 程式庫的 [BatchSharedKeyCredentials][net_sharedkeycred] 類別 (初始化時 [BatchClient][net_batch_client] 時使用) 時使用此金鑰。
+> [AZURE.TIP] 您可以為您的管理應用程式建立簡化的連線工作流程。首先，取得您想要使用 [ListKeysAsync][net_list_keys] 管理的 Batch 帳戶的帳戶金鑰。接著，在初始化 Batch .NET 程式庫的 [BatchSharedKeyCredentials][net_sharedkeycred] 類別 (初始化時 [BatchClient][net_batch_client] 時使用) 時使用此金鑰。
 
 ## 檢查 Azure 訂用帳戶和 Batch 帳戶配額
 
@@ -119,7 +119,7 @@ Console.WriteLine("Pool quota: {0}", account.Properties.PoolQuota);
 Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.ActiveJobAndJobScheduleQuota);
 ```
 
-> [AZURE.IMPORTANT]雖然 Azure 訂用帳戶和服務有預設配額，這許多限制都可以透過在 [Azure 入口網站][azure_portal]中提出要求來提高。例如，請參閱 [Azure Batch 服務的配額和限制](batch-quota-limit.md)以取得增加您的 Batch 帳戶配額的指示。
+> [AZURE.IMPORTANT] 雖然 Azure 訂用帳戶和服務有預設配額，這許多限制都可以透過在 [Azure 入口網站][azure_portal]中提出要求來提高。例如，請參閱 [Azure Batch 服務的配額和限制](batch-quota-limit.md)以取得增加您的 Batch 帳戶配額的指示。
 
 ## Batch Management .NET、Azure AD 和資源管理員
 
@@ -139,9 +139,17 @@ Azure 本身會使用 Azure AD 來驗證其客戶、服務管理員和組織的�
 
 查看 GitHub 上的 [AccountManagment][acct_mgmt_sample] 範例專案，以查看 Batch Management .NET 程式庫實務。此主控台應用程式顯示 [BatchManagementClient][net_mgmt_client] 和 [ResourceManagementClient][resman_client] 的建立與使用方式。它會會示範兩個用戶端所需的 Azure [Active Directory 驗證程式庫][aad_adal] (ADAL) 使用方式。
 
-> [AZURE.IMPORTANT]若要成功執行範例應用程式，您必須先使用 Azure 入口網站向 Azure AD 登錄它。查看[整合應用程式與 Azure Active Directory][aad_integrate] 中的「加入應用程式」。然後遵循文章中的步驟，在您自己的帳戶內登錄範例應用程式。
+若要成功執行範例應用程式，您必須先使用 Azure 入口網站向 Azure AD 登錄它。查看[整合應用程式與 Azure Active Directory][aad_integrate] 中的「加入應用程式」。然後遵循文章中的步驟，在您自己的帳戶的預設目錄內登錄範例應用程式。請務必針對應用程式的類型選取「原生用戶端應用程式」，且您可以針對「重新導向 URI」指定任何有效的 URI (例如 `http://myaccountmanagementsample`) - 不需要是實際的端點。
 
-範例應用程式會示範下列作業：
+加入您的應用程式之後，在入口網站的應用程式設定中，將「以組織身分存取 Azure 服務管理」權限委派給 *Windows Azure 服務管理 API* 應用程式：
+
+![Azure 入口網站的應用程式權限][2]
+
+一旦您已經如上面所述加入應用程式，使用您的應用程式的重新導向 URI 和用戶端 ID，更新 [AccountManagment][acct_mgmt_sample] 範例專案中的 `Program.cs`。您可以在您的應用程式的 [設定] 索引標籤中找到這些值：
+
+![Azure 入口網站的應用程式組態][3]
+
+[AccountManagment][acct_mgmt_sample] 範例應用程式會示範下列作業：
 
 1. 使用 [ADAL][aad_adal] 向 Azure AD 取得安全性權杖。如果使用者尚未登入，將提示使用者輸入其 Azure 認證。
 2. 使用從 Azure AD 取得的安全性權杖，建立 [SubscriptionClient][resman_subclient] 以查詢 Azure 與帳戶相關聯的訂用帳戶清單。這可讓使用者選取一個訂用帳戶 (如果找到多個)。
@@ -161,7 +169,7 @@ Azure 本身會使用 Azure AD 來驗證其客戶、服務管理員和組織的�
 
 刪除新建立的 Batch 帳戶和資源群組之前，您可以在 [Azure 入口網站][azure_portal]中檢查這兩者：
 
-![顯示資源群組和 Batch 帳戶的 Azure 入口網站][1] <br /> 顯示新的資源群組和 Batch 帳戶的 Azure 入口網站
+![顯示資源群組和 Batch 帳戶的 Azure 入口網站][1] <br /> *顯示新的資源群組和 Batch 帳戶的 Azure 入口網站*
 
 [aad_about]: ../active-directory/active-directory-whatis.md "什麼是 Azure Active Directory？"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
@@ -189,5 +197,7 @@ Azure 本身會使用 Azure AD 來驗證其客戶、服務管理員和組織的�
 [resman_overview]: ../resource-group-overview.md
 
 [1]: ./media/batch-management-dotnet/portal-01.png
+[2]: ./media/batch-management-dotnet/portal-02.png
+[3]: ./media/batch-management-dotnet/portal-03.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -43,7 +43,7 @@
 
 2. **取得支援的提供者、位置和頻寬清單。**
 
-	建立 ExpressRoute 線路之前，您需要有連線提供者、支援的位置和頻寬選項等清單。PowerShell Cmdlet *Get-AzureDedicatedCircuitServiceProvider* 會傳回此資訊，在稍後的步驟中將會用到。
+	建立 ExpressRoute 線路之前，您需要有連線提供者、支援的位置和頻寬選項等清單。PowerShell Cmdlet *Get-AzureDedicatedCircuitServiceProvider* 會傳回此資訊，在稍後的步驟中將會用到。執行此 Cmdlet 時，其結果將類似下面的範例。
 
 		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
@@ -197,7 +197,7 @@
 
 7. **將 VNet 連結到 ExpressRoute 線路。**
 
-	接下來，將 VNet 連結到 ExpressRoute 線路。請參閱[將 ExpressRoute 線路連結到 VNet](expressroute-howto-linkvnet-classic.md)，取得逐步指示。如果您需要為 ExpressRoute 建立虛擬網路，請參閱[為 ExpressRoute 建立虛擬網路](expressroute-howto-createvnet-classic.md)中的相關指示。
+	接下來，將 VNet 連結到 ExpressRoute 線路。請參閱[將 ExpressRoute 線路連結到 VNet](expressroute-howto-linkvnet-classic.md)，取得逐步指示。如果您需要使用 ExpressRoute 的傳統部署模型建立虛擬網路，請參閱[設定 ExpressRoute 的 VNet](expressroute-howto-vnet-portal-classic.md) 中的相關指示。
 
 ##  取得 ExpressRoute 線路的狀態
 
@@ -328,4 +328,4 @@
 
 - [設定路由](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

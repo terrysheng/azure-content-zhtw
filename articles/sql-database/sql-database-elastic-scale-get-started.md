@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/02/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # 開始使用彈性資料庫工具
@@ -75,7 +75,7 @@
 ## 後續步驟
 如需有關彈性資料庫工具的詳細資訊，請參閱：
 
-* [彈性資料庫工具文件地圖](sql-database-elastic-scale-documentation-map.md) 
+* [彈性資料庫工具文件地圖](../learning-paths/sql-database-elastic-scale.md) 
 -    程式碼範例： 
     -    [彈性資料庫與 Azure SQL - 開始使用](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [彈性資料庫與 Azure SQL - 與 Entity Framework 整合](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
@@ -98,4 +98,4 @@
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

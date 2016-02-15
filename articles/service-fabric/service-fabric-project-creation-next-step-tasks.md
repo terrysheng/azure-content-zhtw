@@ -54,10 +54,10 @@
 
 ## 後續步驟
 ### 將 Web 前端新增至應用程式
-Service Fabric 提供與 ASP.NET 5 的整合，可建置您應用程式的 Web 型進入點。如需了解如何根據 ASP.NET Web API 建立 REST 介面，請參閱[將 Web 前端新增至應用程式][add-web-frontend]。
+Service Fabric 提供與 ASP.NET 5 的整合，可建置您應用程式的 Web 型進入點。如需了解如何根據 ASP.NET Web API 建立 REST 介面，請參閱[為應用程式新增 Web 前端][add-web-frontend]。
 
 ### 建立 Azure 叢集
-Service Fabric SDK 提供一個用於開發和測試的本機叢集。若要在 Azure 中建立叢集，請參閱[從 Azure 入口網站設定 Service Fabric 叢集][create-cluster-in-portal]。
+Service Fabric SDK 提供一個用於開發和測試的本機叢集。如要在 Azure 中建立叢集，請參閱[從 Azure 入口網站設定 Service Fabric 叢集][create-cluster-in-portal]。
 
 ### 嘗試使用派對叢集部署到免費的 Azure
 
@@ -67,7 +67,7 @@ Service Fabric SDK 提供一個用於開發和測試的本機叢集。若要在 
 您可以直接從 Visual Studio 將應用程式發行至 Azure 叢集。若要瞭解做法，請參閱[將應用程式發行至 Azure][publish-app-to-azure]。
 
 ### 使用 Service Fabric 總管將叢集視覺化
-「Service Fabric 總管」提供一個將叢集 (包括已部署的應用程式和實體配置) 視覺化的簡單方法。若要深入了解，請參閱[使用 Service Fabric 總管視覺化叢集][visualize-with-sfx]。
+「Service Fabric 總管」提供一個將叢集 (包括已部署的應用程式和實體配置) 視覺化的簡單方法。如要深入了解，請參閱[使用 Service Fabric 總管視覺化叢集][visualize-with-sfx]。
 
 ### 進行服務版本設定和升級
 Service Fabric 可讓您為應用程式中的獨立服務進行獨立的版本設定和升級。若要深入了解，請參閱[進行服務版本設定和升級][app-upgrade-tutorial]。
@@ -78,12 +78,12 @@ Service Fabric 可讓您為應用程式中的獨立服務進行獨立的版本�
 
 
 <!-- Links -->
-[add-web-frontend]: ./service-fabric-add-a-web-frontend.md
-[create-cluster-in-portal]: ./service-fabric-cluster-creation-via-portal.md
-[publish-app-to-azure]: ./service-fabric-publish-app-remote-cluster.md
-[visualize-with-sfx]: ./service-fabric-visualizing-your-cluster.md
-[ci-with-vso]: ./service-fabric-set-up-continuous-integration.md
-[reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
-[app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
+[add-web-frontend]: service-fabric-add-a-web-frontend.md
+[create-cluster-in-portal]: service-fabric-cluster-creation-via-portal.md
+[publish-app-to-azure]: service-fabric-publish-app-remote-cluster.md
+[visualize-with-sfx]: service-fabric-visualizing-your-cluster.md
+[ci-with-vso]: service-fabric-set-up-continuous-integration.md
+[reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
+[app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 	
 # 在 Azure DocumentDB 中自動編製索引
@@ -67,4 +67,4 @@ DocumentDB 的索引編製功能是針對儲存效率而設計，並可處理多
 - 在[這裡](documentdb-indexing-policies.md)了解如何自訂 DocumentDB 索引
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

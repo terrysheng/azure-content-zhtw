@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="01/26/2016"
 	ms.author="mmercuri"/>
 
 # Azure 資源管理員範本中的共用狀態
@@ -389,4 +389,4 @@ enableJumpbox | 來自條件約束清單的字串 (enabled/disabled) | 識別是
 - [編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 - [Azure 資源管理員範本函數](resource-group-template-functions.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

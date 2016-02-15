@@ -23,7 +23,7 @@
 
 ## Windows PowerShell Cmdlet
 
-下表中的 Cmdlet 是用來在 Azure 自動化中透過 Windows PowerShell 建立和管理變數。它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md)的一部分推出。
+下表中的 Cmdlet 是用來在 Azure 自動化中透過 Windows PowerShell 建立和管理排程。它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md)的一部分推出。
 
 |Cmdlet|說明|
 |:---|:---|
@@ -37,15 +37,15 @@
 
 ## 建立新排程
 
-### 使用 Azure 入口網站建立新排程
+### 使用 Azure 傳統入口網站建立新排程
 
 
 1. 從您的自動化帳戶，在視窗的頂端按一下 [**資產**]。
 1. 在視窗的底端按一下 [**加入設定**]。
 1. 按一下 [**加入排程**]。
-1. 完成精靈，然後按一下核取方塊以儲存新變數。
+1. 完成精靈，然後按一下核取方塊以儲存新排程。
 
-### 使用 Azure 預覽入口網站建立新排程
+### 使用 Azure 入口網站建立新排程
 
 1. 從您的自動化帳戶，按一下 [**資產**] 部分，以開啟 [**資產**] 分頁。
 1. 按一下 [**排程**] 部分，以開啟 [**排程**] 分頁。
@@ -68,4 +68,4 @@
 - [在 Azure 自動化中排程 Runbook](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

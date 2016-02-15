@@ -12,8 +12,9 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="11/04/2015" 
+    ms.date="02/04/2016" 
     ms.author="torsteng;sidneyh" />
+
 
 # Split-Merge 安全性設定  
 
@@ -23,8 +24,8 @@
 
 憑證有兩種設定方式。
 
-1. [設定 SSL 憑證](To#Configure#the#SSL#Certificate)
-2. [設定用戶端憑證](To#Configure#Client#Certificates) 
+1. [設定 SSL 憑證](#To-Configure-the-SSL#Certificate)
+2. [設定用戶端憑證](#To-Configure-Client-Certificates) 
 
 ## 取得憑證
 
@@ -52,45 +53,45 @@
 
 ### 建立新的自我簽署憑證
 
-1.    [建立自我簽署憑證](Create#a#Self-Signed#Certificate)
-2.    [建立自我簽署 SSL 憑證的 PFX 檔案](Create#PFX#file#for#Self-Signed#SSL#Certificate)
-3.    [將 SSL 憑證上傳至雲端服務](Upload#SSL#Certificate#to#Cloud#Service)
-4.    [在服務組態檔中更新 SSL 憑證](Update#SSL#Certificate#in#Service#Configuration#File)
-5.    [匯入 SSL 憑證授權單位](Import#SSL#Certification#Authority)
+1.    [建立自我簽署憑證](#Create-a-Self-Signed-Certificate)
+2.    [建立自我簽署 SSL 憑證的 PFX 檔案](#Create-PFX-file-for-Self-Signed-SSL-Certificate)
+3.    [將 SSL 憑證上傳至雲端服務](#Upload-SSL-Certificate-to-Cloud-Service)
+4.    [在服務組態檔中更新 SSL 憑證](#Update-SSL-Certificate-in-Service-Configuration-File)
+5.    [匯入 SSL 憑證授權單位](#Import-SSL-Certification-Authority)
 
-### 從憑證存放區使用現有的憑證
-1. [從憑證存放區匯出 SSL 憑證](Export#SSL#Certificate#From#Certificate#Store)
-2. [將 SSL 憑證上傳至雲端服務](Upload#SSL#Certificate#to#Cloud#Service)
-3. [在服務組態檔中更新 SSL 憑證](Update#SSL#Certificate#in#Service#Configuration#File)
+### 如何從憑證存放區使用現有的憑證
+1. [從憑證存放區匯出 SSL 憑證](#Export-SSL-Certificate-From-Certificate-Store)
+2. [將 SSL 憑證上傳至雲端服務](#Upload-SSL-Certificate-to-Cloud-Service)
+3. [在服務組態檔中更新 SSL 憑證](#Update-SSL-Certificate-in-Service-Configuration-File)
 
-### 使用 PFX 檔案中現有的憑證
+### 如何使用 PFX 檔案中現有的憑證
 
-1. [將 SSL 憑證上傳至雲端服務](Upload#SSL#Certificate#to#Cloud#Service)
-2. [在服務組態檔中更新 SSL 憑證](Update#SSL#Certificate#in#Service#Configuration#File)
+1. [將 SSL 憑證上傳至雲端服務](#Upload-SSL-Certificate-to-Cloud-Service)
+2. [在服務組態檔中更新 SSL 憑證](#Update-SSL-Certificate-in-Service-Configuration-File)
 
 ## 設定用戶端憑證
 需要用戶端憑證，才能驗證服務的要求。從以下三種案例中選擇最適用的案例，然後執行其所有步驟：
 
 ### 關閉用戶端憑證
-1.    [關閉用戶端憑證式驗證](Turn#Off#Client#Certificate-Based#Authentication)
+1.    [關閉用戶端憑證式驗證](#Turn-Off-Client-Certificate-Based-Authentication)
 
 ### 發行新的自我簽署用戶端憑證
-1.    [建立自我簽署憑證授權單位](Create#a#Self-Signed#Certification#Authority)
-2.    [將 CA 憑證上傳至雲端服務](Upload#CA#Certificate#to#Cloud#Service)
-3.    [在服務組態檔中更新 CA 憑證](Update#CA#Certificate#in#Service#Configuration#File)
-4.    [發行用戶端憑證](Issue#Client#Certificates)
-5.    [建立用戶端憑證的 PFX 檔案](Create#PFX#files#for#Client#Certificates)
-6.    [匯入用戶端憑證](Import#Client#Certificate)
-7.    [複製用戶端憑證指紋](Copy#Client#Certificate#Thumbprints)
-8.    [在服務組態檔中設定允許的用戶端](Configure#Allowed#Clients#in#the#Service#Configuration#File)
+1.    [建立自我簽署憑證授權單位](#Create-a-Self-Signed-Certification-Authority)
+2.    [將 CA 憑證上傳至雲端服務](#Upload-CA-Certificate-to-Cloud-Service)
+3.    [在服務組態檔中更新 CA 憑證](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [發行用戶端憑證](#Issue-Client-Certificates)
+5.    [建立用戶端憑證的 PFX 檔案](#Create-PFX-files-for-Client-Certificates)
+6.    [匯入用戶端憑證](#Import-Client-Certificate)
+7.    [複製用戶端憑證指紋](#Copy-Client-Certificate-Thumbprints)
+8.    [在服務組態檔中設定允許的用戶端](#Configure-Allowed-Clients-in-the-Service-Configuration-File)
 
 ### 使用現有的用戶端憑證
-1.    [尋找 CA 公開金鑰](Find#CA#Public Key)
-2.    [將 CA 憑證上傳至雲端服務](Upload#CA#certificate#to#cloud#service)
-3.    [在服務組態檔中更新 CA 憑證](Update#CA#Certificate#in#Service#Configuration#File)
-4.    [複製用戶端憑證指紋](Copy#Client#Certificate#Thumbprints)
-5.    [在服務組態檔中設定允許的用戶端](Configure#Allowed#Clients#in#the#Service#Configuration File)
-6.    [設定用戶端憑證撤銷檢查](Configure#Client#Certificate#Revocation#Check)
+1.    [尋找 CA 公開金鑰](#Find-CA-Public Key)
+2.    [將 CA 憑證上傳至雲端服務](#Upload-CA-certificate-to-cloud-service)
+3.    [在服務組態檔中更新 CA 憑證](#Update-CA-Certificate-in-Service-Configuration-File)
+4.    [複製用戶端憑證指紋](#Copy-Client-Certificate-Thumbprints)
+5.    [在服務組態檔中設定允許的用戶端](#Configure-Allowed-Clients-in-the-Service-Configuration File)
+6.    [設定用戶端憑證撤銷檢查](#Configure-Client-Certificate-Revocation-Check)
 
 ## 允許的 IP 位址
 
@@ -102,21 +103,21 @@
 
 ### 使用新的自我簽署憑證
 
-1.     [建立自我簽署憑證](Create#a#Self-Signed#Certificate)
-2.     [建立自我簽署加密憑證的 PFX 檔案](Create#PFX#file#for#Self-Signed#Encryption#Certificate)
-3.     [將加密憑證上傳至雲端服務](Upload#Encryption#Certificate#to#Cloud#Service)
-4.     [在服務組態檔中更新加密憑證](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [建立自我簽署憑證](#Create-a-Self-Signed-Certificate)
+2.     [建立自我簽署加密憑證的 PFX 檔案](#Create-PFX-file-for-Self-Signed-Encryption-Certificate)
+3.     [將加密憑證上傳至雲端服務](#Upload-Encryption-Certificate-to-Cloud-Service)
+4.     [在服務組態檔中更新加密憑證](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
 ### 從憑證存放區使用現有的憑證
 
-1.     [從憑證存放區匯出加密憑證](Export#Encryption#Certificate#From#Certificate#Store)
-2.     [將加密憑證上傳至雲端服務](Upload#Encryption#Certificate#to#Cloud#Service)
-3.     [在服務組態檔中更新加密憑證](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [從憑證存放區匯出加密憑證](#Export-Encryption-Certificate-From-Certificate-Store)
+2.     [將加密憑證上傳至雲端服務](#Upload-Encryption-Certificate-to-Cloud-Service)
+3.     [在服務組態檔中更新加密憑證](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
 ### 使用 PFX 檔案中現有的憑證
 
-1.     [將加密憑證上傳至雲端服務](Upload#Encryption#Certificate#to#Cloud#Service)
-2.     [在服務組態檔中更新加密憑證](Update#Encryption#Certificate#in#Service#Configuration#File)
+1.     [將加密憑證上傳至雲端服務](#Upload-Encryption-Certificate-to-Cloud-Service)
+2.     [在服務組態檔中更新加密憑證](#Update-Encryption-Certificate-in-Service-Configuration-File)
 
 ## 預設組態
 
@@ -448,12 +449,12 @@
 7.     選取所需的存放區。
 8.     按一下 [完成]。
        
-	* 若已選擇 [受信任的根憑證授權單位] 存放區，請按一下 [**是**]。
+    * 若已選擇 [受信任的根憑證授權單位] 存放區，請按一下 [**是**]。
 9.     在所有對話方塊視窗上，按一下 [**確定**]。
 
 ## Upload certificate
 
-在 [Azure 傳統入口網站](https://portal.azure.com/)中，
+在 [Azure 入口網站](https://portal.azure.com/)
 
 1. 選取 [雲端服務]。
 2. 選取雲端服務。
@@ -473,4 +474,4 @@
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

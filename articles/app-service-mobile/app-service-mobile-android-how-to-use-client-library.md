@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/05/2016" 
+	ms.date="02/03/2016" 
 	ms.author="ricksal"/>
 
 
 # 如何使用 Mobile Apps 的 Android 用戶端程式庫
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 本指南說明如何使用適用於 Mobile Apps 的 Android 用戶端 SDK 來實作常見案例，例如查詢資料 (插入、更新和刪除)、驗證使用者、處理錯誤以及自訂用戶端。它還會深入探討大部分行動應用程式中使用的常見用戶端程式碼。
 
@@ -115,9 +113,9 @@ Mobile Services SDK for Android 支援 Android 2.2 版或更新版本，但建�
 	        mPriority = priority;
 	    }
 
-若要了解如何在您的 Mobile Apps 後端建立其他資料表，請參閱[作法：定義資料表控制器](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET 後端) 或[使用動態結構描述定義資料表](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js 後端)。對於 Node.js 後端，您也可以使用 [Azure 入口網站]中的 [簡單資料表] 設定。
+若要了解如何在您的 Mobile Apps 後端建立其他資料表，請參閱[做法：定義資料表控制器](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET 後端) 或[使用動態結構描述定義資料表](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js 後端)。對於 Node.js 後端，您也可以使用 [Azure 入口網站]中的 [簡單資料表] 設定。
 
-###<a name="create-client"></a>如何：建立用戶端內容
+###<a name="create-client"></a>做法：建立用戶端內容
 
 下列程式碼將建立用來存取行動應用程式後端的 **MobileServiceClient** 物件。程式碼會進入在 *AndroidManifest.xml* 中指定為 **MAIN** 動作和 **LAUNCHER** 類別目錄之 **Activity** 類別的 `onCreate` 方法。在 Quickstart 程式碼中，它會進入 **ToDoActivity.java** 檔案。
 
@@ -290,7 +288,7 @@ Mobile Apps 資料表作業和自訂 API 呼叫是非同步作業，因此您會
 
 您也必須在每次修改過 *ToDoItem* 資料表後呼叫配接器 (如果您要顯示其執行結果)。修改是對個別記錄逐一執行的，因此您將會處理單一資料列，而不是集合。在插入項目時，您會對配接器呼叫 *add* 方法，刪除時則呼叫 *remove* 方法。
 
-##<a name="querying"></a>如何：查詢行動應用程式後端中的資料
+##<a name="querying"></a>做法：查詢行動應用程式後端中的資料
 
 本節將說明如何對行動應用程式後端發出查詢，包括下列工作：
 
@@ -401,7 +399,7 @@ Mobile Apps 資料表作業和自訂 API 呼叫是非同步作業，因此您會
 要將方法鏈結在一起，最主要的要求是必須先使用 *where* 方法和述詞。其後，您可以依據應用程式的需求，以最適當的順序呼叫後續方法。
 
 
-##<a name="inserting"></a>如何：將資料插入後端
+##<a name="inserting"></a>做法：將資料插入後端
 
 下列程式碼說明如何在資料表中插入新的資料列。
 
@@ -425,7 +423,7 @@ Mobile Apps 要求每個資料表有名為 **id** 的資料行，以便用來檢
 + 輕鬆合併不同資料表或資料庫的記錄。
 + 識別碼值與應用程式邏輯的整合更理想。
 
-##<a name="updating"></a>如何︰更新行動應用程式中的資料
+##<a name="updating"></a>做法︰更新行動應用程式中的資料
 
 下列程式碼說明如何更新資料表中的資料。
 
@@ -433,7 +431,7 @@ Mobile Apps 要求每個資料表有名為 **id** 的資料行，以便用來檢
 
 在此範例中，*item* 是 *ToDoItem* 資料表中某個資料列的參考，其中已有一些變更。
 
-##<a name="deleting"></a>如何︰刪除行動應用程式中的資料
+##<a name="deleting"></a>做法：刪除行動應用程式中的資料
 
 下列程式碼說明如何藉由指定資料物件來刪除資料表中的資料。
 
@@ -567,11 +565,11 @@ Mobile Apps 要求每個資料表有名為 **id** 的資料行，以便用來檢
 	
 **invokeApi** 方法是在用戶端上呼叫，可將 POST 要求傳送給新的自訂 API。如有任何錯誤，自訂 API 傳回的結果會顯示在訊息對話方塊中。其他版本的 **invokeApi** 可讓您選擇性地在要求主體中傳送物件、指定 HTTP 方法，並隨著要求一起傳送查詢參數。也會提供不具型別的版本 **invokeApi**。
 
-##<a name="authentication"></a>如何：將驗證新增至您的應用程式
+##<a name="authentication"></a>做法：將驗證新增至您的應用程式
 
 教學課程已詳細說明如何新增這些功能。
 
-App Service 支援使用各種外部識別提供者 (Facebook、Google、Microsoft 帳戶、Twitter 以及 Azure Active Directory) 來[驗證應用程式使用者](mobile-services-android-get-started-users.md)。您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。您也可以使用經驗證使用者的身分識別，以在後端實作授權規則。
+App Service 支援使用各種外部識別提供者 (Facebook、Google、Microsoft 帳戶、Twitter 以及 Azure Active Directory) 來[驗證應用程式使用者](app-service-mobile-android-get-started-users.md)。您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。您也可以使用經驗證使用者的身分識別，以在後端實作授權規則。
 
 支援兩個驗證流程：伺服器流程和用戶端流程。由於伺服器流程採用提供者的 Web 驗證介面，因此所提供的驗證體驗也最為簡單。用戶端流程依賴提供者專屬的裝置專用 SDK 並要求您撰寫程式碼，可以與裝置特有的功能深入整合，例如單一登入。
 
@@ -841,4 +839,4 @@ Quickstart 教學課程包含可實作離線同步處理的程式碼。尋找前
 [Azure 入口網站]: https://portal.azure.com
 [開始使用驗證]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

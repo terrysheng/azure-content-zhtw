@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="02/03/2016"
 	ms.author="garye;raymondl"/>
 
 # 使用 Azure Machine Learning Web 服務與 Web 應用程式範本
@@ -86,7 +86,7 @@ Azure Marketplace 中可用的 Web 應用程式範本可以建立自訂的 Web �
 
 如果您想要返回 [組態] 頁面上，請移至 Web 應用程式的 `setting.aspx` 頁面。例如：`http://carprediction.azurewebsites.net/setting.aspx.`。系統會提示您再次輸入 API 金鑰，您需要該金鑰以存取頁面和更新設定。
 
-您可以在 Azure 傳統入口網站停止、重新啟動或刪除 Web 應用程式，就像任何其他 Web 應用程式一樣。只要它正在執行中，您就可以瀏覽至首頁網址並輸入新值。
+您可以在 Azure 入口網站停止、重新啟動或刪除 Web 應用程式，就像任何其他 Web 應用程式一樣。只要它正在執行中，您就可以瀏覽至首頁網址並輸入新值。
 
 ## 如何使用批次執行服務 (BES) 範本
 
@@ -125,4 +125,4 @@ Web 應用程式將會顯示具有工作狀態的頁面。工作完成時，系�
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

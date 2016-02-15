@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="02/02/2016"
 	ms.author="asmalser"/>
 
 
@@ -38,7 +38,7 @@
 
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
-- 除非必要，否則您不應使用生產環境。
+- 除非必要，否則您不應使用生產環境，。
 - 如果您沒有 Azure AD 試用環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。 
 
 
@@ -47,15 +47,15 @@
 
 **若要從資源庫加入 Facebook at Work，請執行下列步驟：**
 
-1. 在 **Azure 管理入口網站**的左方瀏覽窗格中，按一下 [Active Directory]。<br><br>![Active Directory][1]<br>
+1. 在 **Azure 管理入口網站**的左側導覽窗格中，按一下 [Active Directory]。<br><br>![Active Directory][1]<br>
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 若要開啟應用程式檢視，可在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br>![應用程式][2]<br>
+3. 若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br>![應用程式][2]<br>
 
-4. 按一下頁面底部的 [加入]。<br><br>![應用程式][3]<br>
+4. 按一下頁面底部的 [新增]。<br><br>![應用程式][3]<br>
 
-5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br>![應用程式][4]<br>
+5. 在 [欲執行動作] 對話方塊中，按一下 [從組件庫中新增應用程式]。<br><br>![應用程式][4]<br>
 
 6. 在搜尋方塊中，輸入 **Facebook at Work**。
 
@@ -114,4 +114,4 @@ Azure AD 支援將指派的使用者的帳戶詳細資料自動同步處理至 F
 [3]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_04.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0204_2016-->

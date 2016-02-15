@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/01/2016" 
 	ms.author="sdanie"/>
 
 # 使用 Azure PowerShell 管理 Azure Redis 快取
@@ -60,6 +60,46 @@
 
 	Get-Help New-AzureRmRedisCache -Detailed
 
+## 如何連線至 Azure Government 雲端或 Azure 中國雲端
+
+根據預設，Azure 環境是 `AzureCloud`，其代表全域 Azure 雲端執行個體。若要連線至不同的執行個體，請使用 `Add-AzureRmAccount` 命令搭配 `-Environment` 或使用 -`EnvironmentName` 命令列參數搭配所需的環境或環境名稱。
+
+若要查看可用環境的清單，請執行 `Get-AzureRmEnvironment` Cmdlet。
+
+### 連線到 Azure Government 雲端
+
+如果要連線到 Azure Government 雲端，請使用下列其中一個命令。
+
+	Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+
+或
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+
+如果要在 Azure Government 雲端建立快取，請使用下列其中一個位置。
+
+-	美國政府維吉尼亞州
+-	美國政府愛荷華州
+
+如需 Azure Government 雲端的詳細資訊，請參閱 [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) 和 [Microsoft Azure Government 開發人員指南](azure-government-developer-guide.md)。
+
+### 連線到 Azure 中國雲端
+
+如果要連線到 Azure 中國雲端，請使用下列其中一個命令。
+
+	Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+
+或
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+
+如果要在 Azure 中國雲端建立快取，請使用下列其中一個位置。
+
+-	中國東部
+-	中國北部
+
+如需 Azure 中國雲端的詳細資訊，請參閱 [由中國的世紀互聯營運的 Azure 中國雲端](http://www.windowsazure.cn/)。
+
 ## 用於 Azure Redis 快取 PowerShell 的屬性
 
 下表為使用 Azure PowerShell 建立和管理 Azure Redis 快取執行個體時，常用參數的屬性和說明。
@@ -85,7 +125,7 @@
 
 使用 [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) Cmdlet 建立新的 Azure Redis 快取執行個體。
 
->[AZURE.IMPORTANT]您第一次使用 Azure 入口網站在訂用帳戶中建立 Redis 快取時，入口網站會為該訂用帳戶註冊 `Microsoft.Cache` 命名空間。如果您嘗試使用 PowerShell 在訂用帳戶中建立第一個 Redis 快取，您必須先使用下列命令註冊該命名空間；否則 Cmdlet (例如 `New-AzureRmRedisCache` 和 `Get-AzureRmRedisCache`) 將會失敗。
+>[AZURE.IMPORTANT] 您第一次使用 Azure 入口網站在訂用帳戶中建立 Redis 快取時，入口網站會為該訂用帳戶註冊 `Microsoft.Cache` 命名空間。如果您嘗試使用 PowerShell 在訂用帳戶中建立第一個 Redis 快取，您必須先使用下列命令註冊該命名空間；否則 Cmdlet (例如 `New-AzureRmRedisCache` 和 `Get-AzureRmRedisCache`) 將會失敗。
 >
 >`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
@@ -569,4 +609,4 @@
 - [Windows PowerShell 部落格](http://blogs.msdn.com/powershell)：深入了解 Windows PowerShell 的新功能。
 - ["Hey, Scripting Guy!" 部落格](http://blogs.technet.com/b/heyscriptingguy/)：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -21,6 +21,7 @@
 
 Data Factory 目前只支援將資料從內部部署 ODBC 資料存放區移動到其他資料存放區，而不支援將資料從其他資料存放區移動到內部部署 ODBC 資料存放區。
 
+
 ## 啟用連線
 Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC 來源。請參閱[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文來了解資料管理閘道器和設定閘道器的逐步指示。即使 ODBC 資料存放區裝載於 Azure IaaS VM 中，您還是需要運用閘道器與其連接。
 
@@ -32,7 +33,9 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 ## 範例：從 ODBC 資料存放區複製資料到 Azure Blob
 
-下列範例顯示：
+此範例示範如何將資料從 ODBC 資料存放區複製到 Azure Blob 儲存體。不過，您可以在 Azure Data Factory 中使用複製活動，**直接**將資料複製到[這裡](data-factory-data-movement-activities.md#supported-data-stores)所說的任何接收器。
+ 
+此範例具有下列 Data Factory 實體：
 
 1.	[OnPremisesOdbc](#odbc-linked-service-properties) 類型的連結服務。
 2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 類型的連結服務。
@@ -324,4 +327,4 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

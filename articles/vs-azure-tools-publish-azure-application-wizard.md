@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/18/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # 發佈 Azure 應用程式精靈
@@ -21,7 +21,7 @@
 
 在 Visual Studio 中開發 web 應用程式之後，您可以使用**發佈 Azure 應用程式**精靈，更輕鬆地將應用程式發佈至 Azure 雲端服務。第一節說明您在使用精靈前必須完成的步驟，其他節說明精靈的功能。
 
->[AZURE.NOTE]本主題是關於部署到雲端服務，而不是網站。如需部署到網站的相關資訊，請參閱[如何部署到 Azure 網站](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false)。
+>[AZURE.NOTE] 本主題是關於部署到雲端服務，而不是網站。如需部署到網站的相關資訊，請參閱[如何部署到 Azure 網站](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false)。
 
 ## 必要條件
 
@@ -29,13 +29,13 @@
 
 1. 取得 Microsoft 帳戶和 Azure 訂用帳戶。您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)免費試用 Azure 訂用帳戶一個月
 
-1. 在 Azure 上建立雲端服務和儲存體帳戶。您可以從 Visual Studio 中的 [伺服器總管] 執行此動作，或使用 [Azure 管理入口網站](http://go.microsoft.com/fwlink/?LinkID=213885)執行。如需有關如何設定 Azure 環境的詳細資訊，請參閱[設定從 Visual Studio 發佈雲端服務所需的服務](vs-azure-tools-publish-azure-application-wizard)。
+1. 在 Azure 上建立雲端服務和儲存體帳戶。您可以從 Visual Studio 中的 [伺服器總管] 執行此動作，或使用 [Azure 管理入口網站](http://go.microsoft.com/fwlink/?LinkID=213885)執行。
 
 1. 啟用 Azure 的 web 應用程式。若要啟用 web 應用程式以將其從 Visual Studio 發佈至 Azure，您必須將它與 Visual Studio 中的 Azure 雲端服務專案產生關聯。若要建立相關聯的雲端服務專案，請開啟 web 應用程式專案的捷徑功能表，然後選擇 [轉換]，**轉換成 Azure 雲端服務專案**。
 
 1. 雲端服務專案加入至您的方案之後，請再次開啟相同的捷徑功能表並選擇 [發佈]。如需有關如何啟用 Azure 的應用程式之詳細資訊，請參閱[作法：將 Web 應用程式從 Visual Studio 移轉並發佈至 Azure 雲端服務](https://msdn.microsoft.com/library/azure/hh420322.aspx)。
 
->[AZURE.NOTE]請務必以系統管理員認證啟動 Visual Studio (以系統管理員身分執行)。
+>[AZURE.NOTE] 請務必以系統管理員認證啟動 Visual Studio (以系統管理員身分執行)。
 
 1. 當您準備好發佈應用程式時，開啟 Azure 雲端服務專案的捷徑功能表，然後選擇 [發佈]。下列步驟會顯示發佈 Azure 應用程式精靈。
 
@@ -65,7 +65,7 @@
 
 1. 修改您想要用於這個部署的任何設定，然後選擇 [發佈] 按鈕將它發佈 (下一節會提供各種設定的詳細資料)。若要在發佈之前檢閱設定，請選擇 [下一步] 按鈕。
 
-    >[AZURE.NOTE]如果您在此步驟中選擇 [發佈]，您可以在 Visual Studio 中監視此部署的狀態。
+    >[AZURE.NOTE] 如果您在此步驟中選擇 [發佈]，您可以在 Visual Studio 中監視此部署的狀態。
 
 您可以使用 [發佈 Azure 應用程式] 精靈修改部署的一般及進階設定。例如，您可以選擇一項設定，在發佈應用程式前將其部署至測試環境。下圖顯示 Azure 部署的 [一般設定] 索引標籤。
 
@@ -97,7 +97,7 @@
 
 1. 在 [儲存體帳戶] 清單中，選擇要用於這個部署的儲存體帳戶。比較雲端服務和儲存體帳戶的資料中心位置。在理想的情況下，這些位置應該相同。
 
-    >[AZURE.NOTE]Azure 儲存體帳戶會儲存應用程式部署的封裝。部署應用程式之後，封裝會從儲存體帳戶中移除。
+    >[AZURE.NOTE] Azure 儲存體帳戶會儲存應用程式部署的封裝。部署應用程式之後，封裝會從儲存體帳戶中移除。
 
 1. 如果您只想要部署更新的元件，請選取 [部署更新] 核取方塊。這種部署類型比完整部署更快速。選擇**設定**連結以開啟 [部署更新設定] 對話方塊，如下圖所示。
 
@@ -113,7 +113,7 @@
 2. 若要分析應用程式，請選取 [啟用分析] 核取方塊，然後選擇**設定**連結以顯示分析選項。
 
 
-    >[AZURE.NOTE]您必須使用 Visual Studio Ultimate 以啟用 IntelliTrace 或階層互動分析 (TIP)，而且兩者不能同時啟用。
+    >[AZURE.NOTE] 您必須使用 Visual Studio Ultimate 以啟用 IntelliTrace 或階層互動分析 (TIP)，而且兩者不能同時啟用。
 
     如需詳細資訊，請參閱[使用 IntelliTrace 和 Visual Studio 進行已發佈的雲端服務偵錯](https://msdn.microsoft.com/library/azure/ff683671.aspx)和[測試雲端服務的效能](https://msdn.microsoft.com/library/azure/hh369930.aspx)。
 
@@ -125,13 +125,11 @@
 
     ![發佈精靈的摘要畫面](./media/vs-azure-tools-publish-azure-application-wizard/IC749015.png)
 
-    >[AZURE.NOTE]發佈設定檔會出現在 Visual Studio 的 [方案總管] 中，而且設定檔設定會寫入至副檔名為.azurePubxml 的檔案。設定會儲存為 XML 標記的屬性。
+    >[AZURE.NOTE] 發佈設定檔會出現在 Visual Studio 的 [方案總管] 中，而且設定檔設定會寫入至副檔名為.azurePubxml 的檔案。設定會儲存為 XML 標記的屬性。
 
 1. 選擇 [發佈] 以發佈應用程式。您可以在 Visual Studio 中監視 [輸出] 視窗中的處理序狀態。
 
 ## 另請參閱
-
-[設定從 Visual Studio 發佈雲端服務所需的服務](https://msdn.microsoft.com/library/azure/ff683668.aspx)
 
 [作法：從 Visual Studio 將 Web 應用程式移轉並發佈至 Azure 雲端服務](https://msdn.microsoft.com/library/azure/hh420322.aspx)
 
@@ -141,4 +139,4 @@
 
 [測試雲端服務的效能](https://msdn.microsoft.com/library/azure/hh369930.aspx)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0204_2016-->

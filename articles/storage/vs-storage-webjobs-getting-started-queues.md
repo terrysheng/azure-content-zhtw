@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # 開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案)
@@ -259,7 +259,7 @@ SDK 會自動將物件序列化為 JSON。即使物件是空值，也一律會�
 
 ## 如何在處理佇列訊息時讀取和寫入 Blob 和資料表
 
-**Blob** 和 **Table** 屬性可讓您讀取和寫入 Blob 和資料表。本節中的範例適用於 Blob。如需示範如何在建立或更新 Blob 時觸發程序的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)，若需讀取和撰寫資料表的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure 資料表儲存體](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)。
+**Blob** 和 **Table** 屬性可讓您讀取和寫入 Blob 和資料表。本節中的範例適用於 Blob。如需示範如何在建立或更新 Blob 時觸發程序的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](/app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)，若需讀取和撰寫資料表的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure 資料表儲存體](/app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md)。
 
 ### 觸發 Blob 作業的字串佇列訊息
 
@@ -543,4 +543,4 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次嘗試�
 
 本文提供的程式碼範例示範如何處理使用 Azure 佇列的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

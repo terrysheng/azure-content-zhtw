@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # 在 HDInsight (Hadoop) 中使用 Apache Storm、事件中樞和 HBase 分析感應器資料
@@ -24,9 +24,9 @@
 
 ## 必要條件
 
-* Azure 訂閱。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+* Azure 訂閱。請參閱[取得 Azure 免費試用](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-* [Apache Storm on HDInsight 叢集](../hdinsight-storm-getting-started.md)
+* [Apache Storm on HDInsight 叢集](hdinsight-apache-storm-tutorial-get-started.md)
 
 * [Node.js](http://nodejs.org/)：用於 Web 儀表板，並可將感應器資料傳送至事件中樞。
 
@@ -256,7 +256,7 @@
 
 ### 發佈網站儀表板。
 
-1. 若要將儀表板部署至 Azure 網站，請依照[建置並部署 Node.js 網站至 Azure](../web-sites-nodejs-develop-deploy-mac.md) 所述的步驟操作。記下網站的 URL，其樣式大致如下：**mywebsite.azurewebsites.net**。
+1. 若要將儀表板部署至 Azure 網站，請依照[建置並部署 Node.js 網站至 Azure](../app-service-web/web-sites-nodejs-develop-deploy-mac.md) 所述的步驟操作。記下網站的 URL，其樣式大致如下：**mywebsite.azurewebsites.net**。
 
 2. 網站建立後，前往 Azure 傳統入口網站找到該網站，然後選取 [設定] 索引標籤。啟用 [Web 通訊端]，然後按一下頁面底部的 [儲存]。
 
@@ -422,4 +422,4 @@
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

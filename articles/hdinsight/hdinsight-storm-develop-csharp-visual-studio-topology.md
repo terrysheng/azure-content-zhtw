@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # 使用 Visual Studio 的 Hadoop 工具開發 Apache Storm on HDInsight 的 C# 拓撲
@@ -39,11 +39,11 @@
 
 -	HDInsight Tools for Visual Studio：請參閱[開始使用 HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) 以安裝及設定 HDInsight tools for Visual Studio。
 
-    > [AZURE.NOTE]Visual Studio Express 不支援 HDInsight Tools for Visual Studio
+    > [AZURE.NOTE] Visual Studio Express 不支援 HDInsight Tools for Visual Studio
 
--	Apache Storm on HDInsight 叢集：請參閱[開始使用 Apache Storm on HDInsight](hdinsight-storm-getting-started.md) 以取得建立叢集的步驟。
+-	Apache Storm on HDInsight 叢集：請參閱[開始使用 Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-getting-started.md) 以取得建立叢集的步驟。
 
-	> [AZURE.NOTE]目前 HDInsight Tools for Visual Studio 只支援 Storm on HDInsight 3.2 版叢集。
+	> [AZURE.NOTE] 目前 HDInsight Tools for Visual Studio 只支援 Storm on HDInsight 3.2 版叢集。
 
 ##範本
 
@@ -62,7 +62,7 @@ HDInsight Tools for Visual Studio 提供下列範本::
 | Storm 混合式範例 | 如何使用 Java 元件 |
 | Storm 範例 | 基本的字數統計拓撲 |
 
-> [AZURE.NOTE]HBase 讀取器和寫入器範例會使用 HBase REST API 與 HDInsight 叢集上的 HBase 通訊，而不是 HBase Java API。
+> [AZURE.NOTE] HBase 讀取器和寫入器範例會使用 HBase REST API 與 HDInsight 叢集上的 HBase 通訊，而不是 HBase Java API。
 
 在這份文件的步驟中，您將使用基本 Storm 應用程式專案類型來建立新的拓樸。
 
@@ -179,7 +179,7 @@ HDInsight Tools for Visual Studio 提供下列範本::
 
 	-	**Counter.cs**：將會實作 Bolt，該Bolt 會計算每個單字的數目，並發出一串新文字和每個單字的計數。
 
-	> [AZURE.NOTE]這些 Bolt 只會讀取和寫入資料流，但是您也可以使用 Bolt 與資料庫或服務等來源進行通訊。
+	> [AZURE.NOTE] 這些 Bolt 只會讀取和寫入資料流，但是您也可以使用 Bolt 與資料庫或服務等來源進行通訊。
 
 3.	開啟 **Splitter.cs**。請注意，它預設只有一個方法：**Execute**。這是在 Bolt 收到要處理的 Tuple 時所呼叫。此時，您可以讀取和處理內送 Tuple，以及發出輸出 Tuple。
 
@@ -378,19 +378,19 @@ Spout 和 Bolt 是以圖形方式排列，用以定義資料在元件之間的�
 
 1.	在**方案總管**中，於專案上按一下滑鼠右鍵，然後選取 [提交至 Storm on HDInsight]。
 
-	> [AZURE.NOTE]如果出現提示，請輸入您 Azure 訂用帳戶的登入認證。如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
+	> [AZURE.NOTE] 如果出現提示，請輸入您 Azure 訂用帳戶的登入認證。如果您有多個訂用帳戶，請登入包含 Storm on HDInsight 叢集的訂用帳戶。
 
 2.	從 [Storm 叢集] 下拉式清單中選取 Storm on HDInsight 叢集，然後選取 [提交]。您可以使用 [輸出] 視窗監視提交是否成功。
 
 3.	順利提交拓撲時，應該會出現叢集的 [Storm 拓撲]。從清單中選取 [WordCount] 拓撲，以檢視執行中拓撲的詳細資訊。
 
-	> [AZURE.NOTE]您也可以從**伺服器總管**檢視 **Storm 拓撲**：依序展開 [Azure] > [HDInsight]，以滑鼠右鍵按一下 Storm on HDInsight 叢集，然後選取 [檢視 Storm 拓撲]。
+	> [AZURE.NOTE] 您也可以從**伺服器總管**檢視 **Storm 拓撲**：依序展開 [Azure] > [HDInsight]，以滑鼠右鍵按一下 Storm on HDInsight 叢集，然後選取 [檢視 Storm 拓撲]。
 
 	使用 Spout 或 Bolt 的連結以檢視這些元件的資訊。將會針對每個選取的項目開啟新的視窗。
 
 4.	從 [拓撲摘要] 檢視中，按一下 [終止] 停止拓撲。
 
-	> [AZURE.NOTE]除非停用 Storm 拓撲或刪除叢集，否則 Storm 拓撲會繼續執行。
+	> [AZURE.NOTE] 除非停用 Storm 拓撲或刪除叢集，否則 Storm 拓撲會繼續執行。
 
 ##交易式拓撲
 
@@ -428,11 +428,11 @@ HDInsight Tools for Visual Studio 也可以用來建立混合式拓撲，其中�
 
 	-	交易式版本定義於 **HybridTopologyTx\_csharpSpout\_javaBolt**
 
-		> [AZURE.NOTE]這個版本也會示範如何使用文字檔中的 Clojure 程式碼做為 Java 元件。
+		> [AZURE.NOTE] 這個版本也會示範如何使用文字檔中的 Clojure 程式碼做為 Java 元件。
 
 若要在提交專案時切換所使用的拓撲，只要在提交至叢集之前將 `[Active(true)]` 陳述式移至您要使用的拓撲即可。
 
-> [AZURE.NOTE]在 **JavaDependency** 資料夾中，所需的所有 Java 檔案都會提供為此專案的一部分。
+> [AZURE.NOTE] 在 **JavaDependency** 資料夾中，所需的所有 Java 檔案都會提供為此專案的一部分。
 
 建立和提交混合式拓撲時，請考慮下列項目：
 
@@ -450,7 +450,7 @@ SCP.Net 版本 0.9.4.203 引進了專用於事件中樞 Spout (從事件中心�
 
 -	**TopologyBuilder.SetEventHubSpout** 方法：將事件中樞 Spout 元件加入至拓撲
 
-> [AZURE.NOTE]相較於其他 Java 元件，雖然這些可讓您更輕鬆地使用事件中樞 Spout，您仍然必須使用 CustomizedInteropJSONSerializer 來序列化 spout 所產生的資料。
+> [AZURE.NOTE] 相較於其他 Java 元件，雖然這些可讓您更輕鬆地使用事件中樞 Spout，您仍然必須使用 CustomizedInteropJSONSerializer 來序列化 spout 所產生的資料。
 
 ##如何更新 SCP.NET
 
@@ -460,9 +460,9 @@ SCP.Net 版本 0.9.4.203 引進了專用於事件中樞 Spout (從事件中心�
 
 2. 從封裝管理員，選取 [更新]。如果有可用的更新，它會列出。按一下 [更新] 按鈕讓封裝來安裝它。
 
-> [AZURE.IMPORTANT]如果您的專案是利用其中一個未使用 NuGet 進行封裝更新的舊版 SCP.NET 建立，您必須執行下列步驟更新為新的版本：
+> [AZURE.IMPORTANT] 如果您的專案是利用其中一個未使用 NuGet 進行封裝更新的舊版 SCP.NET 建立，您必須執行下列步驟更新為新的版本：
 >
-> 1. 在 [方案總管] 中，以滑鼠右鍵按一下專案並選取 [管理 NuGet 封裝]。
+> 1. 在 [**方案總管**] 中，以滑鼠右鍵按一下專案並選取 [**管理 NuGet 封裝**]。
 > 2. 使用 [搜尋] 欄位，搜尋 **Microsoft.SCP.Net.SDK** 然後將其加入專案。
 
 ##疑難排解
@@ -471,13 +471,13 @@ SCP.Net 版本 0.9.4.203 引進了專用於事件中樞 Spout (從事件中心�
 
 雖然很容易就可以將拓撲部署至叢集，但是在某些情況下，您可能需要在本機測試拓撲。使用下列步驟，在開發環境上以本機執行和測試本教學課程中的範例拓撲。
 
-> [AZURE.WARNING]本機測試只適用於僅限 C# 的基本拓樸。您不得將本機測試使用於混合式拓撲或使用多個資料流的拓撲，因為您將收到錯誤。
+> [AZURE.WARNING] 本機測試只適用於僅限 C# 的基本拓樸。您不得將本機測試使用於混合式拓撲或使用多個資料流的拓撲，因為您將收到錯誤。
 
 1.	在**方案總管**中，於專案上按一下滑鼠右鍵，然後選取 [屬性]。在專案屬性中，將 [輸出類型] 變更為 [主控台應用程式]。
 
 	![輸出類型](./media/hdinsight-storm-develop-csharp-visual-studio-topology/outputtype.png)
 
-	> [AZURE.NOTE]請記得先將 [輸出類型] 變更回 [類別庫]，再將拓撲部署至叢集。
+	> [AZURE.NOTE] 請記得先將 [輸出類型] 變更回 [類別庫]，再將拓撲部署至叢集。
 
 2.	在**方案總管**中，於專案上按一下滑鼠右鍵，然後選取 [加入] > [新項目]。選取 [類別]，並輸入 **LocalTest.cs** 做為類別名稱。最後按一下 [加入]。
 
@@ -600,11 +600,11 @@ SCP.Net 版本 0.9.4.203 引進了專用於事件中樞 Spout (從事件中心�
 
 7.	使用 **Windows 檔案總管**找到包含您專案的目錄，例如 **C:\\Users<your\_user\_name>\\Documents\\Visual Studio 2013\\Projects\\WordCount\\WordCount**。在此目錄中，開啟 [Bin]，然後按一下 [偵錯]。您應該會看到執行測試時所產生的文字檔：sentences.txt、counter.txt 和 splitter.txt。開啟每個文字檔，並檢查資料。
 
-	> [AZURE.NOTE]字串資料會保存為這些檔案中的十進位值的陣列。例如，**splitter.txt** 檔案中的 [[97,103,111]] 是 'and' 這個字。
+	> [AZURE.NOTE] 字串資料會保存為這些檔案中的十進位值的陣列。例如，**splitter.txt** 檔案中的 [[97,103,111]] 是 'and' 這個字。
 
 雖然在本機測試基本字數應用程式相當瑣細，但是當您具有與外部資料來源進行通訊或執行複雜資料分析的複雜拓撲時，就極具價值。處理這類專案時，您可能需要在元件中設定中斷點並逐步執行程式碼，以隔離問題。
 
-> [AZURE.NOTE]請一定要先將 [專案類型] 設回 [類別庫]，再部署至 Storm on HDInsight 叢集。
+> [AZURE.NOTE] 請一定要先將 [專案類型] 設回 [類別庫]，再部署至 Storm on HDInsight 叢集。
 
 ###記錄資訊
 
@@ -614,9 +614,9 @@ SCP.Net 版本 0.9.4.203 引進了專用於事件中樞 Spout (從事件中心�
 Context.Logger.Info("Component started");
 ```
 
-您可以從 [Hadoop 服務記錄] \(位於**伺服器總管中**) 檢視記錄的資訊。展開 Storm on HDInsight 叢集的項目，然後展開 [Hadoop 服務記錄]。最後，選取要檢視的記錄檔。
+您可以從 [Hadoop 服務記錄] (位於**伺服器總管中**) 檢視記錄的資訊。展開 Storm on HDInsight 叢集的項目，然後展開 [Hadoop 服務記錄]。最後，選取要檢視的記錄檔。
 
-> [AZURE.NOTE]記錄會儲存在您叢集所使用的 Azure 儲存體帳戶中。如果此訂用帳戶與您用來登入 Visual Studio 的訂用帳戶不同，則必須登入含有儲存體帳戶的訂用帳戶，才能檢視這項資訊。
+> [AZURE.NOTE] 記錄會儲存在您叢集所使用的 Azure 儲存體帳戶中。如果此訂用帳戶與您用來登入 Visual Studio 的訂用帳戶不同，則必須登入含有儲存體帳戶的訂用帳戶，才能檢視這項資訊。
 
 ###檢視錯誤資訊
 
@@ -656,6 +656,6 @@ Context.Logger.Info("Component started");
 
 **Apache HBase on HDInsight**
 
--	[開始使用 HBase on HDInsight](hdinsight-hbase-get-started.md)
+-	[開始使用 HBase on HDInsight](hdinsight-hbase-tutorial-get-started.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

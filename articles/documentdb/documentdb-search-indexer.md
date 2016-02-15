@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="10/28/2015" 
+    ms.date="02/01/2016" 
     ms.author="anhoh"/>
 
 #使用索引子連接 DocumentDB 與 Azure 搜尋
@@ -88,7 +88,7 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
         "softDeleteMarkerValue" : "the value that identifies a document as deleted" 
     }
 
-> [AZURE.NOTE]如果您打算使用自訂投射，則必須在 SELECT 子句中包含該屬性。
+> [AZURE.NOTE] 如果您打算使用自訂投射，則必須在 SELECT 子句中包含該屬性。
 
 ###<a id="CreateDataSourceExample"></a>要求本文範例
 
@@ -121,7 +121,7 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
 
 ##<a id="CreateIndex"></a>步驟 2：建立索引
 
-建立目標 Azure 搜尋服務索引 (如果您尚未建立)。您可以從 [Azure 傳統入口網站 UI](../search/search-get-started.md#test-service-operations) 或使用[建立索引 API](https://msdn.microsoft.com/library/azure/dn798941.aspx) 來執行此作業。
+建立目標 Azure 搜尋服務索引 (如果您尚未建立)。您可以從 [Azure 入口網站 UI](../search/search-get-started.md#test-service-operations) 或使用[建立索引 API](https://msdn.microsoft.com/library/azure/dn798941.aspx) 來執行此作業。
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -270,4 +270,4 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
  - 若要深入了解 Azure 搜尋服務，請參閱[搜尋服務頁面](https://azure.microsoft.com/services/search/)。
  
 
-<!-----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

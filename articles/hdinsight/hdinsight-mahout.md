@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 #透過在 HDInsight 上將 Apache Mahout 與 Hadoop 搭配使用來產生電影推薦
@@ -23,7 +23,7 @@
 
 了解如何使用搭配 Azure HDInsight 的 [Apache Mahout](http://mahout.apache.org) 機器學習庫產生電影推薦。
 
-> [AZURE.NOTE]此文件中的步驟需要 Windows 用戶端和 Windows 架構的 HDInsight 叢集。如需搭配使用來自 Linux、OS X 或 Unix 用戶端的 Mahout 與 Linux 架構之 HDInsight 叢集的相關資訊，請參閱[透過在 HDInsight 上將 Apache Mahout 與 Linux 架構的 Hadoop 搭配使用來產生電影推薦清單](hdinsight-hadoop-mahout-linux-mac.md)
+> [AZURE.NOTE] 此文件中的步驟需要 Windows 用戶端和 Windows 架構的 HDInsight 叢集。如需搭配使用來自 Linux、OS X 或 Unix 用戶端的 Mahout 與 Linux 架構之 HDInsight 叢集的相關資訊，請參閱[透過在 HDInsight 上將 Apache Mahout 與 Linux 架構的 Hadoop 搭配使用來產生電影推薦清單](hdinsight-hadoop-mahout-linux-mac.md)
 
 
 ##<a name="learn"></a>您將了解
@@ -36,7 +36,7 @@ Mahout 是 Apache Hadoop 的[機器學習][ml]庫。Mahout 包含可處理資料
 
 * 如何在 HDInsight 3.0 和 HDInsight 2.0 叢集上安裝 Mahout
 
-	> [AZURE.NOTE]Mahout 提供 HDInsight 3.1 版的叢集。如果您正在使用舊版的 HDInsight，請參閱[安裝 Mahout](#install) 後再繼續。
+	> [AZURE.NOTE] Mahout 提供 HDInsight 3.1 版的叢集。如果您正在使用舊版的 HDInsight，請參閱[安裝 Mahout](#install) 後再繼續。
 
 ##先決條件
 
@@ -46,7 +46,7 @@ Mahout 是 Apache Hadoop 的[機器學習][ml]庫。Mahout 包含可處理資料
 
 ##<a name="recommendations"></a>使用 Windows PowerShell 產生推薦
 
-> [AZURE.NOTE]雖然本節中使用的工作能夠利用 Windows PowerShell 來執行，但 Mahout 隨附的許多類別目前仍無法搭配 Windows PowerShell 運作，而必須使用 Hadoop 命令列來執行。如需無法搭配 Windows PowerShell 使用的類別清單，請參閱[疑難排解](#troubleshooting)一節。
+> [AZURE.NOTE] 雖然本節中使用的工作能夠利用 Windows PowerShell 來執行，但 Mahout 隨附的許多類別目前仍無法搭配 Windows PowerShell 運作，而必須使用 Hadoop 命令列來執行。如需無法搭配 Windows PowerShell 使用的類別清單，請參閱[疑難排解](#troubleshooting)一節。
 >
 > 如需使用 Hadoop 命令列執行 Mahout 工作的範例，請參閱[使用 Hadoop 命令列將資料分類](#classify)。
 
@@ -186,7 +186,7 @@ Mahout 提供的其中一項功能是推薦引擎。這個引擎接受 `userID``
             -HttpCredential $creds `
             -DisplayOutputType StandardError
 
-> [AZURE.NOTE]Mahout 工作不會移除處理工作時所建立的暫存資料。範例工作中所指定的 `--tempDir` 參數會將暫存檔隔離到特定的目錄。
+> [AZURE.NOTE] Mahout 工作不會移除處理工作時所建立的暫存資料。範例工作中所指定的 `--tempDir` 參數會將暫存檔隔離到特定的目錄。
 
 Mahout 工作不會將輸出傳回 STDOUT。相反地，其會將該輸出儲存在指定的輸出目錄 __part-r-00000__ 中。指令碼會下載這個檔案到您工作站上目前目錄的 __output.txt__ 檔。
 
@@ -412,7 +412,7 @@ Mahout 可用的其中一個分類方法是建置[隨機森林][forest]。這是
 
   此工作也會產生一個位於：\_\___wasb:///example/data/predictions/KDDTest+.arff.out__ 的檔案。不過，此檔案無法讓人判讀。
 
-> [AZURE.NOTE]Mahout 工作不會覆寫檔案。如果您想要重新執行這些工作，則必須刪除先前的工作所建立的檔案。
+> [AZURE.NOTE] Mahout 工作不會覆寫檔案。如果您想要重新執行這些工作，則必須刪除先前的工作所建立的檔案。
 
 ##<a name="troubleshooting"></a>疑難排解
 
@@ -428,9 +428,9 @@ Mahout 安裝於 HDInsight 3.1 叢集上，且可使用下列步驟來手動安�
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	建置完成之後，JAR 檔案會建立在 __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__ 中。
+    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] 當 Mahout 1.0 發行時，您應能搭配 HDInsight 3.0 使用預先建置的封裝。
+    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
 2. 將 jar 檔案上傳至叢集預設儲存庫中的 __example/jars__。使用您 HDInsight 叢集的名稱來取代下列程式碼中的 CLUSTERNAME，並且使用指向 __mahout-coure-0.9-job.jar__ 檔案的路徑來取代 FILENAME。
 
@@ -511,9 +511,9 @@ HDInsight 3.1 叢集包含 Mahout。路徑和檔案名稱包含叢集上安裝�
 
 您現在已了解如何使用 Mahout，請繼續探索在 HDInsight 上使用資料的其他方法：
 
-* [搭配 HDInsight 使用 Hive](../hadoop-use-hive.md)
-* [搭配 HDInsight 使用 Pig](../hadoop-use-pig.md)
-* [搭配 HDInsight 使用 MapReduce](../hadoop-use-mapreduce.md)
+* [搭配 HDInsight 使用 Hive](hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
+* [搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: ../powershell-install-configure.md
@@ -530,4 +530,4 @@ HDInsight 3.1 叢集包含 Mahout。路徑和檔案名稱包含叢集上安裝�
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

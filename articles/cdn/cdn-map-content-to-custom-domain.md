@@ -25,8 +25,8 @@
 	CNAME 記錄是將來源網域對應至目的地網域的 DNS 功能。在這種情況下，來源網域是您的自訂網域和子網域 (子網域一律是必要的項目)。目的地網域是 CDN 端點。
 
 	然而，在進行將自訂網域對應至 CDN 端點時，會由於您在 Azure 入口網站中註冊網域而導致網域短暫地停擺。
-     
-2. [加入利用 **cdnverify** 的中繼註冊步驟]((#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
+	 
+2. [使用 **cdnverify** 加入中繼註冊步驟](#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
 
 	如果自訂網域目前支援不得發生停機的服務等級協定 (SLA) 的應用程式，您可以使用 Azure **cdnverify** 子網域提供中繼註冊步驟，使用者就能在 DNS 對應發生時存取網域。
 
@@ -83,4 +83,4 @@
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

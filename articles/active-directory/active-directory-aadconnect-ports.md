@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/01/2016"
 	ms.author="billmath"/>
 
 # 混合式身分識別所需的連接埠和通訊協定
@@ -46,7 +46,13 @@
 如需 Office 365 連接埠和 IP 位址的清單，請參閱 [Office 365 URL 和 IP 位址範圍。](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
 
 ## 表 3 - Azure AD Connect 和同盟伺服器/WAP
-此表說明 Azure AD Connect 伺服器與同盟/WAP 伺服器之間通訊所需的連接埠和通訊協定。敬請期待！
+此表說明 Azure AD Connect 伺服器與同盟/WAP 伺服器之間通訊所需的連接埠和通訊協定。
+
+| 通訊協定 |連接埠 |說明
+| --------- | --------- |--------- |
+| HTTP|80 (TCP/UDP)|用於下載 CRL (憑證撤銷清單) 以驗證 SSL 憑證。
+|HTTPS|443(TCP/UDP)|用來與 Azure AD 同步處理。
+|WinRM|5985| WinRM 接聽程式
 
 ## 表 4 - WAP 和同盟伺服器
 此表說明同盟伺服器與 WAP 伺服器之間通訊所需的連接埠和通訊協定。
@@ -79,4 +85,4 @@
 ### 6b - 適用於 (AD FS/Sync) 和 Azure AD 之 Azure AD Connect Health 代理程式的端點
 如需端點的清單，請參閱 [Azure AD Connect Health 代理程式的需求一節](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

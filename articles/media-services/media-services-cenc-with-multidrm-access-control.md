@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016"  
+	ms.date="02/02/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #具有多重 DRM 及存取控制的 CENC：Azure 與 Azure 媒體服務的參考設計和實作
@@ -40,13 +40,13 @@ Azure Active Directory、Azure 媒體服務、Azure 媒體播放器、動態加�
 	- [即時串流呢？](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
 	- [在 Azure 媒體服務外部的授權伺服器呢？](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
 	- [如果我想要使用自訂 STS？](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
-	- [技術提示](media-services-cenc-with-multidrm-access-control.md#tech-note)
 - [完整的系統和測試](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
 	- [使用者登入](media-services-cenc-with-multidrm-access-control.md#user-login)
 	- [Using Encrypted Media Extensions for PlayReady (使用 PlayReady 的加密媒體擴充)](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensipons-for-playready)
 	- [針對 Widevine 使用 EME](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
 	- [不是有權限的使用者](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
 	- [Running custom Secure Token Service (執行自訂安全權杖服務)](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
+- [摘要](media-services-cenc-with-multidrm-access-control.md#summary)
 
 ##簡介
 
@@ -62,7 +62,7 @@ Azure Active Directory、Azure 媒體服務、Azure 媒體播放器、動態加�
 1. 降低管理加密資產的成本，因為只需要一份加密資產；
 1. 排除 DRM 用戶端授權成本，因為原生 DRM 用戶端在其原生平台上通常是免費的。
 
-Microsoft 已經成為 DASH 和 CENC 與其他一些主要業界播放器的積極推動者。Microsoft Azure 媒體服務已提供 DASH 和 CENC 的支援。如需最新的通知，請參閱 Mingfei 的部落格：[Announcing Google Widevine license delivery services public preview in Azure Media Services (宣佈在 Azure 媒體服務中推出 Google Widevine 授權傳遞服務公開預覽版本)](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)，和 [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream (Azure 媒體服務新增 Google Widevine 封裝來傳遞多重 DRM 串流)](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)。
+Microsoft 已經成為 DASH 和 CENC 與其他一些主要業界播放器的積極推動者。Microsoft Azure 媒體服務已提供 DASH 和 CENC 的支援。如需最新的通知，請參閱 Mingfei 的部落格：[Announcing Google Widevine license delivery services in Azure Media Services (宣佈在 Azure 媒體服務中推出 Google Widevine 授權傳遞服務)](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)，和 [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream (Azure 媒體服務新增 Google Widevine 封裝來傳遞多重 DRM 串流)](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)。
 
 ### 本文概觀：
 
@@ -406,7 +406,7 @@ DRM 授權傳遞服務永遠會檢查來自 Azure AD 的目前/有效公開金�
 1.	對稱金鑰：相同金鑰用於產生和驗證 JWT 權杖；
 2.	非對稱金鑰：搭配使用 x509 憑證中的私密-公開金鑰組，私密金鑰用來加密/產生 JWT 權杖，公開金鑰用來驗證權杖。
 
-###技術提示
+####技術提示
 
 如果您使用 .NET Framework/C# 做為開發平台，用於非對稱安全性金鑰的 x509 憑證的金鑰長度必須至少為 2048。這是 .NET Framework 中的 System.IdentityModel.Tokens.X509AsymmetricSecurityKey 類別的需求。否則，會擲回下列例外狀況：
 
@@ -520,6 +520,6 @@ Windows 10 的 Microsoft Edge 及 IE 11 中的 EME，允許支援 [PlayReady SL3
 
 ###通知 
 
-William Zhang、Mingfei Yan、Kilroy Hughes、Roland Le Franc、Julia Kornich
+William Zhang、Mingfei Yan、Roland Le Franc、Kilroy Hughes、Julia Kornich
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

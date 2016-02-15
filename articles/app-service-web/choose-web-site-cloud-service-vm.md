@@ -50,7 +50,7 @@ Azure App Service 是大多數 Web 應用程式的最佳選擇。部署和管理
 
 ### <a id="onprem"></a>我需要一個具有背景處理和資料庫後端的 Web 前端，以執行與內部部署資源整合的商業應用程式。
 
-Azure App Service 是複雜商業應用程式的絕佳解決方案。您開發的應用程式將能夠在負載平衡平台上自動調整、採用 Active Directory 來保護，以及連接到內部部署資源。它可讓您透過世界級的入口網站和 API 來輕鬆管理應用程式，並利用應用程式洞察工具來深入了解客戶如何使用應用程式。[Webjobs][] 功能可讓您在 Web 層執行背景程序和工作，而混合式連線和 [VNET 功能](../fundamentals-introduction-to-azure.md#networking/)可讓您輕鬆地連回到內部部署資源。Azure App Service 為 Web 應用程式提供三個 9 的 SLA，可讓您：
+Azure App Service 是複雜商業應用程式的絕佳解決方案。您開發的應用程式將能夠在負載平衡平台上自動調整、採用 Active Directory 來保護，以及連接到內部部署資源。它可讓您透過世界級的入口網站和 API 來輕鬆管理應用程式，並利用應用程式洞察工具來深入了解客戶如何使用應用程式。[Webjobs][] 功能可讓您在 Web 層執行背景程序和工作，而混合式連線和 VNET 功能可讓您輕鬆地連回到內部部署資源。Azure App Service 為 Web 應用程式提供三個 9 的 SLA，可讓您：
 
 * 在自我修復、自動修補的雲端平台上可靠地執行應用程式。
 * 在全球的資料中心網路上自動調整。
@@ -176,10 +176,7 @@ Web 伺服器執行個體會共用內容和組態，這表示您在調整規模�
 
 ## <a id="nextsteps"></a> 後續步驟
 
-如需這三個 Web 裝載選項的詳細資訊，請參閱下列資源：
-
-* [Azure 簡介](../fundamentals-introduction-to-azure.md)
-* [計算 Azure 所提供的裝載選項](../fundamentals-application-models.md)
+如需這三個 Web 裝載選項的詳細資訊，請參閱[簡介 Azure](../fundamentals-introduction-to-azure.md)。
 
 若要開始對應用程式使用您選擇的選項，請參閱下列資源：
 
@@ -205,4 +202,4 @@ Web 伺服器執行個體會共用內容和組態，這表示您在調整規模�
   [儲存體]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

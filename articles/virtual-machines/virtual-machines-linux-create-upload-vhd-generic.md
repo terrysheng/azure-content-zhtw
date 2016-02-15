@@ -22,14 +22,14 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-**重要事項**：只有在使用其中一個[背書散發套件](virtual-machines-../linux-endorsed-distributions.md)時，Azure 平台 SLA 才適用於執行 Linux OS 的虛擬機器。Azure 映像庫中提供的所有 Linux 散發套件，皆為使用必要組態的背書散發套件。
+**重要事項**：只有在使用其中一個[背書散發套件](virtual-machines-linux-endorsed-distributions.md)時，Azure 平台 SLA 才適用於執行 Linux OS 的虛擬機器。Azure 映像庫中提供的所有 Linux 散發套件，皆為使用必要組態的背書散發套件。
 
-- [Azure 背書散發套件上的 Linux](virtual-machines-../linux-endorsed-distributions.md)
+- [Azure 背書散發套件上的 Linux](virtual-machines-linux-endorsed-distributions.md)
 - [支援 Microsoft Azure 中的 Linux 映像](http://support2.microsoft.com/kb/2941892)
 
 所有執行於 Azure 的散發套件都必須符合許多必要條件，才能在平台上正確執行。本文並未列出所有的必要條件，因為每個散發套件都不同；而且即使您符合下列所有條件，仍很可能需要詳加審視您的 Linux 系統，以確保它可在平台上正常運作。
 
-基於這個原因，我們建議您盡可能從其中一個 [Azure 背書散發套件上的 Linux](../linux-endorsed-distributions.md) 開始著手。下列文章會逐步引導您如何準備 Azure 支援的各種 Linux 背書散發套件：
+基於這個原因，我們建議您盡可能從其中一個 [Azure 背書散發套件上的 Linux](virtual-machines-linux-endorsed-distributions.md) 開始著手。下列文章會逐步引導您如何準備 Azure 支援的各種 Linux 背書散發套件：
 
 - **[CentOS 型散發套件](virtual-machines-linux-create-upload-vhd-centos.md)**
 - **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
@@ -109,7 +109,7 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。一般而言
 
 ## Linux Kernel 需求 ##
 
-適用於 Hyper-V 和 Azure 的 Linux Integration Services (LIS) 驅動程式會直接提供給上游 Linux Kernel。許多包括最新 Linux kernel 版本 (例如 3.x) 的散發套件已經有這些驅動程式，或提供這些驅動程式及其核心的 Backport 版本。上游核心會透過新的修正和功能來不斷更新這些驅動程式，因此若有可能的話，建議您執行將包含這些修正與更新的[背書散發套件](../linux-endorsed-distributions.md)。
+適用於 Hyper-V 和 Azure 的 Linux Integration Services (LIS) 驅動程式會直接提供給上游 Linux Kernel。許多包括最新 Linux kernel 版本 (例如 3.x) 的散發套件已經有這些驅動程式，或提供這些驅動程式及其核心的 Backport 版本。上游核心會透過新的修正和功能來不斷更新這些驅動程式，因此若有可能的話，建議您執行將包含這些修正與更新的[背書散發套件](virtual-machines-linux-endorsed-distributions.md)。
 
 如果您打算執行 Red Hat Enterprise Linux 版本 **6.0-6.3** 的變體，則您必須安裝 Hyper-V 的最新 LIS 驅動程式。您可以在[這裡](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)找到驅動程式。從 RHEL **6.4+** (及衍生物件) 開始，核心已隨附 LIS 驅動程式，因此無需額外的安裝套件，即可在 Azure 上執行這些系統。
 
@@ -195,4 +195,4 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。一般而言
 
 - 接著，您必須關閉虛擬機器，並將 VHD 上傳至 Azure。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

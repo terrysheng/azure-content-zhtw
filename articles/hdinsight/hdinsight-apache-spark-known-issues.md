@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2016" 
-	ms.author="jgao"/>
+	ms.date="02/01/2016" 
+	ms.author="nitinme"/>
 
 # Azure HDInsight 中的 Apache Spark (Linux) 的已知問題
 
@@ -54,6 +54,23 @@ Livy 在有互動式工作階段仍作用中的情況下重新啟動時 (從 Amb
 
 請從 Ambari 手動啟動歷程記錄伺服器。
 
+##載入大於 2 MB 的 Notebook 時發生錯誤
+
+**徵兆：**
+
+在載入大於 2 MB 的 Notebook 時，您可能會看到錯誤 **`Error loading notebook`**。
+
+**緩和：**
+
+如果您收到這個錯誤，並不表示您的資料已損毀或遺失。您的 Notebook 仍在 `/var/lib/jupyter` 中的磁碟上，而您可以透過 SSH 連線到叢集來加以存取。您可以從叢集中將 Notebook 複製到本機電腦 (使用 SCP 或 WinSCP) 來做為備份，以避免遺失 Notebook 中的重要資料。您接著可以在連接埠 8001 以 SSH 通道連到前端節點，以存取 Jupyter 而不透過閘道。您可以從該處清除 Notebook 的輸出，並將其重新儲存，以盡量縮減 Notebook 的大小。
+
+若要防止日後再發生此錯誤，您必須遵循一些最佳作法：
+
+* 務必讓 Notebook 保持小型規模。會傳回到 Jupyter 的任何 Spark 作業輸出皆會保存在 Notebook 中。一般來說，Jupyter 的最佳作法是避免在大型 RDD 或資料框架上執行 `.collect()`。相反地，如果您想要查看 RDD 的內容，請考慮執行 `.take()` 或 `.sample()`，這可讓輸出不會變得太大。
+* 此外，當您儲存 Notebook 時，請清除所有輸出儲存格以減少大小。
+
+
+
 ##Notebook 的初始啟動比預期耗時 
 
 **徵兆：**
@@ -63,16 +80,6 @@ Livy 在有互動式工作階段仍作用中的情況下重新啟動時 (從 Amb
 **緩和：**
  
 沒有因應措施。有時候會需要一分鐘。
-
-##無法自訂核心/記憶體組態
-
-**徵兆：**
- 
-無法從 Spark/Pyspark 核心指定不同於預設值的核心/記憶體組態。
-
-**緩和：**
- 
-此功能即將推出。
 
 ##Jupyter Notebook 建立工作階段逾時
 
@@ -121,6 +128,16 @@ Livy 在有互動式工作階段仍作用中的情況下重新啟動時 (從 Amb
 
     第一個儲存格無法註冊 Notebook 結束時所要呼叫的 sc.stop() 方法。在特定情況下，這可能會導致 Spark 資源流失。在停止這些 Notebook 之前，確實在 Notebook 中執行 import atexit; atexit.register(lambda: sc.stop())，可以避免此問題。如果已意外流失資源，請遵循上述指示刪除已流失的 YARN 應用程式。
      
+##無法自訂核心/記憶體組態
+
+**徵兆：**
+ 
+無法從 Spark/Pyspark 核心指定不同於預設值的核心/記憶體組態。
+
+**緩和：**
+ 
+此功能即將推出。
+
 ## Spark 記錄檔目錄中的權限問題 
 
 **徵兆：**
@@ -139,4 +156,4 @@ Livy 在有互動式工作階段仍作用中的情況下重新啟動時 (從 Amb
 - [概觀：Azure HDInsight 上的 Apache Spark (Linux)](hdinsight-apache-spark-overview.md)
 - [開始使用：在 Azure HDInsight (Linux) 上佈建 Apache Spark 並使用 Spark SQL 執行互動式查詢](hdinsight-apache-spark-jupyter-spark-sql.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

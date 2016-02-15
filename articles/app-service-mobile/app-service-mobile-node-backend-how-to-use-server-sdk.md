@@ -22,8 +22,6 @@
 
 本文提供詳細的資訊及範例，說明如何在 Azure App Service Mobile Apps 中使用 Node.js 後端。
 
-> [AZURE.NOTE] 此 SDK 目前為預覽狀態。因此，不建議您在生產環境中使用此 SDK。本文件中的範例使用 v2.0.0-rc2 的 [azure-mobile-apps]。
-
 ## <a name="Introduction"></a>簡介
 
 Azure App Service Mobile Apps 可讓您將行動最佳化資料存取 Web API 新增至 Web 應用程式。提供的 Azure App Service Mobile Apps SDK 適用於 ASP.NET 和 Node.js Web 應用程式。此 SDK 提供下列作業：
@@ -735,7 +733,7 @@ Azure 入口網站可讓您在 Visual Studio Team Services 中編輯 Node.js 後
 
 [Azure 入口網站]: https://portal.azure.com/
 [OData]: http://www.odata.org
-[Promise]: https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [GitHub 上的 basicapp 範例]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [GitHub 上的待辦事項範例]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
 [GitHub 上的範例目錄]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
@@ -743,8 +741,8 @@ Azure 入口網站可讓您在 Visual Studio Team Services 中編輯 Node.js 後
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js 封裝]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/zh-TW/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS 中介軟體]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

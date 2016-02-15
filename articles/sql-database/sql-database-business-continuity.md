@@ -69,7 +69,7 @@
 
 這些功能是為了解決稍早所列案例而提供。如需如何選取特定功能的指引，請參閱[業務續航力的設計](sql-database-business-continuity-design.md)一節。
 
-> [AZURE.NOTE] ERT 和 RPO 值是設計目標，僅供做為指引之用。它們並非 [SQL Database SLA](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/) 的一部分。
+> [AZURE.NOTE] ERT 和 RPO 的值是設計出來的目標，僅供指引之用。它們並非 [SQL Database SLA](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/) 的一部分。
 
 
 ###時間點還原
@@ -88,4 +88,4 @@
 
 主動式異地複寫適用於高階資料庫。其設計是針對需要最主動復原的寫入密集型應用程式。透過主動式異地複寫，您可以在不同區域的伺服器上最多建立四個可讀取的次要資料庫。您可以使用與標準異地複寫相同的方式，來起始容錯移轉至任何次要資料庫。此外，主動式異地複寫可用來支援應用程式升級或重新配置案例，以及對唯讀工作負載進行負載平衡。如需如何設定異地複寫的詳細資訊，請參閱[業務續航力的設計](sql-database-business-continuity-design.md)；如需如何容錯移轉至次要資料庫的詳細資訊，請參閱[從中斷復原](sql-database-disaster-recovery.md)。如需如何實作應用程式升級而不需要停機的詳細資訊，請參閱[升級應用程式而不需要停機](sql-database-business-continuity-application-upgrade.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

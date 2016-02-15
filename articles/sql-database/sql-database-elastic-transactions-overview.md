@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="sql-database"
-   ms.date="11/02/2015"
+   ms.date="02/01/2016"
    ms.author="torsteng"/>
 
 # Azure SQL Database (預覽版) 的彈性資料庫交易概觀
 
-Azure SQL Database (SQL DB) 的彈性資料庫交易可讓您在 SQL DB 中跨多個資料庫執行交易。SQL DB 的彈性資料庫交易適用於使用 ADO .NET 的 .NET 應用程式，而且與以往熟悉使用 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 類別的程式設計經驗整合。
+Azure SQL Database (SQL DB) 的彈性資料庫交易可讓您在 SQL DB 中跨多個資料庫執行交易。SQL DB 的彈性資料庫交易適用於使用 ADO .NET 的 .NET 應用程式，而且與以往熟悉使用 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 類別的程式設計經驗整合。如要取得程式庫，請參閱 [.NET Framework 4.6.1 (Web 安裝程式)](https://www.microsoft.com/download/details.aspx?id=49981)。
 
 在內部部署，這種案例通常需要執行 Microsoft Distributed Transaction Coordinator (MSDTC)。因為 MSDTC 不適用於 Azure 中的平台即服務應用程式，協調分散式交易的功能現在已直接整合至 SQL DB。應用程式可以連接到任何 SQL Database 來啟動分散式交易，而其中一個資料庫會明確協調分散式交易，如下圖所示。
 
@@ -30,12 +30,12 @@ SQL DB 的彈性資料庫交易可讓應用程式對數個不同 SQL Database �
 
 * Azure 中的多資料庫應用程式：在此案例中，資料垂直分割到 SQL DB 中的多個資料庫，使得不同種類的資料位於不同的資料庫。某些作業需要變更兩個以上的資料庫中保存的資料。應用程式使用彈性資料庫交易來協調資料庫之間的變更，確保不可部分完成性。
 
-* Azure 中的分區化資料庫應用程式：在此案例中，資料層使用彈性資料庫用戶端程式庫或[自行區分化](http://social.technet.microsoft.com/wiki/contents/articles/17987.cloud-service-fundamentals.aspx)，將資料水平分割到 SQL DB 中的多個資料庫。一個顯著的使用案例是在分區化多租用戶應用程式中，當變更牽涉多個租用戶時，需要執行不可部分完成的變更。例如，從一個租用戶轉移到另一個租用戶，而兩者位於不同的資料庫。第二個案例是以細緻分區化來因應大型租用戶的容量需求，這又通常表示某些不可部分完成的作業需要延伸至用於相同租用戶的多個資料庫。第三種案例是以不可部分完成的更新來參考資料庫之間複寫的資料。現在可以利用預覽版，跨多個資料庫協調這幾方面不可部分完成的交易式作業。彈性資料庫交易使用兩階段認可，確保跨資料庫的交易不可部分完成性。如果交易涉及的資料庫少於 100，則適合併入單一交易內。不強制規定這些限制，但超出這些限制時，彈性資料庫交易的效能和成功率必然下降。
+* Azure 中的分區化資料庫應用程式：在此案例中，資料層使用[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)或自我分區化功能，在 SQL DB 中橫跨許多資料庫來水平分割資料。一個顯著的使用案例是在分區化多租用戶應用程式中，當變更牽涉多個租用戶時，需要執行不可部分完成的變更。例如，從一個租用戶轉移到另一個租用戶，而兩者位於不同的資料庫。第二個案例是以細緻分區化來因應大型租用戶的容量需求，這又通常表示某些不可部分完成的作業需要延伸至用於相同租用戶的多個資料庫。第三種案例是以不可部分完成的更新來參考資料庫之間複寫的資料。現在可以利用預覽版，跨多個資料庫協調這幾方面不可部分完成的交易式作業。彈性資料庫交易使用兩階段認可，確保跨資料庫的交易不可部分完成性。如果交易涉及的資料庫少於 100，則適合併入單一交易內。不強制規定這些限制，但超出這些限制時，彈性資料庫交易的效能和成功率必然下降。
 
 
 ## 安裝和移轉
 
-我們更新 .NET 程式庫 System.Data.dll 和 System.Transactions.dll，以支援在 SQL DB 中執行彈性資料庫交易。DLL 確保必要時使用兩階段交易認可，以確保不可部分完成性。若要使用彈性資料庫交易來開始開發應用程式，請安裝 [.NET Framework 4.6.1](https://www.microsoft.com/zh-TW/download/details.aspx?id=49981) 或更新版本。在舊版 .NET Framework 上執行時，交易無法升級為分散式交易，將會引發例外狀況。
+我們更新 .NET 程式庫 System.Data.dll 和 System.Transactions.dll，以支援在 SQL DB 中執行彈性資料庫交易。DLL 確保必要時使用兩階段交易認可，以確保不可部分完成性。若要使用彈性資料庫交易來開始開發應用程式，請安裝 [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) 或更新版本。在舊版 .NET Framework 上執行時，交易無法升級為分散式交易，將會引發例外狀況。
 
 安裝之後，您就可以使用 System.Transactions 中的分散式交易 API 和 SQL DB 連接。如果您有使用這些 API 的現有 MSDTC 應用程式，只要在安裝 4.6.1 Framework 之後，為 .NET 4.6 重建現有的應用程式即可。如果專案以 .NET 4.6 為目標，它們會自動使用新 Framework 版本中更新的 DLL，而結合 SQL DB 連接的分散式交易 API 呼叫現在會成功。
 
@@ -145,4 +145,4 @@ SQL DB 中的彈性資料庫交易目前有下列限制：
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Media Encoder Standard 格式和轉碼器" 
-	description="本主題提供 Azure Media Encoder Standard 格式和轉碼器的概觀。" 
+	description="本主題提供媒體編碼器標準格式和轉碼器的概觀。" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/28/2016"  
 	ms.author="juliako"/>
 
 #Media Encoder Standard 格式和轉碼器
@@ -121,4 +121,4 @@ MPEG2-TS |H.264 (高、主要和基準設定檔)|AAC-LC、HE-AAC v1、HE-AAC v2
 
 [如何使用 Media Encoder Standard 進行編碼](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

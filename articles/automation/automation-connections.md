@@ -25,7 +25,7 @@
 
 ## Windows PowerShell Cmdlet
 
-下表中的 Cmdlet 是用來使用 Windows PowerShell 建立及管理自動化連接。它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md)的一部分推出，可供在自動化 Runbook 和 DSC 設定中使用。
+下表中的 Cmdlet 是用來使用 Windows PowerShell 建立和管理自動化連接。它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md)的一部分推出，可供在自動化 Runbook 和 DSC 設定中使用。
 
 |Cmdlet|說明|
 |:---|:---|
@@ -46,7 +46,7 @@
 
 ## 建立新連接
 
-### 使用 Azure 入口網站建立新的連接
+### 使用 Azure 傳統入口網站建立新連接
 
 1. 從您的自動化帳戶，在視窗的頂端按一下 [**資產**]。
 1. 在視窗的底端按一下 [**加入設定**]。
@@ -55,7 +55,7 @@
 1. 完成精靈，然後按一下核取方塊以儲存新連接。
 
 
-### 使用 Azure 預覽入口網站建立新連接
+### 使用 Azure 入口網站建立新的連接
 
 1. 從您的自動化帳戶，按一下 [**資產**] 部分，以開啟 [**資產**] 分頁。
 1. 按一下 [**連接**] 部分，以開啟 [**連接**] 分頁。
@@ -95,7 +95,7 @@
 	Send-TwilioSMS -Connection $Con -From $NumFrom -To $NumTo -Body $Body
 
 	#Send text with connection properties.
-	Send-TwilioSMS -AccountSid $Con.AccountSid -AuthToken $Con.AuthToken $Con -From $NumFrom -To $NumTo -Body $Body
+	Send-TwilioSMS -AccountSid $Con.AccountSid -AuthToken $Con.AuthToken -From $NumFrom -To $NumTo -Body $Body
 
 ### 圖形化 Runbook 範例
 
@@ -120,4 +120,4 @@
 - [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

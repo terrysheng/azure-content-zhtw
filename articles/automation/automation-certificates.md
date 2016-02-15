@@ -46,7 +46,7 @@
 
 建立新憑證時，您會將 cer 或 pfx 檔案上傳到 Azure 自動化。如果您將憑證標示為可匯出，那麼您可以將它傳送到 Azure 自動化憑證存放區外部。如果無法匯出，則只可以將它用在 Runbook 或 DSC 組態內的簽署。
 
-### 使用 Azure 入口網站建立新憑證
+### 使用 Azure 傳統入口網站建立新憑證
 
 1. 從您的自動化帳戶，在視窗的頂端按一下 [**資產**]。
 1. 在視窗的底端按一下 [**加入設定**]。
@@ -57,7 +57,7 @@
 1. 按一下核取記號來上傳憑證檔案，並儲存新的憑證資產。
 
 
-### 使用 Azure 預覽入口網站建立新憑證
+### 使用 Azure 入口網站建立新憑證
 
 1. 從您的自動化帳戶，按一下 [**資產**] 部分，以開啟 [**資產**] 分頁。
 1. 按一下 [**憑證**] 部分，以開啟 [**憑證**] 分頁。
@@ -92,13 +92,13 @@
 
 ### 圖形化 Runbook 範例
 
-透過在圖形化編輯器 [文件庫] 窗格的憑證上按一下滑鼠右鍵，然後選取 [**加入至畫布**]，即可加入 **Get-AutomationCerticiate** 至圖形化 Runbook。
+透過在圖形化編輯器 [文件庫] 窗格的憑證上按一下滑鼠右鍵，然後選取 [加入至畫布]，即可加入 **Get-AutomationCertificate** 至圖形化 Runbook。
 
 ![](media/automation-certificates/certificate-add-canvas.png)
 
 下圖顯示在圖形化 Runbook 中使用憑證的範例。這是如上所示，用於從文字式 Runbook 加入憑證至雲端服務的相同範例。
 
-這個範例會對 Send-**TwilioSMS 活動** 使用 **UseConnectionObject** 參數集，使用連接物件向服務的進行驗證。必須在這裡使用[管線連結](automation-graphical-authoring-intro.md#links-and-workflow)，因為順序連結將會傳回一個集合，其中包含 Connection 參數未預期的單一物件。
+這個範例會對 **Send-TwilioSMS** 活動使用 **UseConnectionObject** 參數集，使用連接物件向服務的進行驗證。必須在這裡使用[管線連結](automation-graphical-authoring-intro.md#links-and-workflow)，因為順序連結將會傳回一個集合，其中包含 Connection 參數未預期的單一物件。
 
 ![](media/automation-certificates/add-certificate.png)
 
@@ -107,4 +107,4 @@
 
 - [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -31,7 +31,7 @@
 - [選項 1：同時建立虛擬機器和可用性設定組][]。然後，將新的虛擬機器加入您在建立這些虛擬機器時的設定組。
 - [選項 2：將現有虛擬機器加入至可用性設定組][]。
 
->[AZURE.NOTE]在傳統模型中，您要放入相同可用性設定組的虛擬機器必須隸屬於相同的雲端服務。
+>[AZURE.NOTE] 在傳統模型中，您要放入相同可用性設定組的虛擬機器必須隸屬於相同的雲端服務。
 
 ## <a id="createset"> </a>選項 1：同時建立虛擬機器和可用性設定組##
 
@@ -96,7 +96,7 @@
 
 	Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
->[AZURE.NOTE]系統可能必須重新啟動虛擬機器，以結束將它加入至可用性集合的作業。
+>[AZURE.NOTE] 系統可能必須重新啟動虛擬機器，以結束將它加入至可用性集合的作業。
 
 ## 其他資源
 
@@ -110,6 +110,6 @@
 [管理虛擬機器的可用性]: virtual-machines-manage-availability.md
 [建立執行 Windows 的虛擬機器]: virtual-machines-windows-tutorial.md
 [虛擬網路概觀]: virtual-networks-overview.md
-[服務管理中針對虛擬機器的文章]: virtual-machines-service-management-articles.md
+[服務管理中針對虛擬機器的文章]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

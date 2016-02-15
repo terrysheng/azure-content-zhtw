@@ -20,7 +20,8 @@
 
 在這個具備行動力的世界中，使用者可在雲端中或從任何裝置存取資料和應用程式，因此，保護此資訊就成為最重要的項目。每天都會出現關於安全性漏洞的新標題。雖然不會針對這類漏洞提供保證，但多重要素驗證還是可以提供額外的安全性層級來協助防止這些漏洞。一開始，先評估組織對於多重要素驗證的需求。也就是，組織試圖保護哪些項目。當您定義如何設定和啟用組織使用者來進行多重要素驗證的技術需求時，這項評估非常重要。
 
->[AZURE.NOTE]如果您不熟悉 MFA 和它的功用，強烈建議您先閱讀[什麼是 Azure 多重要素驗證？](multi-factor-authentication.md)一文，然後再繼續閱讀本節。
+>[AZURE.NOTE]
+如果您不熟悉 MFA 和它的功用，強烈建議您先閱讀[什麼是 Azure 多重要素驗證？](../multi-factor-authentication/multi-factor-authentication.md)一文，然後再繼續閱讀本節。
 
 請確定回答下列問題：
 
@@ -57,4 +58,4 @@
 ## 另請參閱
 [設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

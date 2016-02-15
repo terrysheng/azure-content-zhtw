@@ -20,6 +20,9 @@
 
 本文概述如何在 Azure Data Factory 中使用複製活動，在 Azure DocumentDB 與其他資料存放區之間移動資料。本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文呈現使用複製活動移動資料的一般概觀以及支援的資料存放區組合。
 
+下列範例顯示如何在 Azure DocumentDB 和 Azure Blob 儲存體將資料複製進來和複製出去。不過，您可以在 Azure Data Factory 中使用複製活動，從任何來源**直接**將資料複製到[這裡](data-factory-data-movement-activities.md#supported-data-stores)所說的任何接收器。
+
+
 ## 範例：從 DocumentDB 複製資料到 Azure Blob
 
 下列範例顯示：
@@ -380,7 +383,7 @@ DocumentDB 是 JSON 文件的 NoSQL 存放區 (允許巢狀結構)。Azure Data 
 
 如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
  
-**附註：**複製活動只會採用一個輸入，而且只會產生一個輸出。
+**附註：**複製活動只會採用一個輸入，而且只產生一個輸出。
 
 另一方面，活動的 typeProperties 區段中可用的屬性會隨著每個活動類型而有所不同，而在複製活動的案例中，可用的屬性會根據來源與接收的類型而有所不同。
 
@@ -416,4 +419,4 @@ DocumentDB 是 JSON 文件的 NoSQL 存放區 (允許巢狀結構)。Azure Data 
 	**回：**否。目前只能指定一個集合。
      
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

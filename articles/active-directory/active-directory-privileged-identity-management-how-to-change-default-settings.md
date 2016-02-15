@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -25,7 +25,7 @@
 4. 如果您想要將啟用通知傳送給管理員，請按一下 [啟用]，如果不想要傳送，請按一下 [停用]。
 5. 按一下 [啟用] 或 [停用]，即可允許或不允許管理員將票證資訊輸入啟用要求中。
 6. 按一下 [啟用] 或 [停用]，即可設定啟用要求需要或不需要多重要素驗證。如需關於搭配 PIM 使用 MFA 的詳細資訊，請參閱[如何要求 MFA](active-directory-privileged-identity-management-how-to-require-mfa.md)。
-7. 按一下 [啟用] 或 [停用]，可讓全域管理員為暫時性。 
+7. 按一下 [啟用] 或 [停用]，可讓全域管理員為暫時性。
 8. 按一下 [儲存]。
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
@@ -34,4 +34,4 @@
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

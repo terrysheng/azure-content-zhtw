@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="02/03/2016"
 	ms.author="ricksal"/>
 
 # 註冊應用程式以使用 Azure Active Directory 帳戶登入
@@ -31,7 +31,7 @@
 
 ##註冊您的應用程式
 
->[AZURE.NOTE] 當您想要對應用程式使用[服務主導登入作業](http://msdn.microsoft.com/library/azure/dn283952.aspx)時，即適合搭配使用本主題所述的步驟以及[將驗證加入至行動服務應用程式](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md)教學課程。或者，如果您的應用程式具有 Azure Active Directory 及 .NET 後端行動服務的[用戶端主導登入作業](http://msdn.microsoft.com/library/azure/jj710106.aspx)需求，則您應該從[使用 Active Directory Authentication Library 單一登入驗證您的應用程式](mobile-services-windows-store-dotnet-adal-sso-authentication.md)教學課程開始。
+>[AZURE.NOTE] 當您想要對應用程式使用[服務主導登入作業](http://msdn.microsoft.com/library/azure/dn283952.aspx)時，即適合搭配使用本主題所述的步驟以及[將驗證加入至行動服務應用程式](../mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md)教學課程。或者，如果您的應用程式具有 Azure Active Directory 及 .NET 後端行動服務的[用戶端主導登入作業](http://msdn.microsoft.com/library/azure/jj710106.aspx)需求，則您應該從[使用 Active Directory Authentication Library 單一登入驗證您的應用程式](mobile-services-windows-store-dotnet-adal-sso-authentication.md)教學課程開始。
 
 1. 登入 [Azure 傳統入口網站]，瀏覽至您的行動服務，按一下 [識別] 索引標籤，然後向下捲動至 **Azure Active Directory** 身分識別提供者區段，然後複製顯示的**應用程式 URL**。
 
@@ -70,4 +70,4 @@
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 [傳統入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

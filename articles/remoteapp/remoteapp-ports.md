@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/22/2016"
+    ms.date="01/29/2016"
     ms.author="elizapo" />
 
 
@@ -37,13 +37,12 @@
 這裡的用戶端指的是使用者用來連線到 Azure RemoteApp 集合中部署應用程式的桌上型電腦、裝置等等。
 
 -  https://telemetry.remoteapp.windowsazure.com  
--  https://**.remoteapp.windowsazure.com (選用的 UDP 連接埠是供此位址使用) 
+-  https://*.remoteapp.windowsazure.com (選用的 UDP 連接埠就是供此位址使用) 
 -  https://login.windows.net  
 -  https://login.microsoftonline.com  
 -  https://www.remoteapp.windowsazure.com 
--  https://**.remoteapp.windowsazure.com  
 -  https://*.core.windows.net  
 -  輸出：TCP：443  
 -  選用 - UDP：3391 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

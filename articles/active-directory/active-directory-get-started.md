@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 # 如何開始使用 Azure AD
@@ -28,7 +28,7 @@
 > [AZURE.NOTE] Azure AD 免費提供給所有人。立即註冊 Azure 試用版訂用帳戶，您的目錄將會等著您。目錄就屬於您，而不論您是否另購任何產品。[立即試用 Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ##保護您組織的存取
-使用多重要素驗證保護您組織在雲端的身分識別資料，以確保本機和遠端存取的安全性。[深入了解多重要素驗證](../multi-factor-authentication.md)
+使用多重要素驗證保護您組織在雲端的身分識別資料，以確保本機和遠端存取的安全性。[深入了解多重要素驗證](../multi-factor-authentication/multi-factor-authentication.md)
 
 ##變更和重設密碼
 讓使用者可從任何裝置、地點變更或重設他們的 Active Directory 或 Azure Active Directory 密碼，以降低成本並減少呼叫技術支援。管理員可以管理密碼和通知原則，還可以即時查看這些密碼重設作業的詳細稽核活動。[深入了解使用 Azure Active Directory 管理密碼](active-directory-manage-passwords.md)
@@ -44,4 +44,4 @@ Azure AD 為系統管理員提供了幾種報告。在 Azure AD 的付費版本�
 * [以組織身分註冊 Azure](sign-up-organization.md)
 * [Azure 身分識別](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

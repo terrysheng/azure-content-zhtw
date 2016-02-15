@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/09/2016"
-	ms.author="trinadhk;jimpark;aashishr"/>
+	ms.date="01/28/2016"
+	ms.author="trinadhk;jimpark;"/>
 
 
 # Azure 虛擬機器備份的疑難排解
@@ -105,13 +105,13 @@
 
 如為 Linux VM：
 
-- 請遵循[更新 Linux VM 代理程式](../virtual-machines-linux-update-agent.md)上的指示進行。
+- 請遵循[更新 Linux VM 代理程式](../virtual-machines/virtual-machines-linux-update-agent.md)上的指示進行。
 
 
 ### 驗證 VM 代理程式安裝
 如何檢查 Windows VM 上的 VM 代理程式版本：
 
-1. 登入 Azure 虛擬機器，然後瀏覽至 C:\\WindowsAzure\\Packages 資料夾。您應該會發現 WaAppAgent.exe 檔案已存在。
+1. 登入 Azure 虛擬機器，然後瀏覽至 *C:\\WindowsAzure\\Packages* 資料夾。您應該會發現 WaAppAgent.exe 檔案已存在。
 2. 在該檔案上按一下滑鼠右鍵，前往 [屬性]，然後選取 [詳細資料] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本
 
 ## 疑難排解 VM 快照問題
@@ -149,6 +149,6 @@ VM 備份仰賴發給底層儲存體的快照命令。無法存取儲存體或�
     - 如果已有一些網路限制 (例如，網路安全性群組)，請部署 HTTP Proxy 伺服器來路由傳送流量。部署 HTTP Proxy 伺服器的步驟位於[這裡](backup-azure-vms-prepare.md#2-network-connectivity)。
     - 將規則加入 NSG (若已有規則)，以允許從 HTTP Proxy 存取網際網路。
 
->[AZURE.NOTE]必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。如果您需要靜態私人 IP 位址，您應該透過平台來進行設定。VM 內的 DHCP 選項應保持啟用。您可以在[這裡](virtual-networks-reserved-private-ip.md)取得有關設定靜態內部私人 IP 位址的詳細資訊。
+>[AZURE.NOTE] 必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。如果您需要靜態私人 IP 位址，您應該透過平台來進行設定。VM 內的 DHCP 選項應保持啟用。您可以在[這裡](virtual-networks-reserved-private-ip.md)取得有關設定靜態內部私人 IP 位址的詳細資訊。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

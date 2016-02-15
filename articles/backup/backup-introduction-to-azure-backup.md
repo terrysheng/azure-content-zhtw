@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="01/29/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # 何謂 Azure 備份？
@@ -77,6 +77,8 @@ Azure 備份是您用來備份和還原 Microsoft 雲端資料的服務。它將
 | 增量備份 | ![是][green] | ![是][green] | ![是][green] | ![是][green] |
 | 磁碟重複資料刪除 | | ![部分][yellow] | ![部分][yellow]| | |
 
+**金鑰** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![是][green]= 支援 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![部分][yellow]= 部分支援 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = 不支援
+
 備份保存庫是所有元件慣用的儲存體目標。System Center DPM 和備份伺服器都提供擁有本機磁碟複本的選項，但只有 System Center DPM 提供將資料寫入磁帶儲存體裝置的選項。
 
 #### 增量備份
@@ -95,6 +97,8 @@ Azure 備份是您用來備份和還原 Microsoft 雲端資料的服務。它將
 | ------- | --- | --- | --- | ---- |
 | 網路安全性 (至 Azure) | ![是][green] |![是][green] | ![是][green] | ![部分][yellow]|
 | 資料安全性 (在 Azure 中) | ![是][green] |![是][green] | ![是][green] | ![部分][yellow]|
+
+**金鑰** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![是][green]= 支援 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![部分][yellow]= 部分支援 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = 不支援
 
 從您的伺服器到備份保存庫的所有備份流量都會使用進階加密標準 256 加密。資料會透過安全的 HTTPS 連結來傳送。備份資料也會在備份保存庫中以加密格式儲存。只有持有複雜密碼的客戶可以解除鎖定此資料。Microsoft 無法解密在任何時間點所備份的資料。
 
@@ -116,6 +120,8 @@ Azure 備份是您用來備份和還原 Microsoft 雲端資料的服務。它將
 | Azure 虛擬機器 (Windows) | | | | ![是][green] |
 | Azure 虛擬機器 (Linux) | | | | ![是][green] |
 
+**金鑰** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![是][green]= 支援 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = 不支援
+
 ### 網路
 
 | 功能 | Azure 備份代理程式 | System Center DPM | Azure 備份伺服器 | Azure 備份 (VM 延伸模組) |
@@ -124,6 +130,8 @@ Azure 備份是您用來備份和還原 Microsoft 雲端資料的服務。它將
 | 網路壓縮 (至備份保存庫) | ![是][green] | ![是][green] | ![是][green] | |
 | 網路通訊協定 (至備份伺服器) | | TCP | TCP | |
 | 網路通訊協定 (至備份保存庫) | HTTPS | HTTPS | HTTPS | HTTPS |
+
+**金鑰** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![是][green]= 支援 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = 不支援
 
 因為 VM 延伸模組會透過儲存體網路直接從 Azure 儲存體帳戶讀取資料，所以不需要最佳化此流量。流量會透過 Azure 資料中心中的本機儲存體網路傳送，因此不太需要因為頻寬考量而進行壓縮。
 
@@ -166,4 +174,4 @@ Azure 備份會在內部部署和雲端備份資料。Azure Site Recovery 可協
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

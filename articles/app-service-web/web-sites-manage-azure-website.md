@@ -66,7 +66,7 @@ Azure App Service 提供了五種階層：免費、共用、基本、標準和�
 ### 備份
 
 - 設定 Web 應用程式的[自動備份](web-sites-backup.md)。透過[本視訊](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/)深入了解備份。
-- 深入了解 Azure SQL Database 中的[資料庫復原](../sql-database-business-continuity.md)選項。
+- 深入了解 Azure SQL Database 中的[資料庫復原](../sql-database/sql-database-business-continuity.md)選項。
 
 ### 疑難排解
 
@@ -87,8 +87,8 @@ Azure App Service 提供了五種階層：免費、共用、基本、標準和�
 
 如果您使用 Visual Studio Team Services，可以從原始檔控制設定連續部署：
 
-- [使用 Team Foundation 版本控制 (TFVC)](../cloud-services-continuous-delivery-use-vso.md) 
-- [使用 Git](../cloud-services-continuous-delivery-use-vso-git.md)
+- [使用 Team Foundation 版本控制 (TFVC)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
+- [使用 Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -103,4 +103,4 @@ Azure App Service 提供了五種階層：免費、共用、基本、標準和�
 
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

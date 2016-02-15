@@ -1,20 +1,20 @@
 <properties
-pageTitle="定義實驗室原則 |Microsoft Azure"
-description="了解如何定義實驗室原則，例如 VM 大小、每位使用者的 VM 數目上限，以及自動關機。"
-services="devtest-lab,virtual-machines"
-documentationCenter="na"
-authors="tomarcher"
-manager="douge"
-editor=""/>
+	pageTitle="定義實驗室原則 |Microsoft Azure"
+	description="了解如何定義實驗室原則，例如 VM 大小、每位使用者的 VM 數目上限，以及自動關機。"
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-ms.service="devtest-lab"
-ms.workload="na"
-ms.tgt_pltfrm="na"
-ms.devlang="na"
-ms.topic="article"
-ms.date="11/01/2015"
-ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/03/2016"
+	ms.author="tarcher"/>
 
 # 定義實驗室原則
 
@@ -100,4 +100,4 @@ VM 數目上限的原則讓您能夠指定可為目前的實驗室建立的 VM �
 
 1. 點選 [儲存]。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

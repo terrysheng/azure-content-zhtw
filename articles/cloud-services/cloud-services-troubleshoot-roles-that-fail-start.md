@@ -16,40 +16,40 @@
    ms.date="01/20/2016"
    ms.author="daleche" />
 
-# 對無法啟動的雲端服務角色進行疑難排解的一般步驟
+# 對無法啟動的雲端服務角色進行疑難排解
 
 以下是與無法啟動的 Azure 雲端服務角色相關的一些常見問題和解決方案。
 
 ## 連絡 Azure 客戶支援
 
-如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和堆疊溢位論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專員。
+如果在本文章中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。
 
-或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
-
+或者，您可以提出 Azure 支援事件。請移至 [Azure 支援網站](http://azure.microsoft.com/support/options/)，然後按一下 [取得支援]。如需關於使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](http://azure.microsoft.com/support/faq/)。
 
 ## 遺失 Dll 或相依性
+
 角色沒有回應，和角色在 [初始化中]、[忙碌] 和 [停止中] 狀態之間循環，有可能是因為遺失 Dll 或組件所致。
 
-**徵狀：**遺失 Dll 或組件的徵狀可能是：
+遺失 DLL 或組件的徵狀可能是：
 
-- 您的角色執行個體在 [初始化中] / [忙碌] / [停止中] 之間循環
-- 角色執行個體已進入 [就緒] 狀態，但瀏覽至您的 Web 應用程式時，發現頁面並未顯示
+- 您的角色執行個體在 [初始化中]、[忙碌] 及 [停止中] 狀態之間循環。
+- 您的角色執行個體已進入 [就緒] 狀態，但瀏覽至您的 Web 應用程式時，發現頁面並未顯示。
 
-解決方式：有三個建議的方法可調查這些問題。
+有數個建議的方法可調查這些問題。
 
 ## 診斷 Web 角色中遺失 DLL 的問題
 
-當您瀏覽至在 Web 角色中部署的網站時，瀏覽器顯示如下的伺服器錯誤：
+當您瀏覽至在 Web 角色中部署的網站時，瀏覽器顯示如下的伺服器錯誤，表示可能遺失 DLL。
 
 !['/' 應用程式中有伺服器錯誤。](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
 
 ## 關閉自訂錯誤以診斷問題
 
-設定 Web 角色的 web.config 以將自訂錯誤模式設為關閉，並重新部署服務，可以檢視更完整的錯誤。
+設定 Web 角色的 web.config 以將自訂錯誤模式設為關閉，並重新部署服務，可以檢視更完整的錯誤資訊。
 
 若要檢視更完整的錯誤而不使用遠端桌面：
 
-1. 在 Visual Studio 中開啟解決方案。
+1. 在 Microsoft Visual Studio 中開啟解決方案。
 
 2. 在 [方案總管] 中找出 web.config 檔案，並加以開啟。
 
@@ -63,15 +63,15 @@
 
 5. 重新封裝並重新部署服務。
 
-重新部署服務之後，您會看到下列錯誤，以及遺失組件或 DLL 的名稱。
+重新部署服務之後，您會看到下列錯誤訊息，以及遺失組件或 DLL 的名稱。
 
 ## 從遠端檢視錯誤以診斷問題
 
-您可以使用遠端桌面存取角色，並從遠端檢視更完整的錯誤。使用下列步驟，可使用遠端桌面檢視錯誤：
+您可以使用遠端桌面存取角色，並從遠端檢視更完整的錯誤資訊。使用下列步驟，可使用遠端桌面檢視錯誤：
 
 1. 確定已安裝 Azure SDK 1.3 或更新版本。
 
-2. 在使用 Visual Studio 部署解決方案期間，選擇「設定遠端桌面連線...」。如需關於設定遠端桌面連線的詳細資訊，請參閱[搭配使用遠端桌面與 Azure 角色](https://msdn.microsoft.com/library/gg443832.aspx)。
+2. 在使用 Visual Studio 部署解決方案期間，選擇「設定遠端桌面連線...」。如需設定遠端桌面連線的詳細資訊，請參閱[搭配使用遠端桌面與 Azure 角色](https://msdn.microsoft.com/library/gg443832.aspx)。
 
 3. 在 Microsoft Azure 傳統入口網站中，執行個體的顯示狀態為 [就緒] 時，按一下其中一個角色執行個體。
 
@@ -79,7 +79,7 @@
 
 5. 使用在遠端桌面設定期間指定的認證登入虛擬機器。
 
-6. 開啟命令提示字元。
+6. 開啟命令視窗。
 
 7. 輸入 `IPconfig`。
 
@@ -89,9 +89,9 @@
 
 10. 輸入 Web 應用程式的位址和名稱。例如，`http://<IPV4 Address>/default.aspx`。
 
-瀏覽至網站會傳回更明確的錯誤訊息。
+瀏覽至網站現在會傳回更明確的錯誤訊息：
 
-* '/' 應用程式中有伺服器錯誤
+* '/' 應用程式中有伺服器錯誤。
 
 * 說明：執行目前的 Web 要求期間發生未處理的例外狀況。請檢閱堆疊追蹤，以進一步了解錯誤以及它產生於程式碼中的何處。
 
@@ -103,9 +103,9 @@
 
 ## 使用計算模擬器診斷問題
 
-您可以使用 Azure Microsoft Azure 計算模擬器來診斷和排解遺失相依性與 web.config 錯誤的問題。
+您可以使用 Microsoft Azure 計算模擬器來診斷和排解遺失相依性與 web.config 錯誤的問題。
 
-若要讓這種診斷方法獲得最佳結果，您應該使用具有 Windows 全新安裝的電腦或虛擬機器。若要達到模擬 Azure 環境的最佳效果，您應使用 Windows Server 2008 R2 x64。
+若要讓這種診斷方法獲得最佳結果，您應該使用具有 Windows 全新安裝的電腦或虛擬機器。若要達到模擬 Azure 環境的最佳效果，請使用 Windows Server 2008 R2 x64。
 
 1. 安裝獨立版的 [Azure SDK](https://azure.microsoft.com/downloads/)
 
@@ -115,9 +115,9 @@
 
 4. 將 .csx 資料夾及 .cscfg 檔案複製到您用來偵錯問題的電腦。
 
-5. 在初始狀態的電腦上開啟 Azure SDK 命令提示字元，並輸入 `csrun.exe /devstore:start`。
+5. 在初始狀態的電腦上開啟 Azure SDK 命令提示字元視窗，並輸入 `csrun.exe /devstore:start`。
 
-6. 在命令提示字元中輸入 `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`。
+6. 在命令提示字元中，輸入 `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`。
 
 7. 在角色啟動時，您會在 Internet Explorer 中看到詳細的錯誤資訊。您也可以使用標準 Windows 疑難排解工具進一步診斷問題。
 
@@ -127,7 +127,7 @@
 
 請遵循下列步驟，部署已啟用 IntelliTrace 的服務：
 
-1. 確認已安裝 Azure SDK 1.3 或更新版本。
+1. 確定已安裝 Azure SDK 1.3 或更新版本。
 
 2. 使用 Visual Studio 部署解決方案。在部署期間，勾選 [為 .NET 4 角色啟用 IntelliTrace] 核取方塊。
 
@@ -139,7 +139,7 @@
 
 6. 選擇 [檢視 IntelliTrace 記錄檔]。[IntelliTrace 摘要] 隨即開啟。
 
-7. 找出摘要的例外狀況區段。如果有例外狀況，會標示 [例外狀況資料]。
+7. 找出摘要的例外狀況區段。如果有例外狀況，區段會標示 [例外狀況資料]。
 
 8. 展開 [例外狀況資料]，並尋找如下的 **System.IO.FileNotFoundException** 錯誤：
 
@@ -157,14 +157,14 @@
 
 4. 在 [屬性] 窗格中找出 [複製到本機] 屬性，並將值設為 **True**。
 
-5. 重新部署託管服務。
+5. 重新部署雲端服務。
 
-在確認所有錯誤皆已修正後，即可在未勾選 [為 .NET 4 角色啟用 IntelliTrace] 設定的情況下部署服務。
+在確認所有錯誤皆已修正後，即可在未勾選 [為 .NET 4 角色啟用 IntelliTrace] 核取方塊的情況下部署服務。
 
 ## 後續步驟
 
 檢視更多雲端服務的[疑難排解文章](..\?tag=top-support-issue&service=cloud-services)。
 
-若要了解如何利用 Azure PaaS 電腦的診斷資料來疑難排解雲端服務角色的問題，請參閱 [Kevin Williamson 的部落格系列](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)。
+若要了解如何利用 Azure PaaS 電腦的診斷資料對雲端服務角色的問題進行疑難排解，請參閱 [Kevin Williamson 的部落格系列](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

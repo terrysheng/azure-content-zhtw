@@ -31,7 +31,7 @@ CDN 為開發人員提供一套全球解決方案，以在全球實體節點上�
 - 大型的分散式規模可更妥善處理瞬間大量負載 (例如產品上市事件的開頭)。 
 
 
->[AZURE.IMPORTANT]建立或啟用 CDN 端點時，可能需要 90 分鐘的時間才能傳播到全世界。
+>[AZURE.IMPORTANT] 建立或啟用 CDN 端點時，可能需要 90 分鐘的時間才能傳播到全世界。
  
 第一次對 CDN 提出物件要求時，會直接從該物件的來源原始位置擷取物件。這個原始來源可以是 Azure 儲存體帳戶、Web 應用程式、雲端服務或接受公用 Web 要求的任何自訂來源。使用 CDN 語法提出要求時，會將要求重新導向至 CDN 端點，而此 CDN 端點最接近從中提出要求以存取物件的位置。如果在該端點上找不到物件，則會從服務中擷取該物件，並在端點上進行快取，而且會維護所快取物件的存留時間 (TTL) 設定。
 
@@ -44,7 +44,7 @@ CDN 為開發人員提供一套全球解決方案，以在全球實體節點上�
 - [自訂網域名稱支援](cdn-map-content-to-custom-domain.md)
 - [國家 (地區) 篩選](cdn-restrict-access-by-country.md)
 - [核心分析](cdn-analyze-usage-patterns.md)
-- [自訂內容來源](cdn-map-content-to-custom-domain.md)
+- [自訂內容來源](cdn-how-to-use-cdn.md#caching-content-from-custom-origins)
 - [HTTPS 支援](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
 - 負載平衡
 - DDoS 保護
@@ -61,4 +61,4 @@ CDN 為開發人員提供一套全球解決方案，以在全球實體節點上�
 - [進階 HTTP 報告](cdn-advanced-http-reports.md)
 - [即時統計資料](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

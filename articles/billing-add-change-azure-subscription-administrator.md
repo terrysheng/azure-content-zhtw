@@ -1,12 +1,12 @@
 <properties
 	pageTitle="如何新增或變更 Azure 管理員角色 | Microsoft Azure"
 	description="說明如何新增或變更 Azure 共同管理員、服務管理員和帳戶管理員"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
 	editor="meerak"
-	/>
+	tags="billing"/>
 
 <tags
 	ms.service="billing"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/27/2016"
 	ms.author="genli"/>
 
 # 如何新增或變更 Azure 管理員角色
@@ -66,4 +66,4 @@ Microsoft Azure 中的管理員角色有三種：
 
 若要將 Azure 帳戶的擁有權移轉到另一個帳戶，請參閱[移轉 Azure 訂用帳戶](billing-subscription-transfer.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

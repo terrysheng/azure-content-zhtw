@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Add a VM with artifacts to a DevTest Lab | Microsoft Azure"
-	description="Create a new virtual machine with Artifacts in DevTest Lab."
+<properties
+	pageTitle="將具有構件的 VM 加入至研發/測試實驗室 | Microsoft Azure"
+	description="在研發/測試實驗室中建立具有構件的新虛擬機器。"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # 將具有構件的 VM 加入 Azure 研發/測試實驗室
@@ -98,4 +98,4 @@
 
 了解如何[為您的 VM 撰寫自訂構件](devtest-lab-artifact-author.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -39,7 +39,7 @@
 在繼續之前，在心裡檢閱最後一個成功的遠端桌面連線至 VM 以來的變更可能有幫助。例如：
 
 - 如果 VM 的 IP 位址或包含 VM 的雲端服務 (也稱為虛擬 IP 位址 [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) 已變更，則 RDP 失敗可能是因為 DNS 用戶端快取仍然具有為 DNS 名稱註冊的*舊 IP 位址*。請清除 DNS 用戶端快取並嘗試再次連接 VM。或嘗試直接與新的 VIP 連接。
-- 如果您使用協力廠商應用程式來管理遠端桌面連線，而不是使用 Azure 入口網站，請確認應用程式組態包含正確的遠端桌面流量的 TCP 連接埠。您可以在 [Azure 入口網站](portal.azure.com)中按一下 [VM 的設定] > [端點]，檢查傳統虛擬機器中的這個連接埠。
+- 如果您使用協力廠商應用程式來管理遠端桌面連線，而不是使用 Azure 入口網站，請確認應用程式組態包含正確的遠端桌面流量的 TCP 連接埠。您可以在 [Azure 入口網站](https://portal.azure.com)查看某個傳統虛擬機器的這個連接埠，方法是按一下該 VM 的 [設定] > [端點]。
 
 
 ## 預備步驟
@@ -135,7 +135,7 @@
 
 對於使用傳統部署模型所建立的 VM，您可以使用關於 Azure 虛擬機器的遠端 Azure PowerShell 工作階段。首先，您會需要安裝虛擬機器之代管雲端服務的憑證。移至[設定安全遠端 PowerShell 對 Azure 虛擬機器的存取權](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe)，以及下載 **InstallWinRMCertAzureVM.ps1** 指令碼檔案到您的本機電腦。
 
-接下來，如果尚未安裝 Azure PowerShell，則請先安裝。請參閱[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)。
+接下來，如果尚未安裝 Azure PowerShell，則請先安裝。請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 
 接下來，開啟 Azure PowerShell 命令提示字元，並將目前資料夾變更為 **InstallWinRMCertAzureVM.ps1** 指令碼檔案的位置。若要執行 Azure PowerShell 指令碼，您必須設定正確的執行原則。請執行 **Get-ExecutionPolicy** 命令來判斷您目前的原則層級。如需設定適當層級的相關資訊，請參閱 [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx)。
 
@@ -195,4 +195,4 @@ PortNumber 屬性會顯示目前的連接埠號碼。如有需要，請使用此
 
 [疑難排解存取在 Azure 虛擬機器上執行的應用程式](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

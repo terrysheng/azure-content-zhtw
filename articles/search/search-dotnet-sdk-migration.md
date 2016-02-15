@@ -1,6 +1,6 @@
 <properties
-   pageTitle="升級至 Azure 搜尋服務 .NET SDK 版本 1.0.1 預覽版 | Microsoft Azure | 託管的雲端搜尋服務 "
-   description="升級至 Azure 搜尋服務 .NET SDK 版本 1.0.1 預覽版"
+   pageTitle="升級至 Azure 搜尋服務 .NET SDK 版本 1.0 預覽版 | Microsoft Azure | 託管的雲端搜尋服務"
+   description="升級至 Azure 搜尋服務 .NET SDK 版本 1.0 預覽版"
    services="search"
    documentationCenter=""
    authors="brjohnstmsft"
@@ -13,24 +13,24 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="01/22/2016"
+   ms.date="01/29/2016"
    ms.author="brjohnst"/>
 
-# 升級至 Azure 搜尋服務 .NET SDK 版本 1.0.1 預覽版
+# 升級至 Azure 搜尋服務 .NET SDK 版本 1.0 預覽版
 
-如果您在使用版本 0.13.0 預覽版，或是更舊版本的 [Azure 搜尋服務 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)，本文章將協助您升級應用程式以使用最新的版本 1.0.1 預覽版。
+如果您在使用版本 0.13.0 預覽版，或是更舊版本的 [Azure 搜尋服務 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)，本文章將協助您升級應用程式，以便使用最新的版本 1.0 預覽版。
 
 如需包括範例的 SDK 一般逐步解說，請參閱[如何從 .NET 應用程式使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)。
 
-Azure 搜尋服務 .NET SDK 版本 1.0.1 預覽版包含前一個版本 (0.13.0 預覽版) 的幾個重大變更。這些變更大部分是次要變更，所以變更程式碼應該只需要最少的工作。請參閱[升級步驟](#UpgradeSteps)以取得如何變更您的程式碼以使用新的 SDK 版本的指示。
+Azure 搜尋服務 .NET SDK 版本 1.0 預覽版包含前一個版本 (0.13.0 預覽版) 的幾個重大變更。這些變更大部分是次要變更，所以變更程式碼應該只需要最少的工作。請參閱[升級步驟](#UpgradeSteps)以取得如何變更您的程式碼以使用新的 SDK 版本的指示。
 
 <a name="WhatsNew"></a>
-## 1\.0.1 預覽版的新功能
+## 1\.0 預覽版的新功能
 
-版本 1.0.1 預覽版跟前幾版的 Azure 搜尋服務 .NET SDK (2015-02-28) 一樣，把目標擺在相同的 REST API 版本上，因此這個版本中沒有新的服務功能。不過，這個版本有新的用戶端序列化功能。
+版本 1.0 預覽版跟前幾版的 Azure 搜尋服務 .NET SDK (2015-02-28) 一樣，把目標擺在相同的 REST API 版本上，因此這個版本中沒有新的服務功能。不過，這個版本有新的用戶端序列化功能。
 
 SDK 會使用 JSON.NET 序列化和還原序列化文件。新版的 SDK 支援透過 `JsonConverter` 和 `IContractResolver` 的自訂序列化 (請參閱 [JSON.NET 文件](http://www.newtonsoft.com/json/help/html/Introduction.htm)以取得詳細資訊)。當您想要調整您的應用程式的現有模型類別以搭配使用 Azure 搜尋服務以及其他更進階的案例時，這非常有用。例如，使用自訂序列化，您可以：
- 
+
  - 包含或排除模型類別的特定屬性儲存為文件欄位。
  - 在程式碼的屬性名稱和索引的欄位名稱之間進行對應。
  - 建立自訂屬性，可同時用來將屬性對應至文件欄位，以及建立對應的索引定義。
@@ -53,14 +53,14 @@ SDK 會使用 JSON.NET 序列化和還原序列化文件。新版的 SDK 支援�
     Program.cs(146,41,146,54): error CS1061: 'Microsoft.Azure.Search.IndexBatchException' does not contain a definition for 'IndexResponse' and no extension method 'IndexResponse' accepting a first argument of type 'Microsoft.Azure.Search.IndexBatchException' could be found (are you missing a using directive or an assembly reference?)
     Program.cs(163,13,163,42): error CS0246: The type or namespace name 'DocumentSearchResponse' could not be found (are you missing a using directive or an assembly reference?)
 
-下一步是逐一修正建置錯誤。大部分錯誤需要變更 SDK 中已重新命名的某些類別和方法名稱。＜[1\.0.1 預覽版中的重大變更清單](#ListOfChanges)＞一節包含這些名稱變更的清單。
+下一步是逐一修正建置錯誤。大部分錯誤需要變更 SDK 中已重新命名的某些類別和方法名稱。＜[1\.0 預覽版的重大變更清單](#ListOfChanges)＞一節包含這些名稱變更的清單。
 
-如果您使用自訂類別來建立您文件的模型，且這些類別有不可為 Null 的基本類型屬性 (例如 C# 中的 `int` 或 `bool`)，則您應該要知道 SDK 1.0.1 預覽版中的某個錯誤修正。請參閱＜[1\.0.1 預覽版中的錯誤修正](#BugFixes)＞一節以取得詳細資訊。
+如果您使用自訂類別來建立您文件的模型，且這些類別有不可為 Null 的基本類型屬性 (例如 C# 中的 `int` 或 `bool`)，則您應該要注意 SDK 1.0.1 預覽版的某個錯誤修正。請參閱＜[1\.0 預覽版的錯誤修正](#BugFixes)＞一節以取得詳細資訊。
 
-最後，一旦您已修正任何建置錯誤，您可以變更您的應用程式以視需要利用新的功能。新版 SDK 中的自訂序列化功能，已詳述於＜[1\.0.1 預覽版的新功能](#WhatsNew)＞一節中。
+最後，一旦您已修正任何建置錯誤，您可以變更您的應用程式以視需要利用新的功能。新版 SDK 中的自訂序列化功能，已詳述於＜[1\.0 預覽版的新功能](#WhatsNew)＞一節中。
 
 <a name="ListOfChanges"></a>
-## 1\.0.1 預覽版中的重大變更清單
+## 1\.0 預覽版的重大變更清單
 
 下列清單會根據變更影響應用程式程式碼的可能性排序。
 
@@ -114,7 +114,7 @@ SDK 會使用 JSON.NET 序列化和還原序列化文件。新版的 SDK 支援�
 <a name="OperationMethodChanges"></a>
 ### 作業方法變更
 
-Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫端公開為一組方法多載。在版本 1.0.1 預覽版中，這些方法多載的簽章和分解已經變更。
+Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫端公開為一組方法多載。在版本 1.0 預覽版中，這些方法多載的簽章和分解已經變更。
 
 例如，較舊版本的 SDK 中的「取得索引統計資料」作業會公開這些簽章：
 
@@ -137,7 +137,7 @@ Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫�
         this IIndexOperations operations,
         string indexName);
 
-在版本 1.0.1 預覽版中，相同作業的方法簽章看起來像是：
+在版本 1.0 預覽版中，相同作業的方法簽章看起來像是：
 
 在 `IIndexesOperations` 中：
 
@@ -159,12 +159,12 @@ Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫�
 
     // Simplified synchronous operation
     public static IndexGetStatisticsResult GetStatistics(
-        this IIndexesOperations operations, 
+        this IIndexesOperations operations,
         string indexName,
         SearchRequestOptions searchRequestOptions = default(SearchRequestOptions));
 
-從版本 1.0.1 預覽版開始，Azure 搜尋服務 .NET SDK 會採用不同的作業方法組織方式：
- 
+從版本 1.0 預覽版開始，Azure 搜尋服務 .NET SDK 會採用不同的作業方法組織方式：
+
  - 選擇性參數現在模型化為預設參數，而不是其他方法多載。這樣可以減少方法多載的數目，有時候減少的數量相當大。
  - 擴充方法現在會隱藏許多來自呼叫端的無關 HTTP 詳細資料。舉例來說，較舊版本的 SDK 會傳回具有 HTTP 狀態碼的回應物件，且您通常不需要檢查，因為作業方法會在指出錯誤的任何狀態碼出現時擲回 `CloudException`。新的擴充方法只會傳回模型物件，省卻您必須在程式碼中將它們解除包裝的麻煩。
  - 相反地，核心介面現在會公開方法，在您需要時為您提供 HTTP 層級更多的控制權。您現在可以傳入自訂 HTTP 標頭，讓它能包含在要求中，且新的 `AzureOperationResponse<T>` 會傳回類型，讓您能針對作業直接存取 `HttpRequestMessage` 和 `HttpResponseMessage`。`AzureOperationResponse` 是在 `Microsoft.Rest.Azure` 命名空間中定義，且取代了 `Hyak.Common.OperationResponse`。
@@ -280,17 +280,17 @@ Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫�
 
 最後，採用 `Uri` 和 `SearchCredentials` 的建構函式已變更。例如，如果您的程式碼如下所示：
 
-    var client = 
+    var client =
         new SearchServiceClient(
-            new SearchCredentials("abc123"), 
+            new SearchCredentials("abc123"),
             new Uri("http://myservice.search.windows.net"));
 
 您可以將其變更如下以修正任何建置錯誤：
 
-    var client = 
+    var client =
         new SearchServiceClient(
             new Uri("http://myservice.search.windows.net"),
-            new SearchCredentials("abc123")); 
+            new SearchCredentials("abc123"));
 
 同時請注意，認證參數的類型已變更為 `ServiceClientCredentials`。這不會影響您的程式碼，因為 `SearchCredentials` 衍生自 `ServiceClientCredentials`。
 
@@ -315,7 +315,7 @@ Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫�
 ### 介面名稱變更
 
 作業群組介面名稱皆已變更，與其對應的屬性名稱一致：
- 
+
  - `ISearchServiceClient.Indexes` 的類型已從 `IIndexOperations` 重新命名為 `IIndexesOperations`。
  - `ISearchServiceClient.Indexers` 的類型已從 `IIndexerOperations` 重新命名為 `IIndexersOperations`。
  - `ISearchServiceClient.DataSources` 的類型已從 `IDataSourceOperations` 重新命名為 `IDataSourcesOperations`。
@@ -324,7 +324,7 @@ Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫�
 這項變更不會影響您的程式碼，除非您針對測試目的建立這些介面的模擬。
 
 <a name="BugFixes"></a>
-## 1\.0.1 預覽版中的錯誤修正
+## 1\.0 預覽版的錯誤修正
 
 在舊版的 Azure 搜尋服務 .NET SDK 中，有與自訂模型類別的序列化相關的錯誤。如果您建立具有不可為 null 值類型的屬性的自訂模型類別，可能會發生錯誤。
 
@@ -338,7 +338,7 @@ Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫�
 
 ### 修正詳細資料
 
-我們已在 SDK 的版本 1.0.1 預覽版中修正此問題。現在，如果您有一個如下的模型類別：
+我們已在 SDK 的版本 1.0 預覽版中修正此問題。現在，如果您有一個如下的模型類別：
 
     public class Model
     {
@@ -362,8 +362,8 @@ Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫�
 ## 結論
 如果您需要更多使用 Azure 搜尋服務 .NET SDK 的詳細資訊，請參閱我們最近更新的[作法](search-howto-dotnet-sdk.md)和[開始使用](search-get-started-dotnet.md)文章。
 
-歡迎您提供 SDK 的意見反應。如果您遇到任何問題，歡迎在 [Azure 搜尋服務 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/zh-TW/home?forum=azuresearch)上尋求我們的協助。如果您發現錯誤，可以在 [Azure .NET SDK GitHub 存放庫](https://github.com/Azure/azure-sdk-for-net/issues)中提出問題。請確定在您的問題標題加上前置詞「搜尋服務 SDK：」。
+歡迎您提供 SDK 的意見反應。如果您遇到任何問題，歡迎在 [Azure 搜尋服務 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuresearch)上尋求我們的協助。如果您發現錯誤，可以在 [Azure .NET SDK GitHub 存放庫](https://github.com/Azure/azure-sdk-for-net/issues)中提出問題。請確定在您的問題標題加上前置詞「搜尋服務 SDK：」。
 
 感謝您使用 Azure 搜尋服務！
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

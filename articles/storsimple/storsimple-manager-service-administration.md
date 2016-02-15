@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/27/2016"
    ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務管理 StorSimple 裝置
@@ -34,7 +34,7 @@ StorSimple Manager 服務可在 Microsoft Azure 中執行，並且連接至多�
 
 #### 連接至此服務
 
-1. 瀏覽至 [http://azure.microsoft.com](https://azure.microsoft.com/)
+1. 瀏覽至 [https://manage.windowsazure.com/](https://manage.windowsazure.com/)。
 
 1. 使用您的 Microsoft 帳戶認證，登入 Microsoft Azure 傳統入口網站 (位於窗格右上角)。
 
@@ -114,4 +114,4 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 
 如果您不能解決問題，且您必須建立服務要求，請參閱：[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

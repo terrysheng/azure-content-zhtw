@@ -16,7 +16,7 @@
 	ms.date="01/21/2016" 
 	ms.author="spelluru"/>
 
-# 利用資料管理閘道在內部部署來源和雲端之間移動
+# 利用資料管理閘道在內部部署來源和雲端之間移動資料
 現代資料整合的挑戰之一是順暢地在內部部署和雲端之間來回移動資料。資料處理站會利用資料管理閘道順暢地進行整合。資料處理站管理閘道器是您可以安裝內部部署以啟用混合式管線的代理程式。
 
 本文提供整合內部部署資料存放區與雲端資料存放區的整合，以及使用資料處理站進行雲端處理的概觀。這篇文章是根據[資料移動活動](data-factory-data-movement-activities.md)一文和其他資料處理站核心概念文章。下列概觀假設您已熟悉管線、活動、資料集和複製活動等資料處理站概念。
@@ -39,14 +39,16 @@
 6.	您必須**使用閘道器，即使您使用 ExpressRoute 也一樣**。 
 7.	您應該將您的資料來源視為內部部署資料來源 (亦即在防火牆後面)，即使您使用 **ExpressRoute** 和**使用閘道器**建立服務與資料來源之間的連接也一樣。 
 
-## 閘道器安裝 - 必要條件
+## 安裝資料管理閘道
+
+### 閘道器安裝 - 必要條件
 1.	支援的**作業系統**版本包括 Windows 7、Windows 8/8.1、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。
 2.	建議閘道器電腦的「組態」至少為 2 GHz、4 核心、8 GB RAM 和 80 GB 磁碟。
 3.	如果主機電腦休眠，閘道器即無法回應資料要求。因此，安裝閘道器之前，請先在電腦上設定適當的「電源計劃」。如果電腦已設定為休眠，安裝閘道器時會提示訊息。
 
 因為複製活動執行會以特定的頻率發生，在電腦上的資源使用量 (CPU、記憶體) 也會遵循與尖峰和閒置時間相同的模式。資源使用率也仰賴要移動的資料量。當多個複製工作正在進行中時，您將觀察到資源使用量會在尖峰時段增加。雖然上述情況是組態下限，根據資料移動的特定負載，您的組態最好還是要具備比上述組態下限還要多的資源。
 
-## 安裝
+### 安裝
 資料管理閘道的安裝方式為從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=39717)下載 MSI 安裝套件。MSI 也可用來將現有的資料管理閘道升級至最新的版本，並保留所有設定。您可以依照以下的逐步解說，從 Azure 入口網站尋找連至 MSI 套件的連結。
 
 
@@ -54,24 +56,66 @@
 1.	為閘道器設定主機電腦上的電源計劃，使電腦不休眠。如果主機電腦休眠，閘道器即無法回應資料要求。
 2.	您應該備份與閘道器相關聯的憑證。
 
+## 更新資料管理閘道
+根據預設，資料管理閘道會在有更新版本的閘道時自動進行更新。在所有排定的工作完成前，閘道不會進行更新。更新作業完成後，閘道才會處理後續的工作。如果更新失敗，閘道會回復為舊版本。
+
+您會在入口網站的閘道屬性刀鋒視窗、「資料管理閘道組態管理員」首頁，以及系統匣的通知訊息中看到排定的更新時間。您可以選擇立即安裝更新，或等候閘道於排定時間自動更新。例如，下列螢幕擷取畫面顯示的是「資料管理閘道組態管理員」中所顯示的通知訊息以及 [更新] 按鈕，按一下此按鈕即可立即安裝更新。
+
+![DMG 組態管理員中的更新](./media/data-factory-move-data-between-onprem-and-cloud/gateway-auto-update-config-manager.png)
+
+系統匣中的通知訊息看起來就像下面這樣：
+
+![系統匣訊息](./media/data-factory-move-data-between-onprem-and-cloud/gateway-auto-update-tray-message.png)
+
+您會在系統匣中看到更新作業 (手動或自動) 的狀態。當您下次開啟「資料管理閘道組態管理員」時，您會在通知列上看到指出閘道已更新的訊息，以及連往[新功能主題](data-factory-gateway-release-notes.md)的連結。
+
+「資料管理閘道組態管理員」的 [更新] 索引標籤會顯示更新排程，以及上次安裝/更新閘道的時間。如果自動更新遭到停用，則其中會顯示一則訊息，但您無法在索引標籤上啟用功能。您必須使用 Cmdlet 來啟用功能。
+  
+
+## 系統匣圖示/通知
+下圖顯示您會看到的某些系統匣圖示。
+
+![系統匣圖示](./media/data-factory-move-data-between-onprem-and-cloud/gateway-tray-icons.png)
+
+如果您將游標放在系統匣圖示/通知訊息上，您會在快顯視窗中看到閘道/更新作業的狀態詳細資料。
+
+## 停用/啟用自動更新功能
+您可以執行下列動作來停用/啟用自動更新功能：
+
+1. 在閘道電腦上啟動 Windows PowerShell。 
+2. 切換至 C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript 資料夾。
+3. 執行下列命令，將自動更新功能關閉 (停用)。   
+
+		.\GatewayAutoUpdateToggle.ps1  -off
+
+4. 若要將它重新開啟：
+	
+		.\GatewayAutoUpdateToggle.ps1  -on  
+
 ## 連接埠和安全性考量
+有兩個防火牆必須要考量：在組織的中央路由器執行的**公司防火牆**，以及在安裝閘道器的本機電腦上設定為精靈的 **Windows 防火牆**。
 
-### 一般考量
-有兩個防火牆必須要考量：在組織的中央路由器執行的**公司防火牆**，以及在安裝閘道器的本機電腦上設定為精靈的 **Windows 防火牆**。如果您使用第三方防火牆，而不是 Windows 防火牆，請以下列建議做為參考，並適當地設定連接埠。如果您的組織中使用 Proxy 伺服器，也請參閱 [Proxy 伺服器考量](#proxy-server-considerations)。以下是一般考量：
+![防火牆](./media/data-factory-move-data-between-onprem-and-cloud/firewalls.png)
 
-**在設定閘道之前：**
+### 連接閘道與雲端服務
+若要讓閘道與 Azure Data Factory 以及其他雲端服務保持連線，您必須確定您已設定 **TCP** 連接埠 **80** 和 **443** 的輸出規則。此外，也可選擇啟用連接埠 **9350** 至 **9354**，以供 Microsoft Azure 服務匯流排在 Azure Data Factory 和資料管理閘道之間建立連線，這或許也可改善兩者間的通訊效能。
 
-- 對於**公司防火牆和 Windows 防火牆**，您都必須確定 **TCP** 連接埠 **80** 和 **443** 的連出規則已啟用，並選擇性地啟用連接埠 **9350** 至 **9354** 的規則。Microsoft Azure 服務匯流排會使用這些項目建立 Azure Data Factory 與資料管理閘道之間的連線。開啟連接埠 9350 到 9354 並非強制性，但加以開啟可改善 Azure Data Factory 與資料管理閘道之間的通訊效能。
+在公司防火牆層級，您需要設定下列網域和輸出連接埠：
 
-**在閘道設定期間：**
+| 網域名稱 | 連接埠 | 說明 |
+| ------ | --------- | ------------ |
+| **.servicebus.windows.net | 443、80 | 透過 TCP 之服務匯流排轉送上的接聽程式 (需要 443 才能取得存取控制權杖) | | *.servicebus.windows.net | 9350 至 9354 | 透過 TCP 的選擇性服務匯流排轉送 | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
 
-- 根據預設，資料管理閘道安裝會在閘道器電腦上開啟**本機 Windows 防火牆**上的連入連接埠 **8050**。當您在 Azure 入口網站中設定內部部署連結服務時，**設定認證**應用程式將使用此連接埠將認證轉送至閘道器 (本文稍後將有詳細說明)；此連接埠無法從網際網路存取，因此您不需要在公司防火牆中將它開啟。
-- 如果您不想讓閘道安裝在 閘道機器的 Windows 防火牆上開啟連接埠 8050，您可以使用下列命令安裝閘道，而不要設定防火牆。
+Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您可以在閘道電腦上相應地設定網域和連接埠。
 
-		msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+### 設定認證
+當您在 Azure 入口網站中設定內部部署連結服務時，**設定認證**應用程式會使用輸入連接埠 **8050** 將認證轉送至閘道 (本文稍後將有詳細說明)。閘道設定期間，資料管理閘道安裝預設會在閘道電腦上開啟此連接埠。
+ 
+如果您使用協力廠商的防火牆，則可以手動開啟連接埠 8050。如果您在閘道設定期間遇到防火牆問題，您可以嘗試使用下列命令來安裝閘道，而不需要設定防火牆。
 
-如果未在閘道器電腦上開啟連入連接埠 8050，要設定內部部署連結服務時，您必須使用透過**設定認證**應用程式來設定資料存放區認證以外的機制。例如，您可以使用 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell Cmdlet。如需如何設定資料存放區認證的資訊，請參閱[設定認證和安全性](#setting-credentials-and-security)一節。
+	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
+如果您選擇不要在閘道電腦上開啟連接埠 8050，要設定內部部署連結服務時，您必須使用透過**設定認證**應用程式來設定資料存放區認證以外的機制。例如，您可以使用 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell Cmdlet。如需如何設定資料存放區認證的資訊，請參閱[設定認證和安全性](#setting-credentials-and-security)一節。
 
 **將資料從來源資料存放區複製到接收資料存放區：**
 
@@ -120,7 +164,7 @@
 
 	![測試連接](./media/data-factory-move-data-between-onprem-and-cloud/TestConnection.png)
 		
-## 使用資料閘道器 – 逐步解說
+## 逐步解說：使用資料管理閘道 
 在本逐步解說中，您可以使用將資料從內部部署 SQL Server 資料庫移至 Azure Blob 的管線，來建立一個 Data Factory。
 
 ### 步驟 1：建立 Azure Data Factory
@@ -377,7 +421,7 @@
 1.	在 **DATA FACTORY** 刀鋒視窗中，按一下 [**製作和部署**] 磚來啟動 Data Factory 的 [**編輯器**]。
 
 	![[製作和部署] 磚](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
-2.	按一下命令列的 [新增管線]。如果沒看到此按鈕，請按一下 [...] \(省略符號) 展開命令列。
+2.	按一下命令列的 [新增管線]。如果沒看到此按鈕，請按一下 [...] (省略符號) 展開命令列。
 2.	使用下列文字取代右窗格中的 JSON：   
 
 
@@ -503,7 +547,7 @@
 
 	![Azure 儲存體總管](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
-## 在電腦之間移動閘道器
+## 在電腦之間移動閘道
 本節提供將閘道器用戶端從一台電腦移至另一台電腦的步驟。
 
 2. 在入口網站中，瀏覽至 **Data Factory 首頁**，然後按一下 [連結服務] 磚。 
@@ -558,15 +602,10 @@
 7.	在 [認證] 刀鋒視窗中，按一下 [按一下這裡設定認證]。
 8.	在 [設定認證] 對話方塊中，執行下列動作：
 
-	![設定認證對話方塊](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 
-	1.選取您要 Data Factory 服務用來連接到資料庫的**驗證**。
-	2.在 [使用者名稱] 設定中輸入可存取資料庫的使用者名稱。
-	3.在 [密碼] 設定中輸入使用者的密碼。
-	4.按一下 [確定] 關閉對話方塊。 
+	![設定認證對話方塊](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1.選取您要 Data Factory 服務用來連接到資料庫的**驗證**。2.在 [使用者名稱] 設定中輸入可存取資料庫的使用者名稱。3.在 [密碼] 設定中輸入使用者的密碼。4.按一下 [確定] 關閉對話方塊。 
 4. 按一下 [確定] 關閉 [認證] 刀鋒視窗。 
 5. 按一下 [新增資料存放區] 刀鋒視窗中的 [確定]。 	
-6. 確認 [連接服務] 刀鋒視窗中的 **SqlServerLinkedService** 狀態已設定為 [線上]。
-![SQL Server 連結服務狀態](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. 確認 [連接服務] 刀鋒視窗中的 **SqlServerLinkedService** 狀態已設定為 [線上]。![SQL Server 連結服務狀態](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 如果您從閘道器電腦以外的另一台電腦存取入口網站，您必須確定「認證管理員」應用程式可以連接到閘道器電腦。如果應用程式無法連接閘道器電腦，它將不允許您設定資料來源的認證，以及測試資料來源的連接。
 
@@ -581,7 +620,7 @@
 設定認證只能使用 Data Factory 編輯器，沒有其他方法。如果您使用編輯器建立 SQL Server 連結服務，並且以純文字輸入認證，認證就會使用 Data Factory 服務所擁有的憑證加密，而不使用閘道器設定要使用的憑證。雖然這種方法在某些情況下可能快一點，但也比較不安全。因此，建議您只在開發/測試用途才採用此方法。
 
 
-## 使用 Azure PowerShell 建立和註冊閘道器 
+## 使用 Azure PowerShell 建立和註冊資料管理閘道 
 本節說明如何使用 Azure PowerShell Cmdlet 建立和註冊閘道。
 
 1. 在系統管理員模式下啟動 **Azure PowerShell**。 
@@ -638,8 +677,7 @@
 ## 使用資料管理閘道進行複製的資料流
 當您使用資料管線中的複製活動，將內部部署資料擷取至雲端以進行進一步的處理，或者匯出雲端中的結果資料回到內部部署資料存放區，複製活動都會在內部使用閘道器將資料從內部部署資料來源傳輸回雲端，反之亦然。
 
-利用資料閘道器進行複製步驟的高層級資料流和摘要如下：
-![使用閘道器的資料流](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+利用資料閘道器進行複製步驟的高層級資料流和摘要如下：![使用閘道器的資料流](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
 1.	資料開發人員會使用 [Azure 入口網站](https://portal.azure.com)或 [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx)，為 Azure Data Factory 建立新的閘道器。 
 2.	資料開發人員會使用「連結服務」面板，透過閘道器定義內部部署資料存放區的新連結服務。在設定連結服務資料的過程中，開發人員會使用設定認證應用程式指定驗證類型和認證，如逐步解說所示。設定認證應用程式對話方塊將會與資料存放區進行通訊以測試要儲存認證的連線與閘道器。
@@ -648,4 +686,4 @@
 5.	閘道器會利用相同的憑證解密認證，然後利用適當的驗證類行連接到內部部署資料存放區。
 6.	閘道器會根據複製活動在資料管線中的設定方式，將資料從內部部署存放區複製到雲端儲存體，或從雲端儲存體複製到內部部署資料存放區。請注意：在這個步驟中，閘道器會透過安全 (HTTPS) 通道直接與以雲端為基礎的儲存體服務 (例如 Azure Blob、Azure SQL 等) 通訊。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -14,11 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/27/2016"
 	ms.author="nitinme"/>
 
 
 # Azure HDInsight 上 Hadoop 元件的版本資訊
+
+## HDInsight 2016/01/27 版本的附註
+
+使用此版本部署的 HDInsight 叢集的完整版本號碼：
+
+* HDInsight (Windows) 2.1.10.817.2028315 (HDP 1.3.12.0-01795 - 未變更)
+* HDInsight (Windows) 3.0.6.817.2028315 (HDP 2.0.13.0-2117 - 未變更)
+* HDInsight (Windows) 3.1.4.817.2028315 (HDP 2.1.15.0-2374 - 未變更)
+* HDInsight (Windows) 3.2.7.817.2028315 (HDP 2.2.9.1-1)
+* HDInsight (Windows) 3.3.0.817.2028315 (HDP 2.3.3.1-5 - 未變更)
+* HDInsight (Linux) 3.2.1000.4072335 (HDP 2.2.9.1-1)
+* HDInsight (Linux) 3.3.1000.4072335 (HDP 2.3.3.1-1)
+* SDK 1.5.8
+
+此版本包含下列更新。
+
+| 課程名稱 | 說明 | 受影響的區域 (例如服務、元件或 SDK) | 叢集類型 (例如 Hadoop、HBase 或 Storm) | JIRA (如果適用) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| 更新所有 HDInsight 叢集的 HDInsight 版本 | 在此版本中，我們已更新所有 HDInsight 叢集的 HDInsight 版本| 服務 | 全部| N/A
 
 ## HDInsight 2015/12/02 版本的附註
 
@@ -37,7 +56,7 @@
 
 | 課程名稱 | 說明 | 受影響的區域 (例如服務、元件或 SDK) | 叢集類型 (例如 Hadoop、HBase 或 Storm) | JIRA (如果適用) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| 新增 HDInsight 3.3 版並更新所有 HDInsight 叢集的 HDInsight 版本 | 在此版本中，我們新增了 HDInsight v3.3 (以 HDP 2.3 為基礎) 並且更新了其他 HDP 版本。HDP 2.3 版本附註可在[這裡](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html)找到，而 HDInsight 版本的詳細資訊則可以在[這裡](https://azure.microsoft.com/zh-TW/documentation/articles/hdinsight-component-versioning/)找到。| 服務 | 全部| N/A
+| 新增 HDInsight 3.3 版並更新所有 HDInsight 叢集的 HDInsight 版本 | 在此版本中，我們新增了 HDInsight v3.3 (以 HDP 2.3 為基礎) 並且更新了其他 HDP 版本。HDP 2.3 版本附註可在[這裡](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html)找到，而 HDInsight 版本的詳細資訊則可以在[這裡](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/)找到。| 服務 | 全部| N/A
 
 ## HDInsight 2015/11/30 版本的附註
 
@@ -1422,4 +1441,4 @@ SQL Server 的 Java 資料庫連接 (JDBC) 驅動程式僅供 HDInsight 內部�
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0204_2016-->

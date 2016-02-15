@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="02/03/2016"
 	ms.author="haining;garye" />
 
 
@@ -26,7 +26,7 @@
 
 此圖說明了這些項目如何彼此配合。
 
-> [AZURE.NOTE]如需關於瀏覽及選擇 Machine Learning Studio 中提供的機器學習演算法的其他說明，請參閱[適用於 Microsoft Azure Machine Learning Studio 的機器學習演算法小祕技](machine-learning-algorithm-cheat-sheet.md)。
+> [AZURE.NOTE] 如需關於瀏覽及選擇 Machine Learning Studio 中提供的機器學習演算法的其他說明，請參閱[適用於 Microsoft Azure Machine Learning Studio 的機器學習演算法小祕技](machine-learning-algorithm-cheat-sheet.md)。
 
 ## 下載 Machine Learning Studio 概觀圖表
 
@@ -47,4 +47,4 @@
 
 [AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

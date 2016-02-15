@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：可延伸的原則架構
@@ -73,10 +73,6 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 3. 按一下刀鋒視窗頂端的 [+新增]。
 4. [名稱] 決定您的應用程式所使用的註冊原則名稱。例如，輸入 "SiUp"。
 5. 按一下 [身分識別提供者]，選取 [電子郵件地址]。(選擇性) 您也可以選取社交身分識別提供者 (如果已經設定)。按一下 [確定]。
-
-> [AZURE.NOTE]
-> 對於本機帳戶，Azure AD B2C 的註冊原則會使用「強式」密碼 (它們設定為「永久有效」)。如需其他設定 (目前 Azure AD B2C 未使用)，請參閱 [Azure AD 密碼原則](https://msdn.microsoft.com/library/azure/jj943764.aspx)。
-
 6. 按一下 [註冊屬性]。您可以在這裡選擇註冊期間要向取用者收集的屬性。例如，選取 [國家/區域]、[顯示名稱] 和 [郵遞區號]。按一下 [確定]。
 7. 按一下 [應用程式宣告]。您在這裡選擇成功註冊之後，您要在權杖中傳回給應用程式的宣告。例如，選取 [顯示名稱]、[身分識別提供者]、[郵遞區號]、[使用者是新的] 和 [使用者的物件識別碼]。
 8. 按一下 [建立]。請注意，剛建立的原則會在 [註冊原則] 刀鋒視窗中顯示為 "**B2C\_1\_SiUp**" (開頭自動加上 **B2C\_1\_** 部分)。
@@ -121,4 +117,4 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
     > [AZURE.NOTE]
     建立和更新原則後，需要經過一分鐘才會生效。
 
-<!----HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0204_2016-->

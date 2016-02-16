@@ -80,7 +80,8 @@
 
 	![[部署] 按鈕](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   成功部署連結的服務之後，應該會出現 **Draft-1** 視窗，而且您會在左側的樹狀檢視中看到 **StorageLinkedService**。![功能表中的儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   成功部署連結的服務之後，應該會出現 **Draft-1** 視窗，而且您會在左側的樹狀檢視中看到 **StorageLinkedService**。
+   ![功能表中的儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### 建立 Azure HDInsight 連結服務
@@ -298,11 +299,12 @@
 11. 按一下 **X** 關閉 **AzureBlobInput** 刀鋒視窗。 
 12. 在 [圖表檢視] 中，按兩下 [AzureBlobOutput] 資料集。您會看到目前正在處理的配量。
 
-	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. 處理完成時，您會看到配量處於 [就緒] 狀態。
+	![資料集](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
+9. 處理完成時，您會看到配量處於 [就緒] 狀態。  
+
 	>[AZURE.IMPORTANT] 建立隨選 HDInsight 叢集通常需要一些時間 (大約 20 分鐘)。  
 
-	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
+	![資料集](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
 	
 10. 當配量處於**就緒**狀態時，檢查您 Blob 儲存體中 **adfgetstarted** 容器內 **partitioneddata** 資料夾的輸出資料。
  

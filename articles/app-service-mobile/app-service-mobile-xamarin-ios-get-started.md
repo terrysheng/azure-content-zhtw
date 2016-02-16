@@ -70,7 +70,7 @@
 
 	>[AZURE.NOTE] 在 Mac 上執行 Xamarin.iOS 應用程式會比較容易。如果想要，您可以在 Windows 電腦上使用 Visual Studio 來執行 Xamarin.iOS 應用程式，但這樣會比較複雜，因為您必須連線到已加入網路的 Mac。如果您想這麼做，請參閱[在 Windows 上安裝 Xamarin.iOS]。
 
-2. 在行動應用程式的設定刀鋒視窗上，按一下 [開始使用] > [Xamarin.Forms]。在步驟 3 中，按一下 [建立新的應用程式] (如果尚未選取的話)。接著按一下 [下載] 按鈕。
+2. 在行動應用程式的設定刀鋒視窗上，按一下 [開始使用] > [Xamarin.Forms]。在步驟 3 中，按一下 \[建立新的應用程式] (如果尚未選取的話)。接著按一下 [下載] 按鈕。
 
   	這會下載包含連線到您行動應用程式之用戶端應用程式的專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 
@@ -92,9 +92,11 @@
 
 ##後續步驟
 
-* [將驗證新增至您的應用程式](app-service-mobile-xamarin-ios-get-started-users.md) <br/>了解如何使用身分識別提供者來驗證應用程式的使用者。
+* [將驗證新增至您的應用程式](app-service-mobile-xamarin-ios-get-started-users.md) 
+  <br/>了解如何使用身分識別提供者來驗證應用程式的使用者。
 
-* [將推播通知新增至您的應用程式](app-service-mobile-xamarin-ios-get-started-push.md) <br/>了解如何將非常基本的推播通知傳送至應用程式。
+* [將推播通知新增至您的應用程式](app-service-mobile-xamarin-ios-get-started-push.md) 
+  <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]: #getting-started

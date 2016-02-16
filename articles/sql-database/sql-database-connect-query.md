@@ -324,7 +324,8 @@ namespace ConnectAndQuery_Example
 
 
 
-如需詳細資訊，請參閱：<br/> [作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)。
+如需詳細資訊，請參閱：<br/> 
+[作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)。
 
 
 

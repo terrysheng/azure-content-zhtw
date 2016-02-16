@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="11/04/2015"
+	ms.date="02/10/2016"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>開始使用行動服務
@@ -54,20 +54,16 @@
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
-<ol start="4">
-<li><p>回到 [Azure 傳統入口網站]，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。如此可讓您瀏覽由應用程式插入資料表中的資料。<p></li></ol></p>
+<ol start="4"><li><p>回到 [Azure 傳統入口網站]，按一下 [資料] 索引標籤，然後按一下 [TodoItems] 資料表。如此可讓您瀏覽由應用程式插入資料表中的資料。<p></li></ol></p>
 
 ## <a name="next-steps"> </a>後續步驟
 了解如何在行動服務中執行其他重要工作：
 
-* [開始使用離線資料同步] 
-  <br/>了解如何使用離線資料同步功能來讓應用程式的反應更快，且更健全。
+* [開始使用離線資料同步] <br/>了解如何使用離線資料同步功能來讓應用程式的反應更快，且更健全。
 
-* [在限有的應用程式中新增驗證功能] 
-  <br/>了解如何利用身分識別提供者來驗證您應用程式的使用者。
+* [在限有的應用程式中新增驗證功能] <br/>了解如何利用身分識別提供者來驗證您應用程式的使用者。
 
-* [將推播通知新增至現有的應用程式中] 
-  <br/>了解如何將非常基本的推播通知傳送至應用程式。
+* [將推播通知新增至現有的應用程式中] <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -99,4 +95,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET 後端版本]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

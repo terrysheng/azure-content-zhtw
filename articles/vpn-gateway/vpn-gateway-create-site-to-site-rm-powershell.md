@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # 使用 PowerShell 建立具有站對站 VPN 連線的虛擬網路
@@ -23,7 +23,7 @@
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-本文將逐步引導您使用 Azure 資源管理員部署模型建立虛擬網路以及內部部署網路的站對站 VPN 連線。如果您要尋找此組態的不同部署模型，請使用以上的索引標籤來選取您想要的文章。如果您想要將 VNet 連接在一起，但不要建立對內部部署位置的連線，請參閱[設定 VNet 對 VNet 連線](vpn-gateway-vnet-vnet-rm-ps.md)。
+本文將逐步引導您使用 **Azure 資源管理員**部署模型建立虛擬網路以及內部部署網路的站對站 VPN 連線。站對站連線可以用於跨部署與混合式組態。如果您要建立**傳統**部署模型的站對站連線，請參閱[使用傳統部署模型設定站對站連線](vpn-gateway-site-to-site-create.md)。如果您想要將 Vnet 連接在一起，但不要建立內部部署位置的連線，請參閱[設定傳統部署模型的 VNet 對 VNet 連線](virtual-networks-configure-vnet-to-vnet-connection.md)或[設定資源管理員部署模型的 VNet 對 VNet 連線](vpn-gateway-vnet-vnet-rm-ps.md)。
 
 **關於 Azure 部署模型**
 
@@ -246,4 +246,4 @@
 
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。請參閱[建立網站的虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)以取得相關步驟。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/08/2016"
    ms.author="cherylmc"/>
 
 
@@ -48,8 +48,8 @@ a.b.c.d/29 會分割成 a.b.c.d/30 和 a.b.c.d+4/30 並透過佈建 API 向下�
 
 請考慮您選取 192.168.100.128/29 來設定私人互連的情況。192.168.100.128/29 包含從 192.168.100.128 至 192.168.100.135 的位址，其中︰
 
-- 192.168.100.128/30 將會指派給 link1 (提供者使用 192.168.100.129，而 Microsoft 使用 192.168.100.130)。
-- 192.168.100.132/30 將會指派給 link2 (提供者使用 192.168.100.133，而 Microsoft 使用 192.168.100.134)。
+- 192\.168.100.128/30 將會指派給 link1 (提供者使用 192.168.100.129，而 Microsoft 使用 192.168.100.130)。
+- 192\.168.100.132/30 將會指派給 link2 (提供者使用 192.168.100.133，而 Microsoft 使用 192.168.100.134)。
 
 ### Azure 公用與 Microsoft 對等互連的 IP 位址
 
@@ -67,7 +67,7 @@ a.b.c.d/29 會分割成 a.b.c.d/30 和 a.b.c.d+4/30 並透過佈建 API 向下�
 - [APNIC](https://www.apnic.net/)
 - [AFRINIC](https://www.afrinic.net/)
 - [LACNIC](http://www.lacnic.net/)
-- [RIPE NCC](https://www.ripe.net/)
+- [RIPENCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
 
@@ -103,7 +103,8 @@ ExpressRoute 不能設定為傳輸路由器。您必須依賴連線提供者的�
 
 **注意︰**公告預設路由會中斷 Windows 和其他 VM 授權啟用。請依照[這裡](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx)的指示來解決這個問題。
 
-## BGP 社群支援
+## BGP 社群支援 (敬請期待)
+
 
 本節提供 BGP 社群如何搭配 ExpressRoute 使用的概觀。Microsoft 將會公告公用和 Microsoft 對等互連路徑中的路由並為路由標記適當的社群值。這麼做的基本原理和社群值的詳細資料如下所述。不過，Microsoft 不接受任何標記至向 Microsoft 公告之路由的社群值。
 
@@ -169,8 +170,8 @@ Microsoft 不接受任何您所設定的 BGP 社群值。您必須為每個對�
 
 - 設定 ExpressRoute 連線。
 
-	- [建立 ExpressRoute 線路](expressroute-howto-circuit-classic.md)
-	- [設定路由](expressroute-howto-routing-classic.md)
-	- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
+	- [建立傳統部署模型的 ExpressRoute 線路](expressroute-howto-circuit-classic.md)或[使用 Azure 資源管理員建立和修改 ExpressRoute 線路](expressroute-howto-circuit-arm.md)
+	- [設定傳統部署模型的路由](expressroute-howto-routing-classic.md)或[設定資源管理員部署模型的路由](expressroute-howto-routing-arm.md)
+	- [將傳統 VNet 連結至 ExpressRoute 電路](expressroute-howto-linkvnet-classic.md)或[將資源管理員 VNet 連結至 ExpressRoute 電路](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

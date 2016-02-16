@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="02/10/2016"
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>開始使用行動服務
@@ -24,8 +24,7 @@
 &nbsp;
 
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
-&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -59,7 +58,7 @@
 
 1.  在 [Azure 傳統入口網站]中，按一下 [行動服務]，然後按一下您剛建立的行動服務。
 
-2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 \[Xamarin.Android]，並展開 [Create a new Android app]。
+2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 [Xamarin.Android]，並展開 [Create a new Android app]。
 
 	![][6]
 
@@ -111,7 +110,7 @@
 
 * [開始使用推播通知] 了解如何將非常基本的推播通知傳送至應用程式。
 
-* [如何使用適用於 Azure 行動服務的 Xamarin 元件用戶端](partner-xamarin-mobile-services-how-to-use-client-library.md) 了解如何查詢行動服務、處理資料，以及存取自訂 API。
+
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -147,4 +146,4 @@
 [Azure]: http://azure.microsoft.com/
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

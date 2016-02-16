@@ -110,10 +110,6 @@ App Service 邏輯應用程式至 API 應用程式的服務帳戶驗證屬於特
 
 ## 後續步驟
 
-本文說明了可用於 API 應用程式之 App Service 的驗證和授權功能。
+本文說明了可用於 API 應用程式之 App Service 的驗證和授權功能。在下一個教學課程中，您將學習如何實作 [App Service API Apps 中的使用者驗證](app-service-api-dotnet-user-principal-auth.md)。
 
-如果您正按照適用於 ASP.NET 和 API Apps 的入門教學課程順序進行，請在下一個教學課程中試用這些功能：[App Service API Apps 中的使用者驗證](app-service-api-dotnet-user-principal-auth.md)。
-
-如需在 Azure App Service 中使用 Node 和 Java 的詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)和 [Java 開發人員中心](/develop/java/)。
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

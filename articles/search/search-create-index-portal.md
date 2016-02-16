@@ -1,6 +1,6 @@
 <properties
 	pageTitle="在入口網站中建立 Azure 搜尋服務索引 | Microsoft Azure | 雲端託管搜尋服務"
-	description="在 Azure 傳統入口網站中填入欄位定義，即可為 Azure 搜尋服務 (雲端託管搜尋服務) 加入索引。"
+	description="在 Azure 入口網站中填入欄位定義，即可為 Azure 搜尋服務 (雲端託管搜尋服務) 加入索引。"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,17 +14,17 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="02/08/2016"
 	ms.author="heidist"/>
 
-# 在 Azure 傳統入口網站中建立 Azure 搜尋服務索引
+# 在 Azure 入口網站中建立 Azure 搜尋服務索引
 > [AZURE.SELECTOR]
 - [Overview](search-what-is-an-index.md)
 - [Portal](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
 - [REST API](search-create-index-rest-api.md)
 
-只需在 Azure 傳統入口網站中建立一個索引，即可快速地在 Azure 搜尋服務中建立一個索引原型。入口網站十分適合用來進行概念證明測試，對於已部署到您服務中的任何索引，您也可以透過入口網站檢視任一索引的結構描述定義和資源使用狀況。
+只需在 Azure 入口網站中建立一個索引，即可快速地在 Azure 搜尋服務中建立一個索引原型。入口網站十分適合用來進行概念證明測試，對於已部署到您服務中的任何索引，您也可以透過入口網站檢視任一索引的結構描述定義和資源使用狀況。
 
 若要完成此工作，請先確定您已擁有可供使用的 Azure 搜尋服務。如果您需要設定 Azure 搜尋服務的協助，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
@@ -105,4 +105,4 @@
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

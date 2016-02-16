@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/23/2015" 
+	ms.date="02/02/2016" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp 常見問題集
@@ -26,8 +26,8 @@
 - **有哪些部署選項？** RemoteApp 收藏有兩種：雲端和混合式。您所需的種類取決於許多因素，像是您是否需要加入網域。我們會在[這裡](remoteapp-collections.md)討論所有的決策。
 
 ## 使用 Azure RemoteApp 的快速祕訣 ##
-- **多久以後我會中斷連線？ 在您將我登出之前，我可以閒置多久？** 4 小時。如果您或其中一位使用者閒置 4 小時，您將被自動登出 Azure RemoteApp。請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](azure-subscription-service-limits.md)中的其他預設設定。
-- **我能免費試用這項服務嗎？** 是。免費試用期有 30 天。試用結束之後，您可以轉換到付費帳戶 (用於生產環境中) 或停止使用服務。請前往 [manage.windowsazure.com](http://manage.windowsazure.com) 開始您的免費試用- 建立新的 RemoteApp 執行個體。使用免費試用版，可以建立 2 個 RemoteApp 執行個體，每個執行個體 10 個使用者。請記住這個試用期只有 30 天。
+- **多久以後我會中斷連線？ 在您將我登出之前，我可以閒置多久？** 4 小時。如果您或其中一位使用者閒置 4 小時，您將被自動登出 Azure RemoteApp。請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)中的其他預設設定。
+- **我能免費試用這項服務嗎？** 是。免費試用期有 30 天。試用結束之後，您可以轉換到付費帳戶 (用於生產環境中) 或停止使用服務。請前往 [portal.azure.com](http://portal.azure.com) 開始您的免費試用- 建立新的 RemoteApp 執行個體。使用免費試用版，可以建立 2 個 RemoteApp 執行個體，每個執行個體 10 個使用者。請記住這個試用期只有 30 天。
 ## Azure RemoteApp 訂用帳戶詳細資料 ##
 
 - **服務限制有哪些？** 您可以在 [Azure 訂用帳戶和服務限制、配額與限制](azure-subscription-service-limits.md)中了解 Azure RemoteApp 的預設設定和服務限制。讓我們知道您是否有更多的問題。
@@ -64,8 +64,7 @@
 ## 用戶端 - 我可以使用哪個裝置來存取 Azure RemoteApp？
 您可於[在 Azure RemoteApp 中存取您的 App](remoteapp-clients.md) 中找到有用的用戶端資訊，包括安裝不同用戶端的步驟。
 
-- **用戶端應用程式支援哪些裝置和作業系統？** 
-首先，電腦和平板電腦： 
+- **用戶端應用程式支援哪些裝置和作業系統？** 首先，電腦和平板電腦： 
 	- Windows 10 (用戶端預覽版)
 	- Windows 8.1 和 Windows 8
 	- Windows 7 Service Pack 1
@@ -115,4 +114,4 @@
 ### 幫我們來協助您 
 您知道除了評比這篇文章以及在下面留言以外，您可以變更文件本身嗎？ 有所遺漏？ 有所錯誤？ 我是否撰寫了令人混淆的內容？ 向上捲動並按一下 [在 GitHub 上編輯] 以進行變更 - 系統會顯示這些變更以供我們檢閱，而我們簽核後，您就會在這裡看到您所進行的變更和改良。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

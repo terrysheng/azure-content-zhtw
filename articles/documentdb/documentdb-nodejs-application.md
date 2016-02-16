@@ -428,6 +428,8 @@
 		app.get('/', taskList.showTasks.bind(taskList));
 		app.post('/addtask', taskList.addTask.bind(taskList));
 		app.post('/completetask', taskList.completeTask.bind(taskList));
+		app.set('view engine', 'jade');
+
 
 
 6. 這幾行會定義 **TaskDao** 物件的新執行個體，內含與 DocumentDB 的新連線 (使用從 **config.js** 中讀取的值)，初始化工作物件，然後將表單動作繫結至 **TaskList** 控制站上的方法。
@@ -505,7 +507,7 @@
 	
 	這應該就是要讓應用程式開始運作所需的所有程式碼。
 
-5. 開啟 **public\stylesheets** 目錄中的 **style.css** 檔案，然後使用下列內容取代程式碼：
+5. 開啟 **public\\stylesheets** 目錄中的 **style.css** 檔案，然後使用下列內容取代程式碼：
 
 		body {
 		  padding: 50px;
@@ -569,4 +571,4 @@
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

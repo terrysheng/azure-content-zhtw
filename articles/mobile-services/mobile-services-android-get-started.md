@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="02/05/2016"
 	ms.author="ricksal"/>
 
 # 開始使用適用於 Android 的行動服務 (JavaScript 後端)
@@ -80,14 +80,11 @@
 ## <a name="next-steps"> </a>後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* [開始使用資料]
-  <br/>深入了解使用行動服務來儲存與查詢資料。
+* [開始使用資料] <br/>深入了解使用行動服務來儲存與查詢資料。
 
-* [開始使用驗證]
-  <br/>了解如何向身分識別提供者驗證應用程式的使用者。
+* [開始使用驗證] <br/>了解如何向身分識別提供者驗證應用程式的使用者。
 
-* [開始使用推播通知]
-  <br/>了解如何將極為基本的推播通知傳送到應用程式。
+* [開始使用推播通知] <br/>了解如何將極為基本的推播通知傳送到應用程式。
 
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
@@ -100,4 +97,4 @@
 [開始使用推播通知]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在入口網站中建立 Azure 搜尋服務 | Microsoft Azure | 雲端託管搜尋服務"
-	description="使用 Azure 傳統入口網站將免費或標準的 Azure 搜尋服務新增到現有的訂用帳戶。Azure 搜尋服務是自訂應用程式的雲端託管搜尋服務。"
+	pageTitle="在入口網站中建立 Azure 搜尋服務 | Microsoft Azure | 雲端搜尋服務"
+	description="使用 Azure 入口網站將免費或標準的 Azure 搜尋服務新增到現有的訂用帳戶。Azure 搜尋服務是自訂應用程式的雲端託管搜尋服務。"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -10,20 +10,22 @@
 
 <tags
 	ms.service="search"
-	ms.devlang="rest-api"
+	ms.devlang="na"
 	ms.workload="search"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="02/05/2016"
 	ms.author="heidist"/>
 
-# 在 Azure 傳統入口網站中建立 Azure 搜尋服務
+# 在 Azure 入口網站中建立 Azure 搜尋服務
 
-Microsoft Azure 搜尋服務是託管的雲端搜尋服務，可讓您將搜尋功能內嵌到自訂用程式。此服務可為您的搜尋資料提供搜尋引擎和儲存體，您可以透過 Azure 傳統入口網站、.NET SDK 或 REST API 存取和管理這類資料。主要功能包括自動完成查詢、模糊比對、符合結果醒目提示、多面向導覽、發行設定檔和多語言支援。如需 Azure 搜尋可執行哪些作業的詳細資訊，請參閱[什麼是 Azure 搜尋服務](search-what-is-azure-search.md)。
+Microsoft Azure 搜尋服務是託管的雲端搜尋服務，可讓您將搜尋功能內嵌到自訂用程式。此服務可為您的搜尋資料提供搜尋引擎和儲存體，您可以透過 Azure 入口網站、.NET SDK 或 REST API 存取和管理這類資料。主要功能包括自動完成查詢、模糊比對、符合結果醒目提示、多面向導覽、發行設定檔和多語言支援。若要深入了解 Azure 搜尋服務可執行哪些作業，請參閱[什麼是 Azure 搜尋服務](search-what-is-azure-search.md)。
+
+Azure 搜尋服務適用於範圍從免費 (共用) 到標準 (成本是根據您註冊多少容量) 的定價層級。
 
 ## 將 Azure 搜尋服務免費加入您的訂用帳戶
 
-身為管理員，如果選擇使用共用的服務，您可以免費將 Azure 搜尋服務加入現有的 Azure 訂用帳戶中，如果選擇使用專用資源，則可按照標準費率來加入。
+身為管理員，如果選擇使用共用的服務，您可以免費將 Azure 搜尋服務加入現有的 Azure 訂用帳戶。您可以註冊[免費試用訂用帳戶](../includes/free-trial-note.md)開始進行評估。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -35,7 +37,7 @@ Microsoft Azure 搜尋服務是託管的雲端搜尋服務，可讓您將搜尋�
 
      ![][2]
 
-	- **服務名稱**必須是唯一的、小寫、少於 15 個字元，且不得包含空格。此名稱會成為您 Azure 搜尋服務端點的一部分。如需命名慣例的詳細資訊，請參閱[命名規則](https://msdn.microsoft.com/library/azure/dn857353.aspx)。
+	- **服務名稱**必須是唯一的、小寫、少於 60 個字元，且不得包含空格。此名稱會成為 Azure 搜尋服務端點的一部分 (例如，"https://**my-service-name**.search.windows.net")。如需命名慣例的詳細資訊，請參閱[命名規則](https://msdn.microsoft.com/library/azure/dn857353.aspx)。
 
 	- **定價層**決定可用容量和計費方式。以下兩個定價層提供相同的功能，但所處的資源層級不同。
 
@@ -57,7 +59,7 @@ Microsoft Azure 搜尋服務是託管的雲端搜尋服務，可讓您將搜尋�
 
 許多客戶會從免費服務著手，然後再切換至標準層以適應較大的工作負載。標準版定價層會在 Azure 資料中心內提供專屬於您的專用資源。
 
-Azure 搜尋作業同時需要儲存體和服務複本。相較於沒有選項可加入資源的免費服務，標準層可讓您提升對您的案例日益重要的資源，進而相應增加以加入更多儲存體或查詢支援。
+Azure 搜尋作業同時需要儲存體和服務複本。相較於沒有選項可加入資源的免費服務，標準層可讓您提升對您的工作負載日益重要的資源，進而相應增加以加入更多儲存體或查詢支援。
 
 若要使用標準層，您必須在該定價層級建立新的搜尋服務。您可以重複本文先前的步驟來建立新的 Azure 搜尋服務。請注意，設定專用資源可能需要一些時間，可能長達 15 分鐘或更長的時間。
 
@@ -73,12 +75,12 @@ Azure 搜尋作業同時需要儲存體和服務複本。相較於沒有選項�
 
 額外的複本和資料分割會依搜尋單位計費。當您新增資源時，頁面上會顯示要支援任何特定資源設定所需要的搜尋單位總數。
 
-您可以查看[定價詳細資料](http://go.microsoft.com/fwlink/p/?LinkID=509792)以取得每單位的計費資訊。有關如何設定資料分割和複本的組合，請參閱[限制和條件約束](search-limits-quotas-capacity.md)以協助您決定設定方式。
+您可以查看[定價詳細資料](http://go.microsoft.com/fwlink/p/?LinkID=509792)以取得每單位的計費資訊。請參閱[服務限制和條件約束](search-limits-quotas-capacity.md)，以協助您選擇資料分割和複本的組合。
 
 <a id="sub-2"></a>
 ## 尋找 Azure 搜尋服務的服務名稱和 API 金鑰
 
-建立服務之後，您可以返回 Azure 傳統入口網站來取得 URL 或 `api-key`。若要連接至 Azure 搜尋服務，必須同時擁有 URL 和 `api-key` 才能驗證呼叫。
+建立服務之後，您可以返回 Azure 入口網站來取得 URL 或 `api-key`。若要連接至 Azure 搜尋服務，必須同時擁有 URL 和 `api-key` 才能驗證呼叫。
 
 1. 在動態工具列中，依序按一下 [首頁]，然後按一下 Azure 搜尋服務以開啟服務儀表板。
 
@@ -86,11 +88,11 @@ Azure 搜尋作業同時需要儲存體和服務複本。相較於沒有選項�
 
   	![][3]
 
-3. 複製服務 URL 和系統管理金鑰，進到下一個工作 ([測試服務作業](#sub-4)) 時，您將會需要這些資料。
+3. 複製服務 URL 和系統管理金鑰，進到下一個工作 ([確認服務可用性](#sub-4)) 時，您將會需要這些資料。
 
 
 <a id="sub-4"></a>
-## 測試服務作業
+## 確認服務可用性
 
 設定 Azure 搜尋的最後一個步驟是，確認您的服務是否可從用戶端應用程式進行操作和存取。您可以使用 [Azure 搜尋服務 Fiddler](search-fiddler.md) 來驗證服務可用性。
 
@@ -98,15 +100,19 @@ Azure 搜尋作業同時需要儲存體和服務複本。相較於沒有選項�
 <a id="next-steps"></a>
 ## 後續步驟
 
-下列資訊示範如何建置和管理使用 Azure 搜尋的搜尋應用程式。
+您現已建立服務，接著可以採取後續步驟：建立[索引](search-what-is-an-index.md)、[查詢索引](search-query-overview.md)、建立及管理使用 Azure 搜尋服務的搜尋應用程式。
+
+- [在 Azure 入口網站中建立 Azure 搜尋服務索引](search-create-index-portal.md)
+
+- [在 Azure 入口網站中使用搜尋總管查詢 Azure 搜尋服務索引](search-explorer.md)
+
+- [開始在 .NET 中使用 Azure 搜尋](search-get-started-dotnet.md)
 
 - [如何以 .NET 使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)
 
 - [在 Microsoft Azure 中管理搜尋方案](search-manage.md)
 
-- [在 MSDN 上的 Azure 搜尋服務](http://msdn.microsoft.com/library/dn798933.aspx)
 
-- [第 9 頻道影片：Azure 搜尋服務簡介](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
 
 
 <!--Anchors-->
@@ -120,4 +126,4 @@ Azure 搜尋作業同時需要儲存體和服務複本。相較於沒有選項�
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/28/2016"
+	ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -253,4 +253,4 @@ Azure 傳統入口網站提供內容播放程式，可讓您用來測試視訊�
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

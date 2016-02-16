@@ -105,7 +105,7 @@
 	- 您可以使用**自己的 HDInsight 叢集**，不必使用隨選的 HDInsight 叢集。如需詳細資訊，請參閱 [HDInsight 連結服務](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)。
 	- HDInsight 叢集會在您於 JSON 中指定的 Blob 儲存體 (**linkedServiceName**) 建立**預設容器**。HDInsight 不會在刪除叢集時刪除此容器。原先的設計就是如此。在使用 HDInsight 隨選連結服務時，除非有現有的即時叢集 (**timeToLive**)，否則每當需要處理配量時，就會建立 HDInsight 叢集，並在處理完成時予以刪除。
 	
-		隨著處理的配量越來越多，您會在 Azure Blob 儲存體中看到許多容器。如果在疑難排解作業時不需要這些容器，您可能會想要刪除它們以降低儲存成本。這些容器的名稱遵循下列模式："adf**yourdatafactoryname**-**linkedservicename**-datetimestamp"。請使用 [Microsoft 儲存體總管](http://storageexplorer.com/)之類的工具刪除 Azure Blob 儲存體中的容器。
+		隨著處理的配量越來越多，您會在 Azure Blob 儲存體中看到許多容器。如果在疑難排解作業時不需要這些容器，建議您加以刪除以降低儲存成本。這些容器的名稱遵循下列模式："adf**yourdatafactoryname**-**linkedservicename**-datetimestamp"。請使用 [Microsoft 儲存體總管](http://storageexplorer.com/)之類的工具刪除 Azure Blob 儲存體中的容器。
 
 	如需詳細資訊，請參閱 [HDInsight 隨選連結服務](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。 
 4. 儲存 **HDInsightOnDemandLinkedService1.json** 檔案。
@@ -261,7 +261,7 @@
 ### 將 partitionweblogs.hql 新增為相依性 
 
 1. 以滑鼠右鍵按一下 [方案總管] 視窗中的 [相依性]，指向 [加入]，按一下 [現有項目]。  
-2. 瀏覽至 **C:\ADFGettingStarted**、選取 [partitionweblogs.hql] 及 [input.log] 檔案，然後按一下 [加入]。您已建立兩個檔案，做為一部分的[教學課程概觀](data-factory-build-your-first-pipeline.md)必要條件。
+2. 瀏覽至 **C:\\ADFGettingStarted**、選取 [partitionweblogs.hql] 及 [input.log] 檔案，然後按一下 [加入]。您已建立兩個檔案，做為一部分的[教學課程概觀](data-factory-build-your-first-pipeline.md)必要條件。
 
 當您在下一個步驟中發佈方案時，已將 **partitionweblogs.hql** 檔案上傳到 Blob 儲存體 **adfgetstarted** 中的指令碼資料夾。
 
@@ -291,8 +291,7 @@
 ## 步驟 4：監視管線
 
 6. 登入 [Azure 入口網站](https://portal.azure.com/)，執行下列動作。
-	1. 按一下 [瀏覽]，選取 [資料處理站]。
-		![瀏覽 Data Factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. 按一下 [瀏覽]，選取 [資料處理站]。![瀏覽 Data Factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. 從 Data Factory 清單中選取 **FirstDataFactoryUsingVS**。 
 7. 在您 Data Factory 的首頁中，按一下 [圖表]。
   
@@ -324,6 +323,8 @@
  
 	![輸出資料](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
 
+如需如何使用 Azure 入口網站來監視您在本教學課程中建立的管線和資料集的指示，請參閱[監視資料集和管線](data-factory-monitor-manage-pipelines.md)。
+
 ## 使用 [伺服器總管] 檢視 Data Factory 實體
 
 1. 在 **Visual Studio** 中，按一下功能表上的 [檢視]，然後按一下 [伺服器總管]。
@@ -342,11 +343,101 @@
 2. 選取左窗格中的 [更新]，然後選取 [Visual Studio 組件庫]。
 3. 選取 [Visual Studio 的 Azure Data Factory 工具] 並按一下 [更新]。如果您看不到此項目，代表您已經有最新版本的工具。 
 
-如需如何使用 Azure 入口網站來監視您在本教學課程中建立的管線和資料集的指示，請參閱[監視資料集和管線](data-factory-monitor-manage-pipelines.md)。
- 
+## 使用組態檔
+您可以在 Visual Studio 中使用組態檔，針對各個環境分別設定連結服務/資料表/管線的屬性。
+
+請針對 Azure 儲存體連結服務考量下列 JSON 定義。根據您部署 Data Factory 實體的環境 (開發/測試/生產)，針對 accountname 和 accountkey 指定具有不同值的 **connectionString**。您可以針對每個環境使用個別的組態檔來執行這項操作。
+
+	{
+	    "name": "StorageLinkedService",
+	    "properties": {
+	        "type": "AzureStorage",
+	        "description": "",
+	        "typeProperties": {
+	            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+	        }
+	    }
+	} 
+
+### 新增組態檔
+藉由執行下列步驟來新增每個環境的組態檔：
+
+1. 在 Visual Studio 解決方案中以滑鼠右鍵按一下 Data Factory 專案，指向 [新增]，然後按一下 [新增項目]。
+2. 從左側的已安裝範本中選取 [設定]，選取 [組態檔]，輸入組態檔的 [名稱]，然後按一下 [新增]。
+
+	![新增組態檔](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
+3. 以下列格式新增組態參數和其值：
+
+		{
+		    "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
+		    "AzureStorageLinkedService1": [
+		        {
+		            "name": "$.properties.typeProperties.connectionString",
+		            "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+		        }
+		    ],
+		    "AzureSqlLinkedService1": [
+		        {
+		            "name": "$.properties.typeProperties.connectionString",
+		            "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+		        }
+		    ]
+		}
+
+	這個範例會設定 Azure 儲存體連結服務和 Azure SQL 連結服務的 connectionString 屬性。請注意，指定名稱的語法是 [JsonPath](http://goessner.net/articles/JsonPath/)。
+
+	如果 JSON 具有屬性，該屬性具有如下所示的值陣列：
+
+		"structure": [
+	  		{
+	  			"name": "FirstName",
+	    		"type": "String"
+	  		},
+	  		{
+	    		"name": "LastName",
+	    	    "type": "String"
+			}
+		],
+	
+	您必須如下所示在組態檔中進行設定 (使用以零為起始的索引)：
+		
+		{
+            "name": "$.properties.structure[0].name",
+            "value": "FirstName"
+        }
+        {
+            "name": "$.properties.structure[0].type",
+            "value": "String"
+        }
+        {
+            "name": "$.properties.structure[1].name",
+            "value": "LastName"
+        }
+        {
+            "name": "$.properties.structure[1].type",
+            "value": "String"
+        }
+
+
+### 使用組態部署解決方案
+當您在 VS 中發佈 Azure Data Factory 實體時，您可以指定想要用於該發佈作業的組態。
+
+若要使用組態檔在 Azure Data Factory 專案中發佈實體：
+
+1. 以滑鼠右鍵按一下 Data Factory 專案，然後按一下 [發佈] 以查看 [發佈項目] 對話方塊。 
+2. 選取現有的 Data Factory，或指定值以在 [設定 Data Factory] 頁面上建立新的 Data Factory，然後按 [下一步]。   
+3. 在 [發佈項目] 頁面：您會看到下拉式清單，具有 [選取部署設定] 欄位的可用組態。
+
+	![選取組態檔](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
+
+4. 選取您想要使用的 [組態檔]，然後按 [下一步]。
+5. 確認您在 [摘要] 頁面上看到 JSON 檔案的名稱，然後按 [下一步]。 
+6. 部署作業完成之後按一下 [完成]。 
+
+部署時，在將實體部署至 Azure Data Factory 服務之前，會使用組態檔的值以設定 Data Factory 實體 (連結服務、資料表或管線) 的 JSON 檔案中的屬性。
 
 ## 後續步驟
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，含有轉換活動 (HDInsight 活動) 的管線。若要了解如何使用「複製活動」從 Azure Blob 將資料複製到 Azure SQL，請參閱[教學課程：從 Azure Blob 將資料複製到 Azure SQL](data-factory-get-started.md)。
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

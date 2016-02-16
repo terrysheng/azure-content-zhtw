@@ -78,63 +78,9 @@
 
 如果您要遵循適用於 API 應用程式的 .NET 入門系列，並已依照[第一個](app-service-api-dotnet-get-started.md)和[第二個](app-service-api-cors-consume-javascript.md)教學課程中的指示部署範例應用程式，請跳至[設定驗證](#azureauth)一節。
 
-如果您還沒進行過第一個和第二個教學課程，就想要遵循本教學課程，請先確定您已符合此系列的所有[必要條件](app-service-api-dotnet-get-started.md#prerequisites)。然後執行下列步驟來下載和部署範例應用程式。這些步驟會重複您在前兩個教學課程中所完成的動作，但這邊的指示較為簡略。
+如果您未進行第一個和第二個教學課程，且您想要遵循這個教學課程，請使用[待辦事項清單範例儲存機制讀我檔案](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md)中的 [部署至 Azure] 按鈕，以部署 API 應用程式和 Web 應用程式。
 
-1. 下載範例應用程式。
-
-	a.從 [Azure-Samples/app-service-api-dotnet-todo-list](https://github.com/Azure-Samples/app-service-api-dotnet-to-do-list) 儲存機制進行下載。
-
-	a.在 Visual Studio 2015 中開啟 ToDoList 方案，並建置方案來還原 NuGet 封裝。
-
-2. 將 ToDoListDataAPI 專案部署到新的 API 應用程式。
-
-	a.在 ToDoListDataAPI 專案中，開啟 *App\_Start/SwaggerConfig.cs* 檔案，並取消註解 **EnableSwaggerUi** 程式碼。
-
-	b.在 [方案總管] 中，以滑鼠右鍵按一下 ToDoListDataAPI 專案，然後按一下 [發佈]。
-
-	c.在 [發佈 Web] 精靈的 [設定檔] 步驟中，按一下 [Microsoft Azure App Service]。
-
-	d.在 [App Service] 對話方塊中，選擇您想要使用的 Azure [訂用帳戶]，然後按一下 [新增]。
-
-	e.在 [建立 App Service] 對話方塊的 [主控] 索引標籤中，按一下 [變更類型]，然後按一下 [API 應用程式]。
-
-	f.輸入 [API 應用程式名稱]，例如 ToDoListDataAPI 加上數字，使它成為 *azurewebsites.net* 網域中獨有的名稱，例如：ToDoListDataAPI1230。
-
-	g.在 [資源群組] 下拉式清單中輸入名稱 (例如 TodoListGroup) 以建立新的資源群組。
-
-	h.在 [App Service 方案] 下拉式清單中按一下 [新增]，並在 [設定 App Service 方案] 對話方塊上輸入必要資訊。
-
-	i.按一下 [建立]。
-
-	j.按一下 [發行]。
-
-3. 將 ToDoListAPI 專案部署到新的 API 應用程式。
-
-	a.在 ToDoListAPI 專案中，開啟 *Controllers\ToDoListController.cs*，並將 `http://localhost:45914` 變更為 `https://{your ToDoListDataAPI app name}.azurewebsites.net`。
-
-	b.遵循您在 ToDoListDataAPI 專案時所遵循的相同程序來部署 ToDoListAPI 專案。請記得將類型變更為 [API 應用程式]。
-
-4. 將 ToDoListAngular 專案部署到新的 Web 應用程式。
-
-	a.在 ToDoListAngular 專案中，開啟 *app/scripts/todoListSvc.js* 檔案。
-
-	b.註解化可將 `apiEndpoint` 設定為 localhost URL 的這一行程式碼，取消註解將 `apiEndPoint` 設定為 azurewebsites.net URL 的這一行程式碼，並以您為 ToDoListAPI 建立的 API 應用程式的實際名稱取代預留位置。
-
-	c.遵循您在 ToDoListDataAPI 專案時所遵循的相同程序來部署 ToDoListAPI 專案，**但請勿將類型從 [Web 應用程式] 變更為 [API 應用程式]**。
-
-5. 在 Azure 中為 API 應用程式設定 CORS。
-
-	a.移至 [Azure 入口網站](https://portal.azure.com/)，並瀏覽至您為 ToDoListAPI 專案建立的 API 應用程式。
-
-	b.在 [API 應用程式] 刀鋒視窗中，按一下 [設定]。
-
-	c.尋找 [API] 區段，然後按一下 [CORS]。
-
-	d.在文字方塊中，輸入您想要允許呼叫來自哪個 URL，在本教學課程中，這是您為 ToDoListAngular 專案所建立之 Web 應用程式的 URL。例如，輸入 "https://todolistangular.azurewebsites.net"。
-
-	e.按一下 [儲存]。
-
-6. 開啟瀏覽器至 Web 應用程式的 HTTPS URL，並確認您可以檢視、新增、編輯和刪除待辦事項項目。
+部署完成時，會顯示連接至 Web 應用程式的 HTTP 連結。若要執行應用程式，並確認它可以正常操作，請將該 URL 變更為 HTTPS。
 
 ## <a id="azureauth"></a>在 Azure 中設定驗證
 
@@ -148,7 +94,7 @@
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您為 ToDoListAPI 專案所建立之 API 應用程式的 [API 應用程式] 刀鋒視窗。
 
-2. 按一下 [設定]。
+2. 按一下 [設定]
 
 2. 在 [設定] 刀鋒視窗中，尋找 [功能] 區段，然後按一下 [驗證/授權]。
 
@@ -174,7 +120,7 @@
 
 7. 在 [管理模式] 底下，按一下 [建立新的 AD 應用程式]。
 
-	入口網站會在 [建立應用程式]輸入方塊中填入預設值。
+	入口網站會在 [建立應用程式] 輸入方塊中填入預設值。
 	
 	![](./media/app-service-api-dotnet-user-principal-auth/aadsettings2.png)
 
@@ -391,4 +337,4 @@ ToDoListAPI 專案目前會將 "*" 做為 `owner` 值傳送到 ToDoListDataAPI�
 
 在本教學課程中，您已了解如何使用 API 應用程式的 App Service 驗證，以及如何利用 ADAL JS 程式庫呼叫 API 應用程式。在下一個教學課程中，您將學習如何[對於服務對服務的案例保護您的 API 應用程式存取](app-service-api-dotnet-service-principal-auth.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

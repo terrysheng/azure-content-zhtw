@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/28/2016"
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 
@@ -66,7 +66,7 @@
 
 1. 在 Azure 傳統入口網站中，依序按一下 [新增]、[媒體服務] 和 [快速建立]。
 
-![Media Services Quick Create](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+	![Media Services Quick Create](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
 2. 在 [名稱] 中，輸入新帳戶的名稱。媒體服務帳戶名稱是全部小寫且不含空格的數字或字母，而且長度是 3 到 24 個字元。
 
@@ -453,4 +453,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

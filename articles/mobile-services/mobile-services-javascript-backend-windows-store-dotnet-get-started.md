@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015"
+	ms.date="02/10/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>開始使用行動服務
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
-&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -76,7 +75,7 @@
 
 * [將推播通知新增至您的應用程式][Get started with push notifications] 了解如何將非常基本的推播通知傳送至應用程式。
 
-* [如何使用.NET 用戶端程式庫](mobile-services-windows-dotnet-how-to-use-client-library.md) 了解如何查詢行動服務、處理資料，以及存取自訂 API。
+* [如何使用.NET 用戶端程式庫](mobile-services-dotnet-how-to-use-client-library.md) 了解如何查詢行動服務、處理資料，以及存取自訂 API。
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -99,4 +98,4 @@
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="02/05/2016"
 	ms.author="tdykstra"/>
 
 # 使用 CORS 從 JavaScript 取用 API 應用程式
@@ -76,6 +76,8 @@ App Service 可讓您輕鬆設定允許呼叫 API 應用程式的網域，而且
 		    ]
 		}
 
+若要查看 Azure 資源管理員範本的範例，其中包含用來設定 CORS 的 JSON，請開啟[範例應用程式儲存機制中的 azuredeploy.json 檔案](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json)。
+
 ## <a id="tutorialstart"></a>繼續進行 .NET 入門教學課程
 
 如果您要遵循適用於 API 應用程式的 Node.js 或 Java 入門系列，請跳至下一節 [App Service API 應用程式的驗證](app-service-api-authentication.md)。
@@ -108,19 +110,6 @@ App Service 可讓您輕鬆設定允許呼叫 API 應用程式的網域，而且
 		    };
 		}]);
 
-### 設定 ToDoListAngular 專案來呼叫 ToDoListAPI API 應用程式 
-
-將前端部署至 Azure 之前，您必須在 AngularJS 專案中變更 API 端點，以便程式碼呼叫您在前一個教學課程中建立的 ToDoListAPI Azure API 應用程式。
-
-1. 在 ToDoListAngular 專案中，開啟 *app/scripts/todoListSvc.js* 檔案。
-
-2. 註解化可將 `apiEndpoint` 設定為 localhost URL 的這一行程式碼，取消註解將 `apiEndPoint` 設定為 azurewebsites.net URL 的這一行程式碼，並以您稍早建立的 API 應用程式的實際名稱取代預留位置。如果您將 API 應用程式命名為 ToDoListAPI0125，則程式碼現在看起來如下列範例所示。
-
-		var apiEndPoint = 'https://todolistapi0125.azurewebsites.net';
-		//var apiEndPoint = 'http://localhost:45914';
-
-3. 儲存您的變更。
-
 ### 為 ToDoListAngular 專案建立新的 Web 應用程式
 
 建立新的 Web 應用程式並對其部署專案的程序，和您在本系列的第一個教學課程中看到的相同，差別只在您不必將類型從 [Web 應用程式] 變更為 [API 應用程式]。
@@ -145,11 +134,59 @@ App Service 可讓您輕鬆設定允許呼叫 API 應用程式的網域，而且
 
 	Visual Studio 會建立 Web 應用程式、建立其發佈設定檔，並顯示 [發佈 Web] 精靈的 [連接] 步驟。
 
+	在按一下 [發佈 Web] 精靈中的 [發佈] 之前，您會設定新的 Web 應用程式以呼叫在 App Service 中執行的中介層 API 應用程式。
+
+### 在 Web 應用程式設定中設定中介層 URL
+
+1. 移至 [Azure 入口網站](https://portal.azure.com/)，然後瀏覽至您建立以裝載 TodoListAngular (前端) 專案的 Web 應用程式的 [Web 應用程式] 刀鋒視窗。
+
+2. 按一下 **[設定] > [應用程式設定]**。
+
+3. 在 [應用程式設定] 區段中，新增下列金鑰和值：
+
+	|金鑰|值|範例
+	|---|---|---|
+	|toDoListAPIURL|https://{your 中介層 API 應用程式名稱}.azurewebsites.net|https://todolistapi0121.azurewebsites.net|
+
+4. 按一下 [儲存]。
+
+	在 Azure 中執行程式碼時，這個值現在會覆寫 Web.config 檔案中的 localhost URL。
+
+	取得設定值的程式碼位於 *index.cshtml*：
+
+		<script type="text/javascript">
+		    var apiEndpoint = "@System.Configuration.ConfigurationManager.AppSettings["toDoListAPIURL"]";
+		</script>
+		<script src="app/scripts/todoListSvc.js"></script>
+
+	*todoListSvc.js* 中的程式碼會使用設定：
+
+		return {
+		    getItems : function(){
+		        return $http.get(apiEndpoint + '/api/TodoList');
+		    },
+		    getItem : function(id){
+		        return $http.get(apiEndpoint + '/api/TodoList/' + id);
+		    },
+		    postItem : function(item){
+		        return $http.post(apiEndpoint + '/api/TodoList', item);
+		    },
+		    putItem : function(item){
+		        return $http.put(apiEndpoint + '/api/TodoList/', item);
+		    },
+		    deleteItem : function(id){
+		        return $http({
+		            method: 'DELETE',
+		            url: apiEndpoint + '/api/TodoList/' + id
+		        });
+		    }
+		};
+
 ### 將 ToDoListAngular Web 專案部署到新的 Web 應用程式
 
-*  在 [發佈 Web] 精靈的 [連接] 步驟中，按一下 [發佈]。
+*  在 Visual Studio 的 [發佈 Web] 精靈的 [連接] 步驟中，按一下 [發佈]。
 
-	Visual Studio 會將 ToDoListAngular 專案部署到 Web 應用程式，並將瀏覽器開啟至 Web 應用程式的 URL。
+	Visual Studio 會將 ToDoListAngular 專案部署到新的 Web 應用程式，並將瀏覽器開啟至 Web 應用程式的 URL。
 
 ### 在不啟用 CORS 的情況下測試應用程式 
 
@@ -238,4 +275,4 @@ Web API CORS 支援比 App Service CORS 支援更有彈性。例如，在程式�
 
 在本教學課程中，您已看到如何啟用 App Service CORS 支援，以便用戶端 JavaScript 程式碼可以呼叫不同網域中的 API。在下一篇 API Apps 入門系列文章中，您將了解 [App Service API 應用程式的驗證](app-service-api-authentication.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

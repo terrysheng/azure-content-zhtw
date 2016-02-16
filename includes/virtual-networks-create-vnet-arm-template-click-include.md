@@ -3,7 +3,7 @@
 您可以重複使用已上傳至由 Microsoft 維護且開放社群使用之 Github 存放庫中的預先定義 ARM 範本。這些範本可以直接從 Github 部署，或下載並修改以符合您的需求。若要部署範本，建立具有兩個子網路的 VNet，請依照下列步驟執行。
 
 1. 請透過瀏覽器瀏覽 [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)。
-2. 向下捲動範本清單，按一下 [**101-two-subnets**]。查看 **README.md** 檔案，如下所示。
+2. 向下捲動範本清單，按一下 [101-vnet-two-subnets]。查看 **README.md** 檔案，如下所示。
 
 	![Github 中的 READEME.md 檔案](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
@@ -27,4 +27,4 @@
 
 	![在 Preview 入口網站中建立 VNet](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

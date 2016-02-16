@@ -4,7 +4,7 @@
 
 1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
 
-3. 如有必要，請執行 **New-AzureRmResourceGroup** Cmdlet，以建立新的資源群組。下列命令會在「美國中部」Azure 區域中，建立名為 *TestRG* 的資源群組。如需資源群組的詳細資訊，請瀏覽 [Azure 資源管理員概觀](resource-group-overview.md)。
+3. 如有必要，請執行 **`New-AzureRmResourceGroup`** Cmdlet，以建立新的資源群組。下列命令會在「美國中部」Azure 區域中，建立名為 *TestRG* 的資源群組。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](resource-group-overview.md)。
 
 		New-AzureRmResourceGroup -Name TestRG -Location centralus
 		
@@ -20,7 +20,7 @@
 		                    *
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
-4. 執行 **New-AzureRmResourceGroupDeployment** Cmdlet，使用先前下載並修改的範本和參數檔案來部署新的 VNet。
+4. 執行 **`New-AzureRmResourceGroupDeployment`** Cmdlet，以使用先前下載並修改的範本和參數檔案，部署新的 VNet。
 
 		New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
@@ -46,7 +46,7 @@
 		
 		Outputs           :
 
-5. 執行 **Get-AzureRmVirtualNetwork** Cmdlet 來檢視新 VNet 的屬性，如下所示。
+5. 執行 **`Get-AzureRmVirtualNetwork`** Cmdlet 來檢視新 VNet 的屬性，如下所示。
 
 
 		Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
@@ -92,4 +92,4 @@
 		                      }
 		                    ]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

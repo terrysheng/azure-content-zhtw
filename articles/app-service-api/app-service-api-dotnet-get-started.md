@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/26/2016"
+	ms.date="02/05/2016"
 	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中開始使用 API Apps 和 ASP.NET
@@ -340,6 +340,8 @@ Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagg
 		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
 		}
 
+若要查看 Azure 資源管理員範本的範例，其中包含用來設定 API 定義屬性的 JSON，請開啟[範例應用程式儲存機制中的 azuredeploy.json 檔案](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json)。
+
 ## <a id="codegen"></a> 使用所產生的用戶端程式碼從 .NET 用戶端取用
 
 將 Swagger 整合到 Azure API 應用程式的優點之一，就是自動產生程式碼。產生的用戶端類別讓您能更容易地撰寫會呼叫 API 應用程式的程式碼。
@@ -388,29 +390,27 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 	![](./media/app-service-api-dotnet-get-started/codegenfiles.png)
 
-5. 在 ToDoListAPI 專案中，開啟 *Controllers\ToDoListController.cs*，查看可使用所產生的用戶端呼叫 API 的程式碼。
+5. 在 ToDoListAPI 專案中，開啟 *Controllers\\ToDoListController.cs*，查看可使用所產生的用戶端呼叫 API 的程式碼。
 
 	下列程式碼片段示範此程式碼如何具現化用戶端物件和呼叫 Get 方法。
 
-		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri("http://localhost:45914"));
+		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 		
 		public ActionResult Index()
 		{
 		    return View(db.Contacts.Get());
 		}
 
-	此程式碼會將 API 專案的本機 IIS Express URL 傳遞至用戶端類別建構函式，以便讓您在本機執行應用程式。如果您省略建構函式參數，預設端點會是您產生程式碼的 URL。
+	建構函式參數會從 `toDoListDataAPIURL` 應用程式設定取得端點 URL。在 Web.config 檔案中，該值設為 `toDoListDataAPIURL` 設定中 API 專案的本機 IIS Express URL，以便讓您在本機執行應用程式。如果您省略建構函式參數，預設端點會是您產生程式碼的 URL。
 
-6. 將會根據您的 API 應用程式名稱，以不同的名稱產生您的用戶端類別；變更此程式碼，讓類型名稱符合您的專案中產生的內容，並移除 URL。例如，如果您將 API 應用程式命名為 ToDoListDataAPI0121，程式碼看起來會像下面的範例：
+6. 將會根據您的 API 應用程式名稱，以不同的名稱產生您的用戶端類別；變更此程式碼，讓類型名稱符合您的專案中產生的內容。例如，如果您將 API 應用程式命名為 ToDoListDataAPI0121，程式碼看起來會像下面的範例：
 
-		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121();
+		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 		
 		public ActionResult Index()
 		{
 		    return View(db.Contacts.Get());
 		}
-
-	預設目標 URL 是您的 ToDoListDataAPI API 應用程式，因為您從該處產生程式碼；如果您使用不同的方法來產生程式碼，您可能必須用您指定本機 URL 的相同方式來指定 Azure API 應用程式 URL。
 
 #### 建立 API 應用程式來裝載中間層
 
@@ -434,6 +434,22 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 	Visual Studio 會建立 API 應用程式、建立其發佈設定檔，並顯示 [發佈 Web] 精靈的 [連接] 步驟。
 
+### 在中介層應用程式設定中設定資料層 URL
+
+1. 移至 [Azure 入口網站](https://portal.azure.com/)，然後瀏覽至您建立以裝載 TodoListAPI (中介層) 專案之 API 應用程式的 [API 應用程式] 刀鋒視窗。
+
+2. 按一下 **[設定] > [應用程式設定]**。
+
+3. 在 [應用程式設定] 區段中，新增下列金鑰和值：
+
+	|金鑰|值|範例
+	|---|---|---|
+	|toDoListDataAPIURL|https://{your 資料層 API 應用程式名稱}.azurewebsites.net|https://todolistdataapi0121.azurewebsites.net|
+
+4. 按一下 [儲存]。
+
+	在 Azure 中執行程式碼時，這個值現在會覆寫 Web.config 檔案中的 localhost URL。
+
 ### 將 ToDoListAPI 專案部署到新的 API 應用程式
 
 3.  在 [發佈 Web] 精靈的 [連接] 步驟中，按一下 [發佈]。
@@ -454,4 +470,4 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 在本教學課程中，您已了解如何建立 API 應用程式、對其部署程式碼、為其產生用戶端程式碼，以及從 .NET 用戶端取用應用程式。API Apps 入門系列中的下一個教學課程示範如何[使用 CORS 從 JavaScript 用戶端取用 API 應用程式](app-service-api-cors-consume-javascript.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

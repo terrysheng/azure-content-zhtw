@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter=""
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # 使用 Azure 傳統入口網站建立具有站對站 VPN 連線的虛擬網路
@@ -23,7 +23,7 @@
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-本文將逐步引導您建立虛擬網路以及內部部署網路的站對站 VPN 連線。本文適用於傳統部署模型。如果您要尋找此組態的不同部署模型，請使用以上的索引標籤來選取您想要的文章。如果您想要將 VNet 連接在一起，但不要建立對內部部署位置的連線，請參閱[設定 VNet 對 VNet 連線](virtual-networks-configure-vnet-to-vnet-connection.md)。
+本文將逐步引導您建立虛擬網路以及內部部署網路的站對站 VPN 連線。站對站連線可以用於跨部署與混合式組態。本文適用於**傳統**部署模型。如果您想要建立**資源管理員**部署模型的站對站連線，請參閱〈[使用 Azure 資源管理員和 PowerShell 設定站對站連線](vpn-gateway-create-site-to-site-rm-powershell.md)〉。如果您想要將 Vnet 連接在一起，但不要建立內部部署位置的連線，請參閱[設定傳統部署模型的 VNet 對 VNet 連線](virtual-networks-configure-vnet-to-vnet-connection.md)或[設定資源管理員部署模型的 VNet 對 VNet 連線](vpn-gateway-vnet-vnet-rm-ps.md)。
 
 **關於 Azure 部署模型**
 
@@ -52,7 +52,7 @@
 
 輸入以下資訊：
 
-- **名稱**：為虛擬網路命名。例如，*EastUSVNet*。當您部署 VM 和 PaaS 執行個體時，將會使用此虛擬網路名稱，因此您可能不會想要太過複雜的名稱。
+- **名稱**：為虛擬網路命名。例如， *EastUSVNet* 。當您部署 VM 和 PaaS 執行個體時，將會使用此虛擬網路名稱，因此您可能不會想要太過複雜的名稱。
 - **位置**：位置會與您要存放資源 (VM) 的實體位置 (區域) 直接相關。例如，如果想要您部署到此虛擬網路的 VM 實際上位於 *美國東部*，請選取該位置。建立關聯之後，您就無法變更與虛擬網路相關聯的區域。
 
 ## DNS 伺服器和 VPN 連線能力頁面
@@ -100,4 +100,4 @@
 
 如果您想要使用 Azure 資源管理員模式，設定在傳統虛擬網路與所建立的虛擬網路之間的連線，請參閱[將傳統 VNet 連線至 Azure 資源管理員 VNet](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

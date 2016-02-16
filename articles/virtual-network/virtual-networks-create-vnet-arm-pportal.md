@@ -1,6 +1,6 @@
 <properties
-   pageTitle="使用 Azure Preview 入口網站建立虛擬網路 | Microsoft Azure"
-   description="了解如何在 ARM 中使用 Azure Preview 入口網站建立虛擬網路 |資源管理員。"
+   pageTitle="使用 Azure 入口網站建立虛擬網路 | Microsoft Azure"
+   description="了解如何在 ARM 中使用 Azure 入口網站建立虛擬網路 |資源管理員。"
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/04/2016"
    ms.author="telmos"/>
 
-# 使用 Azure Preview 入口網站建立虛擬網路
+# 使用 Azure 入口網站建立虛擬網路
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
 
@@ -30,4 +30,4 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-pportal-include](../../includes/virtual-networks-create-vnet-arm-pportal-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

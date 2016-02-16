@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/06/2015"
+	ms.date="02/10/2016"
 	ms.author="glenga"/>
 
 
@@ -24,8 +24,7 @@
 &nbsp;
 
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
-&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 >[AZURE.TIP] 如果您是使用 Microsoft Azure 進行行動開發的新手，[請從 Azure Mobile Apps 開始](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)，而非 Azure 行動服務，因為 Mobile Apps 能讓您擁有[更多優勢](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)。
 
@@ -103,13 +102,13 @@
 * [將行動服務新增至現有的應用程式][Get started with data] 
   <br/>深入了解使用行動服務來儲存與查詢資料。
 
-* [開始使用離線資料同步]
+* [開始使用離線資料同步] 
   <br/>了解如何使用離線資料同步功能來讓應用程式的反應更快，且更健全。
 
 * [在您的行動服務應用程式中新增驗證功能][Get started with authentication] 
   <br/>了解如何利用身分識別提供者來驗證您應用程式的使用者。
 
-* [將推播通知新增至您的應用程式][Get started with push notifications]
+* [將推播通知新增至您的應用程式][Get started with push notifications] 
   <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
 * [行動服務 .NET 後端疑難排解]
@@ -138,4 +137,4 @@
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 [行動服務 .NET 後端疑難排解]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

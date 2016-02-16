@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/21/2016"
+	ms.date="02/10/2016"
 	ms.author="kgremban"/>
 
 # Azure 角色型存取控制
@@ -198,4 +198,4 @@ Azure RBAC 有適用於所有資源類型的三個基本角色：擁有者、參
 
 **誰可以檢視可用於在範圍中指派的自訂角色？** - 可以在範圍中執行 `Microsoft.Authorization/roleDefinition/read` 作業的使用者，可以檢視可用於在該範圍中指派的 RBAC 角色。Azure RBAC 中的所有內建角色允許檢視可用於指派的角色。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

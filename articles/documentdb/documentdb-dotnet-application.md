@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="11/18/2015" 
+	ms.date="02/09/2016" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>ASP.NET MVC 教學課程：使用 DocumentDB 開發 Web 應用程式
@@ -52,8 +52,7 @@
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-<br/>
-我們現在將從頭開始逐步解說如何建立新的 ASP.NET MVC 應用程式。
+<br/>我們現在將從頭開始逐步解說如何建立新的 ASP.NET MVC 應用程式。
 
 ## <a name="_Toc395637762"></a>步驟 2：建立新的 ASP.NET MVC 應用程式
 
@@ -237,7 +236,7 @@
 1. 在 [方案總管] 中，再次以滑鼠右鍵按一下 **Item** 資料夾，按一下 [新增]，然後按一下 [檢視]。
 
 2. 在 [新增檢視] 對話方塊中，執行下列動作：
-    - 在 [檢視名稱] 方塊中，輸入「***編輯***」。
+    - 在 [**檢視名稱**] 方塊中，輸入「***編輯***」。
     - 在 [範本] 方塊中，選取 [***編輯***]。
     - 在 [模型類別] 方塊中，選取 [***項目 (todo.Models)***]。
     - 將 [資料內容類別] 方塊保留空白。 
@@ -449,7 +448,7 @@
 
 如果您現在執行應用程式，您可以前往 **HomeController** 及該控制器的 [**索引**] 檢視。這是我們在一開始時所選擇的 MVC 範本專案預設行為，但是我們不想要這樣的行為！ 讓我們變更此 MVC 應用程式上的路由以改變此行為。
 
-開啟 ***App\_Start\RouteConfig.cs***，並尋找以 "defaults:" 開頭的程式碼行，然後將它變更為如下所示。
+開啟 ***App\_Start\\RouteConfig.cs***，並尋找以 "defaults:" 開頭的程式碼行，然後將它變更為如下所示。
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
@@ -634,4 +633,4 @@
 [ASP.NET MVC 中的基本 CRUD 作業]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="11/23/2015"
+	ms.date="02/04/2016"
 	ms.author="normesta"/>
 
 #建立 Xamarin.Forms 應用程式
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##概觀
 
@@ -33,11 +31,11 @@
 若要完成此教學課程，您需要下列項目：
 
 * 使用中的 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
- 
+
 * [Visual Studio Community 2013] 或更新版本。如果您安裝 Visual Studio Community 2013，請個別安裝 [Xamarin]。當您安裝 Visual Studio 2015 時，可以安裝 Xamarin 工具。
 
 * 已安裝 [Xcode] v7.0 或更新版本，以及 [Xamarin Studio] 的 Mac。如果您打算在 Windows 電腦上使用 Visual Studio 建置您的應用程式，您仍會需要存取已加入網路的 Mac 才能這麼做。
- 
+
 >[AZURE.NOTE] 如果您想在註冊 Azure 帳戶之前先開始使用 Azure App Service，請前往[試用 App Service](https://tryappservice.azure.com/?appServiceName=mobile)，讓您能立刻在 App Service 中建立短期的入門行動應用程式。不需要信用卡；無需承諾。
 
 ## 建立新的 Azure 行動應用程式後端
@@ -55,7 +53,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
- 
+
 ## (選擇性) 在本機測試您的後端專案
 
 如果您選擇上述的 .NET 後端組態，您可以在本機選擇性地測試後端。
@@ -95,7 +93,7 @@
 
 ####在 Visual Studio 中
 1. 以滑鼠右鍵按一下 iOS 專案，然後按一下 [設為起始專案]。
-2. 從 [建置] 功能表中，按一下 [組態管理員]。 
+2. 從 [建置] 功能表中，按一下 [組態管理員]。
 3. 在 [組態管理員] 對話方塊中，選取 iOS 專案的 [建置] 和 [部署] 核取方塊。
 4. 按 **F5** 鍵，以建置專案並在 iPhone 模擬器中啟動 app。
 
@@ -119,7 +117,7 @@
 
 ####在 Visual Studio 中
 1. 以滑鼠右鍵按一下 Android 專案，然後按一下 [設為起始專案]。
-4. 從 [建置] 功能表中，按一下 [組態管理員]。 
+4. 從 [建置] 功能表中，按一下 [組態管理員]。
 5. 在 [組態管理員] 對話方塊中，選取 Android 專案的 [建置] 和 [部署] 核取方塊。
 6. 按 **F5** 鍵，以建置專案並在 Android 模擬器中啟動應用程式。
 
@@ -141,16 +139,16 @@
 
 ####在 Visual Studio 中
 1. 以滑鼠右鍵按一下任何一個 Windows 專案，然後按一下 [設為起始專案]。
-4. 從 [建置] 功能表中，按一下 [組態管理員]。 
+4. 從 [建置] 功能表中，按一下 [組態管理員]。
 5. 在 [組態管理員] 對話方塊中，選取所選之 Windows 專案的 [建置] 和 [部署] 核取方塊。
 6. 按 **F5** 鍵，以建置專案並在 Windows 模擬器中啟動應用程式。
 
 在應用程式中，輸入有意義的文字 (例如「了解 Xamarin (Learn Xamarin)」)，然後按一下 **+** 按鈕。
-	
+
 如此會傳送 POST 要求到 Azure 中代管的新行動應用程式後端。要求中的資料會插入 TodoItem 資料表中。行動應用程式後端會傳回資料表中儲存的項目，而該資料會顯示在清單中。
 
 ![][12]
-	
+
 > [AZURE.NOTE]
 您將會看到在您方案的可攜式類別庫專案的 TodoItemManager.cs C# 檔案中，存取行動應用程式後端的程式碼。
 
@@ -180,6 +178,5 @@
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [在 Windows 上安裝 Xamarin.iOS]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
- 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

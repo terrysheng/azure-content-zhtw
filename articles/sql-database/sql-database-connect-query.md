@@ -5,7 +5,7 @@
 	keywords="c# 資料庫查詢, c# 查詢, 連接到資料庫, SQL C#"
 	documentationCenter=""
 	authors="MightyPen"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="02/05/2016"
 	ms.author="genemi"/>
 
 
@@ -324,7 +324,7 @@ namespace ConnectAndQuery_Example
 
 
 
-如需詳細資訊，請參閱：<br/>
+如需詳細資訊，請參閱：<br/> 
 [作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)。
 
 
@@ -335,7 +335,7 @@ namespace ConnectAndQuery_Example
 1. 在 Visual Studio 中，藉由功能表 [偵錯] > [開始偵錯] 執行您的 C# 查詢程式。主控台視窗隨即顯示。
 
 2. 依照指示輸入您的使用者名稱和密碼。
- - 幾個連接工具需要您的使用者名稱附加 "@{your_serverName_here}"，但這個後置詞對於 ADO.NET 而言是選擇性的。請務必輸入此後置詞。
+ - 幾個連接工具需要您的使用者名稱附加 "@{your\_serverName\_here}"，但這個後置詞對於 ADO.NET 而言是選擇性的。請務必輸入此後置詞。
 
 3. 資料列會隨即顯示。
 
@@ -359,4 +359,4 @@ namespace ConnectAndQuery_Example
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

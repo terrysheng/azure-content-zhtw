@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # 使用 PowerShell 重設 Azure VPN 閘道
@@ -54,9 +54,8 @@
 
 在兩次重新啟動之後，如果仍有跨單位部署的連線問題，請從 Azure 傳統入口網站開啟支援票證以連絡 Microsoft Azure 支援服務。
 
-
 ## 後續步驟
 	
 如需這個 cmdlet 的詳細資訊，請參閱 [PowerShell 參考](https://msdn.microsoft.com/library/azure/mt270366.aspx)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

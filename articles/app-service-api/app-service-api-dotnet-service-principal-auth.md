@@ -22,20 +22,20 @@
 
 ## 概觀
 
+這篇文章說明如何使用 App Service 驗證以[內部](app-service-api-authentication.md#internal)存取 API 應用程式。內部案例是您具有只想要讓您自己的應用程式程式碼使用的 API 應用程式。在 App Service 中實作這種案例最簡單的方法是使用 Azure AD 保護被呼叫的 API 應用程式。您可以藉由提供應用程式身分識別 (服務主體) 認證，使用您從 Azure AD 取得的持有人權杖，呼叫受保護的 API 應用程式。
+
 在本文中，您將了解：
 
 * 如何使用 Azure Active Directory (Azure AD) 防止未經驗證存取 API 應用程式。
-* 如何使用服務主體 (應用程式身分識別) 認證來取用受保護的 API 應用程式。
+* 如何使用 Azure AD 服務主體 (應用程式身分識別) 認證，從 API 應用程式、Web 應用程式或行動應用程式取用受保護的 API 應用程式。如需如何從邏輯應用程式取用的詳細資訊，請參閱[將您裝載在 App Service 上的自訂 API 與邏輯應用程式一起使用](../app-service-logic/app-service-logic-custom-hosted-api.md)。
 * 如何確保登入的使用者不能從瀏覽器呼叫受保護的 API 應用程式。
 * 如何確保只能由特定 Azure AD 服務主體呼叫受保護的 API 應用程式。
-
-這個用來保護 API 應用程式的方法通常用於從某個 API 應用程式呼叫另一個 API 應用程式之類的[內部案例](app-service-api-authentication.md#internal)。
 
 本文包含兩個部分：
 
 * [如何在 Azure App Service 中設定服務主體驗證](#authconfig)一節大致說明如何為 API 應用程式設定驗證，以及如何取用受保護的 API 應用程式。本節一體適用於 App Service 支援的所有架構，包括 .NET、Node.js 和 Java。
 
-* [本文其餘部分](#tutorialstart)則會引導您針對 App Service 中執行的 .NET 範例應用程式設定「內部存取」案例。
+* 從[繼續進行 .NET 入門教學課程](#tutorialstart)章節開始，教學課程會引導您針對 App Service 中執行的 .NET 範例應用程式設定「內部存取」案例。
 
 ## <a id="authconfig"></a>如何在 Azure App Service 中設定服務主體驗證
 
@@ -49,7 +49,7 @@
 
 3. 在 [驗證/授權] 刀鋒視窗中，按一下 [開啟]。
 
-4. 在 [要求未經驗證時所採取的動作] 下拉式清單中，選取 [使用 Azure Active Directory 登入]。
+4. 在 [要求未經驗證時所採取的動作] 下拉式清單中，選取 [登入 Azure Active Directory]。
 
 5. 在 [驗證提供者] 底下，選取 [Azure Active Directory]。
 
@@ -65,7 +65,7 @@
 
 7. 在 [驗證/授權] 刀鋒視窗中，按一下 [儲存]。
 
-完成此作業後，App Service 就會防止未經驗證的 API 呼叫觸達 API 應用程式。受保護的 API 應用程式則不需要有驗證或授權程式碼。
+完成時，App Service 只會允許來自已設定 Azure AD 租用戶的呼叫端的要求。受保護的 API 應用程式則不需要有驗證或授權程式碼。持有人權杖會與 HTTP 標頭中的常用宣告一起傳遞至 API 應用程式，您可以在程式碼中閱讀該資訊，以驗證要求是來自特定的呼叫端，例如服務主體。
 
 凡是 App Service 所支援的語言 (包括 .NET、Node.js 和 Java)，此驗證功能的運作方式都相同。
 
@@ -83,10 +83,12 @@
 
 #### 如何防止同一租用戶中的使用者存取 API 應用程式
 
-同一租用戶中的使用者所擁有的持有人權杖也會對受保護的 API 應用程式有效。如果您想要確保只有服務主體可以呼叫受保護的 API 應用程式，請在受保護的 API 應用程式中新增程式碼以檢查下列宣告：
+同一租用戶中的使用者所擁有的持有人權杖也會對受保護的 API 應用程式有效。如果您想要確保只有服務主體可以呼叫受保護的 API 應用程式，請在受保護的 API 應用程式中新增程式碼以驗證來自權杖的下列宣告：
 
-* `appid` 應該與呼叫端所關聯之 Azure AD 應用程式的用戶端識別碼相同。
-* `objectidentifier` 應該是呼叫端的服務主體識別碼。
+* `appid` 應該是與呼叫端相關聯之 Azure AD 應用程式的用戶端識別碼。 
+* `oid` (`objectidentifier`) 應該是呼叫端的服務主體識別碼。 
+
+App Service 也在 X-MS-CLIENT-PRINCIPAL-ID 標頭中提供 `objectidentifier` 宣告。
 
 ### 如何防止瀏覽器存取 API 應用程式
 
@@ -96,7 +98,7 @@
 
 如果您要遵循適用於 API 應用程式的 Node.js 或 Java 入門系列，請跳至[後續步驟](#next-steps)一節。
 
-本文其餘部分將接續說明適用於 API 應用程式的 .NET 入門系列，並且假設您已完成[使用者驗證教學課程](app-service-api-user-principal-authentication.md)而且擁有在 Azure 中執行、已啟用使用者驗證的範例應用程式。
+本文其餘部分將接續說明適用於 API 應用程式的 .NET 入門系列，並且假設您已完成[使用者驗證教學課程](app-service-api-user-principal-auth.md)而且擁有在 Azure 中執行、已啟用使用者驗證的範例應用程式。
 
 ## 在 Azure 中設定驗證
 
@@ -126,7 +128,7 @@
 
 7. 在 [管理模式] 底下，按一下 [建立新的 AD 應用程式]。
 
-	入口網站會在 [建立應用程式]輸入方塊中填入預設值。
+	入口網站會在 [建立應用程式] 輸入方塊中填入預設值。
 	
 	![](./media/app-service-api-dotnet-service-principal-auth/aadsettings.png)
 
@@ -301,7 +303,7 @@
 
 您可以透過新增程式碼來驗證傳入呼叫上的 `appid` 和 `objectidentifier` 宣告，以便加上這些限制。
 
-在本教學課程中，您會將用來驗證應用程式識別碼和服務主體識別碼的程式碼直接放在控制器的動作之中。或者，您也可以使用自訂 `Authorize` 屬性，或是在啟動順序 (例如 OWIN 中介軟體) 中執行這項驗證。
+在本教學課程中，您會將用來驗證應用程式識別碼和服務主體識別碼的程式碼直接放在控制器的動作之中。或者，您也可以使用自訂 `Authorize` 屬性，或是在啟動順序 (例如 OWIN 中介軟體) 中執行這項驗證。如需後者的範例，請參閱[此範例應用程式](https://github.com/mohitsriv/EasyAuthMultiTierSample/blob/master/MyDashDataAPI/Startup.cs)。
 
 對 TodoListDataAPI 專案進行下列變更。
 
@@ -388,8 +390,8 @@
 
 * [Azure AD 開發人員指南](http://aka.ms/aaddev)
 * [Azure AD 案例](http://aka.ms/aadscenarios)
-* [Azure AD 範例](http://aka.ms/aadsamples)
+* [Azure AD 範例](http://aka.ms/aadsamples) [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) 範例類似於本教學課程中顯示的項目，但是未使用 App Service 驗證。
 
 如需了解藉由使用 Visual Studio，或是藉由使用[原始檔控制系統](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)來[自動化部署](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)，以將 Visual Studio 專案部署到 API 應用程式的其他方式相關資訊，請參閱[如何部署 Azure App Service 應用程式](web-sites-deploy.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

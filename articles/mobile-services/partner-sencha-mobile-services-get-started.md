@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="11/06/2015"
+	ms.date="02/10/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>開始使用行動服務和 Sencha Touch
@@ -69,7 +69,7 @@
 
 3. 按一下 [Create TodoItems table] 以建立儲存應用程式資料的資料表。
 
-	> [AZURE.NOTE]請勿從 Azure 傳統入口網站下載 HTML 應用程式。反之，我們會在以下小節中手動建立 Sencha Touch 應用程式。
+	> [AZURE.NOTE] 請勿從 Azure 傳統入口網站下載 HTML 應用程式。反之，我們會在以下小節中手動建立 Sencha Touch 應用程式。
 
 
 1. 記下 Azure 傳統入口網站中的 **appKey** 和 **appUrl**。您會在本教學指南的其他小節用到它們。
@@ -113,7 +113,7 @@
 
 ###以 Sencha 套件形式安裝
 
-> [AZURE.NOTE]唯有當您已使用 <code>sencha generate app</code> 命令產生應用程式後才能使用此方法。
+> [AZURE.NOTE] 唯有當您已使用 <code>sencha generate app</code> 命令產生應用程式後才能使用此方法。
 
 對於所有以 Sencha Cmd 產生的應用程式，其根目錄均有 "packages" 資料夾。您可以設定該資料夾的位置，但不論位置為何，"packages" 資料夾的角色在於成為容納應用程式 (或多個應用程式，如果您已建立 Sencha Workspace) 使用之所有套件的儲存體。
 
@@ -669,9 +669,9 @@ Sencha Touch 存放區可用來儲存資料記錄 (模型) 的集合，這些集
 
   2. 使用 Sencha Cmd 執行以下命令：
 
-    * *sencha app refresh* ：這會指示 Sencha Cmd 找出所有的應用程式相依項目，並下載任何需要的封裝 (例如 [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure))。
+    * *sencha app refresh*：這會指示 Sencha Cmd 找出所有的應用程式相依項目，並下載任何需要的封裝 (例如 [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure))。
 
-    * *sencha web start* ：這會啟動本機 Web 伺服器以測試我們的應用程式。
+    * *sencha web start*：這會啟動本機 Web 伺服器以測試我們的應用程式。
 
     ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
 
@@ -724,4 +724,4 @@ Sencha Touch Extension for Azure 套件備有此處簡述的範例，其位於 B
 
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="11/13/2015"
+	ms.date="02/08/2016"
 	ms.author="tomfitz"/>
 
 # 在 Azure App Service 中建立 WordPress Web 應用程式
 
-本教學課程顯示如何在 Azure Marketplace 尋找應用程式，並將它安裝在 App Service Web 應用程式中。本教學課程使用 WordPress 部落格網站做為範例，但對於許多其他 Marketplace 應用程式，此程序類似。
+本教學課程示範如何從 Azure Marketplace 部署 WordPress 部落格網站。
 
 當您完成本教學課程時，您的專屬 WordPress 部落格網站將在雲端中啟動並執行中。
 
@@ -28,11 +28,14 @@
 
 * 如何在 Azure Marketplace 尋找應用程式範本。
 * 如何在 Azure App Service 建立以範本為基礎的 Web 應用程式。
-* 如何為新的 Web 應用程式和 MySQL 資料庫設定 Azure App Service 設定。
+* 如何為新的 Web 應用程式和資料庫設定 Azure App Service 設定。
 
 Azure Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟體計劃所開發的各種熱門 Web 應用程式。Web 應用程式組建在廣泛的熱門架構上，例如本 WordPress 範例中的 [PHP](/develop/nodejs/)、[.NET](/develop/net/)、[Node.js](/develop/nodejs/)、[Java](/develop/java/) 和 [Python](/develop/python/) 等等。若要從 Azure Marketplace 建立 Web 應用程式，您唯一需要的軟體就是用於 [Azure 入口網站](https://portal.azure.com/)的瀏覽器。
 
-> [AZURE.NOTE]若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 Visual Studio 訂閱者權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)，或是[申請免費試用](/zh-TW/pricing/free-trial/?WT.mc_id=A261C142F)。
+您在本教學課程中部署的 WordPress 網站將 MySQL 用於資料庫。如果您想要改為將 SQL Database 用於資料庫，請參閱[專案 Nami](http://projectnami.org/)。**專案 Nami** 也可透過 Marketplace 使用。
+
+> [AZURE.NOTE]
+若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 Visual Studio 訂閱者權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)，或是[申請免費試用](/zh-TW/pricing/free-trial/?WT.mc_id=A261C142F)。
 >
 > 如果您想要在註冊 Azure 帳戶之前先開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)。您可以於該處，在 App Service 中立即建立短期的入門 Web app - 不需信用卡，不需任何承諾。
 
@@ -44,7 +47,7 @@ Azure Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟�
 	
     ![建立新的][5]
 	
-3. 搜尋 **WordPress**，然後按一下 [WordPress]。
+3. 搜尋 **WordPress**，然後按一下 [WordPress]。如果您想要使用 SQL Database，而不是 MySQL，請搜尋**專案 Nami**。
 
 	![WordPress 來源清單][7]
 	
@@ -123,4 +126,4 @@ Azure Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟�
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

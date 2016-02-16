@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
@@ -46,11 +46,11 @@
    - 清單包含所有已針對 Azure AD 目錄設定的網域，包括您在 [網域] 索引標籤中設定的已驗證以及未驗證的網域。
    - 此外，您也可以輸入自訂網域名稱將它新增至此清單中。
 
-     >[AZURE.WARNING] 請確定您指定之網域名稱的網域前置詞 (例如 'contoso.local' 網域名稱中的 'contoso') 不超過 15 個字元。您無法建立網域前置詞超過 15 個字元的「Azure AD 網域服務」網域。
+     > [AZURE.WARNING] 請確定您指定之網域名稱的網域前置詞 (例如 'contoso.local' 網域名稱中的 'contoso') 不超過 15 個字元。您無法建立網域前置詞超過 15 個字元的「Azure AD 網域服務」網域。
 
 8. 下一個步驟是選取您想要在其中使用「Azure AD 網域服務」的虛擬網路。在標題為「將網域服務連接到此虛擬網路」的下拉式清單中，選取您剛建立的虛擬網路。
    - 請確定您指定的虛擬網路屬於「Azure AD 網域服務」所支援的 Azure 區域。
-   - 請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/#services/)頁面，以了解可使用 Azure AD 網域服務的 Azure 區域。
+   - 請參閱[依區域的 Azure 服務](https://azure.microsoft.com/regions/#services/)頁面以了解 Azure AD 網域服務可用的 Azure 區域。
 
 9. 完成選取上述選項時，請按一下頁面底部之工作窗格中的 [儲存]，以啟用「Azure AD 網域服務」。
 10. 針對您的目錄啟用「Azure AD 網域服務」時，頁面將會顯示 [擱置中...] 狀態。
@@ -73,4 +73,4 @@
 ---
 [**下一個步驟 - 更新 Azure 虛擬網路的 DNS 設定。**](active-directory-ds-getting-started-dns.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

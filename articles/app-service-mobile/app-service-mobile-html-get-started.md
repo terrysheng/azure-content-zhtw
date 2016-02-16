@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="11/18/2015"
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 
 #建立 HTML 應用程式
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
-&nbsp;  
-<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 >[AZURE.IMPORTANT] Mobile Apps 目前不支援本主題，因為 HTML/JavaScript 應用程式的快速入門已暫時從 Azure 入口網站移除。我們計劃在不久的將來將它加回來。感謝您耐心配合。
 
@@ -55,7 +53,7 @@
 
 ## 下載伺服器專案
 
-1. 在 [Azure 入口網站中]，按一下 [全部瀏覽] > [Web Apps]，然後按一下您剛建立的行動應用程式後端。 
+1. 在 [Azure 入口網站中]，按一下 [全部瀏覽] > [Web Apps]，然後按一下您剛建立的行動應用程式後端。
 
 2. 在行動應用程式後端中，按一下 [所有設定]，並在 [行動應用程式] 底下按一下 [快速入門] > [HTML/JavaScript]。
 
@@ -70,10 +68,10 @@
 根據預設，您將從入口網站下載的用戶端快速入門專案會在連接埠 8000 的 localhost 上執行。因此，您接下來會在伺服器專案中為 `http://localhost:8000` 啟用 CORS。
 
 1. 在 Visual Studio 的 [工具] 功能表中，按一下 [NuGet 封裝管理員] > [封裝管理員主控台]，選取 Nuget.org 做為 [封裝來源] 並在主控台視窗中執行下列命令：
- 
-		Install-Package Microsoft.AspNet.WebApi.Cors  
 
-2. 開啟 App_Start/Startup.MobileApp.cs 專案檔案，然後新增下列 using 陳述式：
+		Install-Package Microsoft.AspNet.WebApi.Cors
+
+2. 開啟 App\_Start/Startup.MobileApp.cs 專案檔案，然後新增下列 using 陳述式：
 
 		using System.Web.Http.Cors;
 
@@ -93,7 +91,7 @@
 
 ##下載並執行用戶端專案
 
-1. 回到行動應用程式後端的刀鋒視窗中，按一下 [所有設定]，並在 [行動應用程式] 底下按一下 [快速入門] > [HTML/JavaScript]。 
+1. 回到行動應用程式後端的刀鋒視窗中，按一下 [所有設定]，並在 [行動應用程式] 底下按一下 [快速入門] > [HTML/JavaScript]。
 
 2.  在 [建立新的應用程式] 的 [下載並執行您的 HTML/Javascript 專案] 之下，按一下 [下載] 並將壓縮的專案檔案儲存至本機電腦。
 
@@ -125,6 +123,5 @@
 [Azure 入口網站中]: https://portal.azure.com/
 
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
- 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

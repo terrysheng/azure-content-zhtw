@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="11/05/2015"
+   ms.date="02/02/2016"
    ms.author="elizapo"/>
 
 # 使用 Azure RemoteApp 在任何裝置上執行任何 Windows 應用程式
@@ -68,7 +68,7 @@
 ![將使用者新增至 RemoteApp](./media/remoteapp-anyapp/ra-anyappaddusers.png)
 
 
-1. 現在，就可以開始告訴您的使用者有關這些新應用程式的存取方式。若要這樣做，請將使用者指向遠端桌面用戶端下載 URL 的電子郵件傳送給您的使用者。
+1. 現在，就可以開始告訴您的使用者有關這些新應用程式及其存取方式。若要這樣做，請將使用者指向遠端桌面用戶端下載 URL 的電子郵件傳送給您的使用者。
 ![RemoteApp 的用戶端下載 URL](./media/remoteapp-anyapp/ra-anyappurl.png)
 
 ## 設定 Access 的存取權
@@ -80,13 +80,12 @@
 1. 請從發佈命令列介面 (cmd.exe) 開始。在 [**發佈**] 索引標籤中，選取 [**cmd**]，然後按一下 [**發佈 > 使用路徑發佈程式**]。
 2. 輸入應用程式和路徑的名稱。基於我們的目的，使用 "File Explorer" 做為名稱並使用 "%SYSTEMDRIVE%\\windows\\explorer.exe" 做為路徑。
 ![發佈 cmd.exe 檔案。](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. 現在，您需要建立 Azure [儲存體帳戶](../storage-create-storage-account.md)。我們命名為 "accessstorage"，因此請選擇對您有意義的名稱 (只能有一個 "accessstorage")。
+3. 現在，您需要建立 Azure [儲存體帳戶](../storage/storage-create-storage-account.md)。我們的命名為 "accessstorage"，因此請選擇對您有意義的名稱。(若要誤引 Highlander，則只能有一個 "accessstorage"。)
 ![Azure 儲存體帳戶](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
-4. 現在，回到您的儀表板，以取得您儲存體的路徑 (端點位置)。您將立即使用此項，因此請確定在某個位置複製它。
-
+4. 現在，回到您的儀表板，以取得您儲存體的路徑 (端點位置)。您將經常用到它，因此請確定在某個位置複製它。
 ![儲存體帳戶路徑](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
-5.接著，建立儲存體帳戶之後，您需要有主要存取金鑰。按一下 [**管理存取金鑰**]，然後複製主要存取金鑰。
-6.現在，設定儲存體帳戶的內容，並建立 Access 的新檔案共用。在提升權限的 Windows PowerShell 視窗中，執行下列 Cmdlet：
+5. 接著，建立儲存體帳戶之後，您需要有主要存取金鑰。按一下 [**管理存取金鑰**]，然後複製主要存取金鑰。
+6. 現在，設定儲存體帳戶的內容，並建立 Access 的新檔案共用。在提升權限的 Windows PowerShell 視窗中，執行下列 Cmdlet：
 
         $ctx=New-AzureStorageContext <account name> <account key>
     	$s = New-AzureStorageShare <share name> -Context $ctx
@@ -119,4 +118,4 @@
 
 <!--Image references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

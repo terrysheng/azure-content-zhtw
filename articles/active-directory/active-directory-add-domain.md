@@ -1,9 +1,9 @@
 <properties
-	pageTitle="將您自己的網域名稱新增至 Azure Active Directory | Microsoft Azure"
+	pageTitle="使用自訂網域名稱，以簡化您的使用者的登入經驗 |Microsoft Azure"
 	description="說明如何將您自己的網域名稱新增至 Azure Active Directory (Azure AD)，以及其他相關資訊。"
 	services="active-directory"
 	documentationCenter=""
-	authors="curtand"
+	authors="jeffsta"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,206 +13,70 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/05/2016"
-	ms.author="curtand"/>
+	ms.date="02/08/2016"
+	ms.author="curtand;jeffsta"/>
 
-# 將您自己的網域名稱新增至 Azure Active Directory
+# 使用自訂網域名稱，以簡化您的使用者的登入體驗
 
-註冊 Microsoft 雲端服務時，會向您發出具有下列格式的網域名稱：contoso.onmicrosoft.com。您可以繼續使用該初始網域名稱，也可以將專屬自訂網域名稱新增至雲端服務。本主題說明如何將您自己的網域名稱和相關資訊新增至 Azure Active Directory (Azure AD)。
+您可以使用您自己的自訂網域，改善及簡化 Azure Active Directory 中的登入和其他使用者體驗。例如，如果您的組織擁有網域名稱 'contoso.com'，則您的使用者可利用熟悉的使用者名稱 (例如 'joe@contoso.com') 登入。
 
-Office 365 使用者可能對以下相關主題有興趣：
+Azure Active Directory 中的每個目錄隨附內建網域名稱，格式為 'contoso.onmicrosoft.com'，可讓您開始使用 Azure 或其他 Microsoft 服務。[深入了解內建網域](#built-in-domain-names-for-azure-active-directory)。
 
-- [DNS 基本概念](https://support.office.com/article/854b6b2b-0255-4089-8019-b765cff70377)
-- [尋找網域註冊機構或 DNS 主機服務提供者](https://support.office.com/article/Find-your-domain-registrar-or-DNS-hosting-provider-b5b633ba-1e56-4a98-8ff5-2acaac63a5c8/)
-- [在 Office 365 中使用網域名稱](https://support.office.com/article/Work-with-domain-names-in-Office-365-4f1bd681-337a-4bd3-a7b7-cf77b18d0870/)
+## 在 Azure AD 中使用自訂網域名稱
 
-## 關於 onmicrosoft.com 網域
+如果貴組織擁有您的使用者熟悉的自訂網域名稱，則最佳作法是在 Azure Active Directory 中使用該自訂網域名稱。若要在 Azure Active Directory 中使用自訂網域名稱，您：
 
-您可以搭配使用 onmicrosoft.com 網域與其他服務。例如，您可以搭配使用網域與 Exchange Online 和 Lync Online 建立通訊群組清單和登入帳戶，讓使用者能夠存取 SharePoint Online 和網站集合。
+-   [新增並驗證您的自訂網域名稱](active-directory-add-domain-add-verify-general.md)
 
-如果您將專屬網域名稱新增至目錄，則可以繼續使用您的 onmicrosoft.com 網域。
+-   [將使用者指派至自訂網域](active-directory-add-domain-add-users.md)
 
-在註冊期間選擇與雲端服務搭配使用的名稱之後 (例如 contoso.onmicrosoft.com)，則無法變更名稱。
+## 在 Office 365 和其他服務中使用自訂網域名稱
 
-## 如何新增專屬網域？
+如同您的 Azure AD 中的其他資源，您已新增並驗證的自訂網域名稱可以在 Office 365、Intune 及使用 Azure AD 的其他應用程式中使用。例如，在 Exchange Online 中使用自訂網域名稱可讓使用者以熟悉的電子郵件地址 (例如 joe@contoso.com) 傳送和接收電子郵件。若要讓這些其他應用程式使用自訂網域，您必須在 DNS 註冊機構新增其他 DNS 項目，如應用程式所記載。
 
-如果您的組織已經有自訂網域名稱，則系統管理員可以將它新增至 Azure AD 目錄，以與所有已訂閱的 Microsoft Online 服務搭配使用。將網域名稱新增至 Azure AD 之後，即可開始將網域名稱與各種雲端服務產生關聯。
+-   [在 Office 365 中使用自訂網域](https://support.office.com/article/Add-your-users-and-domain-to-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611?ui=zh-TW&rs=zh-TW&ad=US)
 
-使用下列其中一種方式，即可將最多 900 個網域名稱新增至 Azure AD 目錄：
+-   [在 Intune 中使用自訂網域](https://technet.microsoft.com/library/dn646966.aspx#BKMK_DomainNames)
 
-- Azure 傳統入口網站、Office 365 入口網站或 Microsoft Intune 入口網站。
-- 適用於 Windows PowerShell 的 Azure Active Directory 模組。如需可用於此作業之 Cmdlet 的詳細資訊，請參閱[在 Azure AD 中管理網域](https://msdn.microsoft.com/library/azure/dn919677.aspx)。
+## 在 Azure AD 中管理網域名稱
 
-您必須已註冊網域名稱，以及擁有網域名稱註冊機構所需的登入認證 (例如，Go Daddy 或 Register.com)。
+在 Azure Active Directory 中，網域名稱逐漸不需要持續管理或系統管理。
 
-您可以將多個網域新增至目錄。不過，您無法將相同的網域新增至不同的目錄。因此，例如，如果您將網域新增至目錄，則無法建立另一個 Azure AD 目錄，以及在其中新增相同的網域名稱。
+-   [請參閱 Azure Active Directory 中的網域名稱的清單](active-directory-add-domain-add-users.md)
 
-如果您想要搭配使用單一登入與雲端服務，則建議執行 Microsoft Deployment Readiness Tool 來協助準備 Active Directory 環境。此工具會檢查 Active Directory 環境，並提供一份內含您是否準備好設定單一登入相關資訊的報告。如果沒有，它會列出您需要進行以準備單一登入的變更。例如，它會檢查使用者是否擁有 UPN，以及這些 UPN 的格式是否正確。若要下載此工具，請參閱 [Microsoft Deployment Readiness Tool](http://go.microsoft.com/fwlink/?linkid=235650)。
+-   [如果您變更您的自訂網域名稱的 DNS 註冊機構，該怎麼辦](active-directory-add-domain-change-registrar.md)
 
-> [AZURE.NOTE]
-> 是否使用 Office 365？ 設定網域之後，就可以開始建立電子郵件地址、Lync Online 帳戶，以及使用自訂網域名稱的通訊群組清單。您也可以將網域名稱用於裝載於 SharePoint Online 的公開網站。
+## 刪除自訂網域名稱
 
-- [使用 Azure 傳統入口網站新增和驗證網域](#add-and-verify-a-domain-using-the-azure-management-portal)
-- [編輯雲端服務的 DNS 記錄](#edit-dns-records-for-your-cloud-services)
-- [驗證任何網域名稱註冊機構上的網域](#verify-a-domain-at-any-domain-name-registrar)
+如果貴組織不再使用該網域名稱，或如果您需要在另一個 Azure AD 中使用該網域名稱，您可以從您的 Azure AD 刪除自訂網域名稱。
 
-### 使用 Azure 傳統入口網站新增和驗證網域
+-   [刪除自訂網域名稱](#_Deleting_a_custom)
 
-1. 在 Azure 傳統入口網站中，按一下 [Active Directory]，然後按一下您的組織目錄的名稱。您可以執行下列其中一項：
-    1. 在預設 [目錄] 頁面上，按一下 **[改善使用者登入經驗]** 區段中的 [**新增網域**]。
-2. 按一下 [**網域**]，然後按一下 [**新增客戶網域**] 或 [**新增**] 按鈕。
-2. 在 [**新增網域**] 頁面上，輸入您想要新增的網域名稱，並執行下列其中一項：
-    1. 如果您不想要整合內部部署 Active Directory 與 Azure AD，請執行下列動作：
-        1. 清除 [**我計劃將這個網域設定為可使用我的本機 Active Directory 進行單一登入**] 核取方塊，然後按一下 [**新增**] 按鈕。
-        2. 看到網域已順利新增至 Azure AD 的訊息之後，請按一下箭頭移至下一頁，以驗證您的網域。
-        3. 遵循下一頁上的指示，確認您在先前步驟中所新增的網域名稱屬於您。如需逐步指示，請參閱＜驗證任何網域名稱註冊機構上的網域＞。
-    2. 如果您想要整合內部部署 Active Directory 與 Azure AD，請執行下列動作：
-        1. 一定要選取 [**我計劃將這個網域設定為可使用我的本機 Active Directory 進行單一登入**] 核取方塊，然後按一下 [**新增**] 按鈕。
-        2. 看到網域已順利新增至 Azure AD 的訊息之後，請按一下箭頭移至下一頁，然後遵循該頁面上的指示來設定您針對進行單一登入所新增的網域。
+## Azure Active Directory 的內建網域名稱
 
-> [AZURE.NOTE]
-> 將網域名稱新增至 Azure AD 之後，就可以變更新電子郵件地址的預設網域名稱。如需詳細資訊，請參閱[如何變更使用者的主要網域名稱？](#how-can-i-change-the-primary-domain-name-for-users?) 您也可以編輯現有使用者帳戶的設定檔，將電子郵件地址 (這也是您的使用者識別碼) 更新成使用自訂網域名稱，而非 onmicrosoft.com 網域。
+分辨 Azure Active Directory (Azure AD) 中的內建網域和您新增的自訂網域之間的差異。
 
-### 編輯雲端服務的 DNS 記錄
+-   內建：隨附於 Azure AD 目錄的網域，格式為 contoso.onmicrosoft.com
 
-> [AZURE.NOTE]
-> 是否使用 Microsoft Intune？ 您不需要編輯 Microsoft Intune 雲端服務的 DNS 記錄。
+-   自訂：貴組織已擁有的網域名稱，例如 contoso.com
 
-新增並驗證自訂網域名稱之後，下一步是編輯網域註冊機構或 DNS 主機服務提供者上將流量指向雲端服務的 DNS 記錄。Azure AD 提供您需要的 DNS 資訊。
+## 使用 PowerShell 或圖形 API 來管理網域名稱
 
-如果您剛剛完成 [**新增網域**] 精靈，請按一下 [**設定 DNS 記錄**]。否則，請遵循下列步驟。
+Azure Active Directory 中網域的大部分管理工作也可以使用 Microsoft PowerShell，或使用圖形 API 以程式設計方式來完成。
 
-1. 在 Azure 傳統入口網站的左窗格中，按一下 [網域]。
-2. 根據您使用的入口網站，按一下您想要設定的網域名稱，然後按一下 [**DNS 設定**] 或 [**檢視 DNS 設定**]。[**DNS 設定**] 頁面會列出雲端服務的 DNS 記錄。
+-   [使用 PowerShell 管理 Azure AD 中的網域名稱](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
-    如果您想要設定 [DNS 設定] 索引標籤上看不到的服務，請驗證網域服務選項，確定您已針對此網域名稱選擇該服務。若要變更設定 (例如，新增 Lync Online)，請參閱＜指定要與網域搭配使用的服務＞。
+-   [使用圖形 API 管理 Azure AD 中的網域名稱 (預覽)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-3. 在您的網域名稱註冊機構網站上，請將必要記錄新增至 DNS 檔案。
 
-通常需要大約 15 分鐘，變更才會生效。但是，可能需要 72 個小時，才能將您建立的 DNS 記錄傳播至 DNS 系統。如果您需要再次檢視這些記錄設定，請在 [**網域**] 頁面上按一下網域，然後在 [**網域內容**] 頁面上按一下 [**DNS 設定**] 索引標籤。
+## 後續步驟
 
-若要驗證網域的狀態，請在 [**網域**] 頁面上按一下網域，然後在 [**網域內容**] 頁面上按一下 [**疑難排解網域**]。
+如果您需要額外的資源來了解 Azure Active Directory 中的網域名稱使用，請嘗試：
 
-### 驗證任何網域名稱註冊機構上的網域
+- [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
+- [新增及驗證 Azure Active Directory 中的自訂網域名稱](active-directory-add-domain-add-verify-general.md)
+- [將使用者指派至自訂網域](active-directory-add-domain-add-users.md)
+- [變更您的自訂網域名稱的 DNS 註冊機構](active-directory-add-domain-change-registrar.md)
+- [刪除 Azure Active Directory 中的自訂網域](active-directory-add-domain-delete-domain.md)
 
-如果您已經向網域名稱註冊機構註冊網域，而且想要將它設定成使用 Azure AD，則需要進行網域驗證以確認您擁有該網域。若要驗證網域，請在網域名稱註冊機構或裝載 DNS 的任何位置上建立 DNS 記錄，Azure AD 接著會使用該記錄確認您擁有該網域。
-
-驗證網域之前，您必須將自訂網域新增至 Azure AD。新增自訂網域但尚未驗證網域時，狀態會顯示為 [**按一下以驗證網域**] 或 [**未驗證**]。
-
-#### 收集您的網域資訊
-
-根據用來管理 Azure AD 目錄的入口網站，您需要收集網域的一些資訊，稍後即可建立將在驗證程序期間使用的 DNS 記錄。
-
-如果您是使用 Microsoft Intune 或 Azure 帳戶入口網站：
-
-1. 在 [**網域**] 頁面的網域名稱清單中，尋找您要驗證的網域。在 [**狀態**] 欄中，按一下 [**按一下以驗證網域**]。
-2. 在 [**驗證網域**] 頁面的 [**請參閱執行此步驟的指示**] 下拉式清單中，選擇 DNS 主機服務提供者。如果您的提供者未出現在清單中，請選擇 [**一般指示**]。
-3. 在 [**選取驗證方法**] 下拉式清單中，選擇 [**新增 TXT 記錄 (慣用方法)**] 或 [**新增 MX 記錄 (替代方法)**]。
-
-    如果 DNS 主機服務提供者可讓您建立 TXT 記錄，則建議您使用 TXT 記錄來進行驗證。理由 TXT 記錄十分容易建立，而且在不小心輸入不正確的值時並不會干擾電子郵件傳遞。
-
-4. 從表格中，複製或記錄 [**目的地或指向位址**] 資訊。
-
-如果您是使用 Azure 傳統入口網站：
-
-1. 在 Azure 傳統入口網站中，按一下 [Active Directory]，按一下您目錄的名稱，然後案一下 [網域]。
-2. 在 [**網域**] 頁面的網域名稱清單中，按一下您想要驗證的網域，然後按一下 [**驗證**]。
-2. 在 [**驗證**] 頁面的 [**記錄類型**] 下拉式清單中，選擇 [**TXT 記錄**] 或 [**MX 記錄**]。
-3. 複製或記錄其下的資訊。
-
-#### 在網域名稱註冊機構上新增 DNS 記錄
-
-Azure AD 會使用您在網域名稱註冊機構上建立的 DNS 記錄，以確認您擁有該網域。使用下面的指示，建立註冊機構上所註冊網域的 TXT 或 MX 記錄類型。
-
-如果您的網域註冊機構不接受 '@' 做為主機名稱，請連絡您的網域註冊機構，以了解如何代表「目前區域的父系」。
-
-Office 365 具有 [[常見網域註冊機構的特定指示](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)]。
-
-如需一般指示，請遵循下列步驟來新增 TXT 或 MX 記錄：
-
-1. 登入網域名稱註冊機構的網站，然後選取您要驗證的網域。
-2. 在您帳戶的 DNS 管理區域中，選取新增您網域之 TXT 或 MX 記錄的選項。
-3. 在網域的 [**TXT**] 或 [**MX**] 方塊中，輸入下列項目：@
-4. 在 [**完整網域名稱 (FQDN)**] 或 [**指向**] 方塊中，輸入或貼上您在前一個步驟中所記錄的 [**目的地或指向位址**]。
-5. 對於 TXT 記錄，它會要求 **TTL** 資訊，因此輸入 **1** 將 TTL 設定為一個小時。
-
-    對於 MX 記錄，它會要求優先順序 (或喜好設定)，因此輸入大於針對現有 MX 記錄所指定的數目的數目。這有助於防止新的 MX 記錄干擾網域的郵件路由傳送。您可能會看到下列選項，而非優先順序：[**低**]、[**中**]、[**高**]。在此情況下，請選擇 [**低**]。
-
-6. 儲存您的變更，然後登出網域名稱註冊機構的網站。
-
-建立 TXT 記錄或 MX 記錄並登出網站之後，請返回雲端服務以驗證網域。通常需要大約 15 分鐘，變更才會生效。但是，可能需要 72 個小時，才能將您建立的記錄傳播至 DNS 系統。
-
-#### 驗證網域
-
-您為網域所建立的記錄順利傳播至 DNS 系統之後，請執行下列動作完成驗證含 Azure AD 的網域。
-
-1. 在 Azure 傳統入口網站的 Azure Active Directory 中，按一下 [網域]。
-2. 在 [**網域**] 清單中，尋找您要驗證的網域，然後根據您使用的入口網站，按一下 [**按一下以驗證網域**] 或 [**驗證**]。
-3. 遵循提供的指示來完成驗證程序。
-    - 如果網域驗證成功，將會通知您：已將網域新增至帳戶。
-    - 如果網域驗證失敗，則您在網域註冊機構所做的變更可能需要更多時間進行傳播。取消驗證程序，稍後再重試驗證。
-
-如果變更網域後已超過 72 個小時，請登入網域註冊機構的網站，並確認您已正確地輸入別名資訊。如果您錯誤地輸入資訊，則必須移除不正確的 DNS 記錄，並使用本主題中的程序建立一個具有正確資訊的新 DNS 記錄。
-
-驗證網域之後，即可設定網域來使用帳戶。
-
-## 如何變更使用者的主要網域名稱？
-
-將網域名稱新增至 Azure AD 之後，即可變更在建立新使用者帳戶時應該顯示為預設值的網域名稱。若要這樣做，請遵循下列步驟。
-
-1. 在 Azure 傳統入口網站的左上角，按一下您的組織名稱。
-2. 按一下 [**編輯**]。
-3. 選擇新的預設網域名稱 (例如所新增的自訂網域名稱)。
-
-## 如何移除網域？
-
-移除網域名稱之前，建議您閱讀下列資訊：
-
-- 無法移除在註冊時為目錄所提供的原始 contoso.onmicrosoft.com 網域名稱。
-- 除非移除子網域，否則無法移除任何具有與其相關聯的子網域的最上層網域。例如，如果您有 corp.adatum.com 或另一個使用最上層網域名稱的子網域，則無法移除 adatum.com。如需詳細資訊，請參閱此[支援文章](https://support.microsoft.com/kb/2787792/)。
-- 是否已啟用目錄同步處理？ 如果是，則會將網域自動新增至您的帳戶，如下所示：contoso.mail.onmicrosoft.com。無法移除此網域名稱。
-- 您必須先移除與網域相關聯的所有使用者或電子郵件帳戶中的網域名稱，才能移除網域名稱。您可以移除所有帳戶，也可以大量編輯使用者帳戶來變更其網域名稱資訊和電子郵件地址。如需詳細資訊，請參閱[在 Azure AD 中建立或編輯使用者](active-directory-create-users.md)。
-- 如果您是將 SharePoint Online 網站裝載於正用於 SharePoint Online 網站集合的網域名稱，則必須先刪除網站集合，才能移除網域名稱。
-
-移除網域名稱：
-
-1. 在 Azure 傳統入口網站中 Azure AD 的左窗格上，按一下的 [網域]。
-2. 在 [**網域**] 頁面上，選取您想要移除的網域名稱，然後按一下 [**移除網域**]。
-3. 在 [**移除網域**] 頁面上，按一下 [**是**]。
-
-如果目前無法移除您的網域名稱，則 [網域] 頁面上的網域名稱狀態會顯示為 [待移除]。如果您持續看到此狀態，請再試一次移除網域名稱。
-
-## 疑難排解變更網域名稱之後的問題
-
-### 我已變更我的網域，但它尚未顯示變更。
-
-因為更新在網域名稱系統 (DNS) 中的移動方式，所以可能需要 72 個小時，在網域註冊機構或主機服務提供者進行的變更才會完整傳播至網際網路，而且您可以開始搭配使用網域名稱與服務。
-
-此外，您在網域註冊機構進行的編輯必須完全正確。如果您往回更正錯誤，則可能需要數天的時間，更新的設定才會出現在雲端服務入口網站上。
-
-需要多久的時間？ 這有一部分取決於您為所取代或更新的 DNS 記錄指定的存留時間 (TTL) 設定。除非 TTL 過期，否則已快取先前資料的網際網路伺服器不會查詢授權名稱伺服器來要求新的值。
-
-### 我已新增網域、驗證網域，並在網域註冊機構網站上設定 DNS 記錄。為什麼新的電子郵件帳戶尚未收到郵件？
-
-完成新增或更新網域的 DNS 記錄之後，可能需要 72 個小時，變更才會生效。
-
-此外，網域註冊機構網站上的設定資訊必須完全正確。請仔細檢查您的設定，並確定有允許的足夠時間可將變更的 DNS 記錄傳播至系統。
-
-### 我無法驗證我的網域名稱。如何找到錯誤所在？
-
-追蹤問題的一種方法是使用網域疑難排解精靈。若要啟動精靈，請執行下列動作：在 Azure 傳統入口網站的 [系統管理] 頁面上，按一下 [網域]，然後按兩下您想要驗證的網域名稱。然後，在 [**疑難排解**] 下，按一下 [**疑難排解網域**]。
-
-疑難排解精靈會要求您提供處在驗證程序哪個位置的資訊，接著提供可協助您完成驗證的相關資訊。
-
-### 我已新增和驗證我的網域，但新的網域名稱未作用於現有使用者的電子郵件地址。
-
-如果您已在新增使用者帳戶之後將自訂網域名稱新增至雲端服務，則可能需要更新成使用新的網域名稱。例如，您需要編輯您使用者的帳戶，以將其電子郵件地址設定成使用您的自訂網域。
-
-## 接下來
-
-- [Azure AD 論壇](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
-- [Stackoverflow](http://stackoverflow.com/questions/tagged/azure)
-- [以組織身分註冊 Azure](sign-up-organization.md)
-- [在 Azure AD 中管理網域](https://msdn.microsoft.com/library/azure/dn919677.aspx)
-
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

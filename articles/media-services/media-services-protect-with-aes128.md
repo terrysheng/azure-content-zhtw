@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="12/17/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #使用 AES-128 動態加密和金鑰傳遞服務
@@ -75,7 +75,7 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 
 如需如何編碼的指示，請參閱[如何使用 Media Encoder Standard 為資產編碼](media-services-dotnet-encode-with-media-encoder-standard.md)。
 
-##<a id="create_contentkey"></a>建立內容金鑰，並將它與編碼的資產產生關聯
+##<a id="create_contentkey"></a>建立內容金鑰並將它與編碼的資產產生關聯
 
 在媒體服務中，內容金鑰包含您要加密資產時使用的金鑰。
 
@@ -98,7 +98,7 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 
 如需詳細資訊，請參閱[設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md)。
 
-##<a id="create_locator"></a>若要取得串流 URL，請建立隨選串流定位器
+##<a id="create_locator"></a>建立隨選串流定位器以取得串流 URL
 
 您必須為您的使用者提供 Smooth、DASH 或 HLS 的串流 URL。
 
@@ -621,4 +621,4 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/21/2016"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # 開始在 .NET 中建立第一個 Azure 搜尋服務應用程式
@@ -78,7 +78,7 @@
 
 4. 接著安裝 Azure 搜尋服務 .NET 用戶端程式庫。請務必指定正確的搜尋，否則無法輕鬆找到封裝。再以滑鼠右鍵按一下 [管理 NuGet 封裝]。
 
-5. 指定 [線上] > [nuget.org] > [包含發行前版本]，接著搜尋 *azure.search*。按一下 [安裝] 以安裝本程式庫。
+5. 指定 [線上] > [nuget.org] > [僅限穩定]，接著搜尋 *azure.search*。按一下 [安裝] 以安裝本程式庫。
 
    ![][12]
 
@@ -671,4 +671,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

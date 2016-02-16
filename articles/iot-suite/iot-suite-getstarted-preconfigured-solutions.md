@@ -57,7 +57,7 @@ Azure IoT Suite [預先設定的解決方案][lnk-preconfigured-solutions]結合
 
     ![][img-devicelist]
 
-2.  您可以看到佈建程序所建立的四個模擬裝置。
+2.  此裝置清單顯示佈建程序所建立的四個模擬裝置。
 
 3.  按一下裝置清單中的裝置，以檢視裝置詳細資料。
 
@@ -130,6 +130,8 @@ Azure IoT Suite [預先設定的解決方案][lnk-preconfigured-solutions]結合
 9.  返回 [解決方案儀表板] 中的 [警示歷程記錄] 資料表，然後觀察更新規則所造成的行為變更。
 
     ![][img-newhistory]
+    
+完成食，您可以在 [azureiotsuite.com][lnk-azureiotsuite] 網站上刪除您的 Azure 訂用帳戶中預先設定的解決方案 - 這可讓您輕鬆地刪除在建立預先設定的解決方案時所佈建的所有資源。
 
 ## 後續步驟
 
@@ -160,4 +162,4 @@ Azure IoT Suite [預先設定的解決方案][lnk-preconfigured-solutions]結合
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 [lnk-predictive]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

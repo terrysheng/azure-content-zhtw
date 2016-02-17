@@ -91,4 +91,4 @@
 
 6. 將憑證 (.pfx) 匯入已安裝 Visual Studio with Azure SDK for .NET 的機器。
 
-<!----HONumber=AcomDC_0204_2016-->
+<!-----HONumber=AcomDC_0204_2016-->

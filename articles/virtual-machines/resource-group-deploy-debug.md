@@ -296,8 +296,8 @@
 > [AZURE.NOTE] 請記住，對於資源群組，配額適用於每個個別區域，而不是整個訂用帳戶。如果您需要在美國西部部署 30 個核心，就必須要求在美國西部擁有 30 個資源管理員核心。如果您需要在任何具有存取權限的區域中部署 30 個核心，就應該要求在所有區域中擁有 30 個資源管理員核心。
 <!-- --> 
 舉例來說，若要更明確地了解核心，您可以使用下列命令來檢查應該要求適當配額數目的區域，這個命令可以使用管線傳送到 **jq** 以進行 JSON 剖析。
- <!-- --> 
- azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' 
+<!-- --> 
+		azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' 
         {
           "name": "virtualMachines",
           "apiVersions": [
@@ -435,4 +435,4 @@ PowerShell 有幾個基本命令來執行相同的程序。
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

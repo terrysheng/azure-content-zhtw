@@ -200,7 +200,7 @@
 
 	![含有問題配量的資料表刀鋒視窗][image-data-factory-troubleshoot-table-blade-with-problem-slices]
 
-	如果您按一下 [**問題配量**] (不是在特定問題上)，您會看到 [**資料配量**] 刀鋒視窗，接著按一下 [ **特定問題配量**]，查看所選資料配量的 [**資料配量**] 投影片。
+	如果您按一下 [**問題配量**] \(不是在特定問題上)，您會看到 [**資料配量**] 刀鋒視窗，接著按一下 [ **特定問題配量**]，查看所選資料配量的 [**資料配量**] 投影片。
 
 6. 在 **EmpSQLTable** 的 [**資料配量**] 刀鋒視窗中，您會在底部的清單中看見配量的所有**活動執行**。從清單中按一下失敗的 [活動執行]。
 
@@ -374,4 +374,4 @@
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

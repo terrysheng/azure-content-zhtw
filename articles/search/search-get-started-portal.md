@@ -74,7 +74,7 @@ Microsoft Azure 搜尋服務是一項雲端服務，可用來將搜尋功能新�
 - [可篩選]、[可排序] 和 [可面向化] 判斷欄位是否可以用於篩選、排序或多面向導覽結構。 
 - [可搜尋] 表示欄位包含在全文檢索搜尋中。數字欄位和布林值欄位通常會標示為不可搜尋。 
 
-離開此頁面之前，將您索引中的欄位標示為使用下列選項 (可擷取、可搜尋等等)。大部分的欄位都 [可擷取]。大部分的字串欄位都 [可搜尋] (您不需要產生可搜尋的索引鍵)。有些欄位 (像是 orderableOnline、rating 和 tags) 也都 [可篩選]、[可排序] 和 [可面向化]。
+離開此頁面之前，將您索引中的欄位標示為使用下列選項 (可擷取、可搜尋等等)。大部分的欄位都 [可擷取]。大部分的字串欄位都 [可搜尋] \(您不需要產生可搜尋的索引鍵)。有些欄位 (像是 orderableOnline、rating 和 tags) 也都 [可篩選]、[可排序] 和 [可面向化]。
 	
 欄位 | 類型 | 選項 |
 ------|------|---------|
@@ -178,4 +178,4 @@ lastUpdated | Edm.DateTimeOffset | |
 [5]: ./media/search-get-started-portal/AzureSearch-GetStart-ImportReady.png
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

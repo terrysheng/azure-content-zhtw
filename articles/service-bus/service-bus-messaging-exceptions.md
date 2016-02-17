@@ -58,7 +58,8 @@
 | [MessagingEntityDisabledException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingentitydisabledexception.aspx) | 在停用的實體上要求執行階段作業。 | 啟用實體。 | 如實體在過渡期間被啟用，重試可能會有幫助。 |
 | [NoMatchingSubscriptionException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.nomatchingsubscriptionexception.aspx) | 如果您將訊息傳送至已啟用預先篩選的主題，但沒有符合的篩選，服務匯流排就會傳回此例外狀況。 | 確定至少有一個篩選相符。 | 重試將無助益。 |
 | [MessageSizeExceededException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesizeexceededexception.aspx) | 訊息裝載超過 256K 的限制。請注意，256k 的限制是總訊息大小，可包括系統屬性和任何 .NET 負荷。 | 減少訊息裝載大小，然後再重試作業。 | 重試將無助益。 |
-| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | 環境交易 (*Transaction.Current*) 無效。其可能已完成或中止。內部例外狀況可能會提供其他資訊。 | | 重試並沒有任何幫助。 | - | [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | 嘗試對不確定的交易執行作業，或是嘗試認可交易，但交易變成不確定。 | 應用程式必須處理這個例外狀況 (當成特殊狀況)，因為交易可能已遭認可。 | - |
+| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | 環境交易 (*Transaction.Current*) 無效。其可能已完成或中止。內部例外狀況可能會提供其他資訊。 | | 重試並沒有任何幫助。 | -
+| [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | 嘗試對不確定的交易執行作業，或是嘗試認可交易，但交易變成不確定。 | 應用程式必須處理這個例外狀況 (當成特殊狀況)，因為交易可能已遭認可。 | - |
 
 ## 後續步驟
 
@@ -70,4 +71,4 @@
 - [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 - [服務匯流排架構](service-bus-architecture.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

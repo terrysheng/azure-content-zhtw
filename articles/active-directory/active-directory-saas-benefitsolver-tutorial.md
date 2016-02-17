@@ -82,8 +82,9 @@
 
     ![設定 App 設定](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "設定 App 設定")
 
-    1.  在 [登入 URL] 文字方塊中，輸入 ****http://azure.benefitsolver.com**。
-2.  在 [回覆 URL] 文字方塊中，輸入 ****https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**。
+    1.  在 [登入 URL] 文字方塊中，輸入 **http://azure.benefitsolver.com**。
+	2.  在 [回覆 URL] 文字方塊中，輸入 **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**。
+
 
     3.  按 [下一步]。
 
@@ -145,4 +146,4 @@
 
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!-----HONumber=AcomDC_0204_2016-->

@@ -235,7 +235,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
  
 3.  接下來，我們將建立輸出集合的 Hive 資料表。輸出文件屬性包括月、日、小時、分鐘和總發生次數。
 
-	> [AZURE.NOTE] **再重申一次，命名 DocumentDB.outputCollections 是正確的選擇。** 沒錯，我們允許在一筆輸出中加入多個集合：</br> '*DocumentDB.outputCollections*' = '*<DocumentDB Output Collection Name 1>*,*<DocumentDB Output Collection Name 2>*'</br> 不使用空格，只使用單一逗點分隔的集合名稱。</br></br>文件將會是跨多個集合的分散式循環配置資源。第一批文件會儲存在一個集合中，然後第二批文件會儲存在下一個集合中，以此類推。
+	> [AZURE.NOTE] **再重申一次，命名 DocumentDB.outputCollections 是正確的選擇。** 沒錯，我們允許在一筆輸出中加入多個集合：</br> '*DocumentDB.outputCollections*' = '*\<DocumentDB Output Collection Name 1\>*,*\<DocumentDB Output Collection Name 2\>*'</br> 不使用空格，只使用單一逗點分隔的集合名稱。</br></br>文件將會是跨多個集合的分散式循環配置資源。第一批文件會儲存在一個集合中，然後第二批文件會儲存在下一個集合中，以此類推。
 
 		# Create a Hive table for the output data to DocumentDB.
 	    $queryStringPart2 = "drop table DocumentDB_analytics; " +
@@ -314,7 +314,7 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
     <p>首先，將文件從 DocumentDB 載入 HDInsight。將下列程式碼片段加入 [PowerShell 指令碼] 窗格中 # 1 的程式碼片段<strong>後面</strong>。請務必將 DocumentDB 查詢加入選擇性的 DocumentDB 查詢參數，以將文件整理成只有 _ts 和 _rid。</p>
     
     > [AZURE.NOTE] 沒錯，我們允許在一筆輸入中加入多個集合：</br> 
-    '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*'</br>不使用空格，只使用單一逗點分隔的集合名稱。</b>
+    '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*'</br>不使用空格，只使用單一逗點分隔的集合名稱。</b>
 
 	文件將會是跨多個集合的分散式循環配置資源。第一批文件會儲存在一個集合中，然後第二批文件會儲存在下一個集合中，以此類推。
 
@@ -334,8 +334,8 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 
 4. 最後，將結果存回新的輸出集合。
 
-    > [AZURE.NOTE] 沒錯，我們允許在一筆輸出中加入多個集合：</br> 
-    '<DocumentDB Output Collection Name 1>,<DocumentDB Output Collection Name 2>'</br>不使用空格，只使用單一逗點分隔的集合名稱。</br> 
+    > [AZURE.NOTE] 沒錯，我們允許在一筆輸出中加入多個集合：</br>
+    '\<DocumentDB Output Collection Name 1\>,\<DocumentDB Output Collection Name 2\>'</br>不使用空格，只使用單一逗點分隔的集合名稱。</br>
     文件將會是跨多個集合的分散式循環配置資源。第一批文件會儲存在一個集合中，然後第二批文件會儲存在下一個集合中，以此類推。
 
 		# Store output data to DocumentDB.
@@ -482,4 +482,4 @@ Azure HDInsight 會使用 Azure Blob 儲存體來儲存資料。我們稱之為 
 [powershell-install-configure]: ../powershell-install-configure.md
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

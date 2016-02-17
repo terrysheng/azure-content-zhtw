@@ -88,7 +88,7 @@
 
 當您已儲存 PowerShell 指令碼，您可以執行下列動作，將其新增至 Azure 自動化做為 Runbook：
 
-在您的 [自動化帳戶] 中，按一下 [Runbook] ，然後選取 [加入 Runbook]。選取 [快速建立] (建立新的 Runbook)，提供您的 Runbook 的名稱，並在 [Runbook 類型] 底下選取 [PowerShell]。然後按一下 [建立]。
+在您的 [自動化帳戶] 中，按一下 [Runbook] ，然後選取 [加入 Runbook]。選取 [快速建立] \(建立新的 Runbook)，提供您的 Runbook 的名稱，並在 [Runbook 類型] 底下選取 [PowerShell]。然後按一下 [建立]。
 
 ![建立 AWS Runbook](./media/automation-aws-deployment/4759ad00-f800-44ba-94be-307cf034a9df.png "建立 AWS Runbook")
 
@@ -163,4 +163,4 @@
 
 Tiander。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

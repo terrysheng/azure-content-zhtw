@@ -105,7 +105,7 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 > [AZURE.NOTE] 連線至儀表板時，系統會提示您輸入使用者名稱和密碼。這是您建立叢集時使用的系統管理員名稱 (**admin**) 和密碼。
 
-載入 Storm 儀表板後，您會看到 [提交拓撲] (Submit Topology) 表單。
+載入 Storm 儀表板後，您會看到 [提交拓撲] \(Submit Topology) 表單。
 
 ![利用 Storm 儀表板提交 Storm Starter 拓撲。](./media/hdinsight-apache-storm-tutorial-get-started/submit.png)
 
@@ -239,4 +239,4 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

@@ -205,7 +205,8 @@ Service Fabric 允許您指定兩個憑證 (主要和次要)。您在建立時�
 請注意：對於安全的叢集，您一律必須部署至少一個有效 (未撤銷或過期) 的憑證 (主要或次要)，否則您將無法存取該叢集。
 
 
-## Service Fabric 所使用的憑證類型詳細資料。
+## 
+Service Fabric 所使用的憑證類型詳細資料。
 
 ## X.509 憑證
 
@@ -245,4 +246,4 @@ X509 數位憑證通常用來驗證用戶端與伺服器，以及加密及數位
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

@@ -54,7 +54,9 @@
 
 6. 在 [設定] 刀鋒視窗中，確定下列屬性都已設定為下列的值，然後按一下 [確定]。
 
-	-**儲存體帳戶**: *vnetstorage* - **網路**: *TestVNet* - **子網路**: *前端*
+	-**儲存體帳戶**: *vnetstorage*
+	- **網路**: *TestVNet*
+	- **子網路**: *前端*
 
 	![選擇尺寸刀鋒視窗](./media/virtual-networks-static-ip-arm-pportal/figure05.png)
 

@@ -68,9 +68,11 @@
 	任何新的串流單位配置需要大約 20 分鐘的時間才能完成。
 
 	 
-	>[AZURE.NOTE] 目前，串流單位從任何正數值到無，都可能停用隨選串流長達一小時。
+>[AZURE.NOTE] 目前，串流單位從任何正數值到無，都可能停用隨選串流長達一小時。
 
-	>[AZURE.NOTE] 計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱＜[媒體服務定價詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)＞。
+</br>
+
+>[AZURE.NOTE] 計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱＜[媒體服務定價詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)＞。
 	
 ##<a id="configure_streaming_endpoints"></a>設定串流端點
 

@@ -600,9 +600,9 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 	- **CLUSTERNAME**：HBase 叢集名稱，例如 *https://<HBaseClusterName>.azurehdinsight.net/*。 
     - **HADOOPUSERNAME**：HBase 叢集 Hadoop 使用者的使用者名稱。預設名稱為 *admin*。
     - **HADOOPUSERPASSWORD**：HBase 叢集 Hadoop 使用者密碼。
-    - **HBASETABLENAME** = "tweets\_by\_words";
+    - **HBASETABLENAME** = "tweets_by_words";
 
-	HBase 資料表名稱為 **"tweets\_by\_words";**。這些值必須符合在串流服務中傳送的值，如此一來，Web 應用程式才能從相同的 HBase 資料表讀取資料。
+	HBase 資料表名稱為 **"tweets_by_words";**。這些值必須符合在串流服務中傳送的值，如此一來，Web 應用程式才能從相同的 HBase 資料表讀取資料。
 
 
 
@@ -1205,7 +1205,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。使用 OA
 
 		using System.Web.Http;
 
-2. 將以下文字行新增至 **Application\_Start()** 函數內：
+2. 將以下文字行新增至 **Application_Start()** 函數內：
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);

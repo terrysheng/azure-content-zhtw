@@ -65,7 +65,7 @@
 ```
 
 
-現在建置專案，方法是只選取 **ActorService** 專案，然後以滑鼠右鍵按一下並選取 Visual Studio 中的 [組建](如果您選取 [全部重新建置]，您可能必須在其 *ServiceManifest.xml* 和 *ApplicationManifest.xml* 中更新其他專案的版本，因為程式碼已變更)。接下來，讓我們在 [VisualObjectsApplication] 上按一下滑鼠右鍵，選取 [Service Fabric] 功能表，然後選擇 [封裝]，來封裝已更新的應用程式。這應該會建立可部署的應用程式封裝。更新的應用程式已準備好進行部署。
+現在建置專案，方法是只選取 **ActorService** 專案，然後以滑鼠右鍵按一下並選取 Visual Studio 中的 [組建]\(如果您選取 [全部重新建置]，您可能必須在其 *ServiceManifest.xml* 和 *ApplicationManifest.xml* 中更新其他專案的版本，因為程式碼已變更)。接下來，讓我們在 [VisualObjectsApplication] 上按一下滑鼠右鍵，選取 [Service Fabric] 功能表，然後選擇 [封裝]，來封裝已更新的應用程式。這應該會建立可部署的應用程式封裝。更新的應用程式已準備好進行部署。
 
 
 ## 步驟 3：決定健康狀態原則並升級參數

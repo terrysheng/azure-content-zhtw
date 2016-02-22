@@ -48,7 +48,7 @@
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-聯結 trip\\_data and trip\\_fare 的唯一索引鍵是由下列欄位組成：medallion、hack\\_licence 和 pickup\\_datetime。
+聯結 trip\_data and trip\_fare 的唯一索引鍵是由下列欄位組成：medallion、hack\_licence 和 pickup\_datetime。
 
 若要取得特定車程的所有詳細資訊，加入下列三個索引鍵便已足夠："medallion"、"hack\_license" 和 "pickup\_datetime"。
 
@@ -794,7 +794,9 @@ b.對於迴歸問題，我們會藉由查看預測中的平方誤差、決定係
 
 ## 參考
 
-• [Andrés Monroy NYC 計程車車程下載頁面](http://www.andresmh.com/nyctaxitrips/) (Andrés Monroy NYC Taxi Trips Download Page) • [FOIL NYC 的計程車車程資料 (作者為 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/) (FOILing NYC’s Taxi Trip Data by Chris Whong) • [NYC 計程車和禮車委託研究和統計資料](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml) (NYC Taxi and Limousine Commission Research and Statistics)
+•	[Andrés Monroy NYC 計程車車程下載頁面](http://www.andresmh.com/nyctaxitrips/) (Andrés Monroy NYC Taxi Trips Download Page)  
+•	[FOIL NYC 的計程車車程資料 (作者為 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/) (FOILing NYC’s Taxi Trip Data by Chris Whong)   
+•	[NYC 計程車和禮車委託研究和統計資料](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml) (NYC Taxi and Limousine Commission Research and Statistics)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png

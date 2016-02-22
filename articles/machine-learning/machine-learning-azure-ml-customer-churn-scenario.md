@@ -215,7 +215,7 @@ Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加
 ##參考
 [1] Predictive Analytics: Beyond the Predictions (預測性分析：超出預測)，W. McKnight，資訊管理，2011 年 7 月/8 月，第 18-20 頁。
 
-[2] 維基百科文章：[Accuracy and precision (正確性與準確度)](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+\[2] 維基百科文章：[Accuracy and precision (正確性與準確度)](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide (CRISP-DM 1.0：資料採礦逐步指南)](http://www.the-modeling-agency.com/crisp-dm.pdf)
 

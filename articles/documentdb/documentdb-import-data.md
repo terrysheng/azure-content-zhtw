@@ -137,8 +137,21 @@ SQL 來源匯入工具選項可讓您從個別的 SQL Server 資料庫匯入，�
 
 注意別名，例如 Address.AddressType 和 Address.Location.StateProvinceName。藉由指定巢狀分隔符號 ‘.’，匯入工具會在匯入期間建立 Address 和 Address.Location 子文件。在 DocumentDB 中產生的文件範例如下：
 
-*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
-
+*{
+  "id": "956",
+  "Name": "Finer Sales and Service",
+  "Address": {
+    "AddressType": "Main Office",
+    "AddressLine1": "#500-75 O'Connor Street",
+    "Location": {
+      "City": "Ottawa",
+      "StateProvinceName": "Ontario"
+    },
+    "PostalCode": "K4B 1S2",
+    "CountryRegionName": "Canada"
+  }
+}*
+ 
 以下是從 SQL Server 匯入的一些命令列範例：
 
 	#Import records from SQL which match a query
@@ -157,9 +170,20 @@ CSV 檔案來源匯入工具選項可讓您匯入一或多個 CSV 檔案。新�
 
 ![CSV 範例記錄的螢幕擷取畫面 - CSV 轉換成 JSON](./media/documentdb-import-data/csvsample.png)
 
-注意別名，例如 DomainInfo.Domain\_Name 和 RedirectInfo.Redirecting。藉由指定巢狀分隔符號 ‘.’，匯入工具將會在匯入期間建立 DomainInfo 和 RedirectInfo 子文件。在 DocumentDB 中產生的文件範例如下：
+注意別名，例如 DomainInfo.Domain_Name 和 RedirectInfo.Redirecting。藉由指定巢狀分隔符號 ‘.’，匯入工具將會在匯入期間建立 DomainInfo 和 RedirectInfo 子文件。在 DocumentDB 中產生的文件範例如下：
 
-*{ "DomainInfo": { "Domain\_Name": "ACUS.GOV", "Domain\_Name\_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect\_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{
+  "DomainInfo": {
+    "Domain_Name": "ACUS.GOV",
+    "Domain_Name_Address": "http://www.ACUS.GOV"
+  },
+  "Federal Agency": "Administrative Conference of the United States",
+  "RedirectInfo": {
+    "Redirecting": "0",
+    "Redirect_Destination": ""
+  },
+  "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"
+}*
 
 匯入工具將嘗試推斷 CSV 檔案中不具引號之值的類型資訊 (加上引號的值永遠會被視為字串)。系統會依照下列順序識別類型：數字、日期時間、布林值。
 
@@ -322,7 +346,7 @@ DocumentDB 連接字串的格式如下：
 
 -	字串：保存為字串值
 -	Epoch：保存為 Epoch 數值
--	兩者：保存字串和 Epoch 數值。這個選項會建立子文件，例如："date\_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
+-	兩者：保存字串和 Epoch 數值。這個選項會建立子文件，例如："date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
 
 DocumentDB 大量匯入工具具有下列其他進階選項：
@@ -371,7 +395,7 @@ DocumentDB 連接字串的格式如下：
 
 -	字串：保存為字串值
 -	Epoch：保存為 Epoch 數值
--	兩者：保存字串和 Epoch 數值。這個選項會建立子文件，例如："date\_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
+-	兩者：保存字串和 Epoch 數值。這個選項會建立子文件，例如："date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
 DocumentDB 循序記錄匯入工具具有下列其他進階選項：
 

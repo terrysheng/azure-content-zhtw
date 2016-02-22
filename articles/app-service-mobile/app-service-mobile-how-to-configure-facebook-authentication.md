@@ -53,8 +53,8 @@
 11. 按一下 [進階] 索引標籤，將應用程式的**重新導向 URI** 加入 [有效的 OAuth 重新導向 URI]，然後按一下 [儲存變更]。您的重新導向 URI 是應用程式 URL 加上路徑 _/.auth/login/facebook/callback_。例如：`https://contoso.azurewebsites.net/.auth/login/facebook/callback`。請確實使用 HTTPS 配置。
 
 
-	> [AZURE.NOTE]
-	如果您使用的是 App Service 閘道器，而不是App Service 驗證/授權功能，重新導向 URL 會改用閘道器 URL 加上 _/signin-facebook_ 路徑。
+> [AZURE.NOTE]
+如果您使用的是 App Service 閘道器，而不是App Service 驗證/授權功能，重新導向 URL 會改用閘道器 URL 加上 _/signin-facebook_ 路徑。
 
 
 12. 用來註冊應用程式的 Facebook 帳戶是應用程式的系統管理員。此時，只有系統管理員可以登入此應用程式。若要驗證其他 Facebook 帳戶，請按一下左側導覽列中的 [狀態和檢閱]。然後按一下 [是]，以啟用一般公用存取權。

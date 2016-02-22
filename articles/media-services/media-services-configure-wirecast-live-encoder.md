@@ -54,7 +54,8 @@
 
 請確認已選取 [**立即啟動新頻道**]。
 
-3. 按一下 [**建立頻道**]。![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
+3. 按一下 [**建立頻道**]。
+	![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast2.png)
 
 >[AZURE.NOTE] 通道約需 20 分鐘的時間即可啟動。
 

@@ -38,7 +38,7 @@
 
 * [教學課程：開始使用適用於 .NET 的 Azure 批次程式庫](batch-dotnet-get-started.md)
 
-* [批次論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=azurebatch)
+* [批次論壇](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [批次影片](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -83,7 +83,7 @@ HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 
 
 * [MS-MPI 參考資料](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [MPI 論壇](https://social.microsoft.com/Forums/zh-TW/home?forum=windowshpcmpi)
+* [MPI 論壇](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
 
 ## 計算密集型執行個體

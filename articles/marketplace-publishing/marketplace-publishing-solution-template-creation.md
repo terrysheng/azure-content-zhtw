@@ -46,7 +46,7 @@
 
 您也可以使用下列步驟，不需實際為客戶部署就可驗證建立體驗：
 
-1. 儲存 *createUiDefinition.json*，產生絕對的 URL。此 URL 必須可公開存取。
+1. 儲存 *createUiDefinition.json* ，產生絕對的 URL。此 URL 必須可公開存取。
 2. 使用位於 [http://www.url-encode-decode.com/](http://www.url-encode-decode.com/) 的工具將 URL 編碼。
 3. 將粗體的文字取代為需要驗證的 *createUiDefinition.json* 的位置 (已編碼的 URL)。
 

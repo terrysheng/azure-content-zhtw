@@ -49,7 +49,8 @@ AMS 也可讓您上傳大量資產。如需詳細資訊，請參閱[本節](medi
 
 您可以在建立資產時指定的其中一個屬性是 **Options**。**Options** 是列舉值，描述可用來建立資產的加密選項。有效的值是以下清單的其中一個值，而不是值的組合。
 
-- **None** = **0**：將不使用加密。這是預設值。請注意，使用此選項時，您的內容在傳輸或儲存體中靜止時不會受到保護。如果您計劃使用漸進式下載傳遞 MP4，請使用此選項。 
+- **None** = **0**：將不使用加密。這是預設值。請注意，使用此選項時，您的內容在傳輸或儲存體中靜止時不會受到保護。
+	如果您計劃使用漸進式下載傳遞 MP4，請使用此選項。 
 
 - **StorageEncrypted** = **1**：如果要用 AES-256 位元加密來加密您的檔案，以便進行上傳和儲存，請指定此值。
 
@@ -223,7 +224,7 @@ AMS 也可讓您上傳大量資產。如需詳細資訊，請參閱[本節](medi
 
 ###取得上傳 URL
 
-若要接收實際的上傳 URL，請建立 SAS 定位器。定位器為想要存取資產中之檔案的用戶端定義連線端點的開始時間和類型。您可以為指定的 AccessPolicy 與 Asset 配對建立多個 Locator 實體，以處理不同的用戶端要求與需求。這些 Locator 每個都會使用 StartTime 值加上 AccessPolicy 的 DurationInMinutes 值，以判斷可以使用 URL 的時間長度。如需詳細資訊，請參閱＜定位器＞[](http://msdn.microsoft.com/library/azure/hh974308.aspx)。
+若要接收實際的上傳 URL，請建立 SAS 定位器。定位器為想要存取資產中之檔案的用戶端定義連線端點的開始時間和類型。您可以為指定的 AccessPolicy 與 Asset 配對建立多個 Locator 實體，以處理不同的用戶端要求與需求。這些 Locator 每個都會使用 StartTime 值加上 AccessPolicy 的 DurationInMinutes 值，以判斷可以使用 URL 的時間長度。如需詳細資訊，請參閱 [＜定位器＞](http://msdn.microsoft.com/library/azure/hh974308.aspx)。
 
 
 SAS URL 具有下列格式：
@@ -323,7 +324,8 @@ SAS URL 具有下列格式：
 
 **HTTP 回應**
 
-如果成功，會傳回下列訊息：HTTP/1.1 204 沒有內容
+如果成功，會傳回下列訊息：
+	HTTP/1.1 204 沒有內容
 
 ### 刪除 Locator 和 AccessPolicy 
 
@@ -428,7 +430,13 @@ IngestManifestAssets 代表 IngestManifest 中配合大量內嵌使用的資產�
 
 如果您的資產將會使用加密，就必須在為資產建立 IngestManifestFiles 之前，建立要用於加密 ContentKey。在此情況下，要求本文中會包含下列屬性。
  
-要求本文屬性 |描述識別碼 | 我們自行產生的 ContentKey 識別碼會使用下列格式：“nb:kid:UUID:<NEW GUID>”。ContentKeyType | 這是針對此內容金鑰以整數表示的內容金鑰類型。我們會傳遞值 1 來進行儲存體加密。EncryptedContentKey |我們會建立新的內容金鑰值，其為 256 位元 (32 位元組) 的值。此金鑰是藉由針對 GetProtectionKeyId 與 GetProtectionKey 方法執行 HTTP GET 要求，使用我們從 Microsoft Azure 媒體服務擷取的儲存體加密 X.509 憑證來加密的。ProtectionKeyId |這是適用於儲存體加密 X.509 憑證的保護金鑰識別碼，可用來加密我們的內容金鑰。ProtectionKeyType |這是適用於保護金鑰的加密類型，可用來將內容金鑰加密。針對本文範例，此值為 StorageEncryption(1)。Checksum |MD5 會針對內容金鑰計算出總和檢查碼。它是使用內容金鑰來將內容識別碼加密計算而得的。範例程式碼示範如何計算總和檢查碼。
+要求本文屬性 |描述
+識別碼 | 我們自行產生的 ContentKey 識別碼會使用下列格式：“nb:kid:UUID:<NEW GUID>”。
+ContentKeyType | 這是針對此內容金鑰以整數表示的內容金鑰類型。我們會傳遞值 1 來進行儲存體加密。
+EncryptedContentKey |我們會建立新的內容金鑰值，其為 256 位元 (32 位元組) 的值。此金鑰是藉由針對 GetProtectionKeyId 與 GetProtectionKey 方法執行 HTTP GET 要求，使用我們從 Microsoft Azure 媒體服務擷取的儲存體加密 X.509 憑證來加密的。
+ProtectionKeyId |這是適用於儲存體加密 X.509 憑證的保護金鑰識別碼，可用來加密我們的內容金鑰。
+ProtectionKeyType |這是適用於保護金鑰的加密類型，可用來將內容金鑰加密。針對本文範例，此值為 StorageEncryption(1)。
+Checksum |MD5 會針對內容金鑰計算出總和檢查碼。它是使用內容金鑰來將內容識別碼加密計算而得的。範例程式碼示範如何計算總和檢查碼。
 
 
 **HTTP 回應**

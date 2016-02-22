@@ -60,7 +60,7 @@
 
 		return Query().Where(todo => todo.UserId == currentUser.Id);
 
-	This query filters the returned TodoItem objects so that each user only receives the items that they inserted.
+	這個查詢會篩選傳回的 TodoItem 物件，讓每個使用者只會收到他們所插入的項目。
 
 4. 將行動服務專案重新發佈至 Azure。
 

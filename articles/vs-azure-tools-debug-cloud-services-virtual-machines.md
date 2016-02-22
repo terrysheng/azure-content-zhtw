@@ -94,7 +94,8 @@ Visual Studio 提供您偵錯 Azure 雲端服務和虛擬機器的不同選項�
 
 - 偵錯工具會使用連接埠 30400 至 30424、31400 至 31424，以及 32400 至 32424。如果您嘗試使用這些任一連接埠，將無法發佈您的服務，Azure 的活動記錄檔中將會出現下列其中一個錯誤訊息：
 
-    - 根據 .csdef 檔案驗證 .cscfg 檔案時發生錯誤。角色 'role' 端點 Microsoft.WindowsAzure.Plugins.RemoteDebugger.Connector 保留的連接埠範圍 'range' 與已定義的連接埠或範圍重疊。
+    - 根據 .csdef 檔案驗證 .cscfg 檔案時發生錯誤。
+     角色 'role' 端點 Microsoft.WindowsAzure.Plugins.RemoteDebugger.Connector 保留的連接埠範圍 'range' 與已定義的連接埠或範圍重疊。
     - 配置失敗。請稍後重試、試著減少 VM 大小或角色執行個體的數目，或試著部署到不同的區域。
 
 

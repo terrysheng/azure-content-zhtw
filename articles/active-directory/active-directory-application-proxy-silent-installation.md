@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # 如何以無訊息方式安裝 Azure AD 應用程式 Proxy 連接器
 
-> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
+> [AZURE.NOTE] 應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
 您想要能傳送安裝指令碼至多部 Windows 伺服器，或傳送至未啟用使用者介面的 Windows Server。本主題說明如何建立 Windows PowerShell 指令碼來啟用自動安裝，以安裝並註冊您的 Azure AD 應用程式 Proxy 連接器。
 
@@ -141,7 +141,8 @@
 - [觀看我們在 Channel 9 上的影片！](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## 其他資源
-* [以組織身分註冊 Azure](sign-up-organization.md)
-* [Azure 身分識別](fundamentals-identity.md)
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [以組織方式註冊 Azure](sign-up-organization.md)
+- [Azure 身分識別](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

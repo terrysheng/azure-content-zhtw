@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/28/2015"
+      ms.date="02/06/2016"
       ms.author="hascipio; v-divte" />
 
 # 建立 Azure Marketplace 解決方案範本的指南
@@ -46,7 +46,7 @@
 
 您也可以使用下列步驟，不需實際為客戶部署就可驗證建立體驗：
 
-1. 儲存 *createUiDefinition.json* ，產生絕對的 URL。此 URL 必須可公開存取。
+1. 儲存 *createUiDefinition.json*，產生絕對的 URL。此 URL 必須可公開存取。
 2. 使用位於 [http://www.url-encode-decode.com/](http://www.url-encode-decode.com/) 的工具將 URL 編碼。
 3. 將粗體的文字取代為需要驗證的 *createUiDefinition.json* 的位置 (已編碼的 URL)。
 
@@ -54,7 +54,7 @@
 
 4. 複製 URL 並在任何瀏覽器中貼上 URL，檢視 createUiDefinition.json 檔案的使用者體驗。
 
-  >[AZURE.TIP]在您的開發人員建立解決方案範本拓撲和取得認證的同時，貴公司的業務、行銷，和/或法律部門就可以處理行銷和法律內容。
+  > [AZURE.TIP] 在您的開發人員建立解決方案範本拓撲和取得認證的同時，貴公司的業務、行銷，和/或法律部門就可以處理行銷和法律內容。
 
 ## 後續步驟
 現在，您建立了解決方案範本並提交了認證所需的 zip 檔案和必要檔案，在準備供應項目在預備環境中進行測試之前，您可以繼續並依照 [Marketplace 行銷內容指南](marketplace-publishing-push-to-staging.md)的指示進行。弱者，若要查看完整的 Marketplace 文章集合，請參閱[快速入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)。
@@ -74,4 +74,4 @@
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

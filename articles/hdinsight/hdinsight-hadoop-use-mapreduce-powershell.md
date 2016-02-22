@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/04/2016"
    ms.author="larryfr"/>
 
 #使用 PowerShell 搭配執行 Hive 查詢與 HDInsight 上的 Hadoop
@@ -139,7 +139,7 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Map
 
 	此輸出表示工作已順利完成。
 
-	> [AZURE.NOTE]如果 **ExitCode** 的值不是 0，請參閱[疑難排解](#troubleshooting)。
+	> [AZURE.NOTE] 如果 **ExitCode** 的值不是 0，請參閱[疑難排解](#troubleshooting)。
 
     此範例也會將已下載的檔案儲存到您執行指令碼所在目錄的 **example/data/WordCountOutput** 資料夾中。
 
@@ -147,7 +147,7 @@ Azure PowerShell 提供 *Cmdlet*，可讓您從遠端在 HDInsight 上執行 Map
 
 MapReduce 工作的輸出會儲存在名稱為 *part-r-#####* 的檔案中。使用文字編輯器開啟 **example/data/WordCountOutput/part-r-00000** 檔案，以查看工作所產生的單字和計數。
 
-> [AZURE.NOTE]MapReduce 工作的輸出檔是固定不變的。因此，如果您重新執行此範例，則需要變更輸出檔的名稱。
+> [AZURE.NOTE] MapReduce 工作的輸出檔是固定不變的。因此，如果您重新執行此範例，則需要變更輸出檔的名稱。
 
 ##<a id="troubleshooting"></a>疑難排解
 
@@ -182,4 +182,4 @@ MapReduce 工作的輸出會儲存在名稱為 *part-r-#####* 的檔案中。使
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

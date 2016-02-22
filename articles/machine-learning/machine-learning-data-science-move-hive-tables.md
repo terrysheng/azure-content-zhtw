@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
  
 #建立並將資料從 Azure Blob 儲存體載入 Hive 資料表
 
+## 簡介
+**本文件**會顯示泛型 Hive 查詢，這類查詢會建立 Hive 資料表，並從 Azure Blob 儲存體載入資料。同時也會提供一些關於資料分割 Hive 資料表，以及使用最佳化單欄式資料列 (ORC) 格式來提升查詢效能的指引。
+
 此**功能表**所連結的主題說明如何將資料擷取至目標環境，以在 Cortana 分析程序 (CAPS) 期間儲存和處理該資料。
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
- 
-## 簡介
-**本文件**會顯示泛型 Hive 查詢，這類查詢會建立 Hive 資料表，並從 Azure Blob 儲存體載入資料。同時也會提供一些關於資料分割 Hive 資料表，以及使用最佳化單欄式資料列 (ORC) 格式來提升查詢效能的指引。
 
 ## 必要條件
 本文假設您已經：
@@ -126,7 +126,7 @@ Hive 查詢的輸出會顯示於 Blob 儲存體中，方法是使用 Azure 儲�
 
 使用者也可以透過下列方式來使用查詢主控台 (Hive 編輯器)：在 Web 瀏覽器中輸入
 
-*https://&#60;Hadoop 叢集名稱>.azurehdinsight.net/Home/HiveEditor*
+*https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor*
 
 。請注意，系統將要求您輸入 Hadoop 叢集認證以進行登入。
 
@@ -168,7 +168,7 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
 
 - **&#60;Blob 資料路徑>**：如果要上傳至 Hive 資料表的 Blob 檔案是在 HDInsight Hadoop 叢集的預設容器中，則 *&#60;Blob 資料路徑>* 的格式應該是 *'wasb:///&#60;此容器中的目錄>/&#60;Blob 檔案名稱>'*。Blob 檔案也可以位於 HDInsight Hadoop 叢集的其他容器中。在此情況下，*&#60;Blob 資料路徑>* 的格式應該是 *'wasb://&#60;容器名稱>@&#60;儲存體帳戶名稱>.blob.core.windows.net/&#60;Blob 檔案名稱>'*。
 
-	>[AZURE.NOTE]上傳至 Hive 資料表的 Blob 資料必須位於 Hadoop 叢集儲存體帳戶的預設或其他容器中。否則，*LOAD DATA* 查詢將會失敗並提報它無法存取資料。
+	>[AZURE.NOTE] 上傳至 Hive 資料表的 Blob 資料必須位於 Hadoop 叢集儲存體帳戶的預設或其他容器中。否則，*LOAD DATA* 查詢將會失敗並提報它無法存取資料。
 
 
 ## <a name="partition-orc"></a>進階主題：資料分割資料表及使用 ORC 格式儲存 Hive 資料
@@ -232,7 +232,7 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
 		INSERT OVERWRITE TABLE <database name>.<ORC table name>
             SELECT * FROM <database name>.<external textfile table name>;
 
-	>[AZURE.NOTE]如果 TEXTFILE 資料表 *&#60;資料庫名稱>.&#60;外部文字檔資料表名稱>* 具有資料分割，則在步驟 3 中，`SELECT * FROM <database name>.<external textfile table name>` 命令將會選取資料分割變數做為所傳回資料集中的欄位。將它插入 *&#60;資料庫名稱>.&#60;ORC 資料表名稱>* 將會失敗，因為 *&#60;資料庫名稱>.&#60;ORC 資料表名稱>* 沒有資料分割參數可做為資料表結構描述中的欄位。在此情況下，使用者需要明確選取要插入 *&#60;資料庫名稱>.&#60;ORC 資料表名稱>* 的欄位，如下所示：
+	>[AZURE.NOTE] 如果 TEXTFILE 資料表 *&#60;資料庫名稱>.&#60;外部文字檔資料表名稱>* 具有資料分割，則在步驟 3 中，`SELECT * FROM <database name>.<external textfile table name>` 命令將會選取資料分割變數做為所傳回資料集中的欄位。將它插入 *&#60;資料庫名稱>.&#60;ORC 資料表名稱>* 將會失敗，因為 *&#60;資料庫名稱>.&#60;ORC 資料表名稱>* 沒有資料分割參數可做為資料表結構描述中的欄位。在此情況下，使用者需要明確選取要插入 *&#60;資料庫名稱>.&#60;ORC 資料表名稱>* 的欄位，如下所示：
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
 		   SELECT field1, field2, ..., fieldN
@@ -250,4 +250,4 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
 
 最後一節將討論使用者可以微調的參數，如此即可改善 Hive 查詢的效能。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

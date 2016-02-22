@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/29/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務來管理儲存體帳戶 (預覽版)
@@ -72,7 +72,7 @@
 
 3. 在 [新增/編輯儲存體帳戶] 對話方塊中：
 
-  1. 在 [儲存體帳戶] 下拉式清單中，選擇您想要修改的現有帳戶。這也包含服務初次建立時自動產生的儲存體帳戶。
+  1. 在 [儲存體帳戶] 下拉式清單中，選擇您想要修改的現有帳戶。
   2. 如有必要，您可以修改 [啟用 SSL 模式] 選項。
   3. 您可以選擇重新產生儲存體帳戶的存取金鑰。如需詳細資訊，請參閱[重新產生儲存體帳戶金鑰](storage-create-storage-account.md#manage-your-storage-access-keys)。請提供新的儲存體帳戶金鑰。而每個 Azure 儲存體帳戶，都有主要存取金鑰。 
   4. 按一下核取圖示 ![核取圖示](./media/storsimple-ova-manage-storage-accounts/checkicon.png) 以儲存設定。[設定] 頁面上的設定隨即更新。 
@@ -99,6 +99,6 @@
 
 ## 後續步驟
 
-- 深入了解[使用 StorSimple Manager 服務來管理 StorSimple 虛擬裝置](storsimple-ova-manager-service-administration.md)。
+- 了解如何[管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

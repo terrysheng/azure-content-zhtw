@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/02/2015"
+   ms.date="02/08/2016"
    ms.author="alkohli" />
 
 # 遠端連接至 StorSimple 裝置
@@ -32,6 +32,8 @@
 - 透過 HTTP 工作階段連線並使用自我簽署憑證，是最安全且建議的選項。
 
 您可以從遠端連線至 Windows PowerShell 介面。不過，透過 Windows PowerShell 介面遠端存取您的 StorSimple 裝置依預設不會啟用。您必須先在裝置上啟用遠端管理，然後在將用來存取您的裝置的用戶端上啟用。
+
+本文章中所述的步驟是在執行 Windows Server 2012 R2 的主機系統上執行。
 
 ## 透過 HTTP 連線
 
@@ -61,7 +63,7 @@
 
 4. 您現在可以選擇使用 HTTP 來連接。(預設是透過 HTTPS 來連線。) 請確定已選取 HTTP。
 
-    >[AZURE.NOTE]只有受信任的網路上才接受透過 HTTP 來連接。
+    >[AZURE.NOTE] 只有受信任的網路上才接受透過 HTTP 來連接。
 
 6. 按一下頁面底部的 [儲存]。
 
@@ -112,7 +114,7 @@
 
      `Enter-pssession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
 
-     >[AZURE.NOTE]若要建立與 StorSimple 虛擬裝置搭配使用的 Windows PowerShell 工作階段，請附加 `–port` 參數，並指定您在 StorSimple 虛擬設備遠端處理中設定的公用連接埠。
+     >[AZURE.NOTE] 若要建立與 StorSimple 虛擬裝置搭配使用的 Windows PowerShell 工作階段，請附加 `–port` 參數，並指定您在 StorSimple 虛擬設備遠端處理中設定的公用連接埠。
 
      此時，您應該有個連線到裝置的使用中遠端 Windows PowerShell 工作階段。
 
@@ -176,7 +178,7 @@
 
 4. 從 `Get-HcsSystem` 的輸出，複製裝置的序號，並儲存供稍後使用。
 
-    >[AZURE.NOTE]序號對應至憑證中的 CN 名稱。
+    >[AZURE.NOTE] 序號對應至憑證中的 CN 名稱。
 
 5. 取得遠端管理憑證，做法是輸入：
  
@@ -188,7 +190,7 @@
 
 5. 複製憑證中從 **-----BEGIN CERTIFICATE-----** 到 **-----END CERTIFICATE-----** 的資訊到文字編輯器，如 [記事本]，然後將它儲存為.cer 檔案。(在您準備主機時，要將這個檔案複製到您的遠端主機)。
 
-    >[AZURE.NOTE]若要產生新的憑證，使用 `Set-HcsRemoteManagementCert` Cmdlet。
+    >[AZURE.NOTE] 若要產生新的憑證，使用 `Set-HcsRemoteManagementCert` Cmdlet。
 
 ### 準備遠端管理的主機
 
@@ -272,4 +274,4 @@
 
 - 深入了解[使用 StorSimple Manager 服務來管理您的 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

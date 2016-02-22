@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli"/>
 
 # 部署 StorSimple Virtual Array：設定為檔案伺服器 (預覽版)
@@ -95,19 +95,23 @@
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image8.png)
 
+	> [AZURE.NOTE]
+	> 
+	> 確定您的虛擬陣列位於它自己的 Active Directory 組織單位 (OU) 中，且沒有套用群組原則物件 (GPO)。
+
 1.  (可省略) 設定 Web Proxy 伺服器。雖然 Web Proxy 設定是選用的，但請注意，如果您使用 Web Proxy，就只能在此處設定它。
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image9.png)
 
 	在 [Web Proxy] 頁面中：
 
-	1.  以下列格式提供 [Web Proxy URL]：http://&lt;host-IP 位址或完整網域名稱&gt;:連接埠號碼。請注意，此處不支援 HTTPS URL。
+	1.  以下列格式提供 [Web Proxy URL]：*http://&lt;host-IP 位址或完整網域名稱&gt;:連接埠號碼*。請注意，此處不支援 HTTPS URL。
 
 	2.  將 [驗證] 指定為 [基本]、[NTLM] 或 [無]。
 
 	3.  如果要使用驗證功能，您也必須提供 [使用者名稱] 和 [密碼]。
 
-	4.  按一下 [套用]。這將會驗證並套用您設定的 Web Proxy 設定。
+	4.  按一下 [Apply (套用)]。這將會驗證並套用您設定的 Web Proxy 設定。
 
 1.  (可省略) 設定裝置的時間設定，例如時區，以及主要和次要 NTP 伺服器。NTP 伺服器是必要的，因為您的裝置必須讓時間同步，才能與您的雲端服務提供者進行驗證。
 
@@ -119,15 +123,15 @@
 
 	2.  指定裝置的 [主要 NTP 伺服器]，或是接受 time.windows.com 的預設值。請確定您的網路允許 NTP 流量從您的資料中心通過網際網路。
 
-	3.  (可省略) 指定裝置的 [次要 NTP 伺服器]。
+	3.  (選用) 指定裝置的 [次要 NTP 伺服器]。
 
-	4.  按一下 [套用]。這將會驗證並套用您設定的時間設定。
+	4.  按一下 [Apply (套用)]。這將會驗證並套用您設定的時間設定。
 
 1.  設定裝置的雲端設定。在此步驟中，您將會完成本機裝置設定程序，然後向您的 StorSimple Manager 服務註冊裝置。
 
-    1.  輸入您在 [Step 2: Get the service registration key (步驟 2：取得 StorSimple Virtual Array 的服務註冊金鑰)](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) 中取得的「服務註冊金鑰」。
+    1.  輸入您在[步驟 2：取得服務註冊金鑰](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key)中針對 StorSimple Virtual Array 所取得的「服務註冊金鑰」。
 
-    2.  如果這不是您向此服務註冊的第一個裝置，您必須提供「服務資料加密金鑰」。您必須將此金鑰與服務註冊金鑰搭配使用，才能向 StorSimple Manager 服務註冊額外的裝置。如需詳細資訊，請參閱使用本機 Web UI 取得 [service data encryption key (服務資料加密金鑰)](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)。
+    2.  如果這不是您向此服務註冊的第一個裝置，您必須提供「服務資料加密金鑰」。您必須將此金鑰與服務註冊金鑰搭配使用，才能向 StorSimple Manager 服務註冊額外的裝置。如需詳細資訊，請參閱使用本機 Web UI 取得 [服務資料加密金鑰](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)。
 
     3.  按一下 [註冊]。這將讓裝置重新啟動。您可能需要等待 2 至 3 分鐘，裝置才會註冊成功。裝置重新啟動之後，您將會看到登入頁面。
 
@@ -156,9 +160,9 @@
 
 3.  在 [設定裝置] 精靈的 [基本設定] 頁面中，執行下列步驟：
 
-	1.  指定要與裝置搭配使用的儲存體帳戶。您可以從下拉式清單選取此訂用帳戶中現有的儲存體帳戶，或是指定 [新增其他] 來選擇不同訂用帳戶中的儲存體帳戶。
+	1.  指定要與裝置搭配使用的儲存體帳戶。您可以從下拉式清單選取此訂用帳戶中現有的儲存體帳戶，或是指定 [新增其他] to 來選擇不同訂用帳戶中的儲存體帳戶。
 
-	2.  為所有將會傳送至雲端之待用資料 (AES 加密) 的加密設定下定義。若要為資料加密，請核取 [啟用雲端儲存體加密金鑰] 下拉式方塊。請輸入包含 32 個字元的雲端儲存體加密金鑰，然後重新輸入金鑰來加以確認。256 位元 AES 金鑰與使用者定義的金鑰搭配使用來進行加密。
+	2.  為所有將會傳送至雲端之待用資料 (AES 加密) 的加密設定下定義。若要為資料加密，請核取 [啟用雲端儲存體加密金鑰]。請輸入包含 32 個字元的雲端儲存體加密金鑰，然後重新輸入金鑰來加以確認。256 位元 AES 金鑰與使用者定義的金鑰搭配使用來進行加密。
 
 	3.  按一下核取圖示 ![](./media/storsimple-ova-deploy3-fs-setup/image15.png)。
 
@@ -229,6 +233,6 @@
 
 ## 後續步驟
 
-了解如何使用本機 Web UI 來[管理您的 StorSimple 虛擬陣列](storsimple-ova-web-ui-admin.md)。
+了解如何使用本機 Web UI 來[管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

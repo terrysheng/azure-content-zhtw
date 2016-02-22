@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/24/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 
@@ -39,9 +39,10 @@
 - [使用 Azure Active Directory 裝置註冊設定內部部署條件式存取](active-directory-conditional-access-on-premises-setup.md)
 - [Office 365 服務的條件式存取裝置原則](active-directory-conditional-access-device-policies.md)
 - [SaaS 應用程式的 Azure 條件式存取預覽](active-directory-conditional-access-azuread-connected-apps.md)
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

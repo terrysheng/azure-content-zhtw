@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/11/2016"
 	ms.author="jroth"/>
 
-# Azure 訂閱和服務限制、配額與限制
+# Azure 訂用帳戶和服務限制、配額與限制
 
 ## 概觀
 
@@ -26,7 +26,7 @@
 
 ## 限制和 Azure 資源管理員
 
-現在您可以結合多個 Azure 中的資源到單一的 Azure 資源群組。使用資源群組時的限制是，在全域時會使用 Azure 資源管理員在地區層級管理。如需 Azure 資源群組的詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](resource-group-portal.md)。
+現在您可以結合多個 Azure 中的資源到單一的 Azure 資源群組。使用資源群組時的限制是，在全域時會使用 Azure 資源管理員在地區層級管理。如需 Azure 資源群組的詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](azure-portal/resource-group-portal.md)。
 
 在以下的限制中，已加入了新資料表，以反映在使用 Azure 資源管理員時的限制方面的任何差異。例如，有**訂用帳戶限制**資料表和**訂用帳戶限制 - Azure 資源管理員**資料表。當某個限制同時適用於這兩個案例時，只會顯示在第一個資料表中。除非另有說明，限制在所有區域中全域適用。
 
@@ -72,8 +72,8 @@
 - [虛擬機器](#virtual-machines-limits)
 
 
-### 訂閱限制
-#### 訂閱限制
+### 訂用帳戶限制
+#### 訂用帳戶限制
 [AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### 訂用帳戶限制 - Azure 資源管理員
@@ -123,7 +123,7 @@
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-#### 虛擬機器磁碟限制 
+#### 虛擬機器磁碟限制
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
@@ -246,7 +246,7 @@
 
 [AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
-### 網站復原限制
+### Site Recovery 限制
 
 [AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
@@ -277,6 +277,8 @@
 
 [了解 Azure 限制和增加](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+[Azure 的虛擬機器和雲端服務大小](virtual-machines/virtual-machines-size-specs.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+[雲端服務的大小](cloud-services/cloud-services-sizes-specs.md)
+
+<!---HONumber=AcomDC_0211_2016-->

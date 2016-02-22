@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/22/2015"
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # 啟用 Windows 應用程式離線同步處理
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 概觀
 
@@ -48,11 +46,11 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
     * **Windows 8.1 執行階段：**安裝 [SQLite for Windows 8.1]。
     * **Windows Phone 8.1：**安裝 [SQLite for Windows Phone 8.1]。
 
-    >[AZURE.NOTE]這些指示也適用於 Windows 10 UAP 專案，但您應改為安裝 [SQLite for Windows 10]。
+    >[AZURE.NOTE] 這些指示也適用於 Windows 10 UAP 專案，但您應改為安裝 [SQLite for Windows 10]。
 
 2. 在 Visual Studio 中，開啟您在[建立 Windows 應用程式]教學課程中完成的專案。安裝適用於 Windows 8.1 執行階段和 Windows Phone 8.1 專案的 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 封裝。將 NuGet 參考同時新增至 Windows Store 8.1 和 Windows Phone 8.1 專案。
 
-    >[AZURE.NOTE]如果安裝在您已安裝的 SQLite 版本以外建立了其他的參考，您會收到編譯錯誤。您應該透過移除您專案中 [參考] 節點內的重複項目，來解決這個錯誤。
+    >[AZURE.NOTE] 如果安裝在您已安裝的 SQLite 版本以外建立了其他的參考，您會收到編譯錯誤。您應該透過移除您專案中 [參考] 節點內的重複項目，來解決這個錯誤。
 
 3. 在方案總管中，以滑鼠右鍵按一下 Windows 8.1 執行階段和 Windows Phone 8.1 平台專案的 [參考]，並確定有 SQLite 的參考位於 [擴充功能] 區段中。
 
@@ -180,15 +178,15 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 
 1. 編輯共用專案中的 App.xaml.cs。註解化 **MobileServiceClient** 的初始化，並新增使用無效行動應用程式 URL 的以下幾行：
 
-         public static MobileServiceClient MobileService = 
+         public static MobileServiceClient MobileService =
 				new MobileServiceClient("https://your-service.azurewebsites.fail");
 
 	請注意，當應用程式也使用驗證時，這會導致登入失敗。您也可以透過停用裝置的 WiFi 和行動電話通訊網路，或使用飛航模式來示範離線行為。
 
 2. 按 **F5** 以建置並執行應用程式。請注意，應用程式啟動後同步處理無法重新整理。
-3. 輸入一些新的 todo 項目，然後為每個項目按一下 [儲存]。對於包含 `PushResult.Status=CancelledByNetworkError` 的每個項目，推送都會失敗。新的 todo 項目在可推送至行動應用程式後端之前，都只會存留在本機存放區中。 
- 
-	您可以隱藏 `PushResult.Status=CancelledByNetworkError` 的例外狀況對話方塊，用戶端應用程式會如同連接到行動應用程式後端一樣，順暢地支援所有建立、讀取、更新、刪除 (CRUD) 作業。
+3. 輸入一些新的 todo 項目，然後為每個項目按一下 [儲存]。對於包含 `PushResult.Status=CancelledByNetworkError` 的每個項目，推送都會失敗。新的 todo 項目在可推送至行動應用程式後端之前，都只會存留在本機存放區中。
+
+	您可以隱藏 `PushResult.Status=CancelledByNetworkError` 的例外狀況對話方塊，用戶端應用程式會如同連線到行動應用程式後端的情況運作，順暢地支援所有建立、讀取、更新、刪除 (CRUD) 作業。
 
 4. 關閉應用程式並重新加以開啟，以驗證您所建立的新項目持續存留於本機存放區中。
 
@@ -270,8 +268,8 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 [SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
 
 [sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
- 
+
 [雲端報導︰Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday：Azure 行動服務中離線啟用的應用程式]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

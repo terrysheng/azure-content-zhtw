@@ -13,18 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #使用 Pandas 瀏覽 Azure blob 儲存體中的資料
 
-此**功能表**連結說明如何從各種不同儲存體環境使用工具來瀏覽資料的連結。此工作是 Cortana 分析程序 (CAP) 中的一個步驟。
-
-[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
-
 ## 簡介
 
 本文件涵蓋如何使用 [Pandas](http://pandas.pydata.org/) Python 封裝瀏覽儲存在 Azure blob 容器的資料。
+
+以下**功能表**會連結至說明如何從各種不同儲存體環境使用工具來瀏覽資料的主題。此工作是 Cortana 分析程序 (CAP) 中的一個步驟。
+
+[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
+
 
 ## 先決條件
 本文假設您已經：
@@ -116,4 +117,4 @@
 		#correlation between column_a and column_b
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

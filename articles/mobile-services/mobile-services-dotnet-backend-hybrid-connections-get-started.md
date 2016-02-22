@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/07/2016"
 	ms.author="glenga"/>
 
 
@@ -139,4 +139,4 @@
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 [開始使用行動服務]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

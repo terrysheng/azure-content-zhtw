@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #使用 PowerShell 部署多個 NIC VM
@@ -37,7 +37,7 @@
 2. 在範本頁面中，按一下 [父資源群組] 右邊的 [部署至 Azure]。
 3. 視需要變更參數值，然後依照 Azure Preview 入口網站中的步驟部署資源群組。
 
-> [AZURE.IMPORTANT]請確定您的儲存體帳戶名稱是唯一的。在 Auzre 中不能有重複的儲存體帳戶名稱。
+> [AZURE.IMPORTANT] 請確定您的儲存體帳戶名稱是唯一的。在 Auzre 中不能有重複的儲存體帳戶名稱。
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -51,7 +51,7 @@
 
 ### 步驟 1：啟動指令碼
 
-[這裡](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/multinic.ps1)可以下載所使用之完整的 PowerShell 指令碼。請遵循下列步驟來變更要在環境中工作的指令碼。
+[這裡](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-ps.ps1)可以下載所使用之完整的 PowerShell 指令碼。請遵循下列步驟來變更要在環境中工作的指令碼。
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
@@ -308,4 +308,4 @@
 		RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 		StatusCode          : OK
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -3,5 +3,6 @@
 - [將使用者指派給應用程式](active-directory-applications-guiding-developers-assigning-users.md)
 - [將群組指派給應用程式](active-directory-applications-guiding-developers-assigning-groups.md)
 - [整合應用程式與 Azure Active Directory](active-directory-integrating-applications.md)
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

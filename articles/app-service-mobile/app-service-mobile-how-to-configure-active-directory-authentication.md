@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="如何為您的應用程式服務應用程式設定 Azure Active Directory 驗證" 
-	description="了解如何為您的應用程式服務應用程式設定 Azure Active Directory 驗證。" 
-	authors="mattchenderson" 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	manager="dwrede" 
+<properties
+	pageTitle="如何為您的應用程式服務應用程式設定 Azure Active Directory 驗證"
+	description="了解如何為您的應用程式服務應用程式設定 Azure Active Directory 驗證。"
+	authors="mattchenderson"
+	services="app-service\mobile"
+	documentationCenter=""
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/20/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # 如何設定 App Service 應用程式使用 Azure Active Directory 登入
 
-[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 本主題說明如何設定 Azure 應用程式服務，以使用 Azure Active Directory 做為驗證提供者。
 
@@ -38,7 +36,7 @@
 16. 按一下 [確定] 以在 Azure Active Directory 中註冊應用程式。這樣會建立新的註冊。如果您想改為選擇現有的註冊，請按一下 [選取現有的應用程式]，然後在您的租用戶內搜尋先前建立之註冊的名稱。按一下註冊以選取它，然後按一下 [確定]。然後在 Azure Active Directory 設定刀鋒視窗上按一下 [確定]。
 
     ![][0]
-	
+
 	App Service 預設會提供驗證，但不會限制對您網站內容和 API 的已授權存取。您必須在應用程式程式碼中授權使用者。
 
 17. (選擇性) 若要限制只有透過 Azure Active Directory 授權的使用者可以存取您的網站，請將 [要求未經驗證時所採取的動作] 設為 [Azure Active Directory]。這會要求所有要求都需經過驗證，且所有未經驗證的要求都會重新導向至 Azure Active Directory 以進行驗證。
@@ -69,8 +67,8 @@
 8. 新增應用程式之後，按一下 [設定] 索引標籤。將 [單一登入] 下的 [回覆 URL] 編輯成您應用程式的 URL，並加上 _/.auth/login/aad/callback_ 路徑。例如：`https://contoso.azurewebsites.net/.auth/login/aad/callback`。請確實使用 HTTPS 配置。
 
     ![][3]
-	
-	
+
+
 	> [AZURE.NOTE]
 	如果您使用的是 App Service 閘道器，而不是App Service 驗證/授權功能，回覆 URL 會改用閘道器 URL 加上 _/signin-aad_ 路徑。
 
@@ -94,7 +92,7 @@
 15. 按一下 [Azure Active Directory]，然後按一下 [管理模式] 下方的 [進階]。貼入您先前取得的用戶端識別碼和簽發者 URL 值。然後按一下 [確定]。
 
     ![][1]
-	
+
 	App Service 預設會提供驗證，但不會限制對您網站內容和 API 的已授權存取。您必須在應用程式程式碼中授權使用者。
 
 17. (選擇性) 若要限制只有透過 Azure Active Directory 授權的使用者可以存取您的網站，請將 [要求未經驗證時所採取的動作] 設為 [Azure Active Directory]。這會要求所有要求都需經過驗證，且所有未經驗證的要求都會重新導向至 Azure Active Directory 以進行驗證。
@@ -145,4 +143,4 @@ Azure Active Directory 也可讓您註冊更能控制權限對應的原生用戶
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [另一種方法]: #advanced
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

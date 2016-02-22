@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -116,7 +116,7 @@
 
 
 
-> [AZURE.NOTE]支援與 Azure AD 同盟的應用程式 (包括 Salesforce、Google Apps、Dropbox、Box、Concur、Workday、Office 365 和其他 70 種以上的應用程式) 可以在任何裝置的幾乎任何網頁瀏覽器上登入，而不需要外掛程式或行動應用程式。[https://myapps.microsoft.com](https://myapps.microsoft.com/) 上的其餘存取面板經驗也不需要 My Apps 行動應用程式，就可以在行動裝置上使用。
+> [AZURE.NOTE] 支援與 Azure AD 同盟的應用程式 (包括 Salesforce、Google Apps、Dropbox、Box、Concur、Workday、Office 365 和其他 70 種以上的應用程式) 可以在任何裝置的幾乎任何網頁瀏覽器上登入，而不需要外掛程式或行動應用程式。[https://myapps.microsoft.com](https://myapps.microsoft.com/) 上的其餘存取面板經驗也不需要 My Apps 行動應用程式，就可以在行動裝置上使用。
  
 
 
@@ -172,8 +172,12 @@
 
 設定應用程式的單一登入時，Azure 管理入口網站提供「現有單一登入」的第三個選項。這個選項只允許系統管理員建立應用程式的連結，並將連結放在選定使用者的存取面板上。例如，如果有一個應用程式設定為使用 Active Directory Federation Services 2.0 來驗證使用者，系統管理員可以使用 [現有單一登入] 選項在存取面板上建立應用程式的連結。當使用者存取此連結時，會使用 Active Directory Federation Services 2.0，或由應用程式提供的任何現有單一登入解決方案來驗證使用者。
 
+##相關文章
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [如何整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
+- [單一登入及使用 Azure Active directory 管理應用程式存取的簡介](active-directory-appssoaccess-whatis.md)
+- [SaaS 應用程式的自動化使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png
@@ -181,4 +185,4 @@
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

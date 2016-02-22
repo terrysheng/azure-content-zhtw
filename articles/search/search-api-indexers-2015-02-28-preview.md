@@ -10,7 +10,8 @@ editor="" />
 <tags 
 ms.service="search" 
 ms.devlang="rest-api" 
-ms.workload="search" ms.topic="article"  
+ms.workload="search" 
+ms.topic="article"  
 ms.tgt_pltfrm="na" 
 ms.date="11/04/2015" 
 ms.author="heidist" />
@@ -776,4 +777,4 @@ Azure 搜尋服務是 Microsoft Azure 上之託管的雲端搜尋服務。Azure 
 </tr>
 </table>
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

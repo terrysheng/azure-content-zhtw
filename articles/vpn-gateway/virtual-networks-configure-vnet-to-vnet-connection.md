@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -24,7 +24,7 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 
-本文將引導您完成使用傳統部署模型 (也稱為「服務管理」) 來建立虛擬網路並將虛擬網路連接在一起的步驟。如果您要尋找此設定的其他部署模型，請使用上方索引標籤來選取您想要的文章。
+本文將引導您完成使用傳統部署模型 (也稱為「服務管理」) 來建立虛擬網路並將虛擬網路連接在一起的步驟。如果您想要連接使用資源管理員部署模型建立的虛擬網路，請參閱[使用 Azure 資源管理員和 PowerShell 為相同訂用帳戶中的虛擬網路設定 VNet 對 VNet 連接](vpn-gateway-vnet-vnet-rm-ps.md)。
 
 **關於 Azure 部署模型**
 
@@ -223,4 +223,4 @@ VNet2： 位址空間 = 10.2.0.0/16；區域 = 日本東部
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

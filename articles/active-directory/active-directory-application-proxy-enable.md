@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # 啟用 Azure AD 應用程式 Proxy
@@ -60,14 +60,14 @@ Microsoft Azure Active Directory 應用程式 Proxy 可讓您在私人網路內�
 2. 依照精靈中的指示進行安裝。
 3. 在安裝期間，系統將提示您使用您 Azure AD 租用戶的應用程式 Proxy 註冊連接器。
 
-<p>- 提供您的 Azure AD 全域管理員認證。您的全域管理員租用戶可能與您的 Microsoft Azure 認證不同。
-<p>- 請確定註冊連接器的系統管理員與您啟用應用程式 Proxy 服務所在位於相同的目錄，例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com，或在該網域上的其他別名。
-<p>- 如果 [IE 增強式安全性設定] 在您要安裝 Azure AD 連接器所在的伺服器上設定為 [開啟]，可能會封鎖註冊畫面。如果發生這種情況，請依照錯誤訊息中的指示允許存取。請確定已停用 [Internet Explorer 增強式安全性]。
-<p>- 如果連接器註冊不成功，請參閱[「疑難排解應用程式 Proxy」](active-directory-application-proxy-troubleshoot.md)。
+  - 提供您的 Azure AD 全域管理員認證。您的全域管理員租用戶可能與您的 Microsoft Azure 認證不同。
+  - 請確定註冊連接器的系統管理員與您啟用應用程式 Proxy 服務所在位於相同的目錄，例如，如果租用戶網域為 contoso.com，則系統管理員應該是 admin@contoso.com，或在該網域上的其他別名。
+  - 如果 [IE 增強式安全性設定] 在您要安裝 Azure AD 連接器所在的伺服器上設定為 [開啟]，可能會封鎖註冊畫面。如果發生這種情況，請依照錯誤訊息中的指示允許存取。請確定已停用 [Internet Explorer 增強式安全性]。
+  - 如果連接器註冊不成功，請參閱[疑難排解應用程式 Proxy](active-directory-application-proxy-troubleshoot.md)。  
 
 4. 安裝完成後，兩個新的服務會新增到您的伺服器中，如下所示。這些是允許連線的連接器服務，以及可定期檢查連接器新版本，並在需要時更新連接器的自動更新服務。按一下安裝視窗中的 [完成]，以完成安裝
 
-	![應用程式 Proxy 連接器服務！](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
+	![應用程式 Proxy 連接器服務](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 
 5. 您現在已經準備好[使用應用程式 Proxy 發佈應用程式](active-directory-application-proxy-publish.md)。
 
@@ -91,8 +91,9 @@ Microsoft Azure Active Directory 應用程式 Proxy 可讓您在私人網路內�
 - [觀看我們在 Channel 9 上的影片！](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## 其他資源
-* [以組織身分註冊 Azure](sign-up-organization.md)
-* [Azure 身分識別](fundamentals-identity.md)
-* [使用應用程式 Proxy 發行應用程式](active-directory-application-proxy-publish.md)
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [以組織方式註冊 Azure](sign-up-organization.md)
+- [Azure 身分識別](fundamentals-identity.md)
+- [使用應用程式 Proxy 發行應用程式](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

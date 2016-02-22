@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="開始在 Xamarin.Forms 應用程式中使用 Mobile Apps 的驗證" 
-	description="了解如何使用 Mobile Apps 透過眾多識別提供者驗證 Xamarin Forms 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。" 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+<properties
+	pageTitle="開始在 Xamarin.Forms 應用程式中使用 Mobile Apps 的驗證"
+	description="了解如何使用 Mobile Apps 透過眾多識別提供者驗證 Xamarin Forms 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。"
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin" 
-	ms.devlang="dotnet" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015" 
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # 將驗證加入 Xamarin.Forms 應用程式中
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##概觀
 
@@ -38,7 +36,7 @@
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 
-##將驗證加入可攜式類別庫中 
+##將驗證加入可攜式類別庫中
 
 Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯示登入介面和快取資料。為了驗證 Xamarin Forms 專案，您將在可攜式類別庫中定義 `IAuthenticate` 介面。您想要支援的每個平台都會在平台特定專案中實作這個介面。
 
@@ -59,14 +57,14 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
 
 		public class App : Application
 		{
-	
+
 	        public static IAuthenticate Authenticator { get; private set; }
-	
+
 	        public static void Init(IAuthenticate authenticator)
 	        {
 	            Authenticator = authenticator;
 	        }
-	
+
 			...
 
 
@@ -147,12 +145,12 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
 
 
 5. 藉由加入以下所示的 `MobileServiceUser` 欄位和 `Authenticate` 方法來更新 `MainActivity` 類別，以支援 `IAuthenticate` 介面。
- 
+
 	如果您想要使用不同的 `MobileServiceAuthenticationProvider` 而不是 Facebook，請一併變更。
 
 		// Define a authenticated user.
 		private MobileServiceUser user;
-	
+
         public async Task<bool> Authenticate()
         {
             var success = false;
@@ -214,12 +212,12 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
 
 
 5. 藉由加入以下所示的 `MobileServiceUser` 欄位和 `Authenticate` 方法來更新 `AppDelegate` 類別，以支援 `IAuthenticate` 介面。
- 
+
 	如果您想要使用不同的 `MobileServiceAuthenticationProvider` 而不是 Facebook，請一併變更。
 
 		// Define a authenticated user.
 		private MobileServiceUser user;
-	
+
         public async Task<bool> Authenticate()
         {
             var success = false;
@@ -280,7 +278,7 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
 
 
 5. 藉由加入以下所示的 `MobileServiceUser` 欄位和 `Authenticate` 方法來更新 `MainPage` 類別，以支援 `IAuthenticate` 介面。
- 
+
 	如果您想要使用不同的 `MobileServiceAuthenticationProvider` 而不是 Facebook，請一併變更。
 
         // Define a authenticated user.
@@ -320,7 +318,7 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
             this.InitializeComponent();
 
             <Your portable class library namespace>.App.Init(this);
-            
+
             LoadApplication(new <Your portable class library namespace>.App());
         }
 
@@ -350,7 +348,7 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
 
 
 5. 藉由加入以下所示的 `MobileServiceUser` 欄位和 `Authenticate` 方法來更新 `MainPage` 類別，以支援 `IAuthenticate` 介面。
- 
+
 	如果您想要使用不同的 `MobileServiceAuthenticationProvider` 而不是 Facebook，請一併變更。
 
         // Define a authenticated user.
@@ -405,7 +403,7 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
 		    base.OnActivated(args);
-		
+
 		    if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
 		    {
 		        var client = TodoItemManager.DefaultManager.CurrentClient as MobileServiceClient;
@@ -426,7 +424,4 @@ Mobile Apps 使用平台特定 `MobileServiceClient.LoginAsync` 方法，以顯�
 [Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-
- 
-
-<!-------HONumber=AcomDC_1210_2015---->
+<!---HONumber=AcomDC_0211_2016-->

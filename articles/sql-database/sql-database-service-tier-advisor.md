@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="01/28/2015"
+   ms.date="02/08/2015"
    ms.author="sstein"/>
 
 # SQL Database 定價層建議
@@ -96,4 +96,4 @@ SQL Database 服務會評估 SQL Database 的歷程記錄資源使用狀況，�
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

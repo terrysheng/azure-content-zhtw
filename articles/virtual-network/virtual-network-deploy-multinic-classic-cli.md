@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #使用 Azure CLI 部署多個 NIC VM (傳統)
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-因為在這個時間點，在同一個雲端服務中不能有配備單一 NIC 的 VM 和配備多個 NIC 的 VM，所以在案例中，您要在和所有其他元件都不同的雲端服務中實作後端伺服器。下列步驟中，主要資源使用名為 *IaaSStory* 的雲端服務，後端伺服器使用 *IaaSStory-BackEnd* 。
+因為在這個時間點，在同一個雲端服務中不能有配備單一 NIC 的 VM 和配備多個 NIC 的 VM，所以在案例中，您要在和所有其他元件都不同的雲端服務中實作後端伺服器。下列步驟中，主要資源使用名為 *IaaSStory* 的雲端服務，後端伺服器使用 *IaaSStory-BackEnd*。
 
 ## 必要條件
 
@@ -45,9 +45,9 @@
 
 ### 步驟 1：啟動指令碼
 
-[這裡](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.sh)可以下載所使用的完整 Bash 指令碼。請遵循下列步驟來變更要在環境中工作的指令碼。
+[這裡](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh)可以下載所使用的完整 Bash 指令碼。請遵循下列步驟來變更要在環境中工作的指令碼。
 
-1. 根據前文[必要條件](#Prerequisites)中已部署的現有資源群組，變更下列變數值。
+1. 根據上述[必要條件](#Prerequisites)中已部署的現有資源群組來變更下列變數的值。
 
 		location="useast2"
 		vnetName="WTestVNet"
@@ -174,4 +174,4 @@
 		info:    Adding Data-Disk
 		info:    vm disk attach-new command OK
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

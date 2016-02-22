@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/07/2016"
 	ms.author="glenga"/>
 
 # 如何對 .NET 後端行動服務進行資料模型變更
@@ -181,4 +181,4 @@ Visual Studio 可讓您輕鬆地建立新的資料表控制器，向用戶端應
 [EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

@@ -25,7 +25,7 @@
 
 **資料庫**：Azure SQL 資料庫。
 
-**資料依存路由**：可讓應用程式根據特定的分區化索引鍵連接到分區的功能。請對照**多分區查詢**。
+**資料依存路由**：可讓應用程式根據特定的分區化索引鍵連接到分區的功能。請參閱[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)。請對照**[多分區查詢](sql-database-elastic-scale-multishard-querying.md)**。
 
 **全域分區對應**：在**分區集**之內，分區化索引鍵及其個別分區之間的對應。全域分區對應儲存在**分區對應管理員**中。請對照**本機分區對應**。
 
@@ -82,4 +82,4 @@
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

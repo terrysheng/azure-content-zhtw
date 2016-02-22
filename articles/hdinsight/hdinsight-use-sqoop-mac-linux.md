@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 #在 HDInsight 上將 Sqoop 與 Hadoop 搭配使用 (SSH)
@@ -23,7 +23,7 @@
 
 了解如何使用 Sqoop，在 HDInsight 叢集與 Azure SQL Database 或 SQL Server Database 之間進行匯入和匯出。
 
-> [AZURE.NOTE]本文中的步驟使用 SSH 來連線至 Linux 架構的 HDInsight 叢集。如[在 HDInsight 中搭配 Hadoop 使用 Sqoop (PowerShell)](hdinsight-use-sqoop.md) 所述，Windows 用戶端也可以使用 Azure PowerShell 在 Linux 架構的叢集上使用 Sqoop。
+> [AZURE.NOTE] 本文中的步驟使用 SSH 來連線至 Linux 架構的 HDInsight 叢集。如[在 HDInsight 中搭配 Hadoop 使用 Sqoop (PowerShell)](hdinsight-use-sqoop.md) 所述，Windows 用戶端也可以使用 Azure PowerShell 在 Linux 架構的叢集上使用 Sqoop。
 
 ##什麼是 Sqoop？
 
@@ -50,7 +50,7 @@
 
 ##了解案例
 
-HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable** 的 Hive 資料表，該資料表會參考位於 **wasb:///hive/warehouse/hivesampletable** 的資料檔案。此資料表包含某些行動裝置資料。此 Hive 資料表的結構描述為：
+HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable** 的 Hive 資料表，該資料表會參考位於 ****wasb:///hive/warehouse/hivesampletable** 的資料檔案。此資料表包含某些行動裝置資料。此 Hive 資料表的結構描述為：
 
 | 欄位 | 資料類型 |
 | ----- | --------- |
@@ -66,7 +66,7 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 | sessionid | bigint |
 | sessionpagevieworder | bigint |
 
-您會先將 **hivesampletable** 匯出到 Azure SQL Database 或名為 **mobiledata** 的資料表中的 SQL Server，然後在 **wasb:///tutorials/usesqoop/importeddata** 將此資料表匯入回到 HDInsight。
+您會先將 **hivesampletable** 匯出到 Azure SQL Database 或名為 **mobiledata** 的資料表中的 SQL Server，然後在 ****wasb:///tutorials/usesqoop/importeddata** 將此資料表匯入回到 HDInsight。
 
 ##建立資料庫
 
@@ -83,21 +83,21 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]請注意此命令傳回的伺服器名稱。這是所建立的 SQL Database 伺服器的簡短名稱。完整的網域名稱 (FQDN) 為 **&lt;shortname&gt;.database.windows.net**。
+    > [AZURE.IMPORTANT] 請注意此命令傳回的伺服器名稱。這是所建立的 SQL Database 伺服器的簡短名稱。完整的網域名稱 (FQDN) 為 **&lt;shortname&gt;.database.windows.net**。
 
 2. 使用下列命令，在 SQL Database 伺服器上建立名為 **sqooptest** 的資料庫：
 
-        sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
+        azure sql db create [options] <serverName> sqooptest <adminLogin> <adminPassword>
 
     完成時會傳回 [確定] 訊息。
 
-	> [AZURE.NOTE]如果您收到的錯誤指出您沒有存取權，您可能需要使用下列命令，將用戶端工作站的 IP 位址加入至 SQL Database 防火牆：
+	> [AZURE.NOTE] 如果您收到的錯誤指出您沒有存取權，您可能需要使用下列命令，將用戶端工作站的 IP 位址加入至 SQL Database 防火牆：
 	>
-	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
+	> `azure sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ##建立資料表
 
-> [AZURE.NOTE]連接至 SQL Database 建立資料表的方法有很多種。下列步驟會從 HDInsight 叢集使用 [FreeTDS](http://www.freetds.org/)。
+> [AZURE.NOTE] 連接至 SQL Database 建立資料表的方法有很多種。下列步驟會從 HDInsight 叢集使用 [FreeTDS](http://www.freetds.org/)。
 
 1. 使用 SSH 來連線至 Linux 架構的 HDInsight 叢集。連接時要使用的位址為 `CLUSTERNAME-ssh.azurehdinsight.net`，而連接埠為 `22`。
 
@@ -126,19 +126,19 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 5. 在 `1>` 提示字元輸入下列幾行：
 
         CREATE TABLE [dbo].[mobiledata](
-		[clientid] [nvarchar](50),
-		[querytime] [nvarchar](50),
-		[market] [nvarchar](50),
-		[deviceplatform] [nvarchar](50),
-		[devicemake] [nvarchar](50),
-		[devicemodel] [nvarchar](50),
-		[state] [nvarchar](50),
-		[country] [nvarchar](50),
-		[querydwelltime] [float],
-		[sessionid] [bigint],
-		[sessionpagevieworder] [bigint])
+        [clientid] [nvarchar](50),
+        [querytime] [nvarchar](50),
+        [market] [nvarchar](50),
+        [deviceplatform] [nvarchar](50),
+        [devicemake] [nvarchar](50),
+        [devicemodel] [nvarchar](50),
+        [state] [nvarchar](50),
+        [country] [nvarchar](50),
+        [querydwelltime] [float],
+        [sessionid] [bigint],
+        [sessionpagevieworder] [bigint])
         GO
-		CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
+        CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)
         GO
 
     輸入 `GO` 陳述式後，將評估先前的陳述式。首先，建立 **mobiledata** 資料表，然後將叢集索引加入至該資料表 (SQL Database 所需)。
@@ -171,7 +171,7 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    這會指示 Sqoop 連接至 SQL Database、**sqooptest** 資料庫，然後將資料從 **wasb:///hive/warehouse/hivesampletable** (*hivesampletable* 的實體檔案) 匯出至 **mobiledata** 資料表。
+    這會指示 Sqoop 連接至 SQL Database、**sqooptest** 資料庫，然後將資料從 ****wasb:///hive/warehouse/hivesampletable** (*hivesampletable* 的實體檔案) 匯出至 **mobiledata** 資料表。
 
 5. 在命令完成後，使用下列程式碼連接至使用 TSQL 的資料庫：
 
@@ -186,7 +186,7 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 
 ##Sqoop import
 
-1. 使用下列程式碼將資料從 SQL Database 中的 **mobiledata** 資料表匯入至 HDInsight 上的 **wasb:///tutorials/usesqoop/importeddata** 目錄：
+1. 使用下列程式碼將資料從 SQL Database 中的 **mobiledata** 資料表匯入至 HDInsight 上的 ****wasb:///tutorials/usesqoop/importeddata** 目錄：
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -202,11 +202,11 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 
 * HDInsight 與 SQL Server 必須位於相同的 Azure 虛擬網路
 
-    > [AZURE.NOTE]HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。
+    > [AZURE.NOTE] HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用以同質群組為基礎的虛擬網路。
 
     在您的資料中心裡使用 SQL Server 時，必須將虛擬網路設定為*站對站*或*點對站*。
 
-    > [AZURE.NOTE]使用**點對站**虛擬網路時，SQL Server 必須執行 VPN 用戶端組態應用程式；您可從 Azure 虛擬網路組態的 [儀表板] 存取此應用程式。
+    > [AZURE.NOTE] 使用**點對站**虛擬網路時，SQL Server 必須執行 VPN 用戶端組態應用程式；您可從 Azure 虛擬網路組態的 [儀表板] 存取此應用程式。
 
     如需建立和設定虛擬網路的詳細資訊，請參閱[虛擬網路設定工作](../services/virtual-machines/)。
 
@@ -263,4 +263,4 @@ HDInsight 叢集附有一些範例資料。您將使用名為 **hivesampletable*
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

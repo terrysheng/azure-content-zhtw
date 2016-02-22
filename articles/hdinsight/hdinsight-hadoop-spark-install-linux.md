@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="larryfr"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 Spark
 
 在本文件中，您將學習如何使用指令碼動作來安裝 Spark。指令碼動作可讓您執行指令碼來自訂叢集，但只能在建立叢集時進行。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]。安裝 Spark 之後，您也將學習如何在 HDInsight 叢集上執行 Spark 查詢。
 
-> [AZURE.NOTE]HDInsight 也提供 Spark，做為叢集類型，這表示您現在可以直接佈建 Spark 叢集而不必修改 Hadoop 叢集。不過，目前僅限於以 Windows 為基礎的叢集。使用 Spark 叢集類型時，您會取得具備 Spark 1.3.1 版且以 Windows 為基礎的 HDInsight 3.2 版叢集。如需詳細資訊，請參閱[開始使用 HDInsight 上的 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)。
+> [AZURE.NOTE] HDInsight 也提供 Spark，做為叢集類型，這表示您現在可以直接佈建 Spark 叢集而不必修改 Hadoop 叢集。不過，目前僅限於以 Windows 為基礎的叢集。使用 Spark 叢集類型時，您會取得具備 Spark 1.3.1 版且以 Windows 為基礎的 HDInsight 3.2 版叢集。如需詳細資訊，請參閱[開始使用 HDInsight 上的 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)。
 
 ## <a name="whatis"></a>什麼是 Spark？
 
@@ -40,13 +40,13 @@ Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中�
 
 此指令碼會將 Spark 1.5.1 版安裝於 `/usr/hdp/current/spark`。
 
-> [AZURE.WARNING]您可能會發現依照預設會安裝某些 Spark 1.3.1 二進位檔在您的 HDInsight 叢集上。但是不應該使用這些檔案，所以在未來的更新會從 HDInsight 叢集映像移除這些檔案。
+> [AZURE.WARNING] 您可能會發現依照預設會安裝某些 Spark 1.3.1 二進位檔在您的 HDInsight 叢集上。但是不應該使用這些檔案，所以在未來的更新會從 HDInsight 叢集映像移除這些檔案。
 
 ## <a name="install"></a>使用指令碼動作安裝 Spark
 
 您可以從一個唯讀的 Azure 儲存體 blob 取得在 HDInsight 叢集上安裝 Spark 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh)。本節提供有關如何在使用 Azure 入口網站建立叢集時使用範例指令碼的指示。
 
-> [AZURE.NOTE]您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+> [AZURE.NOTE] 您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 1. 使用[建立以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-portal.md)中的步驟開始建立叢集，但是不完成建立。
 
@@ -59,7 +59,7 @@ Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中�
 	* __ZooKeeper__：取消勾選此選項
 	* __參數__：將此欄位保留空白
     
-    > [AZURE.NOTE]Spark 範例程式碼只會在前端節點上安裝元件，所以可以取消勾選其他節點類型。
+    > [AZURE.NOTE] Spark 範例程式碼只會在前端節點上安裝元件，所以可以取消勾選其他節點類型。
 
 3. 在 [指令碼動作] 底部，使用 [選取] 按鈕以儲存組態。最後，使用 [選用組態] 刀鋒視窗底部的 [選取] 按鈕，儲存選用組態資訊。
 
@@ -126,7 +126,7 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 
 		val hiveContext = new org.apache.spark.sql.hive.HiveContext(sc)
 
-	> [AZURE.NOTE]本陳述式中的 `sc` 是您啟動 Spark 殼層時所設定的預設 Spark 內容。
+	> [AZURE.NOTE]  本陳述式中的 `sc` 是您啟動 Spark 殼層時所設定的預設 Spark 內容。
 
 5. 使用 Hive 內容執行 Hive 查詢，並將輸出列印到主控台。查詢會擷取特定型號裝置的資料，並將所擷取的記錄數限制在 20 個內。
 
@@ -174,7 +174,7 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 		libraryDependencies += "org.apache.spark" %% "spark-core" % "1.2.0"
 
 
-	> [AZURE.NOTE]請確定在每個項目之間保留那些空白行。
+	> [AZURE.NOTE] 請確定在每個項目之間保留那些空白行。
 	
 	依序按 __Ctrl+X__、__Y__ 和 __Enter__ 鍵以儲存檔案。
 
@@ -236,4 +236,4 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

@@ -27,7 +27,7 @@
 
 ## 建立 Application Insights 資源的指令碼
 
-輸出
+*輸出*
 
 * App Insights Name = mytestapp
 * IKey = 00000000-0000-0000-0000-000000000000
@@ -95,8 +95,8 @@ Write-Host "IKey = " $resource.Properties.InstrumentationKey
 
 * [從範本建立 Application Insights 和 Web 測試資源](app-insights-powershell.md)
 * [Set 使用 PowerShell 設定 Azure 診斷的監視](app-insights-powershell-azure-diagnostics.md) 
-* [使用 PowerShell 設定警示](app-insights-alerts.md#set-alerts-by-using-powershell)
+* [使用 PowerShell 設定警示](app-insights-powershell-alerts.md)
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

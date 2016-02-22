@@ -38,7 +38,7 @@
 
 * [教學課程：開始使用適用於 .NET 的 Azure 批次程式庫](batch-dotnet-get-started.md)
 
-* [批次論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch)
+* [批次論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=azurebatch)
 
 * [批次影片](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -62,15 +62,17 @@ HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 
 * [使用 HPC Pack 將量擴大到 Azure Batch](https://technet.microsoft.com/library/mt612877.aspx)
 
 
-* [Windows HPC 論壇](https://social.microsoft.com/Forums/en-us/home?category=windowshpc)
+* [Windows HPC 論壇](https://social.microsoft.com/Forums/home?category=windowshpc)
 
 ### Linux 與 OSS 叢集解決方案
 
-透過開放原始碼工具使用 Azure 快速入門範本部署 Linux HPC 叢集。
+使用這些 Azure 範本來部署 Linux HPC 叢集。
 
 * [加速 SLURM 叢集](https://azure.microsoft.com/documentation/templates/slurm/)和[部落格文章](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
 * [加速扭力叢集](https://azure.microsoft.com/documentation/templates/torque-cluster/)
+
+* [Intel Cloud Edition for Lustre Software - Eval](https://azure.microsoft.com/marketplace/partners/intel/lustre-cloud-edition-evaleval-lustre-2-7/)
 
 ## Microsoft MPI
 
@@ -81,12 +83,12 @@ HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 
 
 * [MS-MPI 參考資料](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [MPI 論壇](https://social.microsoft.com/Forums/en-us/home?forum=windowshpcmpi)
+* [MPI 論壇](https://social.microsoft.com/Forums/zh-TW/home?forum=windowshpcmpi)
 
 
 ## 計算密集型執行個體
 
-Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)，包括計算密集的 [A8 和 A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) 執行個體，能夠連接到後端 RDMA 網路，以執行您的 Linux 和 Windows HPC 工作負載。
+Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md) (包括能夠連接到後端 RDMA 網路的計算密集型 [A8 和 A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) 執行個體) 來執行您的 Linux 和 Windows HPC 工作負載。
 
 * [設定 Linux RDMA 叢集以執行 MPI 應用程式](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
@@ -94,7 +96,7 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)�
 
 ## 架構藍圖
 
-* [使用 Azure Batch 和 Data Factory 的 HPC 和資料協調](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) 和[文章](../data-factory/data-factory-data-processing-using-batch.md)
+* [HPC and data orchestration using Azure Batch and Azure Data Factory (使用 Azure Batch 和 Azure Data Factory 的 HPC 及資料協調)](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) 和[文章](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## 範例和示範
 
@@ -114,11 +116,25 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md)�
 
 * [媒體服務](https://azure.microsoft.com/documentation/services/media-services/)
 
+## 客戶案例
 
+* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
+
+* [明德精算顧問有限公司](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
+
+* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168)
+
+* [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
+
+* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+
+* [Ludwig Institute of Cancer Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5830)
+
+* [Microsoft Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=15634)
 
 ## 後續步驟
 
 * 最新宣告請參閱 [Microsoft HPC 和批次的小組部落格](http://blogs.technet.com/b/windowshpc/)以及[Azure 部落格](https://azure.microsoft.com/blog/tag/hpc/)。
 * 另請參閱[批次的新功能](https://azure.microsoft.com/updates/?service=batch)或訂閱 [RSS 摘要](https://azure.microsoft.com/updates/feed/?service=batch)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

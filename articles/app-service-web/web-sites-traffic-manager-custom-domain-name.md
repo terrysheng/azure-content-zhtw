@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
 
 #在使用流量管理員的 Azure App Service 中設定 Web 應用程式的自訂網域名稱
@@ -34,7 +34,7 @@
 <a name="bkmk_configurecname"></a>
 ## 新增自訂網域的 DNS 記錄
 
-> [AZURE.NOTE]如果您已透過 Azure App Service Web Apps 購買網域，請略過下列步驟，並參閱[購買 Web Apps 網域](custom-dns-web-site-buydomains-web-app.md)文章的最後一個步驟。
+> [AZURE.NOTE] 如果您已透過 Azure App Service Web Apps 購買網域，請略過下列步驟，並參閱[購買 Web Apps 網域](custom-dns-web-site-buydomains-web-app.md)文章的最後一個步驟。
 
 若要將您的自訂網域與 Azure App Service 的 Web 應用程式建立關聯，必須在 DNS 表格中為您的自訂網域新增項目，方法是使用您向其購買網域名稱之網域註冊機構所提供的工具。使用下列步驟來尋找並使用 DNS 工具。
 
@@ -58,7 +58,5 @@
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
- 
- 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

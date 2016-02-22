@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="02/09/2016"
    ms.author="mbaldwin"/>
 
 # Azure AD 的驗證案例
@@ -63,12 +63,12 @@ Azure Active Directory (Azure AD) 提供身分識別做為服務來簡化開發�
 • 使用者通過驗證之後，應用程式必須驗證使用者的安全性權杖，以確定相關各方的驗證成功。開發人員可以使用提供的驗證程式庫來驗證來自 Azure AD 的任何權杖，包括 JSON Web Token (JWT) 或 SAML 2.0。如果您想要手動執行驗證，請參閱 [JWT 權杖處理常式](https://msdn.microsoft.com/library/dn205065.aspx)文件。
 
 
-> [AZURE.IMPORTANT]Azure AD 使用公開金鑰密碼編譯來簽署權杖並驗證它們有效。如需有關應用程式中必要的邏輯以確保永遠以最新金鑰更新的相關資訊，請參閱 [Azure AD 中簽署金鑰變換的相關重要資訊](https://msdn.microsoft.com/library/azure/dn641920.aspx)。
+> [AZURE.IMPORTANT] Azure AD 使用公開金鑰密碼編譯來簽署權杖並驗證它們有效。如需有關應用程式中必要的邏輯以確保永遠以最新金鑰更新的相關資訊，請參閱 [Azure AD 中簽署金鑰變換的相關重要資訊](https://msdn.microsoft.com/library/azure/dn641920.aspx)。
 
 
 • 驗證程序的要求和回應流程由使用的驗證通訊協定決定，例如 OAuth 2.0、OpenID Connect，WS-同盟或 SAML 2.0。[Azure Active Directory 驗證通訊協定](active-directory-authentication-protocols.md)主題和下列各節中更詳細地討論這些通訊協定。
 
-> [AZURE.NOTE]Azure AD 支援 OAuth 2.0 和 OpenID Connect 標準，這些標準廣泛運用持有者權杖，包括以 JWT 表示的持有者權杖。持有人權杖是輕巧型的安全性權杖，授權「持有者」存取受保護的資源。從這個意義上說，「持有者」是可出示權杖的任何一方。雖然某一方必須先向 Azure AD 驗證以收到持有人權杖，但如果傳輸和儲存時未採取必要的步驟來保護權杖，它可能會被非預期的一方攔截和使用。雖然某些安全性權杖都有內建的機制，可防止未經授權的人士使用權杖，但持有者權杖沒有這項機制，而必須以安全通道來傳輸，例如傳輸層安全性 (HTTPS)。如果持有人權杖以純文字傳輸，惡意人士可能使用攔截式攻擊來取得權杖，然後未經授權存取受保護的資源。儲存或快取持有者權杖供以後使用時，也適用相同的安全性原則。務必確定您的應用程式以安全的方式傳輸和儲存持有者權杖。關於持有者權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](http://tools.ietf.org/html/rfc6750)。
+> [AZURE.NOTE] Azure AD 支援 OAuth 2.0 和 OpenID Connect 標準，這些標準廣泛運用持有者權杖，包括以 JWT 表示的持有者權杖。持有人權杖是輕巧型的安全性權杖，授權「持有者」存取受保護的資源。從這個意義上說，「持有者」是可出示權杖的任何一方。雖然某一方必須先向 Azure AD 驗證以收到持有人權杖，但如果傳輸和儲存時未採取必要的步驟來保護權杖，它可能會被非預期的一方攔截和使用。雖然某些安全性權杖都有內建的機制，可防止未經授權的人士使用權杖，但持有者權杖沒有這項機制，而必須以安全通道來傳輸，例如傳輸層安全性 (HTTPS)。如果持有人權杖以純文字傳輸，惡意人士可能使用攔截式攻擊來取得權杖，然後未經授權存取受保護的資源。儲存或快取持有者權杖供以後使用時，也適用相同的安全性原則。務必確定您的應用程式以安全的方式傳輸和儲存持有者權杖。關於持有者權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](http://tools.ietf.org/html/rfc6750)。
 
 
 既然您已有基本概念的概觀，請閱讀下列各節，了解 Azure AD 中的佈建運作方式，以及 Azure AD 支援的常見案例。
@@ -138,7 +138,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 
 ## 應用程式類型和案例
 
-本文件所述的每個案例可用各種語言和平台來開發，而且每個案例在 [GitHub 上有完整的程式碼範例](https://github.com/AzureADSamples)。此外，如果您的應用程式需要端對端案例的特定片段或區段，在大部分情況下可以獨立加入這項功能。例如，如果您有一個呼叫 Web API 的原生應用程式，您可以輕鬆加入也會呼叫該 Web API 的 Web 應用程式。下圖說明這些案例和應用程式類型，以及如何加入不同的元件：
+本文件中所述的每個案例也可以使用各種語言和平台進行開發。它們皆有完整的程式碼範例支援，這些程式碼範例是在我們的[程式碼範例指南](active-directory-code-samples.md)中，或者直接從相對應的 [Github 範例存放庫](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=active-directory)提供使用。此外，如果您的應用程式需要端對端案例的特定片段或區段，在大部分情況下可以獨立加入這項功能。例如，如果您有一個呼叫 Web API 的原生應用程式，您可以輕鬆加入也會呼叫該 Web API 的 Web 應用程式。下圖說明這些案例和應用程式類型，以及如何加入不同的元件：
 
 ![應用程式類型和案例](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
 
@@ -292,7 +292,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 6. 當存取權杖到期時，用戶端應用程式會收到錯誤，指出使用者必須再次驗證。如果應用程式具有有效的重新整理權杖，它可用來取得新的存取權杖，不會提示使用者重新登入。如果重新整理權杖到期，應用程式必須再一次以互動方式驗證使用者。
 
 
-> [AZURE.NOTE]Azure AD 所簽發的重新整理權杖可用來存取多個資源。例如，如果您的用戶端應用程式有權限呼叫兩個 Web API，重新整理權杖也可用來取得其他 Web API 的存取權杖。
+> [AZURE.NOTE] Azure AD 所簽發的重新整理權杖可用來存取多個資源。例如，如果您的用戶端應用程式有權限呼叫兩個 Web API，重新整理權杖也可用來取得其他 Web API 的存取權杖。
 
 
 #### 程式碼範例
@@ -467,4 +467,4 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 
 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

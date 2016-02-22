@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 #使用 Maven 建置搭配使用 HBase 和 HDInsight (Hadoop) 的 Java 應用程式 (英文)
@@ -111,7 +111,7 @@
 
 	這會設定包含 HBase 組態資訊的資源 (__conf/hbase-site.xml__,)。
 
-	> [AZURE.NOTE]您也可以透過程式碼來設定組態值。相關作法請參閱接下來 __CreateTable__ 範例中的註解。
+	> [AZURE.NOTE] 您也可以透過程式碼來設定組態值。相關作法請參閱接下來 __CreateTable__ 範例中的註解。
 
 	這也會設定 [Maven Compiler 外掛程式](http://maven.apache.org/plugins/maven-compiler-plugin/)和 [Maven Shade 外掛程式](http://maven.apache.org/plugins/maven-shade-plugin/)。Compiler 外掛程式用來編譯拓撲。Shade 外掛程式用來防止以 Maven 所建置的 JAR 封裝發生授權重複。使用此項目的理由在於，重複的授權檔會導致 HDInsight 叢集在執行階段發生錯誤。使用 maven-shade-plugin 搭配 `ApacheLicenseResourceTransformer` 實作可防止此錯誤。
 
@@ -125,7 +125,7 @@
 
 		scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
 
-	> [AZURE.NOTE]如果您對 SSH 帳戶使用密碼，系統會提示您輸入密碼。如果您搭配帳戶使用 SSH 金鑰，可能需要使用 `-i` 參數來指定金鑰檔的路徑。下列範例會從 `~/.ssh/id_rsa` 載入私密金鑰：
+	> [AZURE.NOTE] 如果您對 SSH 帳戶使用密碼，系統會提示您輸入密碼。如果您搭配帳戶使用 SSH 金鑰，可能需要使用 `-i` 參數來指定金鑰檔的路徑。下列範例會從 `~/.ssh/id_rsa` 載入私密金鑰：
 	>
 	> `scp -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml`
 
@@ -135,70 +135,73 @@
 
 2. 開啟 __CreateTable.java__ 檔案，並以下列程式碼取代現有的內容：
 
-		package com.microsoft.examples;
-		import java.io.IOException;
+        package com.microsoft.examples;
+        import java.io.IOException;
 
-		import org.apache.hadoop.conf.Configuration;
-		import org.apache.hadoop.hbase.HBaseConfiguration;
-		import org.apache.hadoop.hbase.client.HBaseAdmin;
-		import org.apache.hadoop.hbase.HTableDescriptor;
-		import org.apache.hadoop.hbase.TableName;
-		import org.apache.hadoop.hbase.HColumnDescriptor;
-		import org.apache.hadoop.hbase.client.HTable;
-		import org.apache.hadoop.hbase.client.Put;
-		import org.apache.hadoop.hbase.util.Bytes;
+        import org.apache.hadoop.conf.Configuration;
+        import org.apache.hadoop.hbase.HBaseConfiguration;
+        import org.apache.hadoop.hbase.client.HBaseAdmin;
+        import org.apache.hadoop.hbase.HTableDescriptor;
+        import org.apache.hadoop.hbase.TableName;
+        import org.apache.hadoop.hbase.HColumnDescriptor;
+        import org.apache.hadoop.hbase.client.HTable;
+        import org.apache.hadoop.hbase.client.Put;
+        import org.apache.hadoop.hbase.util.Bytes;
 
-		public class CreateTable {
-		  public static void main(String[] args) throws IOException {
-		    Configuration config = HBaseConfiguration.create();
+        public class CreateTable {
+          public static void main(String[] args) throws IOException {
+            Configuration config = HBaseConfiguration.create();
 
-		    // Example of setting zookeeper values for HDInsight
-			//   in code instead of an hbase-site.xml file
-			//
-		    // config.set("hbase.zookeeper.quorum",
-		    //            "zookeepernode0,zookeepernode1,zookeepernode2");
-		    //config.set("hbase.zookeeper.property.clientPort", "2181");
-		    //config.set("hbase.cluster.distributed", "true");
+            // Example of setting zookeeper values for HDInsight
+            // in code instead of an hbase-site.xml file
+            //
+            // config.set("hbase.zookeeper.quorum",
+            //            "zookeepernode0,zookeepernode1,zookeepernode2");
+            //config.set("hbase.zookeeper.property.clientPort", "2181");
+            //config.set("hbase.cluster.distributed", "true");
             //
             //NOTE: Actual zookeeper host names can be found using Ambari:
             //curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts"
+            
+            //Linux-based HDInsight clusters don't use the default znode parent
+            config.set("zookeeper.znode.parent","/hbase-unsecure");
 
-		    // create an admin object using the config
-		    HBaseAdmin admin = new HBaseAdmin(config);
+            // create an admin object using the config
+            HBaseAdmin admin = new HBaseAdmin(config);
 
-		    // create the table...
-		    HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("people"));
-		    // ... with two column families
-		    tableDescriptor.addFamily(new HColumnDescriptor("name"));
-		    tableDescriptor.addFamily(new HColumnDescriptor("contactinfo"));
-		    admin.createTable(tableDescriptor);
+            // create the table...
+            HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("people"));
+            // ... with two column families
+            tableDescriptor.addFamily(new HColumnDescriptor("name"));
+            tableDescriptor.addFamily(new HColumnDescriptor("contactinfo"));
+            admin.createTable(tableDescriptor);
 
-		    // define some people
-		    String[][] people = {
-		        { "1", "Marcel", "Haddad", "marcel@fabrikam.com"},
-		        { "2", "Franklin", "Holtz", "franklin@contoso.com" },
-		        { "3", "Dwayne", "McKee", "dwayne@fabrikam.com" },
-		        { "4", "Rae", "Schroeder", "rae@contoso.com" },
-		        { "5", "Rosalie", "burton", "rosalie@fabrikam.com"},
-		        { "6", "Gabriela", "Ingram", "gabriela@contoso.com"} };
+            // define some people
+            String[][] people = {
+                { "1", "Marcel", "Haddad", "marcel@fabrikam.com"},
+                { "2", "Franklin", "Holtz", "franklin@contoso.com" },
+                { "3", "Dwayne", "McKee", "dwayne@fabrikam.com" },
+                { "4", "Rae", "Schroeder", "rae@contoso.com" },
+                { "5", "Rosalie", "burton", "rosalie@fabrikam.com"},
+                { "6", "Gabriela", "Ingram", "gabriela@contoso.com"} };
 
-		    HTable table = new HTable(config, "people");
+            HTable table = new HTable(config, "people");
 
-		    // Add each person to the table
-		    //   Use the `name` column family for the name
-		    //   Use the `contactinfo` column family for the email
-		    for (int i = 0; i< people.length; i++) {
-		      Put person = new Put(Bytes.toBytes(people[i][0]));
-		      person.add(Bytes.toBytes("name"), Bytes.toBytes("first"), Bytes.toBytes(people[i][1]));
-		      person.add(Bytes.toBytes("name"), Bytes.toBytes("last"), Bytes.toBytes(people[i][2]));
-		      person.add(Bytes.toBytes("contactinfo"), Bytes.toBytes("email"), Bytes.toBytes(people[i][3]));
-		      table.put(person);
-		    }
-		    // flush commits and close the table
-		    table.flushCommits();
-		    table.close();
-		  }
-		}
+            // Add each person to the table
+            //   Use the `name` column family for the name
+            //   Use the `contactinfo` column family for the email
+            for (int i = 0; i< people.length; i++) {
+              Put person = new Put(Bytes.toBytes(people[i][0]));
+              person.add(Bytes.toBytes("name"), Bytes.toBytes("first"), Bytes.toBytes(people[i][1]));
+              person.add(Bytes.toBytes("name"), Bytes.toBytes("last"), Bytes.toBytes(people[i][2]));
+              person.add(Bytes.toBytes("contactinfo"), Bytes.toBytes("email"), Bytes.toBytes(people[i][3]));
+              table.put(person);
+            }
+            // flush commits and close the table
+            table.flushCommits();
+            table.close();
+          }
+        }
 
 	這是 __CreateTable__ 類別，將會建立名為 __people__ 的資料表，並填入一些預先定義的使用者。
 
@@ -317,7 +320,7 @@
 
 3. 指令完成後，__hbaseapp/target__ 目錄將包含一個名為 __hbaseapp-1.0-SNAPSHOT.jar__ 的檔案。
 
-	> [AZURE.NOTE]__hbaseapp-1.0-SNAPSHOT.jar__ 檔案是一個 uber jar (有時稱為 fat jar)，內含執行應用程式所需的所有相依性。
+	> [AZURE.NOTE] __hbaseapp-1.0-SNAPSHOT.jar__ 檔案是一個 uber jar (有時稱為 fat jar)，內含執行應用程式所需的所有相依性。
 
 ##上傳 JAR 檔案並執行工作
 
@@ -327,15 +330,15 @@
 
 	這會將檔案上傳至 SSH 使用者帳戶的主目錄。
 
-	> [AZURE.NOTE]如果您對 SSH 帳戶使用密碼，系統會提示您輸入密碼。如果您搭配帳戶使用 SSH 金鑰，可能需要使用 `-i` 參數來指定金鑰檔的路徑。下列範例會從 `~/.ssh/id_rsa` 載入私密金鑰：
+	> [AZURE.NOTE] 如果您對 SSH 帳戶使用密碼，系統會提示您輸入密碼。如果您搭配帳戶使用 SSH 金鑰，可能需要使用 `-i` 參數來指定金鑰檔的路徑。下列範例會從 `~/.ssh/id_rsa` 載入私密金鑰：
 	>
 	> `scp -i ~/.ssh/id_rsa ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:.`
 
-2. 使用 SSH 連接到 HDInsight 叢集。將 **USERNAME** 替換為您的 SSH 登入名稱。將 **CLUSTERNAME** 替換為 HDInsight 叢集名稱：
+2. 使用 SSH 連接到 HDInsight 叢集。將 **USERNAME** 替換為您的 SSH 登入名稱。將 **CLUSTERNAME** 取代為 HDInsight 叢集名稱：
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-	> [AZURE.NOTE]如果您對 SSH 帳戶使用密碼，系統會提示您輸入密碼。如果您搭配帳戶使用 SSH 金鑰，可能需要使用 `-i` 參數來指定金鑰檔的路徑。下列範例會從 `~/.ssh/id_rsa` 載入私密金鑰：
+	> [AZURE.NOTE] 如果您對 SSH 帳戶使用密碼，系統會提示您輸入密碼。如果您搭配帳戶使用 SSH 金鑰，可能需要使用 `-i` 參數來指定金鑰檔的路徑。下列範例會從 `~/.ssh/id_rsa` 載入私密金鑰：
 	>
 	> `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
 
@@ -364,4 +367,4 @@
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

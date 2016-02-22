@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="02/03/2016"
 	ms.author="garye"/>
 
 
 # 逐步解說步驟 1：建立 Machine Learning 工作區
 
-這是[使用 Azure Machine Learning 開發預測解決方案](machine-learning-walkthrough-develop-predictive-solution.md)逐步解說的第一個步驟。
+這是[在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](machine-learning-walkthrough-develop-predictive-solution.md)逐步解說的第一個步驟。
 
 
 1.	**建立機器學習服務工作區**
@@ -35,19 +35,15 @@
 
 ##建立工作區  
 
-1.	登入您的 Microsoft Azure 帳戶。
-2.	在 Microsoft Azure 服務面板中，按一下 [MACHINE LEARNING]。![建立工作區][1]
+1.	登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
+2.	在 Azure 服務面板中，按一下 [機器學習服務]。![建立工作區][1]
 
 3.	按一下 [建立 ML 工作區]。
 4.	在 [快速建立] 頁面上，輸入您的工作區資訊，然後按一下 [建立 ML 工作區]。
 
-	> [AZURE.NOTE][工作區擁有者] 是您的 Microsoft 帳戶 (例如 name@outlook.com) 或組織帳戶。
+機器學習服務工作區建立後，您會看見它列在 Azure 傳統入口網站中的 [機器學習服務] 頁面上。如需建立工作區的更多詳細資料，請參閱[建立 Azure Machine Learning 工作區](machine-learning-create-workspace.md)。
 
-機器學習服務工作區建立後，您會看見它列在**機器學習服務**頁面上。
-
-> [AZURE.TIP]您可以邀請其他人到您的工作區，以分享您正在執行的實驗。您可以在 Machine Learning Studio 中的 [**設定**] 頁面上執行此動作。您只需要每個使用者的 Microsoft 帳戶或組織帳戶。
-
-如需詳細資訊，請參閱[管理 Azure Machine Learning 工作區](machine-learning-manage-workspace.md)。
+> [AZURE.TIP] 您可以邀請其他人到您的工作區，以分享您正在執行的實驗。您可以在 Machine Learning Studio 中的 [**設定**] 頁面上執行此動作。您只需要每個使用者的 Microsoft 帳戶或組織帳戶。
 
 ----------
 
@@ -55,4 +51,4 @@
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

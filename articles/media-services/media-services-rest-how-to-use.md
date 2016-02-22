@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 
@@ -23,6 +23,15 @@
 
 Microsoft Azure 媒體服務會接受以 OData 為基礎的 HTTP 要求，而且可以使用詳細資訊 JSON 或 atom+pub 回應。由於媒體服務符合 Azure 設計指導方針，因此在連線到媒體服務時，每個用戶端都必須使用一組必要的 HTTP 標頭，以及一組可以使用的選擇性標頭。下列章節描述建立要求及接收來自媒體服務的回應時可以使用的標頭和 HTTP 指令動詞。
 
+##注意事項 
+
+使用 REST 時須考量下列事項：
+
+
+- 如果使用 JSON，您必須將 Accept 標題設為 [JSON 詳細資訊格式](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)。Odata 並不了解要求中的 \_\_metadata 屬性，除非您將它設為詳細資訊。
+
+	**Accept**: application/json;odata=verbose
+- 查詢項目時，有一次最多傳回 1000 個實體的限制，因為公用 REST v2 有 1000 個查詢結果數目的限制。您需要使用 [略過] 和 [採用] (.NET)/ [最前面] (REST)，如[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述。 
 
 ## 媒體服務支援的標準 HTTP 要求標頭
 
@@ -38,7 +47,7 @@ MaxDataServiceVersion|十進位|3\.0
 
 
 
->[AZURE.NOTE]媒體服務使用 OData 來透過 REST API 公開其基礎資產中繼資料儲存機制，因此 DataServiceVersion 和 MaxDataServiceVersion 標頭應該包含在任何要求中。不過，如果沒有，則目前媒體服務會假設使用的 DataServiceVersion 值是 3.0。
+>[AZURE.NOTE] 媒體服務使用 OData 來透過 REST API 公開其基礎資產中繼資料儲存機制，因此 DataServiceVersion 和 MaxDataServiceVersion 標頭應該包含在任何要求中。不過，如果沒有，則目前媒體服務會假設使用的 DataServiceVersion 值是 3.0。
 
 以下是一組選擇性標頭：
 
@@ -81,6 +90,10 @@ PUT|取代物件，或建立具名的物件 (如果適用的話)。
 MERGE|以具名屬性變更來更新現有的物件。
 HEAD|傳回 GET 回應的物件中繼資料。
 
+##限制
+
+查詢項目時，有一次最多傳回 1000 個實體的限制，因為公用 REST v2 有 1000 個查詢結果數目的限制。您需要使用 [略過] 和 [採用] (.NET)/ [最前面] (REST)，如[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述。
+
 
 ## 探索媒體服務模型
 
@@ -105,4 +118,4 @@ HEAD|傳回 GET 回應的物件中繼資料。
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

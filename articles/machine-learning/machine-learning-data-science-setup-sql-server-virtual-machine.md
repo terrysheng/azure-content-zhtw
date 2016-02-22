@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/08/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # 將 Azure SQL Server 虛擬機器設定為 IPython Notebook 伺服器供進階分析使用
@@ -25,7 +25,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 - SQL Server 2012 SP2 Enterprise，適用於小型到中型的資料大小
 - SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads，適用於大型到非常大型的資料大小
 
- >[AZURE.NOTE] SQL Server 2012 SP2 Enterprise 的映像**不包含資料磁碟**。您必須新增和 (或) 連接一或多個虛擬硬碟來儲存資料。當您建立 Azure 虛擬機器時，它會有一個作業系統的磁碟對應至 C 磁碟機，還有一個暫存磁碟對應至 D 磁碟機。請勿使用 D 磁碟機來儲存資料。顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。
+ > [AZURE.NOTE] SQL Server 2012 SP2 Enterprise 的映像**不包含資料磁碟**。您必須新增和 (或) 連接一或多個虛擬硬碟來儲存資料。當您建立 Azure 虛擬機器時，它會有一個作業系統的磁碟對應至 C 磁碟機，還有一個暫存磁碟對應至 D 磁碟機。請勿使用 D 磁碟機來儲存資料。顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。
 
 
 ##<a name="Provision"></a>連線到 Azure 傳統入口網站並佈建 SQL Server 虛擬機器
@@ -44,9 +44,9 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
     -   在 [新使用者名稱] 方塊中，輸入 VM 本機系統管理員帳戶的唯一使用者名稱。
     -   在 [**新增密碼**] 方塊中，輸入增強式密碼。如需詳細資訊，請參閱[增強式密碼](http://msdn.microsoft.com/library/ms161962.aspx)。
     -   在 [**確認密碼**] 方塊中，重新輸入密碼。
-    -   從 [**大小**] 下拉式清單中選取適當的大小。
+    -   從 [大小] 下拉式清單中選取適當的大小。
 
-     >[AZURE.NOTE] 在佈建期間指定虛擬機器的大小：A2 是建議用於生產工作負載的最小大小。使用 SQL Server Enterprise Edition 時，虛擬機器的最小建議大小為 A3。當您使用 SQL Server Enterprise Edition 時，請選取 A3 或以上的大小。使用 SQL Server 2012 或 2014 Enterprise Optimized for Transactional Workloads 映像時，請選取 A4。使用 SQL Server 2012 或 2014 Enterprise Optimized for Data Warehousing Workloads 映像時，請選取 A7。選取的大小會限制可設定的資料磁碟數目。如需可用之虛擬機器大小和可連接至虛擬機器之資料磁碟數目的最新資訊，請參閱[虛擬機器](http://msdn.microsoft.com/library/azure/dn197896.aspx)。如需定價資訊，請參閱「[虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/)」。
+     > [AZURE.NOTE] 在佈建期間指定虛擬機器的大小：A2 是建議用於生產工作負載的最小大小。使用 SQL Server Enterprise Edition 時，虛擬機器的最小建議大小為 A3。當您使用 SQL Server Enterprise Edition 時，請選取 A3 或以上的大小。使用 SQL Server 2012 或 2014 Enterprise Optimized for Transactional Workloads 映像時，請選取 A4。使用 SQL Server 2012 或 2014 Enterprise Optimized for Data Warehousing Workloads 映像時，請選取 A7。選取的大小會限制可設定的資料磁碟數目。如需可用之虛擬機器大小和可連接至虛擬機器之資料磁碟數目的最新資訊，請參閱[虛擬機器](http://msdn.microsoft.com/library/azure/dn197896.aspx)。如需定價資訊，請參閱「[虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/)」。
 
     按一下右下角的 [下一步] 箭頭以繼續操作。
 
@@ -111,8 +111,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 	+ 適用於 IPython Notebook 伺服器遠端連線
 	+ 擷取 IPython Notebook 範例和 SQL 指令碼
 	+ 下載並安裝實用的資料科學 Python 封裝
-	+ 下載並安裝 Azure 工具，例如 AzCopy 和 Azure 儲存體總管
-<br>
+	+ 下載並安裝 Azure 工具，例如 AzCopy 和 Azure 儲存體總管<br>
 - 您可以使用 `https://<virtual_machine_DNS_name>:<port>` 格式的 URL，從任何本機或遠端瀏覽器存取並執行 IPython Notebook，URL 格式中的 port 是您佈建虛擬機器時選取的 IPython 公用連接埠。
 - IPython Notebook 伺服器正以背景服務形式執行，而且將在您重新啟動虛擬機器時自動重新啟動。
 
@@ -120,7 +119,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
 如果您的 VM 映像不包含資料磁碟，亦即，磁碟不是 C 磁碟機 (作業系統磁碟) 和 D 磁碟機 (暫存磁碟)，您就需要新增一或多個資料磁碟來儲存資料。SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads 的 VM 映像是使用其他磁碟預先設定的，可供 SQL Server 資料和記錄檔使用。
 
- >[AZURE.NOTE] 請勿使用 D 磁碟機來儲存資料。顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。
+ > [AZURE.NOTE] 請勿使用 D 磁碟機來儲存資料。顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。
 
 若要連接其他資料磁碟，請依照「[如何將資料磁碟連接至 Windows 虛擬機器](storage-windows-attach-disk.md)」中所述的步驟執行，這將引導您完成：
 
@@ -144,7 +143,7 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 	<br>
 
-	 >[AZURE.TIP] 您可以使用 Windows 登錄機碼變更，或使用 SQL Server Management Studio，來變更 SQL Server 驗證模式。若要使用登錄機碼變更來變更驗證模式，請啟動 [**新增查詢**]，然後執行下列指令碼：
+	 > [AZURE.TIP] 您可以使用 Windows 登錄機碼變更，或使用 SQL Server Management Studio，來變更 SQL Server 驗證模式。若要使用登錄機碼變更來變更驗證模式，請啟動 [**新增查詢**]，然後執行下列指令碼：
 
 		USE master
     	go
@@ -200,11 +199,11 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 5.  在 [密碼] 方塊中，輸入新使用者的密碼。在 [確認密碼] 方塊中再次輸入密碼。
 
-6.  若要強制執行複雜性和強制性密碼原則選項，請選取 \[強制執行密碼原則] (建議)。此為選取 SQL Server 驗證時的預設選項。
+6.  若要強制執行複雜性和強制性密碼原則選項，請選取 [強制執行密碼原則] (建議)。此為選取 SQL Server 驗證時的預設選項。
 
-7.  若要強制執行逾期密碼原則選項，請選取 \[強制執行密碼逾期] (建議)。您必須選取強制執行密碼原則才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
+7.  若要強制執行逾期密碼原則選項，請選取 [強制執行密碼逾期] (建議)。您必須選取強制執行密碼原則才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
 
-8.  若要強制使用者在首次登入後建立新密碼，請選取 \[使用者必須在下次登入時變更密碼] (如果此登入是供其他使用者使用，建議您選取此選項。如果此登入是供您自己使用，請勿選取此選項。) 您必須選取強制執行密碼逾期才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
+8.  若要強制使用者在首次登入後建立新密碼，請選取 [使用者必須在下次登入時變更密碼] (如果此登入是供其他使用者使用，建議您選取此選項。如果此登入是供您自己使用，請勿選取此選項。) 您必須選取強制執行密碼逾期才能啟用此核取方塊。此為選取 SQL Server 驗證時的預設選項。
 
 9.  在 [預設資料庫] 清單中，選取登入的預設資料庫。**master** 是此選項的預設值。如果您尚未建立使用者資料庫，請保留 [master] 的設定。
 
@@ -226,7 +225,7 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 1.  在 Azure 傳統入口網站 (或前一個步驟) 中選取 [虛擬機器]。
 
-2.  在「**虛擬機器執行個體**」頁面的 [**DNS 名稱**] 欄中，尋找並複製前方加上 **http://** 的虛擬機器 DNS 名稱。(使用者介面可能無法顯示完整名稱，不過您可以在名稱上按一下滑鼠右鍵，然後選擇複製。)
+2.  在「**虛擬機器執行個體**」頁面的 [**DNS 名稱**] 欄中，尋找並複製前方加上 ****http://** 的虛擬機器 DNS 名稱。(使用者介面可能無法顯示完整名稱，不過您可以在名稱上按一下滑鼠右鍵，然後選擇複製。)
 
 ##<a name="cde"></a>從另一台電腦連接到 Database Engine
 
@@ -299,4 +298,4 @@ Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

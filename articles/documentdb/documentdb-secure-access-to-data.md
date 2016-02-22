@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2015" 
+	ms.date="01/26/2016" 
 	ms.author="ryancraw"/>
 
 # 安全存取 DocumentDB 資料 #
@@ -163,4 +163,4 @@ DocumentDB 權限資源會與 DocumentDB 使用者相關聯。每位使用者可
 - 若要了解如何建構 DocumentDB 授權權杖，請按一下[這裡](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

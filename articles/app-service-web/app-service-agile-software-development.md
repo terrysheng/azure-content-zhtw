@@ -21,7 +21,7 @@
 
 在本教學課程中，您將學習如何使用支援[敏捷式軟體開發](https://en.wikipedia.org/wiki/Agile_software_development)的方式來建立高級別複雜應用程式與 [Azure App Service](/services/app-service/)。假設您已經知道如何[透過可預測方式在 Azure 中部署複雜應用程式](app-service-deploy-complex-application-predictably.md)。
 
-技術程序限制通常會妨礙成功的實作敏捷式方法。如果在 [Azure 資源管理員](resource-group-overview.md)中明智地結合部署的協調流程與管理，則 Azure App Service 與功能 (例如[持續發行](web-sites-publish-source-control.md)、[預備環境](web-sites-staged-publishing.md) (位置) 和[監視](web-sites-monitor.md)) 是非常適合採用敏捷式軟體開發之開發人員的解決方案。
+技術程序限制通常會妨礙成功的實作敏捷式方法。如果在 [Azure 資源管理員](../resource-group-overview.md)中明智地結合部署的協調流程與管理，則 Azure App Service 與功能 (例如[持續發行](web-sites-publish-source-control.md)、[預備環境](web-sites-staged-publishing.md) (位置) 和[監視](web-sites-monitor.md)) 是非常適合採用敏捷式軟體開發之開發人員的解決方案。
 
 下表是敏捷式開發相關需求以及 Azure 服務如何啟用它們的簡短清單。
 
@@ -43,7 +43,7 @@
 
 將圖片放入文字：
 
--	部署架構分成三個不同環境 (或 Azure 中的[資源群組](resource-group-overview.md))，其各有專屬 [App Service 方案](azure-web-sites-web-hosting-plans-in-depth-overview.md)、[調整](web-sites-scale.md)設定和 SQL 資料庫。 
+-	部署架構分成三個不同環境 (或 Azure 中的[資源群組](../resource-group-overview.md))，其各有專屬 [App Service 方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)、[調整](web-sites-scale.md)設定和 SQL 資料庫。 
 -	您可以個別管理每個環境。它們甚至可以存在於不同的訂用帳戶中。
 -	預備和生產環境會實作為相同 App Service 應用程式的兩個位置。主要分支是設定進行具有預備位置的連續整合。
 -	在預備位置 (含生產資料) 上驗證主要分支的認可時，已驗證的預備應用程式會交換到生產位置，[而不中斷](web-sites-staged-publishing.md)。
@@ -63,7 +63,7 @@
 -	Git Shell (與 [GitHub for Windows](https://windows.github.com/) 一起安裝) - 這可讓您在相同的工作階段中執行 Git 和 PowerShell 命令 
 -	最新 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi) 位元
 -	下列項目的基本了解：
-	-	[Azure 資源管理員](resource-group-overview.md)範本部署 (另請參閱[透過可預測方式在 Azure 中部署複雜應用程式](app-service-deploy-complex-application-predictably.md))
+	-	[Azure 資源管理員](../resource-group-overview.md)範本部署 (另請參閱[透過可預測方式在 Azure 中部署複雜應用程式](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -270,14 +270,14 @@
 -	[透過可預測方式在 Azure 中部署複雜應用程式](app-service-deploy-complex-application-predictably.md)
 -	[敏捷式開發作法：現代化開發週期的秘訣和訣竅](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 -	[使用資源管理員範本之 Azure Web 應用程式的進階部署策略](http://channel9.msdn.com/Events/Build/2015/2-620)
--	[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
+-	[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)
 -	[JSONLint - JSON 驗證程式](http://jsonlint.com/)
 -	[ARMClient - 設定 GitHub 發行至網站](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 -	[分支 - 基本分支和合併](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[David Ebbo 的部落格](http://blog.davidebbo.com/)
--	[Azure PowerShell](powershell-install-configure.md)
--	[Azure 跨平台命令列工具](xplat-cli-install.md)
+-	[Azure PowerShell](../powershell-install-configure.md)
+-	[Azure 跨平台命令列工具](../xplat-cli-install.md)
 -	[在 Azure AD 中建立或編輯使用者](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[專案 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

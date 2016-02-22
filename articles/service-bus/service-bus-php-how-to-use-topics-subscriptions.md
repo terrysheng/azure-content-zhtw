@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -29,7 +29,7 @@
 
 若要建立 PHP 應用程式並使其存取 Azure Blob 服務，唯一要求就是在您的程式碼中參考 [Azure SDK for PHP](../php-download-sdk.md) 中的類別。您可以使用任何開發工具來建立應用程式，或記事本。
 
-> [AZURE.NOTE]您的 PHP 安裝也必須已安裝並啟用 [OpenSSL 延伸](http://php.net/openssl)。
+> [AZURE.NOTE] 您的 PHP 安裝也必須已安裝並啟用 [OpenSSL 延伸](http://php.net/openssl)。
 
 本文說明如何使用可從 PHP 應用程式內本機呼叫的服務功能，或可在 Azure Web 角色、背景工作角色或網站內執行的程式碼中呼叫的服務功能。
 
@@ -46,7 +46,7 @@
 
 下列範例說明如何納入自動換片器檔案及參考 **ServiceBusService** 類別。
 
-> [AZURE.NOTE]此範例 (和本文中的其他範例) 假設您已透過編輯器安裝 PHP Client Libraries for Azure。如果您以手動方式或以 PEAR 套件方式安裝程式庫，則必須參考 **WindowsAzure.php** 自動換片器檔案。
+> [AZURE.NOTE] 此範例 (和本文中的其他範例) 假設您已透過編輯器安裝 PHP Client Libraries for Azure。如果您以手動方式或以 PEAR 套件方式安裝程式庫，則必須參考 **WindowsAzure.php** 自動換片器檔案。
 
 ```
 require_once 'vendor\autoload.php';
@@ -115,7 +115,7 @@ catch(ServiceException $e){
 }
 ```
 
-> [AZURE.NOTE]您可以在 `ServiceBusRestProxy` 物件上使用 `listTopics` 方法，來檢查服務命名空間內是否已有指定名稱的主題存在。
+> [AZURE.NOTE] 您可以在 `ServiceBusRestProxy` 物件上使用 `listTopics` 方法，來檢查服務命名空間內是否已有指定名稱的主題存在。
 
 ## 建立訂用帳戶
 
@@ -143,7 +143,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/dd179357
+	// http://msdn.microsoft.com/library/azure/dd179357
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -154,7 +154,7 @@ catch(ServiceException $e){
 
 您也可以設定篩選器，讓您指定傳送至主題的哪些訊息應出現在特定主題訂用帳戶中。訂閱所支援的最具彈性篩選器類型是實作 SQL92 子集的 **SqlFilter**。SQL 篩選器會對發佈至主題之訊息的屬性運作。如需 SqlFilters 的詳細資訊，請參閱 [SqlFilter.SqlExpression 屬性][sqlfilter]。
 
-> [AZURE.NOTE]訂閱的每個規則可獨立處理傳入的訊息，並將其結果訊息新增至訂閱。此外，每個新訂用帳戶都有具篩選器的預設 **Rule** 物件，而篩選器會將主題中的所有訊息新增至訂用帳戶。To receive only messages matching your filter, you must remove the default rule.您可以使用 `ServiceBusRestProxy->deleteRule` 方法以移除預設規則。
+> [AZURE.NOTE] 訂閱的每個規則可獨立處理傳入的訊息，並將其結果訊息新增至訂閱。此外，每個新訂用帳戶都有具篩選器的預設 **Rule** 物件，而篩選器會將主題中的所有訊息新增至訂用帳戶。To receive only messages matching your filter, you must remove the default rule.您可以使用 `ServiceBusRestProxy->deleteRule` 方法以移除預設規則。
 
 以下範例將建立名為 **HighMessages**、且其 **SqlFilter** 只選取自訂 **MessageNumber** 屬性大於 3 之訊息的訂用帳戶 (請參閱[如何傳送訊息至主題](#send-messages-to-a-topic)，以取得將自訂屬性新增至訊息的相關資訊)：
 
@@ -211,7 +211,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/hh780775
+	// http://msdn.microsoft.com/library/azure/hh780775
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -278,7 +278,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here:
-	// http://msdn.microsoft.com/library/windowsazure/hh780735
+	// http://msdn.microsoft.com/library/azure/hh780735
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -316,7 +316,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/dd179357
+	// http://msdn.microsoft.com/library/azure/dd179357
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -338,4 +338,4 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 [require-once]: http://php.net/require_once
 [Azure 佇列與服務匯流排佇列]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

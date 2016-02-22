@@ -20,14 +20,14 @@
 
 ## 為什麼要使用 Azure 自動化 DSC 管理機器？
 
-如同 [PowerShell 期望的狀態設定](https://technet.microsoft.com/library/dn249912.aspx)，Azure 自動化期望的狀態設定在任何雲端或內部部署資料中心中是 DSC 節點 (實體和虛擬機器) 的一個簡單但強大的組態管理服務。它可讓您從中央、安全的位置快速且輕鬆地延展性到數千部電腦。您可以輕鬆地上架機器、指派它們宣告式組態和檢視顯示每個電腦的符合性報告 (達您指定的所需狀態)。Azure 自動化 DSC 管理層之於 DSC 如同 Azure 自動化管理層之於 PowerShell 指令碼。換句話說，以 Azure 自動化協助您管理 Powershell 指令碼的相同方式，它也可協助您管理 DSC 組態。若要深入了解使用 Azure 自動化 DSC 的優點，請參閱 [Azure 自動化 DSC 概觀](automation-dsc-overview/)。
+如同 [PowerShell 期望的狀態設定](https://technet.microsoft.com/library/dn249912.aspx)，Azure 自動化期望的狀態設定在任何雲端或內部部署資料中心中是 DSC 節點 (實體和虛擬機器) 的一個簡單但強大的組態管理服務。它可讓您從中央、安全的位置快速且輕鬆地延展性到數千部電腦。您可以輕鬆地上架機器、指派它們宣告式組態和檢視顯示每個電腦的符合性報告 (達您指定的所需狀態)。Azure 自動化 DSC 管理層之於 DSC 如同 Azure 自動化管理層之於 PowerShell 指令碼。換句話說，「Azure 自動化」會以協助您管理 Powershell 指令碼的相同方式，同樣協助您管理 DSC 組態。若要深入了解使用 Azure Automation DSC 的優點，請參閱 [Azure Automation DSC 概觀](automation-dsc-overview/)。
 
 Azure 自動化 DSC 可以用來管理各種不同的機器：
 
 *    Azure 虛擬機器 (傳統)
 *    Azure 虛擬機器
-*    實體/虛擬 Windows 電腦內部部署，或在 Azure 以外的雲端中
-*    內部部署在 Azure 中或 Azure 以外的雲端中的實體/虛擬 Linux 機器
+*    位於內部部署或 Azure 以外之雲端中的實體/虛擬 Windows 電腦
+*    位於內部部署、Azure 或 Azure 以外之雲端中的實體/虛擬 Linux 機器
 
 此外，如果您不準備從雲端管理機器組態，Azure Automation DSC 也可用來當做報告專用端點。這可讓您透過 DSC 內部部署設定 (推送) 所需的組態，以及檢視與 Azure 自動化中的期望狀態相符節點的豐富報告詳細資料。
 
@@ -40,7 +40,7 @@ Azure 自動化 DSC 可以用來管理各種不同的機器：
 
 ### Azure 入口網站
 
-在 [Azure Preview 入口網站](http://portal.azure.com/)中，按一下 [瀏覽] -> [虛擬機器 (傳統)]。選取您要上架的 Windows VM。在虛擬機器的儀表板刀鋒視窗上，按一下 [所有設定] -> [延伸模組] -> [新增] -> [Azure Automation DSC] -> [建立]。輸入您的使用情況所需的 [PowerShell DSC 本機設定管理員值](https://msdn.microsoft.com/powershell/dsc/metaconfig4)、自動化帳戶的註冊金鑰和註冊 URL，並選擇性地輸入要指派給 VM 的節點組態。
+在 [Azure 入口網站](http://portal.azure.com/)中，按一下 [瀏覽] -> [虛擬機器 (傳統)]。選取您要上架的 Windows VM。在虛擬機器的儀表板刀鋒視窗上，按一下 [所有設定] -> [延伸模組] -> [新增] -> [Azure Automation DSC] -> [建立]。輸入您的使用情況所需的 [PowerShell DSC 本機設定管理員值](https://msdn.microsoft.com/powershell/dsc/metaconfig4)、自動化帳戶的註冊金鑰和註冊 URL，並選擇性地輸入要指派給 VM 的節點組態。
 
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
@@ -54,7 +54,7 @@ Azure 自動化 DSC 可以用來管理各種不同的機器：
     Add-AzureAccount
     Add-AzureRmAccount
     
-    # fill in correct values for your VM / Automation Account here
+    # fill in correct values for your VM/Automation account here
     $VMName = ""
     $ServiceName = ""
     $AutomationAccountName = ""
@@ -75,7 +75,7 @@ Azure 自動化 DSC 可以用來管理各種不同的機器：
       ModulesUrl = "https://eus2oaasibizamarketprod1.blob.core.windows.net/automationdscpreview/RegistrationMetaConfigV2.zip"
       ConfigurationFunction = "RegistrationMetaConfigV2.ps1\RegistrationMetaConfigV2"
 
-    # update these DSC agent Local Configuration Manager defaults if they do not match your use case.
+    # update these PowerShell DSC Local Configuration Manager defaults if they do not match your use case.
     # See https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
      Properties = @{
         RegistrationKey = @{
@@ -117,7 +117,7 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
 
 ### Azure 入口網站
 
-在 [Azure Preview 入口網站](https://portal.azure.com/)中，瀏覽至您想要上架虛擬機器的 Azure 自動化帳戶。在 [自動化帳戶] 儀表板上，按一下 [DSC 節點] -> [新增 Azure VM]。
+在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您想要佈建虛擬機器的「Azure 自動化」帳戶。在 [自動化帳戶] 儀表板上，按一下 [DSC 節點] -> [新增 Azure VM]。
 
 在 [選取要上架的虛擬機器] 下，選取一或多個要上架的 Azure 虛擬機器。
 
@@ -135,9 +135,9 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
 
 ### PowerShell
 
-[Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) Cmdlet 可用來透過 PowerShell 在 Azure Preview 入口網站中上架虛擬機器。
+您可以透過 PowerShell 使用 [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) Cmdlet 在 Azure 入口網站中佈建虛擬機器。
 
-## 實體/虛擬 Windows 電腦內部部署，或在 Azure 以外的雲端中
+## 位於內部部署或 Azure 以外之雲端中的實體/虛擬 Windows 電腦
 
 內部部署 Windows 電腦和非 Azure 雲端中的 Windows 電腦 (例如 Amazon Web Services) 也可以上架到 Azure 自動化 DSC，只要它們對外可存取網際網路，透過一些簡單的步驟：
 
@@ -150,7 +150,7 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
 4. 如果您無法從遠端套用 PowerShell DSC 中繼設定，請將步驟 2 中繼設定的資料夾複製到每一部要上架的電腦。然後在要上架的每台電腦本機上呼叫 **Set-DscLocalConfigurationManager**。
 5. 使用 Azure 入口網站或 Cmdlet，檢查要上架的電腦現在在您的 Azure 自動化帳戶中顯示為已註冊的 DSC 節點。
 
-## 內部部署在 Azure 中或 Azure 以外的雲端中的實體/虛擬 Linux 機器
+## 位於內部部署、Azure 或 Azure 以外之雲端中的實體/虛擬 Linux 機器
 
 內部部署 Linux 電腦、Azure 中的 Linux 電腦和非 Azure 雲端中的 Linux 電腦也可以上架到 Azure Automation DSC，只要它們對外可存取網際網路，透過一些簡單的步驟：
 
@@ -169,13 +169,13 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
 3.	請依照下列[**產生 DSC 中繼設定**](#generating-dsc-metaconfigurations)一節中的指示，來產生包含所需 DSC 中繼設定的資料夾。
 4.  從遠端將 PowerShell DSC metaconfiguration 套用至您想要上架的電腦：
     	
-    	$SecurePass = ConvertTo-SecureString -string "<root password>" -AsPlainText -Force
-        $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurPass
-        $Opt = New-CimSessionOption -UseSs1:$true -SkipCACheck:$true -SkipCNCheck:$true -SkipRevocationCheck:$true
+    	$SecurePass = ConvertTo-SecureString -String "<root password>" -AsPlainText -Force
+        $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurePass
+        $Opt = New-CimSessionOption -UseSsl -SkipCACheck -SkipCNCheck -SkipRevocationCheck
 
         # need a CimSession for each Linux machine to onboard
         
-        $Session = New-CimSession -Credential:$Cred -ComputerName:<your Linux machine> -Port:5986 -Authentication:basic -SessionOption:$Opt
+        $Session = New-CimSession -Credential $Cred -ComputerName <your Linux machine> -Port 5986 -Authentication basic -SessionOption $Opt
     	
     	Set-DscLocalConfigurationManager -CimSession $Session –Path C:\Users\joe\Desktop\DscMetaConfigs
 	
@@ -204,7 +204,7 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
             param 
             ( 
                 [Parameter(Mandatory=$True)] 
-                $RegistrationUrl,
+                [String]$RegistrationUrl,
          
                 [Parameter(Mandatory=$True)] 
                 [String]$RegistrationKey,
@@ -339,7 +339,7 @@ Azure Automation DSC 可讓您輕鬆地將 Azure Windows VM 上架以進行組�
 
 >[AZURE.NOTE] 將 Azure Windows VM 上架到使用 Azure VM 期望的狀態組態延伸模組的 Azure 自動化 DSC 的任何方法，最多可能需要一小時的時間，節點才會顯示為已在 Azure 自動化中註冊。這是因為 VM 上憑藉著 Azure VM DSC 延伸模組的 Windows Management Framework 5.0 安裝，需要它才能將 VM 上架到 Azure 自動化 DSC。
 
-若要疑難排解或檢視 Azure VM 預期狀態設定延伸模組的狀態，在 Azure Preview 入口網站中，瀏覽至正在上架的 VM，然後按一下 -> [所有設定] -> [延伸模組] -> [DSC]。如需詳細資訊，您可以按一下 [檢視詳細狀態]。
+若要對「Azure VM 預期狀態設定」擴充功能的狀態進行疑難排解或檢視，請在 Azure 入口網站中，瀏覽至正在佈建的 VM，然後按一下 -> [所有設定] -> [擴充功能] -> [DSC]。如需詳細資訊，您可以按一下 [檢視詳細狀態]。
 
 [![](./media/automation-dsc-onboarding/DSC_Onboarding_5.png)](https://technet.microsoft.com/library/dn249912.aspx)
 
@@ -359,4 +359,4 @@ Azure Automation DSC 可讓您輕鬆地將 Azure Windows VM 上架以進行組�
 * [Azure 自動化 DSC Cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Azure 自動化 DSC 價格](https://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

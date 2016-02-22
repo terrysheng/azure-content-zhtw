@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #從遠端桌面連線執行 Pig 工作
@@ -85,7 +85,7 @@
 
 		STORE RESULT into 'wasb:///example/data/pigout'
 
-	> [AZURE.NOTE]資料會儲存到所指定目錄中名為 **part-nnnnn** 的檔案中。如果目錄已經存在，則會收到錯誤訊息。
+	> [AZURE.NOTE] 資料會儲存到所指定目錄中名為 **part-nnnnn** 的檔案中。如果目錄已經存在，則會收到錯誤訊息。
 
 7. 若要結束 grunt 提示字元，請輸入下列陳述式。
 
@@ -136,4 +136,4 @@
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

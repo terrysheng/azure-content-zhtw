@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # 從使用者錯誤復原 Azure SQL Database
@@ -106,4 +106,4 @@ Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「�
 	
 4.	使用[資料庫操作狀態](http://msdn.microsoft.com/library/azure/dn720371.aspx)操作來追蹤還原狀態。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

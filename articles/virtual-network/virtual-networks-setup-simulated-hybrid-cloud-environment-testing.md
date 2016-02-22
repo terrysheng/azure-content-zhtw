@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016" 
+	ms.date="02/03/2016" 
 	ms.author="josephd"/>
 
-# 設定用於測試的模擬混合式雲端環境
+# 設定用於測試的模擬混合式雲端環境 (傳統部署模式)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](../virtual-machines/virtual-machines-setup-simulated-hybrid-cloud-environment-testing.md)。
 
 本文會引導您使用兩個不同的 Azure 虛擬網路逐步建立 Microsoft Azure 的模擬混合式雲端環境進行測試。當您沒有直接的網際網路連線和可用的公用 IP 位址時，使用此組態做為[設定用於測試的混合式雲端環境](virtual-networks-setup-hybrid-cloud-environment-testing.md)的替代方案。以下是產生的組態。
 
@@ -187,7 +187,7 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.4 的 4 次成功回覆。這�
 接著，將額外的資料磁碟新增為磁碟機代號 F: 的新磁碟區。
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] \([磁碟分割] 設為 [不明])。
+2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] ([磁碟分割] 設為 [不明])。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
 4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
 5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
@@ -220,11 +220,7 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.4 的 4 次成功回覆。這�
 
 ## 後續步驟
 
-在 TestVNET 虛擬網路中設定下列工作負載：
-
-- [SharePoint 內部網路伺服器陣列](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-- [Web 型企業營運應用程式](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-- [Office 365 Directory 同步處理 (DirSync) 伺服器](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
+- 在 TestVNET 虛擬網路中設定 [SharePoint 內部網路伺服器陣列](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)、[Web 式企業營運應用程式](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)，或 [Office 365 目錄同步作業 (DirSync) 伺服器](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)。
 
 
 ## <a id="costs"></a>將此環境的持續成本降至最低
@@ -264,6 +260,5 @@ Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機
 	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet -SharedKey $preSharedKey
 
 接著，在 Azure 管理入口網站的 [網路] 頁面上，按一下 [TestLab] 虛擬網路，然後按一下工作列中的 [連接]。等候 TestLab 虛擬網路顯示 TestVNET 區域網路的連線狀態。
- 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Media Encoder Premium Workflow 格式和轉碼器
 
 
-**注意** 本主題中討論的 Media Encoder Premium Workflow 媒體編碼器不適用於中國。
+>[AZURE.NOTE]如有進階編碼器的問題，請傳送電子郵件到 mepd@Microsoft.com。
+>
+>本主題中討論的媒體編碼器高階工作流程媒體處理器無法在中國使用。
 
 本文包含 **Media Encoder Premium Workflow** 編碼器公開預覽版本支援的輸入與輸出檔案格式以及轉碼器清單。
 
@@ -136,4 +138,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -2,6 +2,7 @@
    pageTitle="Azure Active Directory B2B 共同作業預覽版本的 CSV 檔案格式 | Microsoft Azure"
    description="Azure Active Directory B2B 可讓企業合作夥伴選擇性地存取您的公司應用程式，以支援公司間的關係"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/03/2016"
+   ms.date="02/09/2016"
    ms.author="viviali"/>
 
 # Azure AD B2B 共同作業預覽：CSV 檔案格式
@@ -51,5 +52,6 @@ bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.m
 - [外部使用者權杖格式](active-directory-b2b-references-external-user-token-format.md)
 - [外部使用者物件屬性變更](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [目前的預覽版本限制](active-directory-b2b-current-preview-limitations.md)
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

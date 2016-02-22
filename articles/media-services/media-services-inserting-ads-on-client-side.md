@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015" 
+	ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,8 @@
 
 如需了解即時串流視訊的隱藏式字幕和廣告支援，請參閱[隱藏式字幕支援和廣告插入標準](media-services-manage-channels-overview.md#cc_and_ads)。
 
- 
+>[AZURE.NOTE] Azure 媒體播放器目前不支援廣告。
+
 ##<a id="insert_ads_into_media"></a>將廣告插入您的媒體
 
 Azure 媒體服務允許透過 Windows Media 平台插入廣告：Player Framework。具備廣告支援的播放器架構都適用於 Windows 8、Silverlight、Windows Phone 8 和 iOS 裝置。每一個播放器架構都有範例程式碼，教您如何實作播放器應用程式。目前有三種不同的廣告可以插入 media:list 中：
@@ -812,4 +813,4 @@ Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合
 
 [開發視訊播放程式應用程式](media-services-develop-video-players.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

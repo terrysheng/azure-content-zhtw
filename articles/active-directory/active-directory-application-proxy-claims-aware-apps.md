@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 
 # 在應用程式 Proxy 中使用宣告感知應用程式
 
-> [AZURE.IMPORTANT]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
+> [AZURE.IMPORTANT] 應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
 宣告感知應用程式會執行前往 Security Token Service (STS) 的重新導向，而 STS 會接著向使用者要求認證以交換權杖，之後才會將使用者重新導向至應用程式。若要啟用應用程式 Proxy 來使用這些重新導向，必須採取下列步驟。
 
@@ -59,7 +59,10 @@
 
 ## 其他資源
 
-* [以組織身分註冊 Azure](sign-up-organization.md)
-* [Azure 身分識別](fundamentals-identity.md)
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [提供安全的內部部署應用程式遠端存取](active-directory-application-proxy-get-started.md)
+- [如何啟用原生用戶端應用程式以與 Proxy 應用程式互動](active-directory-application-proxy-native-client.md)
+- [以組織方式註冊 Azure](sign-up-organization.md)
+- [Azure 身分識別](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

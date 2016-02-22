@@ -17,11 +17,11 @@
 	ms.date="11/13/2015"
 	ms.author="szark"/>
 
-# 準備執行 Azure 的 SLES 或 openSUSE 虛擬機器
+# 準備適用於 Azure 的 SLES 或 openSUSE 虛擬機器
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##先決條件##
+## 先決條件 ##
 
 本文假設您已將 SUSE 或 openSUSE Linux 作業系統安裝到虛擬硬碟。有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
@@ -78,9 +78,9 @@
 
 9.	確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。這通常是預設值。
 
-10.	請不要在 OS 磁碟上建立交換空間
+10.	請勿在作業系統磁碟上建立交換空間。
 
-	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是暫存磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
+	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是*暫存*磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -103,17 +103,15 @@
 
 1. 在 Hyper-V 管理員的中央窗格中，選取虛擬機器。
 
-2. 按一下 [連接]，以開啟虛擬機器的視窗。
+2. 按一下 **[連接]**，以開啟虛擬機器的視窗。
 
-3. 在 Shell 上執行命令 '`zypper lr`'。若此命令傳回類似以下的輸出 (請注意，版本號碼可能會不同)：
+3. 在 Shell 上執行命令 '`zypper lr`'。如果此命令傳回的輸出與下列類似，則該儲存機制已如預期設定，不需進行調整 (請注意，版本號碼可能會不同)：
 
 		# | Alias                 | Name                  | Enabled | Refresh
 		--+-----------------------+-----------------------+---------+--------
 		1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | Yes     | Yes
 		2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Yes     | Yes
 		3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Yes     | Yes
-
-	則儲存機制的設定符合預期，不需要任何調整。
 
 	如果命令傳回 "No repositories defined..."，則使用下列命令來新增這些儲存機制：
 
@@ -134,11 +132,11 @@
 
 		# sudo zypper update
 
-5.	安裝 Azure Linux 代理程式
+5.	安裝 Azure Linux 代理程式。
 
 		# sudo zypper install WALinuxAgent
 
-6.	修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 "/boot/grub/menu.lst"，並確定預設核心包含以下參數：
+6.	修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。作法是，在文字編輯器中開啟 "/boot/grub/menu.lst"，並確定預設核心包含下列參數：
 
 		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
 
@@ -157,9 +155,9 @@
 
 9.	確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。這通常是預設值。
 
-10.	請不要在 OS 磁碟上建立交換空間
+10.	請勿在作業系統磁碟上建立交換空間。
 
-	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是暫存磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
+	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是*暫存*磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -180,7 +178,6 @@
 13. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
 ## 後續步驟
-您現在可以開始在 Azure 中使用您的 SUSE Linux .vhd 建立新的 Azure 虛擬機器。如果這是您第一次使用 Azure 並將 .vhd 檔案上傳至 Azure，您可以依照[本指引](virtual-machines-linux-create-upload-vhd.md)中的步驟 2 和 3 執行。
- 
+您現在可以開始使用您的 SUSE Linux 虛擬硬碟在 Azure 建立新的虛擬機器。如果這是您第一次將該 .vhd 檔案上傳到 Azure，請參閱[建立及上傳包含 Linux 作業系統的虛擬硬碟](virtual-machines-linux-create-upload-vhd.md)中的步驟 2 和 3。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

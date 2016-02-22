@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #開發適用於 HDInsight 的 Python 串流程式
 
 Hadoop 為 MapReduce 提供一個串流 API，可讓您以 Java 以外的語言撰寫 map 和 reduce 函數。在本文中，您將學習如何使用 Python 來執行 MapReduce 作業。
 
-> [AZURE.NOTE]雖然本文件中的 Python 程式碼可以搭配以 Windows 為基礎的 HDInsight 叢集使用，這份文件中的步驟專門用於以 Linux 為基礎的叢集。
+> [AZURE.NOTE] 雖然本文件中的 Python 程式碼可以搭配以 Windows 為基礎的 HDInsight 叢集使用，這份文件中的步驟專門用於以 Linux 為基礎的叢集。
 
 本文是根據 Michael Noll 在 [使用 Python 撰寫 Hadoop MapReduce 程式](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/)所發佈的資訊和範例撰寫而成。
 
@@ -69,29 +69,29 @@ Python 可以使用 **sys** 模組從 STDIN 讀取資料並使用 **print** 來�
 
 建立名為 **mapper.py** 的新檔案並使用下列程式碼做為內容：
 
-	#!/usr/bin/env python
+    #!/usr/bin/env python
 
-	# Use the sys module
-	import sys
+    # Use the sys module
+    import sys
 
-	# 'file' in this case is STDIN
-	def read_input(file):
-		# Split each line into words
-		for line in file:
-			yield line.split()
+    # 'file' in this case is STDIN
+    def read_input(file):
+        # Split each line into words
+        for line in file:
+            yield line.split()
 
-	def main(separator='\t'):
-		# Read the data using read_input
-		data = read_input(sys.stdin)
-		# Process each words returned from read_input
-		for words in data:
-			# Process each word
-			for word in words:
-				# Write to STDOUT
-				print '%s%s%d' % (word, separator, 1)
+    def main(separator='\t'):
+        # Read the data using read_input
+        data = read_input(sys.stdin)
+        # Process each words returned from read_input
+        for words in data:
+            # Process each word
+            for word in words:
+                # Write to STDOUT
+                print '%s%s%d' % (word, separator, 1)
 
-	if __name__ == "__main__":
-		main()
+    if __name__ == "__main__":
+        main()
 
 請花一點時間仔細閱讀程式碼，以便了解它的功用。
 
@@ -99,40 +99,40 @@ Python 可以使用 **sys** 模組從 STDIN 讀取資料並使用 **print** 來�
 
 建立名為 **reducer.py** 的新檔案並使用下列程式碼做為內容：
 
-	#!/usr/bin/env python
+    #!/usr/bin/env python
 
-	# import modules
-	from itertools import groupby
-	from operator import itemgetter
-	import sys
+    # import modules
+    from itertools import groupby
+    from operator import itemgetter
+    import sys
 
-	# 'file' in this case is STDIN
-	def read_mapper_output(file, separator='\t'):
-		# Go through each line
-	    for line in file:
-			# Strip out the separator character
-	        yield line.rstrip().split(separator, 1)
+    # 'file' in this case is STDIN
+    def read_mapper_output(file, separator='\t'):
+        # Go through each line
+        for line in file:
+            # Strip out the separator character
+            yield line.rstrip().split(separator, 1)
 
-	def main(separator='\t'):
-	    # Read the data using read_mapper_output
-	    data = read_mapper_output(sys.stdin, separator=separator)
-		# Group words and counts into 'group'
-		#   Since MapReduce is a distributed process, each word
+    def main(separator='\t'):
+        # Read the data using read_mapper_output
+        data = read_mapper_output(sys.stdin, separator=separator)
+        # Group words and counts into 'group'
+        #   Since MapReduce is a distributed process, each word
         #   may have multiple counts. 'group' will have all counts
         #   which can be retrieved using the word as the key.
-	    for current_word, group in groupby(data, itemgetter(0)):
-	        try:
-				# For each word, pull the count(s) for the word
-				#   from 'group' and create a total count
-	            total_count = sum(int(count) for current_word, count in group)
-				# Write to stdout
-	            print "%s%s%d" % (current_word, separator, total_count)
-	        except ValueError:
-	            # Count was not a number, so do nothing
-	            pass
+        for current_word, group in groupby(data, itemgetter(0)):
+            try:
+                # For each word, pull the count(s) for the word
+                #   from 'group' and create a total count
+                total_count = sum(int(count) for current_word, count in group)
+                # Write to stdout
+                print "%s%s%d" % (current_word, separator, total_count)
+            except ValueError:
+                # Count was not a number, so do nothing
+                pass
 
-	if __name__ == "__main__":
-	    main()
+    if __name__ == "__main__":
+        main()
 
 ##上傳檔案
 
@@ -144,7 +144,7 @@ Python 可以使用 **sys** 模組從 STDIN 讀取資料並使用 **print** 來�
 
 這樣就會將檔案從本機系統複製到前端節點。
 
-> [AZURE.NOTE]如果您使用密碼保護 SSH 帳戶，系統會提示您輸入密碼。如果您使用 SSH 金鑰，您可能必須使用 `-i` 參數和私密金鑰的路徑，例如 `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`。
+> [AZURE.NOTE] 如果您使用密碼保護 SSH 帳戶，系統會提示您輸入密碼。如果您使用 SSH 金鑰，您可能必須使用 `-i` 參數和私密金鑰的路徑，例如 `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`。
 
 ##執行 MapReduce
 
@@ -152,11 +152,11 @@ Python 可以使用 **sys** 模組從 STDIN 讀取資料並使用 **print** 來�
 
 		ssh username@clustername-ssh.azurehdinsight.net
 
-	> [AZURE.NOTE]如果您使用密碼保護 SSH 帳戶，系統會提示您輸入密碼。如果您使用 SSH 金鑰，您可能必須使用 `-i` 參數和私密金鑰的路徑，例如 `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`。
+	> [AZURE.NOTE] 如果您使用密碼保護 SSH 帳戶，系統會提示您輸入密碼。如果您使用 SSH 金鑰，您可能必須使用 `-i` 參數和私密金鑰的路徑，例如 `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`。
 
 2. 使用下列命令啟動 MapReduce 工作。
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
 
 	此命令有下列幾個部分：
 
@@ -172,7 +172,7 @@ Python 可以使用 **sys** 模組從 STDIN 讀取資料並使用 **print** 來�
 
 	* **-output**：要將輸出寫入到的目錄。
 
-		> [AZURE.NOTE]該工作會建立此目錄。
+		> [AZURE.NOTE] 該工作會建立此目錄。
 
 工作啟動後您會看到一堆 **INFO** 陳述式，最後便會看到以百分比顯示的 **map** 和 **reduce** 作業。
 
@@ -186,7 +186,7 @@ Python 可以使用 **sys** 模組從 STDIN 讀取資料並使用 **print** 來�
 
 工作完成後，使用以下命令檢視輸出：
 
-	hadoop fs -text /example/wordcountout/part-00000
+	hdfs dfs -text /example/wordcountout/part-00000
 
 這應該會顯示文字及文字出現次數的清單。以下是輸出資料的範例：
 
@@ -205,4 +205,4 @@ Python 可以使用 **sys** 模組從 STDIN 讀取資料並使用 **print** 來�
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

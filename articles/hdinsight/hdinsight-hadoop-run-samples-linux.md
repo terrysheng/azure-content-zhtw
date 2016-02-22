@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 
@@ -81,13 +81,13 @@
 
 2. 在 `username@#######:~$` 提示中，使用下列命令來列出範例：
 
-        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 
     這麼做會產生本文件上一節中的範例清單。
 
 3. 使用下列命令可取得特定範例的說明。在此情況下為 **wordcount** 範例：
 
-        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
 
     您應該會看見下列訊息：
 
@@ -97,7 +97,7 @@
 
 4. 使用以下命令計算達文西手稿筆記中的所有字數，該文件已隨附於您的叢集做為範例資料：
 
-    	hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
+    	yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
     系統會從 ****wasb:///example/data/gutenberg/davinci.txt** 讀取這項工作的輸入。
 
@@ -107,7 +107,7 @@
 
 5. 工作完成後，使用以下命令來檢視輸出：
 
-        hadoop fs -cat /example/data/davinciwordcount/*
+        hdfs dfs -cat /example/data/davinciwordcount/*
 
     這麼做會串連工作所產生的所有輸出檔，並加以顯示。此為基本範例，只有一個檔案，但如果有多個檔案，此命令就會逐一計算所有檔案。
 
@@ -148,7 +148,7 @@ Sudoku 範例的使用指示似乎有點不實用：「在命令列中包含謎�
 
 若要在 Sudoku 範例中執行此範例，請使用以下命令：
 
-    hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku /usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku /usr/hdp/2.2.9.1-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta
 
 結果應該會類似如下：
 
@@ -172,7 +172,7 @@ Pi 範例會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。單位
 
 使用以下命令來執行此範例。這會每次使用 16 個對應搭配 10,000,000 個取樣來估計 Pi 的值：
 
-    hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
 
 此命令傳回的值應該會類似於 **3.14159155000000000000**。Pi 的前 10 個小數位數是 3.1415926535，供您參考。
 
@@ -198,19 +198,19 @@ GraySort 是一種效能評定排序，其度量為排序極大資料量時 (通
 
 1. 產生 10 GB 的資料，這些資料稍後會儲存在 HDInsight 叢集上預設儲存體的 ****wasb:///example/data/10GB-sort-input** 中：
 
-        hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
 	`-Dmapred.map.tasks` 會告訴 Hadoop 在這項工作中要使用多少 map 工作。最後兩個參數會指示工作建立 10 GB 的資料量，並將資料儲存在 ****wasb:///example/data/10GB-sort-input**。
 
 2. 使用以下命令來排序資料：
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
 
 	`-Dmapred.reduce.tasks` 會告訴 Hadoop 在這項工作中要使用多少 reduce 工作。最後兩個參數只是資料的輸入和輸出位置。
 
 3. 使用以下命令驗證依排序產生的資料：
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
 
 ##後續步驟 ##
 
@@ -236,4 +236,4 @@ GraySort 是一種效能評定排序，其度量為排序極大資料量時 (通
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

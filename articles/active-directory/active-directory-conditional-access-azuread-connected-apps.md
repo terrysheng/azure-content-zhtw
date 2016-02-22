@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 # SaaS 應用程式的 Azure 條件式存取預覽
@@ -86,4 +86,8 @@ SaaS 應用程式的 Azure 條件式存取已可公開預覽。預覽版本可�
 
 除了設定這個旗標，同盟租用戶 AD FS 執行個體必須設為執行多因素驗證。依照指示在內部部署 Microsoft Azure Multi-Factor Authentication。
 
-<!---HONumber=Nov15_HO2-->
+##相關文章
+
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

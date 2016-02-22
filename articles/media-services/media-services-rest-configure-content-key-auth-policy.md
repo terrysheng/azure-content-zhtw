@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -55,7 +55,7 @@ Microsoft Azure 媒體服務可讓您傳遞利用進階加密標準 (AES) (使�
 
 ##AES-128 動態加密 
 
->[AZURE.NOTE]使用媒體服務 REST API 時，適用下列考量事項：
+>[AZURE.NOTE] 使用媒體服務 REST API 時，適用下列考量事項：
 >
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 
@@ -483,4 +483,4 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。這
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

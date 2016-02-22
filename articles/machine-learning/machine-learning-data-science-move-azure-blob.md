@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev;sunliangms;sachouks;mohabib" />
 
 # 從 Azure Blob 儲存體來回移動資料
@@ -28,9 +28,9 @@
 
 哪一種方法最適合，將取決於您的案例。 [Azure Machine Learning 中進階分析程序和技術 (ADAPT) 的案例](../machine-learning-data-science-plan-sample-scenarios.md)文章可協助您判斷進階分析程序中各種資料科學工作流程所需的資源。
 
-> [AZURE.NOTE]如需 Azure Blob 儲存體的完整介紹，請參閱 [Azure Blob 基本概念](../storage-dotnet-how-to-use-blobs.md)和 [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。
+> [AZURE.NOTE] 如需 Azure Blob 儲存體的完整介紹，請參閱 [Azure Blob 基本概念](../storage-dotnet-how-to-use-blobs.md)和 [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。
 
-> [AZURE.TIP]或者，您可以使用 [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 建立並排程管線，以從 Azure Blob 儲存體下載資料，並將資料傳遞至已發行的 Azure Machine Learning Web 服務，再接收預測性分析的結果，然後將結果上傳至儲存體。如需詳細資訊，請參閱[使用 Azure Data Factory 和 Azure Machine Learning 來建立預測管線](../data-factory/data-factory-create-predictive-pipelines.md)。
+> [AZURE.TIP] 或者，您可以使用 [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 建立並排程管線，以從 Azure Blob 儲存體下載資料，並將資料傳遞至已發行的 Azure Machine Learning Web 服務，再接收預測性分析的結果，然後將結果上傳至儲存體。如需詳細資訊，請參閱[使用 Azure Data Factory 和 Azure Machine Learning 來建立預測管線](data-factory-azure-ml-batch-execution-activity.md)。
 
 ## 必要條件
 
@@ -44,4 +44,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

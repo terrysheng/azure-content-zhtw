@@ -134,7 +134,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 3. 上傳您的專案並執行，以產生記錄資料。
 4. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您新的 Application Insights 資源，然後開啟 [搜尋]。您將會看到您的記錄資料，以及要求、使用情況及其他遙測。有些遙測可能需要數分鐘才能抵達：按一下 [重新整理]。[深入了解](../application-insights/app-insights-diagnostic-search.md)
 
-[深入了解使用 Application Insights 的效能追蹤](../insights-perf-analytics.md)
+[深入了解使用 Application Insights 的效能追蹤](../azure-portal/insights-perf-analytics.md)
 
 ##<a name="streamlogs"></a> 作法：串流記錄
 
@@ -270,4 +270,4 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](http://msdn.microsoft.c
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[瀏覽 Azure 入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

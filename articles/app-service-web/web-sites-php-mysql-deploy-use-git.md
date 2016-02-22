@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="02/09/2016"
 	ms.author="tomfitz"/>
 
 #在 Azure 應用程式服務中建立 PHP-MySQL Web 應用程式並使用 Git 部署
@@ -213,14 +213,15 @@
 
 		php -S localhost:8000
 
-您現在可以瀏覽至 **http://localhost:8000/** 測試應用程式。
+您現在可以瀏覽至 ****http://localhost:8000/** 測試應用程式。
 
 
 ##發佈您的應用程式
 
 當您在本機完成應用程式測試之後，可以使用 Git 將其發佈至 Web Apps。您將初始化本機 Git 儲存機制並發行該應用程式。
 
-> [AZURE.NOTE]這些步驟與上述「建立 Web 應用程式並設定 Git 發行」小節結尾處的 Azure 入口網站中所示的步驟相同。
+> [AZURE.NOTE]
+這些步驟與上述「建立 Web 應用程式並設定 Git 發行」小節結尾處的 Azure 入口網站中所示的步驟相同。
 
 1. (選用) 如果您忘記或是錯置了 Git 遠端儲存機制 URL，請瀏覽至 Azure 入口網站上的 Web 應用程式內容。
 
@@ -261,7 +262,7 @@
 
 	![Azure PHP web site][running-app]
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 後續步驟
 
@@ -302,4 +303,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

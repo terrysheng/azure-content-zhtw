@@ -2,13 +2,13 @@
 
 在本文中，您將了解如何使用 Git，從本機電腦直接發行到 Web Apps (在 Azure 中，這個發行方法稱為「**本機 Git**」)。您還能了解如何從儲存機制網站 (如 BitBucket、CodePlex、Dropbox、GitHub 或 Mercurial) 進行連續部署。如需有關使用 TFS 持續部署的詳細資訊，請參閱[使用 Visual Studio Online 持續傳遞至 Azure]。
 
-> [AZURE.NOTE]本文中描述的許多 Git 命令會在使用[適用於 Mac 和 Linux 的 Azure 命令列工具](/develop/nodejs/how-to-guides/command-line-tools/)建立 Web 應用程式時自動執行
+> [AZURE.NOTE] 本文中描述的許多 Git 命令會在使用[適用於 Mac 和 Linux 的 Azure 命令列工具](/develop/nodejs/how-to-guides/command-line-tools/)建立 Web 應用程式時自動執行
 
 ## <a id="Step1"></a>步驟 1：安裝 Git
 
 安裝 Git 所需的步驟會因作業系統而有所不同。如需作業系統特定的發佈和安裝指引，請參閱[安裝 Git]。
 
-> [AZURE.NOTE]在某些作業系統上，會同時提供例 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
+> [AZURE.NOTE] 在某些作業系統上，會同時提供例 Git 的命令列和 GUI 兩種版本。本文提供的指示將使用命令列版本。
 
 ## <a id="Step2"></a>步驟 2：建立本機儲存機制
 
@@ -42,7 +42,7 @@ Web 應用程式支援以各種程式設計語言建立的應用程式。以此�
 
 		git add index.html 
 
-	> [AZURE.NOTE]在任何 git 命令後輸入 -help 或 --help 即可尋找該命令的說明。例如，如需 add 命令的參數選項，請輸入 'git add -help' 以取得命令列說明，或輸入 'git add --help' 以取得更詳細的說明。
+	> [AZURE.NOTE] 在任何 git 命令後輸入 -help 或 --help 即可尋找該命令的說明。例如，如需 add 命令的參數選項，請輸入 'git add -help' 以取得命令列說明，或輸入 'git add --help' 以取得更詳細的說明。
 
 4. 接著，使用下列命令來認可對儲存機制的變更：
 
@@ -88,7 +88,7 @@ Web 應用程式支援以各種程式設計語言建立的應用程式。以此�
 
 		git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 
-    > [AZURE.NOTE]**remote** 命令會將指定的參考新增至遠端儲存機制。在此範例中，它會為您 Web 應用程式的儲存機制建立名為 'azure' 的參考。
+    > [AZURE.NOTE] **remote** 命令會將指定的參考新增至遠端儲存機制。在此範例中，它會為您 Web 應用程式的儲存機制建立名為 'azure' 的參考。
 
 1. 在命令列中使用下列命令，將目前的儲存機制內容從本機儲存機制推送到 'azure' 遠端：
 
@@ -108,7 +108,7 @@ Web 應用程式支援以各種程式設計語言建立的應用程式。以此�
 		To https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 		* [new branch]		master -> master
 
-	> [AZURE.NOTE]為您的 Web 應用程式建立的儲存機制，預期推送要求會選擇其儲存機制的 <strong>master</strong> 分支，然後將它當做 Web 應用程式的內容使用。
+	> [AZURE.NOTE] 為您的 Web 應用程式建立的儲存機制，預期推送要求會選擇其儲存機制的 <strong>master</strong> 分支，然後將它當做 Web 應用程式的內容使用。
 
 2. 回到 Azure 入口網站中的 Web 應用程式分頁。[**找不到部署**] 應該變更為 [**現用部署**]，其中包含最近推送的記錄項目。
 
@@ -150,7 +150,7 @@ Web 應用程式支援以各種程式設計語言建立的應用程式。以此�
   
 	![](./media/publishing-with-git/azure7-setup-github-configure.png)
 
-	> [AZURE.NOTE]啟用搭配 GitHub 或 BitBucket 的持續部署時，將會同時顯示公用和私人專案。
+	> [AZURE.NOTE] 啟用搭配 GitHub 或 BitBucket 的持續部署時，將會同時顯示公用和私人專案。
 
 Azure 將與所選儲存機制建立關聯，然後從指定的分支提取檔案。此程序完成之後，Web 應用程式刀鋒視窗的 [**部署**] 區段將會顯示 [**現用部署**] 訊息，表示部署成功。
 
@@ -182,11 +182,9 @@ Azure 將與所選儲存機制建立關聯，然後從指定的分支提取檔�
 		_app/
 		nuget.exe
 
-	>[AZURE.NOTE]如果您使用 GitHub，就能在建立儲存機制時選擇是否產生 Visual Studio 特有的 .gitignore 檔案，其中包含所有通用的暫存檔和建置結果等。接著，您可以自訂該檔案，以符合您的特定需求。
+	>[AZURE.NOTE] 如果您使用 GitHub，就能在建立儲存機制時選擇是否產生 Visual Studio 特有的 .gitignore 檔案，其中包含所有通用的暫存檔和建置結果等。接著，您可以自訂該檔案，以符合您的特定需求。
 
 -	使用儲存機制根目錄中的 .sln 檔案，將整個解決方案的目錄樹狀結構新增至您的儲存機制。
-
--	在您的 Visual Studio 方案中，[啟用 NuGet 封裝還原](http://docs.nuget.org/Consume/Package-Restore)可讓 Visual Studio 自動還原遺失的封裝。
 
 一旦您設定儲存機制 (如前所述)，並設定 Azure 中的 Web 應用程式以便從其中一個線上 Git 儲存機制連續發行之後，就能夠在 Visual Studio 中本機開發 ASP.NET 應用程式，並且只需將變更推送至線上 Git 儲存機制，就能連續部署您的程式碼。
 
@@ -265,7 +263,7 @@ Azure 將與所選儲存機制建立關聯，然後從指定的分支提取檔�
 * [Git 文件]
 * [專案 Kudu](https://github.com/projectkudu/kudu/wiki)
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -297,4 +295,4 @@ Azure 將與所選儲存機制建立關聯，然後從指定的分支提取檔�
 [使用 Dropbox 分享 Git 儲存機制]: https://gist.github.com/trey/2722927
 [使用 Visual Studio Online 持續傳遞至 Azure]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -3,7 +3,7 @@
 	description="Azure Storage Client Library for .NET 支援用戶端加密以及與 Azure 金鑰保存庫的整合，為您的 Azure 儲存體應用程式提供最大的安全性。"
 	services="storage"
 	documentationCenter=".net"
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/08/2016"
 	ms.author="lakasa"/>
 
 
@@ -246,4 +246,4 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 
 下載[適用於 .NET NuGet 的 Azure 儲存體用戶端程式庫封裝](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) 從 GitHub 下載[適用於 .NET 原始程式碼的 Azure 儲存體用戶端程式庫](https://github.com/Azure/azure-storage-net) 下載 Azure 金鑰保存庫 NuGet [核心](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[用戶端](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 和 [擴充功能](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/)封裝 造訪 [Azure 金鑰保存庫文件](../articles/key-vault-whatis.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

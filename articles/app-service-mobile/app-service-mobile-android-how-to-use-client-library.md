@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/03/2016" 
+	ms.date="02/04/2016"
 	ms.author="ricksal"/>
 
 
 # 如何使用 Mobile Apps 的 Android 用戶端程式庫
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 本指南說明如何使用適用於 Mobile Apps 的 Android 用戶端 SDK 來實作常見案例，例如查詢資料 (插入、更新和刪除)、驗證使用者、處理錯誤以及自訂用戶端。它還會深入探討大部分行動應用程式中使用的常見用戶端程式碼。
 
@@ -42,17 +42,17 @@ Mobile Services SDK for Android 支援 Android 2.2 版或更新版本，但建�
 
 在此之後，您必須完成「深入探討」一節所描述的步驟。
 
-###<a name="gradle-build"></a>更新 Gradle 組建檔案 
+###<a name="gradle-build"></a>更新 Gradle 組建檔案
 
 變更以下兩個 **build.gradle** 檔案：
 
 1. 將此程式碼加入至 *buildscript* 標記內的*專案* 層級 **build.gradle** 檔案：
- 
+
 		buildscript {
 		    repositories {
 		        jcenter()
 		    }
-		} 
+		}
 
 2. 將此程式碼加入至 *dependencies* 標記內的*模組應用程式* 層級 **build.gradle** 檔案：
 
@@ -65,7 +65,7 @@ Mobile Services SDK for Android 支援 Android 2.2 版或更新版本，但建�
 
 	<uses-permission android:name="android.permission.INTERNET" />
 
-## 基本概念的深入探討  
+## 基本概念的深入探討
 
 本節將探討 Quickstart 應用程式中的一些程式碼。如果您未完成 Quickstart，您必須將此程式碼加入至您的應用程式。
 
@@ -102,7 +102,7 @@ Mobile Services SDK for Android 支援 Android 2.2 版或更新版本，但建�
 	    public Integer getPriority() {
 	        return mPriority;
 	    }
-	
+
 	    /**
 	     * Sets the item priority
 	     *
@@ -303,7 +303,7 @@ Mobile Apps 資料表作業和自訂 API 呼叫是非同步作業，因此您會
 
 下列查詢會傳回 *ToDoItem* 資料表中的所有項目。
 
-	List<ToDoItem> results = mToDoTable.execute().get();             
+	List<ToDoItem> results = mToDoTable.execute().get();
 
 *results* 變數會以清單形式傳回查詢的結果集。
 
@@ -441,7 +441,7 @@ Mobile Apps 要求每個資料表有名為 **id** 的資料行，以便用來檢
 
 	String myRowId = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
    	mToDoTable.delete(myRowId);
-                    
+
 
 ##<a name="lookup"></a>作法：查閱特定項目
 
@@ -478,7 +478,7 @@ Mobile Apps 要求每個資料表有名為 **id** 的資料行，以便用來檢
 
 下一個步驟是插入物件。
 
-    mJsonToDoTable.insert(jsonItem).get();                   
+    mJsonToDoTable.insert(jsonItem).get();
 
 
 如果您需要取得所插入之物件的識別碼，請使用這個方法呼叫：
@@ -546,23 +546,23 @@ Mobile Apps 要求每個資料表有名為 **id** 的資料行，以便用來檢
 從 Android 用戶端呼叫 **invokeApi** 方法，以呼叫自訂 API 端點。下列範例示範如何呼叫名為 *completeAll* 的 API 端點，它會傳回名為 MarkAllResult 的集合類別。
 
 	public void completeItem(View view) {
-	    
-	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll", MarkAllResult.class ); 
-	    	
+
+	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll", MarkAllResult.class );
+
 	    	Futures.addCallback(result, new FutureCallback<MarkAllResult>() {
 	    		@Override
 	    		public void onFailure(Throwable exc) {
 	    			createAndShowDialog((Exception) exc, "Error");
 	    		}
-	    		
+
 	    		@Override
 	    		public void onSuccess(MarkAllResult result) {
 	    			createAndShowDialog(result.getCount() + " item(s) marked as complete.", "Completed Items");
-	                refreshItemsFromTable();	
+	                refreshItemsFromTable();
 	    		}
 	    	});
 	    }
-	
+
 **invokeApi** 方法是在用戶端上呼叫，可將 POST 要求傳送給新的自訂 API。如有任何錯誤，自訂 API 傳回的結果會顯示在訊息對話方塊中。其他版本的 **invokeApi** 可讓您選擇性地在要求主體中傳送物件、指定 HTTP 方法，並隨著要求一起傳送查詢參數。也會提供不具型別的版本 **invokeApi**。
 
 ##<a name="authentication"></a>做法：將驗證新增至您的應用程式
@@ -839,4 +839,4 @@ Quickstart 教學課程包含可實作離線同步處理的程式碼。尋找前
 [Azure 入口網站]: https://portal.azure.com
 [開始使用驗證]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

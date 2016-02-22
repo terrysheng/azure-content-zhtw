@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="01/29/2016"
+   ms.date="02/09/2016"
    ms.author="brjohnst"/>
 
 # 如何從 .NET 應用程式使用 Azure 搜尋服務
@@ -29,9 +29,9 @@ SDK 包含用戶端程式庫 `Microsoft.Azure.Search`。該程式庫可讓您管
 - [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx)
 - [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
 
-目前的 Azure 搜尋服務 .NET SDK 版本是發行前版本。如果您想提供意見反應給我們，讓我們可以將您的意見併入第一個穩定版本中，請瀏覽我們[意見回應頁面](https://feedback.azure.com/forums/263029-azure-search/)。
+目前的 Azure 搜尋服務 .NET SDK 版本現在正式推出。如果您想提供意見反應給我們，讓我們可以將您的意見併入下一個版本中，請瀏覽我們的[意見回應頁面](https://feedback.azure.com/forums/263029-azure-search/)。
 
-.NET SDK 支援 `2015-02-28` 版 Azure 搜尋服務 REST API，該項目已記載於 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)。此版本現在包含對 Microsoft 語言分析的支援。*不*在此版本中的新功能 (例如支援 `moreLikeThis` 搜尋參數) 都在[預覽版](search-api-2015-02-28-preview.md)中，而 SDK 尚未提供這些功能。您可以查看[搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)或 [Azure 搜尋服務的最新更新](search-latest-updates.md)，了解任一功能的狀態更新。
+.NET SDK 支援 `2015-02-28` 版 Azure 搜尋服務 REST API，該項目已記載於 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)。此版本現在包含對 Lucene 查詢語法和 Microsoft 語言分析的支援。*不*在此版本中的新功能 (例如支援 `moreLikeThis` 搜尋參數) 都在[預覽版](search-api-2015-02-28-preview.md)中，而 SDK 尚未提供這些功能。您可以查看[搜尋服務版本設定](https://msdn.microsoft.com/library/azure/dn864560.aspx)或 [Azure 搜尋服務的最新更新](search-latest-updates.md)，了解任一功能的狀態更新。
 
 此 SDK 中其他不支援的功能包括：
 
@@ -39,7 +39,7 @@ SDK 包含用戶端程式庫 `Microsoft.Azure.Search`。該程式庫可讓您管
 
 ## 升級到最新版本的 SDK
 
-如果您已經在使用舊版的 Azure 搜尋服務 .NET SDK，而您想要升級至最新的 1.0 預覽版，[這篇文章](search-dotnet-sdk-migration.md)會說明如何進行。
+如果您已經在使用舊版的 Azure 搜尋服務 .NET SDK，而您想要升級至新的正式推出版本，[這篇文章](search-dotnet-sdk-migration.md)會說明如何進行。
 
 ## SDK 的需求
 
@@ -47,7 +47,7 @@ SDK 包含用戶端程式庫 `Microsoft.Azure.Search`。該程式庫可讓您管
 
 2. 擁有 Azure Search 服務。為了使用 SDK，您需要為服務命名，還需要一或多個 API 金鑰。[在入口網站建立服務](search-create-service-portal.md)可協助您執行這些步驟。
 
-3. 使用 Visual Studio 中的 [管理 NuGet 封裝] 下載 Azure 搜尋服務 .NET SDK [NuGet 封裝](http://www.nuget.org/packages/Microsoft.Azure.Search)。只要在 NuGet.org 上搜尋封裝名稱 `Microsoft.Azure.Search` 即可。務必選取 [包含發行前版本 (Include Prerelease)]，確保 SDK 的發行前版本會出現在搜尋結果中。
+3. 使用 Visual Studio 中的 [管理 NuGet 封裝] 下載 Azure 搜尋服務 .NET SDK [NuGet 封裝](http://www.nuget.org/packages/Microsoft.Azure.Search)。只要在 NuGet.org 上搜尋封裝名稱 `Microsoft.Azure.Search` 即可。
 
 Azure 搜尋服務 .NET SDK 支援以 .NET Framework 4.5 為目標的應用程式，以及以 Windows 8.1 和 Windows Phone 8.1 為目標的 Windows 市集應用程式。不支援 Silverlight。
 
@@ -645,4 +645,4 @@ Hotel.cs：
 
 您也可以在 [GitHub](http://aka.ms/search-dotnet-howto) 上找到完整的範例原始程式碼。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

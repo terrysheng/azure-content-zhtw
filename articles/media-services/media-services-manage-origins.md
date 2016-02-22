@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/09/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -68,11 +68,9 @@
 	任何新的串流單位配置需要大約 20 分鐘的時間才能完成。
 
 	 
->[AZURE.NOTE]目前，串流單位從任何正數值到無，都可能停用隨選串流長達一小時。
+	>[AZURE.NOTE] 目前，串流單位從任何正數值到無，都可能停用隨選串流長達一小時。
 
-</br>
-
->[AZURE.NOTE]計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱＜[媒體服務定價詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)＞。
+	>[AZURE.NOTE] 計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱＜[媒體服務定價詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)＞。
 	
 ##<a id="configure_streaming_endpoints"></a>設定串流端點
 
@@ -152,4 +150,4 @@
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

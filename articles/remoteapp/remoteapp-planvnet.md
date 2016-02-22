@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/07/2016"
+    ms.date="02/02/2016"
     ms.author="elizapo" />
 
 # 如何針對 Azure RemoteApp 規劃您的虛擬網路
 
-本文件說明如何針對 Azure RemoteApp 設定 Azure 虛擬網路 (VNET) 和子網路。如果您不熟悉 Azure 虛擬網路，這可協助您將網路基礎結構虛擬化至雲端，以及利用 Azure 和內部部署資源建立混合式解決方案。您可以在[此處](virtual-networks-overview.md)閱讀相關資訊。
+本文件說明如何針對 Azure RemoteApp 設定 Azure 虛擬網路 (VNET) 和子網路。如果您不熟悉 Azure 虛擬網路，這可協助您將網路基礎結構虛擬化至雲端，以及利用 Azure 和內部部署資源建立混合式解決方案。您可以在[此處](../virtual-network/virtual-networks-overview.md)閱讀相關資訊。
 
-如果您要在您部署 Azure RemoteApp 的虛擬網路中定義流量 (內送和外寄) 的安全性原則，我們強烈建議您在 Azure 虛擬網路中為 Azure RemoteApp 建立與您其餘的部署不同的子網路。如需有關如何在 Azure 虛擬網路子網路上定義安全性原則的詳細資訊，請參閱 [什麼是網路安全性群組 (NSG)？](virtual-networks-nsg.md)。
+如果您要在您部署 Azure RemoteApp 的虛擬網路中定義流量 (內送和外寄) 的安全性原則，我們強烈建議您在 Azure 虛擬網路中為 Azure RemoteApp 建立與您其餘的部署不同的子網路。如需有關如何在 Azure 虛擬網路子網路上定義安全性原則的詳細資訊，請參閱 [什麼是網路安全性群組 (NSG)？](../virtual-network/virtual-networks-nsg.md)。
 
 ## 具有 Azure 虛擬網路的 Azure RemoteApp 集合類型
 
@@ -53,6 +53,6 @@
 
 ## 具有強制通道的虛擬網路
 
-現在所有新的 Azure RemoteApp 集合都支援[強制通道](vpn-gateway-about-forced-tunneling.md)。我們目前不支援現有集合的移轉，而支援強制通道。您必須使用您要連結至 Azure RemoteApp 的 VNET 來刪除所有現有的集合，並建立新的集合以在集合上啟用強制通道。
+現在所有新的 Azure RemoteApp 集合都支援[強制通道](../vpn-gateway/vpn-gateway-about-forced-tunneling.md)。我們目前不支援現有集合的移轉，而支援強制通道。您必須使用您要連結至 Azure RemoteApp 的 VNET 來刪除所有現有的集合，並建立新的集合以在集合上啟用強制通道。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/09/2016" 
 	ms.author="mahender"/>
 
 # 將您現有的 .NET Azure 行動服務升級為 App Service
@@ -277,4 +277,4 @@ Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任�
 [App Service 定價]: https://azure.microsoft.com/zh-TW/pricing/details/app-service/
 [.NET 伺服器 SDK 概觀]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

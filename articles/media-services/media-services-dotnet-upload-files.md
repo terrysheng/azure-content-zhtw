@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/17/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -108,7 +108,7 @@
  	
 - 	使用 **UploadAsync** 方法，將檔案上傳到媒體服務。
  	
->[AZURE.NOTE]使用 UploadAsync 方法確保未封鎖呼叫，並且平行上傳檔案。
+>[AZURE.NOTE] 使用 UploadAsync 方法確保未封鎖呼叫，並且平行上傳檔案。
  	
  	
         static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
@@ -315,4 +315,4 @@ IngestManifestAsset 會建立資產與大量 IngestManifest 的關聯，以進�
 [如何取得媒體處理器]: media-services-get-media-processor.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

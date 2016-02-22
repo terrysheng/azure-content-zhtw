@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/10/2015"
+   ms.date="02/04/2016"
    ms.author="dobett"/>
 
 
@@ -43,13 +43,13 @@
     HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
     ```
 
-5. 如果 IoT 中樞主機名稱是 **contoso** 且裝置識別碼是 **mydevice**，連接字串看起來像這樣：
+    如果 IoT 中樞主機名稱是 **contoso** 且裝置識別碼是 **mydevice**，連接字串看起來像這樣：
 
     ```
     var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
     ```
 
-6. 儲存檔案。在包含這些檔案的資料夾中執行下列命令：
+5. 儲存檔案。在命令提示字元中，於包含這些檔案的資料夾，執行下列命令以安裝必要的套件，然後執行範例應用程式：
 
     ```
     npm install
@@ -60,6 +60,6 @@
 
 [lnk-github-repo]: https://github.com/azure/azure-iot-sdks
 [lnk-node-installers]: https://nodejs.org/download/
-[lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
+[lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

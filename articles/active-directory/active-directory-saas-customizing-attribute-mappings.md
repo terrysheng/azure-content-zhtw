@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -26,7 +26,7 @@ Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等�
 
 在 Azure AD 入口網站中，您可以在 SaaS 應用程式工具列中按一下 [屬性] 存取這項功能。
 
-> [AZURE.NOTE]您必須為 SaaS 應用程式啟用使用者佈建，才能使用 [屬性] 連結。
+> [AZURE.NOTE] 您必須為 SaaS 應用程式啟用使用者佈建，才能使用 [屬性] 連結。
 
 
 ![Salesforce][1]
@@ -81,8 +81,16 @@ SaaS 應用程式需要有幾個屬性對應才能正確運作。在屬性資料
 Microsoft Azure AD 提供非常有效率的同步處理程序實作。在初始化環境中，同步處理期間只會處理需要更新的物件。更新屬性對應會影響同步處理期間的效能。這是因為更新屬性對應組態需要重新評估所有受管理的物件。因此，建議您最好不要經常變更屬性對應。
 
 
+##相關文章
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [自動化 SaaS 應用程式使用者佈建/解除佈建](active-directory-saas-app-provisioning.md)
+- [撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [適用於使用者佈建的範圍篩選器](active-directory-saas-scoping-filters.md)
+- [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](active-directory-scim-provisioning.md)
+- [帳戶佈建通知](active-directory-saas-account-provisioning-notifications.md)
+- [如何整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-customizing-attribute-mappings/ic765497.png
@@ -90,4 +98,4 @@ Microsoft Azure AD 提供非常有效率的同步處理程序實作。在初始�
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

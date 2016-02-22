@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #利用 Beeline 搭配使用 Hive 與 HDInsight 中的 Hadoop
@@ -23,7 +23,7 @@
 
 在本文中，您將學習如何使用安全殼層 (SSH) 連接至以 Linux 為基礎的 HDInsight 叢集，然後使用 [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) 命令列工具以互動方式提交 Hive 查詢。
 
-> [AZURE.NOTE]Beeline 使用 JDBC 連接到 Hive。如需搭配 Hive 使用 JDBC 的詳細資訊，請參閱[使用 Hive JDBC 驅動程式連接到 Azure HDInsight 上的 Hive](hdinsight-connect-hive-jdbc-driver.md)。
+> [AZURE.NOTE] Beeline 使用 JDBC 連接到 Hive。如需搭配 Hive 使用 JDBC 的詳細資訊，請參閱[使用 Hive JDBC 驅動程式連接到 Azure HDInsight 上的 Hive](hdinsight-connect-hive-jdbc-driver.md)。
 
 ##<a id="prereq"></a>必要條件
 
@@ -123,7 +123,7 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
     * **SELECT** - 選取其資料行 **t4** 包含 **[ERROR]** 值的所有資料列計數。這應該會傳回值 **3**，因為有 3 個資料列包含此值。
     * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - 告訴 Hive 我們只應該從檔名以 log 結尾的檔案傳回資料。通常在使用 hive 查詢時，您在相同的資料夾中只會有具有相同結構描述的資料，不過此範例記錄檔會以其他資料格式儲存。
 
-    > [AZURE.NOTE]當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
+    > [AZURE.NOTE] 當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
     >
     > 捨棄外部資料表並**不**會刪除資料，只會刪除資料表定義。
     
@@ -172,7 +172,7 @@ Beeline 也可以用來執行包含 HiveQL 陳述式的檔案。使用下列步�
     * **STORED AS ORC** - 以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。這是高度最佳化且有效率的 Hive 資料儲存格式。
     * **INSERT OVERWRITE ...SELECT** - 從包含 **[ERROR]** 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表。
     
-    > [AZURE.NOTE]與外部資料表不同，捨棄內部資料表也會同時刪除基礎資料。
+    > [AZURE.NOTE] 與外部資料表不同，捨棄內部資料表也會同時刪除基礎資料。
     
 3. 若要儲存檔案，請使用 __Ctrl__+___\_X__，然後輸入 __Y__，最後按 __Enter__。
 
@@ -237,4 +237,4 @@ Beeline 也可以用來執行包含 HiveQL 陳述式的檔案。使用下列步�
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

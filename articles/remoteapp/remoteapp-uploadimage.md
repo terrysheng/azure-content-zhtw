@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="02/02/2016"
     ms.author="ericor" />
 
 
@@ -26,7 +26,7 @@
 ## 開始之前
 
 1.      請確認您的自訂映像符合[映像需求](remoteapp-imagereqs.md)和[應用程式需求](remoteapp-appreqs.md)。
-2.      安裝 [Azure PowerShell 模組](../install-configure-powershell.md)。
+2.      安裝 [Azure PowerShell 模組](../powershell-install-configure.md)。
 
 ## 逐步解說如何上傳自訂映像
 
@@ -43,7 +43,7 @@
 
 11.    如果因為網路中斷或類似原因導致上傳失敗，您可以繼續您已開始的上傳程序。若要繼續上傳，您可以再次使用相同的命令列來執行指令碼。
 
-> [AZURE.WARNING]切勿修改上傳指令碼。已實作可確保映像符合映像需求和應用程式需求的特定檢查。
+> [AZURE.WARNING] 切勿修改上傳指令碼。已實作可確保映像符合映像需求和應用程式需求的特定檢查。
 
 ## 常見問題
 
@@ -51,4 +51,4 @@
 - 切勿更改指令碼，該指令碼已提供驗證，方便您使用。
 - 如果 vhd 檔案在上傳期間遭到鎖定，請將檔案複製或移動到新位置，並再次嘗試上傳。有些 Windows 程序可能會阻止上傳。  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

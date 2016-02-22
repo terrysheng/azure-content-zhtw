@@ -34,8 +34,7 @@
 	-  啟用 Azure 公用對等 - 如果您想要連接到裝載於公用 IP 位址的 Azure 服務，則必須啟用 Azure 公用對等。如果您已選擇啟用 Azure 私用對等的預設路由，則這是存取 Azure 資源的條件。
 	-  啟用 Microsoft 對等 - 您必須啟用此對等，才能存取 Office 365 和 CRM 線上服務。 
 	
-	>[AZURE.IMPORTANT]如果您要啟用 Microsoft 對等，請確定也啟用 Azure 公用對等來存取 Azure AD。必須確定您使用個別的 Proxy / 邊緣來連接到 Microsoft，而不是您用於網際網路的 Proxy / 邊緣。ExpressRoute 和網際網路使用相同的邊緣會導致路由不對稱，並造成網路連線中斷。
-
+	>[AZURE.IMPORTANT] 必須確定您使用個別的 Proxy / 邊緣來連接到 Microsoft，而不是您用於網際網路的 Proxy / 邊緣。ExpressRoute 和網際網路使用相同的邊緣會導致路由不對稱，並造成網路連線中斷。
 
 	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
@@ -49,9 +48,9 @@
 - 服務提供者佈建狀態
 - Status
 
-Status 代表 Microsoft 的佈建狀態。這個屬性可能是下列其中一種狀態：Enabled、Enabling 或 Disabling。ExpressRoute 線路必須處於 Enabled 狀態，才可供您使用。
+Status 代表 Microsoft 的佈建狀態。這個屬性可能是下列其中一種狀態：*Enabled*、*Enabling* 或 *Disabling*。ExpressRoute 線路必須處於 Enabled 狀態，才可供您使用。
 
-連線提供者佈建狀態代表連線提供者那端的狀態。可能是 NotProvisioned、Provisioning 或 Provisioned。ExpressRoute 線路必須處於 Provisioned 狀態，才可供您使用。
+連線提供者佈建狀態代表連線提供者那端的狀態。可能是 *NotProvisioned*、*Provisioning* 或 *Provisioned*。ExpressRoute 線路必須處於 Provisioned 狀態，才可供您使用。
 
 ### ExpressRoute 線路的可能狀態
 
@@ -106,11 +105,11 @@ Status 代表 Microsoft 的佈建狀態。這個屬性可能是下列其中一�
 
 BGP 佈建狀態可讓您知道 Microsoft 邊緣是否已啟用 BGP 工作階段。必須是已啟用的狀態，您才能使用對等。
 
-務必檢查 BGP 工作階段狀態，特別是 Microsoft 對等。除了 BGP 佈建狀態，還有另一個狀態稱為已公告公用首碼狀態。已公告公用首碼狀態必須是已設定狀態，BGP 工作階段才能啟動，路由也才能端對端運作。
+務必檢查 BGP 工作階段狀態，特別是 Microsoft 對等。除了 BGP 佈建狀態，還有另一個狀態稱為*已公告公用首碼狀態*。已公告公用首碼狀態必須是*已設定*狀態，BGP 工作階段才能啟動，路由也才能端對端運作。
 
-如果已公告公用首碼狀態設為需要驗證狀態，則不會啟用 BGP 工作階段，因為已公告的首碼不符合任何路由登錄中的 AS 編號。
+如果已公告公用首碼狀態設為*需要驗證*狀態，則不會啟用 BGP 工作階段，因為已公告的首碼不符合任何路由登錄中的 AS 編號。
 
->[AZURE.IMPORTANT]如果公告的公用首碼狀態是手動驗證狀態，您必須向 [Microsoft 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)開啟支援票證，並提供您擁有公告的 IP 位址的證明，以及相關聯的自發系統編號。
+>[AZURE.IMPORTANT] 如果公告的公用首碼狀態是*手動驗證*狀態，您必須向 [Microsoft 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)開啟支援票證，並提供您擁有公告的 IP 位址的證明，以及相關聯的自發系統編號。
 
 
 ## 後續步驟
@@ -121,4 +120,4 @@ BGP 佈建狀態可讓您知道 Microsoft 邊緣是否已啟用 BGP 工作階段
 	- [設定路由](expressroute-howto-routing-arm.md)
 	- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

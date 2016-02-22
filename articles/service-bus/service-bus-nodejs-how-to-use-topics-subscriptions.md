@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -31,11 +31,11 @@
 
 ## 設定應用程式以使用服務匯流排
 
-若要使用服務匯流排，請下載 Node.js azure 封裝。此封裝含有一組能與服務匯流排 REST 服務通訊的便利程式庫。
+若要使用服務匯流排，請下載 Node.js Azure 封裝。此封裝含有一組能與服務匯流排 REST 服務通訊的便利程式庫。
 
 ### 使用 Node Package Manager (NPM) 取得封裝
 
-1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] \(Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
+1.  使用命令列介面，例如 **PowerShell** (Windows)、[終端機] (Mac) 或 **Bash** (Unix)，瀏覽到您建立範例應用程式的資料夾。
 
 2.  在命令視窗中輸入 **npm install azure**，這應該會導致下列輸出：
 
@@ -130,7 +130,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 
 **ServiceBusService** 物件也能用來建立主題訂閱。訂用帳戶是具名的，它們能擁有選用的篩選器，以限制傳遞至訂用帳戶之虛擬佇列的訊息集合。
 
-> [AZURE.NOTE]訂用帳戶是持續性的，它們會持續存在，直到本身或相關的主題遭到刪除為止。如果應用程式含有建立訂閱的邏輯，它應該會先使用 **getSubscription** 方法檢查訂閱是否存在。
+> [AZURE.NOTE] 訂用帳戶是持續性的，它們會持續存在，直到本身或相關的主題遭到刪除為止。如果應用程式含有建立訂閱的邏輯，它應該會先使用 **getSubscription** 方法檢查訂閱是否存在。
 
 ### 使用預設 (MatchAll) 篩選器建立訂用帳戶
 
@@ -152,7 +152,7 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 
 您可以使用 **ServiceBusService** 物件的 **createRule** 方法將篩選器新增至訂閱。此方法可讓您將篩選器新增至現有的訂閱中。
 
-> [AZURE.NOTE]由於預設篩選器會自動套用至所有新的訂用帳戶，因此您必須先移除預設篩選器，否則 **MatchAll** 將會覆寫您指定的任何其他篩選器。您可以使用 **ServiceBusService** 物件的 **deleteRule** 方法移除預設規則。
+> [AZURE.NOTE] 由於預設篩選器會自動套用至所有新的訂用帳戶，因此您必須先移除預設篩選器，否則 **MatchAll** 將會覆寫您指定的任何其他篩選器。您可以使用 **ServiceBusService** 物件的 **deleteRule** 方法移除預設規則。
 
 以下範例將建立名為 `HighMessages` 的訂用帳戶，而且所含的 **SqlFilter** 只會選取自訂 **messagenumber** 屬性大於 3 的訊息：
 
@@ -316,7 +316,7 @@ for (i = 0;i < 5;i++) {
 -   [SqlFilter][] 的 API 參考資料。
 -   造訪 GitHub 上的 [Azure SDK for Node][] (英文) 儲存機制。
 
-  [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
   [Azure 傳統入口網站]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [佇列、主題和訂用帳戶]: service-bus-queues-topics-subscriptions.md
@@ -327,4 +327,4 @@ for (i = 0;i < 5;i++) {
   [使用儲存體的 Node.js Web 應用程式]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

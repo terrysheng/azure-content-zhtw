@@ -191,4 +191,8 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。�
 
 城市、區域和國家/地區維度衍生自 IP 位址，而且不一定準確。
 
-<!---HONumber=AcomDC_0204_2016-->
+## 仍然無法運作...
+
+* [Application Insights 論壇](https://social.msdn.microsoft.com/Forums/vstudio/zh-TW/home?forum=ApplicationInsights)
+
+<!---HONumber=AcomDC_0211_2016-->

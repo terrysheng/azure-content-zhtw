@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # 在 HDInsight 上開發 Hadoop 的 Java MapReduce 程式
@@ -248,13 +248,13 @@
 
 2. 在 SSH 工作階段中，使用以下命令執行 MapReduce 應用程式：
 
-		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
+		yarn jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
 	這麼做可使用 WordCount MapReduce 應用程式來統計 davinci.txt 檔案中的字數，並將結果儲存至 \_\___wasb:///example/data/wordcountout__。輸入檔和輸出都會儲存至叢集的預設儲存體中。
 
 3. 工作完成後，請使用下列命令來檢視結果：
 
-		hadoop fs -cat wasb:///example/data/wordcountout/*
+		hdfs dfs -cat wasb:///example/data/wordcountout/*
 
 	您應該會收到一份單字和計數的清單，其中含有的值類似如下：
 
@@ -292,4 +292,4 @@
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

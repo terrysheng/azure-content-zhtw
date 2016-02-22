@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+	ms.date="02/08/2016" 
 	ms.author="ginathan;bradsev" />
 
 # Cortana 分析程序實務 - 在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集
@@ -663,4 +663,4 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 這包含我們的端對端逐步解說，示範如何使用 Azure Machine Learning 處理大型資料集。我們開始使用 1 TB 的資料、建構預測模型，並將其部署為雲端中的 Web 服務。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

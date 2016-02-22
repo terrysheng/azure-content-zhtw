@@ -12,14 +12,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/04/2016"
 	ms.author="donnam"/>
 
 # 啟用 Android 行動應用程式的離線同步處理
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 概觀
 
@@ -31,12 +29,12 @@
 
 ## 更新應用程式以支援離線同步
 
-利用離線同步讀取和寫入「同步資料表」(使用 *IMobileServiceSyncTable* 介面)，這是您裝置上 **SQLite** 資料庫的一部分。
+利用離線同步讀取和寫入*同步資料表* (使用 *IMobileServiceSyncTable* 介面)，這是您裝置上 **SQLite** 資料庫的一部分。
 
 若要推送和提取裝置與 Azure 行動服務之間的變更，您可使用「同步處理內容」(*MobileServiceClient.SyncContext*)，這是您用來在本機儲存資料的本機資料庫所初始化。
 
 1. 在 `TodoActivity.java` 中，將 `mToDoTable` 的現有定義註解化，並取消註解同步資料表版本：
-    
+
 	    private MobileServiceSyncTable<ToDoItem> mToDoTable;
 
 2. 在 `onCreate` 方法中，將 `mToDoTable` 的現有初始化註解化，並取消註解此定義：
@@ -119,4 +117,4 @@
 [雲端報導︰Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

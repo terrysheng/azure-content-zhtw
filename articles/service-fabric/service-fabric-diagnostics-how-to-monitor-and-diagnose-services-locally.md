@@ -31,7 +31,7 @@
 
 ## 在 Visual Studio 中檢視 Service Fabric 系統事件
 
-Service Fabric 會發出 ETW 事件，以協助應用程式開發人員了解平台中發生的事情。如果您還沒有這麼做，請繼續遵循[在 Visual Studio 中建立第一個應用程式](./service-fabric-create-your-first-application-in-visual-studio.md)中的步驟。此資訊將協助您啟動應用程式，並執行可顯示追蹤訊息的 [診斷事件檢視器]。
+Service Fabric 會發出 ETW 事件，以協助應用程式開發人員了解平台中發生的事情。如果您還沒有這麼做，請繼續遵循[在 Visual Studio 中建立第一個應用程式](service-fabric-create-your-first-application-in-visual-studio.md)中的步驟。此資訊將協助您啟動應用程式，並執行可顯示追蹤訊息的 [診斷事件檢視器]。
 
 1. 若 [診斷事件] 視窗不會自動顯示，請移至 Visual Studio 中的 [伺服器總管] 索引標籤，以滑鼠右鍵按一下 [Service Fabric 叢集]，並選擇內容功能表中的 [檢視診斷事件]。
 
@@ -60,4 +60,4 @@ Service Fabric Visual Studio 專案範本包含範例程式碼。程式碼示範
 ## 後續步驟
 在 Azure 叢集上執行應用程式時，您針對本機診斷在上方應用程式所新增的相同追蹤程式碼，將會使用可以用來檢視這些事件的工具。請參閱下列文章，其中討論工具的不同選項，並說明如何設定這些工具。*[在 Azure 診斷和 Operational Insights 中從 Service Fabric 叢集收集記錄檔](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [使用 ElasticSearch 做為 Service Fabric 應用程式追蹤存放區](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

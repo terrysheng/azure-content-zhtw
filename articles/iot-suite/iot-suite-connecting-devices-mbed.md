@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/10/2015"
+   ms.date="02/05/2015"
    ms.author="dobett"/>
 
 
@@ -44,15 +44,15 @@
 
     ![][6]
 
-4. 在快顯視窗中，輸入範例程式碼的連結 https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/
+4. 在快顯視窗中，輸入範例程式碼的連結 https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/，然後按一下 [匯入]。
 
     ![][7]
 
-5. 您可以在匯入這個專案的 mbed 編譯器中看到匯入的各種程式庫。某些是由 Azure IoT 小組提供和維護 ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/)、[iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/)、[iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/)、[iothub\_http\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_http_transport/)、[proton-c-mbed](https://developer.mbed.org/users/AzureIoTClient/code/proton-c-mbed/))，而有些則是可以在 mbed 程式庫目錄中取得的協力廠商程式庫。
+5. 您可以在匯入這個專案的 mbed 編譯器視窗中看到匯入的各種程式庫。有些是由 Azure IoT 小組提供和維護 ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/)、[iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/)、[iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/)、[proton-c-mbed](https://developer.mbed.org/users/AzureIoTClient/code/proton-c-mbed/))，其他則是可以在 mbed 程式庫目錄中取得的協力廠商程式庫。
 
     ![][8]
 
-6. 開啟 remote\_monitoring\\remote\_monitoring.c，在檔案中尋找下列程式碼：
+6. 開啟 remote\_monitoring\\remote\_monitoring.c 檔案，並在檔案中尋找下列程式碼：
 
     ```
     static const char* deviceId = "[Device Id]";
@@ -61,14 +61,12 @@
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
 
-7. 以您的裝置資料取代 [Device Id] 和 [Device Key]。
-
-8. 您可以使用 IoT 中心主機名稱裝置資料來填寫 IoTHub 名稱和 IoTHub 後置詞。例如，若您的 IoT 中樞主機名稱是 Contoso.azure-devices.net，Contoso 會 是您的 IoT 中樞名稱，而它之後的所有項目就是後置詞：
+7. 以您的裝置資料取代 [Device Id] 和 [Device Key]。使用 IoT 中樞主機名稱來取代 [IoTHub Name] 和 [IoTHub Suffix, i.e. azure-devices.net] 預留位置。例如，若您的 IoT 中樞主機名稱是 Contoso.azure-devices.net，contoso 就是 **hubName**，而它之後的所有項目就是 **hubSuffix**：
 
     ```
     static const char* deviceId = "mydevice";
     static const char* deviceKey = "mykey";
-    static const char* hubName = "Contoso";
+    static const char* hubName = "contoso";
     static const char* hubSuffix = "azure-devices.net";
     ```
 
@@ -78,16 +76,17 @@
 
 1. 按一下 [編譯] 來建置程式。您可以安全地略過任何警告，但如果建置產生錯誤，請修正錯誤後再繼續。
 
-2. 如果建置成功，會產生具有您的專案名稱的 .bin 檔案。將 .bin 檔案複製到裝置。將 .bin 檔案儲存到裝置會導致重設對裝置的目前終端機工作階段。重新連接時，請再次手動重設終端機，或啟動新的終端機。這可讓 mbed 裝置重設並開始執行程式。
+2. 如果建置成功，mbed 編譯器網站會產生含有您專案名稱的 .bin 檔案，並將它下載到您的本機電腦。將 .bin 檔案複製到裝置。如果將 .bin 檔案儲存到裝置，將會導致裝置重新啟動並執行包含在 .bin 檔案中的程式。您可以按 mbed 裝置上的 [重設] 按鈕來隨時手動重新啟動程式。
 
-3. 使用 SSH 用戶端應用程式 (例如 PuTTY) 連接至裝置。您可以判斷您的裝置會使用的序列埠，藉由檢查 Windows 裝置管理員。
-
-
-4. 在 PuTTY 中，按一下 [序列] 連接類型。裝置最有可能以 115200 速度連接，因此請在 [速度] 方塊中輸入該值。然後按一下 [開啟]：
+3. 使用 SSH 用戶端應用程式 (例如 PuTTY) 連接至裝置。您可以查看 [Windows 裝置管理員] 來確定裝置使用的序列埠。
 
     ![][11]
 
+4. 在 PuTTY 中，按一下 [序列] 連接類型。裝置通常的連線傳輸速率是 115200，因此請在 [速度] 方塊中輸入 115200。然後按一下 [開啟]。
+
 5. 程式開始執行。連線時如果程式沒有自動啟動，您可能必須重設面板 (按 CTRL + Break 或按面板的重設按鈕)。
+
+    ![][10]
 
 [AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
@@ -96,10 +95,11 @@
 [7]: ./media/iot-suite-connecting-devices-mbed/mbed2a.png
 [8]: ./media/iot-suite-connecting-devices-mbed/mbed3a.png
 [9]: ./media/iot-suite-connecting-devices-mbed/suite6.png
+[10]: ./media/iot-suite-connecting-devices-mbed/putty.png
 [11]: ./media/iot-suite-connecting-devices-mbed/mbed6.png
 
 [lnk-mbed-home]: https://developer.mbed.org/platforms/FRDM-K64F/
 [lnk-mbed-getstarted]: https://developer.mbed.org/platforms/FRDM-K64F/#getting-started-with-mbed
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -15,7 +15,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/30/2015" 
-	ms.author="Erikre"/>
+	ms.author="glenga"/>
 
 
 # 使用 SendGrid 從行動服務傳送電子郵件
@@ -94,7 +94,7 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 
 	- **_from-address_**：電子郵件的來源地址。請考慮使用屬於貴組織的已登錄網域位址。
 
-     >[AZURE.NOTE]如果您沒有已註冊的網域，則可以改用您行動服務的網域，格式為 **notifications@_your-mobile-service_.azure-mobile.net*。不過，傳送至您行動服務網域的訊息將會被忽略。
+     > [AZURE.NOTE] 如果您沒有已註冊的網域，則可以改用您行動服務的網域，格式為 **notifications@_your-mobile-service_.azure-mobile.net*。不過，傳送至您行動服務網域的訊息將會被忽略。
 
 6. 按一下 [儲存] 按鈕。您現在已經設定好指令碼，使其在每次將記錄插入 **TodoItem** 資料表時傳送電子郵件。
 
@@ -140,4 +140,4 @@ SendGrid 是[雲端架構電子郵件服務] (英文)，能提供可靠的[交�
 [雲端架構電子郵件服務]: https://sendgrid.com/email-solutions
 [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

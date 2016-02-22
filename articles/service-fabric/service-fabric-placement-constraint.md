@@ -36,6 +36,6 @@ NodeProperty--使用者定義或系統定義從字串對值的對應，其會隨
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
 
-如需詳細資訊，請參閱：[應用程式案例](../service-fabric-application-scenarios)。
+如需詳細資訊，請參閱：[應用程式案例](service-fabric-application-scenarios.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

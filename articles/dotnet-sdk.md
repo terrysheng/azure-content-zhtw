@@ -103,7 +103,7 @@ Azure SDK for .NET 將安裝下列產品：
 
 ###<a id="mobile">Microsoft Azure Mobile App SDK
 
-可使用 [Azure App Service Mobile Apps](app-service-mobile/app-service-mobile-value-prop-preview.md) 的工具。
+可使用 [Azure App Service Mobile Apps](app-service-mobile/app-service-mobile-value-prop.md) 的工具。
 
 ###<a id="ps"></a>Microsoft Azure PowerShell
 
@@ -186,4 +186,4 @@ Azure PowerShell 可讓您[將 Azure 環境的建立及部署自動化](http://w
 
 如需 Azure 用戶端程式庫的參考文件，請參閱 [Azure .NET 參考](/documentation/api/) (英文)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

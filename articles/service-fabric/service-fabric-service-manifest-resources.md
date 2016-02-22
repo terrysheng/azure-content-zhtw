@@ -36,7 +36,7 @@
 </Resources>
 ```
 
-請參閱[設定具狀態的 Reliable Services](../Service-Fabric/service-fabric-reliable-services-configuration.md)，從設定封裝設定檔 (settings.xml) 深入了解參考端點。
+請參閱[設定具狀態的 Reliable Services](service-fabric-reliable-services-configuration.md)，從設定封裝設定檔 (settings.xml) 深入了解參考端點。
 
 ## 範例：指定服務的 HTTP 端點
 
@@ -137,4 +137,4 @@ HTTPS 通訊協定提供伺服器驗證，也能用於加密用戶端-伺服器�
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

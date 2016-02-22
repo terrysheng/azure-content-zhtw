@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="02/05/2016"
  ms.author="larryfr"/>
 
 #了解並解決 HDInsight 上從 WebHCat (Templeton) 收到的錯誤
@@ -27,7 +27,7 @@
 
 ##修改組態
 
-> [AZURE.IMPORTANT]因為已超過設定的上限，而發生本文件中所列的幾個錯誤。當解決步驟提到您可以變更值時，您必須使用下列其中一項來執行變更：
+> [AZURE.IMPORTANT] 因為已超過設定的上限，而發生本文件中所列的幾個錯誤。當解決步驟提到您可以變更值時，您必須使用下列其中一項來執行變更：
 
 * 針對 **Windows** 叢集：使用指令碼動作在叢集建立期間設定此值。如需詳細資訊，請參閱[開發指令碼動作](hdinsight-hadoop-script-actions.md)。
 
@@ -86,4 +86,4 @@
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

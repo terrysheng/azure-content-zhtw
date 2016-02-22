@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # 存取以 Linux 為基礎之 HDInsight 上的 YARN 應用程式記錄
 
 本文件說明如何存取已在 Azure HDInsight 的 Hadoop 叢集上完成的 YARN (Yet Another Resource Negotiator) 應用程式記錄。
 
-> [AZURE.NOTE]本文件的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需 Windows 叢集的資訊，請參閱[存取以 Windows 為基礎之 HDInsight 上的 YARN 應用程式記錄](hdinsight-hadoop-access-yarn-app-logs.md)
+> [AZURE.NOTE] 本文件的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需 Windows 叢集的資訊，請參閱[存取以 Windows 為基礎之 HDInsight 上的 YARN 應用程式記錄](hdinsight-hadoop-access-yarn-app-logs.md)
 
 ## 必要條件
 
@@ -96,4 +96,4 @@ YARN ResourceManager UI 會在叢集前端節點上執行，且您可透過 Amba
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

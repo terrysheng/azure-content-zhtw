@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/04/2016"
 	ms.author="krisragh"/>
 
 # 啟用 iOS 行動應用程式的離線同步處理
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 概觀
 
@@ -30,7 +28,7 @@
 
 若要深入了解離線同步處理功能，請參閱 [Azure Mobile Apps 中的離線資料同步處理]主題。
 
-## <a name="review-sync"></a>檢閱用戶端同步程式碼 
+## <a name="review-sync"></a>檢閱用戶端同步程式碼
 
 您在[建立 iOS 應用程式]教學課程中下載的用戶端專案，已經包含了使用本機核心資料式資料庫支援離線同步處理的程式碼。這一節是已包含在教學課程程式碼中的內容摘要。如需此功能的概念性概觀，請參閱 [Azure Mobile Apps中的離線資料同步]。
 
@@ -107,7 +105,7 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
       * MS\_TableConfig：用於追蹤所有提取作業的最後一次同步處理作業的上次更新時間
       * TodoItem：用來儲存 todo 項目。系統資料行 **createdAt**、**updatedAt** 和 **version** 為可選擇性使用的系統屬性。
 
->[AZURE.NOTE]Azure Mobile Apps SDK 會保留開頭為「**``**」的資料行名稱。您不得在系統資料行以外的任何項目上使用此前置詞，否則會在使用遠端後端時修改您的資料行名稱。
+>[AZURE.NOTE] Azure Mobile Apps SDK 會保留開頭為「**``**」的資料行名稱。您不得在系統資料行以外的任何項目上使用此前置詞，否則會在使用遠端後端時修改您的資料行名稱。
 
 - 使用離線同步功能時，您必須先定義系統資料表，如下所示。
 
@@ -157,8 +155,8 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
     | id | 字串 (標示為必要) | 遠端存放區中的主索引鍵 |
     | 完成 | Boolean | todo 項目欄位 |
     | 文字 | String | todo 項目欄位 |
-    | 建立時間 | 日期 | (選擇性步驟) 對應至 createdAt 系統屬性 |
-    | 更新時間 | 日期 | (選擇性步驟) 對應至 updatedAt 系統屬性 |
+    | 建立時間 | 日期 | (選擇性) 對應至 createdAt 系統屬性 |
+    | 更新時間 | 日期 | (選擇性) 對應至 updatedAt 系統屬性 |
     | 版本 | String | (選擇性步驟) 用來偵測衝突，對應至版本 |
 
 
@@ -232,7 +230,7 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
 
 * [Azure 行動應用程式中的離線資料同步處理]
 
-* [雲端報導︰Azure 行動服務中的離線同步] (注意︰影片裡是使用行動服務，但離線同步的運作方式與在 Azur Mobile Apps 的中運作方式類似)
+* [雲端報導︰Azure 行動服務中的離線同步處理] (注意︰影片位於行動服務上，但離線同步處理的運作方式類似在 Azure Mobile Apps 中的方式)
 
 <!-- URLs. -->
 
@@ -247,8 +245,7 @@ Azure Mobile Apps 的離線資料同步功能可讓使用者在無法存取網�
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[雲端報導︰Azure 行動服務中的離線同步]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[雲端報導︰Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
- 
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

@@ -336,6 +336,6 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 - [以程式設計方式建立 IoT 中樞](iot-hub-rm-template.md)
 - [IoT 中樞用量度量](iot-hub-metrics.md)
-- [IoT 中樞作業監視](iot-hub-operations-montoring.md)
+- [IoT 中樞作業監視](iot-hub-operations-monitoring.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

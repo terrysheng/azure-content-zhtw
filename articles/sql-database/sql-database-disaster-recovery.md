@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # 從中斷情況復原 Azure SQL Database
@@ -32,17 +32,17 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 復原作業會影響應用程式。它需要變更 SQL 連接字串，並且可能會導致永久的資料遺失。因此，只有在中斷情況可能持續超過應用程式的 RTO 時，才應該執行這項作業。將應用程式部署至生產環境之後，您應該定期監視應用程式健全狀況，並利用下列資料點判斷是否需要復原：
 
 1. 從應用程式層到資料庫的連接發生永久性失敗。
-2. 您的 Azure 傳統入口網站顯示有關區域中影響廣泛之事件的警示。
+2. 您的 Azure 入口網站顯示有關區域中影響廣泛之事件的警示。
 
 > [AZURE.NOTE] 復原資料庫之後，您可以遵循[在復原後設定資料庫](#postrecovery)指南，設定資料庫以供使用。
 
 ## 容錯移轉至異地複寫的次要資料庫
 > [AZURE.NOTE] 您必須進行設定，以取得可用於容錯移轉的次要資料庫。異地複寫僅適用於標準和高階資料庫。了解[如何設定異地複寫](sql-database-business-continuity-design.md)
 
-###Azure 傳統入口網站
-使用 Azure 傳統入口網站終止與地理複寫次要資料庫的連續複製關聯性。
+###Azure 入口網站
+使用 Azure 入口網站終止與地理複寫次要資料庫的連續複製關聯性。
 
-1. 登入 [Azure 傳統入口網站](https://portal.Azure.com)
+1. 登入 [Azure 入口網站](https://portal.Azure.com)
 2. 在畫面左側選取 [瀏覽]，然後選取 [SQL Database]。
 3. 巡覽至您的資料庫，然後加以選取。 
 4. 在資料庫分頁底部選取 [異地複寫對應]。
@@ -66,16 +66,29 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 
 > [AZURE.NOTE] 復原資料庫會建立新的資料庫。請務必確定您要復原到的伺服器有足夠的 DTU 容量供新的資料庫使用。您可以[連絡支援人員](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)，要求增加此配額。
 
-###Azure 傳統入口網站
-若要使用 Azure 傳統入口網站中的異地還原還原 SQL Database，請使用下列步驟。
+###Azure 入口網站 (復原到獨立資料庫)
+若要使用 Azure 入口網站中的異地還原還原 SQL Database，請使用下列步驟。
 
-1. 登入 [Azure 傳統入口網站](https://portal.Azure.com)
+1. 登入 [Azure 入口網站](https://portal.Azure.com)
 2. 在畫面左側選取 [新增]，然後依序選取 [資料和儲存體] 和 [SQL Database]。
 2. 選取 [備份] 做為來源，然後選取您要從中復原的異地備援備份。
 3. 指定其餘資料庫內容，然後按一下 [建立]。
 4. 資料庫還原程序就會開始，您可以使用畫面左側的 [通知] 監視程序。
 
+###Azure 入口網站 (復原到彈性資料庫集區)
+若要使用入口網站利用異地還原將 SQL Database 還原到彈性資料庫集區，請遵循以下指引。
+
+1. 登入 [Azure 入口網站](https://portal.Azure.com)
+2. 在畫面左側選取 [瀏覽]，接著選取 [SQL 彈性集區]。
+3. 選取您要將資料庫異地還原到的集區。
+4. 在彈性集區刀鋒視窗頂端，選取 [建立資料庫]
+5. 選取 [備份] 做為來源，然後選取您要從中復原的異地備援備份。
+6. 指定其餘資料庫內容，然後按一下 [建立]。
+7. 資料庫還原程序就會開始，您可以使用畫面左側的 [通知] 監視程序。
+
 ###PowerShell 
+> [AZURE.NOTE] 目前搭配 PowerShell 使用異地還原，只支援還原到獨立資料庫。若要異地還原到彈性資料庫集區，請使用 [Azure 入口網站](https://portal.Azure.com)。
+
 若要使用異地還原搭配 PowerShell 還原 SQL Database，請使用 [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx) Cmdlet 啟動異地還原要求。
 
 		$Database = Get-AzureSqlRecoverableDatabase -ServerName "ServerName" –DatabaseName “DatabaseToBeRecovered"
@@ -131,4 +144,4 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 
 如果需要稽核才能存取您的資料庫，則您必須在資料庫復原之後啟用稽核。用戶端應用程式必須在 *.database.secure.windows.net 的模式中使用安全連接字串，才能有良好的稽核指標。如需詳細資訊，請參閱[開始使用 SQL 資料庫稽核](sql-database-auditing-get-started.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

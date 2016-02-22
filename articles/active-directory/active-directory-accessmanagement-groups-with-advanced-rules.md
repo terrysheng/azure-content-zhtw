@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -167,7 +167,7 @@ user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 設定群組為「經理」群組
 --------------------------------------------------------------------------------
 1. 在管理員入口網站上按一下 [設定] 索引標籤，然後選取 [進階規則]。
-2. 使用下列語法輸入規則：Direct Reports for *Direct Reports for {UserID\_of\_manager}*。以下是 Direct Reports 的有效規則範例： 
+2. 使用下列語法輸入規則：Direct Reports for *Direct Reports for {UserID\_of\_manager}*。以下是 Direct Reports 的有效規則範例：
 
 Direct Reports for 62e19b97-8b3d-4d4a-a106-4ce66896a863”
 
@@ -181,10 +181,12 @@ Direct Reports for 62e19b97-8b3d-4d4a-a106-4ce66896a863”
 
 * [疑難排解群組的動態成員資格](active-directory-accessmanagement-troubleshooting.md)
 
-* [使用 Azure Active Directory 群組來管理資源的存取權](active-directory-manage-groups.md)
+* [使用 Azure Active Directory 群組管理資源的存取權](active-directory-manage-groups.md)
+
+* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 
 * [什麼是 Azure Active Directory？](active-directory-whatis.md)
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

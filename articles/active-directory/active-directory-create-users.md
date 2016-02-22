@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="02/08/2016"
 	ms.author="curtand;viviali"/>
 
 # 在 Azure AD 中建立或編輯使用者
@@ -25,12 +25,12 @@
 1. 按一下 [Active Directory]，然後選取貴組織的目錄名稱。
 2. 在 [**使用者**] 頁面上，按一下 [**加入使用者**]。
 3. 在 [**告訴我們這位使用者**] 頁面上，針對 [**使用者類型**]，選取下列其中一項：
-	
+
 	- **您組織中的新使用者** – 在您的目錄中建立新的使用者帳戶
 	- **現有 Microsoft 帳戶的使用者** – 將現有的 Microsoft 取用者帳戶加入至您的目錄 (例如，Outlook 帳戶)
 	- **另一個 Azure AD 目錄中的使用者** – 將源自另一個 Azure AD 目錄的使用者帳戶加入至您的目錄 (注意：您必須是其他目錄的成員才能選取其中的使用者)
-	- **合作夥伴公司中的使用者** - 邀請並授權合作夥伴公司使用者使用您的目錄 ([請參閱 Azure Active Directory B2B](active-directory-b2b-what-is-azure-ad-b2b.md))
-	
+	- **合作夥伴公司中的使用者** - 邀請並授權合作夥伴公司使用者使用您的目錄 ([請參閱 Azure Active Directory B2B 共同作業](active-directory-b2b-what-is-azure-ad-b2b.md))
+
 
 4. 視您選取的選項，為合作夥伴使用者輸入使用者名稱、電子郵件地址，或上傳 CSV 檔案。
 5. 在 [**使用者設定檔**] 頁面上，提供使用者的姓氏和名字、使用者易記名稱，並從 [角色] 下拉式選單中選擇使用者角色。如需有關使用者和系統管理員角色的詳細資訊，請參閱[在 Azure AD 中指派系統管理員角色](active-directory-assign-admin-roles.md)。指定是否**啟用 Multi-Factor Authentication**。
@@ -87,7 +87,7 @@
 - 身為管理員的外部使用者無法將來自合作夥伴公司的使用者加入至其主目錄以外的目錄 (B2B)
 - 外部使用者無法同意在其主目錄以外的目錄中的多租用戶應用程式
 - Visual Studio Online 目前不支援讓外部使用者存取
-- PowerBI 目前不支援讓外部使用者存取 
+- PowerBI 目前不支援讓外部使用者存取
 - Office 入口網站不支援授權外部使用者
 
 ## 來賓
@@ -99,7 +99,7 @@
 - 查看與他們被指派的 Azure 訂用帳戶相關聯的使用者和群組
 - 查看其所屬群組的群組成員
 - 如果他們已經知道使用者的完整電子郵件地址，則可以查閱目錄中的其他使用者
-- 僅能查看他們查閱的使用者的有限屬性集 - 僅限於顯示名稱、電子郵件地址、使用者主體名稱 (UPN) 和相片縮圖 
+- 僅能查看他們查閱的使用者的有限屬性集 - 僅限於顯示名稱、電子郵件地址、使用者主體名稱 (UPN) 和相片縮圖
 - 取得租用戶中已驗證的網域清單
 - 同意應用程式，授與它們與在您的目錄中相同的存取權
 
@@ -124,4 +124,4 @@
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="開始在 Xamarin Android 中使用行動應用程式的驗證" 
-	description="了解如何使用行動應用程式透過眾多識別提供者驗證 Xamarin Android 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。" 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
-	authors="mattchenderson" 
-	manager="dwrede" 
+<properties
+	pageTitle="開始在 Xamarin Android 中使用行動應用程式的驗證"
+	description="了解如何使用行動應用程式透過眾多識別提供者驗證 Xamarin Android 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。"
+	services="app-service\mobile"
+	documentationCenter="xamarin"
+	authors="mattchenderson"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # 將驗證新增至 Xamarin.Android 應用程式
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 本主題說明如何從用戶端應用程式驗證行動應用程式的使用者。在本教學課程中，您會使用 Azure 行動應用程式所支援的身分識別提供者將驗證新增至快速入門專案。在行動應用程式中成功驗證並授權之後，就會顯示使用者識別碼值。
 
@@ -56,7 +54,7 @@
 	                    MobileServiceAuthenticationProvider.Facebook);
 	                CreateAndShowDialog(string.Format("you are now logged in - {0}",
 	                    user.UserId), "Logged in!");
-	
+
 	                success = true;
 	            }
 	            catch (Exception ex)
@@ -72,7 +70,7 @@
             // Load data only after authentication succeeds.
             if (await Authenticate())
             {
-                //Hide the button after authentication succeeds. 
+                //Hide the button after authentication succeeds.
                 FindViewById<Button>(Resource.Id.buttonLoginUser).Visibility = ViewStates.Gone;
 
                 // Load the data.
@@ -82,7 +80,7 @@
 
     這會建立一個新方法以驗證使用者，以及建立新 [登入] 按鈕的方法處理常式。上述範例程式碼中的使用者是使用 Facebook 登入進行驗證。對話方塊會在驗證後用來顯示使用者識別碼。
 
-    > [AZURE.NOTE]如果您使用的身分識別提供者不是 Facebook，請將傳遞給上述 **LoginAsync** 的值變更為下列其中之一：_MicrosoftAccount_、_Twitter_、_Google_ 或 _WindowsAzureActiveDirectory_。
+    > [AZURE.NOTE] 如果您使用的身分識別提供者不是 Facebook，請將傳遞給上述 **LoginAsync** 的值變更為下列其中之一：_MicrosoftAccount_、_Twitter_、_Google_ 或 _WindowsAzureActiveDirectory_。
 
 3. 在 **OnCreate** 方法中，刪除或註解下列程式碼行：
 
@@ -99,7 +97,7 @@
 
 5. 將下列元素新增到 Strings.xml 資源檔：
 
-		<string name="login_button_text">Sign in</string> 
+		<string name="login_button_text">Sign in</string>
 
 6. 在 Visual Studio 或 Xamarin Studio 中，在裝置或模擬器上執行用戶端專案，並使用您選擇的身分識別提供者登入。
 
@@ -108,6 +106,5 @@
 
 <!-- URLs. -->
 [建立 Xamarin.Android 應用程式教學課程]: app-service-mobile-xamarin-android-get-started.md
- 
 
-<!-------HONumber=AcomDC_1210_2015---->
+<!---HONumber=AcomDC_0211_2016-->

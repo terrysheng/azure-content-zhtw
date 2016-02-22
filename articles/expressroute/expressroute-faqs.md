@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/09/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute 常見問題集
@@ -179,6 +179,7 @@ ExpressRoute Premium 是下面所列功能的集合。
  - 將公用對等互連和私人對等互連的路由表限制，從 4000 個路由提高到 10,000 個路由。
  - 提高可連線到 ExpressRoute 電路的 VNet 數目 (預設值為 10)。如需詳細資訊，請參閱下表。
  - 透過 Microsoft 核心網路的全球連線。您現在能夠將某一個地緣政治區域中的 VNet 與另一個區域中的 ExpressRoute 電路連結。**範例：**您可以將在歐洲西部建立的 VNet created 連結至在矽谷建立的 ExpressRoute 電路。
+ - 可連線至 Office 365 服務和 CRM Online。
 
 ### 如果已啟用 ExpressRoute Premium，我可以將多少個 VNet 連結至 ExpressRoute 電路？
 下表提供針對可連結至 ExpressRoute 電路的 VNet 數目所提高的限制。預設限制為 10
@@ -187,7 +188,7 @@ ExpressRoute Premium 是下面所列功能的集合。
 
 | **電路大小** | **預設設定的 VNet 連結數目** | **ExpressRoute Premium 中的 VNet 連結數目** |
 |--------------|----------------------------------------|-----------------------------------------------|
-| 50 Mbps | 10 | 不支援 |
+| 50 Mbps | 10 | 10 |
 | 100 Mbps | 10 | 20 |
 | 200 Mbps | 10 | 25 |
 | 500 Mbps | 10 | 40 |
@@ -213,49 +214,31 @@ ExpressRoute Premium 是下面所列功能的集合。
 ### 除了標準的 ExpressRoute 費用以外，我是否仍需支付 ExpressRoute Premium？
 是。除了 ExpressRoute 電路費用和連線提供者所需費用以外，還需另行支付 ExpressRoute Premium 費用。
 
-## ExpressRoute 和 Office 365
+## ExpressRoute 與 Office 365 服務和 CRM Online
 
-### 我要如何建立可連線到 Office 365 服務的 ExpressRoute 電路？
+### 我要如何建立可連線到 Office 365 服務和 CRM Online 的ExpressRoute 電路？
 
 1. 請檢閱 [ExpressRoute 必要條件頁面](expressroute-prerequisites.md)，以確定您符合需求。
 2. 請檢閱 [ExpressRoute 合作夥伴和位置](expressroute-locations.md)中的服務提供者和位置清單，以確定符合您的連線需求。
 3. 透過檢閱 [Office 365 的網路規劃和效能調整](http://aka.ms/tune/)來計劃您的容量需求。
-4. 依照下面工作流程中的所列步驟設定連線。[ExpressRoute 工作流程電路佈建和電路狀態](expressroute-workflows.md)。
+4. 依照以下工作流程中所列的步驟來設定連線：[ExpressRoute 線路佈建工作流程和線路狀態](expressroute-workflows.md)。
 
-### 我的現有 ExpressRoute 電路是否支援與 Office 365 服務的連線？
-是。您可以設定現有 ExpressRoute 電路以支援與 Office 365 服務的連線。請確保您有足夠的容量可以連線到 Office 365 服務。[Office 365 的網路規劃和效能調整](http://aka.ms/tune/)將協助您計劃連線需求。另請參閱[建立和修改 ExpressRoute 電路](expressroute-howto-circuit-classic.md)。
+>[AZURE.IMPORTANT] 設定與 Office 365 服務和 CRM Online 的連線時，請確定您已啟用 ExpressRoute 進階附加元件。
+
+### 我的現有 ExpressRoute 電路是否支援與 Office 365 服務和 CRM Online 連線？
+是。您可以設定現有 ExpressRoute 電路以支援與 Office 365 服務的連線。請確保您有足夠的容量可以連線到 Office 365 服務，並確定您已啟用進階附加元件。[Office 365 的網路規劃和效能調整](http://aka.ms/tune/)將協助您計劃連線需求。另請參閱[建立和修改 ExpressRoute 電路](expressroute-howto-circuit-classic.md)。
 
 ### 透過 ExpressRoute 連線可以存取哪些 Office 365 服務？
 
-**支援下列 Office 365 服務：**
+請參閱 [Office 365 URL 與 IP 位址範圍](http://aka.ms/o365endpoints)頁面，以取得透過 ExpressRoute 支援的最新服務清單。
 
-- Exchange Online 和 Exchange Online Protection
-- SharePoint Online
-- Skype for Business Online
-- Office Online
-- Azure AD 和 Azure AD Sync
-- Office 365 影片
-- Power BI
-- Delve
-- Project Online
-
-**不支援下列 Office 365 服務：**
-
-- Yammer
-- Office 365 ProPlus 用戶端下載項目
-- 內部部署識別提供者登入
-- 中國地區的 Office 365 (由 21 Vianet 所經營) 服務
-
-您可以透過網際網路與這些服務連線。
-
-### ExpressRoute for Office 365 需要多少錢？
-透過 ExpressRoute 連線到 Office 365 不會產生額外的費用。[價格詳細資料頁面](https://azure.microsoft.com/pricing/details/expressroute/)提供 ExpressRoute 費用的詳細資料。
+### 適用於 Office 365 服務和 CRM Online 的 ExpressRoute 費用是多少？
+必須啟用進階附加元件，才能使用 Office 365 服務和 CRM Online。[價格詳細資料頁面](https://azure.microsoft.com/pricing/details/expressroute/)提供 ExpressRoute 費用的詳細資料。
 
 ### 哪些區域支援 ExpressRoute for Office 365？
 如需支援 ExpressRoute 的合作夥伴和位置清單詳細資訊，請參閱 [ExpressRoute 合作夥伴和位置](expressroute-locations.md)。
 
 ### 即使 ExpressRoute 已設定供我的組織使用，我是否可以透過網際網路存取 Office 365？
 是。即使 ExpressRoute 已設定供我的組織使用，您仍可以透過網際網路存取 Office 365 服務端點。如果所處位置已設定透過 ExpressRoute 連線到 Office 365 服務，您將會透過 ExpressRoute 進行連線。
- 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/20/2016" 
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # 如何針對 Azure Mobile Apps 使用受管理的用戶端
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
-
-##概觀 
+##概觀
 
 本指南將示範如何在 Windows 和 Xamarin 應用程式中針對 Azure App Service Mobile Apps 使用受管理的用戶端程式庫，來執行一般案例。如果您不熟悉 Mobile Apps，您應考慮先完成 [Mobile Apps 快速入門](app-service-mobile-windows-store-dotnet-get-started.md)教學課程。在本指南中，我們會著重於用戶端受管理的 SDK。若要深入了解 Mobile Apps 的伺服器端 SDK，請參閱[使用 .NET 後端](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)或[如何使用 Node.js 後端 SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md)。
 
@@ -187,8 +185,8 @@ C# 中對應的具類型用戶端類型如下：
 
 	// Select multiple fields -- both Complete and Text info
 	MobileServiceTableQuery<TodoItem> query = todoTable
-					.Select(todoItem => string.Format("{0} -- {1}", 
-						todoItem.Text.PadRight(30), todoItem.Complete ? 
+					.Select(todoItem => string.Format("{0} -- {1}",
+						todoItem.Text.PadRight(30), todoItem.Complete ?
 						"Now complete!" : "Incomplete!"));
 	List<string> items = await query.ToListAsync();
 
@@ -322,7 +320,7 @@ Xamarin 應用程式需要一些額外的程式碼，才能將執行於 iOS 或 
         {
             // single template for Windows Notification Service toast
             var template = "<toast><visual><binding template="ToastText01"><text id="1">$(message)</text></binding></visual></toast>";
-            
+
             var templates = new JObject
             {
                 ["generic-message"] = new JObject
@@ -472,23 +470,23 @@ Mobile Apps 支援開放式並行存取控制項，方法是使用 `__version` �
 
 最後，想像您的資料表有許多欄位，但您只想要在控制項中顯示其中部分欄位。您可以使用上述[選取特定資料欄](#selecting)一節中的指引，以選取要在 UI 中顯示的特定資料欄。
 
-## <a name="adal"></a>做法：使用 Active Directory Authentication Library 驗證使用者
+## <a name="adal"></a>做法：使用 Active Directory Authentication Library 來驗證使用者
 
-您可以使用 Active Directory Authentication Library (ADAL)，利用 Azure Active Directory 將使用者登入應用程式。這樣通常會比使用 `loginAsync()` 方法還適合，因為它提供更原生的 UX 風格，並允許其他自訂。
+您可以使用 Active Directory Authentication Library (ADAL)，利用 Azure Active Directory 將使用者登入應用程式。與使用 `loginAsync()` 方法相比，這通常是較建議採用的方式，因為它提供更原生的 UX 風格，並可允許進行其他自訂。
 
-1. 遵循[如何設定 Active Directory 登入的 App Service](app-service-mobile-how-to-configure-active-directory-authentication.md) 教學課程，針對 AAD 登入設定您的行動應用程式後端。請務必完成註冊原生用戶端應用程式的選擇性步驟。
+1. 依照[如何設定 App Service 來進行 Active Directory 登入](app-service-mobile-how-to-configure-active-directory-authentication.md) 教學課程的說明，設定您的行動應用程式後端來進行 AAD 登入。請務必完成註冊原生用戶端應用程式的選擇性步驟。
 
-2. 在 Visual Studio 或 Xamarin Studio 中，開啟您的專案，並將參考新增至 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 封裝。搜尋時，包含發行前版本。
+2. 在 Visual Studio 或 Xamarin Studio 中，開啟您的專案，然後新增對 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 套件的參考。搜尋時，包含發行前版本。
 
 3. 根據您使用的平台，將下列程式碼新增至您的應用程式。在每個程式碼中，進行下列取代：
 
-* 將 **INSERT-AUTHORITY-HERE** 取代為您佈建應用程式的租用戶名稱。格式應該是 https://login.windows.net/contoso.onmicrosoft.com。此值可從 [Azure 傳統入口網站] 複製到 Azure Active Directory 的 [網域] 索引標籤以外。
+* 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE**。格式應該是 https://login.windows.net/contoso.onmicrosoft.com。此值可從 [Azure 傳統入口網站] 複製到 Azure Active Directory 的 [網域] 索引標籤以外。
 
-* 將 **INSERT-RESOURCE-ID-HERE** 取代為您的行動應用程式後端的用戶端識別碼。您可以從入口網站中 [Azure Active Directory 設定] 底下的 [進階] 索引標籤取得。
+* 以您行動應用程式後端的用戶端識別碼取代 **INSERT-RESOURCE-ID-HERE**。您可以從入口網站中 [Azure Active Directory 設定] 底下的 [進階] 索引標籤取得這項資訊。
 
-* 將 **INSERT-CLIENT-ID-HERE** 取代為您從原生用戶端應用程式中複製的用戶端識別碼。
+* 以您從原生用戶端應用程式中複製的用戶端識別碼取代 **INSERT-CLIENT-ID-HERE**。
 
-* 使用 HTTPS 配置，將 **INSERT-REDIRECT-URI-HERE** 取代為您的網站的 _/.auth/login/done_ 端點。此值應與 \__https://contoso.azurewebsites.net/.auth/login/done_ 類似。
+* 使用 HTTPS 配置，以您網站的 _/.auth/login/done_ 端點取代 **INSERT-REDIRECT-URI-HERE**。此值應與 \__https://contoso.azurewebsites.net/.auth/login/done_ 類似。
 
 每個平台所需的程式碼如下：
 
@@ -674,7 +672,7 @@ In the most simplified form, you can use the client flow as shown in this snippe
 
 To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login](mobile-services-how-to-register-microsoft-authentication.md) to create a Microsoft account registration and connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
 
-The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend. 
+The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend.
 
 	private LiveConnectSession session;
  	//private static string clientId = "<microsoft-account-client-id>";
@@ -802,7 +800,7 @@ For Windows Phone apps, you may encrypt and cache data using the [ProtectedData]
 
     public class MyHandler : DelegatingHandler
     {
-        protected override async Task<HttpResponseMessage> 
+        protected override async Task<HttpResponseMessage>
             SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             // Add a custom header to the request.
@@ -861,4 +859,4 @@ Mobile Apps 用戶端程式庫使用 Json.NET 在用戶端上將 JSON 回應轉�
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -298,11 +298,11 @@ Web 應用程式與兩個不同的資源相依。這表示只有在建立 App Se
 -	[Azure 資源管理員範本函式](../resource-group-template-functions.md)
 -	[使用 Azure 資源管理員範本部署應用程式](../resource-group-template-deploy.md)
 -	[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)
--	[Azure 中的資源群組部署疑難排解](../resource-group-deploy-debug.md)
+-	[Azure 中的資源群組部署疑難排解](../virtual-machines/resource-group-deploy-debug.md)
 
 
 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

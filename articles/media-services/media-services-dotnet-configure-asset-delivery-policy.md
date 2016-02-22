@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/17/2015"  
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 #使用 .NET SDK 設定資產傳遞原則
@@ -348,4 +348,4 @@ Azure 媒體服務也可讓您加入 Widevine 加密。下列範例會示範 Pla
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #如何：更換儲存體存取金鑰之後更新媒體服務
@@ -89,7 +89,7 @@
 
 請注意，當您更新 (或重新建立) SAS 定位器時，URL 一律隨之變更。
 
->[AZURE.NOTE]若要確定能保留 OnDemand 定位器現有的 URL，您必須刪除現有的定位器並建立一個具有相同識別碼的新定位器。
+>[AZURE.NOTE] 若要確定能保留 OnDemand 定位器現有的 URL，您必須刪除現有的定位器並建立一個具有相同識別碼的新定位器。
  
 下列 .NET 範例示範如何重新建立一個識別碼相同的定位器。
 	
@@ -159,4 +159,4 @@
 
 我們想要向下列為建立此文件貢獻心力的人員致謝：Cenk Dingiloglu、Milan Gada、Seva Titov。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

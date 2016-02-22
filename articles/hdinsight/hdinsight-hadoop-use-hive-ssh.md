@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #利用 SSH 搭配使用 Hive 與 HDInsight 中的 Hadoop
@@ -23,7 +23,7 @@
 
 在本文中，您將學習如何使用安全殼層 (SSH) 連線至 Azure HDInsight 叢集上的 Hadoop，然後使用 Hive 命令列介面 (CLI) 以互動方式提交 Hive 查詢。
 
-> [AZURE.IMPORTANT]當以 Linux 為基礎的 HDInsight 叢集上有提供 Hive 命令時，您應考慮使用 Beeline。Beeline 是可搭配 Hive 使用的較新用戶端，隨附於您的 HDInsight 叢集中。如需有關如何使用它的詳細資訊，請參閱[使用 Beeline 搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-hadoop-use-hive-beeline.md)。
+> [AZURE.IMPORTANT] 當以 Linux 為基礎的 HDInsight 叢集上有提供 Hive 命令時，您應考慮使用 Beeline。Beeline 是可搭配 Hive 使用的較新用戶端，隨附於您的 HDInsight 叢集中。如需有關如何使用它的詳細資訊，請參閱[使用 Beeline 搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-hadoop-use-hive-beeline.md)。
 
 ##<a id="prereq"></a>必要條件
 
@@ -45,7 +45,7 @@
 
 **如果您提供密碼進行 SSH 驗證** (在建立 HDInsight 叢集時)，則需要在出現提示時提供密碼。
 
-如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱[從 Linux、Unix 和 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)。
+如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱[從 Linux、OS X 和 Unix 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ###PuTTY (Windows 架構用戶端)
 
@@ -76,7 +76,7 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
     * **SELECT** - 選取其資料行 **t4** 包含 **[ERROR]** 值的所有資料列計數。這應該會傳回值 **3**，因為有 3 個資料列包含此值。
     * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - 告訴 Hive 我們只應該從檔名以 log 結尾的檔案中傳回資料。這將限制包含此資料的 sample.log 檔案搜尋，對於不符合我們所定義結構描述的其他範例資料檔案，會防止其傳回資料。
 
-    > [AZURE.NOTE]當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
+    > [AZURE.NOTE] 當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
     >
     > 捨棄外部資料表並**不會**刪除資料，只會刪除資料表定義。
 
@@ -97,7 +97,7 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
 
     應該傳回三個資料列，且在資料行 t4 中全部包含 **[ERROR]**。
 
-    > [AZURE.NOTE]與外部資料表不同，捨棄內部資料表也會同時刪除基礎資料。
+    > [AZURE.NOTE] 與外部資料表不同，捨棄內部資料表也會同時刪除基礎資料。
 
 ##<a id="summary"></a>摘要
 
@@ -144,4 +144,4 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

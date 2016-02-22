@@ -3,7 +3,7 @@
 	description="了解如何使用 Azure App Service Mobile Apps，透過眾多識別提供者驗證 Windows 應用程式使用者，包括 AAD、Google、Facebook、Twitter 和 Microsoft。"
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # 將驗證新增至您的 Windows 應用程式
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 本主題說明如何將雲端式驗證加入到您的行動應用程式。在本教學課程中，您會使用 Azure App Service 所支援的身分識別提供者，將驗證新增至行動應用程式快速入門專案。由行動應用程式後端成功驗證並授權之後，就會顯示使用者識別碼值。
 
@@ -62,6 +60,5 @@
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
- 
 
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_0211_2016-->

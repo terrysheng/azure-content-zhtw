@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/18/2015"
+	ms.date="02/08/2016"
 	ms.author="msolhab;bradsev" />
 
 
@@ -28,7 +28,7 @@
 
 下列各節均提供一個範例案例。在每個案例中，都會列出可能的資料科學或進階分析流程，以及支援的 Azure 資源。
 
->[AZURE.NOTE]**對於所有下列案例，您必須：**
+>[AZURE.NOTE] **對於所有下列案例，您必須：**
 
 *   [建立儲存體帳戶](storage-whatis-account.md)
 *   [建立 Azure ML 工作區](machine-learning/machine-learning-create-workspace.md)
@@ -168,7 +168,7 @@
 
     f.如果需要資料表聯結，請建立索引以加速聯結。
 
- >[AZURE.NOTE]如需加快大型資料的載入速度，建議您建立分割資料表並大量平行匯入資料。如需詳細資訊，請參閱[平行資料匯入至 SQL 分割資料表](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md)。
+ > [AZURE.NOTE] 如需加快大型資料的載入速度，建議您建立分割資料表並大量平行匯入資料。如需詳細資訊，請參閱[平行資料匯入至 SQL 分割資料表](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md)。
 
 5.  視需要瀏覽資料並建立功能。請注意，功能在資料庫資料表中無需具體化。僅注意建立這些功能的必要查詢。
 
@@ -208,7 +208,7 @@
 
 	f.如果需要資料表聯結，請建立索引以加速聯結。
 
-> [AZURE.NOTE]如需加快大型資料的載入速度，請建立分割資料表並大量平行匯入資料。如需詳細資訊，請參閱[平行資料匯入至 SQL 分割資料表](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md)。
+> [AZURE.NOTE] 如需加快大型資料的載入速度，請建立分割資料表並大量平行匯入資料。如需詳細資訊，請參閱[平行資料匯入至 SQL 分割資料表](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md)。
 
 5.  視需要瀏覽資料並建立功能。請注意，功能在資料庫資料表中無需具體化。僅注意建立這些功能的必要查詢。
 
@@ -264,7 +264,7 @@
 
     d.執行 Hive 查詢以建立資料庫和資料表，並將資料從 Blob 儲存體載入 Hive 資料表。
 
- 	> [AZURE.NOTE]如果資料太大，使用者可以建立包含分割區的 Hive 資料表接著，使用者可以在前端節點上的 Hadoop 命令列中使用 `for` 迴圈，以將資料載入使用資料分割的 Hive 分割資料表。
+ 	> [AZURE.NOTE] 如果資料太大，使用者可以建立包含分割區的 Hive 資料表接著，使用者可以在前端節點上的 Hadoop 命令列中使用 `for` 迴圈，以將資料載入使用資料分割的 Hive 分割資料表。
 
 6.  在 Hadoop 命令列中，視需要瀏覽資料並建立功能。請注意，功能在資料庫資料表中無需具體化。僅注意建立這些功能的必要查詢。
 
@@ -314,4 +314,4 @@
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

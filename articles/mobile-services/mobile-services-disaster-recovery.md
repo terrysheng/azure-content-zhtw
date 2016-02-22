@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/07/2016"
 	ms.author="christopheranderson"/>
 
 # 發生災害時回復行動服務
@@ -59,9 +59,9 @@
 
 4. 現在您可以使用次要服務來回復主要服務。
 
-	> [AZURE.IMPORTANT]除了移轉檔案，移轉命令也會更新主要服務的主機名稱以指向次要服務，用戶端應用程式便不需要進行更新。不過，主機名稱需要 30 分鐘的時間才能解析成新的服務。基於這個理由，建議只有在嚴重損壞修復案例中使用移轉命令。
+	> [AZURE.IMPORTANT] 除了移轉檔案，移轉命令也會更新主要服務的主機名稱以指向次要服務，用戶端應用程式便不需要進行更新。不過，主機名稱需要 30 分鐘的時間才能解析成新的服務。基於這個理由，建議只有在嚴重損壞修復案例中使用移轉命令。
 
-	> [AZURE.IMPORTANT]執行此步驟中的命令時，將會刪除次要服務，所以其容量可用來回復主要服務。執行命令之前，建議您先備份指令碼和設定 (若想要保留的話)。
+	> [AZURE.IMPORTANT] 執行此步驟中的命令時，將會刪除次要服務，所以其容量可用來回復主要服務。執行命令之前，建議您先備份指令碼和設定 (若想要保留的話)。
 
 	準備好時，請執行此命令：
 
@@ -74,7 +74,7 @@
 		info:    Migration complete. It may take 30 minutes for DNS to resolve to the migrated site.
 		info:    mobile migrate command OK
 
-    > [AZURE.NOTE]命令執行完後可能需要一些時間，才能在 Azure 傳統入口網站中看到變更。
+    > [AZURE.NOTE] 命令執行完後可能需要一些時間，才能在 Azure 傳統入口網站中看到變更。
 
 5. 與原始檔控制中的原始版本比較，以確認所有指令碼都已正確回復。在大部分情況下，指令碼會自動回復而不會遺失資料，但如果您發現有不一致之處，則可以手動回復該指令碼。
 
@@ -114,4 +114,4 @@
 [Azure 服務儀表板]: http://www.windowsazure.com/support/service-dashboard/
 [使用 Azure CLI 來自動化行動服務]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

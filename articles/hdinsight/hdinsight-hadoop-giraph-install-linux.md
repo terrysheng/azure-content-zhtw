@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # 在 HDInsight Hadoop 叢集上安裝 Giraph，以及使用 Giraph 來處理大規模圖形
@@ -23,7 +23,7 @@
 
 在本主題中，您將學習如何使用指令碼動作來安裝 Giraph。一旦您已安裝 Giraph，您也將了解如何將 Giraph 用於大部分的一般應用程式，也就是處理大型的圖形。
 
-> [AZURE.NOTE]本文的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需使用以 Windows 為基礎的叢集的詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝 Giraph (Windows)](hdinsight-hadoop-giraph-install.md)。
+> [AZURE.NOTE] 本文的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需使用以 Windows 為基礎的叢集的詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝 Giraph (Windows)](hdinsight-hadoop-giraph-install.md)。
 
 ## <a name="whatis"></a>什麼是 Giraph？
 
@@ -44,11 +44,11 @@
 
 您可以從一個唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Giraph 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh)。本節提供有關如何在使用 Azure 傳統入口網站建立叢集時使用範例指令碼的指示。
 
-> [AZURE.NOTE]您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+> [AZURE.NOTE] 您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 1. 使用[建立以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中的步驟開始建立叢集，但是不完成建立。
 
-2. 在 [選用組態] 刀鋒視窗中，選取 [指令碼動作]，並提供下列資訊：
+2. 在 [選用設定] 刀鋒視窗中，選取 [指令碼動作]，並提供下列資訊：
 
 	* __名稱__：輸入指令碼動作的易記名稱。
 	* __指令碼 URI__：https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
@@ -152,4 +152,4 @@
 
 - [在 HDInsight 叢集上安裝 Solr](hdinsight-hadoop-solr-install-linux.md)。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Solr。Solr 可讓您在儲存的資料上執行功能強大的搜尋作業。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

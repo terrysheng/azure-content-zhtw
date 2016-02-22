@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
@@ -21,7 +21,7 @@
 # 疑難排解應用程式 Proxy
 
 
-> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
+> [AZURE.NOTE] 應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
 如果在存取已發佈的應用程式或發佈應用程式時發生錯誤，請檢查下列選項以查看 Microsoft Azure AD 應用程式 Proxy 是否運作正常︰
 
@@ -90,8 +90,14 @@
 - [查閱應用程式 Proxy 部落格](http://blogs.technet.com/b/applicationproxyblog/)
 - [觀看我們在 Channel 9 上的影片！](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
+## 其他資源
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [以組織方式註冊 Azure](sign-up-organization.md)
+- [Azure 身分識別](fundamentals-identity.md)
+
+
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #使用 HDInsight Tools for Visual Studio 執行 Hive 查詢
@@ -23,7 +23,7 @@
 
 在本文中，您將學習如何使用 HDInsight Tools for Visual Studio，將 Hive 查詢提交至 HDInsight 叢集。
 
-> [AZURE.NOTE]本文件不提供範例中使用的 HiveQL 陳述式所執行的工作詳細的描述。如需此範例中使用的 HiveQL 的相關資訊，請參閱[在 HDInsight 上搭配 Hadoop 使用 Hive](hdinsight-use-hive.md)。
+> [AZURE.NOTE] 本文件不提供範例中使用的 HiveQL 陳述式所執行的工作詳細的描述。如需此範例中使用的 HiveQL 的相關資訊，請參閱[在 HDInsight 上搭配 Hadoop 使用 Hive](hdinsight-use-hive.md)。
 
 ##<a id="prereq"></a>必要條件
 
@@ -50,7 +50,7 @@
     * **DROP TABLE**：刪除資料表和資料檔 (如果資料表已存在)。
     * **CREATE EXTERNAL TABLE**：在 Hive 中建立新的「外部」資料表。外部資料表只會在 Hive 中儲存資料表定義 (資料會保留在原始位置)。
 
-        > [AZURE.NOTE]當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
+        > [AZURE.NOTE] 當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
         >
         > 捨棄外部資料表並**不會**刪除資料，只會刪除資料表定義。
 
@@ -74,7 +74,7 @@
 
     * **CREATE TABLE IF NOT EXISTS**：建立資料表 (如果不存在)。因為未使用 **EXTERNAL** 關鍵字，所以這是內部資料表，而內部資料表儲存在 Hive 資料倉儲中，並完全透過 Hive 來管理。
 
-        > [AZURE.NOTE]與 **EXTERNAL** 資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
+        > [AZURE.NOTE] 與 **EXTERNAL** 資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
 
     * **STORED AS ORC**：以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。這是高度最佳化且有效率的 Hive 資料儲存格式。
     * **INSERT OVERWRITE ...SELECT**：從包含 **[ERROR]** 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表
@@ -135,4 +135,4 @@
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

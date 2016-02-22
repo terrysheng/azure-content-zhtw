@@ -252,11 +252,11 @@
 
 Azure App Service 與 Azure CDN 或 Azure 雲端服務與 Azure CDN 整合將帶給您下列好處：
 
-- 將內容部署 (影像、程式碼和樣式表) 整合至 Azure Web 應用程式的[連續部署](../web-sites-publish-source-control.md)程序中
+- 將內容部署 (影像、程式碼和樣式表) 整合至 Azure Web 應用程式的[連續部署](../app-service-web/web-sites-publish-source-control.md)程序中
 - 輕鬆地升級 CDN 提供的 NuGet 套件，例如 jQuery 或 Bootstrap 版本 
 - 從相同的 Visual Studio 介面來管理 Web 應用程式和 CDN 提供的內容
 
-如需相關教學課程，請參閱：- 「[在 Azure App Service 中使用 Azure CDN](../cdn-websites-with-cdn.md)」(英文) - [雲端服務整合 Azure CDN](cdn-cloud-service-with-cdn.md) (英文)
+如需相關教學課程，請參閱：- 「[在 Azure App Service 中使用 Azure CDN](../app-service-web/cdn-websites-with-cdn.md)」(英文) - [雲端服務整合 Azure CDN](cdn-cloud-service-with-cdn.md) (英文)
 
 即使未與 Azure App Service Web Apps 或 Azure 雲端服務整合，還是可以對指令碼套件組合使用 Azure CDN，但要注意下列幾點：
 
@@ -267,10 +267,10 @@ Azure App Service 與 Azure CDN 或 Azure 雲端服務與 Azure CDN 整合將帶
 
 ## 相關資訊 ##
 - [Azure 內容傳遞網路 (CDN) 概觀](cdn-overview.md)
-- [在 Azure App Service 中使用 Azure CDN](../cdn-websites-with-cdn.md)
+- [在 Azure App Service 中使用 Azure CDN](../app-service-web/cdn-websites-with-cdn.md)
 - [整合雲端服務與 Azure CDN](cdn-cloud-service-with-cdn.md)
 - [如何將內容傳遞網路 (CDN) 內容對應至自訂網域](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [使用 Azure 的 CDN](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

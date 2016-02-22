@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/04/2015"
+    ms.date="02/05/2016"
     ms.author="larryfr"/>
 
 # 使用 HDInsight 開發指令碼動作
 
 指令碼動作是自訂 Azure HDInsight 叢集的方式，方法是在安裝期間指定叢集組態設定，或者在叢集上安裝額外服務、工具或其他軟體。
 
-> [AZURE.NOTE]本文件的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需有關搭配以 Windows 為基礎的叢集使用指令碼動作的詳細資訊，請參閱[使用 HDInsight 進行指令碼動作開發 (Windows)](hdinsight-hadoop-script-actions.md)。
+> [AZURE.NOTE] 本文件的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需有關搭配以 Windows 為基礎的叢集使用指令碼動作的詳細資訊，請參閱[使用 HDInsight 進行指令碼動作開發 (Windows)](hdinsight-hadoop-script-actions.md)。
 
 ## 什麼是指令碼動作？
 
@@ -43,7 +43,7 @@
 - [將資訊寫入至 STDOUT 和 STDERR](#bPS7)
 - [將檔案儲存為具有 LF 行尾結束符號的 ASCII](#bps8)
 
-> [AZURE.IMPORTANT]指令碼動作必須在 60 分鐘內完成，否則就會逾時。在節點佈建期間，會同時執行指令碼與其他安裝和設定程序。與在您開發環境中的執行時間相較，爭用 CPU 時間和網路頻寬等資源可能會導致指令碼需要較長的時間才能完成。
+> [AZURE.IMPORTANT] 指令碼動作必須在 60 分鐘內完成，否則就會逾時。在節點佈建期間，會同時執行指令碼與其他安裝和設定程序。與在您開發環境中的執行時間相較，爭用 CPU 時間和網路頻寬等資源可能會導致指令碼需要較長的時間才能完成。
 
 ### <a name="bPS1"></a>目標 Hadoop 版本
 
@@ -55,7 +55,7 @@
 
 最佳做法是下載並封存您的訂用帳戶上 Azure 儲存體帳戶中的所有項目。
 
-> [AZURE.IMPORTANT]使用的儲存體帳戶必須是叢集的預設儲存體帳戶，或是位於其他任何儲存體帳戶上的公用唯讀容器。
+> [AZURE.IMPORTANT] 使用的儲存體帳戶必須是叢集的預設儲存體帳戶，或是位於其他任何儲存體帳戶上的公用唯讀容器。
 
 例如，Microsoft 所提供的範例會儲存在 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 儲存體帳戶，這是 HDInsight 小組維護的公用、唯讀容器。
 
@@ -73,7 +73,7 @@
 
 以 Linux 為基礎的 HDInsight 叢集提供在叢集中是作用中的兩個前端節點，且指令碼動作會針對兩個節點執行。如果您安裝的元件預期只有一個前端節點，您必須設計指令碼，它只會在叢集中兩個前端節點之一安裝元件。
 
-> [AZURE.IMPORTANT]安裝為 HDInsight 一部分的預設服務是被設計來視需要在兩個前端節點之間容錯移轉，但是此功能未擴充至透過指令碼動作安裝的自訂元件。如果您需要讓透過指令碼動作安裝的元件高度可用，您必須實作您自己的容錯移轉機制，該機制使用兩個可用的前端節點。
+> [AZURE.IMPORTANT] 安裝為 HDInsight 一部分的預設服務是被設計來視需要在兩個前端節點之間容錯移轉，但是此功能未擴充至透過指令碼動作安裝的自訂元件。如果您需要讓透過指令碼動作安裝的元件高度可用，您必須實作您自己的容錯移轉機制，該機制使用兩個可用的前端節點。
 
 ### <a name="bPS6"></a>設定自訂元件來使用 Azure Blob 儲存體
 
@@ -131,7 +131,7 @@ Bash 指令碼應該儲存為 ASCII 格式，該格式以 LF 做為行尾結束�
 
 在某些情況下，您的指令碼可能需要參數。例如，您可能需要叢集的系統管理員密碼，以從 Ambari REST API 擷取資訊。
 
-傳遞至指令碼的參數稱為「位置參數」，並且指派給 `$1` 作為第一個參數，指派給 `$2` 作為第二個參數，依此類推。`$0` 包含指令碼本身的名稱。
+傳遞至指令碼的參數稱為「位置參數」，並且指派至 `$1` 作為第一個參數，指派至 `$2` 作為第二個參數，依此類推。`$0` 包含指令碼本身的名稱。
 
 傳遞至指令碼做為參數的值應該加上單引號 (')，以便傳遞的值會被視為常值，並且不會給予特殊處理方式以包含如 '!' 的字元。
 
@@ -183,7 +183,7 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。您�
 - [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install-linux.md)
 - [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)  
 
-> [AZURE.NOTE]以上的連結文件是針對以 Linux 為基礎的 HDInsight 叢集。對於使用以 Windows 為基礎的 HDInsight 的指令碼，請參閱[使用 HDInsight 開發指令碼動作 (Windows)](hdinsight-hadoop-script-actions.md) 或使用每篇文章頂端的可用連結。
+> [AZURE.NOTE] 以上的連結文件是針對以 Linux 為基礎的 HDInsight 叢集。對於使用以 Windows 為基礎的 HDInsight 的指令碼，請參閱[使用 HDInsight 開發指令碼動作 (Windows)](hdinsight-hadoop-script-actions.md) 或使用每篇文章頂端的可用連結。
 
 ##疑難排解
 
@@ -197,7 +197,7 @@ __錯誤__：`$'\r': command not found`。有時候後面接續 `syntax error: u
 
 解決方式：如果您的文字編輯器提供選項，請選取 Unix 格式或 LF 作為行尾結束符號。您也可以在 Unix 系統上使用下列命令，將 CRLF 變更為 LF：
 
-> [AZURE.NOTE]下列命令大致相當於將 CRLF 行尾結束符號變更為 LF。根據您的系統上可用的公用程式，選取其中一個。
+> [AZURE.NOTE] 下列命令大致相當於將 CRLF 行尾結束符號變更為 LF。根據您的系統上可用的公用程式，選取其中一個。
 
 | 命令 | 注意事項 |
 | ------- | ----- |
@@ -220,4 +220,4 @@ _解決方式_：將檔案儲存為 ASCII，或不具有 BOM 的 UTF-8。您也�
 
 [使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

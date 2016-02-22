@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="10/05/2015"
+	ms.date="01/22/2016"
 	ms.author="wesmc"/>
 
 # 將推播通知新增至 Xamarin.Forms 應用程式
@@ -68,7 +68,7 @@
 
   	這會建立含預設權限集的新儲存資料表 **TodoItem**，這表示應用程式的任何使用者都可以存取與變更該資料表中的資料。
 
-    > [AZURE.NOTE]行動服務快速入門中使用相同的資料表名稱。However, each table is created in a schema that is specific to a given mobile service.目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。
+    > [AZURE.NOTE] 行動服務快速入門中使用相同的資料表名稱。However, each table is created in a schema that is specific to a given mobile service.目的是為了防止多個行動服務使用相同資料庫時產生資料衝突。
 
 4. 按一下新的 **TodoItem** 資料表，並驗證其中不含資料列。
 
@@ -76,7 +76,7 @@
 
   	此為行動服務資料表的最低需求。
 
-    > [AZURE.NOTE]若您的行動服務啟用動態結構描述，當行動服務透過插入或更新操作收到 JSON 物件時，便會自動建立新資料行。
+    > [AZURE.NOTE] 若您的行動服務啟用動態結構描述，當行動服務透過插入或更新操作收到 JSON 物件時，便會自動建立新資料行。
 
 現在您已準備好將新的行動服務作為應用程式的資料儲存區使用。
 
@@ -93,7 +93,7 @@
 
 您將使用 Apple Push Notification 服務 (APNS)，將推播通知加入至 iOS 應用程式。您需要作用中的 Google 帳戶和 [Google 雲端通訊用戶端元件]。
 
->[AZURE.IMPORTANT]基於 Apple Push Notification 服務 (APNS) 需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
+>[AZURE.IMPORTANT] 基於 Apple Push Notification 服務 (APNS) 需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
 APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的憑證，並將憑證上傳至您的行動服務。如需正式的 APNS 功能文件，請參閱 [Apple 推播通知服務] (英文)。
 
@@ -290,7 +290,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
             _deviceToken = _deviceToken.Trim('<', '>').Replace(" ", "");
 
             // Get Mobile Services client
-            MobileServiceClient client = todoItemManager.GetClient;
+            MobileServiceClient client = todoItemManager.GetClient();
 
             // Register for push with Mobile Services
             IEnumerable<string> tag = new List<string>() { "uniqueTag" };
@@ -302,7 +302,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
             var push = client.GetPush();
 
-            push.RegisterTemplateAsync(_deviceToken, template, expiryDate, "myTemplate", tag)
+            push.RegisterTemplateAsync(_deviceToken, template, expiryDate, "myTemplate", tag);
         }
 
 7. 在 **AppDelegate** 中，覆寫 **ReceivedRemoteNotification** 事件：
@@ -363,13 +363,13 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
     如此即會註冊新的插入指令碼，該指令碼會將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。
 
-   >[AZURE.NOTE]此指令碼會延遲通知的傳送，讓您有時間關閉應用程式來接收快顯通知。
+   >[AZURE.NOTE] 此指令碼會延遲通知的傳送，讓您有時間關閉應用程式來接收快顯通知。
 
 ### <a name="test"></a>在應用程式中測試推播通知
 
 1. 按 [執行] 按鈕以組建專案並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [確定] 以接受推播通知。
 
-   >[AZURE.NOTE]您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
+   >[AZURE.NOTE] 您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
 
 2. 在應用程式中，按一下 [新增] 按鈕、新增工作標題，然後按一下 [儲存] 按鈕。
 
@@ -392,7 +392,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 ###<a id="update-scripts"></a>更新註冊的插入指令碼以傳送通知
 
->[AZURE.NOTE]下列步驟示範如何在 Azure 傳統入口網站中對 TodoItem 資料表上的插入作業更新註冊的指令碼。您也可以直接在 Visual Studio 之伺服器總管的 Azure 節點中，直接存取和編輯此行動服務指令碼。
+>[AZURE.NOTE] 下列步驟示範如何在 Azure 傳統入口網站中對 TodoItem 資料表上的插入作業更新註冊的指令碼。您也可以直接在 Visual Studio 之伺服器總管的 Azure 節點中，直接存取和編輯此行動服務指令碼。
 
 在 [Azure 傳統入口網站]中，按一下 [資料] 索引標籤，然後按一下 [TodoItem] 資料表。
 
@@ -402,7 +402,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
    ![][22]
 
-    This displays the function that is invoked when an insert occurs in the **TodoItem** table.
+這會顯示 [TodoItem] 資料表中發生插入時所叫用的函數。
 
 3. 使用下列程式碼來取代 insert 函數，然後按一下 **[儲存]**：
 
@@ -434,7 +434,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
     如此即會註冊新的插入指令碼，該指令碼會將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。
 
-   >[AZURE.NOTE]此指令碼會延遲通知的傳送，讓您有時間關閉應用程式來接收快顯通知。
+   >[AZURE.NOTE] 此指令碼會延遲通知的傳送，讓您有時間關閉應用程式來接收快顯通知。
 
 
 ###<a id="configure-app"></a>設定用於推播通知的現有專案
@@ -539,6 +539,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
             MainActivity.DefaultService.RunOnUiThread(() => Register(push, null));
 
         }
+
         public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
         {
             try
@@ -618,9 +619,14 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 12. 加入下列方法覆寫編譯專案所需的 **OnUnRegistered()** 與 **OnError()**。
 
+		protected override void OnUnRegistered(Context context, string registrationId)
+		{
+			Log.Error("GcmService", "Unregistered RegisterationId : " + registrationId);
+		}
+
         protected override void OnError(Context context, string errorId)
         {
-              Log.Error(PushHandlerBroadcastReceiver.TAG, "GCM Error: " + errorId);
+            Log.Error(PushHandlerBroadcastReceiver.TAG, "GCM Error: " + errorId);
         }
 
 ###<a id="test"></a>在應用程式中測試推播通知
@@ -629,7 +635,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 當您在模擬器中執行此應用程式時，請務必使用支援 Google API 的 Android 虛擬裝置 (AVD)。
 
-> [AZURE.IMPORTANT]若要接收推播通知，您必須在您的 Android 虛擬裝置上設定 Google 帳戶 (在模擬器中，瀏覽到 [設定]，並按一下 [新增帳戶])。另外，確定模擬器已連線到網際網路。
+> [AZURE.IMPORTANT] 若要接收推播通知，您必須在您的 Android 虛擬裝置上設定 Google 帳戶 (在模擬器中，瀏覽到 [設定]，並按一下 [新增帳戶])。另外，確定模擬器已連線到網際網路。
 
 1. 從 [工具] 中，按一下 [Open Android Emulator Manager]，選取您的裝置，然後按一下 [Edit]。
 
@@ -762,7 +768,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 1. 在 Visual Studio 中，按 F5 鍵以執行此應用程式。
 
-    >[AZURE.NOTE]在 Windows Phone 模擬器上測試時，可能會發生 401 未授權的 RegistrationAuthorizationException。因為 Windows Phone 模擬器將其時鐘與主機電腦同步的方式，可能會在 `RegisterNativeAsync()` 呼叫期間發生這種情形。這樣可能會產生將被拒絕的安全性權杖。若要解決這個問題，只要在測試之前，手動設定模擬器中的時鐘即可。
+    >[AZURE.NOTE] 在 Windows Phone 模擬器上測試時，可能會發生 401 未授權的 RegistrationAuthorizationException。因為 Windows Phone 模擬器將其時鐘與主機電腦同步的方式，可能會在 `RegisterNativeAsync()` 呼叫期間發生這種情形。這樣可能會產生將被拒絕的安全性權杖。若要解決這個問題，只要在測試之前，手動設定模擬器中的時鐘即可。
 
 5. 在應用程式中，建立標題為 **Hello push** 的新工作，然後立即按一下啟動按鈕或返回按鈕，以離開應用程式。
 
@@ -851,4 +857,4 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 [Xamarin.Forms Azure 推播通知入門範例]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [完整的 Xamarin.Forms Azure 推播通知範例]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -22,7 +22,7 @@
 ## 根據本教學課程所建立的範例
 本教學課程描述**使用 BizTalk 服務傳送 EDIFACT 發票**的範例，您可以從 [MSDN 程式碼資源庫](http://go.microsoft.com/fwlink/?LinkId=401005)下載此範例。您可以使用此範例來完成本教學課程，以了解此範例的建置方式。或者，您可以使用本教學課程從頭建立自己的方案。本教學課程鎖定第二種方法，以便您能夠了解此方案的建置方式。此外，本教學課程會盡可能與範例保持一致，並對構件使用範例中所使用的相同名稱 (例如，結構描述、轉換)。
 
->[AZURE.NOTE]此方案牽涉到從 EAI 橋接器傳送訊息至 EDI 橋接器，因此會重複使用 [BizTalk 服務橋接器鏈結範例](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104)的範例。
+>[AZURE.NOTE] 此方案牽涉到從 EAI 橋接器傳送訊息至 EDI 橋接器，因此會重複使用 [BizTalk 服務橋接器鏈結範例](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104)的範例。
 
 ## 此方案有哪些功能？
 
@@ -40,7 +40,7 @@
 
 *   接收到發票之後，Northwind 回傳 CONTRL 訊息給部署為協議一部分的 EDI 接收橋接器。
 
-> [AZURE.NOTE]\(選擇性) 此方案也會示範如何使用批次功能來批次傳送發票，而不是個別傳送每張發票。
+> [AZURE.NOTE] (選擇性) 此方案也會示範如何使用批次功能來批次傳送發票，而不是個別傳送每張發票。
 
 為了完成案例，我們使用服務匯流排佇列將發票從 Contoso 傳送至 Northwind，或從 Northwind 接收通知。這些佇列可以透過用戶端應用程式 (可經由下載取得) 來予以建立，並且會包含在本教學課程所提供的範例封裝中。
 
@@ -61,7 +61,7 @@
 
 *   **northwindreceive** – Northwind 透過此佇列從 Contoso 接收發票。
 
-*   **contosoreceive** – Contoso 透過此佇列從 Northwind 接收通知。
+*   **contosoreceive** - Contoso 透過此佇列從 Northwind 接收通知。
 
 *   **suspended** – 所有擱置的訊息會路由傳送至此佇列。如果訊息在處理期間失敗，則會加以擱置。
 
@@ -129,12 +129,11 @@
 
     4.  在 [路由] 索引標籤上，建立篩選器以確保只有來自 Northwind 的通知會路由傳送至 Contoso。在 [路由設定] 底下，按一下 [新增] 以建立路由篩選條件。
 
-        ![][6]  
-        1.  如上圖所示提供 [規則名稱]、[路由規則] 和 [路由目的地] 的值。
+        ![][6] 1.如上圖所示提供 [規則名稱]、[路由規則] 和 [路由目的地] 的值。
 
         2.  按一下 [儲存]。
 
-    5.  再次在 [路由] 索引標籤中，指定要將擱置的通知 (在處理期間失敗的通知) 傳送到哪裡。將傳輸類型設為 [Azure 服務匯流排]，將路由目的地類型設為 [佇列]，將驗證類型設為 \[共用存取簽章] (SAS)，提供服務匯流排命名空間的 SAS 連接字串，然後將佇列名稱輸入為 **suspended**。
+    5.  再次在 [路由] 索引標籤中，指定要將擱置的通知 (在處理期間失敗的通知) 傳送到哪裡。將傳輸類型設為 [Azure 服務匯流排]，將路由目的地類型設為 [佇列]，將驗證類型設為 [共用存取簽章] (SAS)，提供服務匯流排命名空間的 SAS 連接字串，然後將佇列名稱輸入為 **suspended**。
 
 5.  最後，按一下 [部署] 來部署協議。請記下傳送和接收協議部署所在的端點。
 
@@ -174,7 +173,7 @@
 
 7.  在 [方案總管] 中，展開 **MessageFlowItinerary.bcs** 並按兩下 **EDIBridge.config** 檔案。將 **EDIBridge.config** 的內容更換為下列程式碼。
 
-    > [AZURE.NOTE]為何需要編輯 .config 檔案？ 我們新增至橋接器設計工具畫布上的外部服務端點代表我們稍早部署的 EDI 橋接器。EDI 橋接器是具有傳送和接收端的雙向橋接器。不過，我們新增至橋接器設計工具的 EAI 橋接器是單向橋接器。因此，為了處理兩個橋接器的不同訊息交換模式，我們使用自訂的橋接器行為，將其設定納入 .config 檔案中。此外，自訂行為也會處理 EDI 傳送橋接器端點的驗證。這個自訂行為是可從 [BizTalk 服務橋接器鏈結範例 - EAI 到 EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) 取得的另一個範例。此方案重複使用該範例。
+    > [AZURE.NOTE] 為何需要編輯 .config 檔案？ 我們新增至橋接器設計工具畫布上的外部服務端點代表我們稍早部署的 EDI 橋接器。EDI 橋接器是具有傳送和接收端的雙向橋接器。不過，我們新增至橋接器設計工具的 EAI 橋接器是單向橋接器。因此，為了處理兩個橋接器的不同訊息交換模式，我們使用自訂的橋接器行為，將其設定納入 .config 檔案中。此外，自訂行為也會處理 EDI 傳送橋接器端點的驗證。這個自訂行為是可從 [BizTalk 服務橋接器鏈結範例 - EAI 到 EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) 取得的另一個範例。此方案重複使用該範例。
     
     ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -240,7 +239,7 @@
 
 2.  在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下 **InvoiceProcessingBridge** 專案，然後按一下 [部署]。
 
-3.  提供如下圖所示的值，然後按一下 [部署]。您可以從 BizTalk 服務儀表板按一下 [連接資訊]，以取得 BizTalk 服務的 ACS 認證。
+3.  提供如下圖所示的值，然後按一下 [部署]。您可以從「BizTalk 服務」儀表板按一下 [連接資訊]，以取得「BizTalk 服務」的 ACS 認證。
 
     ![][11]
 
@@ -313,4 +312,4 @@ BizTalk 服務 EDI 橋接器也支援批次處理傳出訊息。對於想要接�
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

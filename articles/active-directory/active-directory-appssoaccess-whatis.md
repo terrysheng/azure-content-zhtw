@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser-msft"/>
 
 #什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？
@@ -80,7 +80,7 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
 
 若是密碼 SSO，則使用者的瀏覽器可以是：
 
-- Internet Explorer 8、9 和 10 -- Windows 7 或更新版本 (請參閱 [IE 擴充功能部署指南](active-directory-saas-ie-group-policy.md))
+- Internet Explorer 8、9、10、11 -- Windows 7 或更新版本 (另請參閱 [IE 擴充功能部署指南](active-directory-saas-ie-group-policy.md))
 - Chrome - 在 Windows 7 或更新版本，和在 MacOS X 或更新版本上
 - Firefox 26.0 或更新版本 - 在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上
 
@@ -210,7 +210,14 @@ Azure AD 也支援對支援密碼單一登入、現有單一登入，以及任�
 
 這些連結使用與存取面板和 Office 365 相同的存取控制機制，只有在 Azure 管理入口網站中已指派到應用程式的使用者或群組能夠順利通過驗證。不過，任何未經授權的使用者都會看到一個訊息，說明他們未獲得存取權，且會獲得一個載入存取面板的連結，以檢視可存取的應用程式。
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##相關文章
+
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
+- [使用 Cloud App Discovery 尋找未經約束的雲端應用程式](active-directory-cloudappdiscovery-whatis.md)
+- [管理應用程式存取簡介](active-directory-managing-access-to-apps.md)
+- [比較 Azure AD 中管理外部身分識別的功能](active-directory-b2b-compare-external-identities.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.png
@@ -220,4 +227,4 @@ Azure AD 也支援對支援密碼單一登入、現有單一登入，以及任�
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

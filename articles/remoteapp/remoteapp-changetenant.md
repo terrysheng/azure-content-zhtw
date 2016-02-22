@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/04/2015"
+    ms.date="02/05/2016"
     ms.author="elizapo" />
 
 
@@ -22,7 +22,7 @@
 
 Azure RemoteApp 使用 Azure Active Directory (Azure AD) 以允許使用者存取權。您在 Azure RemoteApp 中只能使用與 Azure 訂閱相關聯的 Azure AD 租用戶。您可以在入口網站的 [設定] 頁面上檢視相關聯的訂閱。查看 [訂閱] 索引標籤上的 [目錄] 資料行。
 
-> [AZURE.NOTE]此變更若要成功，首先從所有 Azure RemoteApp 集合移除現有 Azure Active Directory 租用戶中的所有使用者。若要這樣做，請移至 Azure 入口網站，並移至 [Azure RemoteApp] 索引標籤，然後開啟每個 Azure RemoteApp 集合。移至 [使用者] 索引標籤，並移除屬於您目前 Azure Active Directory 租用戶的使用者。針對所有現有 Azure RemoteApp 集合重複進行。不這麼做，您將無法建立或修正集合。
+> [AZURE.NOTE] 此變更若要成功，首先從所有 Azure RemoteApp 集合移除現有 Azure Active Directory 租用戶中的所有使用者。若要這樣做，請移至 Azure 入口網站，並移至 [Azure RemoteApp] 索引標籤，然後開啟每個 Azure RemoteApp 集合。移至 [使用者] 索引標籤，並移除屬於您目前 Azure Active Directory 租用戶的使用者。針對所有現有 Azure RemoteApp 集合重複進行。不這麼做，您將無法建立或修正集合。
 
 如果您想要使用不同的租用戶，請使用下列步驟來變更訂閱的關聯：
 
@@ -47,4 +47,4 @@ Azure RemoteApp 使用 Azure Active Directory (Azure AD) 以允許使用者存�
 
 您現在可以使用新的 Azure AD 租用戶來控制 Azure 訂用帳戶的存取權，以及在 Azure RemoteApp 中設定使用者存取權。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="02/03/2016"
 	ms.author="cynthn"/>
 
 
@@ -52,7 +52,10 @@
 若要在獨立雲端服務中連接虛擬機器：
 
 1.	在 [Azure 傳統入口網站](http://manage.windowsazure.com)中建立雲端服務。按一下 [**新增 > 計算 > 雲端服務 > 自訂建立**]。或者，當您建立第一部虛擬機器時，您可以為您的部署建立雲端服務。
-2.	當您建立虛擬機器時，請選擇在上一個步驟中建立的雲端服務名稱。![將虛擬機器加入至現有的雲端服務。](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
+
+2.	建立虛擬機器時，請選擇在上一個步驟中所建立雲端服務的名稱。
+
+	![將虛擬機器加入至現有的雲端服務。](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
 ##資源
 [虛擬機器負載平衡](load-balance-virtual-machines.md)
@@ -65,4 +68,4 @@
 
 [如何將資料磁碟連接至 Windows 虛擬機器](storage-windows-attach-disk.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="07/30/2015"
+      ms.date="02/09/2016"
       ms.author="shoatman"/>
 
 # 將應用程式加入至 Azure AD 的方式和原因
@@ -142,8 +142,12 @@
 * IT 專業人員：[尋找設定特定預先整合應用程式的教學課程](https://msdn.microsoft.com/library/azure/dn893637.aspx)
 * IT 專業人員：[了解如何使用 Azure Active Directory 應用程式 Proxy 發佈應用程式](https://msdn.microsoft.com/library/azure/dn768219.aspx)
 
+## 另請參閱
+
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+
 <!--Image references-->
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

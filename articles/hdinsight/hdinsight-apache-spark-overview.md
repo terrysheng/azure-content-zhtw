@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
 # 概觀：Azure HDInsight 上的 Apache Spark (Linux)
@@ -28,7 +28,7 @@
 
 **想要開始使用 Azure HDInsight 上的 Apache Spark 嗎？** 請參閱[快速入門：在 HDInsight Linux 上建立 Spark 叢集，並利用 Jupyter 來執行範例應用程式](hdinsight-apache-spark-jupyter-spark-sql.md)。
 
->[AZURE.NOTE]如需目前版本的已知問題及限制清單，請參閱 [Azure HDInsight 中 Apache Spark 的已知問題及限制](hdinsight-apache-spark-jupyter-spark-sql.md)。
+>[AZURE.NOTE] 如需目前版本的已知問題及限制清單，請參閱 [Azure HDInsight 中 Apache Spark 的已知問題及限制](hdinsight-apache-spark-jupyter-spark-sql.md)。
 
 
 ## 為什麼要使用 Azure HDInsight 上的 Spark？ 
@@ -93,11 +93,11 @@ HDInsight 中的 Spark 也提供 [ODBC 驅動程式](http://go.microsoft.com/fwl
 
 ### 案例
 
-* [Spark 和 BI：搭配 BI 工具來使用 HDInsight 中的 Spark 以執行互動式資料分析](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Spark 和機器學習：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark 和機器學習服務：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Spark 和機器學習：使用 HDInsight 中的 Spark 來預測食物檢查結果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
 * [Spark 串流：使用 HDInsight 中的 Spark 來建置即時串流應用程式](hdinsight-apache-spark-eventhub-streaming.md)
 
@@ -105,15 +105,17 @@ HDInsight 中的 Spark 也提供 [ODBC 驅動程式](http://go.microsoft.com/fwl
 
 ### 建立及執行應用程式
 
-* [使用 Scala 來建立獨立的應用程式](hdinsight-apache-spark-create-standalone-application.md)
+* [使用 Scala 建立獨立應用程式](hdinsight-apache-spark-create-standalone-application.md)
 
-* [利用 Livy 在 Spark 叢集上遠端執行工作](hdinsight-apache-spark-livy-rest-interface.md)
+* [利用 Livy 在 Spark 叢集上遠端執行作業](hdinsight-apache-spark-livy-rest-interface.md)
 
-### 擴充功能
+### 工具和擴充功能
+
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons (使用 IntelliJ IDEA 的 HDInsight Tools 外掛程式來建立和提交 Spark Scala 應用程式)](hdinsight-apache-spark-intellij-tool-plugin.md)
 
 * [利用 HDInsight 上的 Spark 叢集來使用 Zeppelin Notebook](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [HDInsight 的 Spark 叢集中之 Jupyter Notebook 可用的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [HDInsight 的 Spark 叢集中 Jupyter Notebook 可用的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
 ### 管理資源
 
@@ -122,4 +124,4 @@ HDInsight 中的 Spark 也提供 [ODBC 驅動程式](http://go.microsoft.com/fwl
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

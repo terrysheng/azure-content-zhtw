@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 # 使用 Azure AD 應用程式 Proxy 發佈應用程式
 
-> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
+> [AZURE.NOTE] 應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
 啟用 Microsoft Azure Active Directory (AD) 應用程式 Proxy 之後，您就可以發佈應用程式，以供您私人網路外部的使用者存取。
 
 本文會逐步引導您在您要從網路外部啟用安全遠端存取的區域網路上，發佈所執行的應用程式。
 
-> [AZURE.NOTE]若要確認連接器正常執行，您發佈的第一個應用程式應該是可從您的私人網路內部存取的任何網站，以確保使用者可以從網際網路存取該應用程式，然後再發佈實際的應用程式。
+> [AZURE.NOTE] 若要確認連接器正常執行，您發佈的第一個應用程式應該是可從您的私人網路內部存取的任何網站，以確保使用者可以從網際網路存取該應用程式，然後再發佈實際的應用程式。
 
 
 ## 使用精靈發佈應用程式
@@ -48,7 +48,7 @@
 | 外部 URL | 這是用來從私人網路外部存取應用程式的雲端服務的 URL。URL 會根據您所提供的名稱與後置詞 msappproxy.net 自動產生。 |
 | 預先驗證方法 | 設定您希望應用程式使用的預先驗證方法的類型：<br><br>a.Azure Active Directory – 當使用者嘗試存取應用程式時，應用程式 Proxy 會將使用者重新導向，以便使用將會驗證使用者的 Azure AD 登入，以確保使用者具有目錄和應用程式所需的權限。<br><br>b.通過 – 不執行預先驗證。 |
 | 外部 URL 通訊協定 | 根據預設，應用程式會使用 HTTPS 通訊協定發佈。此服務會自動重新導向輸入含 http 之 URL 的使用者。<br><br>若要為內部應用程式啟用 HTTP，您必須將預先驗證方法設定為 [通過]，然後您就可以將外部 URL 通訊協定從 HTTPS 變更為 HTTP。請注意，使用 HTTP 發佈應用程式可能會產生您的應用程式和使用者的安全性問題。<br><br>您可以插入自訂網域，而不是使用預設後置詞 msappproxy.net。如需詳細資訊，請參閱[使用自訂網域](active-directory-application-proxy-custom-domains.md)。 |
-| 內部 URL | 這是應用程式 Proxy 連接器在內部存取應用程式所使用的內部 URL。這應該是從您私人網路內部存取應用程式所使用的已發佈應用程式的 URL。這是有效的 URL，不含空格或符號。<br><br>您可以指定後端伺服器上要發佈的特定路徑，而伺服器的其餘部分則不發佈。例如，這可讓您發佈位於相同的 SharePoint 伺服器，但具有不同的名稱和存取規則的不同網站。<br><br>路徑指定於內部 URL 欄位中，而且將可在外部 URL 中看到。|
+| 內部 URL | 這是應用程式 Proxy 連接器在內部存取應用程式所使用的內部 URL。這應該是從您私人網路內部存取應用程式所使用的已發佈應用程式的 URL。這是有效的 URL，不含空格或符號。<br><br>您可以指定後端伺服器上要發佈的特定路徑，而伺服器的其餘部分則不發佈。例如，這可讓您發佈位於相同的 SharePoint 伺服器，但具有不同的名稱和存取規則的不同網站。<br><br>路徑指定於內部 URL 欄位中，而且將可在外部 URL 中看到。內部路徑和外部路徑必須相同。 |
 
   ![應用程式屬性](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties.png)
 
@@ -65,7 +65,7 @@
 
 3. 選取您要指派給這個應用程式的每個使用者或群組，然後按一下 [指派]。
 
-> [AZURE.NOTE]若是整合式 Windows 驗證應用程式，您可以僅指派從內部部署 Active Directory 同步的使用者及群組。您無法為使用 Azure Active Directory 應用程式 Proxy 發佈的應用程式，指派使用 Microsoft 帳戶和來賓登入的使用者。請確定您指派的使用者使用與您要發佈的應用程式屬於相同網域的認證登入。
+> [AZURE.NOTE] 若是整合式 Windows 驗證應用程式，您可以僅指派從內部部署 Active Directory 同步的使用者及群組。您無法為使用 Azure Active Directory 應用程式 Proxy 發佈的應用程式，指派使用 Microsoft 帳戶和來賓登入的使用者。請確定您指派的使用者使用與您要發佈的應用程式屬於相同網域的認證登入。
 
 
 ## 進階組態
@@ -111,7 +111,7 @@
 - [觀看我們在 Channel 9 上的影片！](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## 其他資源
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [關於 Kerberos 限制委派](http://technet.microsoft.com/library/cc995228.aspx)
 
-* [關於 Kerberos 限制委派](http://technet.microsoft.com/library/cc995228.aspx)
-
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

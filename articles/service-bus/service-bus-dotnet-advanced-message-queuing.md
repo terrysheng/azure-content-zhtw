@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 # 如何透過服務匯流排 .NET API 使用 AMQP 1.0
@@ -22,7 +22,7 @@
 
 在服務匯流排中支援 AMQP 1.0 代表您現在能夠從一組平台中使用有效率的二進位通訊協定，來運用佇列與發佈/訂閱代理傳訊功能。此外，您還可以建置使用混合語言、架構及作業系統所建置之元件所組成的應用程式。
 
-本文說明如何使用服務匯流排 .NET API，從 .NET 應用程式使用服務匯流排代理傳訊功能 (佇列和發佈/訂閱主題)。我們另備有說明如何使用標準 Java 訊息服務 (JMS) API 來進行相同操作的附屬文章。您可以同時使用這兩個指南了解使用 AMQP 1.0 的跨平台訊息。
+本文說明如何使用服務匯流排 .NET API，從 .NET 應用程式使用服務匯流排代理傳訊功能 (佇列和發佈/訂閱主題)。我們另備有說明如何使用標準 Java 訊息服務 (JMS) API 來進行相同操作的[附屬文章](service-bus-java-how-to-use-jms-api-amqp.md)。您可以同時使用這兩個指南了解使用 AMQP 1.0 的跨平台訊息。
 
 ## 開始使用服務匯流排
 
@@ -324,4 +324,4 @@ exit
  
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

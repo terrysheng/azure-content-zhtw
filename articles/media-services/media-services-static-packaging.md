@@ -19,7 +19,7 @@
 
 # 使用 Azure Media Packager 完成靜態封裝工作
 
->[AZURE.NOTE]Windows Azure Media Packager 和 Windows Azure Media Encryptor 的生命週期結束日已展延至 2017 年 3 月 1 日。在此日期之前，這些處理器的功能將會新增到媒體編碼器標準 (MES)。客戶將會收到有關如何移轉工作流程以傳送工作到 MES 的指示。格式轉換和加密功能也可透過動態封裝與動態加密進行。
+>[AZURE.NOTE]Microsoft Azure Media Packager 和 Microsoft Azure Media Encryptor 的生命週期結束日已展延至 2017 年 3 月 1 日。在此日期之前，這些處理器的功能將會新增到媒體編碼器標準 (MES)。客戶將會收到有關如何移轉工作流程以傳送工作到 MES 的指示。格式轉換和加密功能也可透過動態封裝與動態加密進行。
 
 ## 概觀
 
@@ -1447,4 +1447,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

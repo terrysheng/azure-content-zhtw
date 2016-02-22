@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016" 
+	ms.date="02/02/2016" 
 	ms.author="elizapo"/>
 
 # 如何為 Azure RemoteApp 建立自訂範本映像
@@ -46,7 +46,7 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 - [註冊](https://azure.microsoft.com/services/remoteapp/) RemoteApp。
 - 在 Active Directory 中建立使用者帳戶，以做為 RemoteApp 服務帳戶。限制此帳戶的權限，使其只能將機器加入網域中。如需詳細資訊，請參閱[設定 RemoteApp 的 Azure Active Directory](remoteapp-ad.md)。
 - 收集內部部署網路的相關資訊：IP 位址資訊和 VPN 裝置詳細資料。
-- 安裝 [Azure PowerShell](../install-configure-powershell.md) 模組。
+- 安裝 [Azure PowerShell](../powershell-install-configure.md) 模組。
 - 收集您想授與存取權之使用者的相關資訊。這可以是使用者 Microsoft 帳戶資訊或 Active Directory 工作帳戶資訊。
 
 
@@ -77,7 +77,7 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 
 			此作業會執行數秒。VHD 建立完成後，您會在 [磁碟管理] 主控台中看見不具任何磁碟機代號、狀態為「未初始化」的新磁碟。
 
-		- 以滑鼠右鍵按一下磁碟 (不是未配置的空間)，然後按一下 [初始化磁碟]。選取 [MBR] \(主開機記錄) 做為磁碟分割樣式，然後按一下 [確定]。
+		- 以滑鼠右鍵按一下磁碟 (不是未配置的空間)，然後按一下 [初始化磁碟]。選取 [MBR] (主開機記錄) 做為磁碟分割樣式，然後按一下 [確定]。
 		- 建立新的磁碟區： 以滑鼠右鍵按一下未配置的空間，然後按一下 [新增簡單磁碟區]。您可以接受精靈中的預設值，但請務必指派磁碟機代號，以避免在上傳範本映像時發生問題。
 		- 以滑鼠右鍵按一下磁碟，然後按一下 [Detach VHD]。
 
@@ -142,4 +142,4 @@ Azure RemoteApp 會使用 Windows Server 2012 R2 範本映像來主控您要與�
 - [如何建立 RemoteApp 的雲端收藏](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

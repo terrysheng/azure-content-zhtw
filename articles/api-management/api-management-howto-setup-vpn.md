@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/05/2016"
 	ms.author="antonba"/>
 
 # 如何在 Azure API 管理中設定 VPN 連線
 
-API 管理的 VPN 支援可讓您將 API 管理閘道連接到 Azure 虛擬網路。這可讓 API 服務客戶安全地連線到其內部部署或公用網際網路無法存取的後端 Web 服務。
+「API 管理」的 VPN 支援可讓您將「API 管理」閘道連接到「Azure 虛擬網路」(傳統)。這可讓 API 服務客戶安全地連線到其內部部署或公用網際網路無法存取的後端 Web 服務。
+
+>[AZURE.NOTE] 「Azure API 管理」可以與傳統 VNET 搭配使用。如需建立傳統 VNET 的詳細資訊，請參閱[使用 Azure 入口網站建立虛擬網路 (傳統)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)。如需連接傳統 VNET 和 ARM VNET 的相關資訊，請參閱[連接傳統 VNet 和新的 VNet](../virtual-network/virtual-networks-arm-asm-s2s.md)。
 
 ## <a name="enable-vpn"> </a>啟用 VPN 連線
 
@@ -66,4 +68,4 @@ API 管理的 VPN 支援可讓您將 API 管理閘道連接到 Azure 虛擬網�
 [教學課程：建立站對站連線的跨單位虛擬網路]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫]: api-management-howto-api-inspector.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

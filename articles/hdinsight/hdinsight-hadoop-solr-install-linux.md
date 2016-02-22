@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 Solr
 
 在本主題中，您將學習如何使用指令碼動作在 Azure HDInsight 上安裝 Solr。Solr 是強大的搜尋平台，可對 Hadoop 管理的資料執行企業級搜尋功能。在 HDInsight 叢集上安裝 Solr 之後，您也將學習如何使用 Solr 搜尋資料。
 
-> [AZURE.NOTE]此文件中的步驟需要以 Linux 為基礎的 HDInsight 叢集。如需搭配以 Windows 為基礎的叢集使用 Solr 的詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝和使用 Solr (Windows)](hdinsight-hadoop-solr-install.md)。
+> [AZURE.NOTE] 此文件中的步驟需要以 Linux 為基礎的 HDInsight 叢集。如需搭配以 Windows 為基礎的叢集使用 Solr 的詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝和使用 Solr (Windows)](hdinsight-hadoop-solr-install.md)。
 
 本主題中使用的範例指令碼會以特定組態建立 Solr 叢集。如果您想要以不同的集合、分區、結構描述和複本等項目設定 Solr 叢集，則必須相應修改指令碼和 Solr 二進位檔。
 
@@ -42,7 +42,7 @@
 
 您可以從唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Solr 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh)。本節提供有關如何在使用 Azure 入口網站佈建叢集時使用範例指令碼的指示。
 
-> [AZURE.NOTE]您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+> [AZURE.NOTE] 您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 1. 使用[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中的步驟開始佈建叢集，但是不完成佈建。
 
@@ -75,7 +75,7 @@
 
 	* [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-	> [AZURE.IMPORTANT]本文件中稍後的步驟會使用 SSL 通道以連線至 Solr Web UI。為了使用這些步驟，您必須建立 SSL 通道，然後設定您的瀏覽器以使用它。
+	> [AZURE.IMPORTANT] 本文件中稍後的步驟會使用 SSL 通道以連線至 Solr Web UI。為了使用這些步驟，您必須建立 SSL 通道，然後設定您的瀏覽器以使用它。
 	>
 	> 如需詳細資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
@@ -283,7 +283,7 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 
 	hadoop fs -copyFromLocal snapshot.20150806185338855.tgz /example/data
 
-	> [AZURE.NOTE]您可能想要建立用來儲存 Solr 快照的專用目錄。例如，`hadoop fs -mkdir /solrbackup`。
+	> [AZURE.NOTE] 您可能想要建立用來儲存 Solr 快照的專用目錄。例如，`hadoop fs -mkdir /solrbackup`。
 
 如需有關使用 Solr 備份和還原的詳細資訊，請參閱[製作和還原 SolrCores 的備份](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores)。
 
@@ -306,4 +306,4 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

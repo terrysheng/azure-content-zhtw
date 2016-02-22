@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #使用 PowerShell 部署多部 NIC VM (傳統)
@@ -23,15 +23,15 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [資源管理員模型](virtual-network-deploy-multinic-arm-ps.md)。
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-deploy-multinic-arm-ps.md)。
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-因為在這個時間點，在同一個雲端服務中不能有配備單一 NIC 的 VM 和配備多個 NIC 的 VM，所以在案例中，您要在和所有其他元件都不同的雲端服務中實作後端伺服器。下列步驟中，主要資源使用名為 *IaaSStory* 的雲端服務，後端伺服器使用 *IaaSStory-BackEnd* 。
+因為在這個時間點，在同一個雲端服務中不能有配備單一 NIC 的 VM 和配備多個 NIC 的 VM，所以在案例中，您要在和所有其他元件都不同的雲端服務中實作後端伺服器。下列步驟中，主要資源使用名為 *IaaSStory* 的雲端服務，後端伺服器使用 *IaaSStory-BackEnd*。
 
 ## 必要條件
 
-在這個案例中，主要雲端服務必須先部署所有必要的資源，然後才可以部署後端伺服器。至少，您需要以後端的子網路建立虛擬網路。請瀏覽[使用 PowerShell 建立虛擬網路](virtual-networks-create-vnet-classic-ps.md)，以了解如何部署虛擬網路。
+在這個案例中，主要雲端服務必須先部署所有必要的資源，然後才可以部署後端伺服器。至少，您需要以後端的子網路建立虛擬網路。請瀏覽[使用 PowerShell 建立虛擬網路](virtual-networks-create-vnet-classic-netcfg-ps.md)，以了解如何部署虛擬網路。
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -45,9 +45,9 @@
 
 ### 步驟 1：啟動指令碼
 
-[這裡](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/multinic.ps1)可以下載所用的完整 PowerShell 指令碼。請遵循下列步驟來變更要在環境中工作的指令碼。
+[這裡](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1)可以下載所使用之完整的 PowerShell 指令碼。請遵循下列步驟來變更指令碼來讓指令碼在環境中運作。
 
-1. 根據前文[必要條件](#Prerequisites)中已部署的現有資源群組，變更下列變數值。
+1. 根據上述[必要條件](#Prerequisites)中已部署的現有資源群組來變更下列變數的值。
 
 		$location              = "West US"
 		$vnetName              = "WTestVNet"
@@ -171,4 +171,4 @@
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 		New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

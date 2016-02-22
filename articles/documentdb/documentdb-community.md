@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="01/29/2015"
+  ms.date="01/29/2016"
   ms.author="andrl"/>
 
 # 社群入口網站
@@ -189,7 +189,7 @@ DoQmentDB 是一個以 Node.js Promise 為基礎的用戶端，可在 DocumentDB
 
 | 學習合作夥伴 | 說明 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/en-us/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/en-us/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>Microsoft Virtual Academy 提供您由協助建置 Azure DocumentDB 的人員所進行的訓練。 |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/zh-TW/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/zh-TW/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>Microsoft Virtual Academy 提供您由協助建置 Azure DocumentDB 的人員所進行的訓練。 |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction)<br/><br/>Pluralsight 是 Microsoft 重要的合作夥伴，他們提供 Azure 的訓練。如果您是 MSDN 訂閱者，請善用您存取 Microsoft Azure 訓練課程的權益。 |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)<br/><br/>Opsgility 提供深入的 Microsoft Azure 技術訓練。由導師現場授課，或由業界的專家指導員透過遠距教學授課。 |
 
@@ -250,7 +250,7 @@ DoQmentDB 是一個以 Node.js Promise 為基礎的用戶端，可在 DocumentDB
 | ------------------- | ------------------------------------------------------------------------------------------------- | ------- |
 | 文件 | [azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) | [文件網站](https://azure.microsoft.com/documentation/services/documentdb/) |
 | Hadoop 連接器 | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
-| 資料移轉工具 | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft 下載中心](http://www.microsoft.com/en-us/download/details.aspx?id=46436) |
+| 資料移轉工具 | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft 下載中心](http://www.microsoft.com/zh-TW/download/details.aspx?id=46436) |
 
 <hr/>
 
@@ -267,4 +267,4 @@ DocumentDB 精靈是社群領導者，他們是在協助其他人充分利用他
 
 想要成為 DocumentDB 精靈？ 由於是否能成為 DocumentDB 精靈並沒有任何評斷基準，因此我們會針對部分條件來評估，包括被提名人在線上論壇 (例如 StackOverflow 和 MSDN；Wiki 和線上內容；會議和使用者群組；播客；網站；部落格和社群媒體；以及文章與書籍) 中提供之貢獻所產生的影響。如果您想提名自己或其他人，請[傳送電子郵件給我們](mailto:askdocdb@microsoft.com)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

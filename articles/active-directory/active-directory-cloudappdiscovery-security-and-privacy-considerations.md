@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 # Cloud App Discovery 的安全性和隱私權考量
@@ -174,9 +174,10 @@ Cloud App Discovery Endpoint Agent 只會收集上列**代理程式收集的資�
 
 
 
-**其他資源**
+##其他資源
 
 
 * [如何探索組織內使用未經批准的雲端應用程式](active-directory-cloudappdiscovery-whatis.md)
+* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

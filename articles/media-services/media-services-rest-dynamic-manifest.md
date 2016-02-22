@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/18/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #使用 Azure 媒體服務 REST API 建立篩選器
@@ -40,7 +40,7 @@
 
 
 
->[AZURE.NOTE]使用媒體服務 REST API 時，適用下列考量事項：
+>[AZURE.NOTE] 使用媒體服務 REST API 時，適用下列考量事項：
 >
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 
@@ -374,4 +374,4 @@ Request body
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/10/2016" 
 	ms.author="stefsch"/>
 
 # 安全地從 App Service 環境連接到後端資源 #
@@ -28,6 +28,8 @@
 另一個例子則是，敏感性端點可能會在內部執行並透過[站台對站台][SiteToSite]或 [Azure ExpressRoute][ExpressRoute] 連線連接至 Azure。因此，只有虛擬網路中連接到站台對站台或 ExpressRoute 通道的資源能夠存取內部部署端點。
 
 在上述這些案例中，在 App Service 環境上執行的應用程式將能夠安全地連接到各種伺服器和資源。從 App Service 環境中執行之應用程式送至相同虛擬網路中私密端點 (或連接到相同的虛擬網路) 的輸出流量，只會透過虛擬網路傳送。送至私密端點的輸出流量不會透過公用網際網路傳送。
+
+從 App Service 環境輸出至虛擬網路內端點的流量有一點值得注意。App Service 環境無法連線到與 App Service 環境位於「相同」子網路的虛擬機器端點。只要 App Service 環境是部署到保留給 App Service 環境專用的子網路中，這通常應該不致於構成問題。
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -114,4 +116,4 @@
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

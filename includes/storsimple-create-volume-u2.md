@@ -1,4 +1,4 @@
-<!--author=alkohli last changed:12/14/15-->
+<!--author=SharS last changed: 02/04/2016-->
 
 #### 建立磁碟區
 
@@ -18,10 +18,17 @@
 		您可以在 8100 裝置上佈建最多 9 TB 的固定到本機磁碟區或者最多 200 TB 的分層磁碟區。在較大的 8600 裝置上，您可以佈建最多 24 TB 的固定到本機磁碟區或者最多 500 TB 的分層磁碟區。因為需要本機裝置上的空間來裝載分層磁碟區的工作集，建立固定到本機磁碟區會影響佈建分層磁碟區的可用空間。因此，如果您建立固定在本機的磁碟區，建立分層磁碟區的可用空間就會縮小。同樣地，如果建立分層磁碟區，建立固定在本機的磁碟區的可用空間就會縮小。
 
 		如果您在 8100 裝置上佈建 9 TB (允許的大小上限) 的固定在本機的磁碟區，則您會用盡裝置上所有可用的本機空間。從那時起您將無法建立任何分層磁碟區，因為裝置上已沒有任何本機空間可用來裝載分層磁碟區的工作集。現有的分層磁碟區也會影響可用的空間。例如，如果您的 8100 裝置已經具有 100 TB 的分層磁碟區，固定在本機的磁碟區僅有 4.5 TB 的可用空間。
-   
+
+        下圖顯示本機固定磁碟區的 [基本設定] 對話方塊。
+
+         ![新增本機磁碟區](./media/storsimple-create-volume-u2/add-local-volume-include.png)
+
+        下圖顯示階層式磁碟區的 [基本設定] 對話方塊。
+
+         ![新增本機磁碟區](./media/storsimple-create-volume-u2/add-tiered-volume-include.png)
+
    4. 按一下箭頭圖示 ![arrow-icon](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png) 以移至下一頁。
 
-  		![Add volume](./media/storsimple-create-volume-u2/AddLocalVolume1.png)
 
 3. 在 [其他設定] 對話方塊中，加入新的存取控制記錄 (ACR)：
 
@@ -29,10 +36,10 @@
 	2. 在 [iSCSI 啟動器名稱] 下方，提供 Windows 主機的 iSCSI 完整格式名稱 (IQN)。如果沒有 IQN，請移至 [取得 Windows Server 主機的 IQN][](#get-the-iqn-of-a-windows-server-host)。
 	3. 在 [此磁碟區的預設備份嗎？] 下方，選取 [啟用] 核取方塊。預設備份將會建立原則，在每天的 22:30 (裝置時間) 執行，並建立此磁碟區的雲端快照。
 	 
-     >[AZURE.NOTE]在此處啟用備份之後，就無法加以還原。您必須編輯磁碟區，才能修改此設定。
+     > [AZURE.NOTE] 在此處啟用備份之後，就無法加以還原。您必須編輯磁碟區，才能修改此設定。
 
      ![新增磁碟區](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 
 4. 按一下核取圖示 ![核取圖示](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png)。使用指定的設定來建立磁碟區。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

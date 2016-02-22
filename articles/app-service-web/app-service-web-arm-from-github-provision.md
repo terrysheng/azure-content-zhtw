@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/09/2016" 
 	ms.author="tomfitz"/>
 
 # 部署連結至 GitHub 儲存機制的 Web 應用程式
@@ -66,7 +66,7 @@
 
 透過 **siteName** 參數指定 Web 應用程式的名稱，透過 **siteLocation** 參數指定 Web 應用程式的位置。在 **dependsOn** 元素中，範本會將 Web 應用程式定義為依存於服務主控方案。因為它依存於主控方案，所以在建立好主控方案前將不會建立 Web 應用程式。**dependsOn** 元素只能用來指定部署順序。如果您未將 Web 應用程式標示為依存於主控方案，Azure 資源管理員會嘗試同時建立這兩個資源，如果比主控方案早一步建立 Web 應用程式，您可能會收到錯誤。
 
-此 Web 應用程式也有子資源，其定義在 [**資源**] 區段下。此子資源會定義使用 Web 應用程式部署之專案的原始檔控制。在此範本中，原始檔控制會連結到特定的 GitHub 儲存機制。GitHub 儲存機制會以程式碼 **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** 加以定義。若您想要以只需最少量參數的方式建立可重複部署單一專案的範本，則可將儲存機制 URL 硬式編碼。若不想將儲存機制 URL 硬式編碼，您也可以新增儲存機制 URL 的參數，並在 **RepoUrl** 屬性使用該值。您可以在 [Web 應用程式與 Web 工作範本](../app-service-web-deploy-web-app-with-webjobs.md)中查看儲存機制 URL 參數的範例。
+此 Web 應用程式也有子資源，其定義在 [**資源**] 區段下。此子資源會定義使用 Web 應用程式部署之專案的原始檔控制。在此範本中，原始檔控制會連結到特定的 GitHub 儲存機制。GitHub 儲存機制會以程式碼 **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** 加以定義。若您想要以只需最少量參數的方式建立可重複部署單一專案的範本，則可將儲存機制 URL 硬式編碼。若不想將儲存機制 URL 硬式編碼，您也可以新增儲存機制 URL 的參數，並在 **RepoUrl** 屬性使用該值。
 
     {
       "apiVersion":"2015-04-01",
@@ -110,4 +110,4 @@
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

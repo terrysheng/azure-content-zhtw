@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="raymondl;garye"/>
 
 #使用 Azure Machine Learning Web 服務參數
@@ -91,4 +91,4 @@ Web 服務的使用者現在就可以在存取 Web 服務時為[寫入器][write
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

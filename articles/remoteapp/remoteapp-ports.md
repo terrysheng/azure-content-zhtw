@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/29/2016"
+    ms.date="02/02/2016"
     ms.author="elizapo" />
 
 
 
 # 允許存取客戶虛擬網路中部署的 Azure RemoteApp 的連接埠和 URL 清單 
 
-以下適用於雲端或混合式集合 Azure RemoteApp (如果您要在虛擬網路 (VNET) 中部署它)。如需虛擬網路的詳細資訊，請閱讀[虛擬網路概觀](virtual-networks-overview.md)。如果您已經建立網路安全性群組 (NSG) 來限制流向您針對 Azure RemoteApp 選擇的虛擬網路資源的流量，請確定可透過虛擬網路上的安全性原則存取並允許以下項目。如需網路安全性群組的詳細資訊，請參閱[什麼是網路安全性群組 (NSG)？](virtual-networks-nsg.md)。
+以下適用於雲端或混合式集合 Azure RemoteApp (如果您要在虛擬網路 (VNET) 中部署它)。如需虛擬網路的詳細資訊，請閱讀[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。如果您已經建立網路安全性群組 (NSG) 來限制流向您針對 Azure RemoteApp 選擇的虛擬網路資源的流量，請確定可透過虛擬網路上的安全性原則存取並允許以下項目。如需網路安全性群組的詳細資訊，請參閱[什麼是網路安全性群組 (NSG)？](../virtual-network/virtual-networks-nsg.md)。
 
 ##  Azure RemoteApp 子網路必須存取以下端點和 URL： 
 *	**.servicebus.windows.net
@@ -45,4 +45,4 @@
 -  輸出：TCP：443  
 -  選用 - UDP：3391 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 # 概觀：雲端商務持續性和 SQL Database 的資料庫災害復原
@@ -88,4 +88,4 @@
 
 主動式異地複寫適用於高階資料庫。其設計是針對需要最主動復原的寫入密集型應用程式。透過主動式異地複寫，您可以在不同區域的伺服器上最多建立四個可讀取的次要資料庫。您可以使用與標準異地複寫相同的方式，來起始容錯移轉至任何次要資料庫。此外，主動式異地複寫可用來支援應用程式升級或重新配置案例，以及對唯讀工作負載進行負載平衡。如需如何設定異地複寫的詳細資訊，請參閱[業務續航力的設計](sql-database-business-continuity-design.md)；如需如何容錯移轉至次要資料庫的詳細資訊，請參閱[從中斷復原](sql-database-disaster-recovery.md)。如需如何實作應用程式升級而不需要停機的詳細資訊，請參閱[升級應用程式而不需要停機](sql-database-business-continuity-application-upgrade.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

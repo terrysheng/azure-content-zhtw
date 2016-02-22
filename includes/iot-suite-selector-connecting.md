@@ -14,21 +14,33 @@
 
 為了簡化起見，在裝置上的程式碼會產生範例值，但我們鼓勵您將實際的感應器連接到您的裝置並傳送實際的遙測資料來擴充此範例。
 
+若要完成此教學課程，您將需要一個有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][lnk-free-trial]。
+
 ## 開始之前
 
-在您為裝置撰寫任何程式碼之前，您應該佈建遠端監視預先設定解決方案，然後在解決方案中佈建裝置。
+在您為裝置撰寫任何程式碼之前，您必須先佈建遠端監視預先設定解決方案，然後在該解決方案中佈建裝置。
 
 ### 佈建遠端監視預先設定解決方案
 
-您建立的裝置將會傳送資料到[遠端監視][lnk-remote-monitoring]預先設定解決方案的執行個體。瀏覽[開始使用 Azure IoT 套件][lnk-getstarted]來建立 Azure 帳戶並佈建 IoT 套件。建立新的解決方案時請選取 [遠端監視]。
+您建立的裝置將會傳送資料到[遠端監視][lnk-remote-monitoring]預先設定解決方案的執行個體。請瀏覽[開始使用 Azure IoT 套件][lnk-getstarted]，以在您的 Azure 帳戶中佈建遠端監視預先設定解決方案：
 
-佈建好遠端監視解決方案之後，請按一下 [啟動] 開啟解決方案儀表板。
+1. 在 https://www.azureiotsuite.com/ 頁面上，按一下 [+] 以建立新解決方案。
+
+2. 按一下 [遠端監視] 面板上的 [選取] 以建立新解決方案。
+
+3. 在 [建立「遠端監視」解決方案] 頁面上，輸入您選擇的 [解決方案名稱]，選取您要在其中進行部署的 [區域]，然後選取您想要使用的 Azure 訂用帳戶。按一下 [建立解決方案]。
+
+4. 等候佈建程序完成。
+
+> [AZURE.WARNING] 預先設定的解決方案使用可計費的 Azure 服務。當您使用完預先設定的解決方案之後，請務必將它從您的訂用帳戶中移除，以避免任何不必要的費用。只要到 https://www.azureiotsuite.com/ 頁面，即可將預先設定的解決方案從您的訂用帳戶中完全移除。
+
+佈建好遠端監視解決方案之後，請按一下 [啟動]，以在瀏覽器中開啟解決方案儀表板。
 
 ![][img-dashboard]
 
 ### 在遠端監視方案中佈建您的裝置
 
-> [AZURE.NOTE]如果您已經有在解決方案中佈建裝置，則可以略過此步驟。建立用戶端應用程式時您需要知道裝置認證。
+> [AZURE.NOTE] 如果您已經有在解決方案中佈建裝置，則可以略過此步驟。建立用戶端應用程式時您需要知道裝置認證。
 
 對於連線到預先設定解決方案的裝置，該裝置必須能夠使用有效的認證識別自己。您可以從解決方案儀表板取得裝置認證，然後將它們包含在用戶端應用程式中。
 
@@ -61,8 +73,9 @@
 [4]: ./media/iot-suite-selector-connecting/suite3.png
 [5]: ./media/iot-suite-selector-connecting/suite5.png
 
-[lnk-getstarted]: http://www.microsoft.com/server-cloud/internet-of-things/getting-started.aspx
+[lnk-getstarted]: https://www.azureiotsuite.com/
 [lnk-what-are-preconfig-solutions]: ../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md
 [lnk-remote-monitoring]: ../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

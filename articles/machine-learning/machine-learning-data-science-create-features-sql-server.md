@@ -13,21 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
-	ms.author="fashah;garye" />
+	ms.date="02/05/2016" 
+	ms.author="bradsev;fashah;garye" />
 
 
 # 使用 SQL 和 Python 對 SQL Server 中的資料建立功能
 
-這個 [功能表] 連結至主題，描述如何在各種環境中建立資料的工程設計特性。此工作是 Cortana 分析程序 (CAP) 中的一個步驟。
-
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-
 ## 簡介
 
-本文件針對儲存於 Azure 上 SQL Server VM 中的資料產生功能。使用 SQL或使用類似 Python 的程式設計語言，即可完成此作業。
+本文說明如何針對儲存在 Azure 上的 SQL Server VM 中且演算法可有效從中學習的資料來產生功能。使用 SQL 或使用類似 Python 的程式設計語言，即可達到此目的，而這裡二者皆使用。
 
-> [AZURE.NOTE]如需實用範例，您可以參考 [NYC 計程車資料集](http://www.andresmh.com/nyctaxitrips/)，並參考標題為[使用 IPython Notebook 和 SQL Server 來處理有爭議的 NYC 資料](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)的 IPNB，以進行端對端逐步解說。
+> [AZURE.NOTE] 如需實用範例，您可以參考 [NYC 計程車資料集](http://www.andresmh.com/nyctaxitrips/)，並參考標題為[使用 IPython Notebook 和 SQL Server 來處理有爭議的 NYC 資料](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)的 IPNB，以進行端對端逐步解說。
+
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]此選單連結的主題，說明如何在各種環境中建立資料的特性。此工作是 [Cortana Analytics Process (CAP) (Cortana Analytics 程序 (CAP))](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 中的一個步驟。
+
 
 ## 先決條件
 本文假設您已經：
@@ -45,7 +44,7 @@
 3. [從單一資料行衍生功能](#sql-featurerollout)
 
 
-> [AZURE.NOTE]一旦產生額外功能之後，就可以將它們當成資料行新增至現有的資料表，或是建立具有其他功能和主索引鍵的新資料表 (可與原始資料表聯結)。
+> [AZURE.NOTE] 一旦產生額外功能之後，就可以將它們當成資料行新增至現有的資料表，或是建立具有其他功能和主索引鍵的新資料表 (可與原始資料表聯結)。
 
 ###<a name="sql-countfeature"></a>以計數為基礎的功能產生
 
@@ -96,10 +95,10 @@
 上述以位置為基礎的功能可進一步用來產生其他計數功能，如先前所述。
 
 
-> [AZURE.TIP]您可以使用所選擇的語言，利用程式設計方式插入記錄。您可能需要插入區塊中的資料以改善寫入效率[在此處看看如何使用 pyodbc 來執行此動作的範例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)。
+> [AZURE.TIP] 您可以使用所選擇的語言，利用程式設計方式插入記錄。您可能需要插入區塊中的資料以改善寫入效率[在此處看看如何使用 pyodbc 來執行此動作的範例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)。
  
 
-> [AZURE.TIP]另一個替代方式是使用 [BCP 公用程式](https://msdn.microsoft.com/library/ms162802.aspx)在資料庫中插入資料
+> [AZURE.TIP] 另一個替代方式是使用 [BCP 公用程式](https://msdn.microsoft.com/library/ms162802.aspx)在資料庫中插入資料
 
 ###<a name="sql-aml"></a>連接到 Azure Machine Learning
 
@@ -126,4 +125,4 @@ Python 中的 [Pandas 程式庫](http://pandas.pydata.org/)提供一組豐富的
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

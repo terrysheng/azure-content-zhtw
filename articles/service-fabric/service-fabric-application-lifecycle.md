@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="01/20/2016"
-   ms.author="ryanwi; mani-ramaswamy"/>
+   ms.author="ryanwi"/>
 
 
 # Service Fabric 應用程式生命週期
@@ -34,7 +34,7 @@
 
 
 ## 開發
-1. *服務開發人員*使用[可靠的執行者](service-fabric-reliable-actors-introduction.md)或[可靠的服務](../service-fabric/service-fabric-reliable-services-introduction.md)程式設計模型來開發不同類型的服務。
+1. *服務開發人員*使用[可靠的執行者](service-fabric-reliable-actors-introduction.md)或[可靠的服務](service-fabric-reliable-services-introduction.md)程式設計模型來開發不同類型的服務。
 2. *服務開發人員*以宣告方式描述服務資訊清單檔案中的已開發服務類型，該檔案包含一或多個程式碼、組態和資料封裝。
 3. 然後，*應用程式開發人員*建置使用不同服務類型的應用程式。
 4. *應用程式開發人員*以宣告方式描述應用程式資訊清單中的應用程式類型，方法是參考組成服務的服務資訊清單，並且適當地覆寫和參數化組成服務的不同組態和部署設定。
@@ -113,10 +113,10 @@
 如需開發、測試及管理 Service Fabric 應用程式和服務的詳細資訊，請參閱：
 
 - [Reliable Actors](service-fabric-reliable-actors-introduction.md)
-- [Reliable Services](../service-fabric/service-fabric-reliable-services-introduction.md)
+- [Reliable Services](service-fabric-reliable-services-introduction.md)
 - [部署應用程式](service-fabric-deploy-remove-applications.md)
 - [應用程式升級](service-fabric-application-upgrade.md)
 - [Testability 概觀](service-fabric-testability-overview.md)
 - [REST 架構應用程式生命週期範例](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

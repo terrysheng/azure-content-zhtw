@@ -13,18 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
 # 針對 Cortana 分析程序自訂 Azure HDInsight Hadoop 叢集 
 
-此功能表會連結至說明如何設定 Cortana 分析程序 (CAP) 所用的各種資料科學環境的主題。
-
-[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
+## 簡介
 
 本文將說明若將 HDInsight Hadoop 叢集佈建於 HDInsight 服務中，如何藉由在每個節點上安裝 64 位元的 Anaconda (Python 2.7) 來自訂該叢集。這項自訂會準備要搭配 Cortana 分析程序使用的叢集。它也會示範如何存取前端節點，以將自訂工作提交至叢集。
 
 這項自訂讓許多熱門的 Python 模組 (隨附於 Anaconda) 非常方便地在使用者定義函式 (UDF) 中使用，這類函式是設計來處理叢集中的 Hive 記錄。如需這個案例中所使用程序的相關指示，請參閱[在進階分析程序中將 Hive 查詢提交至 HDInsight Hadoop 叢集](machine-learning-data-science-hive-queries.md)。
+
+以下功能表會連結至說明如何設定 Cortana Analytics 程序 (CAPS) 所用之各種資料科學環境的主題。
+
+[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
 
 ## <a name="customize"></a>自訂 Azure HDInsight Hadoop 叢集
@@ -39,7 +41,7 @@
 
 在組態頁面 2 上，輸入 [資料節點] 的數目，選取 [區域/虛擬網路]，然後選取 [前端節點] 和 [資料節點] 的大小。按一下箭號，以前往下一個設定頁面。
 
->[AZURE.NOTE] [區域/虛擬網路] 必須與即將用於 HDInsight Hadoop 叢集的儲存體帳戶區域相同。否則，在第四個組態頁面中，使用者想要使用的儲存體帳戶將出現在 [帳戶名稱] 下拉式清單中。
+>[AZURE.NOTE] [區域/虛擬網路] 必須與即將用於 HDInsight Hadoop 叢集的儲存體帳戶區域相同。否則，在第四個組態頁面中，使用者想要使用的儲存體帳戶將出現在 [帳戶名稱] 下拉式清單中。
 
 ![建立工作區][3]
 
@@ -74,7 +76,7 @@
 
 2. 在 [設定遠端桌面] 視窗中，輸入 [使用者名稱] 和 [密碼] 欄位，然後選取遠端存取的到期日。接著，按一下勾號，啟用對 Hadoop 叢集前端節點的遠端存取。
 	
-	>[AZURE.NOTE]
+	>[AZURE.NOTE] 
 	>
 	>1. 適用於遠端存取的使用者名稱和密碼並非您在建立 Hadoop 叢集時所使用的使用者名稱和密碼。它們是一組個別的認證
 	>
@@ -102,4 +104,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/03/2013"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 
@@ -60,4 +60,4 @@
 ## 摘要
 利用 **Azure 資料目錄**註冊資料來源，可讓您透過將結構化和描述性中繼資料從資料來源複製到「目錄」服務，來更容易地探索及了解資料來源。資料來源註冊之後，使用者可以使用篩選來探索資料來源，並且在 **Azure 資料目錄**入口網站搜尋。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

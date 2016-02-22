@@ -56,7 +56,7 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
 #### 將 SDK 更新為未來版本
 
-當新的 [SDK 發行時](app-insights-release-notes-windows-cpp.md)：
+當新的 [SDK 發行時](https://github.com/Microsoft/ApplicationInsights-CPP/releases)：
 
 * 在 NuGet 封裝管理員中，選取已安裝的 SDK，然後選擇 [動作：升級]。
 * 使用新的版本號碼重複安裝步驟。
@@ -140,4 +140,4 @@ Visual Studio Application Insights 可讓您監視行動應用程式的使用量
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

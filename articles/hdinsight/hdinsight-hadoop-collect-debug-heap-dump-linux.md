@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 
@@ -24,7 +24,7 @@
 
 堆積傾印含有應用程式記憶體的快照，其中包括建立傾印時的變數值。因此堆積傾印非常有助於診斷在執行階段發生的問題。
 
-> [AZURE.NOTE]本文的資訊僅適用於以 Linux 為基礎的 HDInsight。如需以 Windows 為基礎的 HDInsight 資訊，請參閱[在以 Windows 為基礎的 HDInsight 上啟用 Hadoop 服務的堆積傾印](hdinsight-hadoop-collect-debug-heap-dumps.md)。
+> [AZURE.NOTE] 本文的資訊僅適用於以 Linux 為基礎的 HDInsight。如需以 Windows 為基礎的 HDInsight 資訊，請參閱[在以 Windows 為基礎的 HDInsight 上啟用 Hadoop 服務的堆積傾印](hdinsight-hadoop-collect-debug-heap-dumps.md)。
 
 ## <a name="whichServices"></a>服務
 
@@ -49,7 +49,7 @@ map 和 reduce 處理序會稍有不同，因為它們是 MapReduce 服務的子
 * **mapreduce.admin.map.child.java.opts**
 * **mapreduce.admin.reduce.child.java.opts**
 
-> [AZURE.NOTE]我們建議使用 Ambari 來修改指令碼和 mapred-site.xml 設定，因為 Ambari 會處理叢集中跨節點的複寫變更。如需特定的步驟，請參閱[使用 Ambari](#using-ambari) 一節。
+> [AZURE.NOTE] 我們建議使用 Ambari 來修改指令碼和 mapred-site.xml 設定，因為 Ambari 會處理叢集中跨節點的複寫變更。如需特定的步驟，請參閱[使用 Ambari](#using-ambari) 一節。
 
 ###啟用堆積傾印
 
@@ -59,7 +59,7 @@ map 和 reduce 處理序會稍有不同，因為它們是 MapReduce 服務的子
 
 **+** 表示已啟用此選項。預設值為停用。
 
-> [AZURE.WARNING]根據預設不會在 HDInsight 上啟用 Hadoop 服務的堆積傾印，因為傾印檔案可能會很龐大。如果您為了進行疑難排解而啟用它們，請記得在重現問題並收集傾印檔案之後將其停用。
+> [AZURE.WARNING] 根據預設不會在 HDInsight 上啟用 Hadoop 服務的堆積傾印，因為傾印檔案可能會很龐大。如果您為了進行疑難排解而啟用它們，請記得在重現問題並收集傾印檔案之後將其停用。
 
 ###傾印位置
 
@@ -75,7 +75,7 @@ map 和 reduce 處理序會稍有不同，因為它們是 MapReduce 服務的子
 
     -XX:OnOutOfMemoryError=/path/to/script
 
-> [AZURE.NOTE]由於 Hadoop 是分散式系統，因此所有使用的指令碼都必須放置在服務所在叢集中的所有節點上。
+> [AZURE.NOTE] 由於 Hadoop 是分散式系統，因此所有使用的指令碼都必須放置在服務所在叢集中的所有節點上。
 >
 > 指令碼也必須位於服務所屬的帳戶可以存取的位置中，而且必須提供執行權限。例如，您可能想要在 `/usr/local/bin` 中存放指令碼，並用 `chmod go+rx /usr/local/bin/filename.sh` 授與讀取和執行權限。
 
@@ -87,7 +87,7 @@ map 和 reduce 處理序會稍有不同，因為它們是 MapReduce 服務的子
 
     出現提示時，請使用您叢集的 HTTP 帳戶名稱 (預設值：admin) 和密碼來向網站驗證。
 
-    > [AZURE.NOTE]Ambari 可能會再次提示您輸入使用者名稱和密碼。此時只要重新輸入同一組帳戶名稱和密碼即可。
+    > [AZURE.NOTE] Ambari 可能會再次提示您輸入使用者名稱和密碼。此時只要重新輸入同一組帳戶名稱和密碼即可。
 
 2. 使用左側的清單，選取您想要修改的服務區域。例如 **HDFS**。在中間區域內，選取 [設定] 索引標籤。
 
@@ -101,7 +101,7 @@ map 和 reduce 處理序會稍有不同，因為它們是 MapReduce 服務的子
 
     ![含有 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/ 的 HADOOP\_NAMENODE\_OPTS](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
-	> [AZURE.NOTE]啟用 map 或 reduce 子處理序的堆積傾印時，會改為尋找標示為 **mapreduce.admin.map.child.java.opts** 和 **mapreduce.admin.reduce.child.java.opts** 的欄位。
+	> [AZURE.NOTE] 啟用 map 或 reduce 子處理序的堆積傾印時，會改為尋找標示為 **mapreduce.admin.map.child.java.opts** 和 **mapreduce.admin.reduce.child.java.opts** 的欄位。
 
     按 [儲存] 按鈕以儲存變更。系統會允許您輸入簡短的附註，說明所做的變更。
 
@@ -117,8 +117,8 @@ map 和 reduce 處理序會稍有不同，因為它們是 MapReduce 服務的子
 
     ![重新啟動所有受影響的項目](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
 
-    > [AZURE.NOTE]其他服務的 [重新啟動] 按鈕項目可能會有所不同。
+    > [AZURE.NOTE] 其他服務的 [重新啟動] 按鈕項目可能會有所不同。
 
 8. 重新啟動服務後，請使用 [服務動作] 按鈕**關閉維護模式**。這麼做可讓 Ambari 繼續監視服務是否有警示。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

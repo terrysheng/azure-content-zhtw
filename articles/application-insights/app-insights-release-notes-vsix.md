@@ -14,7 +14,24 @@
 	ms.date="01/19/2016" 
 	ms.author="dimazaid"/>
  
-# Visual Studio 適用的 Application Insights Tools 4.1 版版本資訊
+# Application Insights Tools for Visual Studio v 4.2 版本資訊
+##4\.2 版
+在此版本中，我們新增了一些功能，可讓您更容易在事件內容中搜尋資料、能夠從更多資料事件跳到程式碼，以及輕鬆將記錄資料傳送給 Application Insights。這個延伸模組會每月更新，如果您有意見反應或功能要求，請傳送給 aidevtools@microsoft.com
+###- 零點選的記錄體驗
+如果您已經在使用 NLog、Log4Net 或 System.Diagnostics 追蹤功能，則您不必操心要如何將您的所有追蹤移到 AI，我們現在正在將 Application Insights 記錄配接器與標準組態體驗進行整合。如果您已經設定了這些記錄架構其中之一，則以下是您取得它的方式：
+####如果您已經新增 Application Insights
+- 在 [專案節點] 上按一下滑鼠右鍵 -> [Application Insights] -> [設定 Application Insights]。請確定您在組態視窗中有看到可新增正確配接器的選項。 
+- 或是當您建置方案時，請注意出現在畫面右上角的快顯訊息，並在設定時按一下它。![登入快顯通知](./media/app-insights-release-notes-vsix/LoggingToast.png)
+
+安裝記錄配接器之後，您可以執行應用程式並確定是否在 [診斷工具] 索引標籤中看到資料，如以下所示：![追蹤](./media/app-insights-release-notes-vsix/Traces.png)
+###- 使用者可以跳至/尋找至發出遙測事件屬性的程式碼
+使用新版本時，使用者可以按一下事件詳細資料中的任何值，這將會搜尋目前已開啟的方案中相符的字串。結果會顯示在 Visual Studio [尋找結果] 清單中，如以下所示：![尋找相符項目](./media/app-insights-release-notes-vsix/FindMatch.png)
+###- 在搜尋視窗中針對未登入的使用者提供了新畫面
+我們改進了 [搜尋] 視窗的外觀，以引導使用者在生產環境中搜尋其資料。![搜尋視窗](./media/app-insights-release-notes-vsix/SearchWindow.png)
+###- 使用者可以查看與事件關聯的所有遙測事件
+在事件詳細資料旁邊加入了一個新的索引標籤，當中包含預先定義的查詢，可用來檢視使用者正在查看之遙測事件的所有相關資料。例如：要求具有一個名為作業識別碼的欄位，而與此要求關聯的每個事件都會擁有相同的作業識別碼，因此，如果在處理要求時發生例外狀況，這將會取得與要求相同的作業識別碼來更容易找到它等等。因此，現在正在查看要求的使用者可以按一下 [此作業的所有遙測]，這將會開啟一個內含新搜尋結果的新索引標籤。![相關項目](./media/app-insights-release-notes-vsix/RelatedItems.png)
+### - 在搜尋中新增前進/後退歷程記錄
+使用者現在可以在搜尋結果之間向後或向前移動。![返回](./media/app-insights-release-notes-vsix/GoBAck.png)
 
 ##4\.1 版
 此版本隨附我們產品的許多新功能和增強功能。若要取得此版本，您必須已在電腦上安裝更新 1。
@@ -64,10 +81,10 @@
 
 ###裝置支援
 
-我們在 Connect(); 2015 中[宣布](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/)我們針對裝置的行動 DevOps 是 HockeyApp。HockeyApp 可協助您發佈 Beta 組建發佈給測試人員、從您的應用程式收集和分析所有的損毀，並直接收集客戶的意見反應。HockeyApp 可讓您在任何平台上建置行動應用程式，無論是 iOS、Android 或 Windows，或是 Xamarin、Cordova 或 Unity 之類的跨平台解決方案上。
+我們在 *Connect();* 2015 中[宣布了](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/)我們的裝置「行動 DevOps」體驗是 HockeyApp。HockeyApp 可協助您發佈 Beta 組建發佈給測試人員、從您的應用程式收集和分析所有的損毀，並直接收集客戶的意見反應。HockeyApp 可讓您在任何平台上建置行動應用程式，無論是 iOS、Android 或 Windows，或是 Xamarin、Cordova 或 Unity 之類的跨平台解決方案上。
 
-我們會在未來版本的 Application Insights 延伸模組中推出新功能，可在 HockeyApp 和 Visual Studio 之間提供更為整合的體驗。現在您可以開始使用 HockeyApp，只要加入 NuGet 參考：如需詳細資訊，請參閱[文件](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone)。
+我們會在未來版本的 Application Insights 延伸模組中推出新功能，可在 HockeyApp 和 Visual Studio 之間提供更為整合的體驗。現在您只要新增 NuGet 參考，即可開始使用 HockeyApp：如需詳細資訊，請參閱[文件](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone)。
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

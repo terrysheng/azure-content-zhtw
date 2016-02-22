@@ -17,7 +17,7 @@
 	ms.date="01/22/2016"
 	ms.author="szark"/>
 
-# 準備執行 Azure 的 Ubuntu 虛擬機器
+# 準備適用於 Azure 的 Ubuntu 虛擬機器
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -117,13 +117,13 @@ Ubuntu 現在發佈官方 Azure VHD 提供下載 ([http://cloud-images.ubuntu.co
 11. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
 ## 後續步驟
-您現在可以開始在 Azure 中使用您的 Ubuntu Linux .vhd 建立新的 Azure 虛擬機器。如果這是您第一次使用 Azure 並將 .vhd 檔案上傳至 Azure，您可以依照[本指引](virtual-machines-linux-create-upload-vhd.md)中的步驟 2 和 3 執行。
+您現在可以開始使用您的 Ubuntu Linux 虛擬硬碟在 Azure 建立新的虛擬機器。如果這是您第一次將該 .vhd 檔案上傳到 Azure，請參閱[建立及上傳包含 Linux 作業系統的虛擬硬碟](virtual-machines-linux-create-upload-vhd.md)中的步驟 2 和 3。
 
 ## 參考 ##
 
-Ubuntu 硬體啟用 (HWE) 核心
+Ubuntu 硬體啟用 (HWE) 核心：
 
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

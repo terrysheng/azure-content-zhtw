@@ -29,7 +29,7 @@
 ![架構][Architecture]
 
 ## 設定 App Service 環境 ##
-若要設定 App Service 環境，請參閱有關本主題的[文件](app-service-web-how-to-create-an-app-service-environment.md)。建立 App Service 環境之後，即可在此環境中建立 [Web Apps](app-service-web-overview.md)、[API Apps](app-service-api-apps-why-best-platform.md) 和 [Mobile Apps](app-service-mobile-value-prop-preview.md)，而這些都是由下一節中所設定的 WAF 所保護。
+若要設定 App Service 環境，請參閱有關本主題的[文件](app-service-web-how-to-create-an-app-service-environment.md)。建立 App Service 環境之後，即可在此環境中建立 [Web Apps](app-service-web-overview.md)、[API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) 和 [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md)，而這些都是由下一節中所設定的 WAF 所保護。
 
 ## 設定 Barracuda WAF 雲端服務 ##
 Barracuda 具有在 Azure 中於虛擬機器上部署其 WAF 的[詳細文章](https://techlib.barracuda.com/WAF/AzureDeploy)。但是，因為我們想要具有備援性，但不想要引進單一失敗點，所以您想要在遵循這些指示時將至少 2 個 WAF 執行個體 VM 部署至相同的雲端服務。
@@ -66,7 +66,7 @@ Barracuda WAF 使用 TCP 連接埠 8000，以透過其管理入口網站進行�
 > 附註：根據應用程式的設定方式與 App Service 環境中正在使用的功能，您需要轉送非 80 和 443 之 TCP 連接埠的流量 (例如，如果您為 Web 應用程式設定 IP SSL)。如需 App Service 環境中所使用網路連接埠的清單，請參閱[控制輸入流量文件](app-service-app-service-environment-control-inbound-traffic.md)的＜網路連接埠＞一節。
 
 ## 設定 Microsoft Azure 流量管理員 (選擇性) ##
-如果多個區域中都有您的應用程式，則您會想要使用 [Azure 流量管理員](traffic-manager.md)對它們進行負載平衡。若要這麼做，您可以使用流量管理員設定檔中 WAF 的雲端服務名稱在 [Azure 傳統入口網站](https://manage.azure.com)中加入端點 (如下列影像所示)。
+如果多個區域中都有您的應用程式，則您會想要使用 [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md)對它們進行負載平衡。若要這麼做，您可以使用流量管理員設定檔中 WAF 的雲端服務名稱在 [Azure 傳統入口網站](https://manage.azure.com)中加入端點 (如下列影像所示)。
 
 ![流量管理員端點][TrafficManagerEndpoint]
 
@@ -99,4 +99,4 @@ Barracuda WAF 使用 TCP 連接埠 8000，以透過其管理入口網站進行�
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

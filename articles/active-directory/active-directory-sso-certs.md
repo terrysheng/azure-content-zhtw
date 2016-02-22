@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/09/2016"
 	ms.author="liviodlc"/>
 
 #在 Azure Active Directory 中管理同盟單一登入的憑證
@@ -76,6 +76,10 @@
 
 	![下載，然後上傳憑證](./media/active-directory-sso-certs/renew-config-app.PNG)
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## 相關文章
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)
+- [SAML 型單一登入疑難排解](active-directory-saml-debugging.md)
+
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"   
 	ms.author="juliako"/>
 
 #使用 NewTek TriCaster 編碼器來傳送單一位元速率的即時串流
@@ -47,25 +47,25 @@
 
 ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
-2. 指定通道名稱，描述欄位為選填。在 [通道設定] 下，對 [即時編碼] 選項選取 [標準]，並將輸入通訊協定設為 [RTMP]。您可以將所有其他設定保留現狀。
+2. 指定通道名稱，描述欄位為選填。在 [頻道設定] 下方，針對 [即時編碼] 選項選取 [**標準**]，並將 [輸入通訊協定] 設定為 [**RTMP**]。您可以將所有其他設定保留現狀。
 
 
-請確定已選取 [立即啟動新通道]。
+請確認已選取 [**立即啟動新頻道**]。
 
-3. 按一下 [建立通道]。![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster2.png)
+3. 按一下 [**建立頻道**]。![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster2.png)
 
->[AZURE.NOTE]通道約需 20 分鐘的時間即可啟動。
+>[AZURE.NOTE] 通道約需 20 分鐘的時間即可啟動。
 
 
-在通道啟動過程中，您可以[設定編碼器](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp)。
+當頻道啟動時，您可以[設定編碼器](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp)。
 
->[AZURE.IMPORTANT]請注意，只要通道進入就緒狀態，就會開始計費。如需詳細資訊，請參閱[通道的狀態](media-services-manage-live-encoder-enabled-channels.md#states)。
+>[AZURE.IMPORTANT] 請注意，只要通道進入就緒狀態，就會開始計費。如需詳細資訊，請參閱[通道的狀態](media-services-manage-live-encoder-enabled-channels.md#states)。
 
 ##<a id=configure_tricaster_rtmp></a>設定 NewTek TriCaster 編碼器
 
 在本教學課程中，我們會使用下列輸出設定。本章節的其餘部分將詳細說明組態步驟。
 
-**影片**：
+**視訊**：
  
 - 轉碼器：H.264 
 - 設定檔：高 (層級 4.0) 
@@ -103,9 +103,9 @@
 
 6. 取得通道的輸入 URL，才能將它指派給 Tricaster 的 **RTMP 端點**。
 	
-	瀏覽回 AMSE 工具，並檢查通道的完成狀態。一旦狀態已經從**正在啟動**變更為**正在執行**，您便可取得輸入 URL。
+	瀏覽回 AMSE 工具，並檢查通道的完成狀態。狀態從 [**啟動中**] 變更為 [**執行中**] 後，您便可取得輸入 URL。
 	  
-	通道執行時，以滑鼠右鍵按一下通道名稱，向下瀏覽讓滑鼠游標停留在 [複製輸入 URL 到剪貼簿]，然後選取 [主要輸入 URL]。
+	頻道執行時，以滑鼠右鍵按一下頻道名稱，向下瀏覽讓滑鼠游標停留在 [**複製輸入 URL 到剪貼簿**]，然後選取 [**主要輸入 URL**]。
 	
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster6.png)
 
@@ -119,8 +119,7 @@
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
 
->[AZURE.IMPORTANT]在您按一下 [資料流] 之前，**必須**確保通道已就緒。
->此外，請務必不要讓通道在沒有輸入比重摘要的情況下，處於就緒狀態超過 15 分鐘。
+>[AZURE.IMPORTANT] 在您按一下 [資料流] 之前，**必須**確保通道已就緒。此外，請務必不要讓通道在沒有輸入比重摘要的情況下，處於就緒狀態超過 15 分鐘。
 
 ##測試播放
   
@@ -130,7 +129,7 @@
 
 如果播放器中出現串流，則編碼器已妥善設定為連接到 AMS。
 
-如果收到錯誤，則必須重設通道，且編碼器設定需要調整。請參閱[疑難排解](media-services-troubleshooting-live-streaming.md)主題的指引。
+如果收到錯誤，則必須重設通道，且編碼器設定需要調整。請參閱[疑難排解](media-services-troubleshooting-live-streaming.md)主題中的指引。
 
 ##建立程式
 
@@ -145,14 +144,14 @@
 	注意：建立程式時所使用的時間會比建立通道時更少。
  
 5. 一旦程式開始執行，請在程式上按一下滑鼠右鍵，並瀏覽至 [播放程式]，然後選取 [使用 Azure 媒體播放器] 確認播放。
-6. 一經確認後，再次於該程式上按一下滑鼠右鍵，並選取 \[複製輸出 URL 到剪貼簿] (或從 [程式資訊和設定] 功能表選項擷取這項資訊)。 
+6. 一經確認後，再次於該程式上按一下滑鼠右鍵，並選取 [複製輸出 URL 到剪貼簿] (或從 [程式資訊和設定] 功能表選項擷取這項資訊)。 
 
 串流現在已經可以內嵌於播放程式中，或散發給某個對象，以供即時檢視。
 
 
 ## 疑難排解
 
-請參閱[疑難排解](media-services-troubleshooting-live-streaming.md)主題的指引。
+請參閱[疑難排解](media-services-troubleshooting-live-streaming.md)主題中的指引。
 
 
 ##媒體服務學習路徑
@@ -163,4 +162,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!-----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

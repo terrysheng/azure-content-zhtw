@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 # 使用查詢主控台執行 Hive 查詢
@@ -23,7 +23,7 @@
 
 在本文中，您將學習如何使用 HDInsight 查詢主控台，透過瀏覽器在 HDInsight Hadoop 叢集上執行 Hive 查詢。
 
-> [AZURE.NOTE]只有在 Windows 型 HDInsight 叢集上才能使用查詢主控台。
+> [AZURE.NOTE] 只有在 Windows 型 HDInsight 叢集上才能使用查詢主控台。
 
 
 ##<a id="prereq"></a>必要條件
@@ -45,6 +45,7 @@
 
 	將文字 `Select * from hivesampletable` 取代為下列 HiveQL 陳述式：
 
+        set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
@@ -56,7 +57,7 @@
     * **DROP TABLE**：刪除資料表和資料檔 (如果資料表已存在)。
     * **CREATE EXTERNAL TABLE**：在 Hive 中建立新的「外部」資料表。外部資料表只會在 Hive 中儲存資料表定義；資料會保留在原始位置。
 
-    > [AZURE.NOTE]當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
+    > [AZURE.NOTE] 當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
     >
     > 捨棄外部資料表並**不會**刪除資料，只會刪除資料表定義。
 
@@ -121,4 +122,4 @@
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

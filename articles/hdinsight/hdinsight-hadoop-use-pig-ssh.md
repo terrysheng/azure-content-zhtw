@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #使用 Pig 命令 (SSH) 在以 Linux 為基礎的叢集上執行 Pig 工作
@@ -25,7 +25,7 @@
 
 Pig Latin 程式設計語言可讓您描述套用至輸入資料來產生想要輸出的轉換。
 
-> [AZURE.NOTE]如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱[以 Linux 為基礎的 HDInsight 秘訣](hdinsight-hadoop-linux-information.md)。
+> [AZURE.NOTE] 如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱[以 Linux 為基礎的 HDInsight 秘訣](hdinsight-hadoop-linux-information.md)。
 
 ##<a id="prereq"></a>必要條件
 
@@ -47,7 +47,7 @@ Pig Latin 程式設計語言可讓您描述套用至輸入資料來產生想要�
 
 **如果您提供密碼進行 SSH 驗證** (在建立 HDInsight 叢集時)，則需要在出現提示時提供密碼。
 
-如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱[從 Linux、Unix 和 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)。
+如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱[從 Linux、OS X 和 Unix 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ###PuTTY (Windows 架構用戶端)
 
@@ -101,7 +101,7 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
 
 		STORE RESULT into 'wasb:///example/data/pigout';
 
-	> [AZURE.NOTE]資料會儲存到所指定目錄中名為 **part-nnnnn** 的檔案中。如果目錄已經存在，則會收到錯誤。
+	> [AZURE.NOTE] 資料會儲存到所指定目錄中名為 **part-nnnnn** 的檔案中。如果目錄已經存在，則會收到錯誤。
 
 7. 若要結束 grunt 提示字元，請輸入下列陳述式。
 
@@ -154,4 +154,4 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

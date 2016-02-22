@@ -1,10 +1,16 @@
-<properties pageTitle="在 Azure RemoteApp 中使用 SQL Server Management Studio 連接到 SQL Database | Microsoft Azure" description="使用此教學課程來了解如何在連接到 SQL Database 時，於 Azure RemoteApp 中使用 SQL Server Management Studio 來維護安全性" services="sql-database" documentationCenter="" authors="adhurwit" manager="" tags=""//>
+<properties 
+	pageTitle="在 Azure RemoteApp 中使用 SQL Server Management Studio 連接到 SQL Database | Microsoft Azure" 
+	description="使用本教學課程來了解如何在連線到 SQL Database 時，在 Azure RemoteApp 中使用 SQL Server Management Studio 以維護安全性和效能"
+	services="sql-database" 
+	documentationCenter=""
+	authors="adhurwit" 
+	manager=""/>
 
 <tags 
 	ms.service="sql-database" 
 	ms.workload="data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="01/20/2016" 
 	ms.author="adhurwit"/>
@@ -66,14 +72,14 @@ VM 桌面上的是稱為「驗證」的 PowerShell 指令碼。按兩下以執�
 
 Sysprep 完成時，它會關閉 VM。
 
-若要深入了解建立 Azure RemoteApp 映像，請參閱：[如何在 Azure 中建立 RemoteApp 範本映像](http://blogs.msdn.com/b/rds/archive/2015/03/17/how-to-create-a-remoteapp-template-image-in-azure.aspx)
+若要深入了解建立 Azure RemoteApp 映像，請參閱：[How to create a RemoteApp template image in Azure (如何在 Azure 中建立 RemoteApp 範本映像)](http://blogs.msdn.com/b/rds/archive/2015/03/17/how-to-create-a-remoteapp-template-image-in-azure.aspx)
 
 
 ### 4\.擷取映像
 
 當 VM 已經停止執行時，請在目前的入口網站尋找並擷取它。
 
-若要深入了解擷取映像，請參閱[擷取使用傳統部署模型建立的 Azure Windows 虛擬機器映像](../virtual-machines-capture-image-windows-server.md)
+若要深入了解擷取映像，請參閱[擷取以傳統部署模型建立之 Azure Windows 虛擬機器的映像](../virtual-machines-capture-image-windows-server.md)
 
 
 ### 5\.新增至 Azure RemoteApp 範本映像
@@ -152,4 +158,4 @@ Sysprep 完成時，它會關閉 VM。
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

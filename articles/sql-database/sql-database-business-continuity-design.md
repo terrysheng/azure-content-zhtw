@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="elfish"/>
 
 #業務續航力的設計
@@ -98,4 +98,4 @@ SQL Database 預設提供每個資料庫的內建基本保護功能。其作法�
 
 設計應用程式的業務續航力時，您應該考慮幾個組態選項。您的選擇會視應用程式部署拓撲，以及應用程式的哪些部分最容易受到中斷的影響而定。如需指引，請參閱[使用異地複寫設計災害復原的雲端解決方案](sql-database-designing-cloud-solutions-for-disaster-recovery.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

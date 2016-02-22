@@ -15,19 +15,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;bradsev" />
 
 # 移動資料至 Azure 機器學習的 Azure SQL Database
-
-此**功能表**所連結的主題，說明如何將資料擷取至目標環境，以在 Cortana 分析程序 (CAPS) 期間儲存及處理該資料。
-
-[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 ## 簡介
 **在本主題中**，我們將概述從一般檔案 (CSV 或 TSV 格式) 或儲存在內部部署 SQL Server 中的資料，將資料移至 Azure SQL 資料庫的選項。這些用於將資料移至雲端的工作是 Azure 所提供之 Cortana 分析程序的一部分。
 
 如需概述移動資料至機器學習的內部部署 SQL Server 之選項的主題，請參閱[移動資料至 Azure 虛擬機器上的 SQL Server](machine-learning-data-science-move-sql-server-virtual-machine.md)。
+
+以下**功能表**會連結至說明如何將資料擷取至其他目標環境，以在 Cortana Analytics 程序 (CAPS) 期間儲存和處理該資料的主題。
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 下表摘要說明移動資料至 Azure SQL Database 的選項。
 
@@ -86,4 +86,4 @@
 
 若資料需要持續在同時存取內部部署和雲端資源的混合式案例中移轉，或是資料有交易、需要修改，或者在移轉過程中新增了商務邏輯，請考慮使用 ADF。ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排程和監視的工作。ADF 也有其他功能，例如支援複雜作業。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

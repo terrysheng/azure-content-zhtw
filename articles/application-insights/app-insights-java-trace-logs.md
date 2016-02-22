@@ -109,15 +109,17 @@ Log4j v1.2|[具有 Log4J v1.2 附加器的 SDK](https://azuredownloads.blob.core
 
 *Log4J v2.0*
 
-    
-    <Appenders>
-      <ApplicationInsightsAppender name="aiAppender" />
-    </Appenders>
-    <Loggers>
-      <Root level="trace">
-        <AppenderRef ref="aiAppender"/>
-      </Root>
-    </Loggers>
+
+    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+      <Appenders>
+        <ApplicationInsightsAppender name="aiAppender" />
+      </Appenders>
+      <Loggers>
+        <Root level="trace">
+          <AppenderRef ref="aiAppender"/>
+        </Root>
+      </Loggers>
+    </Configuration>
 
 
 *Log4J v1.2*
@@ -149,4 +151,4 @@ Application Insights 附加器可由任何設定的記錄器參考，而不一�
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

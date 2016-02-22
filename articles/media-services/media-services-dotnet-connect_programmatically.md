@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -44,7 +44,7 @@
 
 若要開始針對媒體服務進行程式設計，您需要建立可呈現伺服器內容的 **CloudMediaContext** 執行個體。**CloudMediaContext** 包含重要集合的參考，包括工作、資產、檔案、存取原則和定位器。
 
->[AZURE.NOTE]**CloudMediaContext** 類別不具備執行緒安全。您應該為每個執行緒或每組作業建立新的 CloudMediaContext。
+>[AZURE.NOTE] **CloudMediaContext** 類別不具備執行緒安全。您應該為每個執行緒或每組作業建立新的 CloudMediaContext。
 
 
 CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServicesCredentials** 做為參數的建構函式。如需詳細資訊，請參閱下面的**重複使用存取控制服務權杖**。
@@ -196,4 +196,4 @@ CloudMediaContext 有五個建構函式多載。建議使用採用 **MediaServic
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 # 在 HDInsight 上提交 Hadoop 工作
 
 了解如何使用 Azure PowerShell 提交 MapReduce 和 Hive 工作，以及如何使用 HDInsight .NET SDK 提交 MapReduce、Hadoop 資料流和 Hive 工作。
 
-> [AZURE.NOTE]此文章中的步驟必須從 Windows 用戶端執行。如需利用 Linux、OS X 或 Unix 用戶端來使用 HDInsight 上的 MapReduce、Hive 或 Pig 的相關資訊，請參閱下列文章，並選取每篇文章中的 **SSH** 或 **Curl** 連結：
+> [AZURE.NOTE] 此文章中的步驟必須從 Windows 用戶端執行。如需利用 Linux、OS X 或 Unix 用戶端來使用 HDInsight 上的 MapReduce、Hive 或 Pig 的相關資訊，請參閱下列文章，並選取每篇文章中的 **SSH** 或 **Curl** 連結：
 >
 > - [搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)
 > - [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 > - [〈搭配 HDInsight 使用 MapReduce〉](hdinsight-use-mapreduce.md)
 
-##必要條件
+###必要條件
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
@@ -266,4 +266,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

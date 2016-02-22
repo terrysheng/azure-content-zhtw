@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="chrande"/>
 
 # 將您現有的 Node.js Azure 行動服務升級為 App Service
@@ -28,7 +28,7 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]建議您在升級之前，先[執行移轉](app-service-mobile-migrating-from-mobile-services.md)。如此一來，您就能夠在同一個 App Service 方案中放置兩個版本的應用程式，而不需支付額外成本。
+>[AZURE.TIP] 建議您在升級之前，先[執行移轉](app-service-mobile-migrating-from-mobile-services.md)。如此一來，您就能夠在同一個 App Service 方案中放置兩個版本的應用程式，而不需支付額外成本。
 
 ### Mobile Apps Node.js 伺服器 SDK 中的改進功能
 
@@ -48,11 +48,11 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 
 不同於 .NET Mobile Apps SDK，將節點後端從行動服務升級到 Mobile Apps 不只是換掉封裝而已。您現在擁有整個應用程式堆疊，而不是由 Azure 來控制它，因此，您必須建立基本的 Express app 來主控您的行動後端。對於資料表和 API 控制器的概念很相似，但您現在必須匯出資料表物件，而且必須對函式 API 進行些微變更。本文將逐步解說升級的基本策略，但在移轉之前，您會想要在開始之前先閱讀[節點後端操作說明](app-service-mobile-node-backend-how-to-use-server-sdk.md)。
 
->[AZURE.TIP]請在開始升級之前，先閱讀並徹底了解本主題剩下的部分。請記下下列您使用的所有功能。
+>[AZURE.TIP] 請在開始升級之前，先閱讀並徹底了解本主題剩下的部分。請記下下列您使用的所有功能。
 
-行動服務用戶端 SDK 與新的 Mobile Apps 伺服器 SDK「不」相容。為了提供您 app 的服務持續性，您不應該將變更發佈至目前正在服務已發佈之用戶端的網站。而是應該建立新的行動應用程式做為重複項目。您可以在同一個 App Service 方案中放置此應用程式，以避免產生額外的財務成本。
+行動服務用戶端 SDK 與新的 Mobile Apps 伺服器 SDK「不」相容。為了提供您應用程式的服務持續性，您不應該將變更發佈至目前正在服務已發佈之用戶端的網站。而是應該建立新的行動應用程式做為重複項目。您可以在同一個 App Service 方案中放置此應用程式，以避免產生額外的財務成本。
 
-您之後會有兩個版本的應用程式：一個維持不變並為已發佈的現有 app 提供服務，另一個則可升級且目標為新的用戶端版本。您可依自己的步調移動並測試程式碼，但應該確定您所進行的任何錯誤修正都會套用到這兩個版本。當您覺得已將現有用戶端 app 的所需數量升級到最新版本，就可以視需要刪除原本移轉的 app。如果裝載於與您行動 app 相同的 App Service 方案中，就不會產生任何額外的金錢成本。
+您之後會有兩個版本的應用程式：一個維持不變並為已發佈的現有應用程式提供服務，另一個則可升級且目標為新的用戶端版本。您可依自己的步調移動並測試程式碼，但應該確定您所進行的任何錯誤修正都會套用到這兩個版本。當您覺得已將現有用戶端 app 的所需數量升級到最新版本，就可以視需要刪除原本移轉的 app。如果裝載於與您行動 app 相同的 App Service 方案中，就不會產生任何額外的金錢成本。
 
 完整的升級程序大致如下：
 
@@ -131,7 +131,7 @@ Mobile Apps 提供了新的 [行動應用程式伺服器 SDK]，其中提供許�
 
 您可以透過環境變數設定伺服器組態，您可以在行動 App 後端中透過 [App 設定] 來設定。
 
-您可以藉由將[組態物件](http://azure.github.io/azure-mobile-apps-node/global.html#configuration)傳遞至初始設定式，或是在專案的根目錄中[建立名為 azureMobile.js 檔案](app-service-mobile-node-backend-how-to-use-server-sdk/#howto-config-localdev)，來進一步自訂行動應用程式 SDK。
+您可以藉由將[組態物件](http://azure.github.io/azure-mobile-apps-node/global.html#configuration)傳遞至初始設定式，或是在專案的根目錄中[建立名為 azureMobile.js 檔案](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-config-localdev)，來進一步自訂行動應用程式 SDK。
 
 ### 使用日期與資料表
 
@@ -146,7 +146,7 @@ SDK 隨附記憶體內部的資料提供者，以便取得快速且輕鬆開始�
 
     module.exports = table;
 
-若要開始移植部分邏輯，您的每個 `<tablename>.<operation>.js` 都需要一個適用於資料表的函式。讓我們加入一個讀取函式做為範例。
+若要開始移植部分邏輯，針對您的每一個 `<tablename>.<operation>.js`，您需要適用於資料表的函式。讓我們加入一個讀取函式做為範例。
 
 在含有 TodoItem 資料表及一個讀取操作的行動服務中 (其會根據使用者識別碼來篩選)，如下：
 
@@ -191,7 +191,7 @@ Azure 通知中樞 SDK 具有一些自從行動服務以來的重大更新，因
 
     table.insert(function (context) {
         // For details of the Notification Hubs JavaScript SDK,
-        // see https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/
+        // see https://azure.microsoft.com/zh-TW/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/
         logger.silly('Running TodoItem.insert');
 
         // This push uses a template mechanism, so we need a template/
@@ -251,7 +251,7 @@ Mobile Apps 中並未內建排程的工作，因此您在行動服務後端中�
 
 如果您的應用程式會使用推播通知，請記下每個平台特定的註冊指示，因為也已有一些變更。
 
-當您準備好新的用戶端版本時，請嘗試對已升級的伺服器專案執行該版本。驗證它的運作方式之後，您就能將新版的應用程式發行給客戶。最後，在您的客戶有機會接收這些更新後，您就能刪除 app 的行動服務版本。現在，您已使用最新的 Mobile Apps 伺服器 SDK 完全升級為 App Service 行動應用程式。
+當您準備好新的用戶端版本時，請嘗試對已升級的伺服器專案執行該版本。驗證它的運作方式之後，您就能將新版的應用程式發行給客戶。最後，在您的客戶有機會接收這些更新後，您就能刪除應用程式的行動服務版本。現在，您已使用最新的 Mobile Apps 伺服器 SDK 完全升級為 App Service 行動應用程式。
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
@@ -261,22 +261,22 @@ Mobile Apps 中並未內建排程的工作，因此您在行動服務後端中�
 [Azure portal]: https://portal.azure.com/
 [Azure classic portal]: https://manage.windowsazure.com/
 [何謂 Mobile Apps？]: app-service-mobile-value-prop.md
-[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
+[I already use web sites and mobile services – how does App Service help me?]: /zh-TW/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [行動應用程式伺服器 SDK]: https://www.npmjs.com/package/azure-mobile-apps
 [Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Azure 排程器]: /en-us/documentation/services/scheduler/
+[Azure 排程器]: /zh-TW/documentation/services/scheduler/
 [Web 工作]: ../app-service-web/websites-webjobs-resources.md
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[App Service 定價]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[App Service 定價]: https://azure.microsoft.com/zh-TW/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
 [Azure 入口網站]: https://portal.azure.com/
 [OData]: http://www.odata.org
-[Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[Promise]: https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [todo sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
 [samples directory on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
@@ -284,8 +284,8 @@ Mobile Apps 中並未內建排程的工作，因此您在行動服務後端中�
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js package]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/zh-TW/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

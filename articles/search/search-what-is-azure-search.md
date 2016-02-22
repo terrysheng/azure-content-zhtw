@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/12/2016"
+	ms.date="02/09/2016"
 	ms.author="ashmaka"/>
 
 # 何謂 Azure 搜尋服務？
@@ -19,7 +19,7 @@ Azure 搜尋服務是一項雲端搜尋即服務解決方案，可將伺服器�
 
 ## 讓使用者擁有強大的搜尋經驗
 
-**強大的查詢**可以使用[簡單的查詢語法](https://msdn.microsoft.com/library/azure/dn798920.aspx)制訂，以提供邏輯運算子、片語搜尋運算子、後置運算子、優先順序運算子。此外，[Lucene 查詢語法](https://msdn.microsoft.com/library/azure/mt589323.aspx) (目前處於預覽階段) 可以啟用模糊搜尋、拼字錯誤、鄰近搜尋、詞彙提升及規則運算式。Azure 搜尋服務也支援自訂語彙分析器，可讓應用程式能使用語音比對和規則運算式來處理複雜的搜尋查詢。
+**強大的查詢**可以使用[簡單的查詢語法](https://msdn.microsoft.com/library/azure/dn798920.aspx)制訂，以提供邏輯運算子、片語搜尋運算子、後置運算子、優先順序運算子。此外，[Lucene 查詢語法](https://msdn.microsoft.com/library/azure/mt589323.aspx)可以啟用模糊搜尋、鄰近搜尋、詞彙提升及規則運算式。Azure 搜尋服務也支援自訂語彙分析器，可讓應用程式能使用語音比對和規則運算式來處理複雜的搜尋查詢。
 
 **語言支援**[包含 56 種不同的語言](https://msdn.microsoft.com/library/azure/dn879793.aspx)。Azure 搜尋服務可以同時使用 Lucene 分析器和 Microsoft 分析器 (經由 Office 和 Bing 中數年的自然語言處理修改) 分析應用程式搜尋方塊中的文字，以智慧的方式處理語言專屬的語言學，包括動詞時態、性別、不規則複數名詞 (例如 ' mouse' 與 'mice')、取消複合字、斷字 (針對不含空格的語言) 等等。
 
@@ -82,4 +82,4 @@ Azure 搜尋服務會當作端對端解決方案**受到完整管理**，所以�
 
 如果您沒有 Azure 帳戶，您可以免費試用 60 分鐘的工作階段 (不需要註冊)。移至[試用 Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214)並選取 [Web 應用程式]。 然後選取「ASP.NET + Azure 搜尋」範本開始進行。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

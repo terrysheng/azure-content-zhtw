@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #使用 Apache Storm on HDInsight 判斷 Twitter 的趨勢主題
@@ -23,7 +23,7 @@
 
 Trident 是一種高階抽象概念，可提供聯結、彙總、分組、函數和篩選等工具。此外，Trident 還會新增原型，以執行可設定狀態的增量處理。此範例會示範如何使用自訂 Spout、函數和 Trident 所提供的數個內建函數來建置拓撲。
 
-> [AZURE.NOTE]此範例有極大部分是以 Juan Alonso 的 [Trident Storm](https://github.com/jalonsoramos/trident-storm) 範例為基礎。
+> [AZURE.NOTE] 此範例有極大部分是以 Juan Alonso 的 [Trident Storm](https://github.com/jalonsoramos/trident-storm) 範例為基礎。
 
 ##需求
 
@@ -47,7 +47,7 @@ Trident 是一種高階抽象概念，可提供聯結、彙總、分組、函數
 
 ![拓撲](./media/hdinsight-storm-twitter-trending/trident.png)
 
-> [AZURE.NOTE]這是簡化的拓撲樣貌。元件的多個執行個體會分散到叢集中的節點。
+> [AZURE.NOTE] 這是簡化的拓撲樣貌。元件的多個執行個體會分散到叢集中的節點。
 
 實作拓撲的 Trident 程式碼如下：
 
@@ -69,7 +69,7 @@ Trident 是一種高階抽象概念，可提供聯結、彙總、分組、函數
 
 4. 因為我們只對指定的這批推文中最受歡迎的 # 標籤感興趣，所以會套用 **FirstN** 組件，並根據計數欄位，僅傳回前 10 個值。
 
-> [AZURE.NOTE]我們會使用內建 Trident 功能，而非 Spout 和 HashtagExtractor。
+> [AZURE.NOTE] 我們會使用內建 Trident 功能，而非 Spout 和 HashtagExtractor。
 >
 > 如需關於內建作業的資訊，請參閱 <a href="https://storm.apache.org/apidocs/storm/trident/operation/builtin/package-summary.html" target="_blank">封裝 storm.trident.operation.builtin</a>。
 >
@@ -140,4 +140,4 @@ Spout **TwitterSpout** 會使用 <a href="http://twitter4j.org/en/" target="_bla
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

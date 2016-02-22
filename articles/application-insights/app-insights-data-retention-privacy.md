@@ -64,7 +64,7 @@ Application Insights SDK 可用於多種應用程式類型：裝載於您自己�
 主要類別如下：
 
 * [Web 伺服器遙測](app-insights-asp-net.md) - HTTP 要求。URI、處理要求所花費的時間、回應碼、用戶端 IP 位址。工作階段識別碼。
-* [網頁](articles/app-insights-javascript.md) - 頁面、使用者和工作階段計數。頁面載入時間。例外狀況。
+* [網頁](app-insights-javascript.md) - 頁面、使用者和工作階段計數。頁面載入時間。例外狀況。Ajax 呼叫。
 * 效能計數器 - 記憶體、CPU、IO、網路佔用量。
 * 用戶端和伺服器內容 - OS、地區設定、裝置類型、瀏覽器和螢幕解析度。
 * [例外狀況](app-insights-asp-net-exceptions.md)和當機 - **堆疊傾印**、組建識別碼、CPU 類型。 
@@ -191,7 +191,7 @@ Application Insights 不會篩選或刪除資料。您應該適當地管理資�
 [將 Application Insights SDK 新增至 .NET Web 專案][greenbrown] | ServerContext<br/>推斷<br/>效能計數器<br/>要求<br/>**例外狀況**<br/>工作階段<br/>使用者
 [在 IIS 上安裝狀態監視器][redfield]<br/>[將 AI 延伸模組新增至 Azure VM 或 Web 應用程式][azure]|相依性<br/>ServerContext<br/>推斷<br/>效能計數器
 [將 Application Insights SDK 新增至 Java Web 應用程式][java]|ServerContext<br/>推斷<br/>要求<br/>工作階段<br/>使用者
-[將 JavaScript SDK 新增至網頁][client]|ClientContext <br/>推斷<br/>頁面<br/>ClientPerf
+[將 JavaScript SDK 新增至網頁][client]|ClientContext <br/>推斷<br/>頁面<br/>ClientPerf<br/>Ajax
 [將 SDK 新增至 Windows 市集應用程式][windows]|DeviceContext<br/>使用者<br/>損毀資料
 [定義預設屬性][apiproperties]|所有標準和自訂事件上的**屬性**
 [呼叫 TrackMetric][api]|數值<br/>**屬性**
@@ -218,6 +218,7 @@ ServerContext |電腦名稱、地區設定、作業系統、裝置、使用者�
 事件 | 事件名稱和值
 PageViews | URL 和頁面名稱或螢幕名稱
 用戶端效能 | URL/頁面名稱、瀏覽器載入時間
+Ajax | 從網頁向伺服器發出的 HTTP 呼叫
 要求 |URL、持續時間、回應碼
 相依項目|類型 (SQL、HTTP、...)、連接字串或 URI、同步/非同步、持續時間、成功、SQL 陳述式 (含狀態監視器)
 **例外狀況** | 類型、**訊息**、呼叫堆疊、來源檔案和行號、執行緒識別碼
@@ -264,4 +265,4 @@ SDK 診斷 | 追蹤訊息或例外狀況
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

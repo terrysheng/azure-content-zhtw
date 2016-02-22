@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>將您現有的 Azure 行動服務移轉至 Azure App Service
@@ -65,7 +65,7 @@ Microsoft 建議您移轉 Azure 行動服務，以使用 Azure App Service 的�
 
   1.  登入 [Azure 傳統入口網站]。
   2.  選取您的行動服務。
-  3.  選取 [調整] 索引標籤。
+  3.  選取 [相應增加] 索引標籤。
   4.  在 [行動服務層] 下，按一下 [標準] 層。按一下位於頁面底部的 [儲存] 按鈕。
 
 移轉之後，請記得將定價層設定為適當的設定。
@@ -86,7 +86,7 @@ Microsoft 建議您移轉 Azure 行動服務，以使用 Azure App Service 的�
 
 如果您移轉免費或基本定價層的行動服務，該定價層中的所有行動服務將會同時移轉。若要避免此狀況，您可以在移轉期間[將您要移轉的行動服務提升至](#opt-raise-service-tier)標準。
 
-您可以在活動監視器中監視移轉的狀態，且您的網站在 Azure 傳統入口網站中會列示為 *移轉中* 。
+您可以在活動監視器中監視移轉的狀態，且您的網站在 Azure 傳統入口網站中會列示為*移轉中*。
 
   ![移轉活動監視器][1]
 
@@ -117,7 +117,7 @@ Microsoft 建議您移轉 Azure 行動服務，以使用 Azure App Service 的�
 
 請注意，您有相當大的彈性可為應用程式選擇適當的定價層。請參閱 [App Service 價格]，以充分了解新的 App Service 的價格。
 
-> [AZURE.TIP]App Service 標準層包含您可能想要使用之多種功能的存取權，包括[預備位置]、自動備份和自動調整。您可以在相關位置查看新功能。
+> [AZURE.TIP] App Service 標準層包含您可能想要使用之多種功能的存取權，包括[預備位置]、自動備份和自動調整。您可以在相關位置查看新功能。
 
 ### <a name="review-migration-scheduler-jobs"></a>檢閱已移轉的排程器作業
 
@@ -143,7 +143,7 @@ Microsoft 建議您移轉 Azure 行動服務，以使用 Azure App Service 的�
 
 這是選擇性工作，但可為後續提供更好的管理體驗。
 
-> [AZURE.TIP]使用 Azure App Service 的優點之一，是您可以在相同網站上執行您的網站和行動服務。如需詳細資訊，請參閱[後續步驟](#next-steps)一節。
+> [AZURE.TIP]  使用 Azure App Service 的優點之一，是您可以在相同網站上執行您的網站和行動服務。如需詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
 ### <a name="download-publish-profile"></a>下載新的發行設定檔
 
@@ -192,7 +192,7 @@ PublishSettings 檔案會下載至您的電腦。此檔案通常名為 _sitename
 
 您可以同時更新多個應用程式設定。
 
-> [AZURE.TIP]您會發現有兩個具有相同值的 [應用程式設定]。例如，您可能會看到 _ApplicationKey_ 和 _MS\_ApplicationKey_。您只需要變更具有前置 **MS\_** 的應用程式設定。不過，同時更新這兩個應用程式設定，是不錯的做法。
+> [AZURE.TIP]  您會發現有兩個具有相同值的 [應用程式設定]。例如，您可能會看到 _ApplicationKey_ 和 _MS\_ApplicationKey_。您只需要變更具有前置 **MS\_** 的應用程式設定。不過，同時更新這兩個應用程式設定，是不錯的做法。
 
 ### <a name="authentication"></a>驗證
 
@@ -208,7 +208,7 @@ PublishSettings 檔案會下載至您的電腦。此檔案通常名為 _sitename
 
 注意：**MS\_AadTenants** 會儲存為租用戶網域 ([行動服務入口網站] 中的 [允許的租用戶] 欄位) 的逗號分隔清單。
 
-> [AZURE.WARNING]**請不要使用 [設定] 功能表中的驗證機制**
+> [AZURE.WARNING] **請不要使用 [設定] 功能表中的驗證機制**
 >
 > Azure App Service 分別在 [_驗證/授權_設定] 功能表下提供「無程式碼」驗證和授權系統，以及在 [設定] 功能表下提供已被取代的 [_行動驗證_] 選項。這些選項與已移轉的 Azure 行動服務不相容。您可以 [升級您的網站]，以利用 Azure App Service 驗證功能。
 
@@ -274,14 +274,14 @@ PublishSettings 檔案會下載至您的電腦。此檔案通常名為 _sitename
 您的通知中樞將透過 [Azure 入口網站]受到管理。請記下通知中樞名稱 (您可以使用 [應用程式設定] 找到此項目)：
 
   1. 登入 [Azure 入口網站]。
-  2. 選取 [瀏覽>]，然後選取 \[通知中樞]
+  2. 選取 [瀏覽>]，然後選取 [通知中樞]
   3. 按一下與行動服務相關聯的通知中樞名稱。
 
-> [AZURE.NOTE]您的通知中樞如果是「混合」類型，則不會顯示。「混合」類型的通知中樞會同時使用「通知中樞」和舊版的「服務匯流排」功能。您將必須[轉換混合式命名空間]。轉換完成後，您的通知中樞會出現在 [Azure 入口網站]中。
+> [AZURE.NOTE] 您的通知中樞如果是「混合」類型，則不會顯示。「混合」類型的通知中樞會同時使用「通知中樞」和舊版的「服務匯流排」功能。您將必須[轉換混合式命名空間]。轉換完成後，您的通知中樞會出現在 [Azure 入口網站]中。
 
 如需詳細資訊，請檢閱[通知中樞]文件。
 
-> [AZURE.TIP] "[Azure 入口網站]"中的通知中樞管理功能仍處於預覽階段。[Azure 傳統入口網站]仍可用來管理您所有的通知中樞。
+> [AZURE.TIP] [Azure 入口網站]中的通知中樞管理功能仍處於預覽階段。[Azure 傳統入口網站]仍可用來管理您所有的通知中樞。
 
 ### <a name="app-settings"></a>其他應用程式設定
 
@@ -393,4 +393,4 @@ Azure App Service 通常會停用 [診斷記錄]。若要啟用診斷記錄：
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJob]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

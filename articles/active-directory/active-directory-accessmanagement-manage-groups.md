@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) 的其中一項主要功能是管理資源的�
 
 1. 在 Azure 入口網站中，按一下 [Active Directory]，然後按一下貴組織的目錄名稱。
 2. 按一下 [群組] 索引標籤。
-3. 在 [群組] 頁面中，按一下 [加入群組]。
+3. 在 [群組] 頁面中，按一下 [新增群組]。
 4. 在 [加入群組] 視窗中，指定群組的名稱與描述。
 5. 您可以使用 Office 365 帳戶入口網站、Windows Intune 帳戶入口網站或 Azure 入口網站完成這項工作 (視貴組織所訂閱的服務而定)。如需使用入口網站管理 Azure Active Directory 的詳細資訊，請參閱[管理 Azure AD 目錄](active-directory-administer)。
 
@@ -70,8 +70,10 @@ Azure Active Directory (Azure AD) 的其中一項主要功能是管理資源的�
 
 * [使用 Azure Active Directory 群組管理資源的存取權](active-directory-manage-groups.md)
 
+* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+
 * [什麼是 Azure Active Directory？](active-directory-whatis.md)
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

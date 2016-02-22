@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="01/28/2016" 
+	ms.date="02/10/2016" 
 	ms.author="larryfr"/>
 
 #在 HDInsight 中搭配 Hive 與 Pig 來使用 Python
@@ -23,7 +23,14 @@ Hive 與 Pig 很適合在 HDInsight 中處理資料，但您有時需要更通�
 
 > [AZURE.NOTE] 本文中的步驟適用於 HDInsight 叢集 2.1、3.0、3.1 和 3.2 版。
 
+##需求
 
+* HDInsight 叢集 (Windows 或 Linux 型)。
+
+* 文字編輯器
+
+    > [AZURE.IMPORTANT] 如果您使用 Linux 型 HDInsight 伺服器，但卻是在 Windows 用戶端上建立 Python 檔案，您就必須使用以 LF 做為行尾結束符號的編輯器。如果您不確定您的編輯器是使用 LF 還是 CRLF，請參閱[疑難排解](#troubleshooting)一節，以了解有關使用公用程式來移除 HDInsight 叢集上 CR 字元的步驟。
+    
 ##<a name="python"></a>HDInsight 上的 Python
 
 HDInsight 3.0 及更新版本的叢集上預設為已安裝 Python2.7。Hive 可以搭配此版本的 Python 來進行串流處理 (Hive 與 Python 之間使用 STDOUT/STDIN 傳遞資料)。
@@ -394,6 +401,22 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。Pig 知道如何
 
 ##<a name="troubleshooting"></a>疑難排解
 
+###執行工作時發生錯誤
+
+執行 Hive 工作時，您可能會遇到類似以下的錯誤：
+
+    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+    
+這個問題可能是由 streaming.py 檔案中的行尾結束符號所引起。許多 Windows 編輯器預設都是使用 CRLF 做為行尾結束符號，但是 Linux 應用程式通常預期使用 LF。
+
+如果您使用的是無法建立 LF 行尾結束符號的編輯器，或是不確定使用的是哪些行尾結束符號，在將檔案上傳到 HDInsight 之前，請先使用下列 PowerShell 陳述式來移除 CR 字元：
+
+    $original_file ='c:\path\to\streaming.py'
+    $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
+    [IO.File]::WriteAllText($original_file, $text)
+
+###PowerShell 指令碼
+
 用來執行範例的兩個範例 PowerShell 指令碼都包含一行註解，此行會顯示工作的錯誤輸出。如果您沒有看到預期的工作輸出，請將下列這一行取消註解，再查看錯誤資訊是否指出問題。
 
 	# Get-AzureRmHDInsightJobOutput `
@@ -424,4 +447,4 @@ Pig|/PigPython/stderr<p>/PigPython/stdout
 
 * [〈搭配 HDInsight 使用 MapReduce〉](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

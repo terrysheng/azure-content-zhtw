@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="12/11/2015"
+ms.date="02/08/2016"
 ms.author="eugenesh" />
 
 # 使用 Azure 搜尋服務在 Azure Blob 儲存體中對文件編制索引
@@ -72,7 +72,8 @@ blob 索引子可以從下列文件格式擷取文字：
 - HTML
 - XML
 - ZIP
-- 純文字檔案 (包括 JSON)  
+- EML
+- 純文字檔案  
 
 ## 文件擷取程序
 
@@ -189,8 +190,9 @@ PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation)
 PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | 擷取文字，包括內嵌文件
 MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | 擷取文字，包括附件
 ZIP (application/zip) | `metadata_content_type` | 從封存中的所有文件擷取文字
-XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 移除 XML 標記並且擷取文字 </td>
+XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 移除 XML 標記並且擷取文字
 JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | 擷取文字<br/>請注意：如果您需要從 JSON Blob 擷取多個文件欄位，請投票支持[這個 UserVoice 建議](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs/) (英文)
+EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` | 擷取文字，包括附件
 純文字 (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
@@ -207,4 +209,4 @@ AzureSearch\_SkipContent | "true" | 指示 blob 索引子僅編制索引中繼�
 
 如果您有功能要求或改進的想法，請在我們的 [UserVoice 網站](https://feedback.azure.com/forums/263029-azure-search/)與我們連絡。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

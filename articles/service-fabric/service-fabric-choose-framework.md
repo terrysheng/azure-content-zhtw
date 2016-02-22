@@ -33,6 +33,6 @@ Azure Service Fabric 提供兩個高階架構來建置服務：Reliable Services
 ## 後續步驟
 
 - [深入了解 Reliable Actors API](service-fabric-reliable-actors-introduction.md)
-- [深入了解 Reliable Services API](../Service-Fabric/service-fabric-reliable-services-introduction.md)
+- [深入了解 Reliable Services API](service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

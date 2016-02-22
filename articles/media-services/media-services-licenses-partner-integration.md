@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #使用合作夥伴將 Widevine 授權傳遞到 Azure 媒體服務
@@ -47,4 +47,4 @@ Microsoft Azure 媒體服務可讓您提供受 Widevine DRM 保護的 MPEG-DASH�
 
 [Mingfei 的部落格](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

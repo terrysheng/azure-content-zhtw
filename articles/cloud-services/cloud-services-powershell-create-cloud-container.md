@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="01/13/2015"
+   ms.date="02/09/2016"
    ms.author="cawa"/>
 
 # 使用 Azure PowerShell 命令來建立空白的雲端服務容器
@@ -46,4 +46,4 @@ Get-help New-AzureService
 
  * 若要將雲端服務專案發佈至 Azure，請參閱[在 Azure 中持續提供雲端服務](cloud-services-dotnet-continuous-delivery.md)中的 **PublishCloudService.ps1** 程式碼範例
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

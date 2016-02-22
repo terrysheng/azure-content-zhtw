@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="02/09/2016"
    ms.author="tomfitz"/>
 
 # 在部署期間傳遞安全值
 
 當您需要在部署期間傳遞安全值 (例如密碼) 做為參數時，可以將該值儲存為 [Azure 金鑰保存庫](./key-vault/key-vault-whatis.md)中的密碼，並在其他資源管理員範本中參考該值。您只能在範本中包含密碼的參考，因此該密碼永遠都不會公開，而您不需要每次部署資源時手動輸入該密碼的值。您會指定哪些使用者或服務主體可以存取密碼。
 
-> [AZURE.NOTE]目前只有 Azure CLI 支援參考金鑰保存庫密碼的功能。Azure PowerShell 將儘速加入此功能。
+> [AZURE.NOTE] 目前只有 Azure CLI 支援參考金鑰保存庫密碼的功能。Azure PowerShell 將儘速加入此功能。
 
 ## 部署金鑰保存庫和密碼
 
@@ -33,34 +33,34 @@
 您會從將值傳遞至範本的參數檔案中參考密碼。您可以藉由傳遞金鑰保存庫的資源識別碼和密碼的名稱來參考密碼。
 
     "parameters": {
-        "adminPassword": {
-            "reference": {
-                "keyVault": {
-                    "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-                }, 
-                "secretName": "sqlAdminPassword" 
-            } 
-        }
+      "adminPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+          }, 
+          "secretName": "sqlAdminPassword" 
+        } 
+      }
     }
 
 整個參數檔案可能看起來如下：
 
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "sqlsvrAdminLogin": {
-                "value": ""
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "sqlsvrAdminLogin": {
+          "value": ""
+        },
+        "sqlsvrAdminLoginPassword": {
+          "reference": {
+            "keyVault": {
+              "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
             },
-            "sqlsvrAdminLoginPassword": {
-                "reference": {
-                    "keyVault": {
-                        "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-                    },
-                    "secretName": "adminPassword"
-                }
-            }
+            "secretName": "adminPassword"
+          }
         }
+      }
     }
 
 接受密碼的參數應該是 **securestring**。下列範例顯示範本的相關區段，該範本會部署需要系統管理員密碼的 SQL Server。
@@ -102,7 +102,7 @@
 ## 後續步驟
 
 - 如需金鑰保存庫的一般資訊，請參閱[開始使用 Azure 金鑰保存庫](./key-vault/key-vault-get-started.md)。
-- 如需部署範本的詳細資訊，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
+- 如需搭配虛擬機器使用金鑰保存庫的相關資訊，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)。
 - 如需參考金鑰密碼的完整範例，請參閱[金鑰保存庫範例](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

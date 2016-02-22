@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"   
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -43,8 +43,6 @@
 
 如需詳細資訊，請參閱[管理多個儲存體帳戶的媒體服務資產](https://msdn.microsoft.com/library/azure/dn271889.aspx)和[使用 Azure 儲存體](https://msdn.microsoft.com/library/azure/dn767951.aspx)。
 
-
-
 ##媒體服務學習路徑
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -53,4 +51,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

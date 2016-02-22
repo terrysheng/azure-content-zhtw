@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 
@@ -119,7 +119,8 @@
 5.	在 [部署和管理] 區段之下，遵循步驟 1 到 3 來整合 Azure Active Directory 與您的本機目錄。
   1.	新增網域。
   2.	安裝和執行 Azure AD Connect︰使用[自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)中的指示來安裝 Azure AD Connect。
-  3. 驗證及管理目錄同步作業。此步驟中可取得單一登入的指示。>[AZURE.NOTE] 如上面連結的文件所述設定與 AD FS 同盟。>[AZURE.NOTE] 您不需要設定任何預覽功能。
+  3. 驗證及管理目錄同步作業。此步驟中可取得單一登入的指示。
+  >[AZURE.NOTE] 如上面連結的文件所述，設定與 AD FS 同盟。[AZURE.NOTE] 您不需要設定任何預覽功能。
   
    
 
@@ -187,7 +188,7 @@ Azure Active Directory 裝置註冊使用 iOS 裝置的空中下載設定檔註�
 4. 出現提示時，請使用您的認證登入。裝置會隨即加入。
 
 ###使用 Azure Active Directory 裝置註冊加入 Windows 7 裝置
-若要註冊加入網域的 Windows 7 裝置，您需要部署裝置註冊軟體套件。此軟體套件稱為 Workplace Join for Windows 7，可以從 [Microsoft Connect 網站](https://connect.microsoft.com/site1164)下載。在[為加入網域的 Windows 7 裝置設定自動註冊裝置](active-directory-conditional-access-automatic-device-registration-windows7.md)可取得如何使用此套件的指示。
+若要註冊加入網域的 Windows 7 裝置，您需要部署裝置註冊軟體套件。此軟體套件稱為 Workplace Join for Windows 7，可以從 [Microsoft Connect 網站](https://connect.microsoft.com/site1164)下載。[為加入網域的 Windows 7 裝置設定自動註冊裝置](active-directory-conditional-access-automatic-device-registration-windows7.md)中有提供如何使用此套件的指示。
 
 ### 使用 Azure Active Directory 裝置註冊加入 Android 裝置
 
@@ -244,4 +245,8 @@ Azure Active Directory 裝置註冊使用 iOS 裝置的空中下載設定檔註�
 
 ![使用者尚未向 Azure AD 註冊其裝置時的錯誤螢幕擷取畫面](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=AcomDC_0128_2016-->
+##相關文章
+
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

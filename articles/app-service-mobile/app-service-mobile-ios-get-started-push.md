@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="02/04/2016"
 	ms.author="krisragh"/>
 
 
 # 將推播通知新增至您的 iOS 應用程式
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 概觀
 在本教學課程中，您會將推播通知加入 [iOS 快速入門]專案，以便在每次插入一筆記錄時傳送推播通知。本教學課程以 [iOS 快速入門]教學課程為基礎，您必須先完成該教學課程。如果您不要使用下載的快速入門伺服器專案，必須將推播通知擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
@@ -72,4 +70,4 @@
 <!-- URLs. -->
 [iOS 快速入門]: app-service-mobile-ios-get-started.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/22/2015"
+   ms.date="02/09/2016"
    ms.author="bwren" />
 
 # Runbook 設定
@@ -60,4 +60,4 @@ Azure 自動化中的每個 Runbook 具備多個有助於識別其本身及變�
 - [Runbook 輸出和訊息](../automation-runbook-output-and-messages) 
 - [建立或匯入 Runbook](https://msdn.microsoft.com/library/dn643637.aspx) 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

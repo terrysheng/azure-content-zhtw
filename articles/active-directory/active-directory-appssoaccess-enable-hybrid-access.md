@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 # 啟用應用程式 Proxy 的混合式存取
@@ -39,7 +39,8 @@
 7. 回應會透過應用程式 Proxy 傳送給使用者。
 
 ## 相關文章
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 - [啟用 Azure AD 應用程式 Proxy](active-directory-application-proxy-enable.md#step-1-enable-application-proxy-in-azure-ad)
 - [透過 Azure AD 應用程式 Proxy 發行應用程式](active-directory-application-proxy-publish.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="02/04/2016"
    ms.author="subramar"/>
 
 # Service Fabric 應用程式升級：進階主題
 
 ## 手動升級模式
 
-> [AZURE.NOTE]只有對於失敗或已暫停的升級，才應該考量不受監控手動模式。監視模式是對於 Service Fabric 應用程式的建議升級模式。
+> [AZURE.NOTE]  只有對於失敗或已暫停的升級，才應該考量不受監控手動模式。監視模式是對於 Service Fabric 應用程式的建議升級模式。
 
 Azure Service Fabric 會提供多個升級模式以支援開發和生產叢集。每個部署選項分別適合不同的環境。
 
@@ -49,12 +49,15 @@ Service Fabric 應用程式可以藉由佈建完整、獨立式應用程式封�
 
 ## 後續步驟
 
-[升級教學課程](service-fabric-application-upgrade-tutorial.md)
+[使用 Visual Studio 升級您的應用程式](service-fabric-application-upgrade-tutorial.md)將引導您完成使用 Visual Studio 進行應用程式升級的步驟。
 
-[升級參數](service-fabric-application-upgrade-parameters.md)
+[使用 PowerShell 升級您的應用程式](service-fabric-application-upgrade-tutorial-powershell.md)將引導您完成使用 PowerShell 進行應用程式升級的步驟。
 
-[資料序列化](service-fabric-application-upgrade-data-serialization.md)
+使用[升級參數](service-fabric-application-upgrade-parameters.md)來控制您應用程式的升級方式。
 
-[疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)
+了解如何使用[資料序列化](service-fabric-application-upgrade-data-serialization.md)，以讓您的應用程式升級相容。
 
-<!---HONumber=AcomDC_0121_2016-->
+參考[疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)中的步驟，以修正應用程式升級中常見的問題。
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

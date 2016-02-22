@@ -36,9 +36,9 @@ Operational Insights 會依儲存記錄檔的儲存體資料表的名稱，識�
 ## 您可能想要收集的不同記錄來源
 1. **Service Fabric 記錄檔：**由平台發出到標準 ETW 和 EventSource 通道。記錄檔可以是下列其中一種類型：
   - 操作事件：Service Fabric 平台所執行之作業的記錄檔。範例包括建立應用程式和服務、節點狀態變更和升級資訊。
-  - [Actor 程式設計模型事件](https://azure.microsoft.com/service-fabric-reliable-actors-diagnostics/)
-  - [Reliable Services 程式設計模型事件](https://azure.microsoft.com/service-fabric-reliable-services-diagnostics/)
-2. **應用程式事件：**從您的服務程式碼發出且使用 Visual Studio 範本所提供的 EventSource 協助程式類別所寫出的事件。如需有關如何從應用程式寫入記錄檔的詳細資訊，請參閱[這篇有關監視和診斷本機電腦安裝中的服務的文章](https://azure.microsoft.com/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/)。
+  - [Actor 程式設計模型事件](service-fabric-reliable-actors-diagnostics.md)
+  - [Reliable Services 程式設計模型事件](service-fabric-reliable-services-diagnostics.md)
+2. **應用程式事件：**從您的服務程式碼發出且使用 Visual Studio 範本所提供的 EventSource 協助程式類別所寫出的事件。如需有關如何從應用程式寫入記錄檔的詳細資訊，請參閱[這篇有關監視和診斷本機電腦安裝中的服務的文章](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)。
 
 
 ## 將診斷延伸模組部署到 Service Fabric 叢集來收集和上傳記錄檔
@@ -325,4 +325,4 @@ if ($existingConfig) {
 ## 後續步驟
 查看針對 [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) 和 [Reliable Services](service-fabric-reliable-services-diagnostics.md) 所發出的診斷事件，以更詳細了解進行問題移難排解時應該調查哪些事件。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

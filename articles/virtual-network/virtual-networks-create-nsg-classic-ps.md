@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # 如何在 PowerShell 中建立 NSG (傳統)
@@ -27,10 +27,10 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-以下的範例 PowerShell 命令會預期已根據上述案例建立簡單的環境。如果您想要執行如本文件中所顯示的命令，請先[建立 VNet](virtual-networks-create-vnet-classic-netcfg-ps) 以建置測試環境。
+以下的範例 PowerShell 命令會預期已根據上述案例建立簡單的環境。如果您想要執行如本文件中所顯示的命令，請先[建立 VNet](virtual-networks-create-vnet-classic-netcfg-ps.md) 以建置測試環境。
 
 ## 如何建立前端子網路的 NSG
-若要根據上述案例建立名為 *NSG-FrontEnd* 的 NSG，請依照下列步驟執行。
+若要根據上述案例建立名為 **NSG-FrontEnd** 的 NSG，請依照下列步驟執行。
 
 1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
 
@@ -210,4 +210,4 @@
 		           OUTBOUND                                                                                                      
 		           DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

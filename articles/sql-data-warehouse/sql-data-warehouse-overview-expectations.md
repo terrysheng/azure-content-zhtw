@@ -3,7 +3,7 @@
    description="公用預覽版功能和我們的 SQL 資料倉儲公開上市目標的摘要。"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lvargas"
+   authors="twounder"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="01/07/2016"
-   ms.author="lvargas;mausher;barbkess"/>
+   ms.author="mausher;barbkess;sonyama"/>
 
 # SQL 資料倉儲預覽版期望
 
@@ -72,4 +72,4 @@ SQL 資料倉儲會將資料儲存於一或多個計算節點，而每個節點�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

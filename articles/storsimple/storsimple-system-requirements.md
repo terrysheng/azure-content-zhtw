@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="02/01/2016"
+   ms.date="02/04/2016"
    ms.author="alkohli"/>
 
 # StorSimple 軟體、高可用性和網路需求
@@ -36,7 +36,7 @@
 | 受支援的作業系統 | 必要版本 | 其他需求/注意事項 |
 | --------------------------- | ---------------- | ------------- |
 | Windows Server | 2008R2 SP1、2012、2012R2 |僅支援在下列 Windows 磁碟類型上使用 StorSimple iSCSI 磁碟區：<ul><li>基本磁碟上的簡單磁碟區</li><li>動態磁碟上的簡單和鏡像磁碟區</li></ul>使用 StorSimple iSCSI 磁碟區時，支援 Windows Server 2012 精簡佈建和 ODX 功能。<br><br>StorSimple 能建立精簡佈建及完整佈建磁碟區。它無法建立部分佈建的磁碟區。<br><br>將精簡佈建的磁碟區重新格式化，可能需要很長的時間。建議刪除磁碟區，然後建立新的磁碟區，而不是重新格式化。但是，如果您仍然偏好重新格式化磁碟區：<ul><li>在重新格式化之前先執行下列命令，以避免空間回收延遲：<br>`fsutil behavior set disabledeletenotify 1`</br></li><li>完成格式化之後，使用下列命令重新啟用空間回收：<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>如 [KB 2878635](https://support.microsoft.com/kb/2870270) 所述，將 Windows Server 2012 Hotfix 套用到 Windows Server 電腦。</li></ul></li></ul></ul> 如果您要設定 StorSimple Snapshot Manager 或 StorSimple Adapter for SharePoint，請移至[選用元件的軟體需求](#software-requirements-for-optional-components)。|
-| VMWare ESX | 5\.5 | 受 VMWare vSphere 支援為 iSCSI 用戶端。StorSimple 裝置上的 VMWare vSphere 支援 VAAI 區塊功能。 
+| VMWare ESX | 5\.1 與 5.5 | 受 VMWare vSphere 支援為 iSCSI 用戶端。StorSimple 裝置上的 VMWare vSphere 支援 VAAI 區塊功能。 
 | Linux RHEL/CentOS | 5 和 6 | 支援具備 Open-iSCSI 啟動器第 5 版和第 6 版的 Linux iSCSI 用戶端。 |
 | Linux | SUSE Linux 11 | |
  > [AZURE.NOTE] StorSimple 目前不支援 IBM AIX。
@@ -67,7 +67,7 @@
 
 <sup>1</sup> 公用網際網路上沒有必須開啟的輸入連接埠。
 
-<sup>2</sup> 如果多個連接埠都有閘道器設定，將會根據下列[連接埠路由](#port-routing)所述的連接埠路由順序，決定輸出路由的流量順序。
+<sup>2</sup> 如果多個連接埠都有閘道器設定，將會根據下列[連接埠路由](#routing-metric)所述的連接埠路由順序，決定輸出路由的流量順序。
 
 <sup>3</sup> StorSimple 裝置上的控制器固定 IP 必須可路由傳送，且能夠連線到網際網路。固定的 IP 位址用來為裝置更新提供服務。如果裝置控制器無法透過固定 IP 連線到網際網路，您將無法更新您的 StorSimple 裝置。
 
@@ -77,7 +77,7 @@
 
 路由度量與介面和閘道器 (將資料路由到指定的網路) 相關聯。路由度量用於路由通訊協定，如果它知道到相同目的地有多個路徑存在，則會計算到指定目的地的最佳路徑。路由計量的值越低，建議採用的指數越高。
 
-在 StorSimple 內容中，如果多個網路介面和閘道器設定為通道流量，路由度量會派上用場，判斷使用介面的相對順序。使用者無法變更路由度量。不過您可以使用 `Get-HcsRoutingTable` Cmdlet 列印您的 StorSimple 裝置上的路由資料表 (和度量)。[Get-HcsRoutingTable Cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-hcsroutingtable-cmdlet) 的詳細資訊
+在 StorSimple 內容中，如果多個網路介面和閘道器設定為通道流量，路由度量會派上用場，判斷使用介面的相對順序。使用者無法變更路由度量。不過您可以使用 `Get-HcsRoutingTable` Cmdlet 列印您的 StorSimple 裝置上的路由資料表 (和度量)。如需 Get-HcsRoutingTable Cmdlet 的詳細資訊，請參閱 [StorSimple 部署疑難排解](storsimple-troubleshoot-deployment.md)。
 
 路由度量演算法會根據 StorSimple 裝置上執行的軟體版本而有所不同。
 
@@ -108,12 +108,7 @@ Update 2 有幾項網路相關的改進且路由度量已變更。行為可以�
 		
 	| 網路介面 | 已啟用雲端 | 已停用雲端且具有閘道器 |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - 雲端流量透過網路介面路由的順序為：
@@ -215,7 +210,7 @@ StorSimple 裝置包括備援、可熱交換的控制器模組。控制器模組
 
 #### SSD 與 HDD
 
-StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和硬碟 (HDD)，且提供熱備援給 HDD。使用鏡像空間可確保裝置能夠容許一或多個 SSD 或 HDD 的失敗。
+StorSimple 裝置包含使用鏡像空間保護的固態硬碟 (SSD) 與硬碟 (HDD)。使用鏡像空間可確保裝置能夠容許一或多個 SSD 或 HDD 的失敗。
 
 - 請確定已安裝所有 SSD 和 HDD 模組。
 
@@ -256,9 +251,9 @@ StorSimple 裝置包括受到使用鏡像空間保護的固態磁碟 (SSD) 和�
 ## 後續步驟
 
 - [了解 StorSimple 系統限制](storsimple-limits.md)。
-- [了解如何部署 StorSimple 解決方案](storsimple-deployment-walkthrough.md)。
+- [了解如何部署 StorSimple 解決方案](storsimple-deployment-walkthrough-u2.md)。
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

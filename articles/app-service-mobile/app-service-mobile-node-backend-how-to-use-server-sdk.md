@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # 如何使用 Azure Mobile Apps Node.js SDK
@@ -327,7 +327,7 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 _azureMobile.js_ 的 Java
 
 建議您將 _azureMobile.js_ 新增至您的 _.gitignore_ 檔案 (或其他原始程式碼控制忽略檔案)，以防止密碼儲存在雲端中。請一律在 [Azure 入口網站]內的 [應用程式設定] 中設定生產設定。
 
-### <a name="howto-appsettings"><a>設定行動應用程式的應用程式設定
+### <a name="howto-appsettings"></a>設定行動應用程式的應用程式設定
 
 _azureMobile.js_ 檔案中的大部分設定在 [Azure 入口網站]中都有對等的「應用程式設定」。請使用下列清單在 [應用程式設定] 中設定您的應用程式：
 
@@ -561,9 +561,9 @@ Azure App Service Mobile Apps 隨附內建 [Swagger] 支援。若要啟用 Swagg
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-swagger 端點位於 http://\_yoursite\_.azurewebsites.net/swagger。您可以透過 `/swagger/ui` 端點存取 Swagger UI。請注意，如果您選擇需要跨整個應用程式驗證，Swagger 會產生 / 端點的錯誤。為了獲得最佳結果，選擇允許透過 Azure App Service 驗證/授權設定的未經驗證要求，然後使用 `table.access` 屬性控制驗證。
+Swagger 端點將會位於 http://_yoursite_.azurewebsites.net/swagger。您可以透過 `/swagger/ui` 端點存取 Swagger UI。請注意，如果您選擇需要跨整個應用程式驗證，Swagger 會產生 / 端點的錯誤。為了獲得最佳結果，請在「Azure App Service 驗證/授權」設定中選擇允許未經驗證的要求通過，然後使用 `table.access` 屬性來控制驗證。
 
-如果您想要讓 Swagger 支援僅在本機開發時使用，您可以將 Swagger 選項新增至您的 `azureMobile.js` 檔案。
+如果您想要只在本機進行開發時才使用 Swagger 支援，您也可以將 Swagger 選項新增到您的 `azureMobile.js` 檔案中。
 
 ## <a name="CustomAPI"></a>自訂 API
 
@@ -645,6 +645,32 @@ Azure Mobile Apps SDK 對於資料表端點和自訂 API 會使用相同的方�
 
 對於需要驗證的自訂 API，必須使用資料表端點所使用的相同權杖。
 
+### <a name="howto-customapi-auth"></a>做法：處理大型檔案上傳
+
+Azure Mobile Apps SDK 使用[本文剖析器中介軟體](https://github.com/expressjs/body-parser)來接受您提交的本文內容並加以解碼。您可以預先設定讓本文剖析器接受較大的檔案上傳：
+
+	var express = require('express'),
+        bodyParser = require('body-parser'),
+		azureMobileApps = require('azure-mobile-apps');
+
+	var app = express(),
+		mobile = azureMobileApps();
+
+    // Set up large body content handling
+    app.use(bodyParser.json({ limit: '50mb' }));
+    app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
+	// Import the Custom API
+	mobile.api.import('./api');
+
+	// Add the mobile API so it is accessible as a Web API
+	app.use(mobile);
+
+	// Start listening on HTTP
+	app.listen(process.env.PORT || 3000);
+
+您可以調整上方所示的 50 Mb 限制。請注意，檔案在傳輸前會是 base-64 編碼，這會增加實際上傳大小。
+
 ## <a name="Debugging"></a>偵錯與疑難排解
 
 Azure App Service 提供數個適用於 Node.js 應用程式的偵錯和疑難排解技術。這些技術全都可以使用。
@@ -725,7 +751,7 @@ Azure 入口網站可讓您在 Visual Studio Team Services 中編輯 Node.js 後
 [在 Azure App Service 中啟用診斷記錄]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [在 Visual Studio 中疑難排解 Azure App Service]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [指定 Node 版本]: ../nodejs-specify-node-version-azure-apps.md
-[使用 Node 模組]: ../nodejs-use-node-mobiles-azure-apps.md
+[使用 Node 模組]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
@@ -733,7 +759,7 @@ Azure 入口網站可讓您在 Visual Studio Team Services 中編輯 Node.js 後
 
 [Azure 入口網站]: https://portal.azure.com/
 [OData]: http://www.odata.org
-[Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[Promise]: https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [GitHub 上的 basicapp 範例]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [GitHub 上的待辦事項範例]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
 [GitHub 上的範例目錄]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
@@ -741,8 +767,8 @@ Azure 入口網站可讓您在 Visual Studio Team Services 中編輯 Node.js 後
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js 封裝]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/zh-TW/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS 中介軟體]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

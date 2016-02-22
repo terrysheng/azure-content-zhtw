@@ -19,6 +19,6 @@
 
 <sup>2</sup> 您可購買超過 5 千萬的額外容量。
  
-[關於 Application Insights 中的定價和配額](app-insights-pricing.md)
+[關於 Application Insights 中的定價和配額](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

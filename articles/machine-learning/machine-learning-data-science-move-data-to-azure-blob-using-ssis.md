@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 # 使用 SSIS 連接器從 Azure Blob 儲存體來回移動資料
+
+[SQL Server Integration Services Feature Pack for Azure](https://msdn.microsoft.com/library/mt146770.aspx) 中的元件可供連線至 Azure、在 Azure 與內部部署資源來源之間傳輸資料，以及處理儲存在 Azure 中的資料。
 
 以下是有關從 Azure Blob 儲存體來回移動資料所使用之技術的指引連結：
 
@@ -24,21 +26,19 @@
 
 ## 簡介
 
-[SQL Server Integration Services Feature Pack for Azure](https://msdn.microsoft.com/library/mt146770.aspx) 中的元件可供連線至 Azure、在 Azure 與內部部署資源來源之間傳輸資料，以及處理儲存在 Azure 中的資料。
-
 客戶將內部部署資料移至雲端後，便能從任何 Azure 服務存取該資料，以利用 Azure 技術套件的完整功能。例如，可用在 Azure 機器學習服務或 HDInsight 叢集中。
 
-這通常是 [SQL](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-sql-walkthrough/) 與 [HDInsight](https://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-hive-walkthrough/) 逐步解說的第一步。
+這通常是 [SQL](machine-learning-data-science-process-sql-walkthrough.md) 與 [HDInsight](machine-learning-data-science-process-hive-walkthrough.md) 逐步解說的第一步。
 
 有關使用 SSIS 完成混合式資料整合案例中常見業務需求的典型案例討論，請參閱[使用 Azure 適用的 SQL Server 整合服務功能套件事半功倍](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx)部落格。
 
-> [AZURE.NOTE]如需 Azure Blob 儲存體的完整介紹，請參閱 [Azure Blob 基本概念](../storage-dotnet-how-to-use-blobs.md)和 [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。
+> [AZURE.NOTE] 如需 Azure Blob 儲存體的完整介紹，請參閱 [Azure Blob 基本概念](../storage-dotnet-how-to-use-blobs.md)和 [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。
 
 ## 先決條件
 
 若要執行本文所述的工作，您必須有設好的 Azure 訂用帳戶與 Azure 儲存體帳戶。您必須知道您的 Azure 儲存體帳戶名稱與帳戶金鑰，才能上傳或下載資料。
 
-- 若要設定 **Azure 訂用帳戶**，請參閱[一個月免費試用版](https://azure.microsoft.com/pricing/free-trial/)。
+- 若要設定 **Azure 訂用帳戶**，請參閱[免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。
 - 如需建立**儲存體帳戶**的指示，以及取得帳戶和金鑰的資訊，請參閱[關於 Azure 儲存體帳戶](../storage-create-storage-account.md)。
 
 
@@ -47,7 +47,7 @@
 - **SQL Server 2014 或 2016 標準版 (或更新版本)**：安裝包含 SQL Server 整合服務。
 - **適用於 Azure 的 Microsoft SQL Server 2014 或 2016 整合服務 Feature Pack**：您可以個別從 [SQL Server 2014 整合服務](http://www.microsoft.com/download/details.aspx?id=47366)和 [SQL Server 2016 整合服務](https://www.microsoft.com/download/details.aspx?id=49492)頁面下載。
 
-> [AZURE.NOTE]SSIS 會隨同 SQL Server 安裝，但未包含在 Express 版本中。如需 SQL Server 各種版本中包含哪些應用程式的相關資訊，請參閱 [SQL Server 版本](http://www.microsoft.com/zh-TW/server-cloud/products/sql-server-editions/)
+> [AZURE.NOTE] SSIS 會隨同 SQL Server 安裝，但未包含在 Express 版本中。如需 SQL Server 各種版本中包含哪些應用程式的相關資訊，請參閱 [SQL Server 版本](http://www.microsoft.com/zh-TW/server-cloud/products/sql-server-editions/)
 
 如需 SSIS 的訓練教材，請參閱 [SSIS 實務訓練](http://www.microsoft.com/download/details.aspx?id=20766)
 
@@ -76,16 +76,16 @@
 **TimeRangeFrom/TimeRangeTo**|指定時間範圍篩選器。將包含在 *TimeRangeFrom* 後和 *TimeRangeTo* 前修改的檔案。|
 
 
-> [AZURE.NOTE]**AzureStorageConnection** 認證必須更正且 **BlobContainer** 必須存在，才能嘗試傳輸。
+> [AZURE.NOTE] **AzureStorageConnection** 認證必須更正且 **BlobContainer** 必須存在，才能嘗試傳輸。
  
 ## 從 Azure Blob 儲存體下載資料
 
 若要透過 SSIS 將資料從 Azure Blob 儲存體下載到內部部署儲存體，請使用 [Azure Blob 上傳工作](https://msdn.microsoft.com/library/mt146779.aspx)的執行個體。
 
-##進階的 SSIS-Azure 案例
+##較進階的 SSIS-Azure 案例
 我們注意到 SSIS 功能封裝允許封裝工作一起處理更複雜的流程。例如，Blob 資料可直接饋送到 HDInsight 叢集，其輸出可以回頭下載到 Blob，然後下載到內部部署儲存體。SSIS 可使用其他 SSIS 連接器在 HDInsight 叢集上執行 Hive 與 Pig 工作：
 
 - 若要使用 SSIS 在 Azure HDInsight 叢集上執行 Hive 指令碼，請使用 [Azure HDInsight Hive 工作](https://msdn.microsoft.com/library/mt146771.aspx)。
-- 若要使用 SSIS 在 Azure HDInsight 叢集上執行 Pig 指令碼，請使用 [Azure HDInsight Pig 工作](https://msdn.microsoft.com/library/mt146781.aspx)。
+- 若要使用 SSIS 在 Azure HDInsight 叢集上執行 Pig 指令碼，請使用 [Azure HDInsight Pig Task (Azure HDInsight Pig 工作)](https://msdn.microsoft.com/library/mt146781.aspx)。
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

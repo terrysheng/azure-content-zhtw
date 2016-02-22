@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 # 使用 AzCopy 從 Azure Blob 儲存體來回移動資料
-
-以下是有關從 Azure Blob 儲存體來回移動資料所使用之技術的指引連結：
-
-[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 ## 簡介
 
@@ -28,9 +24,14 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 
 如需安裝 AzCopy 的指示，和以 Azure 平台加以執行的其他資訊，請參閱[開始使用 AzCopy 命令列公用程式](../storage-use-azcopy.md)。
 
-> [AZURE.NOTE]如果您是使用以 [Azure 中的資料科學虛擬機器](machine-learning-data-science-virtual-machines.md)提供的指令碼所設定的 VM，則 AzCopy 已經安裝在 VM 上。
+以下是有關從 Azure Blob 儲存體來回移動資料所使用之技術的指引連結：
 
-> [AZURE.NOTE]如需 Azure Blob 儲存體的完整介紹，請參閱 [Azure Blob 基本概念](../storage-dotnet-how-to-use-blobs.md)和 [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。
+[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
+
+
+> [AZURE.NOTE] 如果您是使用以 [Azure 中的資料科學虛擬機器](machine-learning-data-science-virtual-machines.md)提供的指令碼所設定的 VM，則 AzCopy 已經安裝在 VM 上。
+
+> [AZURE.NOTE] 如需 Azure Blob 儲存體的完整介紹，請參閱 [Azure Blob 基本概念](../storage-dotnet-how-to-use-blobs.md)和 [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。
 
 ## 必要條件
 
@@ -69,6 +70,7 @@ AzCopy 是個命令列公用程式，專為高效能上傳、下載，以及將�
 
 ## 使用 AzCopy 的秘訣
 
-> [AZURE.TIP]1.上傳檔案時，/S 將以遞迴方式上傳檔案。如果沒有這個參數，將不會上傳子目錄中的任何檔案。2.下載檔案時，/S 將以遞迴方式搜尋容器，直到下載了指定目錄及其子目錄中的所有檔案，或指定目錄及其子目錄中所有符合指定模式的所有檔案為止。3.您無法使用 /Source 參數來指定要下載的特定 Blob 檔案。若要下載特定檔案，請使用 /Pattern 參數指定要下載的 Blob 檔案名稱。/S 參數可用來讓 AzCopy 以遞迴方式尋找檔案名稱模式。若未提供模式參數，AzCopy 將下載該目錄中的所有檔案。
+> [AZURE.TIP]   
+1\.上傳檔案時，/S 將以遞迴方式上傳檔案。如果沒有這個參數，將不會上傳子目錄中的任何檔案。2.下載檔案時，/S 將以遞迴方式搜尋容器，直到下載了指定目錄及其子目錄中的所有檔案，或指定目錄及其子目錄中所有符合指定模式的所有檔案為止。3.您無法使用 /Source 參數來指定要下載的特定 Blob 檔案。若要下載特定檔案，請使用 /Pattern 參數指定要下載的 Blob 檔案名稱。/S 參數可用來讓 AzCopy 以遞迴方式尋找檔案名稱模式。若未提供模式參數，AzCopy 將下載該目錄中的所有檔案。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

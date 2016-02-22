@@ -18,7 +18,7 @@
 
 # 航太與其他業務中預測性維護的 Cortana Analytics 解決方案範本的架構
 
-下圖提供[預測性維護的 Cortana Analytics 解決方案範本](cortana-analytics-playbook-predictive-maintenance.md)的架構概觀。
+下圖提供[預測維護的 Cortana 分析解決方案範本](https://gallery.cortanaanalytics-int.com/SolutionTemplate/Predictive-Maintenance-for-Aerospace-1)的架構概觀。
 
 您可以下載完整大小的的圖表：[架構圖表：預測維護的解決方案範本](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png)。
 
@@ -26,4 +26,4 @@
 
 [image]: ./media/cortana-analytics-architecture-predictive-maintenance/ca-topologies-maintenance-prediction.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/27/2016"
 	ms.author="glenga"/>
 
 # 使用命令列工具將行動服務自動化
@@ -79,7 +79,7 @@
 
 ##如何列出訂閱中現有的行動服務
 
-> [AZURE.NOTE]在 CLI 中與 "list" 和 "script" 相關的命令只能用於 JavaScript 後端。
+> [AZURE.NOTE] 在 CLI 中與 "list" 和 "script" 相關的命令只能用於 JavaScript 後端。
 
 下列命令將傳回 Azure 訂閱中所有行動服務的清單：
 
@@ -95,7 +95,7 @@
 
 如果加入 `-a` 和 `-q` 參數，這個命令也會直接刪除行動服務使用的 SQL Database 和伺服器，而不會顯示提示。
 
-> [AZURE.NOTE]如果不指定 <code>-q</code> 參數以及 <code>-a</code> 或 <code>-d</code>，執行將暫停，而且系統會提示您對 SQL Database 選取刪除選項。請只在沒有其他服務使用該資料庫或伺服器的情況下使用 <code>-a</code> 參數；否則請使用 <code>-d</code> 參數僅刪除屬於所要刪除行動服務的資料。
+> [AZURE.NOTE] 如果不指定 <code>-q</code> 參數以及 <code>-a</code> 或 <code>-d</code>，執行將暫停，而且系統會提示您對 SQL Database 選取刪除選項。請只在沒有其他服務使用該資料庫或伺服器的情況下使用 <code>-a</code> 參數；否則請使用 <code>-d</code> 參數僅刪除屬於所要刪除行動服務的資料。
 
 ##如何在行動服務中建立資料表
 
@@ -187,4 +187,4 @@
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [如何安裝適用於 Mac 和 Linux 的 Azure 命令列工具]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

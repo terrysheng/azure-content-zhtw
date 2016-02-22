@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="02/09/2016"
 	ms.author="liamca"/>
 
 # 如何使用 Azure 搜尋服務來搜尋 StackExchange 資料
@@ -41,7 +41,7 @@
 
 > <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28%26search=azure%26$filter=tagsCollection/any(t:+t+eq+'architecture')%26$orderby=viewCount+desc>
 
--	`Spelling Mistakes`：我們對 [Lucene 查詢運算式](https://msdn.microsoft.com/library/mt589323.aspx)的新 (預覽) 支援也可讓您執行一些很特別的查詢，例如模糊比對結果以及將搜尋限制為特定欄位。此範例會搜尋標題欄位中的 “visualize” 這個字，但是 ~ 表示模糊比對，這表示也會傳回 visualise 和 visualizing 等結果。
+-	`Fuzzy Search`：我們對 [Lucene 查詢運算式](https://msdn.microsoft.com/library/mt589323.aspx)的新支援也可讓您執行一些很特別的查詢，例如模糊比對結果以及將搜尋限制為特定欄位。此範例會搜尋標題欄位中的 “visualize” 這個字，但是 ~ 表示模糊比對，這表示也會傳回 visualise 和 visualizing 等結果。
 
 > <http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=stackexchange&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28&search%3Dtitle%3Avisualise~%26querytype%3Dfull%26searchMode%3Dall%26%24select%3Dtitle>
 
@@ -109,4 +109,4 @@ Brent 已藉由示範如何將資料預備至 SQL Database，進行了很多困�
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

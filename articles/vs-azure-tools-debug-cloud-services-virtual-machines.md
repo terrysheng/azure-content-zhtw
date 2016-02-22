@@ -5,14 +5,14 @@
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
-	editor="tlee" />
+	editor="" />
 <tags 
 	ms.service="visual-studio-online"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="02/03/2016"
+	ms.date="02/04/2016"
 	ms.author="tarcher" />
 
 # 在 Visual Studio 中進行 Azure 雲端服務或虛擬機器的偵錯
@@ -94,8 +94,7 @@ Visual Studio 提供您偵錯 Azure 雲端服務和虛擬機器的不同選項�
 
 - 偵錯工具會使用連接埠 30400 至 30424、31400 至 31424，以及 32400 至 32424。如果您嘗試使用這些任一連接埠，將無法發佈您的服務，Azure 的活動記錄檔中將會出現下列其中一個錯誤訊息：
 
-    - 根據 .csdef 檔案驗證 .cscfg 檔案時發生錯誤。
-     角色 'role' 端點 Microsoft.WindowsAzure.Plugins.RemoteDebugger.Connector 保留的連接埠範圍 'range' 與已定義的連接埠或範圍重疊。
+    - 根據 .csdef 檔案驗證 .cscfg 檔案時發生錯誤。角色 'role' 端點 Microsoft.WindowsAzure.Plugins.RemoteDebugger.Connector 保留的連接埠範圍 'range' 與已定義的連接埠或範圍重疊。
     - 配置失敗。請稍後重試、試著減少 VM 大小或角色執行個體的數目，或試著部署到不同的區域。
 
 
@@ -191,4 +190,4 @@ Visual Studio ASP.NET 專案提供選項，讓您建立可用於測試應用程�
 - 使用 **Intellitrace** 從發行伺服器收集呼叫和事件的記錄檔。請參閱[使用 IntelliTrace 和 Visual Studio 偵錯發佈的雲端服務](http://go.microsoft.com/fwlink/?LinkID=623016)。
 - 不論角色是在開發環境中或在 Azure 中執行，請使用 **Azure 診斷**來記錄在角色內執行的程式碼的詳細資訊。請參閱[使用 Azure 診斷收集記錄資料](http://go.microsoft.com/fwlink/p/?LinkId=400450)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

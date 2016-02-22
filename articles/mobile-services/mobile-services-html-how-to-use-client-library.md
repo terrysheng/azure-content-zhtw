@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/26/2016"
 	ms.author="glenga"/>
 
 # 如何使用 Azure 行動服務的 HTML/JavaScript 用戶端
@@ -164,7 +164,7 @@
 
 下列程式碼說明如何在查詢中加入 `orderBy` 或 `orderByDescending` 函數，以將資料排序。它會從 `todoItemTable` 傳回項目，並依據 `text` 欄位以遞增順序排列。依預設，伺服器只傳回前 50 個元素。
 
-> [AZURE.NOTE]預設會使用伺服器控制的頁面大小，以防止傳回所有元素。這可避免預設的大型資料集要求對服務造成負面影響。如下一節所述，您可以呼叫 `take` 來增加要傳回的項目數。`todoItemTable` 是我們先前建立的行動服務資料表的參考。
+> [AZURE.NOTE] 預設會使用伺服器控制的頁面大小，以防止傳回所有元素。這可避免預設的大型資料集要求對服務造成負面影響。如下一節所述，您可以呼叫 `take` 來增加要傳回的項目數。`todoItemTable` 是我們先前建立的行動服務資料表的參考。
 
 	var ascendingSortedTable = todoItemTable.orderBy("text").read().done(function (results) {
 	   alert(JSON.stringify(results));
@@ -388,7 +388,7 @@
 
 行動服務支援使用各種外部識別提供者 (Facebook、Google、Microsoft 帳戶以及 Twitter) 來驗證與授權應用程式使用者。您可以在資料表上設定權限，以限制僅有通過驗證使用者可以存取特定操作。您也可以使用通過驗證使用者的身分識別來實作伺服器指令碼中的授權規則。如需詳細資訊，請參閱 [開始使用驗證] 教學課程。
 
->[AZURE.NOTE]在 PhoneGap 或 Cordova 應用程式中使用驗證時，您必須也將下列外掛程式新增至專案：
+>[AZURE.NOTE] 在 PhoneGap 或 Cordova 應用程式中使用驗證時，您必須也將下列外掛程式新增至專案：
 >
 >+ https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git
 >+ https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
@@ -504,8 +504,7 @@
 	// Start the sign-in process.
 	authenticate();
 
-這會初始化 Live Connect 用戶端、將新的登入要求傳送至 Microsoft 帳戶、將傳回的驗證權杖傳送至行動服務，然後顯示登入使用者的相關資訊。此應用程式會等到驗證成功後才啟動。
-<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+這會初始化 Live Connect 用戶端、將新的登入要求傳送至 Microsoft 帳戶、將傳回的驗證權杖傳送至行動服務，然後顯示登入使用者的相關資訊。此應用程式會等到驗證成功後才啟動。<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
@@ -666,4 +665,4 @@ Promise 有許多不同的使用方式。您可以在前一個 `then` 函數傳�
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 系統查詢選項參考]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=AcomDC_1217_2015--->
+<!---HONumber=AcomDC_0211_2016-->

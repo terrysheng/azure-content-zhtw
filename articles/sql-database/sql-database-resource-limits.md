@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/03/2015"
+	ms.date="02/04/2016"
 	ms.author="jroth" />
 
 
@@ -75,4 +75,4 @@ Azure SQL Database 的每個邏輯伺服器目前有 15000 個 DTU 的 DTU 配�
 
 [SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

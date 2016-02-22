@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/11/2015"
+   ms.date="02/09/2016"
    ms.author="bwren" />
 
 
@@ -160,4 +160,4 @@ Orchestrator 中的 Runbook 會使用**叫用 Runbook** 活動來啟動其他 Ru
 - [Orchestrator 標準活動](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

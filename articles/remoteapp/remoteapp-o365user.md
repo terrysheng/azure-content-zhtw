@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/16/2015" 
+    ms.date="02/08/2016" 
     ms.author="elizapo" />
 
 
@@ -26,9 +26,11 @@
 如需如何部署 Office 365 用戶端應用程式的相關資訊，請參閱[如何搭配 Azure RemoteApp 使用 Office 365 訂用帳戶](remoteapp-officesubscription.md)。
  
 ## 階段 1：註冊免費的 Office 365 Azure Active Directory 訂用帳戶
-請依照[變更 Azure RemoteApp 中的 Azure Active Directory 租用戶](remoteapp-changetenant.md)，透過 Azure 管理入口網站取得您 Azure AD 的系統管理存取權限。完成此程序之後，您應該能夠登入 Azure 入口網站並在此處查看您的目錄 - 此時，您將不會看見更多資訊，因為您搭配 Azure RemoteApp 使用的完整 Azure 訂用帳戶是在不同的目錄中。
+如果您正在使用 Azure 傳統入口網站，請使用[註冊您的免費 Azure Active Directory 訂用帳戶](https://technet.microsoft.com/library/dn832618.aspx)中的步驟，透過 Azure 管理入口網站取得 Azure AD 的系統管理存取權。完成此程序之後，您應該能夠登入 Azure 入口網站並在此處查看您的目錄 - 此時，您將不會看見更多資訊，因為您搭配 Azure RemoteApp 使用的完整 Azure 訂用帳戶是在不同的目錄中。
 
 請記下您在此步驟中建立之系統管理員帳戶的名稱和密碼 - 您需要在階段 2 用到它們。
+
+如果您正在使用 Azure 入口網站，請參閱[如何使用 Office 365 入口網站註冊及啟用免費的 Azure Active Directory](http://azureblogger.com/2016/01/how-to-register-and-activate-a-free-azure-active-directory-using-office-365-portal/)。
 
 ## 階段 2：變更與您的 Azure 訂用帳戶相關聯的 Azure AD。
 我們會將您的 Azure 訂用帳戶從其目前的目錄變更為我們在階段 1 使用的 Office 365 目錄。
@@ -43,4 +45,4 @@
 
 此時您的 Azure RemoteApp 訂用帳戶會與您的 Office 365 Azure AD 產生相關；您可以搭配 Azure RemoteApp 使用現有的 Office 365 使用者帳戶！
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

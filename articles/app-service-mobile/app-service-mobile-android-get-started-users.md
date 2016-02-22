@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/06/2015"
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # 將驗證加入 Android 應用程式中
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 摘要
 
@@ -70,4 +68,4 @@
 <!-- URLs. -->
 [開始使用行動應用程式]: app-service-mobile-android-get-started.md
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

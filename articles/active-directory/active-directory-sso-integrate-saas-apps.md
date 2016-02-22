@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="01/05/2016"
+    ms.date="02/09/2016"
     ms.author="curtand"/>
 
 # 整合 Azure Active Directory 單一登入與 SaaS 應用程式  
@@ -43,7 +43,7 @@ Azure AD 提供幾種可自訂的方式，來對您組織中的使用者部署�
 
 為組織已使用的應用程式設定單一登入是與為新應用程式建立新帳戶不同的程序。有幾個基本步驟包括：將應用程式中的使用者身分識別對應到 Azure AD 身分識別，以及了解整合之後使用者如何體驗登入應用程式。
 
-> [AZURE.NOTE]若要為現有的應用程式設定 SSO，您必須在 Azure AD 和 SaaS 應用程式同時具有全域系統管理員權限。
+> [AZURE.NOTE] 若要為現有的應用程式設定 SSO，您必須在 Azure AD 和 SaaS 應用程式同時具有全域系統管理員權限。
 
 ### 對應使用者帳戶
 
@@ -68,4 +68,8 @@ Azure AD 提供幾種可自訂的方式，來對您組織中的使用者部署�
 
 Azure.com 文件庫中還有更多關於這些議題的詳細資訊，請先閱讀[什麼是應用程式存取與單一登入搭配 Azure Active Directory](active-directory-appssoaccess-whatis.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+## 另請參閱
+
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

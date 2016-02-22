@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 
@@ -36,6 +36,7 @@
  * Azure DocumentDb、資料表、Blob 儲存體和佇列
 * Java
  * 透過 [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) 驅動程式，例如 MySQL、SQL Server、PostgreSQL 或 SQLite 呼叫資料庫。
+* 網頁中的 JavaScript - [網頁 SDK](app-insights-javascript.md) 會將 Ajax 呼叫自動記錄為相依性。
 
 您可以使用 [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency)，撰寫自己的 SDK 呼叫來監視其他相依性。
 
@@ -58,7 +59,7 @@
 
     ![選擇應用程式和資源。](./media/app-insights-asp-net-dependencies/appinsights-036-configAIC.png)
 
-    一般來說，您會選擇設定新的資源和[資源群組][roles]。
+    一般來說，您可以選擇設定新的資源和[資源群組][roles]。
 
     否則，如果您已經為網站設定 [Web 測試][availability]，或設定 [Web 用戶端監視][client]，請使用現有的資源。
 
@@ -111,7 +112,7 @@
 
 按一下任一個長時間執行的執行個體，來進一步檢查。
 
-> [AZURE.NOTE]稍微向下捲動，以選擇執行個體。管線中的延遲可能表示最上方的執行個體資料不完整。
+> [AZURE.NOTE] 稍微向下捲動，以選擇執行個體。管線中的延遲可能表示最上方的執行個體資料不完整。
 
 向下捲動至與此要求相關的遠端相依性呼叫：
 
@@ -181,9 +182,7 @@
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
-[detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
-[knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [perf]: app-insights-web-monitor-performance.md
@@ -191,8 +190,7 @@
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-overview.md
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

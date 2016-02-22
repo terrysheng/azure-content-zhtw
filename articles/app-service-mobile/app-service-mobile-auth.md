@@ -3,7 +3,7 @@
 	description="Azure Mobile Apps 驗證 / 授權功能的概念性參考與概觀"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Azure Mobile Apps 中的驗證與授權
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 什麼是 App Service 驗證 / 授權？
 
@@ -52,7 +50,7 @@ App Service 會使用同盟身分識別，第 3 方**身分識別提供者** ("I
 - 使用單一行程式碼，讓 Mobile Apps 用戶端 SDK 登入使用者。
 - 利用指定的身分識別提供者發佈的 SDK 來建立身分識別，然後取得 App Service 的存取權。
 
->[AZURE.TIP]大部分的應用程式都應該使用提供者 SDK 來獲得更自然的登入體驗，以及利用重新整理支援和其他提供者專屬的權益。
+>[AZURE.TIP] 大部分的應用程式都應該使用提供者 SDK 來獲得更自然的登入體驗，以及利用重新整理支援和其他提供者專屬的權益。
 
 ### 不使用提供者 SDK 進行驗證的運作方式
 
@@ -106,4 +104,4 @@ App Service 驗證 / 授權會公開**未驗證要求時要採取的動作**的�
 [如何設定 App 以使用 Microsoft 帳戶登入]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [如何設定 App 以使用 Twitter 登入]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

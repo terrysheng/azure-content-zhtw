@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 # 使用 Visual Studio 的 Hadoop 工具開發 Apache Storm on HDInsight 的 C# 拓撲
@@ -41,7 +41,7 @@
 
     > [AZURE.NOTE] Visual Studio Express 不支援 HDInsight Tools for Visual Studio
 
--	Apache Storm on HDInsight 叢集：請參閱[開始使用 Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-getting-started.md) 以取得建立叢集的步驟。
+-	Apache Storm on HDInsight 叢集：請參閱[開始使用 Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started.md) 以取得建立叢集的步驟。
 
 	> [AZURE.NOTE] 目前 HDInsight Tools for Visual Studio 只支援 Storm on HDInsight 3.2 版叢集。
 
@@ -614,7 +614,7 @@ SCP.Net 版本 0.9.4.203 引進了專用於事件中樞 Spout (從事件中心�
 Context.Logger.Info("Component started");
 ```
 
-您可以從 [Hadoop 服務記錄] \(位於**伺服器總管中**) 檢視記錄的資訊。展開 Storm on HDInsight 叢集的項目，然後展開 [Hadoop 服務記錄]。最後，選取要檢視的記錄檔。
+您可以從 [Hadoop 服務記錄] (位於**伺服器總管中**) 檢視記錄的資訊。展開 Storm on HDInsight 叢集的項目，然後展開 [Hadoop 服務記錄]。最後，選取要檢視的記錄檔。
 
 > [AZURE.NOTE] 記錄會儲存在您叢集所使用的 Azure 儲存體帳戶中。如果此訂用帳戶與您用來登入 Visual Studio 的訂用帳戶不同，則必須登入含有儲存體帳戶的訂用帳戶，才能檢視這項資訊。
 
@@ -658,4 +658,4 @@ Context.Logger.Info("Component started");
 
 -	[開始使用 HBase on HDInsight](hdinsight-hbase-tutorial-get-started.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

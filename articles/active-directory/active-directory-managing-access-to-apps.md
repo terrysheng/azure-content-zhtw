@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="12/08/2015"
+  ms.date="02/09/2016"
   ms.author="stevenpo"/>
 
 
@@ -68,7 +68,8 @@
 
 ## 哪裡可以深入了解？
 
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 - [使用條件式存取來保護應用程式](active-directory-conditional-access.md)
 - [自助式群組管理/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

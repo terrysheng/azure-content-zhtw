@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
-
 
 # 在 Azure 中啟用遠端桌面
 
 遠端桌面可讓您存取執行 Azure 之角色執行個體的桌面。您可以使用遠端桌面連接來設定虛擬機器，或對應用程式的問題進行疑難排解。
 
-> [AZURE.NOTE]本文適用於以 Azure 雲端服務形式託管的 Node.js 應用程式。
+> [AZURE.NOTE] 本文適用於以 Azure 雲端服務形式託管的 Node.js 應用程式。
 
 
 ## 必要條件
 
-- 安裝和設定 [Azure PowerShell](../install-configure-powershell.md)。
+- 安裝和設定 [Azure PowerShell](../powershell-install-configure.md)。
 - 將 Node.js 應用程式部署到 Azure 雲端服務。如需詳細資訊，請參閱「[建立 Node.js 應用程式並部署到 Azure 雲端服務](cloud-services-nodejs-develop-deploy-app.md)」。
 
 
@@ -106,14 +105,14 @@
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
-  [3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
-  [4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
-  [5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
-  [6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
-  [7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
+[3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
+[4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
+[5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
+[6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
+[7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
   
-  [從遠端存取 Azure 中的角色執行個體]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
-  [搭配使用遠端桌面與 Azure 角色]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
+[從遠端存取 Azure 中的角色執行個體]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
+[搭配使用遠端桌面與 Azure 角色]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

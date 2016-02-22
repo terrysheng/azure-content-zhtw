@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #疑難排解 Internet explorer 的存取面板延伸模組
@@ -103,6 +103,10 @@
 
 如果您解除安裝延伸模組時遇到問題，也可以使用 [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) 工具移除延伸模組。
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## 相關文章
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)
+- [如何使用群組原則部署 Internet Explorer 的存取面板擴充功能](active-directory-saas-ie-group-policy.md)
+
+<!---HONumber=AcomDC_0211_2016-->

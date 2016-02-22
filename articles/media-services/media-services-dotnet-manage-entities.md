@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/09/2016"  
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,8 @@
 - 列出所有資產 
 - 列出工作和資產 
 - 列出所有存取原則 
-- 列出所有定位器 
+- 列出所有定位器
+- 透過實體的大型集合列舉
 - 刪除資產 
 - 刪除工作 
 - 刪除存取原則 
@@ -245,6 +246,47 @@
 	    }
 	}
 
+## 透過實體的大型集合列舉
+
+查詢項目時，有一次最多傳回 1000 個實體的限制，因為公用 REST v2 有 1000 個查詢結果數目的限制。透過實體的大型集合列舉時您需要使用 Skip 和 Take。
+	
+下列函式會對「媒體服務帳戶」中提供的所有工作進行迴圈。媒體服務會傳回工作集合中的 1000 個工作。此函式利用 Skip 和 Take 來確保已列舉所有工作 (以免您帳戶中的工作超過 1000 個)。
+	
+	static void ProcessJobs()
+	{
+	    try
+	    {
+	
+	        int skipSize = 0;
+	        int batchSize = 1000;
+	        int currentBatch = 0;
+	
+	        while (true)
+	        {
+	            // Loop through all Jobs (1000 at a time) in the Media Services account
+	            IQueryable _jobsCollectionQuery = _context.Jobs.Skip(skipSize).Take(batchSize);
+	            foreach (IJob job in _jobsCollectionQuery)
+	            {
+	                currentBatch++;
+	                Console.WriteLine("Processing Job Id:" + job.Id);
+	            }
+	
+	            if (currentBatch == batchSize)
+	            {
+	                skipSize += batchSize;
+	                currentBatch = 0;
+	            }
+	            else
+	            {
+	                break;
+	            }
+	        }
+	    }
+	    catch (Exception ex)
+	    {
+	        Console.WriteLine(ex.Message);
+	    }
+	}
 
 ##刪除資產
 
@@ -339,4 +381,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

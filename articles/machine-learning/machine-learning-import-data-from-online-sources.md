@@ -14,11 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="02/09/2016"
 	ms.author="bradsev;garye;gopitk" />
 
 
 # 使用讀取器模組從各種線上資料來源將資料匯入 Azure Machine Learning Studio 中
+
+本文說明對從不同來源匯入線上資料的支援，以及將資料從這些來源移至 Azure Machine Learning 實驗中所需的資訊。
 
 [AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
@@ -32,14 +34,13 @@
 - Azure 資料表
 - Azure SQL Database 或 Azure VM 上的 SQL Server
 - 資料摘要提供者，目前為 OData
-
-本文說明受支援的來源，以及將資料從這些來源移至 Azure Machine Learning 實驗中所需的資訊。
+ 
 
 在 Azure Machine Learning Studio 中執行實驗的工作流程，包含將元件拖放到畫布上的動作。若要存取線上資料來源，請將[讀取器][reader]模組新增至您的實驗、選取 [資料來源]，然後提供存取資料所需的參數。下表列舉支援的線上資料來源。此表格也會摘錄支援的檔案格式和用來存取資料的參數。
 
-> [AZURE.NOTE]本文提供[讀取者][reader]模組的一般資訊。如需您可以存取之資料類型、格式、參數及常見問題答案的詳細資訊，請參閱[讀取者][reader]模組的模組參考主題。
+> [AZURE.NOTE] 本文提供[讀取者][reader]模組的一般資訊。如需您可以存取之資料類型、格式、參數及常見問題答案的詳細資訊，請參閱[讀取者][reader]模組的模組參考主題。
 
-> [AZURE.NOTE]這項訓練資料會在您的實驗執行時存取，因此只有在該實驗中才可供使用。相較之下，已儲存在資料集模組中的資料則可供工作區中的任何實驗使用。
+> [AZURE.NOTE] 這項訓練資料會在您的實驗執行時存取，因此只有在該實驗中才可供使用。相較之下，已儲存在資料集模組中的資料則可供工作區中的任何實驗使用。
 
 
 ## 支援的線上資料來源
@@ -58,4 +59,4 @@ Azure Blob 儲存體 | 讀取 Azure 儲存體中的 Blob 服務所儲存的資�
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

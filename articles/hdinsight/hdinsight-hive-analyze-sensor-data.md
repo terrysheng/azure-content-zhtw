@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="larryfr"/>
 
 #在 HDInsight 的 Hadoop 上使用 Hive 查詢主控台分析感應器資料
 
 了解如何使用 Hive 查詢主控台搭配 HDInsight (Hadoop) 分析感應器資料，然後在 Microsoft Excel 中使用 Power View 將資料視覺化。
 
-> [AZURE.NOTE]本文件的步驟只適用於 Windows HDInsight 叢集。
+> [AZURE.NOTE] 本文件的步驟只適用於 Windows HDInsight 叢集。
 
 在此範例中，您將使用 Hive 來處理暖氣、通風和空調 (HVAC) 系統所產生的歷史資料，以識別無法可靠地維持規定溫度的系統。您將了解如何：
 
@@ -38,7 +38,7 @@
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE]Microsoft Excel 用於搭配 [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=zh-TW&rs=zh-TW&ad=US) 進行資料視覺化。
+	> [AZURE.NOTE] Microsoft Excel 用於搭配 [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=zh-TW&rs=zh-TW&ad=US) 進行資料視覺化。
 
 * [Microsoft Hive ODBC 驅動程式](http://www.microsoft.com/download/details.aspx?id=40886)
 
@@ -54,4 +54,4 @@
 
 3. 依照網頁上提供的指示完成範例。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

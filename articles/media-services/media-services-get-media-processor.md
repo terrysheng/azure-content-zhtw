@@ -38,10 +38,10 @@ Media Encoder Premium Workflow|可讓您使用 Media Encoder Premium Workflow �
 Azure Media Indexer| 可讓您的媒體檔案和內容可供搜尋，以及產生隱藏式輔助字幕和關鍵字。|[使用 Azure 媒體索引器編製媒體檔案的索引](media-services-index-content.md)。
 Azure Media Hyperlapse (預覽)|可讓您使用影片穩定讓影片中的「巔簸」變得平滑。也可讓您將內容加速至可使用的片段。|		[Azure Media Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
 Storage Decryption| 可讓您對使用儲存體加密功能加密的媒體資產進行解密。|N/A
-Windows Azure Media Packager|可讓您將媒體資產從 .mp4 轉換為 Smooth Streaming 格式。此外，也可讓您將媒體資產從 Smooth Streaming 轉換為 Apple HTTP Live Streaming (HLS) 格式。|[Azure Media Packager 的工作預設字串](http://msdn.microsoft.com/library/hh973635.aspx)
-Windows Azure Media Encryptor|可讓您使用 PlayReady Protection 為媒體資產加密。|[Azure Media Packager 的工作預設字串](http://msdn.microsoft.com/library/hh973610.aspx)
+Microsoft Azure Media Packager|可讓您將媒體資產從 .mp4 轉換為 Smooth Streaming 格式。此外，也可讓您將媒體資產從 Smooth Streaming 轉換為 Apple HTTP Live Streaming (HLS) 格式。|[Azure Media Packager 的工作預設字串](http://msdn.microsoft.com/library/hh973635.aspx)
+Microsoft Azure Media Encryptor|可讓您使用 PlayReady Protection 為媒體資產加密。|[Azure Media Packager 的工作預設字串](http://msdn.microsoft.com/library/hh973610.aspx)
 
-##取得 MediaProcessor
+##取得媒體處理器
 
 下列方法將說明如何取得媒體處理器執行個體。此程式碼範例假設會使用名為 **\_context** 的模組層級變數來參考伺服器內容，如[如何：以程式設計方式連接到媒體服務]一節所述。
 
@@ -72,4 +72,4 @@ Windows Azure Media Encryptor|可讓您使用 PlayReady Protection 為媒體資�
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [如何：以程式設計方式連接到媒體服務]: ../media-services-set-up-computer/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

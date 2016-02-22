@@ -1,7 +1,7 @@
 <properties
  pageTitle="雲端 HPC Pack 叢集選項 |Microsoft Azure"
  description="了解在 Azure 雲端使用 Microsoft HPC Pack 建立及管理高效能運算 (HPC) 叢集的選項。"
- services="virtual-machines,cloud-services"
+ services="virtual-machines,cloud-services,batch"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="01/26/2016"
+ ms.date="02/04/2016"
  ms.author="danlep"/>
 
 # 使用 Microsoft HPC Pack 在 Azure 中建立及管理高效能運算 (HPC) 叢集的選項
@@ -26,6 +26,19 @@ ms.service="virtual-machines"
 
 ## 在 Azure VM 中執行 HPC Pack 叢集
 
+### Azure 範本
+
+* (Marketplace) [HPC Pack cluster for Windows workloads (適用於 Windows 工作負載的 HPC Pack 叢集)](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)
+
+* (Marketplace) [HPC Pack cluster for Excel workloads (適用於 Excel 工作負載的 HPC Pack 叢集)](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterexcelcn/)
+
+* (Marketplace) [HPC Pack cluster for Linux workloads (適用於 Linux 工作負載的 HPC Pack 叢集)](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)
+
+* (快速入門) [Create an HPC cluster (建立 HPC 叢集)](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
+
+* (快速入門) [Create an HPC cluster with Linux compute nodes (使用 Linux 計算節點建立 HPC 叢集)](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
+
+* (快速入門) [Create an HPC cluster with custom compute node image (使用自訂的計算節點映像建立 HPC 叢集)](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
 
 ### Azure VM 映像
 
@@ -35,13 +48,7 @@ ms.service="virtual-machines"
 
 * [Windows Server 2012 R2 上含 Excel 的 HPC Pack 運算節點](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
 
-### Azure 快速入門範本
 
-* [建立 HPC 叢集](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
-
-* [建立 Linux 計算節點的 HPC 叢集](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
-
-* [使用自訂的運算節點映像建立 HPC 叢集](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
 
 ### PowerShell 部署指令碼
 
@@ -59,9 +66,7 @@ ms.service="virtual-machines"
 
 
 
-### 使用 Azure 傳統入口網站手動部署
-
-
+### 使用 Azure 入口網站手動部署
 
 * [在 Azure VM 中設定 HPC Pack 叢集的前端節點](virtual-machines-hpcpack-cluster-headnode.md)
 
@@ -98,4 +103,4 @@ ms.service="virtual-machines"
 
 * [設定 Linux RDMA 叢集以執行 MPI 應用程式](virtual-machines-linux-cluster-rdma.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 
@@ -120,7 +120,7 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 
 [**淘汰日期**] 是指在此日期之後便無法在 HDInsight 上建立叢集版本。
 
-> [AZURE.NOTE]HDInsight 2.1 和 3.0 叢集可在使用 Windows Server 2012 R2 64 位元版本並支援 .NET Framework 4.0、4.5 和 4.5.1 的 Azure 客體 OS [Family 4](../cloud-services-guestos-update-matrix.md) 上執行。
+> [AZURE.NOTE] HDInsight 2.1 和 3.0 叢集可在使用 Windows Server 2012 R2 64 位元版本並支援 .NET Framework 4.0、4.5 和 4.5.1 的 Azure 客體 OS [Family 4](../cloud-services-guestos-update-matrix.md) 上執行。
 
 ## 與 HDInsight 版本相關聯的 Hortonworks 版本資訊##
 
@@ -160,4 +160,4 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

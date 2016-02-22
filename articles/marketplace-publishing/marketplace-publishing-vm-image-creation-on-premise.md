@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/08/2015"
+  ms.date="02/04/2016"
   ms.author="hascipio; v-divte"/>
 
 # 開發 Azure Marketplace 的內部部署虛擬機器映像
@@ -42,11 +42,8 @@
   ![繪圖](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
 
 ### 下載 VHD
-知道 Blob URL 之後，您就可以使用 [Azure 入口網站](http://manage.windowsazure.com/)或 PowerShell 下載 VHD。  
-
-
-> [AZURE.NOTE]本指南建立時，新的 Microsoft Azure 入口網站還沒有下載 VHD 的功能。
-
+知道 Blob URL 之後，您就可以使用 [Azure 入口網站](http://manage.windowsazure.com/)或 PowerShell 下載 VHD。
+> [AZURE.NOTE] 本指南建立時，新的 Microsoft Azure 入口網站還沒有下載 VHD 的功能。
 
 **透過目前的 [Azure 入口網站](http://manage.windowsazure.com/)下載作業系統 VHD**
 
@@ -75,10 +72,9 @@
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
         -StorageKey <keyForStorageAccount>
-例如，
-        Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\\Users\\Administrator\\Desktop\\baseimagevm.vhd” -StorageKey <String>
+例如，Save-AzureVhd -Source “https://baseimagevm.blob.core.windows.net/vhds/BaseImageVM-6820cq00-BaseImageVM-os-1411003770191.vhd” -LocalFilePath “C:\\Users\\Administrator\\Desktop\\baseimagevm.vhd” -StorageKey <String>
 
-> [AZURE.NOTE]**Save-AzureVhd** 也有 **NumberOfThreads** 選項，可用來增加平行處理來善用下載可用的頻寬。
+> [AZURE.NOTE] **Save-AzureVhd** 也有 **NumberOfThreads** 選項，可用來增加平行處理來善用下載可用的頻寬。
 
 ## 上傳 VHD 到 Azure 儲存體帳戶
 如果您準備好內部部署的 VHD，就必須將它們上傳到 Azure 中的儲存體帳戶。這個步驟會在建立內部部署的 VHD 之後，但在取得 VM 映像認證之前進行。
@@ -104,7 +100,7 @@
 
 7.	在 [容器] 刀鋒視窗中，選取 [新增]，然後輸入容器名稱和容器權限。為容器權限選取 [私人]。
 
-> [AZURE.TIP]建議您為每個計畫發佈的 SKU 建立一個容器。
+> [AZURE.TIP] 建議您為每個計畫發佈的 SKU 建立一個容器。
 
   ![繪圖](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
@@ -117,7 +113,7 @@
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 
-> [AZURE.NOTE]這些命令假設目前的儲存體帳戶內容已在 PowerShell 中設定。請參閱[設定 Azure PowerShell](marketplace-publishing-powershell-setup.md)，來了解 PowerShell 安裝程式的詳細資訊。
+> [AZURE.NOTE] 這些命令假設目前的儲存體帳戶內容已在 PowerShell 中設定。請參閱[設定 Azure PowerShell](marketplace-publishing-powershell-setup.md)，來了解 PowerShell 安裝程式的詳細資訊。
 ### 使用適用於 Mac 和 Linux 的命令列工具建立儲存體帳戶
 從 [Linux 命令列工具](../virtual-machines/command-line-tools/)建立儲存體帳戶，如下所示。
 
@@ -143,4 +139,4 @@ azure vm image create <image name> --location <Location of the data center> --OS
 - [建立 Marketplace 的虛擬機器映像](marketplace-publishing-vm-image-creation.md)
 - [設定 Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!--------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

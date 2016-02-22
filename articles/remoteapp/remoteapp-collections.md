@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="01/07/2016" 
+    ms.date="02/02/2016" 
     ms.author="elizapo" />
 
 
@@ -80,7 +80,7 @@ Azure RemoteApp 支援 Microsoft 帳戶和 Azure Active Directory 帳戶，但�
 
 使用 Azure AD + 內部部署 Active Directory 是混合式集合的必要條件。您需要使用 AD Connect 來整合兩個目錄。但是您可以自行選擇如何設定 AD Connect。
 
-AD Connect 有兩種案例 - 使用密碼同步化或使用 AD 同盟。請參閱 [AD Connect 資訊](active-directory-aadconnect.md)，了解哪一種案例最適合您。
+AD Connect 有兩種案例 - 使用密碼同步化或使用 AD 同盟。請參閱 [AD Connect 資訊](../active-directory/active-directory-aadconnect.md)，了解哪一種案例最適合您。
 
 您也可以使用 Azure AD + AD 搭配雲端集合。請確定您有遵循相同的設定步驟。
 
@@ -91,4 +91,4 @@ AD Connect 有兩種案例 - 使用密碼同步化或使用 AD 同盟。請參�
 
 [建立雲端集合](remoteapp-create-cloud-deployment.md)或[建立混合式集合](remoteapp-create-hybrid-deployment.md) -立即建立。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

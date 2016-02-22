@@ -13,22 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/07/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>在 Azure 上 SQL Server 中進行資料取樣
 
-此**功能表**連結說明如何從各種不同儲存體環境進行資料取樣的連結。此工作是 Cortana 分析程序 (CAP) 中的一個步驟。
-
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 ## 簡介
 
-本文件顯示如何使用 SQL 和 Python 程式設計語言，對儲存在 Azure 上之 SQL Server 中的資料進行取樣。也示範如何透過將取樣的資料儲存到檔案，讓取樣資料移動到 Azure Machine Learning、將取樣的資料上傳至 Azure blob，然後將其讀入 Azure ML。
+本文件顯示如何使用 SQL 或 Python 程式設計語言，對儲存在 Azure 上之 SQL Server 中的資料進行取樣。也示範如何透過將取樣的資料儲存到檔案，讓取樣資料移動到 Azure Machine Learning、將取樣的資料上傳至 Azure blob，然後將其讀入 Azure Machine Learning Studio。
 
 Python 取樣使用 [pyodbc](https://code.google.com/p/pyodbc/) ODBC 程式庫來連線到 Azure 上的 SQL Server 以及 [Pandas](http://pandas.pydata.org/) 程式庫來進行取樣。
 
->[AZURE.NOTE]本文件中的 SQL 程式碼範例假設資料位於 Azure 上的 SQL Server 中。如果資料不在其中，請參閱[將資料移至 Azure 上的 SQL Server](machine-learning-data-science-move-sql-server-virtual-machine.md) 主題，以取得如何將資料移至 Azure 上 SQL Server 的指示。
+>[AZURE.NOTE] 本文件中的 SQL 程式碼範例假設資料位於 Azure 上的 SQL Server 中。如果資料不在其中，請參閱[移動資料至 Azure 虛擬機器上的 SQL Server](machine-learning-data-science-move-sql-server-virtual-machine.md) 主題，以取得如何將資料移至 Azure 上 SQL Server 的指示。
+
+**為何要對您的資料進行取樣？** 如果您規劃分析的資料集很龐大，通常最好是對資料進行向下取樣，將資料縮減為更小但具代表性且更容易管理的大小。這有助於資料了解、探索和功能工程。它在 Cortana 分析程序中扮演的角色是能夠快速建立資料處理函式與機器學習服務模型的原型。
+
+以下**功能表**會連結至說明如何從各種不同儲存體環境進行資料取樣的主題。
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+此取樣工作是 [Cortana Analytics Process (CAP) (Cortana Analytics 程序 (CAP))](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 中的一個步驟。
 
 ##<a name="SQL"></a>使用 SQL
 
@@ -52,7 +57,7 @@ Tablesample 可用來進行取樣及示範，如下所示。如果資料大小�
 	FROM <table_name> 
 	TABLESAMPLE (10 PERCENT)
 
->[AZURE.NOTE]您可以藉由將這個取樣的資料儲存於新的資料表中，從該資料中探索並產生功能
+>[AZURE.NOTE] 您可以藉由將這個取樣的資料儲存於新的資料表中，從該資料中探索並產生功能
 
 
 ###<a name="sql-aml"></a>連接到 Azure Machine Learning
@@ -121,4 +126,4 @@ Python 中的 [Pandas](http://pandas.pydata.org/) 程式庫提供一組豐富的
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

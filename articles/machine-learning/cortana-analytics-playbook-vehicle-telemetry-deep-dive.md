@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015" 
+	ms.date="01/26/2016" 
 	ms.author="bradsev" />
 
 
@@ -706,4 +706,4 @@ Power BI 給此方案一個豐富的儀表板來提供即時資料和預測性�
 
 本文件包含車輛遙測資料分析方案的詳細探討。這以預測和動作示範即時和批次分析的 Lambda 架構模式。此模式適用於需要最忙碌路徑 (即時) 和不忙碌路徑 (批次) 分析的各種使用案例。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

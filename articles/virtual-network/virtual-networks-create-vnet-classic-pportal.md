@@ -1,6 +1,6 @@
 <properties
-   pageTitle="使用 Azure Preview 入口網站建立虛擬網路 | Microsoft Azure"
-   description="了解如何使用 Azure Preview 入口網站建立虛擬網路。"
+   pageTitle="使用 Azure 入口網站建立虛擬網路 | Microsoft Azure"
+   description="了解如何使用 Azure 入口網站建立虛擬網路。"
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/03/2016"
    ms.author="telmos"/>
 
 # 使用 Azure Preview 入口網站建立虛擬網路 (傳統)
@@ -29,4 +29,4 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-classic-pportal-include](../../includes/virtual-networks-create-vnet-classic-pportal-include.md)]
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

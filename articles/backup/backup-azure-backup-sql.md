@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2015" ms.author="aashishr", "giridham"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/08/2016"
+	ms.author="giridham; jimpark;"/>
 
 
 # 使用 DPM 進行 SQL Server 工作負載的 Azure 備份
@@ -55,7 +62,7 @@
 
     ![短期目標](./media/backup-azure-backup-sql/pg-shortterm.png)
 
-    >[AZURE.NOTE]傳輸從前一天的下午 8:00 備份點後修改的資料，即可在每天下午 8:00 PM (根據畫面輸入) 建立備份點。這個程序稱為 [快速完整備份]。雖然交易記錄檔每隔 15 分鐘同步處理一次，但如果有需要在下午 9:00 復原資料庫，則此點可藉由重新執行最後一個快速完整備份點 (在本例中為下午 8:00) 的記錄檔來建立。
+    >[AZURE.NOTE] 傳輸從前一天的下午 8:00 備份點後修改的資料，即可在每天下午 8:00 PM (根據畫面輸入) 建立備份點。這個程序稱為 [快速完整備份]。雖然交易記錄檔每隔 15 分鐘同步處理一次，但如果有需要在下午 9:00 復原資料庫，則此點可藉由重新執行最後一個快速完整備份點 (在本例中為下午 8:00) 的記錄檔來建立。
 
 8. 按 [**下一步**]
 
@@ -91,7 +98,7 @@
 
     在此範例中，每天下午 12:00 和下午 8:00 會進行一次備份 (螢幕的下半部)
 
-    >[AZURE.NOTE]建議磁碟上短期有幾個復原點，以便快速復原。這稱之為「操作復原」。Azure 可做為具有較高 SLA 和保證可用性的良好離站位置。
+    >[AZURE.NOTE] 建議磁碟上短期有幾個復原點，以便快速復原。這稱之為「操作復原」。Azure 可做為具有較高 SLA 和保證可用性的良好離站位置。
 
     **最佳作法**︰請確定 Azure 備份已排在使用 DPM 完成本機磁碟備份之後。這可讓最新的磁碟備份複製到 Azure。
 
@@ -167,4 +174,4 @@
 
 • [Azure 備份常見問題集](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

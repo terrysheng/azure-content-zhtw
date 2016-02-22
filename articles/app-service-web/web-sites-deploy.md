@@ -125,14 +125,13 @@
 ###<a name="webmatrix"></a>如何直接從 WebMatrix 部署
 
 * [使用 WebMatrix 來建立 Node.js 網站並部署至 Azure](web-sites-nodejs-use-webmatrix.md)。
-* [使用 WebMatrix 建立並部署 PHP-MySQL Web 應用程式](web-sites-php-mysql-use-webmatrix.md)。
 * [WebMatrix 3：整合 Git 並部署至 Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD)。說明如何使用 WebMatrix 從 Git 原始檔控制儲存機制進行部署。
 
 ## <a name="onprem"></a>從內部部署原始檔控制系統部署
 
 如果您在任何規模的開發團隊中工作，並使用內部部署原始程式碼管理 (SCM) 系統 (如 [Team Foundation Server](https://www.visualstudio.com/products/tfs-overview-vs.aspx) (TFS)、[Git](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs) 或 [Mercurial](http://mercurial.selenic.com/))，您可以設定 App Service 整合您的儲存機制，並在原始檔控制工作流程中直接部署至 App Service。如果您使用 TFS，您也可以將它設定為持續部署至 App Service。
 
-TFS 會使用 Web 部署以部署至 App Service，而 Git/Mercurial 儲存機制的部署使用 Kudu (請參閱[部署程序概觀](#overview))。
+TFS 會使用 Web Deploy 部署至 App Service，而 Git/Mercurial 儲存機制的部署使用 Kudu (請參閱[部署程序概觀](#overview))。
 
 從內部部署原始檔控制系統部署的優點如下：
 
@@ -157,7 +156,7 @@ TFS 會使用 Web 部署以部署至 App Service，而 Git/Mercurial 儲存機�
 
 ###<a name="tfs"></a>如何使用 TFS 持續部署
 
-* [Azure 中雲端服務的連續傳遞](../cloud-services-dotnet-continuous-delivery.md)。本文是針對 Azure 雲端服務而撰寫，但其部分內容也與 Web Apps 有關。
+* [Azure 中雲端服務的連續傳遞](../cloud-services/cloud-services-dotnet-continuous-delivery.md)。本文是針對 Azure 雲端服務而撰寫，但其部分內容也與 Web Apps 有關。
 
 ###<a name="gitmercurial"></a>如何從內部部署 Git 或 Mercurial 儲存機制進行部署
 
@@ -167,9 +166,9 @@ TFS 會使用 Web 部署以部署至 App Service，而 Git/Mercurial 儲存機�
 * [從一個 Git 儲存機制將兩個網站部署至 Azure](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx)。取自 Scott Hanselman 的部落格文章。
 
 ## 從雲端型原始檔控制服務進行部署
-如果您在任何規模的開發團隊中工作，並使用雲端型原始程式碼管理 (SCM) 服務 (例如 [Visual Studio Team Services](http://www.visualstudio.com/) (前身為 Visual Studio Online)、[GitHub](https://www.github.com)、[GitLab](https://gitlab.com)、[BitBucket](https://bitbucket.org/)、[CodePlex](https://www.codeplex.com/)、[Codebase](https://www.codebasehq.com) 和 [Kiln](https://www.fogcreek.com/kiln/))，您可以設定 App Service 與儲存機制整合，並持續部署。
+如果您在任何規模的開發團隊中工作，並使用雲端型原始程式碼管理 (SCM) 服務，例如 [Visual Studio Team Services](http://www.visualstudio.com/) (前身為 Visual Studio Online)、[GitHub](https://www.github.com)、[GitLab](https://gitlab.com)、[BitBucket](https://bitbucket.org/)、[CodePlex](https://www.codeplex.com/)、[Codebase](https://www.codebasehq.com) 和 [Kiln](https://www.fogcreek.com/kiln/)，您可以設定 App Service 與儲存機制整合，並持續部署。
 
-Visual Studio Team Services 會使用 Web 部署以部署至 App Service，而線上儲存機制的部署使用 Kudu (請參閱[部署程序概觀](#overview))。
+Visual Studio Team Services 會使用 Web Deploy 部署至 App Service，而線上儲存機制的部署使用 Kudu (請參閱[部署程序概觀](#overview))。
 
 從雲端型原始檔控制服務進行部署的優點如下：
 
@@ -195,8 +194,8 @@ Visual Studio Team Services 會使用 Web 部署以部署至 App Service，而�
 
 ###<a name="vsts"></a>如何使用 Visual Studio Team Services 進行連續部署
 
-- [使用 Visual Studio Team Services 和 TFVC 連續傳遞至 Azure](../cloud-services-continuous-delivery-use-vso.md)。示範如何使用 TFVC，從 Visual Studio Team Services 設定連續傳遞至 Web 應用程式的逐步教學課程。 
-- [使用 Visual Studio Team Services 和 Git 連續傳遞至 Azure](../cloud-services-continuous-delivery-use-vso-git.md)。與上一個教學課程類似，但使用 Git 而不是 TFVC。
+- [使用 Visual Studio Team Services 和 TFVC 連續傳遞至 Azure](../cloud-services/cloud-services-continuous-delivery-use-vso.md)。示範如何使用 TFVC，從 Visual Studio Team Services 設定連續傳遞至 Web 應用程式的逐步教學課程。 
+- [使用 Visual Studio Team Services 和 Git 連續傳遞至 Azure](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)。與上一個教學課程類似，但使用 Git 而不是 TFVC。
 
 ###<a name="cloudgitmercurial"></a>如何從雲端型 Git 或 Mercurial 儲存機制進行部署
 
@@ -284,4 +283,4 @@ Visual Studio Team Services 會使用 Web 部署以部署至 App Service，而�
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

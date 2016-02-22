@@ -1,6 +1,6 @@
 <properties
 	pageTitle="使用資源管理員範本建立 IoT 中樞 |Microsoft Azure"
-	description="您可以依照此教學課程的說明，開始使用資源管理員範本建立 IoT 中樞。"
+	description="請依照此教學課程的說明，開始使用「資源管理員」範本以 C# 程式或 PowerShell 建立 IoT 中樞。"
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="dominicbetts"
@@ -32,6 +32,8 @@
 - 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][lnk-free-trial]。
 - [Microsoft Azure PowerShell 1.0][lnk-powershell-install] 或更新版本。
 
+> [AZURE.TIP] 本文說明如何使用 C# 程式和 ARM 範本來建立新的 IoT 中樞。您也可以將目前文章中的 [ARM 範本](#submit-a-template-to-create-an-iot-hub)與 PowerShell 指令碼搭配使用，而不與 C# 程式搭配使用。[搭配使用 Azure PowerShell 與 Azure 資源管理員][lnk-powershell-arm]一文說明如何撰寫會使用 ARM 範本來建立 Azure 資源 (例如 IoT 中樞) 的 PowerShell 指令碼。
+
 [AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
 ## 準備 Visual Studio 專案
@@ -40,7 +42,7 @@
 
 2. 在方案總管中，於專案上按一下滑鼠右鍵，然後按一下 [管理 NuGet 封裝]。
 
-3. 在 NuGet 套件管理員中，搜尋 **Microsoft.Azure.Management.Resources**。選取 [2.18.11-preview] 版本。按一下 [安裝]，接著在 [檢閱變更] 中按一下 [確定]，然後按一下 [我接受]，以接受授權。
+3. 在 [NuGet 套件管理員] 中，搜尋 **Microsoft.Azure.Management.Resources**。選取 [2.18.11-preview] 版本。按一下 [安裝]，接著在 [檢閱變更] 中按一下 [確定]，然後按一下 [我接受]，以接受授權。
 
 4. 在 NuGet 套件管理員中，搜尋 **Microsoft.IdentityModel.Clients.ActiveDirectory**。選取版本 [2.19.208020213]。按一下 [安裝]，接著在 [檢閱變更] 中按一下 [確定]，然後按一下 [我接受]，以接受授權。
 
@@ -187,8 +189,9 @@
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
-[lnk-powershell-install]: https://azure.microsoft.com/en-us/blog/azps-1-0-pre/
+[lnk-powershell-install]: https://azure.microsoft.com/zh-TW/blog/azps-1-0-pre/
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
+[lnk-azure-rm-overview]: ./resource-group-overview.md
+[lnk-powershell-arm]: ./powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

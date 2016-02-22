@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="11/13/2015"
+   ms.date="02/09/2016"
    ms.author="tomfitz" />
 
 # 使用 Visual Studio 編輯資源管理員範本
@@ -61,7 +61,7 @@ Visual Studio 可讓您針對資源群組編輯資源管理員範本。您可以
 
 ## 另請參閱
 
-[透過 Visual Studio 建立與部署 Azure 資源群組](vs-azure-tools-resource-groups-deployment-project-create-deploy.md)
+[透過 Visual Studio 建立與部署 Azure 資源群組](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 [Azure 資源管理員 Cmdlet](https://msdn.microsoft.com/library/azure/dn757692.aspx)
 
@@ -69,4 +69,4 @@ Visual Studio 可讓您針對資源群組編輯資源管理員範本。您可以
 
 [Channel 9 影片：Azure 資源管理員](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

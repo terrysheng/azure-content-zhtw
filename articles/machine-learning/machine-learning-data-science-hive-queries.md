@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a>在 Cortana 分析程序中將 Hive 查詢提交至 HDInsight Hadoop 叢集
@@ -127,7 +127,7 @@
 1. [資料探索](#hive-dataexploration)
 2. [功能產生](#hive-featureengineering)
 
-> [AZURE.NOTE]Hive 查詢範例假設資料已上傳至 Azure HDInsight Hadoop 叢集中的 Hive 資料表。如果沒有，請遵循[建立資料並載入 Hive 資料表](machine-learning-data-science-hive-tables.md)，先將資料上傳至 Hive 資料表。
+> [AZURE.NOTE] Hive 查詢範例假設資料已上傳至 Azure HDInsight Hadoop 叢集中的 Hive 資料表。如果沒有，請遵循[建立資料並載入 Hive 資料表](machine-learning-data-science-hive-tables.md)，先將資料上傳至 Hive 資料表。
 
 ###<a name="hive-dataexploration"></a>資料探索
 以下提供數個 Hive 指令碼範例，可用來探索 Hive 資料表中的資料。
@@ -179,7 +179,7 @@
 4. [從文字欄位擷取功能](#hive-textfeature)
 5. [計算 GPS 座標間的距離](#hive-gpsdistance)
 
-> [AZURE.NOTE]一旦產生額外功能之後，就可以將它們當成資料行新增至現有資料表，或是建立具有額外功能和主索引鍵的新資料表 (後來可與原始資料表聯結)。
+> [AZURE.NOTE] 一旦產生額外功能之後，就可以將它們當成資料行新增至現有資料表，或是建立具有額外功能和主索引鍵的新資料表 (後來可與原始資料表聯結)。
 
 ####<a name="hive-frequencyfeature"></a> 以頻率為基礎的功能產生
 
@@ -325,4 +325,4 @@ Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

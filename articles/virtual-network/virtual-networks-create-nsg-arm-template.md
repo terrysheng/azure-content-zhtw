@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # 如何使用範本建立 NSG
@@ -29,7 +29,7 @@
 
 ## 範本檔案中的 NSG 資源
 
-您可以檢視和下載[範例範本](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/)。
+您可以檢視和下載[範例範本](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/NSGs.json)。
 
 下節依據上述案例顯示前端 NSG 的定義。
 
@@ -90,7 +90,7 @@
 
 ## 使用按一下即部署來部署 ARM 範本
 
-公用儲存機制中可用的範例範本會使用一個包含預設值的參數檔案，這些預設值可用來產生上述案例。若要部署此範本，請使用按一下即部署，依循[此連結](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG)，然後按一下 [部署至 Azure]，視情況取代預設參數值，再依循入口網站中的指示。
+公用儲存機制中可用的範例範本會使用一個包含預設值的參數檔案，這些預設值可用來產生上述案例。若要使用「按一下即部署」來部署此範本，請依循[此連結](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG)，按一下 [部署至 Azure]，視情況取代預設參數值，再依循入口網站中的指示。
 
 ## 使用 PowerShell 部署 ARM 範本
 
@@ -100,7 +100,7 @@
 
 1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
 
-3. 執行 **New-AzureRmResourceGroup** Cmdlet 以使用範本建立資源群組。
+3. 執行 **`New-AzureRmResourceGroup`** Cmdlet，以使用範本建立資源群組。
 
 		New-AzureRmResourceGroup -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
@@ -146,8 +146,8 @@
 
 若要使用 Azure CLI 部署 ARM 範本，請依照下列步驟執行。
 
-1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli-install.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
-2. 執行 **azure config mode** 命令，以切換為資源管理員模式，如下所示。
+1. 如果您從未用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli-install.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
+2. 執行 **`azure config mode`** 命令，以切換為資源管理員模式，如下所示。
 
 		azure config mode arm
 
@@ -155,7 +155,7 @@
 
 		info:    New mode is arm
 
-4. 執行 **azure group deployment create** Cmdlet，以使用先前下載並修改的範本和參數檔案部署新的 VNet。輸出後顯示的清單可說明所使用的參數。
+4. 執行 **`azure group deployment create`** Cmdlet，以使用先前下載並修改的範本和參數檔案，部署新的 VNet。輸出後顯示的清單可說明所使用的參數。
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
 
@@ -181,4 +181,4 @@
 	- **-f (或 --template-file)**。ARM 範本檔案的路徑。
 	- **-e (或 --parameters-file)**。ARM 參數檔案的路徑。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

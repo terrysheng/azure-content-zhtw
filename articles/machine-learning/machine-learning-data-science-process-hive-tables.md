@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/08/2016"
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> 在進階分析程序和技術中將 Hive 查詢提交至 HDInsight Hadoop 叢集 
@@ -167,7 +167,7 @@ Hive 查詢的輸出會顯示於 Blob 儲存體中，方法是使用 Azure 儲�
 
 本節將說明使用 Hive 查詢產生功能的方式。
 
-> [AZURE.NOTE]本節中的 Hive 查詢範例假設資料已上傳至 Azure HDInsight Hadoop 叢集中的 Hive 資料表。如果沒有，請遵循[建立資料並載入 Hive 資料表](machine-learning-data-science-hive-tables.md)，先將資料上傳至 Hive 資料表。
+> [AZURE.NOTE] 本節中的 Hive 查詢範例假設資料已上傳至 Azure HDInsight Hadoop 叢集中的 Hive 資料表。如果沒有，請遵循[建立資料並載入 Hive 資料表](machine-learning-data-science-hive-tables.md)，先將資料上傳至 Hive 資料表。
 
 一旦產生額外功能之後，就可以將它們當成資料行新增至現有的資料表，或是建立具有其他功能和主索引鍵的新資料表 (然後與原始資料表聯結)。
 
@@ -314,4 +314,4 @@ Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

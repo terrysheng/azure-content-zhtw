@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
-	ms.author="georgem"/>
+	ms.date="02/09/2016"
+	ms.author="georgem;tomfitz"/>
 
 
 # Azure 資源管理員的安全性考量
@@ -147,6 +147,8 @@ Azure 虛擬機器、Azure 資源管理員和 Azure 金鑰保存庫經過完全�
         }
     }
 
+若要在部署範本時，以參數形式從金鑰保存庫傳遞某個值，請參閱[在部署期間傳遞安全值](resource-manager-keyvault-parameter.md)。
+
 ## 跨訂用帳戶互動的服務主體
 
 Active Directory 目錄中會以服務主體來代表服務身分。服務主體將位於啟用企業 IT 組織、系統整合者 (SI) 和雲端服務廠商 (CSV) 的主要案例的中心。具體而言，這些組織中將會有一個組織需要與他們其中一個客戶的訂用帳戶互動的情況。
@@ -174,7 +176,7 @@ Active Directory 目錄中會以服務主體來代表服務身分。服務主體
 
 您可以讓 NSG 與 VM 產生關聯，或與虛擬網路內的子網路產生關聯。與 VM 建立關聯時，NSG 會套用至由 VM 執行個體傳送和接收的所有流量。套用至虛擬網路中的子網路時，NSG 會套用至子網路中所有 VM 執行個體傳送和接收的所有流量。VM 或子網路可以僅與 1 個 NSG 產生關聯，但每個 NSG 可以包含最多 200 個規則。每個訂用帳戶您可以擁有 100 個 NSG。
 
->[AZURE.NOTE]端點式 ACL 和網路安全性群組，不支援用於相同的 VM 執行個體。如果您想要使用 NSG 且已經擁有就地端點 ACL，請先移除端點 ACL。如需有關執行這項作業的資訊，請參閱＜[使用 PowerShell 管理端點的存取控制清單 (ACL)](../virtual-network/virtual-networks-acl-powershell.md)＞。
+>[AZURE.NOTE]  端點式 ACL 和網路安全性群組，不支援用於相同的 VM 執行個體。如果您想要使用 NSG 且已經擁有就地端點 ACL，請先移除端點 ACL。如需有關執行這項作業的資訊，請參閱＜[使用 PowerShell 管理端點的存取控制清單 (ACL)](../virtual-network/virtual-networks-acl-powershell.md)＞。
 
 ### 網路安全性群組的運作方式
 
@@ -306,7 +308,7 @@ Azure 使用路由表決定如何根據每個封包的目的地轉送 IP 流量�
 
 在撰寫本文時，Azure 資源管理員的[網路資源提供者](virtual-network/resource-groups-networking.md)尚未支援 [ExpressRoute](expressroute/expressroute-introduction.md)。在 NRP 上支援 ExpressRoute 之後，如果您在內部部署網路與 Azure 之間有 ExpressRoute 連線，可以啟用 BGP，將路由從內部部署網路傳播至 Azure。這些 BGP 路由的使用方式與預設路由相同，也與每個 Azure 子網路中的使用者定義路由相同。如需詳細資訊，請參閱 [ExpressRoute 簡介](expressroute/expressroute-introduction.md)。
 
->[AZURE.NOTE]在 NRP 上支援 ExpressRoute 時，您將可以設定 Azure 環境透過內部部署網路使用強制通道，方法是，為使用 VPN 閘道做為下一個躍點的子網路 0.0.0.0/0 建立使用者定義的路由。不過，這只有在您使用的是 VPN 閘道，而不是 ExpressRoute 時，才有作用。若是 Expressroute，強制通道是透過 BGP 設定。
+>[AZURE.NOTE] 在 NRP 上支援 ExpressRoute 時，您將可以設定 Azure 環境透過內部部署網路使用強制通道，方法是，為使用 VPN 閘道做為下一個躍點的子網路 0.0.0.0/0 建立使用者定義的路由。不過，這只有在您使用的是 VPN 閘道，而不是 ExpressRoute 時，才有作用。若是 Expressroute，強制通道是透過 BGP 設定。
 
 ### 使用者定義的路由
 
@@ -323,7 +325,7 @@ Azure 使用路由表決定如何根據每個封包的目的地轉送 IP 流量�
 2.	BGP 路由 (使用 ExpressRoute 時)
 3.	預設路由
 
->[AZURE.NOTE]使用者定義的路由僅會套用至 Azure VM 和雲端服務。例如，如果您想要在內部部署網路與 Azure 之間新增防火牆虛擬應用裝置，您必須為您的 Azure 路由表建立一個使用者定義的路由，此路由會將前往內部部署位址空間的所有流量轉送到虛擬應用裝置。不過，來自內部部署位址空間的連入流量將會流經您的 VPN 閘道或直接到 Azure 環境的 ExpressRoute 電路，略過虛擬應用裝置。
+>[AZURE.NOTE] 使用者定義的路由僅會套用至 Azure VM 和雲端服務。例如，如果您想要在內部部署網路與 Azure 之間新增防火牆虛擬應用裝置，您必須為您的 Azure 路由表建立一個使用者定義的路由，此路由會將前往內部部署位址空間的所有流量轉送到虛擬應用裝置。不過，來自內部部署位址空間的連入流量將會流經您的 VPN 閘道或直接到 Azure 環境的 ExpressRoute 電路，略過虛擬應用裝置。
 
 ### IP 轉送
 
@@ -337,4 +339,4 @@ Azure 使用路由表決定如何根據每個封包的目的地轉送 IP 流量�
 - 若要設定路由及 IP 轉送，請參閱[如何在 Azure 中建立路由與啟用 IP 轉送](virtual-network/virtual-networks-udr-how-to.md) 
 - 如需角色型存取控制的概觀，請參閱 Microsoft Azure 入口網站中的[角色型存取控制](role-based-access-control-configure.md)。
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

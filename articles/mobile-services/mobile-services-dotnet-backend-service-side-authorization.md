@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="12/09/2015"
+	ms.date="02/07/2016"
 	ms.author="krisragh"/>
 
 # 在行動服務中的使用者服務端授權
@@ -37,7 +37,7 @@
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE]若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 [Code First 移轉](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)。
+	>[AZURE.NOTE] 若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 [Code First 移轉](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)。
 
 2. 在 Visual Studio 中，展開 Controllers 資料夾，開啟 TodoItemController.cs，並新增下列 using 陳述式：
 
@@ -84,4 +84,4 @@
 <!-- URLs. -->
 [將驗證新增至現有的行動服務應用程式]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

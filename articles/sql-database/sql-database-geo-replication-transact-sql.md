@@ -57,7 +57,7 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 1. 使用版本 13.0.600.65 或 SQL Server Management Studio 的更新版本。
 
- 	 >[AZURE.IMPORTANT] 下載[最新](https://msdn.microsoft.com/library/mt238290.aspx)版本的 SQL Server Management Studio。建議您一律使用最新版本的 Management Studio 保持與 Azure 入口網站更新同步。
+ 	 > [AZURE.IMPORTANT] 下載[最新](https://msdn.microsoft.com/library/mt238290.aspx)版本的 SQL Server Management Studio。建議您一律使用最新版本的 Management Studio 保持與 Azure 入口網站更新同步。
 
 
 2. 開啟 Databases 資料夾、展開 **System Databases** 資料夾、在 **master** 上按一下滑鼠右鍵，然後按一下 [新增查詢]。
@@ -231,6 +231,6 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 - [新異地複寫功能要點](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [使用異地複寫設計業務持續性的雲端應用程式](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [業務續航力概觀](sql-database-business-continuity.md)
-- [SQL Database 文件](sql-database.md)
+- [SQL Database 文件](https://azure.microsoft.com/services/sql-database/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

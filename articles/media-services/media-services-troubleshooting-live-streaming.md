@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"    
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #針對即時資料流進行疑難排解的指南
@@ -65,7 +65,7 @@
 
 	**疑難排解步驟**：瀏覽到 AMSE 工具的 [資料流端點] 索引標籤，確認執行中的資料流端點有伴隨的資料流單位。
 	
->[AZURE.NOTE]如果依循下列疑難排解步驟後仍無法順利串流處理，請使用 Azure 傳統入口網站提交支援票證。
+>[AZURE.NOTE] 如果依循下列疑難排解步驟後仍無法順利串流處理，請使用 Azure 傳統入口網站提交支援票證。
 
 ##媒體服務學習路徑
 
@@ -75,4 +75,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

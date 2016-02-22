@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="10/16/2015"
+      ms.date="02/09/2016"
       ms.author="inhenk"/>
 
 # 使用 Azure Active Directory (AD) 管理應用程式
@@ -124,4 +124,8 @@ Azure AD 為您提供預先整合的報告與監控功能，可讓您知道可�
 
 若要開始使用 Azure AD 來整合應用程式，請查看[整合 Azure Active Directory 與應用程式入門指南](active-directory-integrating-applications-getting-started.md)。
 
-<!---HONumber=Oct15_HO4-->
+## 另請參閱
+
+[Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,17 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="02/03/2016" 
 	ms.author="cephalin"/>
 
 #在 Azure App Service 中使用混合式連線存取內部部署資源
 
-您可以在 Azure App Service 上將 Web 應用程式連接到使用靜態 TCP 連接埠的任何內部部署資源，例如 SQL Server、MySQL、HTTP Web API、行動服務及最高程度的自訂 Web 服務。本文示範如何在 App Service 中的 Web 應用程式和內部部署的 SQL Server 資料庫之間建立混合式連線。
+您可以將 Azure App Service 應用程式連接到任何使用靜態 TCP 連接埠 (例如 SQL Server、MySQL、HTTP Web API 和大部分自訂 Web 服務) 的內部部署資源。本文章示範如何在 App Service 和內部部署的 SQL Server 資料庫之間建立混合式連線。
 
 > [AZURE.NOTE] 「混合式連線」功能的 Web Apps 部分僅適用於 [Azure 入口網站](https://portal.azure.com)。若要在 BizTalk 服務中建立連線，請參閱[混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)。
+> 
+> 此內容也適用於 Azure App Service 中的 Mobile Apps。
 
 ## 必要條件
 - Azure 訂閱。若要取得免費訂閱，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。 
+ 
+	如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 - 若要透過混合式連線使用內部部署 SQL Server 或 SQL Server Express 資料庫，必須在靜態連接埠上啟用 TCP/IP。建議在 SQL Server 上使用預設執行個體，因為其使用靜態連接埠 1433。如需安裝及設定 SQL Server Express 以搭配混合式連線使用的相關資訊，請參閱[使用混合式連線從 Azure 網站連線到內部部署 SQL Server](http://go.microsoft.com/fwlink/?LinkID=397979)。
 
@@ -37,7 +41,7 @@
 
 ## 在 Azure 入口網站中建立 Web 應用程式 ##
 
-> [AZURE.NOTE] 如果您已在 Azure 預覽入口網站中建立本教學課程要使用的 Web 應用程式，則您可以直接跳到[建立混合式連線和 BizTalk 服務](#CreateHC)，並從那裡開始操作。
+> [AZURE.NOTE] 如果您已在 Azure 入口網站中建立本教學課程要使用的 Web 應用程式或行動應用程式後端，則您可以直接跳到[建立混合式連線和 BizTalk 服務](#CreateHC)，並從那裡開始操作。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)左上角，依序按一下 [新增] > [Web + 行動] > [Web 應用程式]。
 	
@@ -93,7 +97,7 @@
 	![Click OK][CreateBTScomplete]
 	
 6. 當程序完成時，入口網站中的通知區域會通知您已成功建立連線。
-	<!-- TODO
+	<!--- TODO
 
     Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
 	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
@@ -101,7 +105,7 @@
 	Failed to create hybrid connection RelecIoudHC. The 
 	resource type could not be found in the namespace 
 	'Microsoft.BizTaIkServices for api version 2014-06-01'.
-
+	
 	The error indicates it couldn't find the type, not the instance.
 	![Success notification][CreateHCSuccessNotification]
 	-->
@@ -156,14 +160,64 @@
 
 現在，您已完成混合式連線基礎結構，您可以使用它來建立混合式應用程式。
 
->[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE]下列各節示範如何搭配 Mobile Apps .NET 後端專案使用混合式連線。
+
+## 設定行動應用程式 .NET 後端專案以連線到 SQL Server 資料庫
+
+在 App Service 中，Mobile Apps .NET 後端專案只是一個已安裝並初始化其他 Mobile Apps SDK 的 ASP.NET Web 應用程式。若要使用 Web 應用程式做為 Mobile Apps 後端，您必須[下載並初始化 Mobile Apps .NET 後端 SDK](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#install-sdk)。
+
+針對 Mobile Apps，您也需要定義內部部署資料庫的連接字串與修改後端，以使用此連線。
+
+1. 在 [Visual Studio 方案總管] 中開啟您的行動應用程式 .NET 後端的 Web.config 檔案，找出 **connectionStrings** 區段，新增會指向內部部署 SQL Server 資料庫的 SqlClient 項目，如下所示：
+
+	    <add name="OnPremisesDBConnection"
+         connectionString="Data Source=OnPremisesServer,1433;
+         Initial Catalog=OnPremisesDB;
+         User ID=HybridConnectionLogin;
+         Password=<**secure_password**>;
+         MultipleActiveResultSets=True"
+         providerName="System.Data.SqlClient" />
+
+	請記得將此字串中的 `<**secure_password**>` 取代為您為 *HybridConnectionLogin* 建立的密碼。
+
+3. 在 Visual Studio 中按一下 [儲存]，以儲存 Web.config 檔案。
+
+	> [AZURE.NOTE]在本機電腦上執行時，會使用此連線設定。在 Azure 中執行時，則會以入口網站中所定義的連線設定覆寫這個設定。
+
+4. 展開 **Models** 資料夾，然後開啟以 *Context.cs* 結尾的資料模型檔案。
+
+6. 修改 **DbContext** 執行個體建構函式，以將 `OnPremisesDBConnection` 值傳遞至類似下列程式碼片段的基底 **DbContext** 建構函式：
+
+        public class hybridService1Context : DbContext
+        {
+            public hybridService1Context()
+                : base("OnPremisesDBConnection")
+            {
+            }
+        }
+
+	現在，服務將會使用新的 SQL Server 資料庫連線。
+
+## 更新行動應用程式後端，以使用內部部署連接字串
+
+接下來，您必須為這個新的連接字串新增應用程式設定，以便能夠從 Azure 使用。
+
+1. 回到 [Azure 入口網站](https://portal.azure.com)，在行動應用程式的 Web 應用程式後端程式碼中，按一下 [所有設定] > [應用程式設定]。
+
+3. 在 [**Web 應用程式設定**] 刀鋒視窗中，向下捲動至 [**連接字串**]，然後以 `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>` 之類的值新增名稱為 `OnPremisesDBConnection` 的新 **SQL Server** 連接字串。
+
+	將 `<**secure_password**>` 替換為您內部部署資料庫的安全密碼。
+
+	![Connection string for on-premises database](./media/web-sites-hybrid-connection-get-started/set-sql-server-database-connection.png)
+
+2. 按下 [**儲存**]，以儲存您剛剛建立的混合式連線和連接字串。
+
+現在可以重新發佈伺服器專案，並測試與現有的 Mobile Apps 用戶端之間的新連線。將會使用混合式連線，讀取內部部署資料庫中的資料並寫入。
 
 <a name="NextSteps"></a>
 ## 後續步驟 ##
 
-- 如需建立使用混合式連線的 ASP.NET Web 應用程式相關資訊，請參閱[使用混合式連線從 Azure 網站連線到內部部署 SQL Server](http://go.microsoft.com/fwlink/?LinkID=397979)。
-
-- 如需將混合式連線與行動服務搭配使用的相關資訊，請參閱[使用混合式連線從 Azure 行動服務連線到內部部署 SQL Server](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)。
+- 如需建立使用混合式連線的 ASP.NET Web 應用程式相關資訊，請參閱[使用混合式連線從 Azure 網站連線到內部部署 SQL Server](http://go.microsoft.com/fwlink/?LinkID=397979)。 
 
 ### 其他資源
 
@@ -208,4 +262,4 @@
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

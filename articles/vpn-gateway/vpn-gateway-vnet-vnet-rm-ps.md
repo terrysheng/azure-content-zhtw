@@ -4,7 +4,7 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
 
@@ -23,15 +23,13 @@
 - [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-本文將引導您使用資源管理員部署模型的步驟。如果您要尋找此設定的其他部署模型，請使用上方索引標籤來選取您想要的文章。
-
-目前，針對不同訂用帳戶中使用「資源管理員」部署方法來建立之虛擬網路的 VNet 對 VNet 連接，我們還沒有解決方案。本團隊目前正致力於建立解決方案，並期待在今年底或明年初獲得進展。當有解決方案可用時，本文將會反映這些步驟。以下步驟適用於相同訂用帳戶中的 Vnet。
+本文將逐步引導您使用「資源管理員」部署模型及 PowerShell，建立虛擬網路間的連線。對於使用「資源管理員」部署模型於不同訂用帳戶中所建立之虛擬網路的 VNet 對 VNet 連接，我們目前還沒有相關文件。小組已經在處理解決方案。當有解決方案可用時，本文將會反映這些步驟。以下步驟適用於相同訂用帳戶中的 Vnet。
 
 **關於 Azure 部署模型**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 	
-- 如果您的虛擬網路是使用傳統部署模型所建立，請參閱[建立 VNet 對 VNet 連接](virtual-networks-configure-vnet-to-vnet-connection.md)。「傳統」部署模型支援連接位於不同訂用帳戶中的 VNet。
+- 如果您的虛擬網路是使用傳統部署模型所建立，請參閱[建立 VNet 對 VNet 連接](virtual-networks-configure-vnet-to-vnet-connection.md)。傳統部署模型支援連接位於不同訂用帳戶中的 VNet。
 	
 - 如果您想要將在傳統部署模型中建立的虛擬網路連接到使用 Azure 資源管理員模型建立的虛擬網路，請參閱[將傳統 VNet 連接到新的 VNet](../virtual-network/virtual-networks-arm-asm-s2s.md)。
 
@@ -262,4 +260,4 @@ VNet2 的值：
 
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。請參閱[建立虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)以取得相關步驟。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

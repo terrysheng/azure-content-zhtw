@@ -104,7 +104,7 @@ Azure IoT 程式庫已在下列作業系統平台上測試：
 
 ## IoT 的 Microsoft Azure 認證
 
-**IoT 的 Microsoft Azure 認證**是連接廣泛的 IoT 生態系統與 Microsoft Azure 的協力廠商程式，讓開發人員和架構設計人員能夠了解相容性案例。具體來說，它提供 OS/裝置組合的一份信任清單，以協助您快速開始使用 IoT 專案 – 無論您是在概念驗證或試驗階段。使用認證的裝置及作業系統組合就可以快速開始使用 IoT 專案，只需要較少的工作與自訂就可以確定裝置與 Azure IoT 套件和 Azure IoT 中心的相容性。
+**IoT 的 Microsoft Azure 認證**是連接廣泛的 IoT 生態系統與 Microsoft Azure 的協力廠商程式，讓開發人員和架構設計人員能夠了解相容性案例。具體來說，它提供 OS/裝置組合的一份信任清單，以協助您快速開始使用 IoT 專案 – 無論您是在概念驗證或試驗階段。有了認證的裝置及作業系統組合，您就可以快速開始使用 IoT 專案，其中為確保裝置與 [Azure IoT 套件][lnk-iot-suite]和 Azure IoT 中樞相容所需做的工作和自訂都變得更少。
 
 ## IoT 裝置的認證
 
@@ -171,4 +171,7 @@ Azure IoT 程式庫已在下列作業系統平台上測試：
 
 深入了解使用 [IoT 裝置的認證](http://azure.com/iotdev)開發解決方案的相關資訊。
 
-<!---HONumber=AcomDC_0204_2016-->
+
+[lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+
+<!---HONumber=AcomDC_0211_2016-->

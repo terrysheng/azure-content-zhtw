@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser"/>
 
 #在 Azure Active Directory 中為預先整合的應用程式自訂在 SAML 權杖中發出的宣告
@@ -57,6 +57,12 @@
 **附註：只有在使用 AAD Connect 工具最新預覽版從內部部署的 Active Directory 同步處理使用者資料時，才支援 ****user.onpremisesecurityidentifier** 和 **user.onpremisesamaccountname**。您可以在下面的連結下載 Connect 工具預覽版：
 
 http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=53949
+
+## 相關文章
+
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](active-directory-saas-custom-apps.md)
+- [SAML 型單一登入疑難排解](active-directory-saml-debugging.md)
 	
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/claimscustomization1.png
@@ -64,4 +70,4 @@ http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

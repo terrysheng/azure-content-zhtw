@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 # 使用 SQL 資料分割資料表平行處理大量資料匯入
 
-若要將巨量資料載入/傳輸至 SQL Database，可使用「資料分割資料表和檢視」，來改善將資料匯入 SQL DB 和後續查詢的效能。本文件說明如何建置資料分割資料表，以快速的平行處理方式將大量資料匯入 SQL Server 資料庫。
+本文件說明如何建置資料分割資料表，以快速的平行處理方式將大量資料匯入 SQL Server 資料庫。
+
+若要將巨量資料載入/傳輸至 SQL Database，可使用「資料分割資料表和檢視」，來改善將資料匯入 SQL DB 和後續查詢的效能。
 
 
 ## 建立新的資料庫和一組檔案群組
@@ -29,7 +31,7 @@
 
 - 將一或多個檔案 (視需要) 新增至每個資料庫檔案群組
 
- >[AZURE.NOTE]指定將保留這個資料分割之資料的目標檔案群組，以及將儲存檔案群組資料的實體資料庫檔案名稱。
+ > [AZURE.NOTE] 指定將保留這個資料分割之資料的目標檔案群組，以及將儲存檔案群組資料的實體資料庫檔案名稱。
  
 下列範例會建立含有三個檔案群組的新資料庫，這三個檔案群組不包括主要和記錄群組，且每個檔案群組中都會包含一個實體檔案。資料庫檔案建立於預設的 SQL Server [資料] 資料夾中，如 SQL Server 執行個體中所設定。如需關於預設檔案位置的詳細資訊，請參閱 [SQL Server 的預設和具名執行個體的檔案位置](https://msdn.microsoft.com/library/ms143547.aspx)。
 
@@ -177,11 +179,11 @@
 	    CREATE INDEX <table_idx> ON <table_name>( [include index columns here] )
 	    ON <TablePScheme>(<partition)field>)
 
- >[AZURE.NOTE]您可以選擇在大量匯入資料之前建立索引。在大量匯入之前建立索引，將讓資料載入速度變慢。
+ > [AZURE.NOTE] 您可以選擇在大量匯入資料之前建立索引。在大量匯入之前建立索引，將讓資料載入速度變慢。
 
 ## 進階分析程序和技術實務範例
 
 如需使用公用資料集進行 Cortana 分析程序的端對端逐步解說範例，請參閱 [Cortana 分析程序實務範例：使用 SQL Server](machine-learning-data-science-process-sql-walkthrough.md)。
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

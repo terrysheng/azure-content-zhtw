@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 
@@ -144,4 +144,4 @@ VM 上已安裝數個 Azure 工具：- 有一個桌面捷徑可以存取 Azure S
 * 了解如何使用[資料科學程序](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)以系統化方式建置端對端分析方案
 * 請造訪 [Cortana 分析資源庫](http://gallery.cortanaanalytics.com)以取得使用 Cortana Analytics Suite 的機器學習和資料分析範例。我們也已經在虛擬機器的開始功能表與桌面上提供圖示以方便存取 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

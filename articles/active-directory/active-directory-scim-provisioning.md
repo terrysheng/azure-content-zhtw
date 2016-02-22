@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser-msft"/>
 
 #使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建
@@ -73,7 +73,7 @@ Azure Active Directory 可以設定為將已指派的使用者和群組佈建至
 8.	在產生的畫面中，選取第三個 [指派帳戶] 按鈕。在產生的使用者和群組區段中，指派您想要佈建到應用程式的使用者或群組。
 9.	指派使用者和群組之後，按一下畫面頂端附近的 [設定] 索引標籤。
 10.	在 [帳戶佈建] 下，確認狀態設為開啟。 
-11.	在 [工具] 下，按一下 [重新啟動帳戶佈建] 以開始進行佈建程序。
+11.	在 [工具] 下，按一下 [重新啟動帳戶佈建] 來開始進行佈建程序。
 
 請注意，可能需要 5-10 分鐘的時間，佈建程序才會開始將要求傳送至 SCIM 端點。應用程式的 [儀表板] 索引標籤上提供的連接嘗試的摘要和佈建活動的報表和佈建的任何錯誤就可以從下載目錄的 [報表] 索引標籤。
 
@@ -136,9 +136,9 @@ Azure Active Directory 可以設定為將已指派的使用者和群組佈建至
 6.	按一下 [**下一步**]，然後按一下 [**開始測試**] 按鈕，讓 Azure Active Directory 嘗試連接到 SCIM 端點。如果嘗試失敗，就會顯示診斷資訊。  
 7.	如果嘗試連接到您的 Web 服務成功，請在剩餘的畫面上按一下 [**下一步**]，然後再按一下 [**完成**] 結束對話方塊。
 8.	在產生的畫面中，選取第三個 [**指派帳戶**] 按鈕。在產生的使用者和群組區段中，指派您想要佈建到應用程式的使用者或群組。
-9.	指派使用者和群組之後，按一下畫面頂端附近的 [**設定**] 索引標籤。
-10.	在 [**帳戶佈建**] 下方，確認 [狀態] 設為 [開啟]。 
-11.	在 [**工具**] 下方，按一下 [**重新啟動帳戶佈建**] 以開始進行佈建程序。
+9.	指派使用者和群組之後，按一下畫面頂端附近的 [設定] 索引標籤。
+10.	在 [帳戶佈建] 下，確認狀態設為開啟。 
+11.	在 [工具] 下，按一下 [重新啟動帳戶佈建] 來開始進行佈建程序。
 
 請注意，可能需要 5-10 分鐘的時間，佈建程序才會開始將要求傳送至 SCIM 端點。應用程式的 [儀表板] 索引標籤上提供的連接嘗試的摘要和佈建活動的報表和佈建的任何錯誤就可以從下載目錄的 [報表] 索引標籤。
 
@@ -684,6 +684,17 @@ Microsoft 所提供、用於實作 SCIM 服務的通用語言基礎結構程式�
 
 ![][5] *圖：群組佈建和取消佈建順序*
 
+##相關文章
+
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [自動化 SaaS 應用程式使用者佈建/解除佈建](active-directory-saas-app-provisioning.md)
+- [自訂使用者佈建的屬性對應](active-directory-saas-customizing-attribute-mappings.md)
+- [撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [適用於使用者佈建的範圍篩選器](active-directory-saas-scoping-filters.md)
+- [帳戶佈建通知](active-directory-saas-account-provisioning-notifications.md)
+- [如何整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
+
+
 	
 <!--Image references-->
 [1]: ./media/active-directory-scim-provisioning/scim-figure-1.PNG
@@ -692,4 +703,4 @@ Microsoft 所提供、用於實作 SCIM 服務的通用語言基礎結構程式�
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

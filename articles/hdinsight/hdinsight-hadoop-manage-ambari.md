@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/03/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #使用 Ambari Web UI 管理 HDInsight 叢集
@@ -25,7 +25,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
 在本文件中，您將學習如何搭配使用 Ambari Web UI 和 HDInsight 叢集。
 
-> [AZURE.NOTE]本文的資訊僅適用於以 Linux 為基礎的 HDInsight 叢集。若為以 Windows 為基礎的 HDInsight 叢集，則只能透過 Ambari REST API 進行監視。請參閱[在 HDInsight 使用 Ambari API 監視以 Windows 為基礎的 Hadoop](hdinsight-monitor-use-ambari-api.md)。
+> [AZURE.NOTE] 本文的資訊僅適用於以 Linux 為基礎的 HDInsight 叢集。若為以 Windows 為基礎的 HDInsight 叢集，則只能透過 Ambari REST API 進行監視。請參閱[在 HDInsight 使用 Ambari API 監視以 Windows 為基礎的 Hadoop](hdinsight-monitor-use-ambari-api.md)。
 
 ##<a id="whatis"></a>什麼是 Ambari？
 
@@ -37,11 +37,11 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
 Ambari Web UI 位在您的 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdidnsight.net，其中 __CLUSTERNAME__ 是您的叢集的名稱。
 
-> [AZURE.IMPORTANT]連線到 HDInsight 上的 Ambari 需要 HTTPS。您也必須使用系統管理員帳戶名稱 (預設值是 __admin__) 和建立叢集時所提供的密碼來驗證 Ambari。
+> [AZURE.IMPORTANT] 連線到 HDInsight 上的 Ambari 需要 HTTPS。您也必須使用系統管理員帳戶名稱 (預設值是 __admin__) 和建立叢集時所提供的密碼來驗證 Ambari。
 
 ##SSH Proxy
 
-> [AZURE.NOTE]雖然您可直接透過網際網路存取叢集適用的 Ambari，但 Ambari Web UI 中的一些連結 (例如 JobTracker 的連結) 並不會在網際網路上公開。所以除非您使用安全殼層 (SSH) 通道來代理通往叢集前端節點的 Web 流量，否則會在嘗試存取這些功能時看見「找不到伺服器」錯誤。
+> [AZURE.NOTE] 雖然您可直接透過網際網路存取叢集適用的 Ambari，但 Ambari Web UI 中的一些連結 (例如 JobTracker 的連結) 並不會在網際網路上公開。所以除非您使用安全殼層 (SSH) 通道來代理通往叢集前端節點的 Web 流量，否則會在嘗試存取這些功能時看見「找不到伺服器」錯誤。
 
 如需建立 SSH 通道來搭配使用 Ambari 的相關資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
 
@@ -137,7 +137,7 @@ Ambari 提供許多警示，其可能狀態如下：
 
 選取任何一個連結便會在瀏覽器中開啟新索引標籤以顯示選取的頁面。
 
-> [AZURE.NOTE]選取任何服務的 [**快速連結**] 連結將會導致「找不到伺服器」的錯誤，除非您是使用安全通訊端層 (SSL) 通道以 Proxy 將 Web 流量傳送到叢集。這是因為用來顯示這項資訊的 Web 應用程式不會在網際網路上公開。
+> [AZURE.NOTE] 選取任何服務的 [**快速連結**] 連結將會導致「找不到伺服器」的錯誤，除非您是使用安全通訊端層 (SSL) 通道以 Proxy 將 Web 流量傳送到叢集。這是因為用來顯示這項資訊的 Web 應用程式不會在網際網路上公開。
 >
 > 如需使用 SSL 通道搭配 HDInsight 的相關資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
@@ -153,7 +153,7 @@ Ambari 提供許多警示，其可能狀態如下：
 
 ![主機頁面](./media/hdinsight-hadoop-manage-ambari/hosts.png)
 
-> [AZURE.NOTE]請勿在 HDInsight 叢集使用加入、解除委任或重新委任主機。
+> [AZURE.NOTE] 請勿在 HDInsight 叢集使用加入、解除委任或重新委任主機。
 
 1. 選取您想要管理的主機。
 
@@ -177,11 +177,11 @@ Ambari 提供許多警示，其可能狀態如下：
 
 	* **解除委任** - 從叢集中移除主機。
 
-		> [AZURE.NOTE]請勿在 HDInsight 叢集上使用此動作。
+		> [AZURE.NOTE] 請勿在 HDInsight 叢集上使用此動作。
 
 	* **重新委任** - 將先前已解除委任的主機加入到叢集中。
 
-		> [AZURE.NOTE]請勿在 HDInsight 叢集上使用此動作。
+		> [AZURE.NOTE] 請勿在 HDInsight 叢集上使用此動作。
 
 ###<a id="service"></a>服務
 
@@ -189,7 +189,7 @@ Ambari 提供許多警示，其可能狀態如下：
 
 ![服務動作](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [AZURE.WARNING]雖然 [新增服務] 列在此功能表中，但不應用來將服務新增 HDInsight 叢集。您應該在叢集佈建期間，使用指令碼動作加入新服務。如需使用指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+> [AZURE.WARNING] 雖然 [新增服務] 列在此功能表中，但不應用來將服務新增 HDInsight 叢集。您應該在叢集佈建期間，使用指令碼動作加入新服務。如需使用指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 
 雖然 [**動作**] 按鈕可以重新啟動所有服務，但您想要啟動、停止或重新啟動的往往是特定服務。使用下列步驟可對個別服務執行動作：
@@ -200,11 +200,11 @@ Ambari 提供許多警示，其可能狀態如下：
 
 	![服務動作](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
-	> [AZURE.NOTE]在叢集執行時重新啟動某些服務可能會產生警示。若要避免這個問題，您可以使用 [**服務動作**] 按鈕來啟用服務的 [**維護模式**]，然後再執行重新啟動。
+	> [AZURE.NOTE] 在叢集執行時重新啟動某些服務可能會產生警示。若要避免這個問題，您可以使用 [**服務動作**] 按鈕來啟用服務的 [**維護模式**]，然後再執行重新啟動。
 
 3. 一旦選取某個動作，頁面頂端的 [**# 項作業**] 項目便會遞增數字，指出正在進行背景作業。如果設定為顯示，則會顯示背景作業的清單。
 
-	> [AZURE.NOTE]如果您已啟用服務的 [**維護模式**]，請記得在作業完成後使用 [**服務動作**] 按鈕來將它停用。
+	> [AZURE.NOTE] 如果您已啟用服務的 [**維護模式**]，請記得在作業完成後使用 [**服務動作**] 按鈕來將它停用。
 
 若要設定服務，請使用下列步驟：
 
@@ -224,4 +224,4 @@ Ambari 檢視可讓開發人員使用 [Ambari 檢視架構](https://cwiki.apache
 * Hive 檢視：Hive 檢視可讓您直接從網頁瀏覽器執行 Hive 查詢。您可以儲存查詢、檢視結果、將結果儲存至叢集存放區，或將結果下載到您本機系統。如需有關使用 Hive 檢視的詳細資訊，請參閱[在 HDInsight 上使用 Hive 檢視](hdinsight-hadoop-use-hive-ambari-view.md)。
 * Tez 檢視：Tez 檢視可讓您透過檢視 Tez 工作執行方式及工作使用哪些資源的相關資訊，更深入了解工作以及將工作最佳化。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

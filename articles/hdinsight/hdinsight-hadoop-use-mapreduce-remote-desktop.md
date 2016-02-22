@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 # 利用遠端桌面在 HDInsight 上的 Hadoop 中使用 MapReduce
@@ -41,7 +41,7 @@
 
 1. 從 HDInsight 桌面，啟動 **Hadoop 命令列**。這會在 **c:\\apps\\dist\\hadoop-&lt;version number>** 目錄中開啟新的命令提示字元。
 
-	> [AZURE.NOTE]版本號碼會隨著 Hadoop 更新而變更。**HADOOP\_HOME** 環境變數可用來尋找路徑。例如，`cd %HADOOP_HOME%` 會將目錄變更為 Hadoop 目錄，而您並不需要知道版本號碼。
+	> [AZURE.NOTE] 版本號碼會隨著 Hadoop 更新而變更。**HADOOP\_HOME** 環境變數可用來尋找路徑。例如，`cd %HADOOP_HOME%` 會將目錄變更為 Hadoop 目錄，而您並不需要知道版本號碼。
 
 2. 若要使用 **Hadoop** 命令執行範例 MapReduce 工作，請使用下列命令：
 
@@ -49,7 +49,7 @@
 
 	這樣會啟動 **wordcount** 類別 (內含於目前目錄的 **hadoop-mapreduce-examples.jar** 檔案中)。它使用 ****wasb://example/data/gutenberg/davinci.txt** 文件作為輸入，輸出則儲存在 ****wasb:///example/data/WordCountOutput**。
 
-	> [AZURE.NOTE]如需有關此 MapReduce 工作和範例資料的詳細資訊，請參閱<a href="hdinsight-use-mapreduce.md">在 HDInsight Hadoop 上使用 MapReduce</a>。
+	> [AZURE.NOTE] 如需有關此 MapReduce 工作和範例資料的詳細資訊，請參閱<a href="hdinsight-use-mapreduce.md">在 HDInsight Hadoop 上使用 MapReduce</a>。
 
 2. 工作會在處理時發出詳細資料，並於工作完成時傳回與下列類似的資訊：
 
@@ -64,7 +64,7 @@
 
 	這應該會顯示兩個檔案：**SUCCESS** 和 **part-r-00000**。**part-r-00000** 檔案包含這項工作的輸出。
 
-	> [AZURE.NOTE]某些 MapReduce 工作可能會將結果分成多個 **part-r-#####** 檔案。若是如此，請使用 ##### 尾碼指出檔案的順序。
+	> [AZURE.NOTE] 某些 MapReduce 工作可能會將結果分成多個 **part-r-#####** 檔案。若是如此，請使用 ##### 尾碼指出檔案的順序。
 
 4. 若要檢視輸出，請使用下列命令：
 
@@ -96,4 +96,4 @@
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

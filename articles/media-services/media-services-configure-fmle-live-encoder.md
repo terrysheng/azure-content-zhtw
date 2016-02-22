@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"   
 	ms.author="juliako"/>
 
 #使用 FMLE 編碼器來傳送單一位元速率的即時串流
@@ -53,22 +53,22 @@
 
 
 請確認已選取 [**立即啟動新頻道**]。
- 
+
 3. 按一下 [**建立頻道**]。
 	![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
->[AZURE.NOTE]通道約需 20 分鐘的時間即可啟動。
+>[AZURE.NOTE] 通道約需 20 分鐘的時間即可啟動。
 
 
 當頻道啟動時，您可以[設定編碼器](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp)。
 
->[AZURE.IMPORTANT]請注意，只要通道進入就緒狀態，就會開始計費。如需詳細資訊，請參閱[頻道的狀態](media-services-manage-live-encoder-enabled-channels.md#states)。
+>[AZURE.IMPORTANT] 請注意，只要通道進入就緒狀態，就會開始計費。如需詳細資訊，請參閱[頻道的狀態](media-services-manage-live-encoder-enabled-channels.md#states)。
 
 ##<a id=configure_fmle_rtmp></a>設定 FMLE 編碼器
 
 在本教學課程中，我們會使用下列輸出設定。本章節的其餘部分將詳細說明組態步驟。
 
-**影片**：
+**視訊**：
  
 - 轉碼器：H.264 
 - 設定檔：高 (層級 4.0) 
@@ -128,12 +128,12 @@
 	如需額外的備援，請用次要輸入 URL 重複這些步驟。
 8. 選取 [**連接**]。
 
->[AZURE.IMPORTANT]在您按一下 [連接] 之前，**必須**確保通道已就緒。
->此外，請務必不要讓通道在沒有輸入比重摘要的情況下，處於就緒狀態超過 15 分鐘。
+>[AZURE.IMPORTANT] 在您按一下 [**連接**] 之前，**必須**先確保頻道已就緒。
+> 此外，請務必不要讓通道在沒有輸入比重摘要的情況下，處於就緒狀態超過 15 分鐘。
 
 ##測試播放
   
-1. 瀏覽至 AMSE 工具，然後以滑鼠右鍵按一下要測試的通道。在功能表中，將滑鼠游標停留在 [**播放預覽**]，並選取 [**使用 Azure 媒體播放器**]。  
+1. 瀏覽至 AMSE 工具，然後以滑鼠右鍵按一下要測試的通道。在功能表中，將滑鼠游標停留在 [播放預覽]，並選取 [使用 Azure 媒體播放器]。  
 
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
 
@@ -143,18 +143,18 @@
 
 ##建立程式
 
-1. 一旦確認通道播放沒問題後，請建立程式。在 AMSE 工具中的 [**Live**] 索引標籤下方，於 [節目] 區域內按一下滑鼠右鍵，並選取 [**建立新的節目**]。  
+1. 一旦確認通道播放沒問題後，請建立程式。在 AMSE 工具的 [Live] 索引標籤下，於程式區域內按一下滑鼠右鍵，並選取 [建立新的程式]。  
 
 	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
 
-2. 為節目命名，並視需要調整**封存時間長度** (預設為 4 小時)。您也可以指定儲存體位置，或保留為預設值。
-3. 勾選 [**現在啟動節目**] 方塊。
-4. 按一下 [**建立節目**]。  
+2. 為程式命名，並視需要調整**封存時間長度** (預設為 4 小時)。您也可以指定儲存體位置，或保留為預設值。
+3. 勾選 [現在啟動程式] 方塊。
+4. 按一下 [建立程式]。  
   
 	注意：建立程式時所使用的時間會比建立通道時更少。
  
-5. 節目執行後，請以滑鼠右鍵按一下節目，並瀏覽至 [**播放節目**]，然後選取 [**使用 Azure 媒體播放器**] 確認播放。
-6. 確認後，再次以滑鼠右鍵按一下該節目，並選取 \[**複製輸出 URL 到剪貼簿**] (或從功能表中的** [節目資訊和設定**] 選項擷取這項資訊)。 
+5. 一旦程式開始執行，請在程式上按一下滑鼠右鍵，並瀏覽至 [播放程式]，然後選取 [使用 Azure 媒體播放器] 確認播放。
+6. 一經確認後，再次於該程式上按一下滑鼠右鍵，並選取 [複製輸出 URL 到剪貼簿] (或從 [程式資訊和設定] 功能表選項擷取這項資訊)。 
 
 串流現在已經可以內嵌於播放程式中，或散發給某個對象，以供即時檢視。
 
@@ -172,4 +172,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="新增推播通知至 Windows 執行階段 8.1 通用 app | Azure 行動應用程式" 
-	description="了解如何使用 Azure App Service 行動應用程式與 Azure 通知中樞傳送推播通知至 Windows 應用程式。" 
-	services="app-service\mobile,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="新增推播通知至 Windows 執行階段 8.1 通用 app | Azure 行動應用程式"
+	description="了解如何使用 Azure App Service 行動應用程式與 Azure 通知中樞傳送推播通知至 Windows 應用程式。"
+	services="app-service\mobile,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/25/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # 新增推播通知至 Windows 執行階段 8.1 通用 app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##概觀
 
@@ -34,7 +32,7 @@
 
 * 有效的 [Microsoft 市集帳戶](http://go.microsoft.com/fwlink/p/?LinkId=280045)。
 * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* 完成[快速入門教學課程](../app-service-mobile-windows-store-dotnet-get-started.md)。  
+* 完成[快速入門教學課程](../app-service-mobile-windows-store-dotnet-get-started.md)。
 
 
 ##<a name="create-hub"></a>建立通知中樞
@@ -73,16 +71,16 @@
 	    HttpConfiguration config = this.Configuration;
 	    MobileAppSettingsDictionary settings =
 	        this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
-	
+
 	    // Get the Notification Hubs credentials for the Mobile App.
 	    string notificationHubName = settings.NotificationHubName;
 	    string notificationHubConnection = settings
 	        .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
-	
+
 	    // Create the notification hub client.
 	    NotificationHubClient hub = NotificationHubClient
 	        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
-	
+
 	    // Define a WNS payload
 	    var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
 	                            + item.Text + @"</text></binding></visual></toast>";
@@ -90,7 +88,7 @@
 	    {
 	        // Send the push notification.
 	        var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
-	
+
 	        // Write the success result to the logs.
 	        config.Services.GetTraceWriter().Info(result.State.ToString());
 	    }
@@ -100,7 +98,7 @@
 	        config.Services.GetTraceWriter()
 	            .Error(ex.Message, null, "Push.SendAsync Error");
 	    }
-	
+
 	此程式碼會告訴通知中樞在插入新項目之後傳送推播通知。
 
 4. 發佈伺服器專案。
@@ -114,18 +112,18 @@
 		var azureMobileApps = require('azure-mobile-apps'),
 	    promises = require('azure-mobile-apps/src/utilities/promises'),
 	    logger = require('azure-mobile-apps/src/logger');
-	
+
 		var table = azureMobileApps.table();
-		
+
 		table.insert(function (context) {
-	    // For more information about the Notification Hubs JavaScript SDK,  
+	    // For more information about the Notification Hubs JavaScript SDK,
 	    // see http://aka.ms/nodejshubs
 	    logger.info('Running TodoItem.insert');
-	    
+
 	    // Define the WNS payload that contains the new item Text.
 	    var payload = "<toast><visual><binding template=\ToastText01><text id="1">"
 		                            + context.item.text + "</text></binding></visual></toast>";
-	    
+
 	    // Execute the insert.  The insert returns the results as a Promise,
 	    // Do the push as a post-execute action within the promise flow.
 	    return context.execute()
@@ -149,7 +147,7 @@
 	        });
 		});
 
-		module.exports = table;  
+		module.exports = table;
 
 	插入新的 todo 項目時，這會傳送包含 item.text 的 WNS 快顯通知。
 
@@ -159,11 +157,11 @@
 
 1. 開啟共用的 **App.xaml.cs** 專案檔案，並新增下列 `using` 陳述式：
 
-		using System.Threading.Tasks;  
-        using Windows.Networking.PushNotifications;       
+		using System.Threading.Tasks;
+        using Windows.Networking.PushNotifications;
 
 2. 在相同檔案中，將下列 **InitNotificationsAsync** 方法定義新增至 [**應用程式**] 類別：
-    
+
         private async Task InitNotificationsAsync()
         {
             // Get a channel URI from WNS.
@@ -173,9 +171,9 @@
             // Register the channel URI with Notification Hubs.
             await App.MobileService.GetPush().RegisterAsync(channel.Uri);
         }
-    
+
     此程式碼會從 WNS 中擷取應用程式的 ChannelURI，然後向您的應用程式服務行動應用程式註冊該 ChannelURI。
-    
+
 3. 在 **App.xaml.cs** 中 **OnLaunched** 事件處理常式的頂端，將 **async** 修飾詞新增到方法定義中，並將下列呼叫新增到新的 **InitNotificationsAsync** 方法中，如下列範例所示：
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
@@ -212,4 +210,4 @@
 
 <!-- Images. -->
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

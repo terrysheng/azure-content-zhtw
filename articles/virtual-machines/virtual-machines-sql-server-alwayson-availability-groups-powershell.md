@@ -19,8 +19,9 @@
 # 在 Azure VM 中設定 AlwaysOn 可用性群組 (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
-- [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+- [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
+- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
 
@@ -61,7 +62,7 @@ Azure 虛擬機器 (VM) 可協助資料庫管理員以較低的成本實作高�
 
 	**Get AzurePublishgSettingsFile** 命令會自動產生管理憑證，然後讓 Azure 將該憑證下載至您的電腦。瀏覽器會自動開啟，並提示您輸入 Azure 訂用帳戶的 Microsoft 帳戶認證。所下載的 **.publishsettings** 檔案包含管理 Azure 訂用帳戶的所有資訊。將此檔案儲存至本機目錄之後，再透過 **Import-AzurePublishSettingsFile** 命令將它匯入。
 
-	>[AZURE.NOTE].publishsettings 檔案包含用來管理 Azure 訂用帳戶和服務的認證 (未編碼)。這個檔案的安全性最佳作法是暫時儲存在來源目錄之外 (例如在 Libraries\\Documents 資料夾)，然後在匯入完成後予以刪除。惡意使用者若取得 .publishsettings 檔案的存取權，就可以編輯、建立和刪除您的 Azure 服務。
+	>[AZURE.NOTE] .publishsettings 檔案包含用來管理 Azure 訂用帳戶和服務的認證 (未編碼)。這個檔案的安全性最佳作法是暫時儲存在來源目錄之外 (例如在 Libraries\\Documents 資料夾)，然後在匯入完成後予以刪除。惡意使用者若取得 .publishsettings 檔案的存取權，就可以編輯、建立和刪除您的 Azure 服務。
 
 1. 定義一系列可用來建立雲端 IT 基礎結構的變數。
 
@@ -631,4 +632,4 @@ Azure 虛擬機器 (VM) 可協助資料庫管理員以較低的成本實作高�
 
 如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

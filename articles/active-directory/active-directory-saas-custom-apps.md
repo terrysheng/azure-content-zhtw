@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/18/2015" 
+    ms.date="02/09/2016" 
     ms.author="asmalser" />
 
 #設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入
@@ -111,6 +111,12 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 
 注意：您可以在應用程式的 [設定] 索引標籤上使用 [上傳標誌] 按鈕，來上傳應用程式的磚標誌。
 
+## 相關文章
+
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [如何為預先整合的應用程式自訂在 SAML 權杖中發出的宣告](active-directory-saml-claims-customization.md)
+- [SAML 型單一登入疑難排解](active-directory-saml-debugging.md)
+
 <!--Image references-->
 [1]: ./media/active-directory-saas-custom-apps/customapp1.png
 [2]: ./media/active-directory-saas-custom-apps/customapp2.png
@@ -120,4 +126,4 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/11/2015"
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Azure 行動應用程式中的離線資料同步處理
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## 什麼是離線資料同步處理？
 
@@ -37,8 +35,8 @@
 下列教學課程說明如何使用 Azure 行動應用程式將離線同步處理新增至您的行動用戶端：
 
 * [Android：啟用離線同步處理]
-* [iOS：啟用離線同步處理]			
-* [Xamarin iOS：啟用離線同步處理]	
+* [iOS：啟用離線同步處理]
+* [Xamarin iOS：啟用離線同步處理]
 * [Xamarin Android：啟用離線同步處理]
 * [Windows 8.1：啟用離線同步處理]
 
@@ -65,10 +63,10 @@
 <!-- TODO: link to client references -->
 
 
-<!-- 
+<!--
 Client code will interact with the table using the `IMobileServiceSyncTable` interface to support offline buffering. This interface supports all the methods of `IMobileServiceTable` along with additional support for pulling data from a Mobile App backend table and merging it into a local store table. How the local table is synchronized with the backend database is mainly controlled by your logic in the client app.
 
-The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization. 
+The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization.
 
 
 
@@ -103,22 +101,23 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 
   如果您想選擇不要增量同步處理，則傳遞 `null` 做為查詢識別碼。在此情況下，每次呼叫 `PullAsync` 時都會擷取所有的記錄，這可能會沒有效率。
 
- 
+
 
 <!--   mymobileservice-code.azurewebsites.net/tables/TodoItem?$filter=(__updatedAt ge datetimeoffset'1970-01-01T00:00:00.0000000%2B00:00')&$orderby=__updatedAt&$skip=0&$top=50&__includeDeleted=true&__systemproperties=__updatedAt%2C__deleted
  -->
+
 * **清除**：您可以使用 `IMobileServiceSyncTable.PurgeAsync` 來清除本機存放區的內容。如果用戶端資料庫中有過時資料，或者您想要捨棄所有擱置的變更，可能就需要此作業。
 
   清除作業會從本機存放區清除資料表。如果有作業擱置與伺服器資料庫的同步處理，清除將會擲回例外狀況，除非設定 *force purge* 參數。
 
   舉例說明用戶端上過時資料，假設在 "todo list" 範例中，Device1 只會提取未完成的項目。接著，"Buy milk" todoitem 被其他裝置在伺服器上標記為已完成。不過，Device1 在本機存放區仍會有 "Buy milk" todoitem，因為它只提取未標記為已完成的項目。清除作業將會清除此過時項目。
- 
+
 ## 後續步驟
 
-* [iOS：啟用離線同步處理]			
-* [Xamarin iOS：啟用離線同步處理]	
+* [iOS：啟用離線同步處理]
+* [Xamarin iOS：啟用離線同步處理]
 * [Xamarin Android：啟用離線同步處理]
-* [Windows 8.1：啟用離線同步處理]	
+* [Windows 8.1：啟用離線同步處理]
 
 <!-- Links -->
 
@@ -128,4 +127,4 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 [Xamarin Android：啟用離線同步處理]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1：啟用離線同步處理]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

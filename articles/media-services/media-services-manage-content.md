@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"   
 	ms.author="juliako"/>
 
 
@@ -105,7 +105,7 @@ Azure Media Indexer 讓您能將媒體檔案的內容變成可搜尋，並產生
 ![Process2][process2]
 
 
-[媒體編碼器標準的工作預設字串](https://msdn.microsoft.com/en-US/library/mt269960) 主題說明每個預設格式的意義。
+[媒體編碼器標準的工作預設字串](https://msdn.microsoft.com/library/mt269960)主題說明每個預設格式的意義。
 
 5. 接著，輸入想要的好記輸出內容名稱或接受預設值。然後，按一下核取按鈕以啟動編碼作業，而您可以在入口網站底部追蹤進度。
 6. 按下 [確定]。
@@ -220,4 +220,4 @@ SAS URL 具有下列格式：
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

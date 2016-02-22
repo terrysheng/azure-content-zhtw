@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/08/2016"
 	ms.author="tomfitz"/>
 
 # 如何使用 PHP 的 Blob 儲存體
@@ -45,9 +45,9 @@
 1. 參考使用 [require\_once][require_once] 陳述式的自動換片器檔案，以及
 2. 參考任何您可能使用的類別。
 
-下列範例顯示如何納入自動換片器檔案及參考 **ServicesBuilder** 類別。
+下列範例顯示如何納入自動載入器檔案及參考 **ServicesBuilder** 類別。
 
-> [AZURE.NOTE]此範例 (和本文中的其他範例) 假設您已透過 Composer 安裝 PHP Client Libraries for Azure。如果您手動或透過 PEAR 封裝安裝程式庫，則必須參考 `WindowsAzure.php` 自動換片器檔案。
+> [AZURE.NOTE] 此範例 (和本文中的其他範例) 假設您已透過 Composer 安裝 PHP Client Libraries for Azure。如果您手動或透過 PEAR 封裝安裝程式庫，則必須參考 `WindowsAzure.php` 自動換片器檔案。
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -306,4 +306,4 @@
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

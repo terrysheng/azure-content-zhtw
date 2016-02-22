@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="liviodlc"/>
 
 #自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建
@@ -106,6 +106,14 @@ Azure AD 會藉由連接到每個應用程式廠商所提供的佈建端點，�
 
 若要連絡 Azure AD 工程小組以要求對於其他應用程式的佈建支援，請透過 [Azure Active Directory 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/)提交訊息。
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##相關文章
 
-<!---HONumber=AcomDC_0204_2016-->
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [自訂使用者佈建的屬性對應](active-directory-saas-customizing-attribute-mappings.md)
+- [撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [適用於使用者佈建的範圍篩選器](active-directory-saas-scoping-filters.md)
+- [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](active-directory-scim-provisioning.md)
+- [帳戶佈建通知](active-directory-saas-account-provisioning-notifications.md)
+- [如何整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
+
+<!---HONumber=AcomDC_0211_2016-->

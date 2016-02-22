@@ -1,11 +1,11 @@
-## 如何在 Azure Preview 入口網站中建立傳統 VNet
+## 如何在 Azure 入口網站中建立傳統 VNet
 
 若要根據上述案例建立傳統 VNet，請依照下列步驟執行。
 
 1. 透過瀏覽器瀏覽 http://portal.azure.com，並視需要使用您的 Azure 帳戶登入。
 2. 依序按一下 [**新增**] > [**網路**] > [**虛擬網路**]，注意 [**選取部署模型**] 清單是否已經顯示為 [**傳統**]，然後再按一下 [**建立**]，如下圖所示。
 
-	![在 Preview 入口網站中建立 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
+	![在 Azure 入口網站中建立 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
 
 3. 在 [**虛擬網路**] 刀鋒視窗上，鍵入 VNet 的**名稱**，然後再按一下 [**位址空間**]。設定 VNet 和其第一個子網路的位址空間設定，然後按一下 [**確定**]。下圖顯示我們案例的 CIDR 區塊設定。
 
@@ -33,6 +33,6 @@
 
 10. 依序按一下 [**子網路**] > [**新增**]，然後鍵入 [**名稱**]，並指定您子網路的 [**位址範圍 (CIDR 區塊)**]，然後按一下 [**確定**]。下圖顯示我們目前案例的設定。
 
-	![在 Preview 入口網站中建立 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
+	![在 Azure 入口網站中建立 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

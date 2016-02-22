@@ -47,8 +47,8 @@ App Service Web Apps 是裝載此類應用程式的最佳選項，提供可擴�
 
 另一個方法是運用現有的就地投資。在本範例案例中 (員工費用報銷系統)，您會維護位於內部基礎結構中的資料存放區。這可能是為了與內部系統 (報告、薪資、帳單等) 整合或是為了滿足 IT 管理需求。Web Apps 提供一些可讓您連線到內部部署基礎結構的方法：
 
-- [App Service 環境](../app-service-app-service-environment-intro.md) -「App Service 環境」(ASE) 是最近新增到 Microsoft Azure App Service 供應項目中的新「進階」功能。ASE 提供一個完全隔離且專用的環境，在相當高的程度上可安全地執行 Azure App Service app，同時又提供隔離且安全的網路存取。   
-- [混合式連線](../integration-hybrid-connection-overview.md) – 混合式連線是 Microsoft Azure BizTalk 服務的一個功能，可讓 Web Apps 安全連線到內部部署資源，例如 SQL Server、MySQL、Web API 和自訂 Web 服務。 
+- [App Service 環境](app-service-app-service-environment-intro.md) -「App Service 環境」(ASE) 是最近新增到 Microsoft Azure App Service 供應項目中的新「進階」功能。ASE 提供一個完全隔離且專用的環境，在相當高的程度上可安全地執行 Azure App Service app，同時又提供隔離且安全的網路存取。   
+- [混合式連線](../biztalk-services/integration-hybrid-connection-overview.md) – 混合式連線是 Microsoft Azure BizTalk 服務的一個功能，可讓 Web Apps 安全連線到內部部署資源，例如 SQL Server、MySQL、Web API 和自訂 Web 服務。 
 - [虛擬網路整合](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) – Web Apps 與 Azure 虛擬網路整合可讓您將 Web 應用程式連線到 Azure 虛擬網路，此虛擬網路會透過站台對站台 VPN 依序連線到您的內部部署基礎結構。 
 
 下列圖表說明一個內含內部部署資源連線選項的範例概略解決方案。第一個範例示範如何使用標準 Azure App Service 功能來達成此解決方案，第二個範例則示範如何使用進階提供項目 (App Service 環境) 來達成此解決方案。
@@ -159,4 +159,4 @@ App Service Web Apps 針對快速發展環境中的企業動態需求，提供�
  
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

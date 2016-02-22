@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="02/04/2016"
    ms.author="hascipio"/>
 
 # 設定 Azure PowerShell 以在 Azure Marketplace 上建立供應項目
@@ -30,4 +30,4 @@
 - [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
 - [建立 Marketplace 的虛擬機器映像](marketplace-publishing-vm-image-creation.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #作法：設定資產傳遞原則
@@ -62,7 +62,7 @@ HDS
 - 您可以有多個資產傳遞原則與一個資產關聯，但只能指定一種方法處理特定的 AssetDeliveryProtocol。這表示如果您嘗試連結二個指定 AssetDeliveryProtocol.SmoothStreaming 通訊協定的傳遞原則時將會導致錯誤，因為當用戶端發出 Smooth Streaming 要求時，系統會不知道要套用哪一個原則。  
 - 如果您有包含現有串流定位器的資產，則您無法將新原則連接到該資產，請解除現有原則與資產的連結，或更新與資產關聯的傳遞原則。您必須先移除串流定位器，調整原則，然後重新建立串流定位器。重新建立串流定位器時，您可以使用同一個 locatorId，但必須確定不會對用戶端造成問題，因為原始或下游 CDN 可能會快取內容。  
  
->[AZURE.NOTE]使用媒體服務 REST API 時，適用下列考量事項：
+>[AZURE.NOTE] 使用媒體服務 REST API 時，適用下列考量事項：
 >
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 
@@ -456,4 +456,4 @@ HDS
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

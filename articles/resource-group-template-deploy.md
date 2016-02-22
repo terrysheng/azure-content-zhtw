@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2015"
+   ms.date="02/02/2016"
    ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員範本部署應用程式
@@ -271,7 +271,7 @@
 
 參數檔的大小不得超過 64 KB。
 
-如需如何在範本中定義參數的資訊，請參閱[撰寫範本](resource-group-authoring-templates.md/#parameters)。如需用來傳遞安全值的金鑰保存庫參考的詳細資料，請參閱[在部署期間傳遞安全值](resource-manager-keyvault-parameter.md)。
+如需如何在範本中定義參數的資訊，請參閱[編寫範本](../resource-group-authoring-templates/#parameters)。如需用來傳遞安全值的金鑰保存庫參考的詳細資料，請參閱[在部署期間傳遞安全值](resource-manager-keyvault-parameter.md)。
 
 ## 後續步驟
 - 如需透過 .NET 用戶端程式庫部署資源的範例，請參閱[使用 .NET 程式庫和範本部署資源](./virtual-machines/arm-template-deployment.md)
@@ -282,4 +282,4 @@
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

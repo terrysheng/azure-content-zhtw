@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="02/08/2016"
    ms.author="sethm" />
 
 # 搭配使用 Python 的服務匯流排與 AMQP 1.0
@@ -173,4 +173,4 @@ if message.properties != None:
 
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
-
-
 
 #<a id="monitormediaservicesaccount"></a>如何監視媒體服務帳戶
 
@@ -24,7 +22,7 @@ Azure 媒體服務儀表板會顯示可用來管理媒體服務帳戶的使用�
 
 您可以監視排入佇列的編碼工作、失敗的編碼工作、作用中編碼工作的數目 (以編碼器的輸入和輸出資料來表示)，以及使用量度量和帳戶資訊 Blob 儲存體使用量。此外，如果將內容串流傳輸給客戶，則您也可以擷取各種串流度量。您可以選擇監視過去 6 小時、24 小時或 7 天的資料。
  
->[AZURE.NOTE]其他成本與 Azure 傳統入口網站中監視儲存體資料有關。如需詳細資訊，請參閱[儲存體分析及計費](http://go.microsoft.com/fwlink/?LinkId=256667)。
+>[AZURE.NOTE] 其他成本與 Azure 傳統入口網站中監視儲存體資料有關。如需詳細資訊，請參閱[儲存體分析及計費](http://go.microsoft.com/fwlink/?LinkId=256667)。
 
 ##<a id="configuremonitoring"></a>作法：監視媒體服務帳戶
 
@@ -38,7 +36,7 @@ Azure 媒體服務儀表板會顯示可用來管理媒體服務帳戶的使用�
 1. 按一下 [快速概覽] 區段下的 [儲存體帳戶] 名稱。
 2. 在儲存體帳戶頁面上，按一下 [設定頁面] 連結，然後向下捲動至 Blob、資料表及佇列服務的 [監視] 設定，如下所示。
 
-	>[AZURE.NOTE]Blob 是媒體服務中唯一支援的儲存體類型。
+	>[AZURE.NOTE] Blob 是媒體服務中唯一支援的儲存體類型。
 
 	![StorageOptions][storage_options_scoped]
 
@@ -73,4 +71,4 @@ Azure 媒體服務儀表板會顯示可用來管理媒體服務帳戶的使用�
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

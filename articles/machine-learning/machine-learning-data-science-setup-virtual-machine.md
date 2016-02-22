@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="02/08/2016"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # 將 Azure 虛擬機器設定為 IPython Notebook 伺服器供進階分析使用
@@ -104,7 +104,7 @@ IPython Notebook 提供一種簡單的方式，讓使用者可將其本機電腦
 
 Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費**」。若要確保未使用虛擬機器時不會被計費，當它閒置時，其狀態必須是 [**已停止 (已取消配置)**]。
 
-> [AZURE.NOTE]如果您從 VM 內部關閉虛擬機器 (使用 Windows 電源選項)，雖然 VM 已停止，但仍然處於已配置狀態。若要確保您不會繼續被計費，請一律從 [Azure 傳統入口網站](http://manage.windowsazure.com/)停止虛擬機器。您也可以藉由呼叫 **ShutdownRoleOperation** 搭配相當於 "StoppedDeallocated" 的 "PostShutdownAction"，透過 Powershell 來停止 VM。
+> [AZURE.NOTE] 如果您從 VM 內部關閉虛擬機器 (使用 Windows 電源選項)，雖然 VM 已停止，但仍然處於已配置狀態。若要確保您不會繼續被計費，請一律從 [Azure 傳統入口網站](http://manage.windowsazure.com/)停止虛擬機器。您也可以藉由呼叫 **ShutdownRoleOperation** 搭配相當於 "StoppedDeallocated" 的 "PostShutdownAction"，透過 Powershell 來停止 VM。
 
 關閉及取消配置虛擬機器：
 
@@ -143,4 +143,4 @@ Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

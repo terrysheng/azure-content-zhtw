@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/08/2016"
 	ms.author="hangzh;bradsev" />
 
 # 使用 Hive 查詢來瀏覽 Hive 資料表的資料 
-
-此**功能表**連結說明如何從各種不同儲存體環境使用工具來瀏覽資料的連結。此工作是 Cortana 分析程序 (CAP) 中的一個步驟。
-
-[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
 ## 簡介
 
 本文件提供數個 Hive 指令碼範例，可用來瀏覽 Hive 資料表中的資料。
 
-## 先決條件
+以下**功能表**會連結至說明如何從各種不同儲存體環境使用工具來瀏覽資料的主題。此工作是 Cortana 分析程序 (CAP) 中的一個步驟。
+
+[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
+
+## 必要條件
 本文假設您已經：
 
-* 建立 Azure 儲存體帳戶。如需指示，請參閱[建立 Azure 儲存體帳戶](../hdinsight-get-started.md#storage)
+* 建立 Azure 儲存體帳戶。如需指示，請參閱[建立 Azure 儲存體帳戶](../hdinsight-get-started.md#storage)。
 * 佈建含有 HDInsight 服務的自訂 Hadoop 叢集。如需指示，請參閱[自訂適用於進階分析的 Azure HDInsight Hadoop 叢集](machine-learning-data-science-customize-hadoop-cluster.md)。
 * 已將資料上傳至 Azure HDInsight Hadoop 叢集中的 Hive 資料表。如果沒有，請遵循[建立資料並載入 Hive 資料表](machine-learning-data-science-move-hive-tables.md)，先將資料上傳至 Hive 資料表。
 * 啟用叢集的遠端存取。如需指示，請參閱[存取 Hadoop 叢集的前端節點](machine-learning-data-science-customize-hadoop-cluster.md#headnode)。
@@ -80,4 +80,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

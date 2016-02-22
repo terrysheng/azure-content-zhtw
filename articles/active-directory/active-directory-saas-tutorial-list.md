@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/02/2016"
+    ms.date="02/09/2016"
     ms.author="markvi"/>
 
 #如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單
@@ -196,8 +196,8 @@
 
 
 
+##相關文章
 
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

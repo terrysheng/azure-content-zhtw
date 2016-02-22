@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="02/07/2016"
 	ms.author="mahender"/>
 
 # 開始使用自訂驗證
@@ -26,11 +26,11 @@
 ## 概觀
 本主題說明如何簽發您自己的行動服務驗證權杖，以在 Azure 行動服務 .NET 後端中驗證使用者。在本教學課程中，您會使用應用程式的自訂使用者名稱和密碼，將驗證新增至快速入門專案。
 
->[AZURE.NOTE]本教學課程將說明以自訂認證驗證行動服務的進階方法。有許多應用程式應改用內建社交身分識別提供者最為適當，以讓使用者能夠透過 Facebook、Twitter、Google、Microsoft 帳戶和 Azure Active Directory 進行登入。如果這是您第一次接觸行動服務中的驗證，請參閱[將驗證加入您的應用程式]教學課程。
+>[AZURE.NOTE] 本教學課程將說明以自訂認證驗證行動服務的進階方法。有許多應用程式應改用內建社交身分識別提供者最為適當，以讓使用者能夠透過 Facebook、Twitter、Google、Microsoft 帳戶和 Azure Active Directory 進行登入。如果這是您第一次接觸行動服務中的驗證，請參閱[將驗證加入您的應用程式]教學課程。
 
 本教學課程會以行動服務快速入門為基礎。您還必須先完成教學課程[開始使用行動服務]。
 
->[AZURE.IMPORTANT]本教學課程的目的是要說明如何簽發行動服務的驗證權杖。請不要將其視為安全性指引。在開發應用程式時，您必須留意密碼儲存的安全性問題，且必須要有管理暴力密碼破解攻擊的策略。
+>[AZURE.IMPORTANT] 本教學課程的目的是要說明如何簽發行動服務的驗證權杖。請不要將其視為安全性指引。在開發應用程式時，您必須留意密碼儲存的安全性問題，且必須要有管理暴力密碼破解攻擊的策略。
 
 ## 設定帳戶資料表
 
@@ -336,7 +336,7 @@
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]您用於生產環境的 `CustomLoginController` 也應包含暴力密碼破解攻擊的偵測策略。否則，您的登入解決方案可能會容易受到攻擊。
+>[AZURE.IMPORTANT] 您用於生產環境的 `CustomLoginController` 也應包含暴力密碼破解攻擊的偵測策略。否則，您的登入解決方案可能會容易受到攻擊。
 
 ## 將行動服務設定為需要驗證
 
@@ -381,13 +381,13 @@
 
  	![](./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-access-success.png)
 
->[AZURE.IMPORTANT]如果您選擇也將此行動服務專案發佈至 Azure 以供測試，請記住，登入和驗證提供者也會很容易受到攻擊。請確認這些提供者已經過適當強化，或是受保護的測試資料對您而言並不重要。使用自訂的驗證配置前請務必小心，才能保護生產環境的服務。
+>[AZURE.IMPORTANT] 如果您選擇也將此行動服務專案發佈至 Azure 以供測試，請記住，登入和驗證提供者也會很容易受到攻擊。請確認這些提供者已經過適當強化，或是受保護的測試資料對您而言並不重要。使用自訂的驗證配置前請務必小心，才能保護生產環境的服務。
 
 ## 使用自訂驗證從用戶端登入
 
 本節說明從用戶端存取自訂驗證端點，以取得存取行動服務所需的驗證權杖時，所需的步驟。因為您需要的特定用戶端程式碼是取決於用戶端，所以此處提供的指引是針對未知的平台。
 
->[AZURE.NOTE]行動服務用戶端程式庫會經由 HTTPS 與服務通訊。由於此解決方案需要您以純文字傳送密碼，因此請務必在透過直接 REST 要求呼叫這些端點時，使用 HTTPS。
+>[AZURE.NOTE] 行動服務用戶端程式庫會經由 HTTPS 與服務通訊。由於此解決方案需要您以純文字傳送密碼，因此請務必在透過直接 REST 要求呼叫這些端點時，使用 HTTPS。
 
 1. 在用戶端程式中建立所需的 UI 項目，藉此讓使用者輸入使用者名稱和密碼。
 
@@ -395,7 +395,7 @@
 
 	如果您在「帳戶」資料表中保留了使用者登入資訊，則您只需要呼叫 **CustomRegistration** 端點一次，即可建立指定使用者的帳戶。如需如何在各種支援的用戶端平台上呼叫自訂 API 的範例，請參閱 [Azure 行動服務中的自訂 API – 用戶端 SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx) 文章 (英文)。
 
-	> [AZURE.IMPORTANT]由於這個佈建使用者的步驟只會發生一次，因此您可以考慮以某種頻外方式建立使用者帳戶。若是公用註冊端點，您應該也要考慮實作以簡訊或電子郵件為基礎的驗證程序，或是其他保護措施，以避免產生詐騙帳戶。您可以使用 Twilio 透過行動服務傳送手機簡訊。您也可以使用 SendGrid 透過行動服務傳送電子郵件。如需使用 SendGrid 的詳細資訊，請參閱[使用 SendGrid 透過行動服務傳送電子郵件](store-sendgrid-mobile-services-send-email-scripts.md)。
+	> [AZURE.IMPORTANT] 由於這個佈建使用者的步驟只會發生一次，因此您可以考慮以某種頻外方式建立使用者帳戶。若是公用註冊端點，您應該也要考慮實作以簡訊或電子郵件為基礎的驗證程序，或是其他保護措施，以避免產生詐騙帳戶。您可以使用 Twilio 透過行動服務傳送手機簡訊。您也可以使用 SendGrid 透過行動服務傳送電子郵件。如需使用 SendGrid 的詳細資訊，請參閱[使用 SendGrid 透過行動服務傳送電子郵件](store-sendgrid-mobile-services-send-email-scripts.md)。
 
 3. 再次使用適當的 **invokeApi** 方法，但這次改為呼叫 **CustomLogin** 端點，藉此在訊息本文中傳遞於執行階段提供的使用者名稱和密碼。
 
@@ -424,4 +424,4 @@
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

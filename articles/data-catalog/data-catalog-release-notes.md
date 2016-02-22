@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 # Azure 資料目錄版本資訊
@@ -37,14 +37,6 @@
 
 截至本 ADC 發行日為止，最新[適用於 Windows 的 Teradata ODBC 驅動程式 (15.10 版)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) 相容於 Office 2013，但不相容於 Office 2016。
 
-## Azure 資料目錄 2015 年 11 月 6 日版本的注意事項
-
-### 使用者在啟動資料來源註冊工具時可能會遇到錯誤
-
-從 **Azure 資料目錄**入口網站啟動 **Azure 資料目錄**資料來源註冊工具時，先前已安裝舊版工具的使用者可能會收到這個訊息：「無法啟動應用程式。請連絡應用程式廠商」。
-
-收到這個訊息的使用者要使用 Windows 控制台移除現有的「Azure 資料目錄」應用程式，然後從 **Azure 資料目錄**入口網站重新啟動此工具。
-
 ## Azure 資料目錄 2015 年 7 月 13 日版本的注意事項
 
 ### 註冊並連接至 Oracle 資料庫
@@ -64,7 +56,7 @@ Azure 資料目錄初始預覽版本中對於 SQL Server Reporting Services (SSR
 
 從 **Azure 資料目錄**入口網站使用 Microsoft Excel 開啟資料資產時，使用者可能會看到 [Microsoft Excel 安全性注意事項] 對話方塊的提示。這是標準的預期行為，使用者可以選取 [啟用] 以繼續。
 
-如需詳細資訊，請參閱[啟用或停用可疑網站之連結和檔案的安全性警告](https://support.office.com/zh-TW/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE)。
+如需詳細資訊，請參閱[啟用或停用可疑網站之連結和檔案的安全性警告](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE)。
 
 ### 預覽中遺漏 BLOB 和 UDT 資料行
 
@@ -80,7 +72,7 @@ Azure 資料目錄初始預覽版本中對於 SQL Server Reporting Services (SSR
 
 在某些情況下，只有當使用者是在公司網路上，或只有當使用者從公司網路外部連接時，才會發生此錯誤行為。全域驗證原則允許分別為內部網路和外部網路連線啟用驗證方法。如果使用者連線的網路未啟用表單驗證，可能會發生登入錯誤。
 
-如需詳細資訊，請參閱[設定驗證原則](https://technet.microsoft.com/zh-TW/library/dn486781.aspx)。
+如需詳細資訊，請參閱[設定驗證原則](https://technet.microsoft.com/library/dn486781.aspx)。
 
 **原因 2：網路 Proxy 設定**。如果公司網路使用 Proxy 伺服器，註冊工具可能無法透過 Proxy 連線到 Azure Active Directory。使用者可以編輯註冊工具的組態檔，將此區段加入至檔案，以確保註冊工具能夠連線：
 
@@ -96,4 +88,4 @@ Azure 資料目錄初始預覽版本中對於 SQL Server Reporting Services (SSR
 
 若要找出 RegistrationTool.exe.config 檔案，請啟動註冊工具，然後開啟 Windows 工作管理員公用程式。在工作管理員的 [詳細資料] 索引標籤，以滑鼠右鍵按一下 RegistrationTool.exe，再從快顯功能表中選擇 [開啟檔案位置]。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

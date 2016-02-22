@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/13/2015"
+   ms.date="02/09/2016"
    ms.author="bwren" />
 
 # Azure 自動化 Runbook 類型
@@ -35,7 +35,7 @@ Azure 自動化支援下表簡短描述的三種 Runbook。下列各節提供各
 - 不熟悉 [PowerShell 工作流程](automation-powershell-workflow.md)也可建立 Runbook。
 - 以視覺方式呈現管理程序。
 - 發生錯誤時使用[檢查點](automation-powershell-workflow.md#checkpoints)繼續執行 Runbook。
-- 使用[平行處理](automation-powershell-workflow.md#parallel-processing)以平行執行多項活動。
+- 使用[平行處理](automation-powershell-workflow.md#parallel-processing)以平行方式執行多個活動。
 - 可併入其他圖形化 Runbook 和 PowerShell 工作流程 Runbook 成為子 Runbook，以建立高階工作流程。
 
 
@@ -90,7 +90,7 @@ PowerShell Runbook 以 Windows PowerShell 為基礎。您可以直接使用 Azur
 - PowerShell Runbook 無法擷取具有 Null 值的未加密[變數資產](automation-variables.md)。
 - PowerShell Runbook 無法擷取名稱中含有 *~* 的[變數資產](automation-variables.md)。
 - PowerShell Runbook 中落入迴圈的 Get-Process 大約在 80 次反覆運算之後就會損毀。 
-- 如果 PowerShell Runbook 嘗試一次將非常大量的資料寫入輸出資料流，可能會失敗。在處理大型物件時，只輸出您所需的資訊，通常就可以解決這個問題。例如，若不要輸出類似 *Get-Process* 之類的資訊，您可以使用 *Get-Process | 選取ProcessName、CPU*，只輸出需要的欄位。
+- 如果 PowerShell Runbook 嘗試一次將非常大量的資料寫入輸出資料流，可能會失敗。在處理大型物件時，只輸出您所需的資訊，通常就可以解決這個問題。比方說，不要輸出類似 *Get-Process* 之類的資訊，您可以使用 *Get-Process | Select ProcessName, CPU*，只輸出需要的欄位。
 
 ## 考量
 
@@ -108,4 +108,4 @@ PowerShell Runbook 以 Windows PowerShell 為基礎。您可以直接使用 Azur
 - [了解 Windows PowerShell 工作流程](automation-powershell-workflow.md)
 - [建立或匯入 Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

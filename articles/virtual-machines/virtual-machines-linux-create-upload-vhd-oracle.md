@@ -17,15 +17,15 @@
 	ms.date="01/22/2016"
 	ms.author="szark"/>
 
-# 準備執行 Azure 的 Oracle Linux 虛擬機器
+# 準備用於 Azure 的 Oracle Linux 虛擬機器
 
 
-- [準備執行 Azure 的 Oracle Linux 6.4+ 虛擬機器](#oracle6)
-- [準備執行 Azure 的 Oracle Linux 7.0+ 虛擬機器](#oracle7)
+- [準備用於 Azure 的 Oracle Linux 6.4+ 虛擬機器](#oracle6)
+- [準備用於 Azure 的 Oracle Linux 7.0+ 虛擬機器](#oracle7)
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##先決條件##
+## 先決條件 ##
 
 本文假設您已將 Oracle Linux 作業系統安裝到虛擬硬碟。有多個工具可用來建立 .vhd 檔案，例如，像是 Hyper-V 的虛擬化解決方案。如需指示，請參閱[安裝 Hyper-V 角色及設定虛擬機器](http://technet.microsoft.com/library/hh846766.aspx)。
 
@@ -210,7 +210,7 @@
 
 		# sudo yum install WALinuxAgent
 
-13.	請不要在 OS 磁碟上建立交換空間
+13.	請勿在作業系統磁碟上建立交換空間。
 
 	Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。請注意，資源磁碟是*暫存*磁碟，可能會在 VM 取消佈建時清空。安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
 
@@ -230,6 +230,6 @@
 
 
 ## 後續步驟
-您現在可以開始在 Azure 中使用您的 Oracle Linux .vhd 建立新的 Azure 虛擬機器。如果這是您第一次使用 Azure 並將 .vhd 檔案上傳至 Azure，您可以依照[本指引](virtual-machines-linux-create-upload-vhd.md)中的步驟 2 和 3 執行。
+您現在可以開始使用您的 Oracle Linux .vhd 在 Azure 中建立新的虛擬機器。如果這是您第一次將該 .vhd 檔案上傳到 Azure，請參閱[建立及上傳包含 Linux 作業系統的虛擬硬碟](virtual-machines-linux-create-upload-vhd.md)中的步驟 2 和 3。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

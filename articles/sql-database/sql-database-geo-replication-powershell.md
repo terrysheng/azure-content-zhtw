@@ -38,7 +38,7 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 - Azure 訂閱。如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來完成這篇文章。
 - Azure SQL Database - 您想要複寫到不同地理區域的主要資料庫。
-- Azure PowerShell 1.0 或更新版本。依照[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，即可以下載並安裝 Azure PowerShell 模組。
+- Azure PowerShell 1.0 或更新版本。依照[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)，即可以下載並安裝 Azure PowerShell 模組。
 
 
 
@@ -84,8 +84,8 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 下列命令會在資源群組 "rg2" 伺服器 "srv2" 中建立資料庫 "mydb" 的不可讀取次要複本：
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "No"
 
 
 
@@ -93,7 +93,7 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 下列命令會在資源群組 "rg2" 伺服器 "srv2" 中建立資料庫 "mydb" 的可讀取次要複本：
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
 
 
@@ -103,15 +103,15 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 下列命令會在資源群組 "rg2" 伺服器 "srv2" 中名為 "ElasticPool1" 的彈性資料庫集區建立資料庫 "mydb" 的不可讀取次要複本：
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
-    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "None"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "No"
 
 
 ### 加入可讀取次要複本 (彈性資料庫)
 
 下列命令會在資源群組 "rg2" 伺服器 "srv2" 中名為 "ElasticPool1" 的彈性資料庫集區建立資料庫 "mydb" 的可讀取次要複本：
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "All"
 
 
@@ -131,7 +131,7 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 以下會移除資源群組 "rg2" 的伺服器 "srv2" 名為 "mydb" 的資料庫複寫連結。
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –SecondaryResourceGroup "rg2" –PartnerServerName "srv2"
     $secondaryLink | Remove-AzureRmSqlDatabaseSecondary 
 
@@ -159,7 +159,7 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 下列命令會將資源群組 "rg2" 下伺服器 "srv2" 上名為 "mydb" 的資料庫角色切換為主要資料庫。"db2" 所連線的原始主要資料庫，在兩個資料庫完全同步處理之後會切換為次要資料庫。
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb” –ResourceGroupName "rg2” –ServerName "srv2”
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary -Failover
 
 
@@ -181,7 +181,7 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 下列命令在主要複本無法使用時，將名為 "mydb" 的資料庫角色切換為主要複本。"mydb" 所連線的原始主要複本，將在回到線上之後切換為次要複本。在該時間點，同步處理可能會導致資料遺失。
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb” –ResourceGroupName "rg2” –ServerName "srv2”
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" –ResourceGroupName "rg2” –ServerName "srv2”
     $database | Set-AzureRmSqlDatabaseSecondary –Failover -AllowDataLoss
 
 
@@ -194,7 +194,7 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 下列命令會擷取主要資料庫 "mydb" 與資源群組 "rg2" 上伺服器 "srv2" 上的次要複本之間複寫連結的狀態。
 
-    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb”
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
 
 
@@ -215,4 +215,4 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 - [業務續航力概觀](sql-database-business-continuity.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

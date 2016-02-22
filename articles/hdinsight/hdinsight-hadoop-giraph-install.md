@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="02/05/2016"
 	ms.author="nitinme"/>
 
 # 在 HDInsight 安裝和使用使用 Giraph
@@ -27,7 +27,7 @@
 **相關文章**
 
 - [在 HDInsight Hadoop 叢集上安裝 Giraph (Linux)](hdinsight-hadoop-giraph-install-linux.md)
-- [在 HDInsight 建立 Hadoop 叢集](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。
+- [在 HDInsight 叢集中建立 Hadoop](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。
 - [使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]：使用指令碼動作自訂 HDInsight 叢集的一般資訊。
 - [開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions.md)。
 
@@ -165,7 +165,7 @@
 ## 另請參閱
 
 - [在 HDInsight Hadoop 叢集上安裝 Giraph (Linux)](hdinsight-hadoop-giraph-install-linux.md)
-- [在 HDInsight 建立 Hadoop 叢集](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。
+- [在 HDInsight 叢集中建立 Hadoop](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。
 - [使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]：使用指令碼動作自訂 HDInsight 叢集的一般資訊。
 - [開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions.md)。
 - [在 HDInsight 叢集上安裝和使用 Spark][hdinsight-install-spark]：關於安裝 Spark 的指令碼動作範例。
@@ -183,4 +183,4 @@
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="使用 Azure App Service 將推播通知新增至 Xamarin.iOS 應用程式" 
-	description="了解如何使用 Azure App Service 將推播通知傳送至 Xamarin.iOS 應用程式。" 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+<properties
+	pageTitle="使用 Azure App Service 將推播通知新增至 Xamarin.iOS 應用程式"
+	description="了解如何使用 Azure App Service 將推播通知傳送至 Xamarin.iOS 應用程式。"
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
-	ms.devlang="dotnet" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-ios"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/18/2015" 
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # 將推播通知新增至 Xamarin.iOS 應用程式
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##概觀
 
@@ -72,7 +70,7 @@
 ##將推播通知新增至應用程式
 
 1. 在 **QSTodoService** 中新增下列屬性，以便讓 **AppDelegate** 能夠取得行動用戶端：
-        
+
             public MobileServiceClient GetClient {
             get
             {
@@ -95,19 +93,19 @@
         {
             // registers for push for iOS8
             var settings = UIUserNotificationSettings.GetSettingsForTypes(
-                UIUserNotificationType.Alert 
-                | UIUserNotificationType.Badge 
-                | UIUserNotificationType.Sound, 
+                UIUserNotificationType.Alert
+                | UIUserNotificationType.Badge
+                | UIUserNotificationType.Sound,
                 new NSSet());
 
-            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings); 
+            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
             UIApplication.SharedApplication.RegisterForRemoteNotifications();
 
             return true;
         }
 
 3. 在相同的檔案中，覆寫 **RegisteredForRemoteNotifications** 事件。透過此程式碼，您將註冊能夠在伺服器所支援的所有平台間傳送的簡單範本通知。
- 
+
 	如需有關通知中樞範本的詳細資訊，請參閱[範本](../notification-hubs/notification-hubs-templates.md)。
 
 
@@ -152,7 +150,7 @@
 ## <a name="test"></a>在應用程式中測試推播通知
 
 1. 按 [執行] 按鈕以建置專案並在可執行 iOS 的裝置上啟動應用程式，然後按一下 [確定] 以接受推播通知。
-	
+
 	> [AZURE.NOTE] 您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
 
 2. 在應用程式中輸入一項工作，然後按一下加號 (**+**) 圖示。
@@ -171,7 +169,4 @@
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [在 Windows 上安裝 Xamarin.iOS]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # 如何啟用原生用戶端應用程式以與 Proxy 應用程式互動
 
-> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
+> [AZURE.NOTE] 應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
 Azure Active Directory 應用程式 Proxy 廣泛用於發佈瀏覽器應用程式，例如 SharePoint、Outlook Web Access 和自訂企業營運應用程式。它也可以用來發佈使用原生用戶端取用的 HTTP 後端應用程式。這是透過支援在標準授權 HTTP 標頭中傳送的 Azure AD 發出的權杖來實現。
 
@@ -95,7 +95,8 @@ Azure Active Directory 應用程式 Proxy 廣泛用於發佈瀏覽器應用程�
 - [觀看我們在 Channel 9 上的影片！](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## 其他資源
-* [以組織身分註冊 Azure](sign-up-organization.md)
-* [Azure 身分識別](fundamentals-identity.md)
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [以組織方式註冊 Azure](sign-up-organization.md)
+- [Azure 身分識別](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

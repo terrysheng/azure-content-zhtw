@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 # 使用 Visual Studio 的 Hadoop 工具開發 Apache Storm on HDInsight 的 C# 拓撲
@@ -41,7 +41,7 @@
 
     > [AZURE.NOTE] Visual Studio Express 不支援 HDInsight Tools for Visual Studio
 
--	Apache Storm on HDInsight 叢集：請參閱[開始使用 Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-getting-started.md) 以取得建立叢集的步驟。
+-	Apache Storm on HDInsight 叢集：請參閱[開始使用 Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started.md) 以取得建立叢集的步驟。
 
 	> [AZURE.NOTE] 目前 HDInsight Tools for Visual Studio 只支援 Storm on HDInsight 3.2 版叢集。
 
@@ -658,4 +658,4 @@ Context.Logger.Info("Component started");
 
 -	[開始使用 HBase on HDInsight](hdinsight-hbase-tutorial-get-started.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/22/2016"
+	 ms.date="02/05/2016"
 	 ms.author="jimpark;"/>
 
 # 將 Windows Server 或 Windows 用戶端檔案和資料夾備份至 Azure
@@ -51,5 +51,6 @@
 - [管理 Windows Server 或 Windows 用戶端](backup-azure-manage-windows-server.md)
 - [從 Azure 還原 Windows Server 或 Windows 用戶端](backup-azure-restore-windows-server.md)
 - [Azure 備份常見問題集](backup-azure-backup-faq.md)
+- 瀏覽 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

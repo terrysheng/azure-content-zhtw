@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/12/2016" 
-	ms.author="erikre"/>
+	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中管理 Web 應用程式
 
@@ -103,4 +103,4 @@ Azure App Service 提供了五種階層：免費、共用、基本、標準和�
 
   
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -18,7 +18,7 @@
 
 # 設定 Application Insights：診斷例外狀況
 
-很抱歉。[此頁面已移到別處](app-insights-asp-net-exception.md)。
+很抱歉。[此頁面已移到別處](app-insights-asp-net-exceptions.md)。
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

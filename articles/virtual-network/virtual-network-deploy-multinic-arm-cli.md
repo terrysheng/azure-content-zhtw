@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 #使用 Azure CLI 部署多個 NIC VM
@@ -37,21 +37,21 @@
 2. 在範本頁面中，按一下 [父資源群組] 右邊的 [部署至 Azure]。
 3. 視需要變更參數值，然後依照 Azure Preview 入口網站中的步驟部署資源群組。
 
-> [AZURE.IMPORTANT]請確定您的儲存體帳戶名稱是唯一的。在 Auzre 中不能有重複的儲存體帳戶名稱。
+> [AZURE.IMPORTANT] 請確定您的儲存體帳戶名稱是唯一的。在 Auzre 中不能有重複的儲存體帳戶名稱。
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
 ## 部署後端 VM
 
-後端 VM 有賴於建立下面列出的資源。
+後端 VM 有賴於建立下列資源。
 
-- **資料磁碟的儲存體帳戶**。為取得更好的效能，資料庫伺服器上的資料磁碟將會使用需要進階儲存體帳戶的固態硬碟 (SSD) 技術。請確定 Azure 的部署位置，以支援進階儲存體。
+- **資料磁碟的儲存體帳戶**。為取得更佳的效能，資料庫伺服器上的資料磁碟會使用需要進階儲存體帳戶的固態硬碟 (SSD) 技術。請確定 Azure 的部署位置，以支援進階儲存體。
 - **NIC**。每部 VM 都會有兩個 NIC，一個用於資料庫存取，另一個用於管理。
-- **可用性設定組**。所有的資料庫伺服器都會加入單一的可用性設定組，確保在維護期間至少會有一部 VM 啟動並執行。 
+- **可用性設定組**。所有的資料庫伺服器都會加入單一的可用性設定組，確保在維護期間至少有一部 VM 啟動並執行。 
 
 ### 步驟 1：啟動指令碼
 
-[這裡](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/multinic.sh)可以下載所使用的完整 Bash 指令碼。請遵循下列步驟來變更指令碼來讓指令碼在環境中運作。
+[這裡](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-cli.sh)可以下載所使用的完整 Bash 指令碼。請遵循下列步驟來變更要在環境中工作的指令碼。
 
 1. 根據上述[必要條件](#Prerequisites)中已部署的現有資源群組來變更下列變數的值。
 
@@ -88,7 +88,7 @@
 		                --name $backendSubnetName|grep Id)"
 		subnetId=${subnetId#*/}
 
->[AZURE.TIP]上述的第一個命令會使用 [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) 和[字串操作](http://tldp.org/LDP/abs/html/string-manipulation.html) (更具體來說，是子字串移除)。
+>[AZURE.TIP] 上述的第一個命令會使用 [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) 和[字串操作](http://tldp.org/LDP/abs/html/string-manipulation.html) (更具體來說，是子字串移除)。
 
 4. 擷取 `NSG-RemoteAccess` NSG 的識別碼。您需要這麼做，因為要和這個 NSG 關聯的 NIC 位於不同的資源群組中。
 
@@ -330,4 +330,4 @@
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

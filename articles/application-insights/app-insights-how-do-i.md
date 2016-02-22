@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/11/2015" 
+	ms.date="02/05/2016" 
 	ms.author="awills"/>
 
 # 我如何在 Application Insights 中...？
@@ -36,7 +36,7 @@
 ### 傳送電子郵件的例外狀況
 
 1. [設定例外狀況監視](app-insights-asp-net-exceptions.md)
-2. 針對例外狀況計數計量[設定警示](app-insights-alert.md)
+2. 針對例外狀況計數計量[設定警示](app-insights-alerts.md)
 
 
 ### 我的 app 發生事件時寄送電子郵件
@@ -57,7 +57,7 @@
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-在[計量總管](app-insights-metric-explorer.md)中建立圖表來查看您的警示：
+在[計量總管](app-insights-metrics-explorer.md)中建立圖表來查看您的警示：
 
 ![](./media/app-insights-how-do-i/010-alarm.png)
 
@@ -201,6 +201,7 @@
 
 * 在 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中，停用任何您不需要的模組，例如效能計數器收集器。
 * 使用 SDK 中的[取樣和篩選](app-insights-api-filtering-sampling.md)。
+* 您在網頁中，限制針對每個頁面檢視回報的 Ajax 呼叫次數。在 `instrumentationKey:...` 之後的指令碼片段中，插入：`,maxAjaxCallsPerView:3` (或適當的數字)。
 * 如果您使用的是 [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric)，請在傳送結果之前，先計算計量值批次的彙總。有一個 TrackMetric() 的多載是針對該動作所提供。
 
 
@@ -240,4 +241,4 @@
 * 首先，[新增圖表](app-insights-metrics-explorer.md)，並查看計數器是否位於我們提供的基本組合中。
 * 如果沒有，請[將計數器加入效能計數器模組所收集的組合中](app-insights-web-monitor-performance.md#system-performance-counters)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

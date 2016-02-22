@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/25/2016"  
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 #使用啟用的通道來以 Azure 媒體服務執行即時編碼
@@ -435,7 +435,7 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 - 通道或其相關聯程式正在執行時，您無法變更輸入通訊協定。如果您需要不同的通訊協定，則應該為每個輸入通訊協定建立個別的通道。
 - 只有當您的通道處於**執行中**狀態時，才會向您計費。若需詳細資訊，請參閱[這個](media-services-manage-live-encoder-enabled-channels.md#states)章節。
 - 目前，即時事件的最大建議持續時間是 8 小時。如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
-- 請確定在您想串流內容的串流端點上至少有一個串流保留單元。
+- 確定負責傳送內容的串流端點上，至少有一個串流保留單位。
 - 使用 Azure 輸入多個語言資料軌及執行即時編碼時，多語言輸入僅支援 RTP。您可以透過 RTP 使用 MPEG-2 TS 定義最多 8 個音訊串流。目前不支援使用 RTMP 或 Smooth Streaming 內嵌多個音軌。使用[內部部署即時編碼器](media-services-manage-channels-overview.md)執行即時編碼時，並沒有這類限制，因為傳送至 AMS 的所有項目都是透過不需要進一步處理的通道來傳遞的。
 - 切記在完成時停止您的通道。如果您忘記，計費會繼續。 
 
@@ -476,4 +476,4 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

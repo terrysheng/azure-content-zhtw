@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # 建立具有多個 NIC 的 VM
@@ -97,7 +97,7 @@
 - ****連入流量** 的目的地是問題流量中的 NIC，首先會通過子網路，並在傳入 NIC 前觸發子網路的 NSG 規則，然後再觸發 NIC 的 NSG 規則。
 - **連出流量**的來源是有問題的流量中第一次從 NIC 流出的 NIC，會在流經子網路之前觸發 NIC 的 NSG 規則，然後觸發子網路的 NSG 規則。 
 
-深入了解[網路安全性群組](virtual-networks-nsg)和其如何根據與子網路、VM 和 NIC 之關聯而套用。
+深入了解[網路安全性群組](virtual-networks-nsg.md)和其如何根據與子網路、VM 和 NIC 之關聯而套用。
 
 ## 如何在傳統部署中設定有多個 NIC 的 VM
 
@@ -164,7 +164,7 @@
 
 		New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
->[AZURE.NOTE]您在此處指定的 VNet 必須已經存在 (如必要條件中所提及)。下面範例指定名稱為 **MultiNIC-VNet** 的虛擬網路。
+>[AZURE.NOTE] 您在此處指定的 VNet 必須已經存在 (如必要條件中所提及)。下面範例指定名稱為 **MultiNIC-VNet** 的虛擬網路。
 
 ## 其他子網路的次要 NIC 存取
 
@@ -265,4 +265,4 @@
 - 部署[在資源管理員部署中的 2 層應用程式案例之多個 NIC VM](virtual-network-deploy-multinic-arm-template.md)。
 - 部署[在傳統部署中的 2 層應用程式案例之多個 NIC VM](virtual-network-deploy-multinic-classic-ps.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

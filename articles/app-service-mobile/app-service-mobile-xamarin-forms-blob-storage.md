@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="02/03/2015"
+	ms.date="02/03/2016"
     ms.author="donnam"/>
 
 #連接至 Xamarin.Forms 應用程式中的 Azure 儲存體
@@ -93,7 +93,11 @@ Azure Mobile Apps 用戶端與伺服器 SDK 支援離線同步處理結構化資
             return base.DeleteFileAsync(id, name);
         }
 
-6. 將您的伺服器專案發佈至行動應用程式後端。
+6. 更新 Web API 組態以設定屬性路由。在 **Startup.MobileApp.cs** 中，將下面這行新增到 `ConfigureMobileApp()` 方法中 `config` 變數的定義之後：
+
+        config.MapHttpAttributeRoutes();
+
+7. 將您的伺服器專案發佈至行動應用程式後端。
 
 ###由儲存體控制器註冊的路由
 
@@ -117,7 +121,7 @@ Azure Mobile Apps 用戶端與伺服器 SDK 支援離線同步處理結構化資
 
 ###用戶端和伺服器通訊
 
-請注意，`TodoItemStorageController`「沒有」用於上傳或下載 blob 的路由。這是因為行動用戶端在首先取得 SAS 權杖 (共用存取簽章) 以安全地存取特定 blob 或容器之後，會「直接」與 Blob 儲存體互動以執行這些作業。這是很重要的架構設計，否則對於儲存體的存取會受到行動後端的延展性和可用性限制。相反地，透過直接連線到 Azure 儲存體，行動用戶端可以利用其功能，例如自動分割和地理散發。
+請注意，`TodoItemStorageController`「沒有」用於上傳或下載 blob 的路由。這是因為行動用戶端在一開始取得 SAS 權杖 (共用存取簽章) 以安全地存取特定 blob 或容器之後，就會「直接」與 Blob 儲存體互動來執行這些作業。這是很重要的架構設計，否則對於儲存體的存取會受到行動後端的延展性和可用性限制。相反地，透過直接連線到 Azure 儲存體，行動用戶端可以利用其功能，例如自動分割和地理散發。
 
 共用存取簽章可提供您儲存體帳戶中資源的委派存取。這表示您可以在無需分享您帳戶存取金鑰的情況下，將您儲存體帳戶中的物件有限權限授與用戶端，該用戶端便可在指定的時間期間內及使用指定的權限集來進行存取。若要深入了解，請參閱[了解共用存取簽章]。
 
@@ -133,7 +137,7 @@ Azure Mobile Apps 用戶端與伺服器 SDK 支援離線同步處理結構化資
 
 ###新增 NuGet 封裝
 
-以滑鼠右鍵按一下解決方案，然後選取 [管理解決方案的 NuGet 封裝]。將下列 NuGet 封裝新增至「所有」解決方案中的專案。請確定選取 [包含發行前版本]。
+在方案上按一下滑鼠右鍵，然後選取 [管理方案的 NuGet 套件]。將下列 NuGet 套件新增至方案中的「所有」專案。請務必選取 [包括發行前版本]。
 
   - [Microsoft.Azure.Mobile.Client.Files]
 
@@ -141,7 +145,7 @@ Azure Mobile Apps 用戶端與伺服器 SDK 支援離線同步處理結構化資
 
   - [PCLStorage]
 
-為了方便起見，這個範例會使用 [PCLStorage] 程式庫，但是對於 Azure Mobile Apps 用戶端 SDK 不是必要項目。
+為了方便起見，這個範例使用 [PCLStorage] 程式庫，但這對 Azure Mobile Apps 用戶端 SDK 來說並非必要。
 
 [PCLStorage]: https://www.nuget.org/packages/PCLStorage/
 
@@ -230,7 +234,7 @@ Azure Mobile Apps 用戶端與伺服器 SDK 支援離線同步處理結構化資
 
 在主要可攜式程式庫專案中建立新的類別 `TodoItemFileSyncHandler`。這個類別包含 Azure SDK 的回呼，以在新增或移除檔案時，通知您的程式碼。
 
-Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：用戶端 SDK 會叫用 `IFileSyncHandler` 的實作，決定是否在本機裝置上儲存檔案及其方式。
+Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：此用戶端 SDK 會叫用您的 `IFileSyncHandler` 實作，進而決定是否在本機裝置上儲存檔案及如何儲存。
 
 1. 加入下列 using 陳述式：
 
@@ -270,7 +274,7 @@ Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：用戶端 SDK �
 
 ###更新 TodoItemManager
 
-1. 在 **TodoItemManager.cs** 中，取消註解行 `#define OFFLINE_SYNC_ENABLED`。
+1. 在 **TodoItemManager.cs** 中，將 `#define OFFLINE_SYNC_ENABLED` 這行取消註解。
 
 2. 在 **TodoItemManager.cs** 中，新增下列 using 陳述式：
 
@@ -280,16 +284,16 @@ Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：用戶端 SDK �
         using Microsoft.WindowsAzure.MobileServices.Files.Sync;
         using Microsoft.WindowsAzure.MobileServices.Eventing;
 
-3. 在 `TodoItemManager` 的建構函式中，在呼叫 `DefineTable()` 後面新增下列內容：
+3. 在 `TodoItemManager` 的建構函式中，在對 `DefineTable()` 的呼叫後面新增下列內容：
 
         // Initialize file sync
         this.client.InitializeFileSyncContext(new TodoItemFileSyncHandler(this), store);
 
-4. 在建構函式中，以下列內容取代 `InitializeAsync` 的呼叫。這可確保在本機存放區中修改記錄時有回呼。檔案同步處理功能會使用這些回呼來觸發檔案的同步處理常式。
+4. 在建構函式中，以下列內容取代對 `InitializeAsync` 的呼叫。這可確保在本機存放區中修改記錄時有回呼。檔案同步處理功能會使用這些回呼來觸發檔案的同步處理常式。
 
         this.client.SyncContext.InitializeAsync(store, StoreTrackingOptions.NotifyLocalAndServerOperations);
 
-5. 在 `PushAsync()` 中，在 `SyncAsync()` 呼叫後面新增下列內容。
+5. 在 `PushAsync()` 中，在對 `SyncAsync()` 的呼叫後面新增下列內容：
 
         await this.todoTable.PushFileChangesAsync();
 
@@ -369,7 +373,7 @@ Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：用戶端 SDK �
             }
         }
 
-2. 編輯 **App.cs**。將 `MainPage` 的初始化取代為下列內容：
+2. 編輯 **App.cs**。以下列內容取代 `MainPage` 的初始化：
     
         MainPage = new NavigationPage(new TodoList());
 
@@ -377,9 +381,9 @@ Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：用戶端 SDK �
 
         public static object UIContext { get; set; }
 
-4. 以滑鼠右鍵按一下可攜式程式庫專案，然後選取 [新增] -> [新項目] -> [跨平台] -> [Form Xaml 頁面]。將檢視命名為 `TodoItemDetailsView`。
+4. 在可攜式程式庫專案上按一下滑鼠右鍵，然後選取 [新增] -> [新項目] -> [跨平台] -> [Form Xaml 頁面]。將檢視命名為 `TodoItemDetailsView`。
 
-5. 開啟 **TodoItemDetailsView.xaml**，將 ContentPage 的本文取代為下列內容：
+5. 開啟 **TodoItemDetailsView.xaml**，以下列內容取代 ContentPage 的本文：
 
           <Grid>
             <Grid.RowDefinitions>
@@ -402,12 +406,12 @@ Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：用戶端 SDK �
             </ListView>
           </Grid>
 
-6. 編輯 **TodoItemDetailsView.xaml.cs** 並且新增下列 using 陳述式：
+6. 編輯 **TodoItemDetailsView.xaml.cs** 並新增下列 using 陳述式：
 
         using System.Collections.ObjectModel;
         using Microsoft.WindowsAzure.MobileServices.Files;
 
-7. 使用下列內容取代 `TodoItemDetailsView` 的實作：
+7. 以下列內容取代 `TodoItemDetailsView` 的實作：
 
         public partial class TodoItemDetailsView : ContentPage
         {
@@ -457,7 +461,7 @@ Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：用戶端 SDK �
 
 更新主要的檢視，以在選取 todo 項目時，開啟詳細資料檢視。
 
-在 **TodoList.xaml.cs** 中，使用下列內容取代 `OnSelected` 的實作：
+在 **TodoList.xaml.cs** 中，以下列內容取代 `OnSelected` 的實作：
 
     public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
     {
@@ -480,7 +484,7 @@ Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：用戶端 SDK �
 
 1. 將元件 **Xamarin.Mobile** 新增至 Android 專案。
 
-2. 使用下列實作取代新類別 `DroidPlatform`。使用您的專案的主要命名空間取代 "YourNamespace"。
+2. 使用下列實作來新增新類別 `DroidPlatform`。使用您的專案的主要命名空間取代 "YourNamespace"。
 
         using System;
         using System.IO;
@@ -540,7 +544,7 @@ Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：用戶端 SDK �
             }
         }
 
-3. 編輯 **MainActivity.cs**。在 `OnCreate` 中，在 `LoadApplication()` 呼叫前面新增下列內容：
+3. 編輯 **MainActivity.cs**。在 `OnCreate` 中，在對 `LoadApplication()` 的呼叫前面新增下列內容：
 
         App.UIContext = this;
 
@@ -550,7 +554,7 @@ Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：用戶端 SDK �
 
 1. 將元件 **Xamarin.Mobile** 新增至 iOS 專案。
 
-2. 使用下列實作取代新類別 `TouchPlatform`。使用您的專案的主要命名空間取代 "YourNamespace"。
+2. 使用下列實作來新增新類別 `TouchPlatform`。使用您的專案的主要命名空間取代 "YourNamespace"。
 
         using System;
         using System.Collections.Generic;
@@ -605,7 +609,7 @@ Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：用戶端 SDK �
             }
         }
 
-3. 編輯 **AppDelegate.cs** 並取消註解 `SQLitePCL.CurrentPlatform.Init()` 的呼叫。
+3. 編輯 **AppDelegate.cs** 並將對 `SQLitePCL.CurrentPlatform.Init()` 的呼叫取消註解。
 
 ###更新 Windows 專案
 
@@ -613,7 +617,7 @@ Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：用戶端 SDK �
 
 2. 編輯 **Package.appxmanifest** 並檢查**網路攝影機**功能。
 
-3. 使用下列實作取代新類別 `WindowsStorePlatform`。使用您的專案的主要命名空間取代 "YourNamespace"。
+3. 使用下列實作來新增新類別 `WindowsStorePlatform`。使用您的專案的主要命名空間取代 "YourNamespace"。
 
         using System;
         using System.Threading.Tasks;
@@ -678,37 +682,37 @@ Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：用戶端 SDK �
 
 這篇文章說明如何使用 Azure 行動用戶端和伺服器 SDK 中的新檔案支援以使用 Azure 儲存體。
 
-- 建立儲存體帳戶並將連接字串新增至您的行動應用程式後端。只有後端擁有 Azure 儲存體金鑰：行動用戶端會在需要存取 Azure 儲存體時隨時要求 SAS 權杖 (共用存取簽章)。若要深入了解 Azure 儲存體中的 SAS 權杖，請參閱[了解共用存取簽章]。
+- 建立儲存體帳戶並將連接字串新增至您的行動應用程式後端。只有後端擁有 Azure 儲存體金鑰：行動用戶端會在需要存取 Azure 儲存體時隨時要求 SAS 權杖 (共用存取簽章)。若要深入了解「Azure 儲存體」中的 SAS 權杖，請參閱[了解共用存取簽章]。
 
-- 建立將 `StorageController` 分類為子類別的控制站，以處理 SAS 權杖要求，並取得與記錄相關聯的檔案。根據預設，會使用記錄識別碼做為容器名稱的一部分，讓檔案與記錄相關聯；行為可以藉由指定 `IContainerNameResolver` 的實作來自訂。也可以自訂 SAS 權杖原則。
+- 建立將 `StorageController` 分類為子類別的控制站，以處理 SAS 權杖要求，並取得與記錄關聯的檔案。根據預設，會使用記錄識別碼做為容器名稱的一部分，讓檔案與記錄建立關聯；您可以藉由指定 `IContainerNameResolver` 的實作來自訂此行為。也可以自訂 SAS 權杖原則。
 
-- Azure 行動用戶端 SDK 不會實際儲存任何檔案資料。相反地，用戶端 SDK 會叫用您的 `IFileSyncHandler`，然後決定如何 (以及是否) 在本機裝置上儲存檔案。同步處理常式會註冊，如下所示：
+- Azure 行動用戶端 SDK 不會實際儲存任何檔案資料。更確切地說，用戶端 SDK 會叫用您的 `IFileSyncHandler`，進而決定如何 (以及是否) 在本機裝置上儲存檔案。同步處理常式會註冊，如下所示：
 
         client.InitializeFileSync(new MyFileSyncHandler(), store);
 
       + 當 Azure 行動用戶端 SDK 需要檔案資料時 (例如，做為上傳程序的一部分)，會呼叫 `IFileSyncHandler.GetDataSource`。這可讓您能夠管理如何 (以及是否) 在本機裝置上儲存檔案，並且在需要時傳回該資訊。
 
-      + `IFileSyncHandler.ProcessFileSynchronizationAction` 會被叫用做為檔案同步處理流程的一部分。提供檔案參考和 FileSynchronizationAction 列舉值，讓您可以決定應用程式應如何處理該事件 (例如，在檔案建立或更新時自動下載、在檔案於伺服器上刪除時從本機裝置上刪除檔案)。
+      + 進行檔案同步處理流程時會一併叫用 `IFileSyncHandler.ProcessFileSynchronizationAction`。提供檔案參考和 FileSynchronizationAction 列舉值，讓您可以決定應用程式應如何處理該事件 (例如，在檔案建立或更新時自動下載、在檔案於伺服器上刪除時從本機裝置上刪除檔案)。
 
-- `MobileServiceFile` 可以在線上或離線模式中使用，分別是使用 `IMobileServiceTable` 或 `IMobileServiceSyncTable`。在離線案例中，上傳會在應用程式呼叫 `PushFileChangesAsync` 時發生。這會處理離線作業佇列；對於每個檔案作業，Azure 行動用戶端 SDK 會在 `IFileSyncHandler` 執行個體上叫用 `GetDataSource` 方法，以擷取要上傳的檔案內容。
+- `MobileServiceFile` 可以在線上或離線模式下使用，方法是分別透過使用 `IMobileServiceTable` 或 `IMobileServiceSyncTable`。在離線案例中，會在應用程式呼叫 `PushFileChangesAsync` 時進行上傳。這會導致對離線作業佇列進行處理；針對每個檔案作業，Azure 行動用戶端 SDK 會在 `IFileSyncHandler` 執行個體上叫用 `GetDataSource` 方法，以擷取要上傳的檔案內容。
 
-- 若要擷取項目的檔案，請在 `IMobileServiceTable<T>` 或 IMobileServiceSyncTable<T> 執行個體上呼叫 `GetFilesAsync` 方法。這個方法會傳回與提供的資料項目相關聯的檔案的清單。(請注意：這是「本機」作業，而且會根據物件上次同步處理時的狀態，傳回檔案。若要從伺服器取得更新的檔案清單，您應該先起始同步處理作業。)
+- 為了擷取項目的檔案，請在 `IMobileServiceTable<T>` 或 IMobileServiceSyncTable<T> 執行個體上呼叫 `GetFilesAsync` 方法。這個方法會傳回與提供的資料項目相關聯的檔案的清單。(請注意：這是「本機」作業，而且會根據物件上次同步處理時的狀態，傳回檔案。若要從伺服器取得更新的檔案清單，您應該先起始同步處理作業。)
 
         IEnumerable<MobileServiceFile> files = await myTable.GetFilesAsync(myItem);
 
-- 檔案同步處理功能會在本機存放區上使用記錄變更通知，以擷取用戶端收到的推送或提取作業的記錄。這是藉由使用 `StoreTrackingOptions` 參數開啟同步處理內容的本機和伺服器通知來達成。
+- 檔案同步處理功能會在本機存放區上使用記錄變更通知，以擷取用戶端收到的推送或提取作業的記錄。這是藉由使用 `StoreTrackingOptions` 參數為同步處理內容開啟本機和伺服器通知來達成。
 
         this.client.SyncContext.InitializeAsync(store, StoreTrackingOptions.NotifyLocalAndServerOperations);
 
-      + 其他存放區追蹤選項可用，例如僅本機或僅伺服器的通知。您可以使用 `IMobileServiceClient` 的 `EventManager` 屬性，新增或擁有自訂回呼：
+      + 其他存放區追蹤選項可用，例如僅本機或僅伺服器的通知。您可以使用 `IMobileServiceClient` 的 `EventManager` 屬性來新增或擁有自訂回呼：
 
             jobService.MobileService.EventManager.Subscribe<StoreOperationCompletedEvent>(StoreOperationEventHandler);
 
-- 您可以藉由直接修改 blob 儲存體來新增或移除記錄中的檔案，因為關聯是透過命名慣例來達成。不過，在此情況下，您應該一律**在關聯的 blob 修改時更新記錄時間戳記**。Azure 行動用戶端 SDK 一律會在新增或移除檔案時更新記錄。
+- 您可以藉由直接修改 blob 儲存體來新增或移除記錄中的檔案，因為關聯是透過命名慣例來達成。不過，在此情況下，您應該一律**在關聯的 blob 被修改時更新記錄時間戳記**。Azure 行動用戶端 SDK 一律會在新增或移除檔案時更新記錄。
 
     這項需求的原因是，某些行動用戶端在本機儲存體上已經有記錄。當這些用戶端執行累加式提取時，將不會傳回此記錄，且用戶端不會查詢新的關聯檔案。若要避免這個問題，建議您在執行不會使用 Azure 行動用戶端 SDK 的任何 blob 儲存體變更時，更新記錄時間戳記。
 
-- 用戶端專案會使用 [Xamarin.Forms DependencyService] 模式，在執行階段載入正確的平台特定類別。在此範例中，我們在每個平台特定專案中定義介面 `IPlatform` 與實作。
+- 用戶端專案會使用 [Xamarin.Forms DependencyService] 模式，在執行階段載入正確的平台特定類別。在此範例中，我們在每個平台特定專案中定義了介面 `IPlatform` 與實作。
 
 <!-- URLs. -->
 
@@ -721,4 +725,4 @@ Azure 行動用戶端 SDK 不會實際儲存任何檔案資料：用戶端 SDK �
 [了解共用存取簽章]: ../storage/storage-dotnet-shared-access-signature-part-1.md
 [建立 Azure 儲存體帳戶]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

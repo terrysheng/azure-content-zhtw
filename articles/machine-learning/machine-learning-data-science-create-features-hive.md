@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/05/2016"
 	ms.author="hangzh;bradsev" />
 
 #針對使用 Hive 查詢之 Hadoop 叢集中的資料建立特性
-
-這個 [功能表] 連結至主題，描述如何在各種環境中建立資料的工程設計特性。此工作是 Cortana 分析程序 (CAP) 中的一個步驟。
-
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
 ## 簡介
 Hive 查詢的範例，產生儲存在 Azure HDInsight Hadoop 叢集中之資料中的特性。這些 Hive 查詢會使用針對其提供指令碼的內嵌 Hive 使用者定義函式 (UDF)。
@@ -28,6 +24,11 @@ Hive 查詢的範例，產生儲存在 Azure HDInsight Hadoop 叢集中之資料
 [Github 儲存機制](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)中也會提供 [NYC 計程車車程資料](http://chriswhong.com/open-data/foil_nyc_taxi/)案例特定的查詢範例。這些查詢已經具備指定的資料結構描述，且準備好進行提交來執行。
 
 最後一節將討論使用者可以微調的參數，如此即可改善 Hive 查詢的效能。
+
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+
+此選單連結的主題，說明如何在各種環境中建立資料的特性。此工作是 [Cortana Analytics Process (CAP) (Cortana Analytics 程序 (CAP))](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 中的一個步驟。
+
 
 ## 必要條件
 本文假設您已經：
@@ -63,7 +64,7 @@ Hive 查詢的範例，產生儲存在 Azure HDInsight Hadoop 叢集中之資料
 		order by frequency desc;
 
 
-###<a name="hive-riskfeature"></a>二元分類中類別變數的風險
+###<a name="hive-riskfeature"></a> 二元分類中類別變數的風險
 
 在二進位分類中，若使用的模型只會採用數值功能，我們就需要將非數值類別變數轉換成數值功能。您可以使用數值風險來取代每個非數值層級，藉以完成這個動作。在本節中，我們將說明一些計算類別變數風險值 (記錄機率) 的泛型 Hive 查詢。
 
@@ -90,7 +91,7 @@ Hive 查詢的範例，產生儲存在 Azure HDInsight Hadoop 叢集中之資料
 
 計算出風險資料表之後，使用者就可以藉由將資料表聯結至風險資料表，來將風險值指派給該資料表。Hive 聯結查詢已在上一節中提供。
 
-###<a name="hive-datefeatures"></a>從日期時間欄位擷取功能
+###<a name="hive-datefeatures"></a> 從日期時間欄位擷取功能
 
 Hive 會和一組 UDF 一起出現，用來處理日期時間欄位。在 Hive 中，預設的日期時間格式是 'yyyy-MM-dd 00:00:00' (例如 '1970-01-01 12:21:32')。本節會顯示擷取月份日期和來自日期時間欄位的月份範例，以及其他可將預設格式以外格式的日期時間字串轉換為預設格式的日期時間字串範例。
 
@@ -112,7 +113,7 @@ Hive 會和一組 UDF 一起出現，用來處理日期時間欄位。在 Hive �
 佈建叢集時，這個查詢中的 *hivesampletable* 預設會預先安裝於所有 Azure HDInsight Hadoop 叢集中。
 
 
-###<a name="hive-textfeatures"></a>從文字欄位擷取特性
+###<a name="hive-textfeatures"></a> 從文字欄位擷取功能
 
 當 Hive 資料表具有一個文字欄位且其中包含以空格分隔的文字字串時，下列查詢便會擷取字串長度，以及字串中的字數。
 
@@ -141,17 +142,17 @@ Hive 會和一組 UDF 一起出現，用來處理日期時間欄位。在 Hive �
 		and dropoff_latitude between 30 and 90
 		limit 10;
 
-您可以在<a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">可移動的類型指令碼</a>網站 (作者為 Peter Lapisu) 上找到計算兩個 GPS 座標間之距離的數學方程式。在他的 Javascript 中，函數 `toRad()` 僅為 *lat\_or\_lon*pi/180*，可將角度轉換為弧度。在此，*lat\_or\_lon* 為緯度或經度。由於 Hive 不提供函數 `atan2`，但提供函數 `atan`，因此 `atan2` 函數是由上述 Hive 查詢中的 `atan` 函數以 <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a> 中提供的定義來實作。
+您可以在<a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">可移動的類型指令碼</a>網站 (作者為 Peter Lapisu) 上找到計算兩個 GPS 座標間之距離的數學方程式。在他的 Javascript 中，函式 `toRad()` 僅為 *lat\_or\_lon*pi/180*，可將角度轉換為弧度。此處的 *lat\_or\_lon* 為緯度或經度。由於 Hive 不提供函式 `atan2`，但提供函式 `atan`，因此 `atan2` 函式是由上述 Hive 查詢中的 `atan` 函式以 <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a> 中提供的定義來實作。
 
 ![建立工作區][1]
 
-您可以在 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive Wiki</a> 上的**內建函數**一節中找到 Hive 內嵌 UDF 的完整清單。
+您可以在 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a> 上的**內建函式**一節中找到 Hive 內嵌 UDF 的完整清單。
 
 ## <a name="tuning"></a> 進階主題：微調 Hive 參數以提升查詢速度
 
 Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處理的資料。本節將討論一些使用者可以微調的參數，來提升 Hive 查詢的效能。使用者需要在處理資料的查詢之前新增參數微調查詢。
 
-1. **Java 堆積空間**：對於涉及聯結大型資料集或處理長記錄的查詢，常見的一項錯誤是**堆積空間不足**。這可藉由將參數 *mapreduce.map.java.opts* 和 *mapreduce.task.io.sort.mb* 設定為所需值進行微調。下列是一個範例：
+1. **Java 堆積空間**：對於涉及聯結大型資料集或處理長記錄的查詢，常見的一項錯誤是**堆積空間不足**。這可藉由將參數 *mapreduce.map.java.opts* 和 *mapreduce.task.io.sort.mb* 設定為所需的值來進行微調。下列是一個範例：
 
 		set mapreduce.map.java.opts=-Xmx4096m;
 		set mapreduce.task.io.sort.mb=-Xmx1024m;
@@ -190,4 +191,4 @@ Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

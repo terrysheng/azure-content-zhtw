@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;garye" />
 
 #<a name="heading"></a>在 Azure 上處理 SQL Server 虛擬機器中的資料
 
-本文件涵蓋探索資料，並針對儲存於 Azure 上 SQL Server VM 中的資料產生功能。使用 SQL整理資料或使用 Python 這類程式設計語言，即可完成此動作。
+本文件涵蓋如何探索資料及如何針對儲存於 Azure 上之 SQL Server VM 中的資料產生功能。使用 SQL整理資料或使用 Python 這類程式設計語言，即可完成此動作。
 
 
-> [AZURE.NOTE]本文件中的 SQL 陳述式範例假設資料位於 SQL Server 中。如果不是，請參閱雲端資料科學程序圖，以了解如何將資料移至 SQL Server 中。
+> [AZURE.NOTE] 本文件中的 SQL 陳述式範例假設資料位於 SQL Server 中。如果不是，請參閱雲端資料科學程序圖，以了解如何將資料移至 SQL Server 中。
 
 ##<a name="SQL"></a>使用 SQL
 
@@ -34,7 +34,7 @@
 以下是數個 SQL 指令碼範例，可用來探索儲存於 SQL Server 中的資料。
 
 
-> [AZURE.NOTE]如需實用範例，您可以使用 [NYC 計程車資料集](http://www.andresmh.com/nyctaxitrips/)，並參考標題為[使用 IPython Notebook 和 SQL Server 來處理有爭議的 NYC 資料](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)的 IPNB，以進行端對端逐步解說。
+> [AZURE.NOTE] 如需實用範例，您可以使用 [NYC 計程車資料集](http://www.andresmh.com/nyctaxitrips/)，並參考標題為[使用 IPython Notebook 和 SQL Server 來處理有爭議的 NYC 資料](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)的 IPNB，以進行端對端逐步解說。
 
 1. 取得每天的觀察計數
 
@@ -62,7 +62,7 @@
 3. [從單一資料行衍生功能](#sql-featurerollout)
 
 
-> [AZURE.NOTE]一旦產生額外功能之後，就可以將它們當成資料行新增至現有的資料表，或是建立具有其他功能和主索引鍵的新資料表 (可與原始資料表聯結)。
+> [AZURE.NOTE] 一旦產生額外功能之後，就可以將它們當成資料行新增至現有的資料表，或是建立具有其他功能和主索引鍵的新資料表 (可與原始資料表聯結)。
 
 ###<a name="sql-countfeature"></a>以計數為基礎的功能產生
 
@@ -113,10 +113,10 @@
 上述以位置為基礎的功能可進一步用來產生其他計數功能，如先前所述。
 
 
-> [AZURE.TIP]您可以使用所選擇的語言，利用程式設計方式插入記錄。您可能需要插入區塊中的資料以改善寫入效率[在此處看看如何使用 pyodbc 來執行此動作的範例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)。
+> [AZURE.TIP] 您可以使用所選擇的語言，利用程式設計方式插入記錄。您可能需要插入區塊中的資料以改善寫入效率[在此處看看如何使用 pyodbc 來執行此動作的範例](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)。
  
 
-> [AZURE.TIP]另一個替代方式是使用 [BCP 公用程式](https://msdn.microsoft.com/library/ms162802.aspx)在資料庫中插入資料
+> [AZURE.TIP] 另一個替代方式是使用 [BCP 公用程式](https://msdn.microsoft.com/library/ms162802.aspx)在資料庫中插入資料
 
 ###<a name="sql-aml"></a>連接到 Azure Machine Learning
 
@@ -152,4 +152,4 @@ Python 中的 [Pandas 程式庫](http://pandas.pydata.org/)提供一組豐富的
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

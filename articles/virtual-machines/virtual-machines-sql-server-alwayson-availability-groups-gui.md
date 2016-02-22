@@ -19,8 +19,9 @@
 # 在 Azure VM (GUI) 中設定 AlwaysOn 可用性群組
 
 > [AZURE.SELECTOR]
-- [Azure 傳統入口網站](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
-- [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+- [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
+- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
 
@@ -29,7 +30,7 @@
 
 本端對端教學課程將示範如何透過在 Azure 虛擬機器上執行的 SQL Server AlwaysOn 實作可用性群組。
 
->[AZURE.NOTE]在 Azure 管理入口網站中，提供具有接聽程式的 AlwaysOn 可用性群組專用的新資源庫設定。這可自動設定 AlwaysOn 可用性群組所需的所有項目。如需詳細資訊，請參閱 [Microsoft Azure 傳統入口網站資源庫提供的 SQL Server AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)。若要使用 PowerShell，請參閱[使用 PowerShell 設定 Azure 中的 AlwaysOn 可用性群組](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)中，相同案例的教學課程。
+>[AZURE.NOTE] 在 Azure 管理入口網站中，提供具有接聽程式的 AlwaysOn 可用性群組專用的新資源庫設定。這可自動設定 AlwaysOn 可用性群組所需的所有項目。如需詳細資訊，請參閱 [Microsoft Azure 傳統入口網站資源庫提供的 SQL Server AlwaysOn](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)。若要使用 PowerShell，請參閱[使用 PowerShell 設定 Azure 中的 AlwaysOn 可用性群組](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)中，相同案例的教學課程。
 
 在本教學課程結束時，您 Azure 中的 SQL Server AlwaysOn 解決方案將包含下列項目：
 
@@ -57,7 +58,7 @@
 
 - 您已非常熟悉 AlwaysOn 可用性群組的功能。如需詳細資訊，請參閱 [AlwaysOn 可用性群組 (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)。
 
->[AZURE.NOTE]如想將 AlwaysOn 可用性群組與 SharePoint 搭配使用，另請參閱[為 SharePoint 2013 設定 SQL Server 2012 AlwaysOn 可用性群組 ](https://technet.microsoft.com/library/jj715261.aspx)。
+>[AZURE.NOTE] 如想將 AlwaysOn 可用性群組與 SharePoint 搭配使用，另請參閱[為 SharePoint 2013 設定 SQL Server 2012 AlwaysOn 可用性群組 ](https://technet.microsoft.com/library/jj715261.aspx)。
 
 ## 建立虛擬網路和網域控制站伺服器
 
@@ -116,7 +117,7 @@
 
 1. 選取 [Active Directory 網域服務] 和 [DNS 伺服器] 角色。出現提示時，加入這些角色所需的所有其他功能。
 
-	>[AZURE.NOTE]螢幕會顯示無靜態 IP 位址的驗證警告。如果您是要測試組態，請按一下 [繼續]。實際操作時，請[使用 PowerShell 設定網域控制站電腦的靜態 IP 位址](./virtual-network/virtual-networks-reserved-private-ip.md)。
+	>[AZURE.NOTE] 螢幕會顯示無靜態 IP 位址的驗證警告。如果您是要測試組態，請按一下 [繼續]。實際操作時，請[使用 PowerShell 設定網域控制站電腦的靜態 IP 位址](./virtual-network/virtual-networks-reserved-private-ip.md)。
 
 	![新增角色對話方塊](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC784624.png)
 
@@ -203,7 +204,7 @@
 
 <br/>
 
->[AZURE.NOTE]先前的設定建議標準層虛擬機器，因為基本層機器不支援後續建立可用性群組接聽程式所需的負載平衡端點。此外，此處建議的機器大小是為了在 Azure VM 中測試可用性群組。為獲得生產工作負載的最佳效能，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)中關於 SQL Server 機器大小和組態的建議。
+>[AZURE.NOTE] 先前的設定建議標準層虛擬機器，因為基本層機器不支援後續建立可用性群組接聽程式所需的負載平衡端點。此外，此處建議的機器大小是為了在 Azure VM 中測試可用性群組。為獲得生產工作負載的最佳效能，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)中關於 SQL Server 機器大小和組態的建議。
 
 完整佈建三個 VM 後，您必須將它們加入 **corp.contoso.com** 網域，並將 CORP\\Install 管理權限授與給這些虛擬機器。若要這樣做，請針對每個 VM 執行下列步驟。
 
@@ -327,7 +328,7 @@
 |用於管理叢集的存取點|在 [叢集名稱] 中輸入 **Cluster1**|
 |確認|除非您使用的是儲存空間，否則請使用預設值。請詳閱此表之後的備註。|
 
-	>[AZURE.WARNING]如果您使用的是會將多個磁碟組成存放集區的[儲存空間](https://technet.microsoft.com/library/hh831739)，則請務必取消勾選 [確認] 頁面上的 [將所有合格的儲存體新增至叢集] 核取方塊。如果不取消勾選此選項，在群集程序進行期間虛擬磁碟會中斷連結。因此，虛擬磁碟不會顯示在 [磁碟管理員] 或 [總管] 中，直到您將儲存空間從叢集中移除，並使用 PowerShell 重新連接虛擬磁碟。
+	>[AZURE.WARNING] 如果您使用的是會將多個磁碟組成存放集區的[儲存空間](https://technet.microsoft.com/library/hh831739)，則請務必取消勾選 [確認] 頁面上的 [將所有合格的儲存體新增至叢集] 核取方塊。如果不取消勾選此選項，在群集程序進行期間虛擬磁碟會中斷連結。因此，虛擬磁碟不會顯示在 [磁碟管理員] 或 [總管] 中，直到您將儲存空間從叢集中移除，並使用 PowerShell 重新連接虛擬磁碟。
 
 1. 在左窗格中，展開 [容錯移轉叢集管理員]，然後按一下 [Cluster1.corp.contoso.com]。
 
@@ -347,11 +348,11 @@
 
 1. 在 [新增節點精靈] 中，按 [下一步]。在 [輸入伺服器名稱] 中輸入伺服器名稱，然後按一下 [新增]，於 [選取伺服器] 頁面上，將 **ContosoSQL2** 和 **ContosoWSFCNode** 新增至清單。完成之後，按 [下一步]。
 
-1. 在 [驗證警告] 頁面上，按一下 \[否] (實際操作時，請執行驗證測試)。然後按 [下一步]。
+1. 在 [驗證警告] 頁面上，按一下 [否] (實際操作時，請執行驗證測試)。然後按 [下一步]。
 
 1. 在 [確認] 頁面中按 [下一步]，以新增節點。
 
-	>[AZURE.WARNING]如果您使用的是會將多個磁碟組成存放集區[儲存空間](https://technet.microsoft.com/library/hh831739)，則請務必取消勾選 [將所有合格的儲存體新增至叢集] 核取方塊。如果不取消勾選此選項，在群集程序進行期間虛擬磁碟會中斷連結。因此，虛擬磁碟不會顯示在 [磁碟管理員] 或 [總管] 中，直到您將儲存空間從叢集中移除，並使用 PowerShell 重新連接虛擬磁碟。
+	>[AZURE.WARNING] 如果您使用的是會將多個磁碟組成存放集區[儲存空間](https://technet.microsoft.com/library/hh831739)，則請務必取消勾選 [將所有合格的儲存體新增至叢集] 核取方塊。如果不取消勾選此選項，在群集程序進行期間虛擬磁碟會中斷連結。因此，虛擬磁碟不會顯示在 [磁碟管理員] 或 [總管] 中，直到您將儲存空間從叢集中移除，並使用 PowerShell 重新連接虛擬磁碟。
 
 1. 將節點新增至叢集後，請按一下 [完成]。容錯移轉叢集管理員現在應該會顯示您的叢集具有三個節點，並將這些節點列在**節點**容器中。
 
@@ -515,7 +516,7 @@
 
 	![新增 AG 精靈：指定複本 (完成)](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665528.gif)
 
-1. 在 [選取初始資料同步處理] 頁面中，按一下 [僅聯結]，然後按 [下一步]。您在建立 **ContosoSQL1** 的完整備份和交易備份，並將備份還原至 **ContosoSQL2** 時，便已手動執行資料同步處理。您可以改為選擇不在資料庫上執行備份與還原作業，並選取 [完整] 讓新可用性群組精靈為您執行資料同步處理。不過，不建議針對某些企業中的超大型資料庫採用這種同步處理方式。
+1. 在 [**選取初始資料同步處理**] 頁面中，按一下 [**僅聯結**]，然後按一下 [**下一步**]。您在建立 **ContosoSQL1** 的完整備份和交易備份，並將備份還原至 **ContosoSQL2** 時，便已手動執行資料同步處理。您可以改為選擇不在資料庫上執行備份與還原作業，並選取 [完整] 讓新可用性群組精靈為您執行資料同步處理。不過，不建議針對某些企業中的超大型資料庫採用這種同步處理方式。
 
 	![新增 AG 精靈：選取初始資料同步處理](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665529.gif)
 
@@ -541,11 +542,11 @@
 
 	![容錯移轉叢集管理員中的 AG](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665534.gif)
 
->[AZURE.WARNING]請勿嘗試透過容錯移轉叢集管理員，容錯移轉可用性群組。所有容錯移轉作業都應在 SSMS 的 **AlwaysOn 儀表板**中執行。如需詳細資訊，請參閱[容錯移轉叢集和 AlwaysOn 可用性群組 (SQL Server)](https://msdn.microsoft.com/library/ff929171.aspx)。
+>[AZURE.WARNING] 請勿嘗試透過容錯移轉叢集管理員，容錯移轉可用性群組。所有容錯移轉作業都應在 SSMS 的 **AlwaysOn 儀表板**中執行。如需詳細資訊，請參閱[容錯移轉叢集和 AlwaysOn 可用性群組 (SQL Server)](https://msdn.microsoft.com/library/ff929171.aspx)。
 
 ## 後續步驟
 現在，您已透過在 Azure 中建立可用性群組的方式，成功實作 SQL Server AlwaysOn。若要為此可用性群組設定接聽程式，請參閱[在 Azure 中為 AlwaysOn 可用性群組設定 ILB 接聽程式](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)。
 
 如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)。
 
-<!--------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

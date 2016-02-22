@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="02/03/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -362,4 +362,4 @@ R 指令碼的執行環境使用與 **Execute R Script** 模組相同的 R 版�
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/04/2016"
    ms.author="maroche"/>
 
 # Azure 資料目錄的常見問題集
@@ -43,8 +43,10 @@
 
 - 美國西部
 - 美國東部
-- 歐洲西部
+- 西歐
+- 北歐
 - 澳洲東部
+- 東南亞
 
 ## 問：Azure 資料目錄中的資料資產數目有何限制？
 
@@ -54,7 +56,7 @@
 
 ## 問：支援什麼資料來源和資產類型？
 
-請參閱[資料目錄 DSR](data-catalog-dsr.md)以取得目前支援的資料來源清單。
+請參閱[資料目錄 DSR](data-catalog-dsr.md)，以取得目前支援的資料來源清單。
 
 
 ## 問：如何要求另一個資料來源的支援？
@@ -80,11 +82,11 @@
 - 屬性/資料行資料類型
 - 屬性/資料行描述
 
-> [AZURE.IMPORTANT]使用 **Azure 資料目錄**註冊資料資產並不會將資料移動或複製至雲端。從資料來源註冊資產會將資產的中繼資料複製到 Azure，但資料仍保留在現有的資料來源位置。此規則唯一的例外狀況，在於使用者註冊資產時選擇上傳預覽記錄或資料設定檔。包含預覽時，最多會從每個資產複製 20 筆記錄，並在 **Azure 資料目錄**中儲存為快照。包含資料設定檔時，系統將會計算彙總資訊 (例如資料表大小、每資料行 null 值百分比，以及各資料行的最小值、最大值和平均值)，並將其加入目錄所存放的中繼資料。
+> [AZURE.IMPORTANT] 使用 **Azure 資料目錄**註冊資料資產並不會將資料移動或複製至雲端。從資料來源註冊資產會將資產的中繼資料複製到 Azure，但資料仍保留在現有的資料來源位置。此規則唯一的例外狀況，在於使用者註冊資產時選擇上傳預覽記錄或資料設定檔。包含預覽時，最多會從每個資產複製 20 筆記錄，並在 **Azure 資料目錄**中儲存為快照。包含資料設定檔時，系統將會計算彙總資訊 (例如資料表大小、每資料行 null 值百分比，以及各資料行的最小值、最大值和平均值)，並將其加入目錄所存放的中繼資料。
 
 <br/>
 
-> [AZURE.NOTE]若資料來源 (例如 SQL Server Analysis Services) 具第一級 **Description** 屬性，**Azure 資料目錄**發佈應用程式就會擷取該屬性值。SQL Server 關聯式資料庫缺少第一級的 **Description** 屬性，因此 **Azure 資料目錄**發行應用程式會從物件和資料行的 ms\_description 擴充屬性擷取值。如需詳細資訊，請參閱 TechNet [使用資料庫物件的擴充屬性](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)。
+> [AZURE.NOTE] 若資料來源 (例如 SQL Server Analysis Services) 具第一級 **Description** 屬性，**Azure 資料目錄**發佈應用程式就會擷取該屬性值。SQL Server 關聯式資料庫缺少第一級的 **Description** 屬性，因此 **Azure 資料目錄**發行應用程式會從物件和資料行的 ms\_description 擴充屬性擷取值。如需詳細資訊，請參閱 TechNet [使用資料庫物件的擴充屬性](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)。
 
 ## 問：新註冊的資產經過多久才會出現在 Azure 資料目錄中？
 
@@ -147,4 +149,4 @@
 
 請前往 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)。那裡提出的問題會在這裡找到答案。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

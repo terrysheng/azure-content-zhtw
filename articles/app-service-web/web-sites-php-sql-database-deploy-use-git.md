@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/09/2016" 
 	ms.author="tomfitz"/>
 
 # 建立 PHP-SQL Web 應用程式並使用 Git 部署至 Azure App Service
 
 本教學課程會示範如何在 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中建立連線到 Azure SQL Database 的 PHP Web 應用程式，以及如何使用 Git 來部署它。本教學課程假設您的電腦上已安裝 [PHP][install-php]、[SQL Server Express][install-SQLExpress]、[Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098)，和 [Git][install-git]。完成本指南的步驟後，您將擁有在 Azure 上運作的 PHP-SQL Web 應用程式。
 
-> [AZURE.NOTE]您可以使用 [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx) 來安裝和設定 PHP、SQL Server Express，和 Microsoft Drivers for SQL Server for PHP。
+> [AZURE.NOTE]
+您可以使用 [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx) 來安裝和設定 PHP、SQL Server Express，和 Microsoft Drivers for SQL Server for PHP。
 
 您將了解：
 
@@ -33,7 +34,7 @@
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ##建立 Azure Web 應用程式並設定 Git 發行功能
 
@@ -244,12 +245,14 @@
 	$pwd = "<your password>";
 	$db = "<value of SQL Database>";
 
-> [AZURE.NOTE]在 <code>$host</code> 中，伺服器的值的前面必須加上 <code>tcp:</code>。
+> [AZURE.NOTE]
+在 <code>$host</code> 中，伺服器的值的前面必須加上 <code>tcp:</code>。
 
 
 現在，您可以準備設定 Git 發行，並發行應用程式。
 
-> [AZURE.NOTE]這些步驟與前述＜建立 Azure Web 應用程式並設定 Git 發行功能＞一節中最後面的步驟相同。
+> [AZURE.NOTE]
+這些步驟與前述＜建立 Azure Web 應用程式並設定 Git 發行功能＞一節中最後面的步驟相同。
 
 
 1. 開啟 GitBash (如果 Git 位於您的 `PATH`，則為終端機)，將目錄變更為應用程式的根目錄 (**registration** 目錄)，並執行下列命令：
@@ -295,4 +298,4 @@
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

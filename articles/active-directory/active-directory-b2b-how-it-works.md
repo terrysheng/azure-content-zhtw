@@ -2,6 +2,7 @@
    pageTitle="Azure AD B2B 共同作業預覽：運作方式 | Microsoft Azure"
    description="描述 Azure Active Directory B2B 共同作業如何讓企業合作夥伴選擇性地存取您的公司應用程式，以支援公司間的關係"
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -41,5 +42,6 @@ Azure AD B2B 共同作業是根據邀請和兌換模型。您提供您想要合�
  - [外部使用者權杖格式](active-directory-b2b-references-external-user-token-format.md)
  - [外部使用者物件屬性變更](active-directory-b2b-references-external-user-object-attribute-changes.md)
  - [目前的預覽版本限制](active-directory-b2b-current-preview-limitations.md)
+ - [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -22,7 +22,7 @@
 ## EventSource 事件
 具狀態 Reliable Services 之 StatefulServiceBase 類別的 EventSource 名稱是 "Microsoft-ServiceFabric-Services"。當服務[在 Visual Studio 中偵錯](service-fabric-debugging-your-application.md)時，此事件來源的事件會出現在[診斷事件](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio)視窗中。
 
-可協助您收集和/或檢視 EventSource 事件之工具和技術的範例包括 [PerfView](http://www.microsoft.com/download/details.aspx?id=28567)、[Microsoft Azure 診斷](../cloud-services-dotnet-diagnostics.md)和 [Microsoft TraceEvent 程式庫](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)。
+可協助您收集和/或檢視 EventSource 事件之工具和技術的範例包括 [PerfView](http://www.microsoft.com/download/details.aspx?id=28567)、[Microsoft Azure 診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)和 [Microsoft TraceEvent 程式庫](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)。
 
 ## 事件
 
@@ -44,4 +44,4 @@ StatefulRunAsyncInvocation、StatefulRunAsyncCompletion，和 StatefulRunAsyncCa
 
 只要 RunAsync 工作的取消要求所花費的時間超過四秒，就會發出 StatefulRunAsyncSlowCancellation。當服務完成取消所花費的時間太久，它會影響服務快速在另一個節點上重新啟動的能力。這可能會影響服務的整體可用性。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

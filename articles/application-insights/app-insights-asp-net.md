@@ -114,7 +114,7 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
 按一下任何圖表以查看詳細度量。[深入了解度量。][perf]
 
-* *沒有使用者或頁面資料嗎？* - [新增使用者和頁面資料](app-insights-asp-net-client.md)
+* *沒有使用者或頁面資料嗎？* - [新增使用者和頁面資料](app-insights-web-track-usage.md)
 
 ### 搜尋：個別事件
 
@@ -146,7 +146,7 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
 #### 組建伺服器發生問題？
 
-參閱[此疑難排解項目](app-insights-troubleshoot-faq.md#NuGetBuild)。
+參閱[此疑難排解項目](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild)。
 
 > [AZURE.NOTE] 如果您的應用程式會產生大量遙測 (且您使用的是 ASP.NET SDK 版本 2.0.0-beta3 或較新)，調適性取樣模型會自動藉由僅傳送事件代表性片段，以減少傳送到入口網站的量。不過，與同一個要求相關的事件會選取或取消選取為群組，讓您可以在相關事件之間瀏覽。[了解取樣](app-insights-sampling.md)。
 
@@ -169,7 +169,7 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
 ## 後續步驟
 
-- [使用者和頁面資料](../article/application-insights/app-insights-asp-net-client.md#selector1)
+- [使用者和頁面資料](../article/application-insights/app-insights-javascript.md#selector1)
 - [例外狀況](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
 - [相依項目](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
@@ -212,4 +212,4 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

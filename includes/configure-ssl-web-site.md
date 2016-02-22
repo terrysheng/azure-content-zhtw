@@ -392,21 +392,19 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 
 > [AZURE.NOTE] 在將應用程式從「免費」層切換至「標準」層之前，您應該先移除訂用帳戶的支出費用上限，以免帳單期間還未結束，應用程式就因為已達支出費用上限而變得無法使用。如需共用與「標準」層的詳細資訊，請參閱[定價詳細資料][pricing]。
 
-1.	在瀏覽器中，開啟 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)。
+1.	在瀏覽器中，開啟 [Azure 入口網站](https://portal.azure.com)。
 	
-2.	按一下頁面左側的 [**瀏覽**] 選項。
-
-3.	按一下 [**Web Apps**] 刀鋒視窗。
+2.	按一下頁面左側的 [App Service] 選項。
 
 4.	按一下應用程式的名稱。
 
 5.	在 [**基本功能**] 頁面中，按一下 [**設定**]。
 
-6.	按一下 [級別]。
+6.	按一下 [相應增加]。
 	
 	![調整索引標籤][scale]
 
-7.	在 [級別] 區段中，按一下 [選取] 以設定 App Service 計劃模式。
+7.	在 [相應增加] 區段中，按一下 [選取] 以設定 App Service 方案模式。
 
 	> [AZURE.NOTE] 如果發生「設定 Web 應用程式 '&lt;應用程式名稱&gt;' 的規模失敗」錯誤，您可以利用詳細資料按鈕來取得詳細資訊。您可能會收到 [可用標準執行個體伺服器不足，無法滿足此要求] 錯誤。如果您收到此錯誤，請連絡 [Azure 支援](/support/options/)。
 
@@ -415,11 +413,9 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 
 在執行本節中的步驟之前，您必須先建立自訂網域名稱與應用程式的關聯。如需詳細資訊，請參閱[設定 Web 應用程式的自訂網域名稱][customdomain]。
 
-1.	在瀏覽器中開啟 [Azure 管理入口網站](https://portal.azure.com)。
+1.	在瀏覽器中，開啟 [Azure 入口網站](https://portal.azure.com)。
 
-2.	按一下頁面左側的 [**瀏覽**] 選項。
-
-3.	按一下 [**Web Apps**] 刀鋒視窗。
+2.	按一下頁面左側的 [App Service] 選項。
 
 4.	按一下應用程式的名稱。
 
@@ -456,12 +452,12 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 > 2. 使用網域名稱註冊機構所提供的工具，修改自訂網域名稱的 A 記錄，使其指向上一個步驟的 IP 位址。
 
 
-現在，您應該可以使用 `HTTPS://` 而非 `HTTP://` 造訪您的應用程式，確認憑證已正確設定。
+此時您應該可以使用 `HTTPS://` (而非 `HTTP://`) 來造訪您的應用程式，以確認憑證設定正確。
 
 <a name="bkmk_enforce"></a>
 ## 4\.在應用程式上強制使用 HTTPS
 
-Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTTP 存取您的應用程式，而這可能會危及應用程式的安全性。如果想要強制您的應用程式使用 HTTPS，則可使用 **URL Rewrite** 模組。Azure App Service 隨附 URL Rewrite 模組，此模組可讓您定義連入要求在送達應用程式之前要套用的規則。**它可用於以任何 Azure 支援的程式設計語言所撰寫的應用程式。**
+Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTTP 存取您的應用程式，而這可能會危及應用程式的安全性。如果想要強制您的應用程式使用 HTTPS，您可以使用 **URL Rewrite** 模組。Azure App Service 隨附 URL Rewrite 模組，此模組可讓您定義連入要求在送達應用程式之前要套用的規則。**它可用於以任何 Azure 支援的程式設計語言所撰寫的應用程式。**
 
 > [AZURE.NOTE] .NET MVC 應用程式應使用 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 篩選，而非 URL Rewrite。如需使用 RequireHttps 的詳細資訊，請參閱[將安全的 ASP.NET MVC 5 應用程式部署至 Web 應用程式](../articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)。
 >
@@ -500,7 +496,7 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 
 ###PHP
 
-若是 PHP 應用程式，只需將[範例](#example)另存新檔為應用程式根目錄中的 web.config 檔案，然後將應用程式重新部署至您的應用程式即可。
+若是 PHP 應用程式，只需將[範例](#example)儲存為應用程式根目錄中的 web.config 檔案，然後將應用程式重新部署至您的應用程式即可。
 
 ###Node.js、Python Django 和 Java
 
@@ -516,7 +512,7 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 
 	* **Node.js 和 Python Django**
 
-		為 Node.js 和 Python Django 應用程式產生的 web.config 檔案已包含 **&lt;rewrite>** 區段，其中會包含應用程式正常運作所需的 **&lt;rule>** 項目。若要強制應用程式使用 HTTPS，請將範例中的 **&lt;rule>** 新增為 **&lt;rules>** 區段中的第一個項目。這會在保留其他規則不變的情況下強制使用 HTTPS。
+		為 Node.js 和 Python Django 應用程式產生的 web.config 檔案將已經包含 **&lt;rewrite>** 區段，其中會包含應用程式正常運作所需的 **&lt;rule>** 項目。若要強制應用程式使用 HTTPS，請將範例中的 **&lt;rule>** 新增為 **&lt;rules>** 區段中的第一個項目。這會在保留其他規則不變的情況下強制使用 HTTPS。
 
 	* **Java**
 
@@ -535,7 +531,7 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 - [在 Azure App Service 中設定 Web 應用程式](../articles/app-service-web/web-sites-configure.md)
 - [Azure 管理入口網站](https://manage.windowsazure.com)
 
->[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期的入門應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想要在註冊 Azure 帳戶前便開始使用 Azure App Service，只要移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期的入門應用程式。不需要信用卡；沒有承諾。
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -565,4 +561,4 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

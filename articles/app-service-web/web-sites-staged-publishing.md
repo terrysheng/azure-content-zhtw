@@ -49,7 +49,8 @@ Web 應用程式必須在 [標準] 或 [高階] 模式中執行，您才能啟�
 
 	![新增部署位置][QGAddNewDeploymentSlot]
 
-	> [AZURE.NOTE]如果 Web 應用程式尚未處於 [標準] 或 [高階] 模式，您將會收到訊息，指出支援啟用預備發行的模式。此時，您可以選取 [升級]，並瀏覽至 Web 應用程式的 [級別] 索引標籤後再繼續。
+	> [AZURE.NOTE]
+	如果 Web 應用程式尚未處於 [標準] 或 [高階] 模式，您將會收到訊息，指出支援啟用預備發行的模式。此時，您可以選取 [升級]，並瀏覽至 Web 應用程式的 [級別] 索引標籤後再繼續。
 
 2. 在 [新增位置] 刀鋒視窗中，指定位置名稱，然後選取是否要複製其他現有部署位置的 Web 應用程式設定。按一下打勾記號繼續。
 
@@ -97,7 +98,7 @@ Web 應用程式必須在 [標準] 或 [高階] 模式中執行，您才能啟�
 <a name="Swap"></a>
 ## 交換部署位置 ##
 
->[AZURE.IMPORTANT]在您將 Web 應用程式從部署位置交換到生產位置之前，請確定所有非位置特定的設定已完全依照您想要在交換目標中擁有它的方式明確地加以設定。
+>[AZURE.IMPORTANT] 在您將 Web 應用程式從部署位置交換到生產位置之前，請確定所有非位置特定的設定已完全依照您想要在交換目標中擁有它的方式明確地加以設定。
 
 1. 若要交換部署位置，可按一下 Web 應用程式命令列或部署位置命令列中的 [交換] 按鈕。請確定交換來源和交換目標都已正確設定。交換目標通常是生產位置。  
 
@@ -109,7 +110,7 @@ Web 應用程式必須在 [標準] 或 [高階] 模式中執行，您才能啟�
 
 自動交換會簡化 DevOps 案例，在此案例中，您希望為該 Web 應用程式的客戶在不需冷啟動和不需關機的情況下連續部署您的 Web 應用程式。當部署位置已設為自動交換至生產位置時，每當您將程式碼更新推送至該位置時，App Service 就會在其已於該位置上做好準備之後，自動將該 Web 應用程式交換至生產位置。
 
->[AZURE.IMPORTANT]當您為某個位置啟用自動交換時，請確定位置設定會與適用於目標位置 (通常是生產位置) 的設定完全相同。
+>[AZURE.IMPORTANT] 當您為某個位置啟用自動交換時，請確定位置設定會與適用於目標位置 (通常是生產位置) 的設定完全相同。
 
 為位置設定自動交換很容易。請依照下列步驟執行：
 
@@ -123,7 +124,7 @@ Web 應用程式必須在 [標準] 或 [高階] 模式中執行，您才能啟�
 
 	![][Autoswap2]
 
-	>[AZURE.NOTE]若要針對您的 Web 應用程式測試自動交換，可在 [自動交換位置] 中選取非生產的目標位置，以便先熟悉這個功能。
+	>[AZURE.NOTE] 若要針對您的 Web 應用程式測試自動交換，可在 [自動交換位置] 中選取非生產的目標位置，以便先熟悉這個功能。
 
 3. 執行程式碼推送至該部署位置。自動交換不久之後就會發生，而更新將反映於目標位置的 URL 上。
 
@@ -134,7 +135,18 @@ Web 應用程式必須在 [標準] 或 [高階] 模式中執行，您才能啟�
 
 <a name="Rollback"></a>
 ## 交換之後回復生產應用程式 ##
+
 若交換位置後，在生產位置中識別出錯誤，可以立即交換相同的兩個位置，將位置還原成交換前的狀態。
+
+<a name="Warm-up"></a>
+## 交換前的自訂準備 ##
+
+某些應用程式可能需要自訂的準備動作。web.config 中的 applicationInitialization 組態項目可讓您指定收到要求之前要執行的自訂初始化動作。必須等候此自訂準備完成，才會進行交換作業。以下是範例 web.config 片段。
+
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[web app hostname]" />
+        <add initializationPage="/Home/About" hostname="[web app hostname]" />
+    </applicationInitialization>
 
 <a name="Delete"></a>
 ## 刪除部署位置##
@@ -150,7 +162,7 @@ Web 應用程式必須在 [標準] 或 [高階] 模式中執行，您才能啟�
 
 Azure PowerShell 模組提供透過 Windows PowerShell 來管理 Azure 的 Cmdlet，包括支援管理 Azure App Service 中的 Web 應用程式部署位置。
 
-- 如需安裝與設定 Azure PowerShell，以及使用您的 Azure 訂用帳戶驗證 Azure PowerShell 的詳細資訊，請參閱[如何安裝和設定 Microsoft Azure PowerShell](../install-configure-powershell.md) (英文)。  
+- 如需安裝與設定 Azure PowerShell，以及使用您的 Azure 訂用帳戶驗證 Azure PowerShell 的詳細資訊，請參閱[如何安裝和設定 Microsoft Azure PowerShell](../powershell-install-configure.md) (英文)。  
 
 - 若要使用適用於 PowerShell Cmdlet 之新的 Azure 資源管理員模式，開頭需如下所示：`Switch-AzureMode -Name AzureResourceManager`。
 
@@ -233,7 +245,7 @@ Azure CLI 提供跨平台命令供您處理 Azure，包括支援管理 Web 應�
 
 ----------
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 後續步驟 ##
 [Azure App Service Web 應用程式 - 封鎖對非生產部署位置的 Web 存取](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
@@ -259,4 +271,4 @@ Azure CLI 提供跨平台命令供您處理 Azure，包括支援管理 Web 應�
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

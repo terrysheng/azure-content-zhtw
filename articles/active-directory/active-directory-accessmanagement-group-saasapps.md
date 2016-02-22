@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -37,14 +37,19 @@
 4. 您也可以直接或透過群組中的成員資格，查看哪些使用者指派給應用程式。若要這樣做，請將 **[顯示下拉式清單] 從 [群組]** 變更為 [**所有使用者**]。此清單會顯示目錄中的使用者，以及每個使用者是否指派給應用程式。此清單也會顯示獲指派的使用者是直接 (指派類型顯示為 [直接])，還是透過群組成員資格 (指派類型顯示為 [繼承]) 指派給應用程式。
 
 
-> [AZURE.NOTE]只有在啟用 Azure AD Premium 或 Azure AD Basic 之後，您才會看到 [使用者和群組] 索引標籤。
+> [AZURE.NOTE]
+只有在啟用 Azure AD Premium 或 Azure AD Basic 之後，您才會看到 [使用者和群組] 索引標籤。
+
+##相關文章
 
 這些文章提供有關 Azure Active Directory 的其他資訊。
 
 * [使用 Azure Active Directory 群組管理資源的存取權](active-directory-manage-groups.md)
 
+* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+
 * [什麼是 Azure Active Directory？](active-directory-whatis.md)
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

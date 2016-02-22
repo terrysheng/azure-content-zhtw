@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
+	ms.date="02/09/2016"
 	ms.author="bwren" />
 
 # 在 Azure 自動化中建立或匯入 Runbook
@@ -131,4 +131,4 @@
 - [在 Azure 自動化中編輯文字式 Runbook](automation-edit-textual-runbook.md)
 - [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

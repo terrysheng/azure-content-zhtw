@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Azure 隨選媒體編碼器的概觀和比較
@@ -33,9 +33,9 @@ Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 
 媒體服務支援本文中所描述的下列隨選編碼器：
 
-- **Media Encoder Standard**
-- **Azure 媒體編碼器**
-- **Media Encoder Premium 工作流程**
+- [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
+- [Azure Media Encoder](media-services-encode-asset.md#azure-media-encoder)
+- [Media Encoder Premium 工作流程](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 本文概略敘述隨選媒體編碼器，並提供文章連結以提供更詳細資訊。本主題也提供各種編碼器的比較。
 
@@ -74,15 +74,15 @@ Media Encoder Standard 使用[這裡](http://go.microsoft.com/fwlink/?linkid=618
 
 ###產生縮圖
 
-如需相關資訊，請參閱[如何使用 Media Encoder Standard 產生縮圖](media-services-custom-mes-presets-with-dotnet.md#thumbnails)。
+如需相關資訊，請參閱[如何使用媒體編碼器標準產生縮圖](media-services-custom-mes-presets-with-dotnet.md#thumbnails)。
 
 ###修剪視訊 (裁剪)
 
-如需相關資訊，請參閱[如何使用 Media Encoder Standard 修剪視訊](media-services-custom-mes-presets-with-dotnet.md#trim_video)。
+如需相關資訊，請參閱[如何使用媒體編碼器標準修剪視訊](media-services-custom-mes-presets-with-dotnet.md#trim_video)。
 
 ###建立疊加層
 
-如需相關資訊，請參閱[如何使用 Media Encoder Standard 建立疊加層](media-services-custom-mes-presets-with-dotnet.md#overlay)。
+如需相關資訊，請參閱[如何使用媒體編碼器標準建立疊加層](media-services-custom-mes-presets-with-dotnet.md#overlay)。
 
 ###另請參閱
 
@@ -140,6 +140,11 @@ Media Encoder Premium Workflow 使用複雜的工作流程設定。您可以使�
 
 [如何使用 Azure 媒體服務中的 Premium 編碼](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
+###已知問題
+
+如果您的輸入視訊不包含隱藏式字幕，輸出資產仍然會包含空白 TTML 檔案。
+
+
 ##<a id="compare_encoders"></a>比較編碼器
 
 ###<a id="billing"></a>每個編碼器所使用的計費計量表
@@ -151,7 +156,7 @@ Media Encoder Premium Workflow 使用複雜的工作流程設定。您可以使�
 **Media Encoder Premium 工作流程** |PREMIUM ENCODER|在 PREMIUM ENCODER 資料行之下，編碼工作會以[這裡][1]指定的費率，根據輸出資產的大小 (以 GB 為單位) 收費。
 
 
-本節比較 **Media Encoder Standard**、**Azure 媒體編碼器**以及**媒體編碼器高階工作流程**的編碼功能。
+本節比較 **媒體編碼器標準**、**Azure 媒體編碼器**以及**媒體編碼器高階工作流程**的編碼功能。
 
 
 ###輸入容器/檔案格式
@@ -259,7 +264,7 @@ ErrorDetail.Code|導致發生錯誤的可能原因
 不明| 執行工作時發生不明錯誤
 ErrorDownloadingInputAssetMalformedContent|涵蓋下載輸入資產中之錯誤 (例如無效的檔案名稱、長度為零檔案、錯誤格式等等) 的錯誤類別。
 ErrorDownloadingInputAssetServiceFailure|涵蓋服務端問題 (例如下載時發生網路或儲存體錯誤) 的錯誤類別。
-ErrorParsingConfiguration|工作 <see cref="MediaTask.PrivateData"/> (組態) 無效時的錯誤類別，例如組態不是有效的系統預設或包含無效的 XML。
+ErrorParsingConfiguration|工作 <see cref="MediaTask.PrivateData"/> (組態) 無效時的錯誤類別，例如組態不是有效的系統預設值或包含無效的 XML。
 ErrorExecutingTaskMalformedContent|在工作執行期間因輸入媒體檔案內部問題導致失敗的錯誤類別。
 ErrorExecutingTaskUnsupportedFormat|媒體處理器無法處理提供之檔案 (不支援的媒體格式或與組態不符) 的錯誤類別。例如，嘗試從只有影片的資產產生只含音訊的輸出
 ErrorProcessingTask|媒體處理器在處理和內容不相關的工作時發生的其他錯誤類別。
@@ -290,4 +295,4 @@ TransientError|涵蓋暫時性問題 (例如 Azure 儲存體暫時性網路問�
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

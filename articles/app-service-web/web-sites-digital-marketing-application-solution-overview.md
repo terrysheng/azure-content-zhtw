@@ -19,13 +19,14 @@
 # 在 Azure App Service Web Apps 上建立數位行銷活動
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps 是數位行銷活動的絕佳選擇。數位行銷活動通常只有短暫週期，目的是推廣短期的行銷目標。有兩個需要考量的主要案例。在第一個案例中，協力廠商行銷公司在促銷期間為其客戶建立及管理行銷活動。第二個案例則涉及行銷公司建立數位行銷活動資源擁有權，然後將該擁有權轉移給其客戶。客戶再接著自行執行和管理數位行銷活動。這是這兩種案例的絕佳解決方案。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
-以下是使用 Azure 應用程式服務 Web 應用程式進行全域、多管道之數位行銷活動的範例。此範例示範不需要使用複雜的技術，只要組合應用程式服務 Web 應用程式和其他服務便能完成的工作。**按一下拓樸中的項目以讀取詳細資訊**。
+以下是使用 Azure 應用程式服務 Web 應用程式進行全域、多管道之數位行銷活動的範例。此範例示範不需要使用複雜的技術，只要組合應用程式服務 Web 應用程式和其他服務便能完成的工作。**按一下拓樸中的項目以讀取詳細資訊。**
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]本指南說明在 Azure 應用程式服務 Web 應用程式中執行數位行銷活動最常見的區域和工作。不過，還有其他可在應用程式服務 Web 應用程式中實作的常見解決方案。若要檢閱這些解決方案，請參閱關於[全域網站空間](web-sites-global-web-presence-solution-overview.md)和[商務應用程式](web-sites-business-application-solution-overview.md)上的其他指南。
+> [AZURE.NOTE]
+本指南說明在 Azure 應用程式服務 Web 應用程式中執行數位行銷活動最常見的區域和工作。不過，還有其他可在應用程式服務 Web 應用程式中實作的常見解決方案。若要檢閱這些解決方案，請參閱關於[全域網站空間](web-sites-global-web-presence-solution-overview.md)和[商務應用程式](web-sites-business-application-solution-overview.md)上的其他指南。
 
 ## 從頭開始建立或沿用現有資產
 
@@ -88,7 +89,7 @@ App Service Web Apps [相應增加和放大]的能力非常適合無法預期的
 ## 其他資源
 
 - [App Service Web Apps 文件](/services/app-service/web/)
-- [Azure App Service Web Apps 的學習規劃](websites-learning-map.md)
+- [Azure App Service Web Apps 的學習規劃](/documentation/learning-paths/appservice-webapps/)
 - [Azure Web 部落格](/blog/topics/web/)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
@@ -138,4 +139,4 @@ App Service Web Apps [相應增加和放大]的能力非常適合無法預期的
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,23 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 # 開發 HDInsight 的指令碼動作指令碼
 
-了解如何寫入 HDInsight 的指令碼動作指令碼如需使用指令碼動作指令碼的資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。如需在 Linux 作業系統為 HDInsight 叢集撰寫的相同文章，請參閱 [HDInsight 的開發指令碼動作指令碼](hdinsight-hadoop-script-actions-linux.md)。
+了解如何寫入 HDInsight 的指令碼動作指令碼如需使用指令碼動作指令碼的資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。如需針對 Linux 型 HDInsight 叢集撰寫的相同文章，請參閱 [開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions-linux.md)。
 
 指令碼動作可用來安裝其他在 Hadoop 叢集上執行的軟體，或變更叢集上所安裝應用程式的組態。指令碼動作是在部署 HDInsight 叢集時，在叢集節點上執行的指令碼，一旦叢集中的節點完成 HDInsight 組態之後，就會執行這些指令碼動作。指令碼動作是依據系統管理員帳戶的權限來執行，並具有叢集節點的完整存取權限。您可對每個叢集提供一份依其指定順序來執行的指令碼動作清單。
 
-> [AZURE.NOTE]如果看見下列錯誤訊息：
+> [AZURE.NOTE] 如果看見下列錯誤訊息：
 > 
 >     System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 > 這是因為您沒有包括協助程式方法。請參閱[自訂指令碼的協助程式方法](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts)。
 
 ## 範例指令碼
 
-對於在 Windows 作業系統上佈建 HDInsight 叢集，指令碼動作是 Azure PowerShell 指令碼。以下是設定網站組態檔的範例指令碼：
+針對在 Windows 作業系統上建立 HDInsight 叢集，指令碼動作是 Azure PowerShell 指令碼。以下是設定網站組態檔的範例指令碼：
 
 	param (
 	    [parameter(Mandatory)][string] $ConfigFileName,
@@ -94,7 +94,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
 您可以從 Azure 入口網站、Azure PowerShell 或使用 HDInsight .NET SDK 來部署「指令碼動作」。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]。
 
-> [AZURE.NOTE]範例指令碼只能與 HDInsight 叢集版本 3.1 或更高版本搭配使用。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](../hdinsight-component-versioning/)。
+> [AZURE.NOTE] 範例指令碼只能與 HDInsight 叢集版本 3.1 或更高版本搭配使用。如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](../hdinsight-component-versioning/)。
 
 
 
@@ -155,7 +155,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
 - 提供穩定的指令碼資源連結
 
-	使用者應該確定在叢集的整個存留期間，於叢集自訂中使用的所有指令碼及其他成品都保持可用，並且這些檔案的版本在此持續時間內不會變更。如需為叢集中的節點重新製作映像，就必須有這些資源。最佳做法是下載並封存使用者所控制之儲存體帳戶中的所有項目。這可以是預設的儲存體帳戶，或是在部署時為自訂叢集指定的任何其他儲存體帳戶。例如，在文件中所提供的 Spark 和 R 自訂叢集範例中，我們已經在本機複製一份此儲存體帳戶中的資源：https://hdiconfigactions.blob.core.windows.net/
+	使用者應該確定在叢集的整個存留期間，於叢集自訂中使用的所有指令碼及其他成品都保持可用，並且這些檔案的版本在此持續時間內不會變更。如需為叢集中的節點重新製作映像，就必須有這些資源。最佳做法是下載並封存使用者所控制之儲存體帳戶中的所有項目。這可以是預設的儲存體帳戶，或是在部署時為自訂叢集指定的任何其他儲存體帳戶。例如，在文件中所提供的 Spark 和 R 自訂叢集範例中，我們已經在本機複製一份此儲存體帳戶中的資源：https://hdiconfigactions.blob.core.windows.net/。
 
 
 - 確保叢集自訂指令碼具有等冪性
@@ -213,7 +213,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
 ### 對於失敗的叢集部署擲回例外狀況
 
-如果您想要在叢集自訂程序未如預料般成功時準確收到通知，請務必擲回例外狀況並將叢集佈建作業判定為失敗。例如，您可能會想要在檔案存在時予以進行處理，並處理檔案不存在時的錯誤狀況。此做法可確保指令碼正常結束，並正確得知叢集的狀態。下列程式碼片段示範如何實現此一目的：
+如果您想要在叢集自訂程序未如預料般成功時準確收到通知，請務必擲回例外狀況並將叢集建立作業判定為失敗。例如，您可能會想要在檔案存在時予以進行處理，並處理檔案不存在時的錯誤狀況。此做法可確保指令碼正常結束，並正確得知叢集的狀態。下列程式碼片段示範如何實現此一目的：
 
 	If(Test-Path($SomePath)) {
 		#Process file in some way
@@ -351,4 +351,4 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

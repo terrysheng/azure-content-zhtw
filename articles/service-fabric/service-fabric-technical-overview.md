@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/25/2015"
+   ms.date="02/09/2016"
    ms.author="mfussell"/>
 
 # Service Fabric 技術概觀
@@ -53,4 +53,4 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆建置可擴充�
 - [應用程式模型](service-fabric-application-model.md)
 - [應用程式案例](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -34,7 +34,7 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 * [Azure WebJobs 太酷了，趕快使用，不要猶豫！](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (取自 Troy Hunt 的部落格文章，英文。)
 * [Azure WebJobs 功能 (英文)](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [什麼是 Azure WebJobs SDK (英文)](websites-dotnet-webjobs-sdk.md)
-* [Microsoft Patterns and Practices 提供的背景工作指引 (英文)](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
+* [Microsoft Patterns and Practices 提供的背景工作指引 (英文)](/documentation/articles/best-practices-background-jobs/)
 * [宣佈推出 Microsoft Azure WebJobs SDK 的 1.1.0 RTM](/blog/azure-webjobs-sdk-1-1-0-rtm/) (英文)
 * [開始使用 Azure WebJobs SDK (英文)](websites-dotnet-webjobs-sdk-get-started.md)
 * [如何透過 WebJobs SDK 使用 Azure 佇列儲存體 (英文)](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
@@ -139,4 +139,4 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 * [Twitter](http://twitter.com/)。使用雜湊標記 #AzureWebJobs。
 * [報告 WebJobs 錯誤或問題](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

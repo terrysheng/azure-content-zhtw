@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Azure AD 和應用程式：引導開發人員
@@ -77,4 +77,8 @@
 
 如需 Azure 中的使用者同意和同意體驗的詳細資訊，請參閱[整合應用程式與 Azure Active Directory](active-directory-integrating-applications.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+##相關文章
+
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

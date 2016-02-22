@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/18/2015"
+	ms.date="02/08/2016"
 	ms.author="hangzh;bradsev" />
 
 
@@ -455,7 +455,7 @@ NYC 計程車資料集中的 medallion 會識別唯一的計程車。我們可�
 對於[預測工作的範例](machine-learning-data-science-process-hive-walkthrough.md#mltasks)一節中所述的二元分類問題而言，了解是否已指定小費會很有幫助。小費是二元分佈：
 
 * 指定小費 (類別 1，tip\_amount > 美金 $0 元)  
-* 沒有小費 (類別 0、 tip_amount = 美金 $0 元)。
+* 沒有小費 (類別 0、 tip\_amount = 美金 $0 元)。
 
 以下顯示的 *Sample\_hive\_tipped\_frequencies.hql* 檔案會執行這項作業。
 
@@ -794,9 +794,9 @@ b.對於迴歸問題，我們會藉由查看預測中的平方誤差、決定係
 
 ## 參考
 
-• 	[Andrés Monroy NYC 計程車車程下載頁面](http://www.andresmh.com/nyctaxitrips/) (Andrés Monroy NYC Taxi Trips Download Page) 
-• 	[FOIL NYC 的計程車車程資料 (作者為 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/) (FOILing NYC’s Taxi Trip Data by Chris Whong) 
-• 	[NYC 計程車和禮車委託研究和統計資料](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml) (NYC Taxi and Limousine Commission Research and Statistics)
+•	[Andrés Monroy NYC 計程車車程下載頁面](http://www.andresmh.com/nyctaxitrips/) (Andrés Monroy NYC Taxi Trips Download Page)  
+•	[FOIL NYC 的計程車車程資料 (作者為 Chris Whong)](http://chriswhong.com/open-data/foil_nyc_taxi/) (FOILing NYC’s Taxi Trip Data by Chris Whong)   
+•	[NYC 計程車和禮車委託研究和統計資料](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml) (NYC Taxi and Limousine Commission Research and Statistics)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +810,4 @@ b.對於迴歸問題，我們會藉由查看預測中的平方誤差、決定係
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

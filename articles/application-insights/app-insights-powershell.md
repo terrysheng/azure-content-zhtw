@@ -19,7 +19,7 @@
 
 本文說明如何在 Azure 自動建立 [Application Insights](app-insights-overview.md) 資源。例如，您可能建置程序中這麼做。除了基本的 Application Insights 資源外，您可以建立[可用性 Web 測試](app-insights-monitor-web-app-availability.md)、[設定警示](app-insights-alerts.md)和建立其他 Azure 資源。
 
-建立這些資源的關鍵是 [Azure 資源管理員](powershell-azure-resource-manager.md)適用的 JSON 範本。簡單地說，此程序是：下載現有資源的 JSON 定義；參數化某些值 (例如名稱)；然後每當您想建立新的資源時再執行範本。您可以一起封裝幾項資源一次全部建立，例如一個包含可用性測試、警示和連續匯出儲存體的應用程式監視器。部分參數化有一些微妙之處，我們會在這裡說明。
+建立這些資源的關鍵是 [Azure 資源管理員](../powershell-azure-resource-manager.md)適用的 JSON 範本。簡單地說，此程序是：下載現有資源的 JSON 定義；參數化某些值 (例如名稱)；然後每當您想建立新的資源時再執行範本。您可以一起封裝幾項資源一次全部建立，例如一個包含可用性測試、警示和連續匯出儲存體的應用程式監視器。部分參數化有一些微妙之處，我們會在這裡說明。
 
 ## 單次設定
 
@@ -100,7 +100,7 @@
 
 ## 參數化範本
 
-現在您必須以參數取代特定的名稱。若要[參數化範本](resource-group-authoring-templates.md)，您要使用[一組協助程式函式](resource-group-template-functions.md)撰寫表示式。
+現在您必須以參數取代特定的名稱。若要[參數化範本](../resource-group-authoring-templates.md)，您要使用[一組協助程式函式](../resource-group-template-functions.md)撰寫表示式。
 
 您無法將參數化字串的一部分，因此請使用 `concat()` 建置字串。
 
@@ -311,4 +311,13 @@ Azure 應以嚴格的順序設定資源。為確保一項設定完成後再開�
 
 ```
 
-<!---HONumber=AcomDC_0128_2016-->
+## 另請參閱
+
+其他自動化文件：
+
+* [建立 Application Insights 資源](app-insights-powershell-script-create-resource.md) - 快速方法 (不使用範本)
+* [設定警示](app-insights-powershell-alerts.md)
+* [將 Azure 診斷傳送至 Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [建立版本附註](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+
+<!---HONumber=AcomDC_0211_2016-->

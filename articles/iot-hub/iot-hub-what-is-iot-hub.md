@@ -81,7 +81,7 @@ Azure IoT 中樞會在實作[服務輔助通訊][lnk-service-assisted-pattern]�
 
 - 安全性的優先順序高於所有其他功能。
 - 裝置不會接受未經要求的網路資訊。裝置會以僅限輸出方式建立所有連接和路由。若要讓裝置從後端接收命令，裝置必須定期初始連接以檢查有沒有任何暫止的命令要處理。
-- 裝置只應連接至或建立路由至與它們對等的知名服務，例如 IoT 中樞。
+- 裝置應該只連接至或是建立路由至與它們對等的已知服務 (例如 IoT 中樞)。
 - 裝置和服務之間或裝置和閘道器之間的通訊路徑會在應用程式通訊協定層受到保護。
 - 系統層級的授權和驗證是以每個裝置的身分識別為基礎。可讓存取認證和權限能近乎即時撤銷。
 - 對於因為電源或連線能力而導致連線不穩定的裝置而言，可透過保留命令和通知直到裝置連線並接收它們，進而促進其雙向通訊。IoT 中樞會為傳送的命令維護裝置特定的佇列。
@@ -112,4 +112,4 @@ Azure IoT 中樞會在實作[服務輔助通訊][lnk-service-assisted-pattern]�
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

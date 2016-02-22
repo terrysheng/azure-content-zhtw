@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/05/2016"
 	ms.author="larryfr"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 R
 
 您可以使用**指令碼動作**叢集自訂，在 HDInsight 上 Hadoop 中的任何一種叢集上安裝 R。這可讓資料科學家和分析師使用 R 來部署強大的 MapReduce/YARN 程式設計架構，以處理部署在 HDInsight 中之 Hadoop 叢集上的大量資料。
 
-> [AZURE.NOTE]此文件中的步驟需要以 Linux 為基礎的 HDInsight 叢集。如需搭配以 Windows 為基礎的叢集使用 R 的詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝和使用 R (Windows)](hdinsight-hadoop-r-scripts.md)。
+> [AZURE.NOTE] 此文件中的步驟需要以 Linux 為基礎的 HDInsight 叢集。如需搭配以 Windows 為基礎的叢集使用 R 的詳細資訊，請參閱[在 HDInsight Hadoop 叢集上安裝和使用 R (Windows)](hdinsight-hadoop-r-scripts.md)。
 
 ## 什麼是 R？
 
@@ -60,9 +60,9 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 
 [https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh) 指令碼動作是用來在 HDInsight 叢集上安裝 R。本節提供有關如何在使用 Azure 入口網站佈建叢集時使用指令碼的指示。
 
-> [AZURE.NOTE]您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+> [AZURE.NOTE] 您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-1. 使用[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md#portal)中的步驟開始佈建叢集，但是不要完成佈建。
+1. 使用[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md#portal)中的步驟開始佈建叢集，但是不完成佈建。
 
 2. 在 [選用組態] 刀鋒視窗中，選取 [指令碼動作]，並提供下列資訊：
 
@@ -100,7 +100,6 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 		library(rmr2)
 		ints = to.dfs(1:100)
 		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
-
 
 	第一行會呼叫 RHadoop 程式庫 rmr2，用於 MapReduce 作業。
 
@@ -147,4 +146,4 @@ R 指令碼可以在 HDInsight 中的 Hadoop 叢集上執行，這些叢集是�
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

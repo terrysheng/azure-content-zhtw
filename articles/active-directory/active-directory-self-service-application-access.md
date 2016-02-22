@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser"/>
 
 #Azure Active Directory 的自助式應用程式存取和委派管理
@@ -101,9 +101,12 @@
 
 * **使用者使用我管理的單一帳戶自動登入** -這是特殊案例，適用於當所有指派的使用者必須獲得使用單一共用帳戶的權限時。此選項的最常見使用案例就是社交媒體應用程式，案例中的組織有單一「公司」帳戶，而多個使用者必須對該帳戶進行更新。這也對應於[系統管理員管理認證](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)的密碼 SSO 案例。不過，選取此選項之後，系統會提示核准者輸入單一共用帳戶的使用者名稱和密碼。完成後，所有指派的使用者會在按一下 Azure AD 存取面板或 Office 365 中的應用程式時，使用此帳戶登入。
 
+##其他資源
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+
 <!--Image references-->
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

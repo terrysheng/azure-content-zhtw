@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #使用 Curl 搭配執行 MapReduce 工作與 HDInsight 上的 Hadoop
@@ -25,7 +25,7 @@
 
 Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 MapReduce 工作。要想執行這些作業，就要使用 HDInsight 叢集所提供的 WebHCat REST API (先前稱為 Templeton)。
 
-> [AZURE.NOTE]如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱[在以 Linux 為基礎的 HDInsight 上安裝 Hadoop 的須知事項](hdinsight-hadoop-linux-information.md)。
+> [AZURE.NOTE] 如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱[在以 Linux 為基礎的 HDInsight 上安裝 Hadoop 的須知事項](hdinsight-hadoop-linux-information.md)。
 
 ##<a id="prereq"></a>必要條件
 
@@ -39,7 +39,7 @@ Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 
 
 ##<a id="curl"></a>使用 Curl 執行 MapReduce 工作
 
-> [AZURE.NOTE]在使用 Curl 或與 WebHCat 進行任何其他 REST 通訊時，您必須提供 HDInsight 叢集管理員使用者名稱和密碼來驗證要求。您也必須使用叢集名稱，做為用來將要求傳送至伺服器的 URI 一部分。
+> [AZURE.NOTE] 在使用 Curl 或與 WebHCat 進行任何其他 REST 通訊時，您必須提供 HDInsight 叢集管理員使用者名稱和密碼來驗證要求。您也必須使用叢集名稱，做為用來將要求傳送至伺服器的 URI 一部分。
 >
 > 針對本節中的命令，將 **USERNAME** 取代為向叢集驗證的使用者，並將 **PASSWORD** 取代為使用者帳戶的密碼。將 **CLUSTERNAME** 取代為您叢集的名稱。
 >
@@ -83,7 +83,7 @@ Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 
 
 	如果工作已完成，則狀態會是 [成功]。
 
-    > [AZURE.NOTE]此 Curl 要求會傳回含有工作資訊的 JSON 文件；jq 用來僅擷取狀態值。
+    > [AZURE.NOTE] 此 Curl 要求會傳回含有工作資訊的 JSON 文件；jq 用來僅擷取狀態值。
 
 4. 工作狀態變更為 [**成功**] 之後，即可從 Azure Blob 儲存體擷取工作結果。隨查詢一起傳送的 `statusdir` 參數包含輸出檔案的位置；在此案例中為 ****wasb:///example/curl**。此位址會將工作輸出儲存至 HDInsight 叢集所使用之預設儲存體容器的 **example/curl** 目錄中。
 
@@ -95,7 +95,7 @@ Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]您必須使用 `-a` 和 `-k` 參數指定包含 Blob 的儲存體帳戶名稱，或是設定 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORAGE\_ACCESS\_KEY** 環境變數。如需詳細資訊，請參閱[如何將資料上傳至 HDInsight](hdinsight-upload-data.md)。
+> [AZURE.NOTE] 您必須使用 `-a` 和 `-k` 參數指定包含 Blob 的儲存體帳戶名稱，或是設定 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORAGE\_ACCESS\_KEY** 環境變數。如需詳細資訊，請參閱[如何將資料上傳至 HDInsight](hdinsight-upload-data.md)。
 
 ##<a id="summary"></a>摘要
 
@@ -115,4 +115,4 @@ Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

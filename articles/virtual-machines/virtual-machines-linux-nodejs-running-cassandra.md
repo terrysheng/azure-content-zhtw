@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="使用 Azure 上的 Linux 來執行 Cassandra | Microsoft Azure"
-	description="如何從 Node.js 應用程式在 Azure 虛擬機器的 Linux 上執行 Cassandra 叢集"
-	services="virtual-machines"
-	documentationCenter="nodejs"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""
+	pageTitle="使用 Azure 上的 Linux 來執行 Cassandra | Microsoft Azure" 
+	description="如何從 Node.js 應用程式在 Azure 虛擬機器的 Linux 上執行 Cassandra 叢集" 
+	services="virtual-machines" 
+	documentationCenter="nodejs" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="" 
 	azure-service-management"/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
 
 # 在 Azure 上執行 Cassandra 搭配 Linux 並透過 Node.js 進行存取 
@@ -296,13 +296,13 @@ sudo apt-get install libjna-java
 確定已反白顯示虛擬機器，然後按一下底部命令列中的 [關機] 連結。
 
 #####3：擷取映像
-確定已反白顯示虛擬機器，然後按一下底部命令列中的 [擷取] 連結。在下一個畫面中，指定 [映像名稱] (例如 hk-cas-2-08-ub-14-04-2014071)、適當的 [映像描述]，然後按一下「確認」記號以完成擷取程序。
+確定已反白顯示虛擬機器，然後按一下底部命令列中的 [擷取] 連結。在下一個畫面中，指定 [映像名稱] \(例如 hk-cas-2-08-ub-14-04-2014071)、適當的 [映像描述]，然後按一下「確認」記號以完成擷取程序。
 
 這需要幾秒鐘的時間，然後您應該就可以在映像庫的 [我的映像] 區段中找到映像。成功擷取映像之後，來源 VM 就會自動刪除。
 
 ##單一區域部署程序
 **步驟 1：建立虛擬網路**
-登入 Azure 傳統入口網站，並使用表格中所示的屬性來建立虛擬網路。如需此程序的詳細步驟，請參閱[在 Azure 傳統入口網站中設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet.md)。
+登入 Azure 傳統入口網站，並使用表格中所示的屬性來建立虛擬網路。如需此程序的詳細步驟，請參閱[在 Azure 傳統入口網站中設定純雲端虛擬網路](../virtual-network/virtual-networks-create-vnet-classic-portal.md)。
 
 <table>
 <tr><th>VM 屬性名稱</th><th>值</th><th>備註</th></tr>
@@ -520,7 +520,7 @@ Azure 虛擬網路功能中的「區域網路」是一個 Proxy 位址空間，�
 </table>
 
 ###步驟 6：更新共用金鑰
-使用下列 Powershell 指令碼來更新每個 VPN 閘道的 IPSec 金鑰 [針對這兩個閘道使用目的金鑰]： 
+使用下列 Powershell 指令碼來更新每個 VPN 閘道的 IPSec 金鑰 [針對這兩個閘道使用目的金鑰]：
 Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK 
 Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK
 
@@ -709,4 +709,4 @@ Microsoft Azure 是一個富彈性的平台，可以執行 Microsoft 與開放�
 - [http://www.datastax.com](http://www.datastax.com) 
 - [http://www.nodejs.org](http://www.nodejs.org) 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

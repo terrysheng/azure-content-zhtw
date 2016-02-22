@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="02/05/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # 何謂 Azure 備份？
@@ -61,7 +61,7 @@ Azure 備份是您用來備份和還原 Microsoft 雲端資料的服務。它將
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)、</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)、</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)、</p><p>[Azure 備份伺服器](backup-azure-microsoft-azure-backup.md)</p> |
-| Azure IaaS VM (Windows)| - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) | 
+| Azure IaaS VM (Windows)| - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) |
 | Azure IaaS VM (Linux) | - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) |
 ## 功能
 以下五個資料表概述備份功能如何處理每個元件：
@@ -149,10 +149,16 @@ Azure 備份是您用來備份和還原 Microsoft 雲端資料的服務。它將
 | 本機磁碟上的復原點 | 不適用 | 不適用 | 不適用 |
 | 磁帶上的復原點 | 不適用 | 不適用 | 不適用 |
 
+## 什麼是保存庫認證檔？
+
+保存庫認證檔是入口網站針對每個備份保存庫所產生的憑證。入口網站接著會將公開金鑰上傳至「存取控制服務」(ACS)。憑證的私密金鑰可供使用者作為工作流程的一部分，屬於電腦註冊工作流程中的指定輸入。這會對電腦進行驗證，以便將備份資料傳送至 Azure 備份服務中的已識別保存庫。
+
+保存庫認證僅在註冊工作流程期間使用。使用者應自行負責，並確保保存庫認證檔不會遭到破解。保存庫認證檔落入任何惡意使用者的手中，則可用來針對相同的保存庫註冊其他電腦。不過，當使用屬於客戶的複雜密碼來加密備份資料時，現有的備份資料不會遭到洩漏。若要減輕這個問題，保存庫認證設在 48 小時後過期。您可以下載備份保存庫的保存庫認證，次數不受限制，但僅最新的保存庫認證檔可在註冊工作流程期間提供使用。
+
 ## 備份與 Azure Site Recovery 有何不同？
 許多客戶會混淆備份復原和災害復原。兩者都可擷取資料和提供還原語意，但兩者的核心價值主張不同。
 
-Azure 備份會在內部部署和雲端備份資料。Azure Site Recovery 可協調虛擬機器和實體伺服器的複寫、容錯移轉及容錯回復。您需要兩者才能構成完整的災害復原解決方案。您的災害復原策略必須讓資料保持安全並可復原 (備份)，而且在服務中斷時讓您的工作負載可供使用並可存取 (Site Recovery)。
+Azure 備份會在內部部署和雲端備份資料。Azure Site Recovery 可協調虛擬機器和實體伺服器的複寫、容錯移轉及容錯回復。您需要兩者才能構成完整的災害復原解決方案。您的災害復原策略必須讓資料保持安全且可復原 (備份)，並且在服務中斷時讓您的工作負載可供使用和存取 (Site Recovery)。
 
 若要進行有關備份和災害復原的決策，應了解以下的一些重要概念：
 
@@ -160,18 +166,18 @@ Azure 備份會在內部部署和雲端備份資料。Azure Site Recovery 可協
 | ------- | ------- | ------ | ----------------- |
 | 復原點目標 (RPO) | 在需要進行復原的情況下可接受的資料遺失數量。 | 備份解決方案在其可接受的 RPO 有寬廣的變化性。虛擬機器備份的 RPO 通常為 1 天，而資料庫備份的 RPO 只需 15 分鐘。 | 災害復原解決方案的 RPO 極低。DR 複本可以落後幾秒鐘或幾分鐘的時間。 |
 | 復原時間目標 (RTO) | 完成復原或還原所需的時間量。 | 由於 RPO 較大，備份解決方案需要處理的資料量通常更多。這會導致 RTO 較長。例如，根據從異地傳輸磁帶所需的時間，從磁帶還原資料可能需要數天的時間。 | 因為災害復原解決方案與來源比較能保持同步，所以其 RTO 比較小。需要處理的變更也比較少。 |
-| 保留 | 資料需要儲存多久？ | <p>在需要作業復原的情況下 (資料損毀、不當的檔案刪除、作業系統失敗)，備份資料通常會保留 30 天或更短。</p> <p>從相容性觀點來看，資料可能需要儲存數個月或甚至數年。在這種情況下，備份資料非常適合封存。</p> | 災害復原只需要作業復原資料。這通常需要幾小時或最多一天。因為 DR 解決方案中使用的細部資料擷取，所以不建議使用 DR 資料進行長期保留。 |
+| 保留 | 資料需要儲存多久？ | <p>在需要作業復原的情況下 (資料損毀、不小心刪除檔案、作業系統失敗)，備份資料通常會保留 30 天或更短。</p> <p>從法規遵循觀點來看，資料可能需要儲存達數個月或甚至數年。在這類情況下，最理想的方式是將備份資料封存。</p> | 災害復原只需要作業復原資料。這通常需要幾小時或最多一天。因為 DR 解決方案中使用的細部資料擷取，所以不建議使用 DR 資料進行長期保留。 |
 
 
 ## 後續步驟
 
 - [試用 Azure 備份](backup-try-azure-backup-in-10-mins.md)
 - [Azure 備份服務的常見問題集](backup-azure-backup-faq.md)
-- 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+- 瀏覽 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

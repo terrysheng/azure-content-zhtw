@@ -26,7 +26,7 @@ IoT 中樞可讓裝置使用 [MQTT v3.1.1][lnk-mqtt-org] 通訊協定來與 IoT 
 
 ## 使用裝置用戶端 SDK
 
-支援 MQTT 通訊協定的[裝置用戶端 SDK][lnk-mqtt-org] 有提供 Java、Node.js、C 和 C# 等版本。裝置用戶端 SDK 會使用標準的 IoT 中樞連接字串來連接到 IoT 中樞。若要使用 MQTT 通訊協定，用戶端通訊協定參數必須設定為 **MQTT**。根據預設，裝置用戶端 SDK 會連接到 **CleanSession** 旗標設為 **0** 的 IoT 中樞，並使用 **QoS 1** 來與 IoT 中樞交換訊息。
+支援 MQTT 通訊協定的[裝置用戶端 SDK][lnk-device-sdks] 有提供 Java、Node.js、C 和 C# 等版本。裝置用戶端 SDK 會使用標準的 IoT 中樞連接字串來連接到 IoT 中樞。若要使用 MQTT 通訊協定，用戶端通訊協定參數必須設定為 **MQTT**。根據預設，裝置用戶端 SDK 會連接到 **CleanSession** 旗標設為 **0** 的 IoT 中樞，並使用 **QoS 1** 來與 IoT 中樞交換訊息。
 
 當裝置連接到 IoT 中樞時，裝置用戶端 SDK 會提供方法讓裝置在 IoT 中樞傳送和接收訊息。
 
@@ -81,4 +81,4 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="12/08/2015" 
-	ms.author="erikre"/>
+	ms.author="tdykstra"/>
 
 
 # 在 Azure App Service 中設定 Web 應用程式 #
@@ -66,7 +66,7 @@
 
 - 如果是 .NET 應用程式，這些設定就會在執行階段插入 .NET 設定 `AppSettings`，並覆寫現有的設定。 
 
-- PHP、Python、Java 和 Node 應用程式可以在執行階段以環境變數的形式存取這些設定。系統會為每個應用程式設定建立兩個環境變數，一個變數具有由應用程式設定項目指定的名稱，另一個則具有 APPSETTING\_ 前置詞。這兩個變數都包含相同的值。
+- PHP、Python、Java 和 Node 應用程式可以在執行階段以環境變數的形式存取這些設定。系統會為每個應用程式設定建立兩個環境變數，一個變數具有由應用程式設定項目指定的名稱，另一個則具有 APPSETTING_ 前置詞。這兩個變數都包含相同的值。
 
 ### 連接字串
 
@@ -177,4 +177,4 @@ Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理�
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

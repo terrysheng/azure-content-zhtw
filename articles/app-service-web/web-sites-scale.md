@@ -26,11 +26,11 @@
 
 這些調整設定只需幾秒鐘便能套用，且影響範圍遍及 App Service 方案內的所有 Web 應用程式。您不需要變更程式碼或重新部署應用程式。
 
-如需 App Service 方案的相關資訊，請參閱[什麼是 App Service 方案？](../web-sites-web-hosting-plan-overview.md)和 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。如需各 App Service 方案定價資訊及功能的詳細資訊，請參閱 [App Service 定價詳細資料](/pricing/details/web-sites/)。
+如需 App Service 方案的相關資訊，請參閱[什麼是 App Service 方案？](../app-service/web-sites-web-hosting-plan-overview.md)和 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。如需各 App Service 方案定價資訊及功能的詳細資訊，請參閱 [App Service 定價詳細資料](/pricing/details/web-sites/)。
 
-> [AZURE.NOTE]將 Web 應用程式從 [免費] 模式切換為 [基本]、[標準] 或 [高階] 模式之前，您必須先適當地移除 Azure App Service 訂用帳戶的支出費用上限。若要檢視或變更 Microsoft Azure App Service 訂用帳戶的選項，請參閱 [Microsoft Azure 訂訂用帳戶][azuresubscriptions]。
+> [AZURE.NOTE] 將 Web 應用程式從 [免費] 模式切換為 [基本]、[標準] 或 [高階] 模式之前，您必須先適當地移除 Azure App Service 訂用帳戶的支出費用上限。若要檢視或變更 Microsoft Azure App Service 訂用帳戶的選項，請參閱 [Microsoft Azure 訂訂用帳戶][azuresubscriptions]。
 
-<a name="scalingsharedorbasic"></a>
+<a name="scalingsharedorbasic"></a> 
 <!-- ===================================== -->
 ## 調整為共用或基本模式
 <!-- ===================================== -->
@@ -51,12 +51,12 @@
 	
 	當操作完成時，[通知] 索引標籤會有綠色的「成功」字樣閃爍顯示。
 	
-<a name="scalingstandard"></a>
+<a name="scalingstandard"></a> 
 <!-- ================================= -->
 ## 調整為標準或高階模式
 <!-- ================================= -->
 
-> [AZURE.NOTE]在將 App Service 方案切換為 [標準] 或 [高階] 模式之前，應該針對您的 Microsoft Azure App Service 訂用帳戶適當地移除支出費用上限。以免在帳單期間還未結束之前，Web 應用程式就因為已達支出上限而變得無法使用。若要檢視或變更 Microsoft Azure App Service 訂用帳戶的選項，請參閱 [Microsoft Azure 訂訂用帳戶][azuresubscriptions]。
+> [AZURE.NOTE] 在將 App Service 方案切換為 [標準] 或 [高階] 模式之前，應該針對您的 Microsoft Azure App Service 訂用帳戶適當地移除支出費用上限。以免在帳單期間還未結束之前，Web 應用程式就因為已達支出上限而變得無法使用。若要檢視或變更 Microsoft Azure App Service 訂用帳戶的選項，請參閱 [Microsoft Azure 訂訂用帳戶][azuresubscriptions]。
 
 1. 若要調整為 [標準] 或 [高階] 模式，請依照與調整為 [共用] 或 [基本] 時相同的初始步驟執行，接著在 [選擇定價層] 中選擇 [標準] 或 [高階] 模式，然後按一下 [選取]。 
 	
@@ -91,7 +91,7 @@
 	
 	![設定第一個自動調整規則][SetFirstRule]
 	
-	>[AZURE.NOTE] [回復期間] 設定會指定在前次調整動作之後，此規則要再次執行調整前所應等待的時間。
+	>[AZURE.NOTE] [回復期間] 設定會指定在前次調整動作之後，此規則要再次執行調整前所應等待的時間。
 	
 6. 按一下 [新增相應增加規則]**/**，然後設定第二項規則，方法是將 [條件] 設為 [大於]、[臨界值] 設為 **90** (%)、[經歷時間] 設為 **1** (分鐘)、[相應增加值] 設為 **3** (執行個體)，並將 [回復期間] 設為 **1** (分鐘)。
 	
@@ -144,7 +144,7 @@
 
 - 如需 App Service 方案其他所有功能的詳細資訊，包括所有使用者 (包括開發人員) 關心的定價和功能，請參閱 [App Service 定價詳細資料](/pricing/details/web-sites/)。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 <a name="Next Steps"></a>
 ## 後續步驟
@@ -200,4 +200,4 @@
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

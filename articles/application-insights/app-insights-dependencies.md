@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/17/2015" 
+	ms.date="02/09/2016" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中診斷相依性問題
 
 
-「相依性」是由應用程式呼叫的外部元件。這通常是使用 HTTP 呼叫的服務，或資料庫，或檔案系統。在 Visual Studio Application Insights 中，您很容易看到應用程式等待相依性所用的時間，以及相依性呼叫失敗的頻率。
+「相依性」是由應用程式呼叫的外部元件。這通常是使用 HTTP 呼叫的服務，或資料庫，或檔案系統。或是在您的網頁指令碼中，它可以是對伺服器進行的 AJAX 回呼。在 Visual Studio Application Insights 中，您很容易看到應用程式等待相依性所用的時間，以及相依性呼叫失敗的頻率。
 
 ## 可以使用的地方
 
@@ -26,6 +26,7 @@
 
 * 在 IIS 伺服器或在 Azure 上執行的 ASP.NET Web 應用程式和服務
 * [Java Web 應用程式](app-insights-java-agent.md)
+* [網頁](https://azure.microsoft.com/blog/ajax-collection-in-application-insights/)
 
 若為其他類型，例如裝置應用程式，您可以使用 [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) 撰寫自己的監視器。
 
@@ -39,7 +40,7 @@
 * Java
  * 透過 [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) 驅動程式，例如 MySQL、SQL Server、PostgreSQL 或 SQLite 呼叫資料庫。
 * 網頁
- * AJAX 呼叫
+ * [AJAX 呼叫](app-insights-javascript.md)
 
 同樣地，您可以撰寫自己的 SDK 呼叫來監視其他相依性。
 
@@ -52,10 +53,11 @@
 IIS 伺服器 | [狀態監視器](app-insights-monitor-performance-live-website-now.md)
 Azure Web 應用程式 | [Application Insights 延伸模組](../azure-portal/insights-perf-analytics.md)
 Java Web 伺服器 | [Java Web 應用程式](app-insights-java-agent.md)
+網頁 | [JavaScript 監視](app-insights-javascript.md) (沒有網頁監視以外的其他設定)
 
 IIS 伺服器的狀態監視器不需要您使用 Application Insights SDK 重新建置來源專案。
 
-## <a name="diagnosis"></a> 診斷相依性效能問題
+## <a name="diagnosis"></a> 診斷 Web 伺服器中的相依性效能問題
 
 若要評估伺服器上的要求效能：
 
@@ -74,7 +76,7 @@ IIS 伺服器的狀態監視器不需要您使用 Application Insights SDK 重�
 
 按一下任一個長時間執行的執行個體，來進一步檢查。
 
-> [AZURE.NOTE]稍微向下捲動，以選擇執行個體。管線中的延遲可能表示最上方的執行個體資料不完整。
+> [AZURE.NOTE] 稍微向下捲動，以選擇執行個體。管線中的延遲可能表示最上方的執行個體資料不完整。
 
 向下捲動至與此要求相關的遠端相依性呼叫：
 
@@ -129,6 +131,12 @@ IIS 伺服器的狀態監視器不需要您使用 Application Insights SDK 重�
 
 如果您想要關閉標準的相依性追蹤模組，請移除 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中 DependencyTrackingTelemetryModule 的參考。
 
-<!--Link references-->
 
-<!---HONumber=AcomDC_0121_2016-->
+## Ajax
+
+請參閱[網頁](app-insights-javascript.md)。
+
+
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

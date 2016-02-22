@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="10/16/2015"
+      ms.date="02/09/2016"
       ms.author="inhenk"/>
 
 # 整合 Azure Active Directory 與應用程式入門指南
@@ -87,4 +87,8 @@
 
 如果您想要加入您的自訂應用程式至 Azure 應用程式資源庫，請參閱[使用 Azure AD 自助 SAML 組態「自備應用程式」](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)。
 
-<!---HONumber=AcomDC_0107_2016-->
+## 另請參閱
+
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

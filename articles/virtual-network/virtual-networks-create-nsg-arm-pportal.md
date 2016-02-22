@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="如何在 ARM 模式中使用 Preview 入口網站建立 NSG | Microsoft Azure"
-   description="了解如何在 ARM 中使用 Preview 入口網站建立和部署 NSG"
+   pageTitle="如何在 ARM 模式中使用 Azure 入口網站建立 NSG | Microsoft Azure"
+   description="了解如何在 ARM 中使用 Azure 入口網站建立和部署 NSG"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
 # 如何使用 Preview 入口網站管理 NSG
@@ -56,4 +56,4 @@
 
 ![Preview 入口網站 - 新增規則](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

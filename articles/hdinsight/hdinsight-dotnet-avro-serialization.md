@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/04/2015"
 	ms.author="jgao"/>
 
 
@@ -32,7 +32,7 @@
 ##Hadoop 案例
 Azure HDInsight 和其他 Apache Hadoop 環境中廣泛採用了 Apache Avro 序列化格式。Avro 提供一個便利方式來呈現 Hadoop MapReduce 工作的複雜資料結構。Avro 檔案格式 (Avro 物件容器檔案) 已針對支援分散式 MapReduce 程式設計模型進行設計。啟用配送的主要功能是指檔案「可分割」，因此使用者可搜尋檔案中的任何位置，並從特定區塊開始讀取。
 
-##Microsoft Avro Library 中的序列化
+##Avro Library 中的序列化
 .NET Library for Avro 支援兩個序列化物件方式：
 
 - **反映** - 類型的 JSON 結構描述會根據要序列化的 .NET 類型資料合約屬性自動建置。
@@ -41,14 +41,16 @@ Azure HDInsight 和其他 Apache Hadoop 環境中廣泛採用了 Apache Avro 序
 當資料流的寫入器和讀取器可識別資料結構描述時，便可以在沒有其結構描述的情況下傳送資料。在未使用 Avro 物件容器檔案的情況下，會將結構描述儲存在檔案內。您可以指定其他參數 (例如用於資料壓縮的轉碼器)。這些案例會在以下程式碼範例中詳加說明與圖解。
 
 
-## Microsoft Avro Library 必要條件
+## 安裝 Avro Library
+
+以下安裝此程式庫前必需具備的條件：
 
 - <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 - <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 或更新版本)
 
 請注意，Newtonsoft.Json.dll 相依性也會隨著安裝 Microsoft Avro Library 自動下載。此動作的程序在下一節中提供。
 
-## Microsoft Avro Library 安裝
+
 Microsoft Avro 程式庫會以 NuGet 封裝發行，您可以透過下列程序在 Visual Studio 中安裝 NuGet 封裝：
 
 1. 依序選取 [專案] 索引標籤 -> [管理 NuGet 封裝]
@@ -59,11 +61,10 @@ Microsoft Avro 程式庫會以 NuGet 封裝發行，您可以透過下列程序�
 
 您可能想要造訪 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library 首頁</a>以讀取目前的版本資訊。
 
-##Microsoft Avro Library 原始程式碼
 
 在 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library 首頁</a>提供 Microsoft Avro Library 原始程式碼。
 
-##使用 Microsoft Avro Library 編譯結構描述
+##使用 Avro Library 來編譯結構描述
 
 Microsoft Avro Library 包含程式碼產生公用程式，可允許自動依據先前定義的 JSON 結構描述來建立 C# 類型。程式碼產生公用程式未以二進位執行檔的形式散佈，但可透過下列程序輕鬆建置：
 
@@ -90,7 +91,7 @@ Microsoft Avro Library 包含程式碼產生公用程式，可允許自動依據
 
     Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:. /nf:my.own.nspace
 
-##<a name="samples"></a>Microsoft Avro Library 範例的指南
+## 範例
 本主題中提供了六個範例，每個範例說明 Microsoft Avro Library 所支援的不同案例。Microsoft Avro Library 是專門為了使用任何資料流所設計的。為了方便一致起見，這些範例會透過記憶體資料流，而不是檔案資料流或資料庫。生產環境中要採用的方法會視確切的案例需求、資料來源和資料數量、效能限制及其他因素而定。
 
 前兩個範例說明如何使用反映和一般記錄，將資料序列化與還原序列化為記憶體資料流緩衝區。在這兩個案例中假設讀取器和寫入器之間會共用結構描述。
@@ -1402,4 +1403,4 @@ Microsoft Avro 程式庫可透過反映、根據要序列化的 C# 物件資料�
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0211_2016-->

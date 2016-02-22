@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/02/2016"
+   ms.date="02/04/2016"
    ms.author="jesseb"/>
 
 
@@ -56,12 +56,15 @@
 
 ## 後續步驟
 
-[使用 Visual Studio 進行 Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
+[使用 Visual Studio 升級您的應用程式](service-fabric-application-upgrade-tutorial.md)將引導您完成使用 Visual Studio 進行應用程式升級的步驟。
 
-[使用 PowerShell 進行 Service Fabric 應用程式升級](service-fabric-automate-powershell.md)
+[使用 PowerShell 升級您的應用程式](service-fabric-application-upgrade-tutorial-powershell.md)將引導您完成使用 PowerShell 進行應用程式升級的步驟。
 
-[升級參數](service-fabric-application-upgrade-parameters.md)
+使用[升級參數](service-fabric-application-upgrade-parameters.md)來控制您應用程式的升級方式。
 
-[手動升級及使用差異封裝進行升級](service-fabric-application-upgrade-advanced.md)
+參考[進階主題](service-fabric-application-upgrade-advanced.md)，以了解如何在升級您的應用程式時使用進階功能。
 
-<!---HONumber=AcomDC_0204_2016-->
+參考[疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)中的步驟，以修正應用程式升級中常見的問題。
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

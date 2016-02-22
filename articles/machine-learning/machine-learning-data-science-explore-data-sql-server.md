@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/08/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #在 Azure 上瀏覽 SQL Server 虛擬機器中的資料
-
-此**功能表**連結說明如何從各種不同儲存體環境使用工具來瀏覽資料的連結。此工作是 Cortana 分析程序 (CAP) 中的一個步驟。
-
-[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
 ##簡介
 
 本文件涵蓋如何瀏覽儲存在 Azure 上 SQL Server VM 中的資料。使用 SQL整理資料或使用 Python 這類程式設計語言，即可完成此動作。
 
+以下**功能表**會連結至說明如何從各種不同儲存體環境使用工具來瀏覽資料的主題。此工作是 Cortana 分析程序 (CAP) 中的一個步驟。
 
-> [AZURE.NOTE]本文件中的 SQL 陳述式範例假設資料位於 SQL Server 中。如果不是，請參閱雲端資料科學程序圖，以了解如何將資料移至 SQL Server 中。
+[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
+
+
+> [AZURE.NOTE] 本文件中的 SQL 陳述式範例假設資料位於 SQL Server 中。如果不是，請參閱雲端資料科學程序圖，以了解如何將資料移至 SQL Server 中。
 
 
 
@@ -51,7 +51,7 @@
 
 	`select <column_name>, count(*) from <tablename> group by <column_name>`
 
-> [AZURE.NOTE]如需實用範例，您可以使用 [NYC 計程車資料集](http://www.andresmh.com/nyctaxitrips/)，並參考標題為[使用 IPython Notebook 和 SQL Server 來處理有爭議的 NYC 資料](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)的 IPNB，以進行端對端逐步解說。
+> [AZURE.NOTE] 如需實用範例，您可以使用 [NYC 計程車資料集](http://www.andresmh.com/nyctaxitrips/)，並參考標題為[使用 IPython Notebook 和 SQL Server 來處理有爭議的 NYC 資料](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb)的 IPNB，以進行端對端逐步解說。
 
 ##<a name="python"></a>使用 Python 瀏覽 SQL 資料
 
@@ -76,4 +76,4 @@ Python 中的 [Pandas 程式庫](http://pandas.pydata.org/)提供一組豐富的
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

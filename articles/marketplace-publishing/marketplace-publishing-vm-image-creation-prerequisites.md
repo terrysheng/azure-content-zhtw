@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
   ms.workload="na"
-  ms.date="10/09/2015"
+  ms.date="02/04/2016"
   ms.author="hascipio; v-divte"/>
 
 # 建立 Azure Marketplace 虛擬機器映像的技術性必要條件
@@ -33,7 +33,7 @@
 - 如果您使用 Linux，請參閱[虛擬機器映像發佈指南](marketplace-publishing-vm-image-creation.md)的＜建立與 Azure 相容的 VHD (以 Linux 為基礎)＞一節。
 - 如果您使用 Windows，請參閱[虛擬機器映像發佈指南](marketplace-publishing-vm-image-creation.md)的＜建立與 Azure 相容的 VHD (以 Windows 為基礎)＞一節。
 
-> [AZURE.NOTE]您必須能夠存取 Windows 電腦，才能：- 執行認證驗證工具。- 建立 VHD 共用存取簽章 URL，以提交 VHD 認證。
+> [AZURE.NOTE] 您必須能夠存取 Windows 電腦，才能：- 執行認證驗證工具。- 建立 VHD 共用存取簽章 URL，以提交 VHD 認證。
 
 ## 開發您的 VHD
 您可以在雲端或內部部署中開發 Azure VHD：
@@ -51,4 +51,4 @@
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

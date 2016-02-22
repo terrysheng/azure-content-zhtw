@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="02/04/2016" 
 	ms.author="sdanie"/>
 
 # 如何設定高階 Azure Redis 快取的虛擬網路支援
@@ -31,37 +31,33 @@ Azure Redis 快取高階層包括叢集、永續性及虛擬網路 (VNET) 支援
 
 ![建立 Redis 快取][redis-cache-new-cache-menu]
 
-若要設定 VNET 支援，請先在 [選擇定價層] 刀鋒視窗中選取其中一個 [高階] 快取。
+若要設定 VNET 支援，請先在 [選擇定價層] 刀鋒視窗中，選取其中一個 [進階] 快取。
 
 ![選擇定價層][redis-cache-premium-pricing-tier]
 
-Azure Redis 快取 VNET 整合是在 [虛擬網路] 刀鋒視窗中設定。您可以從這裡選取現有的傳統 VNET。若要使用新的 VNET，依照[使用 Azure 入口網站建立虛擬網路 (傳統)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) 中的步驟，然後返回 [Redis 快取虛擬網路] 刀鋒視窗來選取它。
+「Azure Redis 快取」VNET 整合是在 [虛擬網路 (傳統)] 刀鋒視窗中設定。您可以從這裡選取現有的傳統 VNET。若要使用新的 VNET，依照[使用 Azure 入口網站建立虛擬網路 (傳統)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) 中的步驟，然後返回 [Redis 快取虛擬網路] 刀鋒視窗來選取它。
 
->[AZURE.NOTE]Azure Redis 快取能搭配傳統 VNET。如需建立傳統 VNET 的詳細資訊，請參閱[使用 Azure 入口網站建立虛擬網路 (傳統)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)。如需連接傳統 VNET 和 ARM VNET 的相關資訊，請參閱[連接傳統 VNet 和新的 VNet](../virtual-network/virtual-networks-arm-asm-s2s.md)。
+>[AZURE.NOTE] Azure Redis 快取能搭配傳統 VNET。如需建立傳統 VNET 的詳細資訊，請參閱[使用 Azure 入口網站建立虛擬網路 (傳統)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)。如需連接傳統 VNET 和 ARM VNET 的相關資訊，請參閱[連接傳統 VNet 和新的 VNet](../virtual-network/virtual-networks-arm-asm-s2s.md)。
+
+按一下 [新的 Redis 快取] 刀鋒視窗上的 [虛擬網路 (傳統)]，然後從下拉式清單中選取想要的 VNET，以選取並設定您的 VNET。
 
 ![虛擬網路][redis-cache-vnet]
 
-按一下 [虛擬網路] 刀鋒視窗上的 [虛擬網路]，來選取及設定您的 VNET。
-
-![虛擬網路][redis-cache-vnet-select]
-
-按一下所需的 VNET 版本加以選取。
-
-![虛擬網路][redis-cache-vnet-subnet]
-
-按一下 [子網路] 以選取所需的子網路。
+從 [子網路] 下拉式清單中選取想要的子網路。
 
 ![虛擬網路][redis-cache-vnet-ip]
 
-[**靜態 IP 位址**] 欄位為選用。若未指定，將從已選取的子網路中選擇。若想使用指定的靜態 IP，輸入想要的 [**靜態 IP 位址**]，然後按一下 [**確定**] 以儲存 VNET 組態。如果選取的靜態 IP 已在使用中，則會顯示錯誤訊息。
+[**靜態 IP 位址**] 欄位為選用。若未指定，將從已選取的子網路中選擇。若想使用特定靜態 IP，請輸入想要的 [靜態 IP 位址]，然後按一下 [確定] 以儲存 VNET 組態。如果選取的靜態 IP 已在使用中，則會顯示錯誤訊息。
 
-一旦建立快取，它只能由相同的 VNET 中的用戶端存取。
+建立快取之後，您可以從從 [設定] 刀鋒視窗中按一下 [虛擬網路]，以檢視 IP 位址和其他 VNET 相關資訊。
 
->[AZURE.IMPORTANT]若要在使用 VNET 時存取 Azure Redis 快取執行個體，請傳遞快取在 VNET 中的靜態 IP 位址 (作為第一個參數)，然後連同快取的端點傳入 `sslhost` 參數。在下列範例中，靜態 IP 位址是 `10.10.1.5`，而快取端點是 `contoso5.redis.cache.windows.net`。
+![虛擬網路][redis-cache-vnet-info]
+
+>[AZURE.IMPORTANT] 若要在使用 VNET 時存取 Azure Redis 快取執行個體，請傳遞快取在 VNET 中的靜態 IP 位址 (作為第一個參數)，然後連同快取的端點傳入 `sslhost` 參數。在下列範例中，靜態 IP 位址是 `172.160.0.99`，而快取端點是 `contoso5.redis.cache.windows.net`。
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
-	    return ConnectionMultiplexer.Connect("10.10.1.5,sslhost=contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+	    return ConnectionMultiplexer.Connect("172.160.0.99,sslhost=contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
 	});
 	
 	public static ConnectionMultiplexer Connection
@@ -119,10 +115,8 @@ VNET 僅適用於高階快取。
 
 [redis-cache-vnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet.png
 
-[redis-cache-vnet-select]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-select.png
-
 [redis-cache-vnet-ip]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-ip.png
 
-[redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
+[redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

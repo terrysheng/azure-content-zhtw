@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/28/2016"
 	ms.author="glenga"/>
 
 # 如何針對 Azure 行動服務使用受管理的用戶端程式庫
@@ -86,7 +86,7 @@
 - [選取特定資料欄]
 - [按識別碼查詢資料]
 
->[AZURE.NOTE]系統會強制使用伺服器控制的頁面大小，以防止傳回所有資料列。這可避免預設的大型資料集要求對服務造成負面影響。若要傳回 50 筆以上的資料列，請依照[以分頁方式傳回資料]的說明，使用 `Take` 方法。
+>[AZURE.NOTE] 系統會強制使用伺服器控制的頁面大小，以防止傳回所有資料列。這可避免預設的大型資料集要求對服務造成負面影響。若要傳回 50 筆以上的資料列，請依照[以分頁方式傳回資料]的說明，使用 `Take` 方法。
 
 ### <a name="filtering"></a>作法：篩選傳回的資料
 
@@ -211,7 +211,7 @@
 
 ##<a name="inserting"></a>作法：將資料插入行動服務
 
-> [AZURE.NOTE]如果您想要執行某類型的插入、查詢、刪除或更新操作，則您必須建立名為 **Id** 的成員。這是此範例類別 **TodoItem** 具有成員名稱為 **Id** 的原因。有效的 ID 值必須存在於更新與刪除操作中。
+> [AZURE.NOTE] 如果您想要執行某類型的插入、查詢、刪除或更新操作，則您必須建立名為 **Id** 的成員。這是此範例類別 **TodoItem** 具有成員名稱為 **Id** 的原因。有效的 ID 值必須存在於更新與刪除操作中。
 
 下列程式碼將說明如何將新的資料列插入資料表中。參數包含要作為 .NET 物件插入的資料。
 
@@ -771,4 +771,4 @@ Windows 支援定期通知 (提取通知) 更新動態磚。透過啟用定期�
 [Azure 行動服務用戶端 SDK 中的自訂 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

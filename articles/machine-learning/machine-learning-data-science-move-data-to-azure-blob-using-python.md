@@ -13,16 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 # 使用 Python 從 Azure Blob 儲存體來回移動資料
 
-以下是有關從 Azure Blob 儲存體來回移動資料所使用之技術的指引連結：
-
-[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
-
 ## 簡介
+本主題說明如何使用 Python API 列出、上傳及下載 Blob。
 
 使用 Azure SDK 中提供的 Python API，您可以
 
@@ -32,11 +29,16 @@
 - 列出容器中的 Blob
 - 刪除 Blob
 
-本節說明如何列出、上傳和下載 Blob。如需使用 Python API 的詳細資訊，請參閱[如何從 Python 使用 Blob 儲存體服務](../storage-python-how-to-use-blob-storage.md)。
+如需使用 Python API 的詳細資訊，請參閱[如何從 Python 使用 Blob 儲存體服務](../storage-python-how-to-use-blob-storage.md)。
 
-> [AZURE.NOTE]如果您是使用以 [Azure 中的資料科學虛擬機器](machine-learning-data-science-virtual-machines.md)提供的指令碼所設定的 VM，則 AzCopy 已經安裝在 VM 上。
+以下是有關從 Azure Blob 儲存體來回移動資料所使用之技術的指引連結：
 
-> [AZURE.NOTE]如需 Azure Blob 儲存體的完整介紹，請參閱 [Azure Blob 基本概念](../storage-dotnet-how-to-use-blobs.md)和 [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。
+[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
+
+
+> [AZURE.NOTE] 如果您是使用以 [Azure 中的資料科學虛擬機器](machine-learning-data-science-virtual-machines.md)提供的指令碼所設定的 VM，則 AzCopy 已經安裝在 VM 上。
+
+> [AZURE.NOTE] 如需 Azure Blob 儲存體的完整介紹，請參閱 [Azure Blob 基本概念](../storage-dotnet-how-to-use-blobs.md)和 [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。
 
 ## 必要條件
 
@@ -123,4 +125,4 @@
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

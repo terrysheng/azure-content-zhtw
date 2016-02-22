@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/04/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # 用來存取彈性資料庫用戶端程式庫的認證
 
-[彈性資料庫用戶端程式庫](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)使用三種不同的認證。這些認證會用來存取[分區對應管理員](sql-database-elastic-scale-shard-map-management.md)。視需要使用盡可能低的存取層級認證。
+[彈性資料庫用戶端程式庫](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)使用三種不同的認證存取[分區對應管理員](sql-database-elastic-scale-shard-map-management.md)。視需要使用盡可能低的存取層級認證。
 
 * **管理認證**：建立或操作分區對應管理員。(請參閱[詞彙](sql-database-elastic-scale-glossary.md)。) 
 * **存取認證**：存取現有的分區對應管理員，以取得分區的相關資訊。
@@ -26,9 +26,9 @@
 
 另請參閱[在 Azure SQL Database 中管理資料庫與登入](sql-database-manage-logins.md)。
  
-## 管理認證  
+## 關於管理認證
 
-管理認證會用來建立操作分區對應之應用程式的 [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) 物件。(如需範例，請參閱[使用彈性資料庫工具加入分區](sql-database-elastic-scale-add-a-shard.md)。) 彈性擴縮用戶端程式庫的使用者可建立 SQL 使用者和 SQL 登入，也要確定將全域分區對應資料庫及所有分區資料庫的讀取/寫入權限授與給每個人。在分區對應上執行變更時，這些認證用來維護全域分區對應和本機分區對應。例如，使用管理認證來建立分區對應管理員物件 (使用 [**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)：
+管理認證會用來建立操作分區對應之應用程式的 [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) 物件。(如需範例，請參閱[使用彈性資料庫工具加入分區](sql-database-elastic-scale-add-a-shard.md)和[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)) 彈性級別用戶端程式庫的使用者可建立 SQL 使用者和 SQL 登入，也要確定將全域分區對應資料庫及所有分區資料庫的讀取/寫入權限授與給每個人。在分區對應上執行變更時，這些認證用來維護全域分區對應和本機分區對應。例如，使用管理認證來建立分區對應管理員物件 (使用 [**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)：
 
 	// Obtain a shard map manager. 
 	ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -77,4 +77,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

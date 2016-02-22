@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -32,7 +32,7 @@
 
 下列是建立常見即時串流應用程式所含的一般步驟。
 
->[AZURE.NOTE]目前，即時事件的最大建議持續時間是 8 小時。如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
+>[AZURE.NOTE] 目前，即時事件的最大建議持續時間是 8 小時。如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
 
 1. 將攝影機連接到電腦。啟動和設定可使用下列其中一種通訊協定輸出單一位元速率串流的內部部署即時編碼器：RTMP、Smooth Streaming 或 RTP (MPEG-TS)。如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](http://go.microsoft.com/fwlink/?LinkId=532824)。
 	
@@ -98,7 +98,7 @@
 	配置任何新的單元需要大約 20 分鐘的時間才能完成。
 
 	 
-	>[AZURE.NOTE]目前，如果串流單元從任何正值到無，可能會停用串流長達一小時。
+	>[AZURE.NOTE] 目前，如果串流單元從任何正值到無，可能會停用串流長達一小時。
 	>
 	> 計算成本時會使用 24 小時內指定的最大單元數。如需定價詳細資料的相關資訊，請參閱＜[媒體服務定價詳細資料](http://go.microsoft.com/fwlink/?LinkId=275107)＞。
 
@@ -142,7 +142,7 @@
 
 ![standard4][standard4]
 
->[AZURE.NOTE]目前，通道啟動可能需要最多 30 分鐘。重設通道可能需要最多 5 分鐘。
+>[AZURE.NOTE] 目前，通道啟動可能需要最多 30 分鐘。重設通道可能需要最多 5 分鐘。
 
 建立通道之後，可以選取 [**編碼器**] 索引標籤，您可以在其中檢視您的通道組態。您也可以管理廣告和平板電腦。
 
@@ -256,7 +256,7 @@
 ##考量
 
 - 目前，即時事件的最大建議持續時間是 8 小時。如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
-- 請確定在您想串流內容的串流端點上至少有一個串流保留單元。
+- 確定負責傳送內容的串流端點上，至少有一個串流保留單位。
 
 
 ##媒體服務學習路徑
@@ -276,4 +276,4 @@
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

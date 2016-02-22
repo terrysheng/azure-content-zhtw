@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 搜尋服務 REST API 版本 2015-02-28-Preview | Microsoft Azure"
-   description="Azure 搜尋服務 REST API 版本 2015-02-28-Preview 包含 Lucene 查詢語法和自訂分析器等實驗性功能。"
+   description="Azure 搜尋服務 REST API Version 2015-02-28-Preview 包含自然語言分析器和 moreLikeThis 搜尋等實驗性功能。"
    services="search"
    documentationCenter="na"
    authors="HeidiSteen"
@@ -13,20 +13,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="12/21/2015"
+   ms.date="02/04/2016"
    ms.author="heidist"/>
 
 # Azure 搜尋服務 REST API：版本 2015-02-28-Preview
 
 本文是 `api-version=2015-02-28-Preview` 的參考文件。這個預覽版本可藉由提供下列實驗性功能，來擴充公開上市版本 [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx)：
 
-- [Lucene 查詢語法](https://msdn.microsoft.com/library/mt589323.aspx)現在可用於 Azure 搜尋服務中的查詢。若要使用 Lucene 查詢剖析器，請在搜尋作業中指定 `queryType`。
-- [自訂分析器](https://msdn.microsoft.com/library/azure/mt605304.aspx)可讓您充分控制將文字轉換成可檢索/可搜尋語彙基元的程序
-- `moreLikeThis` 是[搜尋操作](#SearchDocs)中所使用的查詢參數，可尋找與另一份特定文件相關的其他文件。
+- [Lucene 查詢語法](https://msdn.microsoft.com/library/mt589323.aspx)現在可用於 Azure 搜尋服務中的查詢。若要使用 Lucene 查詢剖析器，請在「搜尋」操作中指定 `queryType`。`moreLikeThis` 是 [搜尋操作](#SearchDocs)中使用的查詢參數，可尋找與另一份特定文件相關的其他文件。
+
+我們將個別說明 `2015-02-28-Preview` 中的一些其他功能。其中包含：
+
+- [評分設定檔](search-api-scoring-profiles-2015-02-28-preview.md)
+- [索引子](search-api-indexers-2015-02-28-preview.md)
 
 Azure 搜尋服務可以在多個版本中使用。如需詳細資訊，請參閱[搜尋服務版本設定](http://msdn.microsoft.com/library/azure/dn864560.aspx)。
 
-##本文件中的 API
+## 本文件中的 API
+
+Azure 搜尋服務 API 對 API 作業支援兩種 URL 語法：簡單和 OData (如需詳細資訊，請參閱 [OData 支援 (Azure 搜尋 API)](http://msdn.microsoft.com/library/azure/dn798932.aspx))。下列清單顯示簡單語法。
 
 [建立索引](#CreateIndex)
 
@@ -265,7 +270,7 @@ ________________________________________
 
 `analyzer` - 設定在搜尋時和檢索時要用於欄位的分析器名稱。如需允許的值組，請參閱[分析器](https://msdn.microsoft.com/library/mt605304.aspx)。此選項只可以搭配 `searchable` 欄位使用，而無法與 `searchAnalyzer` 或 `indexAnalyzer` 一起設定。選擇分析器之後，就無法針對此欄位進行變更。
 
-`searchAnalyzer` - 設定在搜尋欄位時使用的分析器名稱。如需允許的值組，請參閱[分析器](https://msdn.microsoft.com/library/mt605304.aspx)。此選項只能與 `searchable` 欄位搭配使用。它必須與 `indexAnalyzer` 一起設定，而無法與 `analyzer` 選項目一起設定。選擇分析器之後，就無法針對此欄位進行變更。
+`searchAnalyzer` - 設定在搜尋欄位時使用的分析器名稱。如需允許的值組，請參閱[分析器](https://msdn.microsoft.com/library/mt605304.aspx)。此選項只能與 `searchable` 欄位搭配使用。它必須與 `indexAnalyzer` 一起設定，而無法與 `analyzer` 選項目一起設定。此分析器可在現有欄位上更新。
 
 `indexAnalyzer` - 設定在檢索欄位時使用的分析器名稱。如需允許的值組，請參閱[分析器](https://msdn.microsoft.com/library/mt605304.aspx)。此選項只能與 `searchable` 欄位搭配使用。它必須與 `searchAnalyzer` 一起設定，而無法與 `analyzer` 選項目一起設定。選擇分析器之後，就無法針對此欄位進行變更。
 
@@ -662,7 +667,7 @@ Azure 搜尋支援多種語言。每一種語言都需要非標準的文字分�
 目前針對索引結構描述更新提供有限支援。目前不支援任何需要重新編製索引的結構描述更新 (例如，變更欄位類型)。儘管無法變更或刪除現有欄位，但可隨時在現有索引中新增欄位。新增欄位時，索引中的所有現有文件會自動在該欄位中設定 Null 值。在將新文件新增至索引之前，將不會佔用任何額外的儲存空間。
 
 <a name="Suggesters"></a>
-##建議工具
+## 建議工具
 
 Azure 搜尋中的建議功能是自動完成或自動完成查詢的功能，提供一份潛在的搜尋詞彙，以回應搜尋方塊中輸入的部分字串輸入。當您使用商業 Web 搜尋引擎時，您可能已經注意到查詢建議：在 Bing 中輸入 ".NET" 會產生 ".NET 4.5"、".NET Framework 3.5" 等等的詞彙清單。使用搜尋服務 REST API 時，在自訂的 Azure 搜尋應用程式中實作建議有下列需求：
 
@@ -703,7 +708,7 @@ Azure 搜尋中的建議功能是自動完成或自動完成查詢的功能，�
 		  ]
 		}
 
-> [AZURE.NOTE]如果您使用了公開預覽版本的 Azure 搜尋服務，`suggesters` 會取代較舊的布林值屬性 (`"suggestions": false`)，因為該屬性僅支援適用於簡短字串 (3-25 個字元) 的前置建議。它的替代項目 `suggesters` 支援中置比對，可在欄位內容的開頭或中間尋找相符的項目，而且對搜尋字串內的錯誤有更好的容錯能力。從公開上市版本開始，這現在是建議 API 的唯一實作。在 `api-version=2014-07-31-Preview` 中引進的較舊 `suggestions` 屬性仍會在該版本中繼續運作，但無法在 `2015-02-28` 或更新版本的 Azure 搜尋服務中運作。
+> [AZURE.NOTE]  如果您使用了公開預覽版本的 Azure 搜尋服務，`suggesters` 會取代較舊的布林值屬性 (`"suggestions": false`)，因為該屬性僅支援適用於簡短字串 (3-25 個字元) 的前置建議。它的替代項目 `suggesters` 支援中置比對，可在欄位內容的開頭或中間尋找相符的項目，而且對搜尋字串內的錯誤有更好的容錯能力。從公開上市版本開始，這現在是建議 API 的唯一實作。在 `api-version=2014-07-31-Preview` 中引進的較舊 `suggestions` 屬性仍會在該版本中繼續運作，但無法在 `2015-02-28` 或更新版本的 Azure 搜尋服務中運作。
 
 <a name="UpdateIndex"></a>
 ## 更新索引
@@ -992,7 +997,7 @@ ________________________________________
 
 在 Azure 搜尋中，索引是儲存在雲端並使用您上傳到服務的 JSON 文件來填入。您上傳的所有文件會包含您搜尋資料的主體。文件會包含欄位，其中一些欄位會在它們上傳時語彙基元化為搜尋字詞。Azure 搜尋服務 API 中的 `/docs` URL 區段表示索引中的文件集合。在集合中執行的所有操作 (例如，上傳、合併、刪除或查詢文件) 都會在單一索引的內容中執行，因此，這些操作的 URL 一律會以 `/indexes/[index name]/docs` 為開頭來做為指定的索引名稱。
 
-應用程式碼必須產生 JSON 文件，才能上傳至 Azure 搜尋服務，或如果資料來源是 Azure SQL Database 或 DocumentDB，則可以使用[索引子](https://msdn.microsoft.com/library/dn946891.aspx)來載入文件。通常，索引是從您提供的單一資料集填入。
+應用程式的程式碼必須產生 JSON 文件，才能上傳至 Azure 搜尋，或者，如果資料來源是 Azure SQL Database 或 DocumentDB，則可使用[索引子](https://msdn.microsoft.com/library/dn946891.aspx)來載入文件。通常，索引是從您提供的單一資料集填入。
 
 您應該規劃針對每個想要搜尋的項目擁有一份文件。電影出租應用程式可能是每部電影有一份文件、店面應用程式可能是每個 SKU 有一份文件、線上課程應用程式可能是每個課程有一份文件、研究公司可能會在他們的存放庫中針對每份學術報告有一份文件，依此類推。
 
@@ -1041,6 +1046,8 @@ ________________________________________
         ...
       ]
     }
+
+> [AZURE.NOTE] 文件索引鍵可以只包含字母、數字、連字號 ("-")、底線 ("\_")，及等號 ("=")。如需更多詳細資料，請參閱[命名規則](https://msdn.microsoft.com/library/azure/dn857353.aspx)。
 
 **文件動作**
 
@@ -1143,9 +1150,9 @@ ________________________________________
 
 **使用 POST 而不是 GET 的時機**
 
-使用 HTTP GET 呼叫**搜尋** API 時，您需要留意要求 URL 的長度不能超過 8 KB。這對大部分的應用程式通常已足夠。不過，有些應用程式會產生非常大型的查詢，特別是 OData 篩選條件運算式。針對這些應用程式，使用 HTTP POST 是較好的選擇。POST 的要求大小限制接近 17 MB，即使是最複雜的查詢空間亦很充裕。
+使用 HTTP GET 呼叫**搜尋** API 時，您需要留意要求 URL 的長度不能超過 8 KB。這對大部分的應用程式通常已足夠。不過，有些應用程式會產生非常大型的查詢或 OData 篩選條件運算式。對於這些應用程式而言，使用 HTTP POST 是較好的選擇，因為它允許比 GET 更大型的篩選與查詢。使用 POST 時，限制因素為查詢中的字詞或子句數目，而不是原始查詢的大小，因為 POST 的要求大小限制接近 17 MB。
 
-**要求**
+> [AZURE.NOTE] 即使 POST 要求大小限制很大，搜尋查詢與篩選運算式也不能任意複雜化。請參閱 [Lucene 查詢語法](https://msdn.microsoft.com/library/mt589323.aspx)和 [OData 運算式語法](https://msdn.microsoft.com/library/dn798921.aspx)，以了解搜尋查詢和篩選複雜性限制的相關詳細資訊。**要求**
 
 服務要求需要使用 HTTPS。**搜尋**要求可以使用 GET 或 POST 方法來建構。
 
@@ -1178,29 +1185,29 @@ ________________________________________
 
 `queryType=simple|full` (選擇性，預設值為 `simple`) - 若設定為"simple"，則會使用允許符號 (如 +、* 和 "") 的簡單查詢語言來解譯搜尋文字。預設會跨越每份文件中的所有可搜尋欄位 (或以 `searchFields` 表示的欄位) 評估查詢。若查詢類型設定為 `full`，則會使用允許欄位特定搜尋和加權搜尋的 Lucene 查詢語言來解譯搜尋文字。如需搜尋語法的詳細資訊，請參閱[簡單查詢語法](https://msdn.microsoft.com/library/dn798920.aspx)和 [Lucene 查詢語法](https://msdn.microsoft.com/library/mt589323.aspx)。
  
-> [AZURE.NOTE]不支援 Lucene 查詢語言的搜尋範圍不支援可提供類似功能的 $filter。
+> [AZURE.NOTE] 不支援 Lucene 查詢語言的搜尋範圍不支援可提供類似功能的 $filter。
 
 `moreLikeThis=[key]` (選用) **重要：** 此功能僅適用於 `2015-02-28-Preview`。此選項無法在包含文字搜尋參數 `search=[string]` 的查詢中使用。`moreLikeThis` 參數所尋找的文件類似文件索引鍵所指定的文件。使用 `moreLikeThis` 提出搜尋要求時，即會根據來源文件中字詞的出現頻率和稀有程度來產生搜尋字詞清單。這些字詞接著可用來提出要求。除非使用 `searchFields` 來限制要搜尋的欄位，否則所有 `searchable` 欄位的內容預設都會納入考慮。
 
 `$skip=#` (選用) - 要略過的搜尋結果數目；不能大於 100,000。如果您需要循序掃描文件，但因此限制而無法使用 `$skip`，請考慮改為在完全排序的索引鍵上使用 `$orderby`，以及含有查詢範圍的 `$filter`。
 
-> [AZURE.NOTE]使用 POST 呼叫**搜尋**時，此參數的名稱是 `skip` 而不是 `$skip`。
+> [AZURE.NOTE] 使用 POST 呼叫**搜尋**時，此參數的名稱是 `skip` 而不是 `$skip`。
 
 `$top=#` (選用) - 要擷取的搜尋結果數目。這可用於搭配 `$skip` 來實作用戶端的搜尋結果分頁。
 
-> [AZURE.NOTE]使用 POST 呼叫**搜尋**時，此參數的名稱會是 `top` 而不是 `$top`。
+> [AZURE.NOTE] 使用 POST 呼叫**搜尋**時，此參數的名稱會是 `top` 而不是 `$top`。
 
 `$count=true|false` (選用，預設值為 `false`) - 指定是否要擷取結果的總計數。這是所有符合 `search` 和 `$filter` 參數並忽略 `$top` 和 `$skip` 的文件計數將此值設為 `true`，可能會對效能產生影響。請注意，傳回的計數是一個近似值。
 
-> [AZURE.NOTE]使用 POST 呼叫**搜尋**時，此參數的名稱是 `count` 而不是 `$count`。
+> [AZURE.NOTE] 使用 POST 呼叫**搜尋**時，此參數的名稱會是 `count` 而不是 `$count`。
 
 `$orderby=[string]` (選用) - 逗號分隔的運算式清單，系統會據以排序結果。每個運算式可以是一個欄位名稱，或是 `geo.distance()` 函式的呼叫。每個運算式後面若接著 `asc` 表示遞增排序，接著 `desc` 則表示遞減排序。預設值為遞增排序。繫結將透過文件的相符分數來中斷。若未指定 `$orderby`，預設的排序順序會依照文件相符分數遞減排序。針對 `$orderby`，有 32 個子句的限制。
 
-> [AZURE.NOTE]使用 POST 呼叫**搜尋**時，此參數的名稱是 `orderby` 而不是 `$orderby`。
+> [AZURE.NOTE] 使用 POST 呼叫**搜尋**時，此參數的名稱是 `orderby` 而不是 `$orderby`。
 
 `$select=[string]` (選用) - 要抓取的逗號分隔欄位清單。若未指定，即會包含結構描述中標記為可抓取的所有欄位。您也可以將此參數設為 `*`，明確地要求所有欄位。
 
-> [AZURE.NOTE]使用 POST 呼叫**搜尋**時，此參數的名稱是 `select` 而不是 `$select`。
+> [AZURE.NOTE] 使用 POST 呼叫**搜尋**時，此參數的名稱是 `select` 而不是 `$select`。
 
 `facet=[string]` (零或多個) - 要設定多面向的欄位。字串可以選擇性地包含參數，來自訂要表達為逗號分隔之 `name:value` 對組的多面向。有效參數包括：
 
@@ -1216,33 +1223,36 @@ ________________________________________
 - `interval` (如果是數字，整數間隔大於 0，如果是日期時間值，則為 `minute`、`hour`、`day`、`week`、`month`、`quarter` 或 `year`)
   - 例如：`facet=baseRate,interval:100` 會根據大小為 100 的基本匯率範圍來產生值區。舉例來說，如果基本匯率全都介於 60 美元到 600 美元之間，則會有下列值區：0-100、100-200、200-300、300-400、400-500 及 500-600。
   - 例如：`facet=lastRenovationDate,interval:year` 會在旅館重新整修期間，每一年產生一個值區。
+- `timeoffset` ([+-]hh:mm、[+-]hhmm，或 [+-]hh) `timeoffset` 為選用項目。它只能與 `interval` 選項結合，而且只有在套用至類型 `Edm.DateTimeOffset` 的欄位時才能結合。值會指定帳戶的 UTC 時間位移，以設定時間介面。
+  - 例如：`facet=lastRenovationDate,interval:day,timeoffset:-01:00` 會使用在 01:00:00 UTC (目標時區午夜) 開始的日界限。
 - **注意**：`count` 和 `sort` 可以在相同面向規格中組合在一起，但它們無法與 `interval` 或 `values` 結合，而且 `interval` 和 `values` 無法組合在一起。
+- **注意**：如果未指定 `timeoffset`，日期時間間隔 Facet 就會依據 UTC 時間來計算。例如：對於 `facet=lastRenovationDate,interval:day` 而言，日界限會在 00:00:00 UTC 開始。 
 
-> [AZURE.NOTE]使用 POST 呼叫**搜尋**時，此參數的名稱是 `facets` 而不是 `facet`。此外，您會將它指定為字串的 JSON 陣列，其中每個字串是不同的 facet 運算式。
+> [AZURE.NOTE] 使用 POST 呼叫**搜尋**時，此參數的名稱會是 `facets` 而不是 `facet`。此外，您會將它指定為字串的 JSON 陣列，其中每個字串是不同的 facet 運算式。
 
 `$filter=[string]` (選用) - 使用標準 OData 語法的結構化搜尋運算式。如需 Azure 搜尋服務支援的 OData 運算式文法子集詳細資訊，請參閱 [OData 運算式語法](#ODataExpressionSyntax)。
 
-> [AZURE.NOTE]使用 POST 呼叫**搜尋**時，此參數的名稱是 `filter` 而不是 `$filter`。
+> [AZURE.NOTE] 使用 POST 呼叫**搜尋**時，此參數的名稱是 `filter` 而不是 `$filter`。
 
 `highlight=[string]` (選用) - 一組適用於點閱數醒目提示的逗號分隔欄位名稱。只有 `searchable` 欄位可用於點閱數醒目提示。
 
 `highlightPreTag=[string]` (選用，預設值為 `<em>`) - 附加到檢閱數醒目提示之前的字串標記。必須使用 `highlightPostTag` 來設定。
 
-> [AZURE.NOTE]使用 GET 呼叫**搜尋**時，URL 中的保留字元必須以百分比進行編碼 (例如，%23 而不是 #)。
+> [AZURE.NOTE] 使用 GET 呼叫**搜尋**時，URL 中的保留字元必須以百分比進行編碼 (例如，%23 而不是 #)。
 
 `highlightPostTag=[string]` (選用，預設值為 `</em>`) - 附加到檢閱數醒目提示之後的字串標記。必須使用 `highlightPreTag` 來設定。
 
-> [AZURE.NOTE]使用 GET 呼叫**搜尋**時，URL 中的保留字元必須以百分比進行編碼 (例如，%23 而不是 #)。
+> [AZURE.NOTE] 使用 GET 呼叫**搜尋**時，URL 中的保留字元必須以百分比進行編碼 (例如，%23 而不是 #)。
 
 `scoringProfile=[string]` (選用) - 評分設定檔的名稱，可用來評估比對文件的相符分數以排序結果。
 
 `scoringParameter=[string]` (零或多個) - 使用「名稱：值」格式來指出評分函式中定義的每個參數值 (例如 `referencePointParameter`)。舉例來說，如果評分設定檔使用名為 "mylocation" 的參數來定義函式，則查詢字串選項會是 &scoringParameter=mylocation:-122.2,44.8
 
-> [AZURE.NOTE]使用 POST 呼叫**搜尋**時，此參數的名稱是 `scoringParameters` 而不是 `scoringParameter`。此外，您會將它指定為字串的 JSON 陣列，其中每個字串是不同的名稱:值組。
+> [AZURE.NOTE] 使用 POST 呼叫**搜尋**時，此參數的名稱是 `scoringParameters` 而不是 `scoringParameter`。此外，您會將它指定為字串的 JSON 陣列，其中每個字串是不同的名稱:值組。
 
 `minimumCoverage` (選擇性，預設值為 100) - 介於 0 和 100 的數字，指出搜尋查詢要報告為成功查詢，必須涵蓋的索引的百分比。根據預設，整個索引必須可供使用，否則 `Search` 會傳回 HTTP 狀態碼 503。如果您成功設定 `minimumCoverage` 和 `Search`，它會傳回 HTTP 200，並在回應中包含 `@search.coverage` 值，指出查詢中包含的索引的百分比。
 
-> [AZURE.NOTE]將此參數設定為小於 100 的值，對於確保搜尋可用性 (甚至是只有一個複本的服務) 來說非常有用。不過，並非所有的比對文件都保證會出現在搜尋結果中。如果對您的應用程式而言，搜尋重新叫用比可用性更重要，那麼最好將 `minimumCoverage` 保留為預設值 100。
+> [AZURE.NOTE] 將此參數設定為小於 100 的值，對於確保搜尋可用性 (甚至是只有一個複本的服務) 來說非常有用。不過，並非所有的比對文件都保證會出現在搜尋結果中。如果對您的應用程式而言，搜尋重新叫用比可用性更重要，那麼最好將 `minimumCoverage` 保留為預設值 100。
 
 `api-version=[string]` (必要)。預覽版本為 `api-version=2015-02-28-Preview`。如需詳細資訊和替代版本，請參閱[搜尋服務版本設定](http://msdn.microsoft.com/library/azure/dn864560.aspx)。
 
@@ -1347,6 +1357,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
 
 1) 搜尋依日期遞減排序的索引。
 
+
     GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1357,6 +1368,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
 
 2) 在多面向搜尋中搜尋索引，並抓取特定範圍中類別、評等、標記以及含有 baseRate 之項目的多面向：
 
+
     GET /indexes/hotels/docs?search=test&facet=category&facet=rating&facet=tags&facet=baseRate,values:80|150|220&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1366,6 +1378,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
     }
 
 3) 使用篩選器，在使用者按一下評等 3 和類別 "Motel" 時，縮小先前多面向查詢結果的範圍：
+
 
     GET /indexes/hotels/docs?search=test&facet=tags&facet=baseRate,values:80|150|220&$filter=rating eq 3 and category eq 'Motel'&api-version=2015-02-28-Preview
 
@@ -1378,6 +1391,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
 
 4) 在多面向搜尋中，為查詢中傳回的唯一字詞數目設定上限。預設值為 10，但您可以使用 `facet` 屬性上的 `count` 參數來增加或減少此值：
 
+
     GET /indexes/hotels/docs?search=test&facet=city,count:5&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1388,6 +1402,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
 
 5) 搜尋特定欄位內的索引；例如，語言特定的欄位：
 
+
     GET /indexes/hotels/docs?search=hôtel&searchFields=description_fr&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1397,6 +1412,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
     }
 
 6) 跨多個欄位搜尋索引。例如，您可以使用多種語言來儲存和查詢可搜尋的欄位，全部都使用相同的索引。如果英文和法文說明同時存在於同一份文件中，您就可以在查詢結果中傳回任一個或兩者：
+
 
 	GET /indexes/hotels/docs?search=hotel&searchFields=description,description_fr&api-version=2015-02-28-Preview
 
@@ -1410,6 +1426,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
 
 7) 分頁 - 取得第 1 頁的項目 (頁面大小為 10)：
 
+
     GET /indexes/hotels/docs?search=*&$skip=0&$top=10&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1420,6 +1437,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
     }
 
 8) 分頁 - 取得第 2 頁的項目 (頁面大小為 10)：
+
 
     GET /indexes/hotels/docs?search=*&$skip=10&$top=10&api-version=2015-02-28-Preview
 
@@ -1432,6 +1450,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
 
 9) 抓取一組特定的欄位：
 
+
     GET /indexes/hotels/docs?search=*&$select=hotelName,description&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1442,6 +1461,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
 
 10) 抓取符合特定篩選運算式的文件
 
+
     GET /indexes/hotels/docs?$filter=(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1450,6 +1470,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
     }
 
 11) 搜尋索引，並傳回含有點閱數醒目提示的片段
+
 
     GET /indexes/hotels/docs?search=something&highlight=description&api-version=2015-02-28-Preview
 
@@ -1461,6 +1482,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
 
 12) 搜尋索引，並傳回順序是從最接近參考位置到最遠離參考位置的方式排序的文件
 
+
     GET /indexes/hotels/docs?search=something&$orderby=geo.distance(location, geography'POINT(-122.12315 47.88121)')&api-version=2015-02-28-Preview
 
     POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
@@ -1470,6 +1492,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
     }
 
 13) 搜尋索引，但前提假設有一個名為 "geo" 的評分設定檔並含有兩個完全相同的評分函式，一個會定義名為 "currentLocation" 的參數，另一個則會定義名為 "lastLocation" 的參數
+
 
     GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&scoringParameter=lastLocation:-121.499,44.2113&api-version=2015-02-28-Preview
 
@@ -1481,6 +1504,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
     }
 
 14) 使用[簡單查詢語法](https://msdn.microsoft.com/library/dn798920.aspx)，在索引中尋找文件。此查詢會傳回可搜尋欄位包含字詞 "comfort" 和 "location"，但未包含 "motel" 的旅館：
+
 
     GET /indexes/hotels/docs?search=comfort +location -motel&searchMode=all&api-version=2015-02-28-Preview
 
@@ -1504,7 +1528,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
     }
 
 <a name="LookupAPI"></a>
-##查閱文件
+## 查閱文件
 
 **查閱文件**操作會從 Azure 搜尋服務抓取文件。當使用者按一下特定的搜尋結果，而您想要查閱有關該文件的特定詳細資料時，這非常實用。
 
@@ -1562,7 +1586,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
     GET /indexes('hotels')/docs('3')?api-version=2015-02-28-Preview
 
 <a name="CountDocs"></a>
-##文件計數
+## 文件計數
 
 **文件計數**操作可在搜尋索引中抓取文件數目的計數。`$count` 語法是 OData 通訊協定的一部分。
 
@@ -1598,7 +1622,7 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
 回應本文包含的計數值是已格式化為純文字的整數。
 
 <a name="Suggestions"></a>
-##建議
+## 建議
 
 **建議**操作會根據部分搜尋輸入抓取建議。通常用於搜尋方塊中，可以在使用者輸入搜尋字詞時提供自動提示的建議。
 
@@ -1642,11 +1666,11 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
 
 `highlightPreTag=[string]` (選用) - 附加到搜尋檢閱數之前的字串標記。必須使用 `highlightPostTag` 來設定。
 
-> [AZURE.NOTE]使用 GET 呼叫**建議**時，URL 中的保留字元必須以百分比進行編碼 (例如，%23 而不是 #)。
+> [AZURE.NOTE] 使用 GET 呼叫**建議**時，URL 中的保留字元必須以百分比進行編碼 (例如，%23 而不是 #)。
 
 `highlightPostTag=[string]` (選用) - 附加到搜尋檢閱數之後的字串標記。必須使用 `highlightPreTag` 來設定。
 
-> [AZURE.NOTE]使用 GET 呼叫**建議**時，URL 中的保留字元必須以百分比進行編碼 (例如，%23 而不是 #)。
+> [AZURE.NOTE] 使用 GET 呼叫**建議**時，URL 中的保留字元必須以百分比進行編碼 (例如，%23 而不是 #)。
 
 `suggesterName=[string]` - `suggesters` 集合中當成索引定義一部分來指定的建議工具名稱。`suggester` 會判斷要針對建議的查詢字詞掃描哪些欄位。如需詳細資訊，請參閱[建議工具](#Suggesters)。
 
@@ -1656,23 +1680,23 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
 
 `$top=#` (選用，預設值 = 5) - 要抓取的建議數目。必須是 1 到 100 之間的數字。
 
-> [AZURE.NOTE]使用 POST 呼叫**建議**時，此參數的名稱是 `top` 而不是 `$top`。
+> [AZURE.NOTE] 使用 POST 呼叫**建議**時，此參數的名稱是 `top` 而不是 `$top`。
 
 `$filter=[string]` (選用) - 可篩選考慮用來提供建議之文件的運算式。
 
-> [AZURE.NOTE]使用 POST 呼叫**建議**時，此參數的名稱是 `filter` 而不是 `$filter`。
+> [AZURE.NOTE] 使用 POST 呼叫**建議**時，此參數的名稱是 `filter` 而不是 `$filter`。
 
 `$orderby=[string]` (選用) - 逗號分隔的運算式清單，系統會據以排序結果。每個運算式可以是一個欄位名稱，或是 `geo.distance()` 函式的呼叫。每個運算式後面若接著 `asc` 表示遞增排序，接著 `desc` 則表示遞減排序。預設值為遞增排序。針對 `$orderby`，有 32 個子句的限制。
 
-> [AZURE.NOTE]使用 POST 呼叫**建議**時，此參數的名稱是 `orderby` 而不是 `$orderby`。
+> [AZURE.NOTE] 使用 POST 呼叫**建議**時，此參數的名稱是 `orderby` 而不是 `$orderby`。
 
 `$select=[string]` (選用) - 要抓取的逗號分隔欄位清單。如未指定，就只會傳回文件索引鍵和建議文字。您可以將此參數設為 `*`，明確地要求所有欄位。
 
-> [AZURE.NOTE]使用 POST 呼叫**建議**時，此參數的名稱是 `select` 而不是 `$select`。
+> [AZURE.NOTE] 使用 POST 呼叫**建議**時，此參數的名稱是 `select` 而不是 `$select`。
 
 `minimumCoverage` (選擇性，預設值為 80) - 介於 0 和 100 的數字，指出建議查詢要報告為成功查詢時，必須涵蓋之索引的百分比。根據預設，至少 80% 的索引必須可供使用，否則 `Suggest` 會傳回 HTTP 狀態碼 503。如果您成功設定 `minimumCoverage` 和 `Suggest`，它會傳回 HTTP 200，並在回應中包含 `@search.coverage` 值，指出查詢中包含的索引的百分比。
 
-> [AZURE.NOTE]將此參數設定為小於 100 的值，對於確保搜尋可用性 (甚至是只有一個複本的服務) 來說非常有用。不過，並非所有的比對建議都保證會出現在結果中。如果對您的應用程式而言，重新叫用比可用性更重要，那麼 `minimumCoverage` 最好不要小於預設值 80。
+> [AZURE.NOTE] 將此參數設定為小於 100 的值，對於確保搜尋可用性 (甚至是只有一個複本的服務) 來說非常有用。不過，並非所有的比對建議都保證會出現在結果中。如果對您的應用程式而言，重新叫用比可用性更重要，那麼 `minimumCoverage` 最好不要小於預設值 80。
 
 `api-version=[string]` (必要)。預覽版本為 `api-version=2015-02-28-Preview`。如需詳細資訊和替代版本，請參閱[搜尋服務版本設定](http://msdn.microsoft.com/library/azure/dn864560.aspx)。
 
@@ -1748,4 +1772,4 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

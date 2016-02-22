@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/21/2015"  
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -147,4 +147,4 @@ Media Encoder Standard 使用[這裡](http://go.microsoft.com/fwlink/?linkid=618
 
 [如何使用 Media Encoder Standard 搭配 .NET 產生縮圖](media-services-dotnet-generate-thumbnail-with-mes.md) [媒體服務編碼概觀](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

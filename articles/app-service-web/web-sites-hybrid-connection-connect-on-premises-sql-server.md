@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="02/09/2016"
 	ms.author="cephalin"/>
 
 # 使用混合式連線從 Azure App Service 內的 Web 應用程式連線至內部部署 SQL Server
 
 「混合式連線」可將 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps 連接到使用靜態 TCP 連接埠的內部部署資源。支援的資源包括 Microsoft SQL Server、MySQL、HTTP Web API、行動服務和大部分的自訂 Web 服務。
 
-在本教學課程中，您將了解如何在 [Azure 預覽](http://go.microsoft.com/fwlink/?LinkId=529715)中建立 App Service Web 應用程式、使用新的「混合式連線」功能將 Web 應用程式連接到您的本機內部部署 SQL Server 資料庫、建立將使用混合式連線的簡易 ASP.NET 應用程式，以及將應用程式部署至 App Service Web 應用程式。Azure 上已完成的 Web 應用程式會將使用者認證儲存在內部部署的成員資格資料庫中。本教學課程假設您沒有使用 Azure 或 ASP.NET 的經驗。
+在本教學課程中，您將了解如何在 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中建立 App Service Web 應用程式、使用新的「混合式連線」功能將 Web 應用程式連接到您的本機內部部署 SQL Server 資料庫、建立將使用混合式連線的簡易 ASP.NET 應用程式，以及將應用程式部署至 App Service Web 應用程式。Azure 上已完成的 Web 應用程式會將使用者認證儲存在內部部署的成員資格資料庫中。本教學課程假設您沒有使用 Azure 或 ASP.NET 的經驗。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
 >
 >「混合式連線」功能的 Web Apps 部分僅適用於 [Azure 入口網站](https://portal.azure.com)。若要在 BizTalk 服務中建立連線，請參閱[混合式連線](http://go.microsoft.com/fwlink/p/?LinkID=397274)。
 
@@ -54,7 +54,7 @@
 80|**必要**可供 HTTP 連接埠進行憑證驗證以及可供進行資料連線 (選用)。
 443|**選用**可供進行資料連線。如果無法使用 443 的輸出連線，則使用 TCP 連接埠 80。
 5671 和 9352|**建議**但可供進行資料連線 (選用)。請注意，此模式通常會產生較高的輸送量。如果無法使用這些連接埠的輸出連線，則使用 TCP 連接埠 443。
-- 必須能夠連繫內部部署資源的 *hostname*:*portnumber* 。
+- 必須能夠連繫內部部署資源的 *hostname*:*portnumber*。
 
 本文中的步驟假設您使用將主控內部部署混合式連線代理程式之電腦中的瀏覽器。
 
@@ -63,7 +63,7 @@
 <a name="InstallSQL"></a>
 ## 答：在內部部署中安裝 SQL Server Express、啟用 TCP/IP 及建立 SQL Server 資料庫 ##
 
-本節說明如何安裝 SQL Server Express、啟用 TCP/IP 及建立資料庫，讓您的 Web 應用程式可在 Azure 預覽環境中運作。
+本節說明如何安裝 SQL Server Express、啟用 TCP/IP 及建立資料庫，讓您的 Web 應用程式可在 Azure 入口網站中運作。
 
 ### 安裝 SQL Server Express ###
 
@@ -119,7 +119,7 @@
 <a name="CreateSite"></a>
 ## B.在 Azure 入口網站中建立 Web 應用程式 ##
 
-> [AZURE.NOTE]如果您已在 Azure 入口網站中建立要用於此教學課程的 Web 應用程式，您可以直接跳到[建立混合式連線和 BizTalk 服務](#CreateHC)繼續作業。
+> [AZURE.NOTE] 如果您已在 Azure 入口網站中建立要用於此教學課程的 Web 應用程式，您可以直接跳到[建立混合式連線和 BizTalk 服務](#CreateHC)繼續作業。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [新增] > [Web + 行動] > [Web 應用程式]。
 
@@ -193,7 +193,7 @@
 
 在此步驟中您會編輯連接字串，以指示應用程式應至何處尋找您的本機 SQL Server Express 資料庫。連接字串位於應用程式的 Web.config 檔案中，其中包含應用程式的組態資訊。
 
-> [AZURE.NOTE]為確保您的應用程式使用的是您在 SQL Server Express 中建立的資料庫，而不是 Visual Studio 的預設 LocalDB 中的資料庫，請務必先完成此步驟，再執行您的專案。
+> [AZURE.NOTE] 為確保您的應用程式使用的是您在 SQL Server Express 中建立的資料庫，而不是 Visual Studio 的預設 LocalDB 中的資料庫，請務必先完成此步驟，再執行您的專案。
 
 1. 在 [方案總管] 中，按兩下 Web.config 檔案。
 
@@ -303,7 +303,7 @@
 
 [透過絕佳的應用程式可攜性建置真實的混合式雲端 (第 9 頻道視訊)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[使用混合式連線從 Azure 行動服務連線至內部佈署 SQL Server](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)
+[使用混合式連線從 Azure 行動服務連線至內部佈署 SQL Server](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 [使用混合式連線從 Azure 行動服務連線到內部部署 SQL Server (第 9 頻道視訊)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
@@ -364,6 +364,4 @@
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!----HONumber=AcomDC_1203_2015-->
-
-
+<!---HONumber=AcomDC_0211_2016-->

@@ -28,11 +28,12 @@
 -  投注較少的心力在基礎結構的取得和管理上，更專注於應用程式開發上
 -  提供員工和合作夥伴更多的支援，讓他們可以從任何位置使用應用程式。使用者不須連線到公司網路，即可使用應用程式，而 IT 群組也可避免使用複雜的反向 Proxy 方案。有數個驗證選項可以確保公司應用程式的存取受到保護。
 
-以下是在 App Service Web 應用程式上執行的企業營運應用程式範例。此範例示範不需要使用複雜的技術，只要組合 Web 應用程式和其他服務便能完成的工作。**按一下拓樸中的項目以讀取詳細資訊**。
+以下是在 App Service Web 應用程式上執行的企業營運應用程式範例。此範例示範不需要使用複雜的技術，只要組合 Web 應用程式和其他服務便能完成的工作。**按一下拓樸中的項目以讀取詳細資訊。**
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]本指南呈現一些與企業營運應用程式整合的最常見領域和工作。不過，還有其他 Azure App Service Web 應用程式功能可供您在特定的實作中使用。若要檢閱這些功能，請一併參閱[全域網站空間](web-sites-global-web-presence-solution-overview.md) (英文) 和 [數位行銷活動](web-sites-digital-marketing-application-solution-overview.md) (英文) 上的其他指南。
+> [AZURE.NOTE]
+本指南呈現一些與企業營運應用程式整合的最常見領域和工作。不過，還有其他 Azure App Service Web 應用程式功能可供您在特定的實作中使用。若要檢閱這些功能，請一併參閱[全域網站空間](web-sites-global-web-presence-solution-overview.md) (英文) 和 [數位行銷活動](web-sites-digital-marketing-application-solution-overview.md) (英文) 上的其他指南。
 
 ## 使用現有的資產
 
@@ -79,10 +80,10 @@ App Service Web Apps 具有[相應增加與放大]的功能，不論您的工作
 ## 其他資源
 
 - [App Service Web Apps 文件](/services/app-service/web/)
-- [Azure App Service Web Apps 的學習規劃](websites-learning-map.md)
+- [Azure App Service Web Apps 的學習規劃](/documentation/learning-paths/appservice-webapps/)
 - [Azure Web 部落格](/blog/topics/web/)
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡，無需承諾。
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -124,4 +125,4 @@ App Service Web Apps 具有[相應增加與放大]的功能，不論您的工作
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

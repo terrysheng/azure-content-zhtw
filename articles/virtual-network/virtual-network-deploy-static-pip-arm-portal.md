@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="在資源管理員中使用預覽入口網站部署使用靜態公用 IP 的 VM | Microsoft Azure"
-   description="了解如何在資源管理員中使用預覽入口網站部署使用靜態公用 IP 的 VM"
+   pageTitle="在資源管理員中使用 Azure 入口網站部署使用靜態公用 IP 的 VM | Microsoft Azure"
+   description="了解如何在資源管理員中使用 Azure 入口網站部署使用靜態公用 IP 的 VM"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2016"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
 # 使用 Azure 入口網站部署使用靜態公用 IP 的 VM
@@ -59,4 +59,4 @@
 
 	![Azure 入口網站 - 建立公用 IP 位址](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

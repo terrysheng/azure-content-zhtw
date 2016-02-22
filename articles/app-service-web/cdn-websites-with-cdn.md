@@ -552,15 +552,15 @@
 7. 重新整理瀏覽器視窗來顯示 Azure Web 應用程式。您現在應該會看到所有的指令碼和樣式表都已正確載入。
 
 ## 相關資訊 
-- [Azure 內容傳遞網路 (CDN) 概觀](../cdn-overview.md)
-- [在 Web 應用程式中從 Azure CDN 提供內容](../cdn-serve-content-from-cdn-in-your-web-application.md)
-- [整合雲端服務與 Azure CDN](../cdn-cloud-service-with-cdn.md)
+- [Azure 內容傳遞網路 (CDN) 概觀](../cdn/cdn-overview.md)
+- [在 Web 應用程式中從 Azure CDN 提供內容](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
+- [整合雲端服務與 Azure CDN](../cdn/cdn-cloud-service-with-cdn.md)
 - [ASP.NET 統合和縮製](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [使用 Azure 的 CDN](../cdn-how-to-use-cdn.md)
+- [使用 Azure 的 CDN](../cdn/cdn-how-to-use-cdn.md)
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

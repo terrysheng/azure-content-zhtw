@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/02/2016"
 	ms.author="cephalin"/>
 # Azure App Service 中的試驗部署 (beta 測試)
 
@@ -32,7 +32,7 @@
 在本教學課程中，您將了解如何整合下列案例，以在生產環境中測試您的 App Service 應用程式：
 
 - [路由傳送生產流量](app-service-web-test-in-production-get-start.md)至 beta 應用程式
-- [檢測您的應用程式](app-insights-web-track-usage.md)以取得實用的計量
+- [檢測您的應用程式](../application-insights/app-insights-web-track-usage.md)以取得實用的計量
 - 持續部署 beta 應用程式並追蹤即時應用程式計量
 - 比較生產應用程式和 beta 應用程式之間的計量，以觀察程式碼變更的結果為何
 
@@ -44,7 +44,7 @@
 -	Git Shell (與 [GitHub for Windows](https://windows.github.com/) 一起安裝) - 這可讓您在相同的工作階段中執行 Git 和 PowerShell 命令
 -	最新 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi) 位元
 -	下列項目的基本了解：
-	-	[Azure 資源管理員](resource-group-overview.md)範本部署 (請參閱[透過可預測方式在 Azure 中部署複雜應用程式](app-service-deploy-complex-application-predictably.md))
+	-	[Azure 資源管理員](../resource-group-overview.md)範本部署 (請參閱[透過可預測方式在 Azure 中部署複雜應用程式](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -174,7 +174,7 @@
 
 在本節中，您會設定不同的部署位置，將位置特定遙測傳送至相同的 Application Insights 資源。如此，您即可比較來自不同位置 (部署環境) 的流量之間的遙測資料，輕鬆地檢視應用程式變更的影響。相時，您可以區隔生產流量與其他流量，以便在必要時繼續監視您的生產應用程式。
 
-由於您要收集用戶端行為的相關資料，因此會在 index.cshtml 中[將遙測初始設定式新增至 JavaScript 程式碼](app-insights-api-custom-events-metrics.md#js-initializer)。舉例來說，如果您想要測試伺服器端效能，您也可以在伺服器程式碼中執行類似的動作 (請參閱[自訂事件和計量的 Application Insights API](app-insights-api-custom-events-metrics.md))。
+由於您要收集用戶端行為的相關資料，因此會在 index.cshtml 中[將遙測初始設定式新增至 JavaScript 程式碼](../application-insights/app-insights-api-custom-events-metrics.md#js-initializer)。舉例來說，如果您想要測試伺服器端效能，您也可以在伺服器程式碼中執行類似的動作 (請參閱[自訂事件和計量的 Application Insights API](../application-insights/app-insights-api-custom-events-metrics.md))。
 
 1. 首先，在您先前新增至 `<heading>` 標記的 JavaScript 區塊中，在下列兩個 `//` 註解之間新增程式碼。
 
@@ -215,7 +215,7 @@
 
 5. 按一下 [我的最愛] 按鈕，將目前的 [計量瀏覽器] 設定儲存至 [自訂事件：生產] 之類的項目。後續您可以在此檢視與部署位置檢視之間輕鬆切換。
 
-    > [AZURE.TIP] 若要有更強大的分析能力，請考慮[將 Application Insights 資源與 Power BI 整合](app-insights-export-power-bi.md)。
+    > [AZURE.TIP] 若要有更強大的分析能力，請考慮[將 Application Insights 資源與 Power BI 整合](../application-insights/app-insights-export-power-bi.md)。
 
 ### 將位置特定標記新增至您的伺服器應用程式計量
 同樣地，基於完整性，您會設定伺服器端應用程式。不同於以 JavaScript 進行檢測的用戶端應用程式，伺服器應用程式的位置特定標記會以 .NET 程式碼進行檢測。
@@ -369,10 +369,10 @@ Azure App Service 可讓中小型企業輕鬆地在生產環境中測試其客�
 -   [敏捷式軟體開發 (Agile Software Development) 與 Azure App Service](app-service-agile-software-development.md)
 -   [針對 Azure App Service 中的 Web 應用程式設定預備環境](web-sites-staged-publishing.md)
 -	[透過可預測方式在 Azure 中部署複雜應用程式](app-service-deploy-complex-application-predictably.md)
--	[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
+-	[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)
 -	[JSONLint - JSON 驗證程式](http://jsonlint.com/)
 -	[Git 分支 - 基本分支和合併](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
--	[Azure PowerShell](powershell-install-configure.md)
+-	[Azure PowerShell](../powershell-install-configure.md)
 -	[專案 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

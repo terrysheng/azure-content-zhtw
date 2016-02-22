@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"  
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 #使用 Media Encoder Premium Workflow 進行進階編碼
 
-**注意** 本主題中討論的 Media Encoder Premium Workflow 媒體編碼器不適用於中國。
+>[AZURE.NOTE]如有進階編碼器的問題，請傳送電子郵件到 mepd@Microsoft.com。
+>
+>本主題中討論的媒體編碼器高階工作流程媒體處理器無法在中國使用。
 
 ##概觀
 
@@ -28,11 +30,13 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 
 - [Media Encoder Premium Workflow 支援的格式](media-services-premium-workflow-encoder-formats.md) – 討論 **Media Encoder Premium Workflow** 支援的檔案格式和轉碼器。
 
-- [比較編碼器](media-services-encode-asset.md#compare_encoders)章節比較了「媒體編碼器高階工作流程」、「媒體編碼器標準」和「Azure 媒體編碼器」的編碼功能。
+- [比較編碼器](media-services-encode-asset.md#compare_encoders)一節比較了「媒體編碼器高階工作流程」、「媒體編碼器標準」和「Azure 媒體編碼器」的編碼功能。
 
 本主題示範如何使用 .NET 以 **Media Encoder Premium Workflow** 進行編碼。
 
 **Media Encoder Premium Workflow** 的編碼工作需要個別的組態檔，這稱為工作流程檔案。這些檔案具有 .workflow 副檔名，並且使用[工作流程設計工具](media-services-workflow-designer.md)工具建立。
+
+>[AZURE.NOTE]如有進階編碼器的問題，請傳送電子郵件到 mepd@Microsoft.com。
 
 ##編碼
 
@@ -50,7 +54,9 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 1. 建立資產並上傳工作流程檔案。 
 2. 建立資產並上傳來源媒體檔案。
 3. 取得“Media Encoder Premium Workflow”媒體處理器。
-4. 建立工作 (Job) 和工作 (Task)。
+4. 建立工作 (Job) 和工作 (Task)。 
+
+	在大部分情況下，工作的組態字串是空的 (如下列範例)。在一些進階的案例 (會要求您動態設定執行階段屬性) 情況下，您可以提供 XML 字串給編碼工作。這類案例的範例包括：建立疊加、平行或循序的媒體編結、顯示字幕。
 5. 將兩個輸入資產加入工作 (Task)。
 	
 	a.第一個 – 工作流程資產。
@@ -264,10 +270,6 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 	}
 
 
-##已知問題
-
-如果您的輸入視訊不包含隱藏式字幕，輸出資產仍然會包含空白 TTML 檔案。
-
 
 ##媒體服務學習路徑
 
@@ -277,4 +279,4 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

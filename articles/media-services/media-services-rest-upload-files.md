@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/18/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -39,7 +39,7 @@ AMS 也可讓您上傳大量資產。如需詳細資訊，請參閱[本節](medi
 
 ###建立資產
 
->[AZURE.NOTE]使用媒體服務 REST API 時，適用下列考量事項：
+>[AZURE.NOTE] 使用媒體服務 REST API 時，適用下列考量事項：
 >
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 
@@ -294,7 +294,7 @@ SAS URL 具有下列格式：
 	
 一旦設定 AccessPolicy 與 Locator，實際檔案會使用 Azure 儲存體 REST API 上傳至 Azure Blob 儲存容器。您可以使用頁面或區塊 blob 上傳。
 
->[AZURE.NOTE]您必須將要上傳的檔案名稱新增到上一節中所收到的 Locator **Path** 值。例如，https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+>[AZURE.NOTE] 您必須將要上傳的檔案名稱新增到上一節中所收到的 Locator **Path** 值。例如，https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 
 如需使用 Azure 儲存體 blob 的詳細資訊，請參閱 [Blob 服務 REST API](http://msdn.microsoft.com/library/azure/dd135733.aspx)。
 
@@ -529,4 +529,4 @@ IngestManifestFile 代表實際的視訊或音訊 Blob 物件，將針對資產�
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

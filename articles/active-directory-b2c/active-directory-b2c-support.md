@@ -25,12 +25,8 @@
 1. [遵循下列步驟以瀏覽至 Azure 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
 2. 從 B2C 租用戶切換至另一個擁有相關聯 Azure 訂用帳戶的租用戶。後者通常為員工租用戶，或是您註冊 Azure 訂用帳戶時所建立的預設租用戶。若要深入瞭解 Azure 訂用帳戶與 Azure AD 目錄之間的關係，請詳閱[本文](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad)。
 
-    > [AZURE.IMPORTANT]
-    此為必要步驟。若您未執行此步驟，處理程序將會失敗。
-
     ![支援 - 切換目錄](./media/active-directory-b2c-support/support-switch-dir.png)
 
-    
 3. 切換目錄後，按一下 [說明 + 支援]。
 
     ![支援 - 支援](./media/active-directory-b2c-support/support-support.png)
@@ -49,8 +45,8 @@
 若您遺漏上述的步驟 2，且嘗試在 B2C 租用戶的內容中建立支援要求，您將會看到以下錯誤。
 
 > [AZURE.IMPORTANT]
-> 請不要嘗試在 B2C 租用戶中註冊新的 Azure 訂用帳戶。
+請不要嘗試在 B2C 租用戶中註冊新的 Azure 訂用帳戶。
 
 ![支援 - 無訂用帳戶](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

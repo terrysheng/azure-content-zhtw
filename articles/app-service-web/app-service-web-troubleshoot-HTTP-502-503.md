@@ -50,7 +50,7 @@
 
 ####	追蹤服務健全狀況
 
-每次發生服務中斷或效能降低時，Microsoft Azure 就會發出公告。您可以在 [Azure 入口網站](https://portal.azure.com/)上追蹤服務健全狀況。如需詳細資訊，請參閱[追蹤服務健全狀況](insights-service-health.md)。
+每次發生服務中斷或效能降低時，Microsoft Azure 就會發出公告。您可以在 [Azure 入口網站](https://portal.azure.com/)上追蹤服務健全狀況。如需詳細資訊，請參閱[追蹤服務健全狀況](../azure-portal/insights-service-health.md)。
 
 ####	監視 Web 應用程式
 
@@ -69,7 +69,7 @@
 如需詳細資訊，請參閱：
 
 -	[監視 Azure App Service 中的 Web Apps](web-sites-monitor.md)
--	[接收警示通知](insights-receive-alert-notifications.md)
+-	[接收警示通知](../azure-portal/insights-receive-alert-notifications.md)
 
 <a name="collect" />
 ### 2\.收集資料
@@ -136,6 +136,6 @@ AutoHeal 會根據您選擇的設定 (例如組態變更、要求、以記憶體
 
  ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-您也可以使用 Azure Powershell 管理 Web 應用程式。如需詳細資訊，請參閱[將 Azure PowerShell 與 Azure 資源管理員搭配使用](powershell-azure-resource-manager.md)。
+您也可以使用 Azure Powershell 管理 Web 應用程式。如需詳細資訊，請參閱[將 Azure PowerShell 與 Azure 資源管理員搭配使用](../powershell-azure-resource-manager.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

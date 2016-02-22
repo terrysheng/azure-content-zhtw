@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -32,7 +32,7 @@
 1. 取得存取權杖 
 2. 連接至媒體服務 URI 
 
-	>[AZURE.NOTE]成功連線至 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。後續的呼叫必須送到新的 URI。您也可能會收到 HTTP/1.1 200 回應，其中包含 ODATA API 中繼資料描述。
+	>[AZURE.NOTE] 成功連線至 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。後續的呼叫必須送到新的 URI。您也可能會收到 HTTP/1.1 200 回應，其中包含 ODATA API 中繼資料描述。
 
 3. 將後續的 API 呼叫張貼到新的 URL。
 
@@ -95,7 +95,8 @@
 	}
 	
 
->[AZURE.NOTE]建議您將 "access\_token" 和 "expires\_in" 值快取到外部儲存體。稍後可以從儲存體擷取權杖資料，然後重複使用在媒體服務 REST API 呼叫中。這特別適用於權杖可以在多個處理程序或電腦之間安全共用的情況。
+>[AZURE.NOTE]
+建議您將 "access\_token" 和 "expires\_in" 值快取到外部儲存體。稍後可以從儲存體擷取權杖資料，然後重複使用在媒體服務 REST API 呼叫中。這特別適用於權杖可以在多個處理程序或電腦之間安全共用的情況。
 
 請務必監控存取權杖的 "expires\_in" 值，並視需要以新權杖更新您的 REST API 呼叫。
 
@@ -161,7 +162,7 @@
 	 
 
 
->[AZURE.NOTE]取得新的 URI 之後，便應該使用此 URI 來與媒體服務通訊。
+>[AZURE.NOTE] 取得新的 URI 之後，便應該使用此 URI 來與媒體服務通訊。
 
 
 ##媒體服務學習路徑
@@ -172,4 +173,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

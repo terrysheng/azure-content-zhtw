@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/23/2015"
+    ms.date="02/06/2016"
     ms.author="elizapo" />
 
 
@@ -22,6 +22,9 @@
 
 Azure RemoteApp 的優點之一是我們不斷地努力改進 RemoteApp。每當 RemoteApp 有新功能時 ，我們便會在這裡發表變更。
 
+## 未來的更新
+您好 - 您知道 Azure RemoteApp 團隊每個月都會在 RDS 部落格上張貼更新嗎？ 您不只可以找到 Azure RemoteApp 中有哪些變更，也可以找到有關如何使用 RDS 的其他資訊。請查看他們的部落格，[遠端桌面服務部落格](https://blogs.msdn.microsoft.com/rds/)，以瞭解相關資訊。例如，他們在數週之前張貼了一個有關[使用 Azure RemoteApp 和 Azure AD 增益及轉移工作負載](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/)的項目。
+ 
 ## 2015 年 9 月
 - 已將 Infopath 新增至 Microsoft Office 365 範本和資源庫映像。如果您想要共用 Infopath，請務必使用最新的映像來更新您的集合。
 - 用戶端更新：
@@ -72,7 +75,7 @@ Azure RemoteApp 的優點之一是我們不斷地努力改進 RemoteApp。每當
 - [從 Azure 虛擬機器建立 Azure RemoteApp 映像](remoteapp-image-on-azurevm.md)。將自訂映像上傳至 Azure 的速度更為快速。
 - 使用 Azure VNET (非 RemoteApp VNET)，以將公司網路資源連線到 Azure。我們已更新[混合式集合指示](remoteapp-create-hybrid-deployment.md)來逐步引導您建立 Azure VNET (它是步驟 1)。
 - 對於 VNET，請參閱有關 VNET 大小限制和限制的[新指引](remoteapp-vnetsizing.md)。
-- 而且對於限制，就是什麼是[服務限制和預設值](remoteapp-servicelimits.md)？
+- 而且對於限制，就是什麼是[服務限制和預設值](../azure-subscription-service-limits.md)？
 
 想要深入了解 Azure RemoteApp 嗎？ RemoteApp 小組在數週之前已致力於 Ignite。請參閱 Eric 的影片：[Microsoft Azure RemoteApp 管理基礎](http://channel9.msdn.com/Events/Ignite/2015/BRK3868) (英文)。
 
@@ -84,4 +87,4 @@ Azure RemoteApp 的優點之一是我們不斷地努力改進 RemoteApp。每當
 ### 幫我們來協助您
 您知道除了評比這篇文章以及在下面留言以外，您可以變更文件本身嗎？ 有所遺漏？ 有所錯誤？ 我是否撰寫了令人混淆的內容？ 向上捲動並按一下 [在 GitHub 上編輯] 以進行變更 - 系統會顯示這些變更以供我們檢閱，而我們簽核後，您就會在這裡看到您所進行的變更和改良。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

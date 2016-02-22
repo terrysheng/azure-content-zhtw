@@ -22,7 +22,7 @@ Reliable Actors 執行階段會發出 [EventSource](https://msdn.microsoft.com/l
 ## EventSource 事件
 Reliable Actors 執行階段的 EventSource 提供者名稱為 "Microsoft-ServiceFabric-Actors"。當在 [Visual Studio 中正在偵錯](service-fabric-debugging-your-application.md)動作項目應用程式時，事件來源中的事件會出現在 [[診斷事件](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio)] 視窗中。
 
-可協助您收集和/或檢視 EventSource 事件的工具和技術範例包括 [PerfView](http://www.microsoft.com/download/details.aspx?id=28567)、[Azure 診斷](../cloud-services-dotnet-diagnostics.md)、[語意記錄](https://msdn.microsoft.com/library/dn774980.aspx)和 [Microsoft TraceEvent 程式庫](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)。
+可協助您收集和/或檢視 EventSource 事件的工具和技術範例包括 [PerfView](http://www.microsoft.com/download/details.aspx?id=28567)、[Azure 診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)、[語意記錄](https://msdn.microsoft.com/library/dn774980.aspx)和 [Microsoft TraceEvent 程式庫](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)。
 
 ### 關鍵字
 所有屬於 Reliable Actor EventSource 的事件皆有一或多個相關聯的關鍵字。這會啟動篩選所選的事件。以下為已定義的關鍵字位元。
@@ -44,7 +44,7 @@ Reliable Actor 執行階段定義下列效能計數器類別。
 
 上述的類別每一個都有一或多個計數器。
 
-Windows 作業系統中預設可用的 [Windows 效能監視器](https://technet.microsoft.com/library/cc749249.aspx)應用程式可用於收集與檢視效能計數器資料。[Azure 診斷](../cloud-services-dotnet-diagnostics.md)是另一個收集效能計數器資料並上傳至 Azure 資料表的選項。
+Windows 作業系統中預設可用的 [Windows 效能監視器](https://technet.microsoft.com/library/cc749249.aspx)應用程式可用於收集與檢視效能計數器資料。[Azure 診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)是另一個收集效能計數器資料並上傳至 Azure 資料表的選項。
 
 ### 效能計數器執行個體名稱
 含大量動作項目服務或動作項目服務資料分割的叢集將有大量的動作項目效能計數器執行個體。效能計數器執行個體名稱可幫助識別效能計數器執行個體相關聯的特定[資料分割](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors)與動作項目方法 (如果適用)。
@@ -153,4 +153,4 @@ Reliable Actor 執行階段會發出下列與[動作項目啟動與停用](servi
 |ActorActivated|5|資訊|0x1|動作項目已啟動。|
 |ActorDeactivated|6|資訊|0x1|動作項目已停用。|
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

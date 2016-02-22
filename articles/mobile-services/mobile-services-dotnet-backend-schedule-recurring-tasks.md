@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/07/2016"
 	ms.author="glenga"/>
 
 # 在行動服務中為週期性工作排程
@@ -97,7 +97,7 @@
 
 	服務會使用 Updates 資料表 (在第一次存取 DbSet 時建立於資料庫中) 儲存推文資料。
 
-	>[AZURE.NOTE]使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。無法針對 Azure 中的 SQL Database 使用預設的初始設定式。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型](mobile-services-dotnet-backend-use-code-first-migrations.md) (英文)。
+	>[AZURE.NOTE] 使用預設資料庫初始設定式時，每當 Entity Framework 在 Code First 模型定義中偵測到資料模型變更，就會捨棄並重新建立資料庫。若要進行此資料模型變更，並保有資料庫的現有資料，必須使用 Code First Migrations。無法針對 Azure 中的 SQL Database 使用預設的初始設定式。如需詳細資訊，請參閱[如何使用 Code First Migrations 更新資料模型](mobile-services-dotnet-backend-use-code-first-migrations.md) (英文)。
 
 接下來，請建立可存取 Twitter 並將推文資料儲存於全新 Updates 資料表中的排定工作。
 
@@ -266,7 +266,7 @@
 
    	這會執行在排程器中仍處於停用狀態的工作。在此頁面上，您可以隨時啟用工作及變更其排程。
 
-	>[AZURE.NOTE]仍可使用 POST 要求來啟動排程工作。不過，授權預設會提供給使用者，表示要求必須在標頭中包含應用程式金鑰。
+	>[AZURE.NOTE] 仍可使用 POST 要求來啟動排程工作。不過，授權預設會提供給使用者，表示要求必須在標頭中包含應用程式金鑰。
 
 4. 在 [Azure 傳統入口網站]中，針對與您行動服務的相關聯的資料庫按一下 [管理]。
 
@@ -305,4 +305,4 @@
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex 專案]: http://linqtotwitter.codeplex.com/
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0211_2016-->

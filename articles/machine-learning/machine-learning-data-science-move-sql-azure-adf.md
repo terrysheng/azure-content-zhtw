@@ -15,13 +15,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.date="02/08/2016"
 	ms.author="fashah;bradsev" />
 
 
 # 使用 Azure Data Factory 從內部部署的 SQL Server 移動資料至 SQL Azure
 
 本主題說明如何使用 Azure Data Factory (ADF)，透過 Azure Blob 儲存體從內部部署的 SQL Server 資料庫移動資料至 SQL Azure Database。
+
+以下**功能表**會連結至說明如何將資料擷取至其他目標環境，以在 Cortana Analytics 程序 (CAPS) 期間儲存和處理該資料的主題。
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 ## <a name="intro"></a>簡介：什麼是 ADF ，以及其應該用來移轉資料的時機？
 
@@ -137,7 +141,7 @@ Azure Data Factory 是完全受管理的雲端架構資料整合服務，用來�
 		    	}
 	    	}
     	}
-請注意，這裡未包含資料行名稱，您可以子選取資料行名稱，方法是將其包含在此 (如需詳細資料，請參閱 [ADF 文件](data-factory-copy-activity.md))。
+請注意，這裡未包含資料行名稱，您可以子選取資料行名稱，方法是將其包含在此 (如需詳細資料，請參閱 [ADF 文件](data-factory-data-movement-activities.md))。
 
 將資料表的 JSON 定義複製到名為 *onpremtabledef.json* 的檔案，並將其儲存至已知位置 (此處假設為 *C:\\temp\\onpremtabledef.json*)。使用下列 Azure PowerShell Cmdlet，在 ADF 中建立資料表。
 
@@ -211,7 +215,7 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 * 指令碼假設**管線名稱**為 *AMLDSProcessPipeline*。
 * 此外請注意，我們會設定管線週期以每日執行，並使用預設的作業執行時間 (12 am UTC)。
 
-> [AZURE.NOTE]  下列程序會使用 Azure PowerShell 來定義和建立 ADF 管線。但是，此工作也可以透過 Azure 入口網站來完成。如需詳細資料，請參閱[建立和執行管線](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline)。
+> [AZURE.NOTE]  下列程序會使用 Azure PowerShell 來定義和建立 ADF 管線。但是，此工作也可以透過 Azure 入口網站來完成。如需詳細資料，請參閱[建立和執行管線](../data-factory/data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline)。
 
 使用上面提供的資料表定義，將 ADF 的管線定義指定為：
 
@@ -301,4 +305,4 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 
 請注意，我們尚未運用 ADF 提供的功能，以遞增方式輸送資料。如需關於如何執行此功能和 ADF 提供之其他功能的詳細資料，請參閱 [ADF 文件](https://azure.microsoft.com/services/data-factory/)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

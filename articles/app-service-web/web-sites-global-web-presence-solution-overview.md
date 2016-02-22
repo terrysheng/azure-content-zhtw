@@ -21,13 +21,14 @@
 
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps 提供建立 .COM 網站全域網站空間所需的全部功能。無論組織的規模大小，您都需要強固、安全且可擴充的平台，以促進您的業務、品牌認知以及客戶通訊。App Service Web Apps 藉由 Microsoft 支援的營運持續性，協助維持企業的品牌與識別。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
-以下是在 App Service Web Apps 上執行的.COM 網站範例。此範例示範不需要使用複雜的技術，只要組合 Web Apps 和其他服務便能完成的工作。**按一下拓樸中的項目以讀取詳細資訊**。
+以下是在 App Service Web Apps 上執行的.COM 網站範例。此範例示範不需要使用複雜的技術，只要組合 Web Apps 和其他服務便能完成的工作。**按一下拓樸中的項目以讀取詳細資訊。**
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]本指南說明在 Azure App Service Web Apps 中執行公用端 .COM 網站最常見的區域和工作。不過，還有其他可在 Azure App Service Web Apps 中實作的常見解決方案。若要檢閱這些解決方案，請同時參閱[數位行銷活動](web-sites-digital-marketing-application-solution-overview.md)與[商務應用程式](web-sites-business-application-solution-overview.md)方面的其他指南。
+> [AZURE.NOTE]
+本指南說明在 Azure App Service Web Apps 中執行公用端 .COM 網站最常見的區域和工作。不過，還有其他可在 Azure App Service Web Apps 中實作的常見解決方案。若要檢閱這些解決方案，請同時參閱[數位行銷活動](web-sites-digital-marketing-application-solution-overview.md)與[商務應用程式](web-sites-business-application-solution-overview.md)方面的其他指南。
 
 ## 從頭開始建立或沿用現有資產
 
@@ -89,7 +90,7 @@ App Service Web Apps 具有[相應增加和放大]的功能，不論您的工作
 ## 其他資源
 
 - [App Service Web Apps 文件](/services/app-service/web/)
-- [Azure App Service Web Apps 的學習規劃](websites-learning-map.md)
+- [Azure App Service Web Apps 的學習規劃](/documentation/learning-paths/appservice-webapps/)
 - [Azure Web 部落格](/blog/topics/web/)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
@@ -137,4 +138,4 @@ App Service Web Apps 具有[相應增加和放大]的功能，不論您的工作
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

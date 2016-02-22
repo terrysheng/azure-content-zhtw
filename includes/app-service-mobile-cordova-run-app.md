@@ -1,23 +1,20 @@
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile
-app settings, click **Quickstart** > **Cordova**. Under **Configure your client application**, select **Create a New App**,
-then click **Download**. This downloads a complete Cordova project for an app pre-configured to connect to your backend.
+1. 造訪 [Azure 入口網站]。按一下 [全部瀏覽] > [行動應用程式] > 您剛才建立的後端。在行動應用程式設定中，按一下 [快速入門] > [Cordova]。在 [設定用戶端應用程式] 下方，選取 [建立新的應用程式]，然後按一下 [下載]。這會為已預先設定成連接到您後端的應用程式，下載一個完整的 Cordova 專案。
 
-2. Unpack the downloading ZIP file to a directory on your hard drive.
+2. 將下載的 ZIP 檔案解壓縮至您硬碟上的目錄。
 
-3. Open the project using **Visual Studio**.  Click on **Open** > **Project/Solution...**.
+3. 使用 **Visual Studio** 來開啟該專案。按一下 [開啟] > [專案/方案]。
 
-4. Find the _sitename_.sln file and click **Open**.
+4. 尋找 _sitename_.sln 檔案，然後按一下 [開啟]。
 
-5. The default emulator is **Ripple - Nexus (Galaxy)**.  Click the drop-down arrow next to the emulator and select **Google Android Emulator**.
+5. 預設的模擬器是 **Ripple - Nexus (Galaxy)**。按一下模擬器旁邊的下拉式箭號，然後選取 [Google Android 模擬器]。
 
-6. Click on **Google Android Emulator**.  The project will be built and then run.  You may see a network security warning from the
-Google Android Emulator requesting access to the network.  Eventually, the Google Android Emulator will be shown and your application will run.
+6. 按一下 [Google Android 模擬器]。將會建立專案，然後執行。您可能會看到因「Google Android 模擬器」要求存取網路而引發的網路安全性警告。最後，將會顯示「Google Android 模擬器」，並執行您的應用程式。
 
-7. In the app, type meaningful text, such as _Complete the tutorial_ and then click the 'Add' button. This sends a POST request to the
-Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem SQL table, and returns information
-about the newly stored items back to the mobile app. The mobile app displays this data in the list.
+7. 在應用程式中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下 [加入] 按鈕。這會將 POST 要求傳送至先前部署的 Azure 後端。後端會將要求中的資料插入 TodoItem SQL 資料表，並將新儲存之項目的相關資訊傳回給行動應用程式。行動應用程式會以清單顯示此資料。
 
     ![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
 
-[Azure Portal]: https://portal.azure.com/
+[Azure 入口網站]: https://portal.azure.com/
+
+<!---HONumber=AcomDC_0211_2016-->

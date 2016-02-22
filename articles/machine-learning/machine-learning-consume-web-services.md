@@ -3,7 +3,7 @@
 	description="部署機器學習服務之後，就可以使用 RESTFul Web 服務做為要求-回應服務或批次執行服務。"
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="garyericson"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="10/19/2015"
-	ms.author="bradsev" />
+	ms.date="02/10/2016"
+	ms.author="garye" />
 
 
 # 如何使用已從機器學習實驗部署的 Azure Machine Learning Web 服務
@@ -33,7 +33,7 @@
 
 使用 Azure Machine Learning Web 服務有兩種不同方式，可以做為要求-回應服務，或者批次執行服務。在這兩個案例中，一旦部署實驗之後，就可以使用透過 RESTFul Web 服務提供的功能。在 Azure 中使用 Azure Web 服務端點部署機器學習 Web 服務，服務會根據使用量自動調整，您可以避免預先且持續付出硬體資源成本。
 
-> [AZURE.TIP]如需建立 Web 應用程式以存取您的預測 Web 服務的簡單方式，請參閱[使用 Azure Machine Learning Web 服務與 Web 應用程式範本](machine-learning-consume-web-service-with-web-app-template.md)。
+> [AZURE.TIP] 如需建立 Web 應用程式以存取您的預測 Web 服務的簡單方式，請參閱[使用 Azure Machine Learning Web 服務與 Web 應用程式範本](machine-learning-consume-web-service-with-web-app-template.md)。
 
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
@@ -63,17 +63,17 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 ## 範例
 為了同時顯示 RRS 和 BES 兩者如何運作，我們使用 Azure Web 服務範例。此服務將用於 IOT (Internet Of Things) 案例。為了簡單起見，我們的裝置只會傳送一個值，`cog_speed`，並取得單一的回應。
 
-呼叫 RRS 或 BES 服務需要四種資訊。部署實驗之後，就可以在 [Azure Machine Learning 服務頁面](https://studio.azureml.net)中取得這項資訊。按一下畫面左側的 [Web 服務] 連結，您會看到已部署的服務。若要尋找特定服務的相關資訊，RRS 和 BES 兩者都有 API 說明頁面連結。
+呼叫 RRS 或 BES 服務需要四種資訊。部署實驗之後，就可以在 [Azure Machine Learning Studio](https://studio.azureml.net) 中取得這項資訊。按一下畫面左側的 [Web 服務] 索引標籤，您會看到已部署的服務。按一下服務來尋找下列 RRS 及 BES 的連結與資訊：
 
-1.	**服務 API 金鑰**位於服務主要頁面
-2.	**服務 URI** 位於所選服務的 API 說明頁面
-3.	預期的 **API 要求本文**位於所選服務的 API 說明頁面
-4.	預期的 **API 回應本文**位於所選服務的 API 說明頁面
+1.	服務「API 金鑰」位於服務儀表板
+2.	服務「要求 URI」位於所選服務的 API 說明頁面
+3.	預期的 API「要求本文」及「主體」位於所選服務的 API 說明頁面
+4.	預期的 API「回應本文」及「主體」位於所選服務的 API 說明頁面
 
 在下列兩個範例中，我們使用 C# 語言說明所需的程式碼，目標平台是 Windows 8 桌面。
 
 ### RRS 範例
-在 API 說明頁面上，除了 URI，您要輸入和輸出定義和程式碼範例。API 輸入是特別針對這項服務呼叫，且為 API 呼叫的內容。
+按一下服務儀表板上 [API 說明頁面] 下的 [要求/回應] 來檢視 API 說明頁面。除了 URI 以外，在此頁面上您還會看到輸入和輸出定義及程式碼範例。特別針對此服務的 API 輸入顯示如下，且其為 API 呼叫的承載。
 
 **範例要求**
 
@@ -97,7 +97,7 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 	}
 
 
-同樣地，API 回應也是特別針對這項服務呼叫。
+同樣地，此服務的 API 回應也顯示如下。
 
 **範例回應**
 
@@ -125,7 +125,7 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 	  "GlobalParameters": {}
 	}
 
-您會在頁面底部找到程式碼範例。下面是 C# 實作的程式碼範例
+您會在說明頁面底部找到程式碼範例。下面是 C# 實作的程式碼範例。
 
 **範例程式碼**
 
@@ -200,7 +200,7 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 	}
 
 ### BES 範例
-在 API 說明頁面上，除了 URI，您會發現幾個可用呼叫的相關資訊。與 RRS 服務不同，BES 服務是非同步的。這表示 BES API 只是將要執行的工作排入佇列，而呼叫者會輪詢工作的狀態以查看工作何時完成。以下是目前支援的批次工作作業：
+與 RRS 服務不同，BES 服務是非同步的。這表示 BES API 只是將要執行的工作排入佇列，而呼叫者會輪詢工作的狀態以查看工作何時完成。以下是目前支援的批次工作作業：
 
 1. 建立 (提交) 批次工作
 1. 啟動此批次工作
@@ -209,17 +209,19 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 
 **1.建立批次執行工作**
 
-建立 Azure Machine Learning 服務端點的批次工作時，可以指定將定義此批次執行的數個參數：
+建立 Azure Machine Learning 服務端點的批次工作時，您可以指定將定義此批次執行的數個參數：
 
 * **Input**：代表儲存批次工作輸入位置的 Blob 參考。
-* **GlobalParameters**：代表可用於定義實驗的全域參數集。Azure Machine Learning 實驗可以具有必要和選用參數，以自訂服務的執行，而呼叫者預期會提供所有必要的參數 (如果有這些參數)。這些參數會以索引鍵-值組的集合形式來指定。
-* **Outputs**：如果服務已定義一或多個輸出，我們允許呼叫者將任一輸出重新導向至其所選的 Azure Blob 位置。這麼做可讓您將服務的輸出，以可預測的名稱儲存在慣用位置，否則輸出的 Blob 名稱會隨機產生。**注意**：服務會預期輸出內容是根據其類型儲存為支援的格式：
+* **GlobalParameters**：代表您可用於定義實驗的全域參數集。Azure Machine Learning 實驗可以具有必要和選用參數，以自訂服務的執行，而呼叫者預期會提供所有必要的參數 (如果有這些參數)。這些參數會以索引鍵-值組的集合形式來指定。
+* **Outputs**：如果服務已定義一或多個輸出，呼叫者可將任一輸出重新導向某個 Azure Blob 位置。這麼做可讓您以可預測的名稱，將服務的輸出儲存在慣用位置，否則輸出的 Blob 名稱會隨機產生。 
+
+    請留意，服務會預期輸出內容 (依其類型) 已儲存為支援的格式：
   - 資料集輸出：可以儲存為 **.csv、.tsv、.arff**
   - 定型模型輸出：可以儲存為 **.ilearner**
 
-  輸出位置覆寫會指定為 *<output name  blob reference>* 組的集合，其中 *output name* 是特定輸出節點的使用者定義名稱 (服務的 API 說明頁面中也有顯示)，而 *blob reference* 則是 Azure Blob 位置的參考，也是輸出要重新導向的目的地位置。
+  輸出位置覆寫會指定為 *<output name  blob reference>* 組的集合，其中 *output name* 是特定輸出節點的使用者定義名稱 (服務的 API 說明頁面中也有顯示)，而 *blob reference* 則是 Azure Blob 位置的參考，也是輸出要重新導向的位置。
 
-所有這些建立工作的參數均可視您的服務性質來選擇性地使用。例如，沒有定義輸入節點的服務不需要傳入 *Input* 參數，且完全可以選擇是否使用輸出位置覆寫功能；因為如果不使用，輸出也會儲存在您針對 Azure Machine Learning 工作區所設定的預設儲存體帳戶中。以下針對只傳入輸入資訊的服務，示範傳遞至 REST API 的要求承載：
+所有這些建立工作的參數均可視您的服務性質來選擇性地使用。例如，沒有定義輸入節點的服務不需要傳入 *Input* 參數。同樣地，是否使用輸出位置覆寫功能完全可自由選擇；因為如果不使用，輸出也會儲存在您針對 Azure Machine Learning 工作區所設定的預設儲存體帳戶中。以下針對只提供輸入資訊的服務，示範傳遞至 REST API 的要求承載：
 
 **範例要求**
 
@@ -235,7 +237,7 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 	  "GlobalParameters": null
 	}
 
-批次工作建立 API 的回應是與您工作相關聯的唯一工作 ID這個 ID 非常重要，因為它是讓您針對其他作業參考系統中此工作的唯一方法。
+批次工作建立 API 的回應是與您工作相關聯的唯一工作 ID。這個 ID 非常重要，因為它是讓您針對其他作業參考系統中此工作的唯一方法。
 
 **範例回應**
 
@@ -243,11 +245,11 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 
 **2.啟動批次執行工作**
 
-建立批次工作只會將它登錄在系統內，並呈現「未啟動」狀態。若要實際排程工作來執行，您必須依照服務端點的 API 說明頁面敘述，呼叫 **start** API，並提供建立工作時所取得的工作 ID。
+建立批次工作會將它登錄在系統內，並呈現「未啟動」狀態。若要實際排程工作來執行，請呼叫服務端點 API 說明頁面所述的 **start** API，並提供建立工作時所取得的工作 ID。
 
 **3.取得批次執行工作的狀態**
 
-您可以隨時將工作 ID 傳遞至 GetJobStatus API，藉此輪詢非同步批次工作的狀態。API 回應會包含指標，指出工作的目前狀態，以及實際的批次工作結果 (如果批次工作順利完成)。如果發生錯誤，則會在 *Details* 屬性中傳回失敗背後的實際原因詳細資訊。
+您可以隨時將工作 ID 傳遞至 GetJobStatus API，藉此輪詢非同步批次工作的狀態。API 回應會包含指標，指出工作的目前狀態，以及實際的批次工作結果 (如果批次工作順利完成)。如果發生錯誤，則會在 *Details* 屬性中傳回失敗背後的實際原因詳細資訊，如下所示：
 
 **回應承載**
 
@@ -297,11 +299,11 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 
 
 
-#### 使用 [BES SDK](machine-learning-consume-web-services.md#batch-execution-service-sdk)
+#### 使用 BES SDK
 
-[BES SDK Nuget 封裝](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/)提供可以批次模式簡化呼叫 BES 來進行評分的功能。若要安裝 Nuget 套件，請在 Visual Studio 中移至 [工具]，選取 [Nuget 套件管理員]，然後按一下 [Package Manager Console]。
+[BES SDK Nuget 封裝](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/)提供可以批次模式簡化呼叫 BES 來進行評分的功能。若要安裝 Nuget 套件，請在 Visual Studio 中的 [工具] 功能表，選取 [Nuget 套件管理員]，然後按一下 [套件管理器主控台]。
 
-部署為 Web 服務的 AzureML 實驗可以包含 Web 服務輸入模組，這表示需要透過 Web 服務呼叫，以 Blob 位置參考的形式提供輸入。另外還有不使用 Web 服務輸入模組的選項，那就是改為使用「讀取器」模組。在此情況下，讀取器通常會在執行階段使用查詢，從 SQL DB 讀取以取得資料。Web 服務參數可用來動態指向其他伺服器或資料表等。SDK 支援以上兩種模式。
+Azure Machine Learning 實驗已部署為可包含 Web 服務輸入模型的 Web 服務。這表示它們預期輸入是以 Blob 位置參考的形式透過 Web 服務來呼叫。另外還有不使用 Web 服務輸入模組的選項，那就是改為使用「讀取器」模組。在此情況下，「讀取器」模組通常會在執行階段使用查詢，從 SQL DB 讀取以取得資料。Web 服務參數可用來動態指向其他伺服器或資料表等。SDK 支援以上兩種模式。
 
 下列程式碼範例示範如何使用 BES SDK，針對 Azure Machine Learning 服務端點提交和監視批次工作。請注意有關設定和呼叫的註解。
 
@@ -433,4 +435,4 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 	    }
 	}
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

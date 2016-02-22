@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 # 使用應用程式 Proxy 進行單一登入
 
-> [AZURE.NOTE]應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
+> [AZURE.NOTE] 應用程式 Proxy 是您升級至 Premium 或 Basic 版本的 Azure Active Directory 時才能使用的功能。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
 單一登入是 Azure AD 應用程式 Proxy 的重要元素。它提供最佳的使用者體驗：使用者登入雲端，在雲端中發生所有安全性驗證 (預先驗證)，然後，當要求傳送到內部部署應用程式時，應用程式 Proxy 連接器會模擬使用者，讓後端應用程式認為這是來自已加入網域之裝置的一般使用者。
 
@@ -80,21 +80,22 @@ Azure AD 應用程式 Proxy 可讓您為您的使用者提供單一登入 (SSO) 
 		Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
 
 
->[AZURE.NOTE]`sharepointserviceaccount` 可以是 SPS 電腦帳戶，或是用來執行 SPS 應用程式集區的服務帳戶。
+>[AZURE.NOTE] `sharepointserviceaccount` 可以是 SPS 電腦帳戶，或是用來執行 SPS 應用程式集區的服務帳戶。
 
 
 ### Azure 傳統入口網站設定
 
 1. 根據[使用應用程式 Proxy 發佈應用程式](active-directory-application-proxy-publish.md)中的所述指示來發佈您的應用程式。請務必選取 [Azure Active Directory] 做為 [預先驗證方法]。
 2. 應用程式出現於應用程式清單後，將其選取並按一下 [設定]。
-3. 在 [屬性] 下方，將 [內部驗證方法] 設定為 [整合式 Windows 驗證]。![進階應用程式組態](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
+3. 在 [屬性] 下方，將 [內部驗證方法] 設定為 [整合式 Windows 驗證]。
+![進階應用程式組態](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
 4. 輸入應用程式伺服器的 [內部應用程式 SPN]。在此範例中，已發佈應用程式的 SPN 為 http/lob.contoso.com。  
 
->[AZURE.IMPORTANT]Azure Active Directory 中的 UPN 必須與您內部部署 Active Directory 中的 UPN 相同，才能讓預先驗證正常運作。請確定您已將 Azure Active Directory 與內部部署 Active Directory 進行同步處理。
+>[AZURE.IMPORTANT] Azure Active Directory 中的 UPN 必須與您內部部署 Active Directory 中的 UPN 相同，才能讓預先驗證正常運作。請確定您已將 Azure Active Directory 與內部部署 Active Directory 進行同步處理。
 
 | | |
 | --- | --- |
-| 內部驗證方法 | 若您使用 Azure AD 進行預先驗證，則可設定內部驗證方法，讓使用者享有此應用程式的單一登入 (SSO) 功能優勢。<br><br> 若您的應用程式使用 IWA，則選取 \[整合式 Windows 驗證 (IWA)]，而且您可以設定「Kerberos 限制委派」(KCD) 以針對此應用程式啟用 SSO。使用 IWA 的應用程式必須設為使用 KCD，否則「應用程式 Proxy」將無法發佈這些應用程式。<br><br> 若您的應用程式不使用 IWA，請選取 [無]。 |
+| 內部驗證方法 | 若您使用 Azure AD 進行預先驗證，則可設定內部驗證方法，讓使用者享有此應用程式的單一登入 (SSO) 功能優勢。<br><br> 若您的應用程式使用 IWA，則選取 [整合式 Windows 驗證 (IWA)]，而且您可以設定「Kerberos 限制委派」(KCD) 以針對此應用程式啟用 SSO。使用 IWA 的應用程式必須設為使用 KCD，否則「應用程式 Proxy」將無法發佈這些應用程式。<br><br> 若您的應用程式不使用 IWA，請選取 [無]。 |
 | 內部應用程式 SPN | 這是在內部部署 Azure AD 中所設定的內部應用程式「服務主體名稱」(SPN)。「應用程式 Proxy 連接器」會使用 SPN，以針對使用 KCD 的應用程式擷取 Kerberos 權杖。 |
 
 
@@ -160,9 +161,14 @@ Azure AD 應用程式 Proxy 的 Kerberos 委派流程會在 Azure AD 在雲端�
 - [查閱應用程式 Proxy 部落格](http://blogs.technet.com/b/applicationproxyblog/)
 - [觀看我們在 Channel 9 上的影片！](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
+## 其他資源
+- [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+- [以組織方式註冊 Azure](sign-up-organization.md)
+- [Azure 身分識別](fundamentals-identity.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

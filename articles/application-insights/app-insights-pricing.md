@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 # 管理 Application Insights 的定價和配額
 
-Application Insights 目前僅供預覽。
+*Application Insights 目前僅供預覽。*
 
 [Visual Studio Application Insights][start] 的[定價][pricing]是根據每個應用程式的資料量而定。我們提供實質的免費層，讓您在該層次中使用大部分的功能，但會有一些限制。
 
@@ -103,21 +103,16 @@ Application Insights 目前僅供預覽。
 
 
 
-如果應用程式超過每秒速率，會發生什麼事？
+*如果應用程式超過每秒速率，會發生什麼事？*
 
 * 系統會每分鐘評估應用程式傳送的資料量。如果每秒速率超過每分鐘平均值，伺服器會拒絕部分要求。接著，部分版本的 SDK 會嘗試每數分鐘重新傳送突波；其他像是 JavaScript SDK 則會放棄遭到拒絕的資料。
 
 當節流發生時，您會看到警告您這種情況已發生的通知。
 
-如何知道應用程式正在傳送多少資料點？
+*如何知道應用程式正在傳送多少資料點？*
 
 * 開啟 [設定/配額與定價] 查看 [資料數量] 圖表。
 * 或在 [計量瀏覽器] 中，新增新的圖表，然後選取 [資料點數量] 做為其計量。切換群組，並依 [**資料類型**] 分組。
-
-如何減少我的應用程式傳送的資料量？
-
-* 使用[取樣](app-insights-sampling.md)。這項技術可減少資料率而不會曲解您的計量，且不會中斷在 [搜尋] 中於相關項目之間瀏覽的能力。從 Application Insights SDK for ASP.NET 的 2.0.0 版 beta3 起，預設會啟用調適性取樣。
-* [關閉您不需要的遙測收集器](app-insights-configuration-with-applicationinsights-config.md)。
 
 
 ### 降低資料速率的秘訣
@@ -125,6 +120,7 @@ Application Insights 目前僅供預覽。
 如果您遇到節流限制，以下是您可以執行的一些事項：
 
 * 使用[取樣](app-insights-sampling.md)。這項技術可減少資料率而不會曲解您的計量，且不會中斷在 [搜尋] 中於相關項目之間瀏覽的能力。
+* [限制可回報的 Ajax 呼叫次數](app-insights-javascript.md#detailed-configuration) (每個頁面檢視中) 或關閉 Ajax 報告功能。
 * 藉由[編輯 ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 來關閉您不需要的集合模組。例如，您可能會決定效能計數器或相依性資料是不必要的。
 * 預先彙總度量。如果您在應用程式中呼叫 TrackMetric，您可以使用接受批次測量之平均及標準差計算的多載來減少流量。您也可以使用[預先彙總套件](https://www.myget.org/gallery/applicationinsights-sdk-labs)。 
 
@@ -166,4 +162,4 @@ Application Insights 費用會加到您的 Azure 帳單中。您可以在 Azure 
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

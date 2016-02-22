@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="02/04/2016"
 	ms.author="jgao"/>
 
 
@@ -26,7 +26,7 @@
 
 啟用各種服務的堆積傾印收集時，必須針對個別叢集上的服務啟用。叢集的這項功能預設為關閉。這些堆積傾印的大小可能會很大，因此一旦啟用收集，建議您監視儲存這些傾印的 Blob 儲存體帳戶。
 
-> [AZURE.NOTE]本文的資訊僅適用於以 Windows 為基礎的 HDInsight。如需以 Linux 為基礎的 HDInsight 資訊，請參閱[在以 Linux 為基礎的 HDInsight 上啟用 Hadoop 服務的堆積傾印](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+> [AZURE.NOTE] 本文的資訊僅適用於以 Windows 為基礎的 HDInsight。如需以 Linux 為基礎的 HDInsight 資訊，請參閱[在以 Linux 為基礎的 HDInsight 上啟用 Hadoop 服務的堆積傾印](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 
 ## 堆積傾印的合格服務
 
@@ -63,4 +63,4 @@
 
 	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:HeapDumpPath", "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof"));
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

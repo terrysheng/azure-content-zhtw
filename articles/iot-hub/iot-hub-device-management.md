@@ -18,7 +18,7 @@
 
 # 使用 Azure IoT Suite 和 Azure IoT 中樞管理 IoT 裝置
 
-Azure IoT Suite 和 Azure IoT 中樞提供的基本功能可供進行 IoT 解決方案的裝置管理 (大規模)，以及管理各種不同的裝置和裝置拓撲組合。本文提及的裝置管理與 IoT 裝置管理特別有關。
+[Azure IoT 套件][lnk-iot-suite] 和 Azure IoT 中樞提供的基本功能可針對 IoT 解決方案 (大規模) 及一組多樣的裝置和裝置拓撲，啟用裝置管理功能。本文提及的裝置管理與 IoT 裝置管理特別有關。
 
 ## 簡介
 
@@ -30,13 +30,13 @@ Azure IoT Suite 和 Azure IoT 中樞提供的基本功能可供進行 IoT 解決
 
 為您的 IoT 解決方案啟用 IoT 裝置管理時，請考慮下列功能並依據您的企業目標判斷其重要性︰
 
-* **[裝置佈建和探索](#device-provisioning-and-discovery)**：透過此程序在系統中註冊裝置。
-* **[裝置登錄和裝置模型](#device-registry-and-device-models)**：裝置模型以此方式來表示適用於裝置關聯性的中繼資料結構化用法、系統中的角色，以及驗證方法。
+* **[裝置佈建和探索](#device-provisioning-and-discovery)**：透過此程序可將裝置註冊到系統中。
+* **[裝置登錄和裝置模型](#device-registry-and-device-models)**：裝置模型以此方式來呈現適用於裝置關聯性的中繼資料結構化用法、系統中的角色，以及驗證方法。
 * **[裝置存取管理](#device-access-management)**：裝置會使用此方式來控制對雲端服務中裝置資源的存取權。
 * **[遠端控制](#remote-control)**：遠端使用者會使用此方式來取得裝置的存取權以及指示裝置進行變更。
 * **[遠端系統管理](#remote-administration-and-monitoring)**：系統管理員可透過此程序來定義裝置母體健康情況。  
-* **[遠端組態](#remote-configuration)**：系統管理員會使用此方法來變更裝置組態。
-* **[遠端韌體與軟體更新](#remote-firmware-and-software-update)**：系統管理員可透過此程序來更新裝置韌體與軟體。
+* **[遠端組態](#remote-configuration)**：系統管理員可使用此方法來變更裝置組態。
+* **[遠端韌體與軟體更新](#remote-firmware-and-software-update)**：系統管理員可使用此程序來更新裝置韌體與軟體。
 
 下列各節更深入說明上述每項裝置管理功能，並說明高階模型以便利用 Azure IoT 中樞實作這些功能。
 
@@ -50,7 +50,7 @@ Azure IoT Suite 和 Azure IoT 中樞提供的基本功能可供進行 IoT 解決
 
 ## 裝置登錄和裝置模型
 
-「裝置模型」一詞是表示包含雲端服務可讀取或寫入之裝置屬性的模型。其中也包含雲端服務可從遠端在裝置上執行的裝置命令。在下一節所述的服務導向模型中，裝置並不知道此模型，但雲端服務仍可追蹤和使用裝置的中繼資料。
+「裝置模型」一詞係指包含裝置屬性且可供雲端服務讀取或寫入的模型。其中也包含雲端服務可從遠端在裝置上執行的裝置命令。在下一節所述的服務導向模型中，裝置並不知道此模型，但雲端服務仍可追蹤和使用裝置的中繼資料。
 
 對 IoT 系統和裝置登錄的角色而言，儲存裝置資訊和相關聯的中繼資料極為重要。對於無法變更的舊版裝置或未使用裝置模型的裝置，這種情況尤其顯著。服務導向模型可以啟用 IoT 服務來與裝置母體互動。當裝置使用已定義的模型運作時，裝置登錄可做為裝置資料的一致檢視 (以裝置為主)。在此情況下，服務會通知裝置其所需的變更，而這些變更會在裝置確認之後才會生效。
 
@@ -72,15 +72,15 @@ Azure IoT Suite 和 Azure IoT 中樞提供的基本功能可供進行 IoT 解決
 
 ### 遠端監視預先設定的解決方案及其裝置模型
 
-Azure IoT Suite 遠端監視預先設定的解決方案會實作自行定義的裝置模型。您可以使用此模型，在定義及發展您的裝置功能時快速反覆運算。
+Azure IoT 套件[遠端監視預先設定解決方案][lnk-remote-monitoring]會實作自行定義的裝置模型。您可以使用此模型，在定義及發展您的裝置功能時快速反覆運算。
 
 您可以在 [azure-iot-solution][lnk-azure-iot-solution] GitHub 儲存機制中找到此預先設定解決方案的原始程式碼。
 
-遠端監視預先設定的解決方案用來建立裝置物件，然後將它傳送到服務的程式碼是在 **Simulator/Simulator.WorkerRole/SimulatorCore/Devices/DeviceBase.cs** 檔案中。在 **SendDeviceInfo** 和 **GetDeviceInfo** 方法中，您可以看到如何建立自我描述的裝置模型並將它傳送至 Azure IoT 中樞。
+遠端監視預先設定解決方案用來建立裝置物件然後將它傳送給服務的程式碼是在 **Simulator/Simulator.WorkerRole/SimulatorCore/Devices/DeviceBase.cs** 檔案中。在 **SendDeviceInfo** 和 **GetDeviceInfo** 方法中，您可以看到如何建立自我描述的裝置模型並將它傳送給 Azure IoT 中樞。
 
-雲端服務用來處理裝置模型相關事件的程式碼位於 **EventProcessor/EventProcessor.WorkerRole/Processors/DeviceManagementProcessor.cs** 檔案中。大部分涉及對裝置傳送至預先設定之解決方案服務端的裝置模型相關訊息採取行動的工作會發生於 **ProcessJToken** 方法。
+雲端服務用來處理裝置模型相關事件的程式碼是在 **EventProcessor/EventProcessor.WorkerRole/Processors/DeviceManagementProcessor.cs** 檔案中。大部分涉及依據裝置模型相關訊息 (由裝置傳送給預先設定解決方案服務端) 採取行動的工作皆發生在 **ProcessJToken** 方法中。
 
-一旦收到裝置模型相關訊息，位於 **DeviceManagement/Infrastructure/BusinessLogic/DeviceLogic.cs** 檔案的 **UpdateDeviceFromSimulatedDeviceInfoPacketAsync** 和 **UpdateDeviceFromRealDeviceInfoPacketAsync** 方法就會負責更新裝置登錄。您可以在 **DeviceManagement/Web/WebApiControllers/DeviceApiController.cs** 檔案中找到遠端監視預先設定的解決方案中的裝置登錄 API。
+在收到裝置模型相關訊息後，位於 **DeviceManagement/Infrastructure/BusinessLogic/DeviceLogic.cs** 檔案中的 **UpdateDeviceFromSimulatedDeviceInfoPacketAsync** 和 **UpdateDeviceFromRealDeviceInfoPacketAsync** 方法就會負責更新裝置登錄。您可以在 **DeviceManagement/Web/WebApiControllers/DeviceApiController.cs** 檔案中，找到遠端監視預先設定解決方案中的裝置登錄 API。
 
 ### 現場閘道器裝置模型
 
@@ -96,9 +96,9 @@ IoT Suite 預先設定的解決方案可控制不同裝置層面的存取，包�
 
 在 IT 案例中，遠端控制通常用來協助遠端使用者或在遠端設定遠端伺服器。在 IoT 案例中，大部分的裝置不需要使用者操作，因此遠端控制使用於遠端設定和診斷案例。您可以使用兩種不同的模型實作遠端控制：
 
-* **直接連接**︰若要透過直接連接到裝置 (例如 Linux 上的 SSH、Windows 上的遠端桌面，或透過遠端偵錯工具) 來啟用遠端控制，您必須能夠建立裝置的連線。假設在開放式網際網路中公開裝置會有安全性風險，建議使用轉送服務 (例如 Azure [服務匯流排轉送服務][service-bus-relay]) 來啟用連接和路由流量。由於轉送連線是來自裝置的輸出連線，所以有助於限制裝置上開啟的 TCP 連接埠的受攻擊面。
+* **直接連接**︰若要透過直接連接到裝置來啟用遠端控制 (例如 Linux 上的 SSH、Windows 上的遠端桌面，或透過遠端偵錯工具)，您必須要能夠建立與裝置的連線。由於在開放式網際網路中公開裝置會有安全性風險，因此建議您使用轉送服務 (例如 Azure [服務匯流排轉送服務][service-bus-relay]) 來啟用連接及路由傳送流量。由於轉送連線是來自裝置的輸出連線，所以有助於限制裝置上開啟的 TCP 連接埠的受攻擊面。
 
-* **裝置命令**︰透過裝置命令的遠端控制會利用現有的連線以及在裝置與 Azure IoT 中樞之間建立的通訊通道。若要啟用裝置命令型遠端控制，您必須遵循下列需求：
+* **裝置命令**︰透過裝置命令進行的遠端控制既會利用現有的連線，也會利用在裝置與 Azure IoT 中樞之間建立的通訊通道。若要啟用裝置命令型遠端控制，您必須遵循下列需求：
   * 在裝置上執行的軟體必須通知 IoT 服務︰裝置命令已可在裝置上使用。這通常會定義為裝置模型的一部分。
   * 在裝置上執行的軟體必須實作遠端控制命令。這些裝置命令應遵循一個要求 (從 IoT 服務到裝置) 和一個回應 (從裝置到 IoT 服務) 模式。當您執行裝置命令時，可能會影響裝置狀態，而且必須在裝置登錄中更新這個新狀態。
 
@@ -110,7 +110,7 @@ IoT Suite 預先設定的解決方案可控制不同裝置層面的存取，包�
 
 Azure IoT 套件預先設定的解決方案包含一個 Azure 網站，可讓您著手將裝置系統管理體驗延伸至垂直 IoT 解決方案中的案例。
 
-系統管理員可以決定裝置健康情況，方法是查看裝置操作資料 (通常移動快速) 和裝置中繼資料 (通常移動緩慢)。您可以使用規則來啟用裝置健康情況警示系統，其會透過串流處理引擎 (例如 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)) 而非輪詢策略來實作。
+系統管理員可以決定裝置健康情況，方法是查看裝置操作資料 (通常移動快速) 和裝置中繼資料 (通常移動緩慢)。您可以使用規則來啟用裝置健康情況警示系統，這是透過串流處理引擎 (例如 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)) 而非輪詢策略來實作。
 
 ## 遠端設定
 
@@ -157,5 +157,7 @@ Azure IoT 套件預先設定的解決方案包含一個 Azure 網站，可讓您
 [service-bus-relay]: ../service-bus/service-bus-relay-overview.md
 [連接裝置]: https://azure.microsoft.com/develop/iot/
 [lnk-azure-iot-solution]: https://github.com/Azure/azure-iot-solution
+[lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[lnk-remote-monitoring]: ../iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

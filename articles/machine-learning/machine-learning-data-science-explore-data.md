@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 #在 Cortana 分析程序中瀏覽資料
-
-此**功能表**連結說明如何從各種不同儲存體環境使用工具來瀏覽資料的連結。此工作是 Cortana 分析程序 (CAP) 中的一個步驟。
-
-[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
 本文件涵蓋如何在 Cortana 分析程序中一般所使用的四個不同環境中瀏覽資料：
 
@@ -29,4 +25,8 @@
 - 使用 Hive 查詢來瀏覽 **Hive 資料表**資料。
 - 使用 AML 模組來瀏覽 **Azure Machine Learning (AML) Studio** 資料。
 
-<!---HONumber=AcomDC_1203_2015-->
+此**功能表**連結的主題，說明如何從各種不同儲存體環境使用這些工具來瀏覽資料。
+
+[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
+
+<!---HONumber=AcomDC_0211_2016-->

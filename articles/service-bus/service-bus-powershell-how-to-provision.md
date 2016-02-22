@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="02/08/2016"
 	ms.author="sethm"/>
 
 # 使用 PowerShell 管理服務匯流排
@@ -26,9 +26,9 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您在 Azure 中用�
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
-- Azure 訂閱。Azure 是訂閱型平台。如需取得訂閱的詳細資訊，請參閱[購買選項]、[成員優惠]或[免費試用]。
+- Azure 訂閱。Azure 是訂閱型平台。如需取得訂閱的詳細資訊，請參閱[購買選項][]、[成員優惠][]或[免費試用][]。
 
-- 具備 Azure PowerShell 的電腦。如需指示，請參閱[安裝並設定 Azure PowerShell]。
+- 具備 Azure PowerShell 的電腦。如需指示，請參閱[安裝並設定 Azure PowerShell][]。
 
 - 大致了解 PowerShell 指令碼、NuGet 封裝和 .NET Framework。
 
@@ -171,7 +171,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 [購買選項]: http://azure.microsoft.com/pricing/purchase-options/
 [成員優惠]: http://azure.microsoft.com/pricing/member-offers/
 [免費試用]: http://azure.microsoft.com/pricing/free-trial/
-[安裝並設定 Azure PowerShell]: ../install-configure-powershell.md
+[安裝並設定 Azure PowerShell]: ../powershell-install-configure.md
 [服務匯流排 NuGet 封裝]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
@@ -179,4 +179,4 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 [服務匯流排的 .NET API]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="01/22/2016"
+  ms.date="02/04/2016"
   ms.author="jimpark; trinadhk;"/>
 
 # 準備使用 Azure 備份伺服器來備份工作負載
@@ -66,7 +66,7 @@
 
 6. 將有一則訊息確認保存庫已成功建立，並且該保存庫會在「復原服務」頁面中列為 [使用中] 狀態。![備份保存庫的清單](./media/backup-azure-microsoft-azure-backup/backup_vaultslist.png)
 
-  >[AZURE.IMPORTANT] 保存庫建立之後，請立即確認是否選擇了適當的儲存體備援選項。進一步了解[在備份保存庫中設定儲存體備援選項](backup-configure-vault.md#azure-backup---storage-redundancy-options)。
+  > [AZURE.IMPORTANT] 保存庫建立之後，請立即確認是否選擇了適當的儲存體備援選項。進一步了解[在備份保存庫中設定儲存體備援選項](backup-configure-vault.md#azure-backup---storage-redundancy-options)。
 
 
 ## 3\.軟體封裝
@@ -85,7 +85,7 @@
 
     ![下載中心 1](./media/backup-azure-microsoft-azure-backup/downloadcenter1.png)
 
-3. 選取所有檔案，然後按 [下一步]。下載 Microsoft Azure 備份下載頁面中的所有檔案，並將所有檔案放在相同的資料夾中。![下載中心 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+3. 選取所有檔案，然後按 [下一步]。下載「Microsoft Azure 備份」下載頁面中的所有檔案，並將所有檔案放在相同的資料夾中。![下載中心 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
     因為所有檔案的下載大小合計 > 3G，在 10Mbps 下載連結上可能需要 60 分鐘才能完成下載。
 
@@ -99,7 +99,7 @@
 
 ![Microsoft Azure 備份安裝精靈](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-解壓縮程序完成後，請核取方塊以啟動剛解壓縮的 *setup.exe*，開始安裝 Microsoft Azure 備份伺服器，然後按一下 [完成] 按鈕。
+解壓縮程序完成之後，請選取可啟動剛解壓縮之 *setup.exe* 的方塊，以開始安裝「Microsoft Azure 備份伺服器」，然後按一下 [完成] 按鈕。
 
 ### 安裝軟體封裝
 
@@ -107,11 +107,11 @@
 
     ![Microsoft Azure 備份安裝精靈](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
-2. 在 [歡迎使用] 畫面中按 [下一步] 按鈕。這會使您進入 [必要條件檢查] 區段。在此畫面上按一下 [檢查] 按鈕，以判斷是否符合 Azure 備份伺服器的硬體和軟體必要條件。如果完全符合所有必要條件，您會看到訊息指出機器符合需求。按 [下一步] 按鈕。
+2. 在 [歡迎使用] 畫面上按 [下一步] 按鈕。這會讓您進入 [必要條件檢查] 區段。在此畫面上按一下 [檢查] 按鈕，以判斷是否符合「Azure 備份伺服器」的硬體和軟體必要條件。如果完全符合所有必要條件，您會看到訊息指出機器符合需求。按 [下一步] 按鈕。
 
     ![Azure 備份伺服器 - 歡迎使用和必要條件檢查](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
-3. Microsoft Azure 備份伺服器需要 SQL Server 標準，而 Azure 備份伺服器安裝封裝在必要時會隨附適當的 SQL Server 二進位檔。在進行新的 Azure 備份伺服器安裝時，您應選擇 [在此安裝中安裝新的 SQL Server 執行個體]，然後按一下 [檢查並安裝] 按鈕。成功安裝必要條件後，按 [下一步]。
+3. Microsoft Azure 備份伺服器需要 SQL Server 標準，而 Azure 備份伺服器安裝封裝在必要時會隨附適當的 SQL Server 二進位檔。在進行新的「Azure 備份伺服器」安裝時，您應該選擇 [在此安裝中安裝新的 SQL Server 執行個體]，然後按一下 [檢查並安裝] 按鈕。成功安裝必要條件後，按 [下一步]。
 
     ![Azure 備份伺服器 - SQL 檢查](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
@@ -150,21 +150,21 @@
     ![Azure 備份伺服器](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 
-當安裝步驟完成時，產品的桌面圖示即已建立。只要按兩下該圖示，即可啟動產品。
+當安裝步驟完成時，產品的桌面圖示也將一併建立完成。只要按兩下該圖示，即可啟動產品。
 
 ### 新增備份儲存體
 
 第一個備份複本會保存在連接至 Azure 備份伺服器機器的儲存體上。如需有關新增磁碟的詳細資訊，請參閱[設定存放集區和磁碟儲存體](https://technet.microsoft.com/library/hh758075.aspx)。
 
-> [AZURE.NOTE] 即使您打算將資料傳送至 Azure，也必須新增備份儲存體。在 Azure 備份伺服器目前的架構中，Azure 備份保存庫會保存資料的*第二個*複本，而本機儲存體則保存第一個 (必要的) 備份複本。
+> [AZURE.NOTE] 即使您打算將資料傳送至 Azure，也必須新增備份儲存體。在目前的「Azure 備份伺服器」架構中，「Azure 備份」保存庫會保存資料的「第二個」複本，而本機儲存體則是保存第一個 (必要的) 備份複本。
 
 ## 4\.網路連線
 
 ![步驟 4](./media/backup-azure-microsoft-azure-backup/step4.png)
 
-Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運作。若要驗證機器是否連接至 Azure，請在 Azure 備份伺服器 PowerShell 主控台中使用 ```Get-DPMCloudConnection``` commandlet。如果 commandlet 的輸出為 TRUE，表示連線存在，否則沒有連線。
+Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運作。若要驗證機器是否連接至 Azure，請在「Azure 備份伺服器」PowerShell 主控台中使用 ```Get-DPMCloudConnection``` Commandlet。如果 commandlet 的輸出為 TRUE，表示連線存在，否則沒有連線。
 
-同時，Azure 訂用帳戶也必須處於狀況良好狀態。若想了解您的訂用帳戶狀態並加以管理，請登入[訂用帳戶入口網站](https://account.windowsazure.com/Subscriptions)。
+同時，Azure 訂用帳戶也必須處於狀況良好狀態。若想了解您訂用帳戶狀態並加以管理，請登入[訂用帳戶入口網站](https://account.windowsazure.com/Subscriptions)。
 
 在您了解 Azure 連線和 Azure 訂用帳戶的狀態後，您可以使用下表來確認提供的備份/還原功能會受到哪些影響。
 
@@ -190,10 +190,10 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 
 ### 處理訂用帳戶狀態
 
-您可以將 Azure 訂用帳戶從*已過期*或*已取消佈建*狀態變更為*作用中*狀態。不過，如果狀態不是*作用中*，此動作將會對產品的行為造成某些影響：
+您可以將 Azure 訂用帳戶從「已過期」或「已取消佈建」狀態變更為「作用中」狀態。不過，當狀態不是「作用中」時，此動作會對產品的行為造成某些影響：
 
-- *已取消佈建*的訂用帳戶，在取消佈建的這段期間會失去功能。切換為*作用中*時，會恢復產品的備份/還原功能。此外，只要以夠大的保留期間來保存，也可以擷取本機磁碟上的備份資料。不過，一旦訂用帳戶進入*已取消佈建*狀態，Azure 中的備份資料即無法擷取並遺失。
-- *已過期*的訂用帳戶只會在重新恢復*作用中*狀態之前失去功能。在訂用帳戶處於*已過期*的期間所排程的任何備份，都不會執行。
+- 「已取消佈建」的訂用帳戶在取消佈建的這段期間會失去功能。切換為「作用中」時，就會恢復產品的備份/還原功能。此外，只要以夠大的保留期間來保存，也可以擷取本機磁碟上的備份資料。不過，一旦訂用帳戶進入「已取消佈建」狀態，Azure 中的備份資料便會遺失而無法復原。
+- 「已過期」的訂用帳戶只有在恢復「作用中」狀態之前會失去功能。任何針對訂用帳戶處於「已過期」期間所排定的備份，都不會執行。
 
 
 ## 疑難排解
@@ -203,7 +203,7 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 
 ## 後續步驟
 
-您可以在 Microsoft TechNet 網站上取得關於 [DPM 的環境準備](https://technet.microsoft.com/library/hh758176.aspx)的詳細資訊。其中也包含可據以部署和使用 Azure 備份伺服器之支援組態的相關資訊。
+您可以在 Microsoft TechNet 網站上取得有關[準備 DPM 的環境](https://technet.microsoft.com/library/hh758176.aspx)的詳細資訊。其中也包含可據以部署和使用 Azure 備份伺服器之支援組態的相關資訊。
 
 請參閱這些文章，以深入了解使用 Microsoft Azure 備份伺服器來保護工作負載。
 
@@ -211,4 +211,4 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 - [SharePoint 伺服器備份](backup-azure-backup-sharepoint.md)
 - [替代伺服器備份](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

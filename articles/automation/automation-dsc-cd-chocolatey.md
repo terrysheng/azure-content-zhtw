@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="11/11/2015"
+   ms.date="02/04/2016"
    ms.author="golive"/>
 
 # 使用範例：使用 Automation DSC 和 Chocolatey 持續部署至虛擬機器
@@ -78,7 +78,7 @@ PowerShell 資源庫會自動將 DSC 資源安裝到您的 Azure 自動化帳戶
 還有手動方法。適用於 Windows 電腦的 PowerShell 整合模組的資料夾結構，與 Azure 自動化所需的資料夾結構稍有不同。您需要稍微調整一下。但並不難，每個資源只需要進行一次 (除非您將來想要升級。) 如需關於撰寫 PowerShell 整合模組的詳細資訊，請參閱下列文章：[撰寫 Azure 自動化的整合模組](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   將您需要的模組安裝在工作站，如下所示：
-    -   安裝 [Windows Management Framework v5](http://aka.ms/wmf5latest) 
+    -   安裝 [Windows Management Framework v5](http://www.microsoft.com/download/details.aspx?id=48729) (Win10 不須安裝)
     -   `Install-Module  –ModuleName MODULENAME` <—從 PowerShell 資源庫抓取模組 
 -   從 `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` 模組資料夾複製到暫存資料夾 
 -   刪除主要資料夾中的範例和文件 
@@ -88,7 +88,7 @@ PowerShell 資源庫會自動將 DSC 資源安裝到您的 Azure 自動化帳戶
 
         New-AzureAutomationModule ``
             -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ``
-            -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
+            -Name MODULE-NAME –ContentLink "https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip"
         
 
 隨附的範例針對 cChoco 和 xNetworking 執行這些步驟。請參閱[注意事項](#notes)，了解 cChoco 的特殊處理方式。
@@ -177,8 +177,6 @@ New-ConfigurationScript.ps1：
 
 當然，在正式運作的 VM 上更新封裝時，VM 在安裝更新時必須脫離輪替。視情況而定，作法會有很大的差異。例如，如果 VM 在 Azure 負載平衡器後方，您可以加入自訂探查。更新 VM 時，讓探查端點傳回 400。可在組態中進行必要調整來引起此變更，但更新完成時，此調整會恢復成傳回 200。
 
-PowerShell 資源庫中的 cChoco DSC 資源版本的原始檔並不是最新的。GitHub 來源專案中的 cChoco.zip 則是最新狀態。請使用前述步驟 3 中的手動技巧加以安裝。
-
 此使用範例的完整原始檔位於 GitHub 上的 [Visual Studio 專案](https://github.com/sebastus/ARM/tree/master/CDIaaSVM)。
 
 ##相關文章##
@@ -187,4 +185,4 @@ PowerShell 資源庫中的 cChoco DSC 資源版本的原始檔並不是最新的
 - [Azure 自動化 DSC Cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)
 - [上架由 Azure 自動化 DSC 管理的機器](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

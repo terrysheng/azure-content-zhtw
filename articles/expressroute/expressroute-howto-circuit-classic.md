@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/16/2016"
+   ms.date="02/04/2016"
    ms.author="cherylmc"/>
 
 # 使用 PowerShell 建立和修改 ExpressRoute 線路
@@ -22,7 +22,7 @@
 [PowerShell - Classic](expressroute-howto-circuit-classic.md)
 [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
-本文將逐步引導您使用 PowerShell Cmdlet 和傳統部署模型建立 ExpressRoute 線路。下列步驟也會示範如何檢查狀態、更新或刪除和取消佈建 ExpressRoute 線路。
+本文將逐步引導您使用 PowerShell Cmdlet 和「傳統」部署模型來建立 ExpressRoute 線路。下列步驟也會示範如何檢查狀態、更新或刪除和取消佈建 ExpressRoute 線路。如果您想要使用「資源管理員」部署模型來建立和修改 ExpressRoute 線路，請參閱[使用資源管理員部署模型來建立和修改 ExpressRoute 線路](expressroute-howto-circuit-arm.md)。
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -197,7 +197,7 @@
 
 7. **將 VNet 連結到 ExpressRoute 線路。**
 
-	接下來，將 VNet 連結到 ExpressRoute 線路。請參閱[將 ExpressRoute 線路連結到 VNet](expressroute-howto-linkvnet-classic.md)，取得逐步指示。如果您需要使用 ExpressRoute 的傳統部署模型建立虛擬網路，請參閱[設定 ExpressRoute 的 VNet](expressroute-howto-vnet-portal-classic.md) 中的相關指示。
+	接下來，將 VNet 連結到 ExpressRoute 線路。請參閱[將 ExpressRoute 線路連結到 VNet](expressroute-howto-linkvnet-classic.md)，取得逐步指示。如果您需要使用傳統部署模型為 ExpressRoute 建立虛擬網路，請參閱[建立 ExpressRoute 的 VNet](expressroute-howto-vnet-portal-classic.md) 中的相關指示。
 
 ##  取得 ExpressRoute 線路的狀態
 
@@ -328,4 +328,4 @@
 
 - [設定路由](expressroute-howto-routing-classic.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0211_2016-->

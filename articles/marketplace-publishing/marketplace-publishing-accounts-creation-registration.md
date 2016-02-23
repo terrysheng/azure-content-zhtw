@@ -166,7 +166,7 @@ Azure 發佈入口網站可用來發佈和管理您的優惠。您可以在發�
 |**步驟 2：建立您的優惠** |[一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)|
 || [VM 映像技術性必要條件][link-single-vm-prereq] | 開發人員服務技術性必要條件 | [資料服務技術性必要條件](marketplace-publishing-data-service-creation-prerequisites.md) | [方案範本技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md) |
 || [VM 映像發佈指南][link-single-vm] | 開發人員服務發佈指南 | [資料服務發佈指南](marketplace-publishing-data-service-creation.md) | [解決方案範本發佈指南](marketplace-publishing-solution-template-creation.md) |
-|[Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] |
+||[Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] |
 
 ## 另請參閱
 - [使用者入門：如何將優惠發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -198,4 +198,4 @@ Azure 發佈入口網站可用來發佈和管理您的優惠。您可以在發�
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!----HONumber=AcomDC_0204_2016-->
+<!-----HONumber=AcomDC_0204_2016-->

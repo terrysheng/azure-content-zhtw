@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/22/2016"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -353,9 +353,9 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 - [開始使用適用於 .NET 的資料表儲存體](storage-dotnet-how-to-use-tables.md)
 - [開始使用適用於 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)
 - [開始使用適用於 .NET 的檔案儲存體](storage-dotnet-how-to-use-files.md)
-- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
-- [使用 SQL Database 儲存關聯式資料](../sql-database/articles/sql-database-dotnet-how-to-use.md)
-- [如何透過 WebJobs SDK 使用 Azure Blob 儲存體](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
+- [如何在 .NET 應用程式中使用 Azure SQL Database](../sql-database/sql-database-dotnet-how-to-use.md)
+- [如何透過 WebJobs SDK 使用 Azure Blob 儲存體 (英文)](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -368,4 +368,4 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

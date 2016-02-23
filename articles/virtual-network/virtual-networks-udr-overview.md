@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="使用者定義的路由和 IP 轉送概觀"
-   description="了解 UDR 和 IP 轉送"
+   pageTitle="什麼是使用者定義路由和 IP 轉送？"
+   description="了解如何使用使用者定義路由 (UDR) 和 IP 轉送以將流量轉送至 Azure 中的網路虛擬應用裝置。"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -9,13 +9,13 @@
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/11/2015"
    ms.author="telmos" />
 
-# 使用者定義的路由和 IP 轉送
+# 什麼是使用者定義路由和 IP 轉送？
 當您在 Azure 中將虛擬機器 (VM) 新增到虛擬網路 (VNet) 時，您會發現 VM 能自動透過網路彼此通訊。您不需要指定閘道，即使 VM 位於不同子網路。VM 到公開網際網路的通訊同樣適用，甚至當存在 Azure 到您的資料中心的混合連線時，也適用於您的內部網路。
 
 這個通訊流程是可能的，因為 Azure 會使用一連串系統路由來定義 IP 流量流動的方式。系統路由控制下列案例的通訊流程：
@@ -36,7 +36,7 @@
 
 ![Azure 中的系統路由](./media/virtual-networks-udr-overview/Figure2.png)
 
->[AZURE.IMPORTANT]使用者定義的路由只適用於離開子網路的流量。例如，您無法建立路由來指定流量如何從網際網路進入某個子網路的方式。此外，接收轉送流量的應用裝置不得與流量來源的裝置位於相同的子網路中。請永遠為您的應用裝置建立個別的子網路。
+>[AZURE.IMPORTANT] 使用者定義的路由只適用於離開子網路的流量。例如，您無法建立路由來指定流量如何從網際網路進入某個子網路的方式。此外，接收轉送流量的應用裝置不得與流量來源的裝置位於相同的子網路中。請永遠為您的應用裝置建立個別的子網路。
 
 ## 路由
 根據在實體網路上的每個節點定義的路由表，封包是透過 TCP/IP 網路路由傳送。路由表是個別路由的集合，用於決定根據目的地 IP 位址，在何處轉送封包。路由是由下列項目所組成：
@@ -55,7 +55,7 @@
 
 - **本機 VNet 規則**：此規則會自動針對虛擬網路中的每個子網路建立。它會指定 VNet 中 VM 之間的直接連結，沒有下一個中繼躍點。
 - **內部部署規則**：此規則適用於目的地為內部部署位址範圍的所有流量，並使用 VPN 閘道作為下一個躍點目的地。
-- **網際網路規則**：此規則會處理目的地為公用網際網路的所有流量，並使用基礎結構網際網路閘道作為目的地為網際網路所有流量的下一個躍點。
+- **網際網路規則**：此規則處理所有公開網際網路的流量，並使用基礎結構網際網路閘道做為所有網際網路流量的下一個躍點。
 
 ## 使用者定義的路由
 對於大部分的環境，您只需要已經由 Azure 所定義的系統路由。不過，您可能需要在特定情況下建立路由表，並新增一個或多個路由，例如：
@@ -71,14 +71,14 @@
 1. BGP 路由 (使用 ExpressRoute 時)
 1. 系統路由
 
-若要了解如何建立使用者定義的路由，請參閱[如何在 Azure 中建立路由並啟用 IP 轉送](../virtual-networks-udr-how-to#How-to-manage-routes)。
+若要了解如何建立使用者定義的路由，請參閱[如何在 Azure 中建立路由並啟用 IP 轉送](virtual-networks-udr-how-to.md#How-to-manage-routes)。
 
->[AZURE.IMPORTANT]使用者定義的路由僅會套用至 Azure VM 和雲端服務。例如，如果您想要在內部部署網路與 Azure 之間新增防火牆虛擬應用裝置，您必須為您的 Azure 路由表建立一個使用者定義的路由，此路由會將前往內部部署位址空間的所有流量轉送到虛擬應用裝置。不過，來自內部部署位址空間的連入流量將會流經您的 VPN 閘道或直接到 Azure 環境的 ExpressRoute 電路，略過虛擬應用裝置。
+>[AZURE.IMPORTANT] 使用者定義的路由僅會套用至 Azure VM 和雲端服務。例如，如果您想要在內部部署網路與 Azure 之間新增防火牆虛擬應用裝置，您必須為您的 Azure 路由表建立一個使用者定義的路由，此路由會將前往內部部署位址空間的所有流量轉送到虛擬應用裝置。不過，來自內部部署位址空間的連入流量將會流經您的 VPN 閘道或直接到 Azure 環境的 ExpressRoute 電路，略過虛擬應用裝置。
 
 ## BGP 路由
-如果您在內部部署網路與 Azure 之間有 ExpressRoute 連線，可以啟用 BGP，將路由從內部部署網路傳播至 Azure。這些 BGP 路由的使用方式與系統路由相同，也與每個 Azure 子網路中的使用者定義路由相同。如需詳細資訊，請參閱 [ExpressRoute 簡介](../expressroute-introduction)。
+如果您在內部部署網路與 Azure 之間有 ExpressRoute 連線，可以啟用 BGP，將路由從內部部署網路傳播至 Azure。這些 BGP 路由的使用方式與系統路由相同，也與每個 Azure 子網路中的使用者定義路由相同。如需詳細資訊，請參閱 [ExpressRoute 簡介](../articles/expressroute/expressroute-introduction.md)。
 
->[AZURE.IMPORTANT]您可以設定 Azure 環境透過內部部署網路使用強制通道，方法是，為使用 VPN 閘道做為下一個躍點的子網路 0.0.0.0/0 建立使用者定義的路由。不過，這只有在您使用的是 VPN 閘道，而不是 ExpressRoute 時，才有作用。若是 Expressroute，強制通道是透過 BGP 設定。
+>[AZURE.IMPORTANT] 您可以設定 Azure 環境透過內部部署網路使用強制通道，方法是，為使用 VPN 閘道做為下一個躍點的子網路 0.0.0.0/0 建立使用者定義的路由。不過，這只有在您使用的是 VPN 閘道，而不是 ExpressRoute 時，才有作用。若是 Expressroute，強制通道是透過 BGP 設定。
 
 ## IP 轉送
 如上所述，建立使用者定義的路由的主要原因之一是將流量轉送到虛擬應用裝置。虛擬應用裝置無非就是一個 VM，可執行用來以某種方式處理網路流量的應用程式，例如防火牆或 NAT 裝置。
@@ -87,7 +87,7 @@
 
 ## 後續步驟
 
-- 了解如何[在資源管理員部署模型中建立路由](../virtual-network-create-udr-arm-template)並將其關聯至子網路。 
-- 了解如何[在傳統部署模型中建立路由](../virtual-network-create-udr-classic-ps)並將其關聯至子網路。
+- 了解如何[在資源管理員部署模型中建立路由](virtual-network-create-udr-arm-template.md)並將其關聯至子網路。 
+- 了解如何[在傳統部署模型中建立路由](virtual-network-create-udr-classic-ps.md)並將其關聯至子網路。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

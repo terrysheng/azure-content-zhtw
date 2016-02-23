@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/02/2015"
+   ms.date="02/10/2016"
    ms.author="jgao"/>
 
 # 教學課程：運用 Azure 命令列介面 (CLI) 開始使用 Azure 資料湖分析
@@ -39,7 +39,7 @@
 開始進行本教學課程之前，您必須具備下列條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-- **Azure CLI**。請參閱[安裝和設定 Azure CLI](xplat-cli.md)。
+- **Azure CLI**。請參閱[安裝和設定 Azure CLI](../xplat-cli-install.md)。
 	- 下載並安裝[Azure CLI 工具](https://github.com/MicrosoftBigData/AzureDataLake/releases)的**發行前版本**，才能完成這個示範。
 - 使用下列命令進行**驗證**：
 
@@ -53,7 +53,7 @@
 
 您必須擁有資料湖分析帳戶，才能執行工作。若要建立資料湖分析帳戶，您必須指定下列項目：
 
-- **Azure 資源群組**：資料湖分析帳戶必須建立在 Azure 資源群組內。[Azure 資源管理員](resource-group-overview.md)可讓您將應用程式中的資源做為群組使用。您可以透過單一、協調的作業來部署、更新或刪除應用程式的所有資源。  
+- **Azure 資源群組**：資料湖分析帳戶必須建立在 Azure 資源群組內。[Azure 資源管理員](../resource-group-overview.md)可讓您將應用程式中的資源做為群組使用。您可以透過單一、協調的作業來部署、更新或刪除應用程式的所有資源。  
 
 	若要列舉您訂用帳戶中的資源群組：
     
@@ -75,7 +75,7 @@
 
 		azure datalake store account create "<Data Lake Store Account Name>" "<Azure Location>" "<Resource Group Name>"
 
-	> [AZURE.NOTE]資料湖帳戶名稱只能包含小寫字母和數字。
+	> [AZURE.NOTE] 資料湖帳戶名稱只能包含小寫字母和數字。
 
 
 
@@ -88,7 +88,7 @@
 
 ![資料湖分析顯示帳戶](./media/data-lake-analytics-get-started-cli/data-lake-analytics-show-account-cli.png)
 
-> [AZURE.NOTE]資料湖分析帳戶名稱只能包含小寫字母和數字。
+> [AZURE.NOTE] 資料湖分析帳戶名稱只能包含小寫字母和數字。
 
 
 ## 將資料上傳至資料湖存放區
@@ -102,7 +102,7 @@ Azure 入口網站會提供使用者介面，可將範例資料檔案複製到�
   	azure datalake store filesystem import "<Data Lake Store Account Name>" "<Path>" "<Destination>"
   	azure datalake store filesystem list "<Data Lake Store Account Name>" "<Path>"
 
-資料湖分析也可存取 Azure Blob 儲存體。若要將資料上傳至 Azure Blob 儲存體，請參閱[使用 Azure CLI 搭配 Azure 儲存體](storage-azure-cli.md)。
+資料湖分析也可存取 Azure Blob 儲存體。若要將資料上傳至 Azure Blob 儲存體，請參閱[使用 Azure CLI 搭配 Azure 儲存體](../storage/storage-azure-cli.md)。
 
 ## 提交資料湖分析工作
 
@@ -139,7 +139,7 @@ Azure 入口網站會提供使用者介面，可將範例資料檔案複製到�
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]目前不支援具有公用 Blob 或公用容器存取權限的 Azure Blob 容器。
+    >[AZURE.NOTE] 目前不支援具有公用 Blob 或公用容器存取權限的 Azure Blob 容器。
 
 	
 **提交工作**
@@ -169,4 +169,4 @@ Azure 入口網站會提供使用者介面，可將範例資料檔案複製到�
 - 針對管理工作，請參閱[使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)。
 - 若要取得資料湖分析概觀，請參閱 [Azure 資料湖分析概觀](data-lake-analytics-overview.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="雲端中的 Batch 和 HPC 工作負載的資源 | Microsoft Azure"
-   description="列出技術資源，用以協助您在 Azure 中執行您的大規模平行、批次和高效能運算 (HPC) 工作負載。"
+   description="列出技術資源協助您在 Azure 中執行大規模平行、批次和高效能運算 (HPC) 工作負載。"
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -10,7 +10,7 @@
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
    ms.date="01/26/2016"
@@ -38,7 +38,7 @@
 
 * [教學課程：開始使用適用於 .NET 的 Azure 批次程式庫](batch-dotnet-get-started.md)
 
-* [批次論壇](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
+* [批次論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=azurebatch)
 
 * [批次影片](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -83,8 +83,7 @@ HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 
 
 * [MS-MPI 參考資料](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [MPI 論壇](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
-
+* [MPI 論壇](https://social.microsoft.com/Forums/zh-TW/home?forum=windowshpcmpi)
 
 ## 計算密集型執行個體
 
@@ -137,4 +136,4 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md) (
 * 最新宣告請參閱 [Microsoft HPC 和批次的小組部落格](http://blogs.technet.com/b/windowshpc/)以及[Azure 部落格](https://azure.microsoft.com/blog/tag/hpc/)。
 * 另請參閱[批次的新功能](https://azure.microsoft.com/updates/?service=batch)或訂閱 [RSS 摘要](https://azure.microsoft.com/updates/feed/?service=batch)。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

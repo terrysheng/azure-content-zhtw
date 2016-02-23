@@ -239,31 +239,33 @@ Web API CORS 支援比 App Service CORS 支援更有彈性。例如，在程式�
 
 下列步驟概述啟用 Web API CORS 支援的程序。如需詳細資訊，請參閱[在 ASP.NET Web API 2 中啟用跨原始來源要求](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)。
 
-1. 在 Web API 專案中，於 [WebApiConfig] 類別的 [Register] 方法中加入 `config.EnableCors()` 這行程式碼，如下列範例所示。 
+1. 在 Web API 專案中，安裝 [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet 封裝。
+
+1. 在 **WebApiConfig** 類別的 **Register** 方法中加入 `config.EnableCors()` 這行程式碼，如下列範例所示。
 
 		public static class WebApiConfig
-	    {
-	        public static void Register(HttpConfiguration config)
-	        {
-	            // Web API configuration and services
+		{
+		    public static void Register(HttpConfiguration config)
+		    {
+		        // Web API configuration and services
 	            
 		        // The following line enables you to control CORS by using Web API code
-				config.EnableCors();
+		        config.EnableCors();
 	
-	            // Web API routes
-	            config.MapHttpAttributeRoutes();
+		        // Web API routes
+		        config.MapHttpAttributeRoutes();
 	
-	            config.Routes.MapHttpRoute(
-	                name: "DefaultApi",
-	                routeTemplate: "api/{controller}/{id}",
-	                defaults: new { id = RouteParameter.Optional }
-	            );
-	        }
-	    }
+		        config.Routes.MapHttpRoute(
+		            name: "DefaultApi",
+		            routeTemplate: "api/{controller}/{id}",
+		            defaults: new { id = RouteParameter.Optional }
+		        );
+		    }
+		}
 
-1. 在 Web API 控制器中，於控制器類別或個別動作方法中加入 `EnableCors` 屬性。在下列範例中，整個控制器都適用 CORS 支援。
+1. 在 Web API 控制器中，加入 `System.Web.Http.Cors` 命名空間的 `using` 陳述式，並將 `EnableCors` 屬性加入至控制器類別或個別的動作方法。在下列範例中，整個控制器都適用 CORS 支援。
 
-		namespace ToDoListAPI.Controllers
+		namespace ToDoListAPI.Controllers 
 		{
 		    [HttpOperationExceptionFilterAttribute]
 		    [EnableCors(origins:"*", headers:"*", methods: "*")]
@@ -275,4 +277,4 @@ Web API CORS 支援比 App Service CORS 支援更有彈性。例如，在程式�
 
 在本教學課程中，您已看到如何啟用 App Service CORS 支援，以便用戶端 JavaScript 程式碼可以呼叫不同網域中的 API。在下一篇 API Apps 入門系列文章中，您將了解 [App Service API 應用程式的驗證](app-service-api-authentication.md)。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

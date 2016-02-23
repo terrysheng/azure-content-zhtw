@@ -13,11 +13,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma"/>
 
 # 開始藉由 CLI 使用 Azure DNS
-
 
 
 > [AZURE.SELECTOR]
@@ -40,7 +39,7 @@
 	Azure network
 
 
->[AZURE.IMPORTANT]此 DNS 命令需要 Azure CLI 0.9.8 版本或更新版本。請輸入 `azure -v`，以檢查哪一個 Azure CLI 版本目前安裝在您的電腦。
+>[AZURE.IMPORTANT] 此 DNS 命令需要 Azure CLI 0.9.8 版本或更新版本。請輸入 `azure -v`，以檢查哪一個 Azure CLI 版本目前安裝在您的電腦。
  
 ### 步驟 2
 
@@ -90,7 +89,7 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
     Azure network dns zone create -n contoso.com -g myresourcegroup
 
 
->[AZURE.NOTE]在 Azure DNS 中，指定區域名稱時不要以 ‘.’ 終止，例如指定為 ‘contoso.com’ 而非 ‘contoso.com.’。
+>[AZURE.NOTE] 在 Azure DNS 中，指定區域名稱時不要以 ‘.’ 終止，例如指定為 ‘contoso.com’ 而非 ‘contoso.com.’。
 
 
 現在已在 Azure DNS 中建立 DNS 區域。建立 DNS 區域也會建立下列 DNS 記錄：
@@ -140,7 +139,7 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 	data:
 	info:    network dns-record-set show command OK
 
->[AZURE.NOTE]位於 DNS 區域的根 (或「頂點」) 的記錄集使用 "@" 做為記錄集名稱。
+>[AZURE.NOTE] 位於 DNS 區域的根 (或「頂點」) 的記錄集使用 "@" 做為記錄集名稱。
 
 建立第一個 DNS 區域之後，您可以使用 nslookup、DIG 之類的 DNS 工具或 **Resolve-DnsName** PowerShell Cmdlet 進行測試。如果您還沒有將網域委派給 Azure DNS 中的新區域，您必須將 DNS 查詢直接導向您的區域的其中一個名稱伺服器。如上面的 "azure network dns-record-set show" 所列，NS 記錄提供您區域的名稱伺服器。請務必在下列命令中用正確的值取代您的區域。
 
@@ -170,7 +169,6 @@ Azure DNS 服務由 Microsoft.Network 資源提供者管理。您的 Azure 訂�
 
 ## 後續步驟
 
+在建立 DNS 區域之後，您必須建立[記錄集和記錄](dns-getstarted-create-recordset-cli.md)，以開始解析您的網際網路網域的名稱。<BR> 您也可以了解[如何管理 DNS 區域](dns-operations-dnszones-cli.md)及其 DNS 區域作業。<BR> 了解[如何管理 DNS 記錄](dns-operations-recordsets-cli.md)和[使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)<BR> [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)。
 
-[開始建立記錄集與記錄](dns-getstarted-create-recordset-cli.md)<BR> [如何管理 DNS 區域](dns-operations-dnszones-cli.md)<BR> [如何管理 DNS 記錄](dns-operations-recordsets-cli.md)<BR> [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)<BR> [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

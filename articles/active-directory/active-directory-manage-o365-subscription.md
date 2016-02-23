@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/05/2016"
+   ms.date="02/10/2016"
    ms.author="curtand"/>
 
 #在 Azure 中管理 Office 365 訂用帳戶的目錄。
@@ -48,7 +48,8 @@
 ##管理兩個獨立的目錄
 為了讓 Michael Smith 能夠在使用 msmith@hotmail.com 登入 Azure 時管理這兩個目錄，他必須完成下列步驟：
 
-> [AZURE.NOTE]只有當使用者使用 Microsoft 帳戶登入時，才能完成下列步驟。如果使用者使用工作或學校帳戶登入，則無法使用 [使用現有的目錄] 選項，因為工作或學校帳戶只能透過其主目錄 (也就是儲存工作或學校帳戶，且由公司或學校所擁有的目錄) 進行驗證。
+> [AZURE.NOTE]
+只有當使用者使用 Microsoft 帳戶登入時，才能完成下列步驟。如果使用者使用工作或學校帳戶登入，則無法使用 [使用現有的目錄] 選項，因為工作或學校帳戶只能透過其主目錄 (也就是儲存工作或學校帳戶，且由公司或學校所擁有的目錄) 進行驗證。
 
 1.	以 msmith@hotmail.com 身分登入 Azure 傳統入口網站。
 2.	依序按一下 [**新增**] > [**應用程式服務**] > [**Active Directory**] > [**目錄**] > [**自訂建立**]。
@@ -70,4 +71,4 @@
 ##後續步驟
 如需訂用帳戶與目錄間的關聯性詳細資訊，請參閱[如何將訂用帳戶如何關聯至目錄](active-directory-how-subscriptions-associated-directory.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->

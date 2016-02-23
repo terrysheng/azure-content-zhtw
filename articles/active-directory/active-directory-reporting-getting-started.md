@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/01/2016"
+   ms.date="02/10/2016"
    ms.author="curtand;kenhoff"/>
 
 # 開始使用 Azure Active Directory 報告
@@ -156,4 +156,4 @@ Azure Active Directory (Azure AD) 包括您的目錄的安全性、活動和稽�
 
 > [AZURE.TIP] 如需有關 Azure AD 報告的更多文件，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

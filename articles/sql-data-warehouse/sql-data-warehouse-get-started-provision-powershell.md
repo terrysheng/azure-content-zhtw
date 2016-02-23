@@ -30,7 +30,7 @@
 如果您尚未安裝 PowerShell，您需要加以下載並進行設定。
 
 1. 如要下載 Azure PowerShell 模組，請執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)。
-2. 如要執行模組，請在開始視窗中鍵入 **Microsoft Azure PowerShell**。
+2. 如要執行模組，請在開始視窗中鍵入 **Windows PowerShell**。
 3. 執行此 Cmdlet 來登入 Azure 資源管理員。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][]。
 
 	```
@@ -96,4 +96,4 @@ New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "myn
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [如何安裝和設定 Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -9,7 +9,7 @@
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/14/2015"
@@ -45,7 +45,7 @@ Azure 服務匯流排提供兩種全方位訊息解決方案 – 其中一個透
 
 1. 以系統管理員身分開啟 Visual Studio：以滑鼠右鍵按一下 [開始] 功能表中的程式，然後按一下 [以系統管理員身分執行]。
 
-1. 這會建立新的主控台應用程式專案。按一下 [檔案] 功能表，選取 [新增]，然後按一下 [專案]。在 [新增專案] 對話方塊中，按一下 \[Visual C#] (如果 [Visual C#] 未出現，請查看 [其他語言] 下方)，按一下 [主控台應用程式] 範本，並將它命名為 **QueueSample**。使用預設 [位置]。按一下 [確定] 以建立專案。
+1. 這會建立新的主控台應用程式專案。按一下 [檔案] 功能表，選取 [新增]，然後按一下 [專案]。在 [新增專案] 對話方塊中，按一下 [Visual C#] (如果 [Visual C#] 未出現，請查看 [其他語言] 下方)，按一下 [主控台應用程式] 範本，並將它命名為 **QueueSample**。使用預設 [位置]。按一下 [確定] 以建立專案。
 
 1. 使用 NuGet 封裝管理員將服務匯流排程式庫新增至您的專案︰
 	1. 在 [方案總管] 中，以滑鼠右鍵按一下專案資料夾並按一下 [管理 NuGet 封裝]。
@@ -650,4 +650,4 @@ namespace Microsoft.ServiceBus.Samples
 
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

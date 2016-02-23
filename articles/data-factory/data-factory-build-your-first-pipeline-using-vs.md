@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="12/18/2015"
+	ms.date="02/16/2015"
 	ms.author="spelluru"/>
 
-# 使用 Visual Studio 建置您的第一個 Azure Data Factory 管線。
+# 開始使用 Azure Data Factory (Visual Studio)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -291,8 +291,7 @@
 ## 步驟 4：監視管線
 
 6. 登入 [Azure 入口網站](https://portal.azure.com/)，執行下列動作。
-	1. 按一下 [瀏覽]，選取 [資料處理站]。
-		![瀏覽 Data Factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. 按一下 [瀏覽]，選取 [資料處理站]。![瀏覽 Data Factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. 從 Data Factory 清單中選取 **FirstDataFactoryUsingVS**。 
 7. 在您 Data Factory 的首頁中，按一下 [圖表]。
   
@@ -441,4 +440,4 @@
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，含有轉換活動 (HDInsight 活動) 的管線。若要了解如何使用「複製活動」從 Azure Blob 將資料複製到 Azure SQL，請參閱[教學課程：從 Azure Blob 將資料複製到 Azure SQL](data-factory-get-started.md)。
   
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

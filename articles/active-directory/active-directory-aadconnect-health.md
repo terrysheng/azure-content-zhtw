@@ -77,7 +77,7 @@ Azure AD Connect Health 入口網站可讓您檢視警示、效能監視和使�
 ![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health/portal2.png)
 
 - **開始使用** – 選取此選項將會開啟 [快速啟動] 刀鋒視窗。在這裡，您將可以透過選擇 [取得工具、存取文件及提供意見反應] 來下載 Azure AD Connect Health 代理程式。
-- **Active Directory Federation Services** – 這表示 Azure AD Connect Health 目前正在監視的所有 AD FS 服務。選取其中一個執行個體後，便會開啟一個包含該服務執行個體相關資訊的刀鋒視窗。這項資訊包括概觀、屬性、警示、監視和使用情況分析。 
+- **Active Directory Federation Services** – 這表示 Azure AD Connect Health 目前正在監視的所有 AD FS 服務。選取其中一個執行個體後，便會開啟一個包含該服務執行個體相關資訊的刀鋒視窗。這項資訊包括概觀、屬性、警示、監視和使用情況分析。
 - 設定 – 這可讓您開啟或關閉下列選項：
 <ol>
 1. 自動更新可將 Azure AD Connect Health 代理程式自動更新為最新版本：這表示您將會在發佈最新版的 Azure AD Connect Health 代理程式時，自動更新為最新版本。此選項預設為啟用狀態。
@@ -112,7 +112,7 @@ Azure AD Connect Health 入口網站可讓您檢視警示、效能監視和使�
 
 
 - 若要開始使用適用於 AD FS 的 Azure AD Connect Health，您可以在此下載最新版的代理程式：[適用於 AD FS 的 Azure AD Connect Health 代理程式](http://go.microsoft.com/fwlink/?LinkID=518973)。 請確定您已從 Marketplace 中加入服務，才可安裝代理程式。
-- 若要開始使用適用於同步處理的 Azure AD Connect Health，請下載並安裝最新版的 Azure AD Connect。健康狀態代理程式將會隨著 Azure AD Connect 安裝一起安裝。Azure AD Connect 支援從舊版就地升級。
+- 若要開始使用適用於同步處理的 Azure AD Connect Health，請下載並安裝[最新版的 Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771)。健康狀態代理程式將會隨著 Azure AD Connect 安裝一起安裝。Azure AD Connect 支援從舊版就地升級。
 
 
 ## 相關連結
@@ -123,4 +123,4 @@ Azure AD Connect Health 入口網站可讓您檢視警示、效能監視和使�
 * [使用適用於同步處理的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/25/2016"
+	ms.date="02/16/2016"
 	ms.author="andkjell;billmath"/>
 
 # 整合內部部署身分識別與 Azure Active Directory
@@ -36,12 +36,11 @@ Azure AD Connect 是一種工具，用來整合您的內部部署身分識別系
 
 Azure Active Directory Connect 由三個主要部分組成。它們是同步處理服務、選用性 Active Directory Federation Services 部分，以及使用 [Azure AD Connect Health](active-directory-aadconnect-health.md) 所執行的監控部分。
 
-<center>![Azure AD Connect 堆疊](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png) 
-</center>
+<center>![Azure AD Connect 堆疊](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png) </center>
 
 - 同步處理 - 此組件是由先前發行為 [Dirsync 和 Azure AAD Sync](active-directory-aadconnect-get-started-tools-comparison.md) 的元件和功能所組成。這是負責建立使用者和群組的組件。它也會負責確保您內部部署環境中的使用者和群組資訊和雲端的符合。
-- AD FS - 這是 Azure AD Connect 的選用性組件，而且可以用來使用內部部署 AD FS 基礎結構來設定混合環境。組織可以使用此組件來處理複雜部署，而複雜部署包括網域加入 SSO、AD 登入原則的強制執行以及智慧卡或協力廠商 MFA 這類項目。
-- 狀況監控 - Azure AD Connect Health 可以提供 AD FS 伺服器的健全監控，並在 Azure 入口網站中提供檢視此活動的中央位置。如需詳細資訊，請參閱 [Azure Active Directory Connect Health](active-directory-aadconnect-health.md)。
+- AD FS - 這是 Azure AD Connect 的選用性組件，而且可以用來使用內部部署 AD FS 基礎結構來設定混合環境。組織可以使用此組件來處理複雜部署，包括網域加入 SSO、AD 登入原則的強制執行以及智慧卡或第三方 MFA 這類項目。
+- 狀況監控 - Azure AD Connect Health 可以提供健全監控，並在 Azure 入口網站中提供檢視此活動的中央位置。如需詳細資訊，請參閱 [Azure Active Directory Connect Health](active-directory-aadconnect-health.md)。
 
 ## 安裝 Azure AD Connect。
 
@@ -52,7 +51,7 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 | ----- | ----- |
 | 開始之前 | <li>[Azure AD Connect：硬體和必要條件](active-directory-aadconnect-prerequisites.md)</li> |
 | [快速設定](active-directory-aadconnect-get-started-express.md) | <li>如果您有單一樹系 AD 時的建議和預設選項。</li> <li>使用密碼同步處理以相同的密碼進行使用者登入。</li>
-| [自訂設定](active-directory-aadconnect-get-started-custom.md) | <li>有多個樹系時使用。支援許多內部部署[拓撲](active-directory-aadconnect-topologies.md)。</li> <li>自訂您登入的選項，例如同盟的 ADFS 或使用協力廠商身分識別提供者。</li> <li>自訂同步處理功能，例如篩選和回寫。</li>
+| [自訂設定](active-directory-aadconnect-get-started-custom.md) | <li>有多個樹系時使用。支援許多內部部署[拓撲](active-directory-aadconnect-topologies.md)。</li> <li>自訂您登入的選項，例如同盟的 ADFS 或使用第三方身分識別提供者。</li> <li>自訂同步處理功能，例如篩選和回寫。</li>
 | [從 DirSync 升級](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>如果您有已在執行中的現有 DirSync 伺服器。</li>
 | 從 Azure AD Sync 升級 | <li>這是完美的就地升級。</li>
 
@@ -90,9 +89,11 @@ Azure AD Connect 隨附數個您可以選擇性地開啟或預設為啟用的功
 
 [密碼回寫](active-directory-passwords-getting-started.md)將可讓您的使用者在雲端中變更和重設其密碼，並套用您的內部部署密碼原則。
 
-[裝置回寫](active-directory-aadconnect-get-started-custom-device-writeback.md)將可讓 Azure AD 中註冊的裝置寫回至內部部署 Active Directory，以便可以使用該裝置進行條件式存取。
+[裝置回寫](active-directory-aadconnect-feature-device-writeback.md)將可讓 Azure AD 中註冊的裝置寫回至內部部署 Active Directory，以便可以使用該裝置進行條件式存取。
 
 [防止意外刪除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)功能預設為開啟，它將保護您的雲端目錄，避免同時進行多次刪除。依預設，它將允許每次執行 500 個刪除，而且可以根據貴組織的大小變更此值。
+
+在快速設定安裝中預設會啟用[自動升級](active-directory-aadconnect-feature-automatic-upgrade.md)，而且會確保您的 Azure AD Connect 永遠保持最新版本。
 
 ### 設定功能的後續步驟
 
@@ -101,8 +102,9 @@ Azure AD Connect 隨附數個您可以選擇性地開啟或預設為啟用的功
 | 設定篩選 | [Azure AD Connect 同步處理：設定篩選](active-directory-aadconnectsync-configure-filtering.md) |
 | 密碼同步處理 | [Azure AD Connect 同步處理：實作密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md) |
 | 密碼回寫 | [開始使用密碼管理](active-directory-passwords-getting-started.md) |
-| 裝置回寫 | [在 Azure AD Connect 中啟用裝置回寫](active-directory-aadconnect-get-started-custom-device-writeback.md) |
+| 裝置回寫 | [在 Azure AD Connect 中啟用裝置回寫](active-directory-aadconnect-feature-device-writeback.md) |
 | 防止意外刪除 | [Azure AD Connect 同步處理：防止意外刪除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |
+| 自動升級 | [Azure AD Connect：自動升級](active-directory-aadconnect-feature-automatic-upgrade.md)|
 
 ## 自訂 Azure AD Connect 同步處理
 Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預設組態。但總是會有一些情況，預設組態將不適用，因而必須進行調整。支援依照本節和連結主題所述進行變更。
@@ -117,11 +119,11 @@ Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預
 
 | 主題 | |
 | --------- | --------- |
+| 所有 Azure AD Connect 同步處理文章 | [Azure AD Connect 同步處理](active-directory-aadconnectsync-whatis.md) |
 | 技術概念 | [Azure AD Connect 同步處理：技術概念](active-directory-aadconnectsync-technical-concepts.md) |
 | 了解預設組態 | [Azure AD Connect 同步處理：了解預設組態](active-directory-aadconnectsync-understanding-default-configuration.md) |
 | 了解使用者和連絡人 | [Azure AD Connect 同步處理：了解使用者和連絡人](active-directory-aadconnectsync-understanding-users-and-contacts.md) |
 | 宣告式佈建 | [Azure AD Connect 同步處理：了解宣告式佈建運算式](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
-| 宣告式佈建函式參考 | [Azure AD Connect 同步處理：函式參考](active-directory-aadconnectsync-functions-reference.md) |
 | 變更預設組態 | [變更預設組態的最佳作法](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) |
 
 ## 詳細資訊和參考
@@ -142,4 +144,4 @@ Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

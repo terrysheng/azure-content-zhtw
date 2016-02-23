@@ -10,7 +10,7 @@
 <tags
    ms.service="service-fabric"
    ms.devlang="dotNet"
-   ms.topic="hero-article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="11/20/2015"
@@ -19,7 +19,7 @@
 # 在您的本機叢集上開始部署和升級應用程式
 Azure Service Fabric SDK 包含完整的本機開發環境，可讓您快速地在本機叢集上開始部署和管理應用程式。在本文中，您將從 Windows PowerShell 建立本機叢集、將現有的應用程式部署至該叢集，然後將該應用程式升級為新版本。
 
-> [AZURE.NOTE]本文假設您已經[設定開發環境](service-fabric-get-started.md)。
+> [AZURE.NOTE] 本文假設您已經[設定開發環境](service-fabric-get-started.md)。
 
 ## 建立本機叢集
 Service Fabric 叢集代表一組您可以部署應用程式的硬體資源。通常，叢集是由任意數量的電腦 (從 5 部到數千部) 所組成。不過，Service Fabric SDK 包含可在一部電腦上執行的叢集組態。
@@ -28,7 +28,7 @@ Service Fabric 叢集代表一組您可以部署應用程式的硬體資源。�
 
 SDK 提供兩種方式來設定本機叢集：Windows PowerShell 指令碼和 [本機叢集管理員] 系統匣應用程式。在本教學課程中，我們將使用 PowerShell 指令碼。
 
-> [AZURE.NOTE]如果您已藉由從 Visual Studio 部署應用程式來建立本機叢集，您可以略過本節。
+> [AZURE.NOTE] 如果您已藉由從 Visual Studio 部署應用程式來建立本機叢集，您可以略過本節。
 
 
 1. 以系統管理員身分啟動新的 PowerShell 視窗。
@@ -125,7 +125,7 @@ Service Fabric SDK 包含一組豐富的架構以及用來建立應用程式的�
 
     ![在 Service Fabric 總管中檢視應用程式詳細資料][sfx-service-overview]
 
-    > [AZURE.NOTE]若要深入了解 Service Fabric 總管，請參閱[使用 Service Fabric 總管視覺化叢集](service-fabric-visualizing-your-cluster.md)。
+    > [AZURE.NOTE] 若要深入了解 Service Fabric 總管，請參閱[使用 Service Fabric 總管視覺化叢集](service-fabric-visualizing-your-cluster.md)。
 
 ## 升級應用程式
 Service Fabric 會在應用程式推展於叢集時監視其健康狀態，進而提供不需停機的升級。讓我們執行 WordCount 應用程式的簡單升級。
@@ -186,4 +186,4 @@ Service Fabric 會在應用程式推展於叢集時監視其健康狀態，進�
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

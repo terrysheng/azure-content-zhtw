@@ -1,6 +1,6 @@
 <properties
   pageTitle="Azure IoT Suite 常見問題集 | Microsoft Azure"
-  description="Azure IoT Suite 的常見問題集 。"
+  description="IoT 套件的常見問題集"
   services=""
   suite="iot-suite"
   documentationCenter=""
@@ -11,13 +11,13 @@
 <tags
   ms.service="iot-suite"
   ms.devlang="na"
-  ms.topic="article"
+  ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
   ms.date="11/17/2015"
   ms.author="araguila"/>
    
-# 常見問題集
+# IoT 套件的常見問題集
 
 ### 我可以在一個訂用帳戶中佈建多少個 DocumentDB 執行個體？
 
@@ -43,4 +43,4 @@
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Active Directory B2B 共同作業預覽版本的詳細逐步解說 | Microsoft Azure"
-   description="Azure Active Directory B2B 可讓企業合作夥伴選擇性地存取您的公司應用程式，以支援公司間的關係"
+   description="Azure Active Directory B2B 共同作業讓企業合作夥伴選擇性地存取您的公司應用程式，以支援公司間的關係"
    services="active-directory"
    documentationCenter=""
    authors="viv-liu"
@@ -11,10 +11,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="02/10/2016"
    ms.author="viviali"/>
 
 # Azure AD B2B 共同作業預覽：詳細逐步解說
@@ -82,4 +82,4 @@
 - [目前的預覽版本限制](active-directory-b2b-current-preview-limitations.md)
 - [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

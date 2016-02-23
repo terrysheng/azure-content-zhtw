@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.topic="get-started-article"
+	ms.date="02/18/2016"
 	ms.author="billmath"/>
 
 # 目錄整合工具比較
@@ -27,8 +27,7 @@
 
 為每個資料表使用下列機碼。
 
-● = 現已提供</br> FR = 未來版本</br> PP = 公開預覽</br>
-
+● = 現已提供 FR = 未來版本 PP = 公開預覽
 
 ## 內部部署至雲端同步處理
 
@@ -72,7 +71,7 @@
 | 支援在網域控制站上安裝 | ● | ● | ● | |
 | 支援使用 SQL Express 安裝 | ● | ● | ● | |
 | 從 DirSync 輕鬆升級 |● | | | |
-| 當地語系化 Windows Server 語言 | FR | ● | ● | |
+| 當地語系化 Windows Server 語言 | ● | ● | ● | |
 | Windows Server 2008 和 Windows Server 2008 R2 的支援 | ● 用於同步，不用於同盟| ● | ● | ● |
 | Windows Server 2012 和 Windows Server 2012 R2 的支援 | ● | ● | ● | 僅限 2012 |
 
@@ -91,4 +90,4 @@
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

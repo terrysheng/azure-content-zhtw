@@ -25,11 +25,11 @@ Azure 雲端服務具備獨特的服務組態機制，可讓您從 Azure 管理�
 
 5.  選擇要以儲存體模擬器 (本機電腦上模擬的 Microsoft Azure 儲存體)，還是雲端中的儲存體帳戶為目標。不論您選擇哪一種，本指南的程式碼都適用。
 
-	> [AZURE.NOTE]您可以選擇以儲存體模擬器為目標，以避免產生與 Azure 儲存體相關聯的任何費用。不過，如果您選擇以雲端中的 Azure 儲存體帳戶為目標，則執行本教學課程的費用可以忽略不計。
+	> [AZURE.NOTE] 您可以選擇以儲存體模擬器為目標，以避免產生與 Azure 儲存體相關聯的任何費用。不過，如果您選擇以雲端中的 Azure 儲存體帳戶為目標，則執行本教學課程的費用可以忽略不計。
 
-	如果您要選擇以雲端中的儲存體帳戶為目標，則輸入該儲存體帳戶的主要存取金鑰。若要了解如何透過 Azure 管理入口網站複製主要存取金鑰，請參閱[檢視、複製和重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
+	如果您要選擇以雲端中的儲存體帳戶為目標，則輸入該儲存體帳戶的主要存取金鑰。若要了解如何透過 Azure 管理入口網站複製主要存取金鑰，請參閱[檢視和複製儲存體存取金鑰](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys)。
 
-	> [AZURE.NOTE]儲存體帳戶金鑰很類似儲存體帳戶的根密碼。請務必保護您的金鑰。請避免轉發給其他使用者，或將它儲存在其他人可以存取的純文字檔案。如果您認為金鑰可能遭到破解，請使用管理入口網站重新產生金鑰。
+	> [AZURE.NOTE] 儲存體帳戶金鑰很類似儲存體帳戶的根密碼。請務必保護您的金鑰。請避免轉發給其他使用者，或將它儲存在其他人可以存取的純文字檔案。如果您認為金鑰可能遭到破解，請使用管理入口網站重新產生金鑰。
 	
     ![Select target environment][connection-string4]
 
@@ -63,4 +63,4 @@ Azure 雲端服務具備獨特的服務組態機制，可讓您從 Azure 管理�
 
 [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

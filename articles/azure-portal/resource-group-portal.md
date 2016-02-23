@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/29/2015" 
+	ms.date="02/11/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -21,11 +21,12 @@
 
 ## 簡介
 
-過去在 Microsoft Azure 中管理資源 (例如資料庫伺服器、資料庫或 Web 應用程式) 時，您必須逐一對每項資源執行作業。如果您有某個應用程式是由多項資源所組成，您必須將變更手動調節至應用程式基礎結構。在 Azure 入口網站中，您可以利用 Azure 資源管理員建立資源群組，以同時部署和管理某個應用程式中的所有資源。
+Azure 資源管理員可讓您透過資源群組來部署和管理解決方案。本主題簡單說明如何在 Azure 入口網站內使用資源群組。一般而言，一個資源群組包含一個特定應用程式的相關資源。例如，一個群組可能會包含一個代管公用網站的 Web 應用程式、一個儲存網站所使用之關聯式資料的 SQL Database，和一個儲存非關聯式資產的儲存體帳戶。資源群組中的每項資源應共用相同的存留期。如需資源管理員的詳細資訊，請參閱[資源管理員概觀](../resource-group-overview.md)。
 
-一般而言，一個資源群組包含一個特定應用程式的相關資源。例如，一個群組可能會包含一個代管公用網站的 Web 應用程式、一個儲存網站所使用之關聯式資料的 SQL Database，和一個儲存非關聯式資產的儲存體帳戶。資源群組中的每項資源應共用相同的存留期。如需資源管理員的詳細資訊，請參閱[資源管理員概觀](../resource-group-overview.md)。
+目前並非所有服務都支援入口網站或資源管理員。針對這些服務，您必須使用[傳統入口網站](https://manage.windowsazure.com)。如需每個服務的狀態，請參閱 [Azure 入口網站可用性圖表](https://azure.microsoft.com/features/azure-portal/availability/)。
 
-本主題簡單說明如何在 Azure 入口網站內使用資源群組。目前並非所有服務都支援入口網站或資源管理員。針對這些服務，您必須使用[傳統入口網站](https://manage.windowsazure.com)。如需每個服務的狀態，請參閱 [Azure 入口網站可用性圖表](https://azure.microsoft.com/features/azure-portal/availability/)
+您也可以透過 Azure PowerShell 和 Azure CLI 來管理資源。如需有關使用這些介面的詳細資訊，請參閱[搭配使用 Azure PowerShell 和 Azure 資源管理員](../powershell-azure-resource-manager.md)及[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理員](../xplat-cli-azure-resource-manager.md)。
+
 
 ## 建立資源群組和資源
 
@@ -37,13 +38,17 @@
 
 ![設定群組值](./media/resource-group-portal/set-group-properties.png)
 
-不過，您不需要明確建立空的資源群組。您可以在建立新群組時，選擇建立新的資源群組，或使用現有的資源群組。下圖顯示如何利用選取現有資源群組或建立新資源群組的選項來建立新的 Web 應用程式。
+部署您的資源時，您可以選擇將它們部署到您所建立的資源群組。下圖顯示如何在現有的資源群組中建立新的 Web 應用程式。
 
 ![建立資源群組](./media/resource-group-portal/select-existing-group.png)
 
+或者，您也可以決定在部署資源時建立新的資源群組。請選取 [新增] 並提供資源群組的名稱，而不是在訂用帳戶中選取其中一個現有的資源群組。
+
+![建立新的資源群組](./media/resource-group-portal/select-new-group.png)
+
 ## 瀏覽資源群組
 
-按一下 [**全部瀏覽**] 和 [**資源群組**]，即可瀏覽所有資源群組。
+您可以按一下 [資源群組] 來瀏覽所有資源群組。
 
 ![瀏覽資源群組](./media/resource-group-portal/browse-groups.png)
 
@@ -54,6 +59,20 @@
 此資源群組刀鋒視窗也會為您提供資源群組中各項資源的計費和監視資訊的統合檢視。
 
 ![監視和計費](./media/resource-group-portal/monitoring-billing.png)
+
+## 檢視訂用帳戶和成本
+
+您可以檢視訂用帳戶的相關資訊和所有資源的彙總成本。選取 [訂用帳戶] 及您想要查看的訂用帳戶。您可能只有一個訂用帳戶可選取。
+
+![訂用帳戶)](./media/resource-group-portal/select-subscription.png)
+
+在訂用帳戶刀鋒視窗內，您會看到完工速率。
+
+![完工速率](./media/resource-group-portal/burn-rate.png)
+
+還有依資源類型的成本分析。
+
+![資源成本](./media/resource-group-portal/cost-by-resource.png)
 
 ## 自訂介面
 
@@ -131,13 +150,13 @@
 
 如果您想要執行部署，但不使用 Marketplace 中中的任何範本，您可建立自訂範本以定義您的解決方案的基礎結構。如需有關範本的詳細資訊，請參閱[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)。
 
-若要透過入口網站部署自訂的範本，請選取 [**新增**]、[**Marketplace**] 和 [**所有項目**]。
-
-![尋找範本部署](./media/resource-group-portal/launch-template.png)
-
-搜尋**範本部署**，然後從傳回的清單中選取。
+若要透過入口網站來部署自訂的範本，請選取 [新增]，開始搜尋 [範本部署]，直到您可以從選項中選取它為止。
 
 ![搜尋範本部署](./media/resource-group-portal/search-template.png)
+
+從可用的資源中選取 [範本部署]。
+
+![選取範本部署](./media/resource-group-portal/select-template.png)
 
 啟動範本部署之後，您可以建立自訂範本及設定部署的值。
 
@@ -146,12 +165,8 @@
 ## 後續步驟
 開始使用
 
-- 如需資源管理員中的概念簡介，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。  
+- 如需資源管理員中的概念簡介，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。
 - 如需部署資源時使用 Azure PowerShell 的簡介，請參閱[將 Azure PowerShell 與 Azure 資源管理員搭配使用](../powershell-azure-resource-manager.md)。
-- 如需部署資源時使用 Azure CLI 的簡介，請參閱[使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 資源管理](../xplat-cli-azure-resource-manager.md)。 
-  
+- 如需部署資源時使用 Azure CLI 的簡介，請參閱[使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 資源管理](../xplat-cli-azure-resource-manager.md)。
 
-
- 
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

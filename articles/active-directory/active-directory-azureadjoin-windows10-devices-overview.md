@@ -14,8 +14,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/25/2016" 
+	ms.topic="get-started-article" 
+	ms.date="02/10/2016" 
 	ms.author="femila"/>
 
 # 適合企業使用的 Windows 10：使用裝置的工作方式
@@ -35,4 +35,4 @@ Windows 10 讓您可以充分利用 Azure Active Directory。Windows 10 裝置�
 | Deployment | [Azure AD Join 的使用方式案例和部署考量](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [將已加入的網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)<br><br>[啟用 Microsoft Passport 在組織中工作](active-directory-azureadjoin-passport-deployment.md)<br><br> [啟用適用於 Windows 10 的企業狀態漫遊](active-directory-windows-enterprise-state-roaming-overview.md)<br><br> |
 | 使用者工作 | [在安裝期間以 Azure AD 設定新的 Windows 10 裝置](active-directory-azureadjoin-user-frx.md) <br><br> [從設定以 Azure AD 設定 Windows 10 裝置](active-directory-azureadjoin-user-upgrade.md) <br><br> [聯結個人 Windows 10 裝置到貴組織](active-directory-azureadjoin-personal-device.md) |
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

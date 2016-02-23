@@ -13,7 +13,7 @@
    ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
-	 ms.topic="article"
+	 ms.topic="get-started-article"
 	 ms.date="01/28/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
@@ -100,6 +100,10 @@
 - *.microsoftonline.com
 - *.windows.net
 
+**Q21.您可以在已由 Azure 備份服務所備份的 Azure VM 上使用 VM 擴充功能來安裝 Azure 備份代理程式嗎？** <br/> A21.當然。Azure 備份使用 VM 擴充功能提供 Azure VM 的 VM 層級備份，您可以在客體 Windows 作業系統上安裝 Azure 備份代理程式，以保護客體 OS 中的檔案和資料夾。
+
+**Q22.您可以在 Azure VM 上安裝 Azure 備份代理程式來備份 Azure VM 所提供的暫存儲存體中存在的檔案和資料夾嗎？** <br/> A22.您可以在客體 Windows 作業系統上安裝 Azure 備份代理程式，並備份 tempstorage 上的檔案和資料夾。但請注意，當暫存儲存體資料抹除時，備份會開始失敗。此外，在還原期間，如果暫存資料已刪除，則您只能還原到非暫存儲存體。
+
 
 ## 備份和保留
 **Q1.正在備份的每個資料來源是否有大小限制？** <br/> A1.下面將說明截至 2015 年 8 月，適用於各種作業系統的資料來源大小上限
@@ -183,4 +187,4 @@
 
 一旦利用新快取位置成功備份，您就可以移除原始的快取資料夾。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

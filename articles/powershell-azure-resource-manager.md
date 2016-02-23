@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/08/2016" 
+	ms.date="02/17/2016" 
 	ms.author="tomfitz"/>
 
 # 搭配使用 Azure PowerShell 與 Azure 資源管理員
@@ -34,9 +34,9 @@ Azure 資源管理員介紹一種看待 Azure 資源的嶄新方式。與其建�
   + 您可以[免費申請 Azure 帳戶](/pricing/free-trial/?WT.mc_id=A261C142F) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如「網站」。除非您明確變更您的設定且同意付費，否則我們將不會從您的信用卡收取任何費用。
   
   + 您可以[啟用 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - 您的 MSDN 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
-- Azure PowerShell 1.0。如需有關此版本以及如何安裝的資訊，請參閱 [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
+- Azure PowerShell 1.0。如需有關此版本以及如何安裝的資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
 
-本教學課程是專為 PowerShell 初學者所設計的，但它會假設您已了解基本概念，例如模組、Cmdlet 和工作階段。如需 Windows PowerShell 的詳細資訊，請參閱[開始使用 Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx) (英文)。
+本教學課程是專為 PowerShell 初學者所設計的，但它會假設您已了解基本概念，例如模組、Cmdlet 和工作階段。
 
 ## 部署內容
 
@@ -73,7 +73,7 @@ Azure 資源管理員介紹一種看待 Azure 資源的嶄新方式。與其建�
 	Get-AzureRmADGroupMember               Get a group members.
 	...
 
-若要取得完整的 cmdlet，請輸入以下格式的命令:
+To get full help for a cmdlet, type a command with the format:
 
 	Get-Help <cmdlet-name> -Full
   
@@ -358,6 +358,8 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
     (Type !? for Help.)
     administratorLoginPassword: ********
 
+如果範本中有一個參數的名稱符合範本部署命令的其中一個參數 (例如範本包含名為 **ResourceGroupName** 的參數，而且與 [新增 AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) Cmdlet 中的 **ResourceGroupName** 參數相同)，將會提示您在後置詞為 **FromTemplate** 的參數中提供一個值 (例如 **ResourceGroupNameFromTemplate**)。一般而言，請不要將參數命名為與部署作業所用的參數同名，以避免這種混淆情形。
+
 資源建立時，命令會執行並且傳回訊息。最後，您會看到您的部署結果。
 
     DeploymentName    : azuredeploy
@@ -414,7 +416,7 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
                 
         ...
 	        
-- 上述範本包含一項資源上的標記。您可以使用標記，以邏輯方式組織訂用帳戶中的資源。使用 **Find-AzureRmResource** 和 **Find-AzureRmResourceGroup** 命令以標記查詢您的資源。
+- 上述範本包含一項資源上的標記。您可以使用標記，以邏輯方式組織訂用帳戶中的資源。您可以使用 **Find-AzureRmResource** 和 **Find-AzureRmResourceGroup** 命令，依標記來查詢資源。
 
         PS C:\> Find-AzureRmResource -TagName team
 
@@ -461,4 +463,4 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 - 如需部署專案的詳細範例，請參閱[透過可預測方式在 Azure 中部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)。
 - 若要了解如何疑難排解失敗的部署，請參閱[在 Azure 中疑難排解資源群組部署](./virtual-machines/resource-group-deploy-debug.md)。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

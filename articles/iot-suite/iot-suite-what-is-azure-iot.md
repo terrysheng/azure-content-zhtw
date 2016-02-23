@@ -11,7 +11,7 @@
 <tags
  ms.service="iot-suite"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="02/04/2016"
@@ -47,4 +47,4 @@ Microsoft Azure IoT 套件是企業級解決方案，可透過一組可延伸的
 [Azure Machine Learning]: https://azure.microsoft.com/zh-TW/services/machine-learning/
 [Azure 儲存體]: https://azure.microsoft.com/zh-TW/services/storage/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

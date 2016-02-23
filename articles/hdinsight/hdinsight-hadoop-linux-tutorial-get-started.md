@@ -3,7 +3,7 @@
    	description="遵循本 Linux 教學課程，開始在 HDInsight 中使用 Hadoop。了解如何佈建 Linux 叢集，以及使用 Hive 查詢資料。"
    	services="hdinsight"
    	documentationCenter=""
-   	authors="nitinme"
+   	authors="mumian"
    	manager="paulettm"
    	editor="cgronlun"
 	tags="azure-portal"/>
@@ -14,200 +14,73 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="01/21/2016"
-   	ms.author="nitinme"/>
+   	ms.date="02/11/2016"
+   	ms.author="jgao"/>
 
-# Hadoop 教學課程：在 Linux 上開始在 HDInsight 中搭配使用 Hadoop 與 Hive
+# Hadoop 教學課程：開始在 HDInsight 中使用以 Linux 為基礎的 Hadoop
 
 > [AZURE.SELECTOR]
 - [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-本文件為您示範如何建立以 Linux 為基礎的 Hadoop 叢集、開啟 Ambari Web UI，然後使用 Ambari Hive 檢視執行 Hive 查詢，以便在 Linux 上快速地開始使用 Azure HDInsight。
+了解如何在 HDInsight 中建立以 Linux 為基礎的 Hadoop 叢集，並使用 Ambari Hive 檢視來執行 Hive 作業。
 
-> [AZURE.NOTE] 如果您是 Hadoop 和巨量資料的新使用者，您可以進一步了解這些術語：[Apache Hadoop](http://go.microsoft.com/fwlink/?LinkId=510084)、[MapReduce](http://go.microsoft.com/fwlink/?LinkId=510086)、[Hadoop 分散式檔案系統 (HDFS)](http://go.microsoft.com/fwlink/?LinkId=510087) 及 [Hive](http://go.microsoft.com/fwlink/?LinkId=510085)。若要了解 HDInsight 如何在 Azure 中啟用 Hadoop，請參閱 [HDInsight 中 Hadoop 的簡介](hdinsight-hadoop-introduction.md)。
+如果您不熟悉 Hadoop 和巨量資料，您可以進一步了解這些術語：[Apache Hadoop](http://go.microsoft.com/fwlink/?LinkId=510084)、[MapReduce](http://go.microsoft.com/fwlink/?LinkId=510086)、[Hadoop 分散式檔案系統 (HDFS)](http://go.microsoft.com/fwlink/?LinkId=510087) 及 [Hive](http://go.microsoft.com/fwlink/?LinkId=510085)。若要了解 HDInsight 如何在 Azure 中啟用 Hadoop，請參閱 [HDInsight 中 Hadoop 的簡介](hdinsight-hadoop-introduction.md)。
 
-## 必要條件
+### 先決條件
 
-開始進行 Hadoop 的本 Linux 教學課程之前，您必須具備下列條件：
+開始進行本教學課程之前，您必須具備：
 
 - **Azure 訂用帳戶**：請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-## <a name="provision"></a>在 Linux 上佈建 HDInsight 叢集
+## 建立叢集
 
-佈建叢集時，可以建立包含 Hadoop 服務和資源的 Azure 計算資源。在本節中，您將佈建包含 Hadoop 2.2 版的 HDInsight 3.2 版叢集。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱〈[HDInsight 元件版本設定](hdinsight-component-versioning.md)〉。如需建立 HDInsight 叢集的詳細資訊，請參閱[使用自訂選項佈建 HDInsight 叢集][hdinsight-provision]。
+大部分 Hadoop 作業都是批次作業。您建立叢集並執行一些作業。本節中，您將在 HDInsight 中使用 [Azure ARM 範本](../resource-group-template-deploy.md)建立以 Linux 為基礎的 Hadoop 叢集。進行本教學課程並不需要具備 Azure ARM 範本經驗。如需其他叢集建立方法及了解各項設定，請參閱[建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)。如需有關使用 ARM 範本在 HDInsight 中建立 Hadoop 叢集的詳細資訊，請參閱[使用 ARM 範本在 HDInsight 中建立 Hadoop 叢集](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
->[AZURE.NOTE]  您也可以建立執行 Windows Server 作業系統的 Hadoop 叢集。如需相關指示，請參閱[在 Windows 上開始使用 HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)。
+1. 按一下以下影像，以在 Azure 入口網站中開啟 ARM 範本。ARM 範本位於公用 Blob 容器中。 
 
-請使用下列步驟建立新的叢集：
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/zh-TW/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-1. 登入 [Azure 入口網站](https://ms.portal.azure.com/)。
-2. 依序按一下 [新增]、[資料分析] 及 [HDInsight]。
+2. 從 [參數] 刀鋒視窗，輸入下列資料：
 
-    ![在 Azure 入口網站中建立新的叢集](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "在 Azure 入口網站中建立新的叢集")
+    - **ClusterName**：輸入您將建立的 Hadoop 叢集的名稱。
+    - **ClusterStorageAccountName**：每個叢集都有 Azure Blob 儲存體帳戶相依性。刪除叢集之後，資料會保留在儲存體帳戶中。
+    - **叢集登入名稱和密碼**：預設登入名稱是 **admin**。
+    - **SSH 使用者名稱和密碼**：預設使用者名稱是 **sshuser**。您可以將它重新命名。其他參數都是選擇性的。您可以將它們維持不變。  
+3. 按一下 [確定] 儲存參數。
+4. 在 [自訂部署] 刀鋒視窗中，按一下 [資源群組] 下拉式方塊，然後再按一下 [新增] 來建立新的資源群組。資源群組是聚集叢集、相依儲存體帳戶和其他已連結資源的容器。
+5. 按一下 [法律條款]，然後按一下 [建立]。
+6. 按一下 [建立]。您會看到新的磚，標題為 [提交範本部署的部署]。大約需要 20 分鐘的時間來建立叢集。一旦建立叢集後，您可以在入口網站按一下 [叢集] 刀鋒視窗來開啟它。
 
-3. 輸入 [叢集名稱]，針對 [叢集類型] 選取 [Hadoop]，然後從 [叢集作業系統] 下拉式清單中選取 [Ubuntu]。如果該叢集可用，其名稱旁會出現綠色核取記號。
-
-	![輸入叢集名稱和類型](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.2.png "輸入叢集名稱和類型")
-
-4. 如果您有多個訂用帳戶，可按一下 [訂用帳戶] 項目，以選取將用於該叢集的 Azure 訂用帳戶。
-
-5. 按一下 [資源群組] 來查看現有資源群組的清單，然後選取其中一個來建立叢集。或者按一下 [建立新項目]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
-
-	> [AZURE.NOTE] 如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
-
-6. 按一下 [認證]，然後輸入系統管理員使用者的密碼。您也必須輸入 [SSH 使用者名稱]。針對 [SSH 驗證類型], ，按一下 [密碼] 並指定 SSH 使用者的密碼。按一下底部的 [選取] 以儲存認證組態。
-
-	![提供叢集認證](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "提供叢集認證")
-
-    > [AZURE.NOTE] SSH 可透過命令列遠端存取 HDInsight 叢集。您在此使用的使用者名稱和密碼會在透過 SSH 連接到叢集時使用。
-
-	如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列其中一份文件：
-
-	* [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)
-	* [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
+完成本教學課程之後，您可以刪除叢集。利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。您也需支付 HDInsight 叢集的費用 (即使未使用)。由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。如需有關刪除叢集的指示，請參閱[使用 Azure 入口網站管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-management-portal.md#delete-clusters)。
 
 
-7. 按一下 [資料來源] 選擇該叢集的現有資料來源，或建立一個新的資料來源。當您在 HDInsight 中佈建 Hadoop 叢集時，您需要指定一個 Azure 儲存體帳戶。該帳戶特定的 Blob 儲存體容器將被指定為預設檔案系統，如同 Hadoop 分散式檔案系統 (HDFS)。依預設，系統會在與您指定儲存體帳戶的相同資料中心內佈建 HDInsight 叢集。如需詳細資訊，請參閱＜[搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-use-blob-storage.md)＞。
+##執行 Hive 查詢
 
-	![資料來源刀鋒視窗](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.4.png "提供資料來源組態")
+[Ambari](hdinsight-hadoop-manage-ambari.md) 檢視透過網頁提供幾個公用程式。其中一個公用程式是 Hive 檢視。本節中，您將使用 Hive 檢視對您的 HDInsight 叢集執行 Hive 查詢。如需其他執行 Hive 查詢的方法，請參閱[在 HDInsight 中使用 Hive](hdinsight-use-hive.md)。
 
-	目前您可以選取 Azure 儲存體帳戶做為 HDInsight 叢集資料來源。使用下列資訊來了解 [資料來源] 刀鋒視窗上的項目。
+1. 瀏覽至 **https://&lt;ClusterName>.azurehdinsight.net** 以開啟 Ambari，其中 &lt;ClusterName> 是您在上一節建立的叢集。
+2. 輸入您在上一節指定的 Hadoop 使用者名稱和密碼。預設的使用者名稱為 **admin**。
+3. 開啟 [Hive 檢視]，如下列螢幕擷取畫面所示：
 
-	- **選取方法**：將此設為 [來自所有訂用帳戶]，即可瀏覽您所有訂用帳戶中的儲存體帳戶。如果您想要輸入現有儲存體帳戶的 [儲存體名稱] 和 [存取金鑰]，請將此設為 [存取金鑰]。
+    ![選取 ambari 檢視](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png)。
+4. 在頁面的 [查詢編輯器] 區段中，將下列 HiveQL 陳述式貼到工作表中：
 
-	- **選取儲存體帳戶 / 建立新的帳戶**：按一下 [選取儲存體帳戶]，瀏覽並選取您要與叢集產生關聯的現有儲存體帳戶。或者按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
+		SHOW tables;
+5. 按一下 [Execute (執行)]。[查詢程序結果] 區段應該會出現在 [查詢編輯器] 下方並顯示作業相關資訊。 
 
-	- **選擇預設容器**：使用此選項可輸入要用於該叢集的預設容器名稱。雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
-
-	- **位置**：儲存體帳戶所在或將建立的地理區域。
-
-		> [AZURE.IMPORTANT] 選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
-
-	按一下 [選取] 以儲存資料來源組態。
-
-8. 按一下 [節點定價層]，來顯示將針對此叢集建立的節點相關資訊。設定該叢集所需的背景工作角色節點數目。該叢集的預估成本將會顯示在此刀鋒視窗內。
-
-	![節點定價層刀鋒視窗](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "指定叢集節點的數目")
-    
-    > [AZURE.IMPORTANT] 如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
-    >
-    > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
-
-	按一下 [選取] 以儲存節點價格組態。
-
-9. 在 [新的 HDInsight 叢集] 刀鋒視窗中，確認已選取 [釘選到開始面板]，然後按一下 [建立]。這將會建立叢集，並將該叢集磚加入到您 Azure 入口網站的「開始面板」。該圖示可表示該叢集正在佈建，並將在佈建完成後變更為 HDInsight 圖示。
-
-佈建期間|佈建完成
-------------------|---------------------
-	![「開始面板」上的佈建指示器](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png)|![佈建的叢集磚](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png)
-
-> [AZURE.NOTE] 建立叢集需要一些時間，通常約 15 分鐘左右。請使用「開始面板」上的磚，或頁面左邊的 [通知] 項目來檢查佈建進度。
-
-佈建完成後，在「開始面板」按一下該叢集的圖格，以啟動叢集刀鋒視窗。
-
-##連接到 Hive 檢視
-
-Ambari 檢視可透過網頁提供幾個公用程式。在下列各節中，您將使用 Hive 檢視對您的 HDInsight 叢集執行 Hive 查詢。
-
-> [AZURE.NOTE] Ambari 是隨著以 Linux 為基礎的 HDInsight 叢集提供的管理和監視公用程式。Ambari 有很多不會在本文中討論的功能。如需詳細資訊，請參閱[使用 Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
-
-若要從 Azure 入口網站顯示 Ambari 檢視，請選取您的 HDInsight 叢集，然後從 [快速連結] 區段選取 [Ambari 檢視]
-
-![快速連結區段](./media/hdinsight-hadoop-linux-tutorial-get-started/quicklinks.png)
-
-您也可以在網頁瀏覽器中移至 https://CLUSTERNAME.azurehdinsight.net (其中 __CLUSTERNAME__ 是您的 HDInsight 叢集的名稱) 以直接瀏覽至 Ambari，然後從頁面功能表 (頁面左側 __Admin__ 連結和按鈕旁邊) 中選取方塊集合來列出可用的檢視。選取 [Hive 檢視]。
-
-![選取 ambari 檢視](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png)。
-
-> [AZURE.NOTE] 存取 Ambari 時，系統會提示您對網站進行驗證。輸入您在建立叢集時所使用的 admin (預設為 `admin`)、帳戶名稱和密碼。
-
-您應該會看到如下所示的頁面：
-
-![Hive 檢視頁面的影像，包含查詢編輯器區段](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png)
-
-##<a name="hivequery"></a>執行 Hive 查詢
-
-從 Hive 檢視使用下列步驟，對叢集內含的資料執行 Hive 查詢。
-
-1. 在頁面的 [查詢編輯器] 區段中，將下列 HiveQL 陳述式貼到工作表中：
-
-		DROP TABLE log4jLogs;
-		CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-		ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-		STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
-		SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
-
-	這些陳述式將執行下列動作：
-
-	- **DROP TABLE** - 刪除資料表和資料檔 (如果資料表已存在)
-	- **CREATE EXTERNAL TABLE** - 在 Hive 中建立新的「外部」資料表。外部資料表只會在 Hive 中儲存資料表定義；資料會保留在原始位置。
-	- **ROW FORMAT** - 告訴 Hive 如何格式化資料。在此情況下，每個記錄中的欄位會以空格隔開。
-	- **STORED AS TEXTFILE LOCATION** - 將資料的儲存位置告訴 Hive (example/data 目錄)，且資料儲存為文字。
-	- **SELECT** - 選擇其資料欄 t4 包含值 [ERROR] 的所有資料列計數。
-
-	>[AZURE.NOTE] 當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。捨棄外部資料表並*不*會刪除資料，只會刪除資料表定義。
-
-2. 使用 [查詢編輯器] 底部的 [執行] 按鈕開始查詢。它應該變成橘色，而文字會變成 [停止執行]。[查詢程序結果] 區段應該會出現在 [查詢編輯器] 下方並顯示作業相關資訊。
-
-    > [AZURE.IMPORTANT] 有些瀏覽器可能無法正確地重新整理記錄檔或結果資訊。如果您執行一項作業，而該作業似乎會一直執行，但未更新記錄檔或傳回結果，請嘗試改用 Mozilla FireFox 或 Google Chrome。
-    
-3. 查詢完成後，[查詢程序結果] 區段會顯示作業的結果。[停止執行] 按鈕也會變回綠色 [執行] 按鈕。[結果] 索引標籤應包含下列資訊：
-
-        sev       cnt
-        [ERROR]   3
-
-    [記錄檔] 索引標籤可用來檢視作業所建立的記錄資訊。您可以將此資訊用來排解查詢問題。
+    查詢完成後，[查詢程序結果] 區段會顯示作業的結果。您應該會看到一個名為 **hivesampletable** 的資料表。所有 HDInsight 叢集都提供此範例 Hive 資料表。
     
     > [AZURE.TIP] 請注意，[查詢程序結果] 區段右上方的 [儲存結果] 下拉式清單；您可以使用此下拉式清單來下載結果，或以 CSV 檔案形式將它們儲存到 HDInsight 儲存體。
+6. 重複步驟 4 和 5，以執行下列查詢：
 
-3. 選取此查詢的前四行，然後選取 [執行]。請注意，作業完成時沒有任何結果。這是因為在選取部分查詢的情況下使用 [執行] 按鈕，只會執行所選的陳述式。在此情況下，選取項目不包含從資料表擷取資料列的最後一個陳述式。如果您只選取那一行並使用 [執行]，您應該會看到預期的結果。
+        SELECT * FROM hivesampletable;
 
-3. 使用 [查詢編輯器] 底部的 [新增工作表] 按鈕，建立新的工作表。在新的工作表中，輸入下列 HiveQL 陳述式：
+Hive 作業完成後，您可以[將結果匯出至 Azure SQL 資料庫或 SQL Server 資料庫](hdinsight-use-sqoop-mac-linux.md)，您也可以[使用 Excel 將結果視覺化](hdinsight-connect-excel-power-query.md)。如需有關在 HDInsight 中使用 Hive 詳細資訊，請參閱[搭配 HDInsight 中的 Hadoop 使用 Hive 和 HiveQL 來分析範例 Apache log4j 檔案](hdinsight-use-hive.md)。
 
-		CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-		INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
+## 後續步驟
 
-	這些陳述式將執行下列動作：
-
-	- **CREATE TABLE IF NOT EXISTS** - 建立資料表 (如果不存在)。因為未使用 **EXTERNAL** 關鍵字，所以這是內部資料表，而內部資料表儲存在 Hive 資料倉儲中，並完全透過 Hive 所管理。與外部資料表不同，捨棄內部資料表也會同時刪除基礎資料。
-	- **STORED AS ORC** - 以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。這是高度最佳化且有效率的 Hive 資料儲存格式。
-	- **INSERT OVERWRITE ...SELECT** - 從包含 [ERROR] 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表。
-    
-    使用 [查詢] 按鈕執行此查詢。[結果] 索引標籤不包含任何資訊，因為此查詢未傳回任何資料列，但是狀態應顯示為 [成功]。
-    
-4. [查詢編輯器] 的右邊有一列圖示。選取看起來像鏈條的圖示。
-
-    ![圖示](./media/hdinsight-hadoop-linux-tutorial-get-started/icons.png)
-    
-    這是查詢的 [視覺解說] 檢視，有助於了解複雜查詢的流程。您可以使用 [查詢編輯器] 中的 [解說] 按鈕來檢視此檢視的對等文字。
-    
-    ![視覺解說影像](./media/hdinsight-hadoop-linux-tutorial-get-started/visualexplain.png)
-    
-    其他圖示如下所示：
-    
-    * **設定**：齒輪圖示可讓您變更 Hive 設定，例如設定 `hive.execution.engine` 或 Tez 參數。
-    * **Tez**：顯示 Tez 用來執行查詢的有向非循環圖 (DAG)。如果您想要檢視您已執行過的查詢的 DAG，請改為使用 [Tez 檢視]。
-    * **通知**：顯示通知，例如「查詢已提交」；或是執行查詢時發生的錯誤。
-
-5. 選取 [SQL] 圖示可切換回 [查詢編輯器]，然後建立新的工作表並輸入下列查詢：
-
-        SELECT * from errorLogs;
-    
-    使用編輯器底部的 [另存新檔] 按鈕。將此查詢命名為 __Errorlogs__ ，然後選取 [確定]。請注意，工作表的名稱會變更為 __Errorlogs__。
-    
-    已儲存的查詢也會出現在頁面頂端的 [已儲存的查詢] 索引標籤中。選取此選項，您應該會看到 __Errorlogs__ 列出。選取名稱，將會在 [查詢編輯器] 中開啟查詢。
-
-4. 執行 __Errorlogs__ 查詢。結果會如下所示：
-
-        errorlogs.t1 	errorlogs.t2 	errorlogs.t3 	errorlogs.t4 	errorlogs.t5 	errorlogs.t6 	errorlogs.t7
-        2012-02-03 	18:35:34 	SampleClass0 	[ERROR] 	incorrect 	id 	
-        2012-02-03 	18:55:54 	SampleClass1 	[ERROR] 	incorrect 	id 	
-        2012-02-03 	19:25:27 	SampleClass4 	[ERROR] 	incorrect 	id
-
-## <a name="nextsteps"></a>接續步驟
-
-在本文件中，您已經學會如何使用 Azure 入口網站建立以 Linux 為基礎的 HDInsight 叢集、如何使用 SSH 連線到叢集，以及如何執行基本的 Hive 查詢，。
+在本教學課程中，您已經學會如何使用 ARM 範本建立以 Linux 為基礎的 HDInsight 叢集，以及如何執行基本的 Hive 查詢。
 
 若要深入了解如何使用 HDInsight 分析資料，請參閱下列主題：
 
@@ -221,7 +94,7 @@ Ambari 檢視可透過網頁提供幾個公用程式。在下列各節中，您�
 
 如果您準備好開始使用您自己的資料，並需要進一步了解 HDInsight 儲存資料的方式或如何將資料匯入 HDInsight，請參閱下列主題：
 
-- 如需有關 HDInsight 如何使用 Azure Blob 儲存體的資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-use-blob-storage.md)。
+- 如需有關 HDInsight 如何使用 Azure Blob 儲存體的資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-hadoop-use-blob-storage.md)。
 
 - 如需如何上傳資料到 HDInsight 的資訊，請參閱[將資料上傳到 HDInsight][hdinsight-upload-data]。
 
@@ -229,7 +102,7 @@ Ambari 檢視可透過網頁提供幾個公用程式。在下列各節中，您�
 
 - 若要了解如何管理以 Linux 為基礎的 HDInsight 叢集，請參閱[使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
 
-- 若要深入了解建立 HDInsight 叢集時可選取的選項，請參閱[使用自訂選項在 Linux 上佈建 HDInsight](hdinsight-hadoop-provision-linux-clusters.md)。
+- 若要深入了解建立 HDInsight 叢集時可選取的選項，請參閱[使用自訂選項在 Linux 上建立 HDInsight](hdinsight-hadoop-provision-linux-clusters.md)。
 
 - 如果您已熟悉 Linux 和 Hadoop，但想要知道在 HDInsight 上有關 Hadoop 的特定資訊，請參閱[在 Linux 上使用 HDInsight](hdinsight-hadoop-linux-information.md)。提供如下資訊：
 
@@ -248,8 +121,8 @@ Ambari 檢視可透過網頁提供幾個公用程式。在下列各節中，您�
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: ../install-configure-powershell.md
-[powershell-open]: ../install-configure-powershell.md#Install
+[powershell-install-configure]: powershell-install-configure.md
+[powershell-open]: powershell-install-configure.md#Install
 
 [img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.png
 [img-hdi-dashboard-query-select]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.png
@@ -260,4 +133,4 @@ Ambari 檢視可透過網頁提供幾個公用程式。在下列各節中，您�
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

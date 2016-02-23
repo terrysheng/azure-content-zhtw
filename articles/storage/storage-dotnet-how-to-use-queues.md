@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/24/2016"
+	ms.date="02/14/2016"
 	ms.author="gusapost"/>
 
 # 以 .NET 開始使用 Azure 佇列儲存體
@@ -51,7 +51,7 @@ Azure 佇列儲存體是在雲端中提供訊息佇列的服務。設計擴充�
 
 ## 建立佇列
 
-**CloudQueueClient** 物件可讓您取得佇列的參照物件。下列程式碼將建立 **CloudQueueClient** 物件。本指南的所有程式碼都使用 Azure 應用程式服務設定中所儲存的儲存體連接字串。還有其他方式可以建立 **CloudStorageAccount** 物件。請參閱 [CloudStorageAccount][] 文件以取得詳細資料。
+**CloudQueueClient** 物件可讓您取得佇列的參照物件。下列程式碼將建立 **CloudQueueClient** 物件。本指南的所有程式碼都使用 Azure 應用程式服務設定中所儲存的儲存體連接字串。還有其他方式可以建立 **CloudStorageAccount** 物件。請參閱 [CloudStorageAccount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount_methods.aspx) 文件以取得詳細資料。
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -246,20 +246,18 @@ Azure 佇列儲存體是在雲端中提供訊息佇列的服務。設計擴充�
 - 如需可用 API 的完整詳細資訊，請檢視佇列服務參考文件：
     - [Storage Client Library for .NET 參考資料](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [REST API 參考資料](http://msdn.microsoft.com/library/azure/dd179355)
-- 了解如何使用 [Azure WebJobs SDK](../websites-dotnet-webjobs-sdk/)，來簡化您撰寫以使用 Azure 儲存體的程式碼。
+- 了解如何使用 [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md)，來簡化您撰寫以使用 Azure 儲存體的程式碼。
 - 如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
-    - 使用[資料表儲存體](storage-dotnet-how-to-use-tables.md)儲存結構化資料。
-    - 使用 [Blog 儲存體](storage-dotnet-how-to-use-blobs.md)儲存非結構化資料。
-    - 使用 [SQL Database](sql-database-dotnet-how-to-use.md) 儲存關聯式資料。
+    - [以 .NET 開始使用 Azure 表格儲存體](storage-dotnet-how-to-use-tables.md)以儲存結構化資料。
+    - [以 .NET 開始使用 Azure Blob 儲存體](storage-dotnet-how-to-use-blobs.md)以儲存非結構化資料。
+    - [如何在 .NET 應用程式中使用 Azure SQL Database](sql-database-dotnet-how-to-use.md) 以儲存關聯式資料。
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
-  [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

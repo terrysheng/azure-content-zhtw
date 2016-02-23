@@ -55,7 +55,7 @@ HDInsight Tools for Visual Studio 和 Microsoft Hive ODBC Driver 已封裝在 Mi
 ## 連線到 Azure 訂用帳戶
 「適用於 Visual Studio 的 HDInsight 工具」可讓您連線到您的 HDInsight 叢集、執行一些基本管理作業，以及執行 Hive 查詢。
 
->[AZURE.NOTE] 如需連線到一般 Hadoop 叢集 (預覽) 的相關資訊，請參閱[使用 Visual Studio 撰寫和提交 Hive 查詢](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx)。
+>[AZURE.NOTE] 如需連線到一般 Hadoop 叢集的相關資訊，請參閱[使用 Visual Studio 撰寫和提交 Hive 查詢](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx)。
 
 
 **連線到您的 Azure 訂用帳戶**
@@ -256,15 +256,15 @@ HDInsight Tools for Visual Studio 支援建立 Pig 指令碼並提交至 HDInsig
 
 
 <!--Link references-->
-[hdinsight-provision]: ../hdinsight/hdinsight-provision-clusters.md
-[hdinsight.introduction]: ../hdinsight-introduction.md
-[hdinsight.get.started]: ../hdinsight-get-started.md
-[hdinsight.hive]: ../hdinsight/hdinsight-use-hive.md
-[hdinsight.submit.jobs]: ../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight.analyze.twitter.data]: ../hdinsight/hdinsight-analyze-twitter-data.md
-[hdinsight.storm.visual.studio.tools]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
-[hdinsight.access.application.logs]: ../hdinsight/hdinsight-hadoop-access-yarn-app-logs.md
+[hdinsight-provision]: hdinsight/hdinsight-provision-clusters.md
+[hdinsight.introduction]: hdinsight-introduction.md
+[hdinsight.get.started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight.hive]: hdinsight/hdinsight-use-hive.md
+[hdinsight.submit.jobs]: hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight.analyze.twitter.data]: hdinsight/hdinsight-analyze-twitter-data.md
+[hdinsight.storm.visual.studio.tools]: hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
+[hdinsight.access.application.logs]: hdinsight/hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

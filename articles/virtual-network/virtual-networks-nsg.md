@@ -1,6 +1,6 @@
 <properties 
    pageTitle="什麼是網路安全性群組 (NSG)"
-   description="了解網路安全性群組 (NSG)"
+   description="深入了解 Azure 中使用網路安全性群組 (NSG) 的分散式防火牆，以及如何使用 NSG 隔離及控制您的虛擬網路 (VNet) 中的流量流程。"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -9,15 +9,17 @@
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/11/2016"
    ms.author="telmos" />
 
 # 什麼是網路安全性群組 (NSG)？
 
-網路安全性群組 (NSG) 包含存取控制清單 (ACL) 規則的清單，可允許\\拒絕虛擬網路中 VM 執行個體的網路流量。NSG 可與子網路或該子網路內的個別 VM 執行個體相關聯。當 NSG 與子網路相關聯時，ACL 規則便會套用至該子網路中的所有 VM 執行個體。此外，將 NSG 直接關聯至該 VM 即可進一步限制個別 VM 的流量。
+網路安全性群組 (NSG) 包含存取控制清單 (ACL) 規則的清單，可允許或拒絕虛擬網路中 VM 執行個體的網路流量。NSG 可與子網路或該子網路內的個別 VM 執行個體相關聯。當 NSG 與子網路相關聯時，ACL 規則便會套用至該子網路中的所有 VM 執行個體。此外，將 NSG 直接關聯至該 VM 即可進一步限制個別 VM 的流量。
+
+## NSG 資源
 
 NSG 包含下列屬性。
 
@@ -28,7 +30,7 @@ NSG 包含下列屬性。
 |資源群組|NSG 所屬的資源群組|雖然 NSG 屬於資源群組，它可以與任何資源群組中的資源相關聯，只要資源是與 NSG 相同的 Azure 區域的一部分|資源群組用來以部署單位的形式一起管理多個資源<br/>您可以考慮將 NSG 其相關聯的資源群組在一起|
 |規則|定義允許或拒絕流量的規則||請參閱下方的 [NSG 規則](#Nsg-rules)| 
 
->[AZURE.NOTE]端點式 ACL 和網路安全性群組，不支援用於相同的 VM 執行個體。如果您想要使用 NSG 且已經擁有就地端點 ACL，請先移除端點 ACL。如需有關執行這項作業的資訊，請參閱＜[使用 PowerShell 管理端點的存取控制清單 (ACL)](virtual-networks-acl-powershell.md)＞。
+>[AZURE.NOTE] 端點式 ACL 和網路安全性群組，不支援用於相同的 VM 執行個體。如果您想要使用 NSG 且已經擁有就地端點 ACL，請先移除端點 ACL。如需有關執行這項作業的資訊，請參閱＜[使用 PowerShell 管理端點的存取控制清單 (ACL)](virtual-networks-acl-powershell.md)＞。
 
 ### NSG 規則
 
@@ -45,6 +47,12 @@ NSG 規則包含下列屬性。
 |**Direction**|規則要符合的流量方向|inbound (輸入) 或 outbound (輸出)|輸入和輸出規則會根據方向分別處理|
 |**優先順序**|系統會依照規則優先順序檢查規則，一旦套用規則，就不會再測試規則是否符合|100 和 65535 之間的數字|考慮為每個規則建立 100 的跳躍優先順序，在現有的規則之間保留空間給新規則|
 |**Access**|如果規則符合，要套用的存取類型|allow (允許) 或 deny (拒絕)|請注意，如果找不到封包的允許規則，則會捨棄封包|
+
+NSG 包含兩組規則：輸入和輸出。規則的優先順序在每一個集合中必須是唯一的。
+
+![NSG 規則處理](./media/virtual-network-nsg-overview/figure3.png)
+
+上圖顯示 NSG 規則的處理方式。
 
 ### 預設標籤
 
@@ -97,11 +105,25 @@ NSG 規則包含下列屬性。
 	2. NSG 已套用至 NIC (資源管理員) 或 VM (傳統)。
 - **輸出流量**
 	1. NSG 已套用至 NIC (資源管理員) 或 VM (傳統)。
-	3. NSG 已套用到子網路。
+	2. NSG 已套用到子網路。
 
 ![NSG ACL](./media/virtual-network-nsg-overview/figure2.png)
 
->[AZURE.NOTE]雖然您只能將單一 NSG 與子網路、VM 或 NIC 建立關聯，但您可以盡量將同一個 NSG 與許多您想要的資源建立關聯。
+>[AZURE.NOTE] 雖然您只能將單一 NSG 與子網路、VM 或 NIC 建立關聯，但您可以盡量將同一個 NSG 與許多您想要的資源建立關聯。
+
+## 實作
+您可以使用以下列出的不同工具，在傳統或資源管理員部署模型中實作 NSG。
+
+|部署工具|傳統|資源管理員|
+|---|---|---|
+|傳統入口網站|![否][red]|![否][red]|
+|Azure 入口網站|![否][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![是][green]</a>|
+|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![是][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![是][green]</a>|
+|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![是][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![是][green]</a>|
+|ARM 範本|![否][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![是][green]</a>|
+
+|**Key**|支援 ![是][green]。按一下文章。|不支援 ![否][red]。|
+|---|---|---|
 
 ## 規劃
 
@@ -111,7 +133,7 @@ NSG 規則包含下列屬性。
 
 2. 您想要篩選的資源流量是往返於連接到現有的 VNet 中的子網路，或將它們會連接到新的子網路或 VNet？
  
-如需 Azure 中的網路安全性規劃的詳細資訊，請閱讀[雲端服務和網路安全性的最佳作法](best-practices-network-security.md)。
+如需 Azure 中的網路安全性規劃的詳細資訊，請閱讀[雲端服務和網路安全性的最佳作法](../best-practices-network-security.md)。
 
 ## 設計考量
 
@@ -127,7 +149,7 @@ NSG 規則包含下列屬性。
 |每個訂用帳戶每個區域的 NSG 數目|100|根據預設，會為新您在 Azure 入口網站中建立的每個 VM 建立新 NSG。如果您允許此預設行為，將會快速用完 NSG。在設計期間請確定您記住這項限制，並在必要時將資源分隔成多個區域或訂用帳戶。 |
 |每一 NSG 的 NSG 規則|200|使用大範圍的 IP 和連接埠可確保您不會超過這項限制。 |
 
->[AZURE.IMPORTANT]請確定您在設計方案之前，已檢視所有[在 Azure 中與網路服務相關的限制](../azure-subscription-service-limits/#networking-limits)。您可以開啟支援票證來提高部分限制。
+>[AZURE.IMPORTANT] 請確定您在設計方案之前，已檢視所有[在 Azure 中與網路服務相關的限制](../azure-subscription-service-limits.md#networking-limits)。您可以開啟支援票證來提高部分限制。
 
 ### VNet 和子網路的設計
 
@@ -222,7 +244,7 @@ NSG 規則包含下列屬性。
 |---|---|---|---|---|---|---|---|
 |允許 RDP 來自網際網路|允許|100|網際網路|**|*|3389|TCP|
 
->[AZURE.NOTE]注意這項規則的來源位址範圍為何是**網際網路**，而不是負載平衡器的 VIP；來源連接埠是 *****，而不是 500001。不要在 NAT 規則/負載平衡規則和 NSG 規則之間感到混淆。NSG 規則永遠與流量的原始來源和最終目的地的相關，而**不是**兩者之間的負載平衡器。
+>[AZURE.NOTE] 注意這項規則的來源位址範圍為何是**網際網路**，而不是負載平衡器的 VIP；來源連接埠是 *****，而不是 500001。不要在 NAT 規則/負載平衡規則和 NSG 規則之間感到混淆。NSG 規則永遠與流量的原始來源和最終目的地的相關，而**不是**兩者之間的負載平衡器。
 
 ### 用於後端管理 NIC 的 NSG
 
@@ -248,4 +270,8 @@ NSG 規則包含下列屬性。
 - [在資源管理員中部署 NSG](virtual-networks-create-nsg-arm-pportal.md)。
 - [管理 NSG 記錄檔](virtual-network-nsg-manage-log.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+[green]: ./media/virtual-network-nsg-overview/green.png
+[yellow]: ./media/virtual-network-nsg-overview/yellow.png
+[red]: ./media/virtual-network-nsg-overview/red.png
+
+<!---HONumber=AcomDC_0218_2016-->

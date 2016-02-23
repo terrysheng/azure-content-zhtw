@@ -1,28 +1,25 @@
 
 
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)，並按一下畫面底部的 [+新增]。
+1. 登入 [Azure 入口網站](https://portal.windowsazure.com/)，然後按一下畫面底部的 [+新增]。
 
-2. 依序按一下 [App Services]、[服務匯流排]、[Notification Hub]、[快速建立]。
+2. 依序按一下 [新增]、[Web + 行動服]、[通知中樞]、[快速建立]。
 
-   	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-create-from-portal.png)
+   	![Azure 入口網站 - 建立通知中樞](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
 
-
-3. 輸入**通知中樞名稱**。選取想要的 [區域] 和 [訂用帳戶] 。
+3. 請確定您在 [通知中樞] 欄位中指定唯一的名稱。選取您想要 [區域]、[訂用帳戶] 和 [資源群組] (如果您已經有的話)。
  
-	如果您已有想要在其中建立中樞的服務匯流排命名空間，請選取您的**命名空間名稱**。否則，您可以使用預設**命名空間名稱**，而此名稱只要命名空間名稱可用，即會根據中樞名稱建立。
+	如果您已有想要在其中建立中樞的服務匯流排命名空間，請透過 [命名空間] 欄位的 [選取現有的] 選項來選取它。否則，您可以使用預設命名空間名稱，只要命名空間名稱可用，就會根據中樞名稱建立此預設名稱。
 
-	按一下 [建立新的通知中樞]。
+	準備好時，請按一下 [建立]。
 
-   	![設定通知中樞屬性](./media/notification-hubs-portal-create-new-hub/notification-hubs-create-from-portal2.png)
+   	![Azure 入口網站 - 設定通知中樞屬性](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. 一旦建立了命名空間和通知中樞，就會顯示您在服務匯流排中的命名空間。按一下您剛建立中樞的命名空間 (通常為**通知中樞名稱-ns**)。
+4. 一旦建立命名空間和通知中樞後，您將會進入個別的入口網站頁面。
 
-5. 在 [命名空間] 頁面上，按一下頂端的 [通知中樞] 索引標籤，然後按一下您剛建立的通知中樞。這會開啟新通知中樞的儀表板。
+   	![Azure 入口網站 - 通知中樞入口網站頁面](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
+       
+5. 按一下 [設定]，再按一下 [存取原則] - 記下提供給您的兩個連接字串，稍後您需要它們來處理推播通知。
 
-6. 在新中樞的儀表板上，按一下 [檢視連接字串]。記下這兩個連接字串。您稍後將會使用這些 URL。
+   	![Azure 入口網站 - 通知中樞連接字串](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 
-   	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-view-connection-strings.png)
-
-	![](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings.png)
-
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

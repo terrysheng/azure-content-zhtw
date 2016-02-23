@@ -51,7 +51,7 @@
 執行下列工作，建立新的 Azure 雲端服務專案以及基本的 Node.js 樣板：
 
 
-1. 以系統管理員的身分執行 **Azure PowerShell**。(從 [**開始**] 功能表或**開始畫面** 中，搜尋 **Azure PowerShell**)。
+1. 以系統管理員的身分執行 **Windows PowerShell**。(從 [開始功能表] 或 [開始畫面] 中，搜尋 **Windows PowerShell**。)
 
 2.  [連線 PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) 至您的訂用帳戶。
 3.  輸入下列 PowerShell Cmdlet 來建立專案：
@@ -198,4 +198,4 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

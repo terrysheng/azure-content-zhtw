@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="01/28/2015"
+	ms.date="01/28/2016"
 	ms.author="anhoh"/>
 
 # 使用 DocumentDB Document Explorer 檢視、編輯、建立和上傳 JSON 文件 #
@@ -84,7 +84,7 @@ Document Explorer 可讓您輕鬆地建立、編輯和刪除文件。
 
 	![[Document Explorer] 文件屬性檢視的螢幕擷取畫面](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
 
-	> [AZURE.NOTE] 時間戳記 (_ts) 屬性在內部會以 Epoch 時間表示，但是 Document Explorer 會以一般人可判讀的 GMT 格式顯示此值。
+	> [AZURE.NOTE] 時間戳記 (\_ts) 屬性在內部會以 Epoch 時間表示，但是 Document Explorer 會以一般人可判讀的 GMT 格式顯示此值。
 
 ##<a id="Navigate"></a>文件總管導覽選項以及進階設定##
 
@@ -145,4 +145,4 @@ Document Explorer 支援大量擷取一或多個現有 JSON 文件。
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

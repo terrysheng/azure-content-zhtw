@@ -11,7 +11,7 @@
 <tags
  ms.service="iot-suite"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="12/02/2015"
@@ -124,4 +124,4 @@ Web 應用程式中的此頁面會使用 PowerBI JavaScript 控制項 (請參閱
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

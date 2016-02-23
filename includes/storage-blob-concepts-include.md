@@ -26,7 +26,7 @@ Blob 服務包含下列元件：
     
 	*分頁 Blob* 大小可達 1 TB，且在頻繁進行讀寫操作時更有效率。Azure 虛擬機器會使用分頁 Blob 作為作業系統和資料磁碟。
 
-	如需關於 Blob 的詳細資訊，請參閱[了解區塊 Blob、分頁 Blob 及附加 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx)。
+	如需關於 Blob 的詳細資訊，請參閱[了解區塊 Blob、附加 Blob 及分頁 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx)。
 
 ## 命名與參考容器和 Blob
 
@@ -69,4 +69,4 @@ Blob 服務是以一般儲存體配置為根據。您可以透過在 Blob 名稱
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

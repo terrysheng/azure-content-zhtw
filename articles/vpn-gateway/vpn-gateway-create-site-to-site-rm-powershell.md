@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
+   ms.date="02/16/2016"
    ms.author="cherylmc"/>
 
 # 使用 PowerShell 建立具有站對站 VPN 連線的虛擬網路
@@ -38,12 +38,9 @@
 - 您的 VPN 裝置對外開放的公用 IP 位址。此 IP 位址不能位於 NAT 後方。
 	
 - Azure 訂用帳戶。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-
-## 安裝 PowerShell 模組
-
-您將需要最新版的 Azure 資源管理員 PowerShell Cmdlet，才能設定您的連接。
 	
-[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
+- 您必須安裝最新版的 Azure 資源管理員 PowerShell Cmdlet。如需安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
+
 
 ## 1\.連線至您的訂用帳戶 
 
@@ -63,8 +60,7 @@
 
 ## 2\.建立虛擬網路和閘道器子網路
 
-- 如果已有具備閘道器子網路的虛擬網路，您可以往前跳至**步驟 3 - 新增您的本機網站**。 
-- 如果您已有虛擬網路且想要將閘道器子網路新增至您的 VNet，請參閱[將閘道器子網路新增至 VNet](#gatewaysubnet)。
+以下範例示範 /28 的閘道器子網路。雖然您可以建立與 /29 一樣小的閘道器子網路，但是我們不建議這麼做。我們建議建立閘道器子網路 /27 或更大的子網路 (/26、/25 等)，以容納額外的功能需求。如果已有具備 /29 或更大的閘道器子網路的虛擬網路，您可以往前跳至**步驟 3 - 新增您的本機網站**。
 
 ### 建立虛擬網路和閘道器子網路
 
@@ -82,11 +78,11 @@
 	$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
 	New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
 
-### <a name="gatewaysubnet"></a>將閘道器子網路新增至 VNet (選用)
+### <a name="gatewaysubnet"></a>將閘道器子網路加入至您已建立的虛擬網路
 
 只有在您要將先前建立的閘道器子網路新增至 VNet 時才需要此步驟。
 
-如果您已有現有的虛擬網路，而且想要加入閘道器子網路，您可以使用下面範例來建立閘道器子網路。請務必將閘道器子網路命名為 'GatewaySubnet'。如果您將檔案命名為其他名字，您將建立子網路，但它不會被 Azure 視為閘道器子網路。
+您可以使用以下的範例來建立閘道器子網路。請務必將閘道器子網路命名為 'GatewaySubnet'。如果您將檔案命名為其他名字，您將建立子網路，但它不會被 Azure 視為閘道器子網路。
 
 	$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
 	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
@@ -143,8 +139,8 @@
 
 輸入下列值：
 
-- 閘道類型為 *Vpn*。
-- VpnType 可以是 RouteBased* (在某些文件中稱為動態閘道器)，或以「原則為基礎」(在某些文件中稱為靜態閘道器)。如需 VPN 閘道類型的詳細資訊，請參閱[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)。 	
+- 網站間組態的 **-GatewayType** 是 **Vpn**。閘道器類型永遠是您實作的組態的特定類型。例如，其他閘道器組態可能需要 -GatewayType ExpressRoute 或 -GatewayType VNet2VNet。**網站間需要 VPN**。
+- **-VpnType** 可以是 **RouteBased** (在某些文件中稱為動態閘道器)，或 **PolicyBased** (在某些文件中稱為靜態閘道器)。如需 VPN 閘道類型的詳細資訊，請參閱[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)。 	
 
 		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
@@ -246,4 +242,4 @@
 
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。請參閱[建立網站的虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)以取得相關步驟。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

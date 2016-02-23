@@ -13,7 +13,7 @@
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="02/05/2016"
 	ms.author="trinadhk;jimpark"/>
 
@@ -61,8 +61,8 @@ Azure 備份是您用來備份和還原 Microsoft 雲端資料的服務。它將
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)、</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)、</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md)、</p><p>[Azure 備份伺服器](backup-azure-microsoft-azure-backup.md)</p> |
-| Azure IaaS VM (Windows)| - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) |
-| Azure IaaS VM (Linux) | - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) |
+| Azure IaaS VM (Windows)| - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) | | Azure IaaS VM (Linux) | - | [Azure 備份 (VM 延伸模組)](backup-azure-vms-introduction.md) |
+
 ## 功能
 以下五個資料表概述備份功能如何處理每個元件：
 
@@ -180,4 +180,4 @@ Azure 備份會在內部部署和雲端備份資料。Azure Site Recovery 可協
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

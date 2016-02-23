@@ -4,15 +4,15 @@
 	keywords="可調整資料庫,資料庫組態"
 	services="sql-database"
 	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
+	authors="sidneyh"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/02/2015"
-	ms.author="sstein"
+	ms.date="02/12/2016"
+	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
@@ -30,7 +30,10 @@
 > [AZURE.NOTE] 彈性資料庫集區目前為預覽版，且僅能搭配 SQL Database V12 伺服器使用。如果您有 SQL Database V11 伺服器，您可以在單一步驟中[使用 PowerShell 升級至 V12 並建立集區](sql-database-upgrade-server-powershell.md)。
 
 
-在開始之前，您需要一個在 SQL Database V12 伺服器上的資料庫。如果沒有，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)，在 5 分鐘內建立一個資料庫。或者，如果您已有 SQL Database V11 伺服器，您可以[在入口網站中升級至 V12](sql-database-v12-upgrade.md)，然後再依照這些指示建立集區。
+## 先決條件
+
+* SQL Database V12 伺服器上的資料庫。如果沒有，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)，在 5 分鐘內建立一個資料庫。 
+* 或者，如果您已有 SQL Database V11 伺服器，您可以[在入口網站中升級至 V12](sql-database-v12-plan-prepare-upgrade.md)，然後再依照這些指示建立集區。
 
 
 ## 步驟 1：建立新的集區
@@ -201,4 +204,4 @@ SQL Database 服務會評估使用量歷程記錄，並在比使用單一資料�
 [7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
 [10]: ./media/sql-database-elastic-pool-portal/star.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

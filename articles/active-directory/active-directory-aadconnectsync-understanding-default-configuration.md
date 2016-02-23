@@ -1,20 +1,19 @@
 <properties
-   pageTitle="Azure AD Connect 同步處理：了解預設組態 | Microsoft Azure"
-   description="本文說明 Azure AD Connect Sync 的預設組態。"
-   services="active-directory"
-   documentationCenter=""
-   authors="andkjell"
-   manager="stevenpo"
-   editor=""/>
-
+    pageTitle="Azure AD Connect 同步處理：了解預設組態 | Microsoft Azure"
+    description="本文說明 Azure AD Connect Sync 的預設組態。"
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="01/21/2016"
-   ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+	ms.topic="get-started-article"
+    ms.date="02/12/2016"
+    ms.author="andkjell"/>
 
 # Azure AD Connect 同步處理：了解預設組態
 
@@ -191,7 +190,7 @@ SRE 是一項資源套件工具，會隨 Azure AD Connect Sync 一起安裝。�
 
 ![編輯輸入同步處理規則](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruletransformations.png)
 
-若要將此轉換放在內容中，則在 Account-Resource 樹系部署中，我們預期會在帳戶樹系中找到啟用的帳戶，並在具有 Exchange 和 Lync 設定的資源樹系中找到停用的帳戶。我們目前看到的同步處理規則包含登入所需的屬性，且想要讓這些屬性從找到已啟用帳戶的樹系流出。這些屬性流程會全部放在一個同步處理規則中。
+若要將此轉換放在內容中，則在 Account-Resource 樹系部署中，我們預期會在帳戶樹系中找到啟用的帳戶，並在具有 Exchange 和 Lync 設定的資源樹系中找到停用的帳戶。我們目前看到的同步處理規則包含登入所需的屬性，而且我們想要讓這些屬性從找到已啟用帳戶的樹系流出。這些屬性流程會全部放在一個同步處理規則中。
 
 轉換可具有不同類型：Constant、Direct 和 Expression。
 
@@ -241,4 +240,4 @@ NULL
 * [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

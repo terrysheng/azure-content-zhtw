@@ -1,4 +1,4 @@
-# Azure 和 IoT
+# Azure 和物聯網
 
 歡迎使用 Microsoft Azure 與物聯網 (IoT)。本文將介紹典型的 IoT 解決方案架構，其描述您可能會使用 Azure 服務來部署之 IoT 解決方案的一般特性。典型的 IoT 解決方案需要裝置之間 (可能以百萬計) 的安全、雙向通訊，以及例如使用自動化、預測性分析來揭露來自您裝置到雲端事件串流之深入資訊的解決方案後端。
 
@@ -46,4 +46,4 @@ IoT 解決方案可以包含自動意見反應迴圈。例如，後端中的機�
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

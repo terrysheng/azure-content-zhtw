@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="02/03/2016"
+	ms.date="02/17/2016"
 	ms.author="jeffreyg"/>
 
 # SQL Database 選項和效能：了解每個服務層中可用的項目
@@ -30,7 +30,7 @@
 | **標準** | 適用於大多數雲端應用程式，可支援多個並行查詢。範例包括工作群組或 Web 應用程式。 |
 | **高級** | 針對高交易量而設計，可支援大量並行使用者，且需要最高層級商務持續性功能。範例包括支援任務關鍵性應用程式的資料庫。 |
 
->[AZURE.NOTE] Web 和 Business Edition 均已淘汰。了解如何[升級 Web 和商務版本](sql-database-upgrade-new-service-tiers.md)。如果您打算繼續使用 Web 和 Business Edition，請閱讀[終止常見問題集](https://azure.microsoft.com/pricing/details/sql-database/web-business/)。
+>[AZURE.NOTE] Web 和 Business Edition 均已淘汰。如果您打算繼續使用 Web 和 Business Edition，請閱讀[終止常見問題集](https://azure.microsoft.com/pricing/details/sql-database/web-business/)。
 
 ### 單一資料庫服務層和效能等級
 單一資料庫的每個服務層內有多個效能層級，您可以彈性選擇最符合您工作負載需求的層級。如果您需要相應增加或相應減少，可以很輕鬆地變更資料庫服務層，**您的應用程式完全不需要停機**。 如需詳細資訊，請參閱[變更資料庫服務層和效能層級](sql-database-scale-up.md)。
@@ -94,4 +94,4 @@
 
 如果您認識了 SQL Database 各個層，可以[免費試用](https://azure.microsoft.com/pricing/free-trial/)親身體驗，然後了解[如何建立您的第一個 SQL Database](sql-database-get-started.md)！
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

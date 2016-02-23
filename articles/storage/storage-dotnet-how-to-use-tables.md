@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/24/2016"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -423,8 +423,8 @@ Azure 表格儲存體是可將非結構化的 NoSQL 資料儲存在雲端中的�
     - [REST API 參考資料](http://msdn.microsoft.com/library/azure/dd179355)
 - 了解如何使用 [Azure WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)，來簡化您撰寫以使用 Azure 儲存體的程式碼。
 - 如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
-    - 使用 [Blog 儲存體](storage-dotnet-how-to-use-blobs.md)儲存非結構化資料。
-    - 使用 [SQL Database](sql-database-dotnet-how-to-use.md) 儲存關聯式資料。
+    - [以 .NET 開始使用 Azure Blob 儲存體](storage-dotnet-how-to-use-blobs.md)以儲存非結構化資料。
+    - [如何在 .NET 應用程式中使用 Azure SQL Database](sql-database-dotnet-how-to-use.md) 以儲存關聯式資料。
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
@@ -444,4 +444,4 @@ Azure 表格儲存體是可將非結構化的 NoSQL 資料儲存在雲端中的�
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

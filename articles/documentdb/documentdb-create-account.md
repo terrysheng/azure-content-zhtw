@@ -17,7 +17,7 @@
 	ms.date="12/17/2015" 
 	ms.author="mimig"/>
 
-# 使用 Azure 入口網站建立 DocumentDB 資料庫帳戶
+# 如何使用 Azure 入口網站建立 DocumentDB 資料庫帳戶
 
 > [AZURE.SELECTOR]
 - [Azure Portal](documentdb-create-account.md)
@@ -50,4 +50,4 @@
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/25/2015"
+	ms.date="02/16/2016"
 	ms.author="tdykstra"/>
 
 # 適用於 API 探索及產生程式碼用的 App Service API Apps 中繼資料 
@@ -56,4 +56,4 @@ App Service API Apps 內建支援 [Swagger 2.0](http://swagger.io/) API 中繼�
 
 如需逐步解說的教學課程來引導您建立、部署及使用 API 應用程式，請參閱[開始使用 Azure App Service 中的 API Apps](app-service-api-dotnet-get-started.md)。
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

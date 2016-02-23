@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/20/2016"
+	ms.date="02/14/2016"
 	ms.author="robinsh"/>
 
 
@@ -28,7 +28,7 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 儲存體帳戶分為兩種類型：
 
 - 標準儲存體帳戶包含 Blob、資料表、佇列和檔案儲存體。
-- 進階儲存體帳戶目前僅支援 Azure 虛擬機器磁碟。如需進階儲存體的深入概觀，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
+- 進階儲存體帳戶目前僅支援 Azure 虛擬機器磁碟。如需進階儲存體的深入概觀，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage.md)。
 
 ## 儲存體帳戶計費
 
@@ -39,9 +39,9 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 - 交易是指對 Azure 儲存體進行的所有讀取和寫入作業。
 - 出口流量是指傳出 Azure 地區的資料。當您儲存體帳戶中的資料受不同地區中執行的應用程式存取時，不論該應用程式是雲端服務還是其他某類應用程式，您都要負擔出口流量的費用。(若為 Azure 服務，您可以採取步驟，將資料和服務群組在相同的資料中心，以減少或消除出口流量費用。)  
 
-[Azure 價格](https://azure.microsoft.com/pricing/details/#storage)頁面提供了儲存體容量、複寫和交易的詳細價格資料。[資料傳輸價格詳細資料](https://azure.microsoft.com/pricing/details/data-transfers/)頁面則提供資料輸出的詳細價格資訊。
+[Azure 儲存體價格](https://azure.microsoft.com/pricing/details/storage)頁面提供了儲存體容量、複寫和交易的詳細價格資料。[資料傳輸價格詳細資料](https://azure.microsoft.com/pricing/details/data-transfers/)頁面則提供資料輸出的詳細價格資訊。
 
-如需儲存體帳戶容量和效能目標的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/library/azure/dn249410.aspx)。
+如需儲存體帳戶容量和效能目標的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md)。
 
 > [AZURE.NOTE] 當您建立 Azure 虛擬機器時，如果您在部署位置中沒有儲存體帳戶，則會在該位置自動建立儲存體帳戶。因此，您無須依照下方的步驟為虛擬機器磁碟建立儲存體帳戶。儲存體帳戶名稱將以虛擬機器名稱為基礎。如需詳細資訊，請參閱 [Azure 虛擬機器文件](https://azure.microsoft.com/documentation/services/virtual-machines/)。
 
@@ -65,7 +65,7 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 	請注意，您必須在儲存體帳戶建立時選取同質群組。您無法將現有的帳戶移至同質群組。如需同質群組的詳細資訊，請參閱下方的[使用同質群組讓服務位於相同位置](#service-co-location-with-an-affinity-group)。
 
-	>[AZURE.IMPORTANT] 若要判斷訂用帳戶可使用的位置，您可以呼叫[清單提供者](https://msdn.microsoft.com/library/azure/dn790524.aspx)作業。若要從 PowerShell 列出提供者，請呼叫 [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx)。若要從 .NET，使用 ProviderOperationsExtensions 類別的 [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) 方法。
+	>[AZURE.IMPORTANT] 若要判斷訂用帳戶可使用的位置，您可以呼叫[列出所有資源提供者](https://msdn.microsoft.com/library/azure/dn790524.aspx)作業。若要從 PowerShell 列出提供者，請呼叫 [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx)。若要從 .NET，使用 ProviderOperationsExtensions 類別的 [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) 方法。
 	>
 	>此外，如需各區域可用服務的詳細資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/#services)。
 
@@ -99,7 +99,7 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 用以存取儲存體帳戶中某物件的 URL，可藉由在端點後附加該物件在儲存體帳戶中的位置來建置。例如，Blob 位址的格式可能如下：http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*。
 
-您也可以設定與儲存體帳戶搭配使用的自訂網域名稱。如需詳細資訊，請參閱[針對 Azure 儲存體帳戶中的 Blob 資料設定自訂網域名稱](storage-custom-domain-name.md)。
+您也可以設定與儲存體帳戶搭配使用的自訂網域名稱。如需詳細資訊，請參閱[針對 Blob 儲存體端點設定自訂網域名稱](storage-custom-domain-name.md)。
 
 ### 使用同質群組讓服務位於相同位置
 
@@ -111,13 +111,13 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 當您建立儲存體帳戶時，Azure 會產生兩個 512 位元的儲存體存取金鑰，作為存取儲存體帳戶時的驗證憑藉。透過提供這兩個儲存體存取金鑰，Azure 讓您可重新產生金鑰，同時又不需中斷儲存體服務或對該服務的存取。
 
-> [AZURE.NOTE] 建議您避免將儲存體存取金鑰透露給其他任何人。若要允許存取儲存體資源但不要公開您的存取金鑰，您可以使用「共用存取簽章」。共用存取簽章可在您定義的間隔期間內，使用您所指定的權限，來存取帳戶中的資源。如需詳細資訊，請參閱[共用存取簽章教學課程](storage-dotnet-shared-access-signature-part-1.md)。
+> [AZURE.NOTE] 建議您避免將儲存體存取金鑰透露給其他任何人。若要允許存取儲存體資源但不要公開您的存取金鑰，您可以使用「共用存取簽章」。共用存取簽章可在您定義的間隔期間內，使用您所指定的權限，來存取帳戶中的資源。如需詳細資訊，請參閱[共用存取簽章：了解 SAS 模型](storage-dotnet-shared-access-signature-part-1.md)。
 
 在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，於儀表板或 [儲存體] 頁面上使用 [管理金鑰]，來檢視、複製和重新產生用於存取 Blob、資料表與佇列服務的儲存體存取金鑰。
 
 ### 複製儲存體存取金鑰  
 
-您可以使用 [管理金鑰] 來複製要在連接字串使用中的儲存體存取金鑰。連接字串需有要在驗證中使用的儲存體帳戶名稱和金鑰。如需有關設定連接字串以存取 Azure 儲存體服務的詳細資訊，請參閱[設定 Azure 連接字串](http://msdn.microsoft.com/library/azure/ee758697.aspx)。
+您可以使用 [管理金鑰] 來複製要在連接字串使用中的儲存體存取金鑰。連接字串需有要在驗證中使用的儲存體帳戶名稱和金鑰。如需有關設定連接字串以存取 Azure 儲存體服務的詳細資訊，請參閱[設定 Azure 儲存體連接字串](storage-configure-connection-string.md)。
 
 1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，按一下 [儲存體]，然後按一下儲存體帳戶名稱即可開啟儀表板。
 
@@ -169,8 +169,8 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 ## 後續步驟
 
-- 若要深入了解 Azure 儲存體，請參閱 [Azure.com](https://azure.microsoft.com/documentation/services/storage/) 的 Azure 儲存體文件。
+- 若要深入了解 Azure 儲存體，請參閱 [Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)。
 - 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
 - [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

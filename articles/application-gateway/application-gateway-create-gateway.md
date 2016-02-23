@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma"/>
 
 # 建立、啟動或刪除應用程式閘道
@@ -98,7 +98,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE] *InstanceCount* 的預設值是 2，最大值是 10。 *GatewaySize* 的預設值是 Medium。您可以選擇 Small、Medium 和 Large。
+>[AZURE.NOTE]  InstanceCount 的預設值是 2，最大值是 10。*GatewaySize* 的預設值是 Medium。您可以選擇 Small、Medium 和 Large。
 
 
  因為尚未啟動閘道，所以 *VirtualIPs* 和 *DnsName* 會顯示為空白。閘道處於執行中狀態之後，將會建立這些項目。
@@ -414,4 +414,4 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

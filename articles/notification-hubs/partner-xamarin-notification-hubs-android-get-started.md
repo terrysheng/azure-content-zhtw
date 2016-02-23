@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
+	ms.date="02/16/2016"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 Android 應用程式的通知中樞
@@ -41,7 +41,6 @@
 
 + [Xamarin.Android]
 + 有效的 Google 帳戶
-+ [Azure 行動服務元件]
 + [Azure 訊息元件]
 + [Google Cloud Messaging 用戶端元件]
 
@@ -115,7 +114,7 @@
 
 	- **GoogleProjectNumber**：在 Google 開發人員入口網站上，從您的應用程式概觀取得此專案編號值。當您在入口網站上建立應用程式時，您可以提早記下這個值。
 	- **接聽連接字串**：在 [Azure 傳統入口網站]的儀表板上，按一下 [檢視連接字串]。複製此值的 *DefaultListenSharedAccessSignature* 連線字串。
-	- **中樞名稱**：這是您在 [Azure 傳統入口網站]的中樞名稱。例如，*mynotificationhub2*。
+	- **中樞名稱**：這是您在 [Azure 傳統入口網站]的中樞名稱。例如，*mynotificationhub2* 。
 
 	為您的 Xamarin 專案建立 **Constants.cs** 類別，並定義類別中的下列常數值。以您的值取代預留位置。
 
@@ -373,7 +372,7 @@
 
 3. 在頂端工具列上，按一下 [執行]，然後選取您的應用程式。這將啟動模擬器，並執行應用程式。
 
-  應用程式將從 GCM 擷取 *registrationId*，並向通知中樞註冊。
+  應用程式將從 GCM 擷取 *registrationId* ，並向通知中樞註冊。
 
 ##從後端傳送通知
 
@@ -519,8 +518,7 @@
 [Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin.Android]: http://xamarin.com/download/
-[Azure 行動服務元件]: http://components.xamarin.com/view/azure-mobile-services/
 [Google Cloud Messaging 用戶端元件]: http://components.xamarin.com/view/GCMClient/
 [Azure 訊息元件]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

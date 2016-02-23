@@ -10,7 +10,7 @@
 <tags
    ms.service="batch"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
    ms.date="01/21/2016"
@@ -85,16 +85,16 @@ Big Compute 與巨量資料應用程式之間的界限不一定很清楚，而�
 
  | 案例 | 為何選擇它？
 ------------- | ----------- | ---------------
-**將 HPC 叢集高載至 Azure**<br/><br/>[![叢集高載][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> 深入了解：<br/>• [使用 Microsoft HPC Pack 高載至 Azure](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [使用 Microsoft HPC Pack 設定混合式計算叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>|• 在混合式解決方案中結合您的內部部署 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 叢集與額外的 Azure 資源。<br/><br/>• 擴充您的 Big Compute 工作負載以在平台即服務 (PaaS) 虛擬機器執行個體上執行 (目前僅限 Windows Server)。<br/><br/>• 藉由使用選擇性 Azure 虛擬網路以存取內部部署授權伺服器或資料存放區。|• 您有現有的 HPC Pack 叢集，並且需要更多資源 <br/><br/>• 您不想要購買和管理額外的 HPC 叢集基礎結構<br/><br/>• 您有暫時性尖峰需求期間或特殊專案。 
+**將 HPC 叢集高載至 Azure**<br/><br/>[![叢集高載][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> 深入了解：<br/>• [使用 Microsoft HPC Pack 高載至 Azure](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [使用 Microsoft HPC Pack 設定混合式計算叢集](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>|• 在混合式解決方案中結合您的內部部署 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 叢集與額外的 Azure 資源。<br/><br/>• 擴充您的 Big Compute 工作負載以在平台即服務 (PaaS) 虛擬機器執行個體上執行 (目前僅限 Windows Server)。<br/><br/>• 藉由使用選擇性 Azure 虛擬網路以存取內部部署授權伺服器或資料存放區。|• 您有現有的 HPC Pack 叢集，並且需要更多資源 <br/><br/>• 您不想要購買和管理額外的 HPC 叢集基礎結構<br/><br/>• 您有暫時性尖峰需求期間或特殊專案。
 **完全在 Azure 中建立 HPC 叢集**<br/><br/>[![IaaS 中的叢集][iaas_cluster]](./media/batch-hpc-solutions/iaas_cluster.png)<br/><br/>深入了解：<br/>• [Azure 中的 HPC 叢集解決方案](./big-compute-resources.md)<br/><br/>|• 在標準或自訂 Windows 或 Linux 基礎結構即服務 (IaaS) 虛擬機器上，快速且一致地部署您的應用程式和叢集工具。<br/><br/>• 藉由使用您選擇的作業排程解決方案，執行各種 Big Compute 工作負載。<br/><br/>• 使用額外的 Azure 服務 (包括網路和儲存體) 以建立完整的以雲端為基礎的解決方案。 |• 您不想要購買和管理額外的 Linux 或 Windows HPC 叢集基礎結構<br/><br/>• 您有暫時性尖峰需求期間或特殊專案<br/><br/>• 您有一段時間期間需要額外的叢集，但是不想要投資用來部署叢集的電腦和空間<br/><br/>• 您想要卸載 Big Compute 的應用程式，讓它完全在雲端中做為服務執行。
-**相應放大平行應用程式至 Azure**<br/><br/>[![Azure 批次][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>深入了解：<br/>• [Azure Batch 的基本](./batch-technical-overview.md)<br/><br/>• [開始使用適用於 .NET 的 Azure Batch 程式庫](./batch-dotnet-get-started.md)|• 開發 [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) API 以相應放大各種 Big Compute 工作負載，以在平台即服務 (PaaS) 虛擬機器的集區上執行 (目前僅限 Windows Server)。<br/><br/>• 使用 Azure 服務以管理部署和自動調整虛擬機器、作業排程、災害復原、資料移動、相依性管理和應用程式部署 - 不需要個別 HPC 叢集或作業排程器。|• 您不想要管理計算資源或作業排程器，而是想要著重在執行您的應用程式<br/><br/>• 您想要卸載大量計算的應用程式，讓它在雲端中做為服務執行<br/><br/>• 您想要自動調整您的計算資源以符合計算工作負載 
+**相應放大平行應用程式至 Azure**<br/><br/>[![Azure 批次][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>深入了解：<br/>• [Azure Batch 的基本](./batch-technical-overview.md)<br/><br/>• [開始使用適用於 .NET 的 Azure Batch 程式庫](./batch-dotnet-get-started.md)|• 開發 [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) API 以相應放大各種 Big Compute 工作負載，以在平台即服務 (PaaS) 虛擬機器的集區上執行 (目前僅限 Windows Server)。<br/><br/>• 使用 Azure 服務以管理部署和自動調整虛擬機器、作業排程、災害復原、資料移動、相依性管理和應用程式部署 - 不需要個別 HPC 叢集或作業排程器。|• 您不想要管理計算資源或作業排程器，而是想要著重在執行您的應用程式<br/><br/>• 您想要卸載大量計算的應用程式，讓它在雲端中做為服務執行<br/><br/>• 您想要自動調整您的計算資源以符合計算工作負載
 
 
 ## 適合大量運算的 Azure 服務
 
 以下是一些關於計算、資料、網路和相關服務的詳細資訊，您可將其結合以使用於 Big Compute 解決方案和工作流程。如需 Azure 服務的詳細指引，請參閱 Azure 服務[文件](https://azure.microsoft.com/documentation/)。本文中稍早的[案例](#scenarios)僅顯示一些使用這些服務的方法。
 
->[AZURE.NOTE] Azure 定期導入了對於您的案例可能有用的新服務。如果您有疑問，請連絡 [Azure 合作夥伴](https://pinpoint.microsoft.com/en-US/search?keyword=azure)或寄電子郵件到 **bigcompute@microsoft.com*。
+>[AZURE.NOTE] Azure 定期導入了對於您的案例可能有用的新服務。如果您有疑問，請連絡 [Azure 合作夥伴](https://pinpoint.microsoft.com/zh-TW/search?keyword=azure)或寄電子郵件到 **bigcompute@microsoft.com*。
 
 ### 計算服務
 
@@ -155,4 +155,4 @@ Big Compute 解決方案可能需要其他 Azure 服務，才能連線至內部�
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

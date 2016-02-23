@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/22/2015"  
-	ms.author="juliako"/>
+	ms.date="02/17/2016"  
+	ms.author="piyushjo"/>
 
 
 # 建立 Azure Mobile Engagement 應用程式
@@ -23,7 +23,7 @@
 
 請注意，您必須新增最低限度的「基本整合」，才能夠為您的應用程式收集資料，以及傳送推播通知。完整的整合文件位於 [Mobile Engagement 整合](mobile-engagement-windows-store-integrate-engagement.md)。
 
-> [AZURE.IMPORTANT]若要完成任何 Azure Mobile Engagement 教學課程，您必須擁有有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
+> [AZURE.IMPORTANT] 若要完成任何 Azure Mobile Engagement 教學課程，您必須擁有有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
 ##在 Azure 中為您的行動應用程式設定 Mobile Engagement
 
@@ -48,4 +48,4 @@
 
 [開始使用 Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (您可以在頁面頂端選取其他行動平台)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,5 +1,5 @@
 <properties
- pageTitle="在 Azure 入口網站中開始使用 Azure 排程器 | Microsoft Azure"
+ pageTitle="開始在 Azure 入口網站中使用 Azure 排程器 | Microsoft Azure"
  description=""
  services="scheduler"
  documentationCenter=".NET"
@@ -12,213 +12,127 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="12/04/2015"
+ ms.date="02/17/2016"
  ms.author="krisragh"/>
 
-# 在 Azure 傳統入口網站使用 Azure 排程器以開始使用
+# 開始在 Azure 入口網站中使用 Azure 排程器
 
-## 開始使用
+在 Azure 排程器中建立排程作業很簡單。在本教學課程中，您將了解如何建立作業。您也將學習排程器的監視和管理功能。
 
-在 Azure 排程器上可以輕鬆地建立工作和工作集合。本教學課程將逐步引導您建立要用來儲存工作的工作集合、建立工作集合中的工作，以及大致介紹可用的工作監視和管理工作。您需有先前使用 Azure 的經驗，才能使用本教學課程。
+## 建立工作
 
-第一次開啟 Azure 傳統入口網站時會自動進入 [所有項目] 索引標籤。[所有項目] 索引標籤中的資料行可排序。若要檢視您的排程器工作和工作集合，請按一下 [排程器] 索引標籤。
+1.  登入 [Azure 入口網站](https://portal.azure.com/)。  
 
-![][1]
+2.  按一下 [+新增] > 在搜尋方塊中輸入_排程器_ > 在結果中選取 [排程器] > 按一下 [建立]。
 
-## 建立工作集合和工作
+   ![][marketplace-create]
 
-1.  登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)。  
+3.  讓我們使用 GET 要求建立只要點擊 http://www.microsoft.com/ 的工作。在 [排程器作業] 畫面中，輸入下列資訊：
 
-2.  按一下 [應用程式服務] > [新建] > [排程器]，然後按一下 [自訂建立]。<br /><br /> ![][2]
+    1.  **名稱：** `getmicrosoft`  
 
-3.  在 [工作集合] 中，選取 [工作集合] 下拉式清單底下的現有工作集合名稱。如果您沒有要將工作加入其中的現有工作集合，請選取 [新建]，然後輸入名稱來識別新的工作集合。<br /><br /> ![][3]
+    2.  **訂用帳戶：**您的 Azure 訂用帳戶
 
-4.  在 [區域] 中，選取工作集合的地理區域。
+    3.  **作業集合：**選取現有的作業集合，或按一下 [建立新項目] > 輸入名稱。
 
-5.  按一下方向鍵，建立工作集合，並移至下一個階段 – 建立作業。
+4.  接下來，在 [動作設定] 中，定義下列值：
 
-6.  讓我們使用 GET 要求建立只要點擊 http://www.microsoft.com/ 的工作。在 [工作動作] 畫面中，為所要求的表單欄位定義下列值：
+    1.  **動作類型：** ` HTTP`  
 
-    1.  **名稱：** ` getmicrosoft`  
+    2.  **方法：** `GET`
 
-    2.  **動作類型：** ` HTTP`
+    3.  **URL：**` http://www.microsoft.com`
 
-    3.  **方法：** ` GET`
+   ![][action-settings]
 
-    4.  **URI：** ` http://www.microsoft.com`
+5.  最後，讓我們定義排程。作業可以定義為一次性的工作，但我們挑選週期性排程：
 
-   	![][4]
+    1. **週期**：`Recurring`
 
-7.  建立工作之後，請定義排程。工作可以定義為一次工作，但是讓我們挑選週期排程。僅基於說明用途，本教學課程中的一些螢幕擷取畫面會顯示 1 分鐘的週期，但挑選 12 小時的週期。
+    2. **開始**：今天的日期
 
-    1.  **重複頻率：**` 12 Hours`  
+    3. **重複頻率**：`12 Hours`
 
-    2.  **開始：**` Now`
+    4. **結束於**：今天日期的前兩天
 
-    3.  **結束於：**` Select date 2 days after current day and any time`
+   ![][recurrence-schedule]
 
-   	![][5]
+6.  按一下 [建立]
 
-8.  按一下 [確定]。
-	建立工作和工作集合可能需要一段時間。若要檢查狀態，可以監控位於入口網站底部的通知。
+## 管理和監視作業
 
-   	![][6]
+建立作業之後，它會出現在主要 Azure 儀表板。按一下作業，即會開啟新視窗並顯示下列索引標籤：
 
-   	在建立工作和工作集合之後，會有一則訊息告訴您已成功建立工作或工作集合。工作會列在 [排程器] 區段的 [工作] 區段中，而工作集合會列在 [工作集合] 區段中。若要設定工作中的其他進階設定，請參閱底下＜設定工作＞一節。
+1.  屬性  
 
-   	![][7]
+2.  動作設定
 
-## 管理及監視工作集合和工作
+3.  排程
 
-一旦建立工作集合，它就會顯示在主要排程器管理畫面中。
+4.  歷程記錄
 
-![][8]
+5.  使用者
 
-按一下工作集合，即會開啟新視窗並顯示下列選項：
+   ![][job-overview]
 
-1.  儀表板  
+### 屬性
 
-2.  調整
+這些唯讀屬性說明排程器作業的管理中繼資料。
 
-3.  歷程記錄
+   ![][job-properties]
 
-4.  作業
 
-下列主題會更詳細地描述這些索引標籤。
+### 動作設定
 
-### 儀表板
+按一下 [作業] 畫面中的作業，可讓您設定該作業。如果您沒有在快速建立精靈中進行進階設定，這可讓您設定它們。
 
-按一下工作集合名稱時，即會顯示 [儀表板] 索引標籤。[儀表板] 會顯示下列資訊：
+對於所有的動作類型，您可以變更重試原則和錯誤動作。
 
-![][9]
+對於 HTTP 和 HTTPS 工作動作類型，您可能會將方法變更為任何允許的 HTTP 動詞。您也可以新增、刪除或變更標頭和基本驗證資訊。
 
-#### 工作使用概觀和執行使用概觀
+對於儲存體佇列動作類型，您可能變更儲存體帳戶、佇列名稱、SAS 權杖和主體。
 
-顯示固定度量清單的資料表和圖表系列。這些度量提供有關工作集合之健全狀況的即時值，包括：
+對於服務匯流排動作類型，您可以變更命名空間、主題/佇列路徑、驗證設定、傳輸類型、訊息屬性和訊息本文。
 
-1.  目前的工作  
+   ![][job-action-settings]
 
-2.  已完成的工作
+### 排程
 
-3.  發生錯誤的工作
+如果您想要變更您在快速建立精靈中建立的排程，這可讓您重新設定排程。
 
-4.  已啟用的工作
+這是[在作業中建置複雜的排程和進階週期](scheduler-advanced-complexity.md)的機會
 
-5.  已停用的工作
+您可以變更開始日期和時間、週期排程，以及結束日期和時間 (如果工作重複發生。)
 
-6.  工作執行
+   ![][job-schedule]
 
-#### 快速概覽
-
-顯示固定的狀態和設定度量清單的資料表。這些度量提供有關與工作集合相關聯之狀態和設定的即時值，包括：
-
-1.  狀態  
-
-2.  區域
-
-3.  錯誤數目
-
-4.  錯誤發生次數
-
-5.  URI
-
-### 調整
-
-在 [調整] 索引標籤中，您可以變更排程器所使用的設定和服務層。
-
-![][10]
-
-#### 一般
-
-這會顯示您是在 [免費]，還是在 [標準] 計畫上。
-
-#### 配額
-
-Azure 排程器會實作以數個條件為基礎的配額。本節列出配額臨界值，並可讓您變更它們。依預設，已設定一組配額。這些配額設定的限制受限於您的計畫，而且變更計畫可能會影響定價。可變更配額來調整您的排程器。選項包括：
-
-1.  最大工作數目  
-
-2.  最大頻率
-
-3.  最大間隔
 
 ### 歷程記錄
 
-[記錄] 索引標籤會顯示所選取工作的下列資訊：
-
-![][11]
-
-#### 歷程記錄資枓表
-
-一種資料表，為選取的工作顯示系統中每次執行工作時選取的度量。這些度量提供有關排程器健全狀況的即時值。
-
-#### 可用的度量
-
-以下是可用的效能計數器/度量：
+[歷程記錄] 索引標籤為選取的作業顯示系統中每次執行作業時選取的度量。這些度量提供有關排程器健全狀況的即時值：
 
 1.  狀態  
 
 2.  詳細資料
 
-3.  重試嘗試
+3.  重試次數
 
-4.  執行次數 (第 1 次、第 2 次、第 3 次等等。)
+4.  發生次數：第 1 次、第 2 次、第 3 次等。
 
-5.  執行時間戳記
+5.  執行開始時間
 
-您可以按一下 [檢視詳細歷程記錄]，查看每次執行的完整回應。此對話方塊也可讓您將回應複製到剪貼簿。
+6.  執行結束時間
 
-![][12]
+   ![][job-history]
 
-### 作業
+您可以按一下執行來檢視 [記錄詳細資料]，包括每次執行的完整回應。此對話方塊也可讓您將回應複製到剪貼簿。
 
-[工作] 索引標籤會顯示下列資訊來監視工作的執行歷程記錄：
+   ![][job-history-details]
 
-![][13]
+### 使用者
 
-#### 工作資料表
+Azure 角色型存取控制 (RBAC) 可以對 Azure 排程器進行更細緻的存取權管理。若要了解如何使用 [使用者] 索引標籤，請參閱 [Azure 角色型存取控制](../active-directory/role-based-access-control-configure.md)
 
-一種資料表，為系統中的每個工作顯示選取的度量。這些度量提供有關排程器健全狀況的即時值。
-
-#### 停用、啟用或刪除工作
-
-按一下工作名稱，即會提供您啟用、停用或刪除工作的選項。已刪除的工作可能無法復原。
-
-#### 可用的度量
-
-以下是可用的計數器和度量：
-
-1.  名稱  
-
-2.  上次執行
-
-3.  下次執行
-
-4.  狀態
-
-5.  頻率
-
-6.  失敗
-
-7.  錯誤
-
-8.  執行
-
-9.  動作類型
-
-### 設定工作
-
-按一下 [作業] 畫面中的作業，可讓您設定該作業。除了快速建立精靈中可用的設定外，這可讓您設定其他進階設定。若要設定作業，請按一下 [作業] 畫面中作業名稱旁邊的向右箭號。
-
-[工作設定] 頁面可讓您更新工作設定。以下顯示 HTTP 和 HTTPS 工作的工作設定頁面。對於 HTTP 和 HTTPS 工作動作類型，您可能會將方法變更為任何允許的 HTTP 動詞。您也可以新增、刪除或變更標頭和基本驗證資訊。
-
-![][14]
-
-儲存體佇列工作的 [工作設定] 頁面上會出現，如下所示。對於儲存體佇列動作類型，您可能變更儲存體帳戶、佇列名稱、SAS 權杖和主體。[排程] 區段 (未顯示於下) 與 HTTP/HTTPS 工作動作類型的 [排程] 區段相同。
-
-![][15]
-
-最後，對於所有的動作類型，您可能變更排程本身和其週期行為。您可以變更開始日期和時間、週期排程，以及結束日期和時間 (如果工作重複發生。) 進行任何變更之後，您可以按一下 [儲存] 來儲存變更，或按一下 [捨棄] 來捨棄變更。
 
 ## 另請參閱
 
@@ -241,6 +155,16 @@ Azure 排程器會實作以數個條件為基礎的配額。本節列出配額�
  [排程器輸出驗證](scheduler-outbound-authentication.md)
 
 
+[marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
+[action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png
+[recurrence-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png
+[job-properties]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png
+[job-overview]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png
+[job-action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png
+[job-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png
+[job-history]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png
+[job-history-details]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png
+
 
 [1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png
 [2]: ./media/scheduler-get-started-portal/scheduler-get-started-portal002.png
@@ -258,4 +182,4 @@ Azure 排程器會實作以數個條件為基礎的配額。本節列出配額�
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

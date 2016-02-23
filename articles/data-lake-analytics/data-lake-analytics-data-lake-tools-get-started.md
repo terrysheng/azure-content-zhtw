@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/07/2015"
+   ms.date="02/10/2016"
    ms.author="jgao"/>
 
 # 教學課程：使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼
@@ -52,7 +52,7 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 1. 開啟 Visual Studio。
 2. 按一下 [檢視] 功能表的 [伺服器總管] 來開啟伺服器總管。或是按下 **[CTRL] + [ALT] + S**。
 3. 對 [Azure] 按一下滑鼠右鍵、按一下 [連接到 Microsoft Azure 訂用帳戶]，然後依照指示進行。
-4. 在 [伺服器總管] 中展開 [Azure]，然後展開 [資料湖分析]。如果有資料湖分析帳戶，您就會看到其清單。您無法從 Visual Studio 建立資料湖分析帳戶。若要建立帳戶，請參閱「[使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)」或「[使用 Azure PowerShell 開始使用 Azure 資料湖分析](data-lake-analytics--get-started-powershell.md)」。
+4. 在 [伺服器總管] 中展開 [Azure]，然後展開 [資料湖分析]。如果有資料湖分析帳戶，您就會看到其清單。您無法從 Visual Studio 建立資料湖分析帳戶。若要建立帳戶，請參閱「[使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)」或「[使用 Azure PowerShell 開始使用 Azure 資料湖分析](data-lake-analytics-get-started-powershell.md)」。
 
 ## 上傳來源資料檔案
 
@@ -79,7 +79,7 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 
 ## 開發 U-SQL 指令碼 
 
-資料湖分析工作是以 U-SQL 語言撰寫。若要深入了解 U-SQL，請參閱[開始使用 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)和 [U-SQL 語言參考](http://go.microsoft.com/fwlink/?LinkId=691348)。
+資料湖分析工作是以 U-SQL 語言撰寫。若要深入了解 U-SQL，請參閱[開始使用 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)和[U-SQL 語言參考](http://go.microsoft.com/fwlink/?LinkId=691348)。
 
 **建立並提交資料湖分析工作**
 
@@ -101,7 +101,11 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
                     ClickedUrls     string
             FROM "/Samples/Data/SearchLog.tsv"
             USING Extractors.Tsv();
-        
+
+		@res =
+		    SELECT *
+		    FROM @searchlog;        
+
         OUTPUT @searchlog   
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
@@ -118,7 +122,7 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]目前不支援具有公用 Blob 或公用容器存取權限的 Azure Blob 容器。
+    >[AZURE.NOTE] 目前不支援具有公用 Blob 或公用容器存取權限的 Azure Blob 容器。
 
 	請注意下列功能：
 
@@ -281,7 +285,7 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 - [使用資料湖分析來分析 weblog](data-lake-analytics-analyze-weblogs.md)
 - [使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
 - [開始使用 Azure 資料湖分析 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)
-- [針對資料湖分析工作開發 U-SQL 使用者定義運算子](data-lake-analytics-u-sql-user-defined-operators.md)
+- [針對資料湖分析工作開發 U-SQL 使用者定義運算子](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
 ##附錄 A：準備教學課程所需的 PowerShell 範例
 
@@ -355,4 +359,4 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016" 
+	ms.date="02/12/2016" 
 	ms.author="MarkVi"/>
 
 # 將公司商標新增至登入和存取面板頁面
@@ -186,4 +186,4 @@ Azure AD 中的部分可自訂元素有多個使用案例。公司標誌可以�
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="02/03/2016"
+      ms.date="02/14/2016"
       ms.author="robinsh" />
 
 # 在 Windows 上開始使用 Azure 檔案儲存體
@@ -55,7 +55,7 @@ Azure 檔案儲存體是使用標準[伺服器訊息區塊 (SMB) 通訊協定](h
 	- 將檔案複製到相同儲存體帳戶中的 Blob。
 - 使用 Azure 儲存體度量進行疑難排解
 
-所有儲存體帳戶現在可支援檔案儲存體，因此您可以使用現有的儲存體帳戶，也可以建立新的儲存體帳戶。如需建立新儲存體帳戶的詳細資訊，請參閱[如何建立、管理或刪除儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)。
+所有儲存體帳戶現在可支援檔案儲存體，因此您可以使用現有的儲存體帳戶，也可以建立新的儲存體帳戶。如需建立新儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)。
 
 ## 使用 Azure 入口網站來管理檔案共用
 
@@ -130,11 +130,11 @@ Azure 檔案儲存體是使用標準[伺服器訊息區塊 (SMB) 通訊協定](h
 
 ### 安裝適用於 Azure 儲存體的 PowerShell Cmdlet
 
-若要準備使用 PowerShell，請下載並安裝 Azure PowerShell Cmdlet。如需安裝點和安裝指示的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md)。
+若要準備使用 PowerShell，請下載並安裝 Azure PowerShell Cmdlet。如需安裝點和安裝指示的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 
 > [AZURE.NOTE] 建議您下載和安裝或升級至最新的 Azure PowerShell 模組。
 
-透過按一下 [啟動]，然後輸入 **Azure PowerShell** 來開啟 Azure PowerShell 視窗。Azure PowerShell 視窗便會為您載入 Azure Powershell 模組。
+透過按一下 [啟動]，然後輸入 **Windows PowerShell** 來開啟 Azure PowerShell 視窗。PowerShell 視窗便會為您載入 Azure Powershell 模組。
 
 ### 建立儲存體帳戶和金鑰的內容
 
@@ -210,8 +210,8 @@ Azure 檔案儲存體是使用標準[伺服器訊息區塊 (SMB) 通訊協定](h
 
 為說明如何掛接 Azure 檔案共用，我們現在將建立執行 Windows 的 Azure 虛擬機器，並遠端進入該虛擬機器以掛接共用。
 
-1. 首先，依照[建立執行 Windows Server 的虛擬機器](../virtual-machines-windows-tutorial.md)中的指示建立新的 Azure 虛擬機器。
-2. 接著，依照[如何登入執行 Windows Server 的虛擬機器](../virtual-machines-log-on-windows-server.md)中的指示，遠端進入此虛擬機器。
+1. 首先，依照[在 Azure 入口網站中建立 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)中的指示建立新的 Azure 虛擬機器。
+2. 接著依照[使用 Azure 入口網站登入 Windows 虛擬機器](../virtual-machines/virtual-machines-arm-log-on-windows-vm.md)中的指示遠端登入虛擬機器。
 3. 在虛擬機器上開啟 PowerShell 視窗。
 
 ### 在虛擬機器中保留您的儲存體帳戶認證
@@ -419,13 +419,13 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
         Console.WriteLine(fileSas.DownloadText());
     }
 
-如需建立與使用共用存取簽章的詳細資訊，請參閱[共用存取簽章：了解 SAS 模型](storage-dotnet-shared-access-signature-part-1.md)和[透過 Blob 服務建立與使用 SAS](storage-dotnet-shared-access-signature-part-2.md)。
+如需建立與使用共用存取簽章的詳細資訊，請參閱[共用存取簽章：了解 SAS 模型](storage-dotnet-shared-access-signature-part-1.md)和[透過 Blob 儲存體建立與使用 SAS](storage-dotnet-shared-access-signature-part-2.md)。
 
 ### 複製檔案
 
 從 Azure 儲存體用戶端程式庫 5.x 版開始，您可以將檔案複製到另一個檔案、將檔案複製到 Blob 或將 Blob 複製到檔案。在後續各節中，我們將示範如何以程式設計方式執行這些複製作業。
 
-您也可以使用 AzCopy 將檔案複製到另一個檔案，或將 Blob 複製到檔案或反向操作。如需使用 AzCopy 複製檔案的詳細資訊，請參閱[如何搭配使用 AzCopy 與 Microsoft Azure 儲存體](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy)。
+您也可以使用 AzCopy 將檔案複製到另一個檔案，或將 Blob 複製到檔案或反向操作。請參閱[使用 AzCopy 複製 Azure 檔案儲存體中的檔案](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy)。
 
 > [AZURE.NOTE] 如果要將 Blob 複製到檔案，或將檔案複製到 Blob，您必須使用共用存取簽章 (SAS) 驗證來源物件，即使是在相同的儲存體帳戶內進行複製也一樣。
 
@@ -586,8 +586,7 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 
 ### 概念性文章和影片
 
-- [Azure 檔案儲存體：適用於 Windows 和 Linux 的無摩擦雲端 SMB 檔案系統
-- https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+- [Azure 檔案儲存體：適用於 Windows 和 Linux 的無摩擦雲端 SMB 檔案系統](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [如何搭配使用 Azure 檔案儲存體與 Linux](storage-how-to-use-files-linux.md)
 
 ### 檔案儲存體的工具支援
@@ -608,4 +607,4 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 - [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

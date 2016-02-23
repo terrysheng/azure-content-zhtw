@@ -12,11 +12,11 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="12/18/2015" 
 	ms.author="mimig"/>
 
-# 建立 DocumentDB 集合
+# 如何使用 Azure 入口網站建立 DocumentDB 集合
 
 若要使用 Microsoft Azure DocumentDB，您必須擁有 [DocumentDB 帳戶](documentdb-create-account.md)、[資料庫](documentdb-create-database.md)、集合和文件。本主題說明如何在 Azure 入口網站中建立 DocumentDB 集合。
 
@@ -78,4 +78,4 @@
 
 當集合中有文件之後，您就可以利用入口網站中的[查詢總管](documentdb-query-collections-query-explorer.md)、[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)，或其中一個 [SDK](documentdb-sdk-dotnet.md)，來針對文件使用 [DocumentDB SQL](documentdb-sql-query.md) 來[執行查詢](documentdb-sql-query.md#executing-queries)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

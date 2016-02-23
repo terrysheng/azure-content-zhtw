@@ -22,7 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows](../hdinsight-hadoop-tutorial-get-started-windows-v1.md)
-- [Linux](../hdinsight-hadoop-linux-get-started.md)
+- [Linux](../hdinsight-hadoop-linux-tutorial-get-started.md)
 
 為了協助您了解在 Windows 上的 Hadoop 並開始使用 HDInsight，本教學課程為您示範如何在 Hadoop 叢集上執行 Hive 查詢非結構化資料，並且接著在 Microsoft Excel 中分析結果。
 
@@ -258,8 +258,8 @@
 
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: ../install-configure-powershell.md
-[powershell-open]: ../install-configure-powershell.md#Install
+[powershell-install-configure]: powershell-install-configure.md
+[powershell-open]: powershell-install-configure.md#setup-1-install
 
 
 [img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.dashboard.png
@@ -280,4 +280,4 @@
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

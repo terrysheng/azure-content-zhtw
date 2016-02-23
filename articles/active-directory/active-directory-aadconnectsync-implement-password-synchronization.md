@@ -6,14 +6,13 @@
 	authors="markusvi"
 	manager="stevenpo"
 	editor=""/>
-
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.topic="get-started-article"
+	ms.date="02/12/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -160,4 +159,4 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 * [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

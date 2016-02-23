@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma"/>
 
 
@@ -42,7 +42,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 - 建立名為 Appgatewaysubnet 且使用 10.0.0.0/28 做為其 CIDR 區塊的子網路。
 - 針對想要用來為流量進行負載平衡的 Web 伺服器，設定兩個先前所設定的後端 IP。在此範本範例中，後端 IP 將會是 10.0.1.10 和 10.0.1.11。
 
->[AZURE.NOTE]這些都是適用於此範本的參數。若要自訂範本，您可以變更規則、接聽程式以及會開啟 azuredeploy.json 的 SSL。
+>[AZURE.NOTE] 這些都是適用於此範本的參數。若要自訂範本，您可以變更規則、接聽程式以及會開啟 azuredeploy.json 的 SSL。
 
 
 
@@ -73,7 +73,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 	| **backendaddress2** | 第二部 Web 伺服器的 IP 位址 |
 
 
->[AZURE.IMPORTANT]GitHub 所維護的 Azure 資源管理員範本可能會隨著時間改變。使用範本前，請務必先檢查當中的內容。
+>[AZURE.IMPORTANT] GitHub 所維護的 Azure 資源管理員範本可能會隨著時間改變。使用範本前，請務必先檢查當中的內容。
 
 6. 檢查 **resources** 下方的內容，並注意以下項目：
 
@@ -284,4 +284,4 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

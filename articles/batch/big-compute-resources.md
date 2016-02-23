@@ -83,7 +83,7 @@ HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 
 
 * [MS-MPI 參考資料](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [MPI 論壇](https://social.microsoft.com/Forums/zh-TW/home?forum=windowshpcmpi)
+* [MPI 論壇](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
 ## 計算密集型執行個體
 

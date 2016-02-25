@@ -142,7 +142,25 @@ if message.properties != None:
 
 | .NET 屬性類型 | Python 屬性類型 | 注意事項 |
 |--------------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | int | - | | sbyte | int | - | | char | char | Proton-Python class | | short | int | - | | ushort | int | - | | int | int | - | | uint | int | - | | long | int | - | | ulong | long | Proton-Python 類別 | | float | float | - | | double | float | - | | decimal | String | Proton 目前不支援 Decimal。 | | bool | bool | - | | Guid | uuid | Proton-Python class | | string | string | - | | DateTime | timestamp | Proton-Python 類別 | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks 會對應至 AMQP 類型：<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | Timespan.Ticks 會對應至 AMQP 類型：<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | Uri.AbsoluteUri 會對應至 AMQP 類型：<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | int | - |
+| sbyte | int | - |
+| char | char | Proton-Python class |
+| short | int | - |
+| ushort | int | - |
+| int | int | - |
+| uint | int | - |
+| long | int | - |
+| ulong | long | Proton-Python 類別 |
+| float | float | - |
+| double | float | - |
+| decimal | String | Proton 目前不支援 Decimal。 |
+| bool | bool | - |
+| Guid | uuid | Proton-Python class |
+| string | string | - |
+| DateTime | timestamp | Proton-Python 類別 |
+| DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks 會對應至 AMQP 類型：<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
+| TimeSpan | DescribedType | Timespan.Ticks 會對應至 AMQP 類型：<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> |
+| Uri | DescribedType | Uri.AbsoluteUri 會對應至 AMQP 類型：<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### 標準屬性
 
@@ -155,11 +173,36 @@ if message.properties != None:
 | 持久 | n/a | 服務匯流排僅支援持久的訊息。 |
 | 優先順序 | n/a | 服務匯流排僅支援單一訊息優先順序。 |
 | Ttl | Message.TimeToLive | 轉換，Proton-Python TTL 是以毫秒定義。 |
-| first\_acquirer | n/a | - | | delivery\_count | n/a | - | | Id | Message.MessageID | - | | user\_id | n/a | - | | address | Message.To | - | | subject | Message.Label | - | | reply\_to | Message.ReplyTo | - | | correlation\_id | Message.CorrelationID | - | | content\_type | Message.ContentType | - | | content\_encoding | n/a | - | | expiry\_time | n/a | - | | creation\_time | n/a | - | | group\_id | Message.SessionId | - | | group\_sequence | n/a | - | | reply\_to\_group\_id | Message.ReplyToSessionId | - | | format | n/a | - |
+| first\_acquirer | n/a | - |
+| delivery\_count | n/a | - |
+| Id | Message.MessageID | - |
+| user\_id | n/a | - |
+| address | Message.To | - |
+| subject | Message.Label | - |
+| reply\_to | Message.ReplyTo | - |
+| correlation\_id | Message.CorrelationID | - |
+| content\_type | Message.ContentType | - |
+| content\_encoding | n/a | - |
+| expiry\_time | n/a | - |
+| creation\_time | n/a | - |
+| group\_id | Message.SessionId | - |
+| group\_sequence | n/a | - |
+| reply\_to\_group\_id | Message.ReplyToSessionId | - |
+| format | n/a | - |
 
 | 服務匯流排 .NET | Proton | 注意事項 |
 |-------------------------|------------------------------|-----------------------------------------------------------|
-| ContentType | Message.content\_type | - | | CorrelationId | Message.correlation\_id | - | | EnqueuedTimeUtc | n/a | - | | Label | Message.subject | - | | MessageId | Message.id | - | | ReplyTo | Message.reply\_to | - | | ReplyToSessionId | Message.reply\_to\_group\_id | - | | ScheduledEnqueueTimeUtc | n/a | - | | SessionId | Message.group\_id | - | | TimeToLive | Message.ttl | 轉換，Proton-Python TTL 是以毫秒定義。 | | To | Message.address | - |
+| ContentType | Message.content\_type | - |
+| CorrelationId | Message.correlation\_id | - |
+| EnqueuedTimeUtc | n/a | - |
+| Label | Message.subject | - |
+| MessageId | Message.id | - |
+| ReplyTo | Message.reply\_to | - |
+| ReplyToSessionId | Message.reply\_to\_group\_id | - |
+| ScheduledEnqueueTimeUtc | n/a | - |
+| SessionId | Message.group\_id | - |
+| TimeToLive | Message.ttl | 轉換，Proton-Python TTL 是以毫秒定義。 |
+| To | Message.address | - |
 
 ## 後續步驟
 
@@ -173,4 +216,4 @@ if message.properties != None:
 
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

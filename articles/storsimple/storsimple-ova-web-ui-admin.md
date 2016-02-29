@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/22/2016"
+   ms.date="02/17/2016"
    ms.author="alkohli" />
 
 # 使用 Web UI 來管理 StorSimple Virtual Array (預覽版)
@@ -94,7 +94,7 @@
 
 ## 關閉並重新啟動您的裝置
 
-您可以使用本機 Web UI 關閉或重新啟動您的虛擬裝置。
+您可以使用本機 Web UI 關閉或重新啟動您的虛擬裝置。我們建議您在重新啟動之前，讓主機上的磁碟區或共用離線，然後讓裝置離線。這樣可以讓資料損毀的可能性降至最低。
 
 #### 關閉虛擬裝置
 
@@ -136,4 +136,4 @@
 
 了解如何[使用 StorSimple Manager 服務管理裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

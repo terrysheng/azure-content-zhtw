@@ -33,7 +33,7 @@ Node.js 包含核心執行時期的一組最低功能。開發人員在開發 No
 
 請執行下列步驟來建立名為 'expressapp' 的新雲端服務專案：
 
-1. 從 [開始] 功能表 或 [開始畫面] 中，搜尋 **Azure PowerShell**。最後，以滑鼠右鍵按一下 [Azure PowerShell]，然後選取 [以系統管理員身分執行]。
+1. 從 [開始] 功能表或 [開始] 畫面搜尋「Windows PowerShell」。最後，用滑鼠右鍵按一下 [Windows PowerShell]，然後選取 [以系統管理員身分執行]。
 
 	![Azure PowerShell icon](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
 
@@ -45,7 +45,7 @@ Node.js 包含核心執行時期的一組最低功能。開發人員在開發 No
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
 		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
 
-	> [AZURE.NOTE]**Add-AzureNodeWebRole** 預設會使用較舊版的 Node.js。上方的 **Set-AzureServiceProjectRole** 陳述式會指示 Azure 使用 0.10.21 版本的節點。請注意這些參數會區分大小寫。您可以檢查 **WebRole1\\package.json** 中的 **engines** 屬性，確認已選取正確的 Node.js 版本。
+	> [AZURE.NOTE] **Add-AzureNodeWebRole** 預設會使用較舊版的 Node.js。上方的 **Set-AzureServiceProjectRole** 陳述式會指示 Azure 使用 0.10.21 版本的節點。請注意這些參數會區分大小寫。您可以檢查 **WebRole1\\package.json** 中的 **engines** 屬性，確認已選取正確的 Node.js 版本。
 
 ##安裝 Express
 
@@ -138,4 +138,4 @@ Node.js 包含核心執行時期的一組最低功能。開發人員在開發 No
 
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

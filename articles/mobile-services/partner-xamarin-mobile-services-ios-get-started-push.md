@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/11/2016"
 	ms.author="yuaxu"/>
 
 # 將推播通知新增至行動服務應用程式
@@ -36,7 +36,7 @@
 + [Xamarin.iOS Studio]
 + [Azure 行動服務元件]
 
->[AZURE.IMPORTANT]基於 APNS 需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
+>[AZURE.IMPORTANT] 基於 APNS 需求，您必須在 iOS 功能裝置 (iPhone 或 iPad) 而非在模擬器上部署和測試推播通知。
 
 APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的憑證，並將憑證上傳至您的行動服務。如需正式的 APNS 功能文件，請參閱 [Apple 推播通知服務] (英文)。
 
@@ -310,7 +310,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
     如此即會註冊新的 insert 指令碼，該指令碼會使用 [apns 物件]將推播通知 (插入的文字) 傳送給插入要求中所提供的裝置。
 
-   >[AZURE.NOTE]此指令碼會延遲通知的傳送，讓您有時間關閉應用程式來接收快顯通知。
+   >[AZURE.NOTE] 此指令碼會延遲通知的傳送，讓您有時間關閉應用程式來接收快顯通知。
 
 ## <a name="test"></a>在應用程式中測試推播通知
 
@@ -318,7 +318,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
     ![][23]
 
-   >[AZURE.NOTE]您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
+   >[AZURE.NOTE] 您必須明確地接受來自應用程式的推播通知。只有在應用程式第一次執行時，才會發生此要求。
 
 2. 在應用程式中，輸入有意義的文字，如 _A new Mobile Services task_，然後按一下加號 ([+]) 圖示。
 
@@ -403,4 +403,4 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0218_2016-->

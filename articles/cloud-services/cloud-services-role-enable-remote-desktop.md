@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="01/19/2016" 
+ms.date="02/17/2016" 
 ms.author="saurabh"/>
 
 # 啟用 Azure 雲端服務中角色的遠端桌面連線
@@ -55,7 +55,7 @@ Azure 傳統入口網站會使用遠端桌面延伸模組方法，因此即使�
     
     - 變更遠端桌面組態的到期日。
 
-5. 完成組態更新時，按一下 [確定] \(勾選記號)。
+5. 完成組態更新時，按一下 [確定] (勾選記號)。
 
 
 ## 角色執行個體的遠端存取
@@ -93,7 +93,7 @@ Azure 傳統入口網站會使用遠端桌面延伸模組方法，因此即使�
 
 這個方法可讓您在開發期間啟用應用程式的遠端桌面。此方法需要加密的密碼儲存在您的服務組態檔中，且遠端桌面組態的任何更新都需要重新部署應用程式。如果您想要避免這些缺點，您應該使用以上所述之以遠端桌面延伸模組為基礎的方法。
 
-您可以使用 Visual Studio [啟用遠端桌面連線](https://msdn.microsoft.com/library/gg443832.aspx)以使用服務定義檔方法。下列步驟說明服務模型檔案啟用遠端桌面所需的變更。Visual Studio 將會在發佈時自動產生這些變更。
+您可以使用 Visual Studio [啟用遠端桌面連線](../vs-azure-tools-remote-desktop-roles.md)以使用服務定義檔方法。下列步驟說明服務模型檔案啟用遠端桌面所需的變更。Visual Studio 將會在發佈時自動產生這些變更。
 
 ### 設定服務模型中的連線 
 使用**匯入**元素將 **RemoteAccess** 模組和 **RemoteForwarder** 模組匯入至 [ServiceDefinition.csdef](cloud-services-model-and-package.md#csdef) 檔案。
@@ -121,7 +121,7 @@ Azure 傳統入口網站會使用遠端桌面延伸模組方法，因此即使�
     </WebRole>
 </ServiceDefinition>
 ```
-[ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) 檔案應類似下列範例，請注意 `<ConfigurationSettings>` 和 `<Certificates>` 元素。指定的憑證必須已[上傳至雲端服務](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service)。
+[ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) 檔案應類似下列範例，請注意 `<ConfigurationSettings>` 和 `<Certificates>` 元素。指定的憑證必須已[上傳至雲端服務](../cloud-services-how-to-create-deploy.md#how-to-upload-a-certificate-for-a-cloud-service)。
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -147,4 +147,4 @@ Azure 傳統入口網站會使用遠端桌面延伸模組方法，因此即使�
 
 [如何設定雲端服務](cloud-services-how-to-configure.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

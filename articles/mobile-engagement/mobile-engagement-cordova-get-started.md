@@ -30,7 +30,7 @@
 
 在本教學課程中，我們將會使用 Mac 建立空白的 Cordova 應用程式，然後整合 Mobile Engagement SDK。它會收集基本分析資料，並針對 iOS 使用 Apple Push Notification System (APNS)、針對 Android 使用 Google Cloud Messaging (GCM) 接收推播通知。我們會將它部署到 iOS 或 Android 裝置以進行測試。
 
-> [AZURE.IMPORTANT]若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
+> [AZURE.IMPORTANT] 若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
 本教學課程需要下列各項：
 
@@ -40,7 +40,7 @@
 + 您可以從您的 Google Developer Console for GCM 取得的 GCM 專案編號
 + [Mobile Engagement Cordova 外掛程式](https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-engagement)
 
-> [AZURE.NOTE]您可以在 [Github](https://github.com/Azure/azure-mobile-engagement-cordova) 上找到原始程式碼和 ReadMe for the Cordova 外掛程式
+> [AZURE.NOTE] 您可以在 [Github](https://github.com/Azure/azure-mobile-engagement-cordova) 上找到原始程式碼和 ReadMe for the Cordova 外掛程式
 
 ##<a id="setup-azme"></a>為您的 Cordova App 設定 Mobile Engagement
 
@@ -64,7 +64,7 @@
 		$ cordova platform add ios 
 		$ cordova run ios
 
-3. 執行下列動作來設定 **Android** 的專案，並在 Android 模擬器中執行它：
+3. 執行下列動作來設定 **Android** 的專案，並在 Android 模擬器中執行它。在您的 Android SDK 模擬器設定中，請確定目標為 Google API (Google Inc.)，而 CPU / ABI 為 Google API ARM。
 
 		$ cordova platform add android
 		$ cordova run android
@@ -245,4 +245,4 @@ Mobile Engagement 可讓您使用「推播通知」和「應用程式內傳訊�
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="02/16/2016" 
 	ms.author="jeffstok"
 />
 
@@ -37,7 +37,7 @@
 
 您必須滿足下列的先決條件，才能順利地完成本教學課程。
 
--   最新的 [Azure PowerShell](../install-configure-powershell.md)
+-   最新的 [Azure PowerShell](../powershell-install-configure.md)
 -   Visual Studio 2015 或，或是免費的 [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 -   [Azure 訂閱](https://azure.microsoft.com/pricing/free-trial/)
 -   電腦的系統管理員權限
@@ -150,7 +150,7 @@ GitHub 上 TollApp 資料夾中的 Setup.ps1 指令碼，可用來建立所有�
 
 請下載並儲存支援的 [TollApp](https://github.com/streamanalytics/samples/releases) 資料夾和檔案。請確認您下載的是最新版本。
 
-請「以系統管理員的身分」開啟 [Microsoft Azure PowerShell] 視窗。如果您沒有 Azure PowerShell，請依照[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md) 中的指示來安裝 Azure PowerShell。
+請「以系統管理員的身分」開啟 [Microsoft Azure PowerShell] 視窗。如果您沒有 Azure PowerShell，請依照[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md) 中的指示來安裝 Azure PowerShell。
 
 Windows 會自動封鎖從網際網路下載的 ps1、dll 和 exe 檔案，因此我們必須在執行指令碼之前設定執行原則。請確認您是以系統管理員的身分來執行 Azure PowerShell 視窗。請執行「Set-ExecutionPolicy unrestricted」，然後在畫面出現提示時按下 Y 鍵。
 
@@ -534,4 +534,4 @@ Setup.ps1 指令碼會建立 2 個 Azure 事件中樞，以及 Azure SQL 資料�
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

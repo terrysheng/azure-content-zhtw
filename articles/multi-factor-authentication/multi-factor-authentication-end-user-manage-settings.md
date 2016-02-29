@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/25/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # 使用 Azure Multi-Factor Authentication 時碰到困難
@@ -25,13 +25,13 @@
 
 
 - [相互關聯識別碼錯誤](#correlation-id-errors)
-- [我的手機遺失或遭竊](#i-have-lost-my-phone-or-it-was-stolen?)
+- [我的手機遺失或遭竊](#i-have-lost-my-phone-or-it-was-stolen)
 - [我想要變更我的電話號碼](#i-want-to-change-my-phone-number)
 - [我有新的電話，需要變更我的電話號碼](#i-have-a-new-phone-and-need-to-change-my-phone-number)
-- [我的手機沒收到驗證碼](#i-am-not-receiving-a-code-on-my-phone)
+- [我的手機沒收到驗證碼](#i-am-not-receiving-a-code-or-a-call-on-my-phone)
 - [應用程式密碼無效](#app-passwords-are-not-working)
 - [如何清除舊裝置的 Azure 驗證資訊並移到新裝置？](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
-- [我找不到我的問題的解答](#i-didn't-find-an-answer-to-my-problem)
+- [我找不到我的問題的解答](#i-didnt-find-an-answer-to-my-problem)
 
 ##相互關聯識別碼錯誤
 如果您已試過下列疑難排解步驟，但仍遇到問題，您可以將問題張貼在 [Azure AD 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)、[搜尋 Microsoft 知識庫 (KB)](https://www.microsoft.com/zh-TW/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)或[連絡支援人員](https://support.microsoft.com/zh-TW)，我們將會儘快了解您的問題。
@@ -147,7 +147,7 @@
 - 如果您選取要用簡訊將驗證碼傳送到行動電話上，請確定您的費率方案和裝置支援傳遞簡訊。傳遞速度以及是否可傳遞，取決於地點與服務供應商。另外，嘗試接收驗證碼時，請確定手機訊號強度能夠滿足需求。
 - 如果您選擇透過行動應用程式接收驗證碼，請確定您的手機訊號強度夠強。請注意，傳遞速度以及是否可傳遞，取決於地點與服務供應商。 
 
-如果您使用的是智慧型手機，建議您使用 [Azure Authenticator 應用程式](multi-factor-authentication-azure-authenticator)。
+如果您使用的是智慧型手機，建議您使用 [Azure Authenticator 應用程式](multi-factor-authentication-azure-authenticator.md)。
 
 在登入時選擇 [使用不同的驗證選項]，就可以切換透過簡訊或透過行動應用程式接收驗證碼。
 
@@ -172,4 +172,4 @@
 
 最後，請務必在此頁面上留下一些詳細的意見反應，讓我們可以更新此頁面，並藉由提供更多的資訊，持續讓它更加完善。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

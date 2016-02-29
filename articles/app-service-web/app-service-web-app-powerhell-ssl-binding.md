@@ -23,6 +23,7 @@
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 
+
 ## 上傳和繫結新的 SSL 憑證 ##
 
 案例：使用者希望將 SSL 憑證繫結至他的其中一個 Web 應用程式。
@@ -30,6 +31,15 @@
 知道包含 Web 應用程式的資源群組名稱、Web 應用程式名稱、使用者電腦上憑證 .pfx 檔案的路徑、憑證的密碼，以及自訂主機名稱，我們可以使用下列 PowerShell 命令來建立 SSL 繫結：
 
     New-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -CertificateFilePath PathToPfxFile -CertificatePassword PlainTextPwd -Name www.contoso.com
+
+請注意，將 SSL 繫結新增至 Web 應用程式之前，您必須已經設定主機名稱 (自訂網域)。如果未設定主機名稱，則您在執行 New-AzureRmWebAppSSLBinding 時會收到「主機名稱不存在」錯誤。您可以直接從入口網站，或使用 Azure PowerShell 新增主機名稱。下列 PowerShell 程式碼片段可以在執行 New-AzureRmWebAppSSLBinding 之前用來設定主機名稱。
+  
+    $webApp = Get-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup  
+    $hostNames = $webApp.HostNames  
+    $HostNames.Add("www.contoso.com")  
+    Set-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup -HostNames $HostNames   
+  
+請務必了解，Set-AzureRmWebApp Cmdlet 會覆寫 Web 應用程式的主機名稱。因此，上述 PowerShell 程式碼片段會附加至 Web 應用程式現有的主機名稱清單。
 
 ## 上傳和繫結現有的 SSL 憑證 ##
 
@@ -61,4 +71,4 @@
 - [App Service 環境簡介](app-service-app-service-environment-intro.md)
 - [搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

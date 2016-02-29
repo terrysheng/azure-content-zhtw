@@ -1,6 +1,6 @@
 <properties
    pageTitle="使用 MongoDB 部署 Node.js 應用程式 | Microsoft Azure"
-   description="如何封裝多個應用程式以部署至 Azure Service Fabric 叢集的逐步解說"
+   description="如何封裝多個來賓可執行檔以部署至 Azure Service Fabric 叢集的逐步解說"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/12/2016"
    ms.author="bscholl"/>
 
 
-# 部署多個自訂應用程式
+# 部署多個來賓可執行檔
 
-本文說明如何使用 Azure Service Fabric 封裝工具預覽版 (可從 [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool) 取得) 將多個應用程式封裝並部署至 Service Fabric。
+本文說明如何使用 Azure Service Fabric 封裝工具預覽版 (可從 [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool) 取得) 將多個來賓可執行檔封裝並部署至 Service Fabric。
 
-若要手動建置 Service Fabric 封裝，請檢閱如何[在 Service Fabric 中部署現有的應用程式](service-fabric-deploy-existing-app.md)。
+若要手動建置 Service Fabric 封裝，請檢閱如何[將來賓可執行檔部署至 Service Fabric](service-fabric-deploy-existing-app.md)。
 
 雖然本逐步解說示範的是如何部署使用 MongoDB 做為資料存放區並具有 Node.js 前端的應用程式，但是您可以將這些步驟套用到任何與另一個應用程式具有相依性的應用程式。
 
@@ -125,7 +125,7 @@ Service Fabric 需要使用類似於下方的命令來啟動 MongoDB，因此封
 ```
 mongod.exe --dbpath [path to data]
 ```
-> [AZURE.NOTE]如果您將 MongoDB 資料目錄放在節點的本機目錄中，當節點發生失敗時，將不會保留資料。您應該使用永久性儲存體或實作 MongoDB 複本集以防止資料遺失。
+> [AZURE.NOTE] 如果您將 MongoDB 資料目錄放在節點的本機目錄中，當節點發生失敗時，將不會保留資料。您應該使用永久性儲存體或實作 MongoDB 複本集以防止資料遺失。
 
 在 PowerShell 或命令殼層中，我們會使用下列參數來執行封裝工具：
 
@@ -182,7 +182,7 @@ mongod.exe --dbpath [path to data]
 Connect-ServiceFabricCluster localhost:19000
 
 Write-Host 'Copying application package...'
-Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStore' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath '[yourtargetdirectory]' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\NodeAppType'
 
 Write-Host 'Registering application type...'
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\NodeAppType'
@@ -196,6 +196,6 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 
 ## 後續步驟
 
-- 了解如何[手動封裝單一應用程式](service-fabric-deploy-existing-app.md)。
+- 了解如何[手動封裝來賓應用程式](service-fabric-deploy-existing-app.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

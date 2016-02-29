@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # 在 Azure 入口網站中建立 Azure Multi-Factor Authentication 的應用程式密碼
@@ -25,11 +25,11 @@
 1. 登入 Azure 管理入口網站
 3. 在頂端，以滑鼠右鍵按一下您的使用者名稱並選取 [其他安全性驗證]。
 5. 在 proofup 頁面的頂端，選取應用程式密碼
-6. 按一下 [**建立**]
-7. 輸入應用程式密碼的名稱，然後按 [**下一步**]
+6. 按一下 [建立]
+7. 輸入應用程式密碼的名稱，然後按 [下一步]
 8. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
 
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)</center>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

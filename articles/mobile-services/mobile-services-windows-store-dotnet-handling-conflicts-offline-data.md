@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/12/2015"
+	ms.date="02/11/2016"
 	ms.author="glenga"/>
 
 
@@ -56,7 +56,7 @@
 
 3. 在 Visual Studio 2013，開啟 *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln* 方案檔。請按 **F5** 鍵，以重新建置與執行專案。確認 NuGet 封裝已還原，並已正確設定參考。
 
-    >[AZURE.NOTE]您可能需要刪除任何舊的 SQLite 執行階段參考，並以更新過的參考 (如[開始使用離線資料]教學課程中所述) 加以取代。
+    >[AZURE.NOTE] 您可能需要刪除任何舊的 SQLite 執行階段參考，並以更新過的參考 (如[開始使用離線資料]教學課程中所述) 加以取代。
 
 4. 在應用程式的 [插入 TodoItem] 中輸入一些文字，然後按一下 [儲存]，來將一些 todo 項目加入本機存放區。然後關閉應用程式。
 
@@ -87,7 +87,7 @@
 
 在實際情況中，如果有一個應用程式推送資料庫中某筆記錄的更新，然後又有另一個應用程式嘗試使用該記錄的過期版本欄位來推送同一筆記錄的更新，此時便會發生同步衝突。根據[開始使用離線資料]所述，您需要 version 系統屬性才能支援離線同步處理功能。每個資料庫更新都會檢查此版本資訊。如果應用程式的執行個體嘗試使用過期版本更新記錄，衝突便會發生，而且它會在應用程式中被當作 `MobileServicePreconditionFailedException` 加以攔截。如果應用程式未攔截 `MobileServicePreconditionFailedException`，則最後會擲回 `MobileServicePushFailedException` 以說明發生多少個同步錯誤。
 
->[AZURE.NOTE]若要使用離線資料同步支援刪除記錄的同步處理，您應啟用[虛刪除](mobile-services-using-soft-delete.md)。否則，您必須手動移除本機存放區中的記錄，或呼叫 `IMobileServiceSyncTable::PurgeAsync()` 以清除本機存放區。
+>[AZURE.NOTE] 若要使用離線資料同步支援刪除記錄的同步處理，您應啟用[虛刪除](mobile-services-using-soft-delete.md)。否則，您必須手動移除本機存放區中的記錄，或呼叫 `IMobileServiceSyncTable::PurgeAsync()` 以清除本機存放區。
 
 
 下列步驟說明如何使用範例同時執行 Windows Phone 8.1 和 Windows 市集 8.1 用戶端，以造成並解決衝突。
@@ -169,4 +169,4 @@
 [行動服務範例 GitHub 儲存機制]: http://go.microsoft.com/fwlink/?LinkId=512865
 [Todo 離線行動服務範例]: http://go.microsoft.com/fwlink/?LinkId=512866
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

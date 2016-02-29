@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # 在 Office 365 入口網站中建立或刪除 Azure Multi-Factor Authentication 的應用程式密碼
@@ -68,4 +68,4 @@
 <li>您將會看到確認刪除的快顯示窗。</li>
 <li>按一下 [是]。</li>
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

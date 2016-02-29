@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/11/2016"
 	ms.author="wesmc"/>
 
 # 使用行動服務中的虛刪除
@@ -36,7 +36,7 @@
 
 * 在使用[行動服務的離線資料同步]功能時，用戶端 SDK 會自動查詢已刪除的記錄，並將其從本機資料庫中移除。在未啟用虛刪除的情況下，您必須在後端另行撰寫程式碼，讓用戶端 SDK 得知要從本機存放區中移除哪些記錄。否則，用戶端本機存放區和後端的這些已刪除的記錄將會不一致，而必須呼叫用戶端方法 `PurgeAsync()` 來清理本機存放區。
 * 有些應用程式會有一律不實體刪除資料、或僅在稽核後刪除資料的商業需求。在此情況下，虛刪除功能就可派上用場。
-* 虛刪除可用來實作「取消刪除」功能，讓意外刪除的資料可以復原。不過，虛刪除的記錄會佔用資料庫中的空間，因此您應考慮建立排程的作業來定期實刪除已虛刪除的記錄。如需相關範例，請參閱 [對 .NET 後端使用虛刪除] 和 [對 JavaScript 後端使用虛刪除]。您的用戶端程式碼也應定期呼叫 `PurgeAsync()`，使這些實刪除的記錄不會保留在裝置的本機資料存放區中。
+* 虛刪除可用來實作「取消刪除」功能，讓意外刪除的資料可以復原。不過，虛刪除的記錄會佔用資料庫中的空間，因此您應考慮建立排程的作業來定期實刪除已虛刪除的記錄。如需相關範例，請參閱[對 .NET 後端使用虛刪除](#using-with-dotnet)和[對 JavaScript 後端使用虛刪除](#using-with-javascript)。您的用戶端程式碼也應定期呼叫 `PurgeAsync()`，使這些實刪除的記錄不會保留在裝置的本機資料存放區中。
 
 
 
@@ -113,7 +113,7 @@
 
 
 
-##對 JavaScript 後端使用虛刪除
+## <a name="using-with-javascript"></a> 對 JavaScript 後端使用虛刪除
 
 您可以使用資料表指令碼，為 JavaScript 後端行動服務的虛刪除功能新增邏輯。
 
@@ -165,4 +165,4 @@
 [行動服務的離線資料同步]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0218_2016-->

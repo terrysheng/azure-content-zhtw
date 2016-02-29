@@ -24,9 +24,9 @@
 
 **預估完成時間：**20 分鐘
 
-如需 Azure 金鑰保存庫的概觀資訊，請參閱[什麼是 Azure 金鑰保存庫？](key-vault/key-vault-whatis.md)。
+如需 Azure 金鑰保存庫的概觀資訊，請參閱[什麼是 Azure 金鑰保存庫？](../key-vault/key-vault-whatis.md)。
 
-如需 Azure 儲存體用戶端加密的概觀資訊，請參閱 [Microsoft Azure 儲存體用戶端加密入門](storage-client-side-encryption.md)。
+如需 Azure 儲存體用戶端加密的概觀資訊，請參閱 [Microsoft Azure 儲存體用戶端加密和 Azure 金鑰保存庫](storage-client-side-encryption.md)。
 
 
 ## 先決條件
@@ -40,7 +40,7 @@
 
 ## 用戶端加密概觀
 
-如需 Azure 儲存體用戶端加密的概觀，請參閱 [Microsoft Azure 儲存體用戶端加密入門](storage-client-side-encryption.md)。
+如需 Azure 儲存體用戶端加密的概觀，請參閱 [Microsoft Azure 儲存體用戶端加密和 Azure 金鑰保存庫](storage-client-side-encryption.md)。
 
 以下是用戶端加密運作方式的簡短描述：
 
@@ -51,7 +51,7 @@
 
 
 ## 設定 Azure 金鑰保存庫
-若要繼續進行本教學課程，您必須執行以下在教學課程[開始使用 Azure 金鑰保存庫](key-vault/key-vault-get-started.md)中所述的步驟：
+若要繼續進行本教學課程，您必須執行以下在教學課程[開始使用 Azure 金鑰保存庫](../key-vault/key-vault-get-started.md)中所述的步驟：
 
 - 建立金鑰保存庫。
 - 新增金鑰或密碼至金鑰保存庫。
@@ -235,4 +235,4 @@ RSA 金鑰的私密金鑰保留在保存庫金鑰中，為了進行解密，從�
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

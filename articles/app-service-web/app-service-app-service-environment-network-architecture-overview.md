@@ -31,6 +31,8 @@ App Service 環境一律會有公用虛擬 IP 位址 (VIP)。所有輸入流量�
 
 App Service 環境可以與各種私用客戶端點進行通訊。例如，在 App Service 環境中執行的應用程式可以連線至在相同虛擬網路拓撲之 IaaS 虛擬機器上執行的資料庫伺服器。
 
+[AZURE.IMPORTANT] 請查看網狀圖，「其他電腦資源」會部署在與 App Service 環境不同的子網路中。將資源部署於和 ASE 相同的子網路中，會封鎖從 ASE 連線到這些資源的連線 (除了特定的內部 ASE 路由之外)。請改為部署到 (相同 VNET 中) 不同的子網路。App Service 環境就能連線。不需要任何其他設定。
+
 App Service 環境也會與管理和操作 App Service 環境所需的 SQL 資料庫和 Azure 儲存體資源進行通訊。App Service 環境與之通訊的一些 SQL 和儲存體資源位於與 App Service 環境相同的區域中，有些則位於遠端 Azure 區域中。因此，一律需要到網際網路的輸出連線，App Service 環境才能正常運作。
 
 因為在子網路中部署 App Service 環境，所以可以使用網路安全性群組來控制對子網路的輸入流量。如需如何控制對 App Service 環境之輸入流量的詳細資料，請參閱下列[文章][controllinginboundtraffic]。
@@ -87,4 +89,4 @@ App Service 環境進行輸出呼叫時，IP 位址一律會與輸出呼叫相�
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->

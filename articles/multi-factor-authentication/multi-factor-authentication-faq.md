@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 常見問題集
@@ -75,7 +75,8 @@
 
 Azure Multi-Factor Authentication 能當作獨立服務選購，並按照使用者人次和驗證次數來計費，也能與 Azure Active Directory Premium、Enterprise Mobility Suite 和 Enterprise Cloud Suite 合購。獨立服務可依據消費基礎針對 Azure 承諾用量每月計費來取得，或是做為可透過 Microsoft Enterprise Agreement、Open 大量授權方案、雲端解決方案提供者方案和 Direct 取得之按照使用者人次的每年授權來取得。
 
->[AZURE.IMPORTANT]澳大利亞地區可供在澳大利亞或紐西蘭有營業據點的客戶使用。
+>[AZURE.IMPORTANT]
+澳大利亞地區可供在澳大利亞或紐西蘭有營業據點的客戶使用。
 
 計費模式 | 價格
 ------------- | ------------- |
@@ -136,7 +137,7 @@ Azure Multi-Factor Authentication 能當作獨立服務選購，並按照使用�
 如需有關建立應用程式密碼的資訊，請參閱[協助使用應用程式密碼](multi-factor-authentication-end-user-app-passwords.md)
 
 
->[AZURE.NOTE]適用於 Office 2013 用戶端的新式驗證
+>[AZURE.NOTE] 適用於 Office 2013 用戶端的新式驗證
 >
 > Office 2013 用戶端 (包括 Outlook) 現在支援新的驗證通訊協定，而且可以啟用 Multi-Factor Authentication 支援。這表示一旦啟用後，應用程式密碼就不需要使用於 Office 2013 用戶端。如需詳細資訊，請參閱[發表 Office 2013 新式驗證公開預覽](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)。
 
@@ -179,4 +180,4 @@ Azure Multi-Factor Authentication 服務會透過簡訊彙總工具傳送簡訊�
 
 此種情況的因應措施是使用不同的使用者帳戶進行系統管理相關作業和非系統管理作業。您稍後可以連結系統管理帳戶與非系統管理帳戶之間的信箱，以便使用非系統管理帳戶登入 Outlook。如需詳細資訊，請參閱[讓系統管理員能夠開啟及檢視使用者信箱的內容](http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

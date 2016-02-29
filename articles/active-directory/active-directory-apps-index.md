@@ -1,5 +1,5 @@
 <properties
-	pageTitle="描述 Azure Active Directory 中應用程式管理的每一篇文章 | Microsoft Azure"
+	pageTitle="Azure Active Directory 中應用程式管理的文章索引 | Microsoft Azure"
 	description="了解如何自訂同盟憑證的到期日期，以及如何更新即將到期的憑證。"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/16/2016"
 	ms.author="markvi;liviodlc"/>
 
 #Azure Active Directory 中應用程式管理的文章索引
@@ -24,7 +24,7 @@
 
 ##概觀文章
 
-對於只需要 Azure AD 應用程式管理功能之簡要說明的使用者，以下文章是很好的起點。本指南的其餘部分將深入探討這些主題。
+對於只需要 Azure AD 應用程式管理功能之簡要說明的使用者，以下文章是很好的起點。
 
 | 文章指南 | |
 | :---: | --- |
@@ -32,6 +32,18 @@
 | Azure AD 中與啟用單一登入、定義有權存取應用程式的人員，以及使用者如何啟動應用程式相關的各種功能概觀 | [Azure Active Directory 中的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md) |
 | 探討將應用程式整合至 Azure AD 時所涉及的不同步驟 | [整合 Azure Active Directory 與應用程式](active-directory-integrating-applications-getting-started.md)<br /><br />[啟用 SaaS 應用程式的單一登入](active-directory-sso-integrate-saas-apps.md)<br /><br />[管理應用程式的存取](active-directory-managing-access-to-apps.md) |
 | 如何在 Azure AD 中表示應用程式的技術說明 | [將應用程式加入 Azure AD 的方式和原因](active-directory-how-applications-are-added.md) |
+
+##疑難排解文章
+
+本節可讓您快速存取相關的疑難排解指南。在此頁面的其餘部分可以找到每個功能範圍的詳細資訊。
+
+| 功能範圍 | |
+| :---: | --- |
+| 同盟單一登入 | [對 SAML 型單一登入進行疑難排解](active-directory-saml-debugging.md) |
+| 密碼單一登入 | [疑難排解 Internet explorer 的存取面板擴充功能](active-directory-saas-ie-troubleshooting.md) |
+| 應用程式 Proxy | [應用程式 Proxy 疑難排解指南](active-directory-application-proxy-troubleshoot.md) |
+| 內部部署 AD 與 Azure AD 之間的單一登入 | [對密碼同步化進行疑難排解](active-directory-aadconnectsync-implement-password-synchronization.md#managing-password-synchronization)<br /><br />[對密碼回寫進行疑難排解](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) | 
+| 動態群組成員資格 | [對動態群組成員資格進行疑難排解](active-directory-accessmanagement-troubleshooting.md) |
 
 ##單一登入 (SSO)
 
@@ -42,13 +54,13 @@
 | 文章指南 | |
 | :---: | --- |
 | 簡介同盟和其他類型的登入 | [使用 Azure AD 進行單一登入](active-directory-appssoaccess-whatis.md) |
-| 透過已簡化摸單一登入設定步驟，與 Azure AD 預先整合的數千個 SaaS 應用程式 | [開始使用 Azure AD 應用程式資源庫](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[支援同盟的預先整合應用程式完整清單](http://aka.ms/aadfederatedapps)<br /><br />[如何將您的應用程式加入 Azure AD 應用程式資源庫](active-directory-app-gallery-listing.md) |
-| 150 個以上的應用程式教學課程，教導您如何設定應用程式的單一登入，這類應用程式包括 [Salesforce](active-directory-saas-salesforce-tutorial.md)、[ServiceNow](active-directory-saas-servicenow-tutorial.md)、[Google Apps](active-directory-saas-google-apps-tutorial.md)、[Workday](active-directory-saas-workday-tutorial.md)，以及其他 | [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md) |
-| 如何手動設定及自訂您的單一登入設定 | [如何對不在 Azure Active Directory 應用程式資源庫中的應用程式設定同盟單一登入](active-directory-saas-custom-apps.md)<br /><br />[如何對預先整合的應用程式自訂 SAML 權杖中發出的宣告](active-directory-saml-claims-customization.md) |
+| 透過已簡化摸單一登入設定步驟，與 Azure AD 預先整合的數千個 SaaS 應用程式 | [開始使用 Azure AD 應用程式庫](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[支援同盟的預先整合應用程式完整清單](http://aka.ms/aadfederatedapps)<br /><br />[如何將您的應用程式新增至 Azure AD 應用程式庫](active-directory-app-gallery-listing.md) |
+| 超過 150 個應用程式教學課程，教導您如何為 [Salesforce](active-directory-saas-salesforce-tutorial.md)、[ServiceNow](active-directory-saas-servicenow-tutorial.md)、[Google Apps](active-directory-saas-google-apps-tutorial.md)、[Workday](active-directory-saas-workday-tutorial.md) 等應用程式設定單一登入 | [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md) |
+| 如何手動設定及自訂您的單一登入設定 | [設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](active-directory-saas-custom-apps.md)<br /><br />[如何為預先整合的應用程式自訂在 SAML 權杖中發出的宣告](active-directory-saml-claims-customization.md) |
 | 使用 SAML 通訊協定的同盟應用程式疑難排解指南 | [對 SAML 型單一登入進行疑難排解](active-directory-saml-debugging.md) |
 | 如何設定應用程式的憑證到期日，以及如何更新憑證 | [在 Azure Active Directory 中管理同盟單一登入的憑證](active-directory-sso-certs.md) |
 
-同盟單一登入適用於所有版本的 Azure AD，每個使用者最多十個應用程式。[Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 支援無限多個應用程式。如果您的組織使用 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 或 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)，就可以[使用群組，將存取權指派給同盟應用程式](#how-to-manage-who-has-access-to-which-apps)。
+同盟單一登入適用於所有版本的 Azure AD，每個使用者最多十個應用程式。[Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 支援無限多個應用程式。如果您的組織具有 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 或 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)，您就可以[使用群組來指派對同盟應用程式的存取權](#how-to-manage-who-has-access-to-which-apps)。
 
 ###密碼型單一登入：非同盟應用程式的帳戶共用和 SSO
 
@@ -59,9 +71,9 @@
 | 密碼型 SSO 運作方式的簡介以及簡要的技術概觀 | [使用 Azure AD 進行密碼型單一登入](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
 | 與共用帳戶相關的案例以及 Azure AD 如何解決這些問題的摘要 | [使用 Azure AD 共用帳戶](active-directory-sharing-accounts.md) |
 | 自動定期變更特定應用程式的密碼 | [自動密碼變換 (預覽)](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx0) |
-| Internet Explorer 版本的 Azure AD 密碼管理擴充功能的部署和疑難排解指南 | [如何使用群組原則部署 Internet Explorer 存取面板擴充功能](active-directory-saas-ie-group-policy.md)<br /><br />[對 Internet explorer 的存取面板擴充功能進行疑難排解](active-directory-saas-ie-troubleshooting.md) |
+| Internet Explorer 版本的 Azure AD 密碼管理擴充功能的部署和疑難排解指南 | [如何使用群組原則部署 Internet Explorer 的存取面板延伸模組](active-directory-saas-ie-group-policy.md)<br /><br />[疑難排解 Internet Explorer 的存取面板延伸模組](active-directory-saas-ie-troubleshooting.md) |
 
-密碼型單一登入適用於所有版本的 Azure AD，每個使用者最多十個應用程式。[Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 支援無限多個應用程式。如果您的組織具有 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 或 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)，您就可以[使用群組，將存取權指派給應用程式](#how-to-manage-who-has-access-to-which-apps)。自動密碼變換是 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 功能。
+密碼型單一登入適用於所有版本的 Azure AD，每個使用者最多十個應用程式。[Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 支援無限多個應用程式。如果您的組織具有 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 或 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)，您就可以[使用群組來指派對應用程式的存取權](#how-to-manage-who-has-access-to-which-apps)。自動密碼變換是一項 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 功能。
 
 ###應用程式 Proxy：單一登入和遠端存取內部部署應用程式
 
@@ -70,14 +82,14 @@
 | 文章指南 | |
 | :---: | --- |
 | Azure AD 應用程式 Proxy 及其運作方式的概觀 | [提供安全的內部部署應用程式遠端存取](active-directory-application-proxy-get-started.md)<br /><br />[Azure AD 應用程式 Proxy 如何運作？](active-directory-appssoaccess-enable-hybrid-access.md) |
-| 如何設定應用程式 Proxy 以及如何發佈第一個應用程式的教學課程 | [如何設定安裝 Azure AD 應用程式 Proxy](active-directory-application-proxy-enable.md)<br /><br />[如何以無訊息方式安裝應用程式 Proxy 連接器](active-directory-application-proxy-silent-installation.md)<br /><br />[如何使用應用程式 Proxy 發佈應用程式](active-directory-application-proxy-publish.md)<br /><br />[如何使用您自己的網域名稱](active-directory-application-proxy-custom-domains.md) |
+| 如何設定應用程式 Proxy 以及如何發佈第一個應用程式的教學課程 | [如何設定 Azure AD 應用程式 Proxy](active-directory-application-proxy-enable.md)<br /><br />[如何以無訊息方式安裝應用程式 Proxy 連接器](active-directory-application-proxy-silent-installation.md)<br /><br />[如何使用應用程式 Proxy 發佈應用程式](active-directory-application-proxy-publish.md)<br /><br />[如何使用您自己的網域名稱](active-directory-application-proxy-custom-domains.md) |
 | 如何對使用應用程式 Proxy 發佈的應用程式啟用單一登入和條件式存取 | [使用應用程式 Proxy 進行單一登入](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[條件式存取和應用程式 Proxy](active-directory-application-proxy-conditional-access.md) |
-| 如何對下列案例使用應用程式 Proxy 的指引 | [如何支援原生用戶端應用程式](active-directory-application-proxy-native-client.md)<br /><br />[如何支援宣告感知應用程式](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[如何支援個別網路和位置上發佈的應用程式](active-directory-application-proxy-connectors.md) |
+| 如何對下列案例使用應用程式 Proxy 的指引 | [如何支援原生用戶端應用程式](active-directory-application-proxy-native-client.md)<br /><br />[如何支援宣告感知 (Claims-Aware) 應用程式](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[如何支援在個別網路和位置上發行的應用程式](active-directory-application-proxy-connectors.md) |
 | 應用程式 Proxy 的疑難排解指南 | [應用程式 Proxy 疑難排解指南](active-directory-application-proxy-troubleshoot.md) |
 
-應用程式 Proxy 適用於所有版本的 Azure AD，每個使用者最多十個應用程式。[Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 支援無限多個應用程式。如果您的組織具有 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 或 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)，您就可以[使用群組，將存取權指派給應用程式](#how-to-manage-who-has-access-to-which-apps)。
+應用程式 Proxy 適用於所有版本的 Azure AD，每個使用者最多十個應用程式。[Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 支援無限多個應用程式。如果您的組織具有 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 或 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)，您就可以[使用群組來指派對應用程式的存取權](#how-to-manage-who-has-access-to-which-apps)。
 
-您也可能會對 [Azure AD 網域服務](active-directory-ds-overview.md)產生興趣，因為這些服務可讓您將內部部署應用程式移轉到 Azure 的同時，仍能滿足應用程式的身分識別需求。
+您也可能會對 [Azure AD 網域服務](../active-directory-domain-services/active-directory-ds-overview.md)產生興趣，這些服務可讓您將內部部署應用程式移轉到 Azure，同時又滿足這些應用程式的身分識別需求。
 
 ###在 Azure AD 與內部部署 AD 之間啟用單一登入
 
@@ -87,10 +99,12 @@
 | :---: | --- |
 | Azure AD Connect 中提供之單一登入選項的概觀，以及管理混合式環境的相關資訊 | [Azure AD Connect 中的使用者登入選項](active-directory-aadconnect-user-signin.md) |
 | 同時使用內部部署 Active Directory 和 Azure Active Directory 管理環境的一般指引 | [Azure AD 混合式身分識別設計考量](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md) |
-| 使用密碼同步處理來啟用 SSO，以及如何使用密碼回寫與 Azure AD 自助式密碼重設搭配的指引 | [使用 Azure AD Connect 實作密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[開始使用 Azure AD 中的密碼管理](active-directory-passwords-getting-started.md) |
+| 使用密碼同步處理來啟用 SSO 的相關指導方針 | [使用 Azure AD Connect 實作密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[對密碼同步處理進行疑難排解](https://support.microsoft.com/zh-TW/kb/2855271) |
+| 使用密碼回寫來啟用 SSO 的相關指導方針 | [開始使用 Azure AD 中的密碼管理](active-directory-passwords-getting-started.md)<br /><br />[疑難排解密碼回寫](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| 使用協力廠商身分識別提供者來啟用 SSO 的指導方針 | [可用來啟用單一登入的相容協力廠商身分識別提供者清單](https://aka.ms/ssoproviders) | 
 | Windows 10 使用者如何透過 Azure AD Join 享受單一登入的優點 | [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-overview.md) |
 
-Azure AD Connect 適用於[所有版本的 Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)。Azure AD 自助式密碼重設適用於 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 和 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)。密碼回寫至內部部署 AD 是 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 功能。
+Azure AD Connect 適用於[所有版本的 Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)。「Azure AD 自助式密碼重設」適用於 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 和 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)。對內部部署 AD 進行「密碼回寫」是一項 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 功能。
 
 ###條件式存取：強制高風險應用程式符合額外的安全性需求
 
@@ -99,11 +113,11 @@ Azure AD Connect 適用於[所有版本的 Azure Active Directory](https://azure
 | 文章指南 | |
 | :---: | --- |
 | 簡介跨 Azure AD、Office365 和 Intune 提供的條件式存取功能 | [使用條件式存取管理風險](active-directory-conditional-access.md) |
-| 如何為下列類型的資源啟用條件式存取 | [SaaS 應用程式的條件式存取](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Office 365 服務的條件式存取](active-directory-conditional-access-device-policies.md)<br /><br />[內部部署應用程式的條件式存取](active-directory-conditional-access-on-premises-setup.md)<br /><br />[透過 Azure AD App Proxy 發佈之內部部署應用程式的條件式存取](active-directory-application-proxy-conditional-access.md) |
-| 如何向 Azure Active Directory 註冊裝置，以便啟用裝置型條件式存取原則 | [Azure Active Directory 裝置註冊的概觀](active-directory-conditional-access-device-registration-overview.md)<br /><br />[如何對加入網域的 Windows 裝置啟用自動裝置註冊](active-directory-conditional-access-automatic-device-registration.md)<br />— [適用於 Windows 8.1 裝置的步驟](active-directory-conditional-access-automatic-device-registration-windows8_1.md)<br />— [適用於 Windows 7 裝置的步驟](active-directory-conditional-access-automatic-device-registration-windows7.md) |
+| 如何為下列類型的資源啟用條件式存取 | [SaaS 應用程式的條件式存取](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Office 365 服務的條件式存取](active-directory-conditional-access-device-policies.md)<br /><br />[內部部署應用程式的條件式存取](active-directory-conditional-access-on-premises-setup.md)<br /><br />[透過 Azure AD 應用程式 Proxy 發佈之內部部署應用程式的條件式存取](active-directory-application-proxy-conditional-access.md) |
+| 如何向 Azure Active Directory 註冊裝置，以便啟用裝置型條件式存取原則 | [Azure Active Directory 裝置註冊概觀](active-directory-conditional-access-device-registration-overview.md)<br /><br />[如何為加入網域的 Windows 裝置啟用自動裝置註冊](active-directory-conditional-access-automatic-device-registration.md)<br />— [適用於 Windows 8.1 裝置的步驟](active-directory-conditional-access-automatic-device-registration-windows8_1.md)<br />— [適用於 Windows 7 裝置的步驟](active-directory-conditional-access-automatic-device-registration-windows7.md) |
 | 如何對包括 Multi-Factor Authentication 的原則使用 Android 版本的 Azure Authenticator 應用程式 | [適用於 Android 的 Azure Authenticator](active-directory-conditional-access-azure-authenticator-app.md) |
 
-條件式存取是 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 功能。
+「條件式存取」是一項 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 功能。
 
 
 ##應用程式和 Azure AD
@@ -120,7 +134,7 @@ Cloud App Discovery 有助於 IT 部門了解整個組織正在使用哪些 SaaS
 | 部署 Cloud App Discovery 的教學課程 | [群組原則部署指南](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[System Center 部署指南](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[在具有自訂連接埠的 Proxy 伺服器上安裝](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |
 | Cloud App Discovery 代理程式之更新的變更記錄檔 | [變更記錄檔](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx) |
 
-Cloud App Discovery 是 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 功能。
+Cloud App Discovery 是一項 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 功能。
 
 ###自動佈建和取消佈建 SaaS 應用程式中的使用者帳戶
 
@@ -128,13 +142,13 @@ Cloud App Discovery 是 [Azure AD Premium](https://azure.microsoft.com/pricing/d
 
 | 文章指南 | |
 | :---: | --- |
-| 了解其運作方式，並尋找常見問題的解答 | [讓使用者自動佈建/取消佈建 SaaS 應用程式](active-directory-saas-app-provisioning.md) |
+| 了解其運作方式，並尋找常見問題的解答 | [將 SaaS 應用程式的使用者佈建/取消佈建自動化](active-directory-saas-app-provisioning.md) |
 | 設定如何在 Azure AD 與您的 SaaS 應用程式之間對應資訊 | [自訂屬性對應](active-directory-saas-customizing-attribute-mappings.md)<br><br>[撰寫屬性對應的運算式](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | 如何對任何支援 SCIM 通訊協定的應用程式啟用自動化佈建 | [對任何啟用 SCIM 的應用程式設定自動化使用者佈建](active-directory-scim-provisioning.md) |
 | 取得佈建失敗的通知 | [佈建通知](active-directory-saas-account-provisioning-notifications.md) |
 | 根據應用程式的屬性值限制可以佈建應用程式的人員 | [範圍篩選器](active-directory-saas-scoping-filters.md) |
 
-自動化使用者佈建適用於所有版本的 Azure AD，每個使用者最多十個應用程式。[Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 支援無限多個應用程式。如果您的組織具有 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 或 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)，您就可以[使用群組，管理將佈建哪些使用者](#how-to-manage-who-has-access-to-which-apps)。
+自動化使用者佈建適用於所有版本的 Azure AD，每個使用者最多十個應用程式。[Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 支援無限多個應用程式。如果您的組織具有 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 或 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)，您就可以[使用群組來管理要佈建哪些使用者](#how-to-manage-who-has-access-to-which-apps)。
 
 ###建置與 Azure AD 整合的應用程式
 
@@ -142,11 +156,11 @@ Cloud App Discovery 是 [Azure AD Premium](https://azure.microsoft.com/pricing/d
 
 | 文章指南 | |
 | :---: | --- |
-| 有關 IT 專業人員和應用程式開發人員整合應用程式與 Azure AD 的指南 | [為 Azure AD 開發應用程式的 IT 專家指南](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Azure Active Directory 的開發人員指南](active-directory-developers-guide.md) |
+| 有關 IT 專業人員和應用程式開發人員整合應用程式與 Azure AD 的指南 | [適用於開發 Azure AD 應用程式的 IT 專業人員指南](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Azure Active Directory 的開發人員指南](active-directory-developers-guide.md) |
 | 應用程式廠商如何將其應用程式新增至 Azure AD 應用程式資源庫 | [在 Azure Active Directory 應用程式資源庫中列出您的應用程式](active-directory-app-gallery-listing) |
-| 如何使用 Azure Active Directory 管理所開發之應用程式的存取 | [如何對開發的應用程式啟用使用者指派](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[將使用者指派給您的應用程式](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[將群組指派給您的應用程式](active-directory-applications-guiding-developers-assigning-groups.md) |
+| 如何使用 Azure Active Directory 管理所開發之應用程式的存取 | [如何為所開發的應用程式啟用使用者指派](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[將使用者指派給您的應用程式](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[將群組指派給您的應用程式](active-directory-applications-guiding-developers-assigning-groups.md) |
 
-如果您是開發取用者導導向應用程式，則可能有興趣使用 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)，讓您不必開發專屬的身分識別系統，即可管理您的使用者。[深入了解](../active-directory-b2c/active-directory-b2c-overview.md)。
+如果您開發的是消費者對應應用程式，您可能會對使用 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) 感興趣，這可讓您不必開發自己的身分識別系統，即可管理您的使用者。[深入了解](../active-directory-b2c/active-directory-b2c-overview.md)。
 
 
 ##管理應用程式的存取
@@ -157,10 +171,10 @@ Cloud App Discovery 是 [Azure AD Premium](https://azure.microsoft.com/pricing/d
 
 | 文章指南 | |
 | :---: | --- |
-| Azure AD 存取管理功能的概觀 | [簡介如何管理應用程式的存取](active-directory-managing-access-to-apps.md)<br /><br />[存取管理在 Azure AD 的運作方式](active-directory-manage-groups.md)<br /><br />[如何使用群組管理 SaaS 應用程式的存取](active-directory-accessmanagement-group-saasapps.md) |
+| Azure AD 存取管理功能的概觀 | [管理應用程式存取簡介](active-directory-managing-access-to-apps.md)<br /><br />[存取管理在 Azure AD 的運作方式](active-directory-manage-groups.md)<br /><br />[如何使用群組管理 SaaS 應用程式的存取權](active-directory-accessmanagement-group-saasapps.md) |
 | 啟用應用程式和群組的自助式管理 | [自助式應用程式管理](active-directory-self-service-application-access.md)<br /><br />[自助式群組管理](active-directory-accessmanagement-self-service-group-management.md) |
-| 在 Azure AD 設定群組的指示 | [如何建立安全性群組](active-directory-accessmanagement-manage-groups.md)<br /><br />[如何指定群組的擁有者](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[如何使用 「所有使用者」群組](active-directory-accessmanagement-dedicated-groups.md) |
-| 使用動態群組，利用屬性型成員資格規則自動填入群組成員資格 | [動態群組成員資格：簡單規則](active-directory-accessmanagement-simplerulegroup.md)<br /><br />[動態群組成員資格：進階規則](active-directory-accessmanagement-groups-with-advanced-rules.md)<br /><br />[對動態群組成員資格進行疑難排解](active-directory-accessmanagement-troubleshooting.md) |
+| 在 Azure AD 設定群組的指示 | [如何建立安全性群組](active-directory-accessmanagement-manage-groups.md)<br /><br />[如何指定群組的擁有者](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[如何使用「所有使用者」群組](active-directory-accessmanagement-dedicated-groups.md) |
+| 使用動態群組，利用屬性型成員資格規則自動填入群組成員資格 | [動態群組成員資格：簡單規則](active-directory-accessmanagement-simplerulegroup.md)<br /><br />[動態群組成員資格：進階規則](active-directory-accessmanagement-groups-with-advanced-rules.md)<br /><br />[疑難排解群組的動態成員資格](active-directory-accessmanagement-troubleshooting.md) |
 
 群組型應用程式存取管理適用於 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 和 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)。自助式群組管理、自助式應用程式管理以及動態群組是 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 功能。
 
@@ -171,11 +185,11 @@ Cloud App Discovery 是 [Azure AD Premium](https://azure.microsoft.com/pricing/d
 | 文章指南 | |
 | :---: | --- |
 | 不同 Azure AD 功能的概觀，協助您管理外部使用者，例如合作夥伴、 客戶等。 | [比較 Azure AD 中管理外部身分識別的功能](active-directory-b2b-compare-external-identities.md) |
-| 簡介 B2B 共同作業預覽，以及如何開始使用 | [簡單且安全的雲端與 Azure AD 合作夥伴整合](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B 共同作業](active-directory-b2b-collaboration-overview.md) |
+| 簡介 B2B 共同作業預覽，以及如何開始使用 | [簡單安全的雲端合作夥伴與 Azure AD 整合](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory B2B 共同作業](active-directory-b2b-collaboration-overview.md) |
 | 深入探討 Azure AD B2B 共同作業及其使用方式 | [B2B 共同作業：運作方式](active-directory-b2b-how-it-works.md)<br /><br />[Azure AD B2B 共同作業預覽的目前限制](active-directory-b2b-current-preview-limitations.md)<br /><br />[使用 Azure AD B2B 共同作業預覽的詳細逐步解說](active-directory-b2b-detailed-walkthrough.md) |
-| 具有 Azure AD B2B 共同作業如何運作的技術詳細資料參考文章 | [新增合作夥伴使用者的 CSV 檔案格式](active-directory-b2b-references-csv-file-format.md)<br /><br />[受 Azure AD B2B 共同作業影響的使用者屬性](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[合作夥伴使用者的使用者權杖格式](active-directory-b2b-references-external-user-token-format.md) |
+| 具有 Azure AD B2B 共同作業如何運作的技術詳細資料參考文章 | [適用於新增合作夥伴使用者的 CSV 檔案格式](active-directory-b2b-references-csv-file-format.md)<br /><br />[受 Azure AD B2B 共同作業影響的使用者屬性](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[合作夥伴使用者的使用者權杖格式](active-directory-b2b-references-external-user-token-format.md) |
 
-B2B 共同作業預覽目前適用於[所有版本的 Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)。
+「B2B 共同作業」預覽目前適用於[所有版本的 Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)。
 
 ###存取面板：存取應用程式和自助式功能的入口網站
 
@@ -184,12 +198,12 @@ B2B 共同作業預覽目前適用於[所有版本的 Azure Active Directory](ht
 | 文章指南 | |
 | :---: | --- |
 | 將單一登入應用程式部署到使用者可用的各種選項比較 | [對使用者部署 Azure AD 整合應用程式](active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users) |
-| 存取面板和其行動對等 MyApps 的概觀 | [簡介存取面板和 MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
+| 存取面板和其行動對等 MyApps 的概觀 | [存取面板和 MyApps 簡介](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | 如何從 Office 365 網站存取 Azure AD 應用程式 | [使用 Office 365 應用程式啟動程式](https://support.office.com/zh-TW/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | 如何從 Intune Managed Browser 行動應用程式存取 Azure AD 應用程式 | [Intune Managed Browser](https://technet.microsoft.com/zh-TW/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | 如何使用深層連結來存取 Azure AD 應用程式以起始單一登入 | [取得應用程式的直接登入連結](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
-存取面板適用於[所有版本的 Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)。
+「存取面板」適用於[所有版本的 Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)。
 
 ###報告：輕鬆稽核應用程式存取變更及監視應用程式的登入
 
@@ -198,7 +212,7 @@ Azure Active Directory 提供數個報告和警示，以協助您監視組織對
 | 文章指南 | |
 | :---: | --- |
 | Azure Active Directory 中報告功能的概觀 | [開始使用 Azure AD 報告](active-directory-reporting-getting-started.md) |
-| 如何監視使用者的登入和應用程式使用情況 | [檢視您的存取和使用情況報告](active-directory-view-access-usage-reports.md)<br /><br />[Azure Active Directory 所有使用者登入活動報告](active-directory-reporting-all-user-sign-in-activity-report.md) |
+| 如何監視使用者的登入和應用程式使用情況 | [檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)<br /><br />[Azure Active Directory 所有使用者登入活動報告](active-directory-reporting-all-user-sign-in-activity-report.md) |
 | 追蹤對可以存取特定應用程式所做變更的人員 | [Azure Active Directory 稽核報告事件](active-directory-reporting-audit-events.md) |
 | 使用報告 API，將這些報告的資料匯出至您偏好的工具 | [開始使用 Azure AD 報告 API](active-directory-reporting-api-getting-started.md) |
 
@@ -214,4 +228,4 @@ Azure Active Directory 提供數個報告和警示，以協助您監視組織對
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

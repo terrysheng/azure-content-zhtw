@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell;billmath"/>
 
 
-# Azure AD Connect 所需的帳戶和權限
+# Azure AD Connect：帳戶與權限
 
 Azure AD Connect 安裝精靈提供兩個不同的路徑：
 
@@ -36,7 +36,7 @@ Azure AD Connect 安裝精靈提供兩個不同的路徑：
 
 
 ## 快速設定安裝
-在快速設定中，安裝精靈會要求企業管理員認證，讓您可以設定內部部署 Active Directory，使其具備 Azure AD Connect 所需的權限。如果是從 DirSync 升級，企業管理員認證可用來重設 DirSync 所使用的帳戶的密碼。
+在「快速設定」中，安裝精靈會要求提供「AD DS 企業系統管理員」認證，以便設定您的內部部署 Active Directory，使其具備必要的 Azure AD Connect 權限。如果您是從 DirSync 升級，「AD DS 企業系統管理員」認證可用來重設 DirSync 所使用帳戶的密碼。您也會需要「Azure AD 全域管理員」認證。
 
 精靈頁面 | 收集的認證 | 所需的權限| 用於
 ------------- | ------------- |------------- |------------- |
@@ -48,10 +48,22 @@ N/A|執行安裝精靈的使用者| 本機伺服器的系統管理員| <li>建�
 這些認證只能在安裝期間使用，而不能在安裝完成後使用。它是企業管理員而不是網域管理員，以確定可以在所有網域中設定 Active Directory 中的權限。
 
 ### 全域管理員認證
-這些認證只能在安裝期間使用，而不能在安裝完成後使用。它是用來建立 [Azure AD 帳戶](#azure-ad-service-account)，用於同步處理變更至 Azure AD。帳戶也會在 Azure AD 中啟用同步做為一項功能。使用的帳戶不能啟用 MFA。
+這些認證只能在安裝期間使用，而不能在安裝完成後使用。它是用來建立 [Azure AD 帳戶](#azure-ad-service-account)，用於同步處理變更至 Azure AD。帳戶也會在 Azure AD 中啟用同步做為一項功能。
+
+### 所建立之快速設定 AD DS 帳戶的權限
+為了讀取和寫入 AD DS 而建立的[帳戶](#active-directory-account)如果是由快速設定所建立，將會具備下列權限：
+
+| 權限 | 用於 |
+| ---- | ---- |
+| <li>複寫目錄變更</li><li>複寫目錄變更 (全部) | 密碼同步處理 |
+| 讀取/寫入所有屬性 (使用者) | 匯入和 Exchange 混合 |
+| 讀取/寫入所有屬性 (iNetOrgPerson) | 匯入和 Exchange 混合 |
+| 讀取/寫入所有屬性 (群組) | 匯入和 Exchange 混合 |
+| 讀取/寫入所有屬性 (連絡人) | 匯入和 Exchange 混合 |
+| 重設密碼 | 啟用密碼回寫的準備工作 |
 
 ## 自訂設定安裝
-使用自訂設定時，必須在安裝之前建立用來連接到 Active Directory 的帳戶。
+使用自訂設定時，必須在安裝之前建立用來連接到 Active Directory 的帳戶。您可以在[建立 AD DS 帳戶](#create-the-ad-ds-account)中找到必須授與此帳戶的權限。
 
 精靈頁面 | 收集的認證 | 所需的權限| 用於
 ------------- | ------------- |------------- |-------------
@@ -74,7 +86,7 @@ AD FS 服務帳戶頁面，「使用網域使用者帳戶選項」|AD 使用者�
 | 密碼同步處理 | <li>複寫目錄變更</li> <li>複寫所有目錄變更 |
 | Exchange 混合式部署 | [Exchange 混合回寫](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback)中記載了使用者、群組和連絡人適用的屬性的寫入權限。 |
 | 密碼回寫 | [開始使用密碼管理](active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions)中記載了使用者適用的屬性的寫入權限。 |
-| 裝置回寫 | [裝置回寫](active-directory-aadconnect-get-started-custom-device-writeback.md)中所述的使用 PowerShell 指令碼授與權限。|
+| 裝置回寫 | [裝置回寫](active-directory-aadconnect-feature-device-writeback.md)中所述的使用 PowerShell 指令碼授與權限。|
 | 群組回寫 | 讀取、建立、更新和刪除散發群組所在 OU 中的群組物件。|
 
 ## 升級
@@ -95,20 +107,20 @@ AD FS 服務帳戶頁面，「使用網域使用者帳戶選項」|AD 使用者�
 ![AD 帳戶](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 ### Azure AD Connect 同步處理服務帳戶
-安裝精靈會建立兩個本機服務帳戶 (除非您在自訂設定指定要使用的帳戶)。前置詞是 **AAD\_** 的帳戶是實際同步處理服務的執行身分。如果您在網域控制站上安裝 Azure AD Connect，則會在網域中建立帳戶。如果您在遠端伺服器上使用 SQL Server，**AAD\_** 服務帳戶必須位於網域中。前置詞是 **AADSyncSched\_** 的帳戶用於正在執行同步引擎的排程工作。
+安裝精靈會建立本機服務帳戶 (除非您在自訂設定指定要使用的帳戶)。此帳戶的前面會加上 **AAD\_** 並用來做為實際同步處理服務的執行身分。如果您在網域控制站上安裝 Azure AD Connect，則在網域中建立帳戶。如果您使用執行 SQL Server 的遠端伺服器，**AAD\_** 服務帳戶就必須位於網域中。
 
 ![同步服務帳戶](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
 會使用不會過期的長複雜密碼建立帳戶。
 
-對於同步處理引擎服務帳戶，此帳戶將由 Windows 用來儲存加密金鑰，使得此帳戶的密碼不被重設或變更。
+此帳戶將由 Windows 用來儲存加密金鑰，使得此帳戶的密碼不被重設或變更。
 
 如果您使用完整的 SQL Server，那麼服務帳戶將會是為同步引擎建立的資料庫的 DBO。使用其他權限，服務將無法如預期般運作。也會建立 SQL 登入。
 
 此帳戶也會獲授與檔案、登錄機碼及與其他同步引擎相關的物件權限。
 
 ### Azure AD 服務帳戶
-將會在 Azure AD 中建立帳戶供同步服務使用。此帳戶可以用它的顯示名稱來識別。
+將會在 Azure AD 中建立帳戶供同步服務使用。此帳戶可以由其顯示名稱來識別。
 
 ![AD 帳戶](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
 
@@ -122,4 +134,4 @@ AD FS 服務帳戶頁面，「使用網域使用者帳戶選項」|AD 使用者�
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

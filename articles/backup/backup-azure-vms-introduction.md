@@ -1,11 +1,12 @@
 <properties
 	pageTitle="在 Azure 中規劃 VM 備份基礎結構 | Microsoft Azure"
-	description="在 Azure 中規劃 VM 備份基礎結構的重要考量"
+	description="在 Azure 中備份虛擬機器時的重要考量"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="備份 VM, 備份虛擬機器"/>
 
 <tags
 	ms.service="backup"
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/12/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # 在 Azure 中規劃 VM 備份基礎結構
-本文涵蓋在規劃虛擬機器 (VM) 備份基礎結構時，您應該特別注意的重要考量。若您已經[準備好您的環境](backup-azure-vms-prepare.md)，這是在開始[備份您的 VM](backup-azure-vms.md)之前的下一步。如果您需要 Azure 虛擬機器的詳細資訊，請參閱[虛擬機器文件](https://azure.microsoft.com/documentation/services/virtual-machines/)。
+本文章涵蓋計劃在 Azure 中備份虛擬機器時需注意的重點。如果您已經[準備好環境](backup-azure-vms-prepare.md)，這是您開始[備份 VM](backup-azure-vms.md) 之前的下一個步驟。如果您需要 Azure 虛擬機器的詳細資訊，請參閱[虛擬機器文件](https://azure.microsoft.com/documentation/services/virtual-machines/)。
 
 ## Azure 如何備份虛擬機器？
 Azure 備份服務在排定的時間開始備份工作時，會觸發備份擴充功能以建立時間點快照集。此快照是與磁碟區陰影複製服務 (VSS) 搭配擷取，以在而無需將虛擬機器中磁碟關閉的狀況下，取得所有磁碟一致的快照集。
@@ -120,4 +121,4 @@ Azure 備份不會在備份過程中加密資料。不過，您可以在 VM 中�
 - [還原虛擬機器](backup-azure-restore-vms.md)
 - [疑難排解 VM 備份問題](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="使用 Site Recovery 在內部部署 Hyper-V 虛擬機器與 Azure (沒有 VMM) 之間複寫 | Microsoft Azure"
-	description="Azure Site Recovery 可將內部部署伺服器上的虛擬機器複寫、容錯移轉，以及將位於內部部署 Hyper-V 伺服器上的虛擬機器復原到 Azure。"
+	description="本文說明如何使用 Azure Site Recovery，將不在 VMM 雲端中管理的 Hyper-V 虛擬機器複寫至 Azure。"
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,19 +13,22 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/10/2015"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 
 # 使用 Azure Site Recovery 在內部部署 Hyper-V 虛擬機器與 Azure (沒有 VMM) 之間複寫
 
-Azure Site Recovery 可在一些部署案例中協調虛擬機器和實體伺服器的複寫、容錯移轉及復原，為您的商務持續性與災害復原 (BCDR) 做出貢獻。[深入了解](site-recovery-overview.md) Site Recovery。
+Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原 (BCDR) 策略，為您的商務持續性與災害復原做出貢獻。機器可以複寫至 Azure，或次要的內部部署資料中心。如需快速概觀，請參閱[什麼是 Azure Site Recovery？](site-recovery-overview.md)。
 
 ## 概觀
 
-本文說明如何部署 Site Recovery，在執行 Windows Server 2012 R2 的 Hyper-V 主機未在 System Center Virtual Machine Manager (VMM) 雲端中受管理時，複寫 Hyper-V 虛擬機器。
+本文說明當 Hyper-V 主機不在 System Center Virtual Machine Manager (VMM) 雲端中受管理時，如何部署 Site Recovery 來複寫 Hyper-V 虛擬機器。
 
-本文將摘要說明部署的必要條件，可協助您設定複寫設定，並啟用虛擬機器的保護。最後它會測試容錯移轉，藉此確定一切如預期般運作。如果您遇到問題，請將您的問題張貼到 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)。
+本文將摘要說明部署的必要條件，可協助您設定複寫設定，並啟用虛擬機器的保護。最後它會測試容錯移轉，藉此確定一切如預期般運作。
+
+
+在這篇文章下方或 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)中張貼意見或問題。
 
 
 ## 開始之前
@@ -56,11 +59,11 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器和實體伺服
 - 建議您一律執行最新版本的提供者和代理程式。這些程式可以在 Site Recovery 入口網站中取得。
 - 保存庫中的所有 Hyper-V 伺服器應該有相同版本的提供者和代理程式。
 - 伺服器上執行的提供者會透過網際網路連接到 Site Recovery。您不需要使用 Poxy 就能選擇執行這個動作，方法是使用目前設定於 Hyper-V 伺服器上的 Poxy 設定，或使用您在提供者安裝期間所設定的自訂 Poxy 設定。您必須確定您想要使用的 Proxy 伺服器可以存取這些 URL 以連接到 Azure：
-	- *.hypervrecoverymanager.windowsazure.com
-	- *.accesscontrol.windows.net
-	- *.backup.windowsazure.com
-	- *.blob.core.windows.net
-	- *.store.core.windows.net
+	- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
 	
 - 此外，允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 
@@ -292,4 +295,4 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器和實體伺服
 
 在您的部署設定完成並開始執行之後，[深入了解](site-recovery-failover.md)容錯移轉。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

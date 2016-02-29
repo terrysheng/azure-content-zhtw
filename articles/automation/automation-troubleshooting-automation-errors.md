@@ -139,6 +139,42 @@
 
   <br/>
 
+## 疑難排解使用 Desired State Configuration (DSC) 時的常見錯誤  
+
+### 案例：節點處於失敗狀態，並發生「找不到」錯誤
+
+**錯誤：**節點回報狀態「失敗」，包含「嘗試從伺服器 https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction 取得動作失敗，因為找不到有效組態 <guid>」錯誤。
+
+**錯誤原因：**此錯誤通常是因為節點被指派至組態名稱 (例如，ABC) 而不是節點組態名稱 (例如，ABC.WebServer)。
+
+**疑難排解提示：**再次確認正在使用節點組態名稱，且您不是使用組態名稱。您可以使用入口網站中節點刀鋒視窗上的 [指派節點組態] 按鈕或是 Set-AzureRMAutomationDscNode Cmdlet，將節點對映至有效的節點組態。
+
+### 案例：執行組態編譯時沒有產生任何節點組態 (mof 檔案)
+
+**錯誤：**發生下列錯誤，您的 DSC 編譯作業已暫停：「編譯已順利完成，但是沒有產生任何節點組態 .mofs」。
+
+**錯誤原因：**DSC 組態中「節點」旁邊的運算式評估為 $null 時，將不會產生任何節點組態。
+
+**疑難排解提示：**檢查節點旁邊的運算式未評估為 $null。如果您正在傳入 ConfigurationData，請確定您正在傳入組態向組態資料要求的預期值。例如，“$AllNodes。如需詳細資訊，請參閱 https://azure.microsoft.com/zh-TW/documentation/articles/automation-dsc-compile/#configurationdata。
+
+### 案例：DSC 節點報告會停留在「進行中」狀態
+
+**錯誤：**DSC 代理程式會輸出「使用指定的指定的屬性值找不到執行個體」。
+
+**錯誤原因：**您已經升級 WMF 版本，且 WMI 已損毀。
+
+**疑難排解提示：**遵循這篇文章中的指示來修正問題：https://msdn.microsoft.com/zh-TW/powershell/wmf/limitation_dsc
+
+### 案例：無法在 DSC 組態中使用認證 
+
+**錯誤：**發生下列錯誤，您的 DSC 編譯作業已暫停：「System.InvalidOperationException 錯誤正在處理 '<some resource name>' 類型的屬性 'Credential'：只有在 PSDscAllowPlainTextPassword 設為 true 時才允許轉換加密密碼並儲存為純文字」。
+
+**錯誤原因：**您嘗試在組態中使用認證，但未傳入適當的 ConfigurationData 來針對每個節點組態將 PSAllowPlainTextPassword 設定為 true。
+
+**疑難排解提示：**請確定傳入適當的 ConfigurationData，以針對組態中說明的各個節點組態將 PSAllowPlainTextPassword 設定為 true。如需詳細資訊，請參閱 https://azure.microsoft.com/zh-TW/documentation/articles/automation-dsc-compile/#assets。
+
+  <br/>
+
 ## 後續步驟
 
 如果您已遵循上述的疑難排解步驟，並且需要本文中任何要點的額外協助，您可以：
@@ -151,4 +187,4 @@
 
 - 在 [User Voice](https://feedback.azure.com/forums/34192--general-feedback) 上張貼「Azure 自動化」的意見反應或功能要求。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

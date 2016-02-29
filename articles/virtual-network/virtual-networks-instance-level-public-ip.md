@@ -12,13 +12,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/10/2016"
    ms.author="telmos" />
 
 # 執行個體層級公用 IP 概觀
 執行個體層級公用 IP (ILPIP) 是您可以直接指派至 VM 或角色執行個體的 IP 位址，而不是指派至 VM 或角色執行個體所在的雲端服務。這不會取代指派給雲端服務的 VIP (虛擬 IP)。應該說是您可以用來直接連接到 VM 或角色執行個體的其他 IP 位址。
 
->[AZURE.NOTE]ILPIP 過去被稱為 PIP，表示公用 IP。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-network-ip-addresses-overview-arm.md).
+
+請確定您了解 [IP 位址](virtual-network-ip-addresses-overview-classic.md)在 Azure 中的運作方式。
+
+>[AZURE.NOTE] ILPIP 過去被稱為 PIP，表示公用 IP。
 
 ![ILPIP 和 VIP 之間的差異](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
@@ -29,7 +33,7 @@
 - contosoweb\_IN\_0.contosoadservice.cloudapp.net
 - contosoweb\_IN\_1.contosoadservice.cloudapp.net 
 
->[AZURE.NOTE]您只能針對每個 VM 或角色執行個體指派一個 ILPIP。您可以針對每個訂用帳戶最多使用 5 個 ILPIP。ILPIP 目前不支援多個 NIC 的 VM。
+>[AZURE.NOTE] 您只能針對每個 VM 或角色執行個體指派一個 ILPIP。您可以針對每個訂用帳戶最多使用 5 個 ILPIP。ILPIP 目前不支援多個 NIC 的 VM。
 
 ## 為什麼我應該要求 ILPIP？
 如果您想要能夠透過直接指派給 VM 或角色執行個體的 IP 位址直接連接到它，而不是使用雲端服務 VIP:&lt;連接埠號碼&gt;，則可要求適用於 VM 或角色執行個體的 ILPIP。- **被動 FTP** - 透過在 VM上擁有 ILPIP，您幾乎能夠接收所有連接埠的流量，而不需開啟端點來接收流量。這會啟用像是被動 FTP (會動態選擇連接埠) 之類的案例。- **輸出 IP** - 源自 VM 的輸出流量是使用 ILPIP 做為來源所送出，而這可將 VM 唯一識別為外部實體。
@@ -118,9 +122,9 @@
 
 ## 後續步驟
 
-[保留的 IP](../virtual-networks-reserved-public-ip)
+- 了解 [IP 位址](virtual-network-ip-addresses-overview-classic.md)在傳統部署模型中的運作方式。
 
-[保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+- 深入了解[保留的 IP](../virtual-networks-reserved-public-ip)。
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

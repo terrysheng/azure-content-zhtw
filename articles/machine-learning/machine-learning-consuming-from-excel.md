@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="02/12/2016"
 	ms.author="tedway"/>
 
 
@@ -27,7 +27,7 @@
 
 ## 步驟
 
-1. 發佈 Web 服務。[此頁面](machine-learning-walkthrough-5-publish-web-service.md)說明如何進行。目前只針對具有單一輸出 (也就是單一計分標籤) 的要求/回應服務支援 Excel 活頁簿功能。
+1. 發佈 Web 服務。[此頁面](machine-learning-walkthrough-5-publish-web-service.md)說明如何進行。目前，只針對具有單一輸出 (也就是單一計分標籤) 的要求/回應服務，才支援 Excel 活頁簿功能。
 
 2. 有了 Web 服務之後，請按一下 Studio 左側的 [Web 服務] 區段，然後選取要從 Excel 使用的 Web 服務。
 
@@ -71,4 +71,4 @@
 [3]: ./media/machine-learning-consuming-from-excel/enablecontent.png
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # 開始使用 Azure CLI 建立內部負載平衡器 (傳統)
@@ -44,7 +44,7 @@
 
 1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
 
-2. 執行 **azure config mode** 命令以切換為傳統模式，如下所示。
+2. 執行 **azure config mode** 命令，以切換為傳統模式，如下所示。
 
 		azure config mode asm
 
@@ -179,4 +179,4 @@
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

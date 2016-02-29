@@ -1,6 +1,7 @@
 <properties
-	pageTitle="將資料匯入 DocumentDB | Microsoft Azure"
-	description="深入了解如何使用開放原始碼 DocumentDB 資料移轉工具，將資料從各種來源 (包括 JSON 檔案、CSV 檔案、SQL、MongoDB、Azure 資料表儲存體、Amazon DynamoDB，以及 DocumentDB 集合) 匯入到 DocumentDB。"
+	pageTitle="DocumentDB 的資料庫移轉工具 | Microsoft Azure"
+	description="了解如何使用開放原始碼 DocumentDB 資料移轉工具，將各種來源的資料 (包括 MongoDB、SQL Server、表格儲存體、Amazon DynamoDB、CSV 及 JSON 檔案) 匯入 DocumentDB。將 CSV 轉換成 JSON。"
+	keywords="csv 轉換成 json, 資料庫移轉工具, 將 csv 轉換成 json" 
 	services="documentdb"
 	authors="andrewhoh"
 	manager="jhubbard"
@@ -16,7 +17,7 @@
 	ms.date="01/29/2016"
 	ms.author="anhoh"/>
 
-# 將資料匯入至 DocumentDB - 資料庫移轉工具
+# 使用資料庫移轉工具來將資料匯入 DocumentDB
 
 此文章將說明如何使用開放原始碼 DocumentDB 資料移轉工具，將資料從各種來源 (包括 JSON 檔案、CSV 檔案、SQL、MongoDB、Azure 資料表儲存體、Amazon DynamoDB，以及 DocumentDB 集合) 匯入到 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)。
 
@@ -137,21 +138,8 @@ SQL 來源匯入工具選項可讓您從個別的 SQL Server 資料庫匯入，�
 
 注意別名，例如 Address.AddressType 和 Address.Location.StateProvinceName。藉由指定巢狀分隔符號 ‘.’，匯入工具會在匯入期間建立 Address 和 Address.Location 子文件。在 DocumentDB 中產生的文件範例如下：
 
-*{
-  "id": "956",
-  "Name": "Finer Sales and Service",
-  "Address": {
-    "AddressType": "Main Office",
-    "AddressLine1": "#500-75 O'Connor Street",
-    "Location": {
-      "City": "Ottawa",
-      "StateProvinceName": "Ontario"
-    },
-    "PostalCode": "K4B 1S2",
-    "CountryRegionName": "Canada"
-  }
-}*
- 
+*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
+
 以下是從 SQL Server 匯入的一些命令列範例：
 
 	#Import records from SQL which match a query
@@ -170,20 +158,9 @@ CSV 檔案來源匯入工具選項可讓您匯入一或多個 CSV 檔案。新�
 
 ![CSV 範例記錄的螢幕擷取畫面 - CSV 轉換成 JSON](./media/documentdb-import-data/csvsample.png)
 
-注意別名，例如 DomainInfo.Domain_Name 和 RedirectInfo.Redirecting。藉由指定巢狀分隔符號 ‘.’，匯入工具將會在匯入期間建立 DomainInfo 和 RedirectInfo 子文件。在 DocumentDB 中產生的文件範例如下：
+注意別名，例如 DomainInfo.Domain\_Name 和 RedirectInfo.Redirecting。藉由指定巢狀分隔符號 ‘.’，匯入工具將會在匯入期間建立 DomainInfo 和 RedirectInfo 子文件。在 DocumentDB 中產生的文件範例如下：
 
-*{
-  "DomainInfo": {
-    "Domain_Name": "ACUS.GOV",
-    "Domain_Name_Address": "http://www.ACUS.GOV"
-  },
-  "Federal Agency": "Administrative Conference of the United States",
-  "RedirectInfo": {
-    "Redirecting": "0",
-    "Redirect_Destination": ""
-  },
-  "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"
-}*
+*{ "DomainInfo": { "Domain\_Name": "ACUS.GOV", "Domain\_Name\_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect\_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 匯入工具將嘗試推斷 CSV 檔案中不具引號之值的類型資訊 (加上引號的值永遠會被視為字串)。系統會依照下列順序識別類型：數字、日期時間、布林值。
 
@@ -346,7 +323,7 @@ DocumentDB 連接字串的格式如下：
 
 -	字串：保存為字串值
 -	Epoch：保存為 Epoch 數值
--	兩者：保存字串和 Epoch 數值。這個選項會建立子文件，例如："date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
+-	兩者：保存字串和 Epoch 數值。這個選項會建立子文件，例如："date\_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
 
 DocumentDB 大量匯入工具具有下列其他進階選項：
@@ -395,7 +372,7 @@ DocumentDB 連接字串的格式如下：
 
 -	字串：保存為字串值
 -	Epoch：保存為 Epoch 數值
--	兩者：保存字串和 Epoch 數值。這個選項會建立子文件，例如："date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
+-	兩者：保存字串和 Epoch 數值。這個選項會建立子文件，例如："date\_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
 
 DocumentDB 循序記錄匯入工具具有下列其他進階選項：
 
@@ -501,4 +478,4 @@ DocumentDB JSON 匯出工具可讓您將任何可用的來源選項匯出至包�
 
 - 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

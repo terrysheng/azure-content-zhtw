@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # 開始使用 Azure CLI 建立內部負載平衡器
@@ -45,7 +45,7 @@
 
 1. 若您從未使用過 Azure CLI，請參閱[安裝及設定 Azure CLI](xplat-cli.md)，並依照指示執行到選取您的 Azure 帳戶和訂用帳戶為止。
 
-2. 執行 **azure config mode** 命令切換至資源管理員模式，如下所示。
+2. 執行 **azure config mode** 命令，以切換為 Azure 資源管理員模式，如下所示。
 
 		azure config mode arm
 
@@ -91,7 +91,7 @@ Azure 資源管理員中的所有資源都會關聯到資源群組。若還未�
  	
 	azure network lb create -n nrprg -l westus
 
->[AZURE.NOTE]內部負載平衡器的所有資源 (例如虛擬網路和虛擬網路子網路) 必須位於同一個資源群組及區域。
+>[AZURE.NOTE] 內部負載平衡器的所有資源 (例如虛擬網路和虛擬網路子網路) 必須位於同一個資源群組及區域。
 
 
 ### 步驟 2 
@@ -148,7 +148,7 @@ Azure 資源管理員中的所有資源都會關聯到資源群組。若還未�
 
 **-g** - 資源群組 **-l** - 內部負載平衡器集的名稱 **-n** - 健康情況探查的名稱 **-p** - 健康情況探查所使用的通訊協定 **-i** - 探查間隔 (秒) **-c** - 檢查數
 
->[AZURE.NOTE]Microsoft Azure 平台會對各種管理案例使用靜態、可公開路由傳送的 IPv4 位址。IP 位址是 168.63.129.16。此 IP 位址不應該遭到任何防火牆封鎖，因為可能會造成非預期的行為。採用 Azure 內部負載平衡，來自負載平衡器的監視探查會使用此 IP 位址，藉此判斷虛擬機器在負載平衡集的健康情況。如果網路安全性群組已用來限制傳輸至內部負載平衡集中 Azure 虛擬機器的流量，或已套用至虛擬網路子網路，請確定您已新增網路安全性規則，允許來自 168.63.129.16 的流量。
+>[AZURE.NOTE] Microsoft Azure 平台會對各種管理案例使用靜態、可公開路由傳送的 IPv4 位址。IP 位址是 168.63.129.16。此 IP 位址不應該遭到任何防火牆封鎖，因為可能會造成非預期的行為。採用 Azure 內部負載平衡，來自負載平衡器的監視探查會使用此 IP 位址，藉此判斷虛擬機器在負載平衡集的健全狀態。如果網路安全性群組已用來限制傳輸至內部負載平衡集中 Azure 虛擬機器的流量，或已套用至虛擬網路子網路，請確定您已新增網路安全性規則，允許來自 168.63.129.16 的流量。
 
 ## 建立 NIC
 
@@ -208,7 +208,7 @@ Azure 資源管理員中的所有資源都會關聯到資源群組。若還未�
 
 	azure vm create --resource-group nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
->[AZURE.IMPORTANT]負載平衡器中的 VM 必須在相同的可用性設定組中。使用 `azure availset create` 建立可用性設定組。
+>[AZURE.IMPORTANT] 負載平衡器中的 VM 必須在相同的可用性設定組中。使用 `azure availset create` 建立可用性設定組。
 
 ### 步驟 4
 
@@ -232,4 +232,4 @@ Azure 資源管理員中的所有資源都會關聯到資源群組。若還未�
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

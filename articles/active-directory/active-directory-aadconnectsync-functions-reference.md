@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi"/>
 
 
@@ -536,7 +536,7 @@
 
 **備註：**<br> 針對屬性，如果屬性不存在，或存在但為空字串，即會將此評估為 True。<br> 此函式的相反函式名稱為 IsPresent。
 
-**範例：**<br> `IsNull([displayName])` <br> 如果屬性不存在於 CS 或 MV 中或為空字串，即會傳回 True。
+**範例：**<br> `IsNullOrEmpty([displayName])` <br> 如果屬性不存在於 CS 或 MV 中或為空字串，即會傳回 True。
 
 
 
@@ -1058,4 +1058,4 @@ Value 也可以是會傳回自訂字串的 Error 函式。
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

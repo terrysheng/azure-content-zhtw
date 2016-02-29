@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="02/17/2016"
    ms.author="tomfitz"/>
 
 # 使用 Azure 資源管理員範本部署應用程式
@@ -107,6 +107,8 @@
           Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
           [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+
+     如果範本中某個參數名稱與範本部署命令中的某個參數相同 (例如在範本中包含名為 **ResourceGroupName** 的參數，而該名稱與 [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) Cmdlet 中的 **ResourceGroupName** 參數相同)，系統會提示您為後置詞為 **FromTemplate** 的參數 (例如 **ResourceGroupNameFromTemplate**) 提供值。一般而言，在為參數命名時，請勿使用與部署作業所用參數相同的名稱，以避免發生這種混淆的情形。
 
 6. 取得部署失敗的相關資訊。
 
@@ -271,7 +273,7 @@
 
 參數檔的大小不得超過 64 KB。
 
-如需如何在範本中定義參數的資訊，請參閱[編寫範本](../resource-group-authoring-templates/#parameters)。如需用來傳遞安全值的金鑰保存庫參考的詳細資料，請參閱[在部署期間傳遞安全值](resource-manager-keyvault-parameter.md)。
+如需如何定義範本中參數的資訊，請參閱[編寫範本](../resource-group-authoring-templates/#parameters)。如需用來傳遞安全值的金鑰保存庫參考的詳細資料，請參閱[在部署期間傳遞安全值](resource-manager-keyvault-parameter.md)。
 
 ## 後續步驟
 - 如需透過 .NET 用戶端程式庫部署資源的範例，請參閱[使用 .NET 程式庫和範本部署資源](./virtual-machines/arm-template-deployment.md)
@@ -282,4 +284,4 @@
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

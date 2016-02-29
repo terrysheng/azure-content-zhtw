@@ -7,14 +7,7 @@
 	manager="stevenpo" 
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
-	ms.author="billmath"/>
+<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/16/2016"" ms.author="billmath"/>
 
 # 使用 Azure Multi-Factor Authentication 與協力廠商 VPN 的進階案例
 Azure Multi-Factor Authentication 可以用來與各式各樣的協力廠商 VPN 解決方案順暢地連線。包括 Cisco® ASA VPN 應用裝置、Citrix NetScaler SSL VPN 應用裝置和 Juniper Networks Secure Access/Pulse Secure Connect Secure SSL VPN 應用裝置。
@@ -43,4 +36,4 @@ Azure Multi-Factor Authentication 可以與您的 Juniper/Pulse Secure SSL VPN �
 [Juniper/Pulse Secure SSL VPN 與 Azure MFA Configuration for LDAP](http://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx)| 使用 LDAP 緊密整合 Juniper/Pulse Secure SSL VPN 與 Azure MFA|
 [Juniper/Pulse Secure SSL VPN 與 Azure MFA Configuration for RADIUS](http://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | 使用 RADIUS 緊密整合 Juniper/Pulse Secure SSL VPN 應用裝置與 Azure MFA
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

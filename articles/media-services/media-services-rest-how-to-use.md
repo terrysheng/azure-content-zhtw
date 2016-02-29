@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="02/09/2016"  
+ 	ms.date="02/11/2016"  
 	ms.author="juliako"/>
 
 
@@ -31,7 +31,7 @@ Microsoft Azure 媒體服務會接受以 OData 為基礎的 HTTP 要求，而且
 - 如果使用 JSON，您必須將 Accept 標題設為 [JSON 詳細資訊格式](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)。Odata 並不了解要求中的 \_\_metadata 屬性，除非您將它設為詳細資訊。
 
 	**Accept**: application/json;odata=verbose
-- 查詢項目時，有一次最多傳回 1000 個實體的限制，因為公用 REST v2 有 1000 個查詢結果數目的限制。您需要使用 [略過] 和 [採用] \(.NET) [最前面] \(REST)，如[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述。 
+- 查詢項目時，有一次最多傳回 1000 個實體的限制，因為公用 REST v2 有 1000 個查詢結果數目的限制。您需要使用 [略過] 和 [採用] (.NET)/ [最前面] (REST)，如[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述。 
 
 ## 媒體服務支援的標準 HTTP 要求標頭
 
@@ -118,4 +118,4 @@ HEAD|傳回 GET 回應的物件中繼資料。
 
  
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

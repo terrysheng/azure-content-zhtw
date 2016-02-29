@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -52,7 +52,9 @@
 
 ## 使用 Azure PowerShell 來將資源管理員範本部署到 Azure
 
-如需如何使用 PowerShell 部署範本的詳細指示，請參閱[使用 PowerShell 部署資源管理員範本](resource-group-template-deploy.md)。
+如需如何使用 PowerShell 部署範本的詳細指引，請參閱[使用 PowerShell 部署資源管理員範本](../resource-group-template-deploy.md)。
+
+>[AZURE.NOTE] Service Fabric 叢集需要有一定數量的節點可隨時啟動，以維護可用性並維持狀態 - 稱為「維持仲裁」。因此，除非您已先執行[狀態的完整備份](service-fabric-reliable-services-backup-restore.md)，否則關閉叢集的所有電腦通常並不安全。
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
@@ -63,4 +65,4 @@
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

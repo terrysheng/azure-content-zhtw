@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="02/01/2016"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務儀表板
@@ -22,8 +22,6 @@
 StorSimple Manager 服務儀表板頁面提供連線至 StorSimple Manager 服務的所有裝置的摘要檢視，並強調顯示需要系統管理員注意的裝置。本教學課程介紹儀表板頁面、說明儀表板內容和功能，並說明您可以從這個頁面執行的工作。
 
 ![服務儀表板](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
-
-**圖 1：StorSimple Manager 服務儀表板**
 
 StorSimple Manager 服務儀表板會顯示下列資訊：
 
@@ -47,7 +45,7 @@ StorSimple Manager 服務儀表板會顯示下列資訊：
 
 服務註冊金鑰用於向 StorSimple Manager 服務註冊 Microsoft Azure StorSimple 裝置，之後裝置就會出現在Azure 傳統入口網站中，讓您採取進一步的管理動作。金鑰是在第一個裝置上建立，然後與其餘裝置共用。
 
-按一下 [**註冊金鑰**]\(在頁面底部) 會開啟 [**服務註冊金鑰**] 對話方塊，您可以在此處將目前的服務註冊金鑰複製到剪貼簿，或重新產生服務註冊金鑰。
+按一下 [**註冊金鑰**] (在頁面底部) 會開啟 [**服務註冊金鑰**] 對話方塊，您可以在此處將目前的服務註冊金鑰複製到剪貼簿，或重新產生服務註冊金鑰。
 
 重新產生金鑰並不會影響先前註冊的裝置：只會影響重新產生金鑰之後，才向服務註冊的裝置。
 
@@ -78,4 +76,4 @@ StorSimple Manager 服務儀表板會顯示下列資訊：
 
 - 深入了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

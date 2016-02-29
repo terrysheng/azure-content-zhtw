@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/17/2016"
 	ms.author="jeedes"/>
 
 
@@ -34,7 +34,7 @@
 - 啟用 23 Video 單一登入的訂用帳戶
 
 
-> [AZURE.NOTE]若要測試本教學課程中的步驟，我們不建議使用生產環境。
+> [AZURE.NOTE] 若要測試本教學課程中的步驟，我們不建議使用生產環境。
 
 
 若要測試本教學課程中的步驟，您應該遵循這些建議：
@@ -92,7 +92,7 @@
  
      a.在 [回覆 URL] 文字方塊中，輸入您的使用者用來登入 23 Video 網站的 URL (例如：**https://britta-simon.23Video.com/saml/login*)。
 
-     >[AZURE.NOTE]使用 SAML 2.0 的 Active Directory 整合適用於所有 23 Video 使用者。如果您需要相關的中繼資料，請連絡支援部門 [support@23company.com](mailto:support@23company.com)。
+     > [AZURE.NOTE] 使用 SAML 2.0 的 Active Directory 整合適用於所有 23 Video 使用者。如果您需要相關的中繼資料，請連絡支援部門 [support@23company.com](mailto:support@23company.com)。
 
      b.按 [下一步]。
  
@@ -113,35 +113,35 @@
 
 
 ### 建立 Azure AD 測試使用者
-本節目標是在 Azure 傳統入口網站中建立名為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
+本節目標是在 Azure 傳統入口網站中建立名稱為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在 **Azure 傳統入口網站**中，按一下左方瀏覽窗格的 [Active Directory]。<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png) <br> 
+1. 在 **Azure 傳統入口網站**中，按一下左方瀏覽窗格中的 [Active Directory]。<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png) <br> 
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 若要顯示使用者清單，請在頂端功能表中按一下 [使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png) <br>
+3. 若要顯示使用者清單，請按一下功能表頂端的 [使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png) <br>
  
 4. 若要開啟 [新增使用者] 對話方塊，請按一下底部工具列上的 [新增使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-23video-tutorial/create_aaduser_04.png) <br>
 
-5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行下列步驟：<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-23video-tutorial/create_aaduser_05.png) <br>
+5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行以下步驟：<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-23video-tutorial/create_aaduser_05.png) <br>
 
     a.針對 [使用者類型]，選取 [您組織中的新使用者]。
 
-    b.在 [使用者名稱] 文字方塊中輸入 **BrittaSimon**。
+    b.在 [使用者名稱] 文字方塊中，輸入 **BrittaSimon**。
 
     c.按 [下一步]。
 
-6.  在 [使用者設定檔] 對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-23video-tutorial/create_aaduser_06.png) <br>
+6.  在 [使用者設定檔]對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-23video-tutorial/create_aaduser_06.png) <br>
  
-    a.在 [名字] 文字方塊中輸入 **Britta**。
+    a.在 [名字] 文字方塊中，輸入 **Britta**。
 
-    b.在 [姓氏] 文字方塊中輸入 **Simon**。
+    b.在 [姓氏] 文字方塊中，輸入 **Simon**。
 
-    c.在 [顯示名稱] 文字方塊中輸入 **Britta Simon**。
+    c.在 [顯示名稱] 文字方塊中，輸入 **Britta Simon**。
 
-    d.在 [角色] 清單中選取 [使用者]。e.按 [下一步]。
+    d.在 [角色] 清單中，選取 [使用者]。按 [下一步]。
 
 7. 在 [取得暫時密碼] 對話方塊頁面上，按一下 [建立]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-23video-tutorial/create_aaduser_07.png) <br>
  
@@ -186,7 +186,7 @@
 1. 在頂端功能表中，按一下 [使用者]。<br><br>![指派使用者][203] <br>
 1. 在 [使用者] 清單中，選取 [Britta Simon]。
 
-2. 在底部工具列中，按一下 [指派]。<br><br>![指派使用者][205]
+2. 在底部的工具列中，按一下 [指派]。<br><br>![指派使用者][205]
 
 
 
@@ -228,4 +228,4 @@
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
 [402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0218_2016-->

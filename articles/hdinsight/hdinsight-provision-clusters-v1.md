@@ -47,7 +47,7 @@
  
 - **作業系統**
 
-	您可以在下列兩個作業系統其中之一佈建 HDInsight 叢集：- **Windows 上的 HDInsight (Windows Server 2012 R2 Datacenter)**：- **Linux 上的 HDInsight (Linux 版 Ubuntu 12.04 LTS) (預覽版)**：HDInsight 提供在 Azure 上設定 Linux 叢集的選項。如果您熟悉 Linux 或 Unix、要從現有的 Linux Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，請設定 Linux 叢集。如需詳細資訊，請參閱[開始在 Linux 上的 HDInsight 中使用 Hadoop](hdinsight-hadoop-linux-get-started.md)。
+	您可以在下列兩個作業系統其中之一佈建 HDInsight 叢集：- **Windows 上的 HDInsight (Windows Server 2012 R2 Datacenter)**：- **Linux 上的 HDInsight (Linux 版 Ubuntu 12.04 LTS)**：HDInsight 提供在 Azure 上設定 Linux 叢集的選項。如果您熟悉 Linux 或 Unix、要從現有的 Linux Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，請設定 Linux 叢集。如需詳細資訊，請參閱[開始在 Linux 上的 HDInsight 中使用 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)。
 
 
 - **HDInsight 版本**
@@ -61,7 +61,7 @@
 	- Hadoop 叢集：適用於查詢和分析工作負載
 	- HBase 叢集：適用於 NoSQL 工作負載
 	- Storm 叢集：適用於即時事件的處理工作負載
-	- Spark 叢集 (預覽)：適用於記憶體內部處理、互動式查詢、資料流和機器學習工作負載。
+	- Spark 叢集：適用於記憶體內部處理、互動式查詢、串流和機器學習服務工作負載。
 
 	![HDInsight 叢集](./media/hdinsight-provision-clusters-v1/hdinsight.clusters.png)
  
@@ -135,7 +135,7 @@
 	
 	>[AZURE.WARNING] 請不要讓多個叢集共用一個 Blob 儲存體容器。不支援此做法。
 	
-	如需使用次要 Blob 存放區的詳細資訊，請參閱[搭配使用 Azure Blob 儲存體與 HDInsight](hdinsight-use-blob-storage.md)。
+	如需使用次要 Blob 存放區的詳細資訊，請參閱[搭配使用 Azure Blob 儲存體與 HDInsight](hdinsight-hadoop-use-blob-storage.md)。
 
 - **Hive/Oozie 中繼存放區**
 
@@ -285,7 +285,7 @@
 	您可以加入一個以上的指令碼動作，以在叢集上安裝多個元件。加入指令碼之後，請按一下核取記號以開始佈建叢集。
 
 ### 使用 Azure PowerShell
-Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。本節提供如何使用 Azure PowerShell 佈建 HDInsight 叢集的指示。如需設定工作站以執行 HDInsight Windows Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。如需搭配使用 Azure PowerShell 與 HDInsight 的詳細資訊，請參閱[使用 PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)。如需 HDInsight Windows PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/dn858087.aspx)。
+Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。本節提供如何使用 Azure PowerShell 佈建 HDInsight 叢集的指示。如需設定工作站以執行 HDInsight Windows Powershell Cmdlet 的相關資訊，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。如需搭配使用 Azure PowerShell 與 HDInsight 的詳細資訊，請參閱[使用 PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)。如需 HDInsight Windows PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考資料](https://msdn.microsoft.com/library/azure/dn858087.aspx)。
 
 > [AZURE.NOTE] 本節的指令碼可用來設定 Azure 虛擬網路上的 HDInsight 叢集，但不會建立 Azure 虛擬網路。如需建立 Azure 虛擬網路的相關資訊，請參閱[虛擬網路組態工作](../services/virtual-machines/)。
 
@@ -565,7 +565,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 
 	出現位置提示時，請選取可佈建 HDInsight 叢集的位置。儲存體必須與 HDInsight 叢集位於相同的位置。目前只有「東亞」、「東南亞」、「北歐」、「西歐」、「美國東部」、「美國西部」、「美國中北部」和「美國中南部」等區域可以代管 HDInsight 叢集。
 
-如需有關使用 Azure 傳統入口網站建立 Azure 儲存體帳戶的資訊，請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account.md)。
+如需有關使用 Azure 傳統入口網站建立 Azure 儲存體帳戶的資訊，請參閱[建立、管理或刪除儲存體帳戶](../storage/storage-create-storage-account.md)。
 
 如果您已經有儲存體帳戶，但不知道帳戶名稱和帳戶金鑰，則可使用下列命令來擷取資訊：
 
@@ -578,7 +578,7 @@ HDInsight 會使用 Azure Blob 儲存容器作為預設檔案系統。必須要�
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-使用 Azure 傳統入口網站取得資訊的詳細資訊請參閱[建立、管理或刪除儲存體帳戶](../storage-create-storage-account.md)的＜*作法：檢視、複製及重新產生儲存體存取金鑰*＞一節。
+使用 Azure 傳統入口網站取得資訊的詳細資訊請參閱[建立、管理或刪除儲存體帳戶](../storage/storage-create-storage-account.md)的＜*作法：檢視、複製及重新產生儲存體存取金鑰*＞一節。
 
 HDInsight 叢集同時要求儲存體帳戶內含有容器。如果您所提供的儲存體帳戶沒有容器，則 *azure hdinsight cluster create* 命令會提示您輸入容器名稱並建立容器。不過，如果您想要預先建立容器，您可以使用下列命令：
 
@@ -791,7 +791,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 ##<a id="nextsteps"></a> 後續步驟
 在本文中，您學到幾種佈建 HDInsight 叢集的方法。若要深入了解，請參閱下列文章：
 
-* [開始使用 Azure HDInsight](hdinsight-get-started.md) - 了解如何開始使用 HDInsight 叢集
+* [開始使用 Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - 了解如何開始使用 HDInsight 叢集
 * [使用 Sqoop 搭配 HDInsight](hdinsight-use-sqoop.md) - 了解如何在 HDInsight 與 SQL Database 或 SQL Server 之間複製資料
 * [使用 PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md) - 了解如何使用 PowerShell 處理 HDInsight
 * [以程式設計方式提交 Hadoop 工作](hdinsight-submit-hadoop-jobs-programmatically.md) - 了解如何以程式設計方式提交工作至 HDInsight
@@ -801,4 +801,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

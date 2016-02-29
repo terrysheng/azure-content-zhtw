@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/17/2016"
 	ms.author="tamram"/>
 
 # 設定 Azure 儲存體連接字串
@@ -37,7 +37,7 @@
 
 在組態檔內儲存連接字串，可讓您更容易更新連接字串，藉此在儲存體模擬器和雲端中的 Azure 儲存體帳戶之間切換。您只需要編輯連接字串以指向儲存體帳戶。
 
-您可以使用 Azure [ CloudConfigurationManager](https://msdn.microsoft.com/library/microsoft.windowsazure.cloudconfigurationmanager.aspx) 類別，在執行階段存取連接字串，而不論應用程式執行所在的地方為何。
+您可以使用 [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) 類別，在執行階段存取連接字串，而不論應用程式執行所在的地方為何。
 
 ## 建立儲存體模擬器的連接字串
 
@@ -57,7 +57,7 @@
 	AccountName=storagesample;
 	AccountKey=<account-key>
 
-> [AZURE.NOTE]Azure 儲存體服務可同時支援連接字串中的 HTTP 和 HTTPS；不過，強烈建議您使用 HTTPS。
+> [AZURE.NOTE] Azure 儲存體服務可同時支援連接字串中的 HTTP 和 HTTPS；不過，強烈建議您使用 HTTPS。
 
 ## 建立明確儲存體端點的連接字串
 
@@ -119,4 +119,4 @@
 	AccountKey=<account-key>;
 	EndpointSuffix=core.chinacloudapi.cn;
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

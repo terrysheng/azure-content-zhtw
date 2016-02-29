@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="02/14/2016"
 	ms.author="tamram"/>
 
 
@@ -67,12 +67,12 @@
 
 ### 帳戶 SAS 和服務 SAS 權杖的通用參數
 
-- **API 版本** 選擇性參數，指定要用來執行要求的儲存體服務版本。 
-- **服務版本** 必要參數，指定要用於驗證要求的儲存體服務版本。
-- **開始時間。** 這是指 SAS 生效的時間。共用存取簽章的開始時間是選擇性選項，如果略過，則 SAS 會立即生效。 
+- **API 版本**選擇性參數，指定要用來執行要求的儲存體服務版本。
+- **服務版本**必要參數，指定要用於驗證要求的儲存體服務版本。
+- **開始時間。** 這是指 SAS 生效的時間。共用存取簽章的開始時間是選擇性選項，如果略過，則 SAS 會立即生效。
 - **到期時間。** 這是指 SAS 何時失效的時間。最佳做法建議您為 SAS 指定過期時間，或將它與預存存取原則建立關聯 (請參閱以下詳細資訊)。
 - **權限。** 在 SAS 上指定的權限表示用戶端可以使用 SAS 來對儲存體資源執行哪些作業。帳戶 SAS 和服務 SAS 的可用權限不同。
-- **IP。** 選用參數，可指定要從中接受要求且位於 Azure 外部的 IP 位址或 IP 位址範圍 (請參閱適用於 Express Route 的[路由工作階段組態狀態](../expressroute/expressroute-workflows.md#routing-session-configuration-state)一節)。 
+- **IP。** 選用參數，可指定要從中接受要求且位於 Azure 外部的 IP 位址或 IP 位址範圍 (請參閱適用於 Express Route 的[路由工作階段組態狀態](../expressroute/expressroute-workflows.md#routing-session-configuration-state)一節)。
 - **通訊協定。** 選擇性參數，指定對要求允許的通訊協定。可能的值為 HTTPS 和 HTTP (https、http)，也就是預設值或僅限 HTTPS (https)。請注意，僅 HTTP 是不允許的值。
 - **簽章。** 簽章是從其他參數建構，指定為權杖的一部分，然後加密。它是用來驗證 SAS。
 
@@ -127,11 +127,11 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
 
 共用存取簽章可以接受以下兩種格式其中之一：
 
-- **臨機操作 SAS：**建立臨機操作 SAS 時，SAS 的開始時間、到期時間和權限都會在 SAS URI 上進行指定 (或暗示，在此情況下則會略過開始時間)。這種類型的 SAS 可能會建立為帳戶 SAS 或服務 SAS。 
+- **臨機操作 SAS：**建立臨機操作 SAS 時，SAS 的開始時間、到期時間和權限都會在 SAS URI 上進行指定 (或暗示，在此情況下則會略過開始時間)。這種類型的 SAS 可能會建立為帳戶 SAS 或服務 SAS。
 
 - **具有預存存取原則的 SAS：**預存存取原則會在資源容器 (Blob 容器、資料表、佇列或檔案共用) 中定義，且可用來管理一或多個共用存取簽章的限制。當您將 SAS 與預存存取原則建立關聯時，SAS 會繼承為該預存存取原則所定義的限制 (開始時間、過期時間和權限)。
 
->[AZURE.NOTE]目前，帳戶 SAS 必須是臨機操作 SAS。帳戶 SAS 尚不支援預存的存取原則。
+>[AZURE.NOTE] 目前，帳戶 SAS 必須是臨機操作 SAS。帳戶 SAS 尚不支援預存的存取原則。
 
 這兩種格式間的差異對於以下這一個重要案例而言相當重要：撤銷。SAS 是一種 URL，因此取得 SAS 的任何人都可以使用它，無論起先要求的人是誰。如果是公開發佈 SAS，則全世界的人都可以使用此 SAS。散佈的 SAS 在發生以下四個情況其中之一之前都會持續有效：
 
@@ -140,7 +140,7 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
 3.	已刪除 SAS 所參考之預存存取原則，這是撤銷 SAS 的另外一種方法。請注意，如果您使用完全相同的名稱來重新建立預存存取原則，則現有的所有 SAS 權杖會根據與該預存存取原則有關的權限再次有效 (假設 SAS 上的過期時間尚未過去)。如果您打算撤銷 SAS，且如果您要使用未來的過期時間來重新建立存取原則，則務必使用不同的名稱。
 4.	系統會重新產生用來建立 SAS 的帳戶金鑰。請注意，這麼做將會導致所有使用該帳戶金鑰的應用程式元件無法進行驗證，直到他們已更新為使用其他有效帳戶金鑰或重新產生帳戶金鑰為止。
 
->[AZURE.IMPORTANT]共用存取簽章 URI 會與用來建立簽章的帳戶金鑰，以及相關聯的預存的存取原則 (如果有的話) 產生關聯。如果未指定任何預存的存取原則，則撤銷共用存取簽章的唯一方式是變更帳戶金鑰。
+>[AZURE.IMPORTANT] 共用存取簽章 URI 會與用來建立簽章的帳戶金鑰，以及相關聯的預存的存取原則 (如果有的話) 產生關聯。如果未指定任何預存的存取原則，則撤銷共用存取簽章的唯一方式是變更帳戶金鑰。
 
 ## 範例：建立並使用共用存取簽章
 
@@ -311,11 +311,9 @@ IP 範圍|sip=168.1.5.60-168.1.5.70|將從中接受要求的 IP 位址範圍。
 ## 後續步驟 ##
 
 - [共用存取簽章，第 2 部分：透過 Blob 儲存體來建立與使用 SAS](storage-dotnet-shared-access-signature-part-2.md)
-- [如何搭配 Azure 檔案儲存體使用 Windows](storage-dotnet-how-to-use-files.md)
-- [管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)
+- [在 Windows 上開始使用 Azure 檔案儲存體](storage-dotnet-how-to-use-files.md)
+- [管理對容器與 Blob 的匿名讀取權限。](storage-manage-access-to-resources.md)
 - [使用共用存取簽章來委派存取權](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [資料表和佇列 SAS 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [資料表和佇列 SAS 簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

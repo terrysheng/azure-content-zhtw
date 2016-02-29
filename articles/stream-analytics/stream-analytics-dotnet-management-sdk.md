@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="02/16/2016"
 	ms.author="jeffstok"/>
 
 
@@ -32,7 +32,7 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 
 - 安裝 Visual Studio 2012 或 2013。
 - 下載並安裝 [Azure .NET SDK](https://azure.microsoft.com/downloads/)。
-- 在您的訂閱中建立 Azure 資源群組。下列是 PowerShell 指令碼範例。如需 Azure PowerShell 資訊，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。  
+- 在您的訂閱中建立 Azure 資源群組。下列是 PowerShell 指令碼範例。如需 Azure PowerShell 資訊，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。  
 
 
 		# Log in to your Azure account
@@ -151,7 +151,7 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 
 **resourceGroupName** 變數的值應該會與您在先決條件步驟中建立或選取的資源群組名稱相同。
 
-若要自動化工作建立的認證提供層面，請參閱[使用 Azure 資源管理員驗證服務主體](./articles/resource-group-authenticate-service-principal.md)。
+若要自動化作業建立的認證提供層面，請參閱[使用 Azure 資源管理員驗證服務主體](../resource-group-authenticate-service-principal.md)。
 
 本文的其餘章節會假設 **Main** 方法的開頭已有這段程式碼。
 
@@ -361,9 +361,9 @@ Azure 資料流分析是完全受管理的服務，可用來對雲端中的串�
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
+[stream.analytics.developer.guide]: stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -25,17 +25,20 @@
 
 本文提供如何將虛擬網路 (Vnet) 連結到 ExpressRoute 線路的概觀。虛擬網路可以位於相同的訂用帳戶中，或屬於另一個訂用帳戶。本文適用於使用資源管理員部署模型部署的 Vnet。如果您想要連結使用傳統部署模型部署的虛擬網路，請參閱[將虛擬網路連結至 ExpressRoute 電路](expressroute-howto-linkvnet-classic.md)。
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+
+**關於 Azure 部署模型**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## 組態必要條件
 
-- 您需要最新版的 Azure PowerShell 模組 (版本 1.0 或更新版本)。 
+- 您需要最新版的 Azure PowerShell 模組 (版本 1.0 或更新版本)。如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。 
 - 開始設定之前，請確定您已經檢閱過[必要條件](expressroute-prerequisites.md)頁面、[路由需求](expressroute-routing.md)頁面和[工作流程](expressroute-workflows.md)頁面。
 - 您必須擁有作用中的 ExpressRoute 線路。 
 	- 遵循指示來[建立 ExpressRoute 線路](expressroute-howto-circuit-arm.md)，並由您的連線提供者來啟用該線路。 
 	- 確定您已針對循環設定了 Azure 私用對等。請參閱[設定路由](expressroute-howto-routing-arm.md)一文，以取得路由指示。 
 	- Azure 私用對等必須設定，且在您的網路與 Microsoft 之間的 BGP 對等必須為您啟用端對端連線。
-	- 您必須有已建立且完整佈建的虛擬網路和虛擬網路閘道。遵循指示來建立 [VPN 閘道](../articles/vpn-gateway-create-site-to-site-rm-powershell.md)
+	- 您必須有已建立且完整佈建的虛擬網路和虛擬網路閘道。請依照指示來建立 [VPN 閘道](../articles/vpn-gateway-create-site-to-site-rm-powershell.md)，但務必要使用 `-GatewayType ExpressRoute`。
 
 您最多可以將 10 個虛擬網路連結至 ExpressRoute 電路。所有的 ExpressRoute 循環都必須位於同一個地理區域。如果您已啟用 ExpressRoute 高階附加元件，則可將更大量的虛擬網路連結到您的 ExpressRoute 循環。如需進階附加元件的詳細資訊，請參閱[常見問題集](expressroute-faqs.md)。
 
@@ -136,4 +139,4 @@
 
 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

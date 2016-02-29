@@ -36,7 +36,7 @@ Azure SDK for .NET 將安裝下列產品：
 - [Microsoft Azure 儲存體模擬器](#stgemulator)
 - [Microsoft Azure 儲存體工具](#stgtools)
 - [Microsoft Azure Libraries for .NET](#libraries)
-- [HDInsight Tools for Visual Studio](#hdinsight) 和 [Microsoft Hive ODBC 驅動程式](#hdinsight)
+- [HDInsight Tools for Visual Studio 和 Microsoft Hive ODBC 驅動程式](#hdinsight)
 - [Microsoft Azure Mobile App SDK V1.0](#mobile)
 - [Microsoft Azure PowerShell](#ps)
 
@@ -101,7 +101,7 @@ Azure SDK for .NET 將安裝下列產品：
 
 伺服器總管中的 HDInsight 工具可讓您瀏覽 Hive 資料庫，和 HDInsight 叢集的連結儲存體帳戶、建立資料表，以及建立並送出 Hive 查詢。如需詳細資訊，請參閱〈[開始使用 HDInsight Hadoop Tools for Visual Studio](hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md)〉。
 
-###<a id="mobile">Microsoft Azure Mobile App SDK
+###<a id="mobile"></a>Microsoft Azure Mobile App SDK V1.0
 
 可使用 [Azure App Service Mobile Apps](app-service-mobile/app-service-mobile-value-prop.md) 的工具。
 
@@ -186,4 +186,4 @@ Azure PowerShell 可讓您[將 Azure 環境的建立及部署自動化](http://w
 
 如需 Azure 用戶端程式庫的參考文件，請參閱 [Azure .NET 參考](/documentation/api/) (英文)。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

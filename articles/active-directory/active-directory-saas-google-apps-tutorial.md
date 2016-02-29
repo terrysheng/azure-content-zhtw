@@ -13,16 +13,16 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
+    ms.date="02/17/2016"
     ms.author="liviodlc"/>
 
 #教學課程：如何整合 Google Apps 與 Azure Active Directory
 
 本教學課程將示範如何將 Google Apps 環境與 Azure Active Directory (Azure AD) 連接。您將學習如何設定單一登入 Google Apps、如何啟用自動的使用者佈建，以及如何指派使用者存取 Google Apps。
 
-##必要條件
+##先決條件
 
-1. 若要透過 [Azure 管理入口網站](https://manage.windowsazure.com)存取 Azure Active Directory，您必須先具備有效的 Azure 訂用帳戶。
+1. 若要透過 [Azure 傳統入口網站](https://manage.windowsazure.com)存取 Azure Active Directory，您必須先具備有效的 Azure 訂用帳戶。
 
 2. 您必須擁有 [Google Apps for Work](https://www.google.com/work/apps/) 或 [Google Apps for Education](https://www.google.com/edu/products/productivity-tools/) 的有效租用戶。您可以使用免費試用帳戶來使用任何服務。
 
@@ -32,9 +32,27 @@
 
 > [AZURE.VIDEO enable-single-sign-on-to-google-apps-in-2-minutes-with-azure-ad]
 
+##常見問題集
+
+1. **問：Chromebook 及其他 Chrome 裝置是否與 Azure AD 單一登入相容？**
+
+	答：是，使用者可以使用其 Azure AD 認證來登入其 Chromebook 裝置。若要了解為何使用者可能收到兩次提供認證的提示，請參閱此 [Google Apps 支援文章](https://support.google.com/chrome/a/answer/6060880)。
+
+2. **問：如果我啟用單一登入，使用者是否將能夠使用其 Azure AD 認證來登入任何 Google 產品 (例如 Google Classroom、GMail、Google 雲端硬碟、YouTube 等)？**
+
+	答：是，視您選擇為您組織啟用或停用的 [Google Apps](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) 而定。
+
+3. **問：我是否可以只為一部分 Google Apps 使用者啟用單一登入？**
+
+	答：否，開啟單一登入將會立即要求您的所有 Google Apps 使用者使用其 Azure AD 認證進行驗證。由於 Google Apps 不支援使用多個身分識別提供者，因此您 Google Apps 環境的身分識別提供者可以是 Azure AD 或 Google 其中之一，但不可同時是兩者。
+
+4. **問：如果使用者透過 Windows 登入，他們是否會自動向 Google Apps 進行驗證，而不會收到輸入密碼的提示？**
+
+	答：有兩個選項可允許這樣的情況。第一個是，使用者可以透過 [Azure Active Directory Join](active-directory-azureadjoin-overview.md) 登入 Windows 10 裝置。另一個是，使用者可以登入已加入某個內部部署 Active Directory 網域的 Windows 裝置，其中此內部部署 Active Directory 已透過 [Active Directory 同盟服務 (AD FS)](active-directory-aadconnect-user-signin.md) 部署而能夠單一登入到 Azure AD。當然，這兩個選項都需要您依照以下教學課程，在 Azure AD 與 Google Apps 之間啟用單一登入。
+
 ##步驟 1：將 Google Apps 加入您的目錄
 
-1. 在 [Azure 管理入口網站](https://manage.windowsazure.com)的左方瀏覽窗格中，按一下 [Active Directory]。
+1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，按一下左方瀏覽窗格的 [Active Directory]。
 
 	![從左方的導覽窗格中選取 [Active Directory]。][0]
 
@@ -176,7 +194,7 @@
 
 4. 如果您還沒將自訂網域名稱加入 Azure Active directory，請執行下列步驟：
 
-	- 在 [Azure 管理入口網站](https://manage.windowsazure.com)的左方瀏覽窗格中，按一下 [Active Directory]。在目錄清單中，選取您的目錄。 
+	- 在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，按一下左方瀏覽窗格的 [Active Directory]。在目錄清單中，選取您的目錄。 
 
 	- 從最上層功能表按一下 [網域]，然後按一下 [新增自訂網域]。
 
@@ -295,4 +313,4 @@
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

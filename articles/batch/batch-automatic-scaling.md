@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="自動調整 Azure Batch 集區中的計算節點 | Microsoft Azure"
 	description="在雲端集區上啟用自動調整，以動態調整集區中的計算節點數目。"
@@ -155,7 +154,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 > [AZURE.TIP] 上述系統定義的唯讀變數是可提供各種方法來存取相關聯資料的「物件」。如需詳細資訊，請參閱下面的[取得樣本資料](#getsampledata)。
 
-### 類型
+## 類型
 
 公式中支援以下**類型**。
 
@@ -183,7 +182,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 	- TimeInterval\_Week
 	- TimeInterval\_Year
 
-### 作業
+## 作業
 
 以上列出的類型允許這些**作業**。
 
@@ -262,7 +261,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
   </tr>
 </table>
 
-### 函式
+## 函式
 
 這些預先定義的**函式**可供您用來定義自動調整公式。
 
@@ -348,13 +347,13 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
   </tr>
 </table>
 
-上表中所述的某些函式可以接受清單做為引數。逗號分隔清單是 double 和 doubleVec 的任意組合。例如：
+上表中所述的某些函式可以接受清單做為引數。逗號分隔清單是 *double* 和 *doubleVec* 的任意組合。例如：
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-評估之前，doubleVecList 值會轉換成單一的 doubleVec。例如，如果 `v = [1,2,3]`，呼叫 `avg(v)` 就相當於呼叫 `avg(1,2,3)`。呼叫 `avg(v, 7)` 就相當於呼叫 `avg(1,2,3,7)`。
+評估之前，*doubleVecList* 值會轉換成單一的 *doubleVec*。例如，如果 `v = [1,2,3]`，呼叫 `avg(v)` 就相當於呼叫 `avg(1,2,3)`。呼叫 `avg(v, 7)` 就相當於呼叫 `avg(1,2,3,7)`。
 
-### <a name="getsampledata"></a>取得樣本資料
+## <a name="getsampledata"></a>取得樣本資料
 
 自動調整公式會對 Batch 服務所提供的度量資料 (範例) 產生作用。公式會根據從服務取得的值擴大或縮減集區大小。上述系統定義的變數是可提供各種方法來存取與該物件相關聯資料的物件。例如，下列運算式顯示取得最後五分鐘的 CPU 使用量的要求：
 
@@ -399,7 +398,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
   </tr>
 </table>
 
-### 樣本、樣本百分比和 GetSample() 方法
+### 樣本、樣本百分比和 *GetSample()* 方法
 
 自動調整公式的核心是要取得工作和資源度量資料，然後根據該資料調整集區大小。因此，請務必清楚了解自動調整公式如何與度量資料或「樣本」互動。
 
@@ -415,7 +414,7 @@ Batch 服務會定期取得工作和資源度量的樣本，使其可供自動�
 
 **GetSample() 和樣本範圍**
 
-您的自動調整公式即將擴大和縮減您的集區--加入節點或移除節點。因為節點為付費使用，您想要確保您的公式使用根據充足資料的明智的分析方法。因此，建議您在公式中使用趨勢類型分析。此類型會根據所收集樣本的範圍來擴大和縮減集區。
+您的自動調整公式即將擴大和縮減您的集區--加入節點或移除節點。因為節點為付費使用，您想要確保您的公式使用根據充足資料的明智的分析方法。因此，建議您在公式中使用趨勢類型分析。此類型會根據所收集樣本的*範圍*來擴大和縮減集區。
 
 若要這樣做，請使用 `GetSample(interval look-back start, interval look-back end)` 傳回樣本的**向量**：
 
@@ -427,13 +426,13 @@ Batch 評估上述程式碼後，它會以值的向量形式傳回樣本範圍�
 
 收集樣本向量後，您便可使用 `min()`、`max()` 和 `avg()` 等函數從所收集的範圍衍生出有意義的值。
 
-若要增加安全性，如果特定一段時間可用的樣本小於特定百分比，您可以強制公式評估為失敗。強制公式評估為失敗會指示 Batch 在指定的樣本百分比無法使用時停止進一步評估公式，而且將不會變更集區大小。若要指定評估成功所需的樣本百分比，請將其指定為 `GetSample()` 的第三個參數。以下指定了 75% 的樣本需求：
+若要增加安全性，如果特定一段時間可用的樣本小於特定百分比，您可以強制公式評估為*失敗*。強制公式評估為失敗會指示 Batch 在指定的樣本百分比無法使用時停止進一步評估公式，而且將不會變更集區大小。若要指定評估成功所需的樣本百分比，請將其指定為 `GetSample()` 的第三個參數。以下指定了 75% 的樣本需求：
 
 `runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);`
 
 由於先前提到的樣本可用性延遲，所以也請務必記得指定回顧開始時間早於一分鐘的時間範圍。這是因為樣本需要花大約一分鐘的時間才能傳播到整個系統，所以通常無法使用 `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` 範圍中的樣本。同樣地，您可以使用 `GetSample()` 的百分比參數來強制特定樣本百分比需求。
 
-> [AZURE.IMPORTANT] 我們**強烈建議**您**避免只依賴自動調整公式中的 `GetSample(1)`**。這是因為 `GetSample(1)` 基本上會向 Batch 服務表示：「不論您多久以前取得最後一個樣本，請將它提供給我。」 因為它只是單一樣本，而且可能是較舊的樣本，所以可能無法代表最近工作或資源狀態的全貌。如果您使用 `GetSample(1)`，請確定它是較大的陳述式，而且不是您的公式所依賴的唯一資料點。
+> [AZURE.IMPORTANT] 我們**強烈建議**您**避免*只依賴*自動調整公式中的 `GetSample(1)`**。這是因為 `GetSample(1)` 基本上會向 Batch 服務表示：「不論您多久以前取得最後一個樣本，請將它提供給我。」 因為它只是單一樣本，而且可能是較舊的樣本，所以可能無法代表最近工作或資源狀態的全貌。如果您使用 `GetSample(1)`，請確定它是較大的陳述式，而且不是您的公式所依賴的唯一資料點。
 
 ## 度量
 
@@ -486,11 +485,11 @@ Batch 評估上述程式碼後，它會以值的向量形式傳回樣本範圍�
 2. 當 CPU 使用率偏低時，減少集區中計算節點的目標數目。
 3. 一律以 400 為節點的數目上限。
 
-針對在高 CPU 使用率期間增加節點，我們將陳述式定義為如果在過去 10 分鐘期間 CPU 使用率的平均最小值大於 70%，則在使用者定義的變數 ($TotalNodes) 中填入節點目前目標數目的 110%：
+針對在高 CPU 使用率期間*增加*節點，我們將陳述式定義為如果在過去 10 分鐘期間 CPU 使用率的平均最小值大於 70%，則在使用者定義的變數 ($TotalNodes) 中填入節點目前目標數目的 110%：
 
 `$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;`
 
-下一個陳述式定義如果過去 60 分鐘的平均 CPU 使用率低於 20%，則將相同的變數設定為節點目前目標數目的 90%。這會在低 CPU 使用率時減少目標數量。請注意，此陳述式也會參考上述陳述式中使用者定義的變數 $TotalNodes。
+下一個陳述式定義如果過去 60 分鐘的平均 CPU 使用率*低於* 20%，則將相同的變數設定為節點目前目標數目的 90%。這會在低 CPU 使用率時減少目標數量。請注意，此陳述式也會參考上述陳述式中使用者定義的變數 *$TotalNodes*。
 
 `$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;`
 
@@ -516,7 +515,7 @@ $TargetDedicated = min(400, $TotalNodes)
 - [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx)：呼叫這個 .NET 方法以建立集區之後，您接著要設定集區的 [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) 屬性和 [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) 屬性，以啟用自動調整。
 - [將集區加入至帳戶](https://msdn.microsoft.com/library/azure/dn820174.aspx)：在這個 REST API 要求中會使用 enableAutoScale 和 autoScaleFormula 元素，以便在集區建立時設定集區的自動調整。
 
-> [AZURE.IMPORTANT] 如果您使用上述其中一項技術建立已啟用自動調整的集區，則**不**得指定集區的 targetDedicated 參數。也請注意，如果您想要對已啟用自動調整的集區手動調整大小 (例如使用 [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool])，則必須先在集區**停用**自動調整，然後調整其大小。
+> [AZURE.IMPORTANT] 如果您使用上述其中一項技術建立已啟用自動調整的集區，則**不**得指定集區的 *targetDedicated* 參數。也請注意，如果您想要對已啟用自動調整的集區手動調整大小 (例如使用 [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool])，則必須先在集區**停用**自動調整，然後調整其大小。
 
 下列程式碼片段顯示如何使用 [Batch .NET][net_api] 程式庫建立啟用自動調整的集區 ([CloudPool][net_cloudpool])。集區的自動調整公式會將星期一的節點目標數目設定為 5，而一週的其他各天設定為 1。此外，自動調整間隔會設定為 30 分鐘 (請參閱下面的[自動調整間隔](#interval))。在本文中的此部分與其他 C# 程式碼片段中，"myBatchClient" 是適當初始化的 [BatchClient][net_batchclient] 執行個體。
 
@@ -541,14 +540,14 @@ pool.Commit();
 
 ## 建立集區之後啟用自動調整
 
-如果您已經使用 targetDedicated 參數設定具有指定計算節點數目的集區，則您稍後可以更新現有的集區以自動調整。您可以使用以下其中一種方式執行這項操作：
+如果您已經使用 *targetDedicated* 參數設定具有指定計算節點數目的集區，則您稍後可以更新現有的集區以自動調整。您可以使用以下其中一種方式執行這項操作：
 
 - [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale]：這個 .NET 方法需要現有集區的識別碼，以及要套用至集區的自動調整公式。
 - [在集區上啟用自動調整][rest_enableautoscale]：這個 REST API 要求需要 URI 中現有集區的識別碼，以及要求主體中的自動調整公式。
 
-> [AZURE.NOTE] 如果建立集區時指定 targetDedicated 參數的值，則評估自動調整公式時會忽略此值。
+> [AZURE.NOTE] 如果建立集區時指定 *targetDedicated* 參數的值，則評估自動調整公式時會忽略此值。
 
-此程式碼片段示範使用 [Batch .NET][net_api] 程式庫在現有的集區啟用自動調整。請注意，在現有的集區上啟用和更新公式都使用相同的方法。因此，如果自動調整已啟用，則這項技術會在指定的集區更新公式。程式碼片段會假設 "mypool" 是現有集區 ([CloudPool][net_cloudpool]) 的識別碼。
+此程式碼片段示範使用 [Batch .NET][net_api] 程式庫在現有的集區啟用自動調整。請注意，在現有的集區上啟用和更新公式都使用相同的方法。因此，如果自動調整已啟用，則這項技術會在指定的集區*更新*公式。程式碼片段會假設 "mypool" 是現有集區 ([CloudPool][net_cloudpool]) 的識別碼。
 
 		 // Define the autoscaling formula. In this snippet, the  formula sets the target number of nodes to 5 on
 		 // Mondays, and 1 on every other day of the week
@@ -563,9 +562,9 @@ pool.Commit();
 在應用程式中使用公式之前先進行評估永遠是非常好的做法。公式的評估方式是針對現有集區的公式執行「測試回合」。使用下列方法：
 
 - [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) 或 [BatchClient.PoolOperations.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx)：這些 .NET 方法需要現有集區的識別碼，以及包含自動調整公式的字串。呼叫的結果會包含在 [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx) 類別的執行個體中。
-- [評估自動調整公式](https://msdn.microsoft.com/library/azure/dn820183.aspx)：在這個 REST 要求中，集區識別碼會在 URI 中指定。自動調整公式則會在要求主體的 autoScaleFormula 元素中指定。作業的回應會包含可能與公式相關的任何錯誤資訊。
+- [評估自動調整公式](https://msdn.microsoft.com/library/azure/dn820183.aspx)：在這個 REST 要求中，集區識別碼會在 URI 中指定。自動調整公式則會在要求主體的 *autoScaleFormula* 元素中指定。作業的回應會包含可能與公式相關的任何錯誤資訊。
 
-> [AZURE.NOTE]若要評估自動調整公式，您必須先使用有效的公式在集區啟用自動調整。
+> [AZURE.NOTE] 若要評估自動調整公式，您必須先使用有效的公式在集區啟用自動調整。
 
 在這個使用 [Batch .NET][net_api] 程式庫的程式碼片段中，我們在將公式套用至集區 ([CloudPool][net_cloudpool]) 之前先評估公式。
 
@@ -729,4 +728,4 @@ string formula = string.Format(@"
 [rest_autoscaleinterval]: https://msdn.microsoft.com/zh-TW/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

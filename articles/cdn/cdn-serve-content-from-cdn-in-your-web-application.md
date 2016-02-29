@@ -151,8 +151,8 @@
 
 如果您想要輕鬆地將 ASP.NET Web 應用程式中的所有靜態內容上傳至 CDN 端點，或如果您使用連續傳遞來部署 Web 應用程式 (相關範例請參閱[Azure 中雲端服務的連續傳遞](../cloud-services/cloud-services-dotnet-continuous-delivery.md))，您可以使用 Azure PowerShell，在每次部署 Web 應用程式時，自動將最新內容檔案同步至 Azure Blob。例如，您可以執行[從 ASP.NET 應用程式中將內容檔案上傳至 Azure Blob](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) (英文) 中的指令碼，以上傳 ASP.NET 應用程式中的所有內容檔案。若要使用此指令碼：
 
-4. 從 [**開始**] 功能表，執行 **Microsoft Azure PowerShell**。
-5. 在 Azure PowerShell 的視窗中，執行 `Get-AzurePublishSettingsFile`，為 Azure 帳戶下載發佈設定檔案。
+4. 從 [開始] 功能表執行 [Windows PowerShell]。
+5. 在 PowerShell 的視窗中執行 `Get-AzurePublishSettingsFile`，來為您的 Azure 帳戶下載發佈設定檔。
 6. 下載發行設定檔案之後，執行下列命令： 
 
 		Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
@@ -273,4 +273,4 @@ Azure App Service 與 Azure CDN 或 Azure 雲端服務與 Azure CDN 整合將帶
 - [使用 Azure 的 CDN](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

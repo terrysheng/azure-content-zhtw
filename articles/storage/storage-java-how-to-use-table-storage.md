@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/16/2016"
 	ms.author="micurd"/>
 
 
@@ -23,7 +23,7 @@
 
 ## 概觀
 
-本指南將示範如何使用 Azure 資料表儲存體服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][]。所涵蓋的案例包括「建立」、「列出」和「刪除」資料表，以及在資料表中「插入」、「查詢」、「修改」和「刪除」實體。如需資料表的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
+本指南將示範如何使用 Azure 資料表儲存體服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][]。所涵蓋的案例包括「建立」、「列出」和「刪除」資料表，以及在資料表中「插入」、「查詢」、「修改」和「刪除」實體。如需資料表的詳細資訊，請參閱[後續步驟](#Next-Steps)一節。
 
 注意：已發行一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱 [Azure Storage SDK for Android][]。
 
@@ -413,7 +413,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## 作法：查詢實體屬性的子集
 
-一項資料表查詢可以只擷取實體的少數屬性。這項稱為「投射」的技術可減少頻寬並提高查詢效能 (尤其是對大型實體而言)。下列程式碼中的查詢會使用 **select** 方法，只傳回資料表中之實體的電子郵件地址。結果會在 **EntityResolver** (負責對從伺服器傳回的實體執行類型轉換) 的幫助下投影至 **String** 的集合中。您可以閱讀這篇[部落格文章][]深入了解投射。請注意，投射並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。
+一項資料表查詢可以只擷取實體的少數屬性。這項稱為「投射」的技術可減少頻寬並提高查詢效能 (尤其是對大型實體而言)。下列程式碼中的查詢會使用 **select** 方法，只傳回資料表中之實體的電子郵件地址。結果會在 **EntityResolver** (負責對從伺服器傳回的實體執行類型轉換) 的幫助下投影至 **String** 的集合中。您可以在 [Azure 資料表：插入和查詢投影簡介][]中進一步了解投影。請注意，投射並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。
 
     try
     {
@@ -454,7 +454,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 ## 作法：插入或取代實體
 
-您經常會想要新增實體至資料表，但不知道它是否已在資料表中。插入或取代實體允許您透過單一要求，如果實體不存在便插入它，若是存在則取代現有實體。以先前的範例為基礎，下列程式碼會插入或取代 "Walter Harp" 的實體。建立新實體之後，此程式碼會呼叫 **TableOperation.insertOrReplace** 方法。此程式碼接著會以資料表以及插入或取代資料表操作當作參數，在 **CloudTable** 物件上呼叫 **execute**。若只要更新實體的某一部分，可以改用 **TableOperation.insertOrMerge** 方法。請注意，插入或取代並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。您可以閱讀這篇[部落格文章][] (英文) 深入了解插入或取代，以及插入或合併。
+您經常會想要新增實體至資料表，但不知道它是否已在資料表中。插入或取代實體允許您透過單一要求，如果實體不存在便插入它，若是存在則取代現有實體。以先前的範例為基礎，下列程式碼會插入或取代 "Walter Harp" 的實體。建立新實體之後，此程式碼會呼叫 **TableOperation.insertOrReplace** 方法。此程式碼接著會以資料表以及插入或取代資料表操作當作參數，在 **CloudTable** 物件上呼叫 **execute**。若只要更新實體的某一部分，可以改用 **TableOperation.insertOrMerge** 方法。請注意，插入或取代並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。您可以這個 [Azure 資料表：插入和查詢投影簡介][]中進一步了解插入或取代和插入或合併。
 
     try
     {
@@ -561,6 +561,6 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
 [Azure 儲存體 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
-[部落格文章]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+[Azure 資料表：插入和查詢投影簡介]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

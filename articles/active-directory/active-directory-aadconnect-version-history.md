@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect︰版本發行歷程記錄
@@ -26,6 +26,34 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 
 - 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1\.1.105.0
+發行日期：2016 年 2 月
+
+**新功能︰**
+
+- 適用於「快速設定」客戶的[自動升級](active-directory-aadconnect-feature-automatic-upgrade.md)功能。
+- 使用安裝精靈中的 MFA 和 PIM 來提供全域管理員支援。
+    - 如果您使用 MFA，就必須讓您的 Proxy 也允許對 https://secure.aadcdn.microsoftonline-p.com 的流量。
+    - 您必須將 https://secure.aadcdn.microsoftonline-p.com 新增到信任的網站清單中，MFA 才能正常運作。
+- 允許在初始安裝之後變更使用者的登入方法。
+- 允許在安裝精靈中使用[網域和 OU 篩選](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)。這也會允許連線到並非所有網域都可供使用的樹系。
+- [排程器](active-directory-aadconnectsync-feature-scheduler.md)是同步處理引擎的內建功能。
+
+**從預覽版升級到 GA 的功能：**
+
+- [裝置回寫](active-directory-aadconnect-feature-device-writeback.md)。
+- [目錄擴充](active-directory-aadconnectsync-feature-directory-extensions.md)。
+
+**新的預覽功能：**
+
+- 新的預設同步處理循環間隔為 30 分鐘。過去所有舊版本都是 3 小時。新增可變更[排程器](active-directory-aadconnectsync-feature-scheduler.md)行為的支援。
+
+**已修正的問題：**
+
+- 驗證 DNS 網域頁面不一定都能辨識網域。
+- 設定 ADFS 時，出現網域系統管理員認證提示。
+- 當內部部署 AD 帳戶所在網域的 DNS 樹狀目錄與根網域不同時，安裝精靈即無法辨識這些帳戶。
 
 ## 1\.0.9131.0
 發行時間︰2015 年 12 月
@@ -114,7 +142,7 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 
 - [使用者回寫](active-directory-aadconnect-feature-preview.md#user-writeback)
 - [群組回寫](active-directory-aadconnect-feature-preview.md#group-writeback)
-- [裝置回寫](active-directory-aadconnect-get-started-custom-device-writeback.md)
+- [裝置回寫](active-directory-aadconnect-feature-device-writeback.md)
 - [目錄擴充](active-directory-aadconnect-feature-preview.md#directory-extensions)
 
 
@@ -209,4 +237,4 @@ AD 帳戶必須獲得其他權限，才能讀取來自 AD 的密碼雜湊。要�
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

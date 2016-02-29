@@ -17,9 +17,9 @@
  ms.date="01/08/2016"
  ms.author="larryfr"/>
 
-# 使用 Power BI (預覽) 視覺化 Apache Storm 拓撲的資料
+# 使用 Power BI 視覺化 Apache Storm 拓撲的資料
 
-Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表板。藉由使用 Power BI REST API，您可以輕鬆地使用資料，從在 Apache Storm on HDInsight 叢集上執行的拓撲到 Power BI。
+Power BI 可讓您以視覺化的方式將資料顯示為報表或儀表板。藉由使用 Power BI REST API，您可以輕鬆地使用資料，從在 Apache Storm on HDInsight 叢集上執行的拓撲到 Power BI。
 
 在本文件中，您將學習如何使用 Power BI 從 Storm 拓撲所建立的資料建立報表和儀表板。
 
@@ -139,4 +139,4 @@ Power BI 預覽可讓您以視覺化的方式將資料顯示為報表或儀表�
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

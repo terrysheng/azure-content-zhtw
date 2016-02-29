@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/10/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma"/>
 
 # 如何使用 CLI 管理 DNS 區域
@@ -24,7 +24,7 @@
 
 本指南說明如何管理 DNS 區域。有助於了解管理 DNS 區域所需執行的作業序列。
 
->[AZURE.NOTE]Azure DNS 是僅能以 Azure 資源管理員運作的服務。它沒有 ASM API。因此您必須確認設定 Azure CLI 以使用資源管理員模式，並使用 azure config mode arm 命令。
+>[AZURE.NOTE] Azure DNS 是僅能以 Azure 資源管理員運作的服務。它沒有 ASM API。因此您必須確認設定 Azure CLI 以使用資源管理員模式，並使用 azure config mode arm 命令。
 
 >如果您看到「錯誤：'dns' 不是 azure 命令」，可能是因為您正在 ASM 模式中使用 Azure CLI，而非資源管理員模式中。
  
@@ -76,8 +76,6 @@
 ## 後續步驟
 
 
-[管理 DNS 記錄](dns-operations-recordsets-cli.md)
+了解[如何管理 DNS 記錄](dns-operations-recordsets-cli.md)，以及[使用 .NET SDK 來自動化作業](dns-sdk.md)
 
-[使用 .NET SDK 自動化作業](dns-sdk.md)
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

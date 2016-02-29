@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
-# Azure AD Connect 的設計概念
+# Azure AD Connect：設計概念
 本主題旨在說明在 Azure AD Connect 實作設計期間必須思考的領域。這是特定領域的深入探討，而在其他主題忠也會簡短描述這些概念。
 
 ## sourceAnchor
@@ -43,7 +43,6 @@ sourceAnchor 屬性的定義是*在物件存留期間不會變更的屬性*。�
 - 不應區分大小寫，並避免可能會因大小寫而改變的值
 - 建立物件時應該要予以指派。
 
-
 如果選取的 sourceAnchor 不是字串類型，則 Azure AD Connect 會將此屬性值進行 Base64Encode 處理，以確保不會出現特殊字元。如果您使用 ADFS 以外的其他同盟伺服器，請確定您的伺服器也能夠將此屬性進行 Base64Encode 處理。
 
 sourceAnchor 屬性會區分大小寫。"JohnDoe" 與 "johndoe" 是不同的值。
@@ -68,4 +67,4 @@ sourceAnchor 屬性會區分大小寫。"JohnDoe" 與 "johndoe" 是不同的值�
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

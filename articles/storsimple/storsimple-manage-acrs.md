@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
 # 使用 StorSimple Manager 服務管理存取控制記錄
@@ -27,7 +27,7 @@
 - 編輯存取控制記錄 
 - 刪除存取控制記錄 
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 > 
 > - 將 ACR 指派到磁碟區時，請注意磁碟區並未被多個非叢集主機並行存取，因為這可能會損毀磁碟區。 
 > - 從磁碟區刪除 ACR 時，請確定對應的主機未存取磁碟區，因為刪除作業可能會導致讀寫中斷。
@@ -56,7 +56,7 @@
 
 您可以使用 Azure 傳統入口網站中的 [設定] 頁面編輯 ACR。
 
-> [AZURE.NOTE]您只能修改目前未在使用中的 ACR。若要編輯與目前正在使用中的磁碟區相關聯的 ACR，您必須先讓磁碟區離線。
+> [AZURE.NOTE] 您只能修改目前未在使用中的 ACR。若要編輯與目前正在使用中的磁碟區相關聯的 ACR，您必須先讓磁碟區離線。
 
 執行下列步驟以編輯 ACR。
 
@@ -74,7 +74,7 @@
 
 您可以使用 Azure 傳統入口網站中的 [設定] 頁面刪除 ACR。
 
-> [AZURE.NOTE]您只能刪除目前未在使用中的 ACR。若要刪除與目前正在使用中的磁碟區相關聯的 ACR，您必須先讓磁碟區離線。
+> [AZURE.NOTE] 您只能刪除目前未在使用中的 ACR。若要刪除與目前正在使用中的磁碟區相關聯的 ACR，您必須先讓磁碟區離線。
 
 執行下列步驟來刪除存取控制記錄。
 
@@ -95,4 +95,4 @@
 - 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

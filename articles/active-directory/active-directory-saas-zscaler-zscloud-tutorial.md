@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="教學課程：Azure Active Directory 與 Zscaler ZSCloud 整合 | Microsoft Azure" description="了解如何使用 Zscaler ZSCloud 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
+    pageTitle="教學課程：Azure Active Directory 與 Zscaler ZSCloud 整合 | Microsoft Azure"
+    description="了解如何使用 Zscaler ZSCloud 搭配 Azure Active Directory 來啟用單一登入、自動化佈建和更多功能！" 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -83,7 +84,7 @@
 
     ![設定應用程式 URL](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800280.png "設定應用程式 URL")
 
-    >[AZURE.NOTE]如有需要，您可以向 ZScaler ZSCloud 支援小組取得您的環境的實際值。
+    >[AZURE.NOTE] 如有需要，您可以向 ZScaler ZSCloud 支援小組取得您的環境的實際值。
 
 4.  在 [設定在 ZScaler ZSCloud 單一登入] 頁面上，按一下 [下載憑證] 以下載您的憑證，然後將憑證檔案儲存在您的電腦上。
 
@@ -181,7 +182,7 @@
     1.  輸入 [使用者識別碼]、[使用者顯示名稱]、[密碼]、[確認密碼]，然後選取您要佈建之有效 AAD 帳戶的 [群組] 和 [部門]。
     2.  按一下 [儲存]。
 
->[AZURE.NOTE]您可以使用任何其他的 ZScaler ZSCloud 使用者帳戶建立工具或 ZScaler ZSCloud 提供的 API 來佈建 AAD 使用者帳戶。
+>[AZURE.NOTE] 您可以使用任何其他的 ZScaler ZSCloud 使用者帳戶建立工具或 ZScaler ZSCloud 提供的 API 來佈建 AAD 使用者帳戶。
 
 ##指派使用者
   
@@ -201,4 +202,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

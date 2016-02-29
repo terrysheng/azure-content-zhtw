@@ -27,7 +27,7 @@
         
             func loginAndGetData() {
                 
-                guard let client = self.table?.client where client.currentUser != nil else {
+                guard let client = self.table?.client where client.currentUser == nil else {
                     return
                 }
                 
@@ -44,4 +44,4 @@
 
 3. 按下 [_執行_] 以啟動應用程式，然後登入。當您登入時，應該能夠檢視待辦事項清單並進行更新。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

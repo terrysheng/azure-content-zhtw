@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/06/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # 開始在 Azure CLI 中建立網際網路面向的負載平衡器 (傳統)
@@ -116,7 +116,7 @@
 
 ## 為虛擬機器建立遠端桌面端點
 
-您可以使用 `azure vm endpoint create` 建立遠端桌面端點，針對特定的虛擬機器將網路流量從公用連接埠轉送到本機連接埠。
+您可以使用 `azure vm endpoint create` 建立遠端桌面端點，針對特定的虛擬機器將網路流量從公用連接埠轉送至本機連接埠。
 
 	azure vm endpoint create web1 54580 -k 3389 
 
@@ -130,7 +130,7 @@
 	azure vm endpoint delete web1 tcp-80-80
 
 
->[AZURE.NOTE]您可以使用命令 `azure vm endpoint --help` 探索更多管理端點的選項
+>[AZURE.NOTE] 您可以使用命令 `azure vm endpoint --help` 探索更多管理端點的選項
 
 
 ## 後續步驟
@@ -143,4 +143,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

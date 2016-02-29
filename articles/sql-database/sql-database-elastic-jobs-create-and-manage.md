@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/11/2016"
 	ms.author="ddove; sidneyh"/>
 
 # 使用入口網站建立和管理 SQL Database 彈性工作 (預覽)
@@ -23,7 +23,7 @@
 - [PowerShell](sql-database-elastic-jobs-powershell.md)
 
 
-**彈性資料庫工作**可讓您進行輕鬆且可靠的資料庫群組管理，方法是簡化系統管理作業 (例如結構描述變更、認證管理、參考資料更新、效能資料收集，或租用戶 (客戶) 遙測收集) 的執行。彈性資料庫工作目前可透過 Azure 入口網站和 PowerShell Cmdlet 使用。不過，Azure 入口網站呈現精簡功能會限制為跨[彈性資料庫集區 (預覽)](sql-database-elastic-pool.md)中的所有資料庫執行。若要存取其他功能以及跨資料庫群組執行指令碼，包括自訂定義集合或分區集 (使用[彈性資料庫用戶端程式庫](sql-database-elastic-scale-introduction.md)建立)，請參閱[使用 PowerShell 建立和管理工作](sql-database-elastic-jobs-powershell.md)。如需工作的詳細資訊，請參閱[彈性資料庫工作概觀](sql-database-elastic-jobs-overview.md)。
+**彈性資料庫工作**可以簡化資料庫群組的管理，方法是執行系統管理作業 (例如結構描述變更、認證管理、參考資料更新、效能資料收集，或租用戶 (客戶) 遙測收集)。彈性資料庫工作目前可透過 Azure 入口網站和 PowerShell Cmdlet 使用。不過，Azure 入口網站呈現精簡功能會限制為跨[彈性資料庫集區 (預覽)](sql-database-elastic-pool.md)中的所有資料庫執行。若要存取其他功能以及跨資料庫群組執行指令碼，包括自訂定義集合或分區集 (使用[彈性資料庫用戶端程式庫](sql-database-elastic-scale-introduction.md)建立)，請參閱[使用 PowerShell 建立和管理工作](sql-database-elastic-jobs-powershell.md)。如需工作的詳細資訊，請參閱[彈性資料庫工作概觀](sql-database-elastic-jobs-overview.md)。
 
 ## 必要條件
 
@@ -115,4 +115,4 @@
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

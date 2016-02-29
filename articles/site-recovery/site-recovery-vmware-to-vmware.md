@@ -1,6 +1,6 @@
 <properties
-	pageTitle="設定內部部署 VMWare 網站之間的保護"
-	description="使用這份文件，使用 Azure Site Recovery 設定兩個兩個 VMware 網站之間的保護。"
+	pageTitle="將內部部署 VMware 虛擬機器或實體伺服器複寫至次要網站 | Microsoft Azure"
+	description="使用這篇文章以使用 Azure Site Recovery，將 VMware VM 或 Windows/Linux 實體伺服器複寫至次要網站。"
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 
-# 設定內部部署 VMware 網站之間的保護
+# 將內部部署 VMware 虛擬機器或實體伺服器複寫至次要網站
 
 
 ## 概觀
@@ -27,7 +27,7 @@ Azure Site Recovery 中的 InMage Scout 可提供內部部署 VMware 網站之�
 
 ## 必要條件
 
-- **Azure 帳戶** — 您將需要一個 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。
+- **Azure 帳戶** — 您將需要一個 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。您可以從[免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。[深入了解](https://azure.microsoft.com/pricing/details/site-recovery/) Site Recovery 價格。
 
 
 ## 步驟 1：建立保存庫
@@ -36,7 +36,7 @@ Azure Site Recovery 中的 InMage Scout 可提供內部部署 VMware 網站之�
 2. 按一下 [資料服務] > [復原服務]，然後按一下 [Site Recovery 保存庫]。
 3. 按一下 [新建] > [快速建立]。
 4. 在 [名稱] 中，輸入一個可識別保存庫的易記名稱。
-5. 在 [區域] 中，選取保存庫的地理區域。若要查看支援的區域，請參閱 [Azure Site Recovery 價格詳細資料](pricing/details/site-recovery/)中的＜各區域上市情況＞。
+5. 在 [區域] 中，選取保存庫的地理區域。若要查看支援的區域，請參閱 [Azure Site Recovery 價格詳細資料](https://azure.microsoft.com/pricing/details/site-recovery/)中的＜各區域上市情況＞。
 
 檢查狀態列，以確認是否順利建立保存庫。保存庫在主要復原服務頁面上會列為 [使用中]。
 
@@ -130,4 +130,4 @@ Azure Site Recovery 中的 InMage Scout 可提供內部部署 VMware 網站之�
 
 若有任何問題，請造訪 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) (英文)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

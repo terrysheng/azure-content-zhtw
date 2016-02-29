@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/20/2016"
+   ms.date="02/08/2016"
    ms.author="alkohli" />
 
 
@@ -26,7 +26,7 @@
 
 完成此處描述的程序需要大約 30 分鐘至 1 個小時。這篇文章中的資訊僅適用於 StorSimple Virtual Array。
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- StorSimple Virtual Array 目前是預覽版，僅供評估及部署規劃之用。不支援在生產環境中安裝此預覽版。 
 >- 如果您遇到任何 StorSimple Virtual Array 的問題，請在 [StorSimple MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple)提出問題。
@@ -92,15 +92,20 @@
 
     3. 指定您是否想讓此裝置加入網域。如果您的裝置是 iSCSI 伺服器，您可以省略加入網域這個步驟。如果您決定不將 iSCSI 伺服器加入網域，請按一下 [套用] 並等待設定套用完畢，然後前往下一個的步驟。
 
-        如果您想要讓裝置加入網域，請輸入 [網域名稱] \(如下所示)。
+        如果您想要讓裝置加入網域，請輸入 [網域名稱] (如下所示)。
 
     4. 按一下 [套用]。
 
     5. 此時畫面會出現對話方塊。請以指定格式輸入網域認證。按一下核取圖示 ![核取圖示](./media/storsimple-ova-deploy3-iscsi-setup/image15.png)。系統將會驗證該網域認證。如果認證不正確，畫面會出現錯誤訊息。
 
         ![認證](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
+        
+           > [AZURE.NOTE]
+	   > 
+	   > 如果將您的 iSCSI 加入網域，請確定您的虛擬陣列位於它自己的 Microsoft Azure Active Directory 組織單位 (OU) 中，且沒有套用群組原則物件 (GPO)。
+	   
 
-    6. 按一下 [套用]。這將會套用並驗證裝置設定。
+    6. 按一下 [Apply (套用)]。這將會套用並驗證裝置設定。
  
 7. (可省略) 設定 Web Proxy 伺服器。雖然 Web Proxy 設定是選用的，但請注意，如果您使用 Web Proxy，就只能在此處設定它。
 
@@ -108,13 +113,13 @@
 
     在 [Web Proxy] 頁面上：
 
-    1. 以下列格式提供 [Web Proxy URL]：http://host-IP 位址或完整網域名稱:連接埠號碼。請注意，此處不支援 HTTPS URL。
+    1. 以下列格式提供 [Web Proxy URL]：「http://host-IP 位址」或「完整網域名稱:連接埠號碼」。請注意，此處不支援 HTTPS URL。
 
     2. 將 [驗證] 指定為 [基本]、[NTLM] 或 [無]。
 
     3. 如果您要使用驗證功能，您也必須提供 [使用者名稱 ] 和 [密碼]。
 
-    4. 按一下 [套用]。這將會驗證並套用您設定的 Web Proxy 設定。
+    4. 按一下 [Apply (套用)]。這將會驗證並套用您設定的 Web Proxy 設定。
  
 8. (可省略) 設定裝置的時間設定，例如時區，以及主要和次要 NTP 伺服器。NTP 伺服器是必要的，因為您的裝置必須讓時間同步，才能與您的雲端服務提供者進行驗證。
 
@@ -126,15 +131,15 @@
 
     2. 指定裝置的 [主要 NTP 伺服器]，或是接受 time.windows.com 的預設值。請確定您的網路允許 NTP 流量從您的資料中心通過網際網路。
 
-    3. (可省略) 指定裝置的 [次要 NTP 伺服器]。
+    3. (選用) 指定裝置的 [次要 NTP 伺服器]。
 
-    4. 按一下 [套用]。這將會驗證並套用您設定的時間設定。
+    4. 按一下 [Apply (套用)]。這將會驗證並套用您設定的時間設定。
 
 9. 設定裝置的雲端設定。在此步驟中，您將會完成本機裝置設定程序，然後向您的 StorSimple Manager 服務註冊裝置。
 
-    1. 輸入您在 [Deploy StorSimple Virtual Array - Prepare the Portal (部署 StorSimple Virtual Array：準備入口網站)](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) 一文的 **Step 2: Get the service registration key** (步驟 2：取得服務註冊金鑰) 中取得的「服務註冊金鑰」。
+    1. 輸入您在[部署 StorSimple Virtual Array：準備入口網站](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key)一文的**步驟 2：取得服務註冊金鑰**中取得的「服務註冊金鑰」。
 
-    2. 如果這不是您向此服務註冊的第一個裝置，您必須提供「服務資料加密金鑰」。您必須將此金鑰與服務註冊金鑰搭配使用，才能向 StorSimple Manager 服務註冊額外的裝置。如需詳細資訊，請參閱使用本機 Web UI [Get the service data encryption key (取得服務資料加密金鑰)](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)。
+    2. 如果這不是您向此服務註冊的第一個裝置，您必須提供「服務資料加密金鑰」。您必須將此金鑰與服務註冊金鑰搭配使用，才能向 StorSimple Manager 服務註冊額外的裝置。如需詳細資訊，請參閱使用本機 Web UI 上的[取得服務資料加密金鑰](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)。
 
     3. 按一下 [註冊]。這將讓裝置重新啟動。您可能需要等待 2 至 3 分鐘，裝置才會註冊成功。裝置重新啟動之後，您將會看到登入頁面。
 
@@ -186,7 +191,7 @@
 
 1. 在裝置的 [快速入門] 頁面上，按一下 [新增磁碟區]。這樣會啟動 [新增磁碟區] 精靈。
 
-2. 在 [新增磁碟區] 精靈的 [基本設定] 下，執行列動作：
+2. 在 [新增磁碟區精靈] 的 [基本設定] 下，執行列動作：
 
     1. 為磁碟區提供唯一的名稱。該名稱必須為包含 3 至 127 個字元的字串。
 
@@ -244,7 +249,7 @@
 
     ![探索到的目標](./media/storsimple-ova-deploy3-iscsi-setup/image24.png)
 
-5. 選取目標裝置，然後按一下 [連接]。連接裝置之後，狀態應會變更為 [已連接]。(如需如何使用 Microsoft iSCSI 啟動器的詳細資訊，請參閱[安裝和設定 Microsoft iSCSI 啟動器][1])。
+5. 選取目標裝置，然後按一下 [連接]。連接裝置之後，狀態應會變更為 [已連接](如需如何使用 Microsoft iSCSI 啟動器的詳細資訊，請參閱[安裝和設定 Microsoft iSCSI 啟動器][1])。
 
     ![選取目標裝置](./media/storsimple-ova-deploy3-iscsi-setup/image25.png)
 
@@ -286,7 +291,7 @@
 
 ## 後續步驟
 
-了解如何使用本機 Web UI 來[管理您的 StorSimple 虛擬陣列](storsimple-ova-web-ui-admin.md)。
+了解如何使用本機 Web UI 來[管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
 ## 附錄 A：取得 Windows Server 主機的 IQN
 
@@ -305,4 +310,4 @@
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!----HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

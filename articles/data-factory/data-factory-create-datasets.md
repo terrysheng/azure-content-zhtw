@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="建立資料庫" 
+	pageTitle="Azure Data Factory 中的資料集 | Microsoft Azure" 
 	description="了解 Azure Data Factory 資料集並學習如何建立它們。" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
-# 資料集
+# Azure Data Factory 中的資料集
 
 ## 說明
 資料集是資料的邏輯描述。所說明的資料可能有所不同，包括簡單位元組、半結構化資料 (例如 CSV 檔案)，乃至於關聯式資料表甚或模型。用來存取資料的機制 (位址、通訊協定、驗證結構描述) 已定義於連結服務中並可在資料集定義中參考。
@@ -110,7 +110,7 @@
 | frequency | 指定資料集配量生產的時間單位。<p>**支援的頻率**：分鐘、小時、日、週、月</p> | 是 | NA |
 | interval | 指定頻率的倍數<p>「頻率 x 間隔」可決定產生配量的頻率。</p><p>如果您需要每小時切割資料集，請將 [**頻率**] 設為 [**小時**]，將 [**間隔**] 設為 **1**。</p><p>**注意：** 如果您將 [頻率] 指定為 [分鐘]，建議您將間隔設為不小於 15</p> | 是 | NA |
 | style | 指定是否應該在間隔開始/結束時產生配量。<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><p>如果 [頻率] 設為 [月] 且 style 設為 EndOfInterval，則會在月份的最後一天產生配量。如果 style 設為 StartOfInterval，則會在月份的第一天產生配量。</p><p>如果 [頻率] 設為 [天] 且 style 設為 EndOfInterval，則會在一天的最後一個小時產生配量。</p>如果 [頻率] 設為 [小時] 且 style 設為 EndOfInterval，則會在一小時結束時產生配量。例如，若為下午 1 – 2 點期間的配量，此配量會在下午 2 點產生。</p> | 否 | EndOfInterval |
-| anchorDateTime | 定義排程器用來計算資料集配量界限的時間絕對位置。<p>**注意：** 如果 AnchorDateTime 有比頻率更細微的日期部分，則會忽略更細微的部分。例如，如果 **間隔** 為 **每小時** (頻率：小時，間隔：1) 而且 **AnchorDateTime** 包含**分鐘和秒鐘**，則會忽略 AnchorDateTime 的**分鐘和秒鐘**部分。</p>| 否 | 01/01/0001 |
+| anchorDateTime | 定義排程器用來計算資料集配量界限的時間絕對位置。<p>**注意：** 如果 AnchorDateTime 有比頻率更細微的日期部分，則會忽略更細微的部分。例如，如果 [**間隔**] 為 [**每小時**] (頻率：小時，間隔：1) 而且 **AnchorDateTime** 包含**分鐘和秒鐘**，則會忽略 AnchorDateTime 的**分鐘和秒鐘**部分。</p>| 否 | 01/01/0001 |
 | Offset | 所有資料集配量的開始和結束移位所依據的時間範圍。<p>**附註：** 如果已指定 anchorDateTime 和 offset，結果會是合併的移位。</p> | 否 | NA |
 
 ### anchorDateTime 範例
@@ -208,4 +208,4 @@
 	  }
 	}
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

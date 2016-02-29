@@ -21,7 +21,7 @@
 
 ## 概觀
 
-本文將示範如何使用 Microsoft Azure Blob 儲存體執行一般案例。這些範例均以 Objective-C 撰寫，並使用 [Azure 儲存體 iOS 程式庫](https://github.com/Azure/azure-storage-ios)。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟](#next-steps)一節。您也可以下載[範例應用程式](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample)，以快速查看在 iOS 應用程式中使用 Azure 儲存體的方法。
+本文將示範如何使用 Microsoft Azure Blob 儲存體執行一般案例。這些範例均以 Objective-C 撰寫，並使用 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-ios)。所涵蓋的案例包括「上傳」、「列出」、「下載」及「刪除」Blob。如需 Blob 的詳細資訊，請參閱[後續步驟](#next-steps)一節。您也可以下載[範例應用程式](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample)，以快速查看在 iOS 應用程式中使用 Azure 儲存體的方法。
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -88,7 +88,7 @@
 
 下列範例說明如何使用 Azure CLI 來產生 SAS 權杖，且此權杖會授與容器*sascontainer* 的讀取和寫入權限，直到 2015 年 9 月 5 日凌晨 12:00 (UTC) 為止。
 
-1. 首先，請依照此[指南](../xplat-cli/#how-to-install-the-azure-cli)，以了解如何安裝 Azure CLI 並連接到您的 Azure 訂用帳戶。
+1. 首先，請參閱[安裝 Azure CLI](../xplat-cli-install.md)，以了解如何安裝 Azure CLI 並連接到您的 Azure 訂用帳戶。
 
 2. 接下來，請在 Azure CLI 中輸入下列命令，以取得帳戶的連接字串：
 
@@ -111,7 +111,7 @@
 		// Get a reference to a container in your Storage account
     	AZSCloudBlobContainer *blobContainer = [[AZSCloudBlobContainer alloc] initWithUrl:[NSURL URLWithString:@" your SAS URL"]];
 
-如您所見，使用 SAS 權杖時，您並不會在 iOS 應用程式中公開您的帳戶名稱和帳戶金鑰。您可以參閱[共用存取簽章教學課程](../storage-dotnet-shared-access-signature-part-1)，以進一步了解 SAS。
+如您所見，使用 SAS 權杖時，您並不會在 iOS 應用程式中公開您的帳戶名稱和帳戶金鑰。您可以參閱[共用存取簽章：了解 SAS 模型](../storage-dotnet-shared-access-signature-part-1)，以進一步了解 SAS。
 
 ##非同步作業
 > [AZURE.NOTE] 所有對服務執行要求的方法，都是非同步作業。在程式碼範例中，您會發現這些方法具有完成處理常式。完成處理常式內的程式碼會在要求完成**之後**執行。完成處理常式後面的程式碼會在進行要求**期間**執行。
@@ -348,15 +348,11 @@
 
 了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作。
 
-- [Azure 儲存體 iOS 程式庫]
-- [Azure 儲存體 REST API]
-- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
-- [Azure 儲存體團隊部落格]
+- [Azure Storage Client Library for iOS](https://github.com/azure/azure-storage-ios)
+- [Azure 儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
+- [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage)
 
 如果您有關於此程式庫的問題，歡迎您貼文到我們的 [MSDN Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata)或[堆疊溢位](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)。如果您有 Azure 儲存體功能方面的建議，請貼文到 [Azure 儲存體意見反應](https://feedback.azure.com/forums/217298-storage/)。
 
-[Azure 儲存體 iOS 程式庫]: https://github.com/azure/azure-storage-ios
-[Azure 儲存體 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

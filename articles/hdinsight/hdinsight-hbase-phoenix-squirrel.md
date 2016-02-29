@@ -20,7 +20,7 @@
 
 了解如何使用 HDinsight 中的 [Apache Phoenix](http://phoenix.apache.org/)，以及如何在您的工作站上安裝與設定 SQuirreL 以連線到 HDInsight 中的 HBase 叢集。如需有關 Phoenix 的詳細資訊，請參閱 [15 分鐘內了解 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。如需 Phoenix 文法，請參閱 [Phoenix 文法](http://phoenix.apache.org/language/index.html)。
 
->[AZURE.NOTE]如需 HDInsight 中的 Phoenix 版本資訊，請參閱 [HDInsight 在 Hadoop 叢集版本中提供什麼新功能？][hdinsight-versions]
+>[AZURE.NOTE] 如需 HDInsight 中的 Phoenix 版本資訊，請參閱 [HDInsight 在 Hadoop 叢集版本中提供什麼新功能？][hdinsight-versions]
 
 ##使用 SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) 是執行 SQL 的命令列公用程式。
@@ -91,7 +91,7 @@
 
 - 將 HBase 叢集部署至具備 DNS 虛擬機器的 Azure 虛擬網路。如需相關指示，請參閱 [在 Azure 虛擬網路上佈建 HBase 叢集][hdinsight-hbase-provision-vnet]。 
 
-	>[AZURE.IMPORTANT]您必須將 DNS 伺服器安裝到虛擬網路。如需相關指示，請參閱[設定兩個 Azure 虛擬網路之間的 DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+	>[AZURE.IMPORTANT] 您必須將 DNS 伺服器安裝到虛擬網路。如需相關指示，請參閱[設定兩個 Azure 虛擬網路之間的 DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
 
 - 取得 HBase 叢集的連線專用 DNS 尾碼。若要取得該尾碼，請 RDP 到叢集，然後執行 IPConfig。DNS 尾碼會類似於：
 
@@ -155,7 +155,7 @@
 
 	不要關閉命令提示字元。您將在下一個程序中需要此提示字元。
 
-	>[AZURE.NOTE]因為您已經建立會產生用戶端憑證的根憑證，您可能會想要將此憑證及其私密金鑰匯出，並將它儲存到可復原的安全位置。
+	>[AZURE.NOTE] 因為您已經建立會產生用戶端憑證的根憑證，您可能會想要將此憑證及其私密金鑰匯出，並將它儲存到可復原的安全位置。
 
 **建立用戶端憑證**
 
@@ -216,7 +216,7 @@
 2. 開啟/執行 jar 檔案。它需要 [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)。
 3. 按兩下 [**下一步**]。
 4. 指定您具有寫入權限的路徑，然後按 [**下一步**]。
-	>[AZURE.NOTE]預設的安裝資料夾位於 C:\\Program Files\\squirrel sql 3.6 資料夾中。若要寫入此路徑，必須將系統管理員權限授與安裝程式。您可以系統管理員身分開啟命令提示字元、瀏覽至 Java 的 bin 資料夾，然後再執行
+	>[AZURE.NOTE] 預設的安裝資料夾位於 C:\\Program Files\\squirrel sql 3.6 資料夾中。若要寫入此路徑，必須將系統管理員權限授與安裝程式。您可以系統管理員身分開啟命令提示字元、瀏覽至 Java 的 bin 資料夾，然後再執行
 	>
 	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. 按一下 [**確定**] 以確認建立目標目錄。
@@ -242,7 +242,7 @@ Phoenix 驅動程式 jar 檔案位於 HBase 叢集上。此路徑根據版本與
 	- **範例 URL**：jdbc:phoenix:zookeeper2.contoso-hbase-eu.f5.internal.cloudapp.net
 	- **類別名稱**：org.apache.phoenix.jdbc.PhoenixDriver
 
-	>[AZURE.WARNING]使用者在範例 URL 中全部小寫。您可以使用完整 zookeeper 仲裁，以免其中一項已關閉。主機名稱是 zookeeper0、zookeeper1 和 zookeeper2。
+	>[AZURE.WARNING] 使用者在範例 URL 中全部小寫。您可以使用完整 zookeeper 仲裁，以免其中一項已關閉。主機名稱是 zookeeper0、zookeeper1 和 zookeeper2。
 
 	![HDInsight HBase Phoenix SQuirreL 驅動程式][img-squirrel-driver]
 4. 按一下 [確定]。
@@ -289,7 +289,7 @@ Phoenix 驅動程式 jar 檔案位於 HBase 叢集上。此路徑根據版本與
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
 [hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
+[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
@@ -306,4 +306,4 @@ Phoenix 驅動程式 jar 檔案位於 HBase 叢集上。此路徑根據版本與
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

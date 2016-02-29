@@ -1,11 +1,4 @@
-<properties
-	pageTitle="使用 Azure Site Recovery 將 VMware 虛擬機器和實體伺服器複寫至 Azure (舊版) | Microsoft Azure" 
-	description="描述設定 Azure Site Recovery 以協調內部部署 VMware 虛擬機器和 Windows/Linux 實體伺服器至 Azure 的複寫、容錯移轉及復原的舊版部署。" " 
-	services="site-recovery"
-	documentationCenter=""
-	authors="rayne-wiselman"
-	manager="jwhit"
-	editor=""/>
+<properties pageTitle="使用 Azure Site Recovery 將 VMware 虛擬機器和實體伺服器複寫至 Azure (舊版) | Microsoft Azure" description="描述設定 Azure Site Recovery 以協調內部部署 VMware 虛擬機器和 Windows/Linux 實體伺服器至 Azure 的複寫、容錯移轉及復原的舊版部署。" " services="site-recovery" documentationCenter="" authors="rayne-wiselman" manager="jwhit" editor=""/>
 
 <tags
 	ms.service="site-recovery"
@@ -107,8 +100,6 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 **Azure Site Recovery 保存庫** | 訂閱 Site Recovery 服務之後設定。 | 您在 Site Recovery 保存庫中註冊伺服器。保存庫可在您的內部部署網站與 Azure 之間協調資料複寫、容錯移轉及復原等作業。
 **複寫機制** | <p>**透過網際網路**—透過受保護的內部部署伺服器與 Azure，使用受保護的 SSL/TLS 通訊通道經由公用網際網路連線來通訊與複寫資料。這是預設選項。</p><p>**VPN/ExpressRoute**－透過 VPN 連線，在內部部署伺服器與 Azure 之間進行通訊與複寫資料。您必須在內部部署網站與 Azure 網路之間設定站對站 VPN 或 ExpressRoute 連接。</p><p>您會選取要在 Site Recovery 部署期間複寫的方式。機制設定後若不會影響已受保護伺服器上的保護，您便無法變更機制。| <p>這些選項都不會要求您開啟受保護機器上的任何輸入網路連接埠。所有的網路通訊是從內部部署網站起始。</p> 
 
-您可以在 [Site Recovery 元件](site-recovery-components.md)中深入了解 Site Recovery 元件、提供者和代理程式。
-
 ## 容量規劃
 
 考量的主要領域為：
@@ -123,8 +114,8 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 - **每一主要目標伺服器的來源數目**—可以使用單一主要目標伺服器保護的多個來源機器。不過，無法跨多個主要目標伺服器保護單一來源機器，因為在磁碟複寫時，會在 Azure Blob 儲存體上建立可反映磁碟大小的 VHD，並將其附加至主要目標伺服器做為資料磁碟。  
 - **每一來源每日變更率上限**—考慮每一來源建議的變更率時，有三個需要考量的因素。針對目標式考量，來源上每個作業的目標磁碟需要兩個 IOP。這是因為目標磁碟上將會發生舊資料的讀取和新資料的寫入。 
 	- **處理序伺服器支援的每日變更率**—來源機器不能跨越多個處理序伺服器。單一處理序伺服器可以支援多達 1 TB 的每日變更率。因此 1 TB 是來源機器支援的每日資料變更率上限。 
-	- **目標磁碟支援的最大輸送量**—每一來源磁碟的最大變換不能超過 144 GB/天 (以 8K 寫入大小)。請參閱主要目標小節中的資料表，以取得各種寫入大小的目標的輸送量和 IOP。必須將此數字除以 2，因為每個來源 IOP 會在目標磁碟上產生 2 個 IOP。設定進階儲存體帳戶的目標時，請參閱[使用進階儲存體時的延展性和效能目標](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)。
-	- **儲存體帳戶支援的最大輸送量**—來源不能跨越多個儲存體帳戶。假設某個儲存體帳戶每秒可接受最多 20,000 個要求，並且每個來源 IOP 會在主要目標伺服器上產生 2 個 IOP，建議您將來源的 IOP 數目保留為 10,000。設定進階儲存體帳戶的來源時，請參閱[使用進階儲存體時的延展性和效能目標](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)。
+	- **目標磁碟支援的最大輸送量**—每一來源磁碟的最大變換不能超過 144 GB/天 (以 8K 寫入大小)。請參閱主要目標小節中的資料表，以取得各種寫入大小的目標的輸送量和 IOP。必須將此數字除以 2，因為每個來源 IOP 會在目標磁碟上產生 2 個 IOP。設定進階儲存體帳戶的目標時，請參閱 [Azure 延展性和效能目標](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)。
+	- **儲存體帳戶支援的最大輸送量**—來源不能跨越多個儲存體帳戶。假設某個儲存體帳戶每秒可接受最多 20,000 個要求，並且每個來源 IOP 會在主要目標伺服器上產生 2 個 IOP，建議您將來源的 IOP 數目保留為 10,000。設定進階儲存體帳戶的來源時，請參閱 [Azure 延展性和效能目標](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)。
 
 ### 元件伺服器的考量
 
@@ -185,7 +176,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 主要目標伺服器的容量計劃仰賴於：
 
 - Azure 儲存體效能和限制
-	- 單一儲存體帳戶中標準層 VM 的高度使用的磁碟數目上限約為 40 (每一磁碟 20,000/500 IOPS)。如需詳細資訊，請參閱[標準儲存體帳戶的延展性目標](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts)。如需進階儲存體帳戶的詳細資訊，同樣請參閱[進階儲存體帳戶的延展性目標](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)。
+	- 單一儲存體帳戶中標準層 VM 的高度使用的磁碟數目上限約為 40 (每一磁碟 20,000/500 IOPS)。深入了解[標準儲存體的延展性目標](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts)和[進階儲存體帳戶](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)的延展性目標。
 -	每日變更率 
 -	保留磁碟區儲存體。
 
@@ -226,13 +217,13 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
 ## 網路連線
 
-有兩個選項可設定您的內部部署網站與部署您的基礎結構元件 (設定伺服器、主要目標伺服器) 所在的 Azure 虛擬網路之間的網路連線 。您必須決定要使用的網路連線選項，之後才能部署設定伺服器。這是部署時的選項，之後無法變更。
+有兩個選項可設定您的內部部署網站與部署您的基礎結構元件 (設定伺服器、主要目標伺服器) 所在的 Azure 虛擬網路之間的網路連線。您必須決定要使用的網路連線選項，之後才能部署組態伺服器。您必須在部署時選擇這個設定。稍後無法變更。
 
-**公用網際網路：**內部部署伺服器 (處理序伺服器、受保護的伺服器) 與 Azure 基礎結構元件伺服器 (組態伺服器、主要目標伺服器) 之間的通訊和資料複寫，會透過安全 SSL/TLS 連線從內部部署對組態伺服器與主要目標伺服器上的公用端點進行。(唯一的例外狀況是 TCP 連接埠 9080 上處理序伺服器與主要目標伺服器之間的連線未加密。在此連接上只有與用來設定複寫相關的複寫通訊協定相關的控制資訊會加以交換。)
+**公用網際網路：**內部部署伺服器 (處理序伺服器、受保護的機器) 與 Azure 基礎結構元件伺服器 (組態伺服器、主要目標伺服器) 之間的通訊和資料複寫，會透過安全 SSL/TLS 連線從內部部署對組態伺服器與主要目標伺服器上的公用端點進行。(唯一的例外狀況是 TCP 連接埠 9080 上處理序伺服器與主要目標伺服器之間的連線未加密。在此連接上只有與用來設定複寫相關的複寫通訊協定相關的控制資訊會加以交換。)
 
 ![部署圖表網際網路](./media/site-recovery-vmware-to-azure-classic-legacy/internet-deployment.png)
 
-**VPN：**內部部署伺服器 (處理序伺服器、受保護的伺服器) 與 Azure 基礎結構元件伺服器 (組態伺服器、主要目標伺服器) 之間的通訊和資料複寫，會透過 VPN 連線在內部部署網路與部署組態伺服器和主要目標伺服器所在的 Azure 虛擬網路之間進行。確定您的內部部署網路透過 ExpressRoute 連線或站對站 VPN 連線連接到 Azure 虛擬網路。
+**VPN：**內部部署伺服器 (處理序伺服器、受保護的機器) 與 Azure 基礎結構元件伺服器 (組態伺服器、主要目標伺服器) 之間的通訊和資料複寫，會透過 VPN 連線在內部部署網路與部署組態伺服器和主要目標伺服器所在的 Azure 虛擬網路之間進行。確定您的內部部署網路透過 ExpressRoute 連線或站對站 VPN 連線連接到 Azure 虛擬網路。
 
 ![部署圖表 VPN](./media/site-recovery-vmware-to-azure-classic-legacy/vpn-deployment.png)
 
@@ -813,4 +804,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428).Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/16/2016"
 	ms.author="jutang"/>
 
 # 如何使用 Java 的檔案儲存體
@@ -208,12 +208,12 @@ Azure 檔案儲存體共用至少包含根目錄，檔案可以放置其中。�
 
 如果您想要深入了解其他 Azure 儲存體 API，請參考下列連結。
 
-- [Azure SDK for Java](http://azure.microsoft.com/develop/java/)
+- [Java 開發人員中心](http://azure.microsoft.com/develop/java/)
 - [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
 - [Azure Storage SDK for Android](https://github.com/azure/azure-storage-android)
 - [Azure 儲存體用戶端 SDK 參考](http://dl.windowsazure.com/storage/javadoc/)
-- [Azure 儲存體 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Azure 儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
 - [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

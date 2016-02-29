@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="02/16/2016"
 	ms.author="jeffstok"/>
 
 # 調整 Azure 串流分析工作，以提高串流資料處理的輸送量
@@ -24,7 +24,7 @@
 ## 串流分析工作由哪些部分所組成？
 串流分析工作的定義包含輸入、查詢及輸出。輸入是工作從中讀取串流之處，查詢則是用來轉換輸入串流，而輸出是工作將工作結果傳送到的位置。
 
-一個工作至少需要一個輸入來源來進行資料串流。資料流輸入來源可以儲存在 Azure 服務匯流排事件中樞或 Azure Blob 儲存體。如需詳細資訊，請參閱 [Azure 串流分析簡介](stream-analytics-introduction.md)、[開始使用 Azure 串流分析](stream-analytics-get-started.md)及 [Azure 串流分析開發人員指南](../stream-analytics-developer-guide.md)。
+一個工作至少需要一個輸入來源來進行資料串流。資料流輸入來源可以儲存在 Azure 服務匯流排事件中樞或 Azure Blob 儲存體。如需詳細資訊，請參閱 [Azure 串流分析簡介](stream-analytics-introduction.md)和[開始使用 Azure 串流分析](stream-analytics-get-started.md)。
 
 ## 設定串流處理單位
 串流處理單位 (SU) 代表執行 Azure 串流分析工作的資源和能力。SU 會根據 CPU、記憶體，以及讀寫率的混合量值，提供一個方式來描述相關的事件處理容量。每個串流處理單元會對應至約 1 MB/秒的輸送量。
@@ -71,7 +71,7 @@
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
-這個查詢有群組索引鍵，且同一個查詢執行個體必須處理相同的索引鍵。這代表我們必須以資料分割的方式，把事件傳送至事件中樞。我們該關心哪個索引鍵？ **PartitionId** 是工作邏輯概念，我們真正關心的索引鍵是 **TollBoothId**。這代表我們應該要把我們傳送到事件中樞之事件資料的 [PartitionKey]，設定為事件的 [TollBoothId]。查詢擁有 [PartitionId] 的 [Partition By]，因此沒問題了。對於輸出，因為它是 Blob，所以我們不需要擔心設定 **PartitionKey** 的問題。而對於需求 #4，同樣地，因為這是 Blob，所以我們不需要擔心。這個拓撲的確是窘迫平行。
+這個查詢有群組索引鍵，且同一個查詢執行個體必須處理相同的索引鍵。這代表我們必須以資料分割的方式，把事件傳送至事件中樞。我們該關心哪個索引鍵？ **PartitionId** 是作業邏輯概念，我們真正關心的索引鍵是 **TollBoothId**。這代表我們應該要把我們傳送到事件中樞之事件資料的 [PartitionKey]，設定為事件的 [TollBoothId]。查詢擁有 [PartitionId] 的 [Partition By]，因此沒問題了。對於輸出，因為它是 Blob，所以我們不需要擔心設定 **PartitionKey** 的問題。而對於需求 #4，同樣地，因為這是 Blob，所以我們不需要擔心。這個拓撲的確是窘迫平行。
 
 ### 利用群組索引鍵的多重步驟查詢 ###
 輸入 – 有 8 個資料分割輸出的事件中樞 – 有 8 個資料分割的事件中樞
@@ -148,7 +148,7 @@ PowerBI 輸出目前並不支援資料分割。
 
 要分割步驟必須符合下列條件：
 
-- 必須分割輸入來源。如需詳細資訊，請參閱 [Azure 串流分析開發人員指南](../stream-analytics-developer-guide.md)與[事件中樞程式設計指南](../event-hubs/event-hubs-programming-guide.md)。
+- 必須分割輸入來源。如需詳細資訊，請參閱[事件中樞程式設計指南](../event-hubs/event-hubs-programming-guide.md)。
 - 查詢的 **SELECT** 陳述式必須讀取某個已分割的輸入來源。
 - 步驟內的查詢必須有 **Partition By** 關鍵字
 
@@ -319,7 +319,7 @@ PowerBI 輸出目前並不支援資料分割。
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)。
 
 
 ## 後續步驟
@@ -345,11 +345,10 @@ PowerBI 輸出目前並不支援資料分割。
 [azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

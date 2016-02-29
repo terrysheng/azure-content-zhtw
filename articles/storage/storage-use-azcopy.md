@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/15/2016" 
 	ms.author="micurd"/>
 
 # 使用 AzCopy 命令列公用程式傳輸資料
@@ -22,7 +22,7 @@
 
 AzCopy 是專門為從 Microsoft Azure Blob、檔案和表格儲存體來回複製資料所設計的命令列公用程式。使用 AzCopy，您可以使用簡單的命令，將您的資料從檔案系統移轉到 Azure Storage 以獲得最佳效能，反之亦然。您也可以從儲存體帳戶內或是在儲存體帳戶之間，從一個物件複製資料到另一個物件。
 
-> [AZURE.NOTE]本指南假設您已安裝 AzCopy 5.0 或更新版本。
+> [AZURE.NOTE] 本指南假設您已安裝 AzCopy 5.0 或更新版本。
 
 Microsoft Azure Storage Data Movement 程式庫預覽現已透過 [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) 開放下載。Data Movement Library 是基礎 AzCopy 的核心程式庫。原始程式碼位於 [GitHub](https://github.com/Azure/azure-storage-net-data-movement)。如需詳細資訊，請參閱 [Azure Storage Data Movement 程式庫預覽簡介](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)。
 
@@ -38,7 +38,7 @@ Microsoft Azure Storage Data Movement 程式庫預覽現已透過 [Nuget](https:
 
 	AzCopy /Source:<source> /Dest:<destination> /Pattern:<filepattern> [Options]
 
-> [AZURE.NOTE]自 AzCopy 3.0.0 版起，AzCopy 命令列語法規定每個指定的參數都必須包含參數名稱，*例如* `/ParameterName:ParameterValue`。
+> [AZURE.NOTE] 自 AzCopy 3.0.0 版起，AzCopy 命令列語法規定每個指定的參數都必須包含參數名稱，*例如* `/ParameterName:ParameterValue`。
 
 ## 撰寫第一個 AzCopy 命令
 
@@ -446,7 +446,7 @@ Microsoft Azure Storage Data Movement 程式庫預覽現已透過 [Nuget](https:
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-如需有關使用儲存體存取金鑰的詳細資訊，請參閱[檢視、複製和重新產生儲存體存取金鑰](../storage-create-storage-account/#regeneratestoragekeys)。
+如需有關使用儲存體存取金鑰的詳細資訊，請參閱[管理您的儲存體存取金鑰](storage-create-storage-account.md#manage-your-storage-access-keys)。
 
 ### 透過伺服器端複製來複製 Blob
 
@@ -936,7 +936,7 @@ AzCopy 設計為充分利用電腦資源來加速資料傳輸，建議您在一�
 
 ## AzCopy 版本
 
-> [AZURE.NOTE]我們建議您安裝最新版的 AzCopy 以取得新功能和更好的效能。
+> [AZURE.NOTE] 我們建議您安裝最新版的 AzCopy 以取得新功能和更好的效能。
 
 | 版本 | 新功能 | 參考 .NET 用戶端程式庫版本 | 目標儲存體 REST API 版本 |
 |---------|-----------------------------------------------------------------------------------------------------------------|--------|----------|
@@ -964,22 +964,21 @@ AzCopy 設計為充分利用電腦資源來加速資料傳輸，建議您在一�
 
 ### Azure 儲存體文件：
 
-- [Azure 儲存體簡介](storage-introduction.md)
-- [如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)
-- [如何使用 .NET 的檔案儲存體](storage-dotnet-how-to-use-files.md)
-- [如何使用 .NET 的資料表儲存體](storage-dotnet-how-to-use-tables.md)
-- [如何建立、管理或刪除儲存體帳戶](storage-create-storage-account.md)
-- [使用匯入/匯出服務將資料移轉至 Blob 儲存體](storage-import-export-service.md)
+- [Microsoft Azure 儲存體簡介](storage-introduction.md)
+- [以 .NET 開始使用 Azure Blob 儲存體](storage-dotnet-how-to-use-blobs.md)
+- [在 Windows 上開始使用 Azure 檔案儲存體](storage-dotnet-how-to-use-files.md)
+- [以 .NET 開始使用 Azure 表格儲存體](storage-dotnet-how-to-use-tables.md)
+- [關於 Azure 儲存體帳戶](storage-create-storage-account.md)
+- [使用 Microsoft Azure 匯入/匯出服務將資料移轉至 Blob 儲存體](storage-import-export-service.md)
 
 ### Azure 儲存體部落格文章：
-- [DML：Azure 儲存體資料移動文件庫預覽簡介](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+- [Azure 儲存體資料移動文件庫預覽簡介](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 - [AzCopy：簡介同步複製和自訂內容類型](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 - [AzCopy: 宣布正式發行 AzCopy 3.0 和具有資料表和檔案支援的 AzCopy 4.0 預覽版本](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-- [AzCopy: 針對大規模複製案例最佳化](http://go.microsoft.com/fwlink/?LinkId=507682)
 - [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [AzCopy: 支援讀取存取異地備援儲存體](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
 - [AzCopy: 使用可重新啟動模式和 SAS 權杖傳輸資料](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 - [AzCopy: 使用跨帳戶複製 Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: 上傳/下載 Azure Blob 的檔案](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

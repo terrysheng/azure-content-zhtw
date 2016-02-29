@@ -138,7 +138,7 @@ Azure 入口網站的伺服器快速入門會呼叫 **UseDefaultConfiguration()*
 
 ## <a name="publish-server-project"></a>做法：發佈伺服器專案
 
-本節說明如何從 Visual Studio 發佈 .NET 後端專案。您也可以使用 Git 或 [Azure App Service 部署文件](../app-service-web/web-site-deploy.md)中涵蓋的任何其他方法，來部署您的後端專案。
+本節說明如何從 Visual Studio 發佈 .NET 後端專案。您也可以使用 Git 或 [Azure App Service 部署文件](../app-service-web/web-sites-deploy.md)中涵蓋的任何其他方法，來部署您的後端專案。
 
 1. 在 Visual Studio 中，重新建置專案以還原 NuGet 封裝。
 
@@ -186,7 +186,7 @@ Azure 入口網站的伺服器快速入門會呼叫 **UseDefaultConfiguration()*
 
 1. 在 Visual Studio 中，以滑鼠右鍵按一下 [控制器] 資料夾，然後按一下 [加入] > [控制器]，選取 [Web API 2 控制器&mdash;空白]，然後按一下 [加入]。
 
-2. 提供 [控制器名稱] \(例如 `CustomController`)，然後按一下 [加入]。這會建立繼承自 **ApiController** 的新 **CustomController** 類別。
+2. 提供 [控制器名稱] (例如 `CustomController`)，然後按一下 [加入]。這會建立繼承自 **ApiController** 的新 **CustomController** 類別。
 
 3. 在新的控制器類別檔案中，新增下列 Using 陳述式：
 
@@ -444,4 +444,4 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

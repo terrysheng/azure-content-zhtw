@@ -40,7 +40,7 @@
 
 ## 安裝和使用 Node.js 和 npm
 
-如果已經在系統上安裝 Node.js，請使用下列命令來安裝 Azure CLI：
+或者，如果您的系統已經安裝 Node.js，請使用下列命令來安裝 Azure CLI：
 
 	npm install azure-cli -g
 
@@ -137,7 +137,7 @@ azure --version
 Microsoft 經常發行 Azure CLI 的更新版本。使用適用於您作業系統的安裝程式重新安裝 CLI，或如果已安裝 Node.js 和 npm，輸入下列命令以更新 (您需要在 Linux 散發套件上使用 **sudo**)。
 
 ```
-npm upgrade -g azure-cli
+npm update -g azure-cli
 ```
 
 ## 其他資源
@@ -148,7 +148,7 @@ npm upgrade -g azure-cli
 
 * 若要深入了解 Azure CLI、下載來源程式碼、回報問題，或是參與專案，請造訪 [Azure CLI 的 GitHub 儲存機制](https://github.com/azure/azure-xplat-cli)。
 
-* 如果您有關於使用 Azure CLI 或 Azure 方面的問題，請造訪 [Azure 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting) (英文)。
+* 如果您有關於使用 Azure CLI 或 Azure 方面的問題，請造訪 [Azure 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=azurescripting) (英文)。
 
 
 
@@ -158,4 +158,4 @@ npm upgrade -g azure-cli
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

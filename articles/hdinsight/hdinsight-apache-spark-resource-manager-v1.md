@@ -20,15 +20,15 @@
 
 # 在 Azure HDInsight 中管理 Apache Spark 叢集的資源 (Windows)
 
-> [AZURE.NOTE]HDInsight 現在在 Linux 上提供 Spark 叢集。如需了解如何管理 HDInsight Linux 上的 Spark 叢集資源，請參閱[在 Azure HDInsight 中管理 Apache Spark 叢集的資源 (Linux)](hdinsight-apache-spark-resource-manager.md)。
+> [AZURE.NOTE] HDInsight 現在在 Linux 上提供 Spark 叢集。如需了解如何管理 HDInsight Linux 上的 Spark 叢集資源，請參閱[在 Azure HDInsight 中管理 Apache Spark 叢集的資源 (Linux)](hdinsight-apache-spark-resource-manager.md)。
 
 資源管理員是 Spark 叢集儀表板的元件，它能讓您管理諸如在叢集上執行之每個應用程式所使用的核心和 RAM 等資源。
 
 ## <a name="launchrm"></a>如何啟動資源管理員？
 
-1. 在 [Azure Preview 入口網站](https://ms.portal.azure.com/)的開始面板中，按一下您 Spark 叢集的磚 (如果您已把它釘選到開始面板)。您也可以瀏覽到自己的叢集，方法是按一下 [瀏覽全部] > [HDInsight 叢集]。 
+1. 在 [Azure Preview 入口網站](https://ms.portal.azure.com/)的開始面板中，按一下您 Spark 叢集的磚 (如果您已把它釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。 
  
-2. 在 Spark 叢集刀鋒視窗中按一下 [儀表板]。出現提示時，輸入 Spark 叢集的系統管理員認證。
+2. 從 Spark 叢集刀鋒視窗中，按一下 [儀表板]。出現提示時，輸入 Spark 叢集的系統管理員認證。
 
 	![啟動資源管理員](./media/hdinsight-apache-spark-resource-manager-v1/hdispark.cluster.launch.dashboard.png "啟動資源管理員")
 
@@ -73,15 +73,15 @@ HDInsight 中的 Apache Spark 叢集是專為多租用戶所設計，因此資�
 * [在 HDInsight 中使用 Spark 建置即時串流應用程式](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

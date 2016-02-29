@@ -31,9 +31,13 @@
 ### 存取開發人員中心的支出報告
 
 1. 瀏覽至在位於 https://dev.windows.com/zh-TW 的開發人員中心。
-2. 按一下 [儀表板]。![LandingPageDashboardHighlight][1]
+2. 按一下 [儀表板]。
 
-3. 按一下 [支出摘要]。![DashboardPayoutSummary][2]
+    ![LandingPageDashboardHighlight][1]
+
+3. 按一下 [支出摘要]。
+
+    ![DashboardPayoutSummary][2]
 
 
 ## 檢視開發人員中心的支出報告
@@ -41,13 +45,13 @@
 每季支出報告會記錄當季發生的所有交易。
 
 - 保留的數量表示在近期付款週期外產生的任何付款 (例如，此金額會移到下個月的近期付款)。這個金額通常是 $0 (除非客戶已提前付款)。
-- 按一下近期付款或最近付款 [檢視詳細資料] 連結，查看這些支出的注意事項。
-- 按一下 [付款結算] 來檢視應用程式/產品繼續進行的詳細資料。
+- 按一下 [預定付款] 或 [最近的付款] 的 [檢視詳細資料] 連結，查看這些支出的相關注意事項。
+- 按一下 [付款結算] 來檢視應用程式/產品收益的詳細資料。
 - 按一下 [檢視] 連結來查看個別的結算。
 
     ![PayoutSummaryUpcomingMostRecentLinksStatement][3]
 
-- 使用個別結算底部的 [繼續分解] 篩選器，檢視多個應用程式/產品 (如果存在的話)。
+- 使用個別結算底部的 [收益明細] 篩選器，檢視多個應用程式/產品 (如果存在的話)。
 
     ![PayoutSummaryPaymentStatementsFilterControl][4]
 
@@ -58,7 +62,9 @@
 
 1. 瀏覽至發佈入口網站 (https://publish.windowsazure.com)。
 2. 從 [發行者] 區段，按一下 [支出報告]。
-3. 按一下下拉式清單，以顯示所有可用的每季支出報告。![accessingpayoutreport][5]
+3. 按一下下拉式清單，以顯示所有可用的每季支出報告。
+
+    ![accessingpayoutreport][5]
 
 
 ### 讀取您的支出報告
@@ -94,7 +100,7 @@
 
 ## 後續步驟
 
-若是其他支援查詢，請至 https://portal.azure.com 記錄問題。
+若是其他支援查詢，請至 <https://portal.azure.com> 記錄問題。
 
 [1]: ./media/marketplace-publishing-report-payout/LandingPage-DashboardHighlight.png
 [2]: ./media/marketplace-publishing-report-payout/Dashboard-PayoutSummary.png
@@ -106,4 +112,4 @@
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

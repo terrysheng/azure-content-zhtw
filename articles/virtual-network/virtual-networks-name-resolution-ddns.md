@@ -1,12 +1,12 @@
-<properties 
+<properties
    pageTitle="使用動態 DNS 來登錄主機名稱"
-   description="此頁面會提供如何設定動態 DNS，以便在您的 DNS 伺服器中登錄主機名稱的部分詳細資料。"
+   description="此頁面會提供如何設定動態 DNS，以便在您的 DNS 伺服器中註冊主機名稱的部分詳細資料。"
    services="virtual-network"
    documentationCenter="na"
    authors="GarethBradshawMSFT"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -15,32 +15,33 @@
    ms.date="01/21/2016"
    ms.author="joaoma" />
 
-# 使用動態 DNS 來登錄主機名稱
-[Azure 會為 VM 及角色執行個體提供名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)。當您的名稱解析需求超過 Azure 所提供的名稱解析時，您可以提供自己的 DNS 伺服器。這讓您有能力量身打造自己的 DNS 方案，來符合您特定的需求。舉例來說，存取您的內部部署 AD 網域控制站。
 
-Azure 沒有能力 (例如認證) 直接在您的 DNS 伺服器中登錄記錄，因此通常需要有其他的安排。以下提供某些較常見案例的部分高層級詳細資料。
+# 在您自己的 DNS 伺服器中使用動態 DNS 來登錄主機名稱
+[Azure 會為虛擬機器 (VM) 及角色執行個體提供名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)。但是，當您的名稱解析需求超過 Azure 所提供的名稱解析時，您可以針對名稱解析提供自己的 DNS 伺服器。這讓您有能力量身打造自己的 DNS 方案，來符合您特定的需求。例如，您可能需要 DNS 解決方案以存取內部部署 Active Directory 網域控制站。
 
-## Windows 用戶端 ##
-未加入網域的 Windows 用戶端在開機或在 IP 位址改變時，會嘗試進行不安全的 DDNS 更新。DNS 名稱就是主機名稱加上主要 DNS 尾碼。Azure 會讓主要 DNS 尾碼留白，但您可以在 VM 中透過 [UI](https://technet.microsoft.com/library/cc794784.aspx) 或 [自動化](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix)覆寫這個設定。
+Azure 沒有能力 (例如認證) 直接在您的 DNS 伺服器中登錄記錄，因此通常需要有其他的安排。以下是一些常見案例與替代方案。
 
-已加入網域的 Windows 用戶端會使用安全的 DDNS，向網域控制站登錄自己的 IP 位址。網域加入程序會設定用戶端上的主要 DNS 尾碼，以及管理信任關係。
+## Windows 用戶端
+未加入網域的 Windows 用戶端在開機或在 IP 位址改變時，會嘗試進行不安全的動態 DNS (DDNS) 更新。DNS 名稱就是主機名稱加上主要 DNS 尾碼。Azure 會讓主要 DNS 尾碼留白，但您可以在 VM 中透過 [UI](https://technet.microsoft.com/library/cc794784.aspx) 或 [使用自動化](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix)覆寫這個設定。
 
-## Linux 用戶端 ##
-Linux 用戶端通常不會在啟動時向 DNS 伺服器登錄自己，它們假設 DHCP 伺服器會這麼做。繫結封裝有個稱為 *nsupdate* 的工具，可以用來傳送 DDNS 更新。由於 DDNS 通訊協定是標準化的，即使在沒有使用繫結時，*nsupdate*也能用在 DNS 伺服器上。
+已加入網域的 Windows 用戶端會使用安全的動態 DNS，向網域控制站註冊自己的 IP 位址。網域加入程序會設定用戶端上的主要 DNS 尾碼，以及管理信任關係。
 
-Linux DHCP 用戶端提供勾點，讓您可以在 IP 位址已指派或變更時執行指令碼。例如，在 */etc/dhcp/dhclient-exit-hooks.d/* 中。這方法可用來在 DNS 中登錄主機名稱。例如：
-    
+## Linux 用戶端
+Linux 用戶端通常不會在啟動時向 DNS 伺服器登錄自己，它們假設 DHCP 伺服器會這麼做。您可以使用稱為 *nsupdate* 的工具，該工具隨附於繫結封裝，以傳送動態 DNS 更新。因為動態 DNS 通訊協定已標準化，您甚至可以在您並非於 DNS 伺服器上使用繫結時，使用 *nsupdate*。
+
+您可以使用 DHCP 用戶端所提供的勾點，在 DNS 伺服器註冊主機名稱。在 DHCP 週期中，用戶端在 */etc/dhcp/dhclient-exit-hooks.d/* 中執行指令碼。這可以用來使用 *nsupdate* 註冊新的 IP 位址。例如：
+
     	#!/bin/sh
     	requireddomain=mydomain.local
-    
+
     	# only execute on the primary nic
     	if [ "$interface" != "eth0" ]
     	then
     		return
     	fi
-    
+
 		# when we have a new IP, perform nsupdate
-		if [ "$reason" = BOUND ] || [ "$reason" = RENEW ] || 
+		if [ "$reason" = BOUND ] || [ "$reason" = RENEW ] ||
 		   [ "$reason" = REBIND ] || [ "$reason" = REBOOT ]
 		then
     		host=`hostname`
@@ -55,12 +56,12 @@ Linux DHCP 用戶端提供勾點，讓您可以在 IP 位址已指派或變更�
 		#done
 		exit 0;
 
-*Nsupdate* 命令也可以執行安全的 DDNS 更新。舉例來說，當您使用繫結 DNS 伺服器時，公開/私密金鑰組會[產生](http://linux.yyz.us/nsupdate/)，且會利用金鑰的公開部分來[設定](http://linux.yyz.us/dns/ddns-server.html) DNS 伺服器，讓它能夠驗證要求的簽章。如要簽署 DDNS 更新要求，您必須利用 *nsupdate* 的 *-k* 選項來提供金鑰組給 nsupdate。
+您也可以使用 *nsupdate* 命令來執行安全動態 DNS 更新。例如，當您使用繫結 DNS 伺服器時，會[產生](http://linux.yyz.us/nsupdate/)公開-私密金鑰組。DNS 伺服器已使用金鑰的公開部分進行[設定](http://linux.yyz.us/dns/ddns-server.html)，因此它可驗證要求的簽章。您必須使用 *-k* 選項以提供金鑰組給 *nsupdate*，以便簽署動態 DNS 更新要求。
 
-當您使用 Windows DNS 伺服器時，Kerberos 驗證可以搭配 nsupdate 的 *-g* 開關 (*nsupdate* 的 Windows 版本沒有提供) 來使用 。如要使用這個方法，請使用 *kinit* 來載入認證 (例如從 [keytab 檔案](http://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)載入)，然後 *nsupdate -g* 將會從快取得到認證。
+當您使用 Windows DNS 伺服器時，您可以使用 Kerberos 驗證搭配 *nsupdate* 的 *-g* 參數 (*nsupdate* 的 Windows 版本未提供)。若要這樣做，請使用 *kinit* 載入認證 (例如從 [keytab 檔案](http://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html))。然後 *nsupdate -g* 會從快取挑選認證。
 
-如有需要，DNS 搜尋尾碼可以加入您的 VM。DNS 尾碼是在 */etc/resolv.conf* 檔案中指定。大多數的 Linux 發行版會自動管理這個檔案的內容，因此該檔案通常是無法編輯的。然而，尾碼是可以覆寫的，方法是使用 DHCP 用戶端的 *supersede* 命令，也就是在 */etc/dhcp/dhclient.conf* 中加入：
+如有需要，您可以將 DNS 搜尋尾碼加入您的 VM。DNS 尾碼是在 */etc/resolv.conf* 檔案中指定。大多數的 Linux 發行版會自動管理這個檔案的內容，因此通常您無法編輯該檔案。不過，您可以使用 DHCP 用戶端的 *supersede* 命令以覆寫尾碼。若要這樣做，請在 */etc/dhcp/dhclient.conf* 中，加入：
 
 		supersede domain-name <required-dns-suffix>;
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

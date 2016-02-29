@@ -57,10 +57,11 @@
 6.	**工作的大小上限：**工作的大小是由使用的硬碟容量以及儲存體帳戶可儲存的資料數量上限所決定。每項工作可包含的硬碟不超過 10 個。
 7.  **支援的作業系統：**客戶可以使用下列其中一個作業系統，在出貨至 Azure 之前使用 Azure 匯入/匯出工具準備硬碟 - Windows 7、Windows 8、Windows 8.1、Windows 10*、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。  
 
-  > [AZURE.IMPORTANT] 
-    - 如果您是使用 Windows 10 電腦準備您的硬碟，請參閱[常見問題集](#frequently-asked-questions)一節以取得特殊指示。
-    
-    - External hard disk drives that come with an in built USB adaptor are not supported by this service. Please do not prepare an external HDD. The disk inside the external casing also cannot be used for importing data. Use a 3.5" SATA II/III **internal** hard disk drive. If you cannot connect the SATA disk directly to your machine, use an external SATA to USB adaptor. See the list of recommended adaptors in FAQ section.
+  > [AZURE.IMPORTANT]
+  >  
+  >  - 如果您是使用 Windows 10 電腦準備您的硬碟，請參閱[常見問題集](#frequently-asked-questions)一節以取得特殊指示。
+  >  
+  >  - 此服務不支援隨附內建 USB 介面卡的外接式硬碟。請勿準備外部 HDD。您也無法使用外接盒內部的磁碟來匯入資料。請使用 3.5 英吋的 SATA II/III「內部」硬碟。如果您無法將 SATA 磁碟直接連接到您的電腦，請使用外部 SATA 到 USB 介面卡。請參閱＜常見問題集＞一節中建議的介面卡清單。
 
 ## 在傳統入口網站中建立匯入工作##
 
@@ -112,7 +113,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 1. 	若要建立匯出工作，請在「傳統入口網站」中瀏覽至您的儲存體帳戶，然後檢視 [儀表板]。在 [快速概覽] 之下，按一下 [建立匯出工作]，然後繼續執行精靈。
 
-2. 	在步驟 2，提供負責處理此匯出工作的人員連絡資訊。若想要儲存匯出工作的詳細資訊記錄資料，請核取 [將詳細資訊記錄檔儲存在我的 'waimportexport' Blob 容器] 選項。
+2. 	在步驟 2，提供負責處理此匯出工作的人員連絡資訊。若想要儲存匯出工作的詳細資訊記錄資料，請核取 [Save the verbose log in my 'waimportexport' blob container] 選項。
 
 3.	在步驟 3，指定您要從儲存體帳戶匯出至空白磁碟機的 Blob您可以選擇匯出儲存體帳戶中所有的 Blob 資料，也可以指定要匯出哪幾個或哪幾組 Blob。
 
@@ -142,7 +143,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 	若您有追蹤號碼，請從清單中選取您的貨運公司，並輸入追蹤號碼。
 
-	如果沒有追蹤號碼，請選擇 [寄送包裹之後，我會提供這個匯出工作的送貨資訊]，然後完成匯出程序。
+	如果沒有追蹤號碼，請選擇 [I will provide my shipping information for this export job once I have shipped my package]，然後完成匯出程序。
 
 6. 若要在寄出包裹之後輸入追蹤號碼，請在「傳統入口網站」中回到您儲存體帳戶的 [匯入/匯出] 頁面，從清單中選取工作，然後選擇 [出貨資訊]。逐步執行精靈，在步驟 2 中輸入追蹤號碼。
 
@@ -237,8 +238,7 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 
 - 不會。所有磁碟機都必須針對 BitLocker 預作準備。
 
-**我需要在建立匯出作業時執行任何磁碟準備工作嗎？** 
-- 不用，但建議先執行某些前置檢查。請使用 Azure 匯入/匯出工具的 [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) 命令檢查所需的磁碟號碼。它可根據您要使用的磁碟機大小，協助您預覽所選取之 Blob 的磁碟機使用情況。也請檢查您可以對為了匯出工作而運送的硬碟讀取/寫入。
+**我需要在建立匯出作業時執行任何磁碟準備工作嗎？** - 不用，但建議先執行某些前置檢查。請使用 Azure 匯入/匯出工具的 [PreviewExport](https://msdn.microsoft.com/library/azure/dn722414.aspx) 命令檢查所需的磁碟號碼。它可根據您要使用的磁碟機大小，協助您預覽所選取之 Blob 的磁碟機使用情況。也請檢查您可以對為了匯出工作而運送的硬碟讀取/寫入。
 
 ### 運送中
 
@@ -291,4 +291,4 @@ Microsoft Azure 匯入/匯出工具會針對每個備妥的磁碟機產生一個
 [export-job-03]: ./media/storage-import-export-service-classic-portal/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

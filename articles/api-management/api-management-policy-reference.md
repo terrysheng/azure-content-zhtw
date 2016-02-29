@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 管理原則參考文件
@@ -42,6 +42,7 @@
 	-	[設定要求方法](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - 允許您變更要求的 HTTP 方法。
 	-	[設定狀態碼](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - 將 HTTP 狀態碼變更為指定的值。
 	-	[設定變數][] - 保存具名 [context][] 變數中的值，供日後存取使用。
+	-	[等候](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) - 等候括住的 Send 要求、取得快取的值或控制流程原則於完成後再繼續。
 -	[驗證原則][]
 	-	[使用基本驗證進行驗證][] - 使用基本驗證來驗證後端服務。
 	-	[使用用戶端憑證進行驗證][] - 使用用戶端憑證來驗證後端服務。
@@ -118,4 +119,4 @@
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

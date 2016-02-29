@@ -63,7 +63,7 @@
 
 ### 使用 Azure PowerShell
 
-使用下列 PowerShell 程式碼片段，在已安裝 Zeppelin 的 HDInsight Linux 上建立 Spark 叢集。繼續之前，請確定您已安裝 PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。
+使用下列 PowerShell 程式碼片段，在已安裝 Zeppelin 的 HDInsight Linux 上建立 Spark 叢集。繼續之前，請確定您已安裝 PowerShell。如需指示，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。
 
 	Login-AzureRMAccount
 	
@@ -322,14 +322,14 @@
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

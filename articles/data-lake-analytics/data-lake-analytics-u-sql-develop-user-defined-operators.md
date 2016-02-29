@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/22/2015"
+   ms.date="02/10/2016"
    ms.author="jgao"/>
 
 
@@ -26,9 +26,9 @@
 - 已安裝 Visual Studio 2015、Visual Studio 2013 更新 4，或具有 Visual C++ 的 Visual Studio 2012 
 - Microsoft Azure SDK for .NET 2.5 版或更新版本。使用 Web Platform Installer 來進行安裝。
 - 資料湖分析帳戶。請參閱[使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)。
-- 請參閱[開始使用 Azure 資料湖分析 U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md) 教學課程。
-- 連接至 Azure，請參閱[開始使用 Azure 資料湖分析 U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md#connect-to-azure)。 
-- 上傳來源資料，請參閱[開始使用 Azure 資料湖分析 U-SQL Studio](data-lake-analytics-u-sql-studio-get-started.md#upload-source-data-files)。 
+- 請參閱[開始使用 Azure 資料湖分析 U-SQL Studio](data-lake-analytics-u-sql-get-started.md) 教學課程。
+- 連接至 Azure，請參閱[開始使用 Azure 資料湖分析 U-SQL Studio](data-lake-analytics-u-sql-get-started.md#connect-to-azure)。 
+- 上傳來源資料，請參閱[開始使用 Azure 資料湖分析 U-SQL Studio](data-lake-analytics-u-sql-get-started.md#upload-source-data-files)。 
 
 ## 在 U-SQL 中定義和使用使用者定義運算子
 
@@ -147,4 +147,4 @@
 - [使用 Azure 入口網站開始使用資料湖分析](data-lake-analytics-get-started-portal.md)
 - [使用適用於 Visual Studio 的資料湖工具來開發 U-SQL 應用程式](data-lake-analytics-data-lake-tools-get-started.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

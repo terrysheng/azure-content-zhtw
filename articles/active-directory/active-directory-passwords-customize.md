@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # 自訂密碼管理以符合您的組織的需求
@@ -130,7 +130,7 @@
 ## 密碼管理行為
 下表描述每個控制項如何影響使用者註冊密碼重設及重設其密碼的體驗。您可以在 [Azure 管理入口網站](https://manage.windowsazure.com)中目錄的 [**設定**] 索引標籤的 [**使用者密碼重設原則**] 區段底下，設定這些選項。
 
-> [AZURE.NOTE]您使用的系統管理員帳戶必須具有指派的 AAD Premium 授權，才能看到這些原則控制項。<br><br>這些原則控制項只適用於使用者重設其密碼，不適用於系統管理員。**系統管理員擁有備用電子郵件和/或行動電話的預設原則，由 Microsoft 為其指定且無法變更。**
+> [AZURE.NOTE] 您使用的系統管理員帳戶必須具有指派的 AAD Premium 授權，才能看到這些原則控制項。<br><br>這些原則控制項只適用於使用者重設其密碼，不適用於系統管理員。**系統管理員擁有備用電子郵件和/或行動電話的預設原則，由 Microsoft 為其指定且無法變更。**
 
 <table>
             <tbody><tr>
@@ -229,7 +229,7 @@
               </td>
               <td>
                 <p>
-                  <strong>注意</strong>：
+                  <strong>注意：</strong>
                 </p>
                 <ul>
                   <li class="unordered">
@@ -274,7 +274,7 @@
                   
                 </p>
                 <p>
-                  <strong>注意</strong>：
+                  <strong>注意：</strong>
                 </p>
                 <ul>
                   <li class="unordered">
@@ -334,7 +334,7 @@
               </td>
               <td>
                 <p>
-                  <strong>注意</strong>：
+                  <strong>注意：</strong>
                 </p>
                 <ul>
                   <li class="unordered">
@@ -370,7 +370,7 @@
               </td>
               <td>
                 <p>
-                  <strong>注意</strong>：
+                  <strong>注意：</strong>
                 </p>
                 <ul>
                   <li class="unordered">
@@ -404,7 +404,7 @@
               </td>
               <td>
                 <p>
-                  <strong>注意</strong>：
+                  <strong>注意：</strong>
                 </p>
                 <ul>
                   <li class="unordered">
@@ -558,7 +558,7 @@
                   
                 </p>
                 <p>
-                  <strong>注意</strong>：
+                  <strong>注意：</strong>
                 </p>
                 <ul>
                   <li class="unordered">
@@ -674,7 +674,7 @@
               </td>
               <td>
                 <p>
-                  <strong>注意</strong>：
+                  <strong>注意：</strong>
                 </p>
                 <ul>
                   <li class="unordered">
@@ -711,7 +711,7 @@
                   
                 </p>
                 <p>
-                  <strong>注意</strong>：
+                  <strong>注意：</strong>
                 </p>
                 <ul>
                   <li class="unordered">
@@ -758,11 +758,11 @@
               </td>
               <td>
                 <p>
-                  <strong>注意</strong>：
+                  <strong>注意：</strong>
                 </p>
                 <ul>
                   <li class="unordered">
-												若要使用這項功能，您必須安裝 2015 年 8 月或更新版本的 Azure AD Connect (v.1.0.8667.0 或更新版本)。<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">按一下這裡以下載最新版本的 Azure AD Connect</a>。</li>
+												若要使用這項功能，您必須安裝 2015 年 8 月或更新版本的 Azure AD Connect (v.1.0.8667.0 或更新版本)。<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">按一下這裡以下載最新版本的 Azure AD Connect。</a></li>
                         
                   <li class="unordered">
                     <strong>附註：</strong>為測試這項功能，您需要啟用密碼回寫，並使用來自內部部署 (例如同盟或密碼同步處理使用者) 的帳戶，而且有一個已鎖定的帳戶。非內部部署而且沒有鎖定帳戶的使用者，將看不到解除鎖定其帳戶的選項。</li>
@@ -872,4 +872,4 @@
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

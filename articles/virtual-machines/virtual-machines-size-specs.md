@@ -37,6 +37,10 @@ ms.service="virtual-machines"
 
 *   DS 系列和 GS 系列 VM 可以使用進階儲存體，針對使用大量 I/O 的工作負載提供高效能、低延遲的儲存體。這些 VM 會使用固態硬碟 (SSD) 來裝載虛擬機器的磁碟，還可提供本機 SSD 磁碟快取。僅特定地區可用進階儲存體。如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../storage-premium-storage-preview-portal.md)。
 
+*   A 系列 VM 可以部署在各種不同的硬體類型和處理器上。根據硬體節流大小，為執行中的執行個體提供一致的處理器效能，不論硬體部署的位置。若要判斷此大小部署所在的實體硬體，請從虛擬機器內查詢虛擬硬體。
+
+*   A0 大小是在實體硬體上過度訂閱。僅針對這個特定大小，其他客戶部署可能會影響您正在執行的工作負載的效能。以下概述的相對效能為預期的基準，受限於近似變化性的 15%。
+
 虛擬機器的大小會影響定價。大小也會影響虛擬機器的處理、記憶體和儲存體容量。儲存體成本會分別根據儲存體帳戶中使用的頁面來計算。如需詳細資訊，請參閱[虛擬機器定價詳細資料](https://azure.microsoft.com/pricing/details/virtual-machines/)和 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。如需有關 VM 儲存體的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](virtual-machines-disks-vhds.md)。
 
 下列考量可協助您決定大小：
@@ -63,12 +67,7 @@ ms.service="virtual-machines"
 |[Standard\_A0 (超小型)](#standard-tier-a-series) |50 |
 |[Standard\_A1-4 (小型 – 大型)](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 *| 
-|[D1-14](#standard-tier-d-series) |160 | 
-|[D1-14v2](#standard-tier-dv2-series) |210 - 250 *| 
-|[DS1-14](#standard-tier-ds-series) |160 |
-|[G1-5](#standard-tier-g-series) |180 - 240 *|
-|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-14v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 以 * 標示的 ACU 使用了「Intel® 渦輪」技術來增加 CPU 頻率及提升效能。提升的程度會依 VM 大小、工作負載及在相同主機上執行的其他工作負載而有所不同。
@@ -187,6 +186,6 @@ ms.service="virtual-machines"
 
 [Azure 訂用帳戶和服務限制、配額與限制](../azure-subscription-service-limits.md)
 
-[關於 A8、A9、A10 及 A11 計算密集型執行個體](virtual-machines-a8-a9-a10-a11-specs.md)
+[關於 A8、A9、A10 和 A11 運算密集型執行個體](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

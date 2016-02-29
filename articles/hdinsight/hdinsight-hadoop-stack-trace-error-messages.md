@@ -24,14 +24,14 @@
 ## 記憶體不足錯誤訊息
 * [修正 Hive 設定的記憶體不足 (OOM) 錯誤](hdinsight-hadoop-hive-out-of-memory-error-oom.md)：解決 Hive 查詢的記憶體不足錯誤 (OOM)。此客戶案例包括跨許多大型資料表的查詢。
 
-> [AZURE.NOTE]即將推出更多堆疊追蹤錯誤疑難排解的文章。
+> [AZURE.NOTE] 即將推出更多堆疊追蹤錯誤疑難排解的文章。
 
 ## 更多 HDInsight 的疑難排解文章
 
 * [在 Linux 上使用 HDInsight 的相關資訊](hdinsight-hadoop-linux-information.md)
-* [在 HDInsight 上對 Hadoop 進行偵錯：檢視記錄與解譯錯誤訊息](hhdinsight-debug-jobs.md)
+* [在 HDInsight 上對 Hadoop 進行偵錯：檢視記錄與解譯錯誤訊息](hdinsight-debug-jobs.md)
 * [在 HDInsight 中的 Hadoop 上，以程式設計方式存取 YARN 應用程式記錄檔](hdinsight-hadoop-access-yarn-app-logs.md)
 * [收集 Blob 儲存體中的堆積傾印以偵錯和分析 Hadoop 服務](hdinsight-hadoop-collect-debug-heap-dumps.md)
 * [Azure HDInsight 上 Hadoop 元件的版本資訊](hdinsight-release-notes.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

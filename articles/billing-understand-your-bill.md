@@ -3,8 +3,8 @@
    description="了解 Azure 帳單"
    services=""
    documentationCenter="Azure"
-   authors="kareni"
-   manager="jocho"
+   authors="erihur"
+   manager="kareni"
    editor=""
    tags="billing"/>
 
@@ -14,38 +14,39 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/22/2015"
-   ms.author="kareni"/>
+   ms.date="02/04/2016"
+   ms.author="erihur"/>
 
 
 # 了解 Microsoft Azure 帳單
 
-Microsoft Azure 訂用帳戶的費用會因費率方案而異。某些費率方案 (例如 Visual Studio Ultimate 含 MSDN) 包含您可以根據需求用於 Azure 服務的每月信用額度。
+Microsoft Azure 訂用帳戶的費用會因費率方案而異。某些費率方案 (例如 Visual Studio Enterprise (MPN) 訂閱者) 包含您可以根據需求用於任何 Azure 服務的每月信用額度。
 
 請注意，先前計費期間的最多 24 小時潛在使用量可以列於您的目前計費期間。
 
 如需耗用量和費率方案的詳細資訊，請參閱 [Microsoft Azure 購買選項頁面](https://azure.microsoft.com/pricing/purchase-options/)。
 
-下列連結涵蓋所有 Microsoft Azure 服務的完整清單。
+<!-- The below links cover a complete list of all Microsoft Azure services.
 
-- [服務詳細資料清單 (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
-- [服務詳細資料清單 (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
+<!-- - [Service Details list (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+<!-- - [Service Details list (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
 
-*注意：**csv1** 連結是指 csv 1 版的資料行標頭名稱，而 **csv2** 連結是指 csv 2 版的新資料行標頭名稱。這些檔案會每月更新。*
+<!-- *NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*-->
 
+<!-- Below section commented out as a new "right nav" floating bar is created for each article and is no longer necessary to have this section.
 
-## 內容：
+## Content:
 
-本主題將協助您在讀取帳單時進行下列工作。
+This topic helps you with the following tasks when reading your bill.
 
--  檢視或下載 Azure 帳單
--  客戶資訊
--  了解發票摘要
--  了解目前費用
--  頁尾資訊
--  了解其他資訊
--  了解詳細的使用費用
--  分析每日使用狀況資料
+-  View or Download a Bill for Azure
+-  Customer Information
+-  Understand the Invoice Summary
+-  Understand the Current Charges
+-  Footer Information
+-  Understand the Additional Information
+-  Understand Detailed Usage Charges
+-  Analyze Daily Usage Data -->
 
 ### 檢視或下載 Microsoft Azure 帳單
 
@@ -77,8 +78,10 @@ Microsoft Azure 訂用帳戶的費用會因費率方案而異。某些費率方�
     ![摘要 - 帳單記錄 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
 
 
+***重要事項：*** *針對國際客戶所列在帳單上的費用僅為估算用途，因為銀行換匯的費用不同。*
 
-**以下是在 Microsoft Azure 上可使用之兩個不同優惠的某些範例陳述。**
+
+以下是在 Microsoft Azure 上可使用之兩個不同優惠的某些範例陳述。
 
  **優惠類型** | **描述** | **下載** |
  :--------- |:-------- | :-------|
@@ -107,7 +110,7 @@ Pay-As-You-Go | 每個月支付 | [範例檔案](https://azurepricing.blob.core.
 Microsoft Azure 付款位址。
 
 ### 訂用帳戶優惠
-已購買之訂用帳戶優惠類型 (也就是隨收隨付、MSDN-Vidual Studio Ultimate 等)
+已購買之訂用帳戶優惠類型 (也就是隨收隨付、MSDN-Vidual Studio Enterprise 等)
 
 ### 帳戶擁有者的電子郵件
 註冊 Microsoft Azure 時所使用的帳戶電子郵件地址。
@@ -141,7 +144,7 @@ Microsoft Azure 付款位址。
 您的使用量服務折扣會反映在套用至您目前帳單的這個行項目中。
 
 ### 調整
-其他調整是套用至您目前帳單的其他信用額度或未付費用。例如，如果您享有 Visual Studio Ultimate 含 MSDN 優惠，您會在這個行項目中看到每月信用額度。如果您取消訂用帳戶，您會看到超過您優惠所含每月信用額度 (從您目前計費期開始至訂用帳戶取消日期為止) 的每月使用費用。
+其他調整是套用至您目前帳單的其他信用額度或未付費用。例如，如果您享有 Visual Studio Enterprise 含 MSDN 優惠，您會在這一行項目中看到每月信用額度。如果您取消訂用帳戶，您會看到超過您優惠所含每月信用額度 (從您目前計費期開始至訂用帳戶取消日期為止) 的每月使用費用。
 
 ## 頁尾資訊
 ![頁尾](./media/billing-understand-your-bill/footerinformation.png)
@@ -256,10 +259,10 @@ N/A | 標記 | _**新增資料行。**_ Azure 中的新資源類型可讓您標�
 
 - [變更 Microsoft Azure 帳戶上的信用卡](https://msdn.microsoft.com/library/azure/dn736050.aspx)
 
-- [如果我的 Azure 訂用帳戶停用，該怎麼辦？](https://msdn.microsoft.com/library/azure/dn736049.aspx)
+<!-- - [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)-->
 
 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

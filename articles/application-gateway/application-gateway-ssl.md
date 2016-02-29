@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/28/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma"/>
 
 # 使用傳統部署模型設定適用於 SSL 卸載的應用程式閘道
@@ -24,12 +24,11 @@
 Azure 應用程式閘道可以設定為在閘道終止安全通訊端層 (SSL) 工作階段，以避免 Web 伺服陣列發生高成本的 SSL 解密工作。SSL 卸載也可以簡化 Web 應用程式的前端伺服器設定和管理。
 
 
-
 ## 開始之前
 
 1. 使用 Web Platform Installer 安裝最新版的 Azure PowerShell Cmdlet。您可以從[下載頁面](https://azure.microsoft.com/downloads/)的 **Windows PowerShell** 區段下載並安裝最新版本。
-2. 請確認您的運作中虛擬網路具有有效子網路。
-3. 請確認您的後端伺服器位於虛擬網路中，或已指派公用 IP/VIP。
+2. 請確認您的運作中虛擬網路具有有效子網路。請確定沒有虛擬機器或是雲端部署正在使用子網路。應用程式閘道必須單獨位於虛擬網路子網路中。
+3. 您要設定為使用應用程式閘道的伺服器必須存在，或是在虛擬網路中建立其端點，或是已指派公用 IP/VIP。
 
 若要在應用程式閘道上設定 SSL 卸載，請依列出的順序執行下列步驟：
 
@@ -56,7 +55,6 @@ Azure 應用程式閘道可以設定為在閘道終止安全通訊端層 (SSL) �
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 若要驗證已建立閘道，您可以使用 **Get-AzureApplicationGateway** Cmdlet。
-
 
 在範例中，*Description*、*InstanceCount* 和 *GatewaySize* 是選用參數。*InstanceCount* 的預設值是 2，且最大值是 10。*GatewaySize* 的預設值是 Medium。Small 和 Large 也是可用的值。因為尚未啟動閘道，所以 *VirtualIPs* 和 *DnsName* 會顯示為空白。閘道處於執行中狀態之後，將會建立這些項目。
 
@@ -235,4 +233,4 @@ Azure 應用程式閘道可以設定為在閘道終止安全通訊端層 (SSL) �
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

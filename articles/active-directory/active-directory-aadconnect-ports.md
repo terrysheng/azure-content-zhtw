@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="02/09/2016"
 	ms.author="billmath"/>
 
 # 混合式身分識別所需的連接埠和通訊協定
@@ -74,15 +74,14 @@
 下表說明在 Azure AD Connect Health 代理程式與 Azure AD 之間通訊所需的端點、連接埠和通訊協定
 
 ### 表 6a - 適用於 (AD FS/Sync) 和 Azure AD 的 Azure AD Connect Health 代理程式的連接埠和通訊協定
-此表說明 Azure AD Connect Health 代理程式與 Azure AD 之間通訊所需的連接埠和通訊協定。
+此表說明 Azure AD Connect Health 代理程式與 Azure AD 之間通訊所需的下列輸出連接埠和通訊協定。
 
 | 通訊協定 |連接埠 |說明
 | --------- | --------- |--------- |
-| HTTP|80 (TCP/UDP)|
-|HTTPS|443(TCP/UDP)|
-|Azure 服務匯流排|5671 (TCP/UDP)|
+|HTTPS|443(TCP/UDP)| 輸出
+|Azure 服務匯流排|5671 (TCP/UDP)| 輸出
 
 ### 6b - 適用於 (AD FS/Sync) 和 Azure AD 之 Azure AD Connect Health 代理程式的端點
-如需端點的清單，請參閱 [Azure AD Connect Health 代理程式的需求一節](active-directory-aadconnect-health.md#requirements)
+如需端點的清單，請參閱 [Azure AD Connect Health 代理程式的＜需求＞一節](active-directory-aadconnect-health.md#requirements)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

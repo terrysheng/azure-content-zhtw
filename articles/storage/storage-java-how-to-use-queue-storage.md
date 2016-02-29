@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/16/2016"
 	ms.author="micurd"/>
 
 # 如何使用 Java 的佇列儲存體
@@ -22,7 +22,7 @@
 
 ## 概觀
 
-本指南將示範如何使用 Azure 佇列儲存服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][]。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立」和「刪除」佇列。如需佇列的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
+本指南將示範如何使用 Azure 佇列儲存服務執行一般案例。相關範例是以 Java 撰寫並使用 [Azure Storage SDK for Java][]。所涵蓋的案例包括「插入」、「查看」、「取得」和「刪除」佇列訊息，以及「建立」和「刪除」佇列。如需佇列的詳細資訊，請參閱[後續步驟](#Next-Steps)一節。
 
 注意：已發行一套 SDK 可供在 Android 裝置上使用 Azure 儲存體的開發人員使用。如需詳細資訊，請參閱 [Azure Storage SDK for Android][]。
 
@@ -381,14 +381,14 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 - [Azure Storage SDK for Java][]
 - [Azure 儲存體用戶端 SDK 參考][]
-- [Azure 儲存體 REST API][]
+- [Azure 儲存體服務 REST API][]
 - [Azure 儲存體團隊部落格][]
 
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure 儲存體用戶端 SDK 參考]: http://dl.windowsazure.com/storage/javadoc/
-[Azure 儲存體 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[Azure 儲存體服務 REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

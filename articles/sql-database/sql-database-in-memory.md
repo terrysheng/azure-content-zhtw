@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="02/11/2016"
 	ms.author="jodebrui"/>
 
 
@@ -277,8 +277,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 若要執行上述的 ostress.exe 命令列：
 
 
-1. 在 SSMS 中執行下列命令來重設資料庫資料內容，以刪除先前執行插入的所有資料：
-```
+1. 在 SSMS 中執行下列命令來重設資料庫資料內容，以刪除先前執行插入的所有資料：```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -303,8 +302,7 @@ EXECUTE Demo.usp_DemoReset;
 在獲得 \_inmem 執行的結果之後，請針對 \_ondisk 執行回合執行下列步驟：
 
 
-1. 在 SSMS 中執行下列命令來重設資料庫，以刪除先前執行插入的所有資料：
-```
+1. 在 SSMS 中執行下列命令來重設資料庫，以刪除先前執行插入的所有資料：```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -318,6 +316,12 @@ EXECUTE Demo.usp_DemoReset;
 #### 預期的比較結果
 
 在與資料庫相同之 Azure 區域的 Azure VM 上執行 ostress，In-Memory 測試已顯示此簡化工作負載大約有 **9 倍**的效能改善。
+
+
+
+<a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
+
+&nbsp;
 
 
 ## B.安裝 In-Memory Analytics 範例
@@ -525,4 +529,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - 適用於 In-Memory OLTP 的[監視記憶體內部儲存體](sql-database-in-memory-oltp-monitoring.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

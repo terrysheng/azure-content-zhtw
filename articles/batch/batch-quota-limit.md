@@ -16,8 +16,6 @@
 	ms.date="01/26/2016"
 	ms.author="danlep"/>
 
-
-
 # Azure Batch 服務的配額和限制
 
 本文列出您可以搭配 Azure Batch 服務使用的特定資源的預設值和最大限制。這些限制中大部分都是 Azure 套用到您的訂用帳戶或 Batch 帳戶的配額。
@@ -95,4 +93,4 @@ Azure 支援會與您連絡。完成要求需要花費最多 2 個工作天。
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

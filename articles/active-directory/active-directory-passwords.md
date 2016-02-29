@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 	
 
 # 使用者和系統管理員的 Azure AD 密碼重設
 
-  >[AZURE.IMPORTANT]您來到此處是因為想要重設 Azure 或 O365 密碼嗎？ 若是如此，請[跳到本節](#users-how-to-manage-your-own-password)。
+  >[AZURE.IMPORTANT] 您來到此處是因為想要重設 Azure 或 O365 密碼嗎？ 若是如此，請[跳到本節](#users-how-to-manage-your-own-password)。
   
 利用自助管理方式來降低成本和節省人力，一直以來都是世界各地 IT 部門追求的主要目標。因此，市場中充斥著各式產品，讓您能夠從雲端或內部部署管理內部部署群組、密碼或使用者設定檔。而獨樹一格的 Azure AD，可提供您一些現今市場上最容易使用且最強大的自助管理功能。
 
@@ -252,4 +252,4 @@ Azure AD 密碼重設有 3 個可用層級，視您擁有的訂用帳戶而定�
 * [**疑難排解**](active-directory-passwords-troubleshoot.md) - 了解如何快速移難排解服務的問題
 * [**深入了解**](active-directory-passwords-learn-more.md) - 深入探索服務運作方式的技術細節
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

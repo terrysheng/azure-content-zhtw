@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter=""
 	authors="joaoma"
-	manager="adinah"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="02/02/2016"
 	ms.author="joaoma"/>
 
 
@@ -77,12 +77,17 @@ Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內�
 
 ![負載平衡](./media/virtual-machines-load-balance/LOBServers.png)
 
+## 負載平衡器考量
+
+負載平衡器預設設定為在 4 分鐘的閒置工作階段後逾時。如果負載平衡器後方的應用程式會保持連接閒置超過 4 分鐘，且沒有持續連線組態，則連接會中斷。您可以變更負載平衡器行為，允許 [Azure 負載平衡器的較長逾時設定](../load-balancer/load-balancer-tcp-idle-timeout.md)。
+
+其他考量是 Azure 負載平衡器支援的分配模式類型。您可以設定來源 IP 同質性 (來源 IP、目的地 IP) 或來源 IP 通訊協定 (來源 IP、目的地 IP 及通訊協定)。如需詳細資訊，請參閱 [Azure 負載平衡器分配模式 (來源 IP 同質性)](../load-balancer/load-balancer-distribution-mode.md)。
+
+
 ## 後續步驟
 
 如須建立負載平衡集的步驟，請參閱[設定內部負載平衡集](../load-balancer/load-balancer-internal-getstarted.md)。
 
 如需負載平衡器的詳細資訊，請參閱[內部負載平衡](../load-balancer/load-balancer-internal-overview.md)。
 
-<!-- LINKS -->
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

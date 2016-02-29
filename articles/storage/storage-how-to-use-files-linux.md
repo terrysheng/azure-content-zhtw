@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="12/17/2015"
+      ms.date="02/15/2016"
       ms.author="jutang" />
 
 
@@ -121,13 +121,12 @@ Linux 使用者群組的 Azure 檔案儲存體提供論壇，讓您在 Linux 上
 ### 概念性文章和影片
 
 - [Azure 檔案儲存體：適用於 Windows 和 Linux 的無摩擦雲端 SMB 檔案系統](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-- [如何搭配使用 Azure 檔案儲存體與 Windows](storage-dotnet-how-to-use-files.md)
-- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
+- [在 Windows 上開始使用 Azure 檔案儲存體](storage-dotnet-how-to-use-files.md)
 
 ### 檔案儲存體的工具支援
 
-- [如何搭配使用 AzCopy 與 Microsoft Azure 儲存體](storage-use-azcopy.md)
-- [使用 Azure CLI 搭配 Azure 儲存體](storage-azure-cli.md#create-and-manage-file-shares)
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
+- 使用 Azure CLI [建立和管理檔案共用](storage-azure-cli.md#create-and-manage-file-shares)
 
 ### 參考
 
@@ -135,9 +134,9 @@ Linux 使用者群組的 Azure 檔案儲存體提供論壇，讓您在 Linux 上
 
 ### 部落格文章
 
-- [Azure 檔案儲存體現已公開推出](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Azure 檔案儲存體的深入探討](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
+- [Azure 檔案儲存體現已公開推出](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+- [Azure 檔案儲存體內部](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 - [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

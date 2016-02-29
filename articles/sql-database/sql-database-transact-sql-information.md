@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="02/01/2016"
+   ms.date="02/16/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL Database Transact-SQL 差異
@@ -53,7 +53,7 @@ SQL Database V12 支援部分而非全部的引數，這些引數存在於對應
 
 - 系統物件的定序
 - 相關連接：端點陳述式、ORIGINAL\_DB\_NAME。Windows 驗證不適用於登入或自主資料庫使用者。
-- INSERT、UPDATE 及 DELETE 作業的跨資料庫查詢。(支援跨資料庫唯讀查詢。)
+- 使用三個或四個組件名稱跨資料庫查詢。(使用彈性資料庫查詢支援跨資料庫唯讀查詢。)
 - 跨資料庫擁有權鏈結、TRUSTWORTHY 設定
 - 資料收集器
 - 資料庫圖表
@@ -108,4 +108,4 @@ Transact-SQL 參考包括從 SQL Server 版本 2008 到目前版本的相關主�
 
 在某些情況下，一般主題的主旨可用於產品中，但產品之間會有些微的差異。依適當情況會在主題的中間點指出差異。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

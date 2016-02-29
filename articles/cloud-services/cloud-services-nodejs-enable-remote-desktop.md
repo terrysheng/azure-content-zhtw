@@ -35,7 +35,7 @@
 
 使用包含您應用程式的來源檔案的電腦執行下列步驟。
 
-1. 以系統管理員的身分執行 **Azure PowerShell**。(從 [**開始**] 功能表或**開始畫面** 中，搜尋 **Azure PowerShell**)。
+1. 以系統管理員的身分執行 **Windows PowerShell**(從 [開始] 功能表或 [開始] 畫面搜尋「Windows PowerShell」。)
 
 2.  瀏覽至包含服務定義 (.csdef) 和服務組態 (.cscfg) 檔的目錄。
 
@@ -115,4 +115,4 @@
 [搭配使用遠端桌面與 Azure 角色]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

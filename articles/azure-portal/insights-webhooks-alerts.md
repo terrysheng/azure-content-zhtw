@@ -1,8 +1,8 @@
 <properties
 	pageTitle="如何設定 Azure 警示以傳送至其他系統"
 	description="重設 Azure 警示的路徑到其他非 Azure 系統。"
-	authors="rboucher"
-	manager="ronmart"
+	authors="kamathashwin"
+	manager=""
 	editor=""
 	services="azure-portal"
 	documentationCenter="na"/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/25/2015"
-	ms.author="robb"/>
+	ms.date="02/16/2016"
+	ms.author="ashwink"/>
 
 # 如何設定警示的 Webhook
 
@@ -73,7 +73,7 @@ POST 作業對於所有以計量為基礎的警示將會包含下列 JSON 承載
 }
 ```
 
->[AZURE.NOTE]我們下次更新時，將增加事件 (“conditionType” : “Event”) 警示的支援
+>[AZURE.NOTE] 我們下次更新時，將增加事件 (“conditionType” : “Event”) 警示的支援
 
 
 | 欄位 | 是否為強制？ | 是否有固定的值？ | 注意事項 |
@@ -103,7 +103,7 @@ POST 作業對於所有以計量為基礎的警示將會包含下列 JSON 承載
 |properties |N |選用 |是一組包含事件相關詳細資料的 <Key  Value> 配對 (也就是字典<String  String>)。properties 欄位是選擇性的。在自訂 UI 或邏輯應用程式的工作流程中，使用者可以輸入可透過承載傳遞的索引鍵/值。另一種將自訂屬性傳回給 Webhook 的替代方式是透過 Webhook URI 本身 (做為查詢參數)|
 
 
->[AZURE.NOTE]透過入口網站無法使用 properties 欄位。在我們即將推出的 Insights SDK 中，您可以透過警示 API 設定屬性。
+>[AZURE.NOTE] 透過入口網站無法使用 properties 欄位。在我們即將推出的 Insights SDK 中，您可以透過警示 API 設定屬性。
 
 ## 後續步驟
 
@@ -123,4 +123,4 @@ POST 作業對於所有以計量為基礎的警示將會包含下列 JSON 承載
 
 [使用邏輯應用程式傳送訊息至 Azure 佇列](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0218_2016-->

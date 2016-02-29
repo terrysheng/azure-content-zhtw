@@ -4,13 +4,15 @@
     services="app-service\mobile"
     documentationCenter="javascript"
     authors="adrianhall"
-    manager="glenga"
-    editor=""/>
+    manager="ggailey777"
+    editor=""
+    tags=""
+    keywords="cordova, javascript, mobile, 用戶端" />
 
 <tags
     ms.service="app-service-mobile"
     ms.workload="na"
-    ms.tgt_pltfrm="mobile-javascript"
+    ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="article"
     ms.date="02/09/2016"
@@ -48,6 +50,22 @@
 
 [AZURE.INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
 
+## 後續步驟
+
+您現在已經完成本快速入門教學課程，請繼續進行下列其中一個教學課程：
+
+* [新增驗證]至您的 Apache Cordova 應用程式。
+* [新增推播通知]至您的 Apache Cordova 應用程式。
+
+深入了解使用 Azure App Service 的相關重要概念。
+
+* [驗證]
+* [推播通知]
+
+了解如何使用 SDK。
+
+* [ASP.NET Server SDK]
+* [Node.js Server SDK]
 
 <!-- Images. -->
 
@@ -55,5 +73,11 @@
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/zh-TW/features/cordova-vs.aspx
+[新增驗證]: app-service-mobile-cordova-get-started-users.md
+[新增推播通知]: app-service-mobile-cordova-get-started-push.md
+[驗證]: app-service-mobile-auth.md
+[推播通知]: ../notification-hubs/notification-hubs-overview.md
+[ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

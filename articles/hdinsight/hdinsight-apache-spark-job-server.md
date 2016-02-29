@@ -20,11 +20,11 @@
 
 # Azure HDInsight 叢集上的 Spark 作業伺服器
 
-> [AZURE.NOTE]HDInsight 現在在 Linux 上提供 Spark 叢集，它利用 Livy 來把工作遠端提交給 Spark 叢集。如需了解如何在 Linux 上搭配 HDInsight Spark 叢集來使用 Livy，請參閱[搭配 HDInsight 上的 Spark 叢集來利用 Livy 遠端提交 Spark 工作 (Linux)](hdinsight-apache-spark-livy-rest-interface.md)。
+> [AZURE.NOTE] HDInsight 現在在 Linux 上提供 Spark 叢集，它利用 Livy 來把工作遠端提交給 Spark 叢集。如需了解如何在 Linux 上搭配 HDInsight Spark 叢集來使用 Livy，請參閱[搭配 HDInsight 上的 Spark 叢集來利用 Livy 遠端提交 Spark 工作 (Linux)](hdinsight-apache-spark-livy-rest-interface.md)。
 
 Azure HDInight 上的 Apache Spark 叢集能封裝 Spark 作業伺服器，使其成為叢集部署的一部分。Spark 作業伺服器提供用來建立 Spark 內容、提交 Spark 應用程式到內容、檢查工作狀態、終止內容等作業的 REST API。本文章提供一些如何使用 Curl 在使用作業伺服器之 Spark 叢集上執行幾個常見工作的範例。
 
->[AZURE.NOTE]如需 Spark 作業伺服器的完整文件，請參閱 [https://github.com/spark-jobserver/spark-jobserver](https://github.com/spark-jobserver/spark-jobserver)。
+>[AZURE.NOTE] 如需 Spark 作業伺服器的完整文件，請參閱 [https://github.com/spark-jobserver/spark-jobserver](https://github.com/spark-jobserver/spark-jobserver)。
 
 ## <a name="uploadjar"></a>將 jar 上傳到 Spark 叢集
 
@@ -74,14 +74,14 @@ Azure HDInight 上的 Apache Spark 叢集能封裝 Spark 作業伺服器，使�
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -30,8 +30,7 @@
 
     a.按一下最上層的 [Marketplace]。
 
-    b.按一下 [全部內容] 下方的 [Fabric]，然後按下 Enter 鍵。有時自動篩選功能會無法運作，因此請務必按下 Enter 鍵。
-    ![在 Azure 入口網站上搜尋 Service Fabric 叢集範本的螢幕擷取畫面。][SearchforServiceFabricClusterTemplate]
+    b.按一下 [全部內容] 下方的 [Fabric]，然後按下 Enter 鍵。有時自動篩選功能會無法運作，因此請務必按下 Enter 鍵。![在 Azure 入口網站上搜尋 Service Fabric 叢集範本的螢幕擷取畫面。][SearchforServiceFabricClusterTemplate]
 
 3. 選取清單中的 [Service Fabric 叢集]
 
@@ -73,9 +72,8 @@
 
 	b.在 [應用程式輸入端點] 欄位中新增所有連接埠 (以逗號分隔)。TCP 用戶端連接端點的預設值為 19000，因此您不需要指定該值。舉例來說，範例應用程式 WordCount 需要開啟連接埠 83。您將在應用程式封裝的 servicemanifest.xml 檔案中找到該範例應用程式。(但封裝可能會包含不只一個的 servicemanifest.xml 檔案。)
 
-    c.大部分的範例應用程式都使用連接埠 80 和 8081，因此如果您打算把範例部署到此叢集，請新增這兩個連接埠。
+    c.大部分的範例應用程式都使用連接埠 80 和 8081，因此如果您打算把範例部署到此叢集，請新增這兩個連接埠。![連接埠][Ports]
 
-![連接埠][Ports]
 10. 您不需要設定 [放置屬性]，因為系統會新增「NodeTypeName」的預設放置屬性。如果應用程式有需要，您可以新增更多。
 
 ## 設定安全性
@@ -114,13 +112,13 @@
 
 1. 前往 [瀏覽]，然後按一下 [Service Fabric 叢集]。
 
-2. 尋找您的叢集，然後按一下它。
+2. 尋找您的叢集，然後按一下它。![在入口網站尋找叢集的螢幕擷取畫面。][BrowseCluster]
 
-![在入口網站尋找叢集的螢幕擷取畫面。][BrowseCluster]
-3. 現在儀表板會顯示叢集的詳細資料，包括叢集的公用 IP 位址。只要把滑鼠游標移動到 [叢集公用 IP 位址] 上，畫面就會出現剪貼簿，您只要按一下剪貼簿就能複製該 IP 位址。
+3. 現在儀表板會顯示叢集的詳細資料，包括叢集的公用 IP 位址。只要把滑鼠游標移動到 [叢集公用 IP 位址] 上，畫面就會出現剪貼簿，您只要按一下剪貼簿就能複製該 IP 位址。![顯示叢集詳細資料的儀表板螢幕擷取畫面。][ClusterDashboard]
 
-![顯示叢集詳細資料的儀表板螢幕擷取畫面。][ClusterDashboard]
   叢集的儀表板刀鋒視窗上的 [節點監視器] 區段，會顯示健康狀態良好和不良的 VM 數目。如需進一步了解叢集健康狀態，請參閱 [Service Fabric 健康狀態模型簡介](service-fabric-health-introduction.md)。
+
+>[AZURE.NOTE] Service Fabric 叢集需要有一定數量的節點可隨時啟動，以維護可用性並維持狀態 - 稱為「維持仲裁」。因此，除非您已先執行[狀態的完整備份](service-fabric-reliable-services-backup-restore.md)，否則關閉叢集的所有電腦通常並不安全。
 
 ## 連線到叢集並部署應用程式
 
@@ -209,4 +207,4 @@
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

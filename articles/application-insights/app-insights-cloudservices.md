@@ -125,7 +125,7 @@ Application Insights 資源是您在其中分析和顯示遙測資料的位置�
 
 ## Azure 診斷
 
-[Azure 診斷](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)資料包含角色管理事件、效能計數器，以及應用程式記錄檔。您可以將這些項目傳送至 Application Insights，以便看到它們與您的遙測的其餘部分，讓診斷問題更容易。
+[Azure 診斷](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)資料包含角色管理事件、效能計數器，以及應用程式記錄檔。您可以將這些項目傳送至 Application Insights，以便看到它們與您的遙測的其餘部分，讓診斷問題更容易。
 
 如果角色意外失敗或無法啟動，Azure 診斷特別有用。
 
@@ -261,7 +261,7 @@ Application Insights SDK 可以報告應用程式對外部相依性的呼叫，�
 ## 相關主題
 
 * [設定將 Azure 診斷傳送至 Application Insights](app-insights-azure-diagnostics.md)
-* [使用 PowerShell 將 Azure 診斷傳送至 Application Insights])(app-insights-powershell-azure-diagnostics.md)
+* [使用 PowerShell 將 Azure 診斷傳送至 Application Insights](app-insights-powershell-azure-diagnostics.md)
 
 
 
@@ -279,4 +279,4 @@ Application Insights SDK 可以報告應用程式對外部相依性的呼叫，�
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

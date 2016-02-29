@@ -35,7 +35,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 - Oracle Java Development Kit。您可以從[這裡](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)加以安裝。
 - Java IDE。本文使用 IntelliJ IDEA 15.0.1。您可以從[這裡](https://www.jetbrains.com/idea/download/)加以安裝。
 - 適用於 SQL Server 4.1 版或更新版本的 Microsoft JDBC 驅動程式。要將事件資料寫入 SQL Server 資料庫中，必須要有此項目。您可以從[這裡](https://msdn.microsoft.com/sqlserver/aa937724.aspx)加以安裝。
-- Azure SQL Database。如需指示，請參閱[快速建立 SQL 資料庫](sql-database/sql-database-get-started.md)
+- Azure SQL Database。如需指示，請參閱[快速建立 SQL 資料庫](../sql-database/sql-database-get-started.md)
 
 ## 此解決方案有哪些功能？
 
@@ -187,7 +187,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 		java -cp EventhubsSampleEventProducer.jar com.microsoft.eventhubs.client.example.EventhubsClientDriver --eventhubs-namespace "mysbnamespace" --eventhubs-name "myeventhub" --policy-name "mysendpolicy" --policy-key "<policy key>" --message-length 32 --thread-count 32 --message-count -1
 
-2. 將串流 jar (**microsoft-spark-streaming-examples.jar**) 複製到與叢集相關聯的 Azure Blob 儲存體。如此，jar 即可供 Livy 存取。您可以使用命令列公用程式 [**AzCopy**](storage/storage-use-azcopy.md) 來執行此動作。此外也有很多用戶端可用來上傳資料。您可以在[在 HDInsight 上將 Hadoop 作業的資料上傳](hdinsight-upload-data.md)中找到其詳細資訊。
+2. 將串流 jar (**microsoft-spark-streaming-examples.jar**) 複製到與叢集相關聯的 Azure Blob 儲存體。如此，jar 即可供 Livy 存取。您可以使用命令列公用程式 [**AzCopy**](../storage/storage-use-azcopy.md) 來執行此動作。此外也有很多用戶端可用來上傳資料。您可以在[在 HDInsight 上將 Hadoop 作業的資料上傳](hdinsight-upload-data.md)中找到其詳細資訊。
 
 3. 將 CURL 安裝在您用來執行這些應用程式的電腦上。我們使用 CURL 來叫用 Livy 端點，以從遠端執行作業。
 
@@ -362,9 +362,9 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 
 
-[hdinsight-versions]: ../hdinsight-component-versioning/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -372,4 +372,4 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

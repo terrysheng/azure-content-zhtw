@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma" />
 
 # VM 與角色執行個體的名稱解析
@@ -158,7 +158,7 @@ resolv.conf 檔案通常是自動產生的，且不可編輯。新增 [選項] �
 
 ### 在管理入口網站中指定 DNS 伺服器
 
-當您在管理入口網站中建立虛擬網路時，您可以指定想要使用的 DNS 伺服器的 IP 位址和名稱。虛擬網路建立好之後，您部署到虛擬網路的虛擬機器和角色執行個體會自動設定為您指定的 DNS 設定。針對特定雲端服務 (Azure 傳統) 或網路介面卡 (ARM 型部署) 指定的 DNS 伺服器，其優先順序高於針對虛擬網路指定的項目。請參閱[關於設定管理入口網站中的虛擬網路](virtual-networks-settings.md)。
+當您在管理入口網站中建立虛擬網路時，您可以指定想要使用的 DNS 伺服器的 IP 位址和名稱。虛擬網路建立好之後，您部署到虛擬網路的虛擬機器和角色執行個體會自動設定為您指定的 DNS 設定。針對特定雲端服務 (Azure 傳統) 或網路介面卡 (ARM 型部署) 指定的 DNS 伺服器，其優先順序高於針對虛擬網路指定的項目。
 
 ### 使用組態檔指定 DNS 伺服器 (Azure 傳統)
 
@@ -177,8 +177,6 @@ resolv.conf 檔案通常是自動產生的，且不可編輯。新增 [選項] �
 
 [虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100)
 
-[關於設定管理入口網站中的虛擬網路設定](virtual-networks-settings.md)
-
 [使用網路組態檔設定虛擬網路](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

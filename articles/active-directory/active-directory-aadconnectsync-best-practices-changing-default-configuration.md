@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -28,19 +28,15 @@ Azure AD Connect 同步處理會使用安裝精靈所建立的服務帳戶執行
 - 它**不支援**變更或重設服務帳戶的密碼。這樣做將會損毀加密金鑰，服務將無法存取資料庫且將無法啟動。
 
 ## 排程器的變更
-Azure AD Connect 同步處理已設定為每 3 小時同步處理身分識別資料。安裝期間會建立一個使用服務帳戶執行的排定工作，此帳戶會具備操作同步處理伺服器的權限。
-
-- 它**不支援**對排定工作進行變更。不知道服務帳戶的密碼。請參閱[服務帳戶的變更](#changes-to-the-service-account)
-- 它**不支援**比預設值 3 小時更頻繁的同步處理。
-	- 在測試新的組態時，支援執行一次性的同步處理執行。但您不應該以更頻繁的排程執行匯出至 Azure AD 的作業。
+從組建 1.1 (2016 年 2 月) 的版本開始，您可以將[排程器](active-directory-aadconnectsync-feature-scheduler.md)的同步處理循環設定為預設值 30 分鐘以外的值。
 
 ## 同步處理規則的變更
 安裝精靈所提供的組態應該適用於最常見的案例。萬一您需要對組態進行變更，則您必須遵循這些規則，以便仍能具備支援的組態。
 
 - 如果預設的直接屬性流程不適合您的組織使用，您可以[變更屬性流程](#change-attribute-flows)。
-- 如果您[不想讓屬性流動](#do-not-flow-an-attribute)並移除 Azure AD 中的任何現有屬性值，則必須為此建立規則。
+- 如果您想要[不傳送屬性](#do-not-flow-an-attribute)並移除 Azure AD 中任何現有的屬性值，則必須為此建立規則。
 - [停用不必要的同步處理規則](#disable-an-unwanted-sync-rule)而非加以刪除。升級期間將會重新建立已刪除的規則。
-- 若要[變更現成可用的規則](#change-an-out-of-box-rule)，請複製原始規則並停用現成可用的規則。同步處理規則編輯器將提示您，並協助您達成此目標。
+- 若要[變更現成可用的規則](#change-an-out-of-box-rule)，您應該複製原始規則並停用現成可用的規則。同步處理規則編輯器將提示您，並協助您達成此目標。
 - 使用同步處理規則編輯器，匯出您的自訂同步處理規則。這提供可用來在災害復原情況下輕鬆地重建它們的 PowerShell 指令碼。
 
 >[AZURE.WARNING] 現成可用的同步處理規則具有憑證指紋。如果您變更這些規則，將不再符合憑證指紋，而未來當您嘗試套用新版的 Azure AD Connect 時可能會遇到問題。僅利用本文所述的方式進行變更。
@@ -62,11 +58,11 @@ Fabrikam 中有對名字、姓氏和顯示名稱使用當地字母的樹系。�
 若要建立具有其他屬性流程的規則，請執行下列作業：
 
 - 從 [開始] 功能表啟動 [同步處理規則編輯器]。
-- 在左側依然選取 [輸入] 時，按一下 [新增規則]按鈕。
-- 賦予規則名稱和描述。選取內部部署 Active Directory 和相關的物件類型。在 [連結類型] 中選取 [聯結]。為優先順序挑選一個其他規則還沒使用的數字。現成可用的規則是從 100 開始，因此此範例可以使用 50 這個值。![屬性流程 2](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/attributeflowjp2.png)
+- 在左側依然選取 [輸入] 的情況下，按一下 [加入新規則] 按鈕。
+- 賦予規則名稱和描述。選取內部部署 Active Directory 和相關的物件類型。在 [連結類型] 中，選取 [聯結]。為優先順序挑選一個其他規則還沒使用的數字。現成可用的規則是從 100 開始，因此此範例可以使用 50 這個值。![屬性流程 2](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/attributeflowjp2.png)
 - 將範圍留空 (也就是應該套用到樹系中的所有使用者物件)。
 - 將聯結規則留空 (也就是讓現成可用的規則處理任何聯結)。
-- 在 [轉換] 中建立下列流程。![屬性流程 3](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/attributeflowjp3.png)
+- 在 [轉換] 中，建立下列流程。![屬性流程 3](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/attributeflowjp3.png)
 - 按一下 [新增] 以儲存規則。
 - 移至 [同步處理服務管理員]。在 [連接器] 上，選取我們已在其中新增規則的連接器。依序選取 [執行] 和 [完整同步處理]。完整同步處理就會使用目前的規則重新計算所有物件。
 
@@ -113,4 +109,4 @@ Fabrikam 中有對名字、姓氏和顯示名稱使用當地字母的樹系。�
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

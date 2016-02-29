@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/30/2015" 
+	ms.date="02/11/2016" 
 	ms.author="donnam"/>
 
 # 在您的行動服務應用程式中新增驗證
@@ -78,7 +78,7 @@
 
     這會建立新的方法來處理驗證程序。使用者透過 Microsoft 帳戶登入來驗證。將出現對話方塊來顯示已驗證的使用者的識別碼。必須通過驗證才能繼續。
 
-    > [AZURE.NOTE]如果您使用的身分識別提供者不是 Microsoft，請將傳給上述 **login** 方法的值變更為下列其中一個：_Facebook_、_Google_、_Twitter_ 或 _WindowsAzureActiveDirectory_。
+    > [AZURE.NOTE] 如果您使用的身分識別提供者不是 Microsoft，請將傳給上述 **login** 方法的值變更為下列其中一個：_Facebook_、_Google_、_Twitter_ 或 _WindowsAzureActiveDirectory_。
 
 3. 在 **OnCreate** 方法中，在具現化 `MobileServiceClient` 物件的程式碼後面加入下列這一行程式碼。
 
@@ -142,4 +142,4 @@
 [使用指令碼授權使用者]: mobile-services-javascript-backend-service-side-authorization.md
 [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0218_2016-->

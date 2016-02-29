@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="11/26/2015"
+   ms.date="02/12/2016"
    ms.author="hermannd"/>
 
 # 在 Microsoft Azure SUSE Linux VM 上測試 SAP NetWeaver
@@ -75,6 +75,21 @@
 請永遠不要透過裝置識別碼將 Azure 資料磁碟掛接到 Azure Linux VM。請改用 UUID。使用工具 (例如圖形工具) 來掛接 Azure 資料磁碟時要小心。請仔細檢查 /et/fstab 中的項目。
 
 裝置識別碼的問題在於它可能會變更，然後 Azure VM 可能會在開機程序停止回應。您可能會在 /etc/fstab 新增 nofail 參數來解決這個問題。但請留意，nofail 應用程式可能會以先前的方式使用掛接點，而且萬一外部 Azure 資料磁碟未在開機期間掛接，可能會寫入根目錄檔案系統。
+
+透過 UUID 掛接的唯一例外狀況是關於連接 OS 磁碟以進行疑難排解，如下列章節所述。
+
+## 針對無法再存取的 SUSE VM 進行疑難排解
+
+有時候 Azure 上的 SUSE VM 會停在開機程序 (例如，與掛接磁碟相關的錯誤)。此問題可以驗證，例如藉由 v2 VM 的入口網站中的開機診斷功能 ([請參閱這篇部落格](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/))。
+
+解決此問題的一個選項是從損毀的 VM 將 OS 磁碟連接至另一個 Azure 上的 SUSE VM，然後執行適當的變更，例如編輯 /etc/fstab 或移除網路 udev 規則，如下列章節所述。
+
+還有一個要考慮的重要事項。從相同的 Azure 資源庫映像 (例如 SLES 11 SP4) 部署數個 SUSE VM，會顯示 OS 磁碟一律將由相同的 UUID 掛接。由使用相同 Azure 資源庫映像部署的 UUID 從不同 VM 連接 OS 磁碟將會因此導致兩個相同的 UUID。這會造成問題，並且可能讓原本進行疑難排解的 VM 實際上從連接和損毀的 OS 磁碟開機，而不是原始的磁碟。
+
+有兩種可能的方式可以避免這種情況：
+
+* 針對進行疑難排解的 VM 使用不同的 Azure 資源庫 (例如 SLES 12，而不是 SLES 11 SP4)
+* 不要透過 UUID 從另一個 VM 連接損毀的 OS 磁碟，而是使用其他項目
 
 ## 從內部部署將 SUSE VM 上傳至 Azure
 
@@ -147,4 +162,4 @@ SUSE 提供稱為 "sapconf" 的封裝，這組封裝負責一組 SAP 特定設�
 
 在虛擬環境中，Oracle 對 Linux 的支援有所限制。這是一般主題，而非 Azure 特定主題。不過，卻有了解的必要。SAP 將不支援 SUSE 上的 Oracle 或類似 Azure 的公用雲端中的 Red Hat。客戶應直接連絡 Oracle 來討論這個主題。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

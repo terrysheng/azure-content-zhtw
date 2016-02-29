@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/11/2016"
 	ms.author="donnam"/>
 
 # 在您的行動服務應用程式中新增驗證
@@ -78,7 +78,7 @@
             }
         }
 
-	> [AZURE.NOTE]如果您使用的身分識別提供者不是 Microsoft 帳戶，請將傳給上述 **LoginAsync** 的值變更為下列其中一個：_Facebook_、_Twitter_、_Google_ 或 _WindowsAzureActiveDirectory_。
+	> [AZURE.NOTE] 如果您使用的身分識別提供者不是 Microsoft 帳戶，請將傳給上述 **LoginAsync** 的值變更為下列其中一個：_Facebook_、_Twitter_、_Google_ 或 _WindowsAzureActiveDirectory_。
 
 3. 將 **ToDoItem** 的要求從 **ToDoService** 建構函式移至名稱為 **CreateTable** 的新方法中：
 
@@ -155,4 +155,4 @@
 [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0218_2016-->

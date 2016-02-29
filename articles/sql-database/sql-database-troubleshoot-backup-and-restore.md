@@ -1,10 +1,10 @@
 <properties
-	pageTitle="使用 Azure SQL Database 疑難排解備份及還原"
+	pageTitle="使用 Azure SQL Database 來為備份及還原進行疑難排解"
 	description="了解如何使用 Azure SQL Database 中的備份和複本，從錯誤和中斷情況復原雲端資料庫。"
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/14/2016"
 	ms.author="daleche"/>
 
 # 將資料庫還原至先前的時間點、還原已刪除的資料庫，或從資料中心中斷情況復原
@@ -34,12 +34,12 @@ SQL Database 會保留資料庫的複本，因此您可以從中斷情況與使�
 5.	視需要調整應用程式以參考新的資料庫。請參閱[從使用者錯誤復原資料庫](sql-database-user-error-recovery.md)。
 
 ##若要從區域資料中心中斷情況復原
-使用 Standard 和 Premium 資料庫時，如果您設定地理複寫的次要資料庫，您可以使用這些次要資料庫復原。這可讓您在比較不可能遺失資料的情況下還原資料庫。如需詳細資訊，請參閱[從中斷情況復原 Azure SQL Database](sql-database-disaster-recovery.md)。
+使用 Standard 和 Premium 資料庫時，如果您設定地理複寫的次要資料庫，您可以使用這些次要資料庫復原。如此一來，還原資料庫時比較不容易遺失資料。如需詳細資訊，請參閱[從中斷情況復原 Azure SQL Database](sql-database-disaster-recovery.md)。
 
-Azure 也提供不同的區域 (異地備援備份) 中的每個資料庫的備份。您可以從這些備份 (稱為異地還原) 建立新的資料庫，但如果您單獨採用此方法，很可能會發生資料遺失。
+Azure 也能為不同區域中 (異地備援備份) 的每個資料庫提供備份。您可以從這些備份 (稱為異地還原) 建立新的資料庫，但如果您單獨採用此方法，很可能會發生資料遺失。
 
 **若要使用異地還原復原資料庫：**
 
-- 在 [Azure 入口網站](https://azure.microsoft.com/)中，依序按一下 [新增]、[資料和儲存體] 和 [SQL Database]，然後選取 [備份] 做為資料庫來源。如需詳細資訊，請參閱[從中斷情況復原 Azure SQL Database](sql-database-disaster-recovery.md)。
+- 在 [Azure 入口網站](https://azure.microsoft.com/)中，依序按一下 [新增]、[資料和儲存體] 和 [SQL Database]，然後選取 [備份] 作為資料庫來源。如需詳細資訊，請參閱[從中斷情況復原 Azure SQL Database](sql-database-disaster-recovery.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0218_2016-->

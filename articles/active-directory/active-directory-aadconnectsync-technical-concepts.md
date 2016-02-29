@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect 同步處理：技術概念
+本文是[了解架構](active-directory-aadconnectsync-technical-concepts.md)主題的摘要。
 
 Azure AD Connect 同步建置在一個穩固的中繼目錄同步處理平台上。下列各節介紹中繼目錄同步處理的概念。建置於 MIIS、ILM 以及 FIM 之上，Azure Active Directory 同步服務提供連接資料來源、在資料來源間同步處理資料，以及佈建和解除佈建身份識別的下一代平台。
 
@@ -89,4 +90,4 @@ Metaverse 是鄰近連接器空間中所有聯結的身份識別的合併檢視�
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

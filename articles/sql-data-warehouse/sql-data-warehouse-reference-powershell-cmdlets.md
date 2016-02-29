@@ -27,7 +27,7 @@
 ## 取得和執行 Azure PowerShell Cmdlet
 
 1. 如要下載 Azure PowerShell 模組，請執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)。 
-2. 如要執行模組，請在開始視窗中鍵入 **Microsoft Azure PowerShell**。
+2. 若要執行模組，請在開始視窗中鍵入 **Windows PowerShell**。
 3. 如果您尚未將帳戶加入電腦，請執行下列 Cmdlet。(如需詳細資訊，請參閱[如何安裝及設定 Azure PowerShell]()：
 
 	```
@@ -133,4 +133,4 @@ $retorePoints
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

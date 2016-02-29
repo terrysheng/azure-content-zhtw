@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 
@@ -22,7 +22,7 @@
 
 有些非瀏覽器應用程式 (例如使用 Exchange Active Sync 的 Apple 原生電子郵件用戶端) 目前不支援 Multi-Factor Authentication。Multi-Factor Authentication 會對每個使用者啟用。這表示如果使用者已啟用 Multi-Factor Authentication，並嘗試使用非瀏覽器應用程式，他們將無法這麼做。應用程式密碼允許發生此情形。
 
->[AZURE.NOTE]適用於 Office 2013 用戶端的新式驗證
+>[AZURE.NOTE] 適用於 Office 2013 用戶端的新式驗證
 >
 > Office 2013 用戶端 (包括 Outlook) 現在支援新的驗證通訊協定，而且可以啟用 Multi-Factor Authentication 支援。這表示一旦啟用後，應用程式密碼就不需要使用於 Office 2013 用戶端。如需詳細資訊，請參閱[發表的 Office 2013 新式驗證公開預覽](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)。
  
@@ -45,7 +45,7 @@
 如何使用多因素驗證|說明
 :------------- | :------------- | 
 [搭配 Office 365 使用](#creating-and-deleting-app-passwords-with-office-365)| 這表示您想要透過 Office 365 入口網站建立應用程式密碼。
-[](#creating-and-deleting-app-passwords-with-myapps-portal)|這表示您想要透過 [https://myapps.microsoft.com](https://myapps.microsoft.com) 建立應用程式密碼。
+[我不知道](#creating-and-deleting-app-passwords-with-myapps-portal)|這表示您想要透過 [https://myapps.microsoft.com](https://myapps.microsoft.com) 建立應用程式密碼。
 [搭配 Microsoft Azure 使用](#create-app-passwords-in-the-azure-portal)| 這表示您想要透過 Azure 入口網站建立應用程式密碼。
 
 ## 使用 Office 365 建立和刪除應用程式密碼 
@@ -58,7 +58,7 @@
 1. 登入 [Office 365 入口網站](https://login.microsoftonline.com/)。
 2. 在右上角選取 Widget 並選擇 [Office 365 設定]。
 3. 按一下 [其他安全性驗證]。
-4. 在右側，按一下 [更新用於帳戶安全性的電話號碼] 連結。![設定](./media/multi-factor-authentication-end-user-manage/o365a.png)
+4. 選取右側的 [更新用於帳戶安全性的電話號碼] 連結。![設定](./media/multi-factor-authentication-end-user-manage/o365a.png)
 5. 這會引導您至允許您變更設定的頁面。![雲端](./media/multi-factor-authentication-end-user-manage/o365b.png)
 6. 在頂端的其他安全性驗證旁按一下 [應用程式密碼]。
 7. 按一下 [建立]。![雲端](./media/multi-factor-authentication-end-user-app-passwords-create-o365/apppass.png)
@@ -73,7 +73,7 @@
 1. 登入 [Office 365 入口網站](https://login.microsoftonline.com/)。
 2. 在右上角選取 Widget 並選擇 [Office 365 設定]。
 3. 按一下 [其他安全性驗證]。
-4. 在右側，按一下 [更新用於帳戶安全性的電話號碼] 連結。![設定](./media/multi-factor-authentication-end-user-manage/o365a.png)
+4. 選取右側的 [更新用於帳戶安全性的電話號碼] 連結。![設定](./media/multi-factor-authentication-end-user-manage/o365a.png)
 5. 這會引導您至允許您變更設定的頁面。![雲端](./media/multi-factor-authentication-end-user-manage/o365b.png)
 6. 在頂端的其他安全性驗證旁按一下 [應用程式密碼]。
 7. 在您想要刪除的應用程式密碼旁，按一下 [刪除]。![刪除應用程式密碼](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
@@ -129,4 +129,4 @@
 5. 按一下 [是] 確認刪除。
 6. 應用程式密碼刪除之後，就可以按一下 [關閉]。![關閉](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

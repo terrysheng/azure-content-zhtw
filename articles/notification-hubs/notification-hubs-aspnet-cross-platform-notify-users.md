@@ -1,5 +1,6 @@
 <properties
-	pageTitle="使用通知中樞向使用者傳送跨平台通知 (ASP.NET)" description="了解如何使用通知中樞範本，在單一要求中傳送以所有平台為目標的跨平台通知。"
+	pageTitle="使用通知中樞向使用者傳送跨平台通知 (ASP.NET)"
+	description="了解如何使用通知中樞範本，在單一要求中傳送以所有平台為目標的跨平台通知。"
 	services="notification-hubs"
 	documentationCenter=""
 	authors="wesmc7777"
@@ -20,7 +21,7 @@
 
 在上一堂教學課程[使用通知中心來通知使用者]中，您已了解如何將通知推播至所有由特定經驗證使用者所註冊的裝置。在該教學課程中，需要用多個要求來傳送通知給每個支援的用戶端平台。通知中心可支援範本，讓您指定特定裝置接收通知的方式。這使得傳送跨平台通知變得更簡單。本主題示範如何運用範本，在單一要求中傳送以所有平台為目標的跨平台通知。如需這些範本的詳細資訊，請參閱 [Azure 通知中心概觀][Templates]。
 
-> [AZURE.NOTE]通知中心可以讓裝置註冊多個具有相同標籤的範本。在此情況下，當傳入的訊息符合該標籤時，就會有多個通知傳遞至裝置 (每個通知各用於一個範本)。如此一來，您就能讓相同訊息顯示在多個視覺通知中，例如以徽章形式和 Windows 市集應用程式中的快顯通知形式。
+> [AZURE.NOTE] 通知中心可以讓裝置註冊多個具有相同標籤的範本。在此情況下，當傳入的訊息符合該標籤時，就會有多個通知傳遞至裝置 (每個通知各用於一個範本)。如此一來，您就能讓相同訊息顯示在多個視覺通知中，例如以徽章形式和 Windows 市集應用程式中的快顯通知形式。
 
 完成下列步驟，可使用範本傳送跨平台通知：
 
@@ -107,4 +108,4 @@
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

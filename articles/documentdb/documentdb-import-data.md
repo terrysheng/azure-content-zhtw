@@ -1,6 +1,7 @@
 <properties
-	pageTitle="將資料匯入 DocumentDB | Microsoft Azure"
-	description="深入了解如何使用開放原始碼 DocumentDB 資料移轉工具，將資料從各種來源 (包括 JSON 檔案、CSV 檔案、SQL、MongoDB、Azure 資料表儲存體、Amazon DynamoDB，以及 DocumentDB 集合) 匯入到 DocumentDB。"
+	pageTitle="DocumentDB 的資料庫移轉工具 | Microsoft Azure"
+	description="了解如何使用開放原始碼 DocumentDB 資料移轉工具，將各種來源的資料 (包括 MongoDB、SQL Server、表格儲存體、Amazon DynamoDB、CSV 及 JSON 檔案) 匯入 DocumentDB。將 CSV 轉換成 JSON。"
+	keywords="csv 轉換成 json, 資料庫移轉工具, 將 csv 轉換成 json" 
 	services="documentdb"
 	authors="andrewhoh"
 	manager="jhubbard"
@@ -16,7 +17,7 @@
 	ms.date="01/29/2016"
 	ms.author="anhoh"/>
 
-# 將資料匯入至 DocumentDB - 資料庫移轉工具
+# 使用資料庫移轉工具來將資料匯入 DocumentDB
 
 此文章將說明如何使用開放原始碼 DocumentDB 資料移轉工具，將資料從各種來源 (包括 JSON 檔案、CSV 檔案、SQL、MongoDB、Azure 資料表儲存體、Amazon DynamoDB，以及 DocumentDB 集合) 匯入到 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)。
 
@@ -271,7 +272,7 @@ DocumentDB 連接字串的格式如下：
 
 DocumentDB 來源匯入工具選項具有下列進階選項：
 
-1. 包括內部欄位：指定匯出中是否包含 DocumentDB 文件系統屬性 (例如 \_rid, \_ts)。
+1. 包括內部欄位：指定匯出中是否包含 DocumentDB 文件系統屬性 (例如 _rid、_ts)。
 2. 失敗時的重試次數：指定與 DocumentDB 的連線發生暫時性失敗 (例如網路連線中斷) 時的重試次數。
 3. 重試間隔：指定與 DocumentDB 的連線發生暫時性失敗 (例如網路連線中斷) 時兩次重試之間要等候的時間。
 4. 連線模式：指定要與 DocumentDB 搭配使用的連線模式。可用的選項包括：DirectTcp、DirectHttps 和閘道器。直接連線模式會比較快，但閘道器模式比較支援防火牆，因為它只會使用連接埠 443。
@@ -322,7 +323,7 @@ DocumentDB 連接字串的格式如下：
 
 > [AZURE.NOTE] 若要確定可以存取連接字串欄位中指定的 DocumentDB 執行個體，請使用 Verify 命令。
 
-若要匯入到單一集合，請輸入要匯入資料的目標集合名稱，然後按一下 [新增] 按鈕。若要匯入到多個集合，請分別輸入每個集合的名稱，或使用下列語法來指定多個集合： *collection\_prefix*[開始索引 - 結束索引]。透過上述語法指定多個集合時，請記住下列事項：
+若要匯入到單一集合，請輸入要匯入資料的目標集合名稱，然後按一下 [新增] 按鈕。若要匯入到多個集合，請分別輸入每個集合的名稱，或使用下列語法來指定多個集合： *collection_prefix*[開始索引 - 結束索引]。透過上述語法指定多個集合時，請記住下列事項：
 
 1. 僅支援整數範圍的名稱模式。例如，指定 collection[0-3] 將產生下列集合：collection0、collection1、collection2、collection3。
 2. 您可以使用縮寫的語法：collection[3] 將發出一組與步驟 1 中所述相同的集合。
@@ -346,7 +347,7 @@ DocumentDB 連接字串的格式如下：
 
 -	字串：保存為字串值
 -	Epoch：保存為 Epoch 數值
--	兩者：保存字串和 Epoch 數值。這個選項會建立子文件，例如："date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
+-	兩者：保存字串和 Epoch 數值。這個選項會建立子文件，例如："date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 } 
 
 
 DocumentDB 大量匯入工具具有下列其他進階選項：
@@ -375,7 +376,7 @@ DocumentDB 連接字串的格式如下：
 
 > [AZURE.NOTE] 若要確定可以存取連接字串欄位中指定的 DocumentDB 執行個體，請使用 Verify 命令。
 
-若要匯入到單一集合，請輸入要匯入資料的目標集合名稱，然後按一下 [新增] 按鈕。若要匯入到多個集合，請分別輸入每個集合的名稱，或使用下列語法來指定多個集合： *collection\_prefix*[開始索引 - 結束索引]。透過上述語法指定多個集合時，請記住下列事項：
+若要匯入到單一集合，請輸入要匯入資料的目標集合名稱，然後按一下 [新增] 按鈕。若要匯入到多個集合，請分別輸入每個集合的名稱，或使用下列語法來指定多個集合： *collection_prefix*[開始索引 - 結束索引]。透過上述語法指定多個集合時，請記住下列事項：
 
 1. 僅支援整數範圍的名稱模式。例如，指定 collection[0-3] 將產生下列集合：collection0、collection1、collection2、collection3。
 2. 您可以使用縮寫的語法：collection[3] 將發出一組與步驟 1 中所述相同的集合。
@@ -395,7 +396,7 @@ DocumentDB 連接字串的格式如下：
 
 -	字串：保存為字串值
 -	Epoch：保存為 Epoch 數值
--	兩者：保存字串和 Epoch 數值。這個選項會建立子文件，例如："date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 }
+-	兩者：保存字串和 Epoch 數值。這個選項會建立子文件，例如："date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 } 
 
 DocumentDB 循序記錄匯入工具具有下列其他進階選項：
 
@@ -501,4 +502,4 @@ DocumentDB JSON 匯出工具可讓您將任何可用的來源選項匯出至包�
 
 - 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -150,7 +150,7 @@ V12 提供大幅改進的復原點目標 (RPO) 與預估復原時間 (ERT)：
 V12 資料庫只能裝載在 V12 邏輯伺服器上。而 V12 只可以裝載 V12 資料庫。
 
 
-如果您尚未於 V12 上執行，您可以依照下列[就地升級至 SQL Database V12](sql-database-v12-upgrade.md) 中的步驟，升級您的邏輯伺服器。
+如果您尚未於 V12 上執行，您可以依照下列[就地升級至 SQL Database V12](sql-database-v12-plan-prepare-upgrade.md) 中的步驟，升級您的邏輯伺服器。
 
 
 ## <a name="V12AzureSqlDbPreviewGaTable"></a>公開上市區域
@@ -161,4 +161,4 @@ V12 資料庫只能裝載在 V12 邏輯伺服器上。而 V12 只可以裝載 V1
 
 [Microsoft Azure 預覽專用的使用補充條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

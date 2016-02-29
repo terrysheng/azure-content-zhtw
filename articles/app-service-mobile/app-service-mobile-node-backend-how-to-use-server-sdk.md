@@ -636,7 +636,7 @@ Azure Mobile Apps SDK 對於資料表端點和自訂 API 會使用相同的方�
 		get: function (req, res, next) {
 			var date = { currentTime: Date.now() };
 			res.status(200).type('application/json').send(date);
-		});
+		}
 	};
 	// The GET methods must be authenticated.
 	api.get.access = 'authenticated';
@@ -671,6 +671,38 @@ Azure Mobile Apps SDK 使用[本文剖析器中介軟體](https://github.com/exp
 
 您可以調整上方所示的 50 Mb 限制。請注意，檔案在傳輸前會是 base-64 編碼，這會增加實際上傳大小。
 
+### <a name="howto-customapi-sql"></a>作法：執行自訂 SQL 陳述式
+
+Azure 行動應用程式 SDK 允許透過要求物件存取整個「內容」，讓您能輕鬆地針對定義的資料提供者執行參數化的 SQL 陳述式：
+
+    var api = {
+        get: function (request, response, next) {
+            // Check for parameters - if not there, pass on to a later API call
+            if (typeof request.params.completed === 'undefined')
+                return next();
+
+            // Define the query - anything that can be handled by the mssql
+            // driver is allowed.
+            var query = {
+                sql: 'UPDATE TodoItem SET complete=@completed',
+                parameters: [{
+                    completed: request.params.completed
+                }]
+            };
+
+            // Execute the query.  The context for Azure Mobile Apps is available through
+            // request.azureMobile - the data object contains the configured data provider.
+            request.azureMobile.data.execute(query)
+            .then(function (results) {
+                response.json(results);
+            });
+        }
+    };
+
+    api.get.access = 'authenticated';
+    module.exports = api;
+
+S 可以存取此端點
 ## <a name="Debugging"></a>偵錯與疑難排解
 
 Azure App Service 提供數個適用於 Node.js 應用程式的偵錯和疑難排解技術。這些技術全都可以使用。
@@ -771,4 +803,4 @@ Azure 入口網站可讓您在 Visual Studio Team Services 中編輯 Node.js 後
 [ExpressJS 中介軟體]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # 使用 U-SQL 目錄
@@ -55,7 +55,7 @@ U-SQL 資料庫包含：
     - 若要新增新的組件，以滑鼠右鍵按一下 [組件]，然後按一下 [註冊組件]。
     - 若要新增新的結構描述，以滑鼠右鍵按一下 [結構描述]，然後按一下 [建立結構描述]**。
     - 若要新增新的資料表，以滑鼠右鍵按一下 [資料表]，然後按一下 [建立資料表]**。
-    - 若要新增新的資料表值函式，請參閱[針對資料湖分析工作開發 U-SQL 使用者定義運算子](data-lake-analytics-u-sql-develop-user-defined-operators.md)。
+    - 如要新增資料表值函式，請參閱[針對資料湖分析工作開發 U-SQL 使用者定義運算子](data-lake-analytics-u-sql-develop-user-defined-operators.md)。
 
 
 ![瀏覽 U-SQL Visual Studio 目錄](./media/data-lake-analytics-use-u-sql-catalog/data-lake-analytics-browse-catalogs.png)
@@ -78,10 +78,10 @@ U-SQL 資料庫包含：
 - 管理
     - [使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-use-portal.md)
     - [使用 Azure PowerShell 管理 Azure 資料湖分析](data-lake-analytics-use-powershell.md)
-    - [使用 Azure 入口網站監視和疑難排解 Azure 資料湖分析工作](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [使用 Azure 入口網站監視和疑難排解 Azure 資料湖分析作業](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 - 端對端教學課程
     - [使用 Azure 資料湖分析互動式教學課程](data-lake-analytics-use-interactive-tutorials.md)
     - [使用 Azure 資料湖分析來分析網站記錄](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

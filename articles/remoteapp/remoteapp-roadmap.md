@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="01/19/2016"
+    ms.date="02/16/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp 中的新內容
@@ -27,6 +27,7 @@
 |Windows 用戶端可轉散發 MSI 封裝 ([意見反應](https://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo/))| X| |
 |Azure RemoteApp 適用且以 HTML5 為基礎的用戶端|X ||
 |Azure 資源管理員 (ARM) 支援||X|
+|Azure v2 資源支援| |X|
 |雲端解決方案提供者 (CSP)||X|
 |印度地區的可用性|X||
 |英國地區的可用性||X|
@@ -46,4 +47,4 @@
 - 澳大利亞資料中心的可用性
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

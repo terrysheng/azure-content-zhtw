@@ -1,7 +1,8 @@
 <properties
-	pageTitle="Azure 通知中心安全推播"
+	pageTitle="使用 Azure 通知中樞傳送安全的推播通知"
 	description="了解如何從 Azure 將安全的推播通知傳送至 Android 應用程式。程式碼範例是以 Java 及 C# 撰寫。"
 	documentationCenter="android"
+    keywords="推播通知,推播訊息,android 推播通知"
 	authors="wesmc7777"
 	manager="dwrede"
 	editor=""
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015" 
+	ms.date="02/15/2016" 
 	ms.author="wesmc"/>
 
-#Azure 通知中心安全推播
+#使用 Azure 通知中樞傳送安全的推播通知
 
 > [AZURE.SELECTOR]
 - [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
@@ -25,30 +26,32 @@
 
 ##概觀
 
-Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，因而可大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。
+> [AZURE.IMPORTANT] 若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started)。
 
-基於法規或安全性限制，應用程式有時會想要在通知中加入無法透過標準推播通知基礎結構傳送的內容。本教學課程說明如何透過用戶端裝置和應用程式後端之間的安全、已驗證連線來傳送敏感資訊，以達到相同體驗。
+Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播訊息基礎結構，因而可大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。
+
+基於法規或安全性限制，應用程式有時會想要在通知中加入無法透過標準推播通知基礎結構傳送的內容。本教學課程說明如何透過用戶端 Android 裝置和應用程式後端之間的安全、已驗證連線來傳送敏感資訊，以達到相同體驗。
 
 概括而言，流程如下所示：
 
 1. 應用程式後端：
 	- 在後端資料庫中儲存安全裝載。
-	- 將此通知的識別碼傳送至裝置 (不會傳送安全資訊)。
+	- 將此通知的識別碼傳送至 Android 裝置 (不會傳送安全資訊)。
 2. 收到通知時，裝置上的應用程式會執行下列動作：
-	- 裝置會連絡後端並要求安全裝載。
+	- Android 裝置會連絡後端並要求安全裝載。
 	- 應用程式會以通知的形式在裝置上顯示裝載。
 
-請務必注意在上述流程 (與本教學課程) 中，我們假設使用者登入後，裝置會將驗證權杖儲存在本機儲存體中。由於裝置可使用此權杖擷取通知的安全裝載，因此可保證完全順暢的體驗。如果您的應用程式沒有將驗證權杖儲存在裝置上，或如果這些權杖可能會過期，裝置應用程式應在收到通知時顯示一般通知，以提示使用者啟動應用程式。應用程式會接著驗證使用者，並顯示通知裝載。
+請務必注意在上述流程 (與本教學課程) 中，我們假設使用者登入後，裝置會將驗證權杖儲存在本機儲存體中。由於裝置可使用此權杖擷取通知的安全裝載，因此可保證完全順暢的體驗。如果您的應用程式沒有將驗證權杖儲存在裝置上，或如果這些權杖可能會過期，裝置應用程式應在收到推播通知時顯示一般通知，以提示使用者啟動應用程式。應用程式會接著驗證使用者，並顯示通知裝載。
 
-本安全推播教學課程說明如何以安全的方式傳送推播通知。本教學課程會以[通知使用者](notification-hubs-aspnet-backend-android-notify-users.md)教學課程為基礎，因此您應先完成該教學課程中的步驟。
+本教學課程示範如何傳送安全的推播通知。本教學課程以[通知使用者](notification-hubs-aspnet-backend-android-notify-users.md)教學課程為基礎，如果您還未完成該教學課程中的步驟，請先完成。
 
-> [AZURE.NOTE]本教學課程假設您已建立並設定通知中樞，如[開始使用通知中樞 (Android)](notification-hubs-android-get-started.md) 中所述。
+> [AZURE.NOTE] 本教學課程假設您已建立並設定通知中樞，如[開始使用通知中樞 (Android)](notification-hubs-android-get-started.md) 中所述。
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## 修改 Android 專案
 
-既然您已將應用程式後端修改為傳送通知的識別碼，就必須變更 Android 應用程式以處理該通知，並回呼後端以擷取要顯示的安全訊息。為了達成此目標，您必須確定您的 Android 應用程式知道在收到推播通知時，如何使用後端自我驗證。
+既然您已將應用程式後端修改為傳送推播通知的識別碼，就必須變更 Android 應用程式以處理該通知，並回呼後端以擷取要顯示的安全訊息。為了達成此目標，您必須確定您的 Android 應用程式知道在收到推播通知時，如何使用後端自我驗證。
 
 為了將驗證標頭值儲存在您的應用程式共用喜好設定中，我們將修改 *login* 流程。類別機制可用來儲存任何驗證權杖 (例如 OAuth tokens)，應用程式在不需要使用者認證的情況下必須使用這些驗證權杖。
 
@@ -131,4 +134,4 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 4. 在 Android 應用程式 UI 中，按一下 [登入]。然後按一下 [傳送推播]。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

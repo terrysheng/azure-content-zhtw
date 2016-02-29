@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="na"
-   ms.date="11/18/2015"
+   ms.date="02/12/2016"
    ms.author="sedusch"/>
    
 # 在 Azure 虛擬機器 (VM) 上使用 SAP
@@ -80,4 +80,4 @@
 
 [可在這裡找到這份文件](virtual-machines-sap-on-linux-suse-quickstart.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,11 +1,11 @@
 <properties
-   pageTitle="使用 Azure Active Directory (AD) 管理應用程式 | Microsoft Azure"
-   description="本文章說明整合 Azure Active Directory 與您的內部部署、雲端和 SaaS 應用程式的優點。"
-   services="active-directory"
-   documentationCenter=""
-   authors="ihenkel"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="使用 Azure Active Directory (AD) 管理應用程式 | Microsoft Azure"
+    description="本文章說明整合 Azure Active Directory 與您的內部部署、雲端和 SaaS 應用程式的優點。"
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
    <tags
       ms.service="active-directory"
@@ -13,12 +13,10 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/09/2016"
-      ms.author="inhenk"/>
+      ms.date="02/16/2016"
+      ms.author="markvi"/>
 
-# 使用 Azure Active Directory (AD) 管理應用程式
-
-## 概觀
+# 使用 Azure Active Directory 來管理應用程式
 
 在實際工作流程或內容以外，企業對所有應用程式有兩個基本需求：
 
@@ -30,17 +28,17 @@
 
 在運算術語中：
 
-- *誰*被稱為*身分識別* - 使用者和群組所組成的資料存放區
+- 「誰」被稱為「身分識別」 - 用來管理使用者和群組
 
-- *什麼*被稱為*存取管理* - 對受保護資源存取的管理
+- 「什麼」被稱為「存取管理」 - 用來管理對受保護資源的存取
 
-這兩個元件結合在一起就稱為*身分識別和存取管理 (IAM)*，[Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) 小組對它定義為「*可讓適當的個人員基於正確原因在正確時候存取正確資源的安全性原則*」。
+這兩個元件結合在一起就稱為「身分識別與存取管理 (IAM)」，[Gartner](http://www.gartner.com/it-glossary/identity-and-access-management-iam) 團隊將它定義為「*可讓適當的個人以正當理由在適當時機存取適當資源的安全性規定*」。
 
 好，那麼問題是什麼？ 如果 IAM *未*在一個地方使用整合解決方案加以管理：
 
 - 身分識別系統管理員需要個別建立和個別更新所有應用程式中的使用者帳戶，這是既重複又耗時的活動。
 
-- 使用者必須記住多個認證來存取需使用的應用程式，特別是基於安全性的理由，他們被鼓勵不要對每個應用程式使用相同密碼。如此一來，使用者傾向於將密碼寫下，或使用其他密碼管理解決方案，而這會帶來其他資料安全性的風險。
+- 使用者必須記住多個認證，才能存取他們需要使用的應用程式。如此一來，使用者傾向於將密碼寫下，或使用其他密碼管理解決方案，而這會帶來其他資料安全性的風險。
 
 - 重複、耗時的活動減少了使用者和系統管理員處理可增加您的企業營收之商務活動的時間。
 
@@ -52,15 +50,24 @@
 
 - 安全性與監控工具需要其他的自訂與整合，以達到完善 E2E 案例。
 
-## 與應用程式整合的 Azure Active Directory (AD)
+## 與應用程式整合的 Azure Active Directory
 
-Azure Active Directory (AD) 為 Microsoft 的完善「身分識別即服務 (IDaaS) 解決方案」，使得 IAM 可做為雲端服務並提供內建的存取管理、單一登入 (SSO)，以及[與數千個應用程式與預先整合](https://azure.microsoft.com/marketplace/active-directory/)的報告，這些應用程式包括 Salesforce、Google Apps、Box、Concur 等，還有許多。利用 Azure AD 應用程式，您為合作夥伴和客戶 (商務或消費者) 進行的發佈將會有相同的身分識別和存取管理功能，讓您能夠專注於主要業務。
+Azure Active Directory 是 Microsoft 的全方位「身分識別即服務」(IDaaS) 解決方案，它能夠：
 
-Azure AD 的價值不僅僅是雲端應用程式而已。您也可以使用它搭配內部部署應用程式，以提供安全遠端存取，而不需使用 VPN 或其他傳統的遠端存取來管理系統。
+- 讓 IAM 做為雲端服務 
+
+- 提供集中式存取管理、單一登入 (SSO) 及報告功能
+
+- 支援應用程式庫中[數千個應用程式](https://azure.microsoft.com/marketplace/active-directory/) (包括 Salesforce、Google Apps、Box、Concur 等) 的整合式存取管理。
+
+
+藉由 Azure Active Directory，您為合作夥伴和客戶 (企業或消費者) 發佈的所有應用程式都可享有相同的身分識別與存取管理功能。<br> 這可讓您大幅降低營運成本。
 
 如果您需要實作尚未列在應用程式資源庫的應用程式，該怎麼辦？ 雖然這比起從應用程式資源庫的設定應用程式的 SSO 更為耗時一點，Azure AD 提供了精靈可協助您完成組態。
 
-藉由為您的所有應用程式提供集中存取管理和單一登入 (SSO)，Azure AD 可提供資料安全性和生產力問題的解決方案。
+Azure AD 的價值不僅僅是雲端應用程式而已。您也可以透過提供安全的遠端存取，將它與內部部署應用程式搭配使用。有了安全的遠端存取，您就不再需要 VPN 或其他傳統的遠端存取管理實作。
+
+Azure AD 透過為您的所有應用程式提供集中式存取管理和單一登入 (SSO)，提供了主要資料安全性和生產力問題的解決方案。
 
 - 使用者透過登入一次即可存取多個應用程式，使得他們有更多時間可帶來收入或完成商務作業活動。
 
@@ -128,4 +135,4 @@ Azure AD 為您提供預先整合的報告與監控功能，可讓您知道可�
 
 [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

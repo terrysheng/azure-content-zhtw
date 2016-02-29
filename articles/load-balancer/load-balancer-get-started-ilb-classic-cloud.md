@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma" />
 
 # 開始為雲端服務建立內部負載平衡器 (傳統)
@@ -32,7 +32,7 @@
 
 內部負載平衡器組態必須在於雲端服務中建立第一個部署的期間進行設定，如以下範例所示。
 
->[AZURE.IMPORTANT]執行下列步驟的必要條件是已經為雲端部署建立虛擬網路。您需要虛擬網路名稱和子網路名才能建立內部負載平衡。
+>[AZURE.IMPORTANT] 執行下列步驟的必要條件是已經為雲端部署建立虛擬網路。您需要虛擬網路名稱和子網路名才能建立內部負載平衡。
 
 ### 步驟 1
 
@@ -91,4 +91,4 @@
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

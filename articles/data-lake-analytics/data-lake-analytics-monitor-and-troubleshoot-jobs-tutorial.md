@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # 使用 Azure 入口網站疑難排解 Azure 資料湖分析作業
@@ -26,9 +26,9 @@
 
 開始進行本教學課程之前，您必須具備下列條件：
 
-- **資料湖分析工作程序基本知識**。請參閱[使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-use-portal.md)。
-- **資料湖分析帳戶**。請參閱[使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account)。
-- **將範例資料複製到預設的資料湖存放區帳戶**。請參閱[準備來源資料](data-lake-analytics-get-started-use-portal.md.md#prepare-source-data)
+- **資料湖分析工作程序基本知識**。請參閱[使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)。
+- **資料湖分析帳戶**。請參閱[使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md#create-adl-analytics-account)。
+- **將範例資料複製到預設的資料湖存放區帳戶**。請參閱[準備來源資料](data-lake-analytics-get-started-portal.md#prepare-source-data)
 
 ##提交資料湖分析作業
 
@@ -107,7 +107,7 @@
 
 - [Azure 資料湖分析概觀](data-lake-analytics-overview.md)
 - [使用 Azure PowerShell 開始使用 Azure 資料湖分析](data-lake-analytics-get-started-powershell.md)
-- [透過 Visual Studio 開始使用 Azure 資料湖分析與 U-SQL](data-lake-analytics-get-started-u-sql-studio.md)
+- [透過 Visual Studio 開始使用 Azure 資料湖分析與 U-SQL](data-lake-analytics-u-sql-get-started.md)
 - [使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

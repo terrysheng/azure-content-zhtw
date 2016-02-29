@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 # 判斷混合式身分識別解決方案的內容管理需求
@@ -32,7 +32,8 @@
 - 資料分類：識別使用者或群組，以及根據物件分類來識別該物件的存取層級。 
 - 資料外洩防護：負責保護資料以避免外洩的安全性控制項將需要與身分驗證系統互動，來驗證使用者的身分識別。這對於稽核記錄用途也很重要。
 
->[AZURE.NOTE]如需資料分類的最佳做法與指導方針，請參閱[雲端整備的資料分類](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf)。
+>[AZURE.NOTE]
+如需資料分類的最佳做法與指導方針，請參閱[雲端整備的資料分類](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf)。
 
 規劃您的混合式身分識別解決方案時，請確定會根據貴組織的需求來回答下列問題：
 
@@ -50,7 +51,8 @@
 - 貴公司需要加密所有與外部商務合作夥伴共用的文件/內容嗎？
 - 貴公司需要強制執行有關特定電子郵件類型的公司原則 (不要全部回覆、不要轉寄) 嗎？
  
->[AZURE.NOTE]請確定會記下每個答案，並了解答案背後的原理。[定義資料保護策略](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)將介紹可用選項，以及每個選項的優點/缺點。回答這些問題之後，您就能選取最適合業務需求的選項。
+>[AZURE.NOTE]
+請確定會記下每個答案，並了解答案背後的原理。[定義資料保護策略](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)將介紹可用選項，以及每個選項的優點/缺點。回答這些問題之後，您就能選取最適合業務需求的選項。
 
 
 ## 後續步驟
@@ -59,4 +61,4 @@
 ## 另請參閱
 [設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

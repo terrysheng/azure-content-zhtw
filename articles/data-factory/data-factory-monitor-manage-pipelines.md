@@ -16,7 +16,12 @@
 	ms.date="01/04/2016" 
 	ms.author="spelluru"/>
 
+
 # 監視和管理 Azure Data Factory 管線
+> [AZURE.SELECTOR]
+- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+
 Data Factory 服務提供一個可靠且完整的儲存、處理和資料移動服務檢視。它可協助您快速評估端對端資料管線健康情況、指出問題所在，並視需要採取修正動作。您也可以透過視覺化方式追蹤跨任何來源的資料之間的資料歷程和關聯，並從單一監視儀表板查看工作執行、系統健全狀況和相依性的完整歷程記錄處理。
 
 本文描述如何監視、管理和偵錯您的管線。同時也會提供如何建立警示和取得失敗通知的詳細資訊。
@@ -269,15 +274,13 @@ Azure Data Factory 透過 Azure 傳統入口網站和 Azure PowerShell 提供許
 
 ### 使用 Azure PowerShell
 
-您可以使用 ‘Set-AzureRmDataFactorySliceStatus’ Cmdlet 重新執行失敗。
+您可以使用 Set-AzureRmDataFactorySliceStatus Cmdlet 來重新執行失敗。如需該 Cmdlet 的語法及其他詳細資料，請參閱 [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) 主題。
 
-	Set-AzureRmDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+**範例：**下列範例把 Azure 資料處理站「WikiADF」中「DAWikiAggregatedData」資料表的所有配量狀態都設為「Waiting」。
 
-**範例：**下列範例會在 Azure Data Factory 'WikiADF' 將 'DAWikiAggregatedData' 資料表的所有配量狀態都設為 'PendingExecution'。
+**注意：**UpdateType 已設為 UpstreamInPipeline，這代表資料表中每個配量的狀態，以及做為管線中活動的輸入資料表的所有相依 (上游) 資料表的狀態，都設為「Waiting」。此參數的另一個可能值為 "Individual"。
 
-**附註：**UpdateType 設為 UpstreamInPipeline，表示資料表和做為管線中活動的輸入資料表使用的所有相依 (上游) 資料表，其所有配量的狀態都設為 "PendingExecution"。此參數的另一個可能值為 "Individual"。
-
-	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
 
 ## 建立警示
@@ -351,7 +354,7 @@ OnDemandClusterDeleted | Succeeded
 如需上述範例中所使用之 JSON 元素的詳細資料，請參閱[建立警示規則](https://msdn.microsoft.com/library/azure/dn510366.aspx)。
 
 #### 部署警示 
-若要部署警示，請使用 Azure PowerShell Cmdlet：**New-AzureRmResourceGroupDeployment**，如下列範例所示：
+如要部署警示，請使用 Azure PowerShell Cmdlet：**New-AzureRmResourceGroupDeployment**，如下列範例所示：
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
@@ -373,7 +376,7 @@ OnDemandClusterDeleted | Succeeded
 	Outputs           :
 
 #### 擷取 Azure 資源群組部署的清單
-若要擷取已部署的 Azure 資源群組部署的清單，請使用 Cmdlet：**Get-AzureRmResourceGroupDeployment**，如下所範例所示：
+如要擷取已部署的 Azure 資源群組部署清單，請使用 Cmdlet：**Get-AzureRmResourceGroupDeployment**，如下列範例所示：
 
 	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
@@ -540,12 +543,12 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 以適當的值取代上述範例中的 subscriptionId、resourceGroupName、和 dataFactoryName。
 
 *metricName* 目前支援 2 個值：
-- FailedRuns 
+- FailedRuns
 - SuccessfulRuns
 
 **部署警示：**
 
-若要部署警示，請使用 Azure PowerShell Cmdlet：**New-AzureRmResourceGroupDeployment**，如下列範例所示：
+如要部署警示，請使用 Azure PowerShell Cmdlet：**New-AzureRmResourceGroupDeployment**，如下列範例所示：
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
@@ -566,6 +569,6 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 	Outputs           
 
 
-您也可以使用 **Add-AlertRule** Cmdlet 來部署警示規則。請參閱 [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) 主題，以取得詳細資料和範例。
+您也可以使用 **Add-AlertRule** Cmdlet 來部署警示規則。如需詳細資料及範例，請參閱 [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) 主題。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

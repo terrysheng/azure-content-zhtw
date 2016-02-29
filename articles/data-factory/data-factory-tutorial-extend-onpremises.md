@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="請將輸出資料複製到內部部署 SQL Server 資料庫 (Azure 傳統入口網站)。" 
+	pageTitle="逐步解說：將輸出資料複製到 SQL Server 資料庫 (Azure 傳統入口網站)" 
 	description="本逐步解說使用 Azure 傳統入口網站中的 Data Factory 編輯器擴充教學課程，如此可讓管線將輸出資料複製到 SQL Server Database。"
 	services="data-factory" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 
-# 逐步解說：將行銷活動有效性資料複製到內部部署 SQL Server 資料庫 
+# 逐步解說：將輸出資料複製到內部部署的 SQL Server 資料庫 (Azure 傳統入口網站) 
 在此逐步解說中，您將學習如何設定環境以啟用管線，來處理您的內部部署資料。
  
 在記錄檔處理案例中的最後一個步驟，從第一個逐步解說與分割 -> 充實 -> 分析工作流程，行銷活動有效性輸出已複製到 Azure SQL 資料庫。您也可以在組織內，將此資料移動到內部部署 SQL Server 以進行分析。
@@ -169,4 +169,4 @@
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

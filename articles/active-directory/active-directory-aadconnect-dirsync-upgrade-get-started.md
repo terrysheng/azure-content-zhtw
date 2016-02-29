@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="shoatman;billmath"/>
 
-# 將 Windows Azure Active Directory 同步作業 (DirSync) 升級至 Azure AD Connect
+# Azure AD Connect：升級 Windows Azure Active Directory 同步 (DirSync)
 
 下列文件將協助您將現有的 DirSync 安裝升級至 Azure AD Connect。
 
@@ -58,13 +58,13 @@
 - 您的樹系/網域與 Azure AD 設定
 - 根據使用者屬性進行篩選
 
-下列變更無法升級。如果您進行了任何這些變更，將會封鎖升級。
+下列變更無法升級。如果您進行了這項變更，升級將會遭到封鎖：
+
+- 不支援的 DirSync 變更，例如移除屬性和使用自訂延伸模組 DLL
 
 ![已封鎖升級](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
 在這些情況下，建議您在[預備模式](active-directory-aadconnectsync-operations.md#staging-mode)安裝新的 Azure AD Connect 伺服器，並確認舊的 DirSync 及新的 Azure AD Connect 設定。使用自訂組態重新套用任何變更，如 [Azure AD Connect 同步處理自訂組態](active-directory-aadconnectsync-whatis.md)中所述。
-
-- 不支援的 DirSync 變更，例如移除屬性和使用自訂延伸模組 DLL
 
 DirSync 用於服務帳戶的密碼無法擷取且不會移轉。這些密碼將在升級期間重設。
 
@@ -197,4 +197,4 @@ Azure AD Connect 現在是您的作用中伺服器。
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

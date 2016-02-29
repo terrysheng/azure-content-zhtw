@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="02/11/2016"
 	ms.author="curtand"/>
 
 # 在 Azure Active Directory (Azure AD) 中指派系統管理員角色
@@ -25,10 +25,12 @@
 可用的系統管理員角色如下：
 
 - **計費管理員**：進行採購、管理訂用帳戶、管理支援票證，以及監控服務健全狀況。
-- **全域管理員**：可以存取所有系統管理功能。註冊 Azure 帳戶的人員會變成全域管理員。只有全域管理員才能指派其他系統管理員角色。您的公司可以有多位全域管理員。
-- **密碼管理員**：重設密碼、管理服務要求，以及監控服務健全狀況。密碼管理員可以僅重設使用者和其他密碼管理員的密碼。
-- **服務管理員**：管理服務要求，以及監控服務健全狀況。
 
+- **全域管理員**：可以存取所有系統管理功能。註冊 Azure 帳戶的人員會變成全域管理員。只有全域管理員才能指派其他系統管理員角色。您的公司可以有多位全域管理員。
+
+- **密碼管理員**：重設密碼、管理服務要求，以及監控服務健全狀況。密碼管理員可以僅重設使用者和其他密碼管理員的密碼。
+
+- **服務管理員**：管理服務要求，以及監控服務健全狀況。
 > [AZURE.NOTE]
 > 若要指派服務管理員角色給使用者，全域管理員必須先指派管理權限給服務中的該使用者，例如 Exchange Online，再指派服務管理員角色給 Azure 傳統入口網站中的使用者。
 
@@ -72,19 +74,30 @@
 
 ## 指派或移除系統管理員角色
 
-
 1. 在 Azure 傳統入口網站中，按一下 [Active Directory]，然後按一下您組織的目錄名稱。
+
 2. 在 [**使用者**] 頁面上，按一下您想要編輯之使用者的顯示名稱。
 3. 在 [組織角色] 清單中，選取您想要指派給這位使用者的系統管理員角色，或選取 [使用者] \(如果您想要移除現有系統管理員角色)。
 4. 在 [**替代電子郵件地址**] 方塊中，輸入電子郵件地址。此電子郵件地址用於重要通知 (包括密碼自行重設)，因此，不論使用者是否可以存取 Azure，使用者都必須可以存取電子郵件帳戶。
+
 5. 選取 [**允許**] 或 [**封鎖**] 指定是否允許使用者登入和存取服務。
+
 6. 從 [**使用位置**] 下拉式清單中，指定位置。
+
 7. 完成時，請按一下 [**儲存**]。
 
-## 接下來
+## 後續步驟
 
-- [管理使用者](../active-directory-create-users.md)
+- 若要深入了解如何變更 Azure 訂用帳戶的管理員，請參閱[如何新增或變更 Azure 管理員角色](../billing-add-change-azure-subscription-administrator.md)
+
+- 若要深入了解如何在 Microsoft Azure 中控制資源存取，請參閱[了解 Azure 中的資源存取](active-directory-understanding-resource-access.md)
+
+- 如需有關 Azure Active Directory 如何與您的 Azure 訂用帳戶關聯的詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory-how-subscriptions-associated directory.md)
+
+- [管理使用者](active-directory-create-users.md)
+
 - [管理密碼](active-directory-manage-passwords.md)
+
 - [管理群組](active-directory-manage-groups.md)
 
-<!----HONumber=AcomDC_0204_2016---->
+<!---HONumber=AcomDC_0218_2016-->

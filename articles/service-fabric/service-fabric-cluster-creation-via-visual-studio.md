@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="02/12/2016"
    ms.author="karolz@microsoft.com"/>
 
 # 使用 Visual Studio 設定 Service Fabric 叢集
@@ -45,7 +45,7 @@
 |sourceVaultValue |用來保護叢集的憑證儲存所在之金鑰保存庫的資源識別碼。|
 |certificateUrlValue |叢集安全性憑證的 URL。|
 
-Visual Studio Service Fabric 資源管理員範本會建立一個受憑證保護的安全叢集。此憑證是以最後三個範本參數識別 (`certificateThumbprint`、`sourceVaultValue` 和 `certificateUrlValue`)，而且必須存在於 [Azure 金鑰保存庫]。如需如何建立叢集安全性憑證的詳細資訊，請參閱[保護 Service Fabric 叢集](service-fabric-cluster-security.md)一文。
+Visual Studio Service Fabric 資源管理員範本會建立一個受憑證保護的安全叢集。此憑證是以最後三個範本參數識別 (`certificateThumbprint`、`sourceVaultValue` 和 `certificateUrlValue`)，而且必須存在於 [Azure 金鑰保存庫]。如需如何建立叢集安全性憑證的詳細資訊，請參閱[如何使用憑證來保護 Service Fabric 叢集](service-fabric-cluster-security.md#secure-a-service-fabric-cluster-by-using-certificates)一文。
 
 ## 選擇性：新增公用應用程式連接埠
 您也可能想變更叢集的公用應用程式連接埠再部署它。根據預設，範本只會開啟兩個公用 TCP 連接埠 (80 和 8081)。如果您的應用程式需要更多，請修改範本中的 Azure 負載平衡器定義。此定義儲存在主要範本檔案 (`SecureFabricCluster.json`) 中。開啟該檔案，並搜尋 `loadBalancedAppPort`。您會注意到每個連接埠會與三個成品相關聯：
@@ -106,6 +106,8 @@ Visual Studio Service Fabric 資源管理員範本會建立一個受憑證保護
 
 如有任何錯誤，請移至 [Azure 入口網站](https://portal.azure.com/)並檢查 [通知]。資源群組部署失敗會在通知中留下詳細的診斷資訊。
 
+>[AZURE.NOTE] Service Fabric 叢集需要有一定數量的節點可隨時啟動，以維護可用性並維持狀態 - 稱為「維持仲裁」。因此，除非您已先執行[狀態的完整備份](service-fabric-reliable-services-backup-restore.md)，否則關閉叢集的所有電腦通常並不安全。
+
 ## 後續步驟
 - [了解如何使用 Azure 入口網站設定 Service Fabric 叢集](service-fabric-cluster-creation-via-portal.md)
 - [了解如何使用 Visual Studio 管理和部署 Service Fabric 應用程式](service-fabric-manage-application-in-visual-studio.md)
@@ -115,4 +117,4 @@ Visual Studio Service Fabric 資源管理員範本會建立一個受憑證保護
 [2]: ./media/service-fabric-cluster-creation-via-visual-studio/selecting-azure-template.png
 [3]: ./media/service-fabric-cluster-creation-via-visual-studio/deploy-to-azure.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

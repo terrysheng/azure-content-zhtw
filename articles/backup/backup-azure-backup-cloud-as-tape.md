@@ -6,10 +6,21 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="12/15/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
+<tags
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="02/09/2016"
+   ms.author="jimpark;"/>
 
 # 使用 Azure 備份來取代您的磁帶基礎結構
-Azure 備份和 System Center Data Protection Manager 的客戶可以：- 以最適合其組織需求的排程備份資料 - 長期保留備份資料 - 將 Azure 融入其長期保留需求中 (而不是磁帶)。
+使用 Azure 備份和 System Center Data Protection Manager 的客戶可以進行下列操作：
+
+- 依照最適合自身組織需求的排程備份資料
+- 長期保留備份資料
+- 讓 Azure (而非磁帶) 成為長期保留需求的一部分。
 
 此文章說明客戶如何啟用備份和保留原則。使用磁帶處理長期保留需求的客戶，透過此功能的可用性現在擁有功能強大且可行的替代方案。最新版的 Azure 備份已啟用此功能 (可從 [這裡](http://aka.ms/azurebackup_agent)取得)。SCDPM 客戶需要移至 UR5 才能使用這項功能。
 
@@ -60,4 +71,4 @@ Azure 備份和 System Center Data Protection Manager 的客戶可以：- 以最
 - [Azure 備份的簡介](backup-introduction-to-azure-backup.md)
 - [試用 Azure 備份](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -3,9 +3,9 @@
 	description="了解如何在 Azure 虛擬機器上部署與執行需密集運算的 .NET 應用程式，並使用 Azure 服務匯流排佇列來遠端監控進度。"
 	services="virtual-machines"
 	documentationCenter=".net"
-	authors="wadepickett"
-	manager="wpickett"
-	editor="mollybos"
+	authors="davidmu1"
+	manager="timlt"
+	editor=""
 	tags=“azure-service-management"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="06/25/2015"
-	ms.author="wpickett"/>
+	ms.author="davidmu"/>
 
 # 如何在 Azure 虛擬機器上以 .NET 執行需密集運算的工作
 
@@ -551,4 +551,4 @@ Azure 可讓您利用虛擬機器處理大量運算工作。例如，虛擬機�
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

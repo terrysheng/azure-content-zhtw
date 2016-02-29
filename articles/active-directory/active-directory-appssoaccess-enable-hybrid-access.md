@@ -3,6 +3,7 @@
 	description="能夠透過 Azure Active Directory 從您的網路外部存取在您的私人網路內執行的應用程式。"
 	services="active-directory"
 	documentationCenter=""
+	keywords="應用程式存取、應用程式 Proxy、混合式存取"
 	authors="femila"
 	manager="stevenpo"
 	editor=""/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/10/2016"
 	ms.author="femila"/>
 
 # 啟用應用程式 Proxy 的混合式存取
@@ -43,4 +44,4 @@
 - [啟用 Azure AD 應用程式 Proxy](active-directory-application-proxy-enable.md#step-1-enable-application-proxy-in-azure-ad)
 - [透過 Azure AD 應用程式 Proxy 發行應用程式](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

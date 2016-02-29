@@ -22,7 +22,7 @@
     
 4. 儲存並關閉 pom.xml 檔案。
 
-5. 使用文字編輯器開啟 create-device-identity\src\main\java\com\mycompany\app\App.java 檔案。
+5. 使用文字編輯器開啟 create-device-identity\\src\\main\\java\\com\\mycompany\\app\\App.java 檔案。
 
 6. 在此檔案中新增下列 **import** 陳述式：
 
@@ -54,7 +54,7 @@
     ```
     RegistryManager registryManager = RegistryManager.createFromConnectionString(connectionString);
 
-    Device device = Device.createFromId(deviceId);
+    Device device = Device.createFromId(deviceId, null, null);
     try {
       device = registryManager.addDevice(device);
     } catch (IotHubException iote) {
@@ -110,7 +110,7 @@
 
 4. 儲存並關閉 pom.xml 檔案。
 
-5. 使用文字編輯器開啟 read-d2c-messages\src\main\java\com\mycompany\app\App.java 檔案。
+5. 使用文字編輯器開啟 read-d2c-messages\\src\\main\\java\\com\\mycompany\\app\\App.java 檔案。
 
 6. 在此檔案中新增下列 **import** 陳述式：
 
@@ -228,4 +228,4 @@
 [lnk-event-hubs-overview]: event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

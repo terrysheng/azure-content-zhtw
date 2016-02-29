@@ -201,7 +201,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 
 下列步驟會建立要接收匯出資料的 Azure SQL Database。
 
-> [AZURE.IMPORTANT] 您必須先[安裝和設定 Azure CLI](xplat-cli-install.md)，才能執行這些步驟。您可以在 HDInsight 叢集，或在本機工作站中，執行 CLI 安裝作業並依照下列步驟建立資料庫。
+> [AZURE.IMPORTANT] 您必須先[安裝和設定 Azure CLI](../xplat-cli-install.md)，才能執行這些步驟。您可以在 HDInsight 叢集，或在本機工作站中，執行 CLI 安裝作業並依照下列步驟建立資料庫。
 
 1. 使用以下命令建立新的 Azure SQL Database 伺服器：
 
@@ -392,7 +392,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。使
 		<name>oozie.base.url</name>
 		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** 部分是要搭配 Oozie 命令使用的 URL。
+	**http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** 部分是要搭配 Oozie 命令使用的 URL。
 
 2. 使用以下命令建立 URL 的環境變數，讓您不必為每個命令輸入該 URL：
 
@@ -612,7 +612,7 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 1. 在 Oozie Web UI 中檢視工作。
 
-2. 如果發生錯誤或特定動作失敗，請選取該動作，以查看 [錯誤訊息] 欄位是否有提供失敗的詳細資訊。
+2. 如果發生錯誤或特定動作失敗，請選取該動作，以查看 [Error Message] \(錯誤訊息) 欄位是否有提供失敗的詳細資訊。
 
 3. 如果有提供，請使用動作的 URL 以檢視動作的更多詳細資料 (例如 JobTracker 記錄)。
 
@@ -721,4 +721,4 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

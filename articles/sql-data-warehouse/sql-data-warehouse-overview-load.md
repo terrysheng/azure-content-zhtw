@@ -37,17 +37,19 @@ SQL 資料倉儲提供許多選項，供載入資料，包括：
 
 在下列各節中，我們將深入探討每個步驟，並提供程序的範例。
 
-> [AZURE.NOTE]從 SQL Server 之類的系統移動資料之前，建議您檢閱我們文件的[移轉結構描述][]和[移轉程式碼][]文章。
+> [AZURE.NOTE] 從 SQL Server 之類的系統移動資料之前，建議您檢閱我們文件的[移轉結構描述][]和[移轉程式碼][]文章。
 
 ## 使用 BCP 匯出檔案
 
 若要準備將您的檔案移動到 Azure，您必須將它們匯出至一般檔案。最佳作法就是使用 BCP 命令列公用程式。如果您還沒有此公用程式，可以與[適用於 SQL Server 的 Microsoft 命令列公用程式][]一起下載。範例 BCP 命令看起來可能如下所示：
 
 ```
-bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
+bcp "select top 10 * from <table>" queryout "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Query
+or
+bcp <table> out "<Directory><File>" -c -T -S <Server Name> -d <Database Name> -- Export Table
 ```
 
-此命令將取得查詢的結果，並將它們匯出至您所選擇的目錄中的檔案。您可以藉由一次對個別資料表執行多個 BCP 命令，來平行處理此處理序。這樣可讓您對伺服器的每個核心至多執行一個 BCP 處理序。我們的建議是以不同的組態嘗試幾個較小的作業，來查看何者最適用於您的環境。
+若要將輸送量最大化，您可以嘗試對個別資料表執行多個並行 BCP 命令，或在單一資料表中執行個別分割，以平行處理程序。這可讓您將 BCP 耗用的 CPU 散佈至執行 BCP 所在的伺服器中的數個核心。如果您是從 SQL DW 或 PDW 系統擷取，您必須將 -q (引號識別碼) 引數加入您的 BCP 命令。如果您的環境不是使用 Active Directory，您可能也需要加入 -U 和 -P 以指定使用者名稱和密碼。
 
 此外，當我們使用 PolyBase 載入時，請注意，PolyBase 尚未支援 UTF-16，因此所有檔案必須以 UTF-8 表示。可以輕鬆地完成此作業，方法是在您的 BCP 命令中包含 '-c' 旗標，或者，您也可以使用下列程式碼，將一般檔案從 UTF-16 轉換為 UTF-8：
 
@@ -62,7 +64,7 @@ Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name>
 
 下列步驟將詳細說明如何使用 AZCopy 將資料從內部部署移入 Azure 儲存體帳戶。如果您的 Azure 儲存體帳戶沒有位於同一區域，則可以遵循 [Azure 儲存體文件][]建立一個。您也可以從不同區域中的儲存體帳戶載入資料，但在此情況下，效能將不是最佳的。
 
-> [AZURE.NOTE]本文件假設您已安裝的 AZCopy 命令列公用程式，而且能夠使用 Powershell 執行它。如果不是這樣，請遵循 [AZCopy 安裝指示][]。
+> [AZURE.NOTE] 本文件假設您已安裝的 AZCopy 命令列公用程式，而且能夠使用 Powershell 執行它。如果不是這樣，請遵循 [AZCopy 安裝指示][]。
 
 現在，已提供一組使用 BCP 建立的檔案，因此 AzCopy 只需從 Azure powershell 或藉由執行 powershell 指令碼來執行。在更高的層級中，執行 AZCopy 所需的提示將會採用下列格式：
 
@@ -202,4 +204,4 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 [Azure 儲存體文件]: https://azure.microsoft.com/zh-TW/documentation/articles/storage-create-storage-account/
 [ExpressRoute 文件]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

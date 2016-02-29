@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli" />
 
 # 部署 StorSimple Virtual Array 的 StorSimple Manager 服務
@@ -105,10 +105,10 @@ StorSimple Manager 登陸頁面會列出所有 StorSimple Manager 服務，您�
 
 ## 後續步驟
 
-- 深入了解如何[開始](storsimple-ova-deploy1-portal-prep.md)部署 StorSimple Virtual Array。
+- 深入了解[開始使用](storsimple-ova-deploy1-portal-prep.md) StorSimple Virtual Array。
 	
-- 深入了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-ova-manager-service-administration.md)。
+- 深入了解[管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

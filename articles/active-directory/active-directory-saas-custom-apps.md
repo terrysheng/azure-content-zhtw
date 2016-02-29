@@ -15,7 +15,7 @@
 
 #設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入
 
-本文是關於可讓系統管理員設定單一登入不存在於 Azure Active Directory 應用程式資源庫的應用程式，而「不需要撰寫程式碼」的功能。此功能已在 2015 年 11 月 18 日的技術預覽發行，並包含在 [Azure Active Directory Premium](active-directory-editions.md) 中。如果您要改為尋找有關如何透過程式碼整合自訂應用程式與 Azure AD 的開發人員指引，請參閱 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。
+本文是關於可讓系統管理員設定單一登入不存在於 Azure Active Directory 應用程式資源庫的應用程式，而「不需要撰寫程式碼」的功能。此功能已在 2015 年 11 月 18 日的技術預覽中發行，並且包含在 [Azure Active Directory Premium](active-directory-editions.md) 中。如果您要改為尋找有關如何透過程式碼將自訂應用程式與 Azure AD 整合的開發人員指導方針，請參閱 [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)。
 
 Azure Active Directory 應用程式資源庫提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單，如[本文](active-directory-appssoaccess-whatis.md)所說明。一旦您 (假設您是 IT 專業人員或組織中的系統整合者) 找到所要連接的應用程式，您就可以遵循應 Azure 管理入口網站中顯示的逐步指示，啟用單一登入。
 
@@ -126,4 +126,4 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -68,7 +68,7 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。若您想要
 
 HDInsight 叢集需要 Azure 儲存體帳戶上的 Azure 資源群組和 Blob 容器：
 
-- Azure 資源群組是 Azure 資源的邏輯容器。Azure 資源群組與 HDInsight 叢集不一定要在相同的位置。如需詳細資訊，請參閱[將 Azure PowerShell 與 Azure 資源管理員搭配使用](powershell-azure-resource-manager.md)。
+- Azure 資源群組是 Azure 資源的邏輯容器。Azure 資源群組與 HDInsight 叢集不一定要在相同的位置。如需詳細資訊，請參閱[將 Azure PowerShell 與 Azure 資源管理員搭配使用](../powershell-azure-resource-manager.md)。
 - HDInsight 會使用 Azure 儲存體帳戶的 Blob 容器做為預設檔案系統。必須要有 Azure 儲存體帳號和儲存容器，您才能建立 HDInsight 叢集。預設儲存體帳戶必須與 HDInsight 叢集並存於相同位置。
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
@@ -94,7 +94,7 @@ HDInsight 叢集需要 Azure 儲存體帳戶上的 Azure 資源群組和 Blob �
 [AZURE.INCLUDE [資料中心清單](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
-如需使用 Azure 入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[關於 Azure 儲存體帳戶](storage-create-storage-account.md)。
+如需使用 Azure 入口網站建立 Azure 儲存體帳戶的相關資訊，請參閱[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)。
 
 如果您已有儲存帳號，但不知道帳號名稱和帳號金鑰，您可以使用下列命令來擷取資訊：
 
@@ -103,7 +103,7 @@ HDInsight 叢集需要 Azure 儲存體帳戶上的 Azure 資源群組和 Blob �
 	# List the keys for a Storage account
 	Get-AzureRmStorageAccountKey -ResourceGroupName <Azure Resource Group Name> -name $storageAccountName <Azure Storage Account Name>
 
-如需使用入口網站取得資訊的詳細資料，請參閱[關於 Azure 儲存體帳戶](storage-create-storage-account.md)的「檢視、複製及重新產生儲存體存取金鑰」一節。
+如需使用入口網站取得資訊的詳細資料，請參閱[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)的「檢視、複製及重新產生儲存體存取金鑰」一節。
 
 **建立 Azure 儲存容器**
 
@@ -313,14 +313,14 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-provision-custom-options]: hdinsight-provision-clusters.md#configuration
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -328,8 +328,8 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
-[powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: powershell-install-configure.md
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

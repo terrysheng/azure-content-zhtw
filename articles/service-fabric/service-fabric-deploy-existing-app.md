@@ -1,40 +1,40 @@
 <properties
-   pageTitle="在 Azure Service Fabric 中部署自訂應用程式 | Microsoft Azure"
+   pageTitle="將現有的可執行檔部署至 Azure Service Fabric | Microsoft Azure"
    description="逐步解說如何封裝現有的應用程式，使其可以部署在 Azure Service Fabric 叢集上"
    services="service-fabric"
    documentationCenter=".net"
    authors="bmscholl"
    manager="timlt"
    editor=""/>
-
+   
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="02/12/2016"
    ms.author="bscholl"/>
 
-# 將自訂應用程式部署至 Service Fabric
+# 將來賓可執行檔部署至 Service Fabric
 
-您可以在 Azure Service Fabric 中執行任何類型的現有應用程式，例如 Node.js、Java 或原生應用程式。Service Fabric 會將這些應用程式視為無狀態服務，並根據可用性和其他計量，將它們放在叢集的節點上。這篇文章說明如何將現有的應用程式封裝並部署至 Service Fabric 叢集。
+您可以在 Azure Service Fabric 中執行任何類型的應用程式，例如 Node.js、Java 或原生應用程式。在 Service Fabric 術語中，這些類型的應用程式稱為來賓可執行檔。Service Fabric 將來賓可執行檔視為無狀態服務。因此會根據可用性和其他度量將它們放在叢集的節點上。這篇文章說明如何將來賓可執行檔封裝並部署至 Service Fabric 叢集。
 
-## 在 Service Fabric 中執行自訂應用程式的優點
+## 在 Service Fabric 中執行來賓可執行檔的優點
 
-在 Service Fabric 叢集中執行應用程式有幾個優點：
+在 Service Fabric 叢集中執行來賓可執行檔有幾個優點：
 
 - 高可用性。Service Fabric 中執行的應用程式天生就有高用性。Service Fabric 會確保應用程式永遠有一個執行個體已啟動並執行中。
 - 健康狀況監視。現成可用的 Service Fabric 狀況監控會偵測應用程式是否已啟動並執行，而且會在失敗的情況下提供診斷資訊   
 - 應用程式生命週期管理。除了提供無需停機的升級以外，Service Fabric 也可讓您在升級期間發生問題時回復到之前的版本。    
 - 密度。您可以在叢集中執行多個應用程式，每個應用程式不必在自己的硬體上執行
 
-本文中涵蓋將現有的應用程式封裝並部署至 Service Fabric 的基本步驟。
+本文中涵蓋將來賓可執行檔封裝並部署至 Service Fabric 的基本步驟。
 
 
 ## 應用程式和服務資訊清單檔的快速概觀
 
-在深入探討部署現有應用程式的細節之前，最好先了解 Service Fabric 封裝和部署模型。Service Fabric 封裝部署模型主要依賴兩個檔案：
+在深入探討部署來賓可執行檔的細節之前，最好先了解 Service Fabric 封裝和部署模型。Service Fabric 封裝部署模型主要依賴兩個檔案：
 
 
 * **應用程式資訊清單**
@@ -48,7 +48,7 @@
 
   服務資訊清單描述服務的元件。其中包含一些資料，例如服務的名稱和類型 (Service Fabric 用來管理服務的資訊)、其程式碼、組態和資料元件。服務資訊清單還包含一些在服務部署後可用來設定服務的額外參數。
 
-  我們不會詳細說明服務資訊清單中所有可用的不同參數。但我們將會說明在 Service Fabric 上執行現有應用程式所需的子集。
+  我們不會詳細說明服務資訊清單中所有可用的不同參數。但我們將會說明在 Service Fabric 上執行來賓可執行檔所需的子集。
 
 
 ## 應用程式封裝檔案結構
@@ -75,14 +75,14 @@
 
 ## 封裝現有應用程式的程序
 
-封裝現有應用程式的程序會以下列步驟為基礎：
+封裝來賓可執行檔的程序是基於下列步驟：
 
 1. 建立封裝目錄結構。
 2. 新增應用程式的程式碼和組態檔。
 3. 編輯服務資訊清單檔。
 4. 編輯應用程式資訊清單檔。
 
->[AZURE.NOTE]我們提供可讓您自動建立 ApplicationPackage 的封裝工具。此工具目前為預覽狀態。您可以從[這裡](http://aka.ms/servicefabricpacktool)下載。
+>[AZURE.NOTE] 我們提供可讓您自動建立 ApplicationPackage 的封裝工具。此工具目前為預覽狀態。您可以從[這裡](http://aka.ms/servicefabricpacktool)下載。
 
 ### 建立封裝目錄結構
 您可以如先前所述開始建立目錄結構。
@@ -92,7 +92,7 @@
 
 Service Fabric 會進行應用程式根目錄內容的 xcopy，所以除了建立兩個最上層目錄 code 和 settings 以外，沒有預先定義的結構可使用 (您可以選擇不同的名稱。下一節中有更多詳細資訊)。
 
->[AZURE.NOTE]請確定您包含應用程式需要的所有檔案/相依項目。Service Fabric 將會複製叢集中所有節點上的應用程式套件內容，而該叢集即將部署複製應用程式的服務。套件應包含執行應用程式需要的所有程式碼。我們不建議假設已經安裝相依項目。
+>[AZURE.NOTE] 請確定您包含應用程式需要的所有檔案/相依項目。Service Fabric 將會複製叢集中所有節點上的應用程式套件內容，而該叢集即將部署複製應用程式的服務。套件應包含執行應用程式需要的所有程式碼。我們不建議假設已經安裝相依項目。
 
 ### 編輯服務資訊清單檔
 下一步就是編輯服務資訊清單檔以包含下列資訊：
@@ -220,7 +220,7 @@ SetupEntrypoint 元素用來指定任何應在服務的程式碼啟動前執行�
 ```
 
 ### 設定記錄
-對於現有的應用程式，最好能夠查看主控台記錄檔，以查明應用程式和設定指令碼是否顯示任何錯誤。在 `ServiceManifest.xml` 檔案中，可使用 `ConsoleRedirection` 元素設定主控台重新導向。
+對於來賓可執行檔，最好能夠查看主控台記錄檔，以查明應用程式和設定指令碼是否顯示任何錯誤。在 `ServiceManifest.xml` 檔案中，可使用 `ConsoleRedirection` 元素設定主控台重新導向。
 
 ```xml
 <EntryPoint>
@@ -284,10 +284,10 @@ Service Fabric 服務可以各種「組態」部署。 例如，它可部署為�
 
 
 ## 後續步驟
-在本文中，您已經學會如何封裝現有的應用程式並部署至 Service Fabric。接下來，您可以閱讀這個主題的其他內容。
+在本文中，您已經學會如何封裝來賓可執行檔並部署至 Service Fabric。接下來，您可以閱讀這個主題的其他內容。
 
-- 在 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication) 上封裝和部署自訂應用程式的範例，包括封裝工具預先發行版本的連結
-- [部署多個自訂應用程式](service-fabric-deploy-multiple-apps.md)
+- [GitHub 上封裝和部署來賓可執行檔的範例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication)，包括封裝工具預先發行版本的連結
+- [部署多個來賓可執行檔](service-fabric-deploy-multiple-apps.md)
 - [使用 Visual Studio 建立第一個 Service Fabric 應用程式](service-fabric-create-your-first-application-in-visual-studio.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

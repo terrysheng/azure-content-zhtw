@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 - 您可以在 Azure AD 中控制可存取 ImageRelay 的人員
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 ImageRelay (單一登入)
-- 您可以在 Azure Active Directory 入口網站集中管理您的帳戶。
+- 您可以在 Azure Active Directory 傳統入口網站集中管理您的帳戶
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
@@ -57,7 +57,7 @@
 
 **若要從資源庫新增 ImageRelay，請執行下列步驟：**
 
-1. 在 Azure 入口網站的左方瀏覽窗格中，按一下 [Active Directory]。<br><br> ![Active Directory][1]<br>
+1. 在「Azure 傳統入口網站」中，按一下左方瀏覽窗格上的 [Active Directory]。<br><br> ![Active Directory][1]<br>
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
@@ -65,7 +65,7 @@
 4. 按一下頁面底部的 [加入]。<br><br> ![應用程式][3]<br>
 5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br> ![應用程式][4]<br>
 6. 在搜尋方塊中，輸入**ImageRelay**。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_01.png)<br>
-7. 在結果窗格中，選取 [ImageRelay]，然後按一下 [完成] 以加入應用程式。<br><br>
+7. 在結果窗格中，選取 [ImageRelay]，然後按一下 [完成] 來新增應用程式。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_02.png)<br>
 
 ##  設定並測試 Azure AD 單一登入
 本節目標是說明如何以名為 "Britta Simon" 的測試使用者為基礎，使用 ImageRelay 來設定及測試 Azure AD 單一登入。
@@ -82,12 +82,12 @@
 
 ### 設定 Azure AD 單一登入
 
-本節目標是在 Azure AD 入口網站啟用 Azure AD 單一登入，並在您的 ImageRelay 應用程式中設定單一登入。
+本節的目標是要在 Azure AD 傳統入口網站中啟用 Azure AD 單一登入，並在您的 ImageRelay 應用程式中設定單一登入。
 
 
 **若要使用 ImageRelay 設定 Azure AD 單一登入，請執行下列步驟：**
 
-1. 在 Azure AD 入口網站的 [ImageRelay] 應用程式整合頁面上，按一下 [設定單一登入] 開啟 [設定單一登入] 對話方塊。
+1. 在 Azure AD 傳統入口網站中的 [ImageRelay] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
 
      ![設定單一登入][6] <br>
 
@@ -141,7 +141,7 @@
 
     - 選取只允許透過單一登入來登入的權限群組 (例如 [SSO 基本])。<br><br>![設定單一登入](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)<br>
 
-6. 在 Azure AD 入口網站上，選取單一登入設定確認，然後按 [下一步]。
+6. 在 Azure AD 傳統入口網站中，選取單一登入設定確認，然後按 [下一步]。
 
     ![Azure AD 單一登入][10]<br>
 
@@ -151,11 +151,11 @@
 
 
 ### 建立 Azure AD 測試使用者
-本節的目標是要在 Azure 入口網站中建立名為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
+本節的目標是要在 Azure AD 傳統入口網站中建立名為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
 
-**若要在 Azure AD中建立測試使用者，請執行下列步驟：**
+**若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在 [Azure 入口網站] 的左方瀏覽窗格中，按一下 [Active Directory]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png)<br>
+1. 在「Azure AD 傳統入口網站」中的左側導覽窗格上，按一下 [Active Directory]。<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png) <br>
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
@@ -213,7 +213,7 @@
 
 **若要將 Britta Simon 指派到 ImageRelay，請執行以下步驟：**
 
-1. 在 Azure 入口網站中，若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br> <br>![指派使用者][201]<br>
+1. 在 Azure 傳統入口網站中，若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br>![指派使用者][201] <br>
 
 2. 在應用程式清單中，選取 [ImageRelay]。<br><br>![設定單一登入](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_23.png) <br>
 
@@ -253,4 +253,4 @@
 [204]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

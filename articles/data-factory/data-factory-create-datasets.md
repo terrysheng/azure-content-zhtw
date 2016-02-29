@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="建立資料庫" 
+	pageTitle="Azure Data Factory 中的資料集 | Microsoft Azure" 
 	description="了解 Azure Data Factory 資料集並學習如何建立它們。" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
-# 資料集
+# Azure Data Factory 中的資料集
 
 ## 說明
 資料集是資料的邏輯描述。所說明的資料可能有所不同，包括簡單位元組、半結構化資料 (例如 CSV 檔案)，乃至於關聯式資料表甚或模型。用來存取資料的機制 (位址、通訊協定、驗證結構描述) 已定義於連結服務中並可在資料集定義中參考。
@@ -208,4 +208,4 @@
 	  }
 	}
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

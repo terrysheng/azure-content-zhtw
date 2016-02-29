@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
 # 一般 LDAP 連接器技術參考
@@ -38,7 +38,7 @@ IETF RFC 中未指定某些作業和結構描述項目，例如需要執行差�
 
 | 功能 | 支援 |
 | --- | --- |
-| 連接的資料來源 | 此連接器支援所有 LDAP v3 伺服器 (RFC 4510 相容)。此連接器已進行下列各項的測試：<li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Microsoft Active Directory Global Catalog (AD GC)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (之前為 Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>不支援的著名目錄：<li>Microsoft Active Directory 網域服務 (AD DS) [改用內建 Active Directory Connector]</li><li>Oracle Internet Directory (OID)</li> |
+| 連接的資料來源 | 此連接器支援所有 LDAP v3 伺服器 (RFC 4510 相容)。此連接器已在下列各項產品進行測試：<li>Microsoft Active Directory 輕量型目錄服務 (AD LDS)</li><li>Microsoft Active Directory 通用類別目錄 (AD GC)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (之前為 Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**不支援的著名目錄：** <li>Microsoft Active Directory 網域服務 (AD DS) [改用內建的 Active Directory 連接器]</li><li>Oracle Internet Directory (OID)</li> |
 | 案例 | <li>物件生命週期管理</li><li>群組管理</li><li>密碼管理</li> |
 | 作業 |所有 LDAP 目錄都支援下列作業：<li>完整匯入</li><li>匯出</li>只有指定的目錄支援下列作業：<li>差異匯入</li><li>設定密碼、變更密碼</li> |
 | 結構描述 | <li>在 LDAP 結構描述 (RFC3673 和 RFC4512/4.2) 中偵測到結構描述</li><li>支援結構化類別、aux 類別和 extensibleObject 物件類別 (RFC4512/4.3)</li>
@@ -279,4 +279,4 @@ Open LDAP 中的差異浮水印是 UTC 日期/時間。基於這個理由，FIM 
 
 -	如需如何啟用記錄來疑難排解連接器的資訊，請參閱[如何啟用連接器的 ETW 追蹤](http://go.microsoft.com/fwlink/?LinkId=335731)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

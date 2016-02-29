@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # 深入了解密碼管理
@@ -101,7 +101,7 @@
 ### 密碼重設使用哪些資料？
 下表概述密碼重設期間會在何處以及如何使用這些資料，並且說明其設計可如何協助您決定您的組織適合使用哪些驗證選項。下表也會說明您代表使用者從不會驗證這些資料的輸入路徑提供資料時的所有格式需求。
 
-> [AZURE.NOTE]「辦公室電話」不會出現在註冊入口網站中，因為使用者目前無法在目錄中編輯此屬性。
+> [AZURE.NOTE] 「辦公室電話」不會出現在註冊入口網站中，因為使用者目前無法在目錄中編輯此屬性。
 
 <table>
           <tbody><tr>
@@ -379,4 +379,4 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="jodebrui"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="02/11/2016"
 	ms.author="jodebrui"/>
 
 
@@ -69,7 +69,7 @@ In-Memory [Analytics](#install_analytics_manuallink) 的功能如下：
 
 公開上市 (GA)：
 
-- *磁碟上*的[資料行存放區索引](http://msdn.microsoft.com/library/dn817827.aspx)。
+- *磁碟上* 的[資料行存放區索引](http://msdn.microsoft.com/library/dn817827.aspx)。
 
 
 預覽：
@@ -320,6 +320,12 @@ EXECUTE Demo.usp_DemoReset;
 在與資料庫相同之 Azure 區域的 Azure VM 上執行 ostress，In-Memory 測試已顯示此簡化工作負載大約有 **9 倍**的效能改善。
 
 
+
+<a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
+
+&nbsp;
+
+
 ## B.安裝 In-Memory Analytics 範例
 
 
@@ -523,6 +529,6 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - [SQL Server 的 Replay Markup Language (RML) 公用程式說明](http://support.microsoft.com/zh-TW/kb/944837)
 
-- 適用於 In-Memory OLTP 的[監視記憶體內部儲存體](sql-database-in-memory-oltp-monitoring.md)。
+- 適用於 In-Memory OLTP 的 [監視記憶體內部儲存體](sql-database-in-memory-oltp-monitoring.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

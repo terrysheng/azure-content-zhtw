@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/11/2016"
    ms.author="telmos"/>
 
 # Azure 部署模型
@@ -60,12 +60,11 @@ Azure 有兩個入口網站︰
 - **具有 Azure 資源管理員範本的 PowerShell Cmdlet︰**您可以使用 PowerShell，透過 Azure 資源管理員範本建立 Azure 資源。範本可予以儲存及設定版本。如需詳細資訊，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)一文。常見解決方案也有數個 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)可供下載和修改。
 
 ## CLI
-您可以從使用 CLI 的 Windows、OS X 或 Linux 電腦建立及設定 Azure 資源。請閱讀[安裝 Azure CLI](xplat-cli-install.md) 一文，以在您選擇的作業系統上安裝 CLI。如同 PowerShell，根據您是使用[資源管理員](xplat-cli-azure-resource-manager.md)或[傳統 (服務管理)](virtual-machines-command-line-tools.md) 部署模型建立資源，而必須使用不同的命令。
+您可以從使用 CLI 的 Windows、OS X 或 Linux 電腦建立及設定 Azure 資源。請閱讀[安裝 Azure CLI](xplat-cli-install.md) 一文，以在您選擇的作業系統上安裝 CLI。如同 PowerShell，根據您是使用[資源管理員](xplat-cli-azure-resource-manager.md)或[傳統 (服務管理)](virtual-machines/virtual-machines-command-line-tools.md) 部署模型建立資源，而必須使用不同的命令。
 
 ## 後續步驟
 
-- 深入了解[資源管理員](/resource-group-overview.md)。
-- 了解如何[設計範本](/best-practices-resource-manager-design-templates.md)。
-- 使用[最佳作法](/best-practices-resource-manager-examples.md)
+- 深入了解[資源管理員](resource-group-overview.md)。
+- 了解如何[設計範本](best-practices-resource-manager-design-templates.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

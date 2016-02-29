@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.workload="NA"
+   ms.date="02/09/2016"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務來檢視和管理 StorSimple 警示
@@ -31,7 +31,7 @@ StorSimple 裝置會產生警示以回應各種不同的狀況。以下是最常
 
 - **硬體問題** – 這些警示指出硬體的健全狀況。它們讓您知道是否需要升級韌體、網路介面是否有問題，或您的其中一個資料磁碟機是否有問題。
 
-- **連線問題** – 當傳送資料有困難時會發生這些警示。在往返於 Azure 儲存體帳戶傳輸資料期間，或因為裝置與 StorSimple Manager 服務之間沒有連線時，可能會發生通訊問題。通訊問題最難解決，因為失敗點實在太多。在繼續進行更進階的疑難排解之前，您一定要先確認有網路連線和網際網路存取可用。如需疑難排解的說明，請移至 [Test-Connection Cmdlet 的疑難排解](storsimple-troubleshoot-deployment.md/#troubleshoot-with-the-test-hcsmconnection-cmdlet)。
+- **連線問題** – 當傳送資料有困難時會發生這些警示。在往返於 Azure 儲存體帳戶傳輸資料期間，或因為裝置與 StorSimple Manager 服務之間沒有連線時，可能會發生通訊問題。通訊問題最難解決，因為失敗點實在太多。在繼續進行更進階的疑難排解之前，您一定要先確認有網路連線和網際網路存取可用。如需疑難排解的說明，請移至 [Test-Connection Cmdlet 的疑難排解](storsimple-troubleshoot-deployment.md)。
 
 - **效能問題** – 當系統未以最佳方式運作時，例如負荷過重，就會造成這些警示。
 
@@ -51,7 +51,7 @@ StorSimple 裝置會產生警示以回應各種不同的狀況。以下是最常
 
 您可以選擇是否要透過電子郵件收到每個 StorSimple 裝置的警示狀況通知。此外，您可以在 [其他電子郵件收件者] 方塊中輸入電子郵件地址 (以分號隔開)，以識別其他警示通知收件者。
 
->[AZURE.NOTE]您可以對每一裝置輸入最多 20 個電子郵件地址。
+>[AZURE.NOTE] 您可以對每一裝置輸入最多 20 個電子郵件地址。
 
 啟用裝置的電子郵件通知之後，每當發生重大警示時，通知清單的成員將會收到電子郵件訊息。訊息將會從 **storsimple-alerts-noreply@mail.windowsazure.com* 送出，並說明警示狀況。收件者可以按一下 [取消訂閱]，將自己從電子郵件通知清單中移除
 
@@ -69,13 +69,13 @@ StorSimple 裝置會產生警示以回應各種不同的狀況。以下是最常
 
         ![警示通知設定](./media/storsimple-manage-alerts/AlertNotify.png)
 
-3. 若要傳送測試電子郵件通知，請按一下 [**傳送測試電子郵件**] 旁的箭號圖示。StorSimple Manager 服務轉寄測試通知時會顯示狀態訊息。
+3. 若要傳送測試電子郵件通知，請按一下 [傳送測試電子郵件] 旁的箭號圖示。StorSimple Manager 服務轉寄測試通知時會顯示狀態訊息。
 
 4. 下列訊息出現時，按一下 [**確定**]。
 
     ![已傳送警示測試通知電子郵件](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
 
-    >[AZURE.NOTE]如果無法傳送測試通知訊息，StorSimple Manager 服務會顯示適當的訊息。按一下 [**確定**]，等候幾分鐘，然後嘗試再次傳送測試通知訊息。
+    >[AZURE.NOTE] 如果無法傳送測試通知訊息，StorSimple Manager 服務會顯示適當的訊息。按一下 [**確定**]，等候幾分鐘，然後嘗試再次傳送測試通知訊息。
 
 ## 檢視和追蹤警示
 
@@ -91,7 +91,7 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 
 ![硬體警示範例](./media/storsimple-manage-alerts/admin_alerts_hardware.png)
 
-如果您需要將資訊傳送給 Microsoft 支援服務，您可以將警示詳細資料複製到文字檔案。依照建議解決內部部署警示狀況之後，您應該在 [警示] 索引標籤中選取警示，並按一下 [清除]，從裝置中清除警示。若要清除多個警示，請按 Ctrl 鍵來選取警示，然後按一下 [**清除**]。請注意，當問題解決時或系統以新資訊更新警示時，會自動清除某些警示。
+如果您需要將資訊傳送給 Microsoft 支援服務，您可以將警示詳細資料複製到文字檔案。依照建議解決內部部署警示狀況之後，您應該在 [警示] 索引標籤中選取警示，並按一下 [清除]，從裝置中清除警示。若要清除多個警示，請選取每個警示，按一下除了 [警示] 資料行以外的任何資料行，然後在選取要清除的所有警示之後按一下 [清除]。請注意，當問題解決時或系統以新資訊更新警示時，會自動清除某些警示。
 
 當您按一下 [**清除**] 時，您有機會提供警示的相關註解，以及您用來解決問題的步驟。如果新的資訊觸發另一個事件，系統會清除某些事件。在此情況下，您會看到下列訊息。
 
@@ -246,7 +246,7 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 |有可用的手動更新。|可用更新的通知。|在裝置上使用 Windows PowerShell Interface for StorSimple 安裝這些更新。<br>如需詳細資訊，請移至[更新您的 StorSimple 8000 服務裝置](storsimple-update-device.md)。|
 |有新的更新可用。|可用更新的通知。|您可以從 [維護] 頁面，或在裝置上使用 Windows PowerShell Interface for StorSimple，以安裝這些更新。<br>如需詳細資訊，請移至[更新您的 StorSimple 8000 服務裝置](storsimple-update-device.md)。|
 |無法安裝更新。|未成功安裝更新。|您的系統無法安裝更新。您可以從 [維護] 頁面，或在裝置上使用 Windows PowerShell Interface for StorSimple，以安裝這些更新。如果問題持續發生，請連絡 Microsoft 支援服務。<br>如需詳細資訊，請移至[更新您的 StorSimple 8000 服務裝置](storsimple-update-device.md)。|
-|無法自動檢查是否有新的更新。|自動檢查失敗。|您可以從 [維護] 頁面手動檢查是否有新的更新。|
+|無法自動檢查是否有新的更新。|自動檢查失敗。|您可以從 [**維護**] 頁面手動檢查是否有新的更新。|
 |有新的 WUA 代理程式可用。|可用更新的通知。|下載最新的 Windows Update 代理程式，並從 Windows PowerShell 介面安裝它。|
 |韌體元件 <*元件識別碼*> 的版本與硬體不相符。|未成功安裝韌體更新。|連絡 Microsoft 支援服務。|
 
@@ -254,4 +254,4 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 
 深入了解 [StorSimple 錯誤和疑難排解可運作的裝置](storsimple-troubleshoot-operational-device.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

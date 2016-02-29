@@ -17,7 +17,7 @@
 	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
-#透過在 HDInsight 上將 Apache Mahout 與 Linux 架構的 Hadoop 搭配使用來產生電影推薦 (預覽)
+#在 HDInsight 上搭配使用 Apache Mahout 和以 Linux 為基礎的 Hadoop 來產生電影推薦
 
 [AZURE.INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
@@ -25,7 +25,7 @@
 
 Mahout 是 Apache Hadoop 的[機器學習][ml]庫。Mahout 包含可處理資料的演算法，例如篩選、分類和叢集化。在本文中，您將使用推薦引擎，其將根據朋友看過的電影來產生電影推薦。
 
-> [AZURE.NOTE] 本文件中的步驟要求 HDInsight 叢集上有 Linux 架構的 Hadoop (預覽)。如需搭配使用 Mahout 與 Windows 叢集的資訊，請參閱[透過在 HDInsight 上將 Apache Mahout 與 Windows 架構的 Hadoop 搭配使用來產生電影推薦](hdinsight-mahout.md)
+> [AZURE.NOTE] 本文件中的步驟需要 HDInsight 叢集上有以 Linux 為基礎的 Hadoop。如需搭配使用 Mahout 與 Windows 叢集的資訊，請參閱[透過在 HDInsight 上將 Apache Mahout 與 Windows 架構的 Hadoop 搭配使用來產生電影推薦](hdinsight-mahout.md)
 
 ##必要條件
 
@@ -267,4 +267,4 @@ Mahout 工作不會移除處理工作時所建立的暫存資料。範例工作�
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

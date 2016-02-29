@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="02/17/2016"
 	ms.author="jgao"/>
 
 # 使用 Azure 入口網站管理 HDInsight 中的 Hadoop 叢集
@@ -36,7 +36,7 @@
 開始閱讀本文之前，您必須符合下列必要條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-- **Azure 儲存體帳戶** - HDInsight 叢集使用 Azure Blob 儲存體容器做為預設檔案系統。如需 Azure Blob 儲存體如何提供順暢 HDInsight 叢集使用體驗的詳細資訊，請參閱[搭配使用 Azure Blob 儲存體與 HDInsight](../hdinsight-use-blob-storage.md)。如需建立 Azure 儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](../storage-create-storage-account.md)。
+- **Azure 儲存體帳戶** - HDInsight 叢集使用 Azure Blob 儲存體容器做為預設檔案系統。如需 Azure Blob 儲存體如何提供順暢 HDInsight 叢集使用體驗的詳細資訊，請參閱[搭配使用 Azure Blob 儲存體與 HDInsight](hdinsight-hadoop-use-blob-storage.md)。如需建立 Azure 儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](../storage/storage-create-storage-account.md)。
 
 ##開啟入口網站
 
@@ -216,7 +216,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。如需已驗證和所支�
 
 有許多方法可以設計程序：
 
-- 使用 Azure Data Factory。請參閱 [Azure HDInsight 連結服務](../data-factory-compute-linked-services.md/#azure-hdinsight-linked-service)和[使用 Azure Data Factory 進行轉換和分析](../data-factory-data-transformation-activities.md)，以取得隨選和自行定義的 HDInsight 連結服務。
+- 使用 Azure Data Factory。請參閱 [Azure HDInsight 連結服務](../data-factory/data-factory-compute-linked-services.md/#azure-hdinsight-linked-service)和[使用 Azure Data Factory 進行轉換和分析](../data-factory/data-factory-data-transformation-activities.md)，以取得隨選和自行定義的 HDInsight 連結服務。
 - 使用 Azure PowerShell。請參閱[分析航班延誤資料](hdinsight-analyze-flight-delay-data.md)。
 - 使用 Azure CLI。請參閱[使用 Azure CLI 管理 HDInsight 叢集](hdinsight-administer-use-command-line.md)。
 - 使用 HDInsight .NET SDK。請參閱[提交 Hadoop 工作](hdinsight-submit-hadoop-jobs-programmatically.md)。
@@ -394,10 +394,10 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 * [使用 Azure CLI 管理 HDInsight](hdinsight-administer-use-command-line.md)
 * [建立 HDInsight 叢集](hdinsight-provision-clusters.md)
 * [以程式設計方式提交 Hadoop 工作](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [開始使用 Azure HDInsight](../hdinsight-get-started.md)
+* [開始使用 Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Azure HDInsight 提供 Hadoop 的什麼版本？](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop 命令列"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

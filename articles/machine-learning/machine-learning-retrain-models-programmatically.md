@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="02/12/2016"
 	ms.author="raymondl;garye"/>
 
 
@@ -96,6 +96,8 @@
 
 7. *更新所新增端點的訓練模型* 我們必須針對在上述步驟 4 建立的預測端點更新其訓練模型後，才算是完成程序。
 
+	(如果您使用 Azure 入口網站加入新的端點，您可以按一下新端點的名稱，然後按一下 UpdateResource 連結，以取得您更新端點模型時所需的 URL。)
+
 	上述的 BES 輸出顯示的資訊是 “output1” 的重新定型結果，其中包含重新定型模式的位置資訊。現在我們必須使用這個定型模式，並更新評分端點 (在上述的步驟 4 建立)。範例程式碼如下：
 
 	```C#
@@ -138,7 +140,7 @@
 	}
 	```
 
-	您可以在端點儀表板上看到這個呼叫的 “apiKey” 與 “endpointUrl”。
+	您可以在端點儀表板上看到這個呼叫的 “apiKey” 與 “endpointUrl”。「資源」中的 "Name" 參數應該符合預測性實驗中的「儲存的定型模型」名稱。
 
 	這個呼叫成功時，大約會在 15 秒內使用重新定型的模式來啟動新端點。
 
@@ -156,4 +158,4 @@
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

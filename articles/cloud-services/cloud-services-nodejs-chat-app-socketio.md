@@ -36,7 +36,7 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
 
 下列步驟會建立雲端服務專案來裝載 Socket.IO 應用程式。
 
-1. 從 [開始] 功能表 或 [開始畫面] 中，搜尋 **Azure PowerShell**。最後，以滑鼠右鍵按一下 [Azure PowerShell]，然後選取 [以系統管理員身分執行]。
+1. 從 [開始] 功能表或 [開始] 畫面搜尋「Windows PowerShell」。最後，用滑鼠右鍵按一下 [Windows PowerShell]，然後選取 [以系統管理員身分執行]。
 
 	![Azure PowerShell icon][powershell-menu]
 
@@ -170,4 +170,4 @@ Socket.IO 提供 node.js 伺服器和用戶端之間的即時通訊。本教學�
   
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

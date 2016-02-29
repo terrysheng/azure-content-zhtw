@@ -71,7 +71,7 @@ Hadoop 支援預設檔案系統的概念。預設檔案系統意指預設配置�
 Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以機碼/值組來儲存資料，沒有目錄階層。但是，機碼名稱中可使用 ( / ) 斜線字元，使檔案變成好像儲存在目錄結構中一樣。例如，Blob 的機碼可能是 *input/log1.txt*。實際上，*input* 目錄並不存在，只是因為機碼名稱中有斜線字元，才形成檔案路徑的樣子。
 
 ###<a id="benefits"></a>Blob 儲存體的優點
-計算叢集和儲存體叢集未並存於同處所隱含的效能損失，可經由將計算叢集建立到靠近 Azure 資料中心內的儲存體帳戶資源來彌補，其中的高速網路可讓計算節點非常有效率地存取 Azure Blob 儲存體內的資料。
+計算叢集和儲存體叢集未並存於同處所隱含的效能損失，可經由將計算叢集建立到靠近 Azure 區域內的儲存體帳戶資源來彌補，其中的高速網路可讓計算節點非常有效率地存取 Azure Blob 儲存體內的資料。
 
 將資料儲存在 Azure Blob 儲存體而非 HDFS 有許多優點：
 
@@ -87,7 +87,7 @@ Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以�
 
 ## 建立 Blob 容器
 
-若要使用 Blob，您必須先建立 [Azure 儲存體帳戶][azure-storage-create]。在這過程中，需要指定 Azure 資料中心來儲存您以此帳戶所建立的物件。叢集與儲存體帳戶必須在相同資料中心內託管。Hive 中繼存放區 SQL Server 資料庫和 Oozie 中繼存放區 SQL Server 資料庫也必須位在相同的資料中心內。
+若要使用 Blob，您必須先建立 [Azure 儲存體帳戶][azure-storage-create]。在這過程中，需要指定 Azure 區域來儲存您以此帳戶所建立的物件。叢集與儲存體帳戶必須在相同區域內託管。Hive 中繼存放區 SQL Server 資料庫和 Oozie 中繼存放區 SQL Server 資料庫也必須位在相同的區域內。
 
 您所建立的每個 Blob 不論位於何處，都屬於 Azure 儲存體帳戶中的某個容器。此容器可能是在 HDInsight 外建立的現有 Blob，也可能是為 HDInsight 叢集建立的容器。
 
@@ -155,7 +155,7 @@ Blob 儲存體可使用於結構化和非結構化資料。Blob 儲存容器以�
 
 
 
-URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使用 *wasbs*)。建議盡可能使用 *wasbs*，即使存取相同 Azure 資料中心內的資料也一樣。
+URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使用 *wasbs*)。建議盡可能使用 *wasbs*，即使存取 Azure 中相同區域內的資料也一樣。
 
 &lt;BlobStorageContainerName&gt; 是指 Azure Blob 儲存體中的容器名稱。&lt;StorageAccountName&gt; 是指 Azure 儲存體帳戶名稱。需要使用完整網域名稱 (FQDN)。
 
@@ -286,7 +286,7 @@ URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使
 * [使用 Azure 儲存體共用存取簽章來限制使用 HDInsight 對資料的存取][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: powershell-install-configure.md
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -300,4 +300,4 @@ URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 
@@ -22,7 +22,7 @@
 Azure 入口網站提供您開始使用資料湖分析的互動式教學課程。本文會示範如何逐步完成分析網站記錄的教學課程。
 
 
->[AZURE.NOTE]如果您想要使用 Visual Studio 完成相同的教學課程，請參閱[使用資料湖分析來分析網站記錄](data-lake-analytics-analyze-weblogs.md)。更加互動式的教學課程會新增至入口網站。
+>[AZURE.NOTE] 如果您想要使用 Visual Studio 完成相同的教學課程，請參閱[使用資料湖分析來分析網站記錄](data-lake-analytics-analyze-weblogs.md)。更加互動式的教學課程會新增至入口網站。
 
 
 如需其他教學課程，請參閱：
@@ -42,7 +42,7 @@ Azure 入口網站提供您開始使用資料湖分析的互動式教學課程�
 
 您必須擁有資料湖分析帳戶，才能執行任何工作。
 
-每個資料湖分析帳戶有 [Azure 資料湖存放區](data-lake-store-overview.md)帳戶相依性。這個帳戶稱為預設資料湖存放區帳戶。您可以事先或當您建立資料湖分析帳戶時，建立資料湖存放區帳戶。在此教學課程中，您將建立具有分析帳戶的資料湖存放區帳戶
+每個資料湖分析帳戶有 [Azure 資料湖存放區](../data-lake-store/data-lake-store-overview.md)帳戶相依性。這個帳戶稱為預設資料湖存放區帳戶。您可以事先或當您建立資料湖分析帳戶時，建立資料湖存放區帳戶。在此教學課程中，您將建立具有分析帳戶的資料湖存放區帳戶
 
 **建立資料湖分析帳戶**
 
@@ -88,4 +88,4 @@ Azure 入口網站提供您開始使用資料湖分析的互動式教學課程�
 - [使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
 - [使用 Azure 資料湖分析來分析網站記錄](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

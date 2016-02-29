@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="教學課程：Azure Active Directory 與 xMatters OnDemand 整合 | Microsoft Azure " description="了解如何使用 xMatters OnDemand 搭配 Azure Active Directory 來啟用單一登入、自動佈建和更多功能！" 
+    pageTitle="教學課程：Azure Active Directory 與 xMatters OnDemand 整合 | Microsoft Azure "
+    description="了解如何使用 xMatters OnDemand 搭配 Azure Active Directory 來啟用單一登入、自動佈建和更多功能！" 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -83,7 +84,7 @@
 
 4.  在 [設定在 xMatters OnDemand 單一登入] 頁面上，按一下 [下載憑證] 以下載您的憑證，然後在本機電腦上將憑證檔案儲存為 **c:\\XMatters OnDemand.cer**。
 
-    >[AZURE.IMPORTANT]您需要將憑證轉送給 xMatters 支援小組。xMatters 支援小組需要先上傳憑證，您才能完成單一登入組態。
+    >[AZURE.IMPORTANT] 您需要將憑證轉送給 xMatters 支援小組。xMatters 支援小組需要先上傳憑證，您才能完成單一登入組態。
 
     ![設定單一登入](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776794.png "設定單一登入")
 
@@ -130,7 +131,7 @@
     1.  輸入您想要佈建之有效 AAD 帳戶的 [使用者識別碼]、[名字]、[姓氏]、[網站]。
     2.  按一下 [儲存]。
 
->[AZURE.NOTE]您可以使用任何其他的 xMatters OnDemand 使用者帳戶建立工具或 xMatters OnDemand 所提供的 API，佈建 AAD 使用者帳戶。
+>[AZURE.NOTE] 您可以使用任何其他的 xMatters OnDemand 使用者帳戶建立工具或 xMatters OnDemand 所提供的 API，佈建 AAD 使用者帳戶。
 
 ##指派使用者
   
@@ -150,4 +151,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,6 +1,20 @@
-<properties pageTitle="Azure 搜尋服務管理 REST API 版本 2015-02-28 | Microsoft Azure | 雲端託管搜尋服務" description="Azure 搜尋服務管理 REST API： 版本 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties
+	pageTitle="Azure 搜尋服務管理 REST API 版本 2015-02-28 | Microsoft Azure | 雲端託管搜尋服務"
+	description="Azure 搜尋服務管理 REST API： 版本 2015-02-28"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
+	editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.date="11/04/2015"
+	ms.author="heidist" />
 
 # 管理 API： 版本 2015-02-28
 
@@ -39,7 +53,7 @@ Azure 搜尋服務管理 REST API 為 Azure 資源管理員的擴充功能並且
 
 記載於[開始使用 Azure 搜尋管理 REST API](http://go.microsoft.com/fwlink/p/?linkID=516968) 的範例應用程式，示範對於每種類型作業的驗證技術。使用 Active Directory 來設定用戶端應用程式的指示包含於「開始使用」中。
 
-Azure 資源管理員的存取控制會使用內建擁有者、參與者和讀取者角色。根據預設，所有服務管理員都是擁有者角色的成員。如需詳細資訊，請參閱 [Azure 傳統入口網站中的角色型存取控制](../role-based-access-control-configure.md)。
+Azure 資源管理員的存取控制會使用內建擁有者、參與者和讀取者角色。根據預設，所有服務管理員都是擁有者角色的成員。如需詳細資訊，請參閱 [Azure 傳統入口網站中的角色型存取控制](../active-directory/role-based-access-control-configure.md)。
 
 
 ### API 的摘要 ##
@@ -812,4 +826,4 @@ Azure 資源管理員的存取控制會使用內建擁有者、參與者和讀�
 
 無。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

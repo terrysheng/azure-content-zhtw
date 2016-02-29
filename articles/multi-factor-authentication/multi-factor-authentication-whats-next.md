@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="02/16/2016" 
 	ms.author="billmath"/>
 
 # 設定 Azure Multi-Factor Authentication
@@ -36,7 +36,7 @@
 [信任的 IP](#trusted-ips)|信任的 IP 是 Multi-Factor Authentication 的功能，它賦予受管理或同盟租用戶管理員，讓從公司近端內部網路登入之使用者略過 Multi-Factor Authentication 的能力。|配置及設定要免除 Multi-Factor Authentication 的 IP 位址	
 [應用程式密碼](#app-passwords)|應用程式密碼允許非 MFA 感知應用程式略過 Multi-Factor Authentication 並繼續運作。|應用程式密碼的相關資訊。
 [暫停對已記住之裝置和瀏覽器進行 Multi-Factor Authentication (公開預覽)](#suspend-multi-factor-authentication-for-remembered-devices-and-browsers-public-preview)|可讓您在使用者使用 MFA 成功登入後的設定天數內暫停 MFA。|啟用此功能及設定的天數的相關資訊。
-
+[可選取的驗證方法 (公用預覽)](#selectable-verification-methods-public-preview)|可讓您選擇可供使用者使用的驗證方法。|啟用或停用驗證方法 (例如通話或簡訊) 的相關資訊。
 
 
 
@@ -66,7 +66,7 @@ Microsoft 的預設語音問候語會指示使用者按 0# 以提交詐騙警示
 
 
 
-1. 當系統將驗證傳送到電話時，請按一下，Multi-Factor Authentication 應用程式隨即會啟動。
+1. 當系統將驗證傳送到電話時，請按一下它，Azure Authenticator 應用程式隨即會啟動。
 2. 若要提報詐騙活動，請按一下 [取消及提報詐騙]。指出系統將會通知組織 IT 支援員工的方塊隨即會出現。 
 3. 按一下 [提報詐騙]。
 4. 在應用程式中，按一下 [關閉]。
@@ -100,7 +100,7 @@ Microsoft 的預設語音問候語會指示使用者按 0# 以提交詐騙警示
 3.	在 Azure Multi-Factor Authentication 管理入口網站中，如果在左側看到您的租用戶或 Azure MFA 提供者的名稱旁邊有一個 +，按一下 + 可查看不同的 MFA 伺服器複寫群組以及 Azure 預設群組。按一下適當的群組。
 4.	在 [使用者管理] 底下，按一下 [單次許可]。![雲端](./media/multi-factor-authentication-whats-next/create1.png)
 5.	在 [單次許可] 頁面中，按一下 [新增單次許可]。
-6.	輸入使用者的使用者名稱、略過的持續秒數、略過的原因，然後按一下 [略過]。![雲端](./media/multi-factor-authentication-whats-next/create2.png)
+6.	輸入使用者的使用者名稱、許可的持續秒數、許可的原因，然後按一下 [許可]。![雲端](./media/multi-factor-authentication-whats-next/create2.png)
 7.	此時，使用者必須在一次性略過到期之前登入。
 
 
@@ -187,7 +187,7 @@ Azure AD 租用戶類型| 可用的信任 IP 選項
 
 ### 啟用信任的 IP
 
-1. 登入 Azure 管理入口網站。
+1. 登入 Azure 傳統入口網站。
 2. 在左側按一下 [Active Directory]。
 3. 在 [目錄] 下方，按一下要設定信任 IP 登入的目錄。
 4. 在您選取的目錄上，按一下 [設定]。
@@ -202,7 +202,7 @@ Azure AD 租用戶類型| 可用的信任 IP 選項
 
 
 
-![雲端](./media/multi-factor-authentication-whats-next/trustedips2.png)
+![信任的 IP](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
 
 
@@ -261,7 +261,7 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 - 您正在使用 Azure Multi-Factor Authentication
 
 
-<center>![Proofup](./media/multi-factor-authentication-whats-next/federated.png)</center>
+![Proofup](./media/multi-factor-authentication-whats-next/federated.png)
 
  在這些情況下，您必須執行下列作業：
 
@@ -275,7 +275,7 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 
 
 
-1. 登入 Azure 管理入口網站。
+1. 登入 Azure 傳統入口網站。
 2. 在左側按一下 [Active Directory]。
 3. 在 [目錄] 下方，針對要啟用的使用者按一下目錄。
 4. 在頂端按一下 [使用者]。
@@ -283,7 +283,8 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 6. 在 Multi-Factor Authentication 頁面的頂端，按一下 [服務設定]。
 7. 確認 [允許使用者建立應用程式密碼以登入非瀏覽器應用程式] 旁的選項按鈕已選取。
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/trustedips.png)</center>
+
+![建立應用程式密碼](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
 ### 建立應用程式密碼
 使用者可以在一開始的註冊期間建立應用程式密碼。他們可以在註冊程序的結尾選擇建立應用程式密碼。
@@ -308,7 +309,7 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 
 ### 在 Azure 入口網站中建立應用程式密碼
 --------------------------------------------------------------------------------
-1. 登入 Azure 管理入口網站
+1. 登入 Azure 傳統入口網站。
 3. 在頂端，以滑鼠右鍵按一下您的使用者名稱並選取 [其他安全性驗證]。
 5. 在 proofup 頁面的頂端，選取應用程式密碼
 6. 按一下 [建立]
@@ -316,7 +317,7 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 8. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
 
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/app2.png)</center>
+![應用程式密碼](./media/multi-factor-authentication-whats-next/app2.png)
 
 ### 在沒有 Office 365 或 Azure 訂用帳戶的情況下建立應用程式密碼
 --------------------------------------------------------------------------------
@@ -328,7 +329,7 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 7. 輸入應用程式密碼的名稱，然後按 [下一步]
 8. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/myapp.png)</center>
+![應用程式密碼](./media/multi-factor-authentication-whats-next/myapp.png)
 
 ## 暫停對已記住之裝置和瀏覽器進行 Multi-Factor Authentication (公開預覽)
 
@@ -343,13 +344,36 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 
 ### 如何啟用/停用及設定暫停對已記住之裝置進行 MFA
 
-<ol>
-<li>登入 Azure 管理入口網站。</li>
-<li>在左側按一下 [Active Directory]。</li>
-<li>在 Active Directory 下方，按一下要設定暫停對已記住之裝置進行 Multi-Factor Authentication 的目錄。</li>
-<li>在您選取的目錄上，按一下 [設定]。</li>
-<li>在 Multi-Factor Authentication 區段中，按一下 [管理服務設定]。</li>
-<li>在 [服務設定] 頁面上，於管理使用者裝置設定下方選取/取消選取 [藉由讓系統記住裝置來允許使用者暫停 Multi-Factor Authentication]。</li>
-![暫停裝置](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>設定要允許暫停的天數。預設值為 14 天。</li> <li>按一下 [儲存]。</li> <li>按一下 [關閉]。</li>
+1. 登入 Azure 傳統入口網站。
+2. 在左側按一下 [Active Directory]。
+3. 在 Active Directory 下方，按一下要設定暫停對已記住之裝置進行 Multi-Factor Authentication 的目錄。
+4. 在您選取的目錄上，按一下 [設定]。
+5. 在 Multi-Factor Authentication 區段中，按一下 [管理服務設定]。
+6. 在 [服務設定] 頁面上，於管理使用者裝置設定下方選取/取消選取 [藉由讓系統記住裝置來允許使用者暫停 Multi-Factor Authentication]。![暫停裝置](./media/multi-factor-authentication-manage-users-and-devices/suspend.png)
+8. 設定要允許暫停的天數。預設值為 14 天。
+9. 按一下 [儲存]。
+10. 按一下 [關閉]。
 
-<!---HONumber=AcomDC_0128_2016-->
+
+## 可選取的驗證方法 (公用預覽)
+現在可以選擇當使用者使用 Multi-Factor Authentication 時，可供使用者使用的驗證方法。先前只有內部部署伺服器版本才有這項功能。下表扼要概述可以為使用者啟用或停用的各種驗證方法。
+
+方法|說明
+:------------- | :------------- | 
+[電話通話](multi-factor-authentication-end-user-first-time-mobile-phone.md)| 撥打自動語音電話給驗證電話。使用者可接聽電話並按電話鍵盤上的 # 進行驗證。此電話號碼將不會同步到內部部署 Active Directory。
+[電話簡訊](multi-factor-authentication-end-user-first-time-mobile-phone.md)|傳送包含驗證碼的簡訊給使用者。系統會提示使用者使用驗證碼來回覆簡訊，或在登入介面中輸入驗證碼。
+[行動應用程式的通知](multi-factor-authentication-end-user-first-time-mobile-app.md)|在此模式中，Azure Authenticator 應用程式可防止未經授權存取帳戶並停止詐騙交易。使用推播通知至您的電話或已註冊的裝置即可進行。只需檢視通知，如果合法，則點選 [驗證]。否則，您可選擇 [拒絕]，或選擇拒絕並回報詐騙通知。如需回報詐騙通知的相關資訊，請參閱＜如何使用 Multi-Factor Authentication 的拒絕和回報詐騙功能＞。</br></br>Azure Authenticator 應用程式適用於 [Windows Phone](http://www.windowsphone.com/zh-TW/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50)、[Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 和 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)。|
+[行動應用程式傳回的驗證碼](multi-factor-authentication-end-user-first-time-mobile-app.md)|在此模式中，Azure Authenticator 應用程式可以作為軟體權杖來產生 OATH 驗證碼。然後，可以連同使用者名稱和密碼一起輸入此驗證碼，以提供第二種形式的驗證。</li><br><p> Azure Authenticator 應用程式適用於 [Windows Phone](http://www.windowsphone.com/zh-TW/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50)、[Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 和 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)。
+
+### 如何啟用/停用驗證方法
+
+1. 登入 Azure 傳統入口網站。
+2. 在左側按一下 [Active Directory]。
+3. 在 Active Directory 下方，按一下您想要啟用或停用驗證方法的目錄。
+4. 在您選取的目錄上，按一下 [設定]。
+5. 在 Multi-Factor Authentication 區段中，按一下 [管理服務設定]。
+6. 在 [服務設定] 頁面的驗證選項下，選取/取消選取您想要使用的選項。</br></br> ![暫停裝置](./media/multi-factor-authentication-whats-next/authmethods.png)
+9. 按一下 [儲存]。
+10. 按一下 [關閉]。
+
+<!---HONumber=AcomDC_0218_2016-->

@@ -214,11 +214,11 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
 ##<a id="nextsteps"></a> 後續步驟
 在本文中，您學到幾種常見的 Hive 查詢最佳化方法。若要深入了解，請參閱下列文章：
 
-- [在 HDInsight 中使用 Apache Hive](../hdinsight-using-hive.md)
+- [在 HDInsight 中使用 Apache Hive](hdinsight-use-hive.md)
 - [在 HDInsight 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data.md)
 - [在 HDInsight 中使用 Hive 分析 Twitter 資料](hdinsight-analyze-twitter-data.md)
 - [在 HDInsight 的 Hadoop 上使用 Hive 查詢主控台分析感應器資料](hdinsight-hive-analyze-sensor-data.md)
-- [使用 HDInsight 上的 Hive 分析網站的記錄](../hdinsight-hive-analyze-web-site-log.md)
+- [使用 HDInsight 上的 Hive 分析網站的記錄](hdinsight-hive-analyze-website-log.md)
 
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
@@ -226,4 +226,4 @@ ORC (最佳化的資料列單欄式) 格式是儲存 Hive 資料的高效率方�
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

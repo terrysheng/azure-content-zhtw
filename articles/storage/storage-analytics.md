@@ -3,7 +3,7 @@
 	description="儲存體分析可讓您追蹤所有儲存體服務的度量資料，以及收集 Blob、佇列和資料表儲存體的記錄檔。"
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
-	ms.author="tamram"/>
+	ms.date="02/14/2016"
+	ms.author="robinsh"/>
 
 # 儲存體分析
 
@@ -22,11 +22,11 @@
 
 Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料。您可以使用此資料來追蹤要求、分析使用量趨勢，以及診斷儲存體帳戶的問題。
 
-若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 入口網站](https://portal.azure.com)加以啟用。如需詳細資訊，請參閱[如何監視儲存體帳戶](http://www.azure.com/manage/services/storage/how-to-monitor-a-storage-account/)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。針對每個服務，使用[取得 Blob 服務屬性](https://msdn.microsoft.com/library/hh452239.aspx)、[取得佇列服務屬性](https://msdn.microsoft.com/library/hh452243.aspx)，以及[取得表格服務屬性](https://msdn.microsoft.com/library/hh452238.aspx)作業來啟用儲存體分析。
+若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 入口網站](https://portal.azure.com)加以啟用。如需詳細資訊，請參閱[在 Azure 入口網站中監視儲存體帳戶](storage-monitor-storage-account.md)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。針對每個服務，使用[取得 Blob 服務屬性](https://msdn.microsoft.com/library/hh452239.aspx)、[取得佇列服務屬性](https://msdn.microsoft.com/library/hh452243.aspx)、[取得表格服務屬性](https://msdn.microsoft.com/library/hh452238.aspx)，以及[取得檔案服務屬性](https://msdn.microsoft.com/library/mt427369.aspx)作業來啟用儲存體分析。
 
 彙總的資料會儲存於已知的 Blob (用於記錄) 和已知的資料表 (用於度量) 中，您可以使用 Blob 服務和資料表服務 API 來存取。
 
-儲存體分析在儲存的資料量上有 20 TB 的限制，但此限制與儲存體帳戶的總限制無關。如需計費和資料保留原則的詳細資訊，請參閱[儲存體分析和計費](https://msdn.microsoft.com/library/hh360997.aspx)。如需儲存體帳戶限制的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](https://msdn.microsoft.com/library/dn249410.aspx)。
+儲存體分析在儲存的資料量上有 20 TB 的限制，但此限制與儲存體帳戶的總限制無關。如需計費和資料保留原則的詳細資訊，請參閱[儲存體分析和計費](https://msdn.microsoft.com/library/hh360997.aspx)。如需儲存體帳戶限制的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md)。
 
 如需使用儲存體分析和其他工具來識別、診斷及疑難排解 Azure 儲存體相關問題的深入指南，請參閱[監視、診斷及疑難排解 Microsoft Azure 儲存體](storage-monitoring-diagnosing-troubleshooting.md)。
 
@@ -36,6 +36,8 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 儲存體分析會記錄對儲存體服務之成功和失敗要求的詳細資訊。這項資訊可用來監視個別要求，並診斷儲存體服務的問題。系統會以最佳方式來記錄要求。
 
 只有在發生儲存體服務活動時，才會建立記錄檔項目。例如，如果儲存體帳戶在其 Blob 服務中有活動，而不是在其資料表或佇列服務中，則只會建立關於 Blob 服務的記錄檔。
+
+儲存體分析記錄不適用於 Azure 檔案服務。
 
 ### 記錄驗證要求
 
@@ -62,12 +64,12 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 
 - 失敗的 GET 要求，錯誤碼為 304 (未修改)。
 
-系統不會記錄所有其他失敗的匿名要求。記錄之資料的完整清單記錄於[儲存體分析記錄作業和狀態訊息](https://msdn.microsoft.com/library/hh343260.aspx)及 [儲存體分析記錄檔格式] (https://msdn.microsoft.com/library/hh343259.aspx)) 主題中。
+系統不會記錄所有其他失敗的匿名要求。記錄資料的完整清單記錄於[儲存體分析記錄作業和狀態訊息](https://msdn.microsoft.com/library/hh343260.aspx)及[儲存體分析記錄檔格式](https://msdn.microsoft.com/library/hh343259.aspx)主題中。
 
 ### 記錄檔的儲存方式
 所有記錄檔都會儲存在名為 $logs 的容器內的區塊 Blob 中，該容器是在針對儲存體帳戶啟用儲存體分析時自動建立的。$logs 容器位於儲存體帳戶的 Blob 命名空間中，例如：`http://<accountname>.blob.core.windows.net/$logs`。一旦啟用儲存體分析之後便無法刪除此容器，不過您可以刪除其內容。
 
->[Azure.NOTE] $logs 容器不會在執行容器列示作業時顯示，例如 [ListContainers](https://msdn.microsoft.com/library/ee758348.aspx) 方法。您必須直接存取它。例如，您可以使用 [ListBlobs](https://msdn.microsoft.com/library/ee772878.aspx) 方法來存取 `$logs` 容器中的 Blob。記錄要求時，儲存體分析將會以區塊形式上傳中繼結果。儲存體分析會定期認可這些區塊，並提供它們做為 Blob。
+>[Azure.NOTE] $logs 容器不會在執行容器列示作業時顯示，例如 [ListContainers](https://msdn.microsoft.com/library/azure/dd179352.aspx) 方法。您必須直接存取它。例如，您可以使用 [ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx) 方法來存取 `$logs` 容器中的 Blob。記錄要求時，儲存體分析將會以區塊形式上傳中繼結果。儲存體分析會定期認可這些區塊，並提供它們做為 Blob。
 
 在同一個小時內建立的記錄檔可能會有重複的記錄。您可以藉由檢查 **RequestId** 和 **Operation** 數字來判斷記錄是否重複。
 
@@ -126,7 +128,7 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 
 儲存體分析可以儲存包含與儲存體服務要求相關之彙總的交易統計資料及容量資料的度量。報告的交易是屬於 API 作業層級以及儲存體服務層級，而報告的容量則是屬於儲存體服務層級。度量資料可用來分析儲存體服務使用量、診斷針對儲存體服務提出之要求的問題，以及提升使用服務的應用程式效能。
 
-若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 入口網站](https://portal.azure.com)加以啟用。如需詳細資訊，請參閱[如何監視儲存體帳戶](../how-to-monitor-a-storage-account.md)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。針對每個服務，[使用取得 Blob 服務屬性、取得佇列服務屬性](https://msdn.microsoft.com/library/hh452239.aspx)，以及[取得表格服務屬性作業來啟用儲存體分析](https://msdn.microsoft.com/library/hh452238.aspx)。
+若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 入口網站](https://portal.azure.com)加以啟用。如需詳細資訊，請參閱[在 Azure 入口網站中監視儲存體帳戶](storage-monitor-storage-account.md)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。針對每個服務，使用[取得 Blob 服務屬性](https://msdn.microsoft.com/library/hh452239.aspx)、[取得佇列服務屬性](https://msdn.microsoft.com/library/hh452243.aspx)、[取得表格服務屬性](https://msdn.microsoft.com/library/hh452238.aspx)，以及[取得檔案服務屬性](https://msdn.microsoft.com/library/mt427369.aspx)作業來啟用儲存體分析度量。
 
 ### 交易度量
 
@@ -178,7 +180,7 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 
 儲存體分析所執行的下列動作會列入計費：
 
-- 建立 Blob 以用於記錄的要求。
+- 建立 Blob 以用於記錄的要求。 
 
 - 針對度量建立資料表實體的要求。
 
@@ -193,17 +195,17 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 ## 後續步驟
 
 ### 設定儲存體分析
-- [如何監視儲存體帳戶](../how-to-monitor-a-storage-account.md)
+- [在 Azure 入口網站中監視儲存體帳戶](storage-monitor-storage-account.md)
 - [啟用及設定儲存體分析](https://msdn.microsoft.com/library/hh360996.aspx)
 
 ### 儲存體分析記錄  
 - [關於儲存體分析記錄](https://msdn.microsoft.com/library/hh343262.aspx)
 - [儲存體分析記錄檔格式](https://msdn.microsoft.com/library/hh343259.aspx)
-- [儲存體分析記錄作業和狀態訊息](https://msdn.microsoftcom/library/hh343260.aspx)
+- [儲存體分析記錄作業和狀態訊息](https://msdn.microsoft.com/library/hh343260.aspx)
 
 ### 儲存體分析度量
 - [關於儲存體分析度量](https://msdn.microsoft.com/library/hh343258.aspx)
 - [儲存體分析度量資料表結構描述](https://msdn.microsoft.com/library/hh343264.aspx)
 - [儲存體分析記錄作業和狀態訊息](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

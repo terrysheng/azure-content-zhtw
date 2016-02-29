@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/03/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # 使用 Azure 命令列介面 (CLI) 管理 Azure 資料湖分析
@@ -27,8 +27,8 @@
 開始進行本教學課程之前，您必須具備下列條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-- **Azure CLI**。請參閱[安裝和設定 Azure CLI](xplat-cli.md)。
-	- 下載並安裝 [Azure CLI 工具](https://github.com/MicrosoftBigData/AzureDataLake/releases)的**發行前版本**，才能完成這個示範。
+- **Azure CLI**。請參閱[安裝和設定 Azure CLI](../xplat-cli-install.md)。
+	- 下載並安裝[Azure CLI 工具](https://github.com/MicrosoftBigData/AzureDataLake/releases)的**發行前版本**，才能完成這個示範。
 - 使用下列命令進行**驗證**：
 
 		azure login
@@ -85,8 +85,8 @@
 
 資料湖分析目前支援下列資料來源：
 
-- [Azure 資料湖儲存體](data-lake-storage-overview.md)
-- [Azure 儲存體](storage-introduction.md)
+- [Azure 資料湖存放區](../data-lake-store/data-lake-store-overview.md)
+- [Azure 儲存體](../storage/storage-introduction.md)
 
 當您建立分析帳戶時，必須指定 Azure 資料湖儲存體帳戶作為預設的儲存體帳戶。預設的 ADL 儲存體帳戶是用來儲存工作中繼資料與工作稽核記錄。建立分析帳戶後，就可以新增其他資料湖儲存體帳戶和/或 Azure 儲存體帳戶。
 
@@ -100,7 +100,7 @@
 
   	azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -b "<Azure Blob Storage Account Short Name>" -k "<Azure Storage Account Key>"
 
->[AZURE.NOTE]僅支援 Blob 儲存體簡短名稱。請勿使用 FQDN，例如 "myblob.blob.core.windows.net"。
+>[AZURE.NOTE] 僅支援 Blob 儲存體簡短名稱。請勿使用 FQDN，例如 "myblob.blob.core.windows.net"。
 
 ### 新增其他的資料湖存放區帳戶
 
@@ -150,7 +150,7 @@
 	
 ### 提交工作
 
-> [AZURE.NOTE]工作的預設優先順序為 1000，工作的平行處理原則預設程度是 1。
+> [AZURE.NOTE] 工作的預設優先順序為 1000，工作的平行處理原則預設程度是 1。
 
 	azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" "<Script>"
 
@@ -191,7 +191,7 @@ U-SQL 目錄是用來建構資料和程式碼，讓 U-SQL 指令碼可以共用�
 <!-- ################################ -->
 ## 使用 ARM 群組
 
-應用程式通常由許多元件組成，例如，Web 應用程式、資料庫、資料庫伺服器、儲存體和協力廠商服務。Azure 資源管理員 (ARM) 可讓您將應用程式中的資源做為群組使用，稱為 Azure 資源群組。您可以透過單一、協調的作業來部署、更新、監視或刪除應用程式的所有資源。您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。您可以檢視整個群組的彙總成本，為您的組織釐清計費。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
+應用程式通常由許多元件組成，例如，Web 應用程式、資料庫、資料庫伺服器、儲存體和協力廠商服務。Azure 資源管理員 (ARM) 可讓您將應用程式中的資源做為群組使用，稱為 Azure 資源群組。您可以透過單一、協調的作業來部署、更新、監視或刪除應用程式的所有資源。您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。您可以檢視整個群組的彙總成本，為您的組織釐清計費。如需詳細資訊，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。
 
 資料湖分析服務可包含下列元件：
 
@@ -211,7 +211,7 @@ U-SQL 目錄是用來建構資料和程式碼，讓 U-SQL 指令碼可以共用�
 
 - [Microsoft Azure 資料湖分析概觀](data-lake-analytics-overview.md)
 - [使用 Azure 入口網站開始使用資料湖分析](data-lake-analytics-get-started-portal.md)
-- [使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-use-portal.md)
+- [使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)
 - [使用 Azure 入口網站監視和疑難排解 Azure 資料湖分析工作](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

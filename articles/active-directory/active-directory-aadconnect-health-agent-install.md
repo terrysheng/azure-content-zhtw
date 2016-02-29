@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/08/2016"
 	ms.author="billmath"/>
 
 
@@ -21,7 +21,7 @@
 
 
 
-# Azure AD Connect Health 代理程式安裝 
+# Azure AD Connect Health 代理程式安裝
 
 本文件將逐步引導您安裝和設定適用於 AD FS 的 Azure AD Connect Health 代理程式與同步處理。
 
@@ -123,7 +123,7 @@
 
 - Azure AD Connect Health AadSync Insights 服務
 - Azure AD Connect Health AadSync Monitoring 服務
- 
+
 ![驗證適用於同步處理的 Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/services.png)
 
 >[Azure.NOTE] 請記住，使用 Azure AD Connect Health 需要 Azure AD Premium。如果您沒有 Azure AD Premium，將無法完成 Azure 入口網站中的組態。如需詳細資訊，請參閱[此處](active-directory-aadconnect-health.md#requirements)的需求。
@@ -176,7 +176,23 @@
 	Get-AzureAdConnectHealthProxySettings
 
 
-[//]: # "End of Agent Proxy Configuration Section"
+## 測試對 Azure AD Connect Health 服務的連線
+有可能會發生導致 Azure AD Connect Health 代理程式與 Azure AD Connect Health 服務連線中斷的問題。這些包括網路問題、權限問題或各種其他原因。
+
+如果代理程式無法將資料傳送給 Azure AD Connect Health 服務達 2 小時以上，您將會看到指出「健康情況服務資料不是最新的資料。」的警示。 如果發生這種情況，您現在可以從代理程式發生問題的電腦執行下列 PowerShell 命令，來測試 Azure AD Connect Health 代理程式是否能夠將資料上傳到 Azure AD Connect Health 服務。
+
+    Test-AzureADConnectHealthConnectivity -Role Adfs
+
+角色參數目前可接受下列值：
+	
+- Adfs
+- Sync
+
+您可以在命令中使用 -ShowResults 旗標來檢視詳細的記錄。請使用下列範例：
+
+    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResults
+
+>[AZURE.NOTE]為了使用連線工具，您必須先完成代理程式註冊。如果您無法完成代理程式註冊，請確定您已符合 Azure AD Connect Health 的所有[需求](active-directory-aadconnect-health.md#requirements)。這項連線測試預設是在代理程式註冊期間執行。
 
 
 ## 相關連結
@@ -187,4 +203,4 @@
 * [使用 Azure AD Connect Health 進行同步處理](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

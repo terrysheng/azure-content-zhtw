@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -426,6 +426,27 @@ Windows 10 已加入網域的電腦 (裝置) 會將某些屬性同步處理至 A
 | msExchUserHoldPolicies| X| | | 訴訟資料暫留：啟用雲端服務來識別哪些使用者正處於訴訟資料暫留狀態。|
 | proxyAddresses| X| X| X| 只會插入 Exchange Online 的 x500 位址。|
 
+## 裝置回寫
+裝置物件是在 Active Directory 中建立。這些可以是加入 Azure AD 的裝置，或加入網域的 Windows 10 電腦。
+
+| 屬性名稱| 裝置| 註解 |
+| --- | :-: | --- |
+| altSecurityIdentities | X| |
+| displayName | X| |
+| dn | X| |
+| msDS-CloudAnchor | X| |
+| msDS-DeviceID | X| |
+| msDS-DeviceObjectVersion | X| |
+| msDS-DeviceOSType | X| |
+| msDS-DeviceOSVersion | X| |
+| msDS-DevicePhysicalIDs | X| |
+| msDS-KeyCredentialLink | X| 只在 Windows Server 2016 AD 結構描述才有 |
+| msDS-IsCompliant | X| |
+| msDS-IsEnabled | X| |
+| msDS-IsManaged | X| |
+| msDS-RegisteredOwner | X| |
+
+
 ## 關於屬性的注意事項
 - 使用替代 ID 時，內部部署屬性 userPrincipalName 將會與 Azure AD 屬性 onPremisesUserPrincipalName 進行同步處理。替代 ID 屬性 (例如 mail) 將會與 Azure AD 屬性 userPrincipalName 進行同步處理。
 
@@ -435,4 +456,4 @@ Windows 10 已加入網域的電腦 (裝置) 會將某些屬性同步處理至 A
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

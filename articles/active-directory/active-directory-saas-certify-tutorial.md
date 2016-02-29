@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 - 您可以在 Azure AD 中控制可存取 Certify 的人員
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Certify (單一登入)
-- 您可以在 Azure Active Directory 入口網站集中管理您的帳戶。
+- 您可以在 Azure Active Directory 傳統入口網站集中管理您的帳戶
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
@@ -56,7 +56,7 @@
 
 **若要從資源庫新增 Certify，請執行下列步驟：**
 
-1. 在「Azure 管理入口網站」中，按一下左方瀏覽窗格上的 [Active Directory]。<br><br> ![Active Directory][1]<br>
+1. 在 **Azure 傳統入口網站**中，按一下左方瀏覽窗格中的 [Active Directory]。<br><br> ![Active Directory][1]<br>
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
@@ -64,40 +64,40 @@
 4. 按一下頁面底部的 [加入]。<br><br> ![應用程式][3]<br>
 5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br> ![應用程式][4]<br>
 6. 在搜尋方塊中，輸入 **Certify**。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-certify-tutorial/tutorial_certify_01.png)<br>
-7. 在結果窗格中，選取 [Certify]，然後按一下 [完成] 以加入應用程式。<br><br>
+7. 在結果窗格中，選取 [Certify]，然後按一下 [完成] 以新增應用程式。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-certify-tutorial/tutorial_certify_02.png)<br>
 
 ##  設定並測試 Azure AD 單一登入
 本節的目標是要說明如何以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 Certify 搭配運作的 Azure AD 單一登入。
 
-若要讓單一登入運作，Azure AD 必須知道 Certify 與 Azure AD 中互相對應的使用者。換句話說，必須建立 Azure AD 使用者和 Certify 中相關使用者之間的連結關聯性。<br> 建立此連結關聯性的方法，就是將 Azure AD 中 [使用者名稱] 的值，指派為 Certify 中 [使用者名稱] 的值。
+若要讓單一登入運作，Azure AD 必須知道 Certify 與 Azure AD 中互相對應的使用者。換句話說，必須在 Azure AD 使用者與 Certify 中的相關使用者之間建立連結關聯性。<br> 建立此連結關聯性的方法是將 Azure AD 中 [使用者名稱] 的值，指派為 Certify 中 [Username] 的值。
 
 若要設定及測試與 Certify 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[建立 Certify 測試使用者](#creating-a-certify-test-user)** - 在 Certify 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表 Britta Simon 的項目連結。
+4. **[建立 Certify 測試使用者](#creating-a-certify-test-user)** - 在 Certify 中建立一個與 Azure AD 中代表 Britta Simon 的項目連結的 Britta Simon 對應項目。
 5. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[測試單一登入](#testing-single-sign-on)** - 驗證組態是否能運作。
 
 ### 設定 Azure AD 單一登入
 
-本節目標是在 Azure AD 入口網站啟用 Azure AD 單一登入功能，並在 Certify 應用程式中設定單一登入功能。
+本節的目標是要在 Azure AD 傳統入口網站中啟用 Azure AD 單一登入，並在您的 Certify 應用程式中設定單一登入。
 
 
 
 **若要設定與 Certify 搭配運作的 Azure AD 單一登入，請執行下列步驟：**
 
-1. 在 Azure AD 入口網站中的 **Certify** 應用程式整合頁面上，按一下 [設定單一登入] 開啟 [設定單一登入] 對話方塊。<br><br> ![設定單一登入][6] <br>
+1. 在 Azure AD 傳統入口網站中的 **Certify** 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。<br><br> ![設定單一登入][6] <br>
 
-2. 在 [您希望使用者如何登入 Certify] 頁面上，選取 [Azure AD 單一登入]，然後按 [下一步]。<br><br> ![設定單一登入](./media/active-directory-saas-certify-tutorial/tutorial_certify_03.png) <br>
+2. 在 [要如何讓使用者登入 Certify] 頁面上，選取 [Azure AD 單一登入]，然後按 [下一步]。<br><br> ![設定單一登入](./media/active-directory-saas-certify-tutorial/tutorial_certify_03.png) <br>
 
 3. 在 [設定應用程式設定] 對話方塊頁面，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-certify-tutorial/tutorial_certify_04.png) <br>
 
 
-    a.在 [回覆 URL] 文字方塊中，使用下列形式輸入判斷提示取用者服務 URL：**"https://www.certify.com/SAML2.aspx"**。
+    a.在 [回覆 URL] 文字方塊中，使用下列模式輸入「判斷提示取用者服務 URL」：**“https://www.certify.com/SAML2.aspx”**。
 
 
-4. 於 [在 Certify 設定單一登入] 頁面上，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-certify-tutorial/tutorial_certify_05.png) <br>
+4. 於 [設定在 Certify 單一登入] 頁面上，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-certify-tutorial/tutorial_certify_05.png) <br>
 
     a.按一下 [下載憑證]，然後將檔案儲存在您的電腦上。
 
@@ -107,7 +107,7 @@
 5. 若要為您的應用程式設定 SSO，請透過 support@certify.com 連絡您的 Certify 支援小組。將下載的憑證檔案附加至您的郵件，並與 Certify 小組分享中繼資料 URL (實體識別碼、SSO 登入 URL 和登出 URL)，以在其端設定 SSO。
 
 
-6. 在 Azure AD 入口網站中，選取單一登入設定確認項目，然後按一下 [下一步]。<br><br>![Azure AD 單一登入][10]<br>
+6. 在 Azure AD 傳統入口網站中，選取單一登入設定確認，然後按 [下一步]。<br><br>![Azure AD 單一登入][10]<br>
 
 7. 在 [單一登入確認] 頁面上，按一下 [完成]。<br><br>![Azure AD 單一登入][11]
 
@@ -119,7 +119,7 @@
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在 **Azure 管理入口網站**中，按一下左方瀏覽窗格中的 [Active Directory]。<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-certify-tutorial/create_aaduser_09.png) <br>
+1. 在 **Azure 傳統入口網站**中，按一下左方瀏覽窗格中的 [Active Directory]。<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-certify-tutorial/create_aaduser_09.png) <br>
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
@@ -168,7 +168,7 @@
 
 ### 指派 Azure AD 測試使用者
 
-本節的目標是要授與 Britta Simon 對 Certify 的存取權，讓她能夠使用 Azure 單一登入。<br><br>![指派使用者][200] <br>
+本節的目標是要授權 Britta Simon 存取 Certify，讓她能夠使用 Azure 單一登入。<br><br>![指派使用者][200] <br>
 
 **若要將 Britta Simon 指派給 Certify，請執行下列步驟：**
 
@@ -213,4 +213,4 @@
 [204]: ./media/active-directory-saas-certify-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-certify-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

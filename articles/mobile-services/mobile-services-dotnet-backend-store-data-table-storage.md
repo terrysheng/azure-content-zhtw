@@ -11,17 +11,14 @@
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/05/2016"
 	ms.author="glenga"/>
 
 # 建置使用資料表儲存體的 .NET 後端行動服務
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
 
 本主題說明如何在 .NET 後端行動服務中使用非關聯式資料存放區。在本教學課程中，您將修改 Azure 行動服務快速入門專案，以使用 Azure 資料表儲存體而非預設 Azure SQL Database 資料存放區。
 
@@ -39,7 +36,7 @@
 
   	這會將 Azure 儲存體服務支援新增至 .NET 後端行動服務專案。
 
-3. 如果您尚未建立儲存體帳戶，請參閱[如何建立儲存體帳戶](../storage-create-storage-account.md)。
+3. 如果您尚未建立儲存體帳戶，請參閱[如何建立儲存體帳戶](../storage/storage-create-storage-account.md)。
 
 4. 在[ Azure 傳統入口網站]中，按一下 [儲存體]、[儲存體帳戶]和 [管理金鑰]。
 
@@ -142,7 +139,7 @@
 
 + [使用混合式連接連接到內部部署 SQL Server](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br>混合式連接可讓您的行動服務安全地連接到內部部署資產。因此，您可以藉由混合式連線讓行動用戶端使用 Azure 存取內部部署資料。支援的資產包括任何可在靜態 TCP 連接埠上執行的資源，例如 Microsoft SQL Server、MySQL、HTTP Web API 和大部分的自訂 Web 服務。
 
-+ [使用行動服務將影像上傳至 Azure 儲存體](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>示範如何擴充 TodoList 範例專案，讓您將影像從您的應用程式上傳至 Azure Blob 儲存體。
++ [使用行動服務將影像上傳至 Azure 儲存體](mobile-services-dotnet-backend-windows-universal-dotnet-upload-data-blob-storage.md)</br>示範如何擴充 TodoList 範例專案，讓您將影像從您的應用程式上傳至 Azure Blob 儲存體。
 
 <!-- Anchors. -->
 [Create a non-relational store]: #create-store
@@ -159,4 +156,4 @@
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

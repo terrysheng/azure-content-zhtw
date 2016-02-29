@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -39,6 +39,7 @@ Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理
 | **功能** ||
 | [實作密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md) | 說明密碼同步處理的運作方式、實作方式，以及其操作方式及疑難排解方式。 |
 | [防止意外刪除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) | 說明 [防止意外刪除] 功能以及如何加以設定。 |
+| [排程器](active-directory-aadconnectsync-feature-scheduler.md) | 描述匯入、同步處理及匯出資料的內建排程器。 |
 | **作業** ||
 | [作業工作和考量](active-directory-aadconnectsync-operations.md) | 說明作業考量，例如災害復原。 |
 | **詳細資訊和參考** ||
@@ -50,4 +51,4 @@ Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

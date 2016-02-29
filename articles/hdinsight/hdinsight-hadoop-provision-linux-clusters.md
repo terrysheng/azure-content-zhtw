@@ -24,7 +24,7 @@
 
 本文件中，您將了解在 Azure 上建立以 Linux 為基礎的 HDInsight 叢集的不同方式，以及可用於叢集的選擇性組態。HDInsight 提供 Apache Hadoop、Apache Storm 和 Apache HBase 做為 Azure 雲端平台上的服務。
 
-> [AZURE.NOTE] 本文提供以不同方式建立叢集的指示。如果您在尋找建立叢集的快速入門方法，請參閱[開始在 Linux 上使用 Azure HDInsight](../hdinsight-hadoop-linux-get-started.md)。
+> [AZURE.NOTE] 本文提供以不同方式建立叢集的指示。如果您在尋找建立叢集的快速入門方法，請參閱[開始在 Linux 上使用 Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)。
 
 ## 什麼是 HDInsight 叢集？
 
@@ -69,7 +69,7 @@ HDInsight 的 Spark 叢集有三種節點：- 前端節點 (2 個節點) - 背�
 
 ###HDInsight 的 Azure 儲存體
 
-每個叢集類型有一個或多個 Azure 儲存體帳戶與叢集相關聯。HDInsight 使用這些儲存體帳戶中的 Azure blob 做為叢集的資料存放區。隔開資料和叢集可讓您刪除不在使用中的叢集，但仍可保留您的資料。如有需要，您可以將相同的儲存體帳戶用於新的叢集來執行更多分析。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](../hdinsight-use-blob-storage.md)。
+每個叢集類型有一個或多個 Azure 儲存體帳戶與叢集相關聯。HDInsight 使用這些儲存體帳戶中的 Azure blob 做為叢集的資料存放區。隔開資料和叢集可讓您刪除不在使用中的叢集，但仍可保留您的資料。如有需要，您可以將相同的儲存體帳戶用於新的叢集來執行更多分析。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-hadoop-use-blob-storage.md)。
 
 ## <a id="configuration"></a>基本組態選項
 
@@ -103,7 +103,7 @@ HDInsight 的 Spark 叢集有三種節點：- 前端節點 (2 個節點) - 背�
 
 - **Windows 上的 HDInsight (Windows Server 2012 R2 Datacenter)**：如果您需要整合將於叢集上搭配 Hadoop 執行的 Windows 型服務和技術，或想要從現有的 Windows 型 Hadoop 散發移轉，請選取此選項。
 
-- **Linux 上的 HDInsight (Ubuntu 12.04 LTS for Linux)**：如果您熟悉 Linux 或 Unix、想要從現有的以 Linux 為基礎的 Hadoop 方案移轉，或想要輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，請選取此選項。如需詳細資訊，請參閱[開始在 Linux 上的 HDInsight 中使用 Hadoop](hdinsight-hadoop-linux-get-started.md)。
+- **Linux 上的 HDInsight (Ubuntu 12.04 LTS for Linux)**：如果您熟悉 Linux 或 Unix、想要從現有的以 Linux 為基礎的 Hadoop 方案移轉，或想要輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，請選取此選項。如需詳細資訊，請參閱[開始在 Linux 上的 HDInsight 中使用 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)。
 
 > [AZURE.NOTE] 本文件的資訊假設您使用以 Linux 為基礎的 HDInsight 叢集。如需有關以 Windows 為基礎的叢集的資訊，請參閱[在 HDInsight 中建立以 Windows 為基礎的 Hadoop 叢集](hdinsight-provision-clusters.md)。
 
@@ -113,7 +113,7 @@ HDInsight 的 Spark 叢集有三種節點：- 前端節點 (2 個節點) - 背�
 
 ###資源群組
 
-應用程式通常由許多元件組成，例如，Web 應用程式、資料庫、資料庫伺服器、儲存體和協力廠商服務。Azure 資源管理員 (ARM) 可讓您將應用程式中的資源做為群組使用，稱為 Azure 資源群組。您可以透過單一、協調的作業來部署、更新、監視或刪除應用程式的所有資源。您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。您可以檢視整個群組的彙總成本，為您的組織釐清計費。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
+應用程式通常由許多元件組成，例如，Web 應用程式、資料庫、資料庫伺服器、儲存體和協力廠商服務。Azure 資源管理員 (ARM) 可讓您將應用程式中的資源做為群組使用，稱為 Azure 資源群組。您可以透過單一、協調的作業來部署、更新、監視或刪除應用程式的所有資源。您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。您可以檢視整個群組的彙總成本，為您的組織釐清計費。如需詳細資訊，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。
 
 ###認證
 
@@ -192,7 +192,7 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 
 中繼存放區包含 Hive 和 Oozie 中繼資料，例如 Hive 資料表、資料分割、結構描述和資料行的相關資訊。使用中繼存放區有助於保留您的 Hive 和 Oozie 中繼資料，讓您在建立新的叢集時，不需要重建 Hive 資料表或 Oozie 工作。
 
-使用中繼存放區組態選項可讓您指定一個使用 SQL Database 的外部中繼存放區。當您刪除叢集時，由於中繼資料資訊已儲存在外部資料庫中，因而得以保留下來。如需有關如何在 Azure 中建立 SQL Database 的指示，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。
+使用中繼存放區組態選項可讓您指定一個使用 SQL Database 的外部中繼存放區。當您刪除叢集時，由於中繼資料資訊已儲存在外部資料庫中，因而得以保留下來。如需有關如何在 Azure 中建立 SQL Database 的指示，請參閱[建立您的第一個 Azure SQL Database](../sql-database/sql-database-get-started.md)。
 
 > [AZURE.NOTE] HBase 叢集類型無法使用中繼存放區組態。
 
@@ -206,7 +206,7 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 
 在某些情況下，您可能想要將更多儲存體加入至叢集。例如，如果您有多個 Azure 儲存體帳戶在不同的地理區域，或用於不同的服務，但想要全部透過 HDInsight 來分析。
 
-如需有關使用次要 Blob 存放區的詳細資訊，請參閱[使用 Azure Blob 儲存體搭配 HDInsight](../hdinsight-use-blob-storage.md)。
+如需有關使用次要 Blob 存放區的詳細資訊，請參閱[使用 Azure Blob 儲存體搭配 HDInsight](hdinsight-hadoop-use-blob-storage.md)。
 
 ##<a id="nextsteps"></a><a id="options"></a> 建立方法
 
@@ -221,24 +221,24 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 
 
-[hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 
 
-[hdinsight-customize-cluster]: ../hdinsight-hadoop-customize-cluster/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
+[hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
 [azure-management-portal]: https://manage.windowsazure.com/
 
 [azure-command-line-tools]: ../xplat-cli/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-create-storageaccount]: ../storage/storage-create-storage-account.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -268,4 +268,4 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

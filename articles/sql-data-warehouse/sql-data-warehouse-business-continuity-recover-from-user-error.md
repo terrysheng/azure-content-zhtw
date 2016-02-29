@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/17/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # 從 SQL 資料倉儲中的使用者錯誤復原資料庫
@@ -25,8 +25,10 @@ SQL 資料倉儲提供兩個核心功能，可從造成非預期之資料損毀�
 
 這兩個功能會在相同的伺服器上還原至新的資料庫。
 
+有兩個不同的 API 支援 SQL 資料倉儲資料庫還原：Azure PowerShell 和 REST API。您可以使用其中一個來存取 SQL 資料倉儲還原功能。
+
 ## 復原即時資料庫
-當使用者錯誤造成非預期的資料修改時，您可以在保留期限內將資料庫還原到任何還原點。即時資料庫的資料庫快照集每 8 小時會作用一次，並且保留 7 天。
+當使用者錯誤造成非預期的資料修改時，您可以在保留期限內將資料庫還原到任何還原點。即時資料庫的資料庫快照集至少每 8 小時會作用一次，並且保留 7 天。
 
 ### PowerShell
 
@@ -136,4 +138,4 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

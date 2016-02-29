@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory 混合式身分識別設計考量 - 判斷資料保護需求 | Microsoft Azure"
-	description="在規劃混合式身分識別解決方案時，請識別企業的資料保護需求，以及哪些選項最能因應這些需求。"
+	description="在規劃混合式身分識別解決方案時，請識別您企業的資料保護需求，以及有哪些可用選項可充分因應這些需求。"
 	documentationCenter=""
 	services="active-directory"
 	authors="yuridio"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 #透過增強式身分識別解決方案規劃更高的資料安全性
@@ -26,7 +26,8 @@
 
 在規劃混合式身分識別解決方案時，您必須了解企業的資料保護需求，以及哪些選項最能因應這些需求。
  
->[AZURE.NOTE]完成資料安全性的規劃後，請檢閱[判斷多因素驗證需求](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)，以確定您有關多因素驗證需求的選項不受您在這一節中所做決策的影響。
+>[AZURE.NOTE]
+完成資料安全性的規劃後，請檢閱[判斷多因素驗證需求](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)，以確定您有關多因素驗證需求的選項不受您在這一節中所做決策的影響。
 
 ## 判斷資料保護需求
 在行動裝置時代，大部分的公司都有共同的目標：讓使用者在行動裝置上提高生產力，無論是在內部部署，還是遠端的任何位置。雖然可能有此共同目標，但有這類需求的公司也會顧慮必須要降低以保護公司資料安全和維護使用者隱私權的威脅數量。每一家公司在這方面可能會有不同的需求；會隨著公司所屬產業而異的符合性規則，會產生不同的設計決策。
@@ -52,15 +53,15 @@
 不論資料是在何處待用 (裝置、雲端或內部部署)，請務必執行評估，以了解組織在這方面的需求。針對這個層面，請確實回答下列問題：
 
 - 您的公司需要保護待用資料嗎？
- - 如果是，混合式身分識別解決方案是否能與您目前的內部部署基礎結構整合？
- - 如果是，混合式身分識別解決方案是否能與您在雲端中的工作負載整合？
+ - 如果是，混合式身分識別解決方案是否能夠與您目前的內部部署基礎結構整合？
+ - 如果是，混合式身分識別解決方案是否能夠與您在雲端中的工作負載整合？
 - 雲端身分識別管理是否能夠保護使用者的認證，和其他儲存在雲端中的資料？
 
-## 保護傳輸中的資料
+## 傳輸過程中的資料保護
 在裝置與資料中心之間或裝置與雲端之間傳輸的資料，必須受到保護。不過，所謂的傳輸中並不一定表示雲端服務外部元件的通訊程序；有時也可能在內部發生，像是兩個虛擬網路之間。針對這個層面，請確實回答下列問題：
 
 - 您的公司需要保護傳輸中的資料嗎？
- - 如果是，混合式身分識別解決方案是否能與 SSL/TLS 之類的安全控制項整合？
+ - 如果是，混合式身分識別解決方案是否能夠與 SSL/TLS 之類的安全控制項整合？
 - 雲端身分識別管理是否可確保進入和存在於目錄的流量 (在資料中心之中和之間) 進行簽署？
 
 
@@ -70,13 +71,14 @@
 - 混合式身分識別解決方案是否符合貴公司的法規需求？
 - 混合式身分識別解決方案是否有內建功能可讓您的公司符合法規需求？ 
  
->[AZURE.NOTE]請確定會記下每個答案，並了解答案背後的原理。[定義資料保護策略](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)將介紹可用選項，以及每個選項的優點/缺點。回答這些問題之後，您就能選取最適合業務需求的選項。
+>[AZURE.NOTE]
+請確定會記下每個答案，並了解答案背後的原理。[定義資料保護策略](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)將介紹可用選項，以及每個選項的優點/缺點。回答這些問題之後，您就能選取最適合業務需求的選項。
 
 ## 後續步驟
  [判斷內容管理需求](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 
 ## 另請參閱
-[設計考量概觀](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

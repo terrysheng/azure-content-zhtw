@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="02/14/2016"
     ms.author="dineshm"/>
 
 # 使用 C++ 列出 Azure 儲存體資源
 
 列表作業是許多使用 Azure 儲存體的開發案例的關鍵。本文說明如何使用 Microsoft Azure Storage Client Library for C++ 中提供的列表 API，以最有效率的方式列舉 Azure 儲存體中的物件。
 
->[AZURE.NOTE] 本指南以 Azure Storage Client Library for C++ 1.x 版為對象 (其可透過 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 取得)。
+>[AZURE.NOTE] 本指南以 Azure Storage Client Library for C++ 2.x 版為對象 (其可透過 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 取得)。
 
 Storage Client Library 提供各種方法來列出或查詢 Azure 儲存體中的物件。本文說明下列案例：
 
@@ -33,7 +33,7 @@ Storage Client Library 提供各種方法來列出或查詢 Azure 儲存體中�
 
 ## 同步與非同步
 
-因為 Storage Client Library for C++ 的建置基礎為 [C++ REST 程式庫 (專案 Casablanca)](http://casablanca.codeplex.com/)，所以我們原本就使用 [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html) 支援非同步作業。例如：
+因為 Storage Client Library for C++ 的建置基礎為 [C++ REST 程式庫](https://github.com/Microsoft/cpprestsdk)，所以我們原本就使用 [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html) 支援非同步作業。例如：
 
 	pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
 
@@ -162,7 +162,7 @@ SDK 中的這些窮盡列表 API 不存在於 C#、Java 或 JavaScript Node.js �
 
 相較於窮盡列表，延遲列表只會在必要時提取資料。實際上，只有在下一個迭代器移至下一個區段時，它才會從 Azure 儲存體提取資料。因此，記憶體使用量會控制在有限的大小內，且作業速度很快。
 
-延遲列表 API 已包含在 Storage Client Library for C++ 1.0.0 版中。
+延遲列表 API 已包含在 Storage Client Library for C++ 2.2.0 版中。
 
 ## 結論
 
@@ -184,4 +184,4 @@ SDK 中的這些窮盡列表 API 不存在於 C#、Java 或 JavaScript Node.js �
 -	[Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure App Service 和它對現有 Azure 服務的影響" 
-	description="說明新的 Azure App Service 和其功能如何影響 Azure 中的現有服務。" 
-	authors="yochayk" 
-	writer="yochayk" 
-	editor="yochayk" 
-	manager="nirma" 
-	services="app-service" 
+<properties
+	pageTitle="Azure App Service 和它對現有 Azure 服務的影響"
+	description="說明新的 Azure App Service 和其功能如何影響 Azure 中的現有服務。"
+	authors="yochayk"
+	writer="yochayk"
+	editor="yochayk"
+	manager="nirma"
+	services="app-service"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/24/2015" 
+<tags
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/12/2016"
 	ms.author="yochayk"/>
 
 
@@ -24,7 +24,7 @@
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## 概觀 
+## 概觀
 
 [Azure App Service](https://azure.microsoft.com/services/app-service/) 是一種新的且唯一的雲端服務，可讓開發人員建立適用於任何平台和任何裝置的 Web 和行動應用程式。App Service 是一種整合解決方案，設計目的是簡化重複的程式碼撰寫函式、整合企業和 SaaS 系統，並自動化商務程序，同時滿足您的安全性、可靠性和延展性需求。
 
@@ -60,8 +60,8 @@ App Service 會將下列現有 Azure 服務 - [網站](https://azure.microsoft.c
 <td align="left">Azure 行動服務</td>
 <td align="left">行動應用程式</td>
 <td align="left"><p><li>行動服務繼續可當作獨立服務，並仍提供完整支援。</p>
-<p><li>行動應用程式是應用程式服務中的新應用程式類型，以整合行動服務和其他項目的所有功能。行動應用程式處於公開預覽狀態。</p>
-<p><li>可以輕鬆地 [從行動服務移轉到 Mobile Apps](../app-service-mobile/app-service-mobile-migrating-from-mobile-services.md)。因為行動應用程式仍處於預覽狀態，所以仍不建議您執行生產應用程式。</p>
+<p><li>Mobile Apps 是 App Service 中的應用程式類型，整合了行動服務和其他項目的所有功能。</p>
+<p><li>可以輕鬆地<a href="http://go.microsoft.com/fwlink/?LinkID=724279&clcid=0x409">從行動服務移轉到行動應用程式</a></p>
 <p><li>由於隸屬於 App Service，行動應用程式可以取得行動服務以外的新功能，例如與內部部署和 SaaS 系統整合、預備位置、更好的縮放選項，以及其他。</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/mobile/">深入了解行動應用程式</a>。</p>
 </tr>
@@ -91,6 +91,5 @@ App Service 會將下列現有 Azure 服務 - [網站](https://azure.microsoft.c
 </table>
 
 若要深入了解，請瀏覽 [App Service 文件](https://azure.microsoft.com/documentation/services/app-service/)。
- 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

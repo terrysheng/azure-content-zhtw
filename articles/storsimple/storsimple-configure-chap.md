@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="02/12/2016"
    ms.author="alkohli" />
 
 # 為 StorSimple 裝置設定 CHAP
 
-本教學課程說明如何為 StorSimple 裝置設定 CHAP。CHAP 代表 Challenge Handshake 驗證通訊協定。它是伺服器用來驗證遠端用戶端身分識別的驗證配置。此驗證以共用密碼或密碼為基礎。
+本教學課程說明如何為 StorSimple 裝置設定 CHAP。這篇文章所述的程序適用於 StorSimple 8000 系列，以及 StorSimple 1200 裝置。
 
-CHAP 可以是單向 (單向) 或相互 (雙向)。單向 CHAP 是指目標驗證啟動器。反之，相互或反向 CHAP 會要求目標驗證啟動器，然後啟動器再驗證目標。不需要目標驗證也能實作啟動器驗證。不過，必須同時實作啟動器驗證，才能實作目標驗證。
+CHAP 代表 Challenge Handshake 驗證通訊協定。它是伺服器用來驗證遠端用戶端身分識別的驗證配置。此驗證以共用密碼或密碼為基礎。CHAP 可以是單向 (單向) 或相互 (雙向)。單向 CHAP 是指目標驗證啟動器。反之，相互或反向 CHAP 會要求目標驗證啟動器，然後啟動器再驗證目標。不需要目標驗證也能實作啟動器驗證。不過，必須同時實作啟動器驗證，才能實作目標驗證。
 
 以最佳作法而言，建議您使用 CHAP 以增強 iSCSI 安全性。
 
->[AZURE.NOTE]請記住，StorSimple 裝置目前不支援 IPSEC。
+>[AZURE.NOTE] 請記住，StorSimple 裝置目前不支援 IPSEC。
 
 在 StorSimple 裝置上可以使用下列方式設定 CHAP 設定：
 
@@ -49,8 +49,11 @@ CHAP 可以是單向 (單向) 或相互 (雙向)。單向 CHAP 是指目標驗�
 
 	2. 提供 CHAP 啟動器的密碼。
 
-    > [AZURE.IMPORTANT]CHAP 使用者名稱不得超過 233 個字元。CHAP 密碼必須介於 12 到 16 個字元。較長的使用者名稱或密碼會導致 Windows 主機上發生驗證錯誤。
+   		 > [AZURE.IMPORTANT] CHAP 使用者名稱不得超過 233 個字元。CHAP 密碼必須介於 12 到 16 個字元。較長的使用者名稱或密碼會導致 Windows 主機上發生驗證錯誤。
+    
+	3. 確認密碼。
 
+4. 按一下 [儲存]。將顯示確認訊息。按一下 [確定] 儲存變更。
 #### 在 Windows 主機伺服器上設定單向驗證
 
 1. 在 Windows 主機伺服器上啟動 iSCSI 啟動器。
@@ -83,9 +86,11 @@ CHAP 可以是單向 (單向) 或相互 (雙向)。單向 CHAP 是指目標驗�
 
 		![進階設定 - 一般](./media/storsimple-configure-chap/IC740946.png)
 
-5. 在 [iSCSI 啟動器屬性] 視窗的 [目標] 索引標籤上，裝置狀態應該會顯示為 [已連線]。
+5. 在 [iSCSI 啟動器屬性] 視窗的 [目標] 索引標籤上，裝置狀態應該會顯示為 [已連線]。如果您使用 StorSimple 1200 裝置，則每個磁碟區將可掛接為 iSCSI 目標，如下所示。因此，需要對每個磁碟區重複執行步驟 3-4。
 
-    > [AZURE.IMPORTANT]如果您變更 iSCSI 名稱，新的名稱將用於新的 iSCSI 工作階段。您必須先登出再登入，現有的工作階段才會使用新的設定。
+	![做為個別目標掛接的磁碟區](./media/storsimple-configure-chap/chap4.png)
+
+    > [AZURE.IMPORTANT] 如果您變更 iSCSI 名稱，新的名稱將用於新的 iSCSI 工作階段。您必須先登出再登入，現有的工作階段才會使用新的設定。
 
 如需在 Windows 主機伺服器上設定 CHAP 的詳細資訊，請移至[其他考量](#additional-considerations)。
 
@@ -153,7 +158,7 @@ CHAP 可以是單向 (單向) 或相互 (雙向)。單向 CHAP 是指目標驗�
 		![進階設定 - 相互驗證](./media/storsimple-configure-chap/IC740950.png)
 
 	5. 按一下 [確定] 完成 CHAP 設定。
-
+	 
 如需在 Windows 主機伺服器上設定 CHAP 的詳細資訊，請移至[其他考量](#additional-considerations)。
 
 ## 其他考量
@@ -192,4 +197,4 @@ CHAP 可以是單向 (單向) 或相互 (雙向)。單向 CHAP 是指目標驗�
 
 - 深入了解[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

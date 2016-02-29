@@ -40,33 +40,31 @@
 5. 當您選取 [**計量**] 時，您將會為計量選擇條件和閾值標準。這是 Azure 用來監視和規劃警示活動的一段時間。
     ![條件和閾值](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
-6. 您也可以選擇 [**事件**]，以在特定事件發生時收到通知。 
+6. 您也可以選擇 [**事件**]，以在特定事件發生時收到通知。
     ![事件](./media/insights-receive-alert-notifications/Insights_Events.png)
-    
->[AZURE.NOTE] 目前 [事件] 只支援 Web 應用程式。 
 
 7. 最後，您可以選擇傳送電子郵件通知給負責管理員。
 
-按一下 [儲存] 之後，幾分鐘內您將收到所選的計量是否超出闕值的通知。 
+按一下 [儲存] 之後，幾分鐘內您將收到所選的計量是否超出闕值的通知。
 
 ## 管理您的警示規則
 
-當您建立警示規則之後時，您可以檢視警示閾值與前一天計量相比較的預覽。 
+當您建立警示規則之後時，您可以檢視警示閾值與前一天計量相比較的預覽。
 
 ![事件](./media/insights-receive-alert-notifications/Insights_EditAlert.png)
 
 
-您當然可以編輯此警示規則，而如果您想要暫時停止接收相關通知，可以 [**停用**] 或 [**啟用**] 規則。 
+您當然可以編輯此警示規則，而如果您想要暫時停止接收相關通知，可以 [**停用**] 或 [**啟用**] 規則。
 
 ## 後續步驟
 
 * [在您的警示上設定 Webhook](insights-webhooks-alerts.md) 來將通知路由到各種管道
 * [監視服務計量](insights-how-to-customize-monitoring.md)以確保您的服務可用且可回應。
 * [啟用監視和診斷](insights-how-to-use-diagnostics.md)來在您服務中收集詳細的高頻率計量。
-* 使用 Application Insights [監視任何網頁的可用性和回應性](../app-insights-monitor-web-app-availability.md)，讓您可以找出您的頁面是否關閉。
+* 使用 Application Insights [監視任何網頁的可用性和回應性](../application-insights/app-insights-monitor-web-app-availability.md)，讓您可以找出您的頁面是否關閉。
 * 如果您想要了解您的程式碼如何在雲端中執行，可以[監視應用程式效能](insights-perf-analytics.md)。
 * [檢視事件和稽核記錄檔](insights-debugging-with-events.md)以了解在您服務內發生的所有內容。
 * [追蹤服務健康狀況](insights-service-health.md) 可以找出 Azure 何時遭遇效能降低或服務中斷。
  
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

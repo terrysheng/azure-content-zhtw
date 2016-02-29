@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [選取器](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
-了解如何使用 Azure 入口網站在 HDInsight 中建立 Hadoop 叢集。Microsoft [Azure 入口網站](azure-portal-overview.md)是一個可以佈建和管理 Azure 資源的中央位置。Azure 入口網站是其中一個可用來在 HDInsight 中建立 Linux 型或 Windows 型 Hadoop 叢集的工具。如需其他叢集建立工具和功能的資訊，請按一下此頁面頂端的索引標籤，或參閱[叢集建立方法](hdinsight-provision-clusters.md#cluster-creation-methods)。
+了解如何使用 Azure 入口網站在 HDInsight 中建立 Hadoop 叢集。Microsoft [Azure 入口網站](../azure-portal-overview.md)是一個可以佈建和管理 Azure 資源的中央位置。Azure 入口網站是其中一個可用來在 HDInsight 中建立 Linux 型或 Windows 型 Hadoop 叢集的工具。如需其他叢集建立工具和功能的資訊，請按一下此頁面頂端的索引標籤，或參閱[叢集建立方法](hdinsight-provision-clusters.md#cluster-creation-methods)。
 
 ###必要條件：
 
@@ -73,7 +73,7 @@
 
 			![虛擬網路刀鋒視窗](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
 
-			如需搭配虛擬網路 (包含虛擬網路特定設定需求) 使用 HDInsight 的詳細資訊，請參閱[使用 Azure 虛擬網路延伸 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md).
+如需搭配虛擬網路 (包含虛擬網路特定設定需求) 使用 HDInsight 的詳細資訊，請參閱[使用 Azure 虛擬網路延伸 HDInsight 功能]。(hdinsight-extend-hadoop-virtual-network.md).
   
 
   		
@@ -136,8 +136,8 @@
 ##後續步驟
 在本文中，您學到幾種建立 HDInsight 叢集的方法。若要深入了解，請參閱下列文章：
 
-* [開始使用 Azure HDInsight](hdinsight-get-started.md) - 了解如何開始使用 HDInsight 叢集
+* [開始使用 Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) - 了解如何開始使用 HDInsight 叢集
 * [以程式設計方式提交 Hadoop 工作](hdinsight-submit-hadoop-jobs-programmatically.md) - 了解如何以程式設計方式提交工作至 HDInsight
 * [使用 Azure 入口網站管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-management-portal.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

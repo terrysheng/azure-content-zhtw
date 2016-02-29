@@ -38,13 +38,13 @@
 
 >[AZURE.NOTE] 請不要讓多個叢集共用一個 Blob 儲存體容器。不支援此做法。
 
-如需使用次要 Blob 存放區的詳細資訊，請參閱[搭配使用 Azure Blob 儲存體與 HDInsight](hdinsight-use-blob-storage.md)。
+如需使用次要 Blob 存放區的詳細資訊，請參閱[搭配使用 Azure Blob 儲存體與 HDInsight](hdinsight-hadoop-use-blob-storage.md)。
 
 ### Metastore
 
 Spark 可讓您透過原始資料定義結構描述和 Hive 資料表。您可以將這些結構描述和資料表中繼資料儲存在外部 metastore。使用中繼存放區有助於保留 Hive 中繼資料，因此在建立新叢集時，您便無需重建 Hive 資料表。依預設，Hive 會使用內嵌資料庫來儲存此資訊。刪除叢集時，嵌入的資料庫將無法保留中繼資料。
 
-如需有關如何在 Azure 中建立 SQL Database 的指示，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。
+如需有關如何在 Azure 中建立 SQL Database 的指示，請參閱[建立您的第一個 Azure SQL Database](../sql-database/sql-database-get-started.md)。
 
 ### 叢集自訂
 
@@ -242,4 +242,4 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

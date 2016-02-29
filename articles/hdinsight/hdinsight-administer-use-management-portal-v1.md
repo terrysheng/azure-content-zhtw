@@ -36,14 +36,14 @@
 開始閱讀本文之前，您必須符合下列必要條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-- **Azure 儲存體帳戶** - HDInsight 叢集使用 Azure Blob 儲存體容器做為預設檔案系統。如需 Azure Blob 儲存體如何提供順暢 HDInsight 叢集使用體驗的詳細資訊，請參閱[搭配使用 Azure Blob 儲存體與 HDInsight](../hdinsight-use-blob-storage.md)。如需建立 Azure 儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](../storage-create-storage-account.md)。
+- **Azure 儲存體帳戶** - HDInsight 叢集使用 Azure Blob 儲存體容器做為預設檔案系統。如需 Azure Blob 儲存體如何提供順暢 HDInsight 叢集使用體驗的詳細資訊，請參閱[搭配使用 Azure Blob 儲存體與 HDInsight](hdinsight-hadoop-use-blob-storage.md)。如需建立 Azure 儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶](../storage/storage-create-storage-account.md)。
 
 
 ##佈建 HDInsight 叢集
 
 您可以使用 [快速建立] 或 [自訂建立] 選項，從 Azure 傳統入口網站佈建 HDInsight 叢集。如需相關指示的連結，請參閱：
 
-- [使用快速建立佈建叢集](../hdinsight-get-started.md#provision)
+- [使用快速建立佈建叢集](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [使用自訂建立佈建叢集](hdinsight-provision-clusters.md#portal)
 
 [AZURE.INCLUDE [資料中心清單](../../includes/hdinsight-pricing-data-centers-clusters.md)]
@@ -182,7 +182,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 	cd %hcatalog_home%
 
 ##調整叢集
-請參閱[在 HDInsight 中調整 Hadoop 叢集](hdinsight-hadoop-cluster-scaling.md)。
+請參閱[在 HDInsight 中調整 Hadoop 叢集](hdinsight-administer-use-management-portal.md#scale-clusters)。
 
 ##後續步驟
 透過本文，您已了解如何使用 Azure 傳統入口網站建立 HDInsight 叢集，以及如何開啟 Hadoop 命令列工具。若要深入了解，請參閱下列文章：
@@ -191,11 +191,11 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 * [使用 Azure CLI 管理 HDInsight](hdinsight-administer-use-command-line.md)
 * [佈建 HDInsight 叢集](hdinsight-provision-clusters.md)
 * [以程式設計方式提交 Hadoop 工作](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [開始使用 Azure HDInsight](../hdinsight-get-started.md)
+* [開始使用 Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Azure HDInsight 提供 Hadoop 的什麼版本？](hdinsight-component-versioning.md)
 
 [image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal-v1/hdi.createrdpuser.png
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Hadoop 命令列"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

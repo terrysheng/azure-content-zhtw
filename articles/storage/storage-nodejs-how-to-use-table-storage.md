@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/17/2016"
 	ms.author="micurd"/>
 
 
@@ -28,9 +28,9 @@
 
 本主題中的程式碼範例假設您已經有 Node.js 應用程式。如需如何在 Azure 中建立 Node.js 應用程式的資訊，請參閱下列主題：
 
-- [建置 Node.js 網站並部署至 Azure](建立 Node.js 應用程式並部署至 Azure 網站)
-- [使用 WebMatrix 建置 Node.js 網站並部署至 Azure](使用 WebMatrix 建立並部署 Node.js 應用程式)
-- [建置 Node.js 應用程式並部署至 Azure 雲端服務](Node.js 雲端服務) (使用 Windows PowerShell)
+- [在 Azure App Service 中建立 Node.js Web 應用程式](../app-service-web/web-sites-nodejs-develop-deploy-mac.md)
+- [使用 WebMatrix 來建立 Node.js Web 應用程式並部署至 Azure。](../app-service-web/web-sites-nodejs-use-webmatrix.md)
+- [建置 Node.js 應用程式並部署到 Azure 雲端服務](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (使用 Windows PowerShell)
 
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -71,7 +71,7 @@
 
 Azure 模組會讀取環境變數 AZURE\_STORAGE\_ACCOUNT 及 AZURE\_STORAGE\_ACCESS\_KEY 或 AZURE\_STORAGE\_CONNECTION\_STRING，以取得連接 Azure 儲存體帳戶所需的資訊。如果未設定這些環境變數，則呼叫 **TableService** 時必須指定帳戶資訊。
 
-如需在 Azure 網站的 [Azure 入口網站](https://portal.azure.com)中設定環境變數的範例，請參閱[使用儲存體的 Node.js Web 應用程式]。
+如需針對 Azure 網站在 [Azure 入口網站](https://portal.azure.com)中設定環境變數的範例，請參閱[使用 Azure 表格服務的 Node.js Web 應用程式]。
 
 ## 建立資料表
 
@@ -276,7 +276,7 @@ Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**Exponent
 	  }
 	});
 
-如果作業成功，`result.entries` 將包含符合查詢的實體陣列。若查詢無法傳回所有實體，則 `result.continuationToken` 將為非 *Null*，並且可作為 **queryEntities** 的第三個參數來擷取更多結果。在初始查詢中，第三個參數請使用 *null*。
+如果作業成功，`result.entries` 將包含符合查詢的實體陣列。若查詢無法傳回所有實體，則 `result.continuationToken` 將為非 *Null* ，並且可作為 **queryEntities** 的第三個參數來擷取更多結果。在初始查詢中，第三個參數請使用 *null* 。
 
 ### 查詢實體屬性的子集
 
@@ -445,7 +445,7 @@ ACL 是使用存取原則陣列來實作，每個原則有相關聯的識別碼�
   [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
   [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [使用儲存體的 Node.js Web 應用程式]: ../storage-nodejs-use-table-storage-web-site.md
+  [使用 Azure 表格服務的 Node.js Web 應用程式]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

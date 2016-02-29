@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 
@@ -35,9 +35,9 @@
 
 - 完成下列兩個教學課程：
 
-    - [開始使用適用於 Visual Studio 的 Azure 資料湖工具](data-lake-analytics-use-data-lake-tools.md)。
+    - [開始使用適用於 Visual Studio 的 Azure 資料湖工具](data-lake-analytics-data-lake-tools-get-started.md)。
     - [開始針對 Azure 資料湖分析工作使用 U-SQL](data-lake-analytics-u-sql-get-started.md)。
-- 依照[開始使用適用於 Visual Studio 的 Azure 資料湖工具](data-lake-analytics-use-data-lake-tools.md)中的指示，建立資料湖分析帳戶。
+- 依照[開始使用適用於 Visual Studio 的 Azure 資料湖工具](data-lake-analytics-data-lake-tools-get-started.md)中的指示，建立資料湖分析帳戶。
 - 依照[開始針對 Azure 資料湖分析工作使用 U-SQL](data-lake-analytics-u-sql-get-started.md) 中的指示，建立 Visual Studio U-SQL 專案。
 
 ## 範例資料集
@@ -136,7 +136,7 @@
             SUM(Salary) AS TotalSalary
         FROM @employees;
     
->[AZURE.NOTE]如需測試和檢查輸出的相關指示，請參閱[開始針對 Azure 資料湖分析工作使用 U-SQL](data-lake-analytics-u-sql-get-started.md)。
+>[AZURE.NOTE] 如需測試和檢查輸出的相關指示，請參閱[開始針對 Azure 資料湖分析工作使用 U-SQL](data-lake-analytics-u-sql-get-started.md)。
 
 結果是具有單一資料行的單一資料列。$165000 是整份資料表中 [薪資] 值的總和。
 
@@ -144,7 +144,7 @@
 |-----------
 |165000
 
->[AZURE.NOTE]如果您剛剛才接觸視窗函式，記住輸出中的數字將會有幫助。
+>[AZURE.NOTE] 如果您剛剛才接觸視窗函式，記住輸出中的數字將會有幫助。
 
 下列陳述式使用 GROUP BY 子句來計算每個部門薪資總計：
 
@@ -198,7 +198,7 @@ SalaryByDept 資料行的總和為 $165000，符合最後一個指令碼中的�
 
 值 165000 (所有薪資的總計) 會放在每個輸出資料列中。該總計來自於所有資料列的「視窗」，因此其中包含所有的薪資。
 
-下一個範例示範如何讓「視窗」更精確，以列出所有員工、部門，以及部門的薪資總計。OVER 子句中會新增 PARTITION BY。
+下一個範例示範如何讓「視窗」更完善，以列出所有員工、部門，以及部門的薪資總計。PARTITION BY 會新增到 OVER 子句中。
 
     @result=
     SELECT
@@ -248,7 +248,7 @@ SalaryByDept 資料行的總和為 $165000，符合最後一個指令碼中的�
 
 ### 使用 SUM
 
-下列範例會將各部門的薪資總計新增至每個輸入資料列：
+下列範例讓每個輸入資料列新增各部門的薪資總計：
  
     @result=
         SELECT 
@@ -340,7 +340,7 @@ SalaryByDept 資料行的總和為 $165000，符合最後一個指令碼中的�
 	        [ORDER BY <identifier, > …[n] [ASC|DESC]] 
 	) AS <alias>
 
-- ORDER BY 子句對於排名函式是選擇性的。指定的 ORDERY BY 將會決定排名的順序。如果未指定 ORDER BY，U-SQL 將會根據它會讀取記錄的順序來指派值。因此，在未指定 ORDER BY 子句的情況下，會導致資料列號碼、排名或密度排名的值不具決定性。
+- ORDER BY 子句對於排名函式是選擇性的。如果已指定 ORDER BY，它將會決定排名的順序。如果未指定 ORDER BY，U-SQL 將會根據它會讀取記錄的順序來指派值。因此，在未指定 ORDER BY 子句的情況下，會導致資料列號碼、排名或密度排名的值不具決定性。
 - NTILE 需要評估為正整數的運算式。此數字會指定每個分割必須劃分成的群組數目。此識別碼只會與 NTILE 排名函式一起使用。 
 
 如需 OVER 子句的詳細資訊，請參閱 [U-SQL 參考]()。
@@ -739,8 +739,8 @@ PERCENTILE\_DISC 不會插補值，因此 Web 的中間值是 200 - 也就是在
 - [使用 Azure 資料湖分析互動式教學課程](data-lake-analytics-use-interactive-tutorials.md)
 - [使用 Azure 資料湖分析來分析網站記錄](data-lake-analytics-analyze-weblogs.md)
 - [開始使用 Azure 資料湖分析 U-SQL 語言](data-lake-analytics-u-sql-get-started.md)
-- [使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-use-portal.md)
-- [使用 Azure PowerShell 管理 Azure 資料湖分析](data-lake-analytics-use-powershell.md)
+- [使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)
+- [使用 Azure PowerShell 管理 Azure 資料湖分析](data-lake-analytics-manage-use-powershell.md)
 - [使用 Azure 入口網站監視和疑難排解 Azure 資料湖分析作業](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

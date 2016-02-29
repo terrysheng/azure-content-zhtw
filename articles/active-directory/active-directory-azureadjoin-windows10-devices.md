@@ -148,15 +148,6 @@ Windows 10 針對工作用的裝置提供兩種存取工作資源的模型：
 
 ## 常見問題集
 
-###哪些第三方 MDM 廠商產品會與 Azure AD 整合？
-
-下列廠商產品會與 Azure AD 整合，以在 Windows 10 中進行統一的註冊和條件式存取：
-
-- AirWatch by VMware
-- Citrix Xenmobile
-- Lightspeed Mobile Manager
-- SOTI 內部部署 MDM
-
 ###Windows 10 中的「加入工作場所」有何功能？
 Windows 8.1 中的「加入工作場所」會用來啟用 BYOD。在 Windows 10 中，BYOD 必須透過新增工作帳戶來啟用，如本文件先前所說明。對於未與 Azure AD 整合其 MDM 的組織，使用者可以透過下列途徑手動將裝置註冊到管理中：[設定] > [帳戶] > [工作存取]。
 
@@ -170,7 +161,7 @@ Windows 8.1 中的「加入工作場所」會用來啟用 BYOD。在 Windows 10 
 * [適合企業使用的 Windows 10：使用裝置工作的方式](active-directory-azureadjoin-windows10-devices-overview.md)
 * [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-user-upgrade.md)
 * [了解適用於 Azure AD Join 的使用案例](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [將已加入網域的裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

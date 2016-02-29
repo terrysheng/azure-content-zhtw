@@ -18,7 +18,7 @@
 
 # IoT 中樞的 MQTT 支援
 
-IoT 中樞可讓裝置使用 [MQTT v3.1.1][lnk-mqtt-org] 通訊協定來與 IoT 中樞的裝置端點通訊。
+IoT 中樞可讓裝置在連接埠 8883 使用 [MQTT v3.1.1][lnk-mqtt-org] 通訊協定來與 IoT 中樞裝置端點進行通訊。IoT 中樞要求使用 TLS/SSL 保護所有裝置通訊的安全。
 
 ## 連接到 IoT 中樞
 
@@ -81,4 +81,4 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

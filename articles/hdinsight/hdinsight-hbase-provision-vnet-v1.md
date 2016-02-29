@@ -36,7 +36,7 @@
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
-- **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。如需指示，請參閱[安裝並設定 Azure PowerShell](../install-configure-powershell.md)。若要執行 Azure PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[使用 Set-executionpolicy cmdlet][2]。
+- **具有 Azure PowerShell 的工作站**。請參閱[安裝及使用 Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。如需指示，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。若要執行 Azure PowerShell 指令碼，您必須以系統管理員的身分執行 Azure PowerShell，並將執行原則設為 *RemoteSigned*。請參閱[使用 Set-executionpolicy cmdlet][2]。
 
 	執行 Azure PowerShell 指令碼之前，請確定您已使用下列 Cmdlet 連接到 Azure 訂用帳戶：
 
@@ -84,7 +84,7 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 
 **建立叢集要使用的 Azure 儲存體帳戶和 Blob 儲存體容器**
 
-> [AZURE.NOTE] HDInsight 叢集使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，請參閱[在 HDInsight 中搭配使用 Azure Blob 儲存體和 Hadoop](../hdinsight-use-blob-storage.md) (英文)。您將會需要儲存體帳戶和 Blob 儲存體容器。儲存體帳戶的位置必須符合虛擬網路位置和叢集位置。
+> [AZURE.NOTE] HDInsight 叢集使用 Azure Blob 儲存體來儲存資料。如需詳細資訊，請參閱[在 HDInsight 中搭配使用 Azure Blob 儲存體和 Hadoop](hdinsight-hadoop-use-blob-storage.md) (英文)。您將會需要儲存體帳戶和 Blob 儲存體容器。儲存體帳戶的位置必須符合虛擬網路位置和叢集位置。
 
 像其他 HDInsight 叢集一樣，HBase 叢集需要 Azure 儲存體帳戶和 Blob 儲存體容器做為預設檔案系統。儲存體帳戶的位置必須符合虛擬網路位置和叢集位置。如需詳細資訊，請參閱[在 HDInsight 中搭配使用 Azure Blob 儲存體和 Hadoop][hdinsight-storage] (英文)。當您佈建 HBase 叢集時，可以選擇建立新叢集或使用現有叢集。此程序顯示如何使用 Azure 傳統入口網站建立儲存體帳戶和 Blob 儲存體容器。
 
@@ -133,8 +133,8 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 	<tr><td>前端節點大小</td><td><p>選取前端節點的 VM 大小。</p></td></tr>
 	<tr><td>資料節點大小</td><td><p>選取資料節點的 VM 大小。</p></td></tr>
 	<tr><td>Zookeeper 大小</td><td><p>選取 Zookeeper 節點的 VM 大小。</p></td></tr>
-</table>
->[AZURE.NOTE] 根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
+    </table>
+    >[AZURE.NOTE] 根據選擇的 VM ，您的成本可能會有所不同。HDInsight 針對叢集節點會使用所有標準層 VM。如需 VM 大小對您價格影響的相關資訊，請參閱 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 定價</a>。
 
 	按一下向右按鈕。
 
@@ -150,7 +150,7 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 		<td>指定 HDInsight 叢集使用者密碼。</td></tr>
 	<tr><td>為叢集啟用遠端桌面</td>
 		<td>選取此核取方塊，以指定遠端桌面使用者的使用者名稱、密碼和到期日期，使其在佈建之後可以遠端進入叢集節點。您也可以稍後在叢集佈建後啟用遠端桌面。如需指示，請參閱<a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">使用 RDP 連接至 HDInsight 叢集</a>。</td></tr>
-</table>
+    </table>
 
 6. 在 [儲存體帳戶] 頁面上，提供下列值：
 
@@ -179,7 +179,7 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
     </td></tr>
 	<tr><td>其他儲存體帳戶</td>
 		<td>視需要指定叢集的其他儲存體帳戶。HDInsight 支援多個儲存體帳戶。叢集可使用的其他儲存體帳戶沒有數量上的限制。但如果您使用 Azure 傳統入口網站建立叢集，則會因為 UI 的限制而只能使用最多七個儲存體帳戶。您所指定的每個其他儲存體帳戶都會在精靈上另外加入一個 [儲存體帳戶]<strong></strong> 頁面，您可在此指定帳戶資訊。以上面的螢幕擷取畫面為例，其未選取其他儲存體帳戶，因此沒有在精靈上加入額外頁面。</td></tr>
-</table>
+    </table>
 按一下向右箭頭。
 
 7. 在 [指令碼動作] 頁面上，選取右下角的核取記號。請不要點選 [加入指令碼動作] 按鈕，因為本教學課程不需要自訂叢集設定。
@@ -188,11 +188,11 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 
 	> [AZURE.NOTE] 設定期間可使用此頁面自訂叢集。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。
 
-若要開始使用新的 HBase 叢集，您可以使用＜[開始在 HDInsight 中搭配使用 HBase 與 Hadoop](../hdinsight-hbase-get-started.md)＞中提供的程序。
+若要開始使用新的 HBase 叢集，您可以使用＜[開始在 HDInsight 中搭配使用 HBase 與 Hadoop](hdinsight-hbase-tutorial-get-started.md)＞中提供的程序。
 
 ##使用 HBase Java RPC API 連接到佈建在虛擬網路中的 HBase 叢集
 
-1.	將基礎結構即服務 (IaaS) 虛擬機器佈建至相同的 Azure 虛擬網路和相同的子網路中。因此，虛擬機器和 HBase 叢集會使用相同的內部 DNS 伺服器來解析主機名稱。若要這麼做，您必須選擇 [從組件庫] 選項，並選取虛擬網路而不是資料中心。如需指示，請參閱[建立執行 Windows Server 的虛擬機器](../virtual-machines-windows-tutorial.md)。標準 Windows Server 2012 映像搭配小型 VM 即已足夠。
+1.	將基礎結構即服務 (IaaS) 虛擬機器佈建至相同的 Azure 虛擬網路和相同的子網路中。因此，虛擬機器和 HBase 叢集會使用相同的內部 DNS 伺服器來解析主機名稱。若要這麼做，您必須選擇 [從組件庫] 選項，並選取虛擬網路而不是資料中心。如需指示，請參閱[建立執行 Windows Server 的虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)。標準 Windows Server 2012 映像搭配小型 VM 即已足夠。
 
 2.	使用 Java 應用程式從遠端連接到 HBase 時，您必須使用完整網域名稱 (FQDN)。若要決定此名稱，您必須取得 HBase 叢集的連線特定 DNS 尾碼。請使用 Curl 以查詢 Ambari，或使用遠端桌面連接到叢集。
 
@@ -380,11 +380,11 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 
 在本教學課程中，您已了解如何佈建 HBase 叢集。若要深入了解，請參閱：
 
-- [開始使用 HDInsight](../hdinsight-get-started.md)
+- [開始使用 HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [在 HDInsight 中設定 HBase 複寫](hdinsight-hbase-geo-replication.md)
 - [在 HDInsight 中佈建 Hadoop 叢集](hdinsight-provision-clusters.md)
-- [開始在 HDInsight 中搭配使用 HBase 與 Hadoop](../hdinsight-hbase-get-started.md)
-- [使用 HDInsight 中的 HBase 分析 Twitter 情緒](../hdinsight-hbase-twitter-sentiment.md)
+- [開始在 HDInsight 中搭配使用 HBase 與 Hadoop](hdinsight-hbase-tutorial-get-started.md)
+- [使用 HDInsight 中的 HBase 分析 Twitter 情緒](hdinsight-hbase-analyze-twitter-sentiment.md)
 - [虛擬網路概觀][vnet-overview]
 
 
@@ -392,10 +392,10 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 [2]: http://technet.microsoft.com/library/ee176961.aspx
 [3]: http://technet.microsoft.com/library/hh847889.aspx
 
-[hbase-get-started]: ../hdinsight-hbase-get-started.md
-[hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment.md
+[hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
+[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [vnet-overview]: ../virtual-network/virtual-networks-overview.md
-[vm-create]: ../virtual-machines-windows-tutorial.md
+[vm-create]: ../virtual-machines/virtual-machines-windows-tutorial.md
 
 [azure-portal]: https://management.windowsazure.com
 [azure-create-storageaccount]: ../storage-create-storage-account.md
@@ -413,15 +413,15 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 
-[powershell-install]: ../install-configure-powershell.md
+[powershell-install]: ../powershell-install-configure.md
 
 
 [hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
-[hdinsight-storage-powershell]: ../hdinsight-use-blob-storage.md#powershell
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-storage-powershell]: hdinsight-hadoop-use-blob-storage.md#powershell
 [hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
@@ -432,4 +432,4 @@ DNS 伺服器是選擇性的，但在某些案例中為必要。程序已記錄�
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "佈建新 HBase 叢集的詳細資料"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "使用指令碼動作以自訂 HBase 叢集"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

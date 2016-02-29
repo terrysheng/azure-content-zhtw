@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/16/2016"
 	ms.author="tamram"/>
 
 # Microsoft Azure 儲存體簡介
@@ -28,9 +28,9 @@ Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應�
 - 如何透過備援和複寫來保護 Azure 儲存體資料
 - 若要打造第一個 Azure 儲存體應用程式下一步該怎麼做
 
-若要快速開始使用 Azure 儲存體，請參閱[在 5 分鐘內開始使用 Azure Blob、資料表和佇列](storage-getting-started-guide.md)。
+若要快速開始使用 Azure 儲存體，請參閱[在 5 分鐘內開始使用 Azure 儲存體](storage-getting-started-guide.md)。
 
-如需使用 Azure 儲存體的工具、程式庫及其他資源的詳細資訊，請參閱下方的[後續步驟](next-steps)。
+如需使用 Azure 儲存體的工具、程式庫及其他資源的詳細資訊，請參閱下方的[後續步驟](#next-steps)。
 
 ## 何謂 Azure 儲存體？
 
@@ -55,7 +55,7 @@ Azure 儲存體帳戶是可讓您存取 Azure 儲存體服務的安全帳戶。�
 - 標準儲存體帳戶包含 Blob、資料表、佇列和檔案儲存體。
 - Premium 儲存體帳戶目前僅支援 Azure 虛擬機器磁碟。
 
-在建立儲存體帳戶之前，您必須擁有 Azure 訂閱，訂閱是指可讓您存取各種 Azure 服務的方案。[單一訂用帳戶可讓您建立最多 100 個唯一命名的儲存體帳戶。](../azure-subscription-service-limits.md) 如需批量價格的相關資訊，請參閱[儲存體定價詳細資料](https://azure.microsoft.com/pricing/details/storage/)。
+在建立儲存體帳戶之前，您必須擁有 Azure 訂閱，訂閱是指可讓您存取各種 Azure 服務的方案。[單一訂用帳戶可讓您建立最多 100 個唯一命名的儲存體帳戶。](../azure-subscription-service-limits.md) 如需批量價格的詳細資訊，請參閱 [Azure 儲存體價格](https://azure.microsoft.com/pricing/details/storage/)。
 
 您可以利用[免費試用版](https://azure.microsoft.com/pricing/free-trial/)來開始使用 Azure。在決定購買方案之後，您便可以選擇各種[購買選項](https://azure.microsoft.com/pricing/purchase-options/)。如果您是 [MSDN 訂閱者](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，您將取得可在 Azure 服務 (包括 Azure 儲存體) 中使用的每月免費額度。
 
@@ -74,7 +74,7 @@ Azure 儲存體帳戶是可讓您存取 Azure 儲存體服務的安全帳戶。�
 
 ![Azure 儲存體資源](./media/storage-introduction/storage-concepts.png)
 
-若要了解如何建立標準儲存體帳戶時，請參閱[建立、管理或刪除儲存體帳戶](storage-create-storage-account.md)了解詳細資訊。
+若要了解如何建立標準儲存體帳戶，請參閱[建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)以取得詳細資訊。
 
 ### Premium 儲存體帳戶
 
@@ -99,7 +99,7 @@ Blob 儲存體提供三種類型的 Blob，包括區塊 Blob、附加 Blob 及�
 
 頁面 Blob 已針對顯示 IaaS 磁碟與支援隨機寫入進行最佳化，且大小可能可以高達 1 TB。Azure 虛擬機器網路附加 IaaS 磁碟是以頁面 Blob 方式儲存的 VHD。
 
-若是超大型資料集，網路限制會使得透過線路上傳或下載資料至 Blob 儲存體變得不切實際，您可以將硬碟送至 Microsoft，以便使用 [Azure 匯入/匯出服務](storage-import-export-service.md)直接從資料中心匯入或匯出資料。您也可以複製儲存體帳戶或跨不同儲存體帳戶內的 Blob 資料。
+若是超大型資料集，網路限制會使得透過線路上傳或下載資料至 Blob 儲存體變得不切實際，您可以將硬碟送至 Microsoft，以便直接從資料中心匯入或匯出資料。請參閱[使用 Microsoft Azure 匯入/匯出服務將資料移轉至 Blob 儲存體](storage-import-export-service.md)。您也可以複製儲存體帳戶或跨不同儲存體帳戶內的 Blob 資料。
 
 ## 資料表儲存體
 
@@ -143,7 +143,7 @@ Azure 檔案儲存體提供雲端架構的 SMB 檔案共用，可讓您快速地
 
 最後，您可以指定容器及其 Blob 或特定的 Blob 是否可供公用存取。當您將容器或 Blob 指定為公用時，任何人都可以進行匿名讀取；不需要驗證。公用容器和 Blob 對於公開資源 (例如網站上所託管的媒體和文件) 而言非常有用。若要縮短全球使用者的網路延遲，您可以使用 Azure CDN 來快取網站所用的 Blob 資料。
 
-如需安全存取儲存體帳戶的詳細資訊，請參閱[管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)和 [Azure 儲存體服務的驗證](https://msdn.microsoft.com/library/azure/dd179428.aspx)。
+如需安全存取儲存體帳戶的詳細資訊，請參閱[管理對容器與 Blob 的匿名讀取權限](storage-manage-access-to-resources.md)和 [Azure 儲存體服務的驗證](https://msdn.microsoft.com/library/azure/dd179428.aspx)。
 
 ## 持久性和高可用性的複寫
 
@@ -155,20 +155,20 @@ Azure 檔案儲存體提供雲端架構的 SMB 檔案共用，可讓您快速地
 
 儲存體容量是指您用於儲存資料的儲存體帳戶配額。若只是儲存資料，則成本是由您所儲存的資料量和複寫資料的方式來決定。對 Azure 儲存體進行的每個讀取和寫入操作也會對服務提出要求。出口流量是指傳出 Microsoft Azure 區域的資料。當您儲存體帳戶中的資料受不同地區中執行的應用程式存取時，不論該應用程式是雲端服務還是其他某類應用程式，您都要負擔出口流量的費用。(若為 Microsoft Azure 服務，您可以採取步驟，將資料和服務群組在相同的資料中心，以減少或消除處理和出口流量費用)。
 
-[儲存體定價詳細資料](https://azure.microsoft.com/pricing/details/storage/)頁面提供了儲存體容量、複寫和交易的詳細定價資料。[資料傳輸定價詳細資料](https://azure.microsoft.com/pricing/details/data-transfers/)則提供了出口流量的詳細定價資訊。您可以使用 [Azure 儲存體定價計算機](https://azure.microsoft.com/pricing/calculator/?scenario=data-management)，以協助消除成本。
+[Azure 儲存體價格](https://azure.microsoft.com/pricing/details/storage/)頁面提供了儲存體容量、複寫和交易的詳細價格資料。[資料傳輸定價詳細資料](https://azure.microsoft.com/pricing/details/data-transfers/)則提供了出口流量的詳細定價資訊。您可以使用 [Azure 儲存體定價計算機](https://azure.microsoft.com/pricing/calculator/?scenario=data-management)，以協助消除成本。
 
 ## 針對儲存體進行開發
 
 Azure 儲存體可透過 [REST API](http://msdn.microsoft.com/library/azure/dd179355.aspx) 公開儲存體資源，任何可提出 HTTP/HTTPS 要求的語言都可呼叫 REST API。另外，Azure 儲存體還提供了幾種熱門語言的程式設計程式庫。這些程式庫可透過處理詳細資料 (例如同步和非同步叫用、進行批次操作、例外狀況管理、自動重試、運作方式等等) 來簡化使用 Azure 儲存體的許多項目。程式庫目前適用於下列語言和平台，以及正在研發的其他語言和平台：
 
 - [.NET](http://go.microsoft.com/fwlink/?LinkID=390731)
-- [機器碼](http://msdn.microsoft.com/library/azure/dn495438.aspx)
+- [Microsoft Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
 - [Java/Android](/develop/java/)
 - [Node.js](/develop/nodejs/)
 - [PHP](/develop/php/)
 - [Ruby](/develop/ruby/)
 - [Python](/develop/python/)
-- [PowerShell](http://msdn.microsoft.com/library/azure/dn495240.aspx)
+- [PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
 ## 後續步驟
 
@@ -189,7 +189,7 @@ Azure 儲存體可透過 [REST API](http://msdn.microsoft.com/library/azure/dd17
 
 - [Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
 - [Azure 儲存體服務 REST API 參考](http://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [AzCopy 命令列工具參考](storage-use-azcopy.md)
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
 
 ### 針對 PowerShell 使用者
 - [搭配使用 Azure PowerShell 與 Azure 儲存體](storage-powershell-guide-full.md)
@@ -199,17 +199,18 @@ Azure 儲存體可透過 [REST API](http://msdn.microsoft.com/library/azure/dd17
 ### 針對 .NET 開發人員
 
 - [.NET 用戶端程式庫參考](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-- [如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)
-- [如何使用 .NET 的資料表儲存體](storage-dotnet-how-to-use-tables.md)
-- [如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)
-- [如何搭配 PowerShell 與 .NET 使用檔案儲存體](storage-dotnet-how-to-use-files.md)
+- [以 .NET 開始使用 Azure Blob 儲存體](storage-dotnet-how-to-use-blobs.md)
+- [以 .NET 開始使用 Azure 資料表儲存體](storage-dotnet-how-to-use-tables.md)
+- [以 .NET 開始使用 Azure 佇列儲存體](storage-dotnet-how-to-use-queues.md)
+- [在 Windows 上開始使用 Azure 檔案儲存體](storage-dotnet-how-to-use-files.md)
 
 ### 針對 Java/Android 開發人員
 
-- [Java 用戶端程式庫參考](http://dl.windowsazure.com/storage/javadoc/)
-- [如何使用 Java/Android 的 Blob 儲存體](../storage-java-how-to-use-blob-storage/)
-- [如何使用 Java/Android 的資料表儲存體](../storage-java-how-to-use-table-storage/)
-- [如何使用 Java/Android 的佇列儲存體](../storage-java-how-to-use-queue-storage/)
+- [Java 用戶端程式庫參考](http://azure.github.io/azure-storage-java/)
+- [如何使用 Java/Android 的 Blob 儲存體](storage-java-how-to-use-blob-storage.md)
+- [如何使用 Java/Android 的資料表儲存體](storage-java-how-to-use-table-storage.md)
+- [如何使用 Java/Android 的佇列儲存體](storage-java-how-to-use-queue-storage.md)
+- [如何使用 Java 的檔案儲存體](storage-java-how-to-use-file-storage.md) 
 
 ### 針對 Node.js 開發人員
 
@@ -235,4 +236,4 @@ Azure 儲存體可透過 [REST API](http://msdn.microsoft.com/library/azure/dd17
 - [如何使用 Python 的資料表儲存體](storage-python-how-to-use-table-storage.md)
 - [如何使用 Python 的佇列儲存體](storage-python-how-to-use-queue-storage.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

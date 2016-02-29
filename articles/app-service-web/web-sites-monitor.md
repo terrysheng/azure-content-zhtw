@@ -171,7 +171,7 @@ Web 應用程式可以從 [Azure 傳統入口網站](https://manage.windowsazure
 
 **Azure PowerShell**
 
-1. 從 [開始畫面] 或 [開始功能表] 搜尋 **Azure PowerShell**。在 [Azure PowerShell] 項目上按一下滑鼠右鍵，然後選取 [以系統管理員身份執行]。
+1. 從 [開始] 畫面或 [開始] 功能表搜尋「Windows PowerShell」。用滑鼠右鍵按一下 [Windows PowerShell]，然後選取 [以系統管理員身分執行]。
 
 	> [AZURE.NOTE] 如果您尚未安裝 **Azure PowerShell**，請參閱 [Microsoft Azure Cmdlet 使用者入門](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)以取得安裝和組態資訊。
 
@@ -263,7 +263,7 @@ Web 應用程式可以從 [Azure 傳統入口網站](https://manage.windowsazure
 7.	您也可以選擇重複先前的步驟來建立第二個端點。
 8.	按一下 [儲存]。Web 端點監視資料可能需要經過一段時間才會出現在 [儀表板] 和 [監視] 索引標籤中。
 
-	若要建立電子郵件規則，請執行下列動作：
+若要建立電子郵件規則，請執行下列動作：
 
 9.	在左邊的服務列中，按一下 [管理服務]。
 10.	按一下底部的 [新增規則]。
@@ -289,4 +289,4 @@ Web 應用程式可以從 [Azure 傳統入口網站](https://manage.windowsazure
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -18,9 +18,14 @@
 
 # 使用 Azure Data Factory 從 Azure SQL 資料倉儲來回移動資料
 
-本文概述如何使用 Data Factory 複製活動，在 Azure SQL 資料倉儲與其他資料存放區之間移動資料。本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文呈現使用複製活動移動資料的一般概觀以及支援的資料存放區組合。
+本文章概述如何使用 Azure Data Factory 中的複製活動，在 Azure SQL 資料倉儲及其他資料存放區之間移動資料。本文章的基礎為[資料移動活動](data-factory-data-movement-activities.md)一文，該文章提供利用複製活動來移動資料，以及受支援的資料來源和 SQL 資料倉儲接收器的概觀。
 
-下列範例顯示如何在 Azure SQL 資料倉儲和 Azure Blob 儲存體將資料複製進來和複製出去。不過，您可以在 Azure Data Factory 中使用複製活動，從任何來源**直接**將資料複製到[這裡](data-factory-data-movement-activities.md#supported-data-stores)所說的任何接收器。
+下列範例顯示如何在 Azure SQL 資料倉儲和 Azure Blob 儲存體將資料複製進來和複製出去。不過，您可以使用 Azure Data Factory 中的複製活動，把任何來源的資料「直接」複製到[資料移動活動](data-factory-data-movement-activities.md#supported-data-stores)一文中所述的任何接收器。
+
+> [AZURE.NOTE] 
+如需 Azure Data Factory 的概觀，請參閱 [Azure Data Factory 服務簡介](data-factory-introduction.md)。
+> 
+> 這篇文章提供 JSON 範例，但沒有提供如何建立資料處理站的逐步指示。請參閱[教學課程：從 Azure Blob 複製資料到 Azure SQL Database](data-factory-get-started.md)，以取得如何使用 Azure Data Factory 中複製活動的逐步指示。
 
 
 ## 範例：將資料從 Azure SQL 資料倉儲複製到 Azure Blob
@@ -526,4 +531,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

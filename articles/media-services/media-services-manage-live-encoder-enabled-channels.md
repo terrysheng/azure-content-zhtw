@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="02/14/2016" 
 	ms.author="juliako"/>
 
 #使用啟用的通道來以 Azure 媒體服務執行即時編碼
@@ -32,6 +32,9 @@
 - **標準** – 如果您打算使用媒體服務將單一位元速率即時串流編碼成多位元速率串流，請選擇這個值。請注意即時編碼有計費影響，而且您應該記住將即時編碼通道保持在「執行中」狀態會產生費用。建議您在即時串流事件完成之後立即停止執行的通道，以避免額外的每小時費用。
 
 >[AZURE.NOTE]本主題討論通道的屬性，這些通道為啟用來執行即時編碼 (**標準**編碼類型)。如需使用未啟用來執行即時編碼的通道之相關資訊，請參閱[使用會從內部部署編碼器接收多位元速率即時串流的通道](media-services-manage-channels-overview.md)。
+>
+>請務必閱讀[考量](media-services-manage-live-encoder-enabled-channels.md#Considerations)一節。
+
 
 
 ##計費影響
@@ -437,6 +440,7 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 - 目前，即時事件的最大建議持續時間是 8 小時。如果您需要較長的時間來執行通道，請連絡 amslived@Microsoft.com。
 - 確定負責傳送內容的串流端點上，至少有一個串流保留單位。
 - 使用 Azure 輸入多個語言資料軌及執行即時編碼時，多語言輸入僅支援 RTP。您可以透過 RTP 使用 MPEG-2 TS 定義最多 8 個音訊串流。目前不支援使用 RTMP 或 Smooth Streaming 內嵌多個音軌。使用[內部部署即時編碼器](media-services-manage-channels-overview.md)執行即時編碼時，並沒有這類限制，因為傳送至 AMS 的所有項目都是透過不需要進一步處理的通道來傳遞的。
+- 編碼預設採用「畫面播放速率上限」30fps 的概念。因此，如果輸入是 60fps/59.97i，輸入畫面會降低/去交錯為 30/29.97 fps。如果輸入是 50fps/50i，輸入畫面會降低/去交錯為 25 fps。如果輸入是 25 fps，輸出會保持為 25 fps。
 - 切記在完成時停止您的通道。如果您忘記，計費會繼續。 
 
 ##已知問題
@@ -476,4 +480,4 @@ slate 的持續時間，以秒為單位。必須為非零的正整數值才能�
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

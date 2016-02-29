@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/22/2016"
+   ms.date="02/12/2016"
    ms.author="alkohli" />
 
 # 部署和管理 Azure 中的 StorSimple 虛擬裝置 (Update 2)
@@ -28,7 +28,7 @@ StorSimple 虛擬裝置是 Microsoft Azure StorSimple 解決方案提供的另�
 
 #### 虛擬裝置模型比較
 
-StorSimple 虛擬裝置可以在兩種模型中使用，標準 8010 和進階 8020 (於 Update 2 引進)。下表顯示兩個模型的比較。
+StorSimple 虛擬裝置可以在兩種模型中使用，標準 8010 (前身為 1100) 和進階 8020 (於 Update 2 引進)。下表顯示兩個模型的比較。
 
 
 | 裝置型號 | 8010<sup>1</sup> | 8020 |
@@ -36,12 +36,33 @@ StorSimple 虛擬裝置可以在兩種模型中使用，標準 8010 和進階 80
 | **最大容量** | 30 TB | 64 TB |
 | **Azure VM** | Standard\_A3 (4 核心、7 GB 記憶體) | Standard\_DS3 (4 核心、14 GB 記憶體) |
 | **版本相容性** | 執行 Update 2 之前或更新版本的版本 | 執行 Update 2 或更新版本的版本 |
-| **區域可用性** | 所有 Azure 區域 | 支援進階儲存體的 Azure 區域<br></br>如需目前支援進階儲存體的區域清單，請參閱[依區域的 Azure 服務](https://azure.microsoft.com/regions/#services)。 |
+| **區域可用性** | 所有 Azure 區域 | 支援進階儲存體的 Azure 區域<br></br>如需區域的清單，請參閱 [8020 的支援區域](#supported-regions-for-8020) |
 | **儲存體類型** | 使用 Azure 標準儲存體<br></br>了解如何[建立標準儲存體帳戶]() | 使用 Azure 進階儲存體<br></br>了解如何[建立進階儲存體帳戶](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **工作負載指引** | 從備份的檔案的項目層級擷取 | 雲端開發和測試案例、低延遲、較高效能工作負載<br></br>災害復原的次要裝置 |
  
 <sup>1</sup> *前身為 1100*。
 
+#### 8020 的支援區域
+
+下表顯示目前支援 8020 的進階儲存體區域。當進階儲存體在更多區域可供使用時，這份清單將持續更新。
+
+| S. 編號 | 目前支援的區域 |
+|---------------------------------------------------------|--------------------------------|
+| 1 | 美國中部 |
+| 2 | 美國東部 |
+| 3 | 美國東部 2 |
+| 4 | 美國西部 |
+| 5 | 北歐 |
+| 6 | 西歐 |
+| 7 | 東南亞 |
+| 8 | 日本東部 |
+| 9 | 日本西部 |
+| 10 | 澳洲東部 |
+| 11 | 澳大利亞東南部* |
+| 12 | 東亞* |
+| 13 | 美國中南部* |
+
+**進階儲存體最近在這些地區啟動。
 
 本文說明在 Azure 中部署 StorSimple 虛擬裝置的逐步程序。閱讀本文之後，您將能夠：
 
@@ -79,7 +100,7 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 佈建虛擬裝置之前，您需要在 Azure 環境中做好下列準備：
 
-- 針對虛擬裝置，[在 Azure 中設定虛擬網路](../virtual-network/virtual-networks-create-vnet-classic-portal.md)。如果使用進階儲存體，您必須在支援進階儲存體的 Azure 區域中建立虛擬網路。如需詳細資訊，請參閱[目前支援進階儲存體的區域](https://azure.microsoft.com/regions/#services)。
+- 針對虛擬裝置，[在 Azure 中設定虛擬網路](../virtual-network/virtual-networks-create-vnet-classic-portal.md)。如果使用進階儲存體，您必須在支援進階儲存體的 Azure 區域中建立虛擬網路。如需詳細資訊，請參閱[目前支援 8020 的區域](#supported-regions-for-8020)。
 - 建議您使用 Azure 提供的預設 DNS 伺服器，而非指定您自己的 DNS 伺服器名稱。如果您的 DNS 伺服器名稱無效，或者如果 DNS 伺服器無法正確解析 IP 位址，則建立虛擬裝置將會失敗。
 - 點對站及站對站都是選用的，但並非必要。如有需要，您可以針對更進階的案例設定這些選項。 
 - 您可以將 [Azure 虛擬機器](../virtual-machines/virtual-machines-about.md) (主機伺服器) 建立在可使用由虛擬裝置公開之磁碟區的虛擬網路中。這些伺服器必須符合下列需求： 							
@@ -254,10 +275,12 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
 
 [AZURE.INCLUDE [刪除虛擬裝置](../../includes/storsimple-delete-virtual-device.md)]
 
+   
+
 ## 後續步驟
 
 - 了解如何[使用 StorSimple Manager 服務管理虛擬裝置](storsimple-manager-service-administration.md)。
  
 - 了解如何[從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

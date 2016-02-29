@@ -52,9 +52,9 @@
 2. 使用您在 Azure 傳統入口網站以 SQL Server Management Studio (SSMS) 指定的認證，嘗試連接到 SQL Server 執行個體。
 
 
-## 問題：輸入配量一直處於 PendingExecution 或 PendingValidation 狀態
+## 問題：輸入配量永遠處於 Waiting 狀態
 
-配量處於 **PendingExecution** 或 **PendingValidation** 狀態的原因有許多種，其中一種常見的原因是 **external** 屬性未設為 **true**。在 Azure Data Factory 範圍外產生的任何資料集，都應該標示 **external** 屬性。這表示資料在外部，且未由 Data Factory 內的任何管線所支持。一旦資料在個別的存放區可用，資料配量就會標示為 [就緒]。
+配量處於 **Waiting** 狀態的原因有許多種，其中一種常見的原因是 **external** 屬性沒有設為 **True**。在 Azure Data Factory 範圍外產生的任何資料集，都應該標示 **external** 屬性。這表示資料在外部，且未由 Data Factory 內的任何管線所支持。一旦資料在個別的存放區可用，資料配量就會標示為 [就緒]。
 
 關於 **external** 屬性的用法，請參閱下列範例。當您將 external 設為 true 時，可以選擇性地指定 **externalData***。
 
@@ -374,4 +374,4 @@
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

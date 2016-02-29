@@ -14,44 +14,145 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="02/16/2016"
 	ms.author="jgao"/>
 
-# 在 HDInsight 上對 Hadoop 進行偵錯：檢視記錄與解譯錯誤訊息
+# 分析 HDInsight 記錄檔
 
-本主題列舉的錯誤訊息可協助 Azure HDInsight 的 Hadoop 使用者了解，他們在使用 Azure PowerShell 來管理服務時可能遭遇的錯誤狀況，並建議一些步驟供他們從錯誤中回復。
+Azure HDInsight 中的每個 Hadoop 叢集都有一個 Azure 儲存體帳戶作為預設檔案系統。這個儲存體帳戶稱為預設儲存體帳戶。叢集使用預設儲存體帳戶上的 Azure 資料表儲存體和 Blob 儲存體來儲存其記錄檔。若要找出叢集的預設儲存體帳戶，請參閱[在 HDInsight 中管理 Hadoop 叢集](hdinsight-administer-use-management-portal.md#find-the-default-storage-account)。即使在刪除叢集之後，記錄檔仍會保留在儲存體帳戶中。
 
-使用 Azure 入口網站管理 HDinsight 叢集時也可能會看到其中某些錯誤訊息。但由於此情況下可能採取的補救動作有其限制，您可能看到的其他錯誤訊息比較不詳細。在很顯然有緩和措施的情況下，則會提供其他錯誤訊息。
+##寫入 Azure 資料表的記錄檔
 
-若發生了 Azure HDInsight 特定的錯誤，最好是能夠了解錯誤的相關資訊。請參閱 [HDInsight 錯誤碼](#hdinsight-error-codes)，以了解不同的錯誤碼，以及如何修正這些錯誤。在某些情況下，您可能想要存取 Hadoop 記錄本身。您可以直接從 Azure 入口網站進行。
+寫入 Azure 資料表的記錄檔可讓人更深入了解 HDInsight 叢集發生的情形。
 
+建立 HDInsight 叢集時，會在預設資料表儲存體中自動為 Linux 叢集建立 6 個資料表：
+
+- hdinsightagentlog
+- syslog
+- daemonlog
+- hadoopservicelog
+- ambariserverlog
+- ambariagentlog
+
+針對以 Windows 為基礎的叢集建立 3 個資料表：
+
+- setuplog：佈建/設定 HDInsight 叢集時發生的事件/例外狀況的記錄檔。
+- hadoopinstalllog：在叢集上安裝 Hadoop 時發生的事件/例外狀況的記錄檔。針對以自訂參數建立的叢集，此資料表適用於相關問題的偵錯。
+- hadoopservicelog：所有 Hadoop 服務記錄的事件/例外狀況的記錄檔。針對 HDInsight 叢集上的作業失敗，此資料表適用於相關問題的偵錯。
+
+資料表檔案名稱為 **u<ClusterName>DDMonYYYYatHHMMSSsss<TableName>**。
+
+這些資料表包含下列欄位：
+
+- ClusterDnsName
+- ComponentName
+- EventTimestamp
+- Host
+- MALoggingHash
+- 訊息
+- N
+- PreciseTimeStamp
+- 角色
+- RowIndex
+- 租用戶
+- 時間戳記
+- TraceLevel
+
+### 用於存取記錄檔的工具
+
+有許多工具可用來存取這些資料表中的資料：
+
+-  Visual Studio
+-  Azure 儲存體總管
+-  Power Query for Excel
+
+#### 使用 Power Query for Excel
+
+您可以從 [www.microsoft.com/zh-TW/download/details.aspx?id=39379](http://www.microsoft.com/zh-TW/download/details.aspx?id=39379) 安裝 Power Query。請參閱下載頁面上說明的系統需求
+
+**若要使用 Power Query 來開啟和分析服務記錄檔**
+
+1. 開啟 **Microsoft Excel**。
+2. 從 [Power Query] 功能表中，按一下 [從 Azure]，然後按一下 [從 Microsoft Azure 資料表儲存體]。
+ 
+	![HDInsight Hadoop Excel PowerQuery 開啟 Azure 資料表儲存體](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-open.png)
+3. 輸入儲存體帳戶名稱。這可以是簡短名稱或 FQDN。
+4. 輸入儲存體帳戶金鑰。您應該會看到一份資料表清單：
+
+	![儲存在 Azure 資料表儲存體中的 HDInsight Hadoop 記錄檔](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
+5. 在 [導覽器] 窗格中以滑鼠右鍵按一下 hadoopservicelog 資料表，然後選取 [編輯]。您應該會看到 4 個資料行。選擇性地選取 [分割區索引鍵]、[資料列索引鍵] 和 [時間戳記] 資料行，然後從功能區的選項中按一下 [移除資料行]，將它們刪除。
+6. 按一下 [內容] 資料行上的展開圖示，選擇您要匯入至 Excel 試算表的資料行。在此示範中，我選擇 TraceLevel 和 ComponentName：它可以提供一些基本資訊讓我知道哪些元件有問題。
+
+	![HDInsight Hadoop 記錄檔選擇資料行](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
+7. 按一下 [確定] 來匯入資料。
+8. 選取 [TraceLevel]、[Role] 和 [ComponentName] 資料行，然後按一下功能區的 [群組依據] 控制項。
+9. 按一下 [群組依據] 對話方塊中的 [確定]
+10. 按一下 **套用並關閉**。
+ 
+您現在可以視需要使用 Excel 來篩選和排序。很明顯地，您需要包含其他資料行 (例如 Message)，以便在問題發生時深入探索，但如上所述選取和分組資料行有助於了解 Hadoop 服務發生的情形。相同的概念也適用於 setuplog 和 hadoopinstalllog 資料表。
+
+#### 使用 Visual Studio
+
+**若要使用 Visual Studio**
+
+1. 開啟 Visual Studio。
+2. 從 [檢視] 功能表中，按一下 [Cloud Explorer]。或直接按一下 **CTRL+\\、CTRL+X**。
+3. 從 [Cloud Explorer] 中，選取 [資源類型]。另一個可用的選項是 [資源群組]。
+4. 展開 [儲存體帳戶]、您的叢集的預設儲存體帳戶，然後是 [資料表]。
+5. 按兩下 hadoopservicelog。
+6. 新增篩選器。例如：
+	
+		TraceLevel eq 'ERROR'
+
+	![HDInsight Hadoop 記錄檔選擇資料行](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
+
+	如需如何建構篩選器的詳細資訊，請參閱[建構資料表設計工具的篩選字串](https://msdn.microsoft.com/library/azure/ff683669.aspx)。
+ 
+##寫入 Azure Blob 儲存體的記錄檔
+
+[寫入 Azure 資料表的記錄檔](#log-written-to-azure-tables)可讓人更深入了解 HDInsight 叢集發生的情形。不過，這些資料表並不會提供工作層級記錄檔，這些記錄檔有助於發生問題時進一步深入探索。為了提供這一層更深入的詳細資料，針對透過 Templeton 提交的任何作業，HDInsight 叢集設定成將工作記錄檔寫入 Blob 儲存體帳戶。實際上，這代表使用 Microsoft Azure PowerShell Cmdlet 或 .NET Job Submission API 提交的作業，而不是透過叢集的 RDP/命令列存取所提交的作業。
+
+若要檢視記錄檔，請參閱[在以 Linux 為基礎的 HDInsight 上存取 YARN 應用程式記錄檔](hdinsight-hadoop-access-yarn-app-logs-linux.md)。
+
+如需應用程式記錄檔的詳細資訊，請參閱[簡化 YARN 的使用者記錄檔管理和存取](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/)。
+ 
+ 
 ## 檢視叢集健康情況和工作記錄檔
 
-* **存取 Hadoop UI**。從 Azure 入口網站中，按一下 HDInsight 叢集名稱以開啟叢集刀鋒視窗。從叢集刀鋒視窗中，按一下 [儀表板]。
+###存取 Hadoop UI
 
-	![啟動叢集儀表板](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
-  
-	出現提示時，輸入叢集系統管理員認證。在開啟的查詢主控台中，按一下 [Hadoop UI]。
+從 Azure 入口網站中，按一下 HDInsight 叢集名稱以開啟叢集刀鋒視窗。從叢集刀鋒視窗中，按一下 [儀表板]。
 
-	![啟動 Hadoop UI](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
+![啟動叢集儀表板](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
 
-* **存取 Yarn UI**。從 Azure 入口網站中，按一下 HDInsight 叢集名稱以開啟叢集刀鋒視窗。從叢集刀鋒視窗中，按一下 [儀表板]。出現提示時，輸入叢集系統管理員認證。在開啟的查詢主控台中，按一下 [YARN UI]。
+出現提示時，輸入叢集系統管理員認證。在開啟的查詢主控台中，按一下 [Hadoop UI]。
 
-	您可以使用 YARN UI 來執行下列動作：
+![啟動 Hadoop UI](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
 
-	* **取得叢集狀態**。從左窗格中展開 [叢集]，然後按一下 [關於]。這樣即會顯示叢集狀態詳細資料，例如，配置的記憶體總和、使用的核心數目、叢集資源管理員的狀態、叢集版本等。
 
-		![啟動叢集儀表板](./media/hdinsight-debug-jobs/hdi-debug-yarn-cluster-state.png)
+###存取 Yarn UI
 
-	* **取得節點狀態**。從左窗格中展開 [叢集]，然後按一下 [節點]。這樣會列出叢集中的所有節點、每個節點的 HTTP 位址、配置給每個節點的資源等資訊。
+從 Azure 入口網站中，按一下 HDInsight 叢集名稱以開啟叢集刀鋒視窗。從叢集刀鋒視窗中，按一下 [儀表板]。出現提示時，輸入叢集系統管理員認證。在開啟的查詢主控台中，按一下 [YARN UI]。
 
-	* **監視工作狀態**。從左窗格展開 [叢集]，然後按一下 [應用程式] 以列出叢集中的所有工作。如果您想要查看處於特定狀態 (例如，新增、已提交、執行中等狀態) 的工作，可按一下[應用程式] 底下的適當連結。您可以進一步按一下工作名稱來深入了解該工作，例如包含輸出、記錄等相關資訊。
+您可以使用 YARN UI 來執行下列動作：
 
-* **存取 HBase UI**。從 Azure 入口網站中，按一下 HDInsight HBase 叢集名稱以開啟叢集刀鋒視窗。從叢集刀鋒視窗中，按一下 [儀表板]。出現提示時，輸入叢集系統管理員認證。在開啟的查詢主控台中，按一下 [HBase UI]。
+* **取得叢集狀態**。從左窗格中展開 [叢集]，然後按一下 [關於]。這樣即會顯示叢集狀態詳細資料，例如，配置的記憶體總和、使用的核心數目、叢集資源管理員的狀態、叢集版本等。
+
+    ![啟動叢集儀表板](./media/hdinsight-debug-jobs/hdi-debug-yarn-cluster-state.png)
+
+* **取得節點狀態**。從左窗格中展開 [叢集]，然後按一下 [節點]。這樣會列出叢集中的所有節點、每個節點的 HTTP 位址、配置給每個節點的資源等資訊。
+
+* **監視工作狀態**。從左窗格展開 [叢集]，然後按一下 [應用程式] 以列出叢集中的所有工作。如果您想要查看處於特定狀態 (例如，新增、已提交、執行中等狀態) 的工作，可按一下[應用程式] 底下的適當連結。您可以進一步按一下工作名稱來深入了解該工作，例如包含輸出、記錄等相關資訊。
+
+###存取 HBase UI
+
+從 Azure 入口網站中，按一下 HDInsight HBase 叢集名稱以開啟叢集刀鋒視窗。從叢集刀鋒視窗中，按一下 [儀表板]。出現提示時，輸入叢集系統管理員認證。在開啟的查詢主控台中，按一下 [HBase UI]。
 
 ## HDInsight 錯誤代碼
 
-使用者可能會在 Azure PowerShell 或入口網站中遇到的錯誤，會按照名稱的字母順序列出：
+本節列舉的錯誤訊息可協助 Azure HDInsight 的 Hadoop 使用者了解，他們在使用 Azure PowerShell 來管理服務時可能遭遇的錯誤狀況，並建議一些步驟供他們從錯誤中回復。
+
+使用 Azure 入口網站管理 HDinsight 叢集時也可能會看到其中某些錯誤訊息。但由於此情況下可能採取的補救動作有其限制，您可能看到的其他錯誤訊息比較不詳細。在很顯然有緩和措施的情況下，則會提供其他錯誤訊息。
 
 ### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
 - **描述**：請至少提供一個元件的 Azure SQL Database 詳細資料，以便使用 Hive 和 Oozie metastore 的自訂設定。
@@ -234,12 +335,8 @@
 - **描述**：叢集組態無效。在外部帳戶中找不到必要的 WASB 帳戶組態。  
 - **緩和**：請驗證帳戶已存在且於組態中指定正確，然後重試作業。
 
-## <a id="resources"></a>其他偵錯資源
+## 後續步驟
 
-* [Azure HDInsight SDK 文件][hdinsight-sdk-documentation]
+[在 HDInsight 上使用 Ambari 檢視來為 Tez 作業偵錯](hdinsight-debug-ambari-tez-view.md) [在以 Linux 為基礎的 HDInsight 上啟用 Hadoop 服務的堆積傾印](hdinsight-hadoop-collect-debug-heap-dump-linux.md) [使用 Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
 
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn469975.aspx
-
-[image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 # 判斷混合式身分識別解決方案的事件回應需求
@@ -54,7 +54,8 @@
  - 如果是，目前的解決方案能夠與您即將採用的混合式身分識別管理系統整合嗎？
 - 貴公司是否需要針對隔離的使用者強制執行條件式存取？ 
  
->[AZURE.NOTE]請確定會記下每個答案，並了解答案背後的原理。[定義資料保護策略](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)將介紹可用選項，以及每個選項的優點/缺點。回答這些問題之後，您就能選取最適合業務需求的選項。
+>[AZURE.NOTE]
+請確定會記下每個答案，並了解答案背後的原理。[定義資料保護策略](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)將介紹可用選項，以及每個選項的優點/缺點。回答這些問題之後，您就能選取最適合業務需求的選項。
 
 ## 後續步驟
 [定義資料保護策略](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
@@ -62,4 +63,4 @@
 ## 另請參閱
 [設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

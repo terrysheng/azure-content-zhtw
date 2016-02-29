@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -63,6 +63,8 @@
 
     d.按一下刪除圖示來刪除該 VM。
 
+>[AZURE.NOTE] Service Fabric 叢集需要有一定數量的節點可隨時啟動，以維護可用性並維持狀態 - 稱為「維持仲裁」。因此，除非您已先執行[狀態的完整備份](service-fabric-reliable-services-backup-restore.md)，否則關閉叢集的所有電腦通常並不安全。
+
 ## 自動調整 Service Fabric 叢集規模
 
 Service Fabric 叢集目前還不支援自動調整規模。不久之後，叢集將會建立在虛擬機器級別集合的基礎上，屆時便會有自動調整規模的功能，且其行為會與雲端服務的自動調整規模行為類似。
@@ -79,4 +81,4 @@ Service Fabric 叢集目前還不支援自動調整規模。不久之後，叢�
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0218_2016-->

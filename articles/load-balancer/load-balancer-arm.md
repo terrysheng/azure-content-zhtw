@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -63,7 +63,7 @@ Azure 資源管理員可讓您使用宣告式範本佈建應用程式。在單�
 
 [Azure 網路 Cmdlet](https://msdn.microsoft.com/library/azure/mt163510.aspx) 可用來建立負載平衡器。開始使用 ARM Cmdlet 和 REST API
 
-- [如何使用 Azure 資源管理員建立負載平衡器](../load-balancer-arm-powershell)
+- [如何使用 Azure 資源管理員建立負載平衡器](load-balancer-get-started-internet-arm-ps.md)
 
 - [搭配使用 Azure 資源管理與 Azure CLI](../xplat-cli-azure-resource-manager)
 
@@ -76,4 +76,4 @@ Azure 資源管理員可讓您使用宣告式範本佈建應用程式。在單�
 
 如果您的應用程式需要讓負載平衡器後方的伺服器保持連接狀態，您可以深入了解[負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)。當您使用 Azure 負載平衡器時，該文章可幫助您了解閒置連接行為。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

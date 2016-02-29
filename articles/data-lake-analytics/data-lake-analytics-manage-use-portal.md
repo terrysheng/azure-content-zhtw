@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # 使用 Azure 入口網站管理 Azure 資料湖分析
@@ -48,7 +48,7 @@
 	- **名稱**：為分析帳戶命名。
 	- **資料湖儲存區**：每個資料湖分析帳戶均具有相依的 Azure 資料湖儲存區帳戶。資料湖分析帳戶和相依的資料湖儲存區帳戶必須位於相同的 Azure 資料中心。請依照指示來建立新的資料湖存放區帳戶，或選取現有的帳戶。
 	- **訂用帳戶**：選擇用於分析帳戶的 Azure 訂用帳戶。
-	- **資源群組**。選取現有的 Azure 資源群組，或建立一個新的群組。Azure 資源管理員 (ARM) 可讓您將應用程式中的資源做為群組使用。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。 
+	- **資源群組**。選取現有的 Azure 資源群組，或建立一個新的群組。Azure 資源管理員 (ARM) 可讓您將應用程式中的資源作為群組使用。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。 
 	- **位置**。針對資料湖分析帳戶選取 Azure 資料中心。 
 
 8. 按一下 [建立]。其會帶領您前往入口網站主畫面。新的磚會新增至「開始面板」，且具有顯示「部署 Azure 資料湖分析」的標籤。建立資料湖分析帳戶需要幾分鐘的時間。當建立帳戶之後，入口網站就會在新的刀鋒視窗上開啟帳戶。
@@ -102,8 +102,8 @@
 
 資料湖分析目前支援下列資料來源：
 
-- [Azure 資料湖存放區](data-lake-store-overview.md)
-- [Azure Blob 儲存體](storage-introduction.md)
+- [Azure 資料湖存放區](../data-lake-store/data-lake-store-overview.md)
+- [Azure 儲存體](../storage/storage-introduction.md)
 
 當您建立資料湖分析帳戶時，必須指定 Azure 資料湖儲存區帳戶做為預設的儲存體帳戶。預設的資料湖存放區帳戶是用來儲存工作中繼資料與工作稽核記錄。建立資料湖分析帳戶後，便可新增其他資料湖儲存區帳戶和/或 Azure 儲存體帳戶。
 
@@ -154,7 +154,7 @@
 
 <a name="upload-data-to-wasb"></a> **上傳檔案至 Azure Blob 儲存體帳戶**
 
-請參閱[上傳資料至 HDInsight 中的 Hadoop 工作](hdinsight-upload-data.md)。此資訊適用於資料湖分析。
+請參閱[上傳資料至 HDInsight 中的 Hadoop 工作](../hdinsight/hdinsight-upload-data.md)。此資訊適用於資料湖分析。
 
 
 ## 管理使用者
@@ -170,7 +170,7 @@
 |研發/測試實驗室使用者|可讓您檢視所有項目，以及連接、啟動、重新啟動和關閉虛擬機器。|  
 |使用者存取系統管理員|可讓您管理 Azure 資源的使用者存取。|  
 
-如需有關建立 Azure Active Directory 使用者和安全性群組的詳細資訊，請參閱[什麼是 Azure Active Directory](active-directory-whatis.md)。
+如需有關建立 Azure Active Directory 使用者和安全性群組的詳細資訊，請參閱[什麼是 Azure Active Directory](../active-directory/active-directory-whatis.md)。
 
 **新增使用者或安全性群組至分析帳戶**
 
@@ -181,7 +181,7 @@
 3. 從 [**使用者**] 刀鋒視窗中，按一下 [**新增**]。
 4. 選取角色並新增使用者，然後按一下 [**確認**]。
 
-**注意：若此使用者或安全性群組需要提交工作，他們也將需要資料湖儲存區的權限。如需詳細資訊，請參閱[維護儲存在資料湖儲存區中資料的安全性](data-lake-store-secure-data.md)。**
+**注意：若此使用者或安全性群組需要提交工作，他們也將需要資料湖儲存區的權限。如需詳細資訊，請參閱[維護儲存在資料湖儲存區中資料的安全性](../data-lake-store/data-lake-store-secure-data.md)。**
 
 
 
@@ -244,8 +244,6 @@
 
 ##監視帳戶使用情況
 
-[簡介 - 我們必須說明使用規定，並將其連接在一起。]
-
 **監視帳戶使用情況**
 
 1. 開啟您要管理的分析帳戶。如需詳細指示，請參閱[存取資料湖分析帳戶](#access-adla-account)。[使用情況] 面板會顯示使用狀況：
@@ -271,7 +269,7 @@
 <!-- ################################ -->
 ## 使用 Azure 資源管理員群組
 
-應用程式通常由許多元件組成，例如，Web 應用程式、資料庫、資料庫伺服器、儲存體和協力廠商服務。Azure 資源管理員 (ARM) 可讓您將應用程式中的資源做為群組使用，稱為 Azure 資源群組。您可以透過單一、協調的作業來部署、更新、監視或刪除應用程式的所有資源。您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。您可以檢視整個群組的彙總成本，為您的組織釐清計費。如需詳細資訊，請參閱 [Azure 資源管理員概觀](resource-group-overview.md)。
+應用程式通常由許多元件組成，例如，Web 應用程式、資料庫、資料庫伺服器、儲存體和協力廠商服務。Azure 資源管理員 (ARM) 可讓您將應用程式中的資源做為群組使用，稱為 Azure 資源群組。您可以透過單一、協調的作業來部署、更新、監視或刪除應用程式的所有資源。您會使用部署的範本，且該範本可以用於不同的環境，例如測試、預備和生產環境。您可以檢視整個群組的彙總成本，為您的組織釐清計費。如需詳細資訊，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。
 
 資料湖分析服務可包含下列元件：
 
@@ -292,7 +290,7 @@
 
 - [Microsoft Azure 資料湖分析概觀](data-lake-analytics-overview.md)
 - [使用 Azure 入口網站開始使用資料湖分析](data-lake-analytics-get-started-portal.md)
-- [使用 Azure PowerShell 管理 Azure 資料湖分析](data-lake-analytics-use-powershell.md)
+- [使用 Azure PowerShell 管理 Azure 資料湖分析](data-lake-analytics-manage-use-powershell.md)
 - [使用 Azure 入口網站監視和疑難排解 Azure 資料湖分析作業](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

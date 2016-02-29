@@ -210,7 +210,7 @@ PublishSettings 檔案會下載至您的電腦。此檔案通常名為 _sitename
 
 > [AZURE.WARNING] **請不要使用 [設定] 功能表中的驗證機制**
 >
-> Azure App Service 分別在 [_驗證/授權_設定] 功能表下提供「無程式碼」驗證和授權系統，以及在 [設定] 功能表下提供已被取代的 [_行動驗證_] 選項。這些選項與已移轉的 Azure 行動服務不相容。您可以 [升級您的網站]，以利用 Azure App Service 驗證功能。
+> Azure App Service 分別在 [_驗證/授權_設定] 功能表下提供「無程式碼」驗證和授權系統，以及在 [設定] 功能表下提供已被取代的 [_行動驗證_] 選項。這些選項與已移轉的 Azure 行動服務不相容。您可以[升級您的網站](app-service-mobile-net-upgrading-from-mobile-services.md)，以利用 Azure App Service 驗證功能。
 
 ### <a name="easytables"></a>資料
 
@@ -281,7 +281,7 @@ PublishSettings 檔案會下載至您的電腦。此檔案通常名為 _sitename
 
 如需詳細資訊，請檢閱[通知中樞]文件。
 
-> [AZURE.TIP] [Azure 入口網站]中的通知中樞管理功能仍處於預覽階段。[Azure 傳統入口網站]仍可用來管理您所有的通知中樞。
+> [AZURE.TIP] "[Azure 入口網站]"中的通知中樞管理功能仍處於預覽階段。[Azure 傳統入口網站]仍可用來管理您所有的通知中樞。
 
 ### <a name="app-settings"></a>其他應用程式設定
 
@@ -393,4 +393,4 @@ Azure App Service 通常會停用 [診斷記錄]。若要啟用診斷記錄：
 [VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJob]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -38,7 +38,7 @@ Azure 傳統入口網站會使用遠端桌面延伸模組方法，因此即使�
     
     ![Cloud services remote](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
     
-    > [AZURE.WARNING] 當您首次啟用遠端桌面並按一下 [確定] (打勾記號) 時，所有角色執行個體都會重新啟動。若要防止重新啟動，角色上必須安裝用來將密碼加密的憑證。若要防止重新啟動，請[上傳雲端服務的憑證](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service)，然後再回到這個對話方塊。
+    > [AZURE.WARNING] 當您首次啟用遠端桌面並按一下 [確定] \(打勾記號) 時，所有角色執行個體都會重新啟動。若要防止重新啟動，角色上必須安裝用來將密碼加密的憑證。若要防止重新啟動，請[上傳雲端服務的憑證](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service)，然後再回到這個對話方塊。
     
 
 3. 在 [角色] 中，選取想要更新的角色，或選取 [全部] 以更新所有角色。
@@ -55,7 +55,7 @@ Azure 傳統入口網站會使用遠端桌面延伸模組方法，因此即使�
     
     - 變更遠端桌面組態的到期日。
 
-5. 完成組態更新時，按一下 [確定] (勾選記號)。
+5. 完成組態更新時，按一下 [確定] \(勾選記號)。
 
 
 ## 角色執行個體的遠端存取

@@ -52,7 +52,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。它可與 
 
 > [AZURE.NOTE] 如需 HDInsight 叢集支援的 Oozie 版本，請參閱 [HDInsight 所提供 Hadoop 叢集版本的新功能][hdinsight-versions]。
 
-###必要條件
+##必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 

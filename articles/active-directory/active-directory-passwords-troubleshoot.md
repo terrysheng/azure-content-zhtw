@@ -1463,7 +1463,8 @@
 如果停用再重新啟用密碼回寫功能無法解決您的問題，建議您接下來試著重新安裝 Azure AD Connect。
 
 ### 安裝最新版的 Azure AD Connect
-重新安裝 Azure AD Connect 封裝將可解決任何可能會影響您能否連線到雲端服務或能否管理本機 AD 環境中密碼的設定問題。建議您只在嘗試過上述前兩個步驟後，才執行此步驟。
+重新安裝 Azure AD Connect 封裝將可解決任何可能會影響您能否連線到雲端服務或能否管理本機 AD 環境中密碼的設定問題。
+建議您只在嘗試過上述前兩個步驟後，才執行此步驟。
 
  1.	在[這裡](active-directory-aadconnect.md#download-azure-ad-connect)下載最新版的 Azure AD Connect。
  2.	由於您已安裝 Azure AD Connect，您只需要執行就地升級，即可將 Azure AD Connect 安裝更新為最新版。
@@ -1476,7 +1477,9 @@
 如果這麼做無法解決您的問題，建議您閱讀[疑難排解密碼回寫](#troubleshoot-password-writeback)和 [Azure AD 密碼管理常見問題集](active-directory-passwords-faq.md)，看看其中是否有討論到您的問題。
 
 
-<br/> <br/> <br/>
+<br/> 
+<br/> 
+<br/>
 
 ## 密碼重設文件的連結
 以下是所有 Azure AD 密碼重設文件頁面的連結：

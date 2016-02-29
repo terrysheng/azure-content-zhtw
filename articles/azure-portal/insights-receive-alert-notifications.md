@@ -32,13 +32,16 @@
 
 2. 在 [**作業**] 透鏡中按一下 [**警示規則**] 磚。
 
-3. 按一下 [**新增警示**] 命令。![Add alert](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
+3. 按一下 [**新增警示**] 命令。
+    ![Add alert](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. 您可以為您的警示規則命名，並選擇將會顯示在電子郵件通知的描述。
 
-5. 當您選取 [**計量**] 時，您將會為計量選擇條件和閾值標準。這是 Azure 用來監視和規劃警示活動的一段時間。![條件和閾值](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
+5. 當您選取 [**計量**] 時，您將會為計量選擇條件和閾值標準。這是 Azure 用來監視和規劃警示活動的一段時間。
+    ![條件和閾值](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
-6. 您也可以選擇 [**事件**]，以在特定事件發生時收到通知。![事件](./media/insights-receive-alert-notifications/Insights_Events.png)
+6. 您也可以選擇 [**事件**]，以在特定事件發生時收到通知。
+    ![事件](./media/insights-receive-alert-notifications/Insights_Events.png)
 
 7. 最後，您可以選擇傳送電子郵件通知給負責管理員。
 

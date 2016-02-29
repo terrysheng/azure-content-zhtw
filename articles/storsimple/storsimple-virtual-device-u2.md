@@ -146,7 +146,8 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 開始此程序之前，請確定您擁有服務資料加密金鑰的複本。服務資料加密金鑰已在您設定第一個 StorSimple 裝置時建立，且系統已指示您將它儲存在安全的位置。如果您沒有服務資料加密金鑰的複本，就必須連絡 Microsoft 支援服務以尋求協助。
 
-執行下列步驟來設定和註冊 StorSimple 虛擬裝置。[AZURE.INCLUDE [設定和註冊虛擬裝置](../../includes/storsimple-configure-register-virtual-device.md)]
+執行下列步驟來設定和註冊 StorSimple 虛擬裝置。
+[AZURE.INCLUDE [設定和註冊虛擬裝置](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### 步驟 3：(選擇性) 修改裝置組態設定
 
@@ -212,7 +213,8 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
 由於它是純軟體裝置，相較於實體裝置的維護，虛擬裝置的維護可說是最基本的。您有下列選擇：
 
 - **軟體更新** - 您可以檢視上次更新軟體的日期，以及任何更新狀態訊息。如果想要檢查是否有新的更新，可以使用頁面底部的 [**掃描更新**] 按鈕來執行手動掃描。如果有可用更新，請按一下 [**安裝更新**] 加以安裝。因為虛擬裝置上只有單一介面，這表示在套用更新時將造成服務些微中斷。虛擬裝置將關閉並重新啟動 (如有必要)，以套用任何已發行的更新。如需逐步程序，請移至[更新您的裝置](storsimple-update-device.md#install-regular-updates-via-the-azure-classic-portal)。
-- **支援封裝** - 您可以建立並上傳支援封裝，以協助 Microsoft 支援服務為您的虛擬裝置問題進行疑難排解。如需逐步程序，請移至[建立和管理支援封裝](storsimple-create-manage-support-package.md)。
+- **支援封裝** - 您可以建立並上傳支援封裝，以協助 Microsoft 支援服務為您的虛擬裝置問題進行疑難排解。  
+如需逐步程序，請移至[建立和管理支援封裝](storsimple-create-manage-support-package.md)。
 
 ### 虛擬裝置的儲存體帳戶
 

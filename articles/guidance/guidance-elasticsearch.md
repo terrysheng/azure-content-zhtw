@@ -57,9 +57,11 @@ Elasticsearch 會實作一個叢集化架構，該架構使用分區化將資料
 
 ![](media/guidance-elasticsearch-general-cluster1.png)
 
-**圖 1：** 包含兩個主要節點和兩組複本的簡易 Elasticsearch 叢集
+**圖 1：**
+包含兩個主要節點和兩組複本的簡易 Elasticsearch 叢集
 
-在此叢集中，主要分區 1 和主要分區 2 位於不同的節點，以便平衡它們之間的負載。複本會以同樣的方式分散。如果單一節點失敗，其餘節點會有足夠的資訊讓系統繼續運作。如果無法使用對應的主要分區，Elasticsearch 會在必要時將複本分區升級成為主要分區。節點在開始執行時，可以起始新的叢集 (如果是叢集中的第一個節點)，或加入現有的叢集。elasticsearch.yml 檔案中的 *cluster.name* 設定會決定節點所屬的叢集。
+在此叢集中，主要分區 1 和主要分區 2 位於不同的節點，以便平衡它們之間的負載。複本會以同樣的方式分散。如果單一節點失敗，其餘節點會有足夠的資訊讓系統繼續運作。如果無法使用對應的主要分區，Elasticsearch 會在必要時將複本分區升級成為主要分區。
+節點在開始執行時，可以起始新的叢集 (如果是叢集中的第一個節點)，或加入現有的叢集。elasticsearch.yml 檔案中的 *cluster.name* 設定會決定節點所屬的叢集。
 
 ### 節點角色
 
@@ -104,7 +106,8 @@ http.enabled: false
 
 ![](media/guidance-elasticsearch-general-cluster2.png)
 
-**圖 2.** Elasticsearch 叢集會顯示不同類型的節點
+**圖 2.**
+Elasticsearch 叢集會顯示不同類型的節點
 
 ### 使用用戶端節點的成本與優勢
 
@@ -145,7 +148,8 @@ var client = new ElasticsearchClient(config);
 
 ![](media/guidance-elasticsearch-general-clientappinstances.png)
 
-**圖 3.** 透過 Azure 負載平衡器連接到 Elasticsearch 叢集的用戶端應用程式執行個體
+**圖 3.**
+透過 Azure 負載平衡器連接到 Elasticsearch 叢集的用戶端應用程式執行個體
 
 **自訂負載平衡**：您可以使用 [nginx][] 做為反向 Proxy 伺服器，而不是 Azure 負載平衡器。Nginx 提供數種負載平衡方法，包括循環配置資源，最少連線 (以最少的目前連線將要求路由傳送到目的地)，以及根據用戶端的 IP 位址雜湊。
 
@@ -174,7 +178,8 @@ Zen 探索模組也會處理主要節點選擇程序以及用於偵測節點失�
 
 > [AZURE.NOTE] 目前的 Azure 雲端外掛程式版本會要求您在 Elasticsearch 節點上的 Java 金鑰存放區中安裝您的 Azure 訂用帳戶的管理憑證，並提供用於存取 elasticsearch.yml 檔案中金鑰存放區的位置和認證。此檔案會以純文字格式保存，因此請務必確定只有執行 Elasticsearch 服務的帳戶可以存取這個檔案。此外，這種方法可能與 Azure 資源管理員 (ARM) 部署不相容。基於這些理由，建議您對主要節點使用靜態 IP 位址，並使用這些節點在叢集中實作 Zen 探索單點傳送訊息。在下列組態 (取自範例資料節點的 elasticsearch.yml 檔案) 中，主機 IP 位址會參考叢集中的主要節點：
 
->`discovery.zen.ping.multicast.enabled: false` `discovery.zen.ping.unicast.hosts: ["10.0.0.10","10.0.0.11","10.0.0.12"]`
+>`discovery.zen.ping.multicast.enabled: false`  
+`discovery.zen.ping.unicast.hosts: ["10.0.0.10","10.0.0.11","10.0.0.12"]`
 
 ## 一般系統指導方針
 
@@ -239,7 +244,9 @@ Elasticsearch 會使用記憶體對應 (mmap) IO 和 Java New IO (NIO) I/O 的�
 
 ### 在 Azure 上部署 Elasticsearch
 
-雖然部署 Elasticsearch 的單一執行個體並不難，但是建立一些節點並在每個節點上安裝和設定 Elasticsearch 卻是費時又容易出錯的程序。如果您考慮在 Azure VM 上執行 Elasticsearch，有兩個選項可協助減少生發錯誤的機會。 - 使用 [Azure 資源管理員 (ARM) 範本](http://azure.microsoft.com/documentation/templates/elasticsearch/) 來建立叢集。此範本已完全參數化，可讓您指定實作節點之 VM 的大小和效能層、要使用的磁碟數目，以及其他常見因素。此範本可以建立以 Windows Server 2012 或 Ubuntu Linux 14.0.4 為基礎的叢集。 - 使用可以自動化或自動執行的指令碼。在 [Azure 快速入門範本][]網站上可取得用於建立和部署 Elasticsearch 叢集的指令碼。
+雖然部署 Elasticsearch 的單一執行個體並不難，但是建立一些節點並在每個節點上安裝和設定 Elasticsearch 卻是費時又容易出錯的程序。如果您考慮在 Azure VM 上執行 Elasticsearch，有兩個選項可協助減少生發錯誤的機會。
+- 使用 [Azure 資源管理員 (ARM) 範本](http://azure.microsoft.com/documentation/templates/elasticsearch/) 來建立叢集。此範本已完全參數化，可讓您指定實作節點之 VM 的大小和效能層、要使用的磁碟數目，以及其他常見因素。此範本可以建立以 Windows Server 2012 或 Ubuntu Linux 14.0.4 為基礎的叢集。
+- 使用可以自動化或自動執行的指令碼。在 [Azure 快速入門範本][]網站上可取得用於建立和部署 Elasticsearch 叢集的指令碼。
 
 ## 叢集和節點大小和延展性考量
 
@@ -251,7 +258,8 @@ Elasticsearch 會啟用數個部署拓撲，其設計用來支援不同的需求
 
 ![](media/guidance-elasticsearch-general-startingpoint.png)
 
-**圖 4.** 使用 Azure 建置 Elasticsearch 叢集的建議起點
+**圖 4.**
+使用 Azure 建置 Elasticsearch 叢集的建議起點
 
 此拓撲包含六個資料節點，以及三個用戶端節點和三個主要節點 (只能選擇一個主要節點，萬一選擇的主要節點失敗，則可選擇其他兩個)。 每個節點都會當作個別的 VM 實作。Azure Web 應用程式會透過負載平衡器被導向至用戶端節點。在此範例中，所有節點和 Web 應用程式都位於相同的 Azure VNET，以便有效地與外界隔離。如果叢集必須可供外部使用 (可能成為合併內部部署用戶端之混合式解決方案的一部分)，您可以使用 Azure 負載平衡器來提供公用 IP 位址，但您必須採取其他安全預防措施以避免未經授權存取叢集。選擇性「跳躍箱」是僅供系統管理員使用的 VM。此 VM 有 Azure VNET 的網路連線，但也有對外的網路連線，以便系統管理員從外部網路登入 (應使用強式密碼或憑證保護此登入)。系統管理員可以登入至「跳躍箱」，然後從該處直接連接到叢集中的任何節點。替代方法包括使用組織與 VNET 之間的站台對站 VPN 或使用 [ExpressRoute][] 電路連接到 VNET。這些機制允許對叢集進行系統管理存取，而不會對公用網際網路暴露此叢集。
 
@@ -269,7 +277,8 @@ Elasticsearch 會啟用數個部署拓撲，其設計用來支援不同的需求
 
 ![](media/guidance-elasticsearch-general-tribenode.png)
 
-**圖 5.** 透過部族節點存取多個叢集的用戶端應用程式
+**圖 5.**
+透過部族節點存取多個叢集的用戶端應用程式
 
 在此範例中，用戶端應用程式會連接至叢集 1 的部族節點 (共置於相同的區域中)，但此節點已設定為能夠存取可能位於不同區域的叢集 2 和叢集 3。用戶端應用程式可以傳送要求，以擷取或修改任何叢集中的資料。
 
@@ -284,13 +293,15 @@ Elasticsearch 會啟用數個部署拓撲，其設計用來支援不同的需求
 
 ![](media/guidance-elasticsearch-general-threenodecluster.png)
 
-**圖 6.** 包含 3 個分區和複本的 3 節點叢集
+**圖 6.**
+包含 3 個分區和複本的 3 節點叢集
 
 如果您在獨立的電腦上執行開發安裝，您可以設定包含單一節點的叢集，以做為主要、用戶端和資料儲存體。或者，您可以啟動一個以上的 Elasticsearch 執行個體，進而啟動在同部電腦上以叢集形式執行的多個節點。圖 7 顯示一個範例。
 
 ![](media/guidance-elasticsearch-general-developmentconfiguration.png)
 
-**圖 7.** 在同一部電腦上執行多個 Elasticsearch 節點的開發組態
+**圖 7.**
+在同一部電腦上執行多個 Elasticsearch 節點的開發組態
 
 請注意，除非您的開發電腦有大量記憶體和數個快速磁碟，否則不建議將這些獨立組態用於生產環境，因為它們可能會造成爭用情形。此外，它們並不提供任何高可用性保證；如果電腦失敗，所有節點都會遺失。
 
@@ -300,11 +311,18 @@ Elasticsearch 可以兩個維度調整：垂直方式 (使用愈大、功能愈�
 
 **垂直調整 Elasticsearch 資料節點**
 
-如果您使用 Azure VM 裝載 Elasticsearch 叢集，則每個節點均可對應至一部 VM。節點的垂直延展性限制主要由 VM 的 SKU 以及套用至個別儲存體帳戶和 Azure 訂用帳戶的整體限制所控管。[Azure 訂用帳戶和服務限制、配額和條件約束](azure-subscription-service-limits/)頁面會詳細描述這些限制，但是就建置 Elasticsearch 叢集而言，下列清單中的項目最為適當。此外，您或許不應考慮使用記憶體超過 64GB 的 VM (不需充足的理由)；如[記憶體需求][]一節所述，您不得將每部 VM 上超過 30GB 的 RAM 配置到 JVM 並允許作業系統利用剩餘的記憶體進行 I/O 緩衝： - 每個儲存體帳戶都受限於 - 20,000 IOPS；使用相同的儲存體帳戶來保存一些 VHD 可能會限制這些 VHD 的效能。 - VNET 中的資料節點數目。如果您不是使用 Azure 資源管理員 (ARM)，每個 VNET 的限制為 2048 個 VM 執行個體。雖然這應足以應付許多情況，如果您有包含數千個節點的超大型組態，這可能是一項限制。- 每個區域中每個訂用帳戶的儲存體帳戶數目。您可以為每個區域中的每個 Azure 訂用帳戶建立多達 100 個儲存體帳戶。儲存體帳戶用來保存虛擬磁碟，而每個儲存體帳戶的空間限制為 500TB。 - 每個訂用帳戶的核心數目。每個訂用帳戶的預設限制為 20 個核心，但是 Microsoft 可將此限制提高至 10,000 個核心。請記住，有些 VM 大小 (A9、A11、D14 和 DS14) 可以包含 16 個核心，而 G5 VM 有 32 個核心。 - 每個 VM 大小的記憶體數量。較小型 VM 可用的記憶體數量有限 (D1 電腦有 3.5GB，而 D2 電腦有 7GB)。這些機器可能不適合需要 Elasticsearch 快取大量資料以達到良好效能的案例 (例如，在資料擷取期間彙總資料，或分析大量的文件)。- 每個 VM 大小的磁碟數目上限。這項限制可以限制叢集的大小和效能。磁碟較少表示可以保存的資料較少，而較少的磁碟用於串接可能會降低效能。 - 每個可用性設定組的更新網域 / 容錯網域數目。如果您使用 ARM 建立 VM，則每個可用性設定組可以配置最多 3 個容錯網域和 20 個更新網域。這項限制可能會影響輪流更新很頻繁的大型叢集的恢復能力。
+如果您使用 Azure VM 裝載 Elasticsearch 叢集，則每個節點均可對應至一部 VM。節點的垂直延展性限制主要由 VM 的 SKU 以及套用至個別儲存體帳戶和 Azure 訂用帳戶的整體限制所控管。[Azure 訂用帳戶和服務限制、配額和條件約束](azure-subscription-service-limits/)頁面會詳細描述這些限制，但是就建置 Elasticsearch 叢集而言，下列清單中的項目最為適當。此外，您或許不應考慮使用記憶體超過 64GB 的 VM (不需充足的理由)；如[記憶體需求][]一節所述，您不得將每部 VM 上超過 30GB 的 RAM 配置到 JVM 並允許作業系統利用剩餘的記憶體進行 I/O 緩衝：
+- 每個儲存體帳戶都受限於 - 20,000 IOPS；使用相同的儲存體帳戶來保存一些 VHD 可能會限制這些 VHD 的效能。
+- VNET 中的資料節點數目。如果您不是使用 Azure 資源管理員 (ARM)，每個 VNET 的限制為 2048 個 VM 執行個體。雖然這應足以應付許多情況，如果您有包含數千個節點的超大型組態，這可能是一項限制。
+- 每個區域中每個訂用帳戶的儲存體帳戶數目。您可以為每個區域中的每個 Azure 訂用帳戶建立多達 100 個儲存體帳戶。儲存體帳戶用來保存虛擬磁碟，而每個儲存體帳戶的空間限制為 500TB。
+- 每個訂用帳戶的核心數目。每個訂用帳戶的預設限制為 20 個核心，但是 Microsoft 可將此限制提高至 10,000 個核心。請記住，有些 VM 大小 (A9、A11、D14 和 DS14) 可以包含 16 個核心，而 G5 VM 有 32 個核心。
+- 每個 VM 大小的記憶體數量。較小型 VM 可用的記憶體數量有限 (D1 電腦有 3.5GB，而 D2 電腦有 7GB)。這些機器可能不適合需要 Elasticsearch 快取大量資料以達到良好效能的案例 (例如，在資料擷取期間彙總資料，或分析大量的文件)。
+- 每個 VM 大小的磁碟數目上限。這項限制可以限制叢集的大小和效能。磁碟較少表示可以保存的資料較少，而較少的磁碟用於串接可能會降低效能。
+- 每個可用性設定組的更新網域 / 容錯網域數目。如果您使用 ARM 建立 VM，則每個可用性設定組可以配置最多 3 個容錯網域和 20 個更新網域。這項限制可能會影響輪流更新很頻繁的大型叢集的恢復能力。
 
 牢記這些限制，您應一律將叢集中 VM 的虛擬磁碟分散於儲存體帳戶，以降低 I/O 節流的機會。在極大型的叢集中，您可能需要重新設計您的邏輯基礎結構，並將它分割為個別的功能磁碟分割。例如，您可能需要將叢集分割於訂用帳戶，雖然此程序可能因為需要連接 VNET 而變得更加複雜。
 
->	[AZURE.NOTE] Be aware that with Azure, storage accounts are pinned to a specific storage stamp. This is an internal mechanism used to maintain consistency and availability. The paper [A Highly Available Cloud Storage Service with Strong Consistency][] provides more details on how this works. If you have a storage outage loca]lized to a specific stamp, you will get errors on all drives created using that account. When this occurs, any VMs using these drives may fail. Using multiple storage accounts to host the different drives for a VM can therefore increase the risk of failure for that VM. For this reason, it is recommended that you use a single storage account per node, and store the system drive and all data drives in that account.
+>	[AZURE.NOTE] 請注意在 Azure 中，儲存體帳戶會以特定的儲存體戳記釘選。這個內部機制用來維護一致性及可用性。本文件[具備強大一致性的高可用性雲端儲存體服務][]提供更多運作方式的詳細資料。如果儲存體中斷已當地語系化為特定戳記，使用該帳戶建立的所有裝置都會收到錯誤。如果發生這種情況，使用這些磁碟的所有 VM 都會失敗。使用多個儲存體帳戶為 VM 託管不同磁碟會增加該 VM 失敗的風險。因此，建議您在每個節點使用單一的儲存體帳戶，並在該帳戶中儲存系統磁碟和所有資料磁碟。
 
 **水平調整 Elasticsearch 叢集**
 
@@ -378,11 +396,19 @@ Elasticsearch 是一項網路服務。Elasticsearch 叢集中的節點會使用 
 
 用戶端對叢集提出的所有要求都應該經過驗證。此外，您應該防止未經授權的節點加入叢集，因為這些節點可能會略過驗證而提供進入系統的後門。
 
-Elasticsearch 外掛程式可用於執行不同類型的驗證，包括： - HTTP 基本驗證。每次驗證都包含使用者名稱和密碼。應使用 SSL/TLS 或同層級的保護來加密所有的要求。 - LDAP 和 Active Directory 整合。這個方法需要將 LDAP 或 AD 群組中的角色指派給用戶端。- 使用 Elasticsearch 叢集本身定義的身分識別進行的原生驗證。 - 叢集內用來驗證所有節點的 TLS 驗證。- IP 篩選，可防止未經授權的子網路進行連線，也可防止這些子網路的節點加入叢集。
+Elasticsearch 外掛程式可用於執行不同類型的驗證，包括：
+- HTTP 基本驗證。每次驗證都包含使用者名稱和密碼。應使用 SSL/TLS 或同層級的保護來加密所有的要求。
+- LDAP 和 Active Directory 整合。這個方法需要將 LDAP 或 AD 群組中的角色指派給用戶端。
+- 使用 Elasticsearch 叢集本身定義的身分識別進行的原生驗證。
+- 叢集內用來驗證所有節點的 TLS 驗證。
+- IP 篩選，可防止未經授權的子網路進行連線，也可防止這些子網路的節點加入叢集。
 
 ### 授權用戶端要求
 
-授權作業取決於用來提供這項服務的 Elasticsearch 外掛程式。例如，提供基本驗證的外掛程式通常會提供用來定義驗證層級的功能，而使用 LDAP 或 AD 的外掛程式通常會將用戶端與角色產生關聯，然後再指派存取權限給這些角色。使用任何指定的外掛程式時，您應該考慮下列幾點： - 您需要限制用戶端可以執行的作業嗎？ 例如，用戶端是否能夠監視叢集的狀態，或建立和刪除索引？- 用戶端應該受限於特定的索引？ 這在多租用戶的情況下很實用：租用戶可能會被指派自己的一組特定索引，而其他租用戶無法存取這些索引。 - 用戶端是否能夠讀取和寫入資料至索引？ 例如，用戶端可以執行使用索引來擷取資料的搜尋，但必須避免在該索引中新增或刪除資料。
+授權作業取決於用來提供這項服務的 Elasticsearch 外掛程式。例如，提供基本驗證的外掛程式通常會提供用來定義驗證層級的功能，而使用 LDAP 或 AD 的外掛程式通常會將用戶端與角色產生關聯，然後再指派存取權限給這些角色。使用任何指定的外掛程式時，您應該考慮下列幾點：
+- 您需要限制用戶端可以執行的作業嗎？ 例如，用戶端是否能夠監視叢集的狀態，或建立和刪除索引？
+- 用戶端應該受限於特定的索引？ 這在多租用戶的情況下很實用：租用戶可能會被指派自己的一組特定索引，而其他租用戶無法存取這些索引。
+- 用戶端是否能夠讀取和寫入資料至索引？ 例如，用戶端可以執行使用索引來擷取資料的搜尋，但必須避免在該索引中新增或刪除資料。
 
 目前，大部分的安全性外掛程式將作業的範圍限定於叢集或索引層級，而不是索引內的文件子集。這是基於效率考量。因此，要將要求限制為單一索引內的特定文件並不容易。如果您需要這個層級的資料粒度，請在個別的索引中儲存文件，並使用將索引群組在一起的別名。例如，在個人系統中，如果使用者 A 需要存取含有 X 部門員工相關資訊的所有文件，使用者 B 需要存取含有 Y 部門員工相關資訊的所有文件，而 C 使用者需要存取含有這兩個部門員工相關資訊的所有文件，請建立兩個索引 (針對 X 部門和 Y 部門) 以及可參考這兩個索引的別名。授與使用者 A 讀取第一個索引的權限，授與使用者 B 讀取第二個索引的權限，以及授與使用者 C 透過別名讀取這兩個索引的權限。如需詳細資訊，請參閱[利用別名來假造每個使用者的索引][]。
 
@@ -415,7 +441,8 @@ Elasticsearch 外掛程式可用於執行不同類型的驗證，包括： - HTT
 
 ### 保護資料
 
-您可以使用 SSL/TLS 來保護傳遞中的資料，但是對於磁碟上儲存的資訊，Elasticsearch 並不提供任何內建形式的資料加密功能。請記住，此資訊會保存在一般磁碟檔案中，而任何可存取這些檔案的使用者都可能會危害其中保存的資料，例如將檔案複製到自己的叢集。請考慮下列幾點：- 保護 Elasticsearch 用來保存資料的檔案。不允許 Elasticsearch 服務以外的項目任意讀取或寫入身分識別。
+您可以使用 SSL/TLS 來保護傳遞中的資料，但是對於磁碟上儲存的資訊，Elasticsearch 並不提供任何內建形式的資料加密功能。請記住，此資訊會保存在一般磁碟檔案中，而任何可存取這些檔案的使用者都可能會危害其中保存的資料，例如將檔案複製到自己的叢集。請考慮下列幾點：
+- 保護 Elasticsearch 用來保存資料的檔案。不允許 Elasticsearch 服務以外的項目任意讀取或寫入身分識別。
 
 - 使用加密檔案系統，加密這些檔案中保存的資料。
 
@@ -434,9 +461,9 @@ Elasticsearch 外掛程式可用於執行不同類型的驗證，包括： - HTT
 
 作業系統層級和 Elasticsearch 層級的監視都很重要。
 
-您可以使用作業系統特有的工具，在作業系統層級執行監視。在 Windows 中，這包括具有適當效能計數器的「效能監視器」等項目，而在 Linux 中，您可以使用 *vmstat*、*iostat* 和 *top* 等工具。要在作業系統層級監視的主要項目包括 CPU 使用率、磁碟 I/O 數量、磁碟 I/O 等候時間、網路流量。在精心調整的 Elasticsearch 叢集中，Elasticsearch 程序的 CPU 使用率應該很高，而磁碟 I/O 等候時間應該很小。
+您可以使用作業系統特有的工具，在作業系統層級執行監視。在 Windows 中，這包括具有適當效能計數器的「效能監視器」等項目，而在 Linux 中，您可以使用 *vmstat* 、 *iostat* 和 *top* 等工具。要在作業系統層級監視的主要項目包括 CPU 使用率、磁碟 I/O 數量、磁碟 I/O 等候時間、網路流量。在精心調整的 Elasticsearch 叢集中，Elasticsearch 程序的 CPU 使用率應該很高，而磁碟 I/O 等候時間應該很小。
 
-在軟體層級，您應該監視要求的輸送量和回應時間，以及失敗的要求詳細資料。Elasticsearch 提供數個 API，您可用來檢查叢集的各層面效能。最重要的兩個 API 是 *\_cluster/health* 和 *\_nodes/stats*。*\_cluster/health* API 可用來提供叢集整體健康狀態的快照，以及提供每個索引的詳細資訊，如下列範例所示：
+在軟體層級，您應該監視要求的輸送量和回應時間，以及失敗的要求詳細資料。Elasticsearch 提供數個 API，您可用來檢查叢集的各層面效能。最重要的兩個 API 是 *\_cluster/health* 和 *\_nodes/stats* 。 *\_cluster/health* API 可用來提供叢集整體健康狀態的快照，以及提供每個索引的詳細資訊，如下列範例所示：
 
 `GET _cluster/health?level=indices`
 
@@ -482,7 +509,8 @@ Elasticsearch 外掛程式可用於執行不同類型的驗證，包括： - HTT
 }
 ```
 
-此叢集包含名為 *systwo* 和 *sysfour* 的兩個索引。要針對每個索引監視的主要統計資料為狀態、active\_shards 和 unassigned\_shards。狀態應為綠色、active\_shards 數目應反映 number\_of\_shards 和 number\_of\_replicas，而 unassigned\_shards 應為零。如果狀態是「紅色」，則有一部分的索引遺失或損毀。如果 *active\_shards* 設定小於 *number\_of\_shards* - (*number\_of\_replicas* + 1) 且 unassigned\_shards 不為零，您可以驗證此狀態。請注意，黃色狀態表示索引處於過渡狀態，這是新增更多複本或正在重置分區的結果。轉換完成時，狀態應會切換為綠色。如果狀態停留在黃色的時間延長或變更為紅色，您應該查看作業系統層級是否發生任何重要的 I/O 事件 (例如磁碟或網路失敗)。\_nodes/stats API 會發出有關叢集中各節點的廣泛資訊：
+此叢集包含名為 *systwo* 和 *sysfour* 的兩個索引。要針對每個索引監視的主要統計資料為狀態、active\_shards 和 unassigned\_shards。狀態應為綠色、active\_shards 數目應反映 number\_of\_shards 和 number\_of\_replicas，而 unassigned\_shards 應為零。如果狀態是「紅色」，則有一部分的索引遺失或損毀。如果 *active\_shards* 設定小於 *number\_of\_shards* - (*number\_of\_replicas* + 1) 且 unassigned\_shards 不為零，您可以驗證此狀態。請注意，黃色狀態表示索引處於過渡狀態，這是新增更多複本或正在重置分區的結果。轉換完成時，狀態應會切換為綠色。如果狀態停留在黃色的時間延長或變更為紅色，您應該查看作業系統層級是否發生任何重要的 I/O 事件 (例如磁碟或網路失敗)。
+\_nodes/stats API 會發出有關叢集中各節點的廣泛資訊：
 
 `GET _nodes/stats`
 
@@ -527,6 +555,7 @@ JMeter 用來執行本指導方針相關文件中所述的效能評定和其他�
 [查詢微調]: #query-tuning
 
 [A Highly Available Cloud Storage Service with Strong Consistency]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx
+[具備強大一致性的高可用性雲端儲存體服務]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx
 [Azure 雲端外掛程式]: https://www.elastic.co/blog/azure-cloud-plugin-for-elasticsearch
 [Azure 入口網站的 Azure 診斷]: https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/
 [Azure Operations Management Suite]: https://www.microsoft.com/server-cloud/operations-management-suite/overview.aspx

@@ -411,7 +411,7 @@ DocumentDB 是 JSON 文件的 NoSQL 存放區 (允許巢狀結構)。Azure Data 
 
 	**回：**如果記錄有 [識別碼] 欄位，而複製作業嘗試插入具有相同識別碼的記錄，則複製作業會擲回錯誤。
  
-3. **問：**資料處理站支援[範圍或雜湊式資料分割](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)嗎？
+3. **問：**資料處理站支援[範圍或雜湊式資料分割]( https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)嗎？
 
 	**答：**否。 
 4. **問：**我可以指定多個資料表 DocumentDB 集合嗎？
@@ -419,4 +419,4 @@ DocumentDB 是 JSON 文件的 NoSQL 存放區 (允許巢狀結構)。Azure Data 
 	**回：**否。目前只能指定一個集合。
      
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

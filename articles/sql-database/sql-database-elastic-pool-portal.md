@@ -43,7 +43,7 @@
 
 1. 在 [Azure 入口網站](http://portal.azure.com/)中，按一下 [SQL Server]。
 2. 選取含有您要加入集區之資料庫的伺服器。
-3. 按一下 [新增集區] (或如果您看到訊息說明有建議的集區，請按一下該集區，即可輕鬆地檢閱並建立最適合您的伺服器資料庫的集區)。有關建議的其他詳細資料如下所示。
+3. 按一下 [新增集區] \(或如果您看到訊息說明有建議的集區，請按一下該集區，即可輕鬆地檢閱並建立最適合您的伺服器資料庫的集區)。有關建議的其他詳細資料如下所示。
 
 
     ![將集區加入伺服器](./media/sql-database-elastic-pool-portal/new-pool.png)
@@ -204,4 +204,4 @@ SQL Database 服務會評估使用量歷程記錄，並在比使用單一資料�
 [7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
 [10]: ./media/sql-database-elastic-pool-portal/star.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

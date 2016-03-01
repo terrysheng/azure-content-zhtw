@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/09/2016"
+   ms.date="02/23/2016"
    ms.author="terrylan"/>
 
 # 管理 Azure 資訊安全中心的安全性建議
@@ -38,7 +38,7 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 - 開啟資料收集。
 - 選擇要在您的安全性原則中看見的建議。
 
-目前的原則建議是以系統更新、基準規則、反惡意程式碼程式、[端點的 ACL](../virtual-machines/virtual-machines-set-up-endpoints.md)、子網路與網路介面上的[網路安全性群組](../virtual-networks/virtual-networks-nsg.md)、SQL Database 稽核、SQL Database 透明資料加密及 Web 應用程式防火牆為中心。[設定安全性原則](security-center-policies.md)提供每個建議選項的描述。
+目前的原則建議是以系統更新、基準規則、反惡意程式碼程式、[端點的 ACL](../virtual-machines/virtual-machines-set-up-endpoints.md)、子網路與網路介面上的[網路安全性群組](../virtual-network/virtual-networks-nsg.md)、SQL Database 稽核、SQL Database 透明資料加密及 Web 應用程式防火牆為中心。[設定安全性原則](security-center-policies.md)提供每個建議選項的描述。
 
 ### 監視建議
 設定安全性原則之後，「資訊安全中心」會分析您資源的安全性狀態，以識別潛在的弱點。[資訊安全中心] 刀鋒視窗上的 [建議] 磚可讓您知道資訊安全中心所識別出的建議總數量。
@@ -62,17 +62,19 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
     - **中**：有弱點存在，需要非關鍵性步驟或其他步驟才能將其消除或完成程序。
     - **低**：應該處理但不需要立即注意的弱點存在。(預設不會顯示嚴重性低的建議，但是如果您要查看它們，則可以篩選嚴重性低的建議。)
 
-請使用下表做為參考，以協助您了解可用的建議，以及如果套用建議，每一個建議將產生的作用：
+請使用下表做為參考，以協助您了解可用的建議，以及如果套用建議，每一個建議將產生的作用。
+
+> [AZURE.NOTE] 您會想要了解 Azure 資源的[傳統和資源管理員部署模型](../azure-classic-rm.md)。
 
 |建議|說明|
 |-----|-----|
 |啟用訂用帳戶/虛擬機器的資料收集|建議您為每個訂用帳戶或特定 VM 開啟安全性原則中的 [資料收集]。|
 |解決不相符基準規則|建議您讓作業系統組態符合建議的基準，例如不允許儲存密碼。|
 |套用系統更新|建議您將遺漏的系統安全性與重大更新部署到 VM (僅適用於 Windows VM)。|
-|設定端點的 ACL|建議您設定存取控制清單來限制對 VM 的輸入存取 (僅適用於傳統 VM)。|
-|新增 Web 應用程式防火牆|建議您為 Web 端點 (僅適用於「資源管理員 VM」) 部署「Web 應用程式防火牆」(WAF)。|
+|設定端點的 ACL|建議您設定存取控制清單來限制對 VM 的輸入存取 (僅適用於傳統)。|
+|[新增 Web 應用程式防火牆](security-center-add-web-application-firewall.md)|建議您為 Web 端點部署「Web 應用程式防火牆」(WAF)。自動佈建程序是以部署至個別 VNet 的 WAF 封裝 (使用資源管理員部署模型所建立) 為基礎。VM (傳統) 上受保護 Web 應用程式的存取權受限於只使用 NSG 的 WAF 應用裝置。這項支援在未來將會延伸至 WAF 封裝 (傳統) 的完全自訂部署。|
 |完成 Web 應用程式防火牆設定|若要完成 WAF 組態，必須將流量重新路由至 WAF 設備。遵循這項建議會完成必要的設定變更。|
-|啟用反惡意程式碼|建議您將反惡意程式碼程式佈建到 VM (僅適用於 Windows VM)。|
+|[啟用反惡意程式碼](security-center-enable-antimalware.md)|建議您將反惡意程式碼程式佈建到 VM (僅適用於 Windows VM)。|
 |啟用子網路/網路介面上的網路安全性群組|建議您啟用子網路和網路介面上的網路安全性群組 (NSG) (僅適用於「資源管理員 VM」)。|
 |限制透過公用外部端點的存取|建議您為 NSG 設定輸入流量規則。|
 |啟用伺服器 SQL 稽核|建議您針對 Azure SQL 伺服器開啟稽核 (僅適用於 Azure SQL 服務，不包括在您虛擬機器上執行的 SQL)。|
@@ -101,35 +103,17 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 4. 將會顯示反惡意程式碼解決方案的其他相關資訊。選取 [**建立**]。
 5. 在 [加入擴充功能] 刀鋒視窗上輸入必要的組態設定，然後選取 [確定]。![][6]
 
-[Microsoft Antimalware](../azure-security/azure-security-antimalware.md) 現在已在選取的虛擬機器上使用。
+[Microsoft Antimalware](../azure-security-antimalware.md) 現在已在選取的虛擬機器上使用。
 
-### 部署建議的合作夥伴解決方案
-
-您可能取得的另一個建議是部署來自 Microsoft 合作夥伴的整合式安全性解決方案。讓我們逐步解說有關如何進行這項操作的範例。
-
-1. 返回 [建議] 刀鋒視窗。
-2.	選取 [使用 Web 應用程式防火牆保護 Web 應用程式] 建議。這會開啟 [未受保護的 Web 應用程式] 刀鋒視窗。![][7]
-3. 選取 Web 應用程式，將會開啟 [加入 Web 應用程式防火牆] 刀鋒視窗。
-4. 選取 [Barracuda Web 應用程式防火牆]。即會開啟提供 [Barracuda Web 應用程式防火牆] 相關資訊的刀鋒視窗。
-5. 按一下資訊刀鋒視窗中的 [建立]。即會開啟 [新增 Web 應用程式防火牆] 刀鋒視窗，您可以在此視窗中執行 [VM 組態] 步驟並提供 [WAF 資訊]。
-6. 選取 [VM 組態]。在 [VM 組態] 刀鋒視窗中，輸入啟動將執行 WAF 的虛擬機器所需的資訊。![][8]
-7. 返回 [新增 Web 應用程式防火牆] 刀鋒視窗，然後選取 [WAF 資訊]。在 [WAF 資訊] 刀鋒視窗中，設定 WAF 本身。步驟 6 可讓您設定將執行 WAF 的虛擬機器，而步驟 7 則可讓您佈建 WAF 本身。
-
-8. 返回 [建議] 刀鋒視窗。在您建立 WAF 之後會產生一個新項目，稱為 [完成 Web 應用程式防火牆設定]。此項目可讓您知道您需要完成實際串聯起 Azure 虛擬網路內 WAF 的程序，讓它可以保護應用程式。![][9]
-
-9. 選取 [完成 Web 應用程式防火牆設定]。此時會開啟新的分頁。您會看到有一個需要重新路由流量的 Web 應用程式。
-10. 選取 Web 應用程式。將會開啟一個刀鋒視窗，其中提供完成 Web 應用程式防火牆設定的步驟。完成這些步驟，然後按一下 [限制流量]。資訊安全中心會為您進行串聯。![][10]
-
-現在已將來自該 WAF 的記錄完全整合。「資訊安全中心」可以開始自動收集並分析記錄，以便對您顯示重要的安全性警示。
 
 ## 後續步驟
 在本文件中，已向您介紹「資訊安全中心」的安全性建議。如要深入了解資訊安全中心，請參閱下列主題：
 
 - [設定 Azure 資訊安全中心的安全性原則](security-center-policies.md) -- 了解如何設定安全性原則。
-- [Azure 資訊安全中心的安全性健康情況監視](security-center-monitoring.md) -- 了解如何監視 Azure 資源的健康情況。
+- [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) -- 了解如何監視 Azure 資源的健全狀況。
 - [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) -- 了解如何管理與回應安全性警示。
 - [Azure 資訊安全中心常見問題集](security-center-faq.md) -- 尋找在使用服務時經常會遇到的問題。
-- [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) -- 尋找有關 Azure 安全性與相容性的部落格文章。
+- [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) -- 尋找有關 Azure 安全性與法規遵循的部落格文章。
 
 <!--Image references-->
 [2]: ./media/security-center-recommendations/recommendations-tile.png
@@ -137,9 +121,5 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 [4]: ./media/security-center-recommendations/dismiss-recommendations.png
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
-[7]: ./media/security-center-recommendations/secure-web-application.png
-[8]: ./media/security-center-recommendations/vm-configuration.png
-[9]: ./media/security-center-recommendations/finalize-waf.png
-[10]: ./media/security-center-recommendations/restrict-traffic.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

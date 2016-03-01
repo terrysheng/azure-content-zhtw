@@ -17,7 +17,10 @@
 	ms.author="heidist"/>
 
 # 開始在 .NET 中建立第一個 Azure 搜尋服務應用程式
-
+> [AZURE.SELECTOR]
+- [.NET](search-get-started-dotnet.md)
+- [Portal](search-get-started-portal.md)
+ 
 了解如何在 Visual Studio 2013 或更高版本中建置自訂 .NET 搜尋應用程式，並使用 Azure 搜尋服務提供搜尋體驗。本教學課程使用 [Azure 搜尋服務 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) 和 Azure 搜尋服務 REST API。
 
 若要執行此範例，必須要有 Azure 搜尋服務，您才可以在 [Azure 入口網站](https://portal.azure.com)註冊該服務。如需逐步指示，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
@@ -93,7 +96,7 @@
 
 每個專案都包含指定服務名稱和 API 金鑰的組態檔案。
 
-1. 在 **DataIndexer** 中，將 App.config 替換為以下範例，然後以適用您服務的有效值更新 [SERVICE NAME] 和 [SERVICE KEY]。請注意，服務名稱不是完整的 URL。例如，如果搜尋服務端點為 *https://mysearchsrv.search.microsoft.net* ，則您要於 App.config 中輸入的服務名稱為 *mysearchsrv* 。
+1. 在 **DataIndexer** 中，將 App.config 替換為以下範例，然後以適用您服務的有效值更新 [SERVICE NAME] 和 [SERVICE KEY]。請注意，服務名稱不是完整的 URL。例如，如果搜尋服務端點為 **https://mysearchsrv.search.microsoft.net*，則您要於 App.config 中輸入的服務名稱為 *mysearchsrv*。
 
 		<?xml version="1.0" encoding="utf-8" ?>
 		<configuration>
@@ -671,4 +674,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

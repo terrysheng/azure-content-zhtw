@@ -12,8 +12,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.topic="get-started-article" 
+	ms.date="02/18/2016" 
 	ms.author="billmath"/>
 
 # IIS 驗證
@@ -76,4 +76,4 @@ Azure Multi-Factor Authentication Server 的 [IIS 驗證] 區段可讓您啟用�
 3. 當 [新增信任的 IP] 對話方塊出現時，請選取 [單一 IP]、[IP 範圍] 或 [子網路] 選項按鈕。
 4. 輸入應列入白名單中的 IP 位址、IP 位址範圍或子網路。如果輸入子網路，請選取適當的網路遮罩，然後按一下 [確定] 按鈕。現已加入白名單。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

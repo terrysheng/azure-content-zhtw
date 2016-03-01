@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="spelluru"
 	manager="jhubbard"
-	editor="monicar"/>
+	editor="monicar"
+/>
 
 <tags
 	ms.service="data-factory"
@@ -43,6 +44,8 @@
 	3. 執行 **Select-AzureSubscription** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在 Azure 入口網站中使用的相同。
 4. 切換至 AzureResourceManager 模式，因為 Azure Data Factory Cmdlet 可在此模式中使用：**Switch-AzureMode AzureResourceManager**。
 
+如需詳細資訊，請參閱[淘汰 Azure PowerShell 中的 Switch AzureMode](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)。
+
 
 ## 步驟 1：建立 Data Factory
 
@@ -73,7 +76,7 @@
 ### 建立 Azure 儲存體連結服務
 在此步驟中，您將您的 Azure 儲存體帳戶連結到您的 Data Factory。在本教學課程中，您會使用相同的 Azure 儲存體帳戶來存放輸入/輸出資料及 HQL 指令碼檔案。
 
-1. 在 C:\ADFGetStarted 資料夾中，使用以下內容建立名為 StorageLinkedService.json 的 JSON 檔案。如果不存在，請建立 ADFGetStarted 資料夾。
+1. 在 C:\\ADFGetStarted 資料夾中，使用以下內容建立名為 StorageLinkedService.json 的 JSON 檔案。如果不存在，請建立 ADFGetStarted 資料夾。
 
 		{
 	    	"name": "StorageLinkedService",
@@ -106,7 +109,7 @@
 ### 建立 Azure HDInsight 連結服務
 在此步驟中，您會將隨選 HDInsight 叢集與您的 Data Factory 連結。HDInsight 叢集會在執行階段自動建立，並在處理完成之後刪除，且會閒置一段時間。您可以使用自己的 HDInsight 叢集，不必使用隨選的 HDInsight 叢集。請參閱[計算連結服務](data-factory-compute-linked-services.md)以取得詳細資料。
 
-1. 在 **C:\ADFGetStarted** 資料夾中，使用以下內容建立名為 **HDInsightOnDemandLinkedService**.json 的 JSON 檔案。
+1. 在 **C:\\ADFGetStarted** 資料夾中，使用以下內容建立名為 **HDInsightOnDemandLinkedService**.json 的 JSON 檔案。
 
 		{
 		  "name": "HDInsightOnDemandLinkedService",
@@ -136,7 +139,7 @@
 	- 您可以使用**自己的 HDInsight 叢集**，不必使用隨選的 HDInsight 叢集。如需詳細資訊，請參閱 [HDInsight 連結服務](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)。
 	- HDInsight 叢集會在您於 JSON 中指定的 Blob 儲存體 (**linkedServiceName**) 建立**預設容器**。HDInsight 不會在刪除叢集時刪除此容器。原先的設計就是如此。在使用 HDInsight 隨選連結服務時，除非有現有的即時叢集 (**timeToLive**)，否則每當需要處理配量時，就會建立 HDInsight 叢集，並在處理完成時予以刪除。
 	
-		隨著處理的配量越來越多，您會在 Azure Blob 儲存體中看到許多容器。如果在疑難排解作業時不需要這些容器，您可能會想要刪除它們以降低儲存成本。這些容器的名稱遵循下列模式："adf**yourdatafactoryname**-**linkedservicename**-datetimestamp"。請使用 [Microsoft 儲存體總管](http://storageexplorer.com/)之類的工具刪除 Azure Blob 儲存體中的容器。
+		隨著處理的配量越來越多，您會在 Azure Blob 儲存體中看到許多容器。如果在疑難排解作業時不需要這些容器，建議您加以刪除以降低儲存成本。這些容器的名稱遵循下列模式："adf**yourdatafactoryname**-**linkedservicename**-datetimestamp"。請使用 [Microsoft 儲存體總管](http://storageexplorer.com/)之類的工具刪除 Azure Blob 儲存體中的容器。
 
 	如需詳細資訊，請參閱 [HDInsight 隨選連結服務](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。 
 2. 執行 **New-AzureRmDataFactoryLinkedService** Cmdlet 建立名為 HDInsightOnDemandLinkedServiceHDInsightOnDemandLinkedService 的連結服務。
@@ -148,7 +151,7 @@
 在此步驟中，您將建立資料集來代表 Hive 處理的輸入和輸出資料。這些資料集是您稍早在本教學課程中建立的 **StorageLinkedService**。連結的服務會指向 Azure 儲存體帳戶，而資料集則會指定保留輸入和輸出資料儲存體中的容器、資料夾和檔案名稱。
 
 ### 建立輸入資料集
-1. 在 **C:\ADFGetStarted** 資料夾中，使用下列內容建立名為 **InputTable.json** 的 JSON 檔案：
+1. 在 **C:\\ADFGetStarted** 資料夾中，使用下列內容建立名為 **InputTable.json** 的 JSON 檔案：
 
 		{
 			"name": "AzureBlobInput",
@@ -193,7 +196,7 @@
 ### 建立輸出資料集
 現在，您將建立輸出資料集來代表 Azure Blob 儲存體中儲存的輸出資料。
 
-1. 在 **C:\ADFGetStarted** 資料夾中，使用下列內容建立名為 **OutputTable.json** 的 JSON 檔案：
+1. 在 **C:\\ADFGetStarted** 資料夾中，使用下列內容建立名為 **OutputTable.json** 的 JSON 檔案：
 
 		{
 		  "name": "AzureBlobOutput",
@@ -224,7 +227,7 @@
 在此步驟中，您將建立第一個具有 **HDInsightHive** 活動的管線。請注意，您每個月都可取得輸入配量資訊 (頻率：每月，間隔：1)，輸出配量則是每用產生，而活動的排程器屬性也設為每用 (如下所示)。輸出資料集設定及活動排程器必須相符。這時，輸出資料集會影響排程，因此即使活動並未產生任何輸出，您都必須建立輸出資料集。如果活動沒有任何輸入，您可以略過建立輸入資料集。本節結尾會說明下列 JSON 中使用的屬性。
 
 
-1. 在 C:\ADFGetStarted 資料夾中，使用下列內容建立名為 MyFirstPipelinePSH.json 的 JSON 檔案：
+1. 在 C:\\ADFGetStarted 資料夾中，使用下列內容建立名為 MyFirstPipelinePSH.json 的 JSON 檔案：
 
 	> [AZURE.IMPORTANT] 在 JSON 中使用您的儲存體帳戶名稱取代 **storageaccountname**。
 		
@@ -351,4 +354,4 @@
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

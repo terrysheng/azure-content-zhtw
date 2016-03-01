@@ -40,7 +40,7 @@ Batch 很適合處理本質平行 (也稱為「超簡單平行」) 的應用程�
 * 工程壓力分析
 * 軟體測試
 
-Batch 也可以執行平行計算 (最後加上歸納步驟)，以及執行更複雜的 HPC 工作負載，例如訊息傳遞介面 (MPI) 應用程式。
+Batch 也可以執行平行計算 (最後加上歸納步驟)，以及執行更複雜的 HPC 工作負載，例如[訊息傳遞介面 (MPI)](batch-mpi.md) 應用程式。
 
 如需 Batch 與 Azure 中其他 HPC 解決方案選項的比較，請參閱 [Batch 和 HPC 解決方案](batch-hpc-solutions.md)。
 
@@ -56,7 +56,7 @@ Batch 也可以執行平行計算 (最後加上歸納步驟)，以及執行更�
 
 當您開發 Batch 解決方案時，您將在 Microsoft Azure 中使用下列帳戶。
 
-- **Azure 帳戶和訂用帳戶** - 如果您沒有 Azure 帳戶，您可以啟用 [MSDN 訂戶權益][msdn_benefits]，或是註冊[免費試用][free_trial]。當您建立帳戶時，將會為您建立預設訂用帳戶。
+- **Azure 帳戶和訂用帳戶** - 如果您沒有 Azure 訂用帳戶，您可以啟用 [MSDN 訂戶權益][msdn_benefits]，或是註冊[免費 Azure 帳戶][free_account]。當您建立帳戶時，將會為您建立預設訂用帳戶。
 
 - **Batch 帳戶** - 當您的應用程式與 Batch 服務互動時，可以使用帳戶名稱、帳戶的 URL 及存取金鑰做為認證。所有 Batch 資源 (如集區、計算節點、作業和工作) 都與 Batch 帳戶相關聯。您可以在 Azure 入口網站中[建立和管理 Batch 帳戶](batch-account-create-portal.md)。
 
@@ -127,7 +127,7 @@ Batch 也可以執行平行計算 (最後加上歸納步驟)，以及執行更�
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [data_factory]: https://azure.microsoft.com/documentation/services/data-factory/
-[free_trial]: https://azure.microsoft.com/pricing/free-trial/
+[free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
@@ -136,4 +136,4 @@ Batch 也可以執行平行計算 (最後加上歸納步驟)，以及執行更�
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

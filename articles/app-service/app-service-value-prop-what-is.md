@@ -13,7 +13,7 @@
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="01/05/2016" 
 	ms.author="omark"/>
 
@@ -50,7 +50,7 @@ Azure 應用程式著重於 Web 和行動應用程式的快速開發以及商務
 做為單一的整合式服務，App Service 可讓您輕鬆地將上述應用程式類型撰寫成單一方案，進而建置以使用相同後端的 Web 和行動用戶端為目標的應用程式，同時與內部部署系統和常用服務 (例如 Office 365 和 salesforce.com) 整合。
 
 ### App Service 方案
-應用程式服務計劃代表一組您可以在應用程式之間共用的特性和功能。應用程式服務計劃支援一些價格層 (例如，免費、共用、基本、標準及進階)，每一層都有它自己的功能。您可以快速變更要由哪個應用程式服務計劃主控某個應用程式，不需要停止運作。[深入了解應用程式服務計劃](../web-sites-web-hosting-plan-overview.md)。
+應用程式服務計劃代表一組您可以在應用程式之間共用的特性和功能。應用程式服務計劃支援一些價格層 (例如，免費、共用、基本、標準及進階)，每一層都有它自己的功能。您可以快速變更要由哪個應用程式服務計劃主控某個應用程式，不需要停止運作。[深入了解應用程式服務計劃](azure-web-sites-web-hosting-plans-in-depth-overview.md)。
 
 ##開始使用應用程式服務
 想體驗一下嗎？ 短短幾秒即可開始。
@@ -60,4 +60,4 @@ Azure 應用程式著重於 Web 和行動應用程式的快速開發以及商務
 立即免費[建立新的應用程式](http://go.microsoft.com/fwlink/?LinkId=523751)。不需要信用卡，無需承諾和繁複程序。
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

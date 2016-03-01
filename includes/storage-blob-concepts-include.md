@@ -1,4 +1,4 @@
-## 什麼是 Blob 儲存體
+## 什麼是 Blob 儲存體？
 
 Azure Blob 儲存體是一項儲存大量非結構化資料的服務 (例如文字或二進位資料)，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。您可以使用 Blob 儲存體向全球公開資料，或私下儲存應用程式資料。
 
@@ -69,4 +69,4 @@ Blob 服務是以一般儲存體配置為根據。您可以透過在 Blob 名稱
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

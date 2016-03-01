@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/08/2016"
+   ms.date="02/12/2016"
    ms.author="cherylmc"/>
 
 
@@ -118,7 +118,7 @@ ExpressRoute 不能設定為傳輸路由器。您必須依賴連線提供者的�
 
 Microsoft 會以適當的 BGP 社群值標記透過公用對等互連和 Microsoft 對等互連公告的前置詞，表示前置詞裝載於的區域。您可以依賴社群值來做出適當的路由決策，以提供最佳路由給客戶。
 
-| **地緣政治區域** | **Microsoft Azure 區域 (同樣適用於 Office 365)** | **BGP 社群值** |
+| **地緣政治區域** | **Microsoft Azure 區域** | **BGP 社群值** |
 |---|---|---|
 | **北美洲** | | |
 | | 美國東部 | 12076:51004 |
@@ -174,4 +174,4 @@ Microsoft 不接受任何您所設定的 BGP 社群值。您必須為每個對�
 	- [設定傳統部署模型的路由](expressroute-howto-routing-classic.md)或[設定資源管理員部署模型的路由](expressroute-howto-routing-arm.md)
 	- [將傳統 VNet 連結至 ExpressRoute 電路](expressroute-howto-linkvnet-classic.md)或[將資源管理員 VNet 連結至 ExpressRoute 電路](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

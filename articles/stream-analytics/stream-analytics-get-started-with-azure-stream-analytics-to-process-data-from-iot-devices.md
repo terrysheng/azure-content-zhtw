@@ -11,7 +11,7 @@
 <tags 
 	ms.service="stream-analytics" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
 	ms.date="02/11/2016"
@@ -119,4 +119,4 @@ Contoso 是一家工業自動化空間的製造公司，他們已完全自動化
 
 本教學課程基本上可協助您開始撰寫不同的 SAQL 查詢，並且在瀏覽器中查看不同模式資料的結果。但是，這只是剛開始。您還可以使用串流分析執行更多功能。接下來您將學習將串流分析作業連接至輸入和輸出，並且將它部署至 Azure。您可以使用我們的[學習圖](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)指南開始探索更多串流分析，如需撰寫查詢的詳細資訊，請閱讀[常見查詢模式](./stream-analytics-stream-analytics-query-patterns.md#query-example-detect-the-absence-of-events)上的文章。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

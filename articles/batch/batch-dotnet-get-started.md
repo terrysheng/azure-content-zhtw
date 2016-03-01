@@ -28,9 +28,9 @@
 
 ### 帳戶
 
-- **Azure 訂用帳戶** -- 如果您沒有 Azure 訂用帳戶，只需幾分鐘就可以在 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)建立免費試用帳戶。
+- **Azure 訂用帳戶** -- 如果您沒有 Azure 訂用帳戶，可以[建立免費 Azure 帳戶][azure_free_account]。
 - **Batch 帳戶** -- 擁有 Azure 訂用帳戶後，請[建立和管理 Azure Batch 帳戶](batch-account-create-portal.md)。
-- **儲存體帳戶** -- 請參閱 [關於 Azure 儲存體帳戶](../storage-create-storage-account.md)中的「建立儲存體帳戶」一節。
+- **儲存體帳戶** -- 請參閱 [關於 Azure 儲存體帳戶](./../storage/storage-create-storage-account.md)中的「建立儲存體帳戶」一節。
 
 ### Visual Studio
 
@@ -626,6 +626,7 @@ Sample complete, hit ENTER to exit...
 - 使用 [TopNWords][github_topnwords] 範例，查看處理「前 N 個單字」工作負載的不同實作方式。
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
+[azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
 [batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
@@ -680,4 +681,4 @@ Sample complete, hit ENTER to exit...
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "入口網站中的儲存體認證"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Batch 方案工作流程 (最小圖表)"
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

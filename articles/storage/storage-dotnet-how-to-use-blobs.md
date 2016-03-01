@@ -25,7 +25,13 @@
 
 Azure Blob 儲存體是用來在雲端中儲存檔案資料的服務。Blob 儲存體可以儲存任何類型的文字或二進位資料，例如文件、媒體檔案或應用程式安裝程式。Blob 儲存體有時稱為物件儲存體。
 
-本教學課程說明如何使用 Azure Blob 儲存體撰寫一些常見案例的 .NET 程式碼。所涵蓋的案例包括上傳、列出、下載及刪除 Blob。本教學課程不用一小時即可完成。
+### 關於本教學課程
+
+本教學課程說明如何使用 Azure Blob 儲存體撰寫一些常見案例的 .NET 程式碼。所涵蓋的案例包括上傳、列出、下載及刪除 Blob。
+
+**預估完成時間：**45 分鐘
+
+**先決條件：**
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -353,9 +359,9 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 - [開始使用適用於 .NET 的資料表儲存體](storage-dotnet-how-to-use-tables.md)
 - [開始使用適用於 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)
 - [開始使用適用於 .NET 的檔案儲存體](storage-dotnet-how-to-use-files.md)
-- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
-- [如何在 .NET 應用程式中使用 Azure SQL Database](../sql-database/sql-database-dotnet-how-to-use.md)
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
 - [如何透過 WebJobs SDK 使用 Azure Blob 儲存體 (英文)](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+- [從 .NET (C#) 使用 SQL Database](../sql-database/sql-database-dotnet-how-to-use.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -368,4 +374,4 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # 將資料匯入至 Azure 搜尋服務
@@ -22,7 +22,7 @@
 - [Overview](search-what-is-data-import.md)
 - [Portal](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
-- [REST API](search-import-data-rest-api.md)
+- [REST](search-import-data-rest-api.md)
 - [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 在 Azure 搜尋服務中，服務可在持續性資料 (索引) 上運作，以提供用來處理索引、執行查詢或制訂搜尋結果的文件和資訊。若要填入索引，您可以使用推送或提取模型來載入資料。
@@ -39,7 +39,7 @@
 
 ##提取 (搜耙) 資料 
 
-提取模型會搜耙支援的資料來源並為您載入索引。在 Azure 搜尋服務中，這項功能透過 *索引子* 實作，目前可供 Azure SQL Database、DocumentDB 和 Azure VM 上的 SQL Server 使用。請參閱[索引子](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)來了解上傳 Azure SQL 資料。
+提取模型會搜耙支援的資料來源並為您載入索引。在 Azure 搜尋服務中，這項功能透過*索引子*實作，目前可供 Azure SQL Database、DocumentDB 和 Azure VM 上的 SQL Server 使用。請參閱[索引子](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)來了解上傳 Azure SQL 資料。
 
 您可以使用入口網站、REST API 或 .NET SDK 將資料提取到索引。
 
@@ -60,4 +60,4 @@
 |排程的資料重新整理|使用索引子 (請參閱上述資料)。|
 |無程式碼的原型或編輯|入口網站中的 [匯入資料精靈] 可設定索引子，有時還可產生初步結構描述 (如果主要資料庫中有足夠的資訊可這麼做)。此精靈包含用來設定排程資料重新整理的選項。(選擇性) 您可以新增語言分析器或 CORS 選項。但有幾個缺點：無法新增評分設定檔，也無法將入口網站中建立的結構描述匯出至 JSON 檔案，以便在程式碼中使用。| 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -17,6 +17,9 @@
 	ms.author="heidist"/>
 
 # 開始在 Java 中使用 Azure 搜尋服務
+> [AZURE.SELECTOR]
+- [Portal](search-get-started-portal.md)
+- [.NET](search-get-started-dotnet.md)
 
 瞭解如何建置使用 Azure 搜尋服務提供搜尋體驗的自訂 Java 搜尋應用程式。本教學課程利用 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/dn798935.aspx) 來建構在此練習中所使用的物件和作業。
 
@@ -106,7 +109,7 @@
 
     ![][6]
 
-3. 按一下 [套用]。
+3. 按一下 [Apply (套用)]。
 
 4. 選取 [視窗] > [喜好設定] > [伺服器] > [執行階段環境] > [新增..]。
 
@@ -182,7 +185,7 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 
 這是第一個以 Java 和 USGS 資料集為基礎的 Azure 搜尋服務教學課程。我們會漸漸擴充本教學課程，以示範其他您可能會想用在自訂方案中的搜尋功能。
 
-如果您已有一些 Azure 搜尋服務的背景知識，可以利用此範例做為進一步實驗的跳板，例如擴充[搜尋頁面](search-pagination.md)或實作[多面向導覽](search-faceted-navigation.md)。您也可以新增計數和批次處理文件，讓使用者可以逐頁查看結果，藉此改進搜尋結果頁面。
+如果您已有一些 Azure 搜尋服務的背景知識，可以利用此範例做為進一步實驗的跳板，例如擴充[搜尋頁面](search-pagination-page-layout.md)或實作[多面向導覽](search-faceted-navigation.md)。您也可以新增計數和批次處理文件，讓使用者可以逐頁查看結果，藉此改進搜尋結果頁面。
 
 不熟悉 Azure 搜尋服務嗎？ 建議您嘗試學習其他教學課程，深入了解您還可以建立哪些東西。請瀏覽我們的[文件頁面](https://azure.microsoft.com/documentation/services/search/)以尋找更多資源。您也可以查看我們[影片和教學課程清單](search-video-demo-tutorial-list.md)中的連結，以存取更多資訊。
 
@@ -200,4 +203,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
+   manager="carmonm"
    editor="" />
 <tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="01/14/2016"
+   ms.workload="NA"
+   ms.date="02/22/2016"
    ms.author="alkohli" />
 
 # 部署內部部署 StorSimple 裝置
@@ -146,7 +146,7 @@
 | | | |
 | **NTP** | 我們會在 NTP 伺服器輸入時觸發時間同步處理。請在您輸入 `time.windows.com` 或公用時間伺服器時檢查 UDP 連接埠 123 是否開啟)。 | [下載並使用此指令碼](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca)。 |
 | | | |
-| **Proxy (選用)** | 這是有效的 Proxy URI 和連接埠嗎？ </br> 驗證模式是否正確？ | <code>wget http://bing.com &#124; % {$\_.StatusCode}</code></br> 此命令應該在設定 Web Proxy 後立即執行。如果傳回狀態碼 200，則表示連接成功。 |
+| **Proxy (選用)** | 這是有效的 Proxy URI 和連接埠嗎？ </br> 驗證模式是否正確？ | <code>wget http://bing.com | % {$\_.StatusCode}</code></br> 此命令應該在設定 Web Proxy 後立即執行。如果傳回狀態碼 200，則表示連接成功。 |
 | | 流量是否可透過 Proxy 路由？ | 在裝置上設定 Proxy 之後，請執行 DNS 驗證、NTP 檢查 或 HTTP 檢查。這會清楚的反映流量是否在 Proxy 或其他地方遭到封鎖。 |
 | | | |
 | **註冊** | 檢查輸出 TCP 連接埠 443、80、9354 是否開啟。 | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Test-NetConnection Cmdlet 的詳細資訊](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -167,8 +167,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 > [AZURE.IMPORTANT] 如果您並未啟用服務自動建立儲存體帳戶，您將必須在成功建立服務後，至少建立一個儲存體帳戶。當您建立磁碟區容器時，將會使用此儲存體帳戶。
 >
-> 如果您未自動建立儲存體帳戶，請移至[針對服務設定新的儲存體帳戶](#configure-a-new-storage-account-for-the-service)以取得詳細指示。
-> 如果您已啟用自動建立儲存體帳戶，請移至[步驟 2：取得服務註冊金鑰](#step-2:-get-the-service-registration-key)。
+> 如果您未自動建立儲存體帳戶，請移至[針對服務設定新的儲存體帳戶](#configure-a-new-storage-account-for-the-service)以取得詳細指示。如果您已啟用自動建立儲存體帳戶，請移至[步驟 2：取得服務註冊金鑰](#step-2:-get-the-service-registration-key)。
 
 ## 步驟 2：取得服務註冊金鑰
 
@@ -294,4 +293,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 - 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

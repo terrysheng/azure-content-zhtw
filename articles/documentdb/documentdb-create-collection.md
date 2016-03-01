@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/18/2015" 
+	ms.date="02/22/2016" 
 	ms.author="mimig"/>
 
 # 如何使用 Azure 入口網站建立 DocumentDB 集合
@@ -22,26 +22,30 @@
 
 不確定集合是什麼嗎？ 請參閱＜[什麼是 DocumentDB 集合？](#what-is-a-documentdb-collection)＞一節。
 
-![螢幕擷取畫面，其中在 [資料庫] 透鏡裡反白顯示動態工具列的 [DocumentDB 帳戶]、[DocumentDB 帳戶] 刀鋒視窗中的帳戶和 [DocumentDB 帳戶] 刀鋒視窗中的資料庫](./media/documentdb-create-collection/docdb-database-creation-1-3.png)
+1.  在 [Azure 入口網站](https://portal.azure.com/)的動態工具列中，按一下 [DocumentDB 帳戶]。如果看不到 [DocumentDB 帳戶]，請按一下 [瀏覽]，然後按一下 [DocumentDB 帳戶]。
 
-1.  在 [Azure 入口網站](https://portal.azure.com/)的動態工具列中，按一下 [DocumentDB 帳戶]。 
+    ![螢幕擷取畫面，其中在 [資料庫] 透鏡裡反白顯示動態工具列的 [DocumentDB 帳戶]、[DocumentDB 帳戶] 刀鋒視窗中的帳戶和 [DocumentDB 帳戶] 刀鋒視窗中的資料庫](./media/documentdb-create-collection/docdb-database-creation-1-2.png)
 
 2.  在 [DocumentDB 帳戶] 刀鋒視窗中，選取要新增集合的帳戶。如果您沒有任何列出的帳戶，您需要[建立 DocumentDB 帳戶](documentdb-create-account.md)。
 
 3. 在所選取帳戶的 [DocumentDB 帳戶] 刀鋒視窗中，向下捲動至 [資料庫] 透鏡，然後選取要新增集合的資料庫。
-    
+
+    ![螢幕擷取畫面，其中在 [資料庫] 透鏡裡反白顯示動態工具列的 [DocumentDB 帳戶]、[DocumentDB 帳戶] 刀鋒視窗中的帳戶和 [DocumentDB 帳戶] 刀鋒視窗中的資料庫](./media/documentdb-create-collection/docdb-database-creation-3.png)
+
 4. 在 [**資料庫**] 刀鋒視窗中，按一下 [**新增集合**]。
 
-	![螢幕擷取畫面，其中強調 [資料庫] 刀鋒視窗上的 [新增集合] 按鈕、[新增集合] 刀鋒視窗上的設定，以及 [確定] 按鈕 - 適用於 DocumentDB 的 Azure 入口網站 - NoSQL JSON 資料庫的雲端式資料庫建立者](./media/documentdb-create-collection/docdb-collection-creation-4-7.png)
+	![螢幕擷取畫面，其中強調 [資料庫] 刀鋒視窗上的 [新增集合] 按鈕、[新增集合] 刀鋒視窗上的設定，以及 [確定] 按鈕 - 適用於 DocumentDB 的 Azure 入口網站 - NoSQL JSON 資料庫的雲端式資料庫建立者](./media/documentdb-create-collection/docdb-collection-creation-4.png)
 
-5. 在 [新增集合] 刀鋒視窗中，輸入您新集合的識別碼。集合名稱的長度必須介於 1 到 255 個字元，且不能包含 `/ \ # ?` 或尾端空格。驗證名稱時，[識別碼] 方塊中會出現綠色的核取記號。
+5. 在 [新增集合] 刀鋒視窗的 [識別碼] 方塊中，輸入您新集合的識別碼。集合名稱的長度必須介於 1 到 255 個字元，且不能包含 `/ \ # ?` 或尾端空格。驗證名稱時，[識別碼] 方塊中會出現綠色的核取記號。
+
+	![螢幕擷取畫面，其中強調 [資料庫] 刀鋒視窗上的 [新增集合] 按鈕、[新增集合] 刀鋒視窗上的設定，以及 [確定] 按鈕 - 適用於 DocumentDB 的 Azure 入口網站 - NoSQL JSON 資料庫的雲端式資料庫建立者](./media/documentdb-create-collection/docdb-collection-creation-5-8.png)
 
 6. 選取新集合的定價層。您所建立的每個集合會是可計費的實體。如需可用效能層級的詳細資訊，請參閱 [DocumentDB 中的效能層級](documentdb-performance-levels.md)。
 
 7. 選取下列其中一種**索引編製原則**。
 
 	- **預設值**。此原則會為字串使用雜湊索引，以及為數字使用範圍索引。它最適合針對字串、ORDER BY 和範圍的相等查詢，以及最適合針對數字的相等查詢。此原則的索引儲存空間負擔較低，且包括地理空間索引。
-	- **範圍**。當您使用 ORDER BY、範圍以及數字和字串的相等查詢時，這是最佳的原則。此原則的索引儲存空間負擔比**預設值**高，且包括地理空間索引。
+	- **雜湊**。當您使用 ORDER BY、範圍以及數字和字串的相等查詢時，這是最佳的原則。此原則的索引儲存空間負擔比**預設值**高，且包括地理空間索引。
 
 	如需索引編製原則的詳細資訊，請參閱 [DocumentDB 索引編製原則](documentdb-indexing-policies.md)。
 
@@ -50,7 +54,7 @@
 
 9. 新的集合現在便會出現在 [**資料庫**] 刀鋒視窗上的 [**集合**] 鏡頭中。
  
-	![[資料庫] 刀鋒視窗中新集合的螢幕擷取畫面- 適用於 DocumentDB 的 Azure 入口網站 - NoSQL JSON 資料庫的雲端式資料庫建立者](./media/documentdb-create-collection/docdb-collection-creation-8.png)
+	![[資料庫] 刀鋒視窗中新集合的螢幕擷取畫面- 適用於 DocumentDB 的 Azure 入口網站 - NoSQL JSON 資料庫的雲端式資料庫建立者](./media/documentdb-create-collection/docdb-collection-creation-9.png)
 
 ## 什麼是 DocumentDB 集合？ 
 
@@ -62,7 +66,7 @@
 
 ## 建立 DocumentDB 集合的其他方法
 
-集合不一定要使用入口網站來建立，您也可以使用 [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 來建立集合。如需示範如何使用 DocumentDB .NET SDK 來建立集合的 C# 程式碼範例，請參閱 CollectionManagement 專案中的 [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/CollectionManagement/Program.cs) 檔案 (位於 [GitHub.com](https://github.com) 的 [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) 儲存機制中)。
+集合不一定要使用入口網站來建立，您也可以使用 [DocumentDB SDK](documentdb-sdk-dotnet.md) 來建立集合。如需示範如何使用 DocumentDB .NET SDK 處理集合的 C# 程式碼範例，請參閱 [C# 集合範例](documentdb-dotnet-samples.md#collection-examples)。如需示範如何使用 DocumentDB Node.js SDK 處理集合的 Node.js 程式碼範例，請參閱 [Node.js 集合範例](documentdb-nodejs-samples.md#collection-examples)。
 
 ## 疑難排解
 
@@ -74,8 +78,8 @@
 
 - 您可以使用入口網站中的文件總管來[新增文件](documentdb-view-json-document-explorer.md)。
 - 您可以使用 DocumentDB 資料移轉工具來[匯入文件和資料](documentdb-import-data.md)，此工具可讓您匯入 JSON 和 CSV 檔案，以及來自 SQL Server、MongoDB、Azure 資料表儲存體及其他 DocumentDB 集合的資料。 
-- 或者，您可以利用其中一個 [DocumentDB SDK](documentdb-sdk-dotnet.md) 來新增文件。DocumentDB 有.NET、Java、Python、Node.js 和 JavaScript API SDK。DocumentManagement 專案中的 [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs) 檔案 (位於 [GitHub.com](https://github.com) 上的 [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) 儲存機制中) 會利用 DocumentDB .NET SDK 來示範 CRUD 對文件的作業。
+- 或者，您可以利用其中一個 [DocumentDB SDK](documentdb-sdk-dotnet.md) 來新增文件。DocumentDB 有.NET、Java、Python、Node.js 和 JavaScript API SDK。如需示範如何使用 DocumentDB .NET SDK 處理文件的 C# 程式碼範例，請參閱 [C# 文件範例](documentdb-dotnet-samples.md#document-examples)。如需示範如何使用 DocumentDB Node.js SDK 處理文件的 Node.js 程式碼範例，請參閱 [Node.js 文件範例](documentdb-nodejs-samples.md#document-examples)。
 
 當集合中有文件之後，您就可以利用入口網站中的[查詢總管](documentdb-query-collections-query-explorer.md)、[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)，或其中一個 [SDK](documentdb-sdk-dotnet.md)，來針對文件使用 [DocumentDB SQL](documentdb-sql-query.md) 來[執行查詢](documentdb-sql-query.md#executing-queries)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

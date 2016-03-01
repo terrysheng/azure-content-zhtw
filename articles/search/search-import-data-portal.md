@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/09/2016"
 	ms.author="heidist"/>
 
 # 使用入口網站將資料匯入至 Azure 搜尋服務
@@ -36,6 +36,8 @@ Azure 入口網站的 Azure 搜尋服務儀表板上包含 [匯入資料] 命令
 若要使用索引子或 [匯入資料] 命令，主要資料來源必須是其中一個支援的資料來源：Azure SQL Database、Azure VM 上的 SQL Server 關聯式資料庫或 Azure DocumentDB。
 
 您可以只從單一資料表、檢視或對等的資料結構匯入。您可能必須先在應用程式資料來源中建立此資料結構，以便在搜尋索引中取得適當的中繼資料和資料輸入。
+
+您可以使用範例資料試試看這個工作流程。請瀏覽[開始在 Azure 入口網站中使用 Azure 搜尋服務](search-get-started-portal.md)以便開始使用。
 
 ##設定資料匯入
 
@@ -74,4 +76,4 @@ Azure 入口網站的 Azure 搜尋服務儀表板上包含 [匯入資料] 命令
 
 在服務儀表板中，按兩下 [索引子] 磚即可顯示為您的訂用帳戶建立的所有索引子清單。按兩下其中一個索引子，加以執行、編輯或刪除。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

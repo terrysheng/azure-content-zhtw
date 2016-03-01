@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/09/2016"
 	ms.author="jaime.espinosa"/>
 
@@ -45,7 +45,7 @@ Azure 應用程式服務 Web 應用程式是完全受管理的平台，可讓您
 - **部署位置** - 實作[分段部署][Slots]以在生產前環境中驗證程式碼，而此環境與 Azure 應用程式服務中的生產 Web 應用程式相同。符合時，執行交換作業，以發行零停機時間的應用程式新版本。 
 - **在生產環境中測試** - 將分段部署帶到下一個層級，並執行 A/B 測試以即時流量的可設定部分確認新的程式碼。 
 - **Webjobs** - 在 Web 應用程式 VM 上，執行任何程式或指令碼。在多個 VM 上，持續或依排程和規模執行工作。使用 Azure [WebJobs SDK][Webjobs] 以與 Azure 儲存體或服務匯流排整合。
-- **混合式連線** - - 使用[混合式連線](../integration-hybrid-connection-overview.md)和 [VNET](../app-service-web/web-sites-integrate-with-vnet.md) 存取內部部署資料。
+- **混合式連線** - - 使用[混合式連線](../biztalk-services/integration-hybrid-connection-overview.md)和 [VNET](../app-service-web/web-sites-integrate-with-vnet.md) 存取內部部署資料。
 
 ## 開始使用 ##
 若要開始使用 Web 應用程式，請遵循[建立 ASP.NET Web 應用程式][create]教學課程。
@@ -64,4 +64,4 @@ Azure 應用程式服務 Web 應用程式是完全受管理的平台，可讓您
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

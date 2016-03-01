@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/04/2016"
+	ms.date="02/13/2016"
 	ms.author="normesta"/>
 
 
@@ -33,7 +33,7 @@
 
 * 使用中的 Azure 帳戶。如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-* [Visual Studio Community 2013] 或更新版本。如果您安裝 Visual Studio Community 2013，請個別安裝 [Xamarin]。當您安裝 Visual Studio 2015 時，可以安裝 Xamarin 工具。
+* [Visual Studio Community 2013](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) 或更新版本。如果您安裝 Visual Studio Community 2013，請個別安裝 [Xamarin]。當您安裝 Visual Studio 2015 時，可以安裝 Xamarin 工具。
 
 * 已安裝 [Xcode] v7.0 或更新版本，以及 [Xamarin Studio] 的 Mac。
 
@@ -70,7 +70,7 @@
 
 	>[AZURE.NOTE] 在 Mac 上執行 Xamarin.iOS 應用程式會比較容易。如果想要，您可以在 Windows 電腦上使用 Visual Studio 來執行 Xamarin.iOS 應用程式，但這樣會比較複雜，因為您必須連線到已加入網路的 Mac。如果您想這麼做，請參閱[在 Windows 上安裝 Xamarin.iOS]。
 
-2. 在行動應用程式的設定刀鋒視窗上，按一下 [開始使用] > [Xamarin.Forms]。在步驟 3 中，按一下 \[建立新的應用程式] (如果尚未選取的話)。接著按一下 [下載] 按鈕。
+2. 在行動應用程式的設定刀鋒視窗上，按一下 [開始使用] > [Xamarin.Forms]。在步驟 3 中，按一下 [建立新的應用程式] (如果尚未選取的話)。接著按一下 [下載] 按鈕。
 
   	這會下載包含連線到您行動應用程式之用戶端應用程式的專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 
@@ -92,11 +92,9 @@
 
 ##後續步驟
 
-* [將驗證新增至您的應用程式](app-service-mobile-xamarin-ios-get-started-users.md) 
-  <br/>了解如何使用身分識別提供者來驗證應用程式的使用者。
+* [將驗證新增至您的應用程式](app-service-mobile-xamarin-ios-get-started-users.md) <br/>了解如何使用身分識別提供者來驗證應用程式的使用者。
 
-* [將推播通知新增至您的應用程式](app-service-mobile-xamarin-ios-get-started-push.md) 
-  <br/>了解如何將非常基本的推播通知傳送至應用程式。
+* [將推播通知新增至您的應用程式](app-service-mobile-xamarin-ios-get-started-push.md) <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]: #getting-started
@@ -121,4 +119,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [在 Windows 上安裝 Xamarin.iOS]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

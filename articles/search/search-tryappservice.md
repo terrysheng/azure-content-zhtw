@@ -13,14 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="01/13/2016"
+   ms.date="02/21/2016"
    ms.author="heidist"/>
 
 # 使用 Azure App Service 免費試用 Azure Search
 
 [Try Azure App Service](https://tryappservice.azure.com/) 提供您一小時免費的瀏覽器式工作階段來試用 Azure 服務 (包括 **Azure 搜尋服務**)，且您不需註冊訂用帳戶。此網站可讓您從數個範本中選擇。當您選取包含 Azure 搜尋服務的 ASP.NET 範本時，您就能夠存取所選取服務支援的網站中所有的功能。
 
-Azure 搜尋服務也是 [Try Azure App Service](https://tryappservice.azure.com/) 的一部分，且該服務已經建立並準備好接收搜尋查詢。您無法上傳或使用自己的索引或資料，但是您可以執行查詢，以及進行幾次程式碼變更來改造使用者經驗。
+Azure 搜尋服務也是 **Try Azure App Service** 的一部分，且該服務已經建立並準備好接收搜尋查詢。您無法上傳或使用自己的索引或資料，但是您可以執行查詢，以及進行幾次程式碼變更來改造使用者經驗。
 
 搜尋資料來自[美國地質調查局 (USGS)](http://geonames.usgs.gov/domestic/download_data.htm)，包含來自全美國大約 3 百萬個資料列的地標、歷史古蹟、建築和其他地標特色。
 
@@ -28,7 +28,8 @@ Azure 搜尋服務也是 [Try Azure App Service](https://tryappservice.azure.com
 
 如果您尚未開始您的 1 小時工作階段，請遵循下列步驟開始。
 
-1. 移至 [https://tryappservice.azure.com](https://tryappservice.azure.com/)，並向下捲動以選取 [Web 應用程式]。 
+1. 以滑鼠右鍵按一下 [https://tryappservice.azure.com](https://tryappservice.azure.com/)，在新的瀏覽器視窗中開啟此網站。
+2. 向下捲動以選取 [Web 應用程式]。 
 2. 按 [下一步]。
 3. 選擇 [ASP.NET + Azure Search 網站] 範本。
 
@@ -523,4 +524,4 @@ Azure Search 是一個完全受管理的「平台即服務」[PaaS](https://en.w
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

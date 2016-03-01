@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
 
 # Windows Phone 和市集應用程式的分析
@@ -83,6 +83,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 4. 將 ApplicationInsights.config 檔案加入至您專案的根目錄，並插入從入口網站複製的檢測金鑰。此組態檔的範例 XML 如下所示。
 
 	```xml
+
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
 			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
@@ -96,6 +97,7 @@ Azure 中的[資源][roles]是服務的執行個體。此資源是來自您應�
 5. 加入下列的初始化程式碼。最好是將此程式碼加入至 `App()` 建構函式。如果您在其他地方加入，您可能會遺漏第一個 PageViews 的自動集合。
 
 ```C#
+
 	public App()
 	{
 	   // Add this initilization line. 
@@ -207,4 +209,4 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

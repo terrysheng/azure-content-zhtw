@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="adamkr; sstein"/>
 
 # 使用 PowerShell 建立彈性資料庫集區，以相應放大多個 SQL Database 的資源 
@@ -26,7 +26,7 @@
 
 了解如何使用 PowerShell Cmdlet 建立[彈性資料庫集區](sql-database-elastic-pool.md)，以管理多個資料庫。
 
-> [AZURE.NOTE]彈性資料庫集區目前為預覽版，且僅能搭配 SQL Database V12 伺服器使用。如果您有 SQL Database V11 伺服器，您可以在單一步驟中[使用 PowerShell 升級至 V12 並建立集區](sql-database-upgrade-server.md)。
+> [AZURE.NOTE] 彈性資料庫集區目前為預覽版，且僅能搭配 SQL Database V12 伺服器使用。如果您有 SQL Database V11 伺服器，您可以在單一步驟中[使用 PowerShell 升級至 V12 並建立集區](sql-database-upgrade-server-portal.md)。
 
 彈性資料庫集區可讓您相應放大多個 SQL Database 的資料庫資源和管理。
 
@@ -47,7 +47,7 @@
 
 既然您已在執行 Azure 資源管理員模組，便可以存取建立和設定彈性資料庫集區所需的所有必要 Cmdlet。首先必須建立對您 Azure 帳戶的存取權。執行以下項目，然後您會看到要輸入認證的登入畫面。請使用與登入 Azure 入口網站相同的電子郵件和密碼。
 
-	Add-AzureRmAccount
+	Login-AzureRmAccount
 
 成功登入後，您應該會在畫面中看到一些資訊，包括用於登入的 ID 與可以存取的 Azure 訂用帳戶。
 
@@ -237,4 +237,4 @@
 
 如需關於彈性資料庫和彈性資料庫集區的詳細資訊，包括 API 和錯誤詳細資料，請參閱[彈性資料庫集區參考](sql-database-elastic-pool-reference.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="使用 REST API 來管理 ACS 容器 | Microsoft Azure"
-   description="使用 Marathon REST API 將容器部署到 Azure 容器服務叢集服務。"
+   description="使用 Marathon REST API，將容器部署到 Azure 容器服務 Mesos 叢集。"
    services="container-service"
    documentationCenter=""
    authors="neilpeterson"
@@ -20,13 +20,15 @@
    
 # 使用 REST API 來管理容器
 
-Mesos 提供環境來部署及調整叢集工作負載，同時將基礎硬體抽象化。在 Mesos 之上，架構會管理排程和執行計算工作負載。雖然許多常見的工作負載都有可用的架構，但這份文件只詳細說明使用 Marathon 來建立及調整容器部署。在練習這些範例之前，您需要在 ACS 中設定 Mesos 叢集，而且要能夠從遠端連線到這個叢集。如需這些項目的詳細資訊，請參閱下列文章。
+Mesos 提供環境來部署及調整叢集工作負載，同時將基礎硬體抽象化。在 Mesos 之上，架構會管理排程和執行計算工作負載。雖然許多常見的工作負載都有可用的架構，但這份文件只詳細說明使用 Marathon 來建立及調整容器部署。
+
+在練習這些範例之前，您需要在 ACS 中設定 Mesos 叢集，而且要能夠從遠端連線到這個叢集。如需這些項目的詳細資訊，請參閱下列文章。
 
 - [部署 Azure 容器服務叢集](./container-service-deployment.md) 
 - [連接至 ACS 叢集](./container-service-connect.md)
 
 
-設定 SSH 通道之後，您將能夠透過 `http://localhost:LOCAL_PORT` 存取 Mesos 相關的 rest API。在下列範例中，我們假設您在連接埠 80 打開通道，例如，`http://localhost/marathon/v2` 將會是 Marathon API 的端點。如需各種可用 API 的詳細資訊，請參閱 [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) 和 [Chronos API](https://mesos.github.io/chronos/docs/api.html) 的 Mesosphere 文件，以及 [Mesos 排程器 API](http://mesos.apache.org/documentation/latest/scheduler-http-api/) 的 Apache 文件
+一旦連接至 ACS 叢集，即可透過 http://localhost:local-port 存取 Mesos 和相關的 REST API。本文件中的範例假設您的通道為連接埠 80。例如，在 `http://localhost/marathon/v2/` 可以觸達 Marathon 端點。如需各種 API 的詳細資訊，請參閱 [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) 和 [Chronos API](https://mesos.github.io/chronos/docs/api.html) 的 Mesosphere 文件，以及 [Mesos 排程器 API](http://mesos.apache.org/documentation/latest/scheduler-http-api/) 的 Apache 文件
 
 ## 從 Mesos 和 Marathon 收集資訊
 
@@ -36,7 +38,7 @@ Mesos 提供環境來部署及調整叢集工作負載，同時將基礎硬體�
 curl http://localhost/master/slaves
 ```
 
-現在，使用 Marathon `/apps` 端點檢查目前部署至 Mesos 叢集的 Marathon。如果這是新的叢集，您會看到空的應用程式陣列。
+現在，使用 Marathon `/apps` 端點來檢查目前部署至 Mesos 叢集的應用程式。如果這是新的叢集，您會看到空的應用程式陣列。
 
 ```
 curl localhost/marathon/v2/apps
@@ -79,7 +81,7 @@ curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-t
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-現在，如果您向 Marathon 查詢執行中的應用程式，這個新的應用程式會顯示在輸出中。
+現在，如果您查詢 Marathon 中的應用程式，這個新的應用程式會顯示在輸出中。
 
 ```
 curl localhost/marathon/v2/apps
@@ -101,13 +103,13 @@ Marathon API 也可用來相應放大或縮小應用程式部署。前一個範�
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-最後，向 Marathon 端點查詢應用程式執行個體。您會看到現在有三個。
+最後，查詢 Marathon 端點中的應用程式，您會發現目前有三個 nginx 容器。
 
 ```
 curl localhost/marathon/v2/apps
 ```
 
-## Marathon REST API PowerShell
+## Marathon REST API 與 PowerShell 的互動
 
 您可以在 Windows 系統上使用 PowerShell 執行這些相同的動作。這個快速練習將完成與上一個練習類似的工作，但這次使用 PowerShell 命令。
 
@@ -158,4 +160,4 @@ Marathon API 也可用來相應放大或縮小應用程式部署。前一個範�
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

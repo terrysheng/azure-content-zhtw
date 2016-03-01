@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="02/11/2016"
-	ms.author="bwren;sngun"/>
+	ms.date="02/18/2016"
+	ms.author="magoedte;bwren"/>
 
 # Azure 自動化概觀
 
@@ -41,7 +41,7 @@ Azure 自動化中的 Runbook 是以 Windows PowerShell 或 Windows PowerShell �
 
 ## 利用 Azure 自動化建立 Runbook 
 
-您可以從頭[建立您自己的 Runbook](automation-creating-importing-runbook.md) 或根據您的需求修改來自 [Runbook 資源庫](http://msdn.microsoft.com/library/azure/dn781422.aspx)的 Runbook。有三個不同的 [Runbook 類型](automation-runbook-types.md)，您可以依據需求和 PowerShell 經驗自行選擇。如果您想要直接使用 PowerShell 程式碼，則可以使用離線編輯的 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 或 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)，或是使用 Azure 入口網站中的[文字編輯器](http://msdn.microsoft.com/library/azure/dn879137.aspx)。如果您想要編輯 Runbook 而不要看到基礎程式碼，則可以使用 Azure 預覽入口網站中的[圖形化編輯器](automation-graphical-authoring-intro.md)建立[圖形化 Runbook](automation-runbook-types.md#graphical-runbooks)。
+您可以從頭[建立您自己的 Runbook](automation-creating-importing-runbook.md) 或根據您的需求修改來自 [Runbook 資源庫](http://msdn.microsoft.com/library/azure/dn781422.aspx)的 Runbook。有三個不同的 [Runbook 類型](automation-runbook-types.md)，您可以依據需求和 PowerShell 經驗自行選擇。如果您想要直接使用 PowerShell 程式碼，則可以使用離線編輯的 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 或 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)，或是使用 Azure 入口網站中的[文字編輯器](http://msdn.microsoft.com/library/azure/dn879137.aspx)。如果您想要編輯 Runbook 而不要看到基礎程式碼，則可以使用 Azure 入口網站中的[圖形化編輯器](automation-graphical-authoring-intro.md)建立[圖形化 Runbook](automation-runbook-types.md#graphical-runbooks)。
 
 寧可觀賞也不要閱讀？ 看看以下在 2015 年 5 月的 Microsoft Ignite 活動影片。附註：雖然這個影片中討論的概念和功能是正確的，但自從這個影片錄製以來，Azure 自動化已經有很大的進展，現在它在 Azure 入口網站中具有更豐富的 UI，並支援其他的功能。
 
@@ -62,7 +62,7 @@ Azure 自動化中的 Runbook 是以 Windows PowerShell 或 Windows PowerShell �
 
 ## 取得模組和組態 
 
-您可以從 [PowerShell 資源庫](http://www.powershellgallery.com/)取得 [PowerShell 模組](automation-runbook-gallery.md#modules-in-powershell-gallery) (其中包含您可以在 Runbook 中使用的 Cmdlet) 和 DSC 設定。您可以從 Azure Preview 入口網站啟動這個資源庫，並且將模組直接匯入 Azure 自動化，或者您可以手動下載及匯入。您無法直接從 Azure 入口網站安裝模組，但是您可以下載及安裝它們，就像任何其他模組一樣。
+您可以從 [PowerShell 資源庫](http://www.powershellgallery.com/)取得 [PowerShell 模組](automation-runbook-gallery.md#modules-in-powershell-gallery) (其中包含您可以在 Runbook 中使用的 Cmdlet) 和 DSC 設定。您可以從 Azure 入口網站啟動這個資源庫，並且將模組直接匯入 Azure 自動化，或者您可以手動下載及匯入。您無法直接從 Azure 入口網站安裝模組，但是您可以下載及安裝它們，就像任何其他模組一樣。
 
 
 ## Azure 自動化的實際應用範例 
@@ -101,4 +101,4 @@ Azure 自動化中的 Runbook 是以 Windows PowerShell 或 Windows PowerShell �
 
 **請不吝提供意見！** 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在指令碼中心提出指令碼要求。如果您有關於 Azure 自動化的任何意見或功能要求，請張貼在 [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback) 上。感謝您！
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

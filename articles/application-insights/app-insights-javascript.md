@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/09/2016"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
 
 # 適用於網頁的 Application Insights
@@ -170,7 +170,7 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 > [AZURE.NOTE] 如果您刪除刀鋒視窗上的 [瀏覽器] 篩選器，伺服器和 AJAX 相依項目將包含在這些圖表中。按一下 [還原預設值] 以重新設定篩選器。
 
-**深入失敗的 Ajax 呼叫** 一個將失敗圖表變更為方格的快速方式，然後按一下資料列以查看特定執行個體。
+**若要深入失敗的 Ajax 呼叫**，請向下捲動至 [相依性失敗] 方格，然後按一下資料列以查看特定執行個體。
 
 ![](./media/app-insights-javascript/37.png)
 
@@ -238,4 +238,4 @@ Ajax 呼叫包含從您的網頁指令碼所做的任何 HTTP 呼叫。如果您
 * [自訂事件和計量](app-insights-api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

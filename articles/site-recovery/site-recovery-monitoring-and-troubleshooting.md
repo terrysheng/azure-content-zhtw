@@ -199,4 +199,4 @@ ASR 中的每個作業都會被稽核，並且在 [工作] 索引標籤底下追
 ### 容錯移轉之後的遠端桌面疑難排解
 -   許多客戶面臨在 Azure 中連接到容錯移轉的 VM 的問題。[使用疑難排解文件 RDP 至 VM](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=AcomDC_1217_2015--->
+<!---HONumber=AcomDC_1217_2015---->

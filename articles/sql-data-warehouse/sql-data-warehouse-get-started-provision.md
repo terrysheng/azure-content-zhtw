@@ -135,4 +135,4 @@
 
 既然您已建立 SQL 資料倉儲的範例資料庫，表示已準備好[連接](./sql-data-warehouse-get-started-connect.md)到您的資料庫。
 
-<!---HONumber=AcomDC_0204_2016--->
+<!---HONumber=AcomDC_0204_2016---->

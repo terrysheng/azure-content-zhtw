@@ -268,4 +268,4 @@ Azure API 管理服務提供了一個理想位置，可供擷取您的 API 的�
 	-	[log-to-eventhub 原則參考](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	
 
-<!----HONumber=Nov15_HO3-->
+<!-----HONumber=Nov15_HO3-->

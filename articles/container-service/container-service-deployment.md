@@ -28,8 +28,8 @@ Azure 容器服務支援快速部署常用的開放原始碼容器叢集和協�
  
 選取下列其中一個範本來部署 Mesos 或 Docker Swarm 叢集。**注意** - 除了預設 Orchestrator 選項，這兩個範本都相同。
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
  
 每個範本頁面都有 [部署至 Azure] 按鈕，按一下此按鈕將會啟動 Azure 入口網站，其中會顯示如下所示的表單。<br />
 
@@ -67,8 +67,8 @@ SSHRSAPUBLICKEY | 您需要使用 SSH 向虛擬機器進行驗證。這是您加
  
 選取下列其中一個範本來部署 Mesos 或 Docker Swarm 叢集。**注意** - 除了預設 Orchestrator 選項，這兩個範本都相同。
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
  
 接下來，請確定 Azure CLI 已連線至 Azure 訂用帳戶。您可以使用下列命令來完成此動作。
 
@@ -127,8 +127,8 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
 
 選取下列其中一個範本來部署 Mesos 或 Docker Swarm 叢集。**注意** - 除了預設 Orchestrator 選項，這兩個範本都相同。
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/acs-swarm)
+* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 在 Azure 訂用帳戶中建立叢集之前，請確認您的 PowerShell 工作階段已登入 Azure。您可以使用 `Get-AzureRMSubscription` 命令完成此動作。
 
@@ -173,4 +173,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-Temp
 
  
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

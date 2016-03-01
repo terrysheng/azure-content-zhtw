@@ -12,8 +12,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.topic="get-started-article" 
+	ms.date="02/18/2016" 
 	ms.author="billmath"/>
 
 # 開始使用 MFA Server Mobile App Web 服務
@@ -89,4 +89,4 @@ Azure Multi-Factor Authentication 應用程式提供額外的頻外驗證選項�
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

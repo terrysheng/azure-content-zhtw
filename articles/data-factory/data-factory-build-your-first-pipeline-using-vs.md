@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="02/16/2015"
+	ms.date="02/16/2016"
 	ms.author="spelluru"/>
 
 # 開始使用 Azure Data Factory (Visual Studio)
@@ -419,6 +419,14 @@
             "value": "String"
         }
 
+### 包含空格的屬性名稱
+如果屬性名稱內含空格，請使用如下列範例 (資料庫伺服器名稱) 中所示的方括號：
+
+     {
+         "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
+         "value": "MyAsqlServer.database.windows.net"
+     }
+
 
 ### 使用組態部署解決方案
 當您在 VS 中發佈 Azure Data Factory 實體時，您可以指定想要用於該發佈作業的組態。
@@ -441,4 +449,4 @@
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，含有轉換活動 (HDInsight 活動) 的管線。若要了解如何使用「複製活動」從 Azure Blob 將資料複製到 Azure SQL，請參閱[教學課程：從 Azure Blob 將資料複製到 Azure SQL](data-factory-get-started.md)。
   
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

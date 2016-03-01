@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # 使用 REST API 建立 Azure 搜尋服務索引
@@ -65,4 +65,4 @@
 
 對於成功的要求，您應該會看到狀態碼「201 已建立」。如需透過 REST API 建立索引的詳細資訊，請瀏覽[此頁面](https://msdn.microsoft.com/library/azure/dn798941.aspx)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

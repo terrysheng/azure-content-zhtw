@@ -78,11 +78,90 @@ IoT 套件遠端監視預先設定解決方案是商務案例基本的端對端�
 
 ### Azure 串流分析工作
 
-**工作 1：遙測**會使用兩個命令操作傳入裝置遙測串流。第一個命令會將裝置的所有遙測訊息都傳送至持續性 blob 儲存體。第二個命令會透過五分鐘滑動視窗計算平均、最小和最大溼度值。這項資料也會傳送到 blob 儲存體。
+** 作業1：遙測**會以兩種方法來操作傳入裝置遙測串流。第一種方法會將裝置的所有遙測訊息都傳送至持續性 blob 儲存體。第二種方法會透過五分鐘滑動視窗計算平均、最小和最大溼度值。這項資料也會傳送到 blob 儲存體。此作業會使用下列查詢定義：
 
-**工作 2：裝置資訊**會篩選來自傳入訊息串流的裝置資訊訊息，並將它們傳送到事件中樞端點。裝置會在啟動時傳送裝置資訊將訊息，並且回應 **SendDeviceInfo** 命令。
+```
+WITH 
+    [StreamData]
+AS (
+    SELECT
+        *
+    FROM 
+      [IoTHubStream] 
+    WHERE
+        [ObjectType] IS NULL -- Filter out device info and command responses
+) 
 
-**工作 3：規則**會針對每一裝置臨界值評估傳入氣溫和溼度遙測值。臨界值是在解決方案中所包含的規則編輯器中設定。每個裝置/值組是依據時間戳記儲存在 blob 中，會讀取到串流分析做為**參考資料**。工作會針對裝置的設定臨界值比較任何非空白值。如果超過 '>' 條件，工作將會輸出**警示**事件，表示已超過臨界值，並且提供裝置、值和時間戳記值。
+SELECT
+    *
+INTO
+    [Telemetry]
+FROM
+    [StreamData]
+
+SELECT
+    DeviceId,
+    AVG (Humidity) AS [AverageHumidity], 
+    MIN(Humidity) AS [MinimumHumidity], 
+    MAX(Humidity) AS [MaxHumidity], 
+    5.0 AS TimeframeMinutes 
+INTO
+    [TelemetrySummary]
+FROM
+    [StreamData]
+WHERE
+    [Humidity] IS NOT NULL
+GROUP BY
+    DeviceId, 
+    SlidingWindow (mi, 5)
+```
+
+**工作 2：裝置資訊**會篩選來自傳入訊息串流的裝置資訊訊息，並將它們傳送到事件中樞端點。裝置會在啟動時傳送裝置資訊將訊息，並且回應 **SendDeviceInfo** 命令。此作業會使用下列查詢定義：
+
+```
+SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
+```
+
+**工作 3：規則**會針對每一裝置臨界值評估傳入氣溫和溼度遙測值。臨界值是在解決方案中所包含的規則編輯器中設定。每個裝置/值組是依據時間戳記儲存在 blob 中，會讀取到串流分析做為**參考資料**。工作會針對裝置的設定臨界值比較任何非空白值。如果超過 '>' 條件，作業將會輸出**警示**事件，表示已超過臨界值，並且提供裝置、值和時間戳記值。此作業會使用下列查詢定義：
+
+```
+WITH AlarmsData AS 
+(
+SELECT
+     Stream.DeviceID,
+     'Temperature' as ReadingType,
+     Stream.Temperature as Reading,
+     Ref.Temperature as Threshold,
+     Ref.TemperatureRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+WHERE
+     Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+
+UNION ALL
+
+SELECT
+     Stream.DeviceID,
+     'Humidity' as ReadingType,
+     Stream.Humidity as Reading,
+     Ref.Humidity as Threshold,
+     Ref.HumidityRuleOutput as RuleOutput,
+     Stream.EventEnqueuedUtcTime AS [Time]
+FROM IoTTelemetryStream Stream
+JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+WHERE
+     Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
+)
+
+SELECT *
+INTO DeviceRulesMonitoring
+FROM AlarmsData
+
+SELECT *
+INTO DeviceRulesHub
+FROM AlarmsData
+```
 
 ### 事件處理器
 
@@ -145,4 +224,4 @@ Web 應用程式中的此頁面會使用 PowerBI javascript 控制項 (請參閱
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

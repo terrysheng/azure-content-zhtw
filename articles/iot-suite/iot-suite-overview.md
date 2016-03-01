@@ -14,7 +14,7 @@
      ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/27/2015"
+     ms.date="02/19/2016"
      ms.author="dobett"/>
 
 # Azure IoT 套件的概觀
@@ -49,7 +49,7 @@ Azure IoT 服務提供廣泛的功能。這些企業等級的服務可讓您：
 
 ## 預先設定的解決方案
 
-IoT 套件包括預先設定的解決方案，可讓您快速地開始使用，並瀏覽 Azure IoT 套件使其可行的常見 IoT 案例。您可以將這些解決方案部署到您的 Azure 訂用帳戶，然後執行完整的端對端 IoT 解決方案。
+IoT 套件包括預先設定的解決方案，可讓您快速地開始使用，並瀏覽 Azure IoT 套件使其可行的常見 IoT 案例，例如「遠端監視」和「預測性維護」。您可以將這些解決方案部署到您的 Azure 訂用帳戶，然後執行完整的端對端 IoT 案例。
 
 ## 後續步驟
 
@@ -74,4 +74,4 @@ IoT 套件包括預先設定的解決方案，可讓您快速地開始使用，�
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

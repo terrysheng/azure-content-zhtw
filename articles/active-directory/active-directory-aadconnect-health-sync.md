@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016"
+	ms.date="02/17/2016"
 	ms.author="billmath"/>
 
 # 使用適用於同步處理的 Azure AD Connect Health
@@ -54,5 +54,6 @@
 * [Azure AD Connect Health 操作](active-directory-aadconnect-health-operations.md)
 * [在 AD FS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health 版本歷程記錄](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

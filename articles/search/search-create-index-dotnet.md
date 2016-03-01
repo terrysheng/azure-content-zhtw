@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/09/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # 使用 .NET 建立 Azure 搜尋服務索引
@@ -66,4 +66,4 @@
 
 此方法會以定義新索引結構描述的 `Field` 物件清單，建立新的 `Index` 物件。每個欄位均有一個名稱、資料類型和一些屬性，以用於定義欄位的搜尋行為。除了欄位之外，您還可以新增評分設定檔、建議工具或 CORS 選項到 Index (基於簡化目的，範例已省略這些選項)。如需 Index 物件以及其組成部分的詳細資訊，請參閱 [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx) 中的 SDK 參考和 [Azure 搜尋服務 REST API 參考](https://msdn.microsoft.com/library/azure/dn798935.aspx)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

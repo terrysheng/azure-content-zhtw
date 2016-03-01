@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
+	ms.date="02/17/2016"
 	ms.author="heidist"/>
 
 # 使用 REST API 將資料匯入至 Azure 搜尋服務
@@ -84,4 +84,4 @@
 
 如需文件動作和成功/錯誤回應的詳細資訊，請參閱[此頁面](https://msdn.microsoft.com/library/azure/dn798930.aspx)。
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

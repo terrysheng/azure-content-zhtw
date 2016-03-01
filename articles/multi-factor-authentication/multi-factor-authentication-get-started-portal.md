@@ -12,8 +12,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.topic="get-started-article" 
+	ms.date="02/18/2016" 
 	ms.author="billmath"/>
 
 # 部署 Azure Multi-factor Authentication Server 使用者入口網站
@@ -189,4 +189,4 @@ Azure Multi-Factor Authentication 伺服器為使用者入口網站提供數個�
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

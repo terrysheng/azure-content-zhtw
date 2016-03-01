@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/25/2015"
+	ms.date="02/18/2016"
 	ms.author="awills"/>
 
 
@@ -82,7 +82,7 @@ Visual Studio Application Insights 的狀態監視器可讓您診斷 ASP.NET 應
 
 完成精靈之後，您隨時都可以重新設定代理程式。如果已安裝代理程式，但初始設定有一些問題，則您也可以這樣做。
 
-![按一下工作列上的 Application Insights 圖示](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
+![按一下工作列上的 [Application Insights] 圖示](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
 
 
 ### 如果您的應用程式是以 Azure Web 應用程式執行
@@ -101,7 +101,7 @@ Visual Studio Application Insights 的狀態監視器可讓您診斷 ASP.NET 應
 
 登入 [Azure 入口網站](https://portal.azure.com)、瀏覽 Application Insights，然後開啟您建立的資源。
 
-![依序選擇 瀏覽、Application Insights，然後選取您的應用程式](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
+![依序選擇 [瀏覽]、[Application Insights]，然後選取您的應用程式](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
 開啟 [效能] 刀鋒視窗，即可查看要求、回應時間、相依性和其他資料。
 
@@ -194,8 +194,8 @@ Visual Studio Application Insights 的狀態監視器可讓您診斷 ASP.NET 應
 
 在用戶端 Windows 7、8 和 8.1 上，一樣需含有 .NET Framework 4.0 和 4.5
 
-IIS 支援：IIS 7、7.5、8、8.5 
-(需要有 IIS)
+IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
+
 
 ## <a name="next"></a>接續步驟
 
@@ -221,4 +221,4 @@ IIS 支援：IIS 7、7.5、8、8.5
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

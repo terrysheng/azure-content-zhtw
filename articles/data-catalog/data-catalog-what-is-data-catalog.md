@@ -10,7 +10,7 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="02/08/2016"
@@ -110,4 +110,4 @@ Microsoft **Azure 資料目錄**是全面管理的雲端服務，可作為企業
 1.	對於 **Azure 資料目錄**直接支援的用戶端應用程式，使用者可以在入口網站的資料來源磚中按一下 [開啟位置] 功能表。用戶端應用程式接著就會啟動，並連接到選取的資料來源。
 2.	對於所有用戶端應用程式，使用者可以使用選取的資料來源的屬性窗格中所顯示的連接資訊。此資訊包含連接到資料所需的一切詳細資料 (例如伺服器名稱、資料庫名稱和物件名稱)，而且可以複製到用戶端工具的連線體驗中。如果已針對資料來源提供要求存取詳細資料，這項資訊將會顯示在連線詳細資料的旁邊。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

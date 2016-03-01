@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="02/10/2016"
 	ms.author="heidist"/>
 
 #使用 .NET 在 Azure 搜尋服務中建立查詢
@@ -63,4 +63,4 @@
 
 第二個呼叫使用 OData $filter 運算式，類別為 eq 'Luxury'。這會將搜尋限制為只傳回類別欄位完全符合 "Luxury" 字串的文件。您可以在 [Azure 搜尋服務的 OData 運算式語法](https://msdn.microsoft.com/library/azure/dn798921.aspx)找到 OData 語法的詳細資訊。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="02/17/2016"
 	ms.author="adrianha"/>
 
@@ -61,4 +61,4 @@
 
 您可以藉由遵循此[教學課程](app-service-mobile-migrating-from-mobile-services.md)，開始將 *App Service* 運用於您現有的行動服務。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

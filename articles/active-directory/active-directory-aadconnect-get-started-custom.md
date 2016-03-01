@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/18/2016"
+	ms.date="02/22/2016"
 	ms.author="billmath;andkjell"/>
 
 # 自訂 Azure AD Connect 安裝
@@ -26,7 +26,7 @@
 | 主題 | |
 | --------- | --------- |
 | **下載 Azure AD Connect** | [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
-| **硬體和必要條件** | [Azure AD Connect：硬體和必要條件](active-directory-aadconnect-prerequisites.md) |
+| **硬體和必要條件** | [Azure AD Connect：硬體和必要條件](active-directory-aadconnect-prerequisites.md#hardware-requirements-for-azure-ad-connect) |
 | **用於安裝的帳戶** | [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md) |
 | 使用快速設定進行安裝 | [快速安裝 Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
 | 從 DirSync 升級 | [從 Azure AD Sync 工具 (DirSync) 升級](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
@@ -228,4 +228,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

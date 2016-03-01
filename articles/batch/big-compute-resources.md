@@ -83,7 +83,7 @@ HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 
 
 * [MS-MPI 參考資料](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [MPI 論壇](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
+* [MPI 論壇](https://social.microsoft.com/Forums/zh-TW/home?forum=windowshpcmpi)
 
 ## 計算密集型執行個體
 
@@ -95,7 +95,7 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md) (
 
 ## 架構藍圖
 
-* [HPC and data orchestration using Azure Batch and Azure Data Factory (使用 Azure Batch 和 Azure Data Factory 的 HPC 及資料協調)](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) 和[文章](../data-factory/data-factory-data-processing-using-batch.md)
+* [使用 Azure Batch 和 Azure Data Factory 的 HPC 及資料協調](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) 和[文章](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## 範例和示範
 
@@ -117,23 +117,32 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md) (
 
 ## 客戶案例
 
-* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
 
-* [明德精算顧問有限公司](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
-
-* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168)
+* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
 
 * [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
-
-* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 
 * [Ludwig Institute of Cancer Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5830)
 
 * [Microsoft Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=15634)
+
+* [明德精算顧問有限公司](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
+
+* [Mitsubishi UFJ Securities International](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=26266)
+
+* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+
+* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
+
+
+
+
+
+
 
 ## 後續步驟
 
 * 最新宣告請參閱 [Microsoft HPC 和批次的小組部落格](http://blogs.technet.com/b/windowshpc/)以及[Azure 部落格](https://azure.microsoft.com/blog/tag/hpc/)。
 * 另請參閱[批次的新功能](https://azure.microsoft.com/updates/?service=batch)或訂閱 [RSS 摘要](https://azure.microsoft.com/updates/feed/?service=batch)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

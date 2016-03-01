@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/09/2016"
+	ms.date="02/17/2016"
 	ms.author="billmath"/>
 
 # 在雲端中監視內部部署身分識別基礎結構和同步處理服務。
@@ -122,5 +122,6 @@ Azure AD Connect Health 入口網站可讓您檢視警示、效能監視和使�
 * [使用 Azure AD Connect Health 來搭配 AD FS](active-directory-aadconnect-health-adfs.md)
 * [使用適用於同步處理的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health 版本歷程記錄](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/05/2016"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # 在 Azure 入口網站中建立 Azure 搜尋服務
@@ -25,7 +25,7 @@ Azure 搜尋服務適用於範圍從免費 (共用) 到標準 (成本是根據�
 
 ## 將 Azure 搜尋服務免費加入您的訂用帳戶
 
-身為管理員，如果選擇使用共用的服務，您可以免費將 Azure 搜尋服務加入現有的 Azure 訂用帳戶。您可以註冊[免費試用訂用帳戶](../includes/free-trial-note.md)開始進行評估。
+身為管理員，如果選擇使用共用的服務，您可以免費將 Azure 搜尋服務加入現有的 Azure 訂用帳戶。您可以註冊[免費試用訂用帳戶](../../includes/free-trial-note.md)開始進行評估。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -126,4 +126,4 @@ Azure 搜尋作業同時需要儲存體和服務複本。相較於沒有選項�
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

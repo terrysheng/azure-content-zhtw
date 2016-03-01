@@ -76,7 +76,7 @@ Site Recovery 可以保護在所支援之 VM 上執行的任何工作負載。
 
 您可以將執行 Windows 或 Linux 的實體伺服器複寫至 Azure 或次要站台來進行保護。[了解](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)作業系統需求。不論是將實體伺服器複寫至 Azure 還是次要網站，都受到相同的限制。
 
-請注意，如果您的內部部署伺服器當機，實體伺服器將會在 Azure 中以 VM 的身分執行。目前不支援容錯回復至內部部署實體伺服器。您必須容錯回復至 VMware VM。
+請注意，如果您的內部部署伺服器當機，實體伺服器將會在 Azure 中以 VM 的身分執行。目前不支援容錯回復至內部部署實體伺服器。您只可以容錯回復至在 VMware 上執行的虛擬機器。
 
 ### 我可以保護哪些 VMware VM？
 
@@ -219,4 +219,4 @@ Azure 是針對服務復原能力而設計的。Site Recovery 已經設計成可
 - 參閱 [Site Recovery 概觀](site-recovery-overview.md)
 - 了解 [Site Recovery 架構](site-recovery-components.md)  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

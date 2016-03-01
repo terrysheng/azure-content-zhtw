@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="hero-article" 
-	ms.date="11/18/2015"
+	ms.date="02/19/2016"
 	ms.author="anhoh"/>
 
 # NoSQL Node.js 教學課程：DocumentDB Node.js 主控台應用程式  
@@ -323,13 +323,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 
 既然您已經將應用程式所有必要的功能設定好，來呼叫它們吧！
 
-函式呼叫的順序會是 
-    * *getOrCreateDatabase*
-        * *getOrCreateCollection*
-            * *getOrCreateDocument*
-                * *getOrCreateDocument*
-                    * *queryCollection*
-                        * *cleanup*
+函式呼叫的順序會是 * *getOrCreateDatabase* * *getOrCreateCollection* * *getOrCreateDocument* * *getOrCreateDocument* * *queryCollection* * *cleanup*
 
 將下列程式碼片段加入至您在 ```app.js``` 中的程式碼底部。
 
@@ -416,7 +410,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
                     "_rid": "tOErANjwoQcBAAAAAAAAAA==",
                     "_ts": 1444327141,
                     "_self": "dbs/tOErAA==/colls/tOErANjwoQc=/docs/tOErANjwoQcBAAAAAAAAAA==/",
-                    "_etag": "\"00001200-0000-0000-0000-5616aee50000\"",
+                    "_etag": ""00001200-0000-0000-0000-5616aee50000"",
                     "_attachments": "attachments/"
             }
     ]
@@ -431,8 +425,7 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 -   [DocumentDB 帳戶][documentdb-create-account]。
 -   您可以在 GitHub 上找到 [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) 方案。
 
-透過 npm 安裝 **documentdb** 模組。使用下列命令：
-* ```npm install documentdb --save```
+透過 npm 安裝 **documentdb** 模組。使用下列命令：* ```npm install documentdb --save```
 
 接下來，將 ```config.js``` 檔案中的 config.endpoint 和 config.authKey 的值更新為如[步驟 3：設定您的應用程式組態](#Config)中所述。
 
@@ -449,4 +442,4 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

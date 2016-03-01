@@ -12,8 +12,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.topic="get-started-article" 
+	ms.date="02/18/2016" 
 	ms.author="billmath"/>
 
 
@@ -60,4 +60,4 @@ MFA 伺服器在做為 RADIUS 伺服器時，僅支援 PAP (密碼驗證通訊�
 - 使用上述設定的相同共用密碼。 
 - 將 RADIUS 逾時設定為 30 至 60 秒，以保留足夠的時間來驗證使用者的認證、執行多因素驗證、接收回應，然後回應 RADIUS 存取要求。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

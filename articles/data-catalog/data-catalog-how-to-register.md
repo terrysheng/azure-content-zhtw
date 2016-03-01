@@ -10,7 +10,7 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="02/08/2016"
@@ -76,4 +76,4 @@
 ## 摘要
 利用 **Azure 資料目錄**註冊資料來源，會將結構化和描述性中繼資料從資料來源複製到目錄服務中，讓您能更輕鬆地探索及了解資料來源。資料來源經過註冊之後，便能利用 **Azure 資料目錄**入口網站來加以註解、管理及探索。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

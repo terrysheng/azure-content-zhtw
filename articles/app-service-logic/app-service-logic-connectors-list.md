@@ -4,7 +4,7 @@
 	services="app-service\logic"
 	documentationCenter=""
 	authors="MandiOhlinger"
-	manager="dwrede"
+	manager="erikre"
 	editor="cgronlun"/>
 
 <tags
@@ -12,17 +12,19 @@
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.topic="get-started-article"
+	ms.date="02/11/2016"
 	ms.author="mandia"/>
 
 
 # 要於 Logic Apps 中使用的連接器和 API Apps 清單
+>[AZURE.NOTE] 這一版的文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [API 清單](../connectors/apis-list.md)。
+
 深入了解所有由 Microsoft 建立可用於邏輯應用程式中的連接器和 API 應用程式。
 
 如需定價資訊，以及每個服務層隨附項目的清單，請參閱 [Azure App Service 定價](https://azure.microsoft.com/pricing/details/app-service/)。
 
-> [AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡；沒有承諾。
+> [AZURE.NOTE] 如果您想要在註冊 Azure 帳戶之前先開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)。您可以在 App Service 中立即建立短期的入門邏輯應用程式。不需要信用卡；沒有承諾。
 
 ## 核心連接器
 下表列出所有由 Microsoft 建立且可做為核心連接器使用的可用連接器和 API Apps：
@@ -32,8 +34,7 @@
 [Azure HDInsight](app-service-logic-connector-hdinsight.md) | 使用這個連接器可在 Azure 上建立 Hadoop 叢集、送出不同的 Hadoop 工作等等。
 [Azure 服務匯流排](app-service-logic-connector-azureservicebus.md) | 可以從「服務匯流排佇列和主題」傳送訊息，並接收來自「服務匯流排佇列和訂用帳戶」的訊息。
 [Azure 儲存體 Blob](app-service-logic-connector-azurestorageblob.md) | 連接到 Blob 儲存體，可以取得、刪除、列出等等。 
-Bing 搜尋 | 在 Bing 上搜尋網頁、影像、新聞和影片。
-Bing 翻譯 | 使用 Bing，將文字翻譯成其他語言。
+[Bing 翻譯](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | 使用 Bing，將文字翻譯成其他語言。
 [Box](app-service-logic-connector-box.md) | 連接到 Box，可以上傳、取得、刪除、列出等檔案工作。
 [Chatter](app-service-logic-connector-chatter.md) | 連接到 Chatter，而且可以張貼訊息、搜尋，甚至擷取新的訊息。
 [Dropbox](app-service-logic-connector-dropbox.md) | 連接到 Dropbox，可以取得、刪除、列出等檔案工作。
@@ -94,4 +95,4 @@ MQ | 連接至內部部署和執行 Windows 作業系統的 Azure 虛擬機器�
 ## 連接器和 API Apps 的詳細資訊
 [什麼是連接器和 BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md) [在 Azure App Service 中使用混合式連接管理員](app-service-logic-hybrid-connection-manager.md) [管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

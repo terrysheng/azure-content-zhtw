@@ -10,7 +10,7 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="02/08/2016"
@@ -58,4 +58,4 @@ Azure 資料目錄預覽期間支援下列類型的註解：
 ## 總結
 使用 Azure 資料目錄 註冊資料來源，即可藉由將資料來源的結構性和描述性中繼資料複製到「目錄」服務內，使該資料變得更易於探索。註冊資料來源之後，使用者就能加上註解，讓在 Azure 資料目錄入口網站中探索和理解變得更加容易。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -7,14 +7,7 @@
 	manager="stevenpo" 
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
-	ms.author="billmath"/>
+<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="02/18/2016"" ms.author="billmath"/>
 
 
 # 搭配 Windows Server 2012 R2 AD FS 使用 Azure Multi-Factor Authentication Server 保護雲端和內部部署資源
@@ -33,6 +26,7 @@
 開始之前，請留意下列項目：
 
 - 不一定要在 AD FS 同盟伺服器上安裝 Azure Multi-Factor Authentication Server，但必須在執行 AD FS 的 Windows Server 2012 R2 上安裝適用於 AD FS 的 Multi-Factor Authentication Adapter。您可以在不同的電腦上安裝伺服器 (只要是支援的版本即可) 以及在 AD FS 同盟伺服器上個別安裝 AD FS 配接器。如需個別安裝配接器的相關指示，請參閱下列程序。
+- 在設計 Multi-Factor Authentication Server 的 AD FS 配接器時，預期 AD FS 可以將信賴憑證者的名稱傳遞至可做為應用程式名稱的配接器。不過，結果事實並非如此。如果使用簡訊或行動應用程式驗證方法，則在 [公司設定] 中定義的字串會包含預留位置 "<$application\_name$>"。使用 AD FS 配接器時並不會取代此預留位置。因此，建議在保護 AD FS 時，從適當的字串中移除此預留位置。
 
 - 登入的帳戶必須有在 Active Directory 中建立安全性群組的權限。
 
@@ -229,4 +223,4 @@ MultiFactorAuthenticationAdfsAdapter.config 步驟| 子步驟
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

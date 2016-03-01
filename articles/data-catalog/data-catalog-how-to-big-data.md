@@ -10,7 +10,7 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="02/08/2016"
@@ -68,4 +68,4 @@
 ## 摘要
 向 **Azure 資料目錄**註冊資料來源可讓您更輕鬆地探索和了解它們。您可以註冊並加註代表邏輯資料集的巨量資料檔案和目錄，以協助使用者找到並使用所需的巨量資料來源。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

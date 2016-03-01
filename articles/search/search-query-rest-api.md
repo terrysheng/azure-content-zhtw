@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/17/2015"
+	ms.date="02/17/2016"
 	ms.author="heidist"/>
 
 # 使用 REST 呼叫在 Azure 搜尋服務中建立查詢
@@ -67,4 +67,4 @@ Azure 搜尋服務提供許多選項可建立功能極為強大的查詢。若�
 
 成功的查詢要求會造成狀態碼「200 確定」，而可在回應主體中找到 JSON 格式的搜尋結果。若要深入了解，請瀏覽[此頁面](https://msdn.microsoft.com/library/azure/dn798927.aspx)的「回應」一節。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="02/10/2016" 
 	ms.author="yochay"/>
 
@@ -39,4 +39,4 @@ App Service 功能整合可讓開發人員專注於他們的程式碼，並能�
 
 [AZURE.INCLUDE [app-service-blueprint-how-app-service-works](../../includes/app-service-blueprint-how-app-service-works.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -29,7 +29,7 @@ Azure AD Connect 是一種工具，用來整合您的內部部署身分識別系
 
 - 單一工具即可提供輕鬆進行同步處理和登入的部署經驗。
 
-- 提供您案例的最新功能。Azure AD Connect 會取代舊版的身分識別整合工具，如 DirSync 和 Azure AD Sync。如需詳細資訊，請參閱[目錄整合工具比較](active-directory-aadconnect-get-started-tools-comparison.md)。
+- 提供您案例的最新功能。Azure AD Connect 會取代舊版的身分識別整合工具，如 DirSync 和 Azure AD Sync。如需詳細資訊，請參閱[混合式身分識別目錄整合工具比較](active-directory-hybrid-identity-design-considerations-tools-comparison.md)。
 
 
 ### Azure AD Connect 運作方式
@@ -38,7 +38,7 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 
 <center>![Azure AD Connect 堆疊](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png) </center>
 
-- 同步處理 - 此組件是由先前發行為 [Dirsync 和 Azure AAD Sync](active-directory-aadconnect-get-started-tools-comparison.md) 的元件和功能所組成。這是負責建立使用者和群組的組件。它也會負責確保您內部部署環境中的使用者和群組資訊和雲端的符合。
+- 同步處理 - 此組件是由先前發行為 [Dirsync 和 Azure AAD Sync](active-directory-hybrid-identity-design-considerations-tools-comparison.md) 的元件和功能所組成。這是負責建立使用者和群組的組件。它也會負責確保您內部部署環境中的使用者和群組資訊和雲端的符合。
 - AD FS - 這是 Azure AD Connect 的選用性組件，而且可以用來使用內部部署 AD FS 基礎結構來設定混合環境。組織可以使用此組件來處理複雜部署，包括網域加入 SSO、AD 登入原則的強制執行以及智慧卡或第三方 MFA 這類項目。
 - 狀況監控 - Azure AD Connect Health 可以提供健全監控，並在 Azure 入口網站中提供檢視此活動的中央位置。如需詳細資訊，請參閱 [Azure Active Directory Connect Health](active-directory-aadconnect-health.md)。
 
@@ -144,4 +144,4 @@ Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -95,7 +95,7 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md) (
 
 ## 架構藍圖
 
-* [HPC and data orchestration using Azure Batch and Azure Data Factory (使用 Azure Batch 和 Azure Data Factory 的 HPC 及資料協調)](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) 和[文章](../data-factory/data-factory-data-processing-using-batch.md)
+* [使用 Azure Batch 和 Azure Data Factory 的 HPC 及資料協調](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) 和[文章](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## 範例和示範
 

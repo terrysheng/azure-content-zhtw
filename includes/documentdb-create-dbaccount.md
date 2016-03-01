@@ -16,7 +16,8 @@
 
 	- 使用 [位置] 指定將代管您的 DocumentDB 帳戶的地理位置。
 
-4.	設定新的 DocumentDB 帳戶選項之後，按一下 [建立]。建立 DocumentDB 帳戶可能需要數分鐘。若要檢查狀態，您可以監視「開始面板」上的進度。 ![「開始面板」上 [建立] 磚的螢幕擷取畫面 - 線上資料庫建立者](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
+4.	設定新的 DocumentDB 帳戶選項之後，按一下 [建立]。建立 DocumentDB 帳戶可能需要數分鐘。若要檢查狀態，您可以監視「開始面板」上的進度。 
+	![「開始面板」上 [建立] 磚的螢幕擷取畫面 - 線上資料庫建立者](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)
 
 	或者，您也可以從 [通知] 中樞監視進度。
 

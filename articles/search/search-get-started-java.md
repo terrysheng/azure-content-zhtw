@@ -117,7 +117,7 @@
 
 	![][7]
 
-6. 在下一頁指定 Tomcat 的安裝目錄。在 Windows 電腦中，這通常為 C:\\Program Files\\Apache Software Foundation\\Tomcat *版本*。
+6. 在下一頁指定 Tomcat 的安裝目錄。在 Windows 電腦中，這通常為 C:\\Program Files\\Apache Software Foundation\\Tomcat *版本* 。
 
 6. 按一下 [完成]。
 

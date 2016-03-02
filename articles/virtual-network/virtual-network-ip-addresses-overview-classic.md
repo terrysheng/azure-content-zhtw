@@ -152,18 +152,18 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 ## 資源管理員與傳統部署之間的差異
 以下是「資源管理員」與傳統部署模型中 IP 定址功能的比較。
 
-|資源|傳統|資源管理員|
+||資源|傳統|資源管理員|
 |---|---|---|---|
 |**公用 IP 位址**|VM|稱為 ILPIP (僅動態)|稱為公用 IP (動態或靜態)|
-|指派給 IaaS VM 或 PaaS 角色執行個體|關連到 VM 的 NIC|
-|網際網路面向的負載平衡器|稱為 VIP (動態) 或保留的 IP (靜態)|稱為公用 IP (動態或靜態)|
-|指派給雲端服務|關連到負載平衡器的前端設定|
-|
+|||指派給 IaaS VM 或 PaaS 角色執行個體|關連到 VM 的 NIC|
+||網際網路面向的負載平衡器|稱為 VIP (動態) 或保留的 IP (靜態)|稱為公用 IP (動態或靜態)|
+|||指派給雲端服務|關連到負載平衡器的前端設定|
+||||
 |**私人 IP 位址**|VM|稱為 DIP|稱為私人 IP 位址|
-|指派給 IaaS VM 或 PaaS 角色執行個體|指派給 VM 的 NIC|
-|內部負載平衡器 (ILB)|指派給 ILB (動態或靜態)|指派給 ILB 的前端設定 (動態或靜態)|
+|||指派給 IaaS VM 或 PaaS 角色執行個體|指派給 VM 的 NIC|
+||內部負載平衡器 (ILB)|指派給 ILB (動態或靜態)|指派給 ILB 的前端設定 (動態或靜態)|
 
 ## 後續步驟
 - 使用傳統入口網站[部署使用靜態私人 IP 位址的 VM](virtual-networks-static-private-ip-classic-pportal.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

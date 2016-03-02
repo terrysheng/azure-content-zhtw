@@ -128,7 +128,7 @@
 
 	如需額外的備援，請對次要輸入 URL 重複這些步驟，方法是為 UDP/TS 串流建立個別的「輸出」索引標籤。
 	
-7. 按一下 \[**建立**] (如果已建立新事件) 或 [**更新**] (如果是編輯原有的事件)，然後繼續啟動編碼器。
+7. 按一下 \[**建立**] (如果已建立新事件) 或 [**更新**]\ (如果是編輯原有的事件)，然後繼續啟動編碼器。
 
 >[AZURE.IMPORTANT] 按一下 Elemental Live Web 介面上的 [**開始**] 之前，您**必須**確保頻道已就緒。
 >此外，請確保不要讓通道處於就緒狀態而無任何事件超過 15 分鐘。
@@ -175,4 +175,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

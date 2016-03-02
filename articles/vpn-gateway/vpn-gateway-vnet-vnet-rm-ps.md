@@ -141,7 +141,7 @@ VNet2 的值：
 
 	New-AzureRmResourceGroup -Name testrg1 -Location 'West US'
 
-接著，建立您的虛擬網路。下列範例會建立一個名為 *VNet1* 的虛擬網路，和兩個子網路：*GatewaySubnet* 和 *Subnet1*。請務必建立一個特別命名為 *GatewaySubnet* 的子網路。如果您將它命名為其他名稱，您的連線設定將會失敗。在下列範例中，閘道子網路為 /28。您可以選擇使用最小的 /29 閘道子網路。請注意某些功能 (例如 ExpressRoute /站對站並存連接) 需要較大的 /27 閘道子網路，因此您可能需建立自己的閘道子網路，以處理未來可能使用的其他功能的流量。
+接著，建立您的虛擬網路。下列範例會建立一個名為 *VNet1* 的虛擬網路，和兩個子網路：*GatewaySubnet* 和 *Subnet1* 。請務必建立一個特別命名為 *GatewaySubnet* 的子網路。如果您將它命名為其他名稱，您的連線設定將會失敗。在下列範例中，閘道子網路為 /28。您可以選擇使用最小的 /29 閘道子網路。請注意某些功能 (例如 ExpressRoute /站對站並存連接) 需要較大的 /27 閘道子網路，因此您可能需建立自己的閘道子網路，以處理未來可能使用的其他功能的流量。
 
  	$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.0.0/28
 	$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.1.1.0/28'
@@ -260,4 +260,4 @@ VNet2 的值：
 
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。請參閱[建立虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)以取得相關步驟。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

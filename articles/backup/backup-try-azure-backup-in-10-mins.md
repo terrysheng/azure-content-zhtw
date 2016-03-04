@@ -112,7 +112,7 @@
 
     ![選取備份保存庫](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
 
-8. 在 [快速啟動] 頁面上，按一下 [適用於 Windows Server 或 System Center Data Protection Manager 或 Windows 用戶端的代理程式] > [儲存] (或從 [儲存] 功能表選取 [另存新檔] 以指定代理程式的位置)。
+8. 在 [快速啟動] 頁面上，按一下 [適用於 Windows Server 或 System Center Data Protection Manager 或 Windows 用戶端的代理程式] > [儲存] \(或從 [儲存] 功能表選取 [另存新檔] 以指定代理程式的位置)。
 
     ![儲存代理程式](./media/backup-try-azure-backup-in-10-mins/agent.png)
 

@@ -124,4 +124,4 @@ Azure AD Connect Health 入口網站可讓您檢視警示、效能監視和使�
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 版本歷程記錄](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016---->

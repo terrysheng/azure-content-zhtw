@@ -154,7 +154,7 @@ New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
  ```
  
-### Provide template parameters
+### 提供範本參數
  
 如果您熟悉 PowerShell，您知道您可以輸入減號 (-) 然後按下 TAB 鍵，循環 Cmdlet 的可用參數。 相同的功能也適用於您在範本中定義的參數。 輸入範本名稱之後，Cmdlet 就會擷取參數，並在命令中動態加入範本參數。 這會讓指定範本參數值變得再容易不過了。 另外，如果您忘記必要參數值，則 PowerShell 會出現此值的提示。
  
@@ -173,4 +173,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-Temp
 
  
 
-<!----HONumber=AcomDC_0224_2016-->
+<!------HONumber=AcomDC_0224_2016-->

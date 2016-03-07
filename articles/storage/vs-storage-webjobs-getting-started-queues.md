@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # 開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案)
@@ -24,13 +24,13 @@
 
 本文提供了 C# 程式碼範例，示範如何透過 Azure 佇列儲存體服務使用 Azure WebJobs SDK 1.x 版。
 
-Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。如需詳細資訊，請參閱[如何從 .NET 使用佇列儲存體](storage-dotnet-how-to-use-queues.md) (英文)。如需 ASP.NET 的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
+Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。單一佇列訊息的大小上限為 64 KB，而一個佇列可以包含數百萬個訊息，以儲存體帳戶的總容量為限。如需詳細資訊，請參閱[以 .NET 開始使用 Azure 佇列儲存體](storage-dotnet-how-to-use-queues.md)。如需 ASP.NET 的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
 
 
 
 ## 如何在接收到佇列訊息時觸發函數
 
-若要撰寫 WebJobs SDK 在收到佇列訊息時所呼叫的函數，請使用 **QueueTrigger** 屬性。屬性建構函式採用字串參數，來指定要輪詢的佇列名稱。您也可以[動態設定佇列名稱](how-to-set-configuration-options)。
+若要撰寫 WebJobs SDK 在收到佇列訊息時所呼叫的函數，請使用 **QueueTrigger** 屬性。屬性建構函式採用字串參數，來指定要輪詢的佇列名稱。若要了解如何動態設定佇列名稱，請參閱[如何設定組態選項](#how-to-set-configuration-options)。
 
 ### 字串佇列訊息
 
@@ -259,7 +259,7 @@ SDK 會自動將物件序列化為 JSON。即使物件是空值，也一律會�
 
 ## 如何在處理佇列訊息時讀取和寫入 Blob 和資料表
 
-**Blob** 和 **Table** 屬性可讓您讀取和寫入 Blob 和資料表。本節中的範例適用於 Blob。如需示範如何在建立或更新 Blob 時觸發程序的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](/app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)，若需讀取和撰寫資料表的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure 資料表儲存體](/app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md)。
+**Blob** 和 **Table** 屬性可讓您讀取和寫入 Blob 和資料表。本節中的範例適用於 Blob。如需示範如何在建立或更新 Blob 時觸發程序的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)，若需讀取和撰寫資料表的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure 資料表儲存體](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md)。
 
 ### 觸發 Blob 作業的字串佇列訊息
 
@@ -275,7 +275,7 @@ SDK 會自動將物件序列化為 JSON。即使物件是空值，也一律會�
 		    blobInput.CopyTo(blobOutput, 4096);
 		}
 
-**Blob** 屬性建構函式採用 **blobPath** 參數來指定容器與 Blob 名稱。如需此預留位置的詳細資訊，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)。
+**Blob** 屬性建構函式採用 **blobPath** 參數來指定容器與 Blob 名稱。如需此預留位置的詳細資訊，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)。
 
 當這個屬性裝飾 **Stream** 物件，另一個建構函式參數會將 **FileAccess** 模式指定為讀取、寫入或讀取/寫入。
 
@@ -290,7 +290,7 @@ SDK 會自動將物件序列化為 JSON。即使物件是空值，也一律會�
 
 ### POCO ([純舊 CLR 物件](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 佇列訊息
 
-針對以 JSON 格式儲存在佇列訊息中的 POCO，您可以使用 **Queue** 屬性之 **blobPath** 參數中物件的屬性名稱來做為預留位置。您也可以使用[佇列中繼資料屬性名稱](#get-queue-or-queue-message-metadata)做為預留位置。
+針對以 JSON 格式儲存在佇列訊息中的 POCO，您可以使用 **Queue** 屬性之 **blobPath** 參數中物件的屬性名稱來做為預留位置。您也可以使用佇列中繼資料屬性名稱做為預留位置。請參閱[取得佇列或佇列訊息中繼資料](#get-queue-or-queue-message-metadata)。
 
 下列範例會將 Blob 複製到具有不同副檔名的新 Blob。佇列訊息是包含 **BlobName** 和 **BlobNameWithoutExtension** 屬性的 **BlobInformation** 物件。在 **Blob** 屬性的 Blob 路徑中使用屬性名稱做為預留位置。
 
@@ -308,7 +308,7 @@ SDK 會使用 [Newtonsoft.Json NuGet](http://www.nuget.org/packages/Newtonsoft.J
 		var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
 		logQueue.AddMessage(queueMessage);
 
-如果您需要先在函數中執行部分工作，然後再將 Blob 繫結至物件，您可以在函數主體中使用屬性，[如之前所示的佇列屬性](#use-webjobs-sdk-attributes-in-the-body-of-a-function)。
+如果您需要先在函式中執行部分工作，然後再將 Blob 繫結至物件，您可以在函式主體中使用屬性，如[在函式主體中使用 WebJobs SDK 屬性](#use-webjobs-sdk-attributes-in-the-body-of-a-function)中所示。
 
 ###可以與 Blob 屬性搭配使用的型別
 
@@ -332,7 +332,7 @@ SDK 會使用 [Newtonsoft.Json NuGet](http://www.nuget.org/packages/Newtonsoft.J
 
 ### 自動處理有害訊息
 
-SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次嘗試失敗，訊息便會移到有害佇列中。[您可以設定重試次數上限](#how-to-set-configuration-options)。
+SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次嘗試失敗，訊息便會移到有害佇列中。您可以在[如何設定組態選項](#how-to-set-configuration-options)中了解如何設定重試次數上限。
 
 有害佇列名為 *{originalqueuename}*-poison。您可以撰寫函數，透過記錄或傳送通知表示需要手動處理，來處理有害佇列中的訊息。
 
@@ -501,7 +501,7 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次嘗試�
 
 只有當程式是以 Azure WebJob 執行時，主控台輸出才會顯示在儀表板，而不是在本機或在某些其他環境中執行時。
 
-您可以[將儀表板連接字串設定為 null](#how-to-set-configuration-options) 來停用記錄。
+您可以將儀表板連接字串設定為 null 來停用記錄。如需詳細資訊，請參閱[如何設定組態選項](#how-to-set-configuration-options)。
 
 下列範例示範寫入記錄檔的數種方式：
 
@@ -541,6 +541,6 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。如果第五次嘗試�
 
 ##後續步驟
 
-本文提供的程式碼範例示範如何處理使用 Azure 佇列的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
+本文提供的程式碼範例示範如何處理使用 Azure 佇列的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 文件資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

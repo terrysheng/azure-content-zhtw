@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="02/16/2016" 
 	ms.author="awills"/>
 
 # 建立新 Application Insights 資源
@@ -31,7 +31,7 @@ Visual Studio Application Insights 會在 Microsoft Azure *資源*中顯示您�
 
 此外您也需要 [Microsoft Azure](http://azure.com) 訂用帳戶。如果您的小組或組織擁有 Azure 訂用帳戶，則擁有者就可以使用您的 Windows Live ID 將您加入該訂用帳戶。
 
-或者您可以建立新的訂用帳戶。免費試用版可讓您試用 Azure 中的所有功能。試用期過後，您可能會發現隨用隨付的訂用帳戶較適合您，因為不需要為免費服務付費。
+或者您可以建立新的訂用帳戶。免費帳戶可讓您試用 Azure 中的所有功能。試用期過後，您可能會發現隨用隨付的訂用帳戶較適合您，因為不需要為免費服務付費。
 
 當您可以存取訂用帳戶時，請在 [http://portal.azure.com](https://portal.azure.com) 中使用您的 Live ID 登入 Application Insights。
 
@@ -94,4 +94,4 @@ SDK 包含不需撰寫任何程式碼，即可傳送遙測資料的標準模組�
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

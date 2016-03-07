@@ -3,7 +3,7 @@
 	description="此常見問題集會回答 Azure AD Connect Health 的相關問題。這個常見問題集涵蓋使用服務的相關問題，包括計費模型、功能、限制及支援。"
 	services="active-directory"
 	documentationCenter=""
-	authors="karavar"
+	authors="billmath"
 	manager="samueld"
 	editor="curtand"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="vakarand"/>
+	ms.date="02/17/2016"
+	ms.author="billmath;vakarand"/>
 
 
 # Azure AD Connect Health 常見問題集 (FAQ)
@@ -99,5 +99,6 @@ Azure AD Connect Health 警示會在成功情況下獲得解決。Azure AD Conne
 * [Azure AD Connect Health 操作](active-directory-aadconnect-health-operations.md)
 * [在 AD FS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
 * [使用 Azure AD Connect Health 進行同步處理](active-directory-aadconnect-health-sync.md)
+* [Azure AD Connect Health 版本歷程記錄](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="在 Logic Apps 中使用 File 連接器 | Microsoft Azure App Service"
 	description="如何建立並設定 File 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
 	authors="rajeshramabathiran"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="02/10/2016"
 	ms.author="rajram"/>
 
 # 開始使用 File 連接器並將它加入您的邏輯應用程式
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。
+
 連線至檔案系統以對主機電腦上的檔案執行上傳、下載等其他操作。邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理資料。您可以將 File 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 File 連接器使用混合式連線管理員對主機檔案系統建立混合式連線。
@@ -58,7 +60,7 @@ API 應用程式執行個體建立之後，瀏覽至其儀表板。作法是按�
 
 7. 設定這些之後，就可以在流程中使用觸發程序和動作。同樣地，您也可以設定其他動作。
 
-> [AZURE.NOTE]成功從資料夾讀取檔案之後，檔案觸發程序會刪除檔案。
+> [AZURE.NOTE] 成功從資料夾讀取檔案之後，檔案觸發程序會刪除檔案。
 
 ## 檔案連接器 REST API ##
 若要在邏輯應用程式外使用連接器，可以利用連接器公開的 REST API。您可以使用 [瀏覽]->[API 應用程式]->[檔案連接器] 檢視這個「API 定義」。在 [摘要] 區段下的 [API 定義] 透鏡上按一下，來檢視此連接器公開的 API︰![][7]
@@ -66,9 +68,9 @@ API 應用程式執行個體建立之後，瀏覽至其儀表板。作法是按�
 如需 API 的詳細資訊，請參閱[檔案連接器 API 定義]。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -85,4 +87,4 @@ API 應用程式執行個體建立之後，瀏覽至其儀表板。作法是按�
 [檔案連接器 API 定義]: https://msdn.microsoft.com/library/dn936296.aspx
 [使用混合式連線管理員]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

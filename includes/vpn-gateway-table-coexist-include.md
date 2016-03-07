@@ -1,7 +1,9 @@
-A Site-to-Site connection and an ExpressRoute connection can be configured to coexist. See the table below for more information. We update this table as new articles, new deployment models and tools become available for this configuration. When an article is available, we link directly to it from the table.
+網站間連接和 ExpressRoute 連接可以設定為並存。如需詳細資訊，請參閱以下的資料表。當此組態有新文章、新的部署模型和工具可以使用時，我們就會更新此資料表。當文章可用時，我們會直接從資料表連結至該文章。
 
-| **Deployment Models and Tools** | **Classic Deployment**  | **Resource Manager Deployment**|
+| **部署模型和工具** | **傳統部署** | **資源管理員部署**|
 |-----------------------------|-------------|---------------------|
-| **Classic Portal**          | Not Supported          | Not Supported                  |
-| **Azure Portal**            | Not Supported         | Not Supported                  |
-| **PowerShell** | [Article](../articles/expressroute/expressroute-howto-coexist-classic.md) | Not Supported |
+| **傳統入口網站** | 不支援 | 不支援 |
+| **Azure 入口網站** | 不支援 | 不支援 |
+| **PowerShell** | [文章](../articles/expressroute/expressroute-howto-coexist-classic.md) | 不支援 |
+
+<!---HONumber=AcomDC_0224_2016-->

@@ -206,11 +206,9 @@
 	   }
 	}
 
-> [AZURE.NOTE] 在上述範例中，已為 SqlSource 指定 **sqlReaderQuery**。複製活動會針對 SQL Server 資料庫來源執行這項查詢以取得資料。
->  
-> 或者，您可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數) 來指定預存程序。
->  
-> 如果您未指定 sqlReaderQuery 或 sqlReaderStoredProcedureName，就會使用資料集 JSON 的結構區段中定義的資料行來建立一個查詢，以對 SQL Server 資料庫執行 (從 mytable 選取 column1、column2)。如果資料集定義沒有結構，則會從資料表中選取所有資料行。
+在上述範例中，已為 SqlSource 指定 **sqlReaderQuery**。複製活動會針對 SQL Server 資料庫來源執行這項查詢以取得資料。或者，您可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數) 來指定預存程序。
+ 
+如果您未指定 sqlReaderQuery 或 sqlReaderStoredProcedureName，就會使用資料集 JSON 的結構區段中定義的資料行來建立一個查詢，以對 SQL Server 資料庫執行 (從 mytable 選取 column1、column2)。如果資料集定義沒有結構，則會從資料表中選取所有資料行。
 
 
 如需 SqlSource 和 BlobSink 所支援屬性的清單，請參閱 [SQL 來源](#sqlsource)小節和 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)。
@@ -469,6 +467,8 @@
 
 如果您未指定 sqlReaderQuery 或 sqlReaderStoredProcedureName，就會使用資料集 JSON 的結構區段中定義的資料行來建立一個查詢，以對 SQL Server 資料庫執行 (從 mytable 選取 column1、column2)。如果資料集定義沒有結構，則會從資料表中選取所有資料行。
 
+> [AZURE.NOTE] 當您使用 **sqlReaderStoredProcedureName** 時，仍必須為資料集 JSON 中的 **tableName** 屬性指定值。這是產品目前的限制。雖然目前尚未針對此資料表來進行驗證。
+
 ### SqlSink
 
 **SqlSink** 支援下列屬性：
@@ -486,25 +486,95 @@
 
 ## 疑難排解連線問題
 
-1. 將 SQL Server 設定成接受遠端連線。啟動 **SQL Server Management Studio**，以滑鼠右鍵按一下 [伺服器]，然後按一下 [屬性]。從清單中選取 [連接] 並核取 [允許此伺服器的遠端連接]。
+1. 將 SQL Server 設定成接受遠端連線。啟動 [SQL Server Management Studio]、用滑鼠右鍵按一下 [伺服器]，然後按一下 [屬性]。選取清單中 [連接]，然後核取 [允許此伺服器的遠端連接]。
 	
 	![啟用遠端連線](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png)
 
-	如需詳細步驟，請參閱[設定遠端存取伺服器組態選項](https://msdn.microsoft.com/library/ms191464.aspx)。 
-2. 啟動 **SQL Server 組態管理員**。展開您想要之執行個體的 **SQL Server 網路組態**，並選取 [MSSQLSERVER 的通訊協定]。您應該會在右窗格中看到通訊協定。以滑鼠右鍵按一下 [TCP/IP]，然後按一下 [啟用] 以啟用 TCP/TP。
+	如需詳細步驟，請參閱[設定 remote access 伺服器組態選項](https://msdn.microsoft.com/library/ms191464.aspx)。 
+2. 啟動 [SQL Server 組態管理員]。展開您想要之執行個體的 [SQL Server 網路組態]，然後選取 [MSSQLSERVER 的通訊協定]。您應該會在右窗格中看到通訊協定。用滑鼠右鍵按一下 [TCP/IP]，然後按一下 [啟用] 來啟用 TCP/TP。
 
 	![啟用 TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
 
-	如需啟用 TCP/IP 通訊協定的詳細資料與替代方式，請參閱[啟用或停用伺服器網路通訊協定](https://msdn.microsoft.com/library/ms191294.aspx)。 
-3. 在相同的視窗中，按兩下 [TCP/IP] 以啟動 [TCP/IP 屬性] 視窗。
-4. 切換至 [IP 位址] 索引標籤。向下捲動以檢視 [IPAll] 區段。記下 **TCP 連接埠** (預設值是 **1433**)。
-5. 在電腦上建立 **Windows 防火牆規則**，以允許透過此連接埠的連入流量。  
-6. **確認連線**：使用 SQL Server Management Studio 從另一部電腦使用完整名稱連接到 SQL Server。例如：<machine>.<domain>.corp.<company>.com,1433。
+	如需啟用 TCP/IP 通訊協定的詳細資料及替代方式，請參閱[啟用或停用伺服器網路通訊協定](https://msdn.microsoft.com/library/ms191294.aspx)。 
+3. 在相同的視窗中，按兩下 [TCP/IP] 來啟動 [TCP/IP 屬性] 視窗。
+4. 切換到 [IP 位址] 索引標籤。向下捲動到 [IPAll] 區段。記下 **TCP 連接埠** (預設值是 **1433**)。
+5. 在電腦上建立 **Windows 防火牆規則**，來允許透過此連接埠的連入流量。  
+6. **確認連線**：利用 SQL Server Management Studio，來從不同的電腦使用完整名稱連線到 SQL Server。例如：<machine>.<domain>.corp.<company>.com,1433。
 
 	> [AZURE.IMPORTANT] 
 	如需詳細資訊，請參閱[連接埠和安全性考量](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations)。
 	>   
 	> 如需連接/閘道器相關問題的疑難排解秘訣，請參閱[閘道器疑難排解](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)。
+
+## 目標資料庫中的身分識別資料行
+本節提供的範例將示範，如何把資料從沒有身分識別資料行的來源資料表，複製到有身分識別資料行的目的地資料表。
+
+**來源資料表：**
+
+	create table dbo.SourceTbl
+	(
+	       name varchar(100),
+	       age int
+	)
+
+**目的地資料表：**
+
+	create table dbo.TargetTbl
+	(
+	       id int identity(1,1),
+	       name varchar(100),
+	       age int
+	)
+
+
+請注意，目標資料表有身分識別資料行。
+
+**來源資料集 JSON 定義**
+
+	{
+	    "name": "SampleSource",
+	    "properties": {
+	        "published": false,
+	        "type": " SqlServerTable",
+	        "linkedServiceName": "TestIdentitySQL",
+	        "typeProperties": {
+	            "tableName": "SourceTbl"
+	        },
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": 1
+	        },
+	        "external": true,
+	        "policy": {}
+	    }
+	}
+
+**目的地資料集 JSON 定義**
+
+	{
+	    "name": "SampleTarget",
+	    "properties": {
+	        "structure": [
+	            { "name": "name" },
+	            { "name": "age" }
+	        ],
+	        "published": false,
+	        "type": "AzureSqlTable",
+	        "linkedServiceName": "TestIdentitySQLSource",
+	        "typeProperties": {
+	            "tableName": "TargetTbl"
+	        },
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": 1
+	        },
+	        "external": false,
+	        "policy": {}
+	    }	
+	}
+
+
+請注意，您的來源資料表及目標資料表有不同的結構描述 (目標資料表有額外的身分識別資料行)。在此案例中，您必須在目標資料集定義中指定 **structure** 屬性，這不包含身分識別資料行。
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -567,4 +637,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

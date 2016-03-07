@@ -15,13 +15,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/16/2016" 
+	ms.date="02/18/2016" 
 	ms.author="jeffstok"
 />
 
-# 利用串流分析來建置 IOT 解決方案 #
+# 利用串流分析來建置 IOT 解決方案
 
-## 簡介 ##
+## 簡介
 
 在本教學課程中，您將學習如何利用 Azure 串流分析來即時獲得您資料的深入解析。Azure 的串流處理服務可讓開發人員輕鬆地處理不斷變化的資料空間，方法是結合資料流 (例如點選流、記錄檔，以及有歷史記錄或參考資料的裝置產生事件)，來輕鬆、快速地取得深入的業務解析。由 Microsoft Azure 代管的 Azure 串流分析是可完全管理的即時串流計算服務，它提供內建的備援、低延遲及延展性功能，可讓您在幾分鐘之內就立刻上手。
 
@@ -33,28 +33,29 @@
 -   有自信地使用 Azure 串流分析來為客戶開發串流解決方案。
 -   利用監視和記錄的經驗來排解問題。
 
-## 先決條件 ##
+## 先決條件
 
 您必須滿足下列的先決條件，才能順利地完成本教學課程。
 
 -   最新的 [Azure PowerShell](../powershell-install-configure.md)
 -   Visual Studio 2015 或，或是免費的 [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
--   [Azure 訂閱](https://azure.microsoft.com/pricing/free-trial/)
+-   [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)
 -   電腦的系統管理員權限
--   從 [GitHub](https://github.com/streamanalytics/samples/releases) 下載最新版本的 TollApp.zip
+-   從 Microsoft 下載中心下載 [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip)。
+-   選擇性：[GitHub](https://github.com/streamanalytics/samples/tree/master/TollApp) 中 TollApp 事件產生器的原始程式碼
 
-## 案例簡介：收費站，你好！ ##
+## 案例簡介：收費站，你好！
 
 
 收費站是常見的景象，我們在世界各地的許多高速公路、橋樑及隧道上都會碰到收費站。每個收費站都有好幾個收費亭，它們可能是手動的 (也就是您必須停車來向收費員付通行費)，也可能是自動的 (這代表收費亭頂端有個感應器，當您的車輛經過收費亭時，感應器會掃描貼在您車輛擋風玻璃上的 RFID 卡)。我們可以輕易地把車輛通過這些收費站的情況，想像成其中能執行許多有趣行動的事件串流。
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
 
-## 傳入的資料 ##
+## 傳入的資料
 
 我們將利用 2 個資料流 (分別由安裝在收費站入口及出口的感應器所產生)，以及 1 個擁有車輛登記資料的靜態查詢資料集。
 
-### 入口資料流 ###
+### 入口資料流
 
 入口資料流包含車輛進入收費站的相關資訊。
   
@@ -108,7 +109,7 @@
 | ExitTime | 車輛離開收費亭的日期及時間 (國際標準時間) |
 | LicensePlate | 車輛的牌照號碼 |
 
-###商用車的登記資料
+### 商用車的登記資料
 
 我們將使用商用車登記資料庫的靜態快照。
   
@@ -148,7 +149,7 @@
 
 GitHub 上 TollApp 資料夾中的 Setup.ps1 指令碼，可用來建立所有必要的資源。為了節省時間，我們建議您執行這個指令碼。如果您想要進一步了解如何在 Azure 入口網站設定這些資源，請參閱附錄＜在 Azure 入口網站中設定教學課程資源＞。
 
-請下載並儲存支援的 [TollApp](https://github.com/streamanalytics/samples/releases) 資料夾和檔案。請確認您下載的是最新版本。
+請下載並儲存支援的 [TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) 資料夾和檔案。
 
 請「以系統管理員的身分」開啟 [Microsoft Azure PowerShell] 視窗。如果您沒有 Azure PowerShell，請依照[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md) 中的指示來安裝 Azure PowerShell。
 
@@ -224,7 +225,7 @@ Windows 會自動封鎖從網際網路下載的 ps1、dll 和 exe 檔案，因�
 
 請複製伺服器的名稱，但不用複製連接埠號碼 (例如 [伺服器名稱].database.windows.net)。
 
-##從 Visual Studio 連線至資料庫
+## 從 Visual Studio 連線至資料庫
 
 我們將使用 Visual Studio 來存取輸出資料庫中的查詢結果。
 
@@ -256,7 +257,7 @@ Windows 會自動封鎖從網際網路下載的 ps1、dll 和 exe 檔案，因�
   
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
   
-##事件產生器：TollApp 範例專案
+## 事件產生器：TollApp 範例專案
 
 PowerShell 指令碼會自動利用 TollApp 範例應用程式來開始傳送事件，因此您不需要執行任何額外的步驟。
 
@@ -278,7 +279,7 @@ PowerShell 指令碼會自動利用 TollApp 範例應用程式來開始傳送事
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image22.png)
 
-##定義輸入來源
+## 定義輸入來源
 
 請按一下入口網站中已建立的分析工作。
 
@@ -344,7 +345,7 @@ PowerShell 指令碼會自動利用 TollApp 範例應用程式來開始傳送事
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image36.jpg)
 
-##定義輸出
+## 定義輸出
 
 請前往 [輸出] 索引標籤，然後按一下 [加入輸出]。
 
@@ -358,7 +359,7 @@ PowerShell 指令碼會自動利用 TollApp 範例應用程式來開始傳送事
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image38.jpg)
 
-##Azure 串流分析查詢
+## Azure 串流分析查詢
 
 [查詢] 索引標籤包含會針對傳入資料進行轉換的 SQL 查詢。
 
@@ -368,7 +369,7 @@ PowerShell 指令碼會自動利用 TollApp 範例應用程式來開始傳送事
 
 在開始我們的第一個 Azure 串流分析工作之前，讓我們來探索幾個案例和查詢語法。
 
-##Azure 串流分析查詢語言簡介
+## Azure 串流分析查詢語言簡介
 -----------------------------------------------------
 
 假設我們需要計算進入某個收費亭的車輛數目。由於這是連續的事件串流，我們必須定義一個「時段」。因此我們必須把問題修改成「每 3 分鐘進入某個收費亭的車輛數目」。這通常稱為輪轉計數。
@@ -383,7 +384,7 @@ PowerShell 指令碼會自動利用 TollApp 範例應用程式來開始傳送事
 
 如需詳細資訊，請參閱 MSDN 中的[時間管理](https://msdn.microsoft.com/library/azure/mt582045.aspx)，以及查詢中所用的[時段](https://msdn.microsoft.com/library/azure/dn835019.aspx)建構。
 
-##測試 Azure 串流分析查詢
+## 測試 Azure 串流分析查詢
 
 既然我們已經編寫了第一個 Azure 串流分析查詢，現在該利用位於您 TollApp 資料夾中下列路徑的範例資料檔案來測試查詢了：
 
@@ -411,7 +412,7 @@ PowerShell 指令碼會自動利用 TollApp 範例應用程式來開始傳送事
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image42.jpg)
 
-##問題 2：回報每輛車通過收費亭的總時數
+## 問題 2：回報每輛車通過收費亭的總時數
 
 我們想知道車輛經過付費亭所需的平均時間，以評估付費亭的效率和客戶經驗。
 
@@ -435,7 +436,7 @@ PowerShell 指令碼會自動利用 TollApp 範例應用程式來開始傳送事
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image45.png)
 
-##問題 3：回報所有車輛登記已過期的商用車
+## 問題 3：回報所有車輛登記已過期的商用車
 
 Azure 串流分析可使用靜態的資料快照，來與時間資料流聯結。如要示範該功能，我們將使用下列的範例問題。
 
@@ -457,7 +458,7 @@ Azure 串流分析可使用靜態的資料快照，來與時間資料流聯結�
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image47.png)
 
-##啟動串流分析工作
+## 啟動串流分析工作
 
 
 既然我們已經編寫了第一個 Azure 串流分析查詢，現在該結束設定並啟動工作了。儲存問題 3 的查詢，這會產生符合我們輸出資料表 **TollDataRefJoin** 結構描述的輸出。
@@ -474,13 +475,13 @@ Azure 串流分析可使用靜態的資料快照，來與時間資料流聯結�
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.jpg)
 
-##在 Visual Studio 中查看結果
+## 在 Visual Studio 中查看結果
 
 請開啟 Visual Studio 的伺服器總管，然後用滑鼠右鍵按一下 [TollDataRefJoin] 資料表。請選取 [顯示資料表資料] 來查看您工作的輸出。
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image51.jpg)
 
-##相應放大 Azure 串流分析工作
+## 相應放大 Azure 串流分析工作
 
 我們將 Azure 串流分析設計成能進行彈性調整，且能夠處理大量資料。Azure 串流分析查詢可以使用 **PARTITION BY** 子句，來告訴系統此步驟將會相應放大。PartitionId 是系統新增的特殊資料欄，且它與輸入 (事件中樞) 的分割識別碼相符。
 
@@ -500,7 +501,7 @@ Azure 串流分析可使用靜態的資料快照，來與時間資料流聯結�
 
 現在，如果您啟動工作，Azure 串流分析將能夠把工作分散到更多的計算資源上，並達到更高的輸送量。請注意，TollApp 應用程式也會同時傳送已依照 TollId 來分割的事件。
 
-##監控
+## 監控
 
 [監視] 索引標籤包含執行中工作的統計資料。
 
@@ -516,13 +517,13 @@ Azure 串流分析可使用靜態的資料快照，來與時間資料流聯結�
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image56.png)
 
-##結論
+## 結論
 
 在本教學課程中，我們提供了 Azure 串流分析服務的簡介。我們示範了如何為串流分析工作設定輸入和輸出。我們還利用付費資料的案例，來解釋在資料空間會不斷變化時所引發的常見問題類型，以及如何在 Azure 串流分析中利用類似 SQL 的簡單查詢來解決這些問題。我們說明了要用來處理時間資料的 SQL 延伸模組建構。我們示範了如何聯結不同的資料流，以及如何利用靜態的參考資料來豐富資料流的內容。我們解釋了如何相應放大查詢，來達到更高的輸送量。
 
 雖然本教學課程簡介的涵蓋範圍相當大，但它絕對不是完整的說明。您可以在[這裡](stream-analytics-stream-analytics-query-patterns.md)找到更多利用 SAQL 語言的查詢模式。如要深入了解 Azure 串流分析，請參閱[線上文件](https://azure.microsoft.com/documentation/services/stream-analytics/)。
 
-##清理您的 Azure 帳戶
+## 清理您的 Azure 帳戶
 
 請從 Azure 入口網站停止串流分析工作。
 
@@ -534,4 +535,4 @@ Setup.ps1 指令碼會建立 2 個 Azure 事件中樞，以及 Azure SQL 資料�
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

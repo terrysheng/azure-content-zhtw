@@ -12,12 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中使用 PowerShell 設定警示
 
 您可以在 [Visual Studio Application Insights](app-insights-overview.md) 中自動化[警示](app-insights-alerts.md)的組態。
+
+此外，您可以[設定 webhook 以自動回應至警示](../azure-portal/insights-webhooks-alerts.md)。
 
 ## 單次設定
 
@@ -31,7 +33,7 @@
 
 ## 連接到 Azure
 
-啟動 Azure PowerShell 並[連接至您的訂用帳戶](powershell-install-configure.md)：
+啟動 Azure PowerShell 並[連接至您的訂用帳戶](../powershell-install-configure.md)：
 
 ```PowerShell
 
@@ -131,6 +133,9 @@ performanceCounter | [效能](app-insights-configuration-with-applicationinsight
 remoteDependencyFailed| [相依性](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
 request、<br/>requestFailed|[伺服器要求](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
+## Webhook
+
+您可以[自動回應至警示](../azure-portal/insights-webhooks-alerts.md)。Azure 會在出現警示時呼叫您選擇的網址。
 
 ## 另請參閱
 
@@ -138,8 +143,9 @@ request、<br/>requestFailed|[伺服器要求](app-insights-configuration-with-a
 * [用來設定 Application Insights 的指令碼](app-insights-powershell-script-create-resource.md)
 * [從範本建立 Application Insights 和 Web 測試資源](app-insights-powershell.md)
 * [自動化 Microsoft Azure 診斷與 Application Insights 的耦合](app-insights-powershell-azure-diagnostics.md)
+* [自動回應至警示](../azure-portal/insights-webhooks-alerts.md)
 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

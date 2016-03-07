@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/07/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 # BizTalk XML 驗證器
+
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。
 
 在您的應用程式中使用 BizTalk XML 驗證器連接器，可以根據預先定義的 XML 結構描述來驗證 XML 資料。使用者可以使用現有的結構描述，或根據一般檔案執行個體、JSON 執行個體，或現有的連接器產生結構描述。
 
@@ -62,4 +64,4 @@ BizTalk XML 驗證器會將結構描述納入其組態中。直接從 Azure 入�
 [4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
 [5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0224_2016-->

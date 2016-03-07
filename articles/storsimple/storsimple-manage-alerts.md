@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/09/2016"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務來檢視和管理 StorSimple 警示
@@ -254,4 +254,4 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 
 深入了解 [StorSimple 錯誤和疑難排解可運作的裝置](storsimple-troubleshoot-operational-device.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

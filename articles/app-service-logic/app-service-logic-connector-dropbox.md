@@ -2,7 +2,7 @@
 	pageTitle="在 Logic Apps 中使用 Dropbox 連接器 | Microsoft Azure App Service"
 	description="如何建立並設定 Dropbox 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它"
 	authors="anuragdalmia"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/11/2016"
 	ms.author="sameerch"/>
 
 # 開始使用 Dropbox 連接器並將它加入您的邏輯應用程式
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [Dropbox API](../connectors/create-api-dropbox.md)。
+
 連接到 Dropbox 帳戶以上傳或下載檔案。邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理資料。您可以將 Dropbox 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 ## 觸發程序和動作
@@ -35,7 +37,8 @@ None | <ul><li>刪除檔案</li><li>取得檔案</li><li>檔案上傳</li><li>�
 
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
 2. 搜尋「Dropbox 連接器」，將其選取，然後選取 [建立]。
-3. 輸入名稱、App Service 方案和其他屬性：![][1]
+3. 輸入名稱、App Service 方案和其他屬性：
+	![][1]
 	- **位置** - 選擇您要部署連接器的地理位置
 	- **訂閱** - 選擇您要建立此連接器的訂閱
 	- **資源群組** - 選取或建立連接器所在的資源群組
@@ -48,11 +51,18 @@ None | <ul><li>刪除檔案</li><li>取得檔案</li><li>檔案上傳</li><li>�
 ## 在邏輯應用程式中使用 Dropbox 連接器
 建立 API 應用程式之後，您現在可以使用 Dropbox 連接器做為邏輯應用程式的動作。作法：
 
-1.	在您的邏輯應用程式中，開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，並設定您的流程：![][3]
-2.	Dropbox 連接器列在資源庫中：![][4]
-3.	選取 Dropbox 連接器以自動加入至設計工具。選取 [授權]、輸入認證，然後選取 [允許]：![][5] ![][6] ![][7]
+1.	在您的邏輯應用程式中，開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，並設定您的流程:
+	![][3]
+2.	Dropbox 連接器列在資源庫中：
+	![][4]
+3.	選取 Dropbox 連接器以自動加入至設計工具。選取 [授權]、輸入認證，然後選取 [允許]：
+	![][5] 
+	![][6] 
+	![][7]
 
-您現在便可以在流程中使用 Dropbox 連接器。您可以使用 Dropbox 動作 [上傳檔案] 將檔案上傳到您的 Dropbox 帳戶：![][8] ![][9]
+您現在便可以在流程中使用 Dropbox 連接器。您可以使用 Dropbox 動作 [上傳檔案] 將檔案上傳到您的 Dropbox 帳戶：
+	![][8] 
+	![][9]
 
 設定 [上傳檔案] 的輸入屬性，如下所示：
 
@@ -64,7 +74,7 @@ None | <ul><li>刪除檔案</li><li>取得檔案</li><li>檔案上傳</li><li>�
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -81,4 +91,4 @@ None | <ul><li>刪除檔案</li><li>取得檔案</li><li>檔案上傳</li><li>�
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

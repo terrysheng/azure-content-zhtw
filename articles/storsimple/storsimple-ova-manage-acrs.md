@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/12/2016"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # 針對 StorSimple Virtual Array使用 StorSimple Manager 服務管理存取控制記錄 (預覽)
@@ -114,4 +114,4 @@
 
 - 深入了解[加入磁碟區和設定 ACR](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

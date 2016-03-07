@@ -14,14 +14,14 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 # 在 Microsoft Azure 上管理搜尋服務
 
 Azure 搜尋服務是包含 HTTP 架構 API 的雲端型服務，可用於自訂搜尋應用程式中。搜尋服務提供的引擎具備全文檢索文字分析、進階搜尋功能、搜尋資料儲存體及查詢命令語法。
 
-本文說明如何在 [Azure 入口網站](https://portal.azure.com)中管理搜尋服務。
+本文說明如何在 [Azure 入口網站](https://portal.azure.com)中管理搜尋服務。您也可以使用新的搜尋流量分析功能，深入了解索引層級的活動。若要開始使用，請前往 [Azure 搜尋服務的搜尋流量分析](search-traffic-analytics.md)
 
 或者，您可以使用管理 REST API。如需詳細資訊，請參閱[開始使用 Azure 搜尋服務管理 REST API](search-get-started-management-api.md) 和 [Azure 搜尋服務管理 REST API 參考](http://msdn.microsoft.com/library/azure/dn832684.aspx)。
 
@@ -43,7 +43,7 @@ Azure 搜尋服務是包含 HTTP 架構 API 的雲端型服務，可用於自訂
 
 ##搜尋分析
 
-您可以啟用針對使用者搜尋活動的資料收集功能，以了解您搜尋服務的執行狀況、使用者目前使用哪些字詞，以及那些字詞是否傳回命中結果。而分析和視覺化這種資料的最佳方式，就是透過 Power BI 內容套件。第一個步驟是啟用搜尋流量分析。請參閱 [Analyzing your Azure Search traffic (分析您的 Azure 搜尋服務流量)](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) 來了解該如何進行。
+您可以啟用針對使用者搜尋活動的資料收集功能，以了解您搜尋服務的執行狀況、使用者目前使用哪些字詞，以及那些字詞是否傳回命中結果。而分析和視覺化這種資料的最佳方式，就是透過 Power BI 內容套件。第一個步驟是啟用搜尋流量分析。請參閱[分析您的 Azure 搜尋服務流量](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/)以了解該如何進行。
 
 <a id="sub-2"></a>
 ## 管理工作
@@ -66,7 +66,7 @@ Azure 搜尋服務是包含 HTTP 架構 API 的雲端型服務，可用於自訂
 
 透過服務儀表板取得服務 URL：
 
-1.	登入 [Azure 傳統入口網站](https://portal.azure.com)。
+1.	登入 [Azure 入口網站](https://portal.azure.com)。
 2.	按一下 [瀏覽] | [全部] | [搜尋服務]。
 3.	按一下您的搜尋服務名稱以開啟儀表板。
 4.	按一下 [屬性] 以滑動開啟屬性頁面。服務 URL 位於頁面頂端。您可以釘選此頁面，方便等一下快速存取。
@@ -166,7 +166,7 @@ Azure 搜尋服務是包含 HTTP 架構 API 的雲端型服務，可用於自訂
 <a id="sub-8"></a>
 ## 設定管理存取權的角色
 
-Azure 特別為透過入口網站管理的所有服務，或在 Azure 資源管理員 API 中 (如果您使用自訂系統管理工具)，提供全域角色型授權模型。「擁有者」、「參與者」和「讀取者」角色可針對您指派給各角色的 Active Directory 使用者、群組和安全性主體，設定服務管理層級。請參閱 [Azure 傳統入口網站中的角色存取控制](../role-based-access-control-configure.md)，以取得角色成員資格的詳細資料。
+Azure 特別為透過入口網站管理的所有服務，或在 Azure 資源管理員 API 中 (如果您使用自訂系統管理工具)，提供全域角色型授權模型。「擁有者」、「參與者」和「讀取者」角色可針對您指派給各角色的 Active Directory 使用者、群組和安全性主體，設定服務管理層級。請參閱 [Azure 傳統入口網站中的角色存取控制](../active-directory/role-based-access-control-configure.md)，以取得角色成員資格的詳細資料。
 
 就 Azure Search 而言，角色存取控制可決定下列管理工作：
 
@@ -177,7 +177,7 @@ Azure 特別為透過入口網站管理的所有服務，或在 Azure 資源管�
 參與者|除了角色管理以外，具有與「擁有者」相同層級的存取權。例如，參與者可以檢視和重新產生 `api-key`，但不能修改角色成員資格。
 讀取者|檢視服務狀態及查詢金鑰。這個角色的成員無法啟動或停止服務，也無法檢視管理金鑰。
 
-請注意，角色不會授與服務端點的存取權限。搜尋服務作業 (例如索引管理、索引母體擴展，以及搜尋資料查詢) 可透過 api-key 而非角色來控制。如需詳細資訊，請參閱 [Azure 傳統入口網站中的角色存取控制](../role-based-access-control-configure.md)中的「管理授權與資料作業」。
+請注意，角色不會授與服務端點的存取權限。搜尋服務作業 (例如索引管理、索引母體擴展，以及搜尋資料查詢) 可透過 api-key 而非角色來控制。如需詳細資訊，請參閱 [Azure 入口網站中的角色存取控制](../active-directory/role-based-access-control-configure.md)中的「管理授權與資料作業」。
 
 建立服務之後，角色會提供存取控制。只有訂閱管理員可以新增訂閱的搜尋服務。
 
@@ -200,4 +200,4 @@ Azure 特別為透過入口網站管理的所有服務，或在 Azure 資源管�
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

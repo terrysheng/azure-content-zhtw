@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="01/05/2016" 
+  ms.date="02/20/2016" 
   ms.author="tamram"/>
 
 
@@ -30,7 +30,7 @@
 
 擷取儲存體資源的屬性和中繼資料值是一個兩步驟程序。您必須先呼叫 **FetchAttributes** 方法明確地擷取這些值，才能開始讀取這些值。
 
-> [AZURE.IMPORTANT]除非您呼叫其中一個 **FetchAttributes** 方法，否則無法填入儲存體資源的屬性和中繼資料值。
+> [AZURE.IMPORTANT] 除非您呼叫其中一個 **FetchAttributes** 方法，否則無法填入儲存體資源的屬性和中繼資料值。
 
 ## 設定與擷取屬性
 
@@ -99,4 +99,4 @@
 - [適用於 .NET 的 Azure 儲存體用戶端程式庫參考資料](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [適用於 .NET 的 Azure 儲存體用戶端程式庫封裝](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

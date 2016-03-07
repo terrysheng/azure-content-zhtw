@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="02/22/2016"
    ms.author="larryfr"/>
 
 #部署和管理以 Windows 為基礎的 HDInsight 上的 Apache Storm 拓撲
@@ -151,7 +151,7 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。�
 
 Storm UI 是以 REST API 為建置基礎，因此您可以使用 REST API 執行類似的管理和監視功能。您可以使用 REST API 建立自訂工具來管理和監視 Storm 拓撲。
 
-如需詳細資訊，請參閱 [Storm UI REST API](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md)。下列資訊專用於搭配使用 REST API 與 Apache Storm on HDInsight。
+如需詳細資訊，請參閱 [Storm UI REST API](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md)。下列資訊專用於搭配使用 REST API 與 Apache Storm on HDInsight。
 
 ###基底 URI
 
@@ -181,4 +181,4 @@ REST API 的要求必須使用**基本驗證**，因此請使用 HDInsight 叢�
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

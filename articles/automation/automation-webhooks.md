@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
-   ms.author="bwren;sngun"/>
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren;sngun"/>
 
 # Azure 自動化 Webhook
 
-Webhook 可讓您在 Azure 自動化中透過單一 HTTP 要求啟動特定的 Runbook。這可讓外部服務，例如 Visual Studio Team Services、GitHub 或自訂應用程式啟動 Runbook，而不需使用 Azure 自動化 API 實作完整的解決方案。![Webhook](media/automation-webhooks/webhooks-overview.png)
+*Webhook* 可讓您在 Azure 自動化中透過單一 HTTP 要求啟動特定的 Runbook。這可以讓外部服務，例如 Visual Studio Team Services、GitHub 或自訂應用程式不需使用 Azure 自動化 API 實作完整的解決方案，即可啟動 Runbook。![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 您可以透過[在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md) 中比較 Webhook 與其他啟動 Runbook 的方法
 
@@ -28,7 +28,7 @@ Webhook 可讓您在 Azure 自動化中透過單一 HTTP 要求啟動特定的 R
 | 屬性 | 說明 |
 |:---|:---|
 |名稱 | 您可以為 Webhook 提供任何想要的名稱，因為這並不會向用戶端公開。該名稱僅供您用來識別 Azure 自動化中的 Runbook。<br> 最佳做法是您給予 Webhook 的名稱應該與會使用其的用戶端相關。 |
-|URL |Webhook 的 URL 是一種唯一性的位址，即用戶端用來呼叫 HTTP POST 以啟動連結至 Webhook的 Runbook。當您建立 Webhook 時其會自動產生。您無法指定自訂 URL。<br> <br> URL 包含可讓協力廠商系統不需進一步驗證即可叫用 Runbook 的安全性權杖。基於這個原因，應該將其視為一種密碼。基於安全性原因，您僅能於建立 Webhook 時在 Azure preview 入口網站中檢視 URL。您應該在安全的位置記下 URL 以供日後使用。 |
+|URL |Webhook 的 URL 是一種唯一性的位址，即用戶端用來呼叫 HTTP POST 以啟動連結至 Webhook的 Runbook。當您建立 Webhook 時其會自動產生。您無法指定自訂 URL。<br> <br> URL 包含可讓協力廠商系統不需進一步驗證即可叫用 Runbook 的安全性權杖。基於這個原因，應該將其視為一種密碼。基於安全性原因，您僅能於 Webhook 建立時在 Azure 入口網站中檢視 URL。您應該在安全的位置記下 URL 以供日後使用。 |
 |到期日期 | 例如憑證，每個 Webhook 都會有一個到期日期，到期後便無法再使用。建立 Webhook 後無法變更此到期日期，且 Webhook 也無法於到期日期後再次啟用。在此情況下，您必須建立另一個 Webhook 以取代目前的 Webhook，並更新用戶端以使用新的 Webhook。 |
 | 已啟用 | 建立 Runbook 時 Webhook 會預設為啟用。如果您將其設定為 [停用]，則任何用戶端皆無法使用。當您建立 Webhook 時或在建立後的任何時候，您可以設定 [**啟用**] 屬性。 |
 
@@ -38,7 +38,7 @@ Webhook 可以定義由該 Webhook 啟動 Runbook 時所使用的 Runbook 參數
 
 當用戶端使用 Webhook 啟動 Runbook 時，其無法覆寫 Webhook 中定義的參數值。若要從用戶端接收資料，Runbook 可以接受單一參數，稱之為 **$WebhookData** 的 [物件] 類型，其中包含用戶端在 POST 要求中所包含的資料。
 
-![Webhookdata](media/automation-webhooks/webhookdata.png)
+![Webhookdata 屬性](media/automation-webhooks/webhook-data-properties.png)
 
 **$WebhookData** 物件具有下列屬性：
 
@@ -59,9 +59,9 @@ Webhook 可以定義由該 Webhook 啟動 Runbook 時所使用的 Runbook 參數
 
 針對上述 Runbook，如果您對 WebhookData 參數具有下列屬性：
 
-1. WebhookName: MyWebhook
-2. RequestHeader: From=Test User
-3. RequestBody: [“VM1”, “VM2”]
+1. WebhookName: *MyWebhook*
+2. RequestHeader: *From=Test User*
+3. RequestBody: *[“VM1”, “VM2”]*
 
 則應對 WebhookData 參數傳遞下列 UI 中的 JSON 值：
 
@@ -70,7 +70,7 @@ Webhook 可以定義由該 Webhook 啟動 Runbook 時所使用的 Runbook 參數
 ![啟動來自 UI 的 WebhookData 參數](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
 
 
->[AZURE.NOTE]所有輸入參數的值會使用 Runbook 工作進行記錄。這表示，任何由用戶端在 Webhook 要求中提供的輸入將會進行記錄，並可讓任何有自動化工作存取權的人使用。基於這個原因，您在 Webhook 呼叫中包含機密資訊時應該特別謹慎。
+>[AZURE.NOTE] 所有輸入參數的值會使用 Runbook 工作進行記錄。這表示，任何由用戶端在 Webhook 要求中提供的輸入將會進行記錄，並可讓任何有自動化工作存取權的人使用。基於這個原因，您在 Webhook 呼叫中包含機密資訊時應該特別謹慎。
 
 ## 安全性
 
@@ -82,9 +82,9 @@ Webhook 的安全性仰賴其 URL 的隱私權，其中包含可允許其接受�
 
 ## 建立 Webhook
 
-使用下列程序以在 Azure Preview 入口網站中建立連結至 Runbook 的新 Webhook。
+使用下列程序在 Azure 入口網站中建立連結至 Runbook 的全新 Webhook。
 
-1. 在 Azure Preview 入口網站中的 **Runbook 刀鋒視窗**，按一下 [Runbook]，Webhook 便會開始檢視其詳細資料刀鋒視窗。 
+1. 從 Azure 入口網站的 **Runbook 刀鋒視窗**中，按一下 Webhook 將開始檢視詳細資料刀鋒視窗的 Runbook。 
 3. 按一下刀鋒視窗頂端的 [**Webhook**] 以開啟 [**新增 Webhook**] 刀鋒視窗。<br> ![Webhook 按鈕](media/automation-webhooks/webhooks-button.png)
 4. 按一下 [**建立新的 Webhook**] 以開啟 [**建立 Webhook 刀鋒視窗**]。
 5. 指定 Webhook 的 [**名稱**]、[**到期日期**] 以及是否應該啟用。請參閱 [Webhook 的詳細資料](#details-of-a-webhook)以取得這些屬性的詳細資訊。
@@ -272,4 +272,4 @@ Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。我們
 - 如需檢視 Runbook 作業狀態的詳細資訊，請參閱 [Azure 自動化中的 Runbook 執行](automation-runbook-execution.md)
 - [使用 Azure 自動化對 Azure 警示採取動作](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

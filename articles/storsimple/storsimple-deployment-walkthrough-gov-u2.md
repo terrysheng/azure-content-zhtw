@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.workload="NA"
+   ms.date="02/22/2016"
    ms.author="v-sharos" />
 
 # 在 Government 入口網站中部署您的內部部署 StorSimple 裝置 (Update 2)
@@ -127,7 +127,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 您可以使用 Windows PowerShell for StorSimple 來完成 StorSimple 裝置的初始安裝，如下列程序所述。您必須使用終端機模擬軟體來完成這個步驟。如需詳細資訊，請參閱[使用 PuTTY 連接到裝置序列主控台](#use-putty-to-connect-to-the-device-serial-console)。
 
-[AZURE.INCLUDE [storsimple-configure-and-register-device-gov](../../includes/storsimple-configure-and-register-device-gov.md)]
+[AZURE.INCLUDE [storsimple-configure-and-register-device-gov](../../includes/storsimple-configure-and-register-device-gov-u2.md)]
 
 ## 步驟 4：完成最小量裝置設定
 
@@ -243,4 +243,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 - 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

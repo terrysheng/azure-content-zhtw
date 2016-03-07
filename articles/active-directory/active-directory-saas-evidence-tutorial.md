@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/23/2016"
 	ms.author="asmalser"/>
 
 
@@ -107,4 +107,4 @@
  
 4.	在頁面頁尾中，按一下 [指派] 按鈕。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0224_2016-->

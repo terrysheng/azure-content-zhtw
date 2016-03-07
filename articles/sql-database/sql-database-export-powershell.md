@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -19,7 +19,6 @@
 
 # 使用 PowerShell 建立和匯出 Azure SQL Database 的 BACPAC
 
-**單一資料庫**
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-export.md)
@@ -30,7 +29,7 @@
 
 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 是一種包含資料庫結構描述和資料的 .bacpac 檔案。BACPAC 的主要使用案例是將資料庫從一部伺服器移到另一部，以[將本機資料庫移轉至雲端](sql-database-cloud-migrate.md)，以及用於以開放式格式保存現有的資料庫。
 
-> [AZURE.NOTE]BACPAC 並非用於備份和還原作業。Azure SQL Database 會自動為每個使用者資料庫建立備份。如需詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
+> [AZURE.NOTE] BACPAC 並非用於備份和還原作業。Azure SQL Database 會自動為每個使用者資料庫建立備份。如需詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
 
 
 BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成之後下載。
@@ -38,10 +37,10 @@ BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成
 
 若要完成本文，您需要下列項目：
 
-- Azure 訂用帳戶。如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來完成這篇文章。
+- Azure 訂用帳戶。如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [**免費帳戶**]，然後再回來完成這篇文章。
 - Azure SQL Database。如果沒有 SQL Database，請遵循本文中的以下步驟：[建立您的第一個 Azure SQL Database](sql-database-get-started.md)。
-- 用來儲存 BACPAC 的 [Azure 儲存體帳戶](storage-create-storage-account.md)與 Blob 容器。目前，儲存體帳戶必須使用傳統的部署模型，因此建立儲存體帳戶時，請選擇 [**傳統**]。
-- Azure PowerShell。您可以執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409) 來下載和安裝 Azure PowerShell 模組。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
+- 用來儲存 BACPAC 的 [Azure 儲存體帳戶](../storage/storage-create-storage-account.md)與 Blob 容器。目前，儲存體帳戶必須使用傳統的部署模型，因此建立儲存體帳戶時，請選擇 [**傳統**]。
+- Azure PowerShell。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 
 
 
@@ -60,7 +59,7 @@ BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-成功執行 **Select-AzureSubscription** 之後，您會返回 PowerShell 提示。如果您有一個以上的訂用帳戶，您可以執行 **Get-AzureSubscription** 並確認您要使用的訂用帳戶顯示 **IsCurrent: True**。
+成功執行 **Select-AzureSubscription** 之後，您會返回 PowerShell 提示字元。如果您有一個以上的訂用帳戶，您可以執行 **Get-AzureSubscription** 並確認您要使用的訂用帳戶顯示 **IsCurrent: True**。
 
 
 ## 為您的特定環境設定變數
@@ -94,7 +93,7 @@ BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成
 
 這個命令會將匯出資料庫要求提交給服務。視資料庫大小而定，匯出作業可能需要一些時間才能完成。
 
-> [AZURE.IMPORTANT]若要保證在交易上一致的 BACPAC 檔案，您應該先[建立您的資料庫複本](sql-database-copy-powershell.md)，然後匯出資料庫複本。
+> [AZURE.IMPORTANT] 若要保證在交易上一致的 BACPAC 檔案，您應該先[建立您的資料庫複本](sql-database-copy-powershell.md)，然後匯出資料庫複本。
 
 
     $exportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
@@ -148,4 +147,4 @@ BACPAC 會匯出至 Azure 儲存體 Blob 容器，以供您在作業順利完成
 - [災害復原詳細資訊](sql-database-disaster-recovery-drills.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -20,8 +20,9 @@
 
 以下是 SDK 的詳細版本資訊與更新指示：
 
-* [.NET](app-insights-release-notes-dotnet.md)
-* [.NET 記錄配接器](app-insights-release-notes-dotnet-logging.md)
+* [ASP.NET Web Server SDK](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)
+* [.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
+* [.NET 記錄配接器](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/releases)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android/releases)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
@@ -34,4 +35,4 @@
 
 另請閱讀[服務更新](https://azure.microsoft.com/updates/?service=application-insights)，其總結了 Application Insights 服務整體的主要改進。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

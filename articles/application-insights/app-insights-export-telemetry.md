@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # 從 Application Insights 匯出遙測
@@ -42,7 +42,7 @@
 
 ![向下捲動並按一下 [連續匯出]](./media/app-insights-export-telemetry/01-export.png)
 
-加入匯出，並選取您要放置資料的 [Azure 儲存體帳戶](../storage-introduction.md)：
+加入匯出，並選取您要放置資料的 [Azure 儲存體帳戶](../storage/storage-introduction.md)：
 
 ![按一下 [加入]、[匯出目的地]、[儲存體帳戶]，然後建立新儲存區或選擇現有儲存區](./media/app-insights-export-telemetry/02-add.png)
 
@@ -170,7 +170,6 @@
 
     如果帳戶是組織所擁有，您必須是擁有者或參與者群組的成員。
 
-    <!-- Your account has to be either a paid-for account, or in the free trial period. -->
 
 * *我是否能直接匯出到我自己的內部部署儲存區？*
 
@@ -210,4 +209,4 @@
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

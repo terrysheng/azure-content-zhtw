@@ -20,8 +20,6 @@
 
 當您需要在部署期間傳遞安全值 (例如密碼) 做為參數時，可以將該值儲存為 [Azure 金鑰保存庫](./key-vault/key-vault-whatis.md)中的密碼，並在其他資源管理員範本中參考該值。您只能在範本中包含密碼的參考，因此該密碼永遠都不會公開，而您不需要每次部署資源時手動輸入該密碼的值。您會指定哪些使用者或服務主體可以存取密碼。
 
-> [AZURE.NOTE] 目前只有 Azure CLI 支援參考金鑰保存庫密碼的功能。Azure PowerShell 將儘速加入此功能。
-
 ## 部署金鑰保存庫和密碼
 
 若要建立可從其他資源管理員範本參考的金鑰保存庫，您必須將 **enabledForTemplateDeployment** 屬性設為 **true**，而且必須為將執行參考該密碼之部署的使用者或服務主體授與存取權。
@@ -102,7 +100,7 @@
 ## 後續步驟
 
 - 如需金鑰保存庫的一般資訊，請參閱[開始使用 Azure 金鑰保存庫](./key-vault/key-vault-get-started.md)。
-- 如需搭配虛擬機器使用金鑰保存庫的相關資訊，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)。
+- 如需搭配虛擬機器使用金鑰保存庫的相關資訊，請參閱 [Azure Resource Manager 的安全性考量](best-practices-resource-manager-security.md)。
 - 如需參考金鑰密碼的完整範例，請參閱[金鑰保存庫範例](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

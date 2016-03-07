@@ -20,7 +20,7 @@
 
 Azure 應用程式通常需要將資源 (如資料庫伺服器、資料庫或網站等) 結合在一起，以達到所需的目標。您不是分開部署與管理每個資源，而是建立一個 Azure 資源管理員範本，藉此經由單一、協調的作業署與佈建應用程式有的資源。在範本中，您會定義應用程式所需的資源，並指定部署參數以針對不同的環境輸入值。範本由 JSON 與運算式所組成，可讓您用來為部署建構值。此主題說明範本的各區段。
 
-Visual Studio 提供工具來協助您建立範本。如需有關如何以您的範本使用 Visual Studio 的詳細資訊，請參閱[透過 Visual Studio 建立和部署 Azure 資源群組](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)和[使用 Visual Studio 編輯資源管理員範本](vs-azure-tools-resource-group-adding-resources.md)。
+Visual Studio 提供工具來協助您建立範本。如需有關如何以您的範本使用 Visual Studio 的詳細資訊，請參閱[透過 Visual Studio 建立和部署 Azure 資源群組](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)。
 
 您必須將範本大小限制為 1 MB，並將每個參數檔案限制為 64 KB。1 MB 的限制適用於已增加反覆資源定義和變數和參數值之範本的最終狀態。
 
@@ -35,7 +35,7 @@ Visual Studio 提供工具來協助您建立範本。如需有關如何以您的
 5. 您想要在部署期間傳入的值，以及您想要在範本中直接定義的值
 6. 您是否需要從部署傳回值
 
-若找出哪些資源類型可供部署、各類型支援的區域，以及每個類型可用的 API 版本，請參閱[資源管理員提供者、區域、API 版本及結構描述](resource-manager-supported-services.md)。本主題提供的範例和連結可協助您判斷您需要在您的範本中提供的值。
+如果要找出哪些資源類型可供部署、各類型支援的區域，以及每個類型可用的 API 版本，請參閱[資源管理員提供者、區域、API 版本及結構描述](resource-manager-supported-services.md)。本主題提供的範例和連結可協助您判斷您需要在您的範本中提供的值。
 
 如果有資源必須在另一個資源之後部署，您可以將它標示為依存於其他資源。您將在下面的[資源](#resources)一節中，了解如何執行此動作。
 
@@ -171,7 +171,7 @@ Visual Studio 提供工具來協助您建立範本。如需有關如何以您的
        }
     }
 
-如需如何在部署期間輸入參數值的資訊，請參閱[使用 Azure 資源管理員範本部署應用程式](../resource-group-template-deploy/#parameter-file)。
+如需有關如何在部署期間輸入參數值的資訊，請參閱[使用 Azure Resource Manager 範本部署應用程式](../resource-group-template-deploy/#parameter-file)。
 
 ## 變數
 
@@ -229,7 +229,7 @@ Visual Studio 提供工具來協助您建立範本。如需有關如何以您的
 
 ## 資源
 
-在資源區段中，您會定義要部署或更新資源。這是您的範本可以變得更複雜的地方，因為您必須了解您要部署的類型才能提供正確的值。如要進一步了解資源提供者，請參閱[資源管理員提供者、區域、API 版本及結構描述](resource-manager-supported-services.md)。
+在資源區段中，您會定義要部署或更新資源。這是您的範本可以變得更複雜的地方，因為您必須了解您要部署的類型才能提供正確的值。如果要進一步了解資源提供者，請參閱[資源管理員提供者、區域、API 版本及結構描述](resource-manager-supported-services.md)。
 
 您會定義結構如下的資源：
 
@@ -256,7 +256,7 @@ Visual Studio 提供工具來協助您建立範本。如需有關如何以您的
 | apiVersion | 是 | 要用來建立資源的 REST API 版本。如要為特定資源類型判斷可用的版本號碼，請參閱[支援的 API 版本](../resource-manager-supported-services/#supported-api-versions)。
 | 類型 | 是 | 資源類型。這個值是資源提供者的命名空間與資源提供者所支援資源類型的組合。
 | 名稱 | 是 | 資源名稱。此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。
-| location | 否 | 所提供資源的支援地理位置。若要判斷可用的位置，請參閱[支援的區域](../resource-manager-supported-services/#supported-regions)。
+| location | 否 | 所提供資源的支援地理位置。如果要判斷可用的位置，請參閱[支援的區域](../resource-manager-supported-services/#supported-regions)。
 | tags | 否 | 與資源相關聯的標記。
 | 註解 | 否 | 您在範本中記錄資源的註解
 | dependsOn | 否 | 正在定義的資源所相依的資源。評估資源與依相依順序部署資源之間的相依性。資源若不互相依賴，則會嘗試平行部署資源。值可以是以逗號分隔的資源名稱或資源唯一識別碼清單。
@@ -474,4 +474,4 @@ resources 區段包含要部署的資源陣列。在每個資源內，您也可�
 - 如需部署應用程式的深入範例，請參閱[透過可預測方式在 Azure 中佈建和部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)
 - 若要查看可用的結構描述，請參閱 [Azure 資源管理員結構描述](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

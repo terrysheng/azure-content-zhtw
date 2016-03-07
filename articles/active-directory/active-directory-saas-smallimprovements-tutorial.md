@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/22/2016"
 	ms.author="jeedes"/>
 
 
@@ -35,7 +35,7 @@
 - 啟用 Small Improvements 單一登入功能的訂用帳戶
 
 
-> [AZURE.NOTE]若要測試本教學課程中的步驟，我們不建議使用生產環境。
+> [AZURE.NOTE] 若要測試本教學課程中的步驟，我們不建議使用生產環境。
 
 
 若要測試本教學課程中的步驟，您應該遵循這些建議：
@@ -61,7 +61,7 @@
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
 3. 若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br> ![應用程式][2]<br>
-4. 按一下頁面底部的 [新增]。<br><br> ![應用程式][3]<br>
+4. 按一下頁面底部的 [加入]。<br><br> ![應用程式][3]<br>
 5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br> ![應用程式][4]<br>
 6. 在搜尋方塊中，輸入 **Small Improvements**。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_01.png)<br>
 7. 在結果窗格中，選取 [Small Improvements]，然後按一下 [完成] 以加入應用程式。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_02.png)<br>
@@ -93,7 +93,7 @@
 
 3. 在 [設定應用程式設定] 對話方塊頁面上，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_04.png) <br>
 
-    > [AZURE.NOTE]請透過 [Support@small-improvements.com](mailto:support@small-improvements.com) 連絡 Small Improvements 支援小組，來設定您帳戶的網域名稱。單一登入必須要有這項作業才能運作。
+    > [AZURE.NOTE] 請透過 [Support@small-improvements.com](mailto:support@small-improvements.com) 連絡 Small Improvements 支援小組，來設定您帳戶的網域名稱。單一登入必須要有這項作業才能運作。
 
 
     a.在 [登入 URL] 文字方塊中，輸入使用者用來登入您 Small Improvements 應用程式的 URL。b.按 [下一步]。
@@ -135,7 +135,7 @@
 
 
 ### 建立 Azure AD 測試使用者
-本節的目標是要在 Azure 傳統入口網站中建立名為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
+本節目標是在 Azure 傳統入口網站中建立名稱為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
@@ -143,11 +143,11 @@
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 按一下頂端功能表中的 [使用者]，來顯示使用者清單。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_03.png) <br>
+3. 若要顯示使用者清單，請按一下功能表頂端的 [使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_03.png) <br>
 
-4. 按一下底部工具列上的 [加入使用者]，來開啟 [加入使用者] 對話方塊。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_04.png) <br>
+4. 若要開啟 [新增使用者] 對話方塊，請按一下底部工具列上的 [新增使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_04.png) <br>
 
-5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_05.png)<br>
+5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行以下步驟：<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_05.png) <br>
 
     a.針對 [使用者類型]，選取 [您組織中的新使用者]。
 
@@ -155,7 +155,7 @@
 
     c.按 [下一步]。
 
-6.  在 [使用者設定檔]對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_06.png)<br>
+6.  在 [使用者設定檔]對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_06.png) <br>
 
     a.在 [名字] 文字方塊中，輸入 **Britta**。
 
@@ -243,4 +243,4 @@
 [204]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="01/23/2015"
+   ms.date="01/23/2016"
    ms.author="sstein"/>
 
 # SQL Database 索引建議程式
@@ -33,7 +33,7 @@ Azure SQL 資料庫索引建議程式會提供可改善現有 SQL 資料庫查�
 
 ### 權限
 
-若要檢視和建立索引建議，您在 Azure 中必須有正確的[角色型存取控制](role-based-access-control-configure.md)權限。
+若要檢視和建立索引建議，您在 Azure 中必須有正確的[角色型存取控制](../active-directory/role-based-access-control-configure.md)權限。
 
 - 需要有**讀取者**、**SQL DB 參與者**權限才能檢視建議。
 - 需要有**擁有者**、**SQL DB 參與者**權限才能執行任何動作；建立或卸除索引及取消建立索引。
@@ -179,4 +179,4 @@ Azure SQL 資料庫索引建議程式會提供可改善現有 SQL 資料庫查�
 
 監視索引建議，並繼續套用以改善效能。資料庫工作負載會動態地持續變更。索引建議程式會繼續監視並建議可能改善資料庫效能的索引。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

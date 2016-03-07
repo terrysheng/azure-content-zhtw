@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # 開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務 (ASP.NET 5)
@@ -24,9 +24,7 @@
 
 Azure 二進位大型物件 (Microsoft Azure Blob) 儲存是一項儲存大量非結構化資料的服務，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。單一 Blob 可以是任何大小。Blob 可以是影像、音訊和視訊檔、原始資料及文件檔案。本文描述如何在您使用 ASP.NET 5 專案中 Visual Studio 的 [**加入已連接服務**] 對話方塊，建立 Azure 儲存體帳戶之後開始使用 Blob 儲存體。
 
-就像檔案在資料夾中一樣，儲存體 Blob 位於容器中。在您已建立儲存體之後，您會在儲存體中建立一個或多個容器。例如，在稱為 “Scrapbook” 的儲存體中，您可以在此儲存體中建立稱為 “images” 的容器來儲存圖片，以及建立另一個稱為 “audio” 的容器來儲存音訊檔。建立容器之後，就可以將個別的 Blob 檔案上傳至這些容器。如需以程式設計方式操作 Blob 的詳細資訊，請參閱[如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md "如何使用 .NET 的 Blob 儲存體")。
-
-
+就像檔案在資料夾中一樣，儲存體 Blob 位於容器中。在您已建立儲存體之後，您會在儲存體中建立一個或多個容器。例如，在稱為 “Scrapbook” 的儲存體中，您可以在此儲存體中建立稱為 “images” 的容器來儲存圖片，以及建立另一個稱為 “audio” 的容器來儲存音訊檔。建立容器之後，就可以將個別的 Blob 檔案上傳至這些容器。如需以程式設計方式操作 Blob 的詳細資訊，請參閱[以 .NET 開始使用 Azure Blob 儲存體](storage-dotnet-how-to-use-blobs.md)。
 
 ##在程式碼中存取 blob 容器
 
@@ -99,36 +97,36 @@ Azure 二進位大型物件 (Microsoft Azure Blob) 儲存是一項儲存大量�
 若要列出容器中的 Blob，請先取得容器參照。然後您即可呼叫容器的 **ListBlobsSegmentedAsync** 方法來擷取其中的 Blob 和/或目錄。若要針對傳回的 **IListBlobItem** 存取一組豐富的屬性與方法，您必須先將它轉換至 **CloudBlockBlob**、**CloudPageBlob** 或 **CloudBlobDirectory** 物件。如果不知道 Blob 類型，可使用類型檢查來決定要將其轉換成何種類型。下列程式碼示範如何擷取和輸出容器中每個項目的 URI。
 
 	BlobContinuationToken token = null;
-        do
+    do
+    {
+        BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(token);
+        token = resultSegment.ContinuationToken;
+
+        foreach (IListBlobItem item in resultSegment.Results)
         {
-            BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(token);
-            token = resultSegment.ContinuationToken;
-
-            foreach (IListBlobItem item in resultSegment.Results)
+            if (item.GetType() == typeof(CloudBlockBlob))
             {
-                if (item.GetType() == typeof(CloudBlockBlob))
-                {
-                    CloudBlockBlob blob = (CloudBlockBlob)item;
-                    Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
-                }
-
-                else if (item.GetType() == typeof(CloudPageBlob))
-                {
-                    CloudPageBlob pageBlob = (CloudPageBlob)item;
-
-                    Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
-                }
-
-                else if (item.GetType() == typeof(CloudBlobDirectory))
-                {
-                    CloudBlobDirectory directory = (CloudBlobDirectory)item;
-
-                    Console.WriteLine("Directory: {0}", directory.Uri);
-                }
+                CloudBlockBlob blob = (CloudBlockBlob)item;
+                Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
             }
-        } while (token != null);
 
-還有其他方法可列出 Blob 容器的內容。如需詳細資訊，請參閱[如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) (英文)。
+            else if (item.GetType() == typeof(CloudPageBlob))
+            {
+                CloudPageBlob pageBlob = (CloudPageBlob)item;
+
+                Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
+            }
+
+            else if (item.GetType() == typeof(CloudBlobDirectory))
+            {
+                CloudBlobDirectory directory = (CloudBlobDirectory)item;
+
+                Console.WriteLine("Directory: {0}", directory.Uri);
+            }
+        }
+    } while (token != null);
+
+還有其他方法可列出 Blob 容器的內容。如需詳細資訊，請參閱[以 .NET 開始使用 Azure Blob 儲存體](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container)。
 
 ##下載 Blob
 若要下載 Blob，請先取得 Blob 的參考，然後呼叫 **DownloadToStreamAsync** 方法。下列範例會使用 **DownloadToStreamAsync** 方法，將 Blob 內容傳送給資料流物件，您接著可將該物件儲存為本機檔案。
@@ -142,7 +140,7 @@ Azure 二進位大型物件 (Microsoft Azure Blob) 儲存是一項儲存大量�
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-還有其他方法可將 Blob 儲存為檔案。如需詳細資訊，請參閱[如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md/#download-blobs) (英文)。
+還有其他方法可將 Blob 儲存為檔案。如需詳細資訊，請參閱[以 .NET 開始使用 Azure Blob 儲存體](storage-dotnet-how-to-use-blobs.md#download-blobs)。
 
 ##刪除 Blob
 若要刪除 Blob，請先取得 Blob 的參考，然後對其呼叫 **DeleteAsync** 方法。
@@ -157,4 +155,4 @@ Azure 二進位大型物件 (Microsoft Azure Blob) 儲存是一項儲存大量�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

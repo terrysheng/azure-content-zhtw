@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="rajram"/>
 
 # 開始使用 Box 連接器並將它加入您的邏輯應用程式 
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下[方塊 API](../connectors/create-api-box.md)。
+
 連接您的 Box 以對您的檔案執行取得、上傳、刪除等操作。連接器在 Logic Apps 中是用作「工作流程」的一部分。
 
 您有時候可能需要使用 Box，讓您與任何人安全地共用資料 – 即使這些人位於您的防火牆之外。邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。
@@ -33,7 +35,7 @@ a.*列出檔案：*這項作業會傳回資料夾中所有檔案的資訊。動�
 --- | --- | ---
 資料夾路徑 | 要列出的資料夾路徑。 | 是
 
-> [AZURE.NOTE]它不會傳回任何檔案內容。
+> [AZURE.NOTE] 它不會傳回任何檔案內容。
 
 b.*取得檔案：*這項作業會擷取檔案 (包括其內容和屬性)。動作所需的參數清單：
 
@@ -42,7 +44,7 @@ b.*取得檔案：*這項作業會擷取檔案 (包括其內容和屬性)。動�
 檔案路徑 | 檔案所在的資料夾路徑。 | 是
 檔案類型 | 指定檔案是文字或二進位檔。 | 否
 
-> [AZURE.NOTE]這項作業不會在讀取檔案後刪除檔案。
+> [AZURE.NOTE] 這項作業不會在讀取檔案後刪除檔案。
 
 
 c.*上傳檔案*：顧名思義，此動作會將檔案上傳至 Box 帳戶。如果檔案已存在，則不會加以覆寫，而且會擲回錯誤。動作所需的參數清單：
@@ -92,9 +94,9 @@ d.*刪除檔案*：此動作會從資料夾中刪除指定的檔案。如果找�
 	![][5]
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -107,4 +109,4 @@ d.*刪除檔案*：此動作會從資料夾中刪除指定的檔案。如果找�
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

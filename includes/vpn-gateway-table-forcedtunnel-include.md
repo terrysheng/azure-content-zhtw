@@ -1,8 +1,10 @@
-A forced-tunneling connection can be configured in both deployment models and by using different tools. See the table below for more information. We update this table as new articles, new deployment models, and additional tools become available for this configuration. When an article is available, we link directly to it from the table.
+可以在這兩種部署模型中，使用不同的工具，設定強制通道的連接。如需詳細資訊，請參閱以下的資料表。當此組態有新文章、新的部署模型和額外工具可以使用時，我們就會更新此資料表。當文章可用時，我們會直接從資料表連結至該文章。
 
-|  | **Classic Deployment**  | **Resource Manager Deployment** |
+| | **傳統部署** | **資源管理員部署** |
 |----------------------------------------|-------------|----------------------|
-| **Classic Portal**          | Not Supported          | Not Supported                   |
-| **Azure Portal**            | Not Supported         | Not Supported				   |
-| **PowerShell**              | [Article](../articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md) | [Article](../articles/vpn-gateway/vpn-gateway-forced-tunneling-rm.md) |
+| **傳統入口網站** | 不支援 | 不支援 |
+| **Azure 入口網站** | 不支援 | 不支援 |
+| **PowerShell** | [文章](../articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md) | [文章](../articles/vpn-gateway/vpn-gateway-forced-tunneling-rm.md) |
  
+
+<!---HONumber=AcomDC_0224_2016-->

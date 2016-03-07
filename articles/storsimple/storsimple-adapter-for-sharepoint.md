@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -23,7 +23,7 @@ StorSimple Adapter for SharePoint 是可讓您提供 Microsoft Azure StorSimple 
 
 StorSimple Adapter for SharePoint 作為遠端 BLOB 儲存 (RBS) 提供者，使用 SQL Server 遠端 BLOB 儲存功能將非結構化 SharePoint 內容 (以 BLOB 形式)，儲存在 StorSimple 裝置所支援的檔案伺服器上。
 
->[AZURE.NOTE]StorSimple Adapter for SharePoint 支援 SharePoint Server 2010 遠端 BLOB 儲存 (RBS)。它不支援 SharePoint Server 2010 外部 BLOB 儲存體 (EBS)。
+>[AZURE.NOTE] StorSimple Adapter for SharePoint 支援 SharePoint Server 2010 遠端 BLOB 儲存 (RBS)。它不支援 SharePoint Server 2010 外部 BLOB 儲存體 (EBS)。
 
 - 若要下載 StorSimple Adapter for SharePoint，請移至 Microsoft 下載中心的 [StorSimple Adapter for SharePoint][1]。
 
@@ -89,7 +89,7 @@ RBS 的 Microsoft Azure StorSimple 實作提供下列優點：
 
 - 如果您不在 StorSimple 裝置上儲存的內容資料庫，請使用支援 RBS 的傳統 SQL Server 高可用性最佳作法。SQL Server 叢集支援 RBS，而 SQL Server 鏡像不支援 RBS。
 
->[AZURE.WARNING]如果您尚未啟用 RBS，我們不建議您將內容資料庫移至 StorSimple 裝置。這是未經過測試的設定。
+>[AZURE.WARNING] 如果您尚未啟用 RBS，我們不建議您將內容資料庫移至 StorSimple 裝置。這是未經過測試的設定。
  
 ## StorSimple Adapter for SharePoint 安裝
 
@@ -115,7 +115,7 @@ StorSimple Adapter for SharePoint 適用於下列的硬體和軟體：
 
 StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺服器。我們建議您使用另外的伺服器，而不是 SharePoint 伺服器陣列中現有的伺服器。此檔案伺服器必須與裝載內容資料庫的 SQL Server 電腦位於相同的區域網路 (LAN)。
 
->[AZURE.TIP]
+>[AZURE.TIP] 
 >
 >- 如果您為了高可用性而設定 SharePoint 伺服器陣列，則也應該為了高可用性而部署檔案伺服器。
 >
@@ -131,11 +131,11 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 
 - SharePoint 伺服器陣列必須設定為寫入此磁碟區。
 
->[AZURE.NOTE]安裝和設定配接器之後，所有 BLOB 外部化都必須透過 StorSimple 裝置進行 (此裝置會向 SQL Server 呈現磁碟區並管理儲存層)。您無法使用任何其他目標進行 BLOB 外部化。
+>[AZURE.NOTE] 安裝和設定配接器之後，所有 BLOB 外部化都必須透過 StorSimple 裝置進行 (此裝置會向 SQL Server 呈現磁碟區並管理儲存層)。您無法使用任何其他目標進行 BLOB 外部化。
  
 如果您打算使用 StorSimple Snapshot Manager 建立 BLOB 和資料庫資料的快照集，務必將 StorSimple Snapshot Manager 安裝在資料庫伺服器上，它才能使用 SQL 寫入器服務來實作 Windows 磁碟區陰影複製服務 (VSS)。
 
->[AZURE.IMPORTANT]StorSimple Snapshot Manager 不支援 SharePoint VSS 寫入器，無法建立 SharePoint 資料的應用程式一致快照集。在 SharePoint 案例中，StorSimple Snapshot Manager 只提供當機時保持一致的備份。
+>[AZURE.IMPORTANT] StorSimple Snapshot Manager 不支援 SharePoint VSS 寫入器，無法建立 SharePoint 資料的應用程式一致快照集。在 SharePoint 案例中，StorSimple Snapshot Manager 只提供當機時保持一致的備份。
  
 ## SharePoint 伺服器陣列組態必要條件
 
@@ -188,7 +188,7 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 
 安裝 StorSimple Adapter for SharePoint 之後，請依下列程序設定 RBS。
 
->[AZURE.TIP]StorSimple Adapter for SharePoint 外掛到 SharePoint 管理中心入口網站頁面，可讓您在 SharePoint 伺服器陣列中的每個內容資料庫上啟用或停用 RBS。不過，在內容資料庫上啟用或停用 RBS 會導致 IIS 重設，而且根據您的伺服器陣列設定，可能會短暫地中斷 SharePoint Web 前端 (WFE) 的可用性。(有一些因素可以限制或避免此中斷狀況，例如使用前端負載平衡器、目前的伺服器工作負載等等)。 為了避免使用者因為中斷而受影響，建議您只在規劃的維護期間啟用或停用 RBS。
+>[AZURE.TIP] StorSimple Adapter for SharePoint 外掛到 SharePoint 管理中心入口網站頁面，可讓您在 SharePoint 伺服器陣列中的每個內容資料庫上啟用或停用 RBS。不過，在內容資料庫上啟用或停用 RBS 會導致 IIS 重設，而且根據您的伺服器陣列設定，可能會短暫地中斷 SharePoint Web 前端 (WFE) 的可用性。(有一些因素可以限制或避免此中斷狀況，例如使用前端負載平衡器、目前的伺服器工作負載等等)。 為了避免使用者因為中斷而受影響，建議您只在規劃的維護期間啟用或停用 RBS。
 
 [AZURE.INCLUDE [storsimple-sharepoint-adapter-configure-rbs](../../includes/storsimple-sharepoint-adapter-configure-rbs.md)]
  
@@ -197,11 +197,11 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 
 從 SharePoint 網站刪除物件時，不會自動從 RBS 存放磁碟區刪除這些物件。而是由一個非同步的背景維護程式，從檔案存放區刪除被遺棄的 BLOB。系統管理員可以排程定期執行此程序，或需要時才啟動此程序。
 
-當您啟用 RBS 時，此維護程式 (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) 會自動安裝在所有 SharePoint WFE 伺服器和應用程式伺服器上。此程式安裝在以下位置：開機磁碟機:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
+當您啟用 RBS 時，此維護程式 (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) 會自動安裝在所有 SharePoint WFE 伺服器和應用程式伺服器上。此程式安裝在以下位置：*開機磁碟機*:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
 
 如需設定和使用維護程式的相關資訊，請參閱[在 SharePoint Server 2013 中維護 RBS][8]。
 
->[AZURE.IMPORTANT]RBS 維護程式會消耗大量資源。您應該將它排程在 SharePoint 伺服器陣列的活動量較少期間執行。
+>[AZURE.IMPORTANT] RBS 維護程式會消耗大量資源。您應該將它排程在 SharePoint 伺服器陣列的活動量較少期間執行。
 
 ### 立即刪除被遺棄的 BLOB
 
@@ -218,7 +218,7 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 
 使用下列程序升級 SharePoint 伺服器，再重新安裝 StorSimple Adapter for SharePoint，或只是在現有的 SharePoint 伺服器陣列中升級或重新安裝配接器。
 
->[AZURE.IMPORTANT]在嘗試升級 SharePoint 軟體和 (或) 升級或重新安裝 StorSimple Adapter for SharePoint 之前，請檢閱下列資訊：
+>[AZURE.IMPORTANT] 在嘗試升級 SharePoint 軟體和 (或) 升級或重新安裝 StorSimple Adapter for SharePoint 之前，請檢閱下列資訊：
 >
 >- 先前透過 RBS 移到外部儲存體的任何檔案，必須等到重新安裝完成並重新啟用 RBS 功能之後才能使用。為了限制使用者受影響的程度，請在規劃的維護期間執行任何升級或重新安裝。
 >
@@ -234,7 +234,7 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 
 下列程序描述如何先將 Blob 移回 SQL Server 內容資料庫，然後再解除安裝 StorSimple Adapter for SharePoint。
 
->[AZURE.IMPORTANT]您必須先將 Blob 移回內容資料庫，才能解除安裝配接器軟體。
+>[AZURE.IMPORTANT] 您必須先將 Blob 移回內容資料庫，才能解除安裝配接器軟體。
 
 ### 開始之前 
 
@@ -308,4 +308,4 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/zh-TW/library/ff943565.aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

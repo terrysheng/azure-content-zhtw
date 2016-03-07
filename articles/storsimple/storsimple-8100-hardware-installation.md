@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -283,7 +283,7 @@
 
 6. 藉由在主控台上按下 Enter 鍵，驗證連線是否正在運作。序列主控台功能表應該會出現。
 
->[AZURE.NOTE]**熄燈管理**：當裝置安裝在遠端資料中心或在具有限制存取的電腦室時，請確定兩個控制器的序列連接一律會連線至序列主控台交換器或類似的設備。如此可以在網路中斷或非預期失敗時允許頻外遠端控制和支援作業。
+>[AZURE.NOTE] **熄燈管理**：當裝置安裝在遠端資料中心或在具有限制存取的電腦室時，請確定兩個控制器的序列連接一律會連線至序列主控台交換器或類似的設備。如此可以在網路中斷或非預期失敗時允許頻外遠端控制和支援作業。
 
 您的裝置現在已針對電源、網路存取及序列連線進行佈線。下一步是設定軟體並部署裝置。
 
@@ -291,4 +291,4 @@
 
 了解如何[部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

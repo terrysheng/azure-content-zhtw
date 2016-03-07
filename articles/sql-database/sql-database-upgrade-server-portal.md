@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="sstein"/>
 
 
@@ -35,7 +35,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 在升級至 V12 的過程中，您將會把所有 Web 和商務資料庫都升級至新的服務層級，因此本文也包含了升級 Web 和商務資料庫的說明。
 
-此外，與升級至單一資料庫的個別效能等級 (定價層) 相比，移轉至[彈性資料庫集區](sql-database-elastic-pool.md)更符合成本效益。集區也可以簡化資料庫管理，因為您只需要管理集區的效能設定，而不需分開管理個別資料庫的效能等級。如果您的資料庫位於多部伺服器上，請考慮將它們移到相同的伺服器，並利用將它們放入集區所帶來的優點。您可以輕鬆地[使用 PowerShell 自動將資料庫從 V11 伺服器直接移轉至彈性資料庫集區](sql-database-upgrade-server.md)。您也可以使用入口網站將 V11 資料庫移轉至集區，但在入口網站中，您必須已經備妥 V12 伺服器來建立集區。如果您擁有[可從集區受益的資料庫](sql-database-elastic-pool-guidance.md)，本文稍後有提供在升級伺服器之後建立集區的說明。
+此外，與升級至單一資料庫的個別效能等級 (定價層) 相比，移轉至[彈性資料庫集區](sql-database-elastic-pool.md)更符合成本效益。集區也可以簡化資料庫管理，因為您只需要管理集區的效能設定，而不需分開管理個別資料庫的效能等級。如果您的資料庫位於多部伺服器上，請考慮將它們移到相同的伺服器，並利用將它們放入集區所帶來的優點。您可以輕鬆地[使用 PowerShell 自動將資料庫從 V11 伺服器直接移轉至彈性資料庫集區](sql-database-upgrade-server-powershell.md)。您也可以使用入口網站將 V11 資料庫移轉至集區，但在入口網站中，您必須已經備妥 V12 伺服器來建立集區。如果您擁有[可從集區受益的資料庫](sql-database-elastic-pool-guidance.md)，本文稍後有提供在升級伺服器之後建立集區的說明。
 
 請注意，您的資料庫會維持在線上，並且在整個升級作業中都會繼續保持運作。在實際轉換到新的效能等級時，資料庫連線可能會暫時中斷一段非常短的時間，通常約 90 秒，但最長可達 5 分鐘。如果您的應用程式[對於連線終止有暫時性的錯誤處理方式](sql-database-connect-central-recommendations.md)，就足以在升級結束時防止連線中斷。
 
@@ -132,7 +132,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 其他監視資訊：
 
 - [單一資料庫的 Azure SQL Database 效能指引](http://msdn.microsoft.com/library/azure/dn369873.aspx)。
-- [彈性資料庫集區的價格和效能考量](sql-database=elastic-pool-guidance.md)。
+- [彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)。
 - [使用動態管理檢視監視 Azure SQL Database](sql-database-monitoring-with-dmvs.md)
 
 
@@ -140,7 +140,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 **警示：**在 Azure 入口網站中設定「警示」，即可在已升級之資料庫的 DTU 耗用量接近特定的高層級時通知您。您可以在 Azure 入口網站中為各種效能計量 (例如 DTU、CPU、IO 及記錄檔) 設定資料庫警示。請瀏覽至您的資料庫，然後在 [設定] 刀鋒視窗中，選取 [警示規則]。
 
-例如，您可以設定若過去 5 分鐘的平均 DTU 百分比值超出 75% 則發出「 DTU 百分比 」電子郵件警示。若要深入了解如何設定警示通知，請參閱[接收警示通知](insights-receive-alert-notifications.md)。
+例如，您可以設定若過去 5 分鐘的平均 DTU 百分比值超出 75% 則發出「 DTU 百分比 」電子郵件警示。若要深入了解如何設定警示通知，請參閱[接收警示通知](../azure-portal/insights-receive-alert-notifications.md)。
 
 
 
@@ -169,4 +169,4 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

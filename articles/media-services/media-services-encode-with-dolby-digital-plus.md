@@ -3,7 +3,7 @@
 	description="本主題說明如何使用 Dolby Digital Plus 將您的媒體編碼。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="anilmur" 
+	authors="juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/17/2016"   
-	ms.author="anilmur"/>
+	ms.author="juliako"/>
 
 #使用 Dolby Digital Plus 將您的媒體編碼
 
@@ -659,4 +659,4 @@ Azure Media Encoder 可以使用 DPLM SDK 來測量輸入音訊的對話音量�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

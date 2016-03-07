@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="storsimple"
@@ -21,7 +21,7 @@
 
 此程序適用於 StorSimple 8000 系列裝置的所有模型。
 
->[AZURE.NOTE]此程序無法用於 StorSimple 虛擬裝置。如需詳細資訊，請參閱〈如何設定虛擬裝置的主機伺服器〉。
+>[AZURE.NOTE] 此程序無法用於 StorSimple 虛擬裝置。如需詳細資訊，請參閱〈如何設定虛擬裝置的主機伺服器〉。
 
 ## 關於多重路徑 
 
@@ -207,7 +207,7 @@ multipath.conf 有五個區段：
 
 如果主機和資料介面均可路由傳送，則上述組態將會在您的裝置與主機之間產生 4 個不同的路徑。
 
->[AZURE.IMPORTANT]
+>[AZURE.IMPORTANT] 
 >
 >- 建議您不要對多重路徑功能混合使用 1 GbE 與 10 GbE 網路介面。使用兩個網路介面時，這兩個介面的類型應要完全相同。
 >- 在您的 StorSimple 裝置上，DATA0、DATA1、DATA4 和 DATA5 為 1 GbE 介面，而 DATA2 和 DATA3 則為 10 GbE 網路介面。
@@ -285,7 +285,8 @@ multipath.conf 有五個區段：
 
 
 
-> [AZURE.NOTE]最常見的 `path_grouping_policy` 值包括︰
+> [AZURE.NOTE] 
+最常見的 `path_grouping_policy` 值包括︰
 	
 > - failover = 每一個優先順序群組 1 個路徑
 > - multibus = 1 個優先順序群組中的所有有效路徑
@@ -466,20 +467,20 @@ multipath.conf 有五個區段：
 |類型|命令|說明|
 |---|---|---|
 |**iSCSI**|`service iscsid start`|啟動 iSCSI 服務|
-||`service iscsid stop`|停止 iSCSI service|
+||`service iscsid stop`|停止 iSCSI 服務|
 ||`service iscsid restart`|重新啟動 iSCSI 服務|
-||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|在指定的位址上探索可用的目標 |
-||`iscsiadm -m node --login -T <TARGET_IQN>`|登入 iSCSI 目標 |
-||`iscsiadm -m node --logout -p <Target_IP>`|登出 iSCSI 目標 |
+||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|探索指定位址上的可用目標|
+||`iscsiadm -m node --login -T <TARGET_IQN>`|登入 iSCSI 目標|
+||`iscsiadm -m node --logout -p <Target_IP>`|登出 iSCSI 目標|
 ||`cat /etc/iscsi/initiatorname.iscsi`|列印 iSCSI 啟動器名稱|
-||`iscsiadm –m session –s <sessionid> -P 3`|檢查在主機上探索到的 iSCSI 工作階段和磁碟區的狀態|
-||`iscsi –m session`|顯示在主機與 StorSimple 裝置之間建立所有 iSCSI 工作階段的|
+||`iscsiadm –m session –s <sessionid> -P 3`|檢查 iSCSI 工作階段的狀態以及在主機上探索到的磁碟區|
+||`iscsi –m session`|顯示在主機與 StorSimple 裝置之間建立的所有 iSCSI 工作階段|
 | | | |
-|**多重路徑**|`service multipathd start`|啟動多重路徑精靈|
-||`service multipathd stop`|停止多重路徑精靈|
-||`service multipathd restart`|重新啟動多重路徑精靈|
-||`chkconfig multipathd on` </br> 或 </br> `mpathconf –with_chkconfig y`|讓多重路徑精靈能在開機時啟動|
-||`multipathd –k`|啟動互動式主控台以供疑難排解|
+|**多重路徑**|`service multipathd start`|啟動多重路徑 daemon|
+||`service multipathd stop`|停止多重路徑 daemon|
+||`service multipathd restart`|重新啟動多重路徑 daemon|
+||`chkconfig multipathd on` </br> 或 </br> `mpathconf –with_chkconfig y`|啟用多重路徑 daemon 以在開機時啟動|
+||`multipathd –k`|啟動互動式主控台以進行疑難排解|
 ||`multipath –l`|列出多重路徑連接和裝置|
 ||`mpathconf --enable`|在 `/etc/mulitpath.conf` 中建立範例 mulitpath.conf 檔案|
 ||||
@@ -491,4 +492,4 @@ multipath.conf 有五個區段：
 - [在 CentOS 上設定 MPIO](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Linux 訓練指南](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

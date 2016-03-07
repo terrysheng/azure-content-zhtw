@@ -3,7 +3,7 @@
 	description="示範使用 Azure Storage Analytics、AzCopy 和 Microsoft Message Analyzer 進行端對端疑難排解的教學課程" 
 	services="storage" 
 	documentationCenter="dotnet" 
-	authors="tamram" 
+	authors="robinsh" 
 	manager="carmonm"/>
 
 <tags 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="02/23/2016" 
+	ms.author="robinsh"/>
 
 # 使用 Azure 儲存體度量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解 
 
@@ -58,7 +58,7 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 
 下列範例顯示 Azure Blob 儲存體要求的某些 400 範圍錯誤的取樣，以及其可能原因。任何這些錯誤，以及 300 範圍和 500 範圍中的錯誤，都可能導致低百分比成功率。
 
-請注意，下面所列並不完整。如需一般 Azure 儲存體錯誤和每項儲存體服務特定錯誤的詳細資料，請參閱 MSDN 上的[狀態和錯誤碼](http://msdn.microsoft.com/library/azure/dd179382.aspx)。
+請注意，下面所列並不完整。如需一般 Azure 儲存體錯誤和每項儲存體服務特定錯誤的詳細資料，請參閱[狀態和錯誤碼](http://msdn.microsoft.com/library/azure/dd179382.aspx)。
 
 **狀態碼 404 (找不到) 範例**
 
@@ -88,7 +88,7 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 
 ### 設定伺服器端記錄和度量
 
-首先，我們必須設定 Azure 儲存體記錄和度量，如此我們才有用戶端應用程式提供的資料可分析。您可以用各種方式設定記錄和度量 - 透過 [Azure 傳統入口網站](https://manage.windowsazure.com)，或使用 PowerShell，或以程式設計的方式。如需設定記錄和度量的詳細資訊，請參閱 MSDN 上的[啟用儲存體度量和檢視度量資料](http://msdn.microsoft.com/library/azure/dn782843.aspx)和[啟用儲存體記錄和存取記錄檔資料](http://msdn.microsoft.com/library/azure/dn782840.aspx)。
+首先，我們必須設定 Azure 儲存體記錄和度量，如此我們才有用戶端應用程式提供的資料可分析。您可以用各種方式設定記錄和度量 - 透過 [Azure 傳統入口網站](https://manage.windowsazure.com)，或使用 PowerShell，或以程式設計的方式。如需設定記錄和度量的詳細資訊，請參閱[啟用儲存體度量和檢視度量資料](http://msdn.microsoft.com/library/azure/dn782843.aspx)和[啟用儲存體記錄和存取記錄檔資料](http://msdn.microsoft.com/library/azure/dn782840.aspx)。
 
 **透過 Azure 傳統入口網站**
 
@@ -130,7 +130,7 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 
 ### 設定 .NET 用戶端記錄
 
-若要設定 .NET 應用程式的用戶端的記錄，請在應用程式的組態檔 (web.config 或 app.config) 中啟用 .NET 診斷。如需詳細資訊，請參閱 MSDN 上的[使用 .NET Storage Client Library 的用戶端記錄](http://msdn.microsoft.com/library/azure/dn782839.aspx)和[使用 Microsoft Azure Storage SDK for Java 的用戶端記錄](http://msdn.microsoft.com/library/azure/dn782844.aspx)。
+若要設定 .NET 應用程式的用戶端的記錄，請在應用程式的組態檔 (web.config 或 app.config) 中啟用 .NET 診斷。如需詳細資訊，請參閱[使用 .NET 儲存體用戶端程式庫的用戶端記錄](http://msdn.microsoft.com/library/azure/dn782839.aspx)和[使用 Microsoft Azure Storage SDK for Java 的用戶端記錄](http://msdn.microsoft.com/library/azure/dn782844.aspx)。
 
 用戶端記錄檔包含用戶端如何準備要求及如何接收和處理回應的詳細資訊。
 
@@ -345,9 +345,9 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
 | 若要調查... | 使用篩選運算式… | 運算式套用到記錄檔 (用戶端、伺服器、網路、全部) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | 佇列上未預期的訊息傳遞延遲 | AzureStorageClientDotNetV4.Description 包含「正在重試失敗的作業」。 | 用戶端 |
-| PercentThrottlingError 的 HTTP 增加 | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | 網路 |
+| PercentThrottlingError 的 HTTP 增加 | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | 網路 |
 | PercentTimeoutError 增加 | HTTP.Response.StatusCode == 500 | 網路 |
-| PercentTimeoutError 增加 (全部) |    *StatusCode == 500 | All |
+| PercentTimeoutError 增加 (全部) |    **StatusCode == 500 | All |
 | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
 | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network |
 | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network |
@@ -373,4 +373,4 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
  
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

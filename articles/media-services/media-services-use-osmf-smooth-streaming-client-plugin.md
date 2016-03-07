@@ -3,7 +3,7 @@
 	description="了解如何使用 Adobe Open Source Media Framework 的 Azure 媒體服務 Smooth Streaming 外掛程式。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="amitr" 
+	authors="juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/17/2016"
-	ms.author="amitr"/>
+	ms.author="juliako"/>
 
 
 # 如何使用 Adobe Open Source Media Framework 的 Microsoft Smooth Streaming 外掛程式
@@ -410,4 +410,4 @@ Smooth Streaming for OSMF 動態外掛程式與 [Strobe Media Playback (SMP)](ht
 
 [OSMF 的 Microsoft 彈性資料流外掛程式更新 (英文)](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

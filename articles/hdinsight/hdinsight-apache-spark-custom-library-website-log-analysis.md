@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 # 在 HDInsight Spark 中使用自訂程式庫 (Linux) 分析記錄檔
 
 此 Notebook 示範如何使用自訂程式庫與 HDInsight 上的 Spark 來分析記錄資料。我們使用的自訂程式庫是名為 **iislogparser.py** 的 Python 程式庫。
 
-> [AZURE.TIP] 本教學課程也適用於您在 HDInsight 中所建立 Spark (Linux) 叢集上的 Jupyter Notebook。Notebook 的體驗能讓您從 Notebook 本身執行 Python 程式碼片段。若要從 Notebook 中執行本教學課程，請建立 Spark 叢集、啟動 Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`)，然後執行 **Python** 資料夾下的 Notebook **透過 Spark 使用自訂 library.ipynb 來分析記錄檔**。
+> [AZURE.TIP] 本教學課程也適用於您在 HDInsight 中所建立 Spark (Linux) 叢集上的 Jupyter Notebook。Notebook 的體驗能讓您從 Notebook 本身執行 Python 程式碼片段。如果要從 Notebook 中執行本教學課程，請建立 Spark 叢集、啟動 Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`)，然後執行該 Notebook 使用 [**PySpark**] 資料夾下的自訂 library.ipynb Notebook **透過 Spark 分析記錄**。
 
 **必要條件：**
 
@@ -44,7 +44,7 @@
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. 建立新的 Notebook。按一下 [新增]，然後按一下 [Python 2]。
+2. 建立新的 Notebook。按一下 [**新建**]，然後按一下 [**PySpark**]。
 
 	![建立新的 Jupyter Notebook](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.createnotebook.png "建立新的 Jupyter Notebook")
 
@@ -52,21 +52,11 @@
 
 	![提供 Notebook 的名稱](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.notebook.name.png "提供 Notebook 的名稱")
 
-4. 匯入所需的模組，然後建立 Spark 和 SQL 內容。將下列程式碼片段貼到空白儲存格中，然後按 **SHIFT + ENTER**。
+4. 您使用 PySpark 核心建立 Notebook，因此不需要明確建立任何內容。當您執行第一個程式碼儲存格時，系統會自動為您建立 Spark、SQL 和 Hive 內容。首先，您可以匯入此案例需要的類型。將下列程式碼片段貼到空白儲存格中，然後按 **SHIFT + ENTER**。
 
 
-		import pyspark
-		from pyspark import SparkConf
-		from pyspark import SparkContext
-		from pyspark.sql import SQLContext
-		%matplotlib inline
-		import matplotlib.pyplot as plt
 		from pyspark.sql import Row
 		from pyspark.sql.types import *
-		import atexit
-		sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
-		sqlContext = SQLContext(sc)
-		atexit.register(lambda: sc.stop())
 
 
 5. 使用叢集上已有的範例記錄資料來建立 RDD。您可以在 **\\HdiSamples\\HdiSamples\\WebsiteLogSampleData\\SampleLog\\909f2b.log** 上存取與叢集相關聯之預設儲存體帳戶中的資料。
@@ -93,11 +83,9 @@
 
 ## 使用自訂 Python 程式庫來分析記錄資料
 
-7. 在上述輸出中，前幾行包含標頭資訊，其餘各行則符合該標頭中所說明的結構描述。剖析這類記錄檔可能是複雜的作業。因此，我們使用自訂 Python 程式庫 (**iislogparser.py**)，它可大幅簡化這類記錄檔的剖析。根據預設，此程式庫會包含在 HDInsight 上的 Spark 叢集中。
+7. 在上述輸出中，前幾行包含標頭資訊，其餘各行則符合該標頭中所說明的結構描述。剖析這類記錄檔可能是複雜的作業。因此，我們使用自訂 Python 程式庫 (**iislogparser.py**)，它可大幅簡化這類記錄檔的剖析。依預設，此程式庫會包含在位於以下位置的 HDInsight 上的 Spark 叢集中：**/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**。
 
-	不過，此程式庫不在 `PYTHONPATH` 中，因此無法藉由 `import iislogparser` 之類的匯入陳述式來使用它。若要使用此程式庫，我們必須將它散發到所有的背景工作角色節點。
-
-	然後，您必須執行下列程式碼片段，以將程式庫散發到 Spark 叢集中的所有背景工作角色節點。
+	不過，此程式庫不在 `PYTHONPATH` 中，因此無法藉由 `import iislogparser` 之類的匯入陳述式來使用它。若要使用此程式庫，我們必須將它散發到所有的背景工作角色節點。執行下列程式碼片段。
 
 
 		sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
@@ -184,12 +172,35 @@
 		 (u'/blogposts/mvc4/step1.png', 98.0)]
 
 
-13. 您也可以用繪圖的形式呈現這項資訊。此圖會依時間將記錄檔分組，以查看在任何特定時間是否有任何不尋常的延遲尖峰。
+13. 您也可以用繪圖的形式呈現這項資訊。建立繪圖的第一個步驟是建立暫存資料表 **AverageTime**。此資料表會依時間將記錄分組，以查看在任何特定時間中是否出現異常的延遲尖峰。
 
 		avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
-		minutes = avgTimeTakenByMinute.map(lambda pair: pair[0]).collect()
-		time = avgTimeTakenByMinute.map(lambda pair: pair[1]).collect()
-		plt.plot(minutes, time, marker='o', linestyle='--')
+		schema = StructType([StructField('Minutes', IntegerType(), True),
+		                     StructField('Time', FloatType(), True)])
+		                     
+		avgTimeTakenByMinuteDF = sqlContext.createDataFrame(avgTimeTakenByMinute, schema)
+		avgTimeTakenByMinuteDF.registerTempTable('AverageTime')
+
+14. 接著，您可以執行下列 SQL 查詢取得 **AverageTime** 資料表中的所有記錄。
+
+		%%sql -o averagetime
+		SELECT * FROM AverageTime
+
+	`-o averagetime` 之前的 `%%sql` magic 可確保查詢輸出內容會保存在 Jupyter 伺服器本機上 (通常是叢集的前端節點)。輸出內容會以具有指定名稱 **averagetime** 的 [Pandas](http://pandas.pydata.org/) 資料框架保存。
+
+	您應該會看到如下的輸出：
+
+	![SQL 查詢輸出](./media/hdinsight-apache-spark-custom-library-website-log-analysis/sql.output.png "SQL 查詢輸出")
+
+	如需有關 `%%sql` magic 及 PySpark 核心提供的其他 magic 的詳細資訊，請參閱[使用 Spark HDInsight 叢集之 Jupyter Notebook 上可用的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)。
+
+15. 現在您可以使用 Matplotlib (用於建構資料視覺效果的程式庫) 建立繪圖。因為必須從保存在本機上的 **averagetime** 資料框架建立繪圖，所以程式碼片段的開頭必須為 `%%local` magic。這可確保程式碼在 Jupyter 伺服器本機上執行。
+
+		%%local
+		%matplotlib inline
+		import matplotlib.pyplot as plt
+		
+		plt.plot(averagetime['Minutes'], averagetime['Time'], marker='o', linestyle='--')
 		plt.xlabel('Time (min)')
 		plt.ylabel('Average time taken for request (ms)')
 
@@ -197,7 +208,7 @@
 
 	![Matplotlib 輸出](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdi-apache-spark-web-log-analysis-plot.png "Matplotlib 輸出")
 
-14. 應用程式執行完畢之後，您應該要關閉 Notebook 來釋放資源。方法是從 Notebook 的 [檔案] 功能表上，按一下 [關閉並停止]。這樣就能夠結束並關閉 Notebook。
+16. 應用程式執行完畢之後，您應該要關閉 Notebook 來釋放資源。方法是從 Notebook 的 [檔案] 功能表上，按一下 [關閉並停止]。這樣就能夠結束並關閉 Notebook。
 	
 
 ## <a name="seealso"></a>另請參閱
@@ -233,4 +244,4 @@
 
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

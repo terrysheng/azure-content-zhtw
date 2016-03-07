@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="如何在 ARM 模式中使用 PowerShell 設定靜態私人 IP| Microsoft Azure"
-   description="了解靜態 IP (DIP) 以及如何在 ARM 模式下使用 PowerShell 管理它們"
+   pageTitle="如何在 Azure Resource Manager 中使用 PowerShell 設定靜態私人 IP 位址 | Microsoft Azure"
+   description="了解靜態私人 IP 位址以及如何在 Azure Resource Manager 中使用 PowerShell 加以設定"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-# 如何在 PowerShell 中設定靜態私人 IP 位址
+# 如何在資源管理員中使用 PowerShell 設定靜態私人 IP 位址
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
@@ -190,6 +190,6 @@
 
 - 深入了解[保留的公用 IP](../virtual-networks-reserved-public-ip) 位址。
 - 深入了解[執行個體層級公用 IP (ILPIP)](../virtual-networks-instance-level-public-ip) 位址。
-- 請參閱[保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)。
+- 請參閱[保留 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

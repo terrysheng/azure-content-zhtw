@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/19/2016"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 # BizTalk 一般檔案編碼器
+
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。
 
 使用 BizTalk 一般檔案編碼連接器可在一般檔案資料 (例如 Excel 或 CSV 檔案) 與 XML 資料之間交互操作。它可以將指定的一般檔案執行個體轉換成 XML，反之亦然。
 
@@ -69,4 +71,4 @@
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

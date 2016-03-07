@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/11/2016"
    ms.author="sameerch"/>
 
 
 # 開始使用 Microsoft SQL 連接器並將它加入您的邏輯應用程式
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 Azure SQL 2015-08-01-preview 結構描述版本，請按一下 [SQL Azure API](../connectors/create-api-sqlazure.md)。
+
 連接到內部部署 SQL Server 或 Azure SQL Database 來建立和變更資訊或資料。在 Logic Apps 中，連接器可以在「工作流程」中用來擷取、處理或推送資料。在工作流程中使用 SQL 連接器時，您可以達到各種案例的目的。例如，您可以：
 
 - 使用 Web 或行動應用程式，公開位於 SQL 資料庫中的部分資料。
@@ -114,7 +116,7 @@ SQL 連接器提供下列觸發程序和動作：
 
 SQL 查詢 | 支援 | 不支援
 --- | --- | ---
-Where 子句 | <ul><li>運算子：AND、OR、=、<>、<、<=、>、>= 以及 LIKE</li><li>‘(‘ 和 ‘)’可以結合多個子條件</li><li>字串常值、日期時間 (以單引號括住)、數字 (應該只包含數字字元)</li><li>嚴格應該二進位運算式格式，例如 ((運算元運算子運算元) AND/OR (運算元運算子運算元))**</li></ul> | <ul><li>運算子：Between、IN</li><li>所有內建的功能，例如 ADD()、MAX() NOW()、POWER() 等</li><li>數學運算子，例如 *、-、+ 等</li><li>使用 + 的字串串連。</li><li>所有聯結</li><li>IS NULL 和 IS NOT Null</li><li>包含非數字字元的任何數字，例如十六進位數字</li></ul> 
+Where 子句 | <ul><li>運算子：AND、OR、=、<>、<、<=、>、>= 以及 LIKE</li><li>‘(‘ 和 ‘)’可以結合多個子條件</li><li>字串常值、日期時間 (以單引號括住)、數字 (應該只包含數字字元)</li><li>嚴格應該二進位運算式格式，例如 ((運算元運算子運算元) AND/OR (運算元運算子運算元))**</li></ul> | <ul><li>運算子：Between、IN</li><li>所有內建的功能，例如 ADD()、MAX() NOW()、POWER() 等</li><li>數學運算子，例如 *、-、+ 等</li><li>使用 + 的字串串連。</li><li>所有聯結</li><li>IS NULL 和 IS NOT Null</li><li>包含非數字字元的任何數字，例如十六進位數字</li></ul>
 功能變數 (在 SELECT 查詢中) | <ul><li>以逗號分隔的有效資料行名稱。不允許任何資料表名稱前置詞 (連接器一次處理一個資料表)。</li><li>可以使用 ‘[‘ 和 ‘]’ 逸出名稱</li></ul> | <ul><li>關鍵字，例如 TOP、DISTINCT 等</li><li>別名，例如 Street + City + Zip AS Address</li><li>所有內建函式，例如 ADD()、MAX() NOW()、POWER() 等</li><li>數學運算子，例如 *、-、+ 等</li><li>使用 + 的字串串連</li></ul>
 
 #### 秘訣
@@ -153,4 +155,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

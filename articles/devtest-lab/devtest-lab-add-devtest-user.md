@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # 將擁有者和使用者加入研發/測試實驗室
+
+> [AZURE.NOTE] 按一下下列連結可檢視本文隨附的影片：[如何在 DevTest 實驗室中設定安全性](/documentation/videos/how-to-set-security-in-your-devtest-lab)
 
 ## 概觀
 
@@ -101,4 +103,4 @@
 
 	1. [使用者] 刀鋒視窗會顯示新增的角色及使用者。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

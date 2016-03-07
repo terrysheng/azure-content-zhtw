@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016" 
+	ms.date="02/21/2016" 
 	ms.author="robmcm"/>
 
 # 使用 Azure 儲存體與 Hudson 連續整合解決方案
@@ -28,7 +28,7 @@
 
 Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整合其程式碼變更，並可自動和頻繁地產生組建，進而提高開發人員的產能。組建會分版本存在，而組建成品可以上傳至各種存放庫。本文將示範如何使用 Azure Blob 儲存體作為組建成品的存放庫。其中也示範如何從 Azure Blob 儲存體下載相依性。
 
-您可以在[認識 Hudson][] (英文) 中找到有關 Hudson 的詳細資訊。
+您可以在[認識 Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson) (英文) 中找到有關 Hudson 的詳細資訊。
 
 ## 使用 Blob 服務的優點 ##
 
@@ -62,7 +62,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 
 - 一個 Azure 帳戶。您可以在 <http://www.azure.com> 註冊 Azure 帳戶。
 
-- 一個 Azure 儲存體帳戶。如果您還沒有儲存體帳戶，可以使用[如何建立儲存體帳戶][]中的步驟建立一個帳戶。
+- 一個 Azure 儲存體帳戶。如果您還沒有儲存體帳戶，可以使用[建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)中的步驟建立一個帳戶。
 
 - 建議學習 Hudson CI 解決方案，但這不是必須的，因為下列內容會使用基本範例來說明使用 Blob 服務作為 Hudson CI 組建成品的儲存機制時的所需步驟。
 
@@ -121,7 +121,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 
     在您為 [Execute Windows batch command] 輸入指令碼的 [命令] 區段下方是個連結，可連結到 Hudson 認可的環境變數。按一下該連結即可了解各環境變數名稱和描述。請注意，含有特殊字元的環境變數 (例如 **BUILD\_URL** 環境變數) 不能當做容器名稱或共同虛擬路徑。
 
-8. 在此範例中，請按一下 [Make new container public by default]。(如果您想要使用私用容器，則需要建立共用存取簽章來允許存取。這已超出本文的範圍。若要深入了解共用存取簽章，請參閱[建立共用存取簽章](http://go.microsoft.com/fwlink/?LinkId=279889)。)
+8. 在此範例中，請按一下 [Make new container public by default]。(如果您想要使用私用容器，則需要建立共用存取簽章來允許存取。這已超出本文的範圍。您可以參閱[共用存取簽章：了解 SAS 模型](storage-dotnet-shared-access-signature-part-1.md)，以進一步了解共用存取簽章。
 9. [選擇性] 如果您要在上傳組建成品之前清除容器的內容，請按一下 [Clean container before uploading] \(若不想清除容器的內容，請維持不核取)。
 10. 在 [List of Artifacts to upload]，輸入 **text/*.txt**。
 11. 在 [Common virtual path for uploaded artifacts]，輸入 **${BUILD\_ID}/${BUILD\_NUMBER}**。
@@ -161,7 +161,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 
 - **儲存體帳戶**：一律透過儲存體帳戶來存取 Azure 儲存體。這是存取 blob 用的最高等級的命名空間。帳戶可以包含不限數目的容器，只要它們的大小總計低於 100 TB 即可。
 - **容器**：容器提供一組 Blob 的群組。所有 Blob 都必須放在容器中。一個帳戶可以包含的容器不限數量。容器可以儲存無限制的 Blob。
-- **Blob**：任何類型和大小的檔案。Azure 儲存中可以儲存兩種 Blob：區塊 Blob 和分頁 Blob。大部分檔案都是區塊 Blob。單一區塊 Blob 的大小上限為 200 GB。本教學課程使用區塊 Blob。分頁 Blob (另一種 Blob 類型) 的大小上限為 1 TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。如需關於 Blob 的詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx)。
+- **Blob**：任何類型和大小的檔案。Azure 儲存中可以儲存兩種 Blob：區塊 Blob 和分頁 Blob。大部分檔案都是區塊 Blob。單一區塊 Blob 的大小上限為 200 GB。本教學課程使用區塊 Blob。分頁 Blob (另一種 Blob 類型) 的大小上限為 1 TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。如需關於 Blob 的詳細資訊，請參閱[了解區塊 Blob、附加 Blob 及分頁 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx)。
 - **URL 格式**：可利用下列 URL 格式來定址 Blob：
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -174,7 +174,12 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 
 ## 後續步驟
 
-  [如何建立儲存體帳戶]: http://go.microsoft.com/fwlink/?LinkId=279823
-  [認識 Hudson]: http://wiki.eclipse.org/Hudson-ci/Meet_Hudson
+- [認識 Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
+- [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
+- [Azure 儲存體用戶端 SDK 參考](http://dl.windowsazure.com/storage/javadoc/)
+- [Azure 儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+- [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
 
-<!---HONumber=AcomDC_0128_2016-->
+如需詳細資訊，另請參閱 [Java 開發人員中心](https://azure.microsoft.com/develop/java/)。
+
+<!---HONumber=AcomDC_0224_2016-->

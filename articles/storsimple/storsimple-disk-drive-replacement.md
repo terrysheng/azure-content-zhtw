@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -27,7 +27,7 @@
 
 - 安裝更換磁碟機
 
->[AZURE.IMPORTANT]取下及更換磁碟機之前，請閱讀 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)中的安全資訊。
+>[AZURE.IMPORTANT] 取下及更換磁碟機之前，請閱讀 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)中的安全資訊。
 
 ## 打開防拆鎖
 
@@ -37,7 +37,7 @@
 
 1. 小心地將鎖鑰匙 (Microsoft 提供的「防拆」T10 螺絲起子) 插入把手中的孔中，並插入其插座中。 
 
-    >[AZURE.NOTE]如果防拆鎖已啟動，則可在孔中看到紅色指示器。
+    >[AZURE.NOTE] 如果防拆鎖已啟動，則可在孔中看到紅色指示器。
 
     ![已鎖定磁碟機](./media/storsimple-disk-drive-replacement/IC741056.png)
 
@@ -118,10 +118,10 @@
 
 5. 存取 Azure 傳統入口網站，並導覽至 [維護] > [硬體狀態]，來確認更換成功，而且磁碟機可運作。在 [**共用元件**] 或 [**EBOD 機箱共用元件**] 下，磁碟機狀態應該是綠色,表示狀況良好。
 
-    >[AZURE.NOTE]在更換之後，可能需要數小時，磁碟狀態才會變成綠色。
+    >[AZURE.NOTE] 在更換之後，可能需要數小時，磁碟狀態才會變成綠色。
 
 ## 後續步驟
 
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

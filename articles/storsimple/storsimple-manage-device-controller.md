@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli" />
 
 # 管理 StorSimple 裝置控制器
@@ -41,7 +41,7 @@
 
 假設被動控制器可用，重新啟動裝置並不會干擾連線的啟動器。如果被動控制器不可用或已關閉，重新啟動主動控制器可能會導致服務中斷和停機。
 
-> [AZURE.IMPORTANT]
+> [AZURE.IMPORTANT] 
 
 > - **執行中的控制器應該永遠不會實際移除，因為這會導致失去備援並增加停機的風險。**
 
@@ -63,14 +63,14 @@
 
 	![管理 StorSimple 裝置控制器](./media/storsimple-manage-device-controller/IC766018.png)</br>
 
-	>[AZURE.NOTE]如果您沒看到 [**管理控制器**]，表示您需要安裝更新。如需詳細資訊，請參閱[更新您的 StorSimple 裝置](storsimple-update-device.md)。
+	>[AZURE.NOTE] 如果您沒看到 [**管理控制器**]，表示您需要安裝更新。如需詳細資訊，請參閱[更新您的 StorSimple 裝置](storsimple-update-device.md)。
 
 1. 在 [**變更控制器設定**] 對話方塊中，執行下列動作：
 
 
 	- 從 [**選取控制器**] 下拉式清單中，選取您想要管理的控制器。選項為控制器 0 和控制器 1。這些控制器也可識別為主動或被動。
 
-		>[AZURE.NOTE]如果控制器無法使用或已關閉，就無法管理它，而它也不會出現在下拉式清單中。
+		>[AZURE.NOTE] 如果控制器無法使用或已關閉，就無法管理它，而它也不會出現在下拉式清單中。
 	
 
 
@@ -121,7 +121,7 @@
 
 本節說明如何從遠端電腦關閉執行中或失敗的 StorSimple 裝置。裝置會在關閉兩個裝置控制器之後關閉。當裝置正在實際移動，或被帶離服務時，已經完成裝置關閉了。
 
-> [AZURE.IMPORTANT]關閉裝置之前，請檢查裝置元件的健全狀態。瀏覽至**[裝置] > [維護] > [硬體狀態]** 並確認所有元件的 LED 燈狀態為綠色。只有狀況良好的裝置才會有綠色的狀態。如果您的裝置正在關閉以更換故障的元件，您會看到個別元件的失敗 (紅色) 或降級 (黃色) 狀態。
+> [AZURE.IMPORTANT] 關閉裝置之前，請檢查裝置元件的健全狀態。瀏覽至**[裝置] > [維護] > [硬體狀態]** 並確認所有元件的 LED 燈狀態為綠色。只有狀況良好的裝置才會有綠色的狀態。如果您的裝置正在關閉以更換故障的元件，您會看到個別元件的失敗 (紅色) 或降級 (黃色) 狀態。
 
 #### 關閉 StorSimple 裝置
 
@@ -166,10 +166,12 @@
 
 	系統會重新啟動多次。重設成功完成時，系統將會通知您。根據系統模型，8100 裝置可能需要 45-60 分鐘來完成此程序，而 8600 需要 60-90 分鐘。
 
-	> [AZURE.TIP]
+	> [AZURE.TIP] 
 	
 	> - 如果恢復出廠預設值的 Cmdlet (如同上述用法) 回報韌體不符錯誤，請使用 `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` 命令略過韌體版本檢查：恢復出廠預設值因韌體版本不相符而無法繼續。在先前使用 Microsoft Update 或 Hotfix 機制更新的裝置上執行恢復出廠預設值時，您必須略過韌體檢查 (使用 `–SkipFirmwareCheck` 選項)。
 	
+	> - 在 Government 入口網站中執行 Update 1 或 1.1 ，且已執行成功的單一或雙重控制器更換 (含 pre-Update 1 軟體所隨附的更換控制器) 的 StorSimple 裝置的恢復出廠預設值程序可能會失敗。這會發生在針對不存在於 pre-Update 1 軟體的控制器上的 SHA1 檔案的目前狀態驗證恢復出廠預設值時。如果您看到這個恢復出廠預設值失敗，請連絡 Microsoft 支援服務以協助您進行下一個步驟。在具有 Update 1 或更新版本軟體的原廠出貨更換控制器不會看到這個問題。
+
 	> - 如需有關如何使用此 Cmdlet 的詳細資訊，請移至 [Windows PowerShell for StorSimple 的 Cmdlet 參考](https://technet.microsoft.com/library/dn688168.aspx)。
 
 
@@ -221,4 +223,4 @@
 
 - 若要深入了解使用 StorSimple Manager 的方式，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

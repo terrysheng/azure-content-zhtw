@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="02/10/2016"
+	ms.date="02/21/2016"
 	ms.author="garye" />
 
 
@@ -127,7 +127,7 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 
 您會在說明頁面底部找到程式碼範例。下面是 C# 實作的程式碼範例。
 
-**範例程式碼**
+**C# 的範例程式碼**
 
 	using System;
 	using System.Collections.Generic;
@@ -199,6 +199,58 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 	    }
 	}
 
+**Java 的範例程式碼**
+
+下列範例程式碼示範如何在 Java 中建構 REST API 要求。它假設變數 (apikey 和 apiurl) 包含必要的 API 詳細資料，且變數 jsonBody 包含正確的 JSON 物件，如 REST API 所預期，因此可進行成功的預測。您可以從 github - [https://github.com/nk773/AzureML\_RRSApp](https://github.com/nk773/AzureML_RRSApp) 下載完整的程式碼。此 Java 範例需要使用 [apache http 用戶端程式庫](https://hc.apache.org/downloads.cgi)。
+
+	/**
+	 * Download full code from github - [https://github.com/nk773/AzureML_RRSApp](https://github.com/nk773/AzureML_RRSApp)
+ 	 */
+    	/**
+     	  * Call REST API for retrieving prediction from Azure ML 
+     	  * @return response from the REST API
+     	  */	
+    	public static String rrsHttpPost() {
+        
+        	HttpPost post;
+        	HttpClient client;
+        	StringEntity entity;
+        
+        	try {
+            		// create HttpPost and HttpClient object
+            		post = new HttpPost(apiurl);
+            		client = HttpClientBuilder.create().build();
+            
+            		// setup output message by copying JSON body into 
+            		// apache StringEntity object along with content type
+            		entity = new StringEntity(jsonBody, HTTP.UTF_8);
+            		entity.setContentEncoding(HTTP.UTF_8);
+            		entity.setContentType("text/json");
+
+            		// add HTTP headers
+            		post.setHeader("Accept", "text/json");
+            		post.setHeader("Accept-Charset", "UTF-8");
+        
+            		// set Authorization header based on the API key
+            		post.setHeader("Authorization", ("Bearer "+apikey));
+            		post.setEntity(entity);
+
+            		// Call REST API and retrieve response content
+            		HttpResponse authResponse = client.execute(post);
+            
+            		return EntityUtils.toString(authResponse.getEntity());
+            
+        	}
+        	catch (Exception e) {
+            
+            		return e.toString();
+        	}
+    
+    	}
+    
+    	
+ 
+
 ### BES 範例
 與 RRS 服務不同，BES 服務是非同步的。這表示 BES API 只是將要執行的工作排入佇列，而呼叫者會輪詢工作的狀態以查看工作何時完成。以下是目前支援的批次工作作業：
 
@@ -211,15 +263,15 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 
 建立 Azure Machine Learning 服務端點的批次工作時，您可以指定將定義此批次執行的數個參數：
 
-* **Input**：代表儲存批次工作輸入位置的 Blob 參考。
-* **GlobalParameters**：代表您可用於定義實驗的全域參數集。Azure Machine Learning 實驗可以具有必要和選用參數，以自訂服務的執行，而呼叫者預期會提供所有必要的參數 (如果有這些參數)。這些參數會以索引鍵-值組的集合形式來指定。
-* **Outputs**：如果服務已定義一或多個輸出，呼叫者可將任一輸出重新導向某個 Azure Blob 位置。這麼做可讓您以可預測的名稱，將服務的輸出儲存在慣用位置，否則輸出的 Blob 名稱會隨機產生。 
+* **Input**：代表儲存批次工作輸入所在位置的 Blob 參考。
+* **GlobalParameters**：代表您可針對實驗定義的一組全域參數。Azure Machine Learning 實驗可以具有必要和選用參數，以自訂服務的執行，而呼叫者預期會提供所有必要的參數 (如果有這些參數)。這些參數會以索引鍵-值組的集合形式來指定。
+* **Outputs**：如果服務已定義一或多個輸出，則呼叫端可將任一輸出重新導向到某個 Azure Blob 位置。這麼做可讓您以可預測的名稱，將服務的輸出儲存在慣用位置，否則輸出的 Blob 名稱會隨機產生。 
 
     請留意，服務會預期輸出內容 (依其類型) 已儲存為支援的格式：
   - 資料集輸出：可以儲存為 **.csv、.tsv、.arff**
   - 定型模型輸出：可以儲存為 **.ilearner**
 
-  輸出位置覆寫會指定為 *<output name  blob reference>* 組的集合，其中 *output name* 是特定輸出節點的使用者定義名稱 (服務的 API 說明頁面中也有顯示)，而 *blob reference* 則是 Azure Blob 位置的參考，也是輸出要重新導向的位置。
+  輸出位置覆寫會指定為 *<output name  blob reference>* 組的集合，其中 *output name* 是特定輸出節點的使用者定義名稱 (也會顯示在服務的 API 說明頁面上)，而 *blob reference* 則是 Azure Blob 位置的參考，也是輸出要重新導向的位置。
 
 所有這些建立工作的參數均可視您的服務性質來選擇性地使用。例如，沒有定義輸入節點的服務不需要傳入 *Input* 參數。同樣地，是否使用輸出位置覆寫功能完全可自由選擇；因為如果不使用，輸出也會儲存在您針對 Azure Machine Learning 工作區所設定的預設儲存體帳戶中。以下針對只提供輸入資訊的服務，示範傳遞至 REST API 的要求承載：
 
@@ -245,7 +297,7 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 
 **2.啟動批次執行工作**
 
-建立批次工作會將它登錄在系統內，並呈現「未啟動」狀態。若要實際排程工作來執行，請呼叫服務端點 API 說明頁面所述的 **start** API，並提供建立工作時所取得的工作 ID。
+建立批次工作會將它登錄在系統內，並呈現「未啟動」狀態。若要實際排程工作來執行，請呼叫服務端點 API 說明頁面上所述的 **start** API，並提供建立工作時所取得的工作 ID。
 
 **3.取得批次執行工作的狀態**
 
@@ -301,7 +353,7 @@ RRS 範例驗證應用程式的真確性。您可以將絕大多數應用程式�
 
 #### 使用 BES SDK
 
-[BES SDK Nuget 封裝](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/)提供可以批次模式簡化呼叫 BES 來進行評分的功能。若要安裝 Nuget 套件，請在 Visual Studio 中的 [工具] 功能表，選取 [Nuget 套件管理員]，然後按一下 [套件管理器主控台]。
+[BES SDK Nuget 封裝](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/)提供可以批次模式簡化呼叫 BES 來進行評分的功能。若要安裝 Nuget 套件，請在 Visual Studio 的 [工具] 功能表中，選取 [Nuget 套件管理員]，然後按一下 [套件管理器主控台]。
 
 Azure Machine Learning 實驗已部署為可包含 Web 服務輸入模型的 Web 服務。這表示它們預期輸入是以 Blob 位置參考的形式透過 Web 服務來呼叫。另外還有不使用 Web 服務輸入模組的選項，那就是改為使用「讀取器」模組。在此情況下，「讀取器」模組通常會在執行階段使用查詢，從 SQL DB 讀取以取得資料。Web 服務參數可用來動態指向其他伺服器或資料表等。SDK 支援以上兩種模式。
 
@@ -435,4 +487,202 @@ Azure Machine Learning 實驗已部署為可包含 Web 服務輸入模型的 Web
 	    }
 	}
 
-<!---HONumber=AcomDC_0211_2016-->
+#### Java 中適用於 BES 的範例程式碼
+批次執行服務 REST API 會採用包含輸入範例 csv 和輸出範例 csv 的參考的 JSON，如下所示，並在 Azure ML 中建立工作以執行批次預測。您可以在 [Github](https://github.com/nk773/AzureML_BESApp/tree/master/src/azureml_besapp) 中檢視完整的程式碼。此 Java 範例需要使用 [apache http 用戶端程式庫](https://hc.apache.org/downloads.cgi)。
+
+
+	{ "GlobalParameters": {}, 
+    	"Inputs": { "input1": { "ConnectionString": 	"DefaultEndpointsProtocol=https;
+			AccountName=myAcctName; AccountKey=Q8kkieg==", 
+        	"RelativeLocation": "myContainer/sampleinput.csv" } }, 
+    	"Outputs": { "output1": { "ConnectionString": 	"DefaultEndpointsProtocol=https;
+			AccountName=myAcctName; AccountKey=kjC12xQ8kkieg==", 
+        	"RelativeLocation": "myContainer/sampleoutput.csv" } } 
+	} 
+
+
+#####建立 BES 工作	
+	    
+	    /**
+	     * Call REST API to create a job to Azure ML 
+	     * for batch predictions
+	     * @return response from the REST API
+	     */	
+	    public static String besCreateJob() {
+	        
+	        HttpPost post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpPost(apiurl);
+	            client = HttpClientBuilder.create().build();
+	            
+	            // setup output message by copying JSON body into 
+	            // apache StringEntity object along with content type
+	            entity = new StringEntity(jsonBody, HTTP.UTF_8);
+	            entity.setContentEncoding(HTTP.UTF_8);
+	            entity.setContentType("text/json");
+	
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+				// note a space after the word "Bearer " - don't miss that
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	            post.setEntity(entity);
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	            
+	            jobId = EntityUtils.toString(authResponse.getEntity()).replaceAll(""", "");
+	            
+	            
+	            return jobId;
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    
+	    }
+	    
+#####啟動先前建立的 BES 工作	        
+	    /**
+	     * Call REST API for starting prediction job previously submitted 
+	     * 
+	     * @param job job to be started 
+	     * @return response from the REST API
+	     */	
+	    public static String besStartJob(String job){
+	        HttpPost post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpPost(startJobUrl+"/"+job+"/start?api-version=2.0");
+	            client = HttpClientBuilder.create().build();
+	         
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	            
+	            if (authResponse.getEntity()==null)
+	            {
+	                return authResponse.getStatusLine().toString();
+	            }
+	            
+	            return EntityUtils.toString(authResponse.getEntity());
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    }
+#####取消先前建立的 BES 工作
+	    
+	    /**
+	     * Call REST API for canceling the batch job 
+	     * 
+	     * @param job job to be started 
+	     * @return response from the REST API
+	     */	
+	    public static String besCancelJob(String job) {
+	        HttpDelete post;
+	        HttpClient client;
+	        StringEntity entity;
+	        
+	        try {
+	            // create HttpPost and HttpClient object
+	            post = new HttpDelete(startJobUrl+job);
+	            client = HttpClientBuilder.create().build();
+	         
+	            // add HTTP headers
+	            post.setHeader("Accept", "text/json");
+	            post.setHeader("Accept-Charset", "UTF-8");
+	        
+	            // set Authorization header based on the API key
+	            post.setHeader("Authorization", ("Bearer "+apikey));
+	
+	            // Call REST API and retrieve response content
+	            HttpResponse authResponse = client.execute(post);
+	         
+	            if (authResponse.getEntity()==null)
+	            {
+	                return authResponse.getStatusLine().toString();
+	            }
+	            return EntityUtils.toString(authResponse.getEntity());
+	            
+	        }
+	        catch (Exception e) {
+	            
+	            return e.toString();
+	        }
+	    }
+	    
+###其他程式設計環境
+您也可以使用 API 說明頁面中的 Swagger 文件，依照 [swagger.io](http://swagger.io/) 網站所提供的指示，產生其他許多種語言的程式碼。前往 [swagger.io](http://swagger.io/swagger-codegen/)，並依照指示下載 Swagger 程式碼、java 及 apache mvn。以下是針對其他程式設計環境設定 Swagger 的指示的摘要。
+
+* 請確定已安裝 Java 7 或更新版本
+* 安裝 apache mvn (在 ubuntu 上，您可以使用 *apt-get install mvn*)
+* 前往 github 中的 swagger，並將 Swagger 專案下載為 zip 檔案
+* 解壓縮 Swagger
+* 從 Swagger 的來源目錄執行 *mvn 封裝*，以建置 Swagger 工具
+
+現在，您可以使用任何 Swagger 工具。以下是產生 Java 用戶端程式碼的指示。
+
+* 前往 Azure ML API 說明頁面 (範例在[這裡](https://studio.azureml.net/apihelp/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/jobs))
+* 為 Azure ML REST API 尋找 swagger.json 的 URL (在 API 說明頁面最上方的倒數第二個項目符號)
+* 按一下 Swagger 文件連結 (範例在[這裡](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument))
+* 使用 [Swagger 讀我檔案](https://github.com/swagger-api/swagger-codegen/blob/master/README.md)中所示的下列命令產生用戶端程式碼
+
+**產生用戶端程式碼的範例命令列**
+
+	java -jar swagger-codegen-cli.jar generate\
+	 -i https://ussouthcentral.services.azureml.net:443/workspaces/\
+	fb62b56f29fc4ba4b8a8f900c9b89584/services/26a3afce1767461ab6e73d5a206fbd62/swagger.json\
+	 -l java -o /home/username/sample
+
+* 在如下所示的 Swagger [API 說明頁面](https://management.azureml.net/workspaces/afbd553b9bac4c95be3d040998943a4f/webservices/4dfadc62adcc485eb0cf162397fb5682/endpoints/26a3afce1767461ab6e73d5a206fbd62/apidocument)範例中，結合 host、basePath 和 "/swagger.json" 欄位中的值來建構上述命令列中使用的 Swagger URL
+
+**範例 API 說明頁面**
+
+
+	{
+	  "swagger": "2.0",
+	  "info": {
+	    "version": "2.0",
+	    "title": "Sample 5: Binary Classification with Web Service: Adult Dataset [Predictive Exp.]",
+	    "description": "No description provided for this web service.",
+	    "x-endpoint-name": "default"
+	  },
+	  "host": "ussouthcentral.services.azureml.net:443",
+	  "basePath": "/workspaces/afbd553b9bac4c95be3d040998943a4f/services/26a3afce1767461ab6e73d5a206fbd62",
+	  "schemes": [
+	    "https"
+	  ],
+	  "consumes": [
+	    "application/json"
+	  ],
+	  "produces": [
+	    "application/json"
+	  ],
+	  "paths": {
+	    "/swagger.json": {
+	      "get": {
+	        "summary": "Get swagger API document for the web service",
+	        "operationId": "getSwaggerDocument",
+	        
+
+<!---HONumber=AcomDC_0224_2016-->

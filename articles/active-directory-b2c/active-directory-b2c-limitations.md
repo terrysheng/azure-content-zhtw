@@ -18,33 +18,33 @@
 
 # Azure Active Directory B2C 預覽：限制
 
-Azure Active Directory (AD) B2C 有幾項功能在預覽期間還不支援。在 Azure AD B2C 正式運作之前將移除其中諸多限制，但如果您在預覽期間使用 Azure AD B2C 建置消費者導向的應用程式，則應該注意這些限制。
+Azure Active Directory (Azure AD) B2C 有幾項特性與功能在預覽期間還不支援。在 Azure AD B2C 正式運作之前將移除其中諸多限制，但如果您在預覽期間使用 Azure AD B2C 建置消費者導向的應用程式，則應該注意這些限制。
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## 建立 Azure AD B2C 租用戶期間的問題
 
-如果您在[建立 Azure AD B2C 租用戶](active-directory-b2c-get-started)期間遇到問題，請查看這篇[文章](active-directory-b2c-support-create-directory.md)中的指導方針。
+如果您在[建立 Azure AD B2C 租用戶](active-directory-b2c-get-started)期間遇到問題，請參閱[建立 Azure AD 租用戶或 Azure AD B2C 租用戶 - 問題與解決方法](active-directory-b2c-support-create-directory.md)以取得指導方針。
 
 ## 驗證電子郵件上的商標問題
 
-預設驗證電子郵件包含 "Microsoft" 商標。未來我們會將它移除。目前，您可以使用[公司商標功能](../active-directory/active-directory-add-company-branding.md)將它移除。
+預設的驗證電子郵件包含 Microsoft 商標。未來我們會將它移除。您目前可以使用[公司商標功能](../active-directory/active-directory-add-company-branding.md)來移除它。
 
 ## 支援實際執行應用程式
 
-與 Azure AD B2C 整合的應用程式，不應該當成實際執行層級的應用程式公開發行。Azure AD B2C 目前處於預覽階段，隨時可能發布重大變更，此項服務也不提供任何 SLA 保證。並非所有發生的事件都會受到支援。如果您願意接受依賴開發中服務所帶來的風險，請務必發佈推文到 @AzureAD 連絡我們，討論您的應用程式或服務的範圍。
+與 Azure AD B2C 整合的應用程式，不應該當成實際執行層級的應用程式公開發行。Azure AD B2C 目前處於預覽階段，隨時可能發佈重大變更，此項服務也不提供任何服務等級協定保證。並非所有發生的事件都會受到支援。如果您願意接受依賴仍在開發中的服務所帶來的風險，請務必發佈推文到 @AzureAD 連絡我們，以討論您的應用程式或服務的範圍。
 
 ## 應用程式的限制
 
-Azure AD B2C 預覽目前不支援下列類型的應用程式。如需受支援的應用程式類型的描述，請參閱這篇[文章](active-directory-b2c-apps.md)。
+Azure AD B2C 預覽目前不支援下列類型的應用程式。如需受支援應用程式類型的描述，請參閱 [Azure AD B2C 預覽：應用程式類型](active-directory-b2c-apps.md)。
 
-### 單一頁面應用程式 (Javascript)
+### 單一頁面應用程式 (JavaScript)
 
-許多現代化應用程式都有單一頁面應用程式 (SPA) 前端，主要是以 Javascript 撰寫，而且通常採用 AngularJS、Ember.js、Durandal 等 SPA 架構。Azure AD B2C 預覽中還未提供此流程。
+許多現代化應用程式都有單一頁面應用程式 (SPA) 前端，主要是以 JavaScript 撰寫，而且通常採用 AngularJS、Ember.js、Durandal 等 SPA 架構。Azure AD B2C 預覽中還未提供此流程。
 
 ### 精靈 / 伺服器端應用程式
 
-如果應用程式含有長時執行的處理序或不需要使用者操作，也仍然需要方法來存取受保護的資源，例如 Web API。這些應用程式可以透過 [OAuth 2.0 用戶端認證流程](active-directory-b2c-reference-protocols.md#oauth2-client-credentials-grant-flow)，利用應用程式身分識別 (而非取用者委派身分識別) 驗證及取得權杖。Azure AD B2C 預覽中還未提供此流程 - 也就是說，只有在進行互動式取用者登入流程之後，應用程式才能取得權杖。
+如果應用程式含有長時間執行的處理序或不需要使用者操作，也仍然需要方法來存取受保護的資源，例如 Web API。這些應用程式可以透過 [OAuth 2.0 用戶端認證流程](active-directory-b2c-reference-protocols.md#oauth2-client-credentials-grant-flow)，利用應用程式的身分識別 (而非取用者的委派身分識別) 來驗證及取得權杖。Azure AD B2C 預覽中還未提供此流程，因此，目前只有在進行互動式取用者登入流程之後，應用程式才能取得權杖。
 
 ### 獨立的 Web API
 
@@ -58,9 +58,9 @@ Azure AD B2C 預覽目前不支援下列類型的應用程式。如需受支援�
 
 ## 程式庫與 SDK 的限制
 
-並非所有語言和平台都具有支援 Azure AD B2C 預覽的程式庫。驗證程式庫集合目前僅適用於 .NET、iOS、Android 和 NodeJS。[使用者入門](active-directory-b2c-overview.md#getting-started)一節提供各平台對應的快速入門教學課程。
+並非所有語言和平台都具有支援 Azure AD B2C 預覽的程式庫。這組驗證程式庫目前僅適用於 .NET、iOS、Android 和 NodeJS。[開始使用](active-directory-b2c-overview.md#getting-started)一節提供各平台對應的快速啟動教學課程。
 
-如果您想要使用其他語言或平台來整合應用程式與 Azure AD B2C 預覽，請參閱 [OAuth 2.0 和 OpenID Connect 通訊協定參考](active-directory-b2c-reference-protocols.md)，其中指示如何建構與 Azure AD B2C 服務進行通訊所需的 HTTP 訊息。
+如果您想要使用其他語言或平台來整合應用程式與 Azure AD B2C 預覽，請參閱 [OAuth 2.0 和 OpenID Connect 通訊協定參考](active-directory-b2c-reference-protocols.md)，其中說明如何建構與 Azure AD B2C 服務進行通訊所需的 HTTP 訊息。
 
 ## 通訊協定的限制
 
@@ -72,9 +72,9 @@ Azure AD B2C 預覽支援 OpenID Connect 和 OAuth 2.0。不過，並非每個�
 
 ## Azure 傳統入口網站上的使用者管理問題
 
-在 Azure 入口網站上可存取 B2C 功能。不過，您可以使用 Azure 傳統入口網站來存取其他的租用戶功能，包括使用者管理。目前，Azure 傳統入口網站上的使用者管理 ([使用者] 索引標籤) 有幾個已知問題。
+在 Azure 入口網站上可存取 B2C 功能。不過，您可以使用 Azure 傳統入口網站來存取其他的租用戶功能，包括使用者管理。目前，Azure 傳統入口網站上的使用者管理 ([使用者] 索引標籤) 有幾個已知問題：
 
-- 以本機帳戶使用者而言 (亦即，以電子郵件地址和密碼或使用者名稱和密碼來註冊的取用者)，[使用者名稱] 欄位未對應至註冊期間使用的登入識別項 (電子郵件地址或使用者名稱)。這是因為 Azure 傳統入口網站上顯示的欄位，實際上是使用者主體名稱 (UPN)，而這在 B2C 案例中沒有用到。若要檢視本機帳戶的登入識別項，請在 [Graph Explorer](https://graphexplorer.cloudapp.net/) 中尋找使用者物件。您將會遇到與社交帳戶使用者 (亦即，以 Facebook、Google+ 等註冊的取用者) 同樣的問題，但在此情況下，沒所謂的登入識別項。
+- 以本機帳戶使用者而言 (亦即，以電子郵件地址和密碼或使用者名稱和密碼來註冊的取用者)，[使用者名稱] 欄位未對應至註冊期間使用的登入識別碼 (電子郵件地址或使用者名稱)。這是因為 Azure 傳統入口網站上顯示的欄位，實際上是使用者主體名稱 (UPN)，而這在 B2C 案例中沒有用到。若要檢視本機帳戶的登入識別項，請在 [Graph Explorer](https://graphexplorer.cloudapp.net/) 中尋找使用者物件。您將會遇到與社交帳戶使用者 (亦即，以 Facebook、Google+ 等註冊的取用者) 同樣的問題，但在此情況下，沒所謂的登入識別項。
 
     ![本機帳戶 - UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
 
@@ -84,16 +84,12 @@ Azure AD B2C 預覽支援 OpenID Connect 和 OAuth 2.0。不過，並非每個�
 
 如果您針對本機帳戶取用者，在 Azure 傳統入口網站上重設其密碼 ([使用者] 索引標籤上的 [重設密碼] 命令)，該取用者下次登入時將無法變更密碼，且會被鎖定不得使用您的應用程式。我們正在努力修正這個問題。解決方法是使用 [Azure AD 圖形 API](active-directory-b2c-devquickstarts-graph-dotnet.md) 重設取用者的密碼。
 
-## 刪除 Azure AD B2C 租用戶時的限制
+## 刪除 Azure AD B2C 租用戶的限制
 
 您無法在 Azure 傳統入口網站中刪除 Azure AD B2C 租用戶。
 
-## 在 Azure 傳統入口網站上驗證網域時的問題
+## 在 Azure 傳統入口網站上驗證網域的問題
 
-目前您無法在 [Azure 傳統入口網站](https://manage.windowsazure.com/)上順利驗證網域。我們正在努力修復此問題。
+您目前無法在 [Azure 傳統入口網站](https://manage.windowsazure.com/)上順利驗證網域。我們正在努力修復此問題。
 
-## Azure 入口網站上的警告訊息
-
-當您在 Azure 入口網站上存取 B2C 設定刀鋒視窗時，您會在 [通知] \(位於右上角) 底下看到一則警告訊息。訊息內容指出：「您在 <B2CTenantName> 目錄中沒有任何訂用帳戶。您有可以切換至的其他目錄。」其中 <B2CTenantName> 是 B2C 租用戶的名稱。您可以放心忽略此訊息，並繼續存取 B2C 功能。我們正在和 Azure 入口網站團隊合作修正此問題。
-
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

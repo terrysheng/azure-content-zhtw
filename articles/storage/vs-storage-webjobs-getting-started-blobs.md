@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # 開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務 (WebJob 專案)
 
 ## 概觀
 
-本文提供 C# 程式碼範例，示範如何在建立或更新 Azure Blob 時觸發程序。此程式碼範例會使用 [WebJobs SDK](/app-service-web/websites-dotnet-webjobs-sdk.md) 1.x 版。當您使用 Visual Studio [加入連接的服務] 對話方塊將儲存體帳戶加入 WebJob 專案時，適當的 Azure 儲存體 NuGet 套件會隨即安裝、適當的 .NET 參考會隨即加入專案中，而儲存體帳戶的連接字串也會隨即在 App.config 檔案中更新。
+本文提供 C# 程式碼範例，示範如何在建立或更新 Azure Blob 時觸發程序。此程式碼範例會使用 [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) 1.x 版。當您使用 Visual Studio [加入連接的服務] 對話方塊將儲存體帳戶加入 WebJob 專案時，適當的 Azure 儲存體 NuGet 套件會隨即安裝、適當的 .NET 參考會隨即加入專案中，而儲存體帳戶的連接字串也會隨即在 App.config 檔案中更新。
 
 
 
@@ -28,7 +28,7 @@
 
 本節示範如何使用 **BlobTrigger** 屬性。
 
- **附註：**WebJobs SDK 會掃描要監看的的記錄檔，找出新的或變更的 Blob。此程序的速度原本就很慢；可能直到建立 Blob 之後數分鐘或更久，才會觸發函數。如果您的應用程式需要立即處理 Blob，建議的方法是在您建立 Blob 時建立佇列訊息，並在處理 Blob 的函數上使用 [QueueTrigger](/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) 屬性，而不是 **BlobTrigger** 屬性。
+ **附註：**WebJobs SDK 會掃描要監看的的記錄檔，找出新的或變更的 Blob。此程序的速度原本就很慢；可能直到建立 Blob 之後數分鐘或更久，才會觸發函數。如果您的應用程式需要立即處理 Blob，建議的方法是在您建立 Blob 時建立佇列訊息，並在處理 Blob 的函數上使用 [QueueTrigger](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) 屬性，而不是 **BlobTrigger** 屬性。
 
 ### 適用於含有副檔名之 Blob 名稱的單一預留位置  
 
@@ -87,7 +87,7 @@
 * **ICloudBlob**
 * **CloudBlockBlob**
 * **CloudPageBlob**
-* 透過 [ICloudBlobStreamBinder](#icbsb) 還原序列化的其他型別
+* 透過 [ICloudBlobStreamBinder](#getting-serialized-blob-content-by-using-icloudblobstreambinder) 還原序列化的其他型別
 
 如果您想要直接使用 Azure 儲存體帳戶，也可以將 **CloudStorageAccount** 參數新增至方法簽章。
 
@@ -146,7 +146,7 @@
 
 當 **BlobTrigger** 函數失敗時，SDK 會再次加以呼叫，以防失敗是因暫時性錯誤而造成。如果失敗是因為 Blob 的內容所造成，則此函數會在其每次嘗試處理該 Blob 時失敗。根據預設，SDK 最多會針對指定的 Blob 呼叫函數 5 次。如果第五次嘗試失敗，則 SDK 會在名為 *webjobs-blobtrigger-poison* 的佇列中新增一則訊息。
 
-您可以設定重試次數上限。相同的 [MaxDequeueCount](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) 設定可用於處理有害的 Blob 和處理有害的佇列訊息。
+您可以設定重試次數上限。相同的 [MaxDequeueCount](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) 設定可用於處理有害的 Blob 和處理有害的佇列訊息。
 
 適用於有害 Blob 的佇列訊息是一個 JSON 物件，其中包含下列屬性：
 
@@ -211,7 +211,7 @@ Blob 回條儲存於 AzureWebJobsStorage 連接字串所指定之 Azure 儲存�
 
 ## 佇列文章所涵蓋的相關主題
 
-如需如何處理佇列訊息所觸發的 Blob 處理的相關資訊，或是非 Blob 處理特有的 WebJobs SDK 案例，請參閱[如何透過 WebJobs SDK 使用 Azure 佇列儲存體](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)。
+如需如何處理佇列訊息所觸發的 Blob 處理的相關資訊，或是非 Blob 處理特有的 WebJobs SDK 案例，請參閱[如何透過 WebJobs SDK 使用 Azure 佇列儲存體](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md)。
 
 該文章中涵蓋的相關主題如下：
 
@@ -227,6 +227,6 @@ Blob 回條儲存於 AzureWebJobsStorage 連接字串所指定之 Azure 儲存�
 
 ## 後續步驟
 
-本文提供的程式碼範例示範如何處理使用 Azure Blob 的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
+本文提供的程式碼範例示範如何處理使用 Azure Blob 的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 文件資源](http://go.microsoft.com/fwlink/?linkid=390226)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

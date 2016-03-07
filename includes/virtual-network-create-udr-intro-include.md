@@ -5,6 +5,6 @@
 - 使用入侵偵測系統 (IDS) 監視流量
 - 使用防火牆控制流量
 
-如需 UDR 和 IP 轉送的詳細資訊，請參閱[使用者定義的路由和 IP 轉送](./virtual-networks-udr-overview.md)。
+如需 UDR 和 IP 轉送的詳細資訊，請參閱[使用者定義的路由和 IP 轉送](../articles/virtual-network/virtual-networks-udr-overview.md)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

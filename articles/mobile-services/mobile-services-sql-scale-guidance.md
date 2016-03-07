@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="donnam;ricksal"/>
 
 # 調整由 Azure SQL Database 支援的行動服務
@@ -203,8 +203,8 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 
 設想您將要傳送推播通知給您所有的客戶，以查看您應用程式中的某項新內容。當他們點選通知時，應用程式將會啟動，而可能觸發對您行動服務的呼叫，以及對您的 SQL 資料庫的查詢執行。由於在短短的幾分鐘內就可能有數百萬個客戶執行此動作，因此這將會產生 SQL 負載的暴衝，且比起應用程式的穩定狀態負載，可能會高出數倍。在暴衝期間將您的應用程式調整至較高的 SQL 層，然後再重新將其向下調整，即可解決此問題，但此解決方案將需要手動操作，且會導致成本提高。經常稍微查看您的行動服務架構，可有效地將用戶端產生的負載平衡到您的 SQL 資料庫，並且消除需求上有問題的暴衝。這些修改通常可輕易地在盡可能不影響客戶使用經驗的情況下實作。這裡有一些範例：
 
-- **將負載分散到不同時間。** 如果您對特定事件 (例如廣播推播通知) 的執行時機進行控制，並預期這些事件會產生需求上的暴衝，且這些事件的執行時機並不重要，請考慮將其分散到不同時間。在前述範例中，或許您的應用程式客戶可以在一天的不同時間分批取得新應用程式內容的通知，而無需在幾乎相同的時間取得。請考慮將您的客戶分成允許交錯傳遞至各個批次的群組。在使用通知中心時，套用附加標記以追蹤批次，然後將推播通知傳遞至該標記，將可提供實作此策略的簡單途徑。如需關於標記的詳細資訊，請參閱[使用通知中心傳送即時新聞](../notification-hubs-windows-store-dotnet-send-breaking-news.md)。
-- **在情況允許時使用 Blob 和資料表儲存體。** 通常，客戶在暴衝期間所將檢視的內容是較為靜態的，且不需要儲存在 SQL 資料庫中，因為您不可能需要對該項內容的關聯式查詢功能。在此情況下，請考慮將內容儲存在 Blob 或資料表儲存體中。您可以直接從裝置存取 Blob 儲存體中的公用 Blob。若要以安全的方式存取 Blob 或使用資料表儲存體，您必須透過行動服務自訂 API 以保護您的儲存體存取金鑰。如需詳細資訊，請參閱[使用行動服務將影像上傳到 Azure 儲存體](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)。
+- **將負載分散到不同時間。** 如果您對特定事件 (例如廣播推播通知) 的執行時機進行控制，並預期這些事件會產生需求上的暴衝，且這些事件的執行時機並不重要，請考慮將其分散到不同時間。在前述範例中，或許您的應用程式客戶可以在一天的不同時間分批取得新應用程式內容的通知，而無需在幾乎相同的時間取得。請考慮將您的客戶分成允許交錯傳遞至各個批次的群組。在使用通知中心時，套用附加標記以追蹤批次，然後將推播通知傳遞至該標記，將可提供實作此策略的簡單途徑。如需關於標記的詳細資訊，請參閱[使用通知中心傳送即時新聞](../notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md)。
+- **在情況允許時使用 Blob 和資料表儲存體。** 通常，客戶在暴衝期間所將檢視的內容是較為靜態的，且不需要儲存在 SQL 資料庫中，因為您不可能需要對該項內容的關聯式查詢功能。在此情況下，請考慮將內容儲存在 Blob 或資料表儲存體中。您可以直接從裝置存取 Blob 儲存體中的公用 Blob。若要以安全的方式存取 Blob 或使用資料表儲存體，您必須透過行動服務自訂 API 以保護您的儲存體存取金鑰。如需詳細資訊，請參閱[使用行動服務將影像上傳到 Azure 儲存體](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-upload-data-blob-storage.md)。
 - **使用記憶體內部快取**。另一個替代方式，是將資料 (通常是在流量暴衝期間存取的) 儲存在記憶體內部快取 (例如 [Azure 快取](https://azure.microsoft.com/services/cache/)) 中。這表示傳入的要求將可從記憶體中提取其所需的資訊，而無須重複查詢資料庫。
 
 <a name="Advanced"></a>
@@ -214,7 +214,7 @@ Azure 行動服務可讓您輕鬆地開始使用及建置連接到雲端主控�
 ### 必要條件
 若要執行本節中的某些診斷工作，您必須存取 SQL 資料庫的管理工具 (例如 **SQL Server Management Studio**) 或 **Azure 傳統入口網站**的內建管理功能。
 
-SQL Server Management Studio 是一項免費的 Windows 應用程式，可提供最進階的功能。如果您無法存取 Windows 機器 (例如，如果您使用 Mac)，請考慮依照[建立執行 Windows Server 的虛擬機器](../virtual-machines-windows-tutorial.md)中的說明在 Azure 中佈建虛擬機器，然後從遠端加以連接。如果您使用 VM 的主要目的是要執行 SQL Server Management Studio，則一個 [基本 A0] (先前稱為「超小型」) 執行個體即應夠用。
+SQL Server Management Studio 是一項免費的 Windows 應用程式，可提供最進階的功能。如果您無法存取 Windows 機器 (例如，如果您使用 Mac)，請考慮依照[建立執行 Windows Server 的虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)中的說明在 Azure 中佈建虛擬機器，然後從遠端加以連接。如果您使用 VM 的主要目的是要執行 SQL Server Management Studio，則一個 [基本 A0] (先前稱為「超小型」) 執行個體即應夠用。
 
 Azure 傳統入口網站提供內建的管理功能，雖然功能有限，但不需本機安裝即可使用。
 
@@ -492,4 +492,4 @@ Azure 傳統入口網站提供內建的管理功能，雖然功能有限，但�
 <!-- BLOG LINKS -->
 [該索引鍵的成本為何？]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

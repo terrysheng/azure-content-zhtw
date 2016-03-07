@@ -143,35 +143,47 @@
 
 ### 案例：節點處於失敗狀態，並發生「找不到」錯誤
 
-**錯誤：**節點回報狀態「失敗」，包含「嘗試從伺服器 https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction 取得動作失敗，因為找不到有效組態 <guid>」錯誤。
+**錯誤：**節點的報告狀態為 [失敗] 且包含「嘗試從伺服器取得動作 https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction failed because a valid configuration ``<guid>`` 找不到」的錯誤。
 
-**錯誤原因：**此錯誤通常是因為節點被指派至組態名稱 (例如，ABC) 而不是節點組態名稱 (例如，ABC.WebServer)。
+**錯誤原因：**此錯誤通常會在將節點指派至組態名稱 (例如 ABC) 而不是節點組態名稱 (例如 ABC.WebServer) 時產生。
 
-**疑難排解提示：**再次確認正在使用節點組態名稱，且您不是使用組態名稱。您可以使用入口網站中節點刀鋒視窗上的 [指派節點組態] 按鈕或是 Set-AzureRMAutomationDscNode Cmdlet，將節點對映至有效的節點組態。
+**疑難排解秘訣：**
 
-### 案例：執行組態編譯時沒有產生任何節點組態 (mof 檔案)
+- 請確定您會使用「節點組態名稱」而不是「組態名稱」來指派節點。  
+
+- 您可以使用 Azure 入口網站或使用 PowerShell Cmdlet，將節點組態指派至節點。
+    - 若要使用 Azure 入口網站來將節點組態指派至節點，請開啟 [DSC 節點] 刀鋒視窗、選取節點，然後按一下 [指派節點組態] 按鈕。  
+    - 若要使用 PowerShell Cmdlet 來將節點組態指派至節點，請使用 **Set-AzureRmAutomationDscNode** Cmdlet
+
+
+### 案例：編譯組態時沒有產生任何節點組態 (mof 檔案)
 
 **錯誤：**發生下列錯誤，您的 DSC 編譯作業已暫停：「編譯已順利完成，但是沒有產生任何節點組態 .mofs」。
 
-**錯誤原因：**DSC 組態中「節點」旁邊的運算式評估為 $null 時，將不會產生任何節點組態。
+**錯誤原因：**DSC 組態中緊接在**節點**關鍵字後面的運算式評估為 $null 時，則不會產生任何節點組態。
 
-**疑難排解提示：**檢查節點旁邊的運算式未評估為 $null。如果您正在傳入 ConfigurationData，請確定您正在傳入組態向組態資料要求的預期值。例如，“$AllNodes。如需詳細資訊，請參閱 https://azure.microsoft.com/zh-TW/documentation/articles/automation-dsc-compile/#configurationdata。
+**疑難排解秘訣：**下列任一解決方案都可以修正此問題：
+
+- 請確定組態定義中**節點**關鍵字旁邊的運算式不會評估為 $null。  
+- 如果您在編譯組態時正在傳入 ConfigurationData，請確定您正在傳入組態向 [configurationData](automation-dsc-compile.md#configurationdata) 要求的預期值。
+
 
 ### 案例：DSC 節點報告會停留在「進行中」狀態
 
-**錯誤：**DSC 代理程式會輸出「使用指定的指定的屬性值找不到執行個體」。
+**錯誤：**DSC 代理程式會輸出「使用指定的屬性值找不到執行個體」。
 
 **錯誤原因：**您已經升級 WMF 版本，且 WMI 已損毀。
 
-**疑難排解提示：**遵循這篇文章中的指示來修正問題：https://msdn.microsoft.com/zh-TW/powershell/wmf/limitation_dsc
+**疑難排解秘訣：**遵循 [DSC known issues and limitations (DSC 已知問題和限制)](https://msdn.microsoft.com/powershell/wmf/limitation_dsc) 部落格文章中的指示來修正問題。
 
 ### 案例：無法在 DSC 組態中使用認證 
 
-**錯誤：**發生下列錯誤，您的 DSC 編譯作業已暫停：「System.InvalidOperationException 錯誤正在處理 '<some resource name>' 類型的屬性 'Credential'：只有在 PSDscAllowPlainTextPassword 設為 true 時才允許轉換加密密碼並儲存為純文字」。
+**錯誤：**發生下列錯誤，您的 DSC 編譯作業已暫停：「System.InvalidOperationException 錯誤正在處理 '``<some resource name>``' 類型的屬性 'Credential'：只有在 PSDscAllowPlainTextPassword 設為 true 時才允許轉換加密密碼並儲存為純文字」。
 
-**錯誤原因：**您嘗試在組態中使用認證，但未傳入適當的 ConfigurationData 來針對每個節點組態將 PSAllowPlainTextPassword 設定為 true。
+**錯誤原因：**您已在組態中使用認證，但未提供適當的 **ConfigurationData**，針對每個節點組態將 **PSDscAllowPlainTextPassword** 設定為 true。
 
-**疑難排解提示：**請確定傳入適當的 ConfigurationData，以針對組態中說明的各個節點組態將 PSAllowPlainTextPassword 設定為 true。如需詳細資訊，請參閱 https://azure.microsoft.com/zh-TW/documentation/articles/automation-dsc-compile/#assets。
+**疑難排解秘訣：**請確定傳入適當的 **ConfigurationData**，以針對組態中說明的各個節點組態將 **PSDscAllowPlainTextPassword** 設定為 true。如需詳細資訊，請參閱 [Azure Automation DSC 中的資產](automation-dsc-compile.md#assets)。
+
 
   <br/>
 
@@ -179,12 +191,12 @@
 
 如果您已遵循上述的疑難排解步驟，並且需要本文中任何要點的額外協助，您可以：
 
-- 取得 Azure 專家協助。將您的問題提交給 [MSDN Azure 或 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)。
+- 取得 Azure 專家協助。將您的問題提交至 [MSDN Azure 或 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)。
 
 - 提出 Azure 支援事件。請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後在 [**技術及帳務支援**] 下方按一下 [**取得支援**]。
 
-- 如果您要尋找「Azure 自動化」Runbook 解決方案或整合模組，請在[指令碼中心](https://azure.microsoft.com/documentation/scripts/)提出指令碼要求。
+- 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在[指令碼中心](https://azure.microsoft.com/documentation/scripts/)提出指令碼要求。
 
-- 在 [User Voice](https://feedback.azure.com/forums/34192--general-feedback) 上張貼「Azure 自動化」的意見反應或功能要求。
+- 在 [User Voice (使用者心聲)](https://feedback.azure.com/forums/34192--general-feedback) 上張貼 Azure 自動化的意見反應或功能要求。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

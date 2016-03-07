@@ -19,7 +19,7 @@
 
 # 在 HDInsight 中建立 Windows 型 Hadoop 叢集
 
-[AZURE.INCLUDE [選取器](../../includes/hdinsight-create-windows-cluster-selector.md)]
+[AZURE.INCLUDE [選取器](../../includes/hdinsight-selector-create-clusters.md)]
 
 了解如何規劃 HDInsight 叢集建立作業。
 
@@ -220,4 +220,4 @@
 | [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [ARM 範本](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

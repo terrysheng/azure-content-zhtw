@@ -4,7 +4,7 @@
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
-   manager="dwrede" 
+   manager="erikre" 
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/17/2015"
+   ms.date="02/10/2016"
    ms.author="rajram"/>
 
 # 開始使用 BizTalk Edifact 連接器並將它加入您的邏輯應用程式  
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。
+
 使用 Edifact 服務可以透過 Edifact 通訊協定，以企業對企業通訊接收和傳送訊息。Edifact 通常也稱為 ASC Edifact 或 Accredited Standards Committee Edifact，而且廣泛用於各產業。
 
 您可以將 BizTalk Edifact 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
@@ -41,22 +43,22 @@ Edifact 連接器可以當作觸發程序或動作使用。
 - 啟動 Azure Logic Apps 流程設計工具
 - 從右窗格中按一下 [Edifact 連接器]︰  
 ![觸發程序設定][3]
-- 按一下 ->︰  
+- 按一下 ->：  
 ![觸發程序選項][4]
 - EDIFACT 連接器會公開單一觸發程序。選取 [發行批次]：  
 ![發行批次輸入][5]
-- 這個觸發程序沒有輸入。按一下 ->︰  
+- 這個觸發程序沒有輸入。按一下 ->：  
 ![已設定發行批次][6]
 - 做為輸出的一部分，連接器會傳回 Edifact 承載、協議識別碼，以及訊息是否為批次處理等資訊。
 
 ### 動作
 - 從右窗格中按一下 [Edifact 連接器]︰  
 ![動作設定][7]
-- 按一下 ->︰  
+- 按一下 ->：  
 ![動作清單][8]
-- Edifact 連接器支援許多動作。選取 [*編碼*]︰  
+- Edifact 連接器支援許多動作。選取 [編碼]：  
 ![編碼輸入][9]
-- 提供動作的輸入，並進行設定︰  
+- 提供動作的輸入，並進行設定：  
 ![已設定編碼][10]
 
 	參數|類型|參數說明
@@ -76,9 +78,9 @@ Edifact 連接器可以當作觸發程序或動作使用。
 動作傳回物件，其中包含成功完成的 EDIFACT 承載。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以使用邏輯應用程式將它加入商務流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以使用邏輯應用程式將它加入商務流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -97,4 +99,4 @@ Edifact 連接器可以當作觸發程序或動作使用。
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

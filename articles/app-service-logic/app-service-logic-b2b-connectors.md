@@ -4,8 +4,8 @@
 	services="app-service\logic" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="app-service-logic" 
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="02/11/2016" 
 	ms.author="mandia"/>
 
 # Microsoft Azure App Service 中的企業對企業連接器和 API Apps
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。
+
 Microsoft Azure App Service (或簡稱 App Service) 包含許多對整合環境很重要的 BizTalk API Apps。這些 API Apps 會以 BizTalk Server 內所使用的概念和工具為基礎，但現在可做為 Azure App Service 的一部分提供。
 
 這些 API Apps 的其中一個類別是企業對企業 (B2B) API Apps。使用這些 B2B API Apps，您可以輕鬆地加入夥伴、建立協議，以及使用 EDI、AS2 和 EDIFACT 對內部部署進行您所要的作業。
@@ -49,8 +51,8 @@ BizTalk X12 | 使用 X12 通訊協定接收和傳送訊息的 API 應用程式�
 
 需求 | 說明
 --- | ---
-Azure SQL Database | 儲存 B2B 項目，包括夥伴、結構描述、憑證及協議。每一個 B2B API 應用程式需要專屬 Azure SQL Database。<br/><br/>**注意** 將連接字串複製至這個資料庫。<br/><br/>[建立 Azure SQL Database](../sql-database-get-started.md)
-Azure Blob 儲存體容器 | 啟用 AS2 封存功能時，可儲存訊息屬性。如果您不需要 AS2 訊息封存，則儲存體容器不是必要的容器。<br/><br/>**注意** 如果您是啟用封存，請將連接字串複製至這個 Blob 儲存體。<br/><br/>[關於 Azure 儲存體帳戶](../storage-create-storage-account.md)
+Azure SQL Database | 儲存 B2B 項目，包括夥伴、結構描述、憑證及協議。每一個 B2B API 應用程式需要專屬 Azure SQL Database。<br/><br/>**注意** 將連接字串複製至這個資料庫。<br/><br/>[建立 Azure SQL Database](../sql-database/sql-database-get-started.md)
+Azure Blob 儲存體容器 | 啟用 AS2 封存功能時，可儲存訊息屬性。如果您不需要 AS2 訊息封存，則儲存體容器不是必要的容器。<br/><br/>**注意** 如果您是啟用封存，請將連接字串複製至這個 Blob 儲存體。<br/><br/>[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)
 服務匯流排命名空間及其金鑰值 | 會儲存 X12 和 EDIFACT 批次資料。如果您不需要批次處理，則服務匯流排命名空間不是必要的命名空間。<br/><br/>**注意** 如果您是啟用批次處理，請複製這些值。<br/><br/>[建立服務匯流排命名空間](http://msdn.microsoft.com/library/azure/hh690931.aspx)
 TPM 執行個體 | 建立 AS2 連接器和 X12 或 EDIFACT API 應用程式時，需要 BizTalk 交易夥伴管理 (TPM) 執行個體。當您建立 TPM API 應用程式時，表示您正在建立 TPM 執行個體。<br/><br/>**注意** 知道您的 TPM API 應用程式名稱。 
 
@@ -71,7 +73,7 @@ TPM 執行個體 | 建立 AS2 連接器和 X12 或 EDIFACT API 應用程式時�
 
 #### 建立 BizTalk 交易夥伴管理 (TPM) API Apps
 
-> [AZURE.NOTE]建立 AS2 連接器和 X12 或 EDIFACT API 應用程式時，需要 BizTalk 交易夥伴管理 (TPM) 執行個體。當您建立 TPM API 應用程式時，表示您正在建立 TPM 執行個體。
+> [AZURE.NOTE] 建立 AS2 連接器和 X12 或 EDIFACT API 應用程式時，需要 BizTalk 交易夥伴管理 (TPM) 執行個體。當您建立 TPM API 應用程式時，表示您正在建立 TPM 執行個體。
 
 下列步驟會建立 TPM 執行個體：
 
@@ -175,7 +177,7 @@ Microsoft Azure App Service 會公開可使用這些 B2B API Apps 的不同應�
 
 在您的應用程式中，只要從組件庫選取 B2B API Apps，即可自動將它加入至您的應用程式。
 
-> [AZURE.IMPORTANT]若要新增您先前建立的連接器和 API Apps，請在相同的資源群組中建立 Logic Apps、Mobile Apps 或 Web Apps。
+> [AZURE.IMPORTANT] 若要新增您先前建立的連接器和 API Apps，請在相同的資源群組中建立 Logic Apps、Mobile Apps 或 Web Apps。
 
 下列步驟會將 B2B API Apps 加入至 Logic Apps、Mobile Apps 或 Web Apps：
 
@@ -187,11 +189,11 @@ Microsoft Azure App Service 會公開可使用這些 B2B API Apps 的不同應�
 
 3. 從 [**組件庫**] 選取 B2B API 應用程式，即可自動將它加入至您的應用程式。您也可以建立新的 B2B API 應用程式。
 
-	> [AZURE.IMPORTANT]AS2 連接器和 X12、EDIFACT API Apps 都需要 TPM 執行個體。所以如果您要建立新的 B2B API Apps，請先建立 TPM API Apps，然後建立 AS2 連接器、X12 API Apps 或 EDIFACT API Apps。
+	> [AZURE.IMPORTANT] AS2 連接器和 X12、EDIFACT API Apps 都需要 TPM 執行個體。所以如果您要建立新的 B2B API Apps，請先建立 TPM API Apps，然後建立 AS2 連接器、X12 API Apps 或 EDIFACT API Apps。
 
 4. 選取 [**確定**] 以儲存變更。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE] 如果您想要在註冊 Azure 帳戶之前先開始使用 Azure Logic Apps，請按一下[試用 Logic Apps](https://tryappservice.azure.com/?appservice=logic)。您可以在 App Service 中立即建立短期的入門邏輯應用程式。不需要信用卡；無需承諾。
 
 ## 其他 B2B 資源
 
@@ -206,4 +208,4 @@ Microsoft Azure App Service 會公開可使用這些 B2B API Apps 的不同應�
 
 [連接器和 API Apps 清單](app-service-logic-connectors-list.md)<br/><br/>[什麼是連接器和 BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

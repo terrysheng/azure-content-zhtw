@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/23/2016"
+   ms.date="02/22/2016"
    ms.author="tomfitz"/>
 
 # 資源管理員提供者、區域、API 版本及結構描述
@@ -35,9 +35,7 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | Dynamics 週期服務 | 是 | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (Preview) | 是 | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | 虛擬機器 | 是 | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| 虛擬機器 (傳統) | 有限 | - | - | 
-| 遠端應用程式 | 否 | - | - | 
-| 雲端服務 (傳統) | 有限 (請參閱下文) | - | - | - |
+| 虛擬機器 (傳統) | 有限 | - | - | | 遠端應用程式 | 否 | - | - | | 雲端服務 (傳統) | 有限 (請參閱下文) | - | - | - |
 
 虛擬機器 (傳統) 是指已透過傳統部署模型部署的資源，而不是透過資源管理員部署模型部署的資源。一般而言，這些資源不支援資源管理員作業，但已啟用某些作業。如需這些部署模型的詳細資訊，請參閱[了解資源管理員部署和傳統部署](resource-manager-deployment-model.md)。
 
@@ -183,7 +181,22 @@ Azure Active Directory 可搭配資源管理員使用，以針對您的訂用帳
     
 ### Azure CLI
 
-您可以使用下列命令，將資源提供者的資訊儲存至檔案。
+下列範例示範如何取得所有可用的資源提供者。
+
+    azure provider list
+    
+輸出將類似於：
+
+    info:    Executing command provider list
+    + Getting ARM registered providers
+    data:    Namespace                        Registered
+    data:    -------------------------------  -------------
+    data:    Microsoft.ApiManagement          Unregistered
+    data:    Microsoft.AppService             Registered
+    data:    Microsoft.Authorization          Registered
+    ...
+
+您可以使用下列命令，將特定資源提供者的資訊儲存至檔案。
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
 
@@ -277,4 +290,4 @@ Azure Active Directory 可搭配資源管理員使用，以針對您的訂用帳
 - 若要了解如何建立資源管理員範本，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要了解如何部署資源，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

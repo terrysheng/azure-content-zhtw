@@ -12,14 +12,16 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="12/18/2015" 
+    ms.date="02/22/2016" 
     ms.author="jeedes" />
 
 
 #教學課程：Azure Active Directory 與 Salesforce 沙箱整合
 >[AZURE.TIP]如需意見反應，請按一下[這裡](http://go.microsoft.com/fwlink/?LinkId=521878)。
   
-本教學課程的目的是要示範 Azure 與 Salesforce 沙箱的整合。沙箱讓您能夠針對不同用途 (例如開發、測試和訓練) 在個別環境中建立貴組織的多個複本，而不會危害 Salesforce 生產環境組織中的資料和應用程式。如需詳細資訊，請參閱[沙箱概觀](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
+本教學課程的目的是要示範 Azure 與 Salesforce 沙箱的整合。  
+沙箱讓您能夠針對不同用途 (例如開發、測試和訓練) 在個別環境中建立貴組織的多個複本，而不會危害 Salesforce 生產環境組織中的資料和應用程式。  
+如需詳細資訊，請參閱[沙箱概觀](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
   
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -43,7 +45,7 @@
 
 ###若要啟用 Salesforce 沙箱的應用程式整合，請執行下列步驟：
 
-1.  在 Azure 管理入口網站的左方瀏覽窗格中，按一下 [Active Directory]。
+1.  在 Azure 傳統入口網站中，按一下左方瀏覽窗格的 [Active Directory]。
 
     ![Active Directory](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +72,7 @@
 
 ###若要設定單一登入，請執行下列步驟：
 
-1.  在 Azure AD 入口網站的 [Salesforce 沙箱] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1.  在 Azure 傳統入口網站的 [**Salesforce 沙箱**] 應用程式整合頁面上，按一下 [**設定單一登入**] 開啟 [**設定單一登入**] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-salesforce-sandbox-tutorial/IC749323.png "設定單一登入")
 
@@ -82,7 +84,7 @@
 
     ![設定應用程式 URL](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "設定應用程式 URL")
 
-4. 如果您已為目錄中的另一個 Salesforce 沙箱執行個體設定單一登入，則也須將 **識別碼** 設定為具有與 **登入 URL** 相同的值。您也可以在對話方塊的 [**設定應用程式 URL**] 頁面上核取 [**顯示進階設定**] 核取方塊，來尋找 [**識別碼**] 欄位。
+4. 如果您已為目錄中的另一個 Salesforce 沙箱執行個體設定單一登入，則也須將**識別碼**設定為具有與**登入 URL** 相同的值。您也可以在對話方塊的 [**設定應用程式 URL**] 頁面上核取 [**顯示進階設定**] 核取方塊，來尋找 [**識別碼**] 欄位。
 
 4.  在 [設定在 Salesforce 沙箱單一登入] 頁面上，按一下 [下載憑證]，然後將憑證檔案儲存在您的電腦上。
 
@@ -110,17 +112,17 @@
     ![SAML 單一登入設定](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781027.png "SAML 單一登入設定")
 
     1.  在 [名稱] 文字方塊中，輸入組態的名稱 (例如：*SPSSOWAAD\_Test*)。
-    2.  在 Azure 入口網站中的 [設定在 Salesforce 沙箱單一登入] 對話頁面上，複製 [簽發者 URL] 值，然後將其貼至 [簽發者] 文字方塊中。
-    3.  如果這是您要新增至目錄的第一個 Salesforce 沙箱執行個體，請在 [實體識別碼] 文字方塊中，輸入 **https://test.salesforce.com**。如果您已新增 Salesforce 沙箱的執行個體，請對 [實體識別碼] 輸入 **登入 URL**，其格式如下：`http://company.my.salesforce.com`
+    2.  在 Azure 傳統入口網站中的 [**設定在 Salesforce 沙箱單一登入**] 對話方塊頁面上，複製 [**簽發者 URL**] 的值，然後貼入至 [**簽發者**] 文字方塊。
+    3.  如果這是您要新增至目錄的第一個 Salesforce 沙箱執行個體，請在 [實體識別碼] 文字方塊中，輸入 * ***https://test.salesforce.com**。如果您已新增 Salesforce 沙箱的執行個體，請對 [實體識別碼] 輸入 **登入 URL**，其格式如下：`http://company.my.salesforce.com`
     4.  按一下 [瀏覽] 來上傳已下載的憑證。
     5.  對於 [SAML 身分識別類型]，選取 [判斷提示包含來自使用者物件的同盟識別碼]。
     6.  對於 [SAML 身分識別位置]，選取 [身分識別位於 Subject 陳述式的 NameIdentifier 元素中]
-    7.  在 Azure 入口網站中的 [設定在 Salesforce 沙箱單一登入] 對話頁面上，複製 [遠端登入 URL] 值，然後將其貼至 [識別提供者登入 URL] 文字方塊中。
-    8.  在 Azure 入口網站中的 [設定在 Salesforce 沙箱單一登入] 對話頁面上，複製 [遠端登出 URL] 值，然後將其貼至 [身分識別提供者登出 URL] 文字方塊中。
+    7.  在 Azure 傳統入口網站中的 [**設定在 Salesforce 沙箱單一登入**] 對話頁面上，複製 [**遠端登入 URL**] 的值，然後貼入至 [**識別提供者登入 URL**] 文字方塊。
+    8.  在 Azure 傳統入口網站中的 [**設定在 Salesforce 沙箱單一登出**] 對話方塊頁面上，複製 [**遠端登出 URL**] 的值，然後貼入至 [**識別提供者登出 URL**] 文字方塊。
     9.  對於 [服務提供者起始的要求繫結]，選取 [HTTP POST]。
     10. 按一下 [儲存]。
 
-10. 在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
+10. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781028.png "設定單一登入")
 
@@ -165,7 +167,7 @@
 
 6.  檢閱這封電子郵件並複製安全性權杖值。
 
-7.  在 Azure 管理入口網站中的 [salesforce 沙箱] 應用程式整合頁面上，按一下 [設定使用者佈建] 來開啟 [設定使用者佈建] 對話方塊。
+7.  在 Azure 傳統入口網站中的 [**salesforce 沙箱**] 應用程式整合頁面上，按一下 [**設定使用者佈建**] 開啟 [**設定使用者佈建**] 對話方塊。
 
     ![設定使用者佈建](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769573.png "設定使用者佈建")
 
@@ -190,7 +192,7 @@
 
 ###若要將使用者指派給 Salesforce 沙箱，請執行下列步驟：
 
-1.  在 Azure AD 入口網站中建立測試帳戶。
+1.  在 Azure 傳統入口網站中建立測試帳戶。
 
 2.  在 [Salesforce 沙箱] 應用程式整合頁面上，按一下 [指派使用者]。
 
@@ -204,4 +206,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](https://msdn.microsoft.com/library/dn308586)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

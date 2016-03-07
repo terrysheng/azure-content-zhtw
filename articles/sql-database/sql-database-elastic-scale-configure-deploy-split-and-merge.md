@@ -4,7 +4,7 @@
 	services="sql-database"  
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sidneyh" />
 
 # 彈性資料庫分割合併工具教學課程
@@ -42,11 +42,11 @@
 
 ### 分割合併服務組態
 
-1. 在您下載分割/合併位元的資料夾中，建立 **ServiceConfiguration.Template.cscfg** 檔案 (隨 **SplitMergeService.cspkg** 一起提供) 的複本，並將它命名為 **ServiceConfiguration.cscfg**。
+1. 在您下載分割合併組件的資料夾中，建立 **ServiceConfiguration.Template.cscfg** 檔案 (隨 **SplitMergeService.cspkg** 一起提供) 的複本，然後重新命名為 **ServiceConfiguration.cscfg**。
 
-2. 在您慣用的文字編輯器中開啟 ServiceConfiguration.cscfg。我們建議使用 Visual Studio，因為它會驗證輸入，例如憑證指紋的格式。
+2. 在文字編輯器中開啟 **ServiceConfiguration.cscfg**，例如：會驗證憑證指紋格式等輸入的 Visual Studio。
 
-3. 建立新的資料庫或選擇現有的資料庫，做為分割/合併作業的狀態資料庫，並擷取該資料庫的連接字串。
+3. 建立新的資料庫或選擇現有的資料庫，做為分割合併作業的狀態資料庫，並擷取該資料庫的連接字串。
 
 	**重要** 目前，狀態資料庫必須使用拉丁文定序 (SQL\_Latin1\_General\_CP1\_CI\_AS)。如需詳細資訊，請參閱 [Windows 定序名稱 (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx)。
 
@@ -334,4 +334,4 @@ Web 角色：
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

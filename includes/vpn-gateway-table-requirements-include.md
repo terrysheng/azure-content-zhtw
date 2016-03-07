@@ -1,12 +1,14 @@
-The table below lists the requirements for policy-based and route-based VPN gateways. This table applies to both the Resource Manager and classic deployment models. For the classic model, Policy-based VPN gateways are the same as Static gateways, and Route-based gateways are the same as Dynamic gateways.
+下方資料表列出原則式和路由式 VPN 閘道的需求。此資料表適用於資源管理員與傳統部署模型。對於傳統模型，原則式 VPN 閘道與靜態閘道相同，而路由式閘道與動態閘道相同。
 
 
-|   | **Policy-based Basic VPN Gateway** | **Route-based Basic VPN Gateway** | **Route-based Standard VPN Gateway**   | **Route-based High Performance VPN Gateway** |
+| | **原則式基本 VPN 閘道** | **路由式基本 VPN 閘道** | **路由式標準 VPN 閘道** | **路由式高效能 VPN 閘道** |
 |---|---------------------------------------|---------------------------------------|----------------------------|----------------------------------|
-|    **Site-to-Site connectivity   (S2S)**  | Policy-based VPN configuration        | Route-based VPN configuration  | Route-based VPN configuration     | Route-based VPN configuration    |
-| **Point-to-Site connectivity (P2S**)      | Not supported   | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S) |
-| **Authentication method**                 |    Pre-shared key  | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity |
-| **Maximum number of S2S connections**       | 1                              | 10                                                                    | 10                                | 30                               |
-| **Maximum number of P2S connections**       | Not supported                  | 128                                                                   | 128                               | 128                              |
-|**Active routing support (BGP)**           | Not supported                  | Not supported                                                         | Not supported                     | Not supported                    |
+| **站對站連線能力 (S2S)** | 原則式 VPN 組態 | 路由式 VPN 組態 | 路由式 VPN 組態 | 路由式 VPN 組態 |
+| **點對站連線 (P2S)** | 不支援 | 支援 (可與 S2S 並存) | 支援 (可與 S2S 並存) | 支援 (可與 S2S 並存) |
+| **驗證方法** | 預先共用金鑰 | S2S 連線的預先共用金鑰，P2S 連線的憑證 | S2S 連線的預先共用金鑰，P2S 連線的憑證 | S2S 連線的預先共用金鑰，P2S 連線的憑證 |
+| **S2S 連接的數目上限** | 1 | 10 | 10 | 30 |
+| **P2S 連接的數目上限** | 不支援 | 128 | 128 | 128 |
+|**作用中路由支援 (BGP)** | 不支援 | 不支援 | 不支援 | 不支援 |
  
+
+<!---HONumber=AcomDC_0224_2016-->

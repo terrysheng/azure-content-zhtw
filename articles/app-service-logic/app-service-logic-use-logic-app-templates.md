@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/18/2016"
 	ms.author="klam"/>
 
 # 使用邏輯應用程式範本
+
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。
 
 「邏輯應用程式範本」是一組經策劃預先建立的邏輯應用程式，以幫助您快速開始建置整合應用程式。
 
@@ -44,4 +46,4 @@ BizTalk VETR (驗證、擷取、轉換、路由) 管線的組態，以及處理 
 選取其中一個範本之後，依照您建立自己的邏輯應用程式的方法完成部署。詳細步驟請參閱[建立邏輯應用程式](app-service-logic-create-a-logic-app.md)。
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

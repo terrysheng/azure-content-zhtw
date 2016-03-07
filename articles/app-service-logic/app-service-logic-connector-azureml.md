@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,24 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="jehollan"/>
    
 # 概觀
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。
+
 適用於 Logic Apps 的 Azure ML 連接器可讓您針對批次評分 (批次執行服務) 和重新定型呼叫 Azure ML API。結合這些功能與邏輯應用程式觸發程序，可用來排程批次作業以及設定排定的模型重新定型。
 
  ![][1]
  
 ## 開始使用 Azure 機器學習服務連接器，並將它加入您的邏輯應用程式
-若要開始，在 Azure ML Studio 中建立實驗，然後設定和部署 Web 服務。您便可以使用 API URL 和在｢批次強徵說明｣頁面上找到的 BES Post URL 的索引鍵。([詳細說明](https://github.com/Azure/azure-content/blob/master/articles/machine-learning/machine-learning-walkthrough-5-publish-web-service.md))
+若要開始，在 Azure ML Studio 中建立實驗，然後設定和部署 Web 服務。您便可以使用 API URL 和在批次強徵說明頁面上找到的 BES Post URL 的索引鍵。([機器學習服務逐步解說](../machine-learning/machine-learning-walkthrough-5-publish-web-service.md))
 
-若要使用連接器執行 BES 作業，請將 Azure ML 連接器加入邏輯應用程式。然後輸入所需的資訊 (詳細說明請參閱下文)。若要設定重新定型，請加入第二個 Azure ML 連接器並提供輸入參數 (有關設定重新定型模型的詳細說明，請參閱[這裡](machine-learning-retrain-models-programmatically.md))。
+若要使用連接器執行 BES 作業，請將 Azure ML 連接器加入邏輯應用程式。然後輸入所需的資訊 (詳細說明請參閱下文)。如果要設定重新定型，請新增第二個 Azure ML 連接器並提供輸入參數 (請參閱[設定模型以進行重新定型](../machine-learning/machine-learning-retrain-models-programmatically.md))。
 
 ## 執行 Azure ML 批次執行作業
 Azure ML 連接器提供下列四個執行批次執行 (BES) 作業的選項：1.有輸入和輸出的批次作業：實驗有 Web 服務輸入和輸出模組。2.沒有輸入和輸出的批次作業：實驗沒有 Web 服務輸入或輸出模組 (例如，使用讀取器和寫入器模組)。3.只輸入的批次作業：實驗有 Web 服務輸入模組，但是沒有 Web 服務輸出模組 (例如，使用寫入器模組)。4.只輸出的批次作業：實驗沒有 Web 服務輸入模組，但有 Web 服務輸出模組 (例如使用讀取器模組)。請注意，BES 是非同步的要求，可能需要較長時間才能完成，視資料大小和模型複雜度而定。當作業完成時，連接器會傳回輸出結果。
 
 ### 執行批次執行：有輸入和輸出
-如果 Studio 實驗有 Web 服務輸入和輸出模組，您必須提供 blob 儲存體帳戶的資訊和位置資訊 ([詳細說明](machine-learning-consume-web-services.md))。此外，如果在實驗中有設定全域 (Web 服務) 參數，可以包含這些參數 ([詳細說明](machine-learning-web-service-parameters.md))。
+如果 Studio 實驗有 Web 服務輸入和輸出模組，您必須[提供 blob 儲存體帳戶和位置的資訊](../machine-learning/machine-learning-consume-web-services.md)。此外，如果您的實驗中有設定全域 (Web 服務) 參數，您便可以加入這些參數 ([機器學習 Web 服務參數](../machine-learning/machine-learning-web-service-parameters.md))。
 
 ![][2]
 
@@ -77,4 +79,4 @@ BES 作業的其他變化，例如沒有 Web 服務輸入或輸出的作業，�
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

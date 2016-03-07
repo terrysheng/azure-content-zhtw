@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/19/2016"
+   ms.date="02/22/2016"
    ms.author="stepsic"/>
 
 #JavaScript API 應用程式
+
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。
+
 JavaScript API 應用程式可讓您在邏輯應用程式執行時，輕鬆執行簡單的 JavaScript 運算式。
 
 ##何時應該使用此 API 應用程式？
@@ -35,7 +38,7 @@ JavaScript API 應用程式可讓您在邏輯應用程式執行時，輕鬆執�
 ###觸發程序
 您可以建立邏輯應用程式服務將 (以您定義的間隔) 輪詢的觸發程序，而且如果它傳回任何內容，會執行邏輯應用程式，否則會等到下一個輪詢間隔再檢查一次。
 
-觸發程序的輸入包括：- **JavaScript 運算式** - 要評估的運算式。運算式會在函式內部叫用，而且在您不想要讓邏輯應用程式執行時必須傳回 `false`，並可傳回您想要讓邏輯應用程式執行的任何其他項目。您可以在邏輯應用程式的動作中使用回應的內容。- **內容物件** - 可傳入觸發程序的選擇性物件。您可以定義任意數目的屬性，但最上層實體必須是物件，例如 `{ "bar" : 0}`。
+觸發程序的輸入包括：- **JavaScript 運算式** - 要評估的運算式。運算式是在函式內部叫用，而且在您不想要讓邏輯應用程式執行時必須傳回 `false`，並可在您想要讓邏輯應用程式執行時傳回其他所有項目。您可以在邏輯應用程式的動作中使用回應的內容。- **內容物件** - 可傳遞至觸發程序中的選用物件。您可以定義任意數目的屬性，但最上層實體必須是物件，例如 `{ "bar" : 0}`。
 
 例如，您有一個簡單的觸發程序，只會在每小時的 :15 和 :30 之間執行您的邏輯應用程式：
 
@@ -91,4 +94,4 @@ return Attachments.map(function(obj){var a = obj.Content; a.FileName = obj.Name;
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

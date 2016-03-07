@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/24/2015"
+   ms.date="02/12/2016"
    ms.author="mfussell"/>
 
 # RunAs：使用不同的安全性權限執行 Service Fabric 應用程式
 Azure Service Fabric 能夠保護叢集中以不同使用者帳戶 (稱為 **RunAs**) 執行的應用程式。Service Fabric 也會利用此使用者帳戶來保護應用程式所使用的資源，例如檔案、目錄和憑證。
 
-根據預設，Service Fabric 應用程式會在用以執行 Fabric.exe 程序的帳戶之下執行。Service Fabric 也能夠以本機使用者帳戶 (指定於應用程式的資訊清單內) 執行應用程式。RunAs 支援的帳戶類型為 **LocalUser**、**NetworkService**、**LocalService** 和 **LocalSystem**。
+根據預設，Service Fabric 應用程式會在用以執行 Fabric.exe 程序的帳戶之下執行。Service Fabric 也能夠以本機使用者帳戶或本機系統帳戶 (在應用程式的資訊清單內指定) 執行應用程式。RunAs 支援的本機系統帳戶類型為 **LocalUser**、**NetworkService**、**LocalService** 和 **LocalSystem**。
 
-> [AZURE.NOTE]可使用 Azure Active Directory 的 Windows Server 部署支援網域帳戶。
+> [AZURE.NOTE] 可使用 Azure Active Directory 的 Windows Server 部署支援網域帳戶。
 
 您可以定義和建立使用者群組，以便將一或多個使用者新增至每個群組一起管理。當不同的服務進入點有多個使用者，而且他們需要具備可在群組層級取得的某些常見權限時，這會特別有用。
 
 ## 設定 SetupEntryPoint 的 RunAs 原則
 
-如[應用程式模型](service-fabric-application-model.md)所示，**SetupEntryPoint** 是以與 Service Fabric 相同的認證執行的特殊權限進入點 (通常為「網路」帳戶)，優先於任何其他進入點。**EntryPoint** 指定的可執行檔通常是長時間執行的服務主機，因此，擁有個別的安裝進入點，可避免以高權限執行服務主機執行檔延長的期間。**EntryPoint** 指定的可執行檔是在 **SetupEntryPoint** 成功結束之後執行。如果曾經終止或當機，產生的程序會監視並重新啟動 (以 **SetupEntryPoint** 再次開始)。
+如[應用程式模型](service-fabric-application-model.md)所述，**SetupEntryPoint** 是以與 Service Fabric 相同的認證執行的特殊權限進入點 (通常為 *NetworkService* 帳戶)，優先於其他任何進入點。**EntryPoint** 指定的可執行檔通常是長時間執行的服務主機，因此，擁有個別的安裝進入點，可避免以高權限執行服務主機執行檔延長的期間。**EntryPoint** 指定的可執行檔是在 **SetupEntryPoint** 成功結束之後執行。如果曾經終止或當機，產生的程序會監視並重新啟動 (以 **SetupEntryPoint** 再次開始)。
 
 以下簡單的服務資訊清單範例會顯示服務的 SetupEntryPoint 和主要的 EntryPoint。
 
@@ -42,6 +42,7 @@ Azure Service Fabric 能夠保護叢集中以不同使用者帳戶 (稱為 **Run
     <SetupEntryPoint>
       <ExeHost>
         <Program>MySetup.bat</Program>
+        <WorkingFolder>CodePackage</WorkingFolder>
       </ExeHost>
     </SetupEntryPoint>
     <EntryPoint>
@@ -54,9 +55,9 @@ Azure Service Fabric 能夠保護叢集中以不同使用者帳戶 (稱為 **Run
 </ServiceManifest>
 ~~~
 
-### 設定 RunAs 原則
+### 使用本機帳戶設定 RunAs 原則
 
-在您設定服務以擁有安裝進入點之後，就能在應用程式資訊清單中變更用以執行的安全性權限。下列範例示範如何將服務設定成以系統管理員帳戶權限執行。
+在您設定服務以擁有安裝進入點之後，就能在應用程式資訊清單中變更用以執行的安全性權限。下列範例示範如何將服務設定成以使用者系統管理員帳戶權限執行。
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -88,15 +89,15 @@ Azure Service Fabric 能夠保護叢集中以不同使用者帳戶 (稱為 **Run
 
 接下來，確定 MySetup.bat 檔案已包含於服務封裝中。預設不會包含該檔案。選取該檔案、以滑鼠右鍵按一下操作功能表，然後選擇 [屬性]。在 [屬性] 對話方塊中，確定已將 [複製到輸出目錄] 設為 [有更新時才複製]。如以下螢幕擷取畫面所示。
 
-![Visual Studio CopyToOutput for SetupEntryPoint 批次檔][Image1]
+![Visual Studio CopyToOutput for SetupEntryPoint 批次檔][image1]
 
 現在開啟 MySetup.bat 檔案並加入下列命令：
 
 ~~~
-REM Set a system environment variable.This requires administrator privilege
+REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
-echo System TestVariable set to > test.txt
-echo %TestVariable% >> test.txt
+echo System TestVariable set to > out.txt
+echo %TestVariable% >> out.txt
 
 REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
@@ -115,8 +116,30 @@ MyValue
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
+###  使用本機系統帳戶設定 RunAs 原則
+通常是使用本機系統帳戶 (而不是系統管理員帳戶) 執行啟動指令碼，如上所示。使用系統管理員的身分執行 RunAs 原則通常沒有作用，因為電腦預設啟用使用者存取控制 (UAC)。在此情況下，**建議是以 LocalSystem 身分 (而不是以新增到系統管理員群組的本機使用者身分) 執行 SetupEntryPoint**。下列範例示範如何設定 SetupEntryPoint 以 LocalSystem 身分執行。
+
+~~~
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
+      <ConfigOverrides />
+      <Policies>
+         <RunAsPolicy CodePackageRef="Code" UserRef="SetupLocalSystem" EntryPointType="Setup" />
+      </Policies>
+   </ServiceManifestImport>
+   <Principals>
+      <Users>
+         <User Name="SetupLocalSystem" AccountType="LocalSystem" />
+      </Users>
+   </Principals>
+</ApplicationManifest>
+~~~
+
 ##  從 SetupEntryPoint 啟動 PowerShell 命令
-若要從 **SetupEntryPoint** 點執行 PowerShell，您可以在指向 PowerShell 檔案的批次檔中執行 **PowerShell.exe**。首先，將 PowerShell 檔案加入服務專案 (例如 **MySetup.ps1**)。請記得設定 [有更新時才複製] 屬性，讓這個檔案也會包含於服務封裝內。下列範例顯示的範例批次檔可啟動名為 MySetup.ps1 的 PowerShell 檔案，以設定名為 **TestVariable** 的系統環境變數。
+若要從 **SetupEntryPoint** 點執行 PowerShell，您可以在指向 PowerShell 檔案的批次檔中執行 **PowerShell.exe**。首先，將 PowerShell 檔案加入至服務專案 (例如 **MySetup.ps1**)。請記得設定 [有更新時才複製] 屬性，讓這個檔案也會包含於服務封裝內。下列範例顯示的範例批次檔可啟動名為 MySetup.ps1 的 PowerShell 檔案，以設定名為 **TestVariable** 的系統環境變數。
+
 
 MySetup.bat 可啟動 PowerShell 檔案。
 
@@ -126,12 +149,48 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 
 在 PowerShell 檔案中，加入以下項目來設定系統環境變數：
 
-```
+~~~
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
-```
+~~~
 
-## 將 RunAs 原則套用到服務 
+**注意：**當批次檔執行時，預設會查看稱為 **work** 的應用程式資料夾中的檔案。在此情況下，當 MySetup.bat 執行時，我們希望這個檔案會尋找相同資料夾 (也就是應用程式的 **code package** 資料夾) 中的 MySetup.ps1。若要變更此資料夾，請設定工作資料夾，如下所示。
+    
+~~~
+<SetupEntryPoint>
+    <ExeHost>
+    <Program>MySetup.bat</Program>
+    <WorkingFolder>CodePackage</WorkingFolder>
+    </ExeHost>
+</SetupEntryPoint> 
+~~~
+
+## 使用主控台重新導向原則，在本機為進入點偵錯
+基於偵錯的目的，從執行指令碼查看主控台輸出偶爾會有幫助。若要這樣做，您可以設定將輸出寫入至檔案的主控台重新導向原則。檔案輸出會寫入至部署並執行應用程式所在的節點上，稱為 **log** 的應用程式資料夾中 (請參閱上述範例中的何處可以找到此資料夾)。
+
+**注意：切勿**在實際部署的應用程式中使用主控台重新導向原則，因為這可能會影響應用程式容錯移轉。**僅**將此原則用於本機開發及偵錯。
+
+下列範例示範如何使用 FileRetentionCount 值設定主控台重新導向。
+
+~~~
+<SetupEntryPoint>
+    <ExeHost>
+    <Program>MySetup.bat</Program>
+    <WorkingFolder>CodePackage</WorkingFolder>
+    <ConsoleRedirection FileRetentionCount="10"/>
+    </ExeHost>
+</SetupEntryPoint> 
+~~~
+
+如果您現在變更 MySetup.ps1 檔案來撰寫 **Echo** 命令，這將會寫入至輸出檔案以進行偵錯。
+
+~~~
+Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to" 
+~~~
+
+**一旦您已經為您的指令碼偵錯之後，請立即移除這個主控台重新導向原則**
+
+## 將 RunAs 原則套用到服務
 在上述步驟中，您看到了如何將 RunAs 原則套用到 SetupEntryPoint。讓我們深入了解如何建立可當作服務原則套用的不同主體。
 
 ### 建立本機使用者群組
@@ -162,7 +221,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ~~~
 
 ### 建立本機使用者
-您可以建立一個本機使用者，以便用來保護應用程式內的服務。在應用程式資訊清單的主體區段中指定 **LocalUser** 帳戶類型時，Service Fabric 會在應用程式部署所在的電腦上建立本機使用者帳戶。根據預設，這些帳戶的名稱不會與應用程式資訊清單中所指定的名稱一樣 (例如，下列範例中的 Customer3)。相反地，它們會動態產生並具有隨機密碼。
+您可以建立一個本機使用者，以便用來保護應用程式內的服務。在應用程式資訊清單的主體區段中指定 **LocalUser** 帳戶類型時，Service Fabric 會在部署應用程式所在的電腦上建立本機使用者帳戶。根據預設，這些帳戶的名稱不會與應用程式資訊清單中所指定的名稱一樣 (例如，下列範例中的 Customer3)。相反地，它們會動態產生並具有隨機密碼。
 
 ~~~
 <Principals>
@@ -171,7 +230,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
   </Users>
 </Principals>
 ~~~
- 
+
 <!-- If an application requires that the user account and password be same on all machines (for example, to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true. The cluster manifest must also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
 <Section Name="Hosting">
@@ -194,7 +253,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 如果未指定 **EntryPointType**，則預設值會設定為 EntryPointType ="Main"。當您想要以系統帳戶執行某些高權限設定作業時，指定 **SetupEntryPoint** 特別有用。實際的服務程式碼可利用較低權限的帳戶來執行。
 
 ### 將預設原則套用到所有的服務程式碼封裝
-**DefaultRunAsPolicy** 區段是用來針對未定義特定 **RunAsPolicy** 的所有程式碼封裝，指定預設的使用者帳戶。如果在應用程式所用的服務資訊清單中指定的大部分程式碼封裝必須以相同的 RunAs 使用者執行，則應用程式可以只定義該使用者帳戶的預設 RunAs 原則，而不需針對每個程式碼封裝指定 **RunAsPolicy**。下列範例指定如果程式碼封裝未指定 **RunAsPolicy**，則此程式碼封裝應該以主體區段中指定的 **MyDefaultAccount** 執行。
+**DefaultRunAsPolicy** 區段是用來針對未定義特定 **RunAsPolicy** 的所有程式碼封裝，指定預設的使用者帳戶。如果在應用程式所使用的服務資訊清單中指定的大部分程式碼封裝必須以相同的 RunAs 使用者執行，則應用程式可以只使用該使用者帳戶定義預設的 RunAs 原則，而不需針對每個程式碼封裝指定 **RunAsPolicy**。下列範例指定某個程式碼封裝未指定 **RunAsPolicy** 時，該程式碼封裝應該以主體區段中指定的 **MyDefaultAccount** 執行。
 
 ~~~
 <Policies>
@@ -202,8 +261,8 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 </Policies>
 ~~~
 
-## 為 http 和 https 端點指派 SecurityAccessPolicy
-如果您將 RunAs 原則套用到服務，而服務資訊清單宣告具有 HTTP 通訊協定的端點資源，您必須指定 **SecurityAccessPolicy**，以確保配置給這些端點的連接埠，都已針對用以執行服務的 RunAs 使用者帳戶正確列入存取控制清單中。否則，**http.sys** 無法存取服務，而您從用戶端呼叫時將會失敗。下列範例會將 Customer3 帳戶套用到名為 **ServiceEndpointName** 的端點，並給予完整的存取權限。
+## 為 HTTP 和 HTTPS 端點指派 SecurityAccessPolicy
+如果您將 RunAs 原則套用到服務，而且服務資訊清單宣告具有 HTTP 通訊協定的端點資源，則您必須指定 **SecurityAccessPolicy**，以確保配置給這些端點的連接埠都已針對用以執行服務的 RunAs 使用者帳戶，正確列入存取控制清單中。否則，**http.sys** 無法存取服務，而且您從用戶端呼叫時將會失敗。下列範例會將 Customer3 帳戶套用到名為 **ServiceEndpointName** 的端點，並給予完整的存取權限。
 
 ~~~
 <Policies>
@@ -292,4 +351,4 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

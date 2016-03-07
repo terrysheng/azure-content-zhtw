@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="sstein"/>
 
 # C&#x23; 資料庫開發：為 SQL 資料庫建立和設定彈性資料庫集區
@@ -27,20 +27,17 @@
 
 本文說明如何使用 C# 資料庫開發技術，從應用程式為 SQL 資料庫建立[彈性資料庫集區](sql-database-elastic-pool.md)。
 
-> [AZURE.NOTE]彈性資料庫集區目前為預覽版，且僅能搭配 SQL Database V12 伺服器使用。如果您有 SQL Database V11 伺服器，您可以在單一步驟中[使用 PowerShell 升級至 V12 並建立集區](sql-database-upgrade-server.md)。
+> [AZURE.NOTE] 彈性資料庫集區目前為預覽版，且僅能搭配 SQL Database V12 伺服器使用。如果您有 SQL Database V11 伺服器，您可以在單一步驟中[使用 PowerShell 升級至 V12 並建立集區](sql-database-upgrade-server-powershell.md)。
 
 範例使用的是[適用於 .NET 的 Azure SQL Database 程式庫](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)。
 為了清楚起見，將個別程式碼片段分別列出，範例主控台應用程式會將所有命令整合在本文底端的區段中。
 
-「適用於 .NET 的 Azure SQL Database 程式庫」提供 [Azure 資源管理員](resource-group-overview.md)式 API，此 API 包裝了[資源管理員式 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)。此用戶端程式庫遵循資源管理員式用戶端程式庫的常見模式。「資源管理員」需要資源群組，並且使用 [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD) 來進行驗證。
 
-<br>
+> [AZURE.NOTE] SQL Database Library for .NET 目前為預覽狀態。
 
-> [AZURE.NOTE]SQL Database Library for .NET 目前為預覽狀態。
 
-<br>
 
-如果您沒有 Azure 訂用帳戶，只要按一下此頁面頂端的 [免費試用]，然後再回來這篇文章即可。如需一份免費的 Visual Studio，請參閱 [Visual Studio 下載](https://www.visualstudio.com/downloads/download-visual-studio-vs)頁面。
+如果您沒有 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來這篇文章。如需 Visual Studio 的免費複本，請參閱 [Visual Studio 下載](https://www.visualstudio.com/downloads/download-visual-studio-vs)頁面。
 
 ## 安裝必要的程式庫
 
@@ -61,11 +58,11 @@
 
 若要建立新的應用程式並且在正確的 Active Directory 中註冊，請執行下列動作：
 
-1. 捲動左側的功能表以找出 [Active Directory] 服務並開啟它。
+1. 捲動左側的功能表以找出 **Active Directory** 服務並且開啟。
 
     ![C# SQL 資料庫開發：Active Directory 設定][1]
 
-2. 選取要驗證您應用程式的目錄，然後按一下該目錄的「名稱」。
+2. 選取要驗證您的應用程式的目錄並按一下該目錄的**名稱**。
 
     ![選取目錄。][4]
 
@@ -73,29 +70,29 @@
 
     ![按一下 [應用程式]。][5]
 
-4. 按一下 [加入] 以建立新的應用程式。
+4. 按一下 [新增] 以新增新的應用程式。
 
     ![按一下 [加入] 按鈕：建立 C# 應用程式。][6]
 
-5. 選取 [加入我的組織正在開發的應用程式]。
+5. 選取 [新增組織正在開發的應用程式]。
 
 5. 提供應用程式的 [名稱]，然後選取 [原生用戶端應用程式]。
 
     ![新增應用程式][7]
 
-6. 提供 [重新導向 URI]。它不需要是實際的端點，只要是有效的 URI 即可。
+6. 提供**重新導向 URI**。它不需要是實際的端點，只要是有效的 URI 即可。
 
     ![新增應用程式][8]
 
-7. 完成應用程式建立，按一下 [設定]，然後複製 \[用戶端識別碼] (您的程式碼中將需要此用戶端識別碼)。
+7. 完成建立應用程式，按一下 [設定]，然後複製 \[用戶端識別碼] (您在程式碼中需要用戶端識別碼)。
 
     ![取得用戶端識別碼][9]
 
 
-1. 按一下頁面底部的 [加入應用程式]。
+1. 在頁面底部按一下 [新增應用程式]。
 1. 選取 [Microsoft 應用程式]。
 1. 選取 [Azure 服務管理 API]，然後完成精靈。
-2. 選取 API 之後，您現在必須選取 [存取 Azure 服務管理 (預覽)] 來授與存取此 API 所需的特定權限。
+2. 選取 API 之後，您現在必須授與必要的存取權以存取此 API，方法是選取 [**存取 Azure 服務管理 (預覽)**]。
 
     ![設定權限][2]
 
@@ -116,7 +113,7 @@
 
 **其他 AAD 資源**
 
-如需有關使用 Azure Active Directory 來進行驗證的其他資訊，請參閱[這篇實用的部落格文章](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/)。
+使用 Azure Active Directory 進行驗證的其他資訊可以在[此有用的部落格文章](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/)中找到。
 
 
 ### 擷取目前使用者的存取權杖
@@ -124,20 +121,15 @@
 用戶端應用程式必須擷取目前使用者的應用程式存取權杖。使用者第一次執行程式碼時，系統會提示使用者輸入其使用者認證，產生的權杖會在本機快取。後續執行會從快取擷取權杖，並且在權杖過期時僅提示使用者登入。
 
 
-    /// <summary>
-    /// Prompts for user credentials when first run or if the cached credentials have expired.
-    /// </summary>
-    /// <returns>The access token from AAD.</returns>
     private static AuthenticationResult GetAccessToken()
     {
         AuthenticationContext authContext = new AuthenticationContext
-            ("https://login.windows.net/" /* AAD URI */
-                + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
+            ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
 
         AuthenticationResult token = authContext.AcquireToken
             ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                "aa00a0a0-a0a0-0000-0a00-a0a00000a0aa" /* application client ID from AAD*/,
-        new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
+                clientId,
+        new Uri(redirectUri) /* redirect URI */,
         PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
         return token;
@@ -145,7 +137,7 @@
 
 
 
-> [AZURE.NOTE]這篇文章中的範例使用每個 API 要求的同步表單，並且封鎖直到基礎服務上的 REST 呼叫完成。有可用的非同步方法。
+> [AZURE.NOTE] 這篇文章中的範例使用每個 API 要求的同步表單，並且封鎖直到基礎服務上的 REST 呼叫完成。有可用的非同步方法。
 
 
 
@@ -215,7 +207,7 @@
 
 
 
-若要允許其他 Azure 服務存取伺服器，則新增防火牆規則並且將 tartIpAddress 和 EndIpAddress 都設為 0.0.0.0。請注意，這可讓來自「任何」Azure 訂用帳戶的 Azure 流量存取伺服器。
+若要允許其他 Azure 服務存取伺服器，則新增防火牆規則並且將 tartIpAddress 和 EndIpAddress 都設為 0.0.0.0。請注意，這可讓來自*任何* Azure 訂用帳戶的 Azure 流量存取伺服器。
 
 
 ## 建立資料庫
@@ -294,7 +286,7 @@
 
 ## 將現有資料庫移入彈性資料庫集區
 
-建立集區之後，您也可以使用 Transact-SQL 將現有的資料庫移入和移出集區。如需詳細資訊，請參閱[彈性資料庫集區參考 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)。
+*建立集區之後，您也可以使用 Transact-SQL 將現有的資料庫移入和移出集區。*如需詳細資訊，請參閱[彈性資料庫集區參考 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)。
 
 下列範例會將現有的 Azure SQL 資料庫移到集區中：
 
@@ -326,7 +318,7 @@
 
 ## 在彈性資料庫集區中建立新的資料庫
 
-建立集區之後，您也可以使用 Transact-SQL 在集區中建立新的彈性資料庫。如需詳細資訊，請參閱[彈性資料庫集區參考 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)。
+*建立集區之後，您也可以使用 Transact-SQL 在集區中建立新的彈性資料庫。*如需詳細資訊，請參閱[彈性資料庫集區參考 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)。
 
 下列範例會直接在集區中建立一個新的資料庫：
 
@@ -389,14 +381,13 @@
         private static AuthenticationResult GetAccessToken()
         {
             AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" /* AAD URI */
-                + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
+                ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
 
             AuthenticationResult token = authContext.AcquireToken
                 ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/,
-                new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
-                PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
+                    clientId,
+            new Uri(redirectUri) /* redirect URI */,
+            PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
             return token;
         }
@@ -586,4 +577,4 @@
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!-----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

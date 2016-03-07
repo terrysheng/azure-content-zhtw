@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -32,9 +32,9 @@
 
     b.按一下 [全部內容] 下方的 [Fabric]，然後按下 Enter 鍵。有時自動篩選功能會無法運作，因此請務必按下 Enter 鍵。![在 Azure 入口網站上搜尋 Service Fabric 叢集範本的螢幕擷取畫面。][SearchforServiceFabricClusterTemplate]
 
-3. 選取清單中的 [Service Fabric 叢集]
+3. 選取清單中的 \[Service Fabric 叢集]
 
-4. 瀏覽至 [Service Fabric 叢集] 刀鋒視窗，然後按一下 [建立] 並提供叢集的詳細資料
+4. 瀏覽至 \[Service Fabric 叢集] 刀鋒視窗，然後按一下 [建立] 並提供叢集的詳細資料
 
 5. 在 [建立新的資源群組] 下方，為資源群組設定與叢集相同的名稱。這樣讓您稍後能輕易地找到它們，在您嘗試變更部署或刪除叢集時會格外有用。
 
@@ -126,7 +126,8 @@
 
 - 選項 1：連線到不安全的叢集。
 
-    ```powershell
+    ```
+    powershell
     Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 -KeepAliveIntervalInSec 10
     ```
 
@@ -134,7 +135,8 @@
 
     1. 執行下列命令，以便在您即將用來執行「Connect-serviceFabricCluster」PowerShell 命令的電腦上設定憑證。
 
-        ```powershell
+        ```
+	powershell
         Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
                 -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
                 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
@@ -142,7 +144,8 @@
 
     2. 執行下列 PowerShell 命令來連線到安全的叢集。憑證的詳細資料與您在入口網站所提供的資訊相同。
 
-        ```powershell
+        ```
+	powershell
         Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
                   -KeepAliveIntervalInSec 10 `
                   -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
@@ -152,7 +155,8 @@
 
         舉例來說，上述 PowerShell 命令應該會類似下列內容：
 
-        ```powershell
+        ```
+	powershell
         Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `
                   -KeepAliveIntervalInSec 10 `
                   -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
@@ -164,22 +168,26 @@
 
 1. 將封裝複製到您之前連線到的叢集。
 
-    ```powershell
+    ```
+    powershell
     $applicationPath = "C:\VS2015\WordCount\WordCount\pkg\Debug"
     ```
 
-    ```powershell
+    ```
+    powershell
     Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -ApplicationPackagePathInImageStore "WordCount" -ImageStoreConnectionString fabric:ImageStore
     ```
 2. 向 Service Fabric 註冊您的應用程式類型。
 
-    ```powershell
+    ```
+    powershell
     Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
     ```
 
 3. 針對您剛註冊的應用程式類型來建立新的執行個體。
 
-    ```powershell
+    ```
+    powershell
     New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
     ```
 
@@ -189,11 +197,16 @@
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
+## RDP 到虛擬機器調整集 (VMSS) 執行個體或叢集節點 
+
+您在叢集中指定的每個 NodeTypes 都會進行 VMSS 設定。如需詳細資訊，請參閱[如何 RDP 到 VMSS 執行個體](service-fabric-cluster-nodetypes.md)。
+
 ## 後續步驟
 
 - [在 Visual Studio 中管理 Service Fabric 應用程式](service-fabric-manage-application-in-visual-studio.md)
 - [Service Fabric 叢集安全性](service-fabric-cluster-security.md)
 - [Service Fabric 健康情況模型簡介](service-fabric-health-introduction.md)
+- [如何 RDP 到 VMSS 執行個體](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
@@ -207,4 +220,4 @@
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

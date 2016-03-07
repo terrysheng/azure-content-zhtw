@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/07/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 
 # 追蹤 B2B 訊息
+
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。
 
 ## B2B 追蹤資訊
 B2B 通訊牽涉到交易夥伴之間的訊息處理。關聯性定義為兩個交易夥伴之間的協議。建立通訊後，必須以適當方式監視通訊是否如預期般執行。
@@ -45,4 +47,4 @@ B2B 通訊牽涉到交易夥伴之間的訊息處理。關聯性定義為兩個�
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.png
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,14 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="11/04/2015"
+   ms.date="02/04/2016"
    ms.author="heidist"/>
 
 # 監視在 Azure 搜尋服務中的使用量和統計資料
 
 追蹤索引和文件大小的成長，可在達到您為服務所設定的上限之前，幫助您先主動調整容量。
 
-若要監視資源使用量、計數和統計資料，可在 [Azure 入口網站](https://portal.azure.com)中輕易地檢視，但如果您正在建置自訂服務的管理工具，則也可以程式設計方式取得資訊。本文章涵蓋此兩種技術的步驟。
+若要監視服務的資源使用量、計數和統計資料，可在 [Azure 入口網站](https://portal.azure.com)中輕易地檢視，但如果您正在建置自訂服務的管理工具，則也可以程式設計方式取得資訊。本文章涵蓋此兩種技術的步驟。
+
+您也可以使用新的搜尋流量分析功能，深入了解索引層級的活動。若要開始使用，請造訪 [Azure 搜尋服務的搜尋流量分析](search-traffic-analytics.md)
 
 ##在入口網站中檢視計數和度量 
 
@@ -57,4 +59,4 @@ Azure 搜尋服務 REST API 和 .NET SDK 都提供以程式設計方式存取服
 
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

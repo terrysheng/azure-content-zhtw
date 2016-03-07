@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="02/08/2016"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 # 如何使用 PHP 的 Blob 儲存體
@@ -42,7 +42,7 @@
 
 若要使用 Azure Blob 服務 API，您必須：
 
-1. 參考使用 [require\_once][require_once] 陳述式的自動換片器檔案，以及
+1. 參考使用 [require\_once] 陳述式的自動換片器檔案，以及
 2. 參考任何您可能使用的類別。
 
 下列範例顯示如何納入自動載入器檔案及參考 **ServicesBuilder** 類別。
@@ -291,9 +291,9 @@
 了解 Azure Blob 服務的基礎概念之後，請參考下列連結以深入了解更複雜的儲存工作。
 
 - 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)。
-- 請參閱 <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php> 中的 PHP 區塊 Blob 範例。
-- 請參閱 <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php> 中的 PHP 分頁 Blob 範例
-- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
+- 請參閱 [PHP 區塊 Blob 範例](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php)。
+- 請參閱 [PHP 分頁 Blob 範例](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php)。
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
  
 如需詳細資訊，另請參閱 [PHP 開發人員中心](/develop/php/)。
 
@@ -302,8 +302,8 @@
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
-[require_once]: http://php.net/require_once
+[require\_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

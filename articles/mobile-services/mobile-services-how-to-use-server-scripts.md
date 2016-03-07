@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/23/2016" 
 	ms.author="ricksal"/>
 
 
@@ -106,7 +106,7 @@
  
 + **respond 函數**：已傳回自訂回應。
 
-> [AZURE.IMPORTANT]當指令碼的程式碼路徑中的 **execute** 和 **respond** 都沒被叫用，可能是操作無回應。
+> [AZURE.IMPORTANT] 當指令碼的程式碼路徑中的 **execute** 和 **respond** 都沒被叫用，可能是操作無回應。
 
 以下指令碼會呼叫 **execute** 函數來完成用戶端要求的資料作業：
 
@@ -513,7 +513,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 
 在您認可 package.json 檔案或自訂模組進入行動服務的儲存機制後，使用 **require** 依名稱參考該模組。
 
->[AZURE.NOTE]您在 package.json 中指定的模組或上傳至行動服務的模組，只能在您的伺服器指令碼中使用。行動服務執行階段不會使用這些模組。
+>[AZURE.NOTE] 您在 package.json 中指定的模組或上傳至行動服務的模組，只能在您的伺服器指令碼中使用。行動服務執行階段不會使用這些模組。
 
 ###<a name="helper-functions"></a>作法：使用協助程式函數
 
@@ -661,7 +661,7 @@ HTTP GET 要求可以如下叫用上述自訂 API 範例中的兩個路由 (也�
 
 		var todoItemsTable = request.service.tables.getTable('TodoItem');
 
-> [AZURE.NOTE]共用的函數無法直接存取 **tables** 物件。在共用的函數中，您必須將 tables 物件傳遞給函數。
+> [AZURE.NOTE] 共用的函數無法直接存取 **tables** 物件。在共用的函數中，您必須將 tables 物件傳遞給函數。
 
 一旦有了 [table 物件]，就可以呼叫一或多個資料表作業函數：insert、update、delete 或 read。此範例會讀取權限資料表中的使用者權限：
 
@@ -924,7 +924,7 @@ Stream|不支援
 
 若要寫入記錄檔，使用全域 [console 物件]。使用 **log** 或 **info** 函數記錄資訊層級的警告。**warning** 和 **error** 函數會各自記錄其層級的資訊 (在記錄檔中呼叫層級)。
 
-> [AZURE.NOTE]若要檢視行動服務的記錄檔，請登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)，選取您的行動服務，然後選擇 [記錄檔] 索引標籤。
+> [AZURE.NOTE] 若要檢視行動服務的記錄檔，請登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)，選取您的行動服務，然後選擇 [記錄檔] 索引標籤。
 
 您也可以使用 [console 物件]的登入函數，使用參數將您的訊息格式化。以下範例提供 JSON 物件做為訊息字串的參數：
 
@@ -1057,4 +1057,4 @@ Stream|不支援
 [Azure 行動服務對 package.json 的支援]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0224_2016-->

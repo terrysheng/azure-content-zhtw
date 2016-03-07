@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/21/2016"
 	ms.author="micurd"/>
 
 # 如何使用 Xamarin 的 Blob 儲存體 (預覽)
@@ -49,7 +49,7 @@ Xamarin 可讓開發人員使用共用的 C# 程式碼基底，使用其原生�
 
 您在容器上建立的共用存取簽章將在隔天內有效。簽章會將完整存取權限 (*例如*，讀取、寫入、刪除和列出) 授與容器中 Blob。
 
-如需共用存取簽章的詳細資訊，請參閱[適用於 .NET 的 SAS 教學課程](storage-dotnet-shared-access-signature-part-2.md)。
+如需共用存取簽章的詳細資訊，請參閱[共用存取簽章：透過 Blob 儲存體來建立與使用 SAS](storage-dotnet-shared-access-signature-part-2.md)。
 
 ## 建立新的 Xamarin 應用程式
 
@@ -173,10 +173,11 @@ Xamarin 可讓開發人員使用共用的 C# 程式碼基底，使用其原生�
 
 參閱下列連結以深入了解 Blob、資料表和佇列：
 
-[Microsoft Azure 儲存體簡介](storage-introduction.md) 
-[如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md) 
-[如何使用 .NET 的資料表儲存體](storage-dotnet-how-to-use-tables.md) 
-[如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md) 
-[使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
+- [Microsoft Azure 儲存體簡介](storage-introduction.md)
+- [以 .NET 開始使用 Azure Blob 儲存體](storage-dotnet-how-to-use-blobs.md)
+- [以 .NET 開始使用 Azure 資料表儲存體](storage-dotnet-how-to-use-tables.md)
+- [以 .NET 開始使用 Azure 佇列儲存體](storage-dotnet-how-to-use-queues.md)
+- [在 Windows 上開始使用 Azure 檔案儲存體](storage-dotnet-how-to-use-files.md)
+- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

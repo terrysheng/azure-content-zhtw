@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="02/23/2016" 
 	ms.author="ddove;sidneyh" />
 
 # 彈性資料庫工作概觀
@@ -23,9 +23,9 @@
 * [彈性資料庫集區](sql-database-elastic-pool.md)中的所有資料庫
 * 分區集 (使用[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)建立)。 
  
-如需安裝的指示，請移至[安裝彈性資料庫工作元件](sql-database-elastic-jobs-service-installation.md)。
+如需安裝的指示，請移至[安裝彈性資料庫工作元件](sql-database-elastic-jobs-service-installation.md)。另請參閱[開始使用彈性資料庫工作](sql-database-elastic-jobs-getting-started.md)。
 
-**彈性資料庫工作**目前是客戶裝載的 Azure 雲端服務，可以執行臨機操作和排程的管理工作，稱為「工作」。利用工作，您可以執行 Transact-SQL 指令碼來執行管理作業，進而輕鬆又可靠地管理大量 Azure SQL Database 群組。
+**彈性資料庫工作**目前是客戶裝載的 Azure 雲端服務，可以執行臨機操作和排程的管理工作，稱為「**工作**」。利用工作，您可以執行 Transact-SQL 指令碼來執行管理作業，進而輕鬆又可靠地管理大量 Azure SQL Database 群組。
 
 ![彈性資料庫工作服務][1]
 
@@ -91,7 +91,7 @@
 * **Azure 雲端服務**：彈性資料庫工作 (預覽) 會以客戶託管的 Azure 雲端服務來傳遞，以執行所要求的工作。您可以從入口網站，在 Microsoft Azure 訂用帳戶中部署及託管服務。預設至少會使用兩個背景工作角色來執行已部署的服務，以取得高可用性。每個背景工作角色 (ElasticDatabaseJobWorker) 都會以預設大小在 A0 執行個體上執行。如需價格，請參閱[雲端服務價格](https://azure.microsoft.com/pricing/details/cloud-services/)。 
 * **Azure SQL Database**：服務會使用稱為**控制資料庫**的 Azure SQL Database 來儲存所有的工作中繼資料。預設服務層為 S0。如需價格，請參閱 [SQL Database 價格](https://azure.microsoft.com/pricing/details/sql-database/)。
 * **Azure 服務匯流排**：Azure 服務匯流排可協調 Azure 雲端服務內的工作。請參閱[服務匯流排價格](https://azure.microsoft.com/pricing/details/service-bus/)。
-* **Azure 儲存體**：Azure 儲存體帳戶可用來儲存在問題需要進一步偵錯的事件中所記錄的診斷輸出 (請參閱[在 Azure 雲端服務和虛擬機器中啟用診斷](../service-fabric/cloud-services-dotnet-diagnostics.md))。如需價格，請參閱 [Azure 儲存體價格](https://azure.microsoft.com/pricing/details/storage/)。
+* **Azure 儲存體**：Azure 儲存體帳戶可用來儲存在問題需要進一步偵錯的事件中所記錄的診斷輸出 (請參閱[在 Azure 雲端服務和虛擬機器中啟用診斷](../cloud-services/cloud-services-dotnet-diagnostics.md))。如需價格，請參閱 [Azure 儲存體價格](https://azure.microsoft.com/pricing/details/storage/)。
 
 ## 彈性資料庫工作的運作方式
 1.	Azure SQL Database 會指定控制資料庫，它會儲存所有中繼資料和狀態資料。
@@ -116,7 +116,7 @@
 4.	完成所有工作作業之後，控制站會將工作更新為已完成狀態。在工作執行期間，可以隨時使用 PowerShell API 以檢視工作執行的目前狀態。PowerShell API 所傳回的所有時間都是以 UTC 表示。如有需要，可以初始化取消要求以停止工作。 
 
 ## 後續步驟
-[安裝元件](sql-database-elastic-jobs-service-installation.md)，然後[建立記錄檔並加入資料庫群組中的每個資料庫](sql-database-security.md)。若要進一步了解工作的建立和管理，請參閱[建立及管理彈性資料庫工作](sql-database-elastic-jobs-create-and-manage.md)。
+[安裝元件](sql-database-elastic-jobs-service-installation.md)，然後[建立記錄檔並加入資料庫群組中的每個資料庫](sql-database-security.md)。若要進一步了解工作的建立和管理，請參閱[建立及管理彈性資料庫工作](sql-database-elastic-jobs-create-and-manage.md)。另請參閱[開始使用彈性資料庫工作](sql-database-elastic-jobs-getting-started.md)。
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -124,4 +124,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

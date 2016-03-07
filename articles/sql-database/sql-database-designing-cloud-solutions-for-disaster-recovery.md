@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="10/07/2015"
+   ms.date="02/23/2016"
    ms.author="sashan"/>
 
 # 使用 SQL Database 中的異地複寫針對雲端災害復原設計應用程式
@@ -148,4 +148,4 @@
 | 應用程式負載平衡的主動-主動部署 | 讀寫存取 < 5 秒 | 失敗偵測時間 + 容錯移轉 API 呼叫 + SQL 連接字串變更 + 應用程式驗證測試
 | 資料保留的主動-被動部署 | 唯讀存取 < 5 秒，讀寫存取 = 0 | 唯讀存取 = 連線失敗偵測時間 + 應用程式驗證測試 <br>讀寫存取 = 運作中斷趨緩的時間
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

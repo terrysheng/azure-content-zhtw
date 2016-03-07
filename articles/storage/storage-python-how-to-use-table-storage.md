@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/11/2016"
 	ms.author="emgerner"/>
 
 
@@ -23,14 +23,11 @@
 
 ## 概觀
 
-本指南說明如何使用 Azure 資料表儲存體服務執行一般案例。這些範例是以 Python 所撰寫，並使用 [Python Azure 儲存體封裝][]。除了「在資料表中插入及查詢實體」外，所涵蓋的案例還包括「建立和刪除資料表」。
+本指南說明如何使用 Azure 資料表儲存體服務執行一般案例。這些範例是以 Python 所撰寫，並使用 [Microsoft Azure Storage SDK for Python]。除了「在資料表中插入及查詢實體」外，所涵蓋的案例還包括「建立和刪除資料表」。
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
-
-[AZURE.NOTE]如果您需要安裝 Python 或 [Python Azure 封裝][]，請參閱 [Python 安裝指南](../python-how-to-install.md)。
-
 
 ## 建立資料表
 
@@ -38,7 +35,7 @@
 
 	from azure.storage.table import TableService, Entity
 
-下列程式碼會使用儲存體帳戶名稱和帳戶金鑰來建立 **TableService** 物件。將 'myaccount' 和 'mykey' 取代為真實的帳戶和金鑰。
+下列程式碼會使用儲存體帳戶名稱和帳戶金鑰來建立 **TableService** 物件。將 'myaccount' 和 'mykey' 取代為您的帳戶名稱和金鑰。
 
 	table_service = TableService(account_name='myaccount', account_key='mykey')
 
@@ -46,7 +43,7 @@
 
 ## 將實體加入至資料表
 
-若要新增實體，請先建立定義實體屬性名稱和值的字典。請注意，您必須為每個實體指定 **PartitionKey** 及 **RowKey**。這些是您的實體的唯一識別碼。比起查詢其他屬性，您可以以更快的速度查詢這些值。系統使用 **PartitionKey** 自動將資料表的實體分散在許多儲存體節點上。具有相同 **PartitionKey** 的實體會儲存在相同節點上。**RowKey** 是實體在其所屬資料分割內的唯一識別碼。
+若要新增實體，請先建立字典或定義實體屬性名稱和值的實體。請注意，您必須為每個實體指定 **PartitionKey** 及 **RowKey**。這些是您的實體的唯一識別碼。比起查詢其他屬性，您可以使用這些值更快地查詢。系統使用 **PartitionKey** 自動將資料表的實體分散在許多儲存體節點上。具有相同 **PartitionKey** 的實體會儲存在相同節點上。**RowKey** 是實體在其所屬資料分割內的唯一識別碼。
 
 若要將實體新增至資料表，請將字典物件傳給 **insert\_entity** 方法。
 
@@ -66,27 +63,38 @@
 
 此程式碼說明如何以更新版本取代舊版本的現有實體。
 
-	task = {'description' : 'Take out the garbage', 'priority' : 250}
-	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)
+	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage', 'priority' : 250}
+	table_service.update_entity('tasktable', task)
 
 如果正在更新的實體不存在，則更新操作便會失敗。如果您想要儲存實體 (不論它是否已存在)，請使用 **insert\_or\_replace\_entity**。在下列範例中，第一個呼叫將取代現有實體。第二個呼叫將插入新實體，因為資料表中沒有具有指定 **PartitionKey** 和 **RowKey** 的實體存在。
 
-	task = {'description' : 'Take out the garbage again', 'priority' : 250}
-	table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task)
+	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage again', 'priority' : 250}
+	table_service.insert_or_replace_entity('tasktable', task)
 
-	task = {'description' : 'Buy detergent', 'priority' : 300}
-	table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '3', task)
+	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '3', 'description' : 'Buy detergent', 'priority' : 300}
+	table_service.insert_or_replace_entity('tasktable', task)
 
 ## 變更一組實體
 
-有時候批次提交多個操作是有意義的，可以確保伺服器會進行不可部分完成的處理。要達到此點，請在 **TableService** 上使用 **begin\_batch** 方法，然後如常呼叫操作系列。當您真的想提交批次時，請呼叫 **commit\_batch**。請注意，所有實體都必須位於相同的資料分割中，才能以批次方式進行變更。以下範例在一個批次中同時新增兩個實體。
+有時候批次提交多個操作是有意義的，可以確保伺服器會進行不可部分完成的處理。為了完成此操作，您使用 **TableBatch** 類別。當您真的想提交批次時，請呼叫 **commit\_batch**。請注意，所有實體都必須位於相同的資料分割中，才能以批次方式進行變更。以下範例在一個批次中同時新增兩個實體。
 
+	from azure.storage.table import TableBatch
+	batch = TableBatch()
 	task10 = {'PartitionKey': 'tasksSeattle', 'RowKey': '10', 'description' : 'Go grocery shopping', 'priority' : 400}
 	task11 = {'PartitionKey': 'tasksSeattle', 'RowKey': '11', 'description' : 'Clean the bathroom', 'priority' : 100}
-	table_service.begin_batch()
-	table_service.insert_entity('tasktable', task10)
-	table_service.insert_entity('tasktable', task11)
-	table_service.commit_batch()
+	batch.insert_entity(task10)
+	batch.insert_entity(task11)
+	table_service.commit_batch('tasktable', batch)
+
+Batch 也可以與內容管理員語法搭配使用：
+
+	task12 = {'PartitionKey': 'tasksSeattle', 'RowKey': '12', 'description' : 'Go grocery shopping', 'priority' : 400}
+	task13 = {'PartitionKey': 'tasksSeattle', 'RowKey': '13', 'description' : 'Clean the bathroom', 'priority' : 100}
+
+	with table_service.batch('tasktable') as batch:
+		batch.insert_entity(task12)
+		batch.insert_entity(task13)
+
 
 ## 查詢實體
 
@@ -100,7 +108,7 @@
 
 此範例會根據 **PartitionKey** 找到在西雅圖的所有工作。
 
-	tasks = table_service.query_entities('tasktable', "PartitionKey eq 'tasksSeattle'")
+	tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'")
 	for task in tasks:
 		print(task.description)
 		print(task.priority)
@@ -111,9 +119,9 @@
 
 下列程式碼中的查詢只會傳回資料表中各實體的說明。
 
-[AZURE.NOTE]下列程式碼片段只針對雲端儲存體服務運作。儲存體模擬器並不支援此程式碼片段。
+[AZURE.NOTE] 下列程式碼片段只針對雲端儲存體服務運作。儲存體模擬器並不支援此程式碼片段。
 
-	tasks = table_service.query_entities('tasktable', "PartitionKey eq 'tasksSeattle'", 'description')
+	tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'", select='description')
 	for task in tasks:
 		print(task.description)
 
@@ -131,15 +139,14 @@
 
 ## 後續步驟
 
-了解資料表儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作：
+了解表格儲存體的基本概念之後，請使用下列連結深入了解。
 
--   請參閱 MSDN 參考資料 [Azure 儲存體][]。
--   造訪 [Azure 儲存體團隊部落格][] (英文)。
-
-如需詳細資訊，另請參閱 [Python 開發人員中心](/develop/python/)。
+- [Python 開發人員中心](/develop/python/)
+- [Azure 儲存體服務 REST API](http://msdn.microsoft.com/library/azure/dd179355)
+- [Azure 儲存體團隊部落格]
+- [Microsoft Azure Storage SDK for Python]
 
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
-[Python Azure 封裝]: https://pypi.python.org/pypi/azure
-[Python Azure 儲存體封裝]: https://pypi.python.org/pypi/azure-storage
+[Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

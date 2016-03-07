@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/19/2016"
 	ms.author="tamram"/>
 
 # Azure 儲存體服務的跨原始資源共用 (CORS) 支援
@@ -22,7 +22,7 @@
 
 您可以透過呼叫[設定 Blob 服務屬性](https://msdn.microsoft.com/library/hh452235.aspx)、[設定佇列服務屬性](https://msdn.microsoft.com/library/hh452232.aspx)和[設定表格服務屬性](https://msdn.microsoft.com/library/hh452240.aspx)，個別為每個儲存體服務設定 CORS 規則。一旦設定服務的 CORS 規則之後，將評估從不同網域對服務所提出的適當驗證要求，以判斷是否可根據您指定的規則來允許它。
 
->[AZURE.NOTE]請注意，CORS 不是一種驗證機制。啟用 CORS 時，對儲存體資源所提出的任何要求都必須具有適當的驗證簽章，或者必須對公用資源提出。
+>[AZURE.NOTE] 請注意，CORS 不是一種驗證機制。啟用 CORS 時，對儲存體資源所提出的任何要求都必須具有適當的驗證簽章，或者必須對公用資源提出。
 
 ## 了解 CORS 要求
 
@@ -147,7 +147,7 @@ CORS 規則的評估，如下所示：
 
 第三個要求符合其原始網域和方法中的第二個規則，所以不會進一步評估任何規則。但是，第二個規則不允許 *x-ms-client-request-id header*，因此，儘管第三個規則的語意已允許它成功，要求仍會失敗。
 
->[AZURE.NOTE]雖然相較於之前較嚴格的規則，此範例示範的規則已較不嚴格，但一般最佳做法是先列出最嚴格的規則。
+>[AZURE.NOTE] 雖然相較於之前較嚴格的規則，此範例示範的規則已較不嚴格，但一般最佳做法是先列出最嚴格的規則。
 
 ## 了解如何設定 Vary 標頭
 
@@ -195,4 +195,4 @@ CORS 規則的評估，如下所示：
 
 [W3C 跨原始資源共用規格](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

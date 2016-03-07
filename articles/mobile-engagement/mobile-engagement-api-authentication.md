@@ -20,18 +20,17 @@
 
 ## 概觀
 
-本文件是一直都使用 API 的客戶從 Capptain 移轉至 Azure Mobile Engagement 的附屬指南。其中更多詳細說明如何在新的 API 中運用驗證機制。
+本文件詳細說明如何讓驗證機制為新的 API 運作。
 
 已假設您具備有效的 Azure 訂用帳戶，也已使用其中一個[開發人員教學課程](mobile-engagement-windows-store-dotnet-get-started.md)建立 Mobile Engagement 應用程式。
 
 ## 驗證
 
-當從 Capptain API 移轉至新的 Azure Mobile Engagement API 時，主要的差異就在於驗證。以往，API 支援基本驗證。現在，驗證必須使用以 Microsoft Azure Active Directory 為基礎的 OAuth 權杖。
+必須使用 Microsoft Azure Active Directory 型的 OAuth 權杖進行驗證。
 
 為了驗證 API 要求，必須將授權標頭加入至每個要求。它必須是下列格式：
 
 	Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGmJlNmV2ZWJPamg2TTNXR1E...
-
 
 >[AZURE.NOTE] Azure Active Directory 權杖會在 1 小時內過期。
 
@@ -130,9 +129,7 @@
 
 	複製這些值當作參考。現在要取得存取權杖，您將使用 TenantId 做為 `{TENANT_ID}`、使用 ApplicationId 做為 `{CLIENT_ID}`，並使用 Secret 做為 `{CLIENT_SECRET}`。
 
-
 8. 在 Azure 管理入口網站中，檢查新的 AD 應用程式出現在 [顯示我公司所擁有的應用程式] 之下。
-
 
 #### 取得有效權杖的步驟
 
@@ -166,9 +163,7 @@
 
 如果傳回 401 狀態碼，請檢查回應本文，其中可能指出權杖已過期。在此情況下，請取得新的權杖。
 
-
 ##使用 API
-
 
 既然您已取得有效的權杖，您可以開始執行 API 呼叫。
 
@@ -187,7 +182,6 @@
 
 	![](./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png)
 
-
 >[AZURE.NOTE] <br/> 1.忽略 API 根位址，因為這是用於舊版的 API。<br/> 2.您需要使用不同於應用程式名稱本身的應用程式資源名稱。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="01/06/2016"
+   ms.date="02/21/2016"
    ms.author="tamram" />
 
 # Azure 儲存體範例
@@ -28,12 +28,12 @@
 
 若要瀏覽 .NET 範例，請從 NuGet 下載 [.NET 儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)。您也可以在 [適用於 .NET 的 Azure SDK](https://azure.microsoft.com/downloads/) 中找到 .NET 儲存體用戶端程式庫。
 
-* [在 5 分鐘內開始使用 Azure Blob、資料表和佇列](storage-getting-started-guide.md)
+* [在五分鐘內開始使用 Azure 儲存體](storage-getting-started-guide.md)
 * [使用 Azure 儲存體管理並行存取 - 範例應用程式](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
 * [開始使用 Blob](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataBlobStorage)
 * [開始使用資料表](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataTableStorage)
 * [開始使用佇列](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataStorageQueue)
-* [開始使用檔案](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataTableStorage)
+* [開始使用檔案](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataFileStorage)
 
 ## Java 範例
 
@@ -85,4 +85,4 @@
 - [C++ 儲存體用戶端程式庫的原始程式碼](https://github.com/Azure/azure-storage-cpp)
 - [C++ 用戶端程式庫參考](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

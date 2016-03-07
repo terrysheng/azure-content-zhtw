@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/04/2015"
+    ms.date="02/19/2016"
     ms.author="prkhad"/>
 
 
@@ -31,11 +31,11 @@ Azure VM 支援連接數個「進階儲存體」磁碟，讓您應用程式的�
 
 要完整地完成移轉程序，可能需要在本指南中提供的步驟之前和之後執行其他動作。例如，設定虛擬網路或端點，或是在應用程式本身中進行程式碼，都是如此。這些動作會隨著每個應用程式而不同，您應完成這些動作以及本指南中所提供的步驟，才能盡可能順暢地完整轉換至進階儲存體。
 
-如需「進階儲存體」的功能概觀，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
+如需「進階儲存體」的功能概觀，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage.md)。
 
 本指南分為兩個部分，涵蓋下列兩種移轉案例：
 
-- [將不在 Azure 中的 VM 移轉到 Azure 進階儲存體](#migrating-vms-from-outside-azure-to-azure-premium-storage)。
+- [將其他平台上的 VM 移轉到 Azure 進階儲存體。](#migrating-vms-from-other-platforms-to-azure-premium-storage)
 - [將現有的 Azure VM 移轉到 Azure 進階儲存體](#migrating-existing-azure-vms-to-azure-premium-storage)。
 
 請根據您的案例，依照相關小節中所指定的步驟操作。
@@ -45,9 +45,9 @@ Azure VM 支援連接數個「進階儲存體」磁碟，讓您應用程式的�
 ### 先決條件
 - 您將需要 Azure 訂用帳戶。如果您沒有訂用帳戶，可以建立一個月的[免費試用](https://azure.microsoft.com/pricing/free-trial/)訂用帳戶，或造訪 [Azure 定價](https://azure.microsoft.com/pricing/)以了解其他選項。
 - 若要執行 PowerShell Cmdlet，您將需要 Microsoft Azure PowerShell 模組。若要下載此模組，請參閱 [Microsoft Azure 下載](https://azure.microsoft.com/downloads/)。
-- 當您計劃使用在進階儲存體上執行的 Azure VM 時，您需要使用 DS 系列或 GS 系列的 VM。DS 系列的 VM 可同時搭配標準和進階儲存體磁碟使用。未來進階儲存體磁碟將可搭配更多 VM 類型使用。如需可用 Azure VM 磁碟類型和大小的詳細資訊，請參閱 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)。
+- 當您計劃使用在進階儲存體上執行的 Azure VM 時，您需要使用 DS 系列或 GS 系列的 VM。DS 系列的 VM 可同時搭配標準和進階儲存體磁碟使用。未來進階儲存體磁碟將可搭配更多 VM 類型使用。如需所有可用 Azure VM 磁碟類型和大小的詳細資訊，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-size-specs.md)和[雲端服務的大小](../cloud-services/cloud-services-sizes-specs.md)。
 
-### 考量
+### 注意事項
 
 #### VM 大小
 Azure VM 大小的規格已列在[虛擬機器的大小](../virtual-machines/virtual-machines-size-specs.md)一文中。請檢閱使用於進階儲存體的虛擬機器效能特性，然後選擇最適合您的工作負載的 VM 大小。確定 VM 上有足夠的磁碟流量頻寬。
@@ -64,16 +64,16 @@ Azure VM 大小的規格已列在[虛擬機器的大小](../virtual-machines/vir
 
 #### 儲存體帳戶延展性目標
 
-Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://msdn.microsoft.com/library/azure/dn249410.aspx)之外，還有以下延展性目標。如果您的應用程式需求超出單一儲存體帳戶的延展性目標，請建置使用多個儲存體帳戶的應用程式，並將資料分散到那些儲存體帳戶中。
+Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md)之外，還有以下延展性目標。如果您的應用程式需求超出單一儲存體帳戶的延展性目標，請建置使用多個儲存體帳戶的應用程式，並將資料分散到那些儲存體帳戶中。
 
 |總帳戶容量|本機備援儲存體帳戶總頻寬|
 |:--|:---|
 |磁碟容量：35 TB<br />快照容量：10 TB|每秒最多 50 Gbps (輸入 + 輸出)|
 
-如需有關「進階儲存體」規格的詳細資訊，請查看[使用進階儲存體時的延展性和效能目標](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whzh-TWing-premium-storage)。
+如需有關「進階儲存體」規格的詳細資訊，請查看[使用進階儲存體時的延展性和效能目標](storage-premium-storage.md#scalability-and-performance-targets-whzh-TWing-premium-storage)。
 
 #### 額外的資料磁碟
-根據您的工作負載，決定您的 VM 是否需要額外的資料磁碟。您可以將數個持續性資料磁碟連接至您的 VM。如有需要，您可以跨磁碟等量磁碟區以增加磁碟區的容量和效能。如果您使用[儲存空間](http://technet.microsoft.com/library/hh831739.aspx)等量 Premium 儲存體資料磁碟，應該為所使用的每個磁碟，以一個資料行進行設定。否則，等量磁碟區的整體效能可能會因為磁碟流量分配不平均而比預期的效能還低。而對於 Linux VM，您可以使用 *mdadm* 公用程式來達到相同的效果。如需詳細資訊，請參閱文章[在 Linux 上設定軟體 RAID](../virtual-machines-linux-configure-raid.md)。
+根據您的工作負載，決定您的 VM 是否需要額外的資料磁碟。您可以將數個持續性資料磁碟連接至您的 VM。如有需要，您可以跨磁碟等量磁碟區以增加磁碟區的容量和效能。如果您使用[儲存空間](http://technet.microsoft.com/library/hh831739.aspx)等量 Premium 儲存體資料磁碟，應該為所使用的每個磁碟，以一個資料行進行設定。否則，等量磁碟區的整體效能可能會因為磁碟流量分配不平均而比預期的效能還低。而對於 Linux VM，您可以使用 *mdadm* 公用程式來達到相同的效果。如需詳細資訊，請參閱文章[在 Linux 上設定軟體 RAID](../virtual-machines/virtual-machines-linux-configure-raid.md)。
 
 #### 磁碟快取原則
 根據預設，所有進階資料磁碟的磁碟快取原則都是「唯讀」，而連接至 VM 的進階作業系統磁碟的則是「讀寫」。為使應用程式的 IO 達到最佳效能，建議使用此組態設定。對於頻繁寫入或唯寫的資料磁碟 (例如 SQL Server 記錄檔)，停用磁碟快取可獲得更佳的應用程式效能。而您可以使用 [Azure 入口網站](https://portal.azure.com)或 *Set-AzureDataDisk* Cmdlet 的 *-HostCaching* 參數來更新現有資料磁碟的快取設定。
@@ -99,11 +99,11 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 
 - Azure 訂用帳戶、儲存體帳戶，以及儲存體帳戶存放複製的 VHD 的容器。請注意，目的地儲存體帳戶可以是標準或進階儲存體帳戶，端視您的需求而定。
 - 將 VHD 一般化的工具 (如果您打算透過 VHD 建立多個 VM 執行個體)。例如，適用於 Windows 的 sysprep 或適用於 Ubuntu 的 virt-sysprep。
-- 將 VHD 檔案上傳至儲存體帳戶的工具。例如，[AzCopy](storage-use-azcopy.md) 或 [Azure 儲存體總管](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)。本指南說明使用 AzCopy 工具複製 VHD 的方法。
+- 將 VHD 檔案上傳至儲存體帳戶的工具。請參閱[使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)或使用 [Azure 儲存體總管](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)。本指南說明使用 AzCopy 工具複製 VHD 的方法。
 
 > [AZURE.NOTE] 為了達到最佳效能，請使用 Azure VM 中的上述其中一項工具複製 VHD，此 Azure VM 必須和目的地儲存體帳戶位於同一區域。如果從不同區域的 Azure VM 複製 VHD，您的效能可能會變慢。
 >
-> 若要在頻寬有限的情況下複製大量資料，請考慮使用 [Microsoft Azure 匯入/匯出服務](storage-import-export-service.md)，透過將硬碟運送到 Azure 資料中心的方式來傳輸資料。使用 Azure 匯入/匯出服務時，您僅能將資料複製到標準儲存體帳戶。當資料在您的標準儲存體帳戶中之後，您就可以使用[複製 Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx) 或 AzCopy，將資料移轉到您的進階儲存體帳戶。
+> 若要在頻寬有限的情況下複製大量資料，請考慮使用 [Azure 匯入/匯出服務來將資料傳送至 Blob 儲存體](storage-import-export-service.md)，透過將硬碟運送到 Azure 資料中心的方式來傳輸資料。使用 Azure 匯入/匯出服務時，您僅能將資料複製到標準儲存體帳戶。當資料在您的標準儲存體帳戶中之後，您就可以使用[複製 Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx) 或 AzCopy，將資料移轉到您的進階儲存體帳戶。
 >
 > 請注意，Microsoft Azure 僅支援固定大小的 VHD 檔案。不支援 VHDX 檔案或動態 VHD。如果您有動態 VHD，可以使用 [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) Cmdlet，將其轉換成固定的大小。
 
@@ -115,7 +115,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 
 如果您要上傳將用於建立多個一般 Azure VM 執行個體的 VHD，您必須先使用 sysprep 公用程式將 VHD 一般化。這適用於內部部署或雲端的 VHD。Sysprep 會移除 VHD 中所有電腦特定的資訊。
 
->[AZURE.IMPORTANT] 將 VM 一般化之前，請先擷取快照或備份。執行 sysprep 會刪除 VM 執行個體。按照下方的步驟操作，以在 Windows OS VHD 中執行 sysprep。請注意，執行 Sysprep 命令會要求您關閉虛擬機器。如需 Sysprep 的詳細資訊，請參閱 [Sysprep 概觀](http://technet.microsoft.com/library/hh825209.aspx)或 [Sysprep 技術參考](http://technet.microsoft.com/library/cc766049(v=ws.10).aspx)。
+>[AZURE.IMPORTANT] 將 VM 一般化之前，請先擷取快照或備份。執行 sysprep 會刪除 VM 執行個體。按照下方的步驟操作，以在 Windows OS VHD 中執行 sysprep。請注意，執行 Sysprep 命令會要求您關閉虛擬機器。如需 Sysprep 的詳細資訊，請參閱 [Sysprep 概觀](http://technet.microsoft.com/library/hh825209.aspx)或 [Sysprep 技術參考](http://technet.microsoft.com/library/cc766049.aspx)。
 
 1. 以系統管理員身分開啟 [命令提示字元] 視窗。
 2. 輸入下列命令以開啟 Sysprep：
@@ -197,7 +197,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
  - **/BlobType: page:** 將目的地指定為分頁 Blob。
  - **/Pattern: *&lt;file-name&gt;:*** 指定 VHD 複製目的地的檔案名稱。
 
-如需 AzCopy 工具使用方式的詳細資訊，請參閱[開始使用 AzCopy 命令列公用程式](storage-use-azcopy.md)。
+如需使用 AzCopy 工具的詳細資訊，請參閱[使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)》\\。
 
 ### 使用 PowerShell 複製 VHD
 您也可以使用 PowerShell Cmdlet Start-AzureStorageBlobCopy 來複製 VHD 檔案。在 Azure PowerShell 上使用下列命令來複製 VHD。將 <> 中的值取代為您的來源和目的地儲存體帳戶中的對應值。若要使用此命令，您的目的地儲存體帳戶中必須具有名為 vhds 的容器。如果此容器不存在，請先加以建立，再執行命令。
@@ -212,7 +212,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 您也可以使用下方其中一種方法將 VHD 上傳至您的儲存體帳戶：
 
 - [Azure 儲存體複製 Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-- [Azure 匯入/匯出服務](https://msdn.microsoft.com/library/dn529096.aspx)
+- [儲存體匯入/匯出服務 REST API 參考](https://msdn.microsoft.com/library/dn529096.aspx)
 
 >[AZURE.NOTE] 匯入/匯出僅可用來複製到 Standard 儲存體帳戶。您必須使用 AzCopy 之類的工具，從 Standard 儲存體帳戶複製到進階儲存體帳戶。
 
@@ -313,8 +313,8 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 ## 將現有的 Azure VM 移轉至 Azure 進階儲存體
 
 如果您目前有使用標準儲存體磁碟的 Azure VM，請依照下列程序將其移轉至進階儲存體。概括來看，移轉牽涉到兩個階段：
--	將磁碟從標準儲存體帳戶移轉至進階儲存體帳戶 
-- 	將 VM 大小從 A/D/G 轉換成使用進階儲存體所需的 DS 或 GS。
+-	將磁碟從標準儲存體帳戶移轉至進階儲存體帳戶
+-	將 VM 大小從 A/D/G 轉換成使用進階儲存體所需的 DS 或 GS。
 
 此外，請參閱上一節中有關於「注意事項」的內容，以了解您可以為進階儲存體執行的各種最佳化。根據您的應用程式所適用的最佳化，移轉程序可能屬於下列其中一個移轉案例。
 
@@ -665,18 +665,18 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](http://m
 如需移轉虛擬機器的特定案例，請參閱下列資源：
 
 - [在儲存體帳戶之間移轉 Azure 虛擬機器](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-- [建立並上傳 Windows Server VHD 到 Azure。](../virtual-machines-create-upload-vhd-windows-server.md)
-- [建立及上傳包含 Linux 作業系統的虛擬硬碟](../virtual-machines-linux-create-upload-vhd.md)
+- [建立並上傳 Windows Server VHD 到 Azure。](../virtual-machines/virtual-machines-create-upload-vhd-windows-server.md)
+- [建立及上傳包含 Linux 作業系統的虛擬硬碟](../virtual-machines/virtual-machines-linux-create-upload-vhd.md)
 - [將虛擬機器從 Amazon AWS 移轉至 Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 若要深入了解 Azure 儲存體和 Azure 虛擬機器，也請參閱下列資源：
 
 - [Azure 儲存體](https://azure.microsoft.com/documentation/services/storage/)
 - [Azure 虛擬機器](https://azure.microsoft.com/documentation/services/virtual-machines/)
-- [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)
+- [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage.md)
 
 [1]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

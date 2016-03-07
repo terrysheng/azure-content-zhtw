@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 12/14/15-->
+<!--author=SharS last changed: 02/22/2016-->
 
 ### 設定和註冊裝置
 
@@ -16,7 +16,7 @@
   
 5. 執行下列步驟，為裝置設定最小的必要網路設定。
 
-    > [AZURE.IMPORTANT]這些設定步驟必須在裝置的主動控制器上執行。序列主控台功能表會在橫幅訊息中指出控制站狀態。如果您未連接到主動控制器，請中斷連線，然後連接到主動控制器。
+    > [AZURE.IMPORTANT] 這些設定步驟必須在裝置的主動控制器上執行。序列主控台功能表會在橫幅訊息中指出控制站狀態。如果您未連接到主動控制器，請中斷連線，然後連接到主動控制器。
 
       1. 在命令提示字元中，輸入您的密碼。預設裝置密碼是 **Password1**。
 
@@ -32,11 +32,11 @@
        - 適用於主要 DNS 伺服器的 IP 位址
        - 適用於主要 NTP 伺服器的 IP 位址
  
-        > [AZURE.NOTE]您可能需要等候幾分鐘，以套用子網路遮罩和 DNS 設定。
+        > [AZURE.NOTE] 您可能需要等候幾分鐘，以套用子網路遮罩和 DNS 設定。
 
       4. 選擇性設定 Web Proxy 伺服器。
 
-      >[AZURE.IMPORTANT]雖然 Web Proxy 設定是選用的，但請注意，如果您使用 Web Proxy，就只能在此處設定它。如需詳細資訊，請參閱[設定裝置的 Web Proxy](storsimple-configure-web-proxy.md)。
+      > [AZURE.IMPORTANT] 雖然 Web Proxy 設定是選用的，但請注意，如果您使用 Web Proxy，就只能在此處設定它。如需詳細資訊，請參閱[設定裝置的 Web Proxy](storsimple-configure-web-proxy.md)。
 
 6. 按 Ctrl + C 來結束安裝精靈。
  
@@ -97,7 +97,7 @@
 
 14. 安裝精靈的最後一個步驟是向 StorSimple Manager 服務註冊您的裝置。基於此因素，您需要在[步驟 2：取得服務註冊金鑰](storsimple-get-service-registration-key-gov.md)中取得的服務註冊金鑰。提供註冊金鑰之後，您可能需要等待 2-3 分鐘，才能註冊裝置。
 
-      >[AZURE.NOTE]您可以隨時按 Ctrl + C 來結束安裝精靈。如果您輸入所有網路設定 (Data 0 的 IP 位址、子網路遮罩和閘道器)，則會保留您的項目。
+      > [AZURE.NOTE] 您可以隨時按 Ctrl + C 來結束安裝精靈。如果您輸入所有網路設定 (Data 0 的 IP 位址、子網路遮罩和閘道器)，則會保留您的項目。
 
 	![StorSimple 註冊進度](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegistrationProgress-gov-include.png)
 
@@ -105,7 +105,9 @@
 	
 	![StorSimple 註冊裝置 7](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice7_gov-include.png)
 
-      >[AZURE.IMPORTANT]若要從序列主控台視窗複製文字，只需選取該文字。然後您應該能夠將它貼到剪貼簿或任何文字編輯器中。> > 請勿使用 Ctrl + C 來複製服務資料加密金鑰。使用 Ctrl + C 將導致安裝精靈結束。如此一來，裝置系統管理員密碼將不會變更，而裝置將還原為預設密碼。
+      > [AZURE.IMPORTANT] 若要從序列主控台視窗複製文字，只需選取該文字。然後您應該能夠將它貼到剪貼簿或任何文字編輯器中。
+      > 
+      > 請勿使用 Ctrl + C 來複製服務資料加密金鑰。使用 Ctrl + C 將導致安裝精靈結束。如此一來，裝置系統管理員密碼將不會變更，而裝置將還原為預設密碼。
 
 16. 結束序列主控台。
 
@@ -117,9 +119,11 @@
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov-u2/HCS_DeviceOnline-gov-include.png) 
   
         If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
-      
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
+
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in [networking requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
+
+        Verify that port 9354 is open for outbound communication as this is used by the service bus for StorSimple Manager Service-to-device communication.
      
         
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

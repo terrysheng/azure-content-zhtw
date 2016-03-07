@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # 定義實驗室原則
+
+> [AZURE.NOTE] 按一下下列連結可檢視本文隨附的影片：[如何撰寫自訂構件](/documentation/videos/how-to-set-vm-policies-in-a-devtest-lab)
 
 ## 概觀
 
@@ -100,4 +102,4 @@ VM 數目上限的原則讓您能夠指定可為目前的實驗室建立的 VM �
 
 1. 點選 [儲存]。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

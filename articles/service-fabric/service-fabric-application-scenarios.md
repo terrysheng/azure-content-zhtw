@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/30/2015"
+   ms.date="02/12/2016"
    ms.author="mfussell"/>
 
 # Service Fabric 應用程式案例
@@ -22,9 +22,9 @@ Azure Service Fabric 提供可靠且彈性的平台，可讓您撰寫及執行�
 
 Azure 中的 Service Fabric 平台適用於下列應用程式和服務的類別：
 
-- **高可用性服務**：Service Fabric 服務提供極快速的容錯移轉。Service Fabric 可讓您建立多個次要服務複本。如果節點、處理序或個別服務因為硬體或其他失敗而停機，其中一個次要複本會立即升級為主要複本，只會產生對於客戶而言可以忽略的服務損失。
+- **高可用性的服務**：Service Fabric 服務藉由建立多個次要服務複本，提供快速的容錯移轉。如果節點、處理序或個別服務因為硬體或其他故障而停機，其中一個次要複本會升級為主要複本，以便將服務損失降到最低。
 
-- **可調整的服務**：可以分割個別服務，以便在叢集中相應放大。此外，可以建立並立即移除個別服務。服務可以快速且輕鬆地由數個節點上的少數執行個體向外延展成許多節點上的數千個執行個體，然後再次立即下調，視資源需求而定。您可以使用 Service Fabric 來建置這些服務，以及管理其完整的生命週期。
+- **可調整的服務**：可以分割個別服務，以便在叢集中相應放大。此外，可以建立並立即移除個別服務。服務可以快速且輕鬆地由數個節點上的少數執行個體，向外延展成許多節點上的數千個執行個體，然後再次下調，視資源需求而定。您可以使用 Service Fabric 來建置這些服務，以及管理其完整的生命週期。
 
 - **非靜態資料的運算**：Service Fabric 可讓您建置資料、輸入/輸出，以及計算密集且具狀態的應用程式。Service Fabric 允許在應用程式中的處理 (運算) 和資料共置。一般而言，當應用程式需要存取資料時，會發生與外部資料快取或儲存體層有關的網路延遲。使用具狀態的 Service Fabric 服務可以消除這種延遲，讓更多高效能的讀取和寫入發揮功效。例如，假設您的應用程式為客戶執行近乎即時的選項建議 (來回時間低於 100 毫秒)。相較於必須從遠端儲存體擷取必要資料的標準實作模型，選項建議運算與資料和規則共置的 Service Fabric 服務，其延遲和效能特性會提供使用者回應靈敏的經驗。
 
@@ -68,4 +68,4 @@ Azure 中的 Service Fabric 平台適用於下列應用程式和服務的類別�
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

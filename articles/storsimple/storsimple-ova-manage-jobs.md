@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="02/22/2016"
    ms.author="v-sharos" />
 
 # 針對 StorSimple Virtual Array 使用 StorSimple Manager 服務檢視作業 (預覽)
@@ -60,8 +60,16 @@
  
     ![工作詳細資料頁面](./media/storsimple-ova-manage-jobs/ovajobs2.png)
 
+#### 虛擬機器在 hypervisor 中暫停時，作業失敗
+
+當正在您的 StorSimple Virtual Array 和裝置 (hypervisor 中佈建的虛擬機器) 中進行的作業暫停超過 15 分鐘，則作業會失敗。這是因為您的 StorSimple Virtual Array 時間未與 Microsoft Azure 時間同步處理。還原作業失敗的範例如下列螢幕擷取畫面所示。
+
+![還原作業失敗](./media/storsimple-ova-manage-jobs/restorejobfailure.png)
+
+這些失敗會套用至備份、還原、更新和容錯移轉作業。如果您的虛擬機器已佈建到 Hyper-V，電腦將最終會與您的 hypervisor 同步處理時間。一旦發生這種情況，您可以重新啟動您的作業。
+
 ## 後續步驟
 
-[了解如何使用本機 Web UI 來管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
+了解如何[使用本機 Web UI 來管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

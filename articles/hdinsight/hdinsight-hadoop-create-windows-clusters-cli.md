@@ -19,7 +19,7 @@
 
 # 使用 Azure CLI 在 HDInsight 中建立 Windows 型 Hadoop 叢集
 
-[AZURE.INCLUDE [選取器](../../includes/hdinsight-create-windows-cluster-selector.md)]
+[AZURE.INCLUDE [選取器](../../includes/hdinsight-selector-create-clusters.md)]
 
 了解如何使用 Azure CLI 建立 HDInsight 叢集。如需其他叢集建立工具和功能的資訊，請按一下此頁面頂端的索引標籤，或參閱[叢集建立方法](hdinsight-provision-clusters.md#cluster-creation-methods)。
 
@@ -134,4 +134,4 @@
 - [使用 Azure CLI 管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-command-line.md)
 - [使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理](../virtual-machines/virtual-machines-command-line-tools.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

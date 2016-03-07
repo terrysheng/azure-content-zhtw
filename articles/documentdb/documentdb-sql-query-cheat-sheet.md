@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/16/2016" 
 	ms.author="mimig"/>
 
 # DocumentDB SQL 功能提要 PDF 檔
@@ -39,4 +39,4 @@ DocumentDB 支援使用 [SQL](documentdb-sql-query.md) 的關聯式、階層式�
 - 如需 DocumentDB 中可用查詢選項的逐步說明，請參閱[查詢 DocumentDB](documentdb-sql-query.md)。
 - 如需相關的參考文件，請參閱 [DocumentDB SQL 查詢語言](https://msdn.microsoft.com/library/azure/dn782250.aspx)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="如何在 ARM 模式使用 PowerShell 建立 NSG | Microsoft Azure"
-   description="了解如何在 ARM 中使用 PowerShell 建立和部署 NSG"
+   pageTitle="如何在 Azure Resource Manager 中使用 PowerShell 建立 NSG | Microsoft Azure"
+   description="了解如何在 Azure Resource Manager 中使用 PowerShell 建立和部署 NSG"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-# 如何在 PowerShell 中建立 NSG
+# 如何在資源管理員中使用 PowerShell 建立 NSG
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
@@ -34,7 +34,7 @@
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
+1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
 
 3. 建立允許從網際網路存取連接埠 3389 的安全性規則。
 
@@ -123,7 +123,7 @@
 		                        "ProvisioningState": "Succeeded"
 		                      }
 
->[AZURE.WARNING]上述命令的輸出會顯示虛擬網路設定物件的內容，此物件只存在於您執行 PowerShell 的電腦上。您需要執行 **Set-AzureRmVirtualNetwork** Cmdlet 來將這些設定儲存至 Azure。
+>[AZURE.WARNING] 上述命令的輸出會顯示虛擬網路設定物件的內容，此物件只存在於您執行 PowerShell 的電腦上。您需要執行 `Set-AzureRmVirtualNetwork` Cmdlet 來將這些設定儲存至 Azure。
 
 7. 將新的 VNet 設定儲存至 Azure。
 
@@ -182,4 +182,4 @@
 
 		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

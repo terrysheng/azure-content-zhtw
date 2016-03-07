@@ -128,7 +128,7 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 
 儲存體分析可以儲存包含與儲存體服務要求相關之彙總的交易統計資料及容量資料的度量。報告的交易是屬於 API 作業層級以及儲存體服務層級，而報告的容量則是屬於儲存體服務層級。度量資料可用來分析儲存體服務使用量、診斷針對儲存體服務提出之要求的問題，以及提升使用服務的應用程式效能。
 
-若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 入口網站](https://portal.azure.com)加以啟用。如需詳細資訊，請參閱[在 Azure 入口網站中監視儲存體帳戶](storage-monitor-storage-account.md)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。針對每個服務，使用[取得 Blob 服務屬性](https://msdn.microsoft.com/library/hh452239.aspx)、[取得佇列服務屬性](https://msdn.microsoft.com/library/hh452243.aspx)、[取得表格服務屬性](https://msdn.microsoft.com/library/hh452238.aspx)，以及[取得檔案服務屬性](https://msdn.microsoft.com/library/mt427369.aspx)作業來啟用儲存體分析度量。
+若要使用儲存體分析，您必須針對想要監視的每個服務個別啟用它。您可以從 [Azure 入口網站](https://portal.azure.com)加以啟用。如需詳細資訊，請參閱[在 Azure 入口網站中監視儲存體帳戶](storage-monitor-storage-account.md)。您也可以利用程式設計方式，透過 REST API 或用戶端程式庫來啟用儲存體分析。使用 [**取得服務屬性**] 作業，為各服務啟用儲存體分析。
 
 ### 交易度量
 
@@ -208,4 +208,4 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 - [儲存體分析度量資料表結構描述](https://msdn.microsoft.com/library/hh343264.aspx)
 - [儲存體分析記錄作業和狀態訊息](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="02/19/2016" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中設定警示
@@ -100,6 +100,10 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 * Web 應用程式伺服器端的**伺服器回應時間**和**失敗要求**。以及設定警示，注意這些度量，以查看高要求率時的差異是否不成比例：可能表示您的應用程式資源不足。
 * **伺服器例外狀況** - 若要查看它們，您只需要進行一些[額外設定](app-insights-asp-net-exceptions.md)。
 
+## 自動化
+
+* [使用 PowerShell 自動設定警示](app-insights-powershell-alerts.md)
+* [使用 Webhook 自動設定警示](../azure-portal/insights-webhooks-alerts.md)
 
 ## 另請參閱
 
@@ -119,4 +123,4 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

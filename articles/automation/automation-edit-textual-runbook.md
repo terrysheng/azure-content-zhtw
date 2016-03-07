@@ -12,8 +12,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="01/19/2016"
-	ms.author="bwren" />
+	ms.date="02/18/2016"
+	ms.author="magoedte;bwren" />
 
 # 在 Azure 自動化中編輯文字式 Runbook
 
@@ -25,7 +25,7 @@ Azure 自動化中的每個 Runbook 有兩個版本，「草稿」和「已發�
 
 若要使用[圖形化 Runbook](automation-runbook-types.md#graphical-runbooks)，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)。
 
-## 使用 Azure Preview 入口網站編輯 Runbook
+## 使用 Azure 入口網站編輯 Runbook
 
 使用下列程序以開啟 Runbook，在文字式編輯器中進行編輯。
 
@@ -144,4 +144,4 @@ Azure 自動化中的每個 Runbook 有兩個版本，「草稿」和「已發�
 - [排程](automation-schedules.md)
 - [變數](automation-variables.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

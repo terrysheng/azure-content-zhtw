@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016"    
+	ms.date="02/18/2016"    
 	ms.author="juliako"/>
 
 
@@ -135,14 +135,33 @@
 				    return job.OutputMediaAssets[0];
 				}
 		
-		        static public IAsset EncodeWithOverlay(IAsset assetSource, IAsset assetOverlay, string customPresetFileName)
+		        static public IAsset UploadMediaFilesFromFolder(string folderPath)
+		        {
+		            IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
+		
+		            foreach (var af in asset.AssetFiles)
+		            {
+		                // The following code assumes 
+		                // you have an input folder with one MP4 and one overlay image file.
+		                if (af.Name.Contains(".mp4"))
+		                    af.IsPrimary = true;
+		                else
+		                    af.IsPrimary = false;
+		
+		                af.Update();
+		            }
+		
+		            return asset;
+		        }
+		
+		
+		        static public IAsset EncodeWithOverlay(IAsset assetSource, string customPresetFileName)
 		        {
 		            // Declare a new job.
 		            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
 		            // Get a media processor reference, and pass to it the name of the 
 		            // processor to use for the specific task.
 		            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-		
 		
 		            // Load the XML (or JSON) from the local file.
 		            string configuration = File.ReadAllText(customPresetFileName);
@@ -154,8 +173,8 @@
 		                TaskOptions.None);
 		
 		            // Specify the input assets to be encoded.
+		            // This asset contains a source file and an overlay file.
 		            task.InputAssets.Add(assetSource);
-		            task.InputAssets.Add(assetOverlay);
 		
 		            // Add an output asset to contain the results of the job. 
 		            task.OutputAssets.AddNew("Output asset",
@@ -167,6 +186,7 @@
 		
 		            return job.OutputMediaAssets[0];
 		        }
+		
 
 		        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
 		        {
@@ -669,9 +689,15 @@
 
 Media Encoder Standard 可讓您在現有影片上疊加影像。目前支援下列格式：png、jpg、gif 及 bmp。下面定義的預設值為視訊疊加層的基本範例。
 
->[AZURE.NOTE]目前不支援疊加層不透明度設定。
+除了定義預設檔案之外，您還必須讓媒體服務知道資產中哪個檔案是疊加影像，以及哪個檔案是您要在上面疊加影像的來源影片。影片檔案必須是**主要**檔案。
 
-除了定義預設檔案之外，您也必須讓媒體服務知道哪些資產包含疊加層影像，以及哪些資產包含您想要在其上疊加影像的來源視訊。請參閱上面定義之 **EncodeWithOverlay** 方法的 .NET 範例。
+上述 .NET 範例定義兩個函式：**UploadMediaFilesFromFolder** 和 **EncodeWithOverlay**。UploadMediaFilesFromFolder 函式會上傳資料夾中的檔案 (例如，BigBuckBunny.mp4 和 Image001.png)，並將 mp4 檔案設定為資產中的主要檔案。**EncodeWithOverlay** 函式會使用傳遞給它的自訂預設檔案 (例如，後續的預設) 建立編碼工作。
+
+>[AZURE.NOTE]目前限制：
+>
+>不支援疊加不透明度設定。
+>
+>您的來源影片檔案和疊加檔案必須位於相同的資產。
 
 ###JSON 預設值
 	
@@ -699,7 +725,7 @@ Media Encoder Standard 可讓您在現有影片上疊加影像。目前支援下
 	              "InputLoop": true
 	            }
 	          ],
-	          "Source": "Image001.jpg",
+	          "Source": "Image001.png",
 	          "Clip": {
 	            "Duration": "00:00:05"
 	          },
@@ -759,7 +785,7 @@ Media Encoder Standard 可讓您在現有影片上疊加影像。目前支援下
 	      <Streams />
 	      <Filters>
 	        <VideoOverlay>
-	          <Source>Image001.jpg</Source>
+	          <Source>Image001.png</Source>
 	          <Clip Duration="PT5S" />
 	          <FadeInDuration Duration="PT1S" />
 	          <FadeOutDuration StartTime="PT3S" Duration="PT4S" />
@@ -813,13 +839,13 @@ Media Encoder Standard 可讓您在現有影片上疊加影像。目前支援下
 	  </Outputs>
 	</Preset>
 
-##<a id="silent_audio"></a>在輸入不含音訊時插入靜音曲目
+##<a id="silent_audio"></a>若輸入不含音訊請插入靜音曲目
 
 依照預設，如果您傳送僅包含視訊不含音訊的輸入到編碼器，輸出資產將包含僅含視訊資料的檔案。某些播放器可能無法處理此類型輸出資料流。您可以在該案例中使用此設定來強制編碼器將靜音曲目新增至輸出。
 
 若要強制編碼器在輸入不含音訊時產生包含靜音曲目的資產，請指定 "InsertSilenceIfNoAudio" 值。
 
-您可以使用[這裡](https://msdn.microsoft.com/library/mt269960.aspx)記載的任何 MES 預設值，並執行以下修改：
+您可以使用[這裡](https://msdn.microsoft.com/library/mt269960.aspx)列出的任何 MES 預設值，並執行以下修改：
 
 ###JSON 預設值
 
@@ -884,4 +910,4 @@ Media Encoder Standard 可讓您在現有影片上疊加影像。目前支援下
 
 [媒體服務編碼概觀](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

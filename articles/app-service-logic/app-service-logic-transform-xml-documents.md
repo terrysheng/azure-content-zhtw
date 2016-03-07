@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/18/2016"
 	ms.author="anuragdalmia"/>
 
-#BizTalk 轉換
+# BizTalk 轉換
 
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。
 
 ## 概觀
-簡言之，「BizTalk 轉換 API 應用程式」會將資料轉換為不同的格式。例如，您可能會從訂單中取用出貨和帳單地址，並將其插入發票文件中。或者，您的內送訊息中可能包含 *YearMonthDay* 格式的目前日期。您想要將日期重新格式化為 *MonthDayYear* 格式。
+BizTalk 轉換 API 應用程式會將資料從一種格式轉換成另一種格式。例如，您可能會從訂單中取用出貨和帳單地址，並將其插入發票文件中。或者，您的內送訊息中可能包含 *YearMonthDay* 格式的目前日期。您想要將日期重新格式化為 *MonthDayYear* 格式。
 
 您可以使用 Microsoft Azure 應用程式服務中的「轉換 API 應用程式」來執行此動作。轉換 (亦稱為對應) 由來源 XML 結構描述 (輸入) 和目標 XML 結構描述 (輸出) 所組成。您可以利用不同的內建功能來操控或控制資料，包括字串操作、條件式協議、算術運算式、日期時間格式器，甚至迴圈建構。
 
@@ -116,4 +117,4 @@
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0224_2016-->

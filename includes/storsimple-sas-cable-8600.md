@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 9/23/15-->
+<!--author=alkohli last changed:02/22/16-->
 
 #### 連接 SAS 纜線
 
@@ -13,7 +13,7 @@
     |1|主要機箱|
     |2|EBOD 機箱|
 
-2. 找出主要機箱與 EBOD 機箱的序號。序號貼紙貼在每個機箱的背後。兩個機箱上的序號必須相同。如果序號不相符，請立即[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。請參閱下圖以協助您尋找序號。
+2. 找出主要機箱與 EBOD 機箱的序號。序號貼紙貼在每個機箱的背後。兩個機箱上的序號必須相同。如果序號不相符，請立即[連絡 Microsoft 支援服務](../articles/storsimple/storsimple-contact-microsoft-support.md)。請參閱下圖以協助您尋找序號。
 
     ![顯示序號的機箱後方檢視](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
 
@@ -46,4 +46,4 @@
     |5、6|主要機箱上的 SAS 連接埠 (標示為 EBOD)|
     |7、8|EBOD 機箱上的 SAS 連接埠 (連接埠 A)|
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

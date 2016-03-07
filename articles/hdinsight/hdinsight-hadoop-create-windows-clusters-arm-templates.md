@@ -19,7 +19,7 @@
 
 # 使用 ARM 範本在 HDInsight 中建立 Windows 型 Hadoop 叢集
 
-[AZURE.INCLUDE [選取器](../../includes/hdinsight-create-windows-cluster-selector.md)]
+[AZURE.INCLUDE [選取器](../../includes/hdinsight-selector-create-clusters.md)]
 
 了解如何使用 Azure 資源管理員 (ARM) 範本建立 HDInsight 叢集。如需詳細資訊，請參閱[使用 Azure 資源管理員範本部署應用程式](../resource-group-template-deploy.md)。如需其他叢集建立工具和功能的資訊，請按一下此頁面頂端的索引標籤，或參閱[叢集建立方法](hdinsight-provision-clusters.md#cluster-creation-methods)。
 
@@ -444,4 +444,4 @@ ARM 範本可讓您在單一的協調作業中，輕鬆地為您的應用程式�
 	  }
 	}
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

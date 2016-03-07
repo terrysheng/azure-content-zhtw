@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="02/22/2016"
    ms.author="tomfitz"/>
 
 # Azure 資源管理員範本函數
@@ -556,6 +556,7 @@
 資源管理員提供下列函式以取得資源值：
 
 - [listkeys](#listkeys)
+- [list*](#list)
 - [提供者](#providers)
 - [reference](#reference)
 - [resourceGroup](#resourcegroup)
@@ -569,11 +570,11 @@
 
 **listKeys (resourceName or resourceIdentifier, apiVersion)**
 
-傳回儲存體帳戶的金鑰。使用 [resourceId](./#resourceid) 函數或使用格式 **providerNamespace/resourceType/resourceName**，即可指定 resourceId。您可以使用此函數來取得 primaryKey 和 secondaryKey。
+傳回支援 listKeys 作業的任何資源類型金鑰。使用 [resourceId](./#resourceid) 函數或使用格式 **providerNamespace/resourceType/resourceName**，即可指定 resourceId。您可以使用此函數來取得 primaryKey 和 secondaryKey。
   
 | 參數 | 必要 | 說明
 | :--------------------------------: | :------: | :----------
-| resourceName 或 resourceIdentifier | 是 | 儲存體帳戶的唯一識別碼。
+| resourceName 或 resourceIdentifier | 是 | 資源的唯一識別碼。
 | apiVersion | 是 | 資源執行階段狀態的 API 版本。
 
 下列範例顯示如何在 outputs 區段中從儲存體帳戶傳回金鑰。
@@ -584,6 +585,19 @@
         "type" : "object" 
       } 
     } 
+
+<a id="list" />
+### list*
+
+**list* (resourceName 或 resourceIdentifier, apiVersion)**
+
+開頭為 **list** 的任何作業可在您的範本中用為函式，包括如上所示的 **listKeys**，以及 **list**、**listAdminKeys** 和 **listStatus** 等作業。呼叫函數時，請使用函式的實際名稱，而非使用 list*。為判斷哪一個資源類型具有清單作業，請使用以下 PowerShell 命令。
+
+    PS C:\> Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
+
+或者，請擷取具有 Azure CLI 的清單。以下範例擷取 **apiapps** 的所有作業，並使用 JSON 公用程式 [jq](http://stedolan.github.io/jq/download/) 來篩選清單作業。
+
+    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains("list"))"
 
 <a id="providers" />
 ### 提供者
@@ -792,4 +806,4 @@
 - 建立資源類型時若要逐一查看指定的次數，請參閱[在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
 - 若要了解如何部署已建立的範本，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

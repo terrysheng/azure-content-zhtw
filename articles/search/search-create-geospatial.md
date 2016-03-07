@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="使用 Azure 搜尋服務建立地理空間搜尋應用程式 | Microsoft Azure | 雲端託管搜尋服務" 
-	description="使用 Bing 和 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 建立您的第一個地理空間搜尋應用程式。" 
+	description="使用 Bing 和 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 建立地理空間搜尋應用程式。" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 # 使用 Azure 搜尋服務建立地理空間搜尋應用程式
@@ -167,4 +167,4 @@
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

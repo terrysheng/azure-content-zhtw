@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sidneyh; ddove" />
 
 # 開始使用彈性資料庫工作
@@ -429,10 +429,10 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。如果
 儲存在不同分區中、來自 [客戶] 資料表的所有資料列會填入 Excel 工作表。
 
 ## 後續步驟
-您現在可以使用 Excel 強大資料功能。您可以使用具備您的伺服器名稱、資料庫名稱和認證的連接字串來連接您的 BI 和資料整合工具至彈性查詢資料庫。請確定 SQL Server 可支援做為您的工具的資料來源。您可以參考彈性查詢資料庫和外部資料表，就如同您會使用您的工具連接的任何其他 SQL Server 資料庫和 SQL Server 資料表。
+您現在可以使用 Excel 的資料功能。使用具備伺服器名稱、資料庫名稱和認證的連接字串，將您的 BI 和資料整合工具連接至彈性查詢資料庫。請確定 SQL Server 可支援做為您的工具的資料來源。參考彈性查詢資料庫和外部資料表，就如同您會使用您的工具連接的任何其他 SQL Server 資料庫和 SQL Server 資料表。
 
 ### 成本
-使用彈性資料庫查詢功能不另行收費。不過，目前這項功能僅適用於 Premium 資料庫做為端點，但分區可以是任何服務層。
+使用彈性資料庫的查詢功能不另行收費。不過，目前這項功能僅適用於 Premium 資料庫做為端點，但分區可以是任何服務層。
 
 如需價格資訊，請參閱 [SQL Database 價格詳細資料](https://azure.microsoft.com/pricing/details/sql-database/)。
 
@@ -447,4 +447,4 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。如果
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

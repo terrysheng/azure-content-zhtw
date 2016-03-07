@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -31,7 +31,7 @@
 下列步驟說明如何利用 Transact-SQL 複製 SQL Database。資料庫複製作業會使用 [CREATE DATABASE]() 陳述式，將 SQL Database 複製到新的資料庫。副本是您在同一部伺服器或不同伺服器上建立的資料庫快照備份。
 
 
-> [AZURE.NOTE]Azure SQL Database 會自動為每個使用者資料庫建立並維護可供還原的備份。如需詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
+> [AZURE.NOTE] Azure SQL Database 會自動為每個使用者資料庫建立並維護可供還原的備份。如需詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
 
 
 複製程序完成時，新的資料庫是功能完整的資料庫，獨立於來源資料庫。複製完成時，新資料庫與來源資料庫在交易上一致。資料庫副本與來源資料庫的服務層和效能層級 (定價層) 相同。複製完成之後，副本會變成功能完整的獨立資料庫。可以個別管理登入、使用者和權限。
@@ -103,4 +103,4 @@
 - [災害復原詳細資訊](sql-database-disaster-recovery-drills.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

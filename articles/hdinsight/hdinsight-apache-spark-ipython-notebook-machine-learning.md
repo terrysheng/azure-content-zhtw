@@ -14,15 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 
 # 在 Azure HDInsight 上使用 Apache Spark 建置機器學習服務應用程式 (Linux)
 
 了解如何在 HDInsight 中使用 Apache Spark 叢集建置機器學習應用程式。本文說明如何使用叢集隨附的 Jupyter Notebook 來建置及測試應用程式。應用程式使用所有叢集預設提供的範例 HVAC.csv 資料。
-
-> [AZURE.TIP] 本教學課程也適用於您在 HDInsight 中所建立 Spark (Linux) 叢集上的 Jupyter Notebook。Notebook 的體驗能讓您從 Notebook 本身執行 Python 程式碼片段。如要從 Notebook 中執行本教學課程，請建立 Spark 叢集、啟動 Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`)，然後執行 **Python** 資料夾中的 Notebook [Spark 機器學習 - 利用 HVAC data.ipynb 來預測建築物溫度]。
 
 **必要條件：**
 
@@ -45,7 +43,9 @@
 
 ##<a name="app"></a>使用 Spark MLlib 編寫機器學習應用程式
 
-1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
+在此應用程式中，我們會使用 Spark ML 管線來執行文件分類。在管線中，我們將文件分割成單字、將單字轉換成數值特性向量，最後再使用特性向量和標籤建立預測模型。執行下列步驟以建立應用程式。
+
+1. 在 [Azure 預覽入口網站](https://portal.azure.com/)的「開始面板」，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板的話)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
 2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結] ，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
@@ -53,7 +53,7 @@
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. 建立新的 Notebook。按一下 [新增]，然後按一下 [Python 2]。
+2. 建立新的 Notebook。按一下 [**新建**]，然後按一下 [**PySpark**]。
 
 	![建立新的 Jupyter Notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.createnotebook.png "建立新的 Jupyter Notebook")
 
@@ -61,10 +61,7 @@
 
 	![提供 Notebook 的名稱](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.notebook.name.png "提供 Notebook 的名稱")
 
-3. 開始建置機器學習服務應用程式。在此應用程式中，我們會使用 Spark ML 管線來執行文件分類。在管線中，我們將文件分割成單字、將單字轉換成數值特性向量，最後再使用特性向量和標籤建立預測模型。
-
-	若要開始建置應用程式，您需要先匯入所需的模組，並將資源指派給應用程式。將下列程式碼片段貼到新 Notebook 的空白儲存格中，然後按下 **SHIFT + ENTER**。
-
+3. 您使用 PySpark 核心建立 Notebook，因此不需要明確建立任何內容。當您執行第一個程式碼儲存格時，系統會自動為您建立 Spark、SQL 和 Hive 內容。首先，您可以匯入此案例需要的類型。將下列程式碼片段貼到空白儲存格中，然後按 **SHIFT + ENTER**。
 
 		from pyspark.ml import Pipeline
 		from pyspark.ml.classification import LogisticRegression
@@ -73,29 +70,14 @@
 		
 		import os
 		import sys
-		from pyspark import SparkConf
-		from pyspark import SparkContext
-		from pyspark.sql import SQLContext
 		from pyspark.sql.types import *
 		
 		from pyspark.mllib.classification import LogisticRegressionWithSGD
 		from pyspark.mllib.regression import LabeledPoint
 		from numpy import array
 		
-		# Assign resources to the application
-		conf = SparkConf()
-		conf.setMaster('yarn-client')
-		conf.setAppName('pysparkregression')
-		conf.set("spark.cores.max", "4")
-		conf.set("spark.executor.memory", "4g")
 		
-		sc = SparkContext(conf=conf)
-		sqlContext = SQLContext(sc)
-
-	每當您在 Jupyter 中執行工作時，網頁瀏覽器視窗標題會顯示 Notebook 的標題和 **(忙碌)** 狀態。您也會在右上角的 **Python 2** 文字旁看到實心圓。工作完成後，實心圓將會變成空心圓。
-
-	 ![Jupyter Notebook 工作的狀態](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.jupyter.job.status.png "Jupyter Notebook 工作的狀態")
- 
+	 
 4. 您現在必須載入資料 (hvac.csv)、剖析資料，以及利用它來為模型定型。為此，您需要定義檢查建築物之實際溫度是否高於目標溫度的函示。如果實際溫度較高，代表建築物是熱的，我們以 **1.0** 值來表示這個狀態。如果實際溫度較低，代表建築物是冷的，我們以 **0.0** 值來表示這個狀態。
 
 	將下列程式碼片段貼到空白儲存格中，然後按下 **SHIFT + ENTER**。
@@ -272,4 +254,4 @@ HDInsight 上的 Apache Spark 叢集包含 Anaconda 程式庫。其中也包含�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -27,7 +27,7 @@ Microsoft Azure StorSimple 裝置上的主要機箱電源和冷卻模組 (PCM) �
 - 安裝新的備份電池模組
 - 維護備份電池模組
 
->[AZURE.IMPORTANT]取下及更換備份電池模組之前，請閱讀 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)中的安全資訊。
+>[AZURE.IMPORTANT] 取下及更換備份電池模組之前，請閱讀 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)中的安全資訊。
 
 ## 取下備份電池模組
 
@@ -97,7 +97,7 @@ Microsoft Azure StorSimple 裝置的備份電池模組是現場可置換裝置�
 
 在管理入口網站中，[維護] 頁面上的 [硬體狀態] 指出電池是否故障，或電池何時即將用光。在[**共用元件**] 下，電池狀態是以 [**PCM 1 中的電池**] 或 [**PCM 0 中的電池**] 指出。此頁面會顯示 [**降級**] 狀態，表示電池即將用光，以及顯示 [**故障**]，表示電池已用光。
 
->[AZURE.NOTE]當電池只需充電時，可以報告 [**故障**]。
+>[AZURE.NOTE] 當電池只需充電時，可以報告 [**故障**]。
  
 如果 [**降級**] 狀態出現，我們建議採取下列動作：
 
@@ -109,10 +109,10 @@ Microsoft Azure StorSimple 裝置的備份電池模組是現場可置換裝置�
 
 - 如果沒有相關聯的 AC 電源喪失，而且 PCM 已開啟並連接至 AC 電源，則電池需要更換。請[連絡 Microsoft 支援](storsimple-contact-microsoft-support.md)，以訂購更換備份電池模組。
 
->[AZURE.IMPORTANT]依據國家及地區法規處置故障電池。
+>[AZURE.IMPORTANT] 依據國家及地區法規處置故障電池。
 
 ## 後續步驟
 
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

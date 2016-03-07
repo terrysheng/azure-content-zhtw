@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="如何在 Azure 搜尋服務中實作多面向導覽 | Microsoft Azure | 雲端託管搜尋服務" 
+	pageTitle="如何在 Azure 搜尋服務中實作多面向導覽 | Microsoft Azure | 搜尋導覽類別" 
 	description="將「多面向導覽」加入與 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 整合的應用程式。" 
 	services="search" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 #如何在 Azure 搜尋服務中實作多面向導覽
@@ -29,10 +29,6 @@
 實作多面向導覽會因各搜尋技術而不同，而且可能非常複雜。在 Azure 搜尋服務中，多面向導覽是使用先前在結構描述中指定之屬性欄位，在查詢時間建置。在應用程式建置的查詢中，查詢必須傳送「面向查詢參數」，才能接收該文件結果集之可用的面向篩選值。若要實際修剪文件結果集，應用程式必須套用 `$filter` 運算式。
 
 根據應用程式開發，撰寫建構查詢的程式碼，而這些查詢構成整體工作的一大部分。此服務提供大部分您希望從多面向導覽獲得的應用程式行為，包括設定範圍和取得面向結果計數的內建支援。服務也包含合理的預設值，能協助您避免難處理的導覽結構。
-
-如需實作經驗，建議您參閱 CodePlex 上的此範例：[Azure Search AdventureWorks Catalog](https://azuresearchadventureworksdemo.codeplex.com/)
-
-您也可以觀賞[深入了解 Aure 搜尋服務](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410) 。在 45:25 時有示範如何實作多面向。
 
 本文包含下列章節：
 
@@ -128,7 +124,7 @@ Azure 搜尋服務中的多面向導覽實作在建置要求的應用程式程�
   ![][2]
  
 
-> [AZURE.TIP]設計搜尋結果頁面時，請記得加入清除面向的機制。如果您使用搜尋方塊，使用者輕鬆地就能憑直覺知道如何清除篩選條件。針對其他配置，您可能需要階層模式或其他具創意的方法。例如在 AdventureWorks Catalog 範例應用程式中，您可以按一下標題 (AdventureWorks Catalog) 來重設搜尋頁面。
+> [AZURE.TIP] 設計搜尋結果頁面時，請記得加入清除面向的機制。如果您使用搜尋方塊，使用者輕鬆地就能憑直覺知道如何清除篩選條件。針對其他配置，您可能需要階層模式或其他具創意的方法。例如在 AdventureWorks Catalog 範例應用程式中，您可以按一下標題 (AdventureWorks Catalog) 來重設搜尋頁面。
 
 <a name="buildindex"></a>
 ##建置索引
@@ -143,7 +139,7 @@ Azure 搜尋服務中的多面向導覽實作在建置要求的應用程式程�
  
 請注意到，已針對不應當做面向的字串欄位 (例如識別碼或名稱) 關閉 `Facetable`。關閉不需要的多面向功能可讓索引的大小比較小，並增進整體效能。
 
-> [AZURE.TIP]根據最佳作法，建議每個欄位都包含整組完整的索引屬性。雖然幾乎所有欄位的 `Facetable` 預設都為開啟，但刻意設定每個屬性，可協助您仔細思考每個結構描述的決定。
+> [AZURE.TIP] 根據最佳作法，建議每個欄位都包含整組完整的索引屬性。雖然幾乎所有欄位的 `Facetable` 預設都為開啟，但刻意設定每個屬性，可協助您仔細思考每個結構描述的決定。
 
 <a name="checkdata"></a>
 ##檢查資料品質 
@@ -227,7 +223,7 @@ Azure 搜尋服務中的多面向導覽實作在建置要求的應用程式程�
 
 請注意面向結果與搜尋結果之間的區別。搜尋結果是符合查詢的所有文件。面向結果是各面向值的符合項。在此範例中，搜尋結果將包含不在面向分類清單中的「城市」名稱 (範例中為 5 個)。當使用者清除面向或選擇「城市」以外的其他面向時，會顯示透過多面向導覽篩選出的結果。
 
-> [AZURE.NOTE]當有一種類型以上時討論 `count` 可能會讓人混淆。下列表格提供了如何於 Azure Search API、範例程式碼與文件中使用字詞的簡短摘要。
+> [AZURE.NOTE] 當有一種類型以上時討論 `count` 可能會讓人混淆。下列表格提供了如何於 Azure Search API、範例程式碼與文件中使用字詞的簡短摘要。
 
 - `@colorFacet.count`<br/> 在簡報程式碼中，您應該會在面向上面看見用來顯示面向結果數目的計數參數。在面向結果中，計數表示符合面向字詞或範圍的文件數目。
 
@@ -302,7 +298,7 @@ Azure Search 中有兩種地理空間函式，**geo.distance** 與 **geo.interse
 
 於 Codeplex 上的 Azure Search Adventure Works Demo 包含了此文章中參照的範例。當您使用搜尋結果的同時，請造訪該 URL 查看查詢建構中的變更。當您選取各個結果時，此應用程式會將面向附加到 URI。
 
-1.	設定範例應用程式 (請參閱[針對指示建立您的第一個應用程式](search-create-first-solution.md))。 
+1.	設定範例應用程式，以便使用您的服務 URL 和 API 金鑰。 
 
 	請注意 CatalogIndexer 專案的 Program.cs 檔案中定義的結構描述。它會針對色彩、ListPrice、大小、重量、CategoryName 與 ModelName 指定可面向化的欄位。只有少部分 (色彩、ListPrice、CategoryName) 會實際在多面向導覽中實作。
 
@@ -335,6 +331,8 @@ Azure Search 中有兩種地理空間函式，**geo.distance** 與 **geo.interse
 
 - [多面向搜尋的設計](http://www.uie.com/articles/faceted_search/)
 - [設計模式：多面向導覽](http://alistapart.com/article/design-patterns-faceted-navigation)
+
+您也可以觀賞[深入了解 Aure 搜尋服務](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410) 。在 45:25 時有示範如何實作多面向。
 
 <!--Anchors-->
 [How to build it]: #howtobuildit
@@ -372,4 +370,4 @@ Azure Search 中有兩種地理空間函式，**geo.distance** 與 **geo.interse
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="在資源管理員中使用範本控制路由和使用虛擬應用裝置 | Microsoft Azure"
-   description="了解如何在 Azure 中使用範本控制路由和使用虛擬應用裝置"
+   description="深入了解在 Azure Resource Manager 中使用範本控制路由和使用虛擬應用裝置"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-#使用範本建立使用者定義的路由 (UDR)
+#在資源管理員中使用範本建立使用者定義的路由 (UDR)
 
 [AZURE.INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
@@ -31,7 +31,7 @@
 
 您可以檢視和下載[範例範本](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR)。
 
-下一節根據上述案例，顯示 azuredeploy-vnet-nsg-udr.json 檔案中前端 UDR 的定義。
+下一節根據上述案例，顯示 **azuredeploy-vnet-nsg-udr.json** 檔案中前端 UDR 的定義。
 
 	"apiVersion": "2015-06-15",
 	"type": "Microsoft.Network/routeTables",
@@ -108,7 +108,7 @@
 
 ## 使用按一下即部署來部署 ARM 範本
 
-公用儲存機制中可用的範例範本會使用一個包含預設值的參數檔案，這些預設值可用來產生上述案例。若要使用按一下來部署此範本，請依照[此連結](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR)，然後按一下**部署至 Azure**，視情況取代預設參數值，並遵循入口網站中的指示。
+公用儲存機制中可用的範例範本會使用一個包含預設值的參數檔案，這些預設值可用來產生上述案例。若要使用「按一下即部署」來部署此範本，請依循[此連結](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR)，按一下 [部署至 Azure]，視情況取代預設參數值，再依循入口網站中的指示。
 
 ## 使用 PowerShell 部署 ARM 範本
 
@@ -116,13 +116,17 @@
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
+1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
 
-3. 執行 **New-AzureRmResourceGroup** Cmdlet 以使用範本建立資源群組。
+2. 執行 `New-AzureRmResourceGroup` Cmdlet，以建立資源群組。
 
-		New-AzureRmResourceGroup -Name TestRG -Location westus `
-		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json'	
+		New-AzureRmResourceGroup -Name TestRG -Location westus
+
+3. 執行 `New-AzureRmResourceGroupDeployment` Cmdlet，以部署範本。
+
+		New-AzureRmResourceGroupDeployment -Name DeployUDR -ResourceGroupName TestRG `
+		    -TemplateUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json `
+		    -TemplateParameterUri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json	    	
 
 	預期的輸出：
 
@@ -164,14 +168,14 @@
 		                    testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
 		                    testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
 		                    
-		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 ## 使用 Azure CLI 部署 ARM 範本
 
 若要使用 Azure CLI 部署 ARM 範本，請依照下列步驟執行。
 
-1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
-2. 執行 **azure config mode** 命令，以切換為資源管理員模式，如下所示。
+1. 如果您從未用過 Azure CLI，請參閱[安裝和設定 Azure CLI](../xplat-cli-install.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
+2. 執行 `azure config mode` 命令，以切換為資源管理員模式，如下所示。
 
 		azure config mode arm
 
@@ -390,6 +394,6 @@
 		data:    
 		info:    group show command OK
 
->[AZURE.TIP]如果看不到所有資源，請執行 **azure group deployment show** 命令，以確保部署的佈建狀態為*成功*。
+>[AZURE.TIP] 如果看不到所有資源，請執行 `azure group deployment show` 命令，以確保部署的佈建狀態為*成功*。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 # 如何使用 PHP 的佇列儲存體
@@ -42,12 +42,13 @@
 
 若要使用 Azure 佇列儲存體的 API，您需要：
 
-1. 使用 [require\_once][require_once] 陳述式來參考自動換片器檔案。
+1. 使用 [require\_once] 陳述式來參考自動換片器檔案。
 2. 參考任何您可能使用的類別。
 
 下列範例顯示如何納入自動換片器檔案及參考 **ServicesBuilder** 類別。
 
-> [AZURE.NOTE]此範例 (和本文中的其他範例) 假設您已透過編輯器安裝 PHP Client Libraries for Azure。如果您手動或透過 PEAR 封裝安裝程式庫，則必須參考 `WindowsAzure.php` 自動換片器檔案。
+> [AZURE.NOTE]
+此範例 (和本文中的其他範例) 假設您已透過編輯器安裝 PHP Client Libraries for Azure。如果您手動或透過 PEAR 封裝安裝程式庫，則必須參考 `WindowsAzure.php` 自動換片器檔案。
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -115,7 +116,7 @@
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE]您不應該倚賴大小寫來區分中繼資料索引鍵。從服務讀取索引鍵時，所有索引鍵都是視為小寫。
+> [AZURE.NOTE] 您不應該倚賴大小寫來區分中繼資料索引鍵。從服務讀取索引鍵時，所有索引鍵都是視為小寫。
 
 
 ## 將訊息新增至佇列
@@ -380,7 +381,7 @@
 如需詳細資訊，另請參閱 [PHP 開發人員中心](/develop/php/)。
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[require_once]: http://www.php.net/manual/en/function.require-once.php
-[Azure Portal]: portal.azure.com
+[require\_once]: http://www.php.net/manual/en/function.require-once.php
+[Azure Portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

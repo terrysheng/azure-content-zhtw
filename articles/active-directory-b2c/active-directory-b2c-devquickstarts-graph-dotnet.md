@@ -348,9 +348,6 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 - 呼叫圖形 API 時，請使用 [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx)。
 - 當建立和更新取用者使用者，有幾個必要的屬性，如上所述。
 
-> [AZURE.IMPORTANT]
-在 B2C 應用程式中使用 Azure AD 圖形 API 時，您需要考慮目錄服務基礎 Azure AD B2C 的複寫特性 (閱讀[本文](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx)以深入了解)。取用者使用**註冊**原則註冊您的 B2C 應用程式後，如果您反過來立即嘗試讀取在您的應用程式中使用 Azure AD 圖形 API 的使用者物件，它可能會無法使用。您必須等候數秒鐘讓複寫程序完成。在正式發行的版本中，我們將發行關於 Azure AD 圖形 API 和目錄服務提供的「讀寫一致性保證 」的更具體指引。
-
 對於您想要使用圖形 API 在 B2C 租用戶上執行的動作，如果您有任何問題或要求，我們洗耳恭聽！ 請在文章上留言，或在程式碼範例 GitHub 儲存機制中提出問題。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

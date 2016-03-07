@@ -1,6 +1,6 @@
 <properties
-   pageTitle="使用 Powershell 在 Azure RemoteApp 中開始使用 | Microsoft Azure"
-   description="了解如何使用 Powershell 在 Azure RemoteApp 中開始使用"
+   pageTitle="將 PowerShell Cmdlet 搭配 Azure RemoteApp 使用 | Microsoft Azure"
+   description="了解如何在 Azure RemoteApp 中使用 Windows PowerShell Cmdlet。"
    services="remoteapp"
    documentationCenter=""
    authors="guscatalano"
@@ -13,24 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="12/05/2015"
-   ms.author="guscatal;spatnaik;elizapo"/>
+   ms.date="02/23/2016"
+   ms.author="elizapo"/>
 
 
 
-# 使用 Powershell 在 Azure RemoteApp 中開始使用
+# 將 Windows PowerShell Cmdlet 搭配 Azure RemoteApp 使用
 =====================================
 
+ 您可以使用 Azure RemoteApp PowerShell Cmdlet 管理和維護您的集合。首先，請使用下列資訊。
 
-## 取得 Cmdlet
+## 取得 Cmdlet 
 -------------
-先，我們需要在[這裡](http://go.microsoft.com/?linkid=9811175)下載 Azure Powershell Cmdlet，而 RemoteApp 包含在其中。
+先在[這裡](http://go.microsoft.com/?linkid=9811175)下載 Azure Powershell Cmdlet，當中內含 RemoteApp Cmdlet。
 
-請在[這裡](https://msdn.microsoft.com/library/mt428031.aspx)查看 Azure RemoteApp Cmdlet 說明。
+請查看 [Azure RemoteApp Cmdlet 說明](https://msdn.microsoft.com/library/mt428031.aspx)。
 
 ## 設定 Azure Cmdlet 以使用訂用帳戶
 ------------------
 請依照[本指南](../powershell-install-configure.md)進行，以對 Azure 訂用帳戶使用 Cmdlet。
+
+您可以透過這些步驟快速開始使用：
+
+1.	下載並安裝 [Azure PowerShell Cmdlet](http://go.microsoft.com/?linkid=9811175)。
+2.	啟動 Microsoft Azure PowerShell。
+3.	執行 **Add-AzureAccount** 以驗證您的 Azure 訂用帳戶。出現提示時，請輸入您用來登入 Azure 入口網站的使用者名稱和密碼。  
+4.	執行 **Get-AzureSubscription** 以列出與您使用者帳戶相關聯的訂用帳戶。 
+5.	執行 **Select-AzureSubscription** 並指定要在 PowerShell 主控台中使用的訂用帳戶名稱或識別碼。
+
+恭喜，您的 Azure PowerShell 主控台已設定完成且可以使用了。請注意，每次您啟動 Azure PowerShell 主控台後都必須重複步驟 2至 5。
 
 ## 建立雲端收藏
 --------------------
@@ -99,5 +110,6 @@ Other RemoteApp cmdlets:
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
+ 
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0224_2016-->

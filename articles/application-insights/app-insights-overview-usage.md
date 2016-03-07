@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="11/24/2015"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
 
 # 使用 Application Insights 進行使用量分析
@@ -25,7 +25,7 @@ Application Insights 適用於獨立應用程式 (在 iOS、Android 和 Windows 
 
 ## 將 Application Insights 加入至專案
 
-首先，取得 [Microsoft Azure](https://azure.com) 訂用帳戶。(可免費試用，且在試用期之後，您可以繼續使用服務的免費層。)
+首先，請先取得 [Microsoft Azure](https://azure.com) 免費帳戶。(試用期過後，您可以繼續使用服務的免費層)。
 
 在 [Azure 入口網站](https://portal.azure.com) 中，建立 Application Insights 資源。您會在其中看到應用程式的使用情況和效能資料。
 
@@ -288,4 +288,4 @@ Web 工作階段在 30 分鐘無活動後會被計入。在電話或其他裝置
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

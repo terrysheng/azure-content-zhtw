@@ -19,7 +19,7 @@
 
 # 使用 .NET SDK 在 HDInsight 中建立 Windows 型 Hadoop 叢集
 
-[AZURE.INCLUDE [選取器](../../includes/hdinsight-create-windows-cluster-selector.md)]
+[AZURE.INCLUDE [選取器](../../includes/hdinsight-selector-create-clusters.md)]
 
 
 了解如何使用 .NET SDK 建立 HDInsight 叢集。如需其他叢集建立工具和功能的資訊，請按一下此頁面頂端的索引標籤，或參閱[叢集建立方法](hdinsight-provision-clusters.md#cluster-creation-methods)。
@@ -220,4 +220,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
     Write-host "Default Storage Account Key: $defaultStorageAccountKey"
     Write-host "Default Blob Container Name: $defaultBlobContainerName"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

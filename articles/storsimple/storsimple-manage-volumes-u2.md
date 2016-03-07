@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.workload="NA"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務來管理磁碟區 (Update 2)
@@ -48,7 +48,7 @@ StorSimple 磁碟區可以是：
 
 分層磁碟區是精簡佈建磁碟區，經常存取裝置上本機的資料，而較少使用的資料會自動分層至雲端。精簡佈建是一種虛擬化技術，精簡佈建中的可用儲存體會顯示超過實體資源。與其預先保留足夠的儲存空間，StorSimple 會使用精簡佈建來配置剛好符合目前需求的足夠空間。雲端儲存體的彈性本質正好支援這種方法，因為 StorSimple 可以增加或減少雲端儲存體以符合不斷變更的需求。
 
-您可以指定分層磁碟區做為封存磁碟區，方法是勾選 [使用此磁碟區存放不常存取的封存資料] 核取方塊。封存磁碟區使用 512 KB 重複資料刪除區塊大小，而非封存磁碟區使用 64 KB 區塊大小。較大的重複資料刪除區塊大小可讓裝置將資料的較大區塊傳輸至雲端。
+如果您針對封存資料使用分層磁碟區，選取 [使用此磁碟區存放不常存取的封存資料] 核取方塊會將您磁碟區的重複資料刪除區塊大小變更為 512 KB。如果未核取此選項，對應的分層磁碟區會使用 64 KB 的區塊大小。較大的重複資料刪除區塊大小可讓裝置加速傳送大型封存資料到雲端。
 
 >[AZURE.NOTE] 使用 StorSimple Update 2 前版本所建立的封存磁碟區將會匯入為分層，且選取封存核取方塊。
 
@@ -285,4 +285,4 @@ StorSimple 磁碟區可以是：
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

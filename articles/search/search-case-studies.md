@@ -1,5 +1,5 @@
 <properties
-	pageTitle="誰在使用 Azure 搜尋服務：案例研究和客戶經驗談 | Microsoft Azure | 雲端託管搜尋服務"
+	pageTitle="誰在使用 Azure 搜尋服務：案例研究和客戶經驗談 | Microsoft Azure | 使用者案例"
 	description="關於 Azure 搜尋服務 (在 Microsoft Azure 上託管的雲端搜尋服務) 的案例研究和客戶案例。"
 	services="search"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="11/13/2015"
+	ms.date="02/18/2016"
 	ms.author="heidist"/>
 
 # 誰在使用 Azure 搜尋︰個案研究和客戶案例
@@ -61,4 +61,4 @@ Weichert Realtors 正移向雲端，這會導致該公司完全改變其業務�
 [5]: ./media/search-case-studies/weichert_m.png
 [xomni]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

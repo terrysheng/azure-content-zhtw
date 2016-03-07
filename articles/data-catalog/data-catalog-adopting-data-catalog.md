@@ -10,7 +10,7 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic=" hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
    ms.date="01/28/2016"
@@ -172,4 +172,4 @@
 -	[註解資料來源](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
 - [將中繼資料群眾外包](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

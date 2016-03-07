@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/09/2016"
+	ms.date="02/23/2016"
 	ms.author="billmath"/>
 
 
@@ -92,7 +92,7 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 多年來，已出現許多同步處理工具並用於各種案例。在所有支援的案例中，Azure AD Connect 是目前首選的工具。AAD 同步和 DirSync 也依然存在，甚至現在就在您的環境中。
 
 >[AZURE.NOTE]
-如需每一項工具支援的功能的最新資訊，請參閱[目錄整合工具比較](active-directory-aadconnect-get-started-tools-comparison.md)一文。
+如需每一項工具支援的功能的最新資訊，請參閱[目錄整合工具比較](active-directory-hybrid-identity-design-considerations-tools-comparison.md)一文。
 
 ### 支援的拓撲
 定義同步處理策略時，必須判斷使用的拓撲。您可以根據步驟 2 中已判斷的資訊，判斷適合使用的拓撲。單一樹系、單一 Azure AD 拓撲最常見，由單一 Active Directory 樹系和單一 Azure AD 執行個體所組成。這將用於大部分的案例中，也是在使用 Azure AD Connect Express 安裝時預期的拓撲，如下圖所示。
@@ -197,4 +197,4 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 ## 另請參閱
 [設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

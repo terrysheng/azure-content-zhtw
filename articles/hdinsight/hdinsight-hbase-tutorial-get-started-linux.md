@@ -110,7 +110,7 @@
 HBase 包含數個將資料載入資料表的方法。如需詳細資訊，請參閱[大量載入](http://hbase.apache.org/book.html#arch.bulk.load)。
 
 
-範例資料檔案已上傳到公用 Blob 容器：**wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*。資料檔案的內容：
+範例資料檔案已上傳到公用 Blob 容器：*wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*。資料檔案的內容：
 
 	8396	Calvin Raji		230-555-0191	230-555-0191	5415 San Gabriel Dr.
 	16600	Karen Wu		646-555-0113	230-555-0192	9265 La Paz
@@ -287,4 +287,4 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!------HONumber=AcomDC_0218_2016-->

@@ -6,7 +6,7 @@
 	documentationCenter="" 
 	authors="aliuy" 
 	manager="jhubbard" 
-	editor="cgronlun"/>
+	editor="mimig"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/16/2016" 
 	ms.author="andrl"/>
 
 # DocumentDB 伺服器端程式設計：預存程序、資料庫觸發程序和 UDF
@@ -36,7 +36,7 @@
 
 ## 預存程序和 UDF 程式設計簡介
 
-這種「 *以 JavaScript 做為新式 T-SQL* 」的方式，可讓應用程式開發人員不必傷腦筋處理複雜的類型系統不符問題和物件關聯式對應技術。此外，它本身還有一些可加以利用以便建置豐富應用程式的優勢：
+這種「*以 JavaScript 做為新式 T-SQL*」的方式，可讓應用程式開發人員不必傷腦筋處理複雜的類型系統不符問題和物件關聯式對應技術。此外，它本身還有一些可加以利用以便建置豐富應用程式的優勢：
 
 -	**程序邏輯**：以 JavaScript 做為高階程式設計語言，可提供豐富且常見的介面來表示商務邏輯。您可以用更接近資料的方式執行一連串的複雜作業。
 
@@ -50,7 +50,9 @@
 	-	它會在未經處理的資料上方新增抽象層，讓資料架構設計人員發展其應用程式，而不會動到資料。這在資料無結構描述時特別有用，因為暫時的假設是，如果它們需要直接處理資料，則可能需要編譯成應用程式。  
 	-	這個抽象層讓企業得以透過指令碼簡化存取來確保資料安全。  
 
-[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 以及許多平台 (包括 .NET、Node.js 和 JavaScript) 中的[用戶端 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 都支援建立和執行資料庫觸發程序、預存程序和自訂查詢運算子。**本教學課程使用 [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** 說明預存程序、觸發程序和 UDF 的語法和用法。
+許多平台都支援透過 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)、[DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) 和[用戶端 SDK](documentdb-sdk-dotnet.md) (包括 .NET、Node.js 和 JavaScript) 建立和執行資料庫觸發程序、預存程序和自訂查詢運算子。
+
+**本教學課程使用 [Node.js SDK 與 Q Promises](http://azure.github.io/azure-documentdb-node-q/)** 說明預存程序、觸發程序和 UDF 的語法和用法。
 
 ## 預存程序
 
@@ -92,7 +94,7 @@
 		});
 
 
-內容物件提供可對 DocumentDB 儲存體執行之所有作業的存取權，以及要求和回應物件的存取權。在此例中，我們使用回應物件來設定傳回給用戶端的回應本文。如需詳細資料，請參閱 [DocumentDB JavaScript 伺服器 SDK 文件](http://dl.windowsazure.com/documentDB/jsserverdocs/)。
+內容物件提供可對 DocumentDB 儲存體執行之所有作業的存取權，以及要求和回應物件的存取權。在此例中，我們使用回應物件來設定傳回給用戶端的回應本文。如需詳細資料，請參閱 [DocumentDB JavaScript 伺服器 SDK 文件](http://azure.github.io/azure-documentdb-js-server/)。
 
 讓我們擴大這個範例，並對預存程序新增更多資料庫相關功能。預存程序可以建立、更新、讀取、查詢與刪除集合內的文件和附件。
 
@@ -475,7 +477,7 @@ DocumentDB 提供作業在文件上執行或觸發的觸發程序。例如，您
 ## JavaScript Language Integrated Query API
 除了使用 DocumentDB 的 SQL 文法發出查詢，伺服器端 SDK 可讓您使用流暢的 JavaScript 介面執行最佳化查詢，不需具備任何 SQL 的知識。JavaScript 的查詢 API 使用 ECMAScript5 陣列內建和受歡迎的 JavaScript 程式庫如 lodash 所熟悉的語法，將述詞函式傳遞至可鏈結式函式呼叫，藉此以程式設計方式建立查詢。查詢是由 JavaScript 執行階段使用 DocumentDB 的索引來有效地執行剖析。
 
-> [AZURE.NOTE]`__` (雙底線) 是 `getContext().getCollection()` 的別名。<br/> 換句話說，您可以使用 `__` 或 `getContext().getCollection()` 存取 JavaScript 查詢 API。
+> [AZURE.NOTE] `__` (雙底線) 是 `getContext().getCollection()` 的別名。<br/> 換句話說，您可以使用 `__` 或 `getContext().getCollection()` 存取 JavaScript 查詢 API。
 
 支援的功能包括：<ul> <li> <b>chain() ... .value([callback] [, options])</b> <ul> <li>以鏈結呼叫開頭，則必須以 value() 結束。</li> </ul> </li> <li> <b>filter(predicateFunction [, options] [, callback])</b> <ul> <li>使用述詞函式篩選輸入時，會傳回 true/false 以便將輸入文件篩選到結果集。此行為類似於 SQL 中的 WHERE 子句。</li> </ul> </li> <li> <b>map(transformationFunction [, options] [, callback])</b> <ul> <li>適用於所指定的轉換函式將每個輸入項目對應至 JavaScript 物件或值的投影。此行為類似於 SQL 中的 SELECT 子句。</li> </ul> </li> <li> <b>pluck([propertyName] [, options] [, callback])</b> <ul> <li>這是對應的捷徑，會從每個輸入項目擷取單一屬性的值。</li> </ul> </li> <li> <b>flatten([isShallow] [, options] [, callback])</b> <ul> <li>將每個輸入項目的陣列合併並壓平至單一陣列。此行為類似 LINQ 中的 SelectMany。</li> </ul> </li> <li> <b>sortBy([predicate] [, options] [, callback])</b> <ul> <li>使用指定述詞以遞增順序排序輸入文件串流中的文件，產生一組新的文件。此行為類似 SQL 中的 ORDER BY 子句。</li> </ul> </li> <li> <b>sortByDescending([predicate] [, options] [, callback])</b> <ul> <li>使用指定述詞以遞減順序排序輸入文件串流中的文件，產生一組新的文件。此行為類似 SQL 中的 ORDER BY x DESC 子句。</li> </ul> </li> </ul>
 
@@ -491,7 +493,7 @@ DocumentDB 提供作業在文件上執行或觸發的觸發程序。例如，您
 * 控制流程 (例如 if、for、while)
 * 函式呼叫
 
-如需詳細資訊，請參閱我們的[伺服器端 JSDocs](http://dl.windowsazure.com/documentDB/jsserverdocs/)。
+如需詳細資訊，請參閱我們的[伺服器端 JSDocs](http://azure.github.io/azure-documentdb-js-server/)。
 
 ### 範例：使用 JavaScript 查詢 API 撰寫預存程序
 
@@ -557,7 +559,7 @@ DocumentDB 提供作業在文件上執行或觸發的觸發程序。例如，您
 <br/> <table border="1" width="100%"> <colgroup> <col span="1" style="width: 40%;"> <col span="1" style="width: 40%;"> <col span="1" style="width: 20%;"> </colgroup> <tbody> <tr> <th>SQL</th> <th>JavaScript Query API</th> <th>詳細資訊</th> </tr> <tr> <td> <pre> SELECT * FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return doc; }); </pre> </td> <td>列出所有文件中的結果 (以接續權杖重新編頁)。</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg, docs.actions FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return { id: doc.id, msg: doc.message, actions: doc.actions }; }); </pre> </td> <td>投影所有文件的識別碼、訊息 (msg 的別名) 和動作。</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.filter(function(doc) { return doc.id === "X998\_Y998"; }); </pre> </td> <td>以述詞：id = "X998\_Y998" 查詢文件。</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE ARRAY\_CONTAINS(docs.Tags, 123) </pre> </td> <td> <pre> \_\_.filter(function(x) { return x.Tags && x.Tags.indexOf(123) > -1; }); </pre> </td> <td>查詢具有標記屬性且標記是含有值 123 之陣列的文件。</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.id === "X998\_Y998"; }) .map(function(doc) { return { id: doc.id, msg: doc.message }; }) .value(); </pre> </td> <td>以述詞 id = "X998\_Y998" 查詢文件，然後投影識別碼和訊息 (msg 的別名)。</td> </tr> <tr> <td> <pre> SELECT VALUE tag FROM docs JOIN tag IN docs.Tags ORDER BY docs.\_ts </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.Tags && Array.isArray(doc.Tags); }) .sortBy(function(doc) { return doc.\_ts; }) .pluck("Tags") .flatten() .value() </pre> </td> <td>篩選具有陣列屬性標記的文件，並以 \_ts 時間戳記系統屬性排序結果文件，然後投影和壓平標記陣列。</td> </tr> </tbody> </table>
 
 ## 執行階段支援
-[DocumentDB JavaScript 伺服器端 SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) 支援以 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 做為標準的大部分主流 JavaScript 語言功能。
+[DocumentDB JavaScript 伺服器端 SDK](http://azure.github.io/azure-documentdb-js-server/) 支援以 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 做為標準的大部分主流 JavaScript 語言功能。
 
 ### 安全性
 JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料庫層級的快照交易隔離機制，否則某個指令碼的效果不會傳遞到另一個指令碼。每次執行之後，都會對執行階段環境進行集區化處理，但會清除內容。因此，環境與環境彼此之間絕對不會有任何未預期的副作用。
@@ -566,7 +568,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 預存程序、觸發程序和 UDF 會隱含地預先編譯為位元組程式碼格式，以避免掉每次叫用指令碼時的編譯成本。這種作法可確保能夠快速叫用預存程序，且只需耗費少量資源。
 
 ## 用戶端 SDK 支援
-除了 [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) 用戶端之外，DocumentDB 還支援 [.NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)、[Java](http://dl.windowsazure.com/documentdb/javadoc/)、[JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) 和 [Python SDK](http://dl.windowsazure.com/documentDB/pythondocs/)。使用上述任何 SDK，也可以建立和執行預存程序、觸發程序和 UDF。下列範例說明如何使用 .NET 用戶端建立和執行預存程序。請注意 .NET 類型是如何在預存程序中以 JSON 形式傳入及讀回。
+除了 [Node.js](documentdb-sdk-node.md) 用戶端之外，DocumentDB 還支援 [.NET](documentdb-sdk-dotnet.md)、[Java](documentdb-sdk-java.md)、[JavaScript](http://azure.github.io/azure-documentdb-js/) 和 [Python SDK](documentdb-sdk-python.md)。使用上述任何 SDK，也可以建立和執行預存程序、觸發程序和 UDF。下列範例說明如何使用 .NET 用戶端建立和執行預存程序。請注意 .NET 類型是如何在預存程序中以 JSON 形式傳入及讀回。
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -708,7 +710,7 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 
 ## 範例程式碼
 
-您可以在我們的 [Github 存放庫](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples)中找到更多伺服器端程式碼範例 (包括 [upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js)、[bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) 和 [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js))。
+您可以在我們的 [Github 儲存機制](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples)中找到更多伺服器端程式碼範例 (包括 [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) 和 [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js))。
 
 想要共用您絕佳的預存程序嗎？ 請傳送提取要求給我們！
 
@@ -719,11 +721,12 @@ JavaScript 預存程序和觸發程序是在沙箱中執行，除非通過資料
 您還可以在您的路徑中找到下列有用的參考和資源，以深入了解 DocumentDB 伺服器端程式設計：
 
 - [Azure DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)
+- [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
 - [JSON](http://www.json.org/) 
 - [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
--	[JavaScript – JSON 類型系統](http://www.json.org/js.html) 
--	[安全和可攜式資料庫擴充性](http://dl.acm.org/citation.cfm?id=276339) 
--	[服務導向資料庫架構](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
--	[在 Microsoft SQL Server 中託管 .NET 執行階段](http://dl.acm.org/citation.cfm?id=1007669)  
+- [JavaScript – JSON 類型系統](http://www.json.org/js.html) 
+- [安全和可攜式資料庫擴充性](http://dl.acm.org/citation.cfm?id=276339) 
+- [服務導向資料庫架構](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+- [在 Microsoft SQL Server 中託管 .NET 執行階段](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

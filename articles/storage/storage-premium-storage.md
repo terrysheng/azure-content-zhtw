@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
-	ms.author="robinsh;prkhad"/>
+	ms.date="02/20/2016"
+	ms.author="prkhad"/>
 
 
 # Premium 儲存體：Azure 虛擬機器工作負載適用的高效能儲存體
@@ -35,9 +35,9 @@ Azure 使用進階儲存體，提供您將要求較高的企業應用程式 (例
 
 下列是使用 Premium 儲存體之前或使用 Premium 儲存體時需考量的重要事項清單：
 
-- 若要使用 Premium 儲存體，您必須有 Premium 儲存體帳戶。若要了解如何建立 Premium 儲存體帳戶，請參閱[建立和使用 Premium 儲存體帳戶的磁碟](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
+- 若要使用 Premium 儲存體，您必須有 Premium 儲存體帳戶。若要了解如何建立進階儲存體帳戶，請參閱[為虛擬機器資料磁碟建立和使用進階儲存體帳戶](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
 
-- 進階儲存體只在 [Azure 入口網站](https://portal.azure.com)提供，您可以透過下列 SDK 程式庫來存取：[儲存體 REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) 版本 2014-02-14 或更新版本、[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) 版本 2014-10-01 或更新版本 (傳統部署)、[儲存體資源提供者 API](http://msdn.microsoft.com/library/azure/mt163683.aspx) (ARM 部署)，以及 [Azure PowerShell](../install-configure-powershell.md) 版本 0.8.10 或更新版本。
+- 進階儲存體只在 [Azure 入口網站](https://portal.azure.com)提供，您可以透過下列 SDK 程式庫來存取：[儲存體 REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) 版本 2014-02-14 或更新版本、[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) 版本 2014-10-01 或更新版本 (傳統部署)、[Azure 儲存體資源提供者 REST API 參考](http://msdn.microsoft.com/library/azure/mt163683.aspx) (ARM 部署)，以及 [Azure PowerShell](../powershell-install-configure.md) 版本 0.8.10 或更新版本。
 
 - 如需目前支援進階儲存體的地區清單，請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/#services)。
 
@@ -63,7 +63,7 @@ Azure 使用儲存體帳戶做為作業系統 (OS) 和資料磁碟的容器。�
 
 如需有關將現有虛擬機器移轉到「進階儲存體」的資訊，請參閱＜[移轉到 Azure 進階儲存體](storage-migration-to-premium-storage.md)＞。
 
-為充分利用 Premium 儲存體的優點，請先使用 *Premium\_LRS* 帳戶類型建立一個 Premium 儲存體帳戶。方法是使用 [Azure 入口網站](https://portal.azure.com)、[Azure PowerShell](../install-configure-powershell.md)、[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) (傳統部署)，或[儲存體資源提供者 REST API](http://msdn.microsoft.com/library/azure/mt163683.aspx) (ARM 部署)。如需逐步指示，請參閱[建立和使用 Premium 儲存體帳戶的磁碟](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
+為充分利用 Premium 儲存體的優點，請先使用 *Premium\_LRS* 帳戶類型建立一個 Premium 儲存體帳戶。方法是使用 [Azure 入口網站](https://portal.azure.com)、[Azure PowerShell](../powershell-install-configure.md)、[服務管理 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) (傳統部署)，或[儲存體資源提供者 REST API](http://msdn.microsoft.com/library/azure/mt163683.aspx) (ARM 部署)。如需逐步指示，請參閱[為虛擬機器資料磁碟建立和使用進階儲存體帳戶](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)。
 
 ### 重要事項：
 
@@ -79,7 +79,7 @@ Azure 使用儲存體帳戶做為作業系統 (OS) 和資料磁碟的容器。�
 
 - 您可在 DS 系列 VM 或 GS 系列 VM 中同時使用 Premium 和 Standard 儲存體磁碟。
 - 使用 Premium 儲存體，您可以佈建 DS 系列 VM 並將幾個永久性的資料磁碟連接到 VM。如有需要，您可以跨磁碟等量磁碟區以增加磁碟區的容量和效能。如果您使用[儲存空間](http://technet.microsoft.com/library/hh831739.aspx)等量 Premium 儲存體資料磁碟，應該為所使用的每個磁碟，以一個資料行進行設定。否則，等量磁碟區的整體效能可能會因為磁碟流量分配不平均而比預期的效能還低。根據預設，伺服器管理員使用者介面 (UI) 可讓您設定最多 8 個磁碟的資料行。但是，如果您有 8 個以上的磁碟，您就必須使用 PowerShell 來建立磁碟區，並且手動指定資料行數目。否則，即使您擁有更多磁碟，伺服器管理員 UI 還是會繼續使用 8 個資料行。例如，如果您在單一等量磁碟區組有 32 個磁碟，您應該指定 32 個資料行。您可以使用 [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell Cmdlet 的 *NumberOfColumns* 參數，指定虛擬磁碟所使用的資料行數目。如需詳細資訊，請參閱[儲存體空間概觀](http://technet.microsoft.com/library/hh831739.aspx)和[儲存體空間常見問題集](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)。
-- 請避免將 DS 系列 VM 加入包括非 DS 系列 VM 的現有雲端服務。可能的解決方法是將現有的 VHD 移轉到僅執行 DS 系列 VM 的新雲端服務。如果您想要為裝載 DS 系列 VM 的新雲端服務保留相同的虛擬 IP 位址 (VIP)，請使用[保留的 IP 位址](virtual-networks-configure-vnet-to-vnet-connection.md)功能。可將 GS 系列 VM 加入至僅執行 G 系列 VM 的現有雲端服務。
+- 請避免將 DS 系列 VM 加入包括非 DS 系列 VM 的現有雲端服務。可能的解決方法是將現有的 VHD 移轉到僅執行 DS 系列 VM 的新雲端服務。如果您想要為裝載 DS 系列 VM 的新雲端服務保留相同的虛擬 IP 位址 (VIP)，請使用[保留的 IP 位址](../virtual-network/virtual-networks-instance-level-public-ip.md)功能。可將 GS 系列 VM 加入至僅執行 G 系列 VM 的現有雲端服務。
 - Azure 虛擬機器的 DS 系列可以設定為使用裝載在標準儲存體帳戶或 Premium 儲存體帳戶上的作業系統 (OS) 磁碟。如果您使用的作業系統磁碟僅供開機，您可以考慮使用標準儲存體的作業系統磁碟。在開機之後，它提供類似於 Premium 儲存體的成本效益和效能結果。如果您在作業系統磁碟上執行除了開機以外的任何其他工作，請使用 Premium 儲存體，因為它提供更好的效能結果。例如，如果您的應用程式從作業系統磁碟讀取或寫入至作業系統磁碟，使用 Premium 儲存體的作業系統磁碟可為您的 VM 提供更佳的效能。
 - 您可以對 Premium 儲存體使用 [Azure 命令列介面 (Azure CLI)](../xplat-cli-install.md)。若要使用 Azure CLI 變更其中一個磁碟上的快取原則，請執行下列命令：
 
@@ -191,7 +191,7 @@ DS4 VM 連接了兩個 P30 磁碟。每個 P30 磁碟有每秒 200 MB 的輸送�
 
 - 單一 Blob 的快照數限制為 100。每 10 分鐘最多可取得一個快照。
 - 每個進階儲存體帳戶的快照集最大容量為 10 TB。請注意，快照集容量只是指快照集中的資料總數，不包含基底 blob 中的資料。
-- 若要維護快照集的異地備援副本，您可以使用 AzCopy 或「複製 Blob」，將進階儲存體帳戶中的快照複製到異地備援的標準儲存體帳戶。如需詳細資訊，請參閱[如何在 Microsoft Azure 儲存體使用 AzCopy](storage-use-azcopy.md) 和[複製 Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx)。
+- 若要維護快照集的異地備援副本，您可以使用 AzCopy 或「複製 Blob」，將進階儲存體帳戶中的快照複製到異地備援的標準儲存體帳戶。如需詳細資訊，請參閱[使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)和[複製 Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx)。
 - 如需對 Premium 儲存體帳戶中的分頁 Blob 執行 REST 作業的詳細資訊，請參閱 MSDN Library 中的[在 Azure 儲存體帳戶使用 Blob 服務作業](http://go.microsoft.com/fwlink/?LinkId=521969)。
 
 ## 在 Premium 儲存體使用 Linux VM
@@ -252,7 +252,7 @@ DS4 VM 連接了兩個 P30 磁碟。每個 P30 磁碟有每秒 200 MB 的輸送�
 
 本節說明如何使用 Azure 入口網站來建立進階儲存體帳戶。
 
-1.	登入 [Azure 入口網站](https://portal.azure.com)。如果您還沒有訂閱，請參考[免費試用](https://azure.microsoft.com/pricing/free-trial/)優惠。
+1.	登入 [Azure 入口網站](https://portal.azure.com)。如果您還沒有訂用帳戶，請參考[免費試用](https://azure.microsoft.com/pricing/free-trial/)優惠。
 
 2.	在 [中心] 功能表上，按一下 [新增]。
 
@@ -265,13 +265,13 @@ DS4 VM 連接了兩個 P30 磁碟。每個 P30 磁碟有每秒 200 MB 的輸送�
 
 5.	在 [儲存體帳戶] 刀鋒視窗中，保留 [資源群組]、[訂用帳戶]、[位置] 和 [診斷] 的預設值。按一下 [建立]。
 
-如需 Azure 環境的完整逐步解說，請參閱[在 Azure 入口網站中建立 Windows 虛擬機器](../virtual-machines-windows-tutorial.md)。
+如需 Azure 環境的完整逐步解說，請參閱[在 Azure 入口網站中建立 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)。
 
 ### 透過 Azure PwerShell 使用 Premium 儲存體建立 Azure 虛擬機器
 這個 PowerShell 範例示範如何建立新的 Premium 儲存體帳戶並將使用該帳戶的資料磁碟連接至新的 Azure 虛擬機器。
 
-1. 依照[如何安裝和設定 Azure PowerShell](../install-configure-powershell.md) 中提供的步驟設定您的 PowerShell 環境。
-2. 啟動 PowerShell 主控台，連接至您的訂閱，並在主控台視窗中執行下列 PowerShell Cmdlet。如此 PowerShell 陳述式所示，當您建立 Premium 儲存體帳戶時，必須將 **Type** 參數指定為 **Premium\_LRS**。
+1. 依照[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md) 中提供的步驟設定您的 PowerShell 環境。
+2. 啟動 PowerShell 主控台，連接至您的訂用帳戶，並在主控台視窗中執行下列 PowerShell Cmdlet。如此 PowerShell 陳述式所示，當您建立 Premium 儲存體帳戶時，必須將 **Type** 參數指定為 **Premium\_LRS**。
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
 
@@ -330,10 +330,10 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 - [在 Azure 儲存體帳戶使用 Blob 服務作業](http://go.microsoft.com/fwlink/?LinkId=521969)
 - [移轉到 Azure 進階儲存體](storage-migration-to-premium-storage.md)
-- [在 Azure 入口網站中建立 Windows 虛擬機器](../virtual-machines-windows-tutorial.md)
+- [在 Azure 入口網站中建立 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)
 - [虛擬機器的大小](../virtual-machines/virtual-machines-size-specs.md)
 - [儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
 
 [Image1]: ./media/storage-premium-storage/Azure_pricing_tier.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

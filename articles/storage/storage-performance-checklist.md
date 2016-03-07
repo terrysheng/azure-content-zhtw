@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015" 
+	ms.date="02/21/2016" 
 	ms.author="robinsh"/>
 
 # Microsoft Azure 儲存體效能與延展性檢查清單
@@ -216,10 +216,10 @@
 如需詳細資訊，請參閱[複製 Blob](http://msdn.microsoft.com/library/azure/dd894037.aspx)。
 
 ####<a name="subheading18"></a>使用 AzCopy
-Azure 儲存體團隊推出一個命令列工具 “AzCopy”，旨在協助將多個 Blob 大量傳輸至儲存體帳戶、從儲存體帳戶複製，及跨儲存體帳戶進行複製。此工具已針對此案例進行最佳化，且可達到高傳輸率。建議在大量上傳、下載和複製案例中使用此工具。您可以深入了解此工具，並在[此處](storage-use-azcopy.md)下載。
+Azure 儲存體團隊推出一個命令列工具 “AzCopy”，旨在協助將多個 Blob 大量傳輸至儲存體帳戶、從儲存體帳戶複製，及跨儲存體帳戶進行複製。此工具已針對此案例進行最佳化，且可達到高傳輸率。建議在大量上傳、下載和複製案例中使用此工具。如需詳細資訊並加以下載，請參閱[使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)。
 
 ####<a name="subheading19"></a>Azure 匯入/匯出服務
-Azure 儲存體針對超大量的資料 (大於 1TB) 提供匯入/匯出服務，這允許透過寄送硬碟的方式，從 Blob 儲存體進行上傳和下載。您可以將資料放在硬碟上，並將它寄送到 Microsoft 進行上傳，或寄送空白硬碟到 Microsoft 以下載資料。您可以在[此處](storage-import-export-service.md)閱讀相關資訊。這會比透過網路來上傳/下載此大量資料還要有效率。
+Azure 儲存體針對超大量的資料 (大於 1TB) 提供匯入/匯出服務，這允許透過寄送硬碟的方式，從 Blob 儲存體進行上傳和下載。您可以將資料放在硬碟上，並將它寄送到 Microsoft 進行上傳，或寄送空白硬碟到 Microsoft 以下載資料。如需詳細資訊，請參閱「[使用 Microsoft Azure 匯入/匯出服務將資料移轉至 Blob 儲存體](storage-import-export-service.md)」。這會比透過網路來上傳/下載此大量資料還要有效率。
 
 ###<a name="subheading20"></a>使用中繼資料
 Blob 服務支援包含 Blob 中繼資料的標頭要求。例如，如果您的應用程式需要相片的 EXIF 資料，它可以擷取相片並擷取該資料。若要節省頻寬並改善效能，當應用程式上傳相片時，您的應用程式可以在 Blob 的中繼資料中儲存 EXIF 資料：您即可僅使用一個 HEAD 要求來擷取中繼資料中的 EXIF 資料，並節省大量頻寬以及每次讀取 Blob 時擷取 EXIF 資料所需的處理時間。這在您僅需要中繼資料而非 Blob 完整內容的案例中，此操作會很有幫助。請注意，每個 Blob 僅可儲存 8 KB 的中繼資料 (此服務不接受超過此值的儲存要求)，因此如果資料不符合該大小，您就可能無法使用此方法。
@@ -243,7 +243,7 @@ Blob 服務支援包含 Blob 中繼資料的標頭要求。例如，如果您的
 ###<a name="subheading23"></a>選擇 Blob 的正確類型
 Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。在指定使用的案例中，您的 Blob 類型選擇將會影響解決方案的效能和延展性。區塊 Blob 適用於您想要有效地上傳大量資料時：例如，用戶端應用程式可能需要將相片或視訊上傳至 Blob 儲存體。分頁 Blob 則適用於應用程式需要執行隨機寫入資料時：例如，將 Azure VHD 儲存為分頁 Blob。
 
-如需詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx)。
+如需詳細資訊，請參閱[了解區塊 Blob、附加 Blob 和分頁 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx)。
 
 ##資料表
 除了上述[所有服務](#allservices)的已經實證做法以外，下列已經實證的做法尤其適用於資料表服務。
@@ -365,12 +365,12 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。在指定使用�
 ###<a name=subheading43"></a>佇列輪詢間隔
 大部分的應用程式會輪詢佇列中的訊息，而佇列可以是該應用程式的最大交易來源之一。明智地選取輪詢間隔：輪詢太過頻繁可能會導致您的應用程式接近佇列的延展性目標。不過，如果以 200,000 筆交易 0.01 美元計算 (寫入時)，則單一處理器每秒輪詢一次的一個月成本不到 15 分，所以成本通常不是影響您選擇輪詢間隔的因素。
 
-如需最新成本資訊，請參閱[儲存體定價詳細資料](https://azure.microsoft.com/pricing/details/storage/)。
+如需最新成本資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。
 
 ###<a name=subheading44"></a>UpdateMessage
 您可以使用 **UpdateMessage** 來增加隱藏逾時，或更新訊息的狀態資訊。雖然這是個強大的功能，請記住，每個 **UpdateMessage** 作業都會算在延展性目標內。不過，相較於在工作的每個階段完成時，將工作從一個佇列傳遞到下一個佇列的工作流程，這會更有效率。使用 **UpdateMessage** 作業可讓應用程式將工作狀態儲存到訊息，然後繼續工作，而不是每次步驟完成時，便重新佇列訊息以進行下個工作步驟。
 
-如需詳細資訊，請參閱文章[如何：變更佇列訊息的內容](../storage-dotnet-how-to-use-queues/#change-contents)。
+如需詳細資訊，請參閱文章[如何：變更佇列訊息的內容](storage-dotnet-how-to-use-queues#change-the-contents-of-a-queued-message)。
 
 ###<a name=subheading45"></a>應用程式架構
 您應使用佇列，讓應用程式變得具擴充性。下列將列出您可以使用佇列，讓應用程式變得較具擴充性的幾個方式：
@@ -382,4 +382,4 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。在指定使用�
 本文討論一些最常見的已經實證做法，以便在使用 Azure 儲存體時將效能最佳化。我們鼓勵每位應用程式開發人員根據上述的每個做法來評估他們的應用程式，並考慮照著建議去做，為其使用 Azure 儲存體的應用程式取得最佳效能。
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

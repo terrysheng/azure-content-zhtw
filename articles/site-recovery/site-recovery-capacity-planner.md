@@ -1,5 +1,5 @@
 <properties
-	pageTitle="針對 Site Recovery 中的虛擬機器和實體伺服器保護規劃容量 | Microsoft Azure"
+	pageTitle="針對 Azure Site Recovery 中的虛擬機器和實體伺服器保護規劃容量 | Microsoft Azure"
 	description="Azure Site Recovery 可將內部部署上虛擬機器和實體伺服器的複寫、容錯移轉及復原協調至 Azure 或次要內部部署站台。" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,17 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="12/14/2015" 
+	ms.date="02/22/2016" 
 	ms.author="raynew"/>
 
 # 針對 Azure Site Recovery 中的虛擬機器和實體伺服器保護規劃容量
 
-容量規劃工具可協助您釐清使用 Azure Site Recovery 保護 Hyper-V VM、VMware VM 及 Windows/Linux 實體伺服器的容量需求。
+Azure Site Recovery Capacity Planner 工具可協助您釐清使用 Azure Site Recovery 保護 Hyper-V VM、VMware VM 及 Windows/Linux 實體伺服器的容量需求。
 
 
 ## 概觀
 
-使用工具來分析您的來源環境和工作負載，並且釐清您在來源位置所需的頻寬需求、伺服器資源，以及在目標位置所需的資源 (虛擬機器和儲存體等等)。
+使用 Site Recovery Capacity Planner 工具來分析您的來源環境和工作負載，並且釐清您在來源位置所需的頻寬需求、伺服器資源，以及在目標位置所需的資源 (虛擬機器和儲存體等等)。
 
 有幾種模式可讓您執行工具：
 
@@ -121,7 +121,7 @@
 	-  VM4 可以使用第二個標準儲存體帳戶。
 	-  VM5 和 VM6 需要進階儲存體帳戶，兩者都可以使用單一帳戶。
 
-	>[AZURE.NOTE]在標準及進階儲存體上的 IOPS 是在 VM 層級計算，而不是在磁碟層級。標準虛擬機器可以處理每個磁碟最多 500 個 IOPS。如果磁碟的 IOPS 大於 500，則您需要進階儲存體。不過，如果磁碟的 IOPS 超過 500，但 VM 磁碟總數的 IOPS 在標準 Azure VM 支援的限制中 (VM 大小、磁碟數目、介面卡數目、CPU、記憶體)，那麼規劃工具會挑選標準 VM，而不是 DS 或 GS 系列。您必須以適當的 DS 或 GS 系列 VM 手動更新對應的 Azure 大小儲存格。
+	>[AZURE.NOTE]  在標準及進階儲存體上的 IOPS 是在 VM 層級計算，而不是在磁碟層級。標準虛擬機器可以處理每個磁碟最多 500 個 IOPS。如果磁碟的 IOPS 大於 500，則您需要進階儲存體。不過，如果磁碟的 IOPS 超過 500，但 VM 磁碟總數的 IOPS 在標準 Azure VM 支援的限制中 (VM 大小、磁碟數目、介面卡數目、CPU、記憶體)，那麼規劃工具會挑選標準 VM，而不是 DS 或 GS 系列。您必須以適當的 DS 或 GS 系列 VM 手動更新對應的 Azure 大小儲存格。
 
 5. 所有詳細資料已就緒之後，請按一下 [將資料提交至規劃工具] 以開啟 [Capacity Planner]。工作負載會反白顯示以顯示是否適合保護。
 
@@ -133,4 +133,4 @@
 
 	![容量規劃](./media/site-recovery-capacity-planner/capacity-planner.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

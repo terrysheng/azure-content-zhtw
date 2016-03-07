@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="02/20/2016"
 	ms.author="jolevy"/>
 
 
@@ -34,20 +34,20 @@ Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，�
 
 ## Azure 自動化為何有助於管理 Azure 儲存體？
 
-Azure 儲存體可透過 [Azure PowerShell 工具](https://msdn.microsoft.com/library/azure/jj156055.aspx)中提供的 PowerShell Cmdlet，在 Azure 自動化中受到管理。Azure 自動化的這些 儲存體 PowerShell Cmdlet 都是內建的，以便您在服務內執行所有 Blob、資料表及佇列管理工作。您也可以將 Azure 自動化中的這些 Cmdlet 與其他 Azure 服務的 Cmdlet 搭配，以透過 Azure 服務和協力廠商系統自動執行複雜的工作。
+您可以透過使用 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx) 中提供的 PowerShell Cmdlet，於 Azure 自動化中管理 Azure 儲存體。Azure 自動化的這些 儲存體 PowerShell Cmdlet 都是內建的，以便您在服務內執行所有 Blob、資料表及佇列管理工作。您也可以將 Azure 自動化中的這些 Cmdlet 與其他 Azure 服務的 Cmdlet 搭配，以透過 Azure 服務和協力廠商系統自動執行複雜的工作。
 
 [Azure 自動化 Runbook 資源庫](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/)含有多種產品團隊和社群 Runbook，可供您開始針對 Azure 儲存體、其他 Azure 服務及協力廠商系統進行自動化管理。資源庫 Runbook 包括：
 
- * [移除存在時間超過 X 天的 Azure 儲存體 Blob](https://gallery.technet.microsoft.com/scriptcenter/Remove-Storage-Blobs-that-aae4b761)
- * [從 Azure 儲存體將 Blob 下載到 Azure 自動化](https://gallery.technet.microsoft.com/scriptcenter/a-Blob-from-Azure-Storage-6bc13745)
- * [在 Azure 雲端服務中建立 Azure VM 資料磁碟的複本](https://gallery.technet.microsoft.com/scriptcenter/Make-copies-of-Azure-VM-065a6394)
+ * [使用自動化服務移除特定天數前的 Azure 儲存體 Blob](https://gallery.technet.microsoft.com/scriptcenter/Remove-Storage-Blobs-that-aae4b761)
+ * [從 Azure 儲存體下載 Blob](https://gallery.technet.microsoft.com/scriptcenter/a-Blob-from-Azure-Storage-6bc13745)
+ * [備份單一 Azure VM 中的所有磁碟，或雲端服務中所有 VM 的所有磁碟](https://gallery.technet.microsoft.com/scriptcenter/Backup-all-disks-for-a-ede940d5)
 
 
 ## 後續步驟
 
 了解 Azure 自動化的基本概念以及如何用它來管理 Azure 儲存體 Blob、資料表及佇列之後，請參考下列連結，以深入了解 Azure 自動化。
 
-請參閱 Azure 自動化[入門指南](../automation-create-runbook-from-samples.md)
+請參閱 Azure 自動化教學課程：[在 Azure 自動化中建立或匯入 Runbook](../automation/automation-creating-importing-runbook.md)。
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

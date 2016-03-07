@@ -13,26 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/18/2016" 
 	ms.author="mimig"/>
 
-# 監視 DocumentDB 帳戶 
+# 在 Azure 入口網站中監視 DocumentDB 帳戶的使用方式
 
 您可以在 [Microsoft Azure 入口網站](https://portal.azure.com/)監視 DocumentDB 帳戶。每一個 DocumentDB 帳戶都有效能度量 (例如要求和伺服器錯誤) 和使用量度量 (例如儲存體耗用量) 可供使用。
 
-## 如何：檢視 DocumentDB 帳戶的效能度量
-1.	在 [Azure 入口網站](https://portal.azure.com/) 中，按一下 [瀏覽]、[DocumentDB 帳戶]，然後按一下您想要檢視效能度量的 DocumentDB 帳戶名稱。
+## 檢視 DocumentDB 帳戶的效能度量
+1.	在 [Azure 入口網站](https://portal.azure.com/) 中，依序按一下 [瀏覽] 和 [DocumentDB 帳戶]，然後按一下您想要檢視效能度量的 DocumentDB 帳戶名稱。
 2.	在 [監視] 透鏡內，依預設可以看到：
 	*	當日的要求總數。
-	*	當日的每秒平均要求數 
+	*	帳戶的儲存體使用量。 
+
+	如果您的資料表顯示**沒有可用的資料**，請參閱[疑難排解](#troubleshooting)一節。
 	
-	![[監視] 透鏡的螢幕擷取畫面](./media/documentdb-monitor-accounts/madocdb1.png)
+	![「監視」功能濾鏡的螢幕擷取畫面，可顯示目前的要求總數和儲存體使用量](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
 
 
-3.	按一下 [**要求總數**] 或 [**每秒平均要求數**] 組件會開啟詳細的 [**度量**] 刀鋒視窗。
-4.	[**度量**] 刀鋒視窗會顯示您已選取之度量的詳細資料。刀鋒視窗上方是圖形，圖形下方有一個資料表顯示所選度量的彙總值，例如平均值、最小值和最大值。度量刀鋒視窗也會顯示已定義的警示清單，且依目前度量刀鋒視窗上出現的度量來篩選 (因此，如果您有許多警示，只會看到此處顯示相關的警示)。   
+3.	按一下 [要求總數] 或 [儲存體] 磚，即會開啟詳細的 [度量] 刀鋒視窗。
+4.	[**度量**] 刀鋒視窗會顯示您已選取之度量的詳細資料。刀鋒視窗上方是圖形，圖形下方有一個資料表顯示所選度量的彙總值，例如平均值、最小值、最大值及總數。度量刀鋒視窗也會顯示已定義的警示清單，且依目前度量刀鋒視窗上出現的度量來篩選 (因此，如果您有許多警示，只會看到此處顯示相關的警示)。   
 
-	![[度量] 刀鋒視窗的螢幕擷取畫面](./media/documentdb-monitor-accounts/madocdb2.png)
+	![[度量] 刀鋒視窗的螢幕擷取畫面](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
 
 
 ## 自訂 DocumentDB 帳戶的效能度量檢視
@@ -86,8 +88,25 @@ Azure 入口網站可讓您建立並排度量圖表。
 	*	警示引發時是否傳送電子郵件給服務管理員和共同管理員。
 	*	警示通知的其他電子郵件地址。![[新增警示規則] 刀鋒視窗的螢幕擷取畫面](./media/documentdb-monitor-accounts/madocdb12.png)
 
+## 監視 DocumentDB 的其他方法
+可在入口網站中取得的帳戶層級度量 (例如，帳戶儲存體使用量和要求總數) 無法透過 DocumentDB API 取得。不過，您可以擷取集合層級的使用量資料。若要擷取集合層級的資料，請執行下列動作：
+
+- 若要使用 REST API，請[在集合上執行 GET](https://msdn.microsoft.com/library/mt489073.aspx)。集合的配額和使用量資訊會在回應的 x-ms-resource-quota 和 x-ms-resource-usage 標頭中傳回。
+- 若要使用 .NET SDK，請使用 [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) 方法，其會傳回 [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx)，其中包含 **CollectionSizeUsage**、**DatabaseUsage**、**DocumentUsage** 等數個使用量屬性。
+
+## 疑難排解
+如果您的監視磚顯示**沒有可用的資料**訊息，以及您最近所做的要求或加入至資料庫的資料，您就能編輯磚以反映最近的使用量。
+
+### 編輯磚以重新整理目前的資料
+1.	若要自訂特定組件中顯示的度量，請以滑鼠右鍵按一下度量圖表，然後選取 [**編輯圖表**]。![指出沒有可用資料的 [要求總數] 磚螢幕擷取畫面](./media/documentdb-monitor-accounts/documentdb-no-available-data.png)
+
+2.	在 [編輯圖表] 刀鋒視窗的 [時間範圍] 區段中，依序按一下 [過去 1 小時] 和 [儲存]。![已選取過去 1 小時的 [編輯圖表] 刀鋒視窗螢幕擷取畫面](./media/documentdb-monitor-accounts/documentdb-no-available-data-past-hour.png)
+
+
+3.	您的磚現在應該會重新整理以顯示您目前的資料和使用量。 ![過去 1 小時已更新的要求總數磚的的螢幕擷取畫面](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
+
 ## 後續步驟
 若要深入了解 DocumentDB 容量，請參閱[管理 DocumentDB 容量](documentdb-manage.md)。
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

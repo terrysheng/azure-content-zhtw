@@ -56,8 +56,6 @@
 	        "type": "OnPremisesTeradata",
 	        "typeProperties": {
 	            "server": "<server>",
-	            "database": "<database>",
-	            "schema": "<schema>",
 	            "authenticationType": "<authentication type>",
 	            "username": "<username>",
 	            "password": "<password>",
@@ -92,7 +90,6 @@
 	        "type": "RelationalTable",
 	        "linkedServiceName": "OnPremTeradataLinkedService",
 	        "typeProperties": {
-	            "tableName": "MyTable"
 	        },
 	        "availability": {
 	            "frequency": "Hour",
@@ -228,8 +225,6 @@
 -------- | ----------- | --------
 類型 | 類型屬性必須設為：**OnPremisesTeradata** | 是
 伺服器 | Teradata 伺服器的名稱。 | 是
-資料庫 | Teradata 資料庫的名稱。 | 是 
-結構描述 | 在資料庫中的結構描述名稱。 | 否
 authenticationType | 用來連接到 Teradata 資料庫的驗證類型。可能的值為：匿名、基本和 Windows。 | 是
 username | 如果您使用基本或 Windows 驗證，請指定使用者名稱。 | 否 
 password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 | 否 
@@ -241,11 +236,8 @@ gatewayName | Data Factory 服務應該用來連接到內部部署 Teradata 資�
 
 如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
 
-每個資料集類型的 typeProperties 區段都不同，可提供資料存放區中資料的位置相關資訊。**RelationalTable** 資料集類型的 **typeProperties** 區段 (包含 Teradata 資料集) 具有下列屬性。
+每個資料集類型的 **typeProperties** 區段都不同，可提供資料存放區中的資料位置資訊。目前沒有支援 Teradata 資料集的類型屬性。
 
-屬性 | 說明 | 必要
--------- | ----------- | --------
-tableName | Teradata 資料庫執行個體中連結服務所參照的資料表名稱。 | 否 (如果已指定 **RelationalSource** 的 **query**) 
 
 ## Teradata 複製活動類型屬性
 
@@ -257,7 +249,7 @@ tableName | Teradata 資料庫執行個體中連結服務所參照的資料表�
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-query | 使用自訂查詢來讀取資料。 | SQL 查詢字串。例如：select * from MyTable。 | 否 (如果已指定 **dataset** 的 **tableName**)
+query | 使用自訂查詢來讀取資料。 | SQL 查詢字串。例如：select * from MyTable。 | 是
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -316,4 +308,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

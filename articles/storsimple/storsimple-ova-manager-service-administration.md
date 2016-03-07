@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # 使用 StorSimple Manager 服務來管理 StorSimple Virtual Array (預覽)
@@ -75,13 +75,15 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 |如果您想要執行此動作...|請移至此 UI 頁面...|使用此程序|
 |---|---|---|
 |建立服務</br>刪除服務</br>取得服務註冊金鑰</br>重新產生服務註冊金鑰|StorSimple Manager 服務|[部署 StorSimple Manager 服務](storsimple-ova-manage-service.md)|
+|變更服務資料加密金鑰</br>檢視作業記錄檔|StorSimple Manager 服務 → 儀表板|[使用 StorSimple 服務儀表板](storsimple-ova-service-dashboard.md)|
 |停用 Virtual Array</br>刪除 Virtual Array|StorSimple Manager 服務 → 裝置|[停用或刪除 Virtual Array](storsimple-ova-deactivate-and-delete-device.md)|
 |災害復原和裝置容錯移轉</br>容錯移轉必要條件</br>容錯移轉至虛擬裝置</br>業務持續性災害復原 (BCDR)</br>災害復原時發生錯誤|StorSimple Manager 服務 → 裝置|[StorSimple Virtual Array 的災害復原和裝置容錯移轉](storsimple-ova-failover-dr.md)|
 |備份共用和磁碟區</br>進行手動備份</br>變更備份排程</br>檢視現有的備份|StorSimple Manager 服務 → 備份目錄|[備份 StorSimple Virtual Array](storsimple-ova-backup.md)|
 |從備份組還原共用</br>從備份組還原磁碟區</br>項目層級復原 (僅限檔案伺服器)|StorSimple Manager 服務 → 備份目錄|[從 StorSimple Virtual Array 備份中還原](storsimple-ova-restore.md)|
 |有關儲存體帳戶</br>加入儲存體帳戶</br>編輯儲存體帳戶</br>刪除儲存體帳戶|StorSimple Manager 服務 → 設定|[管理 StorSimple Virtual Array 的儲存體帳戶](storsimple-ova-manage-storage-accounts.md)|
 |關於存取控制記錄</br>加入或修改存取控制記錄</br>刪除存取控制記錄|StorSimple Manager 服務 → 設定|[管理 StorSimple Virtual Array 的存取控制記錄](storsimple-ova-manage-acrs.md)|
-|設定警示設定</br>接收警示通知</br>管理警示</br>檢閱警示|StorSimple Manager 服務 → 警示|[檢視和管理 StorSimple Virtual Array 的警示](storsimple-ova-manage-alerts.md)
+|檢視工作詳細資料|StorSimple Manager 服務 → 工作| [管理 StorSimple Virtual Array 作業](storsimple-ova-manage-jobs.md)|
+|設定警示設定</br>接收警示通知</br>管理警示</br>檢閱警示|StorSimple Manager 服務 → 警示|[檢視和管理 StorSimple Virtual Array 的警示](storsimple-ova-manage-alerts.md)|
 |修改裝置系統管理員密碼|StorSimple Manager 服務 → 裝置 → 設定|[變更 StorSimple Virtual Array 裝置系統管理員密碼](storsimple-ova-change-device-admin-password.md)|
 |安裝軟體更新|StorSimple Manager 服務 → 裝置 → 維護|[更新 Virtual Array](storsimple-ova-update.md)|
 
@@ -94,4 +96,4 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 ##後續步驟
 如需 Web UI 及如何使用的詳細資訊，請移至[使用 StorSimple Web UI 管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

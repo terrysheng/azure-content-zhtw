@@ -2,8 +2,8 @@
  
 您可以設定負載平衡器。
 
-- 對虛擬機器 (VM) 的連入網際網路流量進行負載平衡。我們將此案例中的負載平衡器稱為[網際網路面向的負載平衡器](load-balancer-internet-overview.md)。
-- 虛擬網路 (VNet) 中 VM 之間、雲端服務中的 VM，或內部部署電腦與跨內部部署虛擬網路中的 VM 之間的負載平衡流量。我們將此案例中的負載平衡器稱為[內部負載平衡器 (ILB)](load-balancer-internal-overview.md)。
+- 對虛擬機器 (VM) 的連入網際網路流量進行負載平衡。我們將此案例中的負載平衡器稱為[網際網路面向的負載平衡器](../articles/load-balancer/load-balancer-internet-overview.md)。
+- 虛擬網路 (VNet) 中 VM 之間、雲端服務中的 VM，或內部部署電腦與跨內部部署虛擬網路中的 VM 之間的負載平衡流量。我們將此案例中的負載平衡器稱為[內部負載平衡器 (ILB)](../articles/load-balancer/load-balancer-internal-overview.md)。
 - 	將外部流量轉送到特定的 VM 執行個體。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0224_2016-->

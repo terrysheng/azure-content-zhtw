@@ -58,6 +58,8 @@
 
 <center>![雲端](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
+如需有關 Azure AD Connect 同步：排程器的詳細資訊，請參閱 [Azure AD Connect 排程器](active-directory-aadconnectsync-feature-scheduler.md)
+
 
 ## Azure AD Connect 中可用的其他工作
 在初始 Azure AD Connect 的安裝之後，您隨時可以從 Azure AD Connect 開始頁面或桌面捷徑啟動精靈。您會在再次執行精靈的過程中發現，一些新的選項以「其他工作」的形式提供。
@@ -76,4 +78,4 @@
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App 模型 v2.0 Node.js Web API | Microsoft Azure"
+	pageTitle="Azure AD v2.0 NodeJS Web API | Microsoft Azure"
 	description="如何建置可接受來自個人 Microsoft 帳戶及工作或學校帳戶之權杖的 NodeJS Web API。"
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -13,37 +13,32 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="brandwe"/>
 
-# 應用程式模型 v2.0 預覽：使用 node.js 保護 Web API
+# 使用 node.js 保護 Web API 安全
 
 > [AZURE.NOTE]
-此資訊適用於 v2.0 應用程式模型公開預覽。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
+	v2.0 端點並非支援每個 Azure Active Directory 案例和功能。如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
 
-有了 v2.0 應用程式模型，您就能使用 [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) 存取權杖來保護 Web API，讓使用者能夠使用個人的 Microsoft 帳戶以及公司或學校帳戶，安全存取您的 Web API。
+Azure Active Directory 的 v2.0 端點可讓您使用 [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) 存取權杖保護 Web API，具有個人 Microsoft 帳戶以及公司或學校帳戶的使用者，也能夠安全地存取您的 Web API。
 
 **Passport** 是 Node.js 的驗證中介軟體。您可以暗中將極具彈性且模組化的 Passport 放入任何 Express 或 Resitify Web 應用程式。一組完整的策略可支援使用使用者名稱和密碼、Facebook、Twitter 及其他等驗證。我們已為 Microsoft Azure Active Directory 開發一項策略。我們將安裝此模組，然後加入 Microsoft Azure Active Directory `passport-azure-ad` 外掛程式。
 
-若要執行此作業，您需要執行下列動作：
-
-1. 向 Azure AD 註冊應用程式
-2. 設定您的 App 來使用 Passport 的 azure-ad-passport 外掛程式。
-3. 設定用戶端應用程式呼叫待辦事項清單 Web API
-
-本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs) 上。若要遵循執行，您可以[利用 .zip 格式下載 App 的基本架構](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip)，或複製基本架構：
+## 下載
+本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs)。若要遵循執行，您可以[用 .zip 格式下載應用程式的基本架構](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip)，或複製基本架構：
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
 本教學課程最後也會提供完整的應用程式。
 
 
-## 1. 註冊應用程式
-在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。  請確定：
+## 1\.註冊應用程式
+在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。請確定：
 
 - 將指派給您應用程式的**應用程式識別碼**複製起來，您很快會需要用到這些識別碼。
 - 為您的應用程式新增**行動**平台。
-- 從入口網站複製完整的 **重新導向 URI**。您必須使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。
+- 從入口網站複製完整的**重新導向 URI**。您必須使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。
 
 
 ## 2：下載適用於您平台的 node.js
@@ -57,7 +52,7 @@
 
 從 [http://mongodb.org](http://www.mongodb.org) 安裝 MongoDB。
 
-> [AZURE.NOTE] 本逐步解說假設您會使用 MongoDB 的預設安裝和伺服器端點，在撰寫本文時為： mongodb://localhost
+> [AZURE.NOTE] 本逐步解說假設您會使用 MongoDB 的預設安裝和伺服器端點，在撰寫本文時為：mongodb://localhost
 
 ## 4：在您的 Web API 上安裝 Restify 模組
 
@@ -65,7 +60,7 @@
 
 ### 安裝 Restify
 
-從命令列將目錄變更至 azuread 目錄。 如果 **azuread** 目錄不存在，請予以建立。
+從命令列將目錄變更至 azuread 目錄。如果 **azuread** 目錄不存在，請予以建立。
 
 `cd azuread` 或 `mkdir azuread;`
 
@@ -126,7 +121,7 @@ Restify 提供使用 DTrace 追蹤 REST 呼叫的強大機制。不過，許多�
 	├── verror@1.3.6 (extsprintf@1.0.2)
 	├── csv@0.3.6
 	├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
-	└── bunyan@0.22.0 (mv@0.0.5)
+	└── bunyan@0.22.0(mv@0.0.5)
 
 
 ## 5：在您的 Web API 上安裝 Passport.js
@@ -650,13 +645,12 @@ consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 
 然後，變更目錄並啟動 curling...
 
-`$ cd azuread`
-`$ node server.js`
+`$ cd azuread` `$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
 ```Shell
-HTTP/1.1 200 OK
+HTTP/1.1 2.0OK
 Connection: close
 Content-Type: application/json
 Content-Length: 171
@@ -770,7 +764,7 @@ Passport 會使用適用於它的所有策略 (Twitter、Facebook 等) 且所有
 > [AZURE.IMPORTANT]
 上述程式碼會讓所有使用者經歷伺服器的驗證。這就是所謂的自動註冊。在生產伺服器中，您想要讓所有人都必須先經歷您所決定的註冊過程。這通常是您在取用者 App 中看到的模式，可讓您向 Facebook 註冊，但接著會要求您填寫其他資訊。如果這不是命令列程式，我們就只能從傳回的權杖物件中擷取電子郵件，然後要求他們填寫其他資訊。由於這是測試伺服器，因此，我們只會將它們直接加入記憶體中的資料庫。
 
-### 2. 最後，保護某些端點
+### 2\.最後，保護某些端點
 
 您可以保護端點，方法是透過您想要使用的通訊協定來指定 passport.authenticate() 呼叫。
 
@@ -854,10 +848,8 @@ Transfer-Encoding: chunked
 
 您現在可以進入更進階的主題。您可以嘗試：
 
-[在 Node.js 中使用 v2.0 應用程式模型保護 Web APP >>](active-directory-v2-devquickstarts-node-web.md)
+[使用 v2.0 端點保護 Node.js Web 應用程式 >>](active-directory-v2-devquickstarts-node-web.md)
 
-如需其他資源，請查看：
-- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md)
-- [StackOverflow "azure-active directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+如需其他資源，請查看： - [《v2.0 開發人員指南》>>](active-directory-appmodel-v2-overview.md) - [StackOverflow「azure-active-directory」標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

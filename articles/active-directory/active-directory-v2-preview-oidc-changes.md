@@ -1,5 +1,5 @@
 <properties
-	pageTitle="變更為 Azure AD v2.0 應用程式模式 |Microsoft Azure"
+	pageTitle="變更為 Azure AD v2.0 端點 | Microsoft Azure"
 	description="對應用程式模型 v2.0 公用預覽通訊協定所進行的變更的描述。"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 # v2.0 驗證通訊協定的重要更新
@@ -67,12 +67,10 @@ V2.0 端點大量使用 JWT 權杖，其中包含標頭參數區段與權杖的�
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-回應看起來類似下列 JSON 物件：
-
-```
+回應看起來將類似下列 JSON 物件：```
 { 
 	"token_type": "Bearer",
-	"expires_in": "3599",
+	"expires_in": 3599,
 	"scope": "https://outlook.office.com/mail.read",
 	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
@@ -87,7 +85,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 { 
 	"token_type": "Bearer",
-	"expires_in": "3599",
+	"expires_in": 3599,
 	"scope": "https://outlook.office.com/mail.read",
 	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
@@ -113,7 +111,7 @@ https://myapp.com?id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...&id_token_exp
 ```
 { 
 	"token_type": "Bearer",
-	"id_token_expires_in": "3599",
+	"id_token_expires_in": 3599,
 	"scope": "openid",
 	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
@@ -145,7 +143,7 @@ client_id=...
 ```
 { 
 	"aud": "580e250c-8f26-49d0-bee8-1c078add1609",
-	"iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0",
+	"iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0 ",
 	"iat": 1449520283,
 	"nbf": 1449520283,
 	"exp": 1449524183,
@@ -186,7 +184,7 @@ https://login.microsoftonline.com/{some-guid}/v2.0/
 其中 guid 是發行權杖的 Azure AD 租用戶的 tenantId。進行這些變更之後，簽發者值會改變
 
 ```
-https://login.microsoftonline.com/{some-guid}/v2.0
+https://login.microsoftonline.com/{some-guid}/v2.0 
 ```
 
 在這兩個權杖和 OpenID Connect 探索文件中。
@@ -212,12 +210,10 @@ https://login.microsoftonline.com/{some-guid}/v2.0
 ## 通訊協定變更發生頻率為何？
 我們無法預見驗證通訊協定的任何進一步重大變更。我們刻意將這些變更統合至一個發行版本，這樣，您就不需要馬上再經歷這種類型的更新程序。當然，我們將會繼續將功能新增至您可以充分利用的 v2.0 驗證服務，但是這些變更應該只是附加的，而不是中斷現有的程式碼。
 
-先前已提過，v2.0 端點仍處於預覽狀態。這表示您在發行相依於它的實際執行應用程式時應該小心，且準備好在這些情況發生時進行變更。只有 v2.0 端點達到 GA 時，我們才會鼓勵開發人員採用服務目前狀態的相依性。
-
-最後，感謝您在此預覽期間所做的嘗試。至此，我們早期採用者的深入資訊和體驗非常寶貴，而且我們希望您將會繼續共用您的意見與想法。
+最後，感謝您在預覽期間試用功能。至此，我們早期採用者的深入資訊和體驗非常寶貴，而且我們希望您將會繼續共用您的意見與想法。
 
 祝各位編碼程式愉快！
 
 Microsoft 身分識別部門
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

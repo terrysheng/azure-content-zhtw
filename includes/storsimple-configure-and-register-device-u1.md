@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 12/01/15-->
+<!--author=alkohli last changed: 02/22/2016-->
 
 
 ### 設定和註冊裝置
@@ -27,9 +27,9 @@
    - 閘道器
    - 適用於主要 DNS 伺服器的 IP 位址
     
-		請注意，系統在此過程中會於完成每個步驟後便檢查網路設定一次。
-   
-      > [AZURE.NOTE] 您可能需要等候幾分鐘，以套用子網路遮罩和 DNS 設定。如果您收到「檢查 Data 0 的網路連線」錯誤訊息，請檢查主動控制器之 DATA 0 網路介面上的實體網路連線。
+	請注意，系統在此過程中會於完成每個步驟後便檢查網路設定一次。
+		   
+	> [AZURE.NOTE] 您可能需要等候幾分鐘，以套用子網路遮罩和 DNS 設定。如果您收到「檢查 Data 0 的網路連線」錯誤訊息，請檢查主動控制器之 DATA 0 網路介面上的實體網路連線。
 
 8. (選用) 設定 Web Proxy 伺服器。雖然 Web Proxy 設定是選用的，但**請注意，如果您使用 Web Proxy，就只能在此處設定它**。如需詳細資訊，請參閱[設定裝置的 Web Proxy](../articles/storsimple/storsimple-configure-web-proxy.md)。
 
@@ -58,15 +58,14 @@
   2. 按一下 [檢視連接的裝置]。
   3. 在 [裝置] 頁面上，藉由查閱狀態來確認裝置已成功連接到服務。裝置狀態應該是 [線上]。
    
-    	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
+	![StorSimple 裝置頁面](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png)
   
-         如果裝置狀態為「離線」，請等待數分鐘讓裝置上線 
-      
-         如果數分鐘後裝置仍然為離線狀態，請確定有依照[您的 StorSimple 裝置網路需求](../articles/storsimple/storsimple-system-requirements.md)進行火牆設定。 
+	如果裝置狀態為**離線**，請稍待片刻等待裝置上線。
 
-		如果您的機器不支援 HTTP 1.1，請檢查連接埠 9354 並確定此連接埠已開啟供輸出通訊使用。此連接埠供 StorSimple Manager 服務和 StorSimple 裝置間的通訊使用。 
- 
+	如果數分鐘之後裝置仍然離線，請確定您的防火牆網路已依照 [StorSimple 裝置網路需求](../articles/storsimple/storsimple-system-requirements.md)中的說明加以設定。
+
+	請確認連接埠 9354 已開啟供輸出通訊使用，因為 StorSimple Manager 服務對裝置服務匯流排通訊也使用此連接埠。
      
        
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

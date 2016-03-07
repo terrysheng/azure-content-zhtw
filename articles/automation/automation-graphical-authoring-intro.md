@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
-   ms.author="bwren" />
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren" />
 
 # Azure 自動化中的圖形化編寫
 
@@ -30,7 +30,7 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。圖
 
 ## 圖形化編輯器概觀
 
-您可以藉由建立或編輯圖形化 Runbook，在 Azure 預覽入口網站中開啟圖形化編輯器。
+您可以透過建立或編輯圖形化 Runbook，在 Azure 入口網站中開啟圖形化編輯器。
 
 ![圖形化工作區](media/automation-graphical-authoring-intro/graphical-editor.png)
 
@@ -79,7 +79,7 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。圖
 
 ### 測試圖形化 Runbook
 
-您可以在 Azure 預覽入口網站中測試 Runbook 的草稿版，同時保持 Runbook 已發行的版本不變，或可以在發行之前，測試新的 Runbook。這可讓您驗證取代已發行的版本之前，Runbook 正常運作。當您測試 Runbook 時，草稿 Runbook 會執行，而且它執行的任何動作都會完成。不會建立工作歷程記錄，但是會在 [測試輸出] 窗格中顯示輸出。
+您可以在 Azure 入口網站中測試 Runbook 的草稿版本，同時讓 Runbook 的已發佈版本保持不變，或是在發佈全新的 Runbook 之前，先進行測試。這可讓您驗證取代已發行的版本之前，Runbook 正常運作。當您測試 Runbook 時，草稿 Runbook 會執行，而且它執行的任何動作都會完成。不會建立工作歷程記錄，但是會在 [測試輸出] 窗格中顯示輸出。
 
 開啟 Runbook 的測試控制項，方法是開啟 Runbook 進行編輯，然後按一下 [**測試窗格**] 按鈕。
 
@@ -298,9 +298,9 @@ Azure 自動化中的大部分 Runbook 將會需要向 Azure 資源驗證。此�
 
 ### Runbook 輸入
 
-Runbook 可能需要使用者透過 Azure 預覽入口網站啟動 Runbook 時輸入或如果目前的 Runbook 為子系，則需要從另一個 Runbook 輸入。例如，如果您有一個會建立虛擬機器的 Runbook，您可能需要在每次啟動 Runbook 時提供資訊，例如虛擬機器的名稱和其他屬性。
+Runbook 可能需要來自使用者的輸入內容 (透過 Azure 入口網站啟動 Runbook 時進行的輸入)；如果目前的 Runbook 為子系，則需要來自另一個 Runbook 的輸入內容。例如，如果您有一個會建立虛擬機器的 Runbook，您可能需要在每次啟動 Runbook 時提供資訊，例如虛擬機器的名稱和其他屬性。
 
-您透過定義一或多個輸入參數來接受 Runbook 的輸入。您會在每次啟動 Runbook 時提供值給這些參數。使用 Azure 預覽入口網站啟動 Runbook 時，它會提示您為 Runbook 的每個輸入參數提供值。
+您透過定義一或多個輸入參數來接受 Runbook 的輸入。您會在每次啟動 Runbook 時提供值給這些參數。當您透過 Azure 入口網站啟動 Runbook 時，它會提示您為 Runbook 的每個輸入參數提供值。
 
 您可以按一下 Runbook 工具列上的 [**輸入和輸出**] 按鈕來存取 Runbook 的輸入參數。
 
@@ -316,7 +316,7 @@ Runbook 可能需要使用者透過 Azure 預覽入口網站啟動 Runbook 時�
 |:---|:---|
 | 名稱 | 參數的唯一名稱。這只能包含數字字元，而且不能包含空格。 |
 | 說明 | 輸入參數的選擇性描述。 |
-| 類型 | 對參數值預期的資料型別。提示輸入時，Azure 預覽入口網站會對每個參數的資料型別提供適當的控制。 |
+| 類型 | 對參數值預期的資料型別。提示您輸入時，Azure 入口網站會對每個參數提供適當的資料類型控制。 |
 | 強制 | 指定是否必須提供參數的值。如果您未對未定義預設值的每個強制參數提供值，則無法啟動 Runbook。 |
 | 預設值 | 如果未提供其中一個的值，要對參數指定什麼值。這可以是 Null 或特定值。 |
 
@@ -419,4 +419,4 @@ Runbook 可能需要使用者透過 Azure 預覽入口網站啟動 Runbook 時�
 - [運算子](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

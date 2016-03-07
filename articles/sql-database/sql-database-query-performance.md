@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/03/2015"
+   ms.date="02/03/2016"
    ms.author="sstein"/>
 
 # Azure SQL Database 查詢效能深入解析
@@ -33,7 +33,7 @@
  
 ## 權限
 
-需有下列[角色型存取控制](role-based-access-control-configure.md)權限，才能使用「查詢效能深入解析」︰
+需有下列[角色型存取控制](../active-directory/role-based-access-control-configure.md)權限，才能使用「查詢效能深入解析」︰
 
 - 檢視排名最前面的資源取用查詢和圖表時，需具備 [讀取器]、[擁有者]、[參與者]、[SQL DB 參與者] 或 [SQL Server 參與者] 權限。 
 - 檢視查詢文字時，需具備 [擁有者]、[參與者]、[SQL DB 參與者] 或 [SQL Server 參與者] 權限。
@@ -170,4 +170,4 @@
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

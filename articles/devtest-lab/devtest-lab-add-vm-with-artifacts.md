@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # 將具有構件的 VM 加入 Azure 研發/測試實驗室
+
+> [AZURE.NOTE] 按一下下列連結可檢視本文隨附的影片：[如何在 DevTest 實驗室中建立具有構件 VM](/documentation/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab)
 
 ## 概觀
 
@@ -96,6 +98,6 @@
 
 ## 後續步驟
 
-了解如何[為您的 VM 撰寫自訂構件](devtest-lab-artifact-author.md)。
+- 了解如何[為您的 VM 撰寫自訂構件](devtest-lab-artifact-author.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na"
 	ms.topic="article"
-  ms.date="12/16/2015"
+    ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # 開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (雲端服務專案)
@@ -22,11 +22,11 @@
 
 本文描述當您在雲端服務專案中建立或參考 Azure 儲存體帳戶之後，如何在 Visual Studio 中使用 [**加入已連接服務**] 對話方塊，開始使用 Azure 佇列儲存體。
 
-我們將會示範如何在程式碼中建立佇列。我們也將顯示如何執行基本的佇列作業，例如新增、修改、讀取和讀取佇列訊息。這些範例均以 C# 程式碼撰寫，並使用 [Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
+我們將會示範如何在程式碼中建立佇列。我們也將顯示如何執行基本的佇列作業，例如新增、修改、讀取和讀取佇列訊息。這些範例均以 C# 程式碼撰寫，並使用 [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
 
 [**新增連接的服務**] 作業會安裝適當的 NuGet 封裝，以存取專案中的 Azure 儲存體，並將儲存體帳戶的連接字串新增至您的專案組態檔。
 
- - 如需以程式碼操作佇列的詳細資訊，請參閱[如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)。
+ - 如需以程式碼操作佇列的詳細資訊，請參閱[以 .NET 開始使用 Azure 佇列儲存體](storage-dotnet-how-to-use-queues.md)。
  - 如需 Azure 儲存體的一般資訊，請參閱[儲存體文件](https://azure.microsoft.com/documentation/services/storage/)。
  - 如需 Azure 雲端服務的一般資訊，請參閱[雲端服務文件](https://azure.microsoft.com/documentation/services/cloud-services/)。
  - 如需 ASP.NET 應用程式設計的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
@@ -67,9 +67,6 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 若要在程式碼中建立佇列，請加入 **CreateIfNotExists** 呼叫。
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
-    // as described in the "Access queues in code" section.
-
 	// Create the CloudQueue if it does not exist
 	messageQueue.CreateIfNotExists();
 
@@ -81,9 +78,6 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 以下是插入訊息 'Hello, World' 的範例。
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' as described in
-    // the "Access queues in code" section.
-
 	// Create a message and add it to the queue.
 	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
 	messageQueue.AddMessage(message);
@@ -91,9 +85,6 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 ## 讀取佇列中的訊息
 
 透過呼叫 **PeekMessage** 方法，您可以在佇列前面查看訊息，而無需將它從佇列中移除。
-
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
-    // as described in the "Access queues in code" section.
 
 	// Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
@@ -107,15 +98,12 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。下列程式碼會在處理完訊息之後立即呼叫 **DeleteMessage**。
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
-    // as described in the "Access queues in code" section.
-
 	// Get the next message in the queue.
 	CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
 
 	// Process the message in less than 30 seconds
 
-  	// Then delete the message.
+	// Then delete the message.
 	await messageQueue.DeleteMessage(retrievedMessage);
 
 
@@ -127,9 +115,6 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
  - 您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完全處理每個訊息。下列程式碼範例將使用 **GetMessages** 方法，在一次呼叫中取得 20 個訊息。接著它會使用 **foreach** 迴圈處理每個訊息。它也會將可見度逾時設定為每個訊息五分鐘。請注意，系統會針對所有訊息同時開始計時 5 分鐘，所以從呼叫 **GetMessages** 開始的 5 分鐘後，任何尚未刪除的訊息都會重新出現。
 
 以下是範例：
-
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
-    // as described in the "Access queues in code" section.
 
     foreach (CloudQueueMessage message in messageQueue.GetMessages(20, TimeSpan.FromMinutes(5)))
     {
@@ -144,9 +129,6 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 您可以取得佇列中的估計訊息數目。**FetchAttributes** 方法會要求佇列服務擷取佇列屬性，其中包含訊息計數。**ApproximateMethodCount** 屬性會傳回 **FetchAttributes** 方法所擷取的最後一個值，而無需呼叫佇列服務。
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
-    // as described in the "Access queues in code" section.
-
 	// Fetch the queue attributes.
 	messageQueue.FetchAttributes();
 
@@ -159,9 +141,6 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 ## 搭配使用 Async-Await 模式和通用 Azure 佇列 API
 
 這個範例示範如何搭配使用 Async-Await 模式和通用 Azure 佇列 API。此範例會呼叫每個指定方法的非同步版本，這可從每個方法的 **Async** 字尾看出。使用非同步方法時，async-await 模式會暫停本機執行，直到呼叫完成為止。這種行為可讓目前的執行緒執行其他工作，有助於避免發生效能瓶頸並提升應用程式的整體回應。如需在 .NET 中使用 Async-Await 模式的詳細資訊，請參閱 [Async 和 Await (C# 和 Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
-
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
-    // as described in the "Access queues in code" section.
 
     // Create a message to put in the queue
     CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
@@ -182,9 +161,6 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 若要刪除佇列及其內含的所有訊息，請在佇列物件上呼叫 **Delete** 方法。
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
-    // as described in the "Access queues in code" section.
-
     // Delete the queue.
     messageQueue.Delete();
 
@@ -192,4 +168,4 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

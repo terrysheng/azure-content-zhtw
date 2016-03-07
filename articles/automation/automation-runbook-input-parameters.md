@@ -49,7 +49,7 @@ PowerShell 工作流程 Runbook 中的參數定義具有下列一般形式，其
      )
 ```
 
->[AZURE.NOTE]定義參數時，如果您未指定 [強制] 屬性，依預設會將參數視為選擇性。此外，如果您在 PowerShell 工作流程 Runbook 中設定某個參數的預設值，則 Powershell 會將其視為選擇性參數，無論 [強制] 屬性值為何。
+>[AZURE.NOTE] 定義參數時，如果您未指定 [強制] 屬性，依預設會將參數視為選擇性。此外，如果您在 PowerShell 工作流程 Runbook 中設定某個參數的預設值，則 Powershell 會將其視為選擇性參數，無論 [強制] 屬性值為何。
 
 舉例來說，我們為輸出虛擬機器 (可以是單一 VM 或服務內的所有 VM) 相關詳細資料的 PowerShell 工作流程 Runbook 設定輸入參數。如以下螢幕擷取畫面所示，此 Runbook 有兩個參數：虛擬機器的名稱和服務的名稱。
 
@@ -75,7 +75,7 @@ PowerShell 工作流程 Runbook 中的參數定義具有下列一般形式，其
 
 [**Get-AzureVM**](https://msdn.microsoft.com/library/azure/dn495236.aspx) 用來取得所有虛擬機器。
 
-您可以使用 [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) 活動輸出虛擬機器的名稱。**Get-AzureVM** 活動會接受兩個參數：**虛擬機器名稱**和**服務帳戶名稱**。由於這些參數在您每次啟動 Runbook 時可能需要不同的值，因此您可以將輸入參數新增至您的 Runbook。以下是新增輸入參數的步驟：
+您可以使用 [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) 活動輸出虛擬機器的名稱。**Get-AzureVM** 活動會接受兩個參數：**虛擬機器名稱**和**服務名稱**。由於這些參數在您每次啟動 Runbook 時可能需要不同的值，因此您可以將輸入參數新增至您的 Runbook。以下是新增輸入參數的步驟：
 
 1. 從 [Runbook] 刀鋒視窗中選取圖形化 Runbook，並加以[編輯](automation-graphical-authoring-intro.md)。
 
@@ -100,7 +100,7 @@ PowerShell 工作流程 Runbook 中的參數定義具有下列一般形式，其
 
     * **Parameter1：**名稱 -- VMName、類型 -- 字串、強制 -- 否
 
-    * **Parameter2：**名稱 -- VMNameServiceName、類型 -- 字串、強制 -- 否、預設值 -- 自訂、自訂預設值 -- <包含虛擬機器之預設服務名稱>
+    * **Parameter2：**名稱 --ServiceName、類型 -- 字串、強制 - 否、預設值 -- 自訂、自訂預設值 -- <包含虛擬機器之預設服務的名稱>
 
 5. 新增參數之後，請按一下 [確定]。現在，您可以在 [輸入和輸出] 刀鋒視窗中加以檢視。再按一下 [確定]，然後按一下 [儲存] 並 [發佈] 您的 Runbook。
 
@@ -123,7 +123,7 @@ Runbook 有多種啟動方式：透過 Azure 入口網站 UI、透過 Webhook、
 ![說明提示氣球](media/automation-runbook-input-parameters/automation_05_HelpBaloon.png)
 
 
->[AZURE.NOTE]字串類型參數支援**空**字串值。在輸入參數文字方塊中輸入 **[EmptyString]**，將會傳遞空字串給參數。此外，字串類型參數不支援傳遞 **Null** 值。若未傳遞任何值給字串參數，PowerShell 會將其解譯為 Null。
+>[AZURE.NOTE] 字串類型參數支援**空**字串值。在輸入參數文字方塊中輸入 **[EmptyString]**，將會傳遞空字串給參數。此外，字串類型參數不支援傳遞 **Null** 值。若未傳遞任何值給字串參數，PowerShell 會將其解譯為 Null。
 
 - **使用 PowerShell Cmdlet 啟動已發佈的 Runbook，並指派參數**
 
@@ -131,24 +131,22 @@ Runbook 有多種啟動方式：透過 Azure 入口網站 UI、透過 Webhook、
 
     **範例：**
 
-      ```
-        $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
+      ``` $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
       ```
 
-    - **Azure 資源管理員 Cmdlet：**您可以使用 [Start-AzureRMAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) 啟動在資源群組中建立的自動化 Runbook。
+    - **Azure Resource Manager Cmdlet：**您可以使用 [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) 啟動在資源群組中建立的自動化 Runbook。
 
 
     **範例：**
 
-      ```
-        $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
+      ``` $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
-        Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
+        Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
       ```
 
->[AZURE.NOTE]當您使用 PowerShell Cmdlet 啟動 Runbook 時，將建立值為 **PowerShell** 的預設參數 **MicrosoftApplicationManagementStartedBy**。您可以在 [作業詳細資料] 刀鋒視窗中檢視此參數。
+>[AZURE.NOTE] 當您使用 PowerShell Cmdlet 啟動 Runbook 時，將建立值為 **PowerShell** 的預設參數 **MicrosoftApplicationManagementStartedBy**。您可以在 [作業詳細資料] 刀鋒視窗中檢視此參數。
 
 - **使用 SDK 啟動 Runbook，並指派參數**
 
@@ -216,7 +214,7 @@ Runbook 作業可透過 Azure 自動化 REST API，使用 **PUT** 方法和下�
 * **subscription-id：**您的 Azure 訂用帳戶識別碼。  
 * **cloud-service-name：**要求所要傳送到的雲端服務的名稱。  
 * **automation-account-name：**裝載在指定的雲端服務內的自動化帳戶名稱。  
-* **job-id：**作業的 GUID。使用 **[GUID]::NewGuid().ToString()** Cmdlet 可以建立 PowerShell 中的 GUID。
+* **job-id：**作業的 GUID。您可以使用 **[GUID]::NewGuid().ToString()** 命令建立 PowerShell 中的 GUID。
 
 若要將參數傳遞至 Runbook 作業，請使用要求本文。它會採用兩個以 JSON 格式提供的屬性：
 
@@ -271,4 +269,4 @@ Runbook 作業可透過 Azure 自動化 REST API，使用 **PUT** 方法和下�
 - 若要編輯文字 Runbook，請參閱[編輯文字 Runbook](automation-edit-textual-runbook.md)。
 - 若要編輯圖形化 Runbook，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

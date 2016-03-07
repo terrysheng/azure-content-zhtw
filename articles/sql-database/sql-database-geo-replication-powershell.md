@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="02/23/2016"
     ms.author="sstein"/>
 
 # 使用 PowerShell 為 Azure SQL Database 設定異地複寫
@@ -36,7 +36,7 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 
 若要設定異地複寫，您需要下列項目：
 
-- Azure 訂閱。如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [免費試用]，然後再回來完成這篇文章。
+- Azure 訂用帳戶。如果需要 Azure 訂用帳戶，可以先按一下此頁面頂端的 [**免費帳戶**]，然後再回來完成這篇文章。
 - Azure SQL Database - 您想要複寫到不同地理區域的主要資料庫。
 - Azure PowerShell 1.0 或更新版本。依照[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)，即可以下載並安裝 Azure PowerShell 模組。
 
@@ -215,4 +215,4 @@ Standard 資料庫可以有一個不可讀取次要複本，並且必須使用�
 - [業務續航力概觀](sql-database-business-continuity.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

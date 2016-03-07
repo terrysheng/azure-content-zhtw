@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
-	ms.author="yochay"/>
+	ms.date="02/18/2016" 
+	ms.author="stefsch"/>
 
 # 概觀
 
@@ -32,7 +32,23 @@ App Service 環境已經過隔離，可執行只有單一客戶的應用程式�
 
 應用程式經常需要存取公司資源，例如內部資料庫和 Web 服務。App Service 環境上執行的應用程式可以存取能透過[站對站][SiteToSite] VPN 和 [Azure ExpressRoute][ExpressRoute] 連線存取的資源。
 
+* [何謂 App Service 環境？](../app-service-web/app-service-app-service-environment-intro.md)
+* [建立 App Service 環境](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
+* [在 App Service 環境中建立應用程式](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [設定 App Service 環境](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
+* [在 App Service 環境中調整應用程式](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+* [網路安全性與架構](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
+
+## 作法
+
 [AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
+
+
+## 影片
+[AZURE.VIDEO azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps]
+
+[AZURE.VIDEO microsoft-ignite-2015-running-enterprise-web-and-mobile-apps-on-azure-app-service]
+
 
 <!-- LINKS -->
 [PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
@@ -43,4 +59,4 @@ App Service 環境已經過隔離，可執行只有單一客戶的應用程式�
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

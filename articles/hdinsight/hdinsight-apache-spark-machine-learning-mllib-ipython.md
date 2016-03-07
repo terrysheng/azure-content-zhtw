@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 
@@ -63,7 +63,7 @@
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-2. 建立新的 Notebook。按一下 [新增]，然後按一下 [Python 2]。
+2. 建立新的 Notebook。按一下 [新增]，然後按一下 [PySpark]。
 
 	![建立新的 Jupyter Notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "建立新的 Jupyter Notebook")
 
@@ -71,27 +71,15 @@
 
 	![提供 Notebook 的名稱](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "提供 Notebook 的名稱")
 
-3. 開始建置機器學習服務應用程式。首先，您應設定 Pyspark 環境。若要這樣做，請將游標放在儲存格中，然後按 **SHIFT + ENTER** 鍵。
+3. 您使用 PySpark 核心建立 Notebook，因此不需要明確地建立任何內容。當您執行第一個程式碼儲存格時，系統會自動為您建立 Spark、SQL 和 Hive 內容。您可以從匯入這個案例所需的類型，開始建置您的機器學習服務應用程式。若要這樣做，請將游標放在儲存格中，然後按 **SHIFT + ENTER** 鍵。
 
 
-		import pyspark
-		from pyspark import SparkConf
-		from pyspark import SparkContext
-		from pyspark.sql import SQLContext
-		%matplotlib inline
-		import matplotlib.pyplot as plt
 		from pyspark.ml import Pipeline
 		from pyspark.ml.classification import LogisticRegression
 		from pyspark.ml.feature import HashingTF, Tokenizer
 		from pyspark.sql import Row
 		from pyspark.sql.functions import UserDefinedFunction
 		from pyspark.sql.types import *
-		import atexit
-		
-		sc = SparkContext(conf=SparkConf().setMaster('yarn-client'))
-		sqlContext = SQLContext(sc)
-		atexit.register(lambda: sc.stop())
-
 
 ## 建構輸入資料框架
 
@@ -143,19 +131,21 @@
 	      '(41.97583445690982, -87.7107455232781)']]
 
 
-3. 上方的輸出讓我們對輸入檔案的結構描述有了概念；檔案中包含每個業者的名稱、營業類型、地址、檢查的資料，以及地點等項目。現在，我們要選取幾個對我們的預測分析有幫助的資料行，並將結果分類為資料框架。
+3. 上方的輸出讓我們對輸入檔案的結構描述有了概念；檔案中包含每個業者的名稱、營業類型、地址、檢查的資料，以及地點等項目。現在，我們要選取幾個對我們的預測分析有幫助的資料行，並將結果分類為資料框架，之後我們會使用這個資料框架建立暫存資料表。
 
 
 		schema = StructType([
-		        StructField("id", IntegerType(), False), 
-		        StructField("name", StringType(), False), 
-		        StructField("results", StringType(), False), 
-		        StructField("violations", StringType(), True)])
-		
+        StructField("id", IntegerType(), False), 
+        StructField("name", StringType(), False), 
+        StructField("results", StringType(), False), 
+        StructField("violations", StringType(), True)])
+
 		df = sqlContext.createDataFrame(inspections.map(lambda l: (int(l[0]), l[1], l[12], l[13])) , schema)
+		df.registerTempTable('CountResults')
 
-4. 現在我們已有*資料框架* `df`，可讓我們據以執行分析。我們在資料框架中加入了 4 個相關資料行：**識別碼**、**名稱**、**結果**和**違規情事**。現在要取得資料的小型樣本：
-
+4. 現在我們已有*資料框架* `df`，可讓我們據以執行分析。我們也有暫存資料表呼叫 **CountResults**。我們在資料框架中加入了 4 個相關資料行：**識別碼**、**名稱**、**結果**和**違規情事**。
+	
+	現在要取得資料的小型樣本：
 
 		df.show(5)
 
@@ -177,81 +167,96 @@
 
 ## 了解資料
 
-我們要著手了解資料集的內容為何。例如，**結果**資料行中有哪些不同的值？
+1. 我們要著手了解資料集的內容為何。例如，**結果**資料行中有哪些不同的值？
 
 
 	df.select('results').distinct().show()
 
 	
-您應該會看到如下的輸出：
+	您應該會看到如下的輸出：
 
-    # -----------------
-	# THIS IS AN OUTPUT
-	# -----------------
-
-	+--------------------+
-    |             results|
-    +--------------------+
-    |                Fail|
-    |Business Not Located|
-    |                Pass|
-    |  Pass w/ Conditions|
-    |     Out of Business|
-    +--------------------+
+	    # -----------------
+		# THIS IS AN OUTPUT
+		# -----------------
+	
+		+--------------------+
+	    |             results|
+	    +--------------------+
+	    |                Fail|
+	    |Business Not Located|
+	    |                Pass|
+	    |  Pass w/ Conditions|
+	    |     Out of Business|
+	    +--------------------+
     
-快速的視覺效果有助於我們研判這些結果的分佈。
+2. 快速的視覺效果有助於我們研判這些結果的分佈。我們在暫存資料表 **CountResults** 中已經有資料。您可以針對資料表執行下列 SQL 查詢，讓您清楚了解如何發佈結果。
 
-	countResults = df.groupBy('results').count().collect()
-	labels = [row.results for row in countResults]
-	sizes = [row.count for row in countResults]
-	colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
-	plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
-	plt.axis('equal')
+		%%sql -o countResultsdf
+		SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
 
+	`%%sql` magic 後面緊接著 `-o countResultsdf` 可確保查詢的輸出會保存在 Jupyter 伺服器的本機上 (通常是叢集的前端節點)。輸出會使用指定的名稱 **averagetime**，當做 [Pandas](http://pandas.pydata.org/) 資料框架保存。
+	
+	您應該會看到如下的輸出：
+	
+	![SQL 查詢輸出](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/query.output.png "SQL 查詢輸出")
 
-您應該會看到如下的輸出：
+	如需 `%%sql` magic 及可搭配 PySpark 核心使用的其他 magic 的詳細資訊，請參閱[使用 Spark HDInsight 叢集之 Jupyter Notebook 上可用的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)。
 
-    
-![結果輸出](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_13_1.png)
+3. 您也可以使用 Matplotlib (用於建構資料視覺效果的程式庫) 建立繪圖。因為必須從保存在本機上的 **countResultsdf** 資料框架建立繪圖，所以程式碼片段的開頭必須為 `%%local` magic。這可確保程式碼是在 Jupyter 伺服器的本機上執行。
 
+		%%local
+		%matplotlib inline
+		import matplotlib.pyplot as plt
+		
+		
+		labels = countResultsdf['results']
+		sizes = countResultsdf['cnt']
+		colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
+		plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
+		plt.axis('equal')
 
-您可以看到，一項檢查可以有 5 個不同的結果
+	您應該會看到如下的輸出：
 
-* 找不到該業者 
-* 不合格
-* 通過
-* 有條件通過，以及
-* 已結束營業 
-
-我們要根據給定的違規標準，開發可以猜測食品檢查結果的模型。由於羅吉斯迴歸是一種二元分類方法，因此將資料分成兩個類別，是很合理的：**不合格**和**通過**。「有條件通過」仍屬於「通過」，因此在訓練模型時，我們會將兩種結果視為相同。具有其他結果 (「找不到業者」、「已結束營業」) 的資料沒有用處，因此我們將其從訓練集中移除。這應該沒有問題，因為這兩種類別在結果中所佔的百分比非常小。
-
-我們繼續進行，並將現有資料框架 (`df`) 轉換為新的資料框架，其中每項檢查都以一組「標籤-違規」來表示。在我們的案例中，標籤 `0.0` 代表失敗，標籤 `1.0` 代表成功，標籤 `-1.0` 代表此二者以外的某種結果。在計算新的資料框架時，我們將此類其他結果排除在外。
-
-
-	def labelForResults(s):
-	    if s == 'Fail':
-	        return 0.0
-	    elif s == 'Pass w/ Conditions' or s == 'Pass':
-	        return 1.0
-	    else:
-	        return -1.0
-	label = UserDefinedFunction(labelForResults, DoubleType())
-	labeledData = df.select(label(df.results).alias('label'), df.violations).where('label >= 0')
+	![結果輸出](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_13_1.png)
 
 
-我們要從加上標籤的資料中擷取一個資料列，看看會是如何。
+4. 您可以看到，一項檢查可以有 5 個不同的結果：
+	
+	* 找不到該業者 
+	* 不合格
+	* 通過
+	* 有條件通過，以及
+	* 已結束營業 
+
+	我們要根據給定的違規標準，開發可以猜測食品檢查結果的模型。由於羅吉斯迴歸是一種二元分類方法，因此將資料分成兩個類別，是很合理的：**不合格**和**通過**。「有條件通過」仍屬於「通過」，因此在訓練模型時，我們會將兩種結果視為相同。具有其他結果 (「找不到業者」、「已結束營業」) 的資料沒有用處，因此我們將其從訓練集中移除。這應該沒有問題，因為這兩種類別在結果中所佔的百分比非常小。
+
+5. 我們繼續進行，並將現有資料框架 (`df`) 轉換為新的資料框架，其中每項檢查都以一組「標籤-違規」來表示。在我們的案例中，標籤 `0.0` 代表失敗，標籤 `1.0` 代表成功，標籤 `-1.0` 代表此二者以外的某種結果。在計算新的資料框架時，我們將此類其他結果排除在外。
 
 
-	labeledData.take(1)
+		def labelForResults(s):
+		    if s == 'Fail':
+		        return 0.0
+		    elif s == 'Pass w/ Conditions' or s == 'Pass':
+		        return 1.0
+		    else:
+		        return -1.0
+		label = UserDefinedFunction(labelForResults, DoubleType())
+		labeledData = df.select(label(df.results).alias('label'), df.violations).where('label >= 0')
 
 
-您應該會看到如下的輸出：
+	我們要從加上標籤的資料中擷取一個資料列，看看會是如何。
 
-    # -----------------
-	# THIS IS AN OUTPUT
-	# -----------------
 
-	[Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
+		labeledData.take(1)
+
+
+	您應該會看到如下的輸出：
+	
+	    # -----------------
+		# THIS IS AN OUTPUT
+		# -----------------
+	
+		[Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
 
 
 ## 從輸入資料框架建立羅吉斯迴歸模型
@@ -275,79 +280,106 @@ MLLib 可提供簡單的方法來執行此作業。首先，我們將「語彙�
 
 我們可以使用先前建立的模型，根據我們所觀察的違規情事，*預測*新的檢查會有何種結果。我們已在資料集 **Food\_Inspections1.csv** 上訓練此模型。現在，我們要使用第二個資料集 **Food\_Inspections2.csv**，*評估*此模型對於新資料的強度。第二個資料集 (**Food\_Inspections2.csv**) 應已在與叢集相關聯的預設儲存體容器中。
 
-下列程式碼片段會建立新的資料框架 **predictionsDf**，其中包含模型所產生的預測。
+1. 下列程式碼片段會建立新的資料框架 **predictionsDf**，其中包含模型所產生的預測。程式碼片段也會依據資料框架，建立暫存資料表 **Predictions**。
 
 
-	testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+		testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
 	             .map(csvParse) \
 	             .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
-	testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
-	predictionsDf = model.transform(testDf)
-	predictionsDf.columns
+		testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
+		predictionsDf = model.transform(testDf)
+		predictionsDf.registerTempTable('Predictions')
+		predictionsDf.columns
 
 
-您應該會看到如下的輸出：
-
-    # -----------------
-	# THIS IS AN OUTPUT
-	# -----------------
+	您應該會看到如下的輸出：
 	
-	['id',
-     'name',
-     'results',
-     'violations',
-     'words',
-     'features',
-     'rawPrediction',
-     'probability',
-     'prediction']
+	    # -----------------
+		# THIS IS AN OUTPUT
+		# -----------------
+		
+		['id',
+	     'name',
+	     'results',
+	     'violations',
+	     'words',
+	     'features',
+	     'rawPrediction',
+	     'probability',
+	     'prediction']
 
-請看其中一個預測。執行此程式碼片段：
+2. 請看其中一個預測。執行此程式碼片段：
 
-	predictionsDf.take(1)
+		predictionsDf.take(1)
 
-您會看到對於測試資料集中的第一個項目所做的預測。
+	您會看到對於測試資料集中的第一個項目所做的預測。
 
-`model.transform()` 方法會將相同的轉換套用至具有相同結構描述的任何新資料，並做出關於如何分類資料的預測。我們可以做一些簡單的統計，了解一下我們的預測精準度如何：
+3. `model.transform()` 方法會將相同的轉換套用至具有相同結構描述的任何新資料，並做出關於如何分類資料的預測。我們可以做一些簡單的統計，了解一下我們的預測精準度如何：
 
 
-	numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR 
-	                                      (prediction = 1 AND (results = 'Pass' OR 
-	                                                           results = 'Pass w/ Conditions'))""").count()
-	numInspections = predictionsDf.count()
+		numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR 
+		                                      (prediction = 1 AND (results = 'Pass' OR 
+		                                                           results = 'Pass w/ Conditions'))""").count()
+		numInspections = predictionsDf.count()
+		
+		print "There were", numInspections, "inspections and there were", numSuccesses, "successful predictions"
+		print "This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate"
+
+	輸出顯示如下：
 	
-	print "There were", numInspections, "inspections and there were", numSuccesses, "successful predictions"
-	print "This is a", str((float(numSuccesses) / float(numInspections)) * 100) + "%", "success rate"
-
-輸出顯示如下：
-
-    # -----------------
-	# THIS IS AN OUTPUT
-	# -----------------
-
-	There were 9315 inspections and there were 8087 successful predictions
-    This is a 86.8169618894% success rate
-
-
-透過 Spark 使用羅吉斯迴歸，讓我們找出了英文版的違規情事說明與指定企業是否能通過食品檢查之間的關聯性，而建立了兩者關聯性的精確模型。我們可以建構最後的視覺效果，以利研判此測試的結果：
-
+	    # -----------------
+		# THIS IS AN OUTPUT
+		# -----------------
 	
-	failSuccess = predictionsDf.where("prediction = 0 AND results = 'Fail'").count()
-	failFailure = predictionsDf.where("prediction = 0 AND results <> 'Fail'").count()
-	passSuccess = predictionsDf.where("prediction = 1 AND results <> 'Fail'").count()
-	passFailure = predictionsDf.where("prediction = 1 AND results = 'Fail'").count()
-	labels = ['True positive', 'False positive', 'True negative', 'False negative']
-	sizes = [failSuccess, failFailure, passSuccess, passFailure]
-	plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
-	plt.axis('equal')
+		There were 9315 inspections and there were 8087 successful predictions
+	    This is a 86.8169618894% success rate
 
 
-您應該會看見下列輸出。
+	透過 Spark 使用羅吉斯迴歸，讓我們找出了英文版的違規情事說明與指定企業是否能通過食品檢查之間的關聯性，而建立了兩者關聯性的精確模型。
 
-![預測輸出](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_26_1.png)
+## 建立預測的視覺表示法
+
+我們可以建構最終的視覺效果，以利研判此測試的結果。
+
+1. 我們可以從擷取稍早建立的 **Predictions** 暫存資料表中不同的預測和結果開始。
+
+		%%sql -o predictionstable
+		SELECT prediction, results FROM Predictions
+
+2. 在上述程式碼片段中，**predictionstable** 是在 Jupyter 伺服器上，保存 SQL 查詢輸出的本機資料框架。您現在可以使用 `%%local` magic，對本機保存的資料框架執行後續的程式碼片段。
+
+		%%local
+		failSuccess = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results == 'Fail')]['prediction'].count()
+		failFailure = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results <> 'Fail')]['prediction'].count()
+		passSuccess = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results <> 'Fail')]['prediction'].count()
+		passFailure = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results == 'Fail')]['prediction'].count()
+		failSuccess,failFailure,passSuccess,passFailure
+
+	輸出顯示如下：
+	
+		# -----------------
+		# THIS IS AN OUTPUT
+		# -----------------
+	
+		(276, 46, 1917, 261)
+
+3. 最後，使用下列程式碼片段產生繪圖。
+
+		%%local
+		%matplotlib inline
+		import matplotlib.pyplot as plt
+		
+		labels = ['True positive', 'False positive', 'True negative', 'False negative']
+		sizes = [failSuccess, failFailure, passSuccess, passFailure]
+		plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+		plt.axis('equal')
+	
+	您應該會看見下列輸出。
+	
+	![預測輸出](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/output_26_1.png)
 
 
-在此圖中，「肯定」結果是指未通過的食品檢查，否定結果則是指通過的檢查。這大致上對應至 12.6% 的誤否定率和 16.0% 的誤肯定率。
+	在此圖中，「肯定」結果是指未通過的食品檢查，否定結果則是指通過的檢查。
 
 ## 關閉 Notebook
 
@@ -387,4 +419,4 @@ MLLib 可提供簡單的方法來執行此作業。首先，我們將「語彙�
 
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

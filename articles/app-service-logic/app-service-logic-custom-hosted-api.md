@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"	
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/23/2016"
 	ms.author="stepsic"/>
 	
 # 將您裝載在 App Service 上的自訂 API 與邏輯應用程式一起使用
@@ -22,28 +22,20 @@
 
 ## 部署 Web 應用程式
 
-首先，您必須將 API 部署為 App Service 中的 Web 應用程式。此處的指示說明的是基本部署：[建立 ASP.NET Web 應用程式](web-sites-dotnet-get-started.md)。
+首先，您必須將 API 部署為 App Service 中的 Web 應用程式。此處的指示說明的是基本部署：[建立 ASP.NET Web 應用程式](../app-service-web/web-sites-dotnet-get-started.md)。雖然您可以從邏輯應用程式呼叫任何 API，但是為了取得最佳體驗，我們建議您加入 Swagger 中繼資料，以便輕易地與邏輯應用程式動作整合。您可以在[加入 swagger](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui)中取得詳細資料。
 
-請確實取得 Web 應用程式的 **URL** - 出現在 Web 應用程式頂端的 **Essentials** 中。
+### API 設定
+
+為了讓 Logic Apps 設計工具能夠剖析您的 Swagger，請務必啟用 CORS，並設定 Web 應用程式的 APIDefinition 屬性。這很容易就能在 Azure 入口網站中設定。只需開啟您 Web 應用程式的 [設定] 刀鋒視窗，並在 API 區段下方，將 [API 定義] 設定為 swagger.json 檔案的 URL (這通常是 https://{name}.azurewebsites.net/swagger/docs/v1)，並針對 '*' 新增 CORS 原則，以允許來自 Logic Apps 設計工具的要求。
 
 ## 呼叫 API
 
-首先應建立新的空白邏輯應用程式。建立空白的邏輯應用程式之後，請按一下 [編輯] 或 [觸發程序和動作]，然後選取 [從頭建立]。
+在 Logic Apps 入口網站中，如果您已設定 CORS 和 API 定義屬性，您應該能夠輕鬆地在您的流程中加入自訂 API 動作。在設計工具中，您可以選擇瀏覽您的訂用帳戶網站，以列出已定義 swagger URL 的網站。您也可以使用 HTTP + Swagger 動作來指向 swagger，並列出可用的動作和輸入。最後，您永遠可以使用 HTTP 動作建立要求來呼叫任何 API，即使是沒有或不公開 swagger 文件的要求也一樣。
 
-首先，您可能會想要使用週期觸發程序，或按一下 [手動執行此邏輯]。接下來，您會實際呼叫您的 API。若要這樣做，請在右手邊按一下綠色的 [HTTP] 動作。
+如果您想要保護 API，則有幾種不同的方式可供執行：
 
-1. 選擇 [方法] - 這會定義在您的 API 程式碼中
-2. 在 [URL] 區段中，貼入您已部署的 Web 應用程式的 [URL]
-3. 如果您需要任何 [標頭]，請將它們包含在 JSON 格式中，如下所示：`{"Content-type" : "application/json", "Accept" : "application/json" }`
-4. 如果您的 API 是公用的，您可以將 [驗證] 保留為空白。如果要保護您 API 的呼叫，請參閱下列各節。
-5. 最後，納入您的 API 中定義之問題的**本文**。
-
-按一下命令列中的 [儲存]。如果您按一下 [立即執行]，您應該會在執行清單中看到 API 的呼叫和回應。
-
-如果您有公用 API，這是很適合的方法。但如果您想要保護 API，則有幾種不同的方式可供執行：
-
-1. *無需變更程式碼* - Azure Active Directory 可用來保護您的 API，而不需要任何程式碼變更或重新部署。
-2. 在 API 的程式碼中強制執行基本驗證、AAD 驗證或憑證驗證。 
+1. 無需變更程式碼 - Azure Active Directory 可用來保護您的 API，而不需要任何程式碼變更或重新部署。
+1. 在 API 的程式碼中強制執行基本驗證、AAD 驗證或憑證驗證。
 
 ## 保護您 API 的呼叫而不變更程式碼 
 
@@ -51,7 +43,7 @@
 
 ### 第 1 部分：設定邏輯應用程式的應用程式身分識別碼
 
-這是邏輯應用程式用來對 Active Directory 進行驗證的項目。您只*需要*為您的目錄執行此動作一次。例如，您可以選擇讓您所有的邏輯應用程式使用相同的身分識別碼，儘管只要您願意，您也可以為每個邏輯應用程式建立唯一的身分識別碼。您可以在 UI 中執行這項操作，或使用 PowerShell。
+這是邏輯應用程式用來對 Active Directory 進行驗證的項目。您只「需要」為您的目錄執行此動作一次。例如，您可以選擇讓您所有的邏輯應用程式使用相同的身分識別碼，儘管只要您願意，您也可以為每個邏輯應用程式建立唯一的身分識別碼。您可以在 UI 中執行這項操作，或使用 PowerShell。
 
 #### 使用 Azure 傳統入口網站建立應用程式身分識別碼
 
@@ -141,7 +133,7 @@
 
 ### 憑證驗證
 
-您可以使用用戶端憑證來驗證對您 Web 應用程式的傳入要求。請參閱[如何設定 Web 應用程式的 TLS 相互驗證](app-service-web-configure-tls-mutual-auth.md)，以了解如何設定您的程式碼。
+您可以使用用戶端憑證來驗證對您 Web 應用程式的傳入要求。請參閱[如何設定 Web 應用程式的 TLS 相互驗證](../app-service-web/app-service-web-configure-tls-mutual-auth.md)，以了解如何設定您的程式碼。
 
 在 [授權] 區段中，您應提供：`{"type": "clientcertificate","password": "test","pfx": "long-pfx-key"}`。
 
@@ -169,8 +161,8 @@
 
 如果您要將 API 限定給邏輯應用程式使用 (例如在程式碼中)，您可以擷取包含 JWT 的標頭，並檢查呼叫端為何，而拒絕任何不相符的要求。
 
-再進一步，如果您想要在自己的程式碼中加以完整實作，且不利用入口網站功能，您可以參閱這篇文章：[在 Azure App Service 中使用 Active Directory 進行驗證](web-sites-authentication-authorization.md)。
+再進一步，如果您想要在自己的程式碼中加以完整實作，且不利用入口網站功能，您可以參閱這篇文章：[在 Azure App Service 中使用 Active Directory 進行驗證](../app-service-web/web-sites-authentication-authorization.md)。
 
 您仍然必須遵循前述步驟建立邏輯應用程式的應用程式身分識別碼，並用它來呼叫 API。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

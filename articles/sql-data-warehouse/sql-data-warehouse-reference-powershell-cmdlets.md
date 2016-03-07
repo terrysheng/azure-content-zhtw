@@ -1,9 +1,9 @@
 <properties
-   pageTitle="開始使用 SQL 資料倉儲中的 Cmdlet"
+   pageTitle="透過 SQL 資料倉儲使用 PowerShell Cmdlet 和 REST API"
    description="使用 PowerShell Cmdlet 暫止和重新啟動 SQL 資料倉儲"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sidneyh"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/11/2016"
-   ms.author="mausher;sidneyh;barbkess;sonyama"/>
+   ms.date="02/22/2016"
+   ms.author="barbkess;mausher;sonyama"/>
 
-# 開始使用 Azure 資料倉儲 Cmdlet 和 REST API
+# 透過 SQL 資料倉儲使用 PowerShell Cmdlet 和 REST API
 
 您可使用 Azure PowerShell Cmdlet 或 REST API 管理 SQL 資料倉儲。
 
@@ -133,4 +133,4 @@ $retorePoints
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

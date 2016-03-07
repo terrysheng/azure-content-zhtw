@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/19/2015"
+	ms.date="02/15/2016"
 	ms.author="heidist"/>
 
 # Azure 搜尋中的服務限制
@@ -112,4 +112,4 @@ API 金鑰可用於服務驗證。有兩種類型。系統管理金鑰在要求�
 
 <sup>1</sup> 在 Azure 搜尋服務中，要求的主體最大上限為 16 MB，賦予個別欄位或「集合」特定限制則不受理論上的限制 (如需欄位的組合和限制的詳細資訊，請參閱[支援的資料類型](https://msdn.microsoft.com/library/azure/dn798938.aspx))。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

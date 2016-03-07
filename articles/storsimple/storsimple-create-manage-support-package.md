@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -123,7 +123,7 @@
 
 在產生支援封裝之後，您可能需要編輯封裝來移除記錄檔中的客戶特定資訊，例如磁碟區名稱、裝置 IP 位址和備份名稱。
 
-> [AZURE.IMPORTANT]您只能編輯透過 Windows PowerShell for StorSimple 產生的支援封裝。您無法編輯在 Azure 傳統入口網站中以 StorSimple Manager 服務建立的封裝。
+> [AZURE.IMPORTANT] 您只能編輯透過 Windows PowerShell for StorSimple 產生的支援封裝。您無法編輯在 Azure 傳統入口網站中以 StorSimple Manager 服務建立的封裝。
 
 將支援封裝上傳至 Microsoft 支援網站之前，若要編輯支援封裝，您必須解密支援封裝、編輯檔案，然後再次加密。執行下列步驟來編輯支援封裝：
 
@@ -137,7 +137,7 @@
  
 	`Import-module <Path to the folder that contains the Windows PowerShell script>`
 
-4. 開啟支援封裝資料夾。請注意，所有檔案都是已壓縮和加密的 .aes 檔案。開啟檔案。若要開啟檔案，請輸入：
+4. 開啟支援封裝資料夾。請注意，所有檔案都是已壓縮和加密的 *.aes* 檔案。開啟檔案。若要開啟檔案，請輸入：
 
 	`Open-HcsSupportPackage <Path to the folder that contains support package files>`
 
@@ -200,4 +200,4 @@
 
 - 了解如何[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

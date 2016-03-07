@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/14/2015"
+	ms.date="02/22/2016"
 	ms.author="raynew"/>
 
 
 # 準備儲存體對應以使用 Azure Site Recovery 在兩個內部部署資料中心之間複寫 Hyper-V 虛擬機器
 
 
-Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原，為您的商務持續性與嚴重損壞修復 (BCDR) 策略做出貢獻。本文說明儲存體對應，它可以協助您在使用 Site Recovery 於兩個內部部署資料中心之間複寫 Hyper-V 虛擬機器時，將儲存體做最佳利用。
+Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原，為您的商務持續性與嚴重損壞修復 (BCDR) 策略做出貢獻。本文說明儲存體對應，它可以協助您在使用 Site Recovery 於兩個內部部署 VMM 資料中心之間複寫 Hyper-V 虛擬機器時，將儲存體做最佳利用。
 
-如果您在閱讀本文後有任何問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) (英文)。
+在這篇文章下方或 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)中張貼意見或問題。
 
 ## 概觀
 
@@ -98,4 +98,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/A | 沒有對應，因此會使用 H
 
 既然您已經更了解儲存體對應，[請準備開始部署 Azure Site Recovery](site-recovery-best-practices.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

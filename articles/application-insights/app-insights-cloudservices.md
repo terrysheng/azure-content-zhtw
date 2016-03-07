@@ -258,6 +258,10 @@ Application Insights SDK 可以報告應用程式對外部相依性的呼叫，�
 
 [此範例](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService)監視具有 Web 角色和兩個背景工作角色的服務。
 
+## 在 Azure 雲端服務中執行時發生的「找不到方法」例外狀況
+
+您是否已針對 .NET 4.6 組建？ Azure 雲端服務角色不自動支援 4.6。請先[在每個角色上安裝 4.6](../cloud-services/cloud-services-dotnet-install-dotnet.md)，再執行您的應用程式。
+
 ## 相關主題
 
 * [設定將 Azure 診斷傳送至 Application Insights](app-insights-azure-diagnostics.md)
@@ -279,4 +283,4 @@ Application Insights SDK 可以報告應用程式對外部相依性的呼叫，�
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

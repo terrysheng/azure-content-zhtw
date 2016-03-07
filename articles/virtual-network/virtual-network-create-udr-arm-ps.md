@@ -1,6 +1,6 @@
 <properties 
    pageTitle="在資源管理員中使用 PowerShell 控制路由和使用虛擬應用裝置 | Microsoft Azure"
-   description="了解如何在 Azure PowerShell 控制路由和使用虛擬應用裝置"
+   description="深入了解在資源管理員中使用 PowerShell 控制路由和使用虛擬應用裝置"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/23/2016"
    ms.author="telmos" />
 
-#在 PowerShell 中建立使用者定義的路由 (UDR)
+#在資源管理員中使用 PowerShell 建立使用者定義的路由 (UDR)
 
 [AZURE.INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
 
@@ -56,7 +56,7 @@
 		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
 
->[AZURE.WARNING]上述命令的輸出會顯示虛擬網路設定物件的內容，此物件只存在於您執行 PowerShell 的電腦上。您需要執行 **Set-AzureVirtualNetwork** Cmdlet 來將這些設定儲存至 Azure。
+>[AZURE.WARNING] 上述命令的輸出會顯示虛擬網路設定物件的內容，此物件只存在於您執行 PowerShell 的電腦上。您需要執行 **Set-AzureVirtualNetwork** Cmdlet 來將這些設定儲存至 Azure。
 
 7. 在 Azure 中儲存新的子網路設定。
 
@@ -68,7 +68,7 @@
 		ResourceGroupName : TestRG
 		Location          : westus
 		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"7df26c0e-652f-4754-bc4e-733fef7d5b2b"
+		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ProvisioningState : Succeeded
 		Tags              : 
 		                    Name         Value
@@ -236,4 +236,4 @@
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

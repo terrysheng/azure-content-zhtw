@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # 開始使用 Blob 儲存體和 Visual Studio 已連接服務 (ASP.NET)
 
 ## 概觀
 
-本文說明如何在您使用 Visual Studio 之 [加入已連接服務] 對話方塊建立或參考 ASP.NET 應用程式中的 Azure 儲存體帳戶之後，開始使用 Azure Blob 儲存體。本文將示範如何建立 Blob 容器並執行其他常見工作，例如上傳、列出、下載和刪除 Blob。這些範例均以 C# 撰寫，並會使用 [.NET 的 Azure 儲存體用戶端程式庫](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
+本文說明如何在您使用 Visual Studio 之 [加入已連接服務] 對話方塊建立或參考 ASP.NET 應用程式中的 Azure 儲存體帳戶之後，開始使用 Azure Blob 儲存體。本文將示範如何建立 Blob 容器並執行其他常見工作，例如上傳、列出、下載和刪除 Blob。這些範例均以 C# 撰寫，並使用 [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
 
- - 如需使用 Azure Blob 儲存體的更多一般資訊，請參閱[如何從 .NET 使用 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)。
+ - 如需其他有關使用 Azure Blob 儲存體的一般資訊，請參閱[以 .NET 開始使用 Azure Blob 儲存體](storage-dotnet-how-to-use-blobs.md)。
  - 如需 ASP.NET 專案的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
 
 
@@ -76,8 +76,6 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
 若要將檔案上傳至區塊 Blob，請取得容器參照，並使用該參照來取得區塊 Blob 參照。擁有 Blob 參照後，即可藉由呼叫 **UploadFromStream** 方法，將任何資料流上傳至其中。此操作會建立 Blob (如果其並不存在) 或覆寫 Blob (如果其已存在)。下列範例顯示如何將 Blob 上傳到容器，並假設已建立該容器。
 
-    // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code."
-
     // Create or overwrite the "myblob" blob with contents from a local file.
     using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
     {
@@ -87,8 +85,6 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 ## 列出容器中的 Blob
 
 若要列出容器中的 Blob，請使用 **ListBlobs** 方法來擷取 Blob 及 (或) 其中的目錄。若要針對傳回的 **IListBlobItem** 存取一組豐富的屬性與方法，您必須先將它轉換至 **CloudBlockBlob**、**CloudPageBlob** 或 **CloudBlobDirectory** 物件。如果不清楚類型，可使用類型檢查來決定要將其轉換至何種類型。下列程式碼示範如何擷取及輸出 **photos** 容器中之每個項目的 URI：
-
-    // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code."
 
 	// Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, false))
@@ -158,8 +154,6 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
 若要下載 Blob，請使用 **DownloadToStream** 方法。下列範例使用 **DownloadToStream** 方法將 Blob 內容傳送給資料流物件，您接著可將該物件永久儲存成本機檔案。
 
-    // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
-
     // Retrieve a reference to a blob named "photo1.jpg".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
 
@@ -170,8 +164,6 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
     }
 
 您也可以使用 **DownloadToStream** 方法，將 Blob 的內容當成文字字串下載。
-
-    // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
 
 	// Retrieve a reference to a blob named "myblob.txt"
 	CloudBlockBlob blockBlob2 = container.GetBlockBlobReference("myblob.txt");
@@ -186,8 +178,6 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 ## 刪除 Blob
 
 若要刪除 Blob，請使用 **Delete** 方法。
-
-    // Get a CloudBlobContainer named 'container' as described in "Access blob containers in code"
 
     // Retrieve reference to a blob named "myblob.txt".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
@@ -237,4 +227,4 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

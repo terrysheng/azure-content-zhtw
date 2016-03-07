@@ -1,6 +1,6 @@
 <properties
-	pageTitle="App 模型 v2.0 限制事項 | Microsoft Azure"
-	description="Azure AD v2.0 應用程式模型限制事項清單。"
+	pageTitle="v2.0 端點限制 | Microsoft Azure"
+	description="Azure AD v2.0 端點的限制清單。"
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,76 +13,87 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-# 應用程式模型 v2.0 預覽：限制事項
+# 我應該使用 v2.0 端點嗎？ 
 
-在公開預覽期間，v2.0 應用程式模型有數個功能未獲支援。在 v2.0 應用程式模型正式運作之前，這些限制全部都會移除；但如果您在公開預覽期間建置應用程式，請務必注意這些限制。
+當建立與 Azure Active Directory 整合的應用程式時，您必須判斷 v2.0 端點和驗證通訊協定是否符合您的需求。仍然完整支援原始的 Azure AD 應用程式模型，而且在某些方面比 v2.0 的功能更豐富。不過，v2.0 端點為開發人員[帶來極大的好處](active-directory-v2-compare.md)， 可能吸引您採用新的程式設計模型。隨著時間經過，v2.0 會成長到含括所有的 Azure AD 功能，屆時您只需要使用 v2.0 端點即可。
 
-> [AZURE.NOTE]此資訊適用於 v2.0 應用程式模型公開預覽。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
+目前，v2.0 端點可讓您達成兩項核心功能：
 
-## 支援生產環境應用程式
-與 v2.0 應用程式模型整合的應用程式，不應該當成生產環境層級的應用程式公開發行。V2.0 應用程式模型目前仍處於公開預覽，隨時可能發布重大變更，此項服務也不提供任何 SLA 保證。並非所有發生的事件都會受到支援。如果您願意接受開發中服務帶來的相依性風險，請務必與我們 @AzureAD 連絡，討論您的應用程式或服務的範圍。
+- 讓使用者以個人帳戶和公司帳戶登入。
+- 呼叫[融合的 Outlook API](https://dev.outlook.com)。
 
-## 應用程式限制
-v2.0 應用程式模型公開預覽目前不支援下列類型的應用程式。如需受支援的應用程式類型描述，請參閱[這篇文章](active-directory-v2-flows.md)。
+這兩種功能在 Web、行動及個人電腦應用程式中的實作方式都一樣。如果這些相當有限的功能對您的應用程式有意義，我們建議您使用 v2.0 端點。如果您的應用程式需要 Microsoft 服務的任何其他功能，我們建議您繼續使用 Azure AD 的實際可行端點和 Microsoft 帳戶。未來，v2.0 端點將兼容 Azure AD 和 Microsoft 帳戶，我們將協助所有開發人員轉換至 v2.0 端點。
 
-##### 單一頁面應用程式 (Javascript)
-許多新式的應用程式都有單一頁面應用程式前端，以 javascript 編碼為主，而且通常使用 AngularJS、Ember.js、Durandal 等 SPA 架構。正式運作的 Azure AD 服務支援使用 [OAuth 2.0 隱含流程](active-directory-v2-protocols.md#oauth2-implicit-flow)的應用程式，但 v2.0 應用程式模型尚不提供此流程。近期內可望提供。
+在此同時，本文旨在協助您判斷 v2.0 端點是否適合您。我們將持續更新本文，以反映 v2.0 端點目前的狀態，請記得回來重新評估您對於 v2.0 功能的需求。
 
-如果您急於取得使用 v2.0 應用程式模型的 SPA，您可以使用 [Web 應用程式流程](active-directory-v2-flows.md#web-apps)實作驗證。但這不是建議的方法，而這個案例的相關文件也有所限制。如果想要了解 SPA 案例，請參閱[已正式運作的 Azure AD SPA 程式碼範例](active-directory-devquickstarts-angular.md)。
+如果您有一個與 Azure AD 搭配的現有應用程式未使用 v2.0 端點，則不需要從頭開始。未來，我們設法讓您的現有 Azure AD 應用程式可以使用 v2.0 端點。
 
-##### 精靈/伺服器端應用程式
-包含長時執行處理序或不需要使用者操作的應用程式，也需他法存取受保護的資源，例如 Web API。這些應用程式可以使用 [OAuth 2.0 用戶端認證流程](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow)，驗證及取得使用應用程式身分識別 (而非使用者委派身分識別) 的權杖。
-
-v2.0 應用程式模型目前不支援此流程，也就是說應用程式只能在互動式使用者登入流程之後取得權杖。近期內即會加入用戶端認證流程。如果想要在正式運作的 Azure AD 應用程式模型中查看用戶端認證流程，請參閱 [GitHub 上的精靈範例](https://github.com/AzureADSamples/Daemon-DotNet)。
-
-##### 鏈結的 Web API (代理者)
-許多架構包含需要呼叫另一個下游 Web API 的 Web API，而這兩者都受到 v2.0 應用程式模型的保護。有 Web API 後端的原生用戶端中常出現這種情況，而呼叫 Office 365 或 Graph API 等 Microsoft 線上服務。
-
-使用 OAuth 2.0 的 Jwt Bearer 認證授與可支援此鏈結的 Web API，亦稱為[代理者流程](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow)。不過，v2.0 應用程式模型預覽目前尚未施行代理者流程。若要查看此流程在正式運作的 Azure AD 服務中如何運作，請參閱 [GitHub 上的代理者程式碼範例](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)。
+## 應用程式的限制
+v2.0 端點目前不支援下列類型的應用程式。如需受支援的應用程式類型描述，請參閱[這篇文章](active-directory-v2-flows.md)。
 
 ##### 獨立的 Web API
-在 v2.0 應用程式模型預覽中，您有能力從 v2.0 端點[建置使用 OAuth 權杖保護的 Web API](active-directory-v2-flows.md#web-apis)。不過，該 Web API 只能接收來自共用相同應用程式 ID 之用戶端的權杖。不支援建置從數個不同用戶端存取的協力廠商 Web 服務。
+在 v2.0 端點中，您能夠[建置使用 OAuth 2.0 保護的 Web API](active-directory-v2-flows.md#web-apis)。不過，該 Web API 只能從共用相同應用程式識別碼的應用程式接收權杖。不支援建置 Web API 供具有不同應用程式識別碼的用戶端存取。該用戶端無法要求或取得您的 Web API 的權限。
 
-若要查看如何建置 Web API，其接受來自應用程式 ID 相同之知名用戶端的權杖，請參閱[使用者入門](active-directory-appmodel-v2-overview.md#getting-started)一節中的 v2.0 應用程式模型 Web API 範例。
+若要了解如何建置 Web API 以接受具有相同應用程式識別碼的用戶端傳回的權杖，請參閱[使用者入門](active-directory-appmodel-v2-overview.md#getting-started)一節中的 v2.0 端點 Web API 範例。
 
-## 使用者限制
-目前使用 v2.0 應用程式模型建置的每個應用程式，都會開放給具有 Microsoft 帳戶或 Azure AD 帳戶的所有使用者。具有任一種帳戶的任何使用者都能夠順利安裝或瀏覽至您的應用程式，在 v2.0 應用程式模型中輸入其認證，並同意您的應用程式權限。您可以撰寫應用程式程式碼，拒絕特定集合的使用者登入，但這無法阻止他們同意應用程式。
+##### 精靈/伺服器端應用程式
+包含長時執行處理序或不需要使用者操作的應用程式，也需他法存取受保護的資源，例如 Web API。這些應用程式可以透過 OAuth 2.0 用戶端認證流程，利用應用程式身分識別 (而非使用者委派身分識別) 驗證及取得權杖。
 
-實際上，您的應用程式無法限制可以登入應用程式的使用者類型。您無法建置企業營運應用程式 (使用者必須從屬於同一個組織)、僅供企業使用者使用的應用程式 (有 Azure AD 帳戶的使用者)，或僅供消費者使用的應用程式 (有 Microsoft 帳戶的使用者)。
+v2.0 端點目前不支援此流程，也就是說應用程式只能在互動式使用者登入流程之後取得權杖。近期內即會加入用戶端認證流程。如果想要查看使用原始 Azure AD 端點的用戶端認證流程，請參閱 [GitHub 上的精靈範例](https://github.com/AzureADSamples/Daemon-DotNet)。
 
-## 應用程式註冊限制
-目前，所有想要與 v2.0 應用程式模型整合的應用程式，都必須在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式註冊。任何現有的 Azure AD 或 Microsoft 帳戶應用程式都與 v2.0 應用程式模型不相容，除新的應用程式註冊入口網站以外，在任何入口網站中註冊的應用程式也不相容。應用程式沒有任何可從正式運作的 Azure AD 服務移至 v2.0 應用程式模型的移轉路徑。
+##### Web API 代理者流程
+許多架構包含需要呼叫另一個下游 Web API 的 Web API，而這兩者都受到 v2.0 端點的保護。此情況常見於有 Web API 後端的原生用戶端，而後端會再呼叫 Microsoft Online 服務或另一個支援 Azure AD 的自訂建置 Web API。
 
-同樣地，在新的應用程式註冊入口網站中註冊的應用程式將會以獨佔方式使用 v2.0 應用程式模型。您無法使用應用程式註冊入口網站來建立將與 Azure AD 或 Microsoft 帳戶服務成功整合的應用程式。
+使用 OAuth 2.0 Jwt 持有人認證授與可支援此案例，亦稱為「代理者流程」。不過，v2.0 端點目前不支援「代理者」流程。若要查看此流程在正式運作的 Azure AD 服務中如何運作，請參閱 [GitHub 上的代理者程式碼範例](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)。
+
+## 應用程式註冊的限制
+目前，所有想要與 v2.0 端點整合的應用程式，都必須在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式註冊。任何現有的 Azure AD 或 Microsoft 帳戶應用程式都與 v2.0 端點不相容，除新的應用程式註冊入口網站以外，在任何入口網站中註冊的應用程式也不相容。我們打算設法將現有的應用程式當做 v2.0 應用程式來使用，但目前還沒有將應用程式移轉至 v2.0 端點的途徑。
+
+同樣地，在新的應用程式註冊入口網站中註冊的應用程式，將無法配合原始 Azure AD 驗證端點來運作。不過，您可以使用在應用程式註冊入口網站中建立的應用程式，成功地與 Microsoft 帳戶驗證端點 `https://login.live.com` 整合。
 
 在新的應用程式註冊入口網站中註冊的應用程式，目前僅限一組受限的 redirect\_uri 值。Web 應用程式和服務的 redirect\_uri 必須以配置或 `https` 開頭，而所有其他平台的 redirect\_uri 則必須使用 `urn:ietf:oauth:2.0:oob` 的硬式編碼值。
 
 若要了解如何在新的應用程式註冊入口網站中註冊應用程式，請參閱[這篇文章](active-directory-v2-app-registration.md)。
 
-## 服務和 API 限制
-v2.0 應用程式模型目前支援登入所有在新的應用程式註冊入口網站註冊的應用程式，如[支援的驗證流程](active-directory-v2-flows.md)清單所列。不過，這些應用程式將只能取得 OAuth 2.0 存取權杖，獲得非常有限的資源。v2.0 端點只會為下列項目發行 access\_token：
+## 服務和 API 的限制
+v2.0 端點目前支援登入所有在新的應用程式註冊入口網站註冊的應用程式，如[支援的驗證流程](active-directory-v2-flows.md)清單所列。不過，這些應用程式將只能取得 OAuth 2.0 存取權杖，獲得非常有限的資源。v2.0 端點只會為下列項目發行 access\_token：
 
 - 要求權杖的應用程式。如果邏輯應用程式是由數個不同的元件或層級組成，應用程式就可以為自己取得 access\_token。若要查看此案例的執行狀況，請參閱[使用者入門](active-directory-appmodel-v2-overview.md#getting-started)教學課程。
 - Outlook 郵件、行事曆和連絡人 REST API，全都位於 https://outlook.office.com。若要了解如何撰寫存取這些 API 的應用程式，請參閱 [Office 使用者入門](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)教學課程。
+- Microsoft Graph API。若要了解 Microsoft Graph 和可用的所有資料，請造訪 [https://graph.microsoft.io](https://graph.microsoft.io)。
 
-近期內將增加更多 Microsoft 線上服務，以及對您 Web API 和服務的支援。
+目前不支援其他服務。未來將增加更多 Microsoft Online 服務，並支援您自己的自訂建置 Web API 和服務。
 
-## 程式庫與 SDK 限制
-並非所有語言和平台都有支援 v2.0 應用程式模型預覽的文件庫。驗證程式庫集合目前僅適用於 .NET、iOS、Android、NodeJS 和 Javascript。[使用者入門](active-directory-appmodel-v2-overview.md#getting-started)一節提供各項的對應程式碼範例和教學課程。
+## 程式庫與 SDK 的限制
+為了協助您嘗試，我們提供與 v2.0 端點相容的 Active Directory 驗證程式庫實驗版。不過，此版本的 ADAL 處於預覽狀態 - 目前不支援，接下來幾個月將有大幅變更。如果您想要儘快讓應用程式搭配 v2.0 端點一起執行，我們的[使用者入門](active-directory-appmodel-v2-overview.md#getting-started)一節中有使用 ADAL for .NET、iOS、Android 和 Javascript 的程式碼範例。
 
-如果您想要整合應用程式與使用其他語言或平台的 v2.0 應用程式模型，請參閱 [OAuth 2.0 和 OpenID Connect 通訊協定參考](active-directory-v2-protocols.md)，其中指示如何建構與 v2.0 端點進行通訊所需的 HTTP 訊息。
+如果您想要在實際執行應用程式中使用 v2.0 端點，您有下列選項：
 
-## 通訊協定限制
-v2.0 應用程式模型支援 Open ID Connect 和 OAuth 2.0。不過，並非每個通訊協定的所有特性與功能都已納入 v2.0 應用程式模型。部分範例包括：
+- 如果您要建置 Web 應用程式，您可以安心地使用我們正式運作的伺服器端中介軟體來執行登入和權杖驗證。其中包括適用於 ASP.NET 的 OWIN Open ID Connect 中介軟體和我們的 NodeJS Passport 外掛程式。[使用者入門](active-directory-appmodel-v2-overview.md#getting-started)一節也提供使用這些中介軟體的範例程式碼。
+- 至於其他平台及原生與行動應用程式，您也可以直接在應用程式程式碼中傳送和接收通訊協定訊息，以便與 v2.0 端點整合。v2.0 OpenID Connect 和 OAuth 通訊協定[有明確的說明文件](active-directory-v2-protocols.md)，可協助您執行這種整合。
+- 最後，您可以使用開放原始碼 Open ID Connect 和 OAuth 程式庫來與 v2.0 端點整合。v2.0 通訊協定與許多開放原始碼通訊協定程式庫都應該相容，而不需要重大變更。這類程式庫的可用性依語言和平台而不同，[Open ID Connect](http://openid.net/connect/) 和 [OAuth 2.0](http://oauth.net/2/) 網站維護一份常用的實作清單。以下是已通過 v2.0 端點測試的開放原始碼用戶端程式庫和範例。請注意，尚未支援像是 [OpenID Connect 動態用戶端註冊](https://openid.net/specs/openid-connect-registration-1_0.html)和權杖驗證端點等功能，而且可能需要在程式庫中停用它們，才能使用 v2 端點： 
 
-- 對 OpenID Connect `prompt` 參數的完整支援
-- OpenID Connect `login_hint` 參數
-- OpenID Connect `domain_hint` 參數
+  - [Java WSO2 身分識別伺服器](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
+  - [Java Gluu 同盟](https://github.com/GluuFederation/oxAuth)
+  - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
+  - [PHP OpenID Connect 基本用戶端](https://github.com/jumbojett/OpenID-Connect-PHP)
+  - [Android OpenID Connect 範例](https://github.com/learning-layers/android-openid-connect)
+
+## 通訊協定的限制
+v2.0 端點僅支援 Open ID Connect 和 OAuth 2.0。不過，並非每個通訊協定的所有特性與功能都已納入到 v2.0 端點。部分範例包括：
+
 - OpenID Connect `end_sesssion_endpoint`
+- OAuth 2.0 用戶端認證授與
 
-若要進一步了解 v2.0 應用程式模型支援的通訊協定功能範圍，請參閱 [OpenID Connect 與 OAuth 2.0 通訊協定參照](active-directory-v2-protocols.md)。
+若要進一步了解 v2.0 端點支援的通訊協定功能範圍，請參閱 [OpenID Connect 與 OAuth 2.0 通訊協定參照](active-directory-v2-protocols.md)。
 
-<!---HONumber=AcomDC_1217_2015-->
+## 進階的 Azure AD 開發人員功能
+Azure Active Directory 服務中有一組開發人員功能 (v2.0 端點尚不支援這些功能)，包括：
+
+- Azure AD 使用者的群組宣告
+- 應用程式角色和角色宣告
+
+<!---HONumber=AcomDC_0224_2016-->

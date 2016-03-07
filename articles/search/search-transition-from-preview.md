@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 #從預覽 API 版本 = 2014* 轉換為 API 版本 = 2015*#
@@ -144,4 +144,4 @@ API 版本 `2015-02-28` 是在 SLA 下。請使用在[此頁](../support/options
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

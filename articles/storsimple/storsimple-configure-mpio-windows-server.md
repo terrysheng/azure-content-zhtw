@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -23,7 +23,7 @@ Microsoft 為 Windows Server 中的多重路徑 I/O (MPIO) 功能建立支援，
 
 MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。您應該透過伺服器管理員將它安裝為功能。本主題說明您應在執行 Windows Server 2012 R2 並與 StorSimple 實體裝置連接的主機上，據以安裝和使用 MPIO 功能的步驟。
 
->[AZURE.NOTE]**StorSimple 虛擬裝置不支援 MPIO。**
+>[AZURE.NOTE] **StorSimple 虛擬裝置不支援 MPIO。**
 
 您必須依照下列步驟在 StorSimple 裝置上設定 MPIO：
 
@@ -85,7 +85,7 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。您應該透過
 	- 輸入 StorSimple 裝置的 DATA 連接埠 IP 位址 (例如，輸入 DATA 0)。
 	- 按一下 [確定] 以返回 [iSCSI 啟動器內容] 對話方塊。
 
-	>[AZURE.IMPORTANT]**如果您使用私人網路進行 iSCSI 連線，請輸入連線到私人網路的 DATA 連接埠 IP 位址。**
+	>[AZURE.IMPORTANT] **如果您使用私人網路進行 iSCSI 連線，請輸入連線到私人網路的 DATA 連接埠 IP 位址。**
 
 4. 在裝置上針對第二個網路介面 (例如，DATA 1) 重複步驟 2-3 。請記住，您應該為 iSCSI 啟用這些介面。若要深入了解這項資訊，請參閱[修改網路介面](storsimple-modify-device-config.md#modify-network-interfaces)。
 5. 在 [iSCSI 啟動器內容] 對話方塊中，選取 [目標] 索引標籤。您應該會在 [探索到的目標] 下看到 StorSimple 裝置目標 IQN。![iSCSI 啟動器內容目標索引標籤](./media/storsimple-configure-mpio-windows-server/IC741007.png)
@@ -122,13 +122,13 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。您應該透過
 	- 啟用路徑確認 = 未選取。
 
 
->[AZURE.NOTE]**請不要修改預設的參數。**
+>[AZURE.NOTE] **請不要修改預設的參數。**
 
 ## 步驟 4：設定 MPIO 以獲得高可用性與負載平衡
 
 多個工作階段必須以手動方式加入以宣告不同的路徑，才能獲得以多重路徑為基礎的高可用性與負載平衡。比方說，如果主機有兩個介面連接到 SAN，而裝置也有兩個介面連接到 SAN，那麼您需要以正確的路徑排列組合設定四個工作階段 (如果每個 DATA 介面與主機介面都位在不同的 IP 子網路且不可路由時，將只需要兩個工作階段)。
 
->[AZURE.IMPORTANT]**建議您不要混合使用 1 GbE 與 10 GbE 網路介面。如果您使用兩個網路介面，這兩個介面的類型應要完全相同。**
+>[AZURE.IMPORTANT] **建議您不要混合使用 1 GbE 與 10 GbE 網路介面。如果您使用兩個網路介面，這兩個介面的類型應要完全相同。**
 
 下列程序描述有兩個網路介面的 StorSimple 裝置連接到有兩個網路介面的主機時，要如何新增工作階段。
 
@@ -173,4 +173,4 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。您應該透過
 深入了解[使用 StorSimple Manager 服務修改 StorSimple 裝置設定](storsimple-modify-device-config.md)。
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

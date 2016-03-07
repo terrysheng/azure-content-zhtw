@@ -21,7 +21,7 @@
 
 您可能需要套用軟體更新或 Hotfix，以將您的 StorSimple Virtual Array 保持在最新狀態。一般情況下，我們建議您透過 Azure 傳統入口網站安裝更新。不過，當入口網站無法使用時，您可以使用本機 Web UI 來套用 Hotfix 或更新。本教學課程說明如何使用本機 Web UI 來套用更新或 Hotfix。(如需透過傳統入口網站安裝更新的程序，請移至[透過 Azure 傳統入口網站安裝一般更新](storsimple-update-device.md#install-regular-updates-via-the-azure-classic-portal)。)
 
-請記住，安裝更新或 Hotfix 可能會重新啟動您的裝置。假設 StorSimple Virtual Array 是單一節點裝置，將會中斷正在進行的任何 IO，而您的裝置會需要一些停機時間。
+請記住，安裝更新或 Hotfix 可能會重新啟動您的裝置。假設 StorSimple Virtual Array 是單一節點裝置，將會中斷正在進行的任何 IO，而您的裝置會需要一些停機時間。我們也建議您在套用更新之前，讓主機上的磁碟區或共用離線，然後讓裝置離線。這樣可以讓資料損毀的可能性降至最低。
 
 ## 使用本機 Web UI 來套用更新或 Hotfix
 
@@ -39,4 +39,4 @@
 
 深入了解 [administering your StorSimple Virtual Array (管理 StorSimple Virtual Array)](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -181,7 +181,7 @@
     public static void main( String[] args ) throws IOException
     ```
 
-12. 在 **App** 類別中對 **main** 方法新增下列程式碼。此程式碼會建立 **EventHubClient** 執行個體以連線到 IoT 中樞上的事件中樞相容端點。然後，它會建立兩個執行緒以從兩個資料分割進行讀取。以先前記下的值取代 **{youriothubkey}**、**{youreventhubcompatiblenamespace}** 和 **{youreventhubcompatiblename}**。**{youreventhubcompatiblenamespace}** 預留位置的值來自 **事件中樞相容端點**，其形式為 **xxxxnamespace.servicebus.windows.net**。
+12. 在 **App** 類別中對 **main** 方法新增下列程式碼。此程式碼會建立 **EventHubClient** 執行個體以連線到 IoT 中樞上的事件中樞相容端點。然後，它會建立兩個執行緒以從兩個資料分割進行讀取。以先前記下的值取代 **{youriothubkey}**、**{youreventhubcompatiblenamespace}** 和 **{youreventhubcompatiblename}**。**{youreventhubcompatiblenamespace}** 預留位置的值來自 **事件中樞相容端點**，其形式為 **xxxxnamespace** (也就是，從入口網站的事件中樞相容端點值移除 ****sb://** 前置詞和 **.servicebus.windows.net** 尾碼)。
 
     ```
     String policyName = "iothubowner";
@@ -228,4 +228,4 @@
 [lnk-event-hubs-overview]: event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

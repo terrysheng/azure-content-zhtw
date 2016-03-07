@@ -1,18 +1,19 @@
-There are 3 VPN Gateway SKUs:
+有 3 種 VPN 閘道 SKU：
 
-- Basic
-- Standard
-- High Performance
+- 基本
+- 標準
+- 高效能
 
-The table below shows the gateway types and the estimated aggregate throughput. 
-Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/). This table applies to both the Resource Manager and classic deployment models.
+下方資料表顯示閘道類型，以及估計的彙總輸送量。閘道 SKU 之間的定價並不相同。如需定價資訊，請參閱＜[VPN 閘道定價](https://azure.microsoft.com/pricing/details/vpn-gateway/)＞。此資料表適用於資源管理員與傳統部署模型。
 
 
-|    | **VPN Gateway throughput** | **VPN Gateway max IPsec tunnels** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist**|
+| | **VPN 閘道輸送量** | **VPN 閘道最大 IPsec 通道** | **ExpressRoute 閘道輸送量** | **VPN 閘道與 ExpressRoute 共存**|
 |--- |----------------------------|-----------------------------------|-------------------------------------|-----------------------------------------|
-| **Basic SKU**              |  100 Mbps | 10                         |  500 Mbps                           | No   |
-| **Standard SKU**           |  100 Mbps | 10                         | 1000 Mbps                           | Yes  |
-| **High Performance SKU**   | 200 Mbps  | 30                         | 2000 Mbps                           | Yes  |
+| **基本 SKU** | 100 Mbps | 10 | 500 Mbps | 否 |
+| **標準 SKU** | 100 Mbps | 10 | 1000 Mbps | 是 |
+| **高效能 SKU** | 200 Mbps | 30 | 2000 Mbps | 是 |
 
 
-**Note:** The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guarantee of what you can get for cross-premises connections across the Internet, but should be used as a maximum possible measure.
+**注意：**VPN 輸送量是根據相同 Azure 區域中 VNet 之間度量的概略估計。這無法保證您可以針對網際網路上的跨單位連接取得何種數值，但應該用作最大的可能量值。
+
+<!---HONumber=AcomDC_0224_2016-->

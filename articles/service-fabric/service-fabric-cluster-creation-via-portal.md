@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/12/2016"
    ms.author="chackdan"/>
 
 
@@ -189,11 +189,16 @@
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
+## RDP 到虛擬機器調整集 (VMSS) 執行個體或叢集節點 
+
+您在叢集中指定的每個 NodeTypes 都會進行 VMSS 設定。如需詳細資訊，請參閱[如何 RDP 到 VMSS 執行個體](service-fabric-cluster-nodetypes.md)。
+
 ## 後續步驟
 
 - [在 Visual Studio 中管理 Service Fabric 應用程式](service-fabric-manage-application-in-visual-studio.md)
 - [Service Fabric 叢集安全性](service-fabric-cluster-security.md)
 - [Service Fabric 健康情況模型簡介](service-fabric-health-introduction.md)
+- [如何 RDP 到 VMSS 執行個體](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
@@ -207,4 +212,4 @@
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

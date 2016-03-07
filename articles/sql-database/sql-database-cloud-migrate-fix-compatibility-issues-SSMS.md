@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="02/22/2016"
    ms.author="carlrab"/>
 
-# 在移轉至 SQL 資料庫之前修正 SQL Server 資料庫相容性問題
+# 在移轉至 SQL Database 之前，透過 SSMS 修正 SQL Server 資料庫相容性問題
 
 如果您判斷來源 SQL Server 資料庫不相容，您有許多選項可修正已識別的資料庫相容性問題。
 
@@ -33,4 +33,4 @@
 
 [選取移轉方法](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

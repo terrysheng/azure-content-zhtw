@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="02/17/2016"
 	ms.author="tomfitz"/>
 
 
@@ -31,7 +31,7 @@
 
 ## 建立 Ruby 應用程式
 
-如需如何建立 Ruby 應用程式的指示，請參閱[在 Azure 上建立 Ruby 應用程式](/develop/ruby/tutorials/web-app-with-linux-vm/)。
+如需如何建立 Ruby 應用程式的指示，請參閱 [Azure VM 上的 Ruby on Rails Web 應用程式](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md)。
 
 ## 設定您的應用程式以存取儲存體
 
@@ -56,15 +56,21 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
 
-若要取得這些值，請執行下列動作：
+若要從 Azure 入口網站的傳統或 ARM 儲存體帳戶取得這些值：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 瀏覽到您要使用的儲存體帳戶。
+3. 在右邊的 [設定] 刀鋒視窗中，按一下 [存取金鑰]。
+4. [存取金鑰] 刀鋒視窗隨即顯示，您會看到存取金鑰 1 和存取金鑰 2。您可以使用其中一個存取金鑰。 
+5. 按一下複製圖示以將金鑰複製到剪貼簿。 
 
-2. 瀏覽至儲存體帳戶。
+若要從傳統入口網站的傳統儲存體帳戶取得這些值：
 
-3. 在 [設定] 刀鋒視窗中，選取 [金鑰]。
-
-4. 複製所需的存取金鑰值。
+1. 登入[傳統入口網站](https://manage.windowsazure.com)。
+2. 瀏覽到您要使用的儲存體帳戶。
+3. 按一下導覽窗格底部的 [管理存取金鑰]。
+4. 在快顯對話方塊中，您將會看到儲存體帳戶名稱、主要存取金鑰和次要存取金鑰。如需存取金鑰，您可以使用主要存取金鑰或次要存取金鑰。 
+5. 按一下複製圖示以將金鑰複製到剪貼簿。
 
 ## 建立資料表
 
@@ -157,4 +163,4 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 - [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
 - GitHub 上的 [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) 存放庫
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

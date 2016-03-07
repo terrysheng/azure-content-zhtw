@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 搜尋服務 REST API 版本 2015-02-28-Preview | Microsoft Azure"
+   pageTitle="Azure 搜尋服務 REST API 版本 2015-02-28-Preview | Microsoft Azure | Azure 搜尋服務預覽 API"
    description="Azure 搜尋服務 REST API Version 2015-02-28-Preview 包含自然語言分析器和 moreLikeThis 搜尋等實驗性功能。"
    services="search"
    documentationCenter="na"
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="02/04/2016"
+   ms.date="02/16/2016"
    ms.author="heidist"/>
 
 # Azure 搜尋服務 REST API：版本 2015-02-28-Preview
 
 本文是 `api-version=2015-02-28-Preview` 的參考文件。這個預覽版本可藉由提供下列實驗性功能，來擴充公開上市版本 [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx)：
 
-- [Lucene 查詢語法](https://msdn.microsoft.com/library/mt589323.aspx)現在可用於 Azure 搜尋服務中的查詢。若要使用 Lucene 查詢剖析器，請在「搜尋」操作中指定 `queryType`。`moreLikeThis` 是 [搜尋操作](#SearchDocs)中使用的查詢參數，可尋找與另一份特定文件相關的其他文件。
+- `moreLikeThis` [查詢文件](#SearchDocs) API 中的查詢參數。它會尋找與另一個特定文件相關的其他文件。
 
-我們將個別說明 `2015-02-28-Preview` 中的一些其他功能。其中包含：
+`2015-02-28-Preview` REST API 有些其他的部分會另外記載。其中包含：
 
 - [評分設定檔](search-api-scoring-profiles-2015-02-28-preview.md)
 - [索引子](search-api-indexers-2015-02-28-preview.md)
@@ -619,7 +619,7 @@ Azure 搜尋支援多種語言。每一種語言都需要非標準的文字分�
 
 預設的評分設定檔會在背景運行，以針對結果集中的每個項目計算搜尋分數。您可以使用內部未命名的評分設定檔。或者，設定 `defaultScoringProfile` 使用自訂設定檔做為預設值，以在查詢字串中沒有指定自訂設定檔時叫用。
 
-如需詳細資料，請參閱[將評分設定檔新增至搜尋索引 (Azure 搜尋服務 REST API)](search-api-scoring-profiles-2015-02-28.md)。
+如需詳細資料，請參閱[將評分設定檔新增至搜尋索引 (Azure 搜尋服務 REST API)](search-api-scoring-profiles-2015-02-28-preview.md)。
 
 **CORS 選項**
 
@@ -1029,7 +1029,7 @@ ________________________________________
 - `Content-Type`：必要。請設為 `application/json`
 - `api-key`：必要。`api-key` 可用來驗證搜尋服務的要求。它是服務專屬的唯一字串值。**新增文件**要求必須包含已設為您系統管理金鑰 (相對於查詢金鑰) 的 `api-key` 標頭。
 
-您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](.search-create-service-portal.md)。
+您也必須提供服務名稱才能建構要求 URL。您可以透過 Azure 入口網站的服務儀表板取得服務名稱和 `api-key`。如需頁面導覽說明，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 **要求本文**
 
@@ -1047,7 +1047,7 @@ ________________________________________
       ]
     }
 
-> [AZURE.NOTE] 文件索引鍵可以只包含字母、數字、連字號 ("-")、底線 ("\_")，及等號 ("=")。如需更多詳細資料，請參閱[命名規則](https://msdn.microsoft.com/library/azure/dn857353.aspx)。
+> [AZURE.NOTE] 文件索引鍵可以只包含字母、數字、連字號 ("-")、底線 ("\_")，及等號 ("=")。如需更多詳細資訊，請參閱[命名規則](https://msdn.microsoft.com/library/azure/dn857353.aspx)。
 
 **文件動作**
 
@@ -1150,7 +1150,7 @@ ________________________________________
 
 **使用 POST 而不是 GET 的時機**
 
-使用 HTTP GET 呼叫**搜尋** API 時，您需要留意要求 URL 的長度不能超過 8 KB。這對大部分的應用程式通常已足夠。不過，有些應用程式會產生非常大型的查詢或 OData 篩選條件運算式。對於這些應用程式而言，使用 HTTP POST 是較好的選擇，因為它允許比 GET 更大型的篩選與查詢。使用 POST 時，限制因素為查詢中的字詞或子句數目，而不是原始查詢的大小，因為 POST 的要求大小限制接近 17 MB。
+使用 HTTP GET 呼叫**搜尋** API 時，您需要留意要求 URL 的長度不能超過 8 KB。這對大部分的應用程式通常已足夠。不過，有些應用程式會產生非常大型的查詢或 OData 篩選條件運算式。對於這些應用程式而言，使用 HTTP POST 是較好的選擇，因為它允許比 GET 更大型的篩選與查詢。使用 POST 時，限制因素為查詢中的字詞或子句數目，而不是原始查詢的大小，因為 POST 的要求大小限制約為 16 MB。
 
 > [AZURE.NOTE] 即使 POST 要求大小限制很大，搜尋查詢與篩選運算式也不能任意複雜化。請參閱 [Lucene 查詢語法](https://msdn.microsoft.com/library/mt589323.aspx)和 [OData 運算式語法](https://msdn.microsoft.com/library/dn798921.aspx)，以了解搜尋查詢和篩選複雜性限制的相關詳細資訊。**要求**
 
@@ -1639,7 +1639,9 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
 
 **使用 POST 而不是 GET 的時機**
 
-使用 HTTP GET 呼叫**建議** API 時，需要留意要求 URL 的長度不能超過 8 KB。這對大部分的應用程式通常已足夠。不過，有些應用程式會產生非常大型的查詢，特別是 OData 篩選條件運算式。針對這些應用程式，使用 HTTP POST 是較好的選擇。POST 的要求大小限制接近 17 MB，即使是最複雜的查詢空間亦很充裕。
+使用 HTTP GET 呼叫**建議** API 時，需要留意要求 URL 的長度不能超過 8 KB。這對大部分的應用程式通常已足夠。不過，有些應用程式會產生非常大型的查詢，特別是 OData 篩選條件運算式。對於這些應用程式而言，使用 HTTP POST 是較好的選擇，因為它允許比 GET 更大型的篩選。使用 POST 時，限制因素為篩選中的子句數目，而不是原始篩選字串的大小，因為 POST 的要求大小限制約為 16 MB。
+
+> [AZURE.NOTE] 即使 POST 要求大小限制很大，篩選運算式也不能任意複雜化。請參閱和 [OData 運算式語法](https://msdn.microsoft.com/library/dn798921.aspx)，以了解篩選複雜性限制的相關詳細資訊。
 
 **要求**
 
@@ -1772,4 +1774,4 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

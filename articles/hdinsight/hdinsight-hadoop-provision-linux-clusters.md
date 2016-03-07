@@ -20,7 +20,7 @@
 
 #在 HDInsight 中建立以 Linux 為基礎的 Hadoop 叢集
 
-[AZURE.INCLUDE [選取器](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[AZURE.INCLUDE [選取器](../../includes/hdinsight-selector-create-clusters.md)]
 
 本文件中，您將了解在 Azure 上建立以 Linux 為基礎的 HDInsight 叢集的不同方式，以及可用於叢集的選擇性組態。HDInsight 提供 Apache Hadoop、Apache Storm 和 Apache HBase 做為 Azure 雲端平台上的服務。
 
@@ -268,4 +268,4 @@ HDInsight 也會在儲存體帳戶上建立_預設儲存體容器_。這是 HDIn
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

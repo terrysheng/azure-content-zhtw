@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/17/2015"
+   ms.date="02/11/2016"
    ms.author="sameerch"/>
 
 
 # 開始使用 Twitter 連接器並將它加入您的邏輯應用程式
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [Twitter API](../connectors/create-api-twitter.md)。
+
 連接到 Twitter 摘要，以張貼推文，並從您 Twitter 帳戶的時間表、好友時間表和粉絲中取得推文。在 Logic Apps 中，連接器可以在「工作流程」中用來擷取、處理或推送資料。在工作流程中使用 Twitter 連接器時，您可以達到各種案例的目的。例如，您可以：
 
 - 取得與指定的關鍵字或文字相關聯的新推文。擷取到新推文時，它會觸發工作流程的新執行個體，並將資料傳遞到工作流程中的下一個連接器。例如，您可建立 Twitter 連接器，並使用 [搜尋新推文] 觸發程序監視 #peanutbutterandjelly。只要 #peanutbutterandjelly 有新的推文，就會自動啟動您的工作流程 (也稱為邏輯應用程式)。
@@ -36,12 +38,12 @@ Twitter 連接器提供下列觸發程序和動作：
 --- | ---
 搜尋新推文 | <ul><li>取得使用者時間表</li><li>搜尋推文</li><li>推文</li><li>取得提及時間軸</li><li>取得首頁時間軸</li><li>取得跟隨者</li><li>取得好友</li><li>取得使用者詳細資料</li><li>推文給使用者</li><li>傳送直接訊息</li></ul>
 
-已封存 [新推文] 觸發程序。目前，它仍然是進階作業，因此可以使用。已移除 [轉推] 動作且不再支援。如果您使用 [轉推] 動作，則會在執行階段失敗。因此，請從邏輯應用程式中移除 [轉推] 動作。
+已封存 [新推文] 觸發程序。目前，它仍然是進階作業，因此可以使用。已移除 [**轉推**] 動作且不再支援。如果您使用 [轉推] 動作，則會在執行階段失敗。因此，請從邏輯應用程式中移除 [轉推] 動作。
 
 
 ## 建立 Twitter 連接器
 
-> [AZURE.IMPORTANT]建立 Twitter 連接器時，您可以選擇向 Twitter 註冊您的專屬應用程式，並使用應用程式金鑰與 Twitter 連接器搭配。您可以在 [http://apps.twitter.com](http://apps.twitter.com) 免費註冊應用程式。註冊時，請確定您提供一些回呼 URL。一旦建立了您的 Twitter 連接器，稍後您就可以變更回呼 URL。您必須建立 Twitter API 金鑰和密碼，才能建立連接器。
+> [AZURE.IMPORTANT] 建立 Twitter 連接器時，您可以選擇向 Twitter 註冊您的專屬應用程式，並使用應用程式金鑰與 Twitter 連接器搭配。您可以在 [http://apps.twitter.com](http://apps.twitter.com) 免費註冊應用程式。註冊時，請確定您提供一些回呼 URL。一旦建立了您的 Twitter 連接器，稍後您就可以變更回呼 URL。您必須建立 Twitter API 金鑰和密碼，才能建立連接器。
 
 連接器可以在邏輯應用程式內建立，或直接從 Azure Marketplace 建立。從 Marketplace 建立連接器：
 
@@ -53,33 +55,26 @@ Twitter 連接器提供下列觸發程序和動作：
 5. 輸入有關連接器名稱、App Service 和 資源群組的其他必要設定。
 6.	按一下 [建立]。
 
-> [AZURE.NOTE]如果您想要使用重新導向 URL 來進一步保護 Twitter API，可以使用 [OAUTH 安全性](app-service-logic-oauth-security.md)。
+> [AZURE.NOTE] 如果您想要使用重新導向 URL 來進一步保護 Twitter API，可以使用 [OAUTH 安全性](app-service-logic-oauth-security.md)。
 
 
 ## 在邏輯應用程式中使用 Twitter 連接器
 建立 API 應用程式之後，您即可使用 Twitter 連接器做為 Logic Apps 的觸發程序或動作。作法：
 
-1.	建立新的邏輯應用程式，或開啟現有邏輯應用程式：
-	![][2]
-2.	開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具：
-	![][3]
-3.	Twitter 連接器會列在右邊。選取它，以自動將其加入邏輯應用程式：
-	![][4]
-4.	選取 [授權]、輸入 Twitter 認證，然後選取 [授權應用程式]：
-	![][5]
+1.	建立新的邏輯應用程式，或開啟現有邏輯應用程式：![][2]
+2.	開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具：![][3]
+3.	Twitter 連接器會列在右邊。選取它，以自動將其加入邏輯應用程式：![][4]
+4.	選取 [授權]、輸入 Twitter 認證，然後選取 [授權應用程式]：![][5]
 
 
-您現在可以設定 Twitter 連接器，以建置您的工作流程。您可以在流程的其他動作中使用從 Twitter 觸發程序所擷取的推文：
-	![][6]
+您現在可以設定 Twitter 連接器，以建置您的工作流程。您可以在流程的其他動作中使用從 Twitter 觸發程序所擷取的推文：![][6]
 
-您可以採用類似方式在工作流程中使用 Twitter 動作。選取 Twitter 動作，並設定該動作的輸入：
-	![][7] 
-	![][8]
+您可以採用類似方式在工作流程中使用 Twitter 動作。選取 Twitter 動作，並設定該動作的輸入：![][7] ![][8]
 
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -97,4 +92,4 @@ Twitter 連接器提供下列觸發程序和動作：
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

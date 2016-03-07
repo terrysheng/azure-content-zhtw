@@ -28,6 +28,7 @@ Azure SQL Database 提供兩個核心功能，從使用者錯誤或非預期的�
 Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「標準」和「高階」資料庫都提供這些還原功能。
 
 ##時間點還原
+
 發生使用者錯誤或非預期的資料修改時，時間點還原可用來將資料庫還原至資料庫保留期限內的任何時間點。
 
 「基本」資料庫有 7 天的保留期，「標準」資料庫有 14 天的「保留期」，「高階」資料庫則有 35 天的保留期。若要深入了解資料庫保留，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
@@ -35,6 +36,8 @@ Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「�
 > [AZURE.NOTE] 還原資料庫會建立新的資料庫。請務必確定您要還原到的伺服器有足夠的 DTU 容量供新的資料庫使用。您可以[連絡支援人員](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)，要求增加此配額。
 
 ###Azure 入口網站
+> [AZURE.NOTE] 針對彈性資料庫集區中的資料庫，Azure 入口網站只支援時間點還原至相同集區。如果您想將資料庫做為獨立資料庫進行時間點還原，請使用 REST API。
+
 若要在 Azure 入口網站中使用「還原時間點」，請按照下列步驟執行。
 
 1. 登入 [Azure 入口網站](https://portal.Azure.com)
@@ -55,13 +58,7 @@ Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「�
 		 
 
 ###REST API 
-使用 REST 可以程式設計方式執行資料庫還原。
-
-1. 使用[取得資料庫](http://msdn.microsoft.com/library/azure/dn505708.aspx)操作取得您想要還原的資料庫。
-
-2.	使用[建立資料庫還原要求](http://msdn.microsoft.com/library/azure/dn509571.aspx)操作來建立還原要求。
-	
-3.	使用[資料庫操作狀態](http://msdn.microsoft.com/library/azure/dn720371.aspx)操作來追蹤還原要求。
+使用 REST 可以程式設計方式執行資料庫還原。若要這樣做，請使用 [[建立資料庫](https://msdn.microsoft.com/library/azure/mt163685.aspx)] 作業來建立還原要求，並將 [**建立模式**] 指定為 **PointInTimeRestore**。
 
 ##還原已刪除的資料庫
 若資料庫被刪除，Azure SQL Database 可讓您將已刪除的資料庫還原至刪除的時間點。Azure SQL Database 會將已刪除的資料庫備份，儲存一段資料庫保留期間的時間。
@@ -76,7 +73,7 @@ Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「�
 1. 登入 [Azure 入口網站](https://portal.Azure.com)
 2. 在畫面左側選取 [瀏覽]，然後選取 [SQL Server]。
 3. 瀏覽至您的伺服器，然後選取它。
-4. 在伺服器的刀鋒視窗中向下捲動至 [作業]，按一下 [已刪除的資料庫] 磚。
+4. 在伺服器的刀鋒視窗中向下捲動至 [**作業**]，按一下 [**已刪除的資料庫**] 圖格。
 5. 按一下您想要還原的已刪除資料庫。
 6. 指定資料庫名稱，然後按一下 [建立]。
 7. 資料庫還原程序就會開始，您可以使用畫面左側的 [通知] 監視程序。
@@ -106,4 +103,4 @@ Azure SQL Database 一律會還原至新的資料庫。所有「基本」、「�
 	
 4.	使用[資料庫操作狀態](http://msdn.microsoft.com/library/azure/dn720371.aspx)操作來追蹤還原狀態。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

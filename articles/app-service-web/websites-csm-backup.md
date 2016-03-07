@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/23/2016"
 	ms.author="nicking"/>
 
 # 使用 REST 來備份及還原 App Service 應用程式
@@ -92,7 +92,7 @@
 }
 ```
 
->[AZURE.NOTE]在 HTTP 回應的記錄檔屬性中可以找到錯誤訊息。
+>[AZURE.NOTE] 在 HTTP 回應的記錄檔屬性中可以找到錯誤訊息。
 
 <a name="schedule-automatic-backups"></a>
 ## 排程自動備份
@@ -225,9 +225,9 @@ Azure App Service 會嘗試使用備份建立時所提供的 SAS URL，來刪除
 }
 ```
 
->[AZURE.NOTE]為了確保安全，在傳送特定備份的 GET 要求時，並不會傳回與該備份相關聯的 SAS URL。如果您想要檢視與該備份相關聯的 SAS URL，請傳送 POST 要求給上述的同一個 URL，並只在要求本文中包含空的 JSON 物件。伺服器所傳回的回應中便會包含該備份的所有資訊，包括其 SAS URL。
+>[AZURE.NOTE] 為了確保安全，在傳送特定備份的 GET 要求時，並不會傳回與該備份相關聯的 SAS URL。如果您想要檢視與該備份相關聯的 SAS URL，請傳送 POST 要求給上述的同一個 URL，並只在要求本文中包含空的 JSON 物件。伺服器所傳回的回應中便會包含該備份的所有資訊，包括其 SAS URL。
 
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

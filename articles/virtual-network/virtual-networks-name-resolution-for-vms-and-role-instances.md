@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="02/20/2016"
    ms.author="joaoma" />
 
 # VM 與角色執行個體的名稱解析
@@ -23,26 +23,26 @@
 
 - [Azure 提供的名稱解析](#azure-provided-name-resolution)
 
-- [使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server)
+- [使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server) (可將查詢轉送到 Azure 提供的 DNS 伺服器)
 
 您使用的名稱解析類型取決於 VM 和角色執行個體如何彼此通訊。
 
 **下表說明各種案例和對應的名稱解析方案：**
 
-| **案例** | **名稱解析提供者：** | **如需詳細資訊，請參閱：** |
-|--------------|----------------------------------|-------------------------------|
-| 位於相同雲端服務中的角色執行個體或 VM 之間的名稱解析 | Azure 提供的名稱解析 | [Azure 提供的名稱解析](#azure-provided-name-resolution)|
-| 位於相同虛擬網路中的 VM 和角色執行個體之間的名稱解析 | Azure 提供的名稱解析 (僅 ARM 型部署) 或使用專屬 DNS 伺服器的名稱解析 | [Azure 提供的名稱解析](#azure-provided-name-resolution)、[使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server)和 [DNS 伺服器需求](#dns-server-requirements) |
-| 位於不同虛擬網路中的 VM 和角色執行個體之間的名稱解析 | 使用專屬 DNS 伺服器的名稱解析| [使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server)和 [DNS 伺服器需求](#dns-server-requirements)|
-| 跨單位：在 Azure 中的角色執行個體或 VM 與內部部署電腦之間的名稱解析| 使用專屬 DNS 伺服器的名稱解析| [使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server)和 [DNS 伺服器需求](#dns-server-requirements)|
-| 內部 IP 的反向對應| 使用專屬 DNS 伺服器的名稱解析| [使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server)和 [DNS 伺服器需求](#dns-server-requirements)|
-| 非公用網域 (例如 Active Directory 網域) 的名稱解析| 使用專屬 DNS 伺服器的名稱解析| [使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server)和 [DNS 伺服器需求](#dns-server-requirements)|
-| 位於不同雲端服務，不在虛擬網路中的角色執行個體之間的名稱解析| 不適用。虛擬網路外部不支援不同雲端服務中 VM 和角色執行個體之間的連線。| 不適用。|
+| **案例** | **解決方案** | **尾碼** |
+|--------------|--------------|----------|
+| 位於相同雲端服務或虛擬網路中的角色執行個體或 VM 之間的名稱解析 | [Azure 提供的名稱解析](#azure-provided-name-resolution)| 主機名稱或 FQDN |
+| 位於不同虛擬網路中的角色執行個體或 VM 之間的名稱解析 | 客戶管理的 DNS 伺服器將 vnet 之間的查詢轉送供 Azure (DNS Proxy) 解析。請參閱[使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server)| 僅 FQDN |
+| 解析 Azure 中角色執行個體或 VM 的內部部署電腦及伺服器名稱 | 客戶管理的 DNS 伺服器 (例如內部部署的網域控制站、本機唯讀網域控制站或使用區域傳輸同步的次要 DNS)。請參閱[使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server)|僅 FQDN |
+| 從內部部署電腦解析 Azure 主機名稱 | 將查詢轉送到所對應 vnet 中客戶管理的 DNS Proxy 伺服器，Proxy 伺服器將查詢轉送給 Azure 進行解析。請參閱[使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server)| 僅 FQDN |
+| 內部 IP 的反向 DNS | [使用專屬 DNS 伺服器的名稱解析](#name-resolution-using-your-own-dns-server) | n/a |
+| 位於不同雲端服務，不在虛擬網路中的 VM 或角色執行個體之間的名稱解析| 不適用。虛擬網路外部不支援不同雲端服務中 VM 和角色執行個體之間的連線。| n/a |
+
 
 
 ## Azure 提供的名稱解析
 
-除了公用 DNS 名稱的解析之外，Azure 也提供位於相同虛擬網路或雲端服務內的 VM 和角色執行個體的內部名稱解析。雲端服務中的 VM/執行個體共用相同的 DNS 尾碼，因此主機名稱本身就已足夠；但在傳統虛擬網路中，不同的雲端服務有不同的 DNS 尾碼，因此需要 FQDN 來解析不同雲端服務的名稱 。在 ARM 型虛擬網路中，DNS 尾碼在整個虛擬網路中都是相同的，因此不需要 FQDN，且您可以把 DNS 名稱指派給 NIC 或虛擬機器。雖然 Azure 提供的名稱解析不需要任何設定，但它不適用於所有部署案例，如上表所示。
+除了公用 DNS 名稱的解析之外，Azure 也提供位於相同虛擬網路或雲端服務內的 VM 和角色執行個體的內部名稱解析。雲端服務中的 VM/執行個體共用相同的 DNS 尾碼，因此主機名稱本身就已足夠；但在傳統虛擬網路中，不同的雲端服務有不同的 DNS 尾碼，因此需要 FQDN 來解析不同雲端服務的名稱。在 ARM 型虛擬網路中，DNS 尾碼在虛擬網路之間是一致的，因此不需要 FQDN，而 DNS 名稱則可以指派給 NIC 和虛擬機器。雖然 Azure 提供的名稱解析不需要任何設定，但它不適用於所有部署案例，如上表所示。
 
 > [AZURE.NOTE] 如果是 Web 和背景工作角色，您也可以使用 Azure 服務管理 REST API，根據角色名稱與執行個體數目，存取角色執行個體的內部 IP 位址。如需詳細資訊，請參閱[服務管理 REST API 參考](https://msdn.microsoft.com/library/azure/ee460799.aspx)。
 
@@ -54,21 +54,21 @@
 
 - Azure 提供的名稱解析服務都高度可用，可省去您建立和管理 DNS 伺服器叢集的需求。
 
+- 可與您自己的 DNS 伺服器搭配使用，以解析內部部署及 Azure 主機名稱。
+
 - 提供名稱解析給相同雲端服務中的角色執行個體/VM，不需要 FQDN。
 
 - 提供 ARM 型虛擬網路中 VM 之間的名稱解析，不需要 FQDN，在不同的雲端服務中解析名稱時，傳統虛擬網路需要 FQDN。
 
-- 您可以建立最能描述您部署的主機名稱，而不要使用自動產生的名稱。
+- 您可以使用最能描述部署的主機名稱，而不是使用自動產生的名稱。
 
 **注意事項：**
-
-- 無法使用虛擬網路之間以及 Azure 和內部部署機器之間的名稱解析。
 
 - Azure 建立的 DNS 尾碼不能修改。
 
 - 您無法手動註冊您自己的記錄。
 
-- 不支援 WINS 和 NetBIOS。(所以您無法在 Windows 檔案總管的網路瀏覽器中列出您的虛擬機器)。
+- 不支援 WINS 和 NetBIOS。(您無法在「Windows 檔案總管」中看到您的 VM)。
 
 - 主機名稱必須是 DNS 相容 (只能使用 0-9、a-z 和 '-'，無法以 '-' 開始或結束。請參閱 RFC 3696 第 2 節)。
 
@@ -127,27 +127,29 @@ resolv.conf 檔案通常是自動產生的，且不可編輯。新增 [選項] �
 	- 執行 'service network restart' 以進行更新
 
 ## 使用專屬 DNS 伺服器的名稱解析
+在某些情況下，您的名稱解析需要可能會超過 Azure 所能提供的功能，例如使用 Active Directory 網域時，或當您需要虛擬網路 (vnet) 之間的 DNS 解析時。為了涵蓋這些案例，Azure 提供可讓您使用專屬 DNS 伺服器的能力。
 
-當您的名稱解析需求超過 Azure 所提供的功能，您可以選擇使用自己的 DNS 伺服器。當您使用自己的 DNS 伺服器時，就必須負責管理 DNS 記錄。
+虛擬網路內的 DNS 可以將要求轉送到 Azure 內的遞迴解析程式，以解析該虛擬網路內的主機名稱。例如，在 Azure 中執行的網域控制站 (DC) 可以回應其網域的 DNS 要求，並將所有其他要求轉送到 Azure。這樣可讓 VM 查看您的內部部署資源 (透過 DC) 以及 Azure 提供的主機名稱 (透過轉送)。存取 Azure 的遞迴解析程式是透過所提供的虛擬 IP 168.63.129.16。
 
-> [AZURE.NOTE] 除非您的部署案例需要，否則建議避免使用外部的 DNS 伺服器。
+DNS 轉送也實現 vnet 之間的 DNS 解析，並使內部部署電腦能夠解析 Azure 提供的主機名稱。為了解析 VM的主機名稱，DNS 伺服器 VM 必須位於同一個虛擬網路中，且設定為將主機名稱要求轉送到 Azure。因為每個 vnet 的 DNS 尾碼都不同，所以您可以使用條件性轉送規則來將 DNS 要求傳送到正確的 vnet 進行解析。下圖顯示兩個 vnet 及一個內部部署網路使用此方法進行 vnet 之間的 DNS 解析：
 
-## DNS 伺服器需求
+![虛擬網路之間的 DNS](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-如果您打算使用不由 Azure 提供的名稱解析，您指定的 DNS 伺服器必須支援下列情況：
+使用 Azure 提供的名稱解析時，會提供內部 DNS 尾碼給每部使用 DHCP 的 VM。使用您自己的名稱解析解決方案時，不會提供 VM 此尾碼，因為它會干擾其他 DNS 架構。若要透過 FQDN 參照電腦，或要設定 VM 上的尾碼，可使用 PowerShell 或 API 來決定尾碼：
 
-- 由於您的 DNS 伺服器將取代 Azure 所提供的 DNS 伺服器，您的 DNS 解決方案必須要滿足 VM 與 VM 之間的通訊需求。如果 VM 與 VM 之間的通訊必須依賴主機名稱來進行，這些主機名稱就必須登錄在您的 DNS 伺服器上。這取決於許多不同的因素，但[這份文件](virtual-networks-name-resolution-ddns.md)提供了幾個實用的提示。
+-  對於 ARM 管理的 vnet，可透過[網路介面卡](https://msdn.microsoft.com/library/azure/mt163668.aspx)資源或 [Get-AzureRmNetworkInterface](https://msdn.microsoft.com/library/mt619434.aspx) Cmdlet 來取得尾碼。    
+-  對於傳統部署，可透過[取得部署 API](https://msdn.microsoft.com/library/azure/ee460804.aspx) 呼叫，或透過 [Get-AzureVM -Debug](https://msdn.microsoft.com/library/azure/dn495236.aspx) Cmdlet 來取得尾碼。
 
-- 如果依賴動態 DNS，DNS 伺服器應該關閉記錄清除功能。在 Azure 中，IP 位址有很長的 DHCP 租用期，可能會導致在清除過程中移除 DNS 伺服器上的記錄。
 
-- DNS 伺服器必須啟用遞迴功能以允許外部網域名稱的解析。
+如果將查詢轉送到 Azure 不符合您的需求，您會需要提供專屬的 DNS 解決方案。您的 DNS 解決方案將需要：
 
-- DNS 伺服器必須 (在 TCP/UDP 連接埠 53) 可供要求名稱解析的用戶端存取，以及供將註冊其名稱的服務和虛擬機器存取。
+-  提供適當的主機名稱解析，例如透過 [DDNS](virtual-networks-name-resolution-ddns.md)。請注意，如果使用 DDNS，您可能需要停用 DNS 記錄清除功能，因為 Azure 的 DHCP 租用期很長，所以 DNS 記錄可能會提前被清除。 
+-  提供適當的遞迴解析來允許外部網域名稱的解析。
+-  可從其服務的用戶端存取 (連接埠 53 上的 TCP 和 UDP)，且能夠存取網際網路。
+-  受保護以防止來自網際網路的存取，降低外部代理程式的威脅。
 
-- 也建議您保護 DNS 伺服器避免從網際網路存取，因為許多 bot 會掃描開啟遞迴的 DNS 解析程式。
+> [AZURE.NOTE] 為了達到最佳效能，使用 Azure VM 做為 DNS 伺服器時，應該停用 IPv6 且 [執行個體層級公用 IP](virtual-networks-instance-level-public-ip.mp) 應該指派給每個 DNS 伺服器 VM。如果您選擇以 Windows Server 做為 DNS 伺服器，[這篇文章](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx)提供了其他的效能分析和最佳化方法。
 
-- 為了達到最佳效能，使用 Azure VM 做為 DNS 伺服器時，應該停用 IPv6 且 [執行個體層級公用 IP](virtual-networks-instance-level-public-ip.mp) 應該指派給每個 DNS 伺服器 VM。
-	- 如果您選擇把 Windows Server 當做 DNS 伺服器，[這篇文章](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx)提供了其他的效能分析和最佳化方法。
 
 
 ## 指定 DNS 伺服器
@@ -164,7 +166,7 @@ resolv.conf 檔案通常是自動產生的，且不可編輯。新增 [選項] �
 
 對於傳統虛擬網路，您可以使用兩個不同的組態檔指定 DNS 設定：「網路組態檔」和「服務組態檔」。
 
-網路組態檔說明您的訂用帳戶中的虛擬網路。當您將角色執行個體或 VM 新增至虛擬網路中的雲端服務時，網路組態檔中的 DNS 設定就會套用到每個角色執行個體或 VM，除非已指定雲端服務特定 DNS 伺服器。
+網路組態檔描述您的訂用帳戶中的虛擬網路。當您將角色執行個體或 VM 新增至虛擬網路中的雲端服務時，網路組態檔中的 DNS 設定就會套用到每個角色執行個體或 VM，除非已指定雲端服務特定 DNS 伺服器。
 
 您加入 Azure 的每個雲端服務，都會建立服務組態檔。當您將角色執行個體或 VM 加入雲端服務時，服務組態檔中的 DNS 設定就會套用到每個角色執行個體或 VM。
 
@@ -179,4 +181,4 @@ resolv.conf 檔案通常是自動產生的，且不可編輯。新增 [選項] �
 
 [使用網路組態檔設定虛擬網路](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

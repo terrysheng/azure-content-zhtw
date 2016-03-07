@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/06/2015" 
+	ms.date="02/06/2016" 
 	ms.author="spelluru"/>
 
 # 使用 Azure 機器學習服務活動建立預測管線   
 ## 概觀
 
-> [AZURE.NOTE]請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)和[建置您的第一個管線](data-factory-build-your-first-pipeline.md)文章，快速地開始使用 Azure Data Factory 服務。
+> [AZURE.NOTE] 請參閱 [Azure Data Factory 簡介](data-factory-introduction.md)和[建置您的第一個管線](data-factory-build-your-first-pipeline.md)文章，快速地開始使用 Azure Data Factory 服務。
 
 ## 簡介
 
@@ -61,7 +61,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure �
 ### 案例：使用 Web 服務輸入/輸出 (參考 Azure Blob 儲存體中的資料) 的實驗
 在此案例中，Azure Machine Learning Web 服務會使用 Azure Blob 儲存體中的檔案資料執行預測，並將預測結果儲存在 Blob 儲存體中。下列 JSON 使用 AzureMLBatchExecution 活動定義 Azure Data Factory 管線。此活動以 **DecisionTreeInputBlob** 資料集做為輸入，以 **DecisionTreeResultBlob** 資料集做為輸出。**DecisionTreeInputBlob** 使用了 **webServiceInput** JSON 屬性，傳遞至 Web 服務做為輸入，而 **DecisionTreeResultBlob** 則使用了 **webServiceOutputs** JSON 屬性，傳遞至 Web 服務做為輸出。
 
-> [AZURE.NOTE]**webServiceInput** 和 **webServiceOutputs** 屬性 (位於 **typeProperties** 中) 參考的資料集也必須包含於活動**輸入**與**輸出**中。
+> [AZURE.NOTE] **webServiceInput** 和 **webServiceOutputs** 屬性 (位於 **typeProperties** 中) 參考的資料集也必須包含於活動**輸入**與**輸出**中。
 
 
 	{
@@ -104,7 +104,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure �
 	  }
 	}
 
-> [AZURE.NOTE]只有當輸入及輸出屬於 AzureMLBatchExecution 活動時，才可以當做參數傳遞至 Web 服務。例如，在上面的 JSON 片段中，DecisionTreeInputBlob 是 AzureMLBatchExecution 活動的輸入，其透過 webServiceInput 參數傳遞至 Web 服務做為輸入。
+> [AZURE.NOTE] 只有當輸入及輸出屬於 AzureMLBatchExecution 活動時，才可以當做參數傳遞至 Web 服務。例如，在上面的 JSON 片段中，DecisionTreeInputBlob 是 AzureMLBatchExecution 活動的輸入，其透過 webServiceInput 參數傳遞至 Web 服務做為輸入。
 
 ### 範例
 
@@ -218,7 +218,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure �
 		}
 5. 最後，撰寫一個包含 **AzureMLBatchExecution** 活動的管線。它會從輸入資料集取得輸入檔案的位置，並呼叫 Azure Machine Learning 批次執行 API，然後將批次執行輸出複製到輸出資料集中指定的 Blob。 
 
-	> [AZURE.NOTE]AzureMLBatchExecution 活動可以有零個或多個輸入，以及一個或多個輸出。
+	> [AZURE.NOTE] AzureMLBatchExecution 活動可以有零個或多個輸入，以及一個或多個輸出。
 
 		{
 		  "name": "PredictivePipeline",
@@ -262,7 +262,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure �
 
 	**開始**和**結束**日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**結束**時間是選用項目。如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。如需 JSON 屬性的詳細資料，請參閱 [JSON 指令碼參考](https://msdn.microsoft.com/library/dn835050.aspx)。
 
-	> [AZURE.NOTE]您可自行選擇是否指定 AzureMLBatchExecution 活動的輸入。
+	> [AZURE.NOTE] 您可自行選擇是否指定 AzureMLBatchExecution 活動的輸入。
 
 ### 案例：使用讀取器/寫入器模組參考各種儲存體資料的實驗
 
@@ -270,7 +270,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure �
 
 使用讀取器和寫入器模組時，較好的做法是針對這些讀取器/寫入器模組的每一個屬性，使用 Web 服務參數。這些 Web 參數可讓您在執行階段設定值。例如，建立實驗時，您可以利用讀取器模組使用 Azure SQL Database：XXX.database.windows.net。部署 Web 服務之後，您需要啟用 Web 服務的取用者，藉此指定另一個稱為 YYY.database.windows.net 的 Azure SQL Server。您可以使用 Web 服務參數來設定此值。
 
-> [AZURE.NOTE]Web 服務的輸入和輸出與 Web 服務參數不同。在第一個案例中，您已了解如何為 Azure ML Web 服務指定輸入和輸出。在此案例中，您將傳遞 Web 服務的參數，以對應至讀取器/寫入器模組的屬性。
+> [AZURE.NOTE] Web 服務的輸入和輸出與 Web 服務參數不同。在第一個案例中，您已了解如何為 Azure ML Web 服務指定輸入和輸出。在此案例中，您將傳遞 Web 服務的參數，以對應至讀取器/寫入器模組的屬性。
 
 讓我們看看使用 Web 服務參數的案例。您已部署的 Azure Machine Learning Web 服務，其使用讀取器模組所讀取的資料，是來自其中一個受支援的 Azure Machine Learning 資料來源 (例如 Azure SQL Database)。批次執行之後，會使用寫入器模組寫入結果 (Azure SQL Database)。實驗中沒有定義任何 Web 服務的輸入和輸出。在此情況下，我們建議您為讀取器和寫入器模組設定相關 Web 服務參數。如此一來，使用 AzureMLBatchExecution 活動時，便能將讀取器/寫入器模組一併設定完畢。如以下活動 JSON 所示，在 **globalParameters** 區段中指定 Web 服務參數。
 
@@ -290,7 +290,7 @@ Azure Data Factory 可讓您輕鬆地建立管線，運用已發佈的 [Azure �
     	}
   	}
  
-> [AZURE.NOTE]Web 服務參數區分大小寫，因此，請確定您在活動 JSON 中所指定的名稱符合 Web 服務所公開的名稱。
+> [AZURE.NOTE] Web 服務參數區分大小寫，因此，請確定您在活動 JSON 中所指定的名稱符合 Web 服務所公開的名稱。
 
 ### 使用讀取器模組讀取 Azure Blob 中多個檔案的資料
 巨量資料管線 (Pig、Hive 等) 可以產生沒有副檔名的一個或多個輸出檔案。例如，當您指定外部 Hive 資料表時，外部 Hive 資料表的資料可以儲存在 Azure Blob 儲存體中，並命名為：000000\_0。您可以在實驗中使用讀取器模組讀取多個檔案，並將該模組用於預測。
@@ -562,7 +562,7 @@ Azure 儲存體會保留下列資料：
 
 在 [Azure ML Studio] 中，依下列方式取得 **mlEndpoint** 和 **apiKey** 的值：
 
-1. 按一下左功能表中的 [Web 服務]。
+1. 按一下左功能表中的 [**Web 服務**]。
 2. 按一下 Web 服務清單中的**訓練 Web 服務**。 
 3. 按一下 [API 金鑰] 文字方塊旁的 [複製]，將 API 金鑰複製到剪貼簿。將金鑰貼到 Data Factory JSON 編輯器中。
 4. 在 [Azure ML studio] 中，按一下 [批次執行] 連結，從 [要求] 區段複製 [要求 URI] 並將它貼到 Data Factory JSON 編輯器中。   
@@ -755,7 +755,7 @@ Azure ML 更新資源活動不會產生任何輸出，但在 Azure Data Factory 
     	}
   	}
  
-> [AZURE.NOTE]Web 服務參數區分大小寫，因此，請確定您在活動 JSON 中所指定的名稱符合 Web 服務所公開的名稱。
+> [AZURE.NOTE] Web 服務參數區分大小寫，因此，請確定您在活動 JSON 中所指定的名稱符合 Web 服務所公開的名稱。
 
 ## 另請參閱
 
@@ -772,4 +772,4 @@ Azure ML 更新資源活動不會產生任何輸出，但在 Azure Data Factory 
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

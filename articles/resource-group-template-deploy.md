@@ -16,13 +16,13 @@
    ms.date="02/17/2016"
    ms.author="tomfitz"/>
 
-# 使用 Azure 資源管理員範本部署應用程式
+# 使用 Azure Resource Manager 範本部署資源群組
 
-本主題說明如何使用 Azure 資源管理員範本，將您的應用程式部署至 Azure。它會說明如何使用 Azure PowerShell、Azure CLI、REST API 或 Azure 入口網站部署您的應用程式。
+本主題說明如何使用 Azure Resource Manager 範本，將您的資源部署至 Azure。它會說明如何使用 Azure PowerShell、Azure CLI、REST API 或 Azure 入口網站部署您的資源。
 
 如需資源管理員的簡介，請參閱 [Azure 資源管理員概觀](./resource-group-overview.md)。若要了解如何建立範本，請參閱[撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 
-使用範本部署應用程式時，您可以提供參數值，以自訂建立資源的方式。您可以透過內嵌方式或在參數檔案中指定這些參數的值。
+使用範本部署應用程式定義時，您可以提供參數值，以自訂建立資源的方式。您可以透過內嵌方式或在參數檔案中指定這些參數的值。
 
 ## 累加部署與完整部署
 
@@ -284,4 +284,4 @@
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

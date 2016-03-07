@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="02/18/2016"
+   ms.author="magoedte;bwren" />
 
 # Azure 自動化中的變數資產
 
@@ -67,7 +67,7 @@
 1. 完成精靈，然後按一下核取方塊以儲存新變數。
 
 
-### 使用 Azure 預覽入口網站建立新變數
+### 使用 Azure 入口網站建立新的變數
 
 1. 從您的自動化帳戶，按一下 [**資產**] 部分，以開啟 [**資產**] 分頁。
 1. 按一下 [**變數**] 部分，以開啟 [**變數**] 分頁。
@@ -188,4 +188,4 @@
 - [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -58,6 +58,8 @@ SQL 資料倉儲的獨一無二之處就是能夠視需要暫停和繼續計算�
 
 暫停動作會將您的計算資源返還至資料中心的可用資源集區；而繼續動作會針對您設定的 DWU 取得所需的計算資源，並指派給您的資料倉儲執行個體。
 
+> [AZURE.NOTE] 由於儲存體和計算能力相互獨立，因此您的儲存體不會受到暫停的影響。
+
 如要暫停和繼續執行計算能力，可經由 [Azure 傳統入口網站][]、透過 REST API 或 Powershell 來完成。暫停會取消所有執行中或已進入佇列的活動；當您恢復使用時，可在幾秒內繼續執行計算資源。
 
 下列程式碼示範如何使用 PowerShell 執行暫停：
@@ -73,9 +75,9 @@ PowerShell 也可輕易地繼續執行服務：
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
-如需如何使用 PowerShell 的詳細資料，請參閱 [PowerShell Cmdlet 簡介][]文章。
+如需有關如何使用 PowerShell 的詳細資料，請參閱[透過 SQL 資料倉儲使用 PowerShell Cmdlet 和 REST API][]。
 
-> [Azure.Note]由於儲存體和計算能力相互獨立，因此您的儲存體不會受到暫停的影響。
+
 
 ## 後續步驟
 如需效能概觀，請參閱[效能概觀][]。
@@ -84,7 +86,7 @@ Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Se
 
 <!--Article references-->
 [效能概觀]: sql-data-warehouse-overview-performance.md
-[PowerShell Cmdlet 簡介]: sql-data-warehouse-get-started-powershell-cmdlets.md
+[透過 SQL 資料倉儲使用 PowerShell Cmdlet 和 REST API]: sql-data-warehouse-reference-powershell-cmdlets.md
 
 <!--MSDN references-->
 
@@ -93,4 +95,4 @@ Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Se
 
 [Azure 傳統入口網站]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

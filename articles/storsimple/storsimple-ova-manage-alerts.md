@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/10/2016"
+   ms.date="02/18/2016"
    ms.author="v-sharos" />
 
 # 針對 StorSimple Virtual Array 使用 StorSimple Manager 服務檢視和管理警示 (預覽)
@@ -195,4 +195,4 @@ StorSimple Manager 服務儀表板可讓您快速概覽虛擬裝置上的警示�
 
 - [深入了解 StorSimple Virtual Array](storsimple-ova-overview.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

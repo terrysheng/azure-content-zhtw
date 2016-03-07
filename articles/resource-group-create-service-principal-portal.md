@@ -24,7 +24,7 @@
 本主題說明如何使用 Azure 入口網站來建立新的應用程式和服務主體。目前，您必須使用傳統入口網站來建立新的 Active Directory 應用程式。Azure 入口網站會在稍後的版本中新增這項功能 。您可以使用入口網站來將應用程式指派給角色。您也可以透過 Azure PowerShell 或 Azure CLI 執行下列步驟。如需了解搭配服務主體來使用 PowerShell 或 CLI 的詳細資訊，請參閱[使用 Azure 資源管理員驗證服務主體](resource-group-authenticate-service-principal.md)。
 
 ## 概念
-1. Azure Active Directory (AAD) - 雲端的身分識別與存取管理服務組建。如需詳細資料，請參閱：[什麼是 Azure Active Directory](active-directory/active-directory-whatis.md)。
+1. Azure Active Directory (AAD) - 雲端的身分識別與存取管理服務組建。如需更多詳細資訊，請參閱：[什麼是 Azure Active Directory](active-directory/active-directory-whatis.md)
 2. 服務主體 - 目錄中應用程式的執行個體。
 3. AD 應用程式 - AAD 中向 AAD 識別應用程式的目錄記錄。 
 
@@ -229,4 +229,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

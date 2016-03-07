@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -67,7 +67,7 @@ Web Proxy 設定完成之後，您可以在 Microsoft Azure StorSimple Manager �
 
 4. 選擇驗證類型為 [**NTLM**]、[**基本**] 或 [**無**]。[基本] 是 Proxy 伺服器設定最不安全的驗證。NT LAN Manager (NTLM) 是非常安全和複雜的驗證通訊協定，使用三向傳訊系統 (需要更高完整性時，則是四向) 來驗證使用者。預設驗證為 NTLM。如需詳細資訊，請參閱[基本](http://hc.apache.org/httpclient-3.x/authentication.html)和 [NTLM 驗證](http://hc.apache.org/httpclient-3.x/authentication.html)。
 
-	> [AZURE.IMPORTANT]**在 StorSimple Manager 服務中，當裝置的 Proxy 伺服器設定中已啟用基本或 NTLM 驗證時，裝置監控圖表沒有作用。為了讓監控圖表發揮作用，您必須確保驗證設定為 [無]。**
+	> [AZURE.IMPORTANT] **在 StorSimple Manager 服務中，當裝置的 Proxy 伺服器設定中已啟用基本或 NTLM 驗證時，裝置監控圖表沒有作用。為了讓監控圖表發揮作用，您必須確保驗證設定為 [無]。**
 
 5. 如果您使用驗證，請提供 [**Web Proxy 使用者名稱**] 和 [**Web Proxy 密碼**]。您也必須確認密碼。
 
@@ -100,7 +100,7 @@ Web Proxy 現在已設定，必須啟用。
 
 預設會停用 Web Proxy。在 StorSimple 裝置上設定 Web Proxy 設定之後，您需要使用 Windows PowerShell for StorSimple 來啟用 Web Proxy 設定。
 
-> [AZURE.NOTE]**如果您使用安裝精靈來設定 Web Proxy，則不需要此步驟。依預設，安裝精靈工作階段之後會自動啟用 Web Proxy。**
+> [AZURE.NOTE] **如果您使用安裝精靈來設定 Web Proxy，則不需要此步驟。依預設，安裝精靈工作階段之後會自動啟用 Web Proxy。**
 
 在 Windows PowerShell for StorSimple 中執行下列步驟，在您的裝置上啟用 Web Proxy：
 
@@ -140,7 +140,7 @@ Web Proxy 設定已透過 Windows PowerShell 介面設定，無法從傳統入�
 |6\.|0x8007138f - 找不到叢集資源|找不到平台服務叢集資源。若未正確安裝，即會發生此情況。|您可能需要在裝置上執行原廠重設。您可能需要建立平台資源。請連絡 Microsoft 支援服務來請示後續步驟。|
 |7\.|0x8007138c - 叢集資源不在線上|平台或資料路徑叢集資源不在線上。|請連絡 Microsoft 支援服務，以確定資料路徑和平台服務資源都在線上。|
 
-> [AZURE.NOTE]
+> [AZURE.NOTE] 
 > 
 > -  上述的錯誤訊息清單不完整。 
 > - Web Proxy 設定相關的錯誤不會顯示在 StorSimple Manager 服務的 Azure 傳統入口網站中。完成設定之後，如果 Web Proxy 有問題，傳統入口網站中的裝置狀態會變更為 [離線]。|
@@ -151,4 +151,4 @@ Web Proxy 設定已透過 Windows PowerShell 介面設定，無法從傳統入�
 
 - 若要了解如何使用 StorSimple Manager，請移至[使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

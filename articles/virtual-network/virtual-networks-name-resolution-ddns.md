@@ -17,9 +17,9 @@
 
 
 # 在您自己的 DNS 伺服器中使用動態 DNS 來登錄主機名稱
-[Azure 會為虛擬機器 (VM) 及角色執行個體提供名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)。但是，當您的名稱解析需求超過 Azure 所提供的名稱解析時，您可以針對名稱解析提供自己的 DNS 伺服器。這讓您有能力量身打造自己的 DNS 方案，來符合您特定的需求。例如，您可能需要 DNS 解決方案以存取內部部署 Active Directory 網域控制站。
+[Azure 會為虛擬機器 (VM) 及角色執行個體提供名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)。但是，當您的名稱解析需求超過 Azure 所提供的名稱解析時，您可以提供自己的 DNS 伺服器。這讓您有能力量身打造自己的 DNS 方案，來符合您特定的需求。例如，您可能需要透過 Active Directory 網域控制站存取內部部署資源。
 
-Azure 沒有能力 (例如認證) 直接在您的 DNS 伺服器中登錄記錄，因此通常需要有其他的安排。以下是一些常見案例與替代方案。
+當您的自訂 DNS 伺服器裝載為 Azure VM 時，您可以將主機名稱查詢 (適用於相同的 vnet) 轉送至 Azure，以解析內部 IP。如果您不想使用此路由，您可以在您的 DNS 伺服器中使用動態 DNS 註冊您的 VM。Azure 沒有能力 (例如認證) 直接在您的 DNS 伺服器中建立記錄，因此通常需要有其他的安排。以下是一些常見案例與替代方案。
 
 ## Windows 用戶端
 未加入網域的 Windows 用戶端在開機或在 IP 位址改變時，會嘗試進行不安全的動態 DNS (DDNS) 更新。DNS 名稱就是主機名稱加上主要 DNS 尾碼。Azure 會讓主要 DNS 尾碼留白，但您可以在 VM 中透過 [UI](https://technet.microsoft.com/library/cc794784.aspx) 或 [使用自動化](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix)覆寫這個設定。
@@ -27,7 +27,7 @@ Azure 沒有能力 (例如認證) 直接在您的 DNS 伺服器中登錄記錄�
 已加入網域的 Windows 用戶端會使用安全的動態 DNS，向網域控制站註冊自己的 IP 位址。網域加入程序會設定用戶端上的主要 DNS 尾碼，以及管理信任關係。
 
 ## Linux 用戶端
-Linux 用戶端通常不會在啟動時向 DNS 伺服器登錄自己，它們假設 DHCP 伺服器會這麼做。您可以使用稱為 *nsupdate* 的工具，該工具隨附於繫結封裝，以傳送動態 DNS 更新。因為動態 DNS 通訊協定已標準化，您甚至可以在您並非於 DNS 伺服器上使用繫結時，使用 *nsupdate*。
+Linux 用戶端通常不會在啟動時向 DNS 伺服器登錄自己，它們假設 DHCP 伺服器會這麼做。Azure 的 DHCP 伺服器並沒有在您的 DNS 伺服器登錄記錄的能力。您可以使用稱為 *nsupdate* 的工具，該工具隨附於繫結封裝，以傳送動態 DNS 更新。因為動態 DNS 通訊協定已標準化，您甚至可以在您並非於 DNS 伺服器上使用繫結時，使用 *nsupdate*。
 
 您可以使用 DHCP 用戶端所提供的勾點，在 DNS 伺服器註冊主機名稱。在 DHCP 週期中，用戶端在 */etc/dhcp/dhclient-exit-hooks.d/* 中執行指令碼。這可以用來使用 *nsupdate* 註冊新的 IP 位址。例如：
 
@@ -64,4 +64,4 @@ Linux 用戶端通常不會在啟動時向 DNS 伺服器登錄自己，它們假
 
 		supersede domain-name <required-dns-suffix>;
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

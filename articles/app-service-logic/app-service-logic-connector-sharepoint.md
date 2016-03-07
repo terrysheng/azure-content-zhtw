@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/11/2016"
    ms.author="sameerch"/>
 
 # 開始使用 SharePoint 連接器並將它加入您的邏輯應用程式
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。
+
 連線至 SharePoint Server 或 SharePoint Online 來管理文件和清單項目。您可以執行各種動作，例如建立、更新、取得和刪除文件和清單項目。使用內部部署 SharePoint Server 時，您可以輸入服務匯流排連接字串做為連接器組態的一部分，並安裝內部部署接聽程式代理程式以連線到伺服器。
 
 SharePoint Online 連接器和 SharePoint Server 連接器資源庫應用程式可提供觸發程序和動作做為與 SharePoint 互動的機制。
@@ -34,11 +36,9 @@ SharePoint Online 連接器和 SharePoint Server 連接器資源庫應用程式�
 
 	名稱 | 必要 | 說明
 --- | --- | ---
-網站 URL | 是 | 輸入 SharePoint 網站的完整 URL。例如，輸入： *https://microsoft.sharepoint.com/teams/wabstest* 。
-文件庫 / 清單相對 URL | 是 | 輸入相對於 SharePoint 網站 URL、且可由連接器修改的文件庫/清單 URL。例如，輸入： *清單/工作、共用文件* 。
+網站 URL | 是 | 輸入 SharePoint 網站的完整 URL。例如，輸入：**https://microsoft.sharepoint.com/teams/wabstest*。文件庫 / 清單相對 URL | 是 | 輸入相對於 SharePoint 網站 URL、且可由連接器修改的文件庫/清單 URL。例如，輸入：*清單/工作、共用文件*。
 
-5. 完成時，[封裝設定] 看起來如下：
-![][1]
+5. 完成時，[封裝設定] 看起來如下：![][1]
 
 完成後，您現在可以在相同的資源群組中建立邏輯應用程式，以便使用 SharePoint Online 連接器。
 
@@ -53,15 +53,13 @@ SharePoint Online 連接器和 SharePoint Server 連接器資源庫應用程式�
 
 	名稱 | 必要 | 說明
 --- | --- | ---
-網站 URL | 是 | 輸入 SharePoint 網站的完整 URL。例如，輸入： *https://microsoft.sharepoint.com/teams/wabstest* 。
-驗證模式 | 是 | 指定連線到 SharePoint 網站時的驗證模式。選項包括：<ul><li>預設</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>如果您選擇 [預設]，則會使用執行 SharePoint 連接器的認證；不需要使用者名稱/密碼。其他驗證類型需要 [使用者名稱] 和 [密碼]。<br/><br/>**注意** 不支援匿名驗證。
+網站 URL | 是 | 輸入 SharePoint 網站的完整 URL。例如，輸入：*https://microsoft.sharepoint.com/teams/wabstest*。驗證模式 | 是 | 指定連線到 SharePoint 網站時的驗證模式。選項包括：<ul><li>預設</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>如果您選擇 [預設]，則會使用執行 SharePoint 連接器的認證；不需要使用者名稱/密碼。其他驗證類型需要 [使用者名稱] 和 [密碼]。<br/><br/>**注意** 不支援匿名驗證。
 使用者名稱 | 否 | 如果 [驗證模式] 不是 [預設]，請輸入可連線到 SharePoint 網站的有效使用者名稱。
 密碼 | 否 | 如果 [驗證模式] 不是 [預設]，請指定可連線到 SharePoint 網站的有效密碼。
-文件庫 / 清單相對 URL | 是 | 輸入相對於 SharePoint 網站 URL、且可由連接器修改的文件庫/清單 URL。例如，輸入： *清單/工作、共用文件* 。
+文件庫 / 清單相對 URL | 是 | 輸入相對於 SharePoint 網站 URL、且可由連接器修改的文件庫/清單 URL。例如，輸入：*清單/工作、共用文件*。
 服務匯流排連接字串 | 否 | 如果您要連線至內部部署，請輸入服務匯流排轉送連接字串。<br/><br/>[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)<br/>[服務匯流排定價](https://azure.microsoft.com/pricing/details/service-bus/)
 
-5. 完成時，[封裝設定] 看起來如下：
-![][2]
+5. 完成時，[封裝設定] 看起來如下：![][2]
 
 完成後，您現在可以在相同的資源群組中建立邏輯應用程式，以便使用 SharePoint Server 連接器。
 
@@ -76,20 +74,15 @@ SharePoint Online 連接器和 SharePoint Server 連接器資源庫應用程式�
 
 3. 如果在啟動邏輯應用程式時就選取 SharePoint 連接器，它就會像觸發程序般運作。否則，可以使用連接器在 SharePoint 帳戶上採取動作。
 
-4. 使用 SharePoint Online 連接器時，您必須驗證和授權邏輯應用程式來代表您執行作業。若要開始授權，請按一下 SharePoint 連接器上的 [**授權**]：
-![][3]
+4. 使用 SharePoint Online 連接器時，您必須驗證和授權邏輯應用程式來代表您執行作業。若要開始授權，請按一下 SharePoint 連接器上的 [**授權**]：![][3]
 
-5. 按一下 [授權] 便會開啟 SharePoint 的 [驗證] 對話方塊。輸入您要用來執行作業的 SharePoint 帳戶的登入詳細資料：
-![][4]
+5. 按一下 [授權] 便會開啟 SharePoint 的 [驗證] 對話方塊。輸入您要用來執行作業的 SharePoint 帳戶的登入詳細資料：![][4]
 
-6. 對您的帳戶授與邏輯應用程式存取權限，以便代表您執行作業：
-![][5]
+6. 對您的帳戶授與邏輯應用程式存取權限，以便代表您執行作業：![][5]
 
-7. 如果 SharePoint 連接器設定為觸發程序，則會顯示觸發程序。否則，動作的清單隨即顯示，您可以選擇您想要執行的適當作業：
-![][6]
+7. 如果 SharePoint 連接器設定為觸發程序，則會顯示觸發程序。否則，動作的清單隨即顯示，您可以選擇您想要執行的適當作業：![][6]
   
-**已設定文件庫的相對 URL** 
-![][7]
+**已設定文件庫的相對 URL** ![][7]
 
 **已設定文件清單的相對 URL**
 
@@ -221,7 +214,7 @@ ItemId | 加入文件庫的文件項目識別碼。
 
 名稱 | 必要 | 說明
 --- | --- | ---
-文件相對 URI | 否 | 輸入相對於「共用文件」的文件 URL。例如，輸入： *myspec1,myfolder/orders* 。
+文件相對 URI | 否 | 輸入相對於「共用文件」的文件 URL。例如，輸入：*myspec1,myfolder/orders*。
 
 #### 輸出
 
@@ -245,7 +238,7 @@ Param2* | 這是位於文件庫中文件的其中一個參數。
 
 名稱 | 必要 | 說明
 --- | --- | ---
-文件相對 URI | 否 | 輸入相對於「共用文件」的文件 URL。例如，輸入： *myspec1,myfolder/orders* 。
+文件相對 URI | 否 | 輸入相對於「共用文件」的文件 URL。例如，輸入：*myspec1,myfolder/orders*。
 
 #### 輸出
 
@@ -385,7 +378,7 @@ ContentTransferEncoding | 是 | 訊息的內容轉移編碼。("none" 或 "base6
 
 名稱 | 必要 | 說明
 --- | --- | ---
-文件相對 URI | 否 | 輸入相對於「共用文件」的文件 URL。例如，輸入： *myspec1,myfolder/orders* 。
+文件相對 URI | 否 | 輸入相對於「共用文件」的文件 URL。例如，輸入：*myspec1,myfolder/orders*。
 檔案類型 | 是 | 輸入檔案是二進位檔案或文字檔案。
 
 #### 輸出
@@ -463,13 +456,13 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 請參閱[使用混合式連線管理員](app-service-logic-hybrid-connection-manager.md)。
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
 
->[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE] 如果您想要在註冊 Azure 帳戶之前先開始使用 Azure Logic Apps，請移至[試用 Logic Apps](https://tryappservice.azure.com/?appservice=logic)。您可以在 App Service 中立即建立短期的入門邏輯應用程式。不需要信用卡；無需承諾。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
-您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視 API 應用程式和連接器](app-service-api-manage-in-portal.md)。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視 API 應用程式和連接器](../app-service-api/app-service-api-manage-in-portal.md)。
 
 
 <!--Image references-->
@@ -481,4 +474,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

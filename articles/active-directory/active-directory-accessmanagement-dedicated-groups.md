@@ -25,6 +25,19 @@
 
 如果您想要將相同的權限指派給您目錄中的所有使用者，[All Users] 專用群組可能會很實用。例如，您可以將 [All Users] 專用群組的存取權指派給此應用程式，以便為您目錄中的所有使用者授與 SaaS 應用程式的存取權。
 
+請注意，專用的「所有使用者」群組包含目錄中的所有使用者，當中有來賓與外部使用者。如果您需要排除外部使用者的群組，您可以使用類似下面的動態規則建立群組
+
+(user.userPrincipalName -notContains "#EXT#@")
+
+如需排除所有來賓的群組，請使用類似下面的規則
+
+(user.userType -ne "Guest")
+
+本文將詳細說明如何建立規則，以管理 Azure Active Directory 中群組的成員：
+
+* [建立簡單的規則，設定群組的動態成員資格](active-directory-accessmanagement-simplerulegroup.md)
+
+
 這些文章提供有關 Azure Active Directory 的其他資訊。
 
 * [使用 Azure Active Directory 群組管理資源的存取權](active-directory-manage-groups.md)
@@ -32,4 +45,4 @@
 * [什麼是 Azure Active Directory？](active-directory-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

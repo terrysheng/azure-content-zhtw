@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 12/01/15-->
+<!--author=SharS last changed: 02/22/16-->
 
 ### 設定和註冊裝置
 
@@ -16,7 +16,7 @@
   
 5. 執行下列步驟，為裝置設定最小的必要網路設定。
 
-    > [AZURE.IMPORTANT]這些設定步驟必須在裝置的主動控制器上執行。序列主控台功能表會在橫幅訊息中指出控制站狀態。如果您未連接到主動控制器，請中斷連線，然後連接到主動控制器。
+    > [AZURE.IMPORTANT] 這些設定步驟必須在裝置的主動控制器上執行。序列主控台功能表會在橫幅訊息中指出控制站狀態。如果您未連接到主動控制器，請中斷連線，然後連接到主動控制器。
 
       1. 在命令提示字元中，輸入您的密碼。預設裝置密碼是 **Password1**。
 
@@ -32,11 +32,11 @@
        - 適用於主要 DNS 伺服器的 IP 位址
        - 適用於主要 NTP 伺服器的 IP 位址
  
-        > [AZURE.NOTE]您可能需要等候幾分鐘，以套用子網路遮罩和 DNS 設定。
+        > [AZURE.NOTE] 您可能需要等候幾分鐘，以套用子網路遮罩和 DNS 設定。
 
       4. 選擇性設定 Web Proxy 伺服器。
 
-      >[AZURE.IMPORTANT]雖然 Web Proxy 設定是選用的，但請注意，如果您使用 Web Proxy，就只能在此處設定它。如需詳細資訊，請參閱[設定裝置的 Web Proxy](storsimple-configure-web-proxy.md)。
+      > [AZURE.IMPORTANT] 雖然 Web Proxy 設定是選用的，但請注意，如果您使用 Web Proxy，就只能在此處設定它。如需詳細資訊，請參閱[設定裝置的 Web Proxy](../articles/storsimple/storsimple-configure-web-proxy.md)。
 
 6. 按 Ctrl + C 來結束安裝精靈。
  
@@ -79,7 +79,10 @@
 
      `Get-HcsSystem`
 
-    您應該會看到下列版本：- HcsSoftwareVersion：6.3.9600.17491 - CisAgentVersion：1.0.9037.0 - MdsAgentVersion：26.0.4696.1433
+    您應該會看到下列版本：
+    - HcsSoftwareVersion：6.3.9600.17491 
+    - CisAgentVersion：1.0.9037.0 
+    - MdsAgentVersion：26.0.4696.1433
  
 9. 執行下列 Cmdlet 以確認已正確套用韌體更新：
 
@@ -109,15 +112,17 @@
 
 14. 安裝精靈的最後一個步驟是向 StorSimple Manager 服務註冊您的裝置。基於此因素，您需要在[步驟 2：取得服務註冊金鑰](#step-2-get-the-service-registration-key)中取得的服務註冊金鑰。提供註冊金鑰之後，您可能需要等待 2-3 分鐘，才能註冊裝置。
 
-      >[AZURE.NOTE]您可以隨時按 Ctrl + C 來結束安裝精靈。如果您輸入所有網路設定 (Data 0 的 IP 位址、子網路遮罩和閘道器)，則會保留您的項目。
+      > [AZURE.NOTE] 您可以隨時按 Ctrl + C 來結束安裝精靈。如果您輸入所有網路設定 (Data 0 的 IP 位址、子網路遮罩和閘道器)，則會保留您的項目。
 
 	![StorSimple 註冊進度](./media/storsimple-configure-and-register-device-gov/HCS_RegistrationProgress-gov-include.png)
 
-15. 註冊裝置之後，隨即會出現服務資料加密金鑰。複製這個金鑰，並將它儲存在安全的位置。**這個金鑰需要與服務註冊金鑰搭配使用，來向 StorSimple Manager 服務註冊其他裝置。** 如需這個金鑰的詳細資訊，請參閱[StorSimple 安全性](storsimple-security.md)。
+15. 註冊裝置之後，隨即會出現服務資料加密金鑰。複製這個金鑰，並將它儲存在安全的位置。**這個金鑰需要與服務註冊金鑰搭配使用，來向 StorSimple Manager 服務註冊其他裝置。** 如需這個金鑰的詳細資訊，請參閱[StorSimple 安全性](../articles/storsimple/storsimple-security.md)。
 	
 	![StorSimple 註冊裝置 7](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)
 
-      >[AZURE.IMPORTANT]若要從序列主控台視窗複製文字，只需選取該文字。然後您應該能夠將它貼到剪貼簿或任何文字編輯器中。> > 請勿使用 Ctrl + C 來複製服務資料加密金鑰。使用 Ctrl + C 將導致安裝精靈結束。如此一來，裝置系統管理員密碼將不會變更，而裝置將還原為預設密碼。
+      > [AZURE.IMPORTANT] 若要從序列主控台視窗複製文字，只需選取該文字。然後您應該能夠將它貼到剪貼簿或任何文字編輯器中。
+      > 
+      > 請勿使用 Ctrl + C 來複製服務資料加密金鑰。使用 Ctrl + C 將導致安裝精靈結束。如此一來，裝置系統管理員密碼將不會變更，而裝置將還原為預設密碼。
 
 16. 結束序列主控台。
 
@@ -126,12 +131,14 @@
   2. 按一下 [檢視連接的裝置]。
   3. 在 [裝置] 頁面上，藉由查閱狀態來確認裝置已成功連接到服務。裝置狀態應該是 [線上]。
    
-    	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
+	![StorSimple 裝置頁面](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png)
   
-        如果裝置狀態為**離線**，請稍待片刻等待裝置上線。
-      
-        如果數分鐘之後裝置仍然離線，請確定您的防火牆網路已依照[StorSimple 裝置網路需求](https://msdn.microsoft.com/library/dn772371.aspx) 中的說明加以設定。 如果您的裝置不支援 HTTP 1.1，請檢查連接埠 9354 以確定此連接埠可開放做為傳出通訊之用。 此連接埠用於 StorSimple Manager 服務及 StorSimple 裝置間的通訊。
+	如果裝置狀態為**離線**，請稍待片刻等待裝置上線。
+
+	如果數分鐘之後裝置仍然離線，請確定您的防火牆網路已依照 [StorSimple 裝置網路需求](../articles/storsimple/storsimple-system-requirements.md)中的說明加以設定。
+
+	請確認連接埠 9354 已開啟供輸出通訊使用，因為 StorSimple Manager 服務對裝置服務匯流排通訊也使用此連接埠。
      
         
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

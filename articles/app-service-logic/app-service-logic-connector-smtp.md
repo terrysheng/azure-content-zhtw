@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="rajram"/>
 
 
 # 開始使用 SMTP 連接器並將它加入您的邏輯應用程式
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [SMTP API](../connectors/create-api-smtp.md)。
+
 連線至 SMTP 伺服器並傳送電子郵件，包括帶有附件的電子郵件。SMTP 連接器「傳送電子郵件」動作可讓您傳送電子郵件到指定的電子郵件位置。
 
 邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於工作流程一部分的資料。您可以將 SMTP 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
@@ -54,47 +56,39 @@ None | 傳送電子郵件
 
 6. 選取 [**建立**]。
 
-> [AZURE.IMPORTANT]某些 SMTP 伺服器在此連接器的運作方式 (SendGrid 和 Gmail) 可能會有問題。如果您想要從 SendGrid 傳送郵件，則我們的 [GitHub 儲存機制](https://github.com/logicappsio/SendGridAPI)具有自訂 API，其可直接與 SendGrid API 整合。
+> [AZURE.IMPORTANT] 某些 SMTP 伺服器在此連接器的運作方式 (SendGrid 和 Gmail) 可能會有問題。如果您想要從 SendGrid 傳送郵件，則我們的 [GitHub 儲存機制](https://github.com/logicappsio/SendGridAPI)具有自訂 API，其可直接與 SendGrid API 整合。
 
 ## 在邏輯應用程式中使用 SMTP 連接器
 建立連接器之後，即可使用 SMTP 連接器做為邏輯應用程式的動作。作法：
 
-1.	建立新的邏輯應用程式：
-
-	![][2]
-2.	開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，並設定您的工作流程：
-
-	![][3]
-3.	SMTP 連接器會列在右側資源庫中的 [此資源群組中的 API 應用程式] 區段。請選取它：
-
-	![][4]
+1.	建立新的邏輯應用程式：![][2]
+2.	開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，並設定您的工作流程：![][3]
+3.	SMTP 連接器會列在右側資源庫中的 [此資源群組中的 API 應用程式] 區段。請選取它：![][4]
 4.	選取 [SMTP 連接器]，自動將它加入工作流程設計工具。
 
 您現在可以設定要在工作流程中使用的 SMTP 連接器。選取 [傳送電子郵件] 動作，並設定輸入屬性：
 
-	屬性 | 說明
+	Property | Description
 	--- | ---
-	收件人 | 輸入收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入： recipient1@domain.com;recipient2@domain.com。
-	副本 | 輸入副本收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入：recipient1@domain.com;recipient2@domain.com。
-	主旨 | 輸入電子郵件主旨。
-	內文 | 輸入電子郵件內文。
-	HTML | 當此屬性設為 true 時，內文內容會以 HTML 傳送。
-	密件副本 | 輸入密件副本收件人的電子郵件地址。使用分號 (;) 分隔多個電子郵件地址。例如輸入：recipient1@domain.com;recipient2@domain.com。
-	重要性 | 輸入電子郵件的重要性。選項為一般、低重要性和高重要性。
-	附件 | 附件會連同電子郵件一併寄出。包含的欄位如下： <ul><li>內容 (字串)</li><li>內容轉移編碼 (列舉) (“無”|”base64”)</li><li>內容類型 (字串)</li><li>內容識別碼 (字串)</li><li> 檔案名稱 (字串)</li></ul>
+	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Subject | Enter the subject of the email.
+	Body | Enter body of the email.
+	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
+	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
+	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
-
-![][5]
-![][6]
+![][5] ![][6]
 
 ## 進一步運用您的連接器
-現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是 Logic Apps？](app-service-logic-what-are-logic-apps.md)。
+現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
-您也可以檢閱連接器的效能統計資料及控制安全性。請參閱〈[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)〉。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-smtp/img1.PNG
@@ -104,4 +98,4 @@ None | 傳送電子郵件
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

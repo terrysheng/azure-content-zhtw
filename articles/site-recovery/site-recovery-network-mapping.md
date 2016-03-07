@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="02/22/2016"
 	ms.author="raynew"/>
 
 
@@ -23,7 +23,7 @@ Azure Site Recovery 可藉由協調虛擬機器與實體伺服器的複寫、容
 
 本文說明網路對應，它能協助您在使用 Site Recovery 複寫位於 VMM 雲端中兩個內部部署資料中心之間，或是內部部署資料中心和 Azure 之間的 Hyper-V 虛擬機器時，以將網路設定設定成最佳狀態。請注意，如果您是複寫沒有 VMM 雲端的 Hyper-V VM，或是複寫 VMware VM 或實體伺服器，則本文無關聯。
 
-如果您在閱讀本文後有任何問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) (英文)。
+在這篇文章下方或 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)中張貼意見或問題。
 
 
 ## 概觀
@@ -123,4 +123,4 @@ VMNetwork1-Chicago 的網路對應已變更。 | VM-1 現在會連線到對應�
 
 既然您已經更了解網路對應，[請開始部署 Site Recovery](site-recovery-best-practices.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

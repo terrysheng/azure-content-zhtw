@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Azure AD AngularJS | Microsoft Azure"
+	pageTitle="開始使用 Azure AD v2.0 AngularJS | Microsoft Azure"
 	description="如何建置可在個人 Microsoft 帳戶及工作或學校帳戶登入使用者的 Angular JS 單一頁面應用程式。"
 	services="active-directory"
 	documentationCenter=""
@@ -13,22 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 
-# 應用程式模型 v2.0 預覽版本：在 AngularJS 單一頁面應用程式中新增登入 - .NET
+# 將登入新增至 AngularJS 單一頁面應用程式 - .NET
 
-在本文中，我們會使用 Azure Active Directory 應用程式模型 v2.0，將以 Microsoft 帳戶的登入新增至 AngularJS 應用程式。應用程式模型 v2.0 可讓您在您的應用程式中執行單一整合，並且以個人和工作/學校帳戶驗證使用者。
+在本文中，我們將使用 Azure Active Directory v2.0 端點，將 Microsoft 帳戶的登入新增至 AngularJS 應用程式。v2.0 端點可讓您在您的應用程式中執行單一整合，以及以個人和工作/學校帳戶驗證使用者。
 
-這個範例是簡單的待辦事項清單單一頁面應用程式，在後端 REST API 儲存工作、使用 .NET 4.5 MVC 架構撰寫，並且使用 Azure AD 的 OAuth 持有人權杖進行保護。AngularJS 應用程式會使用我們的開放原始碼 JavaScript 驗證程式庫 [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) 以處理整個登入程序，並且取得用以呼叫 REST API 的權杖。相同的模式可以套用以驗證其他 REST API，例如 [Microsoft Graph](https://graph.microsoft.com) 或 Azure 資源管理員 API。
+這個範例是簡單的待辦事項清單單一頁面應用程式，在後端 REST API 儲存工作、使用 .NET 4.5 MVC 架構撰寫，並且使用 Azure AD 的 OAuth 持有人權杖進行保護。AngularJS 應用程式會使用我們的開放原始碼 JavaScript 驗證程式庫 [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) 以處理整個登入程序，並且取得用以呼叫 REST API 的權杖。可以套用這個相同的模式以驗證其他 REST API，例如 [Microsoft Graph](https://graph.microsoft.com)。
+
+> [AZURE.NOTE]
+	v2.0 端點並非支援每個 Azure Active Directory 案例和功能。如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
 
 ## 下載
 
 若要開始，您必須下載並安裝 Visual Studio。然後您可以複製或[下載](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/skeleton.zip)基本架構應用程式：
 
 ```
-git clone --branch skeleton https://github.com/AzureADQuickStarst/AppModelv2-SinglePageApp-AngularJS-DotNet.git
+git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet.git
 ```
 
 基本架構應用程式包含簡單的 AngularJS 應用程式的重複使用程式碼，但是會遺漏所有身分識別相關的部分。如果您不想要跟著做，您可以改為複製或[下載](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/complete.zip)完成的範例。
@@ -85,7 +88,7 @@ bower install adal-angular#experimental
 
 這是我們討論 REST API 運作方式所花費的所有時間。您可以自由摸索程式碼，但是如果您想要深入了解使用 Azure AD 保護 Web API，請參閱[這篇文章](active-directory-v2-devquickstarts-dotnet-api.md)。
 
-## 登入使用者
+## 將使用者登入
 撰寫一些身分識別程式碼。您可能已經發現 adal.js 包含 AngularJS 提供者，它運用 Angular 路由機制相當良好。從將 adal 模組新增至應用程式開始：
 
 ```js
@@ -219,10 +222,10 @@ return $http.get('/api/tasks');
 
 恭喜！ 您的 Azure AD 整合式單一頁面應用程式現在已完成。佩服吧！它可以驗證使用者、使用 OpenID Connect 安全地呼叫其後端 REST API，以及取得使用者的基本資訊。根據預設，它支援來自 Azure AD 具有個人 Microsoft 帳戶或工作/學校帳戶的任何使用者。執行應用程式，並且在瀏覽器中瀏覽至 `https://localhost:44326/`。使用個人 Microsoft 帳戶或工作/學校帳戶登入。將工作新增至使用者待辦事項清單，然後登出。嘗試使用其他類型的帳戶登入。如果您需要 Azure AD 租用戶以建立工作/學校使用者，[在這裡了解如何取得](active-directory-howto-tenant.md) (免費)。
 
-若要繼續了解應用程式模型 v2.0 預覽，請返回我們的 [v2.0 開發人員指南](active-directory-appmodel-v2-overview.md)。如需其他資源，請參閱：
+如果要繼續了解 v2.0 端點，請返回我們的《[v2.0 開發人員指南](active-directory-appmodel-v2-overview.md)》。如需其他資源，請參閱：
 
 - [GitHub 上的 Azure 範例 >>](https://github.com/Azure-Samples)
 - [堆疊溢位上的 Azure AD >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - [Azure.com 上的 Azure AD 文件 >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="機器學習 API：文字分析 | Microsoft Azure"
-	description="Azure Machine Learning 提供的文字分析 API。此 API 可用來分析情緒分析、關鍵片語擷取及語言偵測的非結構化文字。"
+	description="Microsoft 的機器學習文字分析 API 可用來分析非結構化文字，例如情感分析、關鍵片語擷取、語言偵測及主題偵測。"
 	services="machine-learning"
 	documentationCenter=""
 	authors="onewth"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/22/2016"
 	ms.author="onewth"/>
 
 
-# 機器學習 API：情感文字分析、關鍵片語擷取及語言偵測
+# 機器學習 API：情感文字分析、關鍵片語擷取、語言偵測及主題偵測
 
 ## 概觀
 
-文字分析 API 是一套以 Azure Machine Learning 服務建置的文字分析 [Web 服務](https://datamarket.azure.com/dataset/amla/text-analytics)。此 API 可用來分析工作的非結構化文字，例如情感分析、關鍵片語擷取及語言偵測。使用此 API 不需要任何訓練資料，只要將文字資料帶入即可。此 API 使用進階的自然語言處理技術來提供最佳預測。
+文字分析 API 是一套以 Azure Machine Learning 服務建置的文字分析 [Web 服務](https://datamarket.azure.com/dataset/amla/text-analytics)。此 API 可用來分析工作的非結構化文字，例如情感分析、關鍵片語擷取、語言偵測及主題偵測。使用此 API 不需要任何訓練資料，只要將文字資料帶入即可。此 API 使用進階的自然語言處理技術來提供最佳預測。
 
 您可以在我們的[示範網站](https://text-analytics-demo.azurewebsites.net/)看到文字分析的運作，其中您也可以找到如何以 C# 和 Python 實作文字分析的[範例](https://text-analytics-demo.azurewebsites.net/Home/SampleCode)。
 
@@ -40,6 +40,10 @@ API 會傳回輸入文字中代表說話重點的字串清單。我們採用的�
 ## 語言偵測
 
 此 API 會傳回偵測到的語言和 0 到 1 之間的分數。接近 1 的分數表示 100% 確定已識別的語言為真實。總共支援 120 種語言。
+
+## 主題偵測
+
+這是新發行的 API，可針對已提交的文字記錄清單傳回前幾個偵測到的主題。主題是以關鍵片語識別，可以是一或多個相關文字。這個 API 至少需要提交 100 筆文字記錄，但其設計可偵測數百至數千筆記錄的主題。請注意，每提交 1 筆文字記錄，此 API 就會以 1 筆交易計費。此 API 的設計適用於簡短的人工書寫文字，例如評論和使用者意見反應。
 
 ---
 
@@ -89,7 +93,7 @@ API 會傳回輸入文字中代表說話重點的字串清單。我們採用的�
 
 **範例要求**
 
-在下面的呼叫中，我們要求 "這是很棒的旅館，裝潢獨樹一幟，工作人員服務態度甚佳" 這段文字中找到的關鍵片語：
+在下面的呼叫中，我們要求 "It was a wonderful hotel to stay at, with unique decor and friendly staff" 這段文字中找到的關鍵片語：
 
 	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
 	Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
@@ -161,14 +165,14 @@ API 會傳回輸入文字中代表說話重點的字串清單。我們採用的�
 	{"Inputs":
 	[
 	    {"Id":"1","Text":"hello world"},
-    	    {"Id":"2","Text":"hello foo world"},
-    	    {"Id":"3","Text":"hello my world"},
+	    {"Id":"2","Text":"hello foo world"},
+	    {"Id":"3","Text":"hello my world"},
 	]}
 
 在以下回應中，您會取得與文字識別碼相關聯的分數的清單：
 
 	{
-	  "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata", 
+	  "odata.metadata":"<url>", 
 	  "SentimentBatch":
 	  [
 		{"Score":0.9549767,"Id":"1"},
@@ -210,7 +214,7 @@ API 會傳回輸入文字中代表說話重點的字串清單。我們採用的�
 
 在以下回應中，您會取得與文字識別碼相關聯的片語的清單：
 
-	{ "odata.metadata":"https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/$metadata",
+	{ "odata.metadata":"<url>",
 	 	"KeyPhrasesBatch":
 		[
 		   {"KeyPhrases":["unique decor","friendly staff","wonderful hotel"],"Id":"1"},
@@ -261,4 +265,122 @@ API 會傳回輸入文字中代表說話重點的字串清單。我們採用的�
        "Errors": []
     }
 
-<!----HONumber=AcomDC_1125_2015-->
+---
+
+## 主題偵測 API
+
+這是新發行的 API，可針對已提交的文字記錄清單傳回前幾個偵測到的主題。主題是以關鍵片語識別，可以是一或多個相關文字。請注意，每提交 1 筆文字記錄，此 API 就會以 1 筆交易計費。
+
+這個 API 至少需要提交 100 筆文字記錄，但其設計可偵測數百至數千筆記錄的主題。
+
+
+### 主題 – 提交工作
+
+**URL**
+
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection
+
+**範例要求**
+
+
+在以下的 POST 呼叫中，我們要求一組 100 篇文章的主題，其中會顯示第一篇和最後一篇輸入文章，並包含兩個 StopPhrases。
+
+	POST https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection HTTP/1.1
+
+要求本文：
+
+	{"Inputs":[
+		{"Id":"1","Text":"I loved the food at this restaurant"},
+		...,
+		{"Id":"100","Text":"I hated the decor"}
+	],
+	"StopPhrases":[
+		"restaurant", “visitor"
+	]}
+
+在以下回應中，您可以取得已提交工作的 JobId：
+
+	{
+		"odata.metadata":"<url>",
+		"JobId":"<JobId>"
+	}
+
+不應當做主題傳回的單字或多字片語的清單。可用來篩選出相當廣泛的主題。例如，在飯店業評論的相關資料集中，"hotel" 和 "hostel" 可能是合理的停止片語。
+
+### 主題 – 輪詢工作結果
+
+**URL**
+
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult
+
+**範例要求**
+
+傳遞從「提交工作」步驟傳回的 JobId，以擷取結果。建議您每分鐘呼叫此端點一次，直到回應中出現「狀態 =「完成」」為止。完成一個工作大約需要 10 分鐘，完成包含數千筆記錄的工作則需要更久時間。
+
+	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult?JobId=<JobId>
+
+
+工作正在處理時，回應將會顯示如下：
+
+	{
+		"odata.metadata":"<url>",
+		"Status":"Running",
+ 		"TopicInfo":[],
+		"TopicAssignment":[],
+		"Errors":[]
+	}
+
+
+API 會以下列格式傳回 JSON 格式的輸出：
+
+	{
+		"odata.metadata":"<url>",
+		"Status":"Finished",
+		"TopicInfo":[
+		{
+			"TopicId":"ed00480e-f0a0-41b3-8fe4-07c1593f4afd",
+			"Score":8.0,
+			"KeyPhrase":"food"
+		},
+		...
+		{
+			"TopicId":"a5ca3f1a-fdb1-4f02-8f1b-89f2f626d692",
+			"Score":6.0,
+			"KeyPhrase":"decor"
+    		}
+  		],
+		"TopicAssignment":[
+		{
+			"Id":"1",
+			"TopicId":"ed00480e-f0a0-41b3-8fe4-07c1593f4afd",
+			"Distance":0.7809
+		},
+		...
+		{
+			"Id":"100",
+			"TopicId":"a5ca3f1a-fdb1-4f02-8f1b-89f2f626d692",
+			"Distance":0.8034
+		}
+		],
+		"Errors":[]
+
+
+回應每個部分的屬性如下所示：
+
+**TopicInfo 屬性**
+
+| 金鑰 | 說明 |
+|:-----|:----|
+| TopicId | 每個主題的唯一識別碼。 |
+| 分數 | 指派給主題的記錄數。 |
+| KeyPhrase | 主題彙總的單字或片語。可以是 1 個字或多個字。 |
+
+**TopicAssignment 屬性**
+
+| 金鑰 | 說明 |
+|:-----|:----|
+| 識別碼 | 記錄的識別碼。等於輸入中包含的識別碼。 |
+| TopicId | 已獲指派記錄的主題識別碼。 |
+| Distance | 記錄屬於主題的信賴度。Distance 越接近零，表示信賴度越高。 |
+
+<!---HONumber=AcomDC_0224_2016-->

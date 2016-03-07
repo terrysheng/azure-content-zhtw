@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-  ms.date="12/16/2015"
+    ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # 開始使用 Azure 資料表儲存體和 Visual Studio 已連接服務 (雲端服務專案)
@@ -24,11 +24,11 @@
 
 Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服務是一個 NoSQL 資料存放區，接受來自 Azure 雲端內外經過驗證的呼叫。Azure 資料表很適合儲存結構化、非關聯式資料。
 
-若要開始，首先您必須在儲存體帳戶中建立資料表。我們將說明如何使用程式碼建立 Azure 資料表，以及如何執行基本的資料表和實體作業，例如新增、修改、讀取和讀取資料表實體。這些範例均以 C# 程式碼撰寫，並會使用 [.NET 的 Azure 儲存體用戶端程式庫](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
+若要開始，首先您必須在儲存體帳戶中建立資料表。我們將說明如何使用程式碼建立 Azure 資料表，以及如何執行基本的資料表和實體作業，例如新增、修改、讀取和讀取資料表實體。這些範例均以 C# 程式碼撰寫，並使用 [Microsoft Azure Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
 
 **注意：**有一些 API會以非同步方式對 Azure 儲存體執行呼叫。如需詳細資訊，請參閱[使用 Async 及 Await 進行非同步程式設計](http://msdn.microsoft.com/library/hh191443.aspx)。以下程式碼假設使用非同步程式設計方法。
 
-- 如需以程式設計方式操作資料表的詳細資訊，請參閱[如何使用 .NET 的表格儲存體](storage-dotnet-how-to-use-tables.md)。
+- 如需以程式設計方式操作資料表的詳細資訊，請參閱[以 .NET 開始使用 Azure 資料表儲存體](storage-dotnet-how-to-use-tables.md)。
 - 如需 Azure 儲存體的一般資訊，請參閱[儲存體文件](https://azure.microsoft.com/documentation/services/storage/)。
 - 如需 Azure 雲端服務的一般資訊，請參閱[雲端服務文件](https://azure.microsoft.com/documentation/services/cloud-services/)。
 - 若需要如何編寫 ASP.NET 應用程式的詳細資訊，請參閱 [ASP.NET](http://www.asp.net)。
@@ -60,14 +60,14 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 4. 取得 **CloudTable** 參考物件，以參考特定資料表與實體。
 
     	// Get a reference to a table named "peopleTable".
-	    CloudTable table = tableClient.GetTableReference("peopleTable");
+	    CloudTable peopleTable = tableClient.GetTableReference("peopleTable");
 
 ## 在程式碼中建立資料表
 
 若要建立 Azure 資料表，只要依照＜存取程式碼中的資料表＞一節所述，在取得 **CloudTable** 物件後加入 **CreateIfNotExistsAsync** 呼叫即可。
 
 	// Create the CloudTable if it does not exist.
-	await table.CreateIfNotExistsAsync();
+	await peopleTable.CreateIfNotExistsAsync();
 
 ## 將實體加入至資料表
 
@@ -90,8 +90,6 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 實體相關的資料表作業會使用您稍早在＜在程式碼中存取資料表＞中建立的 **CloudTable** 物件執行。 **TableOperation** 物件要執行的操作。下列程式碼範例顯示如何建立 **CloudTable** 物件及 **CustomerEntity** 物件。為了準備這項操作，其建立了 **TableOperation**，以便在資料表中插入客戶實體。最後會呼叫 **CloudTable.ExecuteAsync** 來執行此作業。
 
-	// Get a reference to the **CloudTable** object named 'peopleTable' as described in "Access a table in code".
-
 	// Create a new customer entity.
 	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
 	customer1.Email = "Walter@contoso.com";
@@ -103,74 +101,10 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 	// Execute the insert operation.
 	await peopleTable.ExecuteAsync(insertOperation);
 
-## 插入實體批次
-
-您可以在單一寫入操作中將多個項目插入至資料表。下列程式碼範例會建立兩個實體物件 ("Jeff Smith" 和 "Ben Smith")，並使用 Insert 方法將這兩個物件加入 **TableBatchOperation** 物件中，然後再呼叫 **CloudTable.ExecuteBatchAsync** 啟動作業。
-
-	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code".
-
-	// Create the batch operation.
-	TableBatchOperation batchOperation = new TableBatchOperation();
-
-	// Create a customer entity and add it to the table.
-	CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
-	customer1.Email = "Jeff@contoso.com";
-	customer1.PhoneNumber = "425-555-0104";
-
-	// Create another customer entity and add it to the table.
-	CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
-	customer2.Email = "Ben@contoso.com";
-	customer2.PhoneNumber = "425-555-0102";
-
-	// Add both customer entities to the batch insert operation.
-	batchOperation.Insert(customer1);
-	batchOperation.Insert(customer2);
-
-	// Execute the batch operation.
-	await peopleTable.ExecuteBatchAsync(batchOperation);
-
-    // Create the CloudTable if it does not exist
-    await table.CreateIfNotExistsAsync();
-
-## 將實體加入至資料表
-
-若要將實體新增至資料表，請建立一個類別來定義實體的屬性。下列程式碼使用客戶名字作為資料列索引鍵、並使用姓氏作為資料分割索引鍵的，定義一個稱為 **CustomerEntity** 的實體類別。
-
-    public class CustomerEntity : TableEntity
-    {
-         public CustomerEntity(string lastName, string firstName)
-         {
-             this.PartitionKey = lastName;
-             this.RowKey = firstName;
-         }
-
-         public CustomerEntity() { }
-
-         public string Email { get; set; }
-
-         public string PhoneNumber { get; set; }
-    }
-
-實體相關的資料表作業會使用您稍早在＜存取程式碼中的資料表＞中所建立的 **CloudTable** 物件來執行。 **TableOperation** 物件要執行的操作。下列程式碼範例顯示如何建立 **CloudTable** 物件及 **CustomerEntity** 物件。為了準備這項操作，其建立了 **TableOperation**，以便在資料表中插入客戶實體。最後，呼叫 CloudTable.ExecuteAsync 來執行操作。
-
-    // Get a reference to the CloudTable object named 'peopleTable' as described in "Access a table in code".
-
-    // Create a new customer entity.
-    CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
-    customer1.Email = "Walter@contoso.com";
-    customer1.PhoneNumber = "425-555-0101";
-
-    // Create the TableOperation that inserts the customer entity.
-    TableOperation insertOperation = TableOperation.Insert(customer1);
-
-    // Execute the insert operation.
-    await peopleTable.ExecuteAsync(insertOperation);
 
 ## 插入實體批次
 
 您可以在單一寫入操作中將多個項目插入至資料表。下列程式碼範例會建立兩個實體物件 ("Jeff Smith" 和 "Ben Smith")，並使用 Insert 方法將這兩個物件加入 **TableBatchOperation** 物件中，然後再呼叫 **CloudTable.ExecuteBatchAsync** 啟動作業。
-
-    // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code".
 
     // Create the batch operation.
     TableBatchOperation batchOperation = new TableBatchOperation();
@@ -195,8 +129,6 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 ## 取得資料分割中的所有實體
 
 若要向資料表查詢資料分割中的所有實體，請使用 **TableQuery** 物件。下列程式碼範例會指定篩選器來篩選出資料分割索引鍵為 'Smith' 的實體。此範例會將查詢結果中每個實體的欄位列印至主控台。
-
-    // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code".
 
     // Construct the query operation for all customer entities where PartitionKey="Smith".
     TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>()
@@ -223,8 +155,6 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 您可以撰寫查詢來取得單一特定實體。下列程式碼使用 **TableOperation** 物件來指定名為 'Ben Smith' 的客戶。此方法只會傳回一個實體而不會傳回集合，而且在 **TableResult.Result** 傳回的值為 **CustomerEntity** 物件。若要從「資料表」服務中擷取單一實體，最快的方法是在查詢中同時指定資料分割索引鍵和資料列索引鍵。
 
-	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code".
-
 	// Create a retrieve operation that takes a customer entity.
 	TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
@@ -239,8 +169,6 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 ## 刪除實體
 找到實體之後，您可以刪除它。下列程式碼會尋找名為 "Ben Smith" 的客戶實體，如果找到，就會刪除它。
-
-	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code".
 
 	// Create a retrieve operation that expects a customer entity.
 	TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
@@ -267,6 +195,6 @@ Azure 資料表儲存體服務可讓您儲存大量的結構化資料。此服�
 
 ## 後續步驟
 
-[AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+[AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

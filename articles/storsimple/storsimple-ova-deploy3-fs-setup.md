@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/05/2016"
+   ms.date="02/18/2016"
    ms.author="alkohli"/>
 
 # 部署 StorSimple Virtual Array：設定為檔案伺服器 (預覽版)
@@ -69,7 +69,7 @@
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image5.png)
 
-	如果您在佈建裝置的過程中新增了不只一個網路介面，您可以在此設定這些網路介面。
+	如果您在佈建裝置的過程中新增了不只一個網路介面，您可以在此設定這些網路介面。請注意，您可以將您的網路介面設定為僅 IPv4 或 IPv4 和 IPv6。不支援僅 IPv6 組態。
 
 1.  DNS 伺服器是必要的，因為在裝置嘗試與雲端儲存體服務提供者通訊時，或是在根據名稱來解析已設定為檔案伺服器的裝置時，就需要使用 DNS 伺服器。在 [網路設定] 頁面的 [DNS 伺服器] 下方：
 
@@ -235,4 +235,4 @@
 
 了解如何使用本機 Web UI 來[管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

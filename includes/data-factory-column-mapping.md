@@ -13,7 +13,7 @@
 3.	SQL 查詢結果中沒有對應中所指定的資料行名稱。
 
 ## 資料行對應範例
-> [AZURE.NOTE]下面的範例是針對 Azure SQL 和 Azure Blob，但同樣也適用於任何支援矩形資料表的資料存放區。您必須調整下面範例中的資料集與連結服務定義，以指向相關資料來源中的資料。
+> [AZURE.NOTE] 下面的範例是針對 Azure SQL 和 Azure Blob，但是也適用於任何支援矩形資料集的資料存放區。您必須調整下面範例中的資料集與連結服務定義，以指向相關資料來源中的資料。
 
 ### 範例 1 – 從 Azure SQL 到 Azure Blob 的資料行對應
 在此範例中，輸入資料表有一個結構，且指向 Azure SQL 資料庫中的 SQL 資料表。
@@ -149,4 +149,4 @@
 
 ![資料行對應流程 -2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

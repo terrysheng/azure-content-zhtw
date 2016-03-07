@@ -12,11 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="02/18/2016"
    ms.author="joaoma"/>
 
-# 什麼是應用程式閘道？
-
+# 應用程式閘道概觀
 
 Microsoft Azure 應用程式閘道會根據第 7 層負載平衡，提供 Azure 管理的 HTTP 負載平衡解決方案。
 
@@ -26,8 +25,8 @@ Microsoft Azure 應用程式閘道會根據第 7 層負載平衡，提供 Azure 
 
 - HTTP 負載平衡
 - 以 Cookie 為基礎的工作階段同質性
-- 安全通訊端層 (SSL) 卸載
-
+- [安全通訊端層 (SSL) 卸載](application-gateway-ssl-arm.md)
+- [URL 式內容路由](application-gateway-url-route-overview.md) 
 
 ## HTTP 第 7 層負載平衡
 
@@ -41,7 +40,7 @@ HTTP 第 7 層負載平衡可用於：
 - 要從 SSL 終止負荷釋出 Web 伺服器陣列的應用程式。
 - 內容傳遞網路之類的應用程式，需要將在相同的長時間執行 TCP 連接上的多個 HTTP 要求路由/負載平衡到不同的後端伺服器。
 
-
+ 
 ## 閘道大小和執行個體
 
 應用程式閘道目前提供三種大小：小型、中型和大型。小型執行個體大小是針對開發和測試案例。
@@ -59,6 +58,7 @@ HTTP 第 7 層負載平衡可用於：
 
 >[AZURE.NOTE] 這是應用程式閘道輸送量的大概指引。實際的輸送量會依據不同的環境詳細資訊而有所不同，例如平均頁面大小、後端執行個體位置，以及伺服器處理頁面的時間。
 
+
 ## 健康狀況監視
 
 Azure 應用程式閘道會自動監視後端執行個體的健康狀況。如需詳細資訊，請參閱[應用程式閘道健全狀況監視概觀](application-gateway-probe-overview.md)。
@@ -70,6 +70,8 @@ Azure 應用程式閘道會自動監視後端執行個體的健康狀況。如�
 
 ## 後續步驟
 
-了解應用程式閘道之後，您就能[建立應用程式閘道](application-gateway-create-gateway.md)，或者您可以[建立應用程式閘道 SSL 卸載](application-gateway-ssl.md)以負載平衡 HTTPS 連接。
+了解應用程式閘道之後，您就能[建立應用程式閘道](application-gateway-create-gateway.md)，或者[建立應用程式閘道 SSL 卸載](application-gateway-ssl.md)以負載平衡 HTTPS 連接。
 
-<!---HONumber=AcomDC_0128_2016-->
+若要了解如何使用 URL 式內容路由建立應用程式閘道，請移至[使用 URL 型路由建立應用程式閘道](application-gateway-create-url-route-arm-ps.md)，取得詳細資訊。
+
+<!---HONumber=AcomDC_0224_2016-->

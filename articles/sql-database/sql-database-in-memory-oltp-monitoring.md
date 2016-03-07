@@ -20,7 +20,7 @@
 
 # 監視記憶體內部 OLTP 儲存體
 
-使用 [In-Memory](sql-database-in-memory.md) 時，記憶體最佳化資料表中的資料和資料表變數位於記憶體內部 OLTP 儲存體中。每個進階服務層都有最大的記憶體內部儲存體大小，如 [SQL Database 服務層文章](sql-database-service-tiers.md#service-tiers-for-single-databases)所說明。一旦超過此限制，插入和更新作業可能會開始出錯 (錯誤碼 41805)。屆時您將需要刪除資料以回收記憶體，或升級您的資料庫的效能層。
+使用 [In-Memory OLTP](sql-database-in-memory.md) 時，記憶體最佳化資料表中的資料和資料表變數位於記憶體內部 OLTP 儲存體中。每個進階服務層都有最大的記憶體內部儲存體大小，如 [SQL Database 服務層文章](sql-database-service-tiers.md#service-tiers-for-single-databases)所說明。一旦超過此限制，插入和更新作業可能會開始出錯 (錯誤碼 41805)。屆時您將需要刪除資料以回收記憶體，或升級您的資料庫的效能層。
 
 ## 判斷資料是否在記憶體內部儲存容量上限內
 
@@ -58,4 +58,4 @@
 ## 後續步驟
 深入了解[使用動態管理檢視監視 Azure SQL Database](sql-database-monitoring-with-dmvs.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

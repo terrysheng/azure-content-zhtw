@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Application Insights 的部署註解 |Microsoft Azure"
+    pageTitle="Application Insights 的版本註解 | Microsoft Azure"
     description="在 Application Insights 中對計量瀏覽器新增部署或建置標記。"
     services="application-insights"
     documentationCenter=".net"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/22/2016"
     ms.author="awills"/>
 
 # Application Insights 中的發行註解
@@ -42,7 +42,7 @@
 1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com)並開啟負責監視應用程式的 Application Insights 資源。(如果您尚未建立此資訊，也可以[立即建立](app-insights-overview.md)。)
 2. 開啟 [設定]、[API 存取]，然後複製 **Application Insights 識別碼**。
 
-    ![在 portal.azure.com 中，開啟您的 Application Insights 資源然後選擇 [設定]。開啟 [API 存取]。複製](./media/app-insights-annotations/20.png)
+    ![在 portal.azure.com 中，開啟您的 Application Insights 資源然後選擇 [設定]。開啟 [API 存取]。複製應用程式識別碼](./media/app-insights-annotations/20.png)
 
 2. 在另一個瀏覽器視窗中，開啟 (或建立) 可從 Visual Studio Team Services 管理部署的發行範本。
 
@@ -69,8 +69,13 @@
 
 5. 最後，**儲存**發行定義。
 
-## 部署註解
+## 版本註解
 
 現在，每當您使用發行範本來部署新的發行，就會將註解傳送至 Application Insights。註解將會出現在計量瀏覽器的圖表上。
 
-<!---HONumber=AcomDC_0121_2016-->
+按一下任一註解標記即可開啟版本的詳細資料，包括要求者、來源控制分支、版本定義、環境等。
+
+
+![按一下任一版本註解標記。](./media/app-insights-annotations/60.png)
+
+<!---HONumber=AcomDC_0224_2016-->

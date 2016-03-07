@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/11/2016"
 	ms.author="emgerner"/>
 
 # 如何使用 Python 的 Azure Blob 儲存體
@@ -22,7 +22,7 @@
 
 ## 概觀
 
-本文將示範如何使用 Blob 儲存體執行一般案例。這些範例是以 Python 所撰寫，並使用 [Python Azure 儲存體封裝][]。所涵蓋的案例包括「上傳、列出、下載」及「刪除」Blob。
+本文將示範如何使用 Blob 儲存體執行一般案例。這些範例是以 Python 所撰寫，並使用 [Microsoft Azure Storage SDK for Python]。所涵蓋的案例包括「上傳、列出、下載」及「刪除」Blob。
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -30,89 +30,99 @@
 
 ## 建立容器
 
-> [AZURE.NOTE]如果您需要安裝 Python 或 [Python Azure 封裝][]，請參閱 [Python 安裝指南](../python-how-to-install.md)。
+根據您想要使用的 blob 類型，建立 **BlockBlobService**、**AppendBlobService** 或 **PageBlobService** 物件。下列程式碼會使用 **BlockBlobService** 物件。將下列內容新增至您想要在其中以程式設計方式存取 Azure 區塊 Blob 儲存體之任何 Python 檔案內的頂端附近。
 
-**BlobService** 物件讓您能使用容器及 blob。下列程式碼會建立 **BlobService** 物件。將下列內容新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 Python 檔案內的頂端附近。
+	from azure.storage.blob import BlockBlobService
 
-	from azure.storage.blob import BlobService
+下列程式碼會使用儲存體帳戶名稱和帳戶金鑰來建立 **BlockBlobService** 物件。將 'myaccount' 和 'mykey' 取代為您的帳戶名稱和金鑰。
 
-下列程式碼會使用儲存體帳戶名稱和帳戶金鑰來建立 **BlobService** 物件：將 'myaccount' 和 'mykey' 取代為真實的帳戶和金鑰。
-
-	blob_service = BlobService(account_name='myaccount', account_key='mykey')
+	block_blob_service = BlockBlobService(account_name='myaccount', account_key='mykey')
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
-在下列的程式碼範例中，如果容器不存在，您可以使用 **BlobService** 物件建立容器。
+在下列的程式碼範例中，如果容器不存在，您可以使用 **BlockBlobService** 物件建立容器。
 
-	blob_service.create_container('mycontainer')
+	block_blob_service.create_container('mycontainer')
 
-根據預設，新容器屬私人性質，您必須指定儲存體存取金鑰 (如先前所做) 才能從此容器下載 Blob。若要讓所有人都能使用容器中的檔案，您可以使用下列程式碼建立容器，並傳遞公用存取等級。
+根據預設，新容器屬私人性質，您必須指定儲存體存取金鑰 (如先前所做) 才能從此容器下載 Blob。若要讓所有人都能使用容器中的 blob，您可以使用下列程式碼建立容器，並傳遞公用存取等級。
 
-	blob_service.create_container('mycontainer', x_ms_blob_public_access='container')
+	from azure.storage.blob import PublicAccess
+	block_blob_service.create_container('mycontainer', public_access=PublicAccess.Container)
 
 或者，您也可以在建立容器之後使用下列程式碼修改它。
 
-	blob_service.set_container_acl('mycontainer', x_ms_blob_public_access='container')
+	block_blob_service.set_container_acl('mycontainer', public_access=PublicAccess.Container)
 
 做此變更之後，網際網路上的任何人都可以看到公用容器中的 Blob，但只有您能修改或刪除它們。
 
 ## 將 Blob 上傳至容器
 
-若要將資料上傳至 Blob，請使用 **put\_block\_blob\_from\_path**、**put\_block\_blob\_from\_file**、**put\_block\_blob\_from\_bytes** 或 **put\_block\_blob\_from\_text** 方法。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
+若要建立區塊 Blob 並上傳資料，請使用 **create\_block\_blob\_from\_path**、**create\_block\_blob\_from\_stream**、**create\_block\_blob\_from\_bytes** 或 **create\_block\_blob\_from\_text** 方法。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
 
-**put\_block\_blob\_from\_path** 會從指定的路徑上傳檔案的內容，**put\_block\_blob\_from\_file** 會從已開啟的檔案/串流上傳內容，**put\_block\_blob\_from\_bytes** 會上傳位元組陣列，**put\_block\_blob\_from\_text** 會使用指定的編碼 (預設為 UTF-8) 上傳指定的文字值。
+**create\_block\_blob\_from\_path** 會從指定的路徑上傳檔案的內容，**create\_block\_blob\_from\_stream** 會從已開啟的檔案/串流上傳內容，**create\_block\_blob\_from\_bytes** 會上傳位元組陣列，**create\_block\_blob\_from\_text** 會使用指定的編碼 (預設為 UTF-8) 上傳指定的文字值。
 
 下列範例會將 **sunset.png** 檔案的內容上傳至 **myblob** Blob 中。
 
-	blob_service.put_block_blob_from_path(
+	from azure.storage.blob import ContentSettings
+	block_blob_service.create_block_blob_from_path(
         'mycontainer',
-        'myblob',
+        'myblockblob',
         'sunset.png',
-        x_ms_blob_content_type='image/png'
-    )
+        content_settings=ContentSettings(content_type='image/png')
+				)
 
 ## 列出容器中的 Blob
 
-若要列出容器中的 Blob，請使用 **list\_blobs** 方法。每次呼叫 **list\_blobs** 將傳回一個結果區段。若要取得所有結果，請檢查結果中的 **next\_marker** 並視需要再次呼叫 **list\_blobs**。下列程式碼會將容器中每個 blob 的 **name** 輸出到主控台。
+若要列出容器中的 Blob，請使用 **list\_blobs** 方法。這個方法會傳回產生器。下列程式碼會將容器中每個 blob 的 **name** 輸出到主控台。
 
-	blobs = []
-	marker = None
-	while True:
-		batch = blob_service.list_blobs('mycontainer', marker=marker)
-		blobs.extend(batch)
-		if not batch.next_marker:
-			break
-		marker = batch.next_marker
-	for blob in blobs:
+	generator = block_blob_service.list_blobs('mycontainer')
+	for blob in generator:
 		print(blob.name)
 
 ## 下載 Blob
 
-每個結果區段可包含不同數量的 Blob，最多可達 5000 個。如果 **next\_marker** 存在於特定的區段中，則該容器中可能有更多 Blob。
-
-若要從 Blob 下載資料，請使用 **get\_blob\_to\_path**、**get\_blob\_to\_file**、**get\_blob\_to\_bytes** 或 **get\_blob\_to\_text**。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
+若要從 Blob 下載資料，請使用 **get\_blob\_to\_path**、**get\_blob\_to\_stream**、**get\_blob\_to\_bytes** 或 **get\_blob\_to\_text**。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
 
 下列範例示範如何使用 **get\_blob\_to\_path** 下載 **myblob** Blob 的內容，並將其儲存至 **out-sunset.png** 檔案。
 
-	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
+	block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
 
 ## 刪除 Blob
 
 最後，若要刪除 Blob，請呼叫 **delete\_blob**。
 
-	blob_service.delete_blob('mycontainer', 'myblob')
+	block_blob_service.delete_blob('mycontainer', 'myblockblob')
+
+## 寫入附加 Blob
+
+附加 Blob 已針對附加作業 (例如紀錄) 最佳化。如同區塊 Blob，附加 Blob 亦由區塊組成，但當您將新區塊加入附加 Blob 時，它一律會附加到 Blob 結尾。您無法更新或刪除附加 Blob 中的現有區塊。附加 Blob 的區塊識別碼不會公開顯示，因為該識別碼適用於區塊 Blob。
+
+附加 Blob 中的每個區塊大小都不同，最大為 4 MB，而附加 Blob 可包含高達 50,000 個區塊。因此，附加 Blob 的大小上限稍高於 195 GB (4 MB X 50,000 個區塊)。
+
+下列範例中建立了新的附加 Blob，並附加一些資料，以模擬簡單的記錄作業。
+
+	from azure.storage.blob import AppendBlobService
+	append_blob_service = AppendBlobService(account_name='myaccount', account_key='mykey')
+
+	# The same containers can hold all types of blobs
+	append_blob_service.create_container('mycontainer')
+
+	# Append blobs must be created before they are appended to
+	append_blob_service.create_blob('mycontainer', 'myappendblob')
+	append_blob_service.append_blob_from_text('mycontainer', 'myappendblob', u'Hello, world!')
+
+	append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob')
 
 ## 後續步驟
 
-了解 Blob 儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存體工作。
+了解 Blob 儲存體的基礎概念之後，請使用下列連結深入了解。
 
-- 造訪 [Azure 儲存體團隊部落格][] (英文)。
-- [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy)
-
-如需詳細資訊，另請參閱 [Python 開發人員中心](/develop/python/)。
+- [Python 開發人員中心](/develop/python/)
+- [Azure 儲存體服務 REST API](http://msdn.microsoft.com/library/azure/dd179355)
+- [Azure 儲存體團隊部落格]
+- [Microsoft Azure Storage SDK for Python]
 
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
-[Python Azure 封裝]: https://pypi.python.org/pypi/azure
-[Python Azure 儲存體封裝]: https://pypi.python.org/pypi/azure-storage
+[Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

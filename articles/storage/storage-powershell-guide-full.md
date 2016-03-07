@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="02/19/2016"
 	ms.author="robinsh"/>
 
 # 搭配使用 Azure PowerShell 與 Azure 儲存體
@@ -34,7 +34,7 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 
 **Azure 新手：**取得 Microsoft Azure 訂用帳戶和與該訂用帳戶相關聯的 Microsoft 帳戶。如需 Azure 購買選項的資訊，請參閱[免費試用](https://azure.microsoft.com/pricing/free-trial/)、[購買選項](https://azure.microsoft.com/pricing/purchase-options/)和[會員優惠](https://azure.microsoft.com/pricing/member-offers/) (適用於 MSDN、Microsoft 合作夥伴網路、BizSpark 和其他 Microsoft 方案的成員)。
 
-如需有關 Azure 帳戶的詳細資訊，請參閱[管理帳戶、訂用帳戶和系統管理角色](https://msdn.microsoft.com/library/azure/hh531793.aspx)。
+如需 Azure 訂用帳戶的詳細資訊，請參閱[在 Azure Active Directory (Azure AD) 中指派系統管理員角色](https://msdn.microsoft.com/library/azure/hh531793.aspx)。
 
 **建立 Microsoft Azure 訂用帳戶和帳戶之後：**
 
@@ -236,7 +236,7 @@ Azure 儲存體內容是 PowerShell 中用以封裝儲存體認證的物件。�
 您現已設定您的電腦並學會如何使用 Azure PowerShell 管理訂用帳戶和儲存體帳戶。請移至下一節，以了解如何管理 Azure Blob 和 Blob 快照集。
 
 ## 如何管理 Azure blob
-Azure Blob 儲存體是一項儲存大量非結構化資料的服務 (例如文字或二進位資料)，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。本節假設您已熟悉 Azure Blob 儲存體服務概念。如需詳細資訊，請參閱[如何使用 .NET 的 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)和 [Blob 服務概念](http://msdn.microsoft.com/library/azure/dd179376.aspx)。
+Azure Blob 儲存體是一項儲存大量非結構化資料的服務 (例如文字或二進位資料)，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。本節假設您已熟悉 Azure Blob 儲存體服務概念。如需詳細資訊，請參閱[使用 .NET 開始使用 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)和 [Blob 服務概念](http://msdn.microsoft.com/library/azure/dd179376.aspx)。
 
 ### 如何建立容器
 Azure 儲存體中的每個 Blob 必須位於一個容器中。您可以使用 New-AzureStorageContainer Cmdlet 建立私用容器：
@@ -244,10 +244,10 @@ Azure 儲存體中的每個 Blob 必須位於一個容器中。您可以使用 N
     $StorageContainerName = "yourcontainername"
     New-AzureStorageContainer -Name $StorageContainerName -Permission Off
 
-> [AZURE.NOTE] 匿名讀取權限有三個層級：**Off**、**Blob** 和 **Container**。若要防止匿名存取 Blob，請將 Permission 參數設定為 **Off**。新容器預設為私人，且只能由帳戶擁有者存取。若要允許 Blob 資源的匿名公開讀取權限，但不允許容器中繼資料或容器中 Blob 清單的匿名公開讀取權限，請將 Permission 參數設定為 **Blob**。若要允許 Blob 資源、容器中繼資料或容器中 Blob 清單的完整公開讀取權限，請將 Permission 參數設定為 **Container**。如需詳細資訊，請參閱[管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)。
+> [AZURE.NOTE] 匿名讀取權限有三個層級：**Off**、**Blob** 和 **Container**。若要防止匿名存取 Blob，請將 Permission 參數設定為 **Off**。新容器預設為私人，且只能由帳戶擁有者存取。若要允許 Blob 資源的匿名公開讀取權限，但不允許容器中繼資料或容器中 Blob 清單的匿名公開讀取權限，請將 Permission 參數設定為 **Blob**。若要允許 Blob 資源、容器中繼資料或容器中 Blob 清單的完整公開讀取權限，請將 Permission 參數設定為 **Container**。如需詳細資訊，請參閱[管理對容器和 Blob 的匿名讀取權限](storage-manage-access-to-resources.md)。
 
 ### 如何將 Blob 上傳到容器中
-Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。如需詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx)。
+Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。如需詳細資訊，請參閱[了解區塊 Blob、附加 Blob 和分頁 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx)。
 
 若要將 Blob 上傳至容器，您可以使用 [Set-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806379.aspx) Cmdlet。根據預設，此命令會將本機檔案上傳至區塊 Blob。若要指定 Blob 的類型，您可以使用 -BlobType 參數。
 
@@ -373,7 +373,7 @@ Azure 可讓您建立 Blob 的快照集。快照集是在某個點時間取得�
 您現已學會如何使用 Azure PowerShell 來管理 Azure Blob 和 Blob 快照集。請移至下一節，以了解如何管理資料表、佇列和檔案。
 
 ## 如何管理 Azure 資料表和資料表實體
-Azure 資料表儲存體服務是 NoSQL 資料存放區，您可以用來儲存和查詢龐大的結構化、非關聯式資料集。服務的主要元件是資料表、實體和屬性。資料表是一組實體。實體是一組屬性。每個實體最多可有 252 個屬性，也就是所有的名稱/值組。本節假設您已熟悉 Azure 資料表儲存體服務概念。如需詳細資訊，請參閱[了解表格服務資料模型](http://msdn.microsoft.com/library/azure/dd179338.aspx)和[如何使用 .NET 的表格儲存體](storage-dotnet-how-to-use-tables.md)。
+Azure 資料表儲存體服務是 NoSQL 資料存放區，您可以用來儲存和查詢龐大的結構化、非關聯式資料集。服務的主要元件是資料表、實體和屬性。資料表是一組實體。實體是一組屬性。每個實體最多可有 252 個屬性，也就是所有的名稱/值組。本節假設您已熟悉 Azure 資料表儲存體服務概念。如需詳細資訊，請參閱[了解表格服務資料模型](http://msdn.microsoft.com/library/azure/dd179338.aspx)和[以 .NET 開始使用 Azure 資料表儲存體](storage-dotnet-how-to-use-tables.md)。
 
 在下列小節中，您將學習如何使用 Azure PowerShell 管理 Azure 資料表儲存體服務。涵蓋的狀況包括**建立**、**刪除**和**擷取****資料表**，以及**新增**、**查詢**和**刪除資料表實體**。
 
@@ -514,7 +514,7 @@ Azure 資料表儲存體服務是 NoSQL 資料存放區，您可以用來儲存�
     }
 
 ## 如何管理 Azure 佇列和佇列訊息
-Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。本節假設您已熟悉 Azure 佇列儲存體服務概念。如需詳細資訊，請參閱[如何使用 .NET 的佇列儲存體](storage-dotnet-how-to-use-queues.md)。
+Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。本節假設您已熟悉 Azure 佇列儲存體服務概念。如需詳細資訊，請參閱[以 .NET 開始使用 Azure 佇列儲存體](storage-dotnet-how-to-use-queues.md)。
 
 本節將示範如何使用 Azure PowerShell 來管理 Azure 佇列儲存體服務。涵蓋的狀況包括**插入**和**刪除**佇列訊息，以及**建立**、**刪除**和**擷取**佇列。
 
@@ -592,7 +592,7 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 ## 如何管理 Azure 檔案共用和檔案
 Azure 檔案儲存體為使用標準 SMB 通訊協定的應用程式提供共用儲存體。Microsoft Azure 虛擬機器和雲端服務可以透過掛接的共用，在應用程式元件之間共用檔案資料，而內部部署應用程式可以透過檔案儲存體 API 或 Azure PowerShell，存取共用中的檔案資料。
 
-如需 Azure 檔案儲存體的詳細資訊，請參閱[如何搭配使用 Azure 檔案儲存體與 Windows](storage-dotnet-how-to-use-files.md) 和[檔案服務 REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx)。
+如需 Azure 檔案儲存體的詳細資訊，請參閱[在 Windows 上開始使用 Azure 檔案儲存體](storage-dotnet-how-to-use-files.md)和[檔案服務 REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx)。
 
 ## 如何設定及查詢儲存體分析
 您可以使用 [Azure 儲存體分析](storage-analytics.md)收集 Azure 儲存體帳戶的計量，以及傳送至儲存體帳戶之要求的相關記錄資料。也可以使用儲存體計量監視儲存體帳戶的健康狀態，並使用儲存體記錄診斷和疑難排解儲存體帳戶的問題。根據預設，不會針對您的儲存體服務啟用儲存體計量功能。您可以透過 Azure 入口網站或 Windows PowerShell 啟用監視功能，或使用儲存體用戶端程式庫以程式設計方式啟用。系統會在伺服器端執行儲存體記錄，這可讓您在儲存體帳戶中記錄成功和失敗要求的詳細資料。這些記錄檔可讓您查看資料表、佇列和 Blob 的讀取、寫入和刪除作業詳細資料，以及失敗要求的原因。
@@ -613,7 +613,7 @@ Azure 檔案儲存體為使用標準 SMB 通訊協定的應用程式提供共用
 - **臨機操作 SAS**：當您建立臨機操作的 SAS 時，SAS 的開始時間、到期時間和權限全都標示在 SAS URI 上。您可以在容器、Blob、資料表或佇列上建立此類型的 SAS，而且無法撤銷它。
 - **具有預存存取原則的 SAS**：預存存取原則是在資源容器、Blob 容器、資料表或佇列中定義，且可用來管理一或多個共用存取簽章的條件約束。當您將 SAS 與預存存取原則建立關聯時，SAS 會繼承為該預存存取原則所定義的限制 (開始時間、過期時間和權限)。這種類型的 SAS 是可撤銷的。
 
-如需詳細資訊，請參閱[共用存取簽章教學課程](storage-dotnet-shared-access-signature-part-1.md)和[管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)。
+如需詳細資訊，請參閱[共用存取簽章：了解 SAS 模型](storage-dotnet-shared-access-signature-part-1.md)和[管理對容器與 Blob 的匿名讀取權限](storage-manage-access-to-resources.md)。
 
 在下一節中，您將了解如何為 Azure 資料表建立共用存取簽章權杖和預存的存取原則。Azure PowerShell 也會為容器、Blob 和佇列提供類似的 Cmdlet。若要執行本節中的指令碼，請下載 [Azure PowerShell 0.8.14 版](http://go.microsoft.com/?linkid=9811175&clcid=0x409)或更高版本。
 
@@ -647,7 +647,7 @@ Azure 檔案儲存體為使用標準 SMB 通訊協定的應用程式提供共用
 
 
 ## 如何使用適用於美國政府和 Azure China 的 Azure 儲存體
-Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府的 Azure Government](https://azure.microsoft.com/features/gov/)、[適用於全球 Azure 的 AzureCloud](https://manage.windowsazure.com) 和[由中國世紀互聯運作的AzureChinaCloud for Azure](http://www.windowsazure.cn/)。您可以針對美國政府與 Azure 中國部署新的 Azure 環境。
+Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府的 Azure Government](https://azure.microsoft.com/features/gov/)、[適用於全球 Azure 的 AzureCloud](https://portal.azure.com) 和[由中國世紀互聯運作的AzureChinaCloud for Azure](http://www.windowsazure.cn/)。您可以針對美國政府與 Azure 中國部署新的 Azure 環境。
 
 若要搭配使用 Azure 儲存體與 AzureChinaCloud，您需要建立與 AzureChinaCloud 相關聯的儲存體內容。遵循下列步驟，以便開始使用產品：
 
@@ -676,7 +676,7 @@ Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府�
 如需詳細資訊，請參閱：
 
 - [Microsoft Azure Government 開發人員指南](../azure-government-developer-guide.md)。
-- [適用於全域 Azure 的 AzureCloud 與中國 21Vianet 操作的AzureChinaCloud for Azure之間的差異](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+- [在 China 服務上建立應用程式時差異的概觀](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 
 ## 後續步驟
 在本指南，您已了解如何使用 Azure PowerShell 管理 Azure 儲存體。以下是有助於您深入了解的一些相關文章和資源。
@@ -730,4 +730,4 @@ Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府�
 [Next Steps]: #next
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

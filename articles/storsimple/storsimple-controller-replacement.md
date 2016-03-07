@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -21,7 +21,7 @@
 
 本教學課程說明如何取下並更換 StorSimple 裝置中的一個或兩個控制器模組。它也會討論單一和雙重控制器更換案例的基礎邏輯。
 
->[AZURE.NOTE]在執行控制器更換之前，我們建議您一律將控制器韌體更新至最新版本。
+>[AZURE.NOTE] 在執行控制器更換之前，我們建議您一律將控制器韌體更新至最新版本。
 >
 >若要避免損害您的 StorSimple 裝置，請勿退出控制器，直到 LED 顯示成下列其中一個：
 >
@@ -47,7 +47,7 @@
 - [插入控制器](#insert-a-controller)
 - [識別您裝置上的作用中控制器](#identify-the-active-controller-on-your-device)
 
->[AZURE.IMPORTANT]取下及更換控制器之前，請閱讀 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)中的安全資訊。
+>[AZURE.IMPORTANT] 取下及更換控制器之前，請閱讀 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)中的安全資訊。
 
 ## 更換單一控制器
 
@@ -71,7 +71,7 @@
 
 如果 Microsoft Azure StorSimple 裝置的其中一個控制器故障，請完成下列步驟。(另一個控制器必須作用中並執行中。如果兩個控制器故障或無法運作，請移至[雙重控制器更換步驟](#dual-controller-replacement-steps))。
 
->[AZURE.NOTE]可能需要 30 – 45 分鐘，控制器才會重新啟動，並從單一控制器更換程序完全復原。整個程序的時間總計 (包括接上纜線) 大約 2 小時。
+>[AZURE.NOTE] 可能需要 30 – 45 分鐘，控制器才會重新啟動，並從單一控制器更換程序完全復原。整個程序的時間總計 (包括接上纜線) 大約 2 小時。
 
 #### 若要取下單一故障的控制器模組
 
@@ -79,7 +79,7 @@
 
 2. 按一下 [維護] 索引標籤，然後瀏覽至 [硬體狀態]。控制器 0 或控制器 1 的狀態應該是紅色，表示故障。
 
-    >[AZURE.NOTE]單一控制器更換中的故障控制器一律為待命控制器。
+    >[AZURE.NOTE] 單一控制器更換中的故障控制器一律為待命控制器。
 
 3. 使用圖 1 和下表來找出故障的控制器模組。
 
@@ -104,7 +104,7 @@
 
 8. 在控制器重新啟動之後，請檢查 Azure 傳統入口網站中的 [**控制器狀態**] 和 [**叢集狀態**]，以確認控制器回到狀況良好的狀態且處於待命模式。
 
->[AZURE.NOTE]如果您是透過序列主控台監視裝置，則可能會在控制器從更換程序中復原時看到多次重新啟動。當序列主控台功能表呈現時，您便知道更換已完成。如果功能表未在啟動控制器更換的兩個小時內出現，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
+>[AZURE.NOTE] 如果您是透過序列主控台監視裝置，則可能會在控制器從更換程序中復原時看到多次重新啟動。當序列主控台功能表呈現時，您便知道更換已完成。如果功能表未在啟動控制器更換的兩個小時內出現，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
 ## 更換兩個控制器
 
@@ -132,13 +132,13 @@
 
 5. 之後，兩個兩個控制器將執行中，而且叢集將恢復上線。
 
->[AZURE.IMPORTANT]在雙重控制器更換後，於設定 StorSimple 裝置之後，務必進行裝置的手動備份。直到過了 24 小時之後，才會觸發每日裝置組態備份。與 [Microsoft 支援服務](storsimple-contact-microsoft-support.md)合作，進行裝置的手動備份。
+>[AZURE.IMPORTANT] 在雙重控制器更換後，於設定 StorSimple 裝置之後，務必進行裝置的手動備份。直到過了 24 小時之後，才會觸發每日裝置組態備份。與 [Microsoft 支援服務](storsimple-contact-microsoft-support.md)合作，進行裝置的手動備份。
 
 ### 雙重控制器更換步驟
 
 當 Microsoft Azure StorSimple 裝置中的兩個控制器都故障時，需要這個工作流程。這可能會發生在冷卻系統停止運作的資料中心，因此兩個控制器會在短時間內故障。取決於 StorSimple 裝置關閉還是開啟，以及您是使用 8600 還是 8100 機型，需要一組不同的步驟。
 
->[AZURE.IMPORTANT]可能需要 45 分鐘到 1 小時，控制器才會重新啟動，並從雙重控制器更換程序完全復原。整個程序的時間總計 (包括接上纜線) 大約 2.5 小時。
+>[AZURE.IMPORTANT] 可能需要 45 分鐘到 1 小時，控制器才會重新啟動，並從雙重控制器更換程序完全復原。整個程序的時間總計 (包括接上纜線) 大約 2.5 小時。
 
 #### 若要取下兩個控制器模組
 
@@ -166,13 +166,13 @@
 
     4. 在第一個控制器重新啟動並處於狀況良好的狀態之後，系統就會執行。
 
-    >[AZURE.NOTE]如果您是透過序列主控台監視裝置，則可能會在控制器從更換程序中復原時看到多次重新啟動。當序列主控台功能表出現時，您便知道更換已完成。如果功能表未在啟動控制器更換的 2.5 個小時內出現，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
+    >[AZURE.NOTE] 如果您是透過序列主控台監視裝置，則可能會在控制器從更換程序中復原時看到多次重新啟動。當序列主控台功能表出現時，您便知道更換已完成。如果功能表未在啟動控制器更換的 2.5 個小時內出現，請[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
 ## 取下控制器
 
 請使用下列程序，從 StorSimple 裝置中取下故障的控制器模組。
 
->[AZURE.NOTE]下圖適用於控制器 0。若為控制器 1，這些將相反。
+>[AZURE.NOTE] 下圖適用於控制器 0。若為控制器 1，這些將相反。
 
 #### 若要取下控制器模組
 
@@ -212,7 +212,7 @@
 
 4. 當閂鎖卡入定位時，即表示完成。[**正常**] LED 現在應該開啟。
 
-    >[AZURE.NOTE]最多可能需要 5 分鐘，控制器和 LED 即會啟動。
+    >[AZURE.NOTE] 最多可能需要 5 分鐘，控制器和 LED 即會啟動。
 
 5. 若要確認更換成功，請在 Azure 傳統入口網站中，瀏覽至 [**裝置**] > [**維護**] > [**硬體狀態**]，並確定控制器 0 及控制器 1 兩者的狀況良好 (狀態為綠色)。
 
@@ -266,4 +266,4 @@
 
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

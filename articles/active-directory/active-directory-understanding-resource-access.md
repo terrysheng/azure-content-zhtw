@@ -60,7 +60,7 @@ Azure 傳統入口網站內的功能可讓使用「Microsoft 帳戶」登入的 
 
 - 若要深入了解如何變更 Azure 訂用帳戶的管理員，請參閱[如何新增或變更 Azure 管理員角色](../billing-add-change-azure-subscription-administrator.md)
 
-- 如需有關 Azure Active Directory 如何與您的 Azure 訂用帳戶關聯的詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory-how-subscriptions-associated directory.md)
+- 如需有關 Azure Active Directory 與您的 Azure 訂用帳戶產生關聯之方式的詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory-how-subscriptions-associated-directory.md)
 
 - 如需有關如何在 Azure AD 中指派角色的詳細資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles.md)
 
@@ -72,4 +72,4 @@ Azure 傳統入口網站內的功能可讓使用「Microsoft 帳戶」登入的 
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="02/12/2015"
    ms.author="joaoma" />
 
 # 開始使用 Azure CLI 建立網際網路面向的負載平衡器
@@ -49,9 +49,9 @@
 
 ## 設定 CLI 以使用資源管理員
 
-1. 如果您從未用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
+1. 若您從未使用過 Azure CLI，請參閱[安裝及設定 Azure CLI](../../articles/xplat-cli-install.md)，並依照指示執行到選取您的 Azure 帳戶和訂用帳戶為止。
 
-2. 執行 **azure config mode** 命令，以切換為資源管理員模式，如下所示。
+2. 執行 **azure config mode** 命令，以切換為 Azure 資源管理員模式，如下所示。
 
 		azure config mode arm
 
@@ -78,7 +78,7 @@
 	azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
 
 
->[AZURE.IMPORTANT]負載平衡器將使用公用 IP 的網域標籤做為其 FQDN。這樣會變更傳統部署，該部署使用雲端服務做為負載平衡器 FQDN。在此範例中，FQDN 是 *loadbalancernrp.eastus.cloudapp.azure.com* 。
+>[AZURE.IMPORTANT] 負載平衡器將使用公用 IP 的網域標籤做為其 FQDN。這樣會變更傳統部署，該部署使用雲端服務做為負載平衡器 FQDN。在此範例中，FQDN 是 *loadbalancernrp.eastus.cloudapp.azure.com*。
 
 ## 建立負載平衡器
 
@@ -106,19 +106,19 @@
 
 以下範例會建立下列項目。
 
-- NAT 規則，將連接埠 3441 上的所有傳入流量轉譯至連接埠 3389<sup>1</sup>
-- NAT 規則，將連接埠 3442 上的所有傳入流量轉譯至連接埠 3389
+- NAT 規則，可將連接埠 21 上的所有傳入流量轉譯至連接埠 22<sup>1</sup>
+- NAT 規則，可將連接埠 23 上的所有傳入流量轉譯至連接埠 22。
 - 負載平衡器規則，將連接埠 80 上的所有傳入流量，負載平衡至後端集區中位址的連接埠 80。
 - 探查規則，將在名為 *HealthProbe.aspx* 的頁面上檢查健全狀態。
 
-<sup>1</sup> NAT 規則會關聯到負載平衡器後方的特定虛擬機器執行個體。傳入到連接埠 3341 的網路流量，將會使用與下方範例中 NAT 規則關聯的連接埠 3389，傳送至特定的虛擬機器。您必須針對 NAT 規則選擇 UDP 或 TCP 通訊協定。無法將兩種通訊協定指派到相同的連接埠。
+<sup>1</sup> NAT 規則會關聯到負載平衡器後方的特定虛擬機器執行個體。在下面範例中，傳入至連接埠 21 的網路流量，將會被傳送至與 NAT 規則相關聯之連接埠 22 上的特定虛擬機器。您必須針對 NAT 規則選擇 UDP 或 TCP 通訊協定。無法將兩種通訊協定指派到相同的連接埠。
 
 ### 步驟 1
 
 建立 NAT 規則。
 
-	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n rdp1 -p tcp -f 3441 -b 3389
-	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n rdp2 -p tcp -f 3442 -b 3389
+	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh1 -p tcp -f 21 -b 22
+	azure network lb inbound-nat-rule create -g nrprg -l nrplb -n ssh2 -p tcp -f 23 -b 22
 
 參數：
 
@@ -184,20 +184,20 @@
 	data:      Backend address pool          : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool
 	data:
 	data:    Inbound NAT rules:
-	data:      Name                          : rdp1
+	data:      Name                          : ssh1
 	data:      Provisioning state            : Succeeded
 	data:      Protocol                      : Tcp
-	data:      Frontend port                 : 3441
-	data:      Backend port                  : 3389
+	data:      Frontend port                 : 21
+	data:      Backend port                  : 22
 	data:      Enable floating IP            : false
 	data:      Idle timeout in minutes       : 4
 	data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
 	data:
-	data:      Name                          : rdp2
+	data:      Name                          : ssh2
 	data:      Provisioning state            : Succeeded
 	data:      Protocol                      : Tcp
-	data:      Frontend port                 : 3442
-	data:      Backend port                  : 3389
+	data:      Frontend port                 : 23
+	data:      Backend port                  : 22
 	data:      Enable floating IP            : false
 	data:      Idle timeout in minutes       : 4
 	data:      Frontend IP configuration     : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/frontendIPConfigurations/NRPfrontendpool
@@ -270,7 +270,7 @@
 
 	azure vm create --resource-group nrprg --name web1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
 
->[AZURE.IMPORTANT]負載平衡器中的 VM 必須在相同的可用性設定組中。使用 `azure availset create` 建立可用性設定組。
+>[AZURE.IMPORTANT] 負載平衡器中的 VM 必須在相同的可用性設定組中。使用 `azure availset create` 建立可用性設定組。
 
 輸出將如下所示：
 
@@ -291,9 +291,9 @@
 	+ Creating VM "web1"
 	info:    vm create command OK
 
->[AZURE.NOTE]預期會顯示「此 NIC 未設有 publicIP」訊息，因為針對負載平衡器建立的 NIC 會使用負載平衡器公用 IP 位址連線到網際網路。
+>[AZURE.NOTE] 預期會顯示「此 NIC 未設有 publicIP」訊息，因為針對負載平衡器建立的 NIC 會使用負載平衡器公用 IP 位址連線到網際網路。
 
-由於 *lb-nic1-be* NIC 會與 *rdp1* NAT 規則相關聯，因此您可以使用 RDP 透過負載平衡器上的連接埠 3441 連線至 *web1* 。
+由於 *lb-nic1-be* NIC 會與 *rdp1* NAT 規則相關聯，因此您可以使用 RDP 透過負載平衡器上的連接埠 3441 連線至 *web1*。
 
 ### 步驟 4
 
@@ -322,10 +322,10 @@
 
 ## 後續步驟
 
-[開始設定內部負載平衡器](load-balancer-internal-getstarted.md)
+[開始設定內部負載平衡器](load-balancer-get-started-ilb-arm-cli.md)
 
 [設定負載平衡器分配模式](load-balancer-distribution-mode.md)
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

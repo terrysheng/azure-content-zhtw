@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="02/12/2016"
    ms.author="hascipio" />
 
 # 如何將優惠發佈至 Azure Marketplace
@@ -32,14 +32,14 @@
 
 > [AZURE.NOTE] 開始在 Azure Marketplace 上進行任何工作之前，必須取得預先核准。這不適用於資料服務發佈者。
 
-||虛擬機器映像 |開發人員服務 | 資料服務 | 解決方案範本 |
+|虛擬機器映像 |開發人員服務 | 資料服務 | 解決方案範本 |
 |----|----|----|----|----|
 | **取得預先核准** | [Microsoft Azure 認證][link-certification] | [Microsoft Azure 認證][link-certification] | n/a | [Microsoft Azure 認證][link-certification] |
 | **步驟 1：註冊開發人員帳戶** | [Microsoft 開發人員帳戶：建立和註冊][link-accts] | [Microsoft 開發人員帳戶：建立和註冊][link-accts] | [Microsoft 開發人員帳戶：建立和註冊][link-accts] | [Microsoft 開發人員帳戶：建立和註冊][link-accts] |
 |**步驟 2：建立您的優惠**| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)| [一般非技術性必要條件](marketplace-publishing-pre-requisites.md)|
-|| [VM 技術性必要條件][link-single-vm-prereq] | 開發人員服務技術性必要條件 | [資料服務技術性必要條件](marketplace-publishing-data-service-creation-prerequisites.md) | [方案範本技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md) |
-||[VM 映像發佈指南][link-single-vm] | 開發人員服務發佈指南 | [資料服務發佈指南](marketplace-publishing-data-service-creation.md) | [解決方案範本發佈指南](marketplace-publishing-solution-template-creation.md) |
-|| [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] |
+| [VM 技術性必要條件][link-single-vm-prereq] | 開發人員服務技術性必要條件 | [資料服務技術性必要條件](marketplace-publishing-data-service-creation-prerequisites.md) | [方案範本技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|[VM 映像發佈指南][link-single-vm] | 開發人員服務發佈指南 | [資料服務發佈指南](marketplace-publishing-data-service-creation.md) | [解決方案範本發佈指南](marketplace-publishing-solution-template-creation.md) |
+| [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] | [Azure Marketplace 行銷內容指南][link-pushstaging] |
 | **步驟 3：推送優惠至預備環境** | [在預備環境中測試您的 VM 優惠](marketplace-publishing-vm-image-test-in-staging.md) | 在預備環境中測試您的開發人員服務優惠 | [在預備環境中測試您的資料服務優惠](marketplace-publishing-data-service-test-in-staging.md) | [在預備環境中測試您的解決方案範本](marketplace-publishing-solution-template-test-in-staging.md) |
 | **步驟 4：將您的優惠部署至 Marketplace** | [將您的優惠部署至 Marketplace][link-pushprod] | [將您的優惠部署至 Marketplace][link-pushprod] | [將您的優惠部署至 Marketplace][link-pushprod] | [將您的優惠部署至 Marketplace][link-pushprod] |
 
@@ -47,6 +47,7 @@
 - [以發佈者身分取得支援][suppt-general]
 - [了解賣方 Insights 報告][suppt-rpt-insights]
 - [了解付款報告][suppt-rpt-payouts]
+- [如何變更雲端解決方案提供者轉售商獎勵](marketplace-publishing-csp-incentive.md)
 - [疑難排解 Marketplace 中常見的發佈問題][suppt-common]
 
 ## 其他資源
@@ -81,4 +82,4 @@
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/18/2015"
+	ms.date="02/20/2016"
 	ms.author="huvalo"/>
 
 
@@ -37,7 +37,7 @@
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
 
 ## 建立專案
 
@@ -71,8 +71,7 @@
 
 2. 按一下入口網站左上方的 [新增] 圖示，然後按一下 [資料+儲存體] > [儲存體帳戶]。按一下 [建立] 按鈕，接著為儲存體帳戶指定唯一名稱，並為它建立新的[資源群組](../resource-group-overview.md)。
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
-	建立儲存體帳戶後，[通知] 按鈕便會閃爍綠色 [成功]，儲存體帳戶的刀鋒視窗會開啟，顯示它屬於您所建立的新資源群組。
+  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->建立儲存體帳戶後，[通知] 按鈕便會閃爍綠色 [成功]，儲存體帳戶的刀鋒視窗會開啟，顯示它屬於您所建立的新資源群組。
 
   	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
 
@@ -102,7 +101,7 @@
 
 1.  使用 `F5` 執行應用程式。使用 [Create Sample Polls] 建立的民調以及投票所提交的資料將會在 Azure 資料表儲存體中序列化。
 
-	> [AZURE.NOTE]Python 2.7 虛擬環境可能會在 Visual Studio 中造成例外狀況中斷。按下 `F5` 以繼續載入 Web 專案。
+	> [AZURE.NOTE] Python 2.7 虛擬環境可能會在 Visual Studio 中造成例外狀況中斷。按下 `F5` 以繼續載入 Web 專案。
 
 1.  瀏覽至 [關於] 頁面，確認應用程式是使用「Azure 資料表儲存體」儲存機制。
 
@@ -112,7 +111,7 @@
 
 使用 Visual Studio 中的 [伺服器總管] 即可輕易檢視和編輯儲存體資料表。在這一節中，我們將使用 [伺服器總管] 來檢視民調應用程式資料表的內容。
 
-> [AZURE.NOTE]這需要安裝 Microsoft Azure Tools (可在 [Azure SDK for .NET] 中取得)。
+> [AZURE.NOTE] 這需要安裝 Microsoft Azure Tools (可在 [Azure SDK for .NET] 中取得)。
 
 1.  開啟 [伺服器總管]。依序展開 [Azure]、[儲存體]、您的儲存體帳戶和 [資料表]。
 
@@ -215,4 +214,4 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

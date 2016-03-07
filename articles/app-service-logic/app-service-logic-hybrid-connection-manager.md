@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/18/2016" 
 	ms.author="mandia"/>
 
 # 使用混合式連線管理員連線至 Azure App Service 中的內部部署連接器
+
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。
+
 為了使用內部部署系統，Azure App Service 會使用混合式連線管理員。某些連結器可以連接到內部部署系統，例如 SQL Server、SAP、SharePoint 等等。
 
 混合式連線管理員 (HCM) 是 Click Once 安裝程式，安裝在您的網路內防火牆後方的 IIS 伺服器上。HCM 會使用 Azure 服務匯流排轉送，向 Azure 中的連接器驗證內部部署系統。
@@ -106,7 +109,7 @@ TCP 連接埠 | 理由
 
 ## 常見問題集
 
-**問題**：有兩個混合式連線管理員。有何不同？<br/> **回答**：這是主要由 Web Apps (先前的網站) 和 Mobile Apps (先前的行動服務) 用來連接至內部部署的[混合式連線](../integration-hybrid-connection-overview.md)技術。此混合式連線管理員是其本身的[設定](../integration-hybrid-connection-create-manage.md)，而且使用 Azure BizTalk 服務 (幕後)。它僅支援 TCP 和 HTTP 通訊協定。
+**問題**：有兩個混合式連線管理員。有何不同？<br/> **回答**：這是主要由 Web Apps (先前的網站) 和 Mobile Apps (先前的行動服務) 用來連接至內部部署的[混合式連線](../biztalk-services/integration-hybrid-connection-overview.md)技術。此混合式連線管理員是其本身的[設定](../biztalk-services/integration-hybrid-connection-create-manage.md)，而且使用 Azure BizTalk 服務 (幕後)。它僅支援 TCP 和 HTTP 通訊協定。
 
 在 Azure App Service 連接器方面，我們也有混合式連線管理員。此混合式連線管理員*不*使用 Azure BizTalk 服務 (幕後)，而且支援除了 TCP 和 HTTP 以外的更多通訊協定。請參閱[連接器和 API 應用程式清單](app-service-logic-connectors-list.md)。
 
@@ -114,7 +117,7 @@ TCP 連接埠 | 理由
 
 **問題**：當我建立自訂的 API 應用程式時，我可以使用 App Service 混合式連線管理員來連接至內部部署嗎？ <br/> **回答**：這不符合慣例。您可以使用內建的連接器，設定 App Service 混合式連線管理員來連接至內部部署系統。然後，使用此連接器搭配您的自訂 API 應用程式，可能是使用邏輯應用程式。目前，您無法開發或建立自己的混合式 API 應用程式 (例如 SQL 連接器或檔案連接器)。
 
-如果您的自訂 API 使用 TCP 或 HTTP 連接埠，您可以使用[混合式連線](../integration-hybrid-connection-overview.md)及其混合式連線管理員。在此情況下會使用 Azure BizTalk 服務。[從 Web 應用程式連接至內部部署 SQL Server](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) 可能會有幫助。
+如果您的自訂 API 使用 TCP 或 HTTP 連接埠，您可以使用[混合式連線](../biztalk-services/integration-hybrid-connection-overview.md)及其混合式連線管理員。在此情況下會使用 Azure BizTalk 服務。[從 Web 應用程式連接至內部部署 SQL Server](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) 可能會有幫助。
 
 
 ## 閱讀更多資訊
@@ -133,4 +136,4 @@ TCP 連接埠 | 理由
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

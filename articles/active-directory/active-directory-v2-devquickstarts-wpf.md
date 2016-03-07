@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App 模型 v2.0 .NET 原生 App | Microsoft Azure"
+	pageTitle="Azure AD v2.0 .NET 原生 App | Microsoft Azure"
 	description="如何建置可使用個人 Microsoft 帳戶及工作或學校帳戶登入使用者的 .NET 原生應用程式。"
 	services="active-directory"
 	documentationCenter=""
@@ -13,14 +13,15 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-# 應用程式模型 v2.0 預覽：將登入加入 Windows 傳統型應用程式
+# 將登入新增至 Windows 桌面應用程式
 
-有了 v2.0 應用程式模型，您就可以快速地將驗證加入傳統型應用程式，同時支援個人 Microsoft 帳戶以及工作或學校帳戶。它也可讓應用程式與後端 Web API 以及一些 [Office 365 整合 API](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) 安全地通訊。
+v2.0 端點可讓您快速地將驗證加入您的桌面應用程式，同時支援個人 Microsoft 帳戶以及工作或學校帳戶。它也可讓您的應用程式安全地與後端 Web API，以及 [Microsoft Graph](https://graph.microsoft.io) 和幾個 [Office 365 統一 API](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) 進行通訊。
 
-> [AZURE.NOTE]此資訊適用於 v2.0 應用程式模型公開預覽。如需如何與正式運作之 Azure AD 服務整合的指示，請參閱 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)。
+> [AZURE.NOTE]
+	v2.0 端點並非支援每個 Azure Active Directory 案例和功能。如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
 
 對於[在裝置上執行的 .NET 原生應用程式](active-directory-v2-flows.md#mobile-and-native-apps)，Azure AD 提供 Active Directory 驗證程式庫，或稱 ADAL。ADAL 存在的唯一目的是為了讓您的應用程式輕鬆取得權杖以呼叫 Web 服務。為了示範這有多麼簡單，我們將在此建置一個執行下列動作的 .NET WPF 待辦事項清單應用程式：
 
@@ -28,11 +29,7 @@
 -	安全地呼叫受 OAuth 2.0 保護的後端待辦事項清單 Web 服務。
 -	將使用者登出。
 
-若要建置完整可用的應用程式，您必須：
-
-2. 註冊應用程式。
-3. 安裝及設定 ADAL。
-5. 使用 ADAL 來取得 Azure AD 的權杖。
+## 下載範例程式碼
 
 本教學課程的程式碼保留在 [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet)。若要遵循執行，您可以[用 .zip 格式下載應用程式的基本架構](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip)，或複製基本架構：
 
@@ -40,20 +37,20 @@
 
 本教學課程最後也會提供完整的應用程式。
 
-## 1. 註冊應用程式
+## 註冊應用程式
 在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com) 建立新的應用程式，或遵循下列[詳細步驟](active-directory-v2-app-registration.md)。請確定：
 
 - 將指派給您應用程式的**應用程式識別碼**複製起來，您很快會需要用到這些識別碼。
 - 為您的應用程式新增**行動**平台。
 - 從入口網站複製完整的**重新導向 URI**。您必須使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。
 
-## 2. 安裝和設定 ADAL
+## 安裝和設定 ADAL
 您現在有了已向 Microsoft 註冊的應用程式，可以安裝 ADAL 並撰寫與您身分識別相關的程式碼。為了讓 ADAL 能與 v2.0 端點通訊，您需要提供一些應用程式註冊的相關資訊。
 
--    首先，使用 Package Manager Console 將 ADAL 新增到 TodoListClient 專案中。
+-	首先，使用 Package Manager Console 將 ADAL 新增到 TodoListClient 專案中。
 
 ```
-PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
+PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease
 ```
 
 -	在 TodoListClient 專案中，開啟 `app.config`。取代 `<appSettings>` 區段中的元素值，以反映您在應用程式註冊入口網站中輸入的值。每當使用 ADAL 時，您的程式碼便會參考這些值。
@@ -62,7 +59,7 @@ PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory
 - 在 TodoList-Service 專案中，開啟專案根目錄中的 `web.config`。  
     - 以來自入口網站的相同**應用程式識別碼**取代 `ida:Audience` 值。
 
-## 3\.使用 ADAL 取得權杖
+## 使用 ADAL 取得權杖
 ADAL 的基本原則是，每當應用程式需要存取權杖時，您只需呼叫 `authContext.AcquireToken(...)`，ADAL 就會執行其餘工作。
 
 -	在 `TodoListClient` 專案中，開啟 `MainWindow.xaml.cs` 並找出 `OnInitialized(...)` 方法。第一步是初始化應用程式的 `AuthenticationContext` - ADAL 的主要類別。您在這裡將 ADAL 與 Azure AD 通訊所需的座標傳給 ADAL，並告訴它如何快取權杖。
@@ -231,6 +228,8 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null) { /
 		...
 ```
 
+## 執行
+
 恭喜！ 您現在擁有一個運作正常的 .NET WPF 應用程式，可使用 OAuth 2.0 驗證使用者並安全地呼叫 Web API。執行您的兩個專案，並以個人的 Microsoft 或工作/學校的帳戶登入。將工作新增到使用者的待辦事項清單。登出並以其他使用者再次登入，查看其他使用者的待辦事項清單。關閉並重新執行應用程式。注意使用者的工作階段是否維持不變，這是因為應用程式會快取本機檔案中的權杖。
 
 ADAL 可使用個人和工作帳戶，輕鬆地將通用的身分識別功能納入您的應用程式。它會為您處理一切麻煩的事，包括快取管理、OAuth 通訊協定支援、向使用者顯示登入 UI、重新整理過期權杖等等。您唯一需要知道的就是單一 API 呼叫，`authContext.AcquireTokenAsync(...)`。
@@ -243,8 +242,8 @@ ADAL 可使用個人和工作帳戶，輕鬆地將通用的身分識別功能納
 
 您現在可以進入更進階的主題。您可以嘗試：
 
-- [使用 v2.0 應用程式模型保護 TodoListService Web API >>](active-directory-v2-devquickstarts-dotnet-api.md)
+- [透過 v2.0 端點保護 TodoListService Web API >>](active-directory-v2-devquickstarts-dotnet-api.md)
 
-如需其他資源，請查看：- [應用程式模型 v2.0 預覽 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow "adal" 標記 >>](http://stackoverflow.com/questions/tagged/adal)
+如需其他資源，請查看：- [《v2.0 開發人員指南》>>](active-directory-appmodel-v2-overview.md) - [StackOverflow「adal」標記 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

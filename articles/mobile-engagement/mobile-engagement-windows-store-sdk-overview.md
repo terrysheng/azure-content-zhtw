@@ -32,11 +32,9 @@
 
 ##版本資訊
 
-###3\.3.0 (01/22/2016)
+###3\.3.1 (02/18/2016)
 
--   修正在格式化以發行模式執行的 UWP 應用程式時當機的問題。
--   修正 Universal 8.1 應用程式的通知中 1 像素邊界的問題。
--   動作 URL 現在可使用 ms-appx 及 ms-appdata 配置。
+-   修正 Web 通知的 HTML 內容與 SDK HTML 頁面之間的衝突。
 -   穩定性改進。
 
 如需較早版本，請參閱[完整版本資訊](mobile-engagement-windows-store-release-notes.md)
@@ -56,4 +54,4 @@
 
 請參閱[升級程序](mobile-engagement-windows-store-upgrade-procedure/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -195,7 +195,7 @@ Azure AD 租用戶類型| 可用的信任 IP 選項
 6. 在 [服務設定] 頁面之 [信任的 IP] 下方，選取以下任一項：
 
 	- 對於來自內部網路之同盟使用者所發出的要求 – 所有從公司網路登入同盟使用者，都能使用 AD FS 發行的宣告略過 Multi-Factor Authentication。 
-	- 對於來自特定公開 IP 範圍的要求 – 使用 CIDR 表示法在提供的方塊中輸入 IP 位址。例如：xxx.xxx.xxx.0/24 代表介於 xxx.xxx.xxx.1 – xxx.xxx.xxx.254 之範圍內的 IP 位址；xxx.xxx.xxx.xxx/32 代表一個 IP 位址。您最多可以輸入 12 個 IP 位址範圍。
+	- 對於來自特定公開 IP 範圍的要求 – 使用 CIDR 表示法在提供的方塊中輸入 IP 位址。例如：xxx.xxx.xxx.0/24 代表介於 xxx.xxx.xxx.1 – xxx.xxx.xxx.254 之範圍內的 IP 位址；xxx.xxx.xxx.xxx/32 代表一個 IP 位址。您最多可以輸入 50 個 IP 位址範圍。
 
 7. 按一下 [儲存]。
 8. 套用更新之後，請按一下 [關閉]。
@@ -376,4 +376,4 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 9. 按一下 [儲存]。
 10. 按一下 [關閉]。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0224_2016-->

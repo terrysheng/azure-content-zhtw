@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="harishkragarwal"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/18/2016"
    ms.author="sameerch"/>
 
 
 # 開始使用 SAP 連接器並將它加入您的邏輯應用程式
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。
+
 連線至內部部署 SAP 以呼叫 RFC 或取得中繼資料。在某些案例中，您可能需要使用在內部部署安裝並位於防火牆後的 SAP。透過在流程中運用 SAP 連接器，您可以達到各種案例的目的。幾個範例：
 
 1.	透過 web 或行動使用者前端公開位於 SAP 上的部分資料。
@@ -60,6 +62,8 @@ SAP 連接器需要混合式連線才能連接到*任何* SAP 端點。若要建
 3. 依照剛起始的安裝程序執行，並在要求時提供主要連接字串
 4. 完成安裝程序後，便會顯示如下所示的對話方塊：![][3]
 
+詳細資訊請參閱[與內部部署的 SAP 伺服器整合](app-service-logic-integrate-with-an-on-premise-sap-server.md)。
+
 現在當您重新瀏覽至建立的 API 應用程式時，您會看到混合式連線狀態為 [已連線]：![][4]
 
 注意：如果您要切換到次要連線字串，您只需重做混合式設定，並提供次要連接字串來取代主要連接字串即可
@@ -79,7 +83,7 @@ SAP 連接器需要混合式連線才能連接到*任何* SAP 端點。若要建
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure Logic Apps，請移至[試用 Logic App](https://tryappservice.azure.com/?appservice=logic)，即可在 App Service 中立即建立短期入門邏輯應用程式。不需要信用卡，無需承諾。
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
@@ -94,4 +98,4 @@ SAP 連接器需要混合式連線才能連接到*任何* SAP 端點。若要建
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

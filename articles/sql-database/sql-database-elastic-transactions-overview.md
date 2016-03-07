@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database (預覽版) 的彈性資料庫交易概觀"
-   description="Azure SQL Database (預覽版) 的彈性資料庫交易概觀"
+   pageTitle="Azure SQL Database 的彈性資料庫交易概觀"
+   description="Azure SQL Database 的彈性資料庫交易概觀"
    services="sql-database"
    documentationCenter=""
    authors="torsteng"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="sql-database"
-   ms.date="02/01/2016"
+   ms.date="02/23/2016"
    ms.author="torsteng"/>
 
-# Azure SQL Database (預覽版) 的彈性資料庫交易概觀
+# Azure SQL Database 的彈性資料庫交易概觀
 
 Azure SQL Database (SQL DB) 的彈性資料庫交易可讓您在 SQL DB 中跨多個資料庫執行交易。SQL DB 的彈性資料庫交易適用於使用 ADO .NET 的 .NET 應用程式，而且與以往熟悉使用 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 類別的程式設計經驗整合。如要取得程式庫，請參閱 [.NET Framework 4.6.1 (Web 安裝程式)](https://www.microsoft.com/download/details.aspx?id=49981)。
 
@@ -94,11 +94,13 @@ SQL DB 的彈性資料庫交易也支援協調分散式交易，您需要使用�
 	}
 
 
-## 設定 Azure 背景工作角色
+## Azure 雲端服務的 .NET 安裝
 
-您可以自動將彈性資料庫交易所需的 .NET 版本和程式庫安裝和部署至 Azure (到雲端服務中的客體 OS)。對於 Azure 背景工作角色，請使用啟動工作。[在雲端服務角色上安裝 .NET](../cloud-services/cloud-services-dotnet-install-dotnet.md) 中說明概念和步驟。
+Azure 會提供數個供應項目，以裝載 .NET 應用程式。如需不同供應項目的比較，請參閱[Azure App Service、雲端服務與虛擬機器之比較](../app-service-web/choose-web-site-cloud-service-vm.md)。如果供應項目的客體 OS 小於彈性交易所需的 .NET 4.6.1，則您必須將客體 OS 升級至 4.6.1。
 
-請注意，與 .NET 4.6 的安裝程式相比，.NET 4.6.1 的安裝程式在於 Azure 雲端服務上進行啟動程序時，需要更多的暫存儲存體。為了確保能夠順利安裝，您必須在 ServiceDefinition.csdef 檔案中，於啟動工作的 LocalResources 區段和環境設定中，增加 Azure 雲端服務的暫存儲存體，如以下範例所示：
+對於 Azure App Service，目前將不支援升級至客體 OS。對於 Azure 虛擬機器，只要登入 VM，並執行最新的 .NET Framework 的安裝程式即可。對於 Azure 雲端服務，您需要將新版 .NET 的安裝包含在您部署的啟動工作中。[在雲端服務角色上安裝 .NET](../cloud-services/cloud-services-dotnet-install-dotnet.md) 中說明概念和步驟。
+
+請注意，相較於 .NET 4.6 的安裝程式，.NET 4.6.1 的安裝程式在 Azure 雲端服務上進行啟動程序期間，可能需要更多的暫存儲存空間。為了確保能夠順利安裝，您必須在 ServiceDefinition.csdef 檔案中，於啟動工作的 LocalResources 區段和環境設定中，增加 Azure 雲端服務的暫存儲存體，如以下範例所示：
 
 	<LocalResources>
 	...
@@ -118,6 +120,17 @@ SQL DB 的彈性資料庫交易也支援協調分散式交易，您需要使用�
 			</Environment>
 		</Task>
 	</Startup>
+	
+## 跨多部伺服器的交易
+
+在 Azure SQL Database 中，支援跨不同邏輯伺服器的彈性資料庫交易。當交易跨越邏輯伺服器的界限時，參與的伺服器首先必須進入一個相互通訊關聯性。一旦建立通訊關聯性之後，任一部伺服器中的任何資料庫都可以和另一部伺服器中的資料庫一起參與彈性交易。對於跨越兩個以上的邏輯伺服器的交易，任何一組邏輯伺服器都必須先具備通訊關聯性。
+
+使用下列 PowerShell Cmdlet 管理跨伺服器的通訊關聯性，以進行彈性資料庫交易：
+
+* **New-AzureRmSqlServerCommunicationLink**：使用這個 Cmdlet 建立 Azure SQL DB 中兩部邏輯伺服器之間的新通訊關聯性。此關聯性是對稱的，也就是說，這兩部伺服器彼此都可以起始交易。
+* **Get-AzureRmSqlServerCommunicationLink**：使用這個 Cmdlet 擷取現有的通訊關聯性及其屬性。
+* **Remove-AzureRmSqlServerCommunicationLink**：使用這個 Cmdlet 移除現有的通訊關聯性。 
+
 
 ## 監視交易狀態
 
@@ -136,7 +149,6 @@ SQL DB 中的彈性資料庫交易目前有下列限制：
 * 僅支援 SQL DB 中跨資料庫的交易。其他 [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) 資源提供者和 SQL DB 以外的資料庫無法參與彈性資料庫交易。這表示彈性資料庫交易無法延伸到內部部署 SQL Server 和 Azure SQL Database。對於內部部署的分散式交易，請繼續使用 MSDTC。 
 * 僅支援來自 .NET 應用程式的用戶端協調交易。目前已規劃 T-SQL 的伺服器端支援，例如 BEGIN DISTRIBUTED TRANSACTION，但尚未推出。 
 * 僅支援 Azure SQL DB V12 上的資料庫。
-* 僅支援屬於 SQL DB 中相同邏輯伺服器的資料庫。
 
 ## 詳細資訊
 
@@ -145,4 +157,4 @@ SQL DB 中的彈性資料庫交易目前有下列限制：
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

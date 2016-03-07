@@ -15,14 +15,14 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="11/17/2015"
+      ms.date="02/22/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Azure AD Graph API 的快速入門
 
-Azure Active Directory (AD) Graph API 是透過 OData REST API 端點，以程式設計方式存取 Azure AD。應用程式可以使用 Graph API，來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。例如，您可以使用 Graph API，來建立新的使用者、檢視或更新使用者的內容、變更使用者的密碼、檢查群組成員資格以取得角色型存取、停用或刪除使用者。如需圖形 API 功能和應用程式案例的詳細資訊，請參閱 [Azure AD 圖形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 和 [Azure AD 圖形 API 的先決條件](https://msdn.microsoft.com/library/hh974476(Azure.100).aspx)。
+Azure Active Directory (AD) Graph API 是透過 OData REST API 端點，以程式設計方式存取 Azure AD。應用程式可以使用 Graph API，來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。例如，您可以使用 Graph API，來建立新的使用者、檢視或更新使用者的內容、變更使用者的密碼、檢查群組成員資格以取得角色型存取、停用或刪除使用者。如需 Graph API 功能和應用程式案例的詳細資訊，請參閱 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 和 [Azure AD Graph API 的先決條件](https://msdn.microsoft.com/library/hh974476(Azure.100).aspx)。
 
-> [AZURE.IMPORTANT]Azure AD Graph API 功能也透過 [Microsoft Graph](https://graph.microsoft.io/) 提供使用，Microsoft Graph 是一個統一的 API，包含了來自其他 Microsoft 服務 (例如 Outlook、OneDrive、OneNote、Planner 和 Office Graph) 的 API，並可透過單一端點與使用單一存取權杖進行存取。
+> [AZURE.IMPORTANT] Azure AD Graph API 功能也透過 [Microsoft Graph](https://graph.microsoft.io/) 提供使用，Microsoft Graph 是一個統一的 API，包含了來自其他 Microsoft 服務 (例如 Outlook、OneDrive、OneNote、Planner 和 Office Graph) 的 API，並可透過單一端點與使用單一存取權杖進行存取。
 
 ## 如何建構 Graph API URL
 
@@ -60,7 +60,7 @@ Azure Active Directory (AD) Graph API 是透過 OData REST API 端點，以程�
 
 當您建置應用程式時，可以使用適用於 Azure AD Graph API 的圖表總管來查詢目錄資料。
 
-> [AZURE.IMPORTANT]圖表總管不支援從目錄中寫入或刪除資料。您只能在含有圖表總管的 Azure AD目錄上執行讀取作業。
+> [AZURE.IMPORTANT] 圖表總管不支援從目錄中寫入或刪除資料。您只能在含有圖表總管的 Azure AD目錄上執行讀取作業。
 
 如果您瀏覽到圖表總管、選取 [使用示範公司]，然後輸入 `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.5` 來顯示示範目錄中的所有使用者，即會看見下列輸出：
 
@@ -94,7 +94,7 @@ Azure Active Directory (AD) Graph API 是透過 OData REST API 端點，以程�
 2. 由於您想要建立新的安全性群組，因此，請從下拉式功能表中選取 [Post] 做為 HTTP 方法。如需有關群組物件的作業與權限詳細資訊，請參閱 [Azure AD Graph REST API 參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)內的[群組](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#GroupEntity)。
 3. 在 [Post] 旁邊的欄位中，輸入下列內容做為要求 URL：`https://graph.windows.net/mytenantdomain/groups?api-version=1.5`。
 
-    > [AZURE.NOTE]您必須使用自己的 Azure AD目錄網域名稱來取代 mytenantdomain。
+    > [AZURE.NOTE] 您必須使用自己的 Azure AD目錄網域名稱來取代 mytenantdomain。
 
 4. 在 [Post] 下拉式清單正下方的欄位中，輸入下列內容：
 
@@ -104,7 +104,7 @@ Authorization: your access token
 Content-Type: application/json
 ```
 
-    > [AZURE.NOTE]使用 Azure AD 目錄的存取權杖來取代 &lt;您的存取權杖&gt;。
+    > [AZURE.NOTE] 使用 Azure AD 目錄的存取權杖來取代 &lt;您的存取權杖&gt;。
 
 5. 在 [要求本文] 欄位中，輸入下列內容：
 
@@ -125,4 +125,4 @@ Content-Type: application/json
 
 深入了解 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/05/2015"
-   ms.author="kunalds"/>
+   ms.date="02/12/2016"
+   ms.author="toddabel"/>
 
 
 # 回報和檢查服務健康情況
@@ -107,4 +107,4 @@ Service Fabric Visual Studio 專案範本包含範例程式碼。以下步驟說
 ## 後續步驟
 [深入了解 Service Fabric 健康情況](service-fabric-health-introduction.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

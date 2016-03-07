@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/20/2016" 
 	ms.author="anwestg"/>
 
 # 企業的 Azure App Service Web Apps 提供項目白皮書 #
@@ -83,9 +83,9 @@ App Service Web Apps 提供一個既穩定又可靠的平台，此平台已證�
 
 Microsoft Azure 平台允許角色型權限控管，針對 Web Apps 中的資源提供企業層級的控管。RBAC 可讓企業在 Azure 環境中實作所有資產的專屬存取管理原則，方法是將使用者指派給群組，並針對資產 (例如 Web 應用程式) 依序將必要權限指派給這些群組。如需有關 Azure 中 RBAC 的詳細資訊，請參閱 [http://aka.ms/azurerbac](../role-based-access-control-configure/)。透過使用 Web Apps，您可以確定您的 Web 應用程式會在安全的環境中進行部署，而且您會擁有部署資產所在領域的完整控制權。
 
-「Azure App Service 環境」[http://aka.ms/aseintro] 是適用於想要利用 Azure App Service 的企業客戶的新進階服務方案選項，而這些環境可提供完全隔離且專用的環境。這可讓企業客戶部署可在非常高的程度上利用輸入和輸出網路流量，同時又能完全控制輸入和輸出網路流量的應用程式，而且 ASE 可讓應用程式透過虛擬網路，高速、安全地連線到內部部署資源。
+Azure App Service 環境 [http://aka.ms/aseintro](http://aka.ms/aseintro) 是適用於想要利用 Azure App Service 的企業客戶的新進階服務方案選項，而這些環境可提供完全隔離且專用的環境。這可讓企業客戶部署可在非常高的程度上利用輸入和輸出網路流量，同時又能完全控制輸入和輸出網路流量的應用程式，而且 ASE 可讓應用程式透過虛擬網路，高速、安全地連線到內部部署資源。
 
-App Service Web Apps 也可透過提供連線回到內部資源 (例如您的資料倉儲或 SharePoint 環境) 的能力，充分利用您的內部部署投資。如 [高階解決方案] 中所述，您可以利用混合式連線和虛擬網路連線來建立內部部署基礎結構和服務之間的連線。
+App Service Web Apps 也可透過提供連線回到內部資源 (例如您的資料倉儲或 SharePoint 環境) 的能力，充分利用您的內部部署投資。如[高階解決方案](#highlevel)中所述，您可以利用混合式連線和虛擬網路連線來建立內部部署基礎結構和服務之間的連線。
 
 ### 全球規模 ###
 
@@ -135,7 +135,7 @@ App Service Web Apps 是一個可擴充的全域平台，可讓 Web 應用程式
 #### 內部部署資源的連線能力 ####
 App Service Web Apps 提供多個可連線到內部部署資源 (例如資料庫) 的選項，可讓您重複使用現有的高價值基礎結構。這些選項如以下所列：
 
-- 「App Service 環境」是在虛擬網路的子網路內建立的隔離環境，因此可讓環境與位於相同虛擬網路內的私用端點進行通訊 - [http://aka.ms/appserviceasenetworking]
+- App Service 環境是在虛擬網路的子網路內建立的隔離環境，因此可讓環境與位於相同虛擬網路內的私用端點進行通訊 - [http://aka.ms/appserviceasenetworking](http://aka.ms/appserviceasenetworking)
 - Web Apps 虛擬網路支援 Web Apps 與 Azure 虛擬網路之間的整合，可讓您存取在虛擬網路中執行的資源，如果使用站台對站台 VPN 連線到您內部部署網路，則可讓您直接連線到您的內部部署系統。
 - 混合式連線是 Azure BizTalk 服務的一項功能，可提供簡單的方法來連線到個別的內部部署資源，例如 SQL Server、MySQL、HTTP Web API 和大部分的自訂 Web 服務。
 
@@ -159,4 +159,4 @@ App Service Web Apps 針對快速發展環境中的企業動態需求，提供�
  
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

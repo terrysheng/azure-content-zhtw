@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/21/2016"
 	ms.author="tarcher"/>
 
 # 將 Git 構件儲存機制加入研發/測試實驗室
+
+> [AZURE.NOTE] 按一下下列連結可檢視本文隨附的影片：[如何在 DevTest 實驗室中新增私人構件儲存機制](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab)
 
 ## 概觀
 
@@ -115,4 +117,4 @@
     3. 在構件儲存機制中輸入儲存的**個人存取權杖**。
     4. 點選 [儲存]。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

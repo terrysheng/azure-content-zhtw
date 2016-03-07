@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="11/04/2015" 
+	ms.date="02/18/2016" 
 	ms.author="heidist"/>
 
 # Azure 搜尋開發人員案例研究
@@ -64,7 +64,7 @@ Azure 搜尋服務為我們的專案帶來重大突破。在 Azure 搜尋服務�
 
 - [Azure 搜尋服務](https://azure.microsoft.com/services/search/)
 - [使用 MVC 4 的 Azure 網站](https://azure.microsoft.com/services/websites/)
-- [用來排程工作的 Azure WebJobs](../websites-webjobs-resources.md)
+- [用來排程工作的 Azure WebJobs](../app-service-web/websites-webjobs-resources.md)
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/)
 - [SendGrid 電子郵件傳遞](https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
@@ -421,4 +421,4 @@ Azure 搜尋服務並不是唯一的驚喜。與我們先前的方式相比，�
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

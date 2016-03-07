@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/04/2015"
-   ms.author="kunalds"/>
+   ms.date="02/12/2016"
+   ms.author="toddabel"/>
 
 
 # 監視和診斷本機開發設定中的服務
@@ -60,4 +60,4 @@ Service Fabric Visual Studio 專案範本包含範例程式碼。程式碼示範
 ## 後續步驟
 在 Azure 叢集上執行應用程式時，您針對本機診斷在上方應用程式所新增的相同追蹤程式碼，將會使用可以用來檢視這些事件的工具。請參閱下列文章，其中討論工具的不同選項，並說明如何設定這些工具。*[在 Azure 診斷和 Operational Insights 中從 Service Fabric 叢集收集記錄檔](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [使用 ElasticSearch 做為 Service Fabric 應用程式追蹤存放區](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

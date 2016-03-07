@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="objectivec"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/17/2016"
 	ms.author="brandwe"/>
 
 # Azure AD B2C 預覽：從 iOS 應用程式中呼叫 Web API
@@ -33,7 +33,7 @@
 
 - 在應用程式中加入 **Web 應用程式/Web API**
 - 輸入 `http://localhost:3000/auth/openid/return` 作為**回覆 URL**。此 URL 為此程式碼範例的預設 URL。
-- 為您的應用程式建立**應用程式密碼**，並複製起來。稍後您將會用到此資訊。
+- 為您的應用程式建立**應用程式密碼**，並複製起來。稍後您將會用到此資訊。請注意，這個值在使用之前必須先變成 [XML 逸出](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape)字元。
 - 複製指派給您應用程式的**應用程式識別碼**。稍後您也會用到此資訊。
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -617,4 +617,4 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 
 [自訂 B2C 應用程式的 UX >>]()
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

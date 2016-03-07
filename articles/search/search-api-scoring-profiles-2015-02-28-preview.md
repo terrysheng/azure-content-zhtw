@@ -1,5 +1,5 @@
 <properties
-	pageTitle="評分設定檔 (Azure 搜尋服務 REST API 版本 2015-02-28-Preview) | Microsoft Azure | 雲端託管搜尋服務"
+	pageTitle="評分設定檔 (Azure 搜尋服務 REST API 版本 2015-02-28-Preview) | Microsoft Azure | Azure 搜尋服務預覽 API"
 	description="Azure 搜尋服務是託管的雲端搜尋服務，且支援根據使用者定義的評分設定檔調整排名結果。"
 	services="search"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="11/04/2015" />
+	ms.date="02/18/2016" />
 
 # 評分設定檔 (Azure 搜尋服務 REST API 2015-02-28-Preview 版)
 
-> [AZURE.NOTE]本文說明 [2015-02-28-Preview](search-api-2015-02-28-preview.md) 的評分設定檔。目前 [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) 上記載的 `2015-02-28` 版本與此處說明的 `2015-02-28-Preview` 版本並無差異。
+> [AZURE.NOTE] 本文說明 [2015-02-28-Preview](search-api-2015-02-28-preview.md) 的評分設定檔。記載於 [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) 的 `2015-02-28` 版本和此處描述的 `2015-02-28-Preview` 版本，目前並無差別，不過為使文件內容完整涵蓋 API，我們仍提供此文件。
 
 ## 概觀
 
@@ -55,7 +55,7 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2015-02-28-Preview
 
-此查詢會搜尋 'inn' 一詞，並傳入目前的位置。請注意這個查詢包括其他的參數，例如 `scoringParameter`。查詢參數說明於[搜尋文件 (Azure 搜尋服務 API)](search-api-2015-02-28-preview/#SearchDocs.md) 中。
+此查詢會搜尋 'inn' 一詞，並傳入目前的位置。請注意這個查詢包括其他的參數，例如 `scoringParameter`。查詢參數說明於[搜尋文件 (Azure 搜尋服務 API)](search-api-2015-02-28-preview/#SearchDocs) 中。
 
 按一下[範例](#example)，可檢閱更多評分設定檔的詳細範例。
 
@@ -372,4 +372,4 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

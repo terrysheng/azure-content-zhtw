@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="02/17/2016" 
 	ms.author="nitinme"/>
 
 
 # HDInsight (Linux) 上的 Spark 叢集可供 Jupyter Notebook 使用的核心
 
-在 HDInsight (Linux) 上的 Apache Spark 叢集包含可用來測試應用程式的 Jupyter Notebook。根據預設，Jupyter Notebook 附有 **Python2** 核心。HDInsight Spark 叢集另外還提供兩種核心，可讓您用於 Jupyter Notebook。它們是：
+在 HDInsight (Linux) 上的 Apache Spark 叢集包含可用來測試應用程式的 Jupyter Notebook。根據預設，Jupyter Notebook 附有 **Python2** 核心。核心是一個可執行並解譯程式碼的程式。HDInsight Spark 叢集另外還提供兩種核心，可讓您用於 Jupyter Notebook。它們是：
 
-1. **Spark** (適用於以 Scala 撰寫的應用程式)
-2. **PySpark** (適用於以 Python 撰寫的應用程式)
+1. **PySpark** (適用於以 Python 撰寫的應用程式)
+2. **Spark** (適用於以 Scala 撰寫的應用程式)
 
 在本文中，您將了解使用這些核心的方法與好處。
 
@@ -52,9 +52,9 @@
 
 ## 為何要使用新的核心？
 
-使用新核心有幾項好處。
+以下是使用新核心的幾項好處。
 
-1. 使用預設 **Python2** 核心時，您必須先設定 Spark、SQL 或 Hive 內容，才能開始使用您所開發的應用程式。如果您使用新的核心 (**Spark** 或 **PySpark**)，依預設會將這些內容提供給您使用。這些內容包括：
+1. **預設內容**。使用可搭配 Jupyter Notebook 使用的預設 **Python2** 核心時，您必須先明確地設定 Spark、SQL 或 Hive 內容，才能開始使用您所開發的應用程式。如果您使用新的核心 (**PySpark** 或 **Spark**)，依預設會將這些內容提供給您使用。這些內容包括：
 
 	* **sc** - 代表 Spark 內容
 	* **sqlContext** - 代表 SQL 內容
@@ -72,10 +72,24 @@
 
 	您可以直接在您的應用程式中使用現有的內容。
 	
-2. 您可以直接使用 **%sql** 和 **%hive** Magic，以分別使用 SQL 或 Hive 查詢。因此，諸如此類的作業將可直接運作，而不需要任何前置的程式碼陳述式。
+2. **Cell magic**。PySpark 核心提供一些預先定義的 “magics”，這是您可以使用 `%%` 呼叫的特殊命令 (例如 `%%MAGIC` <args>)。magic 命令必須是程式碼儲存格中的第一個字，而且允許多行的內容。magic 這個字應該是儲存格中的第一個字。在 magic 前面加入任何項目，甚至是註解，將會造成錯誤。如需有關 magic 的詳細資訊，請參閱[這裡](http://ipython.readthedocs.org/en/stable/interactive/magics.html)。
 
-		%hive
-		SELECT * FROM hivesampletable LIMIT 10
+	下表列出可透過核心提供的不同 magic。
+
+	| magic | 範例 | 說明 |
+	|-----------|---------------------------------|--------------|
+	| 說明 | `%%help` | 產生所有可用 magic 的表格，其中包含範例與說明 |
+	| info | `%%info` | 輸出目前 Livy 端點的工作階段資訊 |
+	| 設定 | `%%configure -f {"executorMemory": "1000M", "executorCores": 4`} | 設定用來建立工作階段的參數。如果已建立工作階段，而且將會卸除並重新建立該工作階段，則 force 旗標 (-f) 是必要的。如需有效參數的清單，請查看 [Livy 的 POST /sessions 要求本文](https://github.com/cloudera/livy#request-body)。參數必須以 JSON 字串傳入。 |
+	| sql | `%%sql -o <variable name>`<br> `SHOW TABLES` | 針對 sqlContext 執行 SQL 查詢。如果傳遞 `-o` 參數，則查詢的結果會當做 [Pandas](http://pandas.pydata.org/) 資料框架，保存在 %%local Python 內容中。 |
+	| hive | `%%hive -o <variable name>`<br> `SHOW TABLES` | 針對 hivelContext 執行 Hive 查詢。如果傳遞 -o 參數，則查詢的結果會當做 [Pandas](http://pandas.pydata.org/) 資料框架，保存在 %%local Python 內容中。 |
+	| local | `%%local`<br>`a=1` | 接下來幾行的所有程式碼將會在本機執行。程式碼必須是有效的 Python 程式碼。 |
+	| 記錄檔 | `%%logs` | 輸出目前 Livy 工作階段的記錄檔。 |
+	| delete | `%%delete -f -s <session number>` | 刪除目前 Livy 端點的特定工作階段。請注意，您無法刪除針對核心本身起始的工作階段。 |
+	| cleanup | `%%cleanup -f` | 刪除目前 Livy 端點的所有工作階段，包括此 Notebook 的工作階段。force 旗標 -f 是必要的。 |
+
+3. **自動視覺化**。**Pyspark** 核心會將 Hive 和 SQL 查詢的輸出自動視覺化。您可以選擇數種不同類型的視覺效果，包括資料表、圓形圖、線條、區域、長條圖。
+
 
 ## 使用新核心的考量
 
@@ -88,14 +102,14 @@
 
 當您開啟 Jupyter Notebook 時，您會在根層級看到兩個可用資料夾。
 
-* **Python** 資料夾含有使用預設 **Python2** 核心的範例 Notebook。
+* **PySpark** 資料夾含有使用新 **Python** 核心的範例 Notebook。
 * **Scala** 資料夾含有使用新 **Spark** 核心的範例 Notebook。
 
-您可以從這兩個資料夾中開啟相同的 (例如 **READ ME FIRST - 認識 HDInsight 上的 Spark**) Notebook，而觀察到 Python2 Notebook 一律會以必要內容的設定啟動，而 Spark Notebook 則只會使用預先設定的內容。
+您可以從 **PySpark** 或 **Spark** 資料夾開啟 **00 - [READ ME FIRST] Spark Magic Kernel Features** Notebook，以了解可用的不同 magic。您也可以使用這兩個資料夾底下提供的其他 Notebook 範例，以了解如何搭配 HDInsight Spark 叢集使用 Jupyter Notebook 完成不同的案例。
 
 ## 意見反應
 
-新核心尚處於開發初期，將會隨著時間持續發展。這或許也意味著，API 可能會隨著這些核心的成熟而改變。您在使用這些新核心時如有任何意見，我們都非常樂於知道。這對於這些核心最終版本的定調，將很有幫助。您可以將您的評論/意見反應填寫在本文最後的**評論**一節底下。
+新的核心已在發展階段，而且經過一段時間後將會成熟。這或許也意味著，API 可能會隨著這些核心的成熟而改變。您在使用這些新核心時如有任何意見，我們都非常樂於知道。這對於這些核心最終版本的定調，將很有幫助。您可以將您的評論/意見反應填寫在本文最後的**評論**一節底下。
 
 
 ## <a name="seealso"></a>另請參閱
@@ -131,4 +145,4 @@
 
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0224_2016-->

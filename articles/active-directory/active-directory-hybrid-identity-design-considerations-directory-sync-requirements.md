@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/02/2016"
+	ms.date="02/23/2016"
 	ms.author="billmath"/>
 
 # 判斷目錄同步處理需求
@@ -37,9 +37,11 @@
   - 在您的組織中，UPN 的目前狀態為何？ 
   - 您擁有使用者要對其進行驗證的其他目錄嗎？
   - 貴公司是否使用 Microsoft Exchange？
-    - 他們是否規劃擁有混合式交換部署？ 
+    - 他們是否規劃擁有混合式交換部署？
+
+您已經了解同步處理需求，現在您必須判斷哪一個工具符合這些需求。Microsoft 提供您數個工具完成目錄整合與同步處理。詳細資訊請參閱[混合式身分識別目錄整合工具比較表](active-directory-hybrid-identity-design-considerations-tools-comparison.md)。
    
-既然您已經了解貴公司的同步處理需求，您現在需要評估使用這些目錄服務的應用程式。當您定義如何將這些應用程式整合到雲端的技術需求時，這項評估非常重要。請確定回答下列問題：
+您為貴公司備妥執行此工作所需的同步處理需求項目與工具，您現在需要評估使用這些目錄服務的應用程式。當您定義如何將這些應用程式整合到雲端的技術需求時，這項評估非常重要。請確定回答下列問題：
 
 - 這些應用程式將移至雲端並使用目錄嗎？
 - 有任何需要同步處理到雲端的特殊屬性，讓這些應用程式可成功使用它們嗎？
@@ -66,4 +68,4 @@
 ## 另請參閱
 [設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/03/2015"
+   ms.date="02/10/2016"
    ms.author="plarsen"/>
 
 # DB2 連接器
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。
 
 Microsoft Connector for DB2 是一個 API 應用程式，可透過 Azure App Service 將應用程式連接至儲存在 IBM DB2 資料庫中的資源。連接器含有一個 Microsoft 用戶端，可透過 TCP/IP 網路連線 (包括使用 Azure 服務匯流排轉送對內部部署 DB2 伺服器進行的 Azure 混合式連線) 連接至遠端 DB2 伺服器電腦。連接器支援下列資料庫作業：
 
@@ -66,7 +67,7 @@ PollToAlterData | 否 | 要搭配邏輯應用程式觸發程序使用的 UPDATE 
 ## 以 DB2 連接器動作新增資料的邏輯應用程式 ##
 您可以定義邏輯應用程式動作，以使用 API Insert 或 Post to Entity OData 作業將資料加入至 DB2 資料表。例如，您可對以身分識別資料行定義的資料表處理 SQL INSERT 陳述式，將身分識別值或受影響的資料列傳回至邏輯應用程式，進而插入一筆新的客戶訂單記錄 (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?)))。
 
-> [AZURE.TIP]DB2 Connection "*Post to EntitySet*" 會傳回身分識別資料行值，而 "*API Insert*" 會傳回受影響的資料列
+> [AZURE.TIP] DB2 Connection "*Post to EntitySet*" 會傳回身分識別資料行值，而 "*API Insert*" 會傳回受影響的資料列
 
 1. 在 Azure 開始面板中，依序選取 **+** (加號)、[Web + 行動] 和 [邏輯應用程式]。
 2. 輸入名稱 (例如"NewOrdersDb2")、App Service 方案、其他屬性，然後選取 [建立]。
@@ -198,7 +199,7 @@ PollToAlterData | DELETE NEWORDERS WHERE CURRENT OF &lt;CURSOR&gt;
 **注意：**邏輯應用程式設計工具會截斷資料表名稱。例如，[條件式刪除自 NEWORDERS] 作業會被截斷成 [條件式刪除自 N]。
 
 
-> [AZURE.TIP]使用下列 SQL 陳述式來建立範例資料表與預存程序。
+> [AZURE.TIP] 使用下列 SQL 陳述式來建立範例資料表與預存程序。
 
 您可以使用下列 DB2 SQL DDL 陳述式建立範例 NEWORDERS 資料表：
  
@@ -239,7 +240,7 @@ PollToAlterData | DELETE NEWORDERS WHERE CURRENT OF &lt;CURSOR&gt;
 
 ## 混合式組態 (選用)
 
-> [AZURE.NOTE]只有當您在防火牆後方使用 DB2 連接器內部部署時，才需要此步驟。
+> [AZURE.NOTE] 只有當您在防火牆後方使用 DB2 連接器內部部署時，才需要此步驟。
 
 App Service 使用混合式組態管理員來安全地連線到內部部署系統。如果連接器使用內部部署 IBM DB2 Server for Windows，則需要混合式連線管理員。
 
@@ -270,4 +271,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [13]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_TriggersActions.png
 [14]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_Outputs.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0224_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="heidist"/>
 
 #如何在 Azure 搜尋服務中對搜尋結果分頁#
@@ -22,7 +22,7 @@
  
 在以下提到的每個案例中，發表資料或資訊到您的搜尋結果頁面的頁面相關選項，會由傳送到 Azure 搜尋服務的[搜尋文件](http://msdn.microsoft.com/library/azure/dn798927.aspx)要求所指定。要求會包含 GET 命令、路徑和查詢參數，這些會對服務通知要求是什麼，以及如何制訂回應。
 
-> [AZURE.NOTE]有效的要求包含一些項目，例如服務 URL 及路徑、HTTP 動詞命令、`api-version` 等。為求簡單明瞭，我們縮減此範例，只突顯與分頁相關的語法。如需要求語法的詳細資訊，請參閱 [Azure 搜尋服務 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)文件。
+> [AZURE.NOTE] 有效的要求包含一些項目，例如服務 URL 及路徑、HTTP 動詞命令、`api-version` 等。為求簡單明瞭，我們縮減此範例，只突顯與分頁相關的語法。如需要求語法的詳細資訊，請參閱 [Azure 搜尋服務 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)文件。
 
 ## 總點擊數和頁面計數 ##
 
@@ -82,7 +82,7 @@
 
  ![][5]
  
-> [AZURE.NOTE]雖然預設評分對大多數案例都已足夠，但我們建議改用自訂評分設定檔來建立相關性。自訂評分設定檔給您提升項目的方式，這會對您的企業更有助益。如需詳細資訊，請參閱[新增評分設定檔](http://msdn.microsoft.com/library/azure/dn798928.aspx)。
+> [AZURE.NOTE] 雖然預設評分對大多數案例都已足夠，但我們建議改用自訂評分設定檔來建立相關性。自訂評分設定檔給您提升項目的方式，這會對您的企業更有助益。如需詳細資訊，請參閱[新增評分設定檔](http://msdn.microsoft.com/library/azure/dn798928.aspx)。
 
 ## 多面向導覽 ##
 
@@ -114,4 +114,4 @@
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

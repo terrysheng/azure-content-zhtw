@@ -19,7 +19,9 @@
 #教學課程：Azure Active Directory 與 Salesforce 沙箱整合
 >[AZURE.TIP]如需意見反應，請按一下[這裡](http://go.microsoft.com/fwlink/?LinkId=521878)。
   
-本教學課程的目的是要示範 Azure 與 Salesforce 沙箱的整合。沙箱讓您能夠針對不同用途 (例如開發、測試和訓練) 在個別環境中建立貴組織的多個複本，而不會危害 Salesforce 生產環境組織中的資料和應用程式。如需詳細資訊，請參閱[沙箱概觀](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
+本教學課程的目的是要示範 Azure 與 Salesforce 沙箱的整合。  
+沙箱讓您能夠針對不同用途 (例如開發、測試和訓練) 在個別環境中建立貴組織的多個複本，而不會危害 Salesforce 生產環境組織中的資料和應用程式。  
+如需詳細資訊，請參閱[沙箱概觀](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
   
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -112,7 +114,7 @@
     1.  在 [名稱] 文字方塊中，輸入組態的名稱 (例如：*SPSSOWAAD\_Test*)。
     2.  在 Azure 傳統入口網站中的 [**設定在 Salesforce 沙箱單一登入**] 對話方塊頁面上，複製 [**簽發者 URL**] 的值，然後貼入至 [**簽發者**] 文字方塊。
     3.  如果這是您要新增至目錄的第一個 Salesforce 沙箱執行個體，請在 [實體識別碼] 文字方塊中，輸入 * ***https://test.salesforce.com**。如果您已新增 Salesforce 沙箱的執行個體，請對 [實體識別碼] 輸入 **登入 URL**，其格式如下：`http://company.my.salesforce.com`
-4.  按一下 [瀏覽] 來上傳已下載的憑證。
+    4.  按一下 [瀏覽] 來上傳已下載的憑證。
     5.  對於 [SAML 身分識別類型]，選取 [判斷提示包含來自使用者物件的同盟識別碼]。
     6.  對於 [SAML 身分識別位置]，選取 [身分識別位於 Subject 陳述式的 NameIdentifier 元素中]
     7.  在 Azure 傳統入口網站中的 [**設定在 Salesforce 沙箱單一登入**] 對話頁面上，複製 [**遠端登入 URL**] 的值，然後貼入至 [**識別提供者登入 URL**] 文字方塊。

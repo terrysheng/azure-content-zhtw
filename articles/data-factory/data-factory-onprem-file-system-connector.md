@@ -23,7 +23,7 @@
 資料處理站支援透過資料管理閘道器連接至內部部署檔案系統。請參閱[在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文來了解資料管理閘道器和設定閘道器的逐步指示。
 
 > [AZURE.NOTE] 
-除了資料管理閘道器，不需要安裝其他二進位檔即可和內部部署檔案系統進行通訊。
+> 除了資料管理閘道器，不需要安裝其他二進位檔即可和內部部署檔案系統進行通訊。
 > 
 > 如需連接/閘道器相關問題的疑難排解秘訣，請參閱[閘道器疑難排解](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)。
 
@@ -57,7 +57,7 @@
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia.<region>.corp.<company>.com",
+	      "host": "\\\\Contosogame-Asia.<region>.corp.<company>.com",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -381,7 +381,8 @@
 	  }
 	}
 
-**包含複製活動的管線：**此管線包含複製活動，該活動已設定為使用上述輸入和輸出資料集，並排定為每小時執行。在管線 JSON 定義中，**source** 類型設為 **SqlSource**，而 **sink** 類型設為 **FileSystemSink**。針對 **SqlReaderQuery** 屬性指定的 SQL 查詢會選取過去一小時內要複製的資料。
+**包含複製活動的管線：**
+此管線包含複製活動，該活動已設定為使用上述輸入和輸出資料集，並排定為每小時執行。在管線 JSON 定義中，**source** 類型設為 **SqlSource**，而 **sink** 類型設為 **FileSystemSink**。針對 **SqlReaderQuery** 屬性指定的 SQL 查詢會選取過去一小時內要複製的資料。
 
 	
 	{  
@@ -451,7 +452,7 @@ gatewayName | 資料處理站服務應該用來連接到內部部署檔案伺服
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -546,7 +547,7 @@ encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參�
 	        "type": "TextFormat",
 	        "columnDelimiter": ",",
 	        "rowDelimiter": ";",
-	        "quoteChar": """,
+	        "quoteChar": "\"",
 	        "NullValue": "NaN"
 	    }
 	},
@@ -580,7 +581,7 @@ encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參�
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | 當來源為 BlobSource 或 FileSystem 時，定義複製行為。 | <p>copyBehavior 屬性有三種可能的值。</p><ul><li>**PreserveHierarchy：**在目標資料夾中保留檔案的階層架構，亦即來源檔案和來源資料夾的相對路徑，與目標檔案和目標資料夾的相對路徑完全相同。</li><li>**FlattenHierarchy：**來源資料夾的所有檔案都會在目標資料夾的第一層中。目標檔案會有自動產生的名稱。</li></ul> | 否 |
+| copyBehavior | 當來源為 BlobSource 或 FileSystem 時，定義複製行為。 | <p>copyBehavior 屬性有三種可能的值。</p><ul><li>**PreserveHierarchy：**在目標資料夾中保留檔案的階層架構，亦即來源檔案至來源資料夾的相對路徑，與目標檔案至目標資料夾的相對路徑完全相同。</li><li>**FlattenHierarchy：**來源資料夾的所有檔案都將位於目標資料夾的第一層。目標檔案會有自動產生的名稱。</li></ul> | 否 |
 
 ### 遞迴和 copyBehavior 範例
 本節說明遞迴和 copyBehavior 值在不同組合的情況下，複製作業所產生的行為。

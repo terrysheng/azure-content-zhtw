@@ -85,7 +85,7 @@ private int port = 0;
 private String clusterName = "";
 private int itemsPerBatch = 0;
 
-/* JUnit test class constructor */
+/\* JUnit test class constructor \*/
 public ElasticsearchLoadTest2(String params) {
 	/* params is a string containing a set of comma separated values for:
 		hostName
@@ -97,8 +97,8 @@ public ElasticsearchLoadTest2(String params) {
 	*/
 
     /* Parse the parameter string into an array of string items */
-	String delims = "[ ]*,[ ]*"; // comma surrounded by zero or more spaces
-	String[] items = params.split(delims);
+	String delims = "\[ \]\*,\[ \]\*"; // comma surrounded by zero or more spaces
+	String\[\] items = params.split(delims);
 
     /* Note: Parameter validation code omitted */
 

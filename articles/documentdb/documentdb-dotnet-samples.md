@@ -133,7 +133,7 @@ DocumentManagement 專案範例的 [RunDocumentsDemo](https://github.com/Azure/a
  
 ## 查詢範例
 
-查詢文件檔案 [azure-documentdb-net/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Queries/Program.cs) 說明如何透過 SQL 查詢語法，以及使用查詢和 Lambda 的 LINQ 提供者執行下列工作。
+查詢文件檔案 [azure-documentdb-net/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Queries/Program.cs)說明如何透過 SQL 查詢語法，以及使用查詢和 Lambda 的 LINQ 提供者執行下列工作。
 
 工作 | API 參考資料
 --- | ---

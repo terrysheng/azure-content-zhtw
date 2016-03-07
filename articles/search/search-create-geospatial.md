@@ -58,7 +58,7 @@
 
 1. 前往 [Bing 地圖入口網站](https://www.bingmapsportal.com/) (英文) 建立新的帳戶。輸入詳細資料以建立帳戶。
 
-2. 帳戶建立完畢後，請選擇 [Create or view keys] 並輸入詳細資料以建立金鑰。為方便本示範進行，您可以選擇 [Trial Key]。
+2. 帳戶建立完畢後，請選擇 [建立或檢視金鑰] 並輸入詳細資料以建立金鑰。為方便本示範進行，您可以選擇 [金鑰失敗]。
 
 3. 按一下 [提交]，這時應會顯示您的 Bing 地圖應用程式的金鑰詳細資料。請記下此金鑰，以便稍後使用。
 
@@ -91,7 +91,7 @@
 
 8. 在執行應用程式之前，請開啟 App.config 並針對您的 Azure 搜尋服務與 Bing 地圖 API 更新其 "SearchServiceName"、"SearchServiceApiKey" 與 "BingMapsAPI" 的值，以新增您的 Azure 搜尋服務與 Bing 地圖 API 資訊。在搜尋服務名稱上，如果您的服務是 "mysearch.search.windows.net"，則您需要輸入 "mysearch"。
 
-9. 以滑鼠右鍵按一下 **StoreIndexer** 專案，並選擇 [偵錯 | Start New Instance] 加以執行。
+9. 以滑鼠右鍵按一下 **StoreIndexer** 專案，並選擇 [偵錯 | 開始新執行個體] 加以執行。
 
 <a id="sub-4"></a>
 ## 使用 Azure 搜尋服務與 Bing 地圖為 MVC4 應用程式新增地圖

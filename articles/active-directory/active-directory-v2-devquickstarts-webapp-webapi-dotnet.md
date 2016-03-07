@@ -109,7 +109,9 @@ public void ConfigureAuth(IAppBuilder app)
 
 - 首先，安裝 ADAL 預覽版本：
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` - 將另一個 `using` 陳述式新增至 ADAL 的 `App_Start\Startup.Auth.cs`。- 現在加入新的方法 (`OnAuthorizationCodeReceived` 事件處理常式)。此處理常式會使用 ADAL 取得待辦事項清單 API 的存取權杖，並將 ADAL 權杖中的權杖儲存起來以供日後使用：
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
+ - 將另一個 `using` 陳述式新增至 ADAL 的 `App_Start\Startup.Auth.cs`。
+ - 現在加入新的方法 (`OnAuthorizationCodeReceived` 事件處理常式)。此處理常式會使用 ADAL 取得待辦事項清單 API 的存取權杖，並將 ADAL 權杖中的權杖儲存起來以供日後使用：
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)

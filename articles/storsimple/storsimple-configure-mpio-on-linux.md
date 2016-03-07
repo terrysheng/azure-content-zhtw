@@ -467,23 +467,23 @@ multipath.conf 有五個區段：
 |類型|命令|說明|
 |---|---|---|
 |**iSCSI**|`service iscsid start`|啟動 iSCSI 服務|
-|`service iscsid stop`|停止 iSCSI 服務|
-|`service iscsid restart`|重新啟動 iSCSI 服務|
-|`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|探索指定位址上的可用目標|
-|`iscsiadm -m node --login -T <TARGET_IQN>`|登入 iSCSI 目標|
-|`iscsiadm -m node --logout -p <Target_IP>`|登出 iSCSI 目標|
-|`cat /etc/iscsi/initiatorname.iscsi`|列印 iSCSI 啟動器名稱|
-|`iscsiadm –m session –s <sessionid> -P 3`|檢查 iSCSI 工作階段的狀態以及在主機上探索到的磁碟區|
-|`iscsi –m session`|顯示在主機與 StorSimple 裝置之間建立的所有 iSCSI 工作階段|
+||`service iscsid stop`|停止 iSCSI 服務|
+||`service iscsid restart`|重新啟動 iSCSI 服務|
+||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|探索指定位址上的可用目標|
+||`iscsiadm -m node --login -T <TARGET_IQN>`|登入 iSCSI 目標|
+||`iscsiadm -m node --logout -p <Target_IP>`|登出 iSCSI 目標|
+||`cat /etc/iscsi/initiatorname.iscsi`|列印 iSCSI 啟動器名稱|
+||`iscsiadm –m session –s <sessionid> -P 3`|檢查 iSCSI 工作階段的狀態以及在主機上探索到的磁碟區|
+||`iscsi –m session`|顯示在主機與 StorSimple 裝置之間建立的所有 iSCSI 工作階段|
 | | | |
 |**多重路徑**|`service multipathd start`|啟動多重路徑 daemon|
-|`service multipathd stop`|停止多重路徑 daemon|
-|`service multipathd restart`|重新啟動多重路徑 daemon|
-|`chkconfig multipathd on` </br> 或 </br> `mpathconf –with_chkconfig y`|啟用多重路徑 daemon 以在開機時啟動|
-|`multipathd –k`|啟動互動式主控台以進行疑難排解|
-|`multipath –l`|列出多重路徑連接和裝置|
-|`mpathconf --enable`|在 `/etc/mulitpath.conf` 中建立範例 mulitpath.conf 檔案|
-|
+||`service multipathd stop`|停止多重路徑 daemon|
+||`service multipathd restart`|重新啟動多重路徑 daemon|
+||`chkconfig multipathd on` </br> 或 </br> `mpathconf –with_chkconfig y`|啟用多重路徑 daemon 以在開機時啟動|
+||`multipathd –k`|啟動互動式主控台以進行疑難排解|
+||`multipath –l`|列出多重路徑連接和裝置|
+||`mpathconf --enable`|在 `/etc/mulitpath.conf` 中建立範例 mulitpath.conf 檔案|
+||||
 
 ## 後續步驟
 

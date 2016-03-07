@@ -219,9 +219,9 @@ Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide (CRISP-DM 1.0：資料採礦逐步指南)](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
-[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value (巨量資料行銷：更有效地吸引您的客戶和促進價值)](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+\[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value (巨量資料行銷：更有效地吸引您的客戶和促進價值)](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] Cortana Analytics 資源庫中的 [電信公司客戶流失模型範本](http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5)
+\[5] Cortana Analytics 資源庫中的 [電信公司客戶流失模型範本](http://gallery.cortanaanalytics.com/Experiment/Telco-Customer-Churn-5)
 ##附錄
 
 ![][10]

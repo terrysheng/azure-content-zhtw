@@ -36,7 +36,7 @@
 
 ## 預存程序和 UDF 程式設計簡介
 
-這種「*以 JavaScript 做為新式 T-SQL*」的方式，可讓應用程式開發人員不必傷腦筋處理複雜的類型系統不符問題和物件關聯式對應技術。此外，它本身還有一些可加以利用以便建置豐富應用程式的優勢：
+這種「 *以 JavaScript 做為新式 T-SQL* 」的方式，可讓應用程式開發人員不必傷腦筋處理複雜的類型系統不符問題和物件關聯式對應技術。此外，它本身還有一些可加以利用以便建置豐富應用程式的優勢：
 
 -	**程序邏輯**：以 JavaScript 做為高階程式設計語言，可提供豐富且常見的介面來表示商務邏輯。您可以用更接近資料的方式執行一連串的複雜作業。
 
@@ -477,9 +477,68 @@ DocumentDB 提供作業在文件上執行或觸發的觸發程序。例如，您
 ## JavaScript Language Integrated Query API
 除了使用 DocumentDB 的 SQL 文法發出查詢，伺服器端 SDK 可讓您使用流暢的 JavaScript 介面執行最佳化查詢，不需具備任何 SQL 的知識。JavaScript 的查詢 API 使用 ECMAScript5 陣列內建和受歡迎的 JavaScript 程式庫如 lodash 所熟悉的語法，將述詞函式傳遞至可鏈結式函式呼叫，藉此以程式設計方式建立查詢。查詢是由 JavaScript 執行階段使用 DocumentDB 的索引來有效地執行剖析。
 
-> [AZURE.NOTE] `__` (雙底線) 是 `getContext().getCollection()` 的別名。<br/> 換句話說，您可以使用 `__` 或 `getContext().getCollection()` 存取 JavaScript 查詢 API。
+> [AZURE.NOTE] `__` (雙底線) 是 `getContext().getCollection()` 的別名。
+> <br/> 
+> 換句話說，您可以使用 `__` 或 `getContext().getCollection()` 存取 JavaScript 查詢 API。
 
-支援的功能包括：<ul> <li> <b>chain() ... .value([callback] [, options])</b> <ul> <li>以鏈結呼叫開頭，則必須以 value() 結束。</li> </ul> </li> <li> <b>filter(predicateFunction [, options] [, callback])</b> <ul> <li>使用述詞函式篩選輸入時，會傳回 true/false 以便將輸入文件篩選到結果集。此行為類似於 SQL 中的 WHERE 子句。</li> </ul> </li> <li> <b>map(transformationFunction [, options] [, callback])</b> <ul> <li>適用於所指定的轉換函式將每個輸入項目對應至 JavaScript 物件或值的投影。此行為類似於 SQL 中的 SELECT 子句。</li> </ul> </li> <li> <b>pluck([propertyName] [, options] [, callback])</b> <ul> <li>這是對應的捷徑，會從每個輸入項目擷取單一屬性的值。</li> </ul> </li> <li> <b>flatten([isShallow] [, options] [, callback])</b> <ul> <li>將每個輸入項目的陣列合併並壓平至單一陣列。此行為類似 LINQ 中的 SelectMany。</li> </ul> </li> <li> <b>sortBy([predicate] [, options] [, callback])</b> <ul> <li>使用指定述詞以遞增順序排序輸入文件串流中的文件，產生一組新的文件。此行為類似 SQL 中的 ORDER BY 子句。</li> </ul> </li> <li> <b>sortByDescending([predicate] [, options] [, callback])</b> <ul> <li>使用指定述詞以遞減順序排序輸入文件串流中的文件，產生一組新的文件。此行為類似 SQL 中的 ORDER BY x DESC 子句。</li> </ul> </li> </ul>
+支援的功能包括：
+<ul> 
+<li> 
+<b>chain() ... .value([callback] [, options])</b> 
+<ul> 
+<li>
+以鏈結呼叫開頭，則必須以 value() 結束。
+</li> 
+</ul> 
+</li> 
+<li> 
+<b>filter(predicateFunction [, options] [, callback])</b> 
+<ul> 
+<li>
+使用述詞函式篩選輸入時，會傳回 true/false 以便將輸入文件篩選到結果集。此行為類似於 SQL 中的 WHERE 子句。
+</li> 
+</ul> 
+</li> 
+<li> 
+<b>map(transformationFunction [, options] [, callback])</b> 
+<ul> 
+<li>
+適用於所指定的轉換函式將每個輸入項目對應至 JavaScript 物件或值的投影。此行為類似於 SQL 中的 SELECT 子句。
+</li> 
+</ul> 
+</li> 
+<li> 
+<b>pluck([propertyName] [, options] [, callback])</b> 
+<ul> 
+<li>這是對應的捷徑，會從每個輸入項目擷取單一屬性的值。
+</li> 
+</ul> 
+</li> 
+<li> 
+<b>flatten([isShallow] [, options] [, callback])</b> 
+<ul> 
+<li>
+將每個輸入項目的陣列合併並壓平至單一陣列。此行為類似 LINQ 中的 SelectMany。
+</li> 
+</ul> 
+</li> 
+<li> 
+<b>sortBy([predicate] [, options] [, callback])</b> 
+<ul> 
+<li>
+使用指定述詞以遞增順序排序輸入文件串流中的文件，產生一組新的文件。此行為類似 SQL 中的 ORDER BY 子句。
+</li> 
+</ul> 
+</li> 
+<li> 
+<b>sortByDescending([predicate] [, options] [, callback])</b>
+<ul> 
+<li>
+使用指定述詞以遞減順序排序輸入文件串流中的文件，產生一組新的文件。此行為類似 SQL 中的 ORDER BY x DESC 子句。
+</li> 
+</ul> 
+</li> 
+</ul>
 
 
 當裡面包含述詞和/或選取器函式時，下列 JavaScript 建構會自動取得最佳化，以便直接在 DocumentDB 索引上執行：

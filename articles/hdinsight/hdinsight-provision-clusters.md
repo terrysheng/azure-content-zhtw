@@ -51,7 +51,9 @@
 	
 - **作業系統**
 
-	您可以在下列其中一個作業系統上建立 HDInsight 叢集：- **Windows 上的 HDInsight (Windows Server 2012 R2 Datacenter)**：- **Linux 上的 HDInsight (Linux 版 Ubuntu 12.04 LTS)**：HDInsight 提供在 Azure 上設定 Linux 叢集的選項。如果您熟悉 Linux 或 Unix、要從現有的 Linux Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，請設定 Linux 叢集。如需詳細資訊，請參閱[開始在 Linux 上的 HDInsight 中使用 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)。
+	您可以在下列其中一個作業系統上建立 HDInsight 叢集：
+	- **Windows 上的 HDInsight (Windows Server 2012 R2 Datacenter)**：
+	- **Linux 上的 HDInsight (Linux 版 Ubuntu 12.04 LTS)**：HDInsight 提供在 Azure 上設定 Linux 叢集的選項。如果您熟悉 Linux 或 Unix、要從現有的 Linux Hadoop 方案進行移轉，或想輕鬆整合針對 Linux 所建置的 Hadoop 生態系統元件，請設定 Linux 叢集。如需詳細資訊，請參閱[開始在 Linux 上的 HDInsight 中使用 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)。
 
 - **叢集類型**和**叢集大小 (亦稱為資料節點)**
 
@@ -77,16 +79,25 @@
 
 	![HDInsight Hadoop 叢集角色](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)
 
-	HDInsight 適用的 HBase 叢集會以三種角色來部署：- 前端伺服器 (2 個節點) - 區域伺服器 (至少 1 個節點) - 主要/Zookeeper 節點 (3 個節點)
+	HDInsight 適用的 HBase 叢集會以三種角色來部署：
+	- 前端伺服器 (2 個節點)
+	- 區域伺服器 (至少 1 個節點)
+	- 主要/Zookeeper 節點 (3 個節點)
 
 	![HDInsight Hadoop 叢集角色](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)
 
-	HDInsight 適用的 Storm 叢集會以三種角色來部署：- Nimbus 伺服器 (2 個節點) - 監督員伺服器 (至少 1 個節點) - Zookeeper 節點 (3 個節點)
+	HDInsight 適用的 Storm 叢集會以三種角色來部署：
+	- Nimbus 伺服器 (2 個節點)
+	- 監督員伺服器 (至少 1 個節點)
+	- Zookeeper 節點 (3 個節點)
 
 
 	![HDInsight Hadoop 叢集角色](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)
 
-	HDInsight 適用的 Spark 叢集會以三種角色來部署：- 前端伺服器 (2 個節點) - 背景工作伺服器 (至少 1 個節點) - Zookeeper 節點 (3 個節點) (為 A1 Zookeeper 免費提供)
+	HDInsight 適用的 Spark 叢集會以三種角色來部署：
+	- 前端伺服器 (2 個節點)
+	- 背景工作伺服器 (至少 1 個節點)
+	- Zookeeper 節點 (3 個節點) (為 A1 Zookeeper 免費提供)
 
 	客戶需根據叢集的生命期，就這些節點的使用量支付費用。一旦建立叢集之後便會開始計費，而刪除叢集時便會停止計費 (無法取消配置或保留叢集)。叢集大小會影響叢集價格。為了方便學習，建議使用 1 個資料節點。如需關於 HDInsight 定價的詳細資訊，請參閱 [HDInsight 定價](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)。
 

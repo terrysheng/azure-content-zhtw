@@ -893,9 +893,18 @@ ADAL for Android 以 **UserIdentifier** 物件的形式來代表使用者。這�
  
  在名為 `ToDoActivity.java` 的**同一個檔案中**
  
- ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
+```
+    private URL getEndpointUrl() {
+        URL endpoint = null;
+        try {
+            endpoint = new URL(Constants.SERVICE_URL);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return endpoint;
+    }
 
- ```
+```
 
 
 請注意，在下列程式碼中，我們將存取權杖加入至要求：
@@ -966,7 +975,9 @@ Android 需要我們處理某些回呼來操作應用程式。這些回呼是 `c
 
 為了方便參考，您可以[在此處取得 .zip 格式](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip)的完整範例，或者從 GitHub 中複製：
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android
+```
 
 
 ### 重要資訊

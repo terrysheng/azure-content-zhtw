@@ -25,7 +25,7 @@
 若要在 Azure Active Directory (Azure AD) B2C 中使用 Facebok 做為身分識別提供者，您必須建立 Facebook 應用程式，並對其提供正確的參數。您需要 Facebook 帳戶來執行此動作。如果您沒有帳戶，您可以在 [https://www.facebook.com/](https://www.facebook.com/) 上取得。
 
 1. 前往 [Facebook for developers (開發人員專用的 Facebook)](https://developers.facebook.com/) 網站，並以您的 Facebook 帳戶認證登入。
-2. 如果您尚未這麼做，您需要註冊為 Facebook 開發人員。若要這樣做，請按一下 [註冊] (位於頁面右上角)、接受 Facebook 的原則，然後完成註冊步驟。
+2. 如果您尚未這麼做，您需要註冊為 Facebook 開發人員。若要這樣做，請按一下 [註冊] \(位於頁面右上角)、接受 Facebook 的原則，然後完成註冊步驟。
 3. 按一下 [我的 App]，然後按一下 [加入新的 App]。選擇 [網站] 做為平台，然後按一下[略過並建立應用程式識別碼]。
 
     ![Facebook - 新增 App](./media/active-directory-b2c-setup-fb-app/fb-add-new-app.png)

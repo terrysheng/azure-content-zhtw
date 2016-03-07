@@ -114,7 +114,7 @@ Azure IoT 中樞是已針對 IoT 案例最佳化的高延展性發佈/訂閱事�
 
 在要於雲端中儲存大量非結構化資料的案例中，Blob 儲存體提供具有成本效益且可擴充的解決方案。[Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)中的資料通常會被視為「靜止」的資料，但資料流分析可將其視為資料流來處理。串流分析的 Blob 儲存體輸入常見案例是記錄檔處理，這時會從系統擷取遙測，並且需要剖析和處理，以擷取有意義的資料。
 
-請務必注意，資料流分析中的 Blob 儲存體事件預設時間戳記，是上一次修改 Blob 時的時間戳記，也就是 *BlobLastModifiedUtcTime*。若要使用事件承載中的時間戳記，將資料當作資料流處理，必須使用 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 關鍵字。
+請務必注意，資料流分析中的 Blob 儲存體事件預設時間戳記，是上一次修改 Blob 時的時間戳記，也就是 *BlobLastModifiedUtcTime* 。若要使用事件承載中的時間戳記，將資料當作資料流處理，必須使用 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 關鍵字。
 
 > [AZURE.NOTE] 串流分析不支援將內容加入現有的 blob。串流分析只會檢視 blob 一次，在此讀取之後所做的變更將不會再處理。最佳作法是一次上傳所有資料，並且不要將任何其他事件加入至 blob 存放區。
 

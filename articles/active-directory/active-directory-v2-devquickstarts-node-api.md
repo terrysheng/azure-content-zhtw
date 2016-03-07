@@ -645,7 +645,8 @@ consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 
 然後，變更目錄並啟動 curling...
 
-`$ cd azuread` `$ node server.js`
+`$ cd azuread`
+`$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
@@ -850,6 +851,8 @@ Transfer-Encoding: chunked
 
 [使用 v2.0 端點保護 Node.js Web 應用程式 >>](active-directory-v2-devquickstarts-node-web.md)
 
-如需其他資源，請查看： - [《v2.0 開發人員指南》>>](active-directory-appmodel-v2-overview.md) - [StackOverflow「azure-active-directory」標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+如需其他資源，請查看：
+ - [《v2.0 開發人員指南》>>](active-directory-appmodel-v2-overview.md)
+ - [StackOverflow「azure-active-directory」標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 <!---HONumber=AcomDC_0224_2016-->

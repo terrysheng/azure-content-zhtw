@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/07/2015"
+	ms.date="02/29/2016"
 	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中建立 ASP.NET Web 應用程式
@@ -79,7 +79,7 @@
 
 3. 確定已選取 [.NET Framework 4.5.2] 來做為目標架構。
 
-4.  [Azure Application Insights](app-insights-overview.md) 會監視您 Web 應用程式的可用性、效能和使用情形。如果您不想嘗試這功能，請清除 [將 Application Insights 加入專案] 核取方塊。
+4.  [Azure Application Insights](../application-insights/app-insights-overview.md) 會監視您 Web 應用程式的可用性、效能和使用情形。如果您不想嘗試這功能，請清除 [將 Application Insights 加入專案] 核取方塊。
 
 4. 將應用程式命名為 **MyExample**。
 
@@ -275,7 +275,7 @@
 
 	Visual Studio 也可產生您可以用來將部署自動化的 Windows PowerShell 指令碼。如需詳細資訊，請參閱[自動化各個項目 (使用 Azure 建置真實世界的雲端應用程式)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything) (英文)。
 
-* 如何疑難排解 Web 應用程式
+* 如何針對 Web 應用程式進行疑難排解
 
 	Visual Studio 提供的功能，讓您能輕鬆檢視即時產生的 Azure 記錄。您也可以在 Azure 中遠端執行偵錯模式。如需詳細資訊，請參閱[在 Visual Studio 中疑難排解 Azure Web 應用程式](web-sites-dotnet-troubleshoot-visual-studio.md)。
 
@@ -301,4 +301,4 @@
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱 [Azure App Service 及現有的 Azure 服務](http://go.microsoft.com/fwlink/?LinkId=529714)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

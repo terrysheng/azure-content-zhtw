@@ -12,7 +12,7 @@
 	ms.workload="identity"
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/17/2016"
 	ms.author="brandwe"/>
 
@@ -881,4 +881,4 @@ Transfer-Encoding: chunked
 
 [使用 iOS 搭配 B2C 連線至 Web API](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

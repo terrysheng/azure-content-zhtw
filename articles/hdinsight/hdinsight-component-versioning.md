@@ -13,8 +13,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.topic="get-started-article"
+	ms.date="02/29/2016"
 	ms.author="jgao"/>
 
 
@@ -38,7 +38,7 @@ Apache Zookeeper|3\.4.6|3\.4.6|3\.4.5|3\.4.5|
 Apache Storm|0\.10.0|0\.9.3|0\.9.1||
 Apache Mahout|0\.9.0+|0\.9.0|0\.9.0||
 Apache Phoenix|4\.4.0|4\.2.0|4\.0.0.2.1.7.0-2162||
-Apache Spark|1\.3.1|1\.3.1|||
+Apache Spark|1\.5.2 (僅限 Linux/實驗性組建)|1\.3.1 (僅限 Windows)|||
 
 
 **取得目前的元件版本資訊**
@@ -123,7 +123,7 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 
 [**淘汰日期**] 是指在此日期之後便無法在 HDInsight 上建立叢集版本。
 
-> [AZURE.NOTE]HDInsight 2.1 和 3.0 叢集可在使用 Windows Server 2012 R2 64 位元版本並支援 .NET Framework 4.0、4.5 和 4.5.1 的 Azure 客體 OS [Family 4](../cloud-services-guestos-update-matrix.md) 上執行。
+> [AZURE.NOTE] HDInsight 2.1 和 3.0 叢集可在使用 Windows Server 2012 R2 64 位元版本並支援 .NET Framework 4.0、4.5 和 4.5.1 的 Azure 客體 OS [Family 4](../cloud-services/cloud-services-guestos-update-matrix.md) 上執行。
 
 ## 與 HDInsight 版本相關聯的 Hortonworks 版本資訊##
 
@@ -167,4 +167,4 @@ SLA 是根據「支援期間」來定義。「支援期間」是指 Microsoft �
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0302_2016-->

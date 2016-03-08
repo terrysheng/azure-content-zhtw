@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/18/2016"
+	ms.date="03/01/2016"
 	ms.author="awills"/>
 
 
@@ -147,16 +147,14 @@ Visual Studio Application Insights 的狀態監視器可讓您診斷 ASP.NET 應
 
 + 遙測 - 永遠需要這些項目：
  +	`dc.services.visualstudio.com:80`
- +	`f5.services.visualstudio.com:80`
  +	`dc.services.visualstudio.com:443`
- +	`f5.services.visualstudio.com:443`
- +	`dc.services.vsallin.net:443`
+ +	`dc.applicationinsights.microsoft.com`
 + 組態 - 進行變更時才需要：
  -	`management.core.windows.net:443`
  -	`management.azure.com:443`
  -	`login.windows.net:443`
  -	`login.microsoftonline.com:443`
- -	`secure.aadcdn.microsoftonline-p.com:443`
+ -	`secure.addcdn.microsoftonline-p.com:443`
  -	`auth.gfx.ms:443`
  -	`login.live.com:443`
 + 安裝：
@@ -221,4 +219,4 @@ IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

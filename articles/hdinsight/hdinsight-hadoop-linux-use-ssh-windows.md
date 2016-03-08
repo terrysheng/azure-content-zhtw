@@ -11,7 +11,7 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="01/22/2016"
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-- [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+- [Linux、Unix、OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [安全殼層 (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) 可讓您使用命令列介面在以 Linux 為基礎的 HDInsight 叢集上遠端執行作業。本文提供從以 Windows 為基礎的用戶端使用 PuTTY SSH 用戶端連接到 HDInsight 的資訊。
 
@@ -229,4 +229,4 @@ SSH 可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDInsi
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

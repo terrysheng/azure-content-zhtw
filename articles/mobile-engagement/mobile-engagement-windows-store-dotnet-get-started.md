@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 # 開始使用適用於 Windows 通用 App 的 Azure Mobile Engagement
 
 > [AZURE.SELECTOR]
-- [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
+- [通用 Windows](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
 - [iOS | Obj C](mobile-engagement-ios-get-started.md)
 - [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
@@ -135,8 +135,7 @@
 
 ##<a id="integrate-push"></a>啟用推播通知與 App 內傳訊
 
-Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活動進行時與使用者互動和觸達。此模組在 Mobile Engagement 入口網站中稱為觸達 (REACH)。
-以下各節將設定您的用程式來接收它們。
+Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活動進行時與使用者互動和觸達。此模組在 Mobile Engagement 入口網站中稱為觸達 (REACH)。以下各節將設定您的用程式來接收它們。
 
 ###啟用您的應用程式接收 WNS 推播通知
 
@@ -216,4 +215,4 @@ Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活�
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

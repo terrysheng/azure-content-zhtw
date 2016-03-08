@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/20/2015"
+   ms.date="02/26/2016"
    ms.author="seanmck"/>
 
 # 在您的本機叢集上開始部署和升級應用程式
@@ -117,6 +117,10 @@ Service Fabric SDK 包含一組豐富的架構以及用來建立應用程式的�
 
 3. 最後，看看 WordCountService 的資料分割清單：
 
+    ```powershell
+    Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
+    ```
+
     ![在 PowerShell 中檢視服務資料分割][ps-getsfpartitions]
 
     您剛使用的命令集 (例如所有的 Service Fabric PowerShell 命令) 適用於任何您可能連接的叢集 (本機或遠端)。
@@ -186,4 +190,4 @@ Service Fabric 會在應用程式推展於叢集時監視其健康狀態，進�
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

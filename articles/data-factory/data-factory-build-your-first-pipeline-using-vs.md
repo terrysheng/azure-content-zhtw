@@ -18,11 +18,11 @@
 
 # 開始使用 Azure Data Factory (Visual Studio)
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [教學課程概觀](data-factory-build-your-first-pipeline.md)
+- [使用 Data Factory 編輯器](data-factory-build-your-first-pipeline-using-editor.md)
+- [使用 PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [使用 Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [使用資源管理員範本](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 在本文中，您將了解如何使用 Microsoft Visual Studio 來建立您的第一個 Azure Data Factory。
@@ -116,7 +116,7 @@
 #### 建立輸入資料集
 
 1. 以滑鼠右鍵按一下 [方案總管] 中的 [資料表]，指向 [加入]，然後按一下 [新增項目]。 
-2. 從清單中選取 [Azure Blob]，將檔案名稱變更為 **OutputDataset.json**，再按一下 [加入]。
+2. 從清單中選取 [Azure Blob]，將檔案名稱變更為 **InputDataSet.json**，再按一下 [加入]。
 3. 使用下列文字取代編輯器中的 **JSON**： 
 
 	在 JSON 程式碼片段中，您會建立名為 **AzureBlobInput** 的資料集，代表管線中活動的輸入資料。此外，您指定將輸入資料放在名為 **adfgetstarted** 的 Blob 容器及名為 **inputdata** 的資料夾中
@@ -291,12 +291,11 @@
 ## 步驟 4：監視管線
 
 6. 登入 [Azure 入口網站](https://portal.azure.com/)，執行下列動作。
-	1. 按一下 [瀏覽]，選取 [資料處理站]。
-		![瀏覽 Data Factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
+	1. 按一下 [瀏覽]，選取 [資料處理站]。![瀏覽 Data Factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
 	2. 從 Data Factory 清單中選取 **FirstDataFactoryUsingVS**。 
 7. 在您 Data Factory 的首頁中，按一下 [圖表]。
   
-	![[圖表] 磚](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
+	![[圖表] 圖格](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
 7. 在 [圖表檢視] 中，您會看到管線的概觀，以及在本教學課程中使用的資料集。
 	
 	![圖表檢視](./media/data-factory-build-your-first-pipeline-using-vs/diagram-view-2.png) 
@@ -364,7 +363,7 @@
 藉由執行下列步驟來新增每個環境的組態檔：
 
 1. 在 Visual Studio 解決方案中以滑鼠右鍵按一下 Data Factory 專案，指向 [新增]，然後按一下 [新增項目]。
-2. 從左側的已安裝範本中選取 [設定]，選取 [組態檔]，輸入組態檔的 [名稱]，然後按一下 [新增]。
+2. 從左側的已安裝範本中選取 [組態]，選取 [組態檔]，輸入組態檔的 [名稱]，然後按一下 [新增]。
 
 	![新增組態檔](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
 3. 以下列格式新增組態參數和其值：
@@ -449,4 +448,4 @@
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，含有轉換活動 (HDInsight 活動) 的管線。若要了解如何使用「複製活動」從 Azure Blob 將資料複製到 Azure SQL，請參閱[教學課程：從 Azure Blob 將資料複製到 Azure SQL](data-factory-get-started.md)。
   
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

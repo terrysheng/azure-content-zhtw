@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="11/04/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 Kindle 應用程式的通知中樞
@@ -74,7 +74,7 @@
 
 ## 設定您的應用程式
 
-> [AZURE.NOTE]建立應用程式時，至少應使用 API 層級 17。
+> [AZURE.NOTE] 建立應用程式時，至少應使用 API 層級 17。
 
 將 ADM 程式庫新增至您的 Eclipse 專案：
 
@@ -251,7 +251,7 @@
 2. 在模擬器中從頂端撥動，然後按一下 [Settings]，再按一下 [My account]，然後使用有效的 Amazon 帳戶進行註冊。
 3. 在 Eclipse 中執行應用程式。
 
-> [AZURE.NOTE]如果發生問題，請檢查模擬器 (或裝置) 的時間。時間值必須是正確的。若要變更 Kindle 模擬器的時間，您可以從 Android SDK platform-tools 目錄執行下列命令：
+> [AZURE.NOTE] 如果發生問題，請檢查模擬器 (或裝置) 的時間。時間值必須是正確的。若要變更 Kindle 模擬器的時間，您可以從 Android SDK platform-tools 目錄執行下列命令：
 
 		adb shell  date -s "yyyymmdd.hhmmss"
 
@@ -281,4 +281,4 @@
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

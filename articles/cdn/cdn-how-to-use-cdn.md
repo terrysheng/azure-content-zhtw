@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="如何使用 CDN |Microsoft Azure" 
-	description="了解如何使用 Azure 內容傳遞網路 (CDN) 來快取 Blob 和靜態內容，以傳遞高頻寬內容。" 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="如何使用 CDN |Microsoft Azure"
+	description="了解如何使用 Azure 內容傳遞網路 (CDN) 來快取 Blob 和靜態內容，以傳遞高頻寬內容。"
+	services="cdn"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="01/20/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/25/2016"
 	ms.author="casoper"/>
 
 
@@ -27,20 +27,20 @@ Azure 內容傳遞網路 (CDN) 是在 Azure 中調整任何 HTTP 應用程式的
 - 大型的分散式規模，可更妥善地處理瞬間大量負載，例如產品上市等活動的開頭。
 - 透過分散使用者要求，以及從全域邊緣 POP 放送內容，傳送至原始來源的流量將會減少。
 
->[AZURE.TIP]Azure CDN 可以從各種不同的原始來源散布內容。Azure 中的整合式原始來源包含 App Service、雲端服務、Blob 儲存體，以及媒體服務。您也可以使用任何可公開存取的網址，來定義自訂的原始來源。
+>[AZURE.TIP] Azure CDN 可以從各種不同的原始來源散布內容。Azure 中的整合式原始來源包含 App Service、雲端服務、Blob 儲存體，以及媒體服務。您也可以使用任何可公開存取的網址，來定義自訂的原始來源。
 
 ##如何啟用 CDN
 
 1. 建立其端點指向您原始來源的 CDN 設定檔
 
 	CDN 設定檔就是 CDN 端點的集合。每個設定檔都有至少一個 CDN 端點。當您建立 CDN 設定檔之後，就能建立使用您所選原始來源的新 CDN 端點。
-	
-	>[AZURE.NOTE]依預設，一個 Azure 訂用帳戶只能擁有四個 CDN 設定檔，而每個 CDN 設定檔則只能擁有十個 CDN 端點。
+
+	>[AZURE.NOTE] 依預設，一個 Azure 訂用帳戶只能擁有四個 CDN 設定檔，而每個 CDN 設定檔則只能擁有十個 CDN 端點。
 	>
 	> CDN 定價是根據 CDN 設定檔層級來套用的。如果您想要混合使用標準和進階的 CDN 功能，就需要擁有多個 CDN 設定檔。
-	
+
 	如需建立 CDN 設定檔和端點的詳細教學課程，請參閱「[如何啟用 Azure 內容傳遞網路](cdn-create-new-endpoint.md)」。
-	
+
 2. 設定您的 CDN 組態
 
 	您可以為 CDN 端點啟用一些功能，例如[快取原則](cdn-caching-policy.md)、[查詢字串快取](cdn-query-string.md)、[規則引擎](cdn-rules-engine.md)等。如需詳細資訊，請參閱左邊的 [管理] 功能表。
@@ -55,10 +55,12 @@ Azure 內容傳遞網路 (CDN) 是在 Azure 中調整任何 HTTP 應用程式的
 
 為了達到最佳效能，請使用 CDN 邊緣快取來傳遞大小小於 10 GB 的 Blob。
 
-當您啟用儲存體帳戶的 CDN 存取時，管理入口網站會以下列格式提供 CDN 網域名稱：`http://<identifier>.azureedge.net/`。此網域名稱可用來從網站擷取物件。例如，如果提供名稱為 cdn 的公用容器和稱為 music.png 的影像檔，則使用者可以使用下列兩個 URL 中的任何一個來存取物件：
+當您啟用儲存體帳戶的 CDN 存取時，管理入口網站會以下列格式提供 CDN 網域名稱：`http://<identifier>.azureedge.net/`。此網域名稱可用來從網站擷取物件。例如，如果提供公用容器，則使用者可以使用下列兩個 URL 中的任何一個來存取該容器中的 Blob：
 
-- **Azure Blob 服務 URL**：`http://myAccount.blob.core.windows.net/music/` 
-- **Azure CDN URL**：`http://<identifier>.azureedge.net/music/` 
+- **Azure Blob 服務 URL**：`http://<account>.blob.core.windows.net/<container>/`
+- **Azure CDN URL**：`http://<identifier>.azureedge.net/<container>/`
+
+> [AZURE.TIP] 在上述範例中，我們已指出位於*整個*儲存體帳戶的 CDN 端點。因此，CDN URL 必須在 URL 中包括容器。您可以使用**原始路徑**參數將根 CDN URL 指向特定容器。
 
 ## 從 Azure 網站快取內容
 
@@ -66,9 +68,9 @@ Azure 內容傳遞網路 (CDN) 是在 Azure 中調整任何 HTTP 應用程式的
 
 當您啟用網站的 CDN 存取時，管理入口網站會以下列格式提供 CDN 網域名稱：`http://<identifier>.azureedge.net/`。此網域名稱可用來從網站擷取物件。例如，如果提供名稱為 cdn 的公用容器和稱為 music.png 的影像檔，則使用者可以使用下列兩個 URL 中的任何一個來存取物件：
 
-- **Azure 網站 URL**：`http://mySiteName.azurewebsites.net/cdn/music.png` 
+- **Azure 網站 URL**：`http://mySiteName.azurewebsites.net/cdn/music.png`
 - **Azure CDN URL**：`http://<identifier>.azureedge.net/cdn/music.png`
- 
+
 ## 從 Azure 雲端服務快取內容
 
 您可以將 Azure 雲端服務所提供的物件快取至 CDN。
@@ -78,7 +80,7 @@ Azure 內容傳遞網路 (CDN) 是在 Azure 中調整任何 HTTP 應用程式的
 
 - CDN 只應該用來快取靜態內容。
 
-	>[AZURE.WARNING]快取高易變性或真正動態內容可能會對效能造成不良影響，或導致內容問題，而這些都會增加成本。
+	>[AZURE.WARNING] 快取高易變性或真正動態內容可能會對效能造成不良影響，或導致內容問題，而這些都會增加成本。
 - 您的雲端服務必須部署至生產部署中。
 - 您的雲端服務必須使用 HTTP 在連接埠 80 上提供物件。
 - 雲端服務必須在雲端服務的 /cdn 資料夾中放置要快取的內容，或從中傳遞內容。
@@ -86,8 +88,8 @@ Azure 內容傳遞網路 (CDN) 是在 Azure 中調整任何 HTTP 應用程式的
 當您啟用雲端服務的 CDN 存取時，管理入口網站會以下列格式提供 CDN 網域名稱：`http://<identifier>.azureedge.net/`。此網域名稱可用來從雲端服務擷取物件。例如，如果提供名稱為 myHostedService 的雲端服務以及稱為 music.aspx 並傳遞內容的 ASP.NET 網頁，則使用者可以使用下列兩個 URL 中的任何一個來存取物件：
 
 
-- **Azure 雲端服務 URL**：`http://myHostedService.cloudapp.net/music.aspx` 
-- **Azure CDN URL**：`http://<identifier>.azureedge.net/music.aspx` 
+- **Azure 雲端服務 URL**：`http://myHostedService.cloudapp.net/music.aspx`
+- **Azure CDN URL**：`http://<identifier>.azureedge.net/music.aspx`
 
 ## 快取自訂原始來源的內容
 
@@ -97,14 +99,14 @@ Azure 內容傳遞網路 (CDN) 是在 Azure 中調整任何 HTTP 應用程式的
 
 - CDN 只應該用來快取靜態內容。
 
-	>[AZURE.WARNING]快取高易變性或真正動態內容可能會對效能造成不良影響，或導致內容問題，而這些都會增加成本。
+	>[AZURE.WARNING] 快取高易變性或真正動態內容可能會對效能造成不良影響，或導致內容問題，而這些都會增加成本。
 - 自訂原始來源的內容必須裝載在擁有公用 IP 位址的伺服器上。CDN 邊緣節點無法從防火牆後方的內部網路伺服器擷取資產。
 
 當您啟用自訂原始來源的 CDN 存取時，Azure 入口網站會以下列格式提供 CDN 網域名稱：`http://<identifier>.azureedge.net/`。此網域名稱可用來從自訂原始來源擷取物件。例如，假設有個位於 www.contoso.com 的網站，其中有個稱為 music.aspx 的 ASP.NET 網頁會傳遞內容，則使用者可使用下列其中一個 URL 來存取物件：
 
 
-- **自訂原始內容 URL**：`http://www.contoso.com/music.aspx` 
-- **Azure CDN URL**：`http://<identifier>.azureedge.net/music.aspx` 
+- **自訂原始內容 URL**：`http://www.contoso.com/music.aspx`
+- **Azure CDN URL**：`http://<identifier>.azureedge.net/music.aspx`
 
 ## 使用查詢字串快取特定內容
 
@@ -147,4 +149,4 @@ Azure 可讓您使用 HTTPS 呼叫從 CDN 擷取內容。這可讓您將 CDN 中
 - [清除 Azure CDN 端點](cdn-purge-endpoint.md)
 - [CDN 資源提供者 REST API](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

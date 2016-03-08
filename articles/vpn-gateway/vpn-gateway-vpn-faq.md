@@ -9,7 +9,7 @@
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="11/16/2015"
@@ -267,4 +267,4 @@ VPN 閘道基本上是一個多重主目錄的裝置，擁有一個使用客戶�
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="ASP.NET 的 Application Insights" 
-	description="透過使用 Application Insights 來分析您內部部署或 Microsoft Azure Web 應用程式的效能、可用性與使用模式。" 
+	pageTitle="使用 Application Insights 的 ASP.NET Web 應用程式分析" 
+	description="裝載在內部部署環境或 Azure 之 ASP.NET 網站的效能、可用性及流量分析。" 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -11,8 +11,8 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.topic="get-started-article" 
+	ms.date="02/28/2016" 
 	ms.author="awills"/>
 
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網站，您可以在此登入並查看應用程式效能和使用量的圖表。
+Application Insights SDK 會從 Web 應用程式傳送分析遙測至 Azure 入口網站，您可以在此登入並查看應用程式效能和使用量的圖表。
 
 ![範例效能監視圖表](./media/app-insights-asp-net/10-perf.png)
 
@@ -68,13 +68,13 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 2. 在 [Azure 入口網站][portal]中建立 Application Insights 資源。這是您會看到您的資料的位置。它會擷取可識別資源的「檢測金鑰」。
 3. 在 `ApplicationInsights.config` 中插入檢測金鑰，讓 SDK 可以將遙測傳送至入口網站。
 
-如果您一開始未登入 Azure，將會安裝 SDK，而不將它連接至資源。您可以在偵錯時在 Visual Studio 診斷中樞查看及搜尋 Application Insights 遙測。您可以稍後再完成其他步驟。
+如果您一開始未登入 Azure，將會安裝 SDK，而不將它連接至資源。您可以在偵錯時，於 Visual Studio 搜尋視窗中查看及搜尋 Application Insights 遙測。您可以稍後再完成其他步驟。
 
 ## <a name="run"></a>執行專案
 
 利用 F5 執行應用程式並立即試用：開啟不同的頁面來產生一些遙測。
 
-在 Visual Studio 中，您可以看見已傳送到的事件計數。
+在 Visual Studio 中，您可以看見已記錄的事件計數。
 
 ![在 Visual Studio 中，[Application Insights] 按鈕會在偵錯期間顯示。](./media/app-insights-asp-net/appinsights-09eventcount.png)
 
@@ -83,7 +83,7 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
 ### 診斷搜尋
 
-[搜尋] 視窗會顯示已傳送至 Application Insights 入口網站的事件。(入口網站中沒有對等的搜尋功能。)
+[搜尋] 視窗會顯示已記錄的事件。(如果您在設定 Application Insights 時登入至 Azure，就能夠在入口網站搜尋相同的事件。)
 
 ![以滑鼠右鍵按一下專案，然後選擇 [Application Insights]、[搜尋]](./media/app-insights-asp-net/34.png)
 
@@ -105,6 +105,8 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 在 [Azure 入口網站][portal]中開啟 Application Insights 資源。
 
 ![Right-click your project and open the Azure portal](./media/app-insights-asp-net/appinsights-04-openPortal.png)
+
+如果您沒有在將 Application Insights 加入此應用程式時登入 Azure，請立即登入。選取 [設定 Application Insights]。這樣做可讓您在部署應用程式後，繼續從上線的應用程式查看遙測。遙測會出現在 Application Insights 入口網站。
 
 ### 度量：彙總資料
 
@@ -212,4 +214,4 @@ Application Insights SDK 會從 Web 應用程式傳送遙測至 Azure 入口網�
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

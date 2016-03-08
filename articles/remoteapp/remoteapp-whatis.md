@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/04/2015" 
+	ms.date="02/19/2016" 
 	ms.author="elizapo"/>
 
 # 什麼是 Azure RemoteApp？
@@ -80,4 +80,4 @@ Windows 和 Windows RT 的 RemoteApp 用戶端應用程式以及 Mac、iOS 和 A
 ### 幫我們來協助您 
 您知道除了評比這篇文章以及在下面留言以外，您可以變更文件本身嗎？ 有所遺漏？ 有所錯誤？ 我是否撰寫了令人混淆的內容？ 向上捲動並按一下 [在 GitHub 上編輯] 以進行變更 - 系統會顯示這些變更以供我們檢閱，而我們簽核後，您就會在這裡看到您所進行的變更和改良。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

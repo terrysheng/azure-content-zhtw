@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="02/22/2016"
 	ms.author="bradygaster"/>
 
 # 在 Azure App Service 中建置和部署 Java API 應用程式
@@ -195,14 +195,14 @@
             }
   
             @Override
-            public Response contactsGet()
+            public Response contactsGet(SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 return Response.ok().entity(list).build();
                 }
   
             @Override
-            public Response contactsGetById(Integer id)
+            public Response contactsGetById(Integer id, SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 Contact ret = null;
@@ -295,4 +295,4 @@
 
 如需有關在 Azure 中使用 Java 的詳細資訊，請參閱 [ 開發人員中心](/develop/java/)。
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

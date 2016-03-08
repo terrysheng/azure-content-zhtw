@@ -14,7 +14,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/29/2016"
 	ms.author="jgao"/>
 
@@ -300,4 +300,4 @@ URI 配置提供未加密存取 (使用*wasb:* 首碼) 和 SSL 加密存取 (使
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

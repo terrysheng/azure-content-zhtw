@@ -3,7 +3,7 @@
    description="描述設定 Azure 自動化以進行初次使用時必須執行的步驟。"
    services="automation"
    documentationCenter=""
-   authors="SnehaGunda"
+   authors="MGoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # 設定 Azure 自動化
@@ -94,4 +94,4 @@
 - [Azure 自動化：使用 Azure Active Directory 對 Azure 進行驗證](https://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

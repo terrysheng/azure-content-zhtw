@@ -12,22 +12,24 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# 教學課程：使用 Azure PowerShell 建立和監視 Data Factory
+# 教學課程：使用 Azure PowerShell 建立具有複製活動的管線
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [教學課程概觀](data-factory-get-started.md)
+- [使用 Data Factory 編輯器](data-factory-get-started-using-editor.md)
+- [使用 Visual Studio](data-factory-get-started-using-vs.md)
+- [使用 PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 
-[開始使用 Azure Data Factory][adf-get-started] 教學課程會示範如何使用 [Azure 入口網站][azure-portal]建立和監視 Azure Data Factory。在本教學課程中，您將使用 Azure PowerShell Cmdlet 來建立和監視 Azure Data Factory。在本教學課程中，您於 Data Factory 中建立的管線會將資料從 Azure Blob 複製到 Azure SQL Database。
+[開始使用 Azure Data Factory][adf-get-started] 教學課程會示範如何使用 [Azure 入口網站][azure-portal]建立和監視 Azure Data Factory。在本教學課程中，您將使用 Azure PowerShell Cmdlet 來建立和監視 Azure Data Factory。在本教學課程中，您於 Data Factory 中建立的管線會使用複製活動將資料從 Azure Blob 複製到 Azure SQL Database。
+
+複製活動會在 Azure Data Factory 中執行資料移動，而此活動是由全域可用的服務所提供，可以使用安全、可靠及可調整的方式，在各種不同的資料存放區之間複製資料。如需複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。
 
 > [AZURE.IMPORTANT] 
-執行本教學課程之前，請先閱讀[教學課程概觀](data-factory-get-started.md)一文並完成必要條件步驟。
+請檢閱[教學課程概觀](data-factory-get-started.md)文章，並在執行本教學課程之前完成必要的步驟。
 >   
 > 這篇文章並未涵蓋所有的 Data Factory Cmdlet。如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考](https://msdn.microsoft.com/library/dn820234.aspx)。
   
@@ -57,7 +59,7 @@
 [步驟 4：建立和執行管線](#CreateAndRunAPipeline) | 在此步驟中，您將在 Data Factory **ADFTutorialDataFactoryPSH** 中建立名為 **ADFTutorialPipeline** 的管線。此管線的複製活動會將資料從 Azure Blob 複製到輸出 Azure 資料庫資料表。
 [步驟 5：監視資料集和管線](#MonitorDataSetsAndPipeline) | 在此步驟中，您將使用 Azure PowerShell 來監視資料集和管線。
 
-## <a name="CreateDataFactory"></a> 步驟 1：建立 Azure Data Factory
+## <a name="CreateDataFactory"></a>步驟 1：建立 Azure Data Factory
 在此步驟中，您會使用 Azure PowerShell 建立名為 **ADFTutorialDataFactoryPSH** 的 Azure Data Factory。
 
 1. 開啟 Azure PowerShell 並執行下列命令。將 Azure PowerShell 維持在開啟狀態，直到本教學課程結束為止。如果您關閉並重新開啟，則需要再次執行這些命令。
@@ -422,6 +424,8 @@
 
 如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考][cmdlet-reference]。
 
+## 另請參閱
+如需 Azure Data Factory 中**複製活動**的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。
 
 
 [adf-tutorial]: data-factory-tutorial.md
@@ -443,4 +447,4 @@
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

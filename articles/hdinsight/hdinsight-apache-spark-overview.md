@@ -13,7 +13,7 @@
 	ms.workload="big-data" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/05/2016" 
 	ms.author="nitinme"/>
 
@@ -124,4 +124,4 @@ HDInsight 中的 Spark 也提供 [ODBC 驅動程式](http://go.microsoft.com/fwl
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

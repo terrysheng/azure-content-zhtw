@@ -10,10 +10,10 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/14/2016"
+   ms.date="02/25/2016"
    ms.author="edmaca"/>
 
 # 教學課程：透過 .NET SDK 開始使用 Azure 資料湖分析
@@ -373,4 +373,4 @@
 - 針對管理工作，請參閱[使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)。
 - 若要取得資料湖分析概觀，請參閱 [Azure 資料湖分析概觀](data-lake-analytics-overview.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

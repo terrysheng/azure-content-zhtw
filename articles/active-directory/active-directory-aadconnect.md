@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/16/2016"
+	ms.date="02/29/2016"
 	ms.author="andkjell;billmath"/>
 
 # 整合內部部署身分識別與 Azure Active Directory
@@ -49,11 +49,11 @@ Azure Active Directory Connect 由三個主要部分組成。它們是同步處�
 
 | 方案 | 案例 |
 | ----- | ----- |
-| 開始之前 | <li>[Azure AD Connect：硬體和必要條件](active-directory-aadconnect-prerequisites.md)</li> |
+| 開始之前 - [硬體和必要條件](active-directory-aadconnect-prerequisites.md) | <li>開始安裝 Azure AD Connect 之前所應完成的步驟。</li> |
 | [快速設定](active-directory-aadconnect-get-started-express.md) | <li>如果您有單一樹系 AD 時的建議和預設選項。</li> <li>使用密碼同步處理以相同的密碼進行使用者登入。</li>
 | [自訂設定](active-directory-aadconnect-get-started-custom.md) | <li>有多個樹系時使用。支援許多內部部署[拓撲](active-directory-aadconnect-topologies.md)。</li> <li>自訂您登入的選項，例如同盟的 ADFS 或使用第三方身分識別提供者。</li> <li>自訂同步處理功能，例如篩選和回寫。</li>
 | [從 DirSync 升級](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>如果您有已在執行中的現有 DirSync 伺服器。</li>
-| 從 Azure AD Sync 升級 | <li>這是完美的就地升級。</li>
+| [從 Azure AD Sync 或 Azure AD Connect 升級](active-directory-aadconnect-upgrade-previous-version.md)| <li>視您的偏好而定會有數種不同的方法。</li>
 
 
 [安裝後](active-directory-aadconnect-whats-next.md)，您應該確認它是依照預期方式運作，並將授權指派給使用者。
@@ -131,7 +131,7 @@ Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預
 | 主題 | |
 | --------- | --------- |
 | 版本歷程記錄 | [版本歷程記錄](active-directory-aadconnect-version-history.md) |
-| 比較 DirSync、Azure ADSync 和 Azure AD Connect | [目錄整合工具比較](active-directory-aadconnect-get-started-tools-comparison.md) |
+| 比較 DirSync、Azure ADSync 和 Azure AD Connect | [目錄整合工具比較](active-directory-hybrid-identity-design-considerations-tools-comparison.md) |
 | 同步處理的屬性 | [同步處理的屬性](active-directory-aadconnectsync-attributes-synchronized.md) |
 | 使用 Azure AD Connect Health 進行監控 | [Azure AD Connect Health](active-directory-aadconnect-health.md) |
 | 常見問題集 | [Azure AD Connect 常見問題集](active-directory-aadconnect-faq.md) |
@@ -144,4 +144,4 @@ Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

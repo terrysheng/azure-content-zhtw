@@ -19,11 +19,11 @@
 
 # 使用 .NET 將資料匯入至 Azure 搜尋服務
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
-- [Portal](search-import-data-portal.md)
+- [概觀](search-what-is-data-import.md)
+- [入口網站](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [索引子](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
 本文將說明如何使用 [Azure 搜尋服務 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) 填入索引。以下內容屬於[如何從 .NET 應用程式使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)的一部分。請參閱上層文章中的端對端步驟。
 
@@ -98,7 +98,7 @@
 
         try
         {
-            var batch = IndexBatch.Upload(sitecoreItems);
+            var batch = IndexBatch.Upload(documents);
             indexClient.Documents.Index(batch);
         }
         catch (IndexBatchException e)
@@ -125,4 +125,4 @@
 
 最後，方法會延遲兩秒。您的 Azure 搜尋服務中會發生非同步索引編製，因此範例應用程式必須稍待一會，才能確定文件已準備好可供搜尋。通常只有在示範、測試和範例應用程式中，才需要這類延遲。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

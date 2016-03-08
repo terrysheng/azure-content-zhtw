@@ -12,16 +12,16 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # 教學課程：使用 Data Factory 編輯器建立具有複製活動的管線
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [教學課程概觀](data-factory-get-started.md)
+- [使用 Data Factory 編輯器](data-factory-get-started-using-editor.md)
+- [使用 Visual Studio](data-factory-get-started-using-vs.md)
+- [使用 PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 
 
@@ -33,11 +33,13 @@
 [步驟 1：建立 Azure Data Factory](#CreateDataFactory) | 在此步驟中，您將建立名為 **ADFTutorialDataFactory** 的 Azure Data Factory。  
 [步驟 2：建立連結服務](#CreateLinkedServices) | 在此步驟中，您將建立兩個連結服務：**StorageLinkedService** 和 **AzureSqlLinkedService**。StorageLinkedService 會連結 Azure 儲存體，而 AzureSqlLinkedService 會將 Azure SQL Database 連結至 ADFTutorialDataFactory。管線的輸入資料位於 Azure Blob 儲存體的 Blob 容器中，輸出資料則儲存在 Azure SQL Database 的資料表中。因此，您可以將這兩個資料存放區以連結服務的形式新增至 Data Factory。      
 [步驟 3：建立輸入和輸出資料表](#CreateInputAndOutputDataSets) | 在上一個步驟中，您所建立的連結服務參照含有輸入/輸出資料的資料存放區。在此步驟中，您將定義兩個 Data Factory 資料表：**EmpTableFromBlob** 和 **EmpSQLTable**，它們分別代表儲存在資料存放區的輸入/輸出資料。您將針對 EmpTableFromBlob，指定所含 Blob 具有來源資料的 Blob 容器，而針對 EmpSQLTable 指定可儲存輸出資料的 SQL 資料表。您也將指定其他屬性 (例如資料結構、資料可用性等)。 
-[步驟 4：建立和執行管線](#CreateAndRunAPipeline) | 在此步驟中，您將在 ADFTutorialDataFactory 中建立名為 **ADFTutorialPipeline** 的管線。管線會有一個複製活動，將輸入資料從 Azure Blob 複製到輸出 Azure SQL 資料表。
+[步驟 4：建立和執行管線](#CreateAndRunAPipeline) | 在此步驟中，您將在 ADFTutorialDataFactory 中建立名為 **ADFTutorialPipeline** 的管線。管線會有一個複製活動，將輸入資料從 Azure Blob 複製到輸出 Azure SQL 資料表。複製活動會在 Azure Data Factory 中執行資料移動，而此活動是由全域可用的服務所提供，可以使用安全、可靠及可調整的方式，在各種不同的資料存放區之間複製資料。如需複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。 
 [步驟 5：監視配量和管線](#MonitorDataSetsAndPipeline) | 在此步驟中，您將使用 Azure 入口網站來監視輸入和輸出資料表的配量。
- 
 
-## <a name="CreateDataFactory"></a> 步驟 1：建立 Azure Data Factory
+> [AZURE.IMPORTANT] 
+請檢閱[教學課程概觀](data-factory-get-started.md)文章，並在執行本教學課程之前完成必要的步驟。
+
+## <a name="CreateDataFactory"></a>步驟 1：建立 Azure Data Factory
 在此步驟中，您會使用 Azure 入口網站來建立名為 **ADFTutorialDataFactory** 的 Azure Data Factory。
 
 1.	登入 [Azure 入口網站][azure-portal]之後，請按一下左下角的 [新增]，並選取 [建立] 刀鋒視窗中的 [資料分析]，然後按一下 [資料分析] 刀鋒視窗中的 [Data Factory]。 
@@ -75,7 +77,7 @@
 在此步驟中，您將建立兩個連結服務：**StorageLinkedService** 和 **AzureSqlLinkedService**。StorageLinkedService 連結服務會連結 Azure 儲存體帳戶，AzureSqlLinkedService 則會將 Azure SQL Database 連結至 **ADFTutorialDataFactory**。您稍後將在本教學課程中建立管線，以將資料從 StorageLinkedService 中的 Blob 容器複製到 AzureSqlLinkedService 中的 SQL 資料表。
 
 ### 建立 Azure 儲存體帳戶的連結服務
-1.	在 [DATA FACTORY] 刀鋒視窗中，按一下 [製作和部署] 磚來啟動 Data Factory 的 [編輯器]。
+1.	在 [DATA FACTORY] 刀鋒視窗中，按一下 [製作和部署] 圖格來啟動 Data Factory 的 [編輯器]。
 
 	![[製作和部署] 磚][image-author-deploy-tile]
 
@@ -317,7 +319,7 @@
 
 	![含名稱的首頁][image-data-factory-get-started-home-page-pipeline-tables]
 
-4. 現在，按一下 [資料集] 磚。
+4. 現在，按一下 [資料集] 圖格。
 5. 在 [資料集] 刀鋒視窗中，按一下 [EmpTableFromBlob]。這是 **ADFTutorialPipeline** 的輸入資料表。
 
 	![已選取 EmpTableFromBlob 的資料集][image-data-factory-get-started-datasets-emptable-selected]   
@@ -331,7 +333,7 @@
  
 	按一下清單的標題或 **...** (省略符號)，查看更長的配量清單。按一下工具列上的 [篩選] 以篩選配量。
 	
-	若要改成依配量開始/結束時間來檢視資料配量，請按一下 [資料配量 (依配量時間)] 磚。
+	若要改成依配量開始/結束時間來檢視資料配量，請按一下 [資料配量 (依配量時間)] 圖格。
 
 	![資料配量 (依配量時間)][DataSlicesBySliceTime]
 
@@ -375,13 +377,11 @@
 1.	建立 Azure **Data Factory**。
 2.	建立將資料存放區和計算連結到 Data Factory 的連結服務 (稱為連結服務)。
 3.	建立描述管線輸入資料和輸出資料的資料表。
-4.	建立管線。管線由一或多個活動所組成，會處理輸入並產生輸出。指定管線的 [開始] 和 [結束] 時間，以設定管線的作用期間。作用中期間會定義將要產生資料配量的持續時間。 
+4.	建立管線。管線由一或多個活動所組成，會處理輸入並產生輸出。指定管線的 [開始] 和 [結束] 時間，以設定管線的作用期間。作用中期間會定義將要產生資料配量的持續時間。
 
 
-如需所支援活動的清單，請參閱[管線和活動][msdn-activities]主題，如需所支援連結服務的清單，請參閱 MSDN Library 上的[連結服務][msdn-linkedservices]主題。
- 
-若要使用 Azure PowerShell 進行本教學課程，請參閱[使用 Azure PowerShell 建立和監視 Data Factory][monitor-manage-using-powershell]。
-
+## 另請參閱
+如需 Azure Data Factory 中**複製活動**的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -459,4 +459,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

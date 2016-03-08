@@ -4,7 +4,7 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/03/2016"
+	ms.date="02/25/2016"
 	ms.author="juliako"/>
 
 
@@ -139,7 +139,7 @@
 
 ### 編碼
 
-本章說明當您要使用 Azure 傳統入口網站來透過 Azure 媒體編碼器為您的內容編碼時，可以採取的步驟。
+本章說明當您要使用 Azure 傳統入口網站來透過媒體編碼器標準為您的內容編碼時，可以採取的步驟。
 
 1.  選取您想要編碼的檔案。如果支援此檔案類型的編碼，[內容] 頁面底部的 [處理] 按鈕將會啟用。
 4. 在 [處理] 對話方塊中，選取 [媒體編碼器標準] 處理器。
@@ -253,4 +253,4 @@ Azure 傳統入口網站提供內容播放程式，可讓您用來測試視訊�
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

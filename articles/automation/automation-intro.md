@@ -3,7 +3,7 @@
 	description="了解 Azure 自動化提供的價值，並取得常見問題的解答，以便您可以開始建立及使用 Runbook 和 Azure Automation DSC。"
 	services="automation"
 	documentationCenter=""
-	authors="SnehaGunda"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="02/18/2016"
+	ms.date="02/23/2016"
 	ms.author="magoedte;bwren"/>
 
 # Azure 自動化概觀
@@ -101,4 +101,4 @@ Azure 自動化中的 Runbook 是以 Windows PowerShell 或 Windows PowerShell �
 
 **請不吝提供意見！** 如果您要尋找 Azure 自動化 Runbook 解決方案或整合模組，請在指令碼中心提出指令碼要求。如果您有關於 Azure 自動化的任何意見或功能要求，請張貼在 [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback) 上。感謝您！
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/29/2015"
+   ms.date="02/25/2016"
    ms.author="nitinme"/>
 
 
@@ -195,7 +195,7 @@
 1. 開啟 Excel，並建立新的活頁簿。
 3. 依序按一下 [Power Query] 功能表、[From Other Sources]、[From Azure HDInsight]。
 
-	![Excel PowerQuery 匯入 功能表針對 Azure HDInsight 開啟。][image-hdi-gettingstarted-powerquery-importdata]
+	![[Excel PowerQuery 匯入] 功能表針對 Azure HDInsight 開啟。][image-hdi-gettingstarted-powerquery-importdata]
 
 3. 輸入叢集相關 Azure Blob 儲存體帳戶的 [**帳戶名稱**]，然後按一下 [**確定**]。(這是您在教學課程稍早建立的儲存體帳戶。)
 4. 輸入 Azure Blob 儲存體帳戶的 [**帳戶金鑰**]，然後按一下 [**儲存**]。
@@ -280,4 +280,4 @@
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

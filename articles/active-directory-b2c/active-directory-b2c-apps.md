@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.topic="hero-article"
+	ms.date="02/25/2016"
 	ms.author="dastrock"/>
 
 # Azure Active Directory B2C 預覽：應用程式類型
@@ -130,4 +130,4 @@ Azure AD B2C 目前不支援此流程。這些應用程式只有在互動式使�
 
 使用 OAuth 2.0 JWT 持有人認證授與可支援此鏈結的 Web API 案例，亦稱為代理者流程。不過，Azure AD B2C 預覽目前未實作代理者流程。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

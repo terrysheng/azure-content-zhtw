@@ -11,9 +11,9 @@
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
+	ms.devlang="python"
 	ms.topic="hero-article" 
-	ms.date="11/17/2015"
+	ms.date="02/25/2016"
 	ms.author="huvalo"/>
 
 # Azure 上使用 Python Tools 2.2 for Visual Studio 的 Django 和 MySQL 
@@ -39,6 +39,7 @@
  - [Python Tools 2.2 for Visual Studio 範例 VSIX]
  - [Azure SDK Tools for VS 2013] 或 [Azure SDK Tools for VS 2015]
  - [Python 2.7 (32 位元)]
+ - Django 1.6 或更早版本
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -216,4 +217,4 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

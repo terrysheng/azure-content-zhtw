@@ -1,70 +1,160 @@
 <properties
-	pageTitle="使用 REST 呼叫在 Azure 搜尋服務中建立查詢 | Microsoft Azure | 雲端託管搜尋服務"
-	description="使用 .NET 程式庫或 SDK 在 Azure 搜尋服務中建立搜尋查詢，並使用搜尋參數來篩選、排序和 facet 搜尋結果。"
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
-    tags="azure-portal"/>
+    pageTitle="使用 REST API 查詢 Azure 搜尋服務索引 | Microsoft Azure | 雲端託管搜尋服務"
+    description="在 Azure 搜尋服務中建立搜尋查詢，並使用搜尋參數來篩選、排序和 facet 搜尋結果。"
+    services="search"
+    documentationCenter=""
+	authors="ashmaka"
+/>
 
 <tags
-	ms.service="search"
-	ms.devlang="rest-api"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="02/17/2016"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="na"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="02/29/2016"
+    ms.author="ashmaka"/>
 
-# 使用 REST 呼叫在 Azure 搜尋服務中建立查詢
+# 使用 REST API 查詢 Azure 搜尋服務索引
 > [AZURE.SELECTOR]
-- [Overview](search-query-overview.md)
-- [Search Explorer](search-explorer.md)
+- [概觀](search-query-overview.md)
+- [搜尋總管](search-explorer.md)
 - [Fiddler](search-fiddler.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-本文將說明如何使用 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 建構對索引的查詢。下列內容部分是來自[搜尋文件 (Azure 搜尋服務 REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx)。請參閱上層文章以取得更多內容。
+本文將說明如何使用 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 查詢索引。在開始閱讀本逐步解說前，請先[建立好 Azure 搜尋服務索引](search-create-index-rest-api.md)，並[在索引中填入資料](search-import-data-rest-api.md)。
 
-匯入的必要條件包括備妥現有的索引 (隨著提供可搜尋資料的文件一起載入)。
+## I.識別 Azure 搜尋服務的查詢 API 金鑰
+針對 Azure 搜尋服務 REST API 所執行之每個搜尋作業的主要元件是針對所佈建之服務產生的 *API 金鑰*。擁有有效的金鑰就能為每個要求在傳送要求之應用程式與處理要求之服務間建立信任。
 
-若要使用 REST API 搜尋索引，您將發出 GET HTTP 要求。查詢參數會在 HTTP 要求的 URL 內定義。
+1. 若要尋找服務的 API 金鑰，您必須登入 [Azure 入口網站](https://portal.azure.com/)。
+2. 前往 Azure 搜尋服務的刀鋒視窗。
+3. 按一下 [金鑰] 圖示。
 
-**要求和要求標頭**：
+服務會有*系統管理金鑰*和*查詢金鑰*。
+  * 主要和次要*系統管理金鑰*會授與所有作業的完整權限，包括管理服務以及建立和刪除索引、索引子與資料來源的能力。由於有兩個金鑰，因此如果您決定重新產生主要金鑰，您可以繼續使用次要金鑰，反之亦然。
+  * *查詢金鑰*會授與索引和文件的唯讀存取權，且通常會分派給發出搜尋要求的用戶端應用程式。
 
-在 URL 中，您將必須提供您的服務名稱、索引名稱和適當的 API 版本。URL 結尾的查詢字串是您將用來提供查詢參數的位置。查詢字串中的其中一個參數必須是適當的 API 版本 (發行這份文件時最新的 API 版本是 "2015-02-28")。
+若要查詢索引，您可以使用其中一個查詢金鑰。系統管理金鑰也可以用於進行查詢，但是您應該在應用程式的程式碼中使用查詢金鑰，因為查詢金鑰更加符合[最低權限準則](https://en.wikipedia.org/wiki/Principle_of_least_privilege)。
 
-對於要求標頭，您必須定義內容類型，並提供服務的主要或次要系統管理金鑰。
+## II.編寫查詢
+有兩種方式可以[使用 REST API 搜尋索引](https://msdn.microsoft.com/library/azure/dn798927.aspx)。其一是發出 HTTP POST 要求，並將查詢參數定義在要求主體的 JSON 物件中。其二是發出 HTTP GET 要求，並將查詢參數定義在要求 URL 中。請注意，在查詢參數的大小方面，POST 比 GET 擁有[更寬鬆的限制](https://msdn.microsoft.com/library/azure/dn798927.aspx)。因此，除非您的情況特殊導致使用 GET 會比較方便，否則建議您使用 POST。
 
-	GET https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+不管是 POST 還是 GET，您都需要在要求 URL 中提供*服務名稱*、*索引名稱* 和適當的 *API 版本* (本文件發行時的最新 API 版本是 `2015-02-28`)。若為 GET，URL 結尾的*查詢字串*是您用來提供查詢參數的位置。URL 的格式如下所示：
 
-Azure 搜尋服務提供許多選項可建立功能極為強大的查詢。若要深入了解查詢字串的所有不同參數，請造訪[此頁面](https://msdn.microsoft.com/library/azure/dn798927.aspx)。
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
 
-**範例**：
+POST 的格式同上，但查詢字串參數中只有 API 版本。
 
-以下是各種不同查詢字串的幾個範例。這些範例會使用名為 "hotels" 的空索引：
+Azure 搜尋服務提供許多選項可建立功能極為強大的查詢。若要深入了解查詢的所有不同參數，請造訪[此頁面](https://msdn.microsoft.com/library/azure/dn798927.aspx)。下面另有幾個查詢範例。
 
-搜尋整個索引中的 "quality" 一詞：
+#### 查詢範例
 
-	GET https://[service name].search.windows.net/indexes/hotels/docs?search=quality&$orderby=lastRenovationDate desc&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+以下是幾個名為 "hotels" 之索引的查詢範例。範例中會同時顯示 GET 和 POST 格式的查詢。
 
-搜尋整個索引：
+搜尋整個索引中的 'budget' 一詞，並只傳回 `hotelName` 欄位：
 
-	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2015-02-28
 
-搜尋整個索引和依據特定欄位排序 (lastRenovationDate)：
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+{
+    "search": "budget",
+    "select": "hotelName"
+}
+```
 
-	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
-	Content-Type: application/JSON
-	api-key:[primary admin key or secondary admin key]
+搜尋整個索引中每晚房價低於 150 美元的旅館，並傳回 `hotelId` 和 `description`：
 
-成功的查詢要求會造成狀態碼「200 確定」，而可在回應主體中找到 JSON 格式的搜尋結果。若要深入了解，請瀏覽[此頁面](https://msdn.microsoft.com/library/azure/dn798927.aspx)的「回應」一節。
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
 
-<!---HONumber=AcomDC_0224_2016-->
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+{
+    "search": "*",
+    "filter": "baseRate lt 150",
+    "select": "hotelId,description"
+}
+```
+
+搜尋整個索引 (依特定欄位 (`lastRenovationDate`) 以遞減順序排序)，取其前兩個結果，並只顯示 `hotelName` 和 `lastRenovationDate`：
+
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2015-02-28
+
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+{
+    "search": "*",
+    "orderby": "lastRenovationDate desc",
+    "select": "hotelName,lastRenovationDate",
+    "top": 2
+}
+```
+
+## III.提交 HTTP 要求
+現在您已將查詢編寫為 HTTP 要求 URL (若為 GET) 或主體 (若為 POST) 的一部分，接下來您可以定義要求標頭並提交查詢。
+
+#### 要求和要求標頭
+您必須為 GET 定義兩個要求標頭，若為 POST 則必須定義三個：
+1. `api-key` 標頭必須設為您在上面的步驟 I 中找到的查詢金鑰。請注意，您也可以使用系統管理金鑰做為 `api-key` 標頭，但建議您使用查詢金鑰，因為查詢金鑰可獨佔授與索引和文件的唯讀存取權。
+2. `Accept` 標頭必須設為 `application/json`。
+3. (僅適用於 POST) `Content-Type` 標頭也應該設定為 `application/json`。
+
+請參閱以下內容來取得使用 Azure 搜尋服務 REST API 搜尋 "hotels" 索引的 HTTP GET 要求，其使用簡單的查詢來搜尋 "motel" 一詞：
+
+```
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2015-02-28
+Accept: application/json
+api-key: [query key]
+```
+
+以下是相同的查詢範例，但這次使用的是 HTTP POST：
+
+```
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+Content-Type: application/json
+Accept: application/json
+api-key: [query key]
+
+{
+    "search": "motel"
+}
+```
+
+成功的查詢要求會產生 `200 OK` 的狀態碼，且搜尋結果會在回應主體中以 JSON 形式傳回。以下是上述查詢之結果的可能樣貌，其假設 "hotels" 索引是填入[這篇文章](search-import-data-rest-api.md)中的範例資料 (請注意，為了清楚起見，JSON 已經過格式化)。
+
+```JSON
+{
+    "value": [
+        {
+            "@search.score": 0.59600675,
+            "hotelId": "2",
+            "baseRate": 79.99,
+            "description": "Cheapest hotel in town",
+            "description_fr": "Hôtel le moins cher en ville",
+            "hotelName": "Roach Motel",
+            "category": "Budget",
+            "tags":["motel", "budget"],
+            "parkingIncluded": true,
+            "smokingAllowed": true,
+            "lastRenovationDate": "1982-04-28T00:00:00Z",
+            "rating": 1,
+            "location": {
+                "type": "Point",
+                "coordinates": [-122.131577, 49.678581],
+                "crs": {
+                    "type":"name",
+                    "properties": {
+                        "name": "EPSG:4326"
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
+若要深入了解，請瀏覽[此頁面](https://msdn.microsoft.com/library/azure/dn798927.aspx)的「回應」一節。如需失敗時可能傳回的其他 HTTP 狀態碼的詳細資訊，請參閱[這篇文章](https://msdn.microsoft.com/library/azure/dn798925.aspx)。
+
+<!---HONumber=AcomDC_0302_2016-->

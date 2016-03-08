@@ -3,7 +3,7 @@
 	description="利用 Azure 虛擬機器備份的這些程序來探索、註冊及備份您的虛擬機器。"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="markgalioto"
 	manager="jwhit"
 	editor=""
 	keywords="虛擬機器備份; 備份虛擬機器; 備份和災害復原; vm 備份"/>
@@ -41,7 +41,7 @@
     ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. 按一下頁面底部的 [**探索**]。
-	![探索按鈕](./media/backup-azure-vms/discover-button-only.png)
+![探索按鈕](./media/backup-azure-vms/discover-button-only.png)
 
     在列表顯示虛擬機器時，探索程序可能需花費幾分鐘的時間。畫面底部會有通知讓您知道程序正在執行中。
 
@@ -61,7 +61,7 @@
     ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. 按一下頁面底部的 [註冊]。
-	![註冊按鈕](./media/backup-azure-vms/register-button-only.png)
+![註冊按鈕](./media/backup-azure-vms/register-button-only.png)
 
 4. 在 [註冊項目] 捷徑功能表中，選取您想要註冊的虛擬機器。如果有兩個以上同名的虛擬機器，請使用雲端服務加以區別。
 
@@ -131,7 +131,7 @@
     ![設定保護工作](./media/backup-azure-vms/protect-configureprotection.png)
 
 ## 初始備份
-虛擬機器受到原則保護之後，就會出現在 [受保護的項目] 索引標籤下，狀態為 *[受保護 - (擱置中的初始備份)]*。根據預設，第一個排定的備份是 *初始備份*。
+虛擬機器受到原則保護之後，就會出現在 [受保護的項目] 索引標籤下，狀態為 [受保護 - (擱置中的初始備份)]。根據預設，第一個排定的備份是*初始備份*。
 
 若要在設定保護之後立即觸發初始備份：
 
@@ -145,7 +145,7 @@
 
 >[AZURE.NOTE] 在備份工作進行時，Azure 備份服務會發出命令給每個虛擬機器中的備份擴充功能，以排清所有寫入並取得一致的快照。
 
-初始備份完成後，[受保護的項目] 索引標籤中的虛擬機器狀態會顯示為 *[受保護]*。
+初始備份完成後，[受保護的項目] 索引標籤中的虛擬機器狀態會顯示為 [受保護]。
 
 ![搭配復原點備份虛擬機器](./media/backup-azure-vms/protect-backedupvm.png)
 
@@ -164,4 +164,4 @@
 - [管理和監視虛擬機器](backup-azure-manage-vms.md)
 - [還原虛擬機器](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

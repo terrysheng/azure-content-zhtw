@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015"
+	ms.date="02/02/2016"
 	ms.author="jeffreyg"/>
 
 # 選擇雲端 SQL Server 選項：Azure SQL (PaaS) Database 或 Azure VM 上的 SQL Server (IaaS)
@@ -129,9 +129,9 @@ Azure 有兩個選項可在雲端主控 SQL Server 工作負載：
 
 **SQL Database** 會以服務 (不含授權) 的形式銷售給客戶，而 Azure VM 上的 SQL Server 則需要傳統的 SQL Server 授權。
 
-目前，我們在數個服務層中提供 **SQL Database**，並根據您所選擇的服務層和效能層級，以固定費率計算每小時的費用。基本、標準和高階服務層的設計目的在於提供多個效能層級的可預測效能，以滿足應用程式的尖峰需求。您可以在服務層和效能層級之間進行變更，以滿足應用程式的不同輸送量需求。如需目前支援的服務層最新資訊，請參閱 [Azure SQL Database 服務層](sql-database-service-tiers.md)。
+目前，我們在數個服務層中提供 **SQL Database**，並根據您所選擇的服務層和效能層級，以固定費率計算每小時的費用。此外，傳出的網際網路流量也會計費。基本、標準和高階服務層的設計目的在於提供多個效能層級的可預測效能，以滿足應用程式的尖峰需求。您可以在服務層和效能層級之間進行變更，以滿足應用程式的不同輸送量需求。如果您的資料庫具有高交易量，且必須支援許多並行使用者，建議使用高階服務層。如需目前支援的服務層最新資訊，請參閱 [Azure SQL Database 服務層](sql-database-service-tiers.md)。
 
-有了 **SQL Database**，Microsoft 便會自動設定、修補和升級資料庫軟體，以降低您的系統管理成本。此外，它[內建的備份](sql-database-business-continuity.md)功能可協助您達到有效節省成本，尤其是當您擁有為數眾多的資料庫時效果更為顯著。使用 SQL Database 時，您不必支付針對 SQL Database 或傳入網際網路流量執行的個別查詢費用，但您需支付[傳出網際網路流量](https://azure.microsoft.com/pricing/details/data-transfers/)的費用。如果您的資料庫具有高交易量，且必須支援許多並行使用者，建議使用高階服務層。
+有了 **SQL Database**，Microsoft 便會自動設定、修補和升級資料庫軟體，以降低您的系統管理成本。此外，它[內建的備份](sql-database-business-continuity.md)功能可協助您達到有效節省成本，尤其是當您擁有為數眾多的資料庫時效果更為顯著。
 
 有了 **Azure VM 上的 SQL Server**，您可以利用傳統的 SQL Server 授權。您可以使用平台所提供的 SQL Server 映像 (其中包含授權)，或採用您的 SQL Server 授權。使用 Azure 所提供的映像時，營運成本取決於您所選擇的 VM 大小以及 SQL Server 版本。不論 VM 大小或 SQL Server 版本為何，您須支付 SQL Server 和 Windows Server 的每分鐘授權成本，以及 VM 磁碟的 Azure 儲存體成本。每分鐘計費選項可讓您隨時使用 SQL Server，而無需購買其他 SQL Server 授權。如果在 Azure 中採用自己的 SQL Server 授權，您僅需支付 Windows Server 和儲存體成本。如需採用自己的授權的詳細資訊，請參閱 [Azure 上透過軟體保證的授權機動性](https://azure.microsoft.com/pricing/license-mobility/)。
 
@@ -199,4 +199,4 @@ Azure 有兩個選項可在雲端主控 SQL Server 工作負載：
 
 > [AZURE.NOTE] 想要試用 SQL Server 2016 CTP2 嗎？ 註冊 Microsoft Azure，然後移至[這裡](http://aka.ms/sql2016vm "開始")以建立已安裝 SQL Server 2016 CTP2 的虛擬機器。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -475,7 +475,7 @@ namespace Microsoft.ServiceBus.Samples
 	using System.ServiceModel;
 	```
 
-1. 重複上述步驟，將 Microsoft.ServiceBus.dll 的參考和 [Microsoft.ServiceBus](https://msdn.microsoft.com/library/microsoft.servicebus.aspx) 命名空間加入專案中。
+1. 安裝[服務匯流排 NuGet 封裝](https://www.nuget.org/packages/WindowsAzure.ServiceBus)。
 
 1. 下列範例所示，將服務合約定義新增至命名空間。請注意，此定義與 [服務] 專案中使用的定義相同。您應該在 `Microsoft.ServiceBus.Samples` 命名空間的頂端加入此程式碼。
 
@@ -823,4 +823,4 @@ namespace Microsoft.ServiceBus.Samples
 
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

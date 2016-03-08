@@ -4,8 +4,8 @@
 	services="biztalk-services"
 	documentationCenter=""
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+	manager="erikre"
+	editor=""/>
 
 <tags
 	ms.service="biztalk-services"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/08/2015"
+	ms.date="02/29/2016"
 	ms.author="mandia"/>
 
 
@@ -259,4 +259,4 @@ BizTalk 配接器服務是由 Azure BizTalk 服務使用。BizTalk 配接器服�
 - [BizTalk 服務：簽發者名稱和簽發者金鑰](biztalk-issuer-name-issuer-key.md)<br/>
 - [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

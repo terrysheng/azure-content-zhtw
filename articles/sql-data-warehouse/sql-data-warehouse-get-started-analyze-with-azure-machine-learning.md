@@ -10,10 +10,10 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/25/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # 使用 Azure Machine Learning 分析資料
@@ -59,7 +59,7 @@
   FROM [dbo].[vTargetMail]
    ```
 
-按一下實驗畫布下方的 [執行] 以執行實驗。![執行實驗][1]
+按一下實驗畫布下方的 [**執行**]，以執行實驗。![執行實驗][1]
 
 
 實驗成功執行完畢之後，按一下讀取器模組底部的輸出連接埠，然後選取 [視覺化] 以查看匯入的資料。![檢視匯入的資料][3]
@@ -101,7 +101,7 @@
 2. 將 [二元貝氏點機器] 拖曳至實驗畫布。我們將會比較這個演算法和二元促進式決策樹的執行效果。
 3. 複製定型模型和分數模型等模組並貼在畫布上。
 4. 將 [評估模型] 模組拖曳至畫布以比較兩個演算法。
-5. [執行]實驗。![執行實驗][10]
+5. **執行**實驗。![執行實驗][10]
 6. 按一下 [評估模型] 模組底部的輸出連接埠，然後按一下 [視覺化]。![將評估結果視覺化][11]
 
 
@@ -140,4 +140,4 @@
 [手動載入範例資料]: sql-data-warehouse-get-started-manually-load-samples.md
 [建立 SQL 資料倉儲]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

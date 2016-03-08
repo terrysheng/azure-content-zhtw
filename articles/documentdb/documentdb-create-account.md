@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="documentdb"
-	ms.workload="data-services" 
+	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -20,8 +20,8 @@
 # 如何使用 Azure 入口網站建立 DocumentDB 資料庫帳戶
 
 > [AZURE.SELECTOR]
-- [Azure Portal](documentdb-create-account.md)
-- [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
+- [Azure 入口網站](documentdb-create-account.md)
+- [Azure CLI 和 ARM](documentdb-automation-resource-manager-cli.md)
 
 若要使用 Microsoft Azure DocumentDB，您必須使用 Azure 入口網站、Azure 資源管理員範本或 Azure 命令列介面 (CLI) 建立 DocumentDB 資料庫帳戶。本文說明如何使用在 Azure 入口網站中建立資料庫帳戶。若要使用 Azure 資源管理員或 Azure CLI 建立帳戶，請參閱[自動建立 DocumentDB 資料庫帳戶](documentdb-automation-resource-manager-cli.md)。
 
@@ -48,4 +48,4 @@
 -	[DocumentDB 的學習途徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[DocumentDB 資源模型和概念](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

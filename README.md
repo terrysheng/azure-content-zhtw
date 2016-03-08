@@ -1,6 +1,6 @@
 # Azure 技術文件參與者指南
 
-您已經找到發佈至 Azure 文件中心 ([http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation)) 之技術文件來源存放所在的 GitHub 儲存機制。
+您已經找到發佈至 Azure 文件中心 [http://azure.microsoft.com/documentation](http://azure.microsoft.com/documentation) 之技術文件來源存放所在的 GitHub 儲存機制。
 
 此儲存機制內也有相關指引，可協助您參與編輯我們的技術文件。如需參與者指南中的文章清單，請參閱[索引](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-index.md)。
 
@@ -51,14 +51,14 @@ Azure 內容儲存機制中的內容會遵循 [Azure.Microsoft.com](http://azure
 
 *\articles* 資料夾包含格式化為 Markdown 檔的文件文章，其副檔名為 *.md*。
 
-根目錄中的文章會發佈至 Azure.Microsoft.com 的 **http://azure.microsoft.com/documentation/articles/{article-name-without-md}/* 路徑中。
+根目錄中的文章會發佈至 Azure.Microsoft.com 的 *http://azure.microsoft.com/documentation/articles/{article-name-without-md}/* 路徑中。
 
 * **文章的檔名：**請參閱[檔案命名指引](./contributor-guide/file-names-and-locations.md)。
 
-自有服務資料夾內的文章會發佈至 Azure.Microsoft.com 的
+自有服務資料夾內的文章會發佈至 Azure.Microsoft.com 的 
 *http://azure.microsoft.com/documentation/articles/service-folder/{article-name-without-md}/* 路徑中
 
-* **媒體子資料夾：***\articles* 資料夾內有 *\media* 資料夾可供存放根目錄文章媒體檔，而在 \\media 資料夾內則是存有各文章內圖片的子資料夾。每個服務資料夾內都含有不同的媒體資料夾來存放文章。文章圖片資料夾的名稱和文章檔案的名稱相同，但不會有 *.md* 副檔名。
+* **媒體子資料夾：***\articles* 資料夾內有 *\media* 資料夾可供存放根目錄文章媒體檔，而在 media 資料夾內則是存有各文章內圖片的子資料夾。每個服務資料夾內都含有不同的媒體資料夾來存放文章。文章圖片資料夾的名稱和文章檔案的名稱相同，但不會有 *.md* 副檔名。
 
 ### \includes
 
@@ -104,4 +104,4 @@ Azure 內容儲存機制中的內容會遵循 [Azure.Microsoft.com](http://azure
 
 如需所有指引主題，請參閱[參與者指南索引](./contributor-guide/contributor-guide-index.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0307_2016-->

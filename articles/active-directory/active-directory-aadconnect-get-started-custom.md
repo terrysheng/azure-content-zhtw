@@ -163,7 +163,9 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 您會在這裡輸入您要做為 Web 應用程式 Proxy 伺服器的特定伺服器。Web 應用程式 Proxy 伺服器會部署在您的 DMZ (外部網路對應) 中，且支援來自外部網路的驗證要求。您可以根據容量規劃需求，加入一或多部伺服器。我們建議安裝一部用來測試和試驗部署的 Web 應用程式 Proxy 伺服器，並在初始安裝之後開啟 Azure AD Connect 以部署其他伺服器，然後將 Web 應用程式 Proxy 部署至其他伺服器。我們通常建議準備一部同樣數目的 Proxy 伺服器，以滿足來自內部網路的驗證需求。
 
 > [AZURE.NOTE]
-<li>如果您用來安裝 Azure AD Connect 的帳戶不是 AD FS 伺服器上的本機系統管理員，則系統會提示您提供具有足夠的權限的帳戶認證。</li> <li>設定此步驟之前，請確認 Azure AD Connect 伺服器和 Web 應用程式 Proxy 伺服器之間有 HTTP/HTTPS 連線。</li> <li>此外，亦請確認 Web 應用程式伺服器和 AD FS 伺服器之間的 HTTP/HTTPS 連線是否允許流入驗證要求。</li>
+<li> 如果您用來安裝 Azure AD Connect 的帳戶不是 AD FS 伺服器上的本機系統管理員，則系統會提示您提供具有足夠權限的帳戶認證。</li>
+<li> 設定此步驟之前，請確認 Azure AD Connect 伺服器和 Web 應用程式 Proxy 伺服器之間有 HTTP/HTTPS 連線。</li>
+<li> 此外，亦請確認 Web 應用程式伺服器和 AD FS 伺服器之間的 HTTP/HTTPS 連線是否允許流入驗證要求。</li>
 
 ![Web 應用程式](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
 
@@ -190,6 +192,14 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 ![Azure AD 網域](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
 
+
+### 驗證所選取用於同盟的 Azure AD 網域
+
+當您選取要與內部部署目錄同盟的網域時，Azure AD Connect 會提供必要的資訊供您驗證網域 (如果尚未經過驗證)。此頁面會提供您必須在網域名稱註冊機構或 DNS 託管位置建立的 DNS 記錄，以便完成網域驗證。</br>
+
+![Azure AD 網域](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
+
+> [AZURE.NOTE] AD Connect 會嘗試在設定階段驗證網域。如果您繼續進行設定，但未在網域 DNS 的託管位置加入必要的 DNS 記錄，精靈將無法完成組態。</br>
 
 ## 設定並確認頁面
 設定會在此頁面上實際發生。
@@ -228,4 +238,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

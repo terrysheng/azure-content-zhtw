@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.topic="get-started-article"
+	ms.date="02/26/2016"
 	ms.author="femila"/>
 
 
@@ -42,23 +42,23 @@
 * Azure Active Directory 租用戶
 * Windows Server Active Directory (Windows Server 2008 或更新版本)
 * Windows Server 2012 R2 中更新的結構描述
-* Azure Active Directory Premium 的訂用帳戶
+* Azure Active Directory Premium 的授權
 * Windows Server 2012 R2 Federation Services，針對 Azure AD 的 SSO 設定
 * Windows Server 2012 R2 Web Application Proxy Microsoft Azure Active Directory Connect (Azure AD Connect)。[在此下載 Azure AD Connect](http://www.microsoft.com/zh-TW/download/details.aspx?id=47594)。
-* 已驗證的網域。 
+* 已驗證的網域。
 
 此版本已知的問題
 -------------------------------------------------------------------------------
 * 以條件式存取原則為基礎的裝置需要從 Azure Active Directory 裝置物件寫回至 Active Directory。裝置物件可能需要 3 小時才能寫回至 Active Directory
-* iOS 7 裝置一律會提示使用者在用戶端憑證驗證期間選取憑證。 
-* 某些 iOS8 版本 (iOS 8.3 之前) 無法運作。 
+* iOS 7 裝置一律會提示使用者在用戶端憑證驗證期間選取憑證。
+* 某些 iOS8 版本 (iOS 8.3 之前) 無法運作。
 
 ## 案例假設
-此案例假設您有 Azure AD 租用戶與本機 Active Directory 所組成的混合式環境。這些租用戶應使用 Azure AD Connect 來連接且具有已驗證的網域和適用於 SSO 的 AD FS。下面的檢查清單可協助您將您的環境設定為上述的階段。
+此案例假設您有 Azure AD 租用戶與內部部署 Active Directory 所組成的混合式環境。這些租用戶應使用 Azure AD Connect 來連接且具有已驗證的網域和適用於 SSO 的 AD FS。下面的檢查清單可協助您將您的環境設定為上述的階段。
 
 檢查清單︰條件式存取案例的必要條件
 --------------------------------------------------------------
-連接您的 Azure AD 租用戶與本機 Active Directory。
+連接您的 Azure AD 租用戶與內部部署 Active Directory。
 
 ## 設定 Azure Active Directory 裝置註冊服務
 使用本指南來部署和設定組織的 Azure Active Directory 裝置註冊服務。
@@ -89,11 +89,11 @@
 | 工作 | 參考 |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
 | 完成「在 Azure AD Connect 中啟用裝置回寫」的第 2 部分。完成時，回到這份指南。 | [在 Azure AD Connect 中啟用裝置回寫](#升級您的 Active Directory 網域服務結構描述) |
-	 
+
 
 ##[選擇性] 第 4 部分：啟用 Multi-Factor Authentication
 
-強烈建議您設定 Multi-Factor Authentication 的其中一個選項。如果您想要求 MFA，請參閱[選擇合適的多重因素安全性解決方案](multi-factor-authentication-get-started.md)。它包含每個解決方案的描述，以及可協助您設定您所選解決方案的連結。
+強烈建議您設定 Multi-Factor Authentication 的其中一個選項。如果您想要求 MFA，請參閱[選擇合適的多重因素安全性解決方案](../multi-factor-authentication/multi-factor-authentication-get-started.md)。它包含每個解決方案的描述，以及可協助您設定您所選解決方案的連結。
 
 ## 第 5 部分：驗證
 
@@ -109,20 +109,20 @@
 
 
 
-## 整合 Azure Active Directory 與本機 Active Directory
-這有助於使用 Azure AD Connect 來整合您的 Azure AD 租用戶與本機 Active Directory。雖然在 Azure 入口網站中可取得這些步驟，但請記下這一節中所列的任何特殊指示。
+## 整合 Azure Active Directory 與內部部署 Active Directory
+這有助於使用 Azure AD Connect 來整合您的 Azure AD 租用戶與內部部署 Active Directory。雖然在 Azure 傳統入口網站中可取得這些步驟，但請記下這一節中所列的任何特殊指示。
 
-1.	以系統管理員身分登入 Azure 入口網站。
+1.	使用身為 Azure AD 全域管理員的帳戶登入 Azure 傳統入口網站。
 2.	在左窗格中選取 [Active Directory]。
 3.	在 [目錄] 索引標籤中，選取您的目錄。
 4.	選取 [目錄整合] 索引標籤。
-5.	在 [部署和管理] 區段之下，遵循步驟 1 到 3 來整合 Azure Active Directory 與您的本機目錄。
+5.	在 [部署和管理] 區段之下，遵循步驟 1 到 3 來整合 Azure Active Directory 與您的內部部署目錄。
   1.	新增網域。
   2.	安裝和執行 Azure AD Connect︰使用[自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)中的指示來安裝 Azure AD Connect。
   3. 驗證及管理目錄同步作業。此步驟中可取得單一登入的指示。
   >[AZURE.NOTE] 如上面連結的文件所述，設定與 AD FS 同盟。[AZURE.NOTE] 您不需要設定任何預覽功能。
-  
-   
+
+
 
 
 ## 升級您的 Active Directory 網域服務結構描述
@@ -130,7 +130,7 @@
 升級您的 Active Directory 結構描述無法回復。建議您先在測試環境中執行此作業。
 
 1. 使用具有企業系統管理員與結構描述系統管理員權限的帳戶登入網域控制站。
-2. 將 **[media]\\support\\adprep** 目錄和子目錄複製到其中一個 Active Directory 網域控制站。 
+2. 將 **[media]\\support\\adprep** 目錄和子目錄複製到其中一個 Active Directory 網域控制站。
 3. 其中 [media] 是 Windows Server 2012 R2 安裝媒體的路徑。
 4. 從命令提示字元，瀏覽至 adprep 目錄並執行：**adprep.exe /forestprep**。請遵循畫面上的指示完成結構描述升級。
 
@@ -163,7 +163,7 @@
 
 ### 準備 Azure AD Connect 以便裝置回寫
 
-1.	完成第 1 部分：準備 AAD Connect。 
+1.	完成第 1 部分：準備 Azure AD Connect。
 
 
 ## 使用 Azure Active Directory 裝置註冊將裝置加入工作場所
@@ -249,4 +249,4 @@ Azure Active Directory 裝置註冊使用 iOS 裝置的空中下載設定檔註�
 
 - [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

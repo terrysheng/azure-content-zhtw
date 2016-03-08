@@ -13,7 +13,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="02/03/2016"
 	ms.author="garye"/>
 
@@ -41,7 +41,7 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 
 第一次進入 [Machine Learning Studio](https://studio.azureml.net) 時，您會看到 [首頁]：您可以從這裡檢視文件、影片、網路研討會，以及尋找其他重要資源。
 
-頂端有三個索引標籤：[首頁] \(您開始的位置)、[Studio]，以及 [資源庫]。
+頂端有三個索引標籤：[首頁] (您開始的位置)、[Studio]，以及 [資源庫]。
 
 ### Studio
 
@@ -115,4 +115,4 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -9,10 +9,10 @@
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="03/02/2016"
    ms.author="cherylmc" />
 
 # 關於站對站 VPN 閘道連線的 VPN 裝置
@@ -44,18 +44,18 @@
 | Barracuda Networks, Inc. | Barracuda Firewall | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | 不相容 |
 | Brocade | Vyatta 5400 vRouter | Virtual Router 6.6R3 GA | [組態指示](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | 不相容 |
 | Check Point | Security Gateway | R75.40、R75.40VS | [組態指示](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [組態指示](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco | ASA | 8\.3 | [Cisco 範例](http://go.microsoft.com/fwlink/p/?LinkID=717348) | 不相容 |
-| Cisco | ASR | IOS 15.1 (原則式)、IOS 15.2 (路由式) | [Cisco 範例](http://go.microsoft.com/fwlink/p/?LinkID=717348) | [Cisco 範例](http://go.microsoft.com/fwlink/p/?LinkID=717348) |
-| Cisco | ISR | IOS 15.0 (原則式)、IOS 15.1 (路由式) | [Cisco 範例](http://go.microsoft.com/fwlink/p/?LinkID=717348) | [Cisco 範例](http://go.microsoft.com/fwlink/p/?LinkID=717348) |
+| Cisco | ASA | 8\.3 | [Cisco 範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) | 不相容 |
+| Cisco | ASR | IOS 15.1 (原則式)、IOS 15.2 (路由式) | [Cisco 範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) | [Cisco 範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
+| Cisco | ISR | IOS 15.0 (原則式)、IOS 15.1 (路由式) | [Cisco 範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) | [Cisco 範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix | CloudBridge MPX 裝置或 VPX 虛擬裝置 | N/A | [整合指示](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | 不相容 |
 | Dell SonicWALL | TZ 系列、NSA 系列、SuperMassive 系列、E 級 NSA 系列 | SonicOS 5.8.x、[SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850)、[SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [指示 - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [指示 - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [指示 - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [指示 - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | BIG-IP 系列 | N/A | [組態指示](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | 不相容 |
 | Fortinet | FortiGate | FortiOS 5.0.7 | [組態指示](http://docs.fortinet.com/fortigate/admin-guides) | [組態指示](http://docs.fortinet.com/fortigate/admin-guides) |
 | Internet Initiative Japan (IIJ) | SEIL 系列 | SEIL/X 4.60、SEIL/B1 4.60、SEIL/x86 3.20 | [組態指示](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | 不相容 |
-| Juniper | SRX | JunOS 10.2 (原則式)、JunOS 11.4 (路由式) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
-| Juniper | J 系列 | JunOS 10.4r9 (原則式)、JunOS 11.4 (路由式) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
-| Juniper | ISG | ScreenOS 6.3 (原則式和路由式) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
-| Juniper | SSG | ScreenOS 6.2 (原則式和路由式) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=717760) | [Juniper 範例](http://go.microsoft.com/fwlink/p/?LinkId=717760) |
+| Juniper | SRX | JunOS 10.2 (原則式)、JunOS 11.4 (路由式) | [Juniper 範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) | [Juniper 範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
+| Juniper | J 系列 | JunOS 10.4r9 (原則式)、JunOS 11.4 (路由式) | [Juniper 範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) | [Juniper 範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
+| Juniper | ISG | ScreenOS 6.3 (原則式和路由式) | [Juniper 範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) | [Juniper 範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
+| Juniper | SSG | ScreenOS 6.2 (原則式和路由式) | [Juniper 範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) | [Juniper 範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft | 路由及遠端存取服務 | Windows Server 2012 | 不相容 | [Microsoft 範例](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | Openswan | Openswan | 2\.6.32 | (敬請期待) | 不相容 |
 | Palo Alto Networks | 所有執行 PAN-OS 5.0 或更新版本的裝置 | PAN-OS 5.x 或更新版本 | [Palo Alto Networks](https://support.paloaltonetworks.com/) | 不相容 |
@@ -112,11 +112,7 @@
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
 | IKE 版本 | IKEv1 | IKEv2 |
 | 雜湊演算法 | SHA1(SHA128) | SHA1(SHA128) |
-| 階段 2 安全性關聯 (SA) 存留期 (時間) | 3,600 秒 | - |
-| 階段 2 安全性關聯 (SA) 存留期 (輸送量) | 102,400,000 KB | - |
-| IPsec SA 加密及驗證提供項目 (依喜好順序) | 1.ESP-AES256 2.ESP-AES128 3.ESP-3DES 4.N/A | 請參閱＜路由式閘道 IPsec安全性關聯 (SA) 提供項目＞ (下方)|
-| 完整轉寄密碼 (PFS) | 否 | 是 (DH Group1) |
-| 停用的對等偵測 (DPD) | 不支援 | 支援 |
+| 階段 2 安全性關聯 (SA) 存留期 (時間) | 3,600 秒 | - | | 階段 2 安全性關聯 (SA) 存留期 (輸送量) | 102,400,000 KB | - | | IPsec SA 加密及驗證提供項目 (依喜好順序) | 1.ESP-AES256 2.ESP-AES128 3.ESP-3DES 4.N/A | 請參閱＜路由式閘道 IPsec安全性關聯 (SA) 提供項目＞ (下方)| | 完整轉寄密碼 (PFS) | 否 | 是 (DH Group1) | | 停用的對等偵測 (DPD) | 不支援 | 支援 |
 
 ### 路由式閘道 IPsec 安全性關聯 (SA) 提供項目
 
@@ -140,12 +136,11 @@
 | 14 | AH MD5 與 ESP DES null HMAC，未提議存留期 | AH MD5 與 ESP DES MD5，無存留期 |
 | 15 | AH SHA1與 ESP DES SHA1，無存留期 | ESP SHA，無存留期 |
 | 16 | AH MD5 與 ESP DES MD5，無存留期 | ESP MD5，無存留期 |
-| 17 | - | AH SHA，無存留期 |
-| 18 | - | AH MD5，無存留期 |
+| 17 | - | AH SHA，無存留期 | | 18 | - | AH MD5，無存留期 |
 
 
 - 您可以使用路由式和高效能 VPN 閘道指定 IPsec ESP NULL 加密。以 Null 為基礎的加密不提供傳輸中資料的保護，應該只用於時需要最大輸送量和最小延遲時。用戶端可能會選擇在 vnet 對 vnet 通訊案例中，或當加密套用至解決方案中的其他地方時，使用此功能。
 
 - 透過網際網路的跨單位連線，請使用含有加密和雜湊演算法的預設 Azure VPN 閘道設定 (如上表所列)，以確保重要通訊的安全性。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -4,12 +4,12 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""/>
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="01/16/2016"
@@ -124,4 +124,4 @@ Microsoft 為特殊的地理政治地區和客戶群提供隔離的雲端環境�
 	- [設定路由](expressroute-howto-routing-classic.md)
 	- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

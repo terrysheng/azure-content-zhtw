@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 # 開始使用適用於 iOS 應用程式 (Objective C) 的 Azure Mobile Engagement
 
 > [AZURE.SELECTOR]
-- [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
+- [通用 Windows](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
 - [iOS | Obj C](mobile-engagement-ios-get-started.md)
 - [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
@@ -35,7 +35,7 @@
 
 完成本教學課程是所有其他 iOS 應用程式 Mobile Engagement 教學課程的先決條件。
 
-> [AZURE.IMPORTANT]完成本教學課程是所有其他 iOS 應用程式 Mobile Engagement 教學課程的先決條件，若要完成此課程，您必須擁有有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
+> [AZURE.IMPORTANT] 完成本教學課程是所有其他 iOS 應用程式 Mobile Engagement 教學課程的先決條件，若要完成此課程，您必須擁有有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
 ##<a id="setup-azme"></a>為您的 iOS 應用程式設定 Mobile Engagement
 
@@ -184,4 +184,4 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

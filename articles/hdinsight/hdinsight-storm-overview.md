@@ -11,7 +11,7 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="01/08/2016"
@@ -35,7 +35,7 @@ Apache Storm on HDInsight 是已和 Azure 環境整合的受管理叢集。它�
 
 	* 支援混合使用程式設計語言：使用 Java 讀取資料，然後使用 C# 處理資料
 	
-		> [AZURE.NOTE]只有以 Windows 為基礎的 HDInsight 叢集支援 C# 拓撲。
+		> [AZURE.NOTE] 只有以 Windows 為基礎的 HDInsight 叢集支援 C# 拓撲。
 
 	* 使用 **Trident** Java 介面建立 Storm 拓撲，藉此支援「只一次性」處理訊息、「交易式」資料存放區持續性和一組常用的串流分析作業
 
@@ -53,7 +53,7 @@ Apache Storm on HDInsight 是已和 Azure 環境整合的受管理叢集。它�
 
 只要花數分鐘即可佈建新的 Storm on HDInsight 叢集。指定叢集名稱、大小、管理員帳戶和儲存體帳戶。Azure 即會建立叢集，包括範例拓撲和 Web 管理儀表板。
 
-> [AZURE.NOTE]您也可以使用 [Azure CLI](../xplat-cli-install.md) 或 [Azure PowerShell](../powershell-install-configure.md) 佈建 Storm 叢集。
+> [AZURE.NOTE] 您也可以使用 [Azure CLI](../xplat-cli-install.md) 或 [Azure PowerShell](../powershell-install-configure.md) 佈建 Storm 叢集。
 
 提交要求後，15 分鐘內您就會有一個新的執行中 Storm 叢集，並準備好讓您進行第一次即時分析管線。
 
@@ -101,7 +101,7 @@ Apache Storm 的預設組態只有一個 Nimbus 節點。Storm on HDInsight 會�
 
 雖然您可以在建立時指定叢集的節點數，但您可以擴大或縮小叢集以配合工作負載。即使在處理資料期間，所有 HDInsight 叢集均可讓您變更叢集中的節點數。
 
-> [AZURE.NOTE]若要利用透過調整所加入的新節點，您必須重新平衡在叢集大小增加之前啟動的拓撲。
+> [AZURE.NOTE] 若要利用透過調整所加入的新節點，您必須重新平衡在叢集大小增加之前啟動的拓撲。
 
 ###支援
 
@@ -137,7 +137,7 @@ Apache Storm 會執行**拓撲**，而不是您在 HDInsight 或 Hadoop 中可�
 
 * **Spout**：取用資料來源的資料，並發出一或多個**串流**。
 
-	> [AZURE.NOTE]在許多情況下，會自 Kafka、Azure 服務匯流排佇列或事件中樞讀取資料。佇列可確保運作中斷時資料仍持續存在。
+	> [AZURE.NOTE] 在許多情況下，會自 Kafka、Azure 服務匯流排佇列或事件中樞讀取資料。佇列可確保運作中斷時資料仍持續存在。
 
 * **Bolt**：取用**串流**、在 **Tuple** 上執行處理，然後可能發出**串流**。Bolt 也負責將資料寫入外部儲存體，例如佇列、HDInsight、HBase、Blob 或其他資料存放區。
 
@@ -219,4 +219,4 @@ Storm 可以提供不同程度的訊息處理保證。例如，基本的 Storm �
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -14,7 +14,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/14/2016"
 	ms.author="jgao"/>
 
@@ -94,4 +94,4 @@ HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

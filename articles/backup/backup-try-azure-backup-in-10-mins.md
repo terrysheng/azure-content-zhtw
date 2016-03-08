@@ -62,9 +62,9 @@
 
     選取儲存體備援選項的最佳時機，就在建立保存庫之後，以及任何電腦註冊至保存庫之前。一旦項目已註冊至保存庫，儲存體備援選項即遭到鎖定且無法修改。
 
-    如果您使用 Azure 作為主要的備份儲存體端點 (例如您正從 Windows Server 備份至 Azure)，您應該考慮挑選 (預設值) 異地備援儲存體選項。
+    如果您使用 Azure 作為主要的備份儲存體端點 (例如您正從 Windows Server 備份至 Azure)，您應該考慮挑選 (預設值) [異地備援儲存體](../storage/storage-redundancy.md#geo-redundant-storage)選項。
 
-    如果您使用 Azure 做為第三備份儲存體端點 (例如您使用 SCDPM 在內部部署環境中建立本機備份複本，並使用 Azure 來滿足長期保留需求)，則應該考慮選擇 [本地備援儲存體]。這將減少在 Azure 中儲存資料的成本，同時針對您可能會接受第三個複本的資料提供較低層級的持久性。
+    如果您使用 Azure 做為第三備份儲存體端點 (例如您使用 SCDPM 在內部部署環境中建立本機備份複本，並使用 Azure 來滿足長期保留需求)，則應該考慮選擇[本地備援儲存體](../storage/storage-redundancy.md#locally-redundant-storage)。這將減少在 Azure 中儲存資料的成本，同時針對您可能會接受第三個複本的資料提供較低層級的持久性。
 
     a.按一下您剛才建立的保存庫。
 
@@ -77,8 +77,6 @@
     如果您已選取 [本機備援]，則必須按一下 [儲存]，因為 [異地備援] 是預設選項。
 
     ![GRS](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
-
-    >[AZURE.NOTE] 您可以在這篇[概觀](../storage/storage-redundancy.md)文章中深入了解儲存體備援選項。
 
     d.按一下左導覽窗格中的 [復原服務]，以返回 [復原服務] 的資源清單。
 
@@ -112,7 +110,7 @@
 
     ![選取備份保存庫](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
 
-8. 在 [快速啟動] 頁面上，按一下 [適用於 Windows Server 或 System Center Data Protection Manager 或 Windows 用戶端的代理程式] > [儲存] \(或從 [儲存] 功能表選取 [另存新檔] 以指定代理程式的位置)。
+8. 在 [快速啟動] 頁面上，按一下 [適用於 Windows Server 或 System Center Data Protection Manager 或 Windows 用戶端的代理程式] > [儲存] (或從 [儲存] 功能表選取 [另存新檔] 以指定代理程式的位置)。
 
     ![儲存代理程式](./media/backup-try-azure-backup-in-10-mins/agent.png)
 
@@ -130,17 +128,17 @@
 
     ![暫存和快取](./media/backup-try-azure-backup-in-10-mins/recovery-services-agent-setup-wizard-1.png)
 
-3. 您可以繼續透過預設 Proxy 設定連線至網際網路，而如果您使用 Proxy 伺服器連線至網際網路，則在 [Proxy 設定] 畫面中核取 [使用自訂 Proxy 設定 方塊並輸入 Proxy 伺服器詳細資料。
+3. 您可以繼續透過預設 Proxy 設定連線至網際網路，而如果您使用 Proxy 伺服器連線至網際網路，則在 [Proxy 組態] 畫面中核取 [使用自訂 Proxy 設定 方塊並輸入 Proxy 伺服器詳細資料。
 
     若您使用已驗證的 Proxy，請輸入使用者名稱和密碼詳細資料。
 
     按 [下一步]。
 
-    ![Proxy 設定](./media/backup-try-azure-backup-in-10-mins/proxy-configuration.png)
+    ![Proxy 組態](./media/backup-try-azure-backup-in-10-mins/proxy-configuration.png)
 
 4. 按一下 [Install]。
 
-    ![Proxy 設定](./media/backup-try-azure-backup-in-10-mins/agent-installation.png)
+    ![Proxy 組態](./media/backup-try-azure-backup-in-10-mins/agent-installation.png)
 
     Azure 備份代理程式會安裝 .NET Framework 4.5 和 Windows PowerShell (若尚未安裝) 來完成安裝。
 
@@ -232,7 +230,7 @@
 
     ![Windows Server 立即備份](./media/backup-try-azure-backup-in-10-mins/backup-now-confirmation.png)
 
-11. 按一下 [關閉] 即可關閉精靈。您可以**備份程序**完成之前執行這項操作，而備份程序會繼續在背景執行。
+11. 按一下 [關閉] 即可關閉精靈。您可以在**備份程序**完成之前執行這項操作，而備份程序會繼續在背景中執行。
 
     ![Windows Server 立即備份](./media/backup-try-azure-backup-in-10-mins/backup-progress.png)
 
@@ -248,4 +246,4 @@
 - 詳細了解如何[備份 Windows Server](backup-azure-backup-windows-server.md)
 - 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933) (英文)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

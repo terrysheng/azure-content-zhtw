@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="02/11/2016"
+   	ms.date="03/01/2016"
    	ms.author="jgao"/>
 
 # Hadoop 教學課程：開始在 HDInsight 中使用以 Linux 為基礎的 Hadoop
@@ -37,20 +37,22 @@
 
 大部分 Hadoop 作業都是批次作業。您建立叢集並執行一些作業。本節中，您將在 HDInsight 中使用 [Azure ARM 範本](../resource-group-template-deploy.md)建立以 Linux 為基礎的 Hadoop 叢集。進行本教學課程並不需要具備 Azure ARM 範本經驗。如需其他叢集建立方法及了解各項設定，請參閱[建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)。如需有關使用 ARM 範本在 HDInsight 中建立 Hadoop 叢集的詳細資訊，請參閱[使用 ARM 範本在 HDInsight 中建立 Hadoop 叢集](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
-1. 按一下以下影像，以在 Azure 入口網站中開啟 ARM 範本。ARM 範本位於公用 Blob 容器中。 
+1. 按一下以下影像，以在 Azure 入口網站中開啟 ARM 範本。ARM 範本位於具有 URL **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json* 的公用 Blob 容器中。
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/zh-TW/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-2. 從 [參數] 刀鋒視窗，輸入下列資料：
+2. 從 [參數] 刀鋒視窗，輸入下列項目：
 
     - **ClusterName**：輸入您將建立的 Hadoop 叢集的名稱。
-    - **ClusterStorageAccountName**：每個叢集都有 Azure Blob 儲存體帳戶相依性。刪除叢集之後，資料會保留在儲存體帳戶中。
+    - **ClusterStorageAccountName**：每個叢集均有 Azure Blob 儲存體帳戶相依性。刪除叢集之後，資料會保留在儲存體帳戶中。
     - **叢集登入名稱和密碼**：預設登入名稱是 **admin**。
-    - **SSH 使用者名稱和密碼**：預設使用者名稱是 **sshuser**。您可以將它重新命名。其他參數都是選擇性的。您可以將它們維持不變。  
+    - **SSH 使用者名稱和密碼**：預設使用者名稱是 **sshuser**。您可以將它重新命名。 
+    
+    其他參數都是選擇性的。您可以將它們維持不變。叢集預設儲存體帳戶名稱是附加 "store" 的叢集名稱。它會硬式編碼在範本的變數區段中。
 3. 按一下 [確定] 儲存參數。
-4. 在 [自訂部署] 刀鋒視窗中，按一下 [資源群組] 下拉式方塊，然後再按一下 [新增] 來建立新的資源群組。資源群組是聚集叢集、相依儲存體帳戶和其他已連結資源的容器。
+4. 在 [自訂部署] 刀鋒視窗中，按一下 [資源群組] 下拉式方塊，然後再按一下 [新增] 來建立新的資源群組。資源群組是聚集叢集、相依儲存體帳戶和其他已連結資源的容器。資源群組位置可以和叢集位置不同。
 5. 按一下 [法律條款]，然後按一下 [建立]。
-6. 按一下 [建立]。您會看到新的磚，標題為 [提交範本部署的部署]。大約需要 20 分鐘的時間來建立叢集。一旦建立叢集後，您可以在入口網站按一下 [叢集] 刀鋒視窗來開啟它。
+6. 按一下 [建立]。您會看到新的圖格，標題為 [提交範本部署的部署]。大約需要 20 分鐘的時間來建立叢集。一旦建立叢集後，您可以在入口網站按一下 [叢集] 刀鋒視窗來開啟它。
 
 完成本教學課程之後，您可以刪除叢集。利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。您也需支付 HDInsight 叢集的費用 (即使未使用)。由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。如需有關刪除叢集的指示，請參閱[使用 Azure 入口網站管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-management-portal.md#delete-clusters)。
 
@@ -133,4 +135,4 @@ Hive 作業完成後，您可以[將結果匯出至 Azure SQL 資料庫或 SQL S
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

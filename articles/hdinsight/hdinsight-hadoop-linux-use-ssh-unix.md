@@ -11,7 +11,7 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="01/28/2016"
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-- [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+- [Linux、Unix、OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [安全殼層 (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) 可讓您使用命令列介面在以 Linux 為基礎的 HDInsight 叢集上遠端執行作業。本文件提供從 Linux、Unix 或 OS X 用戶端搭配使用 SSH 與 HDInsight 的資訊。
 
@@ -99,7 +99,8 @@ SSH 使用者可以使用密碼或公開金鑰來驗證。密碼是您自己設�
 
 ![要求公開金鑰的表單映像](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
 
-> [AZURE.NOTE] 金鑰檔就只是文字檔案。其內容類似下面這樣：```
+> [AZURE.NOTE] 金鑰檔就只是文字檔案。其內容類似下面這樣：
+> ```
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KGz90pgMk3VRJk4PEUSELfXKxP3NtsVwLVPN1l09utI/tKHQ6WL3qy89WVVVLiwzL7tfJ2B08Gmcw8mC/YoieT/YG+4I4oAgPEmim+6/F9S0lU2I2CuFBX9JzauX8n1Y9kWzTARST+ERx2hysyA5ObLv97Xe4C2CQvGE01LGAXkw2ffP9vI+emUM+VeYrf0q3w/b1o/COKbFVZ2IpEcJ8G2SLlNsHWXofWhOKQRi64TMxT7LLoohD61q2aWNKdaE4oQdiuo8TGnt4zWLEPjzjIYIEIZGk00HiQD+KCB5pxoVtp user@system
 > ```
 
@@ -238,4 +239,4 @@ SSH 可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDInsi
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

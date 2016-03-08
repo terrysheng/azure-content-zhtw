@@ -11,7 +11,7 @@
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.topic="get-started-article"
+    ms.topic="hero-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
     ms.date="01/20/2016"
@@ -22,7 +22,7 @@
 **單一資料庫**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-get-started.md)
+- [Azure 入口網站](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -142,4 +142,4 @@ SQL Database 會建立在 Azure SQL Database 伺服器內。執行 **New-AzureRm
 
 - [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

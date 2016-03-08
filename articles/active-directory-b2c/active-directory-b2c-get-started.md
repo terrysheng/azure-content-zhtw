@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.topic="get-started-article"
+	ms.date="02/25/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：建立 Azure AD B2C 租用戶
@@ -74,4 +74,4 @@
 
 請閱讀 [Azure Active Directory B2C 預覽：註冊您的應用程式](active-directory-b2c-app-registration.md)，了解如何使用 Azure AD B2C 註冊應用程式，以及建置快速啟動應用程式。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

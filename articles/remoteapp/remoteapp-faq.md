@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/02/2016" 
+	ms.date="02/25/2016" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp 常見問題集
@@ -30,7 +30,7 @@
 - **我能免費試用這項服務嗎？** 是。免費試用期有 30 天。試用結束之後，您可以轉換到付費帳戶 (用於生產環境中) 或停止使用服務。請前往 [portal.azure.com](http://portal.azure.com) 開始您的免費試用- 建立新的 RemoteApp 執行個體。使用免費試用版，可以建立 2 個 RemoteApp 執行個體，每個執行個體 10 個使用者。請記住這個試用期只有 30 天。
 ## Azure RemoteApp 訂用帳戶詳細資料 ##
 
-- **服務限制有哪些？** 您可以在 [Azure 訂用帳戶和服務限制、配額與限制](azure-subscription-service-limits.md)中了解 Azure RemoteApp 的預設設定和服務限制。讓我們知道您是否有更多的問題。
+- **服務限制有哪些？** 您可以在 [Azure 訂用帳戶和服務限制、配額與限制](../azure-subscription-service-limits.md)中了解 Azure RemoteApp 的預設設定和服務限制。讓我們知道您是否有更多的問題。
 - **我必須有多少個使用者？** 至少 20 個使用者。容我再次重複 - 至少 20 個。您將為 20 個使用者付費。 
 - **RemoteApp 的價格為何？** 請查看 [Azure RemoteApp 價格詳細資料](../../../pricing/details/remoteapp/)。
 - **是否有某種類型的集合成本高於其他集合？** 是的，這取決於您的集合需求。混合式集合所需的集合範圍涵蓋從 Azure RemoteApp 到內部部署網路。如果您使用現有的 VNET/Express Route，就不需要額外的成本。但是，如果您使用新的 Azure VNET 以及閘道或 Express Route，就需支付 [VPN 閘道](../../../pricing/details/vpn-gateway)或 [Express Route](../../../pricing/details/expressroute/) 的費用。此成本 (請見連結中的詳細說明) 高居您每月 Azure RemoteApp 成本的第一名。
@@ -114,4 +114,4 @@
 ### 幫我們來協助您 
 您知道除了評比這篇文章以及在下面留言以外，您可以變更文件本身嗎？ 有所遺漏？ 有所錯誤？ 我是否撰寫了令人混淆的內容？ 向上捲動並按一下 [在 GitHub 上編輯] 以進行變更 - 系統會顯示這些變更以供我們檢閱，而我們簽核後，您就會在這裡看到您所進行的變更和改良。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

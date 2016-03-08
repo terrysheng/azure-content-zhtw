@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/16/2016" 
+	ms.date="02/24/2016" 
 	ms.author="billmath"/>
 
 #選擇合適的多重因素安全性解決方案
@@ -73,7 +73,7 @@ MFA 報告 | ● | ●
 通話的自訂問候語 | ● | ● 
 可自訂的通話來電者 ID | ● | ● 
 信任的 IP | ● | ● 
-暫停對已記住的裝置進行 MFA (公開預覽) | ● |  
+記住受信任裝置的 MFA (公開預覽) | ● |  
 條件式存取 | ● | ● 
 快取 | ● | ● 
 
@@ -81,4 +81,4 @@ MFA 報告 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

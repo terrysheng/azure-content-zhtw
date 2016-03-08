@@ -3,17 +3,17 @@
     		description="使用 Azure 檔案儲存體在雲端中儲存檔案資料，並從 Azure 虛擬機器 (VM) 或執行 Windows 的內部部署應用程式掛接雲端檔案共用。"
             services="storage"
             documentationCenter=".net"
-            authors="robinsh"
-            manager="carmonm"
-            editor="" />
+            authors="mine-msft"
+            manager="aungoo"
+            editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="02/19/2016"
-      ms.author="robinsh" />
+      ms.date="02/29/2016"
+      ms.author="minet" />
 
 # 在 Windows 上開始使用 Azure 檔案儲存體
 
@@ -580,6 +580,14 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 
 	若要將大量檔案傳輸到檔案儲存體，我們建議您使用 AzCopy、Azure Powershell (Windows) 或 Azure CLI (Linux/Unix)，因為這些工具已針對網路傳輸最佳化。
 
+13. **已發行修補程式來修正 Azure 檔案的效能下滑問題**
+
+	Windows 小組最近發行了修補程式，以修正當客戶從 Windows 8.1 或 Windows Server 2012 R2 存取 Azure 檔案儲存體時所發生的效能下滑問題。如需詳細資訊，請查看相關聯的知識庫文件：[當您從 Windows 8.1 或 Server 2012 R2 存取 Azure 檔案儲存體時效能變慢](https://support.microsoft.com/zh-TW/kb/3114025)。
+
+14. **搭配 IBM MQ 使用 Azure 檔案儲存體**
+
+	IBM 已發行文件來指引 IBM MQ 客戶設定 Azure 檔案儲存體與其服務。如需詳細資訊，請查看[如何使用 Microsoft Azure 檔案服務設定 IBM MQ 多重執行個體佇列管理員](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)。
+
 ## 後續步驟
 
 請參閱這些連結以取得 Azure 檔案儲存體的相關詳細資訊。
@@ -607,4 +615,4 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 - [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

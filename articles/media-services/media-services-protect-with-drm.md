@@ -4,17 +4,10 @@
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako,Mingfeiy"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
-<tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="02/02/2016" 
-	ms.author="juliako"/>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="03/01/2016"" ms.author="juliako"/>
 
 
 #使用 PlayReady 和/或 Widevine 動態 Common Encryption
@@ -84,7 +77,7 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 
 使用動態加密時，您只需建立一個資源，其中包含一組多位元速率 MP4 檔案或多位元速率 Smooth Streaming 來源檔案。然後隨選資料流處理伺服器會根據資訊清單和片段要求中的指定格式，確保您以自己選擇的通訊協定接收資料流。因此，您只需要儲存及支付一種儲存格式之檔案的費用，媒體服務會根據用戶端的要求建置及提供適當的回應。如需詳細資訊，請參閱[動態封裝概觀](media-services-dynamic-packaging-overview.md)主題。
 
-如需如何編碼的指示，請參閱[如何使用媒體編碼器標準為資產編碼](media-services-dotnet-encode-with-media-encoder-standard.md)。
+如需如何編碼的指示，請參閱[如何使用 Media Encoder Standard 為資產編碼](media-services-dotnet-encode-with-media-encoder-standard.md)。
 	
 
 ##<a id="create_contentkey"></a>建立內容金鑰並將它與編碼的資產產生關聯
@@ -544,7 +537,7 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 		                {
 		                            {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-		                            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineURl.ToString()},
+		                            {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl, widevineURl.ToString()},
 		
 		                };
 		
@@ -631,4 +624,4 @@ Microsoft Azure 媒體服務可讓您傳遞受到 [Microsoft PlayReady DRM](http
 
 [宣布在 Azure 媒體服務中推出 Google Widevine 授權傳遞服務](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 # 開始使用適用於 Chrome 應用程式的通知中樞
@@ -323,10 +323,10 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 		function sendNHRegistrationRequest()
 		{
 		  var registrationPayload =
-		  "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-		  "<entry xmlns=\"http://www.w3.org/2005/Atom\">" +
-		      "<content type=\"application/xml\">" +
-		          "<GcmRegistrationDescription xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/netservices/2010/10/servicebus/connect\">" +
+		  "<?xml version="1.0" encoding="utf-8"?>" +
+		  "<entry xmlns="http://www.w3.org/2005/Atom">" +
+		      "<content type="application/xml">" +
+		          "<GcmRegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect">" +
 		              "<GcmRegistrationId>{GCMRegistrationId}</GcmRegistrationId>" +
 		          "</GcmRegistrationDescription>" +
 		      "</content>" +
@@ -368,20 +368,19 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 		  }
 		}
 
-	上述指令碼有以下輸出：
-	- *window.onload* 會在 UI 上定義兩個按鈕的按鈕點擊事件。一個按鈕會向 GCM 註冊，另一個在向 GCM 註冊後會使用傳回的註冊識別碼向 Azure 通知中樞註冊。
+	上述指令碼有下列的輸出：
+	- *window.onload* 會在 UI 上定義兩個按鈕的按鈕點擊事件。其中一個向 GCM 註冊，另一個使用向 GCM 註冊後所傳回的註冊識別碼來向 Azure 通知中樞註冊。
 	- *updateLog* 函數會定義簡單的記錄函數。
 	- *registerWithGCM* 是第一個按鈕點擊處理常式，可向 GCM 進行 **chrome.gcm.register** 呼叫，以註冊此 Chrome 應用程式執行個體。
 	- *registerCallback* 是回呼函數，會在上述 GCM 註冊呼叫傳回時受到呼叫。
-	- *registerWithNH* 是第二個按鈕點擊處理常式，會向通知中樞註冊。它會取得 **hubName** 和 **connectionString** (使用者已指定) 並製作通知中樞註冊 REST API 呼叫。
-	- *splitConnectionString* 和 *generateSaSToken* 都是建立 SaS 權杖的 Javascript 實作，必須在所有的 REST API 呼叫中傳送。如需詳細資訊，請參閱[常用概念](http://msdn.microsoft.com/library/dn495627.aspx)。
-	- *sendNHRegistrationRequest* 函數會進行 HTTP REST 呼叫。
-	- *registrationPayload* 會定義註冊 XML 承載。如需詳細資訊，請參閱[建立註冊 NH REST API]。我們會以接收自 GCM 的項目來更新其中的註冊識別碼。
+	- *registerWithNH* 是第二個按鈕點擊處理常式，會向通知中樞進行註冊。它會取得 (使用者已指定的) **hubName** 和 **connectionString**，並製作通知中樞註冊 REST API 呼叫。
+	- *splitConnectionString* 和 *generateSaSToken* 都是建立 SaS 權杖的 JavaScript 實作，必須在所有的 REST API 呼叫中傳送。如需詳細資訊，請參閱[一般概念](http://msdn.microsoft.com/library/dn495627.aspx)。
+	- *sendNHRegistrationRequest* 是發出 HTTP REST 呼叫的函數。
+	- *registrationPayload* 會定義註冊 XML 裝載。如需詳細資訊，請參閱[建立註冊 NH REST API]。我們會以接收自 GCM 的項目來更新其中的註冊識別碼。
 	- *client* 是我們用來發出 HTTP POST 要求的 **XMLHttpRequest** 執行個體。請注意，我們會使用 **sasToken** 更新 **Authorization** 標頭。成功完成此呼叫後，即會向 Azure 通知中樞註冊此 Chrome 應用程式執行個體。
 
 
-您應該會在結尾處看見下列資料夾檢視：
-	![][21]
+您應該會在結尾處看見下列資料夾檢視：![][21]
 
 ###設定和測試 Chrome 應用程式
 
@@ -409,7 +408,9 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 
 在本教學課程中，您將使用 .NET 主控台應用程式來傳送通知。但您可以透過 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 介面</a>，使用通知中樞從任何後端傳送通知。
 
-如需從整合通知中樞之 Azure 行動服務後端傳送通知的範例，請參閱「開始在行動服務中使用推播通知」([.NET 後端](../mobile-services-javascript-backend-android-get-started-push.md) | [JavaScript 後端](../mobile-services-javascript-backend-android-get-started-push.md))。如需如何使用 REST API 傳送通知的範例，請參閱「如何從 Java/PHP/Python 使用通知中樞」([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md))。
+如需如何從已與通知中樞整合的 Azure 行動服務後端傳送通知的範例，請參閱[開始在行動服務中使用推播通知](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)。
+  
+如需如何使用 REST API 傳送通知的範例，請參閱「如何從 Java/PHP/Python 使用通知中樞」([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md))。
 
 1. 在 Visual Studio 的 [檔案] 功能表中，選取 [新增]，然後選取 [專案]。在 [Visual C#] 下方，按一下 [Windows] 和 [主控台應用程式]，再按一下 [確定]。這會建立新的主控台應用程式專案。
 
@@ -494,4 +495,4 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 [Azure 通知中樞通知使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Azure 通知中樞即時新聞]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

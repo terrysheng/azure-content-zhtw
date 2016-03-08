@@ -27,9 +27,9 @@
 
 本教學課程說明如何利用 [Azure 入口網站](https://portal.azure.com/)[在 Azure App Service 中建立 Web 應用程式](http://go.microsoft.com/fwlink/?LinkId=529714)。Azure 入口網站是可用來管理 Azure 資源的 Web 介面。
 
-> [AZURE.NOTE] 若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 Visual Studio 訂閱者權益][]，或是[申請免費試用][]。
+> [AZURE.NOTE] 若要完成此教學課程，您需要 Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[啟用自己的 Visual Studio 訂閱者權益]，或是[申請免費試用]。
 >
-> 如果您想要在註冊 Azure 帳戶之前先開始使用 Azure App Service，請移至[試用 App Service][]。您可以於該處，在 App Service 中立即建立短期的入門 Web app - 不需信用卡，不需任何承諾。
+> 如果您想要在註冊 Azure 帳戶之前先開始使用 Azure App Service，請移至[試用 App Service]。您可以於該處，在 App Service 中立即建立短期的入門 Web app - 不需信用卡，不需任何承諾。
 
 ## Java 應用程式選項
 
@@ -53,7 +53,7 @@
 	* 您想要自行從頭設定 Web 容器。 
 	* 您想要使用 App Service 所不支援的 Java 版本並自行將它上傳。
 
-	對於這種案例來說，您可以使用 Azure 入口網站建立應用程式，然後以手動提供適當的執行階段檔案。在此情況下，會針對您的 App Service 計畫的儲存空間配額計算檔案。如需詳細資訊，請參閱[將自訂 Java Web 應用程式上傳至 Azure](https://acom-sandbox.azurewebsites.net/zh-TW/documentation/articles/web-sites-java-custom-upload/)。
+	對於這種案例來說，您可以使用 Azure 入口網站建立應用程式，然後以手動提供適當的執行階段檔案。在此情況下，會針對您的 App Service 計畫的儲存空間配額計算檔案。如需詳細資訊，請參閱[將自訂 Java Web 應用程式上傳至 Azure](web-sites-java-custom-upload.md)。
 
 ## <a name="portal"></a>建立及設定 Java Web 應用程式
 
@@ -176,7 +176,6 @@
 <!-- External Links -->
 [啟用自己的 Visual Studio 訂閱者權益]: http://go.microsoft.com/fwlink/?LinkId=623901
 [申請免費試用]: http://go.microsoft.com/fwlink/?LinkId=623901
-
 [試用 App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

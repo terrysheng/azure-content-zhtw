@@ -1,18 +1,18 @@
-<properties 
-	 pageTitle="如何啟用 Azure 內容傳遞網路 (CDN)" 
-	 description="本主題說明如何啟用 Azure 內容傳遞網路 (CDN)。" 
-	 services="cdn" 
-	 documentationCenter="" 
-	 authors="camsoper" 
-	 manager="dwrede" 
+<properties
+	 pageTitle="如何啟用 Azure 內容傳遞網路 (CDN)"
+	 description="本主題說明如何啟用 Azure 內容傳遞網路 (CDN)。"
+	 services="cdn"
+	 documentationCenter=""
+	 authors="camsoper"
+	 manager="erikre"
 	 editor=""/>
-<tags 
-	 ms.service="cdn" 
-	 ms.workload="media" 
-	 ms.tgt_pltfrm="na" 
-	 ms.devlang="na" 
-	 ms.topic="article" 
-	 ms.date="01/20/2016" 
+<tags
+	 ms.service="cdn"
+	 ms.workload="media"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="get-started-article"
+	 ms.date="02/25/2016" 
 	 ms.author="casoper"/>
 
 
@@ -25,7 +25,7 @@
 
 CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 端點。您可能會想要使用多個設定檔，依網際網路網域、Web 應用程式或其他準則來組織您的 CDN 端點。
 
-> [AZURE.NOTE]依預設，一個 Azure 訂用帳戶只能擁有四個 CDN 設定檔。而每個 CDN 設定檔則只能擁有十個 CDN 端點。
+> [AZURE.NOTE] 依預設，一個 Azure 訂用帳戶只能擁有四個 CDN 設定檔。而每個 CDN 設定檔則只能擁有十個 CDN 端點。
 >
 > CDN 定價是根據 CDN 設定檔層級來套用的。如果您想要混合使用標準和進階的 CDN 功能，就需要擁有多個 CDN 設定檔。
 
@@ -35,7 +35,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 1. 在 [Azure 管理入口網站](https://portal.azure.com)的左上角，按一下 [新增]。在 [新增] 刀鋒視窗中，依序選取 [媒體 + CDN] 和 [CDN]。
 
     此時會顯示新的 [CDN 設定檔] 刀鋒視窗。
-    
+
     ![新的 CDN 設定檔][new-cdn-profile]
 
 2. 輸入 CDN 設定檔的名稱。
@@ -57,21 +57,21 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 1. 在 [Azure 管理入口網站](https://portal.azure.com)中，巡覽至您的 CDN 設定檔。您可能已在先前步驟中將其釘選至儀表板。若否，則您可依序按一下 [瀏覽]、[CDN 設定檔] 尋找該設定檔，然後再按一下您要在其中加入端點的設定檔。
 
     此時會顯示 [CDN 設定檔] 刀鋒視窗。
-    
+
     ![CDN 設定檔][cdn-profile-settings]
-    
+
 2. 按一下 [新增端點] 按鈕。
 
     ![[加入端點] 按鈕][cdn-new-endpoint-button]
 
     此時會顯示 [加入端點] 刀鋒視窗。
-    
+
     ![[加入端點] 刀鋒視窗][cdn-add-endpoint]
 
 3. 輸入這個 CDN 端點的 [名稱]。此名稱會用於存取位於網域 `<EndpointName>.azureedge.net` 的快取資源。
 
 4. 在 [原始來源類型] 下拉式清單中，選取您的原始來源類型。
-	
+
 	![CDN 原始來源類型](./media/cdn-create-new-endpoint/cdn-origin-type.png)
 
 5. 在 [原始主機名稱] 下拉式清單中，選取您的原始網域類型。下拉式清單會列出您在步驟 4 中指定之類型的所有可用原始來源。如果您選取 [自訂原始來源] 作為您的 [原始來源類型]，您將會輸入自訂原始來源的網域。
@@ -88,7 +88,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 
     ![CDN 端點][cdn-endpoint-success]
 
-    > [AZURE.NOTE]端點將無法立即可用。註冊可能需要 90 分鐘的處理時間，以透過 CDN 網路傳播。若使用者嘗試立即使用 CDN 網域名稱，則可能會顯示接收狀態碼 404，直到可透過 CDN 使用內容為止。
+    > [AZURE.NOTE] 端點將無法立即可用。註冊可能需要 90 分鐘的處理時間，以透過 CDN 網路傳播。若使用者嘗試立即使用 CDN 網域名稱，則可能會顯示接收狀態碼 404，直到可透過 CDN 使用內容為止。
 
 ##另請參閱
 - [如何將內容傳遞網路 (CDN) 內容對應至自訂網域](cdn-map-content-to-custom-domain.md)
@@ -99,6 +99,5 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
- 
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

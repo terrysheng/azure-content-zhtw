@@ -14,7 +14,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
@@ -48,7 +48,11 @@ HDInsight Emulator 提供本機部署環境，與 Hadoop 沙箱極為相似。�
 
 可以透過 Microsoft Web Platform Installer 安裝 Microsoft HDInsight Emulator。
 
-> [AZURE.NOTE] HDInsight Emulator 目前僅支援英文版作業系統。如果已安裝舊版的 Emulator，您必須從 [控制台/程式和功能] 中解除安裝下列兩個元件，再安裝最新版的 Emulator：<ul> <li>Microsoft HDInsight Emulator for Azure 或 HDInsight Developer Preview，視何者已安裝</li> <li>Hortonworks Data Platform</li> </ul>
+> [AZURE.NOTE] HDInsight Emulator 目前僅支援英文版作業系統。如果已安裝舊版的 Emulator，您必須從 [控制台/程式和功能] 中解除安裝下列兩個元件，再安裝最新版的 Emulator：
+><ul>
+> <li>Microsoft HDInsight Emulator for Azure 或 HDInsight Developer Preview (視安裝何者而定)。</li>
+> <li>Hortonworks Data Platform</li>
+> </ul>
 
 
 **安裝 HDInsight Emulator**
@@ -117,7 +121,7 @@ HDInsight Emulator 提供本機部署環境，與 Hadoop 沙箱極為相似。�
 			<value>*</value>
 		</property>
 
-3. 當 Visual Studio 嘗試連接到 WebHCat 服務時，您可能會收到錯誤 (「錯誤：找不到工作 job\_XXXX\_0001」)。若是如此，您必須重新啟動 WebHCat 服務，然後再試一次。若要重新啟動 WebHCat 服務，請啟動 [**服務**] MMC、以滑鼠右鍵按一下 **Apache Hadoop Templeton** (這是 WebHCat 服務的舊名稱)，然後按一下 [**重新啟動**]。
+3. 當 Visual Studio 嘗試連接到 WebHCat 服務時，您可能會收到錯誤 (「錯誤：找不到工作 job\_XXXX\_0001」)。若是如此，您必須重新啟動 WebHCat 服務，然後再試一次。若要重新啟動 WebHCat 服務，請啟動 [**服務**] MMC、以滑鼠右鍵按一下 [**Apache Hadoop Templeton**] (這是 WebHCat 服務的舊名稱)，然後按一下 [**重新啟動**]。
 
 ##<a name="runwordcount"></a>字數統計 MapReduce 教學課程
 
@@ -259,7 +263,22 @@ jar 檔及原始程式檔位在 C:\\Hadoop\\GettingStarted\\Java 資料夾。
 
 		hadoop jar .\Java\w3c_scenarios.jar "microsoft.hadoop.w3c.TotalHitsForPage" "/w3c/input/small/data_w3c_small.txt" "/w3c/output"
 
-	下表說明命令的元素：<table border="1"> <tr><td>參數</td><td>附註</td></tr> <tr><td>w3c\_scenarios.jar</td><td>此 jar 檔案位於 C:\\hdp\\GettingStarted\\Java 資料夾。</td></tr> <tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>類型可以由下列其中一個項目取代：<ul> <li>microsoft.hadoop.w3c.AverageTimeTaken</li> <li>microsoft.hadoop.w3c.ErrorsByPage</li> </ul></td></tr> <tr><td>/w3c/input/small/data\_w3c\_small.txt</td><td>輸入檔案可以由下列項目取代：<ul> <li>/w3c/input/medium/data\_w3c\_medium.txt</li> <li>/w3c/input/large/data\_w3c\_large.txt</li> </ul></td></tr> <tr><td>/w3c/output</td><td>這是輸出資料夾名稱。</td></tr> </table>
+	下表說明命令的元素：
+	<table border="1">
+	<tr><td>參數</td><td>注意</td></tr>
+	<tr><td>w3c_scenarios.jar</td><td>Jar 檔案位於 C:\hdp\GettingStarted\Java 資料夾中。</td></tr>
+	<tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>該類型可以由下列其中一項取代：
+	<ul>
+	<li>microsoft.hadoop.w3c.AverageTimeTaken</li>
+	<li>microsoft.hadoop.w3c.ErrorsByPage</li>
+	</ul></td></tr>
+	<tr><td>/w3c/input/small/data_w3c_small.txt</td><td>輸入檔可以由下列項目取代：
+	<ul>
+	<li>/w3c/input/medium/data_w3c_medium.txt</li>
+	<li>/w3c/input/large/data_w3c_large.txt</li>
+	</ul></td></tr>
+	<tr><td>/w3c/output</td><td>這是輸出資料夾名稱。</td></tr>
+	</table>
 
 4. 執行下列命令顯示輸出檔：
 
@@ -317,8 +336,17 @@ jar 檔及原始程式檔位在 C:\\Hadoop\\GettingStarted\\Java 資料夾。
 
         C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ctotalhitsbypage.hql
 
-	下表說明命令的元素：<table border="1"> <tr><td>檔案</td><td>說明</td></tr> <tr><td>C:\\hdp\\hive-0.13.0.2.1.3.0-1981\\bin\\hive.cmd</td><td>Hive 命令指令碼。</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3ctotalhitsbypage.hql</td><td>您可以使用下列其中一個項目取代 Hive 指令碼檔案：<ul> <li>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3caveragetimetaken.hql</li> <li>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3cerrorsbypage.hql</li> </ul> </td></tr>
-
+	下表說明命令的元素：
+	<table border="1">
+	<tr><td>檔案</td><td>說明</td></tr>
+	<tr><td>C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd</td><td>Hive 命令指令碼。</td></tr>
+	<tr><td>C:\hdp\GettingStarted\Hive\w3c\w3ctotalhitsbypage.hql</td><td> 您能夠以下列其中一項取代 Hive 指令碼檔案：
+	<ul>
+	<li>C:\hdp\GettingStarted\Hive\w3c\w3caveragetimetaken.hql</li>
+	<li>C:\hdp\GettingStarted\Hive\w3c\w3cerrorsbypage.hql</li>
+	</ul>
+	</td></tr>
+	
 	</table>
 
 	w3ctotalhitsbypage.hql HiveQL 指令碼是：
@@ -359,12 +387,25 @@ Pig 處理使用稱為 *Pig Latin* 的資料流程語言。Pig Latin 抽象提�
 
 		C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd -f ".\Pig\w3c\TotalHitsForPage.pig" -p "input=/w3c/input/small/data_w3c_small.txt"
 
-	下表顯示命令的元素：<table border="1"> <tr><td>檔案</td><td>說明</td></tr> <tr><td>C:\\hdp\\pig-0.12.1.2.1.3.0-1981\\bin\\pig.cmd</td><td>Pig 命令指令碼。</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Pig\\w3c\\TotalHitsForPage.pig</td><td>您可以使用下列其中一個項目取代 Pig Latin 指令碼檔案：<ul> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\AverageTimeTaken.pig</li> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\ErrorsByPage.pig</li> </ul> </td></tr> <tr><td>/w3c/input/small/data\_w3c\_small.txt</td><td>您可以使用較大的檔案取代參數：
-
+	下表顯示命令的元素：
+	<table border="1">
+	<tr><td>檔案</td><td>說明</td></tr>
+	<tr><td>C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd</td><td>Pig 命令指令碼。</td></tr>
+	<tr><td>C:\hdp\GettingStarted\Pig\w3c\TotalHitsForPage.pig</td><td> 您能夠以下列其中一項取代 Pig Latin 指令碼檔案：
 	<ul>
-<li>/w3c/input/medium/data_w3c_medium.txt</li>
-<li>/w3c/input/large/data_w3c_large.txt</li>
-</ul></td></tr> </table>
+	<li>C:\hdp\GettingStarted\Pig\w3c\AverageTimeTaken.pig</li>
+	<li>C:\hdp\GettingStarted\Pig\w3c\ErrorsByPage.pig</li>
+	</ul>
+	</td></tr>
+	<tr><td>/w3c/input/small/data_w3c_small.txt</td><td> 您可以使用較大的檔案取代參數：
+	
+	<ul>
+	<li>/w3c/input/medium/data_w3c_medium.txt</li>
+	<li>/w3c/input/large/data_w3c_large.txt</li>
+	</ul>
+	
+	</td></tr>
+	</table>
 
 	輸出應該類似如下範例：
 
@@ -497,4 +538,4 @@ HDInsight Emulator 也支援部分 Azure PowerShell Cmdlet。這些 Cmdlet 包�
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

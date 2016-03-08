@@ -13,7 +13,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
@@ -21,7 +21,7 @@
 
 OAuth 2.0 授權碼授與可用於裝置上所安裝的應用程式中，以存取受保護的資源，例如 Web API。透過應用程式模型的 v2.0 實作 OAuth 2.0，您可以將登入及 API 存取新增至您的行動應用程式和桌面應用程式。本指南與語言無關，描述在不使用我們的任何開放原始碼程式庫的情況下，如何傳送和接收 HTTP 訊息。
 
-<!-- TODO: Need link to libraries -->
+<!-- TODO: Need link to libraries -->	
 
 > [AZURE.NOTE]
 	v2.0 端點並非支援每個 Azure Active Directory 案例和功能。如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
@@ -275,4 +275,4 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 | trace\_id | 有助於診斷的要求唯一識別碼。 |
 | correlation\_id | 有助於跨元件診斷的要求唯一識別碼。 |
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

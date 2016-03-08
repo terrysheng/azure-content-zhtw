@@ -57,4 +57,16 @@ Azure Data Factory 有幾個主要實體會共同運作，來定義輸入和輸�
 
 有了資料集、活動、管線和連結的服務這四個簡單的概念之後，您隨時可以開始使用！ 您可以從頭開始[建置您的第一個管線](data-factory-build-your-first-pipeline.md)，或是依照我們 [Data Factory 範例](data-factory-samples.md)文章中的指示，部署現成的樣本。
 
-<!---HONumber=AcomDC_0211_2016-->
+## 支援的區域
+目前您可以在**美國西部**和**北歐**區域建立 Data Factory。不過，Data Factory 可以存取其他 Azure 區域的資料存放區和計算資料，以在資料存放區之間移動資料或使用計算服務處理資料。
+
+Azure Data Factory 本身不會儲存任何資料。它可讓您建立資料驅動的流程，以協調[所支援資料存放區](data-factory-data-movement-activities.md#supported-data-stores)之間的資料移動，以及使用[計算服務](data-factory-compute-linked-services.md)在其他區域或內部部署環境中處理資料。它也可讓您使用程式設計方式和 UI 機制[監視和管理工作流程](data-factory-monitor-manage-pipelines.md)。
+
+請注意，即使 Azure Data Factory 只能在**美國西部**和**北歐**區域使用，但 Data Factory 中支援資料移動的服務可在[全球](data-factory-data-movement-activities.md#global)好幾個區域中使用。如果資料存放區位於防火牆後面，則會改由內部部署環境中所安裝的[資料管理閘道器](data-factory-move-data-between-onprem-and-cloud.md)移動資料。
+
+如需範例，讓我們假設您的計算環境 (例如 Azure HDInsight 叢集和 Azure 機器學習服務) 即將用盡西歐區域的資源。您可以在北歐建立和運用 Azure Data Factory 執行個體，並用它排程您在西歐區域之計算環境上的工作。只要幾毫秒的時間，Data Factory 服務就能觸發計算環境上的作業，但執行計算環境上作業所需的時間則不會改變。
+
+未來我們計畫讓 Azure 在每個地理位置都能支援 Azure Data Factory。
+  
+
+<!---HONumber=AcomDC_0302_2016-->

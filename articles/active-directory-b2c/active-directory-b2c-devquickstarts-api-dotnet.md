@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="12/22/2015"
 	ms.author="dastrock"/>
 
@@ -26,11 +26,11 @@
 
 ## 建立 Azure AD B2C 目錄
 
-您必須先建立目錄或租用戶，才可使用 Azure AD B2C。目錄是適用於所有使用者、app、群組等項目的容器。如果您尚未建立目錄，請先[建立 B2C 目錄](active-directory-b2c-get-started.md)，再繼續進行本指南。
+您必須先建立目錄或租用戶，才可使用 Azure AD B2C。目錄是適用於所有使用者、app、群組等項目的容器。如果您還沒有此資源，請先[建立 B2C 目錄](active-directory-b2c-get-started.md)，再繼續進行本指南。
 
 ## 建立應用程式
 
-接著，您必須在 B2C 目錄中建立 app。這會提供 Azure AD 資訊，以便安全地與您的 app 進行通訊。若要建立應用程式，請遵循[這些指示](active-directory-b2c-app-registration.md)。請務必：
+接著，您必須在 B2C 目錄中建立應用程式。這會提供必要資訊給 Azure AD，讓它與應用程式安全地通訊。若要建立應用程式，請遵循[這些指示](active-directory-b2c-app-registration.md)。請務必：
 
 - 在應用程式中加入 **Web 應用程式**或 **Web API**。
 - 針對 Web 應用程式使用**重新導向的統一資源識別項** `https://localhost:44316/`。這是適用於此程式碼範例的 Web 應用程式用戶端的預設位置。
@@ -233,4 +233,4 @@ You can now move onto more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

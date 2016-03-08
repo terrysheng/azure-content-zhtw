@@ -1,11 +1,11 @@
 <properties
 	pageTitle="混合式連線概觀 | Microsoft Azure"
-	description="了解混合式連線，包括安全性、TCP 連接埠和支援的組態。MABS，WABS。"
+	description="了解混合式連線、安全性、TCP 連接埠和支援的組態。MABS，WABS。"
 	services="biztalk-services"
 	documentationCenter=""
 	authors="MandiOhlinger"
-	manager="dwrede"
-	editor="cgronlun"/>
+	manager="erikre"
+	editor=""/>
 
 <tags
 	ms.service="biztalk-services"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="02/29/2016"
 	ms.author="mandia"/>
 
 
 # 混合式連線概觀
-本文介紹混合式連線、列出支援的組態，並列出需要的 TCP 連接埠。
+簡介混合式連線、列出支援的組態，並列出需要的 TCP 連接埠。
 
 
 ## 什麼是混合式連線
@@ -35,7 +35,7 @@
 - 使用混合式連線的應用程式只存取透過混合式連線發佈的特定內部部署資源。
 - 可以連接到任何使用靜態 TCP 連接埠的內部部署資源，例如 SQL Server、MySQL、HTTP Web API 和大部分的自訂 Web 服務。
 
-	> [AZURE.NOTE]目前不支援使用動態連接埠的 TCP 服務 (例如 FTP 被動模式或延伸被動模式)。
+	> [AZURE.NOTE] 目前不支援使用動態連接埠的 TCP 服務 (例如 FTP 被動模式或延伸被動模式)。
 
 - 可以與 Web Apps (.NET、PHP、Java、Python、Node.js) 和 Mobile Apps (Node.js、.NET) 支援的所有架構搭配使用。
 - Web Apps 和 Mobile Apps 能夠以完全相同的方式存取內部部署資源，就像是該 Web 或 Mobile Apps 位於本機網路一樣。例如，內部部署使用的相同連接字串也可以在 Azure 上使用。
@@ -74,7 +74,7 @@
 
 請參閱[建立和管理混合式連線](integration-hybrid-connection-create-manage.md) (英文)。
 
-應用程式授權與混合式連線分開。任何適當的授權方法都可使用。授權方法視 Azure 雲端和內部部署元件之間支援的端對端授權方法而定。例如，您的 Azure 應用程式存取內部部署 SQL Server。在此情況下，SQL 授權可能是端對端支援的授權方法。
+*應用程式授權與混合式連線分開*。任何適當的授權方法都可使用。授權方法視 Azure 雲端和內部部署元件之間支援的端對端授權方法而定。例如，您的 Azure 應用程式存取內部部署 SQL Server。在此情況下，SQL 授權可能是端對端支援的授權方法。
 
 #### TCP 連接埠
 混合式連線只需要您私人網路的輸出 TCP 或 HTTP 連線。您不需要開啟任何防火牆連接埠，或變更您的網路周邊組態，即可允許任何輸入連線進入您的網路。
@@ -91,7 +91,7 @@
 
 ## 後續步驟
 
-[建立和管理混合式連線](integration-hybrid-connection-create-manage.md)<br/> [將 Azure 網站連線到內部部署資源](../web-sites-hybrid-connection-get-started.md)<br/> [從 Azure Web 應用程式連線至內部部署的 SQL Server](../web-sites-hybrid-connection-connect-on-premises-sql-server.md) <br/> [Azure 行動服務和混合式連線](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)
+[建立和管理混合式連線](integration-hybrid-connection-create-manage.md)<br/> [將 Azure 網站連線到內部部署資源](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/> [從 Azure Web 應用程式連線至內部部署的 SQL Server](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) <br/> [Azure 行動服務和混合式連線](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 
 ## 另請參閱
@@ -103,4 +103,4 @@
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

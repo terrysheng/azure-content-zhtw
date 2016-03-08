@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2015"
+	ms.date="03/01/2016"
 	ms.author="piyushjo" />
 
 # 定義 Mobile Engagement 策略
@@ -60,7 +60,7 @@
 
 為了要在吸引對象時能儘可能與內容相關，具有使用者行為的知識是很重要的，即時掌握他們的狀態。收集的資料可讓行銷人員真正專注在重要的事情，以規劃使用案例，並達成行動參與策略的目標。之前提到的達成目標同時也證明，為何最佳作法其實不是收集一切的分析資訊，而是只收集可讓您專注於想要了解的事情和使用案例。這是開始、嘗試、測試和了解如何使用解決方案，以及如何解決智慧型推播通知的好方法，還能提高應用程式保留率，讓它晉升為成功案例的一員。
 
->[AZURE.NOTE]請記住：太多資料會毀了資料！
+>[AZURE.NOTE] 請記住：太多資料會毀了資料！
 
 ### 使用案例和最佳作法
 
@@ -106,19 +106,21 @@
 
 #### 標記的範例
 
-使用案例：區隔對象的行為，然後以合適的推播通知內容鎖定合適的使用者
+*使用案例：區隔對象的行為，然後以合適的推播通知內容鎖定合適的使用者*
 
 1.	傳送推播通知以推廣某類產品：收集行為資料，以便根據對象在指定期間內造訪 x 次的產品類別，或是他們已放入購物車的特定商品來區隔對象。收集的資料可讓您區隔出客群，然後傳送推播通知給合適的對象。
 2.	為應用程式評分：根據對象在社交網路上分享的內容來收集資料。目的是要藉由判斷應用程式的「大使」(ambassador) 來區隔對象。大使是透過應用程式內推播通知，要求在市集中為您的應用程式評分 5 顆星的最佳對象。
 
 	![][1]
 
-*使用案例：宣告性資料* 1.區隔警示新聞：收集宣告性資料，根據對象的喜好設定來區隔對象。它允許傳送特定對象真正有興趣的特定主題推送通知。2.根據登入狀態區隔對象。收集資料，以了解使用者是否連線，或是否建立帳戶。協助鎖定尚未登入的使用者，並傳送推播通知以吸引使用者進行轉換。![][2]
+*使用案例：宣告性資料*
+1.	區隔警示新聞：收集宣告性資料，根據對象的喜好設定來區隔對象。它允許傳送特定對象真正有興趣的特定主題推送通知。
+2.	根據登入狀態區隔對象。收集資料，以了解使用者是否連線，或是否建立帳戶。協助鎖定尚未登入的使用者，並傳送推播通知以吸引使用者進行轉換。![][2]
 
 ### 後續步驟
 
 - 請瀏覽 [Mobile Engagement 概念]，進一步了解 Mobile Engagement 基本概念。
-- [建立 Azure Mobile Engagement 帳戶](mobile-engagement-create-account.md)。
+- 請瀏覽[建立 Mobile Engagement 應用程式](mobile-engagement-create.md)以在 Azure 中建立新的 Mobile Engagement 應用程式集合，以及透過 Mobile Engagement 入口網站來開始管理您的應用程式。
 - 請瀏覽[最佳作法](mobile-engagement-getting-started-best-practices.md)以取得詳細資料。
 - 請瀏覽[遊戲應用程式案例](mobile-engagement-gaming-scenario.md)來了解如何使用範例遊戲應用程式實作 Mobile Engagement。 
 - 請瀏覽[媒體應用程式案例](mobile-engagement-media-scenario.md)來了解如何使用範例媒體應用程式實作 Mobile Engagement。 
@@ -132,4 +134,4 @@
 [Mobile Engagement 概念]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [教學課程]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

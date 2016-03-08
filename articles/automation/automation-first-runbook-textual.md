@@ -3,7 +3,7 @@
     description="本教學課程逐步引導您使用 PowerShell 工作流程建立、測試和發佈簡單的文字 Runbook。"
     services="automation"
     documentationCenter=""
-    authors="bwren"
+    authors="mgoedtel"
     manager="stevenka"
     editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/18/2016"
+    ms.date="02/23/2016"
     ms.author="magoedte;bwren"/>
 
 # 我的第一個 PowerShell 工作流程 Runbook
@@ -117,4 +117,4 @@
 -	[我的第一個圖形化 Runbook](automation-first-runbook-graphical.md)
 -	[我的第一個 PowerShell Runbook](automation-first-runbook-textual-PowerShell.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -45,7 +45,7 @@
 
 您必須擁有資料湖分析帳戶，才能執行工作。若要建立資料湖分析帳戶，您必須指定下列項目：
 
-- **Azure 資源群組**：資料湖分析帳戶必須建立在 Azure 資源群組內。[Azure 資源管理員](resource-group-overview.md)可讓您將應用程式中的資源做為群組使用。您可以透過單一、協調的作業來部署、更新或刪除應用程式的所有資源。  
+- **Azure 資源群組**：資料湖分析帳戶必須建立在 Azure 資源群組內。[Azure 資源管理員](../resource-group-overview.md)可讓您將應用程式中的資源做為群組使用。您可以透過單一、協調的作業來部署、更新或刪除應用程式的所有資源。  
 
 	若要列舉您訂用帳戶中的資源群組：
     
@@ -68,7 +68,7 @@
 	        -Name "<Your Data Lake account name>" `
 	        -Location "<Azure Data Center>"  # For example, "East US 2"
 
-	> [AZURE.NOTE]資料湖帳戶名稱只能包含小寫字母和數字。
+	> [AZURE.NOTE] 資料湖帳戶名稱只能包含小寫字母和數字。
 
 
 
@@ -135,9 +135,9 @@
 	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
->[AZURE.NOTE]Azure 入口網站的使用者介面，可讓使用者將資料檔案範例複製到預設的資料湖存放區帳戶。如需相關指示，請參閱[使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account)。
+>[AZURE.NOTE] Azure 入口網站的使用者介面，可讓使用者將資料檔案範例複製到預設的資料湖存放區帳戶。如需相關指示，請參閱[使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account)。
 
-資料湖分析也可存取 Azure Blob 儲存體。如需有關上傳資料至 Azure Blob 儲存體的資訊，請參閱[搭配使用 Azure PowerShell 與 Azure 儲存體](storage-powershell-guide-full.md)。
+資料湖分析也可存取 Azure Blob 儲存體。如需有關上傳資料至 Azure Blob 儲存體的資訊，請參閱[搭配使用 Azure PowerShell 與 Azure 儲存體](../storage/storage-powershell-guide-full.md)。
 
 ##提交資料湖分析工作
 
@@ -174,7 +174,7 @@
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]目前不支援具有公用 Blob 或公用容器存取權限的 Azure Blob 容器。
+    >[AZURE.NOTE] 目前不支援具有公用 Blob 或公用容器存取權限的 Azure Blob 容器。
     
 	
 **提交工作**
@@ -217,4 +217,4 @@
 - 針對管理工作，請參閱[使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)。
 - 若要取得資料湖分析概觀，請參閱 [Azure 資料湖分析概觀](data-lake-analytics-overview.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

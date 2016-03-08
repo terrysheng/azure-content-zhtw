@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.topic="hero-article"
+	ms.date="03/01/2016"
 	ms.author="stepsic"/>
 
 # 建立連接 SaaS 服務的新邏輯應用程式
@@ -24,7 +24,7 @@
 | [Logic Apps 連接器文件](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
 | [Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=azurelogicapps) |
 
-本主題只花幾分鐘就能示範如何開始使用 [App Services Logic Apps](app-service-logic-what-are-logic-apps.md)。我們將逐步解說可將一組您感興趣的推文傳送到 Dropbox 資料夾的工作流程。
+本主題只花幾分鐘就能示範如何開始使用 [App Services Logic Apps](app-service-logic-what-are-logic-apps.md)。我們將逐步解說可讓您將一組您感興趣的推文傳送到信箱的工作流程。
 
 若要使用此案例，您需要：
 
@@ -38,13 +38,7 @@
 2. 在 [所有項目] 中搜尋「邏輯應用程式」，然後選取 [邏輯應用程式 (預覽)]。您也可以選取 [新增]、[Web + 行動]，然後選取 [邏輯應用程式 (預覽)]。 
 3. 輸入邏輯應用程式的名稱，選取應用程式服務方案，然後選取 [建立]。在這個步驟中，我們假設您有應用程式服務方案，而且熟悉所需的屬性。如果並非如此，請別擔心，您可以從 [Azure App Service 方案深入概觀](azure-web-sites-web-hosting-plans-in-depth-overview.md)著手。 
 
-4. 邏輯應用程式第一次開啟時，您會需要觸發程序。例如，您可以使用 [週期性]： ![週期性](./media/app-service-logic-create-a-logic-app/recurrence.png)
-
-	使用 [週期性] 時，您的邏輯應用程式會使用您選擇的時間持續執行。例如，您可以每隔 30 秒、每 5 小時、每天上午 8 點 (太平洋標準時間)、每晚 2 點 (東部標準時間) 等等執行邏輯應用程式。您也可以從您的邏輯應用程式刪除 [週期性]。如果您刪除 [週期性]，您就會手動啟動邏輯應用程式。
-
-5. 不過，在本教學課程中，讓我們在每次有符合條件的推文時執行觸發。按一下 `...` 功能表以刪除 [週期性] 觸發程序。
-
-6. 在觸發搜尋方塊中搜尋 **twitter** 並加以選取。
+4. 邏輯應用程式第一次開啟時，您會需要觸發程序。在觸發搜尋方塊中搜尋 **twitter** 並加以選取。
 
 7. 您現在要輸入您要在 twitter 中搜尋的關鍵字。![Twitter 搜尋](./media/app-service-logic-create-a-logic-app/twittersearch.png)
 
@@ -73,4 +67,4 @@
 [Azure portal]: https://portal.azure.com
 [使用邏輯應用程式功能]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

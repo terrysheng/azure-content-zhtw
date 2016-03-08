@@ -132,21 +132,6 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 
     ````
     {
-        "name": "<dataset name>",
-        "properties": {
-		    "type": "AzureSqlDWTable",
-		    "linkedServiceName": "<linked data warehouse name>",
-		    "typeProperties": {
-		      "tableName": "FactInternetSales"
-		    },
-		    "availability": {
-		      "frequency": "Hour",
-		      "interval": 1
-		    }
-        }
-    }
-
-    {
 	    "name": "DWDataset",
 		"properties": {
 		    "type": "AzureSqlDWTable",
@@ -230,4 +215,4 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 - [教學課程：將資料從 Azure 儲存體 Blob 複製到 Azure SQL Database](../data-factory/data-factory-get-started.md)。在本教學課程中，您將在 Azure Data Factory 中建立管線，將資料從 Azure 儲存體 Blob 複製到 Azure SQL Database。
 - [真實案例教學課程](../data-factory/data-factory-tutorial.md)。這是使用 Azure Data Factory 的深入教學課程。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -10,10 +10,10 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="02/25/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -49,7 +49,7 @@ bcp 是將較小的資料集移入和移出 SQL 資料倉儲資料庫的一種�
 - 已安裝的 bcp 命令列公用程式
 - 已安裝的 SQLCMD 命令列公用程式
 
->[AZURE.NOTE]您可以從 [Microsoft 下載中心][]下載 bcp 和 sqlcmd 公用程式。
+>[AZURE.NOTE] 您可以從 [Microsoft 下載中心][]下載 bcp 和 sqlcmd 公用程式。
 
 ## 將資料匯入 SQL 資料倉儲
 
@@ -78,7 +78,7 @@ WITH
 );
 GO
 ```
->[AZURE.NOTE]如需 WITH 子句中可用選項的詳細資訊，請參閱＜開發＞主題群組中的[資料表設計][]。
+>[AZURE.NOTE] 如需 WITH 子句中可用選項的詳細資訊，請參閱＜開發＞主題群組中的[資料表設計][]。
 
 ### 步驟 2：建立來源資料檔
 
@@ -101,7 +101,7 @@ GO
 
 將此檔案儲存到本機暫存目錄，C:\\Temp\\DimDate2.txt。
 
-> [AZURE.NOTE]請務必記得 bcp.exe 不支援 UTF-8 檔案編碼。使用 bcp.exe 時，請對您的檔案使用 ASCII 編碼檔案或 UTF-16 編碼方式。
+> [AZURE.NOTE] 請務必記得 bcp.exe 不支援 UTF-8 檔案編碼。使用 bcp.exe 時，請對您的檔案使用 ASCII 編碼檔案或 UTF-16 編碼方式。
 
 ### 步驟 3：連接並匯入資料
 在 bcp 中，您可以使用下列命令來連接並匯入資料 (請適當地取代其中的值)：
@@ -174,7 +174,7 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 20150101,1,3
 ```
 
->[AZURE.NOTE]由於分散式系統的本質，資料順序在不同 SQL 資料倉儲資料庫中可能不相同。您可以選擇性地使用 queryout 參數，指定要執行的 Transact-SQL 查詢。
+>[AZURE.NOTE] 由於分散式系統的本質，資料順序在不同 SQL 資料倉儲資料庫中可能不相同。您可以選擇性地使用 queryout 參數，指定要執行的 Transact-SQL 查詢。
 
 ## 後續步驟
 如需載入的概觀，請參閱[將資料載入 SQL 資料倉儲][]。如需更多開發秘訣，請參閱 [SQL 資料倉儲開發概觀][]。
@@ -196,4 +196,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Microsoft 下載中心]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

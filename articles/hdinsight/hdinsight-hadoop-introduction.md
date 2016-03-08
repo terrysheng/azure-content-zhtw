@@ -11,7 +11,7 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="01/27/2016"
@@ -292,4 +292,4 @@ HDInsight 叢集提供下列 Hadoop 生態系統專屬語言的支援：
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

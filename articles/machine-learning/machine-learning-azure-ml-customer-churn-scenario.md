@@ -217,7 +217,7 @@ Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加
 
 [2] 維基百科文章：[Accuracy and precision (正確性與準確度)](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide (CRISP-DM 1.0：資料採礦逐步指南)](http://www.the-modeling-agency.com/crisp-dm.pdf)
+\[3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide (CRISP-DM 1.0：資料採礦逐步指南)](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
 \[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value (巨量資料行銷：更有效地吸引您的客戶和促進價值)](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
@@ -240,4 +240,4 @@ Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

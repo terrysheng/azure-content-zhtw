@@ -117,7 +117,7 @@
 4.	按一下 [發佈] 來發行新版本的 Runbook。
 5.	停止您在上一個步驟中啟動的虛擬機器。
 6.	按一下 [**開始**] 以啟動 Runbook。輸入您要啟動之虛擬機器的 **VMName** 和 **VMServiceName**。
-![傳遞參數](media/automation-first-runbook-textual-powershell/automation-pass-parameter.png)  
+	![傳遞參數](media/automation-first-runbook-textual-powershell/automation-pass-parameter.png)  
 7.	Runbook 完成時，請檢查虛擬機器已啟動。
 
 ## 與 PowerShell 工作流程的差異
@@ -136,4 +136,4 @@ PowerShell Runbook 的生命週期、功能和管理與 PowerShell 工作流程 
 -	若要深入了解 Runbook 類型、其優點和限制，請參閱 [Azure 自動化 Runbook 類型](automation-runbook-types.md)
 -	如需有關 PowerShell 指令碼支援功能的詳細資訊，請參閱 [Azure 自動化中的原生 PowerShell 指令碼支援](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->

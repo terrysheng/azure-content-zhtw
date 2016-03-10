@@ -198,4 +198,4 @@ Node.js app 是在 **server.js** 檔案中定義，該檔案位於 Web 角色 (�
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

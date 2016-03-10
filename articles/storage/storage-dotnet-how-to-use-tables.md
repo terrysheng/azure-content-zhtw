@@ -444,4 +444,4 @@ Azure 表格儲存體是可將非結構化的 NoSQL 資料儲存在雲端中的�
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0218_2016-->

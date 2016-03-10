@@ -251,4 +251,4 @@ HDInsight 叢集會提供查詢主控台，其中包括快速入門組件庫，�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->

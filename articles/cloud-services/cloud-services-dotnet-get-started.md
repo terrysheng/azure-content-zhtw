@@ -815,4 +815,4 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
 * [如何管理雲端服務](cloud-services-how-to-manage.md)
 * [Azure 儲存體](/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0204_2016-->

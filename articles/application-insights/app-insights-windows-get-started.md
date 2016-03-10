@@ -209,4 +209,4 @@ Application Insights SDK 包含數個收集器，它會從您的應用程式中�
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

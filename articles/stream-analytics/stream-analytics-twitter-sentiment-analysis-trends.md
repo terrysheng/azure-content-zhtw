@@ -82,7 +82,8 @@
 	* **區域**：選取要執行此工作的區域。請考慮將工作和事件中樞放在相同的區域以確保更好的效能，以及在區域之間傳輸資料時無須付費。
 	* **儲存體帳戶**：選擇您為在此區域內執行的所有 Stream Analytics 工作儲存監視資料時所要使用的儲存體帳戶。您可以選擇現有的儲存體帳戶，或建立新帳戶。
 
-3.	按一下左窗格中的 [STREAM ANALYTICS]，以列出 Stream Analytics 工作。
+3.	按一下左窗格中的 [STREAM ANALYTICS]，以列出 Stream Analytics 工作。  
+	![Stream Analytics service icon](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
 
 4.	新工作會以 [已建立] 的狀態列出。請注意，頁面底部的 [啟動] 按鈕會停用。您必須先設定工作輸入、輸出、查詢等項目，才能啟動工作。
 

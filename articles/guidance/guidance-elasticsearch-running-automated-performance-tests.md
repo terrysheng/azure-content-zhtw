@@ -89,9 +89,18 @@ JUnit 測試有兩個版本：- [Elasticsearch1.73](https://github.com/mspnp/azu
 
 * [query-config-win.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-win.ini) 和 [query-config-nix.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-nix.ini)。這兩個檔案包含相同資訊；*win* 檔案的格式設定適用於 Windows 檔案名稱和路徑，而 *nix* 檔案的格式設定適用於 Linux 檔案名稱和路徑：
 
-  ```ini [DEFAULT] debug=true #如果是 true，即會顯示主控台記錄。
+  ```ini
+  [DEFAULT]
+  debug=true #如果是 true，即會顯示主控台記錄。
 
-  [RUN] pathreports=C:\\Users\\administrator1\\jmeter\\test-results\\ #儲存測試結果的路徑。 jmx=C:\\Users\\administrator1\\testplan.jmx #JMeter 測試計劃的路徑。 machines=10.0.0.1,10.0.02,10.0.0.3 #Elasticsearch 資料節點的 IP，以逗號分隔。 reports=aggr,err,tps,waitio,cpu,network,disk,response,view #報告的名稱，以逗號分隔。 tests=idx1 #要測試的 Elasticsearch 索引名稱。 properties=run.properties #屬性檔案的名稱。 ```
+  [RUN]
+  pathreports=C:\\Users\\administrator1\\jmeter\\test-results\\ #儲存測試結果的路徑。
+  jmx=C:\\Users\\administrator1\\testplan.jmx #JMeter 測試計劃的路徑。
+  machines=10.0.0.1,10.0.02,10.0.0.3 #Elasticsearch 資料節點的 IP，以逗號分隔。
+  reports=aggr,err,tps,waitio,cpu,network,disk,response,view #報告的名稱，以逗號分隔。
+  tests=idx1 #要測試的 Elasticsearch 索引名稱。
+  properties=run.properties #屬性檔案的名稱。
+  ```
 
   編輯這個檔案，以指定測試結果的位置、要執行的 JMeter 測試計劃名稱、Elasticsearch 資料節點的 IP 位址、包含將產生且未經處理的效能資料的報告，以及一或多個位於測試下方的索引名稱。如果 *run.properties* 檔案位於不同的資料夾或目錄中，請為此檔案指定完整的路徑。
 
@@ -115,4 +124,4 @@ JUnit 測試有兩個版本：- [Elasticsearch1.73](https://github.com/mspnp/azu
 [Creating a Performance Testing Environment for Elasticsearch on Azure (在 Azure 上建立適用於 Elasticsearch 的效能測試環境)]: guidance-elasticsearch-creating-performance-testing-environment.md
 [Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance (部署 JMeter JUnit 取樣器以測試 Elasticsearch 效能)]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

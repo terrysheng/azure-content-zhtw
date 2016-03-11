@@ -58,9 +58,9 @@ Twitter 包含下列觸發程序及動作。
 
 3. 在 [**Create an application (建立應用程式)**] 中：
    
-	1. 在 [Name] (名稱)、[Description] (說明) 及 [Website] (網站) 中，輸入任何您想要的值。
-	2. 在 [Callback URL] (回呼 URL) 中，輸入您在 Azure 入口網站中新增 Twitter API 時所看到的 [重新導向 URL] 值。
-	5. 同意合約，然後 [Create your Twitter application] (建立您的 Twitter 應用程式)。  
+	1. 在 [Name] \(名稱)、[Description] \(說明) 及 [Website] \(網站) 中，輸入任何您想要的值。
+	2. 在 [Callback URL] \(回呼 URL) 中，輸入您在 Azure 入口網站中新增 Twitter API 時所看到的 [重新導向 URL] 值。
+	5. 同意合約，然後 [Create your Twitter application] \(建立您的 Twitter 應用程式)。  
 
 	![Twitter 應用程式建立][7]
 
@@ -325,4 +325,4 @@ Twitter 包含下列觸發程序及動作。
 [6]: ./media/create-api-twitter/twitter-apps-page.png
 [7]: ./media/create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

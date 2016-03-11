@@ -55,11 +55,11 @@ OneDrive API 包含下列觸發程序及動作。
 2. 輸入您的 [Application name]\(應用程式名稱)，然後接受合約：  
 ![OneDrive 新應用程式][6]
 
-3. 在 [Settings] (設定) 中：
+3. 在 [Settings] \(設定) 中：
 
-	1. 選取 [In settings] (API 設定)。  
-	2. 將 [Redirect URL] (重新導向 URL) 值設定為您在 Azure 入口網站中新增 OneDrive API 時所看到值。  
-	3. [Save] (儲存) 您的變更。  
+	1. 選取 [In settings] \(API 設定)。  
+	2. 將 [Redirect URL] \(重新導向 URL) 值設定為您在 Azure 入口網站中新增 OneDrive API 時所看到值。  
+	3. [Save] \(儲存) 您的變更。  
 
 	![OneDrive 應用程式 API 的設定][7]
 
@@ -324,4 +324,4 @@ OneDrive API 包含下列觸發程序及動作。
 [6]: ./media/create-api-onedrive/onedrive-new-app.png
 [7]: ./media/create-api-onedrive/onedrive-app-api-settings.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

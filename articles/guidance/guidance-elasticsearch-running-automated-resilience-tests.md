@@ -121,7 +121,11 @@ npm install
 | `verbose` | 指出指令碼是否以詳細資訊模式輸出。 | `true` |
 | `remote` | 指出在本機還是遠端伺服器上執行 jmeter 測試 | `true` |
 | `cluster.clusterName` | Elasticsearch 的叢集名稱。 | `elasticsearch` |
-| `cluster.jumpboxIp` | jumpbox 電腦的 IP 位址。|-| | `cluster.username` | 您部署叢集時建立的系統管理使用者 |-| | `cluster.password` | 系統管理使用者的密碼 |-| | `cluster.loadBalancer.ip` | Elasticsearch 的負載平衡器的 IP 位址 |-| | `cluster.loadBalancer.url` | 負載平衡器的基底 URL |-|
+| `cluster.jumpboxIp` | jumpbox 電腦的 IP 位址。|-| 
+| `cluster.username` | 您部署叢集時建立的系統管理使用者 |-| 
+| `cluster.password` | 系統管理使用者的密碼 |-| 
+| `cluster.loadBalancer.ip` | Elasticsearch 的負載平衡器的 IP 位址 |-| 
+| `cluster.loadBalancer.url` | 負載平衡器的基底 URL |-|
 
 ## 執行測試
 

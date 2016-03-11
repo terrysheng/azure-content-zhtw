@@ -46,7 +46,7 @@ Microsoft Connector for DB2 是一個 API 應用程式，可透過 Azure App Ser
 2. 在 [所有項目] 刀鋒視窗的 [搜尋所有項目] 方塊中輸入 **db2**，然後按一下 Enter 鍵。
 3. 在 [搜尋所有項目的結果] 窗格中，選取 [DB2 連接器]。
 4. 在 [DB2 連接器描述] 刀鋒視窗中，選取 [建立]。
-5. 在 [DB2 連接器封裝] 刀鋒視窗中，輸入 [名稱] (例如："Db2ConnectorNewOrders")、[App Service 方案] 和其他屬性。
+5. 在 [DB2 連接器封裝] 刀鋒視窗中，輸入 [名稱] \(例如："Db2ConnectorNewOrders")、[App Service 方案] 和其他屬性。
 6. 選取 [封裝設定]，然後輸入下列封裝設定：  
 
 	名稱 | 必要 | 說明
@@ -271,4 +271,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [13]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_TriggersActions.png
 [14]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_Outputs.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

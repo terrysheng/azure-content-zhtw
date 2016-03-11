@@ -163,7 +163,7 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 
 請考慮可接受稱為 credential 的參數的下列測試 Runbook。
 
-	```
+```
 	Workflow Test-Parameters
 	{
 	   param (
@@ -189,4 +189,4 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 
 -	本文中的 Runbook 結構提供混合式 Runbook 的高階說明，如需更多詳細資訊，請參閱 [Azure 自動化中的子 Runbook](automation-child-runbooks.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

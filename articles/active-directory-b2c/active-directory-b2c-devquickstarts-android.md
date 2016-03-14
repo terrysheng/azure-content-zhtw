@@ -525,7 +525,8 @@ public class AddTaskActivity extends Activity {
 
 這是最重要的活動。您可以利用這項活動，從 Azure AD 取得原則的權杖，然後使用該權杖呼叫工作 REST API 伺服器。
 
-建立名為 `ToDoActivity.java` 的檔案並寫入下列程式碼。(稍後將會說明呼叫。)
+建立名為 `ToDoActivity.java` 的檔案
+並寫入下列程式碼。(稍後將會說明呼叫。)
 
 ```
 
@@ -947,7 +948,9 @@ Android 需要您處理某些回呼來操作應用程式。這些回呼是 `crea
 
 為了方便參考，[會以 .zip 檔案提供](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip)完整的範例。您也可以從 Github 複製它：
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android
+```
 
 
 ## 重要資訊

@@ -35,6 +35,7 @@
 
 > [AZURE.NOTE] 本教學課程會建立受 Azure 資源群組 API 管理的 Azure 虛擬機器。如需詳細資訊，請參閱《[Azure 資源群組概觀](../resource-group-overview.md)》。
 
+</br>
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 

@@ -122,7 +122,8 @@
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
 
->[AZURE.IMPORTANT] 在您按一下 [資料流] 之前，**必須**確保通道已就緒。此外，請務必不要讓通道在沒有輸入比重摘要的情況下，處於就緒狀態超過 15 分鐘。
+>[AZURE.IMPORTANT] 在您按一下 [資料流] 之前，**必須**確保通道已就緒。
+此外，請務必不要讓通道在沒有輸入比重摘要的情況下，處於就緒狀態超過 15 分鐘。
 
 ##測試播放
   

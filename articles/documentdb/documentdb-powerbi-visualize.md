@@ -72,7 +72,7 @@
 
 
 1. 在您的工作站上執行 Power BI Desktop。
-2. Power BI Desktop 啟動時，會顯示 [歡迎使用] 畫面。
+2. Power BI Desktop 啟動時，會顯示 *歡迎使用* 畫面。
 
 	![Power BI Desktop 歡迎使用畫面 - Power BI 連接器](./media/documentdb-powerbi-visualize/power_bi_connector_welcome.png)
 
@@ -128,7 +128,8 @@
 
 6. 中央窗格現在會顯示 [清單] 類型的座標資料行。如本教學課程一開始所說明，本教學課程中的 GeoJSON 資料屬於 Point 類型，具有座標陣列中所記錄的緯度和經度值。
 
-	*注意：coordinates[0] 項目代表經度，coordinates[1] 則代表緯度。* ![DocumentDB Power BI 連接器的 Power BI 教學課程 - 座標清單](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
+	*注意：coordinates[0] 項目代表經度，coordinates[1] 則代表緯度。* 
+	![DocumentDB Power BI 連接器的 Power BI 教學課程 - 座標清單](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 
 7. 為了將座標陣列簡維化，我們將建立名為 LatLong 的 [自訂資料行]。選取 [新增資料行] 功能區，然後按一下 [新增自訂資料行]。此時應會出現 [新增自訂資料行] 視窗。
 
@@ -191,7 +192,7 @@
 4. 然後，您就可以在 PowerBI.com 中共用您的報告。
 
 ## 後續步驟
-- 若要深入了解 Power BI，請按一下 [這裡][](https://support.powerbi.com/knowledgebase)。
+- 若要深入了解 Power BI，請按一下 [這裡](https://support.powerbi.com/knowledgebase)。
 - 若要深入了解 DocumentDB，請按一下[這裡](https://azure.microsoft.com/documentation/services/documentdb/)。
 
 <!---HONumber=AcomDC_0302_2016-->

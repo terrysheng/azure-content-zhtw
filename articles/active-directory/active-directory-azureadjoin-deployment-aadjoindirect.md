@@ -8,8 +8,13 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/26/2016"
-
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+  	ms.date="02/26/2016"
 	ms.author="femila"/>
 
 # 適用於 Azure AD Join 的使用案例和部署考量

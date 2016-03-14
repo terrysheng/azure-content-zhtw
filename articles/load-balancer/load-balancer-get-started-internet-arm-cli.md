@@ -78,7 +78,7 @@
 	azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
 
 
->[AZURE.IMPORTANT] 負載平衡器將使用公用 IP 的網域標籤做為其 FQDN。這樣會變更傳統部署，該部署使用雲端服務做為負載平衡器 FQDN。在此範例中，FQDN 是 *loadbalancernrp.eastus.cloudapp.azure.com*。
+>[AZURE.IMPORTANT] 負載平衡器將使用公用 IP 的網域標籤做為其 FQDN。這樣會變更傳統部署，該部署使用雲端服務做為負載平衡器 FQDN。在此範例中，FQDN 是 *loadbalancernrp.eastus.cloudapp.azure.com* 。
 
 ## 建立負載平衡器
 
@@ -293,7 +293,7 @@
 
 >[AZURE.NOTE] 預期會顯示「此 NIC 未設有 publicIP」訊息，因為針對負載平衡器建立的 NIC 會使用負載平衡器公用 IP 位址連線到網際網路。
 
-由於 *lb-nic1-be* NIC 會與 *rdp1* NAT 規則相關聯，因此您可以使用 RDP 透過負載平衡器上的連接埠 3441 連線至 *web1*。
+由於 *lb-nic1-be* NIC 會與 *rdp1* NAT 規則相關聯，因此您可以使用 RDP 透過負載平衡器上的連接埠 3441 連線至 *web1* 。
 
 ### 步驟 4
 

@@ -125,7 +125,7 @@
 
     ![儲存代理程式](./media/backup-configure-vault/agent.png)
 
-4. 將 *MARSagentinstaller.exe* 下載完成後，按一下 [執行] (或從儲存的位置按兩下 **MARSAgentInstaller.exe**)。選擇代理程式所需的*安裝資料夾*和*快取資料夾*，然後按 [下一步]。
+4. 將 *MARSagentinstaller.exe* 下載完成後，按一下 [執行] \(或從儲存的位置按兩下 **MARSAgentInstaller.exe**)。選擇代理程式所需的*安裝資料夾*和*快取資料夾*，然後按 [下一步]。
 
     您指定的快取位置必須至少包含等於備份資料大小 5% 的可用空間。
 

@@ -63,7 +63,7 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 
 若要對 Twilio 後端發出已驗證的要求，我們必須要有自己的帳戶 SID 和驗證權杖，以作為 Twilio 帳戶的使用者名稱和密碼集。最安全的方式是透過系統環境變數，在 Azure 中設定這些與節點模組搭配使用的項目；您可以直接在 Azure 管理主控台中設定。
 
-選取您的 node.js 網站，然後按一下 "CONFIGURE" 連結。稍微向下捲動，您會看見一個可讓您為應用程式設定組態屬性的區域。請依照以下說明輸入您的 Twilio 帳戶認證 ([位於 Twilio 儀表板上][twilio_dashboard]) - 請確實分別將其命名為 "TWILIO\_ACCOUNT\_SID" 和 "TWILIO\_AUTH\_TOKEN"：
+選取您的 node.js 網站，然後按一下 "CONFIGURE" 連結。稍微向下捲動，您會看見一個可讓您為應用程式設定組態屬性的區域。請依照以下說明輸入您的 Twilio 帳戶認證 ([位於 Twilio 儀表板上][twilio_dashboard]) - 請確實分別將其命名為 "TWILIO_ACCOUNT_SID" 和 "TWILIO_AUTH_TOKEN"：
 
 ![Azure admin console][azure-admin-console]
 
@@ -80,7 +80,7 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
 <a id="makecall"/>
 ## 向外撥打電話
 
-我們可以建立簡易表單，以撥打我們選擇的號碼。請開啟 server.js，然後輸入下列程式碼。請留意顯示 "CHANGE\_ME" 的部分 - 請在該處放入您 Azure 網站的名稱：
+我們可以建立簡易表單，以撥打我們選擇的號碼。請開啟 server.js，然後輸入下列程式碼。請留意顯示 "CHANGE_ME" 的部分 - 請在該處放入您 Azure 網站的名稱：
 
     // Module dependencies
     var express = require('express'), 
@@ -196,7 +196,7 @@ Twilio 提供了一個可將任何桌面 Web 瀏覽器、iOS 應用程式或 And
       });
     });
 
-In "views/index.ejs", add another form under the first one to submit a number and a text message:
+在 "views/index.ejs" 中，於第一個表單底下新增另一個表單，用以提交數字和簡訊：
 
     <form action="/sms" method="POST">
       <input placeholder="Enter a phone number" name="number"/>

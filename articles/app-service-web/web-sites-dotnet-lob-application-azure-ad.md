@@ -63,7 +63,8 @@
 
 1.	將 [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) 上的範例解決方案複製或下載到您的本機目錄。
 
-2.	依照[如何執行範例做為單一租用戶應用程式](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app)的指示設定 Azure Active Directory 應用程式和專案。請務必遵循所有指示以將應用程式從多租用戶轉換為單一租用戶。
+2.	依照[如何執行範例做為單一租用戶應用程式](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app)的指示設定 Azure Active Directory 應用程式和專案。
+請務必遵循所有指示以將應用程式從多租用戶轉換為單一租用戶。
 
 3.	在 [Azure 傳統入口網站](https://manage.windowsazure.com)檢視中針對您剛建立的 Azure Active Directory 應用程式，按一下 [**使用者**] 索引標籤。然後，將想要的使用者指派給想要的角色。
 

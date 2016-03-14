@@ -330,7 +330,9 @@ private void SignOut(object sender, RoutedEventArgs e)
 
 為供您參考，我們提供 [.zip 檔案格式](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip)的完整範例。您也可以從 Github 複製它：
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
+```
 
 <!--
 

@@ -124,13 +124,15 @@
 1.	在 [方案總管] 中選取 **WadExample** 專案，然後從 [**建置**] 功能表選取 [**發行**]，以從 Visual Studio 將背景工作角色部署至 Azure。
 2.	選擇您的訂用帳戶。
 3.	在 [**Microsoft Azure 發行設定**] 對話方塊中，選取 [**建立新的…**]。
-4.	在 [**建立雲端服務和儲存體帳戶**] 對話方塊中，輸入一個 [**名稱**] (例如 "WadExample") 並選取一個區域或同質群組。
+4.	在 [**建立雲端服務和儲存體帳戶**] 對話方塊中，輸入一個 [**名稱**] \(例如 "WadExample") 並選取一個區域或同質群組。
 5.	將 [環境] 設為 [預備]。
 6.	適當地修改其他任何**設定**，然後按一下 [發行]。
 7.	部署完成之後，請在 Azure 傳統入口網站中確認您的雲端服務是否處於 [執行中] 狀態。
 
 ### 步驟 4：建立您的診斷組態檔並安裝擴充功能
-1.	執行下列 PowerShell 命令，以下載公用組態檔結構描述定義：2.(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
+1.	執行下列 PowerShell 命令，以下載公用組態檔結構描述定義：
+2.	
+		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
 2.	以滑鼠右鍵按一下 **WorkerRole1** 專案，然後選取 [加入] -> [新增項目...] -> [Visual C# 項目] -> [資料] -> [XML 檔]，將 XML 檔加入您的 **WorkerRole1** 專案。將檔案命名為 "WadExample.xml"。
 

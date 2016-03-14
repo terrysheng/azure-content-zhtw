@@ -11,10 +11,11 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="02/09/2016"
+	ms.date="03/02/2016"
 	ms.author="ashmaka"/>
 
 # 何謂 Azure 搜尋服務？
+
 Azure 搜尋服務是一項雲端搜尋即服務解決方案，可將伺服器和基礎結構管理委託給 Microsoft，讓您利用立即可用的服務來填入搜尋資料，然後用來在 Web 或行動應用程式中加入搜尋。Azure 搜尋服務可讓您使用簡單的 [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 或 [.NET SDK](search-howto-dotnet-sdk.md) 輕鬆地將強大的搜尋經驗加入至應用程式，而不需要管理搜尋基礎結構或成為搜尋專家。
 
 ## 讓使用者擁有強大的搜尋經驗
@@ -58,9 +59,9 @@ Azure 搜尋服務會當作端對端解決方案**受到完整管理**，所以�
 ### 1\.佈建服務
 您可以使用 [Azure 入口網站](https://portal.azure.com/)或 [Azure 資源管理 API](https://msdn.microsoft.com/library/azure/dn832684.aspx)來加速 Azure 搜尋服務。
 
-根據設定服務的方式，您將使用與其他 Azure 搜尋服務訂閱者共用的免費層，或使用可提供您的服務專用資源的標準[定價層](https://azure.microsoft.com/pricing/details/search/)。佈建您的服務時，您也可以選擇裝載服務的資料中心區域。
+根據設定搜尋服務的方式，您將使用與其他 Azure 搜尋服務訂閱者共用的免費層服務，或供應資源專供您服務使用的[付費層](https://azure.microsoft.com/pricing/details/search/)。佈建您的服務時，您也可以選擇裝載服務的資料中心區域。
 
-在標準層中使用 Azure 搜尋服務時，您可以用兩個方式來調整您的服務：1) 新增複本以提升您處理繁重查詢負載的能力，以及 2) 新增資料分割以增加可容納更多文件的儲存體。您可以分開處理文件儲存體和查詢輸送量，進而自訂您的搜尋服務以滿足特定需求。
+根據您選擇的服務層而定，您可以在兩方面調整您的服務：1) 新增複本以提升您處理繁重查詢負載的能力，以及 2) 新增資料分割以增加可容納更多文件的儲存體。您可以分開處理文件儲存體和查詢輸送量，進而自訂您的搜尋服務以滿足特定需求。
 
 ### 2\.建立索引
 您必須先定義 Azure 搜尋服務索引，才可以將您的內容上傳至 Azure 搜尋服務。索引就像是資料庫資料表，其中保存您的資料並可接受搜尋查詢。您可定義索引結構描述，以對應至您要搜尋的文件結構 (類似於資料庫中的欄位)。
@@ -82,4 +83,4 @@ Azure 搜尋服務會當作端對端解決方案**受到完整管理**，所以�
 
 如果您沒有 Azure 帳戶，您可以免費試用 60 分鐘的工作階段 (不需要註冊)。移至[試用 Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214)並選取 [Web 應用程式]。 然後選取「ASP.NET + Azure 搜尋」範本開始進行。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

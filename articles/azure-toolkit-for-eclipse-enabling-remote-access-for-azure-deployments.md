@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/30/2015" 
+    ms.date="02/26/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690951.aspx -->
@@ -24,7 +24,7 @@
 
 ## 如何在部署到 Azure 之前先啟用遠端存取 ##
 
->[AZURE.NOTE]若要在將您的應用程式部署到 Azure 之前先啟用遠端存取，您需要在 Windows 上執行 Eclipse。
+>[AZURE.NOTE] 若要在將您的應用程式部署到 Azure 之前先啟用遠端存取，您需要在 Windows 上執行 Eclipse。
 
 下列影像顯示用來啟用遠端存取的 [遠端存取] 內容對話方塊。
 
@@ -85,7 +85,7 @@
 * 從遠端登入的另一種方式是透過 <a href="http://go.microsoft.com/fwlink/?LinkID=512959">Azure 管理入口網站</a>：
     * 在 Azure 管理入口網站的 [雲端服務] 檢視中，按一下 [執行個體]，按一下特定的執行個體，再按一下 [連線] 按鈕。命令列中會顯示如下的 [連線] 按鈕：
     ![][ic659273]  
-    >[AZURE.NOTE]如果您是在非 Windows 作業系統上，則必須使用與作業系統相容的遠端桌面用戶端，並使用您下載的 RDP 檔案中的設定，依照步驟來設定該用戶端。
+    >[AZURE.NOTE] 如果您是在非 Windows 作業系統上，則必須使用與作業系統相容的遠端桌面用戶端，並使用您下載的 RDP 檔案中的設定，依照步驟來設定該用戶端。
     * 按一下 [連線] 按鈕後，將會提示您開啟 RDP 檔案。開啟檔案，並依照提示執行。(您可以也將此檔案儲存到您的本機電腦，然後按兩下執行該檔案以遠端登入您的虛擬機器，而不需要先前往管理入口網站。)
     * 當系統提示您輸入使用者名稱和密碼時，輸入您為遠端使用者指定的值就能登入。
 
@@ -114,4 +114,4 @@
 [ic719494]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719494.png
 [ic659273]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic659273.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0302_2016-->

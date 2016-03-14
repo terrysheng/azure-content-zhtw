@@ -13,12 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="03/01/2016"
    ms.author="tomfitz"/>
 
 # 資源管理員提供者、區域、API 版本及結構描述
 
-Azure 資源管理員提供一種新方式來部署和管理組成應用程式的服務。大部分但並非所有的服務都支援資源管理員，有些服務僅部分支援資源管理員。Microsoft 會針對每個服務啟用資源管理員，這對於未來的解決方案而言很重要，但在支援一致化之前，您需要了解每個服務的目前狀態。本主題提供支援 Azure 資源管理員的資源提供者清單。
+Azure 資源管理員提供一種新方式來部署和管理組成應用程式的服務。
+大部分但並非所有的服務都支援資源管理員，有些服務僅部分支援資源管理員。Microsoft 會針對每個服務啟用資源管理員，這對於未來的解決方案而言很重要，但在支援一致化之前，您需要了解每個服務的目前狀態。本主題提供支援 Azure 資源管理員的資源提供者清單。
 
 部署資源時，您也需要知道哪些區域支援這些資源，以及哪些 API 版本適用於資源。[支援區域](#supported-regions)一節說明如何找出哪些區域適用於您的訂用帳戶和資源。[支援的 API 版本](#supported-api-versions)一節說明如何判斷您可以使用哪些 API 版本。
 
@@ -35,8 +36,7 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | Dynamics 週期服務 | 是 | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (Preview) | 是 | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | 虛擬機器 | 是 | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| 虛擬機器 (傳統) | 有限 | - | - | 
-| 遠端應用程式 | 否 | - | - | 
+| 虛擬機器 (傳統) | 有限 | - | - | | 遠端應用程式 | 否 | - | - |
 | 雲端服務 (傳統) | 有限 (請參閱下文) | - | - | - |
 
 虛擬機器 (傳統) 是指已透過傳統部署模型部署的資源，而不是透過資源管理員部署模型部署的資源。一般而言，這些資源不支援資源管理員作業，但已啟用某些作業。如需這些部署模型的詳細資訊，請參閱[了解資源管理員部署和傳統部署](resource-manager-deployment-model.md)。
@@ -53,7 +53,7 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | ExpressRoute | 是 | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx) | | [expressRouteCircuits](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FexpressRouteCircuits%22&type=Code) |
 | 負載平衡器 | 是 | [負載平衡器 REST](https://msdn.microsoft.com/library/azure/mt163651.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [loadBalancers](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Floadbalancers%22&type=Code) |
 | 流量管理員 | 是 | [流量管理員 REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) | [2015-11-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-11-01/Microsoft.Network.json) | [trafficmanagerprofiles](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Ftrafficmanagerprofiles%22&type=Code) |
-| 虛擬網路 | 是| [虛擬網路 REST](https://msdn.microsoft.com/zh-TW/library/azure/mt163650.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [virtualNetworks](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworks%22&type=Code) |
+| 虛擬網路 | 是| [虛擬網路 REST](https://msdn.microsoft.com/library/azure/mt163650.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [virtualNetworks](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworks%22&type=Code) |
 | VPN 閘道 | 是 | [網路閘道 REST](https://msdn.microsoft.com/library/azure/mt163859.aspx) | | [virtualNetworkGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworkGateways%22&type=Code) <br /> [localNetworkGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FlocalNetworkGateways%22&type=Code) <br />[連線](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Fconnections%22&type=Code) |
 
 
@@ -90,8 +90,7 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | 資料湖存放區 | 是 | | | |
 | HDInsights | 是 | [HDInsights REST](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | 串流分析 | 是 | [串流分析 REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
-| 機器學習服務 | 否 | - | - | 
-| 資料目錄 | 否 | - | - |
+| 機器學習服務 | 否 | - | - | | 資料目錄 | 否 | - | - |
 
 ## 物聯網 (Internet of Things)
 
@@ -153,9 +152,11 @@ Azure Active Directory 可搭配資源管理員使用，以針對您的訂用帳
 
 部署資源時，您經常需要擷取有關資源提供者和類型的資訊。您可以透過 REST API、Azure PowerShell 或 Azure CLI 擷取此資訊。
 
+若要使用資源提供者，必須在您的帳戶中註冊該資源提供者。根據預設，許多資源提供者會自動註冊。不過，您可能需要手動註冊某些資源提供者。下列範例示範如何取得資源提供者註冊狀態，以及必要時註冊資源提供者。
+
 ### REST API
 
-若要取得所有可用的資源提供者，包括其類型、位置、API 版本及登錄狀態，請使用[列出所有資源提供者](https://msdn.microsoft.com/library/azure/dn790524.aspx)作業。
+若要取得所有可用的資源提供者，包括其類型、位置、API 版本及註冊狀態，請使用[列出所有資源提供者](https://msdn.microsoft.com/library/azure/dn790524.aspx)作業。若要註冊提供者，請參閱[向資源提供者註冊訂用帳戶](https://msdn.microsoft.com/library/azure/dn790548.aspx)。
 
 ### PowerShell
 
@@ -183,6 +184,10 @@ Azure Active Directory 可搭配資源管理員使用，以針對您的訂用帳
     sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} {20...
     ...
     
+若要註冊資源提供者，請提供命名空間：
+
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ApiManagement
+
 ### Azure CLI
 
 下列範例示範如何取得所有可用的資源提供者。
@@ -203,6 +208,10 @@ Azure Active Directory 可搭配資源管理員使用，以針對您的訂用帳
 您可以使用下列命令，將特定資源提供者的資訊儲存至檔案。
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
+
+若要註冊資源提供者，請提供命名空間：
+
+    azure provider register -n Microsoft.ServiceBus
 
 ## 支援的區域
 
@@ -294,4 +303,4 @@ Azure Active Directory 可搭配資源管理員使用，以針對您的訂用帳
 - 若要了解如何建立資源管理員範本，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要了解如何部署資源，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

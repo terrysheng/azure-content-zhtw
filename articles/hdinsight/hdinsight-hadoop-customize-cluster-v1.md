@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/26/2016" 
 	ms.author="nitinme"/>
 
 # 使用指令碼動作來自訂 HDInsight 叢集
@@ -69,16 +69,18 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-customize-cluster-v1/HDI.CustomProvision.Page6.png "使用指令碼動作以自訂叢集")
 	
 	<table border='1'>
-	<tr><th>屬性</th><th>值</th></tr>
-	<tr><td>名稱</td>
-		<td>指定指令碼動作的名稱。</td></tr>
-	<tr><td>指令碼 URI</td>
-		<td>對自訂叢集所叫用的指令碼指定 URI。</td></tr>
-	<tr><td>節點類型</td>
-		<td>指定執行自訂指令碼的節點。您可以選擇 [<b>所有節點</b>]、[<b>僅限前端節點</b>] 或 [<b>僅限背景工作節點</b>]。
-	<tr><td>參數</td>
-		<td>如果指令碼要求，請指定參數。</td></tr>
-</table>您可以加入一個以上的指令碼動作，以在叢集上安裝多個元件。
+		<tr><th>屬性</th><th>值</th></tr>
+		<tr><td>名稱</td>
+			<td>指定指令碼動作的名稱。</td></tr>
+		<tr><td>指令碼 URI</td>
+			<td>對自訂叢集所叫用的指令碼指定 URI。</td></tr>
+		<tr><td>節點類型</td>
+			<td>指定執行自訂指令碼的節點。您可以選擇 [<b>所有節點</b>]、[<b>僅限前端節點</b>] 或 [<b>僅限背景工作節點</b>]。
+		<tr><td>參數</td>
+			<td>如果指令碼要求，請指定參數。</td></tr>
+	</table>
+
+	您可以加入一個以上的指令碼動作，以在叢集上安裝多個元件。
 
 3. 按一下核取記號以開始佈建叢集。
   
@@ -176,4 +178,4 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "叢集佈建期間的階段"
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

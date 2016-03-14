@@ -68,8 +68,8 @@ Microsoft Azure IoT 服務 SDK 包含有助於建置應用程式的程式碼，�
 [Azure IoT 服務 SDK for Java]: https://github.com/Azure/azure-iot-sdks/blob/master/java/service/readme.md
 [Azure IoT 裝置 SDK for Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md
 [Azure IoT 服務 SDK for Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/service/README.md
-[OS Platforms and hardware compatibility]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[IoT 程式的 Microsoft Azure 認證]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md#certified
+[OS Platforms and hardware compatibility]: iot-hub-tested-configurations.md
+[IoT 程式的 Microsoft Azure 認證]: iot-hub-tested-configurations.md#microsoft-azure-certified-for-iot
 
 [物聯網 (IoT) .NET (英文)]: https://msdn.microsoft.com/library/mt488521.aspx
 [Microsoft Azure IoT 裝置 SDK for C (英文)]: http://azure.github.io/azure-iot-sdks/c/api_reference/index.html
@@ -79,4 +79,4 @@ Microsoft Azure IoT 服務 SDK 包含有助於建置應用程式的程式碼，�
 [Microsoft Azure IoT 服務 SDK for Java]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/index.html
 [Microsoft Azure IoT 服務 SDK for Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.0/index.html
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

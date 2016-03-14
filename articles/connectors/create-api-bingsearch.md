@@ -15,13 +15,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # 開始使用 Bing 搜尋 API 
-連線到 Bing 搜尋來搜尋新聞、搜尋影片等等。
+連線到 Bing 搜尋來搜尋新聞、搜尋影片等等。您可以從下列應用程式使用 Bing 搜尋 API：
 
-您可以從 PowerApps 及邏輯應用程式使用 Bing 搜尋 API。
+- 邏輯應用程式 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [邏輯應用程式](../articles/connectors/create-api-bingsearch.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-bingsearch.md)
+
 
 您可以利用 Bing 搜尋來：
 
@@ -29,9 +35,9 @@
 - 使用動作來搜尋圖像、搜尋新聞等等。這些動作會收到回應，然後輸出能讓其他動作使用的資料。舉例來說，您可以搜尋某支影片，然後利用 Twitter 把該影片張貼在某個 Twitter 摘要上。
 - 將 Bing 搜尋 API 新增至 PowerApps Enterprise，讓您的使用者能夠在自己的應用程式中使用這個 AP。 
 
-如需如何在 PowerApps Enterprise 中新增 API 的資訊，請前往[在 PowerApps 中為 API 註冊](../power-apps/powerapps-register-from-available-apis.md)。
+如需有關如何在 PowerApps Enterprise 中新增 API 的資訊，請移至[在 PowerApps 中為 API 註冊](../power-apps/powerapps-register-from-available-apis.md)。
 
-如要在邏輯應用程式中新增作業，請參閱[建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
+如果要在邏輯應用程式中新增作業，請參閱[建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
 ## 觸發程序及動作
 Bing 搜尋包含下列動作，但不包含觸發程序。
@@ -82,7 +88,7 @@ None | <ul><li>搜尋網站</li><li>搜尋影片</li><li>搜尋圖像</li><li>�
 |market|字串|no|query|無 |用來縮小搜尋範圍的市場或區域 (例如：zh-TW)|
 |經度|number|no|query|無 |用來縮小搜尋範圍的經度 (東/西向座標) (例如：47.603450)|
 |緯度|number|no|query|無 |用來縮小搜尋範圍的緯度 (南/北向座標) (例如：-122.329696)|
-|videoFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <p>例如：「Duration:Short+Resolution:High」</p>|
+|videoFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>例如：「Duration:Short+Resolution:High」|
 |videoSortBy|字串|no|query|無 |搜尋結果的排序次序。有效值：<ul><li>Date</li><li>Relevance</li></ul> <p>日期的排序次序必須為遞減。</p>|
 
 #### Response
@@ -104,7 +110,7 @@ None | <ul><li>搜尋網站</li><li>搜尋影片</li><li>搜尋圖像</li><li>�
 |market|字串|no|query|無 |用來縮小搜尋範圍的市場或區域 (例如：zh-TW)|
 |經度|number|no|query| 無|用來縮小搜尋範圍的經度 (東/西向座標) (例如：47.603450)|
 |緯度|number|no|query|無 |用來縮小搜尋範圍的緯度 (南/北向座標) (例如：-122.329696)|
-|imageFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[寬度]</li><li>Size:Height:[高度]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><p>例如：「Size:Small+Aspect:Square」</p>|
+|imageFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[寬度]</li><li>Size:Height:[高度]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>例如：「Size:Small+Aspect:Square」|
 
 #### Response
 |名稱|說明|
@@ -189,9 +195,9 @@ None | <ul><li>搜尋網站</li><li>搜尋影片</li><li>搜尋圖像</li><li>�
 |經度|number|no|query|無 |用來縮小搜尋範圍的經度 (東/西向座標) (例如：47.603450)|
 |緯度|number|no|query|無 |用來縮小搜尋範圍的緯度 (南/北向座標) (例如：-122.329696)|
 |webFileType|字串|no|query|無 |用來縮小搜尋範圍的檔案類型 (例如：「DOC」)|
-|videoFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <p>例如：「Duration:Short+Resolution:High」</p>|
+|videoFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>例如：「Duration:Short+Resolution:High」|
 |videoSortBy|字串|no|query|無 |搜尋結果的排序次序。有效值：<ul><li>Date</li><li>Relevance</li></ul> <p>日期的排序次序必須為遞減。</p>|
-|imageFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[寬度]</li><li>Size:Height:[高度]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><p>例如：「Size:Small+Aspect:Square」</p>|
+|imageFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[寬度]</li><li>Size:Height:[高度]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>例如：「Size:Small+Aspect:Square」|
 |newsSortBy|字串|no|query|無 |搜尋結果的排序次序。有效值：<ul><li>Date</li><li>Relevance</li></ul> <p>日期的排序次序必須為遞減。</p>|
 |newsCategory|字串|no|query|無 |用來縮小搜尋範圍的新聞類別 (例如：「rt\_Business」)|
 |newsLocationOverride|字串|no|query|無 |覆寫 Bing 位置偵測的結果。此參數僅適用於 zh-TW 市場。輸入的格式為 US./<state /> (例如：「US.WA」)|
@@ -280,7 +286,7 @@ None | <ul><li>搜尋網站</li><li>搜尋影片</li><li>搜尋圖像</li><li>�
 |WebResultsTotal|integer|no|
 |ImageResultsTotal|integer|no|
 |VideoResultsTotal|integer|no|
-|NewsResultsTotal|integer|
+|NewsResultsTotal|integer|no|
 |SpellSuggestionsTotal|integer|no|
 |WebResults|array|no|
 |ImageResults|array|no|
@@ -291,8 +297,8 @@ None | <ul><li>搜尋網站</li><li>搜尋影片</li><li>搜尋圖像</li><li>�
 
 ## 後續步驟
 
-當您把 Bing 搜尋 API 新增到 PowerApps Enterprise 之後，[請授與使用者能使用自己應用程式中 API 的權限](../power-apps/powerapps-manage-api-connection-user-access.md)。
+當您把 Bing 搜尋 API 新增到 PowerApps Enterprise 之後，請[授與使用者在自己的應用程式中使用 API 的權限](../power-apps/powerapps-manage-api-connection-user-access.md)。
 
 [建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

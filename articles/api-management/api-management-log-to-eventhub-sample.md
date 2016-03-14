@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="11/10/2015"
+    ms.date="02/19/2016"
     ms.author="v-darmi"/>
 
 # 利用 Azure API 管理、事件中樞及 Runscope 監視您的 API
@@ -156,7 +156,7 @@ HTTP 標頭可以直接轉換成採用簡單索引鍵/值組格式的訊息格�
 ### IEventProcessor
 使用 `EventProcessorHost` 時的中心概念是建立 `IEventProcessor` 介面的實作，其中包含 `ProcessEventAsync` 方法。該方法的本質如下所示：
 
-  async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+  async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages) {
 
            foreach (EventData eventData in messages)
            {
@@ -268,4 +268,4 @@ Azure API 管理服務提供了一個理想位置，可供擷取您的 API 的�
 	-	[log-to-eventhub 原則參考](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
 	
 
-<!-----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

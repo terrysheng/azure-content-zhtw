@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #如何在 Windows 通用上使用 Engagement API
@@ -48,7 +48,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。您可以透過 `Engageme
 
 每當使用者活動變更，您就需要呼叫 `StartActivity()`。第一次呼叫此函式會啟動新的使用者工作階段。
 
-> [AZURE.IMPORTANT]當應用程式關閉時，SDK 會自動呼叫 EndActivity 方法。因此，「強烈」建議每當使用者的活動變更時便叫呼叫 StartActivity 方法，並且「絕對不要」呼叫 EndActivity 方法，因為呼叫此方法會強制結束目前的工作階段。
+> [AZURE.IMPORTANT] 當應用程式關閉時，SDK 會自動呼叫 EndActivity 方法。因此，「強烈」建議每當使用者的活動變更時便叫呼叫 StartActivity 方法，並且「絕對不要」呼叫 EndActivity 方法，因為呼叫此方法會強制結束目前的工作階段。
 
 #### 範例
 
@@ -305,7 +305,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。您可以透過 `Engageme
 			
 			EngagementAgent.Instance.SendEvent("Event", extras);
 
-> [AZURE.WARNING]如果您新增其他類型的物件，請確定已實作它們的 ToString() 方法，以傳回使用者可閱讀的字串。
+> [AZURE.WARNING] 如果您新增其他類型的物件，請確定已實作它們的 ToString() 方法，以傳回使用者可閱讀的字串。
 
 ### 限制
 
@@ -360,4 +360,4 @@ Engagement API 是由 `EngagementAgent` 類別提供。您可以透過 `Engageme
 			{"birthdate":"1983-12-07","gender":"female"}
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -15,13 +15,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # 開始使用 Dropbox API 
-連線到 Dropbox 來管理檔案，例如建立檔案、取得檔案等等。
+連線到 Dropbox 來管理檔案，例如建立檔案、取得檔案等等。您可以從下列應用程式使用 Dropbox API：
 
-您可以從 PowerApps Enterprise 及邏輯應用程式使用 Dropbox API。
+- 邏輯應用程式 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [邏輯應用程式](../articles/connectors/create-api-dropbox.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-dropbox.md)
 
 您可以利用 Dropbox 來：
 
@@ -30,9 +35,9 @@
 - 使用動作來建立檔案、刪除檔案等等。這些動作會收到回應，然後輸出能讓其他動作使用的資料。舉例來說，當 Dropbox 中有新檔案建立時，您可以利用 Office 365 來傳送已附加該檔案的電子郵件。
 - 將 Dropbox API 新增到 PowerApps Enterprise，讓您的使用者能夠在自己的應用程式中使用這個 AP。 
 
-如需如何在 PowerApps Enterprise 中新增 API 的資訊，請前往[在 PowerApps 中為 API 註冊](../power-apps/powerapps-register-from-available-apis.md)。
+如需有關如何在 PowerApps Enterprise 中新增 API 的資訊，請移至[在 PowerApps 中為 API 註冊](../power-apps/powerapps-register-from-available-apis.md)。
 
-如要在邏輯應用程式中新增作業，請參閱[建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
+如果要在邏輯應用程式中新增作業，請參閱[建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
 ## 觸發程序及動作
 Dropbox 包含下列觸發程序及動作。
@@ -46,15 +51,15 @@ Dropbox 包含下列觸發程序及動作。
 ## 建立至 Dropbox 的連線
 
 ### 在 PowerApps 中新增其他組態
-當您將 Dropbox 新增到 PowerApps Enterprise 時，請輸入您 Dropbox 應用程式的 [應用程式金鑰] 及 [應用程式密碼] 值。[重新導向 URL] 值也會用在您的 Dropbox 應用程式中。如果您沒有 Dropbox 應用程式，可以使用下列步驟來建立：
+當您將 Dropbox 新增到 PowerApps Enterprise 時，請輸入您的 Dropbox 應用程式的 [應用程式金鑰] 及 [應用程式密碼] 值。[重新導向 URL] 值也會用在您的 Dropbox 應用程式中。如果您沒有 Dropbox 應用程式，可以使用下列步驟來建立：
 
 1. 登入 [Dropbox][1]。
 2. 移至 Dropbox - Developers (Dropbox 開發人員) 網站，然後選取 [**My Apps (我的應用程式)**]：![Dropbox - Developers (Dropbox 開發人員) 網站][8]  
 3. 選取 [**Create app (建立應用程式)**]：![Dropbox create app (建立應用程式)][9]  
 4. 在 [**Create a new app on the Dropbox platform (在 Dropbox 平台上建立新的應用程式)**] 中：  
 
-	1. 在 [Choose API] (選擇 API) 中，選取 [Dropbox API]。
-	2. 在 [Choose the type of access you need] (選擇您需要的存取類型) 中，選取 [Full Dropbox...] (完整的 Dropbox...)。  
+	1. 在 [選擇 API] 中，選取 [Dropbox API]。
+	2. 在 [選擇您需要的存取類型] 中，選取 [完整的 Dropbox...]。  
 	3. 輸入您應用程式的名稱。  
 
 	![Dropbox create app (建立應用程式) 第 1 頁][10]
@@ -62,23 +67,24 @@ Dropbox 包含下列觸發程序及動作。
 5. 在應用程式設定頁面中：
 
 	1. 在 [OAuth 2] 中，輸入您在 Azure 入口網站中新增 Dropbox API 時所看到的 [重新導向 URL] 值。選取 [新增]。  
-	2. 選取 [Show] (顯示) 連結來顯示 [App Secret] (應用程式密碼)：  
+	2. 選取 [顯示] 連結來顯示**應用程式密碼**：  
 
 	![Dropbox create app (建立應用程式) 第 2 頁][11]
 
-現在，在 Azure 入口網站的 Dropbox 組態中，複製/貼上 [應用程式金鑰] 及 [應用程式密碼] 的值。
+現在，在 Azure 入口網站的 Dropbox 組態中，複製/貼上這些 [應用程式金鑰] 及 [應用程式密碼] 值。
 
 ### 在邏輯應用程式中新增其他組態
 當您將這個 API 新增到邏輯應用程式時，您必須授權，讓邏輯應用程式能夠連線到您的 Dropbox。
 
 1. 登入您的 Dropbox 帳戶。
-2. 選取 [Authorize] (授權)，然後允許您的邏輯應用程式連線並使用您的 Dropbox。 
+2. 選取 [授權]，然後允許您的邏輯應用程式連線並使用您的 Dropbox。 
 
-當您建立連線之後，請輸入 Dropbox 的屬性，例如資料夾路徑或檔案名稱。本主題的＜REST API 參考＞一節會說明這些屬性。
+當您建立連線之後，請輸入 Dropbox 的屬性，例如資料夾路徑或檔案名稱。本主題的＜REST API 參考＞一節說明這些屬性。
 
 >[AZURE.TIP] 您可以在其他的邏輯應用程式中，使用這個相同的 Dropbox 連線。
 
 ## Swagger REST API 參考
+適用的版本：1.0。
 
 ### 建立檔案    
 把檔案上傳到 Dropbox。```POST: /datasets/default/files```
@@ -157,7 +163,7 @@ Dropbox 包含下列觸發程序及動作。
 
 
 ### 使用識別碼來取得檔案內容    
-使用識別碼來擷取 Dropbox 中檔案的內容。```GET: /datasets/default/files/{id}/content```
+使用識別碼來擷取 Dropbox 中的檔案內容。```GET: /datasets/default/files/{id}/content```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -171,7 +177,7 @@ Dropbox 包含下列觸發程序及動作。
 
 
 ### 使用路徑來取得檔案內容    
-使用路徑來擷取 Dropbox 中檔案的內容。```GET: /datasets/default/GetFileContentByPath```
+使用路徑來擷取 Dropbox 中的檔案內容。```GET: /datasets/default/GetFileContentByPath```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -185,7 +191,7 @@ Dropbox 包含下列觸發程序及動作。
 
 
 ### 使用識別碼來取得檔案中繼資料    
-使用檔案識別碼來擷取 Dropbox 中檔案的中繼資料。```GET: /datasets/default/files/{id}```
+使用檔案識別碼來擷取 Dropbox 中的檔案中繼資料。```GET: /datasets/default/files/{id}```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -199,7 +205,7 @@ Dropbox 包含下列觸發程序及動作。
 
 
 ### 使用路徑來取得檔案中繼資料    
-使用路徑來擷取 Dropbox 中檔案的中繼資料。```GET: /datasets/default/GetFileByPath```
+使用路徑來擷取 Dropbox 中的檔案中繼資料。```GET: /datasets/default/GetFileByPath```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -247,8 +253,8 @@ Dropbox 包含下列觸發程序及動作。
 
 |屬性名稱 | 資料類型 | 必要|
 |---|---|---|
-|tabular|沒有定義|no|
-|blob|沒有定義|no|
+|表格式|未定義|no|
+|blob|未定義|no|
 
 #### TabularDataSetsMetadata
 
@@ -284,7 +290,7 @@ Dropbox 包含下列觸發程序及動作。
 |FileLocator|字串|no|
 
 ## 後續步驟
-當您把 Dropbox API新增到 PowerApps Enterprise 之後，[請授與使用者能使用自己應用程式中 API 的權限](../power-apps/powerapps-manage-api-connection-user-access.md)。
+當您把 Dropbox API新增到 PowerApps Enterprise 之後，請[授與使用者在自己的應用程式中使用 API 的權限](../power-apps/powerapps-manage-api-connection-user-access.md)。
 
 [建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
@@ -298,4 +304,4 @@ Dropbox 包含下列觸發程序及動作。
 [10]: ./media/create-api-dropbox/dropbox-create-app-page1.png
 [11]: ./media/create-api-dropbox/dropbox-create-app-page2.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

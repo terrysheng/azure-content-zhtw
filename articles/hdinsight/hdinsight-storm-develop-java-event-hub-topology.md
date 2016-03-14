@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="03/01/2016"
    ms.author="larryfr"/>
 
 # 使用 Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)
@@ -52,7 +52,7 @@ Azure 事件中樞可讓您從網站、應用程式和裝置處理巨量資料�
 
 ##了解範例
 
-[hdinsight-java-storm-eventhub](https://github.com/Blackmist/hdinsight-java-storm-eventhub) 範例包含兩個拓撲：
+[hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) 範例包含兩個拓撲：
 
 __com.microsoft.example.EventHubWriter__ 將隨機資料寫入 Azure 事件中樞。資料由 Spout 產生，而且是隨機裝置識別碼和裝置值。所以它是模擬會發出字串識別碼和數值的部分硬體。
 
@@ -280,10 +280,12 @@ HdfsBolt 一般是用來將資料儲存至 Hadoop 分散式檔案系統 HDFS。�
 4. 選取 [設定]，然後使用下列資訊建立兩個新的存取原則。
 
 	<table>
-<tr><th>名稱</th><th>權限</th></tr>
-<tr><td>寫入器</td><td>傳送</td></tr>
-<tr><td>讀取者</td><td>接聽</td></tr>
-</table>建立權限之後，在頁面底部選取**儲存**圖示。這樣會建立共用存取原則，可用來傳送 (寫入器) 和接聽 (讀取器) 此事件中樞的訊息。
+	<tr><th>名稱</th><th>權限</th></tr>
+	<tr><td>寫入器</td><td>傳送</td></tr>
+	<tr><td>讀取者</td><td>接聽</td></tr>
+	</table>
+
+	建立權限之後，在頁面底部選取**儲存**圖示。這樣會建立共用存取原則，可用來傳送 (寫入器) 和接聽 (讀取器) 此事件中樞的訊息。
 
 	![原則](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
@@ -291,7 +293,7 @@ HdfsBolt 一般是用來將資料儲存至 Hadoop 分散式檔案系統 HDFS。�
 
 ## 下載和建置專案
 
-1. 從 GitHub 下載專案：[hdinsight-java-storm-eventhub](https://github.com/Blackmist/hdinsight-java-storm-eventhub)。您可以將封裝下載為 zip 封存，或使用 [git](https://git-scm.com/) 以在本機複製專案。
+1. 從 GitHub 下載專案：[hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)。您可以將封裝下載為 zip 封存，或使用 [git](https://git-scm.com/) 以在本機複製專案。
 
 2. 使用下列命令以將專案中包含的封裝安裝至本機 Maven 儲存機制。這樣會啟用事件中樞 Spout 和 Bolt，以及使用 HdfsBolt 寫入 Azure 儲存體 (WASB) 的能力。
 
@@ -476,4 +478,4 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

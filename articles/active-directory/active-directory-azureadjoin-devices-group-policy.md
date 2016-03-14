@@ -10,7 +10,7 @@
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article"
 
-	ms.date="11/19/2015"
+	ms.date="02/26/2016"
 
 	ms.author="femila"/>
 
@@ -72,7 +72,7 @@ Azure AD Connect 可讓您將內部部署電腦佈建為雲端中的裝置物件
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
 
-執行 Cmdlet $aadAdminCred = Get-credential 時，針對在 Get-credential 快顯視窗出現時輸入的認證使用者名稱使用格式 *user@example.com* 。
+執行 Cmdlet $aadAdminCred = Get-credential 時，針對在 Get-credential 快顯視窗出現時輸入的認證使用者名稱使用格式 **user@example.com* 。
 
 執行 Cmdlet Initialize-ADSyncDomainJoinedComputerSync ... 時，以用來做為 Active Directory 連接器帳戶的網域帳戶來取代 [*連接器帳戶名稱*]。
 
@@ -144,4 +144,4 @@ Windows 10 電腦將會使用 Windows 整合式驗證，對 AD FS 所裝載的�
 * [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

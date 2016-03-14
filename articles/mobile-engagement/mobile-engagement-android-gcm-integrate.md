@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 #如何整合 GCM 與 Mobile Engagement
 
-> [AZURE.IMPORTANT]您必須遵循＜如何在 Android 上整合＞文件中所述的整合程序，才能接著遵循本指南。
+> [AZURE.IMPORTANT] 您必須遵循＜如何在 Android 上整合＞文件中所述的整合程序，才能接著遵循本指南。
 >
 > 只有當您已整合 Reach 模組以用於任何時間促銷活動支援，才適用本文件。若要在應用程式中整合 Reach 促銷活動，請先閱讀「如何在 Android 上整合 Engagement Reach」。
 
@@ -28,7 +28,7 @@
 
 推送到 GCM 裝載的 SDK 一律包含資料物件中的 `azme` 金鑰。因此，如果您在應用程式中因為其他目的使用 GCM，可以根據該金鑰篩選推送。
 
-> [AZURE.IMPORTANT]只有執行 Android 2.2 或更高版本，且已安裝 Google Play 並已啟用 Google 背景連線的裝置，才能使用 GCM 推播；不過，您仍可將這段程式碼安全地整合不支援 GCM 的裝置 (只使用對應方式)。
+> [AZURE.IMPORTANT] 只有執行 Android 2.2 或更高版本，且已安裝 Google Play 並已啟用 Google 背景連線的裝置，才能使用 GCM 推播；不過，您仍可將這段程式碼安全地整合不支援 GCM 的裝置 (只使用對應方式)。
 
 ##註冊 GCM 並啟用 GCM 服務
 
@@ -40,7 +40,7 @@
 
 此程序說明「專案編號」可做為「GCM 傳送者識別碼」，此程序稍後需要用到此識別碼。
 
-> [AZURE.IMPORTANT]「專案編號」不應與「專案識別碼」混淆。專案識別碼現在與專案編號不同 (在新專案上是一個名稱)。您需要在 Engagement SDK 中整合的是「專案編號」，此編號會顯示於 [Google 開發人員主控台]的 [概觀] 功能表中。
+> [AZURE.IMPORTANT] 「專案編號」不應與「專案識別碼」混淆。專案識別碼現在與專案編號不同 (在新專案上是一個名稱)。您需要在 Engagement SDK 中整合的是「專案編號」，此編號會顯示於 [Google 開發人員主控台]的 [概觀] 功能表中。
 
 ##SDK 整合
 
@@ -103,7 +103,7 @@
 
 現在，您在建立 Reach 公告與輪詢時可以選取 [任何時間]。
 
-> [AZURE.IMPORTANT]Engagement 實際上需要「伺服器金鑰」，Engagement 伺服器無法使用 Android 金鑰。
+> [AZURE.IMPORTANT] Engagement 實際上需要「伺服器金鑰」，Engagement 伺服器無法使用 Android 金鑰。
 
 ##測試
 
@@ -115,4 +115,4 @@
 [GCM 用戶端程式庫]: http://developer.android.com/guide/google/gcm/gs.html#libs
 [Google 開發人員主控台]: https://cloud.google.com/console
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

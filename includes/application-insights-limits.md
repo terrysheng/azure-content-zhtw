@@ -14,6 +14,7 @@
 屬性值長度 | 1000 | 1000
 追蹤和例外狀況的訊息長度 | 10000 | 10000
 度量名稱長度 | 100 | 100
+可用性集合 | 10 | 10
 
 <sup>1</sup> 資料點是個別的度量值或事件，具有附加的屬性和測量值。
 
@@ -21,4 +22,4 @@
  
 [關於 Application Insights 中的定價和配額](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

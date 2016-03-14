@@ -68,7 +68,7 @@ Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Pig 活�
 輸出 | Pig 活動所產生的輸出 | 是
 linkedServiceName | 參考 HDInsight 叢集註冊為 Data Factory 中的連結服務 | 是
 script | 指定 Pig 指令碼內嵌 | 否
-指令碼路徑 | 在 Azure blob 儲存體中儲存 Pig 指令碼，並提供檔案的路徑。使用 'script' 或 'scriptPath' 屬性。兩者無法同時使用 | 否
+指令碼路徑 | 在 Azure blob 儲存體中儲存 Pig 指令碼，並提供檔案的路徑。使用 'script' 或 'scriptPath' 屬性。兩者無法同時使用。請注意，檔案名稱區分大小寫。 | 否
 定義 | 在使用 Pig 指令碼內指定參數做為參考的機碼/值組 | 否
 
 ## 範例
@@ -186,4 +186,4 @@ script | 指定 Pig 指令碼內嵌 | 否
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

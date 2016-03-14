@@ -3,8 +3,8 @@
    description="說明 StorSimple Virtual Array，這是一個整合式儲存體解決方案，可管理內部部署虛擬裝置與 Microsoft Azure 雲端儲存體之間的儲存體工作。"
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
+   authors="alkohli"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,26 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
-   ms.author="v-sharos" />
+   ms.date="03/01/2016"
+   ms.author="alkohli" />
 
-# StorSimple Virtual Array 簡介 (預覽版)
+# StorSimple Virtual Array 簡介
 
 ## 概觀
 
 歡迎使用 Microsoft Azure StorSimple Virtual Array，這是一個整合式儲存體解決方案，可管理 Hypervisor 中執行之內部部署虛擬裝置與 Microsoft Azure 雲端儲存體之間的儲存體工作。Virtual Array (也稱為 StorSimple 內部部署虛擬裝置) 是一個有效率、符合成本效益且易於管理的檔案伺服器或 iSCSI 伺服器解決方案，可減少許多與企業儲存體和資料保護相關聯的問題和支出。Virtual Array 特別適用於遠端辦公室/分公司案例。
 
->[AZURE.IMPORTANT]
->
-> StorSimple Virtual Array 目前是預覽版，僅供評估及部署規劃之用。不支援在生產環境中安裝此預覽版。
->
-> 如果您遇到任何 StorSimple Virtual Array 的問題，請在 [StorSimple MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple)提出問題。
-
 本概觀著重於 Virtual Array。
 
-- 如需 StorSimple 8000 系列的概觀，請移至 [StorSimple 8000 系列：混合式雲端存放解決方案](storsimple-overview.md)。 
+- 如需 StorSimple 8000 系列的概觀，請移至 [StorSimple 8000 系列：混合式雲端解決方案](storsimple-overview.md)。 
 
-- 如需 StorSimple 5000/7000 系列裝置的相關資訊，請移至 [StorSimple Online Help (StorSimple 線上說明)](http://onlinehelp.storsimple.com/)。
+- 如需 StorSimple 5000/7000 系列裝置的相關資訊，請移至 [StorSimple 線上說明](http://onlinehelp.storsimple.com/)。
 
 Virtual Array 支援 iSCSI 或伺服器訊息區 (SMB) 通訊協定。它會在現有 Hypervisor 基礎結構上執行，並提供雲端、雲端備份、快速還原、項目層級復原和災害復原功能的分層。
 
@@ -118,7 +112,7 @@ Virtual Array 具有下列功能：
 - 備份儲存在雲端中，可以加速災害復原並簡化項目層級復原 (ILR)。 
 - 您可以將更新套用至 Virtual Array，就像將它們套用至實體裝置一樣。
 
->[AZURE.NOTE]無法展開 Virtual Array。因此，建立虛擬裝置時，請一定要佈建足夠的儲存體。
+>[AZURE.NOTE] 無法展開 Virtual Array。因此，建立虛擬裝置時，請一定要佈建足夠的儲存體。
 
 ### StorSimple Manager 服務
 
@@ -140,7 +134,7 @@ Microsoft Azure StorSimple 提供可讓您集中管理資料中心和雲端儲�
 
 Virtual Array 包括一個 Web UI，用於單次設定裝置，並向 StorSimple Manager 服務註冊裝置。您可以使用它來關閉和重新啟動 Virtual Array、執行診斷測試、更新軟體、變更裝置系統管理員密碼、檢視系統記錄檔，以及連絡 Microsoft 支援服務發出服務要求。
 
-如需使用 Web UI 的相關資訊，請移至 [Use the web-based UI to administer your StorSimple Virtual Array (使用 Web UI 管理 StorSimple Virtual Array)](storsimple-ova-web-ui-admin.md)。
+如需使用 Web UI 的相關資訊，請移至[使用 Web UI 管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
 ### 命令列介面
 
@@ -163,7 +157,7 @@ Virtual Array 使用新的分層機制來管理跨 Virtual Array 和雲端儲存
 
 ![自動儲存體分層](./media/storsimple-ova-overview/automatic-storage-tiering.png)
 
->[AZURE.NOTE]您可以指定本機固定的磁碟區，在此情況下，資料會保留在 Virtual Array 上，而且絕不會分層至雲端。如需詳細資訊，請移至[固定在本機的共用和磁碟區](#locally-pinned-shares-and-volumes)。
+>[AZURE.NOTE] 您可以指定本機固定的磁碟區，在此情況下，資料會保留在 Virtual Array 上，而且絕不會分層至雲端。如需詳細資訊，請移至[固定在本機的共用和磁碟區](#locally-pinned-shares-and-volumes)。
 
 ### 固定在本機的共用和磁碟區
 
@@ -180,7 +174,7 @@ Virtual Array 使用新的分層機制來管理跨 Virtual Array 和雲端儲存
 
 StorSimple 會使用重複資料刪除和資料壓縮，來進一步降低雲端中的儲存體需求。重複資料刪除減少整體儲存資料量的方式是刪除儲存資料集中的重複資料。當資訊變更時，StorSimple 會忽略未變更的資料，而只擷取變更。此外，StorSimple 還會透過識別並移除重複資訊來減少儲存的資料量。
 
->[AZURE.NOTE]Virtual Array 上所儲存的資料不會進行重複資料刪除或壓縮。所有重複資料刪除和壓縮只會在將資料傳送至雲端之前發生。
+>[AZURE.NOTE] Virtual Array 上所儲存的資料不會進行重複資料刪除或壓縮。所有重複資料刪除和壓縮只會在將資料傳送至雲端之前發生。
 
 ### 排程和隨選備份
 
@@ -188,6 +182,6 @@ StorSimple 資料保護功能可讓您建立隨選備份。此外，預設備份
 
 ## 後續步驟
 
-了解如何 [prepare the Virtual Array portal (準備 Virtual Array 入口網站)](storsimple-ova-deploy1-portal-prep.md)。
+了解如何[準備 Virtual Array 入口網站](storsimple-ova-deploy1-portal-prep.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="02/25/2016"
    ms.author="mbaldwin" />
 
 # Azure Active Directory 圖形 API
 
-> [AZURE.IMPORTANT]Azure AD Graph API 功能也透過 [Microsoft Graph](https://graph.microsoft.io/) 提供使用，Microsoft Graph 是一個統一的 API，包含了來自其他 Microsoft 服務 (例如 Outlook、OneDrive、OneNote、Planner 和 Office Graph) 的 API，並可透過單一端點與使用單一存取權杖進行存取。
+> [AZURE.IMPORTANT] Azure AD Graph API 功能也透過 [Microsoft Graph](https://graph.microsoft.io/) 提供使用，Microsoft Graph 是一個統一的 API，包含了來自其他 Microsoft 服務 (例如 Outlook、OneDrive、OneNote、Planner 和 Office Graph) 的 API，並可透過單一端點與使用單一存取權杖進行存取。
 
 Azure Active Directory 圖形 API 支援以程式設計方式透過 REST API 端點存取 Azure AD。應用程式可以使用 Graph API，來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。例如，圖形 API 支援對使用者物件執行下列常見的作業：
 
@@ -66,4 +66,4 @@ Azure Active Directory 圖形 API 支援以程式設計方式透過 REST API 端
 
 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

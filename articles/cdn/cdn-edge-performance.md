@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN - 分析邊緣效能" 
-	description="在 Microsoft Azure CDN 中分析邊緣節點效能。邊緣效能分析詳細提供 CDN 的資訊流量和頻寬使用量。" 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - 分析邊緣效能"
+	description="在 Microsoft Azure CDN 中分析邊緣節點效能。邊緣效能分析詳細提供 CDN 的資訊流量和頻寬使用量。"
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016"
 	ms.author="casoper"/>
 
 # 在 Microsoft Azure CDN 中分析邊緣節點效能
@@ -21,7 +21,7 @@
 ## 概觀
 邊緣效能分析詳細提供 CDN 的資訊流量和頻寬使用量。這項資訊可用來產生趨勢統計資料，讓您深入了解您的資產如何放入快取中和傳遞到您的用戶端。這進而可讓您產生策略來設法最佳化內容傳遞，以及決定應該解決什麼問題以充分利用 CDN。如此一來，不僅能夠改善資料傳遞的效能，還能夠減少 CDN 成本。
 
-> [AZURE.NOTE]邊緣效能分析是高階 CDN 層的一項功能。如需標準和高階 CDN 功能的比較，請參閱 [Azure CDN 概觀](cdn-overview.md)。
+> [AZURE.NOTE] 邊緣效能分析是高階 CDN 層的一項功能。如需標準和高階 CDN 功能的比較，請參閱 [Azure CDN 概觀](cdn-overview.md)。
 >
 > 所有報告都採用 UTC/GMT 標記法來指定日期/時間。
 
@@ -29,7 +29,7 @@
 
 邊緣效能分析模組必須收集 CDN 活動資料，才能產生報告。此收集處理程序一天執行一次，涵蓋前一天發生的活動。這表示報告的統計資料代表它處理時的那一天的統計資料樣本，不一定包含當天的完整資料集。這些報告的主要功能在於評估效能。它們不應該用於計費用途或確切的數值統計資料。
 
-> [AZURE.NOTE]至少有 90 天的原始資料可用來產生邊緣效能分析報告。
+> [AZURE.NOTE] 至少有 90 天的原始資料可用來產生邊緣效能分析報告。
 
 ## 儀表板
 
@@ -46,11 +46,11 @@
 1. 在 CDN 設定檔刀鋒視窗中，按一下 [管理] 按鈕。
 
 	![CDN 設定檔刀鋒視窗管理按鈕](./media/cdn-edge-performance/cdn-manage-btn.png)
-	
+
 	CDN 管理入口網站隨即開啟。
-	
+
 2. 將滑鼠暫留在 [分析] 索引標籤上，然後暫留在 [邊緣效能分析] 彈出式視窗上。按一下 [儀表板]。
-	
+
 	邊緣節點分析儀表板隨即顯示。
 
 ### 圖表
@@ -98,7 +98,7 @@
 * 透過 CDN 將營運成本降至最低。
 * 透過快取效率和壓縮減少 CDN 支出。
 
-> [AZURE.NOTE]流量數字代表用於計算比率和百分比的流量，對於流量較大的客戶，可能只會顯示總流量的一部分。
+> [AZURE.NOTE] 流量數字代表用於計算比率和百分比的流量，對於流量較大的客戶，可能只會顯示總流量的一部分。
 
 欄位 | 說明
 ------|------------
@@ -143,13 +143,13 @@
 1. 在 CDN 設定檔刀鋒視窗中，按一下 [管理] 按鈕。
 
 	![CDN 設定檔刀鋒視窗管理按鈕](./media/cdn-edge-performance/cdn-manage-btn.png)
-	
+
 	CDN 管理入口網站隨即開啟。
-	
+
 2. 將滑鼠暫留在 [分析] 索引標籤上，然後暫留在 [邊緣效能分析] 彈出式視窗上。按一下 [HTTP 大型物件]。
-	
+
 	邊緣節點分析報告畫面隨即顯示。
-	
+
 報告 | 說明
 -------|------------
 每日摘要 | 可讓您檢視一段指定期間內的每日流量趨勢。此圖形上的每個橫條都代表特定日期。橫條大小表示那一天發生的點擊總數。
@@ -157,7 +157,7 @@
 通訊協定 | 顯示 HTTP 和 HTTPS 通訊協定之間的流量分解。環圈圖指出每一種通訊協定發生的點擊百分比。
 HTTP 方法 | 可讓您快速了解用於要求您的資料的 HTTP 方法。一般而言，最常見的 HTTP 要求方法是 GET、HEAD 和POST。環圈圖指出每一種 HTTP 要求方法發生的點擊百分比。
 URL | 包含的圖形顯示前 10 名要求的 URL。每個 URL 會顯示一個橫條。橫條高度指出在報告所涵蓋的時間範圍內，特定 URL 已產生的點擊次數。此圖形正下方顯示前 100 名要求的 URL 的統計資料。
-CNAME | 包含的圖形顯示在報告的時間範圍內，用來要求資產的前 10 名 CNAME。此圖形正下方顯示前 100 名要求的 CNAME 的統計資料。 
+CNAME | 包含的圖形顯示在報告的時間範圍內，用來要求資產的前 10 名 CNAME。此圖形正下方顯示前 100 名要求的 CNAME 的統計資料。
 原始來源 | 包含的圖形顯示在指定的期間內，要求資產的前 10 名 CDN 或客戶原始伺服器。此圖形正下方顯示前 100 名要求的 CDN 或客戶原始伺服器的統計資料。客戶原始伺服器由 [目錄名稱] 選項中所定義的名稱來識別。
 地區 POP | 顯示透過特定存在點 (POP) 路由傳送的流量。三個字母的縮寫代表 CDN 網路中的 POP。
 用戶端 | 包含的圖形顯示在指定的期間內要求資產的前 10 名用戶端。就此報告而言，來自相同 IP 位址的所有要求都視為來自相同用戶端。此圖形正下方顯示前 100 名用戶端的統計資料。此報告有助於判斷前幾名用戶端的下載活動模式。
@@ -192,4 +192,4 @@ HTTP 回應碼 | 分解由我們的邊緣伺服器傳遞至 HTTP 用戶端的 HT
 * [使用規則引擎覆寫預設的 HTTP 行為](cdn-rules-engine.md)
 * [進階 HTTP 報告](cdn-advanced-http-reports.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

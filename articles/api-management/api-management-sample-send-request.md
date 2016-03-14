@@ -1,20 +1,20 @@
 <properties
-   pageTitle="使用 API 管理服務產生 HTTP 要求"
-   description="了解如何使用 API 管理中的要求和回應原則，從您的 API 呼叫外部服務"
-   services="api-management"
-   documentationCenter=""
-   authors="darrelmiller"
-   manager=""
-   editor=""/>
+	pageTitle="使用 API 管理服務產生 HTTP 要求"
+	description="了解如何使用 API 管理中的要求和回應原則，從您的 API 呼叫外部服務"
+	services="api-management"
+	documentationCenter=""
+	authors="darrelmiller"
+	manager=""
+	editor=""/>
 
 <tags
-   ms.service="api-management"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="02/01/2016"
-   ms.author="v-darmi"/>
+	ms.service="api-management"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="02/19/2016"
+	ms.author="v-darmi"/>
 
 
 # 使用來自 Azure API 管理服務的外部服務
@@ -269,4 +269,4 @@ Azure API 管理服務提供彈性的原則，可以選擇性地套用到 HTTP �
 
 > [AZURE.VIDEO send-request-and-return-response-policies]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

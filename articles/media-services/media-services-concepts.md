@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="02/25/2016" 
 	ms.author="juliako"/>
 
 #Azure 媒體服務概念 
@@ -85,19 +85,23 @@ Blob 容器提供一組 blob。Blob 容器在媒體服務中是做為存取控�
 
 工作包含要進行之處理的相關中繼資料。每個工作 (Job) 包含一或多個[工作 (Task)](https://msdn.microsoft.com/library/azure/hh974286.aspx)，該工作 (Task) 指定不可部分完成的處理工作、該處理工作的輸入資產、輸出資產、媒體處理器和其相關設定。工作 (Job) 中的工作 (Task) 可以鏈結在一起，其中一項工作 (Task) 的輸出資產指定為下一個工作 (Task) 的輸入資產。透過這種方式，一項工作 (Job) 可以包含一個媒體簡報所需的所有處理。
 
-##<a id="encoding"></a>編碼\\封裝
+##<a id="encoding"></a>編碼 
 
-###編碼
+Azure 媒體服務提供多個用於將雲端中之媒體編碼的選項。
 
-若要透過網際網路傳遞數位視訊，您必須壓縮媒體。數位視訊檔案十分龐大，而且可能太大而無法透過網際網路傳遞，或是太大而使您客戶的裝置無法正確顯示。人們會使用各種裝置來觀看影片，從具備機上盒的電視、桌上型電腦到平板電腦與智慧型手機等。這些裝置都有不同的頻寬和壓縮需求。編碼是使用壓縮程式/解壓縮程式或轉碼器來壓縮視訊和音訊的程序。
+開始使用媒體服務時，請務必了解轉碼器和檔案格式之間的差異。轉碼器是實作壓縮/解壓縮演算法的軟體，而檔案格式是保存已壓縮視訊的容器。
 
-轉碼則是將已編碼的視訊重新編碼為不同編碼格式的程序。由於大部份相機已對視訊進行一定程度的編碼，所以在 Azure 媒體服務上進行的大部份編碼工作都是技術性編碼。
+媒體服務提供動態封裝，這讓您以媒體服務支援的串流格式 (MPEG DASH、HLS、Smooth Streaming、HDS) 提供調適性位元速率 MP4 或 Smooth Streaming 編碼內容，而不必重新封裝成這些串流格式。
 
-###轉碼器和檔案格式 
+若要利用[動態封裝](media-services-dynamic-packaging-overview.md)，您需要執行下列動作：
 
-轉碼器有兩個元件：一個用來壓縮數位媒體檔案以利傳輸，另一個元件則是解壓縮數位媒體檔案以利播放。音訊轉碼器用於壓縮和解壓縮音訊，視訊轉碼器則用於壓縮和解壓縮視訊。轉碼器可以運用不失真或失真壓縮。不失真轉碼器在進行壓縮時會保留所有資訊。解壓縮檔案時，產生的檔案與輸入媒體完全相同，因此不失真轉碼器相當適合用於封存和儲存。失真轉碼器在進行編碼時會遺失部分資訊並產生較小的檔案 (與原始檔案相比)，代價是減損視訊品質，適用於透過網際網路串流處理。Azure Media Encoder 用來編碼的兩種主要轉碼器是 H.264 和 VC-1。其他轉碼器可能適用於我們合作夥伴的編碼器生態系統。
+- 將您的夾層 (來源) 檔編碼為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案 (編碼步驟稍後示範於本教學課程中)。
+- 為您計畫從該處傳遞內容的串流端點取得至少一個隨選串流單元。如需詳細資訊，請參閱[如何調整隨選串流保留單元](media-services-manage-origins.md#scale_streaming_endpoints/)。
 
-###媒體服務編碼器
+媒體服務支援本文中所描述的下列隨選編碼器：
+
+- [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
+- [Media Encoder Premium Workflow](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 如需支援編碼器的相關資訊，請參閱「[編碼器](media-services-encode-asset.md)」。
 
@@ -248,4 +252,4 @@ StreamingEndpoint 代表可以直接將內容傳遞給用戶端播放程式應�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

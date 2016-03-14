@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/25/2016" 
 	ms.author="nitinme"/>
 
 # 使用 HDInsight 上的 Hive 分析網站的記錄
@@ -47,7 +47,7 @@
 	
 	出現提示時，使用您佈建叢集時所用的系統管理員使用者名稱和密碼來進行驗證。
   
-2. 從開啟的網頁中，按一下 [Getting Started Gallery] 索引標籤，然後在 [範例] 類別下，按一下 [Website Log Analysis] 範例。
+2. 從開啟的網頁中，按一下 [快速啟用資源庫] 索引標籤，然後在 [搭配範例資料的方案] 類別下，按一下 [網站記錄分析] 範例。
 
 3. 依照網頁上提供的指示完成範例。
 
@@ -61,4 +61,4 @@
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

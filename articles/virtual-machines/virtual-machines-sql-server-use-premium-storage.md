@@ -22,7 +22,7 @@
 
 ## 概觀
 
-[Azure 高階儲存體](../storage-premium-storage-preview-portal.md)是新一代儲存體，可提供低延遲和高輸送量 IO。它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](https://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。
+[Azure 高階儲存體](../storage/storage-premium-storage.md)是新一代儲存體，可提供低延遲和高輸送量 IO。它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](https://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
@@ -89,14 +89,14 @@
 
 您需要建立新的儲存體帳戶，此帳戶是針對高階儲存體所設定。請注意，高階儲存體的用法是設定於儲存體帳戶上，而非個別的 VHD 上，但在使用 DS* 系列 VM 時，您可以從高階和標準儲存體帳戶連結 VHD 的儲存體帳戶。如果您不想將作業系統 VHD 放置於高階儲存體帳戶上，可考慮使用此項。
 
-以下含有 "Premium\_LRS" **類型**的 **New-AzureStorageAccountPowerShell** 命令會建立高階儲存體帳戶：
+以下含有 "Premium_LRS" **類型**的 **New-AzureStorageAccountPowerShell** 命令會建立高階儲存體帳戶：
 
     $newstorageaccountname = "danpremstor"
     New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "West Europe" -Type "Premium_LRS"   
 
 ### VHD 快取設定
 
-在建立屬於高階儲存體帳戶一部分的磁碟間的主要差異在於磁碟快取設定。針對 SQL Server 資料磁碟區磁碟，建議使用 [讀取快取]****。針對交易記錄磁碟區，應該將磁碟快取設定設為 [無]****。這與適用於標準儲存體帳戶的建議不同。
+在建立屬於高階儲存體帳戶一部分的磁碟間的主要差異在於磁碟快取設定。針對 SQL Server 資料磁碟區磁碟，建議使用 [讀取快取]***。針對交易記錄磁碟區，應該將磁碟快取設定設為 [無]***。這與適用於標準儲存體帳戶的建議不同。
 
 一旦連結 VHD 之後，就無法更改快取設定。您需要中斷連結 VHD，然後使用更新的快取設定重新連結。
 
@@ -149,9 +149,9 @@
 
 儲存體效能的程度取決於指定的 DS* VM 大小與 VHD 大小。VM 對於連結的 VHD 數量以及它們將支援的最大頻寬 (MB/秒) 有不同的容許程度。如需特定頻寬數，請參閱 [Azure 的虛擬機器和雲端服務大小](virtual-machines-size-specs.md)。
 
-提高 IOPS 可透過更大的磁碟大小來達成。當您考量移轉路徑時，應將這點納入考慮。如需詳細資訊，請參閱[適用於 IOPS 和磁碟類型的表格](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whzh-TWing-premium-storage)。
+提高 IOPS 可透過更大的磁碟大小來達成。當您考量移轉路徑時，應將這點納入考慮。如需詳細資訊，請參閱[適用於 IOPS 和磁碟類型的表格](../storage-premium-storage.md#scalability-and-performance-targets-whzh-TWing-premium-storage)。
 
-最後，請考量 VM 對於所有連結磁碟支援的磁碟頻寬上限各有不同。在高負載下，您可針對該 VM 角色大小充分使用可用的最大磁碟頻寬。例如，Standard\_DS14 最多將支援 512MB/秒；因此，透過三個 P30 磁碟，您就能充分使用 VM 的磁碟頻寬。但在此範例中，根據讀取和寫入 IO 的組合而定，可能會超過輸送量限制。
+最後，請考量 VM 對於所有連結磁碟支援的磁碟頻寬上限各有不同。在高負載下，您可針對該 VM 角色大小充分使用可用的最大磁碟頻寬。例如，Standard_DS14 最多將支援 512MB/秒；因此，透過三個 P30 磁碟，您就能充分使用 VM 的磁碟頻寬。但在此範例中，根據讀取和寫入 IO 的組合而定，可能會超過輸送量限制。
 
 ## 新的部署
 
@@ -380,7 +380,7 @@
 1. **在現有的 AlwaysOn 叢集中新增更多次要複本**
 1. **移轉到新的 AlwaysOn 叢集**
 
-#### 1\.在現有的 AlwaysOn 叢集中新增更多次要複本
+#### 1.在現有的 AlwaysOn 叢集中新增更多次要複本
 
 有一個策略是在 AlwaysOn 可用性群組中新增更多次要項目。您需要將這些項目新增到新的雲端服務，然後使用新的負載平衡器 IP 來更新接聽程式。
 
@@ -402,15 +402,14 @@
 1. 複製完整備份，然後使用 **NORECOVERY** 進行還原。
 1. 複製「超出使用者 DB 範圍」的相依物件，例如登入等項目。
 1. 建立新的內部負載平衡器 (ILB) 或使用外部負載平衡器 (ELB)，然後在這兩個新節點上設定負載平衡的端點。
-
 > [AZURE.NOTE] 請先檢查所有節點的端點組態是否正確再繼續進行
 
 1. 停止使用者/應用程式存取 SQL Server (如果正在使用儲存集區)。
 1. 停止所有節點上的 SQL Server 引擎服務 (如果正在使用儲存集區)。
-1. 將新節點新增到叢集，然後執行完整驗證。
+1. 將新節點新增到叢集，然後執行完整驗證。 
 1. 驗證成功之後，啟動所有 SQL Server 服務。
 1. 備份交易記錄，然後還原使用者資料庫。
-1. 將新節點新增到 AlwaysOn 可用性群組，並使複寫可以**同步**。
+1. 將新節點新增到 AlwaysOn 可用性群組，並使複寫可以**同步**。 
 1. 根據[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)中的多站台範例，透過適用於 AlwaysOn 的 PowerShell，來新增新雲端服務 ILB/ELB 的 IP 位址資源。在 Windows 叢集中，將 [IP 位址] 資源的 [可能的擁有者] 設為之前的新節點。請參閱[附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
 1. 容錯移轉到其中一個新節點。
 1. 使新節點成為自動容錯移轉夥伴並測試容錯移轉。
@@ -423,12 +422,12 @@
 - 您可以控制將 DB 備份傳輸到次要複本的開始時機。這與使用 Azure **Start-AzureStorageBlobCopy** commandlet 來複製 VHD 不同，因為那是非同步的複本。
 
 ##### 缺點
-- 使用 Windows 儲存集區時，會在為新的其他節點進行完整叢集驗證期間產生叢集停機時間。
+- 使用 Windows 儲存集區時，會在為新的其他節點進行完整叢集驗證期間產生叢集停機時間。 
 - 根據 SQL Server 版本和次要複本的現有數目而定，您可能無法在不移除現有次要項目的情況下新增更多次要複本。
 - 在設定次要項目時，可能需要較長的 SQL 資料傳輸時間。
 - 當您平行執行新機器時，會在移轉期間產生額外成本。
 
-#### 2\.移轉到新的 AlwaysOn 叢集
+#### 2.移轉到新的 AlwaysOn 叢集
 
 另一種策略是在新的雲端服務中，使用全新的節點來建立全新的 AlwaysOn 叢集，然後重新導向用戶端來使用該節點。
 
@@ -460,7 +459,7 @@
 1. **利用現有的次要項目：單一站台**
 1. **利用現有的次要項目：多站台**
 
-#### 1\.利用現有的次要項目：單一站台
+#### 1.利用現有的次要項目：單一站台
 
 將停機時間降至最低的其中一種策略是取得現有的雲端次要項目，並從目前的雲端服務中移除它。然後將 VHD 複製到新的高階儲存體帳戶，並在新的雲端服務中建立 VM。接著在叢集設定和容錯移轉中更新接聽程式。
 
@@ -506,7 +505,7 @@
 - 如果使用步驟 5ii，則新增 SQL1 做為新增 IP 位址資源的 [可能的擁有者]
 - 測試容錯移轉。
 
-#### 2\.利用現有的次要項目：多站台
+#### 2.利用現有的次要項目：多站台
 
 如果您的節點分佈於一個以上的 Azure 資料中心 (DC)，或者您擁有混合式環境，則您可在這個環境中使用 AlwaysOn 設定來將停機時間降至最低。
 
@@ -1119,7 +1118,7 @@
 	![Appendix15][25]
 
 ## 其他資源
-- [Azure 高階儲存體](../storage-premium-storage-preview-portal.md)
+- [Azure 高階儲存體](../storage/storage-premium-storage.md)
 - [虛擬機器](https://azure.microsoft.com/services/virtual-machines/)
 - [Azure 虛擬機器中的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)
 
@@ -1150,4 +1149,4 @@
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0302_2016-->

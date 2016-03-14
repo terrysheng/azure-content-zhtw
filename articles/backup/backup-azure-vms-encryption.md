@@ -3,8 +3,8 @@
    description="了解 Azure 備份如何處理在 IaaS VM 備份期間使用 BitLocker 或 dmcrypt 加密的資料。本文介紹備份與還原作業在處理加密磁碟時的差異。"
    services="backup"
    documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
+   authors="markgalioto"
+   manager="jwhit"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="11/27/2015"
-   ms.author="aashishr"/>
+   ms.author="markgal; jimpark"/>
 
 # 處理 VM 備份期間加密的磁碟
 
@@ -42,7 +42,7 @@
 | 資料還原 | Azure 備份 | 使用 Azure 備份從復原點還原磁碟或整個 VM。資料不是由 Azure 備份當做還原作業的一部分來解密。|
 | 解密 | Bitlocker 或 dmcrypt | 為了從還原的資料磁碟或還原的 VM 讀取資料，軟體需要有來自金鑰管理軟體的金鑰。如果沒有正確的金鑰，就無法解密資料。 |
 
-> [AZURE.IMPORTANT]金鑰管理 (包括金鑰變換) 不是 Azure 備份的一部分。這方面需要分開管理，但對整體備份/還原作業很重要。
+> [AZURE.IMPORTANT]  金鑰管理 (包括金鑰變換) 不是 Azure 備份的一部分。這方面需要分開管理，但對整體備份/還原作業很重要。
 
 ## CloudLink SecureVM
 
@@ -62,4 +62,4 @@
 - [部署指南 - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [部署及使用 SecureVM - 影片](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

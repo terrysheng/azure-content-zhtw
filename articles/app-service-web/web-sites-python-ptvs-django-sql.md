@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/13/2015"
+	ms.date="02/25/2016"
 	ms.author="huguesv"/>
 
 
@@ -35,10 +35,11 @@
  - [Python Tools 2.2 for Visual Studio 範例 VSIX]
  - [Azure SDK Tools for VS 2013] 或 [Azure SDK Tools for VS 2015]
  - [Python 2.7 (32 位元)]
+ - Django 1.6 或更早版本
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；無需承諾。
 
 ## 建立專案
 
@@ -169,10 +170,10 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 1.  按一下 [新增] 以建立新的 Web 應用程式。
 
 1.  填寫下列欄位，然後按一下 [建立]。
-	-	Web 應用程式名稱
-	-	App Service 計劃
-	-	資源群組
-	-	區域
+	-	**Web 應用程式名稱**
+	-	**App Service 計劃**
+	-	**資源群組**
+	-	**區域**
 	-	讓「資料庫伺服器」維持設定為「沒有資料庫」
 
   	<!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonCreateWebSite.png) -->
@@ -219,4 +220,4 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 [Django 說明文件]: https://www.djangoproject.com/
 [SQL Database]: /documentation/services/sql-database/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

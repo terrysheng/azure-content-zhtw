@@ -47,7 +47,7 @@
 
 ## 關於 VHD
 
-Azure 中使用的 VHD 是以分頁 Blob 儲存在 Azure 標準或進階儲存體帳戶中的 .vhd 檔案。(僅特定地區可用進階儲存體。) 如需分頁 Blob 的詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob](https://msdn.microsoft.com/library/ee691964.aspx)。如需進階儲存體的詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
+Azure 中使用的 VHD 是以分頁 Blob 儲存在 Azure 標準或進階儲存體帳戶中的 .vhd 檔案。(僅特定地區可用進階儲存體。) 如需分頁 Blob 的詳細資訊，請參閱[了解區塊 Blob 和分頁 Blob](https://msdn.microsoft.com/library/ee691964.aspx)。如需進階儲存體的詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../storage/storage-premium-storage.md)。
 
 在 Azure 外，虛擬硬碟可以使用 VHD 或 VHDX 格式。您也可以固定、動態擴充或差異化虛擬硬碟。Azure 支援 VHD 格式的固定磁碟。固定格式會線性地陳列檔案內部的邏輯磁碟，因此磁碟位移 X 會儲存於 Blob 位移 X。Blob 最後的頁尾將說明 VHD 屬性。因為大多數的磁碟內部會有大型的未用範圍，因此固定格式通常會浪費空間。不過，Azure 會以疏鬆格式來儲存 .vhd 檔案，因此您可同時享有固定和動態磁碟的好處。如需詳細資訊，請參閱[開始使用虛擬硬碟](https://technet.microsoft.com/library/dd979539.aspx)。
 
@@ -74,4 +74,4 @@ Windows 虛擬機器：
 -  [擷取 Windows 虛擬機器](virtual-machines-capture-image-windows-server.md)
 -  [中斷連結磁碟](storage-windows-detach-disk.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

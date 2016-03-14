@@ -13,16 +13,21 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/22/2016"
+	ms.date="02/29/2016"
 	ms.author="kgremban"/>
 
 # 使用 Azure PowerShell 管理角色型存取控制
+
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 - [REST API](role-based-access-control-manage-access-rest.md)
 
+
 ## 列出角色型存取控制 (RBAC) 角色
+
+>[AZURE.IMPORTANT] 您需要[安裝 Azure Resource Manager Cmdlet](https://msdn.microsoft.com/library/mt125356.aspx)，才能使用本文中的 Cmdlet。
+
 ### 列出所有可用的角色
 若要列出可以指派的 RBAC 角色，以及若要檢查它們獲得存取權的作業，請使用：
 
@@ -64,7 +69,7 @@
 
 ## 授與存取權
 ### 搜尋物件識別碼
-若要使用下列命令順序，您必須先找到物件識別碼。假設您已經知道您正在使用的訂用帳戶識別碼，否則，請參閱 MSDN 上的[Get-azuresubscription](https://msdn.microsoft.com/library/dn495302.aspx)。
+若要使用下列命令順序，您必須先找到物件識別碼。假設您已經知道您正在使用的訂用帳戶識別碼，否則，請參閱 MSDN 上的[Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx)。
 
 #### 尋找 Azure AD 群組的物件識別碼
 若要取得 Azure AD 群組的物件識別碼，請使用：
@@ -151,4 +156,4 @@
 ## RBAC 主題
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

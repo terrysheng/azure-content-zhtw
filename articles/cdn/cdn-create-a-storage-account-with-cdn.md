@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="如何使用 CDN |Microsoft Azure" 
-	description="了解如何使用 Azure 內容傳遞網路 (CDN) 來快取 Blob 和靜態內容，以傳遞高頻寬內容。" 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="如何使用 CDN |Microsoft Azure"
+	description="了解如何使用 Azure 內容傳遞網路 (CDN) 來快取 Blob 和靜態內容，以傳遞高頻寬內容。"
+	services="cdn"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
@@ -71,7 +71,7 @@ CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 
 1. 在 [Azure 管理入口網站](https://portal.azure.com)的左上角，按一下 [新增]。在 [新增] 刀鋒視窗中，依序選取 [媒體 + CDN] 和 [CDN]。
 
     此時會顯示新的 [CDN 設定檔] 刀鋒視窗。
-    
+
     ![新增 CDN 設定檔][new-cdn-profile]
 
 2. 輸入 CDN 設定檔的名稱。
@@ -93,15 +93,15 @@ CDN 設定檔為 CDN 端點的集合。每個設定檔皆包含一或多個 CDN 
 1. 在 [Azure 管理入口網站](https://portal.azure.com)中，巡覽至您的 CDN 設定檔。您可能已在先前步驟中將其釘選至儀表板。若否，則您可依序按一下 [瀏覽]、[CDN 設定檔] 尋找該設定檔，然後再按一下您要在其中加入端點的設定檔。
 
     此時會顯示 [CDN 設定檔] 刀鋒視窗。
-    
+
     ![CDN 設定檔][cdn-profile-settings]
-    
+
 2. 按一下 [新增端點] 按鈕。
 
     ![[加入端點] 按鈕][cdn-new-endpoint-button]
 
     此時會顯示 [加入端點] 刀鋒視窗。
-    
+
     ![新增端點刀鋒視窗][cdn-add-endpoint]
 
 3. 輸入這個 CDN 端點的 [名稱]。此名稱會用於存取位於網域 `<EndpointName>.azureedge.net` 的快取資源。
@@ -154,4 +154,4 @@ http://<*EndpointName*>.azureedge.net/<*myPublicContainer*>/<*BlobName*>
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -20,7 +20,7 @@
 > [AZURE.SELECTOR]
 - [Update 2](../articles/storsimple/storsimple-virtual-device-u2.md)
 - [Update 1](../articles/storsimple/storsimple-virtual-device-u1.md)
-- [GA Release](../articles/storsimple/storsimple-virtual-device.md)
+- [GA 版本](../articles/storsimple/storsimple-virtual-device.md)
 
 ##概觀
 StorSimple 虛擬裝置是 Microsoft Azure StorSimple 解決方案提供的另一項功能。StorSimple 虛擬裝置會在 Microsoft Azure 虛擬網路中的虛擬機器上執行，而您可以使用它來備份和複製主機上的資料。
@@ -37,7 +37,7 @@ StorSimple 虛擬裝置可以在兩種模型中使用，標準 8010 (前身為 1
 | **Azure VM** | Standard\_A3 (4 核心、7 GB 記憶體) | Standard\_DS3 (4 核心、14 GB 記憶體) |
 | **版本相容性** | 執行 Update 2 之前或更新版本的版本 | 執行 Update 2 或更新版本的版本 |
 | **區域可用性** | 所有 Azure 區域 | 支援進階儲存體的 Azure 區域<br></br>如需區域的清單，請參閱 [8020 的支援區域](#supported-regions-for-8020) |
-| **儲存體類型** | 使用 Azure 標準儲存體<br></br>了解如何[建立標準儲存體帳戶]() | 使用 Azure 進階儲存體<br></br>了解如何[建立進階儲存體帳戶](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **儲存體類型** | 使用 Azure 標準儲存體<br></br>了解如何[建立標準儲存體帳戶]() | 使用 Azure 進階儲存體<br></br>了解如何[建立進階儲存體帳戶](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **工作負載指引** | 從備份的檔案的項目層級擷取 | 雲端開發和測試案例、低延遲、較高效能工作負載<br></br>災害復原的次要裝置 |
  
 <sup>1</sup> *前身為 1100*。
@@ -118,7 +118,7 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 - 針對要做為虛擬裝置之主機伺服器的 VM，新增[存取控制記錄](storsimple-manage-acrs.md)。
 
-- 使用位於與虛擬裝置相同區域的[儲存體帳戶](storsimple-manage-storage-accounts.md#add-a-storage-account)。若儲存體帳戶位於不同區域，可能導致效能不佳。您可以搭配虛擬裝置使用標準或進階儲存體帳戶。如何建立[標準儲存體帳戶]()或[進階儲存體帳戶](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)的詳細資訊
+- 使用位於與虛擬裝置相同區域的[儲存體帳戶](storsimple-manage-storage-accounts.md#add-a-storage-account)。若儲存體帳戶位於不同區域，可能導致效能不佳。您可以搭配虛擬裝置使用標準或進階儲存體帳戶。如何建立[標準儲存體帳戶]()或[進階儲存體帳戶](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)的詳細資訊
 
 - 針對建立虛擬裝置使用與用於資料的儲存體帳戶不同的儲存體帳戶。使用相同的儲存體帳戶可能導致效能不佳。
 
@@ -283,4 +283,4 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
  
 - 了解如何[從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

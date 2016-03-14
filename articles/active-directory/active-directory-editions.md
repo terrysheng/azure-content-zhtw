@@ -117,7 +117,8 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 
 
 
-<br> <hr>
+<br>
+<hr>
 ## 常用功能
 #### 目錄物件 
 
@@ -152,7 +153,8 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 - [Azure Active Directory 裝置註冊概觀](active-directory-conditional-access-device-registration-overview.md)
 
 
-<br> <hr>
+<br>
+<hr>
 #### 單一登入 (SSO)
 
 **類型：**常用功能
@@ -172,7 +174,8 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 
 - [使用 Azure Active Directory (AD) 管理應用程式](active-directory-enable-sso-scenario.md)
 
-<br> <hr>
+<br>
+<hr>
 #### 雲端使用者的自助式密碼變更
 
 **類型：**常用功能
@@ -188,7 +191,8 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 - [如何更新自己的密碼](active-directory-passwords-update-your-own-password.md)
 
 
-<br> <hr>
+<br>
+<hr>
 #### Connect (可將內部部署目錄延伸至 Azure Active Directory 的同步處理引擎) 
 
 **類型：**常用功能
@@ -204,7 +208,8 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 
 - [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<br> <hr>
+<br>
+<hr>
 #### 安全性/使用量報告
 
 **類型：**常用功能
@@ -220,7 +225,8 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 
 - [檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)
 
-<br> <hr>
+<br>
+<hr>
 
 ## 進階和基本功能
 #### 以群組為基礎的存取管理/佈建
@@ -238,7 +244,8 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 
 - [使用群組來管理 SaaS 應用程式的存取權](active-directory-accessmanagement-group-saasapps.md)
 
-<br> <hr>
+<br>
+<hr>
 #### 雲端使用者的自助式密碼重設
 
 **類型：**基本功能
@@ -254,7 +261,8 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 
 - [使用者和系統管理員的 Azure AD 密碼重設](active-directory-passwords.md)
 
-<br> <hr>
+<br>
+<hr>
 #### 創建公司品牌 (登入頁面/存取面板自訂)
 
 **類型：**基本功能
@@ -270,7 +278,8 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 
-<br> <hr>
+<br>
+<hr>
 #### 應用程式 Proxy
 
 **類型：**基本功能
@@ -286,7 +295,8 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 
 - [如何為內部部署應用程式提供安全的遠端存取](active-directory-application-proxy-get-started.md)
 
-<br> <hr>
+<br>
+<hr>
 #### SLA 99.9%
 
 **類型：**基本功能
@@ -302,7 +312,8 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 
 - [服務等級協定](https://azure.microsoft.com/support/legal/sla/)
 
-<br> <hr>
+<br>
+<hr>
 
 ## 進階功能
 #### 自助式群組和應用程式管理/自助式應用程式新增/動態群組
@@ -350,7 +361,8 @@ Office 365 訂用帳戶包含的其他 Azure Active Directory 功能在以下比
 
 - [什麼是 Azure Multi-Factor Authentication？](../multi-factor-authentication/multi-factor-authentication.md)
 
-<br> <hr>
+<br>
+<hr>
 #### MIM CAL + MIM 伺服器 
 
 Microsoft Identity Manager 伺服器軟體的權限會隨 Windows Server 授權 (任何版本) 一起授與。由於 Microsoft Identity Manager 在 Windows Server OS 上執行，只要該伺服器正在執行有效且已授權的 Windows Server 複本，Microsoft Identity Manager 便可以在該伺服器上安裝並使用。Microsoft Identity Manager Server 不需要其他個別授權。
@@ -383,7 +395,8 @@ Microsoft Identity Manager 伺服器軟體的權限會隨 Windows Server 授權 
 
 - [使用 Cloud App Discovery 尋找未受管理的雲端應用程式](active-directory-cloudappdiscovery-whatis.md)
 
-<br> <hr>
+<br>
+<hr>
 #### Connect Health
 
 **類型：**進階功能
@@ -399,7 +412,8 @@ Microsoft Identity Manager 伺服器軟體的權限會隨 Windows Server 授權 
 
 - [在雲端中監視內部部署身分識別基礎結構和同步處理服務。](active-directory-aadconnect-health.md)
 
-<br> <hr>
+<br>
+<hr>
 #### 群組帳戶的自動密碼變換
 
 **類型：**進階功能
@@ -412,7 +426,8 @@ Microsoft Identity Manager 伺服器軟體的權限會隨 Windows Server 授權 
 | | | ![勾選][12]| |
 
 
-<br> <hr>
+<br>
+<hr>
 ## Azure Active Directory Join – 僅適用於 Windows 10 的相關功能
 #### 將裝置加入 Azure AD、Desktop SSO、適用於 Azure AD 的 Microsoft Passport、系統管理員 Bitlocker 復原
 
@@ -448,10 +463,11 @@ Microsoft Identity Manager 伺服器軟體的權限會隨 Windows Server 授權 
 **可用的預覽功能：**
 
 - [B2B 共同作業](active-directory-b2b-collaboration-overview.md)
-- 條件式存取
 - [管理單位](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [HR 應用程式整合](active-directory-saas-workday-inbound-tutorial.md)
+- [企業狀態漫遊](active-directory-windows-enterprise-state-roaming-overview.md)
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
 
 
@@ -467,4 +483,4 @@ Microsoft Identity Manager 伺服器軟體的權限會隨 Windows Server 授權 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

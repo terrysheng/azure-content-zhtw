@@ -136,9 +136,16 @@
 
 ### 步驟 3
 
-建立健全狀況探查。
-
+建立健全狀況探查。有兩種方式可以設定探查：
+ 
+HTTP 探查
+	
 	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+或
+
+TCP 探查
+	
+	$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
 ### 步驟 4
 
@@ -295,10 +302,10 @@
 
 ## 後續步驟
 
-[開始設定內部負載平衡器](load-balancer-internal-getstarted.md)
+[開始設定內部負載平衡器](load-balancer-get-started-ilb-arm-ps.md)
 
 [設定負載平衡器分配模式](load-balancer-distribution-mode.md)
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

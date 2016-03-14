@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/26/2016" 
 	ms.author="tdykstra"/>
 
 
@@ -72,7 +72,7 @@
 
 連結資源的連接字串。
 
-如果是 .NET 應用程式，這些連接字串就會在執行階段插入 .NET 設定 `connectionStrings` 的設定，並覆寫索引鍵相當於所連結資料庫名稱的現有項目。
+如果是 .NET 應用程式，這些連接字串就會在執行階段插入 .NET 組態 `connectionStrings` 的設定，並覆寫索引鍵相當於所連結資料庫名稱的現有項目。
 
 如果是 PHP、Python、Java 及 Node 應用程式，您可以在執行階段將這些設定視為環境變數使用，並加上連線類型前置詞。環境變數首碼如以下所示：
 
@@ -177,4 +177,4 @@ Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理�
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 #SDK 內容
@@ -42,4 +42,4 @@
 
 > Engagement 檢視控制器與 Reach SDK 原始程式碼 (適用於想要依照其需求調整 Engagement 類別的進階使用者)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

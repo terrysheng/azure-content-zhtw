@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 # Windows 通用 app Reach SDK 整合
@@ -24,7 +24,7 @@
 
 您不需要新增任何項目。`EngagementReach` 的參考和資源已在您的專案中。
 
-> [AZURE.TIP]您可以自定專案的 `Resources` 資料夾中的影像，尤其是品牌圖示 (預設為 Engagement 的圖示)。在跨平台 app 上，您也可以移動共用專案上的 `Resources` 資料夾，以便在應用程式間共用其內容；但因為 `Resources\EngagementConfiguration.xml` 檔案和平台相依，所以您必須將它保留在預設位置。
+> [AZURE.TIP] 您可以自定專案的 `Resources` 資料夾中的影像，尤其是品牌圖示 (預設為 Engagement 的圖示)。在跨平台 app 上，您也可以移動共用專案上的 `Resources` 資料夾，以便在應用程式間共用其內容；但因為 `Resources\EngagementConfiguration.xml` 檔案和平台相依，所以您必須將它保留在預設位置。
 
 ## 啟用 Windows 通知服務
 
@@ -50,7 +50,7 @@
 
 	`EngagementReach.Instance.Init` 會在專用的執行緒中執行。您不必自行進行此作業。
 
-> [AZURE.NOTE]如果您在應用程式的其他地方使用推播通知，則您必須與 Engagement Reach [共用推播通道](#push-channel-sharing)。
+> [AZURE.NOTE] 如果您在應用程式的其他地方使用推播通知，則您必須與 Engagement Reach [共用推播通道](#push-channel-sharing)。
 
 ## 整合
 
@@ -60,7 +60,7 @@ Engagment 提供兩種方式實作 Reach 通知和宣告：「重疊整合」和
 
 Web 檢視整合的實作較為複雜。但如果您的應用程式需要從 "Page" 以外的物件繼承，那麼您必須整合 「Web 檢視」和其行為。
 
-> [AZURE.TIP]您應該考慮新增根層級的 `<Grid></Grid>` 元素，來包圍所有頁面內容。針對 Web 檢視整合，請新增 Webview 為此格線的子系。如果您需要在其他地方設定 Engagement 的元件，請記住您必須自行管理顯示的大小。
+> [AZURE.TIP] 您應該考慮新增根層級的 `<Grid></Grid>` 元素，來包圍所有頁面內容。針對 Web 檢視整合，請新增 Webview 為此格線的子系。如果您需要在其他地方設定 Engagement 的元件，請記住您必須自行管理顯示的大小。
 
 ### 重疊整合
 
@@ -297,7 +297,7 @@ Engagement 重疊會使用它在 xaml 檔案中找到的第一個 “Grid”元�
 
 您可以看到每個方法的回呼會傳回布林值。Engagement 會在發送資料推送之後傳送回饋到它的後端。如果回呼傳回 false，會傳送 `exit` 回饋。否則將會是 `action`。如果沒有設定事件的回呼，就會傳送 `drop` 回饋到 Engagement。
 
-> [AZURE.WARNING]Engagement 無法接收單一資料推送的多個回饋。如果計畫在單一事件上設定多個處理常式，請留意回饋將與最後一個傳送的對應。在此情況下，我們建議一律傳回相同的值，避免在前端有令人困惑的回饋。
+> [AZURE.WARNING] Engagement 無法接收單一資料推送的多個回饋。如果計畫在單一事件上設定多個處理常式，請留意回饋將與最後一個傳送的對應。在此情況下，我們建議一律傳回相同的值，避免在前端有令人困惑的回饋。
 
 ## 自訂 UI (選擇性)
 
@@ -330,7 +330,7 @@ Engagement 重疊會使用它在 xaml 檔案中找到的第一個 “Grid”元�
 			  // Engagement Agent and Reach initialization
 			}
 
-> [AZURE.NOTE]根據預設，Engagement 會使用自己的 `EngagementReachHandler` 實作。您不需要自己建立，但如果有需要，您不需要覆寫每個方法。預設行為是選取 Engagement 基底物件。
+> [AZURE.NOTE] 根據預設，Engagement 會使用自己的 `EngagementReachHandler` 實作。您不需要自己建立，但如果有需要，您不需要覆寫每個方法。預設行為是選取 Engagement 基底物件。
 
 ### Web 檢視
 
@@ -405,7 +405,7 @@ NotfificationHTML 是 `ms-appx-web:///Resources/EngagementNotification.html`。�
 
 您可以在 `App.xaml.cs` 檔案的 "Public App(){}" 方法中設定回呼，最好設定在 `EngagementReach.Instance.Init()` 呼叫之前。
 
-> [AZURE.TIP]每個處理常式都是由 UI 執行緒呼叫。在使用 MessageBox 或 UI 相關的項目時您不必擔心。
+> [AZURE.TIP] 每個處理常式都是由 UI 執行緒呼叫。在使用 MessageBox 或 UI 相關的項目時您不必擔心。
 
 ##<a id="push-channel-sharing"></a> 推播通道共用
 
@@ -469,4 +469,4 @@ NotfificationHTML 是 `ms-appx-web:///Resources/EngagementNotification.html`。�
 			  #endregion
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0302_2016-->

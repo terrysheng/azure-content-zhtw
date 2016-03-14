@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -30,8 +30,8 @@ Azure BizTalk 服務根據兩個條件實作服務節流：記憶體使用量和
 
 ||說明|低閾值|高閾值|
 |---|---|---|---|
-|記憶體|可用系統記憶體/PageFileBytes 總計的 %。<p><p>可用 PageFileBytes 總計大約是系統 RAM 的 2 倍。|60%|70%|
-|訊息處理|同時處理的訊息數目|40 * 個核心數目|100 * 個核心數目|
+|記憶體|可用系統記憶體總計的 %/PageFileBytes。<p><p>可用的 PageFileBytes 總計大約是系統 RAM 的 2 倍。|60%|70%|
+|訊息處理|同時處理的訊息數目|40 * 核心數目|100 * 核心數目|
 
 達到高閾值時，Azure BizTalk 服務就會開始節流。達到低閾值時會停止節流。例如，服務使用 65% 系統記憶體。在此情況下，服務不會節流。服務開始使用 70% 系統記憶體。在此情況下，服務會節流，並持續節流直到服務使用 60% (低閾值) 系統記憶體為止。
 
@@ -70,4 +70,4 @@ Azure BizTalk 服務進入節流狀態時會發生下列情況：
 - [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

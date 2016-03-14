@@ -36,8 +36,8 @@
 |領域|最佳化|
 |---|---|
 |**VM 大小**|[DS3](virtual-machines-size-specs.md#standard-tier-ds-series) 或更高版本適用於 SQL Enterprise 版。<br/><br/>[DS2](virtual-machines-size-specs.md#standard-tier-ds-series) 或更高版本適用於 SQL Standard 和 Web 版。|
-|**儲存體**|使用[進階儲存體](../storage/storage-premium-storage-preview-portal.md)。<br/><br/>在相同的區域中保留[儲存體帳戶](../storage/storage-create-storage-account.md)和 SQL Server VM。<br/><br/>在儲存體帳戶上停用 Azure [異地備援儲存體](../storage/storage-redundancy.md) (異地複寫)。|
-|**磁碟**|使用至少 2 個 [P30 磁碟](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage) (1 個用於記錄檔；1 個用於資料檔和 TempDB)。<br/><br/>避免使用作業系統或暫存磁碟進行資料儲存或記錄。<br/><br/>在裝載資料檔案和 TempDB 的磁碟上啟用讀取快取。<br/><br/>不要在裝載記錄檔的磁碟上啟用快取。<br/><br/>分割多個 Azure 資料磁碟，以提高 IO 輸送量。<br/><br/>以文件上記載的配置大小格式化。|
+|**儲存體**|使用[進階儲存體](../storage/storage-premium-storage.md)。<br/><br/>在相同的區域中保留[儲存體帳戶](../storage/storage-create-storage-account.md)和 SQL Server VM。<br/><br/>在儲存體帳戶上停用 Azure [異地備援儲存體](../storage/storage-redundancy.md) (異地複寫)。|
+|**磁碟**|使用至少 2 個 [P30 磁碟](../storage/storage-premium-storage.md#scalability-and-performance-targets-whzh-TWing-premium-storage) (一個用於記錄檔，另一個用於資料檔案和 TempDB)。<br/><br/>避免使用作業系統或暫存磁碟進行資料儲存或記錄。<br/><br/>在裝載資料檔案和 TempDB 的磁碟上啟用讀取快取。<br/><br/>不要在裝載記錄檔的磁碟上啟用快取。<br/><br/>分割多個 Azure 資料磁碟，以提高 IO 輸送量。<br/><br/>以文件上記載的配置大小格式化。|
 |**I/O**|啟用資料庫頁面壓縮。<br/><br/>啟用資料檔案的立即檔案初始化。<br/><br/>限制或停用資料庫的自動成長。<br/><br/>停用資料庫的自動壓縮。<br/><br/>將所有資料庫移至資料磁碟，包括系統資料庫。<br/><br/>將 SQL Server 錯誤記錄檔和追蹤檔案目錄移至資料磁碟。<br/><br/>設定預設備份和資料庫檔案位置。<br/><br/>啟用鎖定的頁面。<br/><br/>套用 SQL Server 效能修正程式。|
 |**特定功能**|直接備份至 Blob 儲存體。|
 
@@ -63,7 +63,7 @@
 
 作業系統磁碟是指可開機，並掛接為執行的作業系統版本，且標示為 **C** 磁碟機的 VHD。
 
-作業系統磁碟上的預設快取原則是 [讀取/寫入]。對於需要高效能的應用程式，我們建議您使用資料磁碟取代作業系統磁碟。請參閱下面的＜資料磁碟＞一節。
+作業系統磁碟上的預設快取原則是**讀取/寫入**。對於需要高效能的應用程式，我們建議您使用資料磁碟取代作業系統磁碟。請參閱下面的＜資料磁碟＞一節。
 
 ### 暫存磁碟
 
@@ -75,7 +75,7 @@
 
 ### 資料磁碟
 
-- **資料和記錄檔案的資料磁碟數量**：至少使用 2 個 [P30 磁碟](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage)，一個儲存記錄檔案，另一個儲存資料檔案和存放 TempDB。若要提高輸送量，您可能需要額外的資料磁碟。若要判斷需要的資料磁碟數量，您需要分析資料和記錄磁碟可用的 IOPS 數量。這項資訊的詳細資訊請參閱根據 [VM 大小](virtual-machines-size-specs.md)分類的 IOPS 表格，以及下列[針對磁碟使用進階儲存體](../storage/storage-premium-storage-preview-portal.md)文章中的磁碟大小。如果您需要更多的頻寬，可以附加額外磁碟，並使用磁碟分割。如果您並非使用進階儲存體，建議您新增 [VM 大小](virtual-machines-size-specs.md)所支援的資料磁碟上限，並使用磁碟分割。如需有關磁碟分割的詳細資訊，請參閱以下相關章節。
+- **資料和記錄檔案的資料磁碟數量**：至少使用 2 個 [P30 磁碟](../storage/storage-premium-storage.md#scalability-and-performance-targets-whzh-TWing-premium-storage)，一個儲存記錄檔案，另一個儲存資料檔案和存放 TempDB。若要提高輸送量，您可能需要額外的資料磁碟。若要判斷需要的資料磁碟數量，您需要分析資料和記錄磁碟可用的 IOPS 數量。這項資訊的詳細資訊請參閱根據 [VM 大小](virtual-machines-size-specs.md)分類的 IOPS 表格，以及下列[針對磁碟使用進階儲存體](../storage/storage-premium-storage.md)文章中的磁碟大小。如果您需要更多的頻寬，可以附加額外磁碟，並使用磁碟分割。如果您並非使用進階儲存體，建議您新增 [VM 大小](virtual-machines-size-specs.md)所支援的資料磁碟上限，並使用磁碟分割。如需有關磁碟分割的詳細資訊，請參閱以下相關章節。
 
 - **快取原則**：僅在裝載資料檔案和 TempDB 的資料磁碟上啟用讀取快取。如果您並非使用進階儲存體，請勿啟用任何資料磁碟上的任何快取功能。如需有關設定磁碟快取功能的指示，請參閱下列主題：[Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) 和 [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx)。
 
@@ -83,7 +83,7 @@
 
 - **磁碟分割**：我們建議您依照以下指導方針執行：
 
-	- 對於 Windows 8/Windows Server 2012 以上版本，請參閱[儲存空間](https://technet.microsoft.com/library/hh831739.aspx)。將 OLTP 工作負載的等量磁碟區大小設為 64 KB，資料倉儲的工作負載則設為 256 KB，以避免分割對齊錯誤影響效能。此外，設定資料行計數 = 實體磁碟數量。若要設定磁碟超過 8 個的儲存空間，您必須使用 PowerShell (非伺服器管理員 UI)，以明確地將資料行計數設定為符合磁碟的數量。如需設定[儲存空間](https://technet.microsoft.com/library/hh831739.aspx)的詳細資訊，請參閱 [Windows PowerShell 中的儲存空間 Cmdlet](https://technet.microsoft.com/library/jj851254.aspx)
+	- 若為 Windows 8/Windows Server 2012 以上版本，請參閱[儲存空間](https://technet.microsoft.com/library/hh831739.aspx)。將 OLTP 工作負載的等量磁碟區大小設為 64 KB，資料倉儲的工作負載則設為 256 KB，以避免分割對齊錯誤影響效能。此外，設定資料行計數 = 實體磁碟數量。若要設定磁碟超過 8 個的儲存空間，您必須使用 PowerShell (非伺服器管理員 UI)，以明確地將資料行計數設定為符合磁碟的數量。如需設定[儲存空間](https://technet.microsoft.com/library/hh831739.aspx)的詳細資訊，請參閱 [Windows PowerShell 中的儲存空間 Cmdlet](https://technet.microsoft.com/library/jj851254.aspx)
 	
 	- 對於 Windows 2008 R2 之前的版本，可以使用動態磁碟 (OS 分割的磁碟區)，且等量磁碟區的大小一律為 64 KB。請注意，Windows 8/Windows Server 2012 已不再提供此選項。如需相關資訊，請參閱[虛擬磁碟服務正轉換為 Windows 存放管理 API](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx) 中的支援聲明。
 	
@@ -97,7 +97,7 @@
 
 - 將資料檔案傳輸至 Azure，或從 Azure 往外傳輸時，請考慮先壓縮所有資料檔案。
 
-- 請考慮啟用 [立即檔案初始化] 功能，以減少配置初始檔案所需的時間。若要發揮「立即檔案初始化」的優點，請將 SE\_MANAGE\_VOLUME\_NAME 授與 SQL Server (MSSQLSERVER) 服務帳戶，並將該帳戶加入[執行磁碟區維護工作] 安全性原則。如果您使用的是 Azure 的 SQL Server 平台映像，則預設服務帳戶 (NT Service\\MSSQLSERVER) 不會加入 [執行磁碟區維護工作] 安全性原則。也就是說，SQL Server Azure 平台映像未啟用 [立即檔案初始化] 功能。將 SQL Server 服務帳戶加入 [執行磁碟區維護工作] 安全性原則之後，請重新啟動 SQL Server 服務。使用此功能時，可能有安全性考量。如需詳細資訊，請參閱[資料庫檔案初始化](https://msdn.microsoft.com/library/ms175935.aspx)。
+- 請考慮啟用 [立即檔案初始化] 功能，以減少配置初始檔案所需的時間。若要發揮「立即檔案初始化」的優點，請將 SE\_MANAGE\_VOLUME\_NAME 授與 SQL Server (MSSQLSERVER) 服務帳戶，並將該帳戶加入[執行磁碟區維護工作] 安全性原則。如果您使用的是 Azure 的 SQL Server 平台映像，預設服務帳戶 (NT Service\\MSSQLSERVER) 不會加入 [執行磁碟區維護工作] 安全性原則。也就是說，SQL Server Azure 平台映像未啟用 [立即檔案初始化] 功能。將 SQL Server 服務帳戶加入 [執行磁碟區維護工作] 安全性原則之後，請重新啟動 SQL Server 服務。使用此功能時，可能有安全性考量。如需詳細資訊，請參閱[資料庫檔案初始化](https://msdn.microsoft.com/library/ms175935.aspx)。
 
 - 「自動成長」只是發生非預期成長的應變方案。請勿每天使用「自動成長」功能，管理資料和記錄成長。若已使用「自動成長」功能，請透過 大小參數預先放大檔案。
 
@@ -125,4 +125,4 @@
 
 請檢閱 [Azure 虛擬機器上 SQL Server 的概觀](virtual-machines-sql-server-infrastructure-services.md)中的其他 SQL Server 虛擬機器主題。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

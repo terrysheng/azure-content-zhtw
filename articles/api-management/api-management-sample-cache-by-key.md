@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/16/2015"
+	ms.date="02/19/2016"
 	ms.author="v-darmi"/>
 
 # 在 Azure API 管理中自訂快取
@@ -245,4 +245,4 @@ API 管理服務使用共用的個別租用戶資料快取，所以，當您相�
 ## 後續步驟
 如果這些原則為您達成其他案例，或是有案例您想要達成但認為目前無法執行，敬請不吝賜教在 Disqus 的本主題系列中提供意見。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN - 即時統計資料" 
-	description="Microsoft Azure CDN 中的即時統計資料。將內容傳遞給您的用戶端時，即時統計資料可提供關於 CDN 效能的即時資料。" 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - 即時統計資料"
+	description="Microsoft Azure CDN 中的即時統計資料。將內容傳遞給您的用戶端時，即時統計資料可提供關於 CDN 效能的即時資料。"
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 # Microsoft Azure CDN 中的即時統計資料
@@ -22,7 +22,7 @@
 
 本文件說明 Microsoft Azure CDN 中的即時統計資料。將內容傳遞給您的用戶端時，此功能可提供關於 CDN 效能的即時資料。
 
-> [AZURE.NOTE]即時統計資料是高階 CDN 層的一項功能。如需標準和高階 CDN 功能的比較，請參閱 [Azure CDN 概觀](cdn-overview.md)。
+> [AZURE.NOTE] 即時統計資料是高階 CDN 層的一項功能。如需標準和高階 CDN 功能的比較，請參閱 [Azure CDN 概觀](cdn-overview.md)。
 
 檢視以 HTTP 為基礎的平台即時統計資料時，可以使用下列圖表：
 
@@ -31,25 +31,25 @@
 * [快取狀態](#cache-statuses)
 * [連線](#connections)
 
-> [AZURE.NOTE]上述每一個圖表都會顯示一段指定期間的即時統計資料。過了指定的時間之後，即會顯示資料的滑動視窗。這表示舊資料將從圖表中移除，以騰出空間給新的資料。您可以依圖表選項的時間範圍來設定這個滑動視窗的時間長度。
- 
+> [AZURE.NOTE] 上述每一個圖表都會顯示一段指定期間的即時統計資料。過了指定的時間之後，即會顯示資料的滑動視窗。這表示舊資料將從圖表中移除，以騰出空間給新的資料。您可以依圖表選項的時間範圍來設定這個滑動視窗的時間長度。
+
 ## 存取即時統計資料
 
 1. 在 [CDN 設定檔] 刀鋒視窗中，按一下 [管理] 按鈕。
 
 	![CDN 設定檔刀鋒視窗管理按鈕](./media/cdn-real-time-stats/cdn-manage-btn.png)
-	
+
 	CDN 管理入口網站隨即開啟。
-	
+
 2. 將滑鼠暫留在 [分析] 索引標籤上，然後暫留在 [即時統計資料] 飛出視窗上。按一下 [HTTP 大型平台]。
-	
+
 	報告選項隨即顯示。
 
 ## 頻寬
 
 「頻寬」圖表會顯示在一段指定時間內，針對目前平台所使用的頻寬量。圖表的陰影部分表示頻寬使用量。目前使用的確切頻寬量會顯示於線條圖的正下方。
 
-> [AZURE.NOTE]用來報告頻寬使用量的單位有下列幾種：每秒位元數 (b/s)、每秒千位元數 (Kb/s)、每秒百萬位元數 (Mb/s) 或每秒 Giga 位元數 (Gb/s)。
+> [AZURE.NOTE] 用來報告頻寬使用量的單位有下列幾種：每秒位元數 (b/s)、每秒千位元數 (Kb/s)、每秒百萬位元數 (Mb/s) 或每秒 Giga 位元數 (Gb/s)。
 
 ## 狀態碼
 
@@ -75,7 +75,7 @@
 
 您也可以選擇暫時隱藏特定狀態碼的記錄資料。您可以從圖表正下方的區域中清除所需的狀態碼選項來執行此動作。選取的狀態碼將會立即從圖表中隱藏。標示該狀態碼選項將導致該選項再次顯示。
 
-> [AZURE.NOTE]圖表正下方以色彩標示的選項只會影響圖表中顯示的內容。它不會對圖表是否將持續追蹤該狀態碼產生影響。
+> [AZURE.NOTE] 圖表正下方以色彩標示的選項只會影響圖表中顯示的內容。它不會對圖表是否將持續追蹤該狀態碼產生影響。
 
 ## 快取狀態
 
@@ -87,7 +87,7 @@
 
 您也可以選擇暫時隱藏特定回應碼的記錄資料。您可以從圖表正下方的區域中清除所需的回應碼選項來執行此動作。選取的回應碼將會立即從圖表中隱藏。標示該回應碼選項將導致該選項再次顯示。
 
-> [AZURE.NOTE]圖表正下方以色彩標示的選項只會影響圖表中顯示的內容。它不會對圖表是否將持續追蹤該狀態碼產生影響。
+> [AZURE.NOTE] 圖表正下方以色彩標示的選項只會影響圖表中顯示的內容。它不會對圖表是否將持續追蹤該狀態碼產生影響。
 
 ## 連線
 
@@ -99,4 +99,4 @@
 * [進階的 HTTP 報表](cdn-advanced-http-reports.md)
 * [分析邊緣效能](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0302_2016-->

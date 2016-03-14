@@ -12,21 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/17/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
-# 使用 Web UI 來管理 StorSimple Virtual Array (預覽版)
+# 使用 Web UI 來管理 StorSimple Virtual Array
 
 ![安裝程序流程](./media/storsimple-ova-web-ui-admin/manage4.png)
 
 ## 概觀
 
-本文中的教學課程適用於執行 1.1.1.0 版 (預覽版) 的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置)。本文將說明一些可以在 StorSimple Virtual Array 執行的複雜工作流程和管理工作。有兩個可用來管理 StorSimple Virtual Array 的 UI：StorSimple Manager 服務 UI (又稱為入口網站 UI) 和裝置的本機 Web UI。本文著重於可使用 Web UI 執行的工作。
-
->[AZURE.IMPORTANT] 
->
->- StorSimple Virtual Array 目前是預覽版，僅供評估及部署規劃之用。不支援在生產環境中安裝此預覽版。 
->- 如果您遇到任何 StorSimple Virtual Array 的問題，請在 [StorSimple MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple)提出問題。
+本文中的教學課程適用於執行 2016 年 3 月公開上市 (GA) 版的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置)。本文將說明一些可以在 StorSimple Virtual Array 執行的複雜工作流程和管理工作。您可以使用 StorSimple Manager 服務 UI (又稱為入口網站 UI) 和裝置的本機 Web UI 來管理 StorSimple Virtual Array。本文著重於可使用 Web UI 執行的工作。
 
 本文包含下列教學課程：
 
@@ -43,11 +38,11 @@
 
 #### 取得服務資料加密金鑰
 
-1. 連線到本機 Web UI。移至 [設定] > [雲端設定]。
+1. 連線到本機 Web UI。移至 [組態] > [雲端設定]。
 
     ![取得服務資料加密金鑰 1](./media/storsimple-ova-web-ui-admin/image27.png)
 
-2. 在頁面底部，按一下 [取得服務資料加密金鑰]。金鑰將會顯示。複製並儲存此金鑰。
+2. 按一下頁面底部的 [取得服務資料加密金鑰]。金鑰將會顯示。複製並儲存此金鑰。
 
     ![取得服務資料加密金鑰 2](./media/storsimple-ova-web-ui-admin/image28.png)
 
@@ -136,4 +131,4 @@
 
 了解如何[使用 StorSimple Manager 服務管理裝置](storsimple-manager-service-administration.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

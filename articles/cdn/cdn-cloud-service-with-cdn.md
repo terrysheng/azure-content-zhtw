@@ -1,28 +1,28 @@
-<properties 
-	pageTitle="整合雲端服務與 Azure CDN" 
-	description="指導如何部署雲端服務來提供整合式 Azure CDN 端點內容的教學課程" 
-	services="cdn, cloud-services" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="整合雲端服務與 Azure CDN"
+	description="指導如何部署雲端服務來提供整合式 Azure CDN 端點內容的教學課程"
+	services="cdn, cloud-services"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
-# <a name="intro"></a> 整合雲端服務與 Azure CDN 
+# <a name="intro"></a> 整合雲端服務與 Azure CDN
 
 雲端服務可以與 Azure CDN 整合，從雲端服務的位置提供任何內容。此方法提供下列優點：
 
 - 輕鬆地在雲端服務的專案目錄中部署和更新影像、指令碼和樣式表
-- 輕鬆地升級雲端服務中的 NuGet 套件，例如 jQuery 或 Bootstrap 版本 
+- 輕鬆地升級雲端服務中的 NuGet 套件，例如 jQuery 或 Bootstrap 版本
 - 完全從相同的 Visual Studio 介面來管理 Web 應用程式和 CDN 提供的內容
 - Web 應用程式和 CDN 提供的內容採用統一的部署工作流程
 - 整合 ASP.NET 統合和縮製與 Azure CDN
@@ -35,7 +35,7 @@
 -	[在雲端服務中為靜態內容設定快取設定](#caching)
 -	[透過 Azure CDN 使用控制器動作提供內容](#controller)
 -	[透過 Azure CDN 提供統合和縮製的內容，同時保持良好的 Visual Studio 指令碼偵錯體驗](#bundling)
--	[設定 Azure CDN 離線時的後援指令碼和 CSS](#fallback) 
+-	[設定 Azure CDN 離線時的後援指令碼和 CSS](#fallback)
 
 ## 將建置的項目 ##
 
@@ -48,9 +48,9 @@
 -	使用中的 [Microsoft Azure 帳戶](/account/)
 -	Visual Studio 2015 (含 [Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409))
 
-> [AZURE.NOTE] 您必須有 Azure 帳戶才能完成本教學課程：
-> + 您可以[免費申請帳戶](/pricing/free-trial/) - 我們會提供可用來試用付費 Azure 服務的點數，即使點數用完了，您仍然可以保留帳戶，使用免費的 Azure 服務，例如網站。 
-> + 您可以[啟用 MSDN 訂閱者權益](/pricing/member-offers/msdn-benefits-details/) - 您的 MSDN 訂用帳戶每個月都會給您可用來試用付費 Azure 服務的點數。
+> [AZURE.NOTE] 要完成此教學課程，您必須要有 Azure 帳戶：
+> + 您可以[免費申請 Azure 帳戶](/pricing/free-trial/) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如「網站」。
+> + 您可以[啟用 MSDN 訂戶權益](/pricing/member-offers/msdn-benefits-details/) - 您的 MSDN 訂閱每月會提供您額度，您可以用在 Azure 付費服務。
 
 <a name="deploy"></a>
 ## 部署雲端服務 ##
@@ -93,7 +93,7 @@
 	>[AZURE.NOTE] 雲端服務的發行程序會花費很長時間。[啟用所有 Web 角色的 Web Deploy] 選項可快速 (但暫時) 提供更新給 Web 角色，加速偵測您的雲端服務。如需此選項的詳細資訊，請參閱[使用 Azure Tools 發行雲端服務](http://msdn.microsoft.com/library/ff683672.aspx)。
 
 	當 [**Microsoft Azure 活動記錄**] 的發佈狀態為 [**已完成**] 時，您便可建立與此雲端服務整合的 CDN 端點。
-	
+
 	>[AZURE.WARNING] 若在發佈後部署的雲端服務顯示錯誤畫面，原因可能在於您已部署的雲端服務使用[不含 .NET 4.5.2 的客體 OS](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates)。您可[將 .NET 4.5.2 部署為啟動工作](../cloud-services/cloud-services-dotnet-install-dotnet.md)，以解決此問題。
 
 ## 建立新的 CDN 設定檔
@@ -107,7 +107,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 1. 在 [Azure 管理入口網站](https://portal.azure.com)的左上角，按一下 [新增]。在 [新增] 刀鋒視窗中，依序選取 [媒體 + CDN] 和 [CDN]。
 
     此時會顯示新的 [CDN 設定檔] 刀鋒視窗。
-    
+
     ![新增 CDN 設定檔][new-cdn-profile]
 
 2. 輸入 CDN 設定檔的名稱。
@@ -129,15 +129,15 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 1. 在 [Azure 管理入口網站](https://portal.azure.com)中，巡覽至您的 CDN 設定檔。您可能已在先前步驟中將其釘選至儀表板。若否，則您可依序按一下 [瀏覽]、[CDN 設定檔] 尋找該設定檔，然後再按一下您要在其中加入端點的設定檔。
 
     此時會顯示 [CDN 設定檔] 刀鋒視窗。
-    
+
     ![CDN 設定檔][cdn-profile-settings]
-    
+
 2. 按一下 [新增端點] 按鈕。
 
     ![[加入端點] 按鈕][cdn-new-endpoint-button]
 
     此時會顯示 [加入端點] 刀鋒視窗。
-    
+
     ![新增端點刀鋒視窗][cdn-add-endpoint]
 
 3. 輸入這個 CDN 端點的 [名稱]。此名稱會用於存取位於網域 `<EndpointName>.azureedge.net` 的快取資源。
@@ -155,7 +155,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
     ![CDN 端點][cdn-endpoint-success]
 
     > [AZURE.NOTE] 端點將無法立即可用。註冊可能需要 90 分鐘的處理時間，以透過 CDN 網路傳播。若使用者嘗試立即使用 CDN 網域名稱，則可能會顯示狀態碼 404，直到可透過 CDN 使用內容為止。
-	
+
 ## 測試 CDN 端點
 
 若發佈狀態為 [**已完成**]，請開啟瀏覽器視窗並瀏覽至 **http://<cdnName>*.azureedge.net/Content/bootstrap.css**。在我的設定中，此 URL 為：
@@ -174,17 +174,17 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 
 -	/Script 路徑中的 .js 檔案
 -	/Content 路徑中的任何內容檔案
--	任何控制器/動作 
+-	任何控制器/動作
 -	任何含有查詢字串的 URL (若 CDN 端點已啟用查詢字串的話)
 
-實際上，上述組態可讓您從 **http://*&lt;cdnName>*.azureedge.net/** 託管整個雲端服務。若瀏覽至 **http://camservice.azureedge.net/**，則會從 Home/Index 取得動作結果。
+實際上，上述組態可讓您從 **http://*&lt;cdnName>*.azureedge.net/** 託管整個雲端服務。若瀏覽至 ****http://camservice.azureedge.net/**，則會從 Home/Index 取得動作結果。
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
 然而，這不表示透過 Azure CDN 來提供整個雲端服務一定是好辦法 (或通常是好辦法)。有幾點需要注意：
 
 -	此作法需要公開整個網站，因為目前 Azure CDN 無法提供任何私人內容。
--	除非系統能夠將客戶重新導向至原始 URL **http://*&lt;serviceName>*.cloudapp.net/**，否則假如 CDN 端點離線 (無論是因為排程的維護或使用者錯誤，或者任何其他的原因)，整個雲端服務也會離線。 
+-	除非系統能夠將客戶重新導向至原始 URL **http://*&lt;serviceName>*.cloudapp.net/**，否則假如 CDN 端點離線 (無論是因為排程的維護或使用者錯誤，或者任何其他的原因)，整個雲端服務也會離線。
 -	就算使用自訂的 Cache-Control 設定 (請參閱[在雲端服務中設定靜態檔案的快取選項](#caching))，CDN 端點也無法改善高度動態內容的效能。如果您嘗試從 CDN 端點載入首頁，如上所示，請注意，第一次載入預設首頁 (非常簡單的頁面) 至少需要 5 秒。設想，如果此頁面包含必須每分鐘更新的動態內容，客戶體驗有何影響。從 CDN 端點提供動態內容需要有較短的快取到期時間，這也說明 CDN 端點經常會發生快取遺漏。這會降低雲端服務的效能，也會折損 CDN 的效用。
 
 替代方法是在雲端服務中依個別情況決定從 Azure CDN 提供什麼內容。總之，您已了解如何從 CDN 端點存取個別的內容檔案。我將在[透過 Azure CDN 從控制器動作提供內容](#controller)中說明如何透過 CDN 端點提供特定的控制器動作。
@@ -242,18 +242,18 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 		using System.Web.Hosting;
 		using System.Web.Mvc;
 		using System.Web.UI;
-		
+
 		namespace WebRole1.Controllers
 		{
 		    public class MemeGeneratorController : Controller
 		    {
 		        static readonly Dictionary<string, Tuple<string ,string>> Memes = new Dictionary<string, Tuple<string, string>>();
-		
+
 		        public ActionResult Index()
 		        {
 		            return View();
 		        }
-		
+
 		        [HttpPost, ActionName("Index")]
 		        public ActionResult Index_Post(string top, string bottom)
 		        {
@@ -262,10 +262,10 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 		            {
 		                Memes.Add(identifier, new Tuple<string, string>(top, bottom));
 		            }
-		
+
 		            return Content("<a href="" + Url.Action("Show", new {id = identifier}) + "">here's your meme</a>");
 		        }
-		
+
 		        [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
 		        public ActionResult Show(string id)
 		        {
@@ -274,7 +274,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 		            {
 		                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
 		            }
-		
+
 		            if (Debugger.IsAttached) // Preserve the debug experience
 		            {
 		                return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
@@ -284,13 +284,13 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 		                return Redirect(string.Format("http://<yourCdnName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
 		            }
 		        }
-		
+
 		        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
 		        public ActionResult Generate(string top, string bottom)
 		        {
 		            string imageFilePath = HostingEnvironment.MapPath("~/Content/chuck.bmp");
 		            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
-		
+
 		            using (Graphics graphics = Graphics.FromImage(bitmap))
 		            {
 		                SizeF size = new SizeF();
@@ -303,23 +303,23 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 		                    graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
 		                }
 		            }
-		
+
 		            MemoryStream ms = new MemoryStream();
 		            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
 		            return File(ms.ToArray(), "image/png");
 		        }
-		
+
 		        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
 		        {
 		            // Compute actual size, shrink if needed
 		            while (true)
 		            {
 		                size = g.MeasureString(text, font);
-		
+
 		                // It fits, back out
 		                if (size.Height < i.Height &&
 		                     size.Width < i.Width) { return font; }
-		
+
 		                // Try a smaller font (90% of old size)
 		                Font oldFont = font;
 		                font = new Font(font.Name, (float)(font.Size * .9), font.Style);
@@ -340,7 +340,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 4. 開啟新的 *Views\MemeGenerator\Index.cshtml*，將內容改成下列簡單的 HTML 來提交笑梗：
 
 		<h2>Meme Generator</h2>
-		
+
 		<form action="" method="post">
 		    <input type="text" name="top" placeholder="Enter top text here" />
 		    <br />
@@ -371,7 +371,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 			return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
 		}
 	}
-	
+
 如果已附加本機偵錯程式，您將經由本機重新導向而享有一般的偵錯體驗。如果是在雲端服務中執行，則會重新導向至：
 
 	http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
@@ -400,7 +400,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 -	CDN 端點失敗時的後援機制
 -	儘可能不修改程式碼
 
-在您於「[整合 Azure CDN 端點與 Azure 網站」，並從 Azure CDN 提供網頁靜態內容](#deploy)所建立的 **WebRole1** 專案中，開啟 *App\_Start\\BundleConfig.cs*，然後查看 `bundles.Add()` 方法呼叫。
+在您於「[整合 Azure CDN 端點與 Azure 網站」，並從 Azure CDN 提供網頁靜態內容](#deploy)所建立的 **WebRole1** 專案中，開啟 *App_Start\BundleConfig.cs*，然後查看 `bundles.Add()` 方法呼叫。
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -433,22 +433,22 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 		    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
 		        .GetName().Version.ToString();
 		    var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?v=" + version;
-		
+
 		    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
 		                "~/Scripts/jquery-{version}.js"));
-		
+
 		    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")).Include(
 		                "~/Scripts/jquery.validate*"));
-		
+
 		    // Use the development version of Modernizr to develop with and learn from. Then, when you're
 		    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
 		    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
 		                "~/Scripts/modernizr-*"));
-		
+
 		    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
 		                "~/Scripts/bootstrap.js",
 		                "~/Scripts/respond.js"));
-		
+
 		    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
 		                "~/Content/bootstrap.css",
 		                "~/Content/site.css"));
@@ -465,31 +465,31 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?v=<W.X.Y.Z>"))
 
 	此建構函式告知 ASP.NET 統合和縮製在本機偵錯時轉譯個別指令碼檔案，但使用指定的 CDN 位址來存取所提及的指令碼。不過，對於此謹慎建構的 CDN URL，請注意兩項重要特性：
-	
+
 	-	此 CDN URL 的來源是 `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`，事實上就是雲端服務中指令碼套件組合的虛擬目錄。
 	-	由於是使用 CDN 建構函式，套件組合的 CDN 指令碼標籤在轉譯的 URL 中已不再包含自動產生的版本字串。指令碼套件組合每次修改時，您都必須手動產生唯一的版本字串，以強制在 Azure CDN 上發生快取遺漏。同時，在部署套件組合之後，此唯一的版本字串在部署的整個存在期間內必須保持不變，讓 Azure CDN 的快取命中率達到最高。
 	-	查詢字串 v=<W.X.Y.Z> 會從 Web 角色專案的 *Properties\AssemblyInfo.cs* 中提取。您的部署工作流程中可以包含每次發佈至 Azure 時就遞增組件版本。或者，您可以直接修改專案中的 *Properties\AssemblyInfo.cs*，使用萬用字元 '*' 表示每次建置時就自動遞增版本字串。例如：
 
 			[assembly: AssemblyVersion("1.0.0.*")]
-	
+
 		在此可採取其他任何策略在部署的存在期間內產生唯一字串。
 
 3. 重新發行雲端服務和存取首頁。
- 
+
 4. 檢視頁面的 HTML 程式碼。您應該會看到轉譯的 CDN URL，以及每次將變更重新發行至雲端服務時的唯一版本字串。例如：
 
 		...
-		
+
 		<link href="http://camservice.azureedge.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
-		
+
 		<script src="http://camservice.azureedge.net/bundles/modernizer?v=1.0.0.25449"></script>
-		
+
 		...
-		
+
 		<script src="http://camservice.azureedge.net/bundles/jquery?v=1.0.0.25449"></script>
-		
+
 		<script src="http://camservice.azureedge.net/bundles/bootstrap?v=1.0.0.25449"></script>
-		
+
 		...
 
 5. 在 Visual Studio 中，按下 `F5` 在 Visual Studio 中偵錯雲端服務。
@@ -497,19 +497,19 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 6. 檢視頁面的 HTML 程式碼。您仍然會看到每一個指令檔以個別方式轉譯，讓您在 Visual Studio 中享有一致的偵錯體驗。
 
 		...
-		
+
 		    <link href="/Content/bootstrap.css" rel="stylesheet"/>
 		<link href="/Content/site.css" rel="stylesheet"/>
-		
+
 		    <script src="/Scripts/modernizr-2.6.2.js"></script>
-		
+
 		...
-		
+
 		    <script src="/Scripts/jquery-1.10.2.js"></script>
-		
+
 		    <script src="/Scripts/bootstrap.js"></script>
 		<script src="/Scripts/respond.js"></script>
-		
+
 		...   
 
 <a name="fallback"></a>
@@ -527,46 +527,46 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 		        .GetName().Version.ToString();
 		    var cdnUrl = "http://cdnurl.azureedge.net/.../{0}?" + version;
 		    bundles.UseCdn = true;
-		
-		    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
+
+		    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery"))
 						{ CdnFallbackExpression = "window.jquery" }
 		                .Include("~/Scripts/jquery-{version}.js"));
-		
-		    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
+
+		    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval"))
 						{ CdnFallbackExpression = "$.validator" }
 		            	.Include("~/Scripts/jquery.validate*"));
-		
+
 		    // Use the development version of Modernizr to develop with and learn from. Then, when you're
 		    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-		    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
+		    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer"))
 						{ CdnFallbackExpression = "window.Modernizr" }
 						.Include("~/Scripts/modernizr-*"));
-		
+
 		    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")) 	
 						{ CdnFallbackExpression = "$.fn.modal" }
 		        		.Include(
 			              		"~/Scripts/bootstrap.js",
 			              		"~/Scripts/respond.js"));
-		
+
 		    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
 		                "~/Content/bootstrap.css",
 		                "~/Content/site.css"));
 		}
 
 	當 `CdnFallbackExpression` 不是 null 時，指令碼會插入 HTML 中來測試是否已成功載入套件組合，如果不是，則直接從原始 Web 伺服器存取套件組合。此屬性必須設為 JavaScript 運算式來測試個別的 CDN 套件組合是否正確載入。測試每一個套件組合所需的運算式根據內容而不同。在以上的預設套件組合中：
-	
+
 	-	`window.jquery` 定義於 jquery-{version}.js 中
 	-	`$.validator` 定義於 jquery.validate.js 中
 	-	`window.Modernizr` 定義於 modernizer-{version}.js 中
 	-	`$.fn.modal` 定義於 bootstrap.js 中
-	
+
 	您可能發現到我沒有為 `~/Cointent/css` 套件組合設定 CdnFallbackExpression。這是因為目前 [System.Web.Optimization 中有錯誤](https://aspnetoptimization.codeplex.com/workitem/104)，導致插入後援 CSS 的 `<script>` 標籤，而非預期的 `<link>` 標籤。
-	
+
 	不過，[Ember 顧問團](https://github.com/EmberConsultingGroup/StyleBundleFallback) (英文) 提供一套良好的[樣式套件組合後援](https://github.com/EmberConsultingGroup) (英文)。
 
-2. 若要使用 CSS 的因應措施，請在 Web 角色專案的 [*App\_Start*] 資料夾中建立新的 .cs 檔案，命名為 *StyleBundleExtensions.cs*，並將其內容改成 [GitHub 的程式碼](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs)。
+2. 若要使用 CSS 的因應措施，請在 Web 角色專案的 [*App_Start*] 資料夾中建立新的 .cs 檔案，命名為 *StyleBundleExtensions.cs*，並將其內容改成 [GitHub 的程式碼](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs)。
 
-4. 在 *App\_Start\\StyleFundleExtensions.cs* 中，將命名空間重新命名為您的 Web 角色名稱 (例如 **WebRole1**)。
+4. 在 *App_Start\StyleFundleExtensions.cs* 中，將命名空間重新命名為您的 Web 角色名稱 (例如 **WebRole1**)。
 
 3. 回到 `App_Start\BundleConfig.cs`，將最後一個 `bundles.Add` 陳述式修改為下列醒目提示的程式碼：
 
@@ -583,7 +583,7 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 5. 檢視頁面的 HTML 程式碼。您應該會發現類似下方的插入指令碼：
 
 		...
-		
+
 	    <link href="http://az632148.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
 		<script>(function() {
 		                var loadFallback,
@@ -603,18 +603,18 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 		                }
 		                return true;
 		            }())||document.write('<script src="/Content/css"><\/script>');</script>
-		
+
 		    <script src="http://camservice.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
 		<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
-		
-		... 
-		
+
+		...
+
 		    <script src="http://camservice.azureedge.net/bundles/jquery?v=1.0.0.25474"></script>
 		<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
-		
+
 		    <script src="http://camservice.azureedge.net/bundles/bootstrap?v=1.0.0.25474"></script>
 		<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
-		
+
 		...
 
 
@@ -637,4 +637,4 @@ CDN 設定檔就是 CDN 端點的集合。每個設定檔皆包含一或多個 C
 [cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

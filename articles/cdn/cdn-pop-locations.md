@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Azure 內容傳遞網路 (CDN) 的 POP 位置" 
-	description="本主題列出 Azure 內容傳遞網路 (CDN) 的 POP 位置。" 
-	services="cdn" 
-	documentationCenter="" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Azure 內容傳遞網路 (CDN) 的 POP 位置"
+	description="本主題列出 Azure 內容傳遞網路 (CDN) 的 POP 位置。"
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
 #Azure 內容傳遞網路 (CDN) 的 POP 位置
 
 本主題列出 Microsoft Azure CDN 目前的存在點 (POP) 位置。
-   
+
 
 ![CDN 的 POP 位置](./media/cdn-pop-locations/CDN_POP_locations_update.png)
 
@@ -76,6 +76,6 @@
 ##澳大利亞
 
 - 墨爾本
-- 雪梨 
+- 雪梨
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

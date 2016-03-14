@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="02/29/2016" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用服務備份和還原實作災害復原
@@ -22,13 +22,15 @@
 
 若要從影響範圍涵蓋 API 管理服務託管所在之區域的可用性問題復原，您應該要做好準備能隨時在其他區域重新建構服務。由於可用性目標和復原時間目標不盡相同，您也許會想要在一或多個區域預留備份服務，並嘗試與作用中的服務維持組態和內容同步。服務備份和還原功能可提供實作災害復原策略時所不可或缺的建置組塊。
 
-本指南說明如何驗證 Azure 資源管理員的要求，以及如何備份和還原您的 API 管理服務執行個體。
+本指南說明如何驗證 Azure Resource Manager 的要求，以及如何備份和還原您的 API 管理服務執行個體。
 
->[AZURE.NOTE]備份與還原嚴重損壞修復的 API 管理服務執行個體的程序，也可用於預備等案例，以複寫 API 管理服務執行個體。
+>[AZURE.NOTE] 備份與還原嚴重損壞修復的 API 管理服務執行個體的程序，也可用於預備等案例，以複寫 API 管理服務執行個體。
+>
+>請注意，每個備份在 7 天後到期。如果您在過了 7 天的到期時間後嘗試還原備份，還原會失敗並傳回 `Cannot restore: backup expired` 訊息。
 
 ## 驗證 Azure 資源管理員要求
 
->[AZURE.IMPORTANT]備份和還原的 REST API 會使用 Azure 資源管理員，並有不同的驗證機制的 REST API 來管理您的 API 管理實體。本節中的步驟描述如何驗證 Azure 資源管理員的要求。如需詳細資訊，請參閱[驗證 Azure Resource Manager 要求](http://msdn.microsoft.com/library/azure/dn790557.aspx)。
+>[AZURE.IMPORTANT] 備份和還原的 REST API 會使用 Azure 資源管理員，並有不同的驗證機制的 REST API 來管理您的 API 管理實體。本節中的步驟描述如何驗證 Azure 資源管理員的要求。如需詳細資訊，請參閱[驗證 Azure Resource Manager 要求](http://msdn.microsoft.com/library/azure/dn790557.aspx)。
 
 所有您使用 Azure 資源管理員對資源所做的工作，必須透過 Azure Active Directory 使用以下步驟驗證。
 
@@ -38,7 +40,7 @@
 
 第一個步驟是建立 Azure Active Directory 應用程式。使用含 API 管理服務執行個體的訂用帳戶登入 [Azure 傳統入口網站](http://manage.windowsazure.com/)，並瀏覽至預設 Azure Active Directory 的 [應用程式] 索引標籤。
 
->[AZURE.NOTE]如果您的帳戶看不到 Azure Active Directory 預設目錄，請連絡 Azure 訂用帳戶的系統管理員，以授與您的帳戶必要權限。如需尋找您預設目錄的資訊，請參閱[找出您的預設目錄](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal)。
+>[AZURE.NOTE] 如果您的帳戶看不到 Azure Active Directory 預設目錄，請連絡 Azure 訂用帳戶的系統管理員，以授與您的帳戶必要權限。如需尋找您預設目錄的資訊，請參閱[找出您的預設目錄](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal)。
 
 ![建立 Azure Active Directory 應用程式][api-management-add-aad-application]
 
@@ -160,16 +162,16 @@
 
 還原作業的執行時間較長，因此可能需要 30 分鐘以上的時間才能完成。如果要求成功並已起始還原程序，則會收到含有 `Location` 標頭的 `202 Accepted` 回應狀態碼。請向 `Location` 標頭中的 URL 發出 'GET' 要求，以查明作業的狀態。當還原進行時，您會持續收到「202 已接受」狀態碼。回應碼 `200 OK` 代表還原作業已成功完成。
 
->[AZURE.IMPORTANT]用於還原之目標服務的 **SKU**「必須符合」即將還原之已備份服務的階層。
+>[AZURE.IMPORTANT] 用於還原之目標服務的 **SKU**「必須符合」即將還原之已備份服務的階層。
 >
 >在還原作業進行時針對服務組態 (如 API、原則、開發人員入口網站外觀) 所做的**變更****可能會遭到覆寫**。
 
 ## 後續步驟
 請參閱下列 Microsoft 部落格中，兩個不同的備份/還原程序逐步解說。
 
--	[複寫 Azure API 管理帳戶](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/) (英文) 
+-	[複寫 Azure API 管理帳戶 (英文)](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/) 
 	-	感謝 Gisela 提供此文章。
--	[Azure API 管理：備份和還原組態](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx) (英文)
+-	[Azure API 管理：備份和還原組態 (英文)](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
 	-	Stuart 詳細說明的方法與正式指南不同，但非常有意思。
 
 [Backup an API Management service]: #step1
@@ -189,4 +191,4 @@
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0302_2016-->

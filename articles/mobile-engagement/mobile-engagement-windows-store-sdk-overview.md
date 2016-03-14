@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #適用於 Azure Mobile Engagement 的 Windows 通用 SDK 概觀
@@ -54,4 +54,4 @@
 
 請參閱[升級程序](mobile-engagement-windows-store-upgrade-procedure/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

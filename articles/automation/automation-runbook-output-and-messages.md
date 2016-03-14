@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Azure 自動化中的 Runbook 輸出與訊息 | Microsoft Azure"
    description="描述如何在 Azure 自動化中建立及擷取 Runbook 的輸出與錯誤訊息。"
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="03/02/2016"
+   ms.author="magoedte;bwren" />
 
 # Azure 自動化中的 Runbook 輸出與訊息
 
@@ -51,7 +51,7 @@
 	   Write-Verbose "Verbose outside of function"
 	   Write-Output "Output outside of function"
 	   $functionOutput = Test-Function
-	
+
 	   Function Test-Function
 	   {
 	      Write-Verbose "Verbose inside of function"
@@ -77,7 +77,7 @@ Runbook 工作的詳細資訊資料流會是：
 	Workflow Test-Runbook
 	{
 	   [OutputType([string])]
-	
+
 	   $output = "This is some string output."
 	   Write-Output $output
 	}
@@ -93,7 +93,7 @@ Runbook 工作的詳細資訊資料流會是：
 使用 [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) 或 [Write-Error](http://technet.microsoft.com/library/hh849962.aspx) Cmdlet 建立警告或錯誤訊息。活動也可能會被寫入這些資料流。
 
 	#The following lines create a warning message and then an error message that will suspend the runbook.
-	
+
 	$ErrorActionPreference = "Stop"
 	Write-Warning –Message "This is a warning message."
 	Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
@@ -107,7 +107,7 @@ Runbook 工作的詳細資訊資料流會是：
 使用 [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) Cmdlet 建立詳細訊息。
 
 	#The following line creates a verbose message.
-	
+
 	Write-Verbose –Message "This is a verbose message."
 
 ### 偵錯資料流
@@ -152,20 +152,42 @@ Windows PowerShell 使用[喜好設定變數](http://technet.microsoft.com/libra
 
 下列範例會啟動 Runbook 範例，然後等候它完成。完成後，將會從工作收集其輸出資料流。
 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" 
-	
+	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+
 	$doLoop = $true
 	While ($doLoop) {
 	   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
 	   $status = $job.Status
-	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped") 
+	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
 	}
-	
+
 	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+
+### 圖形化編寫
+
+對於圖形化 Runbook，額外的記錄功能會以活動等級追蹤的形式提供。追蹤有兩種等級：基本及詳細。在基本追蹤中，您可以看到 Runbook 中每個活動的開始及結束時間，以及任何活動重試作業的相關資訊，例如嘗試次數及活動開始時間。在詳細追蹤中，您會得到基本追蹤的結果，加上每個活動的輸入及輸出資料。請注意，目前的追蹤記錄是利用詳細資訊資料流來寫入的，因此當您啟用追蹤時，必須啟用詳細資訊記錄功能。對於已啟用追蹤功能的圖形化 Runbook，就不需要記錄進度記錄，因為基本追蹤有同樣的效果，且提供更有用的資訊。
+
+![圖形化編寫的工作串流檢視](media/automation-runbook-output-and-messages/job_streams_view_blade.png)
+
+您可以在上方的螢幕擷取畫面中，看到當您為圖形化 Runbook 啟用詳細資訊記錄及追蹤功能時，生產工作串流檢視會提供更多的資訊。這些額外的資訊在您排解 Runbook 相關的生產問題時是不可或缺的，因此您應該只為這個目的來啟用該功能，而不是隨時啟用。追蹤記錄的數量可以非常多。只要利用圖形化 Runbook 追蹤功能，您就可以為每個活動取得二到四個記錄，視您之前是設定基本追蹤還是詳細追蹤而定。除非您需要這項資訊來追蹤 Runbook 的進度以便疑難排解，我們建議您關閉追蹤功能。
+
+**如要啟用活動等級的追蹤功能，請執行下列步驟。**
+
+ 1. 在 Azure 入口網站中，開啟您的自動化帳戶。
+
+ 2. 按一下 [Runbook] 磚以開啟 Runbook 的清單。
+
+ 3. 在 [Runbook] 刀鋒視窗中，按一下您 Runbook 清單的某圖形化 Runbook 來選取它。
+
+ 4. 在已選取 Runbook 的 [設定] 刀鋒視窗中，按一下 [記錄和追蹤]。
+
+ 5. 在 [記錄和追蹤] 刀鋒視窗中，按一下 [記錄詳細記錄] 下方的 [開啟] 來啟用詳細資訊記錄功能；然後在 [活動等級追蹤] 下方，根據您需要的追蹤等級把追蹤等級變更成 [基本] 或 [詳細]。<br>
+
+    ![圖形化編寫的 [記錄和追蹤] 刀鋒視窗](media/automation-runbook-output-and-messages/logging_and_tracing_settings_blade.png)
 
 ## 相關文章
 
 - [追蹤 Runbook 工作](automation-runbook-execution.md)
 - [子 Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

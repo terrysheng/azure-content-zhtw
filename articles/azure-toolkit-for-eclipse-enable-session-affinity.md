@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="11/30/2015" 
+    ms.date="02/26/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
@@ -49,7 +49,7 @@ Eclipse Toolkit 藉由將稱為應用程式要求路由 (ARR) 的特殊 IIS 模�
 
 [適用於 Eclipse 的 Azure 工具組][]
 
-[在 Eclipse 中為 Azure 建立 Hello World 應用程式][]
+[在 Eclipse 中建立適用於 Azure 的 Hello World 應用程式][]
 
 [安裝 Azure Toolkit for Eclipse][]
 
@@ -61,7 +61,7 @@ Eclipse Toolkit 藉由將稱為應用程式要求路由 (ARR) 的特殊 IIS 模�
 
 [Azure Java 開發人員中心]: http://go.microsoft.com/fwlink/?LinkID=699547
 [適用於 Eclipse 的 Azure 工具組]: http://go.microsoft.com/fwlink/?LinkID=699529
-[在 Eclipse 中為 Azure 建立 Hello World 應用程式]: http://go.microsoft.com/fwlink/?LinkID=699533
+[在 Eclipse 中建立適用於 Azure 的 Hello World 應用程式]: http://go.microsoft.com/fwlink/?LinkID=699533
 [如何使用工作階段同質來維護工作階段資料]: http://go.microsoft.com/fwlink/?LinkID=699539
 [安裝 Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
@@ -69,4 +69,4 @@ Eclipse Toolkit 藉由將稱為應用程式要求路由 (ARR) 的特殊 IIS 模�
 
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0302_2016-->

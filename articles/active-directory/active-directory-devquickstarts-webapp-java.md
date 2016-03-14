@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="11/14/2015"
+	ms.date="02/19/2016"
 	ms.author="brandwe"/>
 
 
@@ -23,7 +23,10 @@
 
 Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直接，只需幾行的程式碼便可提供單一登入和登出。在 Java Web 應用程式中，您可以使用 Microsoft 的 ADAL4J 社群導向實作來完成這項作業。
 
-  現在，我們將使用 ADAL4J 來執行下列動作：- 使用 Azure AD 作為身分識別提供者將使用者登入應用程式。- 顯示一些使用者的相關資訊。- 將使用者登出應用程式。
+  我們將在此處使用 ADAL4J 來執行下列動作：
+- 使用 Azure AD 做為身分識別提供者，將使用者登入應用程式。
+- 顯示使用者的一些相關資訊。
+- 讓使用者登出 App。
 
 為執行此作業，您必須執行下列動作：
 
@@ -47,7 +50,7 @@ Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直
     - [**應用程式識別碼 URI**] 是指應用程式的唯一識別碼。慣例會使用 `https://<tenant-domain>/<app-name>`，例如：`http://localhost:8080/adal4jsample/`
 - 完成註冊後，AAD 會為您的應用程式指派一個唯一用戶端識別碼。您在後續章節中將會用到這個值，所以請從 [設定] 索引標籤中複製此值。
 
-一旦進入入口網站，為您的應用程式建立 [**應用程式密碼**]，並複製下來。稍後您將會用到此資訊。
+進入入口網站後，為您的應用程式建立「應用程式密碼」並複製下來。稍後您將會用到此資訊。
 
 
 ## 2\.使用 Maven 設定您的應用程式以使用 ADAL4J 程式庫和必要條件
@@ -237,7 +240,8 @@ Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直
 
 接受其餘的組態參數。
 
-> [AZURE.NOTE]您可以從 XML 檔案中看到，我們要編寫一個名為 `mvc-dispatcher` 的 JSP/Servlet Web 應用程式，該應用程式會在我們瀏覽 /secure URL 時使用 `BasicFilter`。您會在我們編寫的其餘相同程式碼中看到我們使用 /secure 做為受保護內容的所在的位置，並且將會強制向 Azure Active Directory 進行驗證。
+> [AZURE.NOTE]
+您可以從 XML 檔案中看到，我們要編寫一個名為 `mvc-dispatcher` 的 JSP/Servlet Web 應用程式，該應用程式會在我們瀏覽 /secure URL 時使用 `BasicFilter`。您會在我們編寫的其餘相同程式碼中看到我們使用 /secure 做為受保護內容的所在的位置，並且將會強制向 Azure Active Directory 進行驗證。
 
 -	接下來，在 `\webapp\WEB-INF` 下建立 `mvc-dispatcher-servlet.xml` 檔案，並輸入下列：
 
@@ -350,7 +354,8 @@ Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直
 1. 允許使用者登入和登出
 2. 取得使用者的一些相關資料。
 
-> [AZURE.NOTE]為了取得使用者的相關資料，我們必須使用來自 Azure Active Directory 的圖形 API。圖形 API 是安全的 Web 服務，可讓您用來擷取有關組織 (包括個別使用者) 的資料。這優於預先在權杖中填入機密資料，因為它可確保要求資料的使用者已獲授權，而且可能抓取權杖的任何人 (從越獄電話或桌面上的 Web 瀏覽器快取) 都不會取得一堆有關使用者或組織的重要詳細資料。
+> [AZURE.NOTE] 
+為了取得使用者的相關資料，我們必須使用來自 Azure Active Directory 的圖形 API。圖形 API 是安全的 Web 服務，可讓您用來擷取有關組織 (包括個別使用者) 的資料。這優於預先在權杖中填入機密資料，因為它可確保要求資料的使用者已獲授權，而且可能抓取權杖的任何人 (從越獄電話或桌面上的 Web 瀏覽器快取) 都不會取得一堆有關使用者或組織的重要詳細資料。
 
 讓我們編寫一些 Java 檔案，為我們執行這項工作：
 
@@ -1734,7 +1739,8 @@ public class BasicFilter implements Filter {
 `http://localhost:8080/adal4jsample/`
 
 
-> [AZURE.NOTE]使用最新的 Tomcat 伺服器部署 WAR 非常容易。只要瀏覽至 `http://localhost:8080/manager/` 並遵循上傳您的 '`adal4jsample.war` 檔案的指示即可。它會為您自動部署正確的端點。
+> [AZURE.NOTE] 
+使用最新的 Tomcat 伺服器部署 WAR 非常容易。只要瀏覽至 `http://localhost:8080/manager/` 並遵循上傳您的 '`adal4jsample.war` 檔案的指示即可。它會為您自動部署正確的端點。
 
 ##後續步驟
 
@@ -1744,4 +1750,4 @@ public class BasicFilter implements Filter {
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0302_2016-->

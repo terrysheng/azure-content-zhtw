@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="02/26/2016"
 	ms.author="asmalser"/>
 
 #在 Azure Active Directory 中為預先整合的應用程式自訂在 SAML 權杖中發出的宣告
@@ -54,9 +54,7 @@
 
 如果指定的使用者沒有針對選取的屬性儲存的值，則該宣告不會發出在權杖中。
 
-**附註：只有在使用 AAD Connect 工具最新預覽版從內部部署的 Active Directory 同步處理使用者資料時，才支援 ****user.onpremisesecurityidentifier** 和 **user.onpremisesamaccountname**。您可以在下面的連結下載 Connect 工具預覽版：
-
-http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=53949
+**注意：**只有在使用 [AAD Connect 工具](active-directory-aadconnect.md)從內部部署的 Active Directory 同步處理使用者資料時，才支援 **user.onpremisesecurityidentifier** 和 **user.onpremisesamaccountname**。
 
 ## 相關文章
 
@@ -70,4 +68,4 @@ http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

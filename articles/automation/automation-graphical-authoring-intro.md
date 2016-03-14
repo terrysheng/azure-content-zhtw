@@ -3,7 +3,7 @@
    description="圖形化編寫可讓您建立 Azure 自動化的 Runbook，而不使用程式碼。本文章提供圖形化編寫的簡介和開始建立圖形化 Runbook 所需的所有詳細資料。"
    services="automation"   
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Azure 自動化中的圖形化編寫
@@ -419,4 +419,4 @@ Runbook 可能需要來自使用者的輸入內容 (透過 Azure 入口網站啟
 - [運算子](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

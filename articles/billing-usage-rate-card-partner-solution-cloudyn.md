@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="11/02/2015"
+   ms.date="02/19/2016"
    ms.author="mobandyo;bryanla"/>
 
 # Microsoft Azure 使用情況和 RateCard API 可讓 Cloudyn 提供 ITFM 給客戶 
@@ -90,4 +90,4 @@ RateCard API 需要數個輸入參數 -- 例如區域資訊、貨幣及區域設
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

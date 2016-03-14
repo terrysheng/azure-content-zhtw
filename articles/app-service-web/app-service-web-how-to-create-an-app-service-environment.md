@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
@@ -30,13 +30,13 @@ App Service 環境 (ASE) 是 Azure App Service 的進階服務選項，可提供
 - Azure 虛擬網路 (VNET) 選取項目和子網路
 - ASE 資源集區定義
 
-這些項目各有其重要的詳細資料。 
-- ASE 的名稱會用在該 ASE 中所建立的任何應用程式的子網域中 
-- 所有在 ASE 中建立的應用程式都屬於與 ASE 本身相同的訂用帳戶下
-- 如果您無法存取用來建立 ASE 的訂用帳戶，則無法使用 ASE 建立應用程式 
-- 用來裝載 ASE 的 VNET 必須是區域的傳統 "v1" VNET 
-- 用來裝載 ASE 的子網路不可包含任何其他計算資源 
-- 一個子網路中只能有一個 ASE 存在
+其中每個項目都有一些重要的詳細資料。
+- ASE 的名稱將用於該 ASE 中建立的任何應用程式的子網域。
+- ASE 中建立的所有應用程式將位於 ASE 本身的相同訂用帳戶中
+- 如果您無法存取用來建立 ASE 的訂用帳戶，則無法使用 ASE 來建立應用程式
+- 用來裝載 ASE 的 VNET 必須是區域傳統 "v1" VNET 
+- 用來裝載 ASE 的子網路不得包含任何其他計算資源
+- 子網路中只能存在一個 ASE
 
 每個 ASE 部署都是 Azure 管理和維護的託管服務。雖然客戶會管理執行個體的數量和其大小，但不能存取裝載 ASE 系統角色的計算資源。
 
@@ -75,7 +75,7 @@ App Service 環境 (ASE) 是 Azure App Service 的進階服務選項，可提供
 VNET 的位置就是 ASE 的位置，因為 ASE 部署至該 VNET 中。
 
 在您指定或選取 VNET 後，您必須建立或選取適當的子網路。您必須在此處提供的詳細資料包括：
-- 子網路名稱 
+- 子網路名稱
 - CIDR 表示法中的子網路範圍
 
 如果您不熟悉 CIDR (無類別網域間路由) 表示法，請留意它會採用以正斜線與 CIDR 值分隔的 IP 位址格式。其顯示如下：*10.0.0.0/22*。CIDR 值表示對顯示的 IP 位址進行遮罩處理的前導位元數。如果要以更簡單的方式表達此概念，我們可以說 CIDR 值提供了 IP 範圍。在此範例中，10.0.0.0/22 表示 1024 個位址，或從 10.0.0.0 到 10.0.3.255 的範圍。/23 表示 512 個位址等等。
@@ -135,8 +135,7 @@ App Service 環境的定價是根據指派的計算資源。無論是否裝載�
 
 以下有更多關於手動調整、管理及監視 App Service 環境的詳細資料：[如何設定 App Service 環境][ASEConfig]
 
-如需自動調整的相關資訊，請參閱：
-[如何設定 App Service 環境的自動調整][ASEAutoscale]
+如需自動調整的相關資訊，請參閱：[如何設定 App Service 環境的自動調整][ASEAutoscale]
 
 有其他無法自訂的相依性，例如資料庫和儲存體。這些都是由 Azure 處理並由系統隨附。系統儲存體對於整個 App Service 環境最多可支援 500 GB，且 Azure 會根據系統規模的需要來調整資料庫。
 
@@ -164,4 +163,4 @@ App Service 環境的定價是根據指派的計算資源。無論是否裝載�
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

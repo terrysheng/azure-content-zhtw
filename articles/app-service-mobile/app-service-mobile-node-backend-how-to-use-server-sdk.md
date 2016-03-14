@@ -74,6 +74,7 @@ Azure App Service Mobile Apps 可讓您將行動最佳化資料存取 Web API �
 此應用程式會建立簡單而具有單一端點 (`/tables/TodoItem`) 的行動最佳化 WebAPI，讓使用者可使用動態結構描述存取基礎 SQL 資料存放區，不需經過驗證。它適用於下列用戶端程式庫快速入門：
 
 - [Android 用戶端快速入門]
+- [Apache Cordova 用戶端快速入門]
 - [iOS 用戶端快速入門]
 - [Windows 市集用戶端快速入門]
 - [Xamarin.iOS 用戶端快速入門]
@@ -159,7 +160,7 @@ Azure App Service 提供 Node.js 應用程式方面的具體建議，您應該�
 - 如何[指定 Node 版本]
 - 如何[使用 Node 模組]
 
-### <a name="howto-enable-homepage"></a>做法：啟用您的應用程式的首頁
+### <a name="howto-enable-homepage"></a>做法：啟用應用程式的首頁
 
 許多應用程式是 Web 和行動應用程式的組合，ExpressJS 架構可讓您結合兩方面。但是有時候，您可能只想要實作行動介面。它對於提供登陸頁面以確保 App Service 已啟動並執行很有用。您可以提供您自己的首頁，或啟用暫時的首頁。若要啟用暫時的首頁，將行動應用程式建構函式調整為以下內容：
 
@@ -429,6 +430,67 @@ _azureMobile.js_ 檔案中的大部分設定在 [Azure 入口網站]中都有對
   - *disabled* 表示此資料表目前已停用
 
 如果未定義存取屬性，則會允許未經驗證的存取。
+
+### <a name="howto-tables-getidentity"></a>作法：如何透過資料表使用驗證宣告
+
+您可以設定驗證設定時所要求的多個宣告。這些宣告通常無法透過 `context.user` 物件取得，但可使用 `context.user.getIdentity()` 方法擷取。`getIdentity()` 方法會傳回會解析該物件的 Promise。物件會以驗證方法 (facebook、google、twitter、microsoftaccount 或 aad) 建立索引。
+
+例如，如果您設定 Microsoft 帳戶驗證並要求電子郵件地址宣告時，可以利用下列來將電子郵件地址加入記錄：
+
+    var azureMobileApps = require('azure-mobile-apps');
+
+    // Create a new table definition
+    var table = azureMobileApps.table();
+
+    table.columns = {
+        "emailAddress": "string",
+        "text": "string",
+        "complete": "boolean"
+    };
+    table.dynamicSchema = false;
+    table.access = 'authenticated';
+
+    /**
+    * Limit the context query to those records with the authenticated user email address
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function queryContextForEmail(context) {
+        return context.user.getIdentity().then((data) => {
+            context.query.where({ emailAddress: data.microsoftaccount.claims.emailaddress });
+            return context.execute();
+        });
+    }
+
+    /**
+    * Adds the email address from the claims to the context item - used for
+    * insert operations
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function addEmailToContext(context) {
+        return context.user.getIdentity().then((data) => {
+            context.item.emailAddress = data.microsoftaccount.claims.emailaddress;
+            return context.execute();
+        });
+    }
+
+    // Configure specific code when the client does a request
+    // READ - only return records belonging to the authenticated user
+    table.read(queryContextForEmail);
+
+    // CREATE - add or overwrite the userId based on the authenticated user
+    table.insert(addEmailToContext);
+
+    // UPDATE - only allow updating of record belong to the authenticated user
+    table.update(queryContextForEmail);
+
+    // DELETE - only allow deletion of records belong to the authenticated uer
+    table.delete(queryContextForEmail);
+
+    module.exports = table;
+
+若要查看哪些宣告可用，請使用網頁瀏覽器來檢視網站的 `/.auth/me` 端點。
 
 ### <a name="howto-tables-disabled"></a>做法：停用對特定資料表作業的存取權
 
@@ -766,6 +828,7 @@ Azure 入口網站可讓您在 Visual Studio Team Services 中編輯 Node.js 後
 
 <!-- URLs -->
 [Android 用戶端快速入門]: app-service-mobile-android-get-started.md
+[Apache Cordova 用戶端快速入門]: app-service-mobile-cordova-get-started.md
 [iOS 用戶端快速入門]: app-service-mobile-ios-get-started.md
 [Xamarin.iOS 用戶端快速入門]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android 用戶端快速入門]: app-service-mobile-xamarin-android-get-started.md
@@ -803,4 +866,4 @@ Azure 入口網站可讓您在 Visual Studio Team Services 中編輯 Node.js 後
 [ExpressJS 中介軟體]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

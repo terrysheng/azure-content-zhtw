@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/26/2016" 
 	ms.author="billmath"/>
 
 # 設定 Azure Multi-Factor Authentication
@@ -35,7 +35,7 @@
 [快取](#caching)|您可以利用快取來設定一段特定的時間，讓後續的驗證嘗試自動成功。 |如何設定及配置驗證快取。
 [信任的 IP](#trusted-ips)|信任的 IP 是 Multi-Factor Authentication 的功能，它賦予受管理或同盟租用戶管理員，讓從公司近端內部網路登入之使用者略過 Multi-Factor Authentication 的能力。|配置及設定要免除 Multi-Factor Authentication 的 IP 位址	
 [應用程式密碼](#app-passwords)|應用程式密碼允許非 MFA 感知應用程式略過 Multi-Factor Authentication 並繼續運作。|應用程式密碼的相關資訊。
-[暫停對已記住之裝置和瀏覽器進行 Multi-Factor Authentication (公開預覽)](#suspend-multi-factor-authentication-for-remembered-devices-and-browsers-public-preview)|可讓您在使用者使用 MFA 成功登入後的設定天數內暫停 MFA。|啟用此功能及設定的天數的相關資訊。
+[針對已記住的裝置和瀏覽器，記住其 Multi-Factor Authentication](#remember-multi-factor-authentication-for-devices-users-trust)|可讓您在使用者使用 MFA 成功登入後的設定天數內記住裝置。|啟用此功能及設定的天數的相關資訊。
 [可選取的驗證方法 (公用預覽)](#selectable-verification-methods-public-preview)|可讓您選擇可供使用者使用的驗證方法。|啟用或停用驗證方法 (例如通話或簡訊) 的相關資訊。
 
 
@@ -331,25 +331,25 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 
 ![應用程式密碼](./media/multi-factor-authentication-whats-next/myapp.png)
 
-## 暫停對已記住之裝置和瀏覽器進行 Multi-Factor Authentication (公開預覽)
+## 基於裝置使用者信任將 Multi-Factor Authentication 記住
 
-暫停對已記住之裝置和瀏覽器進行 Multi-Factor Authentication，是允許您讓使用者選擇在使用 MFA 執行成功登入後，於設定天數內暫停 MFA 的功能。它是適用於所有 MFA 使用者的免費功能，也能增強實用性。不過，因為使用者可以暫停 MFA，這項功能可能會降低帳戶安全性。
+記住裝置和瀏覽器的 Multi-Factor Authentication，使用者信任是供給所有 MFA 使用者的免費功能。它可讓您在使用者使用 MFA 成功登入後的設定天數內有略過 MFA 的選項。這可以提高使用者的可用性。
 
-為了確保使用者帳戶的安全，發生以下任一案例時您應該還原使用者裝置的 Multi-Factor Authentication：
+不過，因為使用者可以針對信任的裝置記住 MFA，所以可能會降低帳戶安全性。為了確保帳戶安全，發生以下任一案例時您應該還原使用者裝置的 Multi-Factor Authentication：
 
 - 當他們的公司帳戶遭到入侵
 - 當已記住的裝置遺失或遭竊
 
 > [AZURE.NOTE] 這項功能的實作方式採用瀏覽器 Cookie 快取。如果未啟用瀏覽器 Cookie，它便無法運作。
 
-### 如何啟用/停用及設定暫停對已記住之裝置進行 MFA
+### 如何啟用/停用 [記住 Multi-Factor Authentication]
 
 1. 登入 Azure 傳統入口網站。
 2. 在左側按一下 [Active Directory]。
-3. 在 Active Directory 下方，按一下要設定暫停對已記住之裝置進行 Multi-Factor Authentication 的目錄。
+3. 在 Active Directory 下方，按一下您想設定 [記住裝置的 Multi-Factor Authentication] 的目錄。
 4. 在您選取的目錄上，按一下 [設定]。
 5. 在 Multi-Factor Authentication 區段中，按一下 [管理服務設定]。
-6. 在 [服務設定] 頁面上，於管理使用者裝置設定下方選取/取消選取 [藉由讓系統記住裝置來允許使用者暫停 Multi-Factor Authentication]。![暫停裝置](./media/multi-factor-authentication-manage-users-and-devices/suspend.png)
+6. 在 [服務設定] 頁面上，於管理使用者裝置的設定下方，選取/取消選取 [允許使用者在信任的裝置上記住 Multi-Factor Authentication]。![記住裝置](./media/multi-factor-authentication-whats-next/remember.png)
 8. 設定要允許暫停的天數。預設值為 14 天。
 9. 按一下 [儲存]。
 10. 按一下 [關閉]。
@@ -372,8 +372,8 @@ Azure AD 支援與內部部署 Windows Server Active Directory 網域服務 (AD 
 3. 在 Active Directory 下方，按一下您想要啟用或停用驗證方法的目錄。
 4. 在您選取的目錄上，按一下 [設定]。
 5. 在 Multi-Factor Authentication 區段中，按一下 [管理服務設定]。
-6. 在 [服務設定] 頁面的驗證選項下，選取/取消選取您想要使用的選項。</br></br> ![暫停裝置](./media/multi-factor-authentication-whats-next/authmethods.png)
+6. 在 [服務設定] 頁面的驗證選項下，選取/取消選取您想要使用的選項。</br></br> ![驗證方法](./media/multi-factor-authentication-whats-next/authmethods.png)
 9. 按一下 [儲存]。
 10. 按一下 [關閉]。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

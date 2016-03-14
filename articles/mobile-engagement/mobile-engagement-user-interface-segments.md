@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # 如何建立和管理使用者的使用者分佈以分辨使用模式
 
-本文說明 **Mobile Engagement** 入口網站的**首頁**。使用 **Mobile Engagement** 入口網站可監視與管理您的行動應用程式。請注意，若要開始使用入口網站，您必須先建立 **Azure Mobile Engagement** 帳戶。如需詳細資訊，請參閱[建立 Azure Mobile Engagement 帳戶](mobile-engagement-create-account.md)。
+本文說明 **Mobile Engagement** 入口網站的**首頁**。使用 **Mobile Engagement** 入口網站可監視與管理您的行動應用程式。
 
 UI 的 [使用者分佈] 區段可讓您根據不同的行為和分析，對您的使用者進行分佈研究，這些行為和分析可從應用程式取得，也可透過「使用者分佈 API」存取。使用者分佈會在建立之後的 24 小時先計算一次，然後根據最新的分析資訊，每隔 24 小時重新計算一次。計算使用者分佈之後，它會每天顯示「每天變化的歷程記錄」圖表。
 
 
->[AZURE.NOTE]許多 **Mobile Engagement** 入口網站 UI 的區段包含 [顯示說明] 按鈕。按下此按鈕，以獲得關於區段的詳細內容資訊。
+>[AZURE.NOTE] 許多 **Mobile Engagement** 入口網站 UI 的區段包含 [顯示說明] 按鈕。按下此按鈕，以獲得關於區段的詳細內容資訊。
 
 ## 建立使用者分佈
 您可以根據 [分析] 區段中過去最多 60 天的特定期間及最多 10 個準則來建立使用者分佈。例如，您可以根據過去 10 天內在您的應用程式中檢視某些頁面或搜尋特定內容的人員，建立使用者分佈。您也可以在 [分析] 區段取得此資訊。因此，您可以使用這項資訊來建立使用者分佈，然後再針對這一類使用者設定推送通知，讓他們再回到應用程式。
@@ -197,4 +197,4 @@ UI 的 [使用者分佈] 區段可讓您根據不同的行為和分析，對您�
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

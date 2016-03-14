@@ -13,22 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# 部署 StorSimple Virtual Array：在 Hyper-V 中佈建虛擬陣列 (預覽版)
+# 部署 StorSimple Virtual Array：在 Hyper-V 中佈建虛擬陣列
 
 ![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv4.png)
 
 ## 概觀 
 
-本佈建教學課程僅適用於執行 1.1.1.0 版 (公開預覽版) 的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。本教學課程說明如何在執行 Hyper-V 2008 R2、Hyper-V 2012 或 Hyper-V 2012 R2 之主機系統上佈建 StorSimple 虛擬陣列。
+本佈建教學課程適用於執行 2016 年 3 月公開上市 (GA) 版的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。本教學課程說明如何在執行 Hyper-V 2008 R2、Hyper-V 2012，或 Hyper-V 2012 R2 之主機系統上佈建 StorSimple Virtual Array。
 
 您需要系統管理員權限，才能佈建及設定虛擬裝置。佈建及初始安裝程序可能需要大約 10 分鐘的時間才能完成。
 
-> [AZURE.IMPORTANT]
-> 
-> 此公開預覽版僅供評估之用。不支援在生產環境中安裝此預覽版。
 
 ## 佈建的必要條件
 
@@ -38,9 +35,11 @@
 
 在您開始前，請確定：
 
--   您已完成 [Prepare the portal for StorSimple Virtual Array (準備入口網站以使用 StorSimple Virtual Array)](storsimple-ova-deploy1-portal-prep.md) 一文中的所有步驟。
+-   您已完成[準備入口網站以使用 StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md) 中的所有步驟。
 
--   您已經從 Azure 入口網站下載適用於 Hyper-V 的虛擬裝置映像。如需詳細資訊，請參閱 [Step 3: Download the virtual device image (步驟 3：下載虛擬裝置映像)](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image)。
+-   您已經從 Azure 入口網站下載適用於 Hyper-V 的虛擬裝置映像。如需詳細資訊，請參閱〈[步驟 3：下載虛擬裝置映像](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image)〉。
+	
+	> [AZURE.IMPORTANT] StorSimple Virtual Array 上執行的軟體只能搭配 Storsimple Manager 服務。
 
 ### 對於 StorSimple 虛擬裝置 
 
@@ -62,7 +61,7 @@
 
 在您開始前，請確定：
 
--   您已經檢閱部署 StorSimple 虛擬裝置的網路需求，且已經根據需求設定資料中心的網路。如需詳細資訊，請參閱 [StorSimple Virtual Array networking requirements (StorSimple Virtual Array 的網路需求)](storsimple-ova-system-requirements.md#networking-requirements)。
+-   您已經檢閱部署 StorSimple 虛擬裝置的網路需求，且已經根據需求設定資料中心的網路。如需詳細資訊，請參閱 [StorSimple Virtual Array 的網路需求](storsimple-ova-system-requirements.md#networking-requirements)。
 
 ## 佈建的逐步指示 
 
@@ -97,7 +96,7 @@
 
 #### 佈建虛擬裝置
 
-1.  在 Windows Server 主機上，複製本機磁碟機中的虛擬裝置映像。這就是您之前透過 Azure 入口網站下載的映像。請記下您複製映像的位置，因為稍後將會在程序中使用該資訊。
+1.  在 Windows Server 主機上，複製本機磁碟機中的虛擬裝置映像。這就是您之前透過 Azure 入口網站下載的映像 (VHD 或 VHDX)。請記下您複製映像的位置，因為稍後將會在程序中使用該資訊。
 
 2.  開啟 [伺服器管理員]。按一下右上角的 [工具]，然後選取 [Hyper-V 管理員]。
 
@@ -105,11 +104,11 @@
 
 	如果您執行的是 Hyper-V 2008 R2，請開啟 [Hyper-V 管理員]。在 [伺服器管理員] 中，按一下 [角色] > [Hyper-V] > [Hyper-V 管理員]。
 
-1.  在 [Hyper-V 管理員] 中，用滑鼠右鍵按一下範圍窗格中您的系統節點，以便開啟操作功能表。選取 [新增]，然後選取 [虛擬機器]。
+1.  在 [Hyper-V 管理員] 中，用滑鼠右鍵按一下範圍窗格中您的系統節點，以便開啟內容功能表。選取 [新增]，然後選取 [虛擬機器]。
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image2.png)
 
-1.  在 [開始之前] 頁面上，按一下 [下一步]。
+1.  在 [開始之前] 頁面上，按一下 [下一步] 。
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image3.png)
 
@@ -117,7 +116,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 
-1.  在 [指定世代] 頁面上，選擇 [第 1 代]。按 [下一步]。
+1.  在 [指定世代] 頁面上，使用 VHD 者請選擇 [第 1 代]。若使用 VHDX (適用於 Windows Server 2012 或更新版本)，請選擇 [第 2 代]。按 [下一步]。
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 
@@ -194,7 +193,10 @@
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image19.png)
 
-1.  您將會返回 [設定] 頁面。按一下 [確定] 來關閉 [設定] 頁面，並返回 [Hyper-V 管理員] 視窗。
+1.  您將會返回 [設定] 頁面。只有在使用 VHDX 時才執行此步驟。如果使用的是 VHD 和第 1 代虛擬機器，請略過此步驟，並移至下一個步驟。您現在必須停用虛擬機器上的安全開機。當您建立新的第 2 代虛擬機器時，預設會啟用安全開機。在第 2 代虛擬機器的 [設定] 頁面中，選取 [硬體] 下的 [韌體]，然後取消勾選 [啟用安全開機] 核取方塊。
+
+
+2.  您將會返回 [設定] 頁面。按一下 [確定] 來關閉 [設定] 頁面，並返回 [Hyper-V 管理員] 視窗。
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image20.png)
 
@@ -208,11 +210,11 @@
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image21.png)
 
-1.  當裝置開始運作之後，用滑鼠右鍵按一下選取裝置，然後選取 [連線]。
+1.  當裝置開始運作之後，選取裝置後用滑鼠右鍵按一下，然後選取 [連線]。
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image22.png)
 
-1.  您可能需要等待 5 至 10 分鐘，裝置才會準備就緒。主控台會顯示狀態訊息以表明進度。裝置就緒之後，請前往 [動作]。請按下 `Ctrl + Alt + Delete` 來登入虛擬裝置。預設的使用者為「StorSimpleAdmin」，而預設密碼為「Password1」。
+1.  您可能需要等待 5 至 10 分鐘，裝置才會準備就緒。主控台會顯示狀態訊息以表明進度。裝置就緒之後，請前往 [動作]。請按下 `Ctrl + Alt + Delete` 來登入虛擬裝置。預設的使用者為 *StorSimpleAdmin*，而預設密碼為 *Password1*。
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image23.png)
 
@@ -252,11 +254,11 @@
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image31.png)
 
-	如果裝置不符合最低設定需求，橫幅文字中會出現錯誤訊息 (如下所示)。您必須修改裝置設定，讓裝置有足夠的資源來符合最低需求。然後您就可以將裝置重新啟動，並連線到該裝置。請參閱[步驟 1：確認主機系統符合最低的虛擬裝置需求](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements)中的最低設定需求。
+	如果裝置不符合最低設定需求，橫幅文字中會出現錯誤訊息 (如下所示)。您必須修改裝置設定，讓裝置有足夠的資源來符合最低需求。然後您就可以將裝置重新啟動，並連線到該裝置。請參閱〈[步驟 1：確認主機系統符合最低的虛擬裝置需求](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements)〉中的最低設定需求。
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image32.png)
 
-如果您在使用本機 Web UI 進行初始設定作業時碰到任何錯誤，請參閱 [Manage your StorSimple Virtual Array using the local web UI (使用本機 Web UI 管理 StorSimple 虛擬陣列)](storsimple-ova-web-ui-admin.md) 中的下列工作流程。
+如果您在使用本機 Web UI 進行初始設定作業時碰到任何錯誤，請參閱[使用本機 Web UI 管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md) 中的下列工作流程。
 
 -   執行診斷測試來[排解使用 Web UI 安裝時所發生的錯誤](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors)。
 
@@ -274,4 +276,4 @@
 
 -   [Set up your StorSimple Virtual Array as an iSCSI server (將 StorSimple 虛擬陣列設定為 iSCSI 伺服器)](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

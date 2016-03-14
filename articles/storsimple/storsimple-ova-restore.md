@@ -1,5 +1,5 @@
 <properties
-   pageTitle="從 StorSimple Virtual Array 備份中還原 (預覽版)"
+   pageTitle="從 StorSimple Virtual Array 備份中還原"
    description="深入了解如何還原 StorSimple Virtual Array 的備份。"
    services="storsimple"
    documentationCenter="NA"
@@ -13,19 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/23/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# 從 StorSimple Virtual Array 備份中還原 (預覽版)
+# 從 StorSimple Virtual Array 備份中還原
 
 ## 概觀 
 
-本文章僅適用於執行 1.1.1.0 版 (公開預覽版) 的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。本文說明如何逐步從 StorSimple Virtual Array 之共用或磁碟區的備份組進行還原。本文也會詳述項目層級復原在設定為檔案伺服器的 StorSimple Virtual Array 上的運作方式。
-
-> [AZURE.IMPORTANT]
-> 
-> - 此公開預覽版僅供評估及部署規劃之用。不支援在生產環境中安裝此預覽版。
-> - 如果您遇到任何 StorSimple Virtual Array 的問題，請在 [StorSimple MSDN 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=StorSimple)提出問題。
+本文章適用於執行 2016 年 3 月公開上市 (GA) 版的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。本文說明如何逐步從 StorSimple Virtual Array 之共用或磁碟區的備份組進行還原。本文也會詳述項目層級復原在設定為檔案伺服器的 StorSimple Virtual Array 上的運作方式。
 
 
 ## 從備份組還原共用
@@ -55,7 +50,7 @@
 
 		![](./media/storsimple-ova-restore/image9.png)
 
-1.  還原工作完成之後，還原就會開始，而且您會看到另一個通知。若要監視還原進度，請按一下 [檢視工作]。這會將您帶到 [工作] 頁面。
+1.  還原工作完成之後，還原就會開始，而且您會看到另一個通知。若要監視還原進度，請按一下 [檢視作業]。這會將您帶到 [工作] 頁面。
 
 2.  您可以追蹤還原工作的進度。還原 100% 完成時，請導覽回裝置上的 [共用] 頁面。
 
@@ -73,7 +68,7 @@
 
 1.  瀏覽至 [備份資料目錄]。依據適當的裝置和時間範圍進行篩選，來搜尋您的備份。按一下核取圖示 ![](./media/storsimple-ova-restore/image1.png) 以執行查詢。
 
-2.  在顯示的備份組清單中，按一下並選取特定的備份。展開備份，以查看其下的各種磁碟區。您必須先在主機和裝置上將這些磁碟區離線，才能對其進行還原。在 [磁碟區] 頁面上存取磁碟區，並將它們離線。
+2.  在顯示的備份組清單中，按一下並選取特定的備份。展開備份，以查看其下的各種磁碟區。您必須先在主機和裝置上將這些磁碟區離線，才能對其進行還原。在 [磁碟區] 頁面上存取磁碟區，並使它們離線。
 
 3.  瀏覽回到 [備份類別目錄] 索引標籤，並選取備份組。
 
@@ -96,7 +91,7 @@
 
 1.  按一下核取圖示 ![](./media/storsimple-ova-restore/image1.png)。這會起始還原工作，而且您會看到下列正在進行工作的通知。
 
-2.  還原工作完成之後，還原就會開始，而且您會看到另一個通知。若要監視還原進度，請按一下 [檢視工作]。這會將您帶到 [工作] 頁面。
+2.  還原工作完成之後，還原就會開始，而且您會看到另一個通知。若要監視還原進度，請按一下 [檢視作業]。這會將您帶到 [工作] 頁面。
 
 3.  您可以追蹤還原工作的進度。還原 100% 完成時，請導覽回裝置上的 [磁碟區] 頁面。
 
@@ -108,9 +103,9 @@
 
 此版本引進設定為檔案伺服器之 StorSimple 虛擬裝置上的項目層級復原 (ILR)。此功能可讓您從 StorSimple 裝置上所有共用的雲端備份執行檔案和資料夾的細微復原。使用者可以使用自助式模型，從最新的備份中擷取已刪除的檔案。
 
-每個共用都有包含最新備份的 *.backups* 資料夾。使用者可以導覽至想要的備份，並從備份中複製相關的檔案和資料夾，然後進行還原。這樣就不需要要求系統管理員從備份中還原檔案。
+每個共用都有一個包含最新備份的 *.backups* 資料夾。使用者可以導覽至想要的備份，並從備份中複製相關的檔案和資料夾，然後進行還原。這樣就不需要要求系統管理員從備份中還原檔案。
 
-1.  執行 ILR 時，您可以透過 Windows 檔案總管檢視備份。按一下您想要查看備份的特定共用。在儲存所有備份的共用下，會建立 *.backups* 資料夾。展開 *.backups* 資料夾來檢視備份。這個資料夾會顯示整個備份階層的展開檢視。此檢視是依需求建立，而且通常只需要數秒的時間就能建立完成。
+1.  執行 ILR 時，您可以透過 Windows 檔案總管檢視備份。按一下您想要查看備份的特定共用。在儲存所有備份的共用下，將會建立 *.backups* 資料夾。展開 *.backups* 資料夾來檢視備份。這個資料夾會顯示整個備份階層的展開檢視。此檢視是依需求建立，而且通常只需要數秒的時間就能建立完成。
 
 	最後 5 個備份是使用這種方式顯示。這包括預設排程和手動備份。
 
@@ -137,4 +132,4 @@
 
 深入了解如何[使用本機 Web UI 管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

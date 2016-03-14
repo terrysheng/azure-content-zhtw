@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/17/2016"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement - 使用 API 進行驗證
@@ -50,7 +50,7 @@
 	- 按一下底部列的 [檢視端點] 按鈕，然後複製 [OAUTH 2.0 權杖端點 URL]，在本文件中以 `https://login.microsoftonline.com/{TENANT_ID}/oauth2/token` 表示。<br/>                                    
 2. 使用 [Azure CLI](../xplat-cli-install.md) 將角色指派給服務主體，例如讀者或擁有者。
 
-	如果您是在 Windows 上，請修改 `PATH` 環境變數來包含 `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI\bin`，才便能夠使用 Azure 命令。
+	如果您是在 Windows 上，請修改 `PATH` 環境變數來包含 `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI\bin`，才能夠使用 Azure 命令。
 
 	使用 Azure 命令列介面 (CLI) 執行下列命令來設定您的帳戶：
 
@@ -92,11 +92,9 @@
 
 這是使用 PowerShell 指令碼來完成前述步驟的另一種方式。
 
-1. 取得最新版的 Azure PowerShell。
+1. 取得最新版的 Azure PowerShell。請參閱此[連結](../powershell-install-configure.md)以取得下載指示。 
 
-	目前可以從[這裡](https://github.com/Azure/azure-powershell/releases/tag/v1.2.1-February2016)下載 1.2.1 版。
-
-2. 以系統管理員模式開啟 Windows PowerShell，並確定您已安裝 [Azure 資源管理員 Cmdlet](https://msdn.microsoft.com/library/mt125356.aspx)。
+2. 以系統管理員模式開啟 Windows PowerShell，並確定您已安裝 [Azure Resource Manager Cmdlet](https://msdn.microsoft.com/library/mt125356.aspx)。
 
 		Install-Module AzureRM
 		Install-AzureRM
@@ -182,6 +180,7 @@
 
 	![](./media/mobile-engagement-api-authentication/mobile-engagement-api-uri-params.png)
 
->[AZURE.NOTE] <br/> 1.忽略 API 根位址，因為這是用於舊版的 API。<br/> 2.您需要使用不同於應用程式名稱本身的應用程式資源名稱。
+>[AZURE.NOTE] <br/>
+>1. 忽略 API 根位址，因為這是用於舊版 API。<br/> 2.您需要使用不同於應用程式名稱本身的應用程式資源名稱。 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

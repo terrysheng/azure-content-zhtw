@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/26/2016" 
 	ms.author="erikre"/>
 
 # 在 Visual Studio Code 中建立 ASP.NET 5 Web 應用程式
@@ -22,7 +22,7 @@
 
 本教學課程示範如何使用 [Visual Studio Code (VS Code)](http://code.visualstudio.com//Docs/whyvscode) 建立 ASP.NET Web 5 應用程式，並將其部署到 [Azure App Service](../app-service/app-service-value-prop-what-is.md)。
 
-> [AZURE.NOTE]雖然這篇文章主要針對 Web Apps，但也適用於 API Apps 和 Mobile Apps。
+> [AZURE.NOTE] 雖然這篇文章主要針對 Web Apps，但也適用於 API Apps 和 Mobile Apps。
 
 ASP.NET 5 是大幅重新設計的 ASP.NET。ASP.NET 5 是新的開放原始碼和跨平台架構，用於使用 .NET 建置新代雲端式 Web 應用程式。如需詳細資訊，請參閱 [ASP.NET 5 簡介](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html)。如需有關 Azure App Service Web Apps 的詳細資訊，請參閱 [Web Apps 概觀](app-service-web-overview.md)。
 
@@ -71,19 +71,19 @@ ASP.NET 5/DNX (.NET 執行環境) 是精簡的 .NET 堆疊，可建置在 OS X�
 
 		dnvm use 1.0.0-update1 –p
 
-> [AZURE.NOTE]如需 OS X、Linux 和 Windows 的更詳細安裝指示，請參閱[安裝 ASP.NET 5 和 DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx)。
+> [AZURE.NOTE] 如需 OS X、Linux 和 Windows 的更詳細安裝指示，請參閱[安裝 ASP.NET 5 和 DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx)。
 
 ## 建立 Web 應用程式 
 
 本節說明如何建立新的應用程式 ASP.NET Web 應用程式的結構。您將使用 node 封裝管理員 (npm) 來安裝 [Yeoman](http://yeoman.io/) (應用程式建立結構工具 - 相當於 Visual Studio [檔案] > [新專案] 作業的 VS Code)、[Grunt](http://gruntjs.com/) (JavaScript 工作執行程式) 和 [Bower](http://bower.io/) (用戶端封裝管理員)。
 
-1. 以系統管理員權限開啟命令提示字元，並瀏覽至您想要用來建立 ASP.NET 專案的位置。例如，在 C: 的根目錄中建立「vscodeprojects」目錄。
+1. 以系統管理員權限開啟命令提示字元，並瀏覽至您想要用來建立 ASP.NET 專案的位置。例如，在 C: 的根目錄中建立 [vscodeprojects] 目錄。
 
 2. 在命令提示字元輸入下列命令來安裝 Yeoman 和支援的工具。
 
 		npm install -g yo grunt-cli generator-aspnet bower
 
-	> [AZURE.NOTE]您可能會收到暗示您的 npm 版本已過期的警告。這個警告應該不會影響本教學課程。
+	> [AZURE.NOTE] 您可能會收到暗示您的 npm 版本已過期的警告。這個警告應該不會影響本教學課程。
 
 3. 在命令提示字元輸入下列命令，來建立專案資料夾，並建立應用程式的結構。
 
@@ -115,7 +115,7 @@ ASP.NET 5/DNX (.NET 執行環境) 是精簡的 .NET 堆疊，可建置在 OS X�
 
 		dnx: Run Command
 
-	> [AZURE.NOTE]如果 Omnisharp 伺服器目前未執行，它就會啟動。重新輸入上述命令。
+	> [AZURE.NOTE] 如果 Omnisharp 伺服器目前未執行，它就會啟動。重新輸入上述命令。
 
 	接著，選取下列命令來執行您的 Web 應用程式：
 		
@@ -123,7 +123,7 @@ ASP.NET 5/DNX (.NET 執行環境) 是精簡的 .NET 堆疊，可建置在 OS X�
 
 	命令視窗將會顯示該應用程式已啟動。如果命令視窗未顯示此訊息，請檢查 VS Code 左下角以找出專案中的錯誤。
 	
-	> [AZURE.NOTE]在 [命令選擇區] 發出命令時，命令列的開頭必須要有 **>** 字元。您可以在 *project.json* 檔案中檢視 **web** 命令的相關詳細資料。
+	> [AZURE.NOTE] 在 [命令選擇區] 發出命令時，命令列的開頭必須要有 **>** 字元。您可以在 *project.json* 檔案中檢視 **web** 命令的相關詳細資料。
 
 2. 開啟瀏覽器並瀏覽至下列 URL。
 
@@ -169,7 +169,7 @@ Git 是一個您可用來部署 Azure App Service Web 應用程式的分散式�
 
 4. 選取您已在本教學課程中建立的 Web 應用程式。
 
-5. 在 Web 應用程式的刀鋒視窗中，向下捲動以找出 [部署] 區段，然後按一下 [設定連續部署]。
+5. 在 Web 應用程式刀鋒視窗中，按一下 [設定] > [連續部署]。
 
 	![Azure Web 應用程式主機](./media/web-sites-create-web-app-using-vscode/14-azure-deployment.png)
 
@@ -241,7 +241,7 @@ Git 是一個您可用來部署 Azure App Service Web 應用程式的分散式�
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]如果您變更應用程式，則可以使用內建 Git 功能在 VS 程式碼中直接重新發佈，方法是依序選取 [**全部認可**] 選項和 [**推送**] 選項。您會發現 [**全部認可**] 和 [**重新整理**] 按鈕旁邊之下拉式功能表中可用的 [**推送**] 選項。
+> [AZURE.NOTE] 如果您變更應用程式，則可以使用內建 Git 功能在 VS 程式碼中直接重新發佈，方法是依序選取 [**全部認可**] 選項和 [**推送**] 選項。您會發現 [**全部認可**] 和 [**重新整理**] 按鈕旁邊之下拉式功能表中可用的 [**推送**] 選項。
 
 如果您需要與他人對專案進行共同作業，則應該考慮在推送至 Azure 之間推送至 GitHub。
 
@@ -260,6 +260,6 @@ Git 是一個您可用來部署 Azure App Service Web 應用程式的分散式�
 ![Azure Web 應用程式](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
 
 ## 摘要
-在本教學課程中，您學到如何在 VS Code 建立 Web 應用程式，並將其部署至 Azure。如需有關 VS Code 的詳細資訊，請參閱文章：[為什麼選擇 Visual Studio Code？](https://code.visualstudio.com/Docs/) 如需 App Service Web Apps 的相關資訊，請參閱 [Web 應用程式概觀](app-service-web-overview.md)。
+在本教學課程中，您學到如何在 VS Code 建立 Web 應用程式，並將其部署至 Azure。如需有關 VS Code 的詳細資訊，請參閱文章：[為什選擇 Visual Studio Code？](https://code.visualstudio.com/Docs/) 如需 App Service Web Apps 的相關資訊，請參閱 [Web 應用程式概觀](app-service-web-overview.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

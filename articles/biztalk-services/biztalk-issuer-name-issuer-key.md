@@ -4,7 +4,7 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -59,7 +59,7 @@ Azure BizTalk 服務使用服務匯流排簽發者名稱和簽發者金鑰，以
 
 在左導覽窗格中，您也可以選取 [**Active Directory**]來擷取存取控制值。
 
-> [AZURE.IMPORTANT]使用 **Active Directory** 建立存取控制命名空間時，**不會**自動建立服務身分識別。佈建 BizTalk 服務時，會自動建立存取控制命名空間、服務身分識別 「owner」(簽發者名稱)、密碼 (簽發者金鑰) 和對稱金鑰。<br /> [做法：使用 ACS 管理服務來設定服務身分識別](http://go.microsoft.com/fwlink/p/?LinkID=303942)提供存取控制服務身分識別的詳細資訊。
+> [AZURE.IMPORTANT] 使用 **Active Directory** 建立存取控制命名空間時，**不會**自動建立服務身分識別。佈建 BizTalk 服務時，會自動建立存取控制命名空間、服務身分識別 「owner」(簽發者名稱)、密碼 (簽發者金鑰) 和對稱金鑰。<br /> [做法：使用 ACS 管理服務來設定服務身分識別](http://go.microsoft.com/fwlink/p/?LinkID=303942)提供存取控制服務身分識別的詳細資訊。
 
 
 ## 服務匯流排簽發者名稱和簽發者金鑰
@@ -94,4 +94,4 @@ BizTalk 配接器服務會使用服務匯流排簽發者名稱和簽發者金鑰
 - [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

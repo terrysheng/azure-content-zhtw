@@ -3,7 +3,7 @@
 	description="在 Azure 中備份虛擬機器時的重要考量"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="markgalioto"
 	manager="jwhit"
 	editor=""
 	keywords="備份 VM, 備份虛擬機器"/>
@@ -121,4 +121,4 @@ Azure 備份不會在備份過程中加密資料。不過，您可以在 VM 中�
 - [還原虛擬機器](backup-azure-restore-vms.md)
 - [疑難排解 VM 備份問題](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

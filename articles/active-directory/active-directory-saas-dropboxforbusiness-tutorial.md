@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="02/29/2016" 
     ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 Dropbox for Business 整合
@@ -110,18 +110,16 @@
 
      5.3.從您下載的憑證建立 **Base-64 編碼**檔案。  
 
-     >[AZURE.TIP]如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
+	> [AZURE.TIP] 如需詳細資訊，請參閱[如何將二進位憑證轉換成文字檔](http://youtu.be/PlgrzUZ-Y1o)。
 
 
-     5.4.按一下 [選擇憑證]，然後瀏覽至您的 **Base-64 編碼的憑證檔案**。
+     5.4.按一下 [選擇憑證] 按鈕，然後瀏覽至您的 **Base-64 編碼的憑證檔案**。
 
 
-     5.5.按一下 [儲存變更] 以完成 DropBox for Business 租用戶設定。
+     5.5.按一下 [儲存變更] 按鈕以完成 DropBox for Business 租用戶組態。
 
 
 6. 在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。<br><br> ![設定單一登入](./media/active-directory-saas-dropboxforbusiness-tutorial/IC749329.png "設定單一登入")
-
-
 
 
 
@@ -179,8 +177,7 @@
 <br><br> ![指派使用者](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769523.png "指派使用者")
 
 
-如果要測試您的單一登入設定，請開啟存取面板。
-如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
+如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
 
 
@@ -190,4 +187,4 @@
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

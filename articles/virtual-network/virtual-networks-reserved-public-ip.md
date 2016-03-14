@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="保留的 IP |Microsoft Azure"
    description="了解保留的 IP 以及如何管理"
    services="virtual-network"
@@ -6,7 +6,7 @@
    authors="telmosampaio"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -34,12 +34,12 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
   - 保留的 IP 僅可用於 VM 和雲端服務透過 VIP 公開的執行個體角色。
 1. 我可以有多少保留的 IP？  
   - 目前，所有 Azure 訂用帳戶已獲授權可使用 20 個保留的 IP。不過，您可以要求其他保留的 IP。請參閱＜[訂用帳戶和服務限制](../azure-subscription-service-limits/)＞頁面以取得詳細資訊。
-1. 保留的 IP 是否會收取費用？ 
+1. 保留的 IP 是否會收取費用？
   - 請參閱＜[保留的 IP 位址定價詳細資料](http://go.microsoft.com/fwlink/?LinkID=398482)＞以取得定價資訊。
-1. 我該如何保留 IP 位址？ 
-  - 您可以使用 PowerShell 或 [Azure 管理 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx) 從特定區域要求保留的 IP。Azure 將保留該區域的 IP 位址，並與您的訂用帳戶相互關聯。接著您可以在該區域使用保留的 IP。您無法使用管理入口網站來保留 IP 位址。
-1. 我可以使用這個搭配以同質群組為基礎的 VNet 嗎？ 
-  - 保留的 IP 僅在區域 VNet 才受支援。不支援與同質群組相關聯的 VNet。如需有關將 VNet 與區域或同質群組建立關聯的詳細資訊，請參閱＜[關於區域 VNet 與同質群組](virtual-networks-migrate-to-regional-vnet.md)＞。 
+1. 我該如何保留 IP 位址？
+  - 您可以使用 PowerShell 或 [Azure 管理 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)，在特定區域中保留 IP 位址。這個保留的 IP 位址與您的訂用帳戶相關聯。您無法使用管理入口網站來保留 IP 位址。
+1. 我可以使用這個搭配以同質群組為基礎的 VNet 嗎？
+  - 保留的 IP 僅在區域 VNet 才受支援。不支援與同質群組相關聯的 VNet。如需有關將 VNet 與區域或同質群組建立關聯的詳細資訊，請參閱＜[關於區域 VNet 與同質群組](virtual-networks-migrate-to-regional-vnet.md)＞。
 
 ## 如何管理保留的 VIP
 
@@ -54,12 +54,12 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 	ReservedIPName       : MyReservedIP
 	Address              : 23.101.114.211
 	Id                   : d73be9dd-db12-4b5e-98c8-bc62e7c42041
-	Label                : 
+	Label                :
 	Location             : Central US
 	State                : Created
 	InUse                : False
-	ServiceName          : 
-	DeploymentName       : 
+	ServiceName          :
+	DeploymentName       :
 	OperationDescription : Get-AzureReservedIP
 	OperationId          : 55e4f245-82e4-9c66-9bd8-273e815ce30a
 	OperationStatus      : Succeeded
@@ -67,6 +67,13 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 一旦保留 IP，其就會與您的訂用帳戶相關聯，直到刪除為止。若要刪除如上所示之保留的 IP，請執行下列 PowerShell 命令：
 
 	Remove-AzureReservedIP -ReservedIPName "MyReservedIP"
+
+## 如何保留現有雲端服務的 IP 位址
+
+您可以新增 *-ServiceName* 參數，以保留現有雲端服務的 IP 位址。若要在*美國中部*位置保留雲端服務 *TestService* 的 IP 位址，請執行下列 PowerShell 命令：
+
+	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US" -ServiceName TestService
+
 
 ## 如何建立保留的 IP 至新雲端服務的關聯
 下面的指令碼會建立新保留的 IP，然後將其關聯至新的雲端服務，稱為 *TestService*。
@@ -97,7 +104,7 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 
 ## 如何使用服務組態檔建立保留的 IP 至雲端服務的關聯
 您也可以使用服務組態 (CSCFG) 檔建立保留的 IP 至雲端服務的關聯。下方範例 XML 示範如何設定雲端服務，以便使用稱為 *MyReservedIP* 之保留的 VIP：
-	
+
 	<?xml version="1.0" encoding="utf-8"?>
 	<ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
 	  <Role name="WebRole1">
@@ -123,4 +130,4 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 
 - 深入了解[執行個體層級公用 IP (ILPIP) 位址](../virtual-networks-instance-level-public-ip)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

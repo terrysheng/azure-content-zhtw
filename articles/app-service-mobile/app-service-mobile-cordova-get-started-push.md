@@ -76,18 +76,24 @@
 
 ### 安裝 Apache Cordova 推播外掛程式
 
-Apache Cordova 應用程式原本就不會處理裝置或網路功能。這些功能是由 [npm] 或 GitHub 上發佈的外掛程式所提供。`phonegap-plugin-push` 外掛程式是用來處理網路推播通知。從命令列安裝：
+Apache Cordova 應用程式原本就不會處理裝置或網路功能。這些功能是由 [npm](https://www.npmjs.com/) 或 GitHub 上發佈的外掛程式所提供。`phonegap-plugin-push` 外掛程式是用來處理網路推播通知。
+
+您可透過下列其中一種方式安裝推撥外掛程式：
+
+**從命令提示：**
 
     cordova plugin add phonegap-plugin-push
 
-在 Visual Studio 中安裝外掛程式：
+**從 Visual Studio 內：**
 
-1.  從 [方案總管] 中開啟 `config.xml` 檔案。
-2.  按一下 [外掛程式] (沿著左手邊)，然後 [自訂] (沿著上方)
-3.  選取 **Git** 做為安裝來源。輸入 `https://github.com/phonegap/phonegap-plugin-push` 做為來源
+1.  在 [方案總管] 中開啟 `config.xml` 檔案。
+2.  按一下 [外掛程式] > [自訂]，請選取 [Git] 做為安裝來源，然後輸入 `https://github.com/phonegap/phonegap-plugin-push` 做為來源。
+	
+	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
+	
 4.  按一下安裝來源旁的箭頭，然後按一下 [新增]
 
-現在將會安裝推播外掛程式。
+推撥外掛程式現已安裝。
 
 ### 安裝 Android Google Play 服務
 
@@ -103,72 +109,77 @@ PhoneGap 推播外掛程式仰賴 Google Play 服務來進行推播通知。若�
 4.  按一下 [安裝封裝]。
 5.  等待安裝完成。
 
-目前的必要程式庫會在 [phonegap-plugin-push installation documentation (phonegap-plugin-push 安裝文件)] 中列出。
+目前的必要程式庫會在 [phonegap-plugin-push 安裝文件]中列出。
 
 ### 註冊您的裝置在啟動時推播
 
-在登入程序的回呼期間，或是在 `onDeviceReady()` 方法的底部新增對 `registerForPushNotifications()` 的呼叫：
+1. 在登入程序的回呼期間或是在 **onDeviceReady** 方法的底部，新增對 **registerForPushNotifications** 的呼叫：
 
-    // Login to the service
-    client.login('google')
-        .then(function () {
-            // Create a table reference
-            todoItemTable = client.getTable('todoitem');
+ 
+		// Login to the service.
+		client.login('google')
+		    .then(function () {
+		        // Create a table reference
+		        todoItemTable = client.getTable('todoitem');
+		
+		        // Refresh the todoItems
+		        refreshDisplay();
+		
+		        // Wire up the UI Event Handler for the Add Item
+		        $('#add-item').submit(addItemHandler);
+		        $('#refresh').on('click', refreshDisplay);
+		
+				// Added to register for push notifications.
+		        registerForPushNotifications();
+		
+		    }, handleError);
 
-            // Refresh the todoItems
-            refreshDisplay();
+	此範例為驗證成功後呼叫 **registerForPushNotifications**，如果應用程式中同時使用推播通知和驗證，建議採此方法。
 
-            // Wire up the UI Event Handler for the Add Item
-            $('#add-item').submit(addItemHandler);
-            $('#refresh').on('click', refreshDisplay);
+2. 新增 `registerForPushNotifications()` 方法，如下所示：
 
-            registerForPushNotifications();
+	    // Register for Push Notifications.
+		// Requires that phonegap-plugin-push be installed.
+	    var pushRegistration = null;
+	    function registerForPushNotifications() {
+	        pushRegistration = PushNotification.init({
+	            android: {
+	                senderID: 'Your_Project_ID'
+	            },
+	            ios: {
+	                alert: 'true',
+	                badge: 'true',
+	                sound: 'true'
+	            },
+	            wns: {
+	
+	            }
+	        });
+	
+	        pushRegistration.on('registration', function (data) {
+	            client.push.register('gcm', data.registrationId);
+	        });
+	
+	        pushRegistration.on('notification', function (data, d2) {
+	            alert('Push Received: ' + data.message);
+	        });
+	
+	        pushRegistration.on('error', handleError);
+	    }
 
-        }, handleError);
-
-實作 `registerForPushNotifications()`，如下所示：
-
-    /**
-     * Register for Push Notifications - requires the phonegap-plugin-push be installed
-     */
-    var pushRegistration = null;
-    function registerForPushNotifications() {
-        pushRegistration = PushNotification.init({
-            android: {
-                senderID: 'YourProjectID'
-            },
-            ios: {
-                alert: 'true',
-                badge: 'true',
-                sound: 'true'
-            },
-            wns: {
-
-            }
-        });
-
-        pushRegistration.on('registration', function (data) {
-            client.push.register('gcm', data.registrationId);
-        });
-
-        pushRegistration.on('notification', function (data, d2) {
-            alert('Push Received: ' + data.message);
-        });
-
-        pushRegistration.on('error', handleError);
-    }
-
-從 [Google Developer Console (Google 開發人員主控台)]，使用您應用程式的數字專案識別碼取代 _YourProjectID_。
+3. 請在上述程式碼中，從 [Google Developer Console] 使用應用程式的數字專案識別碼取代 `Your_Project_ID`。
 
 ## 對已發佈的行動服務進行應用程式測試
 
-您可以直接使用 USB 纜線連接 Android 手機，以測試應用程式。請選取 [裝置]，而不是 **Google Android 模擬器**。Visual Studio 會將應用程式下載至裝置並執行。您接著可以在裝置上與應用程式互動。
+您可以直接使用 USB 纜線連接 Android 手機，以測試應用程式。請選取 [裝置]，而非 [Google Android 模擬器]。Visual Studio 會將應用程式下載至裝置並執行。您接著可以在裝置上與應用程式互動。
 
-改善您的開發經驗。畫面共用應用程式 (例如 [Mobizen]) 可透過將您的 Android 畫面投射到電腦上的 Web 瀏覽器，協助您開發 Android 應用程式。
+改善您的開發經驗。畫面共用應用程式 (例如 [Mobizen]) 可在電腦上將您的 Android 畫面投射到 Web 瀏覽器，並協助您開發 Android 應用程式。
+
+您也可以在 Android 模擬器上測試 Android 應用程式。請務必先在模擬器上新增 Google 帳戶。
 
 ##<a name="next-steps"></a>後續步驟
 
-* 請閱讀[通知中樞]瞭解推播通知的相關資訊。
+* 請閱讀[通知中樞]，了解推播通知的相關資訊。
 * 如果您尚未這麼做，請[新增驗證]至您的 Apache Cordova 應用程式，繼續教學課程。
 
 <!-- URLs -->
@@ -177,11 +188,11 @@ PhoneGap 推播外掛程式仰賴 Google Play 服務來進行推播通知。若�
 [驗證]: app-service-mobile-cordova-get-started-users.md
 [使用 Azure 行動應用程式的 .NET 後端伺服器 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Google 帳戶]: http://go.microsoft.com/fwlink/p/?LinkId=268302
-[Google Developer Console (Google 開發人員主控台)]: https://console.developers.google.com/home/dashboard
-[phonegap-plugin-push installation documentation (phonegap-plugin-push 安裝文件)]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
+[Google Developer Console]: https://console.developers.google.com/home/dashboard
+[phonegap-plugin-push 安裝文件]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [Mobizen]: https://www.mobizen.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/zh-TW/features/cordova-vs.aspx
 [通知中樞]: ../notification-hubs/notification-hubs-overview.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

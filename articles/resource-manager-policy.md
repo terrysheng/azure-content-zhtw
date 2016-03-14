@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/18/2015"
+	ms.date="02/26/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # 使用原則來管理資源和控制存取
@@ -46,7 +46,7 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
 
 ## 原則定義結構
 
-原則定義是使用 JSON 建立。它包含定義動作和效果的一或多個條件/邏輯運算子，可讓您得知當滿足條件時會發生的效果。
+原則定義是使用 JSON 建立。它包含定義動作和效果的一或多個條件/邏輯運算子，可讓您得知當滿足條件時會發生的效果。結構描述會發佈於 [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json)。
 
 基本上，原則包含下列：
 
@@ -90,15 +90,45 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
 
 ## 欄位和來源
 
-條件是透過欄位和來源的使用所形成。欄位代表資源要求裝載中的屬性來源代表要求本身的特性。
+條件是透過欄位和來源的使用所形成。欄位會顯示用來描述資源狀態的資源要求裝載屬性。來源代表要求本身的特性。
 
 支援下列欄位和來源：
 
-欄位：**name**、**kind**、**type**、**location**、**tags**、**tags.***。
+欄位：**name**、**kind**、**type**、**location**、**tags**、**tags.*** 和 **property alias**。
 
 來源：**action**。
 
+屬性別名可在原則定義中用來存取資源類型特定屬性，例如設定和 SKU。它適用於所有具有屬性的 API 版本。別名可使用以下 REST API 來擷取 (未來將新增 Powershell 支援)：
+
+    GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
+	
+別名定義如下所示。如您所見，別名在不同 API 版本中均會定義路徑，無論屬性名稱是否變更。
+
+    "aliases": [
+      {
+        "name": "Microsoft.Storage/storageAccounts/sku.name",
+        "paths": [
+          {
+            "path": "Properties.AccountType",
+            "apiVersions": [ "2015-06-15", "2015-05-01-preview" ]
+          }
+        ]
+      }
+    ]
+
+目前支援的別名為：
+
+| 別名名稱 | 說明 |
+| ---------- | ----------- |
+| {resourceType}/sku.name | 支援的資源類型包括：Microsoft.Storage/storageAccounts、<br />Microsoft.Scheduler/jobcollections、<br />Microsoft.DocumentDB/databaseAccounts、<br />Microsoft.Cache/Redis、<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.family | 支援的資源類型為 Microsoft.Cache/Redis |
+| {resourceType}/sku.capacity | 支援的資源類型為 Microsoft.Cache/Redis |
+| Microsoft.Cache/Redis/enableNonSslPort | |
+| Microsoft.Cache/Redis/shardCount | |
+
+
 如需有關動作的詳細資訊，請參閱 [RBAC - 內建角色](active-directory/role-based-access-built-in-roles.md)。目前，原則只能適用於 PUT 要求。
+
 
 ## 原則定義範例
 
@@ -168,6 +198,35 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
         "effect" : "deny"
       }
     }
+
+### 使用核准的 SKU
+
+下列範例將示範如何使用屬性別名來限制 SKU。在下列範例中，只有 Standard\_LRS 和 Standard\_GRS 獲得核准可用於儲存體帳戶。
+
+    {
+      "if": {
+        "allOf": [
+          {
+            "source": "action",
+            "like": "Microsoft.Storage/storageAccounts/*"
+          },
+          {
+            "not": {
+              "allof": [
+                {
+                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "in": ["Standard_LRS", "Standard_GRS"]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+    
 
 ### 命名慣例
 
@@ -327,4 +386,4 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

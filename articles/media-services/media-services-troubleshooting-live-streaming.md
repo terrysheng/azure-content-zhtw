@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="03/01/2016"  
 	ms.author="juliako"/>
 
-#針對即時資料流進行疑難排解的指南
+#針對即時資料流進行疑難排解的指南 
 
 本主題提供有關如何疑難排解某些即時資料流問題的建議。
 
@@ -65,6 +65,12 @@
 
 	**疑難排解步驟**：瀏覽到 AMSE 工具的 [資料流端點] 索引標籤，確認執行中的資料流端點有伴隨的資料流單位。
 	
+###問題：想要查看編碼器記錄檔 
+
+- **潛在問題**：找不到可能有助於偵錯問題的記錄檔。
+
+	**疑難排解步驟**：您通常可以在 C:\\Users{username}\\AppData\\Roaming\\Wirecast\\ 下找到 Wirecast 記錄檔
+
 >[AZURE.NOTE] 如果依循下列疑難排解步驟後仍無法順利串流處理，請使用 Azure 傳統入口網站提交支援票證。
 
 ##媒體服務學習路徑
@@ -75,4 +81,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

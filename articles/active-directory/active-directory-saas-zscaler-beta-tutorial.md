@@ -2,7 +2,7 @@
     pageTitle="教學課程：Azure Active Directory 與 Zscaler Beta 整合 | Microsoft Azure" 
     description="了解如何使用 Zscaler Beta 搭配 Azure Active Directory 來啟用單一登入、自動佈建和更多功能！" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="02/29/2016" 
+    ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 Zscaler Beta 整合
   
@@ -39,7 +39,7 @@
 
 ###若要啟用 ZScaler Beta 的應用程式整合，請執行下列步驟：
 
-1.  在 Azure 管理入口網站的左方瀏覽窗格中，按一下 [Active Directory]。
+1.  在 Azure 傳統入口網站中，按一下左方瀏覽窗格的 [Active Directory]。
 
     ![Active Directory](./media/active-directory-saas-zscaler-beta-tutorial/IC700993.png "Active Directory")
 
@@ -71,7 +71,7 @@
 
 ###若要設定單一登入，請執行下列步驟：
 
-1.  在 Azure AD 入口網站的 ZScaler Beta 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1.  在 Azure 傳統入口網站的 [ZScaler Beta] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-zscaler-beta-tutorial/IC800225.png "設定單一登入")
 
@@ -83,7 +83,7 @@
 
     ![設定應用程式 URL](./media/active-directory-saas-zscaler-beta-tutorial/IC800227.png "設定應用程式 URL")
 
-    >[AZURE.NOTE]如有需要，您可以向 ZScaler Beta 支援小組取得您的環境的實際值。
+    >[AZURE.NOTE] 如有需要，您可以向 ZScaler Beta 支援小組取得您的環境的實際值。
 
 4.  在 [設定在 ZScaler Beta 單一登入] 頁面上，按一下 [下載憑證] 以下載您的憑證，然後將憑證檔案儲存在您的電腦上。
 
@@ -110,7 +110,7 @@
 
     ![單一登入](./media/active-directory-saas-zscaler-beta-tutorial/IC800209.png "單一登入")
 
-    1.  在 Azure 入口網站的 [設定在 ZScaler Beta 單一登入] 對話方塊頁面上，複製 [驗證要求 URL] 值，接著將它貼入 [傳送使用者以供驗證的 SAML 入口網站 URL] 文字方塊中。
+    1.  在 Azure 傳統入口網站的 [設定在 ZScaler Beta 單一登入] 對話方塊頁面上，複製 [驗證要求 URL] 值，然後貼至 [傳送使用者以供驗證的 SAML 入口網站 URL] 文字方塊中。
     2.  在 [包含登入名稱的屬性] 文字方塊中，輸入 NameID。
     3.  若要上傳您下載的憑證，請按一下 Zscaler pem。
     4.  選取 [啟用 SAML 自動佈建]。
@@ -122,7 +122,7 @@
     1.  按一下 [儲存]。
     2.  按一下 [立即啟用]。
 
-11. 在 Azure 入口網站的 [設定在 ZScaler Beta 單一登入] 對話方塊上，選取單一登入設定確認，然後按一下 [完成]。
+11. 在 Azure 傳統入口網站的 [設定在 ZScaler Beta 單一登入] 對話方塊上，選取單一登入組態確認，然後按一下 [完成]。
 
     ![設定單一登入](./media/active-directory-saas-zscaler-beta-tutorial/IC800229.png "設定單一登入")
 
@@ -181,7 +181,7 @@
     1.  輸入 [使用者識別碼]、[使用者顯示名稱]、[密碼]、[確認密碼]，然後選取您要佈建之有效 AAD 帳戶的 [群組] 和 [部門]。
     2.  按一下 [儲存]。
 
->[AZURE.NOTE]您可以使用任何其他的 ZScaler Beta 使用者帳戶建立工具或 ZScaler Beta 提供的 API 來佈建 AAD 使用者帳戶。
+>[AZURE.NOTE] 您可以使用任何其他的 ZScaler Beta 使用者帳戶建立工具或 ZScaler Beta 提供的 API 來佈建 AAD 使用者帳戶。
 
 ##指派使用者
   
@@ -189,7 +189,7 @@
 
 ###若要指派使用者給 ZScaler Beta，請執行下列步驟：
 
-1.  在 Azure AD 入口網站中建立測試帳戶。
+1.  在 Azure 傳統入口網站中建立測試帳戶。
 
 2.  在 ZScaler Beta 應用程式整合頁面中，按一下 [指派使用者]。
 
@@ -201,4 +201,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需 [存取面板] 的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

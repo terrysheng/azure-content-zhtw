@@ -40,9 +40,9 @@
 
 ##<a name="add-authentication"></a>將驗證新增至應用程式
 
-1. 在 **Visual Studio** 中開啟您的專案，然後開啟 <tt>www/index.html</tt> 檔案進行編輯。
+1. 在 **Visual Studio** 中開啟您的專案，然後開啟 `www/index.html` 檔案進行編輯。
 
-2. 找出頁首區段中的 `Content-Security-Policy` 中繼標籤。您必須將 OAuth 主機新增至允許的來源清單。
+2. 找出 head 區段中的 `Content-Security-Policy` 中繼標籤。您必須將 OAuth 主機新增至允許的來源清單。
 
     | 提供者 | SDK 提供者名稱 | OAuth 主機 |
     | :--------------------- | :---------------- | :-------------------------- |
@@ -54,16 +54,17 @@
 
     content-security-policy (針對 Azure Active Directory 實作) 的範例如下所示：
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 
+			data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
 
-    您應該使用上表中的 OAuth 主機取代 <tt>https://login.windows.net</tt>。如需此中繼標籤的詳細資訊，請參閱 [Content-Security-Policy 文件]。
+    您應該使用上表中的 OAuth 主機取代 `https://login.windows.net`。如需此中繼標籤的詳細資訊，請參閱 [Content-Security-Policy 文件]。
 
     請注意，在適當的行動裝置上使用時，某些驗證提供者不需要 Content-Security-Policy 變更。例如，在 Android 裝置上使用 Google 驗證時不需要 Content-Security-Policy 變更。
 
-3. 開啟 <tt>www/js/index.js</tt> 檔案進行編輯。雖然會利用已做的變更建置專案並執行，但通常「最佳做法」是明確呼叫 login () 方法來起始登入動作。找出 `onDeviceReady()` 方法。在用戶端建立程式碼底下，加入下列內容：
+3. 開啟 `www/js/index.js` 檔案進行編輯，找出 `onDeviceReady()` 方法，並在用戶端建立程式碼底下加入下列內容：
 
         // Login to the service
-        client.login('SDK Provider_Name')
+        client.login('SDK_Provider_Name')
             .then(function () {
 
                 // BEGINNING OF ORIGINAL CODE
@@ -82,11 +83,11 @@
 
             }, handleError);
 
-    例如，針對 Azure Active Directory，請使用：
+    請注意，此程式碼會取代現有用於建立資料表參考和重新整理 UI 的程式碼。
 
-        client.login('aad')
+    login () 方法會開始向提供者驗證。login() 方法是會傳回 JavaScript Promise 的非同步函式。初始化作業的其餘部分會置於承諾回應中，如此就不會在 login() 方法完成之前執行。
 
-    login() 方法是會傳回 JavaScript Promise 的非同步函式。初始化作業的其餘部分會置於承諾回應中，如此就不會在 login() 方法完成之前執行。
+4. 在您剛才加入的程式碼中，使用您的登入提供者名稱取代 `SDK_Provider_Name`。例如，針對 Azure Active Directory，請使用 `client.login('aad')`。
 
 4. 執行專案。當專案完成初始化時，您的應用程式會針對選擇的驗證提供者顯示 OAuth 登入頁面。
 
@@ -101,4 +102,4 @@
 [推播通知]: app-service-mobile-cordova-get-started-push.md
 [驗證相關資訊]: app-service-mobile-auth.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

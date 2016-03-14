@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/25/2016" 
 	ms.author="glenga"/>
 
 # 註冊應用程式來使用 Microsoft 帳戶進行驗證
@@ -31,7 +31,7 @@
 
 ##前往 Windows 開發人員中心註冊 Windows 市集應用程式
 
-務必先在 Windows 開發人員中心註冊 Windows 市集應用程式。
+務必先在 Windows 開發人員中心註冊 Windows 市集應用程式。您的 Windows 應用程式註冊後將能夠使用單一登入行為。
 
 >[AZURE.NOTE]Windows Phone 8、Windows Phone 8.1 Silverlight 以及非 Windows 的應用程式可跳過本節。
 
@@ -48,12 +48,16 @@
 6. 回到新 App 的 Windows 開發人員中心頁面，按一下 [服務] > [推播通知]。
 
 7. 在 [推播通知] 頁面上，按一下 [Windows 推播通知服務 (WNS) 和 Microsoft Azure 行動服務] 下的 [線上服務網站]。
+ 
+	這會顯示您的應用程式的 Microsoft 帳戶應用程式設定頁面。
 
-您應用程式的 Microsoft 帳戶頁面會隨即顯示。接下來，您會收到 Azure 需要搭配 App 使用 Microsoft 驗證的驗證認證。
+8. 記下 [封裝 SID] 值。您可以將這個 SID 儲存在 Azure 入口網站中，讓您的 Windows 應用程式同時啟用單一登入和推播通知。
+
+接著，從下一節的步驟 4 開始，設定 Windows 應用程式的 Microsoft 帳戶驗證。
 
 ## 設定您的 Microsoft 帳戶註冊，並連結至行動服務
 
-本節的第一個步驟只適用於 Windows Phone 8、Windows Phone 8.1 Silverlight 以及非 Windows 市集應用程式。若是上述應用程式，您也可以忽略封裝安全性識別碼 (SID)，這只有 Windows 市集應用程式可使用。
+如果已在上一節中註冊 Windows 應用程式，可以跳到步驟 2。
 
 1. 若為非 Windows 市集應用程式，請瀏覽至 Microsoft 帳戶開發人員中心的[我的應用程式](http://go.microsoft.com/fwlink/p/?LinkId=262039)頁面，接著以您的 Microsoft 帳戶登入 (若需要)，並按一下 [建立應用程式]，輸入**應用程式名稱**，然後按一下 [我接受]。
 
@@ -74,7 +78,7 @@
    	![Microsoft 帳戶應用程式設定](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png)
 
 
-    > [AZURE.NOTE]用戶端密碼是重要的安全性認證。請勿將用戶端密碼與任何人分享，或與您的應用程式一起散發。只有註冊 Windows 市集應用程式才會顯示 [套件 SID] 欄位。
+    > [AZURE.NOTE] 用戶端密碼是重要的安全性認證。請勿將用戶端密碼與任何人分享，或與您的應用程式一起散發。只有註冊 Windows 市集應用程式才會顯示 [套件 SID] 欄位。
 
 4. 在 [Azure 傳統入口網站]中，按一下行動服務的 [身分識別] 索引標籤，輸入取自身分識別提供者的用戶端識別碼、用戶端密碼以及套件 SID，然後按一下 [儲存]。
 
@@ -93,4 +97,4 @@
 
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0302_2016-->

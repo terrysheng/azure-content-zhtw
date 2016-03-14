@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="02/29/2016"
 	ms.author="MehrdadMzfr" />
 
 #如何在 iOS 上整合 Engagement Reach
 
-> [AZURE.IMPORTANT]在遵循此指南之前，您必須先遵循＜如何在 iOS 上整合 Engagement＞文件中所說明的整合程序。
+> [AZURE.IMPORTANT] 在遵循此指南之前，您必須先遵循＜如何在 iOS 上整合 Engagement＞文件中所說明的整合程序。
 
 
 ### 啟用應用程式接收無聲推播通知
@@ -76,7 +76,7 @@
 
 當您建立「資料推送」活動時，類別參數是選用的，且可讓您篩選資料推送。如果您想要推送不同種類的 `Base64` 資料，且想要在剖析這些資料之前識別其類型，這會很有用。
 
-您的應用程式現在已準備好接收及顯示觸達內容！
+**您的應用程式現在已準備好接收及顯示觸達內容！**
 
 ##如何隨時接收宣告和輪詢
 
@@ -90,7 +90,7 @@
 
 ### 加入必要的用戶端程式碼
 
-目前您的應用程式應該在 Engagement 前端具備已註冊的 Apple 推送憑證。
+*目前您的應用程式應該在 Engagement 前端具備已註冊的 Apple 推送憑證。*
 
 如果尚未這麼做，必須註冊應用程式以接收推送通知。啟動您的應用程式時，請新增以下這一行 (通常在 `application:didFinishLaunchingWithOptions:` 中)：
 
@@ -116,7 +116,7 @@
 		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 	}
 
-> [AZURE.NOTE]上述的方法是在 iOS 7 中推出。如果您的目標是 iOS 7 以下，請務必傳遞 nil (而非 `handler` 引數)，以在您的應用程式委派中實作方法 `application:didReceiveRemoteNotification:`，並在 EngagementAgent 上呼叫 `applicationDidReceiveRemoteNotification`。
+> [AZURE.NOTE] 上述的方法是在 iOS 7 中推出。如果您的目標是 iOS 7 以下，請務必傳遞 nil (而非 `handler` 引數)，以在您的應用程式委派中實作方法 `application:didReceiveRemoteNotification:`，並在 EngagementAgent 上呼叫 `applicationDidReceiveRemoteNotification`。
 
 	- (void)application:(UIApplication*)application
 	didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -124,7 +124,7 @@
 		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
 	}
 
-> [AZURE.IMPORTANT]根據預設，Engagement Reach 控制 completionHandler。如果您想以手動方式回應您程式碼中的 `handler` 區塊，可以針對 `handler` 引數傳遞 nil並自行控制 completion 區塊。請參閱 `UIBackgroundFetchResult` 類型，查看可能值清單。
+> [AZURE.IMPORTANT] 根據預設，Engagement Reach 控制 completionHandler。如果您想以手動方式回應您程式碼中的 `handler` 區塊，可以針對 `handler` 引數傳遞 nil並自行控制 completion 區塊。請參閱 `UIBackgroundFetchResult` 類型，查看可能值清單。
 
 
 ### 完整範例
@@ -216,7 +216,7 @@
 -   子檢視的類型應該與提供的 nib 檔案 (名稱為 `AENotificationView.xib`) 內的類型相同
 -   子檢視應該具有與提供的 nib 檔案 (名稱為 `AENotificationView.xib`) 內標記相同的標記
 
-> [AZURE.TIP]複製提供的 nib 檔案 (名稱為 `AENotificationView.xib`)，並從該處開始工作。但請小心，此 nib 檔案內的檢視與 `AENotificationView` 類別相關聯。這個類別重新定義了 `layoutSubViews` 方法，藉此根據內容來移動並重新調整其子檢視的大小。您可以用 `UIView` 取代它，或是自訂檢視類別。
+> [AZURE.TIP] 複製提供的 nib 檔案 (名稱為 `AENotificationView.xib`)，並從該處開始工作。但請小心，此 nib 檔案內的檢視與 `AENotificationView` 類別相關聯。這個類別重新定義了 `layoutSubViews` 方法，藉此根據內容來移動並重新調整其子檢視的大小。您可以用 `UIView` 取代它，或是自訂檢視類別。
 
 如果您需要更深入地自訂通知 (如果要讓執行個體直接從程式碼載入檢視)，建議您查看所提供之 `Protocol ReferencesDefaultNotifier` 與 `AENotifier` 的原始程式碼與類別文件。
 
@@ -240,7 +240,7 @@
 -   您不延伸 `AEDefaultNotifier`，例如從頭開始實作類別處理。
 -   您已覆寫 `prepareNotificationView:forContent:`，請務必至少將 `onNotificationActioned` 或 `onNotificationExited` 對應到其中一個 U.I 控制項。
 
-> [AZURE.WARNING]如果 `handleNotification:` 擲回例外狀況，則會刪除內容且會呼叫 `drop`，這會在統計資料中報告，且可以立即處理下一個活動。
+> [AZURE.WARNING] 如果 `handleNotification:` 擲回例外狀況，則會刪除內容且會呼叫 `drop`，這會在統計資料中報告，且可以立即處理下一個活動。
 
 #### 將通知併入現有的檢視
 
@@ -264,7 +264,7 @@
 
 您可以在 `AEDefaultNotifier.h` 中找到 `NOTIFICATION_AREA_VIEW_TAG` 巨集。
 
-> [AZURE.NOTE]預設通知程式會自動偵測此檢視中是否已包含通知版面配置，而且不會為它新增重疊。
+> [AZURE.NOTE] 預設通知程式會自動偵測此檢視中是否已包含通知版面配置，而且不會為它新增重疊。
 
 ### 宣告和輪詢
 
@@ -283,7 +283,7 @@
 	AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 	[reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
 
-> [AZURE.NOTE]每次使用者按一下通知以取得 "my\\_category" 類別的宣告時，會將您已經註冊的檢視控制器 (在此情況下為 `MyCustomAnnouncementViewController`) 透過呼叫 `initWithAnnouncement:` 方法來初始化，而且會將檢視加入到目前的應用程式視窗。
+> [AZURE.NOTE] 每次使用者按一下通知以取得 "my\\_category" 類別的宣告時，會將您已經註冊的檢視控制器 (在此情況下為 `MyCustomAnnouncementViewController`) 透過呼叫 `initWithAnnouncement:` 方法來初始化，而且會將檢視加入到目前的應用程式視窗。
 
 在 `AEAnnouncementViewController` 類別的實作中，您必須讀取 `announcement` 屬性來初始化您的子檢視。請考量以下範例，其中的兩個標籤會使用屬於 `AEReachAnnouncement` 類別的 `title` 和 `body` 屬性來初始化：
 
@@ -316,7 +316,7 @@
 
 這一次，提供的 `MyCustomPollViewController` 必須延伸 `AEPollViewController`。或者您可以選擇從預設控制器 `AEDefaultPollViewController` 延伸。
 
-> [AZURE.IMPORTANT]請記得在關閉檢視控制器之前呼叫 `action` (若是自訂輪詢檢視控制器，則為 `submitAnswers:`)，或是呼叫 `exit` 方法。否則，將不會傳送統計資料 (亦即無法分析活動)，更重要的是將不會通知下一個活動，直到應用程式處理程序重新啟動為止。
+> [AZURE.IMPORTANT] 請記得在關閉檢視控制器之前呼叫 `action` (若是自訂輪詢檢視控制器，則為 `submitAnswers:`)，或是呼叫 `exit` 方法。否則，將不會傳送統計資料 (亦即無法分析活動)，更重要的是將不會通知下一個活動，直到應用程式處理程序重新啟動為止。
 
 ##### 實作範例
 
@@ -416,4 +416,4 @@
 
 	@end
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

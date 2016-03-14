@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/02/2016"
 	ms.author="glenga"/>
 
 # 新增推播通知至 Windows 執行階段 8.1 通用 app
@@ -24,7 +24,7 @@
 
 本主題將示範如何使用 Azure App Service 行動應用程式與 Azure 通知中樞將推播通知傳送至 Windows 執行階段 8.1 通用 app。在此案例中，加入新項目時，您的行動應用程式後端會傳送通知至所有註冊 Windows 通知服務 (WNS) 的 Windows 應用程式
 
-本教學課程以應用程式服務行動應用程式快速入門為基礎。在開始本教學課程之前，您必須先完成快速入門教學課程：[建立 Windows 應用程式](../app-service-mobile-windows-store-dotnet-get-started.md)。如果您不要使用下載的快速入門伺服器專案，必須將推播通知擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
+本教學課程以應用程式服務行動應用程式快速入門為基礎。在開始本教學課程之前，您必須先完成快速入門教學課程：[建立 Windows 應用程式](app-service-mobile-windows-store-dotnet-get-started.md)。如果您不要使用下載的快速入門伺服器專案，必須將推播通知擴充套件新增至您的專案。如需伺服器擴充套件的詳細資訊，請參閱[使用 Azure 行動應用程式的 .NET 後端伺服器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
 ##必要條件
 
@@ -32,7 +32,7 @@
 
 * 有效的 [Microsoft 市集帳戶](http://go.microsoft.com/fwlink/p/?LinkId=280045)。
 * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* 完成[快速入門教學課程](../app-service-mobile-windows-store-dotnet-get-started.md)。
+* 完成[快速入門教學課程](app-service-mobile-windows-store-dotnet-get-started.md)。
 
 
 ##<a name="create-hub"></a>建立通知中樞
@@ -153,7 +153,7 @@
 
 2. 當您在本機電腦上編輯檔案時，請重新發佈伺服器專案。
 
-##<a id="update-service"></a>將推播通知新增至應用程式
+##<a id="update-app"></a>將推播通知新增至應用程式
 
 1. 開啟共用的 **App.xaml.cs** 專案檔案，並新增下列 `using` 陳述式：
 
@@ -185,6 +185,8 @@
 
     這樣可保證在每次啟動應用程式時都會註冊存留期較短的 ChannelURI。
 
+    >[AZURE.NOTE] 如果您也已啟用驗證，請確定使用者在嘗試註冊推播通知之前已登入。如需詳細資訊，請參閱快速入門完整範例中的[第一次驗證](https://github.com/Azure-Samples/app-service-mobile-windows-quickstart/blob/master/README.md#authenticate-first)。
+
 4. 在 [方案總管] 中，按兩下 Windows 市集應用程式的 **Package.appxmanifest**，並將 [**通知**] 中的 [**支援快顯通知**] 設為 [**是**]：
 
     從 [檔案] 功能表中，按一下 [全部儲存]。
@@ -209,5 +211,6 @@
 [Azure Portal]: https://portal.azure.com/
 
 <!-- Images. -->
+))) )
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

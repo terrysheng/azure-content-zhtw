@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/25/2016" 
 	ms.author="awills"/>
 
 # 在 Application Insights SDK 中取樣、篩選及前置處理遙測
@@ -24,8 +24,6 @@
 目前這些功能適用於 ASP.NET SDK。
 
 * [取樣](#sampling)可減少遙測的量而不會影響統計資料。它可將相關資料點寶持放在一起，因此您診斷問題時，能夠在資料點之間瀏覽。在入口網站中將乘以總計數，以補償取樣。
- * 固定取樣率可讓您決定傳送事件的百分比。
- * 調適性取樣 (預設的 ASP.NET SDK 從 2.0.0-beta3) 會根據您遙測的量自動調整取樣率。您可以設定目標量。
 * [篩選](#filtering)可讓您先在 SDK 中選取或修改遙測，再將遙測傳送到伺服器。例如，您可以從傀儡程式中排除要求來減少遙測量。和取樣相比，這是減少流量更基本的方法。它可讓您更充分掌握傳輸內容，但是您必須注意，它會影響統計資料 (例如，若您要篩選所有成功的要求)。
 * [加入屬性](#add-properties)至從應用程式傳送出來的任何遙測，包括從標準模組傳送出來的遙測。例如，您可以新增計算好的值，或是用來在入口網站中篩選資料的版本號碼。
 * [SDK API](app-insights-api-custom-events-metrics.md) 可用來傳送自訂事件和計量。
@@ -44,8 +42,13 @@
 
 * 建議使用調適性取樣。它會自動調整取樣百分比，以達到特定的要求量。目前僅供 ASP.NET 伺服器端遙測使用。  
 * [固定取樣率](app-insights-sampling.md)也可供使用。由您指定取樣百分比。可供 ASP.NET Web 應用程式程式碼和 JavaScript Web 頁面使用。用戶端和伺服器會同步處理它們的取樣，讓您可以在 [搜尋] 終於相關的頁面檢視和要求之間瀏覽。
+* 在 Application Insights 入口網站中收到遙測時會進行擷取取樣，所以無論使用何種 SDK 都可運用它。它不會減少網路上的遙測流量，但卻會降低 Application Insights 中處理與儲存的數量。只有保留的遙測會計入您的每月配額中。 
 
-### 啟用取樣
+### 啟用擷取取樣
+
+從 [設定] 列中，開啟 [配額和價格] 刀鋒視窗。按一下 [取樣]，並選取取樣比率。
+
+### 啟用調適性取樣
 
 **更新專案的 NuGet** 套件至最新的 Application Insights「預先發行」版本：以滑鼠右鍵按一下方案總管中的專案，選擇 [管理 NuGet 封裝]，然後核取 [包含發行前版本] 並搜尋 Microsoft.ApplicationInsights.Web。
 
@@ -296,7 +299,7 @@ public void Process(ITelemetry item)
       </TelemetryInitializers>
     </ApplicationInsights>
 
-*或者，* 您也可以在程式碼 (如 Global.aspx.cs) 中具現化初始設定式：
+*或者*，您也可以在程式碼 (如 Global.aspx.cs) 中具現化初始設定式：
 
 
 ```C#
@@ -404,4 +407,4 @@ public void Process(ITelemetry item)
 
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/14/2016"   
+	ms.date="03/01/2016"   
 	ms.author="juliako"/>
 
 
@@ -42,13 +42,13 @@
 
 ## 驗證使用外部編碼器編碼的調適型位元速率 MP4
 
-如果您要使用一組調適型位元速率 (多位元速率) MP4 檔案，而這些檔案不是使用 媒體服務編碼器來編碼，則應先驗證檔案後再進一步處理。媒體服務封裝器可驗證包含一組 MP4 檔案的資產，並檢查該資產是否可封裝為 Smooth Streaming 或 HLS。如果驗證工作失敗，處理工作的作業完成時將會顯示錯誤。您可以在 [Azure Media Packager 工作預設值](http://msdn.microsoft.com/library/azure/hh973635.aspx)主題中，找到定義驗證工作預設值的 XML。
+如果您要使用一組調適型位元速率 (多位元速率) MP4 檔案，而這些檔案不是使用媒體服務的編碼器來編碼，則應先驗證檔案後再進一步處理。媒體服務封裝器可驗證包含一組 MP4 檔案的資產，並檢查該資產是否可封裝為 Smooth Streaming 或 HLS。如果驗證工作失敗，處理工作的作業完成時將會顯示錯誤。您可以在 [Azure Media Packager 工作預設值](http://msdn.microsoft.com/library/azure/hh973635.aspx)主題中，找到定義驗證工作預設值的 XML。
 
->[AZURE.NOTE]請使用媒體服務編碼器產生您的內容，或者使用媒體服務封裝器進行驗證，以避免執行階段的問題。如果隨選資料流伺服器無法在執行階段剖析來源檔案，則您會收到 HTTP 1.1 錯誤「415 不支援的媒體類型」。如果重複使伺服器無法剖析來源檔案，將會影響隨選資料流伺服器的效能，且可能會減少提供其他要求的可用頻寬。Azure 媒體服務會在其隨選資料流服務上，提供服務等級協定 (SLA)；然而，若伺服器在上述方法中被誤用，此 SLA 便無法履行。
+>[AZURE.NOTE]請使用媒體編碼器標準產生您的內容，或者使用媒體服務封裝工具進行驗證，以避免執行階段的問題。如果隨選資料流伺服器無法在執行階段剖析來源檔案，則您會收到 HTTP 1.1 錯誤「415 不支援的媒體類型」。如果重複使伺服器無法剖析來源檔案，將會影響隨選資料流伺服器的效能，且可能會減少提供其他要求的可用頻寬。Azure 媒體服務會在其隨選資料流服務上，提供服務等級協定 (SLA)；然而，若伺服器在上述方法中被誤用，此 SLA 便無法履行。
 
 本節將說明如何處理驗證工作。此外，本節也將說明如何查看使用 JobStatus.Error 完成之作業的狀態與錯誤訊息。
 
-若要使用媒體服務封裝器驗證您的 MP4 檔案，您必須自行建立資訊清單 (.ism) 檔案，並將其與來源檔案一併上傳至媒體服務帳戶中。以下是由 Azure Media Encoder 所產生的 .ism 檔案範例。檔案名稱區分大小寫。此外，請務必使用 UTF-8 編碼 .ism 檔案中的文字。
+若要使用媒體服務封裝器驗證您的 MP4 檔案，您必須自行建立資訊清單 (.ism) 檔案，並將其與來源檔案一併上傳至媒體服務帳戶中。以下是由媒體編碼器標準所產生的 .ism 檔案範例。檔案名稱區分大小寫。此外，請務必使用 UTF-8 編碼 .ism 檔案中的文字。
 
 	
 	<?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -519,13 +519,13 @@
 	        /// <returns>The output asset.</returns>
 	        private static IAsset EncodeMP4IntoMultibitrateMP4sTask(IJob job, IAsset asset)
 	        {
-	            // Get the SDK extension method to  get a reference to the Azure Media Encoder.
+	            // Get the SDK extension method to  get a reference to the Media Encoder Standard.
 	            IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaEncoder);
+	                MediaProcessorNames.MediaEncoderStandard);
 	
 	            ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
 	               encoder,
-	               "H264 Adaptive Bitrate MP4 Set 720p",
+	               "H264 Multiple Bitrate 720p",
 	               TaskOptions.None);
 	
 	            // Specify the input Asset
@@ -864,13 +864,13 @@
 	        /// <returns>The output asset.</returns>
 	        private static IAsset EncodeSingleMP4IntoMultibitrateMP4sTask(IJob job, IAsset asset)
 	        {
-	            // Get the SDK extension method to  get a reference to the Azure Media Encoder.
+	            // Get the SDK extension method to  get a reference to the Media Encoder Standard.
 	            IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaEncoder);
+	                MediaProcessorNames.MediaEncoderStandard);
 	
 	            ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
 	               encoder,
-	               "H264 Adaptive Bitrate MP4 Set 720p",
+	               "H264 Multiple Bitrate 720p",
 	               TaskOptions.None);
 	
 	            // Specify the input Asset
@@ -1235,13 +1235,13 @@
 	        /// <returns>The output asset.</returns>
 	        private static IAsset EncodeSingleMP4IntoMultibitrateMP4sTask(IJob job, IAsset asset)
 	        {
-	            // Get the SDK extension method to  get a reference to the Azure Media Encoder.
+	            // Get the SDK extension method to  get a reference to the Media Encoder Standard.
 	            IMediaProcessor encoder = _context.MediaProcessors.GetLatestMediaProcessorByName(
-	                MediaProcessorNames.AzureMediaEncoder);
+	                MediaProcessorNames.MediaEncoderStandard);
 	
 	            ITask adpativeBitrateTask = job.Tasks.AddNew("MP4 to Adaptive Bitrate Task",
 	               encoder,
-	               "H264 Adaptive Bitrate MP4 Set 720p",
+	               "H264 Multiple Bitrate 720p",
 	               TaskOptions.None);
 	
 	            // Specify the input Asset
@@ -1447,4 +1447,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

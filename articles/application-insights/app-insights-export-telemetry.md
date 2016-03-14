@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # 從 Application Insights 匯出遙測
@@ -21,7 +21,10 @@
 
 在免費試用期間，或是使用[標準及高階定價方案](https://azure.microsoft.com/pricing/details/application-insights/)時，都可使用「連續匯出」功能。
 
-(如果您只想要[一次性匯出](app-insights-metrics-explorer.md#export-to-excel)您在度量或搜尋刀鋒視窗上看到的內容，請按一下分頁頂端的 [匯出]。如果您想要查看 Power BI 的資料，請使用[配接器](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) (*不*使用「連續匯出」。)
+>[AZURE.NOTE] 如果您想要[在 Power BI 中探索資料](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)，不需要用到「連續匯出」也可以這麼做。
+>
+>如果您只想要[一次性匯出](app-insights-metrics-explorer.md#export-to-excel)您在度量或搜尋刀鋒視窗上看到的內容，請按一下刀鋒視窗頂端的 [匯出]。
+
 
 ## 建立儲存體帳戶
 
@@ -209,4 +212,4 @@
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

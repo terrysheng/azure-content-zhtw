@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # 適用於使用中 Java Web 應用程式的 Application Insights
@@ -23,7 +23,7 @@
 
 您將需要 [Microsoft Azure](https://azure.com) 訂用帳戶。
 
-> [AZURE.NOTE]此頁面上的程序會在執行階段將 SDK 加入您的 Web 應用程式。如果您不想要更新或重建您的原始程式碼，這會非常好用。不過，如果可以的話，我們建議您改為[將 SDK 加入原始程式碼](app-insights-java-get-started.md)。這樣可以提供您更多選項，包括撰寫程式碼來追蹤使用者活動。
+> [AZURE.NOTE] 此頁面上的程序會在執行階段將 SDK 加入您的 Web 應用程式。如果您不想要更新或重建您的原始程式碼，這會非常好用。不過，如果可以的話，我們建議您改為[將 SDK 加入原始程式碼](app-insights-java-get-started.md)。這樣可以提供您更多選項，包括撰寫程式碼來追蹤使用者活動。
 
 ## 1\.取得 Application Insights 檢測金鑰
 
@@ -139,4 +139,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

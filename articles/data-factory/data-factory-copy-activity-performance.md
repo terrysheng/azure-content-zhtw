@@ -63,11 +63,11 @@
 3. **將組態擴充至您的整體資料**：如果您對執行結果及效能感到滿意，您可以將資料集定義和管線作用期間涵蓋至圖片中的整體資料。
 
 ## 效能參考
-> [AZURE.IMPORTANT]**免責聲明：**以下發佈的資料僅供指引和高階計劃之用。它假設頻寬、硬體、組態等要素皆處於最佳水準。這部分僅供參考之用。您所看到的資料移動輸送量會受到多個變數的影響。請參閱後續章節，以了解如何進行調整，並針對您的資料移動需求達到更理想的效能。這項資料會在新增效能改進功能時進行更新。
+> [AZURE.IMPORTANT] **免責聲明：**以下發佈的資料僅供指引和高階計劃之用。它假設頻寬、硬體、組態等要素皆處於最佳水準。這部分僅供參考之用。您所看到的資料移動輸送量會受到多個變數的影響。請參閱後續章節，以了解如何進行調整，並針對您的資料移動需求達到更理想的效能。這項資料會在新增效能改進功能時進行更新。
 
 ![效能矩陣](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [AZURE.NOTE]**即將推出：**我們正在改善基準效能特性，屆時您將在上表中看到更多且更理想的輸送量數據。
+> [AZURE.NOTE] **即將推出：**我們正在改善基準效能特性，屆時您將在上表中看到更多且更理想的輸送量數據。
 
 注意事項：
 
@@ -76,19 +76,19 @@
 - 如果使用 Microsoft Azure 資料存放區，來源和接收器會位於相同的 Azure 區域中。
 - 如果是混合式 (內部部署至雲端或雲端至內部部署) 資料移動，則會使用下列組態，將資料管理閘道器 (單一執行個體) 裝載在不同於內部部署資料存放區的電腦上。請注意，若閘道器上僅執行單一活動，複製作業將只會取用這部電腦一小部分的 CPU/記憶體資源和網路頻寬。
 	<table>
-<tr>
-	<td>CPU</td>
-	<td>32 核心 2.20GHz Intel Xeon® E5-2660 v2</td>
-</tr>
-<tr>
-	<td>記憶體</td>
-	<td>128 GB</td>
-</tr>
-<tr>
-	<td>網路</td>
-	<td>網際網路介面：10Gbps；內部網路介面：40Gbps</td>
-</tr>
-</table>
+	<tr>
+		<td>CPU</td>
+		<td>32 核心 2.20GHz Intel Xeon® E5-2660 v2</td>
+	</tr>
+	<tr>
+		<td>記憶體</td>
+		<td>128 GB</td>
+	</tr>
+	<tr>
+		<td>網路</td>
+		<td>網際網路介面：10Gbps；內部網路介面：40Gbps</td>
+	</tr>
+	</table>
 
 ## 來源的考量
 ### 一般
@@ -218,10 +218,10 @@
 以下是幾個支援的資料存放區所適用的一些效能監視及調整參考：
 
 - Azure 儲存體 (包括 Azure Blob 和 Azure 資料表)：[Azure 儲存體的擴充性目標](../storage/storage-scalability-targets.md)和 [Azure 儲存體效能和擴充性檢查清單](../storage//storage-performance-checklist.md)
-- Azure SQL Database：您可以[監視效能](../sql-database/sql-database-service-tiers.md#monitoring-performance)，並檢查資料庫輸送量單位 (DTU) 百分比。
+- Azure SQL Database：您可以[監視效能](../sql-database/sql-database-service-tiers.md#monitoring-performance)，並檢查資料庫交易單位 (DTU) 百分比。
 - Azure SQL 資料倉儲：其能力會以資料倉儲單位 (DWU) 來測量。請參閱 [SQL 資料倉儲的彈性效能和調整功能](../sql-data-warehouse/sql-data-warehouse-performance-scale.md)。
 - Azure DocumentDB：[DocumentDB 中的效能層級](../documentdb/documentdb-performance-levels.md)。
 - 內部部署 SQL Server：[效能的監視與微調](https://msdn.microsoft.com/library/ms189081.aspx)。
 - 內部部署檔案伺服器：[檔案伺服器的效能微調](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

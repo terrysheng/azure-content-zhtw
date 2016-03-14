@@ -12,7 +12,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="10/21/2015"
+  ms.date="02/20/2016"
   ms.author="robb" />
 
 # 在 Azure 儲存體中儲存和檢視診斷資料
@@ -52,13 +52,13 @@
 若為 SDK 2.4 和更舊版本，您可以透過組態檔以及程式設計方式要求傳輸診斷資料。程式設計的方式也可讓您進行隨選傳輸。
 
 
->[AZURE.IMPORTANT]當您將診斷資料傳輸至 Azure 儲存體帳戶時，您的診斷資料所用的儲存體資源就會發生成本。
+>[AZURE.IMPORTANT] 當您將診斷資料傳輸至 Azure 儲存體帳戶時，您的診斷資料所用的儲存體資源就會發生成本。
 
 ## 儲存診斷資料
 
 記錄檔資料會以下列名稱儲存在 Blob 或資料表儲存體中：
 
-**資料表** (英文)
+**資料表 (英文)**
 
 - **WadLogsTable** - 使用追蹤接聽程式在程式碼中寫入的記錄檔。
 
@@ -70,7 +70,7 @@
 
 - **WADWindowsEventLogsTable** – Windows 事件記錄檔。
 
-**Blobs** (英文)
+**Blobs (英文)**
 
 - **wad-control-container** – (僅適用於 SDK 2.4 和前一版) 包含可控制 Azure 診斷的 XML 組態檔。
 
@@ -83,14 +83,15 @@
 ## 用來檢視診斷資料的工具
 有數個工具可用來檢視傳輸至儲存體後的資料。例如：
 
-- **Visual Studio 中的伺服器總管** - 如果您已安裝 Azure Tools for Microsoft Visual Studio，您可以在伺服器總管中使用 Azure 儲存體節點，從您的 Azure 儲存體帳戶檢視唯讀的 Blob 和資料表資料。您可以從您的本機儲存體模擬器帳戶顯示資料，也可以從您為 Azure 建立的儲存體帳戶顯示資料。如需詳細資訊，請參閱[使用伺服器總管瀏覽儲存體資源](https://msdn.microsoft.com/library/ff683677.aspx)。
+- Visual Studio 中的伺服器總管 - 如果您已安裝 Azure Tools for Microsoft Visual Studio，您可以在伺服器總管中使用 Azure 儲存體節點，從您的 Azure 儲存體帳戶檢視唯讀的 Blob 和資料表資料。您可以從您的本機儲存體模擬器帳戶顯示資料，也可以從您為 Azure 建立的儲存體帳戶顯示資料。如需詳細資訊，請參閱[使用伺服器總管瀏覽和管理儲存體資源](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md)。
 
-- **Neudesic 所提供的 Azure 儲存體總管** - [Azure 儲存體總管](http://azurestorageexplorer.codeplex.com/)是一個實用的圖形化使用者介面工具，用於檢查及更改 Azure 儲存體專案中的資料 (包括 Azure 應用程式的記錄檔)。若要下載此工具，請參閱 [Azure 儲存體總管](http://azurestorageexplorer.codeplex.com/)。
+- [Neudesic 所提供的 Azure 儲存體總管](http://azurestorageexplorer.codeplex.com/)是一個實用的圖形化使用者介面工具，用於檢查及更改 Azure 儲存體專案中的資料 (包括 Azure 應用程式的記錄檔)。
 
-- Cerebrata 所提供的 Azure 診斷管理員 - [Azure 診斷管理員](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx)是用來管理 Azure 診斷的 Windows (WPF) 架構用戶端。它可讓您檢視、下載及管理在 Azure 中執行的應用程式所收集的診斷資料。若要下載此工具，請參閱 [Azure 診斷管理員](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx)。
+- [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) 包含 Azure 診斷管理員，可讓您檢視、下載及管理在 Azure 上執行的應用程式所收集的診斷資料。
+
 
 ## 後續步驟
 
 [使用 Azure 診斷追蹤雲端服務應用程式中的流程](cloud-services-dotnet-diagnostics-trace-flow.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

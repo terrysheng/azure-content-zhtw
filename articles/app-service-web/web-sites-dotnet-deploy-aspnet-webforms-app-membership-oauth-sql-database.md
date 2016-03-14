@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="tdykstra"/>
 
 
@@ -52,8 +52,9 @@
 2. 安裝 [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)。本教學課程需要 Visual Studio 2013，才能安裝 Azure SDK for Visual Studio 2013。視您的電腦上有多少 SDK 相依性而定，安裝 SDK 可能需要很長的時間 (從數分鐘到半小時以上不等)。  
 
 3. 如果系統提示您執行或儲存安裝可執行檔時，請按一下 [執行]。
-4. 在 [**Web Platform Installer**] 視窗中，按一下 [**安裝**] 並繼續進行安裝。
-![Web Platform Installer](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-01.png)  
+4. 在 [**Web Platform Installer**] 視窗中，按一下 [**安裝**] 並繼續進行安裝。  
+
+	![Web Platform Installer](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-01.png)  
 
       如果您已安裝 SDK，則待安裝的項目會為 0。[Web Platform Installer] 視窗的左下角會記錄待安裝的項目數。
 
@@ -74,11 +75,11 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 
 1. 在 [Azure 管理入口網站中](https://manage.windowsazure.com/)，按一下左側索引標籤的 [Web Apps]，再按一下 [新增]。
 	![Web Platform Installer](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-02.png)
-2. 按一下 [**Web 應用程式**]，再按一下 [**自訂建立**]。
-	![自訂建立](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-03.png) 
+2. 按一下 [**Web 應用程式**]，再按一下 [**自訂建立**]。  
+	![自訂建立](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-03.png)  
 	[**新 Web 應用程式 - 自訂建立**] 精靈隨即開啟。  
 
-3. 在精靈的 [**建立 Web 應用程式**] 步驟中，於 [**URL**] 方塊中輸入字串做為應用程式的唯一 URL。完整的 URL 將包含您在此處輸入的字串，加上您在文字方塊旁看到的尾碼。下圖顯示該 URL 可能已被佔用，因此**您必須選擇不同的 URL**。
+3. 在精靈的 [**建立 Web 應用程式**] 步驟中，於 [**URL**] 方塊中輸入字串做為應用程式的唯一 URL。完整的 URL 將包含您在此處輸入的字串，加上您在文字方塊旁看到的尾碼。下圖顯示該 URL 可能已被佔用，因此**您必須選擇不同的 URL**。  
 	![連絡人 - 建立新網站](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-04.png)
 4. 在 [Web 主控方案] 下拉式清單中，選擇最接近您位置的區域。此設定可指定 VM 將在哪個資料中心執行。
 5. 在 [資料庫] 下拉式清單中，選擇 [Create a free 20 MB SQL database]。
@@ -104,8 +105,8 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 
       此教學課程系列中的專案名稱為 **ContactManager**。建議您使用完全相同的專案名稱，以便整個教學課程系列中所提供的程式碼可如預期般運作。
 
-5. 在 [New ASP.NET Project] 對話方塊中，選取 [Web Forms] 範本。取消核取 [**雲端中的主機**] 核取方塊 (若已選取)，然後按一下 [**確定**]。
-	![[New ASP.NET Project] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms03.png) 
+5. 在 [New ASP.NET Project] 對話方塊中，選取 [Web Forms] 範本。取消核取 [**雲端中的主機**] 核取方塊 (若已選取)，然後按一下 [**確定**]。  
+	![[New ASP.NET Project] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms03.png)  
 	Web Forms 應用程式將隨即建立。
 
 ###更新主要頁面
@@ -221,8 +222,8 @@ Azure SQL Database 是以 SQL Server 技術為基礎來建置的雲端型關聯�
 
 2. 在 [**發佈 Web**] 對話方塊的 [**設定檔**] 索引標籤上，按一下 [**Azure Web 應用程式**]。
 	  
-3. 如果您尚未登入，請按一下 [**選取現有 Web 應用程式**] 對話方塊中的 [**登入**] 按鈕。完成登入後，請選取您在本教學課程第一個部分中所建立的 Web 應用程式。按一下 [確定] 以繼續。
-	![選取 [現有網站] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms07.png)
+3. 如果您尚未登入，請按一下 [**選取現有 Web 應用程式**] 對話方塊中的 [**登入**] 按鈕。完成登入後，請選取您在本教學課程第一個部分中所建立的 Web 應用程式。按一下 [確定] 以繼續。  
+	![選取 [現有網站] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms07.png)  
 Visual Studio 將會下載您的發佈設定。
 4. 在 [發行 Web] 對話方塊中，按一下 [發行]。  
 	![Publish Web dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms08.png)  
@@ -232,7 +233,7 @@ Visual Studio 將會下載您的發佈設定。
 您建立的應用程式現在正在雲端中執行。下次當您從 Visual Studio 部署應用程式時，只會部署變更的 (或新的) 檔案。  
 	![App in Browser](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms10.png)  
 
->[AZURE.NOTE] 
+>[AZURE.NOTE]
 如果您在發佈到已建立的 Web 應用程式時遇到錯誤，則您可以在加入新檔案之前先清除位置。  
 重新發佈您的應用程式，但在 [**發佈 Web**] 對話方塊中，請選取 [**設定**] 索引標籤。接著，設定 [偵錯] 的組態，並選取 [Remove additional files at destination] 選項。選取 [**發佈**] 以部署您的應用程式。  
 	![Publish Web dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms11.png)
@@ -277,21 +278,22 @@ Visual Studio 將會下載您的發佈設定。
 
 您可透過下列步驟來使用 Web Forms Scaffolder。
 
-1. 在 Visual Studio 中，從功能表列依序選取 [**工具**] -> [**擴充功能和更新**]。
+1. 在 Visual Studio 中，從功能表列依序選取 [**工具**] -> [**擴充功能和更新**]。  
 	[**擴充功能和更新**] 對話方塊隨即出現。
 2. 在此對話方塊的左窗格中，依序選取 [線上] -> [Visual Studio 組件庫] -> [工具] -> [Scaffolding]。
 3. 如果您在清單中看不到 'Web Forms Scaffolding'，請在對話方塊右側的搜尋方塊中輸入 'Web Forms Scaffolding'。  
-4. 如果未安裝 Web Forms Scaffolder，請選取 [下載] 以下載並安裝 Web Forms Scaffolding。如有需要，請重新啟動 Visual Studio。系統提出要求時，請務必將變更儲存至專案。
-![[擴充功能和更新] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/ExtensionsAndUpdatesDB.png)  
+4. 如果未安裝 Web Forms Scaffolder，請選取 [下載] 以下載並安裝 Web Forms Scaffolding。如有需要，請重新啟動 Visual Studio。系統提出要求時，請務必將變更儲存至專案。  
+	![[擴充功能和更新] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/ExtensionsAndUpdatesDB.png)  
 5. 建置專案 **(Ctrl+Shift+B)**。
-	使用樣板機制前必須先建置專案。 
-6. 在 [**方案總管**] 中，以滑鼠右鍵按一下 [*專案*]，然後依序選取 **[新增**] -> [**新增建構項目**]。
-[**新增 Scaffold**] 對話方塊隨即出現。
-7. 從左窗格中選取 [Web Forms]，並從中央窗格中選取 [Web Forms Pages using Entity Framework]。然後按一下 [新增]。
-	![[新增 Scaffold] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13a.png) 
+	使用樣板機制前必須先建置專案。  
+6. 在 [**方案總管**] 中，以滑鼠右鍵按一下 [*專案*]，然後依序選取 **[新增**] -> [**新增建構項目**]。  
+	[**新增 Scaffold**] 對話方塊隨即出現。
+7. 從左窗格中選取 [Web Forms]，並從中央窗格中選取 [Web Forms Pages using Entity Framework]。然後按一下 [新增]。  
+	![[新增 Scaffold] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13a.png)  
 	[**新增 Web Forms 頁面**] 對話方塊隨即出現。  
-8. 在 [**新增 Web Forms 頁面**] 對話方塊中，將 [**模型類別**] 設為 `Contacts (ContactManager.Models)`。將 [**資料內容類別**] 設為 `ApplicationDbContext (ContactManager.Models)`。然後按一下 [**新增**]。
-	![[新增 Web Forms 頁面] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13b.png)
+
+8. 在 [**新增 Web Forms 頁面**] 對話方塊中，將 [**模型類別**] 設為 `Contacts (ContactManager.Models)`。將 [**資料內容類別**] 設為 `ApplicationDbContext (ContactManager.Models)`。然後按一下 [**新增**]。 
+	![[新增 Web Forms 頁面] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13b.png)  
 
 Web Forms Scaffolder 便會新增一個包含 *Default.aspx*、*Delete.aspx*、*Edit.aspx* 和 *Insert.aspx* 頁面的資料夾。Web Forms Scaffolder 還會建立一個包含 *EntityTemplates* 資料夾和 *FieldTemplates* 資料夾的 *DynamicData* 資料夾。`ApplicationDbContext` 同時用於成員資格資料庫和連絡人資料。
 
@@ -379,14 +381,14 @@ Web Forms Scaffolder 便會新增一個包含 *Default.aspx*、*Delete.aspx*、*
 
 		update-database
 
-`update-database` 會執行第一次移轉，並建立資料庫。根據預設，資料庫會以 SQL Server Express LocalDB 資料庫的形式建立。
-	![封裝管理員主控台](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13d.png)
+`update-database` 會執行第一次移轉，並建立資料庫。根據預設，資料庫會以 SQL Server Express LocalDB 資料庫的形式建立。  
+	![封裝管理員主控台](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13d.png)  
 
 ###在本機執行應用程式並顯示資料 
 現在就執行應用程式，了解如何檢視連絡人。
 
 1. 首先，建置專案 (**Ctrl+Shift+B**)。  
-2. 按 **CTRL+F5** 執行應用程式。
+2. 按 **CTRL+F5** 執行應用程式。  
 	瀏覽器便會開啟並顯示 *Default.aspx* 頁面。
 3. 選取頁面頂端的 [**Contact Demo**] 連結，以顯示 [*連絡人清單*] 頁面。  
 	![[連絡人清單] 頁面](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms17.png)  
@@ -396,15 +398,15 @@ Web Forms Scaffolder 便會新增一個包含 *Default.aspx*、*Delete.aspx*、*
 
 1. 在 [方案總管] 中，按一下 [ContactManager] 專案，再按 **F4** 鍵以顯示 [屬性] 視窗。 
 2. 將 [**SSL 已啟用**] 變更為 `true`。 
-3. 複製 **SSL URL**，以便稍後使用。
-	除非您先前已建立 SSL Web 應用程式，否則 SSL URL 將是 `https://localhost:44300/` (如下所示)。
+3. 複製 **SSL URL**，以便稍後使用。  
+	除非您先前已建立 SSL Web 應用程式，否則 SSL URL 將是 `https://localhost:44300/` (如下所示)。  
 	![專案屬性](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms18.png)  
 4. 在 [方案總管] 中，以滑鼠右鍵按一下 [ContactManager] 專案，再按一下 [屬性]。
 5. 在左側索引標籤中按一下 [Web]。
-6. 將 [**專案 URL**] 變更為使用您先前儲存的 **SSL URL**。
+6. 將 [**專案 URL**] 變更為使用您先前儲存的 **SSL URL**。  
 	![專案 Web 屬性](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms19.png)  
 7. 按 **CTRL+S** 儲存頁面。
-8. 按 **CTRL+F5** 執行應用程式。
+8. 按 **CTRL+F5** 執行應用程式。  
 Visual Studio 將會顯示可避開 SSL 警告的選項。  
 9. 按一下 [**是**] 以信任 IIS Express SSL 憑證並繼續。  
 	![IIS Express SSL 憑證資訊](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms20.png)  
@@ -434,20 +436,20 @@ ASP.NET Web Forms 提供成員資格和驗證的增強功能選項。這些增�
 		    ClientSecret = ""
 		});
 
-3. 瀏覽至 [Google Developers Console](https://console.developers.google.com/)。您還需要使用您的 Google 開發人員電子郵件帳戶 (gmail.com) 登入。如果您沒有 Google 帳戶，請選取 [**建立帳戶**] 連結。
+3. 瀏覽至 [Google Developers Console](https://console.developers.google.com/)。您還需要使用您的 Google 開發人員電子郵件帳戶 (gmail.com) 登入。如果您沒有 Google 帳戶，請選取 [**建立帳戶**] 連結。  
 	接下來，您會看到 [**Google 開發人員主控台**]。
 	![Google 開發人員主控台](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21a.png)  
 
 4. 按一下 [**選取專案**] > [**建立專案**]，並輸入專案名稱和識別碼 (您可以使用預設值)。然後依序按一下 [**協議核取方塊**] 和 [**建立**] 按鈕。
-	![Google - 新增專案](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21b.png) 
+	![Google - 新增專案](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21b.png)  
 	幾秒鐘內即可建立新的專案，您的瀏覽器便會顯示新的專案頁面。
 5. 在 **Google 開發人員主控台**下拉式選單中，按一下 [**API 管理員**]，然後按一下 [**認證**]。
-6. 按一下 **OAuth** 下的 [**建立新的用戶端識別碼**]。
+6. 按一下 **OAuth** 下的 [**建立新的用戶端識別碼**]。  
 	[**建立用戶端識別碼**] 對話方塊隨即出現。
 	![Google - 建立用戶端識別碼](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21c.png)  
 7. 在 [**建立新的用戶端識別碼**] 對話方塊中，保留應用程式類型中預設的 [**Web 應用程式**]。  
-8. 將 [**授權 JavaScript 來源**] 設定為您稍早在本教學課程中使用的 SSL URL (**除非您已建立其他 SSL 專案，否則會是 **https://localhost:44300/** )。
-	此 URL 會是應用程式的原始來源。在此範例中，您將僅輸入 localhost 測試 URL。不過，您可以在帳戶中輸入多個 URL 以供 localhost 和生產使用。
+8. 將 [**授權 JavaScript 來源**] 設定為您稍早在本教學課程中使用的 SSL URL (**除非您已建立其他 SSL 專案，否則會是 https://localhost:44300/** )。  
+	此 URL 會是應用程式的原始來源。在此範例中，您將僅輸入 localhost 測試 URL。不過，您可以在帳戶中輸入多個 URL 以供 localhost 和生產使用。  
 
 9. 將 [Authorized Redirect URI] 設定如下：
 
@@ -695,9 +697,9 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 
 ###發行應用程式 
 1. 在 Visual Studio 中，建置專案 (**Ctrl+Shift+B**)。
-2. 在 [方案總管] 中以滑鼠右鍵按一下專案，再選取 [發行]。
-	![發佈功能表選項](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22.png) 
-	[**發佈 Web**] 對話方塊隨即出現。
+2. 在 [方案總管] 中以滑鼠右鍵按一下專案，再選取 [發行]。  
+	![發佈功能表選項](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22.png)  
+	[**發佈 Web**] 對話方塊隨即出現。  
 	![Publish Web dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22a.png)  
 3. 在 [**設定檔**] 索引標籤中，選取 [**Azure App Service**] 做為發佈目標 (如果尚未選取)。
 	![Publish Web dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms23.png)  
@@ -717,7 +719,7 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 若在建立發佈設定檔後關閉再重新開啟 Visual Studio，可能無法在下拉式清單中看到連接字串。在此情況下，請不要編輯稍早建立的發行設定檔，而是依照稍早的方式建立一個新設定檔，然後在 [設定] 索引標籤上執行這些步驟)。
 
 ###在 Azure 中檢閱應用程式 
-1. 在瀏覽器中，按一下 [**Contact Demo**] 連結。
+1. 在瀏覽器中，按一下 [**Contact Demo**] 連結。  
 	[連絡人清單] 便會隨即顯示。
 	![瀏覽器中列出的連絡人](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms27.png)  
 
@@ -752,13 +754,13 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 
 ###檢查 SQL Azure DB 
 1. 在 Visual Studio 中，開啟 [伺服器總管] 並瀏覽至 [ContactDB]。
-2. 在 [**ContactDB**] 上按一下滑鼠右鍵，再選取 [**在 SQL Server 物件總管中開啟**]。
+2. 在 [**ContactDB**] 上按一下滑鼠右鍵，再選取 [**在 SQL Server 物件總管中開啟**]。  
 	![在 [SQL Server 物件總管] 功能表項目中開啟](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms32.png)  
-3. 如果 [Add Firewall Rule] 對話方塊隨即顯示，請選取 [Add Firewall Rule]。
+3. 如果 [Add Firewall Rule] 對話方塊隨即顯示，請選取 [Add Firewall Rule]。  
 	若您無法展開 [**SQL Database**]，並且在 Visual Studio 中看不到 [**ContactDB**]，您可以依照指示開放一個防火牆連接埠或某個範圍的連接埠。若要這樣做，請在 **MVC 教學課程**快結束時，依照 [Set up Azure firewall rules][](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) 下的指示執行。作為替代的方法，您也可以透過將資料建置、執行及新增至本機的應用程式，以檢閱本機資料庫的資料 (在 Visual Studio 中按 **CTRL+F5**)。  
 
-4. 如果 [連線到伺服器] 對話方塊隨即顯示，請輸入您在本教學課程一開始時建立的 [密碼]，然後按 [連線] 按鈕。
-	如果不記得密碼，您可以在本機專案檔案中找到此資訊。在 [方案總管] 中，展開 *Properties* 資料夾，然後展開 *PublishProfiles* 資料夾。開啟 *contactmanager.pubxml* 檔案 (您的檔案可能有不同的名稱)。搜尋檔案以找出您的發行密碼。
+4. 如果 [連線到伺服器] 對話方塊隨即顯示，請輸入您在本教學課程一開始時建立的 [密碼]，然後按 [連線] 按鈕。  
+      如果不記得密碼，您可以在本機專案檔案中找到此資訊。在 [方案總管] 中，展開 *Properties* 資料夾，然後展開 *PublishProfiles* 資料夾。開啟 *contactmanager.pubxml* 檔案 (您的檔案可能有不同的名稱)。搜尋檔案以找出您的發行密碼。
 
 5. 展開 [contactDB] 資料庫，然後展開 [資料表]。
 6. 以滑鼠右鍵按一下 **dbo.AspNetUsers** 資料表，然後選取 [**檢視資料**]。  
@@ -788,4 +790,4 @@ ASP.NET 身分識別是成員資格系統，可用於建置 ASP.NET Web 應用�
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

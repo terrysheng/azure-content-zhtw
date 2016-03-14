@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2015"
+	ms.date="02/16/2016"
 	ms.author="nitinme"/>
 
 # 使用指令碼動作自訂 Windows 型 HDInsight 叢集
@@ -62,16 +62,18 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "使用指令碼動作以自訂叢集")
 
 	<table border='1'>
-	<tr><th>屬性</th><th>值</th></tr>
-	<tr><td>名稱</td>
-		<td>指定指令碼動作的名稱。</td></tr>
-	<tr><td>指令碼 URI</td>
-		<td>對自訂叢集所叫用的指令碼指定 URI。</td></tr>
-	<tr><td>Head/Worker</td>
-		<td>指定執行自訂指令碼的節點 (**Head** 或 **Worker**)。</b>
-	<tr><td>參數</td>
-		<td>如果指令碼要求，請指定參數。</td></tr>
-</table>請按 ENTER 加入一個以上的指令碼動作，以在叢集上安裝多個元件。
+		<tr><th>屬性</th><th>值</th></tr>
+		<tr><td>名稱</td>
+			<td>指定指令碼動作的名稱。</td></tr>
+		<tr><td>指令碼 URI</td>
+			<td>對自訂叢集所叫用的指令碼指定 URI。</td></tr>
+		<tr><td>Head/Worker</td>
+			<td>指定執行自訂指令碼的節點 (**Head** 或 **Worker**)。</b>
+		<tr><td>參數</td>
+			<td>如果指令碼要求，請指定參數。</td></tr>
+	</table>
+
+	請按 ENTER 加入一個以上的指令碼動作，以在叢集上安裝多個元件。
 
 3. 按一下 [**選取**] 以儲存指令碼動作組態，並繼續建立叢集。
 
@@ -175,6 +177,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 		Install-Package Microsoft.Azure.Common.Authentication -Pre
+		Install-Package Microsoft.Azure.Management.Resources -Pre
 
 2. 在 Program.cs 檔案中使用下列 using 陳述式：
 
@@ -187,6 +190,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
+		using Microsoft.Azure.Management.Resources;
 
 3. 使用下列命令將程式碼放置在類別中：
 
@@ -212,6 +216,9 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
             var tokenCreds = GetTokenCloudCredentials();
             var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+            
+            var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
+            resourceManagementClient.Providers.Register("Microsoft.HDInsight");
 
             _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
@@ -316,4 +323,4 @@ HDInsight 服務提供數種方式以使用自訂元件。無論元件如何使�
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "叢集建立期間的階段"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/04/2016"
+   ms.date="02/29/2016"
    ms.author="nitinme"/>
 
 # 使用 .NET SDK 開始使用 Azure 資料湖存放區
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
+- [使用入口網站](data-lake-store-get-started-portal.md)
+- [使用 PowerShell](data-lake-store-get-started-powershell.md)
+- [使用 .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [使用 Azure CLI](data-lake-store-get-started-cli.md)
+- [使用 Node.js](data-lake-store-manage-use-nodejs.md)
 
 了解如何使用 Azure 資料湖存放區 .NET SDK 以建立 Azure 資料湖帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需有關資料湖的詳細資訊，請參閱 [Azure 資料湖存放區](data-lake-store-overview.md)。
 
@@ -32,6 +32,21 @@
 * Visual Studio 2013 或 2015。以下指示使用 Visual Studio 2015。
 * **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * **啟用您的 Azure 訂用帳戶**以使用資料湖存放區公開預覽版。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
+* 建立 Azure Active Directory (AAD) 應用程式，並擷取其**用戶端識別碼**和**回覆 URI**。如需了解 AAD 應用程式，以及如何取得用戶端識別碼的指示，請參閱《[使用入口網站建立 Active Directory 應用程式和服務主體](../resource-group-create-service-principal-portal.md)》。建立應用程式後，也可從入口網站取得回覆 URI。
+
+## 如何使用 Azure Active Directory 驗證？
+
+下列程式碼片段提供兩種驗證方法：
+
+* **互動式**，使用者透過應用程式登入。這在下列程式碼片段的方法 `AuthenticateUser` 中實作。
+
+* **非互動式**，應用程式自行提供認證。這在下列程式碼片段的方法 `AuthenticateAppliaction` 中實作。
+
+下列程式碼片段雖是提供這兩種方法，但本文是使用 `AuthenticateUser` 方法。這個方法會要求您提供 AAD 應用程式用戶端識別碼和回覆 URI。必要條件中的連結提供如何加以取得的指示。
+
+>[AZURE.NOTE] 如果您想要修改的程式碼片段，並使用 `AuthenticateApplication` 方法，您除了提供用戶端識別碼和用戶端回覆 URI，也必須提供用戶端驗證金鑰，作為方法輸入。《[使用入口網站建立 Active Directory 應用程式和服務主體](../resource-group-create-service-principal-portal.md)》一文也會說明如何產生及擷取用戶端驗證金鑰。
+
+
 
 ## 建立 .NET 應用程式
 
@@ -55,15 +70,19 @@
 	2. 在 [Nuget 封裝管理員] 索引標籤中，請確定 [封裝來源] 設為 [nuget.org]，且已選取 [包含發行前版本] 核取方塊。
 	3. 搜尋並安裝下列資料湖存放區封裝：
 	
-		* Microsoft.Azure.Management.DataLake.Store
-		* Microsoft.Azure.Management.DataLake.StoreUploader
-        * Microsoft.IdentityModel.Clients.ActiveDirectory
+		* `Microsoft.Azure.Management.DataLake.Store`
+		* `Microsoft.Azure.Management.DataLake.StoreUploader`
 
 		![新增 Nuget 來源](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "建立新的 Azure 資料湖帳戶")
 
-	4. 關閉 [**Nuget 封裝管理員**]。
+	4. 亦請安裝 Azure Active Directory 驗證的 `Microsoft.IdentityModel.Clients.ActiveDirectory` 封裝。
 
-7. 開啟 [**Program.cs**]，並以下列程式碼取代現有的程式碼區塊。此外，請為程式碼片段中的參數 (例如 subscriptionId、dataLakeAccountName 和 localPath) 提供值。
+		![新增 Nuget 來源](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "建立新的 Azure 資料湖帳戶")
+
+
+	5. 關閉 [**Nuget 封裝管理員**]。
+
+7. 開啟 [**Program.cs**]，並以下列程式碼取代現有的程式碼區塊。此外，請提供程式碼片段中呼叫的參數值，例如 **\_adlsAccountName**、**\_resourceGroupName**，並取代 **APPLICATION-CLIENT-ID**、**APPLICATION-REPLY-URI** 和 **SUBSCRIPTION-ID** 等預留位置。
 
 	這個程式碼會進行以下程序：建立資料湖存放區帳戶、在存放區中建立資料夾，最後會刪除帳戶。如果您正在尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)取得 **Ambulance Data** 資料夾。
 	
@@ -103,10 +122,8 @@
                     string remoteFilePath = remoteFolderPath + "file.txt";
                     
                     // Authenticate the user
-                    // For more information about applications and instructions on how to get a client ID, see: 
-                    //   https://azure.microsoft.com/zh-TW/documentation/articles/resource-group-create-service-principal-portal/
                     var tokenCreds = AuthenticateUser("common", "https://management.core.windows.net/",
-                        "<APPLICATION-CLIENT-ID>", new Uri("https://<APPLICATION-REDIRECT-URI>")); // TODO: Replace bracketed values.
+                        "<APPLICATION-CLIENT-ID>", new Uri("https://<APPLICATION-REPLY-URI>")); // TODO: Replace bracketed values.
                     
                     SetupClients(tokenCreds, "<SUBSCRIPTION-ID>"); // TODO: Replace bracketed value.
 
@@ -300,7 +317,7 @@
 ## 後續步驟
 
 - [保護資料湖存放區中的資料](data-lake-store-secure-data.md)
-- [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
+- [搭配資料湖存放區使用 Azure 資料湖分析](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

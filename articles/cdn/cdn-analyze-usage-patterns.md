@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="分析 CDN 使用模式" 
-	description="您可以使用下列報告檢視 CDN 的使用模式：頻寬、傳輸的資料、點擊、快取狀態、快取點擊率、已傳輸的 IPV4/IPV6 資料。" 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="分析 CDN 使用模式"
+	description="您可以使用下列報告檢視 CDN 的使用模式：頻寬、傳輸的資料、點擊、快取狀態、快取點擊率、已傳輸的 IPV4/IPV6 資料。"
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
-# 分析 CDN 使用模式 
+# 分析 CDN 使用模式
 
 您可以使用下列報告檢視 CDN 的使用模式：
 
@@ -25,7 +25,7 @@
 - 點擊
 - 快取狀態
 - 快取點擊率
-- 已轉送的 IPV4/IPV6 資料 
+- 已轉送的 IPV4/IPV6 資料
 
 ## 頻寬
 
@@ -33,8 +33,8 @@
 
 - 選取所有邊緣節點，從所有節點查看流量，或從下拉式清單選擇特定的區域/節點。
 - 選取日期範圍來檢視今天/本週/本月份等資料，或輸入自訂日期，然後按一下 [執行] 來確定已更新您的選擇。
-- 您可以藉由按一下 [執行] 旁的 excel 工作表圖示以匯出和下載資料。 
- 
+- 您可以藉由按一下 [執行] 旁的 excel 工作表圖示以匯出和下載資料。
+
 報告每 5 分鐘更新一次。
 
 ![頻寬報告](./media/cdn-reports/cdn-bandwidth.png)
@@ -46,7 +46,7 @@
 - 選取所有邊緣節點，從所有注意事項查看流量，或從下拉式清單選擇特定的區域/節點。
 - 選取日期範圍來檢視今天/本週/本月份等資料，或輸入自訂日期，然後按一下 [執行] 來確定已更新您的選擇。
 - 您可以藉由按一下 [執行] 旁的 excel 工作表圖示以匯出和下載資料。
- 
+
 報告每 5 分鐘更新一次。
 
 ![傳輸的資料報告](./media/cdn-reports/cdn-data-transferred.png)
@@ -54,7 +54,7 @@
 ## 點擊 (狀態碼)
 
 這份報告描述內容之要求狀態碼的分佈。內容的每個要求都會產生 HTTP 狀態碼。狀態碼描述邊緣 POP 如何處理要求。例如，2xx 狀態碼指出已成功向用戶端提出要求，而 4xx 狀態碼指出發生錯誤。如需 HTTP 狀態碼的詳細資料，請參閱[狀態碼](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)。
- 
+
 - 選取日期範圍來檢視今天/本週/本月份等資料，或輸入自訂日期，然後按一下 [執行] 來確定已更新您的選擇。
 - 您可以藉由按一下 [執行] 旁的 excel 工作表以匯出和下載資料。
 
@@ -66,10 +66,10 @@
 
 ![快取狀態報告](./media/cdn-reports/cdn-cache-statuses.png)
 
-### 主要的快取狀態包括： 
+### 主要的快取狀態包括：
 
 - TCP\_HIT：從邊緣提供。此物件在快取中且不超過其 max-age。
-- TCP\_MISS：從來源提供。此物件不在快取中，但回應會回到來源。 
+- TCP\_MISS：從來源提供。此物件不在快取中，但回應會回到來源。
 - TCP\_EXPIRED \_MISS：利用來源重新驗證之後從來源提供。此物件在快取中但超過其 max-age。利用來源進行重新驗證會導致來自來源的新回應取代快取物件。
 - TCP\_EXPIRED \_HIT：利用來源重新驗證之後從邊緣提供。此物件在快取中但超過其 max-age。利用原始伺服器進行重新驗證會導致未經修改的快取物件。
 
@@ -112,12 +112,12 @@
 
 - 要求的內容是在最接近要求者的 POP 上加以快取。
 - 直接從網路邊緣處理要求。
-- 要求不需要利用原始伺服器重新驗證。 
+- 要求不需要利用原始伺服器重新驗證。
 
 報告不包含：
 
 - 因為國家 (地區) 篩選選項而拒絕的要求。
-- 資產的要求，其標頭指出他們不應該快取。例如，Cache-Control: private、Cache-Control: no-cache 或 Pragma: no-cache 等標頭會防止資產被快取。 
+- 資產的要求，其標頭指出他們不應該快取。例如，Cache-Control: private、Cache-Control: no-cache 或 Pragma: no-cache 等標頭會防止資產被快取。
 - 部分快取內容的位元組範圍要求。
 
 公式為：(TCP\_ HIT/(TCP\_ HIT+TCP\_MISS))*100
@@ -128,7 +128,7 @@
 
 ![快取點擊率報告](./media/cdn-reports/cdn-cache-hit-ratio.png)
 
-## 已轉送的 IPV4/IPV6 資料 
+## 已轉送的 IPV4/IPV6 資料
 
 此報告會顯示在 IPV4 與 IPV6 中流量使用量的分佈。
 
@@ -142,4 +142,4 @@
 
 報告只會產生於過去 18 個月內。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

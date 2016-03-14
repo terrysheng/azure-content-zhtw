@@ -1,47 +1,48 @@
-<properties 
-	pageTitle="設定期間使用 Azure AD 設定新裝置 | Microsoft Azure" 
-	description="此主題說明使用者如何在初次執行體驗期間設定 Azure AD Join。" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="stevenpo" 
+<properties
+	pageTitle="設定期間使用 Azure AD 設定新裝置 | Microsoft Azure"
+	description="此主題說明使用者如何在初次執行體驗期間設定 Azure AD Join。"
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="stevenpo"
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/26/2016"
 	ms.author="femila"/>
 
 # 設定期間使用 Azure AD 設定新裝置
 
-在 Windows 10 中，使用者可以在初次執行體驗 (FRX) 中將其裝置加入至 Azure AD。這可讓組織將包含拆封授權的裝置散發給他們的員工或學生，或讓他們選擇自己的裝置 (CYOD)。如果您安裝 Windows 10 的 Professional 或 Enterprise SKU，體驗會預設為公司擁有裝置的安裝。
+在 Windows 10 中，使用者可以在初次執行體驗 (FRX) 時，把自己的裝置新增到 Azure Active Directory (Azure AD) 中。這讓組織可以把包含拆封授權的裝置發給自己的員工或學生，或是讓他們選擇自己的裝置 (CYOD)。如果裝置安裝了 Windows 10 專業版或 Windows 10 企業版，體驗則預設為公司所擁有裝置的安裝程序。
 
-將裝置加入至 Azure AD
------------------------------------------------------------------------
+## 將裝置加入至 Azure AD
 
-1. 在**準備就緒**階段之後，您將會看到安裝精靈。
-2. 透過自訂其區域和語言，並接受 EULA 並連線網路來啟動。
-<center> ![](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png) </center>
-3. 選取要連線至網際網路的網路。
-4. 選取適用於個人裝置或公司擁有裝置的選項：
-5. 按一下 [**這個裝置屬於我的組織**]。如此會啟動 Azure AD Join 體驗。以下是您會在 Windows 10 Professional SKU 中看到的畫面。 
-<center> ![](./media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png) </center>
 
-6.	輸入組織提供給您的認證。
-<center> ![](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png) </center>
-7.	一旦您輸入您的使用者名稱，相符的租用戶會位於 Azure AD。如果您位於同盟網域，系統會將您重新導向至內部部署安全權杖服務 (STS) 伺服器 (例如 AD FS)。如果您是位於非同盟網域中的使用者，您必須直接在 Azure AD 主控的頁面上輸入您的認證。您也會看到組織的標誌，且如果已設定 [公司商標] 則支援顯示文字。
-8.	接著系統會提示您 Multi-Factor Authentication 挑戰。這可由 IT 人員進行設定。
-9.	接著 Azure AD 會檢查這個使用者/裝置是否需要行動裝置管理 (MDM) 註冊。 
-10.	接著 Windows 會在 Azure AD 的組織目錄中登錄裝置並在 MDM 中進行註冊。
-11.	完成此動作後，如果您是受管理的使用者，Windows 會總結安裝程序並透過自動登入來引導使用者。
-12.	如果您是同盟的使用者，您將會進入 Windows 登入畫面且必須輸入您的認證才能登入。
+1. 當您開啟新裝置，並啟動安裝程序時，您應該會看到 [正在準備] 的訊息。請依照提示來設定您的裝置。
+2. 首先，自訂您的地區及語言，然後接受 Microsoft 軟體授權條款。![自訂您的地區](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
+3. 選取您要用來連線到網際網路的網路。
+4. 選取您是使用自己的裝置，還是公司擁有的裝置。如果是公司擁有的，請按一下 [此裝置屬於我的組織]。如此會啟動 Azure AD Join 體驗。如果您使用的是 Windows 10 專業版，就會看到以下畫面。
+<center>
+![[誰是這部電腦的擁有者] 畫面](./media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png)
 
-> [AZURE.NOTE]不支援在 Windows 全新體驗中加入內部部署 Active Directory 網域。因此，如果您打算將電腦加入網域，您應該選取連結「改為使用本機帳戶設定 Windows」。接著您可以從 [電腦設定] 加入網域，如同之前已完成的步驟。
+5.	輸入組織提供給您的認證。
+<center>
+![登入畫面](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png)
+6.	當您輸入使用者名稱之後，系統就會在 Azure AD 中找到相符的租用戶。如果您位於同盟網域，系統會將您重新導向至內部部署安全性權杖服務 (STS) 伺服器，例如 Active Directory Federation Services (AD FS)。
+7. 如果您是非同盟網域的使用者，請直接在裝載 Azure AD 的頁面上輸入您的認證。如果您的組織之前已設定公司商標，此時您也會看到組織的標誌及支援文字。
+8.	系統會提示您進行 Multi-Factor Authentication 查問。IT 系統管理員可以設定這項查問。
+9.	Azure AD 會查看該使用者/裝置是否需要在行動裝置管理 (MDM) 中註冊。
+10.	接著 Windows 會在 Azure AD 的組織目錄中註冊裝置，並註冊行動裝置管理 (如果適用)。
+11.	如果您是受管理的使用者，Windows 會透過自動登入程序帶您前往桌面。
+12.	如果您是同盟使用者，系統會將您導向至 Windows 登入畫面來輸入認證。
+
+> [AZURE.NOTE] 我們在 Windows 全新體驗中，不支援加入內部部署 Windows Server Active Directory 網域的功能。因此，如果您打算要讓電腦加入網域，應該要改為選取 [使用本機帳戶設定 Windows] 連結。然後，您就可以從自己電腦上的設定來加入網域，就跟您之前所做的一樣。
 
 ## 其他資訊
 * [適合企業使用的 Windows 10：使用裝置工作的方式](active-directory-azureadjoin-windows10-devices-overview.md)
@@ -51,4 +52,4 @@
 * [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 #如何在 Android 上使用 Engagement API
@@ -40,7 +40,7 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 ##報告活動
 
-> [AZURE.IMPORTANT]如果您依照＜如何在 Android 上整合 Engagement＞文件所述使用 `EngagementActivity` 類別與變體，您就不需要報告本節所述的各項活動。
+> [AZURE.IMPORTANT] 如果您依照＜如何在 Android 上整合 Engagement＞文件所述使用 `EngagementActivity` 類別與變體，您就不需要報告本節所述的各項活動。
 
 ### 使用者啟動新的活動
 
@@ -233,9 +233,9 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 
 此資料可以結構化，它會使用 Android 的組合類別 (事實上，它的運作方式如同在 Android Intents 的額外參數)。請注意，組合可以包含陣列或另一個組合執行個體。
 
-> [AZURE.IMPORTANT]如果您放入 parcelable 或 serializable 參數，請確定已實作其 `toString()` 方法，以傳回使用者可閱讀的字串。包含無法序列化之非暫時性欄位的 serializable 類別，會使 Android 在您呼叫 `bundle.putSerializable("key",value);` 時當機
+> [AZURE.IMPORTANT] 如果您放入 parcelable 或 serializable 參數，請確定已實作其 `toString()` 方法，以傳回使用者可閱讀的字串。包含無法序列化之非暫時性欄位的 serializable 類別，會使 Android 在您呼叫 `bundle.putSerializable("key",value);` 時當機
 
-> [AZURE.WARNING]不支援額外參數中的疏鬆陣列，也就是它不會序列化為陣列。您應該將它們轉換成標準的陣列，然後才用於額外的參數。
+> [AZURE.WARNING] 不支援額外參數中的疏鬆陣列，也就是它不會序列化為陣列。您應該將它們轉換成標準的陣列，然後才用於額外的參數。
 
 ### 範例
 
@@ -298,4 +298,4 @@ Engagement API 是由 `EngagementAgent` 類別提供。此類別的執行個體�
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

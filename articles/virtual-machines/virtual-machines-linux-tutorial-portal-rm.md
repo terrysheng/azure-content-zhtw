@@ -20,10 +20,10 @@
 # 使用 Azure 入口網站建立執行 Linux 的虛擬機器
 
 > [AZURE.SELECTOR]
-- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [入口網站 - Windows](virtual-machines-windows-tutorial.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [PowerShell - 範本](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [入口網站 - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [CLI](virtual-machines-linux-tutorial.md)
 
 <br>
@@ -33,7 +33,8 @@
 
 建立執行 Linux 的 Azure 虛擬機器 (VM) 很簡單。本教學課程示範如何使用 Azure 入口網站來快速建立虛擬機器，以及如何使用`~/.ssh/id_rsa.pub`公開金鑰檔確保連接到 VM 之 **SSH** 的安全性。您也可以使用[自己的映像作為範本來建立 Linux VM](virtual-machines-linux-create-upload-vhd.md)。
 
-> [AZURE.NOTE]本教學課程會建立受 Azure 資源群組 API 管理的 Azure 虛擬機器。如需詳細資訊，請參閱《[Azure 資源群組概觀](resource-group-overview.md)》。
+> [AZURE.NOTE] 本教學課程會建立受 Azure 資源群組 API 管理的 Azure 虛擬機器。如需詳細資訊，請參閱《[Azure 資源群組概觀](../resource-group-overview.md)》。
+
 </br>
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
@@ -48,7 +49,7 @@
 
 	![選擇 VM 映像](media/virtual-machines-linux-tutorial-portal-rm/chooseubuntuvm.png)
 
-	> [AZURE.TIP]若要尋找其他映像，請按一下 [Marketplace]，然後搜尋或篩選可用的項目。
+	> [AZURE.TIP] 若要尋找其他映像，請按一下 [Marketplace]，然後搜尋或篩選可用的項目。
 
 3. 在 [Ubuntu Server 14.04 LTS] 頁面底部，選取 [使用資源管理員堆疊] 在 [Azure 資源管理員] 中建立 VM。請注意，對於多數新的工作負載，我們建議使用 [資源管理員] 堆疊。如需了解注意事項，請參閱 [Azure 資源管理員下的 Azure 計算、網路及儲存體提供者](virtual-machines-azurerm-versus-azuresm.md)。
 
@@ -64,11 +65,11 @@
 
 	![](media/virtual-machines-linux-tutorial-portal-rm/step-1-thebasics.png)
 
-	> [AZURE.NOTE]如果您不想使用公用和私人金鑰交換來保護您的 **ssh** 工作階段，也可在此選擇使用者名稱/密碼驗證，並輸入該資訊。
+	> [AZURE.NOTE] 如果您不想使用公用和私人金鑰交換來保護您的 **ssh** 工作階段，也可在此選擇使用者名稱/密碼驗證，並輸入該資訊。
 
 2. 按一下 [大小]，然後依據您的需求選取適當的 VM 大小。每個大小會指定計算核心、記憶體和其他功能的數目，例如支援將會影響價格的進階儲存體。Azure 會自動根據您選擇的映像來建議特定大小。完成時，請按一下 ![選取按鈕](media/virtual-machines-linux-tutorial-portal-rm/selectbutton-size.png)。
 
-	>[AZURE.NOTE]進階儲存體可供某些區域的 DS 系列虛擬機器使用。進階儲存體對於如資料庫這類資料密集的工作負載是最佳的儲存體選項。如需詳細資訊，請參閱[高階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
+	>[AZURE.NOTE] 進階儲存體可供某些區域的 DS 系列虛擬機器使用。進階儲存體對於如資料庫這類資料密集的工作負載是最佳的儲存體選項。如需詳細資訊，請參閱[高階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../storage/storage-premium-storage.md)。
 
 3. 按一下 [設定]，以查看新 VM 的儲存體和網路設定。對於第一個 VM，通常您可以接受預設的設定。如有選取支援的 VM 大小，可以選取 [磁碟類型] 下的 [進階 (SSD)] 試用進階儲存體。完成時，按一下 ![[確定] 按鈕](media/virtual-machines-linux-tutorial-portal-rm/okbutton.png)。
 
@@ -80,7 +81,7 @@
 
 8. 當 Azure 建立 VM 時，您可以在 [中樞] 功能表的 [通知] 中追蹤進度。Azure 建立 VM 之後，除非您在 [建立虛擬機器] 刀鋒視窗中清除 [釘選到「開始面板」]，否則您將會在「開始面板」上看到 VM。
 
-	> [AZURE.NOTE]請注意，摘要不包含使用服務管理計算堆疊在雲端服務內建立 VM 時的公開 DNS 名稱。
+	> [AZURE.NOTE] 請注意，摘要不包含使用服務管理計算堆疊在雲端服務內建立 VM 時的公開 DNS 名稱。
 
 ## 使用 **ssh** 連線到 Azure Linux VM
 
@@ -123,7 +124,7 @@
 	ops@ubuntuvm:~$
 
 
-> [AZURE.NOTE]您也可以在入口網站中設定虛擬機器的完整網域名稱 (FQDN)。深入了解如何[在入口網站中建立 FQDN](virtual-machines-create-fqdn-on-portal.md)。
+> [AZURE.NOTE] 您也可以在入口網站中設定虛擬機器的完整網域名稱 (FQDN)。深入了解如何[在入口網站中建立 FQDN](virtual-machines-create-fqdn-on-portal.md)。
 
 ## 後續步驟
 
@@ -137,4 +138,4 @@
 
 - [Azure 上 Linux 的 Docker 虛擬機器擴充程式](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

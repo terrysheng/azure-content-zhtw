@@ -103,7 +103,7 @@
 
 ## 驗證您的自訂網域是否已和您的內部部署目錄同盟
 
-1.  下載並執行 Azure AD Connect。Azure AD Connect 工具將[提示您新增提供給您的 DNS 項目](active-directory-aadconnect-get-started-custom.md#select-the-azure-ad-domain-that-you-wish-to-federate)。
+1.  下載並執行 Azure AD Connect。Azure AD Connect 工具將[提示您新增提供給您的 DNS 項目](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation)。
 
 ## 第三層網域名稱
 
@@ -125,4 +125,4 @@
 - [變更您的自訂網域名稱的 DNS 註冊機構](active-directory-add-domain-change-registrar.md)
 - [刪除 Azure Active Directory 中的自訂網域](active-directory-add-domain-delete-domain.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

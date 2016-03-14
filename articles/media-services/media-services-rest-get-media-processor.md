@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="03/01/2016"  
 	ms.author="juliako"/>
 
 
@@ -32,14 +32,14 @@
 
 媒體處理器名稱|說明|相關資訊
 ---|---|---
-Azure Media Encoder|讓您使用 Azure Media Encoder 執行編碼工作。|[Azure Media Encoder](media-services-encode-asset.md#azure_media_encoder)
-Media Encoder Standard|可讓您使用 Media Encoder Standard 執行編碼工作。|[Azure Media Encoder](media-services-encode-asset.md#media_encoder_standard)
-Media Encoder Premium Workflow|可讓您使用 Media Encoder Premium Workflow 執行編碼工作。|[Media Encoder Premium Workflow](media-services-encode-asset.md#media_encoder_premium_wokrflow)
-Azure Media Indexer| 可讓您的媒體檔案和內容可供搜尋，以及產生隱藏式輔助字幕和關鍵字。|[使用 Azure 媒體索引器編製媒體檔案的索引](media-services-index-content.md)。
-Azure Media Hyperlapse (預覽)|可讓您使用影片穩定讓影片中的「巔簸」變得平滑。也可讓您將內容加速至可使用的片段。|		[Azure Media Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
-Storage Decryption| 可讓您對使用儲存體加密功能加密的媒體資產進行解密。|N/A
-Azure Media Packager|可讓您將媒體資產從 .mp4 轉換為 Smooth Streaming 格式。此外，也可讓您將媒體資產從 Smooth Streaming 轉換為 Apple HTTP Live Streaming (HLS) 格式。|[Azure Media Packager 的工作預設字串](http://msdn.microsoft.com/library/hh973635.aspx)
-Azure Media Encryptor|可讓您使用 PlayReady Protection 為媒體資產加密。|[Azure Media Packager 的工作預設字串](http://msdn.microsoft.com/library/hh973610.aspx)
+Media Encoder Standard|提供隨選編碼的標準功能。 |[Azure 隨選媒體編碼器的概觀和比較](media-services-encode-asset.md)
+Media Encoder Premium Workflow|可讓您使用 Media Encoder Premium Workflow 執行編碼工作。|[Azure 隨選媒體編碼器的概觀和比較](media-services-encode-asset.md)
+Azure Media Indexer| 可讓您的媒體檔案和內容可供搜尋，以及產生隱藏式輔助字幕和關鍵字。|[Azure Media Indexer](media-services-index-content.md)
+Azure Media Hyperlapse (預覽)|可讓您使用影片穩定讓影片中的「巔簸」變得平滑。也可讓您將內容加速至可使用的片段。|[Azure Media Hyperlapse](media-services-hyperlapse-content.md)
+Azure Media Encoder|停用
+Storage Decryption| 停用|
+Azure Media Packager|停用|
+Azure Media Encryptor|停用|
 
 ##取得 MediaProcessor
 
@@ -50,41 +50,40 @@ Azure Media Encryptor|可讓您使用 PlayReady Protection 為媒體資產加密
 >成功連線至 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。您必須依照[使用 REST API 連線至媒體服務](media-services-rest-connect_programmatically.md)所述，對新的 URI 進行後續呼叫。
 
 
+下列 REST 呼叫示範如何依名稱取得媒體處理器執行個體 (在此案例中，**媒體編碼器標準**)。
 
-下列 REST 呼叫示範如何依名稱取得媒體處理器執行個體 (在此案例中，**Azure Media Encoder**)。
+
 
 	
 要求：
 
-	GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20Encoder' HTTP/1.1
+	GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
 	DataServiceVersion: 1.0;NetFx
 	MaxDataServiceVersion: 3.0;NetFx
 	Accept: application/json
 	Accept-Charset: UTF-8
 	User-Agent: Microsoft ADO.NET Data Services
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-477b-2233-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423635565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=6zwXEn7YJzVJbVCNpqDUjBLuE5iUwsdJbWvJNvpY3%2b8%3d
+	Authorization: Bearer <token>
 	x-ms-version: 2.11
 	Host: media.windows.net
 	
 回應：
+		
+	. . .
 	
-	HTTP/1.1 200 OK
-	Cache-Control: no-cache
-	Content-Length: 273
-	Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-	Server: Microsoft-IIS/8.5
-	x-ms-client-request-id: 8a291764-4ed7-405d-aa6e-d3ebabb0b3f6
-	request-id: dceeb559-48b5-48e1-81d3-d324b6203d51
-	x-ms-request-id: dceeb559-48b5-48e1-81d3-d324b6203d51
-	X-Content-Type-Options: nosniff
-	DataServiceVersion: 3.0;
-	X-Powered-By: ASP.NET
-	Strict-Transport-Security: max-age=31536000; includeSubDomains
-	Date: Wed, 11 Feb 2015 00:19:56 GMT
-	
-	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#MediaProcessors","value":[{"Id":"nb:mpid:UUID:1b1da727-93ae-4e46-a8a1-268828765609","Description":"Azure Media Encoder","Name":"Azure Media Encoder","Sku":"","Vendor":"Microsoft","Version":"4.4"}]}
-
-
+	{  
+	   "odata.metadata":"https://media.windows.net/api/$metadata#MediaProcessors",
+	   "value":[  
+	      {  
+	         "Id":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+	         "Description":"Media Encoder Standard",
+	         "Name":"Media Encoder Standard",
+	         "Sku":"",
+	         "Vendor":"Microsoft",
+	         "Version":"1.1"
+	      }
+	   ]
+	}
 
 
 ##媒體服務學習路徑
@@ -97,10 +96,7 @@ Azure Media Encryptor|可讓您使用 PlayReady Protection 為媒體資產加密
 
 
 ##後續步驟
-現在您已了解如何取得媒體處理器執行個體，接著請移至[如何為資產編碼][]主題，以了解如何使用 Azure Media Encoder 為資產編碼。
 
-[如何為資產編碼]: media-services-rest-encode-asset.md
-[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
-[How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
+既然您已了解如何取得媒體處理器執行個體，請移至[如何為資產編碼](media-services-rest-get-started.md)主題，以了解如何使用媒體編碼器標準將資產編碼。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

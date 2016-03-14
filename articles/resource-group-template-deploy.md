@@ -18,7 +18,7 @@
 
 # 使用 Azure Resource Manager 範本部署資源群組
 
-本主題說明如何使用 Azure Resource Manager 範本，將您的資源部署至 Azure。它會說明如何使用 Azure PowerShell、Azure CLI、REST API 或 Azure 入口網站部署您的資源。
+本主題說明如何使用 Azure Resource Manager 範本，將您的資源部署至 Azure。其中說明如何使用 Azure PowerShell、Azure CLI、REST API 或 Azure 入口網站部署您的資源。
 
 如需資源管理員的簡介，請參閱 [Azure 資源管理員概觀](./resource-group-overview.md)。若要了解如何建立範本，請參閱[撰寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 
@@ -284,4 +284,4 @@
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

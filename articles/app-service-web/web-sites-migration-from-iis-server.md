@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 # 將企業 Web 應用程式移轉至 Azure App Service
 
 您可以輕鬆地將在 Internet Information Service (IIS) 6 或更新版本上執行的現有網站移轉至 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)。
 
->[AZURE.IMPORTANT]我們將在 2015 年 7 月 14 日終止對 Windows Server 2003 的支援。如果您的網站目前裝載於採用 Windows Server 2003 的 IIS 伺服器上，則 Web Apps 是一種讓您的網站保持連線的低風險、低成本和低摩擦方式，而 Web Apps 移轉小幫手可以協助您自動進行移轉程序。
+>[AZURE.IMPORTANT] 我們將在 2015 年 7 月 14 日終止對 Windows Server 2003 的支援。如果您的網站目前裝載於採用 Windows Server 2003 的 IIS 伺服器上，則 Web Apps 是一種讓您的網站保持連線的低風險、低成本和低摩擦方式，而 Web Apps 移轉小幫手可以協助您自動進行移轉程序。
 
 [Web Apps 移轉小幫手](https://www.movemetothecloud.net/)可以分析您的 IIS 伺服器安裝、識別哪些網站可以移轉至 App Service、反白顯示任何無法移轉或平台上不支援的項目，然後將您的網站和相關聯的資料庫移轉至 Azure。
 
@@ -66,7 +66,7 @@
 
 	![](./media/web-sites-migration-from-iis-server/install-page.png)
 
-	>[AZURE.NOTE]您也可以按一下 [下載以進行離線安裝] 下載 ZIP 檔案，以便在未連線到網際網路的伺服器上安裝。或者，您可以按一下 [上傳現有的移轉整備報告]，這是一個進階選項，可處理您先前產生的現有移轉整備報告 (稍後說明)。
+	>[AZURE.NOTE] 您也可以按一下 [下載以進行離線安裝] 下載 ZIP 檔案，以便在未連線到網際網路的伺服器上安裝。或者，您可以按一下 [上傳現有的移轉整備報告]，這是一個進階選項，可處理您先前產生的現有移轉整備報告 (稍後說明)。
 
 5.	在 [應用程式安裝] 畫面中，按一下 [安裝] 即可安裝在電腦上。必要時也會安裝對應的相依項目，如 Web Deploy、DacFX 和 IIS。
 
@@ -94,7 +94,7 @@
  
 	![](./media/web-sites-migration-from-iis-server/readiness-assessment.png)
 
-12.	按一下 [開始移轉] 開始進行移轉。您現在會被重新導向至 Azure 來登入您的帳戶。請務必以具有使用中 Azure 訂閱的帳戶進行登入。如果您沒有 Azure 帳戶，可以在此註冊免費試用版。
+12.	按一下 [開始移轉] 開始進行移轉。您現在會被重新導向至 Azure 來登入您的帳戶。請務必以具有使用中 Azure 訂閱的帳戶進行登入。如果您沒有 Azure 帳戶，可以在[這裡](https://azure.microsoft.com/pricing/free-trial/?WT.srch=1&WT.mc_ID=SEM_)註冊免費試用。
 
 13.	選取要針對移轉的 Azure Web 應用程式和資料庫使用的租用戶帳戶、Azure 訂用帳戶和區域，然後按一下 [開始移轉]。您可以選取稍後要移轉的網站。
 
@@ -111,7 +111,7 @@
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[AZURE.NOTE]自訂設定中的 [啟用 Azure Active Directory] 核取方塊可整合 Azure Web 應用程式與 [Azure Active Directory](active-directory-whatis.md) (**預設目錄**)。如需有關同步處理 Azure Active Directory 與內部部署 Active Directory 的詳細資訊，請參閱[目錄整合](http://msdn.microsoft.com/library/jj573653)。
+	>[AZURE.NOTE] 自訂設定中的 [啟用 Azure Active Directory] 核取方塊可整合 Azure Web 應用程式與 [Azure Active Directory](active-directory-whatis.md) (**預設目錄**)。如需有關同步處理 Azure Active Directory 與內部部署 Active Directory 的詳細資訊，請參閱[目錄整合](http://msdn.microsoft.com/library/jj573653)。
 
 16.	 進行所有必要的變更後，按一下 [建立] 即可啟動移轉程序。移轉工具會建立 Azure SQL Database 和 Azure Web 應用程式，然後發行網站內容和資料庫。移轉進度會清楚地顯示在移轉工具中，而您最後將看到摘要畫面，詳述移轉的網站、移轉是否成功、新建立的 Azure Web 應用程式連結。
 
@@ -129,10 +129,10 @@
 
 	![](./media/web-sites-migration-from-iis-server/TimeTrackerMigrated.png)
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

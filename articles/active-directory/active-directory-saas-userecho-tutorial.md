@@ -120,9 +120,9 @@
 
     a.在 [已啟用 SAML] 選取 [是]。
 
-    b.在 Azure 傳統入口網站的 [設定在 UserEcho 單一登入] 對話方塊頁面上，複製 [單一登入服務 URL] 值，並將它貼上。在記事本中開啟下載的憑證，複製其內容，然後貼到 [SAML SSO URL] 文字方塊中。
+    b.在 Azure 傳統入口網站的 [設定在 UserEcho 單一登入] 對話方塊頁面上，複製 [單一登入服務 URL] 值，然後貼至 [SAM SSO URL] 文字方塊中。
 
-    c.在 Azure 傳統入口網站中的 [設定在 UserEcho 單一登入] 對話頁面上，複製 [遠端登出 URL] 值，然後將其貼至 [遠端登出 URL] 文字方塊中。
+    c.在 Azure 傳統入口網站中的 [設定在 UserEcho 單一登入] 對話頁面上，複製 [遠端登出 URL] 值，然後貼至 [遠端登出 URL] 文字方塊中。
 
     d.在記事本中開啟下載的憑證，複製其內容，然後貼到 [X.509 憑證] 文字方塊中。
 
@@ -253,4 +253,4 @@
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

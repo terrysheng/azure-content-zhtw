@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="在 Azure 自動化中建立或匯入 Runbook"
 	description="本文說明如何在 Azure 自動化中建立新的 Runbook，或從檔案匯入新的 Runbook。"
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor="tysonn" />
-<tags 
+<tags
 	ms.service="automation"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="02/09/2016"
-	ms.author="bwren" />
+	ms.date="02/29/2016"
+	ms.author="magoedte;bwren" />
 
 # 在 Azure 自動化中建立或匯入 Runbook
 
@@ -23,19 +23,19 @@
 
 您可以使用其中一個 Azure 入口網站或 Windows PowerShell，在 Azure 自動化中建立新的 Runbook。一旦建立 Runbook 之後，您可以使用[了解 PowerShell 工作流程](automation-powershell-workflow.md)和 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)中的資訊來編輯它。
 
-### 使用 Azure 入口網站建立新的 Azure 自動化 Runbook
+### 使用 Azure 傳統入口網站建立新的 Azure 自動化 Runbook
 
 您只能在 Azure 入口網站中使用 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)。
 
-1. 在 Azure 入口網站中，按一下 [新增] > [應用程式服務] > [自動化] > [Runbook] > [快速建立]。
+1. 在 Azure 傳統入口網站中，按一下 [新增]、[應用程式服務]、[自動化]、[Runbook]、[快速建立]。
 2. 輸入必要資訊，然後按一下 [建立]。Runbook 名稱必須以字母開頭，可以具有字母、數字、底線和連字號。
 3. 如果您想要立即編輯 Runbook，則按一下 [編輯 Runbook]。否則，請按一下 [確定]。
 4. 新的 Runbook 會出現在 [Runbook] 索引標籤。
 
 
-### 使用 Azure Preview 入口網站建立新的 Azure 自動化 Runbook
+### 使用 Azure 入口網站建立新的 Azure 自動化 Runbook
 
-1. 在 Azure Preview 入口網站中，開啟您的自動化帳戶。 
+1. 在 Azure 入口網站中，開啟您的自動化帳戶。
 2. 按一下 [Runbook] 磚以開啟 Runbook 的清單。
 3. 按一下 [加入 Runbook] 按鈕，然後按一下 [建立新的 Runbook]。
 2. 輸入 Runbook 的 [名稱]，然後選取其[類型](automation-runbook-types.md)。Runbook 名稱必須以字母開頭，可以具有字母、數字、底線和連字號。
@@ -50,7 +50,7 @@
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
-    New-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName 
+    New-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName
 
 ## 將 Runbook 從檔案匯入 Azure 自動化
 
@@ -60,8 +60,8 @@
 - 包含 PowerShell 工作流程的 .ps1 檔案只能匯入至 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)。如果檔案包含多個 PowerShell 工作流程，則匯入將會失敗。您必須將每個工作流程儲存到它們各自的檔案，並且個別匯入。
 - 未包含工作流程的 .ps1 檔案可以匯入至 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 或 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)。如果它匯入 PowerShell 工作流程 Runbook，則它會轉換為工作流程，註解會包含在 Runbook 中，指定所做的變更。
 
-### 使用 Azure 入口網站從檔案匯入 Runbook
-您可以使用下列程序，將指令碼檔案匯入到 Azure 自動化。請注意，您只能使用此入口網站將 .ps1 檔案匯入 PowerShell 工作流程 Runbook。對於其他類型您必須使用 Azure Preview 入口網站。
+### 使用 Azure 傳統入口網站從檔案匯入 Runbook
+您可以使用下列程序，將指令碼檔案匯入到 Azure 自動化。請注意，您只能使用此入口網站將 .ps1 檔案匯入 PowerShell 工作流程 Runbook。對於其他類型，您必須使用 Azure 入口網站。
 
 1. 在 Azure 管理入口網站中，選取 [自動化]，然後選取自動化帳戶。
 2. 按一下 [匯入]。
@@ -71,10 +71,10 @@
 6. 您必須[發佈 Runbook](#publishing-a-runbook)，才能執行。
 
 
-### 使用 Azure Preview 入口網站從檔案匯入 Runbook
+### 使用 Azure 入口網站從檔案匯入 Runbook
 您可以使用下列程序，將指令碼檔案匯入到 Azure 自動化。請注意，您只能使用此入口網站將 .ps1 檔案匯入 PowerShell 工作流程 Runbook。
 
-1. 在 Azure Preview 入口網站中，開啟您的自動化帳戶。 
+1. 在 Azure 入口網站中，開啟您的自動化帳戶。
 2. 按一下 [Runbook] 磚以開啟 Runbook 的清單。
 3. 按一下 [加入 Runbook] 按鈕，然後按一下 [匯入]。
 4. 按一下 [Runbook 檔案] 以選取要匯入的檔案
@@ -101,15 +101,15 @@
 
 當您建立或匯入新的 Runbook 時，您必須發佈才能執行它。Azure 自動化中的每個 Runbook 有草稿和已發行的版本。只可執行已發行版本，而且只可編輯草稿版本。已發行版本不會受到草稿版本的任何變更影響。草稿版本應該已可供使用時，您會將它發佈，以草稿版本覆寫已發佈版本。
 
-## 使用 Azure 入口網站發佈 Runbook
+## 使用 Azure 傳統入口網站發佈 Runbook
 
-1. 在 Azure 入口網站中開啟 Runbook。
+1. 在 Azure 傳統入口網站中開啟 Runbook。
 1. 在畫面頂端按一下 [撰寫]。
 1. 在畫面底部按一下 [發佈]，然後對驗證訊息按一下 [是]。
 
-## 使用 Azure Preview 入口網站發佈 Runbook
+## 使用 Azure 入口網站發佈 Runbook
 
-1. 在 Azure Preview 入口網站中開啟 Runbook。
+1. 在 Azure 入口網站中開啟 Runbook。
 1. 按一下 [**編輯**] 按鈕。
 1. 按一下 [發佈] 按鈕，然後對驗證訊息按一下 [是]。
 
@@ -120,7 +120,7 @@
 
 	$automationAccountName = "MyAutomationAccount"
 	$runbookName = "Sample-TestRunbook"
-	
+
 	Publish-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName
 
 
@@ -131,4 +131,4 @@
 - [在 Azure 自動化中編輯文字式 Runbook](automation-edit-textual-runbook.md)
 - [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

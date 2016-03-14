@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="msftman" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="deonhe"/>
 
 # Azure BizTalk 服務的版本資訊
@@ -49,7 +49,9 @@ Microsoft Azure BizTalk 服務的版本資訊包含此版本已知的問題。
 安裝 Visual Studio 2012 Update 3 RC 1 來修正問題。
 
 ### 自訂繫結專案參考
-假設 Visual Studio 方案中的 BizTalk 服務專案有下列情況：* 在相同的 Visual Studio 方案中，有一個 BizTalk 服務專案和一個自訂繫結專案。BizTalk 服務專案參考此自訂繫結專案檔。* BizTalk 服務專案參考自訂繫結/行為 DLL。
+假設 Visual Studio 方案中的 BizTalk 服務專案有下列情形：
+* 在相同的 Visual Studio 方案中，有一個 BizTalk 服務專案和一個自訂繫結專案。BizTalk 服務專案參考此自訂繫結專案檔。 
+* BizTalk 服務專案參考自訂繫結/行為 DLL。
 
 您在 Visual Studio 中成功「建置」方案。然後，您「重建」或「清除」方案。之後，當您再次重建或清除時，就發生下列錯誤：無法將檔案 <Path to DLL> 複製到 "bin\\Debug\\FileName.dll"。由於已有另一個處理序正在使用該檔案，所以無法存取該檔案。
 
@@ -83,9 +85,10 @@ BizTalk 服務入口網站可讓您在設定合約時修改身分識別的辨識
 ### 資源：記住路徑  
 新增**資源**時，對話視窗可能不記得先前用來新增資源的路徑。若要記住先前用過的路徑，請嘗試在 Internet Explorer 中將 BizTalk 服務入口網站新增至 [信任的網站]。
 ### 如果您重新命名橋接器的實體名稱，然後關閉專案而不儲存變更，則重新開啟實體會導致錯誤
-假設情況是依循下列操作順序：* 將橋接器 (例如 XML 單向橋接器) 新增至 BizTalk 服務專案
+依序假設有下列情況：
+* 將橋接器 (例如 XML 單向橋接器) 新增至 BizTalk 服務專案  
 
-* 指定 [實體名稱] 屬性的值來重新命名橋接器。這會以您指定的名稱來重新命名相關聯的 .bridgeconfig 檔案。  
+* 指定 [實體名稱] 屬性的值來重新命名橋接器。這會以您指定的名稱來重新命名相關聯的 .bridgeconfig 檔案。
 
 * 關閉 .bcs 檔案 (藉由關閉 Visual Studio 中的索引標籤)，而不儲存變更。
 
@@ -97,7 +100,8 @@ BizTalk 服務入口網站可讓您在設定合約時修改身分識別的辨識
 ### XML 要求-回覆橋接器的回應訊息一律為 UTF-8 字元集
 此版本中，來自 XML 要求-回覆橋接器的回應訊息的字元集永遠設定為 UTF-8。
 ### 使用者定義的資料類型
-BizTalk Adapter Service 功能內的 BizTalk Adapter Pack 配接器可以在配接器作業中利用使用者定義的資料類型。當利用使用者定義的資料類型時，請將檔案 (.dll) 複製到 drive:\\Program Files\\Microsoft BizTalk Adapter Service\\BAServiceRuntime\\bin\\，或裝載 BizTalk Adapter Service 服務的伺服器上的全域組件快取 (GAC)。否則，用戶端可能會發生下列錯誤：```<s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+BizTalk Adapter Service 功能內的 BizTalk Adapter Pack 配接器可以在配接器作業中利用使用者定義的資料類型。當利用使用者定義的資料類型時，請將檔案 (.dll) 複製到 drive:\\Program Files\\Microsoft BizTalk Adapter Service\\BAServiceRuntime\\bin\\，或裝載 BizTalk Adapter Service 服務的伺服器上的全域組件快取 (GAC)。否則，用戶端可能會發生下列錯誤：
+```<s:Fault xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
   <faultcode>s:Client</faultcode>
   <faultstring xml:lang="zh-TW">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
   <detail>
@@ -105,8 +109,8 @@ BizTalk Adapter Service 功能內的 BizTalk Adapter Pack 配接器可以在配�
       <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
     </AFConnectRuntimeFault>
   </detail>
-</s:Fault> ```
-> [AZURE.IMPORTANT]建議使用 GACUtil.exe 將檔案安裝至全域組件快取。GACUtil.exe 說明如何使用這項工具和 Visual Studio 命令列選項。
+</s:Fault> ```  
+> [AZURE.IMPORTANT] 建議使用 GACUtil.exe 將檔案安裝至全域組件快取。GACUtil.exe 說明如何使用這項工具和 Visual Studio 命令列選項。
 
 ### 重新啟動 BizTalk Adapter Service 網站
 安裝 **BizTalk Adapter Service 執行階段*** 會在 IIS 中建立 **BizTalk Adapter Service** 網站，其中會包含 **BAService** 應用程式。**BAService** 應用程式在內部使用轉送繫結，將內部部署服務端點的範圍延伸至雲端。對於內部部署裝載的服務，只有當內部部署服務啟動時，對應的轉送端點才會註冊在服務匯流排上。
@@ -119,11 +123,18 @@ BizTalk Adapter Service 功能內的 BizTalk Adapter Pack 配接器可以在配�
 ### 測試對應屬性未顯示
 **測試對應**屬性未顯示在 Visual Studio 中。如果 [屬性] 視窗和 [方案總管] 視窗未同時停駐，就可能發生這種情形。若要解決此問題，請停駐 [屬性] 和 [方案總管] 視窗。
 ### 日期時間重新格式化下拉式清單變成灰色
-當日期時間重新格式化對應作業加入至設計介面並設定時，[格式] 下拉式清單可能會變成灰色。如果電腦顯示器設定為 [中 – 125%] 或 [大 – 150%]，就可能發生這種情形。若要解決此問題，請使用下列步驟 1 將顯示器設定為 [小 – 100% (預設)]。開啟 [控制台]，按一下 [外觀及個人化]。2.按一下 [顯示]。3.按一下 [小 – 100% (預設)]，再按一下 [套用]。
+當日期時間重新格式化對應作業加入至設計介面並設定時，[格式] 下拉式清單可能會變成灰色。如果電腦顯示器設定為 [中 – 125%] 或 [大 – 150%]，就可能發生這種情形。若要解決此問題，請使用下列步驟將顯示器設定為 [小 – 100% (預設)]：
+1. 開啟 [控制台]，按一下 [外觀及個人化]。
+2. 按一下 [顯示]。
+3. 按一下 [小 – 100% (預設)]，再按一下 [套用]。
 
 [格式] 下拉式清單現在應該如預期般運作。
 ### BizTalk 服務入口網站中的合約重複
-請考慮下列案例：1.使用交易夥伴管理 OM API 建立合約。2.在 BizTalk 服務入口網站中使用兩個不同的索引標籤開啟合約。3.從這兩個索引標籤同時部署合約。4.結果，兩個合約都會部署，導致 BizTalk 服務入口網站中出現重複的項目
+請考慮下列狀況：
+1. 使用交易夥伴管理 OM API 建立合約。
+2. 在 BizTalk 服務入口網站中使用兩個不同的索引標籤開啟合約。
+3. 從這兩個索引標籤同時部署合約。
+4. 結果，兩個合約都會部署，導致 BizTalk 服務入口網站中出現重複的項目
 
 **因應措施**。在 BizTalk 服務入口網站中開啟其中一個重複的合約，並解除部署。
 
@@ -147,7 +158,8 @@ BizTalk Adapter Service 功能內的 BizTalk Adapter Pack 配接器可以在配�
 ### 使用 WCF 將訊息傳送至橋接器不會調整
 使用 WCF 傳送至橋接器的訊息不會調整。如果您想要可調整的用戶端，則應該改為使用 HttpWebRequest。
 ### 升級：從 BizTalk 服務預覽版升級至公開上市 (GA) 後發生權杖提供者錯誤
-與作用中批次之間有 EDI 或 AS2 合約。當 BizTalk 服務從預覽版升級至 GA 時，可能會發生下列情況：* 錯誤：權杖提供者無法提供安全性權杖。權杖提供者傳回訊息：無法解析遠端名稱。
+與作用中批次之間有 EDI 或 AS2 合約。當 BizTalk 服務從預覽版升級至 GA 時，可能會發生下列情況：
+* 錯誤：權杖提供者無法提供安全性權杖。權杖提供者傳回訊息：無法解析遠端名稱。
 
 * 批次工作已取消。
 
@@ -174,4 +186,4 @@ BizTalk Adapter Service 功能內的 BizTalk Adapter Pack 配接器可以在配�
 
 [BizTalk 服務](https://msdn.microsoft.com/library/azure/hh689864.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

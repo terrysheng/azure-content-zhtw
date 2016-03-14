@@ -71,15 +71,16 @@
 
 2. 在下一個視窗中，提供專案詳細資料。
 
-	![建立 Spark Scala 應用程式](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
-
 	* 提供專案名稱和專案位置。
-	* 對於 [專案 SDK]，請確定您提供的 Java 版本大於 7。
-	* 對於 [Scala SDK]，請依序按一下 [建立]、[下載]，然後選取要使用的 Scala 版本。**確定您未使用 2.11.x 版**。此範例使用 **2.10.6** 版。
+	* 對於 [專案 SDK]，請確定您提供的是 Java 7 以上的版本。
+	* 對於 Scala SDK，請依序按一下 [建立]、[下載]，然後選取要使用的 Scala 版本。**確定您未使用 2.11.x 版**。此範例使用 **2.10.6** 版。
 	
 		![建立 Spark Scala 應用程式](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
-	* 對於 [Spark SDK]，請從[這裡](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)下載並使用 SDK。
+	* 對於 Spark SDK，請從[這裡](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)下載並使用 SDK。
+
+		![建立 Spark Scala 應用程式](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
+
 	* 按一下 [完成]。
 
 3. 定義專案結構來建立構件 (封裝的 jar)，而此構件最終將包含叢集上執行的程式碼。
@@ -204,16 +205,16 @@
 
 2. 在下一個視窗中，提供專案詳細資料。
 
-	![建立 Spark Scala 應用程式](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-local-project-details.png)
-
 	* 提供專案名稱和專案位置。
-	* 對於 [專案 SDK]，請確定您提供的 Java 版本大於 7。
-	* 對於 [Scala SDK]，請依序按一下 [建立]、[下載]，然後選取要使用的 Scala 版本。**確定您未使用 2.11.x 版**。此範例使用 **2.10.6** 版。
+	* 對於專案 SDK，請確定您提供的 Java 版本大於 7。
+	* 對於 Scala SDK，請依序按一下 [建立]、[下載]，然後選取要使用的 Scala 版本。**確定您不是使用 2.11.x 版**。此範例使用 **2.10.6** 版。
 	
 		![建立 Spark Scala 應用程式](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
-	* 對於 [Spark SDK]，請從[這裡](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)下載並使用 SDK。
+	* 對於 Spark SDK，請從[這裡](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)下載並使用 SDK。
 	* 按一下 [完成]。
+
+		![建立 Spark Scala 應用程式](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-local-project-details.png)
 
 3. 定義專案結構來建立構件 (封裝的 jar)，而此構件最終將包含叢集上執行的程式碼。
 
@@ -317,4 +318,4 @@
 
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -31,7 +31,8 @@
   ![繪圖][img-pubportal-sol-templ-new]
 
 ### 3\.開始使用拓樸
-解決方案範本是所有其拓撲的「父項」。您可以在一個供應項目/解決方案範本中定義多個拓撲。當供應項目進入預備環境時，它的所有拓撲也會一起進入。遵循下列步驟定義您的供應項目：- 建立拓撲：「拓樸識別項」通常是解決方案範本的拓撲名稱。拓撲識別項用於 URL，如下所示：
+解決方案範本是所有其拓撲的「父項」。您可以在一個供應項目/解決方案範本中定義多個拓撲。當供應項目進入預備環境時，它的所有拓撲也會一起進入。請遵循下列步驟來定義您的供應項目：
+- 建立拓撲：「拓樸識別項」通常是解決方案範本的拓撲名稱。拓撲識別項用於 URL，如下所示：
 
   Azure Marketplace：http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
 
@@ -40,7 +41,9 @@
 - 加入新的版本。
 
 ### 4\.讓您的拓撲版本取得認證
-上傳一個 zip 檔案，其包含佈建該特定拓撲版本所需的所有檔案。此 zip 檔案必須包含下列項目：*mainTemplate.json* 及其根目錄的 *createUiDefinition.json* 檔案，任何連結的範本和所有必要的指令碼。
+上傳一個 zip 檔案，其包含佈建該特定拓撲版本所需的所有檔案。此 zip 檔案必須包含下列項目：
+- *mainTemplate.json* 和 *createUiDefinition.json* 檔案在其根目錄上。
+- 任何連結的範本和所有必要的指令碼。
 
 上傳 zip 檔案之後，按一下 [要求認證]。Microsoft 認證團隊會檢閱檔案並認證拓撲。
 
@@ -67,11 +70,11 @@
 
 - Azure 資源管理員：[撰寫 Azure ARM 範本](../resource-group-authoring-templates/)和[簡單 ARM 範本範例](https://github.com/rjmax/ArmExamples)
 
-- 儲存體帳戶節流：[如何監視儲存體帳戶節流](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx)和[進階儲存體](../storage/storage-premium-storage-preview-portal/#scalability-and-performance-targets-whzh-TWing-premium-storage)
+- 儲存體帳戶節流：[如何監視儲存體帳戶節流](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx)和[進階儲存體](../storage/storage-premium-storage.md#scalability-and-performance-targets-whzh-TWing-premium-storage)
 
 [img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]: media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

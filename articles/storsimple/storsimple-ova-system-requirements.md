@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/07/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# StorSimple Virtual Array 系統需求 (預覽版)
+# StorSimple Virtual Array 系統需求
 
 ## 概觀
 
@@ -34,10 +34,6 @@
  
 - 針對 7000 系列裝置，請移至 [System requirements for your StorSimple 5000-7000 series device (StorSimple 5000-7000 系列裝置的系統需求)](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements)。
 
-> [AZURE.IMPORTANT]
-> 
-> - 此公開預覽版僅供評估之用。不支援在生產環境中安裝此預覽版。
-> - 如果您遇到任何 StorSimple Virtual Array 的問題，請在 [StorSimple MSDN 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=StorSimple)提出問題。  
 
 ## 軟體需求
 
@@ -59,7 +55,7 @@
 | 最小記憶體 (RAM) | 8 GB |
 | 磁碟空間<sup>1</sup> | OS 磁碟 - 80 GB <br></br>資料磁碟 - 500 GB 到 8 TB|
 | 最小網路介面數目 | 1 |
-| 基本網際網路頻寬<sup>2</sup> | 5 Mbps |
+| 最小網際網路頻寬<sup>2</sup> | 5 Mbps |
 
 <sup>1</sup> - 精簡佈建
 
@@ -90,7 +86,7 @@
 | TCP 80 (HTTP) | 外 | WAN | 否 | 輸出連接埠用於網際網路存取以擷取更新。<br></br>輸出 Web Proxy 可由使用者設定。 |
 | TCP 443 (HTTPS) | 外 | WAN | 是 | 輸出連接埠用來存取雲端中的資料。<br></br>輸出 Web Proxy 可由使用者設定。 |
 | UDP 53 (DNS) | 外 | WAN | 在某些情況下，請參閱附註。 | 只有當您使用網際網路 DNS 伺服器時，才需要此連接埠。<br></br> **注意**：如果部署的是檔案伺服器，建議使用本機 DNS 伺服器。|
-| UDP 123 (NTP) | 外 | WAN | 在某些情況下，請參閱附註。 | 只有當您使用網際網路 NTP 伺服器時，才需要此連接埠。<br></br> **附註：**如果部署的是檔案伺服器，建議您和 Active Directory 網域控制站同步時間。 |
+| UDP 123 (NTP) | 外 | WAN | 在某些情況下，請參閱附註。 | 只有當您使用網際網路 NTP 伺服器時，才需要此連接埠。<br></br> **注意：**如果部署的是檔案伺服器，建議與您的 Active Directory 網域控制站同步時間。 |
 |TCP 9354 | 外 | WAN | 是 | StorSimple 裝置使用輸出連接埠與 StorSimple Manager 服務通訊。|
 | TCP 80 (HTTP) | 在 | LAN | 是 | 這是 StorSimple 裝置上用於本機管理的本機 UI 的輸入連接埠。<br></br> **注意**：透過 HTTP 存取本機 UI 會自動重新導向至 HTTPS。|
 | TCP 443 (HTTPS) | 在 | LAN | 是 | 這是 StorSimple 裝置上用於本機管理的本機 UI 的輸入連接埠。|
@@ -102,4 +98,4 @@
 
 -   [Prepare the portal to deploy your StorSimple Virtual Array (準備入口網站以部署 StorSimple Virtual Array)](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

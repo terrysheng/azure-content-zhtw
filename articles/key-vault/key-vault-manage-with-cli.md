@@ -24,7 +24,7 @@
 
 **預估完成時間：**20 分鐘
 
->[AZURE.NOTE]本教學課程沒有說明如何撰寫其中一個步驟所包含的 Azure 應用程式，但會示範如何授權應用程式使用金鑰保存庫中的金鑰或密碼。
+>[AZURE.NOTE]  本教學課程沒有說明如何撰寫其中一個步驟所包含的 Azure 應用程式，但會示範如何授權應用程式使用金鑰保存庫中的金鑰或密碼。
 >
 >目前，您無法在 Azure 入口網站中設定 Azure 金鑰保存庫。請改用這些跨平台命令列介面指示。或者，如需 Azure PowerShell 的指示，請參閱[這個對等的教學課程](key-vault-get-started.md)。
 
@@ -68,7 +68,7 @@
 
     azure login
 
->[AZURE.NOTE]登入方法僅適用於組織帳戶。組織帳戶是您組織所管理的使用者，且定義於組織的 Azure Active Directory 租用戶中。
+>[AZURE.NOTE]  登入方法僅適用於組織帳戶。組織帳戶是您組織所管理的使用者，且定義於組織的 Azure Active Directory 租用戶中。
 
 
 如果您目前沒有組織帳戶，而是使用 Microsoft 帳戶登入您的 Azure 訂閱，則您可以透過下列步驟輕鬆地建立帳戶。
@@ -153,7 +153,7 @@
 這步驟通常會由開發人員在個別電腦上完成。這並非 Azure 金鑰保存庫的特有狀況，在此列出是為了讓程式完整。
 
 
->[AZURE.IMPORTANT]若要完成本教學課程，您的帳戶、保存庫及將在本步驟中註冊的應用程式全都必須位於相同的 Azure 目錄中。
+>[AZURE.IMPORTANT] 若要完成本教學課程，您的帳戶、保存庫及將在本步驟中註冊的應用程式全都必須位於相同的 Azure 目錄中。
 
 使用金鑰保存庫的應用程式必須使用 Azure Active Directory 的權杖進行驗證。若要達到此目的，應用程式擁有者首先必須在其 Azure Active Directory 中註冊該應用程式。註冊結束時，應用程式擁有者會取得下列值：
 
@@ -185,11 +185,11 @@
 
 例如，如果您的保存庫名稱是 ContosoKeyVault，且您要授權的應用程式具有 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed 的用戶端識別碼，您想要授權應用程式使用保存庫中的金鑰來進行解密並簽署，則請執行下列作業：
 
-    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '["decrypt","sign"]'
+    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-keys '["decrypt","sign"]'
 
 如果您想要授權該相同的應用程式讀取您保存庫中的機密資料，請執行以下命令：
 
-	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["get"]'
+	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perms-to-secrets '["get"]'
 
 ## 如果想要使用硬體安全模組 (HSM) ##
 
@@ -256,4 +256,4 @@
 
 如需程式設計參考，請參閱 [Azure 金鑰保存庫開發人員指南](key-vault-developers-guide.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

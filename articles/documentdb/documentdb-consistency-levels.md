@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="DocumentDB 中的一致性層級 | Microsoft Azure" 
-	description="請檢閱 DocumentDB 具有相關效能等級的四個一致性等級，可如何協助在最終一致性、可用性和延遲的取捨評估取得平衡。" 
+<properties
+	pageTitle="DocumentDB 中的一致性層級 | Microsoft Azure"
+	description="請檢閱 DocumentDB 具有相關效能等級的四個一致性等級，可如何協助在最終一致性、可用性和延遲的取捨評估取得平衡。"
 	keywords="最終一致性, eventual consistency, documentdb, azure, Microsoft azure"
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="cgronlun" 
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="cgronlun"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/23/2015" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/24/2016"
 	ms.author="mimig"/>
 
 # 使用一致性層級以最大化 DocumentDB 中的可用性和效能
 
 開發人員通常難以在「增強式」和「最終」這兩種極端的一致性層級之中做出抉擇。但事實上，在這兩種極端選項之間還有多個一致性層級可供選擇。在大部分的真實案例中，應用程式都因為能夠細膩取捨一致性、可用性與延遲而獲得不少好處。DocumentDB 提供四個定義完善的一致性層級與相關聯的效能層級。因此，應用程式開發人員得以在預測範圍內針對一致性、可用性和延遲做出適當取捨。
- 
+
 所有系統資源 (包括資料庫帳戶、資料庫、集合、使用者和權限) 在讀取和查詢方面始終具有極大程度的一致性。一致性層級只適用於使用者定義的資源。針對使用者定義的資源 (包括文件、附件、預存程序、觸發程序和 UDF) 所進行的查詢和讀取作業，DocumentDB 提供四個不同的一致性層級：
 
  - 增強式一致性
@@ -34,17 +34,17 @@
 
 您可以設定資料庫帳戶的「預設一致性層級」，以套用至資料庫帳戶底下 (所有資料庫) 的所有集合。所有對使用者定義的資源發出的讀取和查詢，預設都會使用資料庫帳戶上所指定的預設一致性層級。不過，您可以指定 [x-ms-consistency-level] 要求標頭，來降低特定讀取/查詢要求的一致性層級。DocumentDB 的複寫通訊協定支援四種類型的一致性層級，下面有這些層級的簡短說明。
 
->[AZURE.NOTE]之後的版本預計會支援對個別集合覆寫預設的一致性層級。
+>[AZURE.NOTE] 之後的版本預計會支援對個別集合覆寫預設的一致性層級。
 
 **增強式**：「增強式」一致性保證只有在複本的多數仲裁持久認可寫入之後，才會顯示寫入。寫入不是會被主要和次要仲裁同步地持久認可，就是會被中止。讀取的認可一律是交由多數讀取仲裁來負責；用戶端絕不會看到未認可或不完整的寫入，而且一律保證會讀取最新認可的寫入。
- 
+
 「增強式」一致性可保證資料絕對一致，但是其讀取和寫入效能最差。
 
 **界限-陳舊**：「界限-陳舊」一致性可保證寫入傳播的總體順序，但是讀取時最多可能會比寫入時延遲千倍 (K) 的程度。讀取的認可一律是交由複本的多數仲裁來負責。讀取要求的回應可指出其相對新鮮度 (以 K 來表示)。您可以透過「界限-陳舊」設定可設定的陳舊臨界值 (以前置詞或時間方式)，以供讀取時在穩定狀態中取捨延遲性與一致性。
 
 「界限-陳舊」的讀取一致性行為更加容易預測，且寫入延遲最低。因為讀取的認可是由多數仲裁負責，所以系統提供的讀取延遲不是最低的。「界線-陳舊」是在您需要增強式一致性但增強式一致性卻不實際時的案例選項。如果您將「界線-陳舊」一致性的設定「陳舊間隔」設定為任一較大的值，它仍將保留總全域寫入順序。這可以提供比「工作階段」或「最終」更強的保證。
 
->[AZURE.NOTE]界限-陳舊保證只有在明確的讀取要求進行單純讀取。寫入要求的回應伺服器回應不提供繫結的陳舊保證。
+>[AZURE.NOTE] 界限-陳舊保證只有在明確的讀取要求進行單純讀取。寫入要求的回應伺服器回應不提供繫結的陳舊保證。
 
 **工作階段**：與「增強式」和「界限-陳舊」一致性層級所提供的全域一致性模型不同，「工作階段」一致性是專為特定用戶端工作階段而設計。工作階段一致性通常就已足夠，因為它提供有保證的單純讀取、寫入，以及讀取您自己的寫入的能力。工作階段一致性的讀取要求發出對象，是可以提供用戶端所要求版本 (工作階段 Cookie 的一部分) 的複本。
 
@@ -60,11 +60,15 @@
 
 2. 在 [DocumentDB 帳戶] 刀鋒視窗中，選取要修改的資料庫帳戶。
 
-3. 在帳戶刀鋒視窗的 [組態] 透鏡中，按一下 [預設一致性] 磚。
+3. 在 [帳戶] 刀鋒視窗中，如果 [設定] 刀鋒視窗尚未開啟，請按一下最上方命令列中 [設定] 圖示。
 
-4. 在 [預設一致性] 刀鋒視窗中，選取新的一致性層級，然後按一下 [儲存]。
+4. 在 [所有設定] 刀鋒視窗中，按一下 [功能] 下的 [預設一致性] 項目。
 
-	![螢幕擷取畫面會反白顯示預設一致性磚、一致性設定和 [儲存] 按鈕](./media/documentdb-consistency-levels/database-consistency-level.png)
+	![此螢幕擷取畫面反白顯示 [設定] 圖示和 [預設一致性] 項目](./media/documentdb-consistency-levels/database-consistency-level-1.png)
+
+5. 在 [預設一致性] 刀鋒視窗中，選取新的一致性層級，然後按一下 [儲存]。
+
+	![此螢幕擷取畫面反白顯示 [一致性] 層次和 [儲存] 按鈕](./media/documentdb-consistency-levels/database-consistency-level-2.png)
 
 ## 查詢的一致性層級
 
@@ -83,9 +87,8 @@
 
 -	Doug Terry。透過棒球來解說複寫的資料一致性。[http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 -	Doug Terry。弱式一致複寫資料的工作階段保證。[http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
--	Daniel Abadi。現代分散式資料庫系統設計的一致性取捨：CAP 是整個過程中的唯一解決方案」。[http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
+-	Daniel Abadi。現代分散式資料庫系統設計的一致性取捨：CAP 是整個過程中的唯一解決方案」。[http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
 -	Peter Bailis、Shivaram Venkataraman、Michael J. Franklin、Joseph M. Hellerstein、Ion Stoica。實際局部仲裁的可能界限-陳舊 (PBS)。[http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels。再論最終一致。[http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
- 
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

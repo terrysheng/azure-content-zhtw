@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="11/14/2015"
+	ms.date="02/19/2016"
 	ms.author="brandwe"/>
 
 
@@ -23,7 +23,10 @@
 
 Azure AD 讓您外包 Web 應用程式的身分識別管理變得既簡單又直接，只需幾行的程式碼便可提供單一登入和登出。在 Java Web 應用程式中，您可以使用 Microsoft 的 ADAL4J 社群導向實作來完成這項作業。
 
-  現在，我們將使用 ADAL4J 來執行下列動作：- 使用 Azure AD 作為身分識別提供者將使用者登入應用程式。- 顯示一些使用者的相關資訊。- 將使用者登出應用程式。
+  我們將在此處使用 ADAL4J 來執行下列動作：
+- 使用 Azure AD 做為身分識別提供者，將使用者登入應用程式。
+- 顯示使用者的一些相關資訊。
+- 讓使用者登出 App。
 
 為執行此作業，您必須執行下列動作：
 
@@ -265,4 +268,4 @@ public class PublicClient {
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

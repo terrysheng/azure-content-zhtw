@@ -46,11 +46,11 @@
 1. 從 [檔案] 功能表，按一下 [新增專案]。
 3. 在 [**新增專案**] 對話方塊中，展開 [**Visual C#**] 並選取 [**Web**]，再選取 [**ASP.NET Web 應用程式**]。將應用程式命名為 **ContactManager**，再按一下 [確定]。
 
-	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.png)
+	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)
 
 1. 在 [New ASP.NET Project] 對話方塊中，選取 [MVC] 範本，勾選 [Web API]，再按一下 [變更驗證]。
 
-	![[新增 ASP.NET 專案] 對話方塊](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
+	![[新增 ASP.NET 專案] 對話方塊](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
 1. 在 [變更驗證] 對話方塊中，按一下 [不需要驗證]，然後按一下 [確定]。
 
@@ -60,7 +60,7 @@
 
 1. 在 [**新增 ASP.NET 專案**] 對話方塊中，請確定已勾選 [**雲端中的主機**]，然後按一下 [**確定**]。
 
-	![[New ASP.NET Project] 對話方塊](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
+	![[New ASP.NET Project] 對話方塊](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
 
 如果您先前未登入 Azure，系統將提示您登入。
 
@@ -123,7 +123,7 @@
 
 ### 在本機執行應用程式
 
-1. 按 CTRL+F5 執行應用程式。應用程式首頁隨即出現在預設瀏覽器中。![待辦事項清單首頁](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.png)
+1. 按 CTRL+F5 執行應用程式。應用程式首頁隨即出現在預設瀏覽器中。![待辦事項清單首頁](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
 
 只需執行上述作業，即可建立稍後要部署至 Azure 的應用程式。稍後您將新增資料庫功能。
 
@@ -205,11 +205,11 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 1. 在 [Add Scaffold] 對話方塊中，選取 [MVC Controller with views, using Entity Framework]，再按一下 [新增]。
 
- ![新增控制器](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
+ ![新增控制器](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
 
 6. 將控制器名稱設定為 **HomeController**。選取 [Contact] 模型類別。按一下 [新資料內容] 按鈕，並接受 [新資料內容類型] 的預設值 "ContactManager.Models.ContactManagerContext"。按一下 [新增]。
 
-	![[新增控制器] 對話方塊](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.png)
+	![[新增控制器] 對話方塊](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
 
 	對話方塊會提示您：「名為 HomeController 的檔案已存在。您要取代該檔案嗎？」按一下 [是]。我們會覆寫隨著新專案一同建立的首頁控制器。我們會將新的首頁控制器用於連絡人清單。
 
@@ -508,7 +508,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 1. 在 [Add Scaffold] 對話方塊中，選取 [Web API 2 Controller with actions, using Entity Framework]，再按一下 [新增]。
 
-	![新增 API 控制器](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.png)
+	![新增 API 控制器](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.PNG)
 
 4. 在 [加入控制器] 對話方塊中，輸入 "ContactsController" 作為控制器名稱。選取 "Contact (ContactManager.Models)" [模型類別]。保留 [資料內容類別] 的預設值。
 
@@ -814,4 +814,4 @@ XSRF 攻擊與網路釣魚攻擊不同。網路釣魚攻擊需要與受害者互
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016--->

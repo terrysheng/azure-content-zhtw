@@ -1,11 +1,11 @@
 <properties
-	pageTitle="SQL Database 教學課程：使用 [永遠加密] 保護機密資料的安全 | Microsoft Azure"
+	pageTitle="透過資料庫加密保護 SQL Database 中的機密資料 | Microsoft Azure"
 	description="在數分鐘內開始保護您 SQL 資料庫中的機密資料。"
-	keywords="sql database 教學課程, sql 資料庫中的資料加密"	
+	keywords="SQL Database, SQL 加密, 資料庫加密, 加密金鑰, 機密資料, 永遠加密"	
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 
@@ -15,23 +15,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="02/29/2016"
 	ms.author="sstein"/>
 
-# SQL Database 教學課程：使用永遠加密 (Windows 憑證存放區) 保護機密資料的安全
+# 透過資料庫加密來保護 SQL Database 中的機密資料，並將您的加密金鑰儲存在 Windows 憑證存放區
 
+> [AZURE.SELECTOR]
+- [Azure 金鑰保存庫](sql-database-always-encrypted-azure-key-vault.md)
+- [Windows 憑證存放區](sql-database-always-encrypted.md)
 
-「永遠加密」是 Azure SQL Database 和 SQL Server 中新的加密技術，可保護伺服器上待用的機密資料、在機密資料於用戶端與伺服器之間移動時保護資料，以及在資料使用時保護資料，以確保機密資料永遠不會在資料庫系統中以純文字方式顯示。只有具備金鑰存取權的用戶端應用程式或應用程式伺服器可以存取純文字資料。如需詳細資訊，請參閱 [Always Encrypted (Database Engine) (永遠加密 (資料庫引擎))](https://msdn.microsoft.com/library/mt163865.aspx)。
+本文章將告訴您如何使用 [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) 中的 [Always Encrypted Wizard (永遠加密精靈)](https://msdn.microsoft.com/library/mt459280.aspx)進行資料庫加密，並將您的加密金鑰儲存在 Windows 憑證存放區，來將機密資料儲存在 SQL Database。
 
-本教學課程說明如何在幾分鐘內，於 SQL Database 中使用 SQL Server Management Studio (SSMS) 實作 [永遠加密] 來保護機密資料。
+「永遠加密」是 Azure SQL Database 和 SQL Server 中新的加密技術，可保護伺服器上待用的機密資料、在機密資料於用戶端與伺服器之間移動時保護資料，以及在資料使用時保護資料，以確保機密資料永遠不會在資料庫系統中以純文字方式顯示。只有具備金鑰存取權的用戶端應用程式或應用程式伺服器可以存取純文字資料。如需詳細資訊，請參閱[永遠加密 (資料庫引擎)](https://msdn.microsoft.com/library/mt163865.aspx)。
+
 
 將資料庫設定為使用 [永遠加密] 之後，我們將搭配 Visual Studio 使用 C# 建立一個用戶端應用程式來使用加密資料。
 
 遵循本文章中的步驟，並了解如何為 Azure SQL Database 設定 [永遠加密]。在本文章中，您將學習到如何執行下列工作：
 
-- 在 SSMS 中使用 [永遠加密精靈] 來建立 [Always Encrypted Keys (永遠加密金鑰)](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3)
-    - 建立 [Column Master Key (CMK) (資料行主要金鑰 (CMK))](https://msdn.microsoft.com/library/mt146393.aspx)。
-    - 建立 [Column Encryption Key (CEK) (資料行加密金鑰 (CEK))](https://msdn.microsoft.com/library/mt146372.aspx)。
+- 在 SSMS 中使用 Always Encrypted Wizard (永遠加密精靈) 來建立[永遠加密金鑰](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3)
+    - 建立[資料行主要金鑰 (CMK)](https://msdn.microsoft.com/library/mt146393.aspx)。
+    - 建立[資料行加密金鑰 (CEK)](https://msdn.microsoft.com/library/mt146372.aspx)。
 - 建立資料庫資料表，並將某些資料行加密。
 - 建立可插入、選取及顯示加密資料行資料的應用程式。
 
@@ -44,7 +48,7 @@
 
 - 在開始之前，您需要有 Azure 帳戶和訂用帳戶。如果您沒有帳戶，請註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 13.0.700.242 版或更新版本。
-- [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) 或更新版本 (用戶端電腦上)。
+- [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) 或更新版本 (於用戶端電腦上)。
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)。
 
 
@@ -52,7 +56,7 @@
 ## 建立空白 SQL Database
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下 [新增] > [資料 + 儲存體] > [SQL Database]。
-3. 在新的或現有伺服器上建立名稱為**實務課程**的**空白**資料庫。如需在 Azure 入口網站中建立資料庫的詳細指示，請參閱[快速建立 SQL Database](sql-database-get-started.md)。
+3. 在新的或現有伺服器上建立名稱為**實務課程**的**空白**資料庫。如需在 Azure 入口網站中建立資料庫的詳細指示，請參閱[在幾分鐘內建立 SQL Database](sql-database-get-started.md)。
 
 	![建立空白資料庫](./media/sql-database-always-encrypted/create-database.png)
 
@@ -69,7 +73,7 @@
 開啟 SSMS 並連接到包含實務課程資料庫的伺服器。
 
 
-1. 開啟 SSMS (如果沒有開啟，請按一下 [連線] > [資料庫引擎...] 以開啟 [連接到伺服器] 視窗)。
+1. 開啟 SSMS (如果沒有開啟，請按一下 [連線] > [資料庫引擎] 以開啟 [連接到伺服器] 視窗)。
 2. 輸入您的伺服器名稱和認證。可以在 SQL 資料庫刀鋒視窗上找到此伺服器名稱和稍早複製的連接字串。輸入完整的伺服器名稱，包括 *database.windows.net*。
 
 	![複製連接字串](./media/sql-database-always-encrypted/ssms-connect.png)
@@ -83,7 +87,7 @@
 
 1. 展開 [資料庫]。
 1. 以滑鼠右鍵按一下 [實務課程] 資料庫，然後按一下 [新增查詢]。
-2. 將下列 TRANSACT-SQL (T-SQL) 貼到新的查詢視窗中並 [執行]它：
+2. 將下列 Transact-SQL (T-SQL) 貼到新的查詢視窗中並加以 [執行]：
 
 
         CREATE TABLE [dbo].[Patients](
@@ -106,7 +110,7 @@
 SSMS 提供一個精靈，透過設定加密資料行主要金鑰 (CMK)、資料行加密金鑰 (CEK) 與加密資料行，來為您輕鬆設定永遠加密。
 
 1. 展開 [資料庫] > [實務課程] > [資料表]。
-2. 以滑鼠右鍵按一下 [病患] 資料表，然後選取 [加密資料行...] 以開啟 [永遠加密] 精靈：
+2. 以滑鼠右鍵按一下 [病患] 資料表，然後選取 [加密資料行] 以開啟 Always Encrypted Wizard (永遠加密精靈)：
 
     ![加密資料行](./media/sql-database-always-encrypted/encrypt-columns.png)
 
@@ -169,7 +173,7 @@ SSMS 提供一個精靈，透過設定加密資料行主要金鑰 (CMK)、資料
 
 ## 修改連接字串，以啟用 [永遠加密]
 
-本節只說明如何在您的資料庫連接字串中啟用 [永遠加密]。在下一節的**永遠加密範例主控台應用程式** 中，您將會實際修改您剛剛建立的主控台應用程式。
+本節只說明如何在您的資料庫連接字串中啟用 [永遠加密]。在下一節的〈**永遠加密範例主控台應用程式**〉中，您將會實際修改您剛剛建立的主控台應用程式。
 
 
 若要啟用 [永遠加密]，您必須將 [資料行加密設定] 關鍵字新增至您的連接字串，並將它設定為 [啟用]。
@@ -188,7 +192,7 @@ SSMS 提供一個精靈，透過設定加密資料行主要金鑰 (CMK)、資料
 
 ### 使用 SqlConnectionStringBuilder 啟用永遠加密
 
-下列程式碼示範如何藉由將 [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) 設定為 [[啟用](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx)] 來啟用 [永遠加密]。
+下列程式碼示範如何藉由將 [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) 設定為 [啟用][](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx) 來啟用 [永遠加密]。
 
     // Instantiate a SqlConnectionStringBuilder.
     SqlConnectionStringBuilder connStringBuilder = 
@@ -532,7 +536,7 @@ SSMS 提供一個精靈，透過設定加密資料行主要金鑰 (CMK)、資料
 建立使用 [永遠加密] 的資料庫之後，您可以執行下列操作：
 
 - 從不同的電腦執行此範例。它無法存取加密金鑰，因此無法存取純文字資料也無法成功執行。 
-- [Rotate and cleanup your Keys (旋轉和清除金鑰)](https://msdn.microsoft.com/library/mt607048.aspx)。
+- [旋轉和清除金鑰](https://msdn.microsoft.com/library/mt607048.aspx)。
 - [Migrate data that is already encrypted with Always Encrypted (移轉已使用 [永遠加密] 加密的資料)](https://msdn.microsoft.com/library/mt621539.aspx)
 - 將 [永遠加密] 憑證部署至其他用戶端電腦。
 
@@ -545,4 +549,4 @@ SSMS 提供一個精靈，透過設定加密資料行主要金鑰 (CMK)、資料
 - [Always Encrypted Wizard (永遠加密精靈)](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Always Encrypted Blog (永遠加密部落格)](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

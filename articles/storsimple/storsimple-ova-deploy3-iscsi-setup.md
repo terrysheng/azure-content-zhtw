@@ -12,34 +12,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/18/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
 
-# 部署 StorSimple Virtual Array：將虛擬裝置設定為 iSCSI 伺服器 (預覽版)
+# 部署 StorSimple Virtual Array：將虛擬裝置設定為 iSCSI 伺服器
 
 ![iSCSI 安裝程序流程](./media/storsimple-ova-deploy3-iscsi-setup/iscsi4.png)
 
 ## 概觀
 
-本部署教學課程僅適用於執行 1.1.1.0 公開預覽版的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。本教學課程說明如何執行初始安裝程序、為 StorSimple iSCSI 伺服器註冊、完成裝置安裝程序，還有如何在 StorSimple 虛擬裝置的 iSCSI 伺服器上建立、掛接、初始化及格式化磁碟區。這篇文章中的 StorSimple 安裝資訊，僅適用於 StorSimple Virtual Array。
+本部署教學課程適用於執行 2016 年 3 月公開上市 (GA) 版的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。本教學課程說明如何執行初始安裝程序、為 StorSimple iSCSI 伺服器註冊、完成裝置安裝程序，還有如何在 StorSimple 虛擬裝置的 iSCSI 伺服器上建立、掛接、初始化及格式化磁碟區。這篇文章中的 StorSimple 安裝資訊，僅適用於 StorSimple Virtual Array。
 
 完成此處描述的程序需要大約 30 分鐘至 1 個小時。這篇文章中的資訊僅適用於 StorSimple Virtual Array。
-
->[AZURE.IMPORTANT] 
->
->- StorSimple Virtual Array 目前是預覽版，僅供評估及部署規劃之用。不支援在生產環境中安裝此預覽版。 
->- 如果您遇到任何 StorSimple Virtual Array 的問題，請在 [StorSimple MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple)提出問題。
 
 ## 安裝的必要條件
 
 在您設定及安裝 StorSimple 虛擬裝置之前，請先確定：
 
-- 您已根據 [Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V (部署 StorSimple Virtual Array：在 Hyper-V 中佈建虛擬陣列)](storsimple-ova-deploy2-provision-hyperv.md) 或 [Deploy StorSimple Virtual Array - Provision a virtual array in VMware (部署 StorSimple Virtual Array：在 VMware 中佈建虛擬陣列)](storsimple-ova-deploy2-provision-vmware.md) 一文中的指示來佈建虛擬裝置，並與該虛擬裝置連線。
+- 您已根據《[部署 StorSimple Virtual Array：在 Hyper-V 中佈建虛擬陣列](storsimple-ova-deploy2-provision-hyperv.md)》或《[部署 StorSimple Virtual Array：在 VMware 中佈建虛擬陣列](storsimple-ova-deploy2-provision-vmware.md)》一文中的指示來佈建虛擬裝置，並與該虛擬裝置連線。
 
-- 您已擁有服務註冊金鑰，且該金鑰來自您建立來管理 StorSimple 虛擬裝置的 StorSimple Manager 服務。如需詳細資訊，請參閱 [Deploy StorSimple Virtual Array - Prepare the portal (部署 StorSimple Virtual Array：準備入口網站)](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) 一文中的 **Step 2: Get the service registration key** (步驟 2：取得服務註冊金鑰)。
+- 您已擁有服務註冊金鑰，且該金鑰來自您建立來管理 StorSimple 虛擬裝置的 StorSimple Manager 服務。如需詳細資訊，請參閱《[部署 StorSimple Virtual Array：準備入口網站](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key)》一文中的〈**步驟 2：取得服務註冊金鑰**〉。
 
-- 如果這是第二個或後續新增的虛擬裝置，且您要使用現有的 StorSimple Manager 服務來為該虛擬裝置註冊，您應該已經擁有服務資料加密金鑰。當第一個裝置在此服務註冊成功時，這個金鑰就已經產生。如果您遺失這個金鑰，請參閱 [Use the Web UI to administer your StorSimple Virtual Array (使用 Web UI 來管理您的 StorSimple 虛擬陣列)](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)一文中的 **Get the service data encryption key** (取得服務資料加密金鑰)。
+- 如果這是第二個或後續新增的虛擬裝置，且您要使用現有的 StorSimple Manager 服務來為該虛擬裝置註冊，您應該已經擁有服務資料加密金鑰。當第一個裝置在此服務註冊成功時，這個金鑰就已經產生。如果您遺失這個金鑰，請參閱《[使用 Web UI 來管理您的 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)》一文中的〈**取得服務資料加密金鑰**〉。
 
 ## 安裝的逐步指示 
 
@@ -62,7 +57,7 @@
 
     ![安全性憑證錯誤](./media/storsimple-ova-deploy3-iscsi-setup/image3.png)
 
-2. 以 **StorSimpleAdmin** 的帳戶名稱登入虛擬裝置的 Web UI。請輸入您在 [Deploy StorSimple Virtual Array - Provision a virtual device in Hyper-V (部署 StorSimple Virtual Array：在 Hyper-V 中佈建虛擬裝置)](storsimple-ova-deploy2-provision-hyperv.md) 或 [Deploy StorSimple Virtual Array - Provision a virtual device in VMware (部署 StorSimple Virtual Array：在 VMware 中佈建虛擬裝置)](storsimple-ova-deploy2-provision-vmware.md) 一文的 Step 3: Start the virtual device (步驟 3：啟動虛擬裝置) 中所變更的裝置系統管理員密碼。
+2. 以 **StorSimpleAdmin** 的帳戶名稱登入虛擬裝置的 Web UI。請輸入您在《[部署 StorSimple Virtual Array：在 Hyper-V 中佈建虛擬裝置](storsimple-ova-deploy2-provision-hyperv.md)》或《[部署 StorSimple Virtual Array：在 VMware 中佈建虛擬裝置](storsimple-ova-deploy2-provision-vmware.md)》一文的〈步驟 3：啟動虛擬裝置〉中所變更的裝置系統管理員密碼。
 
     ![登入頁面](./media/storsimple-ova-deploy3-iscsi-setup/image4.png)
 
@@ -82,7 +77,7 @@
 
     1. 系統會自動設定主要及次要 DNS 伺服器。如果您選擇設定靜態 IP 位址，就可以指定 DNS 伺服器。為了達到高可用性，我們建議您設定主要及次要 DNS 伺服器。
 
-    2. 按一下 [套用]。這將會套用並驗證網路設定。
+    2. 按一下 [Apply (套用)]。這將會套用並驗證網路設定。
 
 6. 在 [裝置設定] 頁面上：
 
@@ -92,9 +87,9 @@
 
     3. 指定您是否想讓此裝置加入網域。如果您的裝置是 iSCSI 伺服器，您可以省略加入網域這個步驟。如果您決定不將 iSCSI 伺服器加入網域，請按一下 [套用] 並等待設定套用完畢，然後前往下一個的步驟。
 
-        如果您想要讓裝置加入網域，請輸入 [網域名稱] \(如下所示)。
+        如果您想要讓裝置加入網域，請輸入 [網域名稱] (如下所示)。
 
-    4. 按一下 [套用]。
+    4. 按一下 [Apply (套用)]。
 
     5. 此時畫面會出現對話方塊。請以指定格式輸入網域認證。按一下核取圖示 ![核取圖示](./media/storsimple-ova-deploy3-iscsi-setup/image15.png)。系統將會驗證該網域認證。如果認證不正確，畫面會出現錯誤訊息。
 
@@ -113,11 +108,11 @@
 
     在 [Web Proxy] 頁面上：
 
-    1. 以下列格式提供 [Web Proxy URL]：「http://host-IP 位址」或「完整網域名稱:連接埠號碼」。請注意，此處不支援 HTTPS URL。
+    1. 以下列格式提供 **Web Proxy URL**：*http://host-IP 位址*或 *FDQN:連接埠號碼*。請注意，此處不支援 HTTPS URL。
 
     2. 將 [驗證] 指定為 [基本]、[NTLM] 或 [無]。
 
-    3. 如果您要使用驗證功能，您也必須提供 [使用者名稱 ] 和 [密碼]。
+    3. 如果您要使用驗證功能，您也必須提供 [使用者名稱] 和 [密碼]。
 
     4. 按一下 [Apply (套用)]。這將會驗證並套用您設定的 Web Proxy 設定。
  
@@ -137,9 +132,9 @@
 
 9. 設定裝置的雲端設定。在此步驟中，您將會完成本機裝置設定程序，然後向您的 StorSimple Manager 服務註冊裝置。
 
-    1. 輸入您在[部署 StorSimple Virtual Array：準備入口網站](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key)一文的**步驟 2：取得服務註冊金鑰**中取得的「服務註冊金鑰」。
+    1. 輸入您在《[部署 StorSimple Virtual Array：準備入口網站](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key)》一文的**〈步驟 2：取得服務註冊金鑰**〉中取得的「**服務註冊金鑰**」。
 
-    2. 如果這不是您向此服務註冊的第一個裝置，您必須提供「服務資料加密金鑰」。您必須將此金鑰與服務註冊金鑰搭配使用，才能向 StorSimple Manager 服務註冊額外的裝置。如需詳細資訊，請參閱使用本機 Web UI 上的[取得服務資料加密金鑰](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)。
+    2. 如果這不是您向此服務註冊的第一個裝置，您必須提供**服務資料加密金鑰**。您必須將此金鑰與服務註冊金鑰搭配使用，才能向 StorSimple Manager 服務註冊額外的裝置。如需詳細資訊，請參閱使用本機 Web UI 上的〈[取得服務資料加密金鑰](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)〉。
 
     3. 按一下 [註冊]。這將讓裝置重新啟動。您可能需要等待 2 至 3 分鐘，裝置才會註冊成功。裝置重新啟動之後，您將會看到登入頁面。
 
@@ -197,7 +192,7 @@
 
     2. 為共用提供說明。說明將可協助識別磁碟區的擁有者。
 
-    3. 選取磁碟區的使用類型。使用類型可以是 [階層式磁碟區] 或 [固定在本機的磁碟區]。 (預設選項是 [階層式磁碟區]。) 對於需要本機保證、低延遲，以及高效能的工作負載，請選取 [固定在本機的磁碟區]。針對所有其他資料，請選取 [階層式磁碟區]。
+    3. 選取磁碟區的使用類型。使用類型可以是 [階層式磁碟區] 或 [固定在本機的磁碟區]。 (預設選項是 [階層式磁碟區]。) 對於需要本機保證、低延遲，以及高效能的工作負載，請選取 [**固定在本機的****磁碟區**]。針對所有其他資料，請選取 [**階層式****磁碟區**]。
 
         固定在本機的磁碟區會密集佈建，且會確保磁碟區中的主要資料會保留在裝置上，不會溢出到雲端。如果您建立固定在本機的磁碟區，裝置將會檢查本機層上的可用空間，以佈建您要求大小的磁碟區。建立固定在本機的磁碟區時，可能必須要讓裝置中現有的資料溢出到雲端，且建立磁碟區所花費的時間可能會很長。總時間取決於已佈建的磁碟區大小、可用的網路頻寬和您裝置上的資料。
 
@@ -213,7 +208,7 @@
 
     1. 提供 ACR 的 [名稱]。
 
-    2. 在 [iSCSI 啟動器名稱] 下方，提供 Windows 主機的 iSCSI 完整格式名稱 (IQN)。如果您沒有 IQN，請前往[附錄 A：取得 Windows Server 主機的 IQN](#appendix-a-get-the-iqn-of-a-windows-server-host)。
+    2. 在 [iSCSI 啟動器名稱] 下方，提供 Windows 主機的 iSCSI 完整格式名稱 (IQN)。如果您沒有 IQN，請前往〈[附錄 A：取得 Windows Server 主機的 IQN](#appendix-a-get-the-iqn-of-a-windows-server-host)〉。
 
     3. 建議選取 [**啟用此磁碟區的預設備份**] 核取方塊啟用預設備份。預設備份將會建立原則，在每天的 22:30 (裝置時間) 執行，並建立此磁碟區的雲端快照。
 
@@ -249,7 +244,7 @@
 
     ![探索到的目標](./media/storsimple-ova-deploy3-iscsi-setup/image24.png)
 
-5. 選取目標裝置，然後按一下 [連接]。連接裝置之後，狀態應會變更為 [已連接](如需如何使用 Microsoft iSCSI 啟動器的詳細資訊，請參閱[安裝和設定 Microsoft iSCSI 啟動器][1])。
+5. 選取目標裝置，然後按一下 [連接]。連接裝置之後，狀態應會變更為 [已連接](如需如何使用 Microsoft iSCSI 啟動器的詳細資訊，請參閱《[安裝和設定 Microsoft iSCSI 啟動器][1]》)。
 
     ![選取目標裝置](./media/storsimple-ova-deploy3-iscsi-setup/image25.png)
 
@@ -310,4 +305,4 @@
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # 在 Eclipse 中利用 Java 開始使用 Application Insights
@@ -49,7 +49,16 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 ## 在 Azure 中建立 Application Insights 資源
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 
+2. 建立新 Application Insights 資源。  
+
+    ![按一下 + 並選擇 [Application Insights]](./media/app-insights-java-eclipse/01-create.png)  
+3. 將應用程式類型設定為 Java Web 應用程式。  
+
+    ![填寫名稱，選擇 [Java Web 應用程式]，然後按一下 [建立]](./media/app-insights-java-eclipse/02-create.png)  
+4. 尋找新資源的檢測金鑰。您很快需要將此資訊貼上到程式碼專案中。  
+
+    ![在新資源概觀中，按一下 [屬性] 並複製檢測金鑰](./media/app-insights-java-eclipse/03-key.png)
+
 
 ## 將 Application Insights 加入至專案
 
@@ -260,4 +269,4 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

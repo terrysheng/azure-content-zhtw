@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/20/2016"
-   ms.author="joaoma" />
+   ms.date="02/24/2016"
+   ms.author="telmos" />
 
 # VM 與角色執行個體的名稱解析
 
@@ -181,4 +181,4 @@ DNS 轉送也實現 vnet 之間的 DNS 解析，並使內部部署電腦能夠�
 
 [使用網路組態檔設定虛擬網路](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

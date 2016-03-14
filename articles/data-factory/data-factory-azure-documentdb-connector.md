@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="02/24/2016" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 DocumentDB 來回移動資料
@@ -379,6 +379,14 @@ DocumentDB 是 JSON 文件的 NoSQL 存放區 (允許巢狀結構)。Azure Data 
 	  }
 	}
 
+### Data factory 的結構描述
+針對無結構描述的資料存放區 (如 DocumentDB)，Data Factory 服務會以下列其中一種方式推斷結構描述：
+
+1.	如果您是使用資料集定義中的 **structure** 屬性來指定結構，Data Factory 服務將接受此結構作為結構描述。在此情況下，如果資料列不包含資料行的值，則會使用 null 值。
+2.	如果您不是使用資料集定義中的 **structure** 屬性來指定結構，Data Factory 服務會使用資料的第一列來推斷結構描述。在此情況下，如果第一個資料列不包含完整的結構描述，某些資料行會因複製作業而遺失。
+
+因此，對於無結構描述的資料來源來說，最佳作法是使用 **structure** 屬性來指定資料結構。
+
 ## Azure DocumentDB 複製活動類型屬性
 
 如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
@@ -411,7 +419,7 @@ DocumentDB 是 JSON 文件的 NoSQL 存放區 (允許巢狀結構)。Azure Data 
 
 	**回：**如果記錄有 [識別碼] 欄位，而複製作業嘗試插入具有相同識別碼的記錄，則複製作業會擲回錯誤。
  
-3. **問：**資料處理站支援[範圍或雜湊式資料分割]( https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)嗎？
+3. **問：**資料處理站支援[範圍或雜湊式資料分割](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)嗎？
 
 	**答：**否。 
 4. **問：**我可以指定多個資料表 DocumentDB 集合嗎？
@@ -419,4 +427,4 @@ DocumentDB 是 JSON 文件的 NoSQL 存放區 (允許巢狀結構)。Azure Data 
 	**回：**否。目前只能指定一個集合。
      
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

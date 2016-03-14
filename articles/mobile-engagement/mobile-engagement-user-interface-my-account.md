@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="11/22/2015"
+   ms.date="02/29/2016"
    ms.author="piyushjo"/>
 
 # 如何管理帳戶設定檔和測試裝置
  
-本文說明 **Mobile Engagement** 入口網站的**首頁**。使用 **Mobile Engagement** 入口網站可監視與管理您的行動應用程式。請注意，若要開始使用入口網站，您必須先建立 **Azure Mobile Engagement** 帳戶。如需詳細資訊，請參閱[建立 Azure Mobile Engagement 帳戶](mobile-engagement-create-account.md)。
+本文說明 **Mobile Engagement** 入口網站的**首頁**。使用 **Mobile Engagement** 入口網站可監視與管理您的行動應用程式。
  
 若要前往 [我的帳戶] 頁面上，按一下您位於頁面頂端的帳戶。
 
@@ -27,7 +27,7 @@
 ![MyAccount1][7]
 
 ## 設定檔：
-您可以檢視或變更下列任何帳戶設定，如下所示。您也可以根據使用者的電子郵件地址，從 [首頁](mobile-engagement-interface-home.md)授與其他使用者使用您應用程式的權限。
+您可以檢視或變更下列任何帳戶設定，如下所示。您也可以根據使用者的電子郵件地址，從 [首頁](mobile-engagement-user-interface-home.md)授與其他使用者使用您應用程式的權限。
 
 ![MyAccount2][8]
 
@@ -151,4 +151,4 @@
  
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

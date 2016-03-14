@@ -74,7 +74,7 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 
 此時，您的專案將不再參考行動服務 SDK。
 
-接下來，將新增 Mobile Apps SDK 的參考。在此升級中，大部分的開發人員都想要下載並安裝 `Micrsoft.Azure.Mobile.Server.Quickstart` 封裝，因為這將會在整個必要集中提取。
+接下來，將新增 Mobile Apps SDK 的參考。在此升級中，大部分的開發人員都想要下載並安裝 `Microsoft.Azure.Mobile.Server.Quickstart` 封裝，因為這將會在整個必要集中提取。
 
 屆時將會有不少因 SDK 之間的差異而產生的編譯器錯誤，但這些錯誤都很容易處理且將於本節的其餘部分加以說明。
 
@@ -277,4 +277,4 @@ Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任�
 [App Service 定價]: https://azure.microsoft.com/zh-TW/pricing/details/app-service/
 [.NET 伺服器 SDK 概觀]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

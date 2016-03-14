@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 # 開始使用 Azure Mobile Engagement for Cordova/Phonegap
@@ -64,7 +64,7 @@
 		$ cordova platform add ios 
 		$ cordova run ios
 
-3. 執行下列動作來設定 **Android** 的專案，並在 Android 模擬器中執行它。在您的 Android SDK 模擬器設定中，請確定目標為 Google API (Google Inc.)，而 CPU / ABI 為 Google API ARM。
+3. 執行下列命令來設定您的 **Android** 專案，並在 Android 模擬器中執行它。在您的 Android SDK 模擬器設定中，請確定目標為 Google API (Google Inc.)，而 CPU / ABI 為 Google API ARM。
 
 		$ cordova platform add android
 		$ cordova run android
@@ -245,4 +245,4 @@ Mobile Engagement 可讓您使用「推播通知」和「應用程式內傳訊�
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

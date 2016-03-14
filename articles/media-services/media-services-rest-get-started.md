@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
+ 	ms.date="03/01/2016" 
 	ms.author="juliako"/>
 
 #使用 REST API 傳遞點播內容入門
@@ -81,12 +81,9 @@
 當您使用媒體服務 REST API 連接到媒體服務時，下列步驟將說明最常見的工作流程：
 
 1. 取得存取權杖。 
-2. 連接至媒體服務 URI。 
-	
-	>[AZURE.NOTE]
-	成功連線至 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。後續的呼叫必須送到新的 URI。
-	> 
-	> 您也可能會收到 HTTP/1.1 200 回應，其中包含 ODATA API 中繼資料描述。
+2. 連接至媒體服務 URI。  
+
+	請記住，成功連線至 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。後續的呼叫必須送到新的 URI。您也可能會收到 HTTP/1.1 200 回應，其中包含 ODATA API 中繼資料描述。
 3. 將後續的 API 呼叫張貼到新的 URL。 
 	
 	例如，如果您在嘗試進行連接之後得到下列結果：
@@ -149,7 +146,7 @@
 	
 
 >[AZURE.NOTE]
-建議您將 "access_token" 和 "expires_in" 值快取到外部儲存體。稍後可以從儲存體擷取權杖資料，然後重複使用在媒體服務 REST API 呼叫中。這特別適用於權杖可以在多個處理程序或電腦之間安全共用的情況。
+建議您將 "access\_token" 和 "expires\_in" 值快取到外部儲存體。稍後可以從儲存體擷取權杖資料，然後重複使用在媒體服務 REST API 呼叫中。這特別適用於權杖可以在多個處理程序或電腦之間安全共用的情況。
 
 請務必監控存取權杖的 "expires\_in" 值，並視需要以新權杖更新您的 REST API 呼叫。
 
@@ -368,7 +365,7 @@
 	
 	{"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
 
-**HTTP 要求**
+**HTTP 回應**
 
 	If successful, the following response is returned:
 	
@@ -500,8 +497,7 @@ SAS URL 具有下列格式：
 
 **HTTP 回應**
 
-如果成功，會傳回下列訊息：
-HTTP/1.1 204 沒有內容
+如果成功，會傳回下列訊息：HTTP/1.1 204 沒有內容
 
 ## 刪除 Locator 和 AccessPolicy 
 
@@ -674,7 +670,7 @@ HTTP/1.1 204 沒有內容
 - 將您的夾層 (來源) 檔編碼或轉換為一組調適性位元速率 MP4 檔案或調適性位元速率 Smooth Streaming 檔案。  
 - 為您打算從該處傳遞內容的串流端點取得至少一個串流單位。 
 
-下一節示範如何建立包含一個編碼工作的工作。工作指定使用「媒體編碼器標準」，將夾層檔案轉換為一組調適性位元速率 MP4。此節也會示範如何監視工作處理進度。工作完成時，您將能夠建立存取資產所需的定位器。
+下一節示範如何建立包含一個編碼工作的工作。此工作指定使用**媒體編碼器標準**，將夾層檔案轉換為一組調適性位元速率 MP4。此節也會示範如何監視工作處理進度。工作完成時，您將能夠建立存取資產所需的定位器。
 
 ### 取得媒體處理器
 
@@ -727,7 +723,7 @@ HTTP/1.1 204 沒有內容
 
 每個工作可以有一或多個工作，視您想要完成的處理類型而定。您可以透過 REST API 以兩種方式的其中之一建立工作和其相關工作：工作可以透過 Job 實體上的 Tasks 導覽屬性，或透過 OData 批次處理進行內嵌定義。媒體服務 SDK 使用批次處理；不過，為了本主題中的程式碼範例可讀性，工作都是內嵌定義。如需批次處理的資訊，請參閱[開放式資料通訊協定 (OData) 批次處理](http://www.odata.org/documentation/odata-version-3-0/batch-processing/)。
 
-下列範例會示範如何建立和張貼工作，並將一個工作設為在特定的解析度與品質將視訊編碼。下列文件區段包含媒體編碼器標準處理器所支援之所有[工作預設](https://msdn.microsoft.com/en-US/library/mt269960)的清單。
+下列範例會示範如何建立和張貼工作，並將一個工作設為在特定的解析度與品質將視訊編碼。下列文件區段包含媒體編碼器標準處理器所支援之所有[工作預設](http://msdn.microsoft.com/library/mt269960)的清單。
 
 **HTTP 要求**
 	
@@ -1202,13 +1198,9 @@ MPEG DASH 的串流 URL 具有下列格式：
 
 如果本主題未包含您預期的內容、缺少部分內容，或者提供了一些其他不符合您需求的方式，請在下方提供您使用 Disqus 執行緒的意見反應給我們。
 
-##其他資源
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - 立即在線上取得您的影片！</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - 動態封裝和行動裝置</a>
-
 
 
 <!-- URLs. -->
   [Azure 傳統入口網站]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

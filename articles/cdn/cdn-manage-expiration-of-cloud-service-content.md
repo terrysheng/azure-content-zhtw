@@ -1,18 +1,18 @@
-<properties 
- pageTitle="如何管理 Azure 內容傳遞網路 (CDN) 中雲端服務內容的到期" 
- description="" 
- services="cdn" 
- documentationCenter=".NET" 
- authors="camsoper" 
- manager="dwrede" 
+<properties
+ pageTitle="如何管理 Azure 內容傳遞網路 (CDN) 中雲端服務內容的到期"
+ description=""
+ services="cdn"
+ documentationCenter=".NET"
+ authors="camsoper"
+ manager="erikre"
  editor=""/>
-<tags 
- ms.service="cdn" 
- ms.workload="media" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/02/2015" 
+<tags
+ ms.service="cdn"
+ ms.workload="media"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="02/25/2016" 
  ms.author="casoper"/>
 
 #如何管理 Azure 內容傳遞網路 (CDN) 中雲端服務內容的到期
@@ -25,12 +25,12 @@
 
 下列 XML 說明和設定 **clientCache** 指定最長使用期限 (3 天) 的範例：
 
-	<configuration> 
-	  <system.webServer> 
-	        <staticContent> 
-	            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" /> 
-	        </staticContent> 
-	  </system.webServer> 
+	<configuration>
+	  <system.webServer>
+	        <staticContent>
+	            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" />
+	        </staticContent>
+	  </system.webServer>
 	</configuration>
 
 指定 **UseMaxAge** 時會根據 **CacheControlMaxAge** 屬性中所指定的值將 Cache-Control: max-age=<nnn> 標頭加入回應。**cacheControlMaxAge** 屬性的 timespan 格式為 <days>.<hours>:<min>:<sec>。如需 **clientCache** 節點的詳細資訊，請參閱[用戶端快取<clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)。
@@ -50,4 +50,4 @@
 
 [如何管理 Azure 內容傳遞網路 (CDN) 中 Blob 內容的到期](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016" 
+	ms.date="03/01/2016" 
 	ms.author="juliako"/>
 
 
@@ -23,13 +23,12 @@
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encode-asset.md)
 - [REST](media-services-rest-encode-asset.md)
-- [Portal](media-services-manage-content.md#encode)
+- [入口網站](media-services-manage-content.md#encode)
 
 ##概觀
 若要透過網際網路傳遞數位視訊，您必須壓縮媒體。數位視訊檔案十分龐大，而且可能太大而無法透過網際網路傳遞，或是太大而使您客戶的裝置無法正確顯示。編碼是壓縮視訊和音訊，好讓客戶能檢視您的媒體的程序。
 
-編碼工作是媒體服務中最常見的處理作業。您建立編碼工作以將媒體檔案從一種編碼轉換成另一種編碼。編碼時，您可以使用媒體服務內建的 Media Encoder。您也可以使用媒體服務合作夥伴提供的編碼器；第三方編碼器可透過 Azure Marketplace 取得。您可以使用針對您的編碼器定義的預設字串，或使用預設組態檔，指定編碼工作的詳細資料。若要查看可用的預設類型，請參閱 [Task Presets for Media Services Standard (媒體服務標準的工作預設)](https://msdn.microsoft.com/en-US/library/mt269960)。如果您使用第三方編碼器，則應該[驗證檔案](https://msdn.microsoft.com/library/azure/dn750842.aspx)。
-
+編碼工作是媒體服務中最常見的處理作業。您建立編碼工作以將媒體檔案從一種編碼轉換成另一種編碼。編碼時，您可以使用媒體服務內建的編碼器 (媒體編碼器標準)。您也可以使用媒體服務合作夥伴提供的編碼器；第三方編碼器可透過 Azure Marketplace 取得。您可以使用針對您的編碼器定義的預設字串，或使用預設組態檔，指定編碼工作的詳細資料。若要查看可用的預設類型，請參閱[媒體編碼器標準的工作預設](http://msdn.microsoft.com/library/mt269960)。
 
 每個工作可以有一或多個工作，視您想要完成的處理類型而定。透過 REST API，您可以用兩種方式之一建立工作和其相關的工作：
 
@@ -51,9 +50,10 @@
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。如需詳細資訊，請參閱[媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 
 >成功連線至 https://media.windows.net 後，您會收到指定另一個媒體服務 URI 的 301 重新導向。您必須依照[使用 REST API 連線至媒體服務](media-services-rest-connect_programmatically.md)所述，對新的 URI 進行後續呼叫。
+>
+>當使用 JSON 且指定在要求中使用 **\_\_metadata** 關鍵字時 (例如，為了參考連結的物件)，您「必須」將 **Accept** 標頭設為 [JSON Verbose 格式](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)：Accept: application/json;odata=verbose。
 
-
-下列範例會示範如何建立和張貼工作，並將一個工作設為在特定的解析度與品質將視訊編碼。當透過媒體編碼器標準編碼時，您可以使用[這裡](https://msdn.microsoft.com/en-US/library/mt269960)指定的工作組態預設。
+下列範例會示範如何建立和張貼工作，並將一個工作設為在特定的解析度與品質將視訊編碼。當透過媒體編碼器標準來編碼時，您可以使用[這裡](http://msdn.microsoft.com/library/mt269960)指定的工作組態預設。
 	
 要求：
 
@@ -275,4 +275,4 @@
 
 [取得媒體處理器](media-services-rest-get-media-processor.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

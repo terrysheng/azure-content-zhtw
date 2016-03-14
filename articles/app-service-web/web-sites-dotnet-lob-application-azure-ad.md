@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="12/10/2015" 
+	ms.date="02/29/2016" 
 	ms.author="cephalin"/>
 
 # 在 Azure 應用程式服務中建立使用 Azure Active Directory 驗證的 .NET MVC Web 應用程式 #
@@ -63,12 +63,11 @@
 
 1.	將 [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) 上的範例解決方案複製或下載到您的本機目錄。
 
-2.	依照[如何執行範例做為單一租用戶應用程式](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app)的指示設定 Azure Active Directory 應用程式和專案。
-請務必遵循所有指示以將應用程式從多租用戶轉換為單一租用戶。
+2.	依照[如何執行範例做為單一租用戶應用程式](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app)的指示設定 Azure Active Directory 應用程式和專案。請務必遵循所有指示以將應用程式從多租用戶轉換為單一租用戶。
 
 3.	在 [Azure 傳統入口網站](https://manage.windowsazure.com)檢視中針對您剛建立的 Azure Active Directory 應用程式，按一下 [**使用者**] 索引標籤。然後，將想要的使用者指派給想要的角色。
 
-	>[AZURE.NOTE]如果您想要指派角色給使用者之外的群組，您必須將您的 Azure Active Directory 租用戶升級至 [Azure Active Directory Premium](/pricing/details/active-directory/)。在您應用程式的傳統入口網站 UI 中，如果您看到的是 [**使用者**] 索引標籤，而不是 [**使用者與群組] 索引標籤，您可以移至您 Azure Active Directory 租用戶的 [**授權**] 索引標籤來嘗試 Azure Active Directory Premium。
+	>[AZURE.NOTE] 如果您想要指派角色給使用者之外的群組，您必須將您的 Azure Active Directory 租用戶升級至 [Azure Active Directory Premium](/pricing/details/active-directory/)。在您應用程式的傳統入口網站 UI 中，如果您看到的是 [**使用者**] 索引標籤，而不是 [**使用者與群組] 索引標籤，您可以移至您 Azure Active Directory 租用戶的 [**授權**] 索引標籤來嘗試 Azure Active Directory Premium。
 
 3.	完成應用程式設定後，在 Visual Studio 中輸入 `F5` 以執行 ASP.NET 應用程式。
 
@@ -143,7 +142,7 @@
 
 	> [AZURE.NOTE] 您在這裡需要的實際權限取決於您應用程式所需的功能。有些權限需要設定「全域管理員」角色，但本教學課程所需的權限只需要「使用者」角色。
 
-9.  按一下 [儲存]。  
+9.  按一下 [儲存]。
 
 10.  離開已儲存的設定頁面之前，請將下列資訊複製到文字編輯器。
 
@@ -152,11 +151,11 @@
 
 11. 在 Visual Studio 中，開啟專案中的 **Web.Release.config**。將下列 XML 插入 `<configuration>` 標記中，並以您為新 Azure Active Directory 應用程式儲存的資訊來取代每個索引鍵的值。
 	<pre class="prettyprint">
-&lt;appSettings>
-   &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-   &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-   &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>
+	&lt;appSettings>
+	   &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+	   &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+	   &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+	&lt;/appSettings></pre>
 
 	請確定 ida:PostLogoutRedirectUri 值的結尾有一條斜線 "/"。
 
@@ -200,14 +199,14 @@
 
 6.	開啟 DAL\\RoleClaimContext.cs 並新增反白顯示的程式碼：
 	<pre class="prettyprint">
-    public class RoleClaimContext : DbContext
-    {
-        public RoleClaimContext() : base("RoleClaimContext") { }
-
-    public DbSet&lt;Task> Tasks { get; set; }
-    <mark>public DbSet&lt;WorkItem> WorkItems { get; set; }</mark>
-    public DbSet&lt;TokenCacheEntry> TokenCacheEntries { get; set; }
-    }</pre>
+	public class RoleClaimContext : DbContext
+	{
+	    public RoleClaimContext() : base("RoleClaimContext") { }
+	
+	    public DbSet&lt;Task> Tasks { get; set; }
+	    <mark>public DbSet&lt;WorkItem> WorkItems { get; set; }</mark>
+	    public DbSet&lt;TokenCacheEntry> TokenCacheEntries { get; set; }
+	}</pre>
 
 7.	建置專案，讓 Visual Studio 中的建構邏輯可存取新的模型。
 
@@ -224,43 +223,42 @@
 11. 將反白顯示的 [Authorize] 裝飾新增至下列的相應動作。
 	<pre class="prettyprint">
 	...
-
-    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-    public class WorkItemsController : Controller
-    {
+	
+	<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+	public class WorkItemsController : Controller
+	{
 		...
-
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public ActionResult Create()
-        ...
-
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult&gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-        ...
-
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult&gt; Edit(int? id)
-        ...
-
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult&gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-        ...
-
-        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-        public async Task&lt;ActionResult&gt; Delete(int? id)
-        ...
-
-        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-        public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
-        ...
+	
+	    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+	    public ActionResult Create()
+	    ...
+	
+	    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+	    public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+	    ...
+	
+	    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+	    public async Task&lt;ActionResult> Edit(int? id)
+	    ...
+	
+	    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+	    public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+	    ...
+	
+	    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+	    public async Task&lt;ActionResult> Delete(int? id)
+	    ...
+	
+	    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+	    public async Task&lt;ActionResult> DeleteConfirmed(int id)
+	    ...
 	}</pre>
 
-	由於您負責 Azure 入口網站 UI 中的角色對應，因此您只需要確定每個動作都授權適當的角色。
+	由於您負責 Azure 傳統入口網站 UI 中的角色對應，因此您只需要確定每個動作都授權適當的角色。
 
-	> [AZURE.NOTE] 您可能已經注意到某些動作上的 <code>[ValidateAntiForgeryToken]</code> 裝飾。由於 [Brock Allen](https://twitter.com/BrockLAllen) 在 [MVC 4、AntiForgeryToken 和宣告](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) 所描述的行為，HTTP POST 可能無法執行防偽語彙基元驗證，因為：
-	> + Azure Active Directory 不會傳送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider，依預設防偽語彙基元需要此項。
-	> + 如果 Azure Active Directory 是與 AD FS 進行同步處理的目錄，依預設 AD FS 信任不會傳送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 宣告，但是您可以手動設定 AD FS 來傳送此宣告。
-	> 您會在下一步這麼做。
+	> [AZURE.NOTE] 您可能已經注意到某些動作上的 <code>[ValidateAntiForgeryToken]</code> 裝飾。基於 [Brock Allen](https://twitter.com/BrockLAllen) 在 [MVC 4、AntiForgeryToken 和宣告](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/)中描述的行為，您的 HTTP POST 可能無法通過防偽權杖驗證，因為：
+	> + Azure Active Directory 不會傳送防偽權杖預設所需要的 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider。
+	> + 如果 Azure Active Directory 目錄與 AD FS 同步處理，AD FS 信任預設也不會傳送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 宣告，但您可以手動設定 AD FS 來傳送此宣告。您會在下一步這麼做。
 
 12.  在 App\_Start\\Startup.Auth.cs 中，於 `ConfigureAuth` 方法中加入下行程式碼。以滑鼠右鍵按一下每個命名的解決方案錯誤來修正這個問題。
 
@@ -288,52 +286,52 @@
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
 	{
 	    @Html.AntiForgeryToken()
-	    
-	    &lt;div class="form-horizontal"&gt;
-	        &lt;h4&gt;WorkItem&lt;/h4&gt;
-	        &lt;hr /&gt;
+	
+	    &lt;div class="form-horizontal">
+	        &lt;h4>WorkItem&lt;/h4>
+	        &lt;hr />
 	        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 	
-	        &lt;div class="form-group"&gt;
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EditorFor(model =&gt; model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type=&quot;hidden&quot;</mark> } })
-	                @Html.ValidationMessageFor(model =&gt; model.AssignedToID, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
+	        &lt;div class="form-group">
+	            &lt;div class="col-md-10">
+	                @Html.EditorFor(model => model.AssignedToID, new { htmlAttributes = new { @class = "form-control"<mark>, @type="hidden"</mark> } })
+	                @Html.ValidationMessageFor(model => model.AssignedToID, "", new { @class = "text-danger" })
+	            &lt;/div>
+	        &lt;/div>
 	
-	        &lt;div class="form-group"&gt;
-	            @Html.LabelFor(model =&gt; model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EditorFor(model =&gt; model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
-	                @Html.ValidationMessageFor(model =&gt; model.AssignedToName, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
+	        &lt;div class="form-group">
+	            @Html.LabelFor(model => model.AssignedToName, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10">
+	                @Html.EditorFor(model => model.AssignedToName, new { htmlAttributes = new { @class = "form-control" } })
+	                @Html.ValidationMessageFor(model => model.AssignedToName, "", new { @class = "text-danger" })
+	            &lt;/div>
+	        &lt;/div>
 	
-	        &lt;div class="form-group"&gt;
-	            @Html.LabelFor(model =&gt; model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EditorFor(model =&gt; model.Description, new { htmlAttributes = new { @class = "form-control" } })
-	                @Html.ValidationMessageFor(model =&gt; model.Description, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
+	        &lt;div class="form-group">
+	            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10">
+	                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+	                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+	            &lt;/div>
+	        &lt;/div>
 	
-	        &lt;div class="form-group"&gt;
-	            @Html.LabelFor(model =&gt; model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
-	            &lt;div class="col-md-10"&gt;
-	                @Html.EnumDropDownListFor(model =&gt; model.Status, htmlAttributes: new { @class = "form-control" })
-	                @Html.ValidationMessageFor(model =&gt; model.Status, "", new { @class = "text-danger" })
-	            &lt;/div&gt;
-	        &lt;/div&gt;
+	        &lt;div class="form-group">
+	            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+	            &lt;div class="col-md-10">
+	                @Html.EnumDropDownListFor(model => model.Status, htmlAttributes: new { @class = "form-control" })
+	                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+	            &lt;/div>
+	        &lt;/div>
 	
-	        &lt;div class="form-group"&gt;
-	            &lt;div class="col-md-offset-2 col-md-10"&gt;
-	                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> /&gt;
-	            &lt;/div&gt;
-	        &lt;/div&gt;
-	    &lt;/div&gt;
+	        &lt;div class="form-group">
+	            &lt;div class="col-md-offset-2 col-md-10">
+	                &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> />
+	            &lt;/div>
+	        &lt;/div>
+	    &lt;/div>
 	
-	    <mark>&lt;script&gt;
-	            // People/Group Picker Code
+	    <mark>&lt;script>
+	            // 人員/群組選擇器程式碼
 	            var maxResultsPerPage = 14;
 	            var input = document.getElementById("AssignedToName");
 	            var token = "@ViewData["token"]";
@@ -341,13 +339,13 @@
 	
 	            var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
 	
-	            // Submit the selected user/group to be asssigned.
+	            // 送出要指派的所選使用者/群組。
 	            $("#submit-button").click({ picker: picker }, function () {
 	                if (!picker.Selected())
 	                    return;
 	                $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
 	            });
-	    &lt;/script&gt;</mark>
+	    &lt;/script></mark>
 	
 	}</pre>
 
@@ -390,4 +388,4 @@
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

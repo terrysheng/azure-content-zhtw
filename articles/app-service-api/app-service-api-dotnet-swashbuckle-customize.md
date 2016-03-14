@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="02/22/2016" 
 	ms.author="bradyg"/>
 
 # 自訂 Swashbuckle 產生的 API 定義 
@@ -201,7 +201,7 @@ Swashbuckle 提供兩種方法 (使用 XML 註解或 `SwaggerResponse` 屬性) �
         	    throw ex;
 		}
 
-本示範的程式碼可以在[此 GitHub 存放庫](https://github.com/Azure-Samples/API-Apps-DotNet-Swashbuckle-Customization-MultipleResponseCodes)中找到。隨 Web API 專案以 XML 文件註解標記的是主控台應用程式專案，其包含針對此 API 產生的用戶端。
+本示範的程式碼可以在[此 GitHub 存放庫](https://github.com/Azure-Samples/app-service-api-dotnet-swashbuckle-swaggerresponse)中找到。隨 Web API 專案以 XML 文件註解標記的是主控台應用程式專案，其包含針對此 API 產生的用戶端。
 
 ### 使用 SwaggerResponse 屬性自訂預期的回應碼
 
@@ -250,4 +250,4 @@ Swashbuckle 提供兩種方法 (使用 XML 註解或 `SwaggerResponse` 屬性) �
 本文已經示範如何自訂 Swashbuckle 產生作業識別碼和有效回應碼的方式。如需詳細資訊，請參閱 [GitHub 上的 Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)。
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

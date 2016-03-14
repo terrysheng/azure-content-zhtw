@@ -13,22 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
 
-# 部署 StorSimple Virtual Array：在 VMware 中佈建虛擬陣列 (預覽版)
+# 部署 StorSimple Virtual Array：在 VMware 中佈建虛擬陣列
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/vmware4.png)
 
 ## 概觀 
-本佈建教學課程僅適用於執行 1.1.1.0 版 (公開預覽版) 的 StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。本教學課程說明如何在執行 VMware ESXi 5.5 及更新版本 的主機系統上佈建及連線到 StorSimple 虛擬陣列。
+本佈建教學課程適用於執行 2016 年 3 月公開上市 (GA) 版的 StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。本教學課程說明如何在執行 VMware ESXi 5.5 及更新版本 的主機系統上佈建及連線到 StorSimple 虛擬陣列。
 
 您需要系統管理員權限，才能佈建及連線到虛擬裝置。佈建及初始安裝程序可能需要大約 10 分鐘的時間才能完成。
 
-> [AZURE.IMPORTANT]
-> 
-> 此公開預覽版僅供評估之用。不支援在生產環境中安裝此預覽版。
 
 ## 佈建的必要條件
 
@@ -38,9 +35,9 @@
 
 在您開始前，請確定：
 
--   您已完成 [Prepare the portal for StorSimple Virtual Array (準備入口網站以使用 StorSimple Virtual Array)](storsimple-ova-deploy1-portal-prep.md) 一文中的所有步驟。
+-   您已完成[準備入口網站以使用 StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md) 中的所有步驟。
 
--   您已經從 Azure 入口網站下載適用於 VMware 的虛擬裝置映像。如需詳細資訊，請參閱 [Step 3: Download the virtual device image (步驟 3：下載虛擬裝置映像)](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image)。
+-   您已經從 Azure 入口網站下載適用於 VMware 的虛擬裝置映像。如需詳細資訊，請參閱〈[步驟 3：下載虛擬裝置映像](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image)〉。
 
 ### 對於 StorSimple 虛擬裝置 
 
@@ -162,7 +159,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image19.png)
 
-1.  在 [客體作業系統] 頁面上，將 [客體作業系統] 選取為 [Windows] 。而對於 [版本]，請從下拉式清單中選取 [Microsoft Windows Server 2012 (64 位元)]。
+1.  在 [客體作業系統] 頁面上，將 [客體作業系統] 選取為 [Windows]。而對於 [版本]，請從下拉式清單中選取 [Microsoft Windows Server 2012 (64 位元)]。
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image20.png)
 
@@ -186,7 +183,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image25.png)
 
-1.  在 [選取現有的磁碟]頁面的 [磁碟檔案路徑] 下方，按一下 [瀏覽]。這會開啟 [瀏覽資料存放區] 對話方塊。瀏覽至您之前上傳 VMDK 的位置。選取檔案，然後按一下 [確定]。按 [下一步]。
+1.  在 [選取現有的磁碟] 頁面的 [磁碟檔案路徑] 下方，按一下 [瀏覽]。這會開啟 [瀏覽資料存放區] 對話方塊。瀏覽至您之前上傳 VMDK 的位置。選取檔案，然後按一下 [確定]。按 [下一步]。
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image26.png)
 
@@ -202,7 +199,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image29.png)
 
-1.  此時畫面會出現 [新增硬體] 視窗。在 [裝置類型] 頁面的 [選擇您想要新增的裝置類型] 下面，選取 [硬碟]並按 [下一步]。
+1.  此時畫面會出現 [新增硬體] 視窗。在 [裝置類型] 頁面的 [選擇您想要新增的裝置類型] 下方，選取 [硬碟] 並按一下 [下一步]。
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image30.png)
 
@@ -242,7 +239,7 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image37.png)
 
-1.  安裝工作將需要幾分鐘的時間才能完成。當裝置開始運作時，瀏覽至 [主控台] 索引標籤。傳送 Ctrl+Alt+Delete 來登入裝置。或者，您可以讓游標指向主控台視窗，然後按下 Ctrl+Alt+Insert。預設的使用者為「StorSimpleAdmin」，而預設密碼為「Password1」。
+1.  安裝工作將需要幾分鐘的時間才能完成。當裝置開始運作時，瀏覽至 [主控台] 索引標籤。傳送 Ctrl+Alt+Delete 來登入裝置。或者，您可以讓游標指向主控台視窗，然後按下 Ctrl+Alt+Insert。預設的使用者為 *StorSimpleAdmin*，而預設密碼為 *Password1*。
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image38.png)
 
@@ -279,11 +276,11 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image45.png)
 
-如果裝置不符合最低設定需求，橫幅文字中會出現錯誤訊息 (如下所示)。您必須修改裝置設定，讓裝置有足夠的資源來符合最低需求。然後您就可以將裝置重新啟動，並連線到該裝置。請參閱[步驟 1：確認主機系統符合最低的虛擬裝置需求](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)中的最低設定需求。
+如果裝置不符合最低設定需求，橫幅文字中會出現錯誤訊息 (如下所示)。您必須修改裝置設定，讓裝置有足夠的資源來符合最低需求。然後您就可以將裝置重新啟動，並連線到該裝置。請參閱〈[步驟 1：確認主機系統符合最低的虛擬裝置需求](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)〉中的最低設定需求。
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/image46.png)
 
-如果您在使用本機 Web UI 進行初始設定作業時碰到任何錯誤，請參閱 [Manage your StorSimple Virtual Array using the local web UI (使用本機 Web UI 管理 StorSimple 虛擬陣列)](storsimple-ova-web-ui-admin.md) 中的下列工作流程。
+如果您在使用本機 Web UI 進行初始設定作業時碰到任何錯誤，請參閱[使用本機 Web UI 管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md) 中的下列工作流程。
 
 -   執行診斷測試來[排解使用 Web UI 安裝時所發生的錯誤](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors)。
 
@@ -295,4 +292,4 @@
 
 -   [Set up your StorSimple Virtual Array as an iSCSI server (將 StorSimple 虛擬陣列設定為 iSCSI 伺服器)](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

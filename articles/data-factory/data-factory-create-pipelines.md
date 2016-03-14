@@ -224,18 +224,7 @@
 
 標記 | 說明 | 必要
 --- | ----------- | --------
-名稱 | 活動或管線的名稱。指定一個名稱，以表示活動或管線設定要進行的動作<br/><ul><li>字元數上限：260</li><li>必須以字母、數字或底線 (\_) 開頭</li><li>不允許下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\\”</li></ul> | 是 
-description | 描述活動或管線用途的文字 | 是 
-type | 指定活動的類型。如需不同類型的活動，請參閱[資料移動活動](data-factory-data-movement-activities.md)和[資料轉換活動](data-factory-data-transformation-activities.md)文章。 | 是 
-inputs | 活動所使用的輸入資料表<p>// 一個輸入資料表<br/>"inputs": [ { "name": "inputtable1" } ],</p><p>// 兩個輸入資料表<br/>"inputs": [ { "name": "inputtable1" }, { "name": "inputtable2" } ],</p>|是 
-outputs | 活動所使用的輸出資料表。<p>// 一個輸出資料表<br/>"outputs": [ { "name": “outputtable1” } ],</p><p>// 兩個輸出資料表<br/>"outputs": [ { "name": “outputtable1” }, { "name": “outputtable2” } ],</p> | 是 
-linkedServiceName | 活動所使用的連結服務名稱。<p>活動可能會要求您指定可連結至所需運算環境的連結服務。</p> | 是：適用於 HDInsight 活動和 Azure Machine Learning Batch 評分活動 <p>否：所有其他活動</p> 
-typeProperties | TypeProperties 區段中的屬性會視活動的類型而定。若要深入了解，請參閱各個活動的相關文章 |否 
-policy | 會影響活動之執行階段行為的原則。如果未指定，則會使用預設原則。向下捲動以取得詳細資訊 |否 
-start | 管線的開始日期時間。必須使用 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。<p>管線的 start 和 end 屬性共同指定管線的作用中期間。輸出配量只會在作用中期間內產生。</p> |否<p>如果您指定 end 屬性的值，您必須指定 start 屬性的值。</p><p>開始和結束時間都可以是空白來建立管線，但是兩者都必須有值以設定執行管線的作用中時間。如果您建立管線時未指定開始和結束時間，您可以在稍後使用 Set-AzureRmDataFactoryPipelineActivePeriod Cmdlet 進行設定。</p> 
-管線的結束 | 結束日期-時間。如果已指定，則必須使用 ISO 格式。例如：2014-10-14T17:32:41Z <p>若要無限期地執行管線，請指定 9999-09-09 做為 end 屬性的值。</p>|否 <p>如果您指定 start 屬性的值，您必須指定 end 屬性的值。</p><p>請參閱 **開始** 屬性的附註。</p> 
-isPaused |如果設定為 true 則管線不會執行。預設值 = false。您可以使用此屬性來啟用或停用。|否 
-scheduler | “scheduler” 屬性用來定義所要的活動排程。其子屬性與[資料集中的可用性屬性](data-factory-create-datasets.md#Availability)相同。| 否 | 
+名稱 | 活動或管線的名稱。指定一個名稱，以表示活動或管線設定要進行的動作<br/><ul><li>字元數上限：260</li><li>必須以字母、數字或底線 (\_) 開頭</li><li>不允許下列字元：“.”、“+”、“?”、“/”、“<”、”>”、”*”、”%”、”&”、”:”、”\\”</li></ul> | 是 description | 描述活動或管線用途的文字 | 是 type | 指定活動的類型。如需不同類型的活動，請參閱[資料移動活動](data-factory-data-movement-activities.md)和[資料轉換活動](data-factory-data-transformation-activities.md)文章。 | 是 inputs | 活動所使用的輸入資料表<p>// 一個輸入資料表<br/>"inputs": [ { "name": "inputtable1" } ],</p><p>// 兩個輸入資料表<br/>"inputs": [ { "name": "inputtable1" }, { "name": "inputtable2" } ],</p>|是 outputs | 活動所使用的輸出資料表。<p>// 一個輸出資料表<br/>"outputs": [ { "name": “outputtable1” } ],</p><p>// 兩個輸出資料表<br/>"outputs": [ { "name": “outputtable1” }, { "name": “outputtable2” } ],</p> | 是 linkedServiceName | 活動所使用的連結服務名稱。<p>活動可能會要求您指定可連結至所需運算環境的連結服務。</p> | 是：適用於 HDInsight 活動和 Azure Machine Learning Batch 評分活動 <p>否：所有其他活動</p> typeProperties | TypeProperties 區段中的屬性會視活動的類型而定。若要深入了解，請參閱各個活動的相關文章 |否 policy | 會影響活動之執行階段行為的原則。如果未指定，則會使用預設原則。向下捲動以取得詳細資訊 |否 start | 管線的開始日期時間。必須使用 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。<p>管線的 start 和 end 屬性共同指定管線的作用中期間。輸出配量只會在作用中期間內產生。</p> |否<p>如果您指定 end 屬性的值，您必須指定 start 屬性的值。</p><p>開始和結束時間都可以是空白來建立管線，但是兩者都必須有值以設定執行管線的作用中時間。如果您建立管線時未指定開始和結束時間，您可以在稍後使用 Set-AzureRmDataFactoryPipelineActivePeriod Cmdlet 進行設定。</p> 管線的結束 | 結束日期-時間。如果已指定，則必須使用 ISO 格式。例如：2014-10-14T17:32:41Z <p>若要無限期地執行管線，請指定 9999-09-09 做為 end 屬性的值。</p>|否 <p>如果您指定 start 屬性的值，您必須指定 end 屬性的值。</p><p>請參閱 **開始** 屬性的附註。</p> isPaused |如果設定為 true 則管線不會執行。預設值 = false。您可以使用此屬性來啟用或停用。|否 scheduler | “scheduler” 屬性用來定義所要的活動排程。其子屬性與[資料集中的可用性屬性](data-factory-create-datasets.md#Availability)相同。| 否 | 
 
 ### 活動類型
 Azure Data Factory 提供各種[資料移動](data-factory-data-movement-activities.md)和[資料轉換](data-factory-data-transformation-activities.md)活動。
@@ -252,6 +241,37 @@ timeout | TimeSpan | 00:00:00 | 活動的逾時。範例：00:10:00 (意指逾�
 delay | TimeSpan | 00:00:00 | 指定開始處理配量資料之前的延遲。<p>資料配量的活動會在 Delay 超出預期執行時間後開始執行。</p><p>範例：00:10:00 (意指延遲 10 分鐘)</p>
 longRetry | 整數<p>最大值：10</p> | 1 | 配量執行失敗前的長時間重試次數。<p>longRetry 嘗試是以 longRetryInterval 隔開。所以如果您需要指定重試嘗試之間的時間，請使用 longRetry。如果已指定 Retry 和 longRetry，則每個 longRetry 嘗試都會包含 Retry 嘗試，而最大嘗試次數會是 Retry * longRetry。</p><p>例如，如果我們的活動原則如下：<br/>Retry：3<br/>longRetry：2<br/>longRetryInterval：01:00:00<br/></p><p>假設只有一個要執行的配量 (狀態是 Waiting)，且活動執行每次都失敗。一開始會有 3 次連續執行嘗試。在每次嘗試之後，配量狀態會是 Retry。在前 3 次嘗試結束之後，配量狀態會是 LongRetry。</p><p>一個小時 (也就是 longRetryInteval 的值) 之後，會有另一組 3 次連續執行嘗試。在那之後，配量狀態會是 Failed，不會再嘗試重試。因此全部已進行 6 次嘗試。</p><p>注意：如果任何執行成功，配量狀態會是 Ready 且不會再嘗試重試。</p><p>longRetry 可能用於下列情況：相依資料達到不具決定性的次數，或進行資料處理的整體環境相當脆弱。在這類情況下逐一進行重試並沒有幫助，而在一段時間後進行重試則會導致所要的結果。</p><p>提醒：請勿設定較大的 longRetry 或 longRetryInterval 值。較大的值通常表示正在排除的其他系統問題</p> 
 longRetryInterval | TimeSpan | 00:00:00 | 長時間重試嘗試之間的延遲 
+
+## 鏈結活動
+如果您在管線中有多個活動，而且它們不會彼此相依 (活動的輸出不是另一個活動的輸入)，如果活動的輸入資料分割已備妥，則可能會平行執行活動。
+
+您可以將一個活動的輸出資料集設為另一個活動的輸入資料集，藉此鏈結兩個活動。活動可以在相同的管線中或在不同的管線中。只有當第一個活動執行成功完成時，第二個活動才會執行。
+
+例如，請考慮下列情況：
+ 
+1.	管線 P1 具有需要外部輸入資料集 D1 的活動 A1，並產生**輸出**資料集 **D2**。
+2.	管線 P2 具有需要資料集 **D2** 的 **輸入**的活動 A2，並產生輸出資料集 D3。
+ 
+在此案例中，活動 A1 會在外部資料提供使用時執行，且達到排程的可用性頻率。活動 A2 會在 D2 的排定的分割可供使用時執行，且達到排程的可用性頻率。如果資料集 D2 中的其中一個分割發生錯誤，則不會針對該分割執行 A2，直到該分割可供使用為止。
+
+[圖表檢視] 看起來如下：
+
+![兩個管線中的鏈結活動](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
+
+兩個活動同時在相同管線中的 [圖表檢視] 看起來如下：
+
+![相同管線中的鏈結活動](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
+
+## 排程和執行
+到目前為止，您已了解什麼是管線和活動。您也已大致了解其定義方式以及 Azure Data Factory 中的高階活動觀點。現在讓我們了解一下其執行方式。
+
+管線僅在其開始時間與結束時間之間有作用。在開始時間之前或結束時間之後就不會執行。如果管線已暫停，不論其開始和結束時間為何，都不會執行。若要執行管線，則不該將它暫停。事實上，並不是執行管線。而是執行管線中的活動。不過，活動會在管線的整體內容中執行。
+
+請參閱[排程和執行](data-factory-scheduling-and-execution.md)，以了解如何在 Azure Data Factory 中排程和執行。
+
+### 分割的平行處理
+將活動 JSON 定義中的 [並行] 值設為大於 1 的值，以便由位於執行階段的多個活動執行個體，以平行方式處理多個分割。這在處理過去重填的分割時很有幫助。
+
 
 ## 製作和管理管線
 Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一或多個活動)。
@@ -276,15 +296,19 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 
 	**注意：**在部署期間，Azure Data Factory 服務會執行一些驗證檢查，協助修正一些常見問題。萬一發生錯誤，將顯示對應的資訊。採取更正動作並重新部署所製作的管線。您可以使用編輯器來更新及刪除管線。
 
+請參閱[開始使用 Azure Data Factory (Data Factory 編輯器)](data-factory-build-your-first-pipeline-using-editor.md)，以取得使用管線建立資料處理站的端對端逐步解說。
+
 ### 使用 Visual Studio 外掛程式
-您可以使用 Visual Studio 來製作管線及部署至 Azure Data Factory。若要深入了解，請參閱[教學課程：從 Azure 儲存體複製資料到 Azure SQL (Visual Studio)](data-factory-get-started-using-vs.md)。
+您可以使用 Visual Studio 來製作管線及部署至 Azure Data Factory。若要深入了解，請參閱[開始使用 Azure Data Factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md)，以取得使用管線建立資料處理站的端對端逐步解說。
+
 
 ### 使用 Azure PowerShell
 您可以使用 Azure PowerShell 在 Azure Data Factory 中建立管線。假設您已在檔案 (位於 c:\\DPWikisample.json) 中定義管線 JSON。您可以將它上傳到如下列範例所示的 Azure Data Factory 執行個體。
 
 	New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
-若要深入了解這個 Cmdlet，請參閱 [New-AzureRmDataFactoryPipeline cmdlet](https://msdn.microsoft.com/library/mt619358.aspx)。
+請參閱[開始使用 Azure Data Factory (Azure PowerShell)](data-factory-build-your-first-pipeline-using-powershell.md)，以取得使用管線建立資料處理站的端對端逐步解說。
+
 
 ### 使用 REST API
 您也可以使用 REST API 建立和部署管線。這項機制可用來以程式設計的方式建立管線。若要深入了解，請參閱[建立或更新管線](https://msdn.microsoft.com/library/azure/dn906741.aspx)。
@@ -292,13 +316,9 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 ### 使用 .NET SDK
 您也可以透過 .NET SDK 建立和部署管線。這項機制可用來以程式設計的方式建立管線。若要深入了解，請參閱[以程式設計方式建立、管理和監視 Data Factory](data-factory-create-data-factories-programmatically.md)。
 
+### 使用 ARM (Azure Resource Manager) 範本
+您可以使用 Azure Resource Manager (ARM) 範本建立與部署管線。若要深入了解，請參閱[開始使用 Azure Data Factory (Azure Resource Manager)](data-factory-build-your-first-pipeline-using-arm.md)。
 
-## 排程和執行
-到目前為止，您已了解什麼是管線和活動。您也已大致了解其定義方式以及 Azure Data Factory 中的高階活動觀點。現在讓我們了解一下其執行方式。
-
-管線僅在其開始時間與結束時間之間有作用。在開始時間之前或結束時間之後就不會執行。如果管線已暫停，不論其開始和結束時間為何，都不會執行。若要執行管線，則不該將它暫停。
-
-事實上，並不是執行管線。而是執行管線中的活動。不過，活動會在管線的整體內容中執行。請參閱[排程和執行](data-factory-scheduling-and-execution.md)，以了解如何在 Azure Data Factory 中排程和執行。
 
 ## 管理和監視  
 一旦部署管線，您即可管理和監視管線、配量和執行。如需詳細資訊，請參閱[監視和管理管線](data-factory-monitor-manage-pipelines.md)。
@@ -335,4 +355,4 @@ Azure Data Factory 提供各種機制來製作及部署管線 (其中包含一�
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

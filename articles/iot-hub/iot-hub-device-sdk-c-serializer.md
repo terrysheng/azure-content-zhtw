@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="11/10/2015"
+     ms.date="02/23/2016"
      ms.author="obloch"/>
 
 # Microsoft Azure IoT 裝置 SDK (適用於 C) – 深入了解序列化程式
@@ -528,19 +528,27 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 ## 巨集組態
 
-如果您使用**序列化程式**程式庫，以下是要注意的 SDK 重點：
+如果您使用**序列化程式**程式庫，需注意的 SDK 重點位於 azure-c-shared-utility 程式庫中：如果您已經利用 --recursive 選項，從 GitHub 複製 Azure-iot-sdks 儲存機制，您將可在以下位置找到這個共用公用程式庫：
 
 ```
-.\\c\\common\\tools\\macro\_utils\_h\_generator.
+.\\c\\azure-c-shared-utility
+```
+
+如果您尚未複製程式庫，可以在[這裡](https://github.com/Azure/azure-c-shared-utility)找到。
+
+在共用公用程式庫中，可以找到下列資料夾：
+
+```
+azure-c-shared-utility\\macro\_utils\_h\_generator.
 ```
 
 此資料夾包含名為 **macro\_utils\_h\_generator.sln** 的 Visual Studio 解決方案。
 
   ![](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.PNG)
 
-此解決方案中的程式會產生 **macro\_utils.h**，位於 .\\c\\common\\inc 目錄中。沒有預設 macro\_utils.h 檔案包含在 SDK 中。這個解決方案可讓您修改部分參數，然後根據這些參數重新建立標頭檔。
+此解決方案中的程式會產生 **macro\_utils.h** 檔案。沒有預設 macro\_utils.h 檔案包含在 SDK 中。這個解決方案可讓您修改部分參數，然後根據這些參數重新建立標頭檔。
 
-要考慮的兩個重要參數是 **nArithmetic** 和 **nMacroParameters**，這些參數是在 macro\_utils.tt 的這兩行中定義：
+要考慮的兩個重要參數為 **nArithmetic** 和 **nMacroParameters**，這些參數在 macro\_utils.tt 的這兩行中定義為：
 
 ```
 <#int nArithmetic=1024;#>
@@ -572,7 +580,7 @@ WITH_DATA(int, MyData)
 
 如果您想要變更這些參數，請修改 macro\_utils.tt 檔案中的值、重新編譯 macro\_utils\_h\_generator.sln 解決方案，然後執行編譯過的程式。當您這麼做時，新的 macro\_utils.h 檔案就會產生並放置在 .\\common\\inc 目錄中。
 
-為了使用新版 macro\_utils.h，請從您的解決方案中移除NuGet 套件，然後在它的位置包含「序列化程式」Visual Studio 專案。這可讓您的程式碼針對序列化程式程式庫的原始程式碼進行編譯。這包括更新的 macro\_utils.h。如果您想要對 **simplesample\_amqp** 執行這項操作，請從方案中移除序列化程式庫的 NuGet 套件開始：
+若要使用 macro\_utils.h 的新版本，請從您的解決方案移除**序列化程式** NuGet 套件，並在它的位置中包含**序列化程式** Visual Studio 專案。這可讓您的程式碼針對序列化程式程式庫的原始程式碼進行編譯。這包括更新的 macro\_utils.h。如果您想要對 **simplesample\_amqp** 執行這項操作，請從方案中移除序列化程式庫的 NuGet 套件開始：
 
    ![](media/iot-hub-device-sdk-c-serializer/04-serializer-github-package.PNG)
 
@@ -586,7 +594,7 @@ WITH_DATA(int, MyData)
 
 現在當您編譯解決方案時，已更新的 macro\_utils.h 就會包含在您的二進位檔中。
 
-請注意，增加這些值到足夠高的數目可能會超出編譯器限制。到這個階段，**nMacroParameters** 會是要考量的主要參數。C99 規格指定巨集定義中允許最少 127 個參數。Microsoft 編譯器完全遵循此規格 (限制為 127)，因此您無法將 **nMacroParameters** 提高到超過預設值。其他編譯器可能會允許您這麼做 (例如 GNU 編譯器支援更高的限制)。
+請注意，增加這些值到足夠高的數目可能會超出編譯器限制。到這個階段，**nMacroParameters** 會是需要納入考量的主要參數。C99 規格指定巨集定義中允許最少 127 個參數。Microsoft 編譯器完全遵循此規格 (限制為 127)，因此您無法將 **nMacroParameters** 提高到超過預設值。其他編譯器可能會允許您這麼做 (例如 GNU 編譯器支援更高的限制)。
 
 到目前為止，我們幾乎已經討論了如何使用**序列化程式**程式庫撰寫程式碼所必須知道的一切內容。在做出結論之前，讓我們先從先前的文章中回顧一些您可能想知道的主題。
 
@@ -618,11 +626,11 @@ WITH_DATA(int, MyData)
 
 請注意，較低層級 API 的運作方式與先前文章中所述的完全相同。如果您想要背景執行緒以處理事件傳送和訊息接收，您可以使用第一組 API。如果您想要掌握與 IoT 中樞之間傳送和接收資料時的明確控制權，您可以使用第二組 API。任何一組 API 使用**序列化程式**程式庫的效果都相同。
 
-如需有關如何將較低層級 API 與「序列化程式」程式庫搭配使用的範例，請參閱 **simplesample\_http** 應用程式。
+如需有關如何將較低層級 API 與**序列化程式**程式庫搭配使用的範例，請參考 **simplesample\_http** 應用程式。
 
 ## 其他主題
 
-值得一提的其他幾個主題包括屬性處理、使用替代裝置認證和組態選項。這些都是[前一篇文章](iot-hub-device-sdk-c-iothubclient.md)中所涵蓋的主題。重點在於，所有這些功能不論是與「序列化程式」程式庫搭配，還是與 **IoTHubClient** 程式庫搭配，其運作方式都相同。例如，如果您想要從您的模型將屬性附加至事件，您需以和先前所述的相同方式，使用 **IoTHubMessage\_Properties** 和 **Map**\_**AddorUpdate**：
+值得一提的其他幾個主題包括屬性處理、使用替代裝置認證和組態選項。這些都是[先前的文章](iot-hub-device-sdk-c-iothubclient.md)中所涵蓋的主題。重點在於，所有這些功能不論是與**序列化程式**程式庫搭配，還是與 **IoTHubClient** 程式庫搭配，其運作方式均相同。例如，如果您想要從您的模型將屬性附加至事件，您需透過前述的相同方式，使用 **IoTHubMessage\_Properties** 和 **Map**\_**AddorUpdate**：
 
 ```
 MAP_HANDLE propMap = IoTHubMessage_Properties(message.messageHandle);
@@ -630,13 +638,13 @@ sprintf_s(propText, sizeof(propText), "%d", i);
 Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 ```
 
-事件是從「序列化程式」程式庫產生，還是使用 **IoTHubClient** 程式庫手動建立，並不重要。
+無論事件是從**序列化程式**程式庫產生，還是使用 **IoTHubClient** 程式庫手動建立，並不重要。
 
 就替代裝置認證而言，使用 **IoTHubClient\_LL\_Create** 來配置 **IOTHUB\_CLIENT\_HANDLE** 的效果和使用 **IoTHubClient\_CreateFromConnectionString** 一樣好。
 
-最後，如果您使用「序列化程式」程式庫，您可以使用 **IoTHubClient\_LL\_SetOption** 來設定組態選項，就像您使用 **IoTHubClient** 程式庫時所做的一樣。
+最後，如果您使用**序列化程式**程式庫，您就可以使用 **IoTHubClient\_LL\_SetOption** 來設定組態選項，就像您使用 **IoTHubClient** 程式庫時所做的一樣。
 
-有一個功能對「序列化程式」程式庫來說是獨一無二的，就是初始化 API。在您開始使用此程式庫之前，您必須先呼叫 **serializer\_init**：
+**序列化程式**程式庫有一個獨一無二的功能，也就是初始化 API。在開始使用此程式庫前，您必須先呼叫 **serializer\_init**：
 
 ```
 serializer_init(NULL);
@@ -650,12 +658,12 @@ serializer_init(NULL);
 serializer_deinit();
 ```
 
-除此之外，上面列出的所有其他功能在「序列化程式」程式庫中的運作方式，皆與在 **IoTHubClient** 程式庫中的運作方式相同。如需有關任何這些主題的詳細資料，請參閱本系列中的[前一篇文章](iot-hub-device-sdk-c-iothubclient.md)。
+除此之外，上面列出的所有其他功能在**序列化程式**程式庫中的運作方式，皆與在 **IoTHubClient** 程式庫中的運作方式相同。如需有關任何這些主題的詳細資料，請參閱本系列中的[前一篇文章](iot-hub-device-sdk-c-iothubclient.md)。
 
 ## 後續步驟
 
-本文詳細說明「Azure IoT 裝置 SDK (適用於 C)」中所含「序列化程式」程式庫的獨特層面。透過文中提供的資訊，您應該能充分了解如何使用模型來傳送事件和接收來自 IoT 中樞的訊息。
+本文詳細說明 **Azure IoT 裝置 SDK (適用於 C)**中所含**序列化程式**程式庫的獨特層面。透過文中提供的資訊，您應該能充分了解如何使用模型來傳送事件和接收來自 IoT 中樞的訊息。
 
-在此也將結束由三部分組成、有關如何使用「Azure IoT 裝置 SDK (適用於 C)」來開發應用程式的系列。這些資訊應該不僅足以讓您入門，還能讓您徹底了解 API 的運作方式。如需其他資訊，還有一些 SDK 中的範例未涵蓋在本文中。除此之外，[SDK 文件](https://github.com/Azure/azure-iot-sdks)也是取得其他資訊的絕佳資源。
+在此也將結束本系列有關如何使用**Azure IoT 裝置 SDK (適用於 C)**開發應用程式的三部曲。這些資訊應該不僅足以讓您入門，還能讓您徹底了解 API 的運作方式。如需其他資訊，還有一些 SDK 中的範例未涵蓋在本文中。除此之外，[SDK 文件](https://github.com/Azure/azure-iot-sdks)也是取得其他資訊的絕佳資源。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

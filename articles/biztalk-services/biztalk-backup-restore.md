@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -23,7 +23,7 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 
 您也可以使用 [BizTalk 服務 REST API](http://go.microsoft.com/fwlink/p/?LinkID=325584) 來備份 BizTalk 服務。
 
-> [AZURE.NOTE]混合式連接無法備份，與版本無關。您必須重新建立混合式連接。
+> [AZURE.NOTE] 混合式連接無法備份，與版本無關。您必須重新建立混合式連接。
 
 ## 開始之前
 
@@ -70,7 +70,9 @@ Azure BizTalk 服務包含備份與還原功能。本主題說明如何使用 Az
 
 	![][AutomaticBU]
 
-	**注意** - 在 [**保留天數**] 中，保留期間必須大於備份頻率。-選取 [**永遠保留至少一個備份**]，即使它已超出保留期間。
+	**注意事項**
+	- [保留天數] 中的保留週期必須大於備份頻率。
+	- 選取 [永遠保留至少一個備份]，以確保即使超過保留週期也有備份可用。
 	
 
 4. 選取 [**儲存**]。
@@ -233,4 +235,4 @@ BizTalk 服務永遠還原成**暫止**狀態。在此狀態下，您可以在�
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0302_2016-->

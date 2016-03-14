@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/25/2015"
+   ms.date="02/29/2016"
    ms.author="robb" />
 
 # 在 Azure 應用程式中建立及使用效能計數器
@@ -21,10 +21,10 @@
 
 適用於 Windows Server、IIS 和 ASP.NET 的效能計數器也可用來收集資料，以判斷 Azure Web 角色、背景工作角色和虛擬機器的健康情況。您也可以建立和使用自訂效能計數器。
 
-您可以檢查效能計數器資料：
-1.直接在應用程式主機上，使用遠端桌面存取效能監視器工具。
-2.透過使用 Azure Management Pack。
-3. 的 System Center Operations Manager。透過其他監視工具，存取已傳輸至 Azure 儲存體的診斷資料。如需詳細資訊，請參閱[在 Azure 儲存體中儲存和檢視診斷資料](https://msdn.microsoft.com/library/azure/hh411534.aspx)。
+您可以採取下列方法來檢查效能計數器資料：
+1. 直接在應用程式主機上，使用透過遠端桌面存取的效能監視器工具
+2. 透過使用 Azure Management Pack 的 System Center Operations Manager
+3. 透過其他監視工具，存取已傳輸至 Azure 儲存體的診斷資料。如需詳細資訊，請參閱[在 Azure 儲存體中儲存和檢視診斷資料](https://msdn.microsoft.com/library/azure/hh411534.aspx)。  
 
 如需在 [Azure 傳統入口網站](http://manage.azure.com/)中監視應用程式效能的詳細資訊，請參閱[如何監視雲端服務](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/)。
 
@@ -56,22 +56,13 @@ Azure 為 Windows Server、IIS 和 ASP.NET 堆疊提供了一小組可用的效�
 |ASP.NET v4.0.30319 |遭拒絕的要求 |ASP.NET 的效能計數器|
 |記憶體 |可用的 MB |記憶體效能計數器|
 |記憶體 |認可的位元組 |記憶體效能計數器|
-|Processor(\_Total) |處理器時間 % |ASP.NET 的效能計數器|
-|TCPv4 |連線失敗 |TCP 物件|
-|TCPv4 |建立的連線 |TCP 物件|
-|TCPv4 |重設的連線 |TCP 物件|
-|TCPv4 |傳送的區段/秒 |TCP 物件|
-|網路介面(*) |接收的位元組/秒 |網路介面物件|
-|網路介面(*) |傳送的位元組/秒 |網路介面物件|
-|網路介面 (Microsoft 虛擬機器匯流排網路介面卡 \_2)|接收的位元組/秒|網路介面物件|
-|網路介面 (Microsoft 虛擬機器匯流排網路介面卡 \_2)|傳送的位元組/秒|網路介面物件|
-|網路介面 (Microsoft 虛擬機器匯流排網路介面卡 \_2)|位元組總數/秒|網路介面物件|
+|Processor(\_Total) |處理器時間 % |ASP.NET 的效能計數器| |TCPv4 |連線失敗 |TCP 物件| |TCPv4 |建立的連線 |TCP 物件| |TCPv4 |重設的連線 |TCP 物件| |TCPv4 |傳送的區段/秒 |TCP 物件| |網路介面(*) |接收的位元組/秒 |網路介面物件| |網路介面(*) |傳送的位元組/秒 |網路介面物件| |網路介面 (Microsoft 虛擬機器匯流排網路介面卡 \_2)|接收的位元組/秒|網路介面物件| |網路介面 (Microsoft 虛擬機器匯流排網路介面卡 \_2)|傳送的位元組/秒|網路介面物件| |網路介面 (Microsoft 虛擬機器匯流排網路介面卡 \_2)|位元組總數/秒|網路介面物件|
 
 ## 建立自訂效能計數器並加入您的應用程式中
 
 Azure 支援建立和修改 Web 角色和背景工作角色的自訂效能計數器。計數器可用來追蹤和監視應用程式特有的行為。您可以用更高權限，建立和刪除啟動工作、Web 角色或背景工作角色的自訂效能計數器類別和規範。
 
->[AZURE.NOTE]必須擁有更高權限，才能執行對自訂效能計數器進行變更的程式碼。如果程式碼屬於 Web 角色或背景工作角色，角色必須在 ServiceDefinition.csdef 檔案中包含標記 <Runtime executionContext="elevated" />，才能正確地初始化角色。
+>[AZURE.NOTE] 必須擁有更高權限，才能執行對自訂效能計數器進行變更的程式碼。如果程式碼屬於 Web 角色或背景工作角色，角色必須在 ServiceDefinition.csdef 檔案中包含標記 <Runtime executionContext="elevated" />，才能正確地初始化角色。
 
 您可以使用診斷代理程式，將自訂效能計數器資料傳送到 Azure 儲存體。
 
@@ -83,7 +74,7 @@ Azure 會快取效能計數器資料與其他診斷資訊。當角色執行個�
 
 每個設定的效能計數器執行個體都會以指定的取樣速率進行記錄，而取樣的資料會經由排程的傳輸要求或隨選傳輸要求傳輸到儲存體帳戶。可將自動傳輸的頻率排程為每分鐘一次。診斷代理程式所傳輸的效能計數器資料會儲存在儲存體帳戶的 WADPerformanceCountersTable 資料表中。使用標準 Azure 儲存體 API 方法即可存取和查詢此資料表。如需查詢及顯示 WADPerformanceCountersTable 資料表中效能計數器資料的範例，請參閱 [Microsoft Azure PerformanceCounters 範例](http://code.msdn.microsoft.com/Windows-Azure-PerformanceCo-7d80ebf9)。
 
->[AZURE.NOTE]視診斷代理程式的傳輸頻率和佇列延遲研定，儲存體帳戶中的最新效能計數器資料可能會過期幾分鐘。
+>[AZURE.NOTE] 視診斷代理程式的傳輸頻率和佇列延遲研定，儲存體帳戶中的最新效能計數器資料可能會過期幾分鐘。
 
 ## 使用診斷組態檔來啟用效能計數器
 
@@ -144,7 +135,7 @@ counterSpecifier 屬性會指定要收集的效能計數器。sampleRate 屬性�
 
 在 Azure SDK 2.5 中，儲存體帳戶可在 diagnostics.wadcfgx 檔案中指定。
 
->[AZURE.NOTE]這些指示只會套用至 Azure SDK 2.4 和以下版本。在 Azure SDK 2.5 中，儲存體帳戶可在 diagnostics.wadcfgx 檔案中指定。
+>[AZURE.NOTE] 這些指示只會套用至 Azure SDK 2.4 和以下版本。在 Azure SDK 2.5 中，儲存體帳戶可在 diagnostics.wadcfgx 檔案中指定。
 
 若要設定連接字串：
 
@@ -179,7 +170,7 @@ Azure 診斷代理程式會在啟動一分鐘後從 .wadcfg 檔案重新整理�
 2. 將 Runtime 元素新增至 WebRole 或 WorkerRole 元素，使其可在提升的權限下執行：
 
     ```
-    <RuntimeexecutionContext="elevated"/>
+    <runtime executioncontext="elevated"/>
     ```
 3. 儲存檔案。
 4. 開啟診斷檔案 (SDK 2.4 和以下版本為 diagnostics.wadcfg，而 SDK 2.5 和以上版本為 diagnostics.wadcfgx)，並將下列內容加入 DiagnosticMonitorConfiguration 中 
@@ -318,11 +309,6 @@ Azure 診斷監視器現在即會收集自訂效能計數器資料。
 
 
 ## 後續步驟
+[檢視有關 Azure 診斷的其他文章](../azure-diagnostics.md)
 
-了解收集效能計數器的基礎概念之後，請參考下列連結以了解如何實作更複雜的疑難排解案例。
-
-[開發 Azure 應用程式的疑難排解最佳作法](https://msdn.microsoft.com/library/azure/hh771389.aspx)
-
-[如何監視雲端服務](./how-to-monitor-a-cloud-service.md)
-
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

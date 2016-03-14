@@ -1,18 +1,18 @@
-<properties 
- pageTitle="如何管理 Azure 內容傳遞網路 (CDN) 中 Blob 內容的到期" 
- description="" 
- services="cdn" 
- documentationCenter=".NET" 
- authors="camsoper" 
- manager="dwrede" 
+<properties
+ pageTitle="如何管理 Azure 內容傳遞網路 (CDN) 中 Blob 內容的到期"
+ description=""
+ services="cdn"
+ documentationCenter=".NET"
+ authors="camsoper"
+ manager="erikre"
  editor=""/>
-<tags 
- ms.service="cdn" 
- ms.workload="media" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/02/2015" 
+<tags
+ ms.service="cdn"
+ ms.workload="media"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="02/25/2016" 
  ms.author="casoper"/>
 
 
@@ -22,7 +22,7 @@
 
 您有兩個選項可控制 TTL。
 
-1.	請不要設定快取值，因此會使用預設 TTL：7 天。 
+1.	請不要設定快取值，因此會使用預設 TTL：7 天。
 2.	在 [**放置 Blob**]、[**放置封鎖清單**] 或 [**設定 Blob 屬性**] 要求上明確地設定 *x-ms-blob-cache-control* 屬性，或使用 Azure 受管理程式庫來設定 [BlobProperties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 屬性。設定此屬性會設定 Blob 之 *Cache-Control* 標頭的值。標頭或屬性的值應該指定適當的值 (秒)。例如，若要將快取期間上限設為一年，您可以將要求標頭指定為 `x-ms-blob-cache-control: public, max-age=31556926`。如需有關設定快取標頭的詳細資料，請參閱 [HTTP/1.1 規格](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html)。  
 
 您想要透過 CDN 快取的任何內容都必須以公開存取的 Blob 形式儲存在 Azure 儲存體帳戶中。如需 Azure Blob 服務的詳細資料，請參閱 **Blob 服務概念**。
@@ -40,7 +40,7 @@
 	using System;
 	using Microsoft.WindowsAzure;
 	using Microsoft.WindowsAzure.StorageClient;
-	
+
 	namespace BlobsInCDN
 	{
 	    class Program
@@ -50,31 +50,31 @@
 	            //Specify storage credentials.
 	            StorageCredentialsAccountAndKey credentials = new StorageCredentialsAccountAndKey("storagesample",
 	                "m4AHAkXjfhlt2rE2BN/hcUR4U2lkGdCmj2/1ISutZKl+OqlrZN98Mhzq/U2AHYJT992tLmrkFW+mQgw9loIVCg==");
-	            
+
 	            //Create a reference to your storage account, passing in your credentials.
 	            CloudStorageAccount storageAccount = new CloudStorageAccount(credentials, true);
-	            
+
 	            //Create a new client object, which will provide access to Blob service resources.
 	            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-	
+
 	            //Create a new container.
 	            CloudBlobContainer container = blobClient.GetContainerReference("cdncontent");
 	            container.CreateIfNotExist();
-	
+
 	            //Specify that the container is publicly accessible.
 	            BlobContainerPermissions containerAccess = new BlobContainerPermissions();
 	            containerAccess.PublicAccess = BlobContainerPublicAccessType.Container;
 	            container.SetPermissions(containerAccess);
-	
+
 	            //Create a new blob and write some text to it.
 	            CloudBlob blob = blobClient.GetBlobReference("cdncontent/testblob.txt");
 	            blob.UploadText("This is a test blob.");
-	
+
 	            //Set the Cache-Control header on the blob to specify your desired refresh interval.
 	            blob.SetCacheControl("public, max-age=31536000");
 	        }
 	    }
-	
+
 	    public static class BlobExtensions
 	    {
 	        //A convenience method to set the Cache-Control header.
@@ -96,4 +96,4 @@
 
 [如何管理 Azure 內容傳遞網路 (CDN) 中雲端服務內容的到期](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

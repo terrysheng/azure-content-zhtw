@@ -15,7 +15,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/22/2016"
+      ms.date="02/25/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Azure AD Graph API 的快速入門
@@ -70,7 +70,8 @@ Azure Active Directory (AD) Graph API 是透過 OData REST API 端點，以程�
 
 **執行查詢**：若要執行查詢，可在要求文字方塊中輸入查詢，然後按一下 [GET] 或 **Enter** 鍵。結果即會顯示於回應方塊中。例如，`https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.5` 會列出示範目錄中的所有群組物件。
 
-請注意，圖表總管具有下列功能與限制：- 資源集上的自動完成功能。若要查看此功能，可按一下 [使用示範公司]，然後按一下要求文字方塊 (公司 URL 出現的位置)。您可以從下拉式清單中選取資源集。
+請注意，圖表總管具有下列功能與限制：
+- 資源集上的自動完成功能。若要查看此功能，可按一下 [使用示範公司]，然後按一下要求文字方塊 (公司 URL 出現的位置)。您可以從下拉式清單中選取資源集。
 
 - 支援 "me" 和 "myorganization" 定址別名。例如，您可以使用 `https://graph.windows.net/me?api-version=1.5` 來傳回登入使用者的使用者物件，或者使用 `https://graph.windows.net/myorganization/users?api-version=1.5` 來傳回目前目錄中的所有使用者。請注意，使用 "me" 別名會傳回有關示範公司的錯誤，因為沒有任何登入的使用者提出要求。
 
@@ -125,4 +126,4 @@ Content-Type: application/json
 
 深入了解 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

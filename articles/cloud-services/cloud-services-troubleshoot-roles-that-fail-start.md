@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="01/20/2016"
+   ms.date="02/25/2016"
    ms.author="daleche" />
 
 # 對無法啟動的雲端服務角色進行疑難排解
@@ -71,7 +71,7 @@
 
 1. 確定已安裝 Azure SDK 1.3 或更新版本。
 
-2. 在使用 Visual Studio 部署解決方案期間，選擇「設定遠端桌面連線...」。如需設定遠端桌面連線的詳細資訊，請參閱[搭配使用遠端桌面與 Azure 角色](https://msdn.microsoft.com/library/gg443832.aspx)。
+2. 在使用 Visual Studio 部署解決方案期間，選擇「設定遠端桌面連線...」。如需設定遠端桌面連線的詳細資訊，請參閱[搭配使用遠端桌面與 Azure 角色](../vs-azure-tools-remote-desktop-roles.md)。
 
 3. 在 Microsoft Azure 傳統入口網站中，執行個體的顯示狀態為 [就緒] 時，按一下其中一個角色執行個體。
 
@@ -167,4 +167,4 @@
 
 若要了解如何利用 Azure PaaS 電腦的診斷資料對雲端服務角色的問題進行疑難排解，請參閱 [Kevin Williamson 的部落格系列](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

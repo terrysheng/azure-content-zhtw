@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/11/2016"
+ 	ms.date="03/01/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [目前的已知問題](#issues)
 - [REST API 版本歷程記錄](#rest_version_history)
+- [2016 年 2 月版本](#feb_changes16)
 - [2016 年 1 月版本](#jan_changes_16)
 - [2015 年 12 月版本](#dec_changes_15)
 - [2015 年 11 月版本](#nov_changes_15)
@@ -79,6 +80,16 @@ SDK 中的媒體服務物件無法序列化，因此無法與 Azure 快取搭配
 
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
 
+##<a id="feb_changes16"></a>2016 年 2 月版本
+
+Azure Media Services SDK for .NET (3.5.3) 的最新版本包含 Widevine 相關的錯誤修正。問題是：AssetDeliveryPolicy 無法重複用於多個以 Widevine 加密的資產。在此錯誤修正中，已將下列屬性加入至 SDK：**WidevineBaseLicenseAcquisitionUrl**。
+	
+	Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+	    new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+	{
+	    {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl,"http://testurl"},
+	    
+	};
 
 ##<a id="jan_changes_16"></a>2016 年 1 月版本
 
@@ -644,4 +655,4 @@ Azure 媒體服務 .NET SDK 延伸是一組延伸方法和協助程式函數，�
 [處理媒體服務工作通知]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

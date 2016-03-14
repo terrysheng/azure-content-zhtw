@@ -35,7 +35,7 @@ ms.service="virtual-machines"
 
 *   G 系列 VM 提供最大的記憶體，並且是在具有 Intel Xeon E5 V3 系列處理器的主機上執行。
 
-*   DS 系列和 GS 系列 VM 可以使用進階儲存體，針對使用大量 I/O 的工作負載提供高效能、低延遲的儲存體。這些 VM 會使用固態硬碟 (SSD) 來裝載虛擬機器的磁碟，還可提供本機 SSD 磁碟快取。僅特定地區可用進階儲存體。如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../storage-premium-storage-preview-portal.md)。
+*   DS 系列和 GS 系列 VM 可以使用進階儲存體，針對使用大量 I/O 的工作負載提供高效能、低延遲的儲存體。這些 VM 會使用固態硬碟 (SSD) 來裝載虛擬機器的磁碟，還可提供本機 SSD 磁碟快取。僅特定地區可用進階儲存體。如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../storage/storage-premium-storage.md)。
 
 *   A 系列 VM 可以部署在各種不同的硬體類型和處理器上。根據硬體節流大小，為執行中的執行個體提供一致的處理器效能，不論硬體部署的位置。若要判斷此大小部署所在的實體硬體，請從虛擬機器內查詢虛擬硬體。
 
@@ -67,12 +67,7 @@ ms.service="virtual-machines"
 |[Standard\_A0 (超小型)](#standard-tier-a-series) |50 |
 |[Standard\_A1-4 (小型 – 大型)](#standard-tier-a-series) |100 |
 |[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 *|
-|[D1-14](#standard-tier-d-series) |160 |
-|[D1-14v2](#standard-tier-dv2-series) |210 - 250 *|
-|[DS1-14](#standard-tier-ds-series) |160 |
-|[G1-5](#standard-tier-g-series) |180 - 240 *|
-|[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-14v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
 以 * 標示的 ACU 使用了「Intel® 渦輪」技術來增加 CPU 頻率及提升效能。提升的程度會依 VM 大小、工作負載及在相同主機上執行的其他工作負載而有所不同。
@@ -164,7 +159,7 @@ ms.service="virtual-machines"
 |Standard\_DS13 |8|56|8|本機 SSD 磁碟 = 112 GB |16|288| 25,600 每秒 256 MB |
 |Standard\_DS14 |16|112|8|本機 SSD 磁碟 = 224 GB |32|576| 50,000 每秒 512 MB |
 
-**磁碟大小會影響 DS 系列 VM 每秒 (IOPS) 輸入/輸出作業量最大值，和可以達到最大輸送量 (頻寬)。如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage-preview-portal.md)。
+**磁碟大小會影響 DS 系列 VM 每秒 (IOPS) 輸入/輸出作業量最大值，和可以達到最大輸送量 (頻寬)。如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../storage/storage-premium-storage.md)。
 
 ## 標準層級：G 系列
 
@@ -193,4 +188,4 @@ ms.service="virtual-machines"
 
 [關於 A8、A9、A10 和 A11 運算密集型執行個體](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

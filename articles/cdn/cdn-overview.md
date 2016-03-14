@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure CDN 概觀" 
-	description="了解何謂 Azure 內容傳遞網路 (CDN)，以及如何使用它透過快取 Blob 和靜態內容來傳遞高頻寬內容。" 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Azure CDN 概觀"
+	description="了解何謂 Azure 內容傳遞網路 (CDN)，以及如何使用它透過快取 Blob 和靜態內容來傳遞高頻寬內容。"
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/20/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 # Azure 內容傳遞網路 (CDN) 概觀
@@ -28,11 +28,11 @@ CDN 為開發人員提供一套全球解決方案，以在全球實體節點上�
 使用 CDN 來快取 Azure 資料的優點包括：
 
 - 讓離內容來源很遙遠、且所使用的應用程式需要在網際網路上歷經長途跋涉才能載入內容的使用者，享有更好的效能和使用者經驗
-- 大型的分散式規模可更妥善處理瞬間大量負載 (例如產品上市事件的開頭)。 
+- 大型的分散式規模可更妥善處理瞬間大量負載 (例如產品上市事件的開頭)。
 
 
 >[AZURE.IMPORTANT] 建立或啟用 CDN 端點時，可能需要 90 分鐘的時間才能傳播到全世界。
- 
+
 第一次對 CDN 提出物件要求時，會直接從該物件的來源原始位置擷取物件。這個原始來源可以是 Azure 儲存體帳戶、Web 應用程式、雲端服務或接受公用 Web 要求的任何自訂來源。使用 CDN 語法提出要求時，會將要求重新導向至 CDN 端點，而此 CDN 端點最接近從中提出要求以存取物件的位置。如果在該端點上找不到物件，則會從服務中擷取該物件，並在端點上進行快取，而且會維護所快取物件的存留時間 (TTL) 設定。
 
 ## 標準功能
@@ -61,4 +61,4 @@ CDN 為開發人員提供一套全球解決方案，以在全球實體節點上�
 - [進階 HTTP 報告](cdn-advanced-http-reports.md)
 - [即時統計資料](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

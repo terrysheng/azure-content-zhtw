@@ -3,7 +3,7 @@
    description="了解如何使用 Azure 傳統入口網站中的 StorSimple Manager 服務管理 StorSimple 內部部署 Virtual Array。"
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="03/01/2016"
+   ms.author="alkohli" />
 
-# 使用 StorSimple Manager 服務來管理 StorSimple Virtual Array (預覽)
+# 使用 StorSimple Manager 服務來管理 StorSimple Virtual Array
 
 ![安裝程序流程](./media/storsimple-ova-manager-service-administration/manage4.png)
 
@@ -58,11 +58,11 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 |登陸頁面|服務層級頁面|裝置層級頁面|
 |---|---|---|
 |StorSimple Manager 服務|儀表板 (服務)|儀表板 (裝置)|
-|裝置 →|監視|
-|備份類別目錄|共用 (檔案伺服器) 或</br>磁碟區 (iSCSI 伺服器)|
-|設定 (服務)|設定 (裝置)|
-|作業|維護|
-|Alerts|
+||裝置 →|監視|
+||備份類別目錄|共用 (檔案伺服器) 或</br>磁碟區 (iSCSI 伺服器)|
+||設定 (服務)|設定 (裝置)|
+||作業|維護|
+||Alerts|
 
 ## 使用 StorSimple Manager 服務來執行管理工作
 
@@ -96,4 +96,4 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 ##後續步驟
 如需 Web UI 及如何使用的詳細資訊，請移至[使用 StorSimple Web UI 管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

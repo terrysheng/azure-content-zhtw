@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #Azure 通知中心安全推播
@@ -43,7 +43,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 本安全推播教學課程說明如何以安全的方式傳送推播通知。本教學課程會以[通知使用者](notification-hubs-aspnet-backend-ios-notify-users.md)教學課程為基礎，因此您應先完成該教學課程中的步驟。
 
-> [AZURE.NOTE]本教學課程假設您已建立並設定通知中樞，如[開始使用通知中樞 (iOS)](notification-hubs-ios-get-started.md) 中所述。
+> [AZURE.NOTE] 本教學課程假設您已建立並設定通知中樞，如[開始使用通知中樞 (iOS)](notification-hubs-ios-get-started.md) 中所述。
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
@@ -158,4 +158,4 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

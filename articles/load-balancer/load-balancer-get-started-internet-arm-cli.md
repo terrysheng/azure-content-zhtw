@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/12/2015"
+   ms.date="02/24/2016"
    ms.author="joaoma" />
 
 # 開始使用 Azure CLI 建立網際網路面向的負載平衡器
@@ -78,7 +78,7 @@
 	azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
 
 
->[AZURE.IMPORTANT] 負載平衡器將使用公用 IP 的網域標籤做為其 FQDN。這樣會變更傳統部署，該部署使用雲端服務做為負載平衡器 FQDN。在此範例中，FQDN 是 *loadbalancernrp.eastus.cloudapp.azure.com* 。
+>[AZURE.IMPORTANT] 負載平衡器將使用公用 IP 的網域標籤做為其 FQDN。這樣會變更傳統部署，該部署使用雲端服務做為負載平衡器 FQDN。在此範例中，FQDN 是 *loadbalancernrp.eastus.cloudapp.azure.com*。
 
 ## 建立負載平衡器
 
@@ -328,4 +328,4 @@
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

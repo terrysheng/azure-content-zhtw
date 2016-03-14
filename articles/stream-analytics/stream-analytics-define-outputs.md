@@ -3,7 +3,7 @@
 	description="了解將串流分析資料轉換輸出的目標，設為資料儲存體選項。還有，為分析結果使用 Power BI。"
 	keywords="資料轉換, 分析結果, 資料儲存體選項"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
-	documentationCenter=""
+	documentationCenter="" 
 	authors="jeffstokes72"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/04/2016"
+	ms.date="03/02/2016"
 	ms.author="jeffstok"/>
 
 # 將串流分析資料轉換輸出的目標，設為分析工具及資料儲存體選項
@@ -39,7 +39,7 @@
 
 ## Blob 儲存體 ##
 
-若要將大量非結構化資料儲存於雲端，Blob 儲存體提供具有成本效益且可擴充的解決方案。如需 Azure Blob 儲存體及其使用方式的簡介，請參閱[如何使用 Blob](./articles/storage-dotnet-how-to-use-blobs.md) 中的文件。
+若要將大量非結構化資料儲存於雲端，Blob 儲存體提供具有成本效益且可擴充的解決方案。如需 Azure Blob 儲存體及其使用方式的簡介，請參閱[如何使用 Blob](../storage/storage-dotnet-how-to-use-blobs.md) 中的文件。
 
 下表列出屬性名稱及其描述以建立 blob 輸出。
 
@@ -118,7 +118,7 @@
 
 您可以把 [Power BI](https://powerbi.microsoft.com/) 當做串流分析工作的輸出，來為分析結果提供豐富的視覺體驗。這項功能可以用於可運作的儀表板、產生報告，以及度量驅動的報告。
 
-> [AZURE.NOTE] 在此階段，Azure Preview 入口網站不支援 Power BI 輸出的建立及設定。
+> [AZURE.NOTE] 目前，只有 Azure 傳統入口網站支援建立及 Power BI 輸出組態。
 
 ### 授權 Power BI 帳戶
 
@@ -159,7 +159,7 @@
 
 ## 資料表儲存體
 
-[Azure 資料表儲存體](./articles/storage-introduction.md)提供高可用性且可大幅擴充的儲存體，可讓應用程式自動調整來滿足使用者需求。資料表儲存體是 Microsoft 的 NoSQL 索引鍵/屬性存放區，其中可以使用結構化資料，但結構描述的限制較少。使用 Azure 資料表儲存資料時，資料可長期儲存而且調閱方便。
+[Azure 資料表儲存體](../storage/storage-introduction.md)提供高可用性且可大幅擴充的儲存體，可讓應用程式自動調整來滿足使用者需求。資料表儲存體是 Microsoft 的 NoSQL 索引鍵/屬性存放區，其中可以使用結構化資料，但結構描述的限制較少。使用 Azure 資料表儲存資料時，資料可長期儲存而且調閱方便。
 
 下表列出屬性名稱及其描述以建立資料表輸出。
 
@@ -267,4 +267,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

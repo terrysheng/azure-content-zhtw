@@ -3,7 +3,7 @@
    description="變數資產是可用於 Azure 自動化中所有 Runbook 和 DSC 設定的值。這篇文章說明變數的詳細資料，以及如何以文字式和圖形化編寫形式加以使用。"
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/18/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren" />
 
 # Azure 自動化中的變數資產
@@ -188,4 +188,4 @@
 - [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

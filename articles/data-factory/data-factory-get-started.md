@@ -1,5 +1,5 @@
 <properties
-	pageTitle="教學課程：在 Azure Data Factory 管線中使用複製活動"
+	pageTitle="教學課程：將資料從 Azure Blob 儲存體複製到 Azure SQL Database"
 	description="本教學課程向您說明如何使用 Azure Data Factory 管線中的複製活動，從 Azure Blob 複製資料到 Azure SQL Database。"
 	services="data-factory"
 	documentationCenter=""
@@ -16,14 +16,16 @@
 	ms.date="02/01/2016"
 	ms.author="spelluru"/>
 
-# 教學課程：從 Azure Blob 複製資料到 Azure SQL
+# 教學課程：將資料從 Azure Blob 儲存體複製到 Azure SQL Database
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [教學課程概觀](data-factory-get-started.md)
+- [使用 Data Factory 編輯器](data-factory-get-started-using-editor.md)
+- [使用 PowerShell](data-factory-monitor-manage-using-powershell.md)
+- [使用 Visual Studio](data-factory-get-started-using-vs.md)
 
-本文中的教學課程可協助您快速開始使用 Azure Data Factory 服務。在本教學課程中，您將建立 Azure Data Factory，並在 Data Factory 中建立管線，以將資料從 Azure Blob 儲存體複製到 Azure SQL Database。
+在本教學課程中，您將建立 Azure Data Factory，並建立具有複製活動的管線，以將資料從 Azure Blob 儲存體複製到 Azure SQL Database。
+
+複製活動會在 Azure Data Factory 中執行資料移動，而此活動是由全域可用的服務所提供，可以使用安全、可靠及可調整的方式，在各種不同的資料存放區之間複製資料。如需複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。
 
 > [AZURE.NOTE] 如需 Data Factory 服務的詳細概觀，請參閱 [Azure Data Factory 簡介][data-factory-introduction]一文。
 
@@ -98,7 +100,9 @@
 - 按一下頂端的[使用 Data Factory 編輯器](data-factory-get-started-using-editor.md)連結，藉由使用 Data Factory 編輯器 (這是 Azure 傳統入口網站的一部分) 來執行教學課程。
 - 按一下頂端的[使用 PowerShell](data-factory-monitor-manage-using-powershell.md) 連結，使用 Azure PowerShell 執行教學課程。
 - 按一下頂端的[使用 Visual Studio](data-factory-get-started-using-vs.md) 連結，藉由使用 Visual Studio 2013 來執行教學課程。
- 
+
+## 複製活動
+如需 Azure Data Factory 中複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。
 
 
 <!--Link references-->
@@ -111,4 +115,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

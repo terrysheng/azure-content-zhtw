@@ -1,6 +1,8 @@
-Data Lake Analytics makes the complex task of managing distributed infrastructure and complex code easy. It dynamically provisions resources and lets you do analytics on exabytes of data. When the job completes, it winds down resources automatically, and you pay only for the processing power used. As you increase or decrease the size of data stored or the amount of compute used, you don’t have to rewrite code. Many of the default limits can be easily raised for your subscription by contacting support. 
+資料湖分析簡化了管理分散式基礎結構與複雜程式碼這項複雜工作。資料湖分析會動態佈建資源，讓您可以分析數 EB 的資料。當工作完成時，其會自動逐步釋放這些資源，因此您只需要支付所用處理功能的費用。當您所儲存的資料量或所用的計算量有所增減時，也無需重新編寫程式碼。您只要連絡支援人員，即可輕鬆地提高訂用帳戶的大部分預設限制。
 
-**Resource** | **Default Limit**
+**Resource** | **預設限制**
 -------- | ------------- | -------------
-max concurrent jobs | 3 
-Max parallelism per job | 20
+並行作業數上限 | 3 
+每個作業的最大平行處理原則 | 20
+
+<!---HONumber=AcomDC_0302_2016-->

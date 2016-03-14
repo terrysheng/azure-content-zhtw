@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/23/2016"
+    ms.date="03/02/2016"
     ms.author="markvi"/>
 
 #如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單
@@ -23,7 +23,6 @@
 如需已預先整合到 Azure AD 的 SaaS 應用程式完整清單，請參閱 [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/)。
 
 ##教學課程清單
-
 
 | 標誌| 應用程式名稱 |
 | --- | --- |
@@ -65,6 +64,7 @@
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Clarizen.jpg)| [Clarizen](https://go.microsoft.com/fwLink/?LinkID=403229&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Clever.jpg)| [Clever](https://go.microsoft.com/fwLink/?LinkID=530228&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_ClickTime.jpg)| [ClickTime](https://go.microsoft.com/fwLink/?LinkID=403236&clcid=0x409)|
+| ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_NewSignature.jpg)| [Microsoft Azure 的雲端管理入口網站](https://go.microsoft.com/fwLink/?LinkID=708680&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_CloudPassage.jpg)| [CloudPassage](https://go.microsoft.com/fwLink/?LinkID=512732&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Concur.jpg)| [Concur](https://go.microsoft.com/fwLink/?LinkID=309575&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Condeco.jpg)| [Condeco](https://go.microsoft.com/fwLink/?LinkID=708660&clcid=0x409)|
@@ -73,6 +73,7 @@
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_CSStars.jpg)| [CS Stars](https://go.microsoft.com/fwLink/?LinkID=530245&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Directions.jpg)| [Directions on Microsoft](https://go.microsoft.com/fwLink/?LinkID=522557&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_DocuSign.jpg)| [DocuSign](https://go.microsoft.com/fwLink/?LinkID=403254&clcid=0x409)|
+| ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Domo.jpg)| [Domo](https://go.microsoft.com/fwLink/?LinkID=708692&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Dropbox.jpg)| [Dropbox for Business](https://go.microsoft.com/fwLink/?LinkID=309581&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Druva.jpg)| [Druva](https://go.microsoft.com/fwLink/?LinkID=530221&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_eBuilder.jpg)| [e-Builder](https://go.microsoft.com/fwLink/?LinkID=510261&clcid=0x409)|
@@ -195,6 +196,7 @@
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Workday](https://go.microsoft.com/fwLink/?LinkID=286020&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Workrite.jpg)| [Workrite](https://go.microsoft.com/fwLink/?LinkID=530242&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_xMattersOnDemand.jpg)| [xMatters OnDemand](https://go.microsoft.com/fwLink/?LinkID=403231&clcid=0x409)|
+| ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Yardi.jpg)| [Yardi eLearning](https://go.microsoft.com/fwLink/?LinkID=733444&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Zendesk.jpg)| [Zendesk](https://go.microsoft.com/fwLink/?LinkID=403255&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_ZohoMail.jpg)| [Zoho Mail](https://go.microsoft.com/fwLink/?LinkID=403220&clcid=0x409)|
 | ![標誌](./media/active-directory-saas-tutorial-list/SaaSApp_Zoom.jpg)| [Zoom](https://go.microsoft.com/fwLink/?LinkID=403225&clcid=0x409)|
@@ -206,9 +208,10 @@
 
 
 
+
 ##相關文章
 
 - [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 - [如何整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="02/11/2016"
-	ms.author="emgerner"/>
+	ms.date="02/29/2016"
+	ms.author="jehine"/>
 
 # 如何使用 Python 的 Azure Blob 儲存體
 
@@ -57,14 +57,14 @@
 
 ## 將 Blob 上傳至容器
 
-若要建立區塊 Blob 並上傳資料，請使用 **create\_block\_blob\_from\_path**、**create\_block\_blob\_from\_stream**、**create\_block\_blob\_from\_bytes** 或 **create\_block\_blob\_from\_text** 方法。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
+若要建立區塊 Blob 並上傳資料，請使用 **create\_blob\_from\_path**、**create\_blob\_from\_stream**、**create\_blob\_from\_bytes** 或 **create\_blob\_from\_text** 方法。這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
 
-**create\_block\_blob\_from\_path** 會從指定的路徑上傳檔案的內容，**create\_block\_blob\_from\_stream** 會從已開啟的檔案/串流上傳內容，**create\_block\_blob\_from\_bytes** 會上傳位元組陣列，**create\_block\_blob\_from\_text** 會使用指定的編碼 (預設為 UTF-8) 上傳指定的文字值。
+**create\_blob\_from\_path** 會從指定的路徑上傳檔案的內容，**create\_blob\_from\_stream** 會從已開啟的檔案/串流上傳內容，**create\_blob\_from\_bytes** 會上傳位元組陣列，**create\_blob\_from\_text** 會使用指定的編碼 (預設為 UTF-8) 上傳指定的文字值。
 
 下列範例會將 **sunset.png** 檔案的內容上傳至 **myblob** Blob 中。
 
 	from azure.storage.blob import ContentSettings
-	block_blob_service.create_block_blob_from_path(
+	block_blob_service.create_blob_from_path(
         'mycontainer',
         'myblockblob',
         'sunset.png',
@@ -125,4 +125,4 @@
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

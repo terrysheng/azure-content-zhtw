@@ -48,7 +48,7 @@ U-SQL | ADLS 驗證選項 | 1 | Pending | [@ArindamC](https://github.com/mikerys
 
 領域 |主題 | location
 ------------- | ------------- | -------------- 
-服務 | 使用 ARM 範本與其他 Azure 服務協調資料湖分析的部署 | [位置](../data-lake-analytics-manage-use-powershell.md)
+服務 | 使用 ARM 範本與其他 Azure 服務協調資料湖分析的部署 | [位置](data-lake-analytics-manage-use-powershell.md)
 
 ## 如何在待處理項目上提供意見反應
 有幾個選項可以在待處理項目上提供意見反應：
@@ -57,4 +57,4 @@ U-SQL | ADLS 驗證選項 | 1 | Pending | [@ArindamC](https://github.com/mikerys
 * 在 [Azure 內容儲存機制](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md) 中提交這份文件的提取要求
 * 傳送電子郵件到 microsoft.com 的 [adlafeedback](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

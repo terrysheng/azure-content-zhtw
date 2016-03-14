@@ -12,21 +12,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/22/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
-# 備份 StorSimple Virtual Array (預覽)
+# 備份 StorSimple Virtual Array
 
 ## 概觀 
 
-本教學課程僅適用於執行 1.1.1.0 版 (預覽) 的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。
+本教學課程適用於執行 2016 年 3 月公開上市 (GA) 版的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。
 
 StorSimple Virtual Array 是混合式雲端儲存體內部部署虛擬裝置，可設定為檔案伺服器或 iSCSI 伺服器。它可以建立備份、從備份還原，且當需要災害復原時可執行裝置容錯移轉。設為檔案伺服器時，也可進行項目層級的復原。本教學課程說明如何使用 Azure 傳統入口網站或 StorSimple Web UI 來建立 StorSimple Virtual Array 的排程及手動備份。
 
->[AZURE.IMPORTANT] 
->
->- StorSimple Virtual Array 目前是預覽版，僅供評估及部署規劃之用。不支援在生產環境中安裝此預覽版。 
->- 如果您遇到任何 StorSimple Virtual Array 的問題，請在 [StorSimple MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple)提出問題。
 
 ## 備份共用和磁碟區
 
@@ -42,9 +38,9 @@ StorSimple Virtual Array 是混合式雲端儲存體內部部署虛擬裝置，�
 
 #### 變更預設備份原則的開始時間
 
-1. 瀏覽到裝置的 [設定] 索引標籤。
+1. 瀏覽到裝置的 [組態] 索引標籤。
 
-2. 在 [備份] 區段，指定每日備份的開始時間。
+2. 在 [備份] 區段下，指定每日備份的開始時間。
 
 3. 按一下 [儲存]。
 
@@ -74,7 +70,7 @@ StorSimple Virtual Array 是混合式雲端儲存體內部部署虛擬裝置，�
 
     ![已完成的備份](./media/storsimple-ova-backup/image8.png)
 
-5. 將篩選選取項目設定為適當的裝置、備份原則和時間範圍，然後選取核取圖示 ![核取圖示](./media/storsimple-ova-backup/image3.png)。
+5. 將篩選的選項設為適當的裝置、備份原則和時間範圍，然後按一下核取圖示 ![核取圖示](./media/storsimple-ova-backup/image3.png)。
 
     備份應該會出現在類別目錄中顯示的備份組清單中。
 
@@ -106,6 +102,6 @@ StorSimple Virtual Array 是混合式雲端儲存體內部部署虛擬裝置，�
 
 ## 後續步驟
 
-深入了解[如何管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
+深入了解[管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

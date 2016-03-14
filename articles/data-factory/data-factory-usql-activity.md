@@ -62,8 +62,8 @@ sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階�
  
 | 使用者類型 | 到期時間 |
 | :-------- | :----------- | 
-| 不受 Azure Active Directory 管理的使用者 (@hotmail.com、@live.com 等) | 12 小時 |
-| 受 Azure Active Directory (AAD) 管理的使用者 | | 如果自從上一次執行配量後，已經有 14 天未執行以 OAuth 式連結服務為基礎的配量，即為上一次執行配量後的 14 天。<p>如果以 OAuth 式連結服務為基礎的配量至少每 14 天執行一次，則為 90 天。</p> |
+| 不受 Azure Active Directory 管理的使用者帳戶 (@hotmail.com、@live.com 等) | 12 小時 |
+| 受 Azure Active Directory (AAD) 管理的使用者帳戶 | | 最後一次執行配量後的 14 天。<p>如果以 OAuth 式連結服務為基礎的配量至少每 14 天執行一次，則為 90 天。</p> |
 
 如果要避免/解決此錯誤，您必須在**權杖到期**時使用 [**授權**] 按鈕重新授權，然後重新部署連結服務。您也可以使用下一節中的程式碼以程式設計方式產生 **sessionId** 和 **authorization** 屬性的值。
 
@@ -156,7 +156,7 @@ sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階�
 屬性 | 說明 | 必要
 :-------- | :----------- | :--------
 類型 | 類型屬性必須設為 **DataLakeAnalyticsU-SQL**。 | 是
-scriptPath | 包含 U-SQL 指令碼的資料夾的路徑。 | 否 (如果您使用指令碼)
+scriptPath | 包含 U-SQL 指令碼的資料夾的路徑。請注意，檔案名稱區分大小寫。 | 否 (如果您使用指令碼)
 scriptLinkedService | 連結服務會連結包含 Data Factory 的指令碼的儲存體 | 否 (如果您使用指令碼)
 script | 指定內嵌指令碼而不是指定 scriptPath 和 scriptLinkedService。例如："script" : "CREATE DATABASE test"。 | 否 (如果您使用 scriptPath 和 scriptLinkedService)
 degreeOfParallelism | 同時用來執行工作的節點數目上限。 | 否
@@ -257,4 +257,4 @@ ADF 會使用「parameters」區段動態傳遞上述 U-SQL 指令碼中 **@in**
 
 您可以指定其他屬性 (即 degreeOfParallelism、priority 等)，以及 Azure 資料湖分析服務上執行之作業的管線定義中的屬性。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

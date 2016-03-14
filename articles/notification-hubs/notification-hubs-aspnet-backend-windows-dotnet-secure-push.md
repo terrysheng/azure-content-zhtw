@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #Azure 通知中心安全推播
@@ -43,7 +43,7 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 本安全推播教學課程說明如何以安全的方式傳送推播通知。本教學課程會以[通知使用者](notification-hubs-aspnet-backend-windows-dotnet-notify-users.md)教學課程為基礎，因此您應先完成該教學課程中的步驟。
 
-> [AZURE.NOTE]本教學課程假設您已建立並設定通知中樞，如[開始使用通知中樞 (Windows 市集)](notification-hubs-windows-store-dotnet-get-started.md) 中所述。另請注意，Windows Phone 8.1 需要 Windows (不是 Windows Phone) 認證，且無法在 Windows Phone 8.0 或 Silverlight 8.1 上使用背景工作。若是 Windows 市集應用程式，只有當應用程式已啟用鎖定畫面 (按一下 Appmanifest 中的核取方塊) 時，您才可以透過背景工作接收通知。
+> [AZURE.NOTE] 本教學課程假設您已建立並設定通知中樞，如[開始使用通知中樞 (Windows 市集)](notification-hubs-windows-store-dotnet-get-started.md) 中所述。另請注意，Windows Phone 8.1 需要 Windows (不是 Windows Phone) 認證，且無法在 Windows Phone 8.0 或 Silverlight 8.1 上使用背景工作。若是 Windows 市集應用程式，只有當應用程式已啟用鎖定畫面 (按一下 Appmanifest 中的核取方塊) 時，您才可以透過背景工作接收通知。
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
@@ -186,4 +186,4 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

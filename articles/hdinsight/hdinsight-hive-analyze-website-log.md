@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/25/2016" 
 	ms.author="nitinme"/>
 
 # 使用 HDInsight 上的 Hive 分析網站的記錄
@@ -39,7 +39,7 @@
 
 ##執行範例
 
-1. 從 [Azure 入口網站](https://ms.portal.azure.com/)的 [「開始面板」]\(若您已在該處釘選叢集)，按一下您要在其中執行範例的叢集磚。
+1. 從 [Azure 入口網站](https://ms.portal.azure.com/)的 [「開始面板」] (若您已在該處釘選叢集)，按一下您要在其中執行範例的叢集磚。
 
 2. 在叢集刀鋒視窗的 [快速連結] 之下，按一下 [叢集儀表板]，然後從 [叢集儀表板] 刀鋒視窗按一下 [HDInsight 叢集儀表板]。或者，您也可以使用下列 URL 直接開啟儀表板：
 
@@ -47,7 +47,7 @@
 	
 	出現提示時，使用您佈建叢集時所用的系統管理員使用者名稱和密碼來進行驗證。
   
-2. 從開啟的網頁中，按一下 [Getting Started Gallery] 索引標籤，然後在 [範例] 類別下，按一下 [Website Log Analysis] 範例。
+2. 從開啟的網頁中，按一下 [快速啟用資源庫] 索引標籤，然後在 [搭配範例資料的方案] 類別下，按一下 [網站記錄分析] 範例。
 
 3. 依照網頁上提供的指示完成範例。
 
@@ -61,4 +61,4 @@
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

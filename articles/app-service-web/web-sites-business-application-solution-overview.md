@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 
@@ -67,7 +67,7 @@ App Service Web Apps 具有[相應增加與放大]的功能，不論您的工作
 
 使用 [Azure Redis Cache] 加速您 Web 應用程式的回應速度。使用此功能，可從後端資料庫以及 [ASP.NET 工作階段狀態]與[輸出快取]等其他項目快取資料。
 
-使用 [Azure 流量管理員] 來維持 Web 應用程式的高可用性。使用「容錯移轉」方法時，若主要網站發生問題，流量管理員會自動將流量路由至次要網站。
+使用 [Azure 流量管理員]來維持 Web 應用程式的高可用性。使用「容錯移轉」方法時，若主要網站發生問題，流量管理員會自動將流量路由至次要網站。
 
 ## 監視和分析
 
@@ -117,6 +117,7 @@ App Service Web Apps 具有[相應增加與放大]的功能，不論您的工作
 [Azure Redis Cache]: /blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
 [ASP.NET 工作階段狀態]: https://msdn.microsoft.com/library/azure/dn690522.aspx
 [輸出快取]: https://msdn.microsoft.com/library/azure/dn798898.aspx
+[Azure 流量管理員]: http://www.hanselman.com/blog/CloudPowerHowToScaleAzureWebsitesGloballyWithTrafficManager.aspx
 
 [快速瀏覽]: web-sites-monitor.md
 [Azure Application Insights]: http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
@@ -125,4 +126,4 @@ App Service Web Apps 具有[相應增加與放大]的功能，不論您的工作
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

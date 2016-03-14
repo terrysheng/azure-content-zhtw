@@ -1,30 +1,17 @@
-Resource|Free|Basic (Preview) <sup>6</sup>|S1|S2
+資源|免費|基本 (預覽版) <sup>6</sup>|S1|S2
 ---|---|---|---|----
-Maximum search services|N/A|---|12 per Azure subscription|12 per Azure subscription
-Maximum storage size <sup>1</sup>|50 MB or 10,000 documents|2 GB per service|25 GB per partition or 300 GB documents per service|100 GB per partition or 1.2 TB per service
-Maximum documents hosted|10,000 total|1 million per service|15 million per partition (up to 180 million documents per service)|60 million per partition (up to 720 million documents per service)
-Maximum indexes|3|5|50|200
-Maximum indexers|3|5|50|200
-Maximum indexer datasources|3|5|50|200
-Index: maximum fields per index|1000|100 <sup>5</sup>|1000|1000
-Index: maximum scoring profiles per index|16|16|16|16
-Index: maximum functions per profile|8|8|8|8
-Indexers: maximum indexing load per invocation|10,000 documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents
-Indexers: maximum running time|3 minutes|24 hours|24 hours|24 hours
-Queries per second (QPS) <sup>2</sup>|N/A|~3 per replica|~15 per replica|~60 per replica
-Scale out: maximum search units (SU) <sup>3</sup>|N/A|Up to 3 units (3 replicas and 1 partition)|36 units|36 units
-Pricing <sup>4</sup>|N/A|$75 per SU per month|$250 per SU per month|$1000 per SU per month
+搜尋服務數量上限|N/A|---|每個 Azure 訂用帳戶 12 個|每個 Azure 訂用帳戶 12 個 儲存體大小上限 <sup>1</sup>|50 MB 或 10,000 份文件|每個服務 2 GB|每個分割區 25 GB，或每個服務 300 GB 的文件|每個分割區 100 GB，或每個服務 1.2 TB 代管的文件數量上限|總共 10,000 份|每個服務 1 百萬份|每個分割區 1 千 5 百萬份 (最多每個服務 1 憶 8 千萬份文件)|每個分割區 6 千萬份 (最多每個服務 7 憶 2 千萬份文件) 索引數量上限|3|5|50|200 索引子數量上限|3|5|50|200 索引子資料來源數量上限|3|5|50|200 索引：每個索引的欄位數量上限|1000|100 <sup>5</sup>|1000|1000 索引：每個索引的評分設定檔數量上限|16|16|16|16 索引：每個設定檔的函式數量上限|8|8|8|8 索引子：每個叫用的索引負載上限|10,000 份文件|只受文件數量上限的限制|只受文件數量上限的限制|只受文件數量上限的限制 索引子：執行時間上限|3 分鐘|24 小時|24 小時|24 小時 每秒查詢數量 (QPS) <sup>2</sup>|無|每個複本 ~3 個|每個複本 ~15 個|每個複本 ~60 個 相應放大：搜尋單位 (SU) 數量上限 <sup>3</sup>|無|最多 3 個單位 (3 個複本及 1 個分割區)|36 個單位|36 個單位 價格 <sup>4</sup>|無|每個月中的每個 SU $75 美元|每個月中的每個 SU $250 美元|每個月中的每個 SU $1000 美元
 
-<sup>1</sup> Storage size is either a fixed amount or the number of documents per service, whichever comes first.
+<sup>1</sup> 儲存體大小可為固定容量或每個服務的文件數目，取決於何者較早出現。
 
-<sup>2</sup> QPS is an approximation based on heuristics, using simulated and actual customer workloads to derive estimated values. Exact QPS throughput will vary depending on your data and the nature of the query.
+<sup>2</sup> QPS 是根據啟發學習法所得的近似值，這是使用模擬及實際的客戶工作負載來導出的估計值。確實的 QPS 輸送量會視您的資料和查詢本質而有所差異。
 
-<sup>3</sup> Search units are the billable unit for either a replica or a partition. You need both for both storage, indexing, and query operations. See [Capacity Planning](../articles/search/search-capacity-planning.md) for valid combinations of replicas and partitions that keep you within the maximum limit of 3 or 36 units, for Basic and Standard respectively.
+<sup>3</sup> 搜尋單位的複本或分割區的可計費單位。您同時需要複本及分割區來儲存、建立索引及查詢作業。請參閱[容量規劃](../articles/search/search-capacity-planning.md)來取得複本及分割區的有效組合，讓您能分別針對基本和標準來保持在 3 或 36 個單位的上限內。
 
-<sup>4</sup> Price is for the U.S. market, illustrating relative costs among alternative tiers. Different markets have different prices. Refer to the [Pricing page](https://azure.microsoft.com/pricing/details/search/) for rates in other currencies. The rate is per search unit (SU). At the S1 level, a configuration of 3 search units (say 3 replicas and 1 partition) would cost $750 per month on average. If you scale down to fewer SU within the month, the bill is prorated so that you are charged only for what you use.
+<sup>4</sup> 價格適用於美國市場，說明不同定價層之間的相對成本。不同的市場有不同的價格。請參閱[定價頁面](https://azure.microsoft.com/pricing/details/search/)來取得其他幣別的費率。費率是以每個搜尋單位 (SU) 來計算的。在 S1 層級中，3 個搜尋單位 (假設為 3 個複本和 1 個分割區) 的組態每個月平均會讓您花費 $750 美元。如果您在月中讓 SU 數量相應減少，帳單會按比例分配，讓您只需支付您使用的資源。
 
-<sup>5</sup> This is not a typo. Basic tier has a limit of 100 fields per index. It is the only tier that has this lower limit.
+<sup>5</sup> 這不是打錯字。基本層的上限為每個索引 100 個欄位。這是唯一有此較低限制的定價層。
 
-<sup>6</sup> [Basic tier](http://aka.ms/azuresearchbasic) is available at an introductory rate of 50% off the full price during the preview period.
+<sup>6</sup> 在預覽期間，[基本層](http://aka.ms/azuresearchbasic)的價格為完整價格的 50% 來做為介紹費率。
 
-
+<!---HONumber=AcomDC_0302_2016-->

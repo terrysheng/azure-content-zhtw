@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="02/24/2016" 
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 Azure 資料表來回移動資料
@@ -362,6 +362,14 @@ Azure Data Factory 支援兩種類型的 Azure 儲存體連結服務：**AzureSt
 | -------- | ----------- | -------- |
 | tableName | Azure 資料表資料庫執行個體中連結服務所參照的資料表名稱。 | 是
 
+### Data Factory 的結構描述
+針對無結構描述的資料存放區 (如 Azure 資料表)，Data Factory 服務會以下列一種方式推斷結構描述：
+
+1.	如果您是使用資料集定義中的 **structure** 屬性來定義結構，Data Factory 服務會將此結構接受為結構描述。在此情況下，如果資料列不包含資料行的值，則會使用 null 值。
+2.	如果您不是使用資料集定義中的 **structure** 屬性來指定結構，Data Factory 服務會使用資料的第一列來推斷結構描述。在此情況下，如果第一個資料列不包含完整的結構描述，某些資料行會因複製作業而遺失。
+
+因此，對於無結構描述的資料來源來說，最佳作法是使用 **structure** 屬性來指定資料結構。
+
 ## Azure 資料表複製活動類型屬性
 
 如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
@@ -518,4 +526,4 @@ lastlogindate | Edm.DateTime
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

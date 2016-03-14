@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 #如何在 Android 上整合 Engagement
@@ -26,7 +26,7 @@
 
 此程序描述在您的 Android 應用程式中啟動 Engagement 分析和監視功能的最簡單方法。
 
-> [AZURE.IMPORTANT]最低 Android SDK API 層級必須是 10 或更高版本 (Android 2.3.3 或更高版本)。
+> [AZURE.IMPORTANT] 最低 Android SDK API 層級必須是 10 或更高版本 (Android 2.3.3 或更高版本)。
 
 下列步驟足以啟動計算使用者、工作階段、活動、當機和技術相關之所有統計資料所需的記錄檔報表。用來計算事件、錯誤及工作等其他統計資料所需的記錄檔報告必須使用 Engagement API 手動完成 (請參閱[如何在 Android 中使用進階的 Mobile Engagement 標記 API](mobile-engagement-android-use-engagement-api.md))，因為這些是與應用程式相依的統計資料。
 
@@ -34,7 +34,8 @@
 
 從[這裡](https://aka.ms/vq9mfn)下載 Android SDK，取得 `mobile-engagement-VERSION.jar` 並將它們放入 Android 專案的 `libs` 資料夾 (如果 libs 資料夾尚不存在，請建立此資料夾)。
 
-> [AZURE.IMPORTANT]如果您使用 ProGuard 建立應用程式封裝，您需要保留一些類別。您可以使用下列組態程式碼片段：
+> [AZURE.IMPORTANT]
+如果您使用 ProGuard 建立應用程式封裝，您需要保留一些類別。您可以使用下列組態程式碼片段：
 >
 >
 			-keep public class * extends android.os.IInterface
@@ -65,11 +66,11 @@
 
 -   將 `<Your application name>` 改為您應用程式的名稱。
 
-> [AZURE.TIP]`android:label` 屬性可讓您選擇 Engagement 服務的名稱，此名稱會出現在使用者電話的「執行中服務」畫面中。建議將此屬性設定為 `"<Your application name>Service"` (例如 `"AcmeFunGameService"`)。
+> [AZURE.TIP] `android:label` 屬性可讓您選擇 Engagement 服務的名稱，此名稱會出現在使用者電話的「執行中服務」畫面中。建議將此屬性設定為 `"<Your application name>Service"` (例如 `"AcmeFunGameService"`)。
 
 指定 `android:process` 屬性可確保 Engagement 服務在本身的處理程序中執行 (在與應用程式相同的處理程序中執行 Engagement，可能會造成主要/UI 執行緒回應速度較慢)。
 
-> [AZURE.NOTE]您放置在 `Application.onCreate()` 和其他應用程式回呼中的程式碼會針對您所有應用程式的處理程序而執行，其中包括 Engagement 服務。可能會產生不必要的副作用 (例如 Engagement 處理程序中不必要的記憶體配置和執行緒、重複的廣播接收器或服務)。
+> [AZURE.NOTE] 您放置在 `Application.onCreate()` 和其他應用程式回呼中的程式碼會針對您所有應用程式的處理程序而執行，其中包括 Engagement 服務。可能會產生不必要的副作用 (例如 Engagement 處理程序中不必要的記憶體配置和執行緒、重複的廣播接收器或服務)。
 
 如果覆寫 `Application.onCreate()`，建議在 `Application.onCreate()` 函數的開頭加入下列程式碼片段：
 
@@ -125,7 +126,7 @@
 			  }
 			}
 
-> [AZURE.IMPORTANT]使用 `EngagementListActivity` 或 `EngagementExpandableListActivity` 時，務必先呼叫 `requestWindowFeature(...);` 再呼叫 `super.onCreate(...);`，否則會發生當機。
+> [AZURE.IMPORTANT] 使用 `EngagementListActivity` 或 `EngagementExpandableListActivity` 時，務必先呼叫 `requestWindowFeature(...);` 再呼叫 `super.onCreate(...);`，否則會發生當機。
 
 我們提供 `FragmentActivity` 和 `MapActivity` 的子類別，但為了避免使用 ProGuard 的應用程式發生問題，所以未將這些項目包含在 `engagement.jar` 中。
 
@@ -135,7 +136,7 @@
 
 如果您無法或不想多載 `Activity` 類別，可以改用直接呼叫 `EngagementAgent` 的方式來開始及結束您的活動。
 
-> [AZURE.IMPORTANT]Android SDK 絕不會呼叫 `endActivity()` 方法，即使在關閉應用程式後也不會呼叫 (在 Android 上，應用程式其實永遠不會關閉)。因此，「強烈」建議在您「所有」活動的 `onResume` 回呼中呼叫 `startActivity()` 方法，以及在您「所有」活動的 `onPause()` 回呼中呼叫 `endActivity()` 方法。這是確保不會遺漏工作階段的唯一方法。如果遺漏了工作階段，Engagement 服務將永遠不會從 Engagement 後端中斷連線 (因為只要工作階段處於暫止狀態，服務就會保持連線)。
+> [AZURE.IMPORTANT] Android SDK 絕不會呼叫 `endActivity()` 方法，即使在關閉應用程式後也不會呼叫 (在 Android 上，應用程式其實永遠不會關閉)。因此，「強烈」建議在您「所有」活動的 `onResume` 回呼中呼叫 `startActivity()` 方法，以及在您「所有」活動的 `onPause()` 回呼中呼叫 `endActivity()` 方法。這是確保不會遺漏工作階段的唯一方法。如果遺漏了工作階段，Engagement 服務將永遠不會從 Engagement 後端中斷連線 (因為只要工作階段處於暫止狀態，服務就會保持連線)。
 
 下列是一個範例：
 
@@ -231,7 +232,7 @@
     engagementConfiguration.setBackgroundRealtimeLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-> [AZURE.NOTE]當應用程式在背景中執行，即使啟用 GPS，也只會報告網路位置。
+> [AZURE.NOTE] 當應用程式在背景中執行，即使啟用 GPS，也只會報告網路位置。
 
 如果使用者重新啟動裝置，就會停止背景位置報表，您可以加入以下內容，讓它在開機時自動重新啟動：
 
@@ -381,4 +382,4 @@ Engagement 在喜好設定檔案內會一律使用 `engagement:key` 布林值機
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

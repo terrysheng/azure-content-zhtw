@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/23/2016"
 	ms.author="pehteh"/>
 
 # SQL Database 和 SQL Server 的連線庫
@@ -28,10 +28,10 @@
 | :--- | :--- | :--- | :--- | :--- | :-- |
 | .NET | 跨平台 (.NET) | [ADO.NET、System.Data.SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4\.5 以上 | .NET Framework 的 SQL Server 提供者 | 。 |
 | PHP | Windows | [PHP for SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2\.0 以上 | SQL Server 適用的 PHP 驅動程式 | [連結](http://msdn.microsoft.com/library/dn865013.aspx) |
-| Java | Windows | [JDBC for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2\.0 以上 | Type 4 JDBC 驅動程式，提供透過標準 JDBC API 的資料庫連接 | [連結](http://msdn.microsoft.com/library/dn425070.aspx) |
+| Java | Windows | [JDBC for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2\.0 以上 | Type 4 JDBC 驅動程式，提供透過標準 JDBC API 的資料庫連接 | [連結](https://msdn.microsoft.com/library/mt654048.aspx) |
 | ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0 以上 | SQL Server 適用的 Microsoft ODBC 驅動程式 | [連結](http://msdn.microsoft.com/library/jj730308.aspx) |
-| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 以上 | SQL Server 適用的 Microsoft ODBC 驅動程式 | 。 |
-| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 以上 | SQL Server 適用的 Microsoft ODBC 驅動程式 | 。 |
+| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 以上 | SQL Server 適用的 Microsoft ODBC 驅動程式 | [連結](https://msdn.microsoft.com/zh-TW/library/hh568451.aspx) |
+| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 以上 | SQL Server 適用的 Microsoft ODBC 驅動程式 | [連結](https://msdn.microsoft.com/zh-TW/library/hh568451.aspx) |
 
 ### ODBC 支援
 
@@ -52,20 +52,22 @@ Microsoft OLE DB Provider for DB2 Version 5.0 (資料提供者) 可讓您建立�
 
 ## 協力廠商程式庫
 
-> [AZURE.IMPORTANT]下表列出由協力廠商依協力廠商授權條款所發行的程式庫。您必須負責確認並遵守相關的協力廠商授權，才能使用這些程式庫。您必須自行承擔使用這些程式庫的風險。Microsoft 不會為此處提供的資訊做任何明示或默示保證，提供此資訊只是為了方便使用者了解。此處所提供的一切皆無隱含 Microsoft 的任何背書。<br/><br/>＜協力廠商程式庫＞一節中的資訊會由開發人員公用社群更新和維護 (藉由使用 GitHub.com 上 **Azure** 所擁有的 [azure-content](http://github.com/Azure/azure-content/) 儲存機制)。Microsoft 鼓勵開發人員更新本節。Microsoft 人員「並不」打算維護本節中的資訊，有一部分是因為其他人比我們更精通每個特定的協力廠商程式庫。感謝您。
+> [AZURE.IMPORTANT] 下表列出由協力廠商依協力廠商授權條款所發行的程式庫。您必須負責確認並遵守相關的協力廠商授權，才能使用這些程式庫。您必須自行承擔使用這些程式庫的風險。Microsoft 不會為此處提供的資訊做任何明示或默示保證，提供此資訊只是為了方便使用者了解。此處所提供的一切皆無隱含 Microsoft 的任何背書。<br/><br/>＜協力廠商程式庫＞一節中的資訊會由開發人員公用社群更新和維護 (藉由使用 GitHub.com 上 **Azure** 所擁有的 [azure-content](http://github.com/Azure/azure-content/) 儲存機制)。Microsoft 鼓勵開發人員更新本節。Microsoft 人員「並不」打算維護本節中的資訊，有一部分是因為其他人比我們更精通每個特定的協力廠商程式庫。感謝您。
 
 下表列出由協力廠商 (例如其他公司或社群) 所發行的程式庫。Microsoft 所發行的程式庫僅限於本主題中先前的章節。
 
 | 平台 | 程式庫 |
 | :-- | :-- |
-| Python | [pymssql *(org：stable)*](http://pymssql.org/en/stable/)<br/><br/>[pymssql *(org)*](http://pymssql.org/) |
-| Node.js | [Tedious *(npmjs)*](http://www.npmjs.com/package/tedious) |
-| Node.js | [Node-MSSQL *(github：patriksimek)*](https://github.com/patriksimek/node-mssql)<br/><br/>[Node-MSSQL *(npmjs)*](https://www.npmjs.com/package/node-mssql)<br/><br/>[Node-MSSQL-Connector *(npmjs)*](https://www.npmjs.com/package/node-mssql-connector) |
-| Node.js | [Edge.js *(github com：tjanczuk)*](https://github.com/tjanczuk/edge)<br/><br/>[Edge.js *(tjanczuk：github io)*](http://tjanczuk.github.io/edge/) |
-| 。 | [FreeTDS *(org)*](http://www.freetds.org/) |
+| Ruby | [tinytds *(org, stable)*](https://rubygems.org/gems/tiny_tds/versions/0.7.0) |
+| GO | [go-mssqldb *(org, stable)*](https://github.com/denisenkom/go-mssqldb) |
+| Python | [pymssql *(org, stable)*](http://pymssql.org/en/stable/) |
+| Node.js | [Node-MSSQL *(npmjs)*](https://www.npmjs.com/package/node-mssql)<br/><br/>[Node-MSSQL-Connector *(npmjs)*](https://www.npmjs.com/package/node-mssql-connector) |
+| C++ | [FreeTDS *(org)*](http://www.freetds.org/) |
+
+
 
 <!--
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

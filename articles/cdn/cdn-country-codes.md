@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN - 國碼" 
-	description="國家 (地區) 篩選功能可使用國碼來定義國家 (地區)，以允許或封鎖該國家 (地區) 對受保護目錄的要求。" 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - 國碼"
+	description="國家 (地區) 篩選功能可使用國碼來定義國家 (地區)，以允許或封鎖該國家 (地區) 對受保護目錄的要求。"
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 #國碼
@@ -23,11 +23,11 @@
 | 代碼 | 國家 (地區) | 其他資訊                                                                                                                                                                                                                               
 |--------------|----------------------------------------------|------------------------------------------------------|
 | A1 | 匿名 Proxy | 此國碼可識別一組由 anonymizer 或 VPN 服務使用的 IP 位址。這些服務類型可能會用來規避 IP 地理位置限制。 |                                                                        
-| A2 | 衛星提供者 | 此國碼可識別一組由 Satellite ISP 用來提供網際網路服務給多個國家 (地區) (例如奈及利亞和迦納) 的 IP 位址。 | 
+| A2 | 衛星提供者 | 此國碼可識別一組由 Satellite ISP 用來提供網際網路服務給多個國家 (地區) (例如奈及利亞和迦納) 的 IP 位址。 |
 | AF | 阿富汗 | |
 | AL | 阿爾巴尼亞 | |
-| DZ | 阿爾及利亞 | | 
-| AS | 美屬薩摩亞 | | 
+| DZ | 阿爾及利亞 | |
+| AS | 美屬薩摩亞 | |
 | AD | 安道爾 | |
 | AO | 安哥拉 | |
 | AI | 安圭拉島 | |
@@ -39,10 +39,10 @@
 | AP | 亞太地區 | 此國碼可識別一組散佈整個亞太地區的 IP 位址。此組 IP 位址的來源國家 (地區) 是未知的。更重要的是，此國碼並未涵蓋亞太地區中的所有 IP 位址。[深入了解](https://my.edgecast.com/uploads/ubers/1/docs/webhelp/w/CDNHelpCenter/Content/Knowledge_Base/Geolocation_EU_AP.htm)。|     
 | AU | 澳大利亞 | |
 | AT | 奧地利 | |
-| AZ | 亞塞拜然 | | 
+| AZ | 亞塞拜然 | |
 | BS | 巴哈馬 | |
-| BH | 巴林 | | 
-| BD | 孟加拉 | | 
+| BH | 巴林 | |
+| BD | 孟加拉 | |
 | BB | 巴貝多 | |
 | BY | 白俄羅斯 | |
 | BE | 比利時 | |
@@ -268,4 +268,4 @@
 | ZM | 尚比亞 | |
 | ZW | 辛巴威 | |
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

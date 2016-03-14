@@ -66,9 +66,6 @@
 12. 接著為 `MyHandler` 類別新增下列成員：
 
 		public static final int NOTIFICATION_ID = 1;
-		private NotificationManager mNotificationManager;
-		NotificationCompat.Builder builder;
-		Context ctx;
 
 
 13. 在 `MyHandler` 類別中，新增下列程式碼以覆寫 **onRegistered** 方法 (向行動服務通知中心註冊您的裝置)。
@@ -76,7 +73,7 @@
 		@Override
 		public void onRegistered(Context context,  final String gcmRegistrationId) {
 		    super.onRegistered(context, gcmRegistrationId);
-	
+		
 		    new AsyncTask<Void, Void, Void>() {
 		    		    	
 		    	protected Void doInBackground(Void... params) {
@@ -93,34 +90,28 @@
 		}
 
 
-
 14. 在 `MyHandler` 類別中，新增下列程式碼以覆寫 **onReceive** 方法 (在收到通知時隨即顯示)。
 
 		@Override
 		public void onReceive(Context context, Bundle bundle) {
-		    ctx = context;
-		    String nhMessage = bundle.getString("message");
-	
-		    sendNotification(nhMessage);
-		}
-	
-		private void sendNotification(String msg) {
-			mNotificationManager = (NotificationManager)
-		              ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-	
-		    PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-		          new Intent(ctx, ToDoActivity.class), 0);
-	
-		    NotificationCompat.Builder mBuilder =
-		          new NotificationCompat.Builder(ctx)
-		          .setSmallIcon(R.drawable.ic_launcher)
-		          .setContentTitle("Notification Hub Demo")
-		          .setStyle(new NotificationCompat.BigTextStyle()
-		                     .bigText(msg))
-		          .setContentText(msg);
-	
-		     mBuilder.setContentIntent(contentIntent);
-		     mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+        		String msg = bundle.getString("message");
+		
+        		PendingIntent contentIntent = PendingIntent.getActivity(context,
+                		0, // requestCode
+                		new Intent(context, ToDoActivity.class),
+                		0); // flags
+
+        		Notification notification = new NotificationCompat.Builder(context)
+                		.setSmallIcon(R.drawable.ic_launcher)
+                		.setContentTitle("Notification Hub Demo")
+                		.setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
+                		.setContentText(msg)
+                		.setContentIntent(contentIntent)
+                		.build();
+
+        		NotificationManager notificationManager = (NotificationManager)
+                		context.getSystemService(Context.NOTIFICATION_SERVICE);
+        		notificationManager.notify(NOTIFICATION_ID, notification);
 		}
 
 
@@ -131,4 +122,4 @@
 
     您的應用程式現在已更新為支援推播通知。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

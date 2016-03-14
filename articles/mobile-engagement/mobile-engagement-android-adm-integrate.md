@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="02/29/2016"
 	ms.author="piyushjo" />
 
 
 #如何整合 ADM 與 Engagement
 
-> [AZURE.IMPORTANT]您必須遵循＜如何在 Android 上整合 Engagement＞文件中所述的整合程序，才能接著依照本指南操作。
+> [AZURE.IMPORTANT] 您必須遵循＜如何在 Android 上整合 Engagement＞文件中所述的整合程序，才能接著依照本指南操作。
 >
 > 只有當您已整合 Reach 模組以用於任何時間促銷活動支援，才適用本文件。若要在應用程式中整合 Reach 促銷活動，請先閱讀「如何在 Android 上整合 Engagement Reach」。
 
@@ -29,7 +29,7 @@
 
 推送到 ADM 裝載的 SDK 一律包含 `azme` 資料物件中的金鑰。因此，如果您在應用程式中因為其他目的使用 ADM，可以根據該金鑰篩選推送。
 
-> [AZURE.IMPORTANT]Amazon Device Messaging 只支援執行 Android 4.0.3 或更新版本的 Amazon Kindle 裝置；不過，您仍可將這段程式碼安全地整合至其他裝置。
+> [AZURE.IMPORTANT] Amazon Device Messaging 只支援執行 Android 4.0.3 或更新版本的 Amazon Kindle 裝置；不過，您仍可將這段程式碼安全地整合至其他裝置。
 
 ##註冊 ADM
 
@@ -112,4 +112,4 @@
 [整合的 ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [此程序]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

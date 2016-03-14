@@ -3,8 +3,8 @@
 	description="了解如何使用 Media Encoder Premium Workflow 進行編碼。程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
-	manager="dwrede" 
+	authors="juliako" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="02/25/2016" 
 	ms.author="juliako"/>
 
 #使用 Media Encoder Premium Workflow 進行進階編碼
@@ -30,7 +30,7 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 
 - [Media Encoder Premium Workflow 支援的格式](media-services-premium-workflow-encoder-formats.md) – 討論 **Media Encoder Premium Workflow** 支援的檔案格式和轉碼器。
 
-- [比較編碼器](media-services-encode-asset.md#compare_encoders)一節比較了「媒體編碼器高階工作流程」、「媒體編碼器標準」和「Azure 媒體編碼器」的編碼功能。
+- [比較編碼器](media-services-encode-asset.md#compare_encoders)一節比較**媒體編碼器高階工作流程**和**媒體編碼器標準**的編碼功能。
 
 本主題示範如何使用 .NET 以 **Media Encoder Premium Workflow** 進行編碼。
 
@@ -279,4 +279,4 @@ Microsoft Azure 媒體服務推出 **Media Encoder Premium Workflow** 媒體處�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

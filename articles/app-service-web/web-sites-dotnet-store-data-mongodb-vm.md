@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="02/29/2016" 
 	ms.author="cephalin"/>
 
 
@@ -22,7 +22,7 @@
 
 使用 Git，即可將 ASP.NET 應用程式部署至 Azure App Service Web Apps。在本教學課程中，您將建置簡易的前端 ASP.NET MVC 工作清單應用程式，以連接至在 Azure 的虛擬機器上執行的 MongoDB 資料庫。[MongoDB][MongoDB] (英文) 是受歡迎的高效能開放原始碼 NoSQL 資料庫。在部署電腦上執行和測試 ASP.NET 應用程式之後，您將使用 Git 將此應用程式上傳至 App Service Web Apps。
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 
 ## 背景知識 ##
@@ -48,7 +48,7 @@
 本教學課程假設您已在 Azure 中建立虛擬機器。建立虛擬機器之後，您必須在這部虛擬機器上安裝 MongoDB：
 
 * 若要建立 Windows 虛擬機器和安裝 MongoDB，請參閱＜[在 Azure 中執行 Windows Server 的虛擬機器上安裝 MongoDB][InstallMongoOnWindowsVM]＞。
-* 此外，若要建立 Linux 虛擬機器和安裝 MongoDB，請參閱＜[在 Azure 中執行 CentOS Linux 的虛擬機器上安裝 MongoDB][InstallMongoOnCentOSLinuxVM]＞。
+
 
 在 Azure 中建立虛擬機器並安裝 MongoDB 之後，請務必記住虛擬機器的 DNS 名稱 (例如，"testlinuxvm.cloudapp.net") 以及您在端點中指定之 MongoDB 的外部連接埠。稍後在教學課程中需要此資訊。
 
@@ -470,8 +470,7 @@ MongoDB C# 驅動程式現已安裝。 **MongoDB.Bson**、**MongoDB.Driver** 和
 [ASP.NET]: http://www.asp.net/
 [MongoConnectionStrings]: http://www.mongodb.org/display/DOCS/Connections
 [MongoDB]: http://www.mongodb.org
-[InstallMongoOnCentOSLinuxVM]: /manage/linux/common-tasks/mongodb-on-a-linux-vm/
-[InstallMongoOnWindowsVM]: /manage/windows/common-tasks/install-mongodb/
+[InstallMongoOnWindowsVM]: ../virtual-machines/virtual-machines-install-mongodb-windows-server.md
 [VSEWeb]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
 [VSUlt]: http://www.microsoft.com/visualstudio/eng/2013-downloads
 
@@ -501,4 +500,4 @@ MongoDB C# 驅動程式現已安裝。 **MongoDB.Bson**、**MongoDB.Driver** 和
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

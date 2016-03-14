@@ -3,7 +3,7 @@
    description="摘要說明可以用來在 Azure 自動化中啟動 Runbook 的不同的方法，並提供使用 Azure 入口網站和 Windows PowerShell 的詳細資訊。"
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/19/2016"
+   ms.date="02/23/2016"
    ms.author="magoedte;bwren"/>
 
 # 在 Azure 自動化中啟動 Runbook
@@ -54,29 +54,29 @@
 您可以使用 [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/azure/dn690259.aspx)，來利用 Windows PowerShell 啟動 Runbook。下列範例程式碼會啟動名稱為 Test-Runbook 的 Runbook。
 
 ```
-	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 ```
 
 Start-AzureAutomationRunbook 會傳回工作物件，一旦啟動 Runbook，您即可用來追蹤其狀態。然後您可以使用此工作物件搭配使用 [Get-AzureAutomationJob](http://msdn.microsoft.com/library/azure/dn690263.aspx) 來判斷工作的狀態，以及搭配使用 [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/azure/dn690268.aspx) 來取得其輸出。下列範例程式碼會啟動名稱為 Test-Runbook 的 Runbook，等到它完成，然後顯示其輸出。
 
 ```
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
-	
-	$doLoop = $true
-	While ($doLoop) {
-	   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
-	   $status = $job.Status
-	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
-	}
-	
-	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+
+$doLoop = $true
+While ($doLoop) {
+   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
+   $status = $job.Status
+   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
+}
+
+Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
 ```
 
 如果 Runbook 需要參數，則您必須提供其作為 [hashtable](http://technet.microsoft.com/library/hh847780.aspx)，其中雜湊表的索引鍵符合參數名稱，而值是參數值。下列範例顯示如何啟動 Runbook 具有名為 FirstName 和 LastName 的兩個參數、名為 RepeatCount 的整數，和名為 Show 的布林值參數。如需有關參數的詳細資訊，請參閱以下的 [Runbook 參數](#Runbook-parameters)。
 
 ```
-	$params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
-	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" –Parameters $params
+$params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
+Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" –Parameters $params
 ```
 
 ## Runbook 參數
@@ -92,33 +92,33 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 請考慮可接受稱為 user 的參數的下列測試 Runbook。
 
 ```
-	Workflow Test-Parameters
-	{
-	   param (
-	      [Parameter(Mandatory=$true)][object]$user
-	   )
-	    if ($user.Show) {
-	        foreach ($i in 1..$user.RepeatCount) {
-	            $user.FirstName
-	            $user.LastName
-	        }
-	    }
-	}
+Workflow Test-Parameters
+{
+   param (
+      [Parameter(Mandatory=$true)][object]$user
+   )
+    if ($user.Show) {
+        foreach ($i in 1..$user.RepeatCount) {
+            $user.FirstName
+            $user.LastName
+        }
+    }
+}
 ```
 
 下列文字可用於 user 參數。
 
 ```
-	{"FirstName":"Joe","LastName":"Smith","RepeatCount":2,"Show":true}
+{"FirstName":"Joe","LastName":"Smith","RepeatCount":2,"Show":true}
 ```
 
 這會導致下列輸出。
 
 ```
-	Joe
-	Smith
-	Joe
-	Smith
+Joe
+Smith
+Joe
+Smith
 ```
 
 ### 陣列
@@ -128,33 +128,33 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 請考慮可接受稱為 *user* 的參數的下列測試 Runbook。
 
 ```
-	Workflow Test-Parameters
-	{
-	   param (
-	      [Parameter(Mandatory=$true)][array]$user
-	   )
-	    if ($user[3]) {
-	        foreach ($i in 1..$user[2]) {
-	            $ user[0]
-	            $ user[1]
-	        }
-	    }
-	}
+Workflow Test-Parameters
+{
+   param (
+      [Parameter(Mandatory=$true)][array]$user
+   )
+    if ($user[3]) {
+        foreach ($i in 1..$user[2]) {
+            $ user[0]
+            $ user[1]
+        }
+    }
+}
 ```
 
 下列文字可用於 user 參數。
 
 ```
-	["Joe","Smith",2,true]
+["Joe","Smith",2,true]
 ```
 
 這會導致下列輸出。
 
 ```
-	Joe
-	Smith
-	Joe
-	Smith
+Joe
+Smith
+Joe
+Smith
 ```
 
 ### 認證
@@ -164,29 +164,29 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 請考慮可接受稱為 credential 的參數的下列測試 Runbook。
 
 ```
-	Workflow Test-Parameters
-	{
-	   param (
-	      [Parameter(Mandatory=$true)][PSCredential]$credential
-	   )
-	   $credential.UserName
-	}
+Workflow Test-Parameters
+{
+   param (
+      [Parameter(Mandatory=$true)][PSCredential]$credential
+   )
+   $credential.UserName
+}
 ```
 
 假設有稱為 *My Credential* 的認證資產，則下列文字可用於 user 參數。
 
 ```
-	My Credential
+My Credential
 ```
 
 假設在認證中的使用者名稱是 *jsmith*，這會導致下列輸出。
 
 ```
-	jsmith
+jsmith
 ```
 
 ## 後續步驟
 
 -	本文中的 Runbook 結構提供混合式 Runbook 的高階說明，如需更多詳細資訊，請參閱 [Azure 自動化中的子 Runbook](automation-child-runbooks.md)
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

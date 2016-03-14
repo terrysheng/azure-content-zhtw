@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -33,18 +33,18 @@
     <tr>
         <td><strong>取得工具</strong></td>
 
-        <td>下載 BizTalk 服務 SDK，將 Visual Studio 專案範本安裝到內部部署開發電腦上。 這些範本會建立 <strong>BizTalk 服務</strong> (橋接)，以及可部署至 BizTalk 服務的 <strong>BizTalk 服務成品</strong> (轉換) Visual Studio 專案。
+        <td>下載 BizTalk 服務 SDK，將 Visual Studio 專案範本安裝到內部部署開發電腦上。這些範本會建立 <strong>BizTalk 服務</strong> (橋接)，以及可部署至 BizTalk 服務的 <strong>BizTalk 服務成品</strong> (轉換) Visual Studio 專案。
         <br/><br/>
-		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">如何開始使用 Azure BizTalk 服務 SDK</a> 和<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589"> 安裝 Azure BizTalk 服務 SDK</a> 列出開始進行的步驟。
+		＜<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">如何開始使用 Azure BizTalk 服務 SDK</a>＞和＜<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">安裝 Azure BizTalk 服務 SDK</a>＞列出開始進行的步驟。
         </td>
     </tr>
 
     <tr>
-        <td><strong>建立夥伴合約</strong></td>
+        <td><strong>建立夥伴協議</strong></td>
 
         <td>開啟裝載於 Azure 的 Azure BizTalk 服務入口網站，以加入夥伴並建立 X12、AS2 和 EDIFACT EDI 協議。
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">在 BizTalk 服務入口網站上設定 EDI 訊息的元件</a>列出開始進行的步驟。
+        ＜<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">在 BizTalk 服務入口網站上設定 EDI 訊息的元件</a>＞列出開始進行的步驟。
         </td>
     </tr>
 
@@ -55,7 +55,7 @@
 </table>
 
 
-在底部的工作列上，您可以：
+您可以在底部的工作列：
 
 <table border="1">
 
@@ -236,17 +236,14 @@
 
 ##### 在圖表中移除或顯示度量：
 1. 選取 [**監視**] 索引標籤。
-2. 選取工作列中的 [加入度量]：  
-![選取 [新增度量]][AddMetrics]
+2. 選取工作列中的 [加入度量]：![選取 [新增度量]][AddMetrics]
 3. 勾選您要顯示的效能度量。
 4. 選取勾選記號以回到 [**監視**] 索引標籤。
 5. 選取度量旁邊的圓圈，將該度量的值顯示在圖表中。  
 
-	例如，[CPU 使用率] 度量呈現灰色，其輸出不會出現在圖表中：  
-![CPU 使用量度量呈現灰色][GrayedMetric]
+	例如，[CPU 使用率] 度量呈現灰色，其輸出不會出現在圖表中：![CPU 使用量度量呈現灰色][GrayedMetric]
 
-	選取灰色的圓圈以啟用 [CPU 使用率] 度量，將其輸出顯示在圖表中：  
-![CPU 使用量度量已啟用][EnabledMetric]
+	選取灰色的圓圈以啟用 [CPU 使用率] 度量，將其輸出顯示在圖表中：![CPU 使用量度量已啟用][EnabledMetric]
 
 6. 若要從顯示圖表和清單中移除度量，請選取工作列中的 [**移除度量**]。若要將度量加回到清單中，請選取工作列的 [加入度量]，勾選度量，然後選取勾選記號以回到 [監視] 索引標籤。選取灰色圓圈以啟用度量。
 
@@ -339,7 +336,7 @@
 
 若要在 Azure 網站中建立混合式連線，請參閱「[混合式連線：將 Azure 網站連接至內部部署資源](http://go.microsoft.com/fwlink/p/?LinkId=397538)」。
 
-若要在 Azure 行動服務內使用混合式連線，請參閱 [Azure 行動服務與混合式連線](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)。
+若要在 Azure 行動服務內使用混合式連線，請參閱 [Azure 行動服務與混合式連線](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)。
 
 若要在 Azure BizTalk 服務內建立或管理混合式連線，請參閱[混合式連線](integration-hybrid-connection-overview.md)。
 
@@ -365,4 +362,4 @@
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

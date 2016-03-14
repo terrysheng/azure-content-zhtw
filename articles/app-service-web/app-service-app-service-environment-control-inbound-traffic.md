@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/26/2016" 
 	ms.author="stefsch"/>
 
 # 如何控制 App Service 環境的輸入流量
@@ -49,12 +49,12 @@ App Service 環境必須一律建立於子網路中，因為子網路可提供�
 ## 輸出連線和 DNS 需求 ##
 為了讓 App Service 環境正確運作，需要全球 Azure 儲存體以及相同 Azure 區域中 SQL Database 的輸出存取權。如果虛擬網路中封鎖輸出網際網路存取，則 App Service 環境將無法存取這些 Azure 端點。
 
-App Service 環境也需要針對虛擬網路設定的有效 DNS 基礎結構。如果 DNS 設定在建立 App Service 環境之後因為任何原因而變更，開發人員可以強制 App Service 環境挑選新的 DNS 組態。使用位於[新的管理入口網站][NewPortal]中 App Service 環境管理刀鋒視窗頂端的 [重新啟動] 圖示觸發輪流環境重新開機，會導致環境挑選新的 DNS 設定。
+App Service 環境也需要針對虛擬網路設定的有效 DNS 基礎結構。如果 DNS 設定在建立 App Service 環境之後因為任何原因而變更，開發人員可以強制 App Service 環境挑選新的 DNS 組態。使用位於 [Azure 入口網站][NewPortal]中 [App Service 環境管理] 刀鋒視窗頂端的 [重新啟動] 圖示觸發輪流環境重新開機，將會導致環境挑選新的 DNS 組態。
 
 以下清單詳細描述 App Service 環境所需的連線能力和 DNS：
 
 -  全球 Azure 儲存體端點的輸出網路連線。這包括位於與 App Service 環境相同區域中的端點，以及位於「其他」 Azure 區域的儲存體端點。Azure 儲存體端點在下列 DNS 網域之下解析：*table.core.windows.net*、*blob.core.windows.net*、*queue.core.windows.net* 和 *file.core.windows.net*。  
--  位於與 App Service 環境相同區域中的 SQL DB 端點的輸出網路連接。SQl DB 端點在以下網域之下解析：*database.windows.net*。
+-  位於與 App Service 環境相同區域中的 SQL DB 端點的輸出網路連接。Sql DB 端點在以下網域之下解析：*database.windows.net*。
 -  Azure 管理平面端點 (ASM 和 ARM 端點) 的輸出網路連線。這包括 *management.core.windows.net* 和 *management.azure.com* 的輸出連線。 
 -  *ocsp.msocsp.com* 的輸出連線。需要此連線才能支援 SSL 功能。
 -  虛擬網路的 DNS 設定必須能夠解析前面幾點所提到的所有端點和網域。如果無法解析這些端點，App Service 環境建立嘗試將會失敗，而且現有的 App Service 環境會標示為狀況不良。
@@ -147,5 +147,6 @@ App Service 環境也需要針對虛擬網路設定的有效 DNS 基礎結構。
 [NewPortal]: https://portal.azure.com
 
 <!-- IMAGES -->
+ 
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0302_2016-->

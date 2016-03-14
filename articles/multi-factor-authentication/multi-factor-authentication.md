@@ -13,8 +13,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
-	ms.date="02/16/2016"
+	ms.topic="article" 
+	ms.date="02/29/2016"
 	ms.author="billmath"/>
 
 # 什麼是 Azure Multi-Factor Authentication？
@@ -117,9 +117,10 @@ MFA 報告| | | *
 自訂通話來電者 ID| | | *
 事件確認| | | *
 信任的 IP| | | *
-暫停對已記住的裝置進行 MFA (公開預覽)| | | *
+記住受信任裝置的 MFA |* | * | *
 MFA SDK| | | *
 對使用 MFA Server 的內部部署應用程式進行 MFA| | | *
+可選取的驗證選項 (公用預覽)|* | * | *
 
 
 ## 如何取得 Azure Multi-Factor Authentication
@@ -135,6 +136,8 @@ MFA SDK| | | *
 
 - **每位使用者**。通常適用於想要為一群定期需要驗證之固定數量員工啟用 Multi-Factor Authentication 的企業。
 - **每次驗證**。通常適用於想要為大量不定期需要驗證之外部使用者啟用 Multi-Factor Authentication 的企業。
+
+Azure Multi-Factor Authentication 為雲端與伺服器提供可選取的驗證方法。這表示您可以選擇可供使用者用於多重要素驗證的方法。在雲端版的多重要素驗證中，這項功能目前為公開預覽狀態。如需其他資訊，請參閱[可選取的驗證方法](multi-factor-authentication-whats-next.md#selectable-verification-methods-public-preview)。
 
 如需定價詳細資料，請參閱 [Azure MFA 定價](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)。
 
@@ -198,7 +201,7 @@ MFA 報告 | ● | ●
 通話的自訂問候語 | ● | ●
 可自訂的通話來電者 ID | ● | ●
 信任的 IP | ● | ●
-暫停對已記住的裝置進行 MFA (公開預覽) | ● |  
+記住受信任裝置的 MFA (公開預覽) | ● |  
 條件式存取 | ● | ●
 快取 | ● | ●
 
@@ -206,4 +209,4 @@ MFA 報告 | ● | ●
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

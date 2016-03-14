@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="02/29/2016"
 	ms.author="MehrdadMzfr" />
 
 #如何在 iOS 上整合 Engagement
@@ -26,25 +26,24 @@
 
 此程序描述在您的 iOS 應用程式中，啟動 Engagement 的分析和監視功能時，最簡單的方法。
 
-> [AZURE.IMPORTANT]Engagement SDK 需要 iOS6 以上：應用程式的部署目標必須至少為 iOS 6。
+> [AZURE.IMPORTANT] Engagement SDK 需要 iOS6 以上：應用程式的部署目標必須至少為 iOS 6。
 
 下列步驟便足以啟用計算使用者、工作階段、活動、當機和技術相關的所有統計資料需要的記錄檔之報告。用來計算事件、錯誤及工作等其他統計資料所需的記錄檔報告必須使用 Engagement API 手動完成 (請參閱[如何在 iOS 應用程式中使用進階的 Mobile Engagement 標記 API](mobile-engagement-ios-use-engagement-api.md))，因為這些是與應用程式相依的統計資料。
 
 ##將 Engagement SDK 嵌入您的 iOS 專案
 
-從[這裡](http://aka.ms/qk2rnj)下載 iOS SDK。
-將 Engagement SDK 加入您的 iOS 專案：在 Xcode 中，以滑鼠右鍵按一下專案，然後選取 [**新增檔案至**]，再選擇 `EngagementSDK` 資料夾。
+從[這裡](http://aka.ms/qk2rnj)下載 iOS SDK。將 Engagement SDK 加入您的 iOS 專案：在 Xcode 中，以滑鼠右鍵按一下專案，然後選取 [**新增檔案至**]，再選擇 `EngagementSDK` 資料夾。
 
 Engagement 需要額外的架構才能運作：在專案總管中，開啟專案窗格並選取正確的目標。然後，開啟 [建置階段] 索引標籤，在 [連結二進位檔與程式庫] 功能表中加入下列架構：
 
- -   `AdSupport.framework` ：將連結設為`Optional`
- -   `SystemConfiguration.framework`
- -   `CoreTelephony.framework`
- -   `CFNetwork.framework`
- -   `CoreLocation.framework`
- -   `libxml2.dylib`
+> -   `AdSupport.framework`：將連結設為`Optional`
+> -   `SystemConfiguration.framework`
+> -   `CoreTelephony.framework`
+> -   `CFNetwork.framework`
+> -   `CoreLocation.framework`
+> -   `libxml2.dylib`
 
-> [AZURE.NOTE] AdSupport 架構可以移除。Engagement 需要此架構來收集 IDFA。但您可以停用 IDFA 集合 \<ios-sdk-engagement-idfa\>，以符合關於此識別碼的新 Apple 原則。
+> [AZURE.NOTE] AdSupport 架構可以移除。Engagement 需要此架構來收集 IDFA。但您可以停用 IDFA 集合 <ios-sdk-engagement-idfa>，以符合關於此識別碼的新 Apple 原則。
 
 ##初始化 Engagement SDK
 
@@ -99,7 +98,7 @@ Engagement 需要額外的架構才能運作：在專案總管中，開啟專案
 
 如果您無法或不想要多載 `UIViewController` 類別，可以改用直接呼叫 `EngagementAgent` 的方法來開始活動。
 
-> [AZURE.IMPORTANT]iOS SDK 會在應用程式關閉時自動呼叫 `endActivity()` 方法。因此，「強烈」建議每當使用者的活動變更時便呼叫 `startActivity` 方法，並且「絕對不要」呼叫 `endActivity` 方法，因為呼叫此方法會強制結束目前的工作階段。
+> [AZURE.IMPORTANT] iOS SDK 會在應用程式關閉時自動呼叫 `endActivity()` 方法。因此，「強烈」建議每當使用者的活動變更時便呼叫 `startActivity` 方法，並且「絕對不要」呼叫 `endActivity` 方法，因為呼叫此方法會強制結束目前的工作階段。
 
 ##位置報告
 
@@ -144,7 +143,7 @@ Apple 服務條款不允許應用程式只為了統計資料的目的而使用�
 
 	[[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
 
-> [AZURE.NOTE]當應用程式在背景中執行，即使啟用 GPS，也只會報告網路位置。
+> [AZURE.NOTE] 當應用程式在背景中執行，即使啟用 GPS，也只會報告網路位置。
 
 實作此函數會在應用程式進入背景時呼叫 [startMonitoringSignificantLocationChanges]。請注意，如果新的位置事件抵達，它會自動重新啟動您的應用程式到背景中。
 
@@ -208,4 +207,4 @@ Engagement API 可允許使用所有 Engagement 的進階功能，詳情請見�
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=AcomDC_1217_2015--->
+<!---HONumber=AcomDC_0302_2016-->

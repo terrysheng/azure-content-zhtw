@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 # 開始使用 FTP API
-連線到 FTP 伺服器來管理您的檔案。您可以在 FTP 伺服器上進行各種不同的工作，例如上傳檔案、刪除檔案等等。
+連線到 FTP 伺服器來管理您的檔案，包括上傳檔案、刪除檔案等等。您可以從下列應用程式使用 FTP API：
 
-您可以從邏輯應用程式使用 FTP API。
+- 邏輯應用程式
 
 >[AZURE.NOTE] 這一版的文章適用於邏輯應用程式 2015-08-01-preview 結構描述版本。對於 2014-12-01-preview 結構描述版本，請按一下 [FTP 連接器](../app-service-logic/app-service-logic-connector-ftp.md)。
 
@@ -30,7 +30,7 @@
 - 在檔案更新時使用觸發程序。
 - 使用會產生檔案、取得檔案內容等等的動作。這些動作會收到回應，然後輸出能讓其他動作使用的資料。舉例來說，您可以取得檔案內容，然後更新 SQL 資料庫。 
 
-如要在邏輯應用程式中新增作業，請參閱[建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
+如果要在邏輯應用程式中新增作業，請參閱[建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
 
 ## 觸發程序及動作
@@ -38,7 +38,7 @@ FTP 提供下列觸發程序及動作。
 
 觸發程序 | 動作
 --- | ---
-<ul><li>取得已更新的檔案</li></ul> | <ul><li>建立檔案</li><li>複製檔案</li><li>刪除檔案</li><li>解壓縮到資料夾</li><li>取得檔案內容</li><li>使用路徑來取得檔案內容</li><li>取得檔案中繼資料</li><li>使用路徑來取得檔案中繼資料</li><li>取得已更新的檔案</li><li>更新檔案</li></ul>
+<ul><li>取得已更新的檔案</li></ul> | <ul><li>建立檔案</li><li>複製檔案</li><li>刪除檔案</li><li>解壓縮資料夾</li><li>取得檔案內容</li><li>使用路徑來取得檔案內容</li><li>取得檔案中繼資料</li><li>使用路徑來取得檔案中繼資料</li><li>取得已更新的檔案</li><li>更新檔案</li></ul>
 
 所有 API 都支援 JSON 和 XML 格式的資料。
 
@@ -51,11 +51,12 @@ FTP 提供下列觸發程序及動作。
 |使用者名稱| 是 | 輸入要連線到 FTP 伺服器的使用者名稱。|
 |密碼 | 是 | 輸入使用者名稱的密碼。|
 
-當您建立連線之後，請輸入 FTP 的屬性，例如來源檔案或目的資料夾。本主題的＜REST API 參考＞一節會說明這些屬性。
+當您建立連線之後，請輸入 FTP 的屬性，例如來源檔案或目的資料夾。本主題的＜REST API 參考＞一節說明這些屬性。
 
 >[AZURE.TIP] 您可以在其他的邏輯應用程式中，使用這個相同的 FTP 連線。
 
 ## Swagger REST API 參考
+適用的版本：1.0。
 
 ### 建立檔案
 把檔案上傳到 FTP 伺服器。```POST: /datasets/default/files```
@@ -116,7 +117,7 @@ FTP 提供下列觸發程序及動作。
 |預設值|作業失敗。|
 
 ### 取得檔案內容
-使用識別碼來擷取 FTP 伺服器中檔案的內容。```GET: /datasets/default/files/{id}/content```
+使用識別碼來擷取 FTP 伺服器中的檔案內容。```GET: /datasets/default/files/{id}/content```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -130,7 +131,7 @@ FTP 提供下列觸發程序及動作。
 
 
 ### 使用路徑來取得檔案內容
-使用路徑來擷取 FTP 伺服器中檔案的內容。```GET: /datasets/default/GetFileContentByPath```
+使用路徑來擷取 FTP 伺服器中的檔案內容。```GET: /datasets/default/GetFileContentByPath```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -144,7 +145,7 @@ FTP 提供下列觸發程序及動作。
 
 
 ### 取得檔案中繼資料 
-使用檔案識別碼來擷取 FTP 伺服器中檔案的中繼資料。```GET: /datasets/default/files/{id}```
+使用檔案識別碼來擷取 FTP 伺服器中的檔案中繼資料。```GET: /datasets/default/files/{id}```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -158,7 +159,7 @@ FTP 提供下列觸發程序及動作。
 
 
 ### 使用路徑來取得檔案中繼資料
-使用路徑來擷取 FTP 伺服器中檔案的中繼資料。```GET: /datasets/default/GetFileByPath```
+使用路徑來擷取 FTP 伺服器中的檔案中繼資料。```GET: /datasets/default/GetFileByPath```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -206,8 +207,8 @@ FTP 提供下列觸發程序及動作。
 
 | 名稱 | 資料類型 | 必要 |
 |---|---|---|
-|tabular|沒有定義|no|
-|blob|沒有定義|no|
+|表格式|未定義|no|
+|blob|未定義|no|
 
 #### TabularDataSetsMetadata
 
@@ -246,4 +247,4 @@ FTP 提供下列觸發程序及動作。
 
 [建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

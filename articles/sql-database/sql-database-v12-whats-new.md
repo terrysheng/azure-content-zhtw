@@ -53,7 +53,7 @@ SQL Database V12 的一個主要目標就是要提高與 Microsoft SQL Server 20
 ## 更多高階效能，新的效能層級
 
 
-在 V12 中，我們將分配給所有高階效能層級的資料庫輸送量單位 (DTU) 提高了 25% 且不需要額外成本更可透過新功能進一步提升效能，例如：
+在 V12 中，我們將分配給所有高階效能層級的資料庫交易單位 (DTU) 提高了 25% 且不需要額外成本更可透過新功能進一步提升效能，例如：
 
 
 - 支援記憶體內部[資料行存放區索引](http://msdn.microsoft.com/library/gg492153.aspx)。
@@ -161,4 +161,4 @@ V12 資料庫只能裝載在 V12 邏輯伺服器上。而 V12 只可以裝載 V1
 
 [Microsoft Azure 預覽專用的使用補充條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

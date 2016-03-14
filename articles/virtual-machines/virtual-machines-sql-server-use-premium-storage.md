@@ -22,7 +22,7 @@
 
 ## 概觀
 
-[Azure 高階儲存體](../storage-premium-storage-preview-portal.md)是新一代儲存體，可提供低延遲和高輸送量 IO。它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](https://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。
+[Azure 高階儲存體](../storage/storage-premium-storage.md)是新一代儲存體，可提供低延遲和高輸送量 IO。它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](https://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
 
@@ -149,7 +149,7 @@
 
 儲存體效能的程度取決於指定的 DS* VM 大小與 VHD 大小。VM 對於連結的 VHD 數量以及它們將支援的最大頻寬 (MB/秒) 有不同的容許程度。如需特定頻寬數，請參閱 [Azure 的虛擬機器和雲端服務大小](virtual-machines-size-specs.md)。
 
-提高 IOPS 可透過更大的磁碟大小來達成。當您考量移轉路徑時，應將這點納入考慮。如需詳細資訊，請參閱[適用於 IOPS 和磁碟類型的表格](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whzh-TWing-premium-storage)。
+提高 IOPS 可透過更大的磁碟大小來達成。當您考量移轉路徑時，應將這點納入考慮。如需詳細資訊，請參閱[適用於 IOPS 和磁碟類型的表格](../storage-premium-storage.md#scalability-and-performance-targets-whzh-TWing-premium-storage)。
 
 最後，請考量 VM 對於所有連結磁碟支援的磁碟頻寬上限各有不同。在高負載下，您可針對該 VM 角色大小充分使用可用的最大磁碟頻寬。例如，Standard\_DS14 最多將支援 512MB/秒；因此，透過三個 P30 磁碟，您就能充分使用 VM 的磁碟頻寬。但在此範例中，根據讀取和寫入 IO 的組合而定，可能會超過輸送量限制。
 
@@ -402,7 +402,6 @@
 1. 複製完整備份，然後使用 **NORECOVERY** 進行還原。
 1. 複製「超出使用者 DB 範圍」的相依物件，例如登入等項目。
 1. 建立新的內部負載平衡器 (ILB) 或使用外部負載平衡器 (ELB)，然後在這兩個新節點上設定負載平衡的端點。
-
 > [AZURE.NOTE] 請先檢查所有節點的端點組態是否正確再繼續進行
 
 1. 停止使用者/應用程式存取 SQL Server (如果正在使用儲存集區)。
@@ -1119,7 +1118,7 @@
 	![Appendix15][25]
 
 ## 其他資源
-- [Azure 高階儲存體](../storage-premium-storage-preview-portal.md)
+- [Azure 高階儲存體](../storage/storage-premium-storage.md)
 - [虛擬機器](https://azure.microsoft.com/services/virtual-machines/)
 - [Azure 虛擬機器中的 SQL Server](virtual-machines-sql-server-infrastructure-services.md)
 
@@ -1150,4 +1149,4 @@
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
 
-<!---HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,24 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/14/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli" />
 
 
-# StorSimple Virtual Array 限制 (預覽版)
+# StorSimple Virtual Array 限制
 
 ##概觀
 
-當您規劃、部署和操作 Microsoft Azure StorSimple Virtual Array (預覽版) 時，請考慮這些限制。下表描述虛擬裝置的這些限制。
-
->[AZURE.IMPORTANT]
->
->- StorSimple Virtual Array 目前是預覽版，僅供評估及部署規劃之用。不支援在生產環境中安裝此預覽版。 
->
->- 如果您遇到任何 StorSimple Virtual Array 的問題，請在 [StorSimple MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=StorSimple)提出問題。
+當您規劃、部署和操作 Microsoft Azure StorSimple Virtual Array 時，請考慮這些限制。下表描述虛擬裝置的這些限制。
 
 ## StorSimple Virtual Array 限制 
 
 [AZURE.INCLUDE [storsimple-virtual-array-limits](../../includes/storsimple-virtual-array-limits.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

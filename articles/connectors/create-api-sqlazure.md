@@ -14,23 +14,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/11/2016"
+   ms.date="02/25/2016"
    ms.author="mandia"/>
 
 
 # 開始使用 SQL Azure API
 連線到 SQL Azure 來管理資料表和資料列，例如插入資料列、取得資料表等等。
 
-您可以從邏輯應用程式使用 SQL Azure API。
+您可以從下列應用程式使用 SQL Azure API：
+
+- 邏輯應用程式 
 
 >[AZURE.NOTE] 這一版的文章適用於邏輯應用程式 2015-08-01-preview 結構描述版本。對於 2014-12-01-preview 結構描述版本，請按一下 [SQL 連接器](../app-service-logic/app-service-logic-connector-sql.md)。
 
-您可以利用 SQL 來：
+SQL Azure 可讓您：
 
 - 根據您從 SQL Azure 所取得的資料，來建置您的商務流程。 
 - 使用動作來取得資料列、插入資料列等等。這些動作會收到回應，然後輸出能讓其他動作使用的資料。舉例來說，您可以從 SQL Azure 取得一列資料，然後把該資料新增到 Excel 中。 
 
-如要在邏輯應用程式中新增作業，請參閱[建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
+如果要在邏輯應用程式中新增作業，請參閱[建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
 
 ## 觸發程序及動作
@@ -49,11 +51,12 @@ None | <ul><li>取得單一資料列</li><li>取得多個資料列</li><li>插�
 | ---|---|---|
 |SQL 連接字串|是|輸入您的 SQL Azure 連接字串|
 
-當您建立連線之後，請輸入 SQL 的屬性，例如資料表名稱。本主題的＜REST API 參考＞一節會說明這些屬性。
+當您建立連線之後，請輸入 SQL 的屬性，例如資料表名稱。本主題的＜REST API 參考＞一節說明這些屬性。
 
 >[AZURE.TIP] 您可以在其他的邏輯應用程式中使用這個連線。
 
-## REST API 參考資料
+## Swagger REST API 參考
+適用的版本：1.0。
 
 ### 取得單一資料列 
 擷取 SQL 資料表中的單一資料列。```GET: /datasets/default/tables/{table}/items/{id}```
@@ -109,7 +112,7 @@ None | <ul><li>取得單一資料列</li><li>取得多個資料列</li><li>插�
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
 |資料表|字串|yes|路徑|無|SQL 資料表名稱|
-|id|字串|yes|路徑|無|要刪除之資料列的唯一識別碼|
+|id|字串|yes|路徑|無|要刪除的資料列的唯一識別碼|
 
 #### Response
 |名稱|說明|
@@ -136,8 +139,8 @@ None | <ul><li>取得單一資料列</li><li>取得多個資料列</li><li>插�
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
 |資料表|字串|yes|路徑|無|SQL 資料表名稱|
-|id|字串|yes|路徑|無|要更新之資料列的唯一識別碼|
-|item|ItemInternalId：字串|yes|body|無|有已更新之值的資料列|
+|id|字串|yes|路徑|無|要更新的資料列的唯一識別碼|
+|item|ItemInternalId：字串|yes|body|無|值已更新的資料列|
 
 #### Response
 |名稱|說明|
@@ -151,8 +154,8 @@ None | <ul><li>取得單一資料列</li><li>取得多個資料列</li><li>插�
 
 |屬性名稱 | 資料類型 | 必要 |
 |---|---|---|
-|tabular|沒有定義|no|
-|blob|沒有定義|no|
+|表格式|未定義|no|
+|blob|未定義|no|
 
 #### TabularDataSetsMetadata
 
@@ -179,7 +182,7 @@ None | <ul><li>取得單一資料列</li><li>取得多個資料列</li><li>插�
 |名稱|字串|no|
 |title|字串|no|
 |x-ms-permission|字串|no|
-|結構描述|沒有定義|no|
+|結構描述|未定義|no|
 
 #### DataSetsList
 
@@ -224,4 +227,4 @@ None | <ul><li>取得單一資料列</li><li>取得多個資料列</li><li>插�
 
 [建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

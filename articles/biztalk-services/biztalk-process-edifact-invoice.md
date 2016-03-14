@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/02/2015"
-   ms.author="Deonhe"/>
+   ms.date="02/29/2016"
+   ms.author="deonhe"/>
 
 # 教學課程：使用 Azure BizTalk 服務處理 EDIFACT 發票
 您可以使用 BizTalk 服務入口網站設定和部署 X12 與 EDIFACT 協議。在本教學課程中，我們將說明如何建立 EDIFACT 協議以讓交易夥伴彼此交換發票。本教學課程描述端對端商務方案，內容涉及兩個交易夥伴，分別是 Northwind 和 Contoso，他們會交換 EDIFACT 訊息。
@@ -40,13 +40,13 @@
 
 *   接收到發票之後，Northwind 回傳 CONTRL 訊息給部署為協議一部分的 EDI 接收橋接器。
 
-> [AZURE.NOTE]\(選擇性) 此方案也會示範如何使用批次功能來批次傳送發票，而不是個別傳送每張發票。
+> [AZURE.NOTE] (選擇性) 此方案也會示範如何使用批次功能來批次傳送發票，而不是個別傳送每張發票。
 
 為了完成案例，我們使用服務匯流排佇列將發票從 Contoso 傳送至 Northwind，或從 Northwind 接收通知。這些佇列可以透過用戶端應用程式 (可經由下載取得) 來予以建立，並且會包含在本教學課程所提供的範例封裝中。
 
 ## 必要條件
 
-*   您必須具有服務匯流排命名空間。如需建立命名空間的指示，請參閱[作法：建立或修改服務匯流排服務命名空間](https://msdn.microsoft.com/library/hh690931.aspx)。讓我們假設您已佈建服務匯流排命名空間，且其名稱為 **edifactbts**。
+*   您必須具有服務匯流排命名空間。如需建立命名空間的指示，請參閱[作法：建立或修改服務匯流排服務命名空間](https://msdn.microsoft.com/library/azure/hh674478.aspx)。讓我們假設您已佈建服務匯流排命名空間，且其名稱為 **edifactbts**。
 
 *   您必須擁有 BizTalk 服務訂用帳戶。如需相關指示，請參閱[使用 Azure 傳統入口網站建立 BizTalk 服務](http://go.microsoft.com/fwlink/?LinkID=302280)。在本教學課程中，讓我們假設您擁有 BizTalk 服務訂用帳戶，且其名稱為 **contosowabs**。
 
@@ -113,7 +113,7 @@
     3.  在 [通訊協定] 索引標籤的 [結構描述] 區段底下，上傳 **EFACT\_D93A\_INVOIC.xsd** 結構描述。此結構描述可在範例封裝內取得。
 
         ![][4]  
-    4.  在 [傳輸] 索引標籤上，指定服務匯流排佇列的詳細資料。對於傳送端協議，我們使用 **northwindreceive** 佇列將 EDIFACT 發票傳送至 Northwind，並使用 **suspended** 佇列來路由傳送任何在處理期間失敗並因而擱置的訊息。您已在[步驟 1：建立服務匯流排佇列](#BKMK_Queue)中建立這些佇列。
+    4.  在 [傳輸] 索引標籤上，指定服務匯流排佇列的詳細資料。對於傳送端協議，我們使用 **northwindreceive** 佇列將 EDIFACT 發票傳送至 Northwind，並使用 **suspended** 佇列來路由傳送任何在處理期間失敗並因而擱置的訊息。您已在**步驟 1：建立服務匯流排佇列** (本主題中) 建立這些佇列。
 
         ![][5]
 
@@ -129,12 +129,12 @@
 
     4.  在 [路由] 索引標籤上，建立篩選器以確保只有來自 Northwind 的通知會路由傳送至 Contoso。在 [路由設定] 底下，按一下 [新增] 以建立路由篩選條件。
 
-        ![][6]  
+        ![][6]
         1.  如上圖所示提供 [規則名稱]、[路由規則] 和 [路由目的地] 的值。
 
         2.  按一下 [儲存]。
 
-    5.  再次在 [路由] 索引標籤中，指定要將擱置的通知 (在處理期間失敗的通知) 傳送到哪裡。將傳輸類型設為 [Azure 服務匯流排]，將路由目的地類型設為 [佇列]，將驗證類型設為 \[共用存取簽章] (SAS)，提供服務匯流排命名空間的 SAS 連接字串，然後將佇列名稱輸入為 **suspended**。
+    5.  再次在 [路由] 索引標籤中，指定要將擱置的通知 (在處理期間失敗的通知) 傳送到哪裡。將傳輸類型設為 [Azure 服務匯流排]，將路由目的地類型設為 [佇列]，將驗證類型設為 [共用存取簽章] (SAS)，提供服務匯流排命名空間的 SAS 連接字串，然後將佇列名稱輸入為 **suspended**。
 
 5.  最後，按一下 [部署] 來部署協議。請記下傳送和接收協議部署所在的端點。
 
@@ -240,7 +240,7 @@
 
 2.  在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下 **InvoiceProcessingBridge** 專案，然後按一下 [部署]。
 
-3.  提供如下圖所示的值，然後按一下 [部署]。您可以從「BizTalk 服務」儀表板按一下 [連接資訊]，以取得「BizTalk 服務」的 ACS 認證。
+3.  提供如下圖所示的值，然後按一下 [部署]。您可以從 [BizTalk 服務] 儀表板按一下 [連接資訊]，以取得 BizTalk 服務的 ACS 認證。
 
     ![][11]
 
@@ -313,4 +313,4 @@ BizTalk 服務 EDI 橋接器也支援批次處理傳出訊息。對於想要接�
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

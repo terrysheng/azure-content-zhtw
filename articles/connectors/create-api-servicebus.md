@@ -21,7 +21,7 @@ ms.author="deonhe"/>
 
 連線到 Azure 服務匯流排來傳送及接收訊息。您可以執行動作，例如傳送至佇列、傳送至主題、從佇列接收、從訂用帳戶接收等等。
 
->[AZURE.NOTE] 這一版的文章適用於邏輯應用程式 2015-08-01-preview 結構描述版本。對於 2014年-12-01-預覽結構描述版本，請按一下 [Azure 服務匯流排](../app-service-logic/app-service-logic-connector-Azure Service Bus.md)。
+>[AZURE.NOTE] 這一版的文章適用於邏輯應用程式 2015-08-01-preview 結構描述版本。若為 2014-12-01-preview 結構描述版本，請按一下 [Azure 服務匯流排](../app-service-logic/app-service-logic-connector-azureservicebus.md)。
 
 您可以利用 Azure 服務匯流排來：
 
@@ -57,7 +57,18 @@ Azure 服務匯流排可當做動作來使用；它擁有觸發程序。所有 A
 | ---|---|---|
 |ConnectionString|是|提供 Azure 服務匯流排連接字串|  
 
->[AZURE.TIP] 您可以在其他的邏輯應用程式中使用這個連線。
+請遵循下列步驟來建立可在您的邏輯應用程式中使用的服務匯流排**連接**：
+
+1. 選取 [週期]
+2. 選取 [頻率] 並輸入 [間隔] ![設定服務匯流排][1] 
+3. 選取 [加入動作] ![設定服務匯流排][2]   
+4. 在搜尋方塊中輸入「服務匯流排」，等候搜尋傳回名稱中有「服務匯流排」的所有項目
+5. 選取 [服務匯流排 - 傳送訊息] ![設定服務匯流排][3]
+7. 輸入 [連接名稱] 和 [連接字串]，然後選取 [建立連接]：![設定服務匯流排][4]
+7. 建立連線後，您將會看到 [傳送訊息] 對話方塊。輸入用於傳送訊息的所有必要資訊。![設定服務匯流排][5]
+8. 選取上方功能表的 [儲存] 按鈕來儲存您的工作。    
+
+>[AZURE.TIP] 您可以在其他邏輯應用程式中使用這個連接。
 
 ## Azure 服務匯流排 REST API 參考
 #### 本文件適用的版本：1.0
@@ -127,7 +138,7 @@ Azure 服務匯流排可當做動作來使用；它擁有觸發程序。所有 A
 
 ## 物件定義： 
 
- **ServiceBusMessage**：包含內容及屬性的訊息
+ **ServiceBusMessage**：訊息包含內容及屬性
 
 ServiceBusMessage 的必要屬性：
 
@@ -147,4 +158,11 @@ ContentTransferEncoding
 ## 後續步驟
 [建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+[1]: ./media/create-api-servicebus/connectionconfig1.png
+[2]: ./media/create-api-servicebus/connectionconfig2.png
+[3]: ./media/create-api-servicebus/connectionconfig3.png
+[4]: ./media/create-api-servicebus/connectionconfig4.png
+[5]: ./media/create-api-servicebus/connectionconfig5.png
+[6]: ./media/create-api-servicebus/connectionconfig6.png
+
+<!---HONumber=AcomDC_0302_2016-->

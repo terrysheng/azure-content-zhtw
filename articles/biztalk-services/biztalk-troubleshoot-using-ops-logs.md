@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -22,7 +22,7 @@
 ## 什麼是作業記錄檔
 「作業記錄檔」是 Azure 傳統入口網站提供的一個管理服務功能，可讓您檢視在 Azure 服務上執行的作業 (包括 BizTalk 服務) 的歷程記錄檔。它可讓您檢視與 BizTalk 訂用帳戶的管理作業相關歷程資料，最遠可回溯 180 天。
 
-> [AZURE.NOTE]這項功能只會在 BizTalk 服務啟動、備份等期間，針對服務的管理作業擷取記錄檔。此類作業無論是從 Azure 傳統入口網站還是透過 [BizTalk 服務 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx) 執行的，都會受到追蹤。如需使用管理服務進行追蹤的作業的完整清單，請參閱「[使用 Azure 管理服務進行追蹤的作業](#bizops)」。<br/><br/> 此功能不會對 BizTalk 服務執行階段的相關活動 (例如橋接器等項目所處理的訊息) 擷取記錄檔。若要檢視這些記錄檔，請使用 BizTalk 服務入口網站中的 [追蹤] 檢視。如需詳細資訊，請參閱[追蹤訊息](http://msdn.microsoft.com/library/azure/hh949805.aspx) (英文)。
+> [AZURE.NOTE] 這項功能只會在 BizTalk 服務啟動、備份等期間，針對服務的管理作業擷取記錄檔。此類作業無論是從 Azure 傳統入口網站還是透過 [BizTalk 服務 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx) 執行的，都會受到追蹤。如需使用管理服務進行追蹤的作業的完整清單，請參閱「[使用 Azure 管理服務進行追蹤的作業](#bizops)」。<br/><br/> 此功能不會對 BizTalk 服務執行階段的相關活動 (例如橋接器等項目所處理的訊息) 擷取記錄檔。若要檢視這些記錄檔，請使用 BizTalk 服務入口網站中的 [追蹤] 檢視。如需詳細資訊，請參閱[追蹤訊息](http://msdn.microsoft.com/library/azure/hh949805.aspx) (英文)。
 
 ## 檢視 BizTalk 服務作業記錄檔
 1. 在 Azure 傳統入口網站中，選取 [管理服務]，然後選取 [作業記錄檔] 索引標籤。
@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | 清除超過保留週期的 BizTalk 服務備份的�
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

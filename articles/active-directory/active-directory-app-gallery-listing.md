@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/29/2015"
+   ms.date="02/19/2016"
    ms.author="mbaldwin"/>
 
 
@@ -33,7 +33,7 @@
 
 * 提供可由 Azure AD 小組搭配您的應用程式來測試整合的測試租用戶或帳戶的認證。  
 
-* 提供有關 Azure AD 小組如何使用 [Azure AD 同意架構]( https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework/)登入並連接 Azure AD 執行個體到您的應用程式的指示。
+* 提供有關 Azure AD 小組如何使用 [Azure AD 同意架構](active-directory-integrating-applications.md#overview-of-the-consent-framework)登入並連接 Azure AD 執行個體到您的應用程式的指示。
 
 * 提供 Azure AD 小組搭配您的應用程式測試單一登入所需的任何進一步指示。
 
@@ -97,4 +97,4 @@
 > 
 > 附加應用程式標誌 (PNG 檔案、150px x 122px、透明背景色彩)：
 
-<!---HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0302_2016-->

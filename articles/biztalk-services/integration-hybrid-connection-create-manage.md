@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -33,7 +33,7 @@
 
 使用 Web Apps **或** BizTalk 服務可以在 Azure 入口網站中建立「混合式連接」。
 
-**若要使用 Web Apps 建立「混合式連線」**，請參閱「[將 Azure Web Apps 連接到內部部署資源](../web-sites-hybrid-connection-get-started.md)」(英文)。
+**若要使用 Web Apps 建立「混合式連線」**，請參閱「[將 Azure Web Apps 連接到內部部署資源](../app-service-web/web-sites-hybrid-connection-get-started.md)」(英文)。
 
 **若要在 BizTalk 服務中建立「混合式連線」**：
 
@@ -61,9 +61,9 @@
 
 ## <a name="LinkWebSite"></a>連結 Azure Web Apps 或 Azure Mobile Apps
 
-若要將 Azure Web Apps 連結至現有的「混合式連線」，請在 [混合式連線] 刀鋒視窗中選取 [**使用現有的混合式連線**]。請參閱「[將 Azure Web Apps 連接到內部部署資源](../web-sites-hybrid-connection-get-started.md)」(英文)。
+若要將 Azure Web Apps 連結至現有的「混合式連線」，請在 [混合式連線] 刀鋒視窗中選取 [**使用現有的混合式連線**]。請參閱「[將 Azure Web Apps 連接到內部部署資源](../app-service-web/web-sites-hybrid-connection-get-started.md)」(英文)。
 
-若要將 Azure Mobile Apps 連結至現有的「混合式連線」，請在變更或建立「行動服務」時選取 [**新增混合式連線**]。請參閱 [Azure 行動服務和混合式連線](../mobile-services-dotnet-backend-hybrid-connections-get-started.md) (英文)。
+若要將 Azure Mobile Apps 連結至現有的「混合式連線」，請在變更或建立「行動服務」時選取 [**新增混合式連線**]。請參閱 [Azure 行動服務和混合式連線](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md) (英文)。
 
 
 ## <a name="InstallHCM"></a>在內部部署安裝混合式連線管理員
@@ -85,7 +85,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 3. On the on-premises resource, install the Hybrid Connection Manager from the MSI file. 
 4. Using Windows PowerShell, type: 
 > Add-HybridConnection -ConnectionString “*Your On-Premises Connection String that you copied*” 
--->
+--> 
 
 #### 其他
 - 混合式連線支援下列作業系統上安裝的內部部署資源：
@@ -119,7 +119,9 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 	[管理連線] 會列出應用程式和內部部署連接字串。您可以複製連接字串，或重新產生連接字串所使用的存取金鑰。
 
-	如果您選取 [重新產生]，連接字串所使用的共用存取金鑰便會變更。執行下列動作：在 Azure 傳統入口網站中，選取 Azure 應用程式中的 [同步金鑰]。重新執行 [內部部署設定]。重新執行內部部署設定時，內部部署資源會自動設定為使用已更新的主要連接字串。
+	如果您選取 [重新產生]，連接字串所使用的共用存取金鑰便會變更。執行下列動作：
+	- 在 Azure 傳統入口網站中，選取 Azure 應用程式中的 [同步金鑰]。
+	- 重新執行 [**內部部署設定**]。重新執行內部部署設定時，內部部署資源會自動設定為使用已更新的主要連接字串。
 
 
 #### 使用群組原則來控制混合式連線使用的內部部署資源
@@ -138,7 +140,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 ## 下一步
 
-[將 Azure Web Apps 連線到內部部署資源](../web-sites-hybrid-connection-get-started.md) [從 Azure Web Apps 連線到內部部署 SQL Server](../web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Azure 行動服務和混合式連線](../mobile-services-dotnet-backend-hybrid-connections-get-started.md) [混合式連線概觀](integration-hybrid-connection-overview.md)
+[將 Azure Web Apps 連線到內部部署資源](../app-service-web/web-sites-hybrid-connection-get-started.md) [從 Azure Web Apps 連線到內部部署 SQL Server](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Azure 行動服務和混合式連線](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md) [混合式連線概觀](integration-hybrid-connection-overview.md)
 
 
 ## 另請參閱
@@ -150,4 +152,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0302_2016-->

@@ -30,7 +30,9 @@
 
 在以下的限制中，已加入了新資料表，以反映在使用 Azure 資源管理員時的限制方面的任何差異。例如，有**訂用帳戶限制**資料表和**訂用帳戶限制 - Azure 資源管理員**資料表。當某個限制同時適用於這兩個案例時，只會顯示在第一個資料表中。除非另有說明，限制在所有區域中全域適用。
 
-> [AZURE.NOTE] 請務必強調 Azure 資源群組中資源的配額是基於您的訂閱可以存取的每一區域，而不是每一訂閱 (服務管理配額則是)。讓我們以核心配額為例。如果您需要要求增加配額以支援核心，您必須決定您想要在哪些區域中使用多少個核心，然後提出 Azure 資源群組核心配額的特定要求，以取得您想要的數量和區域。因此，如果您需要在西歐使用 30 個核心以在該處執行應用程式，您應該在西歐特別要求 30 個核心。但是您在任何其他區域中的核心配額將不會增加 -- 僅西歐會有 30 個核心配額。<!-- --> 因此，考慮決定每個區域中您的工作負載所需的 Azure 資源群組配額，並在要考慮部署的每個區域中要求該數量可能會有所幫助。請參閱[移難排解部署問題](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues)，以取得探索您特定區域目前的配額的其他說明。
+> [AZURE.NOTE] 請務必強調 Azure 資源群組中資源的配額是基於您的訂閱可以存取的每一區域，而不是每一訂閱 (服務管理配額則是)。讓我們以核心配額為例。如果您需要要求增加配額以支援核心，您必須決定您想要在哪些區域中使用多少個核心，然後提出 Azure 資源群組核心配額的特定要求，以取得您想要的數量和區域。因此，如果您需要在西歐使用 30 個核心以在該處執行應用程式，您應該在西歐特別要求 30 個核心。但是您在任何其他區域中的核心配額將不會增加 -- 僅西歐會有 30 個核心配額。
+<!-- -->
+因此，考慮決定每個區域中您的工作負載所需的 Azure 資源群組配額，並在要考慮部署的每個區域中要求該數量可能會有所幫助。請參閱[移難排解部署問題](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues)，以取得探索您特定區域目前的配額的其他說明。
 
 
 ## 特定服務的限制
@@ -47,6 +49,7 @@
 - [CDN](#cdn-limits)
 - [雲端服務](#cloud-services-limits)
 - [Data Factory](#data-factory-limits)
+- [資料湖分析](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
 - [IoT 中心](#iot-hub-limits)
@@ -178,17 +181,15 @@
 
 ### 搜尋限制
 
-定價層會決定容量及您搜尋服務的限制。
+定價層會決定搜尋服務的容量和限制。層級包括：
 
-####標準層級
+- **免費**多租用戶服務，與其他 Azure 訂戶共用，適用於評估及小型開發專案。
+- **基本 (預覽)** 針對規模較小的生產工作負載提供專用的計算資源。此層級目前為預覽狀態，以較低的費率提供。
+- **標準 (S1 和 S2)** 適用於生產工作負載。有更大容量的版本 (**S2**) 可供索取 (請將電子郵件寄到 azuresearch_contact@microsoft.com)。
 
-[AZURE.INCLUDE [azure-search-limits-standard](../includes/azure-search-limits-standard.md)]
+[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
 
-####共用層級 (多租用戶服務的一部分，Azure 訂閱者可免費使用)
-
-[AZURE.INCLUDE [azure-search-limits-free](../includes/azure-search-limits-free.md)]
-
-若要深入了解金鑰、複寫磁碟分割組合、要求、回應，和如何達成不同工作負載之高可用性的限制，請參閱 [Azure 搜尋服務的限制](search/search-limits-quotas-capacity.md)。
+若要深入了解其他限制，例如文件大小、金鑰、要求和回應，請參閱 [中Azure 搜尋服務的服務限制](search/search-limits-quotas-capacity.md)。
 
 ### 媒體服務限制
 
@@ -219,6 +220,8 @@
 
 [AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
+### 資料湖分析限制
+[AZURE.INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
 
 ### 串流分析限制
 
@@ -281,4 +284,4 @@
 
 [雲端服務的大小](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

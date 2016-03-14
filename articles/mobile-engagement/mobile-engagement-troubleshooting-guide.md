@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="10/22/2015"
+   ms.date="02/26/2016"
    ms.author="piyushjo"/>
 
 # Azure Mobile Engagement - 疑難排解指南
@@ -28,7 +28,7 @@
 1. 確定您已經如[使用者入門教學課程](mobile-engagement-windows-store-dotnet-get-started.md)中所述完成整合作業所需的所有步驟
 2. 您使用的是最新版的平台 SDK。 
 3. 同時在實際裝置和模擬器上進行測試，因為有些問題是只有模擬器才有的。 
-4. 您並未達到 Mobile Engagement 的任何限制/節流，其相關內容記載在[這裡](azure-subscription-service-limits.md)。
+4. 您並未達到 Mobile Engagement 的任何限制/節流，其相關內容記載在[這裡](../azure-subscription-service-limits.md)。
 5. 如果您無法連接到 Mobile Engagement 服務後端，或發現未能持續載入資料，則請檢查[這裡](https://azure.microsoft.com/status/)，確定目前沒有發生服務事件
 
 ## 「監視」問題
@@ -88,7 +88,8 @@
 	
 	    	<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 	    
-	- 確定您未在 Android 資訊清單檔案中遺漏或錯誤設定任何權限。
+	- 請確定您在 Android 資訊清單檔中沒有遺失或錯誤設定任何權限
+	- 請確定您要新增至用戶端應用程式的專案編號是來自於您取得 GCM 伺服器金鑰的相同帳戶。兩者只要有任何不相符，就無法送出您的推播。 
 	- 如果有收到系統通知，但未收到應用程式內通知，請檢閱[指定通知區段的圖示](mobile-engagement-android-get-started.md)，因為您可能未在 Android 資訊清單檔案中指定正確的圖示。 
 	- 如果您要傳送 BigPicture 通知，則請確定如果您有外部影像伺服器，這些伺服器需要能夠支援 HTTP "GET" 和 "HEAD"。
 
@@ -120,4 +121,4 @@
 	- Mobile Engagement SDK 版本 (例如 Android SDK v2.1.0)
 	- 附有確切錯誤訊息與狀況的錯誤詳細資料
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="02/29/2016" 
 	ms.author="tdykstra"/>
 
 # 如何透過 WebJobs SDK 使用 Azure 資料表儲存體
@@ -141,7 +141,7 @@
 		    tableBinding.Execute(insertOperation);
 		}
 
-如需如何使用 `CloudTable` 物件的詳細資訊，請參閱[如何從 .NET 使用資料表儲存體](../storage-dotnet-how-to-use-tables.md)。
+如需如何使用 `CloudTable` 物件的詳細資訊，請參閱[如何從 .NET 使用資料表儲存體](../storage/storage-dotnet-how-to-use-tables.md)。
 
 ## <a id="queues"></a>佇列操作說明文章所涵蓋的相關主題
 
@@ -163,4 +163,4 @@
 本指南提供的程式碼範例示範如何處理使用 Azure 資料表的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

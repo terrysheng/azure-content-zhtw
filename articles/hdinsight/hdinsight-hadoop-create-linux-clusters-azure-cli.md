@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="01/22/2016"
+   	ms.date="02/29/2016"
    	ms.author="larryfr"/>
 
 #使用 Azure CLI 建立 HDInsight 上的 Linux 型叢集
@@ -57,8 +57,8 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 
 4. 建立 HDInsight 叢集的範本。以下是一些基本範例範本：
 
-    * [以 Linux 為基礎的叢集 (使用 SSH 公開金鑰)](https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-publickey)
-    * [以 Linux 為基礎的叢集 (使用 SSH 帳戶的密碼)](https://github.com/Azure/azure-quickstart-templates/tree/master/hdinsight-linux-ssh-password)
+    * [以 Linux 為基礎的叢集 (使用 SSH 公開金鑰)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-publickey)
+    * [以 Linux 為基礎的叢集 (使用 SSH 帳戶的密碼)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)
 
     這兩個範本也會建立 HDInsight 所使用的預設 Azure 儲存體帳戶。
 
@@ -83,7 +83,7 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 5. 使用下列來建立空的資源群組。以您要用於此群組的名稱取代 __RESOURCEGROUPNAME__。以您要在其中建立 HDInsight 叢集的資料中心取代 __LOCATION__︰
 
         azure group create RESOURCEGROUPNAME LOCATION
-    
+
     > [AZURE.NOTE] 如果位置名稱包含空格，請將它放在引號中。例如 "South Central US"。
 
 6. 使用下列命令來建立此資源群組的初始部署。以 __azuredeploy.json__ 範本檔案的路徑取代 __PATHTOTEMPLATE__。以 __azuredeploy.parameters.json__ 檔案的路徑取代 __PATHTOPARAMETERSFILE__。以您在上一個步驟中建立的群組名稱取代 __RESOURCEGROUPNAME__︰
@@ -95,7 +95,7 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 7. 可能需要一些時間 (大約 15 分鐘) 才能完成部署。您可以使用下列命令檢視有關部署的資訊。以上一個步驟中使用的資源群組名稱取代 __RESOURCEGROUPNAME__︰
 
         azure group log show -l RESOURCEGROUPNAME
-    
+
     一旦部署完成，[狀態] 欄位會包含 [成功] 這個值。如果在部署期間發生失敗，您可以使用下列命令取得更多有關失敗的資訊
 
         azure group log show -l -v RESOURCEGROUPNAME
@@ -121,4 +121,4 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 * [在 HDInsight 上的 Storm 中使用 Python 元件](hdinsight-storm-develop-python-topology.md)
 * [在 HDInsight 上使用 Storm 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

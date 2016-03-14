@@ -5,7 +5,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
-	manager="jhubbard"
+	manager="jeffreyg"
 	editor="cgronlun"/>
 
 <tags
@@ -26,13 +26,13 @@ SaaS 開發人員必須建立並管理數十、數百或甚至數千個 SQL Data
 
 ## 運作方式
 
-常見的 SaaS 應用程式模式是針對提供資料庫的每個客戶。每個客戶 (資料庫) 有無法預期的資源需求 (以 DTU 摘要的 CPU/IO/記憶體)。由於需求有高有低，您要如何配置資源？ 兩個選擇：(1) 根據尖峰使用量，過度佈建資源 - 多付費。或者，(2) 少量佈建來節省成本 - 代價是在尖峰期間的效能和客戶滿意度可能會很低。
-
-彈性資料庫集區可解決此問題。
+常見的 SaaS 應用程式模式是針對提供資料庫的每個客戶。每個客戶 (資料庫) 針對記憶體、IO 和 CPU，都有無法預期的資源需求。由於需求有高有低，您要如何配置資源？ 您通常有兩個選項：根據尖峰使用量額外佈建資源並額外付款，或是少量佈建來節省成本，但會降低在尖峰期間的效能和客戶滿意度。彈性資料庫集區會確保資料庫在必要時取得所需的效能資源，同時在可預測的預算之內，提供簡單的資源配置機制，藉此解決這個問題。
 
 > [AZURE.VIDEO elastic-databases-helps-saas-developers-tame-explosive-growth]
 
-彈性資料庫集區會確保資料庫在必要時取得所需的效能資源，同時也提供簡單的資源配置機制和可預測的預算。集區以固定價格提供固定數目的 eDTU。在集區內，會給予個別資料庫彈性以在設定的參數內自動調整。沈重負載的資料庫底可以使用更多的 eDTU 以滿足需求。負載較輕的資料庫耗用較少 eDTU，而完全無負載的資料庫不使用任何 eDTU。針對整個集區佈建資源，而不是針對單一資料庫佈建資源，可簡化管理工作。此外，您還可以有可預測的集區預算。
+在 SQL Database 中，資料庫能夠處理資源需求的相對量值，在單一資料庫中是以資料庫交易單位 (DTU) 表示，在彈性資料庫集區中則以彈性 DTU (eDTU) 表示。如需深入了解 DTU 和 eDTU 的資訊，請參閱 [SQL Database 簡介](sql-database-technical-overview.md#understand-dtus)。
+
+集區以固定價格提供固定數目的 eDTU。在集區內，會給予個別資料庫彈性以在設定的參數內自動調整。沈重負載的資料庫底可以使用更多的 eDTU 以滿足需求。負載較輕的資料庫耗用較少 eDTU，而完全無負載的資料庫不使用任何 eDTU。針對整個集區佈建資源，而不是針對單一資料庫佈建資源，可簡化管理工作。此外，您還可以有可預測的集區預算。
 
 其他的 eDTU 可以加入現有的集區而不會有資料庫停機或資料庫的負面影響。同樣地，如果不再需要額外 eDTU，則隨時可以從現有集區中移除。
 
@@ -51,7 +51,7 @@ SaaS 開發人員必須建立並管理數十、數百或甚至數千個 SQL Data
 
 ## 彈性資料庫工作
 
-使用集區，可以藉由在**[彈性工作](sql-database-elastic-jobs-overview.md)**中執行指令碼來簡化管理工作。彈性資料庫工作會消除與大量資料庫相關聯的冗長工作。若要開始，請參閱[開始使用彈性資料庫工作](sql-database-elastic-jobs-getting-started.md)。
+使用集區，只要在**[彈性工作](sql-database-elastic-jobs-overview.md)**中執行指令碼，就能簡化管理工作。彈性資料庫工作會消除與大量資料庫相關聯的冗長工作。若要開始，請參閱[開始使用彈性資料庫工作](sql-database-elastic-jobs-getting-started.md)。
 
 如需有關其他工具的詳細資訊，請參閱[彈性資料庫工具學習圖](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)。
 
@@ -86,4 +86,4 @@ SaaS 開發人員必須建立並管理數十、數百或甚至數千個 SQL Data
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

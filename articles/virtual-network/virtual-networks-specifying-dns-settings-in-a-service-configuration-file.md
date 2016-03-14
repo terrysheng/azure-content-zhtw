@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="02/24/2016"
    ms.author="joaoma" />
 
 # 指定服務組態檔中的 DNS 設定
@@ -29,7 +29,7 @@
         <DnsServer name="ID3" IPAddress="IPAddress3" />
       </DnsServers>
 
->[AZURE.WARNING]**DnsServer** 項目中的 **name** 屬性只做為參考名稱。它不代表 DNS 伺服器的主機名稱。每個 **DnsServer** 屬性值在整個 Microsoft Azure 訂用帳戶中必須是唯一的。
+>[AZURE.WARNING] **DnsServer** 項目中的 **name** 屬性只做為參考名稱。它不代表 DNS 伺服器的主機名稱。每個 **DnsServer** 屬性值在整個 Microsoft Azure 訂用帳戶中必須是唯一的。
 
 ## 另請參閱
 
@@ -41,4 +41,4 @@
 
 [關於管理入口網站中的虛擬網路設定](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0302_2016-->

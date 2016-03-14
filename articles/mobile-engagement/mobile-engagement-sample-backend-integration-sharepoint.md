@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="02/29/2016" 
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement - API 整合
@@ -26,7 +26,7 @@
 
 本教學課程會逐步解說此類案例，其中 SharePoint 商務使用者會以行銷資料填入 SharePoint 清單，自動化程序會從清單挑選項目，並且使用可用的 REST API 與 Mobile Engagement 系統連線，以從 SharePoint 資料建立行銷活動。
  
-> [AZURE.IMPORTANT]一般而言，您可以使用這個範例做為起點，了解如何呼叫任何 Mobile Engagement REST API，因為它詳細說明呼叫 API 的兩個重要層面 - 驗證和傳遞參數。
+> [AZURE.IMPORTANT] 一般而言，您可以使用這個範例做為起點，了解如何呼叫任何 Mobile Engagement REST API，因為它詳細說明呼叫 API 的兩個重要層面 - 驗證和傳遞參數。
 
 ## SharePoint 整合
 1. 以下是範例 SharePoint 清單的類似外觀。**標題**、**類別**、**NotificationTitle**、**訊息** 和 **URL** 是用來建立公告。有稱為 **IsProcessed** 的資料行，由主控台程式形式的範例自動化程序使用。您可以執行這個主控台程式做為 Azure WebJob，讓您可以排程至程式或直接使用 SharePoint 工作流程，在項目插入至 SharePoint 清單時建立和啟動公告。在此範例中，我們使用主控台程式，會逐一進行 SharePoint 清單中的項目，並為每個項目在 Azure Mobile Engagement 中建立公告，最後於成功建立公告時將 **IsProcessed** 旗標標示為 true。
@@ -105,7 +105,7 @@
             return returnValue;
         }  
 
-3. 度於建立公告類型行銷活動 - 參考[文件](https://msdn.microsoft.com/library/dn913754.aspx)。您必須確定您指定行銷活動 `kind` 做為 *公告* 和 [裝載](https://msdn.microsoft.com/library/dn913749.aspx)，並將它傳遞為 FormUrlEncodedContent。
+3. 度於建立公告類型行銷活動 - 參考[文件](https://msdn.microsoft.com/library/azure/mt683750.aspx)。您必須確定您指定行銷活動 `kind` 做為 *公告* 和 [裝載](https://msdn.microsoft.com/library/azure/mt683751.aspx)，並將它傳遞為 FormUrlEncodedContent。
 
 		static async Task<int> CreateAzMECampaign(string campaignName, string notificationTitle, 
             string notificationMessage, string notificationCategory, string actionURL)
@@ -195,7 +195,7 @@
 
 8. 您也會發現標示為 IsProcessed = false 的清單項目在建立公告行銷活動之後已設定為 True。
 
-此範例會建立簡單的公告行銷活動，指定大部分必要的屬性。您可以使用[這裡](https://msdn.microsoft.com/library/dn913749.aspx)的資訊，從入口網站視需要對此進行自訂。
+此範例會建立簡單的公告行銷活動，指定大部分必要的屬性。您可以使用[這裡](https://msdn.microsoft.com/library/azure/mt683751.aspx)的資訊，從入口網站視需要對此進行自訂。
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-sample-backend-integration-sharepoint/sharepointlist.png
@@ -207,4 +207,4 @@
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0302_2016-->

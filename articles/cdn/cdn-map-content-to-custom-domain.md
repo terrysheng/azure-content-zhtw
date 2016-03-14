@@ -1,18 +1,18 @@
-<properties 
-	 pageTitle="如何將內容傳遞網路 (CDN) 內容對應至自訂網域" 
-	 description="本主題示範如何將 CDN 內容對應至自訂網域。" 
-	 services="cdn" 
-	 documentationCenter="" 
-	 authors="camsoper" 
-	 manager="dwrede" 
+<properties
+	 pageTitle="如何將內容傳遞網路 (CDN) 內容對應至自訂網域"
+	 description="本主題示範如何將 CDN 內容對應至自訂網域。"
+	 services="cdn"
+	 documentationCenter=""
+	 authors="camsoper"
+	 manager="erikre"
 	 editor=""/>
-<tags 
-	 ms.service="cdn" 
-	 ms.workload="media" 
-	 ms.tgt_pltfrm="na" 
-	 ms.devlang="na" 
-	 ms.topic="article" 
-	 ms.date="01/22/2016" 
+<tags
+	 ms.service="cdn"
+	 ms.workload="media"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="article"
+	 ms.date="02/25/2016" 
 	 ms.author="casoper"/>
 
 # 如何將自訂網域對應至內容傳遞網路 (CDN) 端點
@@ -20,12 +20,12 @@
 
 有兩種方式可將您的自訂網域對應至 CDN 端點：
 
-1. [向網域註冊機構建立 CNAME 記錄，並將您的自訂網域和子網域對應至 CDN 端點](#register-a-custom-domain-for-an-azure-cdn-endpoint) 
-	
+1. [向網域註冊機構建立 CNAME 記錄，並將您的自訂網域和子網域對應至 CDN 端點](#register-a-custom-domain-for-an-azure-cdn-endpoint)
+
 	CNAME 記錄是將來源網域對應至目的地網域的 DNS 功能。在這種情況下，來源網域是您的自訂網域和子網域 (子網域一律是必要的項目)。目的地網域是 CDN 端點。
 
 	然而，在進行將自訂網域對應至 CDN 端點時，會由於您在 Azure 入口網站中註冊網域而導致網域短暫地停擺。
-	 
+
 2. [使用 **cdnverify** 加入中繼註冊步驟](#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
 
 	如果自訂網域目前支援不得發生停機的服務等級協定 (SLA) 的應用程式，您可以使用 Azure **cdnverify** 子網域提供中繼註冊步驟，使用者就能在 DNS 對應發生時存取網域。
@@ -66,7 +66,7 @@
 8. 返回 [新增自訂網域] 刀鋒視窗，在對話方塊中輸入您的自訂網域 (包括子網域)。例如輸入 **www.mydomain.com** 或 **cdn.mydomain.com** 格式的網域名稱。請注意，在此步驟中，您不需要在子網域的前方加上 **cdnverify**。  
 
 	Azure 會確認您所輸入的 cdnverify 網域名稱存在 CNAME 記錄。
-9. 此時，自訂網域已通過 Azure 的驗證，不過前往網域的流量尚未路由傳送至 CDN 端點。等候 90 分鐘之後，讓自訂網域設定傳播至 CDN 邊緣節點，返回 DNS 註冊機構的網站，並建立另一個 CNAME 記錄，將子網域對應至 CDN 端點。例如，將子網域指定為 **www** 或 **cdn**，並將主機名稱指定為 **&lt;EndpointName>.azureedge.net**。待這個步驟完成後，自訂網域的註冊作業也宣告完成。 
+9. 此時，自訂網域已通過 Azure 的驗證，不過前往網域的流量尚未路由傳送至 CDN 端點。等候 90 分鐘之後，讓自訂網域設定傳播至 CDN 邊緣節點，返回 DNS 註冊機構的網站，並建立另一個 CNAME 記錄，將子網域對應至 CDN 端點。例如，將子網域指定為 **www** 或 **cdn**，並將主機名稱指定為 **&lt;EndpointName>.azureedge.net**。待這個步驟完成後，自訂網域的註冊作業也宣告完成。
 10.	最後，您可以透過 **cdnverify** 刪除您建立的 CNAME 記錄，因為只有在中繼步驟才需要此記錄。  
 
 
@@ -81,6 +81,4 @@
 
 [如何啟用 Azure 內容傳遞網路 (CDN)](./cdn-create-new-endpoint.md)
 
- 
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

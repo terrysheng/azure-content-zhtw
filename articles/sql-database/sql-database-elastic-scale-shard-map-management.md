@@ -79,7 +79,7 @@ Elastic Scale 支援下列 .Net Framework 型別作為分區化索引鍵：
 
 **ShardMapManager** 物件是使用 [Factory](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx) 模式所建構。**[ShardMapManagerFactory.GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)** 方法接受 **ConnectionString** 形式的認證 (包含保留 GSM 的伺服器名稱和資料庫名稱)，並傳回 **ShardMapManager** 的執行個體。
 
-對於每個應用程式定義域，**ShardMapManager** 應該只具現化一次 (在應用程式的初始化程式碼內)。**ShardMapManager** 可以包含任意數目的分區對應。雖然單一分區對應可能足夠用於許多應用程式，但有時幾組不同的資料庫會用於不同的結構描述或做為特殊用途；在這些情況下，最好使用多個分區對應。
+**請注意：**對於每個應用程式網域，**ShardMapManager** 應該只具現化一次 (在應用程式的初始化程式碼內)。如果在相同的應用程式網域中建立 ShardMapManager 的其他執行個體，將會導致應用程式的記憶體和 CPU 使用率增加。**ShardMapManager** 可以包含任意數目的分區對應。雖然單一分區對應可能足夠用於許多應用程式，但有時幾組不同的資料庫會用於不同的結構描述或做為特殊用途；在這些情況下，最好使用多個分區對應。
 
 在這段程式碼中，應用程式會以 [TryGetSqlShardMapManager 方法](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)嘗試開啟現有的 **ShardMapManager**。如果代表全域 **ShardMapManager** (GSM) 的物件尚不存在資料庫內，用戶端程式庫會使用 [CreateSqlShardMapManager 方法](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)在其中建立這些物件。
 
@@ -251,7 +251,7 @@ Elastic Scale 支援下列 .Net Framework 型別作為分區化索引鍵：
     
     代表目標分區的伺服器和資料庫必須存在，才能執行這些作業。這些方法完全不影響資料庫本身，只影響分區對應中的中繼資料。
 
-* 若要建立或移除對應至分區的點或範圍：請使用 [RangeShardMapping 類別](https://msdn.microsoft.com/library/azure/dn807318.aspx)的 **[CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn841993.aspx)**、**[DeleteMapping](https://msdn.microsoft.com/library/azure/dn824200.aspx)**，和 [ListShardMap](https://msdn.microsoft.com/library/azure/dn842123.aspx) 的 **[CreatePointMapping](https://msdn.microsoft.com/library/azure/dn807218.aspx)**
+* 若要建立或移除對應至分區的點或範圍：請使用 [RangeShardMapping 類別](https://msdn.microsoft.com/library/azure/dn807318.aspx)的 **[CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn841993.aspx)**、**[DeleteMapping](https://msdn.microsoft.com/library/azure/dn824200.aspx)**，以及 [ListShardMap](https://msdn.microsoft.com/library/azure/dn842123.aspx) 的 **[CreatePointMapping](https://msdn.microsoft.com/library/azure/dn807218.aspx)**
     
     許多不同的點或範圍可以對應至相同的分區。這些方法只會影響中繼資料 - 不會影響分區中可能已經存在的任何資料。如果需要從資料庫移除資料，才能與 **DeleteMapping** 作業維持一致，您必須另外執行這些作業，但要搭配使用這些方法。
 
@@ -282,4 +282,4 @@ Elastic Scale 支援下列 .Net Framework 型別作為分區化索引鍵：
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

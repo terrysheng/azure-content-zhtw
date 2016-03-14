@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -53,7 +53,7 @@
 
 ### 若要啟用 DocuSign 的應用程式整合，請執行下列步驟：
 
-1. 在 Azure 管理入口網站的左方瀏覽窗格中，按一下 [Active Directory]。<br><br>![設定單一登入][1]<br>
+1. 在 Azure 傳統入口網站中，按一下左方瀏覽窗格中的 [Active Directory]。<br><br>![設定單一登入][1]<br>
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
@@ -78,14 +78,14 @@
 
 ### 若要設定單一登入，請執行下列步驟：
 
-1. 在 Azure AD 入口網站的 [Docusign] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。<br><br>![設定單一登入][7]<br>
+1. 在 Azure 傳統入口網站的 [Docusign] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。<br><br>![設定單一登入][7]<br>
 
 2. 在 [要如何讓使用者登入 Docusign] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按 [下一步]。<br><br>![設定單一登入][8]<br>
 
 3. 在 [設定應用程式 URL] 頁面的 [Docusign 登入 URL] 文字方塊中，輸入您的 Docusign 租用戶 URL，然後按 [下一步]。URL 具有下列結構描述︰*https://<yourcompanyname>.docusign.net/Member/MemberLogin.aspx?ssoname=<yourSSOInstanceName>* <br><br>![設定單一登入][9]<br>
 
 
-    > [AZURE.TIP]如果您不知道您的租用戶的應用程式 URL 為何，請嘗試透過 SSOSetup@Docusign.com 連絡 Docusign，為您的租用戶取得 SP 起始的 SSO URL。
+    > [AZURE.TIP] 如果您不知道您的租用戶的應用程式 URL 為何，請嘗試透過 SSOSetup@Docusign.com 連絡 Docusign，為您的租用戶取得 SP 起始的 SSO URL。
  
 
 4. 在 [設定在 Docusign 單一登入] 頁面上，按一下 [下載憑證]，然後在本機電腦上儲存憑證檔案。<br><br>![設定單一登入][10]<br>
@@ -103,9 +103,9 @@
 8. 在 [SAML 2.0 設定] 區段中，執行下列步驟：<br><br>![設定單一登入][13]<br>
 
 
-    a.在 Azure 入口網站中的 [設定在 Docusign 單一登入] 對話頁面上，複製 [簽發者 URL] 值，然後將它貼至 [身分識別提供者端點 URL] 文字方塊中。
+    a.在 Azure 傳統入口網站的 [設定在 Docusign 單一登入] 對話頁面上，複製 [簽發者 URL] 值，然後貼至 [識別提供者端點 URL] 文字方塊中。
 
-    > [AZURE.IMPORTANT]如果無法使用這個組態選項，請連絡您的 Docusign 帳戶管理員或透過電子郵件 ([SSOSetup@docusign.com](mailto:SSOSetup@docusign.com)) 連絡 SSO 支援小組。
+    > [AZURE.IMPORTANT] 如果無法使用這個組態選項，請連絡您的 Docusign 帳戶管理員或透過電子郵件 ([SSOSetup@docusign.com](mailto:SSOSetup@docusign.com)) 連絡 SSO 支援小組。
  
     b.按一下 [瀏覽] 來上傳您下載的憑證。
 
@@ -116,7 +116,7 @@
     d.按一下 [儲存]。
 
 
-9. 在 Azure AD 入口網站上，選取**單一登入設定確認**，然後按 [下一步]。<br><br>![[應用程式]][14]<br>
+9. 在 Azure 傳統入口網站上，選取**單一登入組態確認**，然後按 [下一步]。<br><br>![[應用程式]][14]<br>
 
 10. 在 [單一登入確認] 頁面上，按一下 [完成]。<br><br>![[應用程式]][15]<br>
 
@@ -129,7 +129,7 @@
 
 ### 若要設定使用者佈建，請執行下列步驟：
 
-1. 在 Azure 管理入口網站中的 [DocuSign] 應用程式整合頁面上，按一下 [設定帳戶佈建] 以開啟 [設定使用者佈建] 對話方塊。 <br><br>![設定帳戶佈建][30]<br>
+1. 在 **Azure 傳統入口網站**的 [DocuSign] 應用程式整合頁面上，按一下 [設定帳戶佈建] 以開啟 [設定使用者佈建] 對話方塊。<br><br>![設定帳戶佈建][30]<br>
  
 
 2. 在 [設定和管理員認證] 頁面上，若要啟用自動使用者佈建，請提供具有足夠權限的 DocuSign 帳戶認證，然後按 [下一步]。<br><br>![設定帳戶佈建][31]<br>
@@ -147,7 +147,7 @@
 
 ### 若要將使用者指派給 Docusign，請執行下列步驟：
 
-1. 在 Azure AD 入口網站中建立測試帳戶。
+1. 在 **Azure 傳統入口網站**中建立測試帳戶。
 
 2. 在 [Docusign 應用程式整合] 頁面上，按一下 [指派使用者]。<br><br>![指派使用者][40]<br>
  
@@ -159,7 +159,7 @@
 
 請等候 10 分鐘並確認帳戶已同步至 Docusign。
 
-在第一個驗證步驟中，您可以在 Azure 管理入口網站的 Docusign 應用程式整合頁面上，按一下 [儀表板] 來檢查佈建狀態。<br><br>![指派使用者][42]<br>
+在第一個驗證步驟中，您可以在 Azure 傳統入口網站的 Docusign 應用程式整合頁面上，按一下 D 的儀表板來檢查佈建狀態。<br><br>![指派使用者][42]<br>
 
 成功完成的使用者佈建週期會以相關狀態表示：<br><br>![指派使用者][43]<br>
 
@@ -208,4 +208,4 @@
 [42]: ./media/active-directory-saas-docussign-tutorial/tutorial_docusign_17.png
 [43]: ./media/active-directory-saas-docussign-tutorial/tutorial_docusign_18.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

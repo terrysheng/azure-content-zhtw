@@ -13,32 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# 部署 StorSimple Virtual Array：設定為檔案伺服器 (預覽版)
+# 部署 StorSimple Virtual Array - 設定為檔案伺服器
 
 ![](./media/storsimple-ova-deploy3-fs-setup/fileserver4.png)
 
 ## 簡介 
 
-本文章僅適用於執行 1.1.1.0 版 (預覽版) 的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。本文章說明如何執行初始安裝程序、為 StorSimple 檔案伺服器註冊、完成裝置安裝程序，以及建立並連接至 SMB 共用。我們提供一系列如何將虛擬陣列完全部署為檔案伺服器或 iSCSI 伺服器的佈署教學課程，而這是該系列的最後一篇文章。
+本文章適用於執行 2016 年 3 月公開上市 (GA) 版的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。本文章說明如何執行初始安裝程序、為 StorSimple 檔案伺服器註冊、完成裝置安裝程序，以及建立並連接至 SMB 共用。我們提供一系列如何將虛擬陣列完全部署為檔案伺服器或 iSCSI 伺服器的佈署教學課程，而這是該系列的最後一篇文章。
 
 安裝及設定程序可能需要大約 10 分鐘的時間才能完成。
 
-> [AZURE.IMPORTANT]
-> 
-> 此公開預覽版僅供評估之用。不支援在生產環境中安裝此預覽版。
 
 ## 安裝的必要條件
 
 在您設定及安裝 StorSimple 虛擬裝置之前，請先確定：
 
--   您已根據 [Provision a StorSimple Virtual Array in Hyper-V (在 Hyper-V 中佈建 StorSimple 虛擬陣列)](storsimple-ova-deploy2-provision-hyperv.md) 或 [Provision a StorSimple Virtual Array in VMware (在 VMware 中佈建 StorSimple 虛擬陣列)](storsimple-ova-deploy2-provision-vmware.md) 一文中的指示來佈建虛擬裝置，並與該虛擬裝置連線。
+-   根據[在 Hyper-V 中佈建 StorSimple Virtual Array](storsimple-ova-deploy2-provision-hyperv.md) 或[在 VMware 中佈建 StorSimple Virtual Array](storsimple-ova-deploy2-provision-vmware.md) 中的詳細說明，您已佈建虛擬裝置並連接它。
 
--   您已擁有服務註冊金鑰，且該金鑰來自您建立來管理 StorSimple 虛擬裝置的 StorSimple Manager 服務。如需詳細資訊，請參閱 [Step 2: Get the service registration key (步驟 2：取得 StorSimple Virtual Array 的服務註冊金鑰)](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key)。
+-   您已擁有服務註冊金鑰，且該金鑰來自您建立來管理 StorSimple 虛擬裝置的 StorSimple Manager 服務。如需詳細資訊，請參閱[步驟 2：取得 StorSimple Virtual Array 的服務註冊金鑰](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key)。
 
--   如果這是第二個或後續新增的虛擬裝置，且您要使用現有的 StorSimple Manager 服務來為該虛擬裝置註冊，您應該已經擁有服務資料加密金鑰。當第一個裝置在此服務註冊成功時，這個金鑰就已經產生。如果您遺失這個金鑰，請參閱為 StorSimple 虛擬陣列 [Get the service data encryption key (取得服務資料加密金鑰)](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)。
+-   如果這是第二個或後續新增的虛擬裝置，且您要使用現有的 StorSimple Manager 服務來為該虛擬裝置註冊，您應該已經擁有服務資料加密金鑰。當第一個裝置在此服務註冊成功時，這個金鑰就已經產生。如果您遺失這個金鑰，請參閱 StorSimple Virtual Array 的[取得服務資料加密金鑰](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)。
 
 ## 安裝的逐步指示
 
@@ -57,7 +54,7 @@
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
 
-1.  以 **StorSimpleAdmin** 的帳戶名稱登入虛擬裝置的 Web UI。請輸入您在 [Provision a StorSimple Virtual Array in Hyper-V (在 Hyper-V 中佈建 StorSimple Virtual Array)](storsimple-ova-deploy2-provision-hyperv.md) 或 [Provision a StorSimple Virtual Array in VMware (在 VMware 中佈建 StorSimple Virtual Array)](storsimple-ova-deploy2-provision-vmware.md) 一文的 Step 3: Start the virtual device (步驟 3：啟動虛擬裝置) 中所變更的裝置系統管理員密碼。
+1.  以 **StorSimpleAdmin** 身分登入虛擬裝置的 Web UI。請輸入您於[在 Hyper-V 中佈建 StorSimple Virtual Array](storsimple-ova-deploy2-provision-hyperv.md) 或[在 VMware 中佈建 StorSimple Virtual Array](storsimple-ova-deploy2-provision-vmware.md) 的「步驟 3：啟動虛擬裝置」中所變更的裝置系統管理員密碼。
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 
@@ -75,23 +72,23 @@
 
     1.  系統會自動設定主要及次要 DNS 伺服器。如果您選擇設定靜態 IP 位址，就可以指定 DNS 伺服器。為了達到高可用性，我們建議您設定主要及次要 DNS 伺服器。
 
-    2.  按一下 [套用]。這將會套用並驗證網路設定。
+    2.  按一下 [Apply (套用)]。這將會套用並驗證網路設定。
 
 2.  在 [裝置設定] 頁面中：
 
     1.  為裝置指派唯一的 [名稱]。這個名稱可以有 1 至 15 個字元，且可以包含字母、數字和連字號。
 
-    2.  對於您所建立裝置的「類型」，按一下 [檔案伺服器] 圖示 ![](./media/storsimple-ova-deploy3-fs-setup/image6.png)。檔案伺服器可讓您建立共用資料夾。
+    2.  對於您要建立的裝置的 [類型]，按一下 [檔案伺服器] 圖示 ![](./media/storsimple-ova-deploy3-fs-setup/image6.png)。檔案伺服器可讓您建立共用資料夾。
 
-    3.  由於您的裝置是檔案伺服器，您必須讓裝置加入某個網域。請輸入 [網域名稱]。
+    3.  由於您的裝置是檔案伺服器，您必須讓裝置加入某個網域。輸入 [網域名稱]。
 
-	1.  按一下 [套用]。
+	1.  按一下 [Apply (套用)]。
 
 2.  此時畫面會出現對話方塊。請以指定格式輸入網域認證。按一下核取圖示。系統將會驗證該網域認證。如果認證不正確，畫面會出現錯誤訊息。
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image7.png)
 
-1.  按一下 [套用]。這將會套用並驗證裝置設定。
+1.  按一下 [Apply (套用)]。這將會套用並驗證裝置設定。
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image8.png)
 
@@ -105,13 +102,13 @@
 
 	在 [Web Proxy] 頁面中：
 
-	1.  以下列格式提供 [Web Proxy URL]：*http://&lt;host-IP 位址或完整網域名稱&gt;:連接埠號碼*。請注意，此處不支援 HTTPS URL。
+	1.  以下列格式提供 [Web Proxy URL]：http://&lt;host-IP 位址或完整網域名稱&gt;:連接埠號碼。請注意，此處不支援 HTTPS URL。
 
 	2.  將 [驗證] 指定為 [基本]、[NTLM] 或 [無]。
 
 	3.  如果要使用驗證功能，您也必須提供 [使用者名稱] 和 [密碼]。
 
-	4.  按一下 [Apply (套用)]。這將會驗證並套用您設定的 Web Proxy 設定。
+	4.  按一下 [套用]。這將會驗證並套用您設定的 Web Proxy 設定。
 
 1.  (可省略) 設定裝置的時間設定，例如時區，以及主要和次要 NTP 伺服器。NTP 伺服器是必要的，因為您的裝置必須讓時間同步，才能與您的雲端服務提供者進行驗證。
 
@@ -123,15 +120,15 @@
 
 	2.  指定裝置的 [主要 NTP 伺服器]，或是接受 time.windows.com 的預設值。請確定您的網路允許 NTP 流量從您的資料中心通過網際網路。
 
-	3.  (選用) 指定裝置的 [次要 NTP 伺服器]。
+	3.  (可省略) 指定裝置的 [次要 NTP 伺服器]。
 
-	4.  按一下 [Apply (套用)]。這將會驗證並套用您設定的時間設定。
+	4.  按一下 [套用]。這將會驗證並套用您設定的時間設定。
 
 1.  設定裝置的雲端設定。在此步驟中，您將會完成本機裝置設定程序，然後向您的 StorSimple Manager 服務註冊裝置。
 
-    1.  輸入您在[步驟 2：取得服務註冊金鑰](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key)中針對 StorSimple Virtual Array 所取得的「服務註冊金鑰」。
+    1.  輸入您在 [Step 2: Get the service registration key (步驟 2：取得 StorSimple Virtual Array 的服務註冊金鑰)](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) 中取得的「服務註冊金鑰」。
 
-    2.  如果這不是您向此服務註冊的第一個裝置，您必須提供「服務資料加密金鑰」。您必須將此金鑰與服務註冊金鑰搭配使用，才能向 StorSimple Manager 服務註冊額外的裝置。如需詳細資訊，請參閱使用本機 Web UI 取得 [服務資料加密金鑰](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)。
+    2.  如果這不是您向此服務註冊的第一個裝置，您必須提供「服務資料加密金鑰」。您必須將此金鑰與服務註冊金鑰搭配使用，才能向 StorSimple Manager 服務註冊額外的裝置。如需詳細資訊，請參閱使用本機 Web UI 取得 [service data encryption key (服務資料加密金鑰)](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)。
 
     3.  按一下 [註冊]。這將讓裝置重新啟動。您可能需要等待 2 至 3 分鐘，裝置才會註冊成功。裝置重新啟動之後，您將會看到登入頁面。
 
@@ -160,9 +157,9 @@
 
 3.  在 [設定裝置] 精靈的 [基本設定] 頁面中，執行下列步驟：
 
-	1.  指定要與裝置搭配使用的儲存體帳戶。您可以從下拉式清單選取此訂用帳戶中現有的儲存體帳戶，或是指定 [新增其他] to 來選擇不同訂用帳戶中的儲存體帳戶。
+	1.  指定要與裝置搭配使用的儲存體帳戶。您可以從下拉式清單選取此訂用帳戶中現有的儲存體帳戶，或是指定 [新增其他] 來選擇不同訂用帳戶中的儲存體帳戶。
 
-	2.  為所有將會傳送至雲端之待用資料 (AES 加密) 的加密設定下定義。若要為資料加密，請核取 [啟用雲端儲存體加密金鑰]。請輸入包含 32 個字元的雲端儲存體加密金鑰，然後重新輸入金鑰來加以確認。256 位元 AES 金鑰與使用者定義的金鑰搭配使用來進行加密。
+	2.  為所有將會傳送至雲端之待用資料 (AES 加密) 的加密設定下定義。若要為資料加密，請核取 [啟用雲端儲存體加密金鑰] 下拉式方塊。請輸入包含 32 個字元的雲端儲存體加密金鑰，然後重新輸入金鑰來加以確認。256 位元 AES 金鑰與使用者定義的金鑰搭配使用來進行加密。
 
 	3.  按一下核取圖示 ![](./media/storsimple-ova-deploy3-fs-setup/image15.png)。
 
@@ -233,6 +230,6 @@
 
 ## 後續步驟
 
-了解如何使用本機 Web UI 來[管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
+了解如何使用本機 Web UI 來[管理您的 StorSimple 虛擬陣列](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

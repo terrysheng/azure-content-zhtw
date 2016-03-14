@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="01/29/2016"
+  ms.date="02/24/2016"
   ms.author="andrl"/>
 
 # 社群入口網站
@@ -62,6 +62,15 @@ DoQmentDB 是一個以 Node.js Promise 為基礎的用戶端，可在 DocumentDB
 
 在 [Github](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi) 上了解相關資訊。
 
+
+### fluent-plugin-documentdb
+
+*作者 Yoichi Kawasaki*
+
+fluent-plugin-documentdb 是用於輸出到 Azure DocumentDB 的 Fluentd 外掛程式。
+
+在 [Github](https://github.com/yokawasa/fluent-plugin-documentdb) 和 [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb) 上了解相關資訊。
+
 <br/><br/>
 
 在 [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories) 上尋找更多開放原始碼 DocumentDB 專案。
@@ -79,6 +88,12 @@ DoQmentDB 是一個以 Node.js Promise 為基礎的用戶端，可在 DocumentDB
 <br/>
 
 **社群貼文：**
+
+* [**使用 fluent-plugin-documentdb 將記錄檔收集到 Azure DocumentDB**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *作者 Yoichi Kawasaki*
+
+* [**DocumentDB 回顧 1/2 – 理論**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *作者 Peter Mannerhult*
+
+* [**Azure DocumentDB 的愛與恨**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - *作者 George Saadeh*
 
 * [**Azure DocumentDB 伺服器端指令碼**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *作者 Robert Sheldon*
 
@@ -138,7 +153,7 @@ DoQmentDB 是一個以 Node.js Promise 為基礎的用戶端，可在 DocumentDB
 | [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, TX | 2016 年 1 月 28 日 | n/a |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | 加拿大魁北克省蒙特婁 | 2015 年 12 月 1 日 | n/a |
 | [聚會：SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | 美國華盛頓州西雅圖 | 2015 年 11 月 12 日 | n/a |
-| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz、Andrew Hoh、Aravind Ramachandran、John Macintyre | 美國華盛頓州西雅圖 | 2015 年 10 月 27-30 日 | n/a |
+| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/) | Jeff Renz、Andrew Hoh、Aravind Ramachandran、John Macintyre | 美國華盛頓州西雅圖 | 2015 年 10 月 27-30 日 | [在 Azure 上開發現代化應用程式](https://www.youtube.com/watch?v=k5Z24HX-RyQ) |
 | [CloudDevelop 2015](http://www.clouddevelop.org/) | David Makogon、Ryan Crawcour | 美國俄亥俄州哥倫布 | 2015 年 10 月 23 日 | n/a |
 | [SQL Saturday #430 - Sofia 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | Leonard Lobel | 保加利亞索菲亞 | 2015 年 10 月 10 日 | n/a |
 | [SQL Saturday #429 - Oporto 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | Leonard Lobel | 葡萄牙奧波圖 | 2015 年 10 月 3 日 | n/a |
@@ -167,6 +182,8 @@ DoQmentDB 是一個以 Node.js Promise 為基礎的用戶端，可在 DocumentDB
 
 | 顯示 | 主講人 | 日期 | 劇集 |
 | ------------------------------------------- | ----------------------- | ------------------ | ------- |
+| Integration User Group | Han Wong | 2016 年 2 月 17 日 | [使用 DocumentDB + Power BI 分析和視覺化非關聯式資料](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
+| 第 9 頻道：現代化應用程式 | Tara Shankar Jana | 2016 年 12 月 13 日 | [在應用程式中運用現代化方法處理資料](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips | Miguel Quintero | 2015 年 12 月 10 日 | [DocumentDB - Un vistazo general](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
 | Integration User Group | Howard Edidin | 2015 年 11 月 9 日 | [適用於醫療保健整合的 Azure DocumentDB – 第 2 部分](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
 | Integration User Group | Howard Edidin | 2015 年 10 月 5 日 | [適用於醫療保健整合的 Azure DocumentDB](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
@@ -267,4 +284,4 @@ DocumentDB 精靈是社群領導者，他們是在協助其他人充分利用他
 
 想要成為 DocumentDB 精靈？ 由於是否能成為 DocumentDB 精靈並沒有任何評斷基準，因此我們會針對部分條件來評估，包括被提名人在線上論壇 (例如 StackOverflow 和 MSDN；Wiki 和線上內容；會議和使用者群組；播客；網站；部落格和社群媒體；以及文章與書籍) 中提供之貢獻所產生的影響。如果您想提名自己或其他人，請[傳送電子郵件給我們](mailto:askdocdb@microsoft.com)。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

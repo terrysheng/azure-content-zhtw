@@ -31,14 +31,14 @@
 ## 逐步介紹
 1. 使用 Visual Studio 2012 或 2013 來建立 C# .NET 主控台應用程式。
 	<ol type="a">
-	<li>啟動 <b>Visual Studio 2012</b> 或 <b>Visual Studio 2013</b>。</li>
-	<li>按一下 [<b>檔案</b>]，指向 [<b>新增</b>]，然後按一下 [<b>專案</b>]。</li> 
-	<li>展開 [範本]<b></b>，然後選取 [Visual C#]<b></b>。在此逐步解說中，您使用的是 C#，但您可以使用任何 .NET 語言。</li> 
-	<li>從右邊的專案類型清單中選取 [主控台應用程式]<b></b>。</li>
-	<li>在 [名稱]<b></b> 輸入 <b>DataFactoryAPITestApp</b>。</li> 
-	<li>在 [<b>位置</b>] 中選取 <b>C:\ADFGetStarted</b>。</li>
-	<li>按一下 [確定]<b></b> 以建立專案。</li>
-</ol>
+		<li>啟動 <b>Visual Studio 2012</b> 或 <b>Visual Studio 2013</b>。</li>
+		<li>按一下 [<b>檔案</b>]，指向 [<b>新增</b>]，然後按一下 [<b>專案</b>]。</li> 
+		<li>展開 [範本]<b></b>，然後選取 [Visual C#]<b></b>。在此逐步解說中，您使用的是 C#，但您可以使用任何 .NET 語言。</li> 
+		<li>從右邊的專案類型清單中選取 [主控台應用程式]<b></b>。</li>
+		<li>在 [名稱]<b></b> 輸入 <b>DataFactoryAPITestApp</b>。</li> 
+		<li>在 [<b>位置</b>] 中選取 <b>C:\ADFGetStarted</b>。</li>
+		<li>按一下 [確定]<b></b> 以建立專案。</li>
+	</ol>
 2. 按一下 [<b>工具</b>]，指向 [<b>NuGet 封裝管理員</b>]，然後按一下 [<b>封裝管理員主控台</b>]。
 3.	在 [Package Manager Console]<b></b> 中，逐一執行下列命令。</b>。 
 
@@ -205,6 +205,8 @@
 
 11. 將下列會**建立並啟用管線**的程式碼加入 **Main** 方法中。此管線有一個 **CopyActivity**，它以 **BlobSource** 為來源，**BlobSink** 為接收器。
 
+複製活動會在 Azure Data Factory 中執行資料移動，而此活動是由全域可用的服務所提供，可以使用安全、可靠及可調整的方式，在各種不同的資料存放區之間複製資料。如需複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。
+
             // create a pipeline
         Console.WriteLine("Creating a pipeline");
         DateTime PipelineActivePeriodStartTime = new DateTime(2014, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
@@ -261,7 +263,7 @@
 
 	
 
-12. 將 **Main** 方法所使用的下列 Helper 方法加入 **Program** 類別中。此方法會顯示一個對話方塊，讓您提供登入 Azure 傳統入口網站的**使用者名稱**和**密碼**。
+12. 將 **Main** 方法所使用的下列 Helper 方法加入 **Program** 類別中。此方法會顯示一個對話方塊，讓您提供登入 Azure 傳統入口網站的**使用者名稱**和**密碼**。 
  
 		public static string GetAuthorizationHeader()
         {
@@ -392,4 +394,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

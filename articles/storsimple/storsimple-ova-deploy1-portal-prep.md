@@ -13,24 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/27/2016"
+   ms.date="03/01/2016"
    ms.author="alkohli"/>
 
-# 部署 StorSimple Virtual Array：準備入口網站 (預覽版)
+# 部署 StorSimple Virtual Array：準備入口網站
 
 ![](./media/storsimple-ova-deploy1-portal-prep/getstarted4.png)
 
 ## 概觀 
 
-本文章僅適用於執行 1.1.1.0 版 (公開預覽版) 的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。我們提供一系列如何將虛擬陣列完全部署為檔案伺服器或 iSCSI 伺服器的佈署教學課程，而這是該系列的第一篇文章。本文章說明在佈建虛擬陣列之前，要建立並設定 StorSimple Manager 服務所需的準備工作。本文章也會提供能前往部署設定檢查清單及設定必要條件的連結。
+本文章適用於執行 2016 年 3 月公開上市 (GA) 版的 Microsoft Azure StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。我們提供一系列如何將虛擬陣列完全部署為檔案伺服器或 iSCSI 伺服器的佈署教學課程，而這是該系列的第一篇文章。本文章說明在佈建虛擬陣列之前，要建立並設定 StorSimple Manager 服務所需的準備工作。本文章也會提供能前往部署設定檢查清單及設定必要條件的連結。
 
 您必須需要有系統管理員權限，才能完成安裝和設定程序。我們建議您在開始之前，先檢閱部署設定檢查清單。入口網站的準備工作不到 10 分鐘就能完成。
 
 這篇文章中的 StorSimple 部署資訊，僅適用於 StorSimple Virtual Array。
-
-> [AZURE.IMPORTANT]
-> 
-> 此公開預覽版僅供評估及部署規劃之用。不支援在生產環境中安裝此預覽版。
 
 ### 開始使用
 
@@ -43,8 +39,8 @@
 | **#** | **在此步驟中** | **您將會進行...** | **請使用這些文件。**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
 |1\. | **設定 Azure 傳統入口網站** | 請在佈建 StorSimple 虛擬裝置之前，先建立並設定 StorSimple Manager 服務。 |[Prepare the portal (準備入口網站)](storsimple-ova-deploy1-portal-prep.md)| 
-|2\. | **佈建 Virtual Array** | 對於 Hyper-V，請佈建及連線到執行 Hyper-V 2008 R2、Hyper-V 2012 或 Hyper-V 2012 R2 之主機系統上的 StorSimple 虛擬裝置。<br></br> <br></br>對於 VMware，請佈建及連線到執行 VMware ESXi 5.5 及更新版本之主機系統上的 StorSimple 內部部署虛擬裝置。| [Provision a virtual array in Hyper-V (在 HYPER-V 中佈建虛擬陣列)](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Provision a virtual array in VMware (在 VMware 中佈建虛擬陣列)](storsimple-ova-deploy2-provision-vmware.md)|
-|3\. | **設定 Virtual Array** | 對於檔案伺服器，請執行初始安裝程序、註冊 StorSimple 檔案伺服器，以及完成裝置安裝程序。接下來，您可以佈建 SMB 共用。<br></br> <br></br>對於 iSCSI 伺服器，請執行初始安裝程序、註冊 StorSimple iSCSI 伺服器，以及完成裝置安裝程序。接下來，您可以佈建 iSCSI 磁碟區。| [Set up virtual array as file server (將虛擬陣列設定為檔案伺服器)](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[Set up virtual array as iSCSI server (將虛擬陣列設定為 iSCSI 伺服器)](storsimple-ova-deploy3-iscsi-setup.md)|
+|2\. | **佈建 Virtual Array** | 對於 Hyper-V，請佈建及連線到執行 Hyper-V 2008 R2、Hyper-V 2012 或 Hyper-V 2012 R2 之主機系統上的 StorSimple 虛擬裝置。<br></br> <br></br>對於 VMware，請佈建及連線到執行 VMware ESXi 5.5 及更新版本之主機系統上的 StorSimple 內部部署虛擬裝置。<br></br>| [在 Hyper-V 中佈建虛擬陣列](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [在 VMware 中佈建虛擬陣列](storsimple-ova-deploy2-provision-vmware.md)|
+|3\. | **設定 Virtual Array** | 對於檔案伺服器，請執行初始安裝程序、註冊 StorSimple 檔案伺服器，以及完成裝置安裝程序。接下來，您可以佈建 SMB 共用。<br></br> <br></br>對於 iSCSI 伺服器，請執行初始安裝、註冊 StorSimple iSCSI 伺服器，並完成裝置安裝程序。接下來，您可以佈建 iSCSI 磁碟區。| [將虛擬陣列設定為檔案伺服器](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[將虛擬陣列設定為 iSCSI 伺服器](storsimple-ova-deploy3-iscsi-setup.md)|
 
 #### 部署相關影片
 
@@ -62,9 +58,9 @@
 
 設定檢查清單說明您在設定 StorSimple 裝置上的軟體之前所需要收集的資訊。事先備妥此資訊可協助簡化在環境中部署 StorSimple 裝置的程序。視您將把 StorSimple 虛擬裝置部署為檔案伺服器或 iSCSI 伺服器而定，您將需要下列其中一個檢查清單。
 
--   下載 [StorSimple Virtual Array File Server Configuration Checklist (StorSimple Virtual Array 檔案伺服器的設定檢查清單)](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf)。
+-   下載 [StorSimple Virtual Array 檔案伺服器的設定檢查清單](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf)。
 
--   下載 [StorSimple Virtual Array iSCSI Server Configuration Checklist (StorSimple Virtual Array iSCSI 伺服器的設定檢查清單)](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf)。
+-   下載 [StorSimple Virtual Array iSCSI 伺服器的設定檢查清單](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf)。
 
 ## 先決條件
 
@@ -100,7 +96,7 @@
 
 在您開始前，請確定：
 
--   資料中心的網路是根據 StorSimple 裝置的網路需求所設定的。如需詳細資訊，請參閱 [StorSimple Virtual Array System Requirements (StorSimple Virtual Array 的系統需求)](storsimple-ova-system-requirements.md)。
+-   資料中心的網路是根據 StorSimple 裝置的網路需求所設定的。如需詳細資訊，請參閱 [StorSimple Virtual Array 的系統需求](storsimple-ova-system-requirements.md)。
 
 -   請確認 StorSimple 裝置隨時都有專用的 5 Mbps 網際網路頻寬 (或更多)。此頻寬不應與任何其他應用程式共用。
 
@@ -110,7 +106,7 @@
 
 ## 步驟 1：建立新的服務
 
-單一的 StorSimple Manager 服務執行個體就能管理多個 StorSimple 1200 裝置。請執行下列步驟以建立 StorSimple Manager 服務的新執行個體。如果您已經擁有用來管理 StorSimple 1200 裝置的 StorSimple Manager 服務，請略過此步驟，並移至[步驟 2：取得服務註冊金鑰](#step-2-get-the-service-registration-key)。
+單一的 StorSimple Manager 服務執行個體就能管理多個 StorSimple 1200 裝置。請執行下列步驟以建立 StorSimple Manager 服務的新執行個體。如果您已經擁有用來管理 StorSimple 1200 裝置的 StorSimple Manager 服務，請略過此步驟，並移至〈[步驟 2：取得服務註冊金鑰](#step-2-get-the-service-registration-key)〉。
 
 [AZURE.INCLUDE [storsimple-ova-create-new-service](../../includes/storsimple-ova-create-new-service.md)]
 
@@ -143,6 +139,9 @@
 
 當您取得服務註冊金鑰之後，必須下載適當的虛擬裝置映像，以便在主機系統上佈建虛擬裝置。虛擬裝置映像會根據作業系統的不同而有所差異，您可以在 Azure 傳統入口網站的 [快速啟動] 頁面下載。
 
+> [AZURE.IMPORTANT] StorSimple Virtual Array 上執行的軟體只能搭配 Storsimple Manager 服務。
+
+
 請在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中執行下列步驟。
 
 #### 如何取得虛擬裝置映像
@@ -150,15 +149,20 @@
 1.  在 [StorSimple Manager 服務] 頁面上，按一下您建立的服務。這會將您帶領到 [快速入門] 頁面(您隨時都可按一下快速入門圖示 ![](./media/storsimple-ova-deploy1-portal-prep/image8.png) 來存取 [快速入門] 頁面)。
 
 
-1.  在資料中心的網路共用中，下載適當的 VHD。有幾個不同 VHD 可供選擇：
+1.  在資料中心的網路共用中，下載適當的 VHD 或 VHDX。有幾個不同映像可供選擇：
 
+	-   Hyper-V 2012 和更新版本
+	
 	-   Hyper-V 2008 R2 及更新版本
 
 	-   VMWare ESXi 5.5 及更新版本
 
+	> [AZURE.IMPORTANT] StorSimple Virtual Array 上執行的軟體只能搭配 Storsimple Manager 服務。
+
+
 1.  按一下適用於您將用來佈建虛擬裝置之主機作業系統的映像。此時系統將會帶您前往 Microsoft 下載中心。
 
-1.  如果您使用的是 Hyper-V，請下載適用於 Hyper-V 2008 R2 及更新版本的 VHD。如果您使用的是 VMware，請下載 VMDK。VHD 是 4.77 GB 的壓縮檔，而 VMDK 是 4.75 GB 的壓縮檔。檔案的下載時間將視您的網際網路連線速度而定。
+1.  如果您使用的是 Hyper-V，請下載適用於 Hyper-V 2012 的 VHDX，或適用於 Hyper-V 2008 R2 及更新版本的 VHD。如果您使用的是 VMware，請下載 VMDK。VHDX 為 4.77 GB 的壓縮檔，VHD 為 4.77 GB 的壓縮檔，而 VMDK 為 4.75 GB 的壓縮檔。檔案的下載時間將視您的網際網路連線速度而定。
 
 2.  將檔案解壓縮，並記下已解壓縮的檔案在您本機磁碟機上的位置。
 
@@ -207,4 +211,4 @@
 
 -   [Provision a Virtual Array in VMware (在 VMware 中佈建 Virtual Array)](storsimple-ova-deploy2-provision-vmware.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

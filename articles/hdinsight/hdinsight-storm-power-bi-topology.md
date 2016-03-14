@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="01/08/2016"
+ ms.date="03/01/2016"
  ms.author="larryfr"/>
 
 # 使用 Power BI 視覺化 Apache Storm 拓撲的資料
@@ -63,7 +63,7 @@ Power BI 可讓您以視覺化的方式將資料顯示為報表或儀表板。�
 
 ## 下載範例
 
-下載 [HDInsight C# Storm Power BI 範例](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi)。若要下載它，請使用 [git](http://git-scm.com/) 分岔/複製它，或使用**下載**連結下載封存的 .zip。
+下載 [HDInsight C# Storm Power BI 範例](https://github.com/Azure-Samples/hdinsight-dotnet-storm-powerbi)。若要下載它，請使用 [git](http://git-scm.com/) 分岔/複製它，或使用**下載**連結下載封存的 .zip。
 
 ## 設定範例
 
@@ -139,4 +139,4 @@ Power BI 可讓您以視覺化的方式將資料顯示為報表或儀表板。�
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0302_2016-->

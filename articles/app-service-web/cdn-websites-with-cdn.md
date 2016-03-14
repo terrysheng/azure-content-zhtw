@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/29/2016" 
 	ms.author="cephalin"/>
 
 
@@ -41,15 +41,15 @@
 -	使用中的 [Microsoft Azure 帳戶](/account/)
 -	Visual Studio 2015 (含 [Azure SDK for .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409))。如果您使用 Visual Studio，則步驟可能有差異。
 
-> [AZURE.NOTE] 您需要 Azure 帳戶才能完成本教學課程：
-> + 您可以[免費申請 Azure 帳戶](/pricing/free-trial/) - 您將取得可試用付費 Azure 服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如 Web Apps。
-> + 您可以[啟用 Visual Studio 訂用帳戶權益](/pricing/member-offers/msdn-benefits-details/) - 您的 Visual Studio 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
+> [AZURE.NOTE] 要完成此教學課程，您必須要有 Azure 帳戶：
+> + 您可以[免費申請 Azure 帳戶](/pricing/free-trial/)：您將取得可試用 Azure 付費服務的額度，且即使在額度用完後，您仍可保留帳戶，並使用免費的 Azure 服務，例如 Web Apps。
+> + 您可以[啟用 Visual Studio 訂戶權益](/pricing/member-offers/msdn-benefits-details/)：您的 Visual Studio 訂用帳戶每個月都會提供額度，供您用在 Azure 付費服務。
 >
 > 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 ## 將具有整合式 CDN 端點的 Web 應用程式部署至 Azure ##
 
-在本節中，您將在 Visual Studio 2013 中將預設 ASP.NET MVC 應用程式範本部署至 App Service，然後將它與新的 CDN 端點整合。請遵循下列指示：
+在本節中，您會在 Visual Studio 2015 中將預設 ASP.NET MVC 應用程式範本部署至 App Service，然後將它與新的 CDN 端點整合。請遵循下列指示：
 
 1. 在 Visual Studio 2015 中，從功能表列中移至 [檔案] > [新增] > [專案] > [Web] > [ASP.NET Web 應用程式]，以建立新的 ASP.NET Web 應用程式。命名並按一下 [確定]。
 
@@ -77,36 +77,49 @@
 
 	當發佈完成時，您會在瀏覽器中看到您已發佈的 Web 應用程式。
 
-1. 若要建立 CDN 端點，請登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
-2. 按一下 [新增] > [應用程式服務] > [CDN] > [快速建立]。選取 **http://*&lt;sitename>*.azurewebsites.net/**，然後按一下 [**建立**]。
+1. 若要建立 CDN 端點，請登入 [Azure 入口網站](https://portal.azure.com)。
+2. 按一下 [+ 新增] >[媒體 + CDN] > [CDN]。
+
+	![](media/cdn-websites-with-cdn/create-cdn-profile.png)
+
+3. 指定 **CDN**、**位置**、**資源群組**、**定價層**，然後按一下 [建立]
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE] 建立 CDN 端點之後，Azure 傳統入口網站會顯示其 URL 及與它整合的原始網域。不過，需要花費一些時間，新的 CDN 端點的組態才能完全傳播到所有 CDN 節點位置。
+4. 在 [CDN 設定檔] 刀鋒視窗中，按一下 [+ 端點] 按鈕。請加以命名，接著在 [原始類型] 下拉式清單中選取 **Web 應用程式**，並在 [原始主機名稱] 中選取您的 web 應用程式，然後按一下 [新增]。
 
-3. 回到 Azure 傳統入口網站，在 [CDN] 索引標籤中，按一下您剛建立的 CDN 端點的名稱。
+	![](media/cdn-websites-with-cdn/cdn-profile-blade.png)
+
+
+
+	> [AZURE.NOTE] 建立 CDN 端點之後，[端點] 刀鋒視窗會顯示其 CDN URL 及與它整合的原始網域。不過，需要花費一些時間，新的 CDN 端點的組態才能完全傳播到所有 CDN 節點位置。
+
+3. 回到 [端點] 刀鋒視窗，按一下您剛建立的 CDN 端點的名稱。
 
 	![](media/cdn-websites-with-cdn/8-select-cdn.png)
 
-3. 按一下 [啟用查詢字串]，在 CDN 快取中啟用查詢字串。啟用此選項後，將以個別項目來快取以不同查詢字串存取的相同連結。
+3. 按一下 [設定] 按鈕。在 [設定] 刀鋒視窗中，選取 [查詢字串快取行為] 下拉式清單中的 [快取每個唯一的 URL]，然後按一下 [儲存] 按鈕。
+
 
 	![](media/cdn-websites-with-cdn/9-enable-query-string.png)
 
-	>[AZURE.NOTE] 雖然本節教學課程並不需要啟用查詢字串，但為了方便起見，請儘早這樣做，因為此處的任何變更需要花費很長時間才能傳播至所有 CDN 節點，您不希望任何未啟用查詢字串的內容塞滿 CDN 快取 (稍後會討論更新 CDN 內容)。
+啟用此選項後，將以個別項目來快取以不同查詢字串存取的相同連結。
 
-2. 現在，按一下 CDN 端點位址。如果端點已準備就緒，您應該會看到顯示的 Web 應用程式。如果您收到 **HTTP 404** 錯誤，表示 CDN 端點還未準備就緒。您可能需要等候一小時，CDN 組態才能傳播到所有邊緣節點。
+>[AZURE.NOTE] 雖然本節教學課程並不需要啟用查詢字串，但為了方便起見，請儘早這樣做，因為此處的任何變更需要花費很長時間才能傳播至所有 CDN 節點，您不希望任何未啟用查詢字串的內容塞滿 CDN 快取 (稍後會討論更新 CDN 內容)。
+
+2. 現在，請瀏覽至 CDN 端點位址。如果端點已準備就緒，您應該會看到顯示的 Web 應用程式。如果您收到 **HTTP 404** 錯誤，表示 CDN 端點還未準備就緒。您可能需要等候一小時，CDN 組態才能傳播到所有邊緣節點。 
 
 	![](media/cdn-websites-with-cdn/11-access-success.png)
 
-1. 接下來，試著存取 ASP.NET 專案中的 **~/Content/bootstrap.css** 檔案。在瀏覽器視窗中，瀏覽至 **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**。在我的設定中，此 URL 為：
+1. 接下來，試著存取 ASP.NET 專案中的 **~/Content/bootstrap.css** 檔案。請在瀏覽器視窗中，瀏覽至 **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**。在我的設定中，此 URL 為：
 
-		http://az673227.vo.msecnd.net/Content/bootstrap.css
+		http://az673227.azureedge.net/Content/bootstrap.css
 
 	對應至 CDN 端點上的下列原始 URL：
 
 		http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
 
-	瀏覽至 **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css** 時，將提示您下載來自 Azure 中 Web 應用程式的 bootstrap.css。
+	瀏覽至 **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css** 時，系統將提示您下載來自 Azure 中 Web 應用程式的 bootstrap.css。
 
 	![](media/cdn-websites-with-cdn/12-file-access.png)
 
@@ -217,7 +230,7 @@
               }
               else // Get content from Azure CDN
               {
-                return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+                return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
               }
             }
 
@@ -303,13 +316,13 @@
       }
       else // Get content from Azure CDN
       {
-        return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+        return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
       }
     }
 
 如果已附加本機偵錯程式，您將經由本機重新導向而享有一般的偵錯體驗。如果是在 Azure Web 應用程式中執行，則會重新導向至：
 
-	http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 對應至 CDN 端點上的下列原始 URL：
 
@@ -369,7 +382,7 @@
           bundles.UseCdn = true;
           var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
             .GetName().Version.ToString();
-          var cdnUrl = "http://<yourCDNName>.vo.msecnd.net/{0}?v=" + version;
+          var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?v=" + version;
 
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
                 "~/Scripts/jquery-{version}.js"));
@@ -400,7 +413,7 @@
 
 	就如同：
 
-		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.vo.msecnd.net/bundles/jquery?v=<W.X.Y.Z>"))
+		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?v=<W.X.Y.Z>"))
 
 	此建構函式告知 ASP.NET 統合和縮製在本機偵錯時轉譯個別指令碼檔案，但使用指定的 CDN 位址來存取所提及的指令碼。不過，對於此謹慎建構的 CDN URL，請注意兩項重要特性：
 	
@@ -417,11 +430,11 @@
 4. 檢視頁面的 HTML 程式碼。您應該會看到轉譯的 CDN URL，以及每次將變更重新發佈至 Azure Web 應用程式時的唯一版本字串。例如：
 	
         ...
-        <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
-        <script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449"></script>
+        <link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
+        <script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25449"></script>
         ...
-        <script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449"></script>
-        <script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25449"></script>
         ...
 
 5. 在 Visual Studio 中，按 `F5`，在 Visual Studio 中進行 ASP.NET 應用程式偵錯。
@@ -450,7 +463,7 @@
         {
           var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
             .GetName().Version.ToString();
-          var cdnUrl = "http://cdnurl.vo.msecnd.net/.../{0}?" + version;
+          var cdnUrl = "http://cdnurl.azureedge.net/.../{0}?" + version;
           bundles.UseCdn = true;
 
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
@@ -506,46 +519,27 @@
 4. 重新發佈至 Azure Web 應用程式並存取首頁。
 5. 檢視頁面的 HTML 程式碼。您應該會發現類似下方的插入指令碼：    
 	
-	```
-	...
-	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<script>(function() {
-                var loadFallback,
-                    len = document.styleSheets.length;
-                for (var i = 0; i < len; i++) {
-                    var sheet = document.styleSheets[i];
-                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
-                        var meta = document.createElement('meta');
-                        meta.className = 'sr-only';
-                        document.head.appendChild(meta);
-                        var value = window.getComputedStyle(meta).getPropertyValue('width');
-                        document.head.removeChild(meta);
-                        if (value !== '1px') {
-                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
-                        }
-                    }
-                }
-                return true;
-            }())||document.write('<script src="/Content/css"><\/script>');</script>
+	``` ... <link href="http://az673227.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
-	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
 	... 
-	<script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
+	<script src="http://az673227.azureedge.net/bundles/jquery?v=1.0.0.25474"></script>
 	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 
- 	<script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
+ 	<script src="http://az673227.azureedge.net/bundles/bootstrap?v=1.0.0.25474"></script>
  	<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
 	...
 	```
 
-	請注意，為 CSS 套件組合插入的指令碼仍在下列行中包含 `CdnFallbackExpression` 屬性的出錯殘留部分：
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	但因為 || 運算式的開頭部分一定會傳回 true (緊鄰的上一行)，所以 document.write() 函數永遠不會執行。
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
-6. 若要測試後援指令碼是否可運作，請回到 CDN 端點的儀表板，按一下 [**停用端點**]。
+6. 若要測試後援指令碼是否可運作，請回到 CDN 端點的刀鋒視窗，並按一下 [停止]。
 
 	![](media/cdn-websites-with-cdn/13-test-fallback.png)
 
@@ -563,4 +557,4 @@
 * 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0302_2016-->

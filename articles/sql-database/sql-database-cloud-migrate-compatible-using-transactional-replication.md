@@ -29,8 +29,8 @@
  - SQL Server 2014 SP1 CU3 和更新版本
  - SQL Server 2014 RTM CU10 和更新版本
  - SQL Server 2012 SP2 CU8 和更新版本
- - SQL Server 2013 SP3 (當它發行時)
+ - SQL Server 2012 SP3 
 
 您也可以使用交易複寫以移轉內部部署資料庫的子集。您複寫至 Azure SQL Database 的發佈可以限制為複寫的資料庫中資料表的子集。此外，對於複寫的每一個資料表，您可以將資料限制為資料列的子集和 (或) 資料行的子集。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

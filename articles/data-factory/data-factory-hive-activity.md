@@ -61,7 +61,7 @@ Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Hive 活
 輸出 | Hive 活動所耗用的輸出 | 是 
 linkedServiceName | 參考 HDInsight 叢集註冊為 Data Factory 中的連結服務 | 是 
 script | 指定 Hive 指令碼內嵌 | 否
-指令碼路徑 | 在 Azure Blob 儲存體中儲存 Hive 指令碼，並提供檔案的路徑。使用 'script' 或 'scriptPath' 屬性。兩者無法同時使用 | 否 
+指令碼路徑 | 在 Azure Blob 儲存體中儲存 Hive 指令碼，並提供檔案的路徑。使用 'script' 或 'scriptPath' 屬性。兩者無法同時使用。請注意，檔案名稱區分大小寫。 | 否 
 定義 | 在使用 'hiveconf' 的 Hive 指令碼內指定參數做為參考的金鑰/值組 | 否
 
 ## 範例
@@ -214,4 +214,4 @@ script | 指定 Hive 指令碼內嵌 | 否
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

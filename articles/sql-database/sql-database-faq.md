@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="11/11/2015"
-   ms.author="jeffreyg"/>
+   ms.date="02/25/2016"
+   ms.author="sashan"/>
 
 # SQL Database 常見問題集
 
@@ -74,4 +74,19 @@ Azure 的智慧型引擎如果發現必要的使用模式，將會對資料庫�
 ## 我正從 Web/Business 移到新的服務層，我應該知道什麼？
 Azure SQL Web 和 Business 資料庫現已淘汰。基本、標準、高階和彈性層取代淘汰 Web 和商務資料庫。我們提供額外的常見問題集，在此過渡期應該有所幫助。[Web 和 Business 版本終止常見問題集](sql-database-web-business-sunset-faq.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+## 在兩個 Azure 地理位置相同的區域之間，針對資料庫異地複寫時，預期的複寫延遲是多久？  
+我們目前支援 5 秒的 RPO，而且只要地區次要資料庫裝載於 Azure 建議配對區域中且位於同一服務層級，複寫延遲便會小於 5 秒。
+
+## 若地區次要資料庫建立於主要資料庫相同的區域中，預期的複寫延遲是多少？  
+根據實證資料，若使用 Azure 建議配對區域，區域內部和區域之間的複寫延遲不會有太大差異。
+
+## 如果兩個區域之間的網路失敗，重試邏輯在異地複寫設定時的運作方式為何？  
+如果中斷連線，我們會每隔 10 秒重試，以便重新建立連線。
+
+## 我該如何保證主要資料庫上的重大變更能夠確實複寫？
+地區次要資料庫為非同步複本，我們不會嘗試將該資料庫與主要資料庫維持完整同步。不過，我們會提供強制同步的方法，這是為了確保複寫重大變更 (例如密碼更新)。這將會影響效能，因為會封鎖呼叫執行緒，直到所有認可的交易都完成複寫為止。如需詳細資訊，請參閱 [sp\_wait\_for\_database\_copy\_sync](https://msdn.microsoft.com/library/dn467644.aspx)。
+
+## 若要監視主要資料庫和地區資料庫之間的複寫延遲，有哪些工具可以使用？
+我們會透過 DMV 將主要資料庫和地區次要資料庫之間的即時複寫延遲公開。如需詳細資訊，請參閱 [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx)。
+
+<!---HONumber=AcomDC_0302_2016-->

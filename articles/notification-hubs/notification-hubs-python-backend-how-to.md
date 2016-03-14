@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
-	ms.author="yuaxu"/>
+	ms.date="02/29/2016" 
+	ms.author="wesmc"/>
 
 # 如何透過 Python 使用通知中樞
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 		
 您可以透過 Java/PHP/Python/Ruby 後端使用通知中樞 REST 介面來存取所有通知中樞功能，如 MSDN 主題[通知中樞 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 所述。
 
-> [AZURE.NOTE]這是在 Python 實作通知傳送的範例參考實作，並非正式支援的通知中樞 Python SDK。
+> [AZURE.NOTE] 這是在 Python 實作通知傳送的範例參考實作，並非正式支援的通知中樞 Python SDK。
 
-> [AZURE.NOTE]這個範例是使用 Python 3.4 撰寫的。
+> [AZURE.NOTE] 這個範例是使用 Python 3.4 撰寫的。
 
 在本主題中，我們將說明如何：
 
@@ -33,7 +33,7 @@
 
 您可以遵循選定行動平台的[開始使用教學課程](notification-hubs-windows-store-dotnet-get-started.md)來實作 Python 的後端部分。
 
-> [AZURE.NOTE]此範例的範圍僅限於傳送通知，不會執行任何註冊管理。
+> [AZURE.NOTE] 此範例的範圍僅限於傳送通知，不會執行任何註冊管理。
 
 ## 用戶端介面
 主要用戶端介面提供的方法與 [.NET 通知中樞 SDK](http://msdn.microsoft.com/library/jj933431.aspx) 中的方法相同。這可讓您直接轉換目前此網站上和網際網路社群所貢獻的所有教學課程和範例。
@@ -391,4 +391,4 @@
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

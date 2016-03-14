@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="web"
-   ms.date="12/24/2015"
+   ms.date="02/26/2016"
    ms.author="sumuth"/>
 
 # 為 Web 應用程式有效地使用 DevOps 環境
@@ -287,8 +287,8 @@
 
 ![交換 WordPress 的變更的預覽](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE]
- > 如果您有只需要推送檔案的案例 (沒有資料庫更新)，那麼請在執行交換之前，於 Azure 入口網站的 Web 應用程式設定刀鋒視窗中**勾選**所有資料庫相關的 [應用程式設定] 和 [連接字串設定] 的 [位置設定]。在此情況下，DB\_NAME、DB\_HOST、DB\_PASSWORD、DB\_USER 預設連接字串設定在執行**交換**的時候應該不會顯示在預覽變更中。在此時，當您完成 [交換] 作業，WordPress Web 應用程式將**只會**有更新檔案。
+ > [AZURE.NOTE]
+ 如果您有只需要推送檔案的案例 (沒有資料庫更新)，那麼請在執行交換之前，於 Azure 入口網站的 Web 應用程式設定刀鋒視窗中**勾選**所有資料庫相關的 [應用程式設定] 和 [連接字串設定] 的 [位置設定]。在此情況下，DB\_NAME、DB\_HOST、DB\_PASSWORD、DB\_USER 預設連接字串設定在執行**交換**的時候應該不會顯示在預覽變更中。在此時，當您完成 [**交換**] 作業，WordPress Web 應用程式將**只會**有更新檔案。
 
 執行交換之前，這裡是生產 WordPress Web 應用程式 ![交換位置之前的生產 Web 應用程式](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
@@ -296,7 +296,7 @@
 
 ![交換位置之後的生產 Web 應用程式](./media/app-service-web-staged-publishing-realworld-scenarios/8afswap.png)
 
-在您需要**回復**的情況下，您可以移至生產 Web 應用程式設定，並按一下 [交換] 按鈕，將 Web 應用程式與資料庫從生產切換至預備位置。要記住的重點是，只要**交換**作業伴隨有資料庫變更，則在下次重新部署至預備 Web 應用程式時，就必須將資料庫變更部署到預備 Web 應用程式的現行資料庫；這可能是先前的生產資料庫或預備資料庫。
+在您需要**回復**的情況下，您可以移至生產 Web 應用程式設定，並按一下 [交換] 按鈕，將 Web 應用程式與資料庫從生產交換至預備位置。要記住的重點是，只要**交換**作業伴隨有資料庫變更，則在下次重新部署至預備 Web 應用程式時，您就必須將資料庫變更部署到預備 Web 應用程式的現行資料庫。此資料庫可能是先前的生產資料庫或預備資料庫。
 
 #### 摘要
 將具備資料庫的任何應用程式的程序一般化
@@ -372,20 +372,20 @@
   </repositories>
  ```
 
-在 `<repositories>` 下，輸入生產網站 URL URL 和使用者資訊。 如果您使用預設的 Umbraco Membership 提供者，請在 <user> 區段中新增管理使用者的識別碼。 如果您使用自訂 Umbraco Membership 提供者，使用 `<login>`,`<password>` Courier2 模組相關知識連接到生產網站。 如需更多詳細資訊，請檢閱 [文件](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation)了解 Courier 模組。
+在 `<repositories>` 底下，輸入生產網站 URL 和使用者資訊。如果您使用預設 Umbraco 成員資格提供者，則請在 <user> 區段中新增系統管理使用者的識別碼。如果您使用自訂 Umbraco 成員資格提供者，請使用 `<login>`、`<password>` Courier2 模組操作說明來連接到生產網站。如需詳細資訊，請檢閱 Courier 模組的[文件](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation)。
 
-同樣地，在您的生產網站中安裝 Courier 模組，並將其設定為指向這裡顯示的相關 courier.config 檔案中的階段 Web 應用程式
+同樣地，請在您的生產網站上安裝 Courier 模組，並如此處所示，將其設定為在各自的 courier.config 檔案中指向 Web 應用程式
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories> 
-  	<!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> 
-	<repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> 
-		<url>http://umbracositecms-1-stage.azurewebsites.net</url> 
-		<user>0</user> 
-		</repository> 
-   </repositories> 
+  <repositories>
+        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
+        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
+            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
+            <user>0</user>
+           </repository>
+  </repositories>
 ```
 
 在 Umbraco CMS Web 應用程式儀表板中的 Courier2 索引標籤上按一下，並選取位置。您應該會看到 `courier.config` 中所提及的儲存機制名稱。請在生產和預備 Web 應用程式上執行這項操作。
@@ -428,7 +428,10 @@
 
 ![交換部署 Umbraco CMS 的預覽](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-交換 Web 應用程式和資料庫的優點：1.如果發生任何應用程式問題，能讓您利用另一個**交換**回復至舊版的 Web 應用程式。2.針對升級，您需要將來自預備 Web 應用程式的檔案和資料庫部署到生產 Web 應用程式和資料庫。部署檔案和資料庫有許多項目可能出錯。使用位置的 [交換] 功能，我們可以在升級期間減少停機時間，並降低部署變更時可能發生的失敗風險。3.可讓您使用 [在生產環境中測試](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)功能執行 **A/B 測試**
+交換 Web 應用程式和資料庫的優點：
+1. 如果發生任何應用程式問題，能讓您利用另一個**交換**回復至舊版的 Web 應用程式。
+2. 針對升級，您需要將來自預備 Web 應用程式的檔案和資料庫部署到生產 Web 應用程式和資料庫。部署檔案和資料庫有許多項目可能出錯。若使用位置的 [交換] 功能，我們就可以在升級期間減少停機時間，並降低部署變更時可能發生的失敗風險。
+3. 可讓您使用 [在生產環境中測試](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)功能執行 **A/B 測試**
 
 此範例將示範平台的彈性，讓您得以建置類似於 Umbraco Courier 模組的自訂模組，以便管理整個環境的部署。
 
@@ -439,4 +442,4 @@
 
 [封鎖對非生產部署位置的 Web 存取](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

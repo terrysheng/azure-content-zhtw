@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="02/26/2016"
 	ms.author="john.dehavilland"/>
 
 # 使用 MSDeploy、自訂主機名稱與 SSL 憑證部署 Web 應用程式
@@ -197,4 +197,4 @@
 
 此時，您的應用程式應已部署，且您應能夠透過 https://www.yourcustomdomain.com 加以瀏覽
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

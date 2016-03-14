@@ -17,6 +17,10 @@
 	ms.author="heidist"/>
 
 # 開始使用 Azure 搜尋管理 REST API
+> [AZURE.SELECTOR]
+- [入口網站](search-manage.md)
+- [PowerShell](search-manage-powershell.md)
+- [REST API](search-get-started-management-api.md)
 
 Azure Search REST 管理 API 是在入口網站中執行管理工作的程式設計替代方式。服務管理作業包括建立或刪除服務、調整服務及管理金鑰。本教學課程隨附的範例用戶端應用程式用以展示服務管理 API。其中也包括在本機開發環境中執行範例所需的設定步驟。
 
@@ -204,4 +208,4 @@ Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別�
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0302_2016-->

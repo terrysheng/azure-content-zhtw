@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="02/29/2016"
 	ms.author="wesmc"/>
 
 #Azure 通知中樞透過 .NET 後端通知使用者
@@ -48,7 +48,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 
 
 
-> [AZURE.NOTE]如果您使用行動服務作為後端服務，請參閱本教學課程的[行動服務版本](../mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md)。
+> [AZURE.NOTE] 如果您使用行動服務作為後端服務，請參閱本教學課程的[行動服務版本](../mobile-services/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)。
 
 
 
@@ -387,4 +387,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 [使用通知中心傳送即時新聞]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

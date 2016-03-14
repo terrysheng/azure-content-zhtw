@@ -3,7 +3,7 @@
 	description="了解如何從 Java 後端使用 Azure 通知中樞。" 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="ysxu" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="11/01/2015" 
-	ms.author="yuaxu"/>
+	ms.author="wesmc"/>
 
 # 如何從 Java 使用通知中樞
 [AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -303,4 +303,4 @@ CreateOrUpdate、Patch 和 Delete 最終都會與 Get 一致。您要求的作�
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

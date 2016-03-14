@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/22/2016"
+	ms.date="02/29/2016"
 	ms.author="kgremban"/>
 
 # 使用 Azure 命令列介面管理角色型存取控制
@@ -24,6 +24,9 @@
 - [REST API](role-based-access-control-manage-access-rest.md)
 
 ## 列出角色型存取控制 (RBAC) 角色
+
+>[AZURE.IMPORTANT] 您需要[安裝 Azure CLI](../xplat-cli-install.md)，才能使用本文中的 Cmdlet。
+
 ###	列出所有可用的角色
 若要列出所有可用的角色，請使用：
 
@@ -154,4 +157,4 @@
 ## RBAC 主題
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

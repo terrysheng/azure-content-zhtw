@@ -74,4 +74,4 @@ Windows 虛擬機器：
 -  [擷取 Windows 虛擬機器](virtual-machines-capture-image-windows-server.md)
 -  [中斷連結磁碟](storage-windows-detach-disk.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

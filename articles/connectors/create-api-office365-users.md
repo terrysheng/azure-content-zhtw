@@ -235,4 +235,4 @@ Azure Active Directory 應用程式便建立好了。您可以在 Azure 入口�
 [10]: ./media/create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

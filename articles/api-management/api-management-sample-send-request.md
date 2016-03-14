@@ -269,4 +269,4 @@ Azure API 管理服務提供彈性的原則，可以選擇性地套用到 HTTP �
 
 > [AZURE.VIDEO send-request-and-return-response-policies]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

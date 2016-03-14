@@ -125,4 +125,4 @@
 - [變更您的自訂網域名稱的 DNS 註冊機構](active-directory-add-domain-change-registrar.md)
 - [刪除 Azure Active Directory 中的自訂網域](active-directory-add-domain-delete-domain.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

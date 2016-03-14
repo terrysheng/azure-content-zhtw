@@ -49,4 +49,4 @@ Azure Active Directory (Azure AD) 有一些絕佳功能，能夠支援這些所�
 
 [tailspin]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

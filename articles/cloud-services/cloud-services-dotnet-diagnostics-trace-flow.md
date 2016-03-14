@@ -80,4 +80,4 @@ Trace、Debug 和 TraceSource，需要您設定「接聽程式」來收集和記
 3. 在您想要用來擷取應用程式狀態資訊的位置加入 Trace 陳述式。您可以使用各種方法來格式化 Trace 陳述式的輸出。如需詳細資訊，請參閱[做法：加入 Trace 陳述式至應用程式程式碼](https://msdn.microsoft.com/library/zd83saa2.aspx)。
 4. 儲存原始程式檔。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

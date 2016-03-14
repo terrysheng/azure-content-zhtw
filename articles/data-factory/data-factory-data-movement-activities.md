@@ -110,4 +110,4 @@
 ### 複製活動的效能及微調 
 請參閱「[複製活動的效能及微調指南](data-factory-copy-activity-performance.md)」一文，其中說明在 Azure Data Factory 中會影響資料移動 (複製活動) 效能的重要因素。它也列出在內部測試期間所觀察到的效能，並討論要讓複製活動效能最佳化的各種方式。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

@@ -89,4 +89,4 @@ _租用戶_是一群使用者。在 SaaS 應用程式中，租用戶是應用程
 [與客戶的 AD FS 聯合]: guidance-multitenant-identity-adfs.md
 [範例應用程式]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

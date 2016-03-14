@@ -971,4 +971,4 @@ CookieSyncManager.getInstance().sync();
 ```
 [深入了解 Cookie](http://developer.android.com/reference/android/webkit/CookieSyncManager.html)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

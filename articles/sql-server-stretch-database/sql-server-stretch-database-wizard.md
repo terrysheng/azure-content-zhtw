@@ -111,4 +111,4 @@
 ## 另請參閱
 [Enable Stretch Database for a database (為資料庫啟用 Stretch Database)](sql-server-stretch-database-enable-database.md) [Enable Stretch Database for a table (為資料表啟用 Stretch Database)](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

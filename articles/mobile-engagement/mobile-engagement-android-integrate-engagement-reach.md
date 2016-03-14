@@ -645,4 +645,4 @@ Reach SDK 使用意圖系統來解析特定類別的正確活動，如果解析�
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

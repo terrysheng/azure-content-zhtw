@@ -102,4 +102,4 @@
 [推播通知]: app-service-mobile-cordova-get-started-push.md
 [驗證相關資訊]: app-service-mobile-auth.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

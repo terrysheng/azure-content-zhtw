@@ -65,4 +65,4 @@ Surveys 應用程式由 Web 前端和 Web API 後端組成。兩者都使用 [AS
 [ASP.NET 核心 1.0]: https://docs.asp.net/en/latest/
 [範例應用程式]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

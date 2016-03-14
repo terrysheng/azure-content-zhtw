@@ -130,4 +130,4 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。依預設由 Azure 
 
 - 深入了解[執行個體層級公用 IP (ILPIP) 位址](../virtual-networks-instance-level-public-ip)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

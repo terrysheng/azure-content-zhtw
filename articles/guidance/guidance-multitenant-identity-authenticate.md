@@ -260,4 +260,4 @@ app.UseOpenIdConnectAuthentication(options =>
 [session-cookie]: https://en.wikipedia.org/wiki/HTTP_cookie#Session_cookie
 [範例應用程式]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

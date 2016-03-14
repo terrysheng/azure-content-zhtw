@@ -86,4 +86,4 @@ SaaS 開發人員必須建立並管理數十、數百或甚至數千個 SQL Data
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

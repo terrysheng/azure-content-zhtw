@@ -79,4 +79,4 @@ Azure 診斷延伸模組可以把這項資料傳送到 Azure 儲存體帳戶，�
 - 了解如何[把 Azure 診斷資訊路由到 Application Insights](./azure-diagnostics-configure-applicationinsights.md)。
 - 如果您在開始診斷，或是在 Azure 儲存體資料表中尋找資料時遇到問題，請參閱 [Azure 診斷疑難排解](./azure-diagnostics-troubleshooting.md)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

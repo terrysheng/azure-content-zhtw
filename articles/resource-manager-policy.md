@@ -386,4 +386,4 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

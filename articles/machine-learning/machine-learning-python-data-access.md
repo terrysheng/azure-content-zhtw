@@ -368,4 +368,4 @@ Python 用戶端程式碼能夠將 Pandas DataFrame 序列化為下列格式 (�
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

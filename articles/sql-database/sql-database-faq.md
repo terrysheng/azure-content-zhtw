@@ -89,4 +89,4 @@ Azure SQL Web 和 Business 資料庫現已淘汰。基本、標準、高階和�
 ## 若要監視主要資料庫和地區資料庫之間的複寫延遲，有哪些工具可以使用？
 我們會透過 DMV 將主要資料庫和地區次要資料庫之間的即時複寫延遲公開。如需詳細資訊，請參閱 [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

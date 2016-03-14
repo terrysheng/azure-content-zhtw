@@ -20,4 +20,4 @@
 請參閱[開始使用 Application Insights for Java](app-insights-java-get-started.md)。
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

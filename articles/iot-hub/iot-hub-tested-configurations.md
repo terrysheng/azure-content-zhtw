@@ -186,4 +186,4 @@ Azure IoT 程式庫已在下列作業系統平台上測試：
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

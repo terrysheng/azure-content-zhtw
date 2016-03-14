@@ -227,4 +227,4 @@ None | <ul><li>取得單一資料列</li><li>取得多個資料列</li><li>插�
 
 [建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

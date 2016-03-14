@@ -144,4 +144,4 @@ Azure 自動化中的每個 Runbook 有兩個版本，「草稿」和「已發�
 - [排程](automation-schedules.md)
 - [變數](automation-variables.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

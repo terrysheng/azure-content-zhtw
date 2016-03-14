@@ -115,4 +115,4 @@
 [GCM 用戶端程式庫]: http://developer.android.com/guide/google/gcm/gs.html#libs
 [Google 開發人員主控台]: https://cloud.google.com/console
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

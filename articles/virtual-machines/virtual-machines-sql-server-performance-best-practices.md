@@ -125,4 +125,4 @@
 
 請檢閱 [Azure 虛擬機器上 SQL Server 的概觀](virtual-machines-sql-server-infrastructure-services.md)中的其他 SQL Server 虛擬機器主題。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

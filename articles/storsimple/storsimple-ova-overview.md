@@ -184,4 +184,4 @@ StorSimple 資料保護功能可讓您建立隨選備份。此外，預設備份
 
 了解如何[準備 Virtual Array 入口網站](storsimple-ova-deploy1-portal-prep.md)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

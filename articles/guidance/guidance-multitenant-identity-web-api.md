@@ -277,4 +277,4 @@ public void ConfigureServices(IServiceCollection services)
 [授權]: guidance-multitenant-identity-authorize.md
 [範例應用程式]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

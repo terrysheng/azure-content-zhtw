@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/25/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # 使用 Powershell 建立 SQL 資料倉儲
@@ -30,7 +30,7 @@
 如果您尚未安裝 PowerShell，您需要加以下載並進行設定。
 
 1. 如要下載 Azure PowerShell 模組，請執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)。
-2. 如要執行模組，請在開始視窗中鍵入 **Windows PowerShell**。
+2. 若要執行模組，請在開始視窗中輸入 Windows PowerShell。
 3. 執行此 Cmdlet 來登入 Azure 資源管理員。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][]。
 
 	```
@@ -42,7 +42,7 @@
 	```
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
-   
+
 ## 建立 SQL 資料倉儲資料庫
 若要部署 SQL 資料倉儲，請使用 New-AzureRmSQLDatabase Cmdlet。在執行命令前，請確定您已符合下列先決條件。
 
@@ -71,14 +71,14 @@ New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "myn
  + **DatabaseName**：您要建立的 SQL 資料倉儲的名稱。
  + **ServerName**：您用來建立的伺服器名稱 (必須是 V12)。
  + **ResourceGroupName**：您使用的資源群組。若要尋找訂用帳戶中可用的資源，請使用 Get-AzureResource。
- + **版本**：您必須將版本設定為 "DataWarehouse"，才能建立 SQL 資料倉儲。 
+ + **版本**：您必須將版本設定為 "DataWarehouse"，才能建立 SQL 資料倉儲。
 
 如需命令參考，請參閱 [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619339.aspx)
 
 如需參數選項，請參閱[建立資料庫 (Azure SQL 資料倉儲)](https://msdn.microsoft.com/library/mt204021.aspx)。
 
 ## 後續步驟
-您的 SQL 資料倉儲完成佈建之後，您可以[載入範例資料][]或查看如何[開發][]、載入或[移轉][]。
+您的 SQL 資料倉儲完成佈建之後，您可以[載入範例資料][]或查看如何[開發][]、[載入][] 或[移轉][]。
 
 如果您有興趣進一步了解如何以程式設計方式管理 SQL 資料倉儲，請查看我們的 [Powershell][] 或 [REST API][] 文件。
 
@@ -96,4 +96,4 @@ New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "myn
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [如何安裝和設定 Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

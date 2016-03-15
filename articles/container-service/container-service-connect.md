@@ -82,7 +82,9 @@ export DOCKER_HOST=:2375
 
 ![Putty 連線](media/putty2.png)
 
-選取 [`Tunnels`] 並`configure`下轉送連接埠：- **來源連接埠：**您的喜好設定 (如 Mesos 的 80 和 Swarm 的 2375) - **目的地：**localhost:80 (適用於 Mesos) 或 localhost:2375 (適用於 Swarm)
+選取 `Tunnels` 和 `configure` 下列已轉送的連接埠：
+- 來源連接埠：您的喜好設定 (Mesos 為 80，而 Swarm 為 2375)
+- 目的地： localhost:80 (適用於 Mesos) 或 localhost:2375 (適用於 Swarm)
 
 下列範例是針對 Mesos 而設定，但對於 Docker Swarm 而言也很類似。
 
@@ -108,4 +110,4 @@ export DOCKER_HOST=:2375
  
 - [使用 ACS 和 Mesos](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

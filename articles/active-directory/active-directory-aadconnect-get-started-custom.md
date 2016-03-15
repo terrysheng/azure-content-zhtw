@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/22/2016"
+	ms.date="03/04/2016"
 	ms.author="billmath;andkjell"/>
 
 # 自訂 Azure AD Connect 安裝
@@ -40,7 +40,7 @@
 | 選用組態 | 說明 |
 | ------------- | ------------- |
 | 使用現有的 SQL Server | 可讓您指定 SQL Server 名稱和執行個體名稱。如果您已經有想要使用的 ad 資料庫伺服器，請選擇這個選項。如果您的 SQL Server 未啟用瀏覽，您必須接著在 [執行個體名稱] 方塊中輸入執行個體名稱，後面加上逗號及連接埠號碼來指定連接埠號碼。 |
-| 使用現有的服務帳戶 | Azure AD Connect 預設會建立本機服務帳戶，以供同步處理服務使用。密碼是自動產生的，但安裝 Azure AD Connect 的人員並不知道。如果您使用遠端 SQL Server，您需要在網域中有一個服務帳戶並知道密碼。在這類情況下，請輸入要使用的服務帳戶。請確定執行安裝的使用者為 SQL 中的 SA，才可建立服務帳戶的登入。請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
+| 使用現有的服務帳戶 | Azure AD Connect 預設會建立本機服務帳戶，以供同步處理服務使用。密碼是自動產生的，但安裝 Azure AD Connect 的人員並不知道。如果您使用遠端 SQL Server 或使用需要驗證的 Proxy，您需要在網域中有一個服務帳戶並知道密碼。在這類情況下，請輸入要使用的服務帳戶。請確定執行安裝的使用者為 SQL 中的 SA，才可建立服務帳戶的登入。請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
 | 指定自訂同步群組 | Azure AD Connect 預設會在安裝同步處理服務時，建立四個伺服器的本機群組。這些群組如下：[系統管理員] 群組、[操作員] 群組、[瀏覽] 群組和 [密碼重設群組]。如果您想要指定自己的群組，則可以在這裡這麼做。群組必須位於伺服器本機上，不能位於網域中。 |
 
 ## 使用者登入
@@ -238,4 +238,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

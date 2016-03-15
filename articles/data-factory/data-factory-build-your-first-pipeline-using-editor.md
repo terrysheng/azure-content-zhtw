@@ -1,5 +1,5 @@
 <properties
-	pageTitle="開始使用 Azure Data Factory (Azure 入口網站)"
+	pageTitle="建置您的第一個 Data Factory (Azure 入口網站) |Microsoft Azure"
 	description="在本教學課程中，您將使用 Azure 入口網站中的 Data Factory 編輯器，建立範例 Azure Data Factory 管線。"
 	services="data-factory"
 	documentationCenter=""
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="12/18/2015"
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# 開始使用 Azure Data Factory (Data Factory 編輯器)
+# 使用 Azure 入口網站/Data Factory 編輯器建置您的第一個 Azure Data Factory。
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [教學課程概觀](data-factory-build-your-first-pipeline.md)
+- [使用 Data Factory 編輯器](data-factory-build-your-first-pipeline-using-editor.md)
+- [使用 PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [使用 Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [使用資源管理員範本](data-factory-build-your-first-pipeline-using-arm.md)
 
 在本文中，您將了解如何使用 [Azure 入口網站](https://portal.azure.com/)來建立您的第一個 Azure Data Factory。
 
@@ -80,8 +80,7 @@
 
 	![[部署] 按鈕](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   成功部署連結的服務之後，應該會出現 **Draft-1** 視窗，而且您會在左側的樹狀檢視中看到 **StorageLinkedService**。
-   ![功能表中的儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   成功部署連結的服務之後，應該會出現 **Draft-1** 視窗，而且您會在左側的樹狀檢視中看到 **StorageLinkedService**。![功能表中的儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### 建立 Azure HDInsight 連結服務
@@ -116,11 +115,11 @@
 
 	請注意：
 	
-	- Data Factory 會以上述 JSON 為您建立**以 Windows 為基礎的** HDInsight 叢集。您也可以讓它建立**以 Linux 為基礎的** HDInsight 叢集。如需詳細資訊，請參閱 [HDInsight 隨選連結服務](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。 
-	- 您可以使用**自己的 HDInsight 叢集**，不必使用隨選的 HDInsight 叢集。如需詳細資訊，請參閱 [HDInsight 連結服務](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)。
-	- HDInsight 叢集會在您於 JSON 中指定的 Blob 儲存體 (**linkedServiceName**) 建立**預設容器**。HDInsight 不會在刪除叢集時刪除此容器。原先的設計就是如此。在使用 HDInsight 隨選連結服務時，除非有現有的即時叢集 (**timeToLive**)，否則每當需要處理配量時，就會建立 HDInsight 叢集，並在處理完成時予以刪除。
+	- Data Factory 會以上述 JSON 為您建立以 Windows 為基礎的 HDInsight 叢集。您也可以讓它建立以 Linux 為基礎的 HDInsight 叢集。如需詳細資訊，請參閱 [HDInsight 隨選連結服務](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。 
+	- 您可以使用自己的 HDInsight 叢集，不必使用隨選的 HDInsight 叢集。如需詳細資訊，請參閱 [HDInsight 連結服務](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)。
+	- HDInsight 叢集會在您於 JSON 中指定的 Blob 儲存體 (linkedServiceName) 建立預設容器。HDInsight 不會在刪除叢集時刪除此容器。原先的設計就是如此。使用 HDInsight 隨選連結服務時，除非有現有的即時叢集 (timeToLive)，否則每當需要處理配量時，就會建立 HDInsight 叢集，並在處理完成時予以刪除。
 	
-		隨著處理的配量越來越多，您會在 Azure Blob 儲存體中看到許多容器。如果在疑難排解作業時不需要這些容器，建議您加以刪除以降低儲存成本。這些容器的名稱遵循下列模式："adf**yourdatafactoryname**-**linkedservicename**-datetimestamp"。請使用 [Microsoft 儲存體總管](http://storageexplorer.com/)之類的工具刪除 Azure Blob 儲存體中的容器。
+		隨著處理的配量越來越多，您會在 Azure Blob 儲存體中看到許多容器。如果在疑難排解作業時不需要這些容器，建議您加以刪除以降低儲存成本。這些容器的名稱遵循下列模式："adf**yourdatafactoryname**-linkedservicename-datetimestamp"。請使用 [Microsoft 儲存體總管](http://storageexplorer.com/)等工具刪除 Azure Blob 儲存體中的容器。
 
 	如需詳細資訊，請參閱 [HDInsight 隨選連結服務](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。
 3. 按一下命令列的 [部署]，部署連結服務。 
@@ -270,6 +269,7 @@
 
 	在活動 JSON 中，您會指定 Hive 指令碼要在透過 **linkedServiceName** – **HDInsightOnDemandLinkedService** 指定的計算上執行。
 
+	> [ACOM.NOTE] 如需上述範例中使用的 JSON 屬性的詳細資訊，請參閱[管線的剖析](data-factory-create-pipelines.md#anatomy-of-a-pipeline)。
 
 3. 確認您在 Azure Blob 儲存體的 adfgetstarted/inputdata 資料夾中看到了 input.log 檔案，並按一下命令列中的 [部署]，以部署管線。由於 **start** 和 **end** 時間設定在過去，且 **isPaused** 設為 false，管線 (管線中的活動) 會在部署之後立即執行。
 4. 確認您在樹狀檢視中看到管線。
@@ -299,12 +299,11 @@
 11. 按一下 **X** 關閉 **AzureBlobInput** 刀鋒視窗。 
 12. 在 [圖表檢視] 中，按兩下 [AzureBlobOutput] 資料集。您會看到目前正在處理的配量。
 
-	![資料集](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. 處理完成時，您會看到配量處於 [就緒] 狀態。  
-
+	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
+9. 處理完成時，您會看到配量處於 [就緒] 狀態。
 	>[AZURE.IMPORTANT] 建立隨選 HDInsight 叢集通常需要一些時間 (大約 20 分鐘)。  
 
-	![資料集](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
+	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
 	
 10. 當配量處於**就緒**狀態時，檢查您 Blob 儲存體中 **adfgetstarted** 容器內 **partitioneddata** 資料夾的輸出資料。
  
@@ -324,4 +323,4 @@
 
   
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

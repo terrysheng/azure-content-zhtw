@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # 使用 Transact-SQL (TSQL) 建立 SQL 資料倉儲資料庫
@@ -61,4 +61,4 @@ SERVICE\_OBJECTIVE 會指出您的執行個體起始的 DWU 數目，並接受�
 [載入範例資料]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [價格頁面]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

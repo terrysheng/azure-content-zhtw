@@ -1,6 +1,6 @@
 <properties
 	pageTitle="以 .NET 開始使用 Azure Blob 儲存體 | Microsoft Azure"
-	description="使用 Azure Blob (物件) 儲存體在雲端中儲存檔案資料。從簡單的 Blob 儲存體作業來開始，包括建立容器以及上傳、下載、列出和刪除 Blob 內容。"
+	description="使用 Azure Blob 儲存體 (物件儲存體) 在雲端中儲存檔案資料。從簡單的 Blob 儲存體作業來開始，包括建立容器以及上傳、下載、列出和刪除 Blob 內容。"
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/14/2016"
+	ms.date="02/25/2016"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## 概觀
 
-Azure Blob 儲存體是用來在雲端中儲存檔案資料的服務。Blob 儲存體可以儲存任何類型的文字或二進位資料，例如文件、媒體檔案或應用程式安裝程式。Blob 儲存體有時稱為物件儲存體。
+Azure Blob 儲存體是用來在雲端中儲存檔案資料的服務。Blob 儲存體可以儲存任何類型的文字或二進位資料，例如文件、媒體檔案或應用程式安裝程式。Blob 儲存體也稱為物件儲存體。
 
 ### 關於本教學課程
 
@@ -32,6 +32,12 @@ Azure Blob 儲存體是用來在雲端中儲存檔案資料的服務。Blob 儲�
 **預估完成時間：**45 分鐘
 
 **先決條件：**
+
+- [Microsoft Visual Studio](https://www.visualstudio.com/zh-TW/visual-studio-homepage-vs.aspx)
+- [適用於 .NET 的 Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)
+- [適用於.NET 的 Azure 設定管理員](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+- [Azure 儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)。
+
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -374,4 +380,4 @@ Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。在大多數情況下，�
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

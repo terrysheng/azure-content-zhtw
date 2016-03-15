@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/21/2016"
+	ms.date="03/04/2016"
 	ms.author="tdykstra"/>
 
 # Azure App Service 中的 API Apps 驗證與授權
@@ -85,7 +85,7 @@ App Service 驗證適用於從某個 API 應用程式呼叫另一個 API 應用�
 
 App Service 邏輯應用程式至 API 應用程式的服務帳戶驗證屬於特殊案例，[將您裝載在 App Service 上的自訂 API 與邏輯應用程式一起使用](../app-service-logic/app-service-logic-custom-hosted-api.md)中有關於此案例的說明。
 
-## 用戶端驗證
+## 行動用戶端驗證
 
 如需如何處理來自行動用戶端之驗證的相關資訊，請參閱[關於行動應用程式驗證的說明文件](../app-service-mobile/app-service-mobile-ios-get-started-users.md)。行動應用程式和 API 應用程式的 App Service 驗證具有相同的運作方式。
   
@@ -102,7 +102,7 @@ App Service 邏輯應用程式至 API 應用程式的服務帳戶驗證屬於特
 * [OAuth2、OpenID Connect 和 JSON Web 權杖 (JWT) 簡介 - PluralSight 課程](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
 * [在 ASP.NET 中建置和保護多個用戶端的 RESTful API - PluralSight 課程](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
 
-如需使用 Azure Active Directory 之驗證的詳細資訊，請參閱下列資源。
+如需 Azure Active Directory 的詳細資訊，請參閱下列資源。
 
 * [Azure AD 案例](http://aka.ms/aadscenarios)
 * [Azure AD 開發人員指南](http://aka.ms/aaddev)
@@ -110,6 +110,6 @@ App Service 邏輯應用程式至 API 應用程式的服務帳戶驗證屬於特
 
 ## 後續步驟
 
-本文說明了可用於 API 應用程式之 App Service 的驗證和授權功能。在下一個教學課程中，您將學習如何實作 [App Service API Apps 中的使用者驗證](app-service-api-dotnet-user-principal-auth.md)。
+本文說明了可用於 API 應用程式之 App Service 的驗證和授權功能。在下一個快速入門系列教學課程中，會說明如何實作 [App Service API Apps 中的使用者驗證](app-service-api-dotnet-user-principal-auth.md)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

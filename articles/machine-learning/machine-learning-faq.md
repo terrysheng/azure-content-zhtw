@@ -13,7 +13,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="01/25/2016"
 	ms.author="paulettm"/>
 
@@ -25,7 +25,7 @@
 
 **什麼是 Azure Machine Learning 服務？**
 
-Azure Machine Learning 是受到完整管理的服務，可用來建立、測試、操作及管理雲端中的預測分析方案。僅使用瀏覽器，您即可以登入、上傳資料，以及立即開始機器學習實驗。拖放式預測性模型化、大型模組和用以啟動範本的程式庫，讓您得以簡便而快速地執行一般機器學習工作。如需詳細資訊，請參閱 [Azure Machine Learning 服務概觀](/services/machine-learning/)。如需涵蓋重要術語和概念的機器學習簡介，請參閱 [Azure Machine Learning 簡介](machine-learning-what-is-machine-learning.md)。
+Azure Machine Learning 是受到完整管理的服務，可用來建立、測試、操作及管理雲端中的預測分析方案。僅使用瀏覽器，您即可以登入、上傳資料，以及立即開始機器學習實驗。拖放式預測性模型化、大型模組和用以啟動範本的程式庫，讓您得以簡便而快速地執行一般機器學習工作。如需詳細資訊，請參閱 [Azure Machine Learning 服務概觀](https://azure.microsoft.com/services/machine-learning/)。如需涵蓋重要術語和概念的機器學習簡介，請參閱 [Azure Machine Learning 簡介](machine-learning-what-is-machine-learning.md)。
 
 
 [AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
@@ -38,7 +38,7 @@ Machine Learning Studio 是您透過網頁瀏覽器存取的工作區環境。Ma
 
 **什麼是 Machine Learning API 服務？**
 
-Machine Learning API 服務可讓您將 Machine Learning Studio 中內建的預測模型部署為可延展、容錯的 Web 服務。Machine Learning API 服務所建立的 Web 服務是 REST API，此類 API 提供的介面可用於外部應用程式與您的預測分析模型之間的通訊。
+Machine Learning API 服務可讓您將 Machine Learning Studio 中內建的預測模型部署為可延展、容錯的 Web 服務。Machine Learning API 服務所建立的 Web 服務是 REST API，此類 API 提供的介面可用於外部應用程式與您的預測性分析模型之間的通訊。
 
 如需詳細資訊，請參閱[連線到 Machine Learning Web 服務](machine-learning-connect-to-azure-machine-learning-web-service.md)。
 
@@ -63,7 +63,7 @@ Machine Learning API 服務可讓您將 Machine Learning Studio 中內建的預�
 ### 匯入和匯出機器學習服務的資料
 **機器學習服務支援何種資料來源？**
 
-資料可透過兩種方式載入 Machine Learning Studio 中：以資料集的形式上傳本機檔案，或使用讀取器模組匯入資料。可以上傳本機檔案，方法是在 Machine Learning Studio 中新增資料集。若要深入了解支援的檔案格式，請參閱[將訓練資料匯入 Azure Machine Learning Studio](machine-learning-import-data.md)。
+資料可透過兩種方式載入 Machine Learning Studio 中：以資料集的形式上傳本機檔案，或使用讀取器模組匯入資料。可以上傳本機檔案，方法是在 Machine Learning Studio 中新增資料集。若要深入了解支援的檔案格式，請參閱[將訓練資料匯入 Azure Machine Learning Studio](machine-learning-data-science-import-data.md)。
 
 
 #### <a id="ModuleLimit"></a>我的模組適用多大的資料集？
@@ -94,8 +94,9 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 **可以從 Amazon S3 讀取資料嗎？**
 
 如果您有少量的資料，而且想要透過 HTTP URL 公開，則您可以使用[讀取器][reader]模組。若為任何較大量的資料，請先傳送至 Azure 儲存體，然後使用[讀取器][reader]模組將它帶入實驗中。
-<!--<SEE CLOUD DS PROCESS>-->
-
+<!--
+<SEE CLOUD DS PROCESS>
+-->
 
 **有內建的影像輸入功能嗎？**
 
@@ -219,7 +220,7 @@ Machine Learning Studio 目前支援 400 個以上的 CRAN R 封裝，且數量�
 針對 RRS，通常您可在 Web 服務回應查看此結果。您可以也將資料寫入 Blob。BES 的輸出預設會寫入至 Blob。您也可以使用寫入器模組將輸出寫入資料庫或資料表。
 
  **** 只能從這個 Studio 中建立的模型來建立 Web 服務嗎? 不，您也可以直接從 Jupyter Notebook 和 RStudio 建立 Web 服務。
- 
+
  ****哪裡可以找到有關錯誤碼的詳細資訊？ [這裡](https://msdn.microsoft.com/library/azure/dn905910.aspx)有提供錯誤碼的說明。
 
 ## 延展性
@@ -291,7 +292,7 @@ Machine Learning Studio 依賴使用者提供的 Azure 儲存體帳戶，才能�
 
 **哪裡可以取得 Azure ML 的訓練？**
 
-[Azure Machine Learning 文件中心](/services/machine-learning/)包含視訊教學課程和操作方式指南。這些逐步操作指南提供了服務的簡介，並且說明匯入資料、清除資料、建置預測模型以及使用 Azure ML 將其部署在實際執行環境中的資料科學生命週期。
+[Azure Machine Learning 文件中心](https://azure.microsoft.com/services/machine-learning/)包含視訊教學課程和操作方式指南。這些逐步操作指南提供了服務的簡介，並且說明匯入資料、清除資料、建置預測模型以及使用 Azure ML 將其部署在實際執行環境中的資料科學生命週期。
 
 我們將持續更新機器學習中心的內容。您可以在[使用者意見反應論壇](https://windowsazure.uservoice.com/forums/257792-machine-learning)中，提交關於 Machine Learning Center 的其他學習內容要求。
 
@@ -312,4 +313,4 @@ Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

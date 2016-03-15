@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -12,8 +12,8 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.topic="hero-article" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 #什麼是 API 管理？
@@ -26,7 +26,7 @@
 
 本主題說明 API 管理的主要概念。
 
->[AZURE.NOTE]如需詳細資訊，請參閱[雲端式 API 管理：如何運用 API 的威力](http://j.mp/ms-apim-whitepaper) PDF 白皮書 (英文)。這份 CITO Research 發表的簡介白皮書涵蓋：
+>[AZURE.NOTE] 如需詳細資訊，請參閱[雲端式 API 管理：如何運用 API 的威力](http://j.mp/ms-apim-whitepaper) PDF 白皮書 (英文)。這份 CITO Research 發表的簡介白皮書涵蓋：
 >
 > - 常見的 API 需求與挑戰
 >     - 解構 API 並呈現其外貌
@@ -114,4 +114,4 @@ API 是 API 管理服務執行個體的基礎。每個 API 都代表可供開發
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/12/2016"
+   ms.date="03/07/2016"
    ms.author="larryfr"/>
 
 
@@ -25,6 +25,8 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 > [AZURE.NOTE] 本文中的步驟會建立以 Linux 為基礎的 HDInsight 叢集。如需在 HDInsight 叢集上建立 Windows 式 Storm 的步驟，請參閱 [Apache Storm 教學課程：在 HDInsight 上藉由資料分析開始使用 Storm Starter 範例](hdinsight-apache-storm-tutorial-get-started.md)
 
 ## 開始之前
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 您必須具備下列先決條件，才能順利完成本 Apache Storm 教學課程：
 
@@ -88,7 +90,7 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 	
 		> [AZURE.IMPORTANT] 選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
     
-    - __叢集 AAD 身分識別__：使用此選項以選取將由叢集用來存取 Azure 資料湖存放區的 Azure Active Directory 身分識別。
+    - __叢集 AAD 身分識別__：使用此選項，來選取叢集將用來存取 Azure 資料湖存放區的 Azure Active Directory 身分識別。
     
         > [AZURE.NOTE] 這不會在這份文件中使用，並且可以保留預設設定。如需使用此項目和 Azure 資料湖存放區與 HDInsight 的詳細資訊，請參閱[建立使用 Azure 資料湖存放區的 HDInsight 叢集](data-lake-store-hdinsight-hadoop-use-portal.md)。
 		
@@ -98,11 +100,11 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 	![節點定價層刀鋒視窗](./media/hdinsight-apache-storm-tutorial-get-started-linux/nodepricingtiers.png)
 	
-    您可以選取每個節點類型，以變更用於叢集中這些節點的 VM 類型。針對本文件中的步驟保留這些項目的預設設定。
+    您可以選取各個節點類型，在您的叢集變更這些節點所使用的 VM 類型。針對本文件中的步驟保留這些項目的預設設定。
     
 	使用 [選取] 按鈕以儲存 [節點定價層] 資訊。
 
-8. 選取 [選用設定]。此刀鋒視窗可讓您將叢集加入至__虛擬網路__、使用__指令碼動作__自訂叢集，或使用__自訂中繼存放區__以保留 Hive 和 Oozie 的資料。
+8. 選取 [選用設定]。此刀鋒視窗可讓您將叢集加入「虛擬網路」、使用「指令碼動作」自訂叢集，或使用「自訂中繼存放區」以保留 Hive 和 Oozie 的資料。
 
 	![選用設定刀鋒視窗](./media/hdinsight-apache-storm-tutorial-get-started-linux/optionalconfiguration.png)
     
@@ -213,7 +215,11 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 ##停止拓撲
 
-返回 word-count 拓撲的 [拓撲摘要] \(Topology summary) 頁面，然後選取 [拓撲動作] \(Topology actions) 區段中的 [終止] \(Kill) 按鈕。出現提示時，請先輸入要等候 10 秒，再停止拓撲。逾時期限過後，當您瀏覽儀表板的 [Storm UI] 區段時，便不會再顯示拓撲。
+返回 word-count 拓撲的 [拓撲摘要] (Topology summary) 頁面，然後選取 [拓撲動作] (Topology actions) 區段中的 [終止] (Kill) 按鈕。出現提示時，請先輸入要等候 10 秒，再停止拓撲。逾時期限過後，當您瀏覽儀表板的 [Storm UI] 區段時，便不會再顯示拓撲。
+
+##刪除叢集
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##摘要
 
@@ -233,4 +239,4 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -73,7 +73,7 @@ Azure 資源管理員介紹一種看待 Azure 資源的嶄新方式。與其建�
 	Get-AzureRmADGroupMember               Get a group members.
 	...
 
-若要取得完整的 cmdlet，請輸入以下格式的命令:
+To get full help for a cmdlet, type a command with the format:
 
 	Get-Help <cmdlet-name> -Full
   
@@ -358,7 +358,7 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
     (Type !? for Help.)
     administratorLoginPassword: ********
 
-如果範本中有一個參數的名稱符合範本部署命令的其中一個參數 (例如範本包含名為 **ResourceGroupName** 的參數，而且與 [新增 AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) Cmdlet 中的 **ResourceGroupName** 參數相同)，將會提示您在後置詞為 **FromTemplate** 的參數中提供一個值 (例如 **ResourceGroupNameFromTemplate**)。一般而言，請不要將參數命名為與部署作業所用的參數同名，以避免這種混淆情形。
+如果範本中有一個參數的名稱符合範本部署命令的其中一個參數 (例如範本包含名為 ResourceGroupName 的參數，而且與 [新增 AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) Cmdlet 中的 ResourceGroupName 參數相同)，將會提示您在後置詞為 FromTemplate 的參數中提供一個值 (例如 ResourceGroupNameFromTemplate)。一般而言，請不要將參數命名為與部署作業所用的參數同名，以避免這種混淆情形。
 
 資源建立時，命令會執行並且傳回訊息。最後，您會看到您的部署結果。
 
@@ -397,7 +397,7 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 		
 		...
 
-      如果您只想取得特定資源群組，請提供 **Name** 參數。
+      如果您只想取得特定資源群組，請提供 Name 參數。
       
           PS C:\> Get-AzureRmResourceGroup -Name TestRG1
 
@@ -416,7 +416,7 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
                 
         ...
 	        
-- 上述範本包含一項資源上的標記。您可以使用標記，以邏輯方式組織訂用帳戶中的資源。您可以使用 **Find-AzureRmResource** 和 **Find-AzureRmResourceGroup** 命令，依標記來查詢資源。
+- 上述範本包含一項資源上的標記。您可以使用標記，以邏輯方式組織訂用帳戶中的資源。您可以使用 Find-AzureRmResource 和 Find-AzureRmResourceGroup 命令，依標記來查詢資源。
 
         PS C:\> Find-AzureRmResource -TagName team
 
@@ -442,7 +442,7 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 
 - 若要從資源群組中刪除資源，請使用 **Remove-AzureRmResource** Cmdlet。此 Cmdlet 會刪除資源，但不會刪除資源群組。
 
-	此命令會將 TestSite 網站從 TestRG 資源群組中移除。
+	此命令會將 TestSite 網站從 TestRG1 資源群組中移除。
 
 		Remove-AzureRmResource -Name TestSite -ResourceGroupName TestRG1 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01
 
@@ -463,4 +463,4 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 - 如需部署專案的詳細範例，請參閱[透過可預測方式在 Azure 中部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)。
 - 若要了解如何疑難排解失敗的部署，請參閱[在 Azure 中疑難排解資源群組部署](./virtual-machines/resource-group-deploy-debug.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

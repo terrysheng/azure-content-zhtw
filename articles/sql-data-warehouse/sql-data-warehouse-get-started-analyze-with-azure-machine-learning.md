@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # 使用 Azure Machine Learning 分析資料
@@ -29,16 +29,16 @@
 [建立 SQL 資料倉儲][]示範如何佈建具備範例資料的資料庫。如果您已經有 SQL 資料倉儲資料庫但沒有範例資料，您可以[手動載入範例資料][]。
 
 
-## 步驟 1：取得資料 
+## 步驟 1：取得資料
 我們將從 AdventureWorksDW 資料庫中的 dbo.vTargetMail 檢視讀取資料。
 
 1. 登入 [Azure Machine Learning Studio][] 並按一下我的實驗。
 2. 按一下 [+ 新增] 並選取 [空白實驗]。
 3. 輸入您的實驗名稱：目標行銷。
 4. 將 [讀取器] 模組從模組窗格拖曳到畫布上。
-5. 在 [屬性] 窗格中指定 SQL 資料倉儲資料庫的詳細資料。 
+5. 在 [屬性] 窗格中指定 SQL 資料倉儲資料庫的詳細資料。
 6. 指定資料庫「查詢」以利讀取感興趣的資料。
-   
+
    ```
    SELECT [CustomerKey]
       ,[GeographyKey]
@@ -140,4 +140,4 @@
 [手動載入範例資料]: sql-data-warehouse-get-started-manually-load-samples.md
 [建立 SQL 資料倉儲]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

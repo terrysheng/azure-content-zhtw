@@ -3,8 +3,8 @@
 	description="如何使用 Java 做為程式設計語言，在 Azure 上建置雲端託管搜尋應用程式。"
 	services="search"
 	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
+	authors="EvanBoyle"
+	manager="pablocas"
 	editor="v-lincan"/>
 
 <tags
@@ -13,17 +13,17 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/11/2016"
-	ms.author="heidist"/>
+	ms.date="03/08/2016"
+	ms.author="evboyle"/>
 
 # 開始在 Java 中使用 Azure 搜尋服務
 > [AZURE.SELECTOR]
-- [Portal](search-get-started-portal.md)
-- [.NET](search-get-started-dotnet.md)
+- [入口網站](search-get-started-portal.md)
+- [.NET](search-howto-dotnet-sdk.md)
 
 瞭解如何建置使用 Azure 搜尋服務提供搜尋體驗的自訂 Java 搜尋應用程式。本教學課程利用 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/dn798935.aspx) 來建構在此練習中所使用的物件和作業。
 
-若要執行此範例，必須要有 Azure 搜尋服務，您才可以在 [Azure 入口網站](https://portal.azure.com) 註冊此服務。如需逐步指示，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
+若要執行此範例，必須要有 Azure 搜尋服務，您可以在 [Azure 入口網站](https://portal.azure.com)註冊此服務。如需逐步指示，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 我們使用了以下軟體建置及測試此範例：
 
@@ -95,7 +95,7 @@
 
 1. 在**專案總管**中按兩下 **config.properties** 以編輯含有伺服器名稱和 API 金鑰的組態設定。
 
-2. 請參閱本文中稍早的步驟，其中提及如何在 [Azure 入口網站](https://portal.azure.com)中找出服務 URL 和 API 金鑰，藉此取得您現在要輸入到 **config.properties** 中的值。
+2. 請參閱本文中稍早的步驟，其中提及如何在 [Azure 入口網站](https://portal.azure.com)中找到服務 URL 和 API 金鑰，藉此取得您現在要輸入 config.properties 中的值。
 
 3. 在 **config.properties** 中，以您服務的 API 金鑰取代 "Api Key"。接著，在同一個檔案中以服務名稱 (URL http://servicename.search.windows.net 的第一個部分) 取代 "service name"。
 
@@ -117,7 +117,7 @@
 
 	![][7]
 
-6. 在下一頁指定 Tomcat 的安裝目錄。在 Windows 電腦中，這通常為 C:\\Program Files\\Apache Software Foundation\\Tomcat *版本* 。
+6. 在下一頁指定 Tomcat 的安裝目錄。在 Windows 電腦中，這通常為 C:\\Program Files\\Apache Software Foundation\\Tomcat *版本*。
 
 6. 按一下 [完成]。
 
@@ -203,4 +203,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

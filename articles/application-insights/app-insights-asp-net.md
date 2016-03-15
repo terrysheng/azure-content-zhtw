@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/28/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
 
 
@@ -94,7 +94,7 @@ Application Insights SDK 會從 Web 應用程式傳送分析遙測至 Azure 入�
 
 ### 例外狀況
 
-如果您已[設定例外狀況監視](app-insights-asp-net-exception-mvc.md)，例外狀況報告會顯示在 [搜尋] 視窗中。
+如果您已[設定例外狀況監視](app-insights-asp-net-exceptions.md)，例外狀況報告會顯示在 [搜尋] 視窗中。
 
 按一下例外狀況以取得堆疊追蹤。如果應用程式的程式碼在 Visual Studio 中開啟，您可以從堆疊追蹤點選至程式碼的相關程式碼行。
 
@@ -126,7 +126,7 @@ Application Insights SDK 會從 Web 應用程式傳送分析遙測至 Azure 入�
 
 [深入了解搜尋](app-insights-diagnostic-search.md)
 
-* *沒有相關聯的事件嗎？* 設定[伺服器例外狀況](app-insights-asp-net-exception-mvc.md)和[相依性](app-insights-asp-net-dependencies.md)。
+* *沒有相關聯的事件嗎？* 設定[伺服器例外狀況](app-insights-asp-net-exceptions.md)和[相依性](app-insights-asp-net-dependencies.md)。
 
 
 ## 沒有資料？
@@ -172,7 +172,7 @@ Application Insights SDK 會從 Web 應用程式傳送分析遙測至 Azure 入�
 ## 後續步驟
 
 - [使用者和頁面資料](../article/application-insights/app-insights-javascript.md#selector1)
-- [例外狀況](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
+- [例外狀況](../article/application-insights/app-insights-asp-net-exceptions.md#selector1)
 - [相依項目](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
@@ -214,4 +214,4 @@ Application Insights SDK 會從 Web 應用程式傳送分析遙測至 Azure 入�
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

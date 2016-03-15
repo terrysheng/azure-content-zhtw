@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,20 +13,18 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/10/2016"
+	ms.date="03/05/2016"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>開始使用行動服務
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
-
->[AZURE.TIP] 如果您是使用 Microsoft Azure 進行行動開發的新手，[請從 Azure Mobile Apps 開始](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)，而非 Azure 行動服務，因為 Mobile Apps 能讓您擁有[更多優勢](app-service-mobile-value-prop-migration-from-mobile-services-preview.md)。
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[使用 Mobile Apps 建立 Windows 應用程式](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md)。
 
 本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到通用 Windows 應用程式。通用 Windows 應用程式解決方案包括 Windows 市集 8.1 和 Windows Phone 市集 8.1 應用程式的專案，以及一般共用專案。如需詳細資訊，請參閱[建置目標為 Windows 和 Windows Phone 的通用 Windows 應用程式](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx)。
 
@@ -34,7 +32,7 @@
 
 >[AZURE.NOTE]本主題將說明如何使用 Azure 傳統入口網站來建立新的行動服務專案和通用的 Windows 應用程式。使用 Visual Studio 2013 Update 3，可讓您將新的行動服務專案新增至現有的 Visual Studio 方案。如需詳細資訊，請參閱[將行動服務新增至現有的應用程式](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md)。
 
->若要將行動服務新增至 Windows Phone 8.0 或 Windows Phone Silverlight 8.1 應用程式專案，請參閱[將行動服務新增至現有的 Windows Phone 應用程式](mobile-services-dotnet-backend-windows-phone-get-started-data.md)。
+>若要將行動服務新增至 Windows Phone 8.0 或 Windows Phone Silverlight 8.1 應用程式專案，請參閱[將行動服務新增至現有的 Windows Phone 應用程式](mobile-services-windows-phone-get-started-data.md)。
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../../includes/mobile-services-windows-universal-get-started.md)]
 
@@ -99,20 +97,15 @@
 ## 後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* [將行動服務新增至現有的應用程式][Get started with data] 
-  <br/>深入了解使用行動服務來儲存與查詢資料。
+* [將行動服務新增至現有的應用程式][Get started with data] <br/>深入了解使用行動服務來儲存與查詢資料。
 
-* [開始使用離線資料同步] 
-  <br/>了解如何使用離線資料同步功能來讓應用程式的反應更快，且更健全。
+* [開始使用離線資料同步] <br/>了解如何使用離線資料同步功能來讓應用程式的反應更快，且更健全。
 
-* [在您的行動服務應用程式中新增驗證功能][Get started with authentication] 
-  <br/>了解如何利用身分識別提供者來驗證您應用程式的使用者。
+* [在您的行動服務應用程式中新增驗證功能][Get started with authentication] <br/>了解如何利用身分識別提供者來驗證您應用程式的使用者。
 
-* [將推播通知新增至您的應用程式][Get started with push notifications] 
-  <br/>了解如何將非常基本的推播通知傳送至應用程式。
+* [將推播通知新增至您的應用程式][Get started with push notifications] <br/>了解如何將非常基本的推播通知傳送至應用程式。
 
-* [行動服務 .NET 後端疑難排解]
-  <br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
+* [行動服務 .NET 後端疑難排解]<br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
 
 如需通用 Windows 應用程式的詳細資訊，請參閱[從單一行動服務支援多個裝置平台](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs) (英文)。
 
@@ -137,4 +130,4 @@
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 [行動服務 .NET 後端疑難排解]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

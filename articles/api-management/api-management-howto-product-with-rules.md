@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -34,7 +34,7 @@
 
 ![發佈者入口網站][api-management-management-console]
 
->如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][]教學課程中的[開始使用 Azure API 管理][]。
+>如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][]教學課程中的[建立 API 管理服務執行個體][]。
 
 從左側的 [**API 管理**] 功能表按一下 [**產品**]，以顯示 [**產品**] 頁面。
 
@@ -46,8 +46,7 @@
 
 在 [標題] 文字方塊中輸入「免費試用」。
 
-在 [描述] 文字方塊中輸入下列文字：
- **存取遭到拒絕後，訂戶每分鐘可以執行 10 次呼叫，每週最多 200 次呼叫**。
+在 [描述] 文字方塊中輸入下列文字：**存取遭到拒絕後，訂戶每分鐘可以執行 10 次呼叫，每週最多 200 次呼叫**。
 
 API 管理中的產品可以是受保護或開放的。受保護的產品必須先訂閱才能使用。開放產品不需要訂用帳戶即可使用。若要建立需要訂用帳戶的受保護產品，請務必選取 [需要訂用帳戶]。這是預設設定。
 
@@ -111,7 +110,7 @@ API 管理中的產品可以是受保護或開放的。受保護的產品必須�
 	</api>
 	</rate-limit>
 
-限制呼叫頻率 可用在產品層級，也可以用在 API 和個別作業名稱層級。本教學課程中只會使用產品層級原則，因此請將 **rate-limit** 元素中的 **api** 和 **operation** 元素刪除，只保留外部 **rate-limit** 元素，如以下範例所示。
+[限制呼叫頻率] 可用在產品層級，也可以用在 API 和個別作業名稱層級。本教學課程中只會使用產品層級原則，因此請將 **rate-limit** 元素中的 **api** 和 **operation** 元素刪除，只保留外部 **rate-limit** 元素，如以下範例所示。
 
 	<rate-limit calls="number" renewal-period="seconds">
 	</rate-limit>
@@ -121,7 +120,7 @@ API 管理中的產品可以是受保護或開放的。受保護的產品必須�
 	<rate-limit calls="10" renewal-period="60">
 	</rate-limit>
 
-若要設定 設定使用量配額 原則，請將游標放置在 **inbound** 元素內新加入的 **rate-limit** 元素正下方，然後按一下 設定使用量配額 左側的箭頭。
+若要設定 [設定使用量配額] 原則，請將游標放置在 **inbound** 元素內新加入的 **rate-limit** 元素正下方，然後按一下 [設定使用量配額] 左側的箭頭。
 
 	<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
 	<api name="name" calls="number" bandwidth="kilobytes">
@@ -279,7 +278,7 @@ API 管理中的產品可以是受保護或開放的。受保護的產品必須�
 [Get started with Azure API Management]: api-management-get-started.md
 [如何在 Azure API 管理中建立和使用群組]: api-management-howto-create-groups.md
 [View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
-
+[建立 API 管理服務執行個體]: api-management-get-started.md
 [開始使用 Azure API 管理]: api-management-get-started.md
 [開始使用 Azure API 管理]: api-management-get-started.md#create-service-instance
 [Next steps]: #next-steps
@@ -295,4 +294,4 @@ API 管理中的產品可以是受保護或開放的。受保護的產品必須�
 [限制呼叫費率]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [設定使用量配額]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

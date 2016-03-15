@@ -233,6 +233,10 @@ Web 測試外掛程式提供這種作法。
 
 當您在服務上進行維護時，您可能會想要停用 Web 測試。
 
+## 自動化
+
+您可以[使用 PowerShell 指令碼自動設定Web 測試](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)。
+
 ## 有疑問嗎？ 有問題嗎？
 
 * *可以從我的 Web 測試呼叫程式碼嗎？*
@@ -389,4 +393,4 @@ Web 測試外掛程式提供這種作法。
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

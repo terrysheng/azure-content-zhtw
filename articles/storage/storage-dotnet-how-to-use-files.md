@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="02/29/2016"
+      ms.date="03/03/2016"
       ms.author="minet" />
 
 # 在 Windows 上開始使用 Azure 檔案儲存體
@@ -255,29 +255,11 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 ## 使用檔案儲存體開發
 
-若要以程式設計方式使用檔案儲存體，您可以使用 .NET 和 Java 適用的儲存體用戶端程式庫或 Azure 儲存體 REST API。本節的範例將透過桌面上執行的簡單主控台應用程式，使用 [Azure .NET 儲存體用戶端程式庫](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)來示範如何使用檔案共用。
+若要以程式設計方式使用檔案儲存體，您可以使用 .NET 和 Java 適用的儲存體用戶端程式庫或 Azure 儲存體 REST API。本節的範例將透過桌面上執行的簡單主控台應用程式，使用[適用於 .NET 的 Azure 儲存體用戶端程式庫](https://msdn.microsoft.com/library/mt347887.aspx)來示範如何使用檔案共用。
 
-### 建立主控台應用程式並取得組件
+[AZURE.INCLUDE [storage-dotnet-install-library-include](../../includes/storage-dotnet-install-library-include.md)]
 
-若要在 Visual Studio 中建立新的主控台應用程式，並安裝 Azure 儲存體 NuGet 封裝：
-
-1. 在 Visual Studio 中，依序選擇 [檔案] -> [新增專案]，然後從 Visual C# 範本清單中選擇 [Windows] -> [主控台應用程式]。
-2. 提供主控台應用程式的名稱，然後按一下 [確定]。
-3. 建立專案後，在 [方案總管] 中以滑鼠右鍵按一下該專案，然後選擇 [管理 NuGet 封裝]。在線上搜尋 "WindowsAzure.Storage"，再按一下 [安裝] 以安裝 Azure 儲存體封裝與相依性。
-
-### 將您的儲存體帳戶認證儲存到 app.config 檔案
-
-接著，將您的認證儲存到專案的 app.config 檔案。編輯 app.config 檔案，使其看起來類似下列範例，並使用您的儲存體帳戶名稱來取代 `myaccount`，以及使用您的儲存體帳戶金鑰來取代 `mykey`。
-
-	<?xml version="1.0" encoding="utf-8" ?>
-	<configuration>
-	    <startup>
-	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
-	    </startup>
-	    <appSettings>
-	        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
-	    </appSettings>
-	</configuration>
+[AZURE.INCLUDE [storage-dotnet-save-connection-string-include](../../includes/storage-dotnet-save-connection-string-include.md)]
 
 > [AZURE.NOTE] 最新版本的 Azure 儲存體模擬器不支援檔案儲存體。您的連接字串必須以雲端中的 Azure 儲存體帳戶為目標，才能與檔案儲存體搭配使用。
 
@@ -285,8 +267,8 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 在 [方案總管] 中開啟 program.cs 檔案，並在檔案的開頭處加入下列命名空間宣告。
 
-	using Microsoft.WindowsAzure;
-	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.Azure; // Namespace for Azure Configuration Manager
+	using Microsoft.WindowsAzure.Storage; // Namespaces for Storage Client Library
 	using Microsoft.WindowsAzure.Storage.Blob;
 	using Microsoft.WindowsAzure.Storage.File;
 
@@ -425,7 +407,7 @@ Windows 現在便可在虛擬機器重新開機時重新連線到檔案共用。
 
 從 Azure 儲存體用戶端程式庫 5.x 版開始，您可以將檔案複製到另一個檔案、將檔案複製到 Blob 或將 Blob 複製到檔案。在後續各節中，我們將示範如何以程式設計方式執行這些複製作業。
 
-您也可以使用 AzCopy 將檔案複製到另一個檔案，或將 Blob 複製到檔案或反向操作。請參閱[使用 AzCopy 複製 Azure 檔案儲存體中的檔案](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy)。
+您也可以使用 AzCopy 將檔案複製到另一個檔案，或將 Blob 複製到檔案或反向操作。請參閱[使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)。
 
 > [AZURE.NOTE] 如果要將 Blob 複製到檔案，或將檔案複製到 Blob，您必須使用共用存取簽章 (SAS) 驗證來源物件，即使是在相同的儲存體帳戶內進行複製也一樣。
 
@@ -528,6 +510,55 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 
 您可以從 [Azure 入口網站](https://portal.azure.com)啟用檔案儲存體的度量。您也可以透過 REST API 或儲存體用戶端程式庫中的其中一個同類工具來呼叫設定檔案服務屬性作業，以程式設計方式啟用度量。
 
+下列程式碼範例會示範如何使用適用於 .NET 的儲存體用戶端程式庫，啟用檔案儲存體的計量。
+
+首先，將下列 `using` 陳述式加入您的 program.cs 檔案中，連同上述所加入的陳述式︰
+
+	using Microsoft.WindowsAzure.Storage.File.Protocol;
+	using Microsoft.WindowsAzure.Storage.Shared.Protocol;
+
+請注意，雖然 Blob、表格以及佇列儲存體會在 `Microsoft.WindowsAzure.Storage.Shared.Protocol` 命名空間中使用共用的 `ServiceProperties` 類型，但檔案儲存體會使用自己的類型，其會在 `Microsoft.WindowsAzure.Storage.File.Protocol` 命名空間中使用 `FileServiceProperties` 類型。不過，這兩個命名空間都必須從您的程式碼加以參考，以供下列程式碼進行編譯。
+
+    // Parse your storage connection string from your application's configuration file.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    // Create the File service client.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    // Set metrics properties for File service.
+    // Note that the File service currently uses its own service properties type,
+    // available in the Microsoft.WindowsAzure.Storage.File.Protocol namespace.
+    fileClient.SetServiceProperties(new FileServiceProperties()
+    {
+        // Set hour metrics
+        HourMetrics = new MetricsProperties()
+        {
+            MetricsLevel = MetricsLevel.ServiceAndApi,
+            RetentionDays = 14,
+            Version = "1.0"
+        },
+        // Set minute metrics
+        MinuteMetrics = new MetricsProperties()
+        {
+            MetricsLevel = MetricsLevel.ServiceAndApi,
+            RetentionDays = 7,
+            Version = "1.0"
+        }
+    });
+
+    // Read the metrics properties we just set.
+    FileServiceProperties serviceProperties = fileClient.GetServiceProperties();
+    Console.WriteLine("Hour metrics:");
+    Console.WriteLine(serviceProperties.HourMetrics.MetricsLevel);
+    Console.WriteLine(serviceProperties.HourMetrics.RetentionDays);
+    Console.WriteLine(serviceProperties.HourMetrics.Version);
+    Console.WriteLine();
+    Console.WriteLine("Minute metrics:");
+    Console.WriteLine(serviceProperties.MinuteMetrics.MetricsLevel);
+    Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
+    Console.WriteLine(serviceProperties.MinuteMetrics.Version);
+
+
 ## 檔案儲存體常見問題集
 
 1. **檔案儲存體是否支援 Active Directory 式的驗證？** 
@@ -586,7 +617,7 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 
 14. **搭配 IBM MQ 使用 Azure 檔案儲存體**
 
-	IBM 已發行文件來指引 IBM MQ 客戶設定 Azure 檔案儲存體與其服務。如需詳細資訊，請查看[如何使用 Microsoft Azure 檔案服務設定 IBM MQ 多重執行個體佇列管理員](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)。
+	IBM 已發行文件來指引 IBM MQ 客戶設定 Azure 檔案儲存體與其服務。如需詳細資訊，請查看[如何使用 Microsoft Azure 檔案服務來設定 IBM MQ 多重執行個體佇列管理員](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)。
 
 ## 後續步驟
 
@@ -615,4 +646,4 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 - [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

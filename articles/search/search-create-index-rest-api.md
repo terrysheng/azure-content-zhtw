@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="02/29/2016"
+    ms.date="03/09/2016"
     ms.author="ashmaka"/>
 
 # 使用 REST API 建立 Azure 搜尋服務索引
@@ -37,13 +37,15 @@
 3. 按一下 [金鑰] 圖示。
 
 服務會有*系統管理金鑰*和*查詢金鑰*。
-  * 主要和次要*系統管理金鑰*會授與所有作業的完整權限，包括管理服務以及建立和刪除索引、索引子與資料來源的能力。由於有兩個金鑰，因此如果您決定重新產生主要金鑰，您可以繼續使用次要金鑰，反之亦然。
-  * *查詢金鑰*會授與索引和文件的唯讀存取權，且通常會分派給發出搜尋要求的用戶端應用程式。
+
+ - 主要和次要*系統管理金鑰*會授與所有作業的完整權限，包括管理服務以及建立和刪除索引、索引子與資料來源的能力。由於有兩個金鑰，因此如果您決定重新產生主要金鑰，您可以繼續使用次要金鑰，反之亦然。
+ - *查詢金鑰*會授與索引和文件的唯讀存取權，且通常會分派給發出搜尋要求的用戶端應用程式。
 
 主要或次要系統管理金鑰都可用於建立索引。
 
 ## II.使用正確格式的 JSON 定義 Azure 搜尋服務索引
 針對服務提出單一 HTTP POST 要求就會建立索引。HTTP POST 要求主體會包含單一 JSON 物件以定義 Azure 搜尋服務索引。
+
 1. 此 JSON 物件的第一個屬性是索引名稱。
 2. 此 JSON 物件的第二個屬性是名為 `fields` 的 JSON 陣列，其針對索引中的每個欄位各包含一個 JSON 物件。每個 JSON 物件都針對每個欄位屬性 (包括 [名稱]、[類型] 等) 包含多個名稱/值組。
 
@@ -84,7 +86,7 @@
 
     POST https://[service name].search.windows.net/indexes?api-version=2015-02-28 Content-Type: application/json api-key: [api-key]
 
-若要求成功，您應該會看到狀態碼 201 (已建立)。如需透過 REST API 建立索引的詳細資訊，請瀏覽 [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx) 上的 API 參考資料。如需失敗時可能傳回的其他 HTTP 狀態碼的詳細資訊，請參閱[這篇文章](https://msdn.microsoft.com/library/azure/dn798925.aspx)。
+若要求成功，您應該會看到狀態碼 201 (已建立)。如需透過 REST API 建立索引的詳細資訊，請瀏覽 [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx) 上的 API 參考資料。如需失敗時可能傳回的其他 HTTP 狀態碼詳細資訊，請參閱 [HTTP 狀態碼 (Azure 搜尋服務)](https://msdn.microsoft.com/library/azure/dn798925.aspx)。
 
 索引已使用完畢而想要將其刪除時，請直接發出 HTTP DELETE 要求。例如，以下是我們刪除 "hotels" 索引的方式：
 
@@ -92,6 +94,6 @@
     api-key: [api-key]
 
 ## 下一步
-建立好 Azure 搜尋服務索引後，您就可以上傳內容到索引以便開始搜尋資料。
+建立好 Azure 搜尋服務索引後，您就可以上傳內容到索引以便開始搜尋資料。如需詳細資料，請參閱[在 Azure 搜尋服務使用 REST API 匯入資料](search-import-data-rest-api.md)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

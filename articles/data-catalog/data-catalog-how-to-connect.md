@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/03/2016"
    ms.author="maroche"/>
 
 
@@ -51,4 +51,7 @@
 ##摘要
 使用 **Azure 資料目錄**註冊資料來源，即可藉由將資料來源的結構性和描述性中繼資料複製到「目錄」服務內，使其變成可探索的資料。資料來源一經註冊且被找到後，使用者可以從 **Azure 資料目錄**入口網站的 [開啟於...] 功能表，或使用他們選擇的資料工具，連接到資料來源。
 
-<!---HONumber=AcomDC_0224_2016-->
+## 另請參閱
+- [開始使用 Azure 資料目錄](data-catalog-get-started.md)教學課程，取得如何連線至資料來源的逐步詳細資料。
+
+<!---HONumber=AcomDC_0309_2016-->

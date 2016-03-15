@@ -3,8 +3,8 @@
 	description="逐步了解如何使用 NodeJS 做為程式設計語言，在 Azure 的雲端託管搜尋服務上建置搜尋應用程式。"
 	services="search"
 	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
+	authors="EvanBoyle"
+	manager="pablocas"
 	editor="v-lincan"/>
 
 <tags
@@ -13,19 +13,19 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="01/11/2016"
-	ms.author="heidist"/>
+	ms.date="03/08/2016"
+	ms.author="evboyle"/>
 
 # 開始在 NodeJS 中使用 Azure 搜尋服務
 > [AZURE.SELECTOR]
-- [Portal](search-get-started-portal.md)
-- [.NET](search-get-started-dotnet.md)
+- [入口網站](search-get-started-portal.md)
+- [.NET](search-howto-dotnet-sdk.md)
 
 瞭解如何建置使用 Azure 搜尋服務提供搜尋體驗的自訂 NodeJS 搜尋應用程式。本教學課程利用 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/dn798935.aspx) 來建構在此練習中所使用的物件和作業。
 
 我們使用 [NodeJS](https://nodejs.org)、NPM、[Sublime Text 3](http://www.sublimetext.com/3) 及 Windows 8.1 上的 Windows PowerShell 來開發和測試此代碼。
 
-若要執行此範例，必須要有 Azure 搜尋服務，您才可以在 [Azure 入口網站](https://portal.azure.com) 註冊此服務。如需逐步指示，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
+若要執行此範例，必須要有 Azure 搜尋服務，您可以在 [Azure 入口網站](https://portal.azure.com)註冊此服務。如需逐步指示，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
 ## 關於資料
 
@@ -33,7 +33,7 @@
 
 在此應用程式中，**DataIndexer** 程式會使用[索引子](https://msdn.microsoft.com/library/azure/dn798918.aspx)建構來建置及載入索引，以從公用 Azure SQL Database 擷取篩選過的 USGS 資料集。程式碼中提供線上資料來源的認證和連接資訊。不需要進一步設定。
 
-> [AZURE.NOTE] 我們在此資料集套用了一個篩選，以維持不超過免費版定價層的 10,000 個文件的數量上限。如果使用標準版定價層，就不會套用此限制。如需各個定價層的容量詳細資料，請參閱[限制和條件約束](search-limits-quotas-capacity.md)。
+> [AZURE.NOTE] 我們在此資料集套用了一個篩選，以維持不超過免費版定價層的 10,000 個文件的數量上限。如果使用標準版定價層，就不會套用此限制。如需各個定價層的容量詳細資料，請參閱[搜尋服務限制](search-limits-quotas-capacity.md)。
 
 
 <a id="sub-2"></a>
@@ -121,4 +121,4 @@ USGS 資料集包含與羅德島州相關的記錄。如果您在空白的搜尋
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

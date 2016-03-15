@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma"/>
 
 # 使用 Azure 資源管理員設定適用於 SSL 的應用程式閘道
@@ -63,7 +63,7 @@
 
 ## 建立資源管理員的資源群組
 
-請確定您切換 PowerShell 模式以使用 Azure 資源管理員 Cmdlet。如需詳細資訊，可在[搭配使用 Windows PowerShell 與資源管理員](powershell-azure-resource-manager.md)取得。
+請確定您切換 PowerShell 模式以使用 Azure 資源管理員 Cmdlet。如需詳細資訊，可在[搭配使用 Windows PowerShell 與資源管理員](../powershell-azure-resource-manager.md)取得。
 
 ### 步驟 1
 
@@ -199,4 +199,4 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

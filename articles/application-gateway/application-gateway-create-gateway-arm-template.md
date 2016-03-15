@@ -22,9 +22,9 @@
 Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內部部署中，此閘道均提供在不同伺服器之間進行容錯移轉及效能路由傳送 HTTP 要求。應用程式閘道具有下列應用程式傳遞功能：HTTP 負載平衡、以 Cookie 為基礎的工作階段同質性和安全通訊端層 (SSL) 卸載。
 
 > [AZURE.SELECTOR]
-- [Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [Azure 傳統 PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
+- [Azure Resource Manager 範本](application-gateway-create-gateway-arm-template.md)
 
 <BR>
 
@@ -54,11 +54,11 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 
 您可以下載現有 Azure 資源管理員範本，以透過 Github 建立虛擬網路和兩個子網路，然後進行任何需要的變更，並重複使用該範本。若要這樣做，請依照下列步驟執行：
 
-1. 瀏覽至 https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/。
+1. 瀏覽至[建立應用程式閘道](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-create)
 2. 依序按一下 [azuredeploy.json] 和 [RAW]。
 3. 將檔案儲存至您電腦上的本機資料夾。
 4. 如果您熟悉 Azure 資源管理員範本的使用方式，請跳至步驟 7。
-5. 開啟您剛儲存的檔案，並查看第 5 行中 **parameters** 下方的內容。Azure 資源管理員範本的參數提供值的預留位置，可以在部署期間填寫。
+5. 開啟您剛儲存的檔案，並查看第 5 行中 parameters 下方的內容。Azure 資源管理員範本的參數提供值的預留位置，可以在部署期間填寫。
 
 	| 參數 | 說明 |
 	|---|---|
@@ -77,8 +77,8 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 
 6. 檢查 **resources** 下方的內容，並注意以下項目：
 
-	- **type**。範本所建立的資源類型。在此案例中，類型為 **Microsoft.Network/applicationGateways**，代表應用程式閘道。
-	- **name**。資源的名稱。請注意 **[parameters('applicationGatewayName')]** 的用法，這表示此名稱是在部署期間由使用者輸入的內容，或是由參數檔案所提供。
+	- **type**。範本所建立的資源類型。在此案例中，類型為 Microsoft.Network/applicationGateways，代表應用程式閘道。
+	- **name**。資源的名稱。請注意 [parameters('applicationGatewayName')] 的用法，這表示此名稱是在部署期間由使用者輸入的內容，或是由參數檔案所提供。
 	- **properties**。資源屬性的清單。此範本會在應用程式閘道建立期間，使用虛擬網路與公用 IP 位址。
 
 7. 瀏覽回到 https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json。
@@ -116,7 +116,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 
 ## 使用 PowerShell 來部署 Azure 資源管理員範本
 
-如果您從未使用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
+如果您從未使用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
 
 ### 步驟 1
 
@@ -143,7 +143,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 ### 步驟 4
 
 
-如有需要，請使用 **New-AzureResourceGroup** Cmdlet 建立新的資源群組。在下列範例中，您將在 East US 位置中建立名為 AppgatewayRG 的新資源群組。
+如有需要，請使用 New-AzureResourceGroup Cmdlet 建立新的資源群組。在下列範例中，您將在 East US 位置中建立名為 AppgatewayRG 的新資源群組。
 
 	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
@@ -160,7 +160,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 
 		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
-執行 **New-AzureRmResourceGroupDeployment** Cmdlet，使用先前下載並修改的範本和參數檔案來部署新的虛擬網路。
+執行 New-AzureRmResourceGroupDeployment Cmdlet，使用先前下載並修改的範本和參數檔案來部署新的虛擬網路。
 
 		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
  		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
@@ -191,7 +191,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 
 若要使用 Azure CLI 部署您下載的 Azure 資源管理員範本，請依照下列步驟執行：
 
-1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli-install.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
+1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](../xplat-cli-install.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
 2. 執行 **azure config mode** 命令，以切換為資源管理員模式，如下所示。
 
 		azure config mode arm
@@ -200,15 +200,15 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 
 		info:	New mode is arm
 
-3. 如有必要，請執行 **azure group create** 命令來建立新的資源群組，如下所示。請查看命令的輸出內容。輸出後顯示的清單可說明所使用的參數。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](resource-group-overview.md)。
+3. 如有必要，請執行 azure group create 命令來建立新的資源群組，如下所示。請查看命令的輸出內容。輸出後顯示的清單可說明所使用的參數。如需資源群組的詳細資訊，請造訪 [Azure Resource Manager 概觀](../resource-group-overview.md)。
 
 		azure group create -n appgatewayRG -l eastus
 
-**-n (or --name)**。新資源群組的名稱。在本文案例中為 *appgatewayRG*。
+**-n (or --name)**。新資源群組的名稱。在本文案例中為 appgatewayRG。
 
-**-l (或 --location)**。將會在當中建立新資源群組的 Azure 區域。在本文案例中為 *Eastus* 。
+**-l (或 --location)**。將會在當中建立新資源群組的 Azure 區域。在本文案例中為 eastus。
 
-4. 執行 **azure group deployment create** Cmdlet，使用先前下載並修改的範本和參數檔案來部署新的虛擬網路。輸出後顯示的清單可說明所使用的參數。
+4. 執行 azure group deployment create Cmdlet，使用先前下載並修改的範本和參數檔案來部署新的虛擬網路。輸出後顯示的清單可說明所使用的參數。
 
 		azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
@@ -284,4 +284,4 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

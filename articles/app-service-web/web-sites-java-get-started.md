@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="01/09/2016"
+	ms.date="03/04/2016"
 	ms.author="robmcm"/>
 
 # 在 Azure App Service 中建立 Java Web 應用程式
@@ -178,4 +178,4 @@
 [申請免費試用]: http://go.microsoft.com/fwlink/?LinkId=623901
 [試用 App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

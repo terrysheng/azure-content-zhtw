@@ -4,7 +4,7 @@
 	services="redis-cache,app-service" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -57,13 +57,13 @@ Microsoft Azure Redis 快取有下列階層：
 
 ![New cache][NewCacheMenu]
 
->[AZURE.NOTE] 如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
+>[AZURE.NOTE] 如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以建立免費帳戶。如需詳細資訊，請參閱 [Azure 免費試用][]。
 
 在 [新增 Redis 快取] 分頁中，指定所需的快取組態。
 
 ![Create cache][CacheCreate]
 
--	在 [DNS 名稱] 中，輸入要用於快取端點的快取名稱。快取名稱必須是介於 1 到 63 個字元的字串，並只能包含數字、字母和 `-` 字元。快取名稱的開頭或結尾不能是 `-` 字元，且連續的 `-` 字元無效。
+-	在 [DNS 名稱] 中，輸入要用於快取端點的快取名稱。快取名稱必須是介於 1 到 63 個字元的字串，而且只能包含數字、字母和 `-` 字元。快取名稱的開頭或結尾不能是 `-` 字元，且連續的 `-` 字元無效。
 -	針對 [訂閱]，選取您要用於快取的 Azure 訂閱。如果您的帳戶僅有一個訂閱，則會自動加以選取，而且不會顯示 [訂閱] 下拉式清單。
 -	在 [資源群組] 中，選取或建立快取的資源群組。如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源][]。 
 -	使用 [位置] 來指定管理快取所在的地理位置。為獲得最佳效能，Microsoft 強烈建議您在與快取用戶端應用程式相同的區域中建立快取。
@@ -335,4 +335,4 @@ Azure Redis 快取可以快取 .NET 物件及基本資料類型，但必須先�
 
 [Azure 免費試用]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

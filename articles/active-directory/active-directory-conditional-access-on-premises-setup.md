@@ -251,4 +251,4 @@ Azure Active Directory 裝置註冊使用 iOS 裝置的空中下載設定檔註�
 
 - [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-->

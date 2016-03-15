@@ -124,4 +124,4 @@ JUnit 測試有兩個版本：- [Elasticsearch1.73](https://github.com/mspnp/azu
 [Creating a Performance Testing Environment for Elasticsearch on Azure (在 Azure 上建立適用於 Elasticsearch 的效能測試環境)]: guidance-elasticsearch-creating-performance-testing-environment.md
 [Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance (部署 JMeter JUnit 取樣器以測試 Elasticsearch 效能)]: guidance-elasticsearch-deploying-jmeter-junit-sampler.md
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -97,15 +97,20 @@
 ## 後續步驟
 請注意，您已完成快速入門，並了解如何執行行動服務中的其他重要工作：
 
-* [將行動服務新增至現有的應用程式][Get started with data] <br/>深入了解使用行動服務來儲存與查詢資料。
+* [將行動服務新增至現有的應用程式][Get started with data] 
+<br/>深入了解使用行動服務來儲存與查詢資料。
 
-* [開始使用離線資料同步] <br/>了解如何使用離線資料同步功能來讓應用程式的反應更快，且更健全。
+* [開始使用離線資料同步] 
+  <br/>了解如何使用離線資料同步功能來讓應用程式的反應更快，且更健全。
 
-* [在您的行動服務應用程式中新增驗證功能][Get started with authentication] <br/>了解如何利用身分識別提供者來驗證您應用程式的使用者。
+* [在您的行動服務應用程式中新增驗證功能][Get started with authentication] 
+<br/>了解如何利用身分識別提供者來驗證您應用程式的使用者。
 
-* [將推播通知新增至您的應用程式][Get started with push notifications] <br/>了解如何將非常基本的推播通知傳送至應用程式。
+* [將推播通知新增至您的應用程式][Get started with push notifications] 
+<br/>了解如何將非常基本的推播通知傳送至應用程式。
 
-* [行動服務 .NET 後端疑難排解]<br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
+* [行動服務 .NET 後端疑難排解]
+  <br/> 了解如何診斷及修復行動服務 .NET 後端可能發生的問題。
 
 如需通用 Windows 應用程式的詳細資訊，請參閱[從單一行動服務支援多個裝置平台](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs) (英文)。
 

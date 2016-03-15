@@ -632,4 +632,4 @@ Data Factory 中資料配量的各種狀態涵蓋於[監視和管理管線](data
 
   
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

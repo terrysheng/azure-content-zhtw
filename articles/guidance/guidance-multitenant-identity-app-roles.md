@@ -178,4 +178,4 @@ if (context.User.HasClaim(ClaimTypes.Role, "Admin")) { ... }
 [Authorization in a web app using Azure AD application roles & role claims (Web 應用程式中使用 Azure AD 應用程式角色與角色宣告的授權)]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims
 [範例應用程式]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

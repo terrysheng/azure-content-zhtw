@@ -991,4 +991,4 @@
 * [連續匯出](app-insights-export-telemetry.md)
 * [程式碼範例](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

@@ -206,4 +206,4 @@ Yammer 包含下列觸發程序及動作。
 [4]: ./media/create-api-yammer/connectionconfig4.png
 [5]: ./media/create-api-yammer/connectionconfig5.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

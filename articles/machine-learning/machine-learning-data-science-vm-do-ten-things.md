@@ -894,4 +894,4 @@ Azure DocumentDB 是雲端中的 NoSQL 資料庫。它可讓您使用 JSON 等�
 ## 摘要
 這些只是您可以在 Microsoft Data Science Virtual Machine 上可做的一些事情。您還可以做更多事情，讓它成為有效的分析環境。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

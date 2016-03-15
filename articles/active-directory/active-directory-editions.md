@@ -483,4 +483,4 @@ Microsoft Identity Manager 伺服器軟體的權限會隨 Windows Server 授權 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

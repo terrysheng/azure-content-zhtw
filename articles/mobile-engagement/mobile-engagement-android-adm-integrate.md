@@ -112,4 +112,4 @@
 [整合的 ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [此程序]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

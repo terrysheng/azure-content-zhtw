@@ -195,4 +195,4 @@ Set-ADFSClaimsProviderTrust -TargetName "name" -OrganizationalAccountSuffix @("s
 [自訂 AD FS 登入頁面]: https://technet.microsoft.com/library/dn280950.aspx
 [範例應用程式]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

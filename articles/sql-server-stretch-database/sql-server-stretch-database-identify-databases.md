@@ -63,4 +63,4 @@
 ## 另請參閱
 [Surface area limitations and blocking issues for Stretch Database (Stretch Database 的介面區域限制和封鎖問題)](sql-server-stretch-database-limitations.md) [Enable Stretch Database for a database (為資料庫啟用 Stretch Database)](sql-server-stretch-database-enable-database.md) [Enable Stretch Database for a table (為資料表啟用 Stretch Database)](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

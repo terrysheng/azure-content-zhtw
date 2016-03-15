@@ -98,4 +98,4 @@ Azure AD Connect 同步處理會使用排程器來同步處理您內部部署目
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

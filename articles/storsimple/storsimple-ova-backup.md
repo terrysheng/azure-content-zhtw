@@ -104,4 +104,4 @@ StorSimple Virtual Array 是混合式雲端儲存體內部部署虛擬裝置，�
 
 深入了解[管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

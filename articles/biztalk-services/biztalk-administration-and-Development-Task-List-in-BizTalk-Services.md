@@ -45,4 +45,4 @@
 ## 其他資源  
 [新增來源、目的地和橋接器傳訊端點](https://msdn.microsoft.com/library/azure/hh689877.aspx) [學習和建立訊息對應與轉換](https://msdn.microsoft.com/library/azure/hh689905.aspx) [使用 BizTalk 配接器服務 (BAS)](https://msdn.microsoft.com/library/azure/hh689889.aspx) [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=303664)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

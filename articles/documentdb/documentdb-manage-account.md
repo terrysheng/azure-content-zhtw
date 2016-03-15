@@ -116,4 +116,4 @@ DocumentDB 支援四個定義完善的使用者可設定資料一致性層級，
 
 若要深入了解 DocumentDB，請參閱 [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409) 上的 Azure DocumentDB 文件。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

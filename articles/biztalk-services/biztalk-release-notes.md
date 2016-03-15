@@ -186,4 +186,4 @@ BizTalk Adapter Service 功能內的 BizTalk Adapter Pack 配接器可以在配�
 
 [BizTalk 服務](https://msdn.microsoft.com/library/azure/hh689864.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

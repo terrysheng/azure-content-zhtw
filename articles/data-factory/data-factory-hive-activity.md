@@ -214,4 +214,4 @@ script | 指定 Hive 指令碼內嵌 | 否
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

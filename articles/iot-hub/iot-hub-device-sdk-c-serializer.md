@@ -666,4 +666,4 @@ serializer_deinit();
 
 在此也將結束本系列有關如何使用**Azure IoT 裝置 SDK (適用於 C)**開發應用程式的三部曲。這些資訊應該不僅足以讓您入門，還能讓您徹底了解 API 的運作方式。如需其他資訊，還有一些 SDK 中的範例未涵蓋在本文中。除此之外，[SDK 文件](https://github.com/Azure/azure-iot-sdks)也是取得其他資訊的絕佳資源。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

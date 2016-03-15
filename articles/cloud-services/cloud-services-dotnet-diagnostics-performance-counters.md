@@ -320,4 +320,4 @@ Azure 診斷監視器現在即會收集自訂效能計數器資料。
 ## 後續步驟
 [檢視有關 Azure 診斷的其他文章](../azure-diagnostics.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

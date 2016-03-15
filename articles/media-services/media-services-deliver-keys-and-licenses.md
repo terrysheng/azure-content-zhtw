@@ -351,4 +351,4 @@ Azure 媒體服務 (AMS) 可讓您內嵌、編碼、新增內容保護，以及�
 
 [使用合作夥伴將 Widevine 授權傳遞到 Azure 媒體服務](media-services-licenses-partner-integration.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

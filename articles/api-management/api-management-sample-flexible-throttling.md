@@ -73,4 +73,4 @@ Azure API 管理提供速率和配額節流，不但能保護您的 API 服務�
 
 > [AZURE.VIDEO advanced-request-throttling-with-azure-api-management]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

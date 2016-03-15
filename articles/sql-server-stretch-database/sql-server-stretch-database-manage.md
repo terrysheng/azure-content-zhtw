@@ -53,4 +53,4 @@
 ## 另請參閱
 [監視 Stretch Database](sql-server-stretch-database-monitor.md) [Backup and restore Stretch-enabled databases (備份與還原已啟用 Stretch 的資料庫)](sql-server-stretch-database-backup.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

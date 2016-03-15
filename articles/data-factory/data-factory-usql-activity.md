@@ -257,4 +257,4 @@ ADF 會使用「parameters」區段動態傳遞上述 U-SQL 指令碼中 **@in**
 
 您可以指定其他屬性 (即 degreeOfParallelism、priority 等)，以及 Azure 資料湖分析服務上執行之作業的管線定義中的屬性。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

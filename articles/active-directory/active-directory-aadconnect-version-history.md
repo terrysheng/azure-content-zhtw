@@ -248,4 +248,4 @@ AD 帳戶必須獲得其他權限，才能讀取來自 AD 的密碼雜湊。要�
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

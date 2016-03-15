@@ -14,4 +14,4 @@
 
 <sup>6</sup> 在預覽期間，[基本層](http://aka.ms/azuresearchbasic)的價格為完整價格的 50% 來做為介紹費率。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

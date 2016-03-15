@@ -101,4 +101,4 @@ John 決定使用觸達 API，這種 HTTP REST API 可讓他們管理觸達活�
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

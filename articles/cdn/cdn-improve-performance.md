@@ -89,4 +89,4 @@ CDN 有兩種方式可以支援壓縮：
 1. 對於啟用媒體服務 CDN 的串流端點，壓縮功能依預設會針對下列內容類型啟用：application/vnd.ms-sstr+xml, application/dash+xml,application/vnd.apple.mpegurl, application/f4m+xml。您不能使用 Azure 入口網站啟用/停用上述類型的壓縮。  
 2. Edge Server 上只能快取一個檔案版本 (壓縮或未壓縮)。不同版本的要求將會導致 Edge Server 轉碼內容。  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

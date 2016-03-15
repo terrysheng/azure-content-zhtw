@@ -11,4 +11,4 @@
 [xamarin-android-get-started-users]: ../articles/app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md
 [ios-get-started-users]: ../articles/app-service-mobile/app-service-mobile-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

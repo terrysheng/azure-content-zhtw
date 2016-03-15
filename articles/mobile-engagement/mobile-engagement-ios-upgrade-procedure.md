@@ -72,4 +72,4 @@ SmartAd 追蹤已從 SDK 移除，因此您必須移除 `AETrackModule` 類別�
 -   `CapptainUtils` 類別已重新命名為 `EngagementUtils`。
 -   `CapptainViewController` 類別已重新命名為 `EngagementViewController`。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

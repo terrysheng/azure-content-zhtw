@@ -232,4 +232,4 @@
 
 了解如何使用本機 Web UI 來[管理您的 StorSimple 虛擬陣列](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

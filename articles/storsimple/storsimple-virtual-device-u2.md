@@ -283,4 +283,4 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
  
 - 了解如何[從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

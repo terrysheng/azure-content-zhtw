@@ -202,4 +202,4 @@
 [免費試用版]: http://azure.microsoft.com/pricing/free-trial/
 [安裝及設定 Azure PowerShell 0.8.7 版或更新版本]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

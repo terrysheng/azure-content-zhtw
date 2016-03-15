@@ -206,4 +206,4 @@ Web 應用程式防火牆功能會判斷要求是否將由 Web 應用程式防�
 * [Azure CDN 概觀](cdn-overview.md)
 * [使用規則引擎覆寫預設的 HTTP 行為](cdn-rules-engine.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

@@ -158,4 +158,4 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

@@ -135,4 +135,4 @@ upn | 使用者主體名稱。範例：`"alice@contoso.com"`
 [宣告型授權]: https://docs.asp.net/en/latest/security/authorization/claims.html
 [範例應用程式]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

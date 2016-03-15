@@ -130,4 +130,4 @@ GO
 ## 另請參閱
 [為資料庫和資料表識別 Stretch Database](sql-server-stretch-database-identify-databases.md) [ALTER DATABASE SET 選項 (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

@@ -119,4 +119,4 @@ Azure 備份與 Azure 匯入/匯出服務密切整合，可讓您快速傳輸初
 - 若您有關於 Azure 匯入/匯出工作流程的任何問題，請參閱此[文章](../storage/storage-import-export-service.md)。
 - 若您有關於工作流程的任何問題，請參閱 Azure 備份[常見問題集](backup-azure-backup-faq.md)的＜離線備份＞章節
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

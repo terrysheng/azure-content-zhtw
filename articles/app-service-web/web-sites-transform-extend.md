@@ -181,4 +181,4 @@ Web 應用程式擴充功能的程式碼位於 %HOME%\\SiteExtensions[your-exten
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

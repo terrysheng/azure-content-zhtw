@@ -28,4 +28,4 @@
 * [如何使用 IIS 輸出快取進行伺服器快取](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
 * [如何針對靜態內容啟用瀏覽器快取](http://www.iis.net/configreference/system.webserver/staticcontent)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

@@ -701,4 +701,4 @@ TablesList 的必要屬性：
 [4]: ./media/create-api-sharepointonline/connectionconfig4.png
 [5]: ./media/create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

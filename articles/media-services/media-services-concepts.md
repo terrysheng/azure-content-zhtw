@@ -252,4 +252,4 @@ StreamingEndpoint 代表可以直接將內容傳遞給用戶端播放程式應�
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

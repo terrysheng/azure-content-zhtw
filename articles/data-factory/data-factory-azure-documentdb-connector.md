@@ -427,4 +427,4 @@ DocumentDB 是 JSON 文件的 NoSQL 存放區 (允許巢狀結構)。Azure Data 
 	**回：**否。目前只能指定一個集合。
      
 
-<!----HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-------->

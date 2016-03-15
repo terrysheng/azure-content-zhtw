@@ -34,4 +34,4 @@ Microsoft Azure HDInsight 提供 PowerShell Cmdlet，對叢集執行 Hadoop 工�
 
 * [HDInsight 的學習途徑](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

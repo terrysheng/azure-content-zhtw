@@ -122,4 +122,4 @@ Azure Mobile Engagement 公開一組 API，讓您可以管理裝置、觸達/推
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

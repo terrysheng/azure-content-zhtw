@@ -59,4 +59,4 @@ Azure CDN 邊緣節點會快取資產，直到資產的存留時間 (TTL) 到期
 - [在 Azure CDN 端點上預先載入資產](cdn-preload-endpoint.md)
 - [Azure CDN REST API 參考資料 - 清除或預先載入端點](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

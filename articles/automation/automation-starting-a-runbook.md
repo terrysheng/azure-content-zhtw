@@ -189,4 +189,4 @@ jsmith
 
 -	本文中的 Runbook 結構提供混合式 Runbook 的高階說明，如需更多詳細資訊，請參閱 [Azure 自動化中的子 Runbook](automation-child-runbooks.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

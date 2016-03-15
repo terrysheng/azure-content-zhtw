@@ -73,4 +73,4 @@
 -	[12 個月預付優惠](https://azure.microsoft.com/offers/ms-azr-0026p/)的[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/)
 -	任何[適用於 Visual Studio 訂閱者之每月 Azure 點數優惠](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)的[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

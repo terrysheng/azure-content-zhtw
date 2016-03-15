@@ -88,4 +88,4 @@ TCP 和 HTTP 探查於下列狀況時會視為狀況良好，並將角色執行�
 您可以使用[負載平衡器的記錄分析](load-balancer-monitor-log.md)來檢查探查健全狀況狀態和探查計數。記錄可以與 Power BI 或 Operation Insights 搭配使用，以提供負載平衡器健全狀況狀態的統計資料。
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

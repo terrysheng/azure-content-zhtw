@@ -155,4 +155,4 @@ None | <ul><li>偵測語言種類</li><li>將文字轉換成語音</li><li>翻�
 [5]: https://datamarket.azure.com/developer/applications/
 [6]: ./media/create-api-microsofttranslator/register-your-application.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

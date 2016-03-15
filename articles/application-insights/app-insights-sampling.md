@@ -342,4 +342,4 @@ Application Insights SDK for ASP.NET v 2.0.0-beta3 及更新版本提供調適�
 
  * 使用新的 TelemetryConfiguration (非預設使用中的組態) 初始化個別的 TelemetryClient 執行個體。使用該執行個體來傳送您的罕見的事件。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

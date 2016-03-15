@@ -511,4 +511,4 @@ false | mergeFiles | <p>對於有下列結構的來源資料夾 Folder1：</p> <
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

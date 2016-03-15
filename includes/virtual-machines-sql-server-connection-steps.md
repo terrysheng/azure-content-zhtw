@@ -124,4 +124,4 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。若�
 
 如需 SQL Server 登入的詳細資訊，請參閱[建立登入](http://msdn.microsoft.com/library/aa337562.aspx)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

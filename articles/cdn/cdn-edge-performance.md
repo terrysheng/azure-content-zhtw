@@ -192,4 +192,4 @@ HTTP 回應碼 | 分解由我們的邊緣伺服器傳遞至 HTTP 用戶端的 HT
 * [使用規則引擎覆寫預設的 HTTP 行為](cdn-rules-engine.md)
 * [進階 HTTP 報告](cdn-advanced-http-reports.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

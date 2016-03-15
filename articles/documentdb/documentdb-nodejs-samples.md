@@ -119,4 +119,4 @@
 
 如需在 DocumentDB 中分割資料的詳細資訊，請參閱 [DocumentDB 中的資料分割和級別資料](documentdb-partition-data.md)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

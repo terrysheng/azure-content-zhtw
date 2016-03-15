@@ -155,4 +155,4 @@ TokenCache 會傳送兩個其他事件：
 [系列文章的其中一篇]: guidance-multitenant-identity.md
 [範例應用程式]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

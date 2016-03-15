@@ -181,4 +181,4 @@ DNS 轉送也實現 vnet 之間的 DNS 解析，並使內部部署電腦能夠�
 
 [使用網路組態檔設定虛擬網路](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

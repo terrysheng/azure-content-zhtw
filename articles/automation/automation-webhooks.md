@@ -272,4 +272,4 @@ Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。我們
 - 如需檢視 Runbook 作業狀態的詳細資訊，請參閱 [Azure 自動化中的 Runbook 執行](automation-runbook-execution.md)
 - [使用 Azure 自動化對 Azure 警示採取動作](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

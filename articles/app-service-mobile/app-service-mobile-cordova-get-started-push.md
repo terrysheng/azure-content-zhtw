@@ -195,4 +195,4 @@ PhoneGap 推播外掛程式仰賴 Google Play 服務來進行推播通知。若�
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/zh-TW/features/cordova-vs.aspx
 [通知中樞]: ../notification-hubs/notification-hubs-overview.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

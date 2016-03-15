@@ -69,4 +69,4 @@ Azure Media Encryptor|停用|
 
 既然您已了解如何取得媒體處理器執行個體，請移至[如何為資產編碼](media-services-dotnet-encode-with-media-encoder-standard.md)主題，以了解如何使用媒體編碼器標準將資產編碼。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

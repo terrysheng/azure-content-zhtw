@@ -30,4 +30,4 @@ ST\_WITHIN 查詢中多邊形引數的點數上限* |16
 
 以星號 (*) 列出的配額[可以透過聯絡 Azure 支援人員來進行調整](../articles/documentdb/documentdb-increase-limits.md)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0302_2016-------->

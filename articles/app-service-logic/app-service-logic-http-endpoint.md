@@ -120,4 +120,4 @@ POST https://management.azure.com/{resourceID of your logic app}/triggers/myendp
 | 透過 `@triggerOutputs().body.Content` 參考連入主體 | 透過 `@triggerOutputs().body` 參考 |
 | HTTP 接聽程式上的**傳送 HTTP 回應**動作 | 按一下 [回應 HTTP 要求] (不需要 API 應用程式)
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016-->

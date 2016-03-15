@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/16/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # 使用 Azure Data Factory 載入資料
@@ -40,7 +40,7 @@
 
 開始進行本教學課程之前，您需要有下列資源。
 
-   + **Azure 儲存體 Blob**：本教學課程使用 Azure 儲存體 Blob 做為 Azure Data Factory 管線的資料來源，因此您需要有此資源來儲存範例資料。如果您沒有此資源，請了解如何[建立儲存體帳戶](../storage/storage-create-storage-account/#create-a-storage-accoun/)。 
+   + **Azure 儲存體 Blob**：本教學課程使用 Azure 儲存體 Blob 做為 Azure Data Factory 管線的資料來源，因此您需要有此資源來儲存範例資料。如果您沒有此資源，請了解如何[建立儲存體帳戶](../storage/storage-create-storage-account/#create-a-storage-accoun/)。
 
    + **SQL 資料倉儲**：本教學課程會將資料從 Azure 儲存體 Blob 移至 SQL 資料倉儲，因此需要有線上的資料倉儲且已載入 AdventureWorksDW 範例資料。如果您還沒有資料倉儲，請了解如何[佈建資料倉儲](sql-data-warehouse-get-started-provision.md)。如果有資料倉儲但其中未佈建範例資料，您可以[手動載入它](sql-data-warehouse-get-started-manually-load-samples.md)。
 
@@ -158,7 +158,7 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
     "name": "<Pipeline Name>",
     "properties": {
         "description": "<Description>",
-        "activities": [ 
+        "activities": [
           {
             "type": "Copy",
     		"typeProperties": {
@@ -215,4 +215,4 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 - [教學課程：將資料從 Azure 儲存體 Blob 複製到 Azure SQL Database](../data-factory/data-factory-get-started.md)。在本教學課程中，您將在 Azure Data Factory 中建立管線，將資料從 Azure 儲存體 Blob 複製到 Azure SQL Database。
 - [真實案例教學課程](../data-factory/data-factory-tutorial.md)。這是使用 Azure Data Factory 的深入教學課程。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

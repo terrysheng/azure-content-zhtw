@@ -3,7 +3,7 @@
    description="在 Azure Active Directory 報告列出各種可用的報告"
    services="active-directory"
    documentationCenter=""
-   authors="curtand"
+   authors="dhanyahk"
    manager="stevenpo"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/10/2016"
-   ms.author="curtand;kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # 開始使用 Azure Active Directory 報告
 
@@ -67,7 +67,7 @@ Azure Active Directory (Azure AD) 包括您的目錄的安全性、活動和稽�
 
 由於 Azure AD 平台需處理大量的驗證和登入，所處理的最近登入平均而言為過去一小時。在罕見的情況下，可能需要花費多達 8 小時處理最近的登入。
 
-您可以查看每個報表頂端的說明文字，找到最近處理的登入。
+您可以查看每個報告頂端的說明文字，找到最近處理的登入。
 
 ![每個報告頂端的說明文字](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
 
@@ -152,8 +152,8 @@ Azure Active Directory (Azure AD) 包括您的目錄的安全性、活動和稽�
 
 ### 取得聯繫
 
-如有任何意見回饋、需要說明，或有任何問題，請寄送電子郵件給 [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com)。
+如有任何意見回饋、需要說明，或有任何問題，請寄送電子郵件到 [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com)。
 
 > [AZURE.TIP] 如需有關 Azure AD 報告的更多文件，請參閱[檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

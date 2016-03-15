@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/12/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # 為 SQL 資料倉儲建立支援票證
@@ -22,7 +22,7 @@
 
 ## 如何建立支援票證
 
-1. 開啟 [Azure 入口網站][]。 
+1. 開啟 [Azure 入口網站][]。
 2. 在 [首頁] 畫面上，按一下 [說明 + 支援] 磚。
 
     ![說明 + 支援](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -84,4 +84,4 @@
 [堆疊溢位]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL 資料倉儲 MSDN 論壇上]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

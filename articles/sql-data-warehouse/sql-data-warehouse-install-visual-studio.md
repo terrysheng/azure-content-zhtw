@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # 安裝適用於 SQL 資料倉儲的 Visual Studio 2015 及/或 SSDT
@@ -29,10 +29,10 @@
 
 若要安裝 Visual Studio 2015：
 
-1. 從 Visual Studio Team Services [下載 Visual Studio 2015](https://www.visualstudio.com/downloads)。 
+1. 從 Visual Studio Team Services [下載 Visual Studio 2015](https://www.visualstudio.com/downloads)。
 2. 依照 MSDN 上的[安裝 Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx) 指南進行安裝，並選擇預設組態。
 
-## 步驟 2：下載並安裝最新的 SQL Server Data Tools (SSDT) 
+## 步驟 2：下載並安裝最新的 SQL Server Data Tools (SSDT)
 
 不論是否已安裝 Visual Studio，您仍然需要最新版本的 SQL Server 資料工具 (SSDT)，才能支援 SQL 資料倉儲。
 
@@ -49,4 +49,4 @@
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

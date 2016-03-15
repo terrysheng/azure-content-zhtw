@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/04/2016"
+	ms.date="03/03/2016"
 	ms.author="jgao"/>
 
 
@@ -27,7 +27,9 @@
 
 本文件的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需 windows 叢集相關資訊，請使用頁面頂端的索引標籤選取器進行切換。
 
-###先決條件
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
+###必要條件
 
 開始進行本 HBase 教學課程之前，您必須具備下列條件：
 
@@ -41,16 +43,20 @@
 
 1. 按一下以下影像，以在 Azure 入口網站中開啟 ARM 範本。ARM 範本位於公用 Blob 容器中。 
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2FHbase.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/zh-TW/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. 從 [參數] 刀鋒視窗，輸入下列項目：
 
     - **ClusterName**：輸入您將建立的 HBase 叢集名稱。
-    - **ClusterStorageAccountName**：每個叢集均有 Azure Blob 儲存體帳戶相依性。刪除叢集之後，資料會保留在儲存體帳戶中。
     - **叢集登入名稱和密碼**：預設登入名稱是 **admin**。
-    - **SSH 使用者名稱和密碼**：預設使用者名稱是 **sshuser**。您可以將它重新命名。其他參數都是選擇性的。  
+    - **SSH 使用者名稱和密碼**：預設使用者名稱是 **sshuser**。您可以將它重新命名。
+     
+    其他參數都是選擇性的。
+    
+    每個叢集都具備 Azure Blob 儲存體帳戶相依性。刪除叢集之後，資料會保留在儲存體帳戶中。叢集預設儲存體帳戶名稱是附加 "store" 的叢集名稱。它會硬式編碼在範本變數區段中。
+        
 3. 按一下 [確定] 儲存參數。
-4. 在 [自訂部署] 刀鋒視窗中，按一下 [資源群組] 下拉式方塊，然後再按一下 [新增] 來建立新的資源群組。資源群組是聚集叢集、相依儲存體帳戶和其他已連結資源的容器。
+4. 在 [自訂部署] 刀鋒視窗中，按一下 [資源群組] 下拉式方塊，然後按一下 [新增] 來建立新的資源群組。資源群組是聚集叢集、相依儲存體帳戶和其他已連結資源的容器。
 5. 按一下 [法律條款]，然後按一下 [建立]。
 6. 按一下 [建立]。大約需要 20 分鐘的時間來建立叢集。
 
@@ -59,7 +65,7 @@
 
 ## 建立資料表和插入資料
 
-您可以使用 SSH 來連接到 HBase 叢集，並使用 HBase Shell 來建立 HBase 資料表、插入及查詢資料。如需從 Linux、Unix、OS X 和 Windows 使用 SSH 的詳細資訊，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配以 Linux 為基礎的 Hadoop 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)和[從 Windows 在 HDInsight 上搭配以 Linux 為基礎的 Hadoop 使用 SSH](hdinsight-hadoop-linux-use-ssh-windows.md)。
+您可以使用 SSH 來連接到 HBase 叢集，並使用 HBase Shell 來建立 HBase 資料表、插入及查詢資料。如需從 Linux、Unix、OS X 和 Windows 使用 SSH 的詳細資訊，請參閱[從 Linux、Unix 或 OS X 在 HDInsight 上搭配以 Linux 為基礎的 Hadoop 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 和[從 Windows 在 HDInsight 上搭配以 Linux 為基礎的 Hadoop 使用 SSH](hdinsight-hadoop-linux-use-ssh-windows.md)。
  
 
 對大多數人而言，資料會以表格形式出現：
@@ -250,7 +256,9 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 
 在高可用性叢集中，您會找到目前使用中之 HBase 主要節點 (其正在主控 WebUI) 的連結。
 
+##刪除叢集
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## 後續步驟
 在 HDInsight 的本 HBase 教學課程中，您已了解如何建立 HBase 叢集，以及如何建立資料表，並從 HBase Shell 檢視這些資料表中的資料。您同時也了解到如何使用 Hive 查詢 HBase 資料表中的資料，以及如何使用 HBase C# REST API 建立 HBase 資料表，並擷取其資料表中的資料。
@@ -287,4 +295,4 @@ SSH 也可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDI
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!------HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

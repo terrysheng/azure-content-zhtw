@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
-	manager="dwrede"
+	manager="reikre"
 	editor=""/>
 
 <tags
@@ -13,20 +13,17 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="02/05/2016"
+	ms.date="03/05/2016"
 	ms.author="ricksal"/>
 
 # 開始使用適用於 Android 的行動服務 (JavaScript 後端)
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[在 Azure 行動應用程式中建立 Android 應用程式](../app-service-mobile/app-service-mobile-android-get-started.md)。
 
 本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到 Android 應用程式。在本教學課程中，您將建立新的行動服務和簡單的**待辦事項清單**應用程式，後者會在前者儲存應用程式資料。
 
@@ -100,4 +97,4 @@
 [開始使用推播通知]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

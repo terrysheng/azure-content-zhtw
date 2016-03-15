@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/11/2016"
 	ms.author="wesmc"/>
 
@@ -127,7 +127,13 @@ Mobile Apps 開發人員可以使用下列流程來利用通知中樞：
     + 請注意，Mobile Apps 會基於安全性考量，去除註冊上的所有標籤。直接從後端使用通知中樞，將標籤關聯至裝置。
 3. 從 App 後端使用通知中樞傳送通知
 
-以下是透過此註冊為開發人員帶來的一些便利性：- **Mobile Apps Client SDK**。 這些多平台 SDK 提供簡單的 API 來進行註冊，然後會自動與連結到行動 App 的通知中樞聯繫。開發人員不需要透過通知中樞認證進行挖掘，以及使用其他服務。+ SDK 會使用 Mobile Apps 驗證的使用者識別碼自動標記指定的裝置，以啟用推送至使用者案例。+ SDK 會自動使用 Mobile Apps 安裝識別碼做為 GUID 來向通知中樞註冊，省去開發人員維護多個服務 GUID 的麻煩。**安裝模型。** Mobile Apps 會使用通知中樞的最新推送模型，來呈現 JSON 安裝中所有與裝置相關聯的推送屬性，其會與推播通知密切合作且易於使用。- **彈性。** 即使已就地整合，開發人員一律還是可以選擇直接使用通知中樞。- **[Azure 入口網站]中的整合體驗。** Mobile Apps 中會以視覺化方式呈現以功能形式出現的推送，而開發人員可以透過 Mobile Apps 輕鬆使用相關聯的通知中樞。
+以下是透過此註冊為開發人員帶來的一些便利性：
+- **Mobile Apps Client SDK。** 這些多平台 SDK 提供簡單的 API 來進行註冊，然後會自動與連結到行動 App 的通知中樞聯繫。開發人員不需要透過通知中樞認證進行挖掘，以及使用其他服務。
+    + SDK 會使用 Mobile Apps 驗證的使用者識別碼自動標記指定的裝置，以啟用推送至使用者案例。
+    + SDK 會自動使用 Mobile Apps 安裝識別碼做為 GUID 來向通知中樞註冊，省去開發人員維護多個服務 GUID 的麻煩。
+- **安裝模型。** Mobile Apps 會使用通知中樞的最新推送模型，來呈現 JSON 安裝中所有與裝置相關聯的推送屬性，其會與推播通知密切合作且易於使用。
+- **彈性。** 即使已就地整合，開發人員一律還是可以選擇直接使用通知中樞。
+- **[Azure 入口網站]中的整合體驗。** Mobile Apps 中會以視覺化方式呈現以功能形式出現的推送，而開發人員可以透過 Mobile Apps 輕鬆使用相關聯的通知中樞。
 
 
 
@@ -165,4 +171,4 @@ Mobile Apps 開發人員可以使用下列流程來利用通知中樞：
   [Azure 入口網站]: https://portal.azure.com
   [標記]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

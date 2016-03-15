@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/12/2016"
+   ms.date="03/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -127,11 +127,15 @@ Microsoft 會以適當的 BGP 社群值標記透過公用對等互連和 Microso
 | | 美國中北部 | 12076:51007 |
 | | 美國中南部 | 12076:51008 |
 | | 美國中部 | 12076:51009 |
+| | 加拿大中部 | 12076:51020 |
+| | 加拿大東部 | 12076:51021 |
 | **南美洲** | | |
 | | 巴西南部 | 12076:51014 |
 | **歐洲** | | |
 | | 北歐 | 12076:51003 |
 | | 西歐 | 12076:51002 |
+| | 英國北部 | 12076:51022 |
+| | 英國南部 2 | 12076:51023 |
 | **亞太地區** | | |
 | | 東亞 | 12076:51010 |
 | | 東南亞 | 12076:51011 |
@@ -170,8 +174,8 @@ Microsoft 不接受任何您所設定的 BGP 社群值。您必須為每個對�
 
 - 設定 ExpressRoute 連線。
 
-	- [建立傳統部署模型的 ExpressRoute 線路](expressroute-howto-circuit-classic.md)或[使用 Azure 資源管理員建立和修改 ExpressRoute 線路](expressroute-howto-circuit-arm.md)
+	- [建立傳統部署模型的 ExpressRoute 線路](expressroute-howto-circuit-classic.md)或[使用 Azure Resource Manager 建立和修改 ExpressRoute 線路](expressroute-howto-circuit-arm.md)
 	- [設定傳統部署模型的路由](expressroute-howto-routing-classic.md)或[設定資源管理員部署模型的路由](expressroute-howto-routing-arm.md)
 	- [將傳統 VNet 連結至 ExpressRoute 電路](expressroute-howto-linkvnet-classic.md)或[將資源管理員 VNet 連結至 ExpressRoute 電路](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

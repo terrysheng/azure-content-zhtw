@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
@@ -119,7 +119,7 @@
 2. 在 [容器] 下，按兩下 [資料容器]。
 3. 若要瀏覽資料路徑，請按一下 **datedimension** 資料夾，然後您就會看到所上傳的檔案 **DimDate2.txt**。
 4. 若要檢視屬性，請按一下 [DimDate2.txt]。
-5. 請注意，在 [Blob 屬性] 刀鋒視窗中，您可以下載或刪除此檔案。 
+5. 請注意，在 [Blob 屬性] 刀鋒視窗中，您可以下載或刪除此檔案。
 
     ![檢視 Azure 儲存體 Blob](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
@@ -151,12 +151,12 @@ CREATE MASTER KEY;
 
 -- B: Create a database scoped credential
 -- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
--- SECRET: Provide your Azure storage account key. 
+-- SECRET: Provide your Azure storage account key.
 
 
-CREATE DATABASE SCOPED CREDENTIAL AzureStorageCredential 
-WITH 
-    IDENTITY = 'user', 
+CREATE DATABASE SCOPED CREDENTIAL AzureStorageCredential
+WITH
+    IDENTITY = 'user',
     SECRET = '<azure_storage_account_key>'
 ;
 
@@ -165,12 +165,12 @@ WITH
 -- LOCATION: Provide Azure storage account name and blob container name.
 -- CREDENTIAL: Provide the credential created in the previous step.
 
-CREATE EXTERNAL DATA SOURCE AzureStorage 
-WITH (	
-    TYPE = HADOOP, 
+CREATE EXTERNAL DATA SOURCE AzureStorage
+WITH (
+    TYPE = HADOOP,
     LOCATION = 'wasbs://<blob_container_name>@<azure_storage_account_name>.blob.core.windows.net',
     CREDENTIAL = AzureStorageCredential
-); 
+);
 
 
 -- D: Create an external file format
@@ -178,26 +178,26 @@ WITH (
 -- FORMAT_OPTIONS: Specify field terminator, string delimiter, date format etc. for delimited text files.
 -- Specify DATA_COMPRESSION method if data is compressed.
 
-CREATE EXTERNAL FILE FORMAT TextFile 
+CREATE EXTERNAL FILE FORMAT TextFile
 WITH (
-    FORMAT_TYPE = DelimitedText, 
+    FORMAT_TYPE = DelimitedText,
     FORMAT_OPTIONS (FIELD_TERMINATOR = ',')
 );
 
 
 -- E: Create the external table
--- Specify column names and data types. This needs to match the data in the sample file. 
--- LOCATION: Specify path to file or directory that contains the data (relative to the blob container). 
+-- Specify column names and data types. This needs to match the data in the sample file.
+-- LOCATION: Specify path to file or directory that contains the data (relative to the blob container).
 -- To point to all files under the blob container, use LOCATION='.'
 
 CREATE EXTERNAL TABLE dbo.DimDate2External (
-    DateId INT NOT NULL, 
-    CalendarQuarter TINYINT NOT NULL, 
+    DateId INT NOT NULL,
+    CalendarQuarter TINYINT NOT NULL,
     FiscalQuarter TINYINT NOT NULL
 )
 WITH (
-    LOCATION='/datedimension/', 
-    DATA_SOURCE=AzureStorage, 
+    LOCATION='/datedimension/',
+    DATA_SOURCE=AzureStorage,
     FILE_FORMAT=TextFile
 );
 
@@ -212,28 +212,28 @@ SELECT count(*) FROM dbo.DimDate2External;
 
 外部資料表建立好後，您可以將資料載入至新資料表，或將其插入到現有資料表。
 
-- 若要將資料載入至新資料表，請執行 [CREATE TABLE AS SELECT (Transact-SQL)][] 陳述式。新資料表會擁有查詢中指名的資料行。資料行的資料類型會符合外部資料表定義中的資料類型。 
-- 若要將資料載入至現有資料表，請使用 [INSERT...SELECT (Transact-SQL)][] 陳述式。 
+- 若要將資料載入至新資料表，請執行 [CREATE TABLE AS SELECT (Transact-SQL)][] 陳述式。新資料表會擁有查詢中指名的資料行。資料行的資料類型會符合外部資料表定義中的資料類型。
+- 若要將資料載入至現有資料表，請使用 [INSERT...SELECT (Transact-SQL)][] 陳述式。
 
 ```
 -- Load the data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE dbo.DimDate2
-WITH 
+WITH
 (   
     CLUSTERED COLUMNSTORE INDEX,
     DISTRIBUTION = ROUND_ROBIN
 )
-AS 
+AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
-	
+
 
 在 Visual Studio 的 [SQL Server 物件總管] 內，您可以看到外部檔案格式、外部資料來源和 DimDate2External 資料表。
 
 ![檢視外部資料表](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## 步驟 5：建立新載入資料的統計資料 
+## 步驟 5：建立新載入資料的統計資料
 
 SQL 資料倉儲不會自動建立或自動更新統計資料。因此，若要達到高查詢效能，請務必在第一次載入後，於每個資料表的每個資料行上建立統計資料。另外，也請務必在大幅變更資料後更新統計資料。
 
@@ -286,4 +286,4 @@ create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 [建立資料庫範圍認證 (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

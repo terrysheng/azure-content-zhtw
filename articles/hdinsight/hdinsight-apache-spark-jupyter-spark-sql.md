@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.date="03/07/2016"
 	ms.author="nitinme"/>
 
 
@@ -23,6 +23,8 @@
 了解在 HDInsight 中建立 Apache Spark 叢集，然後使用 [Jupyter](https://jupyter.org) Notebook 對 Spark 叢集執行 Spark SQL 互動式查詢。
 
    ![開始使用 HDInsight 中的 Apache Spark](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "開始使用 HDInsight 教學課程中的 Apache Spark說明的步驟：建立儲存體帳戶、建立叢集、執行 Spark SQL 陳述式")
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 **必要條件：**
 
@@ -52,7 +54,7 @@
 
     ![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.1.png "在 Azure Preview 入口網站中建立新的叢集")
 
-3. 輸入 [叢集名稱]、針對 [叢集類型] 選取 [Hadoop]，然後從 [叢集作業系統] 下拉式功能表中選取 [Ubuntu]，再選取 Spark 的版本。如果該叢集可用，叢集名稱旁就會出現綠色勾號。
+3. 輸入「叢集名稱」、針對 [叢集類型] 選取 [Spark]、從 [叢集作業系統] 下拉式功能表中選取 [Linux]，然後選取 Spark 的版本。如果該叢集可用，叢集名稱旁就會出現綠色勾號。
 
 	![輸入叢集名稱和類型](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.2.png "輸入叢集名稱和類型")
 
@@ -141,7 +143,7 @@
 
 	![提供 Notebook 的名稱](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "提供 Notebook 的名稱")
 
-4. 您使用 PySpark 核心建立 Notebook，因此不需要明確建立任何內容。當您執行第一個程式碼儲存格時，系統會自動為您建立 Spark、SQL 和 Hive 內容。您可以從匯入這個案例所需的類型開始。方法是，將下列程式碼片段貼到一個儲存格中，然後按下 **SHIFT + ENTER**。
+4. 您使用 PySpark 核心建立 Notebook，因此不需要明確建立任何內容。當您執行第一個程式碼儲存格時，系統會自動為您建立 Spark、SQL 和 Hive 內容。您可以從匯入這個案例所需的類型開始。方法是將下列程式碼片段貼到儲存格中，然後按下 **SHIFT + ENTER**。
 
 		from pyspark.sql.types import *
 		
@@ -168,7 +170,7 @@
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. 您使用的是 PySpark 核心，因此您現在可以直接在您剛才使用 `%%sql` magic 建立的暫存資料表 **hvac** 上執行 SQL 查詢。如需 `%%sql` magic 及可搭配 PySpark 核心使用的其他 magic 的詳細資訊，請參閱[使用 Spark HDInsight 叢集之 Jupyter Notebook 上可用的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)。
+5. 由於您使用的是 PySpark 核心，因此現在可直接在您剛才使用 `%%sql` magic 建立的暫存資料表 **hvac** 上執行 SQL 查詢。如需 `%%sql` magic 以及可搭配 PySpark 核心使用的其他 magic 的詳細資訊，請參閱[使用 Spark HDInsight 叢集之 Jupyter Notebook 上可用的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)。
 		
 		%%sql
 		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"")
@@ -183,6 +185,10 @@
 
 
 6. 應用程式執行完畢之後，您應該要關閉 Notebook 來釋放資源。方法是從 Notebook 的 [檔案] 功能表上，按一下 [關閉並停止]。這樣就能夠結束並關閉 Notebook。
+
+##刪除叢集
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## <a name="seealso"></a>另請參閱
@@ -235,4 +241,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0309_2016-->

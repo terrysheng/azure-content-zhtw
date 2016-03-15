@@ -28,7 +28,7 @@
 
 ## 建立實驗室
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 1. 點選 [瀏覽]。
 
@@ -61,4 +61,4 @@
 
 - [將具有構件的 VM 加入至 Azure DevTest 實驗室](devtest-lab-add-vm-with-artifacts.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

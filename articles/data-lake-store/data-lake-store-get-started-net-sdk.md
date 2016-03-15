@@ -1,19 +1,19 @@
-<properties 
-   pageTitle="使用資料湖存放區 .NET SDK 來開發應用程式 | Azure" 
-   description="使用 Azure 資料湖存放區 .NET SDK 來開發應用程式" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="使用資料湖存放區 .NET SDK 來開發應用程式 | Azure"
+   description="使用 Azure 資料湖存放區 .NET SDK 來開發應用程式"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="02/29/2016"
+   ms.workload="big-data"
+   ms.date="03/07/2016"
    ms.author="nitinme"/>
 
 # 使用 .NET SDK 開始使用 Azure 資料湖存放區
@@ -67,15 +67,15 @@
 5. 將 Nuget 封裝新增至您的專案。
 
 	1. 在方案總管中以滑鼠右鍵按一下專案名稱，然後按一下 [**管理 NuGet 封裝**]。
-	2. 在 [Nuget 封裝管理員] 索引標籤中，請確定 [封裝來源] 設為 [nuget.org]，且已選取 [包含發行前版本] 核取方塊。
+	2. 在 [Nuget 封裝管理員] 索引標籤中，確定 [封裝來源] 設為 [nuget.org]，且已選取 [包含發行前版本] 核取方塊。
 	3. 搜尋並安裝下列資料湖存放區封裝：
-	
+
 		* `Microsoft.Azure.Management.DataLake.Store`
 		* `Microsoft.Azure.Management.DataLake.StoreUploader`
 
 		![新增 Nuget 來源](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "建立新的 Azure 資料湖帳戶")
 
-	4. 亦請安裝 Azure Active Directory 驗證的 `Microsoft.IdentityModel.Clients.ActiveDirectory` 封裝。
+	4. 亦請安裝 Azure Active Directory 驗證的 `Microsoft.IdentityModel.Clients.ActiveDirectory` 封裝。確定您會「清除」[包括發行前版本] 核取方塊，如此一來，您就能安裝此封裝的穩定版本。
 
 		![新增 Nuget 來源](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "建立新的 Azure 資料湖帳戶")
 
@@ -85,7 +85,7 @@
 7. 開啟 [**Program.cs**]，並以下列程式碼取代現有的程式碼區塊。此外，請提供程式碼片段中呼叫的參數值，例如 **\_adlsAccountName**、**\_resourceGroupName**，並取代 **APPLICATION-CLIENT-ID**、**APPLICATION-REPLY-URI** 和 **SUBSCRIPTION-ID** 等預留位置。
 
 	這個程式碼會進行以下程序：建立資料湖存放區帳戶、在存放區中建立資料夾，最後會刪除帳戶。如果您正在尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)取得 **Ambulance Data** 資料夾。
-	
+
         using System;
         using System.IO;
         using System.Security;
@@ -115,16 +115,16 @@
                     _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name for a NEW Store account.
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value. This resource group should already exist.
                     _location = "East US 2";
-                    
+
                     string localFolderPath = @"C:\local_path"; // TODO: Make sure this exists and can be overwritten.
                     string localFilePath = @"C:\local_path\file.txt"; // TODO: Make sure this exists and can be overwritten.
                     string remoteFolderPath = "/data_lake_path/";
                     string remoteFilePath = remoteFolderPath + "file.txt";
-                    
+
                     // Authenticate the user
                     var tokenCreds = AuthenticateUser("common", "https://management.core.windows.net/",
                         "<APPLICATION-CLIENT-ID>", new Uri("https://<APPLICATION-REPLY-URI>")); // TODO: Replace bracketed values.
-                    
+
                     SetupClients(tokenCreds, "<SUBSCRIPTION-ID>"); // TODO: Replace bracketed value.
 
                     // Run sample scenarios
@@ -185,7 +185,7 @@
 
                 // Authenticate the user with AAD through an interactive popup.
                 // You need to have an application registered with AAD in order to authenticate.
-                //   For more information and instructions on how to register your application with AAD, see: 
+                //   For more information and instructions on how to register your application with AAD, see:
                 //   https://azure.microsoft.com/zh-TW/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateUser(string tenantId, string resource, string appClientId, Uri appRedirectUri, string userId = "")
                 {
@@ -199,7 +199,7 @@
 
                 // Authenticate the application with AAD through the application's secret key.
                 // You need to have an application registered with AAD in order to authenticate.
-                //   For more information and instructions on how to register your application with AAD, see: 
+                //   For more information and instructions on how to register your application with AAD, see:
                 //   https://azure.microsoft.com/zh-TW/documentation/articles/resource-group-create-service-principal-portal/
                 public static TokenCredentials AuthenticateApplication(string tenantId, string resource, string appClientId, Uri appRedirectUri, SecureString clientSecret)
                 {
@@ -240,7 +240,7 @@
                 {
                     var response = _adlsClient.Account.List(_adlsAccountName);
                     var accounts = new List<DataLakeStoreAccount>(response);
-                    
+
                     while (response.NextPageLink != null)
                     {
                         response = _adlsClient.Account.ListNext(response.NextPageLink);
@@ -320,4 +320,4 @@
 - [搭配資料湖存放區使用 Azure 資料湖分析](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

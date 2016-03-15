@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/16/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # 新增快取以改善 Azure API 管理的效能
@@ -22,7 +22,7 @@
 
 本指南說明如何新增 API 的回應快取，以及設定範例 Echo API 作業的原則。您之後可以從開發人員入口網站呼叫作業，確認快取作用中。
 
->[AZURE.NOTE]如需使用原則運算式依索引鍵快取項目的詳細資訊，請參閱 [在 Azure API 管理中自訂快取](api-management-sample-cache-by-key.md)。
+>[AZURE.NOTE] 如需使用原則運算式依索引鍵快取項目的詳細資訊，請參閱 [在 Azure API 管理中自訂快取](api-management-sample-cache-by-key.md)。
 
 ## 必要條件
 
@@ -32,7 +32,7 @@
 
 在此步驟中，您將檢閱範例 Echo API 的**取得資源 (快取)** 作業的快取設定。
 
->[AZURE.NOTE]每個「API 管理」服務執行個體皆隨附預先設定的範例 Echo API，可供您試驗與了解「API 管理」。如需詳細資訊，請參閱[開始使用 Azure API 管理][]。
+>[AZURE.NOTE] 每個「API 管理」服務執行個體皆隨附預先設定的範例 Echo API，可供您試驗與了解「API 管理」。如需詳細資訊，請參閱[開始使用 Azure API 管理][]。
 
 若要開始，請在 Azure 傳統入口網站中，針對您的 API 管理服務按一下 [管理]。這會帶您前往 API 管理發行者入口網站。
 
@@ -89,7 +89,7 @@
 		</outbound>
 	</policies>
 
->[AZURE.NOTE]在原則編輯器中對快取原則所做的變更，將反映在作業的 [快取] 索引標籤中，反之亦然。
+>[AZURE.NOTE] 在原則編輯器中對快取原則所做的變更，將反映在作業的 [快取] 索引標籤中，反之亦然。
 
 ## <a name="test-operation"> </a>呼叫作業和測試快取
 
@@ -164,4 +164,4 @@
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

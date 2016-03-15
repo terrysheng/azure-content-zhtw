@@ -1,29 +1,29 @@
-<properties 
-   pageTitle="開始使用資料湖存放區 | Azure" 
-   description="使用 Azure PowerShell 建立資料湖存放區帳戶，並執行基本作業" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="開始使用資料湖存放區 | Azure"
+   description="使用 Azure PowerShell 建立資料湖存放區帳戶，並執行基本作業"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # 使用 Azure PowerShell 開始使用 Azure 資料湖分析存放區
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
+- [使用入口網站](data-lake-store-get-started-portal.md)
+- [使用 PowerShell](data-lake-store-get-started-powershell.md)
+- [使用 .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [使用 Azure CLI](data-lake-store-get-started-cli.md)
+- [使用 Node.js](data-lake-store-manage-use-nodejs.md)
 
 了解如何使用 Azure PowerShell 建立 Azure 資料湖存放區帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需有關資料湖存放區的詳細資訊，請參閱[資料湖存放區概觀](data-lake-store-overview.md)。
 
@@ -37,7 +37,7 @@
 
 ##安裝 Azure PowerShell 1.0 或更新版本
 
-請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](powershell-azure-resource-manager.md#prerequisites)的「必要條件」一節。
+請參閱[搭配使用 Azure PowerShell 與 Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites)的＜必要條件＞一節。
 
 ## 建立 Azure 資料湖存放區帳戶
 
@@ -45,15 +45,15 @@
 
         # Log in to your Azure account
 		Login-AzureRmAccount
-        
+
 		# List all the subscriptions associated to your account
 		Get-AzureRmSubscription
-		
-		# Select a subscription 
+
+		# Select a subscription
 		Set-AzureRmContext -SubscriptionId <subscription ID>
-        
+
 		# Register for Azure Data Lake Store
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore" 
+		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 
 2. Azure 資料湖存放區帳戶與 Azure 資源群組相關聯。從建立 Azure 資源群組開始。
@@ -118,8 +118,8 @@
 
 若要刪除檔案，請使用下列命令：
 
-	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv 
-	
+	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014_Copy.csv
+
 出現提示時，請輸入 **Y** 刪除項目。如果您要刪除多個檔案，可以提供所有的路徑並以逗號分隔。
 
 	Remove-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Paths $myrootdir\mynewdirectory\vehicle1_09142014.csv, $myrootdir\mynewdirectoryvehicle1_09142014_Copy.csv
@@ -143,7 +143,7 @@
 ## 後續步驟
 
 - [保護資料湖存放區中的資料](data-lake-store-secure-data.md)
-- [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
+- [搭配資料湖存放區使用 Azure 資料湖分析](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

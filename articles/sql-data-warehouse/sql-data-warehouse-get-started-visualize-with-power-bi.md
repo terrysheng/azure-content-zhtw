@@ -1,5 +1,5 @@
 <properties
-   pageTitle="使用 Power BI 視覺化 SQL 資料倉儲資料 | Microsoft Azure"
+   pageTitle="使用 Power BI 來將 SQL 資料倉儲資料視覺化 | Microsoft Azure"
    description="使用 Power BI 視覺化 SQL 資料倉儲資料"
    services="sql-data-warehouse"
    documentationCenter="NA"
@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # 使用 Power BI 視覺化資料
 
 
-> [AZURE.NOTE]若要完成本教學課程，您需要隨著 AdventureWorksDW 範例資料庫預先載入的 SQL 資料倉儲資料庫。[建立 SQL 資料倉儲](sql-data-warehouse-get-started-provision.md)示範如何建立一個資料倉儲。
-> 
+> [AZURE.NOTE] 若要完成本教學課程，您需要隨著 AdventureWorksDW 範例資料庫預先載入的 SQL 資料倉儲資料庫。[建立 SQL 資料倉儲](sql-data-warehouse-get-started-provision.md)示範如何建立一個資料倉儲。
+>
 > 如果您已經有 SQL 資料倉儲資料庫但沒有範例資料，您可以[手動載入範例資料][]。
 
 本教學課程會示範如何使用 Power BI 來連接到 SQL 資料倉儲，並建立一些基本的視覺效果。
@@ -32,7 +32,7 @@
 若要開啟 Power BI 並連接到您的 AdventureWorksDW 資料庫：
 
 1. 登入 [Azure 入口網站][]。
-2. 按一下 [SQL 資料庫]，並選擇您的 AdventureWorks SQL 資料倉儲資料庫。 
+2. 按一下 [SQL 資料庫]，並選擇您的 AdventureWorks SQL 資料倉儲資料庫。
 
     ![尋找您的資料庫][1]
 
@@ -58,7 +58,7 @@
 
 您現在已準備好使用 Power BI 來分析 AdventureWorksDW 範例資料。為了執行分析，AdventureWorksDW 有一個稱為 AggregateSales 的檢視。這個檢視包含用來分析公司銷售的一些重要指標。
 
-1. 若要根據郵遞區號建立銷售金額的對應圖，請在右手邊欄位窗格中按一下 AggregateSales 檢視以展開它。按一下 [PostalCode] 和 [SalesAmount] 資料行來選取它們。 
+1. 若要根據郵遞區號建立銷售金額的對應圖，請在右手邊欄位窗格中按一下 AggregateSales 檢視以展開它。按一下 [PostalCode] 和 [SalesAmount] 資料行來選取它們。
 
     ![Power BI 選取 AggregateSales][6]
 
@@ -67,7 +67,7 @@
     ![Power BI 對應圖][7]
 
 2. 這個步驟會建立橫條圖，顯示每個客戶收入的銷售金額。若要建立此項，請移至展開的 AggregateSales 檢視。按一下 [SalesAmount] 欄位。將 [客戶收入] 欄位向左拖放到座標軸。
-    
+
     ![Power BI 選取軸][8]
 
     我們已將橫條圖移到左邊。
@@ -111,4 +111,4 @@
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

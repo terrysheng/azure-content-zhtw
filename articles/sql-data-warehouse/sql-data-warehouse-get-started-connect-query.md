@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # 使用 Visual Studio 連接及查詢
@@ -46,7 +46,7 @@
 
 1. 開啟 Visual Studio。
 2. 從 [檢視] 功能表開啟 **SQL Server 物件總管**
- 
+
 ![][2]
 
 3. 按一下 [新增 SQL Server] 按鈕
@@ -91,4 +91,4 @@
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

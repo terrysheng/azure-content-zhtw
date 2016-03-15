@@ -135,7 +135,9 @@
 您可以設定 Azure AD Connect Health 代理程式使用 HTTP Proxy。
 
 >[AZURE.NOTE]
-- 使用 “Netsh WinHttp set ProxyServerAddress” 將無作用，因為代理程式使用 System.Net (而非 Microsoft Windows HTTP 服務) 產生 Web 要求。- 已設定的 Http Proxy 位址將用於傳遞已加密的 Https 訊息。- 不支援已驗證的 Proxy (使用 HTTPBasic)。
+- "Netsh WinHttp set Proxy" 無法運作，因為代理程式使用 System.Net (而不是 Microsoft Windows HTTP 服務) 提出 Web 要求。
+- 設定的 Http Proxy 地址會用來當做傳遞加密 Https 訊息。
+- 不支援已驗證的 Proxy (使用 HTTPBasic)。
 
 ### 變更健康情況代理程式 Proxy 組態
 您有下列選項來設定 Azure AD Connect Health 代理程式使用 HTTP Proxy。
@@ -190,7 +192,7 @@
 
 您可以在命令中使用 -ShowResults 旗標來檢視詳細的記錄。請使用下列範例：
 
-    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResults
+    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
 
 >[AZURE.NOTE]為了使用連線工具，您必須先完成代理程式註冊。如果您無法完成代理程式註冊，請確定您已符合 Azure AD Connect Health 的所有[需求](active-directory-aadconnect-health.md#requirements)。這項連線測試預設是在代理程式註冊期間執行。
 
@@ -204,4 +206,4 @@
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 版本歷程記錄](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

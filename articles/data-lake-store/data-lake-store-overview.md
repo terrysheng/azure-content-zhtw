@@ -1,18 +1,18 @@
-<properties 
-   pageTitle="Azure 資料湖存放區概觀 | Azure" 
-   description="了解什麼是 Azure 資料湖存放區以及它對其他資料存放區提供的值" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Azure 資料湖存放區概觀 | Azure"
+   description="了解什麼是 Azure 資料湖存放區以及它對其他資料存放區提供的值"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/22/2016"
    ms.author="nitinme"/>
 
@@ -83,9 +83,8 @@ Azure 資料湖存放區會使用 Azure Active Directory 進行驗證，並使�
 
 請參閱[透過 Azure 入口網站開始使用資料湖存放區](data-lake-store-get-started-portal.md)，了解如何使用 Azure 入口網站佈建資料湖存放區。佈建 Azure 資料湖存放區後，您即可了解如何搭配資料湖存放區使用巨量資料產品，例如 Azure 資料湖分析或 Azure HDInsight。您也可以建立 .NET 應用程式，進而建立 Azure 資料湖存放區帳戶和執行各項作業，例如上傳資料、下載資料等。
 
-- [開始使用 Azure 資料湖分析](data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [開始使用 Azure 資料湖分析](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [使用 .NET SDK 開始使用 Azure 資料湖存放區](data-lake-store-get-started-net-sdk.md)
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

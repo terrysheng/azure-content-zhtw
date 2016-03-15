@@ -1,17 +1,17 @@
-<properties
-	pageTitle="Site Recovery：常見問題集 | Microsoft Azure"
+<properties 
+	pageTitle="Site Recovery：常見問題集 | Microsoft Azure" 
 	description="本文回答 Azure Site Recovery 的相關熱門問題。"
-	services="site-recovery"
+	services="site-recovery" 
 	documentationCenter=""
 	authors="rayne-wiselman"
 	manager="jwhit"
 	editor=""/>
 
-<tags
+<tags 
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
 	ms.date="02/14/2016"
 	ms.author="raynew"/>
@@ -32,7 +32,7 @@ Site Recovery 可藉由協調及自動執行內部部署虛擬機器與實體伺
 
 ### Site Recovery 可以保護什麼？
 
-- **Hyper-V 虛擬機器**：Site Recovery 可以保護 Hyper-V VM 上執行的任何工作負載。
+- **Hyper-V 虛擬機器**：Site Recovery 可以保護 Hyper-V VM 上執行的任何工作負載。 
 - **實體伺服器**：Site Recovery 可以保護執行 Windows 或 Linux 的實體伺服器。
 - **VMware 虛擬機器**：Site Recovery 可以保護 VMware VM 上執行的任何工作負載。
 
@@ -64,11 +64,11 @@ Site Recovery 可以保護在所支援之 VM 上執行的任何工作負載。
 您可以使用 Site Recovery 來保護在虛擬機器或實體伺服器上執行的大多數工作負載。Site Recovery 可以協助您部署應用程式感知 DR。除了與 Microsoft 應用程式 (包括 SharePoint、Exchange、Dynamics、SQL Server 及 Active Directory) 整合之外，也與產業龍頭 (包括 Oracle、SAP、IBM 及 Red Hat) 密切合作。您可以針對每個特定的應用程式自訂災害復原解決方案。[深入了解](site-recovery-workload.md)工作負載保護。
 
 
-### 一定需要 System Center VMM 伺服器才能保護 Hyper-V 虛擬機器嗎？
+### 一定需要 System Center VMM 伺服器才能保護 Hyper-V 虛擬機器嗎？ 
 
 否。除了能夠複寫位於 VMM 雲端中的 Hyper-V VM，您也可以在沒有部署的 VMM 的環境中複寫 Hyper-V VM。[深入了解](site-recovery-hyper-v-site-to-azure.md)。請注意，如果您想要複寫至次要資料中心，就必須在 VMM 雲端中管理 Hyper-V 主機伺服器。
 
-### 如果我只有一部 VMM 伺服器，可以部署 Site Recovery 搭配 VMM 嗎？
+### 如果我只有一部 VMM 伺服器，可以部署 Site Recovery 搭配 VMM 嗎？ 
 
 是。您可以將 VMM 伺服器上雲端中的 Hyper-V VM 複寫至 Azure，或是在同一部伺服器上的 VMM 雲端之間進行複寫。請注意，若要在內部部署的單位間進行複寫，建議您在主要與次要站台中具有 VMM 伺服器。[閱讀更多資訊](site-recovery-single-vmm.md)
 
@@ -90,7 +90,7 @@ Site Recovery 可以保護在所支援之 VM 上執行的任何工作負載。
 
 是。Site Recovery 會在容錯移轉時從第 2 代轉換成第 1 代。在容錯回復時，機器會轉換回第 2 代。[閱讀更多資訊](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。
 
-### 如果複寫至 Azure，我要如何支付 Azure VM 費用？
+### 如果複寫至 Azure，我要如何支付 Azure VM 費用？ 
 
 在一般複寫期間，就會將資料複寫至異地備援的 Azure 儲存體，您不需要支付任何 Azure IaaS 虛擬機器費用 (這是一項重要的優點)。當您容錯移轉到 Azure 時，Site Recovery 會自動建立 Azure IaaS 虛擬機器，之後就會針對您在 Azure 中取用的運算資源進行計費。
 
@@ -131,13 +131,13 @@ Site Recovery 已經過 ISO 27001:2005 認證，並且正在完成其 HIPAA、DP
 
 ### 我可以多久複寫一次資料？
 - **Hyper-V：**在 Windows Server 2012 R2 上執行的 Hyper-V VM 可以每隔 30 秒、5 分鐘或 15 分鐘複寫一次。如果您已設定 SAN 複寫，則複寫將會是同步的。
-- **VMware 與實體伺服器：**複寫頻率在此處並不相關。複寫將會是連續的。
+- **VMware 與實體伺服器：**複寫頻率在此處並不相關。複寫將會是連續的。 
 
 ### 我可以將複寫從現有的復原網站延伸到另一個第三網站嗎？
 不支援延伸的或鏈結的複寫。請在[意見反應論壇](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication/)中傳送有關這項功能的意見反應。
 
 
-### 我可以在第一次複寫至 Azure 時進行離線複寫嗎？
+### 我可以在第一次複寫至 Azure 時進行離線複寫嗎？ 
 
 不支援此做法。請在[意見反應論壇](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from/)中傳送有關這項功能的意見反應給我們。
 
@@ -150,7 +150,7 @@ Site Recovery 已經過 ISO 27001:2005 認證，並且正在完成其 HIPAA、DP
 
 複寫 Hyper-V 虛擬機器時，支援使用動態磁碟。複寫 VMware 虛擬機器或實體伺服器時，則不支援。請在[意見反應論壇](https://feedback.azure.com/forums/256299-site-recovery/)中傳送有關這項功能的意見反應給我們。
 
-### 如果容錯移轉到 Azure，在容錯移轉之後，我要如何存取存取 Azure 虛擬機器？
+### 如果容錯移轉到 Azure，在容錯移轉之後，我要如何存取存取 Azure 虛擬機器？ 
 
 您可以透過安全的網際網路連線，或是如果您有的話，也可以透過站台對站台 VPN (或 Azure ExpressRoute)，存取 Azure VM。透過 VPN 連線的通訊會通向 VM 所在的 Azure 網路上的內部連接埠。透過網際網路的通訊會對應到 Azure 雲端服務上 VM 的公用端點。
 
@@ -168,7 +168,7 @@ Azure 是針對服務復原能力而設計的。Site Recovery 已經設計成可
 容錯移轉並非自動發生。您只要在入口網站中按一下滑鼠即可起始容錯移轉，或是使用 [Site Recovery PowerShell Cmdlet](https://msdn.microsoft.com/library/dn850420.aspx) 來觸發容錯移轉。容錯回復在 Site Recovery 中也是一個簡單的動作。若要進行自動化，您可以使用內部部署 Orchestrator 或 Operations Manager 來偵測虛擬機器失敗，然後使用 SDK 來觸發容錯移轉。
 
 ### 如果我複寫 Hyper-V VM，可以調節為 Hyper-V 複寫流量配置的頻寬嗎？
-- 如果您是在兩個內部部署站台上的 Hyper-V VM 之間進行複寫，則您可以使用 Windows QoS。以下是一個簡單的指令碼：
+- 如果您是在兩個內部部署站台上的 Hyper-V VM 之間進行複寫，則您可以使用 Windows QoS。以下是一個簡單的指令碼： 
 
     	New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
     	gpupdate.exe /force
@@ -219,4 +219,4 @@ Azure 是針對服務復原能力而設計的。Site Recovery 已經設計成可
 - 參閱 [Site Recovery 概觀](site-recovery-overview.md)
 - 了解 [Site Recovery 架構](site-recovery-components.md)  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

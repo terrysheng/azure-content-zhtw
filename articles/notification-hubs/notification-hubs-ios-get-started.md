@@ -42,7 +42,7 @@
 + 支援 iOS 8 (或更新版本) 的裝置
 + iOS Developer Program 成員資格
 
-   >[AZURE.NOTE] 基於推播通知的組態需求，您必須在使用 iOS 系統的裝置 (iPhone 或 iPad)，而不是在 iOS 模擬器上部署和測試推播通知。
+   > [AZURE.NOTE] 基於推播通知的組態需求，您必須在使用 iOS 系統的裝置 (iPhone 或 iPad)，而不是在 iOS 模擬器上部署和測試推播通知。
 
 完成本教學課程是參加 iOS app 所有其他通知中樞教學課程的先決條件。
 
@@ -56,7 +56,7 @@
 
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="7">
+<ol start="6">
 <li>
 <p>按一下頂端的 [設定]<b></b> 索引標籤，然後按一下 Apple 通知設定中的 [上傳]<b></b> 按鈕，以上傳憑證指紋。接著選取稍早匯出的 <b>.p12</b> 憑證以及憑證的密碼。</p>
 <p>因為這是用於開發，請務必選取 [沙箱]<b></b> 模式。只有在您想傳送推播通知給從市集購買 App 的使用者時，才使用 [生產]<b></b> 模式。</p>
@@ -507,4 +507,4 @@
 
 [本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

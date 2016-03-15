@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/12/2016"
+	ms.date="03/07/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -71,7 +71,7 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 **密碼到期原則**
 
-如果使用者位於密碼同步處理範圍內，則雲端帳戶的密碼會設為「永不到期」。這表示使用者的密碼可能在內部部署環境中已到期，但他們仍可以繼續使用到期的密碼登入雲端服務。
+如果使用者位於密碼同步處理範圍內，則雲端帳戶的密碼會設為「永不到期」。這表示使用者的密碼可能在內部部署環境中已到期，但他們仍可以在密碼同步週期後繼續使用新密碼登入雲端服務。
 
 雲端密碼會於下一次使用者在內部部署環境中變更密碼時更新。
 
@@ -159,4 +159,4 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 * [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

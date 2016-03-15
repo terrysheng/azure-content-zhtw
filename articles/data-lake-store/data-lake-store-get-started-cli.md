@@ -1,29 +1,29 @@
-<properties 
+<properties
    pageTitle="使用跨平台命令列介面開始使用資料湖存放區 | Microsoft Azure"
-   description="使用 Azure 跨平台命令列建立資料湖存放區帳戶並執行基本作業" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+   description="使用 Azure 跨平台命令列建立資料湖存放區帳戶並執行基本作業"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # 使用 Azure 命令列開始使用 Azure 資料湖存放區
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-get-started-portal.md)
-- [Using PowerShell](data-lake-store-get-started-powershell.md)
-- [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-- [Using Azure CLI](data-lake-store-get-started-cli.md)
-- [Using Node.js](data-lake-store-manage-use-nodejs.md)
+- [使用入口網站](data-lake-store-get-started-portal.md)
+- [使用 PowerShell](data-lake-store-get-started-powershell.md)
+- [使用 .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [使用 Azure CLI](data-lake-store-get-started-cli.md)
+- [使用 Node.js](data-lake-store-manage-use-nodejs.md)
 
 了解如何使用 Azure 命令列介面建立 Azure 資料湖存放區帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需有關資料湖存放區的詳細資訊，請參閱[資料湖存放區概觀](data-lake-store-overview.md)。
 
@@ -35,12 +35,12 @@ Azure CLI 會在 Node.js 中實作。此工具可在任何支援 Node.js 的平�
 開始閱讀本文之前，您必須符合下列必要條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-- **啟用您的 Azure 訂用帳戶**以使用資料湖存放區公開預覽版。請參閱[指示](data-lake-store-get-started-portal.md#signup)。 
+- **啟用您的 Azure 訂用帳戶**以使用資料湖存放區公開預覽版。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
 - **Azure CLI** - 請參閱 [安裝及設定 Azure CLI](../xplat-cli-install.md) 以取得安裝和設定資訊。在安裝 CLI 之後，請務必重新啟動您的電腦。
 
 ##登入您的 Azure 訂用帳戶
 
-依照[從 Azure 命令列介面 (Azure CLI) 連線到 Azure 訂用帳戶](xplat-cli-connect.md)中記載的步驟，使用 __login__ 方法連線到您的訂用帳戶。
+依照[從 Azure 命令列介面 (Azure CLI) 連線到 Azure 訂用帳戶](../xplat-cli-connect.md)中記載的步驟，使用 __login__ 方法連線到您的訂用帳戶。
 
 
 ## 建立 Azure 資料湖存放區帳戶
@@ -146,12 +146,12 @@ Azure CLI 會在 Node.js 中實作。此工具可在任何支援 Node.js 的平�
 
 * **若要刪除檔案**，請使用下列命令：
 
-		azure datalake store filesystem delete <dataLakeStoreAccountName> <path> 
+		azure datalake store filesystem delete <dataLakeStoreAccountName> <path>
 
 	例如：
 
 		azure datalake store filesystem delete mynewdatalakestore /mynewfolder/vehicle1_09142014_copy.csv
-	
+
 	出現提示時，請輸入 **Y** 刪除項目。
 
 ## 檢視資料湖存放區中資料夾的存取控制清單
@@ -187,10 +187,10 @@ Azure CLI 會在 Node.js 中實作。此工具可在任何支援 Node.js 的平�
 ## 後續步驟
 
 - [保護資料湖存放區中的資料](data-lake-store-secure-data.md)
-- [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
+- [搭配資料湖存放區使用 Azure 資料湖分析](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

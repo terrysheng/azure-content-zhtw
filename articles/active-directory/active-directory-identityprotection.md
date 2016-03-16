@@ -80,7 +80,8 @@ Identity Protection 會使用此資料來產生報告和警示，讓您調查這
 | 從受感染的裝置登入 | 從可能受感染的裝置登入 |
 | 從匿名 IP 位址登入 | 從不明來源登入 |
 | 從具有可疑活動的 IP 位址登入 |	從具有可疑活動的 IP 位址登入 |
-| 從不熟悉的位置登入 | - | | 鎖定事件 (不在公開預覽中) | - |
+| 從不熟悉的位置登入 | - | 
+| 鎖定事件 (不在公開預覽中) | - |
 
 下列 Azure AD 異常活動報告不會納入為 Azure AD Identity Protection 中的風險事件，因此不會透過 Identity Protection 提供。這些報告仍可在 Azure 管理入口網站中取得，不過將會在未來某個時候淘汰，因為它們正由 Identity Protection 中的風險事件所取代。
 
@@ -637,4 +638,4 @@ Azure AD Identity Protection 可讓您執行下列作業，以協助您管理首
  - [Azure AD 和身分識別展示：Identity Protection 預覽](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
  - [Identity Protection 詞彙](active-directory-identityprotection-glossary.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!-----HONumber=AcomDC_0302_2016-------->

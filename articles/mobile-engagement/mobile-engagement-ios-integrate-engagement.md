@@ -44,6 +44,8 @@ Engagement 需要額外的架構才能運作：在專案總管中，開啟專案
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
+
+
 > [AZURE.NOTE] AdSupport 架構可以移除。Engagement 需要此架構來收集 IDFA。但您可以停用 IDFA 集合 \<ios-sdk-engagement-idfa\>，以符合關於此識別碼的新 Apple 原則。
 
 ##初始化 Engagement SDK

@@ -470,7 +470,7 @@ Web 和 WebJob 專案都將使用 SQL Database，因此兩者都會需要 Contos
 	- *Global.asax.cs*  
 	- 在 *Controllers* 資料夾中，新增檔案︰*AdController.cs*
 	- *Views\\Shared* 資料夾中的 *\_Layout.cshtml* 檔案
-- 在 *Views\\Home* 資料夾中：*Index.cshtml*
+	- 在 *Views\\Home* 資料夾中：*Index.cshtml*
 	- 在 *Views\\Ad* 資料夾中 (請先建立此資料夾)：五個 *.cshtml* 檔案<br/><br/>
 
 3. 在 ContosoAdsWebJob 專案中，從所下載的專案加入下列檔案。

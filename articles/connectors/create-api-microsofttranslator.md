@@ -54,8 +54,8 @@ None | <ul><li>偵測語言種類</li><li>將文字轉換成語音</li><li>翻�
 
 	1. 輸入 [用戶端識別碼] 的值。
 	2. 輸入您應用程式的 [名稱]。
-	3. 在 [重新導向 URL] 中輸入虛擬值。例如，輸入 **https://contosoredirecturl*。
-4. 輸入 [說明]。
+	3. 在 [重新導向 URL] 中輸入虛擬值。例如，輸入 *https://contosoredirecturl*。
+	4. 輸入 [說明]。
 	5. 選取 [**建立**]。  
 
 	![註冊您的應用程式][6]
@@ -156,3 +156,4 @@ None | <ul><li>偵測語言種類</li><li>將文字轉換成語音</li><li>翻�
 [6]: ./media/create-api-microsofttranslator/register-your-application.png
 
 <!---HONumber=AcomDC_0302_2016-------->
+

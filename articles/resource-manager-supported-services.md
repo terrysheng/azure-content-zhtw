@@ -305,4 +305,4 @@ Azure Active Directory 可搭配資源管理員使用，以針對您的訂用帳
 - 若要了解如何建立資源管理員範本，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要了解如何部署資源，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!----HONumber=AcomDC_0302_2016-------->
+<!---------HONumber=AcomDC_0302_2016-------->

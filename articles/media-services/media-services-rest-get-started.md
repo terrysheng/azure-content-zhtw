@@ -91,7 +91,7 @@
 			HTTP/1.1 301 Moved Permanently
 			Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-		您應該將後續的 API 呼叫張貼到 https://wamsbayclus001rest-hs.cloudapp.net/api/。
+	您應該將後續的 API 呼叫張貼到 https://wamsbayclus001rest-hs.cloudapp.net/api/。
 
 ###取得存取權杖
 

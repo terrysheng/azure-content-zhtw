@@ -67,7 +67,7 @@ Office 365 使用者 API 提供下列動作。無觸發程序。
 
 4. 在 [應用程式屬性] 中：  
 
-	1. 輸入您應用程式的 [登入 URL]。由於您即將利用適用於 PowerApps 的 AAD 來進行驗證，因此請把登入 URL 設定為 \__https://login.windows.net_。  
+	1. 輸入您應用程式的 [登入 URL]。由於您即將利用適用於 PowerApps 的 AAD 來進行驗證，因此請把登入 URL 設定為 _https://login.windows.net_ 。  
 	2. 為您的應用程式輸入有效的 [應用程式識別碼 URI]。  
 	3. 選取 [確定]。  
 

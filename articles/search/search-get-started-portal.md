@@ -79,7 +79,7 @@
 - 可篩選、可排序 和可 facet 則判斷欄位是否可以用於篩選、排序或 facet 導覽結構。 
 - 可搜尋表示欄位包含在全文檢索搜尋中。字串通常可以搜尋。數字欄位和布林值欄位通常會標示為不可搜尋。 
 
-離開此頁面之前，將您索引中的欄位標示為使用下列選項 (可擷取、可搜尋等等)。大部分的欄位都 [可擷取]。大部分的字串欄位都 [可搜尋] (您不需要產生可搜尋的索引鍵)。有些欄位 (像是 orderableOnline、rating 和 tags) 也都 [可篩選]、[可排序] 和 [可面向化]。
+離開此頁面之前，將您索引中的欄位標示為使用下列選項 (可擷取、可搜尋等等)。大部分的欄位都 [可擷取]。大部分的字串欄位都 [可搜尋] \(您不需要產生可搜尋的索引鍵)。有些欄位 (像是 orderableOnline、rating 和 tags) 也都 [可篩選]、[可排序] 和 [可面向化]。
 	
 欄位 | 類型 | 選項 |
 ------|------|---------|
@@ -184,4 +184,4 @@ lastUpdated | Edm.DateTimeOffset | |
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

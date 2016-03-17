@@ -47,7 +47,7 @@ Azure 磁碟加密先決條件組態指令碼會設定用來加密 Azure 虛擬�
 3.	使用 **CTRL-A** 選取頁面上的所有文字，然後使用 **CTRL-C** 將頁面上的所有文字複製到剪貼簿。
 4.	開啟 [記事本] 並將複製的文字貼入 [記事本]。 
 5.	在 C: 磁碟機上建立名為 **AzureADEScript** 的新資料夾。
-6.	儲存 [記事本] 檔案，方法是依序按一下 [檔案] 和 [另存新檔]。在 [檔案名稱] 文字方塊中，輸入 **“ADEPrereqScript.ps1”** 並按一下 [儲存] (請務必在名稱前後加上引號，否則檔案將會儲存為 .txt 副檔名)。 
+6.	儲存 [記事本] 檔案，方法是依序按一下 [檔案] 和 [另存新檔]。在 [檔案名稱] 文字方塊中，輸入 **“ADEPrereqScript.ps1”** 並按一下 [儲存] \(請務必在名稱前後加上引號，否則檔案將會儲存為 .txt 副檔名)。 
 
 您已儲存了指令碼內容，接下來請在 PowerShell ISE 中開啟指令碼︰
 
@@ -172,4 +172,4 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMNa
 - [Azure 安全性中心常見問題集](security-center-faq.md) - 尋找使用服務的常見問題
 - [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) – 尋找有關 Azure 安全性與相容性的部落格文章
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

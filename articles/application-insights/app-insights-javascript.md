@@ -238,4 +238,4 @@ Ajax 呼叫包含從您的網頁指令碼所做的任何 HTTP 呼叫。如果您
 * [自訂事件和計量](app-insights-api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-overview-usage.md)
 
-<!----HONumber=AcomDC_0224_2016-->
+<!------HONumber=AcomDC_0224_2016-->

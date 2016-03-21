@@ -22,9 +22,9 @@
 
 # 將資料流處理資料輸入或參考資料新增至串流分析工作
 
-了解如何從事件中樞或 Blog 儲存體的參考資料，將資料來源連接至串流分析工作，以做為資料流處理資料輸入。
+了解如何從事件中樞或 Blob 儲存體的參考資料，將資料來源連接至串流分析工作，以做為資料流處理資料輸入。
 
-Azure 串流分析工作可以連線至一或多個資料輸入，且每個資料輸入都定義了一個與現有資料來源之間的連線。當資料傳送到該資料來源時，串流分析工作會即時取用該資料，並把它當做串流資料來處理。在工作訂用帳戶內外，串流分析具有與 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)和 [Azure Blob 儲存體](./storage/storage-dotnet-how-to-use-blobs.md)的第一級整合。
+Azure 串流分析工作可以連線至一或多個資料輸入，且每個資料輸入都定義了一個與現有資料來源之間的連線。當資料傳送到該資料來源時，串流分析工作會即時取用該資料，並把它當做串流資料來處理。在工作訂用帳戶內外，串流分析具有與 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)和 [Azure Blob 儲存體](../storage/storage-dotnet-how-to-use-blobs.md)的第一級整合。
 
 本文章是[串流分析學習路徑](/documentation/learning-paths/stream-analytics/)中的一個步驟。
 
@@ -88,4 +88,4 @@ Azure 串流分析工作可以連線至一或多個資料輸入，且每個資�
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

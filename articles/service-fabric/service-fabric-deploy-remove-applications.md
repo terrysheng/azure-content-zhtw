@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/10/2015"
+   ms.date="03/08/2016"
    ms.author="seanmck"/>
 
 # 部署應用程式
@@ -24,7 +24,7 @@
 2. 註冊應用程式類型
 3. 建立應用程式執行個體
 
->[AZURE.NOTE]如果您使用 Visual Studio 部署和偵錯您本機開發叢集上的應用程式，則下面所述的所有步驟都會透過應用程式專案的 [指令碼] 資料夾中的 PowerShell 指令碼自動處理。本文章提供背景執行這些指令碼的說明，以便您可以在 Visual Studio 之外執行相同的作業。
+>[AZURE.NOTE] 如果您使用 Visual Studio 部署和偵錯您本機開發叢集上的應用程式，則下面所述的所有步驟都會透過應用程式專案的 [指令碼] 資料夾中的 PowerShell 指令碼自動處理。本文章提供背景執行這些指令碼的說明，以便您可以在 Visual Studio 之外執行相同的作業。
 
 ## 上傳應用程式封裝
 
@@ -59,7 +59,7 @@ D:\TEMP\MYAPPLICATIONTYPE
     └───MyData
             init.dat
 
-PS D:\temp> Copy-ServiceFabricApplicationPackage MyApplicationType
+PS D:\temp> Copy-ServiceFabricApplicationPackage -ApplicationPackagePath MyApplicationType -ImageStoreConnectionString (Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest))
 Copy application package succeeded
 
 PS D:\temp>
@@ -225,4 +225,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

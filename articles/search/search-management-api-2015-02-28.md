@@ -481,6 +481,8 @@ Azure 資源管理員的存取控制會使用內建擁有者、參與者和讀�
 
     PUT https://management.azure.com/subscriptions/[subscriptionId]/resourcegroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2015-02-28
 
+> [AZURE.NOTE] 如果您使用 PUT 來更新服務，就必須使用[建立服務](#CreateService)要求中所使用的同一個要求主體。
+
 ###要求 URI 參數###
 
 `subscriptionId`：必要。Azure 使用者的 `subscriptionID`。您可以從 Azure 資源管理員 API 或入口網站取得這個值。
@@ -826,4 +828,4 @@ Azure 資源管理員的存取控制會使用內建擁有者、參與者和讀�
 
 無。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

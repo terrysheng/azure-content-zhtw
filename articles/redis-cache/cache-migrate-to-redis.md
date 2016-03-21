@@ -4,7 +4,7 @@
     services="redis-cache"
     documentationCenter="na"
     authors="steved0x"
-    manager="dwrede"
+    manager="erikre"
     editor="tysonn" />
 <tags 
     ms.service="cache"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="12/03/2015"
+    ms.date="03/04/2016"
     ms.author="sdanie" />
 
 # 從受管理的快取服務移轉至 Azure Redis 快取
@@ -71,7 +71,7 @@ Azure Redis 快取中的快取可以透過 [Azure 入口網站](https://portal.a
 -	若要使用 Azure PowerShell 建立快取，請參閱[使用 Azure PowerShell 管理 Azure Redis 快取](cache-howto-manage-redis-cache-powershell.md)。
 -	若要使用 Azure CLI 建立快取，請參閱[如何使用 Azure 命令列介面 (Azure CLI) 建立並管理 Azure Redis 快取](cache-manage-cli.md)。
 
->[AZURE.NOTE] 若要使用 Azure Redis 快取，您需要 Azure 帳戶。如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero)。
+>[AZURE.NOTE] 若要使用 Azure Redis 快取，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero)。
 
 ## 設定快取用戶端
 
@@ -195,4 +195,4 @@ Azure Redis 快取有適用於 ASP.NET 工作階段狀態和頁面輸出快取�
 
 瀏覽 [Azure Redis 快取文件](https://azure.microsoft.com/documentation/services/cache/)中的教學課程、範例、影片及其他資訊。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

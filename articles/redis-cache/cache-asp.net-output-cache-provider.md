@@ -4,7 +4,7 @@
    services="redis-cache"
    documentationCenter="na"
    authors="steved0x"
-   manager="dwrede"
+   manager="erikre"
    editor="tysonn" />
 <tags 
    ms.service="cache"
@@ -81,4 +81,4 @@ NuGet 封裝會下載並加入需要的組件參考，並將下列區段加入�
 
 請查看 [Azure Redis 快取的 ASP.NET 工作階段狀態提供者](cache-asp.net-session-state-provider.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

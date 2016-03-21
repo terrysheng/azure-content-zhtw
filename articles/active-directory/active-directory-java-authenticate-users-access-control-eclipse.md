@@ -13,14 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/04/2016" 
     ms.author="robmcm" />
 
 # 如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者
 
 本指南說明如何在 Azure Toolkit for Eclipse 內使用 Azure 存取控制服務 (ACS)。如需 ACS 的詳細資訊，請參閱[後續步驟](#next_steps)一節。
 
-> [AZURE.NOTE]Azure Access Services Control Filter 是社群技術預覽。由於是發行前軟體，Microsoft 尚未提供正式支援。
+> [AZURE.NOTE]
+Azure Access Services Control Filter 是社群技術預覽。由於是發行前軟體，Microsoft 尚未提供正式支援。
 
 ## 什麼是 ACS？
 
@@ -309,4 +310,4 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

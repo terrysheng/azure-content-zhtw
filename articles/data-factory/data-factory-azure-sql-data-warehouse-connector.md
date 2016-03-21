@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="從 Azure SQL 資料倉儲來回移動資料 | Azure Data Factory" 
+	pageTitle="從 Azure SQL 資料倉儲來回移動資料 | Microsoft Azure" 
 	description="了解如何使用 Azure Data Factory 從 Azure SQL 資料倉儲來回移動資料" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -531,4 +531,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

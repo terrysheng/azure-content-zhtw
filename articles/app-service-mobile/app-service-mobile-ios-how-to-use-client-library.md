@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/07/2016"
 	ms.author="krisragh"/>
 
 # 如何使用適用於 Azure Mobile Apps 的 iOS 用戶端程式庫
@@ -154,7 +154,13 @@ let query = table.query()
 let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 ```
 
-`MSQuery` 可讓您控制下列幾種查詢行為。在其上呼叫 `readWithCompletion` 執行 `MSQuery` 查詢，如下一個範例所示。* 指定結果的順序 * 限制要傳回的欄位 * 限制要傳回的記錄數 * 指定回應中的總計數 * 指定要求中的自訂查詢字串參數 * 套用額外函數
+`MSQuery` 可讓您控制下列幾種查詢行為。執行 `MSQuery` 查詢，方法是對它呼叫 `readWithCompletion`，如下例所示。
+* 指定結果的順序
+* 限制要傳回的欄位
+* 限制要傳回的記錄數
+* 指定回應中的總計數
+* 在要求中指定自訂查詢字串參數
+* 套用其他函式
 
 
 ## <a name="sorting"></a>做法：使用 MSQuery 排序資料
@@ -198,13 +204,13 @@ query.readWithCompletion { (result, error) in
 
 若要限制在查詢中傳回的欄位，請在 **selectFields** 屬性中指定欄位的名稱。這僅會傳回文字和已完成欄位：
 
-**Objective-C**：
+Objective-C：
 
 ```
 query.selectFields = @[@"text", @"complete"];
 ```
 
-**Swift**：
+Swift：
 
 ```
 query.selectFields = ["text", "complete"]
@@ -212,7 +218,7 @@ query.selectFields = ["text", "complete"]
 
 若要在伺服器要求中包含額外的查詢字串參數 (例如有某個自訂的伺服器端指令碼使用這些參數)，請如下填入 `query.parameters`：
 
-**Objective-C**：
+Objective-C：
 
 ```
 query.parameters = @{
@@ -221,7 +227,7 @@ query.parameters = @{
 };
 ```
 
-**Swift**：
+Swift：
 
 ```
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
@@ -235,7 +241,7 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 `result` 包含所插入的新項目；視您的伺服器邏輯而定，相較於傳遞給伺服器的項目，它可能會含有其他或已修改的資料。
 
-**Objective-C**：
+Objective-C：
 
 ```
 NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
@@ -248,7 +254,7 @@ NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"comple
 }];
 ```
 
-**Swift**：
+Swift：
 
 ```
 let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
@@ -265,7 +271,7 @@ table.insert(newItem) { (result, error) in
 
 若要更新現有的資料列，請修改項目並呼叫 `update`：
 
-**Objective-C**：
+Objective-C：
 
 ```
 NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
@@ -279,7 +285,7 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 }];
 ```
 
-**Swift**：
+Swift：
 
 ```
 if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
@@ -326,7 +332,7 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 
 若要刪除項目，請叫用 `delete` 搭配項目：
 
-**Objective-C**：
+Objective-C：
 
 ```
 [table delete:item completion:^(id itemId, NSError *error) {
@@ -338,7 +344,7 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 }];
 ```
 
-**Swift**：
+Swift：
 
 ```
 table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
@@ -378,6 +384,48 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 進行刪除時，至少必須設定 `id` 屬性。
 
+##<a name="customapi"></a>如何：呼叫自訂 API
+
+使用自訂 API，您可以公開任何後端功能。它不必對應至資料表作業。您不僅能進一步控制訊息，甚至還可以讀取或設定標頭，並變更回應內文格式。若要了解如何在後端上建立自訂 API，請閱讀[自訂 API](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
+
+若要呼叫自訂 API，請如下所示呼叫 `MSClient.invokeAPI`。要求和回應內容會被視為 JSON。若要使用其他媒體類型，請[使用 `invokeAPI` 的其他多載](http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:)
+
+若要進行 `GET` 要求而不是 `POST` 要求，請將參數 `HTTPMethod` 設為 `"GET"`，以及將參數 `body` 設為 `nil` (因為 GET 要求沒有訊息內文)。 如果您的自訂 API 支援其他 HTTP 動詞命令，請適當地變更 `HTTPMethod`。
+
+Objective-C：
+```
+    [self.client invokeAPI:@"sendEmail"
+                      body:@{ @"contents": @"Hello world!" }
+                HTTPMethod:@"POST"
+                parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
+                   headers:nil
+                completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
+                    if(error) {
+                        NSLog(@"ERROR %@", error);
+                    } else {
+                        // Do something with result
+                    }
+                }];
+```
+
+Swift：
+
+```
+client.invokeAPI("sendEmail",
+            body: [ "contents": "Hello World" ],
+            HTTPMethod: "POST",
+            parameters: [ "to": "bill@contoso.com", "subject" : "Hi!" ],
+            headers: nil)
+            {
+                (result, response, error) -> Void in
+                if let err = error {
+                    print("ERROR ", err)
+                } else if let res = result {
+                          // Do something with result
+                }
+        }
+```
+
 ##<a name="templates"></a>作法：註冊推送範本以傳送跨平台通知
 
 若要註冊範本，只要在用戶端應用程式中透過 **client.push registerDeviceToken** 方法傳遞範本即可。
@@ -404,13 +452,13 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 您的範本類型將為 NSDictionary，並且可能包含多個下列格式的範本：
 
-**Objective-C**：
+Objective-C：
 
 ```
 NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
 ```
 
-**Swift**：
+Swift：
 
 ```
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
@@ -426,13 +474,13 @@ let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 
 [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h) 檔案定義了 `MSErrorResponseKey`、`MSErrorRequestKey` 及 `MSErrorServerItemKey` 常數來取得更多錯誤相關資料，其取得方式如下：
 
-**Objective-C**：
+Objective-C：
 
 ```
 NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 ```
 
-**Swift**：
+Swift：
 
 ```
 let serverItem = error.userInfo[MSErrorServerItemKey]
@@ -440,25 +488,25 @@ let serverItem = error.userInfo[MSErrorServerItemKey]
 
 此外，檔案也定義每個錯誤代碼的常數，您可以透過如下所示方式來使用：
 
-**Objective-C**：
+Objective-C：
 
 ```
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-**Swift**：
+Swift：
 
 ```
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-## <a name="adal"></a>做法：使用 Active Directory Authentication Library 來驗證使用者
+## <a name="adal"></a>如何：使用 Active Directory Authentication Library 驗證使用者
 
 您可以使用 Active Directory Authentication Library (ADAL)，利用 Azure Active Directory 將使用者登入應用程式。與使用 `loginAsync()` 方法相比，這通常是較建議採用的方式，因為它提供更原生的 UX 風格，並可允許進行其他自訂。
 
-1. 依照[如何設定 App Service 來進行 Active Directory 登入](app-service-mobile-how-to-configure-active-directory-authentication.md) 教學課程的說明，設定您的行動應用程式後端來進行 AAD 登入。請務必完成註冊原生用戶端應用程式的選擇性步驟。針對 iOS，建議 (但非必要) 重新導向 URI 的格式為 `<app-scheme>://<bundle-id>`。如需詳細資訊，請參閱 [ADAL iOS 快速入門](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem)。
+1. 依照[如何設定 App Service 來進行 Active Directory 登入](app-service-mobile-how-to-configure-active-directory-authentication.md)教學課程的說明，設定您的行動應用程式後端來進行 AAD 登入。請務必完成註冊原生用戶端應用程式的選擇性步驟。針對 iOS，建議 (但非必要) 重新導向 URI 的格式為 `<app-scheme>://<bundle-id>`。如需詳細資訊，請參閱 [ADAL iOS 快速入門](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem)。
 
-2. 使用 Cocoapods 安裝 ADAL。編輯您的 Podfile 以納入下列內容 (以您的 Xcode 專案名稱取代 **YOUR-PROJECT**)：
+2. 使用 Cocoapods 安裝 ADAL。編輯您的 Podfile 以納入下列內容，並以您的 Xcode 專案名稱取代 YOUR-PROJECT：
 
 		source 'https://github.com/CocoaPods/Specs.git'
 		link_with ['YOUR-PROJECT']
@@ -471,15 +519,15 @@ if (error.code == MSErrorPreconditionFailed) {
 
 4. 根據您使用的語言，將下列程式碼新增至您的應用程式。在每個程式碼中，進行下列取代：
 
-* 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE**。格式應該是 https://login.windows.net/contoso.onmicrosoft.com。此值可從 [Azure 傳統入口網站] 複製到 Azure Active Directory 的 [網域] 索引標籤以外。
+* 以您佈建應用程式的租用戶名稱取代 INSERT-AUTHORITY-HERE。格式應該是 https://login.windows.net/contoso.onmicrosoft.com。此值可從 [Azure 傳統入口網站] 複製到 Azure Active Directory 的 [網域] 索引標籤以外。
 
-* 以您行動應用程式後端的用戶端識別碼取代 **INSERT-RESOURCE-ID-HERE**。您可以從入口網站中 [Azure Active Directory 設定] 底下的 [進階] 索引標籤取得這項資訊。
+* 以您行動應用程式後端的用戶端識別碼取代 INSERT-RESOURCE-ID-HERE。您可以從入口網站中 [Azure Active Directory 設定] 底下的 [進階] 索引標籤取得這項資訊。
 
-* 以您從原生用戶端應用程式中複製的用戶端識別碼取代 **INSERT-CLIENT-ID-HERE**。
+* 以您從原生用戶端應用程式中複製的用戶端識別碼取代 INSERT-CLIENT-ID-HERE。
 
 * 使用 HTTPS 配置，以您網站的 _/.auth/login/done_ 端點取代 **INSERT-REDIRECT-URI-HERE**。此值應與 \__https://contoso.azurewebsites.net/.auth/login/done_ 類似。
 
-**Objective-C**：
+Objective-C：
 
 	#import <ADALiOS/ADAuthenticationContext.h>
 	#import <ADALiOS/ADAuthenticationSettings.h>
@@ -514,7 +562,7 @@ if (error.code == MSErrorPreconditionFailed) {
 	}
 
 
-**Swift**：
+Swift：
 
 	// add the following imports to your bridging header:
 	//     #import <ADALiOS/ADAuthenticationContext.h>
@@ -592,4 +640,4 @@ if (error.code == MSErrorPreconditionFailed) {
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

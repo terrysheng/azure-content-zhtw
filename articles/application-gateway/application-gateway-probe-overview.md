@@ -16,7 +16,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/17/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # 應用程式閘道健全狀況監視概觀
@@ -67,4 +67,4 @@ Azure 應用程式閘道預設會監視其後端集區中所有資源的健康�
 
 在了解應用程式閘道的健全狀況監視之後，您可以為 Azure 資源管理員設定[自訂健全狀況探查](application-gateway-create-probe-ps.md)，或為 Azure 傳統部署模型設定[自訂健全狀況探查](application-gateway-create-probe-classic-ps.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -464,6 +464,10 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 
 > [AZURE.NOTE] 由於資料已保存到預設儲存體容器，新的叢集**必須**使用與先前叢集相同的儲存體帳戶和容器。
 
+## 刪除叢集
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##疑難排解
 
 如果您未看到檔案儲存到 /devicedata 位置 (使用 `hadoop fs -ls /devicedata` 命令或在 [查詢主控台] 使用 Hive 命令)，使用 Storm UI 來尋找拓撲傳回的任何錯誤。
@@ -478,4 +482,4 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

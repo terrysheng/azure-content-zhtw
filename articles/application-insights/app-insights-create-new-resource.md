@@ -12,14 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 # 建立新 Application Insights 資源
-
-
-
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 Visual Studio Application Insights 會在 Microsoft Azure *資源*中顯示您應用程式的資料。因此建立新的資源屬於[設定 Application Insights 以監視新應用程式][start]的一環。在許多情況下，這是可由 IDE 自動完成的工作，而且也建議盡量使用這種方式。但在某些情況下，您必須以手動方式建立資源。
 
@@ -94,4 +90,4 @@ SDK 包含不需撰寫任何程式碼，即可傳送遙測資料的標準模組�
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,7 +1,7 @@
 <properties
-	pageTitle="透過資料庫加密保護 SQL Database 中的機密資料 |Microsoft Azure"
+	pageTitle="透過資料庫加密保護 SQL Database 中的機密資料 | Microsoft Azure"
 	description="在數分鐘內開始保護您 SQL 資料庫中的機密資料。"
-	keywords="SQL 資料庫, SQL 加密, 資料庫加密, 加密金鑰, 機密資料, 永遠加密"	
+	keywords="資料加密, 加密金鑰, 雲端加密"	
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -15,28 +15,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
-# 透過資料庫加密並將您的加密金鑰儲存在 Azure 金鑰保存庫，來保護 SQL Database 中的機密資料
+# 透過資料加密並將您的加密金鑰儲存在 Azure 金鑰保存庫，來保護 SQL Database 中的機密資料
 
 > [AZURE.SELECTOR]
 - [Azure 金鑰保存庫](sql-database-always-encrypted-azure-key-vault.md)
 - [Windows 憑證存放區](sql-database-always-encrypted.md)
 
 
-本文章將告訴您如何使用 [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) 中的 [Always Encrypted Wizard (永遠加密精靈)](https://msdn.microsoft.com/library/mt459280.aspx) 進行資料庫加密，並將您的加密金鑰儲存在 Azure 金鑰保存庫，來保護 SQL Database 中的機密資料。
+本文將告訴您如何使用 [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) 中的 [Always Encrypted Wizard (永遠加密精靈)](https://msdn.microsoft.com/library/mt459280.aspx) 來進行資料加密，並將每個加密金鑰儲存在 Azure 金鑰保存庫，來保護 SQL Database 中的機密資料。
 
-「永遠加密」是 Azure SQL Database 和 SQL Server 中新的加密技術，可保護伺服器上待用的機密資料、在機密資料於用戶端與伺服器之間移動時保護資料，以及在資料使用時保護資料，以確保機密資料永遠不會在資料庫系統中以純文字方式顯示。只有具備金鑰存取權的用戶端應用程式或應用程式伺服器可以存取純文字資料。如需詳細資訊，請參閱 [Always Encrypted (Database Engine) (永遠加密 (資料庫引擎))](https://msdn.microsoft.com/library/mt163865.aspx)。
+「永遠加密」是 Azure SQL Database 和 SQL Server 中新的資料加密技術，可保護伺服器上的機密待用資料、在機密資料於用戶端與伺服器之間移動時保護資料，以及在資料使用時保護資料，以確保機密資料永遠不會在資料庫系統中以純文字方式顯示。設定資料加密之後，只有具備金鑰存取權的用戶端應用程式或應用程式伺服器才可以存取純文字資料。如需詳細資訊，請參閱[永遠加密 (資料庫引擎)](https://msdn.microsoft.com/library/mt163865.aspx)。
 
 
 將資料庫設定為使用 [永遠加密] 之後，我們將搭配 Visual Studio 使用 C# 建立一個用戶端應用程式來使用加密資料。
 
 遵循本文章中的步驟，並了解如何為 Azure SQL Database 設定 [永遠加密]。在本文章中，您將學習到如何執行下列工作：
 
-- 在 SSMS 中使用 [永遠加密] 精靈來建立 [Always Encrypted Keys (永遠加密金鑰)](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3)
-    - 建立 [Column Master Key (CMK) (資料行主要金鑰 (CMK))](https://msdn.microsoft.com/library/mt146393.aspx)。
-    - 建立 [Column Encryption Key (CEK) (資料行加密金鑰 (CEK))](https://msdn.microsoft.com/library/mt146372.aspx)。
+- 在 SSMS 中使用 Always Encrypted Wizard (永遠加密精靈) 來建立[永遠加密金鑰](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3)
+    - 建立[資料行主要金鑰 (CMK)](https://msdn.microsoft.com/library/mt146393.aspx)。
+    - 建立[資料行加密金鑰 (CEK)](https://msdn.microsoft.com/library/mt146372.aspx)。
 - 建立資料庫資料表，並將某些資料行加密。
 - 建立可插入、選取及顯示加密資料行資料的應用程式。
 
@@ -49,7 +49,7 @@
 
 - 在開始之前，您需要有 Azure 帳戶和訂用帳戶。如果您沒有帳戶，請註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 13.0.700.242 版或更新版本。
-- [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) 或更新版本 (用戶端電腦上)。
+- [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) 或更新版本 (於用戶端電腦上)。
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)。
 - [Azure PowerShell](../powershell-install-configure.md)，最低版本為 1.0。
     - 請輸入 **(Get-Module azure -ListAvailable).Version** 來查看您正在執行的 PowerShell 版本。
@@ -264,6 +264,26 @@ SSMS 提供一個精靈，透過設定加密資料行主要金鑰 (CMK)、資料
     // Enable Always Encrypted.
     connStringBuilder.ColumnEncryptionSetting = 
        SqlConnectionColumnEncryptionSetting.Enabled;
+
+## 註冊 Azure 金鑰保存庫提供者
+
+下列程式碼示範如何使用 ADO.NET 驅動程式註冊 Azure 金鑰保存庫提供者︰
+
+    private static ClientCredential _clientCredential;
+
+    static void InitializeAzureKeyVaultProvider()
+    {
+       _clientCredential = new ClientCredential(clientId, clientSecret);
+
+       SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
+          new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
+
+       Dictionary<string, SqlColumnEncryptionKeyStoreProvider> providers =
+          new Dictionary<string, SqlColumnEncryptionKeyStoreProvider>();
+
+       providers.Add(SqlColumnEncryptionAzureKeyVaultProvider.ProviderName, azureKeyVaultProvider);
+       SqlConnection.RegisterColumnEncryptionKeyStoreProviders(providers);
+    }
 
 
 
@@ -635,11 +655,11 @@ SSMS 提供一個精靈，透過設定加密資料行主要金鑰 (CMK)、資料
    ![新的主控台應用程式](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
 
-若要使用 SSMS 來存取純文字資料，我們可以將 **Column Encryption Setting=enabled** 參數新增至連線。
+若要使用 SSMS 來存取純文字資料，我們可以將 Column Encryption Setting=enabled 參數新增至連線。
 
 1. 在 SSMS 中，於 [物件總管] 中以滑鼠右鍵按一下您的伺服器並 [中斷連線]。
-2. 按一下 [連線] > [資料庫引擎] 開啟 [連接到伺服器] 視窗，並按一下 [選項]。
-3. 按一下 [其他連接參數] 並輸入 **Column Encryption Setting=enabled**。
+2. 按一下 [連線] > [資料庫引擎] 開啟 [連線到伺服器] 視窗，並按一下 [選項]。
+3. 按一下 [其他連接參數] 並輸入 Column Encryption Setting=enabled。
 
 	![新的主控台應用程式](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)
 
@@ -656,7 +676,7 @@ SSMS 提供一個精靈，透過設定加密資料行主要金鑰 (CMK)、資料
 ## 後續步驟
 建立使用 [永遠加密] 的資料庫之後，您可以執行下列操作：
 
-- [Rotate and cleanup your Keys (旋轉和清除金鑰)](https://msdn.microsoft.com/library/mt607048.aspx)。
+- [旋轉和清除金鑰](https://msdn.microsoft.com/library/mt607048.aspx)。
 - [Migrate data that is already encrypted with Always Encrypted (移轉已使用 [永遠加密] 加密的資料)](https://msdn.microsoft.com/library/mt621539.aspx)
 
 
@@ -669,4 +689,4 @@ SSMS 提供一個精靈，透過設定加密資料行主要金鑰 (CMK)、資料
 - [Always Encrypted Wizard (永遠加密精靈)](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Always Encrypted Blog (永遠加密部落格)](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!----HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

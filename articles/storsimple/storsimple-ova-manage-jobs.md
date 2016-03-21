@@ -3,7 +3,7 @@
    description="說明 StorSimple Manager 服務作業頁面，以及如何使用該頁面來追蹤 StorSimple Virtual Array 的最近和目前作業。"
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor=""/>
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="02/22/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# 針對 StorSimple Virtual Array 使用 StorSimple Manager 服務檢視作業 (預覽)
+# 針對 StorSimple Virtual Array 使用 StorSimple Manager 服務檢視工作
 
 ## 概觀
 
@@ -72,4 +72,4 @@
 
 了解如何[使用本機 Web UI 來管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

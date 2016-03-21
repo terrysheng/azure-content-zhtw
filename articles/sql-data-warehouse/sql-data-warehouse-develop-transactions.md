@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 資料倉儲中的交易
@@ -26,7 +26,7 @@ SQL 資料倉儲實作 ACID 交易。不過，交易支援的隔離僅限於 `RE
 ## 交易狀態
 SQL 資料倉儲會使用 XACT\_STATE() 函式 (採用值 -2) 來報告失敗的交易。這表示交易已失敗並標示為僅可復原
 
-> [AZURE.NOTE]XACT\_STATE 函式使用 -2 表示失敗的交易，以代表 SQL Server 中不同的行為。SQL Server 使用值 -1 來代表無法認可的交易。SQL Server 可以容忍交易內的某些錯誤，而不需將其標示為無法認可。例如，SELECT 1/0 會導致錯誤，但不會強制交易進入無法認可的狀態。SQL Server 也允許讀取無法認可的交易。不過，在 SQLDW 中，情況並非如此。如果 SQLDW 交易內發生錯誤，它就會自動進入 -2 狀態：包含 SELECT 1/0 錯誤。因此，一定要查看您的應用程式程式碼是否使用 XACT\_STATE()。
+> [AZURE.NOTE] XACT\_STATE 函式使用 -2 表示失敗的交易，以代表 SQL Server 中不同的行為。SQL Server 使用值 -1 來代表無法認可的交易。SQL Server 可以容忍交易內的某些錯誤，而不需將其標示為無法認可。例如，SELECT 1/0 會導致錯誤，但不會強制交易進入無法認可的狀態。SQL Server 也允許讀取無法認可的交易。不過，在 SQLDW 中，情況並非如此。如果 SQLDW 交易內發生錯誤，它就會自動進入 -2 狀態：包含 SELECT 1/0 錯誤。因此，一定要查看您的應用程式程式碼是否使用 XACT\_STATE()。
 
 在 SQL Server 中，您可能會看到如下所示的程式碼片段：
 
@@ -112,4 +112,4 @@ SQL 資料倉儲有一些與交易相關的其他限制。
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

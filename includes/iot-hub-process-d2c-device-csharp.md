@@ -24,7 +24,7 @@
 
     此方法與 **SimulatedDevice** 專案中的 **SendDeviceToCloudMessagesAsync** 方法非常類似。唯一的差異是您現在是設定 **MessageId** 系統屬性，以及稱為 **messageType** 的使用者屬性。程式碼會指派全域唯一識別碼 (guid) 給 **MessageId** 屬性，服務匯流排可以用它來刪除重複接收的訊息。範例是使用 **messageType** 屬性來區別來自資料點訊息的互動式訊息。應用程式會在訊息屬性中傳遞此資訊，而不是在訊息主體中傳遞，所以事件處理器不需要還原序列化訊息來執行訊息路由。
 
-    > [AZURE.NOTE]在裝置程式碼中建立用於刪除重複互動式訊息的 **MessageId** 很重要，因為間歇網路通訊或其他失敗可能造成從裝置多次重新傳輸相同訊息。您也可以使用語意式訊息識別碼 (例如相關訊息資料欄位的雜湊) 來取代 guid。
+    > [AZURE.NOTE] 在裝置程式碼中建立用於刪除重複互動式訊息的 **MessageId** 很重要，因為間歇網路通訊或其他失敗可能造成從裝置多次重新傳輸相同訊息。您也可以使用語意式訊息識別碼 (例如相關訊息資料欄位的雜湊) 來取代 guid。
 
 2. 將下列方法加入 **Main** 方法，就在 `Console.ReadLine()` 行之前：
 
@@ -32,10 +32,10 @@
     SendDeviceToCloudInteractiveMessagesAsync();
     ````
 
-    > [AZURE.NOTE]為了簡單起見，本教學課程不會實作任何重試原則。在實際程式碼中，您應該如 MSDN 文章[暫時性錯誤處理]所建議，實作重試原則 (例如指數型輪詢)。
+    > [AZURE.NOTE] 為了簡單起見，本教學課程不會實作任何重試原則。在實際程式碼中，您應該如 MSDN 文章 [Transient Fault Handling (暫時性錯誤處理)] 所建議來實作重試原則 (例如指數型輪詢)。
 
 <!-- Links -->
-[暫時性錯誤處理]: https://msdn.microsoft.com/zh-TW/library/hh675232.aspx
+[Transient Fault Handling (暫時性錯誤處理)]: https://msdn.microsoft.com/library/hh675232.aspx
 [開始使用 IoT 中樞]: iot-hub-csharp-csharp-getstarted.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0309_2016-->

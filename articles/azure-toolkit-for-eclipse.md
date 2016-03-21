@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/07/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -28,46 +28,47 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 
 下列文章可協助您開始使用 Azure Toolkit for Eclipse：
 
-* [適用於 Eclipse 的 Azure 工具組的新功能][]
-* [安裝適用於 Eclipse 的 Azure 工具組][]
-* [在 Eclipse 中為 Azure 建立 Hello World 應用程式][]
-* [在 Eclipse 中顯示 Azure Libraries for Java 封裝的 Javadoc 內容][]
+* [適用於 Eclipse 的 Azure 工具組的新功能]
+* [安裝適用於 Eclipse 的 Azure 工具組]
+* [在 Eclipse 中為 Azure 建立 Hello World 應用程式]
+* [Create a Hello World Web App for Azure in Eclipse (在 Eclipse 中建立 Azure Hello World Web 應用程式)]
+* [在 Eclipse 中顯示 Azure Libraries for Java 封裝的 Javadoc 內容]
 
 ## 進行 Azure 專案設定 ##
 
 下列文章會示範如何使用 Azure Toolkit for Eclipse 進行 Azure 專案的設定：
 
-* [Azure 專案屬性][]
-* [Azure 角色屬性][]
-* [Azure 服務端點][]
-* [Azure 儲存體帳戶清單][]
-* [啟用工作階段同質][]
-* [在 Eclipse 中啟用 Azure 部署的遠端存取][]
+* [Azure 專案屬性]
+* [Azure 角色屬性]
+* [Azure 服務端點]
+* [Azure 儲存體帳戶清單]
+* [啟用工作階段同質]
+* [在 Eclipse 中啟用 Azure 部署的遠端存取]
 
 ## 使用 Azure Toolkit for Eclipse ##
 
 下列文章會示範如何使用 Azure Toolkit for Eclipse 將 Azure 的功能加入您的 Java 專案：
 
-* [如何使用共置快取][]
-* [如何使用專用快取][]
-* [部署大型部署][]
-* [在 JSP 中使用 Azure 服務執行階段程式庫][]
-* [在 Eclipse 中偵錯 Azure 應用程式][]
-* [SSL 卸載][]
-* [如何使用 SSL 卸載][]
-* [如何使用工作階段同質來維護工作階段資料][]
-* [如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者][]
-* [如何以 Eclipse 搭配 Azure 來使用 JMS 搭配 AMQP 1.0][]
+* [如何使用共置快取]
+* [如何使用專用快取]
+* [部署大型部署]
+* [在 JSP 中使用 Azure 服務執行階段程式庫]
+* [在 Eclipse 中偵錯 Azure 應用程式]
+* [SSL 卸載]
+* [如何使用 SSL 卸載]
+* [如何使用工作階段同質來維護工作階段資料]
+* [如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者]
+* [如何以 Eclipse 搭配 Azure 來使用 JMS 搭配 AMQP 1.0]
 
 ## 另請參閱 ##
 
-[安裝適用於 Eclipse 的 Azure 工具組][]
+[安裝適用於 Eclipse 的 Azure 工具組]
 
-[在 Eclipse 中為 Azure 建立 Hello World 應用程式][]
+[在 Eclipse 中為 Azure 建立 Hello World 應用程式]
 
-[Azure Toolkit for Eclipse 的新功能][]
+[Azure Toolkit for Eclipse 的新功能]
 
-如需如何搭配使用 Azure 與 Java 的詳細資訊，請參閱 [Azure Java 開發人員中心][]。
+如需如何搭配使用 Azure 與 Java 的詳細資訊，請參閱 [Azure Java 開發人員中心]。
 
 <!-- URL List -->
 
@@ -77,6 +78,7 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 [Azure 服務端點]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure 儲存體帳戶清單]: http://go.microsoft.com/fwlink/?LinkID=699528
 [在 Eclipse 中為 Azure 建立 Hello World 應用程式]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Create a Hello World Web App for Azure in Eclipse (在 Eclipse 中建立 Azure Hello World Web 應用程式)]: ./app-service-web/create-a-hello-world-web-app-for-azure-in-eclipse.md
 [在 Eclipse 中偵錯 Azure 應用程式]: http://go.microsoft.com/fwlink/?LinkID=699535
 [部署大型部署]: http://go.microsoft.com/fwlink/?LinkID=699536
 [在 Eclipse 中顯示 Azure Libraries for Java 封裝的 Javadoc 內容]: http://go.microsoft.com/fwlink/?LinkID=699537
@@ -94,4 +96,4 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 [Azure Toolkit for Eclipse 的新功能]: http://go.microsoft.com/fwlink/?LinkID=699552
 [適用於 Eclipse 的 Azure 工具組的新功能]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

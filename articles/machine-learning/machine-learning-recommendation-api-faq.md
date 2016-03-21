@@ -3,7 +3,7 @@
 	description="以 Azure Machine Learning 建置之 Microsoft RECOMMENDATIONS API 的常見問題集" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/01/2016" 
 	ms.author="luisca"/>
 
 #設定和使用 Machine Learning Recommendations API 的常見問題集
@@ -23,7 +23,7 @@
 
 對於依賴建議對客戶進行交叉銷售和向上銷售產品和服務的組織和企業，Azure Machine Learning 的 RECOMMENDATIONS 可提供自助建議引擎。它是協同篩選的實作，其使用矩陣分解作為核心演算法。應用程式開發人員可以使用 REST API 來存取 RECOMMENDATIONS。
 
-[AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 **我可以用 RECOMMENDATIONS 來做什麼？**
 
@@ -31,7 +31,12 @@ RECOMMENDATIONS 將一個項目或一組項目作為輸入，並傳回相關建�
 
 **是否有任何使用量限制？**
 
-Recommendations 具有下列使用量限制：* 每一訂用帳戶的模型數上限：10 * 一個目錄可存放的項目數上限：100000 * 保留的使用點數上限是 ~5,000,000。如果將上傳或回報新的點，就會將最舊的點刪除。* 電子郵件 (例如，匯入目錄資料、匯入使用量資料) 中可以傳送的資料大小上限為 200 MB * 非作用中 Recommendations 模型組建的每秒交易數目 (TPS) 是 ~2 TPS。作用中 Recommendations 模型組建可以保留高達 20 TPS。
+建議項目具有下列使用限制：
+* 每個訂用帳戶的模型數上限：10
+* 一個目錄可保留的項目數上限：100,000
+* 保留的使用點數上限是 ~5,000,000。如果將上傳或回報新的點，就會將最舊的點刪除。
+* 電子郵件中可以傳送的資料 (例如，匯入目錄資料、匯入使用量資料) 大小上限為 200 MB
+* 未作用中之建議項目模型組建的每秒交易數 (TPS) 為 ~2 TPS。作用中 Recommendations 模型組建可以保留高達 20 TPS。
 
 ##購買和計費 
 
@@ -130,4 +135,4 @@ API 文件是 [Azure Machine Learning Recommendations - 快速入門指南](mach
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

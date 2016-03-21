@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 管理 SQL 資料倉儲中的統計資料
@@ -36,7 +36,7 @@
 ## 為何需要統計資料？
 若無正確的統計資料，您將無法獲得 SQL 資料倉儲預計提供的效能。資料表和資料行都沒有 SQL 資料倉儲自動產生的統計資料，所以您需要自行建立。在建立資料表時建立統計資料，然後在您填入統計資料後予以更新是個不錯的主意。
 
-> [AZURE.NOTE]如果您使用 SQL Server，您可能會視需要依賴 SQL Server 為您建立和更新單一資料行統計資料。SQL 資料倉儲在這方面有所不同。由於資料已分散，所以 SQL 資料倉儲不會自動彙總所有分散式資料的統計資料。它只會在您建立和更新統計資料時產生彙總統計資料。
+> [AZURE.NOTE] 如果您使用 SQL Server，您可能會視需要依賴 SQL Server 為您建立和更新單一資料行統計資料。SQL 資料倉儲在這方面有所不同。由於資料已分散，所以 SQL 資料倉儲不會自動彙總所有分散式資料的統計資料。它只會在您建立和更新統計資料時產生彙總統計資料。
 
 ## 何時建立統計資料
 一組一致的最新統計資料是 SQL 資料倉儲的重要部分。因此，務必在設計資料表階段建立統計資料。
@@ -45,7 +45,9 @@
 
 只有在資料行位於複合 joins 或 group by 子句時，查詢最佳化工具才會使用多重資料行統計資料。複合篩選條件目前並未受益於多重資料行統計資料。
 
-開始進行 SQL 資料倉儲開發時，實作下列模式是個不錯的主意：- 對每個資料表上的每個資料行建立單一資料行統計資料 - 對 joins 和 group by 子句中查詢所用的資料行，建立多重資料行統計資料。
+開始進行 SQL 資料倉儲開發時，實作下列模式是個不錯的主意：
+- 對每個資料表上的每個資料行建立單一資料行統計資料
+- 對 joins 和 group by 子句中查詢所用的資料行，建立多重資料行統計資料。
 
 當您了解要如何查詢您的資料時，您可能想要修改此模型 - 尤其在資料表的範圍很廣時。如需更進階的方法，請參閱 [實作統計資料管理] (## 實作統計資料管理) 一節。
 
@@ -74,7 +76,7 @@
 - 考慮較不常更新靜態散發資料行。
 - 請記得，每個統計資料物件會依序更新。僅只實作 `UPDATE STATISTICS <TABLE_NAME>` 可能不太理想 - 尤其是對具有許多統計資料物件的寬型資料表而言。
 
-> [AZURE.NOTE]如需 [遞增索引鍵] 的詳細資訊，請參閱 SQL Server 2014 基數估計模型白皮書。
+> [AZURE.NOTE] 如需 [遞增索引鍵] 的詳細資訊，請參閱 SQL Server 2014 基數估計模型白皮書。
 
 如需進一步說明，請參閱 MSDN 上的[基數估計][]。
 
@@ -134,7 +136,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
-> [AZURE.NOTE]若要讓查詢最佳化工具在選擇分散式查詢計劃時考慮使用篩選的統計資料，查詢必須符合統計資料物件的定義。使用上述範例，查詢的 where 子句需要指定介於 2000101 和 20001231 之間的 col1 值。
+> [AZURE.NOTE] 若要讓查詢最佳化工具在選擇分散式查詢計劃時考慮使用篩選的統計資料，查詢必須符合統計資料物件的定義。使用上述範例，查詢的 where 子句需要指定介於 2000101 和 20001231 之間的 col1 值。
 
 ### E.使用所有選項建立單一資料行統計資料
 
@@ -150,7 +152,7 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 若要建立多重資料行統計資料，只需利用上述範例，但要指定更多資料行。
 
-> [AZURE.NOTE]用來估計查詢結果中資料列數目的長條圖，只適用於統計資料物件定義中所列的第一個資料行。
+> [AZURE.NOTE] 用來估計查詢結果中資料列數目的長條圖，只適用於統計資料物件定義中所列的第一個資料行。
 
 在此範例中，長條圖位於 *product\_category*。跨資料行統計資料會依據 *product\_category* 和 *product\_sub\_category* 計算：
 
@@ -165,7 +167,7 @@ CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category)
 建立統計資料的其中一個方法是在建立資料表後發出 CREATE STATISTICS 命令。
 
 ```
-CREATE TABLE dbo.table1 
+CREATE TABLE dbo.table1
 (
    col1 int
 ,  col2 int
@@ -314,7 +316,7 @@ UPDATE STATISTICS dbo.table1;
 
 此陳述式很容易使用。只要記住這會更新資料表上的所有統計資料，因此可能會執行超出所需的更多工作。如果效能不成問題，這絕對是保證擁有最新統計資料的最簡單且最完整的方式。
 
-> [AZURE.NOTE]更新資料表上的所有統計資料時，SQL 資料倉儲會進行掃描，以針對每個統計資料進行資料表取樣。如果資料表很大、有許多資料行以及許多統計資料，則根據需求來更新個別統計資料可能比較有效率。
+> [AZURE.NOTE] 更新資料表上的所有統計資料時，SQL 資料倉儲會進行掃描，以針對每個統計資料進行資料表取樣。如果資料表很大、有許多資料行以及許多統計資料，則根據需求來更新個別統計資料可能比較有效率。
 
 如需 `UPDATE STATISTICS` 程序的實作，請參閱[暫存資料表]一文。實作方法與上述的 `CREATE STATISTICS` 程序有點不同，但最終結果相同。
 
@@ -380,7 +382,7 @@ JOIN    sys.columns         AS co ON    sc.[column_id]      = co.[column_id]
 JOIN    sys.types           AS ty ON    co.[user_type_id]   = ty.[user_type_id]
 JOIN    sys.tables          AS tb ON  co.[object_id]        = tb.[object_id]
 JOIN    sys.schemas         AS sm ON  tb.[schema_id]        = sm.[schema_id]
-WHERE   1=1 
+WHERE   1=1
 AND     st.[user_created] = 1
 ;
 ```
@@ -459,4 +461,4 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [更新統計資料]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

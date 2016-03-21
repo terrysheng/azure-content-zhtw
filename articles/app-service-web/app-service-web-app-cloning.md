@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Web 應用程式複製"
-	description="了解如何將您的 Web Apps 複製到新的 Web Apps。"
+	pageTitle="使用 PowerShell 複製 Web 應用程式"
+	description="了解如何使用 PowerShell，將您的 Web Apps 複製到新的 Web Apps。"
 	services="app-service\web"
 	documentationCenter=""
 	authors="ahmedelnably"
@@ -16,9 +16,9 @@
 	ms.date="01/13/2016"
 	ms.author="ahmedelnably"/>
 
-# Azure App Service 應用程式複製 #
+# 使用 PowerShell 複製 Azure App Service App#
 
-隨著 Microsoft Azure PowerShell 版本 1.1.0 的發行，為 New-AzureRMWebApp 加入了新選項，可讓使用者將現有的 Web 應用程式複製到在不同區域或在相同區域中新建立的應用程式。這可讓客戶輕鬆且快速地跨不同區域部署許多應用程式。
+隨著 Microsoft Azure PowerShell 版本 1.1.0 的發行，為 New-AzureRMWebApp 加入了新選項，可讓使用者將現有的 Web 應用程式複製到在不同區域或在相同區域中新建立的應用程式。這可讓客戶輕鬆且快速地跨不同區域部署許多 app。
 
 應用程式複製目前僅支援 Premium 層 App Service 方案。新的功能使用與 Web Apps 備份功能相同的限制，請參閱[在 Azure App Service 中備份 Web 應用程式](web-sites-backup.md)。
 
@@ -97,7 +97,7 @@
 
 ## 目前的限制 ##
 
-這項功能目前僅供預覽，我們正努力隨著時間加入新功能，以下是目前版本的應用程式複製已知的限制：
+這項功能目前僅供預覽，我們正努力隨著時間加入新功能，以下是目前版本 App 複製已知的限制：
 
 - 不會複製自動調整設定
 - 不會複製備份排程設定
@@ -109,9 +109,10 @@
 
 
 ### 參考 ###
+- [使用 Azure 入口網站複製 Web 應用程式](app-service-web-app-cloning-portal.md)
 - [在 Azure App Service 中備份 Web 應用程式](web-sites-backup.md)
 - [Azure 資源管理員的 Azure 流量管理員支援預覽](../../articles/traffic-manager/traffic-manager-powershell-arm.md)
 - [App Service 環境簡介](app-service-app-service-environment-intro.md)
 - [搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

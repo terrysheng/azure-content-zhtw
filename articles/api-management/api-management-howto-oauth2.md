@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用 OAuth 2.0 授權開發人員帳戶
@@ -24,7 +24,7 @@
 
 本指南將示範如何設定 API 管理服務執行個體，以便使用開發人員帳戶適用的 OAuth 2.0 授權，但並未示範如何設定 OAuth 2.0 提供者。儘管步驟相似，且用來在 API 管理服務執行個體中設定 OAuth 2.0 所需的資訊也相同，但每個 OAuth 2.0 提供者的組態並不相同。本主題演示的範例將 Azure Active Directory 當做 OAuth 2.0 提供者。
 
->[AZURE.NOTE]如需使用 Azure Active Directory 設定 OAuth 2.0 的詳細資訊，請參閱 [WebApp-GraphAPI-DotNet][] (英文) 範例。
+>[AZURE.NOTE] 如需使用 Azure Active Directory 設定 OAuth 2.0 的詳細資訊，請參閱 [WebApp-GraphAPI-DotNet][] (英文) 範例。
 
 ## <a name="step1"> </a>在 API 管理中設定 OAuth 2.0 授權伺服器
 
@@ -32,7 +32,7 @@
 
 ![發行者入口網站][api-management-management-console]
 
->[AZURE.NOTE]如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][]教學課程中的[建立 API 管理服務執行個體][]。
+>[AZURE.NOTE] 如果您尚未建立 API 管理服務執行個體，請參閱[開始使用 Azure API 管理][]教學課程中的[建立 API 管理服務執行個體][]。
 
 從左側的 [API 管理] 功能表按一下 [安全性]，然後依序按一下 [OAuth 2.0] 和 [Add authorization server]。
 
@@ -44,7 +44,7 @@
 
 在 [名稱] 和 [說明] 欄位中輸入名稱和選擇性的說明。
 
->[AZURE.NOTE]這些欄位可用來在目前的 API 管理服務執行個體中識別 OAuth 2.0 授權伺服器，且欄位的值並非來自 OAuth 2.0 伺服器。
+>[AZURE.NOTE] 這些欄位可用來在目前的 API 管理服務執行個體中識別 OAuth 2.0 授權伺服器，且欄位的值並非來自 OAuth 2.0 伺服器。
 
 輸入 [Client registration page URL]。此頁面可供使用者建立及管理帳戶，並且會因為使用的 OAuth 2.0 提供者不同而有所差異。[**用戶端註冊頁面 URL**] 指向使用者可用來建立和設定其對 OAuth 2.0 提供者之專屬帳戶的頁面，而提供者支援使用者帳戶管理。即使 OAuth 2.0 提供者支援這項功能，有些組織還是未設定或未使用這項功能。如果您的 OAuth 2.0 提供者未設定使用者帳戶管理，請在這裡輸入預留位置 URL (例如您公司的 URL) 或 `https://placeholder.contoso.com` 這類 URL。
 
@@ -100,7 +100,7 @@
 
 ![Echo API][api-management-apis-echo-api]
 
->[AZURE.NOTE]如果您的帳戶只設定或只看見一個 API，按一下 API 將帶您直接前往該 API 的作業。
+>[AZURE.NOTE] 如果您的帳戶只設定或只看見一個 API，按一下 API 將帶您直接前往該 API 的作業。
 
 選取 [GET Resource] 作業、按一下 [開啟主控台]，然後從下拉式功能表選取 [授權碼]。
 
@@ -108,7 +108,7 @@
 
 選取 [授權碼] 時，系統會顯示含有 OAuth 2.0 提供者之登入表單的快顯視窗。在此範例中，登入表單是由 Azure Active Directory 提供。
 
->[AZURE.NOTE]如果已停用快顯視窗，瀏覽器會提示您加以啟用。啟用後，請再次選取 [授權碼]，系統就會顯示登入表單。
+>[AZURE.NOTE] 如果已停用快顯視窗，瀏覽器會提示您加以啟用。啟用後，請再次選取 [授權碼]，系統就會顯示登入表單。
 
 ![Sign in][api-management-oauth2-signin]
 
@@ -160,4 +160,4 @@
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/09/2016"
 	ms.author="jgao"/>
 
 # 在 HDInsight 上提交 Hadoop 工作
@@ -27,7 +27,7 @@
 > - [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 > - [〈搭配 HDInsight 使用 MapReduce〉](hdinsight-use-mapreduce.md)
 
-###必要條件
+##必要條件
 
 開始閱讀本文之前，您必須符合下列必要條件：
 
@@ -72,6 +72,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
+        using Microsoft.Azure.Management.Resources;
 		using Microsoft.Azure.Management.HDInsight;
 		using Microsoft.Azure.Management.HDInsight.Job;
 		using Microsoft.Azure.Management.HDInsight.Job.Models;
@@ -89,8 +90,12 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 		
 				private const string ExistingClusterName = "<Your HDInsight Cluster Name>";
 				private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
-				private const string ExistingClusterUsername = "admin";
-				private const string ExistingClusterPassword = "**********";
+				private const string ExistingClusterUsername = "<Cluster Username>";
+				private const string ExistingClusterPassword = "<Cluster User Password>";
+                
+                private const string DefaultStorageAccountName = "<Default Storage Account Name>";
+                private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
+                private const string DefaultStorageContainerName = "<Default Blob Container Name>";
 		
 				static void Main(string[] args)
 				{
@@ -169,12 +174,25 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 						Arguments = ConvertArgsToString(args)
 					};
 		
-					System.Console.WriteLine("Submitting the Hive job to the cluster...");
-					var response = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
-					System.Console.WriteLine("Validating that the response is as expected...");
-					System.Console.WriteLine("Response status code is " + response.StatusCode);
-					System.Console.WriteLine("Validating the response object...");
-					System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+                    Console.WriteLine("Submitting the Hive job to the cluster...");
+                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
+                    var jobId = jobResponse.JobSubmissionJsonResponse.Id;
+                    Console.WriteLine("Validating that the response is as expected...");
+                    Console.WriteLine("Response status code is " + jobResponse.StatusCode);
+                    Console.WriteLine("Validating the response object...");
+                    Console.WriteLine("JobId is " + jobId);
+
+                    Console.WriteLine("Waiting for the job completion ...");
+                    // Wait for job completion
+                    var jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
+                    while (!jobDetail.Status.JobComplete)
+                    {
+                        jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
+                    }
+
+                    // Get job output
+                    var outputResponse = _hdiJobManagementClient.JobManagement.GetJobOutput(jobId, DefaultStorageAccountName, DefaultStorageAccountKey,
+                        DefaultStorageContainerName);
 				}
 		
 				private static void SubmitSqoopJob()
@@ -269,4 +287,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

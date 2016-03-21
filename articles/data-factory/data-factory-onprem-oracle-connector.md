@@ -24,7 +24,7 @@
 如果是能夠連接到您內部部署 Oracle 資料庫的 Azure Data Factory 服務，您就必須安裝下列項目：
 
 - 位於裝載資料庫的同一部電腦上或個別電腦上的資料管理閘道，可避免與資料庫競用資源。資料管理閘道是一套透過安全且可管理的方式，將內部部署資料來源連結至雲端服務的軟體。如需資料管理閘道的詳細資訊，請參閱[在內部部署和雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md)一文。 
-- [適用於 Windows 的 Oracle 資料存取元件 (ODAC)](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html)。它必須安裝於安裝閘道的主機電腦上。
+- .NET 的 Oracle 資料提供者。這包含於[適用於 Windows 的 Oracle 資料存取元件 (ODAC)](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html) 中。在安裝閘道的主機電腦上安裝適當版本 (32/64 位元)。 
 
 > [AZURE.NOTE] 如需連接/閘道器相關問題的疑難排解秘訣，請參閱[閘道器疑難排解](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)。
 
@@ -251,7 +251,7 @@ tableName | Oracle 資料庫中連結服務所參照的資料表名稱。 | 否 
 屬性 | 說明 |允許的值 | 必要
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | 使用自訂查詢來讀取資料。 | SQL 查詢字串。 
-例如：select * from MyTable<p>若未指定，執行的 SQL 陳述式即為 select * from MyTable</p> | 否 (如果已指定 **dataset** 的 **tableName**)
+例如：select * from MyTable<br/><br/>若未指定，執行的 SQL 陳述式即為 select * from MyTable | 否 (如果已指定 **dataset** 的 **tableName**)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -301,7 +301,7 @@ XML | String
 
 **解析/因應措施**
 
-1. 如果您尚未安裝 .NET Provider for Oracle，請[安裝它](http://www.oracle.com/technetwork/topics/dotnet/utilsoft-086879.html)，然後重試此案例。 
+1. 如果您尚未安裝 .NET Provider for Oracle，請[安裝它](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html)，然後重試此案例。 
 2. 如果您即使在安裝提供者之後還是會收到錯誤訊息，請執行下列作業： 
 	1. 從資料夾開啟 .NET 2.0 的電腦組態：<system disk>:\\Windows\\Microsoft.NET\\Framework64\\v2.0.50727\\CONFIG\\machine.config。
 	2. 搜尋 **Oracle Data Provider for .NET**，而您應該能夠在 **system.data** -> **DbProviderFactories** 下方找到類似下列內容的項目：“<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />"
@@ -312,4 +312,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

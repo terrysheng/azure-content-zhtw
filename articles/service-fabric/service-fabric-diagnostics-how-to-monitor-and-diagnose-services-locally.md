@@ -3,7 +3,7 @@
    description="了解如何監視和診斷在本機開發電腦上使用 Microsoft Azure Service Fabric 所撰寫的服務。"
    services="service-fabric"
    documentationCenter=".net"
-   authors="kunaldsingh"
+   authors="toddabel"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
+   ms.date="03/04/2016"
    ms.author="toddabel"/>
 
 
@@ -58,6 +58,8 @@ Service Fabric Visual Studio 專案範本包含範例程式碼。程式碼示範
 將自訂 ETW 追蹤新增至服務程式碼之後，您可以再次建置、部署，以及執行應用程式以查看診斷事件檢視器中的事件。如果您使用 **F5** 來偵錯應用程式，診斷事件檢視器將會自動開啟。
 
 ## 後續步驟
-在 Azure 叢集上執行應用程式時，您針對本機診斷在上方應用程式所新增的相同追蹤程式碼，將會使用可以用來檢視這些事件的工具。請參閱下列文章，其中討論工具的不同選項，並說明如何設定這些工具。*[在 Azure 診斷和 Operational Insights 中從 Service Fabric 叢集收集記錄檔](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) * [使用 ElasticSearch 做為 Service Fabric 應用程式追蹤存放區](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+在 Azure 叢集上執行應用程式時，您針對本機診斷在上方應用程式所新增的相同追蹤程式碼，將會使用可以用來檢視這些事件的工具。請參閱下列文章，其中討論各種適用於工具的選項，並說明如何設定它們。
+* [在 Azure 診斷和 Operational Insights 中從 Service Fabric 叢集收集記錄檔](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md)
+* [使用 ElasticSearch 做為 Service Fabric 應用程式追蹤存放區](service-fabric-diagnostic-how-to-use-elasticsearch.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

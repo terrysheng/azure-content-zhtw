@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="03/05/2016"
 	ms.author="glenga"/>
 
 
 # 使用混合式連接從 Azure 行動服務連接至內部部署 SQL Server
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[在 Azure App Service 中使用混合式連線存取內部部署資源](../app-service-web/web-sites-hybrid-connection-get-started.md)。
 
-&nbsp;
-
-
-貴公司在轉移到雲端環境時，可能無法立即就將所有資產移轉至 Azure。混合式連接可讓 Azure 行動服務安全地連接到內部部署資產。因此，您可以藉由混合式連線讓行動用戶端使用 Azure 存取內部部署資料。支援的資產包括任何可在靜態 TCP 連接埠上執行的資源，例如 Microsoft SQL Server、MySQL、HTTP Web API 和大部分的自訂 Web 服務。混合式連線採用共用存取簽章 (SAS) 授權，以確保從行動服務和內部部署混合式連線管理員連往混合式連線的連線安全無虞。如需詳細資料，請參閱[混合式連線概觀](../integration-hybrid-connection-overview.md)。
+貴公司在轉移到雲端環境時，可能無法立即就將所有資產移轉至 Azure。混合式連接可讓 Azure 行動服務安全地連接到內部部署資產。因此，您可以藉由混合式連線讓行動用戶端使用 Azure 存取內部部署資料。支援的資產包括任何可在靜態 TCP 連接埠上執行的資源，例如 Microsoft SQL Server、MySQL、HTTP Web API 和大部分的自訂 Web 服務。混合式連線採用共用存取簽章 (SAS) 授權，以確保從行動服務和內部部署混合式連線管理員連往混合式連線的連線安全無虞。如需詳細資料，請參閱[混合式連線概觀](../biztalk-services/integration-hybrid-connection-overview.md)。
 
 在本教學課程中，您將了解如何修改 .NET 後端行動服務，以使用本機內部部署 SQL Server 資料庫，而不要使用隨著您的服務佈建的預設 Azure SQL Database。如[這篇文章](http://blogs.msdn.com/b/azuremobile/archive/2014/05/12/connecting-to-an-external-database-with-node-js-backend-in-azure-mobile-services.aspx)所述，JavaScript 後端行動服務也支援混合式連接。
 
@@ -128,8 +126,8 @@
 ##另請參閱##
 
 + [混合式連線網站](../../services/biztalk-services/)
-+ [混合式連線概觀](../integration-hybrid-connection-overview.md)
-+ [BizTalk 服務：儀表板、監視器、調整、設定和混合式連線索引標籤](../biztalk-dashboard-monitor-scale-tabs.md)
++ [混合式連線概觀](../biztalk-services/integration-hybrid-connection-overview.md)
++ [BizTalk 服務：儀表板、監視器、調整、設定和混合式連線索引標籤](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 + [如何對 .NET 後端行動服務進行資料模型變更](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)
 
 <!-- IMAGES -->
@@ -139,4 +137,4 @@
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 [開始使用行動服務]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

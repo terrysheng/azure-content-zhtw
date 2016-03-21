@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/15/2016"
+	ms.date="03/08/2016"
 	ms.author="raynew"/>
 
 # 準備 Azure Site Recovery 部署
@@ -57,15 +57,15 @@ Azure Site Recovery 支援將 VMware 和 Hyper-V VM 及實體伺服器複寫至 
 **功能** | **支援** | **詳細資料**
 ---|---|---
 Hyper-V 主機作業系統 | Windows Server 2012 R2 | 如果不支援，則先決條件檢查會失敗
-VMware hypervisor 作業系統 | 執行受支援的作業系統 | [詳細資料](site-recovery-vmware-to-azure.md#before-you-start)
-客體作業系統 | 對於從 Hyper-V 複寫到 Azure，Site Recovery 支援 [Azure 支援](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)的所有作業系統。<br/><br/>對於 VMware 和實體伺服器複寫，請檢查 Windows 和 Linux [必要條件](site-recovery-vmware-to-azure.md#before-you-start) | 如果不支援，則先決條件檢查會失敗。
+VMware hypervisor 作業系統 | 執行受支援的作業系統 | [詳細資料](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)
+客體作業系統 | 對於從 Hyper-V 複寫到 Azure，Site Recovery 支援 [Azure 支援](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)的所有作業系統。<br/><br/>對於 VMware 和實體伺服器複寫，請檢查 Windows 和 Linux [必要條件](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) | 如果不支援，則先決條件檢查會失敗。
 客體作業系統架構 | 64 位元 | 如果不支援，則先決條件檢查會失敗
 作業系統磁碟大小 | 最多 1023 GB | 如果不支援，則先決條件檢查會失敗
 作業系統磁碟計數 | 1 | 如果不支援，則先決條件檢查會失敗。
 資料磁碟計數 | 16 或更少 (最大值是所建立之虛擬機器大小的函數。16 = XL) | 如果不支援，則先決條件檢查會失敗
 資料磁碟 VHD 大小 | 最大 1023 GB | 如果不支援，則先決條件檢查會失敗
 網路介面卡 | 支援多個介面卡 |
-靜態 IP 位址 | 支援 | 如果主要虛擬機器使用靜態 IP 位址，您可以指定會在 Azure 中建立的虛擬機器靜態 IP 位址
+靜態 IP 位址 | 支援 | 如果主要虛擬機器使用靜態 IP 位址，您可以為將在 Azure 中建立的虛擬機器指定靜態 IP 位址。請注意，不支援在 Hyper-v 上執行的 Linux 虛擬機器的靜態 IP 位址。 
 iSCSI 磁碟 | 不支援 | 如果不支援，則先決條件檢查會失敗
 共用 VHD | 不支援 | 如果不支援，則先決條件檢查會失敗
 FC 磁碟 | 不支援 | 如果不支援，則先決條件檢查會失敗
@@ -107,4 +107,4 @@ FC 磁碟 | 不支援 | 如果不支援，則先決條件檢查會失敗
 - [利用 SAN 將 Hyper-V VM 複寫至次要網站](site-recovery-vmm-san.md)
 - [利用單一 VMM 伺服器複寫 Hyper-V VM](site-recovery-single-vmm.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

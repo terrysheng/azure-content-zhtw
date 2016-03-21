@@ -3,8 +3,8 @@
    description="Azure 搜尋服務 REST API Version 2015-02-28-Preview 包含自然語言分析器和 moreLikeThis 搜尋等實驗性功能。"
    services="search"
    documentationCenter="na"
-   authors="HeidiSteen"
-   manager="mblythe"
+   authors="brjohnstmsft"
+   manager="pablocas"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="02/16/2016"
-   ms.author="heidist"/>
+   ms.date="03/08/2016"
+   ms.author="brjohnst"/>
 
 # Azure 搜尋服務 REST API：版本 2015-02-28-Preview
 
@@ -1054,7 +1054,7 @@ ________________________________________
 - `upload`：上傳動作類似「upsert」，如果是新文件，就會插入該文件，如果文件已經存在，就會更新/取代它。請注意，在更新案例中，會取代所有欄位。
 - `merge`：使用指定的欄位，將更新與現有的文件合併。如果文件不存在，合併就會失敗。您在合併中指定的任何欄位將取代文件中現有的欄位。這包括類型 `Collection(Edm.String)` 的欄位。例如，如果文件包含欄位 "tags" 且值為 `["budget"]`，而您使用值 `["economy", "pool"]` 針對 "tags" 執行合併，則 "tags" 欄位最後的值是 `["economy", "pool"]`。它**不會**是 `["budget", "economy", "pool"]`。
 - `mergeOrUpload`：如果含有指定索引鍵的文件已經存在於索引中，則行為會類似 `merge`。如果文件不存在，則其行為會類似含有新文件的 `upload`。
-- `delete`：刪除會從索引中移除指定的文件。請注意，您只能在 `delete` 操作中指定索引鍵欄位值。嘗試指定其他欄位將導致 HTTP 400 錯誤。如果您想要從文件中移除個別欄位，請改用 `merge`，而且只需明確地將該欄位設為 `null`。
+- `delete`：刪除會從索引中移除指定的文件。請注意，所有您在 `delete` 作業中指定的欄位 (索引鍵欄位除外) 將會遭到忽略。如果您想要從文件中移除個別欄位，請改用 `merge`，而且只需明確地將該欄位設為 `null`。
 
 **回應**
 
@@ -1774,4 +1774,4 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
       "suggesterName": "sg"
     }
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/06/2015"
+   ms.date="03/08/2016"
    ms.author="seanmck"/>
 
 # 您的 Service Fabric 應用程式和後續步驟
@@ -31,9 +31,9 @@
 
 - 兩個應用程式參數檔案 (本機和雲端)，可用來維護環境特定應用程式組態，例如為服務建立之分割區的數目。
 
-- 部署指令碼，可用來從命令列部署您的應用程式，或透過自動化連續整合管線中部署您的應用程式。
+- 部署指令碼，可用來從命令列部署您的應用程式，或透過自動化連續整合和部署管線中部署您的應用程式。
 
-- 應用程式資訊清單，描述應用程式。
+- 應用程式資訊清單，描述應用程式。您可以在 ApplicationPackageRoot 資料夾下方找到資訊清單。
 
 ### Reliable Services
 當您加入一個新的 Reliable Service 時，Visual Studio 會將一個服務專案加入至您的解決方案。服務專案中包含從 `StatelessService` 或 `StatefulService` (視您選擇的類型而定) 延伸的類別。
@@ -86,4 +86,4 @@ Service Fabric 可讓您為應用程式中的獨立服務進行獨立的版本�
 [reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

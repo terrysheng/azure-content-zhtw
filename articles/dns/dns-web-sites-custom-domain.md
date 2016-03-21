@@ -4,7 +4,7 @@
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/24/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma"/>
 
 # 在自訂網域中建立 Web 應用程式的 DNS 記錄
 
 您可以使用 Azure DNS 來裝載 Web 應用程式的自訂網域。比方說，假設您正在建立 Azure Web 應用程式，而且想要使用者透過使用 contoso.com 或 www.contoso.com 做為 FQDN 進行存取。在此案例中，您必須建立兩筆記錄：一筆指向 contoso.com 的根 A 記錄，和一筆 www 名稱、指向 A 記錄的 CNAME 記錄。
 
-> [AZURE.NOTE]請記住，如果您在 Azure 中建立 Web 應用程式的 A 記錄，如果 Web 應用程式的基礎 IP 位址變更，則您必須手動更新 A 記錄。
+> [AZURE.NOTE] 請記住，如果您在 Azure 中建立 Web 應用程式的 A 記錄，如果 Web 應用程式的基礎 IP 位址變更，則您必須手動更新 A 記錄。
 
 為您的自訂網域建立記錄之前，您必須在 Azure DNS 中建立 DNS 區域，並將註冊機構中的區域委派給 Azure DNS。若要建立 DNS 區域，請依照[開始使用 Azure DNS](../dns-getstarted-create-dnszone/#Create-a-DNS-zone) 中的步驟進行。若要將 DNS 委派給 Azure DNS，請依照[將網域委派給 Azure DNS](../dns-domain-delegation) 中的步驟進行。
  
@@ -38,7 +38,7 @@ A 記錄可用來將名稱對應到其 IP 位址。在下列範例中，我們�
 
 使用指派的 $rs 變數，將 IPv4 值新增至先前建立的記錄集 "@"。指派的 IPv4 值將是您 Web 應用程式的 IP 位址。
 
-> [AZURE.NOTE]若要尋找 Web 應用程式的 IP 位址，請依照[在 Azure App Service 中設定自訂網域名稱](../web-sites-custom-domain-name/#Find-the-virtual-IP-address)中的步驟進行
+> [AZURE.NOTE] 若要尋找 Web 應用程式的 IP 位址，請依照[在 Azure App Service 中設定自訂網域名稱](../web-sites-custom-domain-name/#Find-the-virtual-IP-address)中的步驟進行
 
 	PS C:\> Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
 
@@ -165,4 +165,4 @@ A 記錄可用來將名稱對應到其 IP 位址。在下列範例中，我們�
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

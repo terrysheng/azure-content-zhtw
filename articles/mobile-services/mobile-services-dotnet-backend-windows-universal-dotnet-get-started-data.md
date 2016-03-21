@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="03/07/2016"
 	ms.author="glenga"/>
 
 # 將行動服務新增至現有的應用程式
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
+ 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[如何針對 Azure Mobile Apps 使用受管理的用戶端](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md)。
 
 ##概觀
 
@@ -31,9 +31,7 @@
 
 您在本教學課程中建立的行動服務是 .NET 後端行動服務。.Net 後端讓您可以在行動服務中，針對伺服器端的商業邏輯，使用 .NET 語言和 Visual Studio。您還可以在本機電腦上執行和偵錯行動服務。若要建立可讓您以 JavaScript 撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 JavaScript 後端版本。
 
->[AZURE.NOTE]本主題說明如何使用 Visual Studio Professional 2013 Update 3 的工具，將新的行動服務連接到通用 Windows 應用程式。要將行動服務連接到 Windows 市集或 Windows Phone 市集 8.1 應用程式時，也可使用相同的步驟進行。若要將行動服務連接至 Windows Phone 8.0 或 Windows Phone Silverlight 8.1 應用程式，請參閱[開始使用 Windows Phone 的資料](mobile-services-dotnet-backend-windows-phone-get-started-data.md)。
-
-> 如果您無法升級至 Visual Studio Professional 2013 Update 3 或是您偏好將行動服務專案手動新增到 Windows 市集應用程式解決方案，請參閱[此版本](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md)的主題。
+>[AZURE.NOTE]本主題說明如何使用 Visual Studio Professional 2013 Update 3 的工具，將新的行動服務連接到通用 Windows 應用程式。要將行動服務連接到 Windows 市集或 Windows Phone 市集 8.1 應用程式時，也可使用相同的步驟進行。若要將行動服務連接至 Windows Phone 8.0 或 Windows Phone Silverlight 8.1 應用程式，請參閱[開始使用 Windows Phone 的資料](mobile-services-windows-phone-get-started-data.md)。
 
 ##必要條件
 
@@ -102,7 +100,7 @@
 
 * [開始使用推播通知] <br/>了解如何將非常基本的推播通知傳送到應用程式。
 
-* [行動服務 C# 做法概念性參考](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>深入了解如何搭配 .NET使用行動服務。
+* [行動服務 C# 做法概念性參考](mobile-services-dotnet-how-to-use-client-library.md) <br/>深入了解如何搭配 .NET使用行動服務。
 
 
 <!-- Images. -->
@@ -123,4 +121,4 @@
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

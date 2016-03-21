@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="串流分析版本資訊 | Microsoft Azure" 
-	description="Azure 串流分析版本資訊" 
+	description="串流分析版本資訊" 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/16/2016" 
+	ms.date="03/03/2016" 
 	ms.author="jeffstok"/>
 
 #串流分析版本資訊
+
+## 串流分析 2016/03/03 版的注意事項 ##
+
+此版本包含下列更新。
+
+課程名稱 | 說明
+---|---
+新的串流分析查詢語言項目 | SAQL 現在有 [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "GetType MSDN 頁面")、[TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "TRY_CAST MSDN 頁面") 及 [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "REGEXMATCH MSDN 頁面")。
 
 ## 串流分析 2015 年 12 月 10 日版本的注意事項 ##
 
@@ -25,7 +33,7 @@
 課程名稱 | 說明
 ---|---
 REST API 版本更新 | REST API 的版本已更新至 2015-10-01。您可在[串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)和[在串流分析中整合機器學習服務](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)的 MSDN 中取得詳細資料。
-Azure 機器學習的整合 | 此版本開始支援 Azure 機器學習的使用者定義函數。如需教學課程，請前往[這裡](stream-analytics-machine-learning-integration-tutorial.md)；如需一般的部落格公告，請前往[這裡](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx)。
+Azure 機器學習的整合 | 此版本開始支援 Azure 機器學習的使用者定義函數。如需詳細資訊，請參閱[教學課程](stream-analytics-machine-learning-integration-tutorial.md)及[部落格上的一般公告](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx)。
 
 ## 串流分析 2015/11/12 版本的注意事項 ##
 
@@ -133,4 +141,4 @@ PowerBI 資料集只能包含一個資料表|PowerBI 不允許指定的資料集
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

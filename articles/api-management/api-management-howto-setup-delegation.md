@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="antonba" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="antonba"/>
 
 # 如何委派使用者註冊和產品訂閱
@@ -46,7 +46,11 @@
 
 	> *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
 
-	登入/註冊案例的查詢參數：- **operation**：識別委派要求的類型；此案例中只能是 **SignIn** - **returnUrl**：使用者按一下登入或註冊連結的頁面 URL - **salt**：特殊的 salt 字串，用於計算安全性雜湊 - **sig**：已經過計算的安全性雜湊，用於和您已計算的雜湊進行比較
+	登入/註冊案例的查詢參數：
+	- **operation**：識別委派要求的類型 - 在此案例中只能是 **SignIn**
+	- **returnUrl**：使用者按一下登入或註冊連結之頁面的 URL
+	- **salt**：特殊 salt 字串，用於計算安全性雜湊
+	- **sig**：已經過計算的安全性雜湊，用於和您已計算的雜湊進行比較
 
 2. 確認要求來自 Azure API 管理 (選擇性，但基於安全性理由，強烈建議這麼做)
 
@@ -101,7 +105,15 @@
 
 	> *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
 
-	產品訂閱案例的查詢參數：- **operation**：識別委派要求的類型。產品訂閱要求的有效選項為：- "Subscribe"：用提供的 ID (請參閱下述) 為使用者訂閱特定產品的要求 - "Unsubscribe"：為使用者取消訂閱產品的要求 - "Renew"：續訂的要求 (例如，可能即將過期) - **productId**：使用者要求訂閱的產品 ID - **userId**：提出要求的使用者 ID - **salt**：用於計算安全性雜湊的特殊 salt 字串 - **sig**：已經過計算的安全性雜湊，用於和您已計算的雜湊進行比較
+	產品訂閱案例的查詢參數：
+	- **operation**：識別委派要求的類型。對於產品訂閱要求，有效的選項包括：
+		- "Subscribe"：為使用者訂閱具有提供之識別碼的 (請參閱下面) 指定產品的要求
+		- "Unsubscribe"：將為使用者取消訂閱產品的要求
+		- "Renew"：續約訂閱的要求 (例如，可能過期)
+	- **productId**：使用者要求訂閱之產品的識別碼
+	- **userId**：提出要求之使用者的識別碼
+	- **salt**：特殊 salt 字串，用於計算安全性雜湊
+	- **sig**：已經過計算的安全性雜湊，用於和您已計算的雜湊進行比較
 
 
 2. 確認要求來自 Azure API 管理 (選擇性，但基於安全性理由，強烈建議這麼做)
@@ -166,4 +178,4 @@
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="rajram"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/02/2016"
    ms.author="rajram"/>
 
 # 開發適用於 PowerApps 的 API
@@ -32,16 +32,16 @@
 
 下列文件會說明如何在 App Service 環境中建置和部署 .Net、Java 或 Node.js API：
 
-- [在 Azure App Service 中建置和部署 .NET](../app-service-api-dotnet-get-started.md)
-- [在 Azure App Service 中建置和部署 Java API 應用程式](../app-service-api-java-api-app.md)
-- [在 Azure App Service 中建置和部署 Node.js API 應用程式](../app-service-api-nodejs-api-app.md)
+- [在 Azure App Service 中建置和部署 .NET](../app-service-api/app-service-api-dotnet-get-started.md)
+- [在 Azure App Service 中建置和部署 Java API 應用程式](../app-service-api/app-service-api-java-api-app.md)
+- [在 Azure App Service 中建置和部署 Node.js API 應用程式](../app-service-api/app-service-api-nodejs-api-app.md)
 
 
 ## 步驟 2：為您的 API 撰寫 Swagger 2.0 API 定義
 
 只要遵循下列一項參考文件的*步驟 1*，就會為您的 API 自動產生標準的 Swagger 2.0 API 定義。若要最佳化以適合 PowerApps，您可以選擇使用下列結構描述擴充功能，自訂產生的 Swagger 2.0 API 定義。
 
-若要了解通常如何自訂 Swagger 2.0 API 定義，請參閱[自訂 Swashbuckle 產生的 API 定義](../app-service-api-dotnet-swashbuckle-customize.md)。
+若要了解通常如何自訂 Swagger 2.0 API 定義，請參閱[自訂 Swashbuckle 產生的 API 定義](../app-service-api/app-service-api-dotnet-swashbuckle-customize.md)。
 
 ### 結構描述延伸模組
 除了 Swashbuckle 自動產生的 swagger 之外，還有一些其他的 swagger 擴充功能可在建立 PowerApps 的 API 時使用。本節會列出並描述這些擴充功能。
@@ -130,4 +130,4 @@ Salesforce 有很多內建物件。_x-ms-dynamic-values_ 在這裡用來協助�
 
 這在作業輸入為動態的案例中很有用。例如，考量 SQL 的案例。每個資料表的結構描述都不相同。因此，當使用者選取特定的資料表時，邏輯流程設計工具就必須了解資料表的結構，以便顯示資料行名稱。本文中，如果 swagger 定義具有 _x-ms-dynamic-schema_，它就會呼叫對應的作業擷取結構描述。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

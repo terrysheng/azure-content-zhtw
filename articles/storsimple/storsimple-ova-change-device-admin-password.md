@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/15/2016"
+   ms.date="03/02/2016"
    ms.author="alkohli" />
 
-# 變更 StorSimple Virtual Array 裝置系統管理員密碼 (預覽)
+# 變更 StorSimple Virtual Array 裝置系統管理員密碼
 
 ## 概觀
 
-當您使用 Windows PowerShell 介面來存取 StorSimple 虛擬裝置時，需要輸入裝置系統管理員密碼。StorSimple 裝置第一次佈建並啟動時，預設的密碼是 Password1。為了資料的安全性，您第一次登入時預設密碼便會過期，且系統會要求您變更密碼。
+當您使用 Windows PowerShell 介面來存取 StorSimple 虛擬裝置時，需要輸入裝置系統管理員密碼。StorSimple 裝置第一次佈建並啟動時，預設的密碼是 *Password1*。為了資料的安全性，您第一次登入時預設密碼便會過期，且系統會要求您變更密碼。
 
 裝置部署到生產環境之後，您隨時可以使用本機 Web UI 或 Azure 傳統入口網站變更裝置系統管理員密碼。本文章說明上述各程序。
 
@@ -69,4 +69,4 @@
 
 深入了解 [administering your StorSimple Virtual Array (管理 StorSimple Virtual Array)](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

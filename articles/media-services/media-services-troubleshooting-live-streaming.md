@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"  
+ 	ms.date="03/02/2016"  
 	ms.author="juliako"/>
 
 #針對即時資料流進行疑難排解的指南 
@@ -24,6 +24,14 @@
 
 本節提供如何疑難排解內部部署編碼器相關問題的建議，而編碼器的設定是傳送單一位元速率資料流到啟用即時編碼的 AMS 通道。
 
+###問題：想要查看記錄檔 
+
+- 潛在問題：找不到可能有助於偵錯問題的編碼器記錄檔。
+	
+	- Telestream Wirecas：您通常可以在 C:\\Users{使用者名稱}\\AppData\\Roaming\\Wirecast\\ 下找到記錄檔。 
+	- Elemental Live︰您可在管理入口網站上找到記錄檔連結。依序按一下 [統計] 及 [記錄檔]。在 [記錄檔] 頁面上，您會看到一份所有 LiveEvent 項目的記錄檔清單，請選取符合您目前工作階段的項目。 
+	- Flash Media Live Encoder︰瀏覽至 [編碼記錄檔] 索引標籤即可找到 [記錄檔目錄...]。
+	
 ###問題：沒有輸出漸進式資料流的選項
 
 - **可能的問題**：使用的編碼器不會自動進行非交錯處理。 
@@ -65,11 +73,7 @@
 
 	**疑難排解步驟**：瀏覽到 AMSE 工具的 [資料流端點] 索引標籤，確認執行中的資料流端點有伴隨的資料流單位。
 	
-###問題：想要查看編碼器記錄檔 
 
-- **潛在問題**：找不到可能有助於偵錯問題的記錄檔。
-
-	**疑難排解步驟**：您通常可以在 C:\\Users{username}\\AppData\\Roaming\\Wirecast\\ 下找到 Wirecast 記錄檔
 
 >[AZURE.NOTE] 如果依循下列疑難排解步驟後仍無法順利串流處理，請使用 Azure 傳統入口網站提交支援票證。
 
@@ -81,4 +85,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

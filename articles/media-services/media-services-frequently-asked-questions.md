@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="03/01/2016"  
+ 	ms.date="03/02/2016"  
 	ms.author="juliako"/>
 
 
 #常見問題集  
 
-##概觀
+##一般 AMS 常見問題集 
 
 問：如何調整索引？
 
@@ -39,11 +39,21 @@
 
 問：Azure 媒體服務支援儲存影像？
 
-答：如果您只想要儲存 JPEG 或 PNG 影像，請儲存至 Azure Blob 儲存體。除非您想維持影像與視訊或音訊資產之間的關聯，否則將影像保存在媒體服務帳戶中，實際上一點用處也沒有。或者，影像會在視訊編碼器中當作疊加層使用。媒體服務編碼器可以在視訊最上層疊加影像，而且在支援的輸出格式中會列出 JPEG 和 PNG。如需詳細資訊，請參閱[建立重疊](https://msdn.microsoft.com/library/azure/dn640496.aspx)。
+答：如果您只想要儲存 JPEG 或 PNG 影像，請儲存至 Azure Blob 儲存體。除非您想維持影像與視訊或音訊資產之間的關聯，否則將影像保存在媒體服務帳戶中，實際上一點用處也沒有。或者，當您需要在視訊編碼器中將影像作為重疊時才有必要。媒體編碼器標準支援在視訊上層重疊影像，因此會將 JPEG 和 PNG 列為支援的輸入格式。如需詳細資訊，請參閱[建立重疊](media-services-custom-mes-presets-with-dotnet.md#overlay)。
 
 問：我如何將資產從一個媒體服務帳戶複製到另一個帳戶。
 
-答：若要將資產從一個媒體服務帳戶複製到另一個帳戶，請使用 [Azure Media Services.NET SDK 延伸](https://github.com/Azure/azure-sdk-for-media-services-extensions/)儲存機制中可用的 [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) 延伸。如需詳細資訊，請參閱[這個](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices)論壇執行緒。
+答：若要使用 .NET 將資產從某個媒體服務帳戶複製到另一個帳戶，請使用 [Azure Media Services .NET SDK Extensions ](https://github.com/Azure/azure-sdk-for-media-services-extensions/)(Azure 媒體服務 .NET SDK 擴充功能) 儲存機制中可用的 [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) 擴充功能方法。如需詳細資訊，請參閱[這個](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices)論壇執行緒。
+
+問：使用 AMS 時，有哪些支援的字元可用來命名檔案？
+
+答：媒體服務在建置串流內容的 URL 時會使用 IAssetFile.Name 屬性的值 (例如，http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.)，基於這個理由，您不能使用百分比編碼。**Name** 屬性的值不能有下列任何 [percent-encoding-reserved 字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#"。而且，副檔名只能有一個 ‘.’。
+
+
+問：如何使用 REST 連線？
+
+成功連線至 https://media.windows.net 後，您會收到 301 重新導向，其指定另一個媒體服務 URI。您必須依照[使用 REST API 連線至媒體服務](media-services-rest-connect_programmatically.md)所述，對新的 URI 進行後續呼叫。
+
 
 問：如何在編碼過程中旋轉影片？
 
@@ -62,6 +72,9 @@
 	
 	...
 
+
+
+
 ##媒體服務學習路徑
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -70,4 +83,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

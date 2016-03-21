@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="03/03/2016"
    ms.author="mcoskun"/>
 
 # 備份與還原 Reliable Services
@@ -22,7 +22,7 @@ Azure Service Fabric 是高可用性平台，跨多個節點之間複寫狀態�
 
 例如，服務在下列案例中可能想要備份資料：
 
-* 在整個 Service Fabric 叢集或執行指定資料分割的所有節點永久遺失時。舉例來說，當狀態不是異地複寫且您的整個叢集是在一個資料中心，而且整個資料中心中斷，就會發生這個事件。
+* 在整個 Service Fabric 叢集或執行指定資料分割的所有節點永久遺失時。
 
 * 不小心刪除或損毀狀態的系統管理錯誤。例如，這可能會在具備足夠權限的系統管理員錯誤地刪除服務時發生。
 
@@ -158,4 +158,4 @@ protected override async Task<bool> OnDataLossAsync(CancellationToken cancellati
 
 **RestoreAsync** 會先卸除過去呼叫的主要複本中的所有現有狀態。然後，可靠的狀態管理員會建立存在於備份資料夾中所有可靠的物件。接下來，可靠的物件會獲得指示從其備份資料夾中的檢查點還原。最後，可靠的狀態管理員會從備份資料夾中的記錄檔記錄復原自己的狀態，並執行復原。做為復原程序的一部分，作業是從「開始點」開始，在備份資料夾中認可記錄檔記錄，並對可靠的物件重新執行。這個步驟可確保復原的狀態一致。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="03/03/2016"
 	ms.author="glenga"/>
 
 
@@ -229,4 +229,4 @@ Twilio 所提供的 Node.js 程式庫封裝了 Twilio 的各種組件，讓您�
 [azure_twilio_howto_python]: /partner-twilio-python-how-to-use-voice-sms.md
 [azure_twilio_howto_php]: /partner-twilio-php-how-to-use-voice-sms.md
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

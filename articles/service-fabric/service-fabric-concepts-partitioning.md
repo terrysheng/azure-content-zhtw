@@ -65,7 +65,7 @@ Service Fabric 提供一流的方法來分割狀態 (資料)，讓您輕鬆開�
 若要避免這種情況，您應該從分割觀點來做兩件事：
 
 - 試著分割狀態，使它平均分散到所有資料分割。
-- [報告服務每個複本的計量](service-fabric-resource-balancer-dynamic-load-reporting.md)。Service Fabric 能夠報告服務的度量，例如記憶體數量或記錄數量。根據報告的計量，Service Fabric 會偵測到某些資料分割處理的負載高於其他資料分割，然後將複本移至更適合的節點，以平新重衡叢集。
+- 報告此服務每個複本的負載(如需有關如何進行的資訊，請參閱[度量和負載](service-fabric-cluster-resource-manager-metrics.md)上的這篇文章)。Service Fabric 能夠報告服務取用的負載，例如記憶體數量或記錄數量。根據報告的計量，Service Fabric 會偵測到某些資料分割處理的負載高於其他資料分割，然後將複本移至更適合的節點，以重新平衡叢集，使整體沒有節點多載。
 
 有時候您不知道給定的資料分割中有多少資料。所以一般是建議兩者都做，首先是採用分割策略將資料平均分散到資料分割，其次是報告負載。第一種方法可避免投票範例中的情況，第二種方法有助於消除一段期間內短暫的存取或負載差異。
 
@@ -131,9 +131,9 @@ Service Fabric 有三個資料分割配置可選擇：
     ```xml
     <Parameter Name="Processing_PartitionCount" DefaultValue="26" />
     ```
-    
+
     您也需要更新 StatefulService 元素的 LowKey 和 HighKey 屬性，如下所示。
-    
+
     ```xml
     <Service Name="Processing">
       <StatefulService ServiceTypeName="ProcessingType" TargetReplicaSetSize="[Processing_TargetReplicaSetSize]" MinReplicaSetSize="[Processing_MinReplicaSetSize]">
@@ -184,7 +184,7 @@ Service Fabric 有三個資料分割配置可選擇：
     ```
 
     另外值得注意的是，發佈的 URL 稍微不同於接聽 URL 首碼。接聽 URL 提供給 HttpListener。發佈的 URL 是發佈給 Service Fabric 命名服務 (用於服務探索) 的 URL。用戶端會透過該探索服務來要求這個位址。用戶端取得的位址必須有節點的實際 IP 或 FQDN 才能連接。所以您必須以節點的 IP 或 FQDN 取代 '+'，如上所示。
-    
+
 9. 最後一個步驟是將處理邏輯加入至服務，如下所示。
 
     ```CSharp
@@ -228,17 +228,17 @@ Service Fabric 有三個資料分割配置可選擇：
         }
     }
     ```
-        
+
     `ProcessInternalRequest` 讀取用來呼叫資料分割的查詢字串參數的值，並呼叫 `AddUserAsync` 將 lastname 加入可靠的字典 `dictionary`。
-    
+
 10. 讓我們將無狀態服務加入至專案，瞭解如何呼叫特定的資料分割。
 
     這項服務做為簡單的 Web 介面，將接受 lastname 做為查詢字串參數、決定資料分割索引鍵，然後將它傳送給 Alphabet.Processing 服務來處理。
-    
+
 11. 在 [建立服務] 對話方塊中，選擇 [無狀態] 服務，命名為 "Alphabet.WebApi"，如下圖所示。
-    
+
     ![無狀態服務螢幕擷取畫面](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png)。
-    
+
 12. 更新 Alphabet.WebApi 服務的 ServiceManifest.xml 中的端點資訊，以開啟連接埠，如下所示。
 
     ```xml
@@ -261,7 +261,7 @@ Service Fabric 有三個資料分割配置可選擇：
         return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInputRequest);
     }
     ```
-     
+
 14. 現在您需要實作處理邏輯。有要求傳入時，HttpCommunicationListener 會呼叫 `ProcessInputRequest`。讓我們繼續並加入下列程式碼。
 
     ```CSharp
@@ -294,7 +294,7 @@ Service Fabric 有三個資料分割配置可選擇：
                     primaryReplicaAddress);
         }
         catch (Exception ex) { output = ex.Message; }
-        
+
         using (var response = context.Response)
         {
             if (output != null)
@@ -351,11 +351,11 @@ Service Fabric 有三個資料分割配置可選擇：
     ```
 
 16. 完成部署之後，您可以在 Service Fabric 總管中檢查服務及其所有資料分割。
-    
+
     ![Service Fabric 總管螢幕擷取畫面](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-    
+
 17. 您可以在瀏覽器中輸入 `http://localhost:8090/?lastname=somename` 來測試分割邏輯。您會看到以相同字母開頭的每個姓氏儲存在相同的資料分割中。
-    
+
     ![瀏覽器螢幕擷取畫面](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 範例的完整原始程式碼位於 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions)。
@@ -372,4 +372,4 @@ Service Fabric 有三個資料分割配置可選擇：
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -63,9 +63,9 @@ sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階�
 | 使用者類型 | 到期時間 |
 | :-------- | :----------- | 
 | 不受 Azure Active Directory 管理的使用者帳戶 (@hotmail.com、@live.com 等) | 12 小時 |
-| 受 Azure Active Directory (AAD) 管理的使用者帳戶 | | 最後一次執行配量後的 14 天。<p>如果以 OAuth 式連結服務為基礎的配量至少每 14 天執行一次，則為 90 天。</p> |
+| 受 Azure Active Directory (AAD) 管理的使用者帳戶 | 最後一次執行配量後的 14 天。<br/><br/>如果以 OAuth 式連結服務為基礎的配量至少每 14 天執行一次，則為 90 天。 |
 
-如果要避免/解決此錯誤，您必須在**權杖到期**時使用 [**授權**] 按鈕重新授權，然後重新部署連結服務。您也可以使用下一節中的程式碼以程式設計方式產生 **sessionId** 和 **authorization** 屬性的值。
+如果要避免/解決此錯誤，您必須在權杖到期時使用 [授權] 按鈕重新授權，然後重新部署連結服務。您也可以使用下一節中的程式碼以程式設計方式產生 sessionId 和 authorization 屬性的值。
 
   
 ### 若要以程式設計方式產生 sessionId 與 authorization 的值 
@@ -93,7 +93,7 @@ sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階�
         }
     }
 
-請參閱 [AzureDataLakeStoreLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)、[AzureDataLakeAnalyticsLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)和 [AuthorizationSessionGetResponse 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx)主題，以取得在程式碼中使用的 Data Factory 類別的詳細資料。您必須針對 WindowsFormsWebAuthenticationDialog 類別將參考新增至：Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll。
+請參閱 [AzureDataLakeStoreLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)、[AzureDataLakeAnalyticsLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)和 [AuthorizationSessionGetResponse 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx)主題，以取得在程式碼中使用的 Data Factory 類別的詳細資訊。您必須針對 WindowsFormsWebAuthenticationDialog 類別將參考新增至：Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll。
  
  
 ## 資料湖分析 U-SQL 活動 
@@ -155,7 +155,7 @@ sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階�
 
 屬性 | 說明 | 必要
 :-------- | :----------- | :--------
-類型 | 類型屬性必須設為 **DataLakeAnalyticsU-SQL**。 | 是
+類型 | 類型屬性必須設為 DataLakeAnalyticsU-SQL。 | 是
 scriptPath | 包含 U-SQL 指令碼的資料夾的路徑。請注意，檔案名稱區分大小寫。 | 否 (如果您使用指令碼)
 scriptLinkedService | 連結服務會連結包含 Data Factory 的指令碼的儲存體 | 否 (如果您使用指令碼)
 script | 指定內嵌指令碼而不是指定 scriptPath 和 scriptLinkedService。例如："script" : "CREATE DATABASE test"。 | 否 (如果您使用 scriptPath 和 scriptLinkedService)
@@ -253,8 +253,8 @@ degreeOfParallelism | 同時用來執行工作的節點數目上限。 | 否
 	    TO @out
 	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 
-ADF 會使用「parameters」區段動態傳遞上述 U-SQL 指令碼中 **@in** 和 **@out** 參數的值。請參閱上述管線定義中的 ‘parameters’ 一節。
+ADF 會使用 ‘parameters’ 區段動態傳遞上述 U-SQL 指令碼中 @in 和 @out 參數的值。請參閱上述管線定義中的 ‘parameters’ 一節。
 
 您可以指定其他屬性 (即 degreeOfParallelism、priority 等)，以及 Azure 資料湖分析服務上執行之作業的管線定義中的屬性。
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

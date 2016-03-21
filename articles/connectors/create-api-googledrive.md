@@ -15,14 +15,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # 開始使用 Google 雲端硬碟 API
 連線到 Google 雲端硬碟來建立檔案、取得資料列等等。您可以從下列應用程式使用 Google 雲端硬碟 API：
 
-- PowerApps 
 - 邏輯應用程式 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [邏輯應用程式](../articles/connectors/create-api-googledrive.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-googledrive.md)
 
 您可以利用 Google 雲端硬碟來：
 
@@ -47,39 +51,12 @@ None | <ul><li>建立檔案</li><li>插入資料列</li><li>複製檔案</li><li
 
 ## 建立至 Google 雲端硬碟的連線
 
-### 在 PowerApps 中新增其他組態
-當您將 Google 雲端硬碟新增到 PowerApps Enterprise 時，請輸入您的 Google 雲端硬碟應用程式的 [應用程式金鑰] 及 [應用程式密碼] 值。[重新導向 URL] 值也會用在您的 Google 應用程式中。如果您沒有 Google 雲端硬碟應用程式，可以使用下列步驟來建立：
-
-1. 登入 [Google Developers Console][5]，然後選取 [建立空的專案]：![Google developers console (Google 開發人員主控台)][6]
-
-2. 輸入您的應用程式屬性，然後選取 [建立]。
-3. 選取 [使用 Google API]：![使用 google api][8]  
-4. 在 [總覽]中，選取 [Drive API]：![Google Drive API 總覽][9]  
-5. 選取 [**啟用 API**]：![啟用 Google Drive API][10]  
-6. 啟用 Drive API 後，選取 [**憑證**]，然後選取 [**OAuth 2.0 用戶端 ID**]：![新增憑證][12]  
-7. 選取 [**設定同意畫面**]。
-8. 在 [OAuth 同意畫面] 中，輸入 [產品名稱]，然後選取 [儲存]：![設定同意畫面][13]  
-9. 在 [建立用戶端 ID] 頁面中：  
-
-	1. 在 [應用程式類型] 中，選取 [Web 應用程式]。
-	2. 輸入用戶端的名稱。
-	3. 輸入您在 Azure 入口網站中新增 Google 雲端硬碟 API 時所看到的 [重新導向 URL] 值。
-	4. 選取 [**建立**]。  
-
-	![建立用戶端 id][14]
-
-11. 畫面隨即會顯示已註冊應用程式的用戶端識別碼及用戶端密碼。
-
-現在，在 Azure 入口網站的 Google 雲端硬碟 API 組態中，複製/貼上這些 [應用程式金鑰] 及 [應用程式密碼] 值。
-
-
-### 在邏輯應用程式中新增其他組態
 當您將這個 API 新增到邏輯應用程式時，您必須授權，讓邏輯應用程式能夠連線到您的 Google 雲端硬碟。
 
 1. 登入您的 Google 雲端硬碟帳戶。
 2. 允許您的邏輯應用程式連線並使用您的 Google 雲端硬碟。 
 
-當您建立連線之後，請輸入 Google 雲端硬碟的屬性，例如資料夾路徑或檔案名稱。本主題的＜REST API 參考＞一節說明這些屬性。
+當您建立連線之後，請輸入 Google 雲端硬碟的屬性，例如資料夾路徑或檔案名稱。本主題的 REST API 參考會說明這些屬性。
 
 >[AZURE.TIP] 您可以在其他的邏輯應用程式中，使用這個相同的 Google 雲端硬碟連線。
 
@@ -363,9 +340,10 @@ None | <ul><li>建立檔案</li><li>插入資料列</li><li>複製檔案</li><li
 
 
 ## 後續步驟
-當您把 Google 雲端硬碟新增到 PowerApps Enterprise 之後，請[授與使用者在自己的應用程式中使用 API 的權限](../power-apps/powerapps-manage-api-connection-user-access.md)。
 
 [建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
+
+返回 [API 清單](apis-list.md)。
 
 
 <!--References-->
@@ -378,4 +356,4 @@ None | <ul><li>建立檔案</li><li>插入資料列</li><li>複製檔案</li><li
 [13]: ./media/create-api-googledrive/configure-consent-screen.png
 [14]: ./media/create-api-googledrive/create-client-id.png
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

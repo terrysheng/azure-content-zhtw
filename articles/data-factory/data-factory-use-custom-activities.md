@@ -73,14 +73,14 @@ Azure Data Factory 支援在管線中使用內建活動來移動和處理資料�
 ### 程序： 
 1.	建立 .NET 類別庫專案。
 	<ol type="a">
-	<li>啟動 <b>Visual Studio 2012</b> 或 <b>Visual Studio 2013</b>。</li>
-	<li>按一下 [<b>檔案</b>]，指向 [<b>新增</b>]，然後按一下 [<b>專案</b>]。</li>
-	<li>展開 [範本]<b></b>，然後選取 [Visual C#]<b></b>。在此逐步解說中，您使用 C# 中，但您可以使用任何 .NET 語言來開發自訂活動。</li>
-	<li>從右邊的專案類型清單中選取 [類別庫]<b></b>。</li>
-	<li>針對 [名稱]<b></b> 輸入 <b>MyDotNetActivity</b>。</li>
-	<li>在 [<b>位置</b>] 中選取 <b>C:\ADFGetStarted</b>。</li>
-	<li>按一下 [確定]<b></b> 以建立專案。</li>
-</ol>
+		<li>啟動 <b>Visual Studio 2012</b> 或 <b>Visual Studio 2013</b>。</li>
+		<li>按一下 [<b>檔案</b>]，指向 [<b>新增</b>]，然後按一下 [<b>專案</b>]。</li>
+		<li>展開 [範本]<b></b>，然後選取 [Visual C#]<b></b>。在此逐步解說中，您使用 C# 中，但您可以使用任何 .NET 語言來開發自訂活動。</li>
+		<li>從右邊的專案類型清單中選取 [類別庫]<b></b>。</li>
+		<li>針對 [名稱]<b></b> 輸入 <b>MyDotNetActivity</b>。</li>
+		<li>在 [<b>位置</b>] 中選取 <b>C:\ADFGetStarted</b>。</li>
+		<li>按一下 [確定]<b></b> 以建立專案。</li>
+	</ol>
 2.  按一下 [<b>工具</b>]，指向 [<b>NuGet 封裝管理員</b>]，然後按一下 [<b>封裝管理員主控台</b>]。
 3.	在 [封裝管理員主控台]<b></b> 中，執行下列命令匯入 <b>Microsoft.Azure.Management.DataFactories</b>。
 
@@ -608,7 +608,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 	- **AssemblyName** 設定為此 DLL 的名稱：**MyActivities.dll**。
 	- **EntryPoint** 設定為 **MyDotNetActivityNS.MyDotNetActivity**。
 	- **PackageLinkedService** 設為 **StorageLinkedService**，它會指向包含自訂活動 zip 檔案的 blob 儲存體。如果您將不同的 Azure 儲存體帳戶用於輸入/輸出檔案和自訂活動 zip 檔案，您必須建立另一個 Azure 儲存體連結服務。本文假設您使用相同的 Azure 儲存體帳戶。
-	- **PackageFile** 設定為 **customactivitycontainer/MyDotNetActivity.zip**。它的格式為：<containerforthezip>/<nameofthezip.zip>。
+	- **PackageFile** 設定為 **customactivitycontainer/MyDotNetActivity.zip**。其格式為：containerforthezip/nameofthezip.zip。
 	- 自訂活動會採用 **InputDataset** 做為輸入和 **OutputDataset** 做為輸出。
 	- 自訂活動的 linkedServiceName 屬性指向 **HDInsightLinkedService**，這會告知 Azure Data Factory 自訂活動必須在 Azure HDInsight 叢集上執行。
 	- **isPaused** 屬性預設為 **false**。在此範例中，管線會立即執行，因為配量已在過去開始。您可以將此屬性設為 true，以暫停管線，並將其設回 false，以重新啟動。 
@@ -803,4 +803,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

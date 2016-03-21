@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/09/2016"
+   ms.date="03/09/2016"
    ms.author="brjohnst"/>
 
 # 升級至 Azure 搜尋服務 .NET SDK 版本 1.1
@@ -171,6 +171,29 @@ Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫�
  - 擴充方法現在會隱藏許多來自呼叫端的無關 HTTP 詳細資料。例如，較舊版本的 SDK 會傳回具有 HTTP 狀態碼的回應物件，您通常不需要檢查，因為作業方法會針對表示發生錯誤的任何狀態碼擲回 `CloudException`。新的擴充方法只會傳回模型物件，省卻您必須在程式碼中將它們解除包裝的麻煩。
  - 相反地，核心介面現在會公開方法，在您需要時為您提供 HTTP 層級更多的控制權。您現在可以傳入自訂 HTTP 標頭以包含在要求中，新的 `AzureOperationResponse<T>` 會傳回類型，給予您針對作業對於 `HttpRequestMessage` 和 `HttpResponseMessage` 的直接存取。`AzureOperationResponse` 是在 `Microsoft.Rest.Azure` 命名空間中定義，並且取代 `Hyak.Common.OperationResponse`。
 
+### ScoringParameters 變更
+
+名為 `ScoringParameter` 的新類別已加入最新的 SDK，讓您更輕鬆地提供參數給搜尋查詢中的評分設定檔。先前 `SearchParameters` 類別的 `ScoringProfiles` 屬性的類型是 `IList<string>`，現在它的類型是 `IList<ScoringParameter>`。
+
+#### 範例
+
+如果您的程式碼如下所示：
+
+    var sp = new SearchParameters();
+    sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
+    sp.ScoringParameters = new[] { "featuredParam:featured", "mapCenterParam:" + lon + "," + lat };
+
+您可以將其變更如下以修正任何建置錯誤：
+
+    var sp = new SearchParameters();
+    sp.ScoringProfile = "jobsScoringFeatured";      // Use a scoring profile
+    sp.ScoringParameters =
+        new[]
+        {
+            new ScoringParameter("featuredParam", "featured"),
+            new ScoringParameter("mapCenterParam", GeographyPoint.Create(lat, lon))
+        };
+
 ### 模型類別變更
 
 由於[作業方法變更](#OperationMethodChanges)中所述的簽章變更，`Microsoft.Azure.Search.Models` 命名空間中的許多類別都已重新命名或移除。例如：
@@ -268,7 +291,7 @@ Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫�
         };
     }
 
-您必須自行在您的程式碼中尋找這種情況；**編譯器不會警告您**，因為 `JsonResult.Data` 的類型是 `object`。
+您必須自行在您的程式碼中尋找這種情況；編譯器不會警告您，因為 `JsonResult.Data` 的類型是 `object`。
 
 ### CloudException 變更
 
@@ -351,9 +374,9 @@ Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫�
 
 而且您將 `IntValue` 設定為 0，該值現在會在線路上正確序列化為 0，並且在索引中儲存為 0。來回行程也如預期般運作。
 
-這種方法有一個需要知道的可能問題：如果您使用具有不可為 null 屬性的模型類型，您必須**保證**索引中的文件對於對應欄位包含 null 值。SDK 和 Azure 搜尋服務 REST API 都不會協助您強制執行。
+這種方法有一個需要知道的可能問題：如果您使用具有不可為 null 屬性的模型類型，您必須保證索引中的文件對於對應欄位包含 null 值。SDK 和 Azure 搜尋服務 REST API 都不會協助您強制執行。
 
-這不只是假設的問題：想像一下您將新欄位新增至類型為 `Edm.Int32` 的現有索引的案例。更新索引定義之後，所有文件對於該新的欄位具有 null 值 (因為所有類型在 Azure 搜尋服務中都可為 null)。如果您針對該欄位使用具有不可為 null 的 `int` 屬性的模型類別，當您嘗試擷取文件時，就會取得 `JsonSerializationException`，如下所示：
+這不只是假設性的問題：如果您在類型為 `Edm.Int32` 的現有索引中新增欄位，更新索引定義之後，所有文件對於該新的欄位具有 null 值 (因為所有類型在 Azure 搜尋服務中都可為 null)。如果您針對該欄位使用具有不可為 Null 的 `int` 屬性的模型類別，當您嘗試擷取文件時，就會得到 `JsonSerializationException`，如下所示：
 
     Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 
@@ -362,10 +385,10 @@ Azure 搜尋服務 .NET SDK 中的每項作業都針對同步和非同步呼叫�
 如需有關此錯誤和修正的詳細資訊，請參閱 [GitHub 上的這個問題](https://github.com/Azure/azure-sdk-for-net/issues/1063)。
 
 ## 結論
-如果您需要使用 Azure 搜尋服務 .NET SDK 的更多詳細資料，請參閱我們最近更新[作法](search-howto-dotnet-sdk.md)和[開始](search-get-started-dotnet.md)文章。
+如果您需要使用 Azure 搜尋服務 .NET SDK 的更多詳細資料，請參閱我們最近更新[做法](search-howto-dotnet-sdk.md)。
 
 歡迎您提供 SDK 的意見反應。如果您遇到問題，歡迎在 [Azure 搜尋服務 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/zh-TW/home?forum=azuresearch)上尋求協助。如果您發現錯誤，您可以在 [Azure .NET SDK GitHub 儲存機制](https://github.com/Azure/azure-sdk-for-net/issues)中提出問題。請確定在您的問題標題加上前置詞「搜尋服務 SDK：」。
 
 感謝您使用 Azure 搜尋服務！
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

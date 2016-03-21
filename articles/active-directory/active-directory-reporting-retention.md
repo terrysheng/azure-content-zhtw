@@ -3,8 +3,8 @@
 	description="Azure Active Directory 中報告資料的保留原則"
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
+	authors="dhanyahk"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/07/2015"
-	ms.author="kenhoff"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
 # Azure Active Directory 報告保留原則
 
 *這份文件是 [Azure Active Directory 報告指南](active-directory-reporting-guide.md)的一部分。*
 
-Azure AD 的報表會保留資料特定天數，在這裡表示。
+Azure Active Directory (Azure AD) 報告會保留特定天數的資料，如此處所示。
 
 報告 | 說明
 ------------------------------------------------------- | -----------
@@ -48,4 +48,4 @@ RMS 使用量 | 30 天
 RMS 裝置使用量 | 30 天
 啟用 RMS 的應用程式使用量 | 30 天
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

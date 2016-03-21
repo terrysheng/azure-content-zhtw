@@ -17,11 +17,11 @@
    ms.author="heeldin;motanv"/>
 
 # Testability 動作
-為了模擬不可靠的基礎結構，Azure Service Fabric 會提供開發人員用於模擬各種真實失敗案例及狀態轉換的方法。這些方法會以 Testability 動作的形式公開。這些動作是低階 API，會導致特定錯誤插入、狀態轉換或驗證。結合這些動作後，服務開發人員便可以為您的服務撰寫完整的測試案例。
+為了模擬不可靠的基礎結構，Azure Service Fabric 會提供開發人員用於模擬各種真實失敗案例及狀態轉換的方法。這些方法會以 Testability 動作的形式公開。這些動作是低階 API，會導致特定錯誤插入、狀態轉換或驗證。結合這些動作後，便可以為您的服務撰寫完整的測試案例。
 
 Service Fabric 會提供由這些動作所組成的一些常見測試案例。強烈建議您使用這些內建案例，因為它們是經過仔細挑選，可用來測試常見狀態轉換和失敗案例的案例。不過，若您想要新增案例涵蓋範圍以補足內建案例尚未涵蓋，或並非針對您的應用程式量身打造的案例時，動作就可用來建立自訂測試案例。
 
-這些動作的 C# 實作可在 System.Fabric.Testability.dll 組件中找到。Testability PowerShell 模組可在 Microsoft.ServiceFabric.Testability.Powershell.dll 組件中找到。ServiceFabricTestibility PowerShell 模組會在執行階段安裝過程中安裝，讓您方便使用。
+這些動作的 C# 實作可在 System.Fabric.dll 組件中找到。System Fabric PowerShell 模組可在 Microsoft.ServiceFabric.Powershell.dll 組件中找到。ServiceFabric PowerShell 模組會在執行階段安裝過程中安裝，讓您方便使用。
 
 ## 非失誤性與失誤性錯誤動作比較
 Testability 動作分為兩個主要貯體：
@@ -53,7 +53,7 @@ Testability 動作分為兩個主要貯體：
 
 ## 使用 PowerShell 執行 Testability 動作
 
-本教學課程會示範如何使用 PowerShell 執行 Testability 動作。您將學習如何針對本機 (一整體) 叢集或 Azure 叢集，執行 Testability 動作。當您安裝 Microsoft Service Fabric MSI 時，Microsoft.Fabric.Testability.Powershell.dll (Testability PowerShell 模組) 就會自動安裝。當您開啟 PowerShell 提示字元時，此模組就會自動載入。
+本教學課程會示範如何使用 PowerShell 執行 Testability 動作。您將學習如何針對本機 (一整體) 叢集或 Azure 叢集，執行 Testability 動作。當您安裝 Microsoft Service Fabric MSI 時，Microsoft.Fabric.Powershell.dll (Service Fabric PowerShell 模組) 就會自動安裝。當您開啟 PowerShell 提示字元時，此模組就會自動載入。
 
 教學課程區段：
 
@@ -68,7 +68,7 @@ Testability 動作分為兩個主要貯體：
 Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
-這裡的 **Restart-ServiceFabricNode** 動作正在名為 "Node1" 的節點上執行。完成模式會指定該動作不需確認重新啟動的動作是否確實成功。指定完成模式為 "Verify" 將會讓其確認重新啟動動作是否確實成功。您可以透過分割區索引鍵及複本種類指定節點名稱，而不是直接指定其名稱，如下所示：
+這裡的 **Restart-ServiceFabricNode** 動作正在名為 "Node1" 的節點上執行。完成模式會指定該動作不需確認 restart-node 的動作是否確實成功。指定完成模式為 "Verify" 將會讓其確認重新啟動動作是否確實成功。您可以透過分割區索引鍵及複本種類指定節點名稱，而不是直接指定其名稱，如下所示：
 
 ```powershell
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
@@ -168,14 +168,14 @@ class Test
 
         // Create FabricClient with connection and security information here
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        await fabricclient.ClusterManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
+        await fabricclient.FaultManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
     }
 
     static async Task RestartNodeAsync(string clusterConnection, string nodeName, BigInteger nodeInstanceId)
     {
         // Create FabricClient with connection and security information here
         FabricClient fabricclient = new FabricClient(clusterConnection);
-        await fabricclient.ClusterManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
+        await fabricclient.FaultManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
     }
 }
 ```
@@ -235,4 +235,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [模擬服務工作負載期間的失敗案例](service-fabric-testability-workload-tests.md)
    - [服務對服務間通訊的失敗案例](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

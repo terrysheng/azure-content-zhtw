@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # 如何調整 Azure Redis 快取
 
->[AZURE.NOTE]Azure Redis 快取調整功能目前只能預覽。在預覽期間，您無法向上調整為進階層快取或由此向下調整，但是您可以變更進階快取內的定價層，且您可以在啟用叢集的進階快取中[變更叢集大小](cache-how-to-premium-clustering.md#cluster-size)。
+>[AZURE.NOTE] Azure Redis 快取調整功能目前只能預覽。在預覽期間，您無法向上調整為進階層快取或由此向下調整，但是您可以變更進階快取內的定價層，且您可以在啟用叢集的進階快取中[變更叢集大小](cache-how-to-premium-clustering.md#cluster-size)。
 
 Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大小和功能的彈性。如果應用程式需求在建立快取之後變更，您可以使用 [Azure 入口網站](https://portal.azure.com)中的 [變更定價層] 刀鋒視窗來調整快取大小。
 
@@ -46,7 +46,7 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 
 ![定價層][redis-cache-pricing-tier-blade]
 
->[AZURE.NOTE]您可以調整具有下列限制的不同定價層。
+>[AZURE.NOTE] 您可以調整具有下列限制的不同定價層。
 >
 >-	您無法向上調整為**進階**快取，或由此向下調整。
 >-	您無法從**標準**快取調整到**基本**快取。
@@ -178,4 +178,4 @@ Azure Redis 快取都有不同的快取提供項目，以提供選擇快取大�
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

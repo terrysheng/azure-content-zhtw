@@ -1,11 +1,12 @@
 <properties
-pageTitle="將 Office 365 Outlook API 新增到邏輯應用程式 | Microsoft Azure"
-description="搭配 REST API 參數來使用 Office 365 Outlook API 的概觀"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="dwrede"	
-editor="" tags="connectors" />
+	pageTitle="在 PowerApps Enterprise 或邏輯應用程式中加入 Office 365 Outlook API | Microsoft Azure"
+	description="搭配 REST API 參數來使用 Office 365 Outlook API 的概觀"
+	services=""	
+	documentationCenter="" 	
+	authors="msftman"	
+	manager="erikre"	
+	editor="" 
+	tags="connectors" />
 
 <tags
 ms.service="multiple"
@@ -13,17 +14,23 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="mandia"/>
 
 # 開始使用 Office 365 Outlook API 
 
 連接至 Office 365 Outlook 以取得電子郵件、回覆電子郵件、更新您的行事曆和連絡人等等。Office 365 Outlook API 可以從下列位置使用：
 
-- PowerApps 
 - 邏輯應用程式 
+- PowerApps
 
->[AZURE.NOTE] 這一版的文章適用於邏輯應用程式 2015-08-01-preview 結構描述版本。對於 2014-12-01-preview 結構描述版本，請按一下 [Office 365 API](../app-service-logic/app-service-logic-connector-office365.md)。
+> [AZURE.SELECTOR]
+- [邏輯應用程式](../articles/connectors/create-api-office365-outlook.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
+
+&nbsp;
+
+>[AZURE.NOTE] 這一版的文章適用於邏輯應用程式 2015-08-01-preview 結構描述版本。如需 2014-12-01-preview 結構描述版本，請按一下 [Office 365 API](../app-service-logic/app-service-logic-connector-office365.md)。
 
 使用 Office 365 Outlook，您可以：
 
@@ -32,7 +39,7 @@ ms.author="mandia"/>
 - 可使用回覆電子郵件、建立新的行事曆事件等等的動作。這些動作會收到回應，然後輸出能讓其他動作使用的資料。例如，當在 Salesforce 中有新的物件時，您可接受該物件，並更新您的 Office 365 Outlook 連絡人。 
 - 新增 Office 365 Outlook API 至 PowerApps Enterprise。接著，您的使用者便能夠在自己的應用程式中使用這個 API。 
 
-如需有關如何在 PowerApps Enterprise 中新增 API 的資訊，請移至[在 PowerApps 中為 API 註冊](../power-apps/powerapps-register-from-available-apis.md)。
+如需如何在 PowerApps Enterprise 中加入 API 的資訊，請移至[在 PowerApps 中註冊 API](../power-apps/powerapps-register-from-available-apis.md)。
 
 如果要在邏輯應用程式中新增作業，請參閱[建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
@@ -49,63 +56,12 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 ## 建立 Office365 的連接
 
-### 在 PowerApps 中新增其他組態
-當您將此 API 新增至 PowerApps Enterprise，您需要輸入您 Office 365 Azure Active Directory (AAD) 應用程式的 [應用程式金鑰] 和 [應用程式機密] 值。[重新導向 URL] 值也會在您的 Office 365 應用程式中使用。如果您沒有 Office 365 應用程式，可以使用下列步驟來建立：
-
-1. 在 [Azure 入口網站][5]中，開啟 [Active Directory]，然後開啟您組織的租用戶名稱。
-2. 選取 [**應用程式**] 索引標籤，然後選取 [**新增**]：  
-![AAD 租用戶應用程式][7]
-
-3. 在 [**新增應用程式**] 中：
-
-	1. 輸入您應用程式的 [名稱]。  
-	2. 讓應用程式類型保持為 [Web]。  
-	3. 選取 [下一步]。  
-
-	![加入 AAD 應用程式 - 應用程式資訊][8]
-
-6. 在 [應用程式屬性] 中：
-
-	1. 輸入您應用程式的 [登入 URL]。由於您即將利用適用於 PowerApps 的 AAD 來進行驗證，因此請把登入 URL 設定為 _https://login.windows.net_ 。
-	2. 為您的應用程式輸入有效的 [應用程式識別碼 URI]。  
-	3. 選取 [確定]。  
-
-	![加入 AAD 應用程式 - 應用程式屬性][9]
-
-7. 完成時，會開啟新的 AAD 應用程式。選取 [**設定**]：  
-![Contoso AAD 應用程式][10]
-
-8. 在 [OAuth 2] 區段下，請將 [回覆 URL] 設定為當您在 Azure 入口網站中新增 Office 365 Outlook API 時顯示的重新導向 URL 值。選取 [**新增應用程式**]：  
-![設定 Contoso AAD 應用程式][11]
-
-9. 在 [其他應用程式的權限] 中，選取 [Office 365 Exchange Online]，然後選取 [確定]：  
-![Contoso 應用程式委派][12]
-
-	回到設定頁面，注意 _Office 365 Exchange Online_ 已加入 [其他應用程式的權限] 清單中。
-
-10. 針對 [Office 365 Exchange Online]，選取 [委派的權限]，然後選取下列權限：
-
-	- 讀取和寫入使用者連絡人
-	- 讀取使用者連絡人
-	- 讀取和寫入使用者行事曆
-	- 讀取使用者行事曆
-	- 以使用者身分傳送郵件
-	- 讀取和寫入使用者郵件
-	- 讀取使用者郵件
-
-	![Contoso 應用程式委派權限][13]
-
-Azure Active Directory 應用程式便建立好了。您可以在 Azure 入口網站中，將 [應用程式金鑰] 和 [應用程式機密] 值複製/貼上至您的 Office 365 Outlook API 設定。
-
-有關 AAD 應用程式的資訊，請參閱[應用程式新增至 Azure AD 的方式及原因](../active-directory/active-directory-how-applications-are-added.md)。
-
-### 在邏輯應用程式中新增其他組態
 當您將這個 API 新增到邏輯應用程式時，您必須登入您的 Office 365 Outlook 帳戶，並允許邏輯應用程式連線到您的帳戶。
 
 1. 登入您的 Office 365 Outlook 帳戶。
 2. 允許您的邏輯應用程式連線並使用您的 Office 365 帳戶。 
 
-連線建立之後，您需要輸入 Office 365 Outlook 屬性，像是收件匣資料夾路徑或電子郵件訊息。本主題的＜REST API 參考資料＞一節會說明這些屬性。
+連線建立之後，您需要輸入 Office 365 Outlook 屬性，像是收件匣資料夾路徑或電子郵件訊息。本主題的＜REST API 參考＞一節說明這些屬性。
 
 >[AZURE.TIP] 您可以在其他的邏輯應用程式中，使用這個相同的 Office 365 Outlook 連線。
 
@@ -821,9 +777,10 @@ Azure Active Directory 應用程式便建立好了。您可以在 Azure 入口�
 
 
 ## 後續步驟
-當您把 Office 365 API 新增到 PowerApps Enterprise 之後，請[授與使用者權限](../power-apps/powerapps-manage-api-connection-user-access.md)，讓他們在 app 中使用 API。
 
 [建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
+
+返回 [API 清單](apis-list.md)。
 
 <!--References-->
 [5]: https://portal.azure.com
@@ -835,5 +792,4 @@ Azure Active Directory 應用程式便建立好了。您可以在 Azure 入口�
 [12]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook.png
 [13]: ./media/create-api-office365-outlook/contoso-aad-app-delegate-office365-outlook-permissions.png
 
-<!---HONumber=AcomDC_0302_2016-------->
-
+<!---HONumber=AcomDC_0309_2016-->

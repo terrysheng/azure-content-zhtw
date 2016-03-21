@@ -13,13 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.date="03/04/2016"
 	ms.author="saah;kenhoff"/>
 
 # 具有異常登入活動的使用者
-這是一個可結合來自下列報告的可疑登入的彙總報告：<ul><li>從未知的來源登入</li> <li>在多次失敗後登入</li> <li>從多個地理區域登入</li> <li>從具有可疑活動的 IP 位址登入</li> <li>從可能受感染的裝置登入</li> <li>異常登入活動</li> </ul>
+這份彙總報告會將來自下列報告的可疑登入合併為一份報告：
+
+<ul><li>從不明來源登入</li>
+<li>在多次失敗後登入</li>
+<li>從多個地理區域登入</li>
+<li>從具有可疑活動的 IP 位址登入</li>
+<li>從可能受感染的裝置登入</li>
+<li>異常的登入活動</li>
+</ul>
 
 
 ![具有異常登入活動的使用者](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0309_2016-->

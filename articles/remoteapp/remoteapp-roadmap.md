@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="02/16/2016"
+    ms.date="03/08/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp 中的新內容
@@ -29,7 +29,7 @@
 |Azure 資源管理員 (ARM) 支援||X|
 |Azure v2 資源支援| |X|
 |雲端解決方案提供者 (CSP)||X|
-|印度地區的可用性|X||
+|印度地區的可用性||X|
 |英國地區的可用性||X|
 
 
@@ -47,4 +47,4 @@
 - 澳大利亞資料中心的可用性
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

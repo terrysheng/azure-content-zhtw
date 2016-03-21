@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # 什麼是流量管理員？
@@ -56,10 +56,10 @@ Microsoft Azure 流量管理員可讓您控制使用者流量，將流量分散�
 1. **將您的 Azure 雲端服務、Azure 網站或其他端點部署到生產環境**。當您建立流量管理員設定檔時，必須與訂用帳戶關聯。然後，您要將雲端服務和標準層網站的端點加入屬於相同訂用帳戶的生產環境。如果端點處於預備環境而不是 Azure 生產環境，或不在相同的訂用帳戶中，則可以新增為外部端點。如需雲端服務的詳細資訊，請參閱[雲端服務](http://go.microsoft.com/fwlink/p/?LinkId=314074)。如需網站的詳細資訊，請參閱[網站](http://go.microsoft.com/fwlink/p/?LinkId=393327)。
 2. **決定您的流量管理員網域名稱**。請為您的網域名稱考慮使用唯一的前置詞。網域的後半部 trafficmanager.net 是固定的。如需詳細資訊，請參閱[最佳作法](#best-practices)。
 3. **決定您想要使用的監視組態**。流量管理員會監視端點，確定它們處於線上狀態，無論流量路由方法為何。設定監視設定後，流量管理員根據監視系統不會將流量導向離線的端點，除非它偵測到所有端點都是離線，或者無法偵測到設定檔中任何端點的狀態。如需監視的詳細資訊，請參閱[流量管理員監視](traffic-manager-monitoring.md)。
-4. **決定您想要使用的流量路由方法**。有三種不同的流量路由方法可以使用。請花一些時間了解哪一種方法最能符合您的需求。如果您稍後需要變更方法，可以隨時進行。此外也請注意，每個方法需要的組態步驟稍有不同。如需流量路由方法的詳細資訊，請參閱[關於流量管理員流量路由方法](traffic-manager-load-balancing-methods.md)。
+4. **決定您想要使用的流量路由方法**。有三種不同的流量路由方法可以使用。請花一些時間了解哪一種方法最能符合您的需求。如果您稍後需要變更方法，可以隨時進行。此外也請注意，每個方法需要的組態步驟稍有不同。如需流量路由方法的詳細資訊，請參閱[關於流量管理員流量路由方法](traffic-manager-routing-methods.md)。
 5. **建立設定檔和進行設定**。您可以使用 REST API、Windows PowerShell 或 Azure 傳統入口網站來建立流量管理員設定檔和進行設定。如需詳細資訊，請參閱[如何設定流量管理員設定](#how-to-configure-traffic-manager-settings)。下列步驟假設您將使用 Azure 傳統入口網站中的 [快速建立]。 
    - **建立流量管理員設定檔** - 若要使用 Azure 傳統入口網站中的 [快速建立] 建立設定檔，請參閱[管理流量管理員設定檔](traffic-manager-manage-profiles.md)。
-   - **設定流量路由方法設定** – 使用 [快速建立] 時，您必須為設定檔選取流量路由方法。此設定可以在完成「快速建立」步驟之後隨時變更。如需設定步驟，請參閱流量路由方法對應的主題：[設定效能流量路由方法](traffic-manager-configure-performance-load-balancing.md)、[設定容錯移轉流量路由方法](traffic-manager-configure-failover-load-balancing.md)、[設定循環配置資源流量路由方法](traffic-manager-configure-round-robin-load-balancing.md)。
+   - **設定流量路由方法設定** – 使用 [快速建立] 時，您必須為設定檔選取流量路由方法。此設定可以在完成「快速建立」步驟之後隨時變更。如需設定步驟，請參閱流量路由方法對應的主題：[設定效能流量路由方法](traffic-manager-configure-performance-routing-method.md)、[設定容錯移轉流量路由方法](traffic-manager-configure-failover-routing-method.md)、[設定循環配置資源流量路由方法](traffic-manager-configure-round-robin-routing-method.md)。
    
    >[AZURE.NOTE] 流量路由方法的循環配置資源方法現在支援網路流量的加權散發。不過，您目前必須使用 REST API 或 Windows PowerShell 才能設定權數。如需詳細資訊和範例組態，請參閱 Azure 部落格中的 [Azure 流量管理員外部端點和透過 PowerShell 的加權循環配置資源](https://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/)。
 
@@ -102,7 +102,7 @@ Microsoft Azure 流量管理員可讓您控制使用者流量，將流量分散�
 - **定義** – 定義包含原則設定和監視設定。定義對應至設定檔。每個設定檔可以只有一個定義。雖然定義內的許多設定會顯示在 Azure 傳統入口網站中，而且可加以設定，但是定義本身並不會顯示在 Azure 傳統入口網站中。
 - **DNS 選項** – 每個定義內都有 DNS 選項。這是設定 DNS TTL 的位置。
 - **監視** – 每個定義內都有監視設定。這是設定通訊協定、連接埠以及相對路徑和檔案名稱的位置。監視設定會顯示在 Azure 傳統入口網站中，而且可加以設定。如需詳細資訊，請參閱[流量管理員監視](traffic-manager-monitoring.md)。
-- **原則** – 每個定義內都有原則設定。原則是指定流量路由方法和端點之處。雖然原則的某些設定會顯示在 Azure 傳統入口網站中，而且可加以設定，但是原則本身並不會顯示在 Azure 傳統入口網站中。如需詳細資訊，請參閱[關於流量管理員流量路由方法](traffic-manager-load-balancing-methods.md)。
+- **原則** – 每個定義內都有原則設定。原則是指定流量路由方法和端點之處。雖然原則的某些設定會顯示在 Azure 傳統入口網站中，而且可加以設定，但是原則本身並不會顯示在 Azure 傳統入口網站中。如需詳細資訊，請參閱[關於流量管理員流量路由方法](traffic-manager-routing-methods.md)。
 
 ## 使用 Windows PowerShell 進行設定
 
@@ -172,4 +172,4 @@ Microsoft Azure 流量管理員可讓您控制使用者流量，將流量分散�
 
 [Azure 流量管理員 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

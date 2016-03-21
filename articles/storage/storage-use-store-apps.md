@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/24/2016"
 	ms.author="tamram"/>
 	
 # 如何在 Windows 市集應用程式中使用 Azure 儲存體
@@ -22,9 +22,9 @@
 
 ## 下載所需工具
 
-- [Visual Studio 2012](http://msdn.microsoft.com/library/windows/apps/br211384) 可讓您輕鬆地建置、偵錯、當地語系化、封裝及部署 Windows 市集應用程式。
-- [Azure Storage Client Library for Windows Runtime](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) 提供可處理 Azure 儲存體的類別庫。
-- [ Windows 市集應用程式適用的 WCF 資料服務工具](http://www.microsoft.com/download/details.aspx?id=30714)使用 Visual Studio 2012 和更新版本中 Windows 市集應用程式的用戶端 OData 支援，擴充了加入服務參考體驗。
+- [Visual Studio](https://www.visualstudio.com/zh-TW/visual-studio-homepage-vs.aspx) 可讓您輕鬆地建置、偵錯、當地語系化、封裝及部署 Windows 市集應用程式。需要 visual Studio 2012 或更新版本。
+- [Azure Storage Client Library (Azure 儲存體用戶端程式庫)](https://www.nuget.org/packages/WindowsAzure.Storage) 提供可處理 Azure 儲存體的 Windows 執行階段類別庫。
+- [適用於 Windows 市集應用程式的 WCF 資料服務工具](http://www.microsoft.com/download/details.aspx?id=30714)利用 Visual Studio 中 Windows 市集應用程式的用戶端 OData 支援，擴充了「加入服務參考」體驗。
 
 ## 開發應用程式
 
@@ -87,4 +87,4 @@
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

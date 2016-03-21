@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/05/2016"
+   ms.date="03/02/2016"
    ms.author="alkohli" />
 
-# 使用 StorSimple Manager 服務來管理儲存體帳戶 (預覽版)
+# 使用 StorSimple Manager 服務管理儲存體帳戶
 
 ## 概觀
 
@@ -24,7 +24,7 @@
 - 儲存體帳戶 
 - 存取控制記錄 
 
-本教學課程說明如何使用 [設定] 頁面，來為您的 StorSimple Virtual Array 新增、編輯或刪除儲存體帳戶。本教學課程中的資訊僅適用於執行公用預覽版軟體的 StorSimple Virtual Array。
+本教學課程說明如何使用 [設定] 頁面，來為您的 StorSimple Virtual Array 新增、編輯或刪除儲存體帳戶。本教學課程中的資訊僅適用於執行 2016 年 3 月 GA 版軟體的 StorSimple Virtual Array。
 
  ![[設定] 頁面](./media/storsimple-ova-manage-storage-accounts/configure_service_page.png)
 
@@ -101,4 +101,4 @@
 
 - 了解如何[管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

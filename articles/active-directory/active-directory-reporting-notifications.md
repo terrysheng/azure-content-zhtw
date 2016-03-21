@@ -3,9 +3,9 @@
 	description="如何使用 Azure Active Directory 報告通知找出可疑登入。"
 	services="active-directory"
 	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor="LisaToft"/>
+	authors="dhanyahk"
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2015"
-	ms.author="saah;kenhoff"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
 # Azure Active Directory 報告通知
 
@@ -36,18 +36,19 @@
 
 ## 如何存取電子郵件中提到的報告？
 
-當您按一下連結時，您將會重新導向至 Azure 管理入口網站中的報告頁面。若要存取報告，您必須同時是：
+當您按一下連結時，系統會將您重新導向至 Azure 傳統入口網站中的報告頁面。若要存取報告，您必須同時是：
 
 - 您的 Azure 訂用帳戶的管理員或共同管理員
-- 目錄中的全域管理員，並獲得指派的 Active Directory Premium 授權。如需詳細資訊，請參閱 Azure Active Directory 版本。
+
+- 目錄中的全域管理員，並獲得指派的 Active Directory Premium 授權。如需詳細資訊，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。
 
 ## 我可以關閉這些電子郵件嗎？
 
-是，若要關閉 Azure 管理入口網站中異常登入的相關通知，請按一下 [**設定**]，然後選取 [**通知**] 區段之下的 [**已停用**]。
+是，若要關閉 Azure 傳統入口網站中異常登入的相關通知，請按一下 [設定]，然後選取 [通知] 區段之下的 [已停用]。
 
-## 後續步驟
+## 接下來
 - 想知道有哪些安全性、稽核及活動報告可用嗎？ 請查看 [Azure AD 安全性、稽核及活動報告](active-directory-view-access-usage-reports.md)
 - [開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0309_2016-->

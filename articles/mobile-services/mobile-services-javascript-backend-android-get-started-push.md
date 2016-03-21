@@ -23,6 +23,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[將推播通知新增至 Android 應用程式](../app-service-mobile/app-service-mobile-android-get-started-push.md)。
+
 ## 摘要
 
 本主題說明如何使用 Azure 行動服務，透過 Google 雲端通訊 ("GCM") 將推播通知傳送至 Android 應用程式。您會將推播通知新增至快速入門專案 (本教學課程的先決條件)。使用您的行動服務中內含的 Azure 通知中樞來啟用推播通知。完成後，行動服務就會在每次插入記錄時傳送推播通知。
@@ -86,7 +91,7 @@
 
 1. 從 [**執行**] 功能表項目，按一下 [**執行應用程式**] 來啟動應用程式。
 
-2. 在應用程式中，輸入有意義的文字，如 A new Mobile Services task，然後按一下 [加入] 按鈕。
+2. 在應用程式中，輸入有意義的文字，如 _A new Mobile Services task_，然後按一下 [加入] 按鈕。
 
   	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-quickstart-push1-android.png)
 
@@ -156,4 +161,4 @@
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

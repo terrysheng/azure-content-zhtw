@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 在 SQL 資料倉儲中使用標籤來檢測查詢
@@ -37,9 +37,9 @@ SQL 資料倉儲支援稱為查詢標籤的概念。繼續進行之前，讓我�
 	FROM    sys.dm_pdw_exec_requests r
 	WHERE   r.[label] = 'My Query Label'
 	;
-	``` 
+	```
 
-> [AZURE.NOTE]請務必在查詢時以方括弧或雙引號括住文字標籤。標籤是一個保留的文字，而且如果未分隔，就會造成錯誤。
+> [AZURE.NOTE] 請務必在查詢時以方括弧或雙引號括住文字標籤。標籤是一個保留的文字，而且如果未分隔，就會造成錯誤。
 
 
 ## 後續步驟
@@ -54,4 +54,4 @@ SQL 資料倉儲支援稱為查詢標籤的概念。繼續進行之前，讓我�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

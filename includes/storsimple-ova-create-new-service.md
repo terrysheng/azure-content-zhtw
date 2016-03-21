@@ -23,7 +23,7 @@
 
 	1.  按一下 [建立 StorSimple Manager] 來建立服務。
 
-		![](./media/storsimple-ova-create-new-service/image1-include.png)
+		![](./media/storsimple-ova-create-new-service/image1m-include.png)
 
 	系統會將您導向至 [服務] 登陸頁面。服務建立需要幾分鐘的時間。當帳戶成功建立之後，系統將會通知您。
 
@@ -31,4 +31,4 @@
 
 	服務狀態會變更為 [使用中]。
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

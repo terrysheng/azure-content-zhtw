@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="03/02/2016" 
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning 建議 API 文件
@@ -149,7 +149,7 @@ OData XML
 |:--------			|:--------								|
 |	id |	模型的唯一識別碼 (區分大小寫) |
 |	apiVersion | 1\.0 |
-||| 
+|||
 | 要求本文 | 無 |
 
 **回應**：
@@ -212,7 +212,7 @@ OData XML
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| 
+|||
 | 要求本文 | 無 |
 
 **回應**：
@@ -299,7 +299,7 @@ HTTP 狀態碼：200
 |:--------			|:--------								|
 |	id |	模型的唯一識別碼 (區分大小寫) |
 |	apiVersion | 1\.0 |
-||| 
+|||
 | 要求本文 | 無 |
 
 **回應**：
@@ -343,7 +343,7 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 |
 |	apiVersion | 1\.0 |
-||| 
+|||
 | 要求本文 | 無 |
 
 **回應**：
@@ -580,7 +580,7 @@ OData XML
 |	modelId |	模型的唯一識別碼 |
 |	buildId |	選擇性 – 識別成功組建的編號。 |
 |	apiVersion | 1\.0 |
-||| 
+|||
 | 要求本文 | 無 |
 
 **回應**：
@@ -660,7 +660,7 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 |
 |	apiVersion | 1\.0 |
-||| 
+|||
 | 要求本文 | 無 |
 
 **回應**：
@@ -831,7 +831,7 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 |:--------			|:--------								|
 |	modelId |	模型的唯一識別碼 |
 |	apiVersion | 1\.0 |
-||| 
+|||
 | 要求本文 | 無 |
 
 **回應**：
@@ -889,18 +889,18 @@ OData XML
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| 
+|||
 | 要求本文 | 
-<ins>在提供商務規則的項目識別碼時，請務必使用項目的外部識別碼 (您用於目錄檔案的相同識別碼)</ins><br> 
-<ins>若要新增 BlockList 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>若要新增 FeatureBlockList 規則：</ins><br>
-<br>
+<ins>在提供商務規則的項目識別碼時，請務必使用項目的外部識別碼 (您用於目錄檔案的相同識別碼)</ins><br>
+<ins>若要新增 BlockList 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> 
+<ins>若要新增 FeatureBlockList 規則：</ins><br> 
+<br> 
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
-若要新增 Upsale 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
-<ins>若要新增 WhiteList 規則：</ins><br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>若要新增 FeatureWhiteList 規則：</ins><br> 
-<br>
+若要新增 Upsale 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br> 
+<ins>若要新增 WhiteList 規則：</ins><br> 
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> 
+<ins>若要新增 FeatureWhiteList 規則：</ins><br>
+<br> 
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
 若要新增 PerSeedBlockList 規則：</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
@@ -993,8 +993,8 @@ HTTP 狀態碼：200
 | 名稱 | 強制 | 類型 | 說明 |
 |:---|:---|:---|:---|
 | 項目識別碼 |是 | [A-z]、[a-z]、[0-9]、[\_] &#40;底線&#41;、[-] &#40;虛線&#41;<br> 最大長度： 50 | 項目的唯一識別碼。 | 
-| 項目名稱 | 是 | 任何英數字元<br> 最大長度：255 | 項目名稱。 | 
-| 項目類別 | 是 | 任何英數字元 <br> 最大長度：255 | 此項目所屬類別 (例如烹飪書籍、劇本…) 可以是空的。 | 
+| 項目名稱 | 是 | 任何英數字元<br> 最大長度：255 | 項目名稱。 |
+| 項目類別 | 是 | 任何英數字元 <br> 最大長度：255 | 此項目所屬類別 (例如烹飪書籍、劇本…) 可以是空的。 |
 | 描述 | 否，除非顯示功能 (但也可能是空的) | 任何英數字元 <br> 最大長度：4000 | 此項目的說明 | 
 | 功能清單 | 否 | 任何英數字元 <br> 最大長度：4000；最大功能數目：20 | 以逗號分隔的功能名稱清單 = 功能值，可用來增強模型建議；請參閱[進階主題](#2-advanced-topics)一節。 |
 
@@ -2839,8 +2839,8 @@ HTTP 狀態碼：200
 這個 API 會根據使用者的使用歷程記錄和額外提供的項目，傳回預測的項目清單。
 
 注意：
-1.FBT 組建沒有使用者建議。
-2.如果作用中組建是 FBT，這個方法會傳回錯誤。
+ 1. FBT 組建沒有使用者建議。
+ 2. 如果作用中組建是 FBT，這個方法會傳回錯誤。
 
 
 | HTTP 方法 | URI |
@@ -3002,9 +3002,9 @@ OData XML
 
 ##14\.通知
 Azure Machine Learning 建議會在系統中持續發生錯誤時建立通知。有 3 種類型的通知：
-1.組建失敗 – 每個組建失敗都會觸發此通知。
-2.資料擷取處理失敗 - 當我們在處理每一模型的使用事件時，如果最後 5 分鐘有超過 100 個錯誤，就會觸發此通知。
-3.建議取用失敗 - 當我們在處理每一模型的建議要求時，如果最後 5 分鐘有超過 100 個錯誤，就會觸發此通知。
+1.	組建失敗 – 每個組建失敗都會觸發此通知。
+2.	資料擷取處理失敗 - 當我們在處理每一模型的使用事件時，如果最後 5 分鐘有超過 100 個錯誤，就會觸發此通知。
+3.	建議取用失敗 - 當我們在處理每一模型的建議要求時，如果最後 5 分鐘有超過 100 個錯誤，就會觸發此通知。
 
 
 ###14\.1.取得通知
@@ -3019,7 +3019,7 @@ Azure Machine Learning 建議會在系統中持續發生錯誤時建立通知。
 |:--------			|:--------								|
 | modelId | 選擇性參數。如果省略此參數，您將會取得所有模型的所有通知。<br>有效值：模型的唯一識別碼。|
 | apiVersion | 1\.0 |
-||| 
+|||
 | 要求本文 | 無 |
 
 **回應：**
@@ -3071,7 +3071,7 @@ OData XML
 |:--------			|:--------								|
 | modelId | 模型的唯一識別碼 |
 | apiVersion | 1\.0 |
-||| 
+|||
 | 要求本文 | 無 |
 
 **回應**：
@@ -3089,7 +3089,7 @@ HTTP 狀態碼：200
 |	參數名稱 |	有效值 |
 |:--------			|:--------								|
 | apiVersion | 1\.0 |
-||| 
+|||
 | 要求本文 | 無 |
 
 **回應**：
@@ -3100,10 +3100,10 @@ HTTP 狀態碼：200
 
 
 ##15\.法律
-這份文件係依 「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更， 恕不另行通知。<br><br>
-此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實人事物。<br><br>
-本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。<br><br>
+這份文件係依「現狀」提供。本文件中說明的資訊與畫面 (包括 URL 及其他網際網路網站參考資料) 如有變更， 恕不另行通知。<br><br> 
+此處描述的一些範例僅供說明之用，純屬虛構。並未影射或關聯任何真實人事物。<br><br> 
+本文件未提供給您任何 Microsoft 產品中任何智慧財產的任何法定權利。您可以複製並使用這份文件，供內部參考之用。<br><br> 
 © 2015 Microsoft.著作權所有，並保留一切權利。
  
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

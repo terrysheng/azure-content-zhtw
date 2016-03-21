@@ -14,14 +14,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# 在您組織的應用程式服務環境中建立新的 Office 365 Outlook API
+# 在 PowerApps Enterprise 中建立新的 Office 365 Outlook API
+
+> [AZURE.SELECTOR]
+- [邏輯應用程式](../articles/connectors/create-api-office365-outlook.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
+
+將 Office 365 Outlook API 加入您組織 (租用戶) 的 App Service 環境中。
 
 ## 在 Azure 入口網站中建立 API
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中使用您的工作帳戶登入。例如，使用 *yourUserName*@*YourCompany*.com 登入。當您這樣做時，會自動登入您公司的訂用帳戶。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中使用您的工作帳戶登入。例如，使用 yourUserName@*YourCompany*.com 登入。當您這樣做時，將會自動登入您的公司訂用帳戶。
  
 2. 選取工作列中的 [瀏覽]：![][14]
 
@@ -39,7 +45,7 @@
 
 9. 輸入 Office 365 Azure Active Directory (AAD) 應用程式的「應用程式金鑰」與「應用程式密碼」值。如果您還沒有這些值，請參閱本主題中的＜註冊 AAD 應用程式搭配 PowerApps 使用＞一節來建立您需要的金鑰與密碼值。
  
-	> [AZURE.IMPORTANT]儲存**重新導向 URL**。您稍後會在本主題中使用此值。
+	> [AZURE.IMPORTANT] 儲存**重新導向 URL**。您在本主題的後半部可能需要此值。
 
 10. 選取 [確定] 完成步驟。
 
@@ -54,31 +60,35 @@
 
 2. 選取 [瀏覽]，然後選取 [Active Directory]。
 
-	>[AZURE.NOTE]這會在 Azure 傳統入口網站中開啟 Active Directory。
+	>[AZURE.NOTE] 這會在 Azure 傳統入口網站中開啟 Active Directory。
 
 3. 選取您組織的租用戶名稱：![啟動 Azure Active Directory][6]
 
-4. 選取 [應用程式] 索引標籤，然後選取 [新增]：![AAD 租用戶應用程式][7]
+4. 選取 [**應用程式**] 索引標籤，然後選取 [**新增**]：![AAD 租用戶應用程式][7]
 
-5. 在 [新增應用程式] 中：
+5. 在 [**新增應用程式**] 中：
 
-	a) 輸入應用程式的**名稱**。b) 保留應用程式類型為 **Web**。c) 選取 [下一步]。
+	1. 輸入您應用程式的 [名稱]。  
+	3. 讓應用程式類型保持為 [Web]。  
+	3. 選取 [下一步]。  
 
-	![新增 AAD 應用程式 - 應用程式資訊][8]
+	![加入 AAD 應用程式 - 應用程式資訊][8]
 
 6. 在 [應用程式屬性] 中：
 
-	a) 輸入您應用程式的**登入 URL**。因為您即將為 PowerApps 向 AAD 進行驗證，請將登入 URL 設為 \__https://login.windows.net_。b) 輸入您應用程式的有效**應用程式 ID URI**。c) 選取 [確定]。
+	1. 輸入您應用程式的 [登入 URL]。由於您即將使用 PowerApps 適用的 AAD 來進行驗證，因此請把登入 URL 設定為 \__https://login.windows.net_。
+2. 為您的應用程式輸入有效的 [應用程式識別碼 URI]。  
+	3. 選取 [確定]。  
 
-	![新增 AAD 應用程式 - 應用程式屬性][9]
+	![加入 AAD 應用程式 - 應用程式屬性][9]
 
-7. 成功完成時，系統會將您重新導向至新的 AAD 應用程式。選取 [設定]：![Contoso AAD 應用程式][10]
+7. 完成後，系統會將您重新導向至新的 AAD 應用程式。選取 [設定]：![Contoso AAD 應用程式][10]
 
 8. 將 [OAuth 2] 區段下的 [回覆 URL] 設為您在 Azure 入口網站中新增 Office 365 Outlook API 時收到的重新導向 URL (在此主題中)。然後選取 [新增應用程式]：![設定 Contoso AAD 應用程式][11]
 
 9. 在 [其他應用程式的權限] 視窗中，選取 [Office 365 Exchange Online]，然後選取 [確定]：![Contoso 應用程式委派][12]
 
-10. 回到設定頁面，注意 _Office 365 Exchange Online_ 已新增到 [其他應用程式的權限] 清單中。
+10. 回到設定頁面，注意 _Office 365 Exchange Online_ 已加入 [其他應用程式的權限] 清單中。
 
 11. 為 _Office 365 Exchange Online_ 選取 [委派的權限]，然後選取下列權限：
 
@@ -94,8 +104,15 @@
 
 隨即會建立新的 Azure Active Directory 應用程式。您可以在 Azure 入口網站的 Office 365 Outlook API 組態中使用此應用程式。
 
+如需 AAD 應用程式的資訊，請參閱[將應用程式加入至 Azure AD 的方式和原因](../active-directory/active-directory-how-applications-are-added.md)。
+
+## 請參閱 REST API
+
+[Office 365 Outlook REST API](../connectors/create-api-office365-outlook.md) 參考。
+
+
 ## 摘要和後續步驟
-在本主題中，您已將 Office 365 Outlook API 新增至 PowersApps Enterprise。接下來，請授與使用者存取 API 的權限，讓使用者能夠將 API 新增至其應用程式：
+在本主題中，您已將 Office 365 Outlook API 新增至 PowersApps Enterprise。接下來，請授與使用者此 API 的存取權，讓使用者能夠將此 API 新增至其應用程式：
 
 [新增連接並授與使用者存取權](powerapps-manage-api-connection-user-access.md)
 
@@ -116,4 +133,4 @@
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

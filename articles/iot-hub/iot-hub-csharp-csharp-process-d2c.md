@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="01/05/2016"
+     ms.date="02/03/2016"
      ms.author="dobett"/>
 
 # 教學課程：如何處理 IoT 中樞裝置到雲端訊息
@@ -24,14 +24,14 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
 本教學課程是以 [IoT 中樞入門]中顯示的程式碼為基礎，以呈現兩種可用來處理裝置到雲端訊息的可調整模式：
 
-- [Azure Blob 儲存體]中的裝置到雲端訊息的可靠儲存體。當您實作*冷路徑*分析時，這種情況是很常見的，而您會將 Blob 中做為輸入的資料儲存到 [Azure Data Factory] 或 [HDInsight (Hadoop)] 堆疊之類的工具所驅動的分析程序中。
+- [Azure Blob 儲存體]中的可靠儲存體，用來儲存裝置到雲端的訊息。在實作「冷路徑」分析時，這種情況是很常見的，因為您會將 Blob 中作為輸入的資料儲存到 [Azure Data Factory] 或 [HDInsight (Hadoop)] 堆疊這類由工具所驅動的分析程序中。
 
 - 「互動式」裝置到雲端訊息的可靠處理。當裝置到雲端訊息因為應用程式後端中的一組動作而立即觸發 (相較於送入分析引擎的「資料點」訊息) 時，此訊息會是互動式的。例如，相較於遙測訊息 (例如屬於資料點裝置到雲端訊息的溫度範例)，由必須觸發在 CRM 系統中插入票證的裝置所發出的警示，是互動式的裝置到雲端訊息。
 
 由於 IoT 中樞會公開事件中樞相容端點以接收裝置到雲端訊息，因此本教學課程使用 [EventProcessorHost] 執行個體，它會：
 
 * 在 Azure Blob 中可靠地儲存*資料點*。
-* 將「互動式」裝置到雲端訊息轉寄到[服務匯流排佇列]，以進行立即處理。
+* 將「互動式」裝置到雲端訊息轉寄到[服務匯流排佇列]，以立即處理。
 
 服務匯流排是用來確保能可靠地處理互動式訊息的絕佳方式，因為它提供了各訊息的檢查點，以及以時間範圍為基礎的重複資料刪除。
 
@@ -43,13 +43,13 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
 > [AZURE.NOTE] IoT 中樞對於許多裝置平台和語言 (包括 C、Java 和 JavaScript) 提供 SDK 支援。如需如何以實體裝置取代本教學課程中模擬的裝置，以及通常如何將裝置連接到 Azure IoT 中樞的逐步指示，請參閱 [Azure IoT 開發人員中心]。
 
-本教學課程可直接適用於使用事件中樞相容訊息的其他方式，例如 [HDInsight (Hadoop)] 專案。如需詳細資訊，請參閱 [Azure IoT 中樞開發人員指南 - 裝置到雲端]。
+本教學課程可直接套用至事件中樞相容訊息的其他使用方式，例如 [HDInsight (Hadoop)] 專案。如需詳細資訊，請參閱 [Azure IoT 中樞開發人員指南 - 裝置到雲端]。
 
 若要完成本教學課程，您需要下列項目：
 
 + Microsoft Visual Studio 2015。
 
-+ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank")。
++ 使用中的 Azure 帳戶。<br/>如果您目前沒有帳戶，只需要幾分鐘的時間就可以建立免費帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank")。
 
 您應具備 [Azure 儲存體]和 [Azure 服務匯流排]的基本知識。
 
@@ -91,18 +91,18 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
 <!-- Links -->
 
-[Azure Blob 儲存體]: https://azure.microsoft.com/zh-TW/documentation/articles/storage-dotnet-how-to-use-blobs/
-[Azure Data Factory]: https://azure.microsoft.com/zh-TW/documentation/services/data-factory/
-[HDInsight (Hadoop)]: https://azure.microsoft.com/zh-TW/documentation/services/hdinsight/
-[服務匯流排佇列]: https://azure.microsoft.com/zh-TW/documentation/articles/service-bus-dotnet-how-to-use-queues/
+[Azure Blob 儲存體]: ../storage/storage-dotnet-how-to-use-blobs.md
+[Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
+[HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
+[服務匯流排佇列]: ../service-bus/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
 
-[Azure IoT 中樞開發人員指南 - 裝置到雲端]: https://azure.microsoft.com/zh-TW/documentation/articles/iot-hub-devguide/#d2c
+[Azure IoT 中樞開發人員指南 - 裝置到雲端]: iot-hub-devguide.md#d2c
 
-[Azure 儲存體]: https://azure.microsoft.com/zh-TW/documentation/services/storage/
-[Azure 服務匯流排]: https://azure.microsoft.com/zh-TW/documentation/services/service-bus/
+[Azure 儲存體]: https://azure.microsoft.com/documentation/services/storage/
+[Azure 服務匯流排]: https://azure.microsoft.com/documentation/services/service-bus/
 
 
 
@@ -116,4 +116,4 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 [Supported devices]: iot-hub-tested-configurations.md
 [Azure IoT 開發人員中心]: https://azure.microsoft.com/develop/iot
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/07/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect 同步處理：防止意外刪除
@@ -27,7 +27,7 @@
 - OU 中的所有物件遭到刪除。
 - 重新命名 OU，結果使得其中的所有物件被視為不在同步處理範圍內。
 
-可以使用 PowerShell 的 `Enable-ADSyncExportDeletionThreshold` 進行變更的預設值是 500 個物件。您應該將此值設定為符合您組織的大小。因為同步處理排程器會每隔 3 小時執行一次，因此該值會是 3 個小時內看到的刪除數目。
+可以使用 PowerShell 的 `Enable-ADSyncExportDeletionThreshold` 進行變更的預設值是 500 個物件。您應該將此值設定為符合您組織的大小。由於同步排程器將每隔 30 分鐘執行一次，因此該值是 30 分鐘內看到的刪除數目。
 
 啟用這項功能，如果有太多刪除分段匯出到 Azure AD，匯出將不會繼續且您會收到如下的電子郵件：
 
@@ -56,4 +56,4 @@
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -40,7 +40,8 @@ U-SQL | 文法鐵路圖 | 1 | 進行中，使用 [這個項目](http://bottlecap
 工具 | 使用診斷工具 | 1 | Pending | [@mumian](https://github.com/mumian) | 
 U-SQL | 說明進行範圍型 JOIN 的技術 | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | ADLS 驗證選項 | 1 | Pending | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
-
+U-SQL | 跨平台 CLI 工作提交 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
+U-SQL | REDUCE 和 COMBINE 的參考文件更新 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
 
 
 
@@ -57,4 +58,4 @@ U-SQL | ADLS 驗證選項 | 1 | Pending | [@ArindamC](https://github.com/mikerys
 * 在 [Azure 內容儲存機制](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md) 中提交這份文件的提取要求
 * 傳送電子郵件到 microsoft.com 的 [adlafeedback](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

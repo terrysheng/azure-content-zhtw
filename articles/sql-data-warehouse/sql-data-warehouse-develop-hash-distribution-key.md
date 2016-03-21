@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/09/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 雜湊散發及其對 SQL 資料倉儲中查詢效能的影響
@@ -70,7 +70,7 @@
 
 雜湊散發索引鍵：
 
-1. 由於您無法更新雜湊資料行，這是靜態值。 
+1. 由於您無法更新雜湊資料行，這是靜態值。
 2. 用於查詢中的 `JOIN`、`GROUP BY`、`DISTINCT` 或 `HAVING` 子句。
 2. 不會用於 `WHERE` 子句
 3. 有許多不同的值，至少 1000 個。
@@ -103,4 +103,4 @@
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

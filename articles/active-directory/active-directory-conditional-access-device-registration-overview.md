@@ -46,7 +46,8 @@ Windows 裝置會藉由尋找知名 DNS 記錄來探索服務。您必須設定�
 1. 針對 [使用者可以使用「加入工作場所」裝置] 選取 [全部]。
 1. 選取您要依每位使用者授權的裝置數目上限。
 
->[AZURE.NOTE]Microsoft Intune 註冊或 Office 365 的行動裝置管理需要加入工作場所。如果您已設定任一項服務，則會選取 [全部] 並停用 [無] 按鈕。
+>[AZURE.NOTE]
+Microsoft Intune 註冊或 Office 365 的行動裝置管理需要加入工作場所。如果您已設定任一項服務，則會選取 [全部] 並停用 [無] 按鈕。
 
 
 根據預設，服務未啟用雙因素驗證。不過，建議在註冊裝置時使用雙因素驗證。
@@ -82,5 +83,6 @@ Windows 7 和 Windows 8.1 裝置會藉由結合使用者帳戶名稱與知名裝
 - [自動向 Azure Active Directory 註冊加入網域的 Windows 裝置](active-directory-conditional-access-automatic-device-registration.md) 
 - [為加入網域的 Windows 7 裝置設定自動註冊裝置](active-directory-conditional-access-automatic-device-registration-windows7.md)
 - [為加入網域的 Windows 8.1 裝置設定自動註冊裝置](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+- [自動向 Azure Active Directory 註冊加入網域的 Windows 10 裝置](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -56,8 +56,8 @@ Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 s
 
 |名稱|單位|預設值|備註|
 |----|----|-------------|-------|
-|MaxAsyncCommitDelay|毫秒|200|設定長期本機存放區認可的批次間隔上限。|
-|MaxVerPages|頁面數目|8192|本機存放區資料庫中版本頁面數上限。其會判定未完成交易數上限。|
+|MaxAsyncCommitDelayInMilliseconds|毫秒|200|設定長期本機存放區認可的批次間隔上限。|
+|MaxVerPages|頁面數目|16384|本機存放區資料庫中版本頁面數上限。其會判定未完成交易數上限。|
 
 ## 範例組態檔
 
@@ -86,4 +86,4 @@ Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 s
 
 BatchAcknowledgementInterval 參數會控制複寫延遲性。值為 '0' 時延遲可能性最低，但代價是降低輸送量 (隨著必須傳送與處理的通知訊息增加，每個訊息包含的通知會變少)。BatchAcknowledgementInterval 的值越大，整體複寫輸送量越高，代價是作業延遲變高。這會直接轉換成交易認可的延遲。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

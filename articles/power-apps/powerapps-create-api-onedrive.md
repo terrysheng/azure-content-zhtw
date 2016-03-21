@@ -14,14 +14,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# 在您組織的應用程式服務環境中建立新的 OneDrive API
+# 在 PowerApps Enterprise 中建立新的 OneDrive API
+
+> [AZURE.SELECTOR]
+- [邏輯應用程式](../articles/connectors/create-api-onedrive.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
+
+將 OneDrive API 加入您組織 (租用戶) 的 App Service 環境中。
 
 ## 在 Azure 入口網站中建立 API
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中使用您的工作帳戶登入。例如，使用 *yourUserName*@*YourCompany*.com 登入。當您這樣做時，會自動登入您公司的訂用帳戶。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中使用您的工作帳戶登入。例如，使用 yourUserName@*YourCompany*.com 登入。當您這樣做時，將會自動登入您的公司訂用帳戶。
  
 2. 選取工作列中的 [瀏覽]：![][14]
 
@@ -29,7 +35,7 @@
 
 4. 在 **PowerApps** 中選取 [管理 API]：![瀏覽至已註冊的 API][1]
 
-5. 在 [管理 API] 中，選取 [新增] 以新增新的 API：![Add API][2]
+5. 在 [**管理 API**] 中，選取 [**新增**] 以新增 API：![Add API][2]
 
 6. 為您的 API 輸入描述性**名稱**。
 	
@@ -39,7 +45,7 @@
 
 9. 輸入您 OneDrive 應用程式的「應用程式金鑰」與「應用程式密碼」。如果您還沒有這些值，請參閱本主題中的＜註冊 OneDrive 應用程式以搭配 PowerApps 使用＞一節來建立您需要的金鑰與密碼。
 
-	> [AZURE.IMPORTANT]儲存**重新導向 URL**。您稍後會在本主題中使用此值。
+	> [AZURE.IMPORTANT] 儲存**重新導向 URL**。您在本主題的後半部可能需要此值。
 
 10. 選取 [確定] 完成步驟。
 
@@ -55,11 +61,17 @@
 
 3. 在 [設定] 頁面中：
 
-	a) 選取 [API 設定]。b) 設定重新導向 URL，重新導向您在 Azure 入口網站中新增 OneDrive API 時 (在本主題中) 收到的 URL。c) 選取 [儲存]。
+	1. 選取 [API 設定]。  
+	2. 將重新導向 URL 設為您在 Azure 入口網站中新增 OneDrive API 時收到的重新導向 URL (在本主題中)。  
+	3. 選取 [**儲存**]。  
 
 	![OneDrive 應用程式 API 的設定][7]
 
 此時會建立新的 OneDrive 應用程式。您可以在 Azure 入口網站的 OneDrive API 組態中使用此應用程式。
+
+## 請參閱 REST API
+
+[OneDrive REST API](../connectors/create-api-onedrive.md) 參考。
 
 ## 摘要和後續步驟
 在本主題中，您已將 OneDrive API 新增至 PowersApps Enterprise。接下來，請授與使用者存取 API 的權限，讓使用者能夠將 API 新增至其應用程式：
@@ -77,4 +89,4 @@
 [14]: ./media/powerapps-create-api-onedrive/browseall.png
 [15]: ./media/powerapps-create-api-onedrive/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,7 +3,7 @@
 	description="列出要同步處理至 Azure Active Directory 的屬性。"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="andkjell"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/07/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect 同步處理：將屬性同步處理至 Azure Active Directory
 
-本主題列出 Azure AD Connect 同步處理會同步處理的屬性。<br> 屬性會依相關的 Azure AD App 來分組。
+本主題列出 Azure AD Connect 同步處理會同步處理的屬性。屬性會依相關的 Azure AD App 來分組。
 
+## 要同步處理的屬性
+常見的問題是同步處理的最少屬性清單為何。建議的預設方法是保留預設屬性，這樣可以在雲端建構完整的 GAL (全域通訊清單)。在某些情況下，有些屬性您的組織並不會想同步處理至雲端。在此情況下，請從下列屬性清單著手，並識別可能包含 PII (個人識別資訊) 而無法同步處理的屬性。然後在安裝期間使用 [Azure AD 應用程式和屬性篩選](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering)將它們取消選取。
+
+取消選取屬性時，您應該小心，只取消選取那些絕對不可能進行同步處理的屬性。
 
 ## Office 365 ProPlus
 
@@ -456,4 +460,4 @@ Windows 10 已加入網域的電腦 (裝置) 會將某些屬性同步處理至 A
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

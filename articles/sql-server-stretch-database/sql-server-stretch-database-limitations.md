@@ -3,9 +3,9 @@
 	description="了解在啟用 Stretch Database 前必須解決的封鎖問題。"
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -92,4 +92,4 @@
 ## 另請參閱
 [執行 Stretch Database Advisor，以識別 Stretch Database 的資料庫和資料表](sql-server-stretch-database-identify-databases.md) [為資料庫啟用 Stretch Database](sql-server-stretch-database-enable-database.md) [為資料表啟用 Stretch Database](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

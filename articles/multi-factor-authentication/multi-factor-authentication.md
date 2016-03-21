@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/29/2016"
+	ms.date="03/03/2016"
 	ms.author="billmath"/>
 
 # 什麼是 Azure Multi-Factor Authentication？
@@ -108,7 +108,7 @@ Azure Multi-Factor Authentication | Azure Multi-Factor Authentication 提供最�
 以撥打電話做為第二個因素|* | * | *
 以 SMS 做為第二個因素|* | * | *
 用戶端應用程式密碼不支援 MFA|* | * | *
-系統管理員控制驗證方法| | | *
+系統管理員控制驗證方法| (公開預覽)|(公開預覽) | *
 PIN 模式| | | *
 詐騙警示| | | *
 MFA 報告| | | *
@@ -120,7 +120,7 @@ MFA 報告| | | *
 記住受信任裝置的 MFA |* | * | *
 MFA SDK| | | *
 對使用 MFA Server 的內部部署應用程式進行 MFA| | | *
-可選取的驗證選項 (公用預覽)|* | * | *
+
 
 
 ## 如何取得 Azure Multi-Factor Authentication
@@ -193,20 +193,20 @@ Azure AD 和使用 DirSync、Azure AD Sync、Azure AD Connect 的內部部署 AD
 以雙向 SMS 做為第二個因素 | | ●
 以硬體權杖做為第二個因素 | | ●
 用戶端應用程式密碼不支援 MFA | ● |  
-系統管理員控制驗證方法 | | ●
+系統管理員控制驗證方法 | (公開預覽) | ●
 PIN 模式 | | ●
 詐騙警示 | ● | ●
 MFA 報告 | ● | ●
-一次性略過 | ● | ●
+一次性略過 | | ●
 通話的自訂問候語 | ● | ●
 可自訂的通話來電者 ID | ● | ●
 信任的 IP | ● | ●
-記住受信任裝置的 MFA (公開預覽) | ● |  
+記住受信任裝置的 MFA| ● |  
 條件式存取 | ● | ●
-快取 | ● | ●
+快取 | | ●
 
 既然我們已判斷出要使用雲端 Multi-Factor Authentication 或內部部署 MFA Server，接下來可以開始設定及使用 Azure Multi-Factor Authentication。**選取代表您案例的圖示！**
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

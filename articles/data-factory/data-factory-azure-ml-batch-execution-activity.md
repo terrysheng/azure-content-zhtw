@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 Azure Machine Learning 批次執行活動建立預測管線 | Microsoft Azure" 
+	pageTitle="使用機器學習服務活動 | Microsoft Azure" 
 	description="說明如何使用 Azure Data Factory 和 Azure Machine Learning 建立預測管線" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -772,4 +772,4 @@ Azure ML 更新資源活動不會產生任何輸出，但在 Azure Data Factory 
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

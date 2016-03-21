@@ -102,7 +102,8 @@ ADLStoreBolt 是用於拓撲中寫入至 Azure 資料湖之 HdfsBolt 執行個�
 
 ##建置和封裝拓撲
 
-1. 從 [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) 下載範例專案到開發環境。
+1. 從 [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store
+](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) 下載範例專案到開發環境。
 
 2. 在編輯器中開啟 `StormToDataLake\src\main\java\com\microsoft\example\StormToDataLakeStore.java` 檔案，然後尋找包含 `.withFsUrl("adl://MYDATALAKE.azuredatalakestore.net/")` 的程式碼行。將 __MYDATALAKE__ 變更為建立 HDInsight 伺服器時所使用的 Azure 資料湖存放區名稱。
 
@@ -207,7 +208,7 @@ __若為 Linux 型 HDInsight__：
 
 __若為 Windows 型 HDInsight__：
 
-1. 在 [Storm 儀表板] (https://CLUSTERNAME.azurehdinsight.net,) 中，選取頁面頂端的 [Storm UI] 連結。
+1. 在 [Storm 儀表板] (https://CLUSTERNAME.azurehdinsight.net) 中，選取頁面頂端的 [Storm UI] 連結。
 
 2. Storm UI 載入後，選取 [datalakewriter] 連結。
 
@@ -225,4 +226,4 @@ __若為 Windows 型 HDInsight__：
 
 現在，您已了解如何使用 Storm 來寫入至 Azure 資料湖存放區，接下來請探索其他 [HDInsight 的 Storm 範例](hdinsight-storm-example-topology.md)。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0309_2016--->

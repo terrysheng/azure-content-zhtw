@@ -208,7 +208,7 @@
     using Microsoft.ServiceBus.Messaging;
     ```
 
-9. 如下所示修改 **Program** 類別中的 **Main** 方法，使用名為 **d2ctutorial** 之佇列的 [傳送] 權限取代 IoT 中樞 **iothubowner** 連接字串 (來自 [開始使用 IoT 中樞][] 教學課程)、儲存體連接字串，以及服務匯流排連接字串：
+9. 如下所示修改 **Program** 類別中的 **Main** 方法，使用名為 **d2ctutorial** 之佇列的 [傳送] 權限取代 IoT 中樞 **iothubowner** 連接字串 (來自 [開始使用 IoT 中樞] 教學課程)、儲存體連接字串，以及服務匯流排連接字串：
 
     ```
     static void Main(string[] args)

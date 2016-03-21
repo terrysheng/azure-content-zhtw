@@ -129,7 +129,7 @@ Application Insights 資源是您在其中分析和顯示遙測資料的位置�
 
 如果角色意外失敗或無法啟動，Azure 診斷特別有用。
 
-1. 以滑鼠右鍵按一下 [角色] (不是專案！) 以開啟其 [屬性]，然後選取 [啟用診斷]、[將診斷傳送至 Application Insights]。
+1. 以滑鼠右鍵按一下 [角色] \(不是專案！) 以開啟其 [屬性]，然後選取 [啟用診斷]、[將診斷傳送至 Application Insights]。
 
     ![搜尋「Application Insights」](./media/app-insights-cloudservices/21-wad.png)
 

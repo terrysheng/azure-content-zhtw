@@ -23,7 +23,8 @@
 
 本文件涵蓋如何使用 [Pandas](http://pandas.pydata.org/) Python 封裝對儲存在 Azure blob 容器的資料建立功能。概述如何載入 Panda 資料框架後，接著會示範如何使用 Python 指令碼，產生帶有指標值與分類收納功能的分類功能。
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]此選單連結的主題，說明如何在各種環境中建立資料的特性。此工作是 [Cortana Analytics Process (CAP) (Cortana Analytics 程序 (CAP))](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 中的一個步驟。
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+此選單連結的主題，說明如何在各種環境中建立資料的特性。此工作是 [Cortana Analytics Process (CAP) (Cortana Analytics 程序 (CAP))](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 中的一個步驟。
 
 ## 先決條件
 本文假設您已經：
@@ -140,4 +141,4 @@
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0309_2016--->

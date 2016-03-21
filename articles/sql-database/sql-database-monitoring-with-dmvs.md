@@ -61,7 +61,7 @@ GO
 
 ## 監視連線
 
-您可以使用 [sys.dm\_exec\_connections](https://msdn.microsoft.com/library/ms181509.aspx) 檢視，擷取與特定 Azure SQL Database 伺服器建立之連接和每個連接之詳細資料的相關資訊。此外，[sys.dm\_exec\_sessions](https://msdn.microsoft.com/library/ms176013.aspx) 檢視有助於擷取所有作用中使用者的連接資訊和內部工作。下列查詢可擷取目前的連接資訊：
+您可以使用 [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) 檢視，擷取與特定 Azure SQL Database 伺服器建立之連接和每個連接之詳細資料的相關資訊。此外，[sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) 檢視有助於擷取所有作用中使用者的連接資訊和內部工作。下列查詢可擷取目前的連接資訊：
 
 ```
 SELECT
@@ -76,7 +76,7 @@ JOIN sys.dm_exec_sessions AS s
 WHERE c.session_id = @@SPID;
 ```
 
-> [AZURE.NOTE] 當執行 **sys.dm\_exec\_requests** 和 **sys.dm\_exec\_sessions 檢視**時，如果使用者在資料庫上具有 **VIEW DATABASE STATE** 權限，使用者將會看到資料庫上所有執行中的工作階段；否則，使用者只會看見目前的工作階段。
+> [AZURE.NOTE] 當執行 **sys.dm_exec_requests** 和 **sys.dm_exec_sessions 檢視**時，如果使用者在資料庫上具有 **VIEW DATABASE STATE** 權限，使用者將會看到資料庫上所有執行中的工作階段；否則，使用者只會看見目前的工作階段。
 
 ## 監視查詢效能
 

@@ -28,7 +28,8 @@
 
 1. 使用您的 Org 識別碼，登入 Azure 帳戶入口網站。
 2. 按一下 [Marketplace]。所顯示的清單是由您的 Azure 帳戶訂購的所有 Marketplace 訂單的完整清單。您會注意到訂單是依據父 Azure 訂用帳戶名稱和識別碼加以群組。![Marketplace 訂單](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
-3. 按一下任何顯示的訂單，將會帶您前往該訂單目前計費週期的摘要概觀。不同價格模型的說明可以在 [Marketplace 常見問題集](https://azure.microsoft.com/marketplace/faq/)中找到。![訂單摘要](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
+3. 按一下任何顯示的訂單，將會帶您前往該訂單目前計費週期的摘要概觀。不同價格模型的說明可以在 [Marketplace 常見問題集](https://azure.microsoft.com/marketplace/faq/)中找到。
+![訂單摘要](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
 [摘要] 檢視包含每筆訂單的下列資訊︰
 - 價格
@@ -73,4 +74,4 @@
 1. 按一下 [帳單記錄] 頁面上的 [檢視費用]。新的索引標籤會開啟，顯示[訂單歷程記錄](https://account.microsoft.com/billing/orders#/)。請注意，如果您嘗試在「帳單與帳戶管理入口網站」存取提取原始的使用量，您必須按一下頁面底部的支援連結以連絡支援人員。)![訂單歷程記錄](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
 2. 找出您想要檢閱的訂單，然後按一下 [詳細資料] 以檢視費用的細項，包含小計、稅金和總計費用。![訂單詳細資料](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

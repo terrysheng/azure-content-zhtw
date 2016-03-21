@@ -92,7 +92,7 @@
 	    <string name="preview_button_text">Take Photo</string>
 	    <string name="upload_button_text">Upload</string>
 
-2. 在 **res = > layout** 資料夾的 **activity\_to\_do.xml** 檔案中，於 [**新增**] 按鈕的現有程式碼之前加入此程式碼。
+2. 在 **res = > layout** 資料夾的 **activity_to_do.xml** 檔案中，於 [**新增**] 按鈕的現有程式碼之前加入此程式碼。
 
          <Button
              android:id="@+id/buttonPreview"

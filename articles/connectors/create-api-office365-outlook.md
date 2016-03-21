@@ -70,7 +70,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 事件快要開始時 
-即將來臨的行事曆事件啟動時觸發流程。```GET: /Events/OnUpcomingEvents```
+即將來臨的行事曆事件啟動時觸發流程。  
+```GET: /Events/OnUpcomingEvents```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -90,7 +91,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 取得電子郵件 
-從資料夾擷取電子郵件。```GET: /Mail```
+從資料夾擷取電子郵件。  
+```GET: /Mail```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -115,7 +117,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 傳送電子郵件 
-傳送電子郵件訊息。```POST: /Mail```
+傳送電子郵件訊息。  
+```POST: /Mail```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -135,7 +138,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 刪除電子郵件 
-依識別碼刪除電子郵件訊息。```DELETE: /Mail/{messageId}```
+依識別碼刪除電子郵件訊息。  
+```DELETE: /Mail/{messageId}```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -154,7 +158,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 標示為已讀取 
-將電子郵件訊息標示為已讀取。```POST: /Mail/MarkAsRead/{messageId}```
+將電子郵件訊息標示為已讀取。  
+```POST: /Mail/MarkAsRead/{messageId}```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -173,7 +178,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 回覆訊息 
-回覆電子郵件訊息。```POST: /Mail/ReplyTo/{messageId}```
+回覆電子郵件訊息。  
+```POST: /Mail/ReplyTo/{messageId}```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -194,7 +200,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 取得附件 
-依識別碼擷取訊息附件。```GET: /Mail/{messageId}/Attachments/{attachmentId}```
+依識別碼擷取訊息附件。  
+```GET: /Mail/{messageId}/Attachments/{attachmentId}```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -214,7 +221,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 有新的電子郵件時 
-新的電子郵件送達時觸發流程。```GET: /Mail/OnNewEmail```
+新的電子郵件送達時觸發流程。  
+```GET: /Mail/OnNewEmail```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -240,7 +248,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 傳回具有選項的電子郵件 
-傳送具有多個選項的電子郵件，並等候收件者選擇其中一個選項來回應。```POST: /mailwithoptions/$subscriptions```
+傳送具有多個選項的電子郵件，並等候收件者選擇其中一個選項來回應。  
+```POST: /mailwithoptions/$subscriptions```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -260,7 +269,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 傳送核准電子郵件 
-傳送核准電子郵件，並等候收件者的回應。```POST: /approvalmail/$subscriptions```
+傳送核准電子郵件，並等候收件者的回應。  
+```POST: /approvalmail/$subscriptions```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -283,7 +293,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 取得行事曆 
-擷取行事曆。```GET: /datasets/calendars/tables```
+擷取行事曆。  
+```GET: /datasets/calendars/tables```
 
 這個呼叫沒有參數。
 
@@ -298,7 +309,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 取得事件 
-從行事曆擷取項目。```GET: /datasets/calendars/tables/{table}/items```
+從行事曆擷取項目。  
+```GET: /datasets/calendars/tables/{table}/items```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -317,7 +329,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 建立事件 
-建立新的事件。```POST: /datasets/calendars/tables/{table}/items```
+建立新的事件。  
+```POST: /datasets/calendars/tables/{table}/items```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -333,7 +346,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 取得事件 
-從行事曆擷取特定項目。```GET: /datasets/calendars/tables/{table}/items/{id}```
+從行事曆擷取特定項目。  
+```GET: /datasets/calendars/tables/{table}/items/{id}```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -349,7 +363,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 刪除事件 
-刪除行事曆項目。```DELETE: /datasets/calendars/tables/{table}/items/{id}```
+刪除行事曆項目。  
+```DELETE: /datasets/calendars/tables/{table}/items/{id}```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -365,7 +380,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 更新事件 
-部分更新行事曆項目。```PATCH: /datasets/calendars/tables/{table}/items/{id}```
+部分更新行事曆項目。  
+```PATCH: /datasets/calendars/tables/{table}/items/{id}```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -382,7 +398,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 有新的項目時 
-建立新的行事曆項目時觸發。```GET: /datasets/calendars/tables/{table}/onnewitems```
+建立新的行事曆項目時觸發。  
+```GET: /datasets/calendars/tables/{table}/onnewitems```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -401,7 +418,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 更新項目時 
-修改行事曆項目時觸發。```GET: /datasets/calendars/tables/{table}/onupdateditems```
+修改行事曆項目時觸發。  
+```GET: /datasets/calendars/tables/{table}/onupdateditems```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -420,7 +438,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 取得連絡人資料夾 
-擷取連絡人資料夾。```GET: /datasets/contacts/tables```
+擷取連絡人資料夾。  
+```GET: /datasets/contacts/tables```
 
 這個呼叫沒有參數。
 
@@ -433,7 +452,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 取得連絡人 
-從連絡人資料夾中擷取連絡人。```GET: /datasets/contacts/tables/{table}/items```
+從連絡人資料夾中擷取連絡人。  
+```GET: /datasets/contacts/tables/{table}/items```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -452,7 +472,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 建立連絡人 
-建立新的連絡人。```POST: /datasets/contacts/tables/{table}/items```
+建立新的連絡人。  
+```POST: /datasets/contacts/tables/{table}/items```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -468,7 +489,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 取得連絡人 
-從連絡人資料夾中擷取特定連絡人。```GET: /datasets/contacts/tables/{table}/items/{id}```
+從連絡人資料夾中擷取特定連絡人。  
+```GET: /datasets/contacts/tables/{table}/items/{id}```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -484,7 +506,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 刪除連絡人 
-刪除連絡人。```DELETE: /datasets/contacts/tables/{table}/items/{id}```
+刪除連絡人。  
+```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -500,7 +523,8 @@ Office 365 Outlook API 提供下列觸發程序和動作。
 
 
 ### 更新連絡人 
-部分更新連絡人。```PATCH: /datasets/contacts/tables/{table}/items/{id}```
+部分更新連絡人。  
+```PATCH: /datasets/contacts/tables/{table}/items/{id}```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|

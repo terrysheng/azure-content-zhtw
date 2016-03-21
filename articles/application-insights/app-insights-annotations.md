@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="03/03/2016"
     ms.author="awills"/>
 
 # Application Insights 中的發行註解
 
-[計量瀏覽器](app-insights-metrics-explorer.md)圖表上的發行註解會顯示您在哪邊部署了新組建。註解可讓您輕鬆查看變更是否對應用程式的效能有任何影響。[Visual Studio Team Services 建置系統](https://www.visualstudio.com/zh-TW/get-started/build/build-your-app-vs)可自動建立註解。
+[計量瀏覽器](app-insights-metrics-explorer.md)圖表上的發行註解會顯示您在哪邊部署了新組建。註解可讓您輕鬆查看變更是否對應用程式的效能有任何影響。[Visual Studio Team Services 建置系統](https://www.visualstudio.com/zh-TW/get-started/build/build-your-app-vs)可自動建立註解，您也可以[從 PowerShell 建立](#create-annotations-from-powershell)。
 
 ![註解範例，其會顯示與伺服器回應時間的相互關聯](./media/app-insights-annotations/00.png)
 
@@ -40,7 +40,7 @@
 
 
 1. 登入 [Microsoft Azure 入口網站](https://portal.azure.com)並開啟負責監視應用程式的 Application Insights 資源。(如果您尚未建立此資訊，也可以[立即建立](app-insights-overview.md)。)
-2. 開啟 [設定]、[API 存取]，然後複製 **Application Insights 識別碼**。
+2. 開啟 [設定]、[API 存取]，然後複製 Application Insights 識別碼。
 
     ![在 portal.azure.com 中，開啟您的 Application Insights 資源然後選擇 [設定]。開啟 [API 存取]。複製應用程式識別碼](./media/app-insights-annotations/20.png)
 
@@ -48,7 +48,7 @@
 
     新增工作，然後從功能表中選取 Application Insights 發行註解工作。
 
-    將您從 [API 存取] 刀鋒視窗複製的**應用程式 ID** 貼上。
+    將您從 [API 存取] 刀鋒視窗複製的應用程式識別碼貼上。
 
     ![在 Visual Studio Team Services 中，開啟 [發行]，選取一項發行定義，然後選擇 [編輯]。按一下 [新增工作] 然後選取 [Application Insights 發行註解]。貼上 Application Insights 識別碼。](./media/app-insights-annotations/30.png)
 
@@ -67,7 +67,25 @@
     ![在 [Team Services] 視窗中，選取 [設定] 索引標籤然後按一下 [新增變數]。設定 ApiKey 的名稱並設定到 [值] 中，將剛剛產生的金鑰貼上。](./media/app-insights-annotations/50.png)
 
 
-5. 最後，**儲存**發行定義。
+5. 最後，儲存發行定義。
+
+## 從 PowerShell 建立註解
+
+您也可以從任何您喜歡的處理程序建立註解 (不使用 VS Team System)。
+
+[從 GitHub 取得 Powershell 指令碼](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)。
+
+請使用如下：
+
+    .\CreateReleaseAnnotation.ps1 `
+      -applicationId "<applicationId>" `
+      -apiKey "<apiKey>" `
+      -releaseName "<myReleaseName>" `
+      -releaseProperties @{
+          "ReleaseDescription"="a description";
+          "TriggerBy"="My Name" }
+
+從 Application Insights 資源取得 `applicationId` 和 `apiKey`︰開啟 [設定]、[API 存取]，然後複製應用程式識別碼。然後按一下 [建立 API 金鑰]，並複製金鑰。
 
 ## 版本註解
 
@@ -78,4 +96,4 @@
 
 ![按一下任一版本註解標記。](./media/app-insights-annotations/60.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

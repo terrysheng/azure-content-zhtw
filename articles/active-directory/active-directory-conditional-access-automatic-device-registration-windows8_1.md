@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # 為加入網域的 Windows 8.1 裝置設定自動註冊裝置
@@ -54,7 +54,7 @@ Windows 8.1 電腦上的 Windows 事件記錄檔會顯示與裝置註冊相關�
 
 ## 其他主題
 - [Azure Active Directory 裝置註冊概觀](active-directory-conditional-access-device-registration-overview.md)
-- [自動向 Azure Active Directory 註冊加入網域的 Windows 裝置](active-directory-conditional-access-automatic-device-registration.md)
+- [自動向 Azure Active Directory 註冊加入網域的 Windows 10 裝置](active-directory-conditional-access-automatic-device-registration.md)
 - [為加入網域的 Windows 7 裝置設定自動註冊裝置](active-directory-conditional-access-automatic-device-registration-windows7.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

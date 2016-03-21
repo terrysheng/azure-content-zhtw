@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="使用 CLI 在 Azure DNS 管理 DNS 記錄集和記錄 | Microsoft Azure" 
+   pageTitle="使用 Azure CLI 在 Azure DNS 管理 DNS 記錄集和記錄 | Microsoft Azure" 
    description="將網域裝載於 Azure DNS 時，在 Azure DNS 管理 DNS 記錄集和記錄。對記錄集和記錄執行作業的所有 CLI 命令。" 
    services="dns" 
    documentationCenter="na" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/21/2016"
+   ms.date="03/04/2016"
    ms.author="joaoma"/>
 
 # 如何使用 CLI 管理 DNS 記錄
@@ -22,7 +22,7 @@
 - [Azure CLI](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
 
-本指南示範如何管理 DNS 區域的記錄集和記錄。
+本指南會示範如何使用跨平台 Azure CLI 管理 DNS 區域的記錄集和記錄。
 
 >[AZURE.NOTE] Azure DNS 是僅能以 Azure 資源管理員運作的服務。它沒有 ASM API。因此您必須確認設定 Azure CLI 以使用資源管理員模式，並使用 azure config mode arm 命令。
 
@@ -242,4 +242,4 @@ Azure DNS 支援[萬用字元記錄](https://en.wikipedia.org/wiki/Wildcard_DNS_
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

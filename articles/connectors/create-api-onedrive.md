@@ -14,15 +14,21 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/03/2016"
 ms.author="mandia"/>
 
 # 開始使用 OneDrive API
 
 連線到 OneDrive 來管理您的檔案，包括上傳檔案、取得、刪除檔案等等。您可以從下列應用程式使用 OneDrive API：
 
-- PowerApps 
 - 邏輯應用程式 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [邏輯應用程式](../articles/connectors/create-api-onedrive.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
+
+&nbsp;
 
 >[AZURE.NOTE] 這一版的文章適用於邏輯應用程式 2015-08-01-preview 結構描述版本。若為 2014-12-01-preview 結構描述版本，請按一下 [OneDrive API](../app-service-logic/app-service-logic-connector-onedrive.md)。
 
@@ -33,7 +39,7 @@ ms.author="mandia"/>
 - 使用動作來建立檔案、刪除檔案等等。這些動作會收到回應，然後輸出能讓其他動作使用的資料。舉例來說，當 OneDrive 中有新檔案建立時，您可以利用 Office 365 來傳送已附加該檔案的電子郵件。
 - 將 OneDrive API 新增到 PowerApps Enterprise讓您的使用者能夠在自己的應用程式中使用這個 AP。 
 
-如需有關如何在 PowerApps Enterprise 中新增 API 的資訊，請移至[在 PowerApps 中為 API 註冊](../power-apps/powerapps-register-from-available-apis.md)。
+如需如何在 PowerApps Enterprise 中加入 API 的資訊，請移至[在 PowerApps 中註冊 API](../power-apps/powerapps-register-from-available-apis.md)。
 
 如果要在邏輯應用程式中新增作業，請參閱[建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
@@ -48,32 +54,12 @@ OneDrive API 包含下列觸發程序及動作。
 
 ## 建立至 OneDrive 的連線
 
-### 在 PowerApps 中新增其他組態
-當您把 OneDrive 新增到 PowerApps Enterprise 時，請輸入您的 OneDrive 應用程式的 [應用程式金鑰] 及 [應用程式密碼] 值。[重新導向 URL] 值也會用在您的 OneDrive 應用程式中。如果您沒有 OneDrive 應用程式，可以使用下列步驟來建立：
-
-1. 移至「Microsoft 帳戶開發人員中心」內的[應用程式建立頁面][5]，並使用您的「Microsoft 帳戶」登入。
-
-2. 輸入您的 [應用程式名稱]，然後接受合約：
-
-	![OneDrive 新應用程式][6]
-
-3. 在 [Settings] \(設定) 中：
-
-	1. 選取 [API 設定]。  
-	2. 將 [重新導向 URL] 值設定為您在 Azure 入口網站中新增 OneDrive API 時所看到值。  
-	3. **儲存**您的變更。  
-
-	![OneDrive 應用程式 API 的設定][7]
-
-現在，在 Azure 入口網站的 OneDrive 組態中，複製/貼上 [應用程式金鑰] 及 [應用程式密碼] 值。
-
-### 在邏輯應用程式中新增其他組態
 當您將這個 API 新增到邏輯應用程式時，您必須授權，讓邏輯應用程式能夠連線到您的 OneDrive。
 
 1. 登入您的 OneDrive 帳戶。
 2. 允許您的邏輯應用程式連線並使用您的 OneDrive。 
 
-當您建立連線之後，請輸入 OneDrive 的屬性，例如資料夾路徑或檔案名稱。本主題的＜REST API 參考＞一節說明這些屬性。
+當您建立連線之後，請輸入 OneDrive 的屬性，例如資料夾路徑或檔案名稱。本主題的 REST API 參考會說明這些屬性。
 
 >[AZURE.TIP] 您可以在其他的邏輯應用程式中，使用這個相同的連線。
 
@@ -317,14 +303,13 @@ OneDrive API 包含下列觸發程序及動作。
 
 
 ## 後續步驟
-當您把 OneDrive API 新增到 PowerApps Enterprise 之後，請[授與使用者在自己的應用程式中使用 API 的權限](../power-apps/powerapps-manage-api-connection-user-access.md)。
 
 [建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
+返回 [API 清單](apis-list.md)。
 
 [5]: https://account.live.com/developers/applications/create
 [6]: ./media/create-api-onedrive/onedrive-new-app.png
 [7]: ./media/create-api-onedrive/onedrive-app-api-settings.png
 
-<!----HONumber=AcomDC_0302_2016-------->
-
+<!---HONumber=AcomDC_0309_2016-->

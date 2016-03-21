@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="03/04/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #使用 Panda 建立 Azure blob 儲存體資料功能
@@ -23,11 +23,9 @@
 
 本文件涵蓋如何使用 [Pandas](http://pandas.pydata.org/) Python 封裝對儲存在 Azure blob 容器的資料建立功能。概述如何載入 Panda 資料框架後，接著會示範如何使用 Python 指令碼，產生帶有指標值與分類收納功能的分類功能。
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]此選單連結的主題，說明如何在各種環境中建立資料的特性。此工作是 [Cortana Analytics Process (CAP) (Cortana Analytics 程序 (CAP))](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 中的一個步驟。
 
-此選單連結的主題，說明如何在各種環境中建立資料的特性。此工作是 [Cortana Analytics Process (CAP) (Cortana Analytics 程序 (CAP))](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 中的一個步驟。
-
-## 必要條件
+## 先決條件
 本文假設您已經：
 
 * 建立您的 Azure blob 儲存體帳戶並將您的資料儲存在該處。如需設定帳戶的指示，請參閱[建立 Azure 儲存體帳戶](../hdinsight-get-started.md#storage)
@@ -38,7 +36,7 @@
 
 1. 使用 Blob 服務，透過下列 Python 程式碼範例，從 Azure Blob 下載資料。使用您的特定值來取代下列程式碼中的變數： 
 
-	    from azure.storage import BlobService
+	    from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -108,13 +106,14 @@
 
 ##<a name="sql-featuregen"></a>將資料寫回 Azure Blob 並在 AzureMachine Learning 中取用
 
-在您探索資料和建立必要功能後，可以上傳資料 (取樣性或功能性) 至 Azure Blob，並在 Azure Machine Learning 中透過下列步驟取用資料：請注意，您也可以在 Azure Machine Learning Studio 中建立其他功能。1.將資料框架寫入本機檔案中
+在您探索資料和建立必要功能後，可以上傳資料 (取樣性或功能性) 至 Azure Blob，並在 Azure Machine Learning 中透過下列步驟取用資料：請注意，您也可以在 Azure Machine Learning Studio 中建立其他功能。
+1. 將資料框架寫入本機檔案中
 
 		dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 
 2. 將資料上傳至 Azure Blob，如下所示：
 
-		from azure.storage import BlobService
+		from azure.storage.blob import BlobService
     	import tables
 
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -141,4 +140,4 @@
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

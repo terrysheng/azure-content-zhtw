@@ -58,6 +58,6 @@
 
 ## 9\.什麼是使用標準異地複寫或主動式異地複寫時的複寫延遲？
 
-使用 [sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) 動態管理檢視 (DMV) 可取得上次複寫時間、上次複寫延遲和其他複寫連結的相關資訊。
+使用 [sys.dm\_geo\_replication\_link\_status](https://msdn.microsoft.com/library/mt575504.aspx) 動態管理檢視 (DMV) 可取得上次複寫時間、上次複寫延遲和其他複寫連結的相關資訊。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

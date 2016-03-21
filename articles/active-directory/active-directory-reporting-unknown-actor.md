@@ -3,7 +3,7 @@
    description="說明 Azure Active Directory 報告中的「未知的執行者」事件"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="SSalahAhmed"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/04/2016"
+   ms.author="saah"/>
 
 # Azure Active Directory 報告「未知的執行者」事件
 
@@ -28,7 +28,7 @@
 
 ![](./media/active-directory-reporting-unknown-actor/spd-actor.png)
 
-這是一個已知的 Bug，而我們正努力尋求解決。
+這是一個已知的 Bug，而我們正在尋求解決方法。
 
 ## 處理事件之前已從目錄中刪除使用者
 
@@ -36,8 +36,8 @@
 
 ![](./media/active-directory-reporting-unknown-actor/unknown-actor.png)
 
-這是一個已知的 Bug，而我們正努力尋求解決。
+這是一個已知的 Bug，而我們正在尋求解決方法。
 
 <!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

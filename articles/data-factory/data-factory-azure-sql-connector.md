@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="從 Azure SQL 來回移動資料 | Azure Data Factory" 
+	pageTitle="從 Azure SQL Database 來回移動資料 | Microsoft Azure" 
 	description="了解如何使用 Azure Data Factory 從 Azure SQL 資料庫來回移動資料。" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -630,4 +630,4 @@
 
 	 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

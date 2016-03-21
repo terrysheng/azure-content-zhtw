@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="開始使用 Azure Mobile Engagement 驗證 API"
-	description="對於原本搭配 Capptain API 來使用驗證，而現在需要使用新的 Azure Mobile Enagagement API 進行驗證的客戶，這是一本實用的移轉指南。" 
+	pageTitle="使用 Mobile Engagement REST API 進行驗證"
+	description="描述如何使用 Azure Mobile Engagement REST API 進行驗證" 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="wesmc7777"
+	authors="piyushjo"
 	manager="erikre"
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="02/29/2016"
+	ms.date="03/07/2016"
 	ms.author="wesmc"/>
 
-# Azure Mobile Engagement - 使用 API 進行驗證
+# 使用 Mobile Engagement REST API 進行驗證
 
 ## 概觀
 
@@ -183,4 +183,4 @@
 >[AZURE.NOTE] <br/>
 >1. 忽略 API 根位址，因為這是用於舊版 API。<br/> 2.您需要使用不同於應用程式名稱本身的應用程式資源名稱。 
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

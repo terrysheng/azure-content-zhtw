@@ -4,7 +4,7 @@
 	services="mobile-services"
 	documentationCenter=""
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="03/06/2016"
 	ms.author="glenga"/>
 
 
 # 如何：在 .NET 後端行動服務中定義自訂 API 端點
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> [AZURE.SELECTOR]
+- [JavaScript 後端](./mobile-services-javascript-backend-define-custom-api.md)
+- [.NET 後端](./mobile-services-dotnet-backend-define-custom-api.md)
 
 &nbsp;
 
-
-> [AZURE.SELECTOR]
-- [JavaScript backend](./mobile-services-javascript-backend-define-custom-api.md)
-- [.NET backend](./mobile-services-dotnet-backend-define-custom-api.md)
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[做法：定義自訂 API 控制器](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-custom-api-controller)。
 
 本主題示範如何在 .NET 後端行動服務中定義自訂 API 端點。自訂 API 可讓您定義具有伺服器功能的自訂端點，但無法對應資料庫的插入、更新、刪除或讀取作業。您可以藉由使用自訂 API 進一步控制訊息，包括 HTTP 標頭和主體格式。
 
@@ -41,4 +40,4 @@
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

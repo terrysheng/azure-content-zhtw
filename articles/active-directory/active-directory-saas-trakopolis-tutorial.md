@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -63,8 +63,8 @@
 3. 若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br> ![應用程式][2]<br>
 4. 按一下頁面底部的 [加入]。<br><br> ![應用程式][3]<br>
 5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br> ![應用程式][4]<br>
-6. 在搜尋方塊中，輸入「Trakopolis」。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_01.png)<br>
-7. 在結果窗格中，選取 [Trakopolis]，然後按一下 [完成] 來新增應用程式。<br><br>
+6. 在搜尋方塊中，輸入 Trakopolis。<br><br> ![應用程式](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_01.png)<br>
+7. 在結果窗格中，選取 [Trakopolis]，然後按一下 [完成] 來新增應用程式。<br><br>![應用程式](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_02.png)<br>
 
 ##  設定並測試 Azure AD 單一登入
 本節的目標，在於示範如何以名為「Britta Simon」的測試使用者，來設定及測試搭配 Trakopolis 的 Azure AD 單一登入。
@@ -75,7 +75,7 @@
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[建立 Trakopolis 測試使用者](#creating-a-trakopolis-test-user)** - 在 Trakopolis 中建立 Britta Simon 的對應項目，且該項目必須與 Azure AD 中代表 Britta Simon 的項目連結。
+4. [建立 Trakopolis 測試使用者](#creating-a-trakopolis-test-user) - 在 Trakopolis 中建立 Britta Simon 的對應項目，且該項目必須與 Azure AD 中代表 Britta Simon 的項目連結。
 5. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[測試單一登入](#testing-single-sign-on)** - 驗證組態是否能運作。
 
@@ -94,7 +94,7 @@
 3. 在 [設定應用程式設定] 對話方塊頁面，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-trakopolis-tutorial/tutorial_trakopolis_04.png) <br>
 
 
-    a.在 [登入 URL] 文字方塊中，以下列模式輸入使用者用來登入您 Trakopolis 應用程式的 URL：**“https://<公司名稱>.trakopolis.com”**。
+    a.在 [登入 URL] 文字方塊中，以下列模式輸入使用者用來登入您 Trakopolis 應用程式的 URL：“https://<公司名稱>.trakopolis.com”。
 
      b.按 [下一步]。
 
@@ -212,4 +212,4 @@
 [204]: ./media/active-directory-saas-trakopolis-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-trakopolis-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

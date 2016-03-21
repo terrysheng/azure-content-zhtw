@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="03/02/2016"
     ms.author="elizapo" />
 
 # 如何將使用者新增至您的 Azure RemoteApp 集合
@@ -41,15 +41,15 @@ Office 365 使用者為 Azure Active Directory 使用者。如果這些使用者
 |具有密碼同步的 ADsync |是 |是 |
 |不具密碼同步的 ADsync|	是 |否 |
 |具 AD FS 的 ADsync |是 |是 |
-|Azure 支援的第三方識別提供者 (例如 Ping) |是 |是|
+|[Azure 支援的第三方識別提供者](https://msdn.microsoft.com/library/azure/jj679342.aspx) (例如 Ping) |是 |是|
 |Multi-Factor Authentication |是 |是 |
 
 請查看有關設定 RemoteApp 的 Active Directory 的[詳細資訊](remoteapp-ad.md)。
 
 
-> [AZURE.NOTE]Azure Active Directory 使用者必須來自於與您的訂用帳戶相關聯的租用戶。(您可以在入口網站的 [設定] 索引標籤上檢視和修改您的訂用帳戶。如需詳細資訊，請參閱[變更 RemoteApp 所使用的 Azure Active Directory 租用戶](remoteapp-changetenant.md)。)
+> [AZURE.NOTE] Azure Active Directory 使用者必須來自於與您的訂用帳戶相關聯的租用戶。(您可以在入口網站的 [設定] 索引標籤上檢視和修改您的訂用帳戶。如需詳細資訊，請參閱[變更 RemoteApp 所使用的 Azure Active Directory 租用戶](remoteapp-changetenant.md)。)
 
 ## Office 365 ProPlus 使用者帳戶資訊
 如果您的收藏中使用 Office 365 ProPlus 範本映像，*或者*如果您建立了使用 Office 365 的自訂映像，則您只能新增在您的訂用帳戶的預設網域中擁有 Office 365 訂用帳戶的 Azure Active Directory 使用者。如需詳細資訊，請參閱[透過 Azure RemoteApp 使用 Office 365](remoteapp-o365.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

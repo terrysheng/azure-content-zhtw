@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="03/04/2016"
 	ms.author="jgao"/>
 
 #在 HDInsight 上使用 Hadoop 分析航班延誤資料
@@ -247,11 +247,11 @@ Hadoop MapReduce 是批次處理。執行 Hive 工作時，最具成本效益的
 2. 在此頁面上選取下列值：
 
 	<table border="1">
-<tr><th>名稱</th><th>值</th></tr>
-<tr><td>篩選年份</td><td>2013 </td></tr>
-<tr><td>篩選期間</td><td>一月</td></tr>
-<tr><td>欄位</td><td>*Year*、*FlightDate*、*UniqueCarrier*、*Carrier*、*FlightNum*、*OriginAirportID*、*Origin*、*OriginCityName*、*OriginState*、*DestAirportID*、*Dest*、*DestCityName*、*DestState*、*DepDelayMinutes*、*ArrDelay*、*ArrDelayMinutes*、*CarrierDelay*、*WeatherDelay*、*NASDelay*、*SecurityDelay*、*LateAircraftDelay* (請清除其餘所有欄位)</td></tr>
-</table>
+	<tr><th>名稱</th><th>值</th></tr>
+	<tr><td>篩選年份</td><td>2013 </td></tr>
+	<tr><td>篩選期間</td><td>一月</td></tr>
+	<tr><td>欄位</td><td>*Year*、*FlightDate*、*UniqueCarrier*、*Carrier*、*FlightNum*、*OriginAirportID*、*Origin*、*OriginCityName*、*OriginState*、*DestAirportID*、*Dest*、*DestCityName*、*DestState*、*DepDelayMinutes*、*ArrDelay*、*ArrDelayMinutes*、*CarrierDelay*、*WeatherDelay*、*NASDelay*、*SecurityDelay*、*LateAircraftDelay* (請清除其餘所有欄位)</td></tr>
+	</table>
 
 3. 按一下 [下載]。
 4. 將檔案解壓縮至 **C:\\Tutorials\\FlightDelay\\2013Data** 資料夾。每個檔案皆為 CSV 檔案，大小約為 60 GB。
@@ -263,10 +263,10 @@ Hadoop MapReduce 是批次處理。執行 Hive 工作時，最具成本效益的
 1. 準備參數：
 
 	<table border="1">
-<tr><th>變數名稱</th><th>注意事項</th></tr>
-<tr><td>$storageAccountName</td><td>您要上傳資料的 Azure 儲存體帳戶。</td></tr>
-<tr><td>$blobContainerName</td><td>您要上傳資料的 Blob 容器。</td></tr>
-</table>
+	<tr><th>變數名稱</th><th>注意事項</th></tr>
+	<tr><td>$storageAccountName</td><td>您要上傳資料的 Azure 儲存體帳戶。</td></tr>
+	<tr><td>$blobContainerName</td><td>您要上傳資料的 Blob 容器。</td></tr>
+	</table>
 2. 開啟 Azure PowerShell ISE。
 3. 將下列指令碼貼到指令碼窗格中：
 
@@ -372,10 +372,10 @@ HiveQL 指令碼將執行下列作業：
 1. 準備參數：
 
 	<table border="1">
-<tr><th>變數名稱</th><th>注意事項</th></tr>
-<tr><td>$storageAccountName</td><td>您要上傳 HiveQL 指令碼的 Azure 儲存體帳戶。</td></tr>
-<tr><td>$blobContainerName</td><td>您要上傳 HiveQL 指令碼的 Blob 容器。</td></tr>
-</table>
+	<tr><th>變數名稱</th><th>注意事項</th></tr>
+	<tr><td>$storageAccountName</td><td>您要上傳 HiveQL 指令碼的 Azure 儲存體帳戶。</td></tr>
+	<tr><td>$blobContainerName</td><td>您要上傳 HiveQL 指令碼的 Blob 容器。</td></tr>
+	</table>
 2. 開啟 Azure PowerShell ISE。
 
 3. 將下列指令碼複製並貼到指令碼窗格中：
@@ -559,13 +559,13 @@ HiveQL 指令碼將執行下列作業：
 1. 準備參數：
 
 	<table border="1">
-<tr><th>變數名稱</th><th>注意事項</th></tr>
-<tr><td>$sqlDatabaseServerName</td><td>Azure SQL Database 伺服器的名稱。不輸入則會建立新的伺服器。</td></tr>
-<tr><td>$sqlDatabaseUsername</td><td>Azure SQL Database 的登入名稱。如果 $sqlDatabaseServerName 是現有的伺服器，登入和登入密碼會用來向伺服器驗證。否則會建立新的伺服器。</td></tr>
-<tr><td>$sqlDatabasePassword</td><td>Azure SQL Database 的登入密碼。</td></tr>
-<tr><td>$sqlDatabaseLocation</td><td>只有在建立新的 Azure 資料庫伺服器時才會使用此值。</td></tr>
-<tr><td>$sqlDatabaseName</td><td>用來建立 Sqoop 工作的 AvgDelays 資料表的 SQL Database。保留空白會建立名為 HDISqoop 的資料庫。Sqooop 工作輸出的資料表名稱為 AvgDelays。</td></tr>
-</table>
+	<tr><th>變數名稱</th><th>注意事項</th></tr>
+	<tr><td>$sqlDatabaseServerName</td><td>Azure SQL Database 伺服器的名稱。不輸入則會建立新的伺服器。</td></tr>
+	<tr><td>$sqlDatabaseUsername</td><td>Azure SQL Database 的登入名稱。如果 $sqlDatabaseServerName 是現有的伺服器，登入和登入密碼會用來向伺服器驗證。否則會建立新的伺服器。</td></tr>
+	<tr><td>$sqlDatabasePassword</td><td>Azure SQL Database 的登入密碼。</td></tr>
+	<tr><td>$sqlDatabaseLocation</td><td>只有在建立新的 Azure 資料庫伺服器時才會使用此值。</td></tr>
+	<tr><td>$sqlDatabaseName</td><td>用來建立 Sqoop 工作的 AvgDelays 資料表的 SQL Database。保留空白會建立名為 HDISqoop 的資料庫。Sqooop 工作輸出的資料表名稱為 AvgDelays。</td></tr>
+	</table>
 2. 開啟 Azure PowerShell ISE。
 3. 將下列指令碼複製並貼到指令碼窗格中：
 
@@ -742,4 +742,4 @@ HiveQL 指令碼將執行下列作業：
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

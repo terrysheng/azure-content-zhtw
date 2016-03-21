@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 將您的 SQL 程式碼移轉至 SQL 資料倉儲
@@ -55,9 +55,23 @@
 ### 通用資料表運算式
 目前在 SQL 資料倉儲內實作的通用資料表運算式 (CTE) 具有下列功能和限制：
 
-**CTE 功能** + CTE 可以指定於 SELECT 陳述式中。+ CTE 可以指定於 CREATE VIEW 陳述式中。+ CTE 可以指定於 CREATE TABLE AS SELECT (CTAS) 陳述式中。+ CTE 可以指定於 CREATE REMOTE TABLE AS SELECT (CRTAS) 陳述式中。+ CTE 可以指定於 CREATE EXTERNAL TABLE AS SELECT (CETAS) 陳述式中。+ 遠端資料表可以參考自 CTE。+ 外部資料表可以參考自 CTE。+ CTE 中可以定義多個 CTE 查詢定義。
+CTE 功能
++ CTE 可以指定於 SELECT 陳述式中。
++ CTE 可以指定於 CREATE VIEW 陳述式中。
++ CTE 可以指定於 CREATE TABLE AS SELECT (CTAS) 陳述式中。
++ CTE 可以指定於 CREATE REMOTE TABLE AS SELECT (CRTAS) 陳述式中。
++ CTE 可以指定於 CREATE EXTERNAL TABLE AS SELECT (CETAS) 陳述式中。
++ 遠端資料表可以參考自 CTE。
++ 外部資料表可以參考自 CTE。
++ CTE 中可以定義多個 CTE 查詢定義。
 
-**CTE 限制** + CTE 後面必須接著單一 SELECT 陳述式。INSERT、UPDATE、DELETE 和 MERGE 陳述式不受支援。+ 包含自身參考 (遞迴通用資料表運算式) 的通用資料表運算式不受支援 (請參閱下一節)。+ 不允許在 CTE 中指定多個 WITH 子句。例如，如果 CTE\_query\_definition 包含子查詢，這個子查詢就不能包含定義另一個 CTE 的巢狀 WITH 子句。+ ORDER BY 子句不能用於 CTE\_query\_definition 中，除非有指定 TOP 子句。+ 當某批次中的陳述式使用 CTE 時，它前面的陳述式後面必須接著分號。+ 在用於 sp\_prepare 所準備的陳述式時，CTE 的行為會與 PDW 中的其他 SELECT 陳述式相同。不過，如果 CTE 是做為 sp\_prepare 所準備之 CETAS 中的一部分時，就會因為針對 sp\_prepare 實作繫結的方式而導致其行為與 SQL Server 和其他 PDW 陳述式不同。如果參考 CTE 的 SELECT 使用不存在於 CTE 的錯誤資料行，sp\_prepare 將會通過而不會偵測到錯誤，但在 sp\_execute 期間則會擲回錯誤。
+CTE 限制
++ CTE 後面必須接著單一 SELECT 陳述式。INSERT、UPDATE、DELETE 和 MERGE 陳述式不受支援。
++ 包含自身參考 (遞迴通用資料表運算式) 的通用資料表運算式不受支援 (請參閱下一節)。
++ 不允許在 CTE 中指定多個 WITH 子句。例如，如果 CTE\_query\_definition 包含子查詢，這個子查詢就不能包含定義另一個 CTE 的巢狀 WITH 子句。
++ ORDER BY 子句不能用於 CTE\_query\_definition 中，除非有指定 TOP 子句。
++ 當某批次中的陳述式使用 CTE 時，它前面的陳述式後面必須接著分號。
++ 在用於 sp\_prepare 所準備的陳述式時，CTE 的行為會與 PDW 中的其他 SELECT 陳述式相同。不過，如果 CTE 是做為 sp\_prepare 所準備之 CETAS 中的一部分時，就會因為針對 sp\_prepare 實作繫結的方式而導致其行為與 SQL Server 和其他 PDW 陳述式不同。如果參考 CTE 的 SELECT 使用不存在於 CTE 的錯誤資料行，sp\_prepare 將會通過而不會偵測到錯誤，但在 sp\_execute 期間則會擲回錯誤。
 
 ### 遞迴通用資料表運算式 (CTE)
 
@@ -80,17 +94,17 @@
 例如，下列程式碼擷取 @@ROWCOUNT 資訊的替代解決方案：
 
 ```
-SELECT  SUM(row_count) AS row_count 
-FROM    sys.dm_pdw_sql_requests 
-WHERE   row_count <> -1 
-AND     request_id IN 
-                    (   SELECT TOP 1    request_id 
-                        FROM            sys.dm_pdw_exec_requests 
-                        WHERE           session_id = SESSION_ID() 
+SELECT  SUM(row_count) AS row_count
+FROM    sys.dm_pdw_sql_requests
+WHERE   row_count <> -1
+AND     request_id IN
+                    (   SELECT TOP 1    request_id
+                        FROM            sys.dm_pdw_exec_requests
+                        WHERE           session_id = SESSION_ID()
                         ORDER BY end_time DESC
                     )
 ;
-``` 
+```
 
 ## 後續步驟
 如需有關開發程式碼的建議，請參閱[開發概觀][]。
@@ -117,4 +131,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

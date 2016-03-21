@@ -76,7 +76,7 @@
  
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 
-4.	接著，按一下 [**部署**] 啟動部署程序。程序執行並完成之後，請按一下 http://todoapp*XXXX*.azure.websites.net 連結瀏覽已部署的應用程式。
+4.	接著，按一下 [**部署**] 啟動部署程序。程序執行並完成之後，請按一下 http://todoapp*XXXX*.azurewebsites.net 連結瀏覽已部署的應用程式。
 
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
 
@@ -305,4 +305,4 @@ Web 應用程式與兩個不同的資源相依。這表示只有在建立 App Se
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

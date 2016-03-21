@@ -33,7 +33,7 @@ Azure 資料湖存放區是 HDFS 相容的雲端儲存體服務，可為資料�
 
 當您在開發工作站上安裝 Java 和 JDK 時可能會設定下列環境變數。不過，您應該檢查它們是否存在，以及它們是否包含您系統的正確值。
 
-* __JAVA\_HOME__ - 應該指向已安裝 Java 執行階段環境 (JRE) 的目錄。例如，在 Unix 或 Linux 散發套件上，它的值應該類似 `/usr/lib/jvm/java-7-oracle`在 Windows 中，它的值會類似 `c:\Program Files (x86)\Java\jre1.7`。
+* __JAVA\_HOME__ - 應該指向已安裝 Java 執行階段環境 (JRE) 的目錄。例如，在 Unix 或 Linux 散發套件上，它的值應該類似 `/usr/lib/jvm/java-7-oracle`在 Windows 中，它的值應該類似 `c:\Program Files (x86)\Java\jre1.7`。
 
 * __PATH__ - 應該包含下列路徑：
 
@@ -207,7 +207,7 @@ __若為 Linux 型 HDInsight__：
 
 __若為 Windows 型 HDInsight__：
 
-1. 在 [Storm 儀表板] \(https://CLUSTERNAME.azurehdinsight.net,) 中，選取頁面頂端的 [Storm UI] 連結。
+1. 在 [Storm 儀表板] (https://CLUSTERNAME.azurehdinsight.net,) 中，選取頁面頂端的 [Storm UI] 連結。
 
 2. Storm UI 載入後，選取 [datalakewriter] 連結。
 
@@ -217,8 +217,12 @@ __若為 Windows 型 HDInsight__：
 
     ![拓撲動作](./media/hdinsight-storm-write-data-lake-store/topologyactions.png)
 
+## 刪除叢集
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##後續步驟
 
-現在，您已學到如何使用 Storm 來寫入至 Azure 資料湖存放區，接下來請探索其他 [HDInsight 的 Storm 範例](hdinsight-storm-example-topology.md)。
+現在，您已了解如何使用 Storm 來寫入至 Azure 資料湖存放區，接下來請探索其他 [HDInsight 的 Storm 範例](hdinsight-storm-example-topology.md)。
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -97,11 +97,11 @@ Service Fabric 大幅簡化了撰寫和管理分散式可擴充應用程式的�
 
 ### 以 C 使用 Testability#
 
-System.Fabric.Testability.dll 中有 Testability 功能。此 dll 位於 Microsoft.ServiceFabric.Testability.nupack 的 NuGet 封裝中。若要使用 Testability 功能，請在您的專案中包含此 NuGet 封裝做為參考。
+System.Fabric.dll 中有 Testability 功能。此 dll 位於 Microsoft.ServiceFabric.nupack 的 NuGet 封裝中。若要使用 Testability 功能，請在您的專案中包含此 NuGet 封裝做為參考。
 
 ### 以 PowerShell 使用 Testability
 
-若要使用 Testability PowerShell，您必須安裝執行階段 MSI。安裝 MSI 後，會自動載入 ServiceFabricTestability PowerShell 模組供開發人員使用。
+若要使用 Testability PowerShell，您必須安裝執行階段 MSI。安裝 MSI 後，會自動載入 ServiceFabric PowerShell 模組供開發人員使用。
 
 ## 結論
 
@@ -115,4 +115,4 @@ System.Fabric.Testability.dll 中有 Testability 功能。此 dll 位於 Microso
   - [模擬服務工作負載期間的失敗案例](service-fabric-testability-workload-tests.md)
   - [服務對服務間通訊的失敗案例](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

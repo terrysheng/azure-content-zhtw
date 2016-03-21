@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 在 SQL 資料倉儲中的 Create Table As Select (CTAS)
@@ -58,13 +58,13 @@ CREATE TABLE FactInternetSales
 
 ```
 CREATE TABLE FactInternetSales_new
-WITH 
+WITH
 (
     CLUSTERED COLUMNSTORE INDEX,
     DISTRIBUTION = HASH(ProductKey),
     PARTITION
     (
-        OrderDateKey RANGE RIGHT FOR VALUES 
+        OrderDateKey RANGE RIGHT FOR VALUES
         (
         20000101,20010101,20020101,20030101,20040101,20050101,20060101,20070101,20080101,20090101,
         20100101,20110101,20120101,20130101,20140101,20150101,20160101,20170101,20180101,20190101,
@@ -84,19 +84,19 @@ RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 DROP TABLE FactInternetSales_old;
 ```
 
-> [AZURE.NOTE]Azure 資料倉儲尚未支援自動建立或自動更新統計資料。為了獲得查詢的最佳效能，在首次載入資料，或是資料中發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。如需統計資料的詳細說明，請參閱「開發」主題群組中的「[統計資料][]」主題。
+> [AZURE.NOTE] Azure 資料倉儲尚未支援自動建立或自動更新統計資料。為了獲得查詢的最佳效能，在首次載入資料，或是資料中發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。如需統計資料的詳細說明，請參閱「開發」主題群組中的「[統計資料][]」主題。
 
 ## 使用 CTAS 解決不支援的功能
 
 CTAS 也可以用來暫時解決以下幾個不支援的功能。這通常可以證明是雙贏的情況，因為您的程式碼不但能夠相容，而且通常可以在 SQL 資料倉儲上更快速執行。這是完全平行化設計的結果。可以使用 CTAS 解決的案例包括：
 
 - SELECT..INTO
-- ANSI JOINS on UPDATEs 
+- ANSI JOINS on UPDATEs
 - ANSI JOINs on DELETEs
 - MERGE 陳述式
 
-> [AZURE.NOTE]嘗試考慮「CTAS 優先」。如果您認為您可以使用 CTAS 解決問題，即使您正在撰寫更多資料做為結果，這通常是最佳的解決方法。
-> 
+> [AZURE.NOTE] 嘗試考慮「CTAS 優先」。如果您認為您可以使用 CTAS 解決問題，即使您正在撰寫更多資料做為結果，這通常是最佳的解決方法。
+>
 
 ## SELECT..INTO
 您可能會發現 SELECT...INTO 會出現在解決方案中的幾個地方。
@@ -123,7 +123,7 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-> [AZURE.NOTE]CTAS 目前需要指定散發資料行。如果您並不想要嘗試變更散發資料行，若您選取與基礎資料表相同的散發資料行作為避免資料移動的策略，則 CTAS 將會執行的最快。如果您正在建立小資料表，其效能並非重要因素，那麼您可以指定 ROUND\_ROBIN，來避免必須決定散發資料行。
+> [AZURE.NOTE] CTAS 目前需要指定散發資料行。如果您並不想要嘗試變更散發資料行，若您選取與基礎資料表相同的散發資料行作為避免資料移動的策略，則 CTAS 將會執行的最快。如果您正在建立小資料表，其效能並非重要因素，那麼您可以指定 ROUND\_ROBIN，來避免必須決定散發資料行。
 
 ## update 陳述式的 ANSI 聯結取代
 
@@ -192,7 +192,7 @@ GROUP BY
 ,		[CalendarYear]
 ;
 
--- Use an implicit join to perform the update 
+-- Use an implicit join to perform the update
 UPDATE  AnnualCategorySales
 SET     AnnualCategorySales.TotalSalesAmount = CTAS_ACS.TotalSalesAmount
 FROM    CTAS_acs
@@ -212,7 +212,7 @@ DROP TABLE CTAS_acs
 
 ```
 CREATE TABLE dbo.DimProduct_upsert
-WITH 
+WITH
 (   Distribution=HASH(ProductKey)
 ,   CLUSTERED INDEX (ProductKey)
 )
@@ -220,8 +220,8 @@ AS -- Select Data you wish to keep
 SELECT     p.ProductKey
 ,          p.EnglishProductName
 ,          p.Color
-FROM       dbo.DimProduct p 
-RIGHT JOIN dbo.stg_DimProduct s 
+FROM       dbo.DimProduct p
+RIGHT JOIN dbo.stg_DimProduct s
 ON         p.ProductKey = s.ProductKey
 ;
 
@@ -236,11 +236,11 @@ Merge 陳述式可以取代，至少有部分可使用 CTAS 取代。您可以�
 
 ```
 CREATE TABLE dbo.[DimProduct_upsert]
-WITH 
+WITH
 (   DISTRIBUTION = HASH([ProductKey])
 ,   CLUSTERED INDEX ([ProductKey])
 )
-AS 
+AS
 -- New rows and new versions of rows
 SELECT      s.[ProductKey]
 ,           s.[EnglishProductName]
@@ -278,7 +278,7 @@ CREATE TABLE result
 WITH (DISTRIBUTION = ROUND_ROBIN)
 
 INSERT INTO result
-SELECT @d*@f 
+SELECT @d*@f
 ;
 ```
 
@@ -334,9 +334,13 @@ AS
 SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 ```
 
-請注意下列事項：- CAST 或 CONVERT 可能已經使用 - ISNULL 用來強制可為 Null 屬性而非 COALESCE - ISNULL 是最外層的函數 - ISNULL 的第二個部分是常數，也就是 0
+請注意：
+- 可能已經使用 CAST 或 CONVERT
+- ISNULL 是用來強制 NULLability，而非 COALESCE
+- ISNULL 是最外層的函式
+- ISNULL 的第二個部分是常數，也就是 0
 
-> [AZURE.NOTE]若要正確地設定可為 null 屬性，必須使用 ISNULL 而不是 COALESCE。COALESCE 不是具決定性的函數，因此運算式的結果一律可為 Null。ISNULL 則不同。它是具決定性的。因此當 ISNULL 函數的第二個部分是常數或常值，則結果值將會是 NOT NULL。
+> [AZURE.NOTE] 若要正確地設定可為 null 屬性，必須使用 ISNULL 而不是 COALESCE。COALESCE 不是具決定性的函數，因此運算式的結果一律可為 Null。ISNULL 則不同。它是具決定性的。因此當 ISNULL 函數的第二個部分是常數或常值，則結果值將會是 NOT NULL。
 
 本秘訣不只適用於確保計算的完整性。它對資料表分割切換也很重要。假設您根據事實定義此資料表：
 
@@ -350,14 +354,14 @@ CREATE TABLE [dbo].[Sales]
 ,   [price]     MONEY   NOT NULL
 ,   [amount]    MONEY   NOT NULL
 )
-WITH 
+WITH
 (   DISTRIBUTION = HASH([product])
 ,   PARTITION   (   [date] RANGE RIGHT FOR VALUES
                     (20000101,20010101,20020101
                     ,20030101,20040101,20050101
                     )
                 )
-) 
+)
 ;
 ```
 
@@ -377,8 +381,8 @@ WITH
 AS
 SELECT
     [date]    
-,   [product] 
-,   [store] 
+,   [product]
+,   [store]
 ,   [quantity]
 ,   [price]   
 ,   [quantity]*[price]  AS [amount]
@@ -401,8 +405,8 @@ WITH
 AS
 SELECT
     [date]    
-,   [product] 
-,   [store] 
+,   [product]
+,   [store]
 ,   [quantity]
 ,   [price]   
 ,   ISNULL(CAST([quantity]*[price] AS MONEY),0) AS [amount]
@@ -429,4 +433,4 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

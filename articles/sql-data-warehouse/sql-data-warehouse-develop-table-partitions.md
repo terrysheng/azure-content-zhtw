@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 資料倉儲中的資料表分割
@@ -109,7 +109,7 @@ AND     rp.[name]    = 'SloDWPool'
 ;
 ```
 
-> [AZURE.NOTE]盡量避免將分割大小調整超過超大型資源類別所提供的記憶體授與。如果分割成長超過此數據，您就會冒著記憶體壓力的風險，進而導致比較不理想的壓縮。
+> [AZURE.NOTE] 盡量避免將分割大小調整超過超大型資源類別所提供的記憶體授與。如果分割成長超過此數據，您就會冒著記憶體壓力的風險，進而導致比較不理想的壓縮。
 
 ## 分割切換
 若要切換兩個資料表間的分割，您必須確定分割對齊其各自的界限，而且資料表定義相符。檢查條件約束不適用於強制資料表中的值範圍，來源資料表必須包含與目標資料表相同的分割界限。如果情況不是如此，則分割切換將會失敗，因為分割中繼資料不會同步處理。
@@ -150,7 +150,7 @@ VALUES (1,20000101,1,1,1,1,1,1);
 CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
 
-> [AZURE.NOTE]藉由建立統計資料物件，我們確定資料表中繼資料更加精確。如果我們省略了建立統計資料，SQL 資料倉儲將會使用預設值。如需統計資料的詳細資訊，請檢閱[統計資料][]。
+> [AZURE.NOTE] 藉由建立統計資料物件，我們確定資料表中繼資料更加精確。如果我們省略了建立統計資料，SQL 資料倉儲將會使用預設值。如需統計資料的詳細資訊，請檢閱[統計資料][]。
 
 我們可以接著運用 `sys.partitions` 目錄檢視，查詢資料列計數：
 
@@ -312,7 +312,7 @@ DROP TABLE #partitions;
 
 利用這種方法，原始檔控制中的程式碼會保持靜態，並允許動態的分割界限值；隨著時間與倉儲一起發展。
 
->[AZURE.NOTE]相較於 SQL Server，分割切換有一些差異。務必閱讀[移轉程式碼][]，以深入了解這個主題。
+>[AZURE.NOTE] 相較於 SQL Server，分割切換有一些差異。務必閱讀[移轉程式碼][]，以深入了解這個主題。
 
 
 ## 後續步驟
@@ -333,4 +333,4 @@ DROP TABLE #partitions;
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

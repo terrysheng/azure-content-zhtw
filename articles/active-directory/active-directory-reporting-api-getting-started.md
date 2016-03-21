@@ -3,8 +3,8 @@
    description="如何開始使用 Azure Active Directory 報告 API"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 
 # 開始使用 Azure AD 報告 API
@@ -35,7 +35,7 @@ Azure AD 報告 API 透過一組以 REST 為基礎的 API (可從各種程式設
 
 
 ### 建立應用程式
-- 瀏覽至 [Azure 管理入口網站](https://manage.windowsazure.com/)。
+- 瀏覽至 [Azure 傳統入口網站](https://manage.windowsazure.com/)。
 - 瀏覽至您的目錄。
 - 瀏覽至應用程式。
 - 按一下底列上的 [新增]。
@@ -52,7 +52,7 @@ Azure AD 報告 API 透過一組以 REST 為基礎的 API (可從各種程式設
 - 瀏覽至新建立的應用程式。
 - 按一下 [設定] 索引標籤。
 - 在 [其他應用程式的權限] 區段中：
-	- 在 [Microsoft Azure Active Directory] > [應用程式權限] 中選取 [**讀取目錄資料**]。
+	- 在 [Azure Active Directory] > [應用程式權限] 中選取 [讀取目錄資料]。
 - 按一下底列上的 [**儲存**]。
 
 
@@ -69,7 +69,7 @@ Azure AD 報告 API 透過一組以 REST 為基礎的 API (可從各種程式設
 #### 應用程式用戶端密鑰
 - 瀏覽至 [應用程式] 索引標籤。
 - 瀏覽至新建立的應用程式。
-- 瀏覽至 [設定] 索引標籤。
+- 瀏覽至 [**設定**] 索引標籤。
 - 在 [金鑰] 區段中選取持續時間，為您的應用程式產生新的秘鑰。
 - 此金鑰將會在儲存時顯示。務必將它複製並貼到安全的位置，因為之後便無法予以擷取。
 
@@ -141,38 +141,38 @@ Azure AD 報告 API 透過一組以 REST 為基礎的 API (可從各種程式設
 	# Author: Michael McLaughlin (michmcla@microsoft.com)
 	# Date: January 20, 2016
 	# This requires the Python Requests module: http://docs.python-requests.org
-	
+
 	import requests
 	import datetime
 	import sys
-	
+
 	client_id = 'your-application-client-id-here'
 	client_secret = 'your-application-client-secret-here'
 	login_url = 'https://login.windows.net/'
-	tenant_domain = 'your-directory-name-here.onmicrosoft.com' 
-	
+	tenant_domain = 'your-directory-name-here.onmicrosoft.com'
+
 	# Get an OAuth access token
 	bodyvals = {'client_id': client_id,
 	            'client_secret': client_secret,
 	            'grant_type': 'client_credentials'}
-	
+
 	request_url = login_url + tenant_domain + '/oauth2/token?api-version=1.0'
 	token_response = requests.post(request_url, data=bodyvals)
-	
+
 	access_token = token_response.json().get('access_token')
 	token_type = token_response.json().get('token_type')
-	
+
 	if access_token is None or token_type is None:
 	    print "ERROR: Couldn't get access token"
 	    sys.exit(1)
-	
+
 	# Use the access token to make the API request
 	yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
-	
+
 	header_params = {'Authorization': token_type + ' ' + access_token}
 	request_string = 'https://graph.windows.net/' + tenant_domain + '/reports/auditEvents?api-version=beta&filter=eventTime%20gt%20' + yesterday   
 	response = requests.get(request_string, headers = header_params)
-	
+
 	if response.status_code is 200:
 	    print response.content
 	else:
@@ -195,4 +195,4 @@ Azure AD 報告 API 透過一組以 REST 為基礎的 API (可從各種程式設
 - 如需稽核報告的詳細資訊，請參閱 [Azure AD 稽核報告事件](active-directory-reporting-audit-events.md)
 - 如需圖形 API REST 服務的詳細資訊，請參閱 [Azure AD 報告和事件 (預覽)](https://msdn.microsoft.com/library/azure/mt126081.aspx)。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

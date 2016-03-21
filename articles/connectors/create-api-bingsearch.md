@@ -48,9 +48,6 @@ None | <ul><li>搜尋網站</li><li>搜尋影片</li><li>搜尋圖像</li><li>�
 
 所有 API 都支援 JSON 和 XML 格式的資料。
 
-## 新增其他組態
-當您把 Bing 搜尋新增到 PowerApps Enterprise 時，系統會提示您輸入帳戶金鑰。如果您沒有 Bing 搜尋金鑰，請使用免費的 [Bing 搜尋優惠](https://datamarket.azure.com/dataset/bing/search)來取得金鑰。
-
 
 ## Swagger REST API 參考
 適用的版本：1.0。
@@ -88,7 +85,7 @@ None | <ul><li>搜尋網站</li><li>搜尋影片</li><li>搜尋圖像</li><li>�
 |market|字串|no|query|無 |用來縮小搜尋範圍的市場或區域 (例如：zh-TW)|
 |經度|number|no|query|無 |用來縮小搜尋範圍的經度 (東/西向座標) (例如：47.603450)|
 |緯度|number|no|query|無 |用來縮小搜尋範圍的緯度 (南/北向座標) (例如：-122.329696)|
-|videoFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>例如：「Duration:Short+Resolution:High」|
+|videoFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>例如：'Duration:Short+Resolution:High'|
 |videoSortBy|字串|no|query|無 |搜尋結果的排序次序。有效值：<ul><li>Date</li><li>Relevance</li></ul> <p>日期的排序次序必須為遞減。</p>|
 
 #### Response
@@ -110,7 +107,7 @@ None | <ul><li>搜尋網站</li><li>搜尋影片</li><li>搜尋圖像</li><li>�
 |market|字串|no|query|無 |用來縮小搜尋範圍的市場或區域 (例如：zh-TW)|
 |經度|number|no|query| 無|用來縮小搜尋範圍的經度 (東/西向座標) (例如：47.603450)|
 |緯度|number|no|query|無 |用來縮小搜尋範圍的緯度 (南/北向座標) (例如：-122.329696)|
-|imageFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[寬度]</li><li>Size:Height:[高度]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>例如：「Size:Small+Aspect:Square」|
+|imageFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[寬度]</li><li>Size:Height:[高度]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>例如：'Size:Small+Aspect:Square'|
 
 #### Response
 |名稱|說明|
@@ -133,7 +130,7 @@ None | <ul><li>搜尋網站</li><li>搜尋影片</li><li>搜尋圖像</li><li>�
 |緯度|number|no|query|無 |用來縮小搜尋範圍的緯度 (南/北向座標) (例如：-122.329696)|
 |newsSortBy|字串|no|query| 無|搜尋結果的排序次序。有效值：<ul><li>Date</li><li>Relevance</li></ul> <p>日期的排序次序必須為遞減。</p>|
 |newsCategory|字串|no|query| |用來縮小搜尋範圍的新聞類別 (例如：「rt\_Business」)|
-|newsLocationOverride|字串|no|query|無 |覆寫 Bing 位置偵測的結果。此參數僅適用於 zh-TW 市場。輸入的格式為 US./<state /> (例如：「US.WA」)|
+|newsLocationOverride|字串|no|query|無 |覆寫 Bing 位置偵測的結果。此參數僅適用於 zh-TW 市場。輸入的格式為 US./<state /> (例如：'US.WA')|
 
 #### Response
 |名稱|說明|
@@ -195,12 +192,12 @@ None | <ul><li>搜尋網站</li><li>搜尋影片</li><li>搜尋圖像</li><li>�
 |經度|number|no|query|無 |用來縮小搜尋範圍的經度 (東/西向座標) (例如：47.603450)|
 |緯度|number|no|query|無 |用來縮小搜尋範圍的緯度 (南/北向座標) (例如：-122.329696)|
 |webFileType|字串|no|query|無 |用來縮小搜尋範圍的檔案類型 (例如：「DOC」)|
-|videoFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>例如：「Duration:Short+Resolution:High」|
+|videoFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Duration:Short</li><li>Duration:Medium</li><li>Duration:Long</li><li>Aspect:Standard</li><li>Aspect:Widescreen</li><li>Resolution:Low</li><li>Resolution:Medium</li><li>Resolution:High</li></ul> <br/><br/>例如：'Duration:Short+Resolution:High'|
 |videoSortBy|字串|no|query|無 |搜尋結果的排序次序。有效值：<ul><li>Date</li><li>Relevance</li></ul> <p>日期的排序次序必須為遞減。</p>|
-|imageFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[寬度]</li><li>Size:Height:[高度]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>例如：「Size:Small+Aspect:Square」|
+|imageFilters|字串|no|query|無 |根據影片的大小、外觀比例、色彩、樣式、方向，或上述條件的任何組合來篩選搜尋。有效值：<ul><li>Size:Small</li><li>Size:Medium</li><li>Size:Large</li><li>Size:Width:[寬度]</li><li>Size:Height:[高度]</li><li>Aspect:Square</li><li>Aspect:Wide</li><li>Aspect:Tall</li><li>Color:Color</li><li>Color:Monochrome</li><li>Style:Photo</li><li>Style:Graphics</li><li>Face:Face</li><li>Face:Portrait</li><li>Face:Other</li></ul><br/><br/>例如：'Size:Small+Aspect:Square'|
 |newsSortBy|字串|no|query|無 |搜尋結果的排序次序。有效值：<ul><li>Date</li><li>Relevance</li></ul> <p>日期的排序次序必須為遞減。</p>|
 |newsCategory|字串|no|query|無 |用來縮小搜尋範圍的新聞類別 (例如：「rt\_Business」)|
-|newsLocationOverride|字串|no|query|無 |覆寫 Bing 位置偵測的結果。此參數僅適用於 zh-TW 市場。輸入的格式為 US./<state /> (例如：「US.WA」)|
+|newsLocationOverride|字串|no|query|無 |覆寫 Bing 位置偵測的結果。此參數僅適用於 zh-TW 市場。輸入的格式為 US./<state /> (例如：'US.WA')|
 
 #### Response
 |名稱|說明|
@@ -297,8 +294,8 @@ None | <ul><li>搜尋網站</li><li>搜尋影片</li><li>搜尋圖像</li><li>�
 
 ## 後續步驟
 
-當您把 Bing 搜尋 API 新增到 PowerApps Enterprise 之後，請[授與使用者在自己的應用程式中使用 API 的權限](../power-apps/powerapps-manage-api-connection-user-access.md)。
-
 [建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
-<!---HONumber=AcomDC_0302_2016-------->
+返回 [API 清單](apis-list.md)。
+
+<!---HONumber=AcomDC_0309_2016-->

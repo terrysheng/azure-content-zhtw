@@ -23,14 +23,17 @@ Azure Service Fabric 中的可測試性案例讓開發人員在處理個別錯�
 ## 範例自訂案例
 此測試說明了使用[非失誤性和失誤性失敗](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions)商務工作負載交錯的案例。為了獲得最佳結果，應該在服務作業或計算過程中引發錯誤。
 
-我們來逐一解說某個服務範例，此範例公開四個工作負載：A、B、C 和 D。每個均對應至一組工作流程，且可能是計算、儲存體或混合。為了簡單起見，我們會在範例中擷取出工作負載。此範例中執行的不同錯誤如下：+ RestartNode：模擬機器重新啟動的失誤性錯誤。+ RestartDeployedCodePackage：模擬服務主機處理序損毀的失誤性錯誤。+ RemoveReplica：模擬複本移除的非失誤性錯誤。+ MovePrimary：非失誤性錯誤，模擬 Service Fabric 負載平衡器所觸發的複本移動。
+我們來逐一解說某個服務範例，此範例公開四個工作負載：A、B、C 和 D。每個均對應至一組工作流程，且可能是計算、儲存體或混合。為了簡單起見，我們會在範例中擷取出工作負載。在此範例中執行的不同錯誤如下︰
+  + RestartNode︰模擬機器重新啟動的失誤性錯誤。
+  + RestartDeployedCodePackage︰模擬服務主機處理序當機。
+  + RemoveReplica︰模擬複本移除的非失誤性錯誤。
+  + MovePrimary︰模擬由 Service Fabric 負載平衡器所觸發的複本移動非失誤性錯誤。
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
 
 using System;
 using System.Fabric;
-using System.Fabric.Testability;
 using System.Fabric.Testability.Scenario;
 using System.Threading;
 using System.Threading.Tasks;
@@ -147,9 +150,9 @@ class Test
     {
         Array values = Enum.GetValues(typeof(T));
         T workload = (T)values.GetValue(random.Next(values.Length));
-        return T;
+        return workload;
     }
 }
 ```
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

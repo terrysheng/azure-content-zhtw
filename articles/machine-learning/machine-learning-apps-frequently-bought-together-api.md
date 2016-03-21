@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="03/07/2016" 
 	ms.author="luisca"/>
 
 # 機器學習範例應用程式：人氣組合
@@ -21,13 +21,13 @@
 
 ## 重要事項：此服務已被取代
 
-此服務提供的人氣組合功能，現在已整合至我們更廣泛的[建議 API](http://gallery.azureml.net/MachineLearningAPI/3574432384684cac9cc766e57729ea4c)。我們鼓勵您使用建議項目來代替此服務。
+**此服務提供的人氣組合功能，現在已整合至我們更廣泛的[建議 API](http://gallery.azureml.net/MachineLearningAPI/3574432384684cac9cc766e57729ea4c)。我們鼓勵您使用建議項目來代替此服務。**
 
 ##概觀
 
 機器學習中的[人氣組合 Web 服務](https://datamarket.azure.com/dataset/amla/mba)會對線上購物車進行分析，從過去的交易產生人氣組合項目的產品建議。人氣組合建議可幫助購物者在購買特定項目時，找出目錄中最相關的產品。以醒目的方式顯示這些建議已證明可以有效提升線上零售商的銷售業績。
 
-[AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
   
 ##開始使用 
 
@@ -39,4 +39,4 @@
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,7 +3,7 @@
 	description="了解如何使用 Azure 行動服務快取和同步 iOS 應用程式中的離線資料"
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="mobile-services"/>
 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/05/2016"
 	ms.author="krisragh;donnam"/>
 
 # 開始使用行動服務中的離線資料同步
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+ 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[啟用 iOS 行動應用程式的離線同步處理](../app-service-mobile/app-service-mobile-ios-get-started-offline-data.md)。
 
 使用離線同步可讓您即便在沒有網路連線的情況下，也能檢視、新增或修改行動應用程式中的資料。在本教學課程中，您將會了解應用程式如何在本機離線資料庫中自動儲存變更，並且在回復連線時同步這些變更。
 
@@ -275,4 +275,4 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 
 [行動服務快速入門教學課程]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

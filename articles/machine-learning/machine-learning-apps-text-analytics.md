@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="03/08/2016"
 	ms.author="onewth"/>
 
 
@@ -58,7 +58,7 @@ API 會傳回輸入文字中代表說話重點的字串清單。我們採用的�
                
 	Where <creds> = ConvertToBase64(“AccountKey:” + yourActualAccountKey);  
 
-您可以在 [Azure 資料市場](https://datamarket.azure.com/account/keys)中找到您帳戶中的帳戶金鑰。
+您可以在 [Azure 資料市場](https://datamarket.azure.com/account/keys)中找到您帳戶中的帳戶金鑰。請注意，目前只接受 JSON 做為輸入和輸出格式。不支援 XML。
 
 ---
 
@@ -93,7 +93,7 @@ API 會傳回輸入文字中代表說話重點的字串清單。我們採用的�
 
 **範例要求**
 
-在下面的呼叫中，我們要求 "這是很棒的旅館，裝潢獨樹一幟，工作人員服務態度甚佳" 這段文字中找到的關鍵片語：
+在下面的呼叫中，我們要求 "It was a wonderful hotel to stay at, with unique decor and friendly staff" 這段文字中找到的關鍵片語：
 
 	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
 	Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff
@@ -383,4 +383,4 @@ API 會以下列格式傳回 JSON 格式的輸出：
 | TopicId | 已獲指派記錄的主題識別碼。 |
 | Distance | 記錄屬於主題的信賴度。Distance 越接近零，表示信賴度越高。 |
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

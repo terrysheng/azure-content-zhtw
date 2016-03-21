@@ -1,11 +1,14 @@
-1. 按一下 Android Studio 工具列上的圖示以開啟 Android SDK Manager，或按一下工能表上的 [工具] -> [Android] -> [SDK Manager]。尋找專案中使用之 Android SDK 的目標版本，開啟該版本，然後選擇 [Google API] \(如果尚未安裝的話)。
+1. 按一下 Android Studio 工具列上的圖示以開啟 Android SDK Manager，或按一下工能表上的 [工具] -> [Android] -> [SDK Manager]。按下 [啟動獨立 SDK Manager] 連結。
 
-2. 移至 [檔案]、[專案結構]。接著，啟用 [通知] 下的推播通知。
+2. 找出您專案中使用的 Android SDK 目標版本，然後開啟它。如果未安裝 Google API，請選取它，然後按下 [安裝套件]。
 
-3. 開啟 **AndroidManifest.xml** 並將此標記加入至應用程式標記。
+3. 在 Android Studio 中選擇 [檔案] > [專案結構]。按下 [通知]、選取 [Google 雲端通訊]，然後按下 [確定]。
+
+<!--
+3. Open **AndroidManifest.xml** and add this tag to the *application* tag.
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
- 
+-->
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,7 +3,7 @@
 	description="Azure ML Recommendation 範例應用程式" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/02/2016" 
 	ms.author="luisca"/>
 
 
-# Machine Learning Recommendations API 中的常見作業
+# 建議 API 範例應用程式逐步解說
 
 ##目的
 
-本文件透過[範例應用程式](http://1drv.ms/1xeO2F3)說明一些 Azure Machine Learning Recommendations API 的使用方式。
+本文件透過[範例應用程式](https://code.msdn.microsoft.com/Recommendations-144df403)說明一些 Azure Machine Learning Recommendations API 的使用方式。
 
 此應用程式並非預期要包含完整的功能，也不會使用所有的 API。它會示範一些常見的作業，以在您第一次想要試試機器學習服務建議服務時執行。
 
-[AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ##機器學習服務建議服務簡介
 
@@ -90,4 +90,4 @@
 範例應用程式並非預期在實際執行環境中執行。目錄中提供的資料太小，而且它將不會提供有意義的建議模型。提供資料基於示範目的。
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

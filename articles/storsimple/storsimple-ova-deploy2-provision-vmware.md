@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/03/2016"
    ms.author="alkohli"/>
 
 
@@ -257,13 +257,13 @@
 
 1.  步驟 6 至 8 僅適用於在非 DHCP 環境中開機的情況。如果您是在 DHCP 環境中，請略過這些步驟並前往步驟 9。如果您是在非 DHCP 環境中讓裝置開機，您會看到下列畫面。
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image42.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image42m.png)
 
 	您現在必須設定網路。
 
 1.  使用 `Get-HcsIpAddress` 命令來列出虛擬裝置上已啟用的網路介面。如果您的裝置有已啟用的單一網路介面，系統指派給該介面的預設名稱會是 `Ethernet`。
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image43.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image43m.png)
 
 1.  使用 Set-HcsIpAddress Cmdlet 來設定網路。範例如下所示：
 
@@ -274,7 +274,7 @@
 
 1.  初始安裝程序完成，且裝置已開機之後，您將會看到裝置橫幅文字。請記下 IP 位址及橫幅文字中的 URL，以便管理裝置。您將使用此 IP 位址連線到虛擬裝置的 Web UI，以及完成本機安裝和註冊程序。
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image45.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image45m.png)
 
 如果裝置不符合最低設定需求，橫幅文字中會出現錯誤訊息 (如下所示)。您必須修改裝置設定，讓裝置有足夠的資源來符合最低需求。然後您就可以將裝置重新啟動，並連線到該裝置。請參閱〈[步驟 1：確認主機系統符合最低的虛擬裝置需求](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)〉中的最低設定需求。
 
@@ -292,4 +292,4 @@
 
 -   [Set up your StorSimple Virtual Array as an iSCSI server (將 StorSimple 虛擬陣列設定為 iSCSI 伺服器)](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

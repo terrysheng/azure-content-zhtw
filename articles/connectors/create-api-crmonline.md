@@ -47,52 +47,17 @@ CRM API 包含下列動作，但不包含觸發程序。
 
 ## 建立至 CRM Online 的連線
 
+當您將這個 API 新增到邏輯應用程式時，您必須登入 Dynamics CRM Online。請依照下列步驟在線上登入 CRM，並在邏輯應用程式中完成連線設定：
 
-### 在 PowerApps 中新增其他組態
-當您將 CRM Online 新增到 PowerApps Enterprise 時，請輸入 Dynamics CRM Online Azure Active Directory (AAD) 應用程式的 [用戶端識別碼] 及 [應用程式金鑰] 值。[重新導向 URL] 值也會用在您的 CRM Online 應用程式中。如果您沒有應用程式，可以使用下列步驟來建立：
-
-1. 在 [Azure 入口網站](https://portal.azure.com)中，開啟 [Active Directory]，然後選取您組織的租用戶名稱。
-2. 在 [應用程式] 索引標籤中，選取 [新增]。在 [**新增應用程式**] 中：  
-
-	1. 輸入應用程式庫的 [名稱]。  
-	2. 讓應用程式類型保持為 [Web]。  
-	3. 選取 [下一步]。
-
-	![加入 AAD 應用程式 - 應用程式資訊][9]
-
-3. 在 [應用程式屬性] 中：
-
-	1. 輸入您應用程式的**登入 URL**。由於您即將利用適用於 PowerApps 的 AAD 來進行驗證，因此請把登入 URL 設定為 _https://login.windows.net_ 。
-	2. 為您的應用程式輸入有效的 [應用程式識別碼 URI]。  
-	3. 選取 [確定]。  
-
-	![加入 AAD 應用程式 - 應用程式屬性][10]
-
-4. 在新的應用程式中，選取 [設定]。
-5. 在 [OAuth 2] 下方，將 [回覆 URL] 設定為您在 Azure 入口網站中新增 CRM Online API 時，所看到的重新導向 URL 值：![設定 Contoso AAD 應用程式][12]
-
-現在，在 Azure 入口網站的 CRM Online 組態中，複製/貼上 [用戶端識別碼] 及 [應用程式金鑰]的值。
-
-### 在邏輯應用程式中新增其他組態
-當您將這個 API 新增到邏輯應用程式時，您必須登入 Dynamics CRM Online。
-
-請依照下列步驟在線上登入 CRM，並在邏輯應用程式中完成**連線**設定：
-
-1. 選取 [週期]
-2. 選取 [頻率] 並輸入 [間隔]
-3. 選取 [新增動作]  
-![線上設定 CRM][13]
-4. 在搜尋方塊中輸入 CRM，並等候搜尋傳回所有名稱中有 CRM 的項目
-5. 選取 [Dynamics CRM Online - 建立新的記錄]
-6. 選取 [線上登入 Dynamics CRM]：  
-![線上設定 CRM][14]
-7. 提供您的 CRM Online 認證來登入並授權應用程式
-![線上設定 CRM][15]  
+1. 在您的邏輯應用程式中選取 [加入動作]：![線上設定 CRM][13]
+4. 在搜尋方塊中輸入 CRM，並等候搜尋傳回所有名稱中有 CRM 的項目。
+5. 選取 [Dynamics CRM Online - 建立新的記錄]。
+6. 選取 [線上登入 Dynamics CRM]：![線上設定 CRM][14]
+7. 提供您的 CRM Online 認證來登入以授權應用程式：![線上設定 CRM][15]  
 8. 請在登入後返回邏輯應用程式，新增其他所需的觸發與動作以完成動作。
 9. 選取上方功能表列的 [儲存]，即可儲存您的工作。
 
-
-當您建立連線之後，請輸入 CRM Online 的屬性，例如資料表或資料集。本主題的〈**REST API 參考**〉一節會說明這些屬性。
+當您建立連線之後，請輸入 CRM Online 的屬性，例如資料表或資料集。本主題的 REST API 參考會說明這些屬性。
 
 >[AZURE.TIP] 您可以在其他的邏輯應用程式中使用這個連線。
 
@@ -290,9 +255,10 @@ CRM API 包含下列動作，但不包含觸發程序。
 
 
 ## 後續步驟
-當您把 CRM online API 新增到 PowerApps Enterprise 之後，[請授與使用者權限](../power-apps/powerapps-manage-api-connection-user-access.md)，方便他們使用其應用程式中的 API。
 
-[建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
+
+返回 [API 清單](apis-list.md)。
 
 
 [9]: ./media/create-api-crmonline/aad-tenant-applications-add-appinfo.png
@@ -302,6 +268,4 @@ CRM API 包含下列動作，但不包含觸發程序。
 [14]: ./media/create-api-crmonline/crmconfig2.png
 [15]: ./media/create-api-crmonline/crmconfig3.png
 
-<!---HONumber=AcomDC_0302_2016-------->
-
-
+<!---HONumber=AcomDC_0309_2016-->

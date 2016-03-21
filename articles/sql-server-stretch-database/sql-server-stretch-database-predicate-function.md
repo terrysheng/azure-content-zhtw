@@ -1,11 +1,11 @@
 <properties
-	pageTitle="撰寫嵌入資料表值函式以選取要移轉的資料列 (Stretch Database) | Microsoft Azure"
-	description="了解如何建立篩選述詞以選取要移轉的資料列。"
+	pageTitle="使用篩選述詞選取要移轉的資料列 (Stretch Database) | Microsoft Azure"
+	description="了解如何使用篩選述詞選取要移轉的資料列。"
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -16,7 +16,7 @@
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
-# 撰寫嵌入資料表值函式以選取要移轉的資料列 (Stretch Database)
+# 使用篩選述詞選取要移轉的資料列 (Stretch Database)
 
 如果您將歷程資料儲存在個別的資料表上，您可以設定 Stretch Database 以移轉整個資料表。相反地，如果您的資料表同時包含歷程及目前的資料，您可以指定篩選述詞以選取要移轉的資料列。篩選述詞必須呼叫嵌入資料表值函式。本主題說明如何撰寫嵌入資料表值函式以選取要移轉的資料列。
 
@@ -409,4 +409,4 @@ GO
 ## 另請參閱
 [ALTER TABLE (TRANSACT-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

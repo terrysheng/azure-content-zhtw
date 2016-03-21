@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
-   manager="mbaldwin"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/17/2016"
+   ms.date="03/07/2016"
    ms.author="dhanyahk"/>
 
 # Azure Active Directory 所有使用者登入活動報告
@@ -32,4 +32,4 @@
  >
  - 「所有使用者登入活動」報告目前只透過「報告」API 提供。如需詳細資訊，請參閱[開始使用報告 API](active-directory-reporting-api-getting-started.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

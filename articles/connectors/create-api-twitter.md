@@ -14,17 +14,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="03/03/2016"
    ms.author="mandia"/>
 
 
 # 開始使用 Twitter API
 連線到 Twitter 來張貼推文、取得使用者的時間軸等等。您可以從下列應用程式使用 Twitter API：
 
-- PowerApps 
 - 邏輯應用程式 
+- PowerApps
 
->[AZURE.NOTE] 這一版的文章適用於邏輯應用程式 2015-08-01-preview 結構描述版本。對於 2014-12-01-preview 結構描述版本，請按一下 [Twitter 連接器](../app-service-logic/app-service-logic-connector-twitter.md)。
+> [AZURE.SELECTOR]
+- [邏輯應用程式](../articles/connectors/create-api-twitter.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-twitter.md)
+
+&nbsp;
+
+>[AZURE.NOTE] 這一版的文章適用於邏輯應用程式 2015-08-01-preview 結構描述版本。若為 2014-12-01-preview 結構描述版本，請按一下 [Twitter 連接器](../app-service-logic/app-service-logic-connector-twitter.md)。
 
 您可以利用 Twitter 來：
 
@@ -33,7 +39,7 @@
 - 使用動作來張貼推文、搜尋推文等等。這些動作會收到回應，然後輸出能讓其他動作使用的資料。舉例來說，當有新推文出現時，您可以在 Facebook 上張貼這個推文。
 - 將 Twitter API 新增到 PowerApps Enterprise，讓您的使用者能夠在自己的應用程式中使用這個 AP。 
 
-如需有關如何在 PowerApps Enterprise 中新增 API 的資訊，請移至[在 PowerApps 中為 API 註冊](../power-apps/powerapps-register-from-available-apis.md)。
+如需如何在 PowerApps Enterprise 中加入 API 的資訊，請移至[在 PowerApps 中註冊 API](../power-apps/powerapps-register-from-available-apis.md)。
 
 如果要在邏輯應用程式中新增作業，請參閱[建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
@@ -50,31 +56,12 @@ Twitter 包含下列觸發程序及動作。
 
 ## 建立至 Twitter 的連線
 
-### 在 PowerApps 中新增其他組態
-當您把 Twitter 新增到 PowerApps Enterprise 時，請輸入您的 Twitter 應用程式的 [取用者金鑰] 及 [取用者密碼] 值。[重新導向 URL] 值也會用在您的 Twitter 應用程式中。如果您沒有 Twitter 應用程式，可以使用下列步驟來建立：
-
-1. 登入 [Twitter](https://apps.twitter.com)。
-
-2. 選取 [**Create New App (建立新的應用程式)**]：![Twitter 應用程式頁面][6]
-
-3. 在 [**Create an application (建立應用程式)**] 中：
-   
-	1. 在 [名稱]、[說明] 及 [網站] 中，輸入任何您想要的值。
-	2. 在 [回呼 URL] 中，輸入您在 Azure 入口網站中新增 Twitter API 時所看到的 [重新導向 URL] 值。
-	5. 同意合約，然後 [建立您的 Twitter 應用程式]。  
-
-	![Twitter 應用程式建立][7]
-
-現在，在 Azure 入口網站的 Twitter 組態中，複製/貼上 [取用者金鑰] 及 [取用者密碼] 值。
-
-
-### 在邏輯應用程式中新增其他組態
 當您將這個 API 新增到邏輯應用程式時，您必須授權，讓邏輯應用程式能夠連線到您的 Twitter 帳戶。
 
 1. 登入您的 Twitter 帳戶。
 2. 選取 [授權]，然後允許您的邏輯應用程式連線並使用您的 Twitter 帳戶。 
 
-當您建立連線之後，請輸入 Twitter 的屬性，例如推文的文字。本主題的＜REST API 參考＞一節說明這些屬性。
+當您建立連線之後，請輸入 Twitter 的屬性，例如推文的文字。本主題的＜REST API 參考＞一節會說明這些屬性。
 
 >[AZURE.TIP] 您可以在其他的邏輯應用程式中，使用這個相同的 Twitter 連線。
 
@@ -83,7 +70,7 @@ Twitter 包含下列觸發程序及動作。
 適用的版本：1.0。
 
 ### 張貼新推文 
-張貼推文。```POST: /posttweet```
+推文。```POST: /posttweet```
 
 | 名稱| 資料類型|必要|位於|預設值|說明|
 | ---|---|---|---|---|---|
@@ -318,13 +305,14 @@ Twitter 包含下列觸發程序及動作。
 
 
 ## 後續步驟
-當您把 Dropbox API新增到 PowerApps Enterprise 之後，請[授與使用者在自己的應用程式中使用 API 的權限](../power-apps/powerapps-manage-api-connection-user-access.md)。
 
 [建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
+
+返回 [API 清單](apis-list.md)。
 
 <!--References-->
 
 [6]: ./media/create-api-twitter/twitter-apps-page.png
 [7]: ./media/create-api-twitter/twitter-app-create.png
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

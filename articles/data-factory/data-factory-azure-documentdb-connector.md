@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="從 DocumentDB 來回移動資料 | Azure Data Factory" 
+	pageTitle="將資料移入/移出 DocumentDB | Microsoft Azure" 
 	description="了解如何使用 Azure Data Factory 從 Azure DocumentDB 集合來回移動資料。" 
 	services="data-factory, documentdb" 
 	documentationCenter="" 
@@ -399,15 +399,15 @@ DocumentDB 是 JSON 文件的 NoSQL 存放區 (允許巢狀結構)。Azure Data 
 
 | **屬性** | **說明** | **允許的值** | **必要** |
 | ------------ | --------------- | ------------------ | ------------ |
-| query | 指定查詢來讀取資料。 | DocumentDB 所支援的查詢字串。<p>範例：SELECT c.BusinessEntityID、c.PersonType、c.NameStyle、c.Title、c.Name.First AS FirstName、c.Name.Last AS LastName、c.Suffix、c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00"</p> | 否 <p>如果未指定，執行的 SQL 陳述式：select <columns defined in structure> from mycollection </p>
-| nestingSeparator | 用來表示文件為巢狀文件的特殊字元 | 任何字元。<p>DocumentDB 是 JSON 文件的 NoSQL 存放區，其中允許巢狀結構。Azure Data Factory 可讓使用者透過 nestingSeparator (也就是上述範例中的 “.”) 表示階層。使用分隔符號時，複製活動會根據資料表定義中的 “Name.First”、“Name.Middle” 和 “Name.Last”，產生含有三個子元素 (First、Middle 和 Last) 的 “Name” 物件。</p> | 否
+| query | 指定查詢來讀取資料。 | DocumentDB 所支援的查詢字串。<br/><br/>範例：SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00" | 否 <br/><br/>如果未指定，執行的 SQL 陳述式：select <columns defined in structure> from mycollection 
+| nestingSeparator | 用來表示文件為巢狀文件的特殊字元 | 任何字元。<br/><br/>DocumentDB 是 JSON 文件的 NoSQL 存放區，其中允許巢狀結構。Azure Data Factory 可讓使用者透過 nestingSeparator (也就是上述範例中的 “.”) 表示階層。使用分隔符號，複製活動將會根據資料表定義中的 “Name.First”、“Name.Middle” 和 “Name.Last”，產生含有三個子元素 (First、Middle 和 Last) 的 "Name" 物件。 | 否
 
 **DocumentDbCollectionSink** 支援下列屬性：
 
 | **屬性** | **說明** | **允許的值** | **必要** |
 | -------- | ----------- | -------------- | -------- |
-| nestingSeparator | 來源資料行名稱中用來表示需要巢狀文件的特殊字元。<p>以上面範例為例：輸出資料表中的 Name.First 會在 DocumentDB 文件中產生下列 JSON 結構：</p><p>"Name": {<br/> "First": "John"<br/>},</p> | 用來分隔巢狀層級的字元。<p>預設值為 . (點)。</p> | 用來分隔巢狀層級的字元。<p>預設值為 . (點)。</p> | 否 | 
-| writeBatchSize | 為了建立文件而傳送到 DocumentDB 服務的平行要求數目。<p>使用這個屬性從 DocumentDB 來回複製資料時，可以微調效能。增加 writeBatchSize 時，您可預期有更好的效能，因為對 DocumentDB 傳送了更多的平行要求。不過，您必須避免可能擲回錯誤訊息的節流：「要求速率很高」。</p><p>節流是由許多因素所決定，包括文件大小、文件中的詞彙數目、目標集合的檢索原則等。對於複製作業，您可以使用更好的集合 (例如 S3) 以取得最多可用輸送量 (2,500 要求單位/秒)。</p> | 整數值 | 否 |
+| nestingSeparator | 來源資料行名稱中用來表示需要巢狀文件的特殊字元。<br/><br/>以上面範例為例：輸出資料表中的 Name.First 會在 DocumentDB 文件中產生下列 JSON 結構：<br/><br/>"Name": {<br/> "First": "John"<br/>}, | 用來分隔巢狀層級的字元。<br/><br/>預設值為 . (點)。 | 用來分隔巢狀層級的字元。<br/><br/>預設值為 . (點)。 | 否 | 
+| writeBatchSize | 為了建立文件而傳送到 DocumentDB 服務的平行要求數目。<br/><br/>使用這個屬性從 DocumentDB 來回複製資料時，可以微調效能。增加 writeBatchSize 時，您可預期有更好的效能，因為對 DocumentDB 傳送了更多的平行要求。不過，您必須避免可能擲回錯誤訊息的節流：「要求速率很高」。<br/><br/>節流是由許多因素所決定，包括文件大小、文件中的詞彙數目、目標集合的檢索原則等。對於複製作業，您可以使用更好的集合 (例如 S3) 以取得最多可用輸送量 (2,500 要求單位/秒)。 | 整數值 | 否 |
 | writeBatchTimeout | 在逾時前等待作業完成的時間。 | (單位 = 時間範圍) 範例：“00:30:00” (30 分鐘)。 | 否 |
  
 ## 附錄
@@ -419,7 +419,7 @@ DocumentDB 是 JSON 文件的 NoSQL 存放區 (允許巢狀結構)。Azure Data 
 
 	**回：**如果記錄有 [識別碼] 欄位，而複製作業嘗試插入具有相同識別碼的記錄，則複製作業會擲回錯誤。
  
-3. **問：**資料處理站支援[範圍或雜湊式資料分割]( https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)嗎？
+3. **問：**資料處理站支援[範圍或雜湊式資料分割](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)嗎？
 
 	**答：**否。 
 4. **問：**我可以指定多個資料表 DocumentDB 集合嗎？
@@ -427,4 +427,4 @@ DocumentDB 是 JSON 文件的 NoSQL 存放區 (允許巢狀結構)。Azure Data 
 	**回：**否。目前只能指定一個集合。
      
 
-<!----HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

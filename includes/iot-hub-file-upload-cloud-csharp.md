@@ -43,7 +43,7 @@
             return blob.Uri + sasBlobToken;
         }
 
-    此方法會建立新的 Blob 參考，並產生[透過 Blob 儲存體建立和使用 SAS](https://azure.microsoft.com/zh-TW/documentation/articles/storage-dotnet-shared-access-signature-part-2/) 中所述的共用存取簽章 URI。請注意，上述方法產生的簽章 URI 的有效時間為 24 小時。如果目標裝置需要更多時間來上傳檔案 (例如裝置不常連接，或上傳大型檔案的連線品質不可靠)，建議您考慮使用到期時間更長的簽章。
+    此方法會建立新的 Blob 參考，並利用[透過 Blob 儲存體來建立與使用 SAS](../storage/storage-dotnet-shared-access-signature-part-2.md) 中所述的方式來產生共用存取簽章 URI。請注意，上述方法產生的簽章 URI 的有效時間為 24 小時。如果目標裝置需要更多時間來上傳檔案 (例如裝置不常連接，或上傳大型檔案的連線品質不可靠)，建議您考慮使用到期時間更長的簽章。
 
 5. 依照下列方法修改 **SendCloudToDeviceMessageAsync**：
 
@@ -61,13 +61,13 @@
 
 <!-- Links -->
 
-[關於 Azure 儲存體]: https://azure.microsoft.com/zh-TW/documentation/articles/storage-create-storage-account/#create-a-storage-account
+[關於 Azure 儲存體]: ../storage/storage-create-storage-account.md#create-a-storage-account
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[Transient Fault Handling]: https://msdn.microsoft.com/zh-TW/library/hh680901(v=pandp.50).aspx
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

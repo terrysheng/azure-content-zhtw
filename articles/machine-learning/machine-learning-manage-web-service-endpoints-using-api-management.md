@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="03/02/2016"
 	ms.author="roalexan" />
 
 
@@ -26,7 +26,7 @@
 
 ##什麼是 Azure API 管理？
 
-Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、使用節流設定和儀表板監視，來管理 REST API 端點。如需 Azure API 管理的詳細資訊，請按一下[這裡](https://azure.microsoft.com/services/api-management/)。如需如何開始使用 Azure API 管理的指南，請按一下[這裡](api-management/api-management-get-started.md)。這是本指南所依據的指南，涵蓋更多主題，包括通知組態、定價層、回應處理、使用者驗證、建立產品、開發人員訂閱和使用量儀表板。
+Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、使用節流設定和儀表板監視，來管理 REST API 端點。如需 Azure API 管理的詳細資訊，請按一下[這裡](https://azure.microsoft.com/services/api-management/)。如需如何開始使用 Azure API 管理的指南，請按一下[這裡](../api-management/api-management-get-started.md)。這是本指南所依據的指南，涵蓋更多主題，包括通知組態、定價層、回應處理、使用者驗證、建立產品、開發人員訂閱和使用量儀表板。
 
 ##什麼是 AzureML？
 
@@ -38,7 +38,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 
 * 一個 Azure 帳戶。如果您沒有 Azure 帳戶，請按一下[這裡](https://azure.microsoft.com/pricing/free-trial/)以取得如何建立免費試用帳戶的詳細資訊。
 * AzureML 帳戶。如果您沒有 AzureML 帳戶，請按一下[這裡](https://studio.azureml.net/)以取得如何建立免費試用帳戶的詳細資訊。
-* 部署為 Web 服務之 AzureML 實驗的工作區、服務和 API 金鑰。如需如何建立 AzureML 實驗的詳細資訊，請按一下[這裡](machine-learning/machine-learning-create-experiment.md)。如需如何將 AzureML 實驗部署為 Web 服務的詳細資訊，請按一下[這裡](machine-learning/machine-learning-publish-a-machine-learning-web-service.md)。此外，附錄 A 中的指示說明如何建立及測試簡單的 AzureML 實驗，並將其部署為 Web 服務。
+* 部署為 Web 服務之 AzureML 實驗的工作區、服務和 API 金鑰。如需如何建立 AzureML 實驗的詳細資訊，請按一下[這裡](machine-learning-create-experiment.md)。如需如何將 AzureML 實驗部署為 Web 服務的詳細資訊，請按一下[這裡](machine-learning-publish-a-machine-learning-web-service.md)。此外，附錄 A 中的指示說明如何建立及測試簡單的 AzureML 實驗，並將其部署為 Web 服務。
 
 ##建立 API 管理執行個體
 
@@ -198,7 +198,7 @@ API 是透過您經由 Azure 傳統入口網站存取的 API 發行者入口網�
 
 ###測試 Web 服務
 
-AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 端點所組成。RSS 適用於同步執行。BES 適用於非同步工作執行。若要使用下面的範例 Python 原始碼來測試您的 Web 服務，您可能需要下載並安裝 Azure SDK for Python (請參閱：[如何安裝 Python](python-how-to-install.md))。
+AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 端點所組成。RSS 適用於同步執行。BES 適用於非同步工作執行。若要使用下面的範例 Python 原始碼來測試您的 Web 服務，您可能需要下載並安裝 Azure SDK for Python (請參閱：[如何安裝 Python](../python-how-to-install.md))。
 
 下面的範例原始碼也需要用到實驗的**工作區**、**服務**和 **API 金鑰**。若要尋找工作區和服務，請在 Web 服務儀表板中，按一下實驗的 [要求/回應] 或 [批次執行]。
 
@@ -384,4 +384,4 @@ AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

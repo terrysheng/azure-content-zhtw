@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="11/15/2015"
+   ms.date="03/02/2016"
    ms.author="sdash"/>
 
 # Azure 雲端服務的 Application Insights
@@ -129,7 +129,7 @@ Application Insights 資源是您在其中分析和顯示遙測資料的位置�
 
 如果角色意外失敗或無法啟動，Azure 診斷特別有用。
 
-1. 以滑鼠右鍵按一下 [角色] \(不是專案！) 以開啟其 [屬性]，然後選取 [啟用診斷]、[將診斷傳送至 Application Insights]。
+1. 以滑鼠右鍵按一下 [角色] (不是專案！) 以開啟其 [屬性]，然後選取 [啟用診斷]、[將診斷傳送至 Application Insights]。
 
     ![搜尋「Application Insights」](./media/app-insights-cloudservices/21-wad.png)
 
@@ -171,13 +171,17 @@ Azure 診斷會自動包含您的應用程式使用 System.Diagnostics.Trace 所
 
 Application Insights SDK 可以報告應用程式對外部相依性的呼叫，例如 REST API 和 SQL Server。這可讓您查看是否有特定的相依性造成回應變慢或失敗。
 
-若要追蹤相依性，您必須搭配 [Application Insights 代理程式](app-insights-monitor-performance-live-website-now.md) (也稱為「狀態監視器」) 設定 Web/背景工作角色。
+如果您的應用程式使用 .NET Framework 4.6 或更新版本，則您不需採取任何動作。
+
+否則，請搭配 [Application Insights 代理程式](app-insights-monitor-performance-live-website-now.md) (也稱為「狀態監視器」) 設定 Web/背景工作角色。
 
 若要使用 Application Insights 代理程式搭配 Web/背景工作角色：
 
 * 新增 [AppInsightsAgent](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent) 資料夾和兩個檔案到 Web/背景工作角色專案中。請務必設定其建置屬性，使它們一律複製到輸出目錄。這些檔案將安裝代理程式。
 * 新增啟動工作到 CSDEF 檔案，如[這裡](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L18)所示。
 * 注意：*背景工作角色*需要三個環境變數，如[這裡](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/AzureEmailService/ServiceDefinition.csdef#L44)所示。Web 角色則不需要這個設定。
+
+### 相依性報告
 
 以下是您在 Application Insights 入口網站中所看到的範例：
 
@@ -260,7 +264,7 @@ Application Insights SDK 可以報告應用程式對外部相依性的呼叫，�
 
 ## 在 Azure 雲端服務中執行時發生的「找不到方法」例外狀況
 
-您是否已針對 .NET 4.6 組建？ Azure 雲端服務角色不自動支援 4.6。請先[在每個角色上安裝 4.6](../cloud-services/cloud-services-dotnet-install-dotnet.md)，再執行您的應用程式。
+您是否已針對 .NET 4.6 組建？ Azure 雲端服務角色不自動支援 4.6。請先[在每個角色上安裝 4.6](../cloud-services/cloud-services-dotnet-install-dotnet.md)，再執行您的 App。
 
 ## 相關主題
 
@@ -277,10 +281,9 @@ Application Insights SDK 可以報告應用程式對外部相依性的呼叫，�
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

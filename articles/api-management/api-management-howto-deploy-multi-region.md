@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # 如何將 Azure API 管理服務執行個體部署到多個 Azure 區域
@@ -22,7 +22,7 @@ API 管理支援多區域部署，可讓 API 發行者跨所需的任意數量 A
 
 最初建立 API 管理服務時，它只會包含一個[單位][]，並且位在指派做為主要區域的單一 Azure 區域中。可透過 Azure 傳統入口網站輕鬆加入其他區域。API 管理閘道伺服器會部署到每個區域，並且將呼叫流量遞送到最近的閘道。如果區域離線，流量會自動重新導向到下一個最近的閘道。
 
-> [AZURE.IMPORTANT]多重區域部署僅供**[進階][]**層使用。
+> [AZURE.IMPORTANT] 多重區域部署僅供**[進階][]**層使用。
 
 ## <a name="add-region"> </a>部署 API 管理服務執行個體到新區域
 
@@ -75,4 +75,4 @@ API 管理支援多區域部署，可讓 API 發行者跨所需的任意數量 A
 [單位]: http://azure.microsoft.com/pricing/details/api-management/
 [進階]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

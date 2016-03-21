@@ -3,7 +3,7 @@
    description="說明如何使用存取控制記錄 (ACR) 以判斷哪些主機可以連接至 StorSimple Virtual Array 上的磁碟區。"
    services="storsimple"
    documentationCenter=""
-   authors="SharS"
+   authors="alkohli"
    manager="carmonm"
    editor="" />
 <tags 
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="v-sharos" />
+   ms.date="03/02/2016"
+   ms.author="alkohli" />
 
-# 針對 StorSimple Virtual Array使用 StorSimple Manager 服務管理存取控制記錄 (預覽)
+# 針對 StorSimple Virtual Array 使用 StorSimple Manager 服務管理存取控制記錄 
 
 ## 概觀
 
@@ -114,4 +114,4 @@
 
 - 深入了解[加入磁碟區和設定 ACR](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

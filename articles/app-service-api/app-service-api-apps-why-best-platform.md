@@ -40,7 +40,16 @@ API Apps 提供下列功能：
 
 此外，API Apps、Web Apps 以及 Mobile Apps 所提供的功能可彼此互換。這表示 API Apps 的執行個體可利用 Web Apps 與 Mobile Apps 提供的 Web 與行動開發及主控功能。反之亦然，例如您可以使用 Web 應用程式來裝載 API，同時仍可使用 Swagger 中繼資料執行用戶端程式碼產生，以及使用 CORS 進行跨網域瀏覽器存取。如需詳細資訊，請參閱 [Web Apps 概觀](../app-service-web/app-service-web-overview.md)與 [Mobile Apps 概觀](../app-service-mobile/app-service-mobile-value-prop.md)。
 
->[AZURE.NOTE]您可以使用 [Azure API 管理](../api-management/api-management-key-concepts.md)來控制戶端存取 App Service API Apps 裝載的 API。雖然 API Apps 提供驗證服務，但有一些其他存取管理功能是它不提供而「API 管理」有提供的，例如端點合併和節流。
+## 使用 Azure API 管理擴大 API 應用程式 
+
+API 應用程式和 [Azure API 管理](../api-management/api-management-key-concepts.md)是互補的服務︰
+
+* API 管理是關於管理 API。您將 API 管理前端放在 API 上以監視及節流使用量、操作輸入和輸出、將多個 API 合而為一等等。受管理的 API 可以裝載於任何位置。
+* API 應用程式是關於裝載 API。此服務包含的功能可方便開發和使用 API，但它不會執行 API 管理所執行的監視、節流、操作或合併。 
+
+您可以使用 API 管理來管理 API 應用程式所裝載的 API，或也可以使用 API 應用程式，而不使用 API 管理。
+
+API 管理和 API 應用程式的某些功能具有類似的功能。例如，兩者都可以將 CORS 支援自動化。當您同時使用這兩項服務時，您會使用 API 管理進行 CORS，因為它是作為您 API 應用程式的前端。
 
 ## <a id="concepts"></a> API 應用程式概念
 
@@ -57,4 +66,4 @@ API Apps 提供下列功能：
 
 如需有關 Azure App Service 平台的詳細資訊，請參閱 [Azure App Service](../app-service/app-service-value-prop-what-is.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

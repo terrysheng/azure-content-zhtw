@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="03/02/2016"
    ms.author="terrylan"/>
 
 # 在 Azure 資訊安全中心新增 Web 應用程式防火牆
@@ -42,7 +42,7 @@ Azure 資訊安全中心可能會建議您從 Microsoft 合作夥伴新增 Web �
 10. 選取 [完成 Web 應用程式防火牆設定]。此時會開啟新的分頁。您會看到有一個需要重新路由流量的 Web 應用程式。
 11. 選取 Web 應用程式。將會開啟一個刀鋒視窗，其中提供完成 Web 應用程式防火牆設定的步驟。完成這些步驟，然後選取 [限制流量]。接著，資訊安全中心會為您進行串聯。![][6]
 
-> [AZURE.NOTE] 自動佈建程序是以部署至個別 VNet 的 WAF 封裝 (使用資源管理員部署模型所建立) 為基礎。VM (傳統) 上受保護 Web 應用程式的存取權受限於只使用 NSG 的 WAF 應用裝置。這項支援在未來將會延伸至 WAF 封裝 (傳統) 的完全自訂部署。深入了解 Azure 資源的[傳統和資源管理員部署模型](../azure-classic-rm.md)。
+> [AZURE.NOTE] 您可以將這些應用程式加入現有的 WAF 部署，以保護資訊安全中心的多個 Web 應用程式。WAF 應用裝置 (使用資源管理員部署模型建立) 需要部署至不同的虛擬網路。WAF 應用裝置 (使用傳統部署模型建立) 受限於只能使用網路安全性群組。這項支援在未來將會延伸至 WAF 應用裝置 (傳統) 的完全自訂部署。深入了解 Azure 資源的[傳統和資源管理員部署模型](../azure-classic-rm.md)。
 
 現在已將來自該 WAF 的記錄完全整合。「資訊安全中心」可以開始自動收集並分析記錄，以便對您顯示重要的安全性警示。
 
@@ -54,7 +54,7 @@ Azure 資訊安全中心可能會建議您從 Microsoft 合作夥伴新增 Web �
 
 如要深入了解資訊安全中心，請參閱下列主題：
 
-- [設定 Azure 資訊安全中心的安全性原則](security-center-policies.md) -- 了解如何設定安全性原則。
+- [在 Azure 資訊安全中心內設定安全性原則](security-center-policies.md)：了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 - [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) -- 了解如何監視 Azure 資源的健全狀況。
 - [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) -- 了解如何管理與回應安全性警示。
 - [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md) -- 了解建議如何協助您保護您的 Azure 資源。
@@ -69,4 +69,4 @@ Azure 資訊安全中心可能會建議您從 Microsoft 合作夥伴新增 Web �
 [5]: ./media/security-center-add-web-application-firewall/finalize-waf.png
 [6]: ./media/security-center-add-web-application-firewall/restrict-traffic.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -10,10 +10,10 @@
 <tags
    ms.service="security-center"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="03/02/2016"
    ms.author="terrylan"/>
 
 # 管理 Azure 資訊安全中心的安全性建議
@@ -72,7 +72,7 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 |解決不相符基準規則|建議您讓作業系統組態符合建議的基準，例如不允許儲存密碼。|
 |套用系統更新|建議您將遺漏的系統安全性與重大更新部署到 VM (僅適用於 Windows VM)。|
 |設定端點的 ACL|建議您設定存取控制清單來限制對 VM 的輸入存取 (僅適用於傳統)。|
-|[新增 Web 應用程式防火牆](security-center-add-web-application-firewall.md)|建議您為 Web 端點部署「Web 應用程式防火牆」(WAF)。自動佈建程序是以部署至個別 VNet 的 WAF 封裝 (使用資源管理員部署模型所建立) 為基礎。VM (傳統) 上受保護 Web 應用程式的存取權受限於只使用 NSG 的 WAF 應用裝置。這項支援在未來將會延伸至 WAF 封裝 (傳統) 的完全自訂部署。|
+|[新增 Web 應用程式防火牆](security-center-add-web-application-firewall.md)|建議您為 Web 端點部署「Web 應用程式防火牆」(WAF)。您可以將這些應用程式加入現有的 WAF 部署，以保護資訊安全中心的多個 Web 應用程式。WAF 應用裝置 (使用資源管理員部署模型所建立) 需要部署至不同的虛擬網路。WAF 應用裝置 (使用傳統部署模型所建立) 受限於只能使用網路安全性群組。這項支援在未來將會延伸至 WAF 應用裝置 (傳統) 的完全自訂部署。|
 |完成 Web 應用程式防火牆設定|若要完成 WAF 組態，必須將流量重新路由至 WAF 設備。遵循這項建議會完成必要的設定變更。|
 |[啟用反惡意程式碼](security-center-enable-antimalware.md)|建議您將反惡意程式碼程式佈建到 VM (僅適用於 Windows VM)。|
 |啟用子網路/網路介面上的網路安全性群組|建議您啟用子網路和網路介面上的網路安全性群組 (NSG) (僅適用於「資源管理員 VM」)。|
@@ -109,7 +109,7 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 ## 後續步驟
 在本文件中，已向您介紹「資訊安全中心」的安全性建議。如要深入了解資訊安全中心，請參閱下列主題：
 
-- [設定 Azure 資訊安全中心的安全性原則](security-center-policies.md) -- 了解如何設定安全性原則。
+- [在 Azure 資訊安全中心設定安全性原則](security-center-policies.md) --了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 - [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) -- 了解如何監視 Azure 資源的健全狀況。
 - [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) -- 了解如何管理與回應安全性警示。
 - [Azure 資訊安全中心常見問題集](security-center-faq.md) -- 尋找在使用服務時經常會遇到的問題。
@@ -122,4 +122,4 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 [5]: ./media/security-center-recommendations/select-enable-antimalware.png
 [6]: ./media/security-center-recommendations/install-antimalware.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

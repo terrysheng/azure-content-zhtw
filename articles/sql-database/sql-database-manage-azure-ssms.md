@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="03/07/2016" 
 	ms.author="jeffreyg"/>
 
 
@@ -21,56 +21,13 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-manage-portal.md)
+- [Azure 入口網站](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-您可以使用 SQL Server Management Studio (SSMS) 來管理 Azure SQL Database 邏輯伺服器與資料庫。本主題會引導您使用 SSMS 的一般工作。在您開始之前，您應該已經有 Azure SQL Database 中建立的邏輯伺服器與資料庫。若要開始使用，請閱讀[建立您的第一個 Azure SQL Database](sql-database-get-started.md)，然後再回來。
+您可以使用 SQL Server Management Studio (SSMS) 來管理 Azure SQL Database 邏輯伺服器與資料庫。本主題會引導您使用 SSMS 的一般工作。在您開始之前，您應該已經有 Azure SQL Database 中建立的邏輯伺服器與資料庫。如需如何連線，然後執行簡單 SELECT 查詢的相關資訊，請參閱[建立您的第一個 Azure SQL Database](sql-database-get-started.md)以及關於如何[使用 SSMS 進行連線與查詢](sql-database-connect-query-ssms.md)的文章。
 
 每當您使用 Azure SQL Database 時，建議您使用最新版本的 SSMS。請造訪[下載 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 以取得。
-
-
-## 連線到 SQL Database 邏輯伺服器
-
-若要連線到 SQL Database，您需要知道 Azure 上的伺服器名稱。您可能需要登入入口網站才能取得此資訊。
-
-1.  登入 [Azure 傳統入口網站](http://manage.windowsazure.com)。
-
-2.  在左窗格中，按一下 [SQL Database]。
-
-3.  在 SQL Databases 首頁上，按一下頁面頂端的 [伺服器]，以列出與訂閱相關的所有伺服器。尋找想要連線的伺服器名稱，並將它複製到剪貼簿上。
-
-	接著，設定您的 SQL Database 防火牆，以允許來自本機電腦的連線。若要這麼做，請將本機電腦 IP 位址加入防火牆例外清單。
-
-1.  在 SQL Databases 首頁上，按一下 [伺服器]，然後按一下想要與其連線的伺服器。
-
-2.  按一下頁面頂端的 [設定]。
-
-3.  複製 [目前用戶端 IP 位址] 中的 IP 位址。
-
-4.  在 [設定] 頁面中，[允許的 IP 位址] 包括三個方塊，您可以在此處指定規則名稱與作為起始和結束值的 IP 位址範圍。在規則名稱中，您可以輸入您的電腦名稱。在起始範圍和結束範圍中，將您的電腦 IP 位址貼入這兩個方塊，然後按一下出現的核取方塊。
-
-	規則名稱必須是唯一的。如果這是您的開發電腦，您可以在 IP 範圍起始方塊和 IP 範圍結束方塊中輸入 IP 位址。否則，您可能需要輸入較廣泛的 IP 位址範圍，以容納來自組織中其他電腦的連線。
- 
-5. 按一下頁面底部的 [儲存]。
-
-    **請注意：**防火牆設定的變更最長可能延遲五分鐘才會生效。
-
-	您現在可以使用 Management Studio 來連線到 SQL Database。
-
-1.  按一下工作列上的 [開始]，依序指向 [所有程式]、[Microsoft SQL Server 2014]，然後按一下 [SQL Server Management Studio]。
-
-2.  在 [連線到伺服器] 中，將完整伺服器名稱指定為 *serverName*.database.windows.net。在 Azure 上，伺服器名稱是由英數字元組成的自動產生字串。
-
-3.  選取 [SQL Server Authentication]。
-
-4.  在 [登入] 方塊中，輸入您建立伺服器時，在入口網站中指定的 SQL Server 系統管理員登入。
-
-5.  在 [密碼] 方塊中，輸入建立伺服器時，在入口網站中指定的密碼。
-
-8.  按一下 [連線] 以建立連線。
-
-具備最新更新的 SQL Server 2014 SSMS 提供工作的擴大支援，例如建立和修改 Azure SQL databases。此外，您也可以使用 Transact-SQL 陳述式來完成這些工作。以下步驟將提供這些陳述式的範例。如需有關使用 Transact-SQL 搭配 SQL Database 的詳細資訊 (包括支援的命令詳細資料)，請參閱 [Transact-SQL 參考 (SQL Database)](http://msdn.microsoft.com/library/bb510741.aspx)。
 
 ## 建立和管理 Azure SQL 資料庫
 
@@ -102,7 +59,7 @@
 
 -   在 SQL Database 中，**USE** 陳述式不支援資料庫之間的切換。相反地，您需要建立與目標資料庫的直接連線。
 
->[AZURE.NOTE]許多可建立或修改資料庫的 Transact-SQL 陳述式必須在自己的批次中執行，且無法與其他 Transact-SQL 陳述式群組在一起。如需詳細資訊，請參閱陳述式特定資訊 (可透過上面列出的連結取得)。
+>[AZURE.NOTE] 許多可建立或修改資料庫的 Transact-SQL 陳述式必須在自己的批次中執行，且無法與其他 Transact-SQL 陳述式群組在一起。如需詳細資訊，請參閱陳述式特定資訊 (可透過上面列出的連結取得)。
 
 ## 建立和管理登入
 
@@ -192,4 +149,4 @@ SQL Database 支援數種動態管理檢視，您可用他們來監視個別資�
  
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

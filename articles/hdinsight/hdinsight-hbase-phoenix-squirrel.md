@@ -13,14 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
-# 在 HDinsight 中搭配 HBase 叢集使用 Phoenix 和 SQuirreL  
+# 在 HDinsight 中搭配以 Windows 為基礎的 HBase 叢集使用 Apache Phoenix 和 SQuirreL  
 
 了解如何使用 HDinsight 中的 [Apache Phoenix](http://phoenix.apache.org/)，以及如何在您的工作站上安裝與設定 SQuirreL 以連線到 HDInsight 中的 HBase 叢集。如需有關 Phoenix 的詳細資訊，請參閱 [15 分鐘內了解 Phoenix](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)。如需 Phoenix 文法，請參閱 [Phoenix 文法](http://phoenix.apache.org/language/index.html)。
 
 >[AZURE.NOTE] 如需 HDInsight 中的 Phoenix 版本資訊，請參閱 [HDInsight 在 Hadoop 叢集版本中提供什麼新功能？][hdinsight-versions]
+>
+> 本文件的資訊是 以 Windows 為基礎之 HDInsight 叢集的特定資訊。如需在以 Linux 為基礎的 HDInsight 上使用 Phoenix 的相關資訊，請參閱 [Use Apache Phoenix with Linux-based HBase clusters in HDinsight (在 HDinsight 中搭配以 Linux 為基礎的 HBase 叢集使用 Apache Phoenix)](hdinsight-hbase-phoenix-squirrel-linux.md)。
 
 ##使用 SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) 是執行 SQL 的命令列公用程式。
@@ -54,7 +56,7 @@
 
 		CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
 		
-		!tables;
+		!tables
 		
 		UPSERT INTO Company VALUES(1, 'Microsoft');
 		
@@ -306,4 +308,4 @@ Phoenix 驅動程式 jar 檔案位於 HBase 叢集上。此路徑根據版本與
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -15,14 +15,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="03/02/2016"
    ms.author="mandia"/>
 
 # 開始使用 Microsoft Translator API
 連線到 Microsoft Translator 來翻譯文字、偵測語言種類等等。您可以從下列應用程式使用 Microsoft Translator API：
 
-- PowerApps 
 - 邏輯應用程式 
+- PowerApps
+
+> [AZURE.SELECTOR]
+- [邏輯應用程式](../articles/connectors/create-api-microsofttranslator.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-microsofttranslator.md)
 
 您可以利用 Microsoft Translator 來：
 
@@ -42,25 +46,6 @@ Microsoft Translator 包含下列動作，但不包含觸發程序。
 None | <ul><li>偵測語言種類</li><li>將文字轉換成語音</li><li>翻譯文字</li><li>取得語言種類</li><li>取得語音的語言種類</li></ul>
 
 所有 API 都支援 JSON 和 XML 格式的資料。
-
-## 建立至 Microsoft Translator 的連線
-
-### 在 PowerApps 中新增其他組態
-當您將 Microsoft Translator 新增到 PowerApps Enterprise 時，請輸入您 Microsoft Translator 應用程式的 [用戶端識別碼] 和 [用戶端密碼] 值。如果您沒有 Microsoft Translator 應用程式，可以建立一個：
-
-1. 移至 [Azure Data Market 開發人員頁面][5]，並以您的 Microsoft 帳戶登入。 
-
-2. 選取 [註冊您的應用程式]：
-
-	1. 輸入 [用戶端識別碼] 的值。
-	2. 輸入您應用程式的 [名稱]。
-	3. 在 [重新導向 URL] 中輸入虛擬值。例如，輸入 *https://contosoredirecturl* 。
-	4. 輸入 [說明]。
-	5. 選取 [**建立**]。  
-
-	![註冊您的應用程式][6]
-
-現在，在 Azure 入口網站的翻譯工具組態中，複製/貼上 [用戶端識別碼] 及 [應用程式密碼] 值。
 
 
 ## Swagger REST API 參考
@@ -139,21 +124,21 @@ None | <ul><li>偵測語言種類</li><li>將文字轉換成語音</li><li>翻�
 
 #### Language：Microsoft Translator 可翻譯語言的語言模型
 
-| 名稱 | 資料類型 | 必要|
+|屬性名稱 | 資料類型 | 必要|
 |---|---|---|
 |代碼|字串|no|
 |名稱|字串|no|
 
 
 ## 後續步驟
-當您把 Microsoft Translator API 新增到 PowerApps Enterprise 之後，請[授與使用者在自己的應用程式中使用 API 的權限](../power-apps/powerapps-manage-api-connection-user-access.md)。
 
 [建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
+
+返回 [API 清單](apis-list.md)。
 
 
 <!--References-->
 [5]: https://datamarket.azure.com/developer/applications/
 [6]: ./media/create-api-microsofttranslator/register-your-application.png
 
-<!---HONumber=AcomDC_0302_2016-------->
-
+<!---HONumber=AcomDC_0309_2016-->

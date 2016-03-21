@@ -4,7 +4,7 @@
 	services="cache" 
 	documentationCenter=".net" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 
@@ -38,7 +38,7 @@
 
 In-Role Cache 會使用託管 Azure 雲端服務 (又稱託管服務) 中的角色執行個體之虛擬機器的部分記憶體執行快取。您會有更為彈性的部署選項可作選擇，快取的大小不僅可以非常大，而且沒有快取特有的配額限制。
 
->[AZURE.IMPORTANT]從 Azure SDK 2.6 版開始，In-Role Cache 使用 Microsoft Azure 儲存體 SDK 4.3 版。在 Azure SDK 舊版中，In-Role Cache 使用 Azure 儲存體 SDK 1.7。Azure 儲存體版本 2011-08-18 即將於 2016 年 8 月 1 日解除委任，使用採用 Azure SDK 2.6 之前版本之 In-Role Cache 的應用程式請儘早移轉至 Azure SDK 2.6。如需詳細資訊，請參閱[Azure SDK 2.6 版本資訊：In-Role Cache](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) (英文) 和 [MMicrosoft Azure 儲存體服務版本移除更新：延期至 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx) (英文)。
+>[AZURE.IMPORTANT] 從 Azure SDK 2.6 版開始，In-Role Cache 使用 Microsoft Azure 儲存體 SDK 4.3 版。在 Azure SDK 舊版中，In-Role Cache 使用 Azure 儲存體 SDK 1.7。Azure 儲存體版本 2011-08-18 即將於 2016 年 8 月 1 日解除委任，使用採用 Azure SDK 2.6 之前版本之 In-Role Cache 的應用程式請儘早移轉至 Azure SDK 2.6。如需詳細資訊，請參閱[Azure SDK 2.6 版本資訊：In-Role Cache](../azure-sdk-dotnet-release-notes-2_6.md#in-role-cache-updates) (英文) 和 [MMicrosoft Azure 儲存體服務版本移除更新：延期至 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx) (英文)。
 
 角色執行個體快取有下列優點：
 
@@ -376,7 +376,7 @@ NuGet 套件也會新增下列組件的參考：
 [做法：將 ASP.NET 頁面輸出快取儲存在快取中]: #store-page
 [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
  
-<!-- IMAGES -->
+<!-- IMAGES --> 
 [RoleCache1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
 [RoleCache2]: ./media/cache-dotnet-how-to-use-in-role/cache9.png
 [RoleCache3]: ./media/cache-dotnet-how-to-use-in-role/cache10.png
@@ -411,4 +411,4 @@ NuGet 套件也會新增下列組件的參考：
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

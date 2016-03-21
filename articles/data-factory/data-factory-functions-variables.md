@@ -55,21 +55,21 @@ SliceEnd | 所產生之目前資料配量的時間間隔結束 | 活動<br/>資�
 
 類別 | 函式 | 參數 | 說明
 -------- | -------- | ---------- | ----------- 
-時間 | AddHours(X,Y) | X：DateTime <p>Y：int</p> | 將 Y 小時新增至指定時間 X。<p>範例：9/5/2013 12:00:00 PM + 2 小時 = 9/5/2013 2:00:00 PM</p>
-時間 | AddMinutes(X,Y) | X：DateTime <p>Y：int</p> | 將 Y 分鐘新增至 X。<p>範例：9/15/2013 12: 00:00 PM + 15 分鐘 = 9/15/2013 12: 15:00 PM</p>
-時間 | StartOfHour(X) | X：Datetime | 取得由 X 的小時元件代表的小時開始時間。<p>範例：9/15/2013 05: 10:23 PM 的 StartOfHour 是 9/15/2013 05: 00:00 PM</p>
-Date | AddDays(X,Y) | X：DateTime<p>Y：int</p> | 將 Y 天數新增至 X。<p>範例：9/15/2013 12:00:00 PM + 2 天 = 9/17/2013 12:00:00 PM</p>
-Date | AddMonths(X,Y) | X：DateTime<p>Y：int</p> | 將 Y 月數新增至 X。<p>範例：9/15/2013 12:00:00 PM + 1 個月 = 10/15/2013 12:00:00 PM</p> 
-Date | AddQuarters(X,Y) | X：DateTime <p>Y：int</p> | 將 Y * 3 個月新增至 X。<p>範例：9/15/2013 12:00:00 PM + 1 季 = 12/15/2013 12:00:00 PM</p>
-Date | AddWeeks(X,Y) | X：DateTime<p>Y：int</p> | 將 Y * 7 天新增至 X<p>範例：9/15/2013 12:00:00 PM + 1 週 = 9/22/2013 12:00:00 PM</p>
-Date | AddYears(X,Y) | X：DateTime<p>Y：int</p> | 將 Y 年新增至 X。<p>範例：9/15/2013 12:00:00 PM + 1 年 = 9/15/2014 12:00:00 PM</p>
-Date | Day(X) | X：DateTime | 取得 X 的日元件。<p>範例：9/15/2013 12:00:00 PM 的日期是 9。</p>
-Date | DayOfWeek(X) | X：DateTime | 取得 X 的週元件。<p>範例：9/15/2013 12:00:00 PM 的星期幾是星期日。</p>
-Date | DayOfYear(X) | X：DateTime | 取得 X 的年元件代表的一年當中的日期。<p>範例：<br/>12/1/2015：2015 年的第 335 天<br/>12/31/2015：2015 年的第 365 天<br/>12/31/2016：2016 年的第 366 天 (閏年)</p>
-Date | DaysInMonth(X) | X：DateTime | 取得參數 X 的月元件代表的月份中的日期。<p>範例：9/15/2013 的 DaysInMonth 是 30，因為 9 月份有 30 天。</p>
-Date | EndOfDay(X) | X：DateTime | 取得 X 的結尾天數 (日元件) 代表的日期時間。<p>範例：9/15/2013 05:10:23 PM 的 EndOfDay 是 9/15/2013 11:59:59 PM。</p>
-Date | EndOfMonth(X) | X：DateTime | 取得由參數 X 的月元件代表的月底。<p>範例：9/15/2013 05:10:23 PM 的 EndOfMonth 是 9/30/2013 11:59:59 PM (代表 9 月份月底的日期時間)</p>
-Date | StartOfDay(X) | X：DateTime | 取得參數 X 的日元件代表的日期開始。<p>範例：9/15/2013 05:10:23 PM 的 StartOfDay 是 9/15/2013 12:00:00 AM。</p>
+時間 | AddHours(X,Y) | X：DateTime <br/><br/>Y：int | 將 Y 小時新增至指定時間 X。<br/><br/>範例：9/5/2013 12:00:00 PM + 2 小時 = 9/5/2013 2:00:00 PM
+時間 | AddMinutes(X,Y) | X：DateTime <br/><br/>Y：int | 將 Y 分鐘新增至 X。<br/><br/>範例：9/15/2013 12: 00:00 PM + 15 分鐘 = 9/15/2013 12: 15:00 PM
+時間 | StartOfHour(X) | X：Datetime | 取得由 X 的小時元件代表的小時開始時間。<br/><br/>範例：9/15/2013 05: 10:23 PM 的 StartOfHour 是 9/15/2013 05: 00:00 PM
+Date | AddDays(X,Y) | X：DateTime<br/><br/>Y：int | 將 Y 天數新增至 X。<br/><br/>範例：9/15/2013 12:00:00 PM + 2 天 = 9/17/2013 12:00:00 PM
+Date | AddMonths(X,Y) | X：DateTime<br/><br/>Y：int | 將 Y 月數新增至 X。<br/><br/>範例：9/15/2013 12:00:00 PM + 1 個月 = 10/15/2013 12:00:00 PM 
+Date | AddQuarters(X,Y) | X：DateTime <br/><br/>Y：int | 將 Y * 3 個月新增至 X。<br/><br/>範例：9/15/2013 12:00:00 PM + 1 季 = 12/15/2013 12:00:00 PM
+Date | AddWeeks(X,Y) | X：DateTime<br/><br/>Y：int | 將 Y * 7 天新增至 X<br/><br/>範例：9/15/2013 12:00:00 PM + 1 週 = 9/22/2013 12:00:00 PM
+Date | AddYears(X,Y) | X：DateTime<br/><br/>Y：int | 將 Y 年新增至 X。<br/><br/>範例：9/15/2013 12:00:00 PM + 1 年 = 9/15/2014 12:00:00 PM
+Date | Day(X) | X：DateTime | 取得 X 的日元件。<br/><br/>範例：9/15/2013 12:00:00 PM 的日期是 9。 
+Date | DayOfWeek(X) | X：DateTime | 取得 X 的週元件。<br/><br/>範例：9/15/2013 12:00:00 PM 的 DayOfWeek 是星期日。
+Date | DayOfYear(X) | X：DateTime | 取得 X 的年元件代表的一年當中的日期。<br/><br/>範例：<br/>12/1/2015：2015 年的第 335 天<br/>12/31/2015：2015 年的第 365 天<br/>12/31/2016：2016 年的第 366 天 (閏年)
+Date | DaysInMonth(X) | X：DateTime | 取得參數 X 的月元件代表的月份中的日期。<br/><br/>範例：9/15/2013 的 DaysInMonth 是 30，因為 9 月份有 30 天。
+Date | EndOfDay(X) | X：DateTime | 取得 X 的結尾天數 (日元件) 代表的日期時間。<br/><br/>範例：9/15/2013 05:10:23 PM 的 EndOfDay 是 9/15/2013 11:59:59 PM。
+Date | EndOfMonth(X) | X：DateTime | 取得由參數 X 的月元件代表的月底。<br/><br/>範例：9/15/2013 05:10:23 PM 的 EndOfMonth 是 9/30/2013 11:59:59 PM (代表 9 月份月底的日期時間)
+Date | StartOfDay(X) | X：DateTime | 取得參數 X 的日元件代表的日期開始。<br/><br/>範例：9/15/2013 05:10:23 PM 的 StartOfDay 是 9/15/2013 12:00:00 AM。
 DateTime | From(X) | X：字串 | 將字串 X 剖析為日期時間。
 DateTime | Ticks(X) | X：DateTime | 取得參數 X 的刻度屬性。一個刻度等於 100 奈秒。這個屬性的值代表從 0001 年 1 月 1 日午夜 12:00:00 經過的刻度數。 
 文字 | Format(X) | X：字串變數 | 格式化文字。
@@ -88,4 +88,4 @@ DateTime | Ticks(X) | X：DateTime | 取得參數 X 的刻度屬性。一個刻�
 > [AZURE.NOTE] 在另一個函式中使用函式時，您不需要針對內部函式使用 **$$** 前置詞。例如：$$Text.Format('PartitionKey eq \\'my\_pkey\_filter\_value\\' and RowKey ge \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6))。在此範例中，請注意 **$$** 前置詞不能用於 **Time.AddHours** 函式。
   
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

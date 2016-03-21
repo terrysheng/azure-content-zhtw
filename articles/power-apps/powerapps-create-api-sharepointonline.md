@@ -14,14 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# 在貴組織的 App Service 環境中建立新的 SharePoint Online API
+# 在 PowerApps Enterprise 中建立新的 SharePoint Online API
+
+將 SharePoint Online API 加入您組織 (租用戶) 的 App Service 環境中。
 
 ## 在 Azure 入口網站中建立 API
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中使用您的工作帳戶登入。例如，使用 *yourUserName*@*YourCompany*.com 登入。當您這樣做時，會自動登入您公司的訂用帳戶。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中使用您的工作帳戶登入。例如，使用 yourUserName@*YourCompany*.com 登入。當您這樣做時，將會自動登入您的公司訂用帳戶。
  
 2. 選取工作列中的 [瀏覽]：![][14]
 
@@ -29,7 +31,7 @@
 
 4. 在 **PowerApps** 中選取 [管理 API]：![瀏覽至已註冊的 API][1]
 
-5. 在 [管理 API] 中，選取 [加入] 以加入 API：![Add API][2]
+5. 在 [**管理 API**] 中，選取 [**新增**] 以新增 API：![Add API][2]
 
 6. 為您的 API 輸入描述性**名稱**。
 	
@@ -39,7 +41,7 @@
 
 9. 輸入 SharePoint Online Azure Active Directory (AAD) 應用程式的*用戶端識別碼*和*應用程式密碼*。如果您還沒有這些值，請參閱本主題中的＜註冊 AAD 應用程式以搭配 PowerApps 使用＞一節，建立您需要的金鑰與密碼值。
 
-	> [AZURE.IMPORTANT]儲存**重新導向 URL**。您在本主題的後半部可能需要此值。
+	> [AZURE.IMPORTANT] 儲存**重新導向 URL**。您在本主題的後半部可能需要此值。
 
 10. 選取 [確定] 以完成步驟。
 
@@ -52,22 +54,22 @@
 
 2. 選取 [瀏覽]，然後選取 [Active Directory]：
 
-	> [AZURE.NOTE]這會在 Azure 傳統入口網站中開啟 Active Directory。
+	> [AZURE.NOTE] 這會在 Azure 傳統入口網站中開啟 Active Directory。
 
-3. 選取貴組織的租用戶名稱：![啟動 Azure Active Directory][6]
+3. 選取您組織的租用戶名稱：![啟動 Azure Active Directory][6]
 
-4. 選取 [應用程式] 索引標籤，然後選取 [加入]：![AAD 租用戶應用程式][7]
+4. 選取 [**應用程式**] 索引標籤，然後選取 [**新增**]：![AAD 租用戶應用程式][7]
 
-5. 在 [加入應用程式] 中：
+5. 在 [**新增應用程式**] 中：
 
-	a) 輸入應用程式的**名稱**。b) 保留應用程式類型為 **Web**。c) 選取 [下一步]。
+	a) 為應用程式輸入**名稱**。b) 將應用程式類型保持為 [**Web**]。c) 選取 [**下一步**]。
 
 
 	![加入 AAD 應用程式 - 應用程式資訊][8]
 
 6. 在 [應用程式屬性] 中：
 
-	a) 輸入您應用程式的**登入 URL**。因為您即將為 PowerApps 向 AAD 進行驗證，請將登入 URL 設為 \__https://login.windows.net_。b) 輸入您應用程式的有效**應用程式識別碼 URI**。c) 選取 [確定]。
+	a) 輸入您應用程式的**登入 URL**。由於您即將使用適用於 PowerApps 的 AAD 進行驗證，所以請將登入 URL 設為 \__https://login.windows.net_b)。輸入您應用程式的有效**應用程式識別碼 URI**。c) 選取 [**確定**]。
 
 	![加入 AAD 應用程式 - 應用程式屬性][9]
 
@@ -91,7 +93,7 @@
 ## 摘要和後續步驟
 在本主題中，您已將 SharePoint Online API 加入了 PowersApps Enterprise 中。接下來，請授與使用者此 API 的存取權，讓使用者能夠在其應用程式中加入此 API：
 
-[加入連接並授與使用者存取權](powerapps-manage-api-connection-user-access.md)
+[新增連接並授與使用者存取權](powerapps-manage-api-connection-user-access.md)
 
 <!--References-->
 [1]: ./media/powerapps-create-api-sharepointonline/browse-to-registered-apis.PNG
@@ -110,4 +112,4 @@
 [14]: ./media/powerapps-create-api-sharepointonline/browseall.png
 [15]: ./media/powerapps-create-api-sharepointonline/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="開始使用 SQL 資料倉儲透明資料加密 (TDE) TSQL| Microsoft Azure" 
-   description="開始使用 SQL 資料倉儲透明資料加密 (TDE) TSQL" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="開始使用 SQL 資料倉儲透明資料加密 (TDE) TSQL| Microsoft Azure"
+   description="開始使用 SQL 資料倉儲透明資料加密 (TDE) TSQL"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-data-warehouse" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-data-warehouse"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
+
 # 開始使用透明資料加密 (TDE)
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](sql-data-warehouse-encryption-tde.md)
+- [Azure 傳統入口網站](sql-data-warehouse-encryption-tde.md)
 - [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
 
 Azure SQL 資料倉儲透明資料加密 (TDE) 可在不需變更應用程式的情況下，對靜止的資料庫、相關聯的備份和交易記錄檔執行即時加密和解密，協助防止惡意活動的威脅。
@@ -64,7 +64,7 @@ FROM
 
 ```1``` 的結果表示加密的資料庫，```0``` 表示未加密的資料庫。
 
- 
+
 <!--Anchors-->
 [透明資料加密 (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
@@ -73,4 +73,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="使用 Powershell 指令碼管理 Azure 搜尋服務 | Microsoft Azure | 雲端託管搜尋服務" 
-	description="在 Microsoft Azure 上使用 PowerShell 指令碼管理 Azure 搜尋服務。建立或更新 Azure 搜尋服務，並管理 Azure 搜尋服務的系統管理金鑰"  
+	description="使用 PowerShell 指令碼管理 Azure 搜尋服務。建立或更新 Azure 搜尋服務，並管理 Azure 搜尋服務的系統管理金鑰" 
 	services="search" 
 	documentationCenter="" 
 	authors="seansaleh" 
@@ -14,10 +14,10 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="02/25/2016" 
+	ms.date="03/08/2016" 
 	ms.author="seasa"/>
 
-# 在 Microsoft Azure 上使用 PowerShell 管理搜尋服務
+# 使用 PowerShell 管理 Azure 搜尋服務
 > [AZURE.SELECTOR]
 - [入口網站](search-manage.md)
 - [PowerShell](search-manage-powershell.md)
@@ -49,7 +49,7 @@
 ## 可協助您開始使用的命令
 
 	$serviceName = "your-service-name-lowercase-with-dashes"
-	$sku = "free" # or "standard" for a paid service
+	$sku = "free" # or "basic" or "standard" for paid services
 	$location = "West US"
 	# You can get a list of potential locations with
 	# (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Search'}).Locations
@@ -136,4 +136,4 @@
 
 - [分析 Azure 搜尋服務的流量](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

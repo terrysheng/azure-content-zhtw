@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="01/21/2016"
+   ms.date="03/02/2016"
    ms.author="guayan"/>
 
 # 註冊 Microsoft 管理的 API 或 IT 管理的 API
@@ -22,13 +22,12 @@
 
 使用 IT 管理的 API 時，您可以控制及監視所有項目，包括記憶體、連線、信任等。IT 管理的 API 也包括可連線到內部部署系統 (例如 SQL Server 和 SharePoint Server) 的 API。
 
-若要使用「Microsoft 管理的」或「IT 管理的」API，您必須在 Azure 入口網站中「註冊」那些 API。註冊之後，您就可以在您的 app 中使用這些 API。可以使用下列選項：
+> [AZURE.SELECTOR]
+- [受管理的 API](../articles/power-apps/powerapps-register-from-available-apis.md)
+- [ASE 中的 API](../articles/power-apps/powerapps-register-api-hosted-in-app-service.md)
+- [Swagger API](../articles/power-apps/powerapps-register-existing-api-from-api-definition.md)
 
-- 註冊預先建置的 Microsoft 管理的 API 或 IT 管理的 API (在本主題中)。
-- 註冊[您的 App Service 環境](powerapps-register-api-hosted-in-app-service.md)內裝載的 Web 應用程式、API 應用程式，以及行動應用程式。
-- 使用 [Swagger 2.0 API 定義](powerapps-register-existing-api-from-api-definition.md)註冊其中一個您自己的 Swagger API。
-
-本文焦點在於**註冊預先建置的 Microsoft 管理的 API 與 IT 管理的 API**。
+在本主題中，我們的重點是第一個選項 - **註冊 Microsoft 管理的 API 與 IT 管理的 API**。
 
 #### 開始使用的必要條件
 
@@ -108,17 +107,13 @@ API | 說明 | 步驟連結
 ## 註冊 Microsoft 管理的或 IT 管理的 API
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，使用您的工作帳戶 (*yourUserName*@*YourCompany*.com) 登入。您會自動登入您的公司訂用帳戶。
-2. 依序選取 [**瀏覽**]、[**PowerApps**]、[**管理 API**]：
-![][17]
-3. 在 [Manage APIs]\(管理 API) 中，選取 [Add]\(新增)：
-![][18]  
-4. 在 [Add API]\(新增 API) 中，輸入 API 屬性：  
+2. 依序選取 [瀏覽]、[PowerApps]、[管理 API]：![][17]
+3. 在 [Manage APIs] (管理 API) 中，選取 [Add] (新增)：![][18]  
+4. 在 [Add API] (新增 API) 中，輸入 API 屬性：  
 
-	- 在 [Name]\(名稱) 中，輸入 API 的名稱。請注意，您輸入的名稱會包含在 API 的執行階段 URL 中。請設定有意義且在組織中獨一無二的名稱。
-	- 在 [Source]\(來源) 中，選取 [From available APIs] (從可用的 API)：  
-	![][19]
-5. 選取 [API]，然後選擇您想要註冊的 API：  
-![][20]
+	- 在 [Name] (名稱) 中，輸入 API 的名稱。請注意，您輸入的名稱會包含在 API 的執行階段 URL 中。請設定有意義且在組織中獨一無二的名稱。
+	- 在 [Source] (來源) 中，選取 [From available APIs] (從可用的 API)：![][19]
+5. 選取 [API]，然後選擇您想要註冊的 API：![][20]
 6. 選取特定的 API，並新增任何可設定的屬性。
 7. 選取 [ADD] (新增) 以完成這些步驟。
 
@@ -156,4 +151,4 @@ API | 說明 | 步驟連結
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

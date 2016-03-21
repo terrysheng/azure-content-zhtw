@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure Active Directory 報告回填時間 | Microsoft Azure"
-   description="在您的 Azure Active Directory 中顯示針對先前報告的事件所花費的時間長度"
+   description="在您的 Azure AD 目錄中顯示針對先前的報告事件所花費的時間長度"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevepo"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Azure Active Directory 報告回填時間
 
@@ -48,4 +48,4 @@ RMS 使用量 | 0 天
 RMS 裝置使用量 | 0 天
 啟用 RMS 的應用程式使用量 | 0 天
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

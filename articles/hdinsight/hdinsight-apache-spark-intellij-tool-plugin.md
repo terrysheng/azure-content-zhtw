@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2016" 
+	ms.date="03/03/2016" 
 	ms.author="nitinme"/>
 
 
@@ -55,7 +55,9 @@
 
 1. 如果您回到 IntelliJ IDEA 的 [歡迎使用] 畫面，請按一下 [設定]，然後按一下 [外掛程式]。
 
-2. 在下一個畫面中，按一下左下角的 [瀏覽儲存機制]。在開啟的 [瀏覽儲存機制] 對話方塊中，搜尋 [HDInsight]、選取 [Microsoft Azure HDInsight Tools for IntelliJ]，然後按一下 [安裝]。
+2. 在下一個畫面中，按一下左下角的 [瀏覽儲存機制]。在開啟的 [瀏覽儲存機制] 對話方塊中，搜尋 [HDInsight]、選取 [Microsoft Azure HDInsight Tools for IntelliJ (Preview)]，然後按一下 [安裝]。
+
+	![安裝 HDInsight 外掛程式](./media/hdinsight-apache-spark-intellij-tool-plugin/install-hdinsight-plugin.png)
 
 3. 出現提示時，請按一下 [重新啟動 IntelliJ IDEA] 按鈕，以重新啟動 IDE。
 
@@ -72,12 +74,12 @@
 2. 在下一個視窗中，提供專案詳細資料。
 
 	* 提供專案名稱和專案位置。
-	* 對於 [專案 SDK]，請確定您提供的是 Java 7 以上的版本。
-	* 對於 Scala SDK，請依序按一下 [建立]、[下載]，然後選取要使用的 Scala 版本。**確定您未使用 2.11.x 版**。此範例使用 **2.10.6** 版。
+	* 對於 [專案 SDK]，請確定您提供的 Java 版本大於 7。
+	* 對於 [Scala SDK]，請依序按一下 [建立]、[下載]，然後選取要使用的 Scala 版本。**確定您未使用 2.11.x 版**。此範例使用 **2.10.6** 版。
 	
 		![建立 Spark Scala 應用程式](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
-	* 對於 Spark SDK，請從[這裡](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)下載並使用 SDK。
+	* 對於 [Spark SDK]，請從[這裡](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)下載並使用 SDK。
 
 		![建立 Spark Scala 應用程式](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-project-details.png)
 
@@ -90,7 +92,7 @@
 
 		![建立 JAR](./media/hdinsight-apache-spark-intellij-tool-plugin/create-jar-1.png)
 
-	3. 輸入 JAR 檔案的名稱 (例如 **MyClusterApp**)。從 [可用的元素] 窗格中，以滑鼠右鍵按一下['MyClusterApp' 編譯輸出]，然後按一下 [放入輸出根中]。
+	3. 輸入 JAR 檔案的名稱 (例如 MyClusterApp)。從 [可用的元素] 窗格中，以滑鼠右鍵按一下 ['MyClusterApp' 編譯輸出]，然後按一下 [放入輸出根目錄中]。
 
 		![建立 JAR](./media/hdinsight-apache-spark-intellij-tool-plugin/create-jar-2.png)
 	
@@ -98,15 +100,15 @@
 
 4. 新增應用程式的原始程式碼。
 
-	1. 從 [專案總管] 中，以滑鼠右鍵按一下 **src**、指向 [新增]，然後按一下 [Scala 類別。
+	1. 從 [專案總管] 中，以滑鼠右鍵按一下 [src]，指向 [新增]，然後按一下 [Scala 類別]。
 
 		![新增原始程式碼](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
 
-	2. 在 [建立新的 Scala 類別] 對話方塊方塊中，提供一個名稱、對 [種類] 選取 [物件]，然後按一下 [確定]。
+	2. 在 [建立新的 Scala 類別] 對話方塊中，提供一個名稱，並針對 [種類] 選取 [物件]，然後按一下 [確定]。
 
 		![新增原始程式碼](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
 
-	3. 在 **MyClusterApp.scala** 檔案中，貼上下列程式碼。此程式碼會從 HVAC.csv (所有 HDInsight Spark 叢集上均有提供) 讀取資料、擷取在 CSV 的第七個資料行中只有個位數的資料列，並將輸出寫入到叢集預設儲存體容器下的 **/HVACOut**。
+	3. 在 MyClusterApp.scala 檔案中，貼入下列程式碼。此程式碼會從 HVAC.csv (所有 HDInsight Spark 叢集上均有提供) 讀取資料、擷取在 CSV 的第七個資料行中只有個位數的資料列，並將輸出寫入到叢集預設儲存體容器下的 /HVACOut。
 
 
 			import org.apache.spark.SparkConf
@@ -133,15 +135,15 @@
 
 		![提交 Spark 應用程式](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
 
-	2. 系統將提示您輸入 Azure 訂用帳戶認證。在 [提交 Spark] 對話方塊方塊中，提供下列值。
+	2. 系統將提示您輸入 Azure 訂用帳戶認證。在 [提交 Spark] 對話方塊中，提供下列值。
 
 		![提交 Spark 應用程式](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
 
-		* 對於 [Spark 叢集 (僅限 Linux)]，選取您要在其上執行應用程式的 HDInsight Spark 叢集。
+		* 針對 [Spark 叢集 (僅限 Linux)]，選取您要在其上執行應用程式的 HDInsight Spark 叢集。
 
 		* [建置構件] 下拉式清單應該會列出您在先前步驟中指定的 JAR 名稱。
 
-		* 針對 [主要類別名稱] 文字方塊，按一下省略符號 (![省略符號](./media/hdinsight-apache-spark-intellij-tool-plugin/ellipsis.png) )、在應用程式的原始程式碼中選取主要類別，然後按一下 [確定]。
+		* 針對 [主要類別名稱] 文字方塊，按一下省略符號 (![省略符號](./media/hdinsight-apache-spark-intellij-tool-plugin/ellipsis.png))，並在應用程式的原始程式碼中選取主要類別，然後按一下 [確定]。
 
 			![提交 Spark 應用程式](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-submit-spark-app-3.png)
 	
@@ -149,7 +151,7 @@
 	
 		* 按一下 [提交]。
 
-	3. 視窗底部的 [提交 Spark] 索引標籤應該開始顯示進度。
+	3. 視窗底部的 [提交 Spark] 索引標籤應會開始顯示進度。
 
 	在下節中，您會了解如何使用 IntelliJ IDEA 的 HDInsight 外掛程式來存取作業輸出。
 
@@ -162,27 +164,27 @@
 
 1. 從 [檢視] 功能表中，指向 [工具視窗]，然後按一下 [HDInsight 總管]。如果出現提示，請輸入認證來存取您的 Azure 訂用帳戶。
 
-2. 展開 [HDInsight] 根節點，以查看可用之 HDInsight Spark 叢集的清單。
+2. 展開 [HDInsight] 根節點，以查看可用的 HDInsight Spark 叢集清單。
 
 3. 展開叢集名稱以查看叢集的儲存體帳戶和預設儲存體容器。
 
 	![存取叢集儲存體](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-access-storage.png)
 
-4. 按一下與叢集相關聯的儲存體容器名稱。在右窗格中，您應該會看到稱為 **HVACOut** 的資料夾。按兩下以開啟資料夾，您將看到 **part-*** 檔案。開啟其中一個檔案以查看應用程式的輸出。
+4. 按一下與叢集相關聯的儲存體容器名稱。在右窗格中，您應該會看到名稱為 HVACOut 的資料夾。按兩下開啟資料夾，即可看到 part-* 檔案。開啟其中一個檔案以查看應用程式的輸出。
 
 ### 存取 Spark 歷程記錄伺服器
 
-1. 從 [HDInsight 總管]中，以滑鼠右鍵按一下您的 Spark 叢集名稱，然後選取 [開啟 Spark 歷程記錄 UI]。出現提示時，輸入叢集的系統管理員認證。在佈建叢集時，您必須已指定這些項目。
+1. 從 [HDInsight 總管] 中，以滑鼠右鍵按一下您的 Spark 叢集名稱，然後選取 [開啟 Spark 歷程記錄 UI]。出現提示時，輸入叢集的系統管理員認證。在佈建叢集時，您必須已指定這些項目。
 
-2. 在 [Spark 歷程記錄伺服器] 儀表板中，您可以使用應用程式名稱，尋找您剛完成執行的應用程式。在上面的程式碼中，您使用 `val conf = new SparkConf().setAppName("MyClusterApp")` 設定應用程式名稱。因此，Spark 應用程式名稱為 **MyClusterApp**。
+2. 在 [Spark 歷程記錄伺服器] 儀表板中，您可以使用應用程式名稱，尋找您剛完成執行的應用程式。在上述程式碼中，您使用 `val conf = new SparkConf().setAppName("MyClusterApp")` 設定應用程式名稱。因此，Spark 應用程式名稱為 MyClusterApp。
 
 ### 啟動 Ambari 入口網站
 
-從 [HDInsight 總管]中，以滑鼠右鍵按一下您的 Spark 叢集名稱，然後選取 [開啟叢集管理入口網站 (Ambari)]。出現提示時，輸入叢集的系統管理員認證。在佈建叢集時，您必須已指定這些項目。
+從 [HDInsight 總管] 中，以滑鼠右鍵按一下您的 Spark 叢集名稱，然後選取 [開啟叢集管理入口網站 (Ambari)]。出現提示時，輸入叢集的系統管理員認證。在佈建叢集時，您必須已指定這些項目。
 
 ### 管理 Azure 訂用帳戶
 
-根據預設，HDInsight 外掛程式會列出所有 Azure 訂用帳戶中的 Spark 叢集。如有需要，您可以指定您要存取其叢集的訂用帳戶。從 [HDInsight 總管] 中，以滑鼠右鍵按一下 [HDInsight] 根節點，然後按一下 [管理訂用帳戶]。從對話方塊中，針對您不想要存取的訂用帳戶清除核取方塊，然後按一下 [關閉]。如果您想要從 Azure 訂用帳戶登出，也可以按一下 [登出]。
+根據預設，HDInsight 外掛程式會列出所有 Azure 訂用帳戶中的 Spark 叢集。如有需要，您可以指定您要存取其叢集的訂用帳戶。從 [HDInsight 總管] 中，以滑鼠右鍵按一下 [HDInsight] 根節點，然後按一下 [管理訂用帳戶]。從對話方塊中，清除您不想要存取之訂用帳戶的核取方塊，然後按一下 [關閉]。如果您想要從 Azure 訂用帳戶登出，也可以按一下 [登出]。
 
 
 ## 在本機執行 Spark Scala 應用程式
@@ -191,7 +193,7 @@
 
 ### 必要條件
 
-在 Windows 電腦上執行本機 Spark Scala 應用程式時，您可能會得到 [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) 中所述的例外狀況，而此例外狀況發生的原因是 Windows 上遺漏 WinUtils.exe。若要解決這個錯誤，您必須[從這裡下載可執行檔](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) 至如 **C:\\WinUtils\\bin** 這類的位置。然後，您必須新增環境變數 **HADOOP\_HOME**，並將變數的值設為 **C\\WinUtils**。
+在 Windows 電腦上執行本機 Spark Scala 應用程式時，可能會發生 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) 中所述的例外狀況，此例外狀況發生的原因是因為 Windows 上缺少 WinUtils.exe。若要解決這個錯誤，您必須[從這裡下載可執行檔](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)並將其放至 C:\\WinUtils\\bin 之類的位置。然後，您必須新增環境變數 HADOOP\_HOME，並將變數的值設為 C\\WinUtils。
 
 ### 執行本機 Spark Scala 應用程式	 
 
@@ -206,12 +208,12 @@
 2. 在下一個視窗中，提供專案詳細資料。
 
 	* 提供專案名稱和專案位置。
-	* 對於專案 SDK，請確定您提供的 Java 版本大於 7。
-	* 對於 Scala SDK，請依序按一下 [建立]、[下載]，然後選取要使用的 Scala 版本。**確定您不是使用 2.11.x 版**。此範例使用 **2.10.6** 版。
+	* 對於 [專案 SDK]，請確定您提供的 Java 版本大於 7。
+	* 對於 [Scala SDK]，請依序按一下 [建立]、[下載]，然後選取要使用的 Scala 版本。**確定您未使用 2.11.x 版**。此範例使用 **2.10.6** 版。
 	
 		![建立 Spark Scala 應用程式](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-version.png)
 
-	* 對於 Spark SDK，請從[這裡](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)下載並使用 SDK。
+	* 對於 [Spark SDK]，請從[這裡](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409)下載並使用 SDK。
 	* 按一下 [完成]。
 
 		![建立 Spark Scala 應用程式](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-scala-local-project-details.png)
@@ -223,7 +225,7 @@
 
 		![建立 JAR](./media/hdinsight-apache-spark-intellij-tool-plugin/create-jar-1.png)
 
-	3. 輸入 JAR 檔案的名稱 (例如 **MyLocalApp**)。從 [可用的元素] 窗格中，以滑鼠右鍵按一下['MyLocalApp' 編譯輸出]，然後按一下 [放入輸出根中]。
+	3. 輸入 JAR 檔案的名稱 (例如 MyLocalApp)。從 [可用的元素] 窗格中，以滑鼠右鍵按一下 ['MyLocalApp' 編譯輸出]，然後按一下 [放入輸出根目錄中]。
 
 		![建立 JAR](./media/hdinsight-apache-spark-intellij-tool-plugin/create-local-jar-2.png)
 	
@@ -231,15 +233,15 @@
 
 4. 新增應用程式的原始程式碼。
 
-	1. 從 [專案總管] 中，以滑鼠右鍵按一下 **src**、指向 [新增]，然後按一下 [Scala 類別。
+	1. 從 [專案總管] 中，以滑鼠右鍵按一下 [src]，指向 [新增]，然後按一下 [Scala 類別]。
 
 		![新增原始程式碼](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-local-scala-code.png)
 
-	2. 在 [建立新的 Scala 類別] 對話方塊方塊中，提供一個名稱、對 [種類] 選取 [物件]，然後按一下 [確定]。
+	2. 在 [建立新的 Scala 類別] 對話方塊中，提供一個名稱，並針對 [種類] 選取 [物件]，然後按一下 [確定]。
 
 		![新增原始程式碼](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-local-scala-code-object.png)
 
-	3. 在 **MyLocalApp.scala** 檔案中，貼上下列程式碼。這段程式碼會讀取您電腦上的範例輸入文字檔案，並印出該文字檔案中包含字元 "a" 和 "b" 的行數。
+	3. 在 MyLocalApp.scala 檔案中，貼入下列程式碼。這段程式碼會讀取您電腦上的範例輸入文字檔案，並印出該文字檔案中包含字元 "a" 和 "b" 的行數。
 
 
 			import org.apache.spark.SparkContext
@@ -281,7 +283,7 @@
 
 		<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
 
-3. 編輯要新增 `UniqueKey="HDInsightTool"` 的元素，以便 [模組] 元素看起來如下所示：
+3. 編輯該元素加入 `UniqueKey="HDInsightTool"`，使 [模組] 元素看起來如下所示：
 
 		<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
 
@@ -318,4 +320,4 @@
 
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

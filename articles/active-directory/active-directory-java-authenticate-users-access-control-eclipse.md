@@ -13,14 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/04/2016" 
     ms.author="robmcm" />
 
 # 如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者
 
 本指南說明如何在 Azure Toolkit for Eclipse 內使用 Azure 存取控制服務 (ACS)。如需 ACS 的詳細資訊，請參閱[後續步驟](#next_steps)一節。
 
-> [AZURE.NOTE]Azure Access Services Control Filter 是社群技術預覽。由於是發行前軟體，Microsoft 尚未提供正式支援。
+> [AZURE.NOTE]
+Azure Access Services Control Filter 是社群技術預覽。由於是發行前軟體，Microsoft 尚未提供正式支援。
 
 ## 什麼是 ACS？
 
@@ -139,7 +140,7 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 1.  在 ACS 管理入口網站主頁面上，按一下 [Certificates and keys]。
 2.  在 [Certificates and Keys] 頁面上，按一下 [權杖簽署] 上面的 [新增]。
 3.  在 [Add Token-Signing Certificate or Key] 頁面上：
-    1. 在 [Used for] 區段中，按一下 [Relying Party Application]，然後選取 [Azure Web App] \(先前設為信賴憑證者應用程式的名稱)。
+    1. 在 [Used for] 區段中，按一下 [Relying Party Application]，然後選取 [Azure Web App] (先前設為信賴憑證者應用程式的名稱)。
     2. 在 [類型] 區段中，選取 [X.509 憑證]。
     3. 在 [憑證] 區段中，按一下瀏覽按鈕，並導覽至您要使用的 X.509 憑證檔案。這將為 .PFX 檔案。選取檔案、按一下 [開啟]，然後在 [密碼] 文字方塊中輸入憑證密碼。請注意，基於測試目的，您可能使用自我簽署憑證。如果要建立自我簽署憑證，請使用 [**ACS 篩選器程式庫**] 對話方塊 (稍後將說明) 中的 [**新增**] 按鈕，或 **encutil.exe ** 公用程式 (來自 Azure Starter Kit for Java 的[專案網站][] (英文))。
     4. 確定已核取 [Make Primary]。您的 [**新增權杖簽署憑證或金鑰**] 頁面應該看起來如下。![Add token-signing certificate][add_token_signing_cert]
@@ -309,4 +310,4 @@ Azure 即會建立並啟動命名空間。等到新命名空間的狀態變成 [
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!----HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,11 +1,8 @@
-##<a name="server-auth"></a>How to: Authenticate with a Provider (Server Flow)
+##<a name="server-auth"></a>作法：向提供者驗證 (伺服器流程)
 
-To have Mobile Services manage the authentication process in your app, you must register your app with your identity
-provider. Then in your Azure App Service, you need to configure the application ID and secret provided by your provider.
-For more information, see the tutorial [Add authentication to your app].
+若要讓行動服務管理應用程式中的驗證程序，您必須向身分識別提供者註冊應用程式。接著在您的 Azure App Service 中，您必須設定提供者所提供的應用程式識別碼和密碼。如需詳細資訊，請參閱 [將驗證新增至您的應用程式] 教學課程。
 
-Once you have registered your identity provider, simply call the .login() method with the name of your provider. For
-example, to login with Facebook use the following code.
+註冊身分識別提供者之後，請直接以提供者的名稱來呼叫 .login() 方法。例如，若要以 Facebook 登入，請使用下列程式碼。
 
 ```
 client.login("facebook").done(function (results) {
@@ -15,23 +12,17 @@ client.login("facebook").done(function (results) {
 });
 ```
 
-If you are using an identity provider other than Facebook, change the value passed to the login method above to one of
-the following: `microsoftaccount`, `facebook`, `twitter`, `google`, or `aad`.
+如果您使用的身分識別提供者不是 Facebook，請將傳給上述 login 方法的值變更為下列其中一個：`microsoftaccount`、`facebook`、`twitter`、`google` 或 `aad`。
 
-In this case, Azure App Service manages the OAuth 2.0 authentication flow by displaying the login page of the selected
-provider and generating a App Service authentication token after successful login with the identity provider. The login
-function, when complete, returns a JSON object (user) that exposes both the user ID and App Service authentication token
-in the userId and authenticationToken fields, respectively. This token can be cached and re-used until it expires.
+在此案例中，Azure App Service 透過顯示所選提供者的登入頁面，並在使用識別提供者成功登入後產生 App Service 驗證權杖的方式，以管理 OAuth 2.0 驗證流程。login 函式完成時會傳回 JSON 物件 (user)，此物件會在 userId 和 authenticationToken 欄位中分別顯示使用者識別碼和 App Service 驗證權杖。您可以快取並重複使用此權杖，直到它到期為止。
 
-##<a name="client-auth"></a>How to: Authenticate with a Provider (Client Flow)
+##<a name="client-auth"></a>作法：向提供者驗證 (用戶端流程)
 
-Your app can also independently contact the identity provider and then provide the returned token to your App Service for
-authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional
-user data from the identity provider.
+您的應用程式也可以個別連絡識別提供者，然後將傳回的權杖提供給 App Service 進行驗證。此用戶端流程可讓您為使用者提供單一登入體驗，或從識別提供者擷取其他使用者資料。
 
-### Social Authentication basic example
+### 社交驗證基本範例
 
-This example uses Facebook client SDK for authentication:
+這個範例會使用 Facebook 用戶端 SDK 進行驗證：
 
 ```
 client.login(
@@ -43,11 +34,11 @@ client.login(
      alert("Error: " + err);
 });
 ```
-This example assumes that the token provided by the respective provider SDK is stored in the token variable.
+此範例假設個別提供者 SDK 所提供的權杖儲存在 token 變數中。
 
-### Microsoft Account example
+### Microsoft 帳戶範例
 
-The following example uses the Live SDK, which supports single-sign-on for Windows Store apps by using Microsoft Account:
+下列範例使用 Live SDK，支援讓 Windows 市集應用程式使用 Microsoft 帳戶來執行單一登入：
 
 ```
 WL.login({ scope: "wl.basic"}).then(function (result) {
@@ -63,12 +54,11 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 });
 ```
 
-This example gets a token from Live Connect, which is supplied to your App Service by calling the login function.
+這個範例從 Live Connect 取得權杖，然後呼叫 login 函式來提供權杖給 App Service。
 
-##<a name="auth-getinfo"></a>How to: Obtain information about the authenticated user
+##<a name="auth-getinfo"></a>作法：取得已驗證使用者的相關資訊
 
-The authentication information for the current user can be retrieved from the `/.auth/me` endpoint using any
-AJAX method.  For example, to use the fetch API:
+您可以使用任何 AJAX 方法從 `/.auth/me` 端點擷取目前使用者的驗證資訊。例如，若要使用提取 API：
 
 ```
 var url = client.applicationUrl + '/.auth/me';
@@ -80,4 +70,6 @@ fetch(url)
     });
 ```
 
-You could also use jQuery or another AJAX API to fetch the information.  Data will be received as a JSON object.
+您也可以使用 jQuery 或另一個 AJAX API 擷取資訊。將會以 JSON 物件形式接收資料。
+
+<!---HONumber=AcomDC_0309_2016-->

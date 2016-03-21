@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # 如何設定高階 Azure Redis 快取的 Redis 叢集
@@ -58,7 +58,9 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 如需搭配 StackExchange.Redis 用戶端使用叢集的範例程式碼，請參閱 [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 範例的 [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 部分。
 
->[AZURE.IMPORTANT]使用 StackExchange.Redis 連接已啟用叢集的 Azure Redis 快取時，您可能會碰到問題並收到 `MOVE` 例外狀況。這是因為 StackExchange.Redis 快取用戶端收集快取叢集中節點資訊的間隔時間短。如果您是第一次連接快取，並在用戶端完成收集此資訊前立即呼叫快取，便會發生這些例外狀況。解決應用程式中此問題最簡單方式就是連接快取，然後等候一秒後再對快取進行任何呼叫。做法是依照下列範例程式碼所示新增 `Thread.Sleep(1000)`。請注意，`Thread.Sleep(1000)` 只會在初次連接快取的期間發生。如需詳細資訊，請參閱 [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248)。此問題的修正程式正在開發中，若有任何更新，將張貼於此處。
+<a name="move-exceptions"></a>
+>[AZURE.IMPORTANT] 使用 StackExchange.Redis 連接已啟用叢集的 Azure Redis 快取時，您可能會碰到問題並收到 `MOVE` 例外狀況。這是因為 StackExchange.Redis 快取用戶端收集快取叢集中節點資訊的間隔時間短。如果您是第一次連接快取，並在用戶端完成收集此資訊前立即呼叫快取，便會發生這些例外狀況。解決應用程式中此問題最簡單方式就是連接快取，然後等候一秒後再對快取進行任何呼叫。做法是依照下列範例程式碼所示新增 `Thread.Sleep(1000)`。請注意，`Thread.Sleep(1000)` 只會在初次連接快取的期間發生。如需詳細資訊，請參閱 [StackExchange.Redis.RedisServerException - MOVED #248](https://github.com/StackExchange/StackExchange.Redis/issues/248)。此問題的修正程式正在開發中，若有任何更新，將張貼於此處。**更新**：此問題已在 StackExchange.Redis 最新的[發行前版本 1.1.572-alpha](https://www.nuget.org/packages/StackExchange.Redis/1.1.572-alpha) 組建中解決。請查看 [StackExchange.Redis NuGet 頁面](https://www.nuget.org/packages/StackExchange.Redis/)，以取得最新組建。
+
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
@@ -85,7 +87,7 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 若要從已啟用叢集的執行中進階快取變更叢集大小，可從 [設定] 刀鋒視窗中按一下 [(預覽) Redis 叢集大小]。
 
->[AZURE.NOTE]請注意，雖然 Azure Redis 快取進階層已發行正式上市版，但 Redis 叢集大小功能目前為預覽狀態。
+>[AZURE.NOTE] 請注意，雖然 Azure Redis 快取進階層已發行正式上市版，但 Redis 叢集大小功能目前為預覽狀態。
 
 ![Redis 叢集大小][redis-cache-redis-cluster-size]
 
@@ -107,7 +109,7 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 依據 Redis [金鑰散發模型](http://redis.io/topics/cluster-spec#keys-distribution-model)文件︰金鑰空間會分割成 16384 個位置。每個索引鍵都會雜湊並指派給上述的其中一個位置，而這些位置散發於叢集的各個節點。您可以設定哪個部分的索引鍵會雜湊，以確保多個索引鍵位於使用雜湊標記的相同分區中。
 
--	具有雜湊標記的金鑰 - 如果金鑰的任何部分被括在 `{` 和 `}` 中，則只有該部分的金鑰會為了判斷金鑰的雜湊位置而進行雜湊。例如，下列 3 個金鑰會位於相同的分區︰`{key}1`、`{key}2` 和 `{key}3`，因為只會雜湊名稱的 `key` 部分。如需金鑰雜湊標記規格的完整清單，請參閱[金鑰雜湊標記](http://redis.io/topics/cluster-spec#keys-hash-tags)。
+-	具有雜湊標記的金鑰 - 如果金鑰的任何部分被括在 `{` 和 `}` 中，則只有該部分的金鑰會為了判斷金鑰的雜湊位置而進行雜湊。例如，下列 3 個金鑰會位於相同的分區︰`{key}1`、`{key}2` 和 `{key}3`，因為只會雜湊名稱的 `key` 部分。如需索引鍵雜湊標記規格的完整清單，請參閱[索引鍵雜湊標記](http://redis.io/topics/cluster-spec#keys-hash-tags)。
 -	沒有雜湊標記的索引鍵 - 整個索引鍵名稱都用於雜湊。這會導致以統計方式平均散發於快取的各個分區。
 
 如需最佳的效能和輸送量，我們建議平均散發索引鍵。如果您使用具有雜湊標記的索引鍵，則應用程式必須負責確保平均散發索引鍵。
@@ -124,7 +126,7 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 現階段，並非所有用戶端都支援 Redis 叢集。StackExchange.Redis 就是不支援的其中一例。如需其他用戶端的詳細資訊，請參閱 [Redis 叢集教學課程](http://redis.io/topics/cluster-tutorial)的[試用叢集](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)一節。
 
->[AZURE.NOTE]如果您使用 StackExchange.Redis 做為您的用戶端，請確定您使用的是最新版的 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) (1.0.481) 或更新版本，叢集才能正常運作。
+>[AZURE.NOTE] 如果您使用 StackExchange.Redis 做為您的用戶端，請確定您使用的是最新版的 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) (1.0.481) 或更新版本，叢集才能正常運作。如果您有任何關於移動例外狀況的問題，請參閱[移動例外狀況](#move-exceptions)，以取得詳細資訊。
 
 ## 啟用叢集後，要如何連接到我的快取？
 
@@ -183,4 +185,4 @@ Azure Redis 快取提供 Redis 叢集的方式，就像[實作於 Redis](http://
 
 [redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

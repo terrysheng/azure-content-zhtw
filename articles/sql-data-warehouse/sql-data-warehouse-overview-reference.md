@@ -13,14 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # SQL 資料倉儲的參考主題
 
 這些文章包含 SQL 資料倉儲的參考資訊。
 
-[Transact-SQL Language 元素][] [Transact-SQL 陳述式][] [Transact-SQL 系統檢視][] [PowerShell Cmdlet][]
+[Transact-SQL 語言元素][]
+
+[Transact-SQL 陳述式][]
+
+[Transact-SQL 系統檢視][]
+
+[PowerShell Cmdlet][]
 
 
 
@@ -31,7 +37,7 @@
 
 <!--Article references-->
 [開發概觀]: sql-data-warehouse-overview-develop.md
-[Transact-SQL Language 元素]: sql-data-warehouse-reference-tsql-language-elements.md
+[Transact-SQL 語言元素]: sql-data-warehouse-reference-tsql-language-elements.md
 [Transact-SQL 陳述式]: sql-data-warehouse-reference-tsql-statements.md
 [Transact-SQL 系統檢視]: sql-data-warehouse-reference-tsql-system-views.md
 [PowerShell Cmdlet]: sql-data-warehouse-reference-powershell-cmdlets.md
@@ -39,4 +45,4 @@
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
  
 # 從 Application Insights 匯出遙測
@@ -31,7 +31,7 @@
 如果您還沒有「傳統」儲存體帳戶，請立即建立一個。
 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的訂用帳戶中建立「傳統」儲存體帳戶。
+1. 在 [Azure 入口網站](https://portal.azure.com)的訂用帳戶中建立儲存體帳戶。
 
     ![在 Azure 入口網站中，依序選擇 [新增]、[資料]、[儲存體]](./media/app-insights-export-telemetry/030.png)
 
@@ -212,4 +212,4 @@
 
  
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

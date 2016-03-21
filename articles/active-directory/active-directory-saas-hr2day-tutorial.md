@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/15/2016"
+	ms.date="03/07/2016"
 	ms.author="jeedes"/>
 
 
@@ -126,6 +126,7 @@ HR2day by Merces 應用程式會預期要有特定格式的 SAML 判斷提示，
 
     a.在 [登入 URL] 文字方塊中，使用下列模式輸入使用者用來登入您 HR2day by Merces 應用程式的 URL：**“https://<tenant name>.force.com/<instance name>”**。
 
+    b.按 [下一步]。
 
 4. 在 [設定在 HR2day by Merces 單一登入] 頁面上，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_05.png) <br>
 
@@ -245,4 +246,4 @@ HR2day by Merces 應用程式會預期要有特定格式的 SAML 判斷提示，
 [204]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

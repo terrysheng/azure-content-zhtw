@@ -18,11 +18,11 @@
 
 # 將影像從 Android 裝置上傳至 Azure 儲存體
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 本主題說明如何啟用 Android Azure 行動服務應用程式，以便將影像上傳至 Azure 儲存體。
 
@@ -92,7 +92,7 @@
 	    <string name="preview_button_text">Take Photo</string>
 	    <string name="upload_button_text">Upload</string>
 
-2. 在 **res = > layout** 資料夾的 **activity_to_do.xml** 檔案中，於 [**新增**] 按鈕的現有程式碼之前加入此程式碼。
+2. 在 **res = > layout** 資料夾的 **activity\_to\_do.xml** 檔案中，於 [**新增**] 按鈕的現有程式碼之前加入此程式碼。
 
          <Button
              android:id="@+id/buttonPreview"
@@ -426,4 +426,4 @@
 [行動服務 .NET 作法概念性參考]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

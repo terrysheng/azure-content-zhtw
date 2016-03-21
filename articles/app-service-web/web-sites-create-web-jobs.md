@@ -76,7 +76,7 @@ Azure WebJobs SDK 能簡化許多 WebJobs 程式設計工作。如需詳細資�
 
 ## <a name="CreateScheduledCRON"></a>使用 CRON 運算式建立排定的 WebJob
 
-在標準或高階模式中執行的 Web Apps可使用這項技術，前提是應用程式上的 [永遠開啟] 設定需啟用。
+在基本、標準或高階模式中執行的 Web Apps 可使用這項技術，前提是 App 上的 [永遠開啟] 設定需啟用。
 
 若要將依需求 WebJob 設成排定的 WebJob，只要在 WebJob zip 檔案的根目錄加入 `settings.job` 檔案。此 JSON 檔案應該包含 `schedule` 屬性與 [CRON 運算式](https://en.wikipedia.org/wiki/Cron)，如以下範例所示。
 
@@ -239,4 +239,4 @@ Azure 入口網站尚未具備建立排程 WebJob 的能力，但在加入該功
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

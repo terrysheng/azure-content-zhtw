@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
 # 在 HDInsight 中設定 HBase 地理複寫
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
+- [設定 VPN 連線](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [設定 DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [設定 HBase 複寫](hdinsight-hbase-geo-replication.md) 
  
 了解如何跨兩個資料中心設定 HBase 複寫。叢集複寫的某些使用案例包含：
 
@@ -310,4 +310,4 @@ Azure 傳統入口網站不支援使用自訂組態選項佈建 HDInsight 叢集
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

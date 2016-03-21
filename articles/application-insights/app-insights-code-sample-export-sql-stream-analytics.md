@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="03/06/2015" 
 	ms.author="awills"/>
  
 # 逐步解說：使用串流分析從 Application Insights 匯出至 SQL
@@ -29,28 +29,15 @@
 在此範例中，我們使用頁面檢視資料，但相同的模式可以很輕易地延伸到其他資料類型，例如自訂事件和例外狀況。
 
 
-## 加入 Application Insights SDK
+## 將 Application Insights 加入應用程式中
 
-若要監視您的應用程式，請將 [Application Insights SDK 加入][start]應用程式。不同的平台、IDE 和語言有不同的 SDK 和協助程式工具。您可以監視數種類型的網頁、Java 或 ASP.NET Web 伺服器和行動裝置。所有 SDK 均會將遙測資料傳送至 [Application Insights 入口網站][portal]，您可以在該入口網站中使用我們功能強大的分析與診斷工具，並將資料匯出至儲存體。
 
 開始進行之前：
 
-1. 取得 [Microsoft Azure 帳戶](https://azure.microsoft.com/pricing/)。
-2. 在 [Azure 入口網站][portal]中，為您的應用程式加入新的 Application Insights 資源：
+1. [為您的網頁設定 Application Insights](app-insights-javascript.md)。 
 
-    ![依序選擇 [新增]、[開發人員服務]、[Application Insights]，然後選擇應用程式類型](./media/app-insights-code-sample-export-sql-stream-analytics/010-new-asp.png)
+    (在此範例中，我們將著重於處理來自用戶端瀏覽器的頁面檢視資料，但您也可以針對 [Java](app-insights-java-get-started.md) 或 [ASP.NET](app-insights-asp-net.md) 應用程式的伺服器端設定 Application Insights，並處理要求、相依性和其他伺服器遙測。)
 
-
-    (您的應用程式類型和訂用帳戶可能會和這裡的不同)。
-3. 開啟 [快速入門] 來了解如何針對應用程式的類型設定 SDK。
-
-    ![選擇 [快速入門]，然後依照指示進行](./media/app-insights-code-sample-export-sql-stream-analytics/020-quick.png)
-
-    如果沒有列出您的應用程式類型，請查看[使用者入門][start]頁面。
-
-4. 在此範例中，我們正在監視 Web 應用程式，因此可以使用 Visual Studio 中的 Azure Tools 安裝 SDK。告訴 SDK 您的 Application Insights 資源名稱：
-
-    ![在 Visual Studio [方案總管] 中，以滑鼠右鍵按一下專案，然後選擇 [加入 Application Insights]。在 [傳送遙測至] 選擇建立新資源，或使用現有資源。](./media/app-insights-code-sample-export-sql-stream-analytics/appinsights-d012-addbrown.png)
 
 5. 發行應用程式，並觀察出現在 Application Insights 資源中的遙測資料。
 
@@ -59,7 +46,7 @@
 
 連續匯出一律會將資料輸出至 Azure 儲存體帳戶，因此您必須先建立儲存體。
 
-1. 在 [Azure 入口網站][portal]的訂用帳戶中建立「傳統」儲存體帳戶。
+1. 在 [Azure 入口網站][portal]的訂用帳戶中建立儲存體帳戶。
 
     ![在 Azure 入口網站中，依序選擇 [新增]、[資料]、[儲存體]。選取 [傳統]，然後選擇 [建立]。提供儲存體的名稱。](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
@@ -196,7 +183,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-請務必將 [日期格式] 設為 [YYYY-MM-DD] \(含**連接號**)。
+請務必將 [日期格式] 設為 [YYYY-MM-DD] (含**連接號**)。
 
 [路徑前置詞模式] 會指定串流分析在儲存體中尋找輸入檔案的方式。您需要將它設定為與連續匯出儲存資料的方式相對應。請設定如下：
 
@@ -315,4 +302,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

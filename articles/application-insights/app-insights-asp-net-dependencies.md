@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
 
 
@@ -46,6 +46,10 @@
 您需要 [Microsoft Azure](http://azure.com) 訂用帳戶。
 
 ### 如果您的應用程式是在您的 IIS 伺服器上執行
+
+如果您的 Web 應用程式在 .NET 4.6 版或更新版本上執行，並且在應用程式中[安裝 Application Insights SDK](app-insights-asp-net.md)，就會自動獲得相依性追蹤。您不需要任何其他項目。
+
+否則，請在伺服器上安裝 Application Insights 狀態監視器：
 
 1. 在 IIS Web 伺服器中，以系統管理員認證登入。
 2. 下載並執行[狀態監視器安裝程式](http://go.microsoft.com/fwlink/?LinkId=506648)。
@@ -91,7 +95,7 @@
 
 ### 如果是 Azure 雲端服務專案
 
-[將指令碼加入至 Web 和背景工作角色](app-insights-cloudservices.md)。
+[將指令碼加入至 Web 和背景工作角色](app-insights-cloudservices.md#dependencies)或[安裝 .NET Framework 4.6 或更新版本](../cloud-services/cloud-services-dotnet-install-dotnet.md)。
 
 ## <a name="diagnosis"></a> 診斷相依性效能問題
 
@@ -185,7 +189,6 @@
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md
@@ -193,4 +196,4 @@
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

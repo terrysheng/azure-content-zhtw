@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="02/02/2016"
+   ms.date="03/07/2016"
    ms.author="hascipio; v-divte"/>
 
 # 建立 Azure Marketplace 的虛擬機器映像的指南
@@ -76,7 +76,7 @@ SKU 是 VM 映像的商務名稱。VM 映像包含一個作業系統磁碟以及
 ### 2\.3 驗證是否已包含必要的程式庫
 除了 Azure Linux 代理程式之外，也要包含下列程式庫：
 
-1. 您的核心中必須啟用 [Linux Integration Services][link-intsvc] 3.0 版或更新版本。請參閱 [Linux Kernel 需求](../virtual-machines/virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)。
+1. 您的核心中必須啟用 [Linux Integration Services][link-intsvc] 3.0 版或更新版本。請參閱 [Linux Kernel 需求](./virtual-machines-linux-create-upload-vhd-generic/#linux-kernel-requirements)。
 2. Azure I/O 穩定性的[核心修補程式](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c) (最新的核心可能不需要，但必須經過驗證)
 3. [Python][link-python] 2.6 或更新版本
 4. Python] pyasn1 封裝 (如果尚未安裝)
@@ -100,7 +100,7 @@ SKU 是 VM 映像的商務名稱。VM 映像包含一個作業系統磁碟以及
 
 - 在許多情況下，最好停用 NetworkManager。其中一個例外是使用以 CentOS 7.x (及衍生項目) 為基礎的系統時，其中應該保留啟用 NetworkManager。
 - 網路組態應可透過 **ifup** 和 **ifdown** 指令碼控制。Linux 代理程式可能會使用這些命令，在佈建期間重新啟動網路。
-- 不得出現自訂網路設定。應該刪除 Resolv.conf 檔案做為最後一個步驟。這通常是做為取消佈建的一部分來完成 (請參閱 [Azure Linux 代理程式使用者指南](../virtual-machines/virtual-machines-linux-agent-user-guide/))。您也可以利用下列命令手動執行這個步驟。
+- 不得出現自訂網路設定。應該刪除 Resolv.conf 檔案做為最後一個步驟。這通常是做為取消佈建的一部分來完成 (請參閱 [Azure Linux 代理程式使用者指南](./virtual-machines-linux-agent-user-guide/))。您也可以利用下列命令手動執行這個步驟。
 
         rm /etc/resolv.conf
 
@@ -250,9 +250,9 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。也就�
 - 對 Windows 而言，此映像應該是 "sysprepped"，而且所有設定都應該在支援 **sysprep** 命令的狀態下進行。
 - 您可以從目錄 %windir%\\System32\\Sysprep 執行以下命令。
 
-        sysprep.exe /generalize /oobe /sshutdown
+        sysprep.exe /generalize /oobe /shutdown
 
-  下列 MSDN 文章的「步驟」提供如何 sysprep 作業系統的指導：[建立 Windows Server VHD 並將其上傳至 Azure](../virtual-machines/virtual-machines-create-upload-vhd-windows-server/)。
+  下列 MSDN 文章的「步驟」提供如何 sysprep 作業系統的指導：[建立 Windows Server VHD 並將其上傳至 Azure](./virtual-machines-create-upload-vhd-windows-server/)。
 
 ## 4\.從您的 VHD 部署 VM
 在您將 VHD (一般化作業系統 VHD 和零或更多個資料磁碟 VHD) 上傳至 Azure 儲存體帳戶之後，您就可以將它們註冊為使用者 VM 映像。您可以接著測試該映像。請注意，因為您的作業系統 VHD 已一般化，所以您無法藉由提供 VHD URL 來直接部署 VM。
@@ -582,10 +582,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。也就�
 4. 在 [SKU] 區段中填入屬性。
 5. 在 [作業系統系列] 下，選取與作業系統 VHD 相關聯的作業系統類型。
 6. 在 [作業系統] 方塊中，描述作業系統。請考慮使用作業系統系列、類型、版本和更新等格式。其中一個範例為 "Windows Server Datacenter 2014 R2"。
-7. 選取最多六個建議的虛擬機器大小。當客戶決定購買與部署您的映像時，這些大小是在 Azure 入口網站的 [定價層] 刀鋒視窗中對其顯示的建議大小。
-
-  > [AZURE.NOTE] 這些只是建議大小。客戶可以選取任何可容納您映像中指定之磁碟的 VM 大小。
-
+7. 最多選取六個建議的虛擬機器大小。當客戶決定購買與部署您的映像時，這些大小是在 Azure 入口網站的 [定價層] 刀鋒視窗中對其顯示的建議大小。**這些只是建議大小。客戶可以選取任何可容納您映像中指定之磁碟的 VM 大小。**
 8. 輸入版本。[版本] 欄位會封裝語意版本來識別產品及其更新：
   -	版本格式應該是 X.Y.Z，其中 X、Y 和 Z 是整數。
   -	不同 SKU 中的映像可以有不同的主要和次要版本。
@@ -594,7 +591,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。也就�
 10. 如果有和這個 SKU 相關聯的資料磁碟，請選取您希望在部署時於其中裝載這個資料磁碟的邏輯單元編號 (LUN)。
 11. 在 [LUN X VHD URL] 方塊中輸入為第一個資料 VHD 建立的共用存取簽章 URI。
 
-    ![繪圖][img-pubportal-vm-skus-2]
+    ![繪圖](media/marketplace-publishing-vm-image-creation/vm-image-pubportal-skus-3.png)
 
 ## 後續步驟
 完成 SKU 詳細資料之後，您可以移至 [Azure Marketplace 行銷內容指南][link-pushstaging]。在發佈程序的該步驟中，您會在**步驟 3：在預備環境中測試您的 VM 供應項目**之前提供行銷內容、價格和其他必要資訊，而您會在該步驟中測試各種使用案例，然後再將供應項目部署到 Azure Marketplace 以供公開查看和購買。
@@ -629,7 +626,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。也就�
 
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-github-waagent]: https://github.com/Azure/WALinuxAgent
-[link-azure-codeplex]: http://storageexplorer.com/
+[link-azure-codeplex]: https://azurestorageexplorer.codeplex.com/
 [link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2/
 [link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1/
 [link-msft-download]: http://www.microsoft.com/download/details.aspx?id=44299
@@ -647,11 +644,11 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。也就�
 [link-datactr-2012]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
 [link-datactr-2008-r2]: http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
-[link-azure-vm-1]: ../virtual-machines/virtual-machines-linux-create-upload-vhd/
+[link-azure-vm-1]: ./virtual-machines-linux-create-upload-vhd/
 [link-technet-1]: https://technet.microsoft.com/library/hh848454.aspx
-[link-azure-vm-2]: ../virtual-machines/virtual-machines-linux-agent-user-guide/
+[link-azure-vm-2]: ./virtual-machines-linux-agent-user-guide/
 [link-openssl]: https://www.openssl.org/
 [link-intsvc]: http://www.microsoft.com/download/details.aspx?id=41554
 [link-python]: https://www.python.org/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

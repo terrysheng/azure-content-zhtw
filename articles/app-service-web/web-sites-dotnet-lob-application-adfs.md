@@ -61,11 +61,11 @@
 
 	> [AZURE.NOTE] [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) 的指示說明如何使用 Azure Active Directory 設定應用程式，但在本教學課程，您將使用 AD FS 進行設定，因此請改為執行這裡的步驟。
 
-3.	開啟解決方案，然後在 [方案總管] 中開啟 Controllers\AccountController.cs。
+3.	開啟解決方案，然後在 [方案總管] 中開啟 Controllers\\AccountController.cs。
 
-	您會看到程式碼只是發出驗證挑戰，以使用 WS-同盟來驗證使用者。所有驗證都是在 App_Start\Startup.Auth.cs 中設定。
+	您會看到程式碼只是發出驗證挑戰，以使用 WS-同盟來驗證使用者。所有驗證都是在 App\_Start\\Startup.Auth.cs 中設定。
 
-4.  開啟 App_Start\Startup.Auth.cs。在 `ConfigureAuth` 方法中，請注意下列重點：
+4.  開啟 App\_Start\\Startup.Auth.cs。在 `ConfigureAuth` 方法中，請注意下列重點：
 
         app.UseWsFederationAuthentication(
             new WsFederationAuthenticationOptions
@@ -79,7 +79,7 @@
 	-	RP 識別碼：`https://contoso.com/MyLOBApp`
 	-	中繼資料位址：`http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
-5.	在 App_Start\Startup.Auth.cs 中變更靜態字串定義，如以下反白顯示：
+5.	在 App\_Start\\Startup.Auth.cs 中變更靜態字串定義，如以下反白顯示：
 	<pre class="prettyprint">
 	private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
 	<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
@@ -97,12 +97,12 @@
 	  &lt;add key="webpages:Enabled" value="false" />
 	  &lt;add key="ClientValidationEnabled" value="true" />
 	  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
-	  <mark><del>&lt;add key="ida:Wtrealm" value="[輸入 WebApp-WSFederation-DotNet 的應用程式識別碼 URI https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
+	  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
 	  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
 	  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
-	  <mark>&lt;add key="ida:RPIdentifier" value="[輸入在 AD FS 中設定的信賴憑證者識別碼，例如 https://localhost:44320/]" /></mark>
-	  <mark>&lt;add key="ida:ADFS" value="[輸入 AD FS 服務的 FQDN，例如 adfs.contoso.com]" /></mark>
-
+	  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
+	  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
+	
 	&lt;/appSettings>
 	</pre>
 
@@ -135,9 +135,9 @@
 
 11. 在 Visual Studio 中，開啟專案中的 **Web.Release.config**。將下列 XML 插入 `<configuration>` 標記，並使用發佈 Web 應用程式的 URL 取代索引鍵值。
 	<pre class="prettyprint">
-&lt;appSettings>
-   &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>
+	&lt;appSettings>
+	   &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+	&lt;/appSettings></pre>
 
 當您完成時，您會在專案中設定兩個 RP 識別碼，一個適用於 Visual Studio 中的偵錯環境，另一個適用於 Azure 中的已發行 Web 應用程式。您會在 AD FS 中，為兩種環境的每種環境設定一個 RP 信任。在偵錯期間，Web.config 中的應用程式設定可讓您的「偵錯」組態使用 AD FS，且在發佈後 (預設會發佈「版本」組態) 會上傳轉換的 Web.config，其中包含 Web.Release.config 的應用程式設定變更。
 
@@ -177,7 +177,7 @@
 
 7.	在 [設定識別碼] 頁面上，確認已列出專案 SSL URL，然後按 [下一步]。按 [下一步] 並選取預設選取項目，一直到精靈結束。
 
-	> [AZURE.NOTE] 在 Visual Studio 專案的 App_Start\Startup.Auth.cs，此識別碼會在同盟驗證期間比對 <code>WsFederationAuthenticationOptions.Wtrealm</code> 的值。根據預設，會加入上一個步驟的應用程式 URL 做為 RP 識別碼。
+	> [AZURE.NOTE] 在 Visual Studio 專案的 App\_Start\\Startup.Auth.cs，此識別碼會在同盟驗證期間比對 <code>WsFederationAuthenticationOptions.Wtrealm</code> 的值。根據預設，會加入上一個步驟的應用程式 URL 做為 RP 識別碼。
 
 8.	您現在已經在 AD FS 中完成專案的 RP 應用程式設定。接下來，您將設定此應用程式來傳送應用程式所需的宣告。[編輯宣告規則] 對話方塊預設會在精靈結束時開啟，以便讓您立即啟動。讓我們至少設定下列宣告 (使用括號括住結構描述)：
 
@@ -199,17 +199,17 @@
 10.	選取 [使用自訂規則傳送宣告] 並按 [下一步]。
 11.	將下列規則語言貼到 [自訂規則] 方塊，將規則命名為 [每個工作階段識別碼] 並按一下 [完成]。  
 	<pre class="prettyprint">
-c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
-	=> add(
-		store = "_OpaqueIdStore",
-		types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
-		query = "{0};{1};{2};{3};{4}",
-		param = "useEntropy",
-		param = c1.Value,
-		param = c1.OriginalIssuer,
-		param = "",
-		param = c2.Value);
+	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
+	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+		=> add(
+			store = "_OpaqueIdStore",
+			types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+			query = "{0};{1};{2};{3};{4}",
+			param = "useEntropy",
+			param = c1.Value,
+			param = c1.OriginalIssuer,
+			param = "",
+			param = c2.Value);
 	</pre>
 
 	您的自訂規則看起來應該像這樣：
@@ -253,7 +253,7 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 - AD FS 已成功驗證 AD 使用者，並將您重新導向回應用程式的首頁
 - AD FS 已將名稱宣告 (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) 成功傳送到您的應用程式，並在角落顯示使用者名稱。 
 
-如果缺少名稱宣告，您應該會看到「您好！」。如果您看一下 Views\Shared_LoginPartial.cshtml，您會發現其使用 `User.Identity.Name` 來顯示使用者名稱。如前所述，若可在 SAML 權杖中取得，ASP.NET 會使用已驗證使用者的名稱宣告來產生這個屬性。若要查看 AD FS 傳送的所有宣告，請將中斷點放在索引動作方法的 Controllers\HomeController.cs 中。驗證使用者後，檢查 `System.Security.Claims.Current.Claims` 集合。
+如果缺少名稱宣告，您應該會看到「您好！」。如果您看一下 Views\\Shared\\_LoginPartial.cshtml，您會發現其使用 `User.Identity.Name` 來顯示使用者名稱。如前所述，若可在 SAML 權杖中取得，ASP.NET 會使用已驗證使用者的名稱宣告來產生這個屬性。若要查看 AD FS 傳送的所有宣告，請將中斷點放在索引動作方法的 Controllers\\HomeController.cs 中。驗證使用者後，檢查 `System.Security.Claims.Current.Claims` 集合。
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 
@@ -262,23 +262,23 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 
 由於您已在 RP 信任組態中加入做為角色宣告的群組成員資格，因此您現在可以在 `[Authorize(Roles="...")]` 裝飾中，直接將這些規則運用於控制器和動作。在使用建立-讀取-更新-刪除 (CRUD) 模式的特定業務應用程式中，您可以授權特定角色來存取每個動作。現在，您只要在現有的主控制器上嘗試這項功能。
 
-1. 開啟 Controllers\HomeController.cs。
+1. 開啟 Controllers\\HomeController.cs。
 2. 使用已驗證使用者擁有的安全性群組成員資格來裝飾 `About` 和 `Contact` 動作方法 (類似下列作法)。  
 	<pre class="prettyprint">
 	<mark>[Authorize(Roles="Test Group")]</mark>
 	public ActionResult About()
 	{
-    ViewBag.Message = "Your application description page.";
-
-    return View();
+	    ViewBag.Message = "Your application description page.";
+	
+	    return View();
 	}
-
+	
 	<mark>[Authorize(Roles="Domain Admins")]</mark>
 	public ActionResult Contact()
 	{
-    ViewBag.Message = "Your contact page.";
-
-    return View();
+	    ViewBag.Message = "Your contact page.";
+	
+	    return View();
 	}
 	</pre>
 
@@ -356,4 +356,4 @@ Azure App Service Web Apps 可透過兩種方式支援存取在內部部署資�
  
  
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

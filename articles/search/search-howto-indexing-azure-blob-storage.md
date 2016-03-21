@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="02/08/2016"
+ms.date="03/08/2016"
 ms.author="eugenesh" />
 
 # 使用 Azure 搜尋服務在 Azure Blob 儲存體中對文件編制索引
@@ -205,8 +205,22 @@ EML (message/rfc822) | `metadata_content_type`<br/>`metadata_message_from`<br/>`
 AzureSearch\_Skip | "true" | 指示 blob 索引子完全略過 blob，不會嘗試中繼資料或內容擷取。當您想要略過某些內容類型，或者當特定 blob 一直失敗，並且中斷編製索引程序時，這非常有用。
 AzureSearch\_SkipContent | "true" | 指示 blob 索引子僅編制索引中繼資料，並略過 blob 的解壓縮內容。如果 blob 內容不有趣，但是您仍然要對附加至 blob 的中繼資料編制索引，這非常有用。
 
+<a name="IndexerParametersConfigurationControl"></a>
+## 使用索引子參數來控制文件擷取
+
+如果您想要跳過所有 Blob 內容解壓縮，您可以使用索引子設定物件，而不必個別將自訂中繼資料加入每個 Blob 中。若要這樣做，請將 `parameters` 物件中的 `SkipContent` 組態屬性設定為 `true`︰
+
+ 	PUT https://[service name].search.windows.net/indexers/<your indexer name>?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "configuration" : { "SkipContent" : true } }
+	}
+
 ## 協助我們改進 Azure 搜尋服務
 
 如果您有功能要求或改進的想法，請在我們的 [UserVoice 網站](https://feedback.azure.com/forums/263029-azure-search/)與我們連絡。
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

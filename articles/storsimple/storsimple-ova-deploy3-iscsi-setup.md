@@ -87,7 +87,7 @@
 
     3. 指定您是否想讓此裝置加入網域。如果您的裝置是 iSCSI 伺服器，您可以省略加入網域這個步驟。如果您決定不將 iSCSI 伺服器加入網域，請按一下 [套用] 並等待設定套用完畢，然後前往下一個的步驟。
 
-        如果您想要讓裝置加入網域，請輸入 [網域名稱] \(如下所示)。
+        如果您想要讓裝置加入網域，請輸入 [網域名稱] (如下所示)。
 
     4. 按一下 [Apply (套用)]。
 
@@ -95,9 +95,7 @@
 
         ![認證](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
         
-           > [AZURE.NOTE]
-	   > 
-	   > 如果將您的 iSCSI 加入網域，請確定您的虛擬陣列位於它自己的 Microsoft Azure Active Directory 組織單位 (OU) 中，且沒有套用群組原則物件 (GPO)。
+	   	> [AZURE.NOTE] 如果將您的 iSCSI 加入網域，請確定您的虛擬陣列位於它自己的 Microsoft Azure Active Directory 組織單位 (OU) 中，且沒有套用群組原則物件 (GPO)。
 	   
 
     6. 按一下 [Apply (套用)]。這將會套用並驗證裝置設定。
@@ -108,7 +106,7 @@
 
     在 [Web Proxy] 頁面上：
 
-    1. 以下列格式提供 **Web Proxy URL**：*http://host-IP 位址*或 *FDQN:連接埠號碼*。請注意，此處不支援 HTTPS URL。
+    1. 以下列格式提供 Web Proxy URL：*http://host-IP 位址*或 FDQN:連接埠號碼。請注意，此處不支援 HTTPS URL。
 
     2. 將 [驗證] 指定為 [基本]、[NTLM] 或 [無]。
 
@@ -126,15 +124,15 @@
 
     2. 指定裝置的 [主要 NTP 伺服器]，或是接受 time.windows.com 的預設值。請確定您的網路允許 NTP 流量從您的資料中心通過網際網路。
 
-    3. (選用) 指定裝置的 [次要 NTP 伺服器]。
+    3. (選擇性) 指定裝置的 [次要 NTP 伺服器]。
 
     4. 按一下 [Apply (套用)]。這將會驗證並套用您設定的時間設定。
 
 9. 設定裝置的雲端設定。在此步驟中，您將會完成本機裝置設定程序，然後向您的 StorSimple Manager 服務註冊裝置。
 
-    1. 輸入您在《[部署 StorSimple Virtual Array：準備入口網站](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key)》一文的**〈步驟 2：取得服務註冊金鑰**〉中取得的「**服務註冊金鑰**」。
+    1. 輸入您在[部署 StorSimple Virtual Array：準備入口網站](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key)一文的＜步驟 2：取得服務註冊金鑰＞中取得的服務註冊金鑰。
 
-    2. 如果這不是您向此服務註冊的第一個裝置，您必須提供**服務資料加密金鑰**。您必須將此金鑰與服務註冊金鑰搭配使用，才能向 StorSimple Manager 服務註冊額外的裝置。如需詳細資訊，請參閱使用本機 Web UI 上的〈[取得服務資料加密金鑰](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)〉。
+    2. 如果這不是您向此服務註冊的第一個裝置，您必須提供服務資料加密金鑰。您必須將此金鑰與服務註冊金鑰搭配使用，才能向 StorSimple Manager 服務註冊額外的裝置。如需詳細資訊，請參閱使用本機 Web UI 上的[取得服務資料加密金鑰](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)。
 
     3. 按一下 [註冊]。這將讓裝置重新啟動。您可能需要等待 2 至 3 分鐘，裝置才會註冊成功。裝置重新啟動之後，您將會看到登入頁面。
 
@@ -192,7 +190,7 @@
 
     2. 為共用提供說明。說明將可協助識別磁碟區的擁有者。
 
-    3. 選取磁碟區的使用類型。使用類型可以是 [階層式磁碟區] 或 [固定在本機的磁碟區]。 (預設選項是 [階層式磁碟區]。) 對於需要本機保證、低延遲，以及高效能的工作負載，請選取 [**固定在本機的****磁碟區**]。針對所有其他資料，請選取 [**階層式****磁碟區**]。
+    3. 選取磁碟區的使用類型。使用類型可以是 [階層式磁碟區] 或 [固定在本機的磁碟區]。 (預設選項是 [階層式磁碟區]。) 對於需要本機保證、低延遲，以及高效能的工作負載，請選取 [固定在本機的磁碟區]。針對所有其他資料，請選取 [階層式磁碟區]。
 
         固定在本機的磁碟區會密集佈建，且會確保磁碟區中的主要資料會保留在裝置上，不會溢出到雲端。如果您建立固定在本機的磁碟區，裝置將會檢查本機層上的可用空間，以佈建您要求大小的磁碟區。建立固定在本機的磁碟區時，可能必須要讓裝置中現有的資料溢出到雲端，且建立磁碟區所花費的時間可能會很長。總時間取決於已佈建的磁碟區大小、可用的網路頻寬和您裝置上的資料。
 
@@ -208,7 +206,7 @@
 
     1. 提供 ACR 的 [名稱]。
 
-    2. 在 [iSCSI 啟動器名稱] 下方，提供 Windows 主機的 iSCSI 完整格式名稱 (IQN)。如果您沒有 IQN，請前往〈[附錄 A：取得 Windows Server 主機的 IQN](#appendix-a-get-the-iqn-of-a-windows-server-host)〉。
+    2. 在 [iSCSI 啟動器名稱] 下方，提供 Windows 主機的 iSCSI 完整格式名稱 (IQN)。如果您沒有 IQN，請前往[附錄 A：取得 Windows Server 主機的 IQN](#appendix-a-get-the-iqn-of-a-windows-server-host)。
 
     3. 建議選取 [**啟用此磁碟區的預設備份**] 核取方塊啟用預設備份。預設備份將會建立原則，在每天的 22:30 (裝置時間) 執行，並建立此磁碟區的雲端快照。
 
@@ -244,7 +242,7 @@
 
     ![探索到的目標](./media/storsimple-ova-deploy3-iscsi-setup/image24.png)
 
-5. 選取目標裝置，然後按一下 [連接]。連接裝置之後，狀態應會變更為 [已連接](如需如何使用 Microsoft iSCSI 啟動器的詳細資訊，請參閱《[安裝和設定 Microsoft iSCSI 啟動器][1]》)。
+5. 選取目標裝置，然後按一下 [連接]。連接裝置之後，狀態應會變更為 [已連接]如需如何使用 Microsoft iSCSI 啟動器的詳細資訊，請參閱[安裝和設定 Microsoft iSCSI 啟動器][1]。
 
     ![選取目標裝置](./media/storsimple-ova-deploy3-iscsi-setup/image25.png)
 
@@ -264,11 +262,11 @@
 
     ![初始化磁碟 2](./media/storsimple-ova-deploy3-iscsi-setup/image28.png)
 
-11. [新增簡單磁碟區] 精靈會隨即啟動。請選取磁碟大小，然後按 [下一步]。
+11. [新增簡單磁碟區] 精靈會隨即啟動。請選取磁碟大小，然後按一下 [下一步]。
 
     ![新增磁碟區精靈 1](./media/storsimple-ova-deploy3-iscsi-setup/image29.png)
 
-12. 把某個磁碟機代號指派給該磁碟區，然後按 [下一步]。
+12. 把某個磁碟機代號指派給該磁碟區，然後按一下 [下一步]。
 
     ![新增磁碟區精靈 2](./media/storsimple-ova-deploy3-iscsi-setup/image30.png)
 
@@ -286,7 +284,7 @@
 
 ## 後續步驟
 
-了解如何使用本機 Web UI 來[管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
+了解如何[使用本機 Web UI 來管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
 ## 附錄 A：取得 Windows Server 主機的 IQN
 
@@ -305,4 +303,4 @@
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

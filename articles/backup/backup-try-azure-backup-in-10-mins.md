@@ -1,6 +1,6 @@
 <properties
-   pageTitle="先睹為快：如何將 Windows Server 或用戶端備份至 Azure | Microsoft Azure"
-   description="了解如何使用 Azure 備份與一些簡單步驟來備份 Windows Server"
+   pageTitle="將檔案和資料夾從 Windows 備份到 Azure | Microsoft Azure"
+   description="建立保存庫、安裝備份代理程式，以及將檔案和資料夾備份到 Azure，以保護 Windows Server 資料。"
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
@@ -14,17 +14,19 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="hero-article"
-	 ms.date="02/21/2016"
+	 ms.date="03/09/2016"
 	 ms.author="jimpark;"/>
 
-# 將 Windows Server 或用戶端備份至 Azure
+# 先睹為快︰將檔案和資料夾從 Windows Server 或用戶端備份到 Azure
 
-只需幾個步驟，即可將 Windows 機器 (Windows 用戶端或 Windows Server) 備份至 Azure。完成下列 4 個步驟時，您必須：
+只需幾個步驟，即可將 Windows 機器 (Windows 用戶端或 Windows Server) 備份至 Azure。
 
-- 設定 Azure 訂用帳戶 (如有必要)。
-- 建立備份保存庫並下載必要的元件。
-- 安裝並註冊這些元件，準備好您的 Windows Server 或用戶端。
-- 備份您的資料。
+只需執行下列步驟︰
+
+![步驟 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) 取得 Azure 訂用帳戶 (如有必要)。<br> ![步驟 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) 建立備份保存庫並下載必要的元件。<br> ![步驟 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) 安裝並註冊這些元件，準備好您的 Windows Server 或用戶端。<br> ![步驟 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) 保護您的資料。
+
+
+![Windows Server 和用戶端備份程序](./media/backup-try-azure-backup-in-10-mins/windows-machine-backup-process.png)
 
 ## 步驟 1：建立 Azure 訂用帳戶
 
@@ -32,7 +34,7 @@
 
 >[AZURE.NOTE] 如果您已經有 Azure 訂用帳戶，請略過此步驟。
 
-## 步驟 2：建立備份保存庫
+## 步驟 2：建立備份保存庫並下載必要的元件
 
 若要將 Windows 機器上的檔案與資料備份至 Azure，您必須在要儲存這些資料的地理區域中建立備份保存庫。
 
@@ -54,7 +56,7 @@
 
     ![正在建立保存庫](./media/backup-try-azure-backup-in-10-mins/creatingvault1.png)
 
-    建立備份保存庫後，您會在「復原服務」的資源中看到該保存庫列列為 [使用中]。
+    建立備份保存庫後，您會在 [復原服務] 的資源中看到該保存庫列列為 [使用中]。
 
     ![正在建立保存庫狀態](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
 
@@ -74,7 +76,7 @@
 
     c.選擇適當的儲存體備援選項。
 
-    如果您已選取 [本機備援]，則必須按一下 [儲存]，因為 [異地備援] 是預設選項。
+    如果您已選取 [本地備援]，則必須按一下 [儲存]，因為 [異地備援] 是預設選項。
 
     ![GRS](./media/backup-try-azure-backup-in-10-mins/geo-redundant.png)
 
@@ -110,15 +112,15 @@
 
     ![選取備份保存庫](./media/backup-try-azure-backup-in-10-mins/recovery-services-select-vault.png)
 
-8. 在 [快速啟動] 頁面上，按一下 [適用於 Windows Server 或 System Center Data Protection Manager 或 Windows 用戶端的代理程式] > [儲存] \(或從 [儲存] 功能表選取 [另存新檔] 以指定代理程式的位置)。
+8. 在 [快速啟動] 頁面上，按一下 [適用於 Windows Server 或 System Center Data Protection Manager 或 Windows 用戶端的代理程式] > [儲存] (或從 [儲存] 功能表選取 [另存新檔] 以指定代理程式的位置)。
 
     ![儲存代理程式](./media/backup-try-azure-backup-in-10-mins/agent.png)
 
 此時，您已完成備份保存庫的建立並下載必要的元件。您現在將要安裝備份代理程式。
 
-## 步驟 3：在 Windows Server 或用戶端上安裝 Azure 備份代理程式。
+## 步驟 3：安裝並註冊這些元件，準備好您的 Windows Server 或用戶端
 
-1. 下載完成後，從儲存的位置按兩下 [MARSagentinstaller.exe (或者按一下 [執行]，而不是上一個步驟中的儲存檔案)。
+1. 下載完成後，從儲存的位置按兩下 MARSagentinstaller.exe (或者按一下 [執行]，而不是上一個步驟中的儲存檔案)。
 
 2. 選擇代理程式所需的 [安裝資料夾] 和 [快取資料夾]。
 
@@ -164,15 +166,15 @@
 
     ![加密](./media/backup-try-azure-backup-in-10-mins/registering-server.png)
 
-8. 一旦設定**加密金鑰**，請讓 [啟動 Microsoft Azure 復原服務代理程式] 核取方塊保持已核取狀態，然後按一下 [關閉]。
+8. 一旦設定加密金鑰，請讓 [啟動 Microsoft Azure 復原服務代理程式] 核取方塊保持已核取狀態，然後按一下 [關閉]。
 
     ![加密](./media/backup-try-azure-backup-in-10-mins/close-server-registration.png)
 
     電腦即成功註冊至保存庫，且您已準備好設定和排程您的備份選項。
 
-## 步驟 4：備份檔案和資料夾
+## 步驟 4：保護您的資料
 
-1. 在 mmc 嵌入式管理單元 (如果您讓 [啟動 Microsoft Azure 復原服務代理程式] 核取方塊保持已核取狀態，則會自動開啟) 中，按一下 [排程備份]。
+1. 在 [備份代理程式] (如果您讓 [啟動 Microsoft Azure 復原服務代理程式] 核取方塊保持已核取狀態，則會自動開啟) 中，按一下 [排程備份]。
 
     ![Windows Server 備份排程](./media/backup-try-azure-backup-in-10-mins/snap-in-schedule-backup-closeup.png)
 
@@ -218,11 +220,11 @@
 
     ![Windows Server 初始備份](./media/backup-try-azure-backup-in-10-mins/confirmation.png)
 
-8. 當精靈建立好**備份排程**時，請按一下 [關閉]。
+8. 當精靈建立好備份排程時，請按一下 [關閉]。
 
     ![Windows Server 初始備份](./media/backup-try-azure-backup-in-10-mins/backup-schedule-created.png)
 
-9. 在 MMC 嵌入式管理單元，按一下 [立即備份]，以透過網路完成初始植入。
+9. 在 [備份代理程式] 中按一下 [立即備份]，以透過網路完成初始植入。
 
     ![Windows Server 立即備份](./media/backup-try-azure-backup-in-10-mins/snap-in-backup-now.png)
 
@@ -230,7 +232,7 @@
 
     ![Windows Server 立即備份](./media/backup-try-azure-backup-in-10-mins/backup-now-confirmation.png)
 
-11. 按一下 [關閉] 即可關閉精靈。您可以在**備份程序**完成之前執行這項操作，而備份程序會繼續在背景中執行。
+11. 按一下 [關閉] 即可關閉精靈。您可以在備份程序完成之前執行這項操作，而備份程序會繼續在背景中執行。
 
     ![Windows Server 立即備份](./media/backup-try-azure-backup-in-10-mins/backup-progress.png)
 
@@ -246,4 +248,4 @@
 - 詳細了解如何[備份 Windows Server](backup-azure-backup-windows-server.md)
 - 造訪 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933) (英文)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

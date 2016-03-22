@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.date="03/08/2016"
 	ms.author="billmath"/>
 
 
@@ -121,13 +121,31 @@
 
 若要確認已安裝代理程式，請開啟服務，並尋找下列項目。如果您已完成設定，這些服務應該正在執行。否則，他們將不會啟動，直到設定完成為止。
 
-- Azure AD Connect Health AadSync Insights 服務
-- Azure AD Connect Health AadSync Monitoring 服務
+- Azure AD Connect Health Sync Insights 服務
+- Azure AD Connect Health Sync Monitoring 服務
 
 ![驗證適用於同步處理的 Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/services.png)
 
 >[Azure.NOTE] 請記住，使用 Azure AD Connect Health 需要 Azure AD Premium。如果您沒有 Azure AD Premium，將無法完成 Azure 入口網站中的組態。如需詳細資訊，請參閱[此處](active-directory-aadconnect-health.md#requirements)的需求。
 
+
+## 手動 Azure AD Connect Health for Sync 註冊
+如果 Azure AD Connect Health for Sync 代理程式在成功安裝 Azure AD Connect 後註冊失敗，您可以使用下列 PowerShell 命令來手動註冊代理程式。
+
+>[AZURE.IMPORTANT] 只有代理程式在安裝 Azure AD Connect 之後註冊失敗時，才需要使用此 PowerShell 命令。
+
+只有 Health 代理程式註冊失敗 (即使在成功安裝及設定 Azure AD Connect 之後) 時，才需要以下 PowerShell 命令。在這類情況下，直到代理程式註冊成功，Azure AD Connect Health 服務才會啟動。
+ 	
+您可以使用下列 PowerShell 命令，手動註冊 Azure AD Connect Health for Sync 代理程式︰
+
+`Register-AzureADConnectHealthSyncAgent -AttributeFiltering $false -StagingMode $false`
+
+此命令採用下列參數：
+
+- AttributeFiltering：$true (預設值) - 如果 Azure AD Connect 並未同步處理預設屬性集，且已自訂為使用已篩選的屬性集。否則為 $false。
+- StagingMode：$false (預設值) - 如果 Azure AD Connect 伺服器不在預備模式。如果伺服器已設定要在預備模式則為 $true。
+ 
+當系統提示您進行驗證時，您應該使用用來設定 Azure AD Connect 的相同全域系統管理員帳戶 (例如 admin@domain.onmicrosoft.com)。
 
 
 
@@ -206,4 +224,4 @@
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 版本歷程記錄](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

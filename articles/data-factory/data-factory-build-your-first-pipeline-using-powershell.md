@@ -53,8 +53,8 @@
 
 1. 開啟 Azure PowerShell 並執行下列命令。將 Azure PowerShell 維持在開啟狀態，直到本教學課程結束為止。如果您關閉並重新開啟，則需要再次執行這些命令。
 	- 執行 **Login-AzureRmAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。  
-	- 執行 **Get-AzureSubscription** 以檢視此帳戶的所有訂用帳戶。
-	- 執行 **Select-AzureSubscription <Name of the subscription>** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在 Azure 入口網站中使用的相同。
+	- 執行 Get-AzureRmSubscription 以檢視此帳戶的所有訂用帳戶。
+	- 執行 Select-AzureRmSubscription **<Name of the subscription>** 以選取您想要使用的訂用帳戶。此訂用帳戶應該與您在 Azure 入口網站中使用的相同。
 3. 執行以下命令，建立名為 **ADFTutorialResourceGroup** 的 Azure 資源群組。
 
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -356,4 +356,4 @@
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

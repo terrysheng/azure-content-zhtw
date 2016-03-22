@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/07/2016"
+	ms.date="03/10/2016"
 	ms.author="nitinme"/>
 
 
@@ -39,80 +39,45 @@
 	-  從 Windows 電腦 - [從 Windows 搭配使用 SSH 與以 Linux 為基礎的 HDInsight (Hadoop)](hdinsight-hadoop-linux-use-ssh-windows.md)。
 
 
-## 在 HDInsight Linux 上建立 Spark 叢集
+## 建立 Spark 叢集
 
-在本節中，您將建立採用 Spark 1.5.1 版的 HDInsight 3.3 版叢集。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱〈[HDInsight 元件版本設定](hdinsight-component-versioning.md)〉。
+在本節中，您將使用 Azure ARM 範本建立 HDInsight 3.3 版叢集 (Spark 1.5.1 版)。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱〈[HDInsight 元件版本設定](hdinsight-component-versioning.md)〉。如需其他叢集建立方法，請參閱[建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
->[AZURE.NOTE] 本文章中的步驟能使用基本組態設定在 HDInsight 中建立 Apache Spark 叢集。如需其他叢集組態設定 (例如，使用其他儲存體、Azure 虛擬網路或 Hive 中繼存放區) 的相關資訊，請參閱[使用自訂選項建立 HDInsight Spark 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
+1. 按一下以下影像，以在 Azure 入口網站中開啟 ARM 範本。         
 
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/zh-TW/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    
+    ARM 範本位於公用 Blob 容器中，**https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json*。
+   
+2. 從 [參數] 刀鋒視窗，輸入下列項目：
 
-**建立 Spark 叢集**
-
-1. 登入 [Azure Preview 入口網站](https://ms.portal.azure.com/)。
-
-2. 依序按一下 [新增]、[資料 + 分析] 及 [HDInsight]。
-
-    ![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.1.png "在 Azure Preview 入口網站中建立新的叢集")
-
-3. 輸入「叢集名稱」、針對 [叢集類型] 選取 [Spark]、從 [叢集作業系統] 下拉式功能表中選取 [Linux]，然後選取 Spark 的版本。如果該叢集可用，叢集名稱旁就會出現綠色勾號。
-
-	![輸入叢集名稱和類型](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.2.png "輸入叢集名稱和類型")
-
-4. 如果您有多個訂用帳戶，請按一下 [訂用帳戶] 項目，以選取要用於該叢集的 Azure 訂用帳戶。
-
-5. 按一下 [資源群組] 來查看現有資源群組的清單，然後選取其中一個來建立叢集。或者按一下 [建立新項目]，然後輸入新資源群組的名稱。出現綠色勾號即表示新群組的名稱可供使用。
-
-	> [AZURE.NOTE] 如果有任何可用的資源群組，此項目即會預設為現有資源群組的其中一個群組。
-
-6. 按一下 [認證]，然後輸入 admin 使用者的密碼。您也必須輸入 [SSH 使用者名稱]。針對 [SSH 驗證類型], ，按一下 [密碼] 並指定 SSH 使用者的密碼。按一下底部的 [選取] 以儲存認證組態。
-
-	![提供叢集認證](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.3.png "提供叢集認證")
+    - ClusterName：輸入您將建立的 Hadoop 叢集名稱。
+    - 叢集登入名稱和密碼：預設登入名稱是 admin。
+    - SSH 使用者名稱和密碼。
+    
+    請記下這些值。稍後在教學課程中需要這些資訊。
 
     > [AZURE.NOTE] SSH 可透過命令列遠端存取 HDInsight 叢集。您在此使用的使用者名稱和密碼會在透過 SSH 連接到叢集時使用。此外，SSH 使用者名稱必須是唯一的，因為該名稱會在所有 HDInsight 叢集節點上建立使用者帳戶。以下是一些保留給叢集上的服務使用的帳戶名稱，不能做為 SSH 使用者名稱︰
     >
     > root、hdiuser、storm、hbase、ubuntu、zookeeper、hdfs、yarn、mapred、hbase、hive、oozie、falcon、sqoop、admin、tez、hcat、hdinsight-zookeeper。
 
-	如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列文章：
+	> 如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列文章：
 
-	* [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)
-	* [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
+	> * [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)
+	> * [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+    
+3\. 按一下 [確定] 儲存參數。
+
+4\. 在 [自訂部署] 刀鋒視窗中，按一下 [資源群組] 下拉式方塊，然後按一下 [新增] 來建立新的資源群組。資源群組是聚集叢集、相依儲存體帳戶和其他已連結資源的容器。
+
+5\. 按一下 [法律條款]，然後按一下 [建立]。
+
+6\. 按一下 [建立]。您將會看到新的圖格，標題為「提交範本部署的部署」。大約需要 20 分鐘的時間來建立叢集和 SQL Database。
 
 
-7. 按一下 [資料來源] 來選擇該叢集的現有資料來源，或建立一個新的資料來源。當您在 HDInsight 中建立 Hadoop 叢集時，您需要指定一個 Azure 儲存體帳戶。該帳戶特定的 Blob 儲存體容器將被指定為預設檔案系統，如同 Hadoop 分散式檔案系統 (HDFS)。依預設，系統會在與您指定儲存體帳戶的相同資料中心內建立 HDInsight 叢集。如需詳細資訊，請參閱＜[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]＞。
 
-	![資料來源刀鋒視窗](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.4.png "提供資料來源組態")
-
-	目前您可以選取 Azure 儲存體帳戶做為 HDInsight 叢集資料來源。使用下列資訊來了解 [資料來源] 刀鋒視窗上的項目。
-
-	- **選取方法**：將此設為 [來自所有訂用帳戶]，即可瀏覽您所有訂用帳戶中的儲存體帳戶。如果您想要輸入現有儲存體帳戶的 [儲存體名稱] 和 [存取金鑰]，請將此設為 [存取金鑰]。
-
-	- **選取儲存體帳戶 / 建立新的帳戶**：按一下 [選取儲存體帳戶]，瀏覽並選取您要與叢集產生關聯的現有儲存體帳戶。或者按一下 [建立新項目] 來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可供使用，就會出現綠色勾號。
-
-	- **選擇預設容器**：使用此選項可輸入要用於該叢集的預設容器名稱。雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
-
-	- **位置**：儲存體帳戶所在或將建立的地理區域。
-
-		> [AZURE.IMPORTANT] 選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
-
-	按一下 [選取] 以儲存資料來源組態。
-
-8. 按一下 [節點定價層]，來顯示將針對此叢集建立的節點相關資訊。設定該叢集所需的背景工作角色節點數目。該叢集的預估成本將會顯示在此刀鋒視窗內。
-
-	![節點定價層刀鋒視窗](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.5.png "指定叢集節點的數目")
-
-	按一下 [選取] 以儲存此節點定價組態。
-
-9. 在 [新的 HDInsight 叢集] 刀鋒視窗中，確認已選取 [釘選到「開始面板」]，然後按一下 [建立]。這會建立叢集，並將該叢集磚加入到您 Azure 入口網站的開始面板。該圖示可表示該叢集正在建立，並將在建立完成後變更為 HDInsight 圖示。
-
-	| 建立時 | 建立完成 |
-	| ------------------ | --------------------- |
-	| ![「開始面板」上的建立指示器](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioning.png) | ![佈建的叢集磚](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioned.png) |
-
-	> [AZURE.NOTE] 建立叢集需要一些時間，通常約 15 分鐘左右。請使用「開始面板」上的磚，或頁面左邊的 [通知] 項目來以檢查建立進度。
-
-10. 建立完成後，在開始面板上按一下 Spark 叢集的磚，以啟動叢集刀鋒視窗。
-
-## <a name="jupyter"></a>使用 Jupyter Notebook 執行 Spark SQL 查詢
+## 使用 Jupyter Notebook 執行 Spark SQL 查詢
 
 在本節中，您會使用 Jupyter Notebook 來針對 Spark 叢集執行 Spark SQL 查詢。根據預設，Jupyter Notebook 附有 **Python2** 核心。HDInsight Spark 叢集另外還提供兩種核心，可讓您用於 Jupyter Notebook。它們是：
 
@@ -143,11 +108,11 @@
 
 	![提供 Notebook 的名稱](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "提供 Notebook 的名稱")
 
-4. 您使用 PySpark 核心建立 Notebook，因此不需要明確建立任何內容。當您執行第一個程式碼儲存格時，系統會自動為您建立 Spark、SQL 和 Hive 內容。您可以從匯入這個案例所需的類型開始。方法是將下列程式碼片段貼到儲存格中，然後按下 **SHIFT + ENTER**。
+4. 您使用 PySpark 核心建立 Notebook，因此不需要明確建立任何內容。當您執行第一個程式碼儲存格時，系統會自動為您建立 Spark、SQL 和 Hive 內容。您可以從匯入這個案例所需的類型開始。方法是將下列程式碼片段貼到儲存格中，然後按下 SHIFT + ENTER。
 
 		from pyspark.sql.types import *
 		
-	每當您在 Jupyter 中執行作業時，網頁瀏覽器視窗標題將會顯示 Notebook 標題和 **(忙碌)** 狀態。您也會在右上角的 **PySpark** 文字旁看到一個實心圓。工作完成後，實心圓將變成空心圓。
+	每當您在 Jupyter 中執行作業時，網頁瀏覽器視窗標題將會顯示 Notebook 標題和 **(忙碌)** 狀態。您也會在右上角的 PySpark 文字旁看到一個實心圓。工作完成後，實心圓將變成空心圓。
 
 	 ![Jupyter Notebook 工作的狀態](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Jupyter Notebook 工作的狀態")
 
@@ -170,10 +135,10 @@
 		# Register the data fram as a table to run queries against
 		hvacdf.registerTempTable("hvac")
 
-5. 由於您使用的是 PySpark 核心，因此現在可直接在您剛才使用 `%%sql` magic 建立的暫存資料表 **hvac** 上執行 SQL 查詢。如需 `%%sql` magic 以及可搭配 PySpark 核心使用的其他 magic 的詳細資訊，請參閱[使用 Spark HDInsight 叢集之 Jupyter Notebook 上可用的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)。
+5. 由於您使用的是 PySpark 核心，因此現在可直接在您剛才使用 `%%sql` magic 建立的暫存資料表 hvac 上執行 SQL 查詢。如需 `%%sql` magic 以及可搭配 PySpark 核心使用的其他 magic 的詳細資訊，請參閱[使用 Spark HDInsight 叢集之 Jupyter Notebook 上可用的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)。
 		
 		%%sql
-		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"")
+		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13")
 
 5. 一旦工作順利完成後，預設會顯示下列表格式輸出。
 
@@ -191,7 +156,7 @@
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-## <a name="seealso"></a>另請參閱
+## 另請參閱
 
 
 * [概觀：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)
@@ -241,4 +206,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

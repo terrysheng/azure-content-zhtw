@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # 教學課程：使用 Visual Studio 建立具有複製活動的管線
@@ -22,7 +22,7 @@
 - [使用 Data Factory 編輯器](data-factory-get-started-using-editor.md)
 - [使用 Visual Studio](data-factory-get-started-using-vs.md)
 - [使用 PowerShell](data-factory-monitor-manage-using-powershell.md)
-
+- [使用複製精靈](data-factory-copy-data-wizard-tutorial.md)
 
 ##本教學課程內容
 在本教學課程中，您會使用 Visual Studio 2013 執行下列作業：
@@ -242,6 +242,6 @@
 如需如何使用 Azure 入口網站來監視您在本教學課程中建立的管線和資料集的指示，請參閱[監視資料集和管線](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline)。
 
 ## 另請參閱
-如需 Azure Data Factory 中**複製活動**的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。
+如需 Azure Data Factory 中複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

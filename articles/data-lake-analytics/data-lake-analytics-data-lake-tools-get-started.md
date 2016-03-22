@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/10/2016"
+   ms.date="03/15/2016"
    ms.author="jgao"/>
 
 # 教學課程：使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼
@@ -106,7 +106,7 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 		    SELECT *
 		    FROM @searchlog;        
 
-        OUTPUT @searchlog   
+        OUTPUT @res   
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
@@ -152,7 +152,7 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 
 	- **移至定義並尋找所有參考**
 	
-		以滑鼠右鍵按一下資料列集/參數/資料行/UDO 等的名稱，然後按一下 [移至定義] \(F12) 可讓您瀏覽至其定義。按一下 [尋找所有參考] \(Shift + F12) 會顯示所有參考。
+		以滑鼠右鍵按一下資料列集/參數/資料行/UDO 等的名稱，然後按一下 [移至定義] (F12) 可讓您瀏覽至其定義。按一下 [尋找所有參考] (Shift + F12) 會顯示所有參考。
 
 	- **插入 Azure 路徑**
 		
@@ -262,11 +262,15 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 
 您可以偵錯 C# 組件，而不需提交並向 Azure 資料湖分析服務註冊。您可以在這兩個程式碼後置檔案和參考的 C# 專案中設定中斷點。
 
-**如何為程式碼後置檔案中的本機程式碼偵錯** 1.在程式碼後置檔案中設定中斷點。2.按下 **F5** 以便在本機為指令碼偵錯。
+如何為程式碼後置檔案中的本機程式碼偵錯
+1.	在程式碼後置檔案中設定中斷點。 
+2.	按下 **F5** 以便在本機為指令碼偵錯。
 
 下列程序僅適用於 Visual Studio 2015。在舊版 Visual Studio 中，您可能需要手動加入 pdb 檔案。
 
-**如何為參考的 C# 專案中的本機程式碼偵錯** 1.建立 C# 組件專案，並建置它來產生輸出 dll。2.使用 U-SQL 陳述式來註冊 dll：
+如何為參考的 C# 專案中的本機程式碼偵錯
+1.	建立 C# 組件專案，並建置它來產生輸出 dll。
+2.	使用 U-SQL 陳述式來註冊 dll：
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	在 C# 程式碼中設定中斷點。
@@ -359,4 +363,4 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

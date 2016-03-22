@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # 教學課程：使用 Data Factory 編輯器建立具有複製活動的管線
@@ -22,7 +22,7 @@
 - [使用 Data Factory 編輯器](data-factory-get-started-using-editor.md)
 - [使用 Visual Studio](data-factory-get-started-using-vs.md)
 - [使用 PowerShell](data-factory-monitor-manage-using-powershell.md)
-
+- [使用複製精靈](data-factory-copy-data-wizard-tutorial.md)
 
 
 ##本教學課程內容
@@ -77,7 +77,7 @@
 在此步驟中，您將建立兩個連結服務：**StorageLinkedService** 和 **AzureSqlLinkedService**。StorageLinkedService 連結服務會連結 Azure 儲存體帳戶，AzureSqlLinkedService 則會將 Azure SQL Database 連結至 **ADFTutorialDataFactory**。您稍後將在本教學課程中建立管線，以將資料從 StorageLinkedService 中的 Blob 容器複製到 AzureSqlLinkedService 中的 SQL 資料表。
 
 ### 建立 Azure 儲存體帳戶的連結服務
-1.	在 [DATA FACTORY] 刀鋒視窗中，按一下 [製作和部署] 圖格來啟動 Data Factory 的 [編輯器]。
+1.	在 [DATA FACTORY] 刀鋒視窗中，按一下 [製作和部署] 磚來啟動 Data Factory 的 [編輯器]。
 
 	![[製作和部署] 磚][image-author-deploy-tile]
 
@@ -319,7 +319,7 @@
 
 	![含名稱的首頁][image-data-factory-get-started-home-page-pipeline-tables]
 
-4. 現在，按一下 [資料集] 圖格。
+4. 現在，按一下 [資料集] 磚。
 5. 在 [資料集] 刀鋒視窗中，按一下 [EmpTableFromBlob]。這是 **ADFTutorialPipeline** 的輸入資料表。
 
 	![已選取 EmpTableFromBlob 的資料集][image-data-factory-get-started-datasets-emptable-selected]   
@@ -333,7 +333,7 @@
  
 	按一下清單的標題或 **...** (省略符號)，查看更長的配量清單。按一下工具列上的 [篩選] 以篩選配量。
 	
-	若要改成依配量開始/結束時間來檢視資料配量，請按一下 [資料配量 (依配量時間)] 圖格。
+	若要改成依配量開始/結束時間來檢視資料配量，請按一下 [資料配量 (依配量時間)] 磚。
 
 	![資料配量 (依配量時間)][DataSlicesBySliceTime]
 
@@ -381,7 +381,7 @@
 
 
 ## 另請參閱
-如需 Azure Data Factory 中**複製活動**的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。
+如需 Azure Data Factory 中複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -459,4 +459,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -12,19 +12,19 @@
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/03/2016"
+	ms.topic="get-started-article"
+	ms.date="03/08/2016"
 	ms.author="juliako"/>
 
 
 #使用 Azure 傳統入口網站建立通道，以執行從單一位元速率到多位元速率串流的即時編碼
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [入口網站](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
-本教學課程將逐步引導您建立**通道**，可接收單一位元速率即時串流，並將其編碼為多位元速率串流。
+本教學課程將逐步引導您建立**通道**，可接收單一位元速率的即時串流，並將其編碼為多位元速率串流。
 
 >[AZURE.NOTE]如需為即時編碼啟用之通道相關的詳細概念資訊，請參閱[使用通道執行從單一位元速率到多位元速率串流的即時編碼](media-services-manage-live-encoder-enabled-channels.md)。
 
@@ -276,4 +276,4 @@
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -1,63 +1,48 @@
 <properties
-	pageTitle="Azure 搜尋服務中的資料匯入 | Microsoft Azure | 雲端託管搜尋服務"
-	description="如何將資料上傳至 Azure 搜尋服務中的索引"
-	services="search"
-	documentationCenter=""
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""
+    pageTitle="Azure 搜尋服務中的資料上傳 | Microsoft Azure | 雲端託管搜尋服務"
+    description="了解如何將資料上傳至 Azure 搜尋服務中的索引"
+    services="search"
+    documentationCenter=""
+    authors="ashmaka"
+    manager=""
+    editor=""
     tags=""/>
 
 <tags
-	ms.service="search"
-	ms.devlang="na"
-	ms.workload="search"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.date="02/09/2016"
-	ms.author="heidist"/>
+    ms.service="search"
+    ms.devlang="NA"
+    ms.workload="search"
+    ms.topic="get-started-article"
+    ms.tgt_pltfrm="na"
+    ms.date="03/10/2016"
+    ms.author="ashmaka"/>
 
-# 將資料匯入至 Azure 搜尋服務
+# 上傳資料至 Azure 搜尋服務
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
-- [Portal](search-import-data-portal.md)
+- [概觀](search-what-is-data-import.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [Indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
-在 Azure 搜尋服務中，服務可在持續性資料 (索引) 上運作，以提供用來處理索引、執行查詢或制訂搜尋結果的文件和資訊。若要填入索引，您可以使用推送或提取模型來載入資料。
 
-匯入之前，索引必須已經存在。如需詳細資訊，請參閱 [Azure 搜尋服務中的索引](search-what-is-an-index.md)。
+## Azure 搜尋服務中的資料上傳模型
+有兩種方法可以在 Azure 搜尋服務索引中填入資料。第一種方法是使用 Azure 搜尋服務 [REST API](search-import-data-rest-api.md) 或 [.NET SDK](search-import-data-dotnet.md) 來以手動方式將資料推送到索引中。第二種方法是[將支援的資料來源指向](search-indexer-overview.md) Azure 搜尋服務索引，並讓 Azure 搜尋服務自動將資料提取至搜尋服務。
 
-##將資料推送到索引
+本指南只會說明資料上傳推送模型 (僅在 [REST API](search-import-data-rest-api.md) 和 [.NET SDK](search-import-data-dotnet.md) 中受到支援) 的使用指示，但是您仍可從下面的內容深入了解提取模型。
 
-這種方法是指取得符合索引結構描述的現有資料集，並將它張貼到您的搜尋服務。對於具有非常低的延遲需求的應用程式 (例如，如果您需要搜尋作業與庫存資料庫的同步處理)，推送模式是唯一的選擇。
+### 將資料推送到索引
 
-您可以使用 REST API 或 .NET SDK 將資料推送到索引。目前沒有工具可支援透過入口網站推送資料。
+本方法涉及以程式設計方式將資料傳送至 Azure 搜尋服務以便可供搜尋。若應用程式需要極低的延遲 (例如，如果您需要讓搜尋作業與動態庫存資料庫保持同步)，推送模式是您的唯一選擇。
 
-這種方法比提取模型更有彈性，因為您可以個別或批次上傳文件 (每個批次最多 1000 個或 16 MB，無論先到達何種限制)。
+您可以使用 [REST API](https://msdn.microsoft.com/library/azure/dn798930.aspx) 或 [.NET SDK](search-import-data-dotnet.md) 將資料推送到索引。目前沒有工具可支援透過入口網站推送資料。
 
-##提取 (搜耙) 資料 
+這種方法比提取模型更有彈性，因為您可以個別或批次上傳文件 (每個批次最多 1000 個或 16 MB，視何者先到達)。推送模型也可讓您將文件上傳至 Azure 搜尋服務，無論資料是存放在哪裡。
 
-提取模型會搜耙支援的資料來源並為您載入索引。在 Azure 搜尋服務中，這項功能透過*索引子*實作，目前可供 Azure SQL Database、DocumentDB 和 Azure VM 上的 SQL Server 使用。請參閱[索引子](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)來了解上傳 Azure SQL 資料。
+### 將資料提取到索引
 
-您可以使用入口網站、REST API 或 .NET SDK 將資料提取到索引。
+提取模型會將支援的資料來源編目，並自動為您將資料上傳到 Azure 搜尋服務索引。除了辨識新文件，索引子還會追蹤現有文件的變更和刪除，讓您不必主動管理索引中的資料。
 
-##資料集需求
+在 Azure 搜尋服務中，這項功能是透過索引子來實作，其目前可供 [Blob 儲存體 (預覽)](search-howto-indexing-azure-blob-storage.md)、[DocumentDB](http://aka.ms/documentdb-search-indexer)、[Azure SQL Database 和 Azure VM 上的 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) 使用。
 
-您上傳的資料類型不受限制，只要結構描述和資料集構成 JSON 結構即可。
+索引子功能會在 [Azure 入口網站](search-import-data-portal.md)以及 [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx) 中出現。
 
-資料應來自您的自訂應用程式建立或取用的資料庫或資料來源。例如，如果您的應用程式為線上零售目錄，您為 Azure 搜尋服務建立的索引應從支援您的應用程式的產品庫存或銷售資料庫提取資料。
-
-資料集應該衍生自單一資料表、檢視、Blob 容器或對等項目。您可能需要在提供資料給 Azure 搜尋服務的資料庫或 noSQL 應用程式中建立資料結構。或者，對於 Azure SQL Database 或 DocumentDB 等資料來源，您可以建立索引子來搜耙外部資料表、檢視或 Blob 容器，以便將資料上傳到 Azure 搜尋服務。
-
-##選擇資料匯入方法
-
-|準則|建議的方法|
-|------------|---------------|
-|接近即時的資料同步處理|用來將更新推送至索引的程式碼 (.NET 或 REST API)。資料擷取的其中一種提取方法為排程作業，但排程作業的執行速度趕不上主要資料來源中的快速變更。|
-|Azure VM 上的 Azure SQL Database、DocumentDB 或 SQL Server|索引子會限定於特定的資料來源類型。如果主要資料來源支援資料來源類型，索引子會是載入索引的最簡單方式。您可以以每小時為間隔，經常排程資料重新整理。您可以在入口網站或程式碼中設定索引子。|
-|排程的資料重新整理|使用索引子 (請參閱上述資料)。|
-|無程式碼的原型或編輯|入口網站中的 [匯入資料精靈] 可設定索引子，有時還可產生初步結構描述 (如果主要資料庫中有足夠的資訊可這麼做)。此精靈包含用來設定排程資料重新整理的選項。(選擇性) 您可以新增語言分析器或 CORS 選項。但有幾個缺點：無法新增評分設定檔，也無法將入口網站中建立的結構描述匯出至 JSON 檔案，以便在程式碼中使用。| 
-
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

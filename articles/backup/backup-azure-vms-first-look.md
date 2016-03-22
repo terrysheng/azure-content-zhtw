@@ -21,11 +21,15 @@
 
 本文是教學課程，將會引導您完成一組用於準備 Azure 環境以便備份 Azure 虛擬機器 (VM) 的步驟。本教學課程假設您的 Azure 訂用帳戶中已有 VM，且您已採取措施以允許備份服務存取 VM。概括而言，您會完成以下這些步驟。
 
-1. 在*與 VM 相同的區域中*建立備份保存庫，或識別現有的備份保存庫。
-2. 使用 Azure 入口網站來探索並註冊訂用帳戶中的虛擬機器。
-3. 在虛擬機器中安裝 VM 代理程式。
-4. 保護虛擬機器 - 建立用於備份 VM 的原則。
-5. 執行備份。
+![VM 備份程序的高階檢視](./media/backup-azure-vms-first-look/BackupAzureVM.png)
+
+
+1. 建立或登入您的 Azure 訂用帳戶。
+2. 在與 VM 相同的區域中建立備份保存庫，或識別現有的備份保存庫。
+3. 使用 Azure 入口網站來探索並註冊訂用帳戶中的虛擬機器。
+4. 在虛擬機器上安裝 VM 代理程式 (如果您使用 Azure 資源庫中的 VM，則 VM 代理程式已經存在)。
+5. 建立用來保護虛擬機器的原則。
+6. 執行備份。
 
 >[AZURE.NOTE] Azure 有兩種用來建立和使用資源的部署模型：[Resource Manager 和傳統](../resource-manager-deployment-model.md)。Azure 備份服務目前不支援以 Azure Resource Manager (ARM) 為基礎的虛擬機器 (也稱為 IaaS V2 虛擬機器)。由於 Iaas V2 VM 是在新的 Azure 入口網站發行時才推出，因此本教學課程當初在設計時是適用於可在 Azure 傳統入口網站中建立的 VM 類型。
 
@@ -44,9 +48,9 @@
 
     ![建立備份保存庫](./media/backup-azure-vms-first-look/backup-vaultcreate.png)
 
-3. 在 [名稱] 中，輸入保存庫的易記識別名稱。必須是 Azure 訂用帳戶中唯一的名稱。輸入包含 2 到 50 個字元的名稱。該名稱必須以字母開頭，而且只可以包含字母、數字和連字號。
+3. 在 [名稱] 中，輸入易記名稱來識別保存庫。必須是 Azure 訂用帳戶中唯一的名稱。輸入包含 2 到 50 個字元的名稱。該名稱必須以字母開頭，而且只可以包含字母、數字和連字號。
 
-4. 在 [區域] 中，選取保存庫的地理區域。保存庫**必須**與您想要保護的虛擬機器位於相同區域。
+4. 在 [**區域**] 中，選取保存庫的地理區域。保存庫必須與您想要保護的虛擬機器位於相同區域。
 
     如果您不確定 VM 的所在區域，請關閉保存庫建立對話方塊，並移至入口網站的虛擬機器清單。如果您的虛擬機器位於多個區域，您必須在每個區域中建立備份保存庫，不過請在建立好第一個區域的保存庫後再到下一個區域建立。儲存備份資料時，不需要指定儲存體帳戶，備份保存庫和「Azure 備份」服務會自動處理此作業。
 
@@ -70,7 +74,7 @@
 
     ![備份保存庫的清單](./media/backup-azure-vms-first-look/backup-vault-storage-options-border.png)
 
-    根據預設，保存庫具有異地備援儲存體。如果您使用 Azure 做為主要的備份儲存體端點，則建議您繼續使用異地備援儲存體。如果您使用 Azure 做為非主要的備份儲存體端點，則可以考慮選擇本地備援儲存體，以減少在 Azure 中儲存資料的成本。在此[概觀](../storage/storage-redundancy.md)中，深入了解[異地備援](../storage/storage-redundancy.md#geo-redundant-storage)和[本機備援](../storage/storage-redundancy.md#locally-redundant-storage)儲存體選項。
+    根據預設，保存庫具有異地備援儲存體。如果您使用 Azure 做為主要的備份儲存體端點，則建議您繼續使用異地備援儲存體。如果您使用 Azure 做為非主要的備份儲存體端點，則可以考慮選擇本地備援儲存體，以減少在 Azure 中儲存資料的成本。在此[概觀](../storage/storage-redundancy.md)中，深入了解[異地備援](../storage/storage-redundancy.md#geo-redundant-storage)和[本地備援](../storage/storage-redundancy.md#locally-redundant-storage)儲存體選項。
 
 選擇好保存庫的儲存體選項後，就可以開始建立 VM 與保存庫的關聯。若要開始關聯，請探索及註冊 Azure 虛擬機器。
 
@@ -123,7 +127,7 @@
 
 ## 步驟 3 - 在虛擬機器中安裝 VM 代理程式
 
-Azure VM 代理程式必須安裝在 Azure 虛擬機器上，備份擴充功能才能運作。如果 VM 是建立自 Azure 資源庫，則 VM 代理程式已存在於虛擬機器上。不過，從內部部署資料中心移轉的 VM 不會安裝 VM 代理程式。在這種情況下，必須明確安裝 VM 代理程式。在您嘗試備份 Azure VM 之前，請先確定已在虛擬機器上正確安裝 Azure VM 代理程式 (請參閱下表)。如果您建立自訂 VM，請先[確定已選取 [安裝 VM 代理程式] 核取方塊](../virtual-machines/virtual-machines-extensions-agent-about.md)再佈建虛擬機器。
+Azure VM 代理程式必須安裝在 Azure 虛擬機器上，備份擴充功能才能運作。如果 VM 是建立自 Azure 資源庫，則 VM 代理程式已存在於虛擬機器上。不過，從內部部署資料中心移轉的 VM 不會安裝 VM 代理程式。在這種情況下，必須明確安裝 VM 代理程式。在您嘗試備份 Azure VM 之前，請先確定已在虛擬機器上正確安裝 Azure VM 代理程式 (請參閱下表)。如果您建立自訂 VM，請先[確定已選取 [安裝 VM 代理程式] 核取方塊](../virtual-machines/virtual-machines-extensions-agent-about.md)，再佈建虛擬機器。
 
 深入了解 [VM 代理程式](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409)和[如何安裝](../virtual-machines/virtual-machines-extensions-install.md)。
 
@@ -133,7 +137,7 @@ Azure VM 代理程式必須安裝在 Azure 虛擬機器上，備份擴充功能�
 | --- | --- | --- |
 | 安裝 VM 代理程式 | <li>下載並安裝[代理程式 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。您需要有系統管理員權限，才能完成安裝。<li>[更新 VM 屬性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)以表示已安裝代理程式。 | <li>從 GitHub 安裝最新的 [Linux 代理程式](https://github.com/Azure/WALinuxAgent)。您需要有系統管理員權限，才能完成安裝。<li> [更新 VM 屬性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)以表示已安裝代理程式。 |
 | 更新 VM 代理程式 | 更新 VM 代理程式與重新安裝 [VM 代理程式二進位檔](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)一樣簡單。<br>確定在更新 VM 代理程式時，沒有任何執行中的備份作業。 | 請遵循[更新 Linux VM 代理程式](../virtual-machines-linux-update-agent.md)上的指示。<br>確定在更新 VM 代理程式時，沒有任何執行中的備份作業。 |
-| 驗證 VM 代理程式安裝 | <li>瀏覽至 Azure VM 中的 *C:\\WindowsAzure\\Packages* 資料夾。<li>您應該會發現有 WaAppAgent.exe 檔案。<li> 在該檔案上按一下滑鼠右鍵，移至 [屬性]，然後選取 [詳細資料] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本。 | N/A |
+| 驗證 VM 代理程式安裝 | <li>瀏覽至 Azure VM 中的 C:\\WindowsAzure\\Packages 資料夾。<li>您應該會發現有 WaAppAgent.exe 檔案。<li> 在該檔案上按一下滑鼠右鍵，移至 [屬性]，然後選取 [詳細資料] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本。 | N/A |
 
 
 ### 備份擴充功能
@@ -153,7 +157,7 @@ Azure VM 代理程式必須安裝在 Azure 虛擬機器上，備份擴充功能�
 
 3. 按一下頁面底部的 [保護]。![按一下 [保護]](./media/backup-azure-vms-first-look/protect-icon.png)
 
-    [保護項目精靈] 隨即出現，並*只*列出已註冊但未受保護的虛擬機器。
+    [保護項目精靈] 隨即出現，只列出已註冊但未受保護的虛擬機器。
 
     ![設定大規模保護](./media/backup-azure-vms/protect-at-scale.png)
 
@@ -226,4 +230,4 @@ Azure VM 代理程式必須安裝在 Azure 虛擬機器上，備份擴充功能�
 ## 有疑問嗎？
 如果您有問題，或希望我們加入任何功能，請[傳送意見反應給我們](http://aka.ms/azurebackup_feedback)。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

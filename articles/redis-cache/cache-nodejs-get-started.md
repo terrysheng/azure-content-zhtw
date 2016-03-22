@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="03/04/2016"
+	ms.date="03/09/2016"
 	ms.author="sdanie"/>
 
 # 如何搭配使用 Azure Redis 快取與 Node.js
@@ -52,27 +52,27 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用安全 Redis 快�
 
   ![][4]
 
-## 在快取中加入項目並擷取該項目
+  ## 在快取中加入項目並擷取該項目
 
 ```js
-var redis = require("redis");
+  var redis = require("redis");
 
-// Add your cache name and access key.
+  // Add your cache name and access key.
 var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
-client.set("foo", "bar", function(err, reply) {
-  console.log(reply);
-});
+client.set("key1", "value", function(err, reply) {
+	    console.log(reply);
+	});
 
-client.get("foo",  function(err, reply) {
-  console.log(reply);
-});
+client.get("key1",  function(err, reply) {
+	    console.log(reply);
+	});
 ```
 
 Output:
 
 	OK
-	bar
+	value
 
 
 ## 後續步驟
@@ -89,4 +89,4 @@ Output:
 
 [在 Azure 網站上使用 Socket.IO 建置 Node.js 聊天應用程式]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

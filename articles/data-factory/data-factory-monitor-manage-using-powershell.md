@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # 教學課程：使用 Azure PowerShell 建立具有複製活動的管線
@@ -22,7 +22,7 @@
 - [使用 Data Factory 編輯器](data-factory-get-started-using-editor.md)
 - [使用 Visual Studio](data-factory-get-started-using-vs.md)
 - [使用 PowerShell](data-factory-monitor-manage-using-powershell.md)
-
+- [使用複製精靈](data-factory-copy-data-wizard-tutorial.md)
 
 [開始使用 Azure Data Factory][adf-get-started] 教學課程會示範如何使用 [Azure 入口網站][azure-portal]建立和監視 Azure Data Factory。在本教學課程中，您將使用 Azure PowerShell Cmdlet 來建立和監視 Azure Data Factory。在本教學課程中，您於 Data Factory 中建立的管線會使用複製活動將資料從 Azure Blob 複製到 Azure SQL Database。
 
@@ -425,7 +425,7 @@
 如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考][cmdlet-reference]。
 
 ## 另請參閱
-如需 Azure Data Factory 中**複製活動**的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。
+如需 Azure Data Factory 中複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。
 
 
 [adf-tutorial]: data-factory-tutorial.md
@@ -447,4 +447,4 @@
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

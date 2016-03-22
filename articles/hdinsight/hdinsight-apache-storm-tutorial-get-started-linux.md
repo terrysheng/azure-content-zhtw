@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/07/2016"
+   ms.date="03/10/2016"
    ms.author="larryfr"/>
 
 
@@ -40,83 +40,40 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
 ## 建立 Storm 叢集
 
-Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄檔和拓撲。請使用以下步驟建立和您的叢集搭配使用的 Azure 儲存體帳戶：
+在本節中，您將使用 Azure ARM 範本建立 HDInsight 3.2 版叢集 (Storm 0.9.3 版)。如需不同 HDInsight 版本及其 SLA 的相關資訊，請參閱〈[HDInsight 元件版本設定](hdinsight-component-versioning.md)〉。如需其他叢集建立方法，請參閱[建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
-1. 登入 [Azure 入口網站][preview-portal]。
+1. 按一下以下影像，以在 Azure 入口網站中開啟 ARM 範本。         
 
-2. 依序選取 [新增]、[資料分析] 和 [HDInsight]。
-
-	![在 Azure 入口網站中建立新的叢集](./media/hdinsight-apache-storm-tutorial-get-started-linux/new-cluster.png)
-
-3. 輸入 [叢集名稱]，然後在 [叢集類型] 選取 [Storm]。如果該 [叢集名稱] 可用，它旁邊就會出現綠色核取記號。
-
-	![叢集名稱、叢集類型及 OS 類型](./media/hdinsight-apache-storm-tutorial-get-started-linux/clustername.png)
-
-	請選取 [Ubuntu] 來建立以 Linux 為基礎的 HDInsight 叢集。
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/zh-TW/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    > [AZURE.NOTE] 針對本文件中的步驟保留 [版本] 欄位的預設值。
-	
-4. 如果您有多個訂用帳戶，請選取 [訂用帳戶] 項目，以選取將用於該叢集的 Azure 訂用帳戶。
+    ARM 範本位於公用 Blob 容器中，**https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*。
+   
+2. 從 [參數] 刀鋒視窗，輸入下列項目：
 
-5. 針對 [資源群組]，您可以選取此項目以查看現有資源群組的清單，然後選取其中一個用來建立叢集。或者選取 [建立新群組]，然後輸入新資源群組的名稱。出現綠色核取記號即表示新群組的名稱可用。
-
-	> [AZURE.NOTE] 如果有可用的資源群組，則此項目會預設為現有資源群組的其中一個群組。
-
-6. 選取 [認證]，然後輸入 [叢集登入使用者名稱] 的 [叢集登入密碼]。您也必須輸入 [SSH 使用者名稱] 和 [密碼] 或 [公開金鑰]，這會用來驗證 SSH 使用者。最後，使用 [選取] 按鈕來設定認證。
-
-	![叢集認證刀鋒視窗](./media/hdinsight-administer-use-portal-linux/clustercredentials.png)
-
-	如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列文章：
-
-	* [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)
-
-	* [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
-
-6. 針對 [資料來源]，您可以選取此項目，藉此選擇現有資料來源，或建立一個新的資料來源。
-
-	![資料來源刀鋒視窗](./media/hdinsight-apache-storm-tutorial-get-started-linux/datasource.png)
-	
-	目前您可以選取 Azure 儲存體帳戶做為 HDInsight 叢集資料來源。請使用下列資訊來了解 [資料來源] 刀鋒視窗上的項目。
-	
-	- __選取方法__：將此設為 [來自所有訂用帳戶]，即可瀏覽您訂用帳戶的儲存體帳戶。如果您想要輸入現有儲存體帳戶的 [儲存體名稱] 和 [存取金鑰]，請將此設為 [存取金鑰]。
+    - **ClusterName**：輸入您將建立的 Hadoop 叢集的名稱。
+    - 叢集登入名稱和密碼：預設登入名稱是 admin。
+    - SSH 使用者名稱和密碼。
     
-    - __選取儲存體帳戶__：如果您的訂用帳戶已經有儲存體帳戶，使用此選項來選取要用於叢集的帳戶。
-	
-	- __建立新項目__：可用來建立新的儲存體帳戶。使用出現的欄位輸入儲存體帳戶名稱。如果該名稱可用，將會出現綠色核取記號。
-	
-	- __選擇預設容器__：使用此選項可輸入要用於該叢集的預設容器名稱。雖然您可以輸入任何名稱，但我們建議您使用與叢集相同的名稱，以便輕易辨識用於這個特定叢集的容器。
-	
-	- __位置__：儲存體帳戶所在地或將建立的地理區域。
-	
-		> [AZURE.IMPORTANT] 選取預設資料來源位置的同時，也會設定 HDInsight 叢集位置。叢集和預設資料來源必須位於相同區域中。
+    請記下這些值。稍後在教學課程中需要這些資訊。
+
+    > [AZURE.NOTE] SSH 可透過命令列遠端存取 HDInsight 叢集。您在此使用的使用者名稱和密碼會在透過 SSH 連接到叢集時使用。此外，SSH 使用者名稱必須是唯一的，因為該名稱會在所有 HDInsight 叢集節點上建立使用者帳戶。以下是一些保留給叢集上的服務使用的帳戶名稱，不能做為 SSH 使用者名稱︰
+    >
+    > root、hdiuser、storm、hbase、ubuntu、zookeeper、hdfs、yarn、mapred、hbase、hive、oozie、falcon、sqoop、admin、tez、hcat、hdinsight-zookeeper。
+
+	> 如需搭配 HDInsight 使用 SSH 的詳細資訊，請參閱下列文章：
+
+	> * [從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)
+	> * [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-windows.md)
+
     
-    - __叢集 AAD 身分識別__：使用此選項，來選取叢集將用來存取 Azure 資料湖存放區的 Azure Active Directory 身分識別。
-    
-        > [AZURE.NOTE] 這不會在這份文件中使用，並且可以保留預設設定。如需使用此項目和 Azure 資料湖存放區與 HDInsight 的詳細資訊，請參閱[建立使用 Azure 資料湖存放區的 HDInsight 叢集](data-lake-store-hdinsight-hadoop-use-portal.md)。
-		
-	- __選取__：用來儲存資料來源組態。
-	
-7. 選取 [節點定價層] 會顯示將針對此叢集建立之節點的相關資訊。背景工作節點數目預設會設為 __4__。該叢集的預估成本將會顯示在此刀鋒視窗的底部。
+3\. 按一下 [確定] 儲存參數。
 
-	![節點定價層刀鋒視窗](./media/hdinsight-apache-storm-tutorial-get-started-linux/nodepricingtiers.png)
-	
-    您可以選取各個節點類型，在您的叢集變更這些節點所使用的 VM 類型。針對本文件中的步驟保留這些項目的預設設定。
-    
-	使用 [選取] 按鈕以儲存 [節點定價層] 資訊。
+4\. 在 [自訂部署] 刀鋒視窗中，按一下 [資源群組] 下拉式方塊，然後按一下 [新增] 來建立新的資源群組。資源群組是聚集叢集、相依儲存體帳戶和其他已連結資源的容器。
 
-8. 選取 [選用設定]。此刀鋒視窗可讓您將叢集加入「虛擬網路」、使用「指令碼動作」自訂叢集，或使用「自訂中繼存放區」以保留 Hive 和 Oozie 的資料。
+5\. 按一下 [法律條款]，然後按一下 [建立]。
 
-	![選用設定刀鋒視窗](./media/hdinsight-apache-storm-tutorial-get-started-linux/optionalconfiguration.png)
-    
-    針對本文件中的步驟將這些設定保留為 [未設定]。
+6\. 按一下 [建立]。您將會看到新的圖格，標題為「提交範本部署的部署」。大約需要 20 分鐘的時間來建立叢集和 SQL Database。
 
-9. 請確定已選取 [釘選到「開始面板」]，然後選取 [建立]。這將會建立叢集，並將該叢集磚加入到您 Azure 入口網站的「開始面板」。該圖示可表示該叢集正在佈建，並將在佈建完成後變更為 HDInsight 圖示。
-
-	| 佈建期間 | 佈建完成 |
-	| ------------------ | --------------------- |
-	| ![「開始面板」上的佈建指示器](./media/hdinsight-apache-storm-tutorial-get-started-linux/provisioning.png) | ![佈建的叢集磚](./media/hdinsight-apache-storm-tutorial-get-started-linux/provisioned.png) |
-
-	> [AZURE.NOTE] 建立叢集需要一些時間，通常約 15 分鐘左右。請使用「開始面板」上的磚，或頁面左邊的 [通知] 項目來以檢查佈建進度。
 
 ##在 HDInsight 上執行 Storm Starter 範例
 
@@ -152,7 +109,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 使用下列步驟以 Storm UI 監視拓撲。
 
-1. 開啟網頁瀏覽器至 https://CLUSTERNAME.azurehdinsight.net/stormui，其中 __CLUSTERNAME__ 是叢集的名稱。這會開啟 Storm UI。
+1. 開啟網頁瀏覽器至 https://CLUSTERNAME.azurehdinsight.net/stormui，其中 CLUSTERNAME 是叢集的名稱。這會開啟 Storm UI。
 
 	> [AZURE.NOTE] 如果要求您提供使用者名稱和密碼，請輸入叢集系統管理員 (admin) 和建立叢集時使用的密碼。
 
@@ -215,7 +172,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 ##停止拓撲
 
-返回 word-count 拓撲的 [拓撲摘要] \(Topology summary) 頁面，然後選取 [拓撲動作] \(Topology actions) 區段中的 [終止] \(Kill) 按鈕。出現提示時，請先輸入要等候 10 秒，再停止拓撲。逾時期限過後，當您瀏覽儀表板的 [Storm UI] 區段時，便不會再顯示拓撲。
+返回 word-count 拓撲的 [拓撲摘要] (Topology summary) 頁面，然後選取 [拓撲動作] (Topology actions) 區段中的 [終止] (Kill) 按鈕。出現提示時，請先輸入要等候 10 秒，再停止拓撲。逾時期限過後，當您瀏覽儀表板的 [Storm UI] 區段時，便不會再顯示拓撲。
 
 ##刪除叢集
 
@@ -239,4 +196,4 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

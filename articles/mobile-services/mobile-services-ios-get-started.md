@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="02/10/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>開始使用行動服務
@@ -92,4 +92,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET 後端版本]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="如何註解資料來源"
+   pageTitle="如何註解資料來源 | Microsoft Azure"
    description="此作法文章重點在於於如何在 Azure 資料目錄中註解資料資產 (包括易記名稱、標記、說明和專家)。"
    services="data-catalog"
    documentationCenter=""
@@ -61,4 +61,4 @@ Azure 資料目錄預覽期間支援下列類型的註解：
 ## 另請參閱
 - [開始使用 Azure 資料目錄](data-catalog-get-started.md)教學課程，取得如何標註資料來源的逐步詳細資料。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

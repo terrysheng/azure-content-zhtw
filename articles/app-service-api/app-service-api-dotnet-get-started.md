@@ -255,9 +255,11 @@ Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagg
 
 	![](./media/app-service-api-dotnet-get-started/apptype.png)
 
-	應用程式類型並不會決定可供新的 API 應用程式、Web 應用程式或行動應用程式使用的功能。這些教學課程中顯示的所有 API 應用程式功能可供上述三種類型使用。唯一的差別在於 Azure 入口網站為了識別應用程式類型而顯示的圖示和文字，以及功能列在入口網站中某些頁面上的順序。您稍後將在本教學課程中看見 Azure 入口網站；這是用來管理 Azure 資源的 Web 介面。
+	<a id="apptype"></a> 應用程式類型並不會決定可供新的 API 應用程式、Web 應用程式或行動應用程式使用的功能。這些教學課程中顯示的所有 API 應用程式功能可供上述三種類型使用。唯一的差別在於 Azure 入口網站為了識別應用程式類型而顯示的圖示和文字，以及功能列在入口網站中某些頁面上的順序。您稍後將在本教學課程中看見 Azure 入口網站；這是用來管理 Azure 資源的 Web 介面。
 
-4. 在 *azurewebsites.net* 網域中輸入獨有的 [API 應用程式名稱]，例如 ToDoListDataAPI 加上數字，使它成為獨有名稱。
+	在這些教學課程中，SPA 前端正在 Web 應用程式中執行，而每個 Web API 後端正在 API 應用程式中執行，但如果三個項目都是 Web 應用程式或者都是 API 應用程式，則所有項目的運作方式都相同。此外，單一 API 應用程式或 Web 應用程式都可以裝載 SPA 前端和中間層後端。
+
+4. 在 azurewebsites.net 網域中輸入獨有的 [API 應用程式名稱]，例如 ToDoListDataAPI 加上數字，使它成為獨有名稱。
 
 	Visual Studio 會將日期時間字串附加至專案名稱，藉此提議唯一的名稱。如果想要的話，您可以接受該名稱。
 
@@ -315,13 +317,13 @@ Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagg
 	* 在發行期間預先編譯
 	* 從 App\_Data 資料夾中排除檔案
 
-	在本教學課程中，您不需要這些。如需它們執行了哪些作業的說明，請參閱[HOW TO：在 Visual Studio 中使用單鍵發佈來部署 Web 專案](https://msdn.microsoft.com/library/dd465337.aspx)。
+	在本教學課程中，您不需要這些。如需它們執行了哪些作業的說明，請參閱[操作說明：在 Visual Studio 中使用單鍵發佈來部署 Web 專案](https://msdn.microsoft.com/library/dd465337.aspx)。
 
 14. 按 [下一步]。
 
 	![](./media/app-service-api-dotnet-get-started/settingsnext.png)
 
-	[預覽] 索引標籤讓您有機會查看哪些檔案即將從您的專案複製到 API 應用程式。當您將專案部署至您先前已部署至的 API 應用程式時，只會複製已變更的檔案。如果您想要查看即將複製的項目清單，您可以按一下 [開始預覽] 按鈕。
+	[預覽] 索引標籤讓您有機會查看哪些檔案即將從您的專案複製到 API 應用程式。當您將專案部署至您先前已部署至的 API 應用程式時，只會複製已變更的檔案。如果您想要查看即將複製的項目清單，可以按一下 [開始預覽] 按鈕。
 
 15. 按一下 [發行]。
 
@@ -405,7 +407,7 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 	![](./media/app-service-api-dotnet-get-started/codegenfiles.png)
 
-5. 在 ToDoListAPI 專案中，開啟 *Controllers\\ToDoListController.cs*，查看可使用所產生的用戶端呼叫 API 的程式碼。
+5. 在 ToDoListAPI 專案中，開啟 Controllers\\ToDoListController.cs，查看可使用所產生的用戶端呼叫 API 的程式碼。
 
 	下列程式碼片段示範此程式碼如何具現化用戶端物件和呼叫 Get 方法。
 
@@ -418,7 +420,7 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 	建構函式參數會從 `toDoListDataAPIURL` 應用程式設定取得端點 URL。在 Web.config 檔案中，該值設為 API 專案的本機 IIS Express URL，以便讓您在本機執行應用程式。如果您省略建構函式參數，預設端點會是您產生程式碼的 URL。
 
-6. 將會根據您的 API 應用程式名稱，以不同的名稱產生您的用戶端類別；在 *Controllers\\ToDoListController.cs* 中變更此程式碼，讓類型名稱符合您的專案中產生的內容。例如，如果您將 API 應用程式命名為 ToDoListDataAPI0121，程式碼看起來會像下面的範例：
+6. 將會根據您的 API 應用程式名稱，以不同的名稱產生您的用戶端類別；在 Controllers\\ToDoListController.cs 中變更此程式碼，讓類型名稱符合您的專案中產生的內容。例如，如果您將 API 應用程式命名為 ToDoListDataAPI0121，程式碼看起來會像下面的範例：
 
 		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 		
@@ -435,7 +437,7 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 5. 在 [App Service] 對話方塊中，按一下 [新增]。
 
-3. 在 [建立 App Service] 對話方塊的 [主控] 索引標籤中，輸入 [API 應用程式名稱]，而該名稱在 *azurewebsites.net* 網域中必須是唯一名稱。
+3. 在 [建立 App Service] 對話方塊的 [主控] 索引標籤中，輸入 [API 應用程式名稱]，而該名稱在 azurewebsites.net 網域中必須是唯一名稱。
 
 5. 選擇您要使用的 Azure [訂用帳戶]。
 
@@ -484,6 +486,8 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 	![](./media/app-service-api-dotnet-get-started/midtierget.png)
 
+如需所產生的用戶端的詳細資訊，請參閱 [AutoRest GitHub 儲存機制](https://github.com/azure/autorest)。如需使用所產生用戶端的相關問題協助，請開啟 [AutoRest 儲存機制中的問題](https://github.com/azure/autorest/issues)。
+
 ## <a id="creating"></a> 選擇性：從頭開始建立 API 應用程式專案
 
 在本教學課程中，您會下載 ASP.NET Web API 專案以便部署至 App Service，而非從頭開始建立新的專案。若要建立打算部署到 API 應用程式的專案，您可以建立一般 Web API 專案並安裝 Swashbuckle 封裝，也可以使用 [Azure API 應用程式] 新專案範本。若要使用該範本，請按一下 [檔案] > [新增] > [專案] > [ASP.NET Web 應用程式] > [Azure API 應用程式]。
@@ -494,7 +498,7 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 ## 選擇性：變更應用程式類型
 
-如稍早所述，API 應用程式、Web 應用程式和行動應用程式之間的唯一差異是在入口網站中的表示方式。因為它們都有相同的功能，所以不需要變更應用程式類型。
+如[稍早](#apptype)所述，API 應用程式、Web 應用程式和行動應用程式之間的唯一差異是在入口網站中的表示方式。因為它們都有相同的功能，所以不需要變更應用程式類型。
 
 不過，如果您想要變更入口網站表示方式，方法很簡單。比方說，您可以執行下列步驟，將您剛才建立的其中一個 API 應用程式變更為 Web 應用程式。
 
@@ -502,11 +506,11 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 2. 在左導覽窗格中，展開 [訂用帳戶]，然後展開您先前使用的訂用帳戶。
 
-4. 展開 **resourceGroups**，然後展開您先前使用的資源群組。
+4. 展開 resourceGroups，然後展開您先前使用的資源群組。
 
-5. 依序展開 **Microsoft.Web**、[網站]，然後選取您要變更的 API 應用程式。
+5. 依序展開 Microsoft.Web、sites，然後選取您要變更的 API 應用程式。
 
-6. 按一下 [編輯]。
+6. 按一下 [**編輯**]。
 
 8. 尋找 `kind` 屬性，然後將它從 "api" 變更為 "WebApp"。
 
@@ -528,6 +532,6 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 ## 後續步驟
 
-在本教學課程中，您已了解如何建立 API 應用程式、對其部署程式碼、為其產生用戶端程式碼，以及從 .NET 用戶端取用應用程式。API Apps 入門系列中的下一個教學課程示範如何[使用 CORS 從 JavaScript 用戶端取用 API 應用程式](app-service-api-cors-consume-javascript.md)。
+在本教學課程中，您已了解如何建立 API 應用程式、對其部署程式碼、為其產生用戶端程式碼，以及從 .NET 用戶端取用應用程式。API Apps 入門系列中的下一個教學課程示範如何[使用 CORS 從 JavaScript 用戶端取用 API 應用程式](app-service-api-cors-consume-javascript.md)。本系列的教學課程稍後會顯示如何實作驗證與授權。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

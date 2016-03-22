@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="12/04/2015"
+ ms.date="03/09/2016" 
  ms.author="krisragh"/>
 
 # 排程器概念、術語及實體階層
@@ -190,7 +190,7 @@
 ## 另請參閱
 
  [排程器是什麼？](scheduler-intro.md)
- 
+
  [在 Azure 入口網站中開始使用排程器](scheduler-get-started-portal.md)
 
  [Azure 排程器的計劃和計費](scheduler-plans-billing.md)
@@ -207,4 +207,4 @@
 
  [Azure 排程器輸出驗證](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

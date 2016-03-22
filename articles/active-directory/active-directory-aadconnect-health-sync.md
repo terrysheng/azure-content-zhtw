@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
+	ms.date="03/08/2016"
 	ms.author="billmath"/>
 
 # 使用適用於同步處理的 Azure AD Connect Health
@@ -28,6 +28,17 @@
 選取警示，將會為您提供其他資訊，以及解決警示可以採取的步驟，和其他文件的連結。
 
 ![Azure AD Connect 同步處理錯誤](./media/active-directory-aadconnect-health-sync/alert.png)
+
+### 有限的警示評估
+如果 Azure AD Connect 不使用預設組態 (比方說，如果 [屬性篩選] 從預設組態變更為自訂組態)，則 Azure AD Connect Health 代理程式不會上傳 Azure AD Connect 相關的錯誤事件。
+
+這會限制服務的警示評估。您應會在 Azure 入口網站中您的服務之下，看到指出這種情況的橫幅。
+
+![適用於同步處理的 Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/banner.png)
+
+您可以按一下 [設定] 並允許 Azure AD Connect Health 代理程式上傳所有的錯誤記錄檔，加以變更。
+
+![適用於同步處理的 Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/banner2.png)
 
 ## 同步處理深入了解
 藉由適用於同步處理的 Azure AD Connect Health 的最新版本，新增了下列新功能：
@@ -56,4 +67,4 @@
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 版本歷程記錄](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -345,7 +345,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 
 ## 將應用程式部署至 Web 應用程式
 
-執行 AzureWebDemo 並建立新的 Web 應用程式之後，登入傳統入口網站，按一下 **[Web Apps]**，然後選取 [**Web Apps**] 清單中的 [**WebDemoWebApp**]。在 Web 應用程式的儀表板頁面中，按一下 [**瀏覽**] (或按一下 URL：`webdemowebapp.azurewebsites.net`) 以導覽至該 Web 應用程式。您將會看見空白預留位置頁面，因為尚未將任何內容發佈至此 Web 應用程式。
+執行 AzureWebDemo 並建立新的 Web 應用程式之後，登入傳統入口網站，按一下 **[Web Apps]**，然後選取 [**Web Apps**] 清單中的 [**WebDemoWebApp**]。在 Web 應用程式的儀表板頁面中，按一下 [**瀏覽**] \(或按一下 URL：`webdemowebapp.azurewebsites.net`) 以導覽至該 Web 應用程式。您將會看見空白預留位置頁面，因為尚未將任何內容發佈至此 Web 應用程式。
 
 接下來，您會建立 "Hello World" 應用程式並將其部署至 Web 應用程式。
 
@@ -607,4 +607,4 @@ FileZilla 是另一項可用來發佈應用程式的工具 ，這是具有便利
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [Azure 入口網站]: https://portal.azure.com
 
-<!----HONumber=AcomDC_0302_2016-------->
+<!-----HONumber=AcomDC_0302_2016-------->

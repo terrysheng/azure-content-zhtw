@@ -25,7 +25,7 @@
 
 Machine Learning Studio 實驗包含將元件拖曳到畫布，以及連接元件以*建立模型*、*訓練模型*及*對模型評分與測量*。這個實驗會利用 Machine Learning Studio 模組形式來使用預測性模型化技術，以擷取資料、根據它來訓練模型，並將模型套用到新資料。您也可以將模組新增至前置處理資料並選取功能、將資料分割為訓練和測試集，以及評估或交叉驗證模型的品質。
 
-進入 Machine Learning Studio ([https://studio.azureml.net](https://studio.azureml.net))，然後按一下 [開始使用] 按鈕。您可以選擇以來賓身分存取或登入 Microsoft 帳戶。
+進入 Machine Learning Studio [https://studio.azureml.net](https://studio.azureml.net)，然後按一下 [開始使用] 按鈕。您可以選擇以來賓身分存取或登入 Microsoft 帳戶。
 
 如需 Machine Learning Studio 的一般資訊，請參閱[什麼是 Machine Learning Studio？](machine-learning-what-is-ml-studio.md)。
 
@@ -194,7 +194,7 @@ Machine Learning Studio 隨附多個範例資料集供您選擇，而且您可�
 
 ## 後續步驟
 
-現在您已經完成第一個機器學習教學課程，並已設定實驗，您就能逐一檢測以嘗試改善模型。例如，您可以變更您在預測中使用的功能。或者，您可以修改 [線性迴歸][][linear-regression] 演算法的屬性，或嘗試完全不同的演算法。您甚至可以同時在實驗中新增多個機器學習演算法，並使用[評估模型][evaluate-model]模組進行比較 (兩兩相比)。
+現在您已經完成第一個機器學習教學課程，並已設定實驗，您就能逐一檢測以嘗試改善模型。例如，您可以變更您在預測中使用的功能。或者，您可以修改[線性迴歸][linear-regression]演算法的屬性，或嘗試完全不同的演算法。您甚至可以同時在實驗中新增多個機器學習演算法，並使用[評估模型][evaluate-model]模組進行比較 (兩兩相比)。
 
 > [AZURE.TIP] 使用實驗畫布下方的 [**另存新檔**] 按鈕，可複製實驗的任何檢測。您可以按一下畫布下方的 [**檢視執行歷程記錄**]，以檢視實驗的所有檢測。如需詳細資訊，請參閱[在 Azure Machine Learning Studio 中管理實驗反覆項目][runhistory]。
 

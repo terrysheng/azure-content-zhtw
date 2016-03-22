@@ -128,7 +128,7 @@
 
 
 	請務必更新三個預留位置︰
-	* SENDER\_ID：將 `SENDER_ID` 設定為稍早在 [Google Cloud Console](http://cloud.google.com/console) 中取得的專案編號。
+	* SENDER_ID：將 `SENDER_ID` 設定為稍早在 [Google Cloud Console](http://cloud.google.com/console) 中取得的專案編號。
 	* HubListenConnectionString：將 `HubListenConnectionString` 設定為您的中樞的 **DefaultListenAccessSignature** 連接字串。在 [Azure 入口網站]中按一下您的中樞的 [設定] 刀鋒視窗上的 [存取原則]，即可複製該連接字串。
 	* HubName︰使用出現在 [Azure 入口網站]中樞刀鋒視窗中的通知中樞名稱。
 

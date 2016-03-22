@@ -44,6 +44,7 @@ Engagement 需要額外的架構才能運作：在專案總管中，開啟專案
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
+<br\>
 > [AZURE.NOTE] AdSupport 架構可以移除。Engagement 需要此架構來收集 IDFA。但您可以停用 IDFA 集合 \<ios-sdk-engagement-idfa\>，以符合關於此識別碼的新 Apple 原則。
 
 ##初始化 Engagement SDK
@@ -208,4 +209,4 @@ Engagement API 可允許使用所有 Engagement 的進階功能，詳情請見�
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!----HONumber=AcomDC_0302_2016-------->
+<!-----HONumber=AcomDC_0302_2016-------->

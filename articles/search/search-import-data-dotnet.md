@@ -53,7 +53,8 @@ SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 --- | --- | --- | ---
 `Upload` | `Upload` 動作類似「upsert」，如果是新文件，就會插入該文件，如果文件已經存在，就會更新/取代它。 | 索引鍵以及其他任何您想要定義的欄位 | 在更新/取代現有文件時，要求中未指定的欄位會將其欄位設定為 `null`。即使先前已將欄位設定為非 null 值也是一樣。
 `Merge` | 使用指定的欄位更新現有文件。如果文件不存在於索引中，合併就會失敗。 | 索引鍵以及其他任何您想要定義的欄位 | 您在合併中指定的任何欄位將取代文件中現有的欄位。這包括類型 `DataType.Collection(DataType.String)` 的欄位。例如，如果文件包含欄位 `tags` 且值為 `["budget"]`，而您使用值 `["economy", "pool"]` 針對 `tags` 執行合併，則 `tags` 欄位最後的值會是 `["economy", "pool"]`。而不會是 `["budget", "economy", "pool"]`。
-`MergeOrUpload` | 如果含有指定索引鍵的文件已經存在於索引中，則此動作的行為會類似 `Merge`。如果文件不存在，其行為會類似新文件的 `Upload`。| 索引鍵以及其他任何您想要定義的欄位 |- `Delete` | 從索引中移除指定的文件。| 僅索引鍵 | 索引鍵欄位以外的所有指定欄位都將遭到忽略。如果您想要從文件中移除個別欄位，請改用 `Merge`，而且只需明確地將該欄位設為 null。
+`MergeOrUpload` | 如果含有指定索引鍵的文件已經存在於索引中，則此動作的行為會類似 `Merge`。如果文件不存在，其行為會類似新文件的 `Upload`。| 索引鍵以及其他任何您想要定義的欄位 |-
+`Delete` | 從索引中移除指定的文件。| 僅索引鍵 | 索引鍵欄位以外的所有指定欄位都將遭到忽略。如果您想要從文件中移除個別欄位，請改用 `Merge`，而且只需明確地將該欄位設為 null。
 
 您可以指定要搭配 `IndexBatch` 不同靜態方法及 `IndexAction` 類別使用的動作，如下一節所示。
 
@@ -204,4 +205,4 @@ public partial class Hotel
 ## 下一步
 在填入 Azure 搜尋服務索引後，您就可以開始發出查詢來搜尋文件。如需詳細資料，請參閱[查詢 Azure 搜尋服務索引](search-query-overview.md)。
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

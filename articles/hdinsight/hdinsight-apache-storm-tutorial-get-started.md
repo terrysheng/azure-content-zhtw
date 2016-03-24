@@ -107,13 +107,13 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 > [AZURE.NOTE] 連線至儀表板時，系統會提示您輸入使用者名稱和密碼。這是您建立叢集時使用的系統管理員名稱 (**admin**) 和密碼。
 
-載入 Storm 儀表板後，您會看到 [提交拓撲] (Submit Topology) 表單。
+載入 Storm 儀表板後，您會看到 [提交拓撲] \(Submit Topology) 表單。
 
 ![利用 Storm 儀表板提交 Storm Starter 拓撲。](./media/hdinsight-apache-storm-tutorial-get-started/submit.png)
 
 [提交拓撲] 表單可用於上傳並執行含有 Storm 拓撲的 .jar 檔案。它也包含數個與叢集一併提供的基本範例。
 
-### <a id="run">從 GitHub 的 Storm Starter 專案執行 word-count 範例
+### <a id="run"></a>從 GitHub 的 Storm Starter 專案執行 word-count 範例
 
 與叢集一併提供的範例包含 word-counting 拓撲的數個變體。這些範例包含會隨機產生句子的 **spout**，以及會將每個句子拆成個別單字，然後計算每個單字的出現次數的 **bolts**。這些範例均來自 [Storm Starter 範例](https://github.com/apache/storm/tree/master/examples/storm-starter) (Apache Storm 的一部分)。
 
@@ -246,3 +246,4 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 [preview-portal]: https://portal.azure.com/
 
 <!---HONumber=AcomDC_0309_2016-->
+

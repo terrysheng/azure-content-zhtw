@@ -376,7 +376,7 @@
 <a name="ssl_offloading_properties"></a>
 ### SSL 卸載屬性 ###
 
-在 Eclipse 的 [專案總管] 窗格中開啟角色的內容功能表，按一下 [Azure]，然後按一下 [SSL 卸載]。
+在 Eclipse 的 [專案總管] 窗格中開啟角色的內容功能表，按一下 [Azure]，然後按一下 \[SSL 卸載]。
 
 ![][ic719481]
 

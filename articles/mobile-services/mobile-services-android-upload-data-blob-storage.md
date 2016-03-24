@@ -426,4 +426,4 @@
 [行動服務 .NET 作法概念性參考]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----HONumber=AcomDC_0309_2016-->

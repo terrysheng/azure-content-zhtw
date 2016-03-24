@@ -78,7 +78,7 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
 <!-- Links -->
 
-[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
+[透過 IoT 中心傳送雲端對裝置的訊息]: iot-hub-csharp-csharp-c2d.md
 
 [Azure 入口網站]: https://portal.azure.com/
 

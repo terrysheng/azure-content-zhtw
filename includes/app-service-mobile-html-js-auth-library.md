@@ -72,4 +72,4 @@ fetch(url)
 
 您也可以使用 jQuery 或另一個 AJAX API 擷取資訊。將會以 JSON 物件形式接收資料。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

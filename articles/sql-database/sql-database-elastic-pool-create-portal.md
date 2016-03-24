@@ -90,6 +90,6 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 - [使用 C# 管理 SQL Database 彈性集區](sql-database-client-library.md)
 - [彈性資料庫參考](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->
 
 

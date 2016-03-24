@@ -99,4 +99,4 @@
 
 如需使用 Visual Studio 來撰寫 Data Factory 實體及發行至 Azure 的詳細資料，請參閱[建置第一個 Data Factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md)。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->

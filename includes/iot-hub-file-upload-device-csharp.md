@@ -68,7 +68,7 @@
 
 > [AZURE.NOTE] 請注意，這個模擬裝置的實作，只會在上傳 Blob 後，完成雲端對裝置的訊息。此方法可簡化後端中已上傳檔案的處理作業，因為傳遞通知即代表上傳的檔案已可供處理。如 [IoT 中心開發人員指南][IoT Hub Developer Guide - C2D]中所述，但在「可視性逾時」(通常是 1 分鐘) 前未完成的訊息會放回裝置佇列，而 **ReceiveAsync()** 方法會再次接收該訊息。在檔案上傳時間較長的情況下，可能較適合為模擬裝置將目前的上傳工作保持長期存放。這可讓模擬裝置在檔案上傳完畢之前，完成雲端對裝置的訊息，然後傳送雲端到裝置訊息，以對後端通知工作已完成。
 
-<!-- Links -->
+<!--- Links -->
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Azure 儲存體 - 如何使用 Blob]: ../storage/storage-dotnet-how-to-use-blobs.md#upload-a-blob-into-a-container
 

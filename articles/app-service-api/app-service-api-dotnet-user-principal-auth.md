@@ -114,7 +114,7 @@
 
 	您不必建立租用戶，因為每個 Azure 帳戶都會自動擁有一個。
 
-7. 在 [管理模式]下，按一下 [建立新的 AD 應用程式] (如果尚未選取)，並記下 [建立應用程式] 文字方塊中的值；您稍後將在 Azure 傳統入口網站中查閱此 AAD 應用程式。
+7. 在 [管理模式]下，按一下 [建立新的 AD 應用程式] \(如果尚未選取)，並記下 [建立應用程式] 文字方塊中的值；您稍後將在 Azure 傳統入口網站中查閱此 AAD 應用程式。
 
 	![Azure 入口網站 Azure AD 設定](./media/app-service-api-dotnet-user-principal-auth/aadsettings2.png)
 
@@ -206,14 +206,14 @@
 
 對 ToDoListAngular 專案中的檔案進行下列變更。
 
-1. 開啟 index.html 檔案。
+1. 開啟 *index.html* 檔案。
 
 2. 將參考 JS 適用的 Active Directory 驗證程式庫 (ADAL) 指令碼的程式行取消註解。
 
 		<script src="app/scripts/adal.js"></script>
 		<script src="app/scripts/adal-angular.js"></script>
 
-1. 開啟 app/scripts/app.js 檔案。
+1. 開啟 *app/scripts/app.js* 檔案。
 
 2. 將標記為「不需要驗證」的程式碼區塊註解化，並將標記為「需要驗證」的程式碼區塊取消註解。
 
@@ -244,11 +244,11 @@
 
 	這些 `app.js` 變更會指定讓呼叫端程式碼和接受呼叫的 API 位於相同的 Azure AD 應用程式。
 
-1. 開啟 app/scripts/homeCtrl.js 檔案。
+1. 開啟 *app/scripts/homeCtrl.js* 檔案。
 
 2. 將標記為「不需要驗證」的程式碼區塊註解化，並將標記為「需要驗證」的程式碼區塊取消註解。
 
-1. 開啟 app/scripts/indexCtrl.js 檔案。
+1. 開啟 *app/scripts/indexCtrl.js* 檔案。
 
 2. 將標記為「不需要驗證」的程式碼區塊註解化，並將標記為「需要驗證」的程式碼區塊取消註解。
 
@@ -270,7 +270,7 @@ ToDoListAPI 專案目前會將 "*" 做為 `owner` 值傳送到 ToDoListDataAPI�
 
 對 ToDoListAPI 專案進行下列變更。
 
-1. 開啟 Controllers/ToDoListController.cs 檔案，並將每個動作方法中會把 `owner` 設定為 Azure AD `NameIdentifier` 宣告值的程式行取消註解。例如：
+1. 開啟 *Controllers/ToDoListController.cs* 檔案，並將每個動作方法中會把 `owner` 設定為 Azure AD `NameIdentifier` 宣告值的程式行取消註解。例如：
 
 		owner = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.NameIdentifier).Value;
 
@@ -332,3 +332,4 @@ ToDoListAPI 專案目前會將 "*" 做為 `owner` 值傳送到 ToDoListDataAPI�
 在本教學課程中，您已了解如何使用 API 應用程式的 App Service 驗證，以及如何利用 ADAL JS 程式庫呼叫 API 應用程式。在下一個教學課程中，您將學習如何[對於服務對服務的案例保護您的 API 應用程式存取](app-service-api-dotnet-service-principal-auth.md)。
 
 <!---HONumber=AcomDC_0309_2016-->
+

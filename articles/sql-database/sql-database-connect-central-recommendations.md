@@ -53,9 +53,9 @@
 
 將某人新增為 SQL Database 的使用者時，您有一些選擇：
 
-- 將*登入*與密碼新增至 **master** 資料庫，然後再將對應的*使用者*新增至相同伺服器上的一或多個其他資料庫。
+- 將 *登入* 與密碼新增至 **master** 資料庫，然後再將對應的 *使用者* 新增至相同伺服器上的一或多個其他資料庫。
 
-- 將*自主使用者*與密碼新增至一或多個資料庫，但沒有 **master** 中任何*登入*的連結。
+- 將 *自主使用者* 與密碼新增至一或多個資料庫，但沒有 **master** 中任何 *登入* 的連結。
 
 
 自主使用者方法有其優點和缺點︰
@@ -85,7 +85,7 @@
 - 如果您的用戶端在 Azure 虛擬機器 (VM) 上執行時，用戶端程式連接至 SQL Database V12，您就必須開啟此 VM 上 11000-11999 和 14000-14999 範圍的連接埠。如需詳細資訊，請按一下[這裡](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
 
-- 若要處理*暫時性錯誤*，請將[*重試*邏輯](#TransientFaultsAndRetryLogicGm)加入至與 Azure SQL Database 互動的用戶端程式。
+- 若要處理 *暫時性錯誤* ，請將[ *重試* 邏輯](#TransientFaultsAndRetryLogicGm)加入至與 Azure SQL Database 互動的用戶端程式。
 
 
 ### 連接集區
@@ -177,4 +177,4 @@ Azure 系統能夠在 SQL Database 服務出現繁重的工作負載時動態重
 
 - [SQL Database 和 SQL Server 的連接庫](sql-database-libraries.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0114_2016-->

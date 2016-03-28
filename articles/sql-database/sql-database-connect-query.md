@@ -141,7 +141,7 @@
 1. 在 Visual Studio 中，從 [方案總管] 窗格開啟 App.config 檔案。
 
 2. 新增 **&#x3c;configuration&#x3e; &#x3c;/configuration&#x3e;** 元素，如下列範例的 App.config 程式碼範例所示。
- - 以您的實際值取代 *{your\_placeholders}*：
+ - 以您的實際值取代 *{your\_placeholders}* ：
 
 ```
 	<?xml version="1.0" encoding="utf-8" ?>
@@ -359,4 +359,4 @@ namespace ConnectAndQuery_Example
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!----HONumber=AcomDC_0211_2016-->

@@ -46,7 +46,7 @@ Azure 有兩個選項可在雲端主控 SQL Server 工作負載：
 
 ## 仔細看看 Azure SQL Database 和 Azure VM 上的 SQL Server
 
-**Azure SQL Database** 是託管在 Azure 雲端的關聯式資料庫即服務 (DBaaS)，其產業類別屬於*軟體即服務 (SaaS)* 和*平台即服務 (PaaS)*。SQL Database 會建立在 Microsoft 所擁有、代管及維護的標準化硬體和軟體上。有了 SQL 資料庫，您可以使用內建的特色與功能在服務上直接開發。使用 SQL Database 時，您可以隨用隨付，並使用相應增加或相應放大選項以取得不需中斷的更強大功能。
+**Azure SQL Database** 是託管在 Azure 雲端的關聯式資料庫即服務 (DBaaS)，其產業類別屬於 *軟體即服務 (SaaS)* 和 *平台即服務 (PaaS)* 。SQL Database 會建立在 Microsoft 所擁有、代管及維護的標準化硬體和軟體上。有了 SQL 資料庫，您可以使用內建的特色與功能在服務上直接開發。使用 SQL Database 時，您可以隨用隨付，並使用相應增加或相應放大選項以取得不需中斷的更強大功能。
 
 **Azure 虛擬機器 (VM) 中的 SQL Server** 屬於*基礎結構即服務 (IaaS)* 產業類別，可讓您在雲端的虛擬機器中執行 SQL Server。類似於 SQL Database，它會建立在 Microsoft 所擁有、代管及維護的標準化硬體上。使用 VM 上的 SQL Server 時，您可以採用自己的 SQL Server 授權，或使用 Azure 入口網站中預先授權的 SQL Server 映像。
 
@@ -199,4 +199,4 @@ Azure 有兩個選項可在雲端主控 SQL Server 工作負載：
 
 > [AZURE.NOTE] 想要試用 SQL Server 2016 CTP2 嗎？ 註冊 Microsoft Azure，然後移至[這裡](http://aka.ms/sql2016vm "開始")以建立已安裝 SQL Server 2016 CTP2 的虛擬機器。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->

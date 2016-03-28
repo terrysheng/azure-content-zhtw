@@ -27,7 +27,7 @@
 
 ![](./media/storsimple-ova-failover-dr/image15.png)
 
-本文僅適用於 StorSimple Virtual Array。若要容錯移轉 8000 系列裝置，請移至 [StorSimple 裝置的容錯移轉和災害復原](storsimple-device-failover-disaster-recovery.md)。
+本文僅適用於 StorSimple Virtual Array。若要容錯移轉 8000 系列裝置，請移至 [StorSimple 裝置的容錯移轉和災害復原](storsimple-device-failover-disaster-recovery.md) 。
 
 
 ## 何謂災害復原？
@@ -123,7 +123,7 @@ DR 順利完成之後，來源裝置上雲端資料的擁有權會移轉給目�
 
 7. 核取 [我同意容錯移轉是永久性作業，一旦成功完成容錯移轉，便會刪除來源裝置]。
 
-8. 按一下核取圖示 ![](./media/storsimple-ova-failover-dr/image1.png)。
+8. 按一下核取圖示 ![](./media/storsimple-ova-failover-dr/image1.png) 。
 
 
 9. 容錯移轉工作隨即起始，並通知您。按一下 [檢視工作] 監視容錯移轉。
@@ -174,6 +174,6 @@ DR 順利完成之後，來源裝置上雲端資料的擁有權會移轉給目�
 
 ## 後續步驟
 
-深入了解如何[使用本機 Web UI 管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
+深入了解如何[使用本機 Web UI 管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md) 。
 
-<!-----HONumber=AcomDC_0316_2016-->
+<!-------HONumber=AcomDC_0316_2016-->

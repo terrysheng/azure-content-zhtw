@@ -104,7 +104,12 @@
 
 | 網域名稱 | 連接埠 | 說明 |
 | ------ | --------- | ------------ |
-| **.servicebus.windows.net | 443、80 | 透過 TCP 之服務匯流排轉送上的接聽程式 (需要 443 才能取得存取控制權杖) | | *.servicebus.windows.net | 9350 至 9354 | 透過 TCP 的選擇性服務匯流排轉送 | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
+| *.servicebus.windows.net | 443、80 | 透過 TCP 之服務匯流排轉送上的接聽程式 (需要 443 才能取得存取控制權杖) |
+| *.servicebus.windows.net | 9350 至 9354 | 透過 TCP 的選擇性服務匯流排轉送 |
+| *.core.windows.net | 443 | HTTPS |
+| *.clouddatahub.net | 443 | HTTPS |
+| graph.windows.net | 443 | HTTPS |
+| login.windows.net | 443 | HTTPS | 
 
 Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您可以在閘道電腦上相應地設定網域和連接埠。
 
@@ -475,7 +480,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您
 	- 在 activities 區段中，只會有 **type** 設定為 **Copy** 的活動。
 	- 活動的**輸入**設定為 **EmpOnPremSQLTable**，活動的**輸出**則設定為 **OutputBlobTable**。
 	- 在 **transformation** 區段中，將 **SqlSource** 指定為**來源類型**，並將 **BlobSink** 指定為**接收類型**。
-- **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select * from emp**。
+	- **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select * from emp**。
 
 	將 **start** 屬性的值取代為目前日期，並將 **end** 值取代為隔天的日期。開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。
 	
@@ -686,4 +691,4 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您
 5.	閘道器會利用相同的憑證解密認證，然後利用適當的驗證類行連接到內部部署資料存放區。
 6.	閘道器會根據複製活動在資料管線中的設定方式，將資料從內部部署存放區複製到雲端儲存體，或從雲端儲存體複製到內部部署資料存放區。請注意：在這個步驟中，閘道器會透過安全 (HTTPS) 通道直接與以雲端為基礎的儲存體服務 (例如 Azure Blob、Azure SQL 等) 通訊。
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

@@ -127,7 +127,7 @@ pushHandler.on('error', function (error) {
 [Azure Portal]: https://portal.azure.com
 [Azure Mobile Apps 快速啟動]: app-service-mobile-cordova-get-started.md
 [開始使用驗證]: app-service-mobile-cordova-get-started-users.md
-[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
+[將驗證新增至您的應用程式]: app-service-mobile-cordova-get-started-users.md
 
 [適用於 Azure Mobile Apps 的 Apache Cordova 外掛程式]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [第一個 Apache Cordova 應用程式]: http://cordova.apache.org/#getstarted
@@ -135,6 +135,6 @@ pushHandler.on('error', function (error) {
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[Query object documentation]: https://msdn.microsoft.com/zh-TW/library/azure/jj613353.aspx
+[Query 物件文件]: https://msdn.microsoft.com/zh-TW/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

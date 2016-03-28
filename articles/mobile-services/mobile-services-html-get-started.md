@@ -26,7 +26,7 @@
 
 ##概觀 
 
-本教學課程說明如何使用 Azure行動服務在 HTML 應用程式中新增雲端型後端服務。在本教學課程中，您將建立新的行動服務和簡單的*待辦事項清單*應用程式，後者會在前者儲存應用程式資料。您可以於下方檢視本教學課程的影片版本。
+本教學課程說明如何使用 Azure行動服務在 HTML 應用程式中新增雲端型後端服務。在本教學課程中，您將建立新的行動服務和簡單的 *待辦事項清單* 應用程式，後者會在前者儲存應用程式資料。您可以於下方檢視本教學課程的影片版本。
 
 > [AZURE.VIDEO mobile-get-started-html]
  
@@ -157,4 +157,4 @@
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

@@ -3,7 +3,7 @@
 
 ## 將 Azure Blob URI 傳送至模擬裝置
 
-在本節中，您將修改在 [使用 loT 中心傳送雲端到裝置訊息] 中建立的 **SendCloudtoDevice** 主控台應用程式，以共用存取簽章將 Azure Blob URI 包含在內。如此一來，雲端後端只會將 Blob 的寫入存取權授與雲端到裝置訊息的收件者。
+在本節中，您將修改在 [使用 IoT 中心傳送雲端到裝置訊息] 中建立的 **SendCloudtoDevice** 主控台應用程式，以共用存取簽章將 Azure Blob URI 包含在內。如此一來，雲端後端只會將 Blob 的寫入存取權授與雲端到裝置訊息的收件者。
 
 1. 在 Visual Studio 中，以滑鼠右鍵按一下 **SendCloudtoDevice** 專案，然後按一下 [管理 NuGet 封裝...]。 
 
@@ -70,4 +70,4 @@
 
 <!-- Images -->
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0309_2016-->

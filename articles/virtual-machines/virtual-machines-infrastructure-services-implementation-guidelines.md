@@ -27,7 +27,7 @@ Azure 是用來實作 dev/test 或概念證明設定的絕佳平台，因為它�
 
 這篇文章摘錄自〈[Azure 實作方針](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx)〉部落格文章的內容。感謝 Santiago Cánepa (Microsoft 應用程式開發經理) 和 Hugo Salcedo (Microsoft 應用程式開發經理) 提供的原始資料。
 
-> [AZURE.NOTE]同質群組已取代。此處未描述其用法。如需詳細資訊，請參閱[關於區域 VNet 和同質群組](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)。
+> [AZURE.NOTE] 同質群組已取代。此處未描述其用法。如需詳細資訊，請參閱[關於區域 VNet 和同質群組](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)。
 
 ## 1\.命名慣例
 
@@ -212,7 +212,7 @@ Azure 會建立含有一個作業系統磁碟、一個暫存磁碟，以及零�
 
 在 IaaS 的案例中，雲端服務可提供類似功能，儘管在大多數案例中，負載平衡器的功能是用來將流量轉接到特定的 TCP 或 UDP 連接埠 (從網際網路到該雲端服務內的多部虛擬機器)。
 
-> [AZURE.NOTE]雲端服務不存在於 Azure 資源管理員中。如需資源管理員優點的介紹，請參閱〈[Azure 資源管理員提供的 Azure 運算、網路和儲存體提供者](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)〉。
+> [AZURE.NOTE] 雲端服務不存在於 Azure 資源管理員中。如需資源管理員優點的介紹，請參閱〈[Azure 資源管理員提供的 Azure 運算、網路和儲存體提供者](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)〉。
 
 雲端服務名稱在 IaaS 中特別重要，因為 Azure 會使用它們做為磁碟預設命名慣例的一部分。雲端服務名稱只能包含字母、數字和連字號。欄位中的第一個和最後一個字元，必須是字母或數字。
 
@@ -274,7 +274,7 @@ Azure 訂用帳戶最多可支援 200 個雲端服務。
 28–59 | 6 | /26
 60–123 | 7 | /25
 
-> [AZURE.NOTE]針對一般的內部部署子網路，適用於含有 n 個主機位元之子網路的主機位址數目上限是 2<sup>n</sup> – 2。針對 Azure 子網路，適用於含有 n 個主機位元之子網路的主機位址數目上限是 2<sup>n</sup> – 5 (2 加 3 適用於 Azure 在每個子網路上使用的位址)。
+> [AZURE.NOTE] 針對一般的內部部署子網路，適用於含有 n 個主機位元之子網路的主機位址數目上限是 2<sup>n</sup> – 2。針對 Azure 子網路，適用於含有 n 個主機位元之子網路的主機位址數目上限是 2<sup>n</sup> – 5 (2 加 3 適用於 Azure 在每個子網路上使用的位址)。
 
 如果您選擇的子網路大小太小，就必須在子網路中為虛擬機器重新編號並重新部署。
 
@@ -436,10 +436,8 @@ Contoso 決定為其 Azure 虛擬機器使用下列名稱：
 
 [Azure 儲存體的延展性與效能目標](../storage-scalability-targets.md)
 
-[雲端平台整合架構 (Azure 架構模式)](../azure-architectures-cpif-overview.md)
-
 [資料中心延伸模組參考架構圖表](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 [Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

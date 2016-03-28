@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # 使用「將資料庫部署到 Microsoft Azure Database 精靈」將 SQL Database 移轉到 SQL Database
@@ -22,7 +22,7 @@ SQL Server Management Studio 中的「將資料庫部署至 Microsoft Azure Data
 
 ## 使用「將資料庫部署到 Microsoft Azure Database 精靈」
 
-> [AZURE.NOTE] 下列步驟假設您已[佈建 SQL Database 伺服器](sql-database-get-started.md)。
+> [AZURE.NOTE] 下列步驟假設您已[佈建 SQL Database 伺服器](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database/)。
 
 1. 請確認您有最新版本的 SQL Server Management Studio。新版的 Management Studio 會每月更新以維持與 Azure 入口網站的更新同步。
 
@@ -41,7 +41,7 @@ SQL Server Management Studio 中的「將資料庫部署至 Microsoft Azure Data
 
 	![從 [工作] 功能表部署至 Azure](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 
-5.	提供資料庫名稱的 [新資料庫名稱]，設定 Microsoft Azure SQL Database 的版本 ([服務層](sql-database-service-tiers.md))、[資料庫大小上限]、[服務目標] \(效能等級) 和精靈在移轉程序期間建立之 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 檔案的 [暫存檔名稱]。
+5.	提供資料庫名稱的 [新資料庫名稱]，設定 [Microsoft Azure SQL Database 的版本] ([服務層](sql-database-service-tiers.md))、[資料庫大小上限]、[服務目標] (效能等級) 和精靈在移轉程序期間建立之 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 檔案的 [暫存檔名稱]。
 
 	![匯出設定](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
 
@@ -54,4 +54,4 @@ SQL Server Management Studio 中的「將資料庫部署至 Microsoft Azure Data
 
 [修正資料庫相容性問題](sql-database-cloud-migrate-fix-compatibility-issues.md) (如果有)。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

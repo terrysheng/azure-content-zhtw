@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="02/22/2016"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
-# 在移轉至 SQL Database 之前，透過 SSDT 修正 SQL Server 資料庫相容性問題
+# 在移轉至 SQL 資料庫之前修正 SQL Server 資料庫相容性問題
 
 如果您判斷來源 SQL Server 資料庫不相容，您有許多選項可修正已識別的資料庫相容性問題。
 
 > [AZURE.SELECTOR]
-- Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
-- Use [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-- Use [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-SSMS.md)
+- 使用 [SQL Azure 移轉精靈](sql-database-cloud-migrate-fix-compatibility-issues.md)
+- 使用 [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
+- 使用 [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-SSMS.md)
 
 ## 使用 Visual Studio 的 SQL Server Data Tools
 
@@ -37,4 +37,4 @@
 
 [選取移轉方法](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

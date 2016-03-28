@@ -27,6 +27,6 @@
 
 ### Web 服務呼叫限制
 
-Azure 資源管理員有 API 呼叫限制。您可使用 [Azure 資源管理員 API 限制](azure-subscription-service-limits/#resource-group-limits)內的速率進行 API 呼叫。
+Azure 資源管理員有 API 呼叫限制。您可使用 [Azure 資源管理員 API 限制](../articles/azure-subscription-service-limits/#resource-group-limits)內的速率進行 API 呼叫。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

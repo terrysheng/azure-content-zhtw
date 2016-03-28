@@ -3,7 +3,7 @@
    description="解釋 Service Fabric Reliable Actors 的生命週期與記憶體回收"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="myamanbh"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="03/15/2016"
    ms.author="amanbha"/>
 
 
@@ -32,7 +32,7 @@
 - 動作項目若一段時間未使用，便會從使用中動作項目資料表移除。
 - 呼叫 `OnDeactivateAsync` 方法 (在動作項目實作中會被覆寫)。這會清除動作項目的所有計時器。
 
-> [AZURE.TIP]Fabric Actor 執行階段會發出某些[與動作項目啟用和停用相關的事件](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events)。這些項目對於診斷與效能監視很有幫助。
+> [AZURE.TIP] Fabric Actor 執行階段會發出某些[與動作項目啟用和停用相關的事件](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events)。這些項目對於診斷與效能監視很有幫助。
 
 ## 動作項目記憶體回收
 動作項目執行階段會定期掃描是否有一段時間未使用的動作項目並予以停用。一旦停用動作項目，它們可以透過通用語言執行平台 (CLR) 進行記憶體回收。
@@ -46,8 +46,8 @@
 
 在進入記憶體回收的細節前，最重要的是定義下列詞彙：
 
-- 掃描間隔。這是動作項目執行階段掃描其使用中動作項目資料表中，是否有動作項目可作為記憶體回收的間隔。預設值為 1 分鐘。
-- 閒置逾時。這是動作項目維持未使用 (閒置) 所需的時間長度，過此時間後即作為記憶體回收。預設值為 60 分鐘。
+- *掃描間隔*。這是動作項目執行階段掃描其使用中動作項目資料表中，是否有動作項目可作為記憶體回收的間隔。預設值為 1 分鐘。
+- *閒置逾時*。這是動作項目維持未使用 (閒置) 所需的時間長度，過此時間後即作為記憶體回收。預設值為 60 分鐘。
 
 通常不需要變更這些預設值。但若有需要，這些間隔可以使用 `ActorGarbageCollection` 屬性，在組件層級中為所有位於該組件中的動作項目類型，或是在動作項目類型層級中進行變更。以下範例顯示 HelloActor 的廢棄項目收集間隔變更。
 
@@ -90,4 +90,4 @@ class HelloActor : Actor, IHello
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -19,34 +19,11 @@
 #Microsoft Azure 上的應用程式架構
 可用於建置使用 Microsoft Azure 應用程式的資源。這包括可協助您繪製圖表，以視覺化方式描述軟體系統的工具。
 
-
-
-##Azure 架構設計模式
-Microsoft 發行了一系列的架構設計模式，可協助您撰寫自己的自訂設計。該模式旨在做為簡明扼要的架構指南，可井然有序地組合在一起，提供如何以最佳方式運用 Microsoft Azure 平台解決您的組織商務需求之指導方針。
-
-
-[概觀](../azure-architectures-cpif-overview/) - [混合式網路功能](../azure-architectures-cpif-infrastructure-hybrid-networking/) - [異地批次處理](../azure-architectures-cpif-foundation-offsite-batch-processing-tier/) - [多站台資料層](../azure-architectures-cpif-foundation-multi-site-data-tier/) - [全域負載平衡的 Web 層](../azure-architectures-cpif-foundation-global-load-balanced-web-tier/) - [Azure 搜尋層](../azure-architectures-cpif-foundation-azure-search-tier/)
- 
-每個模式包含
- 
-- 服務描述
-- 利用模式所需的 Azure 服務清單
-- 架構圖表
-- 架構相依性
-- 可能會影響模式的設計限制或考量
-- 介面和端點
-- 反向模式
-- 重要的高階架構考量包括可用性和復原、使用之服務的複合 SLA、規模和效能，以及成本和作業考量。
-
-![Azure 架構設計模式](./media/architecture-overview/AzureArchPatterns.jpg)
-
-
 ##設計模式海報
-Microsoft Patterns and Practices 已出版[雲端設計模式](http://msdn.microsoft.com/library/dn568099.aspx)一書，在 MSDN 同時可供瀏覽和下載 PDF。另外，也有列出所有模式的大型海報。
 
-![Patterns and Practices 雲端模式海報](./media/architecture-overview/PnPPatternPosterThumb.jpg)
+Microsoft patterns & practices 已出版[雲端設計模式](http://msdn.microsoft.com/library/dn568099.aspx)一書，可在 MSDN 上瀏覽以及下載 PDF。另外，也有列出所有模式的大型海報。
 
-
+![patterns & practices 雲端模式海報](./media/architecture-overview/PnPPatternPosterThumb.jpg)
 
 ##Microsoft 架構憑證課程
 
@@ -108,4 +85,4 @@ Microsoft 出版了數個與架構相關的海報/資訊圖。其中包括[建�
 
 ![Azure 架構資訊圖](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

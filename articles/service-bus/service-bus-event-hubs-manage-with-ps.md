@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm"/>
 
 # 使用 PowerShell 來管理服務匯流排和事件中樞資源
@@ -24,7 +24,7 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 
 在開始之前，您將需要下列項目：
 
-- Azure 訂用帳戶。Azure 是訂閱型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][]、[成員優惠][]或[免費試用][]。
+- Azure 訂用帳戶。Azure 是訂閱型平台。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][]、[成員優惠][]或[免費帳戶][]。
 
 - 具備 Azure PowerShell 的電腦。如需指示，請參閱[安裝並設定 Azure PowerShell][]。
 
@@ -66,7 +66,7 @@ catch [System.Exception]
 
 ## 佈建服務匯流排命名空間
 
-當使用服務匯流排命名空間時，您可以使用兩個 Cmdlet，而不是使用 .NET SDK：[Get-AzureSBNamespace] 和 [New-AzureSBNamespace]。
+當使用服務匯流排命名空間時，您可以使用兩個 Cmdlet，而不是使用 .NET SDK：[Get-AzureSBNamespace][] 和 [New-AzureSBNamespace][]。
 
 這個範例會在指令碼中建立幾個區域變數：`$Namespace` 和 `$Location`。
 
@@ -104,7 +104,7 @@ catch [System.Exception]
 	    Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
 	}
 	```
-若要佈建其他服務匯流排實體，請從 SDK 建立 `NamespaceManager` 物件的執行個體。您可以使用 [Get-AzureSBAuthorizationRule] Cmdlet 來擷取用來提供連接字串的授權規則。這個範例會在 `$NamespaceManager` 變數中儲存對 `NamespaceManager` 執行個體的參考。稍後指令碼會使用 `$NamespaceManager` 來佈建其他實體。
+若要佈建其他服務匯流排實體，請從 SDK 建立 `NamespaceManager` 物件的執行個體。您可以使用 [Get-AzureSBAuthorizationRule][] Cmdlet 來擷取用來提供連接字串的授權規則。這個範例會在 `$NamespaceManager` 變數中儲存對 `NamespaceManager` 執行個體的參考。稍後指令碼會使用 `$NamespaceManager` 來佈建其他實體。
 
 	``` powershell
 	$sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -116,7 +116,7 @@ catch [System.Exception]
 
 ## 佈建其他服務匯流排實體
 
-若要佈建其他實體 (例如佇列、主題和事件中樞)，您可以使用[服務匯流排的 .NET API]。本文結尾處會參考更多詳細的範例 (包括其他實體)。
+若要佈建其他實體 (例如佇列、主題和事件中樞)，您可以使用[服務匯流排的 .NET API][]。本文結尾處會參考更多詳細的範例 (包括其他實體)。
 
 ### 建立事件中心
 
@@ -255,7 +255,7 @@ catch [System.Exception]
 
 此文章會提供您使用PowerShell 佈建服務匯流排實體的基本大綱。雖然可用來管理服務匯流排訊息實體的 PowerShell Cmdlet 數目有限，但是藉由參考 Microsoft.ServiceBus.dll assembly 組件，您也可以在 PowerShell 指令碼中，執行可使用 .NET 用戶端程式庫執行的幾乎所有作業。
 
-這些部落格文章中有更多詳細的範例可用：
+這些部落格文章中有更詳細的範例可用：
 
 - [如何使用 PowerShell 指令碼來建立服務匯流排佇列、主題及訂閱](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [如何使用 PowerShell 指令碼來建立服務匯流排命名空間與事件中樞](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
@@ -268,12 +268,12 @@ catch [System.Exception]
 
 [購買選項]: http://azure.microsoft.com/pricing/purchase-options/
 [成員優惠]: http://azure.microsoft.com/pricing/member-offers/
-[免費試用]: http://azure.microsoft.com/pricing/free-trial/
+[免費帳戶]: http://azure.microsoft.com/pricing/free-trial/
 [服務匯流排 NuGet 封裝]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
 [服務匯流排的 .NET API]: https://msdn.microsoft.com/zh-TW/library/azure/mt419900.aspx
-[安裝並設定 Azure PowerShell]: ../install-configure-powershell.md
+[安裝並設定 Azure PowerShell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

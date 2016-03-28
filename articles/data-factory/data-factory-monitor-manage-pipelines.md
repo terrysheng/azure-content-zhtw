@@ -378,8 +378,10 @@ OnDemandClusterDeleted | Succeeded
 	Parameters        :
 	Outputs           :
 
+> [AZURE.NOTE] 您可以使用[建立警示規則](https://msdn.microsoft.com/library/azure/dn510366.aspx) REST API 來建立警示規則。JSON 承載類似上述的 JSON 範例。
+
 #### 擷取 Azure 資源群組部署的清單
-如果要擷取已部署的 Azure 資源群組部署清單，請依照下列範例所示，使用 Cmdlet：Get-AzureRmResourceGroupDeployment：
+如果要擷取已部署的 Azure 資源群組部署清單，請使用 Cmdlet：**Get-AzureRmResourceGroupDeployment**，如下列範例所示：
 
 	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
@@ -551,7 +553,7 @@ metricName 目前支援 2 個值︰
 
 **部署警示：**
 
-如果要部署警示，請依照下列範例所示，使用 Azure PowerShell Cmdlet：New-AzureRmResourceGroupDeployment：
+如果要部署警示，請使用 Azure PowerShell Cmdlet：**New-AzureRmResourceGroupDeployment**，如下列範例所示：
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
@@ -572,7 +574,7 @@ metricName 目前支援 2 個值︰
 	Outputs           
 
 
-您也可以使用 Add-AlertRule Cmdlet 部署警示規則。詳細資料及範例請參閱 [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) 主題。
+您也可以使用 **Add-AlertRule** Cmdlet 來部署警示規則。如需詳細資料及範例，請參閱 [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) 主題。
 
 ## 將 Data Factory 移至另一個資源群組或訂用帳戶
 您可以使用 Data Factory 首頁上的 [移動] 命令列按鈕，將 Data Factory 移至另一個資源群組或訂用帳戶。
@@ -583,4 +585,4 @@ metricName 目前支援 2 個值︰
 
 ![移動資源對話方塊](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

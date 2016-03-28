@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="03/15/2016"
 	ms.author="jgao"/>
 
 # 分析 HDInsight 記錄檔
@@ -99,22 +99,22 @@ Azure HDInsight 中的每個 Hadoop 叢集都有一個 Azure 儲存體帳戶作�
 2. 從 [檢視] 功能表中，按一下 [Cloud Explorer]。或直接按一下 **CTRL+\\、CTRL+X**。
 3. 從 [Cloud Explorer] 中，選取 [資源類型]。另一個可用的選項是 [資源群組]。
 4. 展開 [儲存體帳戶]、您的叢集的預設儲存體帳戶，然後是 [資料表]。
-5. 按兩下 hadoopservicelog。
+5. 按兩下 [hadoopservicelog]。
 6. 新增篩選器。例如：
 	
 		TraceLevel eq 'ERROR'
 
 	![HDInsight Hadoop 記錄檔選擇資料行](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
 
-	如需如何建構篩選器的詳細資訊，請參閱[建構資料表設計工具的篩選字串](https://msdn.microsoft.com/library/azure/ff683669.aspx)。
+	如需建構篩選器的詳細資訊，請參閱[建構資料表設計工具的篩選字串](../vs-azure-tools-table-designer-construct-filter-strings.md)。
  
 ##寫入 Azure Blob 儲存體的記錄檔
 
-[寫入 Azure 資料表的記錄檔](#log-written-to-azure-tables)可讓人更深入了解 HDInsight 叢集發生的情形。不過，這些資料表並不會提供工作層級記錄檔，這些記錄檔有助於發生問題時進一步深入探索。為了提供這一層更深入的詳細資料，針對透過 Templeton 提交的任何作業，HDInsight 叢集設定成將工作記錄檔寫入 Blob 儲存體帳戶。實際上，這代表使用 Microsoft Azure PowerShell Cmdlet 或 .NET Job Submission API 提交的作業，而不是透過叢集的 RDP/命令列存取所提交的作業。
+[寫入 Azure 資料表的記錄檔](#log-written-to-azure-tables)可讓使用者更深入了解 HDInsight 叢集發生的情形。不過，這些資料表並不會提供工作層級記錄檔，這些記錄檔有助於發生問題時進一步深入探索。為了提供這一層更深入的詳細資料，針對透過 Templeton 提交的任何作業，HDInsight 叢集設定成將工作記錄檔寫入 Blob 儲存體帳戶。實際上，這代表使用 Microsoft Azure PowerShell Cmdlet 或 .NET Job Submission API 提交的作業，而不是透過叢集的 RDP/命令列存取所提交的作業。
 
-若要檢視記錄檔，請參閱[在以 Linux 為基礎的 HDInsight 上存取 YARN 應用程式記錄檔](hdinsight-hadoop-access-yarn-app-logs-linux.md)。
+若要檢視記錄檔，請參閱[存取以 Linux 為基礎之 HDInsight 上的 YARN 應用程式記錄](hdinsight-hadoop-access-yarn-app-logs-linux.md)。
 
-如需應用程式記錄檔的詳細資訊，請參閱[簡化 YARN 的使用者記錄檔管理和存取](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/)。
+如需應用程式記錄檔的詳細資訊，請參閱[Simplifying user-logs management and access in YARN (簡化 YARN 的使用者記錄檔管理和存取)](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/)。
  
  
 ## 檢視叢集健康情況和工作記錄檔
@@ -341,4 +341,4 @@ Azure HDInsight 中的每個 Hadoop 叢集都有一個 Azure 儲存體帳戶作�
 - [在以 Linux 為基礎的 HDInsight 上啟用 Hadoop 服務的堆積傾印](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 - [使用 Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -28,10 +28,7 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 - 遠端監視：[https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
 - 預測性維護︰[https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 
-提供預先設定解決方案原始程式碼的目的，在於示範實作使用 Azure IoT 套件之 IoT 解決方案的端對端功能時，所採用的模式和作法。每個預先設定解決方案的 GitHub Wiki 備有從命令列建置和部署的指引︰
-
-- [遠端監視 Wiki](https://github.com/Azure/azure-iot-remote-monitoring/wiki)
-- [預測性維護 Wiki](https://github.com/Azure/azure-iot-predictive-maintenance/wiki)
+提供預先設定解決方案原始程式碼的目的，在於示範實作使用 Azure IoT 套件之 IoT 解決方案的端對端功能時，所採用的模式和作法。您可以找到如何在 GitHub 儲存機制中建置和部署解決方案的詳細資訊。
 
 ## 管理預先設定解決方案中的權限
 每個預先設定解決方案的解決方案入口網站會建立為新的 Azure Active Directory 應用程式。您可以管理解決方案入口網站 (AAD 應用程式) 的權限，如下所示︰
@@ -40,7 +37,7 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 2. 藉由選取 [我公司所擁有的應用程式] 瀏覽至 AAD 應用程式，然後按一下核取記號。
 3. 瀏覽至 [使用者]，接著將 Azure Active Directory 租用戶中的成員指派給某個角色。 
 
-根據預設，應用程式會佈建管理員、唯讀及隱含唯讀等角色。隱含唯讀可授與隸屬於 Azure Active Directory 租用戶，但尚未獲得角色指派的使用者。在分接 GitHub 儲存機制並重新部署解決方案後，您可以修改 [RolePermissions.cs](https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs)。
+根據預設，應用程式會佈建**管理員**、**唯讀**及**隱含唯讀**等角色。**隱含唯讀**可授與隸屬於 Azure Active Directory 租用戶，但尚未獲得角色指派的使用者。在分接 GitHub 儲存機制並重新部署解決方案後，您可以修改 [RolePermissions.cs](https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs)。
 
 ## 變更預先設定規則
 
@@ -53,10 +50,10 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至名稱與 IoT 解決方案相同的資源群組。 
 3. 選取要修改的 Azure 串流分析作業。 
-4. 在命令集中選取 [停止] 以停止作業。 
+4. 在命令集中選取 [停止] 以停止工作。 
 5. 編輯輸入、查詢及輸出。
 
-    簡單修改的目的在於變更規則作業的查詢，以便使用 "<" 而不是 ">"。在編輯規則時，解決方案入口網站仍會顯示 **">"**，不過因為基礎作業中的變更，您可以發現行為已翻轉。
+    簡單修改的目的在於變更**規則**工作的查詢，以便使用 **"<"** 而不是 **">"**。編輯規則時，解決方案入口網站仍會顯示 **">"**，不過因為基礎工作中的變更，您可以發現行為已翻轉。
 
 6. 啟動工作
 
@@ -76,7 +73,7 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 
 之前提及的遠端監視解決方案原始程式碼中包含 .NET 模擬器。此模擬器是解決方案中佈建的模擬器，並且可以變更以傳送不同的中繼資料、遙測或回應給不同的命令。
 
-遠端監視預先設定解決方案中的預先設定模擬器是發出溫度和濕度遙測的冷卻裝置，分接 GitHub 儲存機制後，您可以在 [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) 專案中修改模擬器。
+遠端監視預先設定解決方案中的預先設定模擬器是發出溫度和濕度遙測的冷卻裝置，當您分接 GitHub 儲存機制後，您可以在 [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) 專案中修改模擬器。
 
 此外，Azure IoT 提供針對和遠端監視預先設定解決方案搭配使用所設計的 [C SDK 範例](https://github.com/Azure/azure-iot-sdks/c/serializer/samples/remote_monitoring)。
 
@@ -92,4 +89,4 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 
 [IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/05/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # 將驗證加入現有的 Azure 行動服務應用程式
@@ -24,7 +24,7 @@
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 > 如需本主題的對等 Mobile Apps 版本，請參閱[將驗證新增至您的 iOS 應用程式](../app-service-mobile/app-service-mobile-ios-get-started-users.md)。
- 
+
 在本教學課程中，您可以使用支援的身分識別提供者，將驗證加入快速入門專案。本教學課程以[行動服務快速入門教學課程]為基礎，您必須先完成該教學課程。
 
 ##<a name="register"></a>註冊應用程式進行驗證，並設定行動服務
@@ -67,4 +67,4 @@
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

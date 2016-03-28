@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Service Fabric 叢集資源管理員 - 同質性"
+   pageTitle="Service Fabric 叢集資源管理員 - 同質性 | Microsoft Azure"
    description="Service Fabric 服務的其他放置原則和規則的概觀"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# 同質性
+# 在 Service Fabric 中設定並使用服務同質性
 
 同質性對於微服務環境而言，乍看之下似乎不具太大意義。這是因為它在微服務環境中不具太大意義。同質性是一個控制項，主要提供來協助簡化將先前已存在且較大型的單體式應用程式轉換到雲端和微服務世界的程序。
 
@@ -48,25 +48,24 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 
 ![同質性模式及其效果][Image1]
 
-#### 盡力而為的期望狀態
+### 盡力而為的期望狀態
 在同質性與單體式架構之間有一些差異。它們幾乎全部都可歸結為下列事實：同質性關聯性就是盡力而為 – 例如，由於它們基本上是不同的服務，因此可單獨失敗。有其他因素會導致服務的不同複本分隔開來，例如容量限制。
 
 
-#### 鏈結 vs.星形
+### 鏈結與星形的比較
 我們目前無法建立同質關聯性鏈結的模型。這表示是，如果有一個服務是某一個同質關聯性中的子系，則該服務不能是另一個同質關聯性中的父系。這表示是，如果您想要建立這種關聯性的模型，您必須有效地將它的模型建立為星形，而不是鏈結，方法是改為將最下層子系的父系設定為「中間」子系的父系。
 
 ![同質關聯性內容中的鏈結 vs.星形][Image2]
 
 目前關於同質關聯性的另一個要注意事項是它們是雙向的。這是難以察覺的，但實際上這表示「同質性」規則只會強制子系就是父系的所在之處 – 父系應該會突然容錯移轉到另一個節點 (或者任何其他受限的動作，其只會強制移動父系)，接著在資源管理員注意到子系不是與父系位於相同位置之前，它實際上不會覺得有任何不妥之處；關聯性不會立即強制執行。
 
-#### 支援分割
+### 支援分割
 請注意，關於同質性要注意的最後一點是，分割父系的地方不支援同質關聯性。我們最終可能會支援這一點，但目前並不允許。
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
-- [深入了解設定服務](service-fabric-cluster-resource-manager-configure-services.md)
+- 如需可用來設定服務的其他選項的詳細資訊，請查看[深入了解設定服務](service-fabric-cluster-resource-manager-configure-services.md)中提供的其他叢集資源管理員組態的相關主題
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

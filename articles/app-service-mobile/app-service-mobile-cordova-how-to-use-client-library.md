@@ -47,9 +47,42 @@ Azure App Service 支援使用各種外部識別提供者 (Facebook、Google、M
 
 [AZURE.INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-##<a name="register-for-push"></a>做法：註冊推播通知
+###
 
-安裝 [phonegap-plugin-push] 來處理推播通知。在命令列中使用 `cordova plugin add`，或在 Visual Studio 內透過 Git 外掛程式安裝程式，即可輕鬆加入。以下在 Apache Cordova 應用程式中的程式碼將為您的裝置註冊推播通知：
+
+
+1. 
+2. 選取 [所有資源] 或 [應用程式服務]，然後按一下您「行動應用程式」的名稱。
+3. 
+4. 
+5. 
+6. 
+7. 
+
+         "allowedExternalRedirectUrls": [
+             "http://localhost:3000",
+             "https://localhost:3000"
+         ],
+
+    
+8. 
+9. 
+
+
+
+1. 
+2. 選取 [所有資源] 或 [應用程式服務]，然後按一下您「行動應用程式」的名稱。
+3. 
+4. 
+5. 
+6. 
+7. 
+
+
+
+##
+
+以下在 Apache Cordova 應用程式中的程式碼將為您的裝置註冊推播通知：
 
 ```
 var pushOptions = {
@@ -91,9 +124,10 @@ pushHandler.on('error', function (error) {
 使用通知中樞 SDK 從伺服器傳送推播通知。絕對不要直接從用戶端傳送推播通知，因為用戶端可能被利用來對通知中樞或 PNS 發動阻絕服務攻擊。
 
 <!-- URLs. -->
+[Azure Portal]: https://portal.azure.com
 [Azure Mobile Apps 快速啟動]: app-service-mobile-cordova-get-started.md
 [開始使用驗證]: app-service-mobile-cordova-get-started-users.md
-[將驗證新增至您的應用程式]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [適用於 Azure Mobile Apps 的 Apache Cordova 外掛程式]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [第一個 Apache Cordova 應用程式]: http://cordova.apache.org/#getstarted
@@ -101,6 +135,6 @@ pushHandler.on('error', function (error) {
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[Query 物件文件]: https://msdn.microsoft.com/zh-TW/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/zh-TW/library/azure/jj613353.aspx
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

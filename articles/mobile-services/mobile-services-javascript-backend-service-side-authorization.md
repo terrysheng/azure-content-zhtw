@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="11/30/2015"
+	ms.date="03/09/2015"
 	ms.author="krisragh"/>
 
 # 在行動服務中的使用者服務端授權
+> [AZURE.SELECTOR]
+- [.NET 後端](mobile-services-dotnet-backend-service-side-authorization.md)
+- [JavaScript 後端](mobile-services-javascript-backend-service-side-authorization.md)
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[這個範例程式碼](https://github.com/Azure/azure-mobile-apps-node/blob/master/samples/personal-table/tables/TodoItem.js#L38)。
 
 本主題說明如何使用伺服器端指令碼來授權使用者。在此教學課程中，您使用 Azure 行動服務註冊指令碼，根據使用者識別碼篩選查詢，並且只提供使用者對自己資料的存取權。根據使用者識別碼篩選使用者查詢結果是最基本的授權形式。根據特定案例，您也可能也會想要建立使用者或角色資料表，以便追蹤更詳細的使用者授權資訊，例如使用者可以存取哪些端點。
 
@@ -39,7 +43,7 @@
 
 	這個指令碼會在插入之前，將已驗證使用者的使用者識別碼新增至項目。
 
-    >[AZURE.NOTE]請確定[動態結構描述](https://msdn.microsoft.com/library/azure/jj193175.aspx)已啟用，否則系統不會自動加入 *userId* 資料行。依預設，系統會為新的行動服務啟用此設定。
+    >[AZURE.NOTE] 請確定[動態結構描述](https://msdn.microsoft.com/library/azure/jj193175.aspx)已啟用，否則系統不會自動加入 *userId* 資料行。依預設，系統會為新的行動服務啟用此設定。
 
 3. 同樣地，以下列函數取代現有的 **Read** 作業。此指令碼會篩選傳回的 TodoItem 物件，因此使用者只會收到他們自己插入的項目。
 
@@ -68,6 +72,5 @@
 [將驗證新增至現有的行動服務應用程式]: /develop/mobile/tutorials/get-started-with-users-ios
 
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
- 
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="03/09/2016"
 	ms.author="sethm"/>
 
 # 如何使用服務匯流排佇列
@@ -60,7 +60,7 @@
 
 ![複製金鑰](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
-> [AZURE.NOTE]如果您登入 [Azure 傳統入口網站](http://manage.windowsazure.com/)並瀏覽至您服務匯流排命名空間的連線資訊，也可以找到此金鑰。
+> [AZURE.NOTE] 如果您登入 [Azure 傳統入口網站](http://manage.windowsazure.com/)並瀏覽至您服務匯流排命名空間的連線資訊，也可以找到此金鑰。
 
 ## 建立 Ruby 應用程式
 
@@ -164,7 +164,7 @@ azure_service_bus_service.delete_queue_message(message)
 -   [佇列、主題和訂用帳戶](service-bus-queues-topics-subscriptions.md)概觀。
 -   請瀏覽 GitHub 上的 [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) 存放庫。
 
-若要比較本文所討論的 Azure 服務匯流排佇列與[如何使用 Azure 佇列服務](/develop/ruby/how-to-guides/queue-service/)一文中討論的 Azure 佇列，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+若要比較本文所討論的 Azure 服務匯流排佇列與[如何使用 Ruby 的佇列儲存體](../storage/storage-ruby-how-to-use-queue-storage.md)一文中討論的 Azure 佇列，請參閱 [Azure 佇列和 Azure 服務匯流排佇列 - 比較和對照](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

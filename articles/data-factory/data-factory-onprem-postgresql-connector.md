@@ -227,7 +227,7 @@ username | 如果您使用基本或 Windows 驗證，請指定使用者名稱。
 password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 | 否 
 gatewayName | Data Factory 服務應該用來連接到內部部署 PostgreSQL 資料庫的閘道器名稱。 | 是 
 
-如需關於設定內部部署 PostgreSQL 資料來源認證的詳細資料，請參閱[設定認證和安全性](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)。
+如需關於設定內部部署 PostgreSQL 資料來源認證的詳細資料，請參閱[設定認證和安全性](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security)。
 
 ## PostgreSQL 資料集類型屬性
 
@@ -310,4 +310,4 @@ serial | serial4 | Int32
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

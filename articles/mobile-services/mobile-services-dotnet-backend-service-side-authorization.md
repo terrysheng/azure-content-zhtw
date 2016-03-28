@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="02/07/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # 在行動服務中的使用者服務端授權
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> [AZURE.SELECTOR]
+- [.NET 後端](mobile-services-dotnet-backend-service-side-authorization.md)
+- [JavaScript 後端](mobile-services-javascript-backend-service-side-authorization.md)
 
 &nbsp;
 
-
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱＜使用適用於 Azure 行動應用程式的 .NET 後端伺服器 SDK＞主題中的[做法︰限制已授權使用者的資料存取權](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#authorize)。
 
 本主題說明如何使用伺服器端邏輯來授權使用者。在此教學課程中，您會修改資料表控制器、根據使用者識別碼篩選查詢，以及只提供使用者對自己資料的存取權。根據使用者識別碼篩選使用者查詢結果是最基本的授權形式。根據特定案例，您也可能也會想要建立使用者或角色資料表，以便追蹤更詳細的使用者授權資訊，例如使用者可以存取哪些端點。
 
@@ -60,7 +59,7 @@
 
 		return Query().Where(todo => todo.UserId == currentUser.Id);
 
-	這個查詢會篩選傳回的 TodoItem 物件，讓每個使用者只會收到他們所插入的項目。
+	This query filters the returned TodoItem objects so that each user only receives the items that they inserted.
 
 4. 將行動服務專案重新發佈至 Azure。
 
@@ -84,4 +83,4 @@
 <!-- URLs. -->
 [將驗證新增至現有的行動服務應用程式]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

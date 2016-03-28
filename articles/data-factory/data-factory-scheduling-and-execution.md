@@ -251,7 +251,7 @@ Data Factory 監視和管理工具可讓您深入診斷記錄以了解失敗的�
 1.	管線 P1 具有需要外部輸入資料集 D1 的活動 A1，並產生**輸出**資料集 **D2**。
 2.	管線 P2 具有需要資料集 **D2** 的 **輸入**的活動 A2，並產生輸出資料集 D3。
  
-在此案例中，活動 A1 會在外部資料提供使用時執行，且達到排程的可用性頻率。活動 A2 會在 D2 的排定的配量提供使用時執行，且達到排程的可用性頻率。如果資料集 D2 中的其中一個配量發生錯誤，則不會針對該配量執行 A2，直到該配量可供使用為止。
+在此案例中，活動 A1 會在外部資料提供使用時執行，且達到排程的可用性頻率。活動 A2 會在 D2 的排定的分割可供使用時執行，且達到排程的可用性頻率。如果資料集 D2 中的其中一個分割發生錯誤，則不會針對該分割執行 A2，直到該分割可供使用為止。
 
 [圖表檢視] 看起來如下：
 
@@ -260,6 +260,27 @@ Data Factory 監視和管理工具可讓您深入診斷記錄以了解失敗的�
 兩個活動同時在相同管線中的 [圖表檢視] 看起來如下：
 
 ![相同管線中的鏈結活動](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
+
+### 已排序的複本
+能夠以循序/排序的方式，逐一執行多個複製作業。假設您在管線中有兩個複製活動︰CopyActivity1 和 CopyActivity，並具備下列輸入資料輸出資料集。
+
+CopyActivity1：輸入：Dataset1 輸出 Dataset2
+
+CopyActivity2：輸入：Dataset2 輸出：Dataset4
+
+唯有當 CopyActivity1 成功執行且 Dataset2 可供使用時，CopyActivity2 才會執行。
+
+在上述範例中，CopyActivity2 可以有不同的輸入 (假設 Dataset3)，但是您也必須指定 Dataset2 做為 CopyActivity2 的輸入，因此在 CopyActivity1 完成之前，活動將不會執行。例如：
+
+CopyActivity1：輸入：Dataset1 輸出 Dataset2
+
+CopyActivity2：輸入：Dataset3、Dataset2 輸出：Dataset4
+
+指定多個輸入時，只有第一個輸入資料集會用來複製資料，但是其他資料集會用來做為相依性。CopyActivity2 只會符合下列條件時開始執行︰
+
+- CopyActivity2 已順利完成且 Dataset2 可供使用。將資料複製到 Dataset4 時，將不會使用此資料集。它只會用來做為 CopyActivity2 的排程相依性。   
+- Dataset3 可供使用。此資料集代表已複製到目的地的資料。  
+
 
 
 ## 使用不同的頻率模型化資料集
@@ -632,4 +653,4 @@ Data Factory 中資料配量的各種狀態涵蓋於[監視和管理管線](data
 
   
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

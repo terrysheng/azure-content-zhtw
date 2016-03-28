@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="nitinme"/>
 
 # 保護儲存在 Azure 資料湖儲存區中的資料
 
 保護儲存在 Azure 資料湖儲存區中的資料，其方法有三步驟。
 
-1. 首先，在 Azure Active Directory (AAD) 中建立安全性群組。這些安全性群組是用在 Azure 入口網站中實作角色型存取控制 (RBAC)。如需詳細資訊，請參閱 [Microsoft Azure 中的角色型存取控制](role-based-access-control-configure.md)。
+1. 首先，在 Azure Active Directory (AAD) 中建立安全性群組。這些安全性群組是用在 Azure 入口網站中實作角色型存取控制 (RBAC)。如需詳細資訊，請參閱 [Microsoft Azure 中的角色型存取控制](../active-directory/role-based-access-control-configure.md)。
 
 2. 指派 AAD 安全性群組給 Azure 資料湖儲存區帳戶。這會控制從入口網站至資料湖儲存區帳戶，以及從入口網站或 API 至管理作業的存取。
 
@@ -37,7 +37,7 @@
 
 ## 在 Azure Active Directory 中建立安全性群組
 
-如需有關如何建立 AAD 安全性群組及如何新增使用者至群組的詳細指示，請參閱[管理 Azure Active Directory 中的安全性群組](active-directory-accessmanagement-manage-groups.md)。
+如需有關如何建立 AAD 安全性群組及如何新增使用者至群組的詳細指示，請參閱[管理 Azure Active Directory 中的安全性群組](../active-directory/active-directory-accessmanagement-manage-groups.md)。
 
 ## 指派使用者或安全性群組給 Azure 資料湖儲存區帳戶
 
@@ -160,9 +160,9 @@
 
 - [Azure 資料湖儲存區概觀](data-lake-store-overview.md)
 - [將資料從 Azure 儲存體 Blob 複製到資料湖存放區](data-lake-store-copy-data-azure-storage-blob.md)
-- [搭配資料湖存放區使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)
+- [搭配資料湖存放區使用 Azure 資料湖分析](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [搭配資料湖存放區使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [使用 PowerShell 開始使用資料湖存放區](data-lake-store-get-started-powershell.md)
 - [使用 .NET SDK 開始使用資料湖存放區](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

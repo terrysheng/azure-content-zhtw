@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="03/14/2016"
 	ms.author="antonba"/>
 
 # 如何在 Azure API 管理中設定 VPN 連線
@@ -48,11 +48,25 @@
 
 ![透過 VPN 加入 API][api-management-setup-vpn-add-api]
 
+## 
+
+
+
+| 連接埠 | 方向 | 傳輸通訊協定 | 目的 |  |
+|------------------------------|------------------|--------------------|------------------------------------------------------------------|-----------------------------------|
+| 80、443 | 輸入 | TCP |  |  |
+| 80,443 | 輸出 | TCP |  |  |
+| 1433 | 輸出 | TCP |  |  |
+| 9350, 9351, 9352, 9353, 9354 | 輸出 | TCP |  |  |
+| 5671 | 輸出 | AMQP |  |  |
+| 6381, 6382, 6383 | 輸入/輸出 | UDP |  |  |
+| 445 | 輸出 | TCP |  |  |
+
 
 ## <a name="related-content"> </a>相關內容
 
 
-* [教學課程：建立站對站連線的跨單位虛擬網路][]
+* [使用 Azure 傳統入口網站建立具有站對站 VPN 連線的虛擬網路][]
 * [如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
@@ -65,7 +79,7 @@
 
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-[教學課程：建立站對站連線的跨單位虛擬網路]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
+[使用 Azure 傳統入口網站建立具有站對站 VPN 連線的虛擬網路]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

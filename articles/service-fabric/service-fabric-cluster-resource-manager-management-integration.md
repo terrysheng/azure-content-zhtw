@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Service Fabric 叢集資源管理員 - 管理整合"
+   pageTitle="Service Fabric 叢集資源管理員 - 管理整合 | Microsoft Azure"
    description="叢集資源管理員和 Service Fabric 管理之間的整合點概觀。"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
 
-# 管理整合
+# 叢集資源管理員與 Service Fabric 叢集管理整合
 資源管理員不是負責處理管理作業 (如應用程式升級) 的主要 Service Fabric 元件，但它會涉入其中。資源管理員協助管理的第一個方法就是從資源與平衡觀點追蹤所需的叢集狀態和其中的服務，並且在發生錯誤時透過 Service Fabric 健康狀態子系統進行變更。整合的另一部分與升級運作方式有關；特別是在升級期間，與資源管理員運作方式有關的事物會變更，而且會叫用一些特別的行為。我們將在下面討論這兩者。
 
 ## 健康狀態整合
@@ -78,6 +78,7 @@ HealthEvents          :
 2.	此服務的需求設定錯誤，以致無法滿足其需求。
 
 在每種情況中，您都會看見資源管理員所提供的健康狀態報告，其中包含可協助您判斷目前的狀況以及為何無法放置服務的資訊。我們將此程序稱為「條件約束消除序列」。在此期間，我們會逐步解說會影響服務的已設定條件約束，以及它們所消除的項目。因此，當項目無法放置時，您可以看到哪些節點已經消除及其原因。讓我們接著討論您可以在這些健康狀態報告中看見的各種條件約束，以及其所檢查的內容。請注意，大部分的情況下，您不會看到這些條件約束消除節點，因為條件約束預設位於軟式或最佳化層級 (如我們先前所表示)。如果這些條件約束翻轉或被視為硬式條件約束，您就可以看見，所以為求完整起見，我們在此完整呈現︰
+
 -	ReplicaExclusionStatic 和 ReplicaExclusionDynamic – 這是內部條件約束，表示在搜尋過程中，我們決定必須將兩個複本放在節點上 (不允許這麼做)。ReplicaExclusionStatic 和 ReplicaExclusionDynamic 幾乎是完全相同的規則。ReplicaExclusionDynamic 條件約束表示「我們無法將這個複本放在這裡，因為唯一提議的解決方案已在這裡放置一個複本」。這與 ReplicaExclusionStatic 排除不同，其指出不是提議的衝突，而是實際的衝突 – 節點上已經有一個複本。這會令人混淆嗎？ 是。是否很重要？ 否。您只要知道，如果您看到的條件約束消除序列包含 ReplicaExclusionStatic 或 ReplicaExclusionDynamic 條件約束，資源管理員就會認為沒有足夠的節點可放置所有複本。進一步的條件約束通常會告訴我們，一開始節點太少會有何結果。
 -	PlacementConstraint︰如果您看到此訊息，就表示我們已消除一些節點，因為它們不符合服務的放置條件約束。我們會在此此訊息中描繪出目前所設定的放置條件約束。
 -	NodeCapacity︰如果您看到這個條件約束，就表示我們無法將複本放在指定的節點上，因為這樣會導致節點超出容量。
@@ -100,9 +101,7 @@ HealthEvents          :
 ### 寬鬆的規則
 在升級期間，即使叢集整體相當受限或已滿，您通常還是會想完成升級。實際上，我們已討論過我們的處理方式，但是這在升級期間甚至更加重要，因為隨著升級推展於整個叢集，每次通常有 5% 到 20% 的叢集會停機，而該工作負載必須移轉至某處。這就是我們稍早提到的緩衝容量概念真正派上用場的地方 – 雖然在正常作業期間會遵守緩衝容量，但資源管理員將在升級期間填滿總容量。
 
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
-- [開始了解 Service Fabric 叢集資源管理員](service-fabric-cluster-resource-manager-introduction.md)
+- 從頭開始，並[取得 Service Fabric 叢集資源管理員的簡介](service-fabric-cluster-resource-manager-introduction.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

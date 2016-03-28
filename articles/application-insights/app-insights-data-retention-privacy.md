@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="03/15/2016" 
 	ms.author="awills"/>
 
 # Application Insights 中的資料收集、保留和儲存 
@@ -80,6 +80,8 @@ Application Insights SDK 可用於多種應用程式類型：裝載於您自己�
 
 ![](./media/app-insights-data-retention-privacy/06-vs.png)
 
+在 [診斷] 視窗中還有更容易閱讀的檢視。
+
 針對網頁，請開啟瀏覽器的偵錯視窗。
 
 ![按 F12 鍵，然後開啟 [網路] 索引標籤。](./media/app-insights-data-retention-privacy/08-browser.png)
@@ -94,9 +96,9 @@ Application Insights SDK 可用於多種應用程式類型：裝載於您自己�
 
 這取決於您的[定價方案](https://azure.microsoft.com/pricing/details/application-insights/)。
 
-未處理的資料點 (即您可以在 [診斷搜尋] 中檢查的項目)：7 至 30 天。
+未經處理的資料點 (也就是您可以在 [診斷搜尋] 中檢查的項目)：7 天。如果您需要保留資料的時間超過該範圍，您可以使用[連續匯出](app-insights-export-telemetry.md)，將它複製到儲存體帳戶。
 
-彙總的資料 (即您在計量瀏覽器中看到的計數、平均和其他統計資料) 在 1 分鐘的資料粒度中保存 30 天，而 1 小時或 1 天 (視類型而定) 則保存至少 13 個月。
+彙總的資料 (也就是您在計量瀏覽器中看到的計數、平均和其他統計資料) 在 1 分鐘的資料粒度中保存 30 天，而 1 小時或 1 天 (視類型而定) 則保存至少 90 天。
 
 
 ## 誰可以存取資料？
@@ -116,7 +118,7 @@ Microsoft 只會使用這項資料，以將服務提供給您。
 
 #### 可以儲存在其他某個地方 (例如歐洲) 嗎？ 
 
-* 尚未提供。 
+* 目前尚未。 
 
 ## 我的資料有多安全？  
 
@@ -265,4 +267,4 @@ SDK 診斷 | 追蹤訊息或例外狀況
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

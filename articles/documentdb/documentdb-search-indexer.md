@@ -1,26 +1,26 @@
-<properties 
-    pageTitle="使用索引子連接 DocumentDB 與 Azure 搜尋服務 | Microsoft Azure" 
+<properties
+    pageTitle="使用索引子連接 DocumentDB 與 Azure 搜尋服務 | Microsoft Azure"
     description="本文將說明如何在 DocumentDB 中使用 Azure 搜尋服務索引子做為資料來源。"
-    services="documentdb" 
-    documentationCenter="" 
-    authors="AndrewHoh" 
-    manager="jhubbard" 
+    services="documentdb"
+    documentationCenter=""
+    authors="AndrewHoh"
+    manager="jhubbard"
     editor="mimig"/>
 
-<tags 
-    ms.service="documentdb" 
-    ms.devlang="rest-api" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="NA" 
-    ms.workload="data-services" 
-    ms.date="02/01/2016" 
+<tags
+    ms.service="documentdb"
+    ms.devlang="rest-api"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="data-services"
+    ms.date="03/09/2016"
     ms.author="anhoh"/>
 
 #使用索引子連接 DocumentDB 與 Azure 搜尋
 
 如果您想要實作 DocumentDB 資料上的絕佳搜尋經驗，請在 DocumentDB 中使用 Azure 搜尋索引子！ 在本文中，我們將說明如何整合 Azure DocumentDB 與 Azure 搜尋，而不需要撰寫任何程式碼來維護索引的基礎結構！
 
-若要設定此功能，您必須[設定 Azure 搜尋服務帳戶](../search/search-get-started.md#start-with-the-free-service) (您不需要升級至標準搜尋)，然後呼叫 [Azure 搜尋 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 以建立 DocumentDB **資料來源**和該資料來源的**索引子**。
+若要設定此功能，您必須[設定 Azure 搜尋服務帳戶](../search/search-create-service-portal.md) (您不需要升級至標準搜尋)，然後呼叫 [Azure 搜尋 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 以建立 DocumentDB **資料來源**和該資料來源的**索引子**。
 
 ##<a id="Concepts"></a>Azure 搜尋服務索引子概念
 
@@ -32,12 +32,12 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
 
 - 執行資料的一次性複製以填入索引。
 - 依照排程將索引與資料來源中的變更同步。排程是索引子定義的一部分。
-- 視需要叫用索引的隨選更新。 
+- 視需要叫用索引的隨選更新。
 
 ##<a id="CreateDataSource"></a>步驟 1：建立資料來源
 
 發出 HTTP POST 要求，以便在您的 Azure 搜尋服務中建立新的資料來源，包括下列要求標頭。
-    
+
     POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -56,7 +56,7 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
 
 - **容器**：
 
-    - **名稱**：必要。指定要編製索引的 DocumentDB 集合。 
+    - **名稱**：必要。指定要編製索引的 DocumentDB 集合。
 
     - **查詢**：選擇性。您可以指定查詢將任意 JSON 文件簡維成 Azure 搜尋服務可以編製索引的一般結構描述。
 
@@ -68,10 +68,10 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
 
 資料變更偵測原則是用來有效識別已變更的資料項目。目前，唯一支援的原則是使用 DocumentDB 所提供之 `_ts` 上次修改時間戳記屬性的 `High Water Mark` 原則，指定方式如下：
 
-    { 
+    {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-        "highWaterMarkColumnName" : "_ts" 
-    } 
+        "highWaterMarkColumnName" : "_ts"
+    }
 
 您還必須為查詢在投射中加入 `_ts` 和 `WHERE` 子句。例如：
 
@@ -82,10 +82,10 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
 
 當從來源資料表中刪除資料列時，您也應該在搜尋索引中刪除這些資料列。資料刪除偵測原則可用來有效識別刪除的資料項目。目前，唯一支援的原則是「`Soft Delete`」原則 (刪除會標示為某種形式的旗標)，指定方式如下：
 
-    { 
+    {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
-        "softDeleteColumnName" : "the property that specifies whether a document was deleted", 
-        "softDeleteMarkerValue" : "the value that identifies a document as deleted" 
+        "softDeleteColumnName" : "the property that specifies whether a document was deleted",
+        "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
 
 > [AZURE.NOTE] 如果您打算使用自訂投射，則必須在 SELECT 子句中包含該屬性。
@@ -102,7 +102,7 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
         },
         "container": {
             "name": "myDocDbCollectionId",
-            "query": "SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark" 
+            "query": "SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark"
         },
         "dataChangeDetectionPolicy": {
             "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -171,7 +171,7 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
 ##<a id="CreateIndexer"></a>步驟 3：建立索引子
 
 您可以使用包含下列標頭的 HTTP POST 要求，在 Azure 搜尋服務內建立新的索引子。
-    
+
     POST https://[Search service name].search.windows.net/indexers?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -190,7 +190,7 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
 
 索引子可以選擇性地指定排程。如有排程，索引子將會依照排程定期執行。排程具有下列屬性：
 
-- **間隔**：必要。可用以指定索引子執行間隔或期間的持續時間值。允許的最小間隔為 5 分鐘；最長間隔為一天。其必須格式化為 XSD "dayTimeDuration" 值 ([ISO 8601 持續時間](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)值的受限子集)。間隔的模式為：`P(nD)(T(nH)(nM))`。範例：`PT15M` 代表每隔 15 分鐘，`PT2H` 代表每隔 2 小時。 
+- **間隔**：必要。可用以指定索引子執行間隔或期間的持續時間值。允許的最小間隔為 5 分鐘；最長間隔為一天。其必須格式化為 XSD "dayTimeDuration" 值 ([ISO 8601 持續時間](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)值的受限子集)。間隔的模式為：`P(nD)(T(nH)(nM))`。範例：`PT15M` 代表每隔 15 分鐘，`PT2H` 代表每隔 2 小時。
 
 - **startTime**：必要。指定索引子應該開始執行的 UTC 日期時間。
 
@@ -268,6 +268,5 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 DocumentDB) 和操�
  - 若要深入了解 Azure DocumentDB，請參閱 [DocumentDB 服務頁面](https://azure.microsoft.com/services/documentdb/)。
 
  - 若要深入了解 Azure 搜尋服務，請參閱[搜尋服務頁面](https://azure.microsoft.com/services/search/)。
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/27/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # 使用入口網站建立 Active Directory 應用程式和服務主體
@@ -77,9 +77,17 @@
   
    ![用戶端識別碼][5]
 
-在某些情況下，您需要將您的驗證要求傳遞給租用戶識別碼。您可以透過選取畫面底部的 [檢視端點]，然後擷取如下所示的識別碼，來擷取租用戶識別碼。
+在某些情況下，您需要將您的驗證要求傳遞給租用戶識別碼。針對 Web Apps 和 Web API Apps，您可以透過選取畫面底部的 [檢視端點]，然後擷取如下所示的識別碼，來擷取租用戶識別碼。
 
    ![租用戶識別碼](./media/resource-group-create-service-principal-portal/save-tenant.png)
+
+端點不適用於原生用戶端應用程式。相反地，您可以透過 PowerShell 來擷取租用戶識別碼︰
+
+    PS C:\> Get-AzureRmSubscription
+
+或者，Azure CLI：
+
+    azure account show --json
 
 ## 建立驗證金鑰
 
@@ -108,7 +116,7 @@
 
 ## 設定委派權限
 
-如果應用程式代表登入使用者來存取資源，您必須對應用程式授與用來存取其他應用程式的委派權限。您可以在 [設定] 索引標籤的 [其他應用程式的權限] 區段進行此作業。根據預設，Azure Active Directory 已啟用委派權限。請將這個委派權限保持不變。
+如果應用程式代表登入使用者來存取資源，您必須對應用程式授與用來存取其他應用程式的委派權限。您可以在 [設定] 索引標籤的 [其他應用程式的權限] 區段中進行此作業。根據預設，Azure Active Directory 已啟用委派權限。請將這個委派權限保持不變。
 
 1. 選取 [新增應用程式]。
 
@@ -229,4 +237,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

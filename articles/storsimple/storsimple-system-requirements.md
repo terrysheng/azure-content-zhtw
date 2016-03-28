@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/04/2016"
+   ms.date="03/15/2016"
    ms.author="alkohli"/>
 
 # StorSimple 軟體、高可用性和網路需求
@@ -73,6 +73,24 @@
 
 > [AZURE.IMPORTANT] 請確定防火牆不會修改或解密 StorSimple 裝置和 Azure 之間的任何 SSL 流量。
 
+### 防火牆規則的 URL 模式 
+
+網路系統管理員通常可以根據 URL 模式設定進階防火牆規則，來篩選輸入和輸出流量。您的 StorSimple 裝置和 StorSimple Manager 服務取決於其他 Microsoft 應用程式，例如 Azure 服務匯流排、Azure Active Directory 存取控制、儲存體帳戶和 Microsoft Update 伺服器。與這些應用程式相關聯的 URL 模式可以用來設定防火牆規則。請務必了解與這些應用程式相關聯的 URL 模式可以變更。接著，您將需要網路系統管理員監控 StorSimple 的防火牆規則，並在需要時更新。
+
+在大部分的情況下，建議您自由地設定您的防火牆規則。不過，您可以使用下列資訊設定建立安全環境所需的進階防火牆規則。
+
+> [AZURE.NOTE] 裝置 (來源) IP 應該一律設定為所有啟用的網路介面。目的地 IP 應該設為 [Azure 資料中心 IP 範圍](https://www.microsoft.com/zh-TW/download/confirmation.aspx?id=41653)。
+
+
+| URL 模式 | 元件/功能 | 裝置 IP |
+|------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | StorSimple Manager 服務<br>存取控制服務<br>Azure 服務匯流排| 啟用雲端功能的網路介面 |
+|`http://crl.microsoft.com/pki/*` |憑證撤銷 |啟用雲端功能的網路介面 |
+| `https://*.core.windows.net/*` | Azure 儲存體帳戶和監視 | 啟用雲端功能的網路介面 |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft Update 伺服器<br> | 僅限控制站的固定 IP |
+| `http://*.deploy.akamaitechnologies.com` |Akamai CDN |僅限控制站的固定 IP |
+| `https://*.partners.extranet.microsoft.com/*` | 支援封裝 | 啟用雲端功能的網路介面 |
+
 ### 路由度量
 
 路由度量與介面和閘道器 (將資料路由到指定的網路) 相關聯。路由度量用於路由通訊協定，如果它知道到相同目的地有多個路徑存在，則會計算到指定目的地的最佳路徑。路由計量的值越低，建議採用的指數越高。
@@ -103,17 +121,12 @@ Update 2 有幾項網路相關的改進且路由度量已變更。行為可以�
 
 - 一組預先決定的值已指派給網路介面。 	
 		
-- 當網路介面已啟用雲端或已停用雲端功能，但是已設定閘道器時，請考量以下所示的範例資料表，其中包含指派給各種網路介面的值。請注意，此處指定的值僅為範例值。
+- 當網路介面已啟用雲端或已停用雲端功能，但是已設定閘道器時，請考量以下所示的範例資料表，其中包含指派給各種網路介面的值。請注意，此處指派的值僅為範例值。
 
 		
 	| 網路介面 | 已啟用雲端 | 已停用雲端且具有閘道器 |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - 雲端流量透過網路介面路由的順序為：
@@ -261,4 +274,4 @@ StorSimple 裝置包含使用鏡像空間保護的固態硬碟 (SSD) 與硬碟 (
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

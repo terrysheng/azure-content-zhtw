@@ -231,7 +231,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 | password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 | 否 | 
 | gatewayName | Data Factory 服務應該用來連接到內部部署 MySQL 資料庫的閘道器名稱。 | 是 |
 
-如需為內部部署 MySQL 資料來源設定認證的詳細資料，請參閱[設定認證和安全性](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)。
+如需為內部部署 MySQL 資料來源設定認證的詳細資料，請參閱[設定認證和安全性](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security)。
 
 ## MySQL 資料集類型屬性
 
@@ -313,4 +313,4 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 MySQL 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -29,15 +29,14 @@
 在移動資源之前，要考慮的重要事項如下︰
 
 1. 您無法變更資源的位置。移動資源只會將它移動到新的資源群組。新的資源群組可能會有不同的位置，但那樣不會變更資源的位置。
-2. 要移動之資源的資源提供者必須在目的地訂用帳戶中註冊。將資源移至新的訂用帳戶時，您可能會遇到這個問題，但永遠不會以該資源類型使用此訂用帳戶。例如，如果您要將 API 管理服務執行個體移動至尚未註冊 Microsoft.ApiManagement 資源提供者的訂用帳戶，將不會成功移動。若要了解如何檢查登錄狀態，並註冊資源提供者，請參閱[資源提供者和類型](../resource-manager-supported-services/#resource-providers-and-types)。
-2. 您要將資源移動到其中的目的地資源群組，只應包含與該資源共用相同應用程式生命週期的資源。
-3. 如果您使用 Azure PowerShell 或 Azure CLI，請確認您使用的是最新版本。若要更新您的版本，執行 Microsoft Web Platform Installer 並檢查是否有新的版本可用如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，以及[安裝 Azure CLI](xplat-cli-install.md)。
-4. 移動作業可能需要一段時間來完成，且在作業期間，您的提示字元會等候到作業完成。
-5. 當移動資源時，會在作業期間鎖定來源群組和目標群組。群組上的寫入和刪除作業將會封鎖，直到移動完成。
+2. 目前並非所有服務都支援移動資源的功能。請參閱下方的清單，以取得哪些服務支援移動資源的相關資訊。
+3. 要移動之資源的資源提供者必須在目的地訂用帳戶中註冊。將資源移至新的訂用帳戶時，您可能會遇到這個問題，但永遠不會以該資源類型使用此訂用帳戶。例如，如果您要將 API 管理服務執行個體移動至尚未註冊 **Microsoft.ApiManagement** 資源提供者的訂用帳戶，將不會成功移動。若要了解如何檢查登錄狀態，並註冊資源提供者，請參閱[資源提供者和類型](../resource-manager-supported-services/#resource-providers-and-types)。
+4. 您要將資源移動到其中的目的地資源群組，只應包含與該資源共用相同應用程式生命週期的資源。
+5. 如果您使用 Azure PowerShell 或 Azure CLI，請確認您使用的是最新版本。若要更新您的版本，執行 Microsoft Web Platform Installer 並檢查是否有新的版本可用如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，以及[安裝 Azure CLI](xplat-cli-install.md)。
+6. 移動作業可能需要一段時間來完成，且在作業期間，您的提示字元會等候到作業完成。
+7. 當移動資源時，會在作業期間鎖定來源群組和目標群組。群組上的寫入和刪除作業將會封鎖，直到移動完成。
 
-## 支援的服務
-
-目前並非所有服務都支援移動資源的功能。
+## 支援移動的服務
 
 目前支援移動到新資源群組與訂用帳戶的服務有：
 
@@ -45,6 +44,7 @@
 - App Service 應用程式 (請參閱下方的 [App Service 限制](#app-service-limitations))
 - 自動化
 - 批次
+- CDN
 - Data Factory
 - DocumentDB
 - HDInsight 叢集
@@ -56,12 +56,16 @@
 - 搜尋
 - SQL Database 伺服器 (請參閱下方的 [SQL Database 限制](#sql-database-limitations))
 
+## 部分支援移動的服務
+
 支援移動到新資源群組，但不支援移動到新訂用帳戶的服務有：
 
 - 虛擬機器 (傳統)
 - 儲存體 (傳統)
 - 虛擬網路
 - 雲端服務
+
+## 不支援移動的服務
 
 目前不支援移動資源的服務有：
 
@@ -133,4 +137,4 @@
 - [使用 Azure 入口網站管理資源](azure-portal/resource-group-portal.md)
 - [使用標記組織您的資源](./resource-group-using-tags.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

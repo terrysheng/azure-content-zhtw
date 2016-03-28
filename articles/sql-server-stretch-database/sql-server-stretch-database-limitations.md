@@ -81,7 +81,9 @@
 
 -   您無法在 Stretch 資料表上執行「更新」或「刪除」作業。
 
--   您無法「插入」到遠端的 Azure SQL Database 資料表。
+-   您無法從遠端插入到連結伺服器上啟用 Stretch 的資料表。
+
+-   您無法搭配啟用 Stretch 的資料表使用複寫功能。
 
 -   您無法建立其中包含 Stretch 資料表的檢視表索引。
 
@@ -90,6 +92,11 @@
 -   索引篩選不會傳播至遠端資料表。
 
 ## 另請參閱
-[執行 Stretch Database Advisor，以識別 Stretch Database 的資料庫和資料表](sql-server-stretch-database-identify-databases.md) [為資料庫啟用 Stretch Database](sql-server-stretch-database-enable-database.md) [為資料表啟用 Stretch Database](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+[透過執行 Stretch Database Advisor 為資料庫和資料表識別 Stretch Database](sql-server-stretch-database-identify-databases.md)
+
+[為資料庫啟用 Stretch Database](sql-server-stretch-database-enable-database.md)
+
+[為資料表啟用 Stretch Database](sql-server-stretch-database-enable-table.md)
+
+<!---HONumber=AcomDC_0316_2016-->

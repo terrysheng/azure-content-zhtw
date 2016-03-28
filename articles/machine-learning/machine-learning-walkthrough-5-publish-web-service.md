@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="03/09/2016"
 	ms.author="garye"/>
 
 
@@ -63,7 +63,7 @@
 2. 精簡實驗，移除只有定型才需要的模組
 3. 定義 Web 服務接受輸入的位置和產生輸出的位置
 
-幸好上述三個步驟只要按一下實驗畫布底部的 [部署 Web 服務] \(選取 [預測 Web 服務] 選項)，即可完成。
+幸好上述三個步驟只要按一下實驗畫布底部的 [部署 Web 服務] (選取 [預測 Web 服務] 選項)，即可完成。
 
 當您按一下 [部署 Web 服務]，會發生幾件事：
 
@@ -91,8 +91,7 @@
 
 最後一次執行實驗 (按一下 [執行])。如果要驗證模型仍然有效，請按一下[評分模型][score-model]模組的輸出結果，並選取 [檢視結果]。您會看到原始資料出現，也會看到信用風險值 ("Scored Labels") 和評分機率值 ("Scored Probabilities").
 
-##
-部署 Web 服務
+## 部署 Web 服務
 
 若要部署衍生自實驗的 Web 服務，請按一下畫布下方的 [發佈 Web 服務]。Machine Learning Studio 會將實驗當做 Web 服務部署，並帶您前往 Web 服務的儀表板。您可以從此處返回實驗 ([檢視快照] 或 [檢視最新]) 並執行簡單的 Web 服務測試 ([測試] 按鈕 - 請參閱以下的**測試 Web 服務**)。另外這裡還有建立可存取 Web 服務之應用程式的資訊 (此逐步說明的下一個步驟中有該資訊的詳細資料)。
 
@@ -155,4 +154,4 @@
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [project-columns]: https://msdn.microsoft.com/zh-TW/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

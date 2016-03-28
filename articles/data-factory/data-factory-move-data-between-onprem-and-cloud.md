@@ -42,7 +42,7 @@
 ## 安裝資料管理閘道
 
 ### 閘道器安裝 - 必要條件
-1.	支援的**作業系統**版本包括 Windows 7、Windows 8/8.1、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。
+1.	支援的**作業系統**版本包括 Windows 7、Windows 8/8.1、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。目前不支援在網域控制站上安裝資料管理閘道。
 2.	建議閘道器電腦的「組態」至少為 2 GHz、4 核心、8 GB RAM 和 80 GB 磁碟。
 3.	如果主機電腦休眠，閘道器即無法回應資料要求。因此，安裝閘道器之前，請先在電腦上設定適當的「電源計劃」。如果電腦已設定為休眠，安裝閘道器時會提示訊息。
 
@@ -104,12 +104,7 @@
 
 | 網域名稱 | 連接埠 | 說明 |
 | ------ | --------- | ------------ |
-| *.servicebus.windows.net | 443、80 | 透過 TCP 之服務匯流排轉送上的接聽程式 (需要 443 才能取得存取控制權杖) | 
-| *.servicebus.windows.net | 9350 至 9354 | 透過 TCP 的選擇性服務匯流排轉送 | 
-| *.core.windows.net | 443 | HTTPS | 
-| *.clouddatahub.net | 443 | HTTPS | 
-| graph.windows.net | 443 | HTTPS | 
-| login.windows.net | 443 | HTTPS | 
+| **.servicebus.windows.net | 443、80 | 透過 TCP 之服務匯流排轉送上的接聽程式 (需要 443 才能取得存取控制權杖) | | *.servicebus.windows.net | 9350 至 9354 | 透過 TCP 的選擇性服務匯流排轉送 | | *.core.windows.net | 443 | HTTPS | | *.clouddatahub.net | 443 | HTTPS | | graph.windows.net | 443 | HTTPS | | login.windows.net | 443 | HTTPS | 
 
 Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您可以在閘道電腦上相應地設定網域和連接埠。
 
@@ -120,7 +115,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您
 
 	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-如果您選擇不要在閘道電腦上開啟連接埠 8050，要設定內部部署連結服務時，您必須使用透過**設定認證**應用程式來設定資料存放區認證以外的機制。例如，您可以使用 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell Cmdlet。如需如何設定資料存放區認證的資訊，請參閱[設定認證和安全性](#setting-credentials-and-security)一節。
+如果您選擇不要在閘道電腦上開啟連接埠 8050，要設定內部部署連結服務時，您必須使用透過**設定認證**應用程式來設定資料存放區認證以外的機制。例如，您可以使用 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell Cmdlet。如需如何設定資料存放區認證的相關資訊，請參閱[設定認證和安全性](#set-credentials-and-securityy)一節。
 
 **將資料從來源資料存放區複製到接收資料存放區：**
 
@@ -255,7 +250,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您
 	
 
 ### 步驟 3：建立連結服務 
-在此步驟中，您將建立兩個連結服務：**StorageLinkedService** 和 **SqlServerLinkedService****SqlServerLinkedService** 連結內部部署 SQL Server 資料庫，而 **StorageLinkedService** 連結服務則將 Azure Blob 存放區連結至 Data Factory。稍後在本逐步解說中，您將建立可將內部部署 SQL Server 資料庫的資料複製到 Azure Blob 存放區的管線。
+在此步驟中，您將建立兩個連結服務：**AzureStorageLinkedService** 和 **SqlServerLinkedService****SqlServerLinkedService** 會連結內部部署 SQL Server 資料庫，而 **AzureStorageLinkedService** 連結的服務則會將 Azure Blob 存放區連結至 Data Factory。稍後在本逐步解說中，您將建立可將內部部署 SQL Server 資料庫的資料複製到 Azure Blob 存放區的管線。
 
 #### 在內部部署 SQL Server 資料庫中新增連結服務
 1.	在 [Data Factory 編輯器] 中，按一下工具列上的 [新增資料存放區]，然後選取 [SQL Server]。 
@@ -286,7 +281,9 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
 	           		"gatewayName": "<Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database>"
     		    }
-	   
+	
+		認證將使用 Data Factory 服務所擁有的憑證來**加密** 。如果您想要改用與資料管理閘道相關聯的憑證，請參閱[安全設定認證](#set-credentials-and-security)。
+    
 2.	按一下命令列上的 [部署]，部署 SQL Server 連結服務。
 
 #### 新增 Azure 儲存體帳戶的連結服務
@@ -294,7 +291,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您
 1. 在 [Data Factory 編輯器] 中，按一下命令列上的 [新增資料存放區]，然後按一下 [Azure 儲存體]。
 2. 在 [帳戶名稱] 中輸入您的 Azure 儲存體帳戶名稱。
 3. 在 [帳戶金鑰] 中輸入您的 Azure 儲存體帳戶金鑰。
-4. 按一下 [部署]，部署 **StorageLinkedService**。
+4. 按一下 [部署]，以部署 **AzureStorageLinkedService**。
    
  
 ### 步驟 4：建立輸入和輸出資料集
@@ -375,7 +372,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您
 		  "name": "OutputBlobTable",
 		  "properties": {
 		    "type": "AzureBlob",
-		    "linkedServiceName": "StorageLinkedService",
+		    "linkedServiceName": "AzureStorageLinkedService",
 		    "typeProperties": {
 		      "folderPath": "adftutorial/outfromonpremdf",
 		      "format": {
@@ -393,7 +390,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您
 	請注意：
 	
 	- **type** 設定為 **AzureBlob**。
-	- **linkedServiceName** 設定為 **StorageLinkedService** (您已在步驟 2 中建立此連結服務)。
+	- **linkedServiceName** 設定為 **AzureStorageLinkedService** (您已在步驟 2 中建立此連結服務)。
 	- **folderPath** 設定為 **adftutorial/outfromonpremdf**，其中 outfromonpremdf 是 adftutorial 容器中的資料夾。您只需要建立 **adftutorial** 容器。
 	- **availability** 設定為**每小時**，且 (**frequency** 設定為**小時**，**interval** 設定為 **1**)。Data Factory 服務會每小時在 Azure SQL Database 的 **emp** 資料表中產生輸出資料配量。 
 
@@ -426,7 +423,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您
 1.	在 **DATA FACTORY** 刀鋒視窗中，按一下 [**製作和部署**] 磚來啟動 Data Factory 的 [**編輯器**]。
 
 	![[製作和部署] 磚](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
-2.	按一下命令列的 [新增管線]。如果沒看到此按鈕，請按一下 [...] \(省略符號) 展開命令列。
+2.	按一下命令列的 [新增管線]。如果沒看到此按鈕，請按一下 [...] (省略符號) 展開命令列。
 2.	使用下列文字取代右窗格中的 JSON：   
 
 
@@ -478,7 +475,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您
 	- 在 activities 區段中，只會有 **type** 設定為 **Copy** 的活動。
 	- 活動的**輸入**設定為 **EmpOnPremSQLTable**，活動的**輸出**則設定為 **OutputBlobTable**。
 	- 在 **transformation** 區段中，將 **SqlSource** 指定為**來源類型**，並將 **BlobSink** 指定為**接收類型**。
-	- **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select * from emp**。
+- **SqlSource** 的 **sqlReaderQuery** 屬性指定 SQL 查詢 **select * from emp**。
 
 	將 **start** 屬性的值取代為目前日期，並將 **end** 值取代為隔天的日期。開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。例如：2014-10-14T16:32:41Z。**end** 時間為選擇性項目，但在本教學課程中會用到。
 	
@@ -586,46 +583,39 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您
 10. 成功註冊閘道器後，閘道器組態管理員首頁上的 [註冊] 應會設定為 [已註冊]，[狀態] 會設定為 [已啟動]。 
 
 ## 設定認證和安全性
+若要在 Data Factory 編輯器中加密認證，請執行下列作業︰
 
-您也可以使用 [連結服務] 刀鋒視窗而不是使用 [Data Factory 編輯器] 建立 SQL Server 連結服務。
- 
-3.	在 Data Factory 首頁上，按一下 [連結服務] 磚。 
-4.	在 [連結服務] 刀鋒視窗中，按一下命令列上的 [新增資料存放區]。 
-4.	輸入 **SqlServerLinkedService** 作為**名稱**。 
-2.	按一下 [類型] 旁的箭號，然後選取 [SQL Server]。
-
-	![建立新的資料存放區](./media/data-factory-move-data-between-onprem-and-cloud/new-data-store.png)
-3.	您可以在 [類型] 設定下進行更多設定。
-4.	針對 [資料閘道器] 設定，選取您剛才建立的閘道器。 
-
-	![SQL Server 設定](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-settings.png)
-4.	在 [伺服器] 設定中輸入資料庫伺服器的名稱。
-5.	在 [資料庫] 設定中輸入資料庫的名稱。
-6.	按一下 [認證] 旁的箭號。
-
-	![認證刀鋒視窗](./media/data-factory-move-data-between-onprem-and-cloud/credentials-dialog.png)
-7.	在 [認證] 刀鋒視窗中，按一下 [按一下這裡設定認證]。
-8.	在 [設定認證] 對話方塊中，執行下列動作：
-
-	![設定認證對話方塊](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+1. 在樹狀檢視中按一下現有**連結服務**以查看其 JSON 定義，或建立需要資料管理閘道服務 (例如︰SQL Server 或 Oracle) 的新連結服務。 
+2. 在 JSON 編輯器中，針對 **gatewayName** 屬性輸入閘道器的名稱。 
+3. 在 **connectionString** 中輸入**資料來源**屬性的伺服器名稱。
+4. 在 **connectionString** 中輸入**初始目錄**屬性的資料庫名稱。    
+5. 按一下命令列上的 [加密] 按鈕。您應該會看見 [設定認證] 對話方塊。![設定認證對話方塊](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+6. 在 [設定認證] 對話方塊中，執行下列動作：  
 	1.	選取您要 Data Factory 服務用來連接到資料庫的**驗證**。 
 	2.	在 [使用者名稱] 設定中輸入可存取資料庫的使用者名稱。 
 	3.	在 [密碼] 設定中輸入使用者的密碼。  
-	4.	按一下 [確定] 關閉對話方塊。 
-4. 按一下 [確定] 關閉 [認證] 刀鋒視窗。 
-5. 按一下 [新增資料存放區] 刀鋒視窗中的 [確定]。 	
-6. 確認 [連接服務] 刀鋒視窗中的 **SqlServerLinkedService** 狀態已設定為 [線上]。
-![SQL Server 連結服務狀態](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+	4.	按一下 [確定] 以加密認證並關閉對話方塊。 
+5.	您現在應該會在 **connectionString** 中看到 **encryptedCredential** 屬性。		
+		
+			{
+	    		"name": "SqlServerLinkedService",
+		    	"properties": {
+		        	"type": "OnPremisesSqlServer",
+			        "description": "",
+		    	    "typeProperties": {
+		    	        "connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
+		            	"gatewayName": "adftutorialgateway"
+		        	}
+		    	}
+			}
 
 如果您從閘道器電腦以外的另一台電腦存取入口網站，您必須確定「認證管理員」應用程式可以連接到閘道器電腦。如果應用程式無法連接閘道器電腦，它將不允許您設定資料來源的認證，以及測試資料來源的連接。
 
-當您使用從 Azure 入口網站啟動的「設定認證」應用程式，設定內部部署資料來源的認證時，入口網站會利用閘道器電腦上，您在「資料管理閘道」組態管理員的 [認證] 索引標籤中指定的憑證，來加密認證。
+當您使用從 Azure 入口網站啟動的**設定認證**應用程式，來設定內部部署資料來源的認證時，入口網站會利用您在閘道機器上，於**資料管理閘道組態管理員**的 [認證] 索引標籤中指定的憑證來加密認證。
 
-如果您要尋找以 API 為基礎的方法來加密認證，可以使用 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell Cmdlet 來加密認證。此 cmdlet 會使用閘道器設定用來加密認證的憑證。您可以加密這個 Cmdlet 傳回的認證，並將其加入 JSON 檔案 (您將搭配 [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) Cmdlet 使用的檔案，或在入口網站之 Data Factory 編輯器的 JSON 程式碼片段中使用的檔案) 之 connectionString 的 EncryptedCredential 元素中。
+如果您要尋找以 API 為基礎的方法來加密認證，可以使用 [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell Cmdlet 來加密認證。此 cmdlet 會使用閘道器設定用來加密認證的憑證。您可以加密這個 Cmdlet 傳回的認證，並將其加入 JSON 檔案 (您將搭配 [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) Cmdlet 使用的檔案，或在入口網站之 Data Factory 編輯器的 JSON 程式碼片段中使用的檔案) 之 **connectionString** 的 **EncryptedCredential** 元素中。
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
-
-**請注意：**如果您使用「設定認證」應用程式，它會如上方所示，在連結服務中自動設定加密的認證。
 
 設定認證只能使用 Data Factory 編輯器，沒有其他方法。如果您使用編輯器建立 SQL Server 連結服務，並且以純文字輸入認證，認證就會使用 Data Factory 服務所擁有的憑證加密，而不使用閘道器設定要使用的憑證。雖然這種方法在某些情況下可能快一點，但也比較不安全。因此，建議您只在開發/測試用途才採用此方法。
 
@@ -696,4 +686,4 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您
 5.	閘道器會利用相同的憑證解密認證，然後利用適當的驗證類行連接到內部部署資料存放區。
 6.	閘道器會根據複製活動在資料管線中的設定方式，將資料從內部部署存放區複製到雲端儲存體，或從雲端儲存體複製到內部部署資料存放區。請注意：在這個步驟中，閘道器會透過安全 (HTTPS) 通道直接與以雲端為基礎的儲存體服務 (例如 Azure Blob、Azure SQL 等) 通訊。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

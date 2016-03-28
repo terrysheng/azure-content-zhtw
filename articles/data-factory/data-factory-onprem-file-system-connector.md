@@ -442,7 +442,7 @@ password | 指定使用者的密碼 (userid) | 否 (如果您選擇 encryptedCre
 encryptedCredential | 指定您可以藉由執行 New-AzureRmDataFactoryEncryptValue Cmdlet 取得的加密認證<br/><br/>**請注意：**您必須使用 Azure PowerShell 0.8.14 或更高版本才能使用 Cmdlet，例如類型參數設為 OnPremisesFileSystemLinkedService 的 New-AzureRmDataFactoryEncryptValue | 否 (如果您選擇以純文字指定使用者識別碼和密碼)
 gatewayName | 資料處理站服務應該用來連接到內部部署檔案伺服器的閘道器名稱 | 是
 
-如需為內部部署檔案系統資料來源設定認證的詳細資料，請參閱[設定認證和安全性](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)。
+如需為內部部署檔案系統資料來源設定認證的詳細資料，請參閱[設定認證和安全性](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security)。
 
 **範例：使用純文字的使用者名稱和密碼**
 	
@@ -608,4 +608,4 @@ false | mergeFiles | 對於有下列結構的來源資料夾 Folder1：<br/><br/
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="yijichen"/>
+	ms.author="inqiu;yijichen"/>
 
 # 適用於能源需求預測之 Cortana Analytics 解決方案範本的技術指南
 
@@ -26,16 +26,14 @@
 
 這份文件的目標在於說明參考架構與隨著此方案範本佈建在您的訂用帳戶的不同元件。文件也會示範如何使用您自己的實際資料來取代範例資料，以便看到您自己的資料的見解/預測。此外，文件將說明如果想要以您自己的資料自訂解決方案，您需要修改的解決方案範本部份。最後會提供如何建置此方案範本的 Power BI 儀表板的指示。
 
->[AZURE.TIP] 您可以下載及列印[這份文件的 PDF 版本](http://github.com/yijichen/document-public/raw/master/Demand%20Forecasting%20for%20Engery%20Solution%20Template.pdf)。
-
-## 概觀
+## **概觀**
 
 ![](media\cortana-analytics-technical-guide-demand-forecast\ca-topologies-energy-forecasting.png)
 
 ### 所說明的架構
 部署方案時，會啟動 Cortana Analytics 套件中的各種 Azure 服務 (也就是 事件中樞、串流分析、HDInsight、Data Factory，機器學習服務等)。上述架構圖顯示概括而言如何從端對端建構能源需求預測解決方案範本。您將可以調查這些服務，方法是在隨著解決方案部署而建立的解決方案範本圖表上按一下。下列章節說明每個片段。
 
-## 資料來源及擷取
+## **資料來源及擷取**
 
 ### 綜合資料來源
 
@@ -47,35 +45,35 @@
 
 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)服務是上述的綜合資料來源所提供的輸入收件者。
 
-## 資料準備和分析
+## **資料準備和分析**
 
 
 ### Azure 串流分析
 
-[Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/) 服務用來為來自 [Azure 事件中樞](#azure-event-hub)服務的輸入串流提供近乎即時的分析，並將結果發佈到 [Power BI](https://powerbi.microsoft.com) 儀表板，以及保存所有未經處理的內送事件 [Azure 儲存體](https://azure.microsoft.com/services/storage/) 服務，供 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 服務後續處理。
+[Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)服務用來為來自 [Azure 事件中樞](#azure-event-hub)服務的輸入串流提供近乎即時的分析，並將結果發佈到 [Power BI](https://powerbi.microsoft.com) 儀表板，以及保存所有未經處理的內送事件 [Azure 儲存體](https://azure.microsoft.com/services/storage/) 服務，供 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 服務後續處理。
 
 ### HD Insights 自訂彙總
 
-Azure HD Insight 服務用來執行 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼 (由 Azure Data Factory 協調)，以提供使用 Azure 串流分析服務封存的原始事件的彙總。
+Azure HD Insight 服務用來執行 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼 (由 Azure Data Factory 協調)，以提供使用 Azure 串流分析服務封存之原始事件的彙總。
 
 ### Azure Machine Learning
 
 使用 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 服務 (由 Azure Data Factory 協調) 預測特定區域 (提供所收到輸入資料) 的未來用電量。
 
-## 資料發佈
+## **資料發佈**
 
 
 ### Azure SQL Database 服務
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 服務用來儲存 (由 Azure Data Factory 管理) 將 [Power BI](https://powerbi.microsoft.com) 儀表板取用之 Azure Machine Learning 服務收到的預測。
 
-## 資料耗用量
+## **資料耗用量**
 
 ### Power BI
 
-[Power BI](https://powerbi.microsoft.com) 服務用來顯示儀表板，其中包含 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/) 服務提供的彙總，以及 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 中所儲存的使用 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 服務產生的需求預測結果。如需如何建置此方案範本的 Power BI 儀表板的指示，請參閱下一節。
+[Power BI](https://powerbi.microsoft.com) 服務用來顯示儀表板，其中包含 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/) 服務提供的彙總，以及 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 中所儲存之使用 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 服務產生的需求預測結果。如需如何建置此方案範本的 Power BI 儀表板的指示，請參閱下一節。
 
-## 如何帶入您自己的資料
+## **如何帶入您自己的資料**
 
 本節說明如何將您自己的資料帶入 Azure，以及對於您放入這個架構的資料，需要變更哪些區域。
 
@@ -85,7 +83,7 @@ Azure HD Insight 服務用來執行 [Hive](http://blogs.msdn.com/b/bigdatasuppor
 
 ### Azure 事件中樞
 
-[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)服務非常廣泛，因而資料可以以 CSV 或 JSON 格式張貼至中樞。Azure 事件中樞中未發生任何特殊處理，但務必了解提供給它的資料。
+[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)服務非常廣泛，因而資料可以 CSV 或 JSON 格式張貼至中樞。Azure 事件中樞中未發生任何特殊處理，但務必了解提供給它的資料。
 
 這份文件不會描述如何擷取您的資料，但您可以使用[事件中樞 API](event-hubs\event-hubs-programming-guide.md)，輕鬆地傳送事件或資料到 Azure 事件中樞。
 
@@ -130,14 +128,14 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的[串流分析查�
 
 類似於 [Azure 串流分析](#azure-stream-analytics-1)查詢，[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼的對於內送資料格式具有隱含知識，必須根據您的資料格式和[特徵設計](machine-learning\machine-learning-feature-selection-and-engineering.md)需求變更這些查詢。
 
-#### AggregateDemandDataTo1HrPipeline
+#### *AggregateDemandDataTo1HrPipeline*
 
 這個[管線](data-factory\data-factory-create-pipelines.md)管線包含單一活動 - 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](data-factory\data-factory-hive-activity.md) 活動，它會執行 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼，透過 Azure 串流分析作業將變電站層級中的需求資料所串流的每 10 秒彙總到每小時區域層級，並放入 [Azure 儲存體](https://azure.microsoft.com/services/storage/)中。
 
 此資料分割工作的 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼為 AggregateDemandRegion1Hr.hql
 
 
-#### LoadHistoryDemandDataPipeline
+#### *LoadHistoryDemandDataPipeline*
 
 這個[管線](data-factory\data-factory-create-pipelines.md)包含兩個活動︰
 - 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](data-factory\data-factory-hive-activity.md) 活動，它會執行 Hive 指令碼，在 Azure 串流分析作業期間將變電站層級中的每小時歷史需求資料彙總到每小時區域層級，並放入 Azure 儲存體中。
@@ -147,7 +145,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的[串流分析查�
 此工作的 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼是 AggregateDemandHistoryRegion.hql。
 
 
-#### MLScoringRegionXPipeline
+#### *MLScoringRegionXPipeline*
 
 這些[管線](data-factory\data-factory-create-pipelines.md)包含數個活動，而且其最終結果為來自與這個方案範本相關聯的 Azure Machine Learning 實驗評分的預測。這些管線幾乎完全相同，差別在於它們各自只會處理不同區域 (由傳入 ADF 管線的不同 RegionID 所完成) 以及每個區域的 hive 指令碼。包含在此的活動為：
 -	使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的[HDInsightHive](data-factory\data-factory-hive-activity.md) 活動會執行 Hive 指令碼來執行 Azure Machine Learning 實驗所需的彙總及特徵設計。此工作的 Hive 指令碼是個別的 PrepareMLInputRegionX.hql。
@@ -156,19 +154,19 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的[串流分析查�
 
 -	呼叫 Azure Machine Learning 實驗的 [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 活動會導致將結果放入單一 Azure 儲存體 Blob。
 
-#### CopyScoredResultRegionXPipeline
+#### *CopyScoredResultRegionXPipeline*
 這些[管線](data-factory\data-factory-create-pipelines.md)包含單一活動 - [複製](https://msdn.microsoft.com/library/azure/dn835035.aspx)活動，會將 Azure Machine Learning 實驗的結果從個別 MLScoringRegionXPipeline 移動至隨著解決方案範本安裝佈建的 Azure SQL Database。
 
-#### CopyAggDemandPipeline
+#### *CopyAggDemandPipeline*
 這個[管線](data-factory\data-factory-create-pipelines.md)包含單一活動 - [複製](https://msdn.microsoft.com/library/azure/dn835035.aspx)活動，會將彙總的持續需求資料從 LoadHistoryDemandDataPipeline 移動至隨著解決方案範本安裝佈建的 Azure SQL Database。
 
-#### CopyRegionDataPipeline、CopySubstationDataPipeline、CopyTopologyDataPipeline
+#### *CopyRegionDataPipeline、CopySubstationDataPipeline、CopyTopologyDataPipeline*
 這些[管線](data-factory\data-factory-create-pipelines.md)包含單一活動 - [複製](https://msdn.microsoft.com/library/azure/dn835035.aspx)活動，會將安裝解決方案範本時上傳至 Azure 儲存體 Blob 的區域/變電站/Topologygeo 參考資料移動到安裝解決方案範本時所佈建的 Azure SQL Database。
 
 ### Azure Machine Learning
 用於此解決方案範本的 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 實驗會提供區域需求預測。實驗因取用的資料集而不同，因而需要特別針對帶入的資料進行修改或取代。
 
-## 監視進度
+## **監視進度**
 一旦資料產生器啟動，管線會開始合成，解決方案的不同元件會遵循 Data Factory 發出的命令開始動作。您有兩種方式可以監視管線。
 
 1. 檢查 Azure Blob 儲存體中的資料。
@@ -187,7 +185,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的[串流分析查�
 
 
 
-## Power BI 儀表板
+## **Power BI 儀表板**
 
 ### 概觀
 
@@ -252,7 +250,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的[串流分析查�
 2.	更新冷路徑 Power BI 檔案的資料來源
 	-  確定您已安裝最新版本的 [Power BI Desktop](https://powerbi.microsoft.com/desktop)。
 
-	-	在您下載的 "DemandForecastingDataGeneratorv1.0" 資料夾中，按兩下 ‘Power BI Template\\DemandForecastPowerBI.pbix’ 檔案。初始的視覺效果是根據虛擬資料所形成。附註：如果您看到錯誤訊息，請確定您已安裝最新版本的 Power BI Desktop。
+	-	在您下載的 "DemandForecastingDataGeneratorv1.0" 資料夾中，按兩下 ‘Power BI Template\\DemandForecastPowerBI.pbix’ 檔案。初始的視覺效果是根據虛擬資料所形成。**注意：**如果您看到錯誤訊息，請確定您已安裝最新版本的 Power BI Desktop。
 
 		一旦開啟，請在檔案的頂端按一下 [編輯查詢]。在快顯視窗中，按兩下右面板上的 [來源]。![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
@@ -268,12 +266,12 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的[串流分析查�
 
 	-   若要建立新儀表板：在左側窗格中按一下 [儀表板] 區段旁的 + 號。為這個新的儀表板輸入名稱「需求預測示範」。
 
-	-   一旦您開啟報告，請按一下 ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic6.png)，將所有視覺效果釘選到儀表板。若要尋找詳細的指示，請參閱[從報告將圖格釘選至 Power BI 儀表板](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report)。前往儀表板頁面並調整視覺效果的大小和位置，以及編輯其標題。若要尋找如何編輯圖格的詳細說明，請參閱[編輯圖格 -- 調整大小、移動、重新命名、釘選、刪除、加入超連結](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename)。以下是具有釘選了一些冷路徑視覺效果的範例儀表板。
+	-   一旦您開啟報告，請按一下 ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic6.png)，將所有視覺效果釘選到儀表板。若要尋找詳細的指示，請參閱[從報告將圖格釘選至 Power BI 儀表板](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report)。前往儀表板頁面並調整視覺效果的大小和位置，以及編輯其標題。若要尋找如何編輯圖格的詳細說明，請參閱[編輯圖格 - 調整大小、移動、重新命名、釘選、刪除、加入超連結](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename)。以下是具有釘選了一些冷路徑視覺效果的範例儀表板。
 
 		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic7.png)
 
 4. (選擇性) 排程資料來源的重新整理。
-	-	  若要排程資料的重新整理，請將滑鼠移到 **EnergyBPI-Final** 資料集，按一下 ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic3.png)，然後選擇 [排程重新整理]。附註：如果您看到警告訊息，請按一下 [編輯認證]，並確定您的資料庫認證與步驟 1 中所述相同。
+	-	  若要排程資料的重新整理，請將滑鼠移到 **EnergyBPI-Final** 資料集，按一下 ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic3.png)，然後選擇 [排程重新整理]。**注意：**如果您看到警告訊息，請按一下 [編輯認證]，並確定您的資料庫認證與步驟 1 中所述相同。
 
 	![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic4.png)
 
@@ -282,7 +280,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的[串流分析查�
 	-   根據您的需求排程重新整理。若要尋找詳細資訊，請參閱 [Power BI 中的資料重新整理](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi)。
 
 
-## 成本估計工具
+## **成本估計工具**
 
 下列兩項工具可協助您進一步了解在您的訂用帳戶中執行能源需求預測解決方案範本所牽涉的總成本：
 
@@ -290,4 +288,4 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的[串流分析查�
 
 -   [Microsoft Azure Cost Estimator Tool (桌面版)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

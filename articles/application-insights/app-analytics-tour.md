@@ -33,7 +33,7 @@ Application Insights 分析是強大的診斷搜尋引擎，適合用於 [Applic
 
 ![開啟 portal.azure.com，開啟您的 Application Insights 資源，然後按一下 [分析]。](./media/app-analytics/001.png)
 
-## Count 資料列
+## [Count](app-analytics-aggregations.md#count) 資料列
 
 名為度量的資料表中會儲存效能計數器等度量。每個資料列都是從應用程式中的 Application Insights SDK 接收的遙測資料點。為了了解資料表有多大，我們會透過管道將其內容傳送至只會計算資料列的運算子︰
 
@@ -50,9 +50,9 @@ Application Insights 分析是強大的診斷搜尋引擎，適合用於 [Applic
 ![](./media/app-analytics-tour/010.png)
 
 	
-`Count` 是可以在管道中排列的許多[查詢運算子](app-analytics-queries.md)之一，用於篩選、重塑和聯結多個階段中的資料。
+[`Count`](app-analytics-aggregations.md#count) 是可以在管道中排列的許多[查詢運算子](app-analytics-queries.md)之一，用於篩選、重塑和聯結多個階段中的資料。
 	
-## Take：顯示 n 個資料列
+## [Take](app-analytics-aggregations.md#take)：顯示 n 個資料列
 
 
 讓我們看看一些資料 - 範例 5 資料列中的內容為何？
@@ -75,7 +75,7 @@ Application Insights 分析是強大的診斷搜尋引擎，適合用於 [Applic
 ![選擇 [資料表]，並使用 [設定資料行]](./media/app-analytics-tour/040.png)
 
 
-## Top 和 sort
+## [Top](app-analytics-aggregations.md#top) 和 [sort](app-analytics-aggregations.md#sort)
 
 `take` 可用來取得快速的結果範例，但它不會依特定順序顯示資料表中的資料列。若要取得已排序的檢視，請使用 `top` (適用於某個範例) 或 `sort` (整個資料表)。
 
@@ -86,7 +86,7 @@ Application Insights 分析是強大的診斷搜尋引擎，適合用於 [Applic
 	requests | top 10 by timestamp desc 
 ```
 
-* *語法︰*大部分運算子都有關鍵字參數 (例如 `by`)。
+* 語法︰大部分運算子都有關鍵字參數 (例如 `by`)。
 * `desc` = 遞減順序，`asc` = 遞增。
 
 ![](./media/app-analytics-tour/260.png)
@@ -100,12 +100,12 @@ Application Insights 分析是強大的診斷搜尋引擎，適合用於 [Applic
 
 結果會相同，但執行速度比較慢一點 (您也可以撰寫 `order`，這是 `sort` 的別名)。
 
-資料表檢視中的資料行標頭也可用來排序畫面上的結果。當然，如果您已使用 `take` 或 `top` 來擷取部分的資料表，您只會重新排列您所擷取的記錄。
+資料表檢視中的資料行標頭也可用來排序畫面上的結果。當然，如果您已使用 `take` 或 `top` 只擷取部分的資料表，您只會重新排列您所擷取的記錄。
 
 
-## Project：選取、重新命名和計算資料行
+## [Project](app-analytics-aggregations.md#project)：選取、重新命名和計算資料行
 
-使用 `project` 挑出您想要的資料行︰
+使用 [`project`](app-analytics-aggregations.md#project)，只挑出您想要的資料行︰
 
 ```AIQL
 
@@ -136,11 +136,11 @@ Application Insights 分析是強大的診斷搜尋引擎，適合用於 [Applic
 * `1d` (這是數字 1，再加上 'd') 是一個時間範圍常值，表示一天。以下是其他一些時間範圍常值︰`12h`、`30m`、`10s``0.01s`。
 * `floor` (別名 `bin`) 會將一個值無條件捨去為您提供的基值的最近倍數。所以 `floor(aTime, 1s)` 會將時間無條件捨去為最接近的秒數。
 
-[運算式](app-analytics-scalars.md)可以包含所有常見的運算子 (`+`、`-`...)，而且有一些實用的函數。
+[運算式](app-analytics-scalars.md)可以包含所有常見的運算子 (`+`、`-`...)，而且有一些實用的函式。
 
-## Extend：計算資料行
+## [Extend](app-analytics-aggregations.md#extend)：計算資料行
 
-如果您只要將資料行加入至現有的資料行，請使用 `extend`：
+如果您只要將資料行加入現有的資料行，請使用 [`extend`](app-analytics-aggregations.md#extend)：
 
 ```AIQL
 
@@ -149,9 +149,9 @@ Application Insights 分析是強大的診斷搜尋引擎，適合用於 [Applic
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-如果您要保留所有現有的資料行，使用 `extend` 比 `project` 精簡。
+如果您要保留所有現有的資料行，使用 [`extend`](app-analytics-aggregations.md#extend) 比 [`project`](app-analytics-aggregations.md#project) 精簡。
 
-## Summarize：彙總資料列群組
+## [Summarize](app-analytics-aggregations.md#summarize)：彙總資料列群組
 
 查看某個資料表範例，我們可以看到報告不同遙測資料的欄位。例如，`exception | take 20` 可快速顯示在稱為 `outerExceptionType` 的欄位中報告的例外狀況訊息。
 
@@ -165,10 +165,10 @@ Application Insights 分析是強大的診斷搜尋引擎，適合用於 [Applic
 
 ![](./media/app-analytics-tour/210.png)
 
-`Summarize` 會將 `by` 子句中具名的欄位中有相同值的資料列群組在一起，並為每個群組產生單一結果資料列。所以在此情況下，每個例外狀況類型都有一個資料列。彙總函數 `count()` 會計算每個群組中的資料列，並在結果中提供一個資料行。
+`Summarize` 會將 `by` 子句中具名的欄位中有相同值的資料列群組在一起，並為每個群組產生單一結果資料列。所以在此情況下，每個例外狀況類型都有一個資料列。彙總函式 `count()` 會計算每個群組中的資料列，並在結果中提供一個資料行。
 
 
-有一些[彙總函數](app-analytics-aggregations.md)，您可以在一個 summarize 運算子中使用其中幾個函數，以產生數個計算資料行。
+有一些[彙總函式](app-analytics-aggregations.md)，您可以在一個 summarize 運算子中使用其中幾個函式，來產生數個計算資料行。
 
 例如，讓我們列出發生這些例外狀況的 HTTP 要求。再次檢查例外狀況資料表範例，您會注意到 HTTP 要求路徑報告於名為 `operation_Name` 的資料行中。
 
@@ -181,7 +181,7 @@ Application Insights 分析是強大的診斷搜尋引擎，適合用於 [Applic
 
 ![](./media/app-analytics-tour/220.png)
 
-彙總函數 `makeset()` 會建立每個群組中所有指定值的集合。當它發生於此範例時，只有一項作業會引發每個例外狀況。
+彙總函式 `makeset()` 會建立每個群組中所有指定值的集合。當它發生於此範例時，只有一項作業會引發每個例外狀況。
 
 
 summarize 的結果有：
@@ -194,7 +194,7 @@ summarize 的結果有：
 ## 依純量值彙總
 
 
-您可以在 by 子句中使用純量 (數值、時間或間隔) 值。但數字通常會填滿連續的範圍。若要將資料點分組，您要將它們指派至離散值的 bin。`bin` 函數適合用於︰
+您可以在 by 子句中使用純量 (數值、時間或間隔) 值。但數字通常會填滿連續的範圍。若要將資料點分組，您要將它們指派至離散值的 bin。`bin` 函式適合用於︰
 
 ```AIQL
 
@@ -205,7 +205,7 @@ summarize 的結果有：
 
 ![](./media/app-analytics-tour/225.png)
 
-`bin` 會將所有時間戳記降低為 1 天的時間間隔。這是 `floor` 的別名，也就是大部分語言所熟悉的函數。它只會將每個值降到您指定的模數的最近倍數，以便 `summarize` 將資料列指派給大小適中的群組 (若沒有該函數，則幾分之一秒就會有一個結果資料列，如此便完全無法彙整資料)。
+`bin` 會將所有時間戳記降低為 1 天的時間間隔。這是 `floor` 的別名，也就是大部分語言所熟悉的函式。它只會將每個值降到您指定的模數的最近倍數，以便 `summarize` 將資料列指派給大小適中的群組 (若沒有該函數，則幾分之一秒就會有一個結果資料列，如此便完全無法彙整資料)。
 
 我們可以處理得比此處的資料表檢視還要好。讓我們使用直條圖選項來看看圖表檢視中的結果︰
 
@@ -214,7 +214,7 @@ summarize 的結果有：
 請注意，雖然我們並未依時間排序結果 (如資料表顯示中所示），但圖表顯示一律會以正確的順序顯示日期時間。
 
 
-## Where︰篩選條件
+## [Where](app-analytics-aggregations.md#where)︰篩選條件
 
 如果您已針對應用程式的[用戶端](app-insights-javascript.md)與伺服器端設定 Application Insights 監視，則資料庫中的某些遙測資料會來自瀏覽器。
 
@@ -248,7 +248,7 @@ summarize 的結果有：
     | where isnotempty(resultCode) and toint(resultCode) >= 400
 ```
 
-`responseCode` 具有字串類型，所以我們必須[將它轉換](app-analytics-scalars.md#casts)以便進行數值比較。
+`responseCode` 具有字串類型，所以我們必須[將它轉換](app-analytics-scalars.md#casts)以進行數值比較。
 
 彙整不同的回應︰
 
@@ -279,7 +279,7 @@ summarize 的結果有：
 
 ## 多個系列 
 
-在 `summarize by` 子句使用多個值，為每個值組合建立個別的資料列︰
+在 `summarize by` 子句中使用多個值，為每組值建立個別的資料列︰
 
 ```AIQL
 
@@ -350,14 +350,14 @@ summarize 的結果有：
 
 需要最後一行才能轉換成日期時間 - 折線圖的 x 軸目前只能是日期時間。
 
-`where` 子句會排除單次發生的工作階段 (sessionDuration = = 0) 及設定 x 軸的長度。
+`where` 子句會排除單次發生的工作階段 (sessionDuration==0) 及設定 x 軸的長度。
 
 
 ![](./media/app-analytics-tour/290.png)
 
 
 
-## 百分位數
+## [百分位數](app-analytics-aggregations.md#percentiles)
 
 哪些持續時間範圍涵蓋不同的工作階段百分比？
 
@@ -403,9 +403,9 @@ summarize 的結果有：
 ![](./media/app-analytics-tour/190.png)
 
 
-## Join
+## [Join](app-analytics-aggregations.md#join)
 
-我們有三個資料表的存取權︰度量、例外狀況和事件。`event` 包含要求報告、頁面檢視、自訂事件等等。
+我們可以存取數個資料表，包括要求和例外狀況。
 
 若要尋找傳回失敗回應之要求的相關例外狀況，我們可以聯結 `session_Id` 上的資料表：
 
@@ -422,7 +422,7 @@ summarize 的結果有：
 
 
 
-## Let︰將結果指派給變數
+## [Let](app-analytics-aggregations.md#let)︰將結果指派給變數
 
 使用 [let](./app-analytics-syntax.md#let-statements) 來分隔前一個運算式的各個部分。結果不變：
 
@@ -441,4 +441,4 @@ summarize 的結果有：
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

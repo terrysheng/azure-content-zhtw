@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/14/2016"
    ms.author="alkohli"/>
 
 # StorSimple Virtual Array 的災害復原和裝置容錯移轉
@@ -25,7 +25,7 @@
 
 裝置容錯移轉是透過災害復原 (DR) 功能協調，並從 [裝置] 頁面起始。此頁面會以表格列出與 StorSimple Manager 服務連接的所有 StorSimple 裝置。顯示每個裝置的易記名稱、狀態、佈建與最大容量、類型及模型。
 
-![](./media/storsimple-ova-failover-dr/image16.png)
+![](./media/storsimple-ova-failover-dr/image15.png)
 
 本文僅適用於 StorSimple Virtual Array。若要容錯移轉 8000 系列裝置，請移至 [StorSimple 裝置的容錯移轉和災害復原](storsimple-device-failover-disaster-recovery.md)。
 
@@ -48,9 +48,7 @@
 
 - 在 Azure 傳統入口網站中，目標裝置需要顯示為 [使用中]。您需要佈建容量相同或更高的目標虛擬裝置。接著，您應該使用本機 Web UI 來設定並成功註冊虛擬裝置。
 
-	> [AZURE.IMPORTANT]
-	> 
-	> 請不要嘗試按一下 [完成裝置設定]，透過服務來設定已註冊的虛擬裝置。您不應該透過服務執行任何裝置設定。
+	> [AZURE.IMPORTANT] 請不要嘗試按一下 [完成裝置設定]，透過服務來設定已註冊的虛擬裝置。您不應該透過服務執行任何裝置設定。
 
 - 來源和目標裝置的類型必須相同。您只能將設定為檔案伺服器的虛擬裝置容錯移轉到另一部檔案伺服器。這適用於 iSCSI 伺服器。
 
@@ -91,13 +89,16 @@ DR 順利完成之後，來源裝置上雲端資料的擁有權會移轉給目�
 
 > [AZURE.IMPORTANT]
 > 
-> 不允許您從 StorSimple 8000 系列裝置容錯移轉到虛擬裝置。
+> - 不允許您從 StorSimple 8000 系列裝置容錯移轉到 1200 虛擬裝置。
+> - 您可以從在政府機構入口網站中部署，啟用美國聯邦資訊處理標準 (FIPS) 的虛擬裝置容錯移轉到 Azure 傳統入口網站中的虛擬裝置。反之亦然。
 
 請執行下列步驟以將裝置還原至目標 StorSimple 虛擬裝置。
 
-1. 將主機上的磁碟區/共用離線。請參閱主機上有關將磁碟區/共用離線的作業系統特定指示。如果尚未離線，則需要移至 [裝置] > [共用] \(或 [裝置] > [磁碟區])，將裝置上的所有磁碟區/共用離線。選取共用/磁碟區，然後按一下頁面底部的 [離線]。系統提示您進行確認時，按一下 [是]。針對裝置上的所有共用/磁碟區，重複執行這個程序。
+1. 將主機上的磁碟區/共用離線。請參閱主機上有關將磁碟區/共用離線的作業系統特定指示。如果還未離線，則需要移至 [裝置] > [共用] (或 [裝置] > [磁碟區])，將裝置上的所有磁碟區/共用離線。選取共用/磁碟區，然後按一下頁面底部的 [離線]。系統提示您進行確認時，按一下 [是]。針對裝置上的所有共用/磁碟區，重複執行這個程序。
 
-2. 在 [裝置] 頁面上，選取進行容錯移轉的來源裝置，然後按一下 [停用]。系統將提示您進行確認。裝置停用是無法復原的永久性程序。系統也會提醒您將主機上的共用/磁碟區離線。
+2. 在 [裝置] 頁面上，選取進行容錯移轉的來源裝置，然後按一下 [停用]。![](./media/storsimple-ova-failover-dr/image16.png)
+
+3. 系統將提示您進行確認。裝置停用是無法復原的永久性程序。系統也會提醒您將主機上的共用/磁碟區離線。
 
 	![](./media/storsimple-ova-failover-dr/image18.png)
 
@@ -119,7 +120,7 @@ DR 順利完成之後，來源裝置上雲端資料的擁有權會移轉給目�
 
 		![](./media/storsimple-ova-failover-dr/image21.png)
 
-7. 核取 [我同意容錯移轉是永久性作業，一旦成功完成容錯移轉，便會刪除來源裝置。]。
+7. 核取 [我同意容錯移轉是永久性作業，一旦成功完成容錯移轉，便會刪除來源裝置]。
 
 8. 按一下核取圖示 ![](./media/storsimple-ova-failover-dr/image1.png)。
 
@@ -172,6 +173,6 @@ DR 順利完成之後，來源裝置上雲端資料的擁有權會移轉給目�
 
 ## 後續步驟
 
-深入了解如何 [administer your StorSimple Virtual Array using the local web UI (使用本機 Web UI 管理 StorSimple Virtual Array)](storsimple-ova-web-ui-admin.md)。
+深入了解如何[使用本機 Web UI 管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 
-<!-----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0316_2016-->

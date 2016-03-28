@@ -955,7 +955,7 @@
 
 	6. 當工作正在執行時，用戶端可以繼續執行自己的處理。它可以定期將要求傳送至 URI _/polling/{guid}_，其中 _{guid}_ 是 Web API 在 202 回應訊息中傳回的 GUID。
 
-	7. 位於 _/polling{guid}_ URI 的 Web API 會查詢資料表中對應工作的狀態，並傳回具有 HTTP 狀態碼 200 (確定) 的回應訊息，其中包含此狀態 (_執行中_、_完成_ 或 _失敗_)。如果工作已完成或失敗，回應訊息也可以包含處理的結果或任何有關失敗原因的可用資訊。
+	7. 位於 _/polling/{guid}_ URI 的 Web API 會查詢資料表中對應工作的狀態，並傳回具有 HTTP 狀態碼 200 (確定) 的回應訊息，其中包含此狀態 (執行中、完成或失敗)。如果工作已完成或失敗，回應訊息也可以包含處理的結果或任何有關失敗原因的可用資訊。
 
 	如果您偏向實作通知，可用的選項包括：
 
@@ -1152,4 +1152,4 @@ Microsoft 網站上的 [Application Insights - 開始監控應用程式的健全
 - Microsoft 網站上的[驗證使用單位測試的程式碼](https://msdn.microsoft.com/library/dd264975.aspx)頁面提供有關使用 Visual Studio 建立和管理單位測試的詳細資訊。
 - Microsoft 網站上的[在發行前執行應用程式的效能測試](https://msdn.microsoft.com/library/dn250793.aspx)頁面說明如何使用 Visual Studio Ultimate 建立 Web 效能和負載測試專案。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

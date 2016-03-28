@@ -21,7 +21,7 @@
 V2.0 端點會在每個[驗證流程](active-directory-v2-flows.md)的處理中發出數種安全性權杖。本文件說明每種權杖的格式、安全性特性和內容。
 
 > [AZURE.NOTE]
-	v2.0 端點並非支援每個 Azure Active Directory 案例和功能。如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
+	v2.0 端點並未支援 Azure Active Directory 的所有案例和功能。如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
 
 ## 權杖的類型
 
@@ -134,7 +134,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 - **Nonce** - 緩和權杖重新執行攻擊。
 - 不勝枚舉...
 
-如需您的應用程式應執行之宣告驗證的完整清單，請參閱 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)。
+如需完整清單，以了解應由您的應用程式來執行的宣告驗證，請參閱 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)。
 
 這些宣告的預期值詳細資料包含在上面的 [id\_token 一節](#id_tokens)中。
 
@@ -154,4 +154,4 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 | 授權碼 (公司或學校帳戶) | 10 分鐘 | 授權碼的存留期特意較短，且應在收到時立即兌換 access\_token 和 refresh\_token。 |
 | 授權碼 (個人帳戶) | 5 分鐘 | 授權碼的存留期特意較短，且應在收到時立即兌換 access\_token 和 refresh\_token。代表個人帳戶簽發的授權碼也是單次使用。 |
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

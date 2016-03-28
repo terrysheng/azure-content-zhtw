@@ -3,7 +3,7 @@
 	description="使用 Microsoft Cortana Analytics 的解決方案範本，協助預測能源公共事業公司的需求。"
 	services="cortana-analytics"
 	documentationCenter=""
-	authors="yijichen"
+	authors="ireiter"
 	manager="ireiter"
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="yijichen;garye"/>
+	ms.author="ireiter;yijichen;garye"/>
 
 # 能源需求預測的 Cortana Analytics 解決方案範本教戰守則  
 
@@ -384,4 +384,4 @@ MAPE (Mean Absolute Percentage Error) 代表「平均絕對百分比誤差」。
 
 如需每個元件和整個架構的詳細資訊，請參閱「能源解決方案範本」。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

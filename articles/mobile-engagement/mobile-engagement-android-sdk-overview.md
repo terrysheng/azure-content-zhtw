@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="03/10/2016"
 	ms.author="piyushjo" />
 
 
@@ -35,9 +35,10 @@
 
 ##版本資訊
 
-##4\.1.5 (02/01/2016)
+##4\.2.0 (03/11/2016)
 
-- 穩定性改進。
+- SDK 現在是在 MIT 中授權的。
+- 允許在 SDK 初始化階段指定自訂裝置識別碼。
 
 ##4\.1.0 (2015/08/25)
 
@@ -46,10 +47,10 @@
 - 修正權限錯誤：如果您使用 `ACCESS_FINE_LOCATION`，就不再需要 `ACCESS_COARSE_LOCATION`。
 - 穩定性改進。
 
-如需較早版本，請參閱[完整版本資訊](mobile-engagement-android-release-notes.md)。
+如需所有版本，請參閱[完整版本資訊](mobile-engagement-android-release-notes.md)。
 
 ##升級程序
 
 如果您已經將較舊版的 SDK 整合到應用程式中，請參閱[升級程序](mobile-engagement-android-upgrade-procedure.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

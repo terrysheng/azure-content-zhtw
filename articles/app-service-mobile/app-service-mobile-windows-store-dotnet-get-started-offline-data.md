@@ -78,7 +78,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 
 7. 在 MainPage.cs 中標示為 `Offline sync` 的區域內，取消註解 `InitLocalStoreAsync` 和 `SyncAsync` 方法。`InitLocalStoreAsync` 方法會初始化與 SQLite 存放區的用戶端同步處理內容。您可以在 Visual Studio 中，選取所有加上註解的行，並使用鍵盤快速鍵 **Ctrl**+**K**+**U** 來取消註解。
 
-	請注意，在 `SyncAsync` 中推送作業是透過 `MobileServiceClient.SyncContext` 執行而非 `IMobileServicesSyncTable`。這是因為內容會追蹤用戶端針對所有資料表所做的變更。這是為了解說資料表之間有所關聯的情況。如需此行為的詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理]。
+	請注意，在 `SyncAsync` 中推送作業是透過 `MobileServiceClient.SyncContext` 執行而非 `IMobileServicesSyncTable`。這是因為內容會追蹤用戶端針對所有資料表所做的變更。如需此行為的詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理]。
 
         private async Task InitLocalStoreAsync()
         {
@@ -272,4 +272,4 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 [雲端報導︰Azure 行動服務中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday：Azure 行動服務中離線啟用的應用程式]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

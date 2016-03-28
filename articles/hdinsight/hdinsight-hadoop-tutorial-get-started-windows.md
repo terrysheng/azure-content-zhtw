@@ -22,10 +22,12 @@
 # Hadoop 教學課程：開始在 Windows 上的 HDInsight 中使用 Hadoop
 
 > [AZURE.SELECTOR]
-- [Windows](../hdinsight-hadoop-tutorial-get-started-windows.md)
-- [Linux](../hdinsight-hadoop-linux-tutorial-get-started.md)
+- [以 Windows 為基礎](../hdinsight-hadoop-tutorial-get-started-windows.md)
+- [以 Linux 為基礎](../hdinsight-hadoop-linux-tutorial-get-started.md)
 
 為了協助您了解在 Windows 上的 Hadoop 並開始使用 HDInsight，本教學課程為您示範如何在 Hadoop 叢集上執行 Hive 查詢非結構化資料，並且接著在 Microsoft Excel 中分析結果。
+
+>[AZURE.NOTE] 本文件的資訊是 以 Windows 為基礎之 HDInsight 叢集的特定資訊。如需以 Linux 為基礎之叢集的相關資訊，請參閱[Hadoop 教學課程：開始在 HDInsight 中使用以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)。
 
 假設您有一個大型的非結構化資料集，而且您想要在此資料集上執行查詢，以擷取一些有用資訊。這正是您要在這個教學課程中做的事。以下是要達成此目標的作法：
 
@@ -255,4 +257,4 @@ HDInsight 叢集會提供查詢主控台，其中包括快速入門組件庫，�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

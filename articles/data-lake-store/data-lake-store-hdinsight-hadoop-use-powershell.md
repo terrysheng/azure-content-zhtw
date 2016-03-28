@@ -1,26 +1,26 @@
-<properties 
-   pageTitle="使用 PowerShell 建立 HDInsight 叢集與 Azure 資料湖存放區 |Azure" 
-   description="使用 Azure PowerShell 建立和使用 HDInsight Hadoop 叢集與 Azure 資料湖" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="使用 PowerShell 建立 HDInsight 叢集與 Azure 資料湖存放區 |Azure"
+   description="使用 Azure PowerShell 建立和使用 HDInsight Hadoop 叢集與 Azure 資料湖"
+   services="data-lake-store,hdinsight" 
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/21/2016"
    ms.author="nitinme"/>
 
 # 使用 Azure PowerShell 建立 HDInsight 叢集與資料湖存放區
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+- [使用入口網站](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [使用 PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
 了解如何使用 Azure PowerShell 設定可存取 Azure 資料湖存放區的 HDInsight 叢集 (Hadoop、HBase 或 Storm)。此版本的一些重要考量：
@@ -53,7 +53,7 @@
 一開始，您必須解除安裝 Azure PowerShell 的 0.9x 版本。若要檢查已安裝 PowerShell 的版本，請從 PowerShell 視窗執行下列命令：
 
 	Get-Module *azure*
-	
+
 若要解除安裝較舊的版本，請執行控制台中的 [程式和功能]，並移除早於 PowerShell 1.0 的已安裝版本。
 
 共有兩個安裝 Azure PowerShell 的主要選項。
@@ -63,13 +63,13 @@
 		# Install the Azure Resource Manager modules from PowerShell Gallery
 		Install-Module AzureRM
 		Install-AzureRM
-		
+
 		# Install the Azure Service Management module from PowerShell Gallery
 		Install-Module Azure
-		
+
 		# Import AzureRM modules for the given version manifest in the AzureRM module
 		Import-AzureRM
-		
+
 		# Import Azure Service Management module
 		Import-Module Azure
 
@@ -78,7 +78,7 @@
 - [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps)。如果您已安裝 Azure PowerShell 0.9.x，系統將提示您解除安裝 0.9.x。如果您是從 PowerShell 資源庫安裝 Azure PowerShell 模組，必須在安裝安裝程式之前先移除模組，以確保 Azure PowerShell 環境保持一致。如需指示，請參閱[透過 WebPI 安裝 Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)。
 
 WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想要從 PowerShell 資源庫進行安裝，這會是取得最新和最優異的 Azure PowerShell 功能之首要管道。
- 
+
 
 ## 建立 Azure 資料湖存放區
 
@@ -88,17 +88,17 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 
         # Log in to your Azure account
 		Login-AzureRmAccount
-        
+
 		# List all the subscriptions associated to your account
 		Get-AzureRmSubscription
-		
-		# Select a subscription 
+
+		# Select a subscription
 		Set-AzureRmContext -SubscriptionId <subscription ID>
 
 		# Register for Data Lake Store
 		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
-	>[AZURE.NOTE] 如果您在註冊資料湖存放區的資源提供者時收到類似 `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` 的錯誤，可能表示您的訂用帳戶不在 Azure 資料湖存放區的允許清單中。請遵循這些[指示](data-lake-store-get-started-portal.md#signup)，確保您已為 Azure 訂用帳戶啟用資料湖存放區公開預覽功能。
+	>[AZURE.NOTE] 如果您在註冊 Data Lake Store 的資源提供者時收到類似 `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` 的錯誤，可能表示您的訂用帳戶不在 Azure Data Lake Store 的允許清單中。請遵循這些[指示](data-lake-store-get-started-portal.md#signup)，確保您已為 Azure 訂用帳戶啟用 Data Lake Store 公開預覽功能。
 
 3. Azure 資料湖存放區帳戶與 Azure 資源群組相關聯。從建立 Azure 資源群組開始。
 
@@ -122,7 +122,7 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 
 4. 將一些範例資料上傳至 Azure 資料湖。我們將在本文稍後使用這個項目來確認資料可以從 HDInsight 叢集存取。如果您正在尋找一些可上傳的範例資料，您可以從 [Azure 資料湖 Git 儲存機制](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)取得 **Ambulance Data** 資料夾。
 
-		
+
 		$myrootdir = "/"
 		Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
 
@@ -161,20 +161,20 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 
 在這一節中，您將執行相關步驟來建立 Azure Active Directory 應用程式的服務主體、指派角色給服務主體，並藉由提供憑證驗證為服務主體。執行下列命令以在 Azure Active Directory 中建立應用程式。
 
-1. 在 PowerShell 主控台視窗中貼上下列 Cmdlet。請確定您針對 **-DisplayName** 屬性指定的值是唯一的。此外，**-HomePage** 和 **-IdentiferUris** 的值是預留位置值且不會驗證。 
+1. 在 PowerShell 主控台視窗中貼上下列 Cmdlet。請確定您針對 **-DisplayName** 屬性指定的值是唯一的。此外，**-HomePage** 和 **-IdentiferUris** 的值是預留位置值且不會驗證。
 
 		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
-		
+
 		$password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
-		
+
 		$certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
-		
+
 		$rawCertificateData = $certificatePFX.GetRawCertData()
-		
+
 		$credential = [System.Convert]::ToBase64String($rawCertificateData)
 
 		$application = New-AzureRmADApplication `
-					-DisplayName "HDIADL" ` 
+					-DisplayName "HDIADL" `
 					-HomePage "https://contoso.com" `
 					-IdentifierUris "https://mycontoso.com" `
 					-KeyValue $credential  `
@@ -188,11 +188,11 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 2. 使用應用程式識別碼建立服務主體。
 
 		$servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
-		
+
 		$objectId = $servicePrincipal.Id
 
 3. 將服務主體的存取權授與您稍早建立的資料湖存放區。
-		
+
 		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
 
 	系統提示時，輸入 **Y** 以確認。
@@ -210,9 +210,9 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 		# Create an Azure storage account
 		$location = "East US 2"
 		$storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
-		
+
 		New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
- 
+
 		# Create an Azure Blob Storage container
 		$containerName = "<ContainerName>"              # Provide a container name
 		$storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
@@ -226,7 +226,7 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 		$clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
 		$httpCredentials = Get-Credential
 		$rdpCredentials = Get-Credential
-		
+
 		New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.2" -RdpCredential $rdpCredentials -RdpAccessExpiry (Get-Date).AddDays(14) -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
 
 	Cmdlet 成功完成後，您應該會看到如下的輸出：
@@ -245,7 +245,7 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 		DefaultStorageAccount     :
 		DefaultStorageContainer   :
 		ResourceGroup             : hdiadlgroup
-		AdditionalStorageAccounts : 
+		AdditionalStorageAccounts :
 
 ## 在 HDInsight 叢集上執行測試工作以使用資料湖存放區
 
@@ -261,7 +261,7 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 
     	hive
 
-2. 使用 CLI，輸入下列陳述式，以使用資料湖存放區中的範例資料來建立名為 **vehicles** 的新資料表：
+2. 使用 CLI，輸入下列陳述式，以使用 Data Lake Store 中的範例資料來建立名為 **vehicles** 的新資料表：
 
 		DROP TABLE vehicles;
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
@@ -286,7 +286,7 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 使用下列 Cmdlet 以執行 Hive 查詢。在這個查詢中，我們將會從資料湖存放區中的資料建立資料表，然後在建立的資料表上執行 select 查詢。
 
 	$queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
-	
+
 	$hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
 
 	$hiveJob = Start-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $httpCredentials
@@ -378,4 +378,4 @@ WebPI 每個月都會更新。PowerShell 資源庫將持續更新。如果您想
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

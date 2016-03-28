@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -642,23 +642,23 @@ Swagger 端點將會位於 http://_yoursite_.azurewebsites.net/swagger。您可�
 	    // Send a push notification using APNS.
         context.push.apns.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error. 
-	        }           
+                // Do something or log the error.
+	        }
         });
     }
 
 藉由從用戶端建立範本的推播註冊，您可以改為傳送範本推播訊息至所有支援平台上的裝置。下列程式碼示範如何傳送範本通知︰
 
 	// Define the template payload.
-	var payload = '{"messageParam": "This is a template payload."}'; 
+	var payload = '{"messageParam": "This is a template payload."}';
 
     // Only do the push if configured
     if (context.push) {
 		// Send a template notification.
         context.push.send(null, payload, function (error) {
             if (error) {
-                // Do something or log the error.   
-            } 
+                // Do something or log the error.
+            }
         });
     }
 
@@ -671,8 +671,8 @@ Swagger 端點將會位於 http://_yoursite_.azurewebsites.net/swagger。您可�
 		// Send a notification to the current user.
         context.push.send(context.user.id, payload, function (error) {
             if (error) {
-                // Do something or log the error.   
-            } 
+                // Do something or log the error.
+            }
         });
     }
 
@@ -815,12 +815,10 @@ Azure 行動應用程式 SDK 允許透過要求物件存取整個「內容」，
     api.get.access = 'authenticated';
     module.exports = api;
 
-
-
 ## <a name="Debugging"></a><a name="howto-diagnostic-logs"></a>如何：偵錯、診斷和疑難排解 Azure Mobile Apps
 
+Azure App Service 提供數個適用於 Node.js 應用程式的偵錯和疑難排解技術。
 
-Azure App Service 提供數個適用於 Node.js 應用程式的偵錯和疑難排解技術。這些技術全都可以使用：
 - [監視 Azure App Service]
 - [在 Azure App Service 中啟用診斷記錄]
 - [在 Visual Studio 中疑難排解 Azure App Service]
@@ -872,7 +870,7 @@ Azure 入口網站可讓您在 Visual Studio Team Services 中編輯 Node.js 後
 [3]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-config.png
 [4]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-authconfig.png
 [5]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/sqlexpress-newuser-1.png
-[6]: ../../includes/media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
+[6]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/dotnet-backend-create-db.png
 
 <!-- URLs -->
 [Android 用戶端快速入門]: app-service-mobile-android-get-started.md
@@ -914,4 +912,4 @@ Azure 入口網站可讓您在 Visual Studio Team Services 中編輯 Node.js 後
 [ExpressJS 中介軟體]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

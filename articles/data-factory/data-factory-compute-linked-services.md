@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="03/11/2016"
 	ms.author="spelluru"/>
 
 # 計算連結服務
@@ -38,46 +38,28 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 > [AZURE.IMPORTANT] 通常會花費 **15 分鐘**以上的時間來佈建隨選 Azure HDInsight 叢集。
 
 ### 範例
-下列 JSON 會定義隨選的 HDInsight 連結服務。Data Factory 會在處理資料配量時自動建立**以 Windows 為基礎的** HDInsight 叢集。請注意到此範例 JSON 中並未指定 **osType**，而且此屬性的預設值是 **Windows**。
-
-	{
-	  "name": "HDInsightOnDemandLinkedService",
-	  "properties": {
-	    "type": "HDInsightOnDemand",
-	    "typeProperties": {
-	      "version": "3.2",
-	      "clusterSize": 1,
-	      "timeToLive": "00:30:00",
-	      "linkedServiceName": "StorageLinkedService"
-	    }
-	  }
-	}
-
-
-下列 JSON 會定義以 Linux 為基礎的隨選 HDInsight 連結服務。Data Factory 服務會在處理資料配量時自動建立**以 Linux 為基礎的** HDInsight 叢集。您必須指定 **sshUserName** 和 **sshPassword** 的值。
+下列 JSON 會定義以 Linux 為基礎的隨選 HDInsight 連結服務。Data Factory 服務會在處理資料配量時自動建立**以 Linux 為基礎的** HDInsight 叢集。
 
 
 	{
 	    "name": "HDInsightOnDemandLinkedService",
 	    "properties": {
-	        "hubName": "getstarteddf0121_hub",
 	        "type": "HDInsightOnDemand",
 	        "typeProperties": {
-	            "version": "3.2",
 	            "clusterSize": 4,
 	            "timeToLive": "00:05:00",
 	            "osType": "linux",
-	            "sshPassword": "MyPassword!",
-	            "sshUserName": "myuser",
-	            "linkedServiceName": "StorageLinkedService",
+	            "linkedServiceName": "StorageLinkedService"
 	        }
 	    }
 	}
 
+若要使用以 Windows 為基礎的 HDInsight 叢集，請將 **osType** 設為 **windows**，或者不要使用此屬性，因為預設值是︰windows。
+
 > [AZURE.IMPORTANT] 
-HDInsight 叢集會在您於 JSON 中指定的 Blob 儲存體 (**linkedServiceName**) 建立**預設容器**。HDInsight 不會在刪除叢集時刪除此容器。原先的設計就是如此。在使用 HDInsight 隨選連結服務時，除非有現有的即時叢集 (**timeToLive**)，否則每當需要處理配量時，就會建立 HDInsight 叢集，並在處理完成時予以刪除。
+HDInsight 叢集會在您於 JSON 中指定的 Blob 儲存體 (**linkedServiceName**) 建立**預設容器**。HDInsight 不會在刪除叢集時刪除此容器。原先的設計就是如此。使用 HDInsight 隨選連結服務時，除非有現有的即時叢集 (**timeToLive**)，否則每當需要處理配量時，就會建立 HDInsight 叢集，並在處理完成時予以刪除。
 > 
-> 隨著處理的配量越來越多，您會在 Azure Blob 儲存體中看到許多容器。如果在疑難排解作業時不需要這些容器，建議您加以刪除以降低儲存成本。這些容器的名稱遵循下列模式："adf**yourdatafactoryname**-**linkedservicename**-datetimestamp"。請使用 [Microsoft 儲存體總管](http://storageexplorer.com/)之類的工具刪除 Azure Blob 儲存體中的容器。
+> 隨著處理的配量越來越多，您會在 Azure Blob 儲存體中看到許多容器。如果在疑難排解作業時不需要這些容器，建議您加以刪除以降低儲存成本。這些容器的名稱遵循下列模式："adf**yourdatafactoryname**-**linkedservicename**-datetimestamp"。請使用 [Microsoft 儲存體總管](http://storageexplorer.com/)之類的工具，來刪除 Azure Blob 儲存體中的容器。
 
 ### 屬性
 
@@ -91,8 +73,6 @@ linkedServiceName | 隨選叢集用於儲存及處理資料的 Blob 存放區。
 additionalLinkedServiceNames | 指定 HDInsight 連結服務的其他儲存體帳戶，讓 Data Factory 服務代表您註冊它們。 | 否
 osType | 作業系統的類型。允許的值為：Windows (預設值) 和 linux | 否
 hcatalogLinkedServiceName | 指向 HCatalog 資料庫的 Azure SQL 連結服務名稱。將會使用 Azure SQL 資料庫作為中繼存放區，建立隨選 HDInsight 叢集。 | 否
-sshUser | 以 Linux 為基礎的 HDInsight 叢集的 SSH 使用者 | 是 (僅適用於 Linux)
-sshPassword | 以 Linux 為基礎的 HDInsight 叢集的 SSH 密碼 | 是 (僅適用於 Linux)
 
 
 #### additionalLinkedServiceNames JSON 範例
@@ -126,7 +106,6 @@ yarnConfiguration | 指定 HDInsight 叢集的 Yarn 組態參數 (yarn-site.xml)
 	    "typeProperties": {
 	      "clusterSize": 16,
 	      "timeToLive": "01:30:00",
-	      "version": "3.2",
 	      "linkedServiceName": "adfods1",
 	      "coreConfiguration": {
 	        "templeton.mapper.memory.mb": "5000"
@@ -320,17 +299,17 @@ subscriptionId | Azure 訂用帳戶識別碼 | 否 (如果未指定，便會使�
 resourceGroupName | Azure 資源群組名稱 | 否 (若未指定，便會使用 Data Factory 的資源群組)。
 sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階段識別碼都是唯一的，只能使用一次。這是在 Data Factory 編輯器中自動產生。 | 是
 
-您使用 [授權] 按鈕所產生的授權碼在一段時間後會到期。請參閱下表以了解不同類型的使用者帳戶的到期時間。當驗證權杖到期時，您可能會看到下列錯誤訊息：認證作業發生錯誤：invalid\_grant - AADSTS70002：驗證認證時發生錯誤。AADSTS70008：提供的存取授權已過期或撤銷。追蹤識別碼：d18629e8-af88-43c5-88e3-d8419eb1fca1 相互關連識別碼：fac30a0c-6be6-4e02-8d69-a776d2ffefd7 時間戳記：2015-12-15 21:09:31Z
+您使用 [授權] 按鈕所產生的授權碼會在一段時間之後到期。請參閱下表以了解不同類型的使用者帳戶的到期時間。當驗證**權杖到期**時，您可能會看到下列錯誤訊息：認證作業發生錯誤：invalid\_grant - AADSTS70002：驗證認證時發生錯誤。AADSTS70008：提供的存取授權已過期或撤銷。追蹤識別碼：d18629e8-af88-43c5-88e3-d8419eb1fca1 相互關連識別碼：fac30a0c-6be6-4e02-8d69-a776d2ffefd7 時間戳記：2015-12-15 21:09:31Z
 
 | 使用者類型 | 到期時間 |
 | :-------- | :----------- | 
 | 不受 Azure Active Directory 管理的使用者帳戶 (@hotmail.com、@live.com 等) | 12 小時 |
 | 受 Azure Active Directory (AAD) 管理的使用者帳戶 | 最後一次執行配量後的 14 天。<br/><br/>如果以 OAuth 式連結服務為基礎的配量至少每 14 天執行一次，則為 90 天。 |
  
-如果要避免/解決此錯誤，您必須在權杖到期時使用 [授權] 按鈕重新授權，然後重新部署連結服務。您也可以使用下一節中的程式碼以程式設計方式產生 sessionId 和 authorization 屬性的值。
+如果要避免/解決此錯誤，您必須在**權杖到期**時使用 [授權] 按鈕重新授權，然後重新部署連結服務。您也可以使用下一節中的程式碼以程式設計方式產生 sessionId 和 authorization 屬性的值。
 
 ### 若要以程式設計方式產生 sessionId 與 authorization 的值 
-下列程式碼會產生 sessionId 與 authorization 值。
+下列程式碼會產生 **sessionId** 與 **authorization** 值。
 
     if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
         linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
@@ -362,4 +341,4 @@ sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階�
 
 您可建立 Azure SQL 連結服務，並將其與[預存程序活動](data-factory-stored-proc-activity.md)搭配使用，以叫用 Data Factory 管線中的預存程序。如需此連結服務的詳細資料，請參閱 [Azure SQL 連接器](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties)一文。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

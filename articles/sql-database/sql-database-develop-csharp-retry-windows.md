@@ -3,8 +3,8 @@
 	description="C# 範例中包括重試邏輯，可與 Azure SQL Database 穩健互動。"
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor=""/>
 
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
 # 程式碼範例：C# 中用於連接到 SQL Database 的重試邏輯
@@ -286,4 +286,4 @@ filetable_updates_2105058535    2105058535
 
 - [試用 SQL Database：透過 SQL Database Library for .NET 使用 C#; 建立 SQL Database](sql-database-get-started-csharp.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

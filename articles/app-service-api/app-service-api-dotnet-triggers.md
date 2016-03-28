@@ -22,9 +22,7 @@
 
 本文說明如何實作 API 應用程式觸發程序，並從邏輯應用程式加以使用。
 
-如果您不熟悉 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 中的 [API 應用程式](app-service-api-apps-why-best-platform.md)，則建議您閱讀[建立 API 應用程式](app-service-dotnet-create-api-app.md)上的多組件系列。
 
-此外，此主題中所有程式碼片段的複製來源為 [FileWatcher API 應用程式程式碼範例](http://go.microsoft.com/fwlink/?LinkId=534802)。
 
 請注意，您將需要下載下列 nuget 封裝，以取得本文中建置與執行所需的程式碼：[http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/)。
 
@@ -341,4 +339,4 @@ API 應用程式常會需要引發事件，以讓 API 應用程式用戶端採�
     }
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -84,7 +84,7 @@ Identity Protection 會使用此資料來產生報告和警示，讓您調查這
 
 ### 風險事件
 
-由 Identity Protection 標示為可疑的風險事件，表示身分識別可能已被入侵。如需風險事件的完整清單，請參閱 [Azure Active Directory Identity Protection 偵測到的風險事件類型](active-directory-identityprotection-risk-events-types)。
+由 Identity Protection 標示為可疑的風險事件，表示身分識別可能已被入侵。如需風險事件的完整清單，請參閱 [Azure Active Directory Identity Protection 偵測到的風險事件類型](active-directory-identityprotection-risk-events-types.md)。
 
 有些這些風險事件已可透過 Azure 管理入口網站中的 Azure AD 異常活動報告取得。下表列出各種風險事件類型和對應的 Azure AD 異常活動報告。Microsoft 將持續投入這個領域，並且計劃持續改善現有風險事件的偵測精確度，以及持續加入新的風險事件類型。
 
@@ -132,7 +132,7 @@ Identity Protection 會使用此資料來產生報告和警示，讓您調查這
 
 儀表板可讓您存取：
  
-- 報告，例如 [標示有風險的使用者]、[風險事件] 和 [弱點]
+- 
 - 設定，例如 [安全性原則]、[通知] 和 [Multi-Factor Authentication 註冊] 的組態
  
 
@@ -194,11 +194,11 @@ Identity Protection 會使用此資料來產生報告和警示，讓您調查這
 
 若要補救使用者風險事件，您可以：
 
-- 重設安全的密碼，以便手動補救使用者風險事件 
+- 手動重設安全密碼，以補救使用者風險事件 
 
 - 設定使用者風險安全性原則，以自動緩和或補救使用者風險事件
 
-- 重新安裝受感染的裝置映像
+- 重新製作受感染裝置的映像
 
 
 ### 手動重設安全密碼
@@ -231,15 +231,15 @@ Identity Protection 會使用此資料來產生報告和警示，讓您調查這
 
 Azure AD Identity Protection 可讓您執行下列作業，以協助您管理標示有風險的使用者的緩和與補救動作：
 
-- 設定要套用原則的使用者和群組 <br><br> ![使用者風險原則](./media/active-directory-identityprotection/501.png "使用者風險原則") <br>
+- 設定要套用原則的使用者和群組：<br><br> ![使用者風險原則](./media/active-directory-identityprotection/501.png "使用者風險原則") <br>
 
-- 設定可觸發密碼變更的使用者風險層級臨界值 (低、中或高) <br><br> ![使用者風險原則](./media/active-directory-identityprotection/502.png "使用者風險原則") <br>
+- 設定可觸發密碼變更的使用者風險層級臨界值 (低、中或高)：<br><br> ![使用者風險原則](./media/active-directory-identityprotection/502.png "使用者風險原則") <br>
 
-- 設定可觸發封鎖使用者的使用者風險層級臨界值 (低、中或高) <br><br> ![使用者風險原則](./media/active-directory-identityprotection/503.png "使用者風險原則") <br>
+- 設定可觸發封鎖使用者的使用者風險層級臨界值 (低、中或高)：<br><br> ![使用者風險原則](./media/active-directory-identityprotection/503.png "使用者風險原則") <br>
 
-- 切換原則的狀態 <br><br> ![MFA 註冊](./media/active-directory-identityprotection/403.png "MFA 註冊") <br>
+- 切換原則的狀態：<br><br> ![MFA 註冊](./media/active-directory-identityprotection/403.png "MFA 註冊") <br>
 
-- 在啟用變更前檢閱和評估其影響 <br><br> ![使用者風險原則](./media/active-directory-identityprotection/504.png "使用者風險原則") <br>
+- 在啟用變更前檢閱和評估其影響：<br><br> ![使用者風險原則](./media/active-directory-identityprotection/504.png "使用者風險原則") <br>
 
 
 選擇 [高] 臨界值可減少觸發原則的次數，並將對使用者的影響降至最低。不過，這會從原則中排除標示 [低] 和 [中] 度風險的使用者，而無法保護先前疑似或已知遭到入侵的身分識別或裝置。
@@ -260,7 +260,7 @@ Azure AD Identity Protection 可讓您執行下列作業，以協助您管理標
 
 - [遭到入侵的帳戶復原流程](active-directory-identityprotection-flows.md#compromised-account-recovery)。  
 
-- [遭到入侵的帳戶封鎖流程](active-directory-identityprotection-flows.md#Compromised-account-blocked)。
+- [遭到入侵的帳戶封鎖流程](active-directory-identityprotection-flows.md#compromised-account-blocked)。
 
 
 開啟相關的組態對話方塊：
@@ -301,15 +301,15 @@ Azure AD Identity Protection 可讓您執行下列作業，以協助您管理標
 
 Azure AD Identity Protection 可讓您執行下列作業，以協助您管理有風險登入的緩和動作：
 
-- 設定要套用原則的使用者和群組 <br><br> ![登入風險原則](./media/active-directory-identityprotection/701.png "登入風險原則") <br>
+- 設定要套用原則的使用者和群組：<br><br> ![登入風險原則](./media/active-directory-identityprotection/701.png "登入風險原則") <br>
 
-- 設定可針對受影響的登入觸發 Multi-Factor Authentication 挑戰的登入風險層級臨界值 (低、中或高) <br><br> ![登入風險原則](./media/active-directory-identityprotection/702.png "登入風險原則") <br>
+- 設定可針對受影響的登入觸發 Multi-Factor Authentication 挑戰的登入風險層級臨界值 (低、中或高)：<br><br> ![登入風險原則](./media/active-directory-identityprotection/702.png "登入風險原則") <br>
 
-- 設定可封鎖受影響登入的登入風險層級臨界值 (低、中或高) <br><br> ![登入風險原則](./media/active-directory-identityprotection/703.png "登入風險原則") <br>
+- 設定可封鎖受影響登入的登入風險層級臨界值 (低、中或高)：<br><br> ![登入風險原則](./media/active-directory-identityprotection/703.png "登入風險原則") <br>
 
-- 切換原則的狀態 <br><br> ![MFA 註冊](./media/active-directory-identityprotection/403.png "MFA 註冊") <br>
+- 切換原則的狀態：<br><br> ![MFA 註冊](./media/active-directory-identityprotection/403.png "MFA 註冊") <br>
 
-- 在啟用變更前檢閱和評估其影響 <br><br> ![登入風險原則](./media/active-directory-identityprotection/704.png "登入風險原則") <br>
+- 在啟用變更前檢閱和評估其影響：<br><br> ![登入風險原則](./media/active-directory-identityprotection/704.png "登入風險原則") <br>
 
  
 選擇 [高] 臨界值可減少觸發原則的次數，並將對使用者的影響降至最低。<br> 不過，它會從原則中排除標示 [低] 和 [中] 度風險的登入，而無法阻止攻擊者利用遭到入侵的身分識別。
@@ -341,11 +341,11 @@ Identity Protection 主控台中的 [風險事件] 頁面會列出所有事件�
 
 如需相關的使用者經驗概觀，請參閱︰
 
-- [有風險的登入復原](active-directory-identityprotection-flows.md#risky-sign-in-recovery)。  
+- [有風險的登入復原](active-directory-identityprotection-flows.md#risky-sign-in-recovery) 
 
-- [已封鎖有風險的登入](active-directory-identityprotection-flows.md#risky-sign-in-blocked)。
+- [已封鎖有風險的登入](active-directory-identityprotection-flows.md#risky-sign-in-blocked)
 
-- [在有風險的登入期間註冊 Multi-Factor Authentication](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in)。
+- [在有風險的登入期間註冊 Multi-Factor Authentication](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in)
 
 
 
@@ -373,13 +373,13 @@ Azure Multi-Factor Authentication 是除了使用使用者名稱與密碼之外�
 
 Azure AD Identity Protection 可讓您設定原則來執行下列作業，以協助您管理首次 Multi-Factor Authentication 註冊：
 
-- 檢視目前註冊狀態 <br><br> ![MFA 註冊](./media/active-directory-identityprotection/603.png "MFA 註冊") <br>
+- 檢視目前註冊狀態：<br><br> ![MFA 註冊](./media/active-directory-identityprotection/603.png "MFA 註冊") <br>
 
-- 設定要套用原則的使用者和群組 <br><br> ![MFA 註冊](./media/active-directory-identityprotection/601.png "MFA 註冊") <br>
+- 設定要套用原則的使用者和群組：<br><br> ![MFA 註冊](./media/active-directory-identityprotection/601.png "MFA 註冊") <br>
 
-- 定義多久以後才能略過註冊 <br><br> ![MFA 註冊](./media/active-directory-identityprotection/602.png "MFA 註冊") <br>
+- 定義多久以後才能略過註冊：<br><br> ![MFA 註冊](./media/active-directory-identityprotection/602.png "MFA 註冊") <br>
 
-- 切換原則的狀態 <br><br> ![MFA 註冊](./media/active-directory-identityprotection/403.png "MFA 註冊") <br>
+- 切換原則的狀態：<br><br> ![MFA 註冊](./media/active-directory-identityprotection/403.png "MFA 註冊") <br>
 
 如需相關的使用者經驗概觀，請參閱︰
 
@@ -410,4 +410,4 @@ Azure AD Identity Protection 可讓您設定原則來執行下列作業，以協
  - [Azure Active Directory Identity Protection 腳本](active-directory-identityprotection-playbook.md)
  - [Azure Active Directory Identity Protection 詞彙](active-directory-identityprotection-glossary.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0316_2016-->

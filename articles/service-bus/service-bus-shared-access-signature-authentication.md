@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # 使用服務匯流排的共用存取簽章驗證
@@ -94,7 +94,7 @@ SAS 權杖中的 [KeyName](https://msdn.microsoft.com/library/azure/microsoft.se
 
 ## 存取命名空間上的共用存取授權規則
 
-服務匯流排命名空間根目錄上的作業需要憑證驗證。您必須針對您的 Azure 訂用帳戶上傳管理憑證。若要上傳管理憑證，請按一下 [Azure 傳統入口網站][]的左窗格中的 [設定]。如需 Azure 管理憑證的詳細資訊，請參閱[建立 Azure 的管理憑證](https://msdn.microsoft.com/library/azure/gg551722.aspx)。
+服務匯流排命名空間根目錄上的作業需要憑證驗證。您必須針對您的 Azure 訂用帳戶上傳管理憑證。若要上傳管理憑證，請按一下 [Azure 傳統入口網站][]的左窗格中的 [設定]。如需有關 Azure 管理憑證的詳細資訊，請參閱 [Azure 憑證概觀](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates)。
 
 可供存取服務匯流排命名空間上共用存取授權規則的端點如下所示：
 
@@ -258,4 +258,4 @@ sendClient.Send(helloMessage);
 
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

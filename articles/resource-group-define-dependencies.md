@@ -3,8 +3,8 @@
    description="說明如何在部署期間，將某個資源設定為相依於另一個資源。"
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="mmercuri"
-   manager="wpickett"
+   authors="tfitzmac"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="12/07/2015"
-   ms.author="mmercuri"/>
+   ms.author="tomfitz"/>
 
 # 定義 Azure 資源管理員範本中的相依性
 
@@ -66,4 +66,4 @@ reference 函式可讓運算式從其他 JSON 名稱和值組或執行階段資�
 - 若要了解如何建立 Azure 資源管理員範本，請參閱[撰寫範本](resource-group-authoring-templates.md)。 
 - 如需在範本中可用函式的清單，請參閱[範本函式](resource-group-template-functions.md)。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0316_2016-->

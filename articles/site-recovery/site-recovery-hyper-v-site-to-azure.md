@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/16/2016"
+	ms.date="03/15/2016"
 	ms.author="raynew"/>
 
 
@@ -38,7 +38,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 ### Azure 必要條件
 
 - 您將需要 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。
-- 您需要 Azure 儲存體帳戶來儲存複寫的資料。此帳戶必須啟用異地複寫。它應該與 Azure Site Recovery 保存庫位於相同的區域，且和同一個訂用帳戶產生關聯。[深入了解 Azure 儲存體](../storage/storage-introduction.md)。
+- 您需要 Azure 儲存體帳戶來儲存複寫的資料。此帳戶必須啟用異地複寫。它應該與 Azure Site Recovery 保存庫位於相同的區域，且和同一個訂用帳戶產生關聯。我們不支援使用[新的 Azure 入口網站](../storage/storage-create-storage-account.md)來跨資源群組移動所建立的儲存體帳戶。[深入了解 Azure 儲存體](../storage/storage-introduction.md)。
 - 您將需要 Azure 虛擬網路，如此一來，當您從主要網站容錯移轉時，Azure 虛擬機器就會連接至網路。
 
 ### Hyper-V 的必要條件
@@ -187,6 +187,9 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
 	![建立儲存體帳戶](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateResources1.png)
 
+>[AZURE.NOTE] 我們不支援使用[新的 Azure 入口網站](../storage/storage-create-storage-account.md)來跨資源群組移動所建立的儲存體帳戶。
+
+
 ## 步驟 5：建立和設定保護群組
 
 保護群組是虛擬機器的邏輯群組，您想要使用相同的保護設定來保護這類群組。您只要將保護設定套用至保護群組，這些設定就會套用至您新增至該群組中的所有虛擬機器。
@@ -295,4 +298,4 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
 在您的部署設定完成並開始執行之後，[深入了解](site-recovery-failover.md)容錯移轉。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!----HONumber=AcomDC_0316_2016-->

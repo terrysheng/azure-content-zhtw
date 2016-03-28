@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/04/2015"
+   ms.date="03/14/2016"
    ms.author="heeldin;motanv"/>
 
 # Testability 動作
@@ -211,10 +211,11 @@ PartitionSelector 是 Testability 中公開的協助程式，可用來協助選�
 
 若要使用此協助程式，請建立 ReplicatorSelector 物件，並設定您想選取複本和分割區的方式。接著可以將其傳遞至有需求的 API。如果不選取任何選項，它會預設為隨機複本和隨機分割區。
 
-Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829"); PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceNamepartitionIdGuid); long replicaId = 130559876481875498;
-
-
 ```csharp
+Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
+PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid);
+long replicaId = 130559876481875498;
+
 // Select a random replica
 ReplicaSelector randomReplicaSelector = ReplicaSelector.RandomOf(partitionSelector);
 
@@ -235,4 +236,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [模擬服務工作負載期間的失敗案例](service-fabric-testability-workload-tests.md)
    - [服務對服務間通訊的失敗案例](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

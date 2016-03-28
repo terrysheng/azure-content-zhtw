@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 資料倉儲中的資料表分割
@@ -22,6 +22,9 @@
 
 - 移除 SQL Server 分割函式和配置，因為這會在您建立資料表時為您管理。
 - 在建立資料表時定義分割。只需指定分割界限點，以及您希望邊界點為有效的 `RANGE RIGHT` 或 `RANGE LEFT`。
+
+注意︰若要深入了解 SQL Server 中的資料分割，請參閱[資料分割資料表和索引](https://msdn.microsoft.com/library/ms190787.aspx)。
+
 
 ### 分割大小
 SQL DW 為 DBA 提供數個資料表類型選項：堆積 (CI)、叢集索引和叢集資料行存放區索引 (CCI)。DBA 也可以針對每個資料表類型分割資料表，也就是將其分割成多個區段，以提升效能。不過，建立具有太多分割區的資料表，實際上有可能會導致效能降低，或導致查詢在某些情況下失敗。CCI 資料表尤其堪慮。若要讓資料分割有所助益， DBA 務必要了解使用資料分割的時機，以及要建立的分割區數目。這些指南是為了協助 DBA 在遇到狀況時做出最佳選擇。
@@ -333,4 +336,4 @@ DROP TABLE #partitions;
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

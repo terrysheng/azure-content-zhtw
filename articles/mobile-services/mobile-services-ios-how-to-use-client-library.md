@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # 如何使用適用於 Azure 行動服務的 iOS 用戶端程式庫
@@ -27,7 +27,7 @@
 
 本指南說明如何使用適用於 Azure 行動服務 [iOS SDK] 執行一般案例。如果您不熟悉行動服務，請先完成[行動服務快速入門]來設定您的帳戶、建立資料表，以及建立行動服務。
 
-> [AZURE.NOTE]本指南使用最新的 [iOS 行動服務 SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409)。如果您的專案使用舊版的 SDK，請先升級 Xcode 中的架構。
+> [AZURE.NOTE] 本指南使用最新的 [iOS 行動服務 SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409)。如果您的專案使用舊版的 SDK，請先升級 Xcode 中的架構。
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -97,7 +97,13 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
     MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
 ```
 
-`MSQuery` 可讓您控制下列幾種查詢行為。在其上呼叫 `readWithCompletion` 執行 `MSQuery` 查詢，如下一個範例所示。* 指定結果的順序 * 限制要傳回的欄位 * 限制要傳回的記錄數 * 指定回應中的總計數 * 指定要求中的自訂查詢字串參數 * 套用額外函數
+`MSQuery` 可讓您控制下列幾種查詢行為。執行 `MSQuery` 查詢，方法是對它呼叫 `readWithCompletion`，如下例所示。
+* 指定結果的順序
+* 限制要傳回的欄位
+* 限制要傳回的記錄數
+* 指定回應中的總計數
+* 在要求中指定自訂查詢字串參數
+* 套用其他函式
 
 
 ## <a name="sorting"></a>做法：使用 MSQuery 排序資料
@@ -253,7 +259,7 @@ Azure 行動服務支援兩個驗證工作流程：
 
 - **伺服器管理的登入**：Azure 行動服務會代表您的應用程式管理登入程序。它會顯示提供者專屬的登入頁面，並且使用選擇的提供者進行驗證。
 
-- **用戶端管理的登入**：應用程式向識別提供者要求權杖，然後向 Azure 行動服務出示此權杖以進行驗證。
+- **用戶端管理的登入**：_應用程式_向識別提供者要求權杖，然後向 Azure 行動服務出示此權杖以進行驗證。
 
 當驗證成功時，您會取回具使用者識別碼值和驗證權杖的使用者物件。若要使用此使用者識別碼來授權使用者，請參閱[伺服器端授權]。若要將資料表存取權限制為僅通過驗證的使用者，請參閱[權限]。
 
@@ -333,4 +339,4 @@ Azure 行動服務支援兩個驗證工作流程：
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [衝突處理常式]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

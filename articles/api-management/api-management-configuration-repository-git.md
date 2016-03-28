@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/14/2016" 
 	ms.author="sdanie"/>
 
 
 # 如何使用 Git 儲存和設定 API 管理服務組態
+
+>[AZURE.IMPORTANT] API 管理的 Git 組態目前為預覽狀態。它的功能完整，但處於預覽狀態，因為我們正積極徵求關於此功能的意見反應。我們可能會進行中斷變更來回應客戶意見反應，因此建議不要根據要在生產環境中執行的功能來決定。如果您有任何意見或疑問，請在 `apimgmt@microsoft.com` 中提出來讓我們知道。
 
 每個 API 管理服務執行個體會維護組態資料庫，包含服務執行個體的組態和中繼資料的相關資訊。可以對服務執行個體進行變更，方法是使用PowerShell Cmdlet 或進行 REST API 呼叫，變更發佈者入口網站中的設定。除了這些方法，您也可以使用 Git 管理服務執行個體組態，啟用下列服務管理案例︰
 
@@ -43,13 +45,17 @@
 
 ## 啟用 Git 存取
 
-若要設定 Git 存取，請按一下 [安全性] 功能表，並且瀏覽至 [組態儲存機制] 索引標籤。
+您可以檢視發行者入口網站右上角的 Git 圖示，藉以快速檢視 Git 組態的狀態。在此範例中，尚未啟用 Git 存取。
+
+![][api-management-git-icon-enable]
+
+若要檢視並設定您的 Git 組態設定，您可以按一下 [Git] 圖示，或按一下 [安全性] 功能表，然後瀏覽至 [組態儲存機制] 索引標籤。
 
 ![啟用 GIT][api-management-enable-git]
 
-若要啟用 Git 存取，請勾選 [啟用 Git 存取] 核取方塊。
+若要啟用 Git 存取，請核取 [啟用 Git 存取] 核取方塊。
 
-儲存變更之後，確認訊息隨即顯示。
+儲存變更之後，確認訊息隨即顯示。請注意，Git 圖示已變更顏色，以指出 Git 存取已啟用，而狀態訊息現在會指出尚未儲存對於儲存機制的變更。這是因為 API 管理服務組態資料庫尚未儲存到儲存機制所致。
 
 ![已啟用 Git][api-management-git-enabled]
 
@@ -77,7 +83,7 @@
 
 ## 將儲存機制複製到本機電腦
 
-若要複製儲存機制，您需要儲存機制的 URL、使用者名稱和密碼。使用者名稱和 URL 會在 [組態儲存機制] 索引標籤的頂端顯示。
+若要複製儲存機制，您需要儲存機制的 URL、使用者名稱和密碼。使用者名稱和 URL 會顯示於接近 [組態儲存機制] 索引標籤頂端的地方。
 
 ![git 複製][api-management-configuration-git-clone]
 
@@ -85,7 +91,7 @@
 
 ![產生密碼][api-management-generate-password]
 
-若要產生密碼，請先確定 [到期] 是設定為所需的到期日期和時間，然後按一下 [產生權杖]。
+若要產生密碼，請先確定已將 [到期] 設為所需的到期日期和時間，然後按一下 [產生權杖]。
 
 ![密碼][api-management-password]
 
@@ -99,7 +105,7 @@
 
 出現提示時，請提供使用者名稱和密碼。
 
-如果您收到任何錯誤，請嘗試修改您的 `git clone` 命令，以包含使用者名稱和密碼，如下列範例所示。
+如果您收到任何錯誤，請嘗試修改您的 `git clone` 命令以包含使用者名稱和密碼，如下列範例所示。
 
 	git clone https://username:password@bugbashdev4.scm.azure-api.net/
 
@@ -115,11 +121,11 @@
 
 ## 使用最新的服務執行個體組態更新本機儲存機制
 
-如果您在發佈者入口網站中或使用 REST API 變更您的 API 管理服務執行個體，您必須先將這些變更儲存至儲存機制，才能使用最新的變更來更新本機儲存機制。若要這樣做，請按一下發佈者入口網站中 [組態儲存機制] 索引標籤上的 [將組態儲存至儲存機制]，然後在本機儲存機制中發出下列命令。
+如果您在發佈者入口網站中或使用 REST API 變更您的 API 管理服務執行個體，您必須先將這些變更儲存至儲存機制，才能使用最新的變更來更新本機儲存機制。若要這樣做，請按一下發行者入口網站中 [組態儲存機制] 索引標籤上的 [將組態儲存至儲存機制]，然後在本機儲存機制中發出下列命令。
 
 	git pull
 
-在執行 `git pull` 之前，請確認您是在本機儲存機制的資料夾中。如果您已完成 `git clone` 命令，則必須執行類似下列的命令，將目錄變更為您的儲存機制。
+在執行 `git pull` 之前，請確認您是位於本機儲存機制的資料夾中。如果您已完成 `git clone` 命令，則必須執行類似下列的命令，將目錄變更為您的儲存機制。
 
 	cd bugbashdev4.scm.azure-api.net/
 
@@ -214,52 +220,52 @@
 
 ![委派設定][api-management-delegation-settings]
 
-最後的設定，`$ref-policy`，對應至服務執行個體的全域原則陳述式檔案。
+
 
 ### apis 資料夾
 
 `apis` 資料夾包含服務執行個體中每個 API 的資料夾，其中包含下列項目。
 
--	`apis<api name>\configuration.json` - 這是 API 的組態，而且包含後端服務 URL 和作業的相關資訊。這資訊與當您以 `application/json` 格式的 `export=true` 呼叫[取得特定 API](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI)時傳回的資訊相同。
--	`apis<api name>\api.description.html` - 這是 API 的描述，並且對應至 [API 實體](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties)的 `description` 屬性。
--	`apis<api name>\operations` - 此資料夾包含 `<operation name>.description.html` 檔案，該檔案對應至 API 中的作業。每個檔案包含 API 中單一作業的描述，對應至 REST API 中[作業實體](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties)的 `description` 屬性。
+-	`apis<api name>\configuration.json` - 這是 API 的組態，而且包含後端服務 URL 和作業的相關資訊。此資訊與當您以 `application/json` 格式的 `export=true` 呼叫[取得特定 API](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) 時傳回的資訊相同。
+-	`apis<api name>\api.description.html` - 這是 API 的描述，並會對應至 [API 實體](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties)的 `description` 屬性。
+-	`apis<api name>\operations` - 此資料夾包含 `<operation name>.description.html` 檔案，該檔案對應至 API 中的作業。每個檔案包含 API 中單一作業的描述，其會對應至 REST API 中[作業實體](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties)的 `description` 屬性。
 
 ### 群組資料夾
 
 `groups` 資料夾包含服務執行個體中定義的每個群組的資料夾。
 
--	`groups<group name>\configuration.json` - 這是群組的組態。這資訊與當您呼叫[取得特定群組](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup)作業時傳回的資訊相同。
--	`groups<group name>\description.html` - 這是群組的描述，並且對應至[群組實體](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties)的 `description` 屬性。
+-	`groups<group name>\configuration.json` - 這是群組的組態。此資訊與當您呼叫[取得特定群組](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup)作業時傳回的資訊相同。
+-	`groups<group name>\description.html` - 這是群組的描述，並會對應至[群組實體](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties)的 `description` 屬性。
 
 ### 原則資料夾
 
 `policies` 資料夾包含您的服務執行個體的原則陳述式。
 
--	`policies\global.xml` - 包含在您的服務執行個體的全域範圍中定義的原則。
--	`policies\apis<api name>` - 如果您有任何在 API 範圍中定義的原則，它們會包含在此資料夾中。
--	`policies\apis<api name><operation name>` 資料夾 - 如果您有任何在作業範圍定義的原則，它們會包含在此資料夾中的 `<operation name>.xml` 檔案，該檔案對應至每個作業的原則陳述式。
--	`policies\products` - 如果您有任何在產品範圍定義的原則，它們會包含在此資料夾，其中包含 `<product name>.xml` 檔案，該檔案對應至每個產品的原則陳述式。
+-	`policies\global.xml` - 包含在您服務執行個體的全域範圍中定義的原則。
+-	`policies\apis<api name>` - 如果您在 API 範圍中定義了任何原則，它們就會包含在此資料夾中。
+-	`policies\apis<api name><operation name>` 資料夾 - 如果您有任何定義於作業範圍中的原則，它們就會包含在此資料夾的 `<operation name>.xml` 檔案中，其會對應至每個作業的原則陳述式。
+-	
 
 ### portalStyles 資料夾
 
-`portalStyles` 資料夾包含服務執行個體的開發人員入口網站自訂的組態和樣式表。
 
--	`portalStyles\configuration.json` - 包含開發人員入口網站所使用的樣式表的名稱
--	`portalStyles<style name>.css` - 每個 `<style name>.css` 檔案包含開發人員入口網站的樣式 (根據預設，`Preview.css` 和 `Production.css`)。
+
+-	
+-	
 
 ### 產品資料夾
 
-`products` 資料夾包含服務執行個體中定義的每個產品的資料夾。
 
--	`products<product name>\configuration.json` - 這是產品的組態。這資訊與當您呼叫[取得特定產品](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct)作業時傳回的資訊相同。
--	`products<product name>\product.description.html` - 這是產品的描述，並且對應至 REST API 中[產品實體](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product)的 `description` 屬性。
+
+-	
+-	
 
 ### 範本
 
-`templates` 資料夾包含服務執行個體的[電子郵件範本](api-management-howto-configure-notifications.md)的組態。
 
--	`<template name>\configuration.json` - 這是電子郵件範本的組態。
--	`<template name>\body.html` - 這是電子郵件範本的本文。
+
+-	
+-	
 
 ## 後續步驟
 
@@ -286,5 +292,6 @@
 [api-management-configuration-deploy]: ./media/api-management-configuration-repository-git/api-management-configuration-deploy.png
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
+[api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

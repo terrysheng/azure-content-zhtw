@@ -20,13 +20,10 @@
 
 這些文章包含 SQL 資料倉儲的參考資訊。
 
-[Transact-SQL 語言元素][]
-
-[Transact-SQL 陳述式][]
-
-[Transact-SQL 系統檢視][]
-
-[PowerShell Cmdlet][]
+- [Transact-SQL 語言元素][]
+- [Transact-SQL 陳述式][]
+- [Transact-SQL 系統檢視][]
+- [PowerShell Cmdlet][]
 
 
 
@@ -45,4 +42,4 @@
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

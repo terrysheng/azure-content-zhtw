@@ -36,13 +36,13 @@ API Apps 提供下列功能：
 
 - **與邏輯應用程式整合** - 您建立的 API 應用程式可供 [App Service Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) 使用。請參閱[將您裝載在 App Service 上的自訂 API 與 Logic apps 一起使用](../app-service-logic/app-service-logic-custom-hosted-api.md)以了解方法。如需 API Apps 與 Logic Apps 整合方式有哪些持續變更的相關資訊，請參閱 [App Service API Apps - 變更的項目](app-service-api-whats-changed.md)。
 
-- **繼續使用現有的 API** - 您不必變更現有 API 的任何程式碼，就能利用 API Apps 功能，只要將程式碼部署至 API 應用程式即可。您的 API 可以使用 App Service 支援的任何語言或架構，包括 ASP.NET 和 C#、Java、PHP、Node.js 和 Python。
+- **繼續使用現有的 API** - 您不必變更現有 API 的任何程式碼，就能利用 API Apps 功能，只要將程式碼部署至 API 應用程式即可。
 
-此外，API Apps、Web Apps 以及 Mobile Apps 所提供的功能可彼此互換。這表示 API Apps 的執行個體可利用 Web Apps 與 Mobile Apps 提供的 Web 與行動開發及主控功能。反之亦然，例如您可以使用 Web 應用程式來裝載 API，同時仍可使用 Swagger 中繼資料執行用戶端程式碼產生，以及使用 CORS 進行跨網域瀏覽器存取。如需詳細資訊，請參閱 [Web Apps 概觀](../app-service-web/app-service-web-overview.md)與 [Mobile Apps 概觀](../app-service-mobile/app-service-mobile-value-prop.md)。
+
 
 ## 使用 Azure API 管理擴大 API 應用程式 
 
-API 應用程式和 [Azure API 管理](../api-management/api-management-key-concepts.md)是互補的服務︰
+
 
 * API 管理是關於管理 API。您將 API 管理前端放在 API 上以監視及節流使用量、操作輸入和輸出、將多個 API 合而為一等等。受管理的 API 可以裝載於任何位置。
 * API 應用程式是關於裝載 API。此服務包含的功能可方便開發和使用 API，但它不會執行 API 管理所執行的監視、節流、操作或合併。 
@@ -60,10 +60,4 @@ API 管理和 API 應用程式的某些功能具有類似的功能。例如，�
 
 ## 開始使用
 
-若要開始使用 API 應用程式，請依照[開始使用 API 應用程式](app-service-api-dotnet-get-started.md)中的教學課程來進行。
-
-若要查看 API 應用程式的已知問題清單，請參閱 [API Apps 已知問題論壇文章](https://social.msdn.microsoft.com/Forums/zh-TW/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps)。
-
-如需有關 Azure App Service 平台的詳細資訊，請參閱 [Azure App Service](../app-service/app-service-value-prop-what-is.md)。
-
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

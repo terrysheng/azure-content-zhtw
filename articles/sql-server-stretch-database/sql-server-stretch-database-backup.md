@@ -17,7 +17,7 @@
 	ms.author="douglasl"/>
 
 
-# 備份與還原已啟用 Stretch 的資料庫 
+# 備份與還原已啟用 Stretch 的資料庫
 
 如要備份與還原已啟用 Stretch 的資料庫，您可以繼續使用您目前正在使用的方法。如需 SQL Server 備份與還原的詳細資訊，請參閱 [SQL Server 資料庫的備份與還原](https://msdn.microsoft.com/library/ms187048.aspx)。
 
@@ -59,7 +59,12 @@ Stretch Database 能完全支援還原時間點。在您將您的 SQL Server 資
 ![備份後的 Stretch Database][StretchBackupImage4]
 
 ## 另請參閱
-[Manage and troubleshoot Stretch Database (Stretch Database 的管理和疑難排解)](sql-server-stretch-database-manage.md) [sys.sp\_rda\_reauthorize\_db (TRANSACT-SQL)](https://msdn.microsoft.com/library/mt131016.aspx) [SQL Server 資料庫的備份與還原](https://msdn.microsoft.com/library/ms187048.aspx)
+
+[Manage and troubleshoot Stretch Database (Stretch Database 的管理和疑難排解)](sql-server-stretch-database-manage.md)
+
+[sys.sp\_rda\_reauthorize\_db (Transact-SQL)](https://msdn.microsoft.com/library/mt131016.aspx)
+
+[備份和還原 SQL Server 資料庫](https://msdn.microsoft.com/library/ms187048.aspx)
 
 <!--Image references-->
 [StretchBackupImage1]: ./media/sql-server-stretch-database-backup/StretchDBBackup1.png
@@ -67,4 +72,4 @@ Stretch Database 能完全支援還原時間點。在您將您的 SQL Server 資
 [StretchBackupImage3]: ./media/sql-server-stretch-database-backup/StretchDBBackup3.png
 [StretchBackupImage4]: ./media/sql-server-stretch-database-backup/StretchDBBackup4.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

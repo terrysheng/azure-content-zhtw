@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="03/11/2016"
 	ms.author="danlep"/>
 
 # Azure Batch 服務的配額和限制
@@ -35,7 +35,12 @@ Batch 帳戶 (每一區域的每一訂用帳戶)|1|50
 ## 其他限制
 資源|上限
 ---|---
-每個計算節點的工作|4 x 節點的核心數目
+每個計算節點的工作 | 4 x 節點的核心數目
+每一 Batch 帳戶的應用程式 | 20
+每個應用程式的應用程式封裝 | 40
+應用程式封裝大小 (每一個) | 大約 195 GB<sup>1</sup>
+
+<sup>1</sup> 對於區塊 Blob 大小上限的 Azure 儲存體限制
 
 ## 檢視 Batch 配額
 
@@ -93,4 +98,4 @@ Azure 支援會與您連絡。完成要求需要花費最多 2 個工作天。
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

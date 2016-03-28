@@ -1,5 +1,5 @@
 <properties
-   pageTitle="使用 Azure Service Fabric 叢集資源管理員平衡叢集"
+   pageTitle="使用 Azure Service Fabric 叢集資源管理員平衡叢集 | Microsoft Azure"
    description="使用 Azure Service Fabric 叢集資源管理員平衡叢集的簡介。"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
 # 平衡 Service Fabric 叢集
@@ -25,6 +25,7 @@ Service Fabric 叢集資源管理員允許報告動態負載、對叢集中的�
 2.	條件約束檢查 – 這個階段會檢查並更正系統內不同放置條件約束 (規則) 的違規情形。規則範例包括確保節點不會超出容量，以及符合服務的放置條件約束 (稍後會詳細說明)。
 3.	平衡 - 這個階段會根據為不同度量設定的所需平衡層級查看是否需要主動式重新平衡，而如果需要，則會嘗試尋找叢集中更平衡的排列方式。
 
+## 設定叢集資源管理員的步驟和計時器
 上述每個階段是由控管頻率的不同計時器所控制。比方說，如果您只想處理每小時在叢集中放置新的服務工作負載 (以進行分批處理)，但又想要每隔幾秒鐘定期平衡檢查，您可以強制這麼做。當每個計時器啟動時，就會設定旗標，表示我們需要處理資源管理員該部份的職責，而且會在下一個整體掃掠中透過狀態機器進行挑選 (這就是這些設定定義為「最小間隔」的原因)。根據預設，資源管理員會每 1/10 秒掃描其狀態並套用更新、每秒設定放置和條件約束檢查旗標，而每 5 秒設定平衡旗標。
 
 ClusterManifest.xml：
@@ -60,7 +61,10 @@ ClusterManifest.xml：
 
 ![平衡臨界值範例動作][Image2]
 
-請注意，低於平衡臨界值不是明確的目標 - 平衡臨界值只是觸發因子而已。活動臨界值 有時候，雖然節點相當不平衡，但叢集中的負載總量很低。這可能只是因為當天時間，或是因為叢集是新的而且才剛開始啟動而已。在任何一種情況下，您可能不想花時間進行平衡，因為實際的收穫很少 – 您將只會將網路和計算資源用來四處移動項目。資源管理員內有另一個稱為活動臨界值的控制項，可讓您指定活動的絕對下限 – 如果沒有任何節點有至少這麼多的負載，則即使達到平衡臨界值，也不會觸發平衡作業。舉例來說，假設在我們的報告中，這些節點的使用量總數如下所示。同時假設我們讓平衡臨界值保持 3，但我們現在也有活動臨界值 1536。在第一個案例中，根據平衡臨界值，叢集為不平衡狀態，沒有任何節點符合活動臨界值下限，所以我們就順其自然發展。在最下面的範例中，Node1 超過活動臨界值，所以會執行平衡作業。
+請注意，低於平衡臨界值不是明確的目標 - 平衡臨界值只是觸發因子而已。
+
+## 活動臨界值
+有時候，雖然節點相當不平衡，但叢集中的負載總量很低。這可能只是因為當天時間，或是因為叢集是新的而且才剛開始啟動而已。在任何一種情況下，您可能不想花時間進行平衡，因為實際的收穫很少 – 您將只會將網路和計算資源用來四處移動項目。資源管理員內有另一個稱為活動臨界值的控制項，可讓您指定活動的絕對下限 – 如果沒有任何節點有至少這麼多的負載，則即使達到平衡臨界值，也不會觸發平衡作業。舉例來說，假設在我們的報告中，這些節點的使用量總數如下所示。同時假設我們讓平衡臨界值保持 3，但我們現在也有活動臨界值 1536。在第一個案例中，根據平衡臨界值，叢集為不平衡狀態，沒有任何節點符合活動臨界值下限，所以我們就順其自然發展。在最下面的範例中，Node1 超過活動臨界值，所以會執行平衡作業。
 
 ![活動臨界值範例][Image3]
 
@@ -87,11 +91,10 @@ ClusterManifest.xml：
 
 ![一起平衡服務][Image5]
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
-- [深入了解度量](service-fabric-cluster-resource-manager-metrics.md)
-- [深入了解資源管理員節流](service-fabric-cluster-resource-manager-advanced-throttling.md)。
-- [深入了解服務移動成本](service-fabric-cluster-resource-manager-movement-cost.md)
+- 度量是 Service Fabric 叢集資源管理員管理叢集中的耗用量和容量的方式。若要深入了解度量及其設定方式，請查看[這篇文章](service-fabric-cluster-resource-manager-metrics.md)
+- 移動成本是向叢集資源管理員發出訊號，表示移動某些服務會比較貴的其中一種方式。若要深入了解移動成本，請參閱[這篇文章](service-fabric-cluster-resource-manager-movement-cost.md)
+- 叢集資源管理員有數個為減緩叢集的流失而可以設定的節流。這些節流通常不是必要的，但若有需要，您可以參閱[這裡](service-fabric-cluster-resource-manager-advanced-throttling.md)
 
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
@@ -100,4 +103,4 @@ ClusterManifest.xml：
 [Image4]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
 [Image5]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

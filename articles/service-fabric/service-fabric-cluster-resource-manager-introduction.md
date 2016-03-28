@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Service Fabric 叢集資源管理員簡介"
+   pageTitle="Service Fabric 叢集資源管理員簡介 | Microsoft Azure"
    description="Service Fabric 叢集資源管理員簡介。"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,11 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
 # Service Fabric 叢集資源管理員簡介
-
 以傳統方式管理 IT 系統或一組服務，意味著要讓一些電腦專屬於這些特定的服務或系統。許多主要服務都已分成「Web」層和「資料」或「儲存體」層，或許會有一些其他特殊化的元件，例如快取。其他類型的應用程式會有訊息層，要求會在其中流進和流出、連接到工作層以進行任何分析，或做為訊息一部分所需的轉換。每個組件都有特定的電腦或一些專屬的電腦︰資料庫會取得一些專屬的電腦，Web 伺服器也會取得一些。如果特定類型的工作負載導致其所在的電腦執行太過忙碌，則您可新增更多電腦，並在其上設定要執行該類型的工作負載，或者使用更大型電腦來取代一些電腦。簡單。如果某台電腦失敗，則在還原該電腦之前，整體應用程式中的那一個部分會以較低容量來執行。仍然相當簡單 (但不一定有趣)。
 
 不過，我們現在假設您已經發現需要相應放大，並採用容器和/或微服務。您突然發現自己擁有數百台或甚至數千台電腦、數十種不同類型的服務，或許針對這些服務擁有數百個不同的執行各體，而每一個都擁有一或多個執行個體或複本以供高可用性 (HA) 使用。
@@ -50,12 +49,12 @@
 
 雖然這其中有些策略很有趣，但 Service Fabric 叢集資源管理員並非任何像是網路負載平衡器或快取的功能。儘管 NLB 可確保前端能夠藉由將流量移至服務執行所在的位置來達成平衡，但 Service Fabric 資源管理員會採取一個完全不同的方針 – 基本上，Service Fabric 會將服務移至對它們最具意義的地方。例如，這可以是目前比較冷的節點，因為服務現在並未執行很多工作。它也可能遠離即將升級的節點，或者因為在其上執行的服務耗用量突然增加而導致超載的節點。因為它負責四處移動服務 (不會將網路流量傳遞到服務已經存在的位置)，所以 Service Fabric 資源管理員會更加靈活，也會包含其他功能來控制移動服務的位置與方式。
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
-- [深入了解叢集資源管理員架構](service-fabric-cluster-resource-manager-architecture.md)
-- [描述叢集](service-fabric-cluster-resource-manager-cluster-description.md)
-- [深入了解設定服務](service-fabric-cluster-resource-manager-configure-services.md)
-- [深入了解計量](service-fabric-cluster-resource-manager-metrics.md)
-- [深入了解叢集資源管理員如何與其他 Service Fabric 管理的功能整合](service-fabric-cluster-resource-manager-management-integration.md)
+- 如需叢集資源管理員內的架構和資訊流程的相關資訊，請查看[這篇文章](service-fabric-cluster-resource-manager-architecture.md)
+- 叢集資源管理員有許多描述叢集的選項。若要深入了解這些選項，請查看關於[描述 Service Fabric 叢集](service-fabric-cluster-resource-manager-cluster-description.md)的這篇文章
+- 如需可用來設定服務的其他選項的詳細資訊，請查看[深入了解設定服務](service-fabric-cluster-resource-manager-configure-services.md)中提供的其他叢集資源管理員組態的相關主題
+- 度量是 Service Fabric 叢集資源管理員管理叢集中的耗用量和容量的方式。若要深入了解度量及其設定方式，請查看[這篇文章](service-fabric-cluster-resource-manager-metrics.md)
+- 叢集資源管理員會搭配 Service Fabric 的管理功能使用。若要深入了解該整合，請閱讀[這篇文章](service-fabric-cluster-resource-manager-management-integration.md)
+- 若要了解叢集資源管理員如何管理並平衡叢集中的負載，請查看關於[平衡負載](service-fabric-cluster-resource-manager-balancing.md)的文章
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

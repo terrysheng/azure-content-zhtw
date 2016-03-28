@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="03/08/2016"
+	ms.date="03/15/2016"
 	ms.author="heidist"/>
 
 #Azure 搜尋服務：程式碼範例、示範、影片和教學課程
@@ -79,16 +79,14 @@
 逐步介紹|說明
 -----------|-----------
 [如何以 .NET 使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)|設定及執行與 Azure 搜尋整合的範例 Visual Studio Web 應用程式。
-[如何使用 Azure 搜尋服務來搜尋 StackExchange 資料](search-howto-stackexchange-data.md)|在整合 Azure 搜尋服務的應用程式中對 StackExchange 資料進行全文檢索。
 [如何使用 Azure 搜尋搭配 D3.js 建置互動式資料視覺效果](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|部落格文章和範例程式碼示範如何將圖像式搜尋功能加入自訂應用程式中。
 [開始在 NodeJS 中使用 Azure 搜尋服務](search-get-started-nodejs.md)|了解如何在 NodeJS 中使用 Azure 搜尋。
 [開始在 Java 中使用 Azure 搜尋服務](search-get-started-java.md)|Java 程式設計師專屬教學課程，說明如何使用 Eclipse 和 Apache Tomcat 伺服器來建置和執行使用 Azure 搜尋的範例應用程式。
 [Azure 搜尋案例和功能](https://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/)|部落格文章包含由目前功能所啟用的主要案例。
 [如何將建議加入您的搜尋應用程式中](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)|了解如何實作建議，其通常稱作自動完成。這段示範影片逐步解說的數個主題，包括建立善用 Azure 搜尋建議的 MVC4 應用程式、使用 Twitter typeahead.js 程式庫在 JavaScript 中建置有效的自動建議元件，以及使用模糊建議以便您在使用者拼錯字時仍可回傳建議。
 [TechNet 虛擬實驗室：建置 Microsoft Azure 搜尋應用程式](http://go.microsoft.com/?linkid=9874663)|提供開發環境、工具、文件和資料的虛擬實驗室。您將需要 Azure 帳戶 (試用版訂閱或您個人的 Azure 訂閱皆可) 來完成實驗室。
-[使用 Azure 搜尋服務的地理空間搜尋應用程式開發](search-create-geospatial.md)|使用 Bing 地圖並協調以支援地理空間搜尋。
 [以 Azure 搜尋同步處理 SQL Server 資料](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/)|說明如何將資料從 SQL 伺服器關聯式資料庫載入至 Azure 搜尋索引的部落格文章。
 [評分設定檔教學課程](search-get-started-scoring-profiles.md)|使用主控台應用程式來試用評分設定檔。
 [Azure 搜尋管理 REST API 教學課程](search-get-started-management-api.md)|如何使用管理 REST API 來佈建服務和管理系統管理員或查詢 API 金鑰。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

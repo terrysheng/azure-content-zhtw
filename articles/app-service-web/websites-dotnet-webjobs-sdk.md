@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="03/14/2016" 
 	ms.author="tdykstra"/>
 
 # 什麼是 Azure WebJobs SDK
@@ -180,4 +180,4 @@ public class Functions
 如需有關 WebJobs SDK 最新增強功能的資訊，請參閱[版本資訊](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)。
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/14/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 將您的解決方案移轉至 SQL 資料倉儲
@@ -45,11 +45,11 @@ SQL 資料倉儲是一個能夠彈性調整以符合您需求的分散式資料�
 
 [開發概觀]: sql-data-warehouse-overview-develop.md
 [載入概觀]: sql-data-warehouse-overview-load.md
-[Transact-SQL 參考資料]: sql-data-warehouse-overview-migrate.md
+[Transact-SQL 參考資料]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

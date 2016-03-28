@@ -1,6 +1,6 @@
 <properties
    pageTitle="資源平衡器叢集描述 | Microsoft Azure"
-   description="將容錯網域、升級網域、節點屬性和節點容量指定給資源平衡器以描述 Service Fabric。"
+   description="將容錯網域、升級網域、節點屬性和節點容量指定給叢集資源管理員以描述 Service Fabric 叢集。"
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -13,22 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
 # 描述 Service Fabric 叢集
-
 Service Fabric 叢集資源管理員提供數種機制，來描述叢集。在執行階段，資源管理員會使用此資訊以確保叢集中執行之服務的高可用性，同時也確保適當地使用叢集中的資源。
 
 ## 重要概念
 描述叢集的叢集資源管理員功能包括︰
+
 - 容錯網域
 - 升級網域
 - 節點屬性
 - 節點容量
 
-### 容錯網域
-
+## 容錯網域
 容錯網域是協調失敗的任何區域。單一機器是容錯網域 (因為當機有很多個不同的理由，從電源供應器故障到 NIC 韌體不正確的磁碟機失敗)。連接到相同乙太網路交換器的許多機器會位於相同的容錯網域，連接到單一電力來源的機器也是如此。
 
 如果您已設定您自己的叢集，您需要考慮失敗的所有不同區域，以確保您的容錯網域已正確設定，讓 Service Fabric 知道可以安全放置服務的位置。我們所謂的「安全」實際上是指智慧 – 我們不想要將服務放置在會造成服務當機的容錯網域。在 Azure 環境中，我們運用 Azure 網狀架構控制器/資源管理員所提供的容錯網域資訊，以正確地代表您設定叢集中的節點。在下圖 (圖 7) 中，我們會為所有實體上色，讓容錯網域成為簡單的範例，並且列出產生的所有不同的容錯網域。在此範例中，我們有資料中心 (DC)、機架 (R) 和刀鋒視窗 (B)。如果每個刀鋒視窗包含一個以上的虛擬機器，容錯網域階層上可能有另一個層級。
@@ -45,8 +44,7 @@ Service Fabric 叢集資源管理員提供數種機制，來描述叢集。在�
 
  ![兩個不同的叢集配置][Image2]
 
-### 升級網域
-
+## 升級網域
 升級網域是另一項功能，可協助 Service Fabric 資源管理員了解叢集的版面配置，讓它可以針對失敗事先計劃。升級網域會定義區域 (實際上是節點集)，在升級期間會在相同的時間停機。
 
 升級網域非常類似容錯網域，但是有幾個主要的差異。首先，升級網域通常會定義原則；而容錯網域是由協調失敗區域嚴格定義 (因此通常是環境的硬體配置)。但是，在升級網域的情況下，您必須決定您要的數量。另一個差異是 (截至目前為止)，升級網域不是階層式，它們較像是簡單的標記。
@@ -159,7 +157,7 @@ Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstr
 
 放置條件約束 (以及我們即將討論的許多其他屬性) 是針對每個不同的服務執行個體指定。更新一律會取代 (覆寫) 先前指定的項目。
 
-### 容量
+## 容量
 任何 Orchestrator 的其中一個最重要的作業是協助管理叢集中的資源耗用量。如果您想要有效率地執行服務，最不想遇到的情形是許多節點是熱的 (導致資源爭用和效能不佳)，而其他是冷的 (浪費資源)。但是試著想想比平衡還要基本的事情 (在一分鐘內) – 只要確保節點不會在第一時間執行用完資源？
 
 結果 Service Fabric 會以稱為「度量」的項目來代表資源。度量是您想要向 Service Fabric 描述的任何邏輯或實體資源。度量的範例是例如「WorkQueueDepth」或「MemoryInMb」的項目。度量不同於條件約束和節點屬性，在該節點屬性中節點屬性通常是節點本身的靜態描述項，而度量是當它們在節點上執行時，服務使用的實體資源。因此屬性看起來像是 HasSSD，可能會設定為 true 或 false，但是該 SSD 上的可用空間數量 (和服務的使用量) 就是類似「DriveSpaceInMb」的度量。節點上的容量會將「DriveSpaceInMb」設定為磁碟機的非保留總空間量的數量，服務會報告在執行階段使用多少度量。
@@ -204,8 +202,7 @@ ClusterManifest.xml
 
 此外，服務的負載也會動態變更。在此情況下，目前放置複本或執行個體的位置可能會變成無效，因為該節點上所有複本和執行個體的結合使用量超出該節點的容量。我們稍後會更詳細討論負載可以動態變更的案例，但是只要還有容量，就會以相同的方式處理 - Service Fabric 資源管理會自動執行，並取回低於容量的節點，方法是將該節點上的一或多個複本或執行個體移至不同的節點。執行這項操作時，資源管理員會嘗試將所有移動的成本降到最低 (我們稍後再回頭討論「成本」的概念)。
 
-###叢集容量
-
+##叢集容量
 那麼，我們要如何防止整體叢集太滿？ 使用動態負載，實際上我們並沒有太多可以執行的作業 (因為服務有自己的負載尖峰，獨立於資源管理員所執行的動作 – 今天您的叢集具有許多空餘空間，但是明天當您成名之後空間就會不足)，但是有一些內建控制項可以防止基本錯誤。我們可以做的第一件事是防止建立新的工作負載，該工作負載會導致叢集空間變滿。
 
 假設您要建立簡單的無狀態服務，而且它具有某些與其相關聯的負載 (比預設值還多且動態負載稍後才報告)。對於此服務，讓我們假設它關心某些資源 (例如磁碟空間)，依預設它會針對服務的每個執行個體使用 5 個單位的磁碟空間。您想要建立服務的 3 個執行個體。太棒了！ 因此表示我們需要叢集中有 15 個單位的磁碟空間，才能建立這些服務執行個體。Service Fabric 持續計算整體容量和每個度量的耗用量，因此我們可以輕鬆地進行決定並且在空間不足時拒絕建立服務呼叫。
@@ -251,11 +248,11 @@ LoadMetricInformation     :
                             MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
-- [深入了解叢集資源管理員架構](service-fabric-cluster-resource-manager-architecture.md)
-- [深入了解重組度量](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- [取得 Service Fabric 叢集資源管理員的簡介](service-fabric-cluster-resource-manager-introduction.md)
+- 如需叢集資源管理員內的架構和資訊流程的相關資訊，請查看[這篇文章](service-fabric-cluster-resource-manager-architecture.md)
+- 定義重組度量是合併 (而不是擴增) 節點上負載的一種方式。若要了解如何設定重組，請參閱[這篇文章](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- 從頭開始，並[取得 Service Fabric 叢集資源管理員的簡介](service-fabric-cluster-resource-manager-introduction.md)
+- 若要了解叢集資源管理員如何管理並平衡叢集中的負載，請查看關於[平衡負載](service-fabric-cluster-resource-manager-balancing.md)的文章
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png
@@ -265,4 +262,4 @@ LoadMetricInformation     :
 [Image6]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-placement-constraints-node-properties.png
 [Image7]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-nodes-and-capacity.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

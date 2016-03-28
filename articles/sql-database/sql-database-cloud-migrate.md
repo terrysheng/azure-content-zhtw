@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="01/05/2016"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # SQL Server 資料庫移轉至雲端 SQL Database
@@ -47,10 +47,10 @@
 若要移轉相容的 SQL Server 資料庫，Microsoft 會為各種案例提供數種移轉方法。您選擇的方法取決於您允許的停機時間、SQL Server 資料庫的大小和複雜度，以及您連線到 Microsoft Azure 雲端的能力。
 
 > [AZURE.SELECTOR]
-- [SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-- [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-- [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [Transactional Replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+- [SSMS 移轉精靈](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+- [匯出至 BACPAC 檔案](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [從 BACPAC 檔案匯入](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [異動複寫](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
 若要選擇移轉方法，要提問的第一個問題是您是否經得起在移轉期間將資料庫移出生產環境。在發生作用中交易時移轉資料庫，可能會導致資料庫不一致且資料庫可能損毀。有許多方法可以停止資料庫，從停用用戶端連接性到建立[資料庫快照集](https://msdn.microsoft.com/library/ms175876.aspx)。
 
@@ -65,4 +65,4 @@
 
 	 ![SQL Server 資料庫移轉 - 將 SQL Database 移轉至雲端。](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

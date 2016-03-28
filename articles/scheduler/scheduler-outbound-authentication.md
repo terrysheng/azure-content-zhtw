@@ -1,20 +1,20 @@
-<properties 
- pageTitle="排程器輸出驗證" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="排程器輸出驗證"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
+
 # 排程器輸出驗證
 
 排程器工作可能需要對外呼叫需要驗證的服務。如此一來，被呼叫的服務可以判定排程器工作是否可以存取它的資源。其中某些服務包括其他 Azure 服務、Salesforce.com、Facebook 和安全的自訂網站。
@@ -56,7 +56,7 @@
 下列範例要求會提出一個包含 `ClientCertificate` 驗證的 PUT 要求。要求如下：
 
 
-	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
+	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler
 	x-ms-version: 2013-03-01
 	User-Agent: Microsoft.WindowsAzure.Scheduler.SchedulerClient/3.0.0.0 AzurePowershell/v0.8.10
 	Content-Type: application/json; charset=utf-8
@@ -98,7 +98,7 @@
 	x-ms-servedbyregion: ussouth2
 	X-AspNet-Version: 4.0.30319
 	X-Powered-By: ASP.NET
-	 
+
 
 	{
 	  "id": "testScheduler",
@@ -155,7 +155,7 @@
 
 下列範例要求會提出一個包含 `Basic` 驗證的 PUT 要求。要求如下：
 
-	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
+	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler
 	x-ms-version: 2013-03-01
 	User-Agent: Microsoft.WindowsAzure.Scheduler.SchedulerClient/3.0.0.0 AzurePowershell/v0.8.10
 	Content-Type: application/json; charset=utf-8
@@ -259,7 +259,7 @@
 
 下列範例要求會提出一個包含 `ActiveDirectoryOAuth` 驗證的 PUT 要求。要求如下：
 
-	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
+	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler
 	x-ms-version: 2013-03-01
 	User-Agent: Microsoft.WindowsAzure.Scheduler.SchedulerClient/3.0.0.0 AzurePowershell/v0.8.10
 	Content-Type: application/json; charset=utf-8
@@ -336,10 +336,10 @@
 	}
 
 ## 另請參閱
- 
+
 
  [排程器是什麼？](scheduler-intro.md)
- 
+
  [Azure 排程器概念、術語及實體階層](scheduler-concepts-terms.md)
 
  [在 Azure 入口網站中開始使用排程器](scheduler-get-started-portal.md)
@@ -354,10 +354,4 @@
 
  [Azure 排程器限制、預設值和錯誤碼](scheduler-limits-defaults-errors.md)
 
-
-  
-
- 
-  
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

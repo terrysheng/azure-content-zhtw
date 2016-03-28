@@ -1,47 +1,47 @@
-<properties 
-   pageTitle="使用入口網站建立 HDInsight Hadoop 叢集與 Azure 資料湖存放區 |Azure" 
-   description="使用 Azure 入口網站建立和使用 HDInsight Hadoop 叢集與 Azure 資料湖存放區" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="使用入口網站建立 HDInsight Hadoop 叢集與 Azure 資料湖存放區 |Azure"
+   description="使用 Azure 入口網站建立和使用 HDInsight Hadoop 叢集與 Azure 資料湖存放區"
+   services="data-lake-store,hdinsight" 
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="02/03/2016"
+   ms.workload="big-data"
+   ms.date="03/11/2016"
    ms.author="nitinme"/>
 
 # 使用 Azure 入口網站建立 HDInsight 叢集與資料湖存放區
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+- [使用入口網站](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [使用 PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
 了解如何使用 Azure 入口網站建立可存取 Azure 資料湖存放區的 HDInsight 叢集 (Hadoop、HBase 或 Storm)。此版本的一些重要考量：
 
-* **對於 Hadoop 叢集 (Windows 和 Linux)**，資料湖存放區只能做為額外的儲存體帳戶。這類叢集的預設儲存體帳戶仍是 Azure 儲存體 Blob (WASB)。
+* **對於 Hadoop 叢集 (Windows 和 Linux)**，Data Lake Store 只能做為額外的儲存體帳戶。這類叢集的預設儲存體帳戶仍是 Azure 儲存體 Blob (WASB)。
 
-* **對於 Storm 叢集 (Windows 和 Linux)**，資料湖存放區可以用來從 Storm 拓撲寫入資料。資料湖存放區也可以用來儲存參考資料，該資料稍後可以由 Storm 拓撲讀取。
+* **對於 Storm 叢集 (Windows 和 Linux)**，Data Lake Store 可以用來從 Storm 拓撲寫入資料。資料湖存放區也可以用來儲存參考資料，該資料稍後可以由 Storm 拓撲讀取。如需詳細資訊，請參閱[在 Storm 拓撲中使用 Data Lake Store](#use-data-lake-store-in-a-storm-topology)。
 
-* **對於 HBase 叢集 (Windows 和 Linux)**，您可以使用資料湖存放區做為預設儲存體或額外的儲存體。用於建立可存取資料湖存放區之 HBase 叢集的選項，只會在您使用 HDI 3.1 版或 3.2 版 (適用於 Windows) 或 HDI 3.2 版 (適用於 Linux) 時提供。
+* **對於 HBase 叢集 (Windows 和 Linux)**，您可以使用資料湖存放區做為預設儲存體或額外的儲存體。用於建立可存取資料湖存放區之 HBase 叢集的選項，只會在您使用 HDI 3.1 版或 3.2 版 (適用於 Windows) 或 HDI 3.2 版 (適用於 Linux) 時提供。如需詳細資訊，請參閱[搭配 HBase 叢集使用 Data Lake Store](#use-data-lake-store-with-hbase-clusters)。
 
 
-## 先決條件
+## 必要條件
 
 開始進行本教學課程之前，您必須具備下列條件：
 
 - **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 - **啟用您的 Azure 訂用帳戶**以使用資料湖存放區公開預覽版。請參閱[指示](data-lake-store-get-started-portal.md#signup)。
-- **Azure 資料湖儲存區帳戶**。遵循[使用 Azure 入口網站開始使用 Azure 資料湖存放區](data-lake-store-get-started-portal.md)的指示。一旦您建立好帳戶，請執行下列工作來上傳一些範例資料。稍後在教學課程中，您將需要這項資料，以從會存取資料湖存放區中資料的 HDInsight 叢集中執行作業。 
+- **Azure Data Lake Store 帳戶**。遵循[使用 Azure 入口網站開始使用 Azure 資料湖存放區](data-lake-store-get-started-portal.md)的指示。一旦您建立好帳戶，請執行下列工作來上傳一些範例資料。稍後在教學課程中，您將需要這項資料，以從會存取資料湖存放區中資料的 HDInsight 叢集中執行作業。
 
 	* [在資料湖存放區中建立資料夾](data-lake-store-get-started-portal.md#createfolder)。
-	* [將檔案上傳至資料湖存放區](data-lake-store-get-started-portal.md#uploaddata)。如果您正在尋找一些可上傳的範例資料，可以從 [Azure 資料湖 Git 存放庫](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData)取得 **Ambulance Data** 資料夾。
+	* [將檔案上傳至 Data Lake Store](data-lake-store-get-started-portal.md#uploaddata)。如果您正在尋找一些可上傳的範例資料，可以從 [Azure 資料湖 Git 存放庫](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData)取得 **Ambulance Data** 資料夾。
 
 
 ## 建立可存取 Azure 資料湖存放區的 HDInsight 叢集
@@ -51,37 +51,37 @@
 1. 登入新的 [Azure 入口網站](https://portal.azure.com)。
 
 2. 請依照[在 HDInsight 中建立 Hadoop 叢集](../hdinsight/hdinsight-provision-clusters.md#create-using-the-preview-portal)中的步驟，開始佈建 HDInsight 叢集。
- 
+
 3. 在 [選擇性組態] 刀鋒視窗中，按一下 [資料來源]。在 [資料來源] 刀鋒視窗中，指定儲存體帳戶和儲存體容器的詳細資料、將 [位置] 指定為 [美國東部 2]，然後按一下 [叢集 AAD 身分識別]。
 
 	![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "將服務主體新增至 HDInsight 叢集")
 
 4. 在 [叢集 AAD 身分識別] 刀鋒視窗中，您可以選擇選取現有的服務主體或建立一個新的服務主體。
-	
+
 	* **建立新的服務主體**
-	
-		* 在 [叢集 AAD 身分識別] 刀鋒視窗中，按一下 [建立新的]，按一下 [服務主體]，然後在 [建立服務主體] 刀鋒視窗中，提供值以建立新的服務主體。在這個過程中，也會建立憑證和 Azure Active Directory 應用程式。按一下 [建立]。
+
+		* 在 [叢集 AAD 身分識別] 刀鋒視窗中，按一下 [建立新的]、按一下 [服務主體]，然後在 [建立服務主體] 刀鋒視窗中，提供值以建立新的服務主體。在這個過程中，也會建立憑證和 Azure Active Directory 應用程式。按一下 [建立]。
 
 			![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "將服務主體新增至 HDInsight 叢集")
 
-		* 在 [叢集 AAD 身分識別] 刀鋒視窗中，按一下 [管理 ADLS 存取權]。窗格中會顯示與訂用帳戶相關聯的資料湖存放區帳戶。不過，您只能為自己建立的帳戶設定權限。選取想要與 HDInsight 叢集產生關聯之帳戶的 READ/WRITE/EXECUTE 權限，然後按一下 [儲存權限]。
+		* 在 [叢集 AAD 身分識別] 刀鋒視窗中，按一下 [管理 ADLS 存取]。窗格中會顯示與訂用帳戶相關聯的資料湖存放區帳戶。不過，您只能為自己建立的帳戶設定權限。選取想要與 HDInsight 叢集產生關聯之帳戶的 READ/WRITE/EXECUTE 權限，然後按一下 [儲存權限]。
 
 			![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "將服務主體新增至 HDInsight 叢集")
 
-		* 在 [叢集 AAD 身分識別] 刀鋒視窗中，按一下 [下載憑證] 以下載與您所建立之服務主體相關聯的憑證。日後在建立其他 HDInsight 叢集時如果您想要使用相同的服務主體，便很適合這麼做。按一下 [選取]。
+		* 在 [叢集 AAD 身分識別] 刀鋒視窗中，按一下 [下載憑證]，以下載與您所建立之服務主體相關聯的憑證。日後在建立其他 HDInsight 叢集時如果您想要使用相同的服務主體，便很適合這麼做。按一下 [選取]。
 
 			![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.4.png "將服務主體新增至 HDInsight 叢集")
 
 
 	* **選擇現有的服務主體**。
 
-		* 在 [叢集 AAD 身分識別] 刀鋒視窗中，按一下 [使用現有的]，按一下 [服務主體]，然後在 [選取服務主體] 刀鋒視窗中，搜尋現有的服務主體。按一下服務主體名稱，然後按一下 [選取]。
+		* 在 [叢集 AAD 身分識別] 刀鋒視窗中，按一下 [使用現有的]、按一下 [服務主體]，然後在 [選取服務主體] 刀鋒視窗中，搜尋現有的服務主體。按一下服務主體名稱，然後按一下 [選取]。
 
 			![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "將服務主體新增至 HDInsight 叢集")
 
 		* 在 [叢集 AAD 身分識別] 刀鋒視窗中，上傳與您所選取之服務主體相關聯的憑證 (.pfx)，然後提供憑證密碼。
-		
-		* 按一下 [管理 ADLS 存取權]。窗格中會顯示與訂用帳戶相關聯的資料湖存放區帳戶。不過，您只能為自己建立的帳戶設定權限。選取想要與 HDInsight 叢集產生關聯之帳戶的 READ/WRITE/EXECUTE 權限，然後按一下 [儲存權限]。
+
+		* 按一下 [管理 ADLS 存取]。窗格中會顯示與訂用帳戶相關聯的資料湖存放區帳戶。不過，您只能為自己建立的帳戶設定權限。選取想要與 HDInsight 叢集產生關聯之帳戶的 READ/WRITE/EXECUTE 權限，然後按一下 [儲存權限]。
 
 			![將服務主體新增至 HDInsight 叢集](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.existing.save.png "將服務主體新增至 HDInsight 叢集")
 
@@ -103,9 +103,9 @@
 
 	![啟動叢集儀表板](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster1.png "啟動叢集儀表板")
 
-	您也可以在網頁瀏覽器中移至 https://CLUSTERNAME.azurehdinsight.net 以直接瀏覽至 Ambari (其中 **CLUSTERNAME** 是您的 HDInsight 叢集名稱)。
+	您也可以在網頁瀏覽器中移至 https://CLUSTERNAME.azurehdinsight.net，直接瀏覽至 Ambari (其中 **CLUSTERNAME** 是您的 HDInsight 叢集名稱)。
 
-2. 開啟 Hive 檢視。從頁面功能表選取方塊集 (**Admin** 連結和頁面右側的按鈕旁邊) 以列出可用的檢視。選取 [Hive 檢視]。
+2. 開啟 Hive 檢視。從頁面功能表選取方塊組合 (頁面右側的 [管理員] 連結和按鈕旁邊)，以列出可用的檢視。選取 [Hive 檢視]。
 
 	![選取 ambari 檢視](./media/data-lake-store-hdinsight-hadoop-use-portal/selecthiveview.png)
 
@@ -117,7 +117,7 @@
 
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder'
 
-5. 按一下 [查詢編輯器] 底部的 [執行] 按鈕開始查詢。[查詢程序結果] 區段應該會出現在 [查詢編輯器] 下方並顯示作業相關資訊。
+5. 按一下 [查詢編輯器] 底部的 [執行] 按鈕，開始查詢。[查詢程序結果] 區段應該會出現在 [查詢編輯器] 下方並顯示工作的相關資訊。
 
 6. 查詢完成後，[查詢程序結果] 區段會顯示作業的結果。[結果] 索引標籤應包含下列資訊：
 
@@ -224,7 +224,24 @@
 
 ## 在 Storm 拓撲中使用資料湖存放區
 
-您可以使用資料湖存放區從 Storm 拓撲寫入資料。如需如何達成這個情況的指示，請參閱[搭配使用 Azure 資料湖存放區與 HDInsight 上的 Apache Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md)。
+您可以使用資料湖存放區從 Storm 拓撲寫入資料。如需如何達成這個情況的指示，請參閱[搭配使用 Azure Data Lake Store 與 HDInsight 上的 Apache Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md)。
+
+## 搭配 HBase 叢集使用 Data Lake Store
+
+搭配 HBase 叢集，您可以使用 Data Lake Store 做為預設儲存體以及額外的儲存體。若要這樣做：
+
+1.  在 [資料來源] 刀鋒視窗中，針對 [HBase 資料位置] 選取 [Data Lake Store]。
+2.  選取您要使用的 Data Lake Store 名稱，或建立一個新的。
+3.  最後，指定 Data Lake Store 內的 **HBase 根資料夾** 。如果 Data Lake Store 帳戶沒有根資料夾，請建立一個新的。
+
+	![HBase 與 Data Lake Store](./media/data-lake-store-hdinsight-hadoop-use-portal/hbase-data-lake-store.png "建立 Azure 資源群組")
+
+### 使用 Data Lake Store 做為 HBase 叢集的預設儲存體時的考量
+
+* 您可以針對多個 HBase 叢集使用相同的 Data Lake Store 帳戶。不過，您為叢集提供的 **HBase 根資料夾** (上述螢幕擷取畫面中的步驟 # 4) 必須是唯一的。您**不得**跨兩個不同的 HBase 叢集使用相同的根資料夾。
+* 雖然您可以使用 Data Lake Store 帳戶做為預設儲存體，但是 HBase 叢集記錄檔仍會儲存於與叢集相關聯的 Azure 儲存體 Blob (WASB) 中。這是上述螢幕擷取畫面中以藍色方塊反白顯示的項目。
+
+
 
 ## 另請參閱
 
@@ -233,4 +250,4 @@
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -212,7 +212,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 HDFS�
 | authenticationType | Windows 或匿名。 | 是 |
 | gatewayName | Data Factory 服務應該用來連接到 HDFS 的閘道器名稱。 | 是 |   
 
-如需為內部部署 HDFS 設定認證的詳細資料，請參閱[設定認證和安全性](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)。
+如需為內部部署 HDFS 設定認證的詳細資料，請參閱[設定認證和安全性](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security)。
 
 ### 使用匿名驗證
 
@@ -265,7 +265,7 @@ fileName | 如果您想要資料表參考資料夾中的特定檔案，請指定
 partitionedBy | partitionedBy 可以用來指定時間序列資料的動態 folderPath 和 filename。例如，folderPath 可針對每小時的資料進行參數化。 | 否
 fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。<br/><br/>允許的值為：* (多個字元) 和 ? (單一字元)。<br/><br/>範例 1："fileFilter": "*.log"<br/>範例 2："fileFilter": 2014-1-?.txt"<br/><br/>**請注意**：fileFilter 適用於輸入 FileShare 資料集 | 否
 | compression | 指定此資料的壓縮類型和層級。支援的類型為：**GZip**、**Deflate** 和 **BZip2**，而支援的層級為：**最佳**和**最快**。請注意，目前不支援 **AvroFormat** 的資料壓縮設定。如需詳細資訊，請參閱[壓縮支援](#compression-support)一節。 | 否 |
-| format | 支援兩種格式類型：**TextFormat**、**AvroFormat**。您需要將格式底下的 type 屬性設定為這些值。如果格式為 TextFormat，您可以指定格式的其他選擇性屬性。如需詳細資訊，請參閱以下[指定 TextFormat](#specifying-textformat) 一節。 | 否
+| format | 支援三種格式類型：**TextFormat**、**AvroFormat** 及 **JsonFormat**。您需要將格式底下的 type 屬性設定為這些值。如果格式為 TextFormat，您可以指定格式的其他選擇性屬性。如需詳細資訊，請參閱以下[指定 TextFormat](#specifying-textformat) 一節。如果您使用 JsonFormat，請參閱[指定 JsonFormat](#specifying-jsonformat) 一節。 | 否 
 
 
 > [AZURE.NOTE] 無法同時使用檔名和 fileFilter。
@@ -309,12 +309,12 @@ fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔�
 | -------- | ----------- | -------- |
 | columnDelimiter | 在檔案中做為資料行分隔符號的字元。目前只允許一個字元。此標記是選擇性的。預設值是逗號 (,)。 | 否 |
 | rowDelimiter | 在檔案中做為資料列分隔符號的字元。目前只允許一個字元。此標記是選擇性的。預設值是下列任一項：[“\\r\\n”, “\\r”,” \\n”]。 | 否 |
-| escapeChar | 用來逸出內容中顯示之資料行分隔符號的特殊字元。此標記是選擇性的。沒有預設值。您不得為此屬性指定一個以上的字元。<br/><br/>例如，如果把逗號 (,) 當做資料行分隔符號，但您想要在文字中使用逗號字元 (例如：“Hello, world”)，您可以定義 ‘$’ 作為逸出字元，並在來源中使用字串 “Hello$, world”。<br/><br/>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。 | 否 | 
+| escapeChar | 用來逸出內容中顯示之資料行分隔符號的特殊字元。此標記是選擇性的。沒有預設值。您為此屬性指定的字元不得超過一個。<br/><br/>例如，如果您以逗號 (,) 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：“Hello, world”)，您可以定義 ‘$’ 做為逸出字元，並在來源中使用字串 “Hello$, world”。<br/><br/>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。 | 否 | 
 | quoteChar | 用來引用字串值的特殊字元。引號字元內的資料行和資料列分隔符號會被視為字串值的一部分。此標記是選擇性的。沒有預設值。您為此屬性指定的字元不得超過一個。<br/><br/>例如，如果您以逗號 (,) 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：<Hello  world>)，您可以定義 ‘"’ 做為引用字元，並在來源中使用字串 <"Hello, world">。這個屬性同時適用於輸入和輸出資料表。<br/><br/>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。 | 否 |
 | nullValue | 用來代表 Blob 檔案內容中 null 值的字元。此標記是選擇性的。預設值為 “\\N”。<br/><br/>例如，根據上述範例，Blob 中的 “NaN” 會在複製到 SQL Server 時轉換成 Null 值。 | 否 |
 | encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參閱：[Encoding.EncodingName 屬性](https://msdn.microsoft.com/library/system.text.encoding.aspx)。例如：windows-1250 或 shift\_jis。預設值為 UTF-8。 | 否 | 
 
-#### 範例
+#### TextFormat 範例
 下列範例顯示 TextFormat 的一些格式屬性。
 
 	"typeProperties":
@@ -345,11 +345,13 @@ fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔�
 
 若要在 Hive 資料表中使用 Avro 格式，您可以參考 [Apache Hive 的教學課程](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe)。
 
+[AZURE.INCLUDE [data-factory-json-format](../../includes/data-factory-json-format.md)]
+
 [AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## HDFS 複製活動類型屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
+如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。名稱、描述、輸入和輸出資料表、各種原則等屬性都適用於所有活動類型。
 
 另一方面，活動的 typeProperties 區段中可用的屬性會隨著每個活動類型而有所不同，而在複製活動的案例中，可用的屬性會根據來源與接收的類型而有所不同。
 
@@ -365,4 +367,4 @@ fileFilter | 指定要用來在 folderPath (而不是所有檔案) 中選取檔�
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/15/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：可延伸的原則架構
@@ -119,5 +119,27 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
     > [AZURE.NOTE]
     建立和更新原則後，需要經過一分鐘才會生效。
+    
+## 建立密碼重設原則
 
-<!---HONumber=AcomDC_0224_2016-->
+若要在您的應用程式上啟用更細緻的密碼重設，您必須建立密碼重設原則。請注意，[這裡](active-directory-b2c-reference-sspr.md)指定的整個租用戶的密碼重設選項仍適用於登入原則。此原則描述取用者在密碼重設期間將經歷的體驗，以及成功完成時，應用程式將收到的權杖內容。
+
+1. [遵循下列步驟以瀏覽至 Azure 入口網站上的 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)。
+2. 按一下 [密碼重設原則]。
+3. 按一下刀鋒視窗頂端的 [新增]。
+4. **名稱**決定您的應用程式所使用的密碼重設名稱。例如，輸入 "SSPR"。
+5. 按一下 [識別提供者]，選取 [使用電子郵件地址重設密碼]。按一下 [確定]。
+6. 按一下 [應用程式宣告]。您在這裡選擇在成功進行密碼重設體驗之後，您要在權杖中傳回給應用程式的宣告。例如，選取 [使用者的物件識別碼]。
+7. 按一下 [建立]。請注意，剛建立的原則會在 [密碼重設原則] 刀鋒視窗中顯示為 "**B2C\_1\_SSPR**" (會自動加上 **B2C\_1\_** 部分)。
+8. 按一下 [B2C\_1\_SSPR] 以開啟原則。
+9. 在 [應用程式] 下拉式清單中選取 [Contoso B2C 應用程式]，在 [回覆 URL / 重新導向 URI] 下拉式清單中選取 `https://localhost:44321/`。
+10. 按一下 [立即執行]。新的瀏覽器索引標籤隨即開啟，您可以開始在應用程式中進行密碼重設取用者體驗。
+
+    > [AZURE.NOTE]
+    建立和更新原則後，需要經過一分鐘才會生效。
+
+## 其他資源
+
+- [權杖、工作階段及單一登入組態](active-directory-b2c-token-session-sso.md)。
+
+<!---HONumber=AcomDC_0316_2016-->

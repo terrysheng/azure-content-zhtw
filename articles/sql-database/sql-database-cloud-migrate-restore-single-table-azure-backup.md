@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="03/11/2016"
 	ms.author="daleche"/>
 
 
-# 如何在 Azure SQL Database 備份中還原單一資料表
+# 如何從 Azure SQL Database 備份還原單一資料表
 
 您可能不小心修改了 SQL 資料庫中的某些資料，而想要還原受影響的單一資料表。本文說明如何按照您選取的效能層，從 Azure SQL Database 自動執行的其中一個備份中，還原資料庫中的單一資料表。
 
@@ -67,4 +67,4 @@
 ## 驗證步驟
 1. 查詢並測試剛才複製的資料表，以確認資料完整。經過確認之後，您就可以從 [準備步驟] 區段卸除已重新命名的資料表。(例如，& l t;資料表名稱& gt;\_old)。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

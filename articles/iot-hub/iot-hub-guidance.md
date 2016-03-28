@@ -103,6 +103,8 @@ IoT 解決方案會儲存個別裝置的相關資料，例如：
 
 更複雜的實作可以包含來自[作業監視][lnk-devguide-opmon]的資訊，以便識別嘗試連線或通訊但失敗的裝置。當您實作活動訊號模式時，請務必檢查 [IoT 中樞配額與節流][]。
 
+> [AZURE.NOTE] 如果 IoT 解決方案只需要裝置連線狀態來判斷是否要傳送雲端到裝置訊息，而且訊息不會廣播到大量的裝置組合，則要考慮使用的較簡單模式就是使用較短的到期時間。這可達到與使用活動訊號模式來維護裝置連線狀態登錄相同的效果，同時更具效率。它也能夠藉由要求訊息收條，收到 IoT 中樞的通知，告知哪些裝置能夠收到訊息，而哪些裝置不在線上或故障。如需 C2D 訊息的詳細資訊，請參閱 [IoT 中樞開發人員指南][lnk-devguide-messaging]。
+
 ## 後續步驟
 
 遵循下列連結以深入了解 Azure IoT 中樞：
@@ -127,8 +129,9 @@ IoT 解決方案會儲存個別裝置的相關資料，例如：
 [lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
 [lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
+[lnk-devguide-messaging]: iot-hub-devguide.md#messaging
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 [IoT 中樞配額與節流]: iot-hub-devguide.md#throttling
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

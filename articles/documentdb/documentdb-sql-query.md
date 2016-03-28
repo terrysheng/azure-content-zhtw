@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="03/11/2016" 
 	ms.author="arramac"/>
 
 # DocumentDB 中的 SQL 查詢和 SQL 語法
@@ -281,7 +281,29 @@ WHERE 子句 (**`WHERE <filter_condition>`**) 是選用的。它會指定條件�
 
 前一個範例已顯示簡單的相等查詢。DocumentDB SQL 也支援各種純量運算式。最常用的是二元和一元運算式。來源 JSON 物件中的屬性參考也是有效的運算式。
 
-下列是目前支援的二元運算子，而且可以用於查詢中 (如下列範例所示)：<table> <tr> <td>算術</td> <td>+、-、*、/、%</td> </tr> <tr> <td>位元</td> <td>|、&、^、<<、>>、>>> (右移位並填滿零) </td> </tr> <tr> <td>邏輯</td> <td>AND、OR、NOT</td> </tr> <tr> <td>比較</td> <td>=、!=、&lt;、&gt;、&lt;=、&gt;=、<></td> </tr> <tr> <td>字串</td> <td>|| (串連)</td> </tr> </table>
+下列是目前支援的二元運算式，而且可以用於查詢中 (如下列範例所示)：
+<table>
+<tr>
+<td>算術</td>	
+<td>+、-、*、/、%</td>
+</tr>
+<tr>
+<td>位元</td>	
+<td>|、&amp;、^、&lt;&lt;、>>、>>> (右移位並填滿零) </td>
+</tr>
+<tr>
+<td>邏輯</td>
+<td>AND、OR、NOT</td>
+</tr>
+<tr>
+<td>比較</td>	
+<td>=、!=、&lt;、>、&lt;=、>=、&lt;></td>
+</tr>
+<tr>
+<td>String</td>	
+<td>|| (串連)</td>
+</tr>
+</table>  
 
 讓我們了解一些使用二元運算子的查詢。
 
@@ -313,7 +335,219 @@ WHERE 子句 (**`WHERE <filter_condition>`**) 是選用的。它會指定條件�
 除了二元和一元運算子之外，還允許屬性參照。例如，`SELECT * FROM Families f WHERE f.isRegistered` 所傳回的 JSON 文件包含屬性 `isRegistered` 且屬性值等於 JSON `true` 值。任何其他值 (false、null、Undefined、`<number>`、`<string>`、`<object>`、`<array>` 等) 則會導致從結果中排除來源文件。
 
 ### 相等和比較運算子
-下表顯示 DocumentDB SQL 中任何兩個 JSON 類型之間的相等比較結果。<table style = "width:300px"> <tbody> <tr> <td valign="top"> <strong>Op</strong> </td> <td valign="top"> <strong>未定義</strong> </td> <td valign="top"> <strong>Null</strong> </td> <td valign="top"> <strong>布林</strong> </td> <td valign="top"> <strong>數字</strong> </td> <td valign="top"> <strong>字串</strong> </td> <td valign="top"> <strong>物件</strong> </td> <td valign="top"> <strong>陣列</strong> </td> </tr> <tr> <td valign="top"> <strong>未定義<strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> </tr> <tr> <td valign="top"> <strong>Null<strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> <strong>確定</strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> </tr> <tr> <td valign="top"> <strong>布林<strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> <strong>確定</strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> </tr> <tr> <td valign="top"> <strong>數字<strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> <strong>確定</strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> </tr> <tr> <td valign="top"> <strong>字串<strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> <strong>確定</strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> </tr> <tr> <td valign="top"> <strong>物件<strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> <strong>確定</strong> </td> <td valign="top"> 未定義 </td> </tr> <tr> <td valign="top"> <strong>陣列<strong> </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> 未定義 </td> <td valign="top"> <strong>確定</strong> </td> </tr> </tbody> </table>
+下表顯示 DocumentDB SQL 中任何兩個 JSON 類型之間的相等比較結果。
+<table style = "width:300px">
+   <tbody>
+      <tr>
+         <td valign="top">
+            <strong>Op</strong>
+         </td>
+         <td valign="top">
+            <strong>Undefined</strong>
+         </td>
+         <td valign="top">
+            <strong>Null</strong>
+         </td>
+         <td valign="top">
+            <strong>Boolean</strong>
+         </td>
+         <td valign="top">
+            <strong>Number</strong>
+         </td>
+         <td valign="top">
+            <strong>String</strong>
+         </td>
+         <td valign="top">
+            <strong>Object</strong>
+         </td>
+         <td valign="top">
+            <strong>Array</strong>
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Undefined<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Null<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>確定</strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Boolean<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>確定</strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Number<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>確定</strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>String<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>確定</strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Object<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>確定</strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+      </tr>
+      <tr>
+         <td valign="top">
+            <strong>Array<strong>
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            Undefined
+         </td>
+         <td valign="top">
+            <strong>確定</strong>
+         </td>
+      </tr>
+   </tbody>
+</table>
 
 其他比較運算子 (例如 >、>=、!=、< 及 <=) 則適用下列規則：
 
@@ -1142,7 +1376,7 @@ DocumentDB 也支援一般作業的數個內建函數，這些函數可用於查
 <td>空間函數</td>	
 <td>ST_DISTANCE、ST_WITHIN、ST_ISVALID 和 ST_ISVALIDDETAILED</td>
 </tr>
-</table>
+</table>  
 
 如果您目前使用的使用者定義函數 (UDF) 已提供內建函數，您應該使用相對應的內建函數，因為這樣會加快執行速度並更有效率。
 
@@ -1248,7 +1482,7 @@ DocumentDB 也支援一般作業的數個內建函數，這些函數可用於查
 <td>在指定運算式中傳回輸入運算式的正切函數。</td>
 </tr>
 
-</table>
+</table> 
 
 例如，您現在可以執行下列的查詢：
 
@@ -2144,4 +2378,4 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

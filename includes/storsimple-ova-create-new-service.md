@@ -1,6 +1,6 @@
 #### 建立新服務
 
-1.  使用您的 Microsoft 帳戶認證登入 Azure 傳統入口網站，URL 如下：[https://manage.windowsazure.com/](https://manage.windowsazure.com/)
+1.  使用您的 Microsoft 帳戶認證登入 Azure 傳統入口網站，URL 如下：[https://manage.windowsazure.com/](https://manage.windowsazure.com/)。如果在政府機構入口網站中部署裝置，請在以下網址登入︰[https://manage.windowsazure.us/](https://manage.windowsazure.us/)
 
 2.  在入口網站中，按一下 [新增] > [資料服務] > [StorSimple Manager] > [快速建立]。
 
@@ -14,7 +14,9 @@
 
 	 -   如果您在 Azure 中還有其他您想利用 StorSimple 裝置來部署的工作負載，建議您使用該資料中心。
 
-   	 -   StorSimple Manager 和 Azure 儲存體可以分別位於兩個不同的位置。如此一來，您需要分別建立 StorSimple Manager 和 Azure 儲存體帳戶。若要建立 Azure 儲存體帳戶，請前往入口網站中的 [Azure 儲存體服務]，並依照[建立 Azure 儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)中的步驟進行。建立帳戶之後，請依照[設定服務的新儲存體帳戶](#optional-step-configure-a-new-storage-account-for-the-service)中的步驟，將此帳戶新增到 StorSimple Manager 服務中。
+   	 -   StorSimple Manager 和 Azure 儲存體可以分別位於兩個不同的位置。如此一來，您需要分別建立 StorSimple Manager 和 Azure 儲存體帳戶。若要建立 Azure 儲存體帳戶，請前往入口網站中的 [Azure 儲存體服務]，並依照[建立 Azure 儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)中的步驟進行。建立此帳戶之後，請依照[設定服務的新儲存體帳戶](#optional-step-configure-a-new-storage-account-for-the-service)中的步驟，將此帳戶新增到 StorSimple Manager 服務中。
+   	 
+   	 -   如果在政府機構入口網站中部署虛擬裝置，美國愛荷華州和美國維吉尼亞州位置可以使用 StorSimple Manager 服務。
    	 
    	 	
 	1.  從下拉式清單選擇 [訂用帳戶]。訂用帳戶會連結到您的帳單帳戶。當您只有一個訂用帳戶時，這個欄位不會出現。
@@ -29,6 +31,6 @@
 
 	![](./media/storsimple-ova-create-new-service/image2-include.png)
 
-	服務狀態會變更為 [使用中]。
+	服務狀態將會變更為 [使用中]。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

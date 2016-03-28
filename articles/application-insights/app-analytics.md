@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/11/2016" 
 	ms.author="awills"/>
 
 
@@ -47,7 +47,20 @@
 
 看來我們的應用程式在海德拉巴的午休時間及就寢時間最受歡迎。(而且我們應該調查那些 500 的代碼。)
 
-此語言不只有許多 SQL 的功能。如同使用 SQL，您可以篩選資料、群組記錄、排序和聯結資料表。您也可以在欄位上執行計算。不同於 SQL，這些功能分成不同的作業，並取代巢狀查詢，改用非常直覺的方式讓您將資料從一項作業傳送到下一項。這可讓您輕鬆地撰寫複雜的查詢。
+
+也有強大的統計運算功能︰
+
+![](./media/app-analytics/025.png)
+
+
+這個語言具有許多吸引人的功能︰
+
+* 依任何欄位[篩選](app-analytics-queries.md)未經處理的 app 遙測，包括您的自訂屬性和計量。
+* [加入](app-analytics-queries.md#join-operator)多個資料表 – 將要求與頁面檢視、相依性呼叫、例外狀況和記錄追蹤相互關聯。
+* 功能強大的統計[彙總](app-analytics-aggregations.md)。
+* 功能如同 SQL 一般強大，但更容易用來進行複雜的查詢︰您可以使用管線將資料從某一個基本運算傳送到下一個運算，而不需使用巢串陳述式。
+* 立即且功能強大的視覺效果。
+
 
 
 >[AZURE.NOTE] 我們建議您從[語言教學](app-analytics-tour.md)開始。
@@ -56,7 +69,7 @@
 ## 連接到您的 Application Insights 資料
 
 
-在 Application Insights 中，從您應用程式的[概觀刀鋒視窗](app-insights-dashboards.md)開啟 [分析]：
+在 Application Insights 中，從 app 的[概觀刀鋒視窗](app-insights-dashboards.md)開啟 [分析]：
 
 ![開啟 portal.azure.com，開啟您的 Application Insights 資源，然後按一下 [分析]。](./media/app-analytics/001.png)
 
@@ -66,4 +79,4 @@
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/01/2016"
+	ms.date="03/07/2016"
 	ms.author="spelluru"/>
 
 # 教學課程：將資料從 Azure Blob 儲存體複製到 Azure SQL Database
@@ -22,6 +22,7 @@
 - [使用 Data Factory 編輯器](data-factory-get-started-using-editor.md)
 - [使用 PowerShell](data-factory-monitor-manage-using-powershell.md)
 - [使用 Visual Studio](data-factory-get-started-using-vs.md)
+- [使用複製精靈](data-factory-copy-data-wizard-tutorial.md)
 
 在本教學課程中，您將建立 Azure Data Factory，並建立具有複製活動的管線，以將資料從 Azure Blob 儲存體複製到 Azure SQL Database。
 
@@ -115,4 +116,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

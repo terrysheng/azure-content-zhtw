@@ -75,9 +75,7 @@
 
 **錯誤的原因：**如果您的 Runbook 是 PowerShell 工作流程，它會以還原序列化格式儲存複雜物件，以在暫止工作流程時保存 Runbook 狀態。
 
-**疑難排解秘訣：**
-
-下列三個解決方案的任何一個可以修正此問題：
+**疑難排解秘訣：**下列三個解決方案的任何一個可以修正此問題：
 
 1. 如果您要將複雜物件從某個 Cmdlet 傳送到另一個 Cmdlet，請將這些 Cmdlet 包裝在 InlineScript 中。  
 2. 從複雜物件傳遞您需要的名稱或值，而非傳遞整個物件。  
@@ -139,9 +137,7 @@
 
 - 您使用 **New-AzureRmAutomationModule** Cmdlet 來上傳模組，但您尚未提供完整的儲存體路徑，或是尚未使用可公開存取的 URL 來載入模組。
 
-**疑難排解秘訣：**
-
-下列任何一個解決方案都可以修正此問題：
+**疑難排解秘訣：**下列任何一個解決方案都可以修正此問題：
 
 - 確認模組依照下列格式：ModuleName.Zip **->** ModuleName 或版本號碼 **->** (ModuleName.psm1、ModuleName.psd1)
 
@@ -167,7 +163,7 @@
     - 如要使用 PowerShell Cmdlet 來將節點組態指派給節點，請使用 **Set-AzureRmAutomationDscNode** Cmdlet
 
 
-### 案例：編譯組態時沒有產生任何節點組態 (mof 檔案)
+### 案例：編譯組態時沒有產生任何節點組態 (MOF 檔案)
 
 **錯誤：**您的 DSC 編譯工作已暫停，錯誤訊息：「編譯已順利完成，但是沒有產生任何節點組態 .mofs」。
 
@@ -176,7 +172,7 @@
 **疑難排解秘訣：**下列任何一個解決方案都可以修正此問題：
 
 - 請確定組態定義中「Node」關鍵字後方的運算式，不會被評估為 $null。  
-- 如果您在編譯組態時傳遞 ConfigurationData，請確定您傳遞的是組態向 [configurationData](automation-dsc-compile.md#configurationdata) 要求的預期值。
+- 如果您在編譯組態時傳遞 ConfigurationData，請確定您傳遞的是組態向 [ConfigurationData](automation-dsc-compile.md#configurationdata) 要求的預期值。
 
 
 ### 案例：DSC 節點報告會停留在「進行中」狀態
@@ -210,4 +206,4 @@
 
 - 請在 [User Voice](https://feedback.azure.com/forums/34192--general-feedback) 上張貼 Azure 自動化的意見反應或功能要求。
 
-<!-----HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

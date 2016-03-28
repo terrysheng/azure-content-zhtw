@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/08/2016"
    ms.author="barbkess;sonyama"/>
 
 #Transact-SQL 主題
@@ -115,16 +115,16 @@
 
 
 ## 後續步驟
-如需更多 TSQL 範例，請參閱 [SQL 資料倉儲開發概觀][]。
+如需更多 TSQL 範例，請參閱 [SQL 資料倉儲參考概觀][]。
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL 資料倉儲開發概觀]: sql-data-warehouse-overview-reference.md
+[SQL 資料倉儲參考概觀]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

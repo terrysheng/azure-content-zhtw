@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/10/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 流程
@@ -89,7 +89,7 @@
 
  
 ## 已封鎖有風險的登入
-系統管理員也可以選擇設定登入風險原則，以根據風險層級防止使用者登入。若要解除封鎖，使用者必須連絡系統管理員或技術服務人員，或者嘗試從熟悉的位置或裝置登入。藉由解決 Multi-Factor Authentication 自行復原，不是此種情況的適用選項。<br><br> ![補救](./media/active-directory-identityprotection-flows/130.png "補救") <br>
+系統管理員也可以選擇設定登入風險原則，以根據風險層級防止使用者登入。若要解除封鎖，使用者必須連絡系統管理員或技術服務人員，或者嘗試從熟悉的位置或裝置登入。藉由解決 Multi-Factor Authentication 自行復原，不是此種情況的適用選項。<br><br> ![補救](./media/active-directory-identityprotection-flows/200.png "補救") <br>
 
 
 
@@ -158,4 +158,4 @@
 
 - [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

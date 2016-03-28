@@ -1,8 +1,8 @@
 ## 將訊息傳送至事件中心
 
-在本節中，我們會撰寫一個 Java 主控台應用程式，以將事件傳送至事件中樞。我們將利用 [Apache Qpid 專案](http://qpid.apache.org/)中的 JMS AMQP 提供者。這類似於[這裡](../service-bus/service-bus-java-how-to-use-jms-api-amqp.md)所示搭配使用服務匯流排佇列和主題與 AMQP。如需詳細資訊，請參閱 [Qpid JMS 文件](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html)和 [Java 訊息服務](http://www.oracle.com/technetwork/java/jms/index.html)。
+在本節中，我們會撰寫一個 Java 主控台應用程式，以將事件傳送至事件中樞。我們將利用 [Apache Qpid 專案](http://qpid.apache.org/)中的 JMS AMQP 提供者。這類似於[這裡](../articles/service-bus/service-bus-java-how-to-use-jms-api-amqp.md)所示搭配使用服務匯流排佇列和主題與 AMQP。如需詳細資訊，請參閱 [Qpid JMS 文件](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html)和 [Java 訊息服務](http://www.oracle.com/technetwork/java/jms/index.html)。
 
-1. 在 Eclipse 中，安裝 [Azure Toolkit for Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx)。這包括 Qpid JMS AMQP 用戶端程式庫。
+1. 在 Eclipse 中，安裝 [Azure Toolkit for Eclipse](../articles/azure-toolkit-for-eclipse.md)。這包括 Qpid JMS AMQP 用戶端程式庫。
 
 2. 在 Eclipse 中，建立名為 **Sender** 的新 Java 專案。
 
@@ -92,4 +92,4 @@
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0316_2016-->

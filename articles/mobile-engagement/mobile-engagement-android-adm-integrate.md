@@ -19,9 +19,9 @@
 
 #如何整合 ADM 與 Engagement
 
-> [AZURE.IMPORTANT] 您必須遵循＜如何在 Android 上整合 Engagement＞文件中所述的整合程序，才能接著依照本指南操作。
+> [AZURE.IMPORTANT] 您必須遵循＜如何在 Android 上整合＞文件中所述的整合程序，才能接著遵循本指南。
 >
-> 只有當您已整合 Reach 模組以用於任何時間促銷活動支援，才適用本文件。若要在應用程式中整合 Reach 促銷活動，請先閱讀「如何在 Android 上整合 Engagement Reach」。
+> 本文件只有在您已經整合觸達模組並打算推送 Amazon 裝置時才適用。若要在應用程式中整合 Reach 促銷活動，請先閱讀「如何在 Android 上整合 Engagement Reach」。
 
 ##簡介
 
@@ -102,14 +102,11 @@
 
 ##授與 Engagement OAuth 認證
 
-在 $/#application/YOUR\_APPID/native-push 提交您的 OAuth 認證 (用戶端識別碼和用戶端密碼)。
-
-現在，您在建立 Reach 公告與輪詢時可以選取 [任何時間]。
-
+在 Engagement 入口網站中提交您的 OAuth 認證 (用戶端識別碼和用戶端密碼)。
 
 [<https://developer.amazon.com/sdk/adm/credentials.html>]: https://developer.amazon.com/sdk/adm/credentials.html
 [ADM 用戶端程式庫]: https://developer.amazon.com/sdk/adm/setup.html
 [整合的 ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [此程序]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

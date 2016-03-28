@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/14/2016"
 	ms.author="billmath"/>
 
 
@@ -55,7 +55,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 將其中的 `(your_FS_name) ` 取代為您的組織使用的同盟服務主機名稱，例如 fs.contoso.com。如果您能夠成功確認上述兩個設定，您就不必執行任何動作。
 
-範例：https://fs.contospocom/federationmetadata/2007-06/federationmetadata.xml
+範例：https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
 ## 如果您決定要以手動方式更新憑證
 每當您手動更新 AD FS 憑證時，必須使用 PowerShell 命令 Update-MsolFederatedDomain 更新 Office 365 網域，如[這裡](#if-your-metadata-is-not-publicly-accessible)的＜手動更新 Office 365 同盟信任內容＞一節的步驟所示
@@ -101,4 +101,4 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 >[AZURE.NOTE] 如果您需要支援多個頂層網域，例如 contoso.com 和 fabrikam.com，則您使用任何 Cmdlet 時必須搭配使用 SupportMultipleDomain 參數。如需詳細資訊，請參閱〈支援多個頂層網域〉。最後，確定使用 [Windows Server 2014 年 5 月](http://support.microsoft.com/kb/2955164)彙總套件來更新所有 Web 應用程式 Proxy 伺服器，否則 Proxy 可能無法使用新的憑證自行更新，而導致服務中斷。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

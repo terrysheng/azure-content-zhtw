@@ -128,8 +128,9 @@ GO
 -   [Backup and restore Stretch-enabled databases (備份與還原已啟用 Stretch 的資料庫)](sql-server-stretch-database-backup.md)
 
 ## 另請參閱
+
 [識別適用於 Stretch Database 的資料庫和資料表](sql-server-stretch-database-identify-databases.md)。
 
 [ALTER DATABASE SET 選項 (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

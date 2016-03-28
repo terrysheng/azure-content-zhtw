@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="03/04/2016"
 	ms.author="tdykstra"/>
 
@@ -112,4 +112,4 @@ App Service 邏輯應用程式至 API 應用程式的服務帳戶驗證屬於特
 
 本文說明了可用於 API 應用程式之 App Service 的驗證和授權功能。在下一個快速入門系列教學課程中，會說明如何實作 [App Service API Apps 中的使用者驗證](app-service-api-dotnet-user-principal-auth.md)。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

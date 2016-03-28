@@ -79,7 +79,7 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 
 	   // Create the table if it doesn't exist.
 	   String tableName = "people";
-	   CloudTable cloudTable = new CloudTable(tableName,tableClient);
+	   CloudTable cloudTable = tableClient.getTableReference(tableName);
 	   cloudTable.createIfNotExists();
     }
     catch (Exception e)
@@ -563,4 +563,4 @@ Azure 儲存體用戶端會使用儲存體連接字串來儲存存取資料管�
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure 資料表：插入和查詢投影簡介]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

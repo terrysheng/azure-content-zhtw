@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="12/04/2015"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # 排程器限制、預設值和錯誤碼
@@ -55,7 +55,7 @@ API 作業也可能傳回管理服務所定義的其他錯誤資訊。此其他�
 
 
  [排程器是什麼？](scheduler-intro.md)
- 
+
  [Azure 排程器概念、術語及實體階層](scheduler-concepts-terms.md)
 
  [在 Azure 入口網站中開始使用排程器](scheduler-get-started-portal.md)
@@ -69,7 +69,5 @@ API 作業也可能傳回管理服務所定義的其他錯誤資訊。此其他�
  [Azure 排程器高可用性和可靠性](scheduler-high-availability-reliability.md)
 
  [Azure 排程器輸出驗證](scheduler-outbound-authentication.md)
- 
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

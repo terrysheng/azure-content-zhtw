@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 特殊權限身分識別管理：安全性精靈"
-   description="第一次使用 Azure Privileged Identity Management 擴充功能時，您將會看到安全性精靈。本文說明使用精靈的步驟。"
+   pageTitle="Azure AD Privileged Identity Management 安全性精靈"
+   description="第一次使用 Azure Active Directory Privileged Identity Management 擴充功能時，您將會看到安全性精靈。本文說明使用精靈的步驟。"
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/08/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management 安全性精靈
+# Azure AD Privileged Identity Management 安全性精靈
 
 第一次執行 Azure Privileged Identity Management (PIM) 時，您將會看到精靈。此精靈可協助您了解特殊權限身分識別的安全性風險，以及如何使用特殊權限身分識別管理來降低風險。
 
@@ -32,7 +32,7 @@
 
 您有三個選項可用來變更全域管理員的時間範圍：
 
-1.  按一下 [讓全部變成暫時性] 按鈕，讓所有全域管理員變成暫時性的。
+1.  按一下 [讓全部變成暫時性] 按鈕，讓所有全域管理員變成暫時性的。如果所有的系統管理員都擁有組織帳戶，且已針對 Azure MFA 進行註冊，才能選擇這個選項。
 
 2.  按一下 [讓全部變成永久性] 按鈕，讓所有全域管理員變成永久性的。
 
@@ -52,13 +52,13 @@
 
 ## 要求 Multi-Factor Authentication
 
-如果您想要求管理員使用 MFA 登入其帳戶，並要求其角色的擴充功能，請按一下 [啟用] 按鈕來啟用 MFA。您也可以稍後停用此功能。
+如果您想要求管理員使用 MFA 登入其帳戶，並要求其角色的擴充功能，請按一下 [啟用] 按鈕來啟用 MFA。
 
 <!--For more information about MFA and PIM, click here. PLACEHOLDER: NEED LINK TO MFA DOC.-->
 
 選取將套用這些設定的角色。按一下 [確定]。
 
-> [AZURE.WARNING] 請注意，您目前有一個以上的安全性管理員。如果只有一個安全性管理員未設定為永久管理員，而且尚未設定 MFA，則在角色指派到期之後，使用者將完全無法管理 PIM。
+> [AZURE.WARNING] 此時，您必須有一個以上具備組織帳戶 (而非 Microsoft 帳戶) 的安全性系統管理員，這一點很重要。如果只有一個尚未設定為永久且尚未設定 MFA 的安全性系統管理員，若帳戶遭到刪除，使用者將完全無法管理 PIM。
 
 完成時，請按一下 [確定]。
 
@@ -67,4 +67,4 @@
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

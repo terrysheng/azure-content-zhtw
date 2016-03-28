@@ -1,5 +1,5 @@
 <properties
-   pageTitle="使用 Azure Service Fabric 叢集資源管理員管理度量"
+   pageTitle="使用 Azure Service Fabric 叢集資源管理員管理度量 | Microsoft Azure"
    description="深入了解如何在 Service Fabric 中設定及使用度量。"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="03/10/2016"
    ms.author="masnider"/>
 
-# 度量
+# 在 Service Fabric 中使用度量管理資源耗用量和負載
 度量是 Service Fabric 中您的服務所關切的資源的通用詞彙。一般而言，度量就是任何您想要從資源觀點進行管理，以便處理您的服務效能的項目。
 
 在上述所有範例中，我們一直以隱含方式提到度量；諸如記憶體、磁碟、CPU 使用率 – 這些全部都是度量的範例。這些是實體度量，也就是對應至節點上需要管理之實體資源的資源。度量也可以是邏輯度量，例如應用程式定義的 “MyWorkQueueDepth”，其對應於某個層級的資源耗用量 (但應用程式並沒有真正了解或不知道如何測量它）。
@@ -109,7 +109,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## 負載
 負載是特定節點上的某個服務執行個體或複本取用多少特定度量的一般概念。
 
-### 預設負載
+## 預設負載
 預設負載是資源管理員從實際的服務執行個體或複本收到任何更新之前，應假設每個服務執行個體或複本將取用多少負載。對於較簡單的服務，這就是永遠不會動態更新的靜態定義，因此將用於服務的存留期。這很適合用於簡單的容量規劃，因為這正好是我們習慣的做法 – 將某些資源投注於某些工作負載，好處是至少我們現在是以微服務的心態運作，其中的資源實際上不會靜態指派給特定工作負載，而其中的人員也不在决策圈內。
 
 我們允許具狀態服務指定其主要複本和次要複本的預設負載 – 實際上對許多服務而言，這些數字都不同，因為主要複本和次要複本會執行不同的工作負載，而且主要複本通常可用於讀取和寫入 (以及大部分的運算負荷)，而主要複本的預設負載會大於次要複本。
@@ -117,7 +117,6 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 現在假設您已執行您的服務一段時間，而您已注意到服務的某些執行個體或複本耗用比其他執行個體或複本更多的資源，或其耗用量會隨時間改變 – 或它們許與特定客戶相關聯，或許只是對應至會在一天內產生變化的工作負載，例如傳訊流量或股票交易。無論如何，您會注意到，若不依照一個有意義的數量進行區隔，您就沒有「單一數字」可用於此負載。您也注意到，在初始估計值中「進行區隔」會導致 Service Fabric 將過多或過少的資源配置給您的服務，以致您節點的使用量過高或過低。怎麼辦？ 您的服務可能正在報告負載！
 
 ## 動態負載
-
 動態負載報告可讓複本或執行個體在其存留期中調整其在叢集中的配置/報告的度量使用量。閒置且未執行任何工作的服務複本或執行個體通常會回報它使用少量的資源，而忙碌的複本或執行個體則會回報他們使用較多的資源。叢集中的這個一般流失層級可讓我們迅速重新組織叢集中的服務複本和執行個體，以確保服務和執行個體取得其所需的資源 – 實際上，忙碌的服務能夠從目前閒置或執行較少工作的其他複本或執行個體回收資源。透過 ReportLoad 方法 (可在 ServicePartition 上取得並可做為基底 StatefulService 的屬性使用) 可以迅速完成負載報告。在您的服務中，程式碼如下所示︰
 
 程式碼：
@@ -128,6 +127,7 @@ this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory",
 
 服務複本或執行個體只能針對它們設定要使用的度量報告負載。建立每個服務時會設定度量清單。如果服務複本或執行個體嘗試針對目前未設定要使用的度量報告負載，Service Fabric 會記錄此報告但予以忽略，這表示我們在計算或報告叢集的狀態時不會使用該度量。這很完美，因為它能夠進行更大規模的實驗 – 程式碼可以測量並報告它知道作法的所有項目，而運算子可以迅速設定、調整及更新該服務的資源平衡規則，但不必變更程式碼。比方說，這可能包括停用有錯誤報告的度量、根據行為重新設定度量的權數，或僅在部署及驗證程式碼之後啟用新的度量。
 
+## 混用預設負載值和動態負載報告
 為即將以動態方式報告負載的服務指定預設負載，是否合理？ 當然！ 在此情況下，預設負載可做為估計值，直到真正的報告開始從實際的服務複本或執行個體顯示為止。這是適合，因為它可讓資源管理員在建立複本或執行個體時進行放置 – 預設負載最後成為初始估計值，讓資源管理員一開始就將服務執行個體或複本放在適當的位置；如果未提供任何資訊，放置方式實際上是隨機的，而我們幾乎肯定必須在真正的負載報告開始出現時移動項目。
 
 所以讓我們採用先前的範例，看看當我們加入一些自訂負載時會發生什麼狀況，然後在建立服務之後，它會以動態方式更新。在此範例中，我們將以「記憶體」為例，並假設我們一開始使用下列命令建立具狀態服務︰
@@ -145,6 +145,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ![使用預設和自訂度量平衡的叢集][Image2]
 
 有幾件事值得一提：
+
 -	由於複本或執行個體在報告自己的負載前，會使用服務的預設負載，我們知道具狀態服務的資料分割 1 內的複本尚未自行報告負載
 -	資料分割內的次要複本可以有自己的負載
 -	整體度量看起來很不錯，節點上最大和最小負載之間的差異 (對於記憶體 – 我們說過是最在意的自訂度量) 比率只有 1.75 (具有最多記憶體負載的節點是 N3，最少是 N2，而 28/16 = 1.75) – 相當平衡！
@@ -183,17 +184,16 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 將度量權數納入考量，全域平衡會根據度量權數的平均值計算。我們會平衡服務與其自己的已定義度量權數。
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
-- [深入了解設定服務](service-fabric-cluster-resource-manager-configure-services.md)
-- [深入了解重組度量](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- [深入了解叢集資源管理員如何平衡叢集中的負載](service-fabric-cluster-resource-manager-balancing.md)
-- [取得 Service Fabric 叢集資源管理員的簡介](service-fabric-cluster-resource-manager-introduction.md)
-- [深入了解服務移動成本](service-fabric-cluster-resource-manager-movement-cost.md)
+- 如需可用來設定服務的其他選項的詳細資訊，請查看[深入了解設定服務](service-fabric-cluster-resource-manager-configure-services.md)中提供的其他叢集資源管理員組態的相關主題
+- 定義重組度量是合併 (而不是擴增) 節點上負載的一種方式。若要了解如何設定重組，請參閱[這篇文章](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- 若要了解叢集資源管理員如何管理並平衡叢集中的負載，請查看關於[平衡負載](service-fabric-cluster-resource-manager-balancing.md)的文章
+- 從頭開始，並[取得 Service Fabric 叢集資源管理員的簡介](service-fabric-cluster-resource-manager-introduction.md)
+- 移動成本是向叢集資源管理員發出訊號，表示移動某些服務會比較貴的其中一種方式。若要深入了解移動成本，請參閱[這篇文章](service-fabric-cluster-resource-manager-movement-cost.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
 [Image3]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

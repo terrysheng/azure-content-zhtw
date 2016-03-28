@@ -33,6 +33,7 @@
 - 在單一雲端服務 (傳統部署) 或資源群組 (資源管理員部署) 中，僅允許下列設定： 
 	- 該雲端服務中的所有 VM 必須已啟用多個 NIC 功能，或者 
 	- 該雲端服務中的每一個 VM 都必須具有單一 NIC 
+	- 此外，無法將沒有次要網路介面的虛擬機器更新為具有次要網路介面，反之亦然。
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
  
@@ -265,4 +266,4 @@
 - 部署[在資源管理員部署中的 2 層應用程式案例之多個 NIC VM](virtual-network-deploy-multinic-arm-template.md)。
 - 部署[在傳統部署中的 2 層應用程式案例之多個 NIC VM](virtual-network-deploy-multinic-classic-ps.md)。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

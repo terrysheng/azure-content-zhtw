@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/10/2016"
 	ms.author="piyushjo" />
 
 #如何整合 GCM 與 Mobile Engagement
 
 > [AZURE.IMPORTANT] 您必須遵循＜如何在 Android 上整合＞文件中所述的整合程序，才能接著遵循本指南。
 >
-> 只有當您已整合 Reach 模組以用於任何時間促銷活動支援，才適用本文件。若要在應用程式中整合 Reach 促銷活動，請先閱讀「如何在 Android 上整合 Engagement Reach」。
+> 本文件只有在您已經整合觸達模組並打算推送 Google Play 裝置時才適用。若要在應用程式中整合 Reach 促銷活動，請先閱讀「如何在 Android 上整合 Engagement Reach」。
 
 ##簡介
 
@@ -30,17 +30,11 @@
 
 > [AZURE.IMPORTANT] 只有執行 Android 2.2 或更高版本，且已安裝 Google Play 並已啟用 Google 背景連線的裝置，才能使用 GCM 推播；不過，您仍可將這段程式碼安全地整合不支援 GCM 的裝置 (只使用對應方式)。
 
-##註冊 GCM 並啟用 GCM 服務
+##利用 API 金鑰建立 Google 雲端通訊專案
 
-如果尚未這麼做，請在您的 Google 帳戶上啟用 GCM 服務。
+[AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
-在撰寫本文的時候 (2014 年 2 月 5 日)，您可以依照下列程序進行：[<http://developer.android.com/guide/google/gcm/gs.html>]。
-
-請只進行該程序中在您的帳戶上啟用 GCM 的部分。當您讀到＜取得 API 金鑰＞章節時，請停止閱讀並返回此頁面，不要再進一步遵循任何 Google 程序。
-
-此程序說明「專案編號」可做為「GCM 傳送者識別碼」，此程序稍後需要用到此識別碼。
-
-> [AZURE.IMPORTANT] 「專案編號」不應與「專案識別碼」混淆。專案識別碼現在與專案編號不同 (在新專案上是一個名稱)。您需要在 Engagement SDK 中整合的是「專案編號」，此編號會顯示於 [Google 開發人員主控台]的 [概觀] 功能表中。
+> [AZURE.IMPORTANT] 「專案編號」不應與「專案識別碼」混淆。
 
 ##SDK 整合
 
@@ -50,9 +44,7 @@
 
 也可以從 GCM 通知取消註冊裝置 (解除安裝應用程式時會自動取消裝置的註冊)。
 
-如果您使用 [GCM 用戶端程式庫]，您可以直接讀取 android-sdk-gcm-receive。
-
-如果您尚未自行傳送註冊對應方式，您可以讓 Engagement 自動註冊您的裝置。
+如果您未使用 [Google Play SDK]，或者尚未自行傳送註冊對應方式，您可以讓 Engagement 自動註冊您的裝置。
 
 若要啟用此功能，請將下列內容加入 `AndroidManifest.xml` 檔案的 `<application/>` 標記中：
 
@@ -84,35 +76,10 @@
 			<uses-permission android:name="<your_package_name>.permission.C2D_MESSAGE" />
 			<permission android:name="<your_package_name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
-##授與伺服器 API 金鑰的存取權給 Engagement
+##授與 Mobile Engagement 的存取權給 GCM API 金鑰
 
-如果尚未這麼做，請在 [Google 開發人員主控台]上建立「伺服器 API 金鑰」。
+遵循[本指南](mobile-engagement-android-get-started.md#grant-mobile-engagement-access-to-your-gcm-api-key)來授與 Mobile Engagement 的存取權給 GCM API 金鑰。
 
-伺服器金鑰不能有 IP 限制。
+[Google Play SDK]: https://developers.google.com/cloud-messaging/android/start
 
-在撰寫本文的時候 (2014 年 2 月 5 日)，此程序如下：
-
--   若要完成此作業，請開啟 [Google 開發人員主控台]。
--   選取先前程序中的同一個專案 (具有在 `AndroidManifest.xml` 中整合之「專案編號」的專案)。
--   移至 [API 與驗證 -> 認證]，在 [公用 API 存取] 區段中按一下 [建立新金鑰]。
--   選取 [伺服器金鑰]。
--   在下一個畫面上保留空白 (沒有 IP 限制)，然後按一下 [建立]。
--   複製所產生的 API 金鑰。
--   移至 $/#application/YOUR\_ENGAGEMENT\_APPID/native-push。
--   在 GCM 區段中，以您剛剛產生並複製的 API 金鑰進行編輯。
-
-現在，您在建立 Reach 公告與輪詢時可以選取 [任何時間]。
-
-> [AZURE.IMPORTANT] Engagement 實際上需要「伺服器金鑰」，Engagement 伺服器無法使用 Android 金鑰。
-
-##測試
-
-現在請閱讀＜如何在 Android 上測試 Engagement 整合＞，確認您的整合。
-
-
-[<http://developer.android.com/guide/google/gcm/gs.html>]: http://developer.android.com/guide/google/gcm/gs.html
-[Google Developers Console]: https://cloud.google.com/console
-[GCM 用戶端程式庫]: http://developer.android.com/guide/google/gcm/gs.html#libs
-[Google 開發人員主控台]: https://cloud.google.com/console
-
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

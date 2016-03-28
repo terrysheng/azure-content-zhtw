@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/21/2016"
+    ms.date="03/11/2016"
     ms.author="adegeo"/>
 
 # 什麼是雲端服務模型？如何封裝？
@@ -86,21 +86,21 @@
 
 您可以參考 [服務定義結構描述][]，進一步了解此處所使用的 XML 結構描述，不過，以下是某些元素的簡短說明：
 
->**Sites** 包含 IIS7 中所裝載的網站或 Web 應用程式的定義。
->
->**InputEndpoints** 包含用來連絡雲端服務的端點的定義。
->
->**InternalEndpoints** 包含角色執行個體用來彼此通訊的端點的定義。
->
->**ConfigurationSettings** 包含特定角色功能的設定定義。
->
->**Certificates** 包含角色所需的憑證的定義。上述程式碼範例顯示用於設定 Azure Connect 的憑證。
->
->**LocalResources** 包含本機儲存體資源的定義。本機儲存體資源是執行中角色執行個體所在之虛擬機器的檔案系統中的保留目錄。
->
->**Imports** 包含匯入的模組的定義。上述程式碼範例顯示遠端桌面連線與 Azure Connect 的模組。
->
->**Startup** 包含角色啟動時執行的工作。這些工作是在 .cmd 或可執行檔中定義。
+**Sites** 包含 IIS7 中所裝載的網站或 Web 應用程式的定義。
+
+**InputEndpoints** 包含用來連絡雲端服務的端點的定義。
+
+**InternalEndpoints** 包含角色執行個體用來彼此通訊的端點的定義。
+
+**ConfigurationSettings** 包含特定角色功能的設定定義。
+
+**Certificates** 包含角色所需的憑證的定義。上述程式碼範例顯示用於設定 Azure Connect 的憑證。
+
+**LocalResources** 包含本機儲存資源的定義。本機儲存資源是執行中角色執行個體所在之虛擬機器的檔案系統上的保留目錄。
+
+**Imports** 包含匯入的模組的定義。上述程式碼範例顯示遠端桌面連線與 Azure Connect 的模組。
+
+**Startup** 包含角色啟動時執行的工作。這些工作是在 .cmd 或可執行檔中定義。
 
 
 
@@ -130,11 +130,11 @@
 
 您可以參考[服務組態結構描述](https://msdn.microsoft.com/library/azure/ee758710.aspx)，進一步了解此處所使用的 XML 結構描述，不過，以下是元素的簡短說明：
 
->**Instances** 設定執行中角色執行個體的數目。為防止您的雲端服務在升級期間可能變成無法使用，建議您部署多個 Web 對向角色的執行個體。如此一來，您將遵守 [Azure 運算服務等級協定 (SLA)](http://azure.microsoft.com/support/legal/sla/) 中的指導方針，當您為服務部署兩個或多個角色執行個體時，此等級協定可保證網際網路對向角色 99.95% 的外部連線能力。
+**Instances** 設定執行中角色執行個體的數目。為防止您的雲端服務在升級期間可能變成無法使用，建議您部署多個 Web 對向角色的執行個體。如此一來，您將遵守 [Azure 運算服務等級協定 (SLA)](http://azure.microsoft.com/support/legal/sla/) 中的指導方針，當您為服務部署兩個或多個角色執行個體時，此等級協定可保證網際網路對向角色 99.95% 的外部連線能力。
 
->**ConfigurationSettings** 設定執行中角色執行個體的設定。`<Setting>` 元素的名稱必須符合服務定義檔中的設定定義。
+**ConfigurationSettings** 設定執行中角色執行個體的設定。`<Setting>` 元素的名稱必須符合服務定義檔中的設定定義。
 
->**Certificates** 設定服務所使用的憑證。上述程式碼範例顯示如何定義 RemoteAccess 模組的憑證。*thumbprint* 屬性的值必須設定為要使用的憑證的指紋。
+**Certificates** 設定服務所使用的憑證。上述程式碼範例顯示如何定義 RemoteAccess 模組的憑證。*thumbprint* 屬性的值必須設定為要使用的憑證的指紋。
 
 <p/>
 
@@ -153,7 +153,7 @@ Azure 對於 Web 角色，僅允許一個進入點。這表示所有流量都是
     <Setting name="DiagnosticsConnectionString" />
   </ConfigurationSettings>
   <Endpoints>
-    <InputEndpoint name="HttpIn" protocol="http" port="80" />
+    <InputEndpoint name="HttpIn" protocol="http" <mark>port="80"</mark> />
     <InputEndpoint name="Https" protocol="https" port="443" certificate="SSL"/>
     <InputEndpoint name="NetTcp" protocol="tcp" port="808" certificate="SSL"/>
   </Endpoints>
@@ -169,7 +169,7 @@ Azure 對於 Web 角色，僅允許一個進入點。這表示所有流量都是
   </Site>
   <Site name="MailSite" packageDir="MailSite">
     <Bindings>
-      <Binding name="mail" endpointName="HttpIn" hostheader="mail.mysite.cloudapp.net" />
+      <Binding name="mail" endpointName="HttpIn" <mark>hostheader="mail.mysite.cloudapp.net"</mark> />
     </Bindings>
     <VirtualDirectory name="artifacts" />
     <VirtualApplication name="storageproxy">
@@ -201,13 +201,9 @@ Azure 對於 Web 角色，僅允許一個進入點。這表示所有流量都是
 ## ServicePackage.cspkg
 若要將應用程式部署為 Azure 中的雲端服務，您必須先使用適當的格式封裝應用程式。您可以使用 **CSPack** 命令列工具 (隨 [Azure SDK](https://azure.microsoft.com/downloads/) 安裝) 做為 Visual Studio 的替代方案，以建立封裝檔案。
 
-**CSPack** 會使用服務定義檔和服務組態檔的內容，定義封裝的內容。**CSPack** 會產生應用程式封裝檔案 (.cspkg)，您可以使用 [Azure 傳統入口網站](cloud-services-how-to-create-deploy/#how-to-deploy-a-cloud-service)，將其上傳至 Azure。根據預設，封裝的名稱為 `[ServiceDefinitionFileName].cspkg`，但是您可以使用 **CSPack** 的 `/out` 選項指定不同的名稱。
+**CSPack** 會使用服務定義檔和服務組態檔的內容，定義封裝的內容。**CSPack** 會產生應用程式封裝檔案 (.cspkg)，您可以使用 [Azure 入口網站](cloud-services-how-to-create-deploy-portal.md/#create-and-deploy)，將其上傳至 Azure。根據預設，封裝的名稱為 `[ServiceDefinitionFileName].cspkg`，但是您可以使用 **CSPack** 的 `/out` 選項指定不同的名稱。
 
-###### CSPack 工具的位置 (在 Windows 上)
-| SDK 版本 | Path |
-| ----------- | ---- |
-| 1\.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\[sdk-version]\\bin\\ |
-| &lt;1.6 | C:\\Program Files\\Azure SDK\\[sdk-version]\\bin\\ |
+**CSPack** 通常位於 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK[sdk-version]\bin`
 
 >[AZURE.NOTE]
 CSPack.exe (在 Windows 上) 可以透過執行隨 SDK 一起安裝的 **Microsoft Azure 命令提示字元**捷徑來使用。
@@ -253,7 +249,7 @@ CSPack.exe (在 Windows 上) 可以透過執行隨 SDK 一起安裝的 **Microso
 
 我打算建立雲端服務封裝，而且我想要...
 
-* [設定本機儲存體資源](cloud-services-configure-local-storage-resources.md)
+* [設定本機儲存資源](cloud-services-configure-local-storage-resources.md)
 * [設定雲端服務執行個體的遠端桌面][remotedesktop]
 * [部署雲端服務專案][deploy]
 
@@ -271,4 +267,4 @@ CSPack.exe (在 Windows 上) 可以透過執行隨 SDK 一起安裝的 **Microso
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

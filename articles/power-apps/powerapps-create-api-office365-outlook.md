@@ -27,7 +27,7 @@
 
 ## 在 Azure 入口網站中建立 API
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中使用您的工作帳戶登入。例如，使用 *yourUserName*@*YourCompany*.com. 登入。當您這樣做時，將會自動登入您的公司訂用帳戶。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中使用您的工作帳戶登入。例如，使用 *yourUserName* @ *YourCompany*.com 登入。當您這樣做時，將會自動登入您的公司訂用帳戶。
  
 2. 選取工作列中的 [瀏覽]：  
 ![][14]
@@ -144,7 +144,7 @@
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0309_2016-->
 
 
 

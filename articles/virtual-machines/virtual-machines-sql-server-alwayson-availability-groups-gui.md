@@ -25,7 +25,7 @@
 
 <br/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 資源管理員模型。
 
 
 本端對端教學課程將示範如何透過在 Azure 虛擬機器上執行的 SQL Server AlwaysOn 實作可用性群組。
@@ -348,7 +348,7 @@
 
 1. 在 [新增節點精靈] 中，按 [下一步]。在 [輸入伺服器名稱] 中輸入伺服器名稱，然後按一下 [新增]，於 [選取伺服器] 頁面上，將 **ContosoSQL2** 和 **ContosoWSFCNode** 新增至清單。完成之後，按 [下一步]。
 
-1. 在 [驗證警告] 頁面上，按一下 [否] (實際操作時，請執行驗證測試)。然後按 [下一步]。
+1. 在 [驗證警告] 頁面上，按一下 [否] \(實際操作時，請執行驗證測試)。然後按 [下一步]。
 
 1. 在 [確認] 頁面中按 [下一步]，以新增節點。
 

@@ -312,7 +312,7 @@
 
 關於 Azure 虛擬機器中的 SQL Server，下表提供傳統 Web 開發與 Azure 雲端服務和 Azure Web Apps 的比較。表格中包含 Azure Web Apps，因為它可以透過其公用虛擬 IP 位址或 DNS 名稱，使用 Azure VM 中的 SQL Server 當做 Azure Web Apps 的資料來源。
 
-|Azure 虛擬機器中的傳統 Web 開發|Azure 中的雲端服務|虛擬主機與 Azure Web Apps|
+||Azure 虛擬機器中的傳統 Web 開發|Azure 中的雲端服務|虛擬主機與 Azure Web Apps|
 |---|---|---|---|
 |**從內部部署進行應用程式移轉**|現有的應用程式維持不變。|應用程式需要 Web 角色和背景工作角色。|現有的應用程式維持不變，但仍適用於需要快速擴充的獨立式 Web 應用程式和 Web 服務。|
 |**開發和部署**|Visual Studio、WebMatrix、Visual Web Developer、WebDeploy、FTP、TFS、IIS Manager，PowerShell。|Visual Studio、Azure SDK、TFS，PowerShell。每一個雲端服務都有兩個環境，可供您部署服務封裝和組態：預備環境和生產環境。在將雲端服務升級到生產環境之前，您可以先在預備環境中測試雲端服務。|Visual Studio、WebMatrix、Visual Web Developer、FTP、GIT、BitBucket、CodePlex、DropBox、GitHub、Mercurial、TFS、Web Deploy、PowerShell。|

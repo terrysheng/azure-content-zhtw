@@ -28,7 +28,7 @@
 
 > [AZURE.IMPORTANT] 請檢閱[教學課程概觀](data-factory-get-started.md)文章，並在執行本教學課程之前完成必要的步驟。
 
-## <a name="CreateDataFactory"></a>步驟 1：建立 Azure Data Factory
+## 建立 Data Factory
 在此步驟中，您會使用 Azure 入口網站來建立名為 **ADFTutorialDataFactory** 的 Azure Data Factory。
 
 1.	登入 [Azure 入口網站](https://portal.azure.com)之後，請按一下左上角的 [+新增]，並選取 [建立] 刀鋒視窗中的 [資料分析]，然後按一下 [資料分析] 刀鋒視窗中的 [Data Factory]。 
@@ -60,12 +60,12 @@
 
     ![Data Factory 首頁](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## 使用複製精靈建立管線
+## 建立管線
 
 1. 在 Data Factory 首頁，按一下 [資料複製] 圖格以啟動 [複製精靈]。 
 2. 在 [屬性] 頁面︰
 	1. 輸入 CopyFromBlobToAzureSql 做為 [工作名稱]
-	2. 輸入 [說明] \(選擇性)。
+	2. 輸入 [說明] (選擇性)。
 	3. 請記住 [開始日期時間] 和 [結束日期時間]。將 [結束日期時間] 變更為 [開始日期時間] 的隔天。 
 	3. 按 [下一步]。  
 
@@ -108,4 +108,4 @@
 	![監視應用程式](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
   
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

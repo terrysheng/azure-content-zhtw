@@ -2,7 +2,7 @@
 
 您可以透過 Azure CLI 管理來自任何 Windows、Linux 或 OSX 電腦的命令提示字元中的 Azure 資源。若要透過 Azure CLI 建立 VNet，請依照下列步驟執行。
 
-1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli-install.md)，並依照指示進行，直到開始選取您的 Azure 帳戶和訂用帳戶為止。
+1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](../articles/xplat-cli-install.md)，並依照指示進行，直到開始選取您的 Azure 帳戶和訂用帳戶為止。
 2. 執行 **azure config mode** 命令，以切換為 Azure 資源管理員模式，如下所示。
 
 		azure config mode arm
@@ -11,7 +11,7 @@
 
 		info:    New mode is arm
 
-3. 若有必要，請執行 **azure group create** 以建立新的資源群組，如下所示。請查看命令的輸出內容。輸出之後所顯示的清單說明需使用的參數。如需資源群組的詳細資訊，請瀏覽 [Azure 資源管理員概觀](resource-group-overview.md/#resource-groups)。
+3. 如有必要，請執行 **azure group create** 來建立新的資源群組，如下所示。請查看命令的輸出內容。輸出後顯示的清單可說明所使用的參數。如需資源群組的詳細資訊，請瀏覽 [Azure 資源管理員概觀](../articles/virtual-network/resource-group-overview.md/#resource-groups)。
 
 		azure group create -n TestRG -l centralus
 
@@ -106,4 +106,4 @@
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

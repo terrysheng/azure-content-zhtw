@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/15/2016"
    ms.author="telmos"/>
 
 # 使用 PowerShell 建立虛擬網路
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 本文件說明如何使用資源管理員部署模型建立 VNet。您也可以[在傳統部署模型中建立虛擬網路](virtual-networks-create-vnet-classic-netcfg-ps.md)。
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文件說明如何使用資源管理員部署模型建立 VNet。您也可以[在傳統部署模型中建立虛擬網路](virtual-networks-create-vnet-classic-netcfg-ps.md)。
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -33,4 +33,4 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-ps-include](../../includes/virtual-networks-create-vnet-arm-ps-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0323_2016-->

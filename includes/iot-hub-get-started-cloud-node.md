@@ -95,7 +95,7 @@
     var Promise = require('bluebird');
     ```
 
-5. 新增下列變數宣告，將預留位置取代為您先前記下的值。**{your event hub-compatible namespace}** 預留位置的值來自 **事件中樞相容端點**，其形式為 **xxxxnamespace.servicebus.windows.net**。
+5. 新增下列變數宣告，將預留位置取代為您先前記下的值。**{您的事件中樞相容命名空間}** 預留位置的值來自入口網站中的 [事件中樞相容端點] 欄位，其形式為 **namespace.servicebus.windows.net** (沒有 **sb://* 首碼)。
 
     ```
     var protocol = 'amqps';
@@ -182,4 +182,4 @@
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

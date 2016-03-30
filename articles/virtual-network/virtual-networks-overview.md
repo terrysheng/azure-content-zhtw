@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # 虛擬網路概觀
@@ -91,11 +91,8 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。它是專屬於
 ## 後續步驟
 
 - [建立 VNet](virtual-networks-create-vnet-arm-pportal.md) 和子網路。
-- [在 VNet 中建立 VM](../virtual-machines/virtual-machines-windows-tutorial.md)。
+- [在 VNet 中建立 VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md)。
 - 了解 [NSG](virtual-networks-nsg.md)。
-- 了解[負載平衡器](../load-balancer/load-balancer-overview.md)。
-- [保留內部 IP 位址](virtual-networks-reserved-private-ip.md)
-- [保留公用 IP 位址](virtual-networks-reserved-public-ip.md)。
 - 了解[使用者定義的路由和 IP 轉送](virtual-networks-udr-overview.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

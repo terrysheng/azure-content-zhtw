@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/04/2016"
+   ms.date="03/15/2016"
    ms.author="cherylmc"/>
 
 # 使用 Azure Resource Manager 和 PowerShell 來設定 VNet 對 VNet 連線
@@ -25,11 +25,16 @@
 
 本文將逐步引導您使用 Resource Manager 部署模型及 PowerShell，建立虛擬網路間的連線。虛擬網路可位於來自相同或不同訂用帳戶的相同或不同區域。
 
-[AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 **關於 Azure 部署模型**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+**VNet 對 VNet 的部署模型和工具**
+
+可以在這兩種部署模型中，使用不同的工具，設定 VNet 至 VNet 的連接。如需詳細資訊，請參閱以下的資料表。當此組態有新文章、新的部署模型和額外工具可以使用時，我們就會更新此資料表。當文章可用時，我們會直接從資料表連結至該文章。
+
+[AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 
 ## 關於 VNet 對 VNet 連線
@@ -47,7 +52,7 @@
 	- 您可以使用安全連線設定自己的異地複寫或同步處理，而不用查看網際網路對向端點。
 	- 您可以使用 Azure 流量管理員和負載平衡器，利用異地備援跨多個 Azure 區域設定高度可用的工作負載。其中一個重要的範例就是使用分散在多個 Azure 區域的可用性群組來設定 SQL Always On。
 
-- 具有隔離或管理界限的區域性多層式應用程式
+- **具有隔離或管理界限的區域性多層式應用程式**
 	- 在相同區域中，您可以因為隔離或管理需求，設定將多層式應用程式與多個虛擬網路連線在一起。
 
 
@@ -73,7 +78,7 @@
 
 - VNet 對 VNet 流量會透過 Microsoft 網路傳輸，而非透過網際網路。
 
-- 相同區域內的 VNet 對 VNet 流量雙向皆為免費；跨區域 VNet 對 VNet 輸出流量會根據來源區域的輸出 VNet 間資料傳輸費率收費。如需詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/vpn-gateway/)。
+- 相同區域內的 VNet 對 VNet 流量雙向皆為免費；跨區域 VNet 對 VNet 輸出流量會根據來源區域的輸出 VNet 間資料傳輸費率收費。如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/vpn-gateway/)。
 
 
 ## 我應該使用哪個步驟集？
@@ -111,7 +116,7 @@
 
 在這個練習中，我們對 VNet 使用下列的值：
 
-TestVNet1 的值︰
+**TestVNet1 的值︰**
 
 - VNet 名稱︰TestVNet1
 - 資源群組︰TestRG1
@@ -129,7 +134,7 @@ TestVNet1 的值︰
 - ConnectionType：VNet2VNet
 
 
-TestVNet4 的值︰
+**TestVNet4 的值︰**
 
 - VNet 名稱︰TestVNet4
 - TestVNet2：10.41.0.0/16 和 10.42.0.0/16
@@ -364,7 +369,7 @@ TestVNet4 的值︰
 
 在此範例中，虛擬網路可能屬於不同的組織。在這個練習中，您可以對 TestVNet5 使用下列的值：
 
-TestVNet5 的值︰
+**TestVNet5 的值︰**
 
 - VNet 名稱︰TestVNet5
 - 資源群組：TestRG5
@@ -380,7 +385,7 @@ TestVNet5 的值︰
 - 連線︰VNet5toVNet1
 - ConnectionType：VNet2VNet
 
-TestVNet1 的其他值︰
+**TestVNet1 的其他值︰**
 
 - 連線︰VNet1toVNet5
 
@@ -523,6 +528,6 @@ TestVNet1 的其他值︰
 
 ## 後續步驟
 
-一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。請參閱[建立網站的虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)以取得相關步驟。
+一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。請參閱[建立網站的虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md)以取得相關步驟。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

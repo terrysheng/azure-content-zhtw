@@ -39,7 +39,7 @@
 > [AZURE.IMPORTANT]
 您必須完成[教學課程概觀](data-factory-build-your-first-pipeline.md)中的先決條件步驟中，才可以在本文中進行逐步解說。
 
-## 步驟 1：建立 ARM 範本
+## 建立 ARM 範本
 
 在 **C:\\ADFGetStarted** 資料夾中，使用下列內容建立名為 **ADFTutorialARM.json** 的 JSON 檔案：
 
@@ -103,7 +103,7 @@
                                 "clusterSize": 4,
                                 "version":  "3.2",
             					"timeToLive": "00:05:00",
-                                "osType": "linux",
+                                "osType": "windows",
             					"linkedServiceName": "[variables('storageLinkedServiceName')]",
     						}
 	                    }
@@ -220,7 +220,7 @@
 
 請注意：
 
-- Data Factory 會以上述 JSON 為您建立以 Linux 為基礎的 HDInsight 叢集。您也可以讓它建立以 Windows 為基礎的 HDInsight 叢集。如需詳細資訊，請參閱 [HDInsight 隨選連結服務](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。 
+- Data Factory 會以上述 JSON 為您建立「以 Windows 為基礎的」HDInsight 叢集。您也可以讓它建立「以 Linux 為基礎的」HDInsight 叢集。如需詳細資訊，請參閱 [HDInsight 隨選連結服務](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。 
 - 您可以使用自己的 HDInsight 叢集，不必使用隨選的 HDInsight 叢集。如需詳細資訊，請參閱 [HDInsight 連結服務](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)。
 - HDInsight 叢集會在您於 JSON 中指定的 Blob 儲存體 (linkedServiceName) 建立預設容器。HDInsight 不會在刪除叢集時刪除此容器。原先的設計就是如此。在使用 HDInsight 隨選連結服務時，除非有現有的即時叢集 (timeToLive)，否則每當需要處理配量時，就會建立 HDInsight 叢集，並在處理完成時予以刪除。
 
@@ -230,7 +230,7 @@
 
 > [AZURE.NOTE] 您可以在 [Github](https://github.com/Azure/azure-quickstart-templates/blob/master/101-data-factory-blob-to-sql/azuredeploy.json) 上找到可供建立 Azure Data Factory 的其他 ARM 範本範例。
 
-## 步驟 2：使用 ARM 範本部署 Data Factory 實體
+## 建立 Data Factory
 
 1. 啟動 Azure PowerShell 並執行下列命令。 
 	- 執行 **Login-AzureRmAccount**，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。  
@@ -256,4 +256,4 @@
 10. 當配量處於**就緒**狀態時，檢查您 Blob 儲存體中 **adfgetstarted** 容器內 **partitioneddata** 資料夾的輸出資料。  
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

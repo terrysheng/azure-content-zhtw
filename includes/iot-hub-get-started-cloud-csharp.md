@@ -8,7 +8,7 @@
 
 2. 在 [方案總管] 中，以滑鼠右鍵按一下 **CreateDeviceIdentity** 專案，然後按一下 [管理 NuGet 封裝]。
 
-3. 在 [NuGet 封裝管理員] 視窗中，搜尋 [Microsoft Azure 裝置]，按一下 [安裝] 以安裝 **Microsoft.Azure.Devices** 封裝，並接受使用規定。
+3. 在 [NuGet 封裝管理員] 視窗中選取 [瀏覽]、搜尋 **microsoft.azure.devices**、按一下 [安裝] 以安裝 [Microsoft.Azure.Devices] 封裝，並接受使用規定。
 
 	![][11]
 
@@ -125,4 +125,4 @@
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

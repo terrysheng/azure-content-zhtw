@@ -3,9 +3,9 @@
 	description="了解如何使用 ASP.NET MVC 和 Azure 建立多層式應用程式。應用程式在雲端服務中執行，具備 Web 角色和背景工作角色。它使用 Entity Framework、SQL Database 及 Azure 儲存體佇列和 Blob。"
 	services="cloud-services, storage"
 	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
-	editor="mollybos"/>
+	authors="Thraka"
+	manager="timlt"
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/28/2015"
-	ms.author="tdykstra"/>
+	ms.date="03/21/2016"
+	ms.author="adegeo"/>
 
 # 開始使用 Azure 雲端服務和 ASP.NET
 
@@ -88,7 +88,7 @@
 
 3. 在 [**方案總管**] 中，確定已選取 **ContosoAdsCloudService** 作為啟動專案。
 
-2. 如果您使用 Visual Studio 2015，變更 ContosoAdsWeb 專案中的 *Web.config* 檔案和ContosoAdsCloudService 專案中的 *ServiceConfiguration.Local.cscfg* 檔案的應用程式中的 SQL Server 連接字串。在每個案例中，將 "(localdb)\\v11.0" 變更為 "(localdb)\\MSSQLLocalDB"。
+2. 如果您使用 Visual Studio 2015，變更 ContosoAdsWeb 專案中的 Web.config 檔案和ContosoAdsCloudService 專案中的 ServiceConfiguration.Local.cscfg 檔案的應用程式中的 SQL Server 連接字串。在每個案例中，將 "(localdb)\\v11.0" 變更為 "(localdb)\\MSSQLLocalDB"。
 
 1. 按 CTRL+F5 執行應用程式。
 
@@ -223,11 +223,13 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 1. 在 ContosoAdsWeb 專案中，開啟應用程式 *Web.config* 檔案的 *Web.Release.config* 轉換檔、刪除包含 `<connectionStrings>` 元素的註解區塊，並將下列程式碼貼上至其位置。
 
-		<connectionStrings>
-	        <add name="ContosoAdsContext" connectionString="{connectionstring}"
-		    providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
-		</connectionStrings>
-
+    ```xml
+    <connectionStrings>
+        <add name="ContosoAdsContext" connectionString="{connectionstring}"
+        providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
+    </connectionStrings>
+    ```
+    
 	將檔案保持開啟以供編輯。
 
 2. 在 [Azure 傳統入口網站](http://manage.windowsazure.com)中，依序按一下左側窗格中的 [SQL Database]、您在本教學課程中建立的資料庫、[儀表板] 索引標籤，和 [顯示連接字串]。
@@ -264,29 +266,29 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串，會儲存在雲端服務專案的環境設定中。當應用程式在本機和在雲端執行時，每個專案都有要使用的一組個別設定。您將為 Web 和背景工作角色更新雲端環境設定。
 
-4. 在 [**方案總管**] 中，於 **ContosoAdsCloudService** 專案的 [**角色**] 下的 **ContosoAdsWeb** 上按一下滑鼠右鍵，然後按一下 [**屬性**]。
+1. 在 [**方案總管**] 中，於 **ContosoAdsCloudService** 專案的 [**角色**] 下的 **ContosoAdsWeb** 上按一下滑鼠右鍵，然後按一下 [**屬性**]。
 
 	![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
 
-5. 按一下 [**設定**] 索引標籤。在 [**服務組態**] 下拉式方塊中，選取 [**雲端**]。
+2. 按一下 [**設定**] 索引標籤。在 [**服務組態**] 下拉式方塊中，選取 [**雲端**]。
 
 	![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
 
-6. 選取 **StorageConnectionString** 項目，該行右端就會出現省略符號 (**...**) 按鈕。按一下省略符號按鈕，開啟 [**建立儲存體帳戶連接字串**] 對話方塊。
+3. 選取 **StorageConnectionString** 項目，該行右端就會出現省略符號 (**...**) 按鈕。按一下省略符號按鈕，開啟 [**建立儲存體帳戶連接字串**] 對話方塊。
 
 	![Open Connection String Create box](./media/cloud-services-dotnet-get-started/opencscreate.png)
 
-1. 在 [**建立儲存體帳戶連接字串**] 對話方塊中，按一下 [**您的訂用帳戶**]、選取您稍早建立的儲存體帳戶，然後按一下 [**確定**]。如果您尚未登入，將提示您輸入 Azure 帳戶憑證。
+4. 在 [**建立儲存體帳戶連接字串**] 對話方塊中，按一下 [**您的訂用帳戶**]、選取您稍早建立的儲存體帳戶，然後按一下 [**確定**]。如果您尚未登入，將提示您輸入 Azure 帳戶憑證。
 
 	![Create Storage Connection String](./media/cloud-services-dotnet-get-started/createstoragecs.png)
 
-1. 儲存您的變更。
+5. 儲存您的變更。
 
-2. 依照您針對 `StorageConnectionString` 連接字串執行的程序，設定 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 連接字串。
+6. 依照您針對 `StorageConnectionString` 連接字串執行的程序，設定 `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` 連接字串。
 
 	此連接字串用於記錄。
 
-2. 遵循您用於 **ContosoAdsWeb** 角色的相同程序，來設定 **ContosoAdsWorker** 角色的兩個連接字串。請記得將 [服務組態] 設為 [雲端]。
+7. 遵循您用於 **ContosoAdsWeb** 角色的相同程序，來設定 **ContosoAdsWorker** 角色的兩個連接字串。請記得將 [服務組態] 設為 [雲端]。
 
 您使用 Visual Studio UI 設定的角色環境設定會儲存在 ContosoAdsCloudService 專案的下列檔案中：
 
@@ -296,28 +298,34 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 例如，ServiceDefinition.csdef 包括下列定義。
 
-		<ConfigurationSettings>
-		  <Setting name="StorageConnectionString" />
-		  <Setting name="ContosoAdsDbConnectionString" />
-		</ConfigurationSettings>
+```xml
+<ConfigurationSettings>
+    <Setting name="StorageConnectionString" />
+    <Setting name="ContosoAdsDbConnectionString" />
+</ConfigurationSettings>
+```
 
 此外，*ServiceConfiguration.Cloud.cscfg* 檔案也包括您在 Visual Studio 中為那些設定輸入的值。
 
-		<Role name="ContosoAdsWorker">
-		  <Instances count="1" />
-		  <ConfigurationSettings>
-		    <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
-		    <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
-		    <!-- other settings not shown -->
-		  </ConfigurationSettings>
-		  <!-- other settings not shown -->
-		</Role>
+```xml
+<Role name="ContosoAdsWorker">
+    <Instances count="1" />
+    <ConfigurationSettings>
+        <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
+        <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
+        <!-- other settings not shown -->
+    
+    </ConfigurationSettings>
+    <!-- other settings not shown -->
+    
+</Role>
+```
 
 `<Instances>` 設定指定 Azure 將在其上執行背景工作角色程式碼的虛擬機器數目。[後續步驟](#next-steps)一節包含向外擴大雲端服務之詳細資訊的連結。
 
 ###  將專案部署至 Azure
 
-3.	在 [**方案總管**] 的 **ContosoAdsCloudService** 雲端專案上按一下滑鼠右鍵，然後選取 [**發佈**]。
+1.	在 [**方案總管**] 的 **ContosoAdsCloudService** 雲端專案上按一下滑鼠右鍵，然後選取 [**發佈**]。
 
 	![Publish menu](./media/cloud-services-dotnet-get-started/pubmenu.png)
 
@@ -331,21 +339,21 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 	[**進階**] 索引標籤中的預設設定適用於本教學課程。如需進階索引標籤的詳細資訊，請參閱[發行 Azure 應用程式精靈](http://msdn.microsoft.com/library/hh535756.aspx)。
 
-2. 在 [**摘要**] 步驟中，按一下 [**發行**]。
+4. 在 [**摘要**] 步驟中，按一下 [**發行**]。
 
 	![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)
 
    [**Azure 活動記錄檔**] 視窗即會在 Visual Studio 中開啟。
 
-2. 按一下向右箭頭圖示以展開部署詳細資料。
+5. 按一下向右箭頭圖示以展開部署詳細資料。
 
 	完成部署最多可能需要大約 5 分鐘或更久的時間。
 
 	![Azure Activity Log window](./media/cloud-services-dotnet-get-started/waal.png)
 
-1. 當部署狀態為完成時，按一下 [Web 應用程式 URL] 來啟動應用程式。
+6. 當部署狀態為完成時，按一下 [Web 應用程式 URL] 來啟動應用程式。
 
-9. 您可以透過建立、檢視和編輯一些廣告來測試應用程式，正如同您在本機執行應用程式一般。
+7. 您可以透過建立、檢視和編輯一些廣告來測試應用程式，正如同您在本機執行應用程式一般。
 
 >[AZURE.NOTE] 完成測試後，請刪除或停止雲端服務。即使您未使用雲端服務，因為已為其保留虛擬機器資源，因此仍會累積費用。如果您讓它保持執行，找到您 URL 的任何人都可以建立和檢視廣告。在 [Azure 傳統入口網站](http://manage.windowsazure.com)中，移至您雲端服務的 [儀表板] 索引標籤，然後按一下頁面底部的 [刪除] 按鈕。如果您只想暫時避免他們存取網站，請改為按一下 [**停止**]。在那個情況下，將持續累積費用。當您不再需要 SQL 資料庫和儲存體帳戶時，可以遵循類似程序來加以刪除。
 
@@ -397,29 +405,29 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 ### 更新和加入 NuGet 封裝
 
-11. 開啟方案的 [**管理 NuGet 封裝**] 對話方塊。
+1. 開啟方案的 [**管理 NuGet 封裝**] 對話方塊。
 
-12. 在視窗頂端，選取 [更新]。
+2. 在視窗頂端，選取 [更新]。
 
-13. 尋找 *WindowsAzure.Storage* 封裝，如果它不在清單中，選取它並且選取要在其中更新它的 Web 和背景工作角色專案，然後按一下 [更新]。
+3. 尋找 WindowsAzure.Storage 封裝，如果它不在清單中，選取它並且選取要在其中更新它的 Web 和背景工作角色專案，然後按一下 [更新]。
 
 	儲存體用戶端程式庫的更新頻率高於 Visual Studio 專案範本的更新頻率，因此，系統會經常要求您更新新建立專案的版本。
 
-14. 在視窗頂端，選取 [瀏覽]。
+4. 在視窗頂端，選取 [瀏覽]。
 
-16. 尋找 *EntityFramework* NuGet 封裝，並將它安裝在這三個專案中。
+5. 尋找 *EntityFramework* NuGet 封裝，並將它安裝在這三個專案中。
 
-17. 尋找 *Microsoft.WindowsAzure.ConfigurationManager* NuGet 封裝，並在背景工作角色專案中安裝。
+6. 尋找 *Microsoft.WindowsAzure.ConfigurationManager* NuGet 封裝，並在背景工作角色專案中安裝。
 
 ### 設定專案參考
 
-10. 在 ContosoAdsWeb 專案中，設定 ContosoAdsCommon 專案的參考。以滑鼠右鍵按一下 ContosoAdsWeb 專案，然後按一下 [**參考**] - [**加入參考**]。在 [參考管理員] 對話方塊中，於左側窗格選取 [方案 - 專案]，選取 [ContosoAdsCommon]，然後按一下 [確定]。
+1. 在 ContosoAdsWeb 專案中，設定 ContosoAdsCommon 專案的參考。以滑鼠右鍵按一下 ContosoAdsWeb 專案，然後按一下 [**參考**] - [**加入參考**]。在 [參考管理員] 對話方塊中，於左側窗格選取 [方案 - 專案]，選取 [ContosoAdsCommon]，然後按一下 [確定]。
 
-11. 在 ContosoAdsWorker 專案中，設定 ContosAdsCommon 專案的參考。
+2. 在 ContosoAdsWorker 專案中，設定 ContosAdsCommon 專案的參考。
 
 	ContosoAdsCommon 將包含將由前端與後端使用的 Entity Framework 資料模型和內容類別。
 
-11. 在 ContosoAdsWorker 專案中，設定 `System.Drawing` 的參照。
+3. 在 ContosoAdsWorker 專案中，設定 `System.Drawing` 的參照。
 
 	此組件是由後端用來將影像轉換為縮圖。
 
@@ -427,39 +435,43 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 在本節中，您將針對本機測試用途來設定 Azure 儲存體和 SQL 連接字串。本教學課程中稍早的部署指示，說明如何針對應用程式在雲端中執行而設定連接字串。
 
-3. 在 ContosoAdsWeb 專案中，開啟應用程式的 Web.config 檔案，在 `configSections` 元素後方插入下列 `connectionStrings` 元素。
+1. 在 ContosoAdsWeb 專案中，開啟應用程式的 Web.config 檔案，在 `configSections` 元素後方插入下列 `connectionStrings` 元素。
 
-		<connectionStrings>
-		  <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
-		</connectionStrings>
-
+    ```xml
+    <connectionStrings>
+        <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
+    </connectionStrings>
+    ```
+    
 	如果您使用 Visual Studio 2015，將 "v11.0" 取代為 "MSSQLLocalDB"。
 
-3. 儲存您的變更。
+2. 儲存您的變更。
 
-2. 在 ContosoAdsCloudService 專案中，於 [**角色**] 下的 ContosoAdsWeb 上按一下滑鼠右鍵，然後按一下 [**屬性**]。
+3. 在 ContosoAdsCloudService 專案中，於 [**角色**] 下的 ContosoAdsWeb 上按一下滑鼠右鍵，然後按一下 [**屬性**]。
 
 	![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
 
-3. 在 **ContosAdsWeb [Role]** 屬性視窗中，按一下 [**設定**] 索引標，然後按 [**加入設定**]。
+4. 在 **ContosAdsWeb [Role]** 屬性視窗中，按一下 [**設定**] 索引標，然後按 [**加入設定**]。
 
 	將 [服務組態] 保持設為 [所有組態]。
 
-4. 加入名為 *StorageConnectionString* 的新設定。將 [**類型**] 設為 *ConnectionString*，並將 [**值**] 設為 *UseDevelopmentStorage=true*。
+5. 加入名為 *StorageConnectionString* 的新設定。將 [**類型**] 設為 *ConnectionString*，並將 [**值**] 設為 *UseDevelopmentStorage=true*。
 
 	![New connection string](./media/cloud-services-dotnet-get-started/scall.png)
 
-5. 儲存您的變更。
+6. 儲存您的變更。
 
-3. 遵循相同程序，在 ContosoAdsWorker 角色屬性中加入儲存體連接字串。
+7. 遵循相同程序，在 ContosoAdsWorker 角色屬性中加入儲存體連接字串。
 
-5. 繼續在 [**ContosoAdsWorker [Role]**] 屬性視窗中，加入另一個連接字串：
+8. 繼續在 [**ContosoAdsWorker [Role]**] 屬性視窗中，加入另一個連接字串：
 
 	* 名稱：ContosoAdsDbConnectionString
 	* 類型：字串
 	* 值：貼上用於 Web 角色專案的相同連接字串。(下列範例適用於 Visual Studio 2013，如果您複製此範例且您是使用 Visual Studio 2015，請記得變更資料來源。)
 
-			Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
+	    ```
+        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
+        ```
 
 ### 加入程式碼檔案
 
@@ -471,10 +483,10 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 3. 在 ContosoAdsWeb 專案中，從所下載的專案加入下列檔案。
 	- *Global.asax.cs*。  
-	- *Views\Shared* 資料夾中的 <em>\_Layout.cshtml</em> 檔案。
-	- *Views\Home* 資料夾中的 *Index.cshtml*。
+	- Views\\Shared 資料夾中的 \_Layout.cshtml 檔案。
+	- *Views\\Home* 資料夾中的 *Index.cshtml*。
 	- *Controllers* 資料夾中的 *AdController.cs*。
-	- *Views\Ad* 資料夾中 (請先建立此資料夾) 的五個 *.cshtml* 檔案。
+	- *Views\\Ad* 資料夾中 (請先建立此資料夾) 的五個 *.cshtml* 檔案。
 
 3. 在 ContosoAdsWorker 專案中，從所下載的專案加入 *WorkerRole.cs*。
 
@@ -490,60 +502,64 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 Ad.cs 檔案可定義廣告類別列舉，以及廣告資訊的 POCO 實體類別。
 
-		public enum Category
-		{
-		    Cars,
-		    [Display(Name="Real Estate")]
-		    RealEstate,
-		    [Display(Name = "Free Stuff")]
-		    FreeStuff
-		}
+```csharp
+public enum Category
+{
+    Cars,
+    [Display(Name="Real Estate")]
+    RealEstate,
+    [Display(Name = "Free Stuff")]
+    FreeStuff
+}
 
-		public class Ad
-		{
-		    public int AdId { get; set; }
+public class Ad
+{
+    public int AdId { get; set; }
 
-		    [StringLength(100)]
-		    public string Title { get; set; }
+    [StringLength(100)]
+    public string Title { get; set; }
 
-		    public int Price { get; set; }
+    public int Price { get; set; }
 
-		    [StringLength(1000)]
-		    [DataType(DataType.MultilineText)]
-		    public string Description { get; set; }
+    [StringLength(1000)]
+    [DataType(DataType.MultilineText)]
+    public string Description { get; set; }
 
-		    [StringLength(1000)]
-		    [DisplayName("Full-size Image")]
-		    public string ImageURL { get; set; }
+    [StringLength(1000)]
+    [DisplayName("Full-size Image")]
+    public string ImageURL { get; set; }
 
-		    [StringLength(1000)]
-		    [DisplayName("Thumbnail")]
-		    public string ThumbnailURL { get; set; }
+    [StringLength(1000)]
+    [DisplayName("Thumbnail")]
+    public string ThumbnailURL { get; set; }
 
-		    [DataType(DataType.Date)]
-		    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-		    public DateTime PostedDate { get; set; }
+    [DataType(DataType.Date)]
+    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+    public DateTime PostedDate { get; set; }
 
-		    public Category? Category { get; set; }
-		    [StringLength(12)]
-		    public string Phone { get; set; }
-		}
+    public Category? Category { get; set; }
+    [StringLength(12)]
+    public string Phone { get; set; }
+}
+```
 
 ### ContosoAdsCommon - ContosoAdsContext.cs
 
 ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framework 會儲存在 SQL 資料庫中。
 
-		public class ContosoAdsContext : DbContext
-		{
-		    public ContosoAdsContext() : base("name=ContosoAdsContext")
-		    {
-		    }
-		    public ContosoAdsContext(string connString)
-		        : base(connString)
-		    {
-		    }
-		    public System.Data.Entity.DbSet<Ad> Ads { get; set; }
-		}
+```csharp
+public class ContosoAdsContext : DbContext
+{
+    public ContosoAdsContext() : base("name=ContosoAdsContext")
+    {
+    }
+    public ContosoAdsContext(string connString)
+        : base(connString)
+    {
+    }
+    public System.Data.Entity.DbSet<Ad> Ads { get; set; }
+}
+```
 
 類別含兩個建構函式。第一個是由 Web 專案所使用，指定儲存在 Web.config 檔案的連接字串名稱。第二個建構函式可讓您傳入實際的連接字串。背景工作角色專案需要該資訊，因為它沒有 Web.config 檔案。您稍早已看見儲存此連接字串的位置，之後您會看到程式碼如何在具現化 DbContext 類別時擷取連接字串。
 
@@ -553,40 +569,48 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 
 此程式碼使用來自 *.cscfg* 檔案的儲存體連接字串來取得儲存體帳戶的存取。
 
-		var storageAccount = CloudStorageAccount.Parse
-		    (RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+```csharp
+var storageAccount = CloudStorageAccount.Parse
+    (RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
+```
 
 之後會取得 *images* Blob 容器的參考、建立容器 (如果尚不存在)，並設定新容器的存取權限。依預設，新的容器只能允許具有儲存體帳戶認證的用戶端存取 Blob。網站需要 Blob 處於公用狀態，網站才能使用指向影像 Blob 的 URL 來顯示影像。
 
-		var blobClient = storageAccount.CreateCloudBlobClient();
-		var imagesBlobContainer = blobClient.GetContainerReference("images");
-		if (imagesBlobContainer.CreateIfNotExists())
-		{
-		    imagesBlobContainer.SetPermissions(
-		        new BlobContainerPermissions
-		        {
-		            PublicAccess =BlobContainerPublicAccessType.Blob
-		        });
-		}
+```csharp
+var blobClient = storageAccount.CreateCloudBlobClient();
+var imagesBlobContainer = blobClient.GetContainerReference("images");
+if (imagesBlobContainer.CreateIfNotExists())
+{
+    imagesBlobContainer.SetPermissions(
+        new BlobContainerPermissions
+        {
+            PublicAccess =BlobContainerPublicAccessType.Blob
+        });
+}
+```
 
 類似的程式碼可取得 *images* 佇列的參考，並建立新佇列。在此情況下，即不需要變更權限。
 
-		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		var imagesQueue = queueClient.GetQueueReference("images");
-		imagesQueue.CreateIfNotExists();
+```csharp
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+var imagesQueue = queueClient.GetQueueReference("images");
+imagesQueue.CreateIfNotExists();
+```
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-*_Layout.cshtml* 檔案可設定頁首與頁尾中的應用程式名稱，並建立 "Ads" 功能表項目。
+*\_Layout.cshtml* 檔案可設定頁首與頁尾中的應用程式名稱，並建立 "Ads" 功能表項目。
 
-### ContosoAdsWeb - Views\Home\Index.cshtml
+### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
-*Views\Home\Index.cshtml* 檔案在首頁上顯示類別連結。連結會將查詢字串變數中 `Category` 列舉的整數值傳遞至 [廣告索引] 頁面。
+*Views\\Home\\Index.cshtml* 檔案在首頁上顯示類別連結。連結會將查詢字串變數中 `Category` 列舉的整數值傳遞至 [廣告索引] 頁面。
 
-		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
-		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
-		<li>@Html.ActionLink("Free stuff", "Index", "Ad", new { category = (int)Category.FreeStuff }, null)</li>
-		<li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
+```razor
+<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
+<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
+<li>@Html.ActionLink("Free stuff", "Index", "Ad", new { category = (int)Category.FreeStuff }, null)</li>
+<li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
+```
 
 ### ContosoAdsWeb - AdController.cs
 
@@ -594,101 +618,125 @@ ContosoAdsContext 類別可指定廣告類別用於 DbSet 集合，Entity Framew
 
 之後，程式碼可取得 *images* Blob 容器的參考，如您稍早在 *Global.asax.cs* 中所見。在執行該動作時，它會設定適用 Web 應用程式的預設[重試原則](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)。預設指數輪詢重試原則，可能會因為對暫時性的錯誤進行反覆重試，使得 Web 應用程式停止回應超過一分鐘。此處指定的重試原則會在每次嘗試後等候 3 秒，最多嘗試 3 次。
 
-		var blobClient = storageAccount.CreateCloudBlobClient();
-		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
-		imagesBlobContainer = blobClient.GetContainerReference("images");
+```csharp
+var blobClient = storageAccount.CreateCloudBlobClient();
+blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+imagesBlobContainer = blobClient.GetContainerReference("images");
+```
 
 類似的程式碼可取得 *images* 佇列的參考。
 
-		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
-		imagesQueue = queueClient.GetQueueReference("images");
+```csharp
+CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+imagesQueue = queueClient.GetQueueReference("images");
+```
 
 多數的控制器程式碼通常用於使用 DbContext 類別來處理 Entity Framework 資料模型。例外狀況為 HttpPost `Create` 方法，它會上傳檔案，並將檔案儲存在 Blob 儲存體。模型繫結器可為方法提供 [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) 物件。
 
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<ActionResult> Create(
-		    [Bind(Include = "Title,Price,Description,Category,Phone")] Ad ad,
-		    HttpPostedFileBase imageFile)
+```csharp
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<ActionResult> Create(
+    [Bind(Include = "Title,Price,Description,Category,Phone")] Ad ad,
+    HttpPostedFileBase imageFile)
+```
 
 如果使用者選取要上傳的檔案，程式碼會上傳檔案、將檔案儲存在 Blob，並以指向 Blob 的 URL 更新廣告資料庫記錄。
 
-		if (imageFile != null && imageFile.ContentLength != 0)
-		{
-		    blob = await UploadAndSaveBlobAsync(imageFile);
-		    ad.ImageURL = blob.Uri.ToString();
-		}
+```csharp
+if (imageFile != null && imageFile.ContentLength != 0)
+{
+    blob = await UploadAndSaveBlobAsync(imageFile);
+    ad.ImageURL = blob.Uri.ToString();
+}
+```
 
 執行上傳的程式碼位於 `UploadAndSaveBlobAsync` 方法。它會為 Blob 建立 GUID 名稱、上傳並儲存檔案，然後傳回參考至儲存的 Blob。
 
-		private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
-		{
-		    string blobName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
-		    CloudBlockBlob imageBlob = imagesBlobContainer.GetBlockBlobReference(blobName);
-		    using (var fileStream = imageFile.InputStream)
-		    {
-		        await imageBlob.UploadFromStreamAsync(fileStream);
-		    }
-		    return imageBlob;
-		}
+```csharp
+private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
+{
+    string blobName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
+    CloudBlockBlob imageBlob = imagesBlobContainer.GetBlockBlobReference(blobName);
+    using (var fileStream = imageFile.InputStream)
+    {
+        await imageBlob.UploadFromStreamAsync(fileStream);
+    }
+    return imageBlob;
+}
+```
 
 HttpPost `Create` 方法上傳 Blob 並更新資料庫後，它會建立佇列訊息通知後端程序，有一個影像已準備好轉換成縮圖。
 
-		string queueMessageString = ad.AdId.ToString();
-		var queueMessage = new CloudQueueMessage(queueMessageString);
-		await queue.AddMessageAsync(queueMessage);
+```csharp
+string queueMessageString = ad.AdId.ToString();
+var queueMessage = new CloudQueueMessage(queueMessageString);
+await queue.AddMessageAsync(queueMessage);
+```
 
 HttpPost `Edit` 方法的程式碼也是類似的，不同的是如果使用者選取新的影像檔案，就必須刪除現有的所有 Blob。
 
-		if (imageFile != null && imageFile.ContentLength != 0)
-		{
-		    await DeleteAdBlobsAsync(ad);
-		    imageBlob = await UploadAndSaveBlobAsync(imageFile);
-		    ad.ImageURL = imageBlob.Uri.ToString();
-		}
+```csharp
+if (imageFile != null && imageFile.ContentLength != 0)
+{
+    await DeleteAdBlobsAsync(ad);
+    imageBlob = await UploadAndSaveBlobAsync(imageFile);
+    ad.ImageURL = imageBlob.Uri.ToString();
+}
+```
 
 下一個範例顯示當您刪除廣告時會刪除 Blob 的程式碼：
 
-		private async Task DeleteAdBlobsAsync(Ad ad)
-		{
-		    if (!string.IsNullOrWhiteSpace(ad.ImageURL))
-		    {
-		        Uri blobUri = new Uri(ad.ImageURL);
-		        await DeleteAdBlobAsync(blobUri);
-		    }
-		    if (!string.IsNullOrWhiteSpace(ad.ThumbnailURL))
-		    {
-		        Uri blobUri = new Uri(ad.ThumbnailURL);
-		        await DeleteAdBlobAsync(blobUri);
-		    }
-		}
-		private static async Task DeleteAdBlobAsync(Uri blobUri)
-		{
-		    string blobName = blobUri.Segments[blobUri.Segments.Length - 1];
-		    CloudBlockBlob blobToDelete = imagesBlobContainer.GetBlockBlobReference(blobName);
-		    await blobToDelete.DeleteAsync();
-		}
+```csharp
+private async Task DeleteAdBlobsAsync(Ad ad)
+{
+    if (!string.IsNullOrWhiteSpace(ad.ImageURL))
+    {
+        Uri blobUri = new Uri(ad.ImageURL);
+        await DeleteAdBlobAsync(blobUri);
+    }
+    if (!string.IsNullOrWhiteSpace(ad.ThumbnailURL))
+    {
+        Uri blobUri = new Uri(ad.ThumbnailURL);
+        await DeleteAdBlobAsync(blobUri);
+    }
+}
+private static async Task DeleteAdBlobAsync(Uri blobUri)
+{
+    string blobName = blobUri.Segments[blobUri.Segments.Length - 1];
+    CloudBlockBlob blobToDelete = imagesBlobContainer.GetBlockBlobReference(blobName);
+    await blobToDelete.DeleteAsync();
+}
+```
 
-### ContosoAdsWeb - Views\Ad\Index.cshtml 和 Details.cshtml
+### ContosoAdsWeb - Views\\Ad\\Index.cshtml 和 Details.cshtml
 
 *Index.cshtml* 檔案會顯示縮圖與其他廣告資料。
 
-		<img  src="@Html.Raw(item.ThumbnailURL)" />
+```razor
+<img src="@Html.Raw(item.ThumbnailURL)" />
+```
 
 *Details.cshtml* 檔案會顯示完整大小的影像。
 
-		<img src="@Html.Raw(Model.ImageURL)" />
+```razor
+<img src="@Html.Raw(Model.ImageURL)" />
+```
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml 和 Edit.cshtml
+### ContosoAdsWeb - Views\\Ad\\Create.cshtml 和 Edit.cshtml
 
 *Create.cshtml* 和 *Edit.cshtml* 檔案可指定表單編碼，供控制器取得 `HttpPostedFileBase` 物件。
 
-		@using (Html.BeginForm("Create", "Ad", FormMethod.Post, new { enctype = "multipart/form-data" }))
+```razor
+@using (Html.BeginForm("Create", "Ad", FormMethod.Post, new { enctype = "multipart/form-data" }))
+```
 
 `<input>` 元素告知瀏覽器提供檔案選取對話方塊。
 
-		<input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
+```razor
+<input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
+```
 
 ### ContosoAdsWorker - WorkerRole.cs - OnStart 方法
 
@@ -696,8 +744,10 @@ Azure 背景工作角色環境會在背景工作角色開始時呼叫 `WorkerRol
 
 `OnStart` 方法會從 *.cscfg* 檔案取得資料庫連接字串，傳遞至 Entity Framework DbContext 類別。預設會使用 SQLClient 提供者，使得您不需指定提供者。
 
-		var dbConnString = CloudConfigurationManager.GetSetting("ContosoAdsDbConnectionString");
-		db = new ContosoAdsContext(dbConnString);
+```csharp
+var dbConnString = CloudConfigurationManager.GetSetting("ContosoAdsDbConnectionString");
+db = new ContosoAdsContext(dbConnString);
+```
 
 之後，方法會取得儲存體帳戶的參考，並建立 Blob 容器和佇列 (如果尚不存在)。該動作的程式碼與 Web 角色 `Application_Start` 方法中的程式碼類似。
 
@@ -705,34 +755,36 @@ Azure 背景工作角色環境會在背景工作角色開始時呼叫 `WorkerRol
 
 `OnStart` 方法完成其初始化工作時，系統會呼叫 `Run` 方法。此方法會執行無限迴圈，監看是否有新的佇列訊息，並在訊息抵達時加以處理。
 
-		public override void Run()
-		{
-		    CloudQueueMessage msg = null;
+```csharp
+public override void Run()
+{
+    CloudQueueMessage msg = null;
 
-		    while (true)
-		    {
-		        try
-		        {
-		            msg = this.imagesQueue.GetMessage();
-		            if (msg != null)
-		            {
-		                ProcessQueueMessage(msg);
-		            }
-		            else
-		            {
-		                System.Threading.Thread.Sleep(1000);
-		            }
-		        }
-		        catch (StorageException e)
-		        {
-		            if (msg != null && msg.DequeueCount > 5)
-		            {
-		                this.imagesQueue.DeleteMessage(msg);
-		            }
-		            System.Threading.Thread.Sleep(5000);
-		        }
-		    }
-		}
+    while (true)
+    {
+        try
+        {
+            msg = this.imagesQueue.GetMessage();
+            if (msg != null)
+            {
+                ProcessQueueMessage(msg);
+            }
+            else
+            {
+                System.Threading.Thread.Sleep(1000);
+            }
+        }
+        catch (StorageException e)
+        {
+            if (msg != null && msg.DequeueCount > 5)
+            {
+                this.imagesQueue.DeleteMessage(msg);
+            }
+            System.Threading.Thread.Sleep(5000);
+        }
+    }
+}
+```
 
 在每次迴圈的反覆運算之後，如果沒有找到佇列訊息，程式會休息一秒。如此可避免背景工作角色產生過度的 CPU 時間和儲存體交易成本。Microsoft 客戶諮詢小組曾經遇過一個案例是，開發人員忘記納入這一點便部署到生產環境，之後便離開去度假。當他回到工作崗位時，因為他疏忽所造成的代價比度假費用還高。
 
@@ -740,32 +792,34 @@ Azure 背景工作角色環境會在背景工作角色開始時呼叫 `WorkerRol
 
 找到佇列訊息時，系統會呼叫 `ProcessQueueMessage`。
 
-		private void ProcessQueueMessage(CloudQueueMessage msg)
-		{
-		    var adId = int.Parse(msg.AsString);
-		    Ad ad = db.Ads.Find(adId);
-		    if (ad == null)
-		    {
-		        throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", adId.ToString()));
-		    }
+```csharp
+private void ProcessQueueMessage(CloudQueueMessage msg)
+{
+    var adId = int.Parse(msg.AsString);
+    Ad ad = db.Ads.Find(adId);
+    if (ad == null)
+    {
+        throw new Exception(String.Format("AdId {0} not found, can't create thumbnail", adId.ToString()));
+    }
 
-		    CloudBlockBlob inputBlob = this.imagesBlobContainer.GetBlockBlobReference(ad.ImageURL);
+    CloudBlockBlob inputBlob = this.imagesBlobContainer.GetBlockBlobReference(ad.ImageURL);
 
-		    string thumbnailName = Path.GetFileNameWithoutExtension(inputBlob.Name) + "thumb.jpg";
-		    CloudBlockBlob outputBlob = this.imagesBlobContainer.GetBlockBlobReference(thumbnailName);
+    string thumbnailName = Path.GetFileNameWithoutExtension(inputBlob.Name) + "thumb.jpg";
+    CloudBlockBlob outputBlob = this.imagesBlobContainer.GetBlockBlobReference(thumbnailName);
 
-		    using (Stream input = inputBlob.OpenRead())
-		    using (Stream output = outputBlob.OpenWrite())
-		    {
-		        ConvertImageToThumbnailJPG(input, output);
-		        outputBlob.Properties.ContentType = "image/jpeg";
-		    }
+    using (Stream input = inputBlob.OpenRead())
+    using (Stream output = outputBlob.OpenWrite())
+    {
+        ConvertImageToThumbnailJPG(input, output);
+        outputBlob.Properties.ContentType = "image/jpeg";
+    }
 
-		    ad.ThumbnailURL = outputBlob.Uri.ToString();
-		    db.SaveChanges();
+    ad.ThumbnailURL = outputBlob.Uri.ToString();
+    db.SaveChanges();
 
-		    this.imagesQueue.DeleteMessage(msg);
-		}
+    this.imagesQueue.DeleteMessage(msg);
+}
+```
 
 此程式碼會讀取資料庫以取得影像 URL、將影像轉換為縮圖、將縮圖儲存在 Blob 中，以縮圖 Blob URL 更新資料庫，並刪除佇列訊息。
 
@@ -815,4 +869,4 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。�
 * [如何管理雲端服務](cloud-services-how-to-manage.md)
 * [Azure 儲存體](/documentation/services/storage/)
 
-<!------HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -124,7 +124,6 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台；Batch 集區提�
 	- Azure 批次可以偵測失敗的工作並重試工作。可以指定**工作重試次數上限**作為條件約束，包括指定一律重試工作，或決不重試工作。重試工作表示工作會重新排入佇列，以再次執行。
 - 您可以透過用戶端應用程式將工作新增至作業，或是指定[作業管理員工作](#jobmanagertask)。作業管理員工作會使用 Batch API，且包含為作業建立必要工作所需的資訊，而工作會在集區內的其中一個計算節點上執行。Batch 會特別處理作業管理員工作 – 此工作會在作業建立後立即排入佇列，且如果失敗，則會重新啟動。由作業排程建立的作業需要有作業管理員工作，因為它是在作業具現化之前唯一可定義工作的方法。以下提供作業管理員工作的詳細資訊。
 
-
 ### <a name="task"></a>工作
 
 工作是與作業相關聯的計算單位且在節點上執行。工作會指派給節點以便執行，或排入佇列直到節點變成可用為止。工作會使用下列資源：
@@ -192,7 +191,15 @@ Batch 提供作業前執行設定的作業準備工作，和作業後維護或�
 
 #### <a name="taskdep"></a>作業相依性
 
-工作相依性正如其名，可讓您在執行某個工作之前，指定該工作相依於一或多個其他工作。「下游」工作可以取用「上游」工作的輸出，或許相依於上游工作所執行的初始化。在這種情況下，您可以指定您的作業使用工作相依性，然後針對每個相依於另一個工作 (或其他許多工作) 的工作，指定該工作相依的工作。
+工作相依性正如其名，可讓您在執行某個工作之前，指定該工作相依於其他工作。此功能提供下列情況的支援：「下游」工作取用「上游」工作的輸出，或當上游工作執行下游工作所需的某種初始化時。若要使用這項功能，您必須先在 Batch 作業上啟用工作相依性。然後，針對每個相依於另一個工作 (或其他許多工作) 的工作，指定該工作相依的工作。
+
+利用工作相依性，您可以設定如下所示的案例︰
+
+* taskB 相依於 taskA (直到 taskA 完成，才會開始執行 taskB)
+* taskC 同時相依於 *taskA* 和 *taskB*
+* taskD 在執行前相依於某個範圍的工作，例如工作 1 至 10
+
+請查看 [azure-batch-samples][github_samples] GitHub 儲存機制中的 [TaskDependencies][github_sample_taskdeps] 程式碼範例。您將在其中使用 [Batch .NET][batch_net_api] 程式庫，了解如何設定相依於其他工作的工作。
 
 ### <a name="jobschedule"></a>排程的工作
 
@@ -366,6 +373,8 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -392,7 +401,7 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
-[rest_multiinstance]: https://msdn.microsoft.com/zh-TW/library/azure/mt637905.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
@@ -402,4 +411,4 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="03/01/2016"
+	ms.topic="get-started-article"
+	ms.date="03/16/2016"
 	ms.author="stepsic"/>
 
 # 建立連接 SaaS 服務的新邏輯應用程式
@@ -67,4 +67,4 @@
 [Azure portal]: https://portal.azure.com
 [使用邏輯應用程式功能]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

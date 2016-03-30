@@ -36,7 +36,7 @@
 
 ![資源健康情況](./media/security-center-monitoring/security-center-monitoring-fig1-new.png)
 
-如果資訊安全中心找出必須處理的弱點 (例如遺漏安全性更新的 VM 或沒有[網路安全性群組](virtual-networks-nsg.md)的子網路)，將會在這裡列出。
+如果資訊安全中心找出必須處理的弱點 (例如遺漏安全性更新的 VM 或沒有[網路安全性群組](../virtual-network/virtual-networks-nsg.md)的子網路)，將會在這裡列出。
 
 ###監視虛擬機器
 按一下 [資源健全狀況] 磚中的 [虛擬機器] 時，將會開啟 [虛擬機器] 刀鋒視窗，內含有關訓練與預防步驟的更多詳細資訊，以及受資訊安全中心監視的所有 VM 清單，如下所示。
@@ -102,7 +102,9 @@
 
 ![網路](./media/security-center-monitoring/security-center-monitoring-fig9-new.png)
 
-一旦您開啟此刀鋒視窗，您將會看到兩個區段：- 網路功能的建議 - 網路
+開啟此刀鋒視窗後，您會看到兩個區段：
+- 網路功能的建議
+- 網路
  
 在每個區段中，您可以選取個別的選項，以取得建議的相關詳細資訊。下列各節將詳細討論這方面的資訊。
 
@@ -114,8 +116,8 @@
 
 網路狀態明細區段會列出網路功能的狀態分解區段列出潛在的安全性問題，並提供建議。可能的問題包括：
 
-- 未啟用[端點上的 ACL](virtual-machines-set-up-endpoints.md)
-- 未啟用[網路安全性群組](virtual-networks-nsg.md)
+- 未啟用[端點上的 ACL](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)
+- 未啟用[網路安全性群組](../virtual-network/virtual-networks-nsg.md)
 - 列出 NSG 中狀況良好的子網路和不受限制的存取。 
  
 當您按一下這些建議的其中之一時，會開啟新的刀鋒視窗，其中包含與建議相關的更多詳細資料，如下列範例所示。
@@ -132,7 +134,7 @@
 
 ![網路樹狀結構](./media/security-center-monitoring/security-center-monitoring-fig121-new.png)
 
-此區段會區分[以資源管理員為基礎的 VM 和傳統 VM](resource-manager-deployment-model.md)。這可協助您快速識別 Azure 服務管理或 Azure 資源管理網路功能是否可供虛擬機器使用。如果您決定從這個位置存取網路介面卡內容，您必須展開子網路，然後按一下 VM 名稱。如果您針對以資源管理員為基礎的 VM 執行此動作，將會出現類似以下所示的新刀鋒視窗。
+此區段會區分[以資源管理員為基礎的 VM 和傳統 VM](../resource-manager-deployment-model.md)。這可協助您快速識別 Azure 服務管理或 Azure 資源管理網路功能是否可供虛擬機器使用。如果您決定從這個位置存取網路介面卡內容，您必須展開子網路，然後按一下 VM 名稱。如果您針對以資源管理員為基礎的 VM 執行此動作，將會出現類似以下所示的新刀鋒視窗。
 
 ![網路樹狀結構](./media/security-center-monitoring/security-center-monitoring-fig13-new.png)
 
@@ -143,7 +145,7 @@
 在此刀鋒視窗中，您可以變更公用和私人連接埠，並建立此 VM 的 ACL。
 
 ###監視 SQL 資源
-當您按一下 [資源健全狀況] 磚中的 [SQL] 時，將會開啟 [SQL] 刀鋒視窗，內含問題的建議，例如未啟用稽核、透明資料加密。它也具有資料庫的一般健全狀況狀態建議。
+當您按一下 [資源健全狀況] 圖格中的 [SQL] 時，將會開啟 [SQL] 刀鋒視窗，內含問題的建議，例如未啟用稽核、透明資料加密。它也具有資料庫的一般健全狀況狀態建議。
 
 ![SQL 資源健全狀況](./media/security-center-monitoring/security-center-monitoring-fig15-new.png)
 
@@ -166,7 +168,7 @@
 若要啟用稽核，只需選取 [稽核] 選項底下的 [開啟]，然後按一下 [儲存]。
 
 ###監視應用程式
-如果您的 Azure 工作負載有應用程式位於具有公開 Web 連接埠 (TCP 連接埠 80 和 443) 的[資源管理員 VM](resource-manager-deployment-model.md) 中，資訊安全中心即可監視這些應用程式以找出潛在的安全性問題，並建議補救步驟。當您按一下 [應用程式] 磚時，將會開啟 [應用程式] 刀鋒視窗，其 [預防步驟] 區段中會有一系列的建議。同時也會顯示每一主機/虛擬 IP 的應用程式明細，如下所示。
+如果您的 Azure 工作負載有應用程式位於具有公開 Web 連接埠 (TCP 連接埠 80 和 443) 的[資源管理員 VM](../resource-manager-deployment-model.md) 中，資訊安全中心即可監視這些應用程式以找出潛在的安全性問題，並建議補救步驟。當您按一下 [應用程式] 圖格時，將會開啟 [應用程式] 刀鋒視窗，其 [預防步驟] 區段中會有一系列的建議。同時也會顯示每一主機/虛擬 IP 的應用程式明細，如下所示。
 
 ![應用程式安全性健全狀況](./media/security-center-monitoring/security-center-monitoring-fig18-new.png)
 
@@ -183,7 +185,7 @@
 
 - [在 Azure 資訊安全中心設定安全性原則](security-center-policies.md) - 了解如何在 Azure 資訊安全中心設定安全性設定
 - [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) - 了解如何管理與回應安全性警示
-- [資訊安全中心常見問題](security-center-faq.md) - 尋找在使用服務時經常會遇到的問題
+- [Azure 安全性中心常見問題集](security-center-faq.md) - 尋找使用服務的常見問題
 - [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) – 尋找有關 Azure 安全性與相容性的部落格文章
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

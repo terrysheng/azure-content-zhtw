@@ -157,7 +157,7 @@
                     WaitForNewline("Source data file prepared.", "Submitting a job.");
 
                     // Submit the job
-                    string jobId = SubmitJobByPath(localFolderPath + "SampleUSQLScript.txt", "My First ADLA Job");
+                    Guid jobId = SubmitJobByPath(localFolderPath + "SampleUSQLScript.txt", "My First ADLA Job");
                     WaitForNewline("Job submitted.", "Waiting for job completion.");
 
                     // Wait for job completion
@@ -290,9 +290,9 @@
 
                 // Submit a U-SQL job by providing script contents.
                 // Returns the job ID
-                public static string SubmitJobByScript(string script, string jobName)
+                public static Guid SubmitJobByScript(string script, string jobName)
                 {
-                    var jobId = Guid.NewGuid().ToString();
+                    var jobId = Guid.NewGuid();
                     var properties = new USqlJobProperties(script);
                     var parameters = new JobInformation(jobName, JobType.USql, properties);
 
@@ -302,11 +302,11 @@
                 }
 
                 // Submit a U-SQL job by providing a path to the script
-                public static string SubmitJobByPath(string scriptPath, string jobName)
+                public static Guid SubmitJobByPath(string scriptPath, string jobName)
                 {
                     var script = File.ReadAllText(scriptPath);
 
-                    var jobId = Guid.NewGuid().ToString();
+                    var jobId = Guid.NewGuid();
                     var properties = new USqlJobProperties(script);
                     var parameters = new JobInformation(jobName, JobType.USql, properties, priority: 1000, degreeOfParallelism: 1);
 
@@ -315,7 +315,7 @@
                     return jobId;
                 }
 
-                public static JobResult WaitForJob(string jobId)
+                public static JobResult WaitForJob(Guid jobId)
                 {
                     var jobInfo = _adlaJobClient.Job.Get(jobId, _adlaAccountName);
                     while (jobInfo.State != JobState.Ended)
@@ -373,4 +373,4 @@
 - 針對管理工作，請參閱[使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)。
 - 若要取得資料湖分析概觀，請參閱 [Azure 資料湖分析概觀](data-lake-analytics-overview.md)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

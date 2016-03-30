@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/09/2016"
+   ms.date="03/18/2016"
    ms.author="cherylmc"/>
 
 # 設定 ExpressRoute 和站對站並存連線
@@ -34,6 +34,7 @@
 - **不支援點對站：**您無法對連線到 ExpressRoute 的相同 VNet 啟用點對站 VPN 連線。點對站 VPN 和 ExpressRoute 不能並存在相同的 VNet。
 - **無法啟用站對站 VPN 閘道上的強制通道：**您只能「強迫」所有網際網路繫結的流量透過 ExpressRoute 回到您的內部部署網路。 
 - **僅限標準或高效能閘道：**ExpressRoute 閘道和站對站 VPN 閘道都必須使用標準或高效能閘道。如需閘道 SKU 的相關資訊，請參閱[閘道 SKU](../vpn-gateway/vpn-gateway-about-vpngateways.md)。
+- **僅限路由式 VPN 閘道︰**您必須使用路由式 VPN 閘道。如需路由式 VPN 閘道的相關資訊，請參閱 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)。
 - **靜態路由需求：**如果您的區域網路連線到 ExpressRoute 和站對站 VPN，您必須在區域網路中設定靜態路由，才能將站對站 VPN 連線路由傳送到公用網際網路。
 - **必須先設定 ExpressRoute 閘道：**您必須先建立 ExpressRoute 閘道，才能新增站對站 VPN 閘道。
 
@@ -218,4 +219,4 @@
 
 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

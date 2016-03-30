@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="01/19/2016"
+     ms.date="03/22/2016"
      ms.author="dobett"/>
 
 # 開始使用適用於 Node.js 的 Azure IoT 中樞
@@ -139,4 +139,4 @@ Azure IoT 中樞是一項完全受管理的服務，可在數百萬個 IoT 裝�
 [lnk-resource-groups]: resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

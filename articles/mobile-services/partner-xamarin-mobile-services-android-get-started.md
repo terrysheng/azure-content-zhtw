@@ -19,16 +19,12 @@
 
 # <a name="getting-started"></a>開始使用行動服務
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[建立 Xamarin.Android 應用程式](../app-service-mobile/app-service-mobile-xamarin-android-get-started.md)。
 
-本教學課程將示範如何使用 Azure 行動服務，以將雲端後端服務新增至 Xamarin.Android 應用程式。在本教學課程中，您將建立新的行動服務和簡單的*待辦事項清單*應用程式，後者會在前者儲存應用程式資料。
+本教學課程將示範如何使用 Azure 行動服務，以將雲端後端服務新增至 Xamarin.Android 應用程式。在本教學課程中，您將建立新的行動服務和簡單的待辦事項清單應用程式，後者會在前者儲存應用程式資料。
 
 如果您比較喜歡觀看影片，下列短片中的步驟跟本教學課程的步驟是相同的。
 
@@ -58,7 +54,7 @@
 
 1.  在 [Azure 傳統入口網站]中，按一下 [行動服務]，然後按一下您剛建立的行動服務。
 
-2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 \[Xamarin.Android]，並展開 [Create a new Android app]。
+2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 [Xamarin.Android]，並展開 [Create a new Android app]。
 
 	![][6]
 
@@ -70,7 +66,7 @@
 
 4. 按一下 [Download and run app] 下的 [下載]。
 
-	這將會下載與行動服務連接的範例_待辦事項_應用程式專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
+	這將會下載與行動服務連接的範例待辦事項應用程式專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 
 ## 執行您的 Android 應用程式
 
@@ -84,7 +80,7 @@
 
 	> [AZURE.NOTE] 若要能夠在 Android 模擬器中執行專案，您必須至少定義一個 Android 虛擬裝置 (AVD)。使用 AVD Manager 來建立與管理這些裝置。
 
-4. 在應用程式中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下 [新增]。
+4. 在應用程式中輸入有意義的文字 (例如 Complete the tutorial)，然後按一下 [新增]。
 
 	![][10]
 
@@ -146,4 +142,4 @@
 [Azure]: http://azure.microsoft.com/
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

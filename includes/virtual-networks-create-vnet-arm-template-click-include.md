@@ -12,7 +12,7 @@
 
 	![ARM 範本參數](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 
-4. 按一下 [**資源群組**]，選取要新增 VNet 的資源群組，或按一下 [**新建**]，將 VNet 新增到新的資源群組。若要深入了解資源群組，請參閱 []()。下圖顯示新資源群組 **TestRG** 的資源群組設定 。
+4. 按一下 [**資源群組**]，選取要加入 VNet 的目的地資源群組，或按一下 [**新建**]，將 VNet 加入至新的資源群組。下圖顯示新資源群組 **TestRG** 的資源群組設定。
 
 	![資源群組](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 
@@ -27,4 +27,4 @@
 
 	![在 Preview 入口網站中建立 VNet](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

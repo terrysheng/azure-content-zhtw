@@ -228,7 +228,7 @@
 
 
 ### 開始使用
-[Windows VM 的學習路徑](https://azure.microsoft.com/zh-TW/documentation/learning-paths/virtual-machines/)
+[Windows VM 的學習路徑](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
 [在 Azure 傳統入口網站中建立 Windows 虛擬機器](virtual-machines-windows-classic-tutorial.md)
 
@@ -375,4 +375,4 @@
 
 [在 Azure 中建立、重新啟動或調整 VM 大小時，對配置失敗進行疑難排解](virtual-machines-windows-allocation-failure.md)
 
-<!----HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016--->

@@ -95,7 +95,7 @@
 1. 使用下列參數呼叫 API，且務必取代 TENANT\_ID、CLIENT\_ID 與 CLIENT\_SECRET：
 
 	- **要求 URL** 為 **https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
-- **HTTP Content-Type 標頭**為 *application/x-www-form-urlencoded*
+	- **HTTP Content-Type 標頭**為 *application/x-www-form-urlencoded*
 	- **HTTP 要求主體**為 *grant\_type=client\_credentials&client\_id={CLIENT\_ID}&client\_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
 
 	以下是範例要求：
@@ -154,4 +154,4 @@
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!-----HONumber=AcomDC_0316_2016-->

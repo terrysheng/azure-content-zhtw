@@ -54,7 +54,7 @@
 
 1.  在 [Azure 傳統入口網站]中，按一下 [行動服務]，然後按一下您剛建立的行動服務。
 
-2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 [Xamarin.Android]，並展開 [Create a new Android app]。
+2. 在快速入門索引標籤中，按一下 [Choose platform] 下的 \[Xamarin.Android]，並展開 [Create a new Android app]。
 
 	![][6]
 

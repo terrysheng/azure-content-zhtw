@@ -25,7 +25,7 @@
 
 進入 *www.contoso.com* 的所有流量要求現在將會被導向至 *contoso.trafficmanager.net*。
 
->[AZURE.IMPORTANT] 您無法將第二層網域 (例如 *contoso.com*) 指向流量管理員網域。這是 DNS 通訊協定的限制，不允許第二層網域名稱的 CNAME 記錄。
+>[AZURE.IMPORTANT] 您無法將第二層網域 (例如 *contoso.com* ) 指向流量管理員網域。這是 DNS 通訊協定的限制，不允許第二層網域名稱的 CNAME 記錄。
 
 ## 後續步驟
 

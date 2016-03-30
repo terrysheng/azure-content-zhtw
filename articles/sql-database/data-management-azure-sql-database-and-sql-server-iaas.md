@@ -105,7 +105,7 @@ Azure 有兩個選項可在雲端主控 SQL Server 工作負載：
 <tr>
    <td valign="middle"><p><b>業務持續性</b></p></td>
    <td valign="middle"><ul><li type=round>除了內建的容錯基礎結構功能以外，Azure SQL Database 還提供可增加業務持續性的功能，例如時間點還原時間、地理還原和地理複寫。如需詳細資訊，請參閱 [SQL Database 業務持續性概觀](sql-database-business-continuity.md)。</ul></td>
-   <td valign="middle"><ul><li type=round>Azure VM 上的 SQL Server 可讓您設定高可用性和災害復原解決方案，以滿足您的資料庫特定需求。因此，您可以有已針對您的應用程式進行高度最佳化的系統。您可以視需要自我測試並執行容錯移轉。如需詳細資訊，請參閱 [Azure 虛擬機器上 SQL Sever 的高可用性和災害復原]((../virtual-machines/virtual-machines-windows-classic-sql-dr.md)。</ul></td>
+   <td valign="middle"><ul><li type=round>Azure VM 上的 SQL Server 可讓您設定高可用性和災害復原解決方案，以滿足您的資料庫特定需求。因此，您可以有已針對您的應用程式進行高度最佳化的系統。您可以視需要自我測試並執行容錯移轉。如需詳細資訊，請參閱 [Azure 虛擬機器上 SQL Sever 的高可用性和災害復原](../virtual-machines/virtual-machines-windows-classic-sql-dr.md)。</ul></td>
 
 </tr>
 <tr>

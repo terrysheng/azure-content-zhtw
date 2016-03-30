@@ -157,7 +157,7 @@ Azure 雲端服務是應用程式將執行所在的環境。
 
 1. 在 [Azure 傳統入口網站](http://manage.windowsazure.com)中，依序按一下 [新增] > [資料服務] > [SQL Database] > [快速建立]。
 
-1. 在 [**資料庫名稱**] 方塊中，輸入 *contosoads*。
+1. 在 [**資料庫名稱**] 方塊中，輸入 *contosoads* 。
 
 1. 從 [伺服器] 下拉式清單，選取 [新增 SQL Database 伺服器]。
 
@@ -399,7 +399,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 11. 在 [加入新的專案] 對話方塊中，於左窗格的 [Visual C#] 下選擇 [Windows]，然後按一下 [類別庫] 範本。
 
-10. 將專案命名為 *ContosoAdsCommon*，然後按一下 [確定]。
+10. 將專案命名為 *ContosoAdsCommon* ，然後按一下 [確定]。
 
 	您需要自 Web 和背景工作角色專案參考 Entity Framework 內容和資料模型。作為替代方式，您可以在 Web 角色專案中定義 EF 相關的類別，並從背景工作角色專案參考該專案。但在替代方法中，您的背景工作角色專案會有 Web 組件的參考，而這是專案所不需要的內容。
 
@@ -455,7 +455,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 
 	將 [服務組態] 保持設為 [所有組態]。
 
-5. 加入名為 *StorageConnectionString* 的新設定。將 [**類型**] 設為 *ConnectionString*，並將 [**值**] 設為 *UseDevelopmentStorage=true*。
+5. 加入名為 *StorageConnectionString* 的新設定。將 [**類型**] 設為 *ConnectionString*，並將 [**值**] 設為 *UseDevelopmentStorage=true* 。
 
 	![New connection string](./media/cloud-services-dotnet-get-started/scall.png)
 

@@ -111,6 +111,10 @@ App Service 驗證服務支援相同的功能，這些功能可用於先前的 A
 3. 建置您自己的探索 API 應用程式，並且讓其他 API 應用程式在啟動時註冊探索應用程式。
 4. 在部署階段，以其他 API 應用程式的端點填入所有 API 應用程式 (和用戶端) 的應用程式設定。這是可行的範本部署，因為 API Apps 現在提供您 URL 的控制權。
 
+## 搭配使用 API Apps 與 Logic Apps
+
+新的 API 應用程式模型非常適合 [結Logic Apps 構描述版本 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md)。
+
 ## 後續步驟
 
 若要深入了解，請參閱 [API Apps 文件小節](https://azure.microsoft.com/documentation/services/app-service/api/)中的文章。這些文章已更新以反映 API Apps 的新模型。此外，務必造訪論壇以取得其他詳細資料或移轉的指引：
@@ -118,4 +122,4 @@ App Service 驗證服務支援相同的功能，這些功能可用於先前的 A
 - [MSDN 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureAPIApps)
 - [堆疊溢位](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

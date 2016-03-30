@@ -45,7 +45,7 @@ AGENTVMSIZE | 指定代理程式虛擬機器的大小。請小心選取可提供
 ADMINUSERNAME | 這是在 ACS 叢集中的每一個虛擬機器和虛擬機器擴展集上，將用於帳戶的使用者名稱。
 ORCHESTRATORTYPE| 選取您想要在 ACS 叢集中使用的 Orchestrator。
 MASTERCOUNT | 這是設定做為叢集主機的虛擬機器數目。您可以選取 1，但這樣無法提供叢集的任何恢復功能，只建議用於測試。針對生產叢集，建議的數目是 3 或 5。 
-SSHRSAPUBLICKEY | 您需要使用 SSH 向虛擬機器進行驗證。這是您加入公開金鑰的地方。將金鑰值貼入此方塊時請特別小心。某些編輯器會在內容中插入分行符號，這將會破壞金鑰。請確認金鑰不含分行符號，而且包含 'ssh rsa' 前置詞和 'username@domain' 後置詞。看起來應該類似於 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'。如果您需要建立 SSH 金鑰，您可以在 Azure 文件網站上找到 [Windows](../virtual-machines/virtual-machines-windows-use-ssh-key.md) 和 [Linux](../virtual-machines/virtual-machines-linux-use-ssh-key.md) 的指引。
+SSHRSAPUBLICKEY | 您需要使用 SSH 向虛擬機器進行驗證。這是您加入公開金鑰的地方。將金鑰值貼入此方塊時請特別小心。某些編輯器會在內容中插入分行符號，這將會破壞金鑰。請確認金鑰不含分行符號，而且包含 'ssh rsa' 前置詞和 'username@domain' 後置詞。看起來應該類似於 'ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm'。如果您需要建立 SSH 金鑰，您可以在 Azure 文件網站上找到 [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) 和 [Linux](../virtual-machines/virtual-machines-linux-ssh-from-linux.md) 的指引。
   
 一旦您已設定參數的適當值，請按一下 [確定]。接下來，提供資源群組名稱、選取區域，然後檢閱並同意法律條款。
 
@@ -127,8 +127,8 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
 
 選取下列其中一個範本來部署 Mesos 或 Docker Swarm 叢集。**注意** - 除了預設 Orchestrator 選項，這兩個範本都相同。
  
-* Mesos: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
-* Swarm: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* Mesos：[https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* Swarm：[https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 在 Azure 訂用帳戶中建立叢集之前，請確認您的 PowerShell 工作階段已登入 Azure。您可以使用 `Get-AzureRMSubscription` 命令完成此動作。
 
@@ -156,12 +156,12 @@ New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESO
  
 ### 提供範本參數
  
-如果您熟悉 PowerShell，您知道您可以輸入減號 (-) 然後按下 TAB 鍵，循環 Cmdlet 的可用參數。 相同的功能也適用於您在範本中定義的參數。 輸入範本名稱之後，Cmdlet 就會擷取參數，並在命令中動態加入範本參數。 這會讓指定範本參數值變得再容易不過了。 另外，如果您忘記必要參數值，則 PowerShell 會出現此值的提示。
+如果您熟悉 PowerShell，您知道您可以輸入減號 (-) 然後按下 TAB 鍵，循環 Cmdlet 的可用參數。相同的功能也適用於您在範本中定義的參數。在您輸入範本名稱之後，Cmdlet 便會立即擷取範本、剖析參數，並將範本參數動態新增至命令。這會讓指定範本參數值變得再容易不過了。另外，如果您忘記必要參數值，則 PowerShell 會出現此值的提示。
  
-以下是包含參數的完整命令。 您可以對資源名稱提供您自己的值。
+以下是包含參數的完整命令。您可以對資源名稱提供您自己的值。
 
 ```
-New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-TemplateURI TEMPLATE\_URI -adminuser value1 -adminpassword value2 ....
+New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
  
 ## 後續步驟
@@ -173,4 +173,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE\_GROUP\_NAME-Temp
 
  
 
-<!------HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

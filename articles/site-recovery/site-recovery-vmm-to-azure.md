@@ -13,10 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/15/2016"
+	ms.date="02/16/2016"
 	ms.author="raynew"/>
 
 #  將 Hyper-V 虛擬機器 (位於 VMM 雲端中) 複寫至 Azure
+
+> [AZURE.SELECTOR]
+- [Azure 傳統入口網站](site-recovery-vmm-to-azure.md)
+- [PowerShell - 傳統](site-recovery-deploy-with-powershell.md)
+- [PowerShell - 資源管理員](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
 
 Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原 (BCDR) 策略，為您的商務持續性與災害復原做出貢獻。機器可以複寫至 Azure，或次要的內部部署資料中心。如需快速概觀，請參閱[什麼是 Azure Site Recovery？](site-recovery-overview.md)。
 
@@ -40,21 +46,21 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
 以下是您在 Azure 中需要的內容。
 
-必要條件 | 詳細資料
+**必要條件** | **詳細資料**
 --- | ---
-Azure 帳戶| 您將需要 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。您可以從[免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。[深入了解](https://azure.microsoft.com/pricing/details/site-recovery/) Site Recovery 價格。 
-Azure 儲存體 | 您需要 Azure 儲存體帳戶來儲存複寫的資料。複寫的資料會儲存在 Azure 儲存體，容錯移轉時會啟動 Azure VM。<br/><br/>您需要[標準異地備援儲存體帳戶](../storage/storage-redundancy.md#geo-redundant-storage)。此帳戶應與 Site Recovery 服務位於相同的區域，且與相同的訂用帳戶相關聯。請注意，複寫到進階儲存體帳戶目前不受支援，因此請勿使用。我們不支援使用[新的 Azure 入口網站](../storage/storage-create-storage-account.md)來跨資源群組移動所建立的儲存體帳戶。<br/><br/>[深入了解](../storage/storage-introduction.md) Azure 儲存體。
-Azure 網路 | 容錯移轉發生時，您需要 Azure VM 會連接的 Azure 虛擬網路。Azure 虛擬網路必須位於與 Site Recovery 保存庫相同的區域中。 
+**Azure 帳戶**| 您將需要 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。您可以從[免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。[深入了解](https://azure.microsoft.com/pricing/details/site-recovery/) Site Recovery 價格。 
+**Azure 儲存體** | 您需要 Azure 儲存體帳戶來儲存複寫的資料。複寫的資料會儲存在 Azure 儲存體，容錯移轉時會啟動 Azure VM。<br/><br/>您需要[標準異地備援儲存體帳戶](../storage/storage-redundancy.md#geo-redundant-storage)。此帳戶應與 Site Recovery 服務位於相同的區域，且與相同的訂用帳戶相關聯。請注意，複寫到進階儲存體帳戶目前不支援，不應該使用。<br/><br/>[閱讀](../storage/storage-introduction.md) Azure 儲存體。
+**Azure 網路** | 容錯移轉發生時，您需要 Azure VM 會連接的 Azure 虛擬網路。Azure 虛擬網路必須位於與 Site Recovery 保存庫相同的區域中。 
 
 ## 內部部署必要條件
 
 以下是您在內部部署中需要的內容。
 
-必要條件 | 詳細資料
+**必要條件** | **詳細資料**
 --- | ---
-VMM | 您需要至少一部部署為實體或虛擬獨立伺服器，或是部署為虛擬叢集的 VMM 伺服器。<br/><br/>VMM 伺服器應執行含有最新累積更新的 System Center 2012 R2。<br/><br/>您需要在 VMM 伺服器上至少設定一個雲端。<br/><br/>您要保護的來源雲端必須包含一或多個 VMM 主機群組。<br/><br/>在 Keith Mayer 的部落格上的[逐步說明：使用 System Center 2012 SP1 VMM 建立私人雲端](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)中，深入了解設定 VMM 雲端。
-Hyper-V | 您在 VMM 雲端中需要一或多個 Hyper-V 主機伺服器或叢集。主機伺服器應該有一或多個 VM。<br/><br/>Hyper-V 伺服器必須執行具有 Hyper-V 角色的最新 Windows Server 2012 R2，並安裝最新的更新。<br/><br/>任何含有您要保護之 VM 的 Hyper-V 伺服器都必須位於 VMM 雲端。<br/><br/>如果您是在叢集中執行 Hyper-V，請注意，當您擁有靜態 IP 位址叢集時，並不會自動建立叢集訊息代理程式。您必須手動設定叢集代理。在 Aidan Finn 的部落格項目中[深入了解](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters)。
-受保護的機器 | 您想要保護的 VM 應該符合 [Azure 需求](site-recovery-best-practices.md#azure-virtual-machine-requirements)。
+**VMM** | 您需要至少一部部署為實體或虛擬獨立伺服器，或是部署為虛擬叢集的 VMM 伺服器。<br/><br/>VMM 伺服器應執行含有最新累積更新的 System Center 2012 R2。<br/><br/>您需要在 VMM 伺服器上至少設定一個雲端。<br/><br/>您要保護的來源雲端必須包含一或多個 VMM 主機群組。<br/><br/>在 Keith Mayer 的部落格上的[逐步說明：使用 System Center 2012 SP1 VMM 建立私人雲端](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)中，深入了解設定 VMM 雲端。
+**Hyper-V** | 您在 VMM 雲端中需要一或多個 Hyper-V 主機伺服器或叢集。主機伺服器應該有一或多個 VM。<br/><br/>Hyper-V 伺服器必須執行具有 Hyper-V 角色的最新 Windows Server 2012 R2，並安裝最新的更新。<br/><br/>任何含有您要保護之 VM 的 Hyper-V 伺服器都必須位於 VMM 雲端。<br/><br/>如果您是在叢集中執行 Hyper-V，請注意，當您擁有靜態 IP 位址叢集時，並不會自動建立叢集訊息代理程式。您必須手動設定叢集代理。在 Aidan Finn 的部落格項目中[深入了解](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters)。
+**受保護的機器** | 您想要保護的 VM 應該符合 [Azure 需求](site-recovery-best-practices.md#azure-virtual-machine-requirements)。
 
 
 ## 網路對應的必要條件
@@ -117,7 +123,7 @@ Hyper-V | 您在 VMM 雲端中需要一或多個 Hyper-V 主機伺服器或叢�
 	![Microsoft Update](./media/site-recovery-vmm-to-azure/updates.png)
 
 
-5.  提供者的安裝位置已設為 **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**。按一下 [Install]。
+5.  提供者的安裝位置已設為 **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**。按一下 [安裝]。
 
 	![InstallLocation](./media/site-recovery-vmm-to-azure/install-location.png)
 
@@ -196,8 +202,6 @@ Hyper-V | 您在 VMM 雲端中需要一或多個 Hyper-V 主機伺服器或叢�
 
 	![儲存體帳戶](./media/site-recovery-vmm-to-azure/storage.png)
 
->[AZURE.NOTE] 我們不支援使用[新的 Azure 入口網站](../storage/storage-create-storage-account.md)來跨資源群組移動所建立的儲存體帳戶。
-
 ## 步驟 5：安裝 Azure 復原服務代理程式
 
 在 VMM 雲端中的每一個 Hyper-V 主機伺服器上，安裝 Azure 復原服務代理程式。
@@ -231,15 +235,12 @@ Hyper-V | 您在 VMM 雲端中需要一或多個 Hyper-V 主機伺服器或叢�
 1. 在 [快速啟動] 頁面上，按一下 [設定 VMM 雲端的保護]。
 2. 在 [受保護項目] 索引標籤上，按一下要設定的雲端，並移至 [設定] 索引標籤。
 3. 在 [目標] 中，選取 [Azure]。
-4. 在 [儲存體帳戶] 中，選取您想要用來複寫的 Azure 儲存體帳戶。 
-
-	>[AZURE.NOTE] 我們不支援使用[新的 Azure 入口網站](../storage/storage-create-storage-account.md)來跨資源群組移動所建立的儲存體帳戶。
-
-5. 將 [加密儲存的資料] 設為 [關閉]。此設定指定應該將內部部署與 Azure 之間複寫的資料加密。
+4. 在 [儲存體帳戶] 中，選取您想要用來複寫的 Azure 儲存體帳戶。
+5. 將 [Encrypt stored data] 設為 [關閉]。此設定指定應該將內部部署與 Azure 之間複寫的資料加密。
 6. 在 [複製頻率] 中保留預設設定。這個值指定應在來源與目標位置之間同步處理資料的頻率。
-7. 在 [保留復原點的時間] 中保留預設設定。使用預設值 0 時，只會在複本主機伺服器上儲存主要虛擬機器的最新復原點。
+7. 在 [Retain recovery points for] 中保留預設設定。使用預設值 0 時，只會在複本主機伺服器上儲存主要虛擬機器的最新復原點。
 8. 在 [應用程式一致快照的頻率] 中保留預設設定。這個值指定建立快照的頻率。快照會使用「磁碟區陰影複製服務」(VSS) 來確保建立快照時，應用程式是處於一致狀態。如果您設定一個值，請確定此值小於您設定的其他復原點數目。
-9. 在 [複寫開始時間] 中，指定初次將資料複寫至 Azure 的開始時間。將會使用 Hyper-V 主機伺服器的時區。建議您將初次複寫排定在離峰時段進行。
+9. 在 [Replication start time] 中，指定初次將資料複寫至 Azure 的開始時間。將會使用 Hyper-V 主機伺服器的時區。建議您將初次複寫排定在離峰時段進行。
 
 	![Cloud replication settings](./media/site-recovery-vmm-to-azure/cloud-settings.png)
 
@@ -289,19 +290,22 @@ Hyper-V | 您在 VMM 雲端中需要一或多個 Hyper-V 主機伺服器或叢�
 
 	![Verify virtual machines](./media/site-recovery-vmm-to-azure/vm-properties.png)
 
+
 4. 在虛擬機器屬性的 [設定] 索引標籤上可以修改下列網路屬性。
 
 
 
-- 目標虛擬機器的網路介面卡數目 - 網路介面卡的數目取決於您針對目標虛擬機器所指定的大小。查看[虛擬機器大小規格](../virtual-machines/virtual-machines-size-specs.md#size-tables)，了解虛擬機器大小所支援的介面卡數目。在修改虛擬機器的大小並儲存設定之後，當您下次開啟 [設定] 頁面時，網路介面卡的數量將會改變。目標虛擬機器的網路介面卡數目，是來源虛擬機器上的網路介面卡數目下限，以及所選虛擬機器大小支援的網路介面卡數目上限，如下所示：
+
+
+- 目標虛擬機器的網路介面卡數目 - 網路介面卡的數目取決於您針對目標虛擬機器所指定的大小。查看[虛擬機器大小規格](../virtual-machines/virtual-machines-linux-sizes.md#size-tables)，了解虛擬機器大小所支援的介面卡數目。在修改虛擬機器的大小並儲存設定之後，當您下次開啟 [設定] 頁面時，網路介面卡的數量將會改變。目標虛擬機器的網路介面卡數目，是來源虛擬機器上的網路介面卡數目下限，以及所選虛擬機器大小支援的網路介面卡數目上限，如下所示：
 
 	- 如果來源電腦上的網路介面卡數目小於或等於針對目標機器大小所允許的介面卡數目，則目標將具備與來源相同的介面卡數目。
 	- 如果來源虛擬機器的介面卡數目超過針對目標大小所允許的數目，則將使用目標大小的最大值。
 	- 例如，如果來源機器具有兩張網路介面卡，而目標機器大小支援四張，則目標機器將會有兩張介面卡。如果來源機器具有兩張介面卡，但支援的目標大小僅支援一張，則目標機器將只會有一張介面卡。 	
 
-- 目標虛擬機器的網路 - 虛擬機器連接的網路取決於來源虛擬機器網路的網路對應。如果來源虛擬機器有一個以上的網路介面卡，且來源網路對應至目標上的不同網路，則您必須選擇其中一個目標網路。
-- 每個網路介面卡的子網路 - 針對每個網路介面卡，您可以選取容錯移轉的虛擬機器會連接的子網路。
-- 目標 IP 位址 - 如果來源虛擬機器的網路介面卡是設定為使用靜態 IP 位址，則您可以提供目標虛擬機器的 IP 位址。使用此功能，在容錯移轉之後保留來源虛擬機器的 IP 位址。如果未提供任何 IP 位址，在容錯移轉時會將任何可用的 IP 位址提供給網路介面卡。如果已指定目標 IP 位址，但是已由在 Azure 中執行的另一個虛擬機器使用，則容錯移轉將會失敗。  
+- **目標虛擬機器的網路** - 虛擬機器連接的網路取決於來源虛擬機器網路的網路對應。如果來源虛擬機器有一個以上的網路介面卡，且來源網路對應至目標上的不同網路，則您必須選擇其中一個目標網路。
+- **每個網路介面卡的子網路** - 針對每個網路介面卡，您可以選取容錯移轉的虛擬機器會連接的子網路。
+- **目標 IP 位址** - 如果來源虛擬機器的網路介面卡是設定為使用靜態 IP 位址，則您可以提供目標虛擬機器的 IP 位址。使用此功能，在容錯移轉之後保留來源虛擬機器的 IP 位址。如果未提供任何 IP 位址，在容錯移轉時會將任何可用的 IP 位址提供給網路介面卡。如果已指定目標 IP 位址，但是已由在 Azure 中執行的另一個虛擬機器使用，則容錯移轉將會失敗。  
 
 	![修改網路屬性](./media/site-recovery-vmm-to-azure/multi-nic.png)
 
@@ -336,8 +340,8 @@ Hyper-V | 您在 VMM 雲端中需要一或多個 Hyper-V 主機伺服器或叢�
 
 有兩種方式可以測試容錯移轉至 Azure。
 
-- 在沒有 Azure 網路的情況下測試容錯移轉—這種測試容錯移轉可以檢查虛擬機器是否正確地出現在 Azure 中。在容錯移轉之後，虛擬機器不會連線到任何 Azure 網路。
-- 利用 Azure 網路測試容錯移轉 - 這種測試容錯移轉可以檢查整個復寫環境是否如預期般出現並進行容錯移轉，虛擬機器會連線到只訂的目標 Azure 網路。針對子網路處理的測試容錯移轉，可根據複本虛擬機器的子網路得知測試虛擬機器的子網路。這和一般的複寫不同，一般複寫的複本虛擬機器子網路是根據來源虛擬機器的子網路得知。
+- **在沒有 Azure 網路的情況下測試容錯移轉**—這種測試容錯移轉可以檢查虛擬機器是否正確地出現在 Azure 中。在容錯移轉之後，虛擬機器不會連線到任何 Azure 網路。
+- **利用 Azure 網路測試容錯移轉** - 這種測試容錯移轉可以檢查整個復寫環境是否如預期般出現並進行容錯移轉，虛擬機器會連線到只訂的目標 Azure 網路。針對子網路處理的測試容錯移轉，可根據複本虛擬機器的子網路得知測試虛擬機器的子網路。這和一般的複寫不同，一般複寫的複本虛擬機器子網路是根據來源虛擬機器的子網路得知。
 
 如果您想要針對啟用保護的虛擬機器執行測試容錯轉移至 Azure ，卻不想指定 Azure 目標網路，您不需要作任何準備。若要以目標 Azure 網路執行測試容錯移轉，您必須建立與您的 Azure 正式作業網路 (當您在 Azure 中建立新網路時的預設行為) 分隔的新的 Azure 網路。如需詳細資訊，請參考如何[執行測試容錯移轉](site-recovery-failover.md#run-a-test-failover)。
 
@@ -368,4 +372,4 @@ Hyper-V | 您在 VMM 雲端中需要一或多個 Hyper-V 主機伺服器或叢�
 
 深入了解[設定復原計劃](site-recovery-create-recovery-plans.md)和[容錯移轉](site-recovery-failover.md)。
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

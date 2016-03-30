@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/14/2016" 
+	ms.date="03/17/2016" 
 	ms.author="cephalin"
 />
 	
 # 在 Azure App Service 中開始使用 Web 應用程式
 
-本教學課程可幫助您快速地開始將 Web 應用程式部署至 [Azure App Service](../app-service/app-service-value-prop-what-is.md)。您只需採取非常少的動作，就會︰
+本教學課程可幫助您快速地開始將 Web 應用程式部署至 [Azure App Service](../app-service/app-service-value-prop-what-is.md)。您只需採取一些動作，就會︰
 
 - 部署範例 Web 應用程式 (在 ASP.NET、PHP、Node.js、Java 或 Python 之間選擇)。
 - 在短短幾秒內看見您的應用程式即時執行。
@@ -34,7 +34,7 @@
 
 - Git。您可以在[這裡](http://www.git-scm.com/downloads)下載安裝二進位檔。您應該能夠從您選擇的命令列終端機執行 `git --version`。 
 - Git 基本知識。
-- Azure CLI。安裝指示在[這裡](../xplat-cli-install.md)。
+- Azure CLI。安裝指示在[這裡](../xplat-cli-install.md)。您應該能夠從您選擇的命令列終端機執行 `azure --version`。
 - Microsoft Azure 帳戶。如果您沒有這類帳戶，可以[申請免費試用](/pricing/free-trial/?WT.mc_id=A261C142F)，或是[啟用自己的 Visual Studio 訂閱者權益](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)。
 
 >[AZURE.NOTE] 若要在註冊 Azure 帳戶前查看運作中的 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)。您可以於該處，在 App Service 中立即建立短期的入門應用程式 — 不需信用卡，不需任何承諾。
@@ -49,15 +49,15 @@
 
     對於 &lt;github\_sample\_url>，使用下列其中一個 URL (視您要的架構而定)：
 
-    - ASP.NET：[https://github.com/azure-appservice-samples/aspnet-get-started.git](https://github.com/azure-appservice-samples/aspnet-get-started.git)
-    - PHP (CodeIgniter)：[https://github.com/azure-appservice-samples/php-get-started.git](https://github.com/azure-appservice-samples/php-get-started.git)
-    - Node.js (Express)：[https://github.com/azure-appservice-samples/nodejs-get-started.git](https://github.com/azure-appservice-samples/nodejs-get-started.git) 
-    - Python (Django)：[https://github.com/azure-appservice-samples/python-get-started.git](https://github.com/azure-appservice-samples/python-get-started.git)
-    - Java：[https://github.com/azure-appservice-samples/java-get-started.git](https://github.com/azure-appservice-samples/java-get-started.git)
+    - ASP.NET：[https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git)
+    - PHP (CodeIgniter)：[https://github.com/Azure-Samples/app-service-web-php-get-started.git](https://github.com/Azure-Samples/app-service-web-php-get-started.git)
+    - Node.js (Express)：[https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git) 
+    - Java：[https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
+    - Python (Django)：[https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
 
-2. `CD` 到您的範例應用程式的專案根目錄。例如，
+2. `CD` 為您的範例應用程式的根目錄。例如，
 
-        cd aspnet-get-started
+        cd app-service-web-dotnet-get-started
 
 3. 如下所示，登入 Azure：
 
@@ -93,15 +93,15 @@
 
 ## 更新您的應用程式
 
-就如同您第一次將應用程式部署到 Azure 的方式，您現在可以使用 Git 隨時從您的專案 (儲存機制) 根目錄進行推送，以更新即時網站。例如，每次您想要推送已在本機測試的新變更時，只需從專案 (儲存機制) 根目錄執行下列命令︰
+您現在可以使用 Git 隨時從您的專案 (儲存機制) 根目錄進行推送，以更新即時網站。您可以用第一次將應用程式部署至 Azure 時的相同方式來執行這項作業。例如，每次您想要推送已在本機測試的新變更時，只需從專案 (儲存機制) 根目錄執行下列命令︰
     
     git add .
-    git commit -m "<you_message>"
+    git commit -m "<your_message>"
     git push azure master
 
 ## 其他部署方式
 
-有多種方式可以部署 Web 應用程式，而從本機儲存機制進行 Git 部署只是其中一種方式。Visual Studio 中有直覺式精靈部署、直接從 GitHub 連續部署、從 DropBox 同步處理內容，以及許多其他選項，包括 Web 開發人員所熟悉的 FTP 方法。如需部署選項的詳細資訊，請參閱[將應用程式部署至 Azure App Service](../app-service-web/web-sites-deploy.md)。
+有各種方式可以部署 Web 應用程式，而從本機儲存機制進行 Git 部署只是其中一種方式。您可以直接從 Visual Studio 部署、從 GitHub 連續部署、從 DropBox 或 OneDrive 同步處理、透過 FTP 檔案上傳等。如需部署選項的詳細資訊，請參閱[將應用程式部署至 Azure App Service](../app-service-web/web-sites-deploy.md)。
 
 ## 在 Azure 入口網站上查看您的應用程式
 
@@ -115,7 +115,7 @@
 
     ![Azure App Service 中第一個應用程式的入口網站檢視](./media/app-service-web-get-started/portal-view.png)
 
-您的 App Service 應用程式的刀鋒視窗會呈現一組豐富的設定和工具，讓您設定、監視、保護及疑難排解您的應用程式。請花一點時間執行一些簡單的工作，讓自己熟悉此介面︰
+您的 App Service 應用程式的入口網站刀鋒視窗會呈現一組豐富的設定和工具，讓您設定、監視、保護及疑難排解您的應用程式。請花一點時間執行一些簡單的工作，讓自己熟悉此介面︰
 
 - 停止應用程式
 - 重新啟動應用程式
@@ -127,7 +127,7 @@
 
 將您部署的應用程式提升到更高的層次。使用驗證保護其安全。根據需求加以調整。設定一些效能警示。全部只要點選幾下滑鼠即可完成。請參閱[開始使用 Azure App Service -第 2 部分](app-service-web-get-started-2.md)。
 
-或者，進一步探索如何從頭開始建立 App Service 的 Web 應用程式︰
+或者，進一步探索如何使用特定語言架構建立 App Service 的 Web 應用程式︰
 
 - [在 Azure App Service 中建立 ASP.NET Web 應用程式](web-sites-dotnet-get-started.md)
 - [在 Azure App Service 中建立 PHP Web 應用程式](web-sites-php-mysql-deploy-use-git.md)
@@ -135,10 +135,10 @@
 - [在 Azure App Service 中建立 Java Web 應用程式](web-sites-java-get-started.md)
 - [在 Azure App Service 中建立 Python Web 應用程式](web-sites-python-ptvs-django-mysql.md)
 
-另外還有許多內容，顯示您可以在 Azure App Service 上建置的應用程式範圍，包括 Web 應用程式、行動應用程式後端和 API 應用程式。
+或者，尋找更多您可在 Azure App Service 上建置之應用程式的相關內容，包括 Web 應用程式、行動應用程式後端和 API 應用程式。
 
 - [建立 Web 應用程式](/documentation/learning-paths/appservice-webapps/)
 - [建立行動應用程式](/documentation/learning-paths/appservice-mobileapps/)
 - [建立 API 應用程式](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

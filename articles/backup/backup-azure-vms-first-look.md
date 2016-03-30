@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/07/2016"
+	ms.date="03/14/2016"
 	ms.author="markgal; jimpark"/>
 
 
@@ -31,7 +31,7 @@
 5. 建立用來保護虛擬機器的原則。
 6. 執行備份。
 
->[AZURE.NOTE] Azure 有兩種用來建立和使用資源的部署模型： [Resource Manager 和傳統](../resource-manager-deployment-model.md)。Azure 備份服務目前不支援以 Azure Resource Manager (ARM) 為基礎的虛擬機器 (也稱為 IaaS V2 虛擬機器)。由於 Iaas V2 VM 是在新的 Azure 入口網站發行時才推出，因此本教學課程當初在設計時是適用於可在 Azure 傳統入口網站中建立的 VM 類型。
+>[AZURE.NOTE] Azure 有兩種用來建立和使用資源的部署模型：[Resource Manager 和傳統](../resource-manager-deployment-model.md)。Azure 備份服務目前不支援以 Azure Resource Manager (ARM) 為基礎的虛擬機器 (也稱為 IaaS V2 虛擬機器)。由於 Iaas V2 VM 是在新的 Azure 入口網站發行時才推出，因此本教學課程當初在設計時是適用於可在 Azure 傳統入口網站中建立的 VM 類型。
 
 
 ## 步驟 1 - 為 VM 建立備份保存庫
@@ -39,7 +39,7 @@
 備份保存庫是一個實體，會儲存歷來建立的所有備份和復原點。備份保存庫也包含備份虛擬機器時將套用的備份原則。
 
 此影像顯示各種「Azure 備份」實體之間的關係：
-    ![「Azure 備份」實體及其關係](./media/backup-azure-vms-prepare/vault-policy-vm.png)
+	![「Azure 備份」實體及其關係](./media/backup-azure-vms-prepare/vault-policy-vm.png)
 
 若要建立備份保存庫：
 
@@ -70,7 +70,7 @@
     ![備份保存庫的清單](./media/backup-azure-vms-first-look/active-vault-demo.png)
 
 8. 在 [快速啟動] 頁面上，按一下 [設定] 以開啟儲存體複寫選項。
-    ![備份保存庫的清單](./media/backup-azure-vms-first-look/configure-storage.png)
+	![備份保存庫的清單](./media/backup-azure-vms-first-look/configure-storage.png)
 
 9. 在 [儲存體複寫] 選項上，選擇保存庫的複寫選項。
 
@@ -86,7 +86,7 @@
 1. 登入 [Azure 入口網站](http://manage.windowsazure.com/)。
 
 2. 在 Azure 傳統入口網站中，按一下 [復原服務] 以開啟復原服務保存庫清單。
-    ![選取工作負載](./media/backup-azure-vms-first-look/recovery-services-icon.png)
+	![選取工作負載](./media/backup-azure-vms-first-look/recovery-services-icon.png)
 
 3. 在 [復原服務] 保存庫清單中，選取要用來備份 VM 的保存庫。
 
@@ -99,7 +99,7 @@
     ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
 
 6. 按一下頁面底部的 [**探索**]。
-    ![探索按鈕](./media/backup-azure-vms/discover-button-only.png)
+	![探索按鈕](./media/backup-azure-vms/discover-button-only.png)
 
     在列表顯示虛擬機器時，探索程序可能需花費幾分鐘的時間。畫面底部會有通知讓您知道程序正在執行中。
 
@@ -110,7 +110,7 @@
     ![探索完成](./media/backup-azure-vms-first-look/discovery-complete.png)
 
 7. 按一下頁面底部的 [註冊]。
-    ![註冊按鈕](./media/backup-azure-vms-first-look/register-icon.png)
+	![註冊按鈕](./media/backup-azure-vms-first-look/register-icon.png)
 
 8. 在 [註冊項目] 捷徑功能表中，選取您想要註冊的虛擬機器。如果有兩個以上同名的虛擬機器，請使用雲端服務加以區別。
 
@@ -132,9 +132,9 @@
 
 ## 步驟 3 - 在虛擬機器中安裝 VM 代理程式
 
-Azure VM 代理程式必須安裝在 Azure 虛擬機器上，備份擴充功能才能運作。如果 VM 是建立自 Azure 資源庫，則 VM 代理程式已存在於虛擬機器上。不過，從內部部署資料中心移轉的 VM 不會安裝 VM 代理程式。在這種情況下，必須明確安裝 VM 代理程式。在您嘗試備份 Azure VM 之前，請先確定已在虛擬機器上正確安裝 Azure VM 代理程式 (請參閱下表)。如果您建立自訂 VM，請先[確定已選取 [安裝 VM 代理程式] 核取方塊](../virtual-machines/virtual-machines-extensions-agent-about.md)，再佈建虛擬機器。
+Azure VM 代理程式必須安裝在 Azure 虛擬機器上，備份擴充功能才能運作。如果 VM 是建立自 Azure 資源庫，則 VM 代理程式已存在於虛擬機器上。不過，從內部部署資料中心移轉的 VM 不會安裝 VM 代理程式。在這種情況下，必須明確安裝 VM 代理程式。在您嘗試備份 Azure VM 之前，請先確定已在虛擬機器上正確安裝 Azure VM 代理程式 (請參閱下表)。如果您建立自訂 VM，請先[確定已選取 [安裝 VM 代理程式] 核取方塊](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md)，再佈建虛擬機器。
 
-深入了解 [VM 代理程式](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409)和[如何安裝](../virtual-machines/virtual-machines-extensions-install.md)。
+深入了解 [VM 代理程式](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409)和[如何安裝](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md)。
 
 下表提供適用於 Windows 和 Linux VM 之 VM 代理程式的其他資訊。
 
@@ -161,7 +161,7 @@ Azure VM 代理程式必須安裝在 Azure 虛擬機器上，備份擴充功能�
     ![在入口網站中選取工作負載](./media/backup-azure-vms/select-workload.png)
 
 3. 按一下頁面底部的 [保護]。
-    ![按一下 [保護]](./media/backup-azure-vms-first-look/protect-icon.png)
+	![按一下 [保護]](./media/backup-azure-vms-first-look/protect-icon.png)
 
     [保護項目精靈] 隨即出現，只列出已註冊但未受保護的虛擬機器。
 
@@ -210,7 +210,7 @@ Azure VM 代理程式必須安裝在 Azure 虛擬機器上，備份擴充功能�
 若要在設定保護之後立即觸發初始備份：
 
 1. 在 [受保護項目] 頁面上，按一下頁面底部的 [立即備份] 按鈕。
-    ![[立即備份] 圖示](./media/backup-azure-vms-first-look/backup-now-icon.png)
+	![[立即備份] 圖示](./media/backup-azure-vms-first-look/backup-now-icon.png)
 
     Azure 備份服務會初始備份作業建立備份工作。
 
@@ -237,5 +237,4 @@ Azure VM 代理程式必須安裝在 Azure 虛擬機器上，備份擴充功能�
 ## 有疑問嗎？
 如果您有問題，或希望我們加入任何功能，請[傳送意見反應給我們](http://aka.ms/azurebackup_feedback)。
 
-<!----HONumber=AcomDC_0316_2016-->
-
+<!---HONumber=AcomDC_0323_2016-->

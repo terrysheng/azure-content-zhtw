@@ -1,9 +1,9 @@
 ## 如何使用 PowerShell 建立 VNet
 若要使用 PowerShell 建立 VNet，請遵循下列步驟。
 
-1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
+1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](../articles/powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
 	
-3. 如有必要，建立新的資源群組，如下所示。在本文案例中，會建立名為 *TestRG* 的資源群組。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](resource-group-overview.md)。
+3. 如有必要，建立新的資源群組，如下所示。在本文案例中，會建立名為 *TestRG* 的資源群組。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](../articles/resource-group-overview.md)。
 
 		New-AzureRmResourceGroup -Name TestRG -Location centralus
 
@@ -137,4 +137,4 @@
 		                      }
 		                    ]
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/11/2016"
+   ms.date="03/22/2016"
    ms.author="yurid"/>
  
 # 管理及回應 Azure 資訊安全中心的安全性警示
@@ -75,7 +75,9 @@ Microsoft 安全性研究人員持續不斷地分析全球新興的威脅，包�
 
 在此案例中，所觸發的警示是關於可疑的遠端桌面通訊協定 (RDP) 活動。第一個資料行顯示哪些資源遭到攻擊；第二個資料行顯示偵測到該攻擊的時間；第三個資料行顯示警示的狀態；第四個資料行顯示攻擊的嚴重性。當您檢閱這項資訊後，請按一下遭到攻擊的資源。此時新的刀鋒視窗會開啟，提供您更多接下來該如何處理的建議，如下列範例所示。
 
-![對於如何處理 Azure 資訊安全中心的安全性警示的建議](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig8.png)
+![對於如何處理 Azure 資訊安全中心的安全性警示的建議](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig8-1.png)
+
+在此刀鋒視窗的 [警示] 欄位中，您會找到關於這個事件的其他詳細資料。這些額外的詳細資料可供深入了解什麼會觸發安全性警示、目標資源、來源 IP 位址 (若適用)，以及有關如何補救的建議。在某些情況下，來源 IP 位址會是空的 (不適用)，因為並非所有的 Windows 安全性事件記錄檔都包含 IP 位址。
 
 > [AZURE.NOTE] 資訊安全中心會根據安全性警示，建議您不同的補救方法。在某些情況下，您可能必須使用其他的 Azure 功能來實作建議的補救方法。例如，這個攻擊的補救方法是使用[網路 ACL](../virtual-network/virtual-networks-acl.md) 或[網路安全性群組](../virtual-network/virtual-networks-nsg.md)規則，將產生此攻擊的 IP 位址列入黑名單。
 
@@ -83,8 +85,8 @@ Microsoft 安全性研究人員持續不斷地分析全球新興的威脅，包�
 ## 後續步驟
 在本文件中，您了解到如何在資訊安全中心設定安全性原則。如要深入了解資訊安全中心，請參閱下列主題：
 
-- [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) - 了解如何監視 Azure 資源的健全狀況。
-- [Azure 資訊安全中心常見問題集](security-center-faq.md) - 尋找在使用服務時經常會遇到的問題。
-- [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) -- 尋找有關 Azure 安全性與法規遵循的部落格文章。
+- [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md)--了解如何監視 Azure 資源的健全狀況。
+- [Azure 資訊安全中心常見問題集](security-center-faq.md)--尋找在使用服務時經常會遇到的問題。
+- [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/)--尋找有關 Azure 安全性與相容性的部落格文章。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -265,13 +265,13 @@ Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagg
 
 	如果您輸入了其他人已使用的名稱，您就會在右邊看到紅色驚嘆號，而不是綠色勾號，這代表您需要輸入不同的名稱。
 
-	Azure 將使用這個名稱做為應用程式 URL 的前置詞。完整的 URL 組合是這個名稱加上 *.azurewebsites.net* 。例如，若名稱為 `ToDoListDataAPI`，URL 會是 `todolistdataapi.azurewebsites.net`。
+	Azure 將使用這個名稱做為應用程式 URL 的前置詞。完整的 URL 組合是這個名稱加上 *.azurewebsites.net*。例如，若名稱為 `ToDoListDataAPI`，URL 會是 `todolistdataapi.azurewebsites.net`。
 
 6. 在 [資源群組] 下拉式清單中，按一下 [新增]，然後輸入 "ToDoListGroup" 或其他您偏好使用的名稱。
 
 	資源群組是 Azure 資源的集合，例如 API 應用程式、資料庫、VM 等等。在本教學課程中，最好建立新的資源群組，因為這麼做即可在一個步驟中輕鬆刪除您為本教學課程建立的所有 Azure 資源。
 
-	此方塊可讓您選取現有的[資源群組](../azure-preview-portal-using-resource-groups.md)，或藉由輸入與您的訂用帳戶中任何現有的資源群組不同的名稱，以建立新的資源群組。
+	此方塊可讓您選取現有的[資源群組](../azure-portal/resource-group-portal.md)，或藉由輸入與您的訂用帳戶中任何現有的資源群組不同的名稱，以建立新的資源群組。
 
 4. 按一下 [App Service 方案] 下拉式清單旁邊的 [新增] 按鈕。
 
@@ -534,4 +534,4 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 在本教學課程中，您已了解如何建立 API 應用程式、對其部署程式碼、為其產生用戶端程式碼，以及從 .NET 用戶端取用應用程式。API Apps 入門系列中的下一個教學課程示範如何[使用 CORS 從 JavaScript 用戶端取用 API 應用程式](app-service-api-cors-consume-javascript.md)。本系列的教學課程稍後會顯示如何實作驗證與授權。
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/06/2016"
+	ms.date="03/22/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：在您的應用程式中註冊與登入取用者
@@ -22,7 +22,7 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
 
 在過去，應用程式開發人員若想要註冊並讓取用者登入其應用程式，他們會編寫自己的程式碼。而且他們會使用內部部署資料庫或系統來儲存使用者名稱和密碼。Azure Active Directory B2C 為開發人員提供更理想的做法，透過安全且以標準為基礎的平台以及豐富的可延伸原則組合，協助將取用者身分識別管理整合至應用程式。當您使用 Azure Active Directory B2C 時，您的取用者可以使用現有的社交帳戶 (Facebook、Google、Amazon、LinkedIn) 註冊應用程式，或是建立新的認證 (電子郵件地址與密碼，或使用者名稱與密碼)；後者稱為「本機帳戶」。
 
-Azure Active Directory B2C 處於預覽版狀態。我們冀望在此期間能聆聽您的寶貴意見反應與試用體驗。我們可能會根據這些意見反應進行重大變更，以改善服務。在這段期間，請勿發行使用預覽版的生產應用程式。透過「[使用者心聲](https://feedback.azure.com/forums/169401-azure-active-directory/)」(User Voice) 與我們分享您的想法。
+Azure Active Directory B2C 處於預覽版狀態。我們冀望在此期間能聆聽您的寶貴意見反應與試用體驗。我們可能會根據這些意見反應進行重大變更，以改善服務。在這段期間，請勿發行使用預覽版的生產應用程式。透過「[使用者意見](https://feedback.azure.com/forums/169401-azure-active-directory/)」(User Voice) 與我們分享您的想法。
 
 ## 開始使用
 
@@ -37,13 +37,14 @@ Azure Active Directory B2C 處於預覽版狀態。我們冀望在此期間能�
 請不時返回此處查看，瞭解關於 Azure Active Directory B2C 預覽未來變更的相關資訊。我們也會使用 @AzureAD 發佈任何更新的相關推文。
 
 - 瞭解關於[可延伸原則架構](active-directory-b2c-reference-policies.md)，以及您在應用程式中可建立和使用的原則類型資訊。
+- 將我們的[服務健康狀態頁面](active-directory-b2c-service-health.md)設為標籤，以取得次要服務問題、狀態和補救措施的通知。也請持續監視 [Azure 狀態儀表板](https://azure.microsoft.com/status/)。
 - 目前[預覽版的限制和條件約束](active-directory-b2c-limitations.md)。
 
 ## 操作說明文章
 
 瞭解如何使用特定 Azure Active Directory B2C 預覽功能：
 
-- 設定您要在取用者導向應用程式中使用的 [Facebook](active-directory-b2c-setup-fb-app.md)、[Google+](active-directory-b2c-setup-goog-app.md)、[Microsoft 帳戶](active-directory-b2c-setup-msa-app.md)、[Amazon](active-directory-b2c-setup-amzn-app.md) 和 [LinkedIn](active-directory-b2c-setup-li-app.md)。
+- 設定您要在取用者導向應用程式中使用的 [Facebook](active-directory-b2c-setup-fb-app.md)、[Google+](active-directory-b2c-setup-goog-app.md)、[Microsoft 帳戶](active-directory-b2c-setup-msa-app.md)、[Amazon](active-directory-b2c-setup-amzn-app.md) 和 [LinkedIn](active-directory-b2c-setup-li-app.md) 帳戶。
 - [使用自訂屬性來收集取用者相關資訊](active-directory-b2c-reference-custom-attr.md)。
 - [在取用者導向應用程式中啟用 Azure Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)。
 - [設定取用者的自助式密碼重設](active-directory-b2c-reference-sspr.md)。
@@ -55,12 +56,12 @@ Azure Active Directory B2C 處於預覽版狀態。我們冀望在此期間能�
 以下連結有助於深入探索服務：
 
 - 請參閱 [Active Directory B2C 價格資訊](https://azure.microsoft.com/pricing/details/active-directory-b2c/)。
-- 使用 [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 或 [adal](http://stackoverflow.com/questions/tagged/adal) 標記，取得堆疊溢位的相關說明。
-- 透過 [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/) 告訴我們您對預覽版的想法 - 我們冀望瞭解您的看法！ 請在您的文章標題中使用 "AzureADB2C:" 字詞，以方便我們尋找。
+- 使用 [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 或 [adal](http://stackoverflow.com/questions/tagged/adal) 標記，取得 Stack Overflow 的相關說明。
+- 透過[使用者意見](https://feedback.azure.com/forums/169401-azure-active-directory/)告訴我們您對預覽版的想法 - 我們冀望瞭解您的看法！ 請在您的文章標題中使用 "AzureADB2C:" 字詞，以方便我們尋找。
 - Azure Active Directory B2C 使用稱為「應用程式模型 v2.0」的應用程式註冊模型，可支援業界標準通訊協定、OpenID Connect 和 OAuth 2.0。
   - [應用程式模型 v2.0 通訊協定參考](active-directory-b2c-reference-protocols.md)
   - [應用程式模型 v2.0 權杖參考](active-directory-b2c-reference-tokens.md)
 - 閱讀 [Azure Active Directory B2C 常見問題集](active-directory-b2c-faqs.md)。
 - [提出 Azure Active Directory B2C 的支援要求](active-directory-b2c-support.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -53,13 +53,13 @@
 
 步驟 | 說明
 -----| -----------
-[步驟 1：建立 Azure Data Factory](#CreateDataFactory) | 在此步驟中，您將建立名為 **ADFTutorialDataFactoryPSH** 的 Azure Data Factory。 
-[步驟 2：建立連結服務](#CreateLinkedServices) | 在此步驟中，您將建立兩個連結服務：**StorageLinkedService** 和 **AzureSqlLinkedService**。StorageLinkedService 會連結 Azure 儲存體，而 AzureSqlLinkedService 會將 Azure SQL Database 連結至 ADFTutorialDataFactoryPSH。
-[步驟 3：建立輸入和輸出資料集](#CreateInputAndOutputDataSets) | 在此步驟中，您將定義兩個資料集 (**EmpTableFromBlob** 和 **EmpSQLTable**)，當您在下一個步驟中建立 ADFTutorialPipeline 時，可將這兩個資料集做為**複製活動**的輸入和輸出資料表。
-[步驟 4：建立和執行管線](#CreateAndRunAPipeline) | 在此步驟中，您將在 Data Factory **ADFTutorialDataFactoryPSH** 中建立名為 **ADFTutorialPipeline** 的管線。此管線的複製活動會將資料從 Azure Blob 複製到輸出 Azure 資料庫資料表。
-[步驟 5：監視資料集和管線](#MonitorDataSetsAndPipeline) | 在此步驟中，您將使用 Azure PowerShell 來監視資料集和管線。
+[建立 Azure Data Factory](#create-data-factory) | 在此步驟中，您將建立名為 **ADFTutorialDataFactoryPSH** 的 Azure Data Factory。 
+[建立連結服務](#create-linked-services) | 在此步驟中，您將建立兩個連結服務：**StorageLinkedService** 和 **AzureSqlLinkedService**。StorageLinkedService 會連結 Azure 儲存體，而 AzureSqlLinkedService 會將 Azure SQL Database 連結至 ADFTutorialDataFactoryPSH。
+[建立輸入和輸出資料集](#create-datasets) | 在此步驟中，您將定義兩個資料集 (**EmpTableFromBlob** 和 **EmpSQLTable**)，當您在下一個步驟中建立 ADFTutorialPipeline 時，可將這兩個資料集做為**複製活動**的輸入和輸出資料表。
+[建立及執行管線](#create-pipeline) | 在此步驟中，您將在 Data Factory **ADFTutorialDataFactoryPSH** 中建立名為 **ADFTutorialPipeline** 的管線。此管線的複製活動會將資料從 Azure Blob 複製到輸出 Azure 資料庫資料表。
+[監視資料集和管線](#monitor-pipeline) | 在此步驟中，您將使用 Azure PowerShell 來監視資料集和管線。
 
-## <a name="CreateDataFactory"></a>步驟 1：建立 Azure Data Factory
+## 建立 Data Factory
 在此步驟中，您會使用 Azure PowerShell 建立名為 **ADFTutorialDataFactoryPSH** 的 Azure Data Factory。
 
 1. 開啟 Azure PowerShell 並執行下列命令。將 Azure PowerShell 維持在開啟狀態，直到本教學課程結束為止。如果您關閉並重新開啟，則需要再次執行這些命令。
@@ -79,7 +79,7 @@
 
 	> [AZURE.NOTE] Data Factory 的名稱未來可能會註冊為 DNS 名稱，因此會變成公開可見的名稱。
 
-## <a name="CreateLinkedServices"></a>步驟 2：建立連結服務
+## 建立連結服務
 連結服務會將資料存放區或計算服務連結至 Azure Data Factory。資料存放區可以是 Azure 儲存體、Azure SQL Database 或內部部署 SQL Server 資料庫，且內含 Data Factory 管線的輸入資料或儲存其輸出資料。計算服務是處理輸入資料並產生輸出資料的服務。
 
 在此步驟中，您將建立兩個連結服務：**StorageLinkedService** 和 **AzureSqlLinkedService**。StorageLinkedService 連結服務會連結 Azure 儲存體帳戶，而 AzureSqlLinkedService 會將 Azure SQL Database 連結至 Data Factory：**ADFTutorialDataFactoryPSH**。您稍後將在本教學課程中建立管線，以將資料從 StorageLinkedService 中的 Blob 容器複製到 AzureSqlLinkedService 中的 SQL 資料表。
@@ -141,7 +141,7 @@
 	5. 按一下左邊的 [作用中] 中樞，切換至原先的 [Data Factory] 刀鋒視窗。
 	
 
-## <a name="CreateInputAndOutputDataSets"></a>步驟 3：建立輸入和輸出資料表
+## 建立資料集
 
 在上一個步驟中，您已建立連結服務 **StorageLinkedService** 和 **AzureSqlLinkedService**，將 Azure 儲存體帳戶和 Azure SQL Database 連結至 Data Factory：**ADFTutorialDataFactoryPSH**。在此步驟中，您將建立資料集，這些資料集在下一個步驟所建立的管線中，會代表複製活動的輸入和輸出資料。
 
@@ -180,9 +180,9 @@
 
 	如果您的電腦上已安裝 SQL Server 2014：請遵循[步驟 2：使用 SQL Server Management Studio 連接到管理 Azure SQL Database 的 SQL Database][sql-management-studio] 文章中的指示，連接到您的 Azure SQL Server，並執行 SQL 指令碼。
 
-	若您的電腦上已安裝 Visual Studio 2013：請在 Azure 入口網站中 ([http://portal.azure.com](http://portal.sazure.com))，依序按一下左側的 [瀏覽] 中樞、[SQL Server]，選取您的資料庫，然後按一下工具列上的 [在 Visual Studio 中開啟] 按鈕，以連接到您的 Azure SQL Server 並執行指令碼。如果不允許您的用戶端存取 Azure SQL Server，則必須將 Azure SQL Server 的防火牆設定成允許從您的電腦 (IP 位址) 存取。請參閱上文的步驟，設定 Azure SQL Server 的防火牆。
+	若您的電腦上已安裝 Visual Studio 2013：請在 Azure 入口網站中 ([http://portal.azure.com](http://portal.sazure.com))，依序按一下左側的 [瀏覽] 中樞、[SQL Server]，選取您的資料庫，然後按一下工具列上的 [在 Visual Studio 中開啟] 按鈕，以連接到您的 Azure SQL Server 並執行指令碼。如果不允許您的用戶端存取 Azure SQL Server，則必須將 Azure SQL Server 的防火牆設定成允許從您的電腦 (IP 位址) 存取。請參閱上文的步驟，為 Azure SQL Server 設定防火牆。
 		
-### 建立輸入資料表 
+### 建立輸入資料集 
 資料表是矩形的資料集，並具有的結構描述。在此步驟中，您將在 **StorageLinkedService** 連結服務所代表的 Azure 儲存體中，建立指向 Blob 容器的 **EmpBlobTable** 資料表。此 Blob 容器 (**adftutorial**) 包含的輸入資料位於 **emp.txt** 檔案中。
 
 1.	在 **C:\\ADFGetStartedPSH** 資料夾中，使用下列內容建立名為 **EmpBlobTable.json** 的 JSON 檔案：
@@ -250,7 +250,7 @@
 
 		New-AzureRmDataFactoryDataset $df -File .\EmpBlobTable.json
 
-### 建立輸出資料表
+### 建立輸出資料集
 在這部分的步驟中，您將在 **AzureSqlLinkedService** 連結服務所代表的 Azure SQL Database中，建立指向 SQL 資料表 (**emp**) 的輸出資料表 **EmpSQLTable**。管線會將輸入 Blob 中的資料複製到 **emp** 資料表。
 
 1.	在 **C:\\ADFGetStartedPSH** 資料夾中，使用下列內容建立名為 **EmpSQLTable.json** 的 JSON 檔案。
@@ -293,7 +293,7 @@
 		New-AzureRmDataFactoryDataset $df -File .\EmpSQLTable.json
 
 
-## <a name="CreateAndRunAPipeline"></a>步驟 4：建立和執行管線
+## 建立管線
 在此步驟中，您會建立管線，其中含有使用 **EmpTableFromBlob** 做為輸入和使用 **EmpSQLTable** 做為輸出的複製活動。
 
 1.	在 **C:\\ADFGetStartedPSH** 資料夾中，使用下列內容建立名為 **ADFTutorialPipeline.json** 的 JSON 檔案。 
@@ -359,7 +359,7 @@
 
 **恭喜！** 您已成功建立 Azure Data Factory、連結服務、資料表和管線，以及排定的管線。
 
-## <a name="MonitorDataSetsAndPipeline"></a>步驟 5：監視資料集和管線
+## 監視管線
 在此步驟中，您將使用 Azure PowerShell 來監視 Azure Data Factory 的運作情形。
 
 1.	執行 **Get-AzureRmDataFactory** 並指派輸出給變數 $df。
@@ -447,4 +447,4 @@
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

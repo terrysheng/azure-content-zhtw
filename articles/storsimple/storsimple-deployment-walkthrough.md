@@ -20,7 +20,7 @@
 > [AZURE.SELECTOR]
 - [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
 - [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
-- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
+- [GA 版本](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## 概觀
 
@@ -34,7 +34,7 @@
 
 您必須需要有系統管理員權限，才能完成安裝和設定程序。建議您在開始之前，檢閱設定檢查清單。部署與設定程序可能需要一些時間才能完成。
 
-> [AZURE.NOTE] 發佈於 Microsoft Azure 網站上的 StorSimple 部署資訊僅適用於 StorSimple 8000 系列裝置。如需 7000 系列裝置的完整資訊，請移至： [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)。如需 7000 系列部署資訊，請參閱 [StorSimple 系統快速入門指南](http://onlinehelp.storsimple.com/111_Appliance/)。
+> [AZURE.NOTE] 發佈於 Microsoft Azure 網站上的 StorSimple 部署資訊僅適用於 StorSimple 8000 系列裝置。如需 5000 和 7000 系列裝置的完整資訊，請移至：[http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)。如需 5000 和 7000 系列部署資訊，請參閱 [StorSimple 系統快速入門指南](http://onlinehelp.storsimple.com/111_Appliance/)。
 
 ## 部署步驟
 
@@ -146,7 +146,7 @@
 | | | |
 | **NTP** | 我們會在 NTP 伺服器輸入時觸發時間同步處理。請在您輸入 `time.windows.com` 或公用時間伺服器時檢查 UDP 連接埠 123 是否開啟)。 | [下載並使用此指令碼](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca)。 |
 | | | |
-| **Proxy (選用)** | 這是有效的 Proxy URI 和連接埠嗎？ </br> 驗證模式是否正確？ | <code>wget http://bing.com &#124; % {$\_.StatusCode}</code></br> 此命令應該在設定 Web Proxy 後立即執行。如果傳回狀態碼 200，則表示連接成功。 |
+| **Proxy (選用)** | 這是有效的 Proxy URI 和連接埠嗎？ </br> 驗證模式是否正確？ | <code>wget http://bing.com | % {$\_.StatusCode}</code></br> 此命令應該在設定 Web Proxy 後立即執行。如果傳回狀態碼 200，則表示連接成功。 |
 | | 流量是否可透過 Proxy 路由？ | 在裝置上設定 Proxy 之後，請執行 DNS 驗證、NTP 檢查 或 HTTP 檢查。這會清楚的反映流量是否在 Proxy 或其他地方遭到封鎖。 |
 | | | |
 | **註冊** | 檢查輸出 TCP 連接埠 443、80、9354 是否開啟。 | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Test-NetConnection Cmdlet 的詳細資訊](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -168,7 +168,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 > [AZURE.IMPORTANT] 如果您並未啟用服務自動建立儲存體帳戶，您將必須在成功建立服務後，至少建立一個儲存體帳戶。當您建立磁碟區容器時，將會使用此儲存體帳戶。
 >
 > 如果您未自動建立儲存體帳戶，請移至[針對服務設定新的儲存體帳戶](#configure-a-new-storage-account-for-the-service)以取得詳細指示。
-> 如果您已啟用自動建立儲存體帳戶，請移至[步驟 2：取得服務註冊金鑰](#step-2:-get-the-service-registration-key)。
+>如果您已啟用自動建立儲存體帳戶，請移至[步驟 2：取得服務註冊金鑰](#step-2:-get-the-service-registration-key)。
 
 ## 步驟 2：取得服務註冊金鑰
 
@@ -261,11 +261,11 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 更新裝置可能會花費 1 到 4 小時。在裝置上執行下列步驟來掃描並套用更新。
 
-> [AZURE.NOTE] 如果您已在 Data 0 以外的網路介面設定閘道器，安裝更新前您必須先停用 Data 2 和 Data 3 網路介面。請移至 **[裝置] > [設定]** 並停用 Data 2 和 Data 3 介面。裝置更新之後，您應該重新啟用這些介面。
+> [AZURE.NOTE] 如果您已在 Data 0 以外的網路介面設定閘道器，安裝更新前您必須先停用 Data 2 和 Data 3 網路介面。請移至 [裝置] > [設定] 並停用 Data 2 和 Data 3 介面。裝置更新之後，您應該重新啟用這些介面。
 
 #### 若要更新裝置
 1.	在裝置的 [快速入門] 頁面上，按一下 [裝置]。選取實體裝置，按一下 [維護]，然後按一下 [掃描更新]。  
-2.	系統會建立掃描可用更新的工作。如果有可用的更新，[掃描更新] 會變更為 [安裝更新]。按一下 [**安裝更新**]。系統可能會要求您在安裝更新前停用 Data 2 和 Data 3。您必須停用這些網路介面，否則更新會失敗。
+2.	系統會建立掃描可用更新的工作。如果有可用的更新，[掃描更新] 會變更為 [安裝更新]。按一下 [安裝更新]。系統可能會要求您在安裝更新前停用 Data 2 和 Data 3。您必須停用這些網路介面，否則更新會失敗。
 3.	更新工作將會建立。巡覽至 [工作] 以監視更新的狀態。
 
 	> [AZURE.NOTE] 當更新工作啟動時，狀態會立即顯示為 50 %。只有在更新工作完成之後，狀態才會變更為 100 %。更新程序沒有即時狀態。
@@ -294,4 +294,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。針對第一次�
 
 - 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx)以管理 StorSimple 裝置。
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

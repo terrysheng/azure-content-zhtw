@@ -8,7 +8,7 @@
 
 2. 在 [方案總管] 中，以滑鼠右鍵按一下 **SimulatedDevice** 專案，然後按一下 [管理 NuGet 封裝]。
 
-3. 在 [NuGet 封裝管理員] 視窗中，搜尋 [Microsoft Azure 裝置用戶端]，按一下 [安裝] 並接受使用規定。
+3. 在 [NuGet 封裝管理員] 視窗中選取 [瀏覽]、搜尋 **Microsoft.Azure.Devices.Client**、按一下 [安裝] 以安裝 [Microsoft.Azure.Devices.Client] 封裝，並接受使用規定。
 
 	這會下載及安裝參考，並將其加入 [Azure IoT - 裝置 SDK NuGet 封裝][lnk-device-nuget]。
 
@@ -18,7 +18,7 @@
         using Newtonsoft.Json;
         using System.Threading;
 
-5. 在 [程式] 類別加入下列欄位，以*建立 IoT 中樞*小節中擷取的 IoT 中樞主機名稱和*建立裝置身分識別*小節中擷取的裝置金鑰取代預留位置值：
+5. 在 [程式] 類別加入下列欄位，以＜建立 IoT 中樞＞小節中擷取的 IoT 中樞主機名稱和＜建立裝置身分識別＞小節中擷取的裝置金鑰取代預留位置值：
 
 		static DeviceClient deviceClient;
         static string iotHubUri = "{iot hub hostname}";
@@ -73,4 +73,4 @@
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

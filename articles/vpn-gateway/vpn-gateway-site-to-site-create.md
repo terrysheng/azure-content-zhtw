@@ -14,37 +14,46 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
+   ms.date="03/16/2016"
    ms.author="cherylmc"/>
 
 # 使用 Azure 傳統入口網站建立具有站對站 VPN 連線的虛擬網路
 
 > [AZURE.SELECTOR]
-- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Azure 傳統入口網站](vpn-gateway-site-to-site-create.md)
+- [PowerShell - 資源管理員](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-本文將逐步引導您建立虛擬網路以及內部部署網路的站對站 VPN 連線。站對站連線可以用於跨部署與混合式組態。本文適用於**傳統**部署模型。如果您想要建立**資源管理員**部署模型的站對站連線，請參閱〈[使用 Azure 資源管理員和 PowerShell 設定站對站連線](vpn-gateway-create-site-to-site-rm-powershell.md)〉。如果您想要將 Vnet 連接在一起，但不要建立內部部署位置的連線，請參閱[設定傳統部署模型的 VNet 對 VNet 連線](virtual-networks-configure-vnet-to-vnet-connection.md)或[設定資源管理員部署模型的 VNet 對 VNet 連線](vpn-gateway-vnet-vnet-rm-ps.md)。
+本文將逐步引導您建立虛擬網路以及內部部署網路的站對站 VPN 連線。站對站連線可以用於跨部署與混合式組態。本文適用於傳統部署模型並且會使用 Azure 傳統入口網站。
 
 **關於 Azure 部署模型**
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
  
+![站對站圖表](./media/vpn-gateway-site-to-site-create/site2site.png "站對站")
+
+**站對站連線的部署模型和工具**
+
+[AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
+ 
+如果您想要將 Vnet 連接在一起，但不要建立內部部署位置的連線，請參閱[設定傳統部署模型的 VNet 對 VNet 連線](virtual-networks-configure-vnet-to-vnet-connection.md)或[設定資源管理員部署模型的 VNet 對 VNet 連線](vpn-gateway-vnet-vnet-rm-ps.md)。
+
+ 
 ## 開始之前
 
 在開始設定之前，請確認您具備下列項目。
 
-- 相容的 VPN 裝置 (以及能夠進行設定的人員)。請參閱[關於 VPN 裝置](vpn-gateway-about-vpn-devices.md)。如果不熟悉設定 VPN 裝置，或不熟悉位於內部部署網路組態的 IP 位址範圍，則您將需要與能夠提供那些詳細資料的人協調。
+- 相容的 VPN 裝置以及能夠進行設定的人員。請參閱[關於 VPN 裝置](vpn-gateway-about-vpn-devices.md)。如果不熟悉設定 VPN 裝置，或不熟悉位於內部部署網路組態的 IP 位址範圍，則您將需要與能夠提供那些詳細資料的人協調。
 
 -  您的 VPN 裝置對外開放的公用 IP 位址。此 IP 位址不能位於 NAT 後方。
 
-- Azure 訂用帳戶。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+- Azure 訂閱。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
 
 ## 建立虛擬網路
 
-1. 登入 **Azure 傳統入口網站**。
+1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)。
 
-2. 按一下螢幕左下角的 [新增]。在導覽窗格中依序按一下 [網路服務] 和 [虛擬網路]。按一下 [**自訂建立**] 開始組態精靈。
+2. 按一下螢幕左下角的 [新增]。在導覽窗格中依序按一下 [網路服務] 和 [虛擬網路]。按一下 [自訂建立] 開始組態精靈。
 
 3. 在下列頁面上填寫資訊來建立 VNet。
 
@@ -52,20 +61,20 @@
 
 輸入以下資訊：
 
-- **名稱**：為虛擬網路命名。例如， *EastUSVNet* 。當您部署 VM 和 PaaS 執行個體時，將會使用此虛擬網路名稱，因此您可能不會想要太過複雜的名稱。
-- **位置**：位置會與您要存放資源 (VM) 的實體位置 (區域) 直接相關。例如，如果想要您部署到此虛擬網路的 VM 實際上位於 *美國東部*，請選取該位置。建立關聯之後，您就無法變更與虛擬網路相關聯的區域。
+- **名稱**：為虛擬網路命名。例如，EastUSVNet。當您部署 VM 和 PaaS 執行個體時，將會使用此虛擬網路名稱，因此您可能不會想要太過複雜的名稱。
+- **位置**：位置會與您要存放資源 (VM) 的實體位置 (區域) 直接相關。例如，如果想要您部署到此虛擬網路的 VM 實際上位於「美國東部」，請選取該位置。建立關聯之後，您就無法變更與虛擬網路相關聯的區域。
 
 ## DNS 伺服器和 VPN 連線能力頁面
 
 輸入下列資訊，然後按一下右下角的 [下一步] 箭頭。
 
 - **DNS 伺服器**：輸入 DNS 伺服器名稱和 IP 位址，或從捷徑功能表中選取先前註冊的 DNS 伺服器。此設定不會建立 DNS 伺服器，它可讓您指定您想要用於此虛擬網路的名稱解析的 DNS 伺服器。
-- **設定站台對站台 VPN**：選取 [**設定站台對站台 VPN**] 的核取方塊。
-- **區域網路**：表示實體內部部署位置的本機網路。您可以選取先前建立的區域網路，或者可以建立新的區域網路。不過，如果您真的選取使用您先前建立的區域網路，您會想要移至 [**區域網路**] 組態頁面，並確定您對此連線使用之 VPN 裝置的 IP 位址 (公開 IPv4 位址) 正確無誤。
+- **設定站台對站台 VPN**：選取 [設定站台對站台 VPN] 的核取方塊。
+- **區域網路**：表示實體內部部署位置的本機網路。您可以選取先前建立的區域網路，或者可以建立新的區域網路。不過，如果您真的選取使用您先前建立的區域網路，您會想要移至 [區域網路] 組態頁面，並確定您對此連線使用之 VPN 裝置的 IP 位址 (公開 IPv4 位址) 正確無誤。
 
 ## 站台對站台連線能力頁面
 
-如果您正在建立新的區域網路，將看到 [**站台對站台連線能力**] 頁面。如果您想要使用先前建立的區域網路，此頁面不會出現在精靈中，而您可以移至下一節。
+如果您正在建立新的區域網路，將看到 [站台對站台連線能力] 頁面。如果您想要使用先前建立的區域網路，此頁面不會出現在精靈中，而您可以移至下一節。
 
 輸入下列資訊，然後按一下 [下一步] 箭頭。
 
@@ -96,8 +105,6 @@
 
 ## 後續步驟
 
-您可以將虛擬機器加入您的虛擬網路。請參閱[如何建立自訂虛擬機器](../virtual-machines/virtual-machines-create-custom.md)。
+一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。如需詳細資訊，請參閱[虛擬機器文件](https://azure.microsoft.com/documentation/services/virtual-machines/)。
 
-如果您想要使用 Azure 資源管理員模式，設定在傳統虛擬網路與所建立的虛擬網路之間的連線，請參閱[將傳統 VNet 連線至 Azure 資源管理員 VNet](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)。
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

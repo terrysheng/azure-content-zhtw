@@ -39,7 +39,7 @@
 
 本教學課程需要下列各項：
 
-+ [行動服務 iOS SDK 2.x 版]
++ [行動服務 iOS SDK 1.2.4 版]
 + 最新版的 [Xcode]
 + 支援 iOS 8 (或更新版本) 的裝置
 + [Apple Developer Program](https://developer.apple.com/programs/) 成員資格。
@@ -86,7 +86,7 @@
 
    	![Xcode - 佈建設定檔][9]
 
-4. 下載 [行動服務 iOS SDK 2.x 版]，然後將檔案解壓縮。在 Xcode 中，以滑鼠右鍵按一下您的專案，然後按一下 [新增檔案至] 選項，將 **WindowsAzureMessaging.framework** 資料夾加入至 Xcode 專案。選取 [必要時複製項目]，然後按一下 [新增]。
+4. 下載 [行動服務 iOS SDK 1.2.4 版]，然後將檔案解壓縮。在 Xcode 中，以滑鼠右鍵按一下您的專案，然後按一下 [新增檔案至] 選項，將 **WindowsAzureMessaging.framework** 資料夾加入至 Xcode 專案。選取 [必要時複製項目]，然後按一下 [新增]。
 
 	>[AZURE.NOTE] 通知中樞 SDK 目前不支援 Xcode 7 上的 Bitcode。您必須在專案的 [建置選項] 中將 [啟用 Bitcode] 設定為 [否]。
 
@@ -486,8 +486,7 @@
 
 
 <!-- URLs. -->
-[Mobile Services iOS SDK version 1.2.4]: http://aka.ms/kymw2g
-[行動服務 iOS SDK 2.x 版]: https://github.com/Azure/azure-mobile-services/blob/master/CHANGELOG.ios.md#sdk-downloads
+[行動服務 iOS SDK 1.2.4 版]: http://aka.ms/kymw2g
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -506,4 +505,4 @@
 [本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure 入口網站]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

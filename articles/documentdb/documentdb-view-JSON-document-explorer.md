@@ -158,4 +158,4 @@ Azure 入口網站中的 Document Explorer 只是一種處理 DocumentDB 中文�
 
 [學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)也是很實用的資源，可引導您深入了解 DocumentDB。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

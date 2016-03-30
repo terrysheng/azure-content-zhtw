@@ -55,7 +55,7 @@ HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 
 * [說明文件](https://technet.microsoft.com/library/jj899572.aspx)
 
 
-* [在 Azure 中使用 Microsoft HPC Pack 的 HPC 叢集選項](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
+* [在 Azure 中使用 Microsoft HPC Pack 的 HPC 叢集選項](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md)
 
 * [使用 HPC Pack 將量擴大到 Azure 工作執行個體](https://technet.microsoft.com/library/gg481749.aspx)
 
@@ -87,15 +87,16 @@ HPC Pack 是建置在 Microsoft Azure 和 Windows Server 技術上的 Microsoft 
 
 ## 計算密集型執行個體
 
-Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md) (包括能夠連接到後端 RDMA 網路的計算密集型 [A8 和 A9](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) 執行個體) 來執行您的 Linux 和 Windows HPC 工作負載。
+Azure 提供[各種大小](../virtual-machines/virtual-machines-windows-sizes.md) (包括能夠連接到後端 RDMA 網路的計算密集型 [A8 和 A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) 執行個體) 來執行您的 Linux 和 Windows HPC 工作負載。
 
-* [設定 Linux RDMA 叢集以執行 MPI 應用程式](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
-* [使用 Microsoft HPC Pack 設定 Windows RDMA 叢集以執行 MPI 應用程式](../virtual-machines/virtual-machines-windows-hpcpack-cluster-rdma.md)
+* [設定 Linux RDMA 叢集以執行 MPI 應用程式](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
+
+* [使用 Microsoft HPC Pack 設定 Windows RDMA 叢集以執行 MPI 應用程式](../virtual-machines/virtual-machines-windows-classic-hpcpack-rdma-cluster.md)
 
 ## 架構藍圖
 
-* [使用 Azure Batch 和 Azure Data Factory 的 HPC 及資料協調](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) 和[文章](../data-factory/data-factory-data-processing-using-batch.md)
+* [HPC and data orchestration using Azure Batch and Azure Data Factory (使用 Azure Batch 和 Azure Data Factory 的 HPC 及資料協調)](http://go.microsoft.com/fwlink/?linkid=717686) (PDF) 和[文章](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## 範例和示範
 
@@ -145,4 +146,4 @@ Azure 提供[各種大小](../virtual-machines/virtual-machines-size-specs.md) (
 * 最新宣告請參閱 [Microsoft HPC 和批次的小組部落格](http://blogs.technet.com/b/windowshpc/)以及[Azure 部落格](https://azure.microsoft.com/blog/tag/hpc/)。
 * 另請參閱[批次的新功能](https://azure.microsoft.com/updates/?service=batch)或訂閱 [RSS 摘要](https://azure.microsoft.com/updates/feed/?service=batch)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

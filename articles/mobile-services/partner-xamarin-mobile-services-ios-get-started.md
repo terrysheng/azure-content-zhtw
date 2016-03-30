@@ -13,21 +13,16 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/10/2016"
+	ms.date="03/16/2016"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>開始使用行動服務
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[建立 Xamarin.iOS 應用程式](../app-service-mobile/app-service-mobile-xamarin-ios-get-started.md)。
 
-本教學課程將示範如何使用 Azure 行動服務，以將雲端後端服務新增至 Xamarin.iOS 應用程式。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單*待辦事項*應用程式。
+本教學課程將示範如何使用 Azure 行動服務，以將雲端後端服務新增至 Xamarin.iOS 應用程式。在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單待辦事項應用程式。
 
 如果您想要看影片，下方片段播放的步驟與本教學課程相同。
 
@@ -69,7 +64,7 @@
 
 5. 按一下 [Download and run app] 下的 [下載]。
 
-	這會下載與行動服務連接之範例_待辦事項清單_應用程式的專案，以及參考 Xamarin.iOS 的 Azure 行動服務元件。請將壓縮的專案檔案儲存至本機電腦，並記下儲存位置。
+	這會下載與行動服務連接之範例待辦事項清單應用程式的專案，以及參考 Xamarin.iOS 的 Azure 行動服務元件。請將壓縮的專案檔案儲存至本機電腦，並記下儲存位置。
 
 ## 執行新的 Xamarin.iOS 應用程式
 
@@ -83,7 +78,7 @@
 
 2. 按 [執行] 按鈕以建立專案，並在 iPhone 模擬器中啟動應用程式 (此專案的預設選項)。
 
-3. 在應用程式中輸入有意義的文字 (例如 _Complete the tutorial_)，然後按一下加號 (**+**) 圖示。
+3. 在應用程式中輸入有意義的文字 (例如 Complete the tutorial)，然後按一下加號 (**+**) 圖示。
 
 	![][10]
 
@@ -141,4 +136,4 @@
 
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

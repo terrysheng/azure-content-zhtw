@@ -4,9 +4,9 @@
 	description="這是如何監視內部部署 AD FS 基礎結構的 Azure AD Connect Health 頁面。"
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="karavar"
 	manager="stevenpo"
-	editor="curtand"/>
+	editor="karavar"/>
 
 <tags
 	ms.service="active-directory"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/17/2016"
-	ms.author="billmath"/>
+	ms.date="03/21/2016"
+	ms.author="vakarand"/>
 
 # 使用 Azure AD Connect Health 搭配 AD FS
 下列文件適用於使用 Azure AD Connect Health 來監視 AD FS 基礎結構。
@@ -32,7 +32,7 @@
 ## AD FS 的使用情況分析
 Azure AD Connect Health 使用情況分析會分析您的同盟伺服器的驗證流量。選取使用情況分析方塊將會開啟使用情況分析刀鋒視窗，以顯示度量和群組。
 
->[AZURE.NOTE] 若要搭配 AD FS 使用使用情況分析，您必須確定已啟用 AD FS 稽核。如需詳細資訊，請參閱[啟用 AD FS 的稽核](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs)。
+>[AZURE.NOTE] 若要搭配 AD FS 使用使用情況分析，您必須確定已啟用 AD FS 稽核。如需詳細資訊，請參閱[啟用 AD FS 的稽核](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs)。
 
 ![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health/report1.png)
 
@@ -79,13 +79,13 @@ Azure AD Connect Health for ADFS 會提供一份報告，內容有關因為使�
 您可以在這份報告中輕鬆取得下列資訊︰
 
 - 過去 30 天內使用者名稱/密碼錯誤的失敗要求總數
-- 每天由於使用者名稱/密碼不正確而登入失敗的平均使用者人數。 
- 
+- 每天由於使用者名稱/密碼不正確而登入失敗的平均使用者人數。
+
 按一下此組件即可前往可提供其他詳細資料的主要報告刀鋒視窗。其中包括一個提供趨勢資訊的圖形，以便建立有關使用者名稱或密碼錯誤之要求的基準，以及前 50 個使用者清單及其嘗試失敗次數。
- 
+
 此圖形可提供以下資訊：
 
-- 每天由於使用者名稱/密碼不正確而登入失敗的總數。 
+- 每天由於使用者名稱/密碼不正確而登入失敗的總數。
 - 每天登入失敗的唯一使用者總數。
 
 ![Azure AD Connect Health 入口網站](./media/active-directory-aadconnect-health-adfs/report2a.png)
@@ -93,10 +93,10 @@ Azure AD Connect Health for ADFS 會提供一份報告，內容有關因為使�
 此報告提供下列資訊：
 
 | 報告項目 | 說明
-| ------ | -------- | 
+| ------ | -------- |
 |使用者識別碼| 顯示所使用的使用者識別碼。請注意，這個值是使用者在某些情況下輸入的內容，您也會看到使用的錯誤使用者識別碼。|
 |嘗試失敗|顯示該特定使用者識別碼的嘗試失敗總數。此資料表是依據最多失敗嘗試次數以遞減順序排序。|
-|上次失敗|此項目顯示上次發生失敗時的時間戳記。 
+|上次失敗|此項目顯示上次發生失敗時的時間戳記。
 
 
 
@@ -113,4 +113,4 @@ Azure AD Connect Health for ADFS 會提供一份報告，內容有關因為使�
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 版本歷程記錄](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

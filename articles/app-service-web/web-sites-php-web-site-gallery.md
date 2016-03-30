@@ -3,7 +3,7 @@
 	description="了解如何使用 Azure 入口網站為 WordPress 部落格建立新的 Azure Web 應用程式。"
 	services="app-service\web"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="hero-article"
 	ms.date="02/08/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 # 在 Azure App Service 中建立 WordPress Web 應用程式
 
@@ -126,4 +126,4 @@ Azure Marketplace 提供由 Microsoft、協力廠商公司及開放原始碼軟�
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

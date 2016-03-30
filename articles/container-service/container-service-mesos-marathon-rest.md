@@ -46,9 +46,9 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## 部署 Docker 容器
+## 部署 Docker 格式化容器
 
-Docker 容器是使用 json 檔案來透過 Marathon 部署，此檔案描述預期的部署。下列範例會將部署 nginx 容器，並將 Mesos 代理程式的連接埠 80 繫結至容器的連接埠 80。
+Docker 格式化容器是使用 json 檔案來透過 Marathon 部署，此檔案描述預期的部署。下列範例會將部署 nginx 容器，並將 Mesos 代理程式的連接埠 80 繫結至容器的連接埠 80。
 
 ```json
 {
@@ -69,7 +69,7 @@ Docker 容器是使用 json 檔案來透過 Marathon 部署，此檔案描述預
 }
 ```
 
-若要部署的 Docker 容器，請建立您自己的 json 檔案，或使用這裡提供的範例 - [Azure ACS 示範](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json)，並將它儲存在可存取的位置。接下來，執行下列命令並指定 json 檔案的名稱，以部署容器。
+若要部署的 Docker 格式化容器，請建立您自己的 json 檔案，或使用這裡提供的範例 - [Azure ACS 示範](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json)，並將它儲存在可存取的位置。接下來，執行下列命令並指定 json 檔案的名稱，以部署容器。
 
 ```
 curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-type: application/json"
@@ -87,7 +87,7 @@ curl -X POST http://localhost/marathon/v2/groups -d @marathon.json -H "Content-t
 curl localhost/marathon/v2/apps
 ```
 
-## 調整 Docker 容器
+## 調整容器的大小
 
 Marathon API 也可用來相應放大或縮小應用程式部署。前一個範例中已部署應用程式的一個執行個體，讓我們將它相應放大到三個執行個體。若要這樣做，請使用下列 json 文字建立 json 檔案，並將它儲存在可存取的位置。
 
@@ -119,7 +119,7 @@ curl localhost/marathon/v2/apps
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-Docker 容器是使用 json 檔案來透過 Marathon 部署，此檔案描述預期的部署。下列範例會將部署 nginx 容器，並將 Mesos 代理程式的連接埠 80 繫結至容器的連接埠 80。
+Docker 格式容器是使用 json 檔案來透過 Marathon 部署，此檔案描述預期的部署。下列範例會將部署 nginx 容器，並將 Mesos 代理程式的連接埠 80 繫結至容器的連接埠 80。
 
 ```json
 {
@@ -160,4 +160,4 @@ Marathon API 也可用來相應放大或縮小應用程式部署。前一個範�
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

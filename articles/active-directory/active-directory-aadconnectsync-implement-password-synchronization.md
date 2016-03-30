@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/07/2016"
+	ms.date="03/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -90,7 +90,7 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 如果您在安裝 Azure AD Connect 時使用快速設定，則會依預設啟用密碼同步處理。
 
-如果您在安裝 Azure AD Connect 時使用自訂設定，則必須在使用者登入頁面上啟用密碼同步處理。![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
+如果您在安裝 Azure AD Connect 時使用自訂設定，則必須在使用者登入頁面上啟用密碼同步處理。![usersignin](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png)
 
 如果您選擇使用 [與 AD FS 同盟]，則可以選擇性地啟用密碼同步，做為 AD FS 基礎結構失敗時的備用方式。如果您打算使用 Azure AD 網域服務，您也可以啟用它。
 
@@ -116,13 +116,17 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 啟動**同步處理服務管理器**，開啟 [連接器]，選取使用者所在的 Active Directory 連接器，選取 [搜尋連接器空間]，並找到您要尋找的使用者。
 
-![csuser](./media/active-directory-aadsync-implement-password-synchronization/cspasswordsync.png)
+![csuser](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)
 
 在使用者上，選取 [歷程] 索引標籤，並確認至少有一個同步規則的 [密碼同步] 顯示為 **True**。對於預設組態，這會是名為 **In from AD - User AccountEnabled** 的同步規則。
 
+您也應該透過 Metaverse [追蹤使用者](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system)以至 Azure AD 連接器空間，並確定還有 [密碼同步處理] 設定為 [True] 的輸出規則。在預設組態中，這就是名為 [Out to AAD - User Join] 的同步處理規則。
+
+![csuser2](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
+
 若要查看物件的密碼同步詳細資料，請按一下這個頁面底部的 [記錄...] 按鈕。這將會產生此頁面在過去一週使用者的密碼同步狀態的歷程記錄檢視。
 
-![物件記錄檔](./media/active-directory-aadsync-implement-password-synchronization/csobjectlog.png)
+![物件記錄檔](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
 
 狀態欄可能有下列值，其指出問題以及為何未同步處理密碼。
 
@@ -159,4 +163,4 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 * [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

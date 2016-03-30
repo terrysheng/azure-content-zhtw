@@ -47,7 +47,7 @@
 如需詳細資訊，請參閱 [Deprecation of Switch AzureMode in Azure PowerShell (淘汰 Azure PowerShell 中的 Switch AzureMode)](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell)。
 
 
-## 步驟 1：建立 Data Factory
+## 建立 Data Factory
 
 在此步驟中，您會使用 Azure PowerShell 建立名為 **FirstDataFactoryPSH** 的 Azure Data Factory。資料處理站可以有一或多個管線。其中的管線可以有一或多個活動。例如，「複製活動」會從來源複製資料到目的地資料存放區，HDInsight Hive 活動則是執行 Hive 指令碼轉換輸入資料以產生輸出資料。讓我們在這個步驟中開始建立 Data Factory。
 
@@ -70,7 +70,7 @@
 
 建立管線之前，您必須先建立一些 Data Factory 項目。首先，您要先建立連結的服務，以便將資料存放區/電腦連結到您的資料存放區；並定義輸入和輸出資料集，表示資料位於連結的資料存放區中，再建立具有使用這些資料集的活動之管線。
 
-## 步驟 2：建立連結服務 
+## 建立連結服務 
 在此步驟中，您將您的 Azure 儲存體帳戶和隨選 Azure HDInsight 叢集連結到您的 Data Factory。Azure 儲存體帳戶會保留此範例中管線的輸入和輸出資料。HDInsight 連結服務會用來執行此範例中管線活動指定的 Hive 指令碼。您必須識別案例中使用的資料存放區/計算服務，並建立連結的服務將這些服務連結到 Data Factory。
 
 ### 建立 Azure 儲存體連結服務
@@ -147,7 +147,7 @@
 		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
 
 
-## 步驟 3：建立資料集
+## 建立資料集
 在此步驟中，您將建立資料集來代表 Hive 處理的輸入和輸出資料。這些資料集是您稍早在本教學課程中建立的 **StorageLinkedService**。連結的服務會指向 Azure 儲存體帳戶，而資料集則會指定保留輸入和輸出資料儲存體中的容器、資料夾和檔案名稱。
 
 ### 建立輸入資料集
@@ -223,7 +223,7 @@
 
 		New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
 
-## 步驟 3：建立您的第一個管線
+## 建立管線
 在此步驟中，您將建立第一個具有 **HDInsightHive** 活動的管線。請注意，您每個月都可取得輸入配量資訊 (頻率：每月，間隔：1)，輸出配量則是每用產生，而活動的排程器屬性也設為每用 (如下所示)。輸出資料集設定及活動排程器必須相符。這時，輸出資料集會影響排程，因此即使活動並未產生任何輸出，您都必須建立輸出資料集。如果活動沒有任何輸入，您可以略過建立輸入資料集。本節結尾會說明下列 JSON 中使用的屬性。
 
 
@@ -290,7 +290,7 @@
 		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 5. 恭喜，您已經成功使用 Azure PowerShell 建立您的第一個管線！
 
-### <a name="MonitorDataSetsAndPipeline"></a>監視資料集和管線
+## 監視管線
 在此步驟中，您將使用 Azure PowerShell 來監視 Azure Data Factory 的運作情形。
 
 1. 執行 **Get-AzureRmDataFactory** 並指派輸出給 **$df** 變數。
@@ -356,4 +356,4 @@
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

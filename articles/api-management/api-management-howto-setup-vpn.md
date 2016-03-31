@@ -48,19 +48,19 @@
 
 ![透過 VPN 加入 API][api-management-setup-vpn-add-api]
 
-## 
+## API 管理 VPN 支援所需的連接埠
 
+當 API 管理服務執行個體裝載於 VNET 時，會使用下表中的連接埠。如果封鎖這些連接埠，服務可能無法正常運作。搭配 VNET 使用 API 管理時，封鎖這其中一或多個連接埠是最常見的錯誤組態問題。
 
-
-| 連接埠 | 方向 | 傳輸通訊協定 | 目的 |  |
+| 連接埠 | 方向 | 傳輸通訊協定 | 目的 | 來源 / 目的地 |
 |------------------------------|------------------|--------------------|------------------------------------------------------------------|-----------------------------------|
-| 80、443 | 輸入 | TCP |  |  |
-| 80,443 | 輸出 | TCP |  |  |
-| 1433 | 輸出 | TCP |  |  |
-| 9350, 9351, 9352, 9353, 9354 | 輸出 | TCP |  |  |
-| 5671 | 輸出 | AMQP |  |  |
-| 6381, 6382, 6383 | 輸入/輸出 | UDP |  |  |
-| 445 | 輸出 | TCP |  |  |
+| 80、443 | 輸入 | TCP | 與 API 管理的用戶端通訊 | INTERNET / VIRTUAL\_NETWORK |
+| 80,443 | 輸出 | TCP | Azure 儲存體和 Azure 服務匯流排上的 API 管理相依性 | VIRTUAL\_NETWORK / INTERNET |
+| 1433 | 輸出 | TCP | SQL 上的 API 管理相依性 | VIRTUAL\_NETWORK / INTERNET |
+| 9350, 9351, 9352, 9353, 9354 | 輸出 | TCP | 服務匯流排上的 API 管理相依性 | VIRTUAL\_NETWORK / INTERNET |
+| 5671 | 輸出 | AMQP | 記錄到事件中樞原則的 API 管理相依性 | VIRTUAL\_NETWORK / INTERNET |
+| 6381, 6382, 6383 | 輸入/輸出 | UDP | Redis 快取上的 API 管理相依性 | VIRTUAL\_NETWORK / VIRTUAL\_NETWORK |
+| 445 | 輸出 | TCP | 適用於 GIT 的 Azure 檔案共用上的 API 管理相依性 | VIRTUAL\_NETWORK / INTERNET |
 
 
 ## <a name="related-content"> </a>相關內容
@@ -82,4 +82,4 @@
 [使用 Azure 傳統入口網站建立具有站對站 VPN 連線的虛擬網路]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!----HONumber=AcomDC_0316_2016-->

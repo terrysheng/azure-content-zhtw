@@ -160,7 +160,7 @@ Azure 入口網站的伺服器快速入門會呼叫 UseDefaultConfiguration()。
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-##
+##<a name="define-table-controller"></a>做法：定義資料表控制器
 
 資料表控制器提供資料表型資料存放區 (例如 SQL Database 或 Azure 資料表儲存體) 中實體資料的存取權。資料表控制器是繼承自 **TableController** 泛型類別，其中泛型類別是模型中代表資料表結構描述的實體，如下所示：
 
@@ -186,13 +186,13 @@ Azure 入口網站的伺服器快速入門會呼叫 UseDefaultConfiguration()。
 
 1. 在 Visual Studio 中，以滑鼠右鍵按一下 [控制器] 資料夾，然後按一下 [加入] > [控制器]，選取 [Web API 2 控制器&mdash;空白]，然後按一下 [加入]。
 
-2. 提供 [控制器名稱] \(例如 `CustomController`)，然後按一下 [加入]。這會建立繼承自 **ApiController** 的新 **CustomController** 類別。
+2. 提供 [控制器名稱] (例如 `CustomController`)，然後按一下 [加入]。這會建立繼承自 **ApiController** 的新 **CustomController** 類別。
 
 3. 在新的控制器類別檔案中，新增下列 Using 陳述式：
 
 		using Microsoft.Azure.Mobile.Server.Config;
 
-4. 
+4. 將 **[MobileAppController]** 屬性套用到 API 控制器類別定義，如下列範例所示：
 
 		[MobileAppController]
 		public class CustomController : ApiController
@@ -217,9 +217,9 @@ Mobile Apps 會使用 App Service 驗證和 ASP.NET 的功能，簡化為您的�
 + [做法：將驗證新增至伺服器專案](#add-auth)
 + [做法：針對應用程式使用自訂驗證](#custom-auth)
 + [做法：擷取已驗證的使用者資訊](#user-info)
-+ 
++ [做法︰限制授權使用者的資料存取](#authorize)
 
-### 
+### <a name="add-auth"></a>做法：將驗證新增至伺服器專案
 
 您可以透過擴充 **MobileAppConfiguration** 物件並設定 OWIN 中介軟體，將驗證加入您的伺服器專案中。安裝 [Microsoft.Azure.Mobile.Server.Quickstart] 封裝並呼叫 **UseDefaultConfiguration** 擴充方法時，您可以跳到步驟 3。
 
@@ -241,7 +241,7 @@ Mobile Apps 會使用 App Service 驗證和 ASP.NET 的功能，簡化為您的�
 
 您必須提供您自己的邏輯來判斷使用者是否應該登入。例如，您可以針對資料庫中的 salted 和雜湊密碼進行檢查。在下列範例中，`isValidAssertion()` 方法會負責這些檢查，並在其他地方定義。
 
-自訂驗證會公開，方法是建立新的 ApiController 並且公開如下的註冊和登入動作。用戶端可以向使用者收集相關資訊，然後將使用者資訊置於 HTTPS POST 的內容中提交給 API，來嘗試登入。
+自訂驗證會公開，方法是建立新的 ApiController 並且公開如下的註冊和登入動作。用戶端可以向使用者收集相關資訊，然後將使用者資訊置於 HTTPS POST 的內容中提交給 API，來嘗試登入。伺服器驗證這項判斷提示之後，便可使用 `AppServiceLoginHandler.CreateToken()` 方法來發行權杖。
 
 可能的範例登入動作為：
 
@@ -279,7 +279,7 @@ Mobile Apps 會使用 App Service 驗證和 ASP.NET 的功能，簡化為您的�
 
 您也必須提供已發行權杖的存留期，以及您想要包含的任何宣告。您必須提供主體宣告，如範例程式碼所示。
 
-您也可以使用接受額外權杖參數 (與您要 POST 的判斷提示物件關聯) 的多載。此案例中的提供者應該為您選擇的自定名稱。若要將控制器置於此路徑，請在套用 MobileAppConfiguration 之前新增指向 HttpConfiguration 的路由。
+您也可以將用戶端程式碼簡化成使用 `loginAsync()` 方法 (命名方式可能因平台而異)，而不使用手動 HTTP POST。您也可以使用接受額外權杖參數 (與您要 POST 的判斷提示物件關聯) 的多載。此案例中的提供者應該為您選擇的自定名稱。接著，在伺服器上，您的登入動作應該作用於包含此自訂名稱的 /.auth/login/{customProviderName} 路徑。若要將控制器置於此路徑，請在套用 MobileAppConfiguration 之前新增指向 HttpConfiguration 的路由。
 
 		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" });
 
@@ -287,7 +287,7 @@ Mobile Apps 會使用 App Service 驗證和 ASP.NET 的功能，簡化為您的�
 
 >[AZURE.TIP] 使用 loginAsync() 方法以確保驗證權杖會附加至後續對服務的呼叫。
 
-###
+###<a name="user-info"></a>做法：擷取已驗證的使用者資訊
 
 當 App Service 驗證使用者時，您可以存取指派的使用者識別碼及其他 .NET 後端程式碼中的資訊。這可用來在後端為指定的使用者進行授權決策，例如特定的使用者是否可以存取資料表資料列或其他資源。下列程式碼說明如何取得已登入使用者的使用者識別碼：
 
@@ -299,7 +299,7 @@ SID 衍生自提供者特定的使用者識別碼，且對指定的使用者和�
 
 App Service 也可讓您向登入提供者要求特定宣告。這可讓您向提供者要求更多資訊，例如藉由使用 Facebook 圖形 API。您可以在入口網站的提供者刀鋒視窗中指定宣告。某些宣告需要搭配提供者的額外設定。
 
-
+下列程式碼會呼叫 **GetAppServiceIdentityAsync** 擴充方法以取得登入認證，其中包含對 Facebook Graph API 提出要求所需的存取權杖：
 
     // Get the credentials for the logged-in user.
     var credentials =
@@ -323,11 +323,11 @@ App Service 也可讓您向登入提供者要求特定宣告。這可讓您向�
         var fbInfo = await resp.Content.ReadAsStringAsync();
     }
 
+請注意，您必須新增 `System.Security.Principal` 的 using 陳述式，**GetAppServiceIdentityAsync** 擴充方法才能運作。
 
+###<a name="authorize"></a>做法︰限制授權使用者的資料存取
 
-###
-
-
+通常會想要限制傳回給已驗證的特定使用者的資料。這種資料分割是藉由在資料表上包括 userId 資料行，並且在插入資料時排序使用者的 SID 來完成。
 
 ## 做法：將推播通知新增至伺服器專案
 
@@ -369,9 +369,9 @@ App Service 也可讓您向登入提供者要求特定宣告。這可讓您向�
 
 目前您可以使用「通知中樞」用戶端將推播通知傳送到已註冊的裝置。如需詳細資訊，請參閱[將推播通知新增至您的應用程式](app-service-mobile-ios-get-started-push.md)。若要深入了解您可以使用通知中樞執行的所有功能，請參閱[通知中樞概觀](../notification-hubs/notification-hubs-overview.md)。
 
-##
+##<a name="tags"></a>做法：將標記加入裝置安裝以啟用目標推播
 
-通知中樞可讓您使用標記將目標通知傳送至特定註冊。安裝識別碼是自動建立的標記之一，它是應用程式執行個體在指定裝置上特有的項目。您可以使用安裝識別碼來管理安裝，例如用來新增標記。
+通知中樞可讓您使用標記將目標通知傳送至特定註冊。安裝識別碼是自動建立的標記之一，它是應用程式執行個體在指定裝置上特有的項目。使用安裝識別碼進行註冊，也稱為「安裝」。您可以使用安裝識別碼來管理安裝，例如用來新增標記。您可以從 **MobileServiceClient** 上的 **installationId** 屬性存取安裝識別碼。
 
 以下範例示範如何在通知中樞內使用安裝識別碼將標記加入特定安裝︰
 
@@ -385,9 +385,9 @@ App Service 也可讓您向登入提供者要求特定宣告。這可讓您向�
 	    }
 	});
 
-請注意，建立安裝時，後端會忽略用戶端在推播通知註冊期間提供的任何標記。若要讓用戶端將標記加入安裝，您必須建立使用上述模式加入標記的自訂 API。
+請注意，建立安裝時，後端會忽略用戶端在推播通知註冊期間提供的任何標記。若要讓用戶端將標記加入安裝，您必須建立使用上述模式加入標記的自訂 API。如需讓用戶端將標記加入安裝的自訂 API 控制器範例，請參閱適用於 .NET 後端之 App Service Mobile Apps 完整快速入門範例中的[用戶端加入的推播通知標記](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags)。
 
-##
+##<a name="push-user"></a>做法：將推播通知傳送給已驗證的使用者
 
 當驗證的使用者註冊推播通知之後，使用者識別碼便會自動加入到註冊中。藉由使用這個標記，您可以傳送推播通知給特定使用者已註冊的所有裝置。下列程式碼會取得提出要求之使用者的 SID，並將範本推播通知傳送至該使用者的每個裝置註冊︰
 
@@ -402,7 +402,7 @@ App Service 也可讓您向登入提供者要求特定宣告。這可讓您向�
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
 
-在註冊來自已驗證用戶端的推播通知時，請確定驗證已完成，然後再嘗試註冊。
+在註冊來自已驗證用戶端的推播通知時，請確定驗證已完成，然後再嘗試註冊。如需詳細資訊，請參閱適用於 .NET 後端之 App Service Mobile Apps 完整快速入門範例中的[推播給使用者](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users)。
 
 ## 做法：針對 .NET 伺服器 SDK 進行偵錯和疑難排解
 
@@ -418,7 +418,7 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
 
 若要啟用診斷並寫入至記錄檔：
 
-1. 
+1. 依照[如何啟用診斷](../app-service-web/web-sites-enable-diagnostic-log.md#enablediag)中的步驟執行。
 
 2. 在您的程式碼檔案中新增下列 using 陳述式：
 
@@ -431,7 +431,7 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
 
 4. 重新發佈您的伺服器專案，並存取行動應用程式後端，以執行記錄的程式碼路徑。
 
-5. 
+5. 下載記錄並進行評估，如[做法：下載記錄](../app-service-web/web-sites-enable-diagnostic-log.md#download)中所述。
 
 ### <a name="local-debug"></a>使用驗證進行本機偵錯
 

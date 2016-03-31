@@ -545,11 +545,11 @@ range timestamp from ago(4h) to now() step 1m
 | 巴黎 | 27163 |
 
 
-## 
+## Render 指示詞
 
     T | render [ table | timechart  | barchart | piechart ]
 
-
+Render 會指示展示層顯示資料表的方式。它應該是管道的最後一個元素。這是在顯示器上使用控制項的便利替代項目，讓您能夠以特定的呈現方法來儲存查詢。
 
 
 ## sort 運算子 
@@ -558,7 +558,7 @@ range timestamp from ago(4h) to now() step 1m
 
 按照一個或多個資料行的順序排序輸入資料表的資料列。
 
-
+**別名** `order`
 
 **語法**
 
@@ -566,9 +566,9 @@ range timestamp from ago(4h) to now() step 1m
 
 **引數**
 
-* 
-* 值的類型必須是數值、日期、時間或字串。
-* 
+* T：要排序的輸入資料表。
+* Column︰做為排序依據之 T 的資料行。值的類型必須是數值、日期、時間或字串。
+* `asc` 按照遞增順序由低至高排序。預設值是 `desc`，由高遞減至低。
 
 **範例**
 
@@ -577,7 +577,7 @@ Traces
 | where ActivityId == "479671d99b7b"
 | sort by Timestamp asc
 ```
-
+Traces 資料表中具有特定 `ActivityId` 的所有資料列，按其時間戳記排序。
 
 ## summarize 運算子
 
@@ -594,7 +594,7 @@ Traces
 
 顯示有多少項目的價格落在 [0,10.0]、[10.0,20.0] 等依此類推的間隔中的資料表。此範例有一個用於放置計數的資料行，以及一個用於放置價格範圍的資料行。其他所有輸入資料行則會遭到忽略。
 
-
+[更多範例](app-analytics-aggregations.md)。
 
 
 
@@ -607,38 +607,38 @@ Traces
 
 **引數**
 
-* 預設值為衍生自運算式的名稱。
-* 
-*  
+* Column：結果資料行的選擇性名稱。預設值為衍生自運算式的名稱。
+* Aggregation︰`count()` 或 `avg()` 等[彙總函式](app-analytics-aggregations.md)的呼叫，以資料行名稱做為引數。請參閱[彙總函式清單](app-analytics-aggregations.md)。
+* GroupExpression：可提供一組相異值的資料行運算式。它通常是已提供一組受限值的資料行名稱，或是以數值或時間資料行做為引數的 `bin()`。 
 
+如果您提供不使用 `bin()` 的數值或時間運算式，AI Analytics 會自動為它套用 `1h` 間隔的時間，或 `1.0` 的數字。
 
-
-
+如果您沒有提供 *GroupExpression*，整份資料表會彙整在單一輸出資料列。
 
 
 
 **傳回**
 
-然後指定的彙總函式會針對每個群組進行計算，以便為每個群組產生資料列。(某些彙總函式會傳回多個資料行)。
+輸入資料列會各自分組到具有相同 `by` 運算式值的群組。然後指定的彙總函式會針對每個群組進行計算，以便為每個群組產生資料列。結果會包含 `by` 資料行，而且每個經過計算的彙總至少會佔有一個資料行 (某些彙總函式會傳回多個資料行)。
 
-
+`by` 值有多少個不同組合，結果就會有多少個資料列。如果您想要彙總數值範圍，請使用 `bin()` 將範圍減少為離散值。
 
 **注意**
 
-
+雖然您可以為彙總與群組運算式提供任意運算式，但更有效率的方法是使用簡單的資料行名稱，或對數值資料行套用 `bin()`。
 
 
 
 ## take 運算子
 
-
+[limit](#limit-operator) 的別名
 
 
 ## top 運算子
 
     T | top 5 by Name desc
 
-
+傳回按指定資料行排序的前 N 個記錄。
 
 
 **語法**
@@ -647,14 +647,14 @@ Traces
 
 **引數**
 
-* 
-* 它通常只是資料行名稱。您可以指定多個 sort\_expression。
-* 
+* NumberOfRows：要傳回之 T 的資料列數目。
+* Sort\_expression：用來排序資料列的運算式。它通常只是資料行名稱。您可以指定多個 sort\_expression。
+* `asc` 或 `desc` (預設值) 可能會出現，以控制實際上是從範圍的「下限」或「上限」進行選取。
 
 
 **秘訣**
 
-
+`top 5 by name` 表面上相當於 `sort by name | take 5`。不過，前者的執行速度較快且一定會傳回排序後的結果，而 `take` 則不一定如此。
 
 
 ## union 運算子
@@ -671,14 +671,14 @@ Traces
 
 **引數**
 
-* 
- *  
- *  
- *  使用萬用字元指定的一組資料表。
+* *Table1*, *Table2* ...
+ *  資料表名稱，例如 `events`；或
+ *  查詢運算式，例如 `(events | where id==42)`
+ *  使用萬用字元指定的一組資料表。例如，`E*` 會形成資料庫中名稱開頭為 `E` 之所有資料表的聯集。
 * `kind`： 
- * 
- * 
-* 
+ * `inner` - 結果中會有所有輸入資料表共有之資料行的子集。
+ * `outer` - 結果中會有任何輸入中出現的所有資料行。輸入資料列未定義的資料格會設為 `null`。
+* `withsource=`*ColumnName：*如果指定，輸出中會包含名為* ColumnName* 的資料行，其值會指出哪一個來源資料表貢獻了每個資料列。
 
 **傳回**
 
@@ -703,7 +703,7 @@ union withsource=SourceTable kind=outer Query, Command
 | where Timestamp > ago(1d)
 | summarize dcount(UserId)
 ```
-在結果中，'SourceTable' 資料行會指出 "Query" 或 "Command"。
+過去一天已產生 `exceptions` 事件或 `traces` 事件的不同使用者數目。在結果中，'SourceTable' 資料行會指出 "Query" 或 "Command"。
 
 ```AIQL
 exceptions
@@ -721,7 +721,7 @@ exceptions
 
 篩選資料表以建立滿足述詞的資料列子集。
 
-
+**別名** `filter`
 
 **語法**
 
@@ -729,22 +729,22 @@ exceptions
 
 **引數**
 
-* 
-* 
+* T︰要篩選記錄的表格式輸入。
+* Predicate︰T 之資料行的 `boolean` [運算式](app-analytics-scalars.md#boolean)。它會針對 T 中的每個資料列進行評估。
 
 **傳回**
 
-
+Predicate 是 `true` 之 T 中的資料列。
 
 **秘訣**
 
 若要取得最快效能︰
 
-* 
+* 在資料行名稱和常數之間**使用簡單比較** ('Constant' 表示資料表常數，因此 `now()` 和 `ago()` 都沒問題，並且是使用 [`let` 陳述式](app-analytics-syntax.md#let-statements)指派的純量值)。
 
-    
+    例如，`where Timestamp >= ago(1d)` 比 `where floor(Timestamp, 1d) == ago(1d)` 更好。
 
-* 
+* **最簡單的詞彙優先**︰如果您使用 `and` 連結多個子句，請先放置只包含一個資料行的子句。因此 `Timestamp > ago(1d) and OpId == EventId` 比反過來要好。
 
 
 **範例**

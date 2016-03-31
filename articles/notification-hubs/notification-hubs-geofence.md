@@ -74,7 +74,7 @@
 
 上傳資料檔案後，您必須確實發佈資料來源。
 
-移至 [管理資料來源] (方法同前)、在清單中找到您的資料來源，然後按一下 [動作] 欄中的 [發佈]。不用多久，您應該就會在 [已發佈的資料來源] 索引標籤中看到您的資料來源︰
+移至 [管理資料來源] \(方法同前)、在清單中找到您的資料來源，然後按一下 [動作] 欄中的 [發佈]。不用多久，您應該就會在 [已發佈的資料來源] 索引標籤中看到您的資料來源︰
 
 ![](./media/notification-hubs-geofence/bing-maps-published-data.png)
 
@@ -382,4 +382,4 @@
 
 如需有關通知中樞功能的詳細資訊，請查看我們的[說明文件入口網站](https://azure.microsoft.com/documentation/services/notification-hubs/)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

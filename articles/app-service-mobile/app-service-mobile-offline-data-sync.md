@@ -58,7 +58,7 @@
 
 「同步處理內容」會與行動用戶端物件相關聯 (例如 `IMobileServiceClient` 或 `MSClient`)，並且追蹤對同步處理資料表所做的變更。同步處理內容會維護「作業佇列」，其中記錄 CUD 作業 (Create、Update、Delete) 的順序清單，該清單稍後會傳送至伺服器。
 
-
+本機存放區會使用初始化方法 (例如 [.NET 用戶端 SDK] 中的 `IMobileServicesSyncContext.InitializeAsync(localstore)`)，來與同步處理內容產生關聯。
 
 ## 離線同步處理如何運作
 
@@ -96,7 +96,7 @@
 * [Windows 8.1：啟用離線同步處理]
 
 <!-- Links -->
-[.NET client SDK]: app-service-mobile-dotnet-how-to-use-client-library.md
+[.NET 用戶端 SDK]: app-service-mobile-dotnet-how-to-use-client-library.md
 [Android：啟用離線同步處理]: app-service-mobile-android-get-started-offline-data.md
 [iOS：啟用離線同步處理]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS：啟用離線同步處理]: app-service-mobile-xamarin-ios-get-started-offline-data.md

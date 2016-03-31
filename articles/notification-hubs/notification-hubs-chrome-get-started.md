@@ -47,7 +47,7 @@
 
    	![Google 雲端主控台 - 專案編號][2]
 
-3. 在左窗格中按一下 [API 與驗證]，然後向下捲動並按一下切換開關，以啟用 [Google Cloud Messaging for Android]。您不需要啟用 [Google Cloud Messaging for Chrome]。
+3. 在左窗格中按一下 [API 與驗證]，然後向下捲動並按一下切換開關，以啟用 [Google Cloud Messaging for Android]。您不需要啟用 \[Google Cloud Messaging for Chrome]。
 
    	![Google 雲端主控台 - 伺服器金鑰][3]
 
@@ -372,7 +372,7 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 
    	![Google Chrome - Chrome 應用程式顯示][18]
 
-4. 輸入您先前從 [Google 雲端主控台] 取得的 [專案編號]，做為寄件者識別碼，然後按一下 [向 GCM 註冊]。您必須看見 **Registration with GCM succeeded.** 訊息。
+4. 輸入您先前從 \[Google 雲端主控台] 取得的 [專案編號]，做為寄件者識別碼，然後按一下 [向 GCM 註冊]。您必須看見 **Registration with GCM succeeded.** 訊息。
 
    	![Google Chrome - Chrome 應用程式自訂][19]
 
@@ -477,4 +477,4 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 [Azure 通知中樞通知使用者]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Azure 通知中樞即時新聞]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

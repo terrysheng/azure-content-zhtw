@@ -22,7 +22,7 @@
 
 本文說明如何實作 API 應用程式觸發程序，並從邏輯應用程式加以使用。
 
-
+本主題中所有程式碼片段的複製來源為 [FileWatcher API 應用程式的程式碼範例](http://go.microsoft.com/fwlink/?LinkId=534802)。
 
 請注意，您將需要下載下列 nuget 封裝，以取得本文中建置與執行所需的程式碼：[http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/)。
 

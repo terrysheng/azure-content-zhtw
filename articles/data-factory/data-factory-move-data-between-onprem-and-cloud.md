@@ -205,7 +205,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您
 5. 在 **DATA FACTORY** 刀鋒視窗中，按一下 [**製作和部署**] 磚來啟動 Data Factory 的 [**編輯器**]。
 
 	![[製作和部署] 磚](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
-6.	在 [Data Factory 編輯器] 中，按一下工具列的 [... (省略符號)]，選取 [新增資料閘道]。 
+6.	在 [Data Factory 編輯器] 中，按一下工具列的 [...] \(省略符號)，選取 [新增資料閘道]。 
 
 	![工具列上的 [新增資料閘道]](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
 2. 在 [**建立**] 刀鋒視窗上，輸入 **adftutorialgateway** 做為 [**名稱**]，然後按一下 [**確定**]。 	
@@ -691,4 +691,4 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。如果沒有，您
 5.	閘道器會利用相同的憑證解密認證，然後利用適當的驗證類行連接到內部部署資料存放區。
 6.	閘道器會根據複製活動在資料管線中的設定方式，將資料從內部部署存放區複製到雲端儲存體，或從雲端儲存體複製到內部部署資料存放區。請注意：在這個步驟中，閘道器會透過安全 (HTTPS) 通道直接與以雲端為基礎的儲存體服務 (例如 Azure Blob、Azure SQL 等) 通訊。
 
-<!----HONumber=AcomDC_0316_2016-->
+<!-----HONumber=AcomDC_0316_2016-->

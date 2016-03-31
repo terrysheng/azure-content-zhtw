@@ -435,7 +435,7 @@
 11. 建置專案並確認一切正確無誤。
 
 
-> [AZURE.NOTE] 如果您在 Xcode7 中遇到有關 Bitcode 支援的建置錯誤，您應該在 Xcode 中將 [建置設定] -> [啟用 Bitcode] (ENABLE\_BITCODE) 變更為 [否]。通知中樞 SDK 目前不支援 Bitcode。
+> [AZURE.NOTE] 如果您在 Xcode7 中遇到有關 Bitcode 支援的建置錯誤，您應該在 Xcode 中將 [建置設定] -> [啟用 Bitcode] \(ENABLE\_BITCODE) 變更為 [否]。通知中樞 SDK 目前不支援 Bitcode。
 
 您可以在 Apple [本機和推播通知程式設計指南]中找到所有可能的通知承載。
 
@@ -505,4 +505,4 @@
 [本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure 入口網站]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

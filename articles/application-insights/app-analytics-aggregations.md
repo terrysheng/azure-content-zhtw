@@ -34,7 +34,7 @@
 
 ![](./media/app-analytics-aggregations/01.png)
 
-* 
+* 輸入記錄會收集到群組內，讓每個群組都有 `by` 欄位內之值的特定組合。
 * 彙總運算式會對每個群組的成員進行評估。
 * 'by' 運算式之值的每個不同組合都有一個輸出資料列。 
 * 每個彙總運算式和每個 'by' 運算式都有一個輸出資料行。其他所有輸入資料行則會遭到捨棄。
@@ -48,15 +48,15 @@
 
 **引數**
 
-* 預設值為衍生自運算式的名稱。
-* 請參閱下面的彙總函式清單。
-*  
+* Column：結果資料行的選擇性名稱。預設值為衍生自運算式的名稱。
+* Aggregation：`count()` 或 `avg()` 等彙總函式的呼叫，以資料行名稱做為引數。請參閱下面的彙總函式清單。
+* GroupExpression：可提供一組相異值的資料行運算式。它通常是已提供一組受限值的資料行名稱，或是以數值或時間資料行做為引數的 `bin()`。 
 
+如果您提供不使用 `bin()` 的數值或時間運算式，AI Analytics 會自動為它套用 `1h` 間隔的時間，或 `1.0` 的數字。
 
+如果您沒有提供 *GroupExpression*，整份資料表會彙整在單一輸出資料列。
 
-
-
-
+`by` 子句中必須使用簡單類型而非動態類型。例如，這裡的 `tostring` 轉換就是必要項目︰
 
     exceptions
 	| summarize count()
@@ -78,7 +78,7 @@
 
 ### 依數值資料行彙整
 
-
+如果我們想要依連續純量 (例如數字或時間) 分組，就必須使用 `bin` (也稱為 `floor`) 函式，將連續範圍分成不同分類收納組。
 
     requests
     | summarize count() 
@@ -86,7 +86,7 @@
 
 ![結果](./media/app-analytics-aggregations/04.png)
 
-
+(要求持續期間欄位是以毫秒為單位的數字)。
  
 ## 秘訣
 
@@ -172,7 +172,7 @@ requests
 | sort by max_pop_tod asc
 ```
 
-## 
+## 彙總
 
 ## any 
 
@@ -198,9 +198,9 @@ traces
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
     argmax(ExprToMaximize, * | ExprToReturn  [ , ... ] ) 
 
+尋找群組中最小化/最大化 ExprToMaximize 的資料列，並傳回 ExprToReturn 的值 (或 `*` 以傳回整個資料列)。
 
-
-
+**秘訣**：傳遞資料行會自動重新命名。若要確定您使用的是正確名稱，請先使用 `take 5` 檢查結果，再將結果以管線傳輸到另一個運算子。
 
 **範例**
 
@@ -228,15 +228,15 @@ traces
 
     avg(Expression)
 
-
+計算整個群組的 Expression 平均值。
 
 ## buildschema
 
     buildschema(DynamicExpression)
 
+傳回容許 DynamicExpression 所有值的最小結構描述。
 
-
-
+參數資料行類型應該是 `dynamic` - 陣列或屬性包。
 
 **範例**
 
@@ -260,7 +260,7 @@ traces
       "rawStack":"string"
     }}
 
-在此結構描述中，一些有效的路徑會是 (假設這些範例索引在範圍內)︰
+請注意，`indexer` 是用來標記應該使用數字索引的位置。在此結構描述中，一些有效的路徑會是 (假設這些範例索引在範圍內)︰
 
     details[0].parsedStack[2].level
     details[0].message
@@ -292,7 +292,7 @@ traces
 * 根物件是具有四個屬性 (名稱分別是 x、y、z 和 t) 的容器。
 * 名稱為 "x" 的屬性可以是 "int" 類型或 "string" 類型。
 * 名稱為 "y" 的屬性可以是 "double" 類型，或是另一個具有 "w" 屬性且類型為 "string" 的容器。
-* 
+* ``indexer`` 關鍵字指出 "z" 與 "t" 是陣列。
 * "z" 陣列中的每個項目皆為整數或字串。
 * "t" 是字串陣列。
 * 每個屬性皆可隱含選用，且任何陣列都可以是空的。
@@ -322,22 +322,22 @@ traces
 
     count([ Predicate ])
 
+傳回 Predicate 評估為 `true` 的資料列計數。如果未指定 Predicate，則傳回群組中的記錄總數。
 
-
-
+**效能秘訣**︰使用 `summarize count(filter)` 而非 `where filter | summarize count()`
    
 
 ## dcount
 
     dcount( Expression [ ,  Accuracy ])
 
+傳回群組中 Expr 之相異值數目的估計值 (若要列出相異值，請使用 [`makeset`](#makeset))。
 
+Accuracy (若有指定) 會控制速度和精確度之間的平衡。
 
-
-
- * 
- * 
- * 
+ * `0` = 最不精確但最快速的計算。
+ * `1` 預設值，會平衡精確度和計算時間；大約 0.8% 的誤差。
+ * `2` = 最精確但最慢的計算；大約 0.4% 的誤差。
 
 **範例**
 
@@ -351,17 +351,17 @@ traces
 
     makelist(Expr [ ,  MaxListSize ] )
 
+傳回群組中 Expr 所有值的 `dynamic` (JSON) 陣列。
 
-
-* 
+* MaxListSize 是所傳回元素數目最大值的選擇性整數限制 (預設值是 *128*)。
 
 ## makeset
 
     makeset(Expression [ , MaxSetSize ] )
 
-
+傳回 Expr 在群組中取得之一組相異值的 `dynamic` (JSON) 陣列 (秘訣︰若只要計算相異值，請使用 [`dcount`](#dcount))。
   
-*  
+*  MaxSetSize 是所傳回元素數目最大值的選擇性整數限制 (預設值是 128)。
 
 **範例**
 
@@ -371,20 +371,20 @@ traces
 
 ![](./media/app-analytics-aggregations/makeset.png)
 
-
+另請參閱相反函式的 [`mvexpand` 運算子](app-analytics-queries.md#mvexpand-operator)。
 
 
 ## max、min
 
     max(Expr)
 
-
+計算 Expr 的最大值。
     
     min(Expr)
 
+計算 Expr 的最小值。
 
-
-
+**秘訣**︰這可為您提供其本身的最小值或最大值，例如最高或最低單價。但是如果您想要資料列中的其他資料行 (例如，最低價供應商的名稱)，請使用 [argmin 或 argmax](#argmin-argmax)。
 
 
 <a name="percentile"></a> <a name="percentiles"></a>
@@ -392,16 +392,16 @@ traces
 
     percentile(Expression, Percentile)
 
-其精確度取決於百分位數區域中的母體密度。
+傳回群組中指定百分位數的 Expression 估計值。其精確度取決於百分位數區域中的母體密度。
     
     percentiles(Expression, Percentile1 [ , Percentile2 ] )
 
-
+和 `percentile()` 一樣，但會計算多個百分位數值 (速度比個別計算每個百分位數還快)。
 
 **範例**
 
 
-
+針對每個要求名稱所計算，大於 95% 樣本集和小於 5% 樣本集之 `duration` 的值︰
 
     request 
     | summarize percentile(duration, 95)
@@ -433,7 +433,7 @@ traces
 
 #### 百分位數中的估計誤差
 
-
+百分位數彙總使用 [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf) 提供近似值。
 
 幾個重點如下︰
 
@@ -444,19 +444,19 @@ traces
 
      stdev(Expr)
 
-
+傳回 Expr 對群組的標準差。
 
 ## variance
 
     variance(Expr)
 
-
+傳回 Expr 對群組的變異數。
 
 ## sum
 
     sum(Expr)
 
-
+傳回 Expr 對群組的總和。
 
 
 

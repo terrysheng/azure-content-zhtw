@@ -19,7 +19,7 @@
 
 # 如何使用 Git 儲存和設定 API 管理服務組態
 
->[AZURE.IMPORTANT] API 管理的 Git 組態目前為預覽狀態。它的功能完整，但處於預覽狀態，因為我們正積極徵求關於此功能的意見反應。我們可能會進行中斷變更來回應客戶意見反應，因此建議不要根據要在生產環境中執行的功能來決定。如果您有任何意見或疑問，請在 `apimgmt@microsoft.com` 中提出來讓我們知道。
+>[AZURE.IMPORTANT] API 管理的 Git 組態目前僅供預覽。它的功能完整但目前僅供預覽，因為我們正積極徵求關於此功能的意見反應。我們可能會進行中斷變更來回應客戶意見反應，因此建議不要根據要在生產環境中執行的功能來決定。如果您有任何意見或疑問，請在 `apimgmt@microsoft.com` 中提出來讓我們知道。
 
 每個 API 管理服務執行個體會維護組態資料庫，包含服務執行個體的組態和中繼資料的相關資訊。可以對服務執行個體進行變更，方法是使用PowerShell Cmdlet 或進行 REST API 呼叫，變更發佈者入口網站中的設定。除了這些方法，您也可以使用 Git 管理服務執行個體組態，啟用下列服務管理案例︰
 
@@ -31,7 +31,7 @@
 
 ![Git 設定][api-management-git-configure]
 
-當您使用發佈者入口網站、PowerShell Cmdlet 或 REST API 對服務進行變更時，您會使用 `https://{name}.management.azure-api.net` 端點管理服務組態資料庫，如圖表右側所示。圖表左側說明如何針對位於 `https://{name}.scm.azure-api.net` 的服務，使用 Git 和 Git 儲存機制管理服務組態。
+當您使用發行者入口網站、PowerShell Cmdlet 或 REST API 對服務進行變更時，您會使用 `https://{name}.management.azure-api.net` 端點管理服務組態資料庫，如圖表右側所示。圖表左側說明如何針對位於 `https://{name}.scm.azure-api.net` 的服務，使用 Git 和 Git 儲存機制管理服務組態。
 
 下列步驟提供使用 Git 管理 API 管理服務執行個體的概觀。
 
@@ -47,7 +47,7 @@
 
 您可以檢視發行者入口網站右上角的 Git 圖示，藉以快速檢視 Git 組態的狀態。在此範例中，尚未啟用 Git 存取。
 
-![][api-management-git-icon-enable]
+![Git 狀態][api-management-git-icon-enable]
 
 若要檢視並設定您的 Git 組態設定，您可以按一下 [Git] 圖示，或按一下 [安全性] 功能表，然後瀏覽至 [組態儲存機制] 索引標籤。
 
@@ -55,7 +55,7 @@
 
 若要啟用 Git 存取，請核取 [啟用 Git 存取] 核取方塊。
 
-儲存變更之後，確認訊息隨即顯示。請注意，Git 圖示已變更顏色，以指出 Git 存取已啟用，而狀態訊息現在會指出尚未儲存對於儲存機制的變更。這是因為 API 管理服務組態資料庫尚未儲存到儲存機制所致。
+儲存變更之後，確認訊息隨即顯示。請注意，Git 圖示已變更顏色，以指出 Git 存取已啟用，而狀態訊息現在會指出尚未儲存對於儲存機制的變更。這是因為 API 管理服務組態資料庫尚未儲存至儲存機制。
 
 ![已啟用 Git][api-management-git-enabled]
 
@@ -209,7 +209,7 @@
 
 ![身分識別設定][api-management-identity-settings]
 
-接下來四個設定 (`DelegationEnabled`、`DelegationUrl`、`DelegatedSubscriptionEnabled` 和 `DelegationValidationKey`) 對應至 [安全性] 區段的 [委派] 索引標籤中的下列設定。
+接下來的四個設定 (`DelegationEnabled`、`DelegationUrl`、`DelegatedSubscriptionEnabled` 和 `DelegationValidationKey`) 對應至 [安全性] 區段的 [委派] 索引標籤中的下列設定。
 
 | 委派設定 | 對應至 |
 |------------------------------|--------------------------------------------|
@@ -220,7 +220,7 @@
 
 ![委派設定][api-management-delegation-settings]
 
-
+最後的設定 (`$ref-policy`) 會對應至服務執行個體的全域原則陳述式檔案。
 
 ### apis 資料夾
 
@@ -244,28 +244,28 @@
 -	`policies\global.xml` - 包含在您服務執行個體的全域範圍中定義的原則。
 -	`policies\apis<api name>` - 如果您在 API 範圍中定義了任何原則，它們就會包含在此資料夾中。
 -	`policies\apis<api name><operation name>` 資料夾 - 如果您有任何定義於作業範圍中的原則，它們就會包含在此資料夾的 `<operation name>.xml` 檔案中，其會對應至每個作業的原則陳述式。
--	
+-	`policies\products` - 如果您有任何定義於產品範圍中的原則，它們就會包含在此資料夾中，其中包含 `<product name>.xml` 檔案，其會對應至每個產品的原則陳述式。
 
 ### portalStyles 資料夾
 
+`portalStyles` 資料夾包含適用於服務執行個體的開發人員入口網站自訂的組態和樣式表。
 
-
--	
--	
+-	`portalStyles\configuration.json` - 包含開發人員入口網站所使用的樣式表名稱
+-	`portalStyles<style name>.css` - 每個 `<style name>.css` 檔案包含開發人員入口網站的樣式 (預設為 `Preview.css` 和 `Production.css`)。
 
 ### 產品資料夾
 
+`products` 資料夾包含服務執行個體中定義的每個產品的資料夾。
 
-
--	
--	
+-	`products<product name>\configuration.json` - 這是產品的組態。此資訊與當您呼叫[取得特定產品](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct)作業時傳回的資訊相同。
+-	`products<product name>\product.description.html` - 這是產品的描述，並會對應至 REST API 中[產品實體](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product)的 `description` 屬性。
 
 ### 範本
 
+`templates` 資料夾包含服務執行個體的[電子郵件範本](api-management-howto-configure-notifications.md)的組態。
 
-
--	
--	
+-	`<template name>\configuration.json` - 這是電子郵件範本的組態。
+-	`<template name>\body.html` - 這是電子郵件範本的主體。
 
 ## 後續步驟
 

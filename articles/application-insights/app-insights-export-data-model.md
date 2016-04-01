@@ -98,7 +98,7 @@
 * 
     URL 資料項目的一部分，不包括主機、查詢 parms。它是根 URI。這個值可以用於分割/彙總。 
 
-    *衍生：*查看 URL 轉換的附錄
+    *衍生* ：查看 URL 轉換的附錄
 
     *範例* <br/> /main.aspx?etc=3&extraqs=%3fetc%3d3%26formid%3dc40d07a7-1cf1-4e1d-b00e-e61876d1284e&pagemode=iframe&pagetype=entityrecord<br/>/default.aspx<br/>/Patients/Search/<br/>
 
@@ -364,7 +364,7 @@
 * 
     用戶端的瀏覽器版本 
 
-    *預設：*若為 null，則會根據使用者代理程式處理進行設定。請參閱使用者代理程式剖析的附錄
+    *預設* ：若為 null，則會根據使用者代理程式處理進行設定。請參閱使用者代理程式剖析的附錄
 
     *範例* <br/> Opera 12.17<br/>Mobile Safari 8.0<br/>Ovi Browser 5.5<br/>Chrome 37.0<br/>Firefox 21.0<br/>Internet Explorer 7.0
 
@@ -676,7 +676,7 @@
 * 
     要求是否成功的指標。200 中的回應碼會視為成功。 
 
-    *預設：*若為 null，則設為 true
+    *預設* ：若為 null，則設為 true
 
 
 ## sessionmetric
@@ -763,7 +763,7 @@
 * 
     工作階段的最後一個事件。源自事件名稱並且可供 sessionMetric 度量做為分割/彙總使用 
 
-    *衍生：*源自 event.name
+    *衍生* ：源自 event.name
 
 **exitUrl**
 

@@ -47,38 +47,38 @@ Azure App Service 支援使用各種外部識別提供者 (Facebook、Google、M
 
 [AZURE.INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-###
+###<a name="configure-external-redirect-urls"></a>做法︰設定行動 App Service 以使用外部重新導向 URL。
 
+有數種類型的 Apache Cordova 應用程式會使用回送功能來處理 OAuth UI 流程。因為驗證服務預設只知道如何使用您的服務，而這會引發問題。這個範例會使用 Ripple 模擬器，在本機或在不同的 Azure App Service 中執行您的服務，但會重新導向至 Azure App Service 以進行驗證，或使用 Ionic 即時重新載入。請遵循下列指示來將您的本機設定加入組態︰
 
-
-1. 登入 [Azure 入口網站]
+1. 登入 [Azure 入口網站]。
 2. 選取 [所有資源] 或 [應用程式服務]，然後按一下您「行動應用程式」的名稱。
 3. 按一下 [工具]
-4. 
-5. 
+4. 按一下 [觀察] 功能表中的 [資源總管]，然後按一下 [移至]。新的視窗或索引標籤隨即開啟。
+5. 在左側導覽中，展開網站的 [config]、[authsettings] 節點。
 6. 按一下 [編輯]
-7. 
+7. 尋找「allowedExternalRedirectUrls」元素。它將會設為 null。將它變更為以下項目：
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
 
-    
-8. 
-9. 
+    使用您服務的 URL 來取代 URL。範例包括 "http://localhost:3000" (適用於 Node.js 範例服務) 或 "http://localhost:4400" (適用於 Ripple 服務)。不過，這些都是範例 - 您的情況 (包括範例中提及的服務) 可能會有差異。
+8. 按一下螢幕右上角的 [讀/寫] 按鈕。
+9. 按一下綠色 [PUT] 按鈕。
 
+此時將會儲存設定。在設定完成儲存之前，請勿關閉瀏覽器視窗。您也必須將這些回送 URL 加入至 CORS 設定：
 
-
-1. 登入 [Azure 入口網站]
+1. 登入 [Azure 入口網站]。
 2. 選取 [所有資源] 或 [應用程式服務]，然後按一下您「行動應用程式」的名稱。
-3. 如果沒有的話，請按一下 [設定]。
-4. 
-5. 
-6. 
-7. 
+3. [設定] 刀鋒視窗隨即自動開啟。如果沒有，請按一下 [所有設定]。
+4. 按一下 API 功能表下方的 [CORS]。
+5. 輸入在提供的方塊中輸入您希望加入的 URL，然後按 Enter 鍵。
+6. 視需要輸入其他的 URL。
+7. 按一下 [儲存] 以儲存設定。
 
-
+大約需要 10-15 秒的時間，才能使新的設定生效。
 
 ##<a name="register-for-push"></a>做法：註冊推播通知
 

@@ -41,9 +41,9 @@
 	
 	在網路組態檔中編輯下列幾行，並取代為您需要的值：
 
-	**舊值：**<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
+	**舊值：** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\>
 
-	**新值：**<VirtualNetworkSitename="VNetUSWest" Location="West US">
+	**新值：** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
 
 1. 儲存您的變更並網路組態[匯入](virtual-networks-using-network-configuration-file.md)至 Azure。
 

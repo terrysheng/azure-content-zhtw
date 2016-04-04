@@ -94,7 +94,7 @@
 
 - 建立 Azure 儲存體帳戶
 
-	>[AZURE.NOTE]請一併記下您的 Azure 訂用帳戶識別碼，稍後將需要用到。這項資訊可在您的 Azure [帳戶資訊](https://account.windowsazure.com/Subscriptions)</a>中找到。
+	>[AZURE.NOTE] 請一併記下您的 Azure 訂用帳戶識別碼，稍後將需要用到。這項資訊可在您的 Azure [帳戶資訊](https://account.windowsazure.com/Subscriptions)</a>中找到。
 
 ### 上傳預設管理憑證
 HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Microsoft HPC Azure Management 憑證)，您可以將它上傳作為 Azure 管理憑證。這個憑證是為了方便進行測試及概念證明部署而提供。
@@ -107,7 +107,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 	![Certificate Settings][upload_cert1]
 
-4. 瀏覽前端節點以找出 C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer 檔案。然後按一下 [**檢查**] 按鈕。
+4. 瀏覽前端節點以找出 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer 檔案。然後按一下 [**檢查**] 按鈕。
 
 	![Upload Certificate][install_hpc10]
 
@@ -159,7 +159,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 	![Installation Credentials][config_hpc6]
 
-	>[AZURE.NOTE]HPC Pack 服務只會將安裝認證用於部署已加入網域的計算節點。您在本教學課程中新增的 Azure 節點未加入網域。
+	>[AZURE.NOTE] HPC Pack 服務只會將安裝認證用於部署已加入網域的計算節點。您在本教學課程中新增的 Azure 節點未加入網域。
 
 7. 在 [Deployment To-do List] 中，按一下 [Configure the naming of new nodes]。
 
@@ -167,7 +167,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 	![Node Naming][config_hpc8]
 
-	>[AZURE.NOTE]命名序列只會為加入網域的計算節點產生名稱。Azure 背景工作節點的名稱是自動產生的。
+	>[AZURE.NOTE] 命名序列只會為加入網域的計算節點產生名稱。Azure 背景工作節點的名稱是自動產生的。
 
 9. 在 [Deployment To-do List] 中，按一下 [Create a node template]。您將使用節點範本將 Azure 節點新增至叢集。
 
@@ -189,7 +189,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 	e.按 [下一步] 以接受精靈剩餘頁面上的預設值。然後，在 [檢閱] 索引標籤上，按一下 [建立] 以建立節點範本。
 
-	>[AZURE.NOTE]根據預設，Azure 節點範本包含可讓您手動啟動 (佈建) 和停止節點的設定。您可以選擇性地設定排程來自動啟動和停止 Azure 節點。
+	>[AZURE.NOTE] 根據預設，Azure 節點範本包含可讓您手動啟動 (佈建) 和停止節點的設定。您可以選擇性地設定排程來自動啟動和停止 Azure 節點。
 
 ## 將 Azure 節點新增至叢集
 
@@ -220,7 +220,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 ## 啟動 Azure 節點
 當您想要使用 Azure 中的叢集資源時，請使用 HPC 叢集管理員來啟動 (佈建) Azure 節點並讓節點上線。
 
-1.	在 HPC 叢集管理員中，於 [節點管理] (在某些版本的 HPC Pack 中稱為**資源管理**) 中按一或兩個節點，然後在 [動作] 窗格中按一下 [啟動]。
+1.	在 HPC 叢集管理員中，於 [節點管理] \(在某些版本的 HPC Pack 中稱為**資源管理**) 中按一或兩個節點，然後在 [動作] 窗格中按一下 [啟動]。
 
 	![Start Nodes][add_node4]
 

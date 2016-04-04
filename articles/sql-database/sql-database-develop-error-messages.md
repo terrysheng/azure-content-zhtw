@@ -54,7 +54,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 
 - System.Data.Entity.Core.EntityCommandExecutionException: 執行命令定義時發生錯誤。詳細資訊請參閱內部例外狀況。---> System.Data.SqlClient.SqlException: 從伺服器接收結果時發生傳輸層級錯誤。(提供者: 工作階段提供者, 錯誤: 19 - 無法使用實際連線)
 
-暫時性錯誤應該會提示您的用戶端應用程式，執行設計用來重試操作的*重試邏輯*。如需重試邏輯的程式碼範例，請參閱：
+暫時性錯誤應該會提示您的用戶端應用程式，執行設計用來重試操作的 *重試邏輯* 。如需重試邏輯的程式碼範例，請參閱：
 
 
 - [SQL Database 的用戶端開發和快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
@@ -137,6 +137,7 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 
 
 - [Azure SQL Database 資源限制](sql-database-resource-limits.md)。
+
 
 
 <a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
@@ -231,7 +232,9 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 |40651|16|無法建立伺服器，因為訂用帳戶 <subscription-id> 已停用。|
 |40652|16|無法移動或建立伺服器。訂用帳戶 <subscription-id> 會超出伺服器配額。|
 |40671|17|閘道器與管理服務之間的通訊失敗。請稍後重試。|
-|40852|16|無法開啟登入所要求的資料庫 '%.*ls' (在伺服器 '%.*ls' 上)。只允許使用已啟用安全性的連接字串存取資料庫。若要存取此資料庫，將連接字串修改成在伺服器 FQDN 中包含 'secure'。也就是說，'server name'.database.windows.net 應修改為 'server name'.database.`secure`.windows.net.| |45168|16|SQL Azure 系統未達負載，並正在對單一伺服器的並行 DB CRUD 作業 (例如，建立資料庫) 放置上限。錯誤訊息中指定的伺服器已超過最大並行連接數目。請稍後再試。| |45169|16|SQL Azure 系統未達負載，並正在對單一訂用帳戶的並行伺服器 CRUD 作業 (例如，建立資料庫) 的數量放置上限。錯誤訊息中指定的訂用帳戶已超出最大並行連接數目，因此要求已遭到拒絕。請稍後再試。|
+|40852|16|無法開啟登入所要求的資料庫 '%.*ls' (在伺服器 '%.*ls' 上)。只允許使用已啟用安全性的連接字串存取資料庫。若要存取此資料庫，將連接字串修改成在伺服器 FQDN 中包含 'secure'。也就是說，'server name'.database.windows.net 應修改為 'server name'.database.`secure`.windows.net.| 
+|45168|16|SQL Azure 系統未達負載，並正在對單一伺服器的並行 DB CRUD 作業 (例如，建立資料庫) 放置上限。錯誤訊息中指定的伺服器已超過最大並行連接數目。請稍後再試。| 
+|45169|16|SQL Azure 系統未達負載，並正在對單一訂用帳戶的並行伺服器 CRUD 作業 (例如，建立資料庫) 的數量放置上限。錯誤訊息中指定的訂用帳戶已超出最大並行連接數目，因此要求已遭到拒絕。請稍後再試。|
 
 
 ## 相關連結

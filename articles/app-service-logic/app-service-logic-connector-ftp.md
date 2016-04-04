@@ -33,7 +33,7 @@
 ## 建立新的 FTP 連接器
 若要建立新的 FTP 連接器，請遵循下面所述的步驟。
 - 啟動 Azure 入口網站
-- 使用 [+新增] (位於頁面底部) -> [Web+行動] --> [Azure Marketplace] 開啟 Azure Marketplace：![啟動 Azure Marketplace][1]
+- 使用 [+ 新增] \(位於頁面底部) -> [Web + 行動] --> [Azure Marketplace] 開啟 Azure Marketplace︰![啟動 Azure Marketplace][1]
 
 - 按一下 API 應用程式
 - 搜尋 FTP，然後選取 FTP 連接器︰![選取 FTP 連接器][2]

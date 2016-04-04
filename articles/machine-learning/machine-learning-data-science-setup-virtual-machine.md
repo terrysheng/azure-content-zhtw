@@ -66,7 +66,7 @@
 
 ## <a name="run-commands"></a>步驟 3：安裝 IPython Notebook 和其他支援工具
 
-建立虛擬機器之後，請使用遠端桌面通訊協定 (RDP) 登入 Windows 虛擬機器。如需指示，請參閱[如何登入執行 Windows Server 的虛擬機器](../virtual-machines/virtual-machines-windows-classic-connect-logon.md)。以**系統管理員**身分開啟 [**命令提示字元**] (**不是 Powershell 命令視窗**)，並執行下列命令。
+建立虛擬機器之後，請使用遠端桌面通訊協定 (RDP) 登入 Windows 虛擬機器。如需指示，請參閱[如何登入執行 Windows Server 的虛擬機器](../virtual-machines/virtual-machines-windows-classic-connect-logon.md)。以**系統管理員**身分開啟 [**命令提示字元**] \(**不是 Powershell 命令視窗**)，並執行下列命令。
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
@@ -83,7 +83,7 @@
 
 ![建立工作區][19]
 
-您將會看見一則警告，指出「_此網站的安全性憑證有問題_」(Internet Explorer) 或「_您的連線不是私人連線_」(Chrome)，如下圖所示。按一下 [**繼續瀏覽此網站 (不建議)**] (Internet Explorer)，或者依序按一下 [**進階**] 和 [**前往 &#60;*DNS 名稱*> (不安全)**] (Chrome)，以便繼續進行。接著，輸入您先前指定的密碼來存取 IPython Notebook。
+您將會看見一則警告，指出「_此網站的安全性憑證有問題_」(Internet Explorer) 或「_您的連線不是私人連線_」(Chrome)，如下圖所示。按一下 \[**繼續瀏覽此網站 (不建議)**] (Internet Explorer)，或者依序按一下 [**進階**] 和 \[**前往 &#60;*DNS 名稱*> (不安全)**] (Chrome)，以便繼續進行。接著，輸入您先前指定的密碼來存取 IPython Notebook。
 
 Internet Explorer：![建立工作區][20]
 

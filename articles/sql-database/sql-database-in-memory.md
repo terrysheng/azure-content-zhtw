@@ -71,7 +71,7 @@ In-Memory [Analytics](#install_analytics_manuallink) 的功能如下：
 
 公開上市 (GA)：
 
-- *磁碟上*的[資料行存放區索引](http://msdn.microsoft.com/library/dn817827.aspx)。
+- *磁碟上* 的[資料行存放區索引](http://msdn.microsoft.com/library/dn817827.aspx)。
 
 
 預覽：
@@ -531,6 +531,6 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - [SQL Server 的 Replay Markup Language (RML) 公用程式說明](http://support.microsoft.com/zh-TW/kb/944837)
 
-- 適用於 In-Memory OLTP 的[監視記憶體內部儲存體](sql-database-in-memory-oltp-monitoring.md)。
+- 適用於 In-Memory OLTP 的 [監視記憶體內部儲存體](sql-database-in-memory-oltp-monitoring.md)。
 
 <!---HONumber=AcomDC_0323_2016-->

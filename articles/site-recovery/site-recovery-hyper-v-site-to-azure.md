@@ -64,12 +64,12 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 - 建議您一律執行最新版本的提供者和代理程式。這些程式可以在 Site Recovery 入口網站中取得。
 - 保存庫中的所有 Hyper-V 伺服器應該有相同版本的提供者和代理程式。
 - 伺服器上執行的提供者會透過網際網路連接到 Site Recovery。您不需要使用 Poxy 就能選擇執行這個動作，方法是使用目前設定於 Hyper-V 伺服器上的 Poxy 設定，或使用您在提供者安裝期間所設定的自訂 Poxy 設定。您必須確定您想要使用的 Proxy 伺服器可以存取這些 URL 以連接到 Azure：
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
-	
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
+ 
 - 此外，允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 
 

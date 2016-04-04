@@ -120,7 +120,8 @@
   1.	新增網域。
   2.	安裝和執行 Azure AD Connect︰使用[自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)中的指示來安裝 Azure AD Connect。
   3. 驗證及管理目錄同步作業。此步驟中可取得單一登入的指示。
-  >[AZURE.NOTE] 如上面連結的文件所述，設定與 AD FS 同盟。[AZURE.NOTE] 您不需要設定任何預覽功能。
+  >[AZURE.NOTE] 如上面連結的文件所述，設定與 AD FS 同盟。
+  >[AZURE.NOTE] 您不需要設定任何預覽功能。
 
 
 

@@ -97,7 +97,8 @@ Identity Protection 會使用此資料來產生報告和警示，讓您調查這
 | 從受感染的裝置登入 | 從可能受感染的裝置登入 |
 | 從匿名 IP 位址登入 | 從不明來源登入 |
 | 從具有可疑活動的 IP 位址登入 |	從具有可疑活動的 IP 位址登入 |
-| 從不熟悉的位置登入 | - | | 鎖定事件 (不在公開預覽中) | - |
+| 從不熟悉的位置登入 | - | 
+| 鎖定事件 (不在公開預覽中) | - |
 
 下列 Azure AD 異常活動報告不會納入為 Azure AD Identity Protection 中的風險事件，因此不會透過 Identity Protection 提供。這些報告仍可在 Azure 管理入口網站中取得，不過將會在未來某個時候淘汰，因為它們正由 Identity Protection 中的風險事件所取代。
 
@@ -372,13 +373,21 @@ Azure Multi-Factor Authentication 是除了使用使用者名稱與密碼之外�
 
 Azure AD Identity Protection 可讓您設定原則來執行下列作業，以協助您管理首次 Multi-Factor Authentication 註冊：
 
-- 檢視目前註冊狀態：<br><br> ![MFA 註冊](./media/active-directory-identityprotection/603.png "MFA 註冊") <br>
+- 檢視目前註冊狀態：
+<br><br> 
+![MFA 註冊](./media/active-directory-identityprotection/603.png "MFA 註冊") <br>
 
-- 設定要套用原則的使用者和群組：<br><br> ![MFA 註冊](./media/active-directory-identityprotection/601.png "MFA 註冊") <br>
+- 設定要套用原則的使用者和群組：
+<br><br> 
+![MFA 註冊](./media/active-directory-identityprotection/601.png "MFA 註冊") <br>
 
-- 定義多久以後才能略過註冊：<br><br> ![MFA 註冊](./media/active-directory-identityprotection/602.png "MFA 註冊") <br>
+- 定義多久以後才能略過註冊：
+<br><br> 
+![MFA 註冊](./media/active-directory-identityprotection/602.png "MFA 註冊") <br>
 
-- 切換原則的狀態：<br><br> ![MFA 註冊](./media/active-directory-identityprotection/403.png "MFA 註冊") <br>
+- 切換原則的狀態：
+<br><br> 
+![MFA 註冊](./media/active-directory-identityprotection/403.png "MFA 註冊") <br>
 
 如需相關的使用者經驗概觀，請參閱︰
 

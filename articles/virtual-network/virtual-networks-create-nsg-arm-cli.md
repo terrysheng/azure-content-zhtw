@@ -69,7 +69,7 @@
 		info:    network nsg create command OK
 
 	參數：
-	- **-g (or --resource-group)**。將會在當中建立 NSG 之資源群組的名稱。在本文案例中為 *TestRG*。
+	- **-g (或 --resource-group)**。將會在當中建立 NSG 之資源群組的名稱。在本文案例中為 *TestRG*。
 	- **-l (或 --location)**。將要建立新 NSG 的 Azure 區域。在本文案例中為 *westus*。
 	- **-n (或 --name)**。新 NSG 的名稱。在本文案例中為 *NSG-FrontEnd*。
 

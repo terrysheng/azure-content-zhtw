@@ -297,7 +297,7 @@
 <!-- -->
 若要明確核心，例如，您可以使用下列命令檢查應該要求適當配額量的區域，透過管線傳送給 **jq** 供 JSON 剖析。
 <!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+		azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' 
         {
           "name": "virtualMachines",
           "apiVersions": [

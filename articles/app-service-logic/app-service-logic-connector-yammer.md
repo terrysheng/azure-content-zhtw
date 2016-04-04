@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # 在邏輯應用程式中使用 Yammer 連接器 #
->[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [Yammer API](../connectors/create-api-yammer.md)。
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [Yammer API](../connectors/connectors-create-api-yammer.md)。
 
 連線至「Yammer 和張貼訊息」動作和觸發程序以擷取新訊息。
 
@@ -64,7 +64,7 @@
 
 ## 使用 Yammer 連接器張貼訊息
 
-您也可以在邏輯應用程式中使用 Yammer 連接器做為動作。首先，指定邏輯應用程式的觸發程序，或核取 [手動執行此邏輯]\(如下所示)。加入 yammer 連接器，適當地授權，然後選擇 [張貼訊息] 動作。設定 [張貼訊息] 動作，如下所示：
+您也可以在邏輯應用程式中使用 Yammer 連接器做為動作。首先，指定邏輯應用程式的觸發程序，或核取 [手動執行此邏輯] (如下所示)。加入 yammer 連接器，適當地授權，然後選擇 [張貼訊息] 動作。設定 [張貼訊息] 動作，如下所示：
 
 - **訊息文字** - 要張貼之訊息的文字內容
 - **群組識別碼** - 指定應該張貼新訊息之群組的識別碼。如果未提供群組識別碼，訊息將會張貼到「所有公司摘要」。群組識別碼可以從 Yammer 中的群組 URL 擷取。  
@@ -94,4 +94,4 @@
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

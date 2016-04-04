@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="03/21/2016" 
 ms.author="adegeo"/>
 
 # 常見的雲端服務啟動工作
@@ -23,7 +23,7 @@ ms.author="adegeo"/>
 
 此處的許多工作都使用了以下項目：
 
->[AZURE.NOTE]啟動工作不適用於虛擬機器，只適用於雲端服務 Web 和背景工作角色。
+>[AZURE.NOTE] 啟動工作不適用於虛擬機器，只適用於雲端服務 Web 和背景工作角色。
 
 
 ## 定義角色啟動前的環境變數
@@ -60,7 +60,7 @@ ms.author="adegeo"/>
 </ServiceDefinition>
 ```
 
-變數也可以使用[有效的 Azure XPath 值](https://msdn.microsoft.com/library/azure/hh404006.aspx)，以參考部署的相關項目，而不是使用 `value` 屬性定義 [RoleInstanceValue] 子項目。
+變數也可以使用[有效的 Azure XPath 值](cloud-services-role-config-xpath.md)，以參考部署的相關項目，而不是使用 `value` 屬性定義 [RoleInstanceValue] 子項目。
 
 ```xml
 <Variable name="PathToStartupStorage">
@@ -503,4 +503,4 @@ Startup2.cmd：
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0323_2016-->

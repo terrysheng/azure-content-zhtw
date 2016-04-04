@@ -63,7 +63,7 @@ Azure SDK for .NET 將安裝下列產品：
 
 * [建立、開啟及發行雲端服務專案](cloud-services/cloud-services-dotnet-get-started.md) (英文)。
 * [使用 Azure Tools 發行雲端服務](http://msdn.microsoft.com/library/ff683672.aspx)。
-* [在建立新的 Web 專案時，建立 Azure 虛擬機器](virtual-machines/virtual-machines-dotnet-create-visual-studio-powershell.md) (英文)。
+* [在建立新的 Web 專案時，建立 Azure 虛擬機器](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md) (英文)。
 * [使用 Windows PowerShell 指令碼來發行至開發和測試環境](http://msdn.microsoft.com/library/dn642480.aspx)。
 * [設定 Azure 專案](http://msdn.microsoft.com/library/ee405486.aspx)。
 * 在 [伺服器總管]中，檢視和管理[雲端服務](http://msdn.microsoft.com/library/ff683675.aspx)、[虛擬機器](http://msdn.microsoft.com/library/jj131259.aspx)與[服務匯流排](http://msdn.microsoft.com/library/jj149828.aspx)。 
@@ -186,4 +186,4 @@ Azure PowerShell 可讓您[將 Azure 環境的建立及部署自動化](http://w
 
 如需 Azure 用戶端程式庫的參考文件，請參閱 [Azure .NET 參考](/documentation/api/) (英文)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

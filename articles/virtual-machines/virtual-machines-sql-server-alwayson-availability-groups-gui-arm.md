@@ -1,14 +1,14 @@
 <properties
 	pageTitle="設定 AlwaysOn 可用性群組 Azure 資源管理員 | Microsoft Azure"
 	description="在 Azure 資源管理員 (GUI) 模式中使用 Azure 虛擬機器建立 AlwaysOn 可用性群組。本教學課程主要是透過此使用者介面來自動建立整個解決方案。"
-	services="virtual-machines"
+	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
 	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-resource-manager" />
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
@@ -19,9 +19,9 @@
 # 在 Azure 資源管理員虛擬機器 (GUI) 中設定 AlwaysOn 可用性群組
 
 > [AZURE.SELECTOR]
-- [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
-- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
-- [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+- [入口網站 - 資源管理員](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
+- [入口網站 - 傳統](virtual-machines-windows-classic-portal-sql-availability.md)
+- [PowerShell - 傳統](virtual-machines-windows-classic-ps-sql-availability.md)
 
 <br/>
 
@@ -52,9 +52,9 @@
 
 本教學課程假設您已句備下列條件：
 
-- 您已經有 Azure 帳戶。如果您沒有帳戶，請[註冊試用帳戶](http://azure.microsoft.com/pricing/free-trial/)。
+- 您已經有 Azure 帳戶。如果您沒有帳戶，請[註冊一個試用帳戶](http://azure.microsoft.com/pricing/free-trial/)。
 
-- 您已經知道如何透過 GUI 佈建來自虛擬機器資源庫的 SQL Server VM。如需詳細資訊，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-provision-sql-server.md)
+- 您已經知道如何透過 GUI 佈建來自虛擬機器資源庫的 SQL Server VM。如需詳細資訊，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-classic-portal-sql.md)
 
 - 您已充分了解 AlwaysOn 可用性群組。如需詳細資訊，請參閱 [AlwaysOn 可用性群組 (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx)。
 
@@ -88,9 +88,9 @@ Azure 提供整個解決方案的資源庫映像。若要找出範本，請執�
 
 - [密碼] 是網域系統管理員帳戶的密碼。使用複雜密碼。確認密碼。
 
-- [訂用帳戶] 是執行 AlwaysOn 可用性群組已部署的資源收費時，Azure 將會收費的訂用帳戶。如果您的帳戶有多個訂用帳戶，您可以指定不同的訂用帳戶。
+- [訂用帳戶] 是執行針對 AlwaysOn 可用性群組部署的所有資源時，Azure 將會收費的訂用帳戶。如果您的帳戶有多個訂用帳戶，您可以指定不同的訂用帳戶。
  
-- [資源群組] 是本教學課程建立的所有 Azure 資源所屬的群組名稱。本教學課程使用 **SQL-HA-RG**。如需詳細資訊，請參閱 (Azure 資源管理員概觀)[resource-group-overview.md/#resource-groups]。
+- [資源群組] 是本教學課程建立的所有 Azure 資源所屬群組的名稱。本教學課程使用 **SQL-HA-RG**。如需詳細資訊，請參閱 (Azure 資源管理員概觀)[resource-group-overview.md/#resource-groups]。
 
 - [位置] 是本教學課程將於其中建立資源的 Azure 區域。選取 Azure 區域來裝載基礎結構。
 
@@ -106,15 +106,15 @@ Azure 提供整個解決方案的資源庫映像。若要找出範本，請執�
 
 在 [網域和網路設定] 刀鋒視窗上，檢閱網域和網路設定的預設值：
 
-- [樹系根網域名稱] 是裝載主機的 AD 網域使用的網域名稱。本教學課程使用 **contoso.com**。 
+- [樹系根網域名稱] 是裝載叢集的 AD 網域使用的網域名稱。本教學課程使用 **contoso.com**。 
 
 - [虛擬網路名稱] 是 Azure 虛擬網路的網路名稱。本教學課程使用 **autohaVNET**。
 
-- [網域控制站子網路名稱] 是裝載網域控制站的一部份虛擬網路的名稱。本教學課程使用 **subnet-1**。這個子網路會使用位址首碼 **10.0.0.0/24**。
+- [網域控制站子網路名稱] 是裝載網域控制站的一部分虛擬網路的名稱。本教學課程使用 **subnet-1**。這個子網路將會使用位址首碼 **10.0.0.0/24**。
 
-- [SQL Server 子網路名稱] 是裝載 SQL Server 和檔案共用見證的一部份虛擬網路的名稱。本教學課程使用 **subnet-2**。這個子網路會使用位址首碼 **10.0.1.0/26**。
+- [SQL Server 子網路名稱] 是裝載 SQL Server 和檔案共用見證的一部分虛擬網路的名稱。本教學課程使用 **subnet-2**。這個子網路將會使用位址首碼 **10.0.1.0/26**。
 
-若要深入了解 Azure 中的虛擬網路，請參閱[虛擬網路概觀](virtual-networks-overview.md)。
+若要深入了解 Azure 中的虛擬網路，請參閱[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
 [網域和網路設定] 應該看起來像這樣：
 
@@ -132,7 +132,7 @@ Azure 提供整個解決方案的資源庫映像。若要找出範本，請執�
 
 - [可用性群組接聽程式名稱] 由叢集和內部負載平衡器使用。連接到 SQL Server 用戶端可以使用這個名稱來連接到資料庫的適當複本。本教學課程使用 **Contoso-listener**。
 
--  [可用性群組接聽程式連接埠] 指定 SQL Server 接聽程式將使用的 TCP 連接埠。本教學課程使用預設連接埠 **1433**。
+-  [可用性群組接聽程式連接埠] 會指定 SQL Server 接聽程式將使用的 TCP 連接埠。本教學課程使用預設連接埠 **1433**。
 
 如有必要，您可以變更這些值。本教學課程使用預設值。
 
@@ -144,27 +144,27 @@ Azure 提供整個解決方案的資源庫映像。若要找出範本，請執�
 
 在 [VM 大小，儲存體設定] 上，選擇 SQL Server 虛擬機器大小，並檢閱其他設定。
 
-- [SQL Server 虛擬機器大小] 是兩個 SQL Server 的 Azure 虛擬機器大小。選擇適合您的工作負載的虛擬機器大小。如果您要為教學課程建置此環境，請使用 **DS2**。針對生產工作負載，請選擇可支援工作負載的虛擬機器大小。許多生產工作負載需要 **DS4** 或更大。此範本會建置兩個此大小的虛擬機器，並在每個虛擬機器上安裝 SQL Server。如需詳細資訊，請參閱[虛擬機器的大小](virtual-machines-size-specs.md)。
+- [SQL Server 虛擬機器大小] 是兩個 SQL Server 的 Azure 虛擬機器大小。選擇適合您的工作負載的虛擬機器大小。如果您要為教學課程建置此環境，請使用 **DS2**。針對生產工作負載，請選擇可支援工作負載的虛擬機器大小。許多生產工作負載需要 **DS4** 或更大。此範本會建置兩個此大小的虛擬機器，並在每個虛擬機器上安裝 SQL Server。如需詳細資訊，請參閱[虛擬機器的大小](virtual-machines-linux-sizes.md)。
 
->[AZURE.NOTE]Azure 會安裝 SQL Server Enterprise 版。成本根據版本和虛擬機器大小而定。如需目前成本的詳細資訊，請參閱[虛擬機器價格](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)。
+>[AZURE.NOTE]Azure 會安裝 SQL Server Enterprise 版。成本根據版本和虛擬機器大小而定。如需目前成本的詳細資訊，請參閱[虛擬機器定價](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)。
 
 - [網域控制站虛擬機器大小] 是網域控制站的虛擬機器大小。本教學課程使用 **D2**。
 
 - [檔案共用見證虛擬機器大小] 是檔案共用見證的虛擬機器大小。本教學課程使用 **A1**。
 
-- [SQL 儲存體帳戶] 是擁有 SQL Server 資料和作業系統磁碟的儲存體帳戶名稱。本教學課程使用 **alwaysonsql01**。
+- [SQL 儲存體帳戶] 是容納 SQL Server 資料和作業系統磁碟的儲存體帳戶的名稱。本教學課程使用 **alwaysonsql01**。
 
 - [DC 儲存體帳戶] 是網域控制站的儲存體帳戶名稱。本教學課程使用 **alwaysondc01**。
 
 - [SQL Server 資料磁碟大小] (TB) 是 SQL Server 資料磁碟的大小 (TB)。指定從 1 到 4 的數字。這是會附加至每個 SQL Server 的資料磁碟的大小。本教學課程使用 **1**。
 
-- [儲存最佳化] 會根據工作負載類型，設定 SQL Server 虛擬機器的組態設定。在此案例中，所有 SQL Server 都使用進階儲存體，且 Azure 磁碟主機快取設為唯讀。此外，有下列三種設定供您選擇，以最佳化 SQL Server 的工作負載設定：
+- [儲存體最佳化] 會根據工作負載類型，設定 SQL Server 虛擬機器的特定儲存體組態設定。在此案例中，所有 SQL Server 都使用進階儲存體，且 Azure 磁碟主機快取設為唯讀。此外，有下列三種設定供您選擇，以最佳化 SQL Server 的工作負載設定：
 
-    - [一般工作負載] 不設定任何特定的組態設定 
+    - [一般工作負載] 不會設定任何特定的組態設定 
 
-    - [交易式處理] 設定追蹤旗標 1117 和 1118
+    - [交易式處理] 會設定追蹤旗標 1117 和 1118
 
-    - [資料倉儲] 設定追蹤旗標 1117 和 610
+    - [資料倉儲] 會設定追蹤旗標 1117 和 610
 
 本教學課程使用 [一般工作負載]。
 
@@ -190,7 +190,7 @@ Azure 提供整個解決方案的資源庫映像。若要找出範本，請執�
 
 - [Windows Server 備份和存放集區](http://technet.microsoft.com/library/dn390929.aspx)
 
-如需有關 SQL Server 組態最佳作法的詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](virtual-machines-sql-server-performance-best-practices.md)。
+如需有關 SQL Server 組態最佳作法的詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](virtual-machines-windows-classic-sql-perf.md)
 
 
 ###SQL Server 設定
@@ -205,7 +205,7 @@ Azure 提供整個解決方案的資源庫映像。若要找出範本，請執�
 
 - [密碼] 是 SQL Server 服務帳戶的密碼。使用複雜密碼。確認密碼。
 
-- [SQL 自動修補維護排程] 識別 Azure 將自動修補 SQL Server 的工作日。在本教學課程中，請輸入**星期日**。
+- [SQL 自動修補維護排程] 會識別 Azure 將自動修補 SQL Server 的工作日。在本教學課程中，請輸入**星期日**。
 
 - [SQL 自動修補維護開始小時] 是 Azure 區域在當天開始自動修補的時間。
 
@@ -221,7 +221,7 @@ Azure 提供整個解決方案的資源庫映像。若要找出範本，請執�
 
 ###購買
 
-這個最終的刀鋒視窗包含 [使用條款] 和 [隱私權原則]。檢閱此資訊。當您準備好讓 Azure 開始建立虛擬機器，以及 AlwaysOn 可用性群組需要所有的其他資源時，請按一下 [建立]。
+這個最終的刀鋒視窗包含 [使用條款] 和 [隱私權原則]。檢閱此資訊。當您準備好讓 Azure 開始建立虛擬機器，以及 AlwaysOn 可用性群組的其他所有必要資源時，請按一下 [建立]。
  
 Azure 入口網站會建立資源群組和所有資源。
 
@@ -241,7 +241,7 @@ SQL Server 的新執行個體會在沒有網際網路連線的虛擬機器上執
 
 1.	按一下 [資源]。
 
-1.	在 [資源] 刀鋒視窗中，按一下 [ad-primary-dc]，這是主要網域控制站虛擬機器的電腦名稱。
+1.	在 [資源] 刀鋒視窗中，按一下 **ad-primary-dc**，這是主要網域控制站虛擬機器的電腦名稱。
 
 1.	在 **ad-primary-dc** 的刀鋒視窗上，按一下 [連接]。瀏覽器會詢問您是否要開啟或儲存遠端連線物件。按一下 [開啟]。![連接到 DC](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/13-ad-primary-dc-connect.png)
 1.	**遠端桌面連線**可能會警告您無法識別這個遠端連線的發行者。按一下 [連接]。
@@ -260,4 +260,4 @@ SQL Server 的新執行個體會在沒有網際網路連線的虛擬機器上執
 
 您現在已使用 RDP 連接至 SQL Server。您可以開啟 SQL Server Management Studio、連接到 SQL Server 的預設執行個體，並確認已設定 AlwaysOn 可用性群組。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

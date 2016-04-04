@@ -18,10 +18,11 @@
 
 # v2.0 通訊協定 - OAuth 2.0 與 OpenID Connect
 
-v2.0 端點可以使用 Azure AD，利用業界標準通訊協定 (OpenID Connect 與 OAuth 2.0) 提供身分識別即服務。雖然此服務是標準相容，但這些通訊協定任兩個實作之間仍會有些微差異。若您選擇藉由直接傳送和處理 HTTP 要求，或使用協力廠商的開放原始碼程式庫來撰寫程式碼，而非使用我們的其中一個開放原始碼程式庫，則可參考這裡提供的實用資訊。<!-- TODO: Need link to libraries above -->
+v2.0 端點可以使用 Azure AD，利用業界標準通訊協定 (OpenID Connect 與 OAuth 2.0) 提供身分識別即服務。雖然此服務是標準相容，但這些通訊協定任兩個實作之間仍會有些微差異。若您選擇藉由直接傳送和處理 HTTP 要求，或使用協力廠商的開放原始碼程式庫來撰寫程式碼，而非使用我們的其中一個開放原始碼程式庫，則可參考這裡提供的實用資訊。
+<!-- TODO: Need link to libraries above -->
 
 > [AZURE.NOTE]
-	v2.0 端點並未支援所有的 Azure Active Directory 案例和功能。若要判斷是否應該使用 v2.0 端點，請閱讀相關的 [v2.0 限制](active-directory-v2-limitations.md)。
+	v2.0 端點並未支援 Azure Active Directory 的所有案例和功能。若要判斷是否應該使用 v2.0 端點，請閱讀相關的 [v2.0 限制](active-directory-v2-limitations.md)。
 
 ## 基本概念
 幾乎在所有的 OAuth 和 OpenID Connect 流程中，都有四個參與交換的合作對象：
@@ -77,7 +78,7 @@ OAuth 2.0 和 OpenID Connect 的 v2.0 實作會廣泛運用持有人權杖，包
 - 使用 OAuth 2.0 用戶端認證流程建置精靈或伺服器端處理程序 (敬請期待)
 - 透過 OAuth 2.0 代理者流程在 Web API 中取得權杖 (敬請期待)
 
-<!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) -->
+<!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

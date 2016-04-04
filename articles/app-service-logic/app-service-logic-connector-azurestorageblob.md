@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
    
 # 開始使用 Azure 儲存體 Blob 連接器並將它加入您的邏輯應用程式 
 
->[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [Azure 儲存體 Blob API](../connectors/create-api-azureblobstorage.md)。
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [Azure 儲存體 Blob API](../connectors/connectors-create-api-azureblobstorage.md)。
 
 連接到 Azure 儲存體 Blob，以便從 Blob 容器上傳、下載及刪除 Blob。連接器在 Logic Apps 中是用作「工作流程」的一部分。
 
@@ -107,4 +107,4 @@ Blob 寫入內容 | 輸入要上傳之 Blob 的內容和屬性。
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

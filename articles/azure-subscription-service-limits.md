@@ -130,7 +130,7 @@
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-如需其他詳細資訊，請參閱[虛擬機器大小](../articles/virtual-machines/virtual-machines-size-specs.md)。
+如需其他詳細資訊，請參閱[虛擬機器大小](../articles/virtual-machines/virtual-machines-linux-sizes.md)。
 
 **標準儲存體帳戶**
 
@@ -280,8 +280,8 @@
 
 [了解 Azure 限制和增加](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Azure 的虛擬機器和雲端服務大小](virtual-machines/virtual-machines-size-specs.md)
+[Azure 的虛擬機器和雲端服務大小](virtual-machines/virtual-machines-linux-sizes.md)
 
 [雲端服務的大小](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

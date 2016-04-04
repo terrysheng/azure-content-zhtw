@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="使用 Azure Data Factory 移動和處理記錄檔 (Azure 傳統入口網站)" 
-	description="此進階教學課程說明接近現實情況的案例，並使用 Azure 傳統入口網站中的 Azure Data Factory 服務和 Data Factory 編輯器實作案例。" 
+	pageTitle="使用 Azure Data Factory 移動和處理記錄檔 (Azure 入口網站)" 
+	description="此進階教學課程說明接近現實情況的案例，並使用 Azure 入口網站中的 Azure Data Factory 服務和 Data Factory 編輯器來實作案例。" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/31/2016" 
+	ms.date="03/17/2016" 
 	ms.author="spelluru"/>
 
-# 教學課程：衡量行銷活動的成效  
-Contoso 是為多個平台建立遊戲的遊戲公司：遊戲主機、手持裝置與個人電腦 (PC)。這些遊戲會產生大量的記錄檔，Contoso 的目標是要收集並分析這些記錄檔，以深入瞭解客戶的喜好設定、族群結構特徵、使用行為等，以發掘向上銷售與交叉銷售機會，開發新的強大功能，以期推動業務成長並為客戶提供更好的體驗。
+# 教學課程：使用 Azure Data Factory 移動和處理記錄檔 (Azure 入口網站)  
+Contoso 是一間打造多平台遊戲的遊戲公司：包括遊戲主機、手持裝置與個人電腦 (PC)。這些遊戲會產生大量的記錄檔，Contoso 的目標是要收集並分析這些記錄檔，以深入瞭解客戶的喜好設定、族群結構特徵、使用行為等，以發掘向上銷售與交叉銷售機會，開發新的強大功能，以期推動業務成長並為客戶提供更好的體驗。
 
 在本教學課程中，您將建立 Data Factory 管線，透過收集範例記錄檔、處理並以參考資料加以充實，然後轉換資料，以評估 Contoso 最近展開的行銷活動的成效。有下列三個管線：
 
@@ -60,18 +60,19 @@ Contoso 是為多個平台建立遊戲的遊戲公司：遊戲主機、手持裝
 1. **PartitionGameLogsPipeline** 從 Blob 儲存體 (RawGameEventsTable) 讀取原始遊戲事件，並根據年、月和日建立分割區 (PartitionedGameEventsTable)。
 2. **EnrichGameLogsPipeline** 聯結分割的遊戲事件 (PartitionedGameEvents 資料表，其為 PartitionGameLogsPipeline 的輸出) 與地區代碼 (RefGetoCodeDictionaryTable)，並將 IP 位址對應到相對應的地理位置來充實資料 (EnrichedGameEventsTable)。
 3. **AnalyzeMarketingCampaignPipeline** 管線運用已充實的資料 (EnrichGameLogsPipeline 所產生的 EnrichedGameEventTable)，並加上廣告資料來處理 (RefMarketingCampaignnTable)，以建立行銷活動成效的最終輸出，該輸出會複製到 Azure SQL Database (MarketingCampainEffectivensessSQLTable) 和 Azure Blob 儲存體 (MarketingCampaignEffectivenessBlobTable) 進行分析。
+
+您會在本教學課程中執行下列步驟：
     
-## 逐步解說：建立、部署和監視工作流程
-1. [步驟 1：上傳範例資料和指令碼](#MainStep1)。在此步驟中，您將上傳所有範例資料 (包括所有記錄檔和參考資料) 和將由工作流程執行的 Hive/Pig 指令碼。您執行的指令碼也會建立 Azure SQL 資料庫 (名為 MarketingCampaigns)、資料表、使用者定義型別和預存程序。
-2. [步驟 2：建立 Azure Data Factory](#MainStep2)。在此步驟中，您將建立名為 LogProcessingFactory 的 Azure Data Factory。
-3. [步驟 3：建立連結服務](#MainStep3)。在此步驟中，您將建立下列連結的服務： 
+1. [上傳範例資料和指令碼](#upload-sample-data-and-scripts)。在此步驟中，您將上傳所有範例資料 (包括所有記錄檔和參考資料) 和將由工作流程執行的 Hive/Pig 指令碼。您執行的指令碼也會建立 Azure SQL 資料庫 (名為 MarketingCampaigns)、資料表、使用者定義型別和預存程序。
+2. [建立 Azure Data Factory](#create-data-factory)。在此步驟中，您將建立名為 LogProcessingFactory 的 Azure Data Factory。
+3. [建立連結的服務](#create-linked-services)。在此步驟中，您將建立下列連結的服務： 
 	
 	- 	**StorageLinkedService**。Azure 儲存體位置的連結，其中包含原始遊戲事件、分割的遊戲事件、充實的遊戲事件、行銷活動有效性資訊、參考資料的地區代碼，以及 LogProcessingFactory 行銷活動資料的參考資料   
 	- 	**AzureSqlLinkedService**。連結 Azure SQL 資料庫，其中包含行銷活動有效性資訊。 
 	- 	**HDInsightStorageLinkedService**。連結與 HDInsightLinkedService 所參照 HDInsight 叢集相關聯的 Azure Blob 儲存體。 
 	- 	**HDInsightLinkedService**。將Azure HDInsight 叢集與 LogProcessingFactory 連結。這個叢集用來對資料執行 pig/hive 處理。 
  		
-4. [步驟 4：建立資料表](#MainStep4)。在此步驟中，您將建立下列資料表：
+4. [建立資料集](#create-datasets)。在此步驟中，您將建立下列資料表：
 	
 	- **RawGameEventsTable**。此資料表指定 StorageLinkedService 所定義的 Azure Blob 儲存體中，原始遊戲事件資料的位置 (adfwalkthrough/logs/rawgameevents/)。 
 	- **PartitionedGameEventsTable**。此資料表指定 StorageLinkedService 所定義的 Azure Blob 儲存體中分割的遊戲事件資料的位置 (adfwalkthrough/logs/partitionedgameevents/)。 
@@ -82,7 +83,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司：遊戲主機、手持裝
 	- **MarketingCampaignEffectivenessBlobTable**。此資料表指定 StorageLinkedService 所定義的 Azure Blob 儲存體中，行銷活動有效性資料的位置 (adfwalkthrough/marketingcampaigneffectiveness/)。 
 
 	
-5. [步驟 5：建立和排程管線](#MainStep5)。在此步驟中，您將建立下列管線：
+5. [建立和排程管線](#create-pipelines)。在此步驟中，您將建立下列管線：
 	- **PartitionGameLogsPipeline**。管線會從 Blob 儲存體 (RawGameEventsTable) 讀取原始遊戲事件，並建立以年、月和日為基礎的資料分割 (PartitionedGameEventsTable)。 
 
 
@@ -99,9 +100,9 @@ Contoso 是為多個平台建立遊戲的遊戲公司：遊戲主機、手持裝
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [步驟 6：監視管線和資料配量](#MainStep6)。在此步驟中，您將使用 Azure 傳統入口網站監視管線、資料表和資料配量。
+6. [監視管線](#monitor-pipelines)。在此步驟中，您將使用 Azure 傳統入口網站監視管線、資料表和資料配量。
 
-## <a name="MainStep1"></a> 步驟 1：上傳範例資料和指令碼
+## 上傳範例資料和指令碼
 在此步驟中，您將上傳所有範例資料 (包括所有記錄檔和參考資料) 和將由工作流程叫用的 Hive/Pig 指令碼。您執行的指令碼也會建立 Azure SQL Database (名為 **MarketingCampaigns**)、資料表、使用者定義型別和預存程序。
 
 將行銷活動有效性結果從 Azure Blob 儲存體移至 Azure SQL 資料庫時，會使用資料表、使用者定義型別和預存程序。
@@ -154,7 +155,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司：遊戲主機、手持裝
 		6/6/2014 11:54:36 AM 3. Created ‘MarketingCampaigns’ Azure SQL database and tables.
 		6/6/2014 11:54:36 AM You are ready to deploy Linked Services, Tables and Pipelines. 
 
-## <a name="MainStep2"></a> 步驟 2：建立 Azure Data Factory
+## 建立 Data Factory
 在此步驟中，您會建立名為 **LogProcessingFactory** 的 Azure Data Factory。
 
 1.	登入 [Azure 入口網站][azure-portal]之後，在左下角按一下 [**新增**]，在 [**建立**] 刀鋒視窗中按一下 [**資料分析**]，然後在 [**資料分析**] 刀鋒視窗上按一下 [**Data Factory**]。 
@@ -190,7 +191,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司：遊戲主機、手持裝
  
 	Azure Data Factory 的名稱在全域必須是唯一的。如果您收到錯誤：**Data Factory 名稱 "LogProcessingFactory" 無法使用**，請變更名稱 (例如，yournameLogProcessingFactory)。執行本教學課程中的步驟時，請使用此名稱來取代 LogProcessingFactory。
  
-## <a name="MainStep3"></a> 步驟 3：建立連結服務
+## 建立連結服務
 
 > [AZURE.NOTE] 本文使用 Azure 傳統入口網站 (尤其是 Data Factory 編輯器) 建立連結的服務、資料表和管線。如果您想要使用 Azure PowerShell 執行本教學課程，請參閱[使用 Azure PowerShell 執行教學課程][adftutorial-using-powershell]。
 
@@ -273,7 +274,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 2. 按一下命令列的 [部署]，部署連結服務。
 
 
-## <a name="MainStep4"></a> 步驟 4：建立資料表
+## 建立資料集
  
 在此步驟中，您將建立下列 Data Factory 資料表：
 
@@ -304,7 +305,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 	1. MarketingCampaignEffectivenessSQLTable.json
 	
 
-## <a name="MainStep5"></a> 步驟 5：建立和排程管線
+## 建立管線
 在此步驟中，您將建立下列管線：
 
 - PartitionGameLogsPipeline
@@ -350,7 +351,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 **恭喜！** 您已成功建立 Azure Data Factory、連結的服務、管線、資料表，並開始工作流程。
 
 
-## <a name="MainStep6"></a> 步驟 6：監視管線和資料配量 
+## 監視管線 
 
 1.	如果 **LogProcessingFactory** 的 **DATA FACTORY** 刀鋒視窗未開啟，您可以執行下列其中一項：
 	1.	在「開始面板」按一下 [LogProcessingFactory]。在建立 Data Factory 時，已自動勾選 [**新增至開始面板**] 選項。
@@ -390,7 +391,7 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 	![RawGameEventsTable [資料配量] 刀鋒視窗][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	如果發生錯誤，您在這裡會看到 **[Failed] **狀態。您也可能會看到兩個配量的狀態都是 **Ready**，或都是 **Waiting** (視系統處理配量的速度而定)。
+	如果發生錯誤，您在這裡會看到 **[Failed] **狀態。您也可能會看到兩個配量的狀態都是 [Ready]，或都是 [Waiting] (視系統處理配量的速度而定)。
 
 	如果配量不是 [就緒] 狀態，您可以在 [未就緒的上游配量] 清單中看到未就緒且阻礙目前配量執行的上游配量。
  
@@ -483,4 +484,4 @@ Azure Data Factory 服務支援建立隨選叢集，並使用它處理輸入來�
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

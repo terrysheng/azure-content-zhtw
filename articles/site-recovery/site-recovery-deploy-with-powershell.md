@@ -16,8 +16,12 @@
 	ms.date="12/14/2015"
 	ms.author="lauraa"/>
 
-# 使用 Azure Site Recovery 及 PowerShell 複寫 VMM 雲端中的 HYPER-V 虛擬機器
+# 使用 Powershell - Classic 將 Hyper-V 虛擬機器 (位於 VMM 雲端中) 複寫至 Azure
 
+> [AZURE.SELECTOR]
+- [Azure 傳統入口網站](site-recovery-vmm-to-azure.md)
+- [PowerShell - 傳統](site-recovery-deploy-with-powershell.md)
+- [PowerShell - 資源管理員](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
 
 ## 概觀
 
@@ -28,6 +32,10 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 本文包含案例的必要條件，並示範如何設定 Site Recovery 保存庫、在來源 VMM 伺服器上安裝 Azure Site Recovery 提供者、在保存庫註冊伺服器、加入 Azure 儲存體帳戶、在 Hyper-V 主機伺服器上安裝 Azure Site Recovery 代理程式、設定將套用到所有受保護虛擬機器之 VMM 雲端的保護設定、然後啟用那些虛擬機器的保護。測試容錯移轉，確認一切如預期般運作以完成動作。
 
 您在設定此案例如有任何問題，可將問題張貼到 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)。
+
+
+> [AZURE.NOTE] Azure 建立和處理資源的部署模型有二種：[資源管理員和傳統](../resource-manager-deployment-model.md)。本文涵蓋之內容包括使用傳統部署模型。
+
 
 
 ## 開始之前
@@ -67,7 +75,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 - [深入了解](site-recovery-network-mapping.md)網路對應：
 
 ###PowerShell 必要條件
-確定 Azure PowerShell 已經準備就緒。如果您已經使用 PowerShell，您必須升級至 0.8.10 版或更新版本。如需設定 PowerShell 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。一旦已安裝並設定 PowerShell，您可以檢視[這裡](https://msdn.microsoft.com/library/dn850420.aspx)之服務的所有可用的 Cmdlet。
+確定 Azure PowerShell 已經準備就緒。如果您已經使用 PowerShell，您必須升級至 0.8.10 版或更新版本。如需設定 PowerShell 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。一旦已安裝並設定 PowerShell，您可以檢視[這裡](https://msdn.microsoft.com/library/dn850420.aspx)之服務的所有可用的 Cmdlet。
 
 如需深入了解可協助您使用這些 Cmdlet 的提示 (例如參數值、輸入及輸出在 Azure PowerShell 中的處理方式)，請參閱 [Azure Cmdlet 使用者入門](https://msdn.microsoft.com/library/azure/jj554332.aspx)。
 
@@ -245,21 +253,19 @@ marsagentinstaller.exe /q /nu
 	
 4.	完成工作之後，執行下列命令：
 
-	```
 	
-	$job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
-	if($job -eq $null -or $job.StateDescription -ne "Completed")
-	{
+		$job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
+		if($job -eq $null -or $job.StateDescription -ne "Completed")
+		{
 		$isJobLeftForProcessing = $true;
-	}
-	
-	```
+		}
+
 
 5.	完成工作處理之後，執行下列命令：
 
-	```
-	Do
-	{
+	
+		Do
+		{
 		$job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
 		Write-Host "Job State:{0}, StateDescription:{1}" -f Job.State, $job.StateDescription;
 		if($job -eq $null -or $job.StateDescription -ne "Completed")
@@ -271,9 +277,9 @@ marsagentinstaller.exe /q /nu
 		{
 			Start-Sleep -Seconds 60
 		}
-	}While($isJobLeftForProcessing)
+		}While($isJobLeftForProcessing)
 		
-	```
+	
 
 若要檢查作業是否完成，請執行[監視活動](#monitor)中的步驟。
 
@@ -284,42 +290,32 @@ marsagentinstaller.exe /q /nu
 
 第一個命令會取得目前的 Azure Site Recovery 保存庫的伺服器。命令會將 Microsoft Azure Site Recovery 伺服器儲存在 $Servers 陣列變數。
 
-```
-$Servers = Get-AzureSiteRecoveryServer
+	$Servers = Get-AzureSiteRecoveryServer
 
-```
 
 第二個命令會取得 $Servers 陣列中第一部伺服器的站台復原網路。此命令會在 $Networks 變數中儲存網路。
 
-```
 
-$Networks = Get-AzureSiteRecoveryNetwork -Server $Servers[0]
-
-```
+	$Networks = Get-AzureSiteRecoveryNetwork -Server $Servers[0]
 
 第三個命令使用 Get-AzuresubScription Cmdlet 取得 Azure 訂用帳戶，然後再將該值儲存在 $Subscriptions 變數中。
 
-```
+	$Subscriptions = Get-AzureSubscription
 
-$Subscriptions = Get-AzureSubscription
 
-```
 
 第四個命令會使用 Get-AzureVNetSite Cmdlet，然後是 $AzureVmNetworks 變數中的該值來取得 Azure 虛擬網路。
 
-```
 
-$AzureVmNetworks = Get-AzureVNetSite
+	$AzureVmNetworks = Get-AzureVNetSite
 
-```
+
 
 最終的 Cmdlet 會在主要網路與 Azure 虛擬機器網路之間建立對應。Cmdlet 會將主要網路指定為 $Networks 的第一個元素。Cmdlet 為使用其識別碼，將虛擬機器網路指定為 $AzureVmNetworks 的第一個元素。此命令包含您的 Azure 訂用帳戶識別碼。
 
-```
 
-PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
+	New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
 
-```
 
 ## 步驟 9：對虛擬機器啟用保護
 
@@ -333,27 +329,24 @@ PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureS
 	
 1.	若要啟用保護，請執行下列命令以取得保護容器：
 		
-	```
+		$ProtectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $CloudName
 	
-	$ProtectionContainer = Get-AzureSiteRecoveryProtectionContainer -Name $CloudName
-	
-	```
+
 	
 2. 執行下列命令以取得保護實體 (VM)：
-		
-	```
 	
-	$protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
+	
+		$protectionEntity = Get-AzureSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $protectionContainer
 		
-	```
+	
 		
 3. 執行下列命令以啟用 VM 的 DR：
 
-	```
+
 	
-	$jobResult = Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity 	-Protection Enable -Force
+		$jobResult = Set-AzureSiteRecoveryProtectionEntity -ProtectionEntity $protectionEntity 	-Protection Enable -Force
 	
-	```
+
 	
 ## 測試您的部署
 
@@ -371,97 +364,87 @@ PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureS
 3. 變更 ProtectionEntity 節點 PrimaryProtectionEntityId (來自 VMM 的 vmid)。
 4. 您可以新增更多 ProtectionEntity 節點來新增更多 VM。
 	
-	```
 	
-	<#
-	<?xml version="1.0" encoding="utf-16"?>
-	<RecoveryPlan Id="d0323b26-5be2-471b-addc-0a8742796610" Name="rp-test" 	PrimaryServerId="9350a530-d5af-435b-9f2b-b941b5d9fcd5" 	SecondaryServerId="21a9403c-6ec1-44f2-b744-b4e50b792387" Description="" 	Version="V2014_07">
-	  <Actions />
-	  <ActionGroups>
-	    <ShutdownAllActionGroup Id="ShutdownAllActionGroup">
-	      <PreActionSequence />
-	      <PostActionSequence />
-	    </ShutdownAllActionGroup>
-	    <FailoverAllActionGroup Id="FailoverAllActionGroup">
-	      <PreActionSequence />
-	      <PostActionSequence />
-	    </FailoverAllActionGroup>
-	    <BootActionGroup Id="DefaultActionGroup">
-	      <PreActionSequence />
-	      <PostActionSequence />
-	      <ProtectionEntity PrimaryProtectionEntityId="d4c8ce92-a613-4c63-9b03-	cf163cc36ef8" />
-	    </BootActionGroup>
-	  </ActionGroups>
-	  <ActionGroupSequence>
-	    <ActionGroup Id="ShutdownAllActionGroup" ActionId="ShutdownAllActionGroup" 	Before="FailoverAllActionGroup" />
-	    <ActionGroup Id="FailoverAllActionGroup" ActionId="FailoverAllActionGroup" 	After="ShutdownAllActionGroup" Before="DefaultActionGroup" />
-	    <ActionGroup Id="DefaultActionGroup" ActionId="DefaultActionGroup" After="FailoverAllActionGroup"/>
-	  </ActionGroupSequence>
-	</RecoveryPlan>
-	#>
 	
-	```
+		<#
+		<?xml version="1.0" encoding="utf-16"?>
+		<RecoveryPlan Id="d0323b26-5be2-471b-addc-0a8742796610" Name="rp-test" 	PrimaryServerId="9350a530-d5af-435b-9f2b-b941b5d9fcd5" 	SecondaryServerId="21a9403c-6ec1-44f2-b744-b4e50b792387" Description="" 	Version="V2014_07">
+		  <Actions />
+		  <ActionGroups>
+		    <ShutdownAllActionGroup Id="ShutdownAllActionGroup">
+		      <PreActionSequence />
+		      <PostActionSequence />
+		    </ShutdownAllActionGroup>
+		    <FailoverAllActionGroup Id="FailoverAllActionGroup">
+		      <PreActionSequence />
+		      <PostActionSequence />
+		    </FailoverAllActionGroup>
+		    <BootActionGroup Id="DefaultActionGroup">
+		      <PreActionSequence />
+		      <PostActionSequence />
+		      <ProtectionEntity PrimaryProtectionEntityId="d4c8ce92-a613-4c63-9b03-	cf163cc36ef8" />
+		    </BootActionGroup>
+		  </ActionGroups>
+		  <ActionGroupSequence>
+		    <ActionGroup Id="ShutdownAllActionGroup" ActionId="ShutdownAllActionGroup" 	Before="FailoverAllActionGroup" />
+		    <ActionGroup Id="FailoverAllActionGroup" ActionId="FailoverAllActionGroup" 	After="ShutdownAllActionGroup" Before="DefaultActionGroup" />
+		    <ActionGroup Id="DefaultActionGroup" ActionId="DefaultActionGroup" After="FailoverAllActionGroup"/>
+		  </ActionGroupSequence>
+		</RecoveryPlan>
+		#>
+	
+
 	
 4. 在範本中填入資料：
 	
-	```
+		
+		$TemplatePath = "C:\RPTemplatePath.xml";
 	
-	$TemplatePath = "C:\RPTemplatePath.xml";
-	
-	```
+
 	
 5. 建立 RecoveryPlan：
+
+		$RPCreationJob = New-AzureSiteRecoveryRecoveryPlan -File $TemplatePath -WaitForCompletion;
 	
-	```
 	
-	$RPCreationJob = New-AzureSiteRecoveryRecoveryPlan -File $TemplatePath -WaitForCompletion;
-	
-	```
 	
 ### 執行測試容錯移轉
 
 1.	執行下列命令以取得 RecoveryPlan 物件：
-	
-	```
-	
-	$RPObject = Get-AzureSiteRecoveryRecoveryPlan -Name $RPName;
-	
-	```
+
+		$RPObject = Get-AzureSiteRecoveryRecoveryPlan -Name $RPName;
+
 	
 2.	執行下列命令來啟動測試容錯移轉：
 	
-	```
 	
-	$jobIDResult = Start-AzureSiteRecoveryTestFailoverJob -RecoveryPlan $RPObject -Direction PrimaryToRecovery;
+		$jobIDResult = Start-AzureSiteRecoveryTestFailoverJob -RecoveryPlan $RPObject -Direction PrimaryToRecovery;
 	
-	```
-	
+		
 ## <a name=monitor></a>監視活動
 
 使用下列命令來監視活動。請注意，您必須在工作之間等候處理程序完成。
 
-```
 
-Do
-{
-        $job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
-        Write-Host "Job State:{0}, StateDescription:{1}" -f Job.State, $job.StateDescription;
-        if($job -eq $null -or $job.StateDescription -ne "Completed")
-        {
-        	$isJobLeftForProcessing = $true;
-        }
+	Do
+	{
+	        $job = Get-AzureSiteRecoveryJob -Id $associationJob.JobId;
+	        Write-Host "Job State:{0}, StateDescription:{1}" -f Job.State, $job.StateDescription;
+	        if($job -eq $null -or $job.StateDescription -ne "Completed")
+	        {
+	        	$isJobLeftForProcessing = $true;
+	        }
+	
+		if($isJobLeftForProcessing)
+	        {
+	        	Start-Sleep -Seconds 60
+	        }
+	}While($isJobLeftForProcessing)
 
-	if($isJobLeftForProcessing)
-        {
-        	Start-Sleep -Seconds 60
-        }
-}While($isJobLeftForProcessing)
-
-```
 
 
 ## 後續步驟
 
 [閱讀更多](https://msdn.microsoft.com/library/dn850420.aspx) Azure Site Recovery PowerShell Cmdlet 的相關資訊。</a>。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

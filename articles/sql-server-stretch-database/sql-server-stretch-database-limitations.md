@@ -65,6 +65,8 @@
 
 -   參考資料表的外部索引鍵條件約束
 
+    您無法在其上啟用 Stretch Database 的資料表，是外部索引鍵條件約束所參考的資料表。在父子式關聯性 (例如，訂單和訂單詳細資料) 中，這是父資料表 (訂單)。
+
 **索引數**
 -   全文檢索索引
 
@@ -74,7 +76,7 @@
 
 -   參考資料表的索引檢視表
 
-## <a name="Caveats"></a>Stretch 資料表的限制的注意事項
+## <a name="Caveats"></a>Stretch 資料表的限制和注意事項
 在目前的 SQL Server 2016 預覽版本中，Stretch 資料表有下列限制或注意事項。
 
 -   在 Stretch 表格中，「唯一」條件約束和「主要金鑰」條件約束並無強制唯一性。
@@ -99,4 +101,4 @@
 
 [為資料表啟用 Stretch Database](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

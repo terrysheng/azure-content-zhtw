@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/25/2016"
+   ms.date="03/18/2016"
    ms.author="mbaldwin" />
 
 # Azure Active Directory 圖形 API
@@ -50,6 +50,13 @@ Azure Active Directory 圖形 API 支援以程式設計方式透過 REST API 端
 
 - **目錄延伸模組**：如果您正在開發的應用程式需要讀取或寫入目錄物件的唯一屬性，您可以使用 Graph API 註冊並使用延伸模組值。例如，如果應用程式需要每個使用者都有 Skype ID 屬性，您可以在目錄中註冊新的屬性，每個使用者物件上就會有此屬性。如需詳細資訊，請參閱 [Azure AD Graph API 目錄結構描述延伸模組](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)。
 
+- **受權限範圍保護**：AAD 圖形 API 會公開權限範圍，以啟用 AAD 資料的安全/同意存取，並支援各種用戶端應用程式類型，包括︰
+ - 透過登入使用者 (委派) 授權，指定具有資料委派存取權之使用者介面的類型
+  - 使用服務/服務精靈用戶端 (應用程式角色) 等應用程式定義角色型存取控制的類型
+
+    委派和應用程式角色權限範圍都代表圖形 API 公開的權限，而且用戶端應用程式可以透過應用程式註冊權限要求它們 ([Azure 傳統入口網站中的功能](https://manage.windowsazure.com))。用戶端可以驗證被授與的權限範圍：檢查委派權限的存取權杖中所收到的範圍 ("scp") 宣告，和應用程式角色權限的角色 (“roles”) 宣告。深入了解 [Azure AD 圖形 API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)。
+
+
 ## 案例
 
 圖形 API 支援許多應用程式案例。以下是最常見的案例：
@@ -66,4 +73,4 @@ Azure Active Directory 圖形 API 支援以程式設計方式透過 REST API 端
 
 [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

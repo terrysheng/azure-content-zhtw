@@ -30,7 +30,7 @@
 
 Azure 排程器前端不僅可供管理要求使用，您自己的工作也是可以進行地理區域複寫。在某個區域中斷執行時，Azure 排程器會容錯移轉，並確保從配對的地理區域中的另一個資料中心執行工作。
 
-比方說，如果您在美國中南部建立工作，Azure 排程器就會在中北部自動複寫該工作。在美國中南部失敗時，Azure 排程器會確保工作從美國中北部執行。[這裡提供配對的 Azure 區域清單](https://msdn.microsoft.com/library/azure/dn758204.aspx)。
+比方說，如果您在美國中南部建立工作，Azure 排程器就會在中北部自動複寫該工作。在美國中南部失敗時，Azure 排程器會確保工作從美國中北部執行。[如需 Azure 異地複寫功能的深入說明，請參閱本主題。](../sql-database/sql-database-business-continuity-design.md)
 
 ![][1]
 
@@ -56,7 +56,7 @@ Azure 排程器可讓您設定重試原則。根據預設，如果工作失敗�
 
 ![][2]
 
-請注意，相同的重試原則同時適用於原始動作和替代錯誤動作。此外，替代錯誤動作的動作類型也可能與主要動作的動作類型不同。例如，當主要動作可能叫用 HTTP 端點時，而錯誤動作則可能改為進行錯誤記錄的儲存體佇列動作。
+請注意，相同的重試原則同時適用於原始動作和替代錯誤動作。此外，替代錯誤動作的動作類型也可能與主要動作的動作類型不同。例如，當主要動作可能叫用 HTTP 端點時，而錯誤動作則可能改為進行錯誤記錄的儲存體佇列、服務匯流排佇列或服務匯流排主題動作。
 
 若要了解如何設定替代端點，請參閱 [errorAction](scheduler-concepts-terms.md#action-and-erroraction)。
 
@@ -85,4 +85,4 @@ Azure 排程器可讓您設定重試原則。根據預設，如果工作失敗�
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

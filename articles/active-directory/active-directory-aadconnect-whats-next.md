@@ -13,18 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/16/2016"
 	ms.author="billmath"/>
 
 # 接下來的步驟，以及如何管理 Azure AD Connect
 以下這些進階的選擇性主題可讓您自訂 Azure Active Directory Connect，以符合您組織的需要和需求。
+
+## 加入額外的同步處理管理員
+預設只有執行安裝的使用者和本機系統管理員才能夠管理已安裝的同步處理引擎。如想讓其他人存取及管理同步處理引擎，請找到本機伺服器上名為 ADSyncAdmins 的群組，將這些人加入這個群組中。
 
 ## AD FS 服務上的選用組態
 您可以登入 AD FS，並使用 PSH 來進行設定，以自訂 AD FS 登入頁面的插圖和標誌影像。
 
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-如需有關各種組態設定可能性的完整描述，請參閱[自訂 AD FS 登入頁面](https://technet.microsoft.com/library/dn280950.aspx)。
+如需各種組態設定可能性的完整描述，請參閱[自訂 AD FS 登入頁面](https://technet.microsoft.com/library/dn280950.aspx)。
 
 ## 指派授權給 Azure AD Premium 和 Enterprise Mobility 使用者
 
@@ -58,7 +61,7 @@
 
 <center>![雲端](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
-如需有關 Azure AD Connect 同步：排程器的詳細資訊，請參閱 [Azure AD Connect 排程器](active-directory-aadconnectsync-feature-scheduler.md)
+如需 Azure AD Connect 同步：排程器的詳細資訊，請參閱 [Azure AD Connect 排程器](active-directory-aadconnectsync-feature-scheduler.md)
 
 
 ## Azure AD Connect 中可用的其他工作
@@ -78,4 +81,4 @@
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

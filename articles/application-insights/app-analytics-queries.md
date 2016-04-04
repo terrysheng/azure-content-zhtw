@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights Analytics 中的運算子和查詢" 
-	description="Application Insights Analytics (適用於 Application Insights 的強大搜尋工具) 中用來進行查詢的運算子參考。" 
+	pageTitle="Application Insights 中的分析運算子和查詢" 
+	description="分析 (Application Insights 的強大搜尋工具) 中用來進行查詢的運算子參考資料。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
 
-# Application Insights Analytics 中的查詢語法
+# 分析中的查詢功能
 
 
-[Application Insights Analytics](app-analytics.md) 是強大的搜尋引擎，適合用於 [Application Insights](app-insights-overview.md) 遙測。這些頁面說明 Application Insights Analytics 查詢語言 AIQL。
+[分析](app-analytics.md)是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。這些頁面說明分析查詢語言。
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -566,7 +566,7 @@ Render 會指示展示層顯示資料表的方式。它應該是管道的最後�
 
 **引數**
 
-* T：要排序的輸入資料表。
+* T：要排序的資料表輸入。
 * Column︰做為排序依據之 T 的資料行。值的類型必須是數值、日期、時間或字串。
 * `asc` 按照遞增順序由低至高排序。預設值是 `desc`，由高遞減至低。
 
@@ -611,9 +611,9 @@ Traces 資料表中具有特定 `ActivityId` 的所有資料列，按其時間�
 * Aggregation︰`count()` 或 `avg()` 等[彙總函式](app-analytics-aggregations.md)的呼叫，以資料行名稱做為引數。請參閱[彙總函式清單](app-analytics-aggregations.md)。
 * GroupExpression：可提供一組相異值的資料行運算式。它通常是已提供一組受限值的資料行名稱，或是以數值或時間資料行做為引數的 `bin()`。 
 
-如果您提供不使用 `bin()` 的數值或時間運算式，AI Analytics 會自動為它套用 `1h` 間隔的時間，或 `1.0` 的數字。
+如果您提供數值或時間運算式而不使用 `bin()`，「分析」就會自動為它套用 `1h` 間隔的時間，或 `1.0` 的數字。
 
-如果您沒有提供 *GroupExpression*，整份資料表會彙整在單一輸出資料列。
+如果您沒有提供 GroupExpression，整份資料表就會彙整在單一輸出資料列中。
 
 
 
@@ -678,7 +678,7 @@ Traces 資料表中具有特定 `ActivityId` 的所有資料列，按其時間�
 * `kind`： 
  * `inner` - 結果中會有所有輸入資料表共有之資料行的子集。
  * `outer` - 結果中會有任何輸入中出現的所有資料行。輸入資料列未定義的資料格會設為 `null`。
-* `withsource=`*ColumnName：*如果指定，輸出中會包含名為* ColumnName* 的資料行，其值會指出哪一個來源資料表貢獻了每個資料列。
+* `withsource=`*ColumnName：*如果指定，輸出中會包含名為 *ColumnName* 的資料行，其值會指出哪一個來源資料表貢獻了每個資料列。
 
 **傳回**
 
@@ -766,4 +766,4 @@ Traces
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

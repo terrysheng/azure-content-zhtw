@@ -120,4 +120,4 @@ OpenID Connect 的 v2.0 實作有一些定義妥善但不會套用至任何特�
 
 如需如何取得及使用重新整理權杖的詳細資訊，請參閱 [v2.0 通訊協定參考](active-directory-v2-protocols.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

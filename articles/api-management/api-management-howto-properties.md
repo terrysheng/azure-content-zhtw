@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2016" 
+	ms.date="03/18/2016" 
 	ms.author="sdanie"/>
 
 
@@ -132,6 +132,9 @@ API 管理原則是系統的強大功能，可讓發行者透過設定來變更 
 	-	[原則參考文件](https://msdn.microsoft.com/library/azure/dn894081.aspx)
 	-	[原則運算式](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
+## 觀看影片概觀
+
+> [AZURE.VIDEO use-properties-in-policies]
 
 [api-management-properties]: ./media/api-management-howto-properties/api-management-properties.png
 [api-management-properties-add-property]: ./media/api-management-howto-properties/api-management-properties-add-property.png
@@ -146,4 +149,4 @@ API 管理原則是系統的強大功能，可讓發行者透過設定來變更 
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

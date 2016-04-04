@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 
 # 開始使用 Azure 服務匯流排連接器並將它加入您的邏輯應用程式 
->[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下[服務匯流排 API](../connectors/create-api-servicebus.md)。
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下[服務匯流排 API](../connectors/connectors-create-api-servicebus.md)。
 
 連線至 Azure 服務匯流排可以將訊息傳送至「佇列和主題」，並接收來自「佇列和訂用帳戶」的訊息。連接器在 Logic Apps 中是用作「工作流程」的一部分。
 
@@ -38,8 +38,7 @@ Azure 服務匯流排連接器提供下列觸發程序和動作：
 
 1. 在 Azure 開始面板中，選取 [**Marketplace**]。
 2. 搜尋「Azure 服務匯流排連接器」，將其選取，然後選取 [**建立**]。
-3. 輸入名稱、App Service 方案和其他屬性：  
-	![][1]
+3. 輸入名稱、App Service 方案和其他屬性：![][1]
 
 4. 輸入下列封裝設定：
 
@@ -54,24 +53,19 @@ Azure 服務匯流排連接器提供下列觸發程序和動作：
 ## 在邏輯應用程式中使用服務匯流排連接器
 建立連接器之後，即可使用 Azure 服務匯流排連接器做為邏輯應用程式的觸發程序或動作。作法：
 
-1.	建立新的邏輯應用程式，並選擇具有 Azure 服務匯流排連接器的相同資源群組：  
-	![][2]
+1.	建立新的邏輯應用程式，並選擇具有 Azure 服務匯流排連接器的相同資源群組：![][2]
 
-2.	開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，並設定您的工作流程：  
-	![][3]
+2.	開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具，並設定您的工作流程：![][3]
 
-3. Azure 服務匯流排連接器會出現在右側資源庫中的 [此資源群組中的 API Apps] 區段：  
-	![][4]
+3. Azure 服務匯流排連接器會出現在右側資源庫中的 [此資源群組中的 API Apps] 區段：![][4]
 
 4. 您可以按一下 [Azure 服務匯流排連接器]，將 Azure 服務匯流排連接器置入編輯器。
 
-5.	您現在可以在工作流程中使用 Azure 服務匯流排連接器。您可以在流程的其他動作中使用從 Azure 服務匯流排觸發程序 ([可用訊息]) 擷取的訊息：  
-	![][5]  
+5.	您現在可以在工作流程中使用 Azure 服務匯流排連接器。您可以在流程的其他動作中使用從 Azure 服務匯流排觸發程序 ([可用訊息]) 擷取的訊息：![][5]
 
 	![][6]
 
-您也可以使用 Azure 服務匯流排 [傳送訊息] 動作：  
-![][7]
+您也可以使用 Azure 服務匯流排 [傳送訊息] 動作：![][7]
 
 ![][8]
 
@@ -95,4 +89,4 @@ Azure 服務匯流排連接器提供下列觸發程序和動作：
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

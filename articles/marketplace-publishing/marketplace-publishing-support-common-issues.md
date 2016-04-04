@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="12/06/2015"
+      ms.date="03/21/2015"
       ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # 如何疑難排解常見的 Azure Marketplace 發行者問題
@@ -25,7 +25,7 @@
 
 以下說明您如何代表客戶要求點數或退款。
 
-> [AZURE.NOTE]如果客戶或 Azure 轉銷商連絡 Microsoft 要求退款或點數，我們將會套用與我們提供 Azure 服務佈建所使用的相同原則。如果我們的原則指出退款或點數是應當的，我們會主動核發 (且您授權我們代表您核發) 適當的退款或點數給客戶或 Azure 轉銷商。如果我們的原則未指出退款或點數是應當的，我們會請客戶或 Azure 轉銷商直接與您連絡。
+> [AZURE.NOTE] 如果客戶或 Azure 轉銷商連絡 Microsoft 要求退款或點數，我們將會套用與我們提供 Azure 服務佈建所使用的相同原則。如果我們的原則指出退款或點數是應當的，我們會主動核發 (且您授權我們代表您核發) 適當的退款或點數給客戶或 Azure 轉銷商。如果我們的原則未指出退款或點數是應當的，我們會請客戶或 Azure 轉銷商直接與您連絡。
 
   ![1\_RequestRefund][1]
 
@@ -78,7 +78,7 @@
 
 **3.完成「協助我們保護您的帳戶」驗證**。
 
-> [AZURE.NOTE]您可以使用電話號碼或電子郵件地址進行驗證。
+> [AZURE.NOTE] 您可以使用電話號碼或電子郵件地址進行驗證。
 
 ![protectacct][6]
 
@@ -120,4 +120,4 @@
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -19,12 +19,12 @@
 # 在 SQL 資料倉儲中使用標籤來檢測查詢
 SQL 資料倉儲支援稱為查詢標籤的概念。繼續進行之前，讓我們看看一個範例：
 
-	```
-	SELECT *
-	FROM sys.tables
-	OPTION (LABEL = 'My Query Label')
-	;
-	```
+```
+SELECT *
+FROM sys.tables
+OPTION (LABEL = 'My Query Label')
+;
+```
 
 最後一行將字串 'My Query Label' 標記為查詢。這是特別有幫助的動作，因為標籤可透過 DMV 查詢。這提供一種機制，可追蹤問題查詢，也可以協助透過 ETL 執行識別進度。
 
@@ -32,12 +32,12 @@ SQL 資料倉儲支援稱為查詢標籤的概念。繼續進行之前，讓我�
 
 若要根據標籤搜尋，您可以使用下列使用動態管理檢視的查詢：
 
-	```
-	SELECT  *
-	FROM    sys.dm_pdw_exec_requests r
-	WHERE   r.[label] = 'My Query Label'
-	;
-	```
+```
+SELECT  *
+FROM    sys.dm_pdw_exec_requests r
+WHERE   r.[label] = 'My Query Label'
+;
+```
 
 > [AZURE.NOTE] 請務必在查詢時以方括弧或雙引號括住文字標籤。標籤是一個保留的文字，而且如果未分隔，就會造成錯誤。
 
@@ -54,4 +54,4 @@ SQL 資料倉儲支援稱為查詢標籤的概念。繼續進行之前，讓我�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

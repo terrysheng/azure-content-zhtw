@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="03/22/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取範例 
@@ -41,9 +41,7 @@
 
 [如何搭配使用 Azure Redis 快取與 Python](cache-python-get-started.md) 說明如何開始搭配使用 Azure Redis 快取與 Python 和 [redis-py](https://github.com/andymccurdy/redis-py) 用戶端。
 
-[PHP 範例](https://msdn.microsoft.com/library/azure/dn690470.aspx#PHPExample)說明如何開始搭配使用 Azure Redis 快取與 PHP 和 [predis](https://github.com/nrk/predis) 用戶端。
-
-[使用快取中的 .NET 物件](https://msdn.microsoft.com/library/azure/dn690521.aspx#Objects)說明序列化 .NET 物件的一種方式，以在 Azure Redis 快取執行個體中寫入和讀取它們。
+[使用快取中的 .NET 物件](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)說明序列化 .NET 物件的一種方式，以在 Azure Redis 快取執行個體中寫入和讀取它們。
 
 ## 使用 Redis 快取做為 ASP.NET SignalR 的向外延展後擋板
 
@@ -76,4 +74,4 @@
 
 [頻寬監視器](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor)範例可讓您監視用戶端上使用的頻寬。若要測量頻寬，請在快取用戶端電腦上執行這個範例、呼叫快取，並觀察頻寬監視器範例所報告的頻寬。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

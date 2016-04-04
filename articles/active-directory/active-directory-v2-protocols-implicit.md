@@ -119,7 +119,8 @@ error=access_denied
 ## 驗證 id\_token
 僅接收 id\_token 不足以驗證使用者，您必須驗證 id\_token 簽章，並依照應用程式的需求確認權杖中的宣告。v2.0 端點使用 [JSON Web Tokens (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 和公開金鑰加密簽署權杖及驗證其是否有效。
 
-您可以選擇驗證用戶端程式碼中的 `id_token`，但是常見的作法是將 `id_token` 傳送至後端伺服器，並且在那裡執行驗證。一旦驗證了 id\_token 的簽章，就會有數項宣告需要驗證。如需詳細資訊，請參閱 [v2.0 權杖參考](active-directory-v2-tokens.md)，包括[驗證權杖](active-directory-v2-tokens.md#validating-tokens)和[有關簽署金鑰變換的重要資訊](active-directory-v2-tokens.md#validating-tokens)。我們建議利用程式庫來剖析和驗證權杖 - 對於大部分語言和平台至少有一個可用。<!--TODO: Improve the information on this-->
+您可以選擇驗證用戶端程式碼中的 `id_token`，但是常見的作法是將 `id_token` 傳送至後端伺服器，並且在那裡執行驗證。一旦驗證了 id\_token 的簽章，就會有數項宣告需要驗證。如需詳細資訊，請參閱 [v2.0 權杖參考](active-directory-v2-tokens.md)，包括[驗證權杖](active-directory-v2-tokens.md#validating-tokens)和[有關簽署金鑰變換的重要資訊](active-directory-v2-tokens.md#validating-tokens)。我們建議利用程式庫來剖析和驗證權杖 - 對於大部分語言和平台至少有一個可用。
+<!--TODO: Improve the information on this-->
 
 您可能也希望根據自己的案例驗證其他宣告。一些常見的驗證包括：
 
@@ -235,4 +236,4 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 -->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -626,9 +626,8 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 - [在 HDInsight 上將 Hadoop 工作的資料上傳][hdinsight-upload-data]
 - [在 HDInsight 上搭配 Hadoop 使用 Sqoop][hdinsight-use-sqoop]
 - [在 HDInsight 上搭配 Hadoop 使用 Hive][hdinsight-use-hive]
-- [在 HDInsight 上搭配 Hadoop 使用 Pig][hdinsight-use-pig]
-- [開發 HDInsight 的 C# Hadoop 資料流工作][hdinsight-develop-streaming-jobs]
-- [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]
+- [搭配使用 Pig 與 HDInsight 上的 Hadoop][hdinsight-use-pig]
+- [〈開發 HDInsight 的 Java MapReduce 程式〉][hdinsight-develop-mapreduce]
 
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
@@ -653,7 +652,6 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator.md
 
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
@@ -680,4 +678,4 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

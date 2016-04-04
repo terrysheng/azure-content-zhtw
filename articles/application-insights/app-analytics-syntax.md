@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Analytics 中的陳述式" 
-	description="Application Analytics 中的查詢、運算式和 let 陳述式，適用於 Application Insights 的強大搜尋工具。" 
+	pageTitle="Application Insights 的 Analytcis 陳述式" 
+	description="Analytics 的查詢、運算式和 let 陳述式，強大的 Application Insights 搜尋工具。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,21 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Application Analytics 中的陳述式
+# Application Insights 的 Analytcis 陳述式
 
-[Application Analytics](app-analytics.md) 是強大的搜尋引擎，適合用於 [Application Insights](app-insights-overview.md) 遙測。這些頁面說明 Application Analytics 查詢語言，CSL。
-
+[Analytics](app-analytics.md) 是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。這些頁面說明 Analytics 查詢語言。
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ## 資料模型
 
-在 CSL 中：
+在 AIQL：
 
 * 「資料庫」不包含或是包含多個具名「資料表」。
 * 「資料表」 包含：
@@ -67,7 +66,7 @@ database("MyDb").Table
 
 ### 資料查詢
   
-有關儲存於 Application Analytics 中資料的唯讀要求。例如：
+儲存於 Analytics 中之資料的唯讀要求。例如：
 
 * `event` - 傳回名為 "event" 資料表中的所有記錄。
 * `event | count` - 傳回 "event" 中的記錄數目。
@@ -269,4 +268,4 @@ TopEvents(5, ago(7d))
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

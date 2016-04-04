@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # 開始使用 Twitter 連接器並將它加入您的邏輯應用程式
->[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [Twitter API](../connectors/create-api-twitter.md)。
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [Twitter API](../connectors/connectors-create-api-twitter.md)。
 
 連接到 Twitter 摘要，以張貼推文，並從您 Twitter 帳戶的時間表、好友時間表和粉絲中取得推文。在 Logic Apps 中，連接器可以在「工作流程」中用來擷取、處理或推送資料。在工作流程中使用 Twitter 連接器時，您可以達到各種案例的目的。例如，您可以：
 
@@ -61,22 +61,15 @@ Twitter 連接器提供下列觸發程序和動作：
 ## 在邏輯應用程式中使用 Twitter 連接器
 建立 API 應用程式之後，您即可使用 Twitter 連接器做為 Logic Apps 的觸發程序或動作。作法：
 
-1.	建立新的邏輯應用程式，或開啟現有邏輯應用程式：
-	![][2]
-2.	開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具：
-	![][3]
-3.	Twitter 連接器會列在右邊。選取它，以自動將其加入邏輯應用程式：
-	![][4]
-4.	選取 [授權]、輸入 Twitter 認證，然後選取 [授權應用程式]：
-	![][5]
+1.	建立新的邏輯應用程式，或開啟現有邏輯應用程式：![][2]
+2.	開啟 [觸發程序和動作] 以開啟 Logic Apps 設計工具：![][3]
+3.	Twitter 連接器會列在右邊。選取它，以自動將其加入邏輯應用程式：![][4]
+4.	選取 [授權]、輸入 Twitter 認證，然後選取 [授權應用程式]：![][5]
 
 
-您現在可以設定 Twitter 連接器，以建置您的工作流程。您可以在流程的其他動作中使用從 Twitter 觸發程序所擷取的推文：
-	![][6]
+您現在可以設定 Twitter 連接器，以建置您的工作流程。您可以在流程的其他動作中使用從 Twitter 觸發程序所擷取的推文：![][6]
 
-您可以採用類似方式在工作流程中使用 Twitter 動作。選取 Twitter 動作，並設定該動作的輸入：
-	![][7] 
-	![][8]
+您可以採用類似方式在工作流程中使用 Twitter 動作。選取 Twitter 動作，並設定該動作的輸入：![][7] ![][8]
 
 ## 進一步運用您的連接器
 現在已建立連接器，您可以將它加入到使用邏輯應用程式的商務工作流程。請參閱[什麼是邏輯應用程式？](app-service-logic-what-are-logic-apps.md)。
@@ -85,7 +78,7 @@ Twitter 連接器提供下列觸發程序和動作：
 
 檢視位於[連接器和 API Apps 參考](http://go.microsoft.com/fwlink/p/?LinkId=529766)的 Swagger REST API 參考。
 
-您也可以檢閱連接器的效能統計資料及控制安全性。請參閱〈[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)〉。
+您也可以檢閱連接器的效能統計資料及控制安全性。請參閱[管理和監視內建 API Apps 和連接器](app-service-logic-monitor-your-connectors.md)。
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
@@ -99,4 +92,4 @@ Twitter 連接器提供下列觸發程序和動作：
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

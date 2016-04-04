@@ -22,12 +22,12 @@
 # 在 Azure 設定應用程式的 SSL
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
-- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
+- [Azure 入口網站](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure 傳統入口網站](cloud-services-configure-ssl-certificate.md)
 
 安全通訊端層 (SSL) 加密是最常用來保護在網際網路上傳送之資料的方法。此常見工作會討論如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。
 
-> [AZURE.NOTE] 此工作的程序適用於 Azure 雲端服務；若為 應用程式服務，請參閱[此處](../app-service-web/web-sites-configure-ssl-certificate.md)。
+> [AZURE.NOTE] 此工作的程序適用於 Azure 雲端服務，若為應用程式服務，請參閱[此處](../app-service-web/web-sites-configure-ssl-certificate.md)。
 
 此工作將使用生產部署；本主題最後將提供關於如何使用預備部署的資訊。
 
@@ -55,7 +55,7 @@
 
 您的應用程式必須已設定為使用憑證，而且您必須新增 HTTPS 端點。因此，您需要更新服務定義檔與服務組態檔。
 
-1.  在開發環境中，開啟服務定義檔 (CSDEF)、在 **WebRole** 區段內新增 **Certificates** 區段，並加入下列憑證相關資訊：
+1.  在開發環境中，開啟服務定義檔 (CSDEF)、在 [WebRole] 區段內新增 [Certificates] 區段，並加入下列憑證 (及中繼憑證) 相關資訊：
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
@@ -63,6 +63,17 @@
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
                     		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
+                <!-- IMPORTANT! Unless your certificate is either
+                self-signed or signed directly by the CA root, you
+                must include all the intermediate certificates
+                here. You must list them here, even if they are
+                not bound to any endpoints. Failing to list any of
+                the intermediate certificates may cause hard-to-reproduce
+                interoperability problems on some clients.-->
+                <Certificate name="CAForSampleCertificate"
+                             storeLocation="LocalMachine"
+                             storeName="CA"
                              permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
@@ -112,6 +123,9 @@
                 <Certificate name="SampleCertificate" 
                     thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
                     thumbprintAlgorithm="sha1" />
+                <Certificate name="CAForSampleCertificate"
+                    thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
+                    thumbprintAlgorithm="sha1" />
             </Certificates>
         ...
         </Role>
@@ -135,7 +149,7 @@
 
     ![上傳](./media/cloud-services-configure-ssl-certificate/upload-button.png)
     
-6. 提供 [**檔案**]、[**密碼**]，然後按一下 [**完成**] \(核取記號)。
+6. 提供 [**檔案**]、[**密碼**]，然後按一下 [**完成**] (核取記號)。
 
 ## 步驟 4：使用 HTTPS 來連線至角色執行個體
 
@@ -147,7 +161,7 @@
 
 2.  在網頁瀏覽器中，將連結修改為使用 **https** 而非 **http**，然後造訪網頁。
 
-    **注意：**如果使用自我簽署憑證，則當您在瀏覽器中瀏覽至與該自我簽署憑證相關聯的 HTTPS 端點時，您將會看見憑證錯誤。使用信任的憑證授權單位所簽署的憑證，則不會有此問題；因此，您可以忽略該錯誤。(另一個選項為新增自我簽署憑證至使用者的受信任憑證授權單位憑證存放區。)
+    **：**如果使用自我簽署憑證，則當您在瀏覽器中瀏覽至與該自我簽署憑證相關聯的 HTTPS 端點時，您將會看見憑證錯誤。使用信任的憑證授權單位所簽署的憑證，則不會有此問題；因此，您可以忽略該錯誤。(另一個選項為新增自我簽署憑證至使用者的受信任憑證授權單位憑證存放區。)
 
     ![SSL 範例網站][3]
 
@@ -168,4 +182,4 @@
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

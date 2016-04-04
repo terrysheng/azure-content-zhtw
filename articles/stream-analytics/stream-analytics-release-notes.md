@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/03/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 #串流分析版本資訊
@@ -62,7 +62,7 @@ SELECT 的新行為 | 「串流分析」中的 SELECT 已經延伸成允許使�
 課程名稱 | 說明
 ---|---
 Azure IoT Suite 公用預覽 | Azure IoT Suite 公用預覽包含串流分析。
-Azure Preview 入口網站整合 | 串流分析除了會繼續出現在 Azure 管理入口網站之外，它現在也已整合到 [Azure Preview 入口網站](https://azure.microsoft.com/overview/preview-portal/)中。請注意，Preview 入口網站中的串流分析功能目前是 Azure 管理入口網站所提供功能的子集，不支援瀏覽器中查詢測試、Power BI 輸出組態和在有存取權限的訂用帳戶中瀏覽或建立新的輸入和輸出資源。
+Azure 入口網站整合 | 串流分析除了會繼續出現在 Azure 管理入口網站之外，它現在也已整合到 [Azure 入口網站](https://azure.microsoft.com/overview/preview-portal/)中。請注意，Preview 入口網站中的串流分析功能目前是 Azure 管理入口網站所提供功能的子集，不支援瀏覽器中查詢測試、Power BI 輸出組態和在有存取權限的訂用帳戶中瀏覽或建立新的輸入和輸出資源。
 支援 DocumentDB 輸出 | 串流分析工作現在可以輸出到 [DocumentDB](https://azure.microsoft.com/services/documentdb/)。
 支援 IoT 中心輸入 | 串流分析作業現在可以內嵌來自 IoT 中心的資料。
 異質事件的時間戳記格式 | 當單一資料流包含數個在不同欄位有不同時間戳記的事件類型時，您現在已可以使用 [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) 搭配運算式為每個案例指定不同的時間戳記欄位。
@@ -141,4 +141,4 @@ PowerBI 資料集只能包含一個資料表|PowerBI 不允許指定的資料集
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

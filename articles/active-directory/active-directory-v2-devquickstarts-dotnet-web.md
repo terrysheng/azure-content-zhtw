@@ -21,7 +21,7 @@
 v2.0 端點可讓您快速地將驗證新增至您的 Web 應用程式，同時支援個人 Microsoft 帳戶以及工作或學校帳戶。在 ASP.NET Web 應用程式中，您可以使用隨附於 .NET Framework 4.5 的 Microsoft OWIN 中介軟體來完成此項作業。
 
 > [AZURE.NOTE]
-	v2.0 端點並非支援每個 Azure Active Directory 案例和功能。如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
+	v2.0 端點並未支援 Azure Active Directory 的所有案例和功能。如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
 
  現在，我們將組建使用 OWIN 將使用者登入、顯示使用者的部分相關資訊，以及將使用者登出應用程式的 Web 應用程式。
  
@@ -70,10 +70,12 @@ namespace TodoList_WebApp
 	}
 }```
 
--	Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIdConnectAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.  You'll also need to set up Cookie Authentication - the OpenID Connect middleware uses cookies underneath the covers.
+-	開啟檔案 `App_Start\Startup.Auth.cs` 並實作 `ConfigureAuth(...)` 方法。您在 `OpenIdConnectAuthenticationOptions` 中所提供的參數將會做為您的應用程式與 Azure AD 進行通訊的座標使用。您還必須設定 Cookie 驗證，OpenID Connect 中介軟體會在表面下使用 Cookie。
 
 ```C#
-public void ConfigureAuth(IAppBuilder app) { app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+public void ConfigureAuth(IAppBuilder app)
+			 {
+					 app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
 					 app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
@@ -102,10 +104,10 @@ public void ConfigureAuth(IAppBuilder app) { app.SetDefaultSignInAsAuthenticatio
 			 }
 ```
 
-## 3. 使用 OWIN 向 Azure AD 發出登入和登出要求
-您的應用程式現在已正確設定，將使用 OpenID Connect 驗證通訊協定與 v2.0 端點通訊。  OWIN 已經處理所有製作驗證訊息、驗證 Azure AD 的權杖和維護使用者工作階段的瑣碎詳細資料。  剩餘的工作就是提供使用者一個登入和登出的方式。
+## 傳送驗證要求
+您的應用程式現在已正確設定，將使用 OpenID Connect 驗證通訊協定與 v2.0 端點通訊。OWIN 已經處理所有製作驗證訊息、驗證 Azure AD 的權杖和維護使用者工作階段的瑣碎詳細資料。剩餘的工作就是提供使用者一個登入和登出的方式。
 
-- 您可以在控制器中使用授權標記，要求使用者在存取特定頁面時登入。  開啟 `Controllers\HomeController.cs`，並在 [關於] 控制器中加入 `[Authorize]` 標記。
+- 您可以在控制器中使用授權標記，要求使用者在存取特定頁面時登入。開啟 `Controllers\HomeController.cs`，並在 [關於] 控制器中加入 `[Authorize]` 標記。
 
 ```C#
 [Authorize]
@@ -201,8 +203,8 @@ public ActionResult About()
 
 [使用 v2.0 端點保護 Web API >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-如需其他資源，請查看：
-- [《v2.0 開發人員指南》>>](active-directory-appmodel-v2-overview.md)
-- [StackOverflow「azure-active-directory」標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+如需其他資源，請參閱：
+- [v2.0 開發人員指南 >>](active-directory-appmodel-v2-overview.md)
+- [StackOverflow "azure-active-directory" 標記 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -23,7 +23,7 @@
 &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-> 如需本主題的對等 Mobile Apps 版本，請參閱[在 Azure 行動應用程式中建立 iOS 應用程式](../app-service-mobile/app-service-mobile-android-get-started.md)。
+> 如需本主題的對等 Mobile Apps 版本，請參閱[在 Azure 行動應用程式中建立 iOS 應用程式](../app-service-mobile/app-service-mobile-ios-get-started.md)。
 
 本教學課程說明如何使用 Azure 行動服務在 iOS 應用程式中新增雲端型後端服務。在本教學課程中，您將建立新的行動服務和簡單的_待辦事項清單_應用程式，後者會在前者儲存應用程式資料。行動服務會使用 .NET 和 Visual Studio 於伺服器端商務邏輯。若要以 JavaScript 中伺服器端商務邏輯建立行動服務，請參閱本主題中的 [JavaScript 後端版本]。
 
@@ -101,4 +101,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript 後端版本]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

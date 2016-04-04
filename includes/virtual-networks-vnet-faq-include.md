@@ -20,7 +20,7 @@
 
 ### 如何得知是否需要虛擬網路？
 
-請瀏覽[虛擬網路概觀](virtual-networks-overview.md)，查看可協助您決定最佳網路設計選項的決策資料表。
+請瀏覽[虛擬網路概觀](../articles/virtual-network/virtual-networks-overview.md)，查看可協助您決定最佳網路設計選項的決策資料表。
 
 ### 如何開始使用？
 
@@ -40,9 +40,13 @@ VNet 可以搭配各種不同的 Azure 服務使用，例如雲端服務 (PaaS)�
 
 您可以使用下列工具來建立或設定虛擬網路：
 
-- 您可以使用管理入口網站。請參閱[如何管理虛擬網路 (VNet) 屬性](virtual-networks-settings.md)。
+- Azure 入口網站 (適用於傳統與資源管理員 VNet)。
 
-- 您可以使用網路組態檔 (netcfg)。請參閱[使用網路組態檔設定虛擬網路](virtual-networks-using-network-configuration-file.md)。
+- 網路組態檔 (netcfg - 僅適用於傳統 VNet)。請參閱[使用網路組態檔設定虛擬網路](../articles/virtual-network/virtual-networks-using-network-configuration-file.md)。
+
+- PowerShell (適用於傳統與資源管理員 VNet)。
+
+- Azure CLI (適用於傳統與資源管理員 VNet)。
 
 ### 我可以在 VNet 中使用哪些位址範圍？
 
@@ -50,7 +54,7 @@ VNet 可以搭配各種不同的 Azure 服務使用，例如雲端服務 (PaaS)�
 
 ### 我可以在 VNet 擁有公用 IP 位址嗎？
 
-是。如需有關公用 IP 位址範圍的詳細資訊，請參閱[虛擬網路 (VNet) 中的公用 IP 位址空間](virtual-networks-public-ip-within-vnet.md)。請記住，您的公用 IP 將無法直接從網際網路存取。
+是。如需有關公用 IP 位址範圍的詳細資訊，請參閱[虛擬網路 (VNet) 中的公用 IP 位址空間](../articles/virtual-network/virtual-networks-public-ip-within-vnet.md)。請記住，您的公用 IP 將無法直接從網際網路存取。
 
 ### 我的虛擬網路中的子網路數目是否有限制？
 
@@ -70,7 +74,7 @@ Azure 會在每個子網路中保留一些 IP 位址。子網路的第一個和�
 
 ### 可以在我的 Vnet 和子網路上指定自訂路由原則嗎？
 
-是。您可以使用「使用者定義的路由」(UDR)。如需有關 UDR 的詳細資訊，請造訪[使用者定義的路由和 IP 轉送](virtual-networks-udr-overview.md)。
+是。您可以使用「使用者定義的路由」(UDR)。如需有關 UDR 的詳細資訊，請造訪[使用者定義的路由和 IP 轉送](../articles/virtual-network/virtual-networks-udr-overview.md)。
 
 ### VNet 是否支援多點傳送或廣播？
 
@@ -118,13 +122,13 @@ Azure 會在每個子網路中保留一些 IP 位址。子網路的第一個和�
 
 ### 我可以將 VNet 連線到 Azure 中的另一個 VNet 嗎？
 
-是。您可以使用 REST API 或 Windows PowerShell 來建立 VNet 對 VNet 通訊。請參閱[設定 VNet 對 VNet 連接](virtual-networks-configure-vnet-to-vnet-connection.md)。
+是。您可以使用 REST API 或 Windows PowerShell 來建立 VNet 對 VNet 通訊。
 
 ## 名稱解析 (DNS)
 
 ### 適用於 VNet 的 DNS 選項為何？
 
-使用 [[VM 和角色執行個體的名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)] 頁面上的決策資料表來引導您完成所有可用的 DNS 選項。
+使用 [[VM 和角色執行個體的名稱解析](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)] 頁面上的決策資料表來引導您完成所有可用的 DNS 選項。
 
 ### 我可以指定適用於 VNet 的 DNS 伺服器嗎？
 
@@ -171,11 +175,11 @@ Azure 提供的 DNS 是由 Microsoft 所提供的多租用戶 DNS 服務。Azure
 
 ### 我的 VM 將接收到的 IP 位址為何？
 
-- **內部 IP 位址 -** 如果您將 VM 部署到 VNet，VM 會從您指定的內部 IP 位址的集區接收內部 IP 位址。VM 會使用內部 IP 位址在 VNet 中進行通訊。儘管 Azure 會指派一個動態內部 IP 位址，您可以為您的 VM 要求一個靜態位址。若要深入了解靜態內部 IP 位址，請造訪[如何設定靜態內部 IP](virtual-networks-reserved-private-ip.md)。
+- **內部 IP 位址 -** 如果您將 VM 部署到 VNet，VM 會從您指定的內部 IP 位址的集區接收內部 IP 位址。VM 會使用內部 IP 位址在 VNet 中進行通訊。儘管 Azure 會指派一個動態內部 IP 位址，您可以為您的 VM 要求一個靜態位址。若要深入了解靜態內部 IP 位址，請造訪[如何設定靜態內部 IP](../articles/virtual-network/virtual-networks-reserved-private-ip.md)。
 
-- **VIP -** 您的 VM 也會與 VIP 相關聯，不過 VIP 永遠不會直接指派至 VM。VIP 是可以指派至雲端服務的公用 IP 位址。您可以選擇性地為雲端服務保留 VIP。請參閱[保留的公用 IP](virtual-networks-reserved-public-ip.md)。
+- **VIP -** 您的 VM 也會與 VIP 相關聯，不過 VIP 永遠不會直接指派至 VM。VIP 是可以指派至雲端服務的公用 IP 位址。您可以選擇性地為雲端服務保留 VIP。
 
-- **ILPIP -** 您也可以設定執行個體層級公用 IP 位址 (ILPIP)。ILPIP 直接與 VM，而非與雲端服務相關聯。若要深入了解 ILPIP，請造訪[執行個體層級公用 IP 概觀](virtual-networks-instance-level-public-ip.md)。
+- **ILPIP -** 您也可以設定執行個體層級公用 IP 位址 (ILPIP)。ILPIP 直接與 VM，而非與雲端服務相關聯。若要深入了解 ILPIP，請造訪[執行個體層級公用 IP 概觀](../articles/virtual-network/virtual-networks-instance-level-public-ip.md)。
 
 ### 我可以為稍後建立的 VM 保留內部 IP 位址嗎？
 
@@ -197,7 +201,7 @@ Azure 提供的 DNS 是由 Microsoft 所提供的多租用戶 DNS 服務。Azure
 
 ### 我可以將 VM 從子網路移動至 VNet 中的其他子網路而不需重新部署嗎？
 
-是。您可以在[這裡](virtual-networks-move-vm-role-to-subnet.md)找到詳細資訊。
+是。您可以在[這裡](../articles/virtual-network/virtual-networks-move-vm-role-to-subnet.md)找到詳細資訊。
 
 ### 我可以針對 VM 設定靜態 MAC 位址嗎？
 
@@ -222,13 +226,13 @@ Azure 提供的 DNS 是由 Microsoft 所提供的多租用戶 DNS 服務。Azure
 是。您可以使用 ASE (App Service 環境) 在 VNet 中部署 Web Apps。除此之外，如果您已針對 VNet 設定點對站台，則 Web Apps 可以安全地連線並存取 Azure VNet 中的資源。如需詳細資訊，請參閱下列主題：
 
 
-- [在 App Service 環境中建立 Web Apps](app-service-web-how-to-create-a-web-app-in-an-ase.md)
+- [在 App Service 環境中建立 Web Apps](../articles/app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
 
 - [Web Apps 虛擬網路整合](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
 - [使用 VNet 整合和混合式連接搭配 Web Apps](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
-- [將 Web 應用程式與 Azure 虛擬網路整合](web-sites-integrate-with-vnet.md)
+- [將 Web 應用程式與 Azure 虛擬網路整合](../articles/app-service-web/web-sites-integrate-with-vnet.md)
 
 ### 我可以在 VNet 中使用 Web 和背景工作角色 (PaaS) 部署雲端服務嗎？
 
@@ -266,4 +270,4 @@ VNet 會與另一個 VNet，以及其他裝載於 Azure 基礎結構中的服務
 
 是。您可以針對各種平台使用 PowerShell 和命令列工具。如需詳細資訊，請參閱[這裡](http://go.microsoft.com/fwlink/?LinkId=317721)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

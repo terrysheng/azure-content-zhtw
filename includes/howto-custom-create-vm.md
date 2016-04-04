@@ -44,7 +44,7 @@
 
 	**注意**：可用性集合中的虛擬機器會部署到不同的容錯網域。將多個虛擬機器放在相同的可用性設定組中，有助於確保應用程式在網路故障、本機磁碟硬體故障和任何規劃停機期間仍可使用。
 
-15.  在 [端點] 下，檢閱將建立以允許連線至虛擬機器的新端點，例如透過遠端桌面或安全殼層 (SSH) 用戶端。您也可以立即加入端點，或在稍後建立端點。如需有關稍後建立端點的指示，請參閱[如何設定虛擬機器的端點](../articles/virtual-machines/virtual-machines-set-up-endpoints.md)。
+15.  在 [端點] 下，檢閱將建立以允許連線至虛擬機器的新端點，例如透過遠端桌面或安全殼層 (SSH) 用戶端。您也可以立即加入端點，或在稍後建立端點。如需有關稍後建立端點的指示，請參閱[如何設定虛擬機器的端點](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)。
 
 16.  在 [VM Agent] 下，決定是否安裝 VM 代理程式。此代理程式提供環境讓您安裝延伸模組，以協助您與虛擬機器互動。如需詳細資訊，請參閱[管理延伸模組](http://go.microsoft.com/FWLink/p/?LinkID=390493)。
 
@@ -55,7 +55,7 @@
 ##後續步驟##
 虛擬機器建立後，將會自動啟動。當入口網站顯示狀態為執行中，您便可以登入虛擬機器。如需指示，請參閱下列文章︰
 
-- [如何登入執行 Linux 的虛擬機器](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
-- [如何登入執行 Windows Server 的虛擬機器](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
+- [如何登入執行 Linux 的虛擬機器](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md)
+- [如何登入執行 Windows Server 的虛擬機器](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

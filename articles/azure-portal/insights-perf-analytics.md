@@ -17,7 +17,7 @@
 
 # 監視 Azure Web 應用程式效能
 
-在 [Azure 入口網站](https://portal.azure.com) 中，您可以設定監視功能，使其收集 [Azure Web 應用程式](../app-service-web/app-service-web-overview.md)或[虛擬機器](../virtual-machines/virtual-machines-about.md)中應用程式相依性的統計資料和詳細資料。
+在 [Azure 入口網站](https://portal.azure.com) 中，您可以設定監視功能，使其收集 [Azure Web 應用程式](../app-service-web/app-service-web-overview.md)或[虛擬機器](../virtual-machines/virtual-machines-linux-about.md)中應用程式相依性的統計資料和詳細資料。
 
 Azure 運用*擴充功能*支援「應用程式」效能監視功能 (或 *APM*)。這些擴充功能已安裝在應用程式中，可收集資料並回報給監視服務。
 
@@ -60,7 +60,8 @@ SDK 會提供 API 供您[撰寫自訂遙測](../app-insights-api-custom-events-m
 
 您也可以按一下 [**瀏覽**] 直接移至 Application Insights 元件，或您使用的 New Relic 帳戶。
 
-以 Application Insights 為例，您進入刀鋒視窗後，您可以：- 開啟效能：
+以 Application Insights 為例，進入刀鋒視窗後，您可以：
+- 開啟效能：
 
 ![在 Application Insights 的概觀刀鋒視窗中，按一下 [效能] 磚](./media/insights-perf-analytics/07-dependency.png)
 
@@ -83,4 +84,4 @@ SDK 會提供 API 供您[撰寫自訂遙測](../app-insights-api-custom-events-m
 * 使用 Application Insights [監視任何網頁的可用性和回應性](../app-insights-monitor-web-app-availability.md)，讓您可以找出您的頁面是否關閉。
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/17/2016"
 	ms.author="jodebrui"/>
 
 
@@ -28,6 +28,8 @@ In-Memory 功能大幅提升適當情況下交易和分析工作負載的效能�
 - 閱讀程式碼來了解案例，以及了解如何建立和利用 In-Memory 物件。
 
 > [AZURE.VIDEO azure-sql-database-in-memory-technologies]
+
+- [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance (快速入門 1：記憶體內部 OLTP 技術以獲得更快的 T-SQL 效能)](http://msdn.microsoft.com/library/mt694156.aspx) - 是另一篇文章，可協助您開始著手。
 
 #### In-Memory OLTP
 
@@ -69,7 +71,7 @@ In-Memory [Analytics](#install_analytics_manuallink) 的功能如下：
 
 公開上市 (GA)：
 
-- *磁碟上* 的[資料行存放區索引](http://msdn.microsoft.com/library/dn817827.aspx)。
+- *磁碟上*的[資料行存放區索引](http://msdn.microsoft.com/library/dn817827.aspx)。
 
 
 預覽：
@@ -529,6 +531,6 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - [SQL Server 的 Replay Markup Language (RML) 公用程式說明](http://support.microsoft.com/zh-TW/kb/944837)
 
-- 適用於 In-Memory OLTP 的 [監視記憶體內部儲存體](sql-database-in-memory-oltp-monitoring.md)。
+- 適用於 In-Memory OLTP 的[監視記憶體內部儲存體](sql-database-in-memory-oltp-monitoring.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

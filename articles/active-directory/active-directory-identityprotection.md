@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/18/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -35,7 +35,7 @@ Azure Active Directory Identity Protection 目前僅適用於 [國家或區域]�
 
 - 安全性原則不適用於同盟網域
 
-- 未偵測到同盟網域的風險事件
+- 與 Azure Active Directory 聯盟的應用程式只會偵測到風險事件
 
 ##開始使用
 
@@ -97,8 +97,7 @@ Identity Protection 會使用此資料來產生報告和警示，讓您調查這
 | 從受感染的裝置登入 | 從可能受感染的裝置登入 |
 | 從匿名 IP 位址登入 | 從不明來源登入 |
 | 從具有可疑活動的 IP 位址登入 |	從具有可疑活動的 IP 位址登入 |
-| 從不熟悉的位置登入 | - | 
-| 鎖定事件 (不在公開預覽中) | - |
+| 從不熟悉的位置登入 | - | | 鎖定事件 (不在公開預覽中) | - |
 
 下列 Azure AD 異常活動報告不會納入為 Azure AD Identity Protection 中的風險事件，因此不會透過 Identity Protection 提供。這些報告仍可在 Azure 管理入口網站中取得，不過將會在未來某個時候淘汰，因為它們正由 Identity Protection 中的風險事件所取代。
 
@@ -132,7 +131,7 @@ Identity Protection 會使用此資料來產生報告和警示，讓您調查這
 
 儀表板可讓您存取：
  
-- 
+- 報告，例如 [標示有風險的使用者]、[風險事件] 和 [弱點]
 - 設定，例如 [安全性原則]、[通知] 和 [Multi-Factor Authentication 註冊] 的組態
  
 
@@ -410,4 +409,4 @@ Azure AD Identity Protection 可讓您設定原則來執行下列作業，以協
  - [Azure Active Directory Identity Protection 腳本](active-directory-identityprotection-playbook.md)
  - [Azure Active Directory Identity Protection 詞彙](active-directory-identityprotection-glossary.md)
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -365,7 +365,7 @@ App Service 也在 X-MS-CLIENT-PRINCIPAL-ID 標頭中提供 `objectidentifier` �
 
 	c.尋找 TodoListAPI 應用程式之服務主體的 objectid，並將它儲存在您稍後可以從中複製此值的位置。
 
-7. 在 Azure 入口網站中，瀏覽至 ToDoListAngular 專案所部署到之 Web 應用程式的 Web 應用程式刀鋒視窗。
+7. 在 Azure 入口網站中，瀏覽至您部署 ToDoListDataAPI 專案所在之 API 應用程式的 [API 應用程式] 刀鋒視窗。
 
 9. 按一下 **[設定] > [應用程式設定]**。
 
@@ -417,4 +417,4 @@ App Service 也在 X-MS-CLIENT-PRINCIPAL-ID 標頭中提供 `objectidentifier` �
 
 如需了解藉由使用 Visual Studio，或是藉由使用[原始檔控制系統](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)來[自動化部署](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)，以將 Visual Studio 專案部署到 API 應用程式的其他方式相關資訊，請參閱[如何部署 Azure App Service 應用程式](../app-service-web/web-sites-deploy.md)。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

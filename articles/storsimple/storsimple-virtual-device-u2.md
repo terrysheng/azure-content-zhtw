@@ -103,7 +103,7 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 - 針對虛擬裝置，[在 Azure 中設定虛擬網路](../virtual-network/virtual-networks-create-vnet-classic-portal.md)。如果使用進階儲存體，您必須在支援進階儲存體的 Azure 區域中建立虛擬網路。如需詳細資訊，請參閱[目前支援 8020 的區域](#supported-regions-for-8020)。
 - 建議您使用 Azure 提供的預設 DNS 伺服器，而非指定您自己的 DNS 伺服器名稱。如果您的 DNS 伺服器名稱無效，或者如果 DNS 伺服器無法正確解析 IP 位址，則建立虛擬裝置將會失敗。
 - 點對站及站對站都是選用的，但並非必要。如有需要，您可以針對更進階的案例設定這些選項。 
-- 您可以將 [Azure 虛擬機器](../virtual-machines/virtual-machines-about.md) (主機伺服器) 建立在可使用由虛擬裝置公開之磁碟區的虛擬網路中。這些伺服器必須符合下列需求： 							
+- 您可以將 [Azure 虛擬機器](../virtual-machines/virtual-machines-linux-about.md) (主機伺服器) 建立在可使用由虛擬裝置公開之磁碟區的虛擬網路中。這些伺服器必須符合下列需求： 							
 	- 是已安裝 iSCSI 啟動器軟體的 Windows 或 Linux VM。
 	- 正在虛擬裝置所在的相同虛擬網路中執行。
 	- 能夠透過虛擬裝置的內部 IP 位址連接到虛擬裝置的 iSCSI 目標。
@@ -146,8 +146,7 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 開始此程序之前，請確定您擁有服務資料加密金鑰的複本。服務資料加密金鑰已在您設定第一個 StorSimple 裝置時建立，且系統已指示您將它儲存在安全的位置。如果您沒有服務資料加密金鑰的複本，就必須連絡 Microsoft 支援服務以尋求協助。
 
-執行下列步驟來設定和註冊 StorSimple 虛擬裝置。
-[AZURE.INCLUDE [設定和註冊虛擬裝置](../../includes/storsimple-configure-register-virtual-device.md)]
+執行下列步驟來設定和註冊 StorSimple 虛擬裝置。[AZURE.INCLUDE [設定和註冊虛擬裝置](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### 步驟 3：(選擇性) 修改裝置組態設定
 
@@ -283,4 +282,4 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
  
 - 了解如何[從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

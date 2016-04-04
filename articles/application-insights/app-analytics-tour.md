@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights 分析導覽" 
-	description="Application Insights 分析 (Application Insights 的強大搜尋工具) 中所有主要查詢的簡短範例。" 
+	pageTitle="Application Insights 中分析的完整教學課程" 
+	description="分析 (Application Insights 的強大搜尋工具) 中所有主要查詢的簡短範例。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/07/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Application Insights 分析導覽
+# Application Insights 中分析的教學課程
 
 
-Application Insights 分析是強大的診斷搜尋引擎，適合用於 [Application Insights](app-insights-overview.md) 遙測。
+[分析](app-analytics.md)是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。這些頁面說明分析查詢語言。
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -29,7 +29,7 @@ Application Insights 分析是強大的診斷搜尋引擎，適合用於 [Applic
 
 ## 連接到您的 Application Insights 資料
 
-在 Application Insights 中，從您的應用程式的[概觀刀鋒視窗](app-insights-dashboards.md)開啟 [分析]。
+在 Application Insights 中，從 app 的[概觀刀鋒視窗](app-insights-dashboards.md)開啟 [分析]：
 
 ![開啟 portal.azure.com，開啟您的 Application Insights 資源，然後按一下 [分析]。](./media/app-analytics/001.png)
 
@@ -232,7 +232,7 @@ summarize 的結果有：
 
 `where` 運算子會採用布林運算式。以下是其相關的一些重點︰
 
- * `and`、`or`︰布林運算子
+ * `and`、`or`：布林運算子
  * `==`、`<>`︰等於和不等於
  * `=~`、`!=`︰不區分大小寫的字串等於和不等於。有更多的字串比較運算子。
 
@@ -436,9 +436,9 @@ summarize 的結果有：
     | take 30
 ```
 
-> 提示︰在 AI 分析用戶端中，不要在這些部分之間放入空白行。務必執行所有一切。
+> 秘訣︰在分析用戶端中，不要在這些部分之間放入空白行。務必執行所有一切。
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

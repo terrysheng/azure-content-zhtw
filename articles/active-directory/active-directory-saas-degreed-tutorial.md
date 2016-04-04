@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/21/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,7 +64,7 @@
 4. 按一下頁面底部的 [加入]。<br><br> ![應用程式][3]<br>
 5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br> ![應用程式][4]<br>
 6. 在搜尋方塊中，輸入 **Degreed**。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_01.png)<br>
-7. 在結果窗格中，選取 [Degreed]，然後按一下 [完成] 來新增應用程式。<br><br>
+7. 在結果窗格中，選取 [Degreed]，然後按一下 [完成] 來新增應用程式。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_02.png)<br>
 
 ##  設定並測試 Azure AD 單一登入
 本節目標是說明如何以名為 "Britta Simon" 的測試使用者為基礎，設定及測試對 Degreed 的 Azure AD 單一登入。
@@ -89,12 +89,12 @@
 
 1. 在 Azure 傳統入口網站的 [Degreed] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。<br><br> ![設定單一登入][6] <br>
 
-2. 在 [要如何讓使用者登入 Degreed] 頁面上，選取 [Azure AD 單一登入]，然後按 [下一步]。<br><br> ![設定單一登入](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_03.png) <br>
+2. 在 [要如何讓使用者登入 Degreed] 頁面上，選取 [Azure AD 單一登入]，然後按一下 [下一步]。<br><br> ![設定單一登入](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_03.png) <br>
 
 3. 在 [設定應用程式設定] 對話方塊頁面，執行下列步驟：<br><br>![設定單一登入](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_04.png) <br>
 
 
-    a.在 [登入 URL] 文字方塊中，以下列模式輸入使用者用來登入您 Degreed 應用程式的 URL：**“https://<company name>.degreed.com”**。
+    a.在 [登入 URL] 文字方塊中，以下列模式輸入使用者用來登入您 Degreed 應用程式的 URL：**“https://<公司名稱>.degreed.com”**。
 
     b.按 [下一步]。
 
@@ -188,7 +188,7 @@
 
 ### 測試單一登入
 
-本節目標是使用存取面板來測試您的 Azure AD 單一登入組態。<br> 當您在存取面板中按一下 [Degreed] 圖格時，應該會自動登入您的 Degreed 應用程式。
+本節目標是使用存取面板測試您的 Azure AD 單一登入設定。<br> 當您在存取面板中按一下 [Degreed] 圖格時，應該會自動登入您的 Degreed 應用程式。
 
 
 ## 其他資源
@@ -216,4 +216,4 @@
 [204]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

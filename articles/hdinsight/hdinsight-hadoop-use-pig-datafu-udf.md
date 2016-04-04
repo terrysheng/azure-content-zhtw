@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/08/2016"
+ms.date="03/18/2016"
 ms.author="larryfr"/>
 
 #在 HDInsight 上搭配使用 DataFu 與 Pig
@@ -30,7 +30,7 @@ DataFu 是搭配 Hadoop 使用的開放原始碼程式庫集合。在這份文�
 
 ##在以 Linux 為基礎的 HDInsight 上安裝 DataFu
 
-> [AZURE.NOTE]以 Windows 為基礎的 HDInsight 叢集上已預先安裝 DataFu如果您是使用以 Windows 為基礎的叢集，請略過本節。
+> [AZURE.NOTE] 以 Windows 為基礎的 HDInsight 叢集上已預先安裝 DataFu如果您是使用以 Windows 為基礎的叢集，請略過本節。
 
 可以從 Maven 儲存機制下載並安裝 DataFu。使用下列步驟將 DataFu 新增至您的 HDInsight 叢集：
 
@@ -47,13 +47,13 @@ DataFu 是搭配 Hadoop 使用的開放原始碼程式庫集合。在這份文�
 
         hdfs dfs -put datafu-1.2.0.jar /example/jars
     
-    > [AZURE.NOTE]上述範例會將 jar 儲存在 `wasb:///example/jars`，因為叢集儲存體上已經有此目錄。您可以使用 HDInsight 叢集上任何想要的位置。
+    > [AZURE.NOTE] 上述範例會將 jar 儲存在 `wasb:///example/jars`，因為叢集儲存體上已經有此目錄。您可以使用 HDInsight 叢集上任何想要的位置。
 
 ##搭配使用 DataFu 與 Pig
 
 本節中的步驟假設您已經熟悉在 HDInsight 上使用 Pig，且只提供 Pig Latin 陳述式，沒有提供如何搭配叢集使用它們的步驟。如需搭配使用 Pig 與 HDInsight 的詳細資訊，請參閱[搭配使用 Pig 與 HDInsight](hdinsight-use-pig.md)。
 
-> [AZURE.IMPORTANT]在以 Linux 為基礎的 HDInsight 叢集上透過 Pig 使用 DataFu 時，您必須使用以下 Pig Latin 陳述式先註冊 jar 檔案：
+> [AZURE.IMPORTANT] 在以 Linux 為基礎的 HDInsight 叢集上透過 Pig 使用 DataFu 時，您必須使用以下 Pig Latin 陳述式先註冊 jar 檔案：
 >
 > ```register wasb:///example/jars/datafu-1.2.0.jar```
 >
@@ -107,4 +107,4 @@ DataFu 是搭配 Hadoop 使用的開放原始碼程式庫集合。在這份文�
 
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

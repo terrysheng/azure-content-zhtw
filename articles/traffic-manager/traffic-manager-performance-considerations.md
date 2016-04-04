@@ -75,7 +75,7 @@ http://www.digwebinterface.com – 與 watchmouse 站台類似，但此站台會
 ## 後續步驟
 
 
-[關於流量管理員流量路由方法](traffic-manager-load-balancing-methods.md)
+[關於流量管理員流量路由方法](traffic-manager-routing-methods.md)
 
 [測試流量管理員設定](traffic-manager-testing-settings.md)
 
@@ -84,4 +84,4 @@ http://www.digwebinterface.com – 與 watchmouse 站台類似，但此站台會
 [Azure 流量管理員 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,7 +1,7 @@
 ## 虛擬網路
 虛擬網路 (VNET) 和子網路資源有助於定義在 Azure 中執行之工作負載的安全性範圍。VNET 可由一組位址空間集合所界定 (此集合定義為 CIDR 區塊)。
 
->[AZURE.NOTE]網路管理員都熟悉 CIDR 標記法。如果您不熟悉 CIDR，請[深入了解](http://whatismyipaddress.com/cidr)。
+>[AZURE.NOTE] 網路管理員都熟悉 CIDR 標記法。如果您不熟悉 CIDR，請[深入了解](http://whatismyipaddress.com/cidr)。
 
 ![含有多個子網路的 VNET](./media/resource-groups-networking/Figure4.png)
 
@@ -72,8 +72,8 @@ JSON 格式的範例 VNET：
 
 ### 其他資源
 
-- 取得 [VNET](virtual-networks-overview.md) 的詳細資訊。
+- 取得 [VNET](../articles/virtual-network/virtual-networks-overview.md) 的詳細資訊。
 - 閱讀關於 VNET 的 [REST API 參考文件](https://msdn.microsoft.com/library/azure/mt163650.aspx)。
 - 閱讀關於子網路的 [REST API 參考文件](https://msdn.microsoft.com/library/azure/mt163618.aspx)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -118,4 +118,4 @@ v2.0 端點中目前不支援用戶端認證流程。若要查看此流程在正
 
 使用 OAuth 2.0 的 Jwt Bearer 認證授與可支援此鏈結的 Web API，亦稱為[代理者流程](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow)。不過，v2.0 端點中目前尚未實作代理者流程。若要查看此流程在正式運作的 Azure AD 服務中如何運作，請參閱 [GitHub 上的代理者程式碼範例](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

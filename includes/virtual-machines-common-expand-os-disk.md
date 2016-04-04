@@ -1,59 +1,59 @@
-## Overview
-When you create a new virtual machine (VM) in a Resource Group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/marketplace/), the default OS drive is 127 GB. Even though it’s possible to add data disks to the VM (how many depending upon the SKU you’ve chosen) and moreover it’s recommended to install applications and CPU intensive workloads on these addendum disks, oftentimes customers need to expand the OS drive to support certain scenarios such as following:
+## 概觀
+當您在資源群組中，透過從 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 部署映像來建立新的虛擬機器 (VM) 時，預設的作業系統磁碟機為 127 GB。即使可以將資料磁碟加入到 VM (數量取決於您所選擇的 SKU)，而且建議將應用程式和需要大量 CPU 的工作負載安裝在這些附加的磁碟上，但客戶有時候還是必須擴充作業系統磁碟機以支援特定的案例，例如︰
 
-1.  Support legacy applications that install components on OS drive.
-2.  Migrate a physical PC or virtual machine from on-premises with a larger OS drive.
+1.  支援將元件安裝在作業系統磁碟機上的舊型應用程式。
+2.  從具有較大作業系統磁碟機的內部部署移轉實體電腦或虛擬機器。
 
->[AZURE.IMPORTANT]Azure has two different deployment models for creating and working with resources: Resource Manager and Classic. This article covers using the Resource Manager model. Microsoft recommends that most new deployments use the Resource Manager model.
+>[AZURE.IMPORTANT]Azure 建立和處理資源的部署模型有二種：資源管理員和傳統。本文涵蓋內容包括如何使用資源管理員模型。Microsoft 建議讓大部分的新部署使用資源管理員模式。
 
-## Resize the OS drive
-In this article we’ll accomplish the task of resizing the OS drive using resource manager modules of [Azure Powershell](../articles/powershell-install-configure.md). Open your Powershell ISE or Powershell window in administrative mode and follow the steps below:
+## 調整作業系統磁碟機的大小
+在本文中，我們將使用 [Azure Powershell](../articles/powershell-install-configure.md) 的資源管理員模組，完成調整作業系統磁碟機大小的工作。在系統管理模式下開啟您的 Powershell ISE 或 Powershell 視窗，並依照下列步驟進行︰
 
-1.  Sign-in to your Microsoft Azure account in resource management mode and select your subscription as follows:
+1.  在資源管理模式下登入您的 Microsoft Azure 帳戶，並選取您的訂用帳戶，如下所示︰
 
     ```Powershell
     Login-AzureRmAccount
     Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
     ```
 
-2.  Set your resource group name and VM name as follows:
+2.  設定資源群組名稱和 VM 名稱，如下所示：
 
     ```Powershell
     $rgName = 'my-resource-group-name'
     $vmName = 'my-vm-name'
     ```
 
-3.  Obtain a reference to your VM as follows:
+3.  取得您 VM 的參考，如下所示︰
 
     ```Powershell
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-4. Stop the VM before resizing the disk as follows:
+4. 在調整磁碟大小之前停止 VM，如下所示︰
 
     ```Powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-5.  And here comes the moment we’ve been waiting for! Set the size of the OS disk to the desired value and update the VM as follows:
+5.  接著就是我們期待已久的時刻了！ 將作業系統磁碟的大小設定為所需的值，並更新 VM，如下所示︰
 
     ```Powershell
     $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
     Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
     ```
 
-    >[AZURE.WARNING]The new size should be greater than the existing disk size. The maximum allowed is 1023 GB.
+    >[AZURE.WARNING]新的大小應該大於現有的磁碟大小。允許的上限為 1023 GB。
 
-6.  Updating the VM may take a few seconds. Once the command finishes executing, restart the VM as follows:
+6.  更新 VM 可能需要幾秒鐘的時間。命令執行完畢之後，重新啟動 VM，如下所示︰
 
     ```Powershell
     Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-And that’s it! Now RDP into the VM, open Computer Management (or Disk Management) and expand the drive using the newly allocated space.
+這樣就大功告成了！ 現在 RDP 到 VM，開啟 [電腦管理] (或 [磁碟管理])，然後使用剛配置的空間擴充磁碟機。
 
-## Summary
-In this article, we used Azure Resource Manager modules of Powershell to expand the OS drive of an IaaS virtual machine. Reproduced below is the complete script for your reference:
+## 摘要
+在本文中，我們使用 Powershell 的 Azure Resource Manager 模組擴充 IaaS 虛擬機器的作業系統磁碟機。以下重現完整的指令碼供您參考：
 
 ```Powershell
 Login-AzureRmAccount
@@ -67,16 +67,18 @@ Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## Next Steps
-Though in this article, we focused primarily on expanding the OS disk of the VM, the developed script may also be used for expanding the data disks attached to the VM by changing a single line of code. For example, to expand the first data disk attached to the VM, replace the ```OSDisk``` object of ```StorageProfile``` with ```DataDisks``` array and use a numeric index to obtain a reference to first attached data disk, as shown below:
+## 後續步驟
+在本文中，我們主要著重於擴充 VM 的作業系統磁碟，但是已開發的指令碼也可以透過變更單一行程式碼，用於擴充連接至 VM 的資料磁碟。例如，若要擴充連接至 VM 的第一個資料磁碟，請將 ```StorageProfile``` 的 ```OSDisk``` 物件取代成 ```DataDisks``` 陣列，並使用數值索引取得第一個連接的資料磁碟的參考，如下所示︰
 
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
-Similarly you may reference other data disks attached to the VM, either by using an index as shown above or the ```Name``` property of the disk as illustrated below:
+同樣地，您可以使用如上所示的索引，或如下所示的磁碟 ```Name``` 屬性，參考連接至 VM 的其他資料磁碟︰
 
 ```Powershell
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-If you want to find out how to attach disks to an Azure Resource Manager VM, check this [article](../articles/virtual-machines/virtual-machines-windows-attach-disk-portal.md).
+如果您想要了解如何將磁碟連接至 Azure Resource Manager VM，請參閱這篇[文章](../articles/virtual-machines/virtual-machines-windows-attach-disk-portal.md)。
+
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Analytics - 適用於 Application Insights 的強大搜尋工具" 
-	description="Application Analytics 概觀，適用於 Application Insights 的強大搜尋工具。" 
+	pageTitle="Analytics - 強大的 Application Insights 搜尋工具" 
+	description="Analytics 概觀，強大的 Application Insights 診斷搜尋工具。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,21 +12,21 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
 
 
-# Application Insights Analytics：語言概觀
+# Application Insights 的 Analytics
 
 
-[Application Insights Analytics](app-analytics.md) 是強大的查詢引擎，適合用於 [Application Insights](app-insights-overview.md) 遙測。這些頁面說明 Application Insights 查詢語言，AIQL。
+[Analytics](app-analytics.md) 是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。這些頁面說明 Analytics 查詢語言。
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
  
-標準的 AIQL 查詢是「來源」資料表，後面接著一系列由 `|` 隔開的「運算子」。
+標準的查詢是來源資料表，後面接著一系列由 `|` 隔開的運算子。
 
 例如，讓我們來了解海德拉巴的市民在一天當中的哪些時間試用我們的 Web 應用程式。同時我們要看看針對他們的 HTTP 要求傳回哪些結果碼。
 
@@ -79,4 +79,4 @@
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/21/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # 設定負載平衡器使用 SQL 一律開啟
@@ -36,15 +36,15 @@ SQL Server AlwaysOn 可用性群組現在可以與 ILB 搭配執行。可用性�
 
 ## 將內部負載平衡器新增至服務 
 
-### 步驟 1.
+### 步驟 1
 
 在下列範例中，我們將針對包含子網路 (名為 '子網路-1') 的虛擬網路進行設定：
 
 	Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName Subnet-1 -ServiceName SqlSvc
 
-步驟 2.
+### 步驟 2
 
-## 為每個 VM 上的 ILB 新增負載平衡端點
+為每個 VM 上的 ILB 新增負載平衡端點
 
 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –
 	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
@@ -53,18 +53,19 @@ SQL Server AlwaysOn 可用性群組現在可以與 ILB 搭配執行。可用性�
 
 上述範例中，您有 2 個分別稱為 "sqlsvc1" 和 "sqlsvc2" 的 VM 正在雲端服務 "Sqlsvc" 中執行。在使用 "DirectServerReturn" 參數建立 ILB 之後，您就可以將負載平衡端點加入 ILB，讓 SQL 可以設定可用性群組的接聽程式。
 
-您可以在[使用 Azure 資源管理員範本部署 SQL AlwaysOn 可用性群組](virtual-machines-workload-template-sql-alwayson.md)或[使用入口網站資源庫](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)中，找到更多建立 SQL AlwaysOn 的詳細資料。
+[使用入口網站資源庫](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)可以找到建立 SQL AlwaysOn 的詳細資訊。
+
 
 
 ## 另請參閱
 
-[開始設定網際網路面向的負載平衡器](load-balancer-internet-getstarted.md)
+[開始設定網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)
 
-[開始設定內部負載平衡器](load-balancer-internal-getstarted.md)
+[開始設定內部負載平衡器](load-balancer-get-started-ilb-arm-ps.md)
 
 [設定負載平衡器分配模式](load-balancer-distribution-mode.md)
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

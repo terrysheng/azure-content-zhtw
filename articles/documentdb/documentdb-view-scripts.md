@@ -117,4 +117,4 @@ Azure 入口網站中的 [指令碼總管] 只是在 DocumentDB 中使用預存�
 
 [學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)也是很實用的資源，可引導您深入了解 DocumentDB。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

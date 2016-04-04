@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="建立使用服務匯流排主題和訂用帳戶的應用程式 | Microsoft Azure"
-   description="介紹服務匯流排主題和訂用帳戶所提供的發佈/訂閱功能。"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="建立使用服務匯流排主題和訂用帳戶的應用程式 | Microsoft Azure"
+    description="介紹服務匯流排主題和訂用帳戶所提供的發佈/訂閱功能。"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # 建立使用服務匯流排主題和訂用帳戶的應用程式
 
@@ -33,7 +33,7 @@ Azure 服務匯流排支援一套以雲端為基礎、訊息導向的中介軟�
 
 訊息傳送至主題的方式會與傳送至佇列的方式相同。不過，訊息不是直接從主題處接收；而是從訂用帳戶接收的。您可以將主題的訂用帳戶視為虛擬佇列，可接收已傳送到該主題的訊息複本。從訂用帳戶接收訊息的方式與從佇列接收訊息的方式相同。
 
-回到零售案例中，主題會取代佇列，而新增的訂用帳戶將由庫存管理系統元件使用。系統現在看起來會像下面這樣：
+回到零售案例中，主題會取代佇列，而新增的訂用帳戶將可由庫存管理系統元件使用。系統現在看起來會像下面這樣：
 
 ![Service-Bus2](./media/service-bus-create-topics-subscriptions/IC657165.gif)
 
@@ -119,7 +119,7 @@ catch (Exception e)
 
 ## 訂用帳戶篩選
 
-到目前為止，本文中傳送至主題的所有訊息，都會提供給所有已註冊的訂用帳戶。請注意「都會提供」這幾個字。 雖然服務匯流排訂用帳戶可看見所有傳送至主題的訊息，但您只能將部分訊息複製到虛擬訂用帳戶佇列。這項工作可透過訂用帳戶「篩選」來進行。當您建立訂用帳戶時，可以用 SQL92 樣式的述詞形式，提供依訊息屬性運作的篩選運算式，這之中包括系統屬性 (例如 [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)) 和應用程式屬性 (例如上一個範例中的 **StoreName**)。
+到目前為止，此案例中傳送至主題的所有訊息，都會提供給所有已註冊的訂用帳戶。請注意「都會提供」這幾個字。 雖然服務匯流排訂用帳戶可看見所有傳送至主題的訊息，但您只能將部分訊息複製到虛擬訂用帳戶佇列。這項工作可透過訂用帳戶「篩選」來進行。當您建立訂用帳戶時，可以用 SQL92 樣式的述詞形式，提供依訊息屬性運作的篩選運算式，這之中包括系統屬性 (例如 [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)) 和應用程式屬性 (例如上一個範例中的 **StoreName**)。
 
 若要演變案例來說明這點，要將第二間商店加入我們的零售案例。兩間商店的所有 POS 終端機的銷售資料，還是必須路由傳送至集中的庫存管理系統，但使用儀表板工具的店經理只注意到商店的銷售業績。您可以用訂用帳戶篩選來達到此目的。請注意，當 POS 終端機發佈訊息時，會在訊息上設定 **StoreName** 應用程式屬性。假設有兩間商店，例如 **Redmond** 和 **Seattle**，Redmond 商店中的 POS 終端機將其銷售資料訊息戳記了 **StoreName** 等於 **Redmond**，而 Seattle 商店的 POS 終端機則使用 **StoreName** 等於 **Seattle**。Redmond 商店的店經理只想要查看其 POS 終端機的資料。系統看起來會像下面這樣：
 
@@ -150,4 +150,4 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 請參閱[建立使用服務匯流排佇列的應用程式](service-bus-create-queues.md)，了解如何在 POS 零售案例中使用佇列的相關資訊。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

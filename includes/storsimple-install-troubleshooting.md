@@ -1,21 +1,23 @@
 <!--author=alkohli last changed: 03/17/16-->
 
-## Troubleshooting update failures
+## 更新失敗的疑難排解
 
-**What if you see a notification that the pre-upgrade checks have failed?**
+**如果您看到升級前檢查失敗的通知，該怎麼辦？**
 
-If a pre-check fails, make sure that you have looked at the detailed notification bar at the bottom of the page. This provides guidance as to which pre-check has failed. The following illustration shows an instance in which such a notification appears. In this case, the controller health check and hardware component health check have failed. Under the **Hardware Status** section, you can see that both **Controller 0** and **Controller 1** components need attention.
+如果前置檢查失敗，請確定您已經查看頁面底部的詳細通知列。這會提供有關失敗的前置檢查的指引。下圖顯示這類出現的通知當中的執行個體。在此情況下，控制器健康狀況檢查和硬體元件健康狀況檢查失敗。在 [硬體狀態] 區段下，您可以看到**控制器 0** 及**控制器 1** 元件需要注意。
 
-  ![Pre-check failure](./media/storsimple-install-troubleshooting/HCS_PreUpdateCheckFailed-include.png)
+  ![前置檢查失敗](./media/storsimple-install-troubleshooting/HCS_PreUpdateCheckFailed-include.png)
 
-You will need to make sure that both controllers are healthy and online. You will also need to make sure that all the hardware components in the StorSimple device are shown to be healthy on the Maintenance page. You can then try to install updates. If you are not able to fix the hardware component issues, then you will need to contact Microsoft Support for next steps.
+您必須確定兩個控制器是狀況良好且在線上。您也必須確定在 StorSimple 裝置中的所有硬體元件在 [維護] 頁面上都會顯示為狀況良好。接著，您可以嘗試安裝更新。如果您無法修正硬體元件問題，您將需要連絡 Microsoft 支援以了解後續步驟。
 
-**What if you receive a "Could not install updates" error message, and the recommendation is to refer to the update troubleshooting guide to determine the cause of the failure?**
+**如果您收到「無法安裝更新」錯誤訊息，且建議是參考更新疑難排解指南，以判斷失敗的原因，該怎麼辦？**
 
-One likely cause for this could be that you do not have connectivity to the Microsoft Update servers. This is a manual check that needs to be performed. If you lose connectivity to the update server, your update job would fail. You can check the connectivity by running the following cmdlet from the Windows PowerShell interface of your StorSimple device:
+其中一個可能的原因是您沒有連線到 Microsoft Update 伺服器。這是需要執行的手動檢查。如果您失去更新伺服器的連線，更新作業將會失敗。您可以從 StorSimple 裝置的 Windows PowerShell 介面執行下列 Cmdlet 以檢查連線：
 
  `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter>`
 
-Run the cmdlet on both controllers.
+在這兩個控制器上執行 Cmdlet。
 
-If you have verified the connectivity exists, and you continue to see this issue, please contact Microsoft Support for next steps.
+如果您已經確認連線存在，而且您持續看到這個問題，請連絡 Microsoft 支援以了解後續步驟。
+
+<!---HONumber=AcomDC_0323_2016-->

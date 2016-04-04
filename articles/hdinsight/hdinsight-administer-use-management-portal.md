@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/18/2016"
 	ms.author="jgao"/>
 
 # 使用 Azure 入口網站管理 HDInsight 中的 Hadoop 叢集
@@ -73,19 +73,8 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。如需已驗證和所支�
 ##列出和顯示叢集
 
 1. 登入 [https://portal.azure.com](https://portal.azure.com)。
-2. 按一下左功能表中的 [HDInsight 叢集]：
-	
-	![Azure 入口網站 HDInsight 叢集按鈕](./media/hdinsight-administer-use-management-portal/azure-portal-hdinsight-button.png)
-		
-	如果 **HDInsight** 未出現在左功能表中，請按一下 [瀏覽]：
-
-	![Azure 入口網站瀏覽叢集按鈕](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
-
-	您應該會看見現有的叢集清單 (如果有的話)：
-	
-	![Azure 入口網站叢集清單](./media/hdinsight-administer-use-management-portal/hdinsight-list-clusters.png)
-
-3. 使用 [篩選項目] 與「訂用帳戶」來縮小清單。
+2. 按一下左功能表中的 [HDInsight 叢集]。
+3. 按一下叢集名稱。如果叢集清單很長，您可以使用頁面頂端的篩選器。
 4. 按兩下清單中的叢集以顯示詳細資料。
 
 	**功能表和基本功能**：
@@ -93,17 +82,16 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。如需已驗證和所支�
 	![Azure 入口網站 hdinsight 叢集基本功能](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
 	
 	- 若要自訂功能表，請在功能表上的任意處按一下滑鼠右鍵，然後按一下 [自訂]。
-	- **設定**和**所有設定**：顯示叢集的 [設定] 刀鋒視窗，可讓您存取該叢集的詳細組態資訊。
-	- **儀表板**、**叢集儀表板**和 **URL：這些是存取叢集儀表板 (也就是適用於 Linux 型叢集的 Ambari Web) 的所有方法。
-	- **遠端桌面**：使用 RDP 連接到叢集。
+	- **設定**和**所有設定**：顯示該叢集的 [設定] 刀鋒視窗，可讓您存取該叢集的詳細組態資訊。
+	- **儀表板**、**叢集儀表板**和 **URL︰這些是存取叢集儀表板的所有方式，也就是 Linux 型叢集的 Ambari Web。-**安全殼層**：顯示使用安全殼層 (SSH) 連線來連接叢集的指示。
 	- **調整叢集**：可讓您變更此叢集的背景工作節點數目。
 	- **刪除**：刪除叢集。
 	- **快速入門** (![雲和雷電圖示 = 快速入門](./media/hdinsight-administer-use-portal-linux/quickstart.png))：顯示可協助您開始使用 HDInsight 的資訊。
-	- **使用者** (![使用者圖示](./media/hdinsight-administer-use-portal-linux/users.png))：可讓您設定 Azure 訂用帳戶上，其他使用者對此叢集的「入口網站管理」權限。
+	- **使用者 (![使用者圖示](./media/hdinsight-administer-use-portal-linux/users.png))**：可讓您設定 Azure 訂用帳戶上其他使用者對此叢集的「入口網站管理」權限。
 	
-		> [AZURE.IMPORTANT] 這「只」會影響在 Azure Preview 入口網站對此叢集的存取和權限，對於連線至 HDInsight 叢集或將工作提交至其上的使用者則沒有作用。
-	- **標記** (![標記圖示](./media/hdinsight-administer-use-portal-linux/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
-	- **文件**：Azure HDInsight 文件的連結。
+		> [AZURE.IMPORTANT] 這「只」會影響在 Azure 入口網站對此叢集的存取和權限，對於連線到 HDInsight 叢集或將工作提交到 HDInsight 叢集的使用者沒有影響。
+	- **標記 (![標記圖示](./media/hdinsight-administer-use-portal-linux/tags.png))**：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
+	- **Ambari 檢視**：Ambari Web 的連結。
 	
 	> [AZURE.IMPORTANT] 若要管理 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。如需使用 Ambari 的詳細資訊，請參閱[使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
 
@@ -211,8 +199,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。如需已驗證和所支�
 
 ##暫停/關閉叢集
 
-大部分 Hadoop 工作是只會偶爾執行的批次工作。對於大部分的 Hadoop 叢集而言，叢集長時間並未用於處理。利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。
-您也需支付 HDInsight 叢集的費用 (即使未使用)。由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
+大部分 Hadoop 工作是只會偶爾執行的批次工作。對於大部分的 Hadoop 叢集而言，叢集長時間並未用於處理。利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。您也需支付 HDInsight 叢集的費用 (即使未使用)。由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。
 
 有許多方法可以設計程序：
 
@@ -267,7 +254,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 ##尋找預設的儲存體帳戶
 
-每個 HDInsight 叢集都有預設的儲存體帳戶。叢集的預設儲存體帳戶與其金鑰會顯示在 [設定] / [屬性] / [Azure 儲存體金鑰] 之下。請參閱[列出和顯示叢集](#list-and-show-clusters)。
+每個 HDInsight 叢集都有預設的儲存體帳戶。叢集的預設儲存體帳戶與其金鑰會顯示在 [設定] / [屬性]**** / [Azure 儲存體金鑰]**** 之下。請參閱[列出和顯示叢集](#list-and-show-clusters)。
 
 	
 ##尋找資源群組 
@@ -292,7 +279,7 @@ HDInsight 查詢主控台包括下列功能：
 
 	![hdinsight 入口網站工作歷程記錄](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-	按一下 [查詢名稱] 來顯示詳細資料，包括工作屬性、[工作查詢] 和 [工作輸出]。您也可以將查詢和輸出下載至您的工作站。
+	按一下 [查詢名稱] 來顯示詳細資料，包括工作屬性、[工作查詢] 和 [工作輸出]**。您也可以將查詢和輸出下載至您的工作站。
 
 - **檔案瀏覽器**：瀏覽預設的儲存體帳戶和連結的儲存體帳戶。
 
@@ -304,7 +291,7 @@ HDInsight 查詢主控台包括下列功能：
 
 	![hdinsight 入口網站 Hadoop UI](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
 	
-	從 *Hadoop UI*，您可以瀏覽檔案，並檢查記錄檔。
+	從 **Hadoop UI*，您可以瀏覽檔案，並檢查記錄檔。
 
 - **Yarn UI**。
 
@@ -400,4 +387,4 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop 命令列"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,33 +1,33 @@
-<!--author=alkohli last changed: 01/26/16-->
+<!--author=alkohli last changed: 03/17/16-->
 
 #### 下載 Hofix
 
-請執行下列步驟來從 Microsoft Update Catalog 下載軟體更新。
+請執行下列步驟，從 Microsoft Update Catalog 下載軟體更新。
 
-1. 啟動 Internet Explorer 並瀏覽至 [http://catalog.update.microsoft.com/v7/site/Home.aspx](http://catalog.update.microsoft.com/v7/site/Home.aspx)。
+1. 啟動 Internet Explorer 並瀏覽至 [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com)。
 
-2. 如果您是第一次使用者，系統會提示您安裝 Microsoft Update Catalog。按一下 [Install]。
-    
-   	![安裝目錄](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
+2. 如果這是您在此電腦上第一次使用 Microsoft Update Catalog，請在系統提示您安裝 Microsoft Update Catalog 附加元件時，按一下 [安裝]。![安裝目錄](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. 您會看到目錄搜尋畫面。在搜尋方塊中輸入 **3121901**，然後按一下 [搜尋]。
+3. 在 Microsoft Update Catalog 的 [搜尋] 方塊中，輸入您要下載的 Hotfix 的知識庫 (KB) 編號，例如 **3121901**，然後按一下 [搜尋]。
+
+    Hotfix 清單隨即出現，例如**適用於 StorSimple 8000 系列的累積軟體套件組合更新 2.0**。
 
     ![搜尋目錄](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. 您將會看到**適用於 StorSimple 8000 系列的累積軟體套件組合更新 2.0**。按一下 [新增]。更新將會加入到購物籃中。
+4. 按一下 [新增]。更新便會新增到購物籃中。
+
+5. 搜尋上表中所列的其他任何 Hotfix (**3121900**、**3080728**、**3090322** 和 **3121899**)，然後新增每個購物籃。
 
 5. 按一下 [**檢視購物籃**]。
- 
-6. 按一下 [下載]。指定或**瀏覽**至您想要儲存下載項目的本機位置。更新將會下載到所選位置的資料夾 (名稱與更新相同) 中。資料夾也可以複製到裝置可連線的網路共用位置。
-       
-	> [AZURE.NOTE] 
-	> 
-	> - 您也需要下載 **LSI 驅動程式更新** (適用於 StorSimple 8000 系列的 SAS 控制器更新 2.0 - KB3121900)、**Storport 更新** (適用於 Windows Server 2012 R2 x64 版本的 Hotfix - KB3080728)、**Spaceport 更新** (適用於 Windows Server 2012 R2 x64 版本的 Hotfix - KB3090322)，以及**磁碟韌體更新** (適用於 StorSimple 8000 系列的累積磁碟韌體更新 2.0 - KB3121899)，並複製到相同的共用資料夾。
-	> - Hotfix 必須可同時從兩個控制器偵測任何來自對等控制器的潛在錯誤訊息。
+
+6. 按一下 [下載]。指定或**瀏覽**至您想要儲存下載項目的本機位置。更新便會下載到指定的位置，並放在與更新名稱相同的子資料夾中。資料夾也可以複製到裝置可連線的網路共用位置。
+
+>   [AZURE.NOTE]
+Hotfix 必須可同時從兩個控制器存取，以偵測來自對等控制器的任何潛在錯誤訊息。
 
 #### 安裝及驗證一般模式 Hotfix
 
-執行下列步驟來安裝及驗證一般 Hotfix。
+執行下列步驟來安裝及驗證一般模式 Hotfix。如果您已使用 Azure 入口網站安裝這些 Hotfix，請直接跳到[安裝及驗證維護模式 Hotfix](#to-install-and-verify-maintenance-mode-hotfixes)。
 
 1. 若要安裝 Hotfix，請存取 StorSimple 裝置序列主控台上的 Windows PowerShell 介面。請依照[使用 PuTTy 連接到序列主控台](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console)中的詳細指示執行作業。在命令提示字元中，按 **Enter** 鍵。
 
@@ -46,16 +46,16 @@
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \hcsmdssoftwareupdate.exe -Credential contoso\John
-      
+
         Confirm
 
         This operation starts the hotfix installation and could reboot one or
-        both of the controllers. If the device is serving I/Os, these will not 
+        both of the controllers. If the device is serving I/Os, these will not
         be disrupted. Are you sure you want to continue?
         [Y] Yes [N] No [?] Help (default is "Y"): Y
 
         ````
- 
+
 6. 當系統提示您確認 Hotfix 安裝時，請輸入 **Y**。
 
 7. 使用 `Get-HcsUpdateStatus` Cmdlet 來監視更新。
@@ -68,9 +68,9 @@
         LastHotfixTimestamp : 12/21/2015 10:36:13 PM
         LastUpdateTimestamp : 12/21/2015 10:35:25 PM
         Controller0Events   :
-        Controller1Events   : 
+        Controller1Events   :
         ````
- 
+
      下列範例輸出指出更新已完成。更新完成時，`RunInProgress` 將會是 `False`。
 
         ````
@@ -83,10 +83,9 @@
         Controller1Events   :
 
         ````
-		
 
 	> [AZURE.NOTE] 有時在更新進行期間，Cmdlet 會回報 `False`。若要確保此 Hotfix 已完成，請等待幾分鐘的時間、重新執行此命令並確認 `RunInProgress` 為 `False`。如果的確為 False 的話，則 Hotfix 已完成。
-	
+
 8. 軟體更新完成之後，請重複步驟 3 至 5 來安裝及監視 SaaS 代理程式和 MDS 代理程式。請確保您是先安裝 `all-hcsmdssoftwareupdate_0b438ddf0d5b686aada2378b754fac8c7f2160e9.exe`，再安裝 `all-cismdsagentupdatebundle_f98e62f4d56c79e2a6644d027af7a2393a93827a.exe`。
 
 9. 驗證系統軟體版本。輸入：
@@ -97,29 +96,29 @@
 
     - HcsSoftwareVersion：6.3.9600.17673
     - CisAgentVersion：1.0.9150.0
-    - MdsAgentVersion：30.0.4698.13 
-    
-	如果在套用更新後版本號碼並未變更，則表示此 Hotfix 未成功套用。若您看到這種情況，請連絡 [Microsoft 支援](storsimple-contact-microsoft-support.md)以取得進一步的協助。
-    
-9. 重複步驟 3-5 來安裝及監視剩餘的一般 Hotfix。
+    - MdsAgentVersion：30.0.4698.13
 
-	- 使用 KB3121900 的 LSI 驅動程式。
-	- 使用 KB3080728 的 Storport 修正程式。
-	- 使用 KB3090322 的 Spaceport 修正程式。
+	如果在套用更新後版本號碼並未變更，則表示此 Hotfix 未成功套用。若您看到這種情況，請連絡 [Microsoft 支援](storsimple-contact-microsoft-support.md)以取得進一步的協助。
+
+9. 重複步驟 3-5 來安裝剩餘的一般模式 Hotfix。
+
+	- LSI 驅動程式 - KB3121900
+	- Storport 更新 - KB3080728
+	- Spaceport 更新 - KB3090322
 
 #### 安裝及驗證維護模式 Hotfix
 
 請使用 KB3121899 來安裝磁碟韌體更新。這些是干擾性更新，且需要約 30 分鐘來完成。您可以藉由連接至裝置序列主控台，以選擇在預計的維護視窗中安裝這些更新。
 
-請注意，如果您的磁碟韌體已是最新版本，便不需要安裝這些更新。請從裝置序列主控台執行 `Get-HcsUpdateAvailability` Cmdlet。系統將通知您是否有可用的更新，以及更新是否為干擾性 (維護模式更新) 或非干擾性 (一般更新) 更新。
- 
+請注意，如果您的磁碟韌體已是最新版本，便不需要安裝這些更新。從裝置序列主控台執行 `Get-HcsUpdateAvailability` Cmdlet，以檢查是否有可用的更新，以及更新是干擾性 (維護模式) 還是非干擾性 (一般模式) 更新。
+
 若要安裝磁碟韌體更新，請依照下面的指示執行。
 
-1. 使裝置處於維護模式。請注意，連線至處於維護模式的裝置時，您不應該使用 Windows PowerShell 遠端執行功能。透過裝置序列主控台連線時，您需要在裝置控制器上執行此 Cmdlet。輸入：
-		
+1. 使裝置處於維護模式。請注意，連線至處於維護模式的裝置時，您不應該使用 Windows PowerShell 遠端執行功能。透過裝置序列主控台連線時，請在裝置控制器上執行此 Cmdlet。輸入：
+
 	`Enter-HcsMaintenanceMode`
 
-	下方顯示一項範例輸出。
+	範例輸出如下所示。
 
 		Controller0>Enter-HcsMaintenanceMode
 		Checking device state...
@@ -142,7 +141,7 @@
 		[4] Change language
 		Please enter your choice>
 
-	兩個控制器都會重新開機。重新開機完成之後，兩個控制器都會處於維護模式。
+	接著，兩個控制器就會重新啟動以進入維護模式。
 
 3. 若要安裝磁碟韌體更新，請輸入：
 
@@ -157,20 +156,18 @@
 		This operation starts a hotfix installation and could reboot one or both of the controllers. By installing new updates you agree to, and accept any additional terms associated with, the new functionality listed in the release notes (https://go.microsoft.com/fwLink/?LinkID=613790). Are you sure you want to continue?
 		[Y] Yes [N] No (Default is "Y"): Y
 		WARNING: Installation is currently in progress. This operation can take several minutes to complete.
-	
 
 1.  使用 `Get-HcsUpdateStatus` 命令來監視安裝進度。當 `RunInProgress` 變成 `False` 時，即代表更新完成。
- 
+
 2.  安裝完成之後，維護模式 Hotfix 安裝所在的控制器將會重新開機。以具有完整存取權的選項 1 登入，並驗證磁碟韌體版本。輸入：
-	
+
 	`Get-HcsFirmwareVersion`
-  
+
 	預期的磁碟韌體版本為：
 
 	`XMGG, XGEG, KZ50, F6C2, VR08`
 
 	下方顯示一項範例輸出。
-
 
         -----------------------MAINTENANCE MODE------------------------
     	Microsoft Azure StorSimple Appliance Model 8100
@@ -179,10 +176,9 @@
     	Copyright (C) 2014 Microsoft Corporation. All rights reserved.
     	You are connected to Controller1
     	---------------------------------------------------------------
-    	
+
     	Controller1>Get-HcsFirmwareVersion
-    	
-    	
+
     	Controller0 : TalladegaFirmware
     	  ActiveBIOS:0.45.0006
     	  BackupBIOS:0.45.0008
@@ -210,7 +206,7 @@
     	  PCM2Firmware:1.00|1.05
     	  PCM2VPDStructure:0x05
     	  PCM2VPDCRC:0x41BEF99C
-    	
+
     	  DisksFirmware
     	  SEAGATE:ST400FM0073:XGEG
     	  SEAGATE:ST400FM0073:XGEG
@@ -225,18 +221,10 @@
     	  SEAGATE:ST4000NM0023:XMGG
     	  SEAGATE:ST4000NM0023:XMGG
 
-	 請在第二個控制器上執行 `Get-HcsFirmwareVersion` 命令，來驗證軟體版本已經更新。然後您就可以結束維護模式。針對每個裝置控制器輸入以下命令：
+	 請在第二個控制器上執行 `Get-HcsFirmwareVersion` 命令，來驗證軟體版本已經更新。然後您就可以結束維護模式。若要這麼做，請針對每個裝置控制器輸入以下命令：
 
     `Exit-HcsMaintenanceMode`
-     
-1. 控制器將會在您結束維護模式時重新開機。在磁碟韌體更新已成功套用且裝置已結束維護模式後，返回 Azure 傳統入口網站。維護模式更新在 24 小時內不會更新至入口網站。
 
+1. 當您離開維護模式時，控制器便會重新啟動。在磁碟韌體更新已成功套用且裝置已結束維護模式後，返回 Azure 傳統入口網站。請注意，入口網站可能不會顯示您已安裝維護模式更新 24 小時。
 
-
-
-
-
- 
- 
-
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

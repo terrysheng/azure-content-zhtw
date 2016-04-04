@@ -54,7 +54,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 	替代方式為安裝可讓您存取帳戶的管理憑證。如果您選擇安裝憑證，請以滑鼠右鍵按一下 [伺服器總管] 中的 [Azure] 節點，然後按一下內容功能表中的 [管理訂閱]。在 [管理 Azure 訂用帳戶] 對話方塊中，按一下 [憑證] 索引標籤，再按一下 [匯入]。請依照指示下載，然後匯入您 Azure 帳戶的訂用帳戶檔案 (亦稱為 *.publishsettings* 檔案)。
 
 	> [AZURE.NOTE]
-	> 如果您下載了訂閱檔案，請將其儲存到原始程式碼目錄以外的資料夾 (例如在 Downloads 資料夾)，然後在匯入完成後刪除該檔案。惡意使用者一旦能夠存取此訂用帳戶檔案，就能夠編輯、建立和刪除您的 Azure 服務。
+	如果您下載了訂閱檔案，請將其儲存到原始程式碼目錄以外的資料夾 (例如在 Downloads 資料夾)，然後在匯入完成後刪除該檔案。惡意使用者一旦能夠存取此訂用帳戶檔案，就能夠編輯、建立和刪除您的 Azure 服務。
 
 	如需從 Visual Studio 連線至 Azure 資源的詳細資訊，請參閱[管理帳戶、訂閱和系統管理角色](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)。
 
@@ -278,14 +278,10 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 
 在 Azure Web 應用程式中執行的 ASP.NET 應用程式，可建立下列各種記錄：
 
-* **應用程式追蹤記錄**<br/>
-  此應用程式會呼叫 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx) 類別的方法來建立這些記錄。
-* **Web 伺服器記錄**<br/>
-  Web 伺服器會為每個通往 Web 應用程式的 HTTP 要求建立記錄項目。
-* **詳細的錯誤訊息記錄**<br/>
-  Web 伺服器會針對失敗的 HTTP 要求 (產生狀態碼 400 或以上的要求) 建立含有一些額外資訊的 HTML 頁面。 
-* **失敗要求追蹤記錄**<br/>
-  Web 伺服器會針對失敗的 HTTP 要求建立含有詳細追蹤資訊的 XML 檔案。Web 伺服器會一併提供 XSL 檔案，在瀏覽器中格式化 XML。
+* **應用程式追蹤記錄**<br/>此應用程式會呼叫 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx) 類別的方法來建立這些記錄。
+* **Web 伺服器記錄**<br/>Web 伺服器會為每個通往 Web 應用程式的 HTTP 要求建立記錄項目。
+* **詳細的錯誤訊息記錄**<br/>Web 伺服器會針對失敗的 HTTP 要求 (產生狀態碼 400 或以上的要求) 建立含有一些額外資訊的 HTML 頁面。 
+* **失敗要求追蹤記錄**<br/>Web 伺服器會針對失敗的 HTTP 要求建立含有詳細追蹤資訊的 XML 檔案。Web 伺服器會一併提供 XSL 檔案，在瀏覽器中格式化 XML。
   
 記錄功能會影響 Web 應用程式效能，因此 Azure 可讓您視需要啟用或停用每一種記錄類型。對於應用程式記錄，您可以指定只寫入高於特定嚴重性層級的記錄。當您建立新的 Web 應用程式時，預設會停用所有記錄功能。
 
@@ -423,11 +419,11 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
 	![應用程式記錄功能關閉](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
 
 
-	不過，當您選取 [檢視串流記錄] 時，Visual Studio 會自動將 [應用程式記錄 (檔案系統)] 變更為 [錯誤]，代表回報的會是錯誤層級記錄。為了查看所有的追蹤記錄，您可以將此設定變更為 [詳細資訊]。當您選取低於錯誤的嚴重性層級時，將一併回報較高嚴重性層級的所有記錄。因此當您選取詳細資訊時，您會同時看到資訊、警告與錯誤記錄。
+	不過，當您選取 [檢視串流記錄] 時，Visual Studio 會自動將 [Application Logging (File System)] 變更為 [錯誤]，代表回報的會是錯誤層級記錄。為了查看所有的追蹤記錄，您可以將此設定變更為 [詳細資訊]。當您選取低於錯誤的嚴重性層級時，將一併回報較高嚴重性層級的所有記錄。因此當您選取詳細資訊時，您會同時看到資訊、警告與錯誤記錄。
 
-4. 在 [伺服器總管] 中，以滑鼠右鍵按一下 Web 應用程式，然後按一下 \[檢視設定] (如同您稍早所做的動作)。
+4. 在 [伺服器總管] 中，以滑鼠右鍵按一下 Web 應用程式，然後按一下 [檢視設定] (如同您稍早所做的動作)。
 
-5. 將 [應用程式記錄 (檔案系統)] 變更為 [詳細資訊]，然後按一下 [儲存]。
+5. 將 [Application Logging (File System)] 變更為 [詳細資訊]，然後按一下 [儲存]。
  
 	![將追蹤層級設定為詳細資訊](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-applogverbose.png)
 
@@ -601,9 +597,9 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。為了在 [
 
 	![按一下 [重新整理]](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
 
-	[診斷摘要] 區段預設會顯示最後 15 分鐘的記錄。您可以變更期間以檢視更多記錄。
+	[Diagnostic Summary] 區段預設會顯示最後 15 分鐘的記錄。您可以變更期間以檢視更多記錄。
 
-	(如果出現「找不到資料表」錯誤，請確認您所瀏覽的頁面在您啟用了 [應用程式記錄 (儲存體)] 與按一下 [儲存] 之後，能夠進行追蹤作業。)
+	(如果出現「找不到資料表」錯誤，請確認您所瀏覽的頁面在您啟用了 [Application Logging (Storage)] 與按一下 [儲存] 之後，能夠進行追蹤作業。)
 
 	![儲存體記錄](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storagelogs.png)
 
@@ -647,7 +643,7 @@ Azure Web 應用程式會使用 IIS 7.0 及更新版本所提供的相同失敗�
 
 	![新的 FTP 使用者名稱與密碼](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-	**當您登入時，必須使用此完整使用者名稱搭配 Web 應用程式名稱前置詞。例如，若您輸入使用者名稱 "myid"，而網站為 "myexample"，則會登入為 "myexample\\myid"。
+	****當您登入時，必須使用此完整使用者名稱搭配 Web 應用程式名稱前置詞。例如，若您輸入使用者名稱 "myid"，而網站為 "myexample"，則會登入為 "myexample\\myid"。
 
 5. 在新的瀏覽器視窗中，前往您 Web 應用程式之 [Web 應用程式] 刀鋒視窗的 [FTP 主機名稱] 或 [FTPS 主機名稱] 下方所示的 URL。
 
@@ -719,16 +715,11 @@ Azure Web 應用程式會使用 IIS 7.0 及更新版本所提供的相同失敗�
 
 網際網路上找不到關於 ASP.NET 追蹤功能詳盡且具時效性的說明。您所能做的，就是從專為 Web Form 所撰寫的一些舊有簡介資料下手，因為 MVC 是最近才問世的技術，並以著重在特定議題的較新的部落格文章來做為補充。以下資源是您開始了解這項技術的一些好去處：
 
-* [監視與遙測 (運用 Azure 建構真實的雲端應用程式)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry) (英文)。<br>
-  針對追蹤 Azure 雲端應用程式所建議的電子書章節。
-* [ASP.NET 追蹤](http://msdn.microsoft.com/library/ms972204.aspx) (英文) <br/>
-  舊有但仍是該主題的基本簡介的良好資源。
-* [追蹤接聽程式](http://msdn.microsoft.com/library/4y5y10s7.aspx) (英文) <br/>
-  內含有關追蹤接聽程式的資訊，但是沒有提到 [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx)。
-* [逐步介紹：整合 ASP.NET 追蹤功能與系統診斷追蹤功能](http://msdn.microsoft.com/library/b0ectfxd.aspx)(英文)<br/>
-  同樣為舊有的資料，但是內含簡介文章沒有提到的一些額外資訊。
-* [追蹤 ASP.NET MVC Razor 檢視](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx) (英文) <br/>
-  除了追蹤 Razor 檢視之外，該文同時說明了如何建立錯誤篩選條件以便記錄 MVC 應用程式所出現的所有未處理的例外。如需如何記錄 Web Form 應用程式中所有未處理的例外項目的詳細資訊，請參閱 MSDN 上[完整的錯誤處理常式範例](http://msdn.microsoft.com/library/bb397417.aspx) (英文) 的 Global.asax 範例。無論是 MVC 還是 Web Form，如果您想要記錄特定例外，但是讓預設的架構處理功能生效，則您可以如以下範例所示捕捉並重新擲回這些例外：
+* [監視與遙測 (運用 Azure 建構真實的雲端應用程式)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry) (英文)。<br> 針對追蹤 Azure 雲端應用程式所建議的電子書章節。
+* [ASP.NET 追蹤](http://msdn.microsoft.com/library/ms972204.aspx) (英文) <br/> 舊有但仍是該主題的基本簡介的良好資源。
+* [追蹤接聽程式](http://msdn.microsoft.com/library/4y5y10s7.aspx) (英文) <br/>內含有關追蹤接聽程式的資訊，但是沒有提到 [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx)。
+* [逐步介紹：整合 ASP.NET 追蹤功能與系統診斷追蹤功能](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/> (英文) 同樣為舊有的資料，但是內含簡介文章沒有提到的一些額外資訊。
+* [追蹤 ASP.NET MVC Razor 檢視](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx) (英文) <br/>除了追蹤 Razor 檢視之外，該文同時說明了如何建立錯誤篩選條件以便記錄 MVC 應用程式所出現的所有未處理的例外。如需如何記錄 Web Form 應用程式中所有未處理的例外項目的詳細資訊，請參閱 MSDN 上[完整的錯誤處理常式範例](http://msdn.microsoft.com/library/bb397417.aspx) (英文) 的 Global.asax 範例。無論是 MVC 還是 Web Form，如果您想要記錄特定例外，但是讓預設的架構處理功能生效，則您可以如以下範例所示捕捉並重新擲回這些例外：
 
         try
         {
@@ -740,10 +731,8 @@ Azure Web 應用程式會使用 IIS 7.0 及更新版本所提供的相同失敗�
             throw;
         } 
 
-* [從 Azure 命令列串流診斷追蹤記錄 (加上 Glimpse！)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-  如何使用命令列來執行本教學課程所示範的 Visual Studio 步驟。[Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) (英文) 工具可供您偵錯 ASP.NET 應用程式。
-* [使用 Web 應用程式記錄與診斷功能 - 與 David Ebbo 一起](/documentation/videos/azure-web-site-logging-and-diagnostics/) (英文) 與[從 Web 應用程式串流記錄 - 與 David Ebbo 一起](/documentation/videos/log-streaming-with-azure-web-sites/)<br> (英文) 
-  影片，由 Scott Hanselman 與 David Ebbo 共同錄製。
+* [從 Azure 命令列串流診斷追蹤記錄 (加上 Glimpse！)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/> 如何使用命令列來執行本教學課程所示範的 Visual Studio 步驟。[Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) (英文) 工具可供您偵錯 ASP.NET 應用程式。
+* [使用 Web 應用程式記錄與診斷功能 - 與 David Ebbo 一起](/documentation/videos/azure-web-site-logging-and-diagnostics/) (英文) 與[從 Web 應用程式串流記錄 - 與 David Ebbo 一起](/documentation/videos/log-streaming-with-azure-web-sites/)<br> (英文) 影片，由 Scott Hanselman 與 David Ebbo 共同錄製。
 
 針對錯誤記錄，做為撰寫自己的追蹤程式碼的替代方法，便是使用開放原始碼的記錄架構，例如 [ELMAH](http://nuget.org/packages/elmah/)。如需詳細資訊，請參閱 [Scott Hanselman 關於 ELMAH 的部落格文章](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx) (英文)。
 
@@ -768,10 +757,9 @@ Microsoft TechNet 網站內的[使用失敗要求追蹤](http://www.iis.net/lear
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

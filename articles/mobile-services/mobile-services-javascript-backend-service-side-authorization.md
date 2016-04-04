@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="03/09/2015"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # 在行動服務中的使用者服務端授權
@@ -73,4 +73,4 @@
 
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

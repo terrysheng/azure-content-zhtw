@@ -1,95 +1,95 @@
 
 
-## Why Azure performs planned maintenance
+## Azure 執行計劃性維護的原因
 
-Microsoft Azure periodically performs updates across the globe to improve the reliability, performance, and security of the host infrastructure that underlies virtual machines. Many of these updates are performed without any impact to your virtual machines or Cloud Services, including memory-preserving updates.
+為提升虛擬機器之基礎主機基礎結構的可靠性、效能和安全性，Microsoft Azure 會全球定期執行更新。許多這些更新在執行時並不會對虛擬機器或雲端服務造成任何影響，包括記憶體保留的更新。
 
-However, some updates do require a reboot to your virtual machines to apply the required updates to the infrastructure. The virtual machines are shut down while we patch the infrastructure, and then the virtual machines are restarted.
+不過，有些更新的確需要將虛擬機器重新開機，才能將必要更新套用至基礎結構。我們會在修補基礎結構時將虛擬機器關機，然後再將虛擬機器重新啟動。
 
-Please note that there are two types of maintenance that can impact the availability of your virtual machines: planned and unplanned. This page describes how Microsoft Azure performs planned maintenance. For more information about unplanned maintenance, see [Understand planned versus unplanned maintenance](virtual-machines-windows-manage-availability.md).
+請注意，有兩種類型的維護會對虛擬機器的可用性造成影響：規劃和非規劃性。本頁面說明 Microsoft Azure 會如何執行計劃性維護。如需非計劃性維護的詳細資訊，請參閱[了解計劃性與非計劃性維護](virtual-machines-windows-manage-availability.md)。
 
-## Memory-preserving updates
+## 記憶體保留的更新
 
-For a class of updates in Microsoft Azure, customers will not see any impact to their running virtual machines. Many of these updates are to components or services that can be updated without interfering with the running instance. Some of these updates are platform infrastructure updates on the host operating system that can be applied without requiring a full reboot of the virtual machines.
+對於 Microsoft Azure 中的某個更新類別，客戶不會看到其執行中的虛擬機器受到任何影響。許多這些更新都是針對元件或服務，更新時不會干擾執行中的執行個體。這些更新有些是主機作業系統上的平台基礎結構更新，不需要將虛擬機器完整重新開機就可以套用。
 
-These updates are accomplished with technology that enables in-place live migration, also called a “memory-preserving” update. When updating, the virtual machine is placed into a “paused” state, preserving the memory in RAM, while the underlying host operating system receives the necessary updates and patches. The virtual machine is resumed within 30 seconds of being paused. After resuming, the clock of the virtual machine is automatically synchronized.
+這些更新是透過可進行就地即時移轉 (也稱為「記憶體保留」更新) 的技術來完成。更新時，虛擬機器會進入「暫停」狀態，在 RAM 中保留記憶體，而基礎主機作業系統會收到必要的更新和修補程式。虛擬機器會在暫停後 30 秒內繼續執行。繼續執行後，系統將會自動同步化虛擬機器的時鐘。
 
-Not all updates can be deployed by using this mechanism, but given the short pause period, deploying updates in this way greatly reduces impact to virtual machines.
+並非所有更新都可以透過這種機制來部署，但因為有短暫的暫停期間，以這種方式部署更新可大幅減少對虛擬機器的影響。
 
-Multi-instance updates (for virtual machines in an availability set) are applied one update domain at a time.  
+多重執行個體更新 (針對可用性集合中的虛擬機器) 一次僅套用到一個更新網域。
 
-## Virtual machine configurations
+## 虛擬機器組態
 
-There are two kinds of virtual machine configurations: multi-instance and single-instance. In a multi-instance configuration, similar virtual machines are placed in an availability set.
+虛擬機器組態有兩種：多重執行個體和單一執行個體。在多重執行個體組態中，類似的虛擬機器會放置在可用性集合。
 
-The multi-instance configuration provides redundancy across physical machines, power, and network, and it is recommended to ensure the availability of your application. All virtual machines in the availability set should serve the same purpose to your application.
+多重執行個體組態可提供跨實體機器、電源及網路的備援，因此我們建議您採用此組態以確保應用程式的可用性。可用性設定組中所有虛擬機器對您應用程式的用途都應該相同。
 
-For more information about configuring your virtual machines for high availability, refer to [Manage the Availability of your Virtual Machines](virtual-machines-windows-manage-availability.md).
+如需設定虛擬機器以取得高可用性的詳細資訊，請參閱[管理虛擬機器的可用性](virtual-machines-windows-manage-availability.md)。
 
-By contrast, a single-instance configuration is used for standalone virtual machines that are not placed in an availability set. These virtual machines do not qualify for the service level agreement (SLA), which requires that two or more virtual machines are deployed under the same availability set.
+相較之下，單一執行個體組態會用於未放置在可用性集合的獨立虛擬機器。這些虛擬機器並不符合服務等級協定 (SLA) 的資格，服務等級協定需要在相同可用性集合底下部署兩部以上的虛擬機器。
 
-For more information about SLAs, refer to the "Cloud Services, Virtual Machines and Virtual Network" section of [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+如需 SLA 的詳細資訊，請參閱[服務等級協定](https://azure.microsoft.com/support/legal/sla/)中的〈雲端服務、虛擬機器和虛擬網路〉一節。
 
 
-## Multi-instance configuration updates
+## 多重執行個體組態更新
 
-During planned maintenance, the Azure platform first updates the set of virtual machines that are hosted in a multi-instance configuration. This causes a reboot to these virtual machines with approximately 15 minutes of downtime.
+計劃性維護期間，Azure 平台首先會更新裝載多重執行個體組態的虛擬機器集合。這會讓這些虛擬機器重新開機，而停機時間大約為 15 分鐘。
 
-In a multi-instance configuration update, virtual machines are updated in a way that preserves availability throughout the process, assuming that each virtual machine serves a similar function as the others in the set.
+在多重執行個體組態更新中，系統會以保留可用性的方式來更新虛擬機器 (假設每部虛擬機器提供的功能都與集合中其他機器類似)。
 
-Each virtual machine in your availability set is assigned an update domain and a fault domain by the underlying Azure platform. Each update domain is a group of virtual machines that will be rebooted in the same time window. Each fault domain is a group of virtual machines that share a common power source and network switch.
+基礎 Azure 平台會為可用性集合中的每部虛擬機器指派一個更新網域和一個容錯網域。每個更新網域是指一個虛擬機器群組，且群組內的虛擬機器會在相同的時間範圍內重新開機。每個容錯網域是指一個虛擬機器群組，且群組內的虛擬機器會共用通用電源和網路交換器。
 
-For more information about update domains and fault domains, see [Configure multiple virtual machines in an availability set for redundancy](virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+如需有關更新網域和容錯網域的詳細資訊，請參閱[在可用性集合中設定多個虛擬機器以取得備援](virtual-machines-windows-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)。
 
-To prevent update domains from going offline at the same time, the maintenance is performed by shutting down each virtual machine in an update domain, applying the update to the host machines, restarting the virtual machines, and moving on to the next update domain. The planned maintenance event ends after all update domains have been updated.
+若要防止更新網域同時離線，則需將更新網域中的每部虛擬機器關機、將更新套用至主機電腦、重新啟動虛擬機器以及移到下一個更新網域來執行維護。更新所有更新網域之後，規劃性維護事件才會結束。
 
-The order of the update domains that are being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time. Today, Azure offers 1-week advanced notification for planned maintenance of virtual machines in the multi-instance configuration.
+規劃性維護期間的更新網域可能不會循序重新啟動，而是一次僅將一個更新網域重新開機。目前 Azure 對於多重執行個體組態中虛擬機器的計畫性維護作業，會提供 1 週的事前通知。
 
-After a virtual machine is restored, here is an example of what your Windows Event Viewer might display:
+還原虛擬機器之後，以下是您的 Windows 事件檢視器可能會顯示的範例：
 
 <!--Image reference-->
 ![][image2]
 
-Use the viewer to determine which virtual machines are configured in a multi-instance configuration using the Azure portal, Azure PowerShell, or Azure CLI. For example, to determine which virtual machines are in a multi-instance configuration, you can browse the list of virtual machines with the Availability Set column added to the virtual machines browse dialog. In the following example, the Example-VM1 and Example-VM2 virtual machines are in a muilti-instance configuration:
+使用檢視器判斷哪些虛擬機器是使用 Azure 入口網站、Azure PowerShell 或 Azure CLI 設定於多執行個體設定中。比方說，若要判斷多執行個體設定中的虛擬機器，您可以將可用性設定組資料行加入虛擬機器瀏覽對話方塊來瀏覽虛擬機器清單。在下列範例中，Example-VM1 和 Example-VM2 虛擬機器的組態為多重執行個體組態：
 
 <!--Image reference-->
 ![][image4]
 
-## Single-instance configuration updates
+## 單一執行個體組態更新
 
-After the multi-instance configuration updates are complete, Azure will perform single-instance configuration updates. This update also causes a reboot to your virtual machines that are not running in availability sets.
+多重執行個體組態更新完成之後，Azure 將會執行單一執行個體組態更新。未在可用性集合中執行的虛擬機器也會因為此更新而重新開機。
 
-Please note that even if you have only one instance running in an availability set, the Azure platform treats it as a multi-instance configuration update.
+請注意，即使在可用性集合中只有一個執行中的執行個體，Azure 平台仍會將其視為多重執行個體組態更新。
 
-For virtual machines in a single-instance configuration, virtual machines are updated by shutting down the virtual machines, applying the update to the host machine, and restarting the virtual machines, approximately 15 minutes of downtime. These updates are run across all virtual machines in a region in a single maintenance window.
+若是在單一執行個體組態中的虛擬機器，系統更新虛擬機器的方式是將虛擬機器關機、在主機機器上套用更新，然後重新啟動虛擬機器，而停機時間大約為 15 分鐘。區域中的所有虛擬機器會在單一維護期間執行這些更新。
 
-This planned maintenance event will impact the availability of your application for this type of virtual machine configuration. Azure offers a 1-week advanced notification for planned maintenance of virtual machines in the single-instance configuration.
+此計劃性維護事件將會對此虛擬機器組態類型的應用程式可用性造成影響。在單一執行個體組態中，對於虛擬機器的計劃性維護，Azure 提供一週的事先通知。
 
-### Email notification
+### 電子郵件通知
 
-For single-instance and multi-instance virtual machine configurations only, Azure sends email communication in advance to alert you of the upcoming planned maintenance (1-week in advance). This email will be sent to the account administrator and co-administrator email accounts provided in the subscription. Here is an example of this type of email:
+Azure 只會針對單一執行個體和多重執行個體虛擬機器組態，事先傳送電子郵件來通知您即將到來的計畫性維護作業 (會提前 1 週通知您)。這封電子郵件將會傳送到訂用帳戶中提供的帳戶管理員和共同系統管理員電子郵件帳戶。以下是這種電子郵件類型的範例：
 
 <!--Image reference-->
 ![][image1]
 
-## Region pairs
+## 區域配對
 
-When executing maintenance, Azure will only update the Virtual Machine instances in a single region of its pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. This will be scheduled at a separate time, enabling failover or load balancing between regions. However, other regions such as North Europe can be under maintenance at the same time as East US.
+Azure 在執行維護作業時，只會更新區域配對中單一區域的虛擬機器執行個體。舉例來說，Azure 在更新美國中北部的虛擬機器時，就不會同時更新任何在美國中南部的虛擬機器。這兩次更新作業會分別排定在不同的時間，以啟用區域之間的容錯移轉或負載平衡功能。不過，像是北歐等其他區域可以和美國東部一同進行維護。
 
-Please refer to the following table for information regarding current region pairs:
+請參閱下表以取得目前區域配對的相關資訊：
 
-Region 1 | Region 2
+區域 1 | 區域 2
 :----- | ------:
-North Central US | South Central US
-East US | West US
-US East 2 | Central US
-North Europe | West Europe
-South East Asia | East Asia
-East China | North China
-Japan East | Japan West
-Brazil South | South Central US
-Australia Southeast | Australia East
-US Gov Iowa | US Gov Virginia
+美國中北部 | 美國中南部
+美國東部 | 美國西部
+美國東部 2 | 美國中部
+北歐 | 西歐
+東南亞 | 東亞
+中國東部 | 中國北部
+日本東部 | 日本西部
+巴西南部 | 美國中南部
+澳洲東南部 | 澳洲東部
+美國政府愛荷華州 | 美國政府維吉尼亞州
 
 <!--Anchors-->
 [image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png
@@ -103,3 +103,4 @@ US Gov Iowa | US Gov Virginia
 
 [Understand planned versus unplanned maintenance]: virtual-machines-windows-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
+<!---HONumber=AcomDC_0323_2016-->

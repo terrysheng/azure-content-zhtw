@@ -142,7 +142,7 @@ dataNodeSize | 指定資料節點的大小。預設值為：大 | 否
 zookeeperNodeSize | 指定 Zoo Keeper 節點的大小。預設值為：小 | 否
  
 #### 指定節點大小
-如需了解需為上方屬性指定的字串值，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-size-specs.md#size-tables)一文。值必須符合本文件中所參考的 **CMDLET 與 APIS**。如您在文中所見，若資料節點的大小設定為大 (預設值)，則記憶體大小為 7 GB，其可能不適用於您的案例。
+如需了解需為上方屬性指定的字串值，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-linux-sizes.md#size-tables)一文。值必須符合本文件中所參考的 **CMDLET 與 APIS**。如您在文中所見，若資料節點的大小設定為大 (預設值)，則記憶體大小為 7 GB，其可能不適用於您的案例。
 
 若想要建立 D4 大小的前端節點與背景工作節點，必須指定 **Standard\_D4** 作為 headNodeSize 與 dataNodeSize 屬性的值。
 
@@ -177,7 +177,6 @@ zookeeperNodeSize | 指定 Zoo Keeper 節點的大小。預設值為：小 | 否
 	      "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
 	      "userName": "admin",
 	      "password": "<password>",
-	      "location": "WestUS",
 	      "linkedServiceName": "MyHDInsightStoragelinkedService"
 	    }
 	  }
@@ -191,7 +190,6 @@ zookeeperNodeSize | 指定 Zoo Keeper 節點的大小。預設值為：小 | 否
 clusterUri | HDInsight 叢集的 URI。 | 是
 username | 指定要用來連接到現有 HDInsight 叢集的使用者名稱。 | 是
 password | 指定使用者帳戶的密碼。 | 是
-location | 指定 HDInsight 叢集的位置 (例如：WestUS)。 | 是
 linkedServiceName | 此 HDInsight 叢集所使用之 Blob 儲存體的連結服務名稱。 | 是
 
 ## Azure Batch 連結服務
@@ -299,7 +297,7 @@ subscriptionId | Azure 訂用帳戶識別碼 | 否 (如果未指定，便會使�
 resourceGroupName | Azure 資源群組名稱 | 否 (若未指定，便會使用 Data Factory 的資源群組)。
 sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階段識別碼都是唯一的，只能使用一次。這是在 Data Factory 編輯器中自動產生。 | 是
 
-您使用 [授權] 按鈕所產生的授權碼會在一段時間之後到期。請參閱下表以了解不同類型的使用者帳戶的到期時間。當驗證**權杖到期**時，您可能會看到下列錯誤訊息：認證作業發生錯誤：invalid\_grant - AADSTS70002：驗證認證時發生錯誤。AADSTS70008：提供的存取授權已過期或撤銷。追蹤識別碼：d18629e8-af88-43c5-88e3-d8419eb1fca1 相互關連識別碼：fac30a0c-6be6-4e02-8d69-a776d2ffefd7 時間戳記：2015-12-15 21:09:31Z
+您使用 [授權] 按鈕所產生的授權碼在一段時間後會到期。請參閱下表以了解不同類型的使用者帳戶的到期時間。當驗證**權杖到期**時，您可能會看到下列錯誤訊息：認證作業發生錯誤：invalid\_grant - AADSTS70002：驗證認證時發生錯誤。AADSTS70008：提供的存取授權已過期或撤銷。追蹤識別碼：d18629e8-af88-43c5-88e3-d8419eb1fca1 相互關連識別碼：fac30a0c-6be6-4e02-8d69-a776d2ffefd7 時間戳記：2015-12-15 21:09:31Z
 
 | 使用者類型 | 到期時間 |
 | :-------- | :----------- | 
@@ -341,4 +339,4 @@ sessionId | OAuth 授權工作階段的工作階段識別碼。每個工作階�
 
 您可建立 Azure SQL 連結服務，並將其與[預存程序活動](data-factory-stored-proc-activity.md)搭配使用，以叫用 Data Factory 管線中的預存程序。如需此連結服務的詳細資料，請參閱 [Azure SQL 連接器](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties)一文。
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

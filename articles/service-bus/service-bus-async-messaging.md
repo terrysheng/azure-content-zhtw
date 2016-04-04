@@ -5,14 +5,14 @@
    documentationCenter="na"
    authors="sethmanheim"
    manager="timlt"
-   editor="tysonn" /> 
+   editor="" /> 
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/28/2015"
+   ms.date="03/16/2016"
    ms.author="sethm" />
 
 # 非同步傳訊模式和高可用性
@@ -45,7 +45,7 @@
 
 -   Azure 資料中心內的服務匯流排失敗。這就是傳統的「災難性失敗」，系統有數分鐘或數小時的時間無法連線。
 
-> [AZURE.NOTE]「儲存體」一詞可表示 Azure 儲存體和 SQL Azure。
+> [AZURE.NOTE] 「儲存體」一詞可表示 Azure 儲存體和 SQL Azure。
 
 對於這些問題，服務匯流排有數種緩和措施。下列各節會討論每個問題及其各自的緩和措施。
 
@@ -63,7 +63,7 @@ Azure 中的其他元件可能會不時出現服務問題。例如，當服務�
 
 在任何應用程式中，有些情況可能會導致服務匯流排的內部元件變得不一致。當服務匯流排偵測到這種情況時，它會從應用程式收集資料以協助診斷發生什麼狀況。收集資料後，應用程式會在嘗試回到一致狀態時重新啟動。這個程序非常迅速地發生，而且會導致實體呈現無法使用長達數分鐘，然而一般的停機時間短很多。
 
-在這些情況下，用戶端應用程式會產生 [System.TimeoutException][] 或 [MessagingException][] 例外狀況。服務匯流排 .NET SDK 包含此問題的緩和措施 (採用自動用戶端重試邏輯形式)。一旦重試期間用完且未傳遞訊息，您可以使用[配對的命名空間][]等其他功能進行探索。配對的命名空間有本文件稍後會討論的其他警告。
+在這些情況下，用戶端應用程式會產生 [System.TimeoutException][] 或 [MessagingException][] 例外狀況。服務匯流排 .NET SDK 包含此問題的緩和措施 (採用自動用戶端重試邏輯形式)。一旦重試期間用完且未傳遞訊息，您可以使用[配對的命名空間][]等其他功能進行探索。配對命名空間有[配對命名空間實作詳細資料和成本影響](service-bus-paired-namespaces.md)一文中討論的其他情況。
 
 ### Azure 資料中心內的服務匯流排失敗
 
@@ -149,7 +149,7 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 
 ## 後續步驟
 
-您現已了解服務匯流排中非同步傳訊的基本概念，請閱讀更多有關[配對命名空間和成本暗示][]的詳細資料。
+您現已了解服務匯流排中非同步傳訊的基本概念，請閱讀更多有關[配對的命名空間][]的詳細資料。
 
   [ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
   [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
@@ -169,7 +169,6 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
   [IsTransient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.istransient.aspx
   [UnauthorizedAccessException]: https://msdn.microsoft.com/library/azure/system.unauthorizedaccessexception.aspx
   [BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
-  [配對命名空間和成本暗示]: service-bus-paired-namespaces.md
   [配對的命名空間]: service-bus-paired-namespaces.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

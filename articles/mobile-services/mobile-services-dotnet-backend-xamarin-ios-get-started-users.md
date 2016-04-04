@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/25/2015" 
+	ms.date="03/18/2016" 
 	ms.author="donnam"/>
 
 # 在您的行動服務應用程式中新增驗證
@@ -22,7 +22,8 @@
 
 &nbsp;
 
->[AZURE.NOTE]這是關於 Azure 行動服務的主題。Microsoft Azure 建議為所有新的行動後端部署使用 Azure App Service Mobile Apps。如需詳細資訊，請參閱 [Mobile Apps 文件中對等的教學課程](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md)。
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[將驗證加入 Xamarin.iOS 應用程式中](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md)。
 
 本主題說明如何從您的應用程式在行動服務中驗證使用者。在本教學課程中，您將使用行動服務支援的身分識別提供者，將驗證加入至快速入門專案。由行動服務成功驗證並授權之後，就會顯示使用者識別碼值。
 
@@ -91,7 +92,7 @@
 		
 	這會在 **User** 屬性為 Null 時顯示登入畫面來嘗試驗證。登入成功時，**User** 屬性即設定完畢。
 
-5. 按 [執行] 按鈕以建置專案，並在 iPhone 模擬器中啟動應用程式。確認應用程式未顯示資料。此時尚未呼叫 **Refreshasync ()**。
+5. 按 [執行] 按鈕以建置專案，並在 iPhone 模擬器中啟動應用程式。確認應用程式未顯示資料。此時尚未呼叫 **RefreshAsync()**。
 
 6. 拉下項目清單來執行重新整理的動作 (稱為 **RefreshAsync()**)。這會呼叫 **Authenticate()** 來開始驗證程序，同時顯示登入畫面。當您驗證成功之後，應用程式會顯示代辦項目的清單，而您可以更新資料。
 
@@ -117,4 +118,4 @@
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

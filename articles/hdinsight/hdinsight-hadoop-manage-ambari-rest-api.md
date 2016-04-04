@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 #使用 Ambari REST API 管理 HDInsight 叢集
@@ -23,7 +23,7 @@
 
 Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢集的管理和監視。以 Linux 為基礎的 HDInsight 叢集上有 Ambari，用來監視叢集並進行組態變更。在這份文件中，您將透過執行一般工作，例如尋找叢集節點的完整格式的網域名稱或尋找叢集所使用的預設儲存體帳戶，學習使用 Ambari REST API 的基本概念。
 
-> [AZURE.NOTE]本文的資訊僅適用於以 Linux 為基礎的 HDInsight 叢集。針對 Windows 型 HDInsight 叢集，只能透過 Ambari REST API 取得一部分的監視功能。請參閱[在 HDInsight 使用 Ambari API 監視以 Windows 為基礎的 Hadoop](hdinsight-monitor-use-ambari-api.md)。
+> [AZURE.NOTE] 本文的資訊僅適用於以 Linux 為基礎的 HDInsight 叢集。針對 Windows 型 HDInsight 叢集，只能透過 Ambari REST API 取得一部分的監視功能。請參閱[在 HDInsight 使用 Ambari API 監視以 Windows 為基礎的 Hadoop](hdinsight-monitor-use-ambari-api.md)。
 
 ##必要條件
 
@@ -32,7 +32,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
 ##<a id="whatis"></a>什麼是 Ambari？
 
-<a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> 提供簡單易用的 Web UI，以供用來佈建、管理及監視 Hadoop 叢集，讓 Hadoop 管理起來更為簡單。開發人員可以使用 <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST API</a> 將這些功能整合到應用程式。
+[Apache Ambari](http://ambari.apache.org) 提供簡單易用的 Web UI，以供用來佈建、管理及監視 Hadoop 叢集，讓 Hadoop 管理起來更為簡單。開發人員可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md) 將這些功能整合到應用程式。
 
 以 Linux 為基礎的 HDInsight 叢集預設會提供 Ambari。
 
@@ -40,7 +40,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
 在 HDInsight 上 Ambari REST API 的基礎 URI 是 https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME，其中 __CLUSTERNAME__ 是叢集的名稱。
 
-> [AZURE.IMPORTANT]連線到 HDInsight 上的 Ambari 需要 HTTPS。您也必須使用系統管理員帳戶名稱 (預設值是 __admin__) 和建立叢集時所提供的密碼來驗證 Ambari。
+> [AZURE.IMPORTANT] 連線到 HDInsight 上的 Ambari 需要 HTTPS。您也必須使用系統管理員帳戶名稱 (預設值是 __admin__) 和建立叢集時所提供的密碼來驗證 Ambari。
 
 以下是使用 cURL 來對 REST API 執行 GET 要求的範例：
 
@@ -71,7 +71,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
     
 這會擷取 JSON 文件，然後將輸出用管道輸送至 jq。`'.Clusters.health_report."Host/host_status/ALERT"'` 指出您要擷取的 JSON 文件內的元素。
 
-> [AZURE.NOTE]__Host/host\_status/ALERT__ 元素含括在引號中，以表示 '/' 是元素名稱的一部分。如需使用 jq 的詳細資訊，請參閱 [jq website](https://stedolan.github.io/jq/)。
+> [AZURE.NOTE] __Host/host\_status/ALERT__ 元素含括在引號中，以表示 '/' 是元素名稱的一部分。如需使用 jq 的詳細資訊，請參閱 [jq website](https://stedolan.github.io/jq/)。
 
 ##範例：取得叢集節點的 FQDN
 
@@ -97,7 +97,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
     
-> [AZURE.NOTE]這個方法會傳回套用至伺服器的第一個組態 (`service_config_version=1`) 其中會包含這項資訊。如果是擷取在叢集建立後修改的值，您可能需要列出組態版本並擷取最新的版本。
+> [AZURE.NOTE] 這個方法會傳回套用至伺服器的第一個組態 (`service_config_version=1`) 其中會包含這項資訊。如果是擷取在叢集建立後修改的值，您可能需要列出組態版本並擷取最新的版本。
 
 這會傳回值類似下列的值，其中 __CONTAINER__ 為預設容器和 __ACCOUNTNAME__ 是 Azure 儲存體帳戶名稱：
 
@@ -111,7 +111,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
     
     這會傳回帳戶的資源群組名稱。
     
-    > [AZURE.NOTE]如果此命令未傳回任何項目，您需要將 Azure CLI 變更為 Azure 資源管理員模式，然後再重新執行命令。若要切換至 Azure 資源管理員模式，請使用下列命令。
+    > [AZURE.NOTE] 如果此命令未傳回任何項目，您需要將 Azure CLI 變更為 Azure 資源管理員模式，然後再重新執行命令。若要切換至 Azure 資源管理員模式，請使用下列命令。
     >
     > `azure config mode arm`
     
@@ -133,6 +133,6 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢�
 
 如需 REST API 的完整參考，請參閱 [Ambari API 參考 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。
 
-> [AZURE.NOTE]某些 Ambari 功能已停用，因為這些功能是由 HDInsight 雲端服務所管理；例如，在叢集中新增或移除主機，或新增服務。
+> [AZURE.NOTE] 某些 Ambari 功能已停用，因為這些功能是由 HDInsight 雲端服務所管理；例如，在叢集中新增或移除主機，或新增服務。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

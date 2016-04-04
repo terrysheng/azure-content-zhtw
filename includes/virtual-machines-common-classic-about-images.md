@@ -1,40 +1,42 @@
 
 
-Images are used in Azure to provide a new virtual machine with an operating system. An image might also have one or more data disks. Images are available from several sources:
+Azure 會使用映像透過作業系統提供新的虛擬機器。一個映像可能有一或多個資料磁碟。映像可來自多個來源：
 
--	Azure offers images in the [Marketplace](https://azure.microsoft.com/gallery/virtual-machines/). You’ll find recent versions of Windows Server and distributions of the Linux operating system. Some images also contain applications, such as SQL Server. MSDN Benefit and MSDN Pay-as-You-Go subscribers have access to additional images.
--	The open source community offers images through [VM Depot](http://vmdepot.msopentech.com/List/Index).
--	You also can store and use your own images in Azure, by either capturing an existing Azure virtual machine for use as an image or uploading an image.
+-	Azure 在 [Marketplace](https://azure.microsoft.com/gallery/virtual-machines/) 中提供映像。您可以找到最新版本的 Windows Server 和 Linux 作業系統散發套件。有些映像也包含應用程式，例如 SQL Server。MSDN 權益與 MSDN 隨收隨付的訂閱者可以存取其他映像。
+-	開放原始碼社群透過 [VM Depot](http://vmdepot.msopentech.com/List/Index) 提供映像。
+-	您也可以擷取現有的 Azure 虛擬機器作為映像或上傳映像，並在 Azure 中儲存和使用自己的映像。
 
-## About VM images and OS images
+## 關於 VM 映像和 OS 映像
 
-Two types of images can be used in Azure: *VM image* and *OS image*. A VM image includes an operating system and all disks attached to a virtual machine when the image is created. This is the newer type of image. Before VM images were introduced, an image in Azure could have only a generalized operating system and no additional disks. A VM image that contains only a generalized operating system is basically the same as the original type of image, the OS image.
+在 Azure 中可用的映像有兩種類型：*VM 映像*和 *OS 映像*。VM 映像包含作業系統和建立映像時所有連接至虛擬機器的磁碟。這是較新的映像類型。導入 VM 映像前，Azure 中的映像可能只會有一般化的作業系統，而沒有其他磁碟。僅包含一般化作業系統的 VM 映像基本上與映像的原始類型相同，即 OS 映像。
 
-You can create your own images, based on a virtual machine in Azure, or a virtual machine running elsewhere that you copy and upload. If you want to use an image to create more than one virtual machine, you’ll need to prepare it for use as an image by generalizing it. To create a Windows Server image, run the Sysprep command on the server to generalize it before you upload the .vhd file. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://go.microsoft.com/fwlink/p/?LinkId=392030). To create a Linux image, depending on the software distribution, you’ll need to run a set of commands that are specific to the distribution, as well as run the Azure Linux Agent.
+您可以根據 Azure 上的虛擬機器，或您複製及上傳並正在其他地方執行的虛擬機器，來建立自己的映像。如果您想要使用一個映像來建立多個虛擬機器，您必須先將映像一般化，以便準備作為映像使用。若要建立 Windows Server 映像，請在上傳.vhd 檔案前，先在伺服器上執行 Sysprep 命令進行一般化。如需 Sysprep 的詳細資訊，請參閱[如何使用 Sysprep：簡介](http://go.microsoft.com/fwlink/p/?LinkId=392030)。若要建立 Linux 映像，取決於該軟體發佈，您需要執行一組特定用於該發佈的命令，並執行 Azure Linux 代理程式。
 
-## Working with images
+## 使用映像
 
-You can use the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows or Azure PowerShell module to manage the images available to your Azure subscription. You also can use the Azure classic portal for some image tasks, but the command line gives you more options.
+您可以使用適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (CLI)，或使用 Azure PowerShell 模組來管理您的 Azure 訂用帳戶可使用的映像。您也可以使用 Azure 傳統入口網站進行部分映像工作，但命令列則提供您更多選項。
 
-For information about using these tools with Resource Manager deployments, see [Navigating and Selecting Azure Virtual Machine images with PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md).
+關於如何透過資源管理員部署使用這些工具，如需更多的資訊，請參閱[使用 PowerShell 和 Azure CLI 瀏覽和選取 Azure 虛擬機器映像](virtual-machines-linux-cli-ps-findimage.md)。
 
-For examples of using the tools in a classic deployment:
+在傳統部署中使用這些工具的範例：
 
-- For CLI, see "Commands to manage your Azure virtual machine images" in [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](virtual-machines-command-line-tools.md)
-- For Azure PowerShell, see the following list of commands. For an example of finding an image to create a VM, see "Step 3: Determine the ImageFamily" in [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-windows-classic-create-powershell.md)
+- 針對 CLI，請參閱[使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理](virtual-machines-command-line-tools.md)中的「管理 Azure 虛擬機器映像的命令」
+- 針對 Azure PowerShell，請參閱下列命令清單。如需尋找映像以建立 VM 的範例，請參閱[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-windows-classic-create-powershell.md)中的「步驟 3：決定 ImageFamily」。
 
--	**Get all images**:`Get-AzureVMImage`returns a list of all the images available in your current subscription: your images as well as those provided by Azure or partners. This means you might get a large list. The next examples show how to get a shorter list.
--	**Get image families**:`Get-AzureVMImage | select ImageFamily` gets a list of image families by showing strings **ImageFamily** property.
--	**Get all images in a specific family**: `Get-AzureVMImage | Where-Object {$_.ImageFamily -eq $family}`
--	**Find VM Images**: `Get-AzureVMImage | where {(gm –InputObject $_ -Name DataDiskConfigurations) -ne $null} | Select -Property Label, ImageName` this works by filtering the DataDiskConfiguration property, which only applies to VM Images. This example also filters the output to only the label and image name.
--	**Save a generalized image**: `Save-AzureVMImage –ServiceName "myServiceName" –Name "MyVMtoCapture" –OSState "Generalized" –ImageName "MyVmImage" –ImageLabel "This is my generalized image"`
--	**Save a specialized image**: `Save-AzureVMImage –ServiceName "mySvc2" –Name "MyVMToCapture2" –ImageName "myFirstVMImageSP" –OSState "Specialized" -Verbose`
->[Azure.Tip] The OSState parameter is required if you want to create a VM image, which includes data disks as well as the operating system disk. If you don’t use the parameter, the cmdlet creates an OS image. The value of the parameter indicates whether the image is generalized or specialized, based on whether the operating system disk has been prepared for reuse.
--	**Delete an image**: `Remove-AzureVMImage –ImageName "MyOldVmImage"`
+-	**取得所有映像**：`Get-AzureVMImage`傳回目前訂用帳戶中所有可用映像的清單：您的映像以及 Azure 或夥伴所提供的映像。這表示您可能會收到龐大的清單。下面的範例示範如何取得較短的清單。
+-	**取得映像系列**：`Get-AzureVMImage | select ImageFamily`顯示字串 **ImageFamily** 屬性以取得映像系列清單。
+-	**取得特定系列中的所有映像**：`Get-AzureVMImage | Where-Object {$_.ImageFamily -eq $family}`
+-	**尋找 VM 映像**：`Get-AzureVMImage | where {(gm –InputObject $_ -Name DataDiskConfigurations) -ne $null} | Select -Property Label, ImageName`運作的方式是篩選 DataDiskConfiguration 屬性，且僅適用於 VM 映像。此範例也會篩選輸出並僅列出標籤和映像名稱。
+-	**儲存一般化映像**：`Save-AzureVMImage –ServiceName "myServiceName" –Name "MyVMtoCapture" –OSState "Generalized" –ImageName "MyVmImage" –ImageLabel "This is my generalized image"`
+-	**儲存特殊化映像**：`Save-AzureVMImage –ServiceName "mySvc2" –Name "MyVMToCapture2" –ImageName "myFirstVMImageSP" –OSState "Specialized" -Verbose`
+>[Azure.Tip] 如果您想要建立 VM 映像，其中包含資料磁碟以及作業系統磁碟，您就需要 OSState 參數。如果您不使用參數，Cmdlet 就會建立 OS 映像。根據作業系統磁碟是否準備為重複使用，參數的值會表示是否要將映像一般化或特殊化。
+-	**删除映像**：`Remove-AzureVMImage –ImageName "MyOldVmImage"`
 
 
-## Additional resources
+## 其他資源
 
-[Different Ways to Create a Linux Virtual Machine](virtual-machines-linux-creation-choices.md)
+[建立 Linux 虛擬機器的不同方式](virtual-machines-linux-creation-choices.md)
 
-[Different ways to create a Windows virtual machine](virtual-machines-windows-creation-choices.md)
+[建立 Windows 虛擬機器的不同方式](virtual-machines-windows-creation-choices.md)
+
+<!---HONumber=AcomDC_0323_2016-->

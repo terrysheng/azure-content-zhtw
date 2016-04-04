@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="03/16/2016"
    ms.author="navale;tomfitz;"/>
    
 # Azure Resource Manager SDK for Java
@@ -77,9 +77,12 @@ SDK 包含數個主要封裝的協助程式類別。協助程式類別實作於 
 ARM 的驗證由 Azure Active Directory (AD) 處理。為了連接到任何 API，您必須先向 Azure AD 進行驗證，以接收可以傳遞給每個要求的驗證權杖。若要取得此權杖，您必須先建立所謂 Azure AD 應用程式和服務主體，它們將用來進行登入。請依照[建立 Azure AD 應用程式和服務主體](./resource-group-create-service-principal-portal.md)的逐步指示。
 
 建立服務主體之後，您應該有︰
+
 * 用戶端識別碼 (GUID)
 * 用戶端密碼 (字串)
-* 租用戶識別碼 (GUID) 或網域名稱 (字串) 有此值之後，您可以取得 Active Directory 存取權杖，有效期為 1 小時。
+* 租用戶識別碼 (GUID) 或網域名稱 (字串)
+
+只要有這個值，您就可以取得 Active Directory 存取權杖，有效期為 1 小時。
 
 Java SDK 包含協助程式類別 AuthHelper，其與用戶端識別碼、密碼及租用戶識別碼一起提供之後，會建立存取權杖。下列範例位於 [ServicePrincipalExample](https://github.com/Azure/azure-sdk-for-java/blob/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/authentication/ServicePrincipalExample.java) 類別中，使用 AuthHelper *getAccessTokenFromServicePrincipalCredentials* 方法來取得存取權杖︰
 
@@ -155,10 +158,51 @@ DeploymentExtended deployment = ResourceHelper.createTemplateDeploymentFromURI(
         "1.0.0.0",
         parameters);
 ```
+## 列出所有虛擬機器
+您不必使用協助程式類別 (雖然它可能會讓您的生活更輕鬆)，而是直接使用每個資源提供者的服務類別。本例中會列出已驗證訂用帳戶下的一些資源 (每個資源群組)、找到虛擬機器及與它相關聯的 IP。
+
+```java
+// authenticate and get access token
+Configuration config = createConfiguration();
+ResourceManagementClient resourceManagementClient = ResourceManagementService.create(config);
+ComputeManagementClient computeManagementClient = ComputeManagementService.create(config);
+NetworkResourceProviderClient networkResourceProviderClient = NetworkResourceProviderService.create(config);
+
+// list all resource groups     
+ArrayList<ResourceGroupExtended> resourceGroups = resourceManagementClient.getResourceGroupsOperations().list(null).getResourceGroups();
+for (ResourceGroupExtended resourcesGroup : resourceGroups) {
+   String rgName = resourcesGroup.getName();
+   System.out.println("Resource Group: " + rgName);
+   
+   // list all virtual machines
+   ArrayList<VirtualMachine> vms = computeManagementClient.getVirtualMachinesOperations().list(rgName).getVirtualMachines();
+   for (VirtualMachine vm : vms) {
+      System.out.println("    VM: " + vm.getName());
+      // list all nics
+      ArrayList<NetworkInterfaceReference> nics = vm.getNetworkProfile().getNetworkInterfaces();
+      for (NetworkInterfaceReference nicReference : nics) {
+         String[] nicURI = nicReference.getReferenceUri().split("/");
+         NetworkInterface nic = networkResourceProviderClient.getNetworkInterfacesOperations().get(rgName, nicURI[nicURI.length - 1]).getNetworkInterface();
+         System.out.println("        NIC: " + nic.getName());
+         System.out.println("        Is primary: " + nic.isPrimary());
+         ArrayList<NetworkInterfaceIpConfiguration> ips = nic.getIpConfigurations();
+
+         // find public ip address
+         for (NetworkInterfaceIpConfiguration ipConfiguration : ips) {
+               System.out.println("        Private IP address: " + ipConfiguration.getPrivateIpAddress());
+               String[] pipID = ipConfiguration.getPublicIpAddress().getId().split("/");
+               PublicIpAddress pip = networkResourceProviderClient.getPublicIpAddressesOperations().get(rgName, pipID[pipID.length - 1]).getPublicIpAddress();
+               System.out.println("        Public IP address: " + pip.getIpAddress());
+         }
+      }
+}  
+```
 
 更多範例可在範例封裝的 [templatedeployments](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-mgmt-samples/src/main/java/com/microsoft/azure/samples/templatedeployments) 下找到。
 
 ## 進階閱讀和說明
-Azure SDK for Java 文件︰[Java 文件](http://azure.github.io/azure-sdk-for-java/) 如果遇到 SDK 的任何錯誤，請透過[問題](https://github.com/Azure/azure-sdk-for-java/issues)提出問題，或參閱 [StackOverflow for Azure Java SDK](http://stackoverflow.com/questions/tagged/azure-java-sdk)。
+Azure SDK for Java 文件︰[Java 文件](http://azure.github.io/azure-sdk-for-java/)
 
-<!---HONumber=AcomDC_0316_2016-->
+如果遇到任何 SDK 錯誤，請透過 [Issues](https://github.com/Azure/azure-sdk-for-java/issues) 提出問題，或參閱 [StackOverflow for Azure Java SDK](http://stackoverflow.com/questions/tagged/azure-java-sdk)。
+
+<!---HONumber=AcomDC_0323_2016-->

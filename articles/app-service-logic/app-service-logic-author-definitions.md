@@ -2,7 +2,7 @@
 	pageTitle="撰寫邏輯應用程式定義 | Microsoft Azure" 
 	description="了解如何撰寫邏輯應用程式的 JSON 定義" 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,18 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/16/2016"
 	ms.author="stepsic"/>
 	
 # 撰寫邏輯應用程式定義
-本主題示範如何使用 [App Service Logic Apps](app-service-logic-what-are-logic-apps.md) 定義，這是一種簡單的宣告式 JSON 語言。請先看看[如何建立新的邏輯應用程式](app-service-logic-create-a-logic-app.md) (如果還沒看過)。您也可以閱讀 [MSDN 上關於此定義語言的完整參考資料](https://msdn.microsoft.com/library/azure/dn948512.aspx)。
+本主題示範如何使用 [App Service Logic Apps](app-service-logic-what-are-logic-apps.md) 定義，這是一種簡單的宣告式 JSON 語言。請先看看[如何建立新的邏輯應用程式](app-service-logic-create-a-logic-app.md) (如果還沒看過)。您也可以閱讀 [MSDN 上關於此定義語言的完整參考資料](https://msdn.microsoft.com/library/azure/mt643789.aspx)。
 
 ## 清單上重複的幾個步驟
 
 常見的模式是先進行一個步驟以取得項目清單，然後進行您想要針對清單中的每個項目執行之兩個以上的一系列動作：
 
-![逐一查看清單](./media/app-service-logic-author-definitions/repeatoverlists.png)
+![逐一查看清單](./media/app-service-logic-author-definitions/newrepeatoverlists.png)
 
+![逐一查看清單](./media/app-service-logic-author-definitions/newrepeatoverlists2.png)
+
+![逐一查看清單](./media/app-service-logic-author-definitions/newrepeatoverlists3.png)
+
+![逐一查看清單](./media/app-service-logic-author-definitions/newrepeatoverlists4.png)
+
+ 
 在此範例中，有 3 個動作：
 
 1. 取得文章清單。這會傳回一個包含陣列的物件。
@@ -77,7 +84,7 @@
 
 如[使用邏輯應用程式功能](app-service-logic-use-logic-app-features.md)所述，您在第二個動作上使用 `forEach:` 屬性逐一查看第一個清單。不過，在第三個動作中，您需要選取 `@actions('readLinks').outputs` 屬性，因為已對每一個文章執行第二個動作。
 
-您在動作中可以使用 [`item()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#item) 函式。在此範例中，我想要取得 `location` 標頭，因此我必須繼續使用 `@item().outputs.headers`，從我們現在反覆執行的第二個動作取得動作執行的輸出內容。
+您在動作中可以使用 [`item()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#item) 函式。在此範例中，我想要取得 `location` 標頭，因此我必須繼續使用 `@item().outputs.headers`，從我們現在反覆執行的第二個動作取得動作執行的輸出內容。
 
 ## 將清單中的項目對應至一些不同的組態
 
@@ -134,7 +141,7 @@
 
 在此案例中，我們先取得文章清單，然後第二個步驟根據已定義為參數的類別，在對應中查詢可取得內容的 URL。
 
-在此要注意兩個項目：[`intersection()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#intersection) 函式用來檢查類別是否符合其中一個已定義的已知類別。其次，一旦得到類別，我們可以使用方括號提取對應的項目：`parameters[...]`。
+在此要注意兩個項目：[`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) 函式用來檢查類別是否符合其中一個已定義的已知類別。其次，一旦得到類別，我們可以使用方括號提取對應的項目：`parameters[...]`。
 
 ## 逐一查看清單時鏈結/巢狀 Logic Apps
 
@@ -199,7 +206,7 @@
 }
 ```
 
-然後，在子邏輯應用程式中，我們使用 [`triggerBody()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerBody) 函式取得已傳遞至子工作流程的值。您將會在輸出中填入想要傳回至父資料流程的資料。
+然後，在子邏輯應用程式中，我們使用 [`triggerBody()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerBody) 函式取得已傳遞至子工作流程的值。您將會在輸出中填入想要傳回至父資料流程的資料。
 
 ```
 {
@@ -236,7 +243,7 @@
 }
 ```
 
-您可以閱讀 [MSDN 上的邏輯應用程式類型動作](https://msdn.microsoft.com/library/azure/dn948511.aspx)。
+您可以閱讀 [MSDN 上的邏輯應用程式類型動作](https://msdn.microsoft.com/library/azure/mt643939.aspx)。
 
 >[AZURE.NOTE]邏輯應用程式設計工具不支援邏輯應用程式類型的動作，因此您必須手動編輯定義。
 
@@ -354,7 +361,7 @@
 
 您可以使用單一動作取得兩個分支的資料，以結合邏輯的兩個條件式流程 (可能已執行，也可能尚未執行)。
 
-這方面的決策取決於您要處理一個項目或一組項目。如果是單一項目，您可以使用 [`coalesce()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#coalesce) 函式：
+這方面的決策取決於您要處理一個項目或一組項目。如果是單一項目，您可以使用 [`coalesce()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#coalesce) 函式：
 
 ```
 {
@@ -410,7 +417,7 @@
 }
 ```
  
-或者，舉例來說，當您的前兩個分支都在訂單清單上執行時，您可以使用 [`union()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#union) 函式來結合兩個分支的資料。
+或者，舉例來說，當您的前兩個分支都在訂單清單上執行時，您可以使用 [`union()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#union) 函式來結合兩個分支的資料。
 
 ```
 {
@@ -514,17 +521,17 @@
 
 詳細作法：
 
-1. 取得訂單名稱的 [`length()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#length)，這會傳回字元總數
+1. 取得訂單名稱的 [`length()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#length)，這會傳回字元總數
 
 2. 減 5 (因為我們要較短的字串)
 
-3. 實際取得 [`substring()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#substring)。我們從索引 `5` 開始，並取得字串的其餘部分。
+3. 實際取得 [`substring()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring)。我們從索引 `5` 開始，並取得字串的其餘部分。
 
-4. 將這個子字串轉換成 [`base64()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#base64) 字串
+4. 將這個子字串轉換成 [`base64()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) 字串
 
-5. 以 `-` [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace) 所有 `+` 字元
+5. 以 `-` [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) 所有 `+` 字元
 
-6. 以 `_` [`replace()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#replace) 所有 `/` 字元
+6. 以 `_` [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace) 所有 `/` 字元
 
 ## 使用日期時間
 
@@ -571,13 +578,13 @@
 }
 ```
 
-在此範例中，我們擷取前一個步驟的 `startTime`。然後，我們取得目前的時間並減去一秒：[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/dn948512.aspx#addseconds) (您可以使用其他的時間單位，例如 `minutes` 或 `hours`)。最後，我們可以比較這兩個值。如果第一個值小於第二個值，即表示自從訂單最初提交以來已超過一秒。
+在此範例中，我們擷取前一個步驟的 `startTime`。然後，我們取得目前的時間並減去一秒：[`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (您可以使用其他的時間單位，例如 `minutes` 或 `hours`)。最後，我們可以比較這兩個值。如果第一個值小於第二個值，即表示自從訂單最初提交以來已超過一秒。
 
-也請注意，我們可以使用字串格式子來格式化日期：我在查詢字串中使用 [`utcnow('r')`](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow) 取得 RFC1123。所有日期格式[記載於 MSDN 上](https://msdn.microsoft.com/library/azure/dn948512.aspx#utcnow)。
+也請注意，我們可以使用字串格式子來格式化日期：我在查詢字串中使用 [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow) 取得 RFC1123。所有日期格式[記載於 MSDN 上](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow)。
 
 ## 在執行階段傳入值來改變行為
 
-假設您想要根據用來啟動邏輯應用程式的某些值，以執行不同的行為。您可以使用 [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#triggerOutputs) 函式，從您傳入的任何值中取出這些值：
+假設您想要根據用來啟動邏輯應用程式的某些值，以執行不同的行為。您可以使用 [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerOutputs) 函式，從您傳入的任何值中取出這些值：
 
 ```
 {
@@ -611,13 +618,7 @@
 }
 ```
 
-為了實際發揮作用，開始執行時，您需要傳遞您想要的屬性 (在上述範例中是 `uriToGet` 和 `doMoreLogic`)。以下是您可以[使用基本驗證](https://msdn.microsoft.com/library/azure/dn948513.aspx#basicAuth)的呼叫：
-
-```
-POST https://<<Logic app endpoint from the Essentials>>/run?api-version=2015-02-01-preview
-Authorization: Basic <<Based 64 encoded username (default) : password (from the Settings blade)>>
-Content-type: application/json
-```
+為了實際發揮作用，開始執行時，您需要傳遞您想要的屬性 (在上述範例中是 `uriToGet` 和 `doMoreLogic`)。
 
 搭配下列內容。請注意，您現在已提供值給邏輯應用程式使用：
 
@@ -728,6 +729,6 @@ Content-type: application/json
 }
 ```
 
-如需有關建立及管理邏輯應用程式的所有可用選項，請參閱 [REST API 文件](https://msdn.microsoft.com/library/azure/dn948513.aspx)。
+如需有關建立及管理邏輯應用程式的所有可用選項，請參閱 [REST API 文件](https://msdn.microsoft.com/library/azure/mt643787.aspx)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

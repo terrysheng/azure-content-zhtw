@@ -125,6 +125,6 @@ Visual Studio Online 使用類似的方法，來自動部署搭配診斷擴充�
 
 - 如需使用 Azure 診斷和其他技術疑難排解問題的詳細指引，請參閱[在 Azure 雲端服務和虛擬機器中啟用診斷](cloud-services-dotnet-diagnostics.md)。
 - [診斷組態結構描述](https://msdn.microsoft.com/library/azure/dn782207.aspx)說明診斷延伸模組的各種 XML 組態選項。
-- 若要了解如何啟用虛擬機器的診斷延伸模組，請參閱[使用 Azure 資源管理員範本建立具有監控和診斷功能的 Windows 虛擬機器](virtual-machines-extensions-diagnostics-windows-template.md)  
+- 若要了解如何啟用虛擬機器的診斷延伸模組，請參閱[使用 Azure 資源管理員範本建立具有監控和診斷功能的 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

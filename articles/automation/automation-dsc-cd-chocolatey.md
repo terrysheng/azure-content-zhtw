@@ -41,7 +41,7 @@ Azure 自動化是 Microsoft Azure 中的受管理服務，可讓您使用 Runbo
 
 DSC 資源是具有特定功能的程式碼模組，例如管理網路、Active Directory 或 SQL Server。Chocolatey DSC 資源知道如何存取 NuGet 伺服器 (還有其他)、下載封裝、安裝封裝...等等。[PowerShell 資源庫](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)中有許多其他 DSC 資源。這些模組安裝到您的 Azure 自動化 DSC 提取伺服器 (由您安裝)，供您的組態使用。
 
-ARM 範本以宣告方式產生基礎結構，例如網路、子網路、網路安全性和路由、負載平衡器、NIC、VM...等等。這篇[文章](../resource-manager-deployment-model.md)比較 ARM 部署模型 (宣告) 與 Azure 服務管理 (ASM 或傳統) 部署模型 (必要)。另一篇[文章](../virtual-machines\virtual-machines-azurerm-versus-azuresm.md)是關於核心資源提供者、計算、儲存體和網路。
+ARM 範本以宣告方式產生基礎結構，例如網路、子網路、網路安全性和路由、負載平衡器、NIC、VM...等等。這篇[文章](../resource-manager-deployment-model.md)比較 ARM 部署模型 (宣告) 與 Azure 服務管理 (ASM 或傳統) 部署模型 (必要)。另一篇[文章](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)是關於核心資源提供者、計算、儲存體和網路。
 
 ARM 範本的一項主要功能是能夠在佈建時將 VM 延伸模組安裝至 VM 中。VM 延伸模組具有特定功能，例如執行自訂指令碼、安裝防毒軟體或執行 DSC 組態指令碼。有許多其他類型的 VM 延伸模組。
 
@@ -51,7 +51,7 @@ ARM 範本的一項主要功能是能夠在佈建時將 VM 延伸模組安裝至
 
 圖表左下方有一個 Azure 資源管理員 (ARM) 範本。在這個使用範例中，VM 延伸模組將 VM 註冊到 Azure 自動化 DSC 提取伺服器 (也就是提取伺服器) 成為「節點」。組態儲存在提取伺服器中。實際上儲存兩次：一次儲存為純文字，另一次編譯成 MOF 檔案 (適用於對此有所瞭解的人。) 在入口網站，MOF 是「節點組態」(而非只是「組態」)。它是與「節點」相關聯的構件，節點會知道它的組態。下列詳細資料示範如何將節點組態指派給節點。
 
-想必您已在進行頂端的一些或大部分工作。建立 nuspec、編譯和儲存在 NuGet 伺服器中很簡單。您已經在管理 VM。持續部署的下一步需要設定提取伺服器 (一次)、向它註冊節點 (一次)，然後建立組態並儲存到那裡 (初步)。接著，當封裝升級並部署至儲存機制時，請重新整理提取伺服器中的 [組態] 和 \[節點組態] (視需要重複)。
+想必您已在進行頂端的一些或大部分工作。建立 nuspec、編譯和儲存在 NuGet 伺服器中很簡單。您已經在管理 VM。持續部署的下一步需要設定提取伺服器 (一次)、向它註冊節點 (一次)，然後建立組態並儲存到那裡 (初步)。接著，當封裝升級並部署至儲存機制時，請重新整理提取伺服器中的 [組態] 和 [節點組態] (視需要重複)。
 
 如果不是從 ARM 範本開始，也沒關係。有一些 PowerShell Cmdlet 可協助您向提取伺服器註冊 VM，以及完成其餘所有工作。如需祥氣資訊，請參閱下列文章：[上架由 Azure 自動化 DSC 管理的機器](automation-dsc-onboarding.md)
 
@@ -185,4 +185,4 @@ New-ConfigurationScript.ps1：
 - [Azure 自動化 DSC Cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)
 - [上架由 Azure 自動化 DSC 管理的機器](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

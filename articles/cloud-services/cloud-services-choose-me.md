@@ -33,7 +33,7 @@ Azure 對於執行的應用程式提供不同的裝載模型。每個模型都�
 [在.NET 中建立雲端服務應用程式](cloud-services-dotnet-get-started.md)<br/> (英文) [在 Node.js 中建立雲端服務應用程式](cloud-services-nodejs-develop-deploy-app.md)<br/> (英文) [在 PHP 中建立雲端服務應用程式](../cloud-services-php-create-web-role.md)<br/> (英文) [在 Python 中建立雲端服務應用程式](../cloud-services-python-ptvs.md)<br/> (英文)
 
 [App Service]: ../app-service-web/app-service-web-overview.md
-[虛擬機器]: ../virtual-machines/virtual-machines-about.md
+[虛擬機器]: ../virtual-machines/virtual-machines-linux-about.md
 [雲端服務]: #tellmecs
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

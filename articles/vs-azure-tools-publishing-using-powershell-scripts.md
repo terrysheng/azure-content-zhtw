@@ -37,7 +37,7 @@
 
 ## 產生發佈指令碼
 
-您可以遵循[這些指示](/virtual-machines/virtual-machines-dotnet-create-visual-studio-powershell.md)，在建立新專案時產生裝載網站之虛擬機器的發佈指令碼。您也可以[在 Azure App Service 中產生 Web 應用程式的發佈指令碼](/app-service-web/web-sites-dotnet-get-started.md)。
+您可以遵循[這些指示](virtual-machines/virtual-machines-windows-classic-web-app-visual-studio.md)，在建立新專案時產生裝載網站之虛擬機器的發佈指令碼。您也可以[在 Azure App Service 中產生 Web 應用程式的發佈指令碼](/app-service-web/web-sites-dotnet-get-started.md)。
 
 ## Visual Studio 所產生的指令碼
 
@@ -351,4 +351,4 @@ $WebDeployPackage = New-WebDeployPackage
 
 請參閱[使用 Windows PowerShell 撰寫指令碼](https://technet.microsoft.com/library/bb978526.aspx)來深入了解 PowerShell 指令碼，並參閱[指令碼中心](https://azure.microsoft.com/documentation/scripts/)內的其他 Azure PowerShell 指令碼。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

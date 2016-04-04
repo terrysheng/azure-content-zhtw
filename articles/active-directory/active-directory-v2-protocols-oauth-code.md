@@ -1,4 +1,5 @@
 
+
 <properties
 	pageTitle="Azure AD v2.0 OAuth 授權碼流程 | Microsoft Azure"
 	description="使用 Azure AD 實作 OAuth 2.0 驗證通訊協定建置 Web 應用程式。"
@@ -13,7 +14,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
@@ -24,7 +25,7 @@ OAuth 2.0 授權碼授與可用於裝置上所安裝的應用程式中，以存�
 <!-- TODO: Need link to libraries -->	
 
 > [AZURE.NOTE]
-	v2.0 端點並非支援每個 Azure Active Directory 案例和功能。如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
+	v2.0 端點並未支援 Azure Active Directory 的所有案例和功能。如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
 
 關於 OAuth 2.0 授權碼流程的說明，請參閱 [OAuth 2.0 規格 4.1 節](http://tools.ietf.org/html/rfc6749)。在大部分的應用程式類型中，其用於執行驗證與授權，包括 [Web Apps](active-directory-v2-flows.md#web-apps) 和[原始安裝的應用程式](active-directory-v2-flows.md#mobile-and-native-apps)。它可讓應用程式安全地取得 access\_token；access\_token 可用於存取以 v2.0 端點保護的資源。
 
@@ -275,4 +276,4 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 | trace\_id | 有助於診斷的要求唯一識別碼。 |
 | correlation\_id | 有助於跨元件診斷的要求唯一識別碼。 |
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,97 +1,97 @@
 
 
-If you created a personal Azure account or have a personal MSDN subscription and created the Azure account to take advantage of the MSDN Azure credits -- you used a *Microsoft account* identity to create it. Many great features of Azure -- [resource group templates](../resource-group-overview.md) is one example -- require a work or school account (an identity managed by Azure Active Directory) to work. You can follow the instructions below to create a new work or school account because fortunately, one of the best things about your personal Azure account is that it comes with a default Azure Active Directory domain that you can use to create a new work or school account that you can use with Azure features that require it.
+如果您已建立個人的 Azure 帳戶，或有個人的 MSDN 訂用帳戶，並已建立 Azure 帳戶來運用 MSDN Azure 點數 -- 您已使用 *Microsoft 帳戶*身分識別建立。Azure 有許多很棒的功能 -- 例如[資源群組範本](../resource-group-overview.md) -- 需要工作或學校帳戶 (由 Azure Active Directory 管理的身分識別) 才能運作。幸運的是，預設的 Azure Active Directory 網域會提供您個人的 Azure 帳戶，讓您可以用來建立新的工作或學校帳戶，以搭配需要這類帳戶使用的 Azure 功能，因此您可以遵循下列指示來建立新的工作或學校帳戶。
 
-However, recent changes make it possible to manage your subscription with any type of Azure account using the `azure login` interactive login method described [here](../xplat-cli-connect.md). You can either use that mechanism, or you can follow the instructions that follow.
+不過，最近的變更讓您可以使用[這裡](../xplat-cli-connect.md)`azure login`所述的互動式登入方法，進而使用任何類型的 Azure 帳戶來管理您的訂用帳戶。您可以使用同樣的機制，或者可以遵循接下來的指示。
 
-> [AZURE.NOTE] If you were given a user name and password by an administrator, there's a good chance that you already have a work or school ID (also sometimes called an *organizational ID*). If so, you can immediately begin to use your Azure account to access Azure resources that require one. If you find that you cannot use those resources, you may need to return to this article for help. For more information, see [Accounts that you can use for sign in](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) and [How an Azure subscription is related to Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
+> [AZURE.NOTE] 如果系統管理員已提供給您使用者名稱與密碼，很有可能您已經有工作或學校識別碼 (有時也稱做「組織識別碼」)。如果是這樣，您可以立即開始使用您的 Azure 帳戶來存取需要該帳戶的 Azure資源。如果您發現無法使用這些資源，您可能需要返回本文以尋求協助。如需詳細資訊，請參閱[您可以用來登入的帳戶](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts)及 [Azure 訂用帳戶與 Azure AD 的關係](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir)。
 
-The steps are simple. You need to locate your signed on identity in the Azure classic portal, discover your default Azure Active Directory domain, and add a new user to it as an Azure co-administrator.
+步驟很簡單。您必須在 Azure 傳統入口網站中找到您已註冊的身分識別、找出您的預設 Azure Active Directory 網域，然後以 Azure 共同管理員的身分新增網域的新使用者。
 
-## Locate your default directory in the Azure classic portal
+## 在 Azure 傳統入口網站中找到您的預設目錄
 
-Start by logging in to the [Azure classic portal](https://manage.windowsazure.com) with your personal Microsoft account identity. After you are logged in, scroll down the blue panel on the left side and click **ACTIVE DIRECTORY**.
+一開始先使用您個人的 Microsoft 帳戶身分識別登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。登入後，向下捲動左側的藍色面板，然後按一下 [ACTIVE DIRECTORY]。
 
 ![Azure Active Directory](./media/virtual-machines-common-create-aad-work-id/azureactivedirectorywidget.png)
 
-Let's start by finding some information about your identity in Azure. You should see something like the following in the main pane, showing that you have one default directory.
+讓我們開始在 Azure 中找出您身分識別的部分資訊。您的主窗格應如下所示，顯示您有一個預設目錄。
 
 ![](./media/virtual-machines-common-create-aad-work-id/defaultaadlisting.png)
 
-Let's find out some more information about it. Click the default directory row, which brings you into the default directory properties.  
+讓我們找到更多的相關資訊。按一下預設的目錄列，會將您帶往預設的目錄屬性。
 
 ![](./media/virtual-machines-common-create-aad-work-id/defaultdirectorypage.png)
 
-To view the default domain name, click **DOMAINS**.
+若要檢視預設的網域名稱，請按一下 [網域]。
 
 ![](./media/virtual-machines-common-create-aad-work-id/domainclicktoseeyourdefaultdomain.png)
 
-Here you should be able to see that when the Azure account was created, Azure Active Directory created a personal default domain that is a hash value (a number generated from a string of text) of your personal ID used as a subdomain of onmicrosoft.com. That's the domain to which you will now add a new user.
+您應該能夠在這裡看到 Azure 帳戶的建立時間，以及 Azure Active Directory 建立了個人的預設網域，此網域是用來做為 onmicrosoft.com 子網域的個人識別碼雜湊值 (這是從文字字串中產生的數字)。這是您現在要新增新使用者的網域。
 
-## Creating a new user in the default domain
+## 在預設網域中建立新的使用者
 
-Click **USERS** and look for your single personal account. You should see in the **SOURCED FROM** column that it is a **Microsoft account**. We want to create a user in your default .onmicrosoft.com Azure Active Directory domain.
+按一下 [使用者]，然後尋找您的單一個人帳戶。您應該會在 [源自] 欄中看到其為 **Microsoft 帳戶**。我們想要在您的預設 .onmicrosoft.com Azure Active Directory 網域中建立使用者。
 
 ![](./media/virtual-machines-common-create-aad-work-id/defaultdirectoryuserslisting.png)
 
-We're going to follow [these instructions](https://technet.microsoft.com/library/hh967632.aspx#BKMK_1) in the next few steps, but use a specific example.
+我們將在接下來的步驟中遵循[這些指示](https://technet.microsoft.com/library/hh967632.aspx#BKMK_1)進行，但會使用特定的範例。
 
-At the bottom of the page, click **+ADD USER**. In the page that appears, type the new user name, and make the **Type of User** a **New user in your organization**. In this example, the new user name is `ahmet`. Select the default domain that you discovered previously as the domain for ahmet's email address. Click the next arrow when finished.
+按一下頁面底端的 [**+新增使用者**]。在隨即出現的頁面中，輸入新的使用者名稱，並將 [使用者類型] 設為 [您組織中的新使用者]。在此範例中，使用者名稱為 `ahmet`。選取您先前找到的預設網域，以做為 ahmet 電子郵件地址的網域。完成時按一下 [下一步] 箭頭。
 
 ![](./media/virtual-machines-common-create-aad-work-id/addingauserwithdirectorydropdown.png)
 
-Add more details for Ahmet, but make sure to select the appropriate **ROLE** value. It's easy to use **Global Admin** to make sure things are working, but if you can use a lesser role, that's a good idea. This example uses the **User** role. (Find out more at [Administrator permissions by role](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1).) Do not enable multi-factor authentication unless you want to use multifactor authentication for each log in operation. Click the next arrow when you're finished.
+加入更多關於 Ahmet 的詳細資訊，但務必選取適當的 [角色] 值。您可以很輕鬆地使用**全域管理員**確定系統正在運作中，但如果您可以使用權限較低的角色，也是不錯的主意。此範例採用**使用者**角色。(在[依據角色的系統管理員權限](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1)中取得更多資訊。) 除非您想要針對運作中的每個記錄使用多重要素驗證，否則請勿啟用多重要素驗證。當您完成時，按一下 [下一步] 箭頭。
 
 ![](./media/virtual-machines-common-create-aad-work-id/userprofileuseradmin.png)
 
-Click the **create** button to generate and display a temporary password for Ahmet.
+按一下 [建立] 按鈕，以產生並顯示 Ahmet 的暫時密碼。
 
 ![](./media/virtual-machines-common-create-aad-work-id/gettemporarypasswordforuser.png)
 
-Copy the user name email address, or use **SEND PASSWORD IN EMAIL**. You'll need the information to log on shortly.
+複製使用者名稱的電子郵件地址，或使用 [透過電子郵件傳送密碼]。您需要該資訊才能立即登入。
 
 ![](./media/virtual-machines-common-create-aad-work-id/receivedtemporarypassworddialog.png)
 
-Now you should see the new user, **Ahmet the Developer**, sourced from Azure Active Directory. You've created the new work or school identity with Azure Active Directory. However, this identity does not yet have permissions to use Azure resources.
+現在您應該會看到新的使用者，源自 Azure Active Directory 的 **Ahmet 這位開發人員**。您已使用 Azure Active Directory 建立新的工作或學校身分識別。不過，這個身分識別還沒有使用 Azure 資源的權限。
 
 ![](./media/virtual-machines-common-create-aad-work-id/defaultdirectoryusersaftercreate.png)
 
-If you use **SEND PASSWORD IN EMAIL**, the following kind of email is sent.
+如果您使用 [透過電子郵件傳送密碼]，即會傳送下列種類的電子郵件。
 
 ![](./media/virtual-machines-common-create-aad-work-id/emailreceivedfromnewusercreation.png)
 
-## Adding Azure co-administrator rights for subscriptions
+## 為訂用帳戶新增 Azure 的共同管理員權限
 
-Now you need to add the new user as a co-administrator of your subscription so the new user can sign in to the Management Portal. To do this, in the lower-left panel click **Settings**.
+現在您必須將新的使用者新增成為訂用帳戶的共同管理員，新的使用者才能夠登入管理入口網站。若要這樣做，請在左下角面板中按一下 [設定]。
 
 ![](./media/virtual-machines-common-create-aad-work-id/thesettingswidget.png)
 
-In the main settings area, click **ADMINISTRATORS** at the top and you should see only your personal Microsoft account identity. At the bottom of the page, click **+ADD** to specify a co-administrator. Here, enter the email address of the new user you had created, including your default domain. As shown in the next screenshot, a green check mark appears next to the user for the default directory. Remember to select all of the subscriptions that you would like this user to be able to administer.
+在主要設定區域中，按一下頂端的 [**管理員**]，您應該只會看到您個人的 Microsoft 帳戶身分識別。在頁面底端按一下 [**+新增**] 以指定共同管理員。在此處輸入您所建立新使用者的電子郵件地址，包括預設網域。如下一個螢幕擷取畫面所示，綠色勾號會出現在預設目錄的使用者旁邊。請記得選取您想要讓此使用者能夠管理的所有訂用帳戶。
 
 ![](./media/virtual-machines-common-create-aad-work-id/addingnewuserascoadmin.png)
 
-When you are done, you should now see two users, including your new co-administrator identity. Log out of the portal.
+完成後，您現在應會看到兩個使用者，包括新的共同管理員身分識別。登出入口網站。
 
 ![](./media/virtual-machines-common-create-aad-work-id/newuseraddedascoadministrator.png)
 
-## Logging in and changing the new user's password
+## 登入並變更新使用者的密碼
 
-Log in as the new user you created.
+以您建立的新使用者身分登入。
 
 ![](./media/virtual-machines-common-create-aad-work-id/signinginwithnewuser.png)
 
-You will immediately be prompted to create a new password.
+會立即提示您建立新的密碼。
 
 ![](./media/virtual-machines-common-create-aad-work-id/mustupdateyourpassword.png)
 
-You should be rewarded with success that looks like the following.
+您應該會看到如下的成功獎勵。
 
 ![](./media/virtual-machines-common-create-aad-work-id/successtourdialog.png)
 
 
-## Next steps
+## 後續步驟
 
-You can now use your new Azure Active Directory identity to use [Azure resource group templates](../xplat-cli-azure-resource-manager.md).
+您現在可以使用新的 Azure Active Directory 身分識別來使用 [Azure 資源群組範本](../xplat-cli-azure-resource-manager.md)。
 
     azure login
     info:    Executing command login
@@ -121,3 +121,5 @@ You can now use your new Azure Active Directory identity to use [Azure resource 
     data:    Tags:
     data:
     info:    group create command OK
+
+<!---HONumber=AcomDC_0323_2016-->

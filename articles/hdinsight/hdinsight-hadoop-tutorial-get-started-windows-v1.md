@@ -224,9 +224,8 @@
 - [〈搭配 HDInsight 使用 MapReduce〉][hdinsight-use-mapreduce]
 - [〈搭配 HDInsight 使用 Hivet〉][hdinsight-use-hive]
 - [〈搭配 HDInsight 使用 Pig〉][hdinsight-use-pig]
-- [〈在 HDInsight 上使用 Oozie〉][hdinsight-use-oozie]
-- [〈開發 HDInsight 的 C# Hadoop 串流程式〉][hdinsight-develop-streaming]
-- [〈開發 HDInsight 的 Java MapReduce 程式〉][hdinsight-develop-mapreduce]
+- [在 HDInsight 上使用 Oozie][hdinsight-use-oozie]
+- [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]
 
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
@@ -243,7 +242,6 @@
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-emulator]: hdinsight-hadoop-emulator-get-started.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
 [hdinsight-weblogs-sample]: hdinsight-hive-analyze-website-log.md
@@ -285,4 +283,4 @@
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights Analytics 中的純量運算式" 
-	description="Application Insights Analytics (適用於 Application Insights 的強大搜尋工具) 中的數字、字串、動態運算式和類型。" 
+	pageTitle="Application Insights 之 Analytics 的純量運算式" 
+	description="Analytics 中的數字、字串、動態運算式和類型，強大的 Application Insights 搜尋工具。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,30 +12,27 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
  
-# Application Insights Analytics 中的純量運算式
+# Analytics 的純量運算式
 
 
-[Application Insights Analytics](app-analytics.md) 是強大的搜尋引擎，適合用於 [Application Insights](app-insights-overview.md) 遙測。這些頁面說明 Application Insights Analytics 查詢語言 AIQL。
+[Analytics](app-analytics.md) 是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。這些頁面說明 Analytics 查詢語言。
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
 ---
 
-[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor)
-<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull)
-<br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt)
-<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
+[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) <br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull) <br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [split](#split) | [sqrt](#sqrt) <br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
 
 ---
 
 
 
-「純量」是指可在 AIQL 資料表中佔有單一資料格的數字或字串之類的值。純量運算式是從純量函式和運算子建置而來，並且會評估為純量值。`sqrt(score)/100 > target+2` 便是純量運算式。
+「純量」是指可在資料表中佔有單一資料格的數字或字串之類的值。純量運算式是從純量函式和運算子建置而來，並且會評估為純量值。`sqrt(score)/100 > target+2` 便是純量運算式。
 
 「純量」也包含陣列和複合物件，兩者也都能儲存在單一資料庫的資料格中。
 
@@ -43,8 +40,7 @@
 
 ## 純量
 
-[casts](#casts) | [comparisons](#scalar-comparisons)
-<br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 支援的類型包括︰
 
@@ -162,9 +158,7 @@ hash(datetime("2015-01-01"))    // 1380966698541616202
 iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ```
 
-<a name="isnull"/></a>
-<a name="isnotnull"/></a>
-<a name="notnull"/></a>
+<a name="isnull"/></a> <a name="isnotnull"/></a> <a name="notnull"/></a>
 ### isnull、isnotnull、notnull
 
     isnull(parsejson("")) == true
@@ -192,7 +186,7 @@ true 或 false，取決於值是 null 或不是 null。
 | "" | false
 |"x" | false
 |parsejson("")|true
-|parsejson("[]")|false
+|parsejson("")|false
 |parsejson("{}")|false
 
 範例
@@ -224,8 +218,7 @@ true 或 false，取決於值是 null 或不是 null。
 
 ## 數字
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
-| [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### 數值常值
 
@@ -239,17 +232,7 @@ true 或 false，取決於值是 null 或不是 null。
 || |
 |---|-------------|
 | + | 加 |
-| - | 減 |
-| * | 乘 |
-| / | 除 |
-| % | 模數 |
-||
-|`<` |小於
-|`<=`|小於或等於
-|`>` |大於
-|`>=`|大於或等於
-|`<>`|不等於
-|`!=`|不等於
+| - | 減 | | * | 乘 | | / | 除 | | % | 模數 | || |`<` |小於 |`<=`|小於或等於 |`>` |大於 |`>=`|大於或等於 |`<>`|不等於 |`!=`|不等於
 
 
 
@@ -548,7 +531,7 @@ T | where ... | extend Elapsed=now() - timestamp
 
 字串可以用單引號或雙引號字元括住。
 
-反斜線 (`\`) 可用來逸出字元，例如 `\t` (Tab)、`\n` (新行) 和括住引號字元的執行個體。
+反斜線 (``) 可用來逸出字元，例如 `\t` (Tab)、`\n` (新行) 和括住引號字元的執行個體。
 
 * `'this is a "string" literal in single \' quotes'`
 * `"this is a 'string' literal in double " quotes"`
@@ -556,7 +539,7 @@ T | where ... | extend Elapsed=now() - timestamp
 
 ### 模糊字串常值
 
-模糊字串常值是 AI Analytics 在輸出字串時 (例如在追蹤時) 會模糊處理的字串。模糊化程序會以星號 (`*`) 字元取代所有模糊字元。
+模糊字串常值是 Analytics 在輸出字串時 (例如在追蹤時) 會模糊處理的字串。模糊化程序會以星號 (`*`) 字元取代所有模糊字元。
 
 若要形成模糊字串常值，請在前面加上 `h` 或 'H'。例如：
 
@@ -667,15 +650,12 @@ h"hello"
 extract("^.{2,2}(.{4,4})", 1, Text)
 ```
 
-<a name="notempty"></a>
-<a name="isnotempty"></a>
-<a name="isempty"></a>
+<a name="notempty"></a> <a name="isnotempty"></a> <a name="isempty"></a>
 ### isempty、isnotempty、notempty
 
     isempty("") == true
 
-如果引數為空字串或 null，則為 true。
-另請參閱 [isnull](#isnull)。
+如果引數為空字串或 null，則為 true。另請參閱 [isnull](#isnull)。
 
 
 語法
@@ -697,7 +677,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 | "" | true
 |"x" | false
 |parsejson("")|true
-|parsejson("[]")|false
+|parsejson("")|false
 |parsejson("{}")|false
 
 
@@ -844,8 +824,7 @@ substring("ABCD", 0, 2)       // AB
 
 ## 陣列和物件 - 動態類型
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses)
-<br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 以下是 Application Insights 例外狀況的查詢結果。`details` 中的值是陣列。
@@ -859,7 +838,7 @@ substring("ABCD", 0, 2)       // AB
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
-* 但使用 `arraylength` 和其他 AIQL 函式 (而非 ".length"！)
+* 但使用 `arraylength` 和其他 Analytics 函式 (不是 ".length"！)
 
 轉換 有時您必須轉換從物件擷取到的項目，因為其類型可能不同。例如，`summarize...to` 就需要特定類型︰
 
@@ -1079,7 +1058,7 @@ json 所指定類型為 `dynamic` 的物件。
 {"duration":{"value":118.0,"count":5.0,"min":100.0,"max":150.0,"stdDev":0.0,"sampledValue":118.0,"sum":118.0}}
 ```
 
-則下列 AIQL 片段會擷取物件中 `duration` 位置的值，並從中擷取兩個位置：`duration.value` 和 `duration.min` (分別為 `118.0` 和 `110.0`)。
+則下列片段會擷取物件中 `duration` 位置的值，並從中擷取兩個位置：`duration.value` 和 `duration.min` (分別為 `118.0` 和 `110.0`)。
 
 ```AIQL
 T
@@ -1150,4 +1129,4 @@ range(1, 8, 3)
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016---->
+<!---HONumber=AcomDC_0323_2016-->

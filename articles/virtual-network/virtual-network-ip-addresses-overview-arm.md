@@ -59,7 +59,7 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 >[AZURE.IMPORTANT] 所建立的每個網域名稱標籤必須是 Azure 位置中唯一的。
 
 ### VM
-您可以將公用 IP 位址指派給其**網路介面卡** (NIC)，以建立其與 [虛擬機器](virtual-machines-about.md) (VM) 的關聯。如果是多個 NIC 的 VM，您可以只將它指派給主要 NIC。您可以將動態或靜態公用 IP 位址指派給 VM。
+您可以將公用 IP 位址指派給其**網路介面卡** (NIC)，以建立其與 [虛擬機器](../virtual-machines/virtual-machines-linux-about.md) (VM) 的關聯。如果是多個 NIC 的 VM，您可以只將它指派給主要 NIC。您可以將動態或靜態公用 IP 位址指派給 VM。
 
 ### 網際網路對應負載平衡器
 您可以將公用 IP 位址指派給負載平衡器**前端**組態，以建立其與 [Azure 負載平衡器](load-balancer-overview.md)的關聯。此公用 IP 位址可做為負載平衡的虛擬 IP 位址 (VIP)。您可以將動態或靜態公用 IP 位址指派給負載平衡器前端。您也可以將多個公用 IP 位址指派給一個負載平衡器前端，以實現[多重 vip](load-balancer-multivip.md) 案例 (例如具有多個 SSL 架構網站的多租用戶環境)。
@@ -103,7 +103,7 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 - 其他應用程式/資源透過 IP 位址存取的資源。
 
 ### VM
-私人 IP 位址會指派給[虛擬機器](virtual-machines-about.md)的**網路介面卡** (NIC)。如果是多個 NIC 的 VM，每個 NIC 都會有指派的私人 IP 位址。您可以將 NIC 的配置方法指定為動態或靜態。
+私人 IP 位址會指派給[虛擬機器](../virtual-machines/virtual-machines-linux-about.md)的**網路介面卡** (NIC)。如果是多個 NIC 的 VM，每個 NIC 都會有指派的私人 IP 位址。您可以將 NIC 的配置方法指定為動態或靜態。
 
 #### 內部 DNS 主機名稱解析 (適用於 VM)
 除非明確設定自訂 DNS 伺服器，否則所有 Azure VM 預設都會設定 [Azure 受管理 DNS 伺服器](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution)。這些 DNS 伺服器會針對位於相同 VNet 的 VM 提供內部名稱解析。
@@ -137,4 +137,4 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 - 了解如何[使用範本部署使用靜態公用 IP 的 VM](virtual-network-deploy-static-pip-arm-template.md)。
 - 使用 Azure 入口網站[部署使用靜態私人 IP 位址的 VM](virtual-networks-static-private-ip-arm-pportal.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

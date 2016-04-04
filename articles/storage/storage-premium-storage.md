@@ -49,13 +49,14 @@ Azure 使用儲存體帳戶做為作業系統 (OS) 和資料磁碟的容器。�
 - 首先，建立新的進階儲存體帳戶。接著，在建立新的 DS 或 GS VM 時，選取儲存體組態設定中的進階儲存體帳戶。或者，
 - 在建立新的 DS 或 GS VM 時，在儲存體組態設定中建立新的進階儲存體帳戶，或讓 Azure 入口網站建立預設的進階儲存體帳戶。
 
+
 如需逐步指示，請參閱本文稍後的[快速啟動](#quick-start)一節。
 
 >[AZURE.NOTE] Premium 儲存體帳戶無法對應到自訂網域名稱。
 
 ## DS 與 GS 系列 VM
 
-進階儲存體支援 DS 系列和 GS 系列 Azure 虛擬機器 (VM)。DS 系列或 GS 系列的 VM 可同時使用 Standard 和 Premium 儲存體磁碟。非 DS 系列或非 GS 系列的 VM 則無法使用進階儲存體磁碟。如需可用的 Azure VM 類型和大小的詳細資訊，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-size-specs.md)。以下是 DS 和 GS 系列 VM 的一些功能。
+進階儲存體支援 DS 系列和 GS 系列 Azure 虛擬機器 (VM)。DS 系列或 GS 系列的 VM 可同時使用 Standard 和 Premium 儲存體磁碟。非 DS 系列或非 GS 系列的 VM 則無法使用進階儲存體磁碟。如需可用的 Azure VM 類型和大小的詳細資訊，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-linux-sizes.md)。以下是 DS 和 GS 系列 VM 的一些功能。
 
 雲端服務：可以將 DS 系列 VM 加入至僅包含 DS 系列 VM 的雲端服務。請勿將 DS 系列 VM 加入至包含非 DS 系列 VM 的現有雲端服務。您可以將現有的 VHD 移轉到僅執行 DS 系列 VM 的新雲端服務。如果您想要為裝載 DS 系列 VM 的新雲端服務保留相同的虛擬 IP 位址 (VIP)，請使用[保留的 IP 位址](../virtual-network/virtual-networks-instance-level-public-ip.md)。可將 GS 系列 VM 加入至僅執行 G 系列 VM 的現有雲端服務。
 
@@ -73,7 +74,7 @@ VM 調整限制和效能︰每個 DS 系列和 GS 系列的 VM 大小都有 IOPS
 
 目前在 DS 系列上最大的 VM 是 STANDARD\_DS14，它在所有磁碟最多可以提供每秒 512 MB。GS 系列上最大的 VM 是 STANDARD\_GS5，它在所有磁碟最多可以提供每秒 2000 MB。請注意，這些限制僅適用於磁碟流量，不包含快取命中數和網路流量。VM 網路流量有不同的頻寬，與 Premium 儲存體磁碟專用的頻寬不同。
 
-如需 DS 系列和 GS 系列 VM 的 IOPS 和輸送量 (頻寬) 上限的最新資訊，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-size-specs.md)。若要了解進階儲存體磁碟及其 IOPS 與輸送量限制，請參閱本文的[進階儲存體延展性和效能目標](#premium-storage-scalability-and-performance-targets)一節中的表格。
+如需 DS 系列和 GS 系列 VM 的 IOPS 和輸送量 (頻寬) 上限的最新資訊，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-linux-sizes.md)。若要了解有關「進階儲存體」磁碟及其 IOPS 與輸送量限制，請參閱本文＜[使用進階儲存體時的延展性和效能目標](#scalability-and-performance-targets-whzh-TWing-premium-storage)＞一節中的表格。
 
 ## 進階儲存體延展性和效能目標
 
@@ -145,7 +146,7 @@ VM 調整限制和效能︰每個 DS 系列和 GS 系列的 VM 大小都有 IOPS
 
 以下是有關進階儲存體延展性和效能目標，您必須知道的一些重要事項︰
 
-- 佈建的容量和效能︰當您佈建進階儲存體磁碟時，不同於標準儲存體的是，您可獲得該磁碟的容量、IOPS 和輸送量保證。例如，如果您建立 P30 磁碟，Azure 會為該磁碟佈建 1024 TB 儲存體容量、5000 IOPS 和每秒 200 MB 的輸送量。您的應用程式可以使用全部或部分的容量和效能。
+- 佈建的容量和效能︰當您佈建進階儲存體磁碟時，不同於標準儲存體的是，您可獲得該磁碟的容量、IOPS 和輸送量保證。例如，如果您建立 P30 磁碟，Azure 會為該磁碟佈建 1024 GB 儲存體容量、5000 IOPS 和每秒 200 MB 的輸送量。您的應用程式可以使用全部或部分的容量和效能。
 
 - 磁碟大小：Azure 會將磁碟大小對應 (無條件進位) 至表格中指定之最接近的 [進階儲存體磁碟] 選項。例如，大小為 100 GB 的磁碟會分類為 P10 選項，每秒最多可執行 500 個 IO 單位，每秒輸送量可達 100 MB。同樣地，大小為 400 GB 的磁碟會分類為 P20 選項，每秒最多可執行 2300 個 IO 單位，每秒輸送量可達 150 MB。
 
@@ -241,7 +242,7 @@ DS4 VM 連接了兩個 P30 磁碟。每個 P30 磁碟有每秒 200 MB 的輸送�
 	- 如果您使用 XFS，請使用掛接選項 "nobarrier" 停用阻礙 (若要啟用阻礙，請使用 "barrier" 選項)
 
 - 對於快取設定為 "ReadWrite" 的 Premium 儲存體磁碟，則應該啟用阻礙以持續寫入。
-- 對於要在 VM 重新開機後保存的磁碟機標籤，您必須以參考磁碟的 UUID 更新 /etc/fstab。另請參閱[如何將資料磁碟連接至 Linux 虛擬機器](../virtual-machines/virtual-machines-linux-how-to-attach-disk.md)
+- 對於要在 VM 重新開機後保存的磁碟機標籤，您必須以參考磁碟的 UUID 更新 /etc/fstab。另請參閱[如何將資料磁碟連接至 Linux 虛擬機器](../virtual-machines/virtual-machines-linux-classic-attach-disk.md)
 
 以下是我們驗證能使用 Premium 儲存體的 Linux 散發套件。我們建議您升級 VM 到至少其中一個版本 (或更新版本)，以便獲得 Premium 儲存體較佳的效能和穩定性。此外，部分版本需要最新的 LIS (適用於 Microsoft Azure 的 Linux Integration Services v4.0)。請依照下面提供的連結進行下載及安裝。當我們完成其他驗證後，將繼續在清單中新增更多映像。請注意，我們的驗證顯示效能依映像而有所不同，而且也取決於工作負載特性和映像上的設定。不同的映像已針對不同種類的工作負載進行調整。
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
@@ -385,7 +386,7 @@ DS4 VM 連接了兩個 P30 磁碟。每個 P30 磁碟有每秒 200 MB 的輸送�
 
 	![進階磁碟][Image2]
 
-請參閱[如何在 Azure 入口網站中連接資料磁碟](../virtual-machines/virtual-machines-attach-disk-preview/)中的詳細步驟。
+請參閱[如何在 Azure 入口網站中連接資料磁碟](../virtual-machines/virtual-machines-windows-attach-disk-portal.md)中的詳細步驟。
 
 #### IV.透過 Azure 入口網站變更磁碟快取原則
 
@@ -526,12 +527,14 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 - [移轉到 Azure 進階儲存體](storage-migration-to-premium-storage.md)
 
+
 ### 部落格文章
 
 - [Azure 進階儲存體正式推出](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 - [宣佈 GS 系列︰將進階儲存體支援加入至公用雲端中的最大 VM](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
 
+
 [Image1]: ./media/storage-premium-storage/Azure_pricing_tier.png
 [Image2]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

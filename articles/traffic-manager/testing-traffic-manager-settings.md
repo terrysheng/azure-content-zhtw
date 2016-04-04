@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/01/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # 測試流量管理員設定
@@ -33,7 +33,9 @@
 
 2-為了排清 DNS 解析程式快取，請輸入 `ipconfig /flushdns`。
 
-3-輸入 `nslookup <your Traffic Manager domain name>`。例如，下列命令會檢查前置詞為 *myapp.contoso* nslookup myapp.contoso.trafficmanager.net 的網域名稱。典型的結果會顯示下列項目：-正在存取 DNS 伺服器的 DNS 名稱和 IP 位址，藉此解析此流量管理員網域名稱。-您在命令行上輸入在 "nslookup" 之後的流量管理員網域名稱，和流量管理員網域名稱解析的 IP 位址。第二個 IP 位址是要檢查的重點。它應符合正在測試流量管理員設定檔中其中一個雲端服務或網站的 虛擬 IP (VIP)。
+3-輸入 `nslookup <your Traffic Manager domain name>`。例如，下列命令會檢查包含 *myapp.contoso* nslookup myapp.contoso.trafficmanager.net 前置詞的網域名稱。典型的結果顯示如下：
+- 正在存取 DNS 伺服器的 DNS 名稱和 IP 位址，藉此解析此流量管理員網域名稱。
+- 您在命令行上輸入在 "nslookup" 之後的流量管理員網域名稱，和流量管理員網域名稱解析的 IP 位址。第二個 IP 位址是要檢查的重點。它應符合正在測試流量管理員設定檔中其中一個雲端服務或網站的 虛擬 IP (VIP)。
 
 ## 測試負載平衡方法
 
@@ -54,7 +56,7 @@
 
 ## 後續步驟
 
-[關於流量管理員流量路由方法](../about-traffic-manager-balancing-methods.md) [Traffic Manager](../traffic-manager.md)
+[關於流量管理員流量路由方法](traffic-manager-routing-methods.md) [Traffic Manager](traffic-manager-overview.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

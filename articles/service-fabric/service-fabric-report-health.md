@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="03/23/2016"
    ms.author="oanapl"/>
 
 # 新增自訂 Service Fabric 健康狀態報告
@@ -47,9 +47,9 @@ Service Fabric 報告程式可監控感興趣的已識別條件。它們會依�
 
 > [AZURE.NOTE] 根據現有設定，叢集會填入系統元件傳送的健康狀態報告。在此閱讀更多[使用系統健康狀態報告進行疑難排解](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)的相關資訊。必須在系統所建立的[健康狀態實體](service-fabric-health-introduction.md#health-entities-and-hierarchy)上傳送使用者報告。
 
-一旦健康狀態報告設計清楚，即可輕鬆傳送健康狀態報告。透過 API (使用 **FabricClient.HealthManager.ReportHealth**)、透過 Powershell 或透過 REST 即可完成。就內部而言，所有方法都會使用網狀架構用戶端內含的健康狀態用戶端。組態旋鈕批次報告可提升效能。
+一旦健康狀態報告設計清楚，即可輕鬆傳送健康狀態報告。如果叢集不[安全](service-fabric-cluster-security.md)，或者網狀架構用戶端沒有系統管理員權限，您就可以使用 `FabricClient` 來回報健康狀態。透過 API (使用 [FabricClient.HealthManager.ReportHealth](https://msdn.microsoft.com/library/system.fabric.fabricclient.healthclient.reporthealth.aspx))、透過 Powershell 或透過 REST 即可完成。組態旋鈕批次報告可提升效能。
 
-> [AZURE.NOTE] 報告健康狀態會同步處理，且只代表用戶端上的驗證工作。健康狀態用戶端接受報告的這項事實並不表示該報告會套用在存放區中。它會以非同步方式傳送並可能與其他報告進行批次處理。在伺服器上處理仍可能會失敗 (例如序號已過時、必須套用報告的實體已被刪除等)。
+> [AZURE.NOTE] 報告健康狀態會同步處理，且只代表用戶端上的驗證工作。健康狀態用戶端或是 `Partition` 或 `CodePackageActivationContext` 物件接受報告的這項事實，並不表示該報告會在存放區中套用。它會以非同步方式傳送並可能與其他報告進行批次處理。在伺服器上處理仍可能會失敗 (例如序號已過時、必須套用報告的實體已被刪除等)。
 
 ## 健康狀態用戶端
 健康狀態報告會透過存在於該網狀架構用戶端內的健康狀態用戶端來傳送至健康狀態存放區。可以使用下列來設定健康狀態用戶端：
@@ -62,7 +62,7 @@ Service Fabric 報告程式可監控感興趣的已識別條件。它們會依�
 
 > [AZURE.NOTE] 批次處理報告時，網狀架構用戶端必須至少保持運作長達 HealthReportSendInterval，以確保報告已傳送。如果訊息遺失或健康狀態存放區因為暫時性錯誤而無法套用它們，則網狀架構用戶端必須保持運作久一點，讓其有再試一次的機會。
 
-用戶端上的緩衝會將報告的唯一性納入考量。例如，如果特定的錯誤報告程式在相同實體的相同屬性上每秒產生 100 個報告，則會以最後一個版本取代所有報告。最多只有一份這類報告存在於用戶端佇列中。如果設定批次處理，則傳送至健康狀態存放區的報告數目為每次傳送間隔一份報告。這是最後新增的報告，可反映實體的最新狀態。在建立 **FabricClient** 時，藉由針對健康狀態相關項目傳遞 **FabricClientSettings** 的所需值，即可指定所有組態參數。
+用戶端上的緩衝會將報告的唯一性納入考量。例如，如果特定的錯誤報告程式在相同實體的相同屬性上每秒產生 100 個報告，則會以最後一個版本取代所有報告。最多只有一份這類報告存在於用戶端佇列中。如果設定批次處理，則傳送至健康狀態存放區的報告數目為每次傳送間隔一份報告。這是最後新增的報告，可反映實體的最新狀態。建立 `FabricClient` 時，藉由傳遞 [FabricClientSettings](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx) 以及健康狀態相關項目所需的值，即可指定所有組態參數。
 
 以下會建立網狀架構用戶端，並指定一旦它們新增後就應該儘快傳送報告。在可重試的錯誤或逾時發生時，會每 40 秒重試一次。
 
@@ -104,7 +104,24 @@ GatewayInformation   : {
                        }
 ```
 
-> [AZURE.NOTE] 若要確保未授權的服務無法針對叢集中的實體回報健康狀態，則可將伺服器設定為只接受來自受保護用戶端的要求。由於報告是透過 FabricClient 完成，這表示 FabricClient 必須啟用安全性才能與叢集通訊 (例如以 Kerberos 或憑證驗證)。
+> [AZURE.NOTE] 若要確保未授權的服務無法針對叢集中的實體回報健康狀態，則可將伺服器設定為只接受來自受保護用戶端的要求。由於報告是透過 `FabricClient` 完成，這表示 `FabricClient` 必須啟用安全性，才能與叢集通訊 (例如利用 Kerberos 或憑證驗證)。深入了解[叢集安全性](service-fabric-cluster-security.md)。
+
+## 在低權限的服務內進行報告
+在不具叢集系統管理員存取權限的 Service Fabric 服務內，您可以透過 `Partition` 或 `CodePackageActivationContext`，回報來自目前內容之實體的健康狀態。
+
+- 針對無狀態服務，使用 [IStatelessServicePartition.ReportInstanceHealth](https://msdn.microsoft.com/library/system.fabric.istatelessservicepartition.reportinstancehealth.aspx) 來回報目前服務執行個體的健康狀態。
+
+- 針對具狀態服務，使用 [IStatefulServicePartition.ReportReplicaHealth](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.reportreplicahealth.aspx) 來回報目前複本的健康狀態。
+
+- 使用 [IServicePartition.ReportPartitionHealth](https://msdn.microsoft.com//library/system.fabric.iservicepartition.reportpartitionhealth.aspx) 來回報目前分割區實體的健康狀態。
+
+- 使用 [CodePackageActivationContext.ReportApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportapplicationhealth.aspx) 來回報目前應用程式的健康狀態。
+
+- 使用 [CodePackageActivationContext.ReportDeployedApplicationHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth.aspx)，來回報現在部署於目前節點上的應用程式健康狀態。
+
+- 使用 [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth.aspx)，來回報現在部署於目前節點上之應用程式的服務封裝健康狀態。
+
+> [AZURE.NOTE] 就內部而言，`Partition` 和 `CodePackageActivationContext` 會保存使用預設值設定的健康狀態用戶端。適用針對[健康狀態用戶端](service-fabric-report-health.md#health-client)所說明的相同考量 - 要求會在計時器上進行批次處理並加以傳送，因此物件應該保持運作，以便有機會傳送報告。
 
 ## 設計健康狀態報告
 產生高品質報告的第一個步驟，是識別可能影響該服務健康狀態的條件。在條件啟動或甚至在發生之前，任何有助於在服務或在叢集中標示問題的條件，都有可能替您省下數十億元。好處包含停機時間變少，花在調查和修復問題的夜間時間也變少，且客戶滿意度變高。
@@ -138,17 +155,19 @@ GatewayInformation   : {
 不過，在上述情況報告已完成，則評估過健康狀態後，會擷取應用程式健康狀態的報告。
 
 ## 定期報告與轉換時報告
-使用健康狀態報告模型，監視程式可以定期或於轉換時傳送報告。建議以定期報告的方式，因為程式碼較為簡單，比較不容易發生錯誤。監視程式必須盡可能越簡單越好，以避免觸發誤報的錯誤。不正確的狀況不良報告將會影響健康狀態評估以及需依據健康狀態的情況，包括升級。不正確的狀況良好報告會隱藏叢集中的問題，我們不希望發生此情況。
+使用健康狀態報告模型，監視程式可以定期或於轉換時傳送報告。使用看門狗報告的建議方式是定期報告，因為程式碼較為簡單且比較不容易發生錯誤。監視程式必須盡可能越簡單越好，以避免觸發誤報的錯誤。不正確的狀況不良報告將會影響健康狀態評估以及需依據健康狀態的情況，包括升級。不正確的狀況良好報告會隱藏叢集中的問題，我們不希望發生此情況。
 
 針對定期報告，您可以用計時器實作監視程式。計時器回呼時，監視程式可以檢查狀態並依照目前情況傳送報告。不需要查看先前已傳送的報告或在傳訊方面進行任何最佳化。健康狀態用戶端具有批次邏輯以幫助此種情況。只要健康狀態用戶端持續作用，就會在內部重試直到報告被健康狀態存放區認可，或直到監視程式產生具有相同實體、屬性與來源的較新報告時。
 
 轉換時的回報需要注意狀態處理。監視程式會監視某些條件，只會在條件改變時才回報。此方法的優點是需要較少的報告。缺點是監視程式的邏輯很複雜。還必須維護條件或報告，如此才可對其進行檢查，以判斷狀態變更。在容錯移轉時，必須注意是否傳送先前可能未傳送的報告 (已加入佇列，但尚未傳送至健康狀態存放區)。序號必須持續增加。若非如此，報告會因為過時而被拒絕。在造成資料遺失的少數情況下，可能需要同步處理報告程式的狀態與健康狀態存放區的狀態。
 
+透過 `Partition` 或 `CodePackageActivationContext` 進行轉換報告，對服務自行報告而言較為合理。移除本機物件 (複本或已部署的服務封裝 / 已部署的應用程式) 時，也會移除它的所有報告。這會放寬在報告程式和健康狀態資料存放區之間同步處理的需求。如果報告是針對父分割區或父應用程式所製作，在容錯移轉時就必須小心謹慎，以避免在健康狀態資料存放區中產生過時的報告。您必須新增邏輯來維護正確的狀態，並從存放區中清除不再需要的報告。
+
 ## 實作健康狀態報告
 一旦清除了實體和報告的詳細資訊，即可透過 API、PowerShell 或 REST 完成傳送健康狀態報告。
 
 ### API
-若要透過 API 回報，使用者必須建立其想要回報的實體類型特有的健康狀態報告。然後將此報告提供給健康狀態用戶端。
+若要透過 API 回報，使用者必須建立其想要回報的實體類型特有的健康狀態報告。然後將此報告提供給健康狀態用戶端。或者，使用者需要建立健康狀態資訊，並將它傳遞至 `Partition` 或 `CodePackageActivationContext` 上正確的報告方法，以報告目前實體的健康狀態。
 
 下列範例示範如何從叢集內的監視程式中定期回報。監控程式會檢查是否能在節點內存取外部資源。應用程式內服務資訊清單的所需資源。如果無法使用該資源，應用程式內的其他服務仍然可以正常運作。因此，會每隔 30 秒在已部署的服務封裝實體上傳送報告。
 
@@ -173,6 +192,9 @@ public static void SendReport(object obj)
         new HealthInformation("ExternalSourceWatcher", "Connectivity", healthState));
 
     // TODO: handle exception. Code omitted for snippet brevity.
+    // Possible exceptions: FabricException with error codes
+    // FabricHealthStaleReport (non-retryable, the report is already queued on the health client),
+    // FabricHealthMaxReportsReached (retryable; user should retry with exponential delay until the report is accepted).
     Client.HealthManager.ReportHealth(deployedServicePackageHealthReport);
 }
 ```
@@ -275,4 +297,4 @@ HealthEvents          :
 
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

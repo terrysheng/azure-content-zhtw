@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="03/08/2016"
+    ms.date="03/23/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp 中的新內容
 
 我們一律會根據您的意見來努力改善 Azure RemoteApp。以下是日後提供功能的大約時段。
 
-|功能|2016 年 1-3 月|2016 年 4-6 月|
+|功能|2016 年 4-6 月|2016 年 7 - 9 月|
 |-----------|-------|-------|
 |Azure Remote App 可在 [Azure 傳統入口網站](http://manage.windowsazure.com)和[Azure 入口網站](https://portal.azure.com)中取得。 |X | |
 |Windows 10 Universal Application with Continuum for Azure RemoteApp：預覽版|X| |
@@ -47,4 +47,4 @@
 - 澳大利亞資料中心的可用性
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

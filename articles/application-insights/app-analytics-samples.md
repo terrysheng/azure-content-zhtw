@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights Analytics 中的查詢範例" 
-	description="Application Insights Analytics 中的查詢範例，適用於 Application Insights 的強大搜尋工具。" 
+	pageTitle="Application Insights - Analytics 中的查詢範例" 
+	description="Application Insights - Analytics 中的查詢範例，適用於 Application Insights 的強大搜尋工具。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
-# Application Insights Analytics 的範例
+# Application Insights 的 Analytics 範例
 
-[Application Insights Analytics](app-analytics.md) 是強大的搜尋引擎，適合用於 [Application Insights](app-insights-overview.md) 遙測。這些頁面說明 Application Insights Analytics 查詢語言，AIQL。另外還有[語言教學](app-analytics-tour.md)，建議您從這裡開始。
+[Analytics](app-analytics.md) 是強大的搜尋引擎，適合用於 [Application Insights](app-insights-overview.md) 遙測。這些頁面說明 Analytics 查詢語言。另外還有[語言教學](app-analytics-tour.md)，建議您從這裡開始。
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -29,7 +29,7 @@
 
 建議：
 
--	先使用時間篩選器。Application Insights Analytics 已針對使用時間篩選器高度最佳化。
+-	先使用時間篩選器。Application Insights - Analytics 已針對使用時間篩選器高度最佳化。
 -	在查詢的開始處 (緊接時間篩選器之後) 放置預期會去除大多數資料的篩選器
 -	檢查大部分的篩選器是否有在查詢開始時 (在您開始使用 'extend' 之前) 顯示 
 -	尋找完整權杖時盡量透過 'has' 關鍵字而非 'contains'。'has' 具有較好的效能，因為它不需要查詢子字串。
@@ -104,7 +104,7 @@ Events
 
 聯結會將來自相同用戶端 IP 位址的開始時間與所有的停止時間配對。因此我們先移除與較早停止時間的配對。
 
-然後以開始時間和 IP 來分組，來取得每個工作階段的群組。必須為 StartTime 參數提供 `bin` 函式：如果沒有，AI Analytics 將會自動使用 1 小時量化，這會將部分開始時間與錯誤的停止時間配對。
+然後以開始時間和 IP 來分組，來取得每個工作階段的群組。必須為 StartTime 參數提供 `bin` 函式：如果沒有，Analytics 將會自動使用 1 小時量化，這會將部分開始時間與錯誤的停止時間配對。
 
 `argmin` 會挑選出每個群組中含有最短持續時間的資料列，而 `*` 參數會傳遞所有其他的資料行，但會在每個資料行名稱前加上 "min\_" 前置詞。
 
@@ -264,7 +264,7 @@ X
 
 ## 聯結類別
 
-聯結運算子的確切類別是以某種關鍵字來指定。目前，AI Analytics支援六種聯結運算子：內部聯結左側重複資料 (預設值)、標準內部聯結、左方外部、右方外部、完整外部和左方反半聯結。
+聯結運算子的確切類別是以某種關鍵字來指定。目前，Analytics支援六種聯結運算子：內部聯結左側重複資料 (預設值)、標準內部聯結、左方外部、右方外部、完整外部和左方反半聯結。
  
 預設聯結類別 (沒有指定類型) 讓我們使用兩個範例資料表來解釋聯結的作業：
  
@@ -310,7 +310,7 @@ X
 
 (請注意，索引鍵 'a' 和 'd' 不會出現在輸出中，因為在左側和右側沒有相符的索引鍵)。
  
-(在過去，這是 AI Analytics 初始版本所支援的第一個聯結實作；它適用於我們想要在相同的相互關聯識別碼底下，將兩個事件的一般記錄/追蹤分析相互關聯的案例 (每個事件均符合某些篩選條件)，回復我們正在尋找之現象的所有樣子，並忽略多個提供之追蹤記錄的表象。)
+(在過去，這是 Analytics 初始版本所支援的第一個聯結實作；它適用於我們想要在相同的相互關聯識別碼底下，將兩個事件的一般記錄/追蹤分析相互關聯的案例 (每個事件均符合某些篩選條件)，回復我們正在尋找之現象的所有樣子，並忽略多個提供之追蹤記錄的表象。)
  
 ### 內部聯結 (kind=inner) 
 
@@ -437,4 +437,4 @@ JobHistory
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

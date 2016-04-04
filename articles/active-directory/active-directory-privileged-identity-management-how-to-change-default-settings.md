@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management：如何變更或檢視角色的預設設定"
+   pageTitle="如何變更或檢視角色的預設設定 | Microsoft Azure"
    description="了解如何利用 Azure AD Privileged Identity Management 擴充功能，變更特殊權限身分識別的預設設定。"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/10/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management：如何變更或檢視角色的預設啟用設定
@@ -52,4 +52,4 @@
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

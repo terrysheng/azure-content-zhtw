@@ -1,28 +1,29 @@
 
-Diagnosing issues with an Microsoft Azure cloud service requires collecting the service’s log files on virtual machines as the issues occur. You can use the AzureLogCollector extension on-demand to perfom one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs.
-> [AZURE.NOTE]Descriptions for most of the logged information can be found at http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+要診斷 Microsoft Azure 雲端服務的問題，必須在問題發生時收集服務在虛擬機器上的記錄檔。您可以視需要使用 AzureLogCollector 延伸模組，從一或多個雲端服務 VM (從 Web 角色和背景工作角色) 執行一次性的記錄收集作業，並將收集到的檔案傳輸到 Azure 儲存體帳戶，完全不必遠端登入任何 VM。
+> [AZURE.NOTE]大部分已記錄的資訊都可在 http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp 找到相關說明。
 
-There are two modes of collection dependent on the types of files to be collected.
-- Azure Guest Agent Logs only (GA). This collection mode includes all the logs related to Azure guest agents and other Azure components.
-- All Logs (Full). This collection mode will collect all files in GA mode plus:
+根據要收集的檔案類型，會有兩種收集模式。
+- 僅限 Azure 客體代理程式記錄檔 (GA)。此收集模式包含所有與 Azure 客體代理程式和其他 Azure 元件相關的記錄。
+- 所有的記錄檔 (完整)。此收集模式將會收集 GA 模式中的所有檔案，外加：
 
-  - system and application event logs
+  - 系統和應用程式事件記錄檔
   
-  - HTTP error logs
+  - HTTP 錯誤記錄檔
   
-  - IIS Logs
+  - IIS 記錄檔
   
-  - Setup logs
+  - 安裝記錄檔
   
-  - other system logs
+  - 其他系統記錄檔
 
-In both collection modes, additional data collection folders can be specified by using a collection of the following structure:
+在這兩種收集模式中，都可以使用下列結構的集合來指定其他資料收集資料夾：
 
-- **Name**: The name of the collection, which will be used as the name of subfolder inside the zip file to be collected.
+- **名稱**：集合的名稱，將做為要收集之 zip 檔案內的子資料夾名稱。
 
-- **Location**: The path to the folder on the virtual machine where file will be collected.
+- **位置**：將要收集檔案的資料夾在虛擬機器上的路徑。
 
-- **SearchPattern**: The pattern of the names of files to be collected. Default is “*”
+- **SearchPattern**：要收集之檔案的名稱模式。預設值為 "*"
 
-- **Recursive**: if the files will be collected recursively under the folder.
-
+- **遞迴**：如果要以遞迴方式收集資料夾下的檔案。
+
+<!---HONumber=AcomDC_0323_2016-->

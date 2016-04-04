@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/17/2016"   
-	ms.author="juliako;adsolank;johndeu"/>
+	ms.date="03/18/2016"   
+	ms.author="adsolank;juliako;johndeu"/>
 
 
 # 使用 Azure Media Indexer 編輯媒體檔案索引
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-manage-content.md#index)
+- [入口網站](media-services-manage-content.md#index)
 - [.NET](media-services-index-content.md)
 
 
@@ -301,4 +301,4 @@ __功能__ <br /><br /> 在 1.2 版中新增。目前唯一支援的功能是語
 
 <!-- URLs. -->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

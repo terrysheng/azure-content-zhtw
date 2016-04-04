@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management：如何開始將角色新增到使用者"
+   pageTitle="如何新增或移除使用者角色 | Microsoft Azure"
    description="了解如何使用 Azure Active Directory Privileged Identity Management 擴充功能來將角色新增到特殊權限身分識別。"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management：如何新增或移除使用者角色
@@ -49,4 +49,4 @@
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

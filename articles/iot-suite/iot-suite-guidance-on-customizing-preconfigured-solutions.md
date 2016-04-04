@@ -81,12 +81,14 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 
 [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) 提供用來將各種裝置類型 (語言和作業系統) 連接至 IoT 解決方案中的程式庫。
 
-## 後續步驟
+## 意見反應
 
-本文件是否涵蓋您感興趣的自訂內容？ 請在[使用者心聲](https://feedback.azure.com/forums/321918-azure-iot)中加入功能建議、在文章下方留言或傳送郵件給我們 (iotsolhelp@microsoft.com)。
+本文件是否涵蓋您感興趣的自訂內容？ 請在 [User Voice (使用者心聲)](https://feedback.azure.com/forums/321918-azure-iot) 中加入功能建議，或在本文下方留言。
+
+## 後續步驟
 
 如需 IoT 裝置的詳細資訊，請參閱 [Azure IoT 開發人員網站](https://azure.microsoft.com/develop/iot/)來尋找連結和文件。
 
 [IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

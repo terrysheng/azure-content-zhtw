@@ -1,36 +1,38 @@
 
  
 
-Set up your first or next dev/test or production Oracle database running on a virtual machine in Azure infrastructure services. Take advantage of ease of configuration and the ability to quickly expand the Oracle database workload to include new capacity.
+在 Azure 基礎結構服務中，設定在虛擬機器中執行的第一個或下一個開發/測試或實際執行的 Oracle 資料庫。利用簡化設定的優點以及快速擴展 Oracle 資料庫工作負載的功能，來使其增加新的容量。
 
-## Oracle virtual machine images
+## Oracle 虛擬機器映像
 
-See [List of Oracle virtual machine images](../articles/virtual-machines/virtual-machines-linux-classic-oracle-images.md) for the latest set of Windows-based and Linux-based virtual machine images.
+如需最新的 Windows 與 Linux 虛擬機器映像集，請參閱 [Oracle 虛擬機器映像清單](../articles/virtual-machines/virtual-machines-linux-classic-oracle-images.md)。
 
-## Considerations for Windows-based virtual machines
+## Windows 架構虛擬機器的考量
 
-See [Miscellaneous considerations for Oracle virtual machine images](../articles/virtual-machines/virtual-machines-windows-classic-oracle-considerations.md) to understand limitations for Oracle software on Windows Server-based Azure virtual machines.
+請參閱 [Oracle 虛擬機器映像的其他考量](../articles/virtual-machines/virtual-machines-windows-classic-oracle-considerations.md)來了解 Windows Server Azure 虛擬機器上之 Oracle 軟體的限制。
 
-## Oracle database virtual machine
+## Oracle 資料庫虛擬機器
 
-[Creating an Oracle database virtual machine in Azure](../articles/virtual-machines/virtual-machines-windows-classic-create-oracle-database.md) steps you through virtual machine creation, database creation, and configuration of popular options.
+[在 Azure 中建立 Oracle Database 虛擬機器](../articles/virtual-machines/virtual-machines-windows-classic-create-oracle-database.md)帶您逐步完成虛擬機器建立、資料庫建立和設定常用的選項。
 
 ## Oracle WebLogic Server 12c
 
-[Creating an Oracle WebLogic Server 12c virtual machine in Azure](../articles/virtual-machines/virtual-machines-windows-create-oracle-weblogic-server-12c.md) steps you through the creation of an Azure virtual machine based on the Oracle WebLogic Server 12c image running on Windows Server 2012.
+[在 Azure 中建立 Oracle WebLogic Server 12c 虛擬機器](../articles/virtual-machines/virtual-machines-windows-create-oracle-weblogic-server-12c.md)帶您逐步完成建立以 Windows Server 2012 上執行之 Oracle WebLogic Server 12c 映像為基礎的 Azure 虛擬機器。
 
-## Oracle WebLogic Server 12c and Oracle Database 12c
+## Oracle WebLogic Server 12c 與 Oracle Database 12c
 
-[Creating an Oracle WebLogic Server 12c and Oracle Database 12c virtual machine in Azure](../articles/virtual-machines/virtual-machines-windows-create-oracle-weblogic-server-12c-database.md) steps you through virtual machine and database creation and configuration.
+[在 Azure 中建立 Oracle WebLogic Server 12c 與 Oracle Database 12c](../articles/virtual-machines/virtual-machines-windows-create-oracle-weblogic-server-12c-database.md) 帶您逐步完成建立和設定虛擬機器與資料庫。
 
-## Prepare an Oracle Linux virtual machine
+## 準備 Oracle Linux 虛擬機器
 
-[Prepare an Oracle Linux virtual machine for Azure](../articles/virtual-machines/virtual-machines-linux-prepare-oracle.md) steps you through the prerequisites and virtual machine creation for Oracle Linux 6.4+ and Oracle Linux 7.0+.
+[準備適用於 Azure 的 Oracle Linux 虛擬機器](../articles/virtual-machines/virtual-machines-linux-prepare-oracle.md)將帶領您逐步完成必要條件和建立 Oracle Linux 6.4 + 與 Oracle Linux 7.0 + 的虛擬機器。
 
-## Oracle Data Guard
+## Oracle 資料保護
 
-[Configuring Oracle Data Guard for Azure](../articles/virtual-machines/virtual-machines-windows-classic-configure-oracle-data-guard.md) steps you through configuration of the standby environment and the listener.
+[設定 Azure 的 Oracle 資料保護](../articles/virtual-machines/virtual-machines-windows-classic-configure-oracle-data-guard.md)帶您逐步完成待命環境與接聽程式的設定。
 
 ## Oracle GoldenGate
 
-[Configuring Oracle GoldenGate for Azure](../articles/virtual-machines/virtual-machines-windows-classic-configure-oracle-goldengate.md) steps you through database and replication setup.
+[設定適用於 Azure 的 Oracle GoldenGate](../articles/virtual-machines/virtual-machines-windows-classic-configure-oracle-goldengate.md) 將帶領您逐步完成資料庫與複寫設定。
+
+<!---HONumber=AcomDC_0323_2016-->

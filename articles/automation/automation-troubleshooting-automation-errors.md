@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/21/2016"
    ms.author="sngun; v-reagie"/>
 
 # Azure 自動化中常見錯誤的疑難排解秘訣
@@ -105,7 +105,7 @@
 
 **疑難排解秘訣：**下列任何一個解決方案都可以修正此問題：
 
-- 檢查您所輸入的 Cmdlet 名稱正確，並確認 Cmdlet 的路徑正確。  
+- 請檢查是否輸入正確的 Cmdlet 名稱。  
 
 - 請確定 Cmdlet 存在於您的自動化帳戶中且沒有衝突。如要確認 Cmdlet 是否存在，請以編輯模式開啟 Runbook，然後搜尋您想要在程式庫中尋找的 Cmdlet，或執行 **Get-Command ``<CommandName>``**。一旦驗證 Cmdlet 可用於帳戶，且與其他 Cmdlet 或 Runbook 沒有名稱衝突，將其加入至畫布，並確保您在 Runbook 中使用有效的參數集。
 
@@ -206,4 +206,4 @@
 
 - 請在 [User Voice](https://feedback.azure.com/forums/34192--general-feedback) 上張貼 Azure 自動化的意見反應或功能要求。
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="透過資料庫加密保護 SQL Database 中的機密資料 | Microsoft Azure"
+	pageTitle="一律加密 - 透過資料庫加密保護 Azure SQL Database 中的機密資料"
 	description="在數分鐘內開始保護您 SQL 資料庫中的機密資料。"
 	keywords="資料加密, 加密金鑰, 雲端加密"	
 	services="sql-database"
@@ -18,7 +18,7 @@
 	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
-# 透過資料加密並將您的加密金鑰儲存在 Azure 金鑰保存庫，來保護 SQL Database 中的機密資料
+# 一律加密 - 透過資料加密並將您的加密金鑰儲存在 Azure 金鑰保存庫，來保護 SQL Database 中的機密資料
 
 > [AZURE.SELECTOR]
 - [Azure 金鑰保存庫](sql-database-always-encrypted-azure-key-vault.md)
@@ -689,4 +689,4 @@ SSMS 提供一個精靈，透過設定加密資料行主要金鑰 (CMK)、資料
 - [Always Encrypted Wizard (永遠加密精靈)](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Always Encrypted Blog (永遠加密部落格)](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

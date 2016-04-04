@@ -1,175 +1,171 @@
 
 
-## Overview
+## 概觀
 
-This article describes the available sizes and options for the virtual machine-based compute resources you can use to run your apps and workloads.  It also provides deployment considerations to be aware of when you're planning to use these resources. For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+本文說明以虛擬機器為基礎之計算資源的可用大小和選項，而您可以使用這類資源來執行應用程式和工作負載。同時也提供當您規劃使用這些資源時所需注意的部署考量。如需各式大小的定價，請參閱[虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/)。
 
-To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+若要查看 Azure VM 的一般限制，請參閱 ＜[Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)＞。
 
-The standard sizes consist of several series: A, D, DS, G, and GS. Considerations for some of these sizes include:
+標準大小包含幾個系列：A、D、DS、G 與 GS。這些大小的一些考量事項包括：
 
-*   D-series VMs are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
+*   D 系列 VM 是為了執行要求更高計算能力和暫存磁碟效能的應用程式所設計。D 系列 VM 提供更快的處理器、較高的記憶體與核心比率，以及適用於暫存磁碟的固態硬碟 (SSD)。如需詳細資訊，請參閱 Azure 部落格的公告，[新 D 系列的虛擬機器大小](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)。
 
-*   Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.2 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+*   Dv2 系列是原始 D 系列的延續，擁有更強大的 CPU。Dv2 系列 CPU 比 D 系列 CPU 快約 35%。它以最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器為基礎，搭配 Intel Turbo Boost Technology 2.0，最高可達 3.2 GHz。Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
 
-*   G-series VMs offer the most memory and run on hosts that have Intel Xeon E5 V3 family processors.
+*   G 系列 VM 提供最大的記憶體，並且是在具有 Intel Xeon E5 V3 系列處理器的主機上執行。
 
-*   DS-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache. Premium Storage is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../storage/storage-premium-storage.md).
-
-
-*   The A-series VMs can be deployed on a variety of hardware types and processors. The size is throttled, based upon the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
-
-*   The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may impact the performance of your running workload. The relative performance is outlined below as the expected baseline, subject to an approximate variability of 15 percent.
+*   DS 系列和 GS 系列 VM 可以使用進階儲存體，針對使用大量 I/O 的工作負載提供高效能、低延遲的儲存體。這些 VM 會使用固態硬碟 (SSD) 來裝載虛擬機器的磁碟，還可提供本機 SSD 磁碟快取。僅特定地區可用進階儲存體。如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../storage/storage-premium-storage.md)。
 
 
-The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) and [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/). For more details about storage for VMss, see [About disks and VHDs for virtual machines ](virtual-machines-linux-about-disks-vhds.md).
+*   A 系列 VM 可以部署在各種不同的硬體類型和處理器上。根據硬體節流大小，為執行中的執行個體提供一致的處理器效能，不論硬體部署的位置。若要判斷此大小部署所在的實體硬體，請從虛擬機器內查詢虛擬硬體。
+
+*   A0 大小是在實體硬體上過度訂閱。僅針對這個特定大小，其他客戶部署可能會影響您正在執行的工作負載的效能。以下概述的相對效能為預期的基準，受限於近似變化性的 15%。
 
 
-The following considerations might help you decide on a size:
+虛擬機器的大小會影響定價。大小也會影響虛擬機器的處理、記憶體和儲存體容量。儲存體成本會分別根據儲存體帳戶中使用的頁面來計算。如需詳細資訊，請參閱[虛擬機器定價詳細資料](https://azure.microsoft.com/pricing/details/virtual-machines/)和 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。如需有關 VM 儲存體的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](virtual-machines-linux-about-disks-vhds.md)。
 
 
-* The A8-A11 sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. For detailed information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+下列考量可協助您決定大小：
 
 
-*	Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
-
-*   Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11. As a result, you may see the error message **Failed to configure virtual machine <machine name>** or **Failed to create virtual machine <machine name>** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See  [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.  
+* A8-A11 大小也稱為「計算密集型執行個體」。執行這些大小的硬體是針對計算密集型和網路密集型應用程式 (包括高效能運算 (HPC) 叢集應用程式)、模型化及模擬而設計及最佳化的。如需使用這些大小的詳細資訊和考量，請參閱[關於 A8、A9、A10 及 A11 計算密集型執行個體](virtual-machines-windows-a8-a9-a10-a11-specs.md)。
 
 
-## Performance considerations
+*	Dv2、D、G以及對應的 DS/GS 是要求更快速的 CPU、更好的本機磁碟效能，或有更高記憶體需求之應用程式的最佳選擇。它們為許多企業級應用程式提供了強大的組合。
 
-We have created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs.  ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark. 
+*   Azure 資料中心的某些實體主機可能不支援較大的虛擬機器大小，例如 A5-A11。因此，您可能會在將現有的虛擬機器調整為新的大小、在 2013 年 4 月 16 日之前建立的虛擬網路中建立新的虛擬機器，或將新的虛擬機器加入現有雲端服務時，看到錯誤訊息：「無法設定虛擬機器 <machine name>」或「無法建立虛擬機器 <machine name>」 。請參閱支援論壇上[錯誤：「無法設定虛擬機器」](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows)，以查看每個部署案例的因應措施。
 
->[AZURE.IMPORTANT] The ACU is only a guideline.  The results for your workload may vary. 
+
+## 效能考量
+
+我們已經建立「Azure 運算單位」(ACU) 概念來提供一種比較各個 Azure SKU 之運算 (CPU) 效能的方法。這將可協助您輕鬆識別哪個 SKU 最可能符合您的效能需求。ACU 目前是以「小型 (Standard\_A1)」VM 為標準 (數值為 100)，而所有其他 SKU 則大致上代表該 SKU 在執行標準基準測試上可以快多少。
+
+>[AZURE.IMPORTANT] ACU 只是一個指導方針。您工作負載的結果可能會有所不同。
 
 <br>
 
-|SKU Family	|ACU/Core |
+|SKU 系列 |ACU/核心 |
 |---|---|
-|[Standard_A0](#standard-tier-a-series)	|50 |
-|[Standard_A1-4](#standard-tier-a-series)	|100 |
-|[Standard_A5-7](#standard-tier-a-series)	|100 |
-|[A8-A11](#standard-tier-a-series)	|225 *|
-|[D1-14](#standard-tier-d-series)	|160 |
-|[D1-14v2](#standard-tier-dv2-series)	|210 - 250 *|
-|[DS1-14](#standard-tier-ds-series)	|160 |
-|[G1-5](#standard-tier-g-series)	|180 - 240 *|
-|[GS1-5](#standard-tier-gs-series)	|180 - 240 *|
+|[Standard\_A0](#standard-tier-a-series) |50 |
+|[Standard\_A1-4](#standard-tier-a-series) |100 |
+|[Standard\_A5-7](#standard-tier-a-series) |100 |
+|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-14v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
 
 
-ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
+以 * 標示的 ACU 使用了「Intel® 渦輪」技術來增加 CPU 頻率及提升效能。提升的程度會依 VM 大小、工作負載及在相同主機上執行的其他工作負載而有所不同。
 
 
 
-## Size tables
+## 大小資料表
 
-The following tables show the sizes and the capacities they provide.
+下表顯示其所提供的大小和容量。
 
-* Storage capacity is represented by using 1024^3 bytes as the unit of measurement for GB. This is sometimes referred to as gibibyte, or base 2 definition. When comparing sizes that use different base systems, remember that base 2 sizes may appear smaller than base 10 but for any specific size (such as 1 GB) a base 2 system provides more capacity than a base 10 system, because 1024^3 is greater than 1000^3.
+* 儲存體容量是使用 1024^3 位元組當作 GB 的度量單位來表示。這有時稱為 gibibyte 或基底 2 定義。比較使用不同基底系統的大小時，請記住，基底 2 的大小可能會顯示為小於基底 10，但是對於任何特定的大小 (例如 1 GB)，基底 2 的系統可提供比基底 10 系統更大的容量，因為 1024^3 大於 1000^3。
 
-* Maximum network bandwidth is the maximum aggregated bandwidth allocated and assigned per VM type. The maximum bandwidth provides guidance for selecting the right VM type to ensure adequate network capacity is available. When moving between Low, Moderate, High and Very High, the throughput will increase accordingly. Actual network performance will depend on many factors including network and application loads, and application network settings.
+* 最大網路頻寬是每個 VM 類型配置並指派的最大彙總頻寬。最大頻寬提供選取正確 VM 類型的指導方針，以確保有適當的網路容量可用。在低、中度、高和極高之間移動時，輸送量將隨之增加。實際的網路效能將取決於許多因素，包括網路和應用程式負載，以及應用程式的網路設定。
 
 
-## Standard tier: A-series
+## 標準層級：A 系列
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
+|大小 |CPU 核心|記憶體|NIC (最大)|最大磁碟大小|最大的資料磁碟 (每個 1023 GB)|最大IOPS (每個磁碟 500)| 最大網路頻寬 |
 |---|---|---|---|---|---|---|---|
-|Standard_A0 |1|768 MB|1| Temporary = 20 GB |1|1x500| low |
-|Standard_A1 |1|1.75 GB|1|Temporary = 70 GB |2|2x500| moderate |
-|Standard_A2 |2|3.5 GB|1|Temporary = 135 GB |4|4x500| moderate |
-|Standard_A3 |4|7 GB|2|Temporary = 285 GB |8|8x500| high |
-|Standard_A4 |8|14 GB|4|Temporary = 605 GB |16|16x500| high |
-|Standard_A5 |2|14 GB|1|Temporary = 135 GB |4|4X500| moderate |
-|Standard_A6 |4|28 GB|2|Temporary = 285 GB |8|8x500| high |
-|Standard_A7 |8|56 GB|4|Temporary = 605 GB |16|16x500| high |
+|Standard\_A0 |1|768 MB|1| 暫存 = 20 GB |1|1x500| 低 |
+|Standard\_A1 |1|1\.75 GB|1|暫存 = 70 GB |2|2x500| 中度 |
+|Standard\_A2 |2|3\.5 GB|1|暫存 = 135 GB |4|4x500| 中度 |
+|Standard\_A3 |4|7 GB|2|暫存 = 285 GB |8|8x500| 高 |
+|Standard\_A4 |8|14 GB|4|暫存 = 605 GB |16|16x500| 高 |
+|Standard\_A5 |2|14 GB|1|暫存 = 135 GB |4|4X500| 中度 |
+|Standard\_A6 |4|28 GB|2|暫存 = 285 GB |8|8x500| 高 |
+|Standard\_A7 |8|56 GB|4|暫存 = 605 GB |16|16x500| 高 |
 
 
-## Standard tier: A-series - compute-intensive instances
+## 標準層級：A 系列 - 計算密集型執行個體
 
-Note: For information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+注意：如需使用這些大小的資訊和考量，請參閱[關於 A8、A9、A10 及 A11 計算密集型執行個體](virtual-machines-windows-a8-a9-a10-a11-specs.md)。
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
+|大小 |CPU 核心|記憶體|NIC (最大)|最大磁碟大小|最大的資料磁碟 (每個 1023 GB)|最大IOPS (每個磁碟 500)| 最大網路頻寬 |
 |---|---|---|---|---|---|---|---|
-|Standard_A8|8|56 GB|2| Temporary = 382 GB  |16|16x500| high |
-|Standard_A9|16|112 GB|4| Temporary = 382 GB  |16|16x500| very high |
-|Standard_A10|8|56 GB|2| Temporary = 382 GB  |16|16x500| high |
-|Standard_A11|16|112 GB|4| Temporary = 382 GB  |16|16x500| very high |
+|Standard\_A8|8|56 GB|2| 暫存 = 382 GB |16|16x500| 高 |
+|Standard\_A9|16|112 GB|4| 暫存 = 382 GB |16|16x500| 非常高 |
+|Standard\_A10|8|56 GB|2| 暫存 = 382 GB |16|16x500| 高 |
+|Standard\_A11|16|112 GB|4| 暫存 = 382 GB |16|16x500| 非常高 |
 
-## Standard tier: D-series
+## 標準層級：D 系列
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
+|大小 |CPU 核心|記憶體|NIC (最大)|最大磁碟大小|最大的資料磁碟 (每個 1023 GB)|最大IOPS (每個磁碟 500)| 最大網路頻寬 |
 |---|---|---|---|---|---|---|---|
-|Standard_D1 |1|3.5 GB|1|Temporary (SSD) =50 GB |2|2x500| moderate |
-|Standard_D2 |2|7 GB|2|Temporary (SSD) =100 GB |4|4x500| high |
-|Standard_D3 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500| high |
-|Standard_D4 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500| high |
-|Standard_D11 |2|14 GB|2|Temporary (SSD) =100 GB |4|4x500| high |
-|Standard_D12 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500| high |
-|Standard_D13 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500| high |
-|Standard_D14 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500| very high |
+|標準\_D1 |1|3\.5 GB|1|暫存 (SSD) =50 GB |2|2x500| 中度 |
+|標準\_D2 |2|7 GB|2|暫存 (SSD) = 100 GB |4|4x500| 高 |
+|標準\_D3 |4|14 GB|4|暫存 (SSD) = 200 GB |8|8x500| 高 |
+|標準\_D4 |8|28 GB|8|暫存 (SSD) = 400 GB |16|16x500| 高 |
+|標準\_D11 |2|14 GB|2|暫存 (SSD) = 100 GB |4|4x500| 高 |
+|標準\_D12 |4|28 GB|4|暫存 (SSD) = 200 GB |8|8x500| 高 |
+|標準\_D13 |8|56 GB|8|暫存 (SSD) = 400 GB |16|16x500| 高 |
+|標準\_D14 |16|112 GB|8|暫存 (SSD) = 800 GB |32|32x500| 非常高 |
 
-## Standard tier: Dv2-series
+## 標準層級：Dv2 系列
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
+|大小 |CPU 核心|記憶體|NIC (最大)|最大磁碟大小|最大的資料磁碟 (每個 1023 GB)|最大IOPS (每個磁碟 500)| 最大網路頻寬 |
 |---|---|---|---|---|---|---|---|
-|Standard_D1_v2 |1|3.5 GB|1|Temporary (SSD) =50 GB |2|2x500| moderate |
-|Standard_D2_v2 |2|7 GB|2|Temporary (SSD) =100 GB |4|4x500| high |
-|Standard_D3_v2 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500| high |
-|Standard_D4_v2 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500| high |
-|Standard_D5_v2 |16|56 GB|8|Temporary (SSD) =800 GB |32|32x500| very high |
-|Standard_D11_v2 |2|14 GB|2|Temporary (SSD) =100 GB |4|4x500| high |
-|Standard_D12_v2 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500| high |
-|Standard_D13_v2 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500| high |
-|Standard_D14_v2 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500| very high |
+|Standard\_D1\_v2 |1|3\.5 GB|1|暫存 (SSD) =50 GB |2|2x500| 中度 |
+|Standard\_D2\_v2 |2|7 GB|2|暫存 (SSD) = 100 GB |4|4x500| 高 |
+|Standard\_D3\_v2 |4|14 GB|4|暫存 (SSD) = 200 GB |8|8x500| 高 |
+|Standard\_D4\_v2 |8|28 GB|8|暫存 (SSD) = 400 GB |16|16x500| 高 |
+|Standard\_D5\_v2 |16|56 GB|8|暫存 (SSD) = 800 GB |32|32x500| 非常高 |
+|Standard\_D11\_v2 |2|14 GB|2|暫存 (SSD) = 100 GB |4|4x500| 高 |
+|Standard\_D12\_v2 |4|28 GB|4|暫存 (SSD) = 200 GB |8|8x500| 高 |
+|Standard\_D13\_v2 |8|56 GB|8|暫存 (SSD) = 400 GB |16|16x500| 高 |
+|Standard\_D14\_v2 |16|112 GB|8|暫存 (SSD) = 800 GB |32|32x500| 非常高 |
 
-## Standard tier: DS-series*
+## 標準層級：DS 系列*
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth| Max network bandwidth |
+|大小 |CPU 核心|記憶體|NIC (最大)|最大磁碟大小|最大的資料磁碟 (每個 1023 GB)|快取大小 (GB)|最大的磁碟 IOPS 和頻寬| 最大網路頻寬 |
 |---|---|---|---|---|---|---|---|---|
-|Standard_DS1 |1|3.5|1|Local SSD disk = 7 GB |2|43| 3,200  32 MB per second | moderate |
-|Standard_DS2 |2|7|2|Local SSD disk = 14 GB |4|86| 6,400  64 MB per second | high |
-|Standard_DS3 |4|14|4|Local SSD disk = 28 GB |8|172| 12,800  128 MB per second | high |
-|Standard_DS4 |8|28|8|Local SSD disk = 56 GB |16|344| 25,600  256 MB per second | high |
-|Standard_DS11 |2|14|2|Local SSD disk = 28 GB |4|72| 6,400  64 MB per second | high |
-|Standard_DS12 |4|28|4|Local SSD disk = 56 GB |8|144| 12,800  128 MB per second | high |
-|Standard_DS13 |8|56|8|Local SSD disk = 112 GB |16|288| 25,600  256 MB per second | high |
-|Standard_DS14 |16|112|8|Local SSD disk = 224 GB |32|576| 50,000  512 MB per second | very high |
+|Standard\_DS1 |1|3\.5|1|本機 SSD 磁碟 = 7 GB |2|43| 3,200 每秒 32 MB | 中度 |
+|Standard\_DS2 |2|7|2|本機 SSD 磁碟 = 14 GB |4|86| 6,400 每秒 64 MB | 高 |
+|Standard\_DS3 |4|14|4|本機 SSD 磁碟 = 28 GB |8|172| 12,800 每秒 128 MB | 高 |
+|Standard\_DS4 |8|28|8|本機 SSD 磁碟 = 56 GB |16|344| 25,600 每秒 256 MB | 高 |
+|Standard\_DS11 |2|14|2|本機 SSD 磁碟 = 28 GB |4|72| 6,400 每秒 64 MB | 高 |
+|Standard\_DS12 |4|28|4|本機 SSD 磁碟 = 56 GB |8|144| 12,800 每秒 128 MB | 高 |
+|Standard\_DS13 |8|56|8|本機 SSD 磁碟 = 112 GB |16|288| 25,600 每秒 256 MB | 高 |
+|Standard\_DS14 |16|112|8|本機 SSD 磁碟 = 224 GB |32|576| 50,000 每秒 512 MB | 非常高 |
 
-*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../storage/storage-premium-storage.md).
+**磁碟大小會影響 DS 系列 VM 每秒 (IOPS) 輸入/輸出作業量最大值，和可以達到最大輸送量 (頻寬)。如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../storage/storage-premium-storage.md)。
 
-## Standard tier: G-series
+## 標準層級：G 系列
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
+|大小 |CPU 核心|記憶體|NIC (最大)|最大磁碟大小|最大的資料磁碟 (每個 1023 GB)|最大IOPS (每個磁碟 500)| 最大網路頻寬 |
 |---|---|---|---|---|---|---|---|
-|Standard_G1 |2|28 GB|1|Local SSD disk = 384 GB |4|4 x 500| high |
-|Standard_G2 |4|56 GB|2|Local SSD disk = 768 GB |8|8 x 500| high |
-|Standard_G3 |8|112 GB|4|Local SSD disk = 1,536 GB |16|16 x 500| very high | 
-|Standard_G4 |16|224 GB|8|Local SSD disk = 3,072 GB |32|32 x 500| extremely high |
-|Standard_G5 |32|448 GB|8|Local SSD disk = 6,144 GB |64| 64 x 500 | extremely high |
+|Standard\_G1 |2|28 GB|1|本機 SSD 磁碟 = 384 GB |4|4 x 500| 高 |
+|Standard\_G2 |4|56 GB|2|本機 SSD 磁碟 = 768 GB |8|8 x 500| 高 |
+|Standard\_G3 |8|112 GB|4|本機 SSD 磁碟 = 1,536 GB |16|16 x 500| 非常高 | 
+|Standard\_G4 |16|224 GB|8|本機 SSD 磁碟 = 3,072 GB |32|32 x 500| 極高 |
+|Standard\_G5 |32|448 GB|8|本機 SSD 磁碟 = 6,144 GB |64| 64 x 500 | 極高 |
 
-## Standard tier: GS-series
+## 標準層級：GS 系列
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth| Max network bandwidth |
+|大小 |CPU 核心|記憶體|NIC (最大)|最大磁碟大小|最大的資料磁碟 (每個 1023 GB)|快取大小 (GB)|最大的磁碟 IOPS 和頻寬| 最大網路頻寬 |
 |---|---|---|---|---|---|---|---|---|
-|Standard_GS1|2|28|1|Local SSD disk = 56 GB |4|264| 5,000  125 MB per second | high |
-|Standard_GS2|4|56|2|Local SSD disk = 112 GB |8|528| 10,000  250 MB per second | high | 
-|Standard_GS3|8|112|4|Local SSD disk = 224 GB |16|1056| 20,000  500 MB per second | very high |
-|Standard_GS4|16|224|8|Local SSD disk = 448 GB |32|2112| 40,000  1,000 MB per second | extremely high |
-|Standard_GS5|32|448|8|Local SSD disk = 896 GB |64|4224| 80,000  2,000 MB per second | extremely high |
+|Standard\_GS1|2|28|1|本機 SSD 磁碟 = 56 GB |4|264| 5,000 每秒 125 MB | 高 |
+|Standard\_GS2|4|56|2|本機 SSD 磁碟 = 112 GB |8|528| 10,000 秒 250 MB | 高 | 
+|Standard\_GS3|8|112|4|本機 SSD 磁碟 = 224 GB |16|1056| 20,000 每秒 500 MB | 非常高 |
+|Standard\_GS4|16|224|8|本機 SSD 磁碟 = 448 GB |32|2112| 40,000 每秒 1,000 MB | 極高 |
+|Standard\_GS5|32|448|8|本機 SSD 磁碟 = 896 GB |64|4224| 80,000 每秒 2,000 MB | 極高 |
 
 
-## Notes: Standard A0 - A4 using CLI and Powershell 
+## 注意︰使用 CLI 和 Powershell 的標準 A0 - A4 
 
-In the classic deployment model, some VM size names are slightly different in CLI and Powershell:
+在傳統部署模型中，部分 VM 大小名稱會與 CLI 和 Powershell 中的稍有不同。
 
-* Standard_A0 is ExtraSmall 
-* Standard_A1 is Small
-* Standard_A2 is Medium
-* Standard_A3 is Large
-* Standard_A4 is ExtraLarge
+* Standard\_A0 是「特小型」 
+* Standard\_A1 是「小型」
+* Standard\_A2 是「中型」
+* Standard\_A3 是「大型」
+* Standard\_A4 是「特大型」
 
-## Next steps
+## 後續步驟
 
-- Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-- Learn more [about the A8, A9, A10, and A11 compute intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md) for workloads like High-performance Computing (HPC).
+- 了解 [Azure 訂用帳戶及服務限制、配額與限制](../azure-subscription-service-limits.md)。
+- 深入了解像是高效能運算 (HPC) 之工作負載的 [A8、A9、A10 和 A11 計算密集型執行個體](virtual-machines-windows-a8-a9-a10-a11-specs.md)。
 
+<!---HONumber=AcomDC_0323_2016-->

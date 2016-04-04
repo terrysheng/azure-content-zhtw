@@ -1,72 +1,72 @@
 
 
-There are two levels of load balancing available for Azure infrastructure services:
+Azure 基礎結構服務提供兩種負載平衡層級︰
 
-- **DNS Level**:  Load balancing for traffic to different cloud services located in different data centers, to different Azure websites located in different data centers, or to external endpoints. This is done with Azure Traffic Manager and the Round Robin load balancing method.
-- **Network Level**:  Load balancing of incoming Internet traffic to different virtual machines of a cloud service, or load balancing of traffic between virtual machines in a cloud service or virtual network. This is done with the Azure load balancer.
+- **DNS 層級**：平衡流往位於不同資料中心之不同雲端服務或不同 Azure 網站的流量負載，或是流往外部端點的流量負載。這項工作由 Azure 流量管理員及循環配置資源負載平衡方法完成。
+- **網路層級**：平衡雲端服務之不同虛擬機器的網際網路連入流量負載，或是平衡雲端服務或虛擬網路中虛擬機器間的流量負載。這項工作由 Azure 負載平衡器所完成。
 
-## Traffic Manager load balancing for cloud services and websites##
+## 雲端服務及網站的流量管理員負載平衡##
 
-Traffic Manager allows you to control the distribution of user traffic to endpoints, which can include cloud services, websites, external sites, and other Traffic Manager profiles. Traffic Manager works by applying an intelligent policy engine to Domain Name System (DNS) queries for the domain names of your Internet resources. Your cloud services or websites can be running in different datacenters across the world.
+流量管理員讓您可以控制使用者流量分配至端點，包括雲端服務、網站、外部網站及其他流量管理員設定檔。流量管理員的運作方式是在您的網際網路資源網域名稱的網域名稱系統 (DNS) 查詢上套用情報原則引擎。您的雲端服務或網站可以在世界各地不同的資料中心間執行。
 
-You must use either REST or Windows PowerShell to configure external endpoints or Traffic Manager profiles as endpoints.
+您必須使用 REST 或 Windows PowerShell 來設定外部端點或將流量管理員設定檔設定為端點。
 
-Traffic Manager uses three load-balancing methods to distribute traffic:
+流量管理員使用三種不同的負載平衡方法來分配流量︰
 
-- **Failover**:  Use this method when you want to use a primary endpoint for all traffic, but provide backups in case the primary becomes unavailable.
-- **Performance**:  Use this method when you have endpoints in different geographic locations and you want requesting clients to use the "closest" endpoint in terms of the lowest latency.
-- **Round Robin:**  Use this method when you want to distribute load across a set of cloud services in the same datacenter or across cloud services or websites in different datacenters.
+- **容錯移轉**：當您想要針對所有流量使用主要端點時才可使用此方法，但請提供備份，以便在主要端點無法使用時使用。
+- **效能**：當您的端點位於不同地理位置，且您為了取得最低延遲而要求用戶端使用「最靠近」的端點時，才可使用此方法。
+- **循環配置資源**：在您想要在相同資料中心的一組雲端服務上，或在不同資料中心的雲端服務或網站上分配負載時，才可使用此方法。
 
-For more information, see [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md).
+如需詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法](../traffic-manager/traffic-manager-load-balancing-methods.md)。
 
-The following diagram shows an example of the Round Robin load balancing method for distributing traffic between different cloud services.
+下圖顯示在不同雲端服務間使用循環配置資源負載平衡方法分配流量的範例。
 
-![loadbalancing](./media/virtual-machines-common-load-balance/TMSummary.png)
+![負載平衡](./media/virtual-machines-common-load-balance/TMSummary.png)
 
-The basic process is the following:
+基礎程序如下︰
 
-1.	An Internet client queries a domain name corresponding to a web service.
-2.	DNS forwards the name query request to Traffic Manager.
-3.	Traffic Manager chooses the next cloud service in the Round Robin list and sends back the DNS name. The Internet client's DNS server resolves the name to an IP address and sends it to the Internet client.
-4.	The Internet client connects with the cloud service chosen by Traffic Manager.
+1.	一個網際網路用戶端查詢對應至一個網路服務的網域名稱。
+2.	DNS 轉送名稱查詢要求至流量管理員。
+3.	流量管理員選擇循環配置資源中的下一個雲端服務，並傳回 DNS 名稱。網際網路用戶端的 DNS 伺服器將該名稱解析為 IP 位址，並傳送至網際網路用戶端。
+4.	網際網路用戶端連線到流量管理員選擇的雲端服務。
 
-For more information, see [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+如需詳細資訊，請參閱 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)。
 
-## Azure load balancing for virtual machines ##
+## 虛擬機器的 Azure 負載平衡 ##
 
-Virtual machines in the same cloud service or virtual network can communicate with each other directly using their private IP addresses. Computers and services outside the cloud service or virtual network can only communicate with virtual machines in a cloud service or virtual network with a configured endpoint. An endpoint is a mapping of a public IP address and port to that private IP address and port of a virtual machine or web role within an Azure cloud service.
+相同雲端服務或虛擬網路中的虛擬機器都可以與其他使用其私人 IP 位址的虛擬機器直接進行通訊。雲端服務或虛擬網路之外的電腦與服務僅能與具有設定的端點之雲端服務或虛擬網路中的虛擬機器進行通訊。端點是公用 IP 位址和連接埠與 Azure 雲端服務的虛擬機器或網站角色私人 IP 位置與連接埠的對應。
 
-The Azure Load Balancer randomly distributes a specific type of incoming traffic across multiple virtual machines or services in a configuration known as a load-balanced set. For example, you can spread the load of web request traffic across multiple web servers or web roles.
+Azure 負載平衡器會隨機分配稱為負載平衡集之組態中的多個虛擬機器或服務的特定類型連入流量。例如，您可以將 Web 要求的流量負載分散在多個 Web 伺服器或 Web 角色。
 
-The following diagram shows a load-balanced endpoint for standard (unencrypted) web traffic that is shared among three virtual machines for the public and private TCP port of 80. These three virtual machines are in a load-balanced set.
+下圖顯示在三部虛擬機器中共用，且公用和私人 TCP 連接埠均為 80 的標準 (未加密) Web 流量負載平衡端點。這三部虛擬機器均位在負載平衡集合中。
 
-![loadbalancing](./media/virtual-machines-common-load-balance/LoadBalancing.png)
+![負載平衡](./media/virtual-machines-common-load-balance/LoadBalancing.png)
 
-For more information, see [Azure Load Balancer](../load-balancer/load-balancer-overview.md). For the steps to create a load-balanced set, see [Configure a load-balanced set](../load-balancer/load-balancer-internet-getstarted.md).
+如需詳細資訊，請參閱 [Azure 負載平衡器](../load-balancer/load-balancer-overview.md)。如須建立負載平衡集的步驟，請參閱[設定負載平衡集](../load-balancer/load-balancer-internet-getstarted.md)。
 
-Azure can also load balance within a cloud service or virtual network. This is known as internal load balancing and can be used in the following ways:
+Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內部負載平衡，可用於以下方式︰
 
-- To load balance between servers in different tiers of a multi-tier application (for example, between web and database tiers).
-- To load balance line-of-business (LOB) applications hosted in Azure without requiring additional load balancer hardware or software.
-- To include on-premises servers in the set of computers whose traffic is load balanced.
+- 在多層式應用程式中的不同階層進行負載平衡 (例如，在網站與資料庫層之間)。
+- 在需要額外負載平衡器硬體或軟體之 Azure 代管的企業營運系統 (LOB) 應用程式中進行負載平衡。
+- 包括流量已負載平衡之電腦集合中的內部部署伺服器。
 
-Similar to Azure load balancing, internal load balancing is facilitated by configuring an internal load-balanced set.
+與 Azure 負載平衡相似，內部負載平衡透過設定內部負載平衡集而受惠。
 
-The following diagram shows an example of an internal load-balanced endpoint for a line of business (LOB) application that is shared among three virtual machines in a cross-premises virtual network.
+下圖顯示企業營運系統 (LOB) 應用程式之內部負載平衡端點的範例，該應用程式由跨部署虛擬網路中的三部虛擬機器所共用。
 
-![loadbalancing](./media/virtual-machines-common-load-balance/LOBServers.png)
+![負載平衡](./media/virtual-machines-common-load-balance/LOBServers.png)
 
-## Load balancer considerations
+## 負載平衡器考量
 
-A load balancer is configured by default to timeout an idle session in 4 minutes. If your application behind a load balancer leaves a connection idle for more than 4 minutes and it doesn't have a Keep-Alive configuration, the connection will be dropped. You can change the load balancer behavior to allow a [longer timeout setting for Azure load balancer](../load-balancer/load-balancer-tcp-idle-timeout.md).
+負載平衡器預設設定為在 4 分鐘的閒置工作階段後逾時。如果負載平衡器後方的應用程式會保持連接閒置超過 4 分鐘，且沒有持續連線組態，則連接會中斷。您可以變更負載平衡器行為，允許 [Azure 負載平衡器的較長逾時設定](../load-balancer/load-balancer-tcp-idle-timeout.md)。
 
-Other consideration is the type of distribution mode supported by Azure Load Balancer. You can configure source IP affinity (source IP, destination IP) or source IP protocol (source IP , destination IP and protocol). Check out [Azure Load Balancer distribution mode (source IP affinity)](../load-balancer/load-balancer-distribution-mode.md) for more information.
+其他考量是 Azure 負載平衡器支援的分配模式類型。您可以設定來源 IP 同質性 (來源 IP、目的地 IP) 或來源 IP 通訊協定 (來源 IP、目的地 IP 及通訊協定)。如需詳細資訊，請參閱 [Azure 負載平衡器分配模式 (來源 IP 同質性)](../load-balancer/load-balancer-distribution-mode.md)。
 
 
-## Next steps
+## 後續步驟
 
-For the steps to create a load-balanced set, see [Configure an internal load-balanced set](../load-balancer/load-balancer-internal-getstarted.md).
+如須建立負載平衡集的步驟，請參閱[設定內部負載平衡集](../load-balancer/load-balancer-internal-getstarted.md)。
 
-For more information about load balancer, see [Internal load balancing](../load-balancer/load-balancer-internal-overview.md).
+如需負載平衡器的詳細資訊，請參閱[內部負載平衡](../load-balancer/load-balancer-internal-overview.md)。
 
-
+<!---HONumber=AcomDC_0323_2016-->

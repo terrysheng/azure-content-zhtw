@@ -1,51 +1,53 @@
 
 
 
-To create virtual machines based on Oracle images, sign in to the [Azure portal](https://ms.portal.azure.com/), click **Marketplace**, click **Compute**, and then type **Oracle** into the Search box. Select an image and follow the instructions to set up the image on Microsoft Azure. Note that Oracle images by Microsoft on the [Azure portal](https://ms.portal.azure.com/) run on Windows, and Oracle images by Oracle run on Oracle Linux.
+若要建立以 Oracle 映像為基礎的虛擬機器，請登入 [Azure 入口網站](https://ms.portal.azure.com/)，按一下 [**Marketplace**]，按一下 [**運算**]，然後在 [搜尋] 方塊中輸入 **Oracle**。選取映像並遵循指示在 Microsoft Azure 上設定映像。請注意，在 [Azure 入口網站](https://ms.portal.azure.com/)上由 Microsoft 提供的 Oracle 映像在 Windows 上執行，而由 Oracle 提供的 Oracle 映像則在 Oracle Linux 上執行。
 
 ![](./media/virtual-machines-common-classic-oracle-images/image1.png)
 
-##Windows-based virtual machine images
-The following is a list of the available Oracle virtual machine images that run on Windows Server on Azure. These images are pay-as-you-go, meaning that Oracle license fees are included in the usage of these images. You can also bring your own license to run Oracle software on Windows or Linux. Here are complete details on [pricing and licensing for Azure Virtual Machines and virtual machine gallery images](https://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Click the **Oracle** tab for details on specific Oracle pricing.
+##Windows 虛擬機器映像
+以下是可用的 Oracle 虛擬機器映像清單，可在 Azure 的 Windows Server 上執行。這些映像是「隨用隨付」，表示 Oracle 授權費用已包含在這些映像的使用量中。您也可以使用自己的授權，在 Windows 或 Linux 上執行 Oracle 軟體。在 [Azure 虛擬機器與虛擬機器資源庫映像的價格與授權](https://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software)中有完整的詳細資料。如需特定的 Oracle 價格詳細資料，請按一下 [**Oracle**] 索引標籤。
 
-###Oracle Database virtual machine images
+###Oracle 資料庫虛擬機器映像
 - Oracle Database 12c Enterprise Edition on Windows Server 2012
 - Oracle Database 12c Standard Edition on Windows Server 2012
-- Oracle Database 12c with Popular Options
-- Oracle Database 12c with Advanced Options
+- Oracle Database 12c 包含常用選項
+- Oracle Database 12c 包含進階選項
 - Oracle Database 11g R2 Enterprise Edition on Windows Server 2008 R2
 - Oracle Database 11g R2 Standard Edition on Windows Server 2008 R2
-- Oracle Database 11g R2 EE with Popular Options
-- Oracle Database 11g R2 EE with Advanced Options  
+- Oracle Database 11g R2 EE 包含常用選項
+- Oracle Database 11g R2 EE 包含進階選項  
 
-###Oracle WebLogic Server virtual machine images
+###Oracle WebLogic Server 虛擬機器映像
 - Oracle WebLogic Server 12c Enterprise Edition on Windows Server 2012
 - Oracle WebLogic Server 12c Standard Edition on Windows Server 2012
 - Oracle WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2
 - Oracle WebLogic Server 11g Standard Edition on Windows Server 2008 R2  
 
-###Oracle Database and WebLogic Server virtual machine images  
+###Oracle 資料庫與 WebLogic Server 虛擬機器映像  
 - Oracle Database 12c and WebLogic Server 12c Enterprise Edition on Windows Server 2012
 - Oracle Database 12c and WebLogic Server 12c Standard Edition on Windows Server 2012
-- Oracle Database 11g and WebLogic Server 11g Enterprise Edition on Windows Server 2008 R2
-- Oracle Database 11g and WebLogic Server 11g Standard Edition on Windows Server 2008 R2
+- Windows Server 2008 R2 上的 Oracle Database 11g 與 WebLogic Server 11g Enterprise Edition
+- Windows Server 2008 R2 上的 Oracle Database 11g 與 WebLogic Server 11g Standard Edition
 
-### Java virtual machine images
+### Java 虛擬機器映像
 -	JDK 8 on Windows Server 2012 R2
 -	JDK 7 on Windows Server 2012
--	JDK 6 on Windows Server 2012
+-	Windows Server 2012 上的 JDK 6
 
 
-##Oracle Linux virtual machine images
-The following is a list of the available preconfigured Oracle virtual machine images that run on Oracle Linux on Azure. You are expected to bring your own license for these images, as Oracle license fees are not included in the usage of these preconfigured virtual machine images. You can also bring your own license to install and run Oracle software on custom virtual machines on Windows or Linux. Here are complete details on [Oracle licensing on Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support). And here are details on creating virtual machines using [your own images](virtual-machines-windows-classic-createupload-vhd.md). To learn about this and other methods of migrating Oracle and other workloads to Azure, see [Different ways to create a Windows-based virtual machine](virtual-machines-windows-creation-choices.md).
+##Oracle Linux 虛擬機器映像
+以下是可用的預先設定 Oracle 虛擬機器映像清單，可在 Azure 的 Oracle Linux 上執行。您預期針對這些映像使用您自己的授權，因為 Oracle 授權費用並未包含使用這些預先設定的虛擬機器映像。您也可以在 Windows 或 Linux 的自訂虛擬機器上使用自己的授權安裝並執行 Oracle 軟體。在 [Azure 上的 Oracle 授權](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)中有完整的詳細資料。而以下是使用[您自己的映像](virtual-machines-windows-classic-createupload-vhd.md)建立虛擬機器的詳細資料。若要深入了解移轉 Oracle 與其他工作負載至 Azure 的方法，請參閱[建立 Windows 虛擬機器的不同方式](virtual-machines-windows-creation-choices.md)。
 
-- Oracle Database 12c Enterprise Edition on Oracle Linux
-- Oracle Database 12c Standard Edition on Oracle Linux
-- Oracle WebLogic Server 12c Enterprise Edition on Oracle Linux
+- Oracle Linux 上的 Oracle Database 12c Enterprise Edition
+- Oracle Linux 上的 Oracle Database 12c Standard Edition
+- Oracle Linux 上的 Oracle WebLogic Server 12c Enterprise Edition
 - Oracle Linux 6.4.0.0.0
 - Oracle Linux 7.0.0.0.0
 
-##Additional resources
-[New all-in-one Oracle images in the Azure Marketplace](https://msopentech.com/blog/2015/02/19/new-one-oracle-images-azure-marketplace/)
+##其他資源
+[Azure Marketplace 中新的全方位 Oracle 映像](https://msopentech.com/blog/2015/02/19/new-one-oracle-images-azure-marketplace/)
 
-[Oracle virtual machine images - miscellaneous considerations](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
+[Oracle 虛擬機器映像 - 其他考量](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
+
+<!---HONumber=AcomDC_0323_2016-->

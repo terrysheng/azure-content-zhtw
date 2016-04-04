@@ -120,7 +120,7 @@
 
         PS C:\> $secret = Get-AzureKeyVaultSecret -VaultName examplevault -Name appPassword
         
-2. 取得您的 Active Directory 應用程式。登入時，您將需要應用程式識別碼。
+2. 取得您的 Active Directory 應用程式。登入時會需要應用程式識別碼。
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
 
@@ -231,7 +231,7 @@
 <a id="provide-certificate-through-automated-powershell-script" />
 ### 透過自動化的 PowerShell 指令碼提供憑證
 
-1. 取得您的 Active Directory 應用程式。登入時，您將需要應用程式識別碼
+1. 取得您的 Active Directory 應用程式。登入時會需要應用程式識別碼
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
         
@@ -517,4 +517,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

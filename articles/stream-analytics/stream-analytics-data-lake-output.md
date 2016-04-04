@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="03/10/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffstok"
 />
 
@@ -27,7 +27,7 @@
 
 ## 授權 Data Lake Store 帳戶
 
-1.  選取 Data Lake Store 做為 Azure 管理入口網站中的輸出時，系統將會提示您授權使用您現有的 Data Lake Store，或要求透過 Azure Preview 入口網站存取 Data Lake Store 預覽。
+1.  選取 Data Lake Store 作為 Azure 管理入口網站中的輸出時，系統將會提示您授權使用您現有的 Data Lake Store，或要求透過 Azure 傳統入口網站存取 Data Lake Store Preview。
 
     ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.jpg)
 
@@ -92,4 +92,4 @@
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.jpg)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

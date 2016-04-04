@@ -64,8 +64,8 @@ Mac/Linux 使用者：如果您無法存取 Windows 電腦，請參閱[建立執
 建議您刪除應用程式上現有的虛擬環境，以防止在自動管理虛擬環境時遺留檔案。
 
 
-[建立執行 Windows 的虛擬機器]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
+[建立執行 Windows 的虛擬機器]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
 [Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

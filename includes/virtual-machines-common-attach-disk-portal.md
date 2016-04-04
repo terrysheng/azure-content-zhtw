@@ -1,55 +1,53 @@
 
 
-This article shows you how to attach both new and existing disks to a virtual machine through the Azure portal. Before you do this, review these tips:
+本文將說明如何透過 Azure入口網站將新的和現有的磁碟連接至虛擬機器。這麼做之前，請先檢閱下列提示：
 
-- The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
-- To use Premium storage, you'll need a DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage-preview-portal.md).
-- Disks attached to virtual machines are actually .vhd files in an Azure storage account. For details, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
-- For a new disk, you don't need to create it first because Azure creates it when you attach it.
-- For an existing disk, the .vhd file must be available in an Azure storage account. You can use a .vhd that's already there, if it's not attached to another virtual machine, or upload your own .vhd file to the storage account.
+- 虛擬機器的大小會控制您可以連接的資料磁碟數目。如需詳細資訊，請參閱[虛擬機器的大小](virtual-machines-linux-sizes.md)。
+- 若要使用進階儲存體，您需要 DS 系列或 GS 系列的虛擬機器。您可以使用進階或標準儲存體帳戶的磁碟搭配這些虛擬機器。僅特定地區可用進階儲存體。如需詳細資訊，請參閱[高階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../storage/storage-premium-storage-preview-portal.md)。
+- 連接至虛擬機器的磁碟實際上是 Azure 儲存體帳戶中的 .vhd 檔案。如需詳細資訊，請參閱[有關虛擬機器的磁碟和 VHD](virtual-machines-linux-about-disks-vhds.md)。
+- 對於新的磁碟，當您連接的時候 Azure 會建立該磁碟，所以您不需要建立它。
+- 對於現有的磁碟，該 .vhd 檔案必須可在 Azure 儲存體帳戶中取得。您可以使用現有的 .vhd 檔案 (若尚未連接至其他虛擬機器)，或上傳您自己的 .vhd 檔案至儲存體帳戶。
 
-## Find the virtual machine
+## 尋找虛擬機器
 
-1. Sign in to the Azure portal.
+1. 登入 Azure 入口網站。
 
-2. On the Hub menu, click **Virtual Machines**.
+2. 在 [中樞] 功能表上，按一下 [虛擬機器]。
 
-3.	Select the virtual machine from the list.
+3.	然後從清單中選取虛擬機器。
 
-4. To the right, under **Essentials**, click **All settings**, and then click **Disks**.
+4. 在右側的 [Essentials] 底下，按一下 [所有設定]，然後按一下 [磁碟]。
 
-	![Open disk settings](./media/virtual-machines-common-attach-disk-portal/find-disk-settings.png)
+	![開啟磁碟設定](./media/virtual-machines-common-attach-disk-portal/find-disk-settings.png)
 
-Continue by following instructions for attaching either a new disk or an existing disk.
+接著依照指示來連接新的磁碟或現有的磁碟。
 
-## Option 1: Attach a new disk
+## 選項 1：連接新的磁碟
 
-1.	On the **Disks** blade, click **Attach new**.
+1.	在 [磁碟] 刀鋒視窗上，按一下 [連接新項目]。
 
-2.	Review the default settings, update as necessary, and then click **OK**.
+2.	檢閱預設設定，視需要進行更新，然後按一下 [確定]。
 
- 	![Review disk settings](./media/virtual-machines-common-attach-disk-portal/attach-new.png)
+ 	![檢閱磁碟設定](./media/virtual-machines-common-attach-disk-portal/attach-new.png)
 
-3.	After Azure creates the disk and attaches it to the virtual machine, the new disk is listed in the virtual machine's disk settings under **Data Disks**.
+3.	在 Azure 建立磁碟並將其連接至虛擬機器之後，該新磁碟就會列在虛擬機器之磁碟設定中的 [資料磁碟] 底下。
 
-## Option 2: Attach an existing disk
+## 選項 2：連接現有磁碟
 
-1.	On the **Disks** blade, click **Attach existing**.
+1.	在 [磁碟] 刀鋒視窗上，按一下 [連接現有項目]。
 
-2.	Under **Attach existing disk**, click **VHD File**.
+2.	在 [連接現有磁碟] 底下，按一下 [VHD 檔案]。
 
-	![Attach existing disk](./media/virtual-machines-common-attach-disk-portal/attach-existing.png)
+	![連接現有磁碟](./media/virtual-machines-common-attach-disk-portal/attach-existing.png)
 
-3.	Under **Storage accounts**, select the account and container that holds the .vhd file.
+3.	在 [儲存體帳戶] 底下，選取持有該 .vhd 檔案的帳戶和容器。
 
-	![Find VHD location](./media/virtual-machines-common-attach-disk-portal/find-storage-container.png)
+	![尋找 VHD 位置](./media/virtual-machines-common-attach-disk-portal/find-storage-container.png)
 
-4.	Select the .vhd file.
+4.	選取 .vhd 檔案。
 
-5.	Under **Attach existing disk**, the file you just selected is listed under **VHD File**. Click **OK**.
+5.	在 [連接現有磁碟] 底下，您剛才選取的檔案會列在 [VHD 檔案] 底下。按一下 [確定]。
 
-6.	After Azure attaches the disk to the virtual machine, it's listed in the virtual machine's disk settings under **Data Disks**.
+6.	Azure 將磁碟連接至虛擬機器之後，該磁碟會列在虛擬機器磁碟設定中的 [資料磁碟] 下面。
 
-
-
-
+<!---HONumber=AcomDC_0323_2016-->

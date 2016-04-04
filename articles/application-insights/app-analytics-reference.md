@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Analytics 的參考資料" 
-	description="Application Analytics 中的規則運算式，適用於 Application Insights 的強大搜尋工具。" 
+	pageTitle="Application Insights 的 Analytics 參考資料" 
+	description="Analytics 的規則運算式，強大的 Application Insights 搜尋工具。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-# 參考資料
+# Application Insights：Analytics 參考資料
 
-[Application Analytics](app-analytics.md) 是強大的搜尋引擎，適合用於 [Application Insights](app-insights-overview.md) 遙測。這些頁面說明 Application Analytics 查詢語言 CSL。
-
+[Analytics](app-analytics.md) 是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。這些頁面說明 Analytics 查詢語言。
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -94,7 +93,7 @@
 |m |多行模式：^ 和 $ 會比對開始行/結束行以及開始文字/結束文字 (預設為 false) 
 |s |讓 . 比對 \\n (預設為 false) 
 |U |取消窮盡︰交換 x* 和 x*?、x+ 和 x+? 等的意義 (預設為 false) 
-|旗標語法為 xyz (set) 或 -xyz (clear) 或 xy-z (set xy, clear z)。
+|旗標語法為 xyz (set) 或 -xyz (clear) 或 xy-z (set xy, clear z)。 
 | 
 |空字串： | 
 |^ |在文字或行的開頭 (m=true) 
@@ -182,7 +181,7 @@
 |[^\\p{Name}] |否定字元類別內的具名 Unicode 屬性 (== \\P{Name}) 
 |Perl 字元類別 (全都僅限 ASCII)： | 
 |\\d |數字 (== [0-9]) 
-|\\D |非數字 (== [^0-9])
+|\\D |非數字 (== [^0-9]) 
 |\\s |空白字元 (== [\\t\\n\\f\\r ]) 
 |\\S |非空白字元 (== [^\\t\\n\\f\\r ]) 
 |\\w |文字字元 (== [0-9A-Za-z\_]) 
@@ -416,4 +415,4 @@
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

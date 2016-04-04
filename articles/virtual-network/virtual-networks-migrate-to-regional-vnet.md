@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # 如何從同質群組移轉至區域虛擬網路 (VNet)
@@ -27,17 +27,17 @@
 
 從現在開始，建立新的 VNet 時，將使用*區域*。您會在管理入口網站中看到這個選項。請注意，在網路組態檔中，這會顯示為*位置*。
 
->[AZURE.IMPORTANT]雖然技術上來說仍然可以建立與同質群組相關聯的虛擬網路，但是這樣做沒有令人信服的理由。許多新功能，例如網路安全性群組在使用區域 VNet 時才能使用，且不適用於與同質群組相關聯的虛擬網路。
+>[AZURE.IMPORTANT] 雖然技術上來說仍然可以建立與同質群組相關聯的虛擬網路，但是這樣做沒有令人信服的理由。許多新功能，例如網路安全性群組在使用區域 VNet 時才能使用，且不適用於與同質群組相關聯的虛擬網路。
 
 ### 關於目前與同質群組相關聯的 VNet
 
 目前與同質群組相關聯的 VNet 可移轉至區域 VNet。若要移轉至區域 VNet，請遵循下列步驟：
 
-1. 匯出網路組態檔。您可以使用 PowerShell 或管理入口網站。如需使用管理入口網站的指示，請參閱＜[使用網路組態檔設定 VNet](../virtual-networks-using-network-configuration-file/)＞。
+1. 匯出網路組態檔。您可以使用 PowerShell 或管理入口網站。如需使用管理入口網站的指示，請參閱＜[使用網路組態檔設定 VNet](virtual-networks-using-network-configuration-file.md)＞。
 
 1. 編輯網路組態檔，並以新值取代舊值。
 
-	> [AZURE.NOTE] **位置**是您所指定與 VNet 相關聯的同質群組區域。例如，如果 VNet 與位於美國西部的同質群組相關聯，則當您移轉時，您的位置必須指向美國西部。
+	> [AZURE.NOTE]  **位置**是您所指定與 VNet 相關聯的同質群組區域。例如，如果 VNet 與位於美國西部的同質群組相關聯，則當您移轉時，您的位置必須指向美國西部。
 	
 	在網路組態檔中編輯下列幾行，並取代為您需要的值：
 
@@ -45,9 +45,9 @@
 
 	**新值：** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
 
-1. 儲存您的變更並網路組態[匯入](../virtual-networks-using-network-configuration-file/)至 Azure。
+1. 儲存您的變更並網路組態[匯入](virtual-networks-using-network-configuration-file.md)至 Azure。
 
->[AZURE.INFO]這項移轉不會對您的服務造成任何停機時間。
+>[AZURE.INFO] 這項移轉不會對您的服務造成任何停機時間。
 
 ## 同質群組和 VM
 
@@ -66,4 +66,4 @@
 一旦部署 VM，其會部署至單一的縮放單位。同質群組可針對新的 VM 部署限制可用的 VM 大小集合，但任何已部署的現有 VM 部署，已在 VM 所部署的位置限制縮放單位中可用的 VM 大小集合。因此，從同質群組中移除 VM 不會產生任何效果。
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

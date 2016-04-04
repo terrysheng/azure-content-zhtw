@@ -50,8 +50,9 @@
 
 以下是您可以使用的工具︰
  
-* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md)。您可以從 Storm 叢集將資料直接寫入 Data Lake 存放區。
-* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost) – 您可以接收來自事件中樞的事件，然後使用[Data Lake 存放區 .NET SDK](data-lake-store-get-started-net-sdk.md) 寫入 Data Lake 存放區。
+* [Azure 串流分析](../stream-analytics-data-lake-output)：內嵌到事件中樞的事件可以使用 Azure Data Lake Store 輸出寫入 Azure Data Lake。
+* [Azure HDInsight Storm](../hdinsight/hdinsight-storm-write-data-lake-store.md)：您可以從 Storm 叢集將資料直接寫入 Data Lake Store。
+* [EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)：您可以接收來自事件中樞的事件，然後使用[Data Lake Store .NET SDK](data-lake-store-get-started-net-sdk.md) 寫入 Data Lake Store。
 
 ### 關聯式資料
 
@@ -84,7 +85,7 @@
 
 若要上傳動輒數 TB 的資料集，使用上述方法有時候可能會過於緩慢且昂貴。此時，您可以使用下列選項。
 
-* **「離線」上傳資料**。您可以使用 [Azure 匯入/匯出服務](../storage/storage-import-export-service.md)將容納資料的硬碟運送到 Azure 資料中心，之後再上傳到 Azure 儲存體 Blob。接下來，您可以使用 [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) 或 [AdlCopy 工具](data-lake-store-copy-data-azure-storage-blob.md)將資料從 Azure 儲存體 Blob 移動到 Data Lake 存放區。
+* **「離線」上傳資料**。您可以使用 [Azure 匯入/匯出服務](../storage/storage-import-export-service.md)將容納資料的硬碟運送到 Azure 資料中心，之後再上傳到 Azure 儲存體 Blob。接下來，您可以使用 [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) 或 [AdlCopy 工具](data-lake-store-copy-data-azure-storage-blob.md)將資料從 Azure 儲存體 Blob 移動到 Data Lake Store。
 
 	>[AZURE.NOTE] 在使用匯入/匯出服務時，運送到 Azure 資料中心之磁碟上的檔案大小不得大於 200 GB。
 
@@ -130,7 +131,7 @@
 
 ![將 Data Lake 存放區中的資料視覺化](./media/data-lake-store-data-scenarios/visualize-data.png "將 Data Lake 存放區中的資料視覺化")
 
-* 您可以從使用 [Azure Data Factory 將資料從 Data Lake 存放區移動到 Azure SQL 資料倉儲](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)開始
-* 之後，您可以[整合 Power BI 與 SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi)，以利用視覺化的方式呈現資料。
+* 您可以從使用 [Azure Data Factory 將資料從 Data Lake Store 移動到 Azure SQL 資料倉儲](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)開始
+* 之後，您可以[整合 Power BI 與 SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi)，利用視覺化的方式呈現資料。
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

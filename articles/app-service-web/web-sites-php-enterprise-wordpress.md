@@ -3,7 +3,7 @@
 	description="了解如何在 Azure App Service 上裝載企業級 WordPress 網站"
 	services="app-service\web"
 	documentationCenter=""
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
 	ms.date="01/26/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #Azure App Service 上的企業級 WordPress
 
@@ -260,8 +260,8 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
 [httpscustomdomain]: web-sites-configure-ssl-certificate.md
-[mysqlwindows]: ../virtual-machines-mysql-windows-server-2008r2.md
-[mysqllinux]: ../virtual-machines-linux-mysql-use-opensuse.md
+[mysqlwindows]: ../virtual-machines-windows-classic-mysql-2008r2.md
+[mysqllinux]: ../virtual-machines-linux-classic-mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: /pricing/details/app-service/
 [export]: http://en.support.wordpress.com/export/
@@ -282,4 +282,4 @@ Azure App Service 針對關鍵的大規模 [WordPress][wordpress] 網站，提�
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

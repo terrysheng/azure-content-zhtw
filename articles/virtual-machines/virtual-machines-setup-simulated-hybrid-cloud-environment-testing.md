@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="模擬混合式雲端測試環境 | Microsoft Azure" 
 	description="使用兩個 Azure 虛擬網路和 VNet 對 VNet 連接，建立 IT 專業或開發測試的模擬混合式雲端環境。" 
-	services="virtual-network" 
+	services="virtual-machines-windows" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-windows" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
@@ -50,7 +50,7 @@
 
 ## 第 1 階段：設定 TestLab 虛擬網路
 
-使用[基底組態測試環境](virtual-machines-base-configuration-test-environment-resource-manager.md)中的指示，在名稱為 TestLab 的 Azure 虛擬網路中設定 DC1、APP1 和 CLIENT1 電腦。
+使用[基底組態測試環境](virtual-machines-windows-test-config-env.md)中的指示，在名稱為 TestLab 的 Azure 虛擬網路中設定 DC1、APP1 和 CLIENT1 電腦。
 
 接下來，開啟 Azure PowerShell 提示字元。
 
@@ -181,7 +181,7 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.4 的 4 次成功回覆。這�
 接著，將額外的資料磁碟新增為磁碟機代號 F: 的新磁碟區。
 
 1.	在 [伺服器管理員] 的左窗格中，按一下 [檔案和存放服務]，然後按一下 [磁碟]。
-2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] \([磁碟分割] 設為 [不明])。
+2.	在 [內容] 窗格的 [磁碟] 群組中，按一下 [磁碟 2] ([磁碟分割] 設為 [不明])。
 3.	按一下 [工作]，然後按一下 [新增磁碟區]。
 4.	在 [新增磁碟區精靈] 的 [在您開始前] 頁面上，按 [下一步]。
 5.	在 [選取伺服器和磁碟] 頁面上，按一下 [磁碟 2]，然後按 [下一步]。出現提示時，按一下 **[確定]**。
@@ -213,6 +213,6 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.4 的 4 次成功回覆。這�
 
 ## 後續步驟
 
-- [新增虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)到 TestVNET 子網路，例如執行 Microsoft SQL Server 的虛擬機器。
+- [加入虛擬機器](virtual-machines-windows-create-powershell.md)到 TestVNET 子網路中，例如執行 Microsoft SQL Server 的虛擬機器。
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

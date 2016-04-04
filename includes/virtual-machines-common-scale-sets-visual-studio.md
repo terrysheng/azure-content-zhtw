@@ -1,80 +1,80 @@
 
 
-This article shows you how to deploy an Azure Virtual Machine Scale Set using a Visual Studio Resource Group Deployment.
+本文說明如何使用 Visual Studio 資源群組部署，部署 Azure 虛擬機器調整集。
 
 
-[Azure Virtual Machine Scale Sets](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) are an Azure Compute resource to deploy and manage a collection of similar virtual machines with easily integrated options for auto-scale and load balancing. You can provision and deploy VM Scale Sets using [Azure Resource Manager (ARM) Templates](https://github.com/Azure/azure-quickstart-templates). ARM Templates can be deployed using Azure CLI, PowerShell, REST and also directly from Visual Studio. Visual Studio provides a set of example Templates which can be deployed as part of an Azure Resource Group Deployment project.
+[Azure 虛擬機器調整集](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/)是 Azure 計算資源，可以使用針對自動調整和負載平衡輕易整合的選項，部署和管理類似虛擬機器的集合。您可以使用 [Azure 資源管理員 (ARM) 範本](https://github.com/Azure/azure-quickstart-templates)佈建和部署 VM 調整集。可以使用 Azure CLI、PowerShell、REST 部署 ARM 範本，也可以直接從 Visual Studio 部署。Visual Studio 會提供一組範例範本，可以部署為 Azure 資源群組部署專案的一部分。
 
-Azure Resource Group deployments are a way to group together and publish a set of related Azure resources in a single deployment operation. You can learn more about them here: [Creating and deploying Azure resource groups through Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy/).
+Azure 資源群組部署是一種方式，可以將相關 Azure 資源集群組在一起，並且在單一部署作業中發佈。您可以在以下位置深入了解：[透過 Visual Studio 建立與部署 Azure 資源群組](../vs-azure-tools-resource-groups-deployment-projects-create-deploy/)。
 
-## Pre-requisites
+## 必要條件
 
-To get started deploying VM Scale Sets in Visual Studio you need the following:
+若要開始在 Visual Studio 中部署 VM 調整集，您需要下列項目：
 
-- Visual Studio 2013 or 2015
-- Azure SDK 2.7 or 2.8
+- Visual Studio 2013 或 2015
+- Azure SDK 2.7 或 2.8
 
-Note: These instructions assume you are using Visual Studio 2015 with [Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
+注意：這些指示假設您使用 Visual Studio 2015 與 [Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)。
 
-## Creating a Project
+## 建立專案
 
-1. Create a new project in Visual Studio 2015 by choosing **File | New | Project**.
+1. 選擇 [檔案 | 新增 | 專案]，在 Visual Studio 2015 中建立新專案。
 
-	![File New][file_new]
+	![新增檔案][file_new]
 
-2. Under **Visual C# | Cloud**, choose **Azure Resource Manager** to create a project for deploying an ARM Template.
+2. 在 [Visual C# | 雲端] 底下，選擇 [Azure 資源管理員]，建立專案以部署 ARM 範本。
 
-	![Create Project][create_project]
+	![建立專案][create_project]
 
-3.  From the list of Templates, select either the Linux or Windows Virtual Machine Scale Set Template.
+3.  從範本清單中，選取 Linux 或 Windows 虛擬機器調整集範本。
 
-	![Select Template][select_Template]
+	![選取範本][select_Template]
 
-4. Once your project is created you’ll see PowerShell deployment scripts, an Azure Resource Manager Template, and a parameter file for the Virtual Machine Scale Set.
+4. 您的專案建立之後，您會看到 PowerShell 部署指令碼、Azure 資源管理員範本和虛擬機器調整集的參數檔案。
 
 	![Solution Explorer][solution_explorer]
 
-## Customize your project
+## 自訂您的專案
 
-Now you can edit the Template to customize it for your application's needs, such as adding VM extension properties or editing load balancing rules. By default the VM Scale Set Templates are configured to deploy the AzureDiagnostics extension which makes it easy to add autoscale rules. It also deploys a load balancer with a public IP address, configured with inbound NAT rules which let you connect to the VM instances with SSH (Linux) or RDP (Windows) – the front end port range starts at 50000, which means in the case of Linux, if you SSH to port 50000 of the public IP address (or domain name) you will be routed to port 22 of the first VM in the Scale Set. Connecting to port 50001 will be routed to port 22 of the second VM and so on.
+現在您可以編輯範本，以針對您的應用程式需求自訂，例如新增 VM 延伸模組屬性或編輯負載平衡規則。根據預設，會設定 VM 調整集範本以部署 AzureDiagnostics 延伸模組，讓新增自動調整規則更容易。它也會使用公用 IP 位址部署負載平衡器，使用輸入 NAT 規則設定，讓您以 SSH (Linux) 或 RDP (Windows) 連接至 VM 執行個體 – 前端連接埠範圍從 50000 開始，這表示在 Linux 的情況下，如果您的 SSH 連接至公用 IP 位址的連接埠 50000 (或網域名稱)，您會被路由至調整集中第一個 VM 的連接埠 22。連接至通訊埠 50001 將會路由至第二個 VM 的連接埠 22，依此類推。
 
- A good way to edit your Templates with Visual Studio is to use the JSON Outline to organize the parameters, variables and resources. With an understanding of the schema Visual Studio can point out errors in your Template before you deploy it.
+ 使用 Visual Studio 編輯您的範本的好方法是使用 JSON 大綱來組織參數、變數和資源。了解結構描述 Visual Studio 可以在部署範本之前在其中指出錯誤。
 
-![JSON Explorer][json_explorer]
+![JSON 總管][json_explorer]
 
-## Deploy the project
+## 部署專案
 
-6. Deploy the ARM Template to Azure to create the VM Scale Set resource. Right click on the project node, choose **Deploy | New Deployment**.
+6. 將 ARM 範本部署至 Azure 以建立 VM 調整集資源。以滑鼠右鍵按一下專案節點，然後選擇 [部署 | 新增部署]。
 
-	![Deploy Template][5deploy_Template]
+	![部署範本][5deploy_Template]
 
-7. Select your subscription in the “Deploy to Resource Group” dialog.
+7. 在 [部署到資源群組] 對話方塊中選取您的訂用帳戶。
 
-	![Deploy Template][6deploy_Template]
+	![部署範本][6deploy_Template]
 
-8. From here you can also create a new Azure Resource Group to deploy your Template to.
+8. 您也可以從這裡建立新的 Azure 資源群組以部署您的範本。
 
-	![New Resource Group][new_resource]
+	![新增資源群組][new_resource]
 
-9. Next select the **Edit Parameters** button to enter parameters which will be passed to your Template, Certain values such as the username and password for the OS are required to create the deployment.
+9. 接下來，選取 [編輯參數] 按鈕以輸入參數，這些參數會傳遞至您的範本。需要特定值 (例如，OS 的使用者名稱和密碼) 才能建立部署。
 
-	![Edit Parameters][edit_parameters]
+	![編輯參數][edit_parameters]
 
-10. Now click **Deploy**. The **Output** window will show the deployment progress. Note that the the action is executing the **Deploy-AzureResourceGroup.ps1** script.
+10. 現在，按一下 [部署]。[輸出] 視窗會顯示部署進度。請注意，動作會執行 **Deploy-AzureResourceGroup.ps1** 指令碼。
 
-	![Output Window][output_window]
+	![輸出視窗][output_window]
 
-## Exploring your VM Scale Set
+## 探索 VM 調整集
 
-Once the deployment completes, you can view the new VM Scale Set in the Visual Studio **Cloud Explorer** (refresh the list). Cloud Explorer lets you manage Azure resources in Visual Studio while developing applications. You can also view your VM Scale Set in the Azure Portal and Azure Resource Explorer.
+部署完成之後，您可以在 Visual Studio **雲端總管** 中檢視 VM 調整集 (重新整理清單)。雲端總管可讓您在開發應用程式的同時，於 Visual Studio 中管理 Azure 資源。您也可以在 Azure 入口網站和 Azure 資源總管中檢視 VM 調整集。
 
-![Cloud Explorer][cloud_explorer]
+![雲端總管][cloud_explorer]
 
- The portal provides the best way to visually manage your Azure infrastructure with a web browser, while Azure Resource Explorer provides an easy way to explorer and debug Azure resources, giving a window into the “instance view” and also showing PowerShell commands for the resources you are looking at. While VM Scale Sets are in preview, the Resource Explorer will show the most detail for your VM Scale Sets.
+ 入口網站提供最佳方式，使用網頁瀏覽器以視覺化方式管理 Azure 基礎結構，而 Azure 資源總管則提供簡單的方法以探索和偵錯 Azure 資源，讓視窗成為「執行個體檢視」，並且也會顯示您要尋找的資源的 PowerShell 命令。VM 調整集在預覽時，資源總管會顯示您的 VM 調整集最詳細的資料。
 
-## Next steps
+## 後續步驟
 
-Once you’ve successfully deployed VM Scale Sets through Visual Studio you can further customize your project to suit your application requirements. For example setting up autoscale by adding an Insights resource, adding infrastructure to your Template like standalone VMs, or deploying applications using the custom script extension. A good source of example Templates can be found in the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) GitHub repository (search for "vmss").
+一旦您透過 Visual Studio 成功部署 VM 調整集，您可以進一步自訂您的專案，以符合應用程式的需求。例如，設定自動調整，方法是新增 Insights 資源、將基礎結構新增至您的範本 (例如獨立 VM)，或是使用自訂指令碼延伸模組部署應用程式。良好的範例範本來源可以在 [Azure 快速入門範本](https://github.com/Azure/azure-quickstart-templates) GitHub 儲存機制中找到 (搜尋 "vmss")。
 
 [file_new]: ./media/virtual-machines-common-scale-sets-visual-studio/1-FileNew.png
 [create_project]: ./media/virtual-machines-common-scale-sets-visual-studio/2-CreateProject.png
@@ -87,3 +87,5 @@ Once you’ve successfully deployed VM Scale Sets through Visual Studio you can 
 [edit_parameters]: ./media/virtual-machines-common-scale-sets-visual-studio/8-EditParameter.png
 [output_window]: ./media/virtual-machines-common-scale-sets-visual-studio/9-Output.png
 [cloud_explorer]: ./media/virtual-machines-common-scale-sets-visual-studio/12-CloudExplorer.png
+
+<!---HONumber=AcomDC_0323_2016-->

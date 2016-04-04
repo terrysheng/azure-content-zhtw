@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="03/18/2016"
 	ms.author="brandwe"/>
 
 # 將 Azure AD 整合至 iOS 應用程式
@@ -64,7 +64,8 @@ iOS 格式的重新導向 URI：
 - 此外，在 [**設定**] 索引標籤上找到 [其他應用程式的權限] 區段。在 [**委派權限**] 下，為 [Azure Active Directory] 應用程式新增 [**存取您的組織目錄**] 權限。這樣做可讓您的應用程式查詢 Graph API 的使用者。
 
 ## *3.安裝及設定 ADAL*
-既然您在 Azure AD 中已經擁有應用程式，您可以安裝 ADAL，並撰寫身分識別相關程式碼。為了讓 ADAL 能夠與 Azure AD 進行通訊，您必須提供一些應用程式註冊相關資訊。從使用 Cocoapods 將 ADAL 加入 DirectorySearcher 專案開始。
+既然您在 Azure AD 中已經擁有應用程式，您可以安裝 ADAL，並撰寫身分識別相關程式碼。為了讓 ADAL 能與 Azure AD 通訊，您需要提供一些應用程式註冊的相關資訊。
+-	請從使用 Cocoapods 將 ADAL 加入 DirectorySearcher 專案中開始。
 
 ```
 $ vi Podfile
@@ -219,10 +220,14 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 ADAL 可讓您輕鬆地將這些常見的身分識別功能全部納入您的應用程式。它會為您處理一切麻煩的事，包括快取管理、OAuth 通訊協定支援、向使用者顯示登入 UI、重新整理過期權杖等等。您唯一需要知道的就是單一 API 呼叫，`getToken`。
 
-[這裡](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip)提供完成的範例供您參考 (不含您的設定值)。您現在可以繼續探索其他案例。您可以嘗試：
+[這裡](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip)提供完成的範例供您參考 (不含您的設定值)。
 
-[使用 Azure AD 保護 Node.JS Web API >>](../active-directory-devquickstarts-webapi-nodejst.md)
+## 其他案例
+您現在可以繼續探索其他案例。您可以嘗試：
+
+- [使用 Azure AD 保護 Node.js Web API](active-directory-devquickstarts-webapi-nodejs.md)
+- 了解[如何使用 ADAL 在 iOS 上啟用跨應用程式的 SSO](active-directory-sso-ios.md)  
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

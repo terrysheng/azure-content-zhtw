@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="服務匯流排配對的命名空間 |Microsoft Azure"
-   description="配對的命名空間實作詳細資料和成本"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="服務匯流排配對的命名空間 |Microsoft Azure"
+    description="配對的命名空間實作詳細資料和成本"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # 配對命名空間實作詳細資料和成本影響
 
@@ -107,7 +107,7 @@ Ping 訊息是空的 [BrokeredMessage][]，其 [ContentType][] 屬性設定為 a
 
 ## 後續步驟
 
-如需服務匯流排非同步傳訊的詳細討論，請參閱[非同步傳訊模式和高可用性]。
+如需服務匯流排非同步傳訊的詳細討論，請參閱[非同步傳訊模式和高可用性][]。
 
   [PairNamespaceAsync]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.pairnamespaceasync.aspx
   [SendAvailabilityPairedNamespaceOptions]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.aspx
@@ -129,4 +129,4 @@ Ping 訊息是空的 [BrokeredMessage][]，其 [ContentType][] 屬性設定為 a
   [1]: ./media/service-bus-paired-namespaces/IC673406.png
   [2]: ./media/service-bus-paired-namespaces/IC673407.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

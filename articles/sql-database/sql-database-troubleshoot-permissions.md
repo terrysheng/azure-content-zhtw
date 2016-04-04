@@ -1,6 +1,6 @@
 <properties
-	pageTitle="疑難排解 Azure SQL Database 權限和存取"
-	description="疑難排解常見的權限、存取、使用者和登入問題的快速步驟"
+	pageTitle="為 Azure SQL Database 權限和存取進行疑難排解"
+	description="為常見權限、存取、使用者和登入問題進行疑難排解的快速步驟"
 	services="sql-database"
 	documentationCenter=""
 	authors="v-shysun"
@@ -16,8 +16,8 @@
 	ms.date="01/11/2016"
 	ms.author="v-shysun"/>
 
-#疑難排解常見的 Azure SQL Database 權限和存取問題
-使用本主題以獲得授與及移除對 Azure SQL Database 的存取權的快速步驟。如需更完整資訊，請參閱：
+#針對常見的 Azure SQL Database 權限和存取問題進行疑難排解
+使用本主題中的步驟即可快速授與或移除 Azure SQL Database 的存取權。如需更完整的資訊，請參閱：
 
 - [管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)
 - [保護您的 SQL Database](sql-database-security.md)
@@ -37,4 +37,4 @@
 ## 若要在虛擬 master 資料庫中建立高權限使用者的其他登入
 -使用 [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 陳述式，並參閱[管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)的「管理登入」一節以獲得詳細資訊。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

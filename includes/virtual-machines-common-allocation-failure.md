@@ -1,210 +1,207 @@
-When you create a VM, restart stopped (deallocated) VMs, or resize a VM, Microsoft Azure allocates compute resources to your subscription. You may occasionally receive errors when performing these operations -- even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
+建立 VM、重新啟動已停止 (已取消配置) 的 VM，或重新調整 VM 大小時，Microsoft Azure 會配置計算資源給您的訂用帳戶。當您執行這些作業時，即使您尚未達到 Azure 訂用帳戶的限制，也可能偶爾收到錯誤訊息。本文說明一些常見配置失敗的原因，並建議可能的補救方法。規劃服務的部署時，本資訊可能也很有用。
 
-The "General troubleshooting steps" section lists steps to address common issues. The "Detailed troubleshooting steps" section provides resolution steps by specific error message. Before you get started, here is some background information to understand how allocation works and why allocation failure happens.
+＜一般疑難排解步驟＞一節列出解決常見問題的步驟。＜詳細的疑難排解步驟＞一節依照特定的錯誤訊息提供解決問題的步驟。在您開始之前，請參考這裡提供的背景資訊，來了解配置的運作方式及配置失敗的原因。
 
-If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
-## Background information
-### How allocation works
-The servers in Azure datacenters are partitioned into clusters. Normally, an allocation request is attempted in multiple clusters, but it's possible that certain constraints from the allocation request force the Azure platform to attempt the request in only one cluster. In this article, we'll refer to this as "pinned to a cluster." Diagram 1 below illustrates the case of a normal allocation that is attempted in multiple clusters. Diagram 2 illustrates the case of an allocation that's pinned to Cluster 2 because that's where the existing Cloud Service CS_1 or availability set is hosted.
-![Allocation Diagram](./media/virtual-machines-common-allocation-failure/Allocation1.png)
+若本文中未提及您的 Azure 問題，請前往 [MSDN 及 Stack Overflow 上的 Azure 論壇](https://azure.microsoft.com/support/forums/)。您可以在這些論壇上，或前往 Twitter 的 @AzureSupport 上張貼您的問題。此外，您也可以選取 [Azure 支援](https://azure.microsoft.com/support/options/)網站上的 [取得支援]，來提出 Azure 支援要求。
+## 背景資訊
+### 配置的運作方式
+Azure 資料中心的伺服器分割成叢集。通常會嘗試向多個叢集提出配置要求，但配置要求可能帶有某些條件約束，而強制 Azure 平台只嘗試向一個叢集提出要求。在本文中，這種情況稱為「釘選到叢集」。 下圖 1 說明於嘗試向多個叢集提出一般配置的情況。圖 2 說明釘選到叢集 2 來配置的情況，因為現有的雲端服務 CS\_1 或可用性設定組裝載於此處。![配置圖表](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
-### Why allocation failures happen
-When an allocation request is pinned to a cluster, there's a higher chance of failing to find free resources since the available resource pool is smaller. Furthermore, if your allocation request is pinned to a cluster but the type of resource you requested is not supported by that cluster, your request will fail even if the cluster has free resources. Diagram 3 below illustrates the case where a pinned allocation fails because the only candidate cluster does not have free resources. Diagram 4 illustrates the case where a pinned allocation fails because the only candidate cluster does not support the requested VM size, even though the cluster has free resources.
+### 配置失敗的原因
+當配置要求已釘選到叢集時，由於可用的資源集區較小，很可能找不到可用的資源。此外，如果配置要求已釘選到叢集，但該叢集不支援您所要求的資源類型，即使叢集有可用的資源，您的要求仍會失敗。下圖 3 說明由於唯一候選叢集沒有可用的資源，導致已釘選的配置失敗的情況。圖 4 說明因唯一候選叢集不支援所要求的 VM 大小 (雖然叢集有可用的資源)，而導致已釘選的配置失敗的情況。
 
-![Pinned Allocation Failure](./media/virtual-machines-common-allocation-failure/Allocation2.png)
+![釘選配置失敗](./media/virtual-machines-common-allocation-failure/Allocation2.png)
 
-## General troubleshooting steps
-### Troubleshoot common allocation failures in the classic deployment model
+## 一般疑難排解步驟
+### 疑難排解傳統部署模型中常見的配置失敗
 
-These steps can help resolve many allocation failures in virtual machines:
+這些步驟可協助解決虛擬機器中的許多配置失敗：
 
-- Resize the VM to a different VM size.<br>
-	Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
+- 將 VM 調整為不同的大小。<br> 按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的虛擬機器 > [設定] > [大小]。如需詳細步驟，請參閱[調整虛擬機器的大小](https://msdn.microsoft.com/library/dn168976.aspx)。
 
-- Delete all VMs from the cloud service and re-create VMs.<br>
-	Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Delete**. Then, click **New** > **Compute** > [virtual machine image].
+- 從雲端服務刪除所有 VM，然後重新建立 VM。<br> 按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的虛擬機器 > [刪除]。然後，按一下 [新增] > [計算] > [虛擬機器映像]。
 
-### Troubleshoot common allocation failures in the Azure Resource Manager deployment model
+### 疑難排解 Azure 資源管理員部署模型中常見的配置失敗
 
-These steps can help resolve many allocation failures in virtual machines:
+這些步驟可協助解決虛擬機器中的許多配置失敗：
 
-- Stop (deallocate) all VMs in the same availability set, then restart each one.<br>
-	To stop: Click **Resource groups** > your resource group > **Resources** > your availability set > **Virtual Machines** > your virtual machine > **Stop**.
+- 停止 (解除配置) 相同可用性設定組中的所有 VM，然後重新啟動每一部 VM。<br> 若要停止：按一下 [資源群組] > 您的資源群組 > [資源] > 您的可用性設定組 > [虛擬機器] > 您的虛擬機器 > [停止]。
 
-	After all VMs stop, select the first VM and click **Start**.
+	所有 VM 都停止後，選取第一個 VM 並按一下 [啟動]。
 
-## Detailed troubleshooting steps
-### Troubleshoot specific allocation failure scenarios in the classic deployment model
-Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
+## 詳細的疑難排解步驟
+### 疑難排解傳統部署模型中特定的配置失敗情況
+以下是造成釘選配置要求的常見配置案例。我們將在本文稍後深入探討每一個案例。
 
-- Resize a VM or add VMs or role instances to an existing cloud service
-- Restart partially stopped (deallocated) VMs
-- Restart fully stopped (deallocated) VMs
-- Staging/production deployments (platform as a service only)
-- Affinity group (VM/service proximity)
-- Affinity-group-based virtual network
+- 調整 VM 大小，或將 VM 或角色執行個體加入至現有的雲端服務
+- 重新啟動已部分停止 (已取消配置) 的 VM
+- 重新啟動已完全停止 (已取消配置) 的 VM
+- 預備/生產部署 (僅適用於平台即服務)
+- 同質群組 (VM/服務鄰近性)
+- 同質群組式虛擬網路
 
-When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
+發生配置錯誤時，請查看以下是否有任何案例符合您所遇到的錯誤。使用 Azure 平台傳回的配置錯誤來識別對應的案例。如果您的要求已釘選，請移除一些釘選條件約束，向更多叢集開放您的要求，以提高配置成功的機會。
 
-In general, as long as the error does not indicate "the requested VM size is not supported," you can always retry at a later time, as enough resources may have been freed in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, try a different VM size. Otherwise, the only option is to remove the pinning constraint.
+一般而言，只要錯誤不是表示「不支援所要求的 VM 大小」，您永遠都可以稍後再重試，因為到時叢集可能釋放足夠的資源來滿足您的要求。如果問題在於不支援所要求的 VM 大小，請嘗試不同的 VM 大小。否則，唯一的選項便是將釘選條件約束移除。
 
-Two common failure scenarios are related to affinity groups. In the past, an affinity group was used to provide close proximity to VMs/service instances, or it was used to enable the creation of a virtual network. With the introduction of regional virtual networks, affinity groups are no longer required to create a virtual network. With the reduction of network latency in Azure infrastructure, the recommendation to use affinity groups for VM/service proximity has changed.
+有兩個常見的失敗案例與同質群組有關。在過去，同質群組是用來提供 VM/服務執行個體的鄰近性，或用來啟用虛擬網路的建立。在引進區域虛擬網路之後，建立虛擬網路已不再需要同質群組。由於 Azure 基礎結構中的網路延遲縮短，原本建議使用同質群組來支援 VM/服務鄰近性的情況已有所改變。
 
-Diagram 5 below presents the taxonomy of the (pinned) allocation scenarios.
-![Pinned Allocation Taxonomy](./media/virtual-machines-common-allocation-failure/Allocation3.png)
+圖 5 顯示 (釘選的) 配置案例的分類。![釘選配置分類](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] The error listed in each allocation scenario is a short form. Refer to the [Error string lookup](#Error string lookup) for detailed error strings.
+> [AZURE.NOTE] 每個配置案例中列出的錯誤是簡短格式。請參閱＜[錯誤字串查詢](#Error string lookup)＞一節來取得詳細的錯誤字串。
 
-#### Allocation scenario: Resize a VM or add VMs or role instances to an existing cloud service
-**Error**
+#### 配置案例：調整 VM 大小，或將 VM 或角色執行個體加入至現有的雲端服務
+**錯誤**
 
-Upgrade_VMSizeNotSupported or GeneralError
+Upgrade\_VMSizeNotSupported 或 GeneralError
 
-**Cause of cluster pinning**
+**叢集釘選的原因**
 
-A request to resize a VM or add a VM or a role instance to an existing cloud service has to be attempted at the original cluster that hosts the existing cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
+必須在託管現有雲端服務的原始叢集上，嘗試要求調整 VM 大小，或將 VM 或角色執行個體加入現有的雲端服務。建立新的雲端服務可讓 Azure 平台尋找另一個擁有可用資源，或支援您所要求之 VM 大小的叢集。
 
-**Workaround**
+**因應措施**
 
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, but if it's acceptable to use a different virtual IP address (VIP), create a new cloud service to host the new VM and add the new cloud service to the regional virtual network where the existing VMs are running. If your existing cloud service does not use a regional virtual network, you can still create a new virtual network for the new cloud service, and then connect your [existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+如果錯誤是 Upgrade\_VMSizeNotSupported*，請嘗試不同的 VM 大小。如果使用不同的 VM 大小不可行，但可接受使用不同的虛擬 IP 位址 (VIP)，請建立新的雲端服務來裝載新的 VM，並將新的雲端服務加入至執行現有 VM 的區域虛擬網路。如果現有的雲端服務不使用區域虛擬網路，您仍然可以為新的雲端服務建立新的虛擬網路，然後將[現有的虛擬網路連接到新的虛擬網路](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)。深入了解 [Regional Virtual Networks (區域虛擬網路)](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。
 
-If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. Similar to the above scenario, add the desired compute resource through creating a new cloud service (note that the new cloud service has to use a different VIP) and use a regional virtual network to connect your cloud services.
+如果錯誤是 GeneralError*，很可能是叢集支援資源的類型 (例如特定的 VM 大小)，但叢集目前沒有可用的資源。類似上述案例，透過建立新的雲端服務 (請注意，新的雲端服務必須使用不同的 VIP) 新增所需的計算資源，並使用區域虛擬網路連接您的雲端服務。
 
-#### Allocation scenario: Restart partially stopped (deallocated) VMs
+#### 配置案例：重新啟動已部分停止 (已取消配置) 的 VM
 
-**Error**
+**錯誤**
 
 GeneralError*
 
-**Cause of cluster pinning**
+**叢集釘選的原因**
 
-Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in a cloud service. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated cloud service is equivalent to adding VMs to an existing cloud service. The allocation request has to be attempted at the original cluster that hosts the existing cloud service. Creating a different cloud service allows the Azure platform to find another cluster that has free resource or supports the VM size that you requested.
+部分解除配置表示您已停止 (已取消配置) 雲端服務中的一或多部 VM，而不是所有 VM。停止 (取消配置) VM 時會釋放相關聯的資源。因此，重新啟動已停止 (已取消配置) 的 VM 是一項新的配置要求。在部分已取消配置的雲端服務中重新啟動 VM，相當於將 VM 加入現有的雲端服務。必須在裝載現有雲端服務的原始叢集上嘗試提出配置要求。另外建立一個雲端服務可讓 Azure 平台尋找另一個有可用資源，或支援您所要求之 VM 大小的叢集。
 
-**Workaround**
+**因應措施**
 
-If it's acceptable to use a different VIP, delete the stopped (deallocated) VMs (but keep the associated disks) and add the VMs back through a different cloud service. Use a regional virtual network to connect your cloud services:
-- If your existing cloud service uses a regional virtual network, simply add the new cloud service to the same virtual network.
-- If your existing cloud service does not use a regional virtual network, create a new virtual network for the new cloud service, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+如果可接受使用不同的 VIP，請刪除已停止 (已取消配置) 的 VM (但保留相關聯的磁碟)，並透過不同的雲端服務重新加回 VM。使用區域虛擬網路連接您的雲端服務：
+- 如果現有的雲端服務使用區域虛擬網路，只要將新的雲端服務加入至相同的虛擬網路即可。
+- 如果現有的雲端服務不使用區域虛擬網路，請為新的雲端服務建立新的虛擬網路，然後將[現有的虛擬網路連接到新的虛擬網路](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)。深入了解 [Regional Virtual Networks (區域虛擬網路)](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。
 
-#### Allocation scenario: Restart fully stopped (deallocated) VMs
-**Error**
-
-GeneralError*
-
-**Cause of cluster pinning**
-
-Full deallocation means that you stopped (deallocated) all VMs from a cloud service. The allocation requests to restart these VMs have to be attempted at the original cluster that hosts the cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
-
-**Workaround**
-
-If it's acceptable to use a different VIP, delete the original stopped (deallocated) VMs (but keep the associated disks) and delete the corresponding cloud service (the associated compute resources were already released when you stopped (deallocated) the VMs). Create a new cloud service to add the VMs back.
-
-#### Allocation scenario: Staging/production deployments (platform as a service only)
-**Error**
-
-New_General* or New_VMSizeNotSupported*
-
-**Cause of cluster pinning**
-
-The staging deployment and the production deployment of a cloud service are hosted in the same cluster. When you add the second deployment, the corresponding allocation request will be attempted in the same cluster that hosts the first deployment.
-
-**Workaround**
-
-Delete the first deployment and the original cloud service and redeploy the cloud service. This action may land the first deployment in a cluster that has enough free resources to fit both deployments or in a cluster that supports the VM sizes that you requested.
-
-#### Allocation scenario: Affinity group (VM/service proximity)
-**Error**
-
-New_General* or New_VMSizeNotSupported*
-
-**Cause of cluster pinning**
-
-Any compute resource assigned to an affinity group is tied to one cluster. New compute resource requests in that affinity group are attempted in the same cluster where the existing resources are hosted. This is true whether the new resources are created through a new cloud service or through an existing cloud service.
-
-**Workaround**
-
-If an affinity group is not necessary, do not use an affinity group, or group your compute resources into multiple affinity groups.
-
-#### Allocation scenario: Affinity-group-based virtual network
-**Error**
-
-New_General* or New_VMSizeNotSupported*
-
-**Cause of cluster pinning**
-
-Before regional virtual networks were introduced, you were required to associate a virtual network with an affinity group. As a result, compute resources placed into an affinity group are bound by the same constraints as described in the "Allocation scenario: Affinity group (VM/service proximity)" section above. The compute resources are tied to one cluster.
-
-**Workaround**
-
-If you do not need an affinity group, create a new regional virtual network for the new resources you're adding, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
-
-Alternatively, you can [migrate your affinity-group-based virtual network to a regional virtual network](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then add the desired resources again.
-
-### Troubleshoot specific allocation failure scenarios in the Azure Resource Manager deployment model
-Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
-
-- Resize a VM or add VMs or role instances to an existing cloud service
-- Restart partially stopped (deallocated) VMs
-- Restart fully stopped (deallocated) VMs
-
-When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned to an existing cluster, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
-
-In general, as long as the error does not indicate "the requested VM size is not supported," you can always retry at a later time, as enough resources may have been freed in the cluster to accommodate your request. If the problem is that the requested VM size is not supported, see below for workarounds.
-
-#### Allocation scenario: Resize a VM or add VMs to an existing availability set
-**Error**
-
-Upgrade_VMSizeNotSupported* or GeneralError*
-
-**Cause of cluster pinning**
-
-A request to resize a VM or add a VM to an existing availability set has to be attempted at the original cluster that hosts the existing availability set. Creating a new availability set allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
-
-**Workaround**
-
-If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a different VM size is not an option, stop all VMs in the availability set. You can then change the size of the virtual machine that will allocate the VM to a cluster that supports the desired VM size.
-
-If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. If the VM can be part of a different availability set, create a new VM in a different availability set (in the same region). This new VM can then be added to the same virtual network.  
-
-#### Allocation scenario: Restart partially stopped (deallocated) VMs
-**Error**
+#### 配置案例：重新啟動已完全停止 (已取消配置) 的 VM
+**錯誤**
 
 GeneralError*
 
-**Cause of cluster pinning**
+**叢集釘選的原因**
 
-Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in an availability set. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated availability set is equivalent to adding VMs to an existing availability set. The allocation request has to be attempted at the original cluster that hosts the existing availability set.
+完整取消配置表示您已停止 (已取消配置) 雲端服務上的所有 VM。必須在裝載雲端服務的原始叢集上嘗試提出配置要求以重新啟動這些 VM。建立新的雲端服務可讓 Azure 平台尋找另一個擁有可用資源，或支援您所要求之 VM 大小的叢集。
 
-**Workaround**
+**因應措施**
 
-Stop all VMs in the availability set before restarting the first one. This will ensure that a new allocation attempt is run and that a new cluster can be selected that has available capacity.
+如果可接受使用不同的 VIP，請刪除原始已停止 (已取消配置) 的 VM (但保留相關聯的磁碟)，並刪除對應的雲端服務 (已停止 (已取消配置) VM 時，就已釋放相關聯的計算資源)。建立新的雲端服務以加回 VM。
 
-#### Allocation scenario: Restart fully stopped (deallocated)
-**Error**
+#### 配置案例：預備/生產環境部署 (僅適用於平台即服務)
+**錯誤**
+
+New\_General* 或 New\_VMSizeNotSupported*
+
+**叢集釘選的原因**
+
+雲端服務的預備環境部署和生產環境部署裝載於相同的叢集。新增第二個部署時，將會在裝載第一個部署的相同叢集中嘗試提出對應的配置要求。
+
+**因應措施**
+
+請刪除第一個部署和原始的雲端服務，然後重新部署雲端服務。這個動作可能將第一個部署安排到有足夠可用資源可滿足這兩個部署的叢集，或安排到支援所要求 VM 大小的叢集。
+
+#### 配置案例：同質群組 (VM/服務鄰近性)
+**錯誤**
+
+New\_General* 或 New\_VMSizeNotSupported*
+
+**叢集釘選的原因**
+
+任何指派給同質群組的計算資源都繫結至一個叢集。該同質群組中新的計算資源要求，將於裝載現有資源的相同叢集中嘗試提出。無論新的資源是透過新的雲端服務，或是透過現有的雲端服務來建立，都是如此。
+
+**因應措施**
+
+如果同質群組不是必要的，請勿使用同質群組或將計算資源分組為多個同質群組。
+
+#### 配置案例：同質群組式虛擬網路
+**錯誤**
+
+New\_General* 或 New\_VMSizeNotSupported*
+
+**叢集釘選的原因**
+
+在導入區域虛擬網路之前，您必須先將虛擬網路與同質群組產生關聯。如此一來，將會依上一節「配置案例：同質群組 (VM/服務鄰近性)」所述的相同條件約束，繫結放入同質群組中的計算資源。計算資源會繫結至單一叢集。
+
+**因應措施**
+
+如果您不需要同質群組，請為您要加入的新資源建立新的區域虛擬網路，然後[將現有的虛擬網路連接到新的虛擬網路](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)。深入了解 [Regional Virtual Networks (區域虛擬網路)](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。
+
+此外，您也可以[將同質群組式虛擬網路移轉至區域虛擬網路](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)，然後再重新加入需要的資源。
+
+### 疑難排解 Azure 資源管理員部署模型中特定的配置失敗案例
+以下是造成釘選配置要求的常見配置案例。我們將在本文稍後深入探討每一個案例。
+
+- 調整 VM 大小，或將 VM 或角色執行個體加入至現有的雲端服務
+- 重新啟動已部分停止 (已取消配置) 的 VM
+- 重新啟動已完全停止 (已取消配置) 的 VM
+
+發生配置錯誤時，請查看以下是否有任何案例符合您所遇到的錯誤。使用 Azure 平台傳回的配置錯誤來識別對應的案例。如果您的要求已釘選到現有的叢集，請移除一些釘選條件約束，向更多叢集開放您的要求，以提高配置成功的機會。
+
+一般而言，只要錯誤不是表示「不支援所要求的 VM 大小」，您永遠都可以稍後再重試，因為到時叢集可能釋放足夠的資源來滿足您的要求。如果問題在於不支援所要求的 VM 大小，請參閱以下的因應措施。
+
+#### 配置案例：調整 VM 大小，或將 VM 加入至現有的可用性設定組
+**錯誤**
+
+Upgrade\_VMSizeNotSupported* 或 GeneralError*
+
+**叢集釘選的原因**
+
+必須在裝載現有可用性設定組的原始叢集上，嘗試要求調整 VM 大小，或將 VM 加入至現有的可用性設定組。建立新的可用性設定組可讓 Azure 平台尋找另一個有可用資源，或支援您所要求的 VM 大小的叢集。
+
+**因應措施**
+
+如果錯誤是 Upgrade\_VMSizeNotSupported*，請嘗試不同的 VM 大小。如果使用不同的 VM 大小不可行，請停止可用性設定組中的所有 VM。您可以變更虛擬機器的大小，以便將 VM 配置到支援所需 VM 大小的叢集。
+
+如果錯誤是 GeneralError*，很可能是叢集支援資源的類型 (例如特定的 VM 大小)，但叢集目前沒有可用的資源。如果 VM 可以屬於不同的可用性設定組，請在不同的可用性設定組 (位於相同區域) 中建立新的 VM。然後，這個新的 VM 就可以加入至相同的虛擬網路。
+
+#### 配置案例：重新啟動已部分停止 (已取消配置) 的 VM
+**錯誤**
 
 GeneralError*
 
-**Cause of cluster pinning**
+**叢集釘選的原因**
 
-Full deallocation means that you stopped (deallocated) all VMs in an availability set. The allocation request to restart these VMs will target all clusters that support the desired size.
+部分解除配置表示您已停止 (已取消配置) 可用性設定組中的一或多部 VM，而不是所有 VM。停止 (取消配置) VM 時會釋放相關聯的資源。因此，重新啟動已停止 (已取消配置) 的 VM 是一項新的配置要求。在部分已取消配置的可用性設定組中重新啟動 VM，相當於將 VM 加入現有的可用性設定組。必須在裝載現有可用性設定組的原始叢集上嘗試提出配置要求。
 
-**Workaround**
+**因應措施**
 
-Select a new VM size to allocate. If this does not work, please try again later.
+停止可用性設定組中的所有 VM，再重新啟動第一個 VM。如此可確保執行新的配置嘗試，而且可以選取有容量可用的新叢集。
 
-## Error string lookup
-**New_VMSizeNotSupported***
+#### 配置案例：重新啟動已完全停止 (已取消配置)
+**錯誤**
 
-"The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints. If possible, try relaxing constraints such as virtual network bindings, deploying to a hosted service with no other deployment in it and to a different affinity group or with no affinity group, or try deploying to a different region."
+GeneralError*
 
-**New_General***
+**叢集釘選的原因**
 
-"Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an affinity group, or it targets a virtual network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
+完整取消配置表示您已停止 (已取消配置) 可用性設定組中的所有 VM。提出配置要求來重新啟動這些 VM 時，將會以支援所需大小的所有叢集為目標。
 
-**Upgrade_VMSizeNotSupported***
+**因應措施**
 
-"Unable to upgrade the deployment. The requested VM size XXX may not be available in the resources supporting the existing deployment. Please try again later, try with a different VM size or smaller number of role instances, or create a deployment under an empty hosted service with a new affinity group or no affinity group binding."
+選取新的 VM 大小以進行配置。如果仍無法解決問題，請稍後再試。
+
+## 錯誤字串查詢
+**New\_VMSizeNotSupported***
+
+「由於部署要求條件約束，無法佈建此部署所需的 VM 大小 (或 VM 大小的總和)。可能的話，請嘗試放寬約束條件 (例如虛擬網路繫結)、部署至不具有其他部署的託管服務及不同的同質群組 (或不具有同質群組的託管服務)，或嘗試部署至不同的區域。」
+
+**New\_General***
+
+「配置失敗；無法滿足要求中的條件約束。要求的新服務部署繫結至同質群組，或以虛擬網路為目標，或此託管服務下已經有部署。任何這些情況會將新的部署侷限於特定的 Azure 資源。請稍後重試，或嘗試減少 VM 大小或角色執行個體的數量。或者，可能的話，移除先前提到的條件約束，或嘗試部署至不同的區域。」
+
+**Upgrade\_VMSizeNotSupported***
+
+「無法升級部署。在支援現有部署的資源中，可能沒有所要求的 VM 大小 XXX。請稍後再試、嘗試使用不同的 VM 大小或較少的角色執行個體，或在空的託管服務下以建立新的同質群組或沒有同質群組繫結來建立部署。」
 
 **GeneralError***
 
-"The server encountered an internal error. Please retry the request." Or "Failed to produce an allocation for the service."
+「伺服器發生內部錯誤。請重試要求。」 或「無法產生服務的配置。」
+
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
+	ms.date="03/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -22,9 +22,13 @@
 本主題列出 Azure AD Connect 同步處理會同步處理的屬性。屬性會依相關的 Azure AD App 來分組。
 
 ## 要同步處理的屬性
-常見的問題是同步處理的最少屬性清單為何。建議的預設方法是保留預設屬性，這樣可以在雲端建構完整的 GAL (全域通訊清單)。在某些情況下，有些屬性您的組織並不會想同步處理至雲端。在此情況下，請從下列屬性清單著手，並識別可能包含 PII (個人識別資訊) 而無法同步處理的屬性。然後在安裝期間使用 [Azure AD 應用程式和屬性篩選](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering)將它們取消選取。
+常見的問題是同步處理的最少屬性清單為何。建議的預設方法是保留預設屬性，這樣可以在雲端建構完整的 GAL (全域通訊清單)，並取得 Office 365 工作負載的所有功能。在某些情況下，貴組織有些不想同步處理至雲端的屬性，因為它們包含機密或 PII (個人識別資訊) 資料，如下例所示。
 
-取消選取屬性時，您應該小心，只取消選取那些絕對不可能進行同步處理的屬性。
+![不正確的屬性](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
+
+在此情況下，請從下面的屬性清單著手，識別出可能包含機密或 PII (個人識別資訊) 資料，不能同步處理的屬性。然後在安裝期間使用 [Azure AD 應用程式和屬性篩選](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering)將它們取消選取。
+
+>[AZURE.WARNING] 取消選取屬性時，您應該小心，只取消選取那些絕對不可能進行同步處理的屬性。取消選取其他屬性可能對功能造成負面的影響。
 
 ## Office 365 ProPlus
 
@@ -374,6 +378,11 @@
 | userPrincipalName| X| | | UPN 是使用者的登入識別碼。最常與 [mail] 值相同。|
 
 ## 協力廠商應用程式
+這是作為一般工作負載或應用程式所需基本屬性的一組屬性。它可以用於上文未列出的工作負載或非 Microsoft 應用程式。它會明確用於下列︰
+
+- Yammer (實際使用的只有 User)
+- [SharePoint 等資源所提供的混合式企業對企業 (B2B) 跨組織共同作業案例](http://go.microsoft.com/fwlink/?LinkId=747036)
+
 這是一組只有在未使用 Azure AD 目錄來支援 Office 365、Dynamics 或 Intune 時才能使用的屬性。它包含一小組的核心屬性。
 
 | 屬性名稱| 使用者| 連絡人| 群組| 註解 |
@@ -451,13 +460,13 @@ Windows 10 已加入網域的電腦 (裝置) 會將某些屬性同步處理至 A
 | msDS-RegisteredOwner | X| |
 
 
-## 關於屬性的注意事項
+## 注意事項
 - 使用替代 ID 時，內部部署屬性 userPrincipalName 將會與 Azure AD 屬性 onPremisesUserPrincipalName 進行同步處理。替代 ID 屬性 (例如 mail) 將會與 Azure AD 屬性 userPrincipalName 進行同步處理。
-
+- 在上列清單中，物件類型 **User** 也適用於物件類型 **iNetOrgPerson**。
 
 ## 後續步驟
 深入了解 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)組態。
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

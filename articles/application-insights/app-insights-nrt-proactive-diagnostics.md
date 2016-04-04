@@ -21,7 +21,7 @@
 
 這項功能適用於 Java 和 ASP.NET Web 應用程式，其裝載於雲端或您自己的伺服器上。它也適用於產生要求遙測的任何應用程式 - 例如，如果您有呼叫 [trackrequest ()](app-insights-api-custom-events-metrics.md#track-request) 的背景工作角色。
 
-設定[專案的 Application Insights](app-insights-get-started.md) 之後，且假設您的應用程式產生特定最少量的遙測，主動診斷需要 24 小時來了解您應用程式的正常行為，然後它才會啟動且可以傳送警示。
+設定[專案的 Application Insights](app-insights-get-started.md) 之後，且若您的應用程式產生特定最少量的遙測，則 NRT 主動診斷需要 24 小時來了解您應用程式的正常行為，然後它才會啟動且可以傳送警示。
 
 以下是警示的範例：
 
@@ -41,7 +41,7 @@
 
 接近即時主動診斷會監視從應用程式收到的遙測，特別是要求失敗率的遙測。此標準計算 `Successful request` 屬性為 false 的要求數目。根據預設，`Successful request== (resultCode < 400)` (除非您撰寫自訂程式碼來[篩選](app-insights-api-filtering-sampling.md#filtering)或產生自己的 [TrackRequest](app-insights-api-custom-events-metrics.md#track-request) 呼叫)。
 
-您的應用程式效能具有一般的行為模式。某些要求會比其他要求更容易失敗；且整體失敗率可能會隨著負載增加而上移。近乎即時主動診斷會使用機器學習服務來尋找這些異常狀況。
+您的應用程式效能具有一般的行為模式。某些要求會比其他要求更容易失敗；且整體失敗率可能會隨著負載增加而上移。NRT 主動診斷會使用機器學習服務來尋找這些異常狀況。
 
 當遙測從您的 Web 應用程式進入 Application Insights 時，NRT 主動診斷會比較目前的行為與過去幾天所發現的模式。如果觀察到與先前效能相比，失敗率異常提高，就會觸發分析。
 
@@ -138,4 +138,4 @@ NRT 主動診斷與其他相似但不同的 Application Insights 功能互補。
 
 *我們也很想要知道您的想法。請傳送意見反應至：*[ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com)。
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

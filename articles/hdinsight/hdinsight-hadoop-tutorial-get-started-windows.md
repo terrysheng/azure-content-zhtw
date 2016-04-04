@@ -91,7 +91,7 @@
 
 
 ## 從入口網站執行 Hive 查詢
-您已經建立 HDInsight 叢集，下一個步驟是執行 Hive 工作來查詢範例 Hive 資料表。我們會使用 HDInsight 叢集隨附的 *hivesampletable* 。此資料表會包含行動裝置製造商、平台及模型等資料。使用 Hive 查詢資料表會擷取特定製造商的行動裝置的資料。
+您已經建立 HDInsight 叢集，下一個步驟是執行 Hive 工作來查詢範例 Hive 資料表。我們會使用 HDInsight 叢集隨附的 *hivesampletable*。此資料表會包含行動裝置製造商、平台及模型等資料。使用 Hive 查詢資料表會擷取特定製造商的行動裝置的資料。
 
 > [AZURE.NOTE] HDInsight Tools for Visual Studio 隨附 Azure SDK for .NET 2.5 版或更新版本。您可以使用 Visual Studio 的工具，連線至 HDInsight 叢集、建立 Hive 資料表及執行 Hive 查詢。如需詳細資訊，請參閱〈[開始使用 HDInsight Hadoop Tools for Visual Studio][1]〉。
 
@@ -196,9 +196,8 @@ HDInsight 叢集會提供查詢主控台，其中包括快速入門組件庫，�
 - [〈搭配 HDInsight 使用 MapReduce〉][hdinsight-use-mapreduce]
 - [〈搭配 HDInsight 使用 Hivet〉][hdinsight-use-hive]
 - [〈搭配 HDInsight 使用 Pig〉][hdinsight-use-pig]
-- [〈在 HDInsight 上使用 Oozie〉][hdinsight-use-oozie]
-- [〈開發 HDInsight 的 C# Hadoop 串流程式〉][hdinsight-develop-streaming]
-- [〈開發 HDInsight 的 Java MapReduce 程式〉][hdinsight-develop-mapreduce]
+- [在 HDInsight 上使用 Oozie][hdinsight-use-oozie]
+- [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]
 
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
@@ -215,7 +214,6 @@ HDInsight 叢集會提供查詢主控台，其中包括快速入門組件庫，�
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-emulator]: hdinsight-hadoop-emulator-get-started.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
 [hdinsight-weblogs-sample]: hdinsight-hive-analyze-website-log.md
@@ -257,4 +255,4 @@ HDInsight 叢集會提供查詢主控台，其中包括快速入門組件庫，�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

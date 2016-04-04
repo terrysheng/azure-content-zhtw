@@ -1,20 +1,20 @@
 <properties
-   pageTitle="共用存取簽章概觀 | Microsoft Azure"
-   description="共用存取簽章為何、其如何運作，以及如何從 Node、PHP 和 C# 中使用它們。"
-   services="service-bus,event-hubs"
-   documentationCenter="na"
-   authors="djrosanova"
-   manager="timlt"
-   editor=""/>
+    pageTitle="共用存取簽章概觀 | Microsoft Azure"
+    description="共用存取簽章為何、其如何運作，以及如何從 Node、PHP 和 C# 中使用它們。"
+    services="service-bus,event-hubs"
+    documentationCenter="na"
+    authors="djrosanova"
+    manager="timlt"
+    editor=""/>
 
 <tags
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/09/2015"
-   ms.author="darosa"/>
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="darosa;sethm"/>
 
 # 共用存取簽章
 
@@ -56,7 +56,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-非雜湊值位在 **SharedAccessSignature** 字串中，如此收件者可以使用相同的參數計算雜湊，以確保它會傳回相同的結果。URI 會指定範圍，而金鑰名稱會識別要用來計算雜湊的原則。從安全性的觀點而言，這很重要。如果簽章與收件者 (服務匯流排) 所計算的不符，則會拒絕存取。此時我們可以確定寄件者可存取金鑰，並且應該被授與原則中指定的權限。
+非雜湊值位在 **SharedAccessSignature** 字串中，如此收件者可以使用相同的參數計算雜湊，以確保它會傳回相同的結果。URI 會指定範圍，而金鑰名稱會識別要用來計算雜湊的原則。從安全性的觀點而言，這很重要。如果簽章與收件者 (服務匯流排) 所計算的不符，則會拒絕存取。此時您可以確定寄件者可存取金鑰，並且應該被授與原則中指定的權限。
 
 ## 從原則產生簽章
 
@@ -182,11 +182,11 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 ## 使用共用存取簽章 (於 AMQP 層級)
 
-在前一節中，說明了如何使用 SAS 權杖搭配 HTTP POST 要求傳送資料到服務匯流排。如您所了解，您可以使用 AMQP (進階訊息佇列通訊協定) 通訊協定來存取服務匯流排，AMQP 通訊協定在許多的案例中，都是基於效能考量而做為主要及慣用的通訊協定。使用 SAS 權杖搭配 AMQP 的用法在下列文章 [AMQP 宣告型安全性 1.0 版](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc)中說明，這是自 2013 年開始的工作草稿，不過現在 Azure 已經提供良好的支援。
+在前一節中，說明了如何使用 SAS 權杖搭配 HTTP POST 要求傳送資料到服務匯流排。如您所了解，您可以使用進階訊息佇列通訊協定 (AMQP) 來存取服務匯流排，此通訊協定在許多案例中，都是基於效能考量而做為慣用的通訊協定。如需使用 SAS 權杖搭配 AMQP 的用法，請參閱 [AMQP 宣告型安全性 1.0 版](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc)文件中的說明，該文件是自 2013 年開始的工作草稿，不過現在 Azure 已經提供良好的支援。
 
-開始將資料傳送到服務匯流排之前，發行者需要在 AMQP 訊息內部將 SAS 權杖傳送至正確定義且名為 **"$cbs"** 的 AMQP 節點 (您可以將它視為像是一個由服務使用的「特別」佇列，用來取得並驗證所有的 SAS 權杖)。發行者必須在 AMQP 訊息中指定 **"ReplyTo"** 欄位；這是服務將以權杖驗證結果 (發行者與服務之間的簡單要求/回覆模式) 回覆發行者的節點所在。此回覆節點是「動態」建立，如 AMQP 1.0 規格中所述的「動態建立遠端節點」。檢查 SAS 權杖有效之後，發行者可以繼續並開始將資料傳送至服務。
+開始將資料傳送到服務匯流排之前，發行者必須在 AMQP 訊息內部將 SAS 權杖傳送至正確定義且名為 **"$cbs"** 的 AMQP 節點 (您可以將它視為一個由服務所使用的「特別」佇列，用來取得並驗證所有的 SAS 權杖)。發行者必須在 AMQP 訊息中指定 **"ReplyTo"** 欄位；這是服務將以權杖驗證結果 (發行者與服務之間的簡單要求/回覆模式) 回覆發行者的節點所在。此回覆節點是「動態」建立，如 AMQP 1.0 規格中所述的「動態建立遠端節點」。檢查 SAS 權杖有效之後，發行者可以繼續並開始將資料傳送至服務。
 
-下列步驟將說明如果您無法在 C&#35; 中使用官方的服務匯流排 SDK (例如在 WinRT、.Net Compact Framework、.Net Micro Framework 和 Mono 中) 進行開發，應如何有效地使用 [AMQP.Net Lite](http://amqpnetlite.codeplex.com) 程式庫搭配 AMQP 通訊協定傳送 SAS 權杖。當然，此函式庫對於了解宣告型安全性如何在 AMQP 層級運作而言非常有用，如同您了解他如何在 HTTP 層級運作一樣 (使用 HTTP POST 要求以及在標頭 "Authorization" 內部傳送的 SAS 權杖)。不過，不用擔心！ 如果您不需要深入了解 AMQP，您可以搭配 .Net Framework 應用程式使用正式服務匯流排 SDK，這也會為您和所有其他平台的 [Azure SB Lite](http://azuresblite.codeplex.com) 程式庫 (請參閱前述) 做到這點。
+下列步驟示範如何使用 [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) 程式庫，搭配 AMQP 通訊協定來傳送 SAS 權杖。如果您不能使用以 C&#35; 開發的官方服務匯流排 SDK (例如，在 WinRT、.Net Compact Framework、.Net Micro Framework 和 Mono 上)，這就非常有用。當然，此程式庫對於了解宣告型安全性如何在 AMQP 層級運作非常有用，如同您了解其如何在 HTTP 層級運作一樣 (使用 HTTP POST 要求以及在標頭 "Authorization" 內部傳送的 SAS 權杖)。如果您不需要深入了解 AMQP，您可以搭配 .Net Framework 應用程式使用正式服務匯流排 SDK，其將為您做到這點。
 
 ### C&#35;
 
@@ -239,13 +239,15 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-上述 *PutCbsToken()* 方法會接收代表服務之 TCP 連線的*連線* (AMQP .Net Lite 程式庫所提供的 AMQP Connection 類別執行個體) 以及要做為 SAS 權杖傳送的 *sasToken* 參數。注意：請務必以**設為 EXTERNAL 的 SASL 驗證機制** (而非當您不需要傳送 SAS 權杖時所使用之包含使用者名稱與密碼的預設 PLAIN) 建立連線。
+上述 `PutCbsToken()` 方法會接收代表服務之 TCP 連線的 *connection* ([AMQP .NET Lite 程式庫](https://github.com/Azure/amqpnetlite)所提供的 AMQP 連接類別執行個體) 以及要做為 SAS 權杖傳送的 *sasToken* 參數。
 
-接下來，發行者會建立兩個 AMQP 連結來傳送 SAS 權杖並接受來自服務的回覆 (權杖驗證結果)。
+> [AZURE.NOTE] 請務必以**設為 EXTERNAL 的 SASL 驗證機制** (而非當您不需要傳送 SAS 權杖時所使用且包含使用者名稱與密碼的預設 PLAIN) 建立連線。
 
-AMQP 訊息因為具有眾多屬性而有點複雜，且含有比簡單訊息更多的資訊。SAS 權杖會放在訊息內文中 (使用其建構函式)。**"ReplyTo"** 屬性設定為在接收者連結上接收驗證結果的節點名稱 (您可以將它變更為您想要的名稱，服務將會動態建立它)。最後三個 application/custom 屬性是由服務使用，以了解它必須執行什麼類型的作業。如 CBS 草稿規格所述，它們必須是**作業名稱** (像是 "put-token")、放置的**語彙基元類型** (像是 "servicebus.windows.net:sastoken")，最後則是套用權杖之**對象的 "name"** (完整實體)。
+接下來，發行者會建立兩個 AMQP 連結來傳送 SAS 權杖，並接受來自服務的回覆 (權杖驗證結果)。
 
-在寄件者連結上傳送 SAS 權杖之後，發行者需要在接收者連結上讀取回覆。回覆是包含名稱為 **"status-code"** 之應用程式屬性的簡單 AMQP 訊息，可用來包含做為 HTTP 狀態碼的相同值
+AMQP 訊息包含眾多屬性，以及比簡單訊息更多的資訊。SAS 權杖是訊息的內文 (使用其建構函式)。**"ReplyTo"** 屬性設定為在接收者連結上接收驗證結果的節點名稱 (您可以視需要變更它的名稱，而服務將會動態建立它)。最後三個應用程式/自訂屬性是由服務所使用，以指出它必須執行何種類型的作業。如 CBS 草稿規格所述，它們必須是**作業名稱** (像是 "put-token")、**權杖類型** (在本案例中為 "servicebus.windows.net:sastoken")，以及套用權杖之**對象的 "name"** (完整實體)。
+
+在寄件者連結上傳送 SAS 權杖之後，發行者必須在接收者連結上讀取回覆。回覆是包含名稱為 **"status-code"** 之應用程式屬性的簡單 AMQP 訊息，可用來包含做為 HTTP 狀態碼的相同值
 
 ## 後續步驟
 
@@ -257,4 +259,4 @@ AMQP 訊息因為具有眾多屬性而有點複雜，且含有比簡單訊息更
 
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

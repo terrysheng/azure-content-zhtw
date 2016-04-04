@@ -35,7 +35,7 @@
 若要完成本教學課程，您必須具備下列項目：
 
 - Microsoft Azure 訂用帳戶。如果您沒有訂用帳戶，您可以註冊[免費試用](../../../pricing/free-trial)。
-- 命令列介面 0.9.1 版或更新版本。若要安裝最新版本，並連接至 Azure 訂用帳戶，請參閱[安裝與設定 Azure 跨平台命令列介面](xplat-cli-install.md)。
+- 命令列介面 0.9.1 版或更新版本。若要安裝最新版本，並連接至 Azure 訂用帳戶，請參閱[安裝與設定 Azure 跨平台命令列介面](../xplat-cli-install.md)。
 - 可設定使用您在本教學課程中所建立之金鑰或密碼的應用程式。您可以在 [Microsoft 下載中心](http://www.microsoft.com/download/details.aspx?id=45343)找到範例應用程式。如需相關指示，請參閱隨附的讀我檔案。
 
 ## 取得使用 Azure 跨平台命令列介面的說明
@@ -54,8 +54,8 @@
 
 您也可以閱讀以下教學課程，以熟悉 Azure 跨平台命令列介面中的 Azure 資源管理員：
 
-- [如何安裝與設定 Azure 跨平台命令列介面](xplat-cli-install.md)
-- [搭配 Azure 資源管理員使用 Azure 跨平台命令列介面](xplat-cli-azure-resource-manager.md)
+- [如何安裝與設定 Azure 跨平台命令列介面](../xplat-cli-install.md)
+- [搭配 Azure 資源管理員使用 Azure 跨平台命令列介面](../xplat-cli-azure-resource-manager.md)
 
 
 ## 連線到您的訂閱
@@ -89,7 +89,7 @@
 
     azure account set <subscription name>
 
-如需關於設定 Azure 跨平台命令列介面的詳細資訊，請參閱[如何安裝與設定 Azure 跨平台命令列介面](xplat-cli-install.md)。
+如需關於設定 Azure 跨平台命令列介面的詳細資訊，請參閱[如何安裝與設定 Azure 跨平台命令列介面](../xplat-cli-install.md)。
 
 
 ## 切換成使用 Azure 資源管理員
@@ -256,4 +256,4 @@
 
 如需程式設計參考，請參閱 [Azure 金鑰保存庫開發人員指南](key-vault-developers-guide.md)。
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

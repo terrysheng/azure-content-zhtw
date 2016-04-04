@@ -24,7 +24,7 @@
 這個範例是簡單的待辦事項清單單一頁面應用程式，在後端 REST API 儲存工作、使用 NodeJS 撰寫，並且使用 Azure AD 的 OAuth 持有人權杖進行保護。AngularJS 應用程式會使用我們的開放原始碼 JavaScript 驗證程式庫 [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) 以處理整個登入程序，並且取得用以呼叫 REST API 的權杖。相同的模式可以套用以驗證其他 REST API，例如 [Microsoft Graph](https://graph.microsoft.com) 或 Azure 資源管理員 API。
 
 > [AZURE.NOTE]
-	v2.0 端點並非支援每個 Azure Active Directory 案例和功能。如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
+	v2.0 端點並未支援 Azure Active Directory 的所有案例和功能。如果要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
 
 ## 下載
 
@@ -51,7 +51,8 @@ git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-NodeJS.git
 將指派給您應用程式的「應用程式識別碼」複製起來，您很快會需要用到這些識別碼。
 
 ## 安裝 adal.js
-若要開始，請瀏覽至您下載並安裝 adal.js 的專案。如果您已安裝 [bower](http://bower.io/)，您只要執行這個命令即可。對於任何相依性版本不符，請選擇較高的版本。```
+若要開始，請瀏覽至您下載並安裝 adal.js 的專案。如果您已安裝 [bower](http://bower.io/)，您只要執行這個命令即可。對於任何相依性版本不符，請選擇較高的版本。
+```
 bower install adal-angular#experimental
 ```
 
@@ -240,4 +241,4 @@ node server.js
 - [堆疊溢位上的 Azure AD >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - [Azure.com 上的 Azure AD 文件 >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

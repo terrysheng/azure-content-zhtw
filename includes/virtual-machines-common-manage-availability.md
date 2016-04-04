@@ -1,50 +1,52 @@
-## Understand planned vs. unplanned maintenance
-There are two types of Microsoft Azure platform events that can affect the availability of your virtual machines: planned maintenance and unplanned maintenance.
+## 了解規劃和未規劃維護
+有兩種可影響虛擬機器可用性的 Microsoft Azure 平台事件：規劃維護和非規劃維護。
 
-- **Planned maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. The majority of these updates are performed without any impact upon your virtual machines or cloud services. However, there are instances where these updates require a reboot of your virtual machine to apply the required updates to the platform infrastructure.
+- **規劃的維護事件**是由 Microsoft 對基礎 Azure 平台進行的定期更新，為虛擬機器在其中執行的平台基礎結構改善整體可靠性、效能和安全性。這些更新大多數都會在不影響虛擬機器或雲端服務的情況下執行。但有時候，這些更新還是需要重新啟動虛擬機器，才能將必要的更新套用至平台基礎結構。
 
-- **Unplanned maintenance events** occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical machine hosting your virtual machine to a healthy physical machine. Such events are rare, but may also cause your virtual machine to reboot.
+- **未規劃的維護事件**會在虛擬機器中的硬體或實體基礎結構產生某些方面的錯誤時發生。這可能包含本機網路錯誤、本機磁碟錯誤，或其他機架層級的錯誤。Azure 會在偵測到此類錯誤時，自動從裝載虛擬機器且狀況不良的實體機器，將虛擬機器移轉至狀況良好的實體機器。這類事件非常稀少，但可能會導致虛擬機器重新啟動。
 
-## Follow best practices when you design your application for high availability
-To reduce the impact of downtime due to one or more of these events, we recommend the following high availability best practices for your virtual machines:
+## 設計高可用性的應用程式時要遵循最佳做法
+為了減少一或多個這些事件造成的停機所帶來的影響，建議您為虛擬機器使用下列高可用性的最佳做法：
 
-* [Configure multiple virtual machines in an Availability Set for redundancy]
-* [Configure each application tier into separate Availability Sets]
-* [Combine the Load Balancer with Availability Sets]
-* [Avoid single instance virtual machines in Availability Sets]
+* [在可用性設定組中設定多個虛擬機器以取得備援]
+* [將每個應用程式層設定至不同的可用性設定組中]
+* [將負載平衡器與可用性設定組結合]
+* [避免可用性設定組中只有一部執行個體虛擬機器]
 
-### Configure multiple virtual machines in an Availability Set for redundancy
-To provide redundancy to your application, we recommend that you group two or more virtual machines in an Availability Set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. For more information about service level agreements, see the “Cloud Services, virtual machines, and Virtual Network” section in [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+### 針對備援在可用性設定組中設定多部虛擬機器
+若要為應用程式提供備援，建議您在可用性設定組中，將兩部以上的虛擬機器組成群組。這項組態可以確保在規劃或未規劃的維護事件發生期間，至少有一部虛擬機器可以使用，且符合 99.95% 的 Azure SLA。如需服務等級協定的詳細資訊，請參閱《[服務等級協定](https://azure.microsoft.com/support/legal/sla/)》中的〈雲端服務、虛擬機器及虛擬網路〉一節。
 
-Each virtual machine in your Availability Set is assigned an Update Domain (UD) and a Fault Domain (FD) by the underlying Azure platform. For a given Availability Set, five non-user-configurable UDs are assigned to indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. When more than five virtual machines are configured within a single Availability Set, the sixth virtual machine will be placed into the same UD as the first virtual machine, the seventh in the same UD as the second virtual machine, and so on. The order of UDs being rebooted may not proceed sequentially during planned maintenance, but only one UD will be rebooted at a time.
+基礎 Azure 平台會為可用性設定組中的每部虛擬機器指定一個更新網域 (UD) 和一個容錯網域 (FD)。在指定的可用性設定組中，指派了五個非使用者可設定的 UD，表示虛擬機器群組和可同時重新啟動的基礎實體硬體。當一個可用性設定組中設定了超過五部虛擬機器，會將第六部虛擬機器放入與第一部虛擬機器相同的 UD 中，而第七部則會放入與第二部相同的 UD 中，以此類推。重新啟動的 UD 順序可能不會在規劃的維護事件期間循序進行，而只會一次重新啟動一個 UD。
 
-FDs define the group of virtual machines that share a common power source and network switch. By default, the virtual machines configured within your Availability Set are separated across two FDs. While placing your virtual machines into an Availability Set does not protect your application from operating system or application-specific failures, it does limit the impact of potential physical hardware failures, network outages, or power interruptions.
-
-<!--Image reference-->
-   ![UD FD configuration](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
-
->[AZURE.NOTE] For instructions, see [How to Configure an Availability Set for virtual machines] [].
-
-### Configure each application tier into separate Availability Sets
-If the virtual machines in your Availability Set are all nearly identical and serve the same purpose for your application, we recommend that you configure an Availability Set for each tier of your application.  If you place two different tiers in the same Availability Set, all virtual machines in the same application tier can be rebooted at once. By configuring at least two virtual machines in an Availability Set for each tier, you guarantee that at least one virtual machine in each tier will be available.
-
-For example, you could put all the virtual machines in the front-end of your application running IIS, Apache, Nginx, etc., in a single Availability Set. Make sure that only front-end virtual machines are placed in the same Availability Set. Similarly, make sure that only data-tier virtual machines are placed in their own Availability Set, like your replicated SQL Server virtual machines or your MySQL virtual machines.
+FD 定義共用通用電源和網路交換器的虛擬機器群組。根據預設，可用性設定組中設定的虛擬機器會分置於兩個 FD 中。將虛擬機器放入可用性設定組，並無法保護應用程式不會遭受作業系統錯誤或特定應用程式錯誤，而只會限制可能的實體硬體錯誤、網路中斷或電源中斷所帶來的影響。
 
 <!--Image reference-->
-   ![Application tiers](./media/virtual-machines-common-manage-availability/application-tiers.png)
+   ![UD FD 組態](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+
+>[AZURE.NOTE] 如需相關指示，請參閱《[如何設定虛擬機器的可用性設定組][]》。
+
+### 將每個應用程式層設定至不同的可用性設定組中
+若可用性設定組中的虛擬機器幾乎都一樣，且對應用程式而言具有相同用途，建議您針對每個應用程式層設定可用性設定組。若您在相同的可用性設定組中放入兩個不同的階層，則可以一次重新啟動位於相同應用程式層的所有虛擬機器。您可以藉由在可用性設定組中為每個層設定至少兩部虛擬機器，確保每個層中至少有一部虛擬機器可供使用。
+
+例如，您可以在一個可用性設定組中，將所有虛擬機器放入執行 IIS、Apache、Nginx 等的應用程式前端中。請確認相同的可用性設定組中只有放入前端的虛擬機器。同樣地，也要確認資料層的虛擬機器僅會放在它們自己的可用性設定組中，如同複寫的 SQL Server 虛擬機器或 MySQL 虛擬機器。
+
+<!--Image reference-->
+   ![應用程式層](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 
-### Combine the Load Balancer with Availability Sets
-Combine the Azure Load Balancer with an Availability Set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Note that not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, read [Load Balancing virtual machines](virtual-machines-linux-load-balance.md).
+### 將負載平衡器與可用性設定組結合
+將 Azure 負載平衡器與可用性設定組結合，以獲得最多的應用程式備援能力。Azure 負載平衡器會在多部虛擬機器之間分配流量。我們的標準層虛擬機器中包含 Azure 負載平衡器。請注意，並非所有的虛擬機器階層都包含 Azure 負載平衡器。如需關於負載平衡虛擬機器的詳細資訊，請參閱《[負載平衡虛擬機器](virtual-machines-linux-load-balance.md)》。
 
-If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event will affect the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and Availability Set enables traffic to be continuously served by at least one instance.
+若負載平衡器沒有設定為平衡多部虛擬機器之間的流量，則所有計劃性維護事件都只會影響處理流量的虛擬機器，並導致應用程式層中斷。將同一個層的多部虛擬機器放在相同的負載平衡器和可用性設定組下，可讓至少一個執行個體持續處理流量。
 
-### Avoid single instance virtual machines in Availability Sets
-Avoid leaving a single instance virtual machine in an Availability Set by itself. Virtual machines in this configuration do not qualify for a SLA guarantee and will face downtime during Azure planned maintenance events. Please note, single virtual machine instance within an Availability Set, will also receive advanced email notification in multi-instance virtual machines planned maintenance notification. 
+### 避免可用性設定組中只有一部執行個體虛擬機器
+避免一個可用性設定組中只有一部執行個體虛擬機器。此組態中的虛擬機器不符合 SLA 的保證，且會在 Azure 規劃的維護事件期間發生停機狀況。請注意，可用性集合中的單一虛擬機器執行個體，在多重執行個體虛擬機器的計畫性維護通知中，也會收到進階的電子郵件通知。
 
 <!-- Link references -->
-[Configure multiple virtual machines in an Availability Set for redundancy]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Configure each application tier into separate Availability Sets]: #configure-each-application-tier-into-separate-availability-sets
-[Combine the Load Balancer with Availability Sets]: #combine-the-load-balancer-with-availability-sets
-[Avoid single instance virtual machines in Availability Sets]: #avoid-single-instance-virtual-machines-in-availability-sets
-[How to Configure An Availability Set for virtual machines]: virtual-machines-windows-classic-configure-availability.md
+[在可用性設定組中設定多個虛擬機器以取得備援]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
+[將每個應用程式層設定至不同的可用性設定組中]: #configure-each-application-tier-into-separate-availability-sets
+[將負載平衡器與可用性設定組結合]: #combine-the-load-balancer-with-availability-sets
+[避免可用性設定組中只有一部執行個體虛擬機器]: #avoid-single-instance-virtual-machines-in-availability-sets
+[如何設定虛擬機器的可用性設定組]: virtual-machines-windows-classic-configure-availability.md
+
+<!---HONumber=AcomDC_0323_2016-->

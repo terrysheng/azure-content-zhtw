@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="rajram"/>
 
 # 開始使用 Slack 連接器並將它加入您的邏輯應用程式
->[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [Slack API](../connectors/create-api-slack.md)。
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [Slack API](../connectors/connectors-create-api-slack.md)。
 
 連接至 Slack 通道，並將訊息張貼至您的小組。連接器可在 Logic Apps 中用做「工作流程」的一部分，以執行不同的工作。在工作流程中使用 Slack 連接器時，可以使用其他連接器來達到各種案例的目的。例如，您可以在工作流程中使用 [Facebook 連接器](app-service-logic-connector-facebook.md)，以將訊息張貼至 Slack 通道。
 
@@ -106,4 +106,4 @@ Slack 連接器具有 REST API，因此您可以在邏輯應用程式外部使�
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # 如何使用 PowerShell 管理端點的存取控制清單 (ACL)
 
-您可以使用 Azure PowerShell 或在管理入口網站中建立和管理端點的網路存取控制清單 (ACL)。在本主題中，您會了解一些可使用 PowerShell 完成 ACL 一般工作的程序。如需 Azure PowerShell Cmdlet 的清單，請參閱＜[Azure 管理 Cmdlet](http://go.microsoft.com/fwlink/?LinkId=317721)＞。如需有關 ACL 的詳細資訊，請參閱＜[什麼是網路存取控制清單 (ACL)？](../virtual-networks-acl)＞。若您要使用管理入口網站來管理 ACL，請參閱＜[如何設定虛擬機器的端點](../virtual-machines-set-up-endpoints/)＞。
+您可以使用 Azure PowerShell 或在管理入口網站中建立和管理端點的網路存取控制清單 (ACL)。在本主題中，您會了解一些可使用 PowerShell 完成 ACL 一般工作的程序。如需 Azure PowerShell Cmdlet 的清單，請參閱＜[Azure 管理 Cmdlet](http://go.microsoft.com/fwlink/?LinkId=317721)＞。如需有關 ACL 的詳細資訊，請參閱＜[什麼是網路存取控制清單 (ACL)？](virtual-networks-acl.md)＞。若您要使用管理入口網站來管理 ACL，請參閱＜[如何設定虛擬機器的端點](../virtual-machines/virtual-machines-set-up-endpoints.md)＞。
 
 ## 使用 Azure PowerShell 來管理網路 ACL
 
@@ -91,10 +91,8 @@
 		| Remove-AzureAclConfig –EndpointName "web" `
 		| Update-AzureVM
 
-## 另請參閱
+## 後續步驟
 
-[什麼是網路存取控制清單 (ACL)？](../virtual-networks-acl)
+[什麼是網路存取控制清單 (ACL)？](virtual-networks-acl.md)
 
-[如何設定與虛擬機器的通訊](http://go.microsoft.com/fwlink/?LinkId=303938)
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 # 如何在串流分析中撰寫查詢
@@ -27,13 +27,13 @@
 
     ![選取查詢](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)
 
-    在 Azure Preview 入口網站中，按一下 [查詢]。
+    在 Azure 入口網站，按一下 [查詢]。
 
     ![選取查詢預覽](./media/stream-analytics-write-queries/query-preview-portal.png)
 
 2.	新工作有可以協助您入門的查詢範本。查詢範本會執行「傳遞」查詢，其會將所有欄位從輸入事件投影至輸出中。
 
-    - 如果您已經為工作定義了至少一個輸入和輸出，便可以將預留位置 "[YourOutputAlias]" 和 "[YourInputAlias]" 欄位取代為您想先用的輸入與輸出別名。此外，您仍可在 Azure 入口網站中撰寫並測試您的查詢，而不需在工作中定義輸入及輸出。
+    - 如果您已經為工作定義了至少一個輸入和輸出，便可以將預留位置 "[YourOutputAlias]" 和 "[YourInputAlias]" 欄位取代為您想先用的輸入與輸出別名。此外，您仍可在 Azure 傳統入口網站中撰寫並測試您的查詢，而不需在工作中定義輸入及輸出。
     - 如果您想要執行比簡單的傳遞更多的處理，您可以編輯查詢定義。若要開始撰寫查詢，請到[這裡](stream-analytics-stream-analytics-query-patterns.md)看看一些擷取的常見查詢模式。  
   
     ![查詢資料視窗](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)
@@ -42,7 +42,7 @@
 
 您可以透過在瀏覽器中執行一或多個包含測試資料的本機 JSON 檔案，來測試查詢是否如預期執行。這不會開始工作，也不會以任何方式計費。
 
-> [AZURE.NOTE] Azure Preview 入口網站目前不支援瀏覽器內查詢測試。
+> [AZURE.NOTE] Azure 入口網站目前不支援瀏覽器內查詢測試。
 
 1.	請確定查詢中沒有任何錯誤 (否則 [測試] 按鈕將會停用) 然後按一下 [測試] 按鈕。  
 
@@ -71,4 +71,4 @@
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

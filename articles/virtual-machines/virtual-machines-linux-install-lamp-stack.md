@@ -1,7 +1,7 @@
 <properties
 	pageTitle="在 Linux 虛擬機器上安裝 LAMP 堆疊 | Microsoft Azure"
 	description="了解如何在 Azure 中的 Linux 虛擬機器 (VM) 上安裝 LAMP 堆疊。"
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="szarkos"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -105,7 +105,7 @@ LAMP 堆疊由下列不同元素組成：
 
 		- CentOS 和 Oracle：`sudo service httpd restart`
 
-	- 根據預設，Apache 會接聽連接埠 80。您可能需要開啟端點，才能從遠端存取您的 Apache 伺服器。如需詳細指示，請參閱[設定端點](virtual-machines-set-up-endpoints.md)的文件。
+	- 根據預設，Apache 會接聽連接埠 80。您可能需要開啟端點，才能從遠端存取您的 Apache 伺服器。如需詳細指示，請參閱[設定端點](virtual-machines-windows-classic-setup-endpoints.md)的文件。
 
 	- 您現在可以檢查看看 Apache 是否正在執行並提供內容。使瀏覽器指向 `http://[MYSERVICE].cloudapp.net`，其中 **[MYSERVICE]** 是您虛擬機器所在的雲端服務名稱。您可能會在一些散發中遇到預設的歡迎網頁，這只代表「網頁是有效的！」。在其他散發中，您可能會看到更完整的網頁，其中具有其他文件的連結，以及設定 Apache 伺服器的內容。
 
@@ -122,11 +122,11 @@ LAMP 堆疊由下列不同元素組成：
 
 ##進階閱讀
 
-假設您想要將這些步驟自動化，將應用程式部署到遠端 Linux 虛擬機器？ 您可以使用 Linux CustomScript 延伸模組來執行這個動作。請參閱[使用適用於 Linux 的 Azure CustomScript 延伸模組部署 LAMP 應用程式](virtual-machines-linux-script-lamp.md)。
+假設您想要將這些步驟自動化，將應用程式部署到遠端 Linux 虛擬機器？ 您可以使用 Linux CustomScript 延伸模組來執行這個動作。請參閱[使用適用於 Linux 的 Azure CustomScript 延伸模組部署 LAMP 應用程式](virtual-machines-linux-classic-lamp-script.md)。
 
 有許多關於在 Ubuntu 上設定 LAMP 堆疊的其他資源可供參考。
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

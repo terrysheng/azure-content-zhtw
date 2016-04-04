@@ -1,7 +1,7 @@
 <properties 
    pageTitle="在傳統部署模型中建立雲端服務的內部負載平衡器 | Microsoft Azure"
    description="了解如何在傳統部署模型中建立內部負載平衡器"
-   services="load-balancer-ilb"
+   services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
    manager="carolz"
@@ -91,4 +91,4 @@
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

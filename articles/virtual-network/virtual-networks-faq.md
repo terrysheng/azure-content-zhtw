@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # 虛擬網路常見問題集
@@ -21,6 +21,6 @@
 
 ## 虛擬網路跨單位連線 (VPN)
 
-如需虛擬網路 VPN 的最新常見問題集，請參閱《[VPN 閘道常見問題集](vpn-gateway-vpn-faq.md)》。
+如需虛擬網路 VPN 的最新常見問題集，請參閱《[VPN 閘道常見問題集](../vpn-gateway/vpn-gateway-vpn-faq.md)》。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

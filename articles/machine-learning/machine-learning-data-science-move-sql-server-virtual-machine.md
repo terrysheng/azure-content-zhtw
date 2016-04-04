@@ -173,7 +173,7 @@ BCP 是與 SQL Server 一起安裝的命令列公用程式，是最快速移動�
 
 ### 將 SQL Server Database 部署到 Microsoft Azure VM 精靈
 
-**將 SQL Server Database 部署到 Microsoft Azure VM 精靈**是簡單且建議的方式，可用於將資料從內部部署 SQL Server 執行個體移至 Azure VM 上的 SQL Server。如需詳細的步驟以及其他替代方案的討論，請參閱[將資料庫移轉至 Azure VM 上的 SQL Server](../virtual-machines/virtual-machines-migrate-onpremises-database.md)。
+**將 SQL Server Database 部署到 Microsoft Azure VM 精靈**是簡單且建議的方式，可用於將資料從內部部署 SQL Server 執行個體移至 Azure VM 上的 SQL Server。如需詳細的步驟以及其他替代方案的討論，請參閱[將資料庫移轉至 Azure VM 上的 SQL Server](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md)。
 
 ### <a name="export-flat-file"></a>匯出至一般檔案
 
@@ -217,11 +217,11 @@ SQL Server Management Studio 的資料庫備份/還原選項的螢幕擷取畫�
 
 ## 資源
 
-[將資料庫移轉至 Azure VM 上的 SQL Server](../virtual-machines/virtual-machines-migrate-onpremises-database.md)
+[將資料庫移轉至 Azure VM 上的 SQL Server](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md)
 
-[Azure 虛擬機器上的 SQL Server 概觀](../virtual-machines/virtual-machines-sql-server-infrastructure-services.md)
+[Azure 虛擬機器上的 SQL Server 概觀](../virtual-machines/virtual-machines-windows-classic-sql-overview.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="03/10/2016" 
+    ms.date="03/17/2016" 
     ms.author="b-hoedid"/>
 
 # 使用 Logic Apps 的新增或已變更 DocumentDB 資源的通知
@@ -624,7 +624,7 @@ QueryDocuments 動作會對 API 應用程式執行 HTTP POST 作業。
 
 程式碼是從設計工具中的動作產生而來。您不需要修改程式碼。
 
-如果您不熟悉如何使用 Azure Blob API，請參閱[開始使用 Azure Blob 儲存體 API](../connectors/create-api-azureblobstorage.md)。
+如果您不熟悉如何使用 Azure Blob API，請參閱[開始使用 Azure Blob 儲存體 API](../connectors/connectors-create-api-azureblobstorage.md)。
 
 #### 作業
 
@@ -1156,4 +1156,4 @@ EmailTo | 將會收到電子郵件通知的電子郵件地址
 
 若要深入了解 DocumentDB，請瀏覽[學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)。
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

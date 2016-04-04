@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 特殊權限身分識別管理：如何執行安全性檢閱"
+   pageTitle="如何執行安全性檢閱 | Microsoft Azure"
    description="了解如何將角色新增到具備 Azure 特殊權限身分識別管理擴充功能的特殊權限身分識別。"
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management：如何執行安全性檢閱
+# Azure AD Privileged Identity Management：如何執行安全性檢閱
 
 
 一旦[啟動安全性檢閱](active-directory-privileged-identity-management-how-to-start-security-review.md)之後，檢閱特殊權限存取就非常容易。
@@ -60,4 +60,4 @@
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

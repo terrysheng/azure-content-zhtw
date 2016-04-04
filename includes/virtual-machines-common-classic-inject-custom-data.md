@@ -1,19 +1,19 @@
 
 
 
-This topic describes how to:
+本主題將說明如何：
 
-- Inject data into an Azure virtual machine when it is being provisioned.
+- 將資料插入正在佈建的 Azure 虛擬機器
 
-- Retrieve it for both Windows and Linux.
+- 針對 Windows 和 Linux 進行擷取。
 
-- Use special tools available on some systems to detect and handle custom data automatically.
+- 使用某些系統提供的特殊工具來自動偵測與處理自訂資料。
 
-> [AZURE.NOTE] This article describes how custom data can be injected by using a VM created with the Azure Service Management API. To see how to use the Azure Resource Management API, see [the example template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+> [AZURE.NOTE] 本文將說明如何使用建立的 VM 插入自訂資料以搭配 Azure 服務管理 API。若要了解如何使用 Azure 資源管理 API，請參閱[範例範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)。
 
-## Injecting custom data into your Azure virtual machine
+## 將自訂資料插入 Azure 虛擬機器
 
-This feature is currently supported only in the [Azure Command-Line Interface](https://github.com/Azure/azure-xplat-cli). Although you may use any of the options for the `azure vm create` command, the following demonstrates one very basic approach.
+目前僅在 [Microsoft Azure 命令列介面](https://github.com/Azure/azure-xplat-cli)中支援此功能。雖然您可能會在 `azure vm create` 命令中使用任何選項，但是下列將示範一個非常基本的方法。
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
@@ -24,37 +24,39 @@ This feature is currently supported only in the [Azure Command-Line Interface](h
 ```
 
 
-## Using custom data in the virtual machine
+## 在虛擬機器中使用自訂資料
 
-+ If your Azure virtual machine is a Windows-based virtual machine, then the custom data file is saved to `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Although it was base64-encoded to transfer from the local computer to the new virtual machine, it is automatically decoded and can be opened or used immediately.
++ 如果 Azure 的虛擬機器是以 Windows 為基礎的虛擬機器，自訂資料檔案則會儲存至 `%SYSTEMDRIVE%\AzureData\CustomData.bin`。雖然從本機電腦傳送到新虛擬機器的資料是 base64 編碼，但是系統會自動將它解碼並立即開啟或使用。
 
-   > [AZURE.NOTE] If the file exists, it is overwritten. The security on the directory is set to **System:Full Control** and **Administrators:Full Control**.
+   > [AZURE.NOTE] 如果檔案已存在，則會被覆寫。目錄上的安全性會設為 [System:Full Control] 和 [Administrators:Full Control]。
 
-+ If your Azure virtual machine is a Linux-based virtual machine, then the custom data file will be located in the following two places. The data will be base64-encoded, so you will need to decode the data first.
++ 如果您的 Azure 虛擬機器是以 Linux 為基礎的虛擬機器，自訂資料檔案則會位於下列兩個位置中。資料將會以 base64 編碼，因此您必須先解碼資料。
 
-    + At `/var/lib/waagent/ovf-env.xml`
-    + At `/var/lib/waagent/CustomData`
+    + 於 `/var/lib/waagent/ovf-env.xml`
+    + 於 `/var/lib/waagent/CustomData`
 
 
 
-## Cloud-init on Azure
+## Azure 上的 Cloud-Init
 
-If your Azure virtual machine is from an Ubuntu or CoreOS image, then you can use CustomData to send a cloud-config to cloud-init. Or if your custom data file is a script, then cloud-init can simply execute it.
+如果您的 Azure 虛擬機器是來自 Ubuntu 或 CoreOS 映像，則您可以使用 CustomData 將 cloud-config 傳送到 cloud-init。或者，如果您的自訂資料檔案是指令碼，則 cloud-init 只能執行它。
 
-### Ubuntu Cloud Images
+### Ubuntu 雲端映像
 
-In most Azure Linux images, you would edit "/etc/waagent.conf" to configure the temporary resource disk and swap file. See [Azure Linux Agent user guide](virtual-machines-linux-agent-user-guide.md) for more information.
+在大部分的 Azure Linux 映像中．您可以編輯 "/etc/waagent.conf" ，以設定暫存資源磁碟和交換檔。如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南](virtual-machines-linux-agent-user-guide.md)。
 
-However, on the Ubuntu Cloud Images, you must use cloud-init to configure the resource disk (that is, the "ephemeral" disk) and swap partition. See the following page on the Ubuntu wiki for more details: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+不過，在 Ubuntu 雲端映像上，您必須使用 cloud-init 設定資源磁碟 (也就是「暫時」磁碟) 和交換資料分割。如需詳細資訊，請參閱 Ubuntu wiki 上的下列網頁：[AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions)。
 
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Next steps: Using cloud-init
+## 後續步驟：使用 cloud-init
 
-For further information, see the [cloud-init documentation for Ubuntu](https://help.ubuntu.com/community/CloudInit).
+如需進一步資訊，請參閱 [Ubuntu 的 cloud-init 文件](https://help.ubuntu.com/community/CloudInit) (英文)。
 
 <!--Link references-->
-[Add Role Service Management REST API Reference](http://msdn.microsoft.com/library/azure/jj157186.aspx)
+[加入角色服務管理 REST API 參考](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
-[Azure Command-line Interface](https://github.com/Azure/azure-xplat-cli)
+[Azure 命令列介面](https://github.com/Azure/azure-xplat-cli)
+
+<!---HONumber=AcomDC_0323_2016-->

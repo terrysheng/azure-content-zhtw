@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 
 # Azure 資源管理員的 Azure 負載平衡器支援 
 
-Azure 資源管理員 (ARM) 是 Azure 中新的服務管理架構。Azure 負載平衡器現在可使用以 Azure 資源管理員為基礎的 API 和工具來進行管理。若要深入了解 Azure 資源管理員，請參閱[使用資源群組管理您的 Azure 資源](../azure-preview-portal-using-resource-groups.md)。
+Azure 資源管理員 (ARM) 是 Azure 中新的服務管理架構。Azure 負載平衡器現在可使用以 Azure 資源管理員為基礎的 API 和工具來進行管理。
 
 ## 概念
 
@@ -46,7 +46,7 @@ Azure 資源管理員可讓您使用宣告式範本佈建應用程式。在單�
 
 [深入了解範本](http://go.microsoft.com/fwlink/?LinkId=544798)
 
-[深入了解網路資源](../resource-groups-networking)
+[深入了解網路資源](../virtual-network/resource-groups-networking)
 
 您可以在 [GitHub 儲存機制](https://github.com/Azure/azure-quickstart-templates) (裝載了一組社群產生的範本) 中找到使用 Azure 負載平衡器的範本
 
@@ -65,7 +65,7 @@ Azure 資源管理員可讓您使用宣告式範本佈建應用程式。在單�
 
 - [如何使用 Azure 資源管理員建立負載平衡器](load-balancer-get-started-internet-arm-ps.md)
 
-- [搭配使用 Azure 資源管理與 Azure CLI](../xplat-cli-azure-resource-manager)
+- [搭配使用 Azure 資源管理與 Azure CLI](../xplat-cli-azure-resource-manager.md)
 
 - [負載平衡器 REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
@@ -76,4 +76,4 @@ Azure 資源管理員可讓您使用宣告式範本佈建應用程式。在單�
 
 如果您的應用程式需要讓負載平衡器後方的伺服器保持連接狀態，您可以深入了解[負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)。當您使用 Azure 負載平衡器時，該文章可幫助您了解閒置連接行為。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

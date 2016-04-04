@@ -43,6 +43,8 @@ U-SQL | 說明進行範圍型 JOIN 的技術 | 1 | Pending | [@MikeRys](https://
 U-SQL | ADLS 驗證選項 | 1 | Pending | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | 跨平台 CLI 工作提交 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
 U-SQL | REDUCE 和 COMBINE 的參考文件更新 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
+工具 | 單元測試 Visual Studio 適用的 U-SQL UDF Azure Data Lake 工具 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
+工具 | Visual Studio 適用的 Azure Data Lake 作業圖形和頂點執行檢視工具 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
 
 
 
@@ -59,4 +61,4 @@ U-SQL | REDUCE 和 COMBINE 的參考文件更新 | 1 | Pending | [@edmacauley](h
 * 在 [Azure 內容儲存機制](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md) 中提交這份文件的提取要求
 * 傳送電子郵件到 microsoft.com 的 [adlafeedback](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights Analytics 中的彙整陳述式和彙總函式" 
-	description="Application Insights Analytics (適用於 Application Insights 的強大搜尋工具) 中的彙總函式和彙整陳述式參考資料。" 
+	pageTitle="Application Insights 分析中的彙整與彙總功能" 
+	description="分析 (Application Insights 的強大搜尋工具) 中的彙總函式和彙整陳述式參考資料。" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2016" 
+	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
 
-# Application Insights Analytics 中的彙總
+# 分析中的彙總功能
 
-[Application Insights Analytics](app-analytics.md) 是強大的搜尋引擎，適合用於 [Application Insights](app-insights-overview.md) 遙測。這些頁面說明 Application Insights Analytics 查詢語言 AIQL。
+[分析](app-analytics.md)是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。這些頁面說明分析查詢語言。
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -52,9 +52,9 @@
 * Aggregation：`count()` 或 `avg()` 等彙總函式的呼叫，以資料行名稱做為引數。請參閱下面的彙總函式清單。
 * GroupExpression：可提供一組相異值的資料行運算式。它通常是已提供一組受限值的資料行名稱，或是以數值或時間資料行做為引數的 `bin()`。 
 
-如果您提供不使用 `bin()` 的數值或時間運算式，AI Analytics 會自動為它套用 `1h` 間隔的時間，或 `1.0` 的數字。
+如果您提供數值或時間運算式而不使用 `bin()`，「分析」就會自動為它套用 `1h` 間隔的時間，或 `1.0` 的數字。
 
-如果您沒有提供 *GroupExpression*，整份資料表會彙整在單一輸出資料列。
+如果您沒有提供 *GroupExpression*，整份資料表就會彙整在單一輸出資料列中。
 
 `by` 子句中必須使用簡單類型而非動態類型。例如，這裡的 `tostring` 轉換就是必要項目︰
 
@@ -307,7 +307,7 @@ traces
     Union-type ::= '[' Type* ']';
     Primitive-type ::= "int" | "string" | ...;
 
-它們等同於 TypeScript 類型註釋的子集，並編碼為 AIQL 動態值。在 Typescript 中，範例結構描述會是︰
+它們等同於 TypeScript 類型註釋的子集，並編碼為動態值。在 Typescript 中，範例結構描述會是︰
 
     var someobject: 
     { 
@@ -333,7 +333,7 @@ traces
 
 傳回群組中 Expr 之相異值數目的估計值 (若要列出相異值，請使用 [`makeset`](#makeset))。
 
-Accuracy (若有指定) 會控制速度和精確度之間的平衡。
+Accuracy (若已指定) 會控制速度和精確度之間的平衡。
 
  * `0` = 最不精確但最快速的計算。
  * `1` 預設值，會平衡精確度和計算時間；大約 0.8% 的誤差。
@@ -361,7 +361,7 @@ Accuracy (若有指定) 會控制速度和精確度之間的平衡。
 
 傳回 Expr 在群組中取得之一組相異值的 `dynamic` (JSON) 陣列 (秘訣︰若只要計算相異值，請使用 [`dcount`](#dcount))。
   
-*  MaxSetSize 是所傳回元素數目最大值的選擇性整數限制 (預設值是 128)。
+*  MaxSetSize 是所傳回元素數目最大值的選擇性整數限制 (預設值是 *128*)。
 
 **範例**
 
@@ -463,4 +463,4 @@ Accuracy (若有指定) 會控制速度和精確度之間的平衡。
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

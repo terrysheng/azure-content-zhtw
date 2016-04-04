@@ -1,74 +1,76 @@
 
 
 
-All virtual machines that you create in Azure using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on the Internet or other virtual networks require endpoints to direct the inbound network traffic to a virtual machine.
+您在 Azure 中使用傳統部署模型建立的所有虛擬機器，都可以自動透過私人網路通道與同一雲端服務或虛擬網路中的其他虛擬機器通訊。不過，網際網路或其他虛擬網路上的電腦需要端點，才能將傳入網路流量導向至虛擬機器。
 
-When you create a virtual machine in the Azure classic portal, common endpoints like those for Remote Desktop, Windows PowerShell Remoting, and Secure Shell (SSH) are typically created for you automatically, depending on the operating system you choose. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
+視您選擇的作業系統而定，當您在 Azure 傳統入口網站建立虛擬機器時，通常也會自動為您建立像是遠端桌面、Windows PowerShell 遠端和安全殼層 (SSH) 等的通用端點。建立虛擬機器或日後有需要時，您可以設定其他端點。
 
-Each endpoint has a *public port* and a *private port*:
+每個端點都有一個「公用連接埠」和一個「私人連接埠」：
 
-- The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet.
-- The private port is used by the virtual machine to listen for incoming traffic, typically destined to an application or service running on the virtual machine.
+- Azure 負載平衡器使用公用連接埠接聽從網際網路到虛擬機器的連入流量。
+- 虛擬機器使用私人連接埠接聽目的地通常為虛擬機器上執行的應用程式或服務的連入流量。
 
-Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the Azure classic portal. For custom endpoints, you'll need to specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you'll need to create a load-balanced set consisting of multiple endpoints.
+當您使用 Azure 傳統入口網站建立端點時，會提供 IP 通訊協定的預設值以及已知網路通訊協定的 TCP 或 UDP 連接埠。針對自訂端點，您必須指定正確的 IP 通訊協定 (TCP 或 UDP) 以及公用和私人連接埠。若要將連入流量隨機分散到多部虛擬機器，您必須建立負載平衡的集合，其中包含多個端點。
 
-After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use network security groups instead. For details, see [About network security groups](virtual-networks-nsg.md).
+建立端點之後，您可以使用存取控制清單 (ACL) 定義規則，根據來源 IP 位址允許或拒絕端點公用連接埠的連入流量。不過，如果虛擬機器位於 Azure 虛擬網路，請改用網路安全性群組。如需詳細資訊，請參閱[關於網路安全性群組](virtual-networks-nsg.md)。
 
-> [AZURE.NOTE]: Firewall configuration for Azure virtual machines is done automatically for ports associated with Remote Desktop and Secure Shell (SSH), and in most cases for Windows PowerShell Remoting. For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine. When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration.
+> [AZURE.NOTE]對於與遠端桌面和安全殼層 (SSH) 相關聯的連接埠，以及對於大部分情況下的 Windows PowerShell 遠端執行功能，Azure 虛擬機器的防火牆設定會自動完成。至於其他所有端點的指定連接埠，不會自動設定虛擬機器的防火牆。您建立虛擬機器的端點時，需要確定虛擬機器的防火牆也允許端點組態相對應通訊協定和私人連接埠的流量。
 
-## Create an endpoint
+## 建立端點
 
-1.	If you haven't already done so, sign in to the Azure classic portal.
-2.	Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3.	Click **Endpoints**. The **Endpoints** page lists all the current endpoints for the virtual machine.
+1.	如果您未曾執行過這項操作，請登入 Azure 傳統入口網站。
+2.	按一下 [虛擬機器]，然後按一下要設定的虛擬機器名稱。
+3.	按一下 [端點]。[**端點**] 頁面會列出虛擬機器目前的所有端點。
 
 	![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
 
-4.	In the taskbar, click **Add**.
-5.	On the **Add an endpoint to a virtual machine** page, choose the type of endpoint.
+4.	在工作列上，按一下 [新增]。
+5.	在 [將端點加入至虛擬機器] 頁面上，選擇端點的類型。
 
-	- If you're creating a new endpoint that isn't part of a load-balanced set, or is the first endpoint in a new load-balanced set, choose **Add a stand-alone endpoint**, then click the left arrow.
-	- Otherwise, choose **Add an endpoint to an existing load-balanced set**, select the name of the load-balanced set, then click the left arrow. On the **Specify the details of the endpoint** page, type a name for the endpoint, then click the check mark to create the endpoint.
+	- 如果您要建立的新端點不屬於負載平衡集，或是新負載平衡集內的第一個端點，請選擇 [**新增獨立端點**]，然後按一下向左箭號。
+	- 否則，請選擇 [**將端點新增至現有的負載平衡集**]、選取負載平衡集的名稱，然後按一下向左箭號。在 [**指定端點的詳細資料**] 頁面上，輸入端點的名稱，然後按一下核取記號以建立端點。
 
-6.	On the **Specify the details of the endpoint** page, type a name for the endpoint in **Name**. You can also choose a network protocol name from the list, which will fill in initial values for the **Protocol**, **Public Port**, and **Private Port**.
-7.	For a customized endpoint, in **Protocol**, choose either **TCP** or **UDP**.
-8.	For customized ports, in **Public Port**, type the port number for the incoming traffic from the Internet. In **Private Port**, type the port number on which the virtual machine is listening. These port numbers can be different. Ensure that the firewall on the virtual machine has been configured to allow the traffic corresponding to the protocol (in step 7) and private port.
-9.	If this endpoint will be the first one in a load-balanced set, click **Create a load-balanced set**, and then click the right arrow. On the **Configure the load-balanced set** page, specify a load-balanced set name, a probe protocol and port, and the probe interval and number of probes sent. The Azure load balancer sends probes to the virtual machines in a load-balanced set to monitor their availability. The Azure load balancer does not forward traffic to virtual machines that do not respond to the probe. Click the right arrow.
-10.	Click the check mark to create the endpoint.
+6.	在 [指定端點的詳細資料] 頁面的 [名稱] 中，輸入端點的名稱。您也可以從清單中選擇網路通訊協定名稱，這將填入 [通訊協定]、[公用連接埠] 和 [私人連接埠] 的初始值。
+7.	對於自訂端點，請在 [通訊協定] 中選擇 [TCP] 或 [UDP]。
+8.	對於自訂連接埠，在 [公用連接埠] 中，輸入網際網路連入流量的連接埠號碼。在 [私人連接埠] 中，輸入虛擬機器所接聽的連接埠號碼。這些連接埠號碼可以不同。請確定已經設定虛擬機器的防火牆允許通訊協定 (在步驟 7 中) 和私人連接埠對應的流量。
+9.	如果此端點將成為負載平衡集中的第一個端點，請按一下 [建立負載平衡集]，然後按一下向右鍵。在 [設定負載平衡集] 頁面上，指定負載平衡集名稱、探查通訊協定和連接埠，以及探查間隔和傳送的探查數。Azure 負載平衡器會將探查傳送到負載平衡集合中的虛擬機器來監視其可用性。Azure 負載平衡器不會將流量轉送到未回應探查的虛擬機器。按一下向右箭頭。
+10.	按一下核取記號以建立端點。
 
-The new endpoint will be listed on the **Endpoints** page.
+新端點將會列在 [**端點**] 頁面上。
 
-![Endpoint creation successful](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
+![端點建立成功](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
 
-To use an Azure PowerShell cmdlet to set this up, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx). If you are using the Azure CLI in Service Management mode, use the **azure vm endpoint create** command.
+若要使用 Azure PowerShell Cmdlet 來設定此項目，請參閱 [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx)。如果您是在服務管理模式中使用 Azure CLI，請使用 **azure vm endpoint create** 命令。
 
-## Manage the ACL on an endpoint
+## 在端點上管理 ACL
 
-To define the set of computers that can send traffic, the ACL on an endpoint can restrict traffic based upon source IP address. Follow these steps to add, modify, or remove an ACL on an endpoint.
+為了定義可以傳送流量的電腦集合，端點上的 ACL 能夠根據來源 IP 位址限制流量。請依照這些步驟，在端點上新增、修改或移除 ACL。
 
-> [AZURE.NOTE] If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
+> [AZURE.NOTE] 如果端點屬於負載平衡集合，則對端點上的 ACL 所做的任何變更，都將套用至此集合的所有端點。
 
-If the virtual machine is in an Azure virtual network, we recommend network security groups instead of ACLs. For details, see [About network security groups](virtual-networks-nsg.md).
+如果虛擬機器位於 Azure 虛擬網路，建議使用網路安全性群組而非 ACL。如需詳細資訊，請參閱[關於網路安全性群組](virtual-networks-nsg.md)。
 
-1.	If you haven't already done so, sign in to the Azure classic portal.
-2.	Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3.	Click **Endpoints**. From the list, select the appropriate endpoint.
+1.	如果您未曾執行過這項操作，請登入 Azure 傳統入口網站。
+2.	按一下 [虛擬機器]，然後按一下要設定的虛擬機器名稱。
+3.	按一下 [端點]。從清單中選取適當的端點。
 
-    ![ACL list](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
+    ![ACL 清單](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
 
-5.	In the taskbar, click **Manage ACL** to open the **Specify ACL details** dialog box.
+5.	在工作列中，按一下 [**管理 ACL**] 以開啟 [**指定 ACL 詳細資料**] 對話方塊。
 
-    ![Specify ACL details](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
+    ![指定 ACL 詳細資料](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
 
-6.	Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **Remote Subnet** value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in CIDR format, also known as address prefix format. An example is 131.107.0.0/16.
+6.	使用清單中的資料列來新增、刪除或編輯 ACL 的規則並變更奇順序。[**遠端子網路**] 值是網際網路連入流量的 IP 位址範圍，Azure 負載平衡器會根據流量的來源 IP 位址允許或拒絕流量。請務必指定 CIDR 格式 (也就是位址前置詞格式) 的 IP 位址範圍。例如，131.107.0.0/16。
 
-You can use rules to allow only traffic from specific computers corresponding to your computers on the Internet or to deny traffic from specific, known address ranges.
+您可以使用規則僅允許網際網路上的電腦對應的特定電腦流量，或拒絕特定已知位址範圍的流量。
 
-The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [What is a Network Access Control List?](../virtual-network/virtual-networks-acl/).
+規則的評估順序是從第一個規則開始，一直到最後一個規則為止。這表示規則應會以最寬鬆到最嚴格的順序來排列。如需範例和詳細資訊，請參閱[什麼是網路存取控制清單？](../virtual-network/virtual-networks-acl/)
 
-To use an Azure PowerShell cmdlet to set this up, see [Managing access control lists (ACLs) for endpoints by using PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
+若要使用 Azure PowerShell Cmdlet 來進行這項設定，請參閱[使用 PowerShell 管理端點的存取控制清單 (ACL)](../virtual-network/virtual-networks-acl-powershell.md)。
 
 
-## Additional resources
+## 其他資源
 
-[Get started creating an Internet facing load balancer in Resource Manager using PowerShell](load-balancer-get-started-internet-arm-ps.md)
+[開始使用 PowerShell 在資源管理員中建立網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)
+
+<!---HONumber=AcomDC_0323_2016-->

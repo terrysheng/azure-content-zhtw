@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/18/2016" 
+	ms.date="03/21/2016" 
 	ms.author="jeffstok"
 />
 
@@ -535,4 +535,4 @@ Setup.ps1 指令碼會建立 2 個 Azure 事件中樞，以及 Azure SQL 資料�
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

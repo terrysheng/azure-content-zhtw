@@ -63,7 +63,7 @@
 
 ## 建立 Ruby 應用程式
 
-如需指示，請參閱[在 Azure 上建立 Ruby 應用程式](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md) (英文)。
+如需指示，請參閱[在 Azure 上建立 Ruby 應用程式](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md) (英文)。
 
 ## 設定應用程式以使用服務匯流排
 
@@ -237,4 +237,4 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
  
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

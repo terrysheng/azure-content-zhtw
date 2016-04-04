@@ -1,5 +1,5 @@
 <properties
-	pageTitle="使用 Windows PowerShell 管理角色存取控制"
+	pageTitle="PowerShell 的角色型存取控制指南"
 	description="使用 Windows PowerShell 管理角色存取控制"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/17/2016"
 	ms.author="kgremban"/>
 
-# 使用 Windows PowerShell 管理角色存取控制
+# PowerShell 的角色型存取控制指南
 
 > [AZURE.SELECTOR]
-- [Windows PowerShell](role-based-access-control-powershell.md)
+- [PowerShell](role-based-access-control-powershell.md)
 - [Azure CLI](role-based-access-control-xplat-cli.md)
 
 
@@ -61,8 +61,6 @@
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-如需詳細資訊，請參閱[搭配使用 Windows PowerShell 與資源管理員](../powershell-azure-resource-manager.md)。
-
 若要連線至您的 Azure 訂閱，請輸入：
 
     PS C:\> Add-AzureAccount
@@ -75,8 +73,6 @@
     PS C:\> Get-AzureSubscription
     # Use the subscription name to select the one you want to work on.
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
-
-如需詳細資訊，請參閱[如何安裝及設定 Azure PowerShell](../powershell-install-configure.md)。
 
 ## 查看現有的角色指派
 
@@ -96,7 +92,7 @@
 此指令會針對 AD 租用戶中具有資源群組「group1」之「Owner」角色指派的特定使用者，傳回該特定使用者的所有角色指派。角色指派可能來自兩個地方：
 
 1. 針對資源群組使用者的「Owner」角色指派。
-2. 針對資源群組父系使用者的「Owner」角色指派 (在此案例中為訂閱)，因為如果您在父層級擁有訂用帳戶，將對所有子系具有相同的權限。
+2. 針對資源群組父系 (本例中為訂用帳戶) 之使用者的 "Owner" 角色指派。如果在父層級指派任何權限，則所有子系都會有相同的權限。
 
 此 Cmdlet 的所有參數都是選擇性參數。您可以組合運用這些參數與不同的篩選器，來檢查角色指派。
 
@@ -104,34 +100,36 @@
 
 若要建立角色指派，您需要思考：
 
-要將角色指派給誰：您可以使用下列 Azure Active Directory Cmdlet 來查看 AD 租用戶中有哪些使用者、群組及服務主體。
+- 要將角色指派給誰：您可以使用下列 Azure Active Directory Cmdlet 來查看 AD 租用戶中有哪些使用者、群組及服務主體。  
 
+	```
     PS C:\> Get-AzureADUser
 	PS C:\> Get-AzureADGroup
 	PS C:\> Get-AzureADGroupMember
 	PS C:\> Get-AzureADServicePrincipal
+	```
 
-您想要指派什麼角色：您可以使用下列 Cmdlet 來查看支援的角色定義。
+- 您想要指派什麼角色：您可以使用下列 Cmdlet 來查看支援的角色定義。
 
-    PS C:\> Get-AzureRoleDefinition
+    `PS C:\> Get-AzureRoleDefinition`
 
-您想要指派的範圍：有三個範圍層級
-  - 目前的訂用帳戶
-  - 資源群組；若要取得資源群組清單，請輸入 `PS C:\> Get-AzureResourceGroup`
-  - 資源；若要取得資源清單，請輸入 `PS C:\> Get-AzureResource`
+- 您想要指派的範圍：有三個範圍層級
+	- 目前的訂用帳戶
+	- 資源群組。若要取得資源群組清單，請輸入 `PS C:\> Get-AzureResourceGroup`
+	- 資源。若要取得資源清單，請輸入 `PS C:\> Get-AzureResource`
 
 接下來，使用 `New-AzureRoleAssignment` 來建立角色指派。例如：
 
-	#This will create a role assignment at the current subscription level for a user as a reader.
+	#Create a role assignment at the current subscription level for a user as a reader.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
-	#This will create a role assignment at a resource group level.
+	#Create a role assignment at a resource group level.
 	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
-	#This will create a role assignment for a group at a resource group level.
+	#Create a role assignment for a group at a resource group level.
 	PS C:\> New-AzureRoleAssignment -ObjectID <group object ID> -RoleDefinitionName Reader -ResourceGroupName group1
 
-	#This will create a role assignment at a resource level.
+	#Create a role assignment at a resource level.
 	PS C:\> $resources = Get-AzureResource
     PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId
 
@@ -145,7 +143,7 @@
 
 這兩組 Cmdlet 只會傳回您擁有讀取權限的資源群組或資源。而且會同時顯示您擁有的權限。
 
-接著，當您嘗試執行其他 Cmdlet 時 (像是 `New-AzureResourceGroup`)，如果您沒有權限，則發生存取拒絕錯誤。
+接著當您嘗試執行其他 Cmdlet 時 (像是 `New-AzureResourceGroup`)，如果您沒有權限就會傳回存取拒絕錯誤。
 
 ## 後續步驟
 
@@ -158,6 +156,6 @@
 - [Windows PowerShell 部落格](http://blogs.msdn.com/powershell)：深入了解 Windows PowerShell 的新功能。
 - ["Hey, Scripting Guy!" 部落格](http://blogs.technet.com/b/heyscriptingguy/)：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。
 - [使用 Azure CLI 設定角色存取控制](role-based-access-control-xplat-cli.md)
-- [為角色存取控制進行疑難排解](role-based-access-control-troubleshooting.md)
+- [為角色型存取控制進行疑難排解](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

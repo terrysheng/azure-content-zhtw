@@ -1,7 +1,8 @@
-The audit log contains all actions performed on your resources. You can use the audit logs to find an error when troubleshooting or 
-to monitor how a user in your organization modified a resource.
+稽核記錄檔包含在您的資源上執行的所有動作。您可以使用稽核記錄檔在進行疑難排解時發現錯誤，或是監視貴組織使用者修改資源的方式。
 
-There are two important limitations to keep in mind when working with audit logs:
+使用稽核記錄時，有兩個重要限制需謹記在心：
 
-1. Audit logs are only retained for 90 days.
-2. You can only query for a range of 15 days or less.
+1. 稽核記錄只會保留 90 天。
+2. 您只能查詢 15 天內的範圍。
+
+<!---HONumber=AcomDC_0323_2016-->

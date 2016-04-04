@@ -1,160 +1,161 @@
-You can create virtual machines in Azure by using Server Explorer in Visual Studio.
+在 Visual Studio 中使用 [伺服器總管]，即可在 Azure 中建立虛擬機器。
 
-## Create an Azure virtual machine in Server Explorer
+## 在伺服器總管中建立 Azure 虛擬機器
 
-While you can create a virtual machine in the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103), you can also create a virtual machine in Azure by using commands in Server Explorer. Virtual machines can be used, for example, to provide a front end behind a common load-balanced public endpoint.
+雖然您可在 [Azure 管理入口網站](http://go.microsoft.com/fwlink/?LinkID=253103)中建立虛擬機器，但也可以在 [伺服器總管] 中使用命令以在 Azure 中建立虛擬機器。例如，虛擬機器可用於在一般負載平衡的公用端點背後提供一個前端。
 
-### To create a new virtual machine
+### 建立新的虛擬機器
 
-1. In Server Explorer, open the **Azure** node and click **Virtual Machines**.
+1. 在 [伺服器總管] 中，開啟 [Azure] 節點，然後按一下 [虛擬機器]。
 
-1. On the context menu, click **Create Virtual Machine**.
+1. 在內容功能表上按一下 [建立虛擬機器]。
 
-    The **Create a New Virtual Machine** wizard appears.
+    [建立新的虛擬機器] 精靈隨即出現。
 
-    ![The Create Virtual Machine command](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
+    ![建立虛擬機器命令](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718342.png)
 
-1. On the **Choose a Subscription** page, select a subscription to use when creating the virtual machine and then click **Next**.
+1. 在 [選擇訂用帳戶] 頁面上，選取在建立虛擬機器時要使用的訂用帳戶，然後按 [下一步]。
 
-    If you aren’t signed in to Azure, click **Sign In** to sign in. Then, select your Azure subscription in the dropdown list box if it’s not already selected.
+    如果您未登入 Azure，請按一下 [登入] 進行登入。接著，如果尚未選取 Azure 訂用帳戶，請在下拉式清單方塊中進行選取。
 
-1. On the **Select a Virtual Machine Image** page, select an image type in the **Image type** dropdown list box, and then select a virtual machine images in the **Image name** list box. When you're done, click **Next**.
+1. 在 [選取虛擬機器映像] 頁面上，選取 [映像類型] 下拉式清單方塊中的映像類型，然後在 [映像名稱] 清單方塊中選取虛擬機器映像。完成後，按 [下一步]。
 
-    ![Select a virtual machine image page](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744137.png)
+    ![選取虛擬機器映像頁面](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744137.png)
 
-    You can choose the following image types.
+    您可選擇下列映像類型。
 
-    - **Public Images** lists virtual machine images of operating systems and server software such as Windows Server and SQL Server.
+    - [公用映像] 可列出作業系統和伺服器軟體 (例如 Windows Server 和 SQL Server) 的虛擬機器映像。
 
-    - **MSDN Images** lists virtual machine images of software available to MSDN subscribers, such as Visual Studio and Microsoft Dynamics.
+    - [MSDN 映像] 可列出 MSDN 訂閱者可用軟體 (例如 Visual Studio 和 Microsoft Dynamics) 的虛擬機器映像。
 
-    - **Private Images** lists specialized and generalized virtual machine images that you've created.
+    - [私人映像] 可列出您已建立的特殊和一般虛擬機器映像。
 
-    To learn about specialized and generalized virtual machines, see [VM Image](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). See [How to Capture a Windows Virtual Machine to Use as a Template](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) for information about how to turn a virtual machine into a template that you can use to quickly create new pre-configured virtual machines.
+    若要了解特殊和一般虛擬機器，請參閱 [VM 映像](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/)。如需如何將虛擬機器轉換成範本，以便您快速建立預先設定的新虛擬機器的相關資訊，請參閱[如何擷取 Windows 虛擬機器作為範本使用](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/)。
 
-    You can click a virtual machine image name to see information about the image on the right side of the page.
+    按一下虛擬機器映像名稱，即可查看頁面右側的映像相關資訊。
 
         >[AZURE.NOTE] You can't add virtual machine images to the **Public Images** or **MSDN Images** lists because they are read-only. All virtual machines that you create are added to the **Private Images** list.
 
-    If you're an MSDN subscriber with a Visual Studio-level subscription, you can create a pre-built Azure virtual machine that contains Visual Studio, as well as several other images. For more information, see [Create a Virtual Machine in Visual Studio by Using Images Visual Studio 2013 Gallery image for MSDN subscribers](http://visualstudio2013msdngalleryimage.azurewebsites.net) and [MSDN subscriptions](https://www.visualstudio.com/products/msdn-subscriptions-vs).|
+    如果您是具有 Visual Studio 層級訂用帳戶的 MSDN 訂閱者，您可以建立一個預先建置的 Azure 虛擬機器，其中包含 Visual Studio 以及其他數個映像。如需詳細資訊，請參閱[使用映像在 Visual Studio 中建立虛擬機器、MSDN 訂閱者的 Visual Studio 2013 資源庫映像](http://visualstudio2013msdngalleryimage.azurewebsites.net)和 [MSDN 訂閱](https://www.visualstudio.com/products/msdn-subscriptions-vs)。|
 
-1. On the **Virtual Machine Basic Settings** page, enter a machine name and then add the specifications for the virtual machine, including the size, and a user name and password. When you're done, click **Next**.
+1. 在 [虛擬機器基本設定] 頁面上，輸入電腦名稱，然後新增虛擬機器的規格 (包含大小) 以及使用者名稱和密碼。完成後，按 [下一步]。
 
-    You’ll use the new name and password to log into the machine using remote desktop, so it’s a good idea to write them down in case you forget. After you create an Azure virtual machine in Visual Studio, you can change its size and other settings in the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
+    您將透過遠端桌面使用新名稱和密碼來登入電腦，所以最好能記新名稱和密碼，以免忘記。在 Visual Studio 中建立 Azure 虛擬機器之後，您可以在 [Azure 管理入口網站](http://go.microsoft.com/fwlink/?LinkID=253103)中變更其大小和其他設定。
 
         >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](https://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
 
-1. Virtual machines created in Visual Studio require a cloud service. On the **Cloud Service Settings** page, select a cloud service for the virtual machine, or click **<Create New…>** in the dropdown list if you don’t already have a cloud service or want to use a new one. A storage account is also required, so choose a storage account (or create a new storage account) in the **Storage account** dropdown list box. See [Introduction to Microsoft Azure Storage](./storage/storage-introduction/) for more information.
+1. 在 Visual Studio 中建立的虛擬機器需要雲端服務。在 [雲端服務設定] 頁面上，選取虛擬機器的雲端服務，如果您還沒有雲端服務或想使用新的雲端服務，請按一下下拉式清單中的 [<建立新的...>]。儲存體帳戶也是必要的，所以請在 [儲存體帳戶] 下拉式清單方塊中選擇儲存體帳戶 (或建立新的儲存體帳戶)。如需詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](./storage/storage-introduction/)。
 
-1. If you want to specify a virtual network (which is optional), select it in the Virtual Network and Subnet dropdown list boxes.
+1. 如果您想要指定虛擬網路 (這是選擇性的)，請在 [虛擬網路] 和 [子網路] 下拉式清單方塊中進行選取。
 
-    Virtual machines that are members of an availability set are deployed to different fault domains. See [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) for more information.
+    屬於可用性集合的虛擬機器會部署到不同的容錯網域。如需詳細資訊，請參閱 [Azure 虛擬網路](https://azure.microsoft.com/services/virtual-network/)。
 
-1. If you want your virtual machine to belong to an availability set (also optional), select the **Specify an availability set** check box and then choose an availability set in the dropdown list box. When you're done, choose the **Next** button.
+1. 如果您希望虛擬機器屬於可用性集合 (也是選擇性的)，請選取 [指定可用性集合] 核取方塊，然後選擇下拉式清單方塊中的可用性集合。完成時，選擇 [下一步] 按鈕。
 
-    Adding your virtual machine to an availability set helps your application stay available during network failures, local disk hardware failures, and any planned downtime. You need to use the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103) to create virtual networks, subnets, and availability sets. See [Manage the Availability of Virtual Machines](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/) for more information.
+    將虛擬機器新增至可用性集合，有助於讓應用程式在網路故障、本機磁碟硬體故障和任何規劃停機期間仍可使用。您必須使用 [Azure 管理入口網站](http://go.microsoft.com/fwlink/?LinkID=253103)來建立虛擬網路、子網路和可用性集合。如需詳細資訊，請參閱[管理虛擬機器的可用性](https://azure.microsoft.com/documentation/articles/manage-availability-virtual-machines/)。
 
-1. On the **Endpoints** page, specify the public endpoints that you want available to users of your virtual machine. For example, you might choose to enable HTTP (Port 80) in addition to the Remote Desktop and PowerShell endpoints, which are enabled by default. To add an endpoint, choose one in the **Port Name** dropdown list box and then choose the **Add** button. To remove an endpoint, choose the red **X** next to the name in the endpoints list.
+1. 在 [端點] 頁面上，指定您要提供給您的虛擬機器使用者使用的公用端點。例如，除了預設啟用的遠端桌面和 PowerShell 端點以外，您可以選擇啟用 HTTP (連接埠 80)。若要新增端點，請選擇在 [連接埠名稱] 下拉式清單方塊中選擇一個端點，然後選擇 [加入] 按鈕。若要移除端點，請選擇端點清單中名稱旁邊的紅色 **X**。
 
-    ![The Endpoints page in the virtual machines wizard.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
+    ![虛擬機器精靈中的 [端點] 頁面。](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
 
-    The endpoints that are available depend on the cloud service you selected for your virtual machine. See [Azure Service Endpoints](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) for more information.
+    可用的端點取決於您為虛擬機器選取的雲端服務。如需詳細資訊，請參閱 [Azure 服務端點](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/)。
 
-    >[AZURE.NOTE] Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See [How to Set Up Endpoints to a Virtual Machine](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/) for more information.
+    >[AZURE.NOTE] 啟用公用端點，讓虛擬機器上的服務可用於網際網路。請務必在您的虛擬機器上安裝及正確設定端點和服務，例如設定端點的存取控制清單 (ACL)。如需詳細資訊，請參閱[如何設定虛擬機器的端點](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/)。
 
-1. After you’re done configuring the virtual machine settings, choose the **Create** button to create the virtual machine.
+1. 設定好虛擬機器設定之後，選擇 [建立] 按鈕可建立虛擬機器。
 
-    As Azure creates the virtual machine, the **Azure Activity Log** shows the progress of the virtual machine creation operation.
+    在 Azure 建立虛擬機器時，[Azure 活動記錄檔] 會顯示虛擬機器建立作業的進度。
 
-    ![Virtual machine activity log - in progress.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744138.png)
+    ![虛擬機器活動記錄 - 進行中。](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744138.png)
 
-    To view only virtual machine information, choose the **Virtual Machines** tab in the **Azure Activity Log**.
+    若只要檢視虛擬機器資訊，請在 [Azure 活動記錄檔] 中選擇 [虛擬機器] 索引標籤。
 
-    ![Virtual machine activity log - completed.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
+    ![虛擬機器活動記錄 - 已完成。](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
 
-    If the operation completes successfully, the new virtual machine appears under the **Virtual Machines** node in Server Explorer. You can log into it by clicking the **Connect using Remote Desktop** shortcut.
+    如果作業順利完成，新的虛擬機器會出現在 [伺服器總管] 的 [虛擬機器] 節點中。按一下 [使用遠端桌面連接] 捷徑，即可登入。
 
-    ![Virtual machine appearing in Server Explorer.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
+    ![出現在 [伺服器總管] 中的虛擬機器。](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
 
-## Manage your virtual machines
+## 管理虛擬機器
 
-On the virtual machine configuration page, in addition to shutting down, connecting, refreshing, and adding checkpoints to the selected virtual machine, you can also view or change settings for the virtual machine. You can:
+在虛擬機器組態頁面上，除了關閉、連接、重新整理檢查點以及將其新增至選取的虛擬機器以外，您也可以檢視或變更虛擬機器的設定。您可以：
 
-- Change the virtual machine size.
+- 變更虛擬機器大小。
 
-- Select the availability set to use with the virtual machine.
+- 選取要用於虛擬機器的可用性集合。
 
-- Add, remove, or change settings for public endpoints.
+- 新增、移除或變更公用端點的設定。
 
-- Add, remove, or configure virtual machine extensions.
+- 新增、移除或設定虛擬機器擴充功能。
 
-- View information about the disks associated with the virtual machine.
+- 檢視與虛擬機器相關聯的磁碟資訊。
 
-### View or change virtual machine settings
+### 檢視或變更虛擬機器設定
 
-1. In Server Explorer, choose your virtual machine in the **Azure Virtual Machines** node.
+1. 在 [伺服器總管] 的 [Azure 虛擬機器] 節點中，選擇您的虛擬機器。
 
-1. On the shortcut menu, choose **Configure** to view the virtual machine configuration page.
+1. 在捷徑功能表上選擇 [設定]，以檢視虛擬機器組態頁面。
 
-    ![The Azure virtual machine configuration page](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744141.png)
+    ![Azure 虛擬機器組態頁面](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744141.png)
 
-1. View the virtual machine information or change it.
+1. 檢視虛擬機器資訊或加以變更。
 
-### Save or restore the status of your virtual machine
+### 儲存或還原虛擬機器的狀態
 
-As you configure your virtual machine and install software on it, it's a good idea to regularly save your progress by creating virtual machine checkpoints. A checkpoint is a snapshot, or image, of the current state of your virtual machine. If something goes wrong with the virtual machine, or you want to reconfigure the virtual machine, you can save time by restoring it to a previous checkpoint state rather than starting over from scratch.
+當您設定虛擬機器並在其上安裝軟體時，最好能建立虛擬機器檢查點，以便定期儲存您的進度。檢查點是虛擬機器的目前狀態快照或映像。如果虛擬機器發生問題，或您想重新設定虛擬機器，您可將它還原到先前的檢查點狀態，而非重頭開始，以節省時間。
 
-### To create a virtual machine checkpoint
+### 建立虛擬機器檢查點
 
-1. In Server Explorer, choose your virtual machine in the **Azure Virtual Machines** node.
+1. 在 [伺服器總管] 的 [Azure 虛擬機器] 節點中，選擇您的虛擬機器。
 
-1. On the shortcut menu, choose **Configure** to view the virtual machine configuration page.
+1. 在捷徑功能表上選擇 [設定]，以檢視虛擬機器組態頁面。
 
-1. On the configuration page, choose the **Capture Image** button.
+1. 在組態頁面上，選擇 [擷取映像] 按鈕。
 
-    ![Azure configuration page capture button](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744142.png)
+    ![Azure 組態頁面擷取按鈕](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744142.png)
 
-    The **Capture Virtual Machine** dialog appears.
+    [擷取虛擬機器] 對話方塊隨即出現。
 
-    ![Azure capture virtual machine dialog box](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744143.png)
+    ![Azure 擷取虛擬機器對話方塊](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744143.png)
 
-1. Provide an image label and description. A default label and description are provided, but you can overwrite them with your own if you like.
+1. 提供映像標籤和描述。系統會提供預設標籤和描述，但您可以用自己的標籤和描述加以覆寫。
 
-1. If you have already run Sysprep on this virtual machine, select the **I have run Sysprep on the virtual machine** box.
+1. 如果您已在此虛擬機器上執行 Sysprep，請選取 [我已在虛擬機器上執行 Sysprep] 方塊。
 
-    Sysprep is a tool that, among other things, removes systems-specific data from the virtual machine’s version of Windows, making it template that others can use. See [How to Capture a Windows Virtual Machine to Use as a Template](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/) for more information.
+    Sysprep 是一個工具，可從虛擬機器的 Windows 版本中移除系統特定資料，讓其成為其他人可使用的範本。如需詳細資訊，請參閱[如何擷取 Windows 虛擬機器作為範本使用](https://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/)。
 
-1. After you’re done configuring the capture settings, choose the **Capture** button to create the checkpoint.
+1. 設定好擷取設定之後，選擇 [擷取] 按鈕可建立檢查點。
 
-    As Azure creates the checkpoint, the **Azure Activity Log** shows the progress of the operation.
+    在 Azure 建立檢查點時，[Azure 活動記錄檔] 會顯示作業的進度。
 
-    ![Capturing a virtual machine checkpoint](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744144.png)
+    ![擷取虛擬機器檢查點](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744144.png)
 
-    When the checkpoint operation completes, you’ll see it in the **Azure Activity Log**.
+    當檢查點作業完成時，您會在 [Azure 活動記錄檔] 中看到它。
 
-    ![Checkpoint operation completed](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744145.png)
+    ![已完成檢查點作業](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744145.png)
 
-## To manage virtual machine checkpoints
+## 管理虛擬機器檢查點
 
-### To restore a virtual machine to a previously saved state
+### 若要將虛擬機器還原到先前儲存的狀態
 
-- Follow the steps outlined in [Step-by-Step: Perform Cloud Restores of Microsoft Azure Virtual Machines using PowerShell - Part 2](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
+- 請遵循[逐步︰使用 PowerShell 執行 Microsoft Azure 虛擬機器的雲端還原 - 第 2 部分](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx)中所述的步驟。
 
-### To delete a checkpoint
+### 刪除檢查點
 
-1. Go to the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=253103).
+1. 移至 [Azure 管理入口網站](http://go.microsoft.com/fwlink/?LinkID=253103)。
 
-1. On the virtual machine configuration page, choose the **Images** tab at the top of the page.
+1. 在 [虛擬機器組態] 頁面，選擇頁面頂端的 [映像] 索引標籤。
 
-1. Choose the checkpoint you want to delete, and then choose the **Delete**  button at the bottom of the page.
+1. 選取您要刪除的檢查點，然後選擇頁面底部的 [刪除] 按鈕。
 
-## Shut down your virtual machine
+## 關閉虛擬機器
 
-1. In Server Explorer, choose the virtual machine you want to shut down in the **Azure Virtual Machines** node.
+1. 在 [伺服器總管] 的 [Azure 虛擬機器] 節點中，選擇您要關閉的虛擬機器。
 
-1. On the shortcut menu, either choose the **Shutdown** command, or choose **Configure** to view the virtual machine configuration page, and then choose the **Shutdown** button.
+1. 在捷徑功能表上，選擇 [關閉] 命令，或選擇 [設定] 以檢視虛擬機器組態頁面，然後選擇 [關閉] 按鈕。
 
-## Next steps
+## 後續步驟
 
-To learn more about creating virtual machines, see [Create a Virtual Machine Running Linux](virtual-machines-linux-cli-create.md) and [Create a virtual machine running Windows in the Azure preview portal](virtual-machines-windows-tutorial.md).
+若要了解建立虛擬機器的詳細資訊，請參閱[建立執行 Linux 的虛擬機器](virtual-machines-linux-cli-create.md)和[在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial.md)。
 
+<!---HONumber=AcomDC_0323_2016-->

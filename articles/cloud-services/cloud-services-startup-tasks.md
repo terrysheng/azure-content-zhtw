@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="03/21/2016" 
 ms.author="adegeo"/>
 
 
@@ -21,7 +21,7 @@ ms.author="adegeo"/>
 
 您可以利用啟動工作，在角色啟動之前執行作業。您可能想要執行的作業包括安裝元件、註冊 COM 元件、設定登錄機碼，或啟動長時間執行的處理序。
 
->[AZURE.NOTE]啟動工作不適用於虛擬機器，只適用於雲端服務 Web 和背景工作角色。
+>[AZURE.NOTE] 啟動工作不適用於虛擬機器，只適用於雲端服務 Web 和背景工作角色。
 
 ## 啟動工作的運作方式
 
@@ -46,7 +46,7 @@ ms.author="adegeo"/>
     - **simple** 的工作會以同步方式執行，一次一個。
     - **background** 和 **foreground** 工作則會以非同步方式，與啟動工作平行開始。  
        
-    > [AZURE.WARNING]在啟動處理序中的啟動工作階段期間，IIS 可能不會完全設定好，因此特定的角色資料可能會無法使用。需要特定角色資料的啟動工作應該使用 [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx)。
+    > [AZURE.WARNING] 在啟動處理序中的啟動工作階段期間，IIS 可能不會完全設定好，因此特定的角色資料可能會無法使用。需要特定角色資料的啟動工作應該使用 [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx)。
 
 3. 角色主機處理序已啟動，且已在 IIS 中建立網站。
 
@@ -82,7 +82,7 @@ ECHO The current version is %MyVersionNumber% >> "%TEMP%\StartupLog.txt" 2>&1
 EXIT /B 0
 ```
 
-> [AZURE.NOTE]在 Visual Studio 中，啟動批次檔的**複製到輸出目錄**屬性應該設為**永遠複製**，才能確保將啟動批次檔正確部署至您在 Azure 上的專案 (Web 角色為 **approot\\bin**，背景工作角色為 **approot**)。
+> [AZURE.NOTE] 在 Visual Studio 中，啟動批次檔的**複製到輸出目錄**屬性應該設為**永遠複製**，才能確保將啟動批次檔正確部署至您在 Azure 上的專案 (Web 角色為 **approot\\bin**，背景工作角色為 **approot**)。
 
 ## 工作屬性說明
 
@@ -101,13 +101,13 @@ EXIT /B 0
 
 - **elevated** 啟動工作執行時會使用系統管理員權限。這可讓啟動工作安裝程式、變更 IIS 組態、執行登錄變更，以及其他系統管理員層級的工作，且不會提高角色本身的權限等級。
 
-> [AZURE.NOTE]啟動工作的權限等級不需要與角色本身相同。
+> [AZURE.NOTE] 啟動工作的權限等級不需要與角色本身相同。
 
 **taskType** - 指定啟動工作執行的方式。
 
 - **simple** 工作會以同步的方式執行，一次一個，並依照 [ServiceDefinition.csdef] 檔案所指定的順序。當某個 **simple** 啟動工作以零值的 **errorlevel** 做為結尾時，就會執行下一個 **simple** 啟動工作。如果沒有任何 **simple** 啟動工作需要執行，則會啟動角色本身。   
 
-    > [AZURE.NOTE]如果 **simple** 的結尾是非零值的 **errorlevel**，執行個體會遭到封鎖。後續的 **simple** 啟動工作和角色本身將不會啟動。
+    > [AZURE.NOTE] 如果 **simple** 的結尾是非零值的 **errorlevel**，執行個體會遭到封鎖。後續的 **simple** 啟動工作和角色本身將不會啟動。
 
     若要確保批次檔是以零值的 **errorlevel** 做為結尾，請在批次檔處理序結束時執行命令 `EXIT /B 0`。
 
@@ -123,7 +123,7 @@ EXIT /B 0
 
 靜態環境變數會使用 [Variable] 項目的 **value** 屬性。上述範例會建立環境變數 **MyVersionNumber**，這具有靜態值 "**1.0.0.0**"。另一個範例則是建立 **StagingOrProduction** 環境變數，您可以手動將值設為 "**staging**" 或 "**production**"，以根據 **StagingOrProduction** 環境變數的值執行不同的啟動動作。
 
-以 RoleEnvironment 類別的成員為基礎的環境變數不會使用 [Variable] 項目的 **value** 屬性。相反地，這會使用具有適當 **xPath** 屬性值的 [RoleInstanceValue] 子項目，藉此建立以 [RoleEnvironment] 類別的特定成員為基礎的環境變數。[Azure 中的 xPath 值](https://msdn.microsoft.com/library/azure/hh404006.aspx)具有存取各種 [RoleEnvironment] 值的 **xPath** 屬性值。
+以 RoleEnvironment 類別的成員為基礎的環境變數不會使用 [Variable] 項目的 **value** 屬性。相反地，這會使用具有適當 **XPath** 屬性值的 [RoleInstanceValue] 子項目，藉此建立以 [RoleEnvironment] 類別的特定成員為基礎的環境變數。[這裡](cloud-services-role-config-xpath.md)有存取各種 [RoleEnvironment] 值的 **XPath** 屬性值。
 
 
 
@@ -164,4 +164,4 @@ EXIT /B 0
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0323_2016-->

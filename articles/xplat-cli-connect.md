@@ -11,7 +11,7 @@
 <tags
 	ms.service="multiple"
 	ms.workload="multiple"
-	ms.tgt_pltfrm="command-line-interface"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/29/2015"
@@ -65,7 +65,7 @@ CLI 0.9.9 版和更新版本支援多重要素驗證。
 ## 利用公司或學校帳戶使用非互動式登入
 
 
-非互動式登入方法只適用於公司或學校帳戶，這兩種帳戶也稱為*組織帳戶*。這個帳戶是您的組織所管理，並定義於組織的 Azure Active Directory 中。如果沒有帳戶，您可以[建立組織帳戶](#create-an-organizational-account)，或是[從 Microsoft 帳戶識別碼建立公司或學校識別碼](./virtual-machines/resource-group-create-work-id-from-personal.md)。這會要求您為 `azure login` 命令指定使用者名稱或使用者名稱和密碼，如下所示：
+非互動式登入方法只適用於公司或學校帳戶，這兩種帳戶也稱為*組織帳戶*。這個帳戶是您的組織所管理，並定義於組織的 Azure Active Directory 中。如果沒有帳戶，您可以[建立組織帳戶](#create-an-organizational-account)，或是[從 Microsoft 帳戶識別碼建立公司或學校識別碼](./virtual-machines/virtual-machines-windows-create-aad-work-id.md)。這會要求您為 `azure login` 命令指定使用者名稱或使用者名稱和密碼，如下所示：
 
 	azure login -u ahmet@contoso.onmicrosoft.com
 	info:    Executing command login
@@ -156,4 +156,4 @@ CLI 0.9.9 版和更新版本支援多重要素驗證。
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

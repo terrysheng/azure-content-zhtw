@@ -3,7 +3,7 @@
 	description="本文說明可以在您部署 Azure AD Connect Health 之後執行的其他操作。"
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="karavar"
 	manager="stevenpo"
 	editor="curtand"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
-	ms.author="billmath"/>
+	ms.date="02/21/2016"
+	ms.author="vakarand"/>
 
 # Azure AD Connect Health 操作
 
@@ -22,6 +22,9 @@
 
 ## 啟用電子郵件通知
 您可以設定 Azure AD Connect Health 服務在產生表示您的身分識別基礎結構狀況不良的警示時傳送電子郵件通知。產生警示時，以及當該警示標示為已解決時，會發生這個情況。請依照下列指示，設定電子郵件通知。
+
+![Azure AD Connect Health 電子郵件通知探索](./media/active-directory-aadconnect-health/email_noti_discover.png)
+
 >[AZURE.NOTE] 電子郵件通知預設為停用狀態。
 
 
@@ -120,12 +123,14 @@ Azure AD Connect 支援兩個層級的管理存取：
 
 這些步驟可為列出的使用者和群組提供存取權 (依據被指派的角色)。
 >[AZURE.NOTE]
-- 全域系統管理員一律擁有所有作業的完整存取權，但全域系統管理員帳戶不會出現在上述清單中。[邀請使用者] 功能在 Azure AD Connect Health 內不受支援。
+- 全域系統管理員一律擁有所有作業的完整存取權，但全域系統管理員帳戶不會出現在上述清單中。
+- Azure AD Connect Health 內「不」支援 [邀請使用者] 功能。
 
 #### 步驟 3：與使用者或群組共用刀鋒視窗位置
 1. 指派權限之後，使用者可以前往 [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth) 以存取 Azure AD Connect Health。
 2. 在刀鋒視窗上，使用者可以釘選刀鋒視窗或其他組件到儀表板，只要按一下 [釘選到儀表板] 即可<br> 
 ![Azure AD Connect Health RBAC 釘選刀鋒視窗](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
+
 
 >[AZURE.NOTE] 被指派「讀取者」角色的使用者將無法執行「建立」作業，以從 Azure Marketplace 取得 Azure AD Connect Health 擴充。這位使用者仍可前往上述連結以存取刀鋒視窗。為方便之後使用，使用者可以將刀鋒視窗釘選到儀表板。
 
@@ -144,4 +149,4 @@ Azure AD Connect 支援兩個層級的管理存取：
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 版本歷程記錄](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

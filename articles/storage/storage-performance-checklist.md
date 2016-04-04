@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016" 
+	ms.date="03/18/2016"
 	ms.author="robinsh"/>
 
 # Microsoft Azure 儲存體效能與延展性檢查清單
@@ -48,6 +48,7 @@
 ||所有服務|	工具|	[您是否使用 Microsoft 所提供的最新用戶端程式庫和工具版本？](#subheading13)
 ||所有服務|	重試|	[您是否針對節流錯誤和逾時使用指數輪詢重試原則？](#subheading14)
 ||所有服務|	重試|	[您的應用程式是否避免重試不能再嘗試的錯誤？](#subheading15)
+||Blob|	延展性目標|	[您是嘔有大量的用戶端並行存取單一物件？](#subheading46)
 ||Blob|	延展性目標|	[您的應用程式是否不超過單一 Blob 的頻寬或操作延展性目標？](#subheading16)
 ||Blob|	複製 Blob|	[您是否以有效的方式複製 Blob？](#subheading17)
 ||Blob|	複製 Blob|	[您是否使用 AzCopy 進行 Blob 的大量複製？](#subheading18)
@@ -74,10 +75,10 @@
 ||佇列|	延展性目標|	[您的每秒訊息數是否逐漸達到延展性目標？](#subheading39)
 ||佇列|	組態|	[您是否已關閉 Nagle 以提高小型要求的效能？](#subheading40)
 ||佇列|	訊息大小|	[您的訊息是否精簡以提高佇列效能？](#subheading41)
-||佇列|	大量擷取|	[您是否在單一 "Get" 操作中擷取多則訊息？](#subheading41)
-||佇列|	輪詢頻率|	[您是否夠常輪詢以降低可察覺的應用程式延遲？](#subheading42)
-||佇列|	更新訊息|	[您是否使用 UpdateMessage 來儲存處理訊息時的進度，避免在出現錯誤時需要重新處理整個訊息？](#subheading43)
-||佇列|	架構|	[您是否透過將長時間執行的工作負載排除在重要路徑外，然後再個別進行調整的方式，使用佇列來讓您的整個應用程式更有彈性？](#subheading44)
+||佇列|	大量擷取|	[您是否在單一 "Get" 操作中擷取多則訊息？](#subheading42)
+||佇列|	輪詢頻率|	[您是否夠常輪詢以降低可察覺的應用程式延遲？](#subheading43)
+||佇列|	更新訊息|	[您是否使用 UpdateMessage 來儲存處理訊息時的進度，避免在出現錯誤時需要重新處理整個訊息？](#subheading44)
+||佇列|	架構|	[您是否透過將長時間執行的工作負載排除在重要路徑外，然後再個別進行調整的方式，使用佇列來讓您的整個應用程式更有彈性？](#subheading45)
 
 
 ##<a name="allservices"></a>所有服務
@@ -102,7 +103,10 @@
 -	如果您的應用程式達到延展性目標，那麼請確定使用指數輪詢進行重試 (請參閱[重試](#subheading14))。最好的方式是確保您一定不會達到延展性目標 (方法是使用上述其中一個方法)，但這可確保您的應用程式不會持續快速重試，而降低節流的效能。  
 
 ####有用資源
-下列連結提供延展性目標的其他詳細資料：- 請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md)以取得延展性目標的詳細資訊。- 請參閱 [Azure 儲存體複寫](storage-redundancy.md)以及 [Azure 儲存體備援選項和讀取異地備援儲存體](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)部落格文章，以取得儲存體備援選項相關資訊。- 如需 Azure 服務的目前定價資訊，請參閱 [Azure 定價](https://azure.microsoft.com/pricing/overview/)。
+下列連結提供有關延展性目標的其他詳細資料：
+-	如需延展性目標的相關資訊，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md)。
+-	如需儲存體備援選項的相關資訊，請參閱 [Azure 儲存體複寫](storage-redundancy.md)以及部落格文章 [Azure 儲存體備援選項和讀取權限異地備援儲存體](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)。
+-	如需 Azure 服務定價的最新資訊，請參閱 [Azure 定價](https://azure.microsoft.com/pricing/overview/)。  
 
 ###網路
 雖然 API 呼叫非常重要，但應用程式的實體網路限制經常會對效能產生重大影響。下列說明了使用者可能會遇到的部分限制。
@@ -115,7 +119,7 @@
 與任何網路使用方式一樣，請留意導致錯誤和封包遺失的網路狀況將會減慢有效的輸送量。使用 WireShark 或 NetMon 可能有助於診斷此問題。
 
 #####有用資源
-如需虛擬機器大小與所配置頻寬的詳細資訊，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-size-specs.md)。
+如需虛擬機器大小與所配置頻寬的詳細資訊，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-linux-sizes.md)。
 
 ####<a name="subheading4"></a>位置
 在任何分散式環境中，將用戶端放置於伺服器附近可提供最佳的效能。若要以最低的延遲時間存取 Azure 儲存體，對用戶端而言的最佳位置是在同一個 Azure 區域內。例如，如果您擁有使用 Azure 儲存體的 Azure 網站，您應將這兩者置於單一區域內 (例如，美國西部或東南亞)。這可降低延遲和成本 — 本文撰寫期間，在單一區域內的頻寬使用量是免費的。
@@ -200,6 +204,15 @@
 除了上述[所有服務](#allservices)的已經實證做法以外，下列已經實證的做法尤其適用於 Blob 服務。
 
 ###Blob 特定的延展性目標
+
+####<a name="subheading46"></a>並行存取單一物件的多個用戶端
+如果您有大量的用戶端並行存取單一物件，您必須考慮每個物件和儲存體帳戶延展性目標。可以存取單一物件的用戶端確切數目將視各種因素而有所不同，例如，同時要求物件的用戶端數目、物件的大小、網路狀況等等。
+
+如果可以透過 CDN 散佈物件 (例如從網站提供的影像或視訊)，則您應該使用 CDN。請參閱[這裡](#subheading5)。
+
+在其他情況下 (例如機密資料的科學模擬)，您有兩個選擇。第一個選擇是以錯開您工作負載的存取，比較經過一段時間後存取物件以及同時存取物件的不同。或者，您可以將物件暫時複製到多個儲存體帳戶，因而增加每個物件以及所有儲存體帳戶上的 IOPS 總數。在有限的測試中，我們發現大約有 25 個 VM 可以同時平行下載 100GB 的 Blob (每個 VM 都是使用 32 個執行緒平行處理下載)。如果您有 100 個用戶端需要存取物件，首先請將該物件複製到另一個儲存體帳戶，然後讓前 50 個 VM 存取第一個 Blob，並讓後 50 個 VM 存取第二個 Blob。結果將會視您的應用程式行為而有所不同，因此您應該在設計期間進行測試。
+
+
 ####<a name="subheading16"></a>每個 Blob 的頻寬和作業
 您能夠以高達上限 60 MB/秒 (這大約是 480 Mbps，已超出許多用戶端網路的功能，包括用戶端裝置上的實體 NIC) 的速度來讀取或寫入單一 Blob。此外，單一 Blob 每秒支援高達 500 個要求。如果您有多個需要讀取相同 Blob 的用戶端，您可能超出這些限制，您應考慮使用 CDN 來分散 Blob。
 
@@ -380,6 +393,5 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。在指定使用�
 
 ##結論
 本文討論一些最常見的已經實證做法，以便在使用 Azure 儲存體時將效能最佳化。我們鼓勵每位應用程式開發人員根據上述的每個做法來評估他們的應用程式，並考慮照著建議去做，為其使用 Azure 儲存體的應用程式取得最佳效能。
- 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

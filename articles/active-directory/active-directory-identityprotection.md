@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="03/18/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -35,7 +35,7 @@ Azure Active Directory Identity Protection 目前僅適用於 [國家或區域]�
 
 - 安全性原則不適用於同盟網域
 
-- 未偵測到同盟網域的風險事件
+- 與 Azure Active Directory 聯盟的應用程式只會偵測到風險事件
 
 ##開始使用
 
@@ -132,7 +132,7 @@ Identity Protection 會使用此資料來產生報告和警示，讓您調查這
 
 儀表板可讓您存取：
  
-- 
+- 報告，例如 [標示有風險的使用者]、[風險事件] 和 [弱點]
 - 設定，例如 [安全性原則]、[通知] 和 [Multi-Factor Authentication 註冊] 的組態
  
 
@@ -373,13 +373,21 @@ Azure Multi-Factor Authentication 是除了使用使用者名稱與密碼之外�
 
 Azure AD Identity Protection 可讓您設定原則來執行下列作業，以協助您管理首次 Multi-Factor Authentication 註冊：
 
-- 檢視目前註冊狀態：<br><br> ![MFA 註冊](./media/active-directory-identityprotection/603.png "MFA 註冊") <br>
+- 檢視目前註冊狀態：
+<br><br> 
+![MFA 註冊](./media/active-directory-identityprotection/603.png "MFA 註冊") <br>
 
-- 設定要套用原則的使用者和群組：<br><br> ![MFA 註冊](./media/active-directory-identityprotection/601.png "MFA 註冊") <br>
+- 設定要套用原則的使用者和群組：
+<br><br> 
+![MFA 註冊](./media/active-directory-identityprotection/601.png "MFA 註冊") <br>
 
-- 定義多久以後才能略過註冊：<br><br> ![MFA 註冊](./media/active-directory-identityprotection/602.png "MFA 註冊") <br>
+- 定義多久以後才能略過註冊：
+<br><br> 
+![MFA 註冊](./media/active-directory-identityprotection/602.png "MFA 註冊") <br>
 
-- 切換原則的狀態：<br><br> ![MFA 註冊](./media/active-directory-identityprotection/403.png "MFA 註冊") <br>
+- 切換原則的狀態：
+<br><br> 
+![MFA 註冊](./media/active-directory-identityprotection/403.png "MFA 註冊") <br>
 
 如需相關的使用者經驗概觀，請參閱︰
 
@@ -410,4 +418,4 @@ Azure AD Identity Protection 可讓您設定原則來執行下列作業，以協
  - [Azure Active Directory Identity Protection 腳本](active-directory-identityprotection-playbook.md)
  - [Azure Active Directory Identity Protection 詞彙](active-directory-identityprotection-glossary.md)
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

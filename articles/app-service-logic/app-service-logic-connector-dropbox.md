@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="sameerch"/>
 
 # 開始使用 Dropbox 連接器並將它加入您的邏輯應用程式
->[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [Dropbox API](../connectors/create-api-dropbox.md)。
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [Dropbox API](../connectors/connectors-create-api-dropbox.md)。
 
 連接到 Dropbox 帳戶以上傳或下載檔案。邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理資料。您可以將 Dropbox 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
@@ -91,4 +91,4 @@ None | <ul><li>刪除檔案</li><li>取得檔案</li><li>檔案上傳</li><li>�
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

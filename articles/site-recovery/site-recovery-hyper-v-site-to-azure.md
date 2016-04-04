@@ -19,6 +19,11 @@
 
 # 使用 Azure Site Recovery 在內部部署 Hyper-V 虛擬機器與 Azure (沒有 VMM) 之間複寫
 
+> [AZURE.SELECTOR]
+- [Azure 傳統入口網站](site-recovery-hyper-v-site-to-azure.md)
+- [PowerShell - 資源管理員](site-recovery-deploy-with-powershell-resource-manager.md)
+
+
 Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原 (BCDR) 策略，為您的商務持續性與災害復原做出貢獻。機器可以複寫至 Azure，或次要的內部部署資料中心。如需快速概觀，請參閱[什麼是 Azure Site Recovery？](site-recovery-overview.md)。
 
 ## 概觀
@@ -232,7 +237,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 		![設定虛擬機器屬性](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
 	- 在 [受保護的項目] > [保護群組] > *protectiongroup\_name* > [虛擬機器] *virtual\_machine\_name* > [設定] 中，設定其他的虛擬機器設定，包括：
 
-		- **網路介面卡**：網路介面卡的數目取決於您針對目標虛擬機器所指定的大小。查看[虛擬機器大小規格](../virtual-machines/virtual-machines-size-specs.md#size-tables)，了解虛擬機器大小所支援的 NIC 數目。
+		- **網路介面卡**：網路介面卡的數目取決於您針對目標虛擬機器所指定的大小。查看[虛擬機器大小規格](../virtual-machines/virtual-machines-linux-sizes.md#size-tables)，了解虛擬機器大小所支援的 NIC 數目。
 
 
 			在修改虛擬機器的大小並儲存設定之後，當您下次開啟 [設定] 頁面時，網路介面卡的數量將會改變。目標虛擬機器的網路介面卡數目，是來源虛擬機器上的網路介面卡數目下限，以及所選虛擬機器大小支援的網路介面卡數目上限。其說明如下：
@@ -298,4 +303,4 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
 在您的部署設定完成並開始執行之後，[深入了解](site-recovery-failover.md)容錯移轉。
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

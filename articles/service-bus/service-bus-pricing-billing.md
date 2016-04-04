@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="服務匯流排定價與計費 | Microsoft Azure"
-   description="服務匯流排定價結構的概觀。"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="服務匯流排定價與計費 | Microsoft Azure"
+    description="服務匯流排定價結構的概觀。"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # 服務匯流排定價與計費
 
 服務匯流排提供基本、標準和[高階](service-bus-premium-messaging.md)層。您可以針對建立的每個服務匯流排服務命名空間選擇一個服務層，此選取層會套用至該命名空間內建立的所有佇列、主題/訂用帳戶、轉送及事件中樞。
 
->[AZURE.NOTE]如需目前服務匯流排的定價詳細資訊，請參閱[服務匯流排定價常見問題集](service-bus-pricing-faq.md)。
+>[AZURE.NOTE] 如需目前服務匯流排的價格詳細資訊，請參閱 [Azure 服務匯流排價格頁面](https://azure.microsoft.com/pricing/details/service-bus/)和[服務匯流排常見問題集](service-bus-pricing-faq.md)。
 
 服務匯流排會在佇列和主題/訂用帳戶中使用下列兩種計量：
 
@@ -77,7 +77,7 @@
 |1 億到 25 億個作業/月|每百萬個作業 $0.50 美元|
 |超過 25 億個作業/月|每百萬個作業 $0.20 美元|
 
->[AZURE.NOTE]高階層目前為預覽版，且下列價格會反映 50% 的預覽版折扣。
+>[AZURE.NOTE] 高階層目前為預覽版，且下列價格會反映 50% 的預覽版折扣。
 
 |高級|成本|
 |---|---|
@@ -98,9 +98,9 @@
 |100,000-500,000 個/月|每個連線 $0.025 美元/月|
 |超過 500,000 個/月|每個連線 $0.015 美元/月|
 
->[AZURE.NOTE]標準傳訊層隨附 1,000 個代理連線 (包含在基本費用內)，而且可以在相關聯的 Azure 訂用帳戶內，讓所有佇列、主題/訂用帳戶和事件中樞共用。
+>[AZURE.NOTE] 標準傳訊層隨附 1,000 個代理連線 (包含在基本費用內)，而且可以在相關聯的 Azure 訂用帳戶內，讓所有佇列、主題/訂用帳戶和事件中樞共用。
 
->[AZURE.NOTE]計費會依據並行連線的尖峰數量，並以每個月 744 小時為基礎，按照每小時的比例計算。
+>[AZURE.NOTE] 計費會依據並行連線的尖峰數量，並以每個月 744 小時為基礎，按照每小時的比例計算。
 
 |高階層
 |---|
@@ -145,8 +145,10 @@
 
 ## 後續步驟
 
-如需更多有關服務匯流排定價的詳細資訊，請參閱[服務匯流排定價常見問題集](service-bus-pricing-faq.md)。
+- 如需更多有關服務匯流排定價的詳細資訊，請參閱 [Azure 服務匯流排定價頁面](https://azure.microsoft.com/pricing/details/service-bus/)。
+
+- 請參閱[服務匯流排價格常見問題集](service-bus-pricing-faq.md)，以了解關於服務匯流排價格與計費的常見問題集。
 
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

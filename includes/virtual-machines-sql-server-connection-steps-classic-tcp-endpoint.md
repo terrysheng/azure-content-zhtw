@@ -2,7 +2,7 @@
 
 若要從網際網路存取 SQL Server，虛擬機器必須具有端點才能接聽傳入 TCP 通訊。此 Azure 組態步驟能將傳入 TCP 連接埠流量導向虛擬機器可存取的 TCP 連接埠。
 
->[AZURE.NOTE]如果您在相同的雲端服務或虛擬網路內連接，則不需要建立可公開存取的端點在此情況下，您可以繼續進行下一個步驟。如需詳細資訊，請參閱[連接案例](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios)。
+>[AZURE.NOTE] 如果您在相同的雲端服務或虛擬網路內連接，則不需要建立可公開存取的端點在此情況下，您可以繼續進行下一個步驟。如需詳細資訊，請參閱[連接案例](../articles/virtual-machines/virtual-machines-windows-classic-sql-connect.md#connection-scenarios)。
 
 1. 在 Azure 管理入口網站中按一下 [虛擬機器]。
 	
@@ -19,4 +19,4 @@
 
 6. 按一下打勾記號繼續。系統隨即會建立端點。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

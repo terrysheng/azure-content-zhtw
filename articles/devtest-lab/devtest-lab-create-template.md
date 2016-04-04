@@ -1,6 +1,6 @@
-<properties
-	pageTitle="從 VHD 檔案建立研測實驗室自訂映像 | Microsoft Azure"
-	description="了解如何從 VHD 檔案建立自訂映像，接著可使用該映像在研測實驗室中建立 VM"
+    <properties
+	pageTitle="Create a DevTest Lab custom image from a VHD file | Microsoft Azure"
+	description="Learn how to create a custom image from a VHD file, which can then be used to create VMs in a DevTest Lab"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -20,7 +20,7 @@
 
 ## 概觀
 
-當您[建立研測實驗室](devtest-lab-create-lab.md)之後，就可以[將虛擬機器 (VM) 加入該實驗室](devtest-lab-add-vm-with-artifacts.md)。當您建立 VM 時，您會指定「基底」，這可以是「自訂映像」或「Marketplace 映像」。在本文中，您將看到如何從 VHD 檔案建立自訂映像的方式。請注意，您必須能夠存取有效的 VHD 檔案，才能執行本文中的所有步驟。
+當您[建立研測實驗室](devtest-lab-create-lab.md)之後，就可以[將虛擬機器 (VM) 加入該實驗室](devtest-lab-add-vm-with-artifacts.md)。當您建立 VM 時，您會指定*基底*，這可以是*自訂映像*或 *Marketplace 映像*。在本文中，您將看到如何從 VHD 檔案建立自訂映像的方式。請注意，您必須能夠存取有效的 VHD 檔案，才能執行本文中的所有步驟。
 
 ## 建立自訂映像
 
@@ -46,7 +46,7 @@
 
 1. 點選 [VHD 檔案]。
 
-1. 如果未列出您有權存取的 VHD 檔案，請依照[上傳 VHD 檔案](#upload-a-vhd-file)一節中的指示來加入該檔案，完成之後再回到這裡。
+1. 如果未列出您有權存取的 VHD 檔案，請遵循[上傳 VHD 檔案](#upload-a-vhd-file)一節中的指示來加入該檔案，完成之後再回到這裡。
 
 1. 選取所需的 VHD 檔案。
 
@@ -72,10 +72,10 @@
 
     ![上傳映像](./media/devtest-lab-create-template/upload-image-using-psh.png)
 
-1. 下一個刀鋒視窗將顯示用來修改和執行 PowerShell 指令碼的指示，該指令碼會將 VHD 檔案上傳到您的 Azure 訂用帳戶。**附註：**根據 VHD 檔案的大小與您的連接速度而定，這個程序的時間可能非常冗長。
+1. 下一個刀鋒視窗將顯示用來修改和執行 PowerShell 指令碼的指示，該指令碼會將 VHD 檔案上傳到您的 Azure 訂用帳戶。**注意：**根據 VHD 檔案的大小與您的連接速度而定，這個程序的時間可能非常冗長。
 
 ##後續步驟
 
 一旦加入要在建立 VM 時使用的自訂映像之後，下一個步驟就是[將 VM 加入研測實驗室](./devtest-lab-add-vm-with-artifacts.md)。
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

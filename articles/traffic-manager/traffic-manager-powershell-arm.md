@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/02/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # Azure 資源管理員的 Azure 流量管理員支援預覽
-Azure 資源管理員 (ARM) 是 Azure 中新的服務管理架構。Azure 流量管理員設定檔現在可使用以 Azure 資源管理員為基礎的 API 和工具來管理 。若要深入了解 Azure 資源管理員，請參閱[使用資源群組管理您的 Azure 資源](../azure-preview-portal-using-resource-groups.md)。
+Azure 資源管理員 (ARM) 是 Azure 中新的服務管理架構。Azure 流量管理員設定檔現在可使用以 Azure 資源管理員為基礎的 API 和工具來管理 。
 
 ## 資源模型
 
@@ -150,9 +150,16 @@ Cmdlet 在 Azure 流量管理員中建立流量管理員設定檔，並傳回對
 
 ### 新增 Azure 端點
 
-Azure 端點會參考在 Azure 中託管的其他服務。目前支援的 Azure 端點有 3 種類型：<BR> 1.Azure Web Apps <BR> 2.「傳統」雲端服務 (可包含 PaaS 服務或 IaaS 虛擬機器)<BR> 3.ARM Microsoft.Network/publicIpAddress 資源 (可附加至負載平衡器或虛擬機器 NIC)。要注意的是，publicIpAddress 必須已獲指派 DNS 名稱，才能在流量管理員中使用。
+Azure 端點會參考在 Azure 中託管的其他服務。目前支援的 Azure 端點有 3 種類型：<BR>
+1. Azure Web Apps <BR>
+2. 「傳統」雲端服務 (可包含 PaaS 服務或 IaaS 虛擬機器)<BR>
+3. ARM Microsoft.Network/publicIpAddress 資源 (可附加至負載平衡器或虛擬機器 NIC)。要注意的是，publicIpAddress 必須已獲指派 DNS 名稱，才能在流量管理員中使用。
 
-不論是上述哪一種，都必須注意以下事項：- 要使用 Add-AzureRmTrafficManagerEndpointConfig 或 New-AzureRmTrafficManagerEndpoint 的 'targetResourceId' 參數來指定服務。<BR>- 不要指定 'Target' 和 'EndpointLocation'，因為上面指定的 TargetResourceId 已經隱含這兩項。<BR>- 您可以選擇是否指定 'Weight'。只有在設定檔已設定為使用「加權」流量路由方法時才會使用 Weight，否則會予以忽略。如果有指定，其值必須介於 1 到 1000 的範圍內。預設值是 '1'。<BR>- 您可以選擇是否指定 'Priority'。只有在設定檔已設定為使用「優先順序」流量路由方法時才會使用 Priority，否則會予以忽略。有效值為 1 到 1000 (越低的值優先順序越高)。如果對某個端點指定值，則所有端點也都必須進行指定。如果省略，則會以端點的提供順序套用預設值 (從 1、2、3 開始，依此類推)。
+不論是上述哪一種，都必須注意以下事項：
+ - 要使用 Add-AzureRmTrafficManagerEndpointConfig 或 New-AzureRmTrafficManagerEndpoint 的 'targetResourceId' 參數來指定服務。<BR>
+ - 不要指定 'Target' 和 'EndpointLocation'，因為上面指定的 TargetResourceId 已經隱含這兩項<BR>
+ - 您可以選擇是否指定 'Weight'。只有在設定檔已設定為使用「加權」流量路由方法時才會使用 Weight，否則會予以忽略。如果有指定，其值必須介於 1 到 1000 的範圍內。預設值為 '1'。<BR>
+ - 您可以選擇是否指定 'Priority'。只有在設定檔已設定為使用「優先順序」流量路由方法時才會使用 Priority，否則會予以忽略。有效值為 1 到 1000 (越低的值優先順序越高)。如果對某個端點指定值，則所有端點也都必須進行指定。如果省略，則會以端點的提供順序套用預設值 (從 1、2、3 開始，依此類推)。
 
 #### 範例 1：使用 Add-AzureRmTrafficManagerEndpointConfig 新增 Web 應用程式端點
 在此範例中，我們會使用 Add-AzureRmTrafficManagerEndpointConfig Cmdlet 建立新的流量管理員設定檔並新增兩個 Web 應用程式端點，然後使用 Set-AzureRmTrafficManagerProfile 對 Azure 流量管理員認可更新的設定檔。
@@ -179,7 +186,10 @@ Azure 端點會參考在 Azure 中託管的其他服務。目前支援的 Azure 
 ### 新增外部端點
 流量管理員使用外部端點將流量導向至在 Azure 之外所託管的服務。和 Azure 端點一樣，使用 Add-AzureRmTrafficManagerEndpointConfig 並後接 Set-AzureRmTrafficManagerProfile 或使用 New-AzureRMTrafficManagerEndpoint 即可新增外部端點。
 
-在指定外部端點時：- 必須使用 'Target' 參數指定端點網域名稱。<BR>- 如果使用「效能」流量路由方法，則 'EndpointLocation' 為必要項目，否則為選用項目。此值必須是[有效的 Azure 區域名稱](https://azure.microsoft.com/regions/)。<BR>- 和用於 Azure 端點時一樣，'Weight' 和 'Priority' 是選用項目。<BR>
+指定外部端點時：
+ - 必須使用 'Target' 參數指定端點網域名稱<BR>
+ - 如果使用「效能」流量路由方法，則 'EndpointLocation' 為必要項目，否則為選用項目。此值必須是[有效的 Azure 區域名稱](https://azure.microsoft.com/regions/)。<BR>
+ - 和用於 Azure 端點時一樣，'Weight' 和 'Priority' 是選用項目。<BR>
  
 
 #### 範例 1：使用 Add-AzureRmTrafficManagerEndpointConfig 和 Set-AzureRmTrafficManagerProfile 新增外部端點
@@ -199,14 +209,18 @@ Azure 端點會參考在 Azure 中託管的其他服務。目前支援的 Azure 
 
 流量管理員可讓您將流量管理員設定檔 (稱為「子設定檔」) 設為另一個流量管理員設定檔 (稱為「父設定檔」) 內的端點。
 
-巢狀流量管理員可讓您建立更有彈性且功能強大的流量路由和容錯移轉配置，以支援更大型且更複雜的部署需求。[這篇部落格文章](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/) 提供數個範例。
+巢狀流量管理員可讓您建立更有彈性且功能強大的流量路由和容錯移轉配置，以支援更大型且更複雜的部署需求。[這篇部落格文章](https://azure.microsoft.com/blog/new-azure-traffic-manager-nested-profiles/)提供數個範例。
 
-巢狀端點是在父設定檔中使用特定的端點類型 ('NestedEndpoints') 來設定。在指定巢狀端點時：- 必須使用 'targetResourceId' 參數指定端點端點 (如子設定檔)。<BR>- 如果使用 'Performance' 流量路由方法，'targetResourceId' 為必要項目，否則為選用項目。該值必須是[有效的 Azure 區域名稱](http://azure.microsoft.com/regions/)。<BR>- 至於 Azure 端點，'Weight' 和 'Priority' 是可省略的。<BR>- 'MinChildEndpoints' 參數是可省略的，預設值為 '1'。如果子設定檔中可用的端點數目低於此臨界值，父設定檔會將子設定檔視為「已降級」，並將流量導向其他父設定檔端點。<BR>
+巢狀端點是在父設定檔中使用特定的端點類型 ('NestedEndpoints') 來設定。指定巢狀端點時︰
+ - 必須使用 'targetResourceId' 參數指定端點端點 (亦即，子設定檔)<BR>
+ - 如果使用「效能」流量路由方法，則 'EndpointLocation' 為必要項目，否則為選用項目。此值必須是[有效的 Azure 區域名稱](http://azure.microsoft.com/regions/)。<BR>
+ - 和用於 Azure 端點時一樣，'Weight' 和 'Priority' 是選用項目。<BR>
+ - 'MinChildEndpoints' 參數是選用項目 (預設值為 1)。如果子設定檔中可用的端點數目低於此臨界值，父設定檔會將子設定檔視為「已降級」，並將流量導向其他父設定檔端點。<BR>
 
 
 #### 範例 1：使用 Add-AzureRmTrafficManagerEndpointConfig 和 Set-AzureRmTrafficManagerProfile 新增巢狀端點
 
-在此範例中，我們會建立新的流量管理員子設定檔和父設定檔，在父設定檔中加入子設定檔做為巢狀端點，並認可變更。(為了簡潔起見，我們不會將任何其他端點加入子設定檔或父設定檔，雖然通常必須加入這些端點。)<BR>
+在此範例中，我們會建立新的流量管理員子設定檔和父設定檔，在父設定檔中加入子設定檔做為巢狀端點，並認可變更。(為了簡潔起見，我們不會將其他任何端點加入子設定檔或父設定檔，但通常必須加入這些端點)。<BR>
 
 	PS C:\> $child = New-AzureRmTrafficManagerProfile –Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 	PS C:\> $parent = New-AzureRmTrafficManagerProfile –Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
@@ -222,7 +236,7 @@ Azure 端點會參考在 Azure 中託管的其他服務。目前支援的 Azure 
 
 
 ## 更新流量管理員端點
-有兩種方式可供更新現有流量管理員端點：<BR>
+有兩種方式可以更新現有流量管理員端點：<BR>
 
 1. 使用 Get-AzureRmTrafficManagerProfile 取得流量管理員設定檔、更新設定檔內的端點屬性，並使用 Set-AzureRmTrafficManagerProfile 認可變更。這個方法的優點是能夠在單一作業中更新多個端點。<BR>
 2. 使用 Get-AzureRmTrafficManagerEndpoint 取得流量管理員端點、更新端點屬性，並使用 Set-AzureRmTrafficManagerEndpoint 認可變更。由於不需要在設定檔中編製索引為端點陣列，這個方法會比較簡單。<BR>
@@ -297,4 +311,4 @@ Disable-AzureRmTrafficManagerProfile Cmdlet 會顯示確認提示，但使用 '-
 [流量管理員的效能考量](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="在執行 Linux 的虛擬機器上設定軟體 RAID | Microsoft Azure" 
 	description="了解如何使用 mdadm，在 Azure 的 Linux 上設定 RAID。" 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	writer="szark" 
@@ -10,7 +10,7 @@
 	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
@@ -23,13 +23,11 @@
 # 在 Linux 上設定軟體 RAID
 在 Azure 的 Linux 虛擬機器上使用軟體 RAID，以單一 RAID 裝置的形式顯示多個連接的資料磁碟，這種案例很常遇到。相較於只使用單一磁碟，這通常可用來提高效能並允許增加輸送量。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
- 
 
 ## 連接資料磁碟
-設定 RAID 裝置通常需要兩個以上的空白資料磁碟。本文將不會詳細說明如何將資料磁碟連接至 Linux 虛擬機器。請參閱 Microsoft Azure 文章[連接磁碟](storage-windows-attach-disk.md#attachempty)，取得如何在 Azure 上將空白資料磁碟連接至 Linux 虛擬機器的詳細指示。
+設定 RAID 裝置通常需要兩個以上的空白資料磁碟。本文將不會詳細說明如何將資料磁碟連接至 Linux 虛擬機器。請參閱 Microsoft Azure 文章[連接磁碟](virtual-machines-windows-classic-attach-disk.md#attachempty)，取得如何在 Azure 上將空白資料磁碟連接至 Linux 虛擬機器的詳細指示。
 
->[AZURE.NOTE]ExtraSmall VM 大小不支援將多個資料磁碟連接到虛擬機器。如需支援的 VM 大小與資料磁碟數目的詳細資訊，請參閱 [Microsoft Azure 的虛擬機器和雲端服務大小](https://msdn.microsoft.com/library/azure/dn197896.aspx)。
+>[AZURE.NOTE] ExtraSmall VM 大小不支援將多個資料磁碟連接到虛擬機器。如需支援的 VM 大小與資料磁碟數目的詳細資訊，請參閱 [Microsoft Azure 的虛擬機器和雲端服務大小](https://msdn.microsoft.com/library/azure/dn197896.aspx)。
 
 
 ## 安裝 mdadm 公用程式
@@ -125,7 +123,7 @@
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[AZURE.NOTE]在 SUSE 系統上進行這些變更之後，可能需要重新開機。針對 SLES 12，這在並*非*必要步驟。
+	>[AZURE.NOTE] 在 SUSE 系統上進行這些變更之後，可能需要重新開機。針對 SLES 12，這在並*非*必要步驟。
 
 
 ## 將新的檔案系統新增至 /etc/fstab
@@ -182,4 +180,4 @@
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

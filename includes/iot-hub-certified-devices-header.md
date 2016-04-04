@@ -2,26 +2,28 @@
 - [(Linux | C)](../articles/iot-hub/iot-hub-certified-devices-linux-c.md)
 - [(Linux | Java)](../articles/iot-hub/iot-hub-certified-devices-linux-java.md)
 - [(Linux | Javascript)](../articles/iot-hub/iot-hub-certified-devices-linux-javascript.md)
-- [(Windows 10 IoT Core | C#)](../articles/iot-hub/iot-hub-certified-devices-10iot-csharp.md)
-- [(Windows 10 IoT Core | C)](../articles/iot-hub/iot-hub-certified-devices-10iot-c.md)
-- [(Windows 10 IoT Core | Javascript)](../articles/iot-hub/iot-hub-certified-devices-10iot-javascript.md)
-- [(Windows 7,8,10 | C#)](../articles/iot-hub/iot-hub-certified-devices-7810-csharp.md)
-- [(Windows 7,8,10 | C)](../articles/iot-hub/iot-hub-certified-devices-10-c.md)
+- [(Windows 10 IoT 核心版 | C#)](../articles/iot-hub/iot-hub-certified-devices-10iot-csharp.md)
+- [(Windows 10 IoT 核心版 | C)](../articles/iot-hub/iot-hub-certified-devices-10iot-c.md)
+- [(Windows 10 IoT 核心版 | Javascript)](../articles/iot-hub/iot-hub-certified-devices-10iot-javascript.md)
+- [(Windows 7、8、10 | C#)](../articles/iot-hub/iot-hub-certified-devices-7810-csharp.md)
+- [(Windows 7、8、10 | C)](../articles/iot-hub/iot-hub-certified-devices-10-c.md)
 - [(Arduino | C)](../articles/iot-hub/iot-hub-certified-devices-arduino-c.md)
-- [(Other | C)](../articles/iot-hub/iot-hub-certified-devices-other-c.md)
-- [(Other | Javascript)](../articles/iot-hub/iot-hub-certified-devices-other-javascript.md)
+- [(其他 | C)](../articles/iot-hub/iot-hub-certified-devices-other-c.md)
+- [(其他 | Javascript)](../articles/iot-hub/iot-hub-certified-devices-other-javascript.md)
 
-*Microsoft Azure Certified for IoT* is the partner program that connects the broader IoT ecosystem with Microsoft Azure so that developers and architects understand the compatibility scenarios. Specifically, it provides a trusted list of OS/device combinations to help you get started quickly with an IoT project – whether you’re in a proof of concept or pilot phase. With certified device and operating system combinations, your IoT project can get started quickly, with less work and customization required to make sure devices are compatible with [Azure IoT Suite][lnk-iot-suite] and Azure IoT Hub.
+*IoT 的 Microsoft Azure 認證*是連接廣泛的 IoT 生態系統與 Microsoft Azure 的協力廠商程式，讓開發人員和架構設計人員能夠了解相容性案例。具體來說，它提供 OS/裝置組合的一份信任清單，以協助您快速開始使用 IoT 專案 – 無論您是在概念驗證或試驗階段。有了認證的裝置及作業系統組合，您就可以快速開始使用 IoT 專案，其中為確保裝置與 [Azure IoT 套件][lnk-iot-suite]和 Azure IoT 中樞相容所需做的工作和自訂都變得更少。
 
-For general information about the Azure IoT SDK compatibility with different OS platforms, see [OS Platforms compatibility with device SDKs][lnk-os-compatibility].
+如需 Azure IoT SDK 與不同作業系統平台相容性的一般資訊，請參閱[作業系統平台與裝置 SDK 相容性][lnk-os-compatibility]。
 
-## Certified for IoT devices
+## IoT 裝置的認證
 
-**Certified for IoT** devices have tested compatibility with the Azure IoT SDKs and are ready to be used in your IoT application. Specifically, we identify compatibility based on operating system platform and code language.
+**IoT 裝置的認證**已通過與 Azure IoT SDK 的相容性測試，並且已可在您的 IoT 應用程式中使用。具體而言，我們會根據作業系統平台和程式碼語言來識別相容性。
 
-#### Devices list
+#### 裝置清單
 
-Each device has been certified to work with our SDK in the OS and language chosen by the device manufacturer. For example, BeagleBone Black works on Debian using our C, Javascript and Java language. This means that developers can build applications in any of those languages and OS combinations on the specific devices.
+每個裝置都已經過認證，能在裝置製造商所選擇的作業系統和語言中，與我們的 SDK 搭配使用。例如，BeagleBone Black 能在使用我們的 C、Javascript 和 Java 語言的 Debian 上運作。這表示開發人員能夠在特定裝置上，以這些語言與作業系統的任何組合來建置應用程式。
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-os-compatibility]: iot-hub-tested-configurations.md
+
+<!---HONumber=AcomDC_0323_2016-->

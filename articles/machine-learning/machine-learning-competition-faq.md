@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Machine Learning 競賽常見問題 | Microsoft Azure"
-	description="關於 Microsoft Azure Machine Learning 競賽的常見問題。"
+	description="Microsoft Cortana Analytics Suite 競賽常見問題集。"
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
@@ -16,7 +16,7 @@
 	ms.date="03/11/2016"
 	ms.author="haining;chlovel;garye"/>
 
-# Microsoft Azure Machine Learning 競賽常見問題集
+# Microsoft Cortana Analytics Suite 競賽常見問題集
 
 **我可以在哪兒詢問有關資料科學的問題？**
 
@@ -70,4 +70,4 @@ Microsoft 將會驗證私人排行榜的結果，然後我們會與您連絡。�
 
 如果您是競賽的優勝者，您必須簽署一份資格、授權及發行的宣告。這份表單會重述「競賽規則」。如果得獎者不是美國納稅人，則必須填寫美國稅務表單 W-9，或表單 W-8BEN。
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

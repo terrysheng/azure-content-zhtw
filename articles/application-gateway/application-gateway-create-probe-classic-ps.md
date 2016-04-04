@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/17/2015"
+   ms.date="03/22/2016"
    ms.author="joaoma" />
 
 # 使用 PowerShell 建立 Azure 應用程式閘道 (傳統) 的自訂探查
@@ -69,7 +69,7 @@
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]InstanceCount 的預設值是 2，最大值是 10。GatewaySize 的預設值是 Medium。您可以選擇 Small、Medium 和 Large。
+>[AZURE.NOTE]  InstanceCount 的預設值是 2，最大值是 10。GatewaySize 的預設值是 Medium。您可以選擇 Small、Medium 和 Large。
 
 
  因為尚未啟動閘道，所以 *VirtualIPs* 和 *DnsName* 會顯示為空白。閘道處於執行中狀態之後，將會建立這些項目。
@@ -153,7 +153,7 @@
 
 下列範例示範如何使用設定檔來設定應用程式閘道，使公用連接埠 80 上的 HTTP 流量達到負載平衡，並使用自訂探查將網路流量傳送到兩個 IP 位址之間的後端連接埠 80。
 
->[AZURE.IMPORTANT]通訊協定項目 Http 或 Https 會區分大小寫。
+>[AZURE.IMPORTANT] 通訊協定項目 Http 或 Https 會區分大小寫。
 
 
 已新增用來設定自訂探查的新組態項目 <Probe>。
@@ -222,4 +222,4 @@
 
 如果您想要將應用程式閘道設為與內部負載平衡器搭配使用，請參閱[建立具有內部負載平衡器 (ILB) 的應用程式閘道](application-gateway-ilb.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # 管理虛擬網路 (VNet) 所使用的 DNS 伺服器
 
 您可以在管理入口網站或網路組態檔中，管理用於 VNet 的 DNS 伺服器清單。您可以為每個 VNet 新增最多 12 部 DNS 伺服器。指定 DNS 伺服器時，請務必確認您針對環境以正確的順序列出您的 DNS 伺服器。DNS 伺服器清單不會使用循環配置資源，而會依其指定的順序來使用。如果可以連接至清單上的第一部 DNS 伺服器，則用戶端將使用該 DNS 伺服器，無論 DNS 伺服器是否運作正常。若要變更虛擬網路的 DNS 伺服器順序，請從清單中移除 DNS 伺服器，然後以您想要的順序將其重新加入。
 
->[AZURE.WARNING]更新 DNS 清單之後，您必須重新啟動位於虛擬網路的虛擬機器，以便讓其挑選新的 DNS 伺服器設定。虛擬機器將繼續使用其目前的組態，直到重新啟動為止。
+>[AZURE.WARNING] 更新 DNS 清單之後，您必須重新啟動位於虛擬網路的虛擬機器，以便讓其挑選新的 DNS 伺服器設定。虛擬機器將繼續使用其目前的組態，直到重新啟動為止。
 
 ## 使用管理入口網站編輯虛擬網路的 DNS 伺服器清單
 
@@ -65,4 +65,4 @@
 
 [如何刪除虛擬網路 (VNet)](../virtual-networks-delete-vnet)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

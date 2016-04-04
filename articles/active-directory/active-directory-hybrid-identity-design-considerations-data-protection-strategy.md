@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="03/18/2016"
 	ms.author="yuridio"/>
 
 
@@ -112,7 +112,7 @@ Azure Active Directory 可為數千個 SaaS 應用程式和內部部署 Web 應�
  - 細微控制資源的存取：您可以針對特定的訂用帳戶、資源群組或個別 Azure 資源 (例如網站或資料庫)，將角色指派給使用者和群組。如此一來，您可以確保使用者能夠存取他們需要的資源，但不能存取他們不需要管理的資源。
 
  >[AZURE.NOTE]
-  請閱讀 [Azure Preview 入口網站中的角色存取控制](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/)，以深入了解此功能。如果是建置應用程式並想要自訂其存取控制的開發人員，可以使用 Azure AD 應用程式角色來進行授權。請參閱 [WebApp-RoleClaims-DotNet 範例](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet)，了解如何建置您的應用程式以使用這項功能。
+  請閱讀 [Azure 的角色存取控制](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/)，以深入了解此功能。如果是建置應用程式並想要自訂其存取控制的開發人員，可以使用 Azure AD 應用程式角色來進行授權。請參閱 [WebApp-RoleClaims-DotNet 範例](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet)，了解如何建置您的應用程式以使用這項功能。
 
 3. 適用於包含 Microsoft Intune 之 Office 365 應用程式的條件式存取︰IT 管理員可以佈建條件式存取裝置原則來保護公司資源，同時允許相容裝置上的資訊工作者存取服務。如需詳細資訊，請參閱 [Office 365 服務的條件式存取裝置原則](active-directory-conditional-access-device-policies.md)。
 
@@ -121,7 +121,7 @@ Azure Active Directory 可為數千個 SaaS 應用程式和內部部署 Web 應�
 由於存取控制的選項採用多層式方法，因此在執行這項工作時無法比較這些選項。請確實針對每個要求您控制資源存取權的案例，使用所有適用的選項。
 
 ## 定義事件回應選項
-Azure AD 可藉由監視使用者活動，協助 IT 人員識別環境中潛在的安全性風險；IT 人員可利用 Azure AD 存取和使用量報告深入了解組織目錄的完整性與安全性。利用此資訊，IT 管理員更能夠判斷可能發生安全性風險的位置，以便適當地規劃來減輕這些風險。[Azure AD Premium 訂用帳戶](articles/active-directory-get-started-premium.md)有一組安全性報告可讓 IT 人員取得這項資訊。[Azure AD 報告](active-directory-view-access-usage-reports.md)歸類如下：
+Azure AD 可藉由監視使用者活動，協助 IT 人員識別環境中潛在的安全性風險；IT 人員可利用 Azure AD 存取和使用量報告深入了解組織目錄的完整性與安全性。利用此資訊，IT 管理員更能夠判斷可能發生安全性風險的位置，以便適當地規劃來減輕這些風險。[Azure AD Premium 訂用帳戶](active-directory-get-started-premium.md)有一組安全性報告可讓 IT 人員取得這項資訊。[Azure AD 報告](active-directory-view-access-usage-reports.md)歸類如下：
 
 - **異常報告**：包含我們發現異常的登入事件。我們的目標在於使您注意這類活動，並讓您能夠判斷事件是否可疑。 
 - **整合式應用程式報告**：可供深入了解雲端應用程式在組織中的使用方式。Azure Active Directory 提供與數千個雲端應用程式的整合。 
@@ -156,4 +156,4 @@ Azure AD 中還有其他可在事件回應調查期間使用的重要內建報�
 ## 另請參閱
 [設計考量概觀](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

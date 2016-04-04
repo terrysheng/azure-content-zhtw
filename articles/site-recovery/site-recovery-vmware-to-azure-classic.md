@@ -462,8 +462,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 來源作業系統 | 行動服務安裝檔案
 --- | ---
 Windows Server (僅限 64 位元) | Microsoft-ASR\_UA\_9..0.0\_Windows\_ release.exe
-CentOS 6.4、6.5、6.6 (僅限 64 位元) | Microsoft-ASR\_UA\_9..0.0\_RHEL6-64\_*release.tar.gz
-SUSE Linux Enterprise Server 11 SP3 (僅限 64 位元) | Microsoft-ASR\_UA\_9..0.0\_SLES11-SP3-64\_*release.tar.gz
+CentOS 6.4、6.5、6.6 (僅限 64 位元) | Microsoft-ASR\_UA\_9..0.0\_RHEL6-64\_*release.tar.gz SUSE Linux Enterprise Server 11 SP3 (僅限 64 位元) | Microsoft-ASR\_UA\_9..0.0\_SLES11-SP3-64\_*release.tar.gz
 Oracle Enterprise Linux 6.4、6.5 (僅限 64 位元) | Microsoft-ASR\_UA\_9.*.0.0\_OL6-64\_*release.tar.gz
 
 
@@ -586,7 +585,9 @@ UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <安裝目錄>] 
 3. 您可以修改這些設定：
 
 	-  **Azure VM 名稱**：這是將在容錯移轉之後提供給 Azure 中機器的名稱。名稱必須符合 Azure 需求。
-	-  **Azure VM 大小**：網路介面卡的數目會視您指定給目標虛擬機器的大小而有所不同。[深入了解](../virtual-machines/virtual-machines-size-specs.md#size-tables)大小和介面卡。請注意：
+
+	-  **Azure VM 大小**：網路介面卡的數目會視您指定給目標虛擬機器的大小而有所不同。[深入了解](../virtual-machines/virtual-machines-linux-sizes.md/#size-tables)大小和介面卡。請注意：
+
 		- 當您修改虛擬機器的大小並儲存設定之後，下次您開啟 [設定] 索引標籤時，網路介面卡的數量將會改變。目標虛擬機器的網路介面卡數目，是來源虛擬機器上的網路介面卡數目下限，以及所選虛擬機器大小支援的網路介面卡數目上限。 
 			- 如果來源電腦上的網路介面卡數目小於或等於針對目標機器大小所允許的介面卡數目，則目標將具備與來源相同的介面卡數目。
 			- 如果來源虛擬機器的介面卡數目超過針對目標大小所允許的數目，則將使用目標大小的最大值。
@@ -758,4 +759,4 @@ The complete file may be found on the [Microsoft Download Center](http://go.micr
 
 [深入了解容錯回復](site-recovery-failback-azure-to-vmware-classic.md)，以便將 Azure 中執行失敗的機器還原到您的內部部署環境。
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

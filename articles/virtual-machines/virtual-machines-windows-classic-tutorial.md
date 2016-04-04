@@ -1,0 +1,59 @@
+<properties
+	pageTitle="在傳統入口網站中建立執行 Windows 的 VM | Microsoft Azure"
+	description="在 Azure 傳統入口網站中建立 Windows 虛擬機器。"
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
+
+<tags
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/06/2016"
+	ms.author="cynthn"/>
+
+# 在 Azure 傳統入口網站中建立執行 Windows 的虛擬機器
+
+> [AZURE.SELECTOR]
+- [Azure 入口網站](virtual-machines-windows-hero-tutorial.md)
+- [Azure 傳統入口網站](virtual-machines-windows-classic-tutorial.md)
+- [PowerShell：資源管理員部署](virtual-machines-windows-ps-manage.md)
+- [PowerShell：傳統部署](virtual-machines-windows-classic-create-powershell.md)
+
+<!-- HHTML comment in to break between the selector and the note in the include below-->
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-windows-hero-tutorial.md)。
+
+本教學課程示範在 Azure 傳統入口網站中建立執行 Windows 的 Azure 虛擬機器 (VM) 有多麼容易。我們將使用 Windows Server 映像做為範例，這只是 Azure 提供眾多映像中的一種。請注意，您可以選擇何種映像取決於您的訂用帳戶。例如，Windows 桌面映像可能可供 MSDN 訂閱者使用。
+
+
+您也可以使用[您自己的映像](virtual-machines-windows-classic-createupload-vhd.md)來建立 VM。若要了解上述方法與其他方法，請參閱[建立 Windows 虛擬機器的其他方式](virtual-machines-windows-creation-choices.md)。
+
+[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+
+## 影片逐步解說
+
+以下是本教學課程的逐步解說。
+
+[AZURE.VIDEO creating-a-windows-vm-on-microsoft-azure-classic-portal]
+
+## <a id="createvirtualmachine"> </a>如何建立虛擬機器
+
+本節說明如何使用 Azure 傳統入口網站中的 [從組件庫] 選項建立虛擬機器。此選項提供的組態選擇比 [快速建立] 選項還多。例如，如果您要將虛擬機器加入虛擬網路中，您必須使用 [從組件庫] 選項。
+
+> [AZURE.NOTE] 您也可以嘗試透過更豐富且可自訂的 Azure 入口網站來建立虛擬機器、使用增強的監控和診斷功能、使用進階儲存體，以及其他更多功能。兩個入口網站中用來設定虛擬機器的可用選項有許多重疊之處，但並不完全相同。例如，使用入口網站設定包含進階儲存體的虛擬機器。
+
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
+
+## 後續步驟
+
+- 登入虛擬機器。如需指示，請參閱[登入執行 Windows Server 的虛擬機器](virtual-machines-windows-classic-connect-logon.md)。
+
+- 附加磁碟來儲存資料。您可以附加空的磁碟和含有資料的磁碟。如需指示，請參閱[將資料磁碟連接至以傳統部署模型建立的 Windows 虛擬機器](virtual-machines-windows-classic-attach-disk.md)。
+
+<!---HONumber=AcomDC_0323_2016-->

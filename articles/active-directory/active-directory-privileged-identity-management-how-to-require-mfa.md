@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Privileged Identity Management︰如何需要 Multi-Factor Authentication"
+   pageTitle="如何要求 Multi-Factor Authentication | Microsoft Azure"
    description="了解如何利用 Azure Active Directory Privileged Identity Management 擴充功能，為特殊權限的身分識別強制啟用 Multi-Factor Authentication (MFA)。"
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/08/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management：如何強制啟用 MFA
+# Azure AD Privileged Identity Management：如何要求 MFA
 
 我們建議您要求所有系統管理員強制啟用 Multi-Factor Authentication。
 
@@ -41,4 +41,4 @@
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

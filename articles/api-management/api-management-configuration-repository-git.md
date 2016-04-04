@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="03/21/2016" 
 	ms.author="sdanie"/>
 
 
 # 如何使用 Git 儲存和設定 API 管理服務組態
 
->[AZURE.IMPORTANT] API 管理的 Git 組態目前僅供預覽。它的功能完整但目前僅供預覽，因為我們正積極徵求關於此功能的意見反應。我們可能會進行中斷變更來回應客戶意見反應，因此建議不要根據要在生產環境中執行的功能來決定。如果您有任何意見或疑問，請在 `apimgmt@microsoft.com` 中提出來讓我們知道。
+>[AZURE.IMPORTANT] API 管理的 Git 組態目前為預覽狀態。它的功能完整，但處於預覽狀態，因為我們正積極徵求關於此功能的意見反應。我們可能會進行中斷變更來回應客戶意見反應，因此建議不要根據要在生產環境中執行的功能來決定。如果您有任何意見或疑問，請在 `apimgmt@microsoft.com` 中提出來讓我們知道。
 
 每個 API 管理服務執行個體會維護組態資料庫，包含服務執行個體的組態和中繼資料的相關資訊。可以對服務執行個體進行變更，方法是使用PowerShell Cmdlet 或進行 REST API 呼叫，變更發佈者入口網站中的設定。除了這些方法，您也可以使用 Git 管理服務執行個體組態，啟用下列服務管理案例︰
 
@@ -31,7 +31,7 @@
 
 ![Git 設定][api-management-git-configure]
 
-當您使用發行者入口網站、PowerShell Cmdlet 或 REST API 對服務進行變更時，您會使用 `https://{name}.management.azure-api.net` 端點管理服務組態資料庫，如圖表右側所示。圖表左側說明如何針對位於 `https://{name}.scm.azure-api.net` 的服務，使用 Git 和 Git 儲存機制管理服務組態。
+當您使用發佈者入口網站、PowerShell Cmdlet 或 REST API 對服務進行變更時，您會使用 `https://{name}.management.azure-api.net` 端點管理服務組態資料庫，如圖表右側所示。圖表左側說明如何針對位於 `https://{name}.scm.azure-api.net` 的服務，使用 Git 和 Git 儲存機制管理服務組態。
 
 下列步驟提供使用 Git 管理 API 管理服務執行個體的概觀。
 
@@ -55,7 +55,7 @@
 
 若要啟用 Git 存取，請核取 [啟用 Git 存取] 核取方塊。
 
-儲存變更之後，確認訊息隨即顯示。請注意，Git 圖示已變更顏色，以指出 Git 存取已啟用，而狀態訊息現在會指出尚未儲存對於儲存機制的變更。這是因為 API 管理服務組態資料庫尚未儲存至儲存機制。
+儲存變更之後，確認訊息隨即顯示。請注意，Git 圖示已變更顏色，以指出 Git 存取已啟用，而狀態訊息現在會指出尚未儲存對於儲存機制的變更。這是因為 API 管理服務組態資料庫尚未儲存到儲存機制所致。
 
 ![已啟用 Git][api-management-git-enabled]
 
@@ -117,7 +117,7 @@
 
 	git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 
-複製儲存機制之後，您可以在您的本機檔案系統中檢視及使用它。如需詳細資訊，請參閱[本機 Git 儲存機制的檔案和資料夾結構概觀](#file-and-folder-structure-overview-of-local-git-repository)。
+複製儲存機制之後，您可以在您的本機檔案系統中檢視及使用它。如需詳細資訊，請參閱[本機 Git 儲存機制的檔案和資料夾結構參考](#file-and-folder-structure-reference-of-local-git-repository)。
 
 ## 使用最新的服務執行個體組態更新本機儲存機制
 
@@ -209,7 +209,7 @@
 
 ![身分識別設定][api-management-identity-settings]
 
-接下來的四個設定 (`DelegationEnabled`、`DelegationUrl`、`DelegatedSubscriptionEnabled` 和 `DelegationValidationKey`) 對應至 [安全性] 區段的 [委派] 索引標籤中的下列設定。
+接下來四個設定 (`DelegationEnabled`、`DelegationUrl`、`DelegatedSubscriptionEnabled` 和 `DelegationValidationKey`) 對應至 [安全性] 區段的 [委派] 索引標籤中的下列設定。
 
 | 委派設定 | 對應至 |
 |------------------------------|--------------------------------------------|
@@ -279,6 +279,9 @@
 -	使用 REST API 管理您的服務執行個體
 	-	[API 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 
+## 觀看影片概觀
+
+> [AZURE.VIDEO configuration-over-git]
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png
 [api-management-git-enabled]: ./media/api-management-configuration-repository-git/api-management-git-enabled.png
@@ -294,4 +297,4 @@
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="03/23/2016"
    ms.author="yuridio"/>
 
 #開始使用 Microsoft Azure 安全性
@@ -33,7 +33,7 @@ Azure 的基礎結構設計涵蓋設備與應用程式，可同時裝載數以�
 
 控制對 IT 基礎結構、資料和應用程式的存取，是很重要的。在 Microsoft Azure 中，這些功能由 Azure Active Directory、Azure 儲存體等服務所提供，並且支援多項標準和 API。
 
-[Azure Active Directory](active-directory-whatis.md) (Azure AD) 是一種身分識別儲存機制和引擎，可提供組織的使用者、群組和物件的驗證、授權和存取控制功能。Azure AD 也為開發人員提供了有效方式，可在其應用程式中整合身分識別管理。業界標準通訊協定如 [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0)、[WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx) 和 [OpenID Connect](http://openid.net/connect/) 讓您得以憑藉 .NET、Java、Node.js 和 PHP 等各式各樣的平台實作登入功能。
+[Azure Active Directory](./active-directory/active-directory-whatis.md) (Azure AD) 是一種身分識別儲存機制和引擎，可提供組織的使用者、群組和物件的驗證、授權和存取控制功能。Azure AD 也為開發人員提供了有效方式，可在其應用程式中整合身分識別管理。業界標準通訊協定如 [SAML 2.0](https://en.wikipedia.org/wiki/SAML_2.0)、[WS-Federation](https://msdn.microsoft.com/library/bb498017.aspx) 和 [OpenID Connect](http://openid.net/connect/) 讓您得以憑藉 .NET、Java、Node.js 和 PHP 等各式各樣的平台實作登入功能。
 
 REST 型圖形 API 可讓開發人員從任何平台讀取及寫入目錄。透過所提供的 [OAuth 2.0](http://oauth.net/2/) 支援，開發人員不僅可以建置整合了 Microsoft 與第三方 Web API 的行動應用程式及 Web 應用程式，還可建置自己的安全 Web API。現已提供各種適用於 .Net、Windows 市集、iOS 和 Android 的開放原始碼用戶端程式庫，而且另有更多的程式庫仍在開發當中。
 
@@ -45,11 +45,11 @@ Azure AD 可以作為組織的獨立式雲端目錄，或在您現有的內部�
 
 -   Azure AD 可啟用 SaaS 應用程式的 [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)，無論應用程式裝載於何處。有些應用程式會與 Azure AD 同盟，有些則使用密碼 SSO。同盟應用程式也支援使用者佈建和密碼儲存庫存。
 
--   對 [Azure 儲存體](https://azure.microsoft.com/services/storage/)的資料存取可透過驗證來控制。每個儲存體帳戶都有主要金鑰 ([儲存體帳戶金鑰](https://msdn.microsoft.com/library/azure/ee460785.aspx)，或 SAK) 和次要金鑰 ( [共用存取簽章](storage-dotnet-shared-access-signature-part-1.md)，或 SAS)。
+-   對 [Azure 儲存體](https://azure.microsoft.com/services/storage/)的資料存取可透過驗證來控制。每個儲存體帳戶都有主要金鑰 ([儲存體帳戶金鑰](https://msdn.microsoft.com/library/azure/ee460785.aspx)，或稱 SAK) 和次要金鑰 (共用存取簽章，或稱 SAS)。
 
--   Azure AD 可透過與內部部署目錄的同盟、同步和複寫提供「身分識別即服務」(使用 [Active Directory Federation Services](fundamentals-identity.md))。
+-   Azure AD 可透過與內部部署目錄的同盟、同步和複寫提供「身分識別即服務」(使用 [Active Directory Federation Services](./active-directory/fundamentals-identity.md))。
 
--   [Azure Multi-Factor Authentication (MFA)](multi-factor-authentication.md) 是一種多因素驗證服務，需要使用者同時使用行動應用程式、通話或簡訊來驗證登入。它可與 Azure AD 搭配使用，以保護內部部署資源和 Azure MFA Server 的安全，它還可以使用 SDK 與自訂應用程式和目錄搭配使用。
+-   [Azure Multi-Factor Authentication (MFA)](./multi-factor-authentication/multi-factor-authentication.md) 是一種多因素驗證服務，需要使用者同時使用行動應用程式、通話或簡訊來驗證登入。它可與 Azure AD 搭配使用，以保護內部部署資源和 Azure MFA Server 的安全，它還可以使用 SDK 與自訂應用程式和目錄搭配使用。
 
 -   [Azure AD 網域服務](https://azure.microsoft.com/services/active-directory-ds/)可讓您將 Azure 虛擬機器加入網域，而不需要部署網域控制站。使用者可以登入使用其公司的 Active Directory 認證登入這些虛擬機器，並使用群組原則管理加入網域的虛擬機器，以對您所有的 Azure 虛擬機器強制執行安全性基準。
 
@@ -65,7 +65,7 @@ Microsoft 對於 Azure 作業採取「責任區分」原則和[最小權限](htt
 
 ### Azure 加密技術
 
-您可以使用 [Azure AD 報告](active-directory-reporting-audit-events.md)，收集對您的訂用帳戶環境之系統管理存取的詳細資料。您可以選擇在包含 Azure 敏感資訊的 VHD 上設定 [BitLocker 磁碟機加密](https://technet.microsoft.com/library/cc732774.aspx)。
+您可以使用 [Azure AD 報告](./active-directory/active-directory-reporting-audit-events.md)，收集對您的訂用帳戶環境之系統管理存取的詳細資料。您可以選擇在包含 Azure 敏感資訊的 VHD 上設定 [BitLocker 磁碟機加密](https://technet.microsoft.com/library/cc732774.aspx)。
 
 Azure 中其他可協助您保護資料的功能包括：
 
@@ -151,15 +151,15 @@ IP 篩選器有助於防止客體 VM：
 
 您可以利用下列 Azure 虛擬網路技術來保護 Azure 虛擬網路上的通訊安全：
 
--   [**網路安全性群組 (NSG)**](virtual-networks-nsg.md)。您可以在虛擬網路中，使用 NSG 控制傳輸至一個或多個虛擬機器 (VM) 執行個體的流量。NSG 包含存取控制規則，可根據流量方向、通訊協定、來源位址和連接埠與目的地位址和連接埠，允許或拒絕流量。
+-   [**網路安全性群組 (NSG)**](./virtual-network/virtual-networks-nsg.md)。您可以在虛擬網路中，使用 NSG 控制傳輸至一個或多個虛擬機器 (VM) 執行個體的流量。NSG 包含存取控制規則，可根據流量方向、通訊協定、來源位址和連接埠與目的地位址和連接埠，允許或拒絕流量。
 
--   [**使用者定義的路由**](virtual-networks-udr-overview.md)。您可以透過虛擬應用裝置來控制封包的路由，方法是建立使用者定義的路由，為流向指定子網路的封包指定流向虛擬網路安全性應用裝置的下一個躍點。
+-   [**使用者定義的路由**](./virtual-network/virtual-networks-udr-overview.md)。您可以透過虛擬應用裝置來控制封包的路由，方法是建立使用者定義的路由，為流向指定子網路的封包指定流向虛擬網路安全性應用裝置的下一個躍點。
 
--   [**IP 轉送**](virtual-networks-udr-overview.md)。虛擬網路安全性應用裝置必須能夠接收未定址到其本身的傳入流量。若要讓 VM 接收定址到其他目的地的流量，您必須針對 VM 啟用 IP 轉送。
+-   [**IP 轉送**](./virtual-network/virtual-networks-udr-overview.md)。虛擬網路安全性應用裝置必須能夠接收未定址到其本身的傳入流量。若要讓 VM 接收定址到其他目的地的流量，您必須針對 VM 啟用 IP 轉送。
 
--   [**強制通道**](vpn-gateway-about-forced-tunneling.md)。強制通道可讓您透過站對站 VPN 通道，重新導向或「強制」您在 Azure 虛擬網路中的虛擬機器所產生的所有網際網路繫結流量傳回內部部署位置，以便進行檢查和稽核。
+-   [**強制通道**](./vpn-gateway/vpn-gateway-about-forced-tunneling.md)。強制通道可讓您透過站對站 VPN 通道，重新導向或「強制」您在 Azure 虛擬網路中的虛擬機器所產生的所有網際網路繫結流量傳回內部部署位置，以便進行檢查和稽核。
 
--   [**端點** ACL](virtual-machines-set-up-endpoints.md)。您可以定義端點 ACL，以控制哪些機器可以從網際網路對您 Azure 虛擬網路上的虛擬機器進行輸入連線。
+-   [**端點** ACL](./virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)。您可以定義端點 ACL，以控制哪些機器可以從網際網路對您 Azure 虛擬網路上的虛擬機器進行輸入連線。
 
 -   [**合作夥伴網路安全性解決方案**](https://azure.microsoft.com/marketplace/)。您可以從 Azure Marketplace 存取許多合作夥伴網路安全性解決方案。
 
@@ -177,21 +177,21 @@ IP 篩選器有助於防止客體 VM：
 
 -   **儲存體防火牆 (FW)**：儲存體前端的防火牆會篩選流量，使其限定於連接埠 80/443 和其他必要公用程式連接埠。儲存體後端的防火牆會將通訊限定為來自儲存體前端伺服器的通訊。
 
--   **虛擬網路閘道**：[Azure 虛擬網路閘道](virtual-networks-configure-vnet-to-vnet-connection.md)可作為將您在 Azure 虛擬網路中的工作負載連接到內部部署網站的跨單位閘道。它必須透過 [IPsec 站對站 VPN 通道](vpn-gateway-create-site-to-site-rm-powershell.md)或透過 [ExpressRoute](expressroute-introduction.md) 線路連接到內部部署網站。就 IPsec/IKE VPN 通道而言，這些閘道會執行 IKE 交握，並建立虛擬網路和內部部署網站之間的 IPsec S2S VPN 通道。虛擬網路閘道也會終止[點對站 VPN](vpn-gateway-point-to-site-create.md)。
+-   **虛擬網路閘道**：[Azure 虛擬網路閘道](./vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)可作為將您在 Azure 虛擬網路中的工作負載連接到內部部署網站的跨單位閘道。它必須透過 [IPsec 站對站 VPN 通道](./vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)或透過 [ExpressRoute](./expressroute/expressroute-introduction.md) 線路連接到內部部署網站。就 IPsec/IKE VPN 通道而言，這些閘道會執行 IKE 交握，並建立虛擬網路和內部部署網站之間的 IPsec S2S VPN 通道。虛擬網路閘道也會終止[點對站 VPN](./vpn-gateway/vpn-gateway-point-to-site-create.md)。
 
 ##安全的遠端存取
 
 儲存在雲端中的資料必須啟用足夠的保護措施，以防止入侵和維護傳輸時的機密性與完整性。這包括與組織的原則型、可稽核的身分識別和存取管理機制相連結的網路控制。
 
-內建的密碼編譯技術可讓您對部署內部與各部署間的通訊、Azure 區域之間的通訊，以及 Azure 對內部部署資料中心的通訊進行加密。系統管理員可透過[遠端桌面工作階段](virtual-machines-log-on-windows-server.md)、[遠端 Windows PowerShell](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) 來存取虛擬機器，且 [Azure 管理入口網站](https://azure.microsoft.com/overview/preview-portal/)一律會加密。
+內建的密碼編譯技術可讓您對部署內部與各部署間的通訊、Azure 區域之間的通訊，以及 Azure 對內部部署資料中心的通訊進行加密。系統管理員可透過[遠端桌面工作階段](./virtual-machines/virtual-machines-windows-classic-connect-logon.md)、[遠端 Windows PowerShell](http://blogs.technet.com/b/heyscriptingguy/archive/2013/09/07/weekend-scripter-remoting-the-cloud-with-windows-azure-and-powershell.aspx) 來存取虛擬機器，且 Azure 管理入口網站一律會加密。
 
-為了讓您安全地將內部部署資料中心擴充到雲端，Azure 提供了[站對站 VPN](vpn-gateway-create-site-to-site-rm-powershell.md) 和[點對站 VPN](vpn-gateway-point-to-site-create.md)，以及具有 [ExpressRoute](expressroute-introduction.md) 的專用連結 (透過 VPN 的 Azure 虛擬網路連線會進行加密)。
+為了讓您安全地將內部部署資料中心擴充到雲端，Azure 提供了[站對站 VPN](./vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) 和[點對站 VPN](./vpn-gateway/vpn-gateway-point-to-site-create.md)，以及具有 [ExpressRoute](./expressroute/expressroute-introduction.md) 的專用連結 (透過 VPN 的 Azure 虛擬網路連線會進行加密)。
 
 ### Azure 如何實作安全的遠端存取
 
 對 Azure 入口網站的連線一律必須經過驗證，且需要 SSL/TLS。您可以設定管理憑證來啟用安全管理。如 [SSTP](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) 和 [IPsec](https://en.wikipedia.org/wiki/IPsec) 的業界標準安全通訊協定會受到完整支援。
 
-[Azure ExpressRoute](expressroute-introduction.md) 可讓您在 Azure 資料中心和內部部署或共置環境中的基礎結構之間建立私人連接。ExpressRoute 連線不會經過公用網際網路。相較於一般網際網路連結，這可以提供更可靠、更快速、延遲更短和更安全的連接。在某些情況下，使用 ExpressRoute 連線在內部部署裝置和 Azure 之間傳輸資料，可以產生重大的成本效益。
+[Azure ExpressRoute](./expressroute/expressroute-introduction.md) 可讓您在 Azure 資料中心和內部部署或共置環境中的基礎結構之間建立私人連接。ExpressRoute 連線不會經過公用網際網路。相較於一般網際網路連結，這可以提供更可靠、更快速、延遲更短和更安全的連接。在某些情況下，使用 ExpressRoute 連線在內部部署裝置和 Azure 之間傳輸資料，可以產生重大的成本效益。
 
 ##記錄和監視
 
@@ -241,4 +241,4 @@ Azure 有安全性控制可實作威脅防護功能，並協助客戶降低其�
 
 [Active Directory 部落格](http://blogs.technet.com/b/ad/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

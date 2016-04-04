@@ -1,11 +1,11 @@
 
-如需有關磁碟的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](virtual-machines-disks-vhds.md)。
+如需有關磁碟的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](virtual-machines-linux-about-disks-vhds.md)。
 
 <a id="attachempty"></a>
 ## 做法：連接空的磁碟
 新增資料磁碟的一個較為簡易方式是連接空的磁碟，因為 Azure 會為您建立 .vhd 檔案並將它儲存在儲存體帳戶中。
 
-1.  開啟 Azure CLI for Mac, Linux, and Windows，並連接至您的 Azure 訂用帳戶。如需詳細資料，請參閱 [從 Azure CLI 連接至 Azure](../articles/xplat-cli-connect.md)。
+1.  開啟 Azure CLI for Mac, Linux, and Windows，並連接至您的 Azure 訂用帳戶。如需詳細資料，請參閱 [從 Azure CLI 連接至 Azure](../xplat-cli-connect.md)。
 
 2.  請確定您是在 Azure 服務管理模式中，這是輸入 `azure config
  	mode asm` 時的預設值。
@@ -33,7 +33,7 @@
 
 連接現有磁碟要求您在儲存體帳戶中需要有可用的 .vhd。
 
-1. 	開啟 Azure CLI for Mac, Linux, and Windows，並連接至您的 Azure 訂用帳戶。如需詳細資料，請參閱 [從 Azure CLI 連接至 Azure](../articles/xplat-cli-connect.md)。
+1. 	開啟 Azure CLI for Mac, Linux, and Windows，並連接至您的 Azure 訂用帳戶。如需詳細資料，請參閱 [從 Azure CLI 連接至 Azure](../xplat-cli-connect.md)。
 
 2.  請確定您是在 Azure 服務管理模式中，這是預設值。如果您已將模式變更為資源管理，只需輸入 `azure config mode asm` 即可回復。
 
@@ -93,4 +93,4 @@
 > [AZURE.NOTE]
 新增資料磁碟之後，您必須登入虛擬機器並初始化磁碟，這樣虛擬機器才能使用磁碟來儲存資料。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

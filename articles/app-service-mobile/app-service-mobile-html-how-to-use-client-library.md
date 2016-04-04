@@ -32,10 +32,10 @@
 npm install azure-mobile-apps-client --save
 ```
 
-安裝之後，程式庫位於 `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.js`。將這個檔案複製到您的網站區域。
+安裝之後，程式庫位於 `node_modules/azure-mobile-apps-client/dist/MobileServices.Web.min.js`。將這個檔案複製到您的網站區域。
 
 ```
-<script src="path/to/MobileServices.Web.js"></script>
+<script src="path/to/MobileServices.Web.min.js"></script>
 ```
 
 程式庫也可在 CommonJS 環境 (例如 Browserify 和 Webpack) 內部做為 ES2015 模組和 AMD 程式庫使用。例如：
@@ -113,4 +113,4 @@ pushHandler.on('error', function (error) {
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [Query 物件文件]: https://msdn.microsoft.com/zh-TW/library/azure/jj613353.aspx
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

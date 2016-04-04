@@ -19,8 +19,8 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Classic steps](load-balancer-internet-getstarted.md)
-- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
+- [Azure 一般步驟](load-balancer-internet-getstarted.md)
+- [Resource Manager PowerShell 步驟](load-balancer-arm-powershell.md)
 
 
 下列步驟將說明如何搭配 PowerShell 使用 Azure 資源管理員，建立網際網路面向的負載平衡器。使用 Azure 資源管理員時，會個別設定建立網際網路面向的負載平衡器所需的項目，然後放置在一起，以建立資源。
@@ -84,7 +84,7 @@
 
     PS C:\> New-AzureResourceGroup -Name NRP-RG -location "West US"
 
-Azure 資源管理員需要所有的資源群組指定一個位置。這用來作為該資源群組中資源的預設位置。請確定所有建立負載平衡器的命令都是使用同一個資源群組。
+Azure Resource Manager 需要所有的資源群組指定一個位置。這用來作為該資源群組中資源的預設位置。請確定所有建立負載平衡器的命令都是使用同一個資源群組。
 
 在上述範例中，我們已建立名為 "NRP-RG" 的資源群組，且位置為「美國西部」。
 
@@ -242,7 +242,7 @@ PS C:\> $backendnic1
 
 使用 Add-AzureVMNetworkInterface 命令將 NIC 指派給虛擬機器。
 
-您可以在以下文件中找到建立虛擬機器並指派給 NIC 的逐步解說：[使用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)的選項 4 或 5。
+您可以在以下文件中找到建立虛擬機器並指派給 NIC 的逐步解說：[使用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-create-powershell.md#Example)的選項 4 或 5。
 
 ## 更新現有負載平衡器
 
@@ -282,4 +282,4 @@ PS C:\> $backendnic1
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="03/18/2016"
 	ms.author="dastrock"/>
 
 # 以單一 App 登入 Microsoft 帳戶和 Azure AD 使用者
@@ -22,20 +22,17 @@
 
 使用 v2.0 端點的 app 也可以利用這其中一種帳戶，從 [Microsoft Graph](https://graph.microsoft.io) 和 [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) 取用 REST API。
 
-> [AZURE.NOTE]
-	v2.0 端點並未支援所有的 Azure Active Directory 案例和功能。若要判斷是否應該使用 v2.0 端點，請閱讀相關的 [v2.0 限制](active-directory-v2-limitations.md)。
-
-
 ## 開始使用
-選擇下列您最愛的平台，使用我們的開放原始碼程式庫與架構來建置 app。或者，您可以使用 OAuth 2.0 和 OpenID Connect 通訊協定文件，直接傳送及接收通訊協定訊息，而不使用驗證庫。 <!-- TODO: Finalize this table  -->
+選擇下列您最愛的平台，使用我們的開放原始碼程式庫與架構來建置 app。或者，您可以使用 OAuth 2.0 和 OpenID Connect 通訊協定文件，直接傳送及接收通訊協定訊息，而不使用驗證庫。
+<!-- TODO: Finalize this table  -->
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-## 新功能	
+## 新功能
 當您想要了解 v2.0 端點可執行哪些動作以及不可執行哪些動作時，此處提供的概念性資訊非常實用。
 
-- 如果您是在 v2.0 端點 2015 預覽期間建置 app，請務必[閱讀我們先前所做的重大通訊協定變更](active-directory-v2-preview-oidc-changes.md)。
-- 了解[您可以使用 v2.0 端點建置的 app 類型](active-directory-v2-flows.md)。
+- 如果您是在 v2.0 端點 2015 預覽期間建置應用程式，請務必[閱讀我們先前所做的重大通訊協定變更](active-directory-v2-preview-oidc-changes.md)。
+- 了解[您可以使用 v2.0 端點建置的應用程式類型](active-directory-v2-flows.md)。
 - 若是熟悉 Azure Active Directory 的開發人員，您應該查看 [v2.0 端點中的通訊協定更新和差異](active-directory-v2-compare.md)。
 - 了解使用 v2.0 端點的[限制和條件約束](active-directory-v2-limitations.md)。
 
@@ -49,13 +46,15 @@
 - [Microsoft App 註冊入口網站](https://apps.dev.microsoft.com)
 - [Office 365 REST API 參考](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Microsoft Graph](https://graph.microsoft.io)
-- 以下是已通過 v2.0 端點測試的開放原始碼用戶端程式庫和範例。請注意，尚未支援像是 [OpenID Connect 動態用戶端註冊](https://openid.net/specs/openid-connect-registration-1_0.html)和權杖驗證端點等功能，而且可能需要在程式庫中停用它們，才能使用 v2 端點：  
+- 以下是已通過 v2.0 端點測試的開放原始碼用戶端程式庫和範例。
 
   - [Java WSO2 身分識別伺服器](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
   - [Java Gluu 同盟](https://github.com/GluuFederation/oxAuth)
-  - [Node.Js passport openidconnect](https://www.npmjs.com/package/passport-openidconnect)
+  - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
   - [PHP OpenID Connect 基本用戶端](https://github.com/jumbojett/OpenID-Connect-PHP)
-  - [Android OpenID Connect 範例](https://github.com/learning-layers/android-openid-connect)
+  - [iOS OAuth2 用戶端](https://github.com/nxtbgthng/OAuth2Client)
+  - [Android OAuth2 用戶端](https://github.com/wuman/android-oauth-client)
+  - [Android OpenID Connect 用戶端](https://github.com/kalemontes/OIDCAndroidLib)
 
 <!-- TODO: These articles
 - [ADAL Library Reference]()
@@ -63,4 +62,4 @@
 - Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
 -->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

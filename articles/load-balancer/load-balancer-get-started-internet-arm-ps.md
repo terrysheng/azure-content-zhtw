@@ -233,7 +233,7 @@ TCP 探查
 
 使用 `Add-AzureRmVMNetworkInterface` Cmdlet 以將 NIC 指派給不同的 VM。
 
-您可以在以下文件中找到建立虛擬機器並指派 NIC 的指引：[利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)，使用範例中的選項 5。
+您可以在以下文件中找到建立虛擬機器並指派 NIC 的指引：[利用資源管理員和 Azure PowerShell 建立及預先設定 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-create-powershell.md#Example)，使用範例中的選項 5。
 
 
 或者，如果您已建立虛擬機器，您可以透過下列步驟新增網路介面：
@@ -308,4 +308,4 @@ TCP 探查
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

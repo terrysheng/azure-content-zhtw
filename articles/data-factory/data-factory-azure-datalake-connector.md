@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="03/21/2016"
 	ms.author="spelluru"/>
 
 # 使用 Azure Data Factory 從 Azure 資料湖存放區來回移動資料
@@ -58,7 +58,7 @@
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -69,7 +69,7 @@
 下列程序提供使用 Data Factory 編輯器建立 Azure 資料湖存放區連結服務的步驟。
 
 1. 按一下命令列上的 [新增資料存放區]，然後選取 [Azure 資料湖存放區]。
-2. 在 JSON 編輯器中，為 **datalakeUri** 屬性輸入資料湖的 URI。
+2. 在 JSON 編輯器中，為 **dataLakeStoreUri** 屬性輸入 Data Lake 的 URI。
 3. 按一下命令列上的 [授權] 按鈕。應該會出現一個快顯視窗。
 
 	![授權按鈕](./media/data-factory-azure-data-lake-connector/authorize-button.png)
@@ -235,7 +235,7 @@
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+	            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -405,7 +405,7 @@
 | 屬性 | 說明 | 必要 |
 | :-------- | :----------- | :-------- |
 | 類型 | type 屬性必須設為：**AzureDataLakeStore** | 是 |
-| dataLakeUri | 指定有關 Azure 資料湖存放區帳戶的資訊。格式如下：https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | 是 |
+| dataLakeStoreUri | 指定有關 Azure 資料湖存放區帳戶的資訊。格式如下：https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | 是 |
 | authorization | 按一下 [**Data Factory 編輯器**] 中的 [**授權**] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 |
 | sessionId | OAuth 工作階段的 OAuth 工作階段識別碼。每個工作階段識別碼都是獨一無二的，只能使用一次。當您使用 Data Factory 編輯器時便會自動產生。 | 是 |  
 | accountName | 資料湖帳戶名稱 | 否 |
@@ -608,4 +608,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

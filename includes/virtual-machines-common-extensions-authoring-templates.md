@@ -1,12 +1,11 @@
-## Overview of Azure Resource Manager templates
+## Azure 資源管理員範本概觀
 
-Azure Resource Manager templates allow you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources. For a detailed overview of Azure Resource Manager Templates, please refer to the article below:
+Azure Resource Manager 範本可讓您藉由定義資源之間的相依性，以宣告方式指定 JSON 語言中的 Azure IaaS 基礎結構。如需 Azure Resource Manager 範本的詳細概觀，請參閱下文：
 
-[Resource Group Overview](../resource-group-overview.md)
+[資源群組概觀](../resource-group-overview.md)
 
-## Sample template snippet for VM extensions
-Deploying VM extensions as part of an Azure Resource Manager template requires you to declaratively specify the extension configuration in the template.
-Here is the format for specifying the extension configuration.
+## VM 擴充功能的範例範本程式碼片段
+若要將 VM 擴充功能部署到 Azure Resource Manager 範本中，您必須以宣告方式在範本中指定擴充功能組態。以下是用來指定延伸模組組態的格式。
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -25,11 +24,13 @@ Here is the format for specifying the extension configuration.
       }
       }
 
-As you can see from the above, the extension template contains two main parts:
+您可以在以上程式碼中看到，延伸模組範本包含兩個主要部分：
 
-1. Extension name, publisher and version
-2. Extension Configuration.
+1. 擴充功能名稱、發行者和版本
+2. 延伸模組組態。
 
-## Identifying the publisher, type, and typeHandlerVersion for any extension
+## 識別任何擴充功能的發行者、類型和 typeHandlerVersion
 
-Azure VM extensions are published by Microsoft and trusted 3rd party publishers and each extension is uniquely identified by its publisher,type and the typeHandlerVersion. These can be determined as following:  
+Azure VM 擴充功能是由 Microsoft 和受信任的第 3 方發行者所發佈，每個擴充功能會依其發行者、類型和 typeHandlerVersion 進行唯一識別。其判斷方式如下：
+
+<!---HONumber=AcomDC_0323_2016-->

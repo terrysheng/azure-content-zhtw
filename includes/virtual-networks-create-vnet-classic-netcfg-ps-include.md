@@ -4,7 +4,7 @@ Azure 會使用 xml 檔案定義訂用帳戶所有可用的 VNet。您可以下�
 
 若要利用 PowerShell 使用 Netcfg 檔案建立 VNet，請依照下列步驟執行。
 
-1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
+1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](../articles/powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
 2. 從 Azure PowerShell 主控台中，使用 **Get AzureVnetConfig** Cmdlet，執行下列命令以下載網路組態檔。 
 
 		Get-AzureVNetConfig -ExportToFile c:\NetworkConfig.xml
@@ -16,7 +16,7 @@ Azure 會使用 xml 檔案定義訂用帳戶所有可用的 VNet。您可以下�
 		<?xml version="1.0" encoding="utf-8"?>...  
 
 3. 使用任何 XML 或文字編輯器應用程式，開啟您在上述步驟 2 中儲存的檔案，並尋找 **<VirtualNetworkSites>** 項目。如果您已建立網路，每個網路都將顯示為其自身的 **<VirtualNetworkSite>** 項目。
-4. 若要建立此案例所述的虛擬網路，請在 **<VirtualNetworkSites>** 項目下方，新增下列 XML：
+4. 若要建立此案例所述的虛擬網路，請在 **<VirtualNetworkSites>** 元素正下方，新增下列 XML：
 
 		<VirtualNetworkSite name="TestVNet" Location="Central US">
 		  <AddressSpace>
@@ -65,4 +65,4 @@ Azure 會使用 xml 檔案定義訂用帳戶所有可用的 VNet。您可以下�
 		OperationId          : 3f35d533-1f38-09c0-b286-3d07cd0904d8
 		OperationStatus      : Succeeded
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

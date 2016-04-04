@@ -31,7 +31,7 @@ Azure 排程器可讓您指定不同的一次和週期工作排程。*一次*排
 -	映像處理 – 例如，每個工作天，在離峰時段，使用雲端運算壓縮當天上傳的映像
 
 
-在本文中，我們會逐步引導您完成您可以使用 Azure 排程器建立的範例工作。我們提供描述每個排程的 JSON 資料。如果您使用 [排程器 REST API](https://msdn.microsoft.com/library/azure/dn528946.aspx)，則可以使用這個相同的 JSON，[建立 Azure 排程器工作](https://msdn.microsoft.com/library/azure/dn528937.aspx)。
+在本文中，我們會逐步引導您完成您可以使用 Azure 排程器建立的範例工作。我們提供描述每個排程的 JSON 資料。如果您使用 [排程器 REST API](https://msdn.microsoft.com/library/mt629143.aspx)，則可以使用這個相同的 JSON，[建立 Azure 排程器工作](https://msdn.microsoft.com/library/mt629145.aspx)。
 
 ## 支援的案例
 
@@ -52,7 +52,7 @@ Azure 排程器工作中的日期時間參考遵循 [ISO 8601 規格](http://en.
 
 ## 如何：使用 JSON 和 REST API 建立排程
 
-若要使用本文中的 JSON 範例和 Azure 排程器 REST API 建立簡單的排程，[首先建立雲端服務](https://msdn.microsoft.com/library/azure/dn528943.aspx)，[然後建立工作集合](https://msdn.microsoft.com/library/azure/dn528940.aspx)，[最後建立工作](https://msdn.microsoft.com/library/azure/dn528937.aspx)。當建立工作時，您可以使用如下摘錄的 JSON 指定排程與週期：
+若要使用 [Azure 排程器 REST API](https://msdn.microsoft.com/library/mt629143) 建立簡單的排程，首先請[向資源提供者註冊訂用帳戶](https://msdn.microsoft.com/library/azure/dn790548.aspx) (排程器的提供者名稱是 _Microsoft.Scheduler_)，接著[建立工作集合](https://msdn.microsoft.com/library/mt629159.aspx)，最後[建立工作](https://msdn.microsoft.com/library/mt629145.aspx)。當建立工作時，您可以使用如下摘錄的 JSON 指定排程與週期：
 
 	{
 	    "startTime": "2012-08-04T00:00Z", // optional
@@ -197,4 +197,4 @@ Azure 排程器工作中的日期時間參考遵循 [ISO 8601 規格](http://en.
 
  [Azure 排程器輸出驗證](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0323_2016-->

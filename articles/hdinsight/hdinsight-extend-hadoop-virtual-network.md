@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/29/2016"
+   ms.date="03/22/2016"
    ms.author="larryfr"/>
 
 
@@ -80,29 +80,92 @@ Azure HDInsight 僅支援以位置為基礎的虛擬網路，目前無法使用�
 
 ###受保護的虛擬網路
 
-明確限制網際網路存取的 Azure 虛擬網路不支援 HDInsight。例如，使用「網路安全性群組」或 ExpressRoute 封鎖虛擬網路中資源的網際網路流量。HDInsight 服務是受管理的服務，並要求在佈建期間與執行時存取網際網路，以便 Azure 可以監視叢集的健全狀況、起始叢集資源容錯移轉，以及其他自動化管理工作。
+明確限制網際網路存取的 Azure 虛擬網路不支援 HDInsight。例如，使用「網路安全性群組」或 ExpressRoute 封鎖虛擬網路中資源的網際網路流量。
 
-如果您想要在封鎖網際網路流量的虛擬網路上使用 HDInsight，您可以使用下列步驟：
+HDInsight 服務是受管理的服務，並要求在佈建期間與執行時存取網際網路，以便 Azure 可以監視叢集的健全狀況、起始叢集資源容錯移轉，以及其他自動化管理工作。下列 IP 位址必須能夠對內存取您要安裝 HDInsight 的子網路︰
 
-1. 在虛擬網路內建立新的子網路。根據預設，新的子網路能夠與網際網路通訊。這可讓 HDInsight 安裝在這個子網路上。因為新的子網路是在與安全的子網路相同的虛擬網路中，它也可以與那裡安裝的資源通訊。
+* 168\.61.49.99
+* 23\.99.5.239
+* 168\.61.48.131
+* 138\.91.141.162
 
-2. 建立 HDInsight 叢集。為叢集設定虛擬網路設定時，在步驟 1 中選取建立的子網路。
+允許從這些位址的對內存取，可讓您成功將 HDInsight 安裝到受保護的虛擬網路中。
 
-> [AZURE.NOTE] 上述步驟假設您未將通訊限制為_虛擬網路 IP 位址範圍中_的 IP 位址。如果您已限制，您可能需要修改這些限制，以允許與新的子網路進行通訊。
+以下的指令碼範例會建立新的網路安全性群組，這個群組允許必要的位址，並將安全性群組套用至虛擬網路內的子網路。這些步驟假設您已建立虛擬網路和要安裝 HDInsight 的子網路。
 
-如果您不確定是否已對想要將 HDInsight 安裝到的子網路套用限制，或想要對子網路移除限制，請使用下列步驟：
+> [AZURE.NOTE] 您必須先安裝並設定好 Azure PowerShell，才能執行這個指令碼。如需詳細資訊，請參閱[安裝並設定 Azure PowerShell](../powershell-install-configure.md)。
 
-1. 開啟 [Azure 入口網站](https://portal.azure.com)。
+    $vnetName = "Replace with your virtual network name"
+    $resourceGroupName = "Replace with the resource group the virtual network is in"
+    $subnetName = "Replace with the name of the subnet that HDInsight will be installed into"
+    # Get the Virtual Network object
+    $vnet = Get-AzureRmVirtualNetwork `
+        -Name $vnetName `
+        -ResourceGroupName $resourceGroupName
+    # Get the region the Virtual network is in.
+    $location = $vnet.Location
+    # Get the subnet object
+    $subnet = $vnet.Subnets | Where-Object Name -eq $subnetName
+    # Create a new Network Security Group.
+    # And add exemptions for the HDInsight health and management services.
+    $nsg = New-AzureRmNetworkSecurityGroup `
+        -Name "hdisecure" `
+        -ResourceGroupName $resourceGroupName `
+        -Location $location `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -name "hdirule1" `
+            -Description "HDI health and management address 16.61.49.99" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "168.61.49.99" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 300 `
+            -Direction Inbound `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -Name "hdirule2" `
+            -Description "HDI health and management 23.99.5.239" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "23.99.5.239" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 301 `
+            -Direction Inbound `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -Name "hdirule3" `
+            -Description "HDI health and management 168.61.48.131" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "168.61.48.131" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 302 `
+            -Direction Inbound `
+        | Add-AzureRmNetworkSecurityRuleConfig `
+            -Name "hdirule4" `
+            -Description "HDI health and management 138.91.141.162" `
+            -Protocol "*" `
+            -SourcePortRange "*" `
+            -DestinationPortRange "*" `
+            -SourceAddressPrefix "138.91.141.162" `
+            -DestinationAddressPrefix "VirtualNetwork" `
+            -Access Allow `
+            -Priority 303 `
+            -Direction Inbound
+    # Set the changes to the security group
+    Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+    # Apply the NSG to the subnet
+    Set-AzureRmVirtualNetworkSubnetConfig `
+        -VirtualNetwork $vnet `
+        -Name $subnetName `
+        -AddressPrefix $subnet.AddressPrefix `
+        -NetworkSecurityGroupId $nsg
 
-2. 選取虛擬網路。
-
-3. 選取 [屬性]。
-
-4. 選取 [子網路]，然後選取特定子網路。在此子網路的刀鋒視窗上，如果尚未套用任何限制，[網路安全性群組] 和 [路由表] 項目會設為 [無]。
-
-    如果已套用限制，您可以選取 [網路安全性群組] 或 [路由表] 項目，然後選取 [無]，來移除限制。最後，在 [子網路] 刀鋒視窗中選取 [儲存]，以儲存變更。
-    
-    ![子網路刀鋒視窗和網路安全性群組選取項目的影像](./media/hdinsight-extend-hadoop-virtual-network/subnetnsg.png)
+> [AZURE.IMPORTANT] 使用上述指令碼只會開啟 Azure 雲端上的 HDInsight 健全狀況與管理服務存取權。這可讓您將 HDInsight 叢集成功安裝在子網路中，但預設會封鎖從虛擬網路外部存取 HDInsight 叢集。如果想要允許從外部虛擬網路存取，必須加入額外的網路安全性群組規則。
 
 如需網路安全性群組的詳細資訊，請參閱[網路安全性群組概觀](../virtual-network/virtual-networks-nsg.md)。如需在 Azure 虛擬網路中控制路由的詳細資訊，請參閱[使用者定義的路由和 IP 轉送](../virtual-network/virtual-networks-udr-overview.md)。
 
@@ -212,4 +275,4 @@ HDInsight 叢集會被指派特定的虛擬網路介面完整網域名稱 (FQDN)
 
 若要深入了解 Azure 虛擬網路，請參閱 [Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

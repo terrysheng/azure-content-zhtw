@@ -31,7 +31,7 @@
 
 * [Azure VM 上執行的 MySQL 叢集](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 
-* [Azure VM 上執行的 MySQL 單一執行個體](virtual-machines/virtual-machines-mysql-windows-server-2008r2.md)
+* [Azure VM 上執行的 MySQL 單一執行個體](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md)
 
 ClearDB 是 MySQL 代管服務，會為您管理 MySQL 基礎結構。在 Azure 虛擬機器上執行自己的 MySQL 叢集或資料庫時，您必須設定 MySQL 伺服器，並使用修補程式讓它保持更新。
 
@@ -55,7 +55,7 @@ ClearDB 是 MySQL 代管服務，會為您管理 MySQL 基礎結構。在 Azure 
 
 ## 我在自己的 Azure 虛擬機器上執行 MySQL。可以將我的 Azure Web 應用程式連接到我的資料庫嗎？
 
-是。只要您的 Azure VM 已將遠端存取權提供給 Web 應用程式，Web 應用程式就能連線到您的資料庫。如需詳細資訊，請參閱[在虛擬機器上安裝 MySQL](../virtual-machines/virtual-machines-mysql-windows-server-2008r2.md)。
+是。只要您的 Azure VM 已將遠端存取權提供給 Web 應用程式，Web 應用程式就能連線到您的資料庫。如需詳細資訊，請參閱[在虛擬機器上安裝 MySQL](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md)。
 
 ## 支援 ClearDB Premium MySQL 叢集的國家 (地區)有哪些？
 
@@ -124,4 +124,4 @@ Azure Marketplace 無法供在亞塞拜然、克羅埃西亞、挪威或波多�
 
 [Azure Marketplace 常見問題集](/marketplace/faq/)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

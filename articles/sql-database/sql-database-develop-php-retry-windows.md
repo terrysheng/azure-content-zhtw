@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/18/2016"
 	ms.author="meetb"/>
 
 
@@ -42,7 +42,10 @@
 
 示範程式經過設計，會使嘗試連接期間的暫時性錯誤導致重試。但是，查詢命令期間的暫時性錯誤會導致程式捨棄連線並建立新的連線，然後再重試查詢命令。我們不建議也不反對這種設計選擇。示範程式會說明一些您可使用的設計彈性。
 
-<br>程式碼範例中大部分的內容都是攔截例外狀況的邏輯。此 Program.cs 檔案的簡短版本可在[這裡](sql-database-develop-php-simple-windows.md)取得。<br>Main 方法在 Program.cs 中。呼叫堆疊的執行方式如下：* Main 呼叫 ConnectAndQuery。* ConnectAndQuery 呼叫 EstablishConnection。* EstablishConnection 呼叫 IssueQueryCommand。
+<br>程式碼範例中大部分的內容都是攔截例外狀況的邏輯。此 Program.cs 檔案的簡短版本可在[這裡](sql-database-develop-php-simple-windows.md)取得。<br>Main 方法在 Program.cs 中。呼叫堆疊會執行，如下所示：
+* Main 呼叫 ConnectAndQuery。
+* ConnectAndQuery 呼叫 EstablishConnection。
+* EstablishConnection 呼叫 IssueQueryCommand。
 
 [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) 函式可用來擷取對 SQL Database 查詢的結果集。這個函式基本上會接受任何查詢與連線物件並傳回結果集，您可以使用 [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php) 反覆查詢結果集。
 
@@ -136,4 +139,4 @@
 
 如需 PHP 安裝和使用方式的詳細資訊，請參閱[使用 PHP 存取 SQL Server Database](http://technet.microsoft.com/library/cc793139.aspx)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

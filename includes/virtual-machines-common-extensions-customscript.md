@@ -1,23 +1,25 @@
 
 
-Ever since its launch, the Custom Script extension has been used widely to configure workloads on both Windows and Linux VMs. With the introduction of Azure Resource Manager templates, users can now create a single template that not only provisions the VM but also configures the workloads on it.
+自從自訂指令碼擴充功能可供使用後，已廣泛用來在 Windows 和 Linux VM 上設定工作負載。隨著 Azure 資源管理員範本的引入，使用者現在可以建立單一的範本，不只可用於佈建 VM，也可在 VM 上設定工作負載。
 
-## About Azure Resource manager templates
+## 關於 Azure 資源管理員範本
 
-Azure Resource Manager template allow you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources. For a detailed overview of Azure Resource Manager templates, see the following articles:
+Azure 資源管理員範本可讓您藉由定義資源之間的相依性，以宣告方式指定 JSON 語言中的 Azure IaaS 基礎結構。如需 Azure 資源管理員範本的詳細概觀，請參閱以下文章：
 
-- [Resource Group Overview](../resource-group-overview.md)
-- [Deploying Templates with Azure CLI](virtual-machines-linux-cli-manage.md)
-- [Deploying Templates with Azure Powershell](virtual-machines-windows-ps-manage.md)
+- [資源群組概觀](../resource-group-overview.md)
+- [以 Azure CLI 部署範本](virtual-machines-linux-cli-manage.md)
+- [以 Azure Powershell 部署範本](virtual-machines-windows-ps-manage.md)
 
-### Prerequistes
+### 必要條件
 
-1. Download the Azure command line tools for your operating system from [here](https://azure.microsoft.com/downloads/).
-2. If the scripts will be run on an existing VM, make sure VM Agent is enabled on the VM, if not follow [the Linux](virtual-machines-linux-classic-manage extensions.md) or [Windows](virtual-machines-windows-classic-manage extensions.md) guidance to install one.
-3. Upload the scripts that you want to run on the VM to Azure Storage. The scripts can come from a single or multiple storage containers.
-4. Alternatively the scripts can also be uploaded to a GitHub account.
-5. The script should be authored in such a way that the entry script which is launched by the extension in turn launches other scripts.
+1. 在[這裡](https://azure.microsoft.com/downloads/)下載適用於您作業系統的 Azure 命令列工具。
+2. 如果將在現有的 VM 上執行指令碼，請確定在 VM 上已啟用 VM 代理程式；如果沒有，請遵循 [Linux](virtual-machines-linux-classic-manage extensions.md) 或 [Windows](virtual-machines-windows-classic-manage extensions.md) 指引進行安裝。
+3. 將您想要在 VM 上執行的指令碼上傳到 Azure 儲存體。指令碼可以來自單一或多個儲存體容器。
+4. 或者也能將指令碼上傳至 GitHub 帳戶。
+5. 指令碼應該以由延伸模組依序要啟動的項目指令碼啟動其他指令碼的方式來撰寫。
 
-## Using the custom script extension
+## 使用自訂指令碼擴充功能
 
-For deploying with templates we use the same version of  Custom Script extension thats availale for Azure Service Management APIs. The extension supports the same parameters and scenarios like uploading files to Azure Storage account or Github location. The key difference while using with templates is the exact version of the extension should be specified, as opposed to specifying the version in majorversion.* format.
+為了部署範本，我們使用 Azure 服務管理 API 中可用之相同版本的自訂指令碼延伸模組。本延伸模組支援將檔案上傳至 Azure 儲存體帳戶或 Github 位置的相同參數和案例。搭配範本使用時，主要差異在於應該指定正確版本的延伸模組，而不是以 majorversion.* 格式指定版本。
+
+<!---HONumber=AcomDC_0323_2016-->

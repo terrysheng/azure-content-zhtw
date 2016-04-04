@@ -15,9 +15,9 @@
 |屬性|說明|範例值|
 |---|---|---|
 |**description**|規則的說明|在子網路 X 中允許所有 VM 的輸入流量|
-|**protocol**|規則要符合的通訊協定|TCP, UDP, 或 *|
-|**sourcePortRange**|規則要符合的來源連接埠範圍|80, 100-200, *|
-|**destinationPortRange**|規則要符合的目的地連接埠範圍|80, 100-200, *|
+|**protocol**|規則要符合的通訊協定|TCP, UDP, 或 *| 
+|**sourcePortRange**|規則要符合的來源連接埠範圍|80, 100-200, *| 
+|**destinationPortRange**|規則要符合的目的地連接埠範圍|80, 100-200, *| 
 |**sourceAddressPrefix**|規則要符合的來源位址首碼|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
 |**destinationAddressPrefix**|規則要符合的目的地位址首碼|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
 |**direction**|規則要符合的流量方向|inbound (輸入) 或 outbound (輸出)|
@@ -68,12 +68,12 @@ JSON 格式的範例 NSG：
 	}
 
 ### 預設安全性規則
-在安全性規則中，預設安全性規則具有相同的屬性。它們的存在可以在有套用 NSG 的資源之間提供基本連線能力。請確定您知道哪些[預設安全性規則](./virtual-networks-nsg.md#Default-Rules)存在。
+在安全性規則中，預設安全性規則具有相同的屬性。它們的存在可以在有套用 NSG 的資源之間提供基本連線能力。請確定您知道哪些[預設安全性規則](../articles/virtual-network/virtual-networks-nsg.md#Default-Rules)存在。
 
 ### 其他資源
 
-- 取得 [NSG](virtual-networks-nsg.md) 的詳細資訊。
+- 取得 [NSG](../articles/virtual-network/virtual-networks-nsg.md) 的詳細資訊。
 - 閱讀關於 NSG 的 [REST API 參考文件](https://msdn.microsoft.com/library/azure/mt163615.aspx)。
 - 閱讀關於安全性規則的 [REST API 參考文件](https://msdn.microsoft.com/library/azure/mt163580.aspx)。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0323_2016-->

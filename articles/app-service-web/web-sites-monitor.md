@@ -201,7 +201,7 @@ Web 應用程式可以從 [Azure 傳統入口網站](https://manage.windowsazure
 
 如此可將記錄資訊顯示在執行命令的命令提示字元、PowerShell、Bash 或終端機工作階段中。
 
-> [AZURE.NOTE] 如果您尚未安裝 **azure** 命令，請參閱[如何使用 Azure CLI](../virtual-machines-command-line-tools.md)，以取得安裝和組態資訊。
+> [AZURE.NOTE] 如果您尚未安裝 **azure** 命令，請參閱[如何使用 Azure CLI](../virtual-machines/virtual-machines-command-line-tools.md)，以取得安裝和組態資訊。
 
 ### 讀取記錄檔 ###
 
@@ -283,10 +283,9 @@ Web 應用程式可以從 [Azure 傳統入口網站](https://manage.windowsazure
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需 Azure 入口網站變更為 Azure 預覽入口網站的指南，請參閱：[瀏覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

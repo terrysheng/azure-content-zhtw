@@ -41,7 +41,7 @@ Azure 自動化是 Microsoft Azure 中的受管理服務，可讓您使用 Runbo
 
 DSC 資源是具有特定功能的程式碼模組，例如管理網路、Active Directory 或 SQL Server。Chocolatey DSC 資源知道如何存取 NuGet 伺服器 (還有其他)、下載封裝、安裝封裝...等等。[PowerShell 資源庫](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)中有許多其他 DSC 資源。這些模組安裝到您的 Azure 自動化 DSC 提取伺服器 (由您安裝)，供您的組態使用。
 
-ARM 範本以宣告方式產生基礎結構，例如網路、子網路、網路安全性和路由、負載平衡器、NIC、VM...等等。這篇[文章](../resource-manager-deployment-model.md)比較 ARM 部署模型 (宣告) 與 Azure 服務管理 (ASM 或傳統) 部署模型 (必要)。另一篇[文章](../virtual-machines\virtual-machines-azurerm-versus-azuresm.md)是關於核心資源提供者、計算、儲存體和網路。
+ARM 範本以宣告方式產生基礎結構，例如網路、子網路、網路安全性和路由、負載平衡器、NIC、VM...等等。這篇[文章](../resource-manager-deployment-model.md)比較 ARM 部署模型 (宣告) 與 Azure 服務管理 (ASM 或傳統) 部署模型 (必要)。另一篇[文章](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)是關於核心資源提供者、計算、儲存體和網路。
 
 ARM 範本的一項主要功能是能夠在佈建時將 VM 延伸模組安裝至 VM 中。VM 延伸模組具有特定功能，例如執行自訂指令碼、安裝防毒軟體或執行 DSC 組態指令碼。有許多其他類型的 VM 延伸模組。
 
@@ -185,4 +185,4 @@ New-ConfigurationScript.ps1：
 - [Azure 自動化 DSC Cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)
 - [上架由 Azure 自動化 DSC 管理的機器](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

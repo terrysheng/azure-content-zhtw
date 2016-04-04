@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 #在 Azure CLI 中建立使用者定義的路由 (UDR)
@@ -52,7 +52,10 @@
 		data:    Provisioning state              : Succeeded
 		info:    network route-table create command OK
 
-	參數：- **-g (或 --resource-group)**。將會在當中建立 NSG 之資源群組的名稱。在本文案例中為 *TestRG*。- **-l (或 --location)**。將要建立新 NSG 的 Azure 區域。在本文案例中為 *westus*。- **-n (或 --name)**。新 NSG 的名稱。在本文案例中為 *NSG-FrontEnd*。
+	參數：
+	- **-g (or --resource-group)**。將會在當中建立 NSG 之資源群組的名稱。在本文案例中為 *TestRG*。
+	- **-l (或 --location)**。將要建立新 NSG 的 Azure 區域。在本文案例中為 *westus*。
+	- **-n (或 --name)**。新 NSG 的名稱。在本文案例中為 *NSG-FrontEnd*。
 
 4. 執行 **`azure network route-table route create`** 命令，在上方建立的路由表中建立路由，將目的地為後端子網路 (192.168.2.0/24) 的所有流量傳送到 **FW1** VM (192.168.0.4)。
 
@@ -73,7 +76,11 @@
 		data:    Address prefix                  : 192.168.2.0/24
 		info:    network route-table route create command OK
 
-	參數：- **-r (或 --route-table-name)**。將會加入路由的路由表的名稱。在本文案例中為 *UDR-FrontEnd*。- **-a (或 --address-prefix)**。封包所指向位置的子網路的位址首碼。在本文案例中為 *192.168.2.0/24*。- **-y (或 --next-hop-type)**。將傳送流量的目標物件類型。可能的值為 *VirtualAppliance*、*VirtualNetworkGateway*、*VNETLocal*、*Internet* 或 *None*。- **-p (或 --next-hop-ip-address**))。下個躍點的 IP 位址。在本文案例中為 *192.168.0.4*。
+	參數：
+	- **-r (或 --route-table-name)**。將會加入路由的路由表的名稱。在本文案例中為 *UDR-FrontEnd*。
+	- **-a (或 --address-prefix)**。封包所指向位置的子網路的位址首碼。在本文案例中為 *192.168.2.0/24*。
+	- **-y (或 --next-hop-type)**。將傳送流量的目標物件類型。可能的值為 *VirtualAppliance*、*VirtualNetworkGateway*、*VNETLocal*、*Internet* 或 *None*。
+	- **-p (或 --next-hop-ip-address)**。下個躍點的 IP 位址。在本文案例中為 *192.168.0.4*。
 
 5. 執行 **`azure network vnet subnet set`** 命令，將上方建立的路由表關聯至 **FrontEnd** 子網路。
 
@@ -103,7 +110,8 @@
 		data:    
 		info:    network vnet subnet set command OK
 
-	參數：- **-e (或 --vnet-name)**。子網路所在的 VNet 名稱。在本文案例中為 *TestVNet*。
+	參數：
+	- **-e (或 --vnet-name)**。子網路所在的 VNet 名稱。在本文案例中為 *TestVNet*。
  
 ## 建立後端子網路的 UDR
 若要根據上述案例建立後端子網路所需的路由表和路徑，請依照下列步驟執行。
@@ -191,4 +199,4 @@
 
 	- **-f (或 --enable-ip-forwarding)**。*true* 或 *false*。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

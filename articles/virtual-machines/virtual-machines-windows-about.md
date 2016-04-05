@@ -1,6 +1,6 @@
 <properties
 	pageTitle="關於 Windows 虛擬機器 | Microsoft Azure"
-	description="使用兩種部署模型深入了解 Windows Azure 虛擬機器的基本概念。"
+	description="使用兩種部署模型深入了解 Microsoft Azure 虛擬機器的基本概念。"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -42,4 +42,4 @@ Azure 虛擬機器讓您能夠有彈性地進行虛擬化，而不需購買並�
 [應用程式服務]: app-service-choose-me.md
 [雲端服務]: cloud-services-choose-me.md
 [虛擬機器]: #tellmevm
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0330_2016-->

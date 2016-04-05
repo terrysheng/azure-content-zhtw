@@ -39,8 +39,7 @@ Azure 虛擬機器讓您能夠有彈性地進行虛擬化，而不需購買並�
 
 
 <!--links-->
-[App Service]: app-service-choose-me.md
-[Virtual Machines]: #tellmevm
-[Cloud Services]: cloud-services-choose-me.md
-
+[應用程式服務]: app-service-choose-me.md
+[雲端服務]: cloud-services-choose-me.md
+[虛擬機器]: #tellmevm
 <!---HONumber=AcomDC_0330_2016-->

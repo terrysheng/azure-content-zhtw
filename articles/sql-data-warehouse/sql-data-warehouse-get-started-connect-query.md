@@ -34,7 +34,7 @@
 
 ## 取得您的完整 Azure SQL 伺服器名稱
 
-若要連接至您的資料庫，需要包含您想連接之資料庫的伺服器完整名稱 (****servername**.database.windows.net*)。
+若要連接至您的資料庫，需要包含您想連接之資料庫的伺服器完整名稱 ( ***servername**.database.windows.net* )。
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至您想連接的資料庫。
@@ -69,13 +69,13 @@
 
 3. 將下列內程式碼輸入查詢視窗中：
 
-    ```sql
-    SELECT COUNT(*) FROM dbo.FactInternetSales;
-    ```
+	```sql
+	SELECT COUNT(*) FROM dbo.FactInternetSales;
+	```
 
 4. 執行查詢。
 
-   若要執行查詢，請按一下綠色箭頭，或使用下列快速鍵：`CTRL`+`SHIFT`+`E`。
+	若要執行查詢，請按一下綠色箭頭，或使用下列快速鍵：`CTRL`+`SHIFT`+`E`。
 
 ## 後續步驟
 

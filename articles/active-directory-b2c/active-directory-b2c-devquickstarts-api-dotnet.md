@@ -219,7 +219,10 @@ public IEnumerable<Models.Task> Get()
 
 ## 編輯您的原則
 
-在您使用 Azure AD B2C 來保護 API 之後，就可以測試 app 的原則，並檢視對 API 產生的效果 (或沒有效果)。您可以<!--add **identity providers** to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->操作原則中的應用程式宣告，然後變更 Web API 中可用的使用者資訊。如本文先前所述，您加入的任何宣告都可在 `ClaimsPrincipal` 物件中供您的 .NET MVC Web API 使用。
+在您使用 Azure AD B2C 來保護 API 之後，就可以測試 app 的原則，並檢視對 API 產生的效果 (或沒有效果)。您可以
+<!--add **identity providers**
+to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
+  -->操作原則中的應用程式宣告，然後變更 Web API 中可用的使用者資訊。如本文先前所述，您加入的任何宣告都可在 `ClaimsPrincipal` 物件中供您的 .NET MVC Web API 使用。
 
 <!--
 

@@ -166,7 +166,7 @@
 
 ## 步驟 4︰備份您的資料
 
-1. 在 [備份代理程式] (如果您讓 [啟動 Microsoft Azure 復原服務代理程式] 核取方塊保持已核取狀態，則會自動開啟) 中，按一下 [排程備份]。
+1. 在 [備份代理程式] \(如果您讓 [啟動 Microsoft Azure 復原服務代理程式] 核取方塊保持已核取狀態，則會自動開啟) 中，按一下 [排程備份]。
 
     ![Windows Server 備份排程](./media/backup-try-azure-backup-in-10-mins/snap-in-schedule-backup-closeup.png)
 

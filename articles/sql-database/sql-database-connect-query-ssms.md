@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/21/2016"
+	ms.date="03/25/2016"
 	ms.author="sstein" />
 
 # 使用 SQL Server Management Studio 連接到 SQL Database 並執行範例 T-SQL 查詢
@@ -42,9 +42,11 @@
 
 	![SQL Server Management Studio：連接到 SQL Database 伺服器](./media/sql-database-connect-query-ssms/1-connect.png)
 
+5. 如果您尚未建立 Azure 的連線，SSMS 會詢問您的 Azure 登入資訊。
+
 ### 如果連接失敗
 
-最常見的連接失敗原因是伺服器名稱 (請記得，*&lt;;servername>* 是邏輯伺服器而非資料庫的名稱)、使用者名稱或密碼錯誤，以及基於安全性理由不允許連接伺服器。如果您是第一次連接，或因為 IP 設定變更而導致連接失敗，[最新版的 SSMS](https://msdn.microsoft.com/library/mt238290.aspx) 會要求您輸入 Azure 登入，然後在 Azure 中為您建立防火牆規則。如果您使用較舊的版本，則會在錯誤訊息中回報 IP 位址，而您需要在 Azure 中將此 IP 位址加入至伺服器防火牆規則。請確定伺服器的防火牆設定允許從本機電腦的 IP 位址和 SSMS 用戶端使用的 IP 位址連接。它們有時候不同。如需詳細資訊，請參閱[如何：進行防火牆設定 (Azure SQL Database)](sql-database-configure-firewall-settings.md)。
+最常見的連接失敗原因是伺服器名稱 (請記得，<servername> 是邏輯伺服器而非資料庫的名稱)、使用者名稱或密碼錯誤，以及基於安全性理由不允許連接伺服器。如果您是第一次連接，或因為 IP 設定變更而導致連接失敗，[最新版的 SSMS](https://msdn.microsoft.com/library/mt238290.aspx) 會要求您輸入 Azure 登入，然後在 Azure 中為您建立防火牆規則。如果您使用較舊的版本，則會在錯誤訊息中回報 IP 位址，而您需要在 Azure 中將此 IP 位址加入至伺服器防火牆規則。請確定伺服器的防火牆設定允許從本機電腦的 IP 位址和 SSMS 用戶端使用的 IP 位址連接。它們有時候不同。如需詳細資訊，請參閱[如何：進行防火牆設定 (Azure SQL Database)](sql-database-configure-firewall-settings.md)。
 
 ## 執行範例查詢
 
@@ -75,4 +77,4 @@
 
 如果您是 T-SQL 新手，請參閱[教學課程：撰寫 Transact-SQL 陳述式](https://msdn.microsoft.com/library/ms365303.aspx)和[Transact-SQL 參考 (Database Engine)](https://msdn.microsoft.com/library/bb510741.aspx)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

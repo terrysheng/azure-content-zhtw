@@ -162,7 +162,7 @@ Azure 會使用您指定的 IP 位址前置詞來識別要傳送至內部部署�
 
 ## 8\.建立 VPN 連線
 
-接下來，在虛擬網路閘道與 VPN 裝置之間建立站對站 VPN 連線。請務必將值取代為您自己的值。共用的金鑰必須符合您用於 VPN 裝置設定的值。
+接下來，在虛擬網路閘道與 VPN 裝置之間建立站對站 VPN 連線。請務必將值取代為您自己的值。共用的金鑰必須符合您用於 VPN 裝置設定的值。請注意，站對站的 `-ConnectionType` 為 **IPsec**。
 
 	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
@@ -188,4 +188,4 @@ VPN 連線有幾種不同的驗證方式。下面我們將討論如何使用 Azu
 
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。請參閱[建立網站的虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md)以取得相關步驟。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -4,7 +4,7 @@
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article" 
 	ms.date="01/04/2016"
 	ms.author="piyushjo;matt-gibbs" />
 
@@ -45,7 +45,7 @@ Microsoft 長期以來一直都非常重視隱私權的問題，這是我們的�
 
 ###後續步驟：
 
-[建立 Azure Mobile Engagement 應用程式](mobile-engagement-create-account.md)
+[建立 Azure Mobile Engagement 應用程式](mobile-engagement-create.md)
 
 [建立 Mobile Engagement 的最佳做法和程序](mobile-engagement-getting-started-best-practices.md)
 
@@ -53,4 +53,4 @@ Microsoft 長期以來一直都非常重視隱私權的問題，這是我們的�
 
 [開始使用 (開發人員)](/documentation/services/mobile-engagement/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

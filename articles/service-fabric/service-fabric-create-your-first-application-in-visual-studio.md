@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/11/2016"
+   ms.date="03/27/2016"
    ms.author="seanmck"/>
 
 # 在 Visual Studio 中建立第一個 Azure Service Fabric 應用程式
@@ -58,7 +58,7 @@ Service Fabric 應用程式可以包含一或多個服務，而每個服務在�
 
 	- **指令碼**：包含用來部署/升級應用程式的 PowerShell 指令碼。此指令碼是由 Visual Studio 在幕後使用，可以直接在命令列叫用。
 
-	- **應用程式定義**：包含應用程式資訊清單和相關聯的應用程式參數檔案，而這些參數檔案可定義應用程式並可讓您特別為指定的環境設定應用程式。
+	- **應用程式定義**：包含 *ApplicationPackageRoot* 之下的應用程式資訊清單和 *ApplicationParameters* 之下相關聯的應用程式參數檔案，而這些參數檔案可定義應用程式並可讓您特別為指定的環境設定應用程式。
 
     如需服務專案的內容概觀，請參閱[開始使用 Reliable Services](service-fabric-reliable-services-quick-start.md)。
 
@@ -80,7 +80,7 @@ Service Fabric 應用程式可以包含一或多個服務，而每個服務在�
 
 	在具狀態服務範本的情況下，訊息只會顯示在 MyStatefulService.cs 的 `RunAsync` 方法中遞增的計數器值。
 
-3. 展開其中一個事件以查看更多詳細資料，包括程式碼執行所在的節點。在此情況下是節點 2，雖然這在您的電腦上可能有所不同。
+3. 展開其中一個事件以查看更多詳細資料，包括程式碼執行所在的節點。在此情況下是 \_Node\_2，雖然這在您的電腦上可能有所不同。
 
 	![診斷事件檢視器詳細資訊][6]
 
@@ -100,7 +100,7 @@ Service Fabric 應用程式可以包含一或多個服務，而每個服務在�
 
 6. 在左窗格中展開 [叢集] > [節點]，並尋找您的程式碼執行所在的節點。
 
-7. 按一下 [動作] > [停用 (重新啟動)] 來模擬電腦重新啟動。
+7. 按一下 [動作] > [停用 (重新啟動)] 來模擬電腦重新啟動。(請注意，您也可以選取三個點，在左窗格中節點清單檢視的內容功能表中執行此動作。)
 
 	![在 Service Fabric 總管中停止節點][sfx-stop-node]
 
@@ -114,11 +114,14 @@ Service Fabric 應用程式可以包含一或多個服務，而每個服務在�
 
   在我們做結論之前，請務必記得本機叢集非常真實。即使在停止偵錯工具並關閉 Visual Studio 之後，您的應用程式將會繼續在背景執行。視您的應用程式的本質而言，此背景活動可能會佔用您電腦上的大量資源。您有數個選項可管理此項目：
 
-  1. 若要移除個別的應用程式及其所有資料，請使用 Service Fabric 總管中的 [移除應用程式] 動作。
+  1. 若要移除個別的應用程式及其所有資料，請使用 Service Fabric 總管中的 [刪除應用程式] 動作，搭配左窗格中應用程式清單檢視的 [動作] 功能表或內容功能表。
+  
+    ![在 Service Fabric 總管中刪除應用程式][sfe-delete-application]
+    
+  2. 從叢集中刪除應用程式之後，您可以接著對移除應用程式封裝 (包括其程式碼和組態) 的應用程式，從叢集的映像存放區選擇 [解除佈建類型]。
+  3. 若要關閉叢集，但保留應用程式資料及追蹤，請按一下系統匣應用程式中的 [停止本機叢集]。
 
-  2. 若要關閉叢集，但保留應用程式資料及追蹤，請按一下系統匣應用程式中的 [停止叢集]。
-
-  3. 若要完全刪除叢集，請按一下系統匣應用程式中的 [移除叢集]。請注意，此選項會導致下次您在 Visual Studio 中按 F5 鍵時發生其他緩慢部署。只有在您有時候不打算使用本機叢集或您需要回收資源時，才能使用此選項。
+  4. 若要完全刪除叢集，請按一下系統匣應用程式中的 [移除本機叢集]。請注意，此選項會導致下次您在 Visual Studio 中按 F5 鍵時發生其他緩慢部署。只有在您有時候不打算使用本機叢集或您需要回收資源時，才能使用此選項。
 
 
 
@@ -141,5 +144,6 @@ Service Fabric 應用程式可以包含一或多個服務，而每個服務在�
 [sfx-stop-node]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-deactivate-node.png
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
+[sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

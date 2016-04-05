@@ -34,7 +34,7 @@ Azure IoT 套件預先設定的解決方案是常見 IoT 解決方案模式的�
 
 | 方案 | 資料擷取 | 裝置身分識別 | 命令和控制 | 規則和動作 | 預測性分析 |
 |------------------------|-----|-----|-----|-----|-----|
-| [遠端監視][lnk-remote-monitoring] | 是 | 是 | 是 | 是 | - |
+| [遠端監視][lnk-remote-monitoring] | 是 | 是 | 是 | 是 | - | 
 | [預測性維護][lnk-predictive-maintenance] | 是 | 是 | 是 | 是 | 是 |
 
 - *資料擷取*：雲端規模的資料輸入。
@@ -115,6 +115,8 @@ IoT 中樞可讓您透過服務端遙測讀取端點接收遙測資料。
 
 ## 後續步驟
 
+如需 IoT 解決方案架構的詳細資訊，請參閱 [Microsoft Azure IoT 服務 ︰參考架構][lnk-refarch]。
+
 請探索下列資源以深入了解 IoT 預先設定解決方案：
 
 - [IoT 預先設定解決方案入門][lnk-preconf-get-started]
@@ -133,5 +135,6 @@ IoT 中樞可讓您透過服務端遙測讀取端點接收遙測資料。
 [lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

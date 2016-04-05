@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 
@@ -59,12 +59,12 @@ bcp 是將較小的資料集移入和移出 SQL 資料倉儲資料庫的一種�
 
 從命令提示字元中，使用下列命令連接到您的執行個體 (請適當地取代其中的值)：
 
-```
+```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
 ```
 一旦連線之後，在 sqlcmd 提示字元上複製下列資料表指令碼，然後按 Enter 鍵：
 
-```
+```sql
 CREATE TABLE DimDate2
 (
     DateId INT NOT NULL,
@@ -106,13 +106,13 @@ GO
 ### 步驟 3：連接並匯入資料
 在 bcp 中，您可以使用下列命令來連接並匯入資料 (請適當地取代其中的值)：
 
-```
+```sql
 bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
 您像先前一樣使用 sqlcmd 來連接，並執行下列 TSQL 命令，以確認已載入資料：
 
-```
+```sql
 SELECT * FROM DimDate2 ORDER BY 1;
 GO
 ```
@@ -140,7 +140,7 @@ Azure 資料倉儲尚未支援自動建立或自動更新統計資料。為了�
 
 在 sqlcmd 提示字元中執行下列 CREATE STATISTICS 陳述式：
 
-```
+```sql
 create statistics [DateId] on [DimDate2] ([DateId]);
 create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
@@ -154,7 +154,7 @@ GO
 
 在 bcp 公用程式中，您可以使用下列命令來連接並匯出資料 (請適當地取代其中的值)：
 
-```
+```sql
 bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
 您可以開啟新的檔案來確認資料已正確匯出。檔案中的資料應該符合以下文字：
@@ -196,4 +196,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Microsoft 下載中心]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

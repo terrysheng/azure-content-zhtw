@@ -89,16 +89,13 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 - [Azure Active Directory 範例](https://github.com/azure-samples?query=active-directory)：要瀏覽範例清單最簡單的方法，就是使用[程式碼範例索引](active-directory-code-samples.md)。
 
+- [適用於 .NET 的 ADAL](https://msdn.microsoft.com/library/azure/mt417579.aspx)：.NET 驗證程式庫的文件。
 
 ### Graph API
 
 - [Graph API 參考](https://msdn.microsoft.com/library/azure/hh974476.aspx)：Azure Active Directory 圖形 API 的 REST 參考。[請檢視互動式的圖形 API 參考體驗](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 
-- [圖形 API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)：用以控制應用程式對租用戶中目錄資料存取權的 OAuth 2.0 權限範圍。
-
-### 驗證程式庫
-
-- [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx)：.NET 驗證程式庫的文件。
+- [圖形 API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)：用以控制應用程式對租用戶中目錄資料取權的 OAuth 2.0 權限範圍。
 
 ### 驗證通訊協定
 
@@ -142,4 +139,4 @@ Azure Active Directory 是身分識別管理即服務 (IDMaaS) 平台，提供�
 
 - [Twitter 上的 Azure Active Directory](https://twitter.com/azuread)：140 個字元以內的 Azure Active Directory 公告。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

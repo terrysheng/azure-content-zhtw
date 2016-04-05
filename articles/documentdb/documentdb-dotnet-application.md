@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="02/09/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>ASP.NET MVC 教學課程：使用 DocumentDB 開發 Web 應用程式
@@ -99,17 +99,17 @@
 
   	![[方案總管] 中 Web 應用程式專案的滑鼠右鍵選項的螢幕擷取畫面，內含反白顯示的 [管理 NuGet 封裝]。](./media/documentdb-dotnet-application/image21.png)
 
-    [管理 NuGet 封裝] 對話方塊隨即出現。
+	[管理 NuGet 封裝] 對話方塊隨即出現。
 
 2. 在 [線上搜尋] 方塊中，輸入 ***Azure DocumentDB***。
-    
-    從結果中，安裝 [Microsoft Azure DocumentDB 用戶端程式庫] 封裝。這會下載和安裝 DocumentDB 封裝，以及所有依存項目 (例如 Newtonsoft.Json)。
+	
+	從結果中，安裝 [Microsoft Azure DocumentDB 用戶端程式庫] 封裝。這會下載和安裝 DocumentDB 封裝，以及所有依存項目 (例如 Newtonsoft.Json)。
 
   	![[管理 NuGet 封裝] 視窗的螢幕擷取畫面，內含反白顯示的 Microsoft Azure DocumentDB 用戶端程式庫](./media/documentdb-dotnet-application/nuget.png)
 
   	或者，您也可以使用 Package Manager Console 來安裝封裝。若要這樣做，請在 [工具] 功能表上按一下 [NuGet 封裝管理員]，然後按一下 [Package Manager Console]。在出現提示時輸入下列內容：
 
-    	Install-Package Microsoft.Azure.DocumentDB
+		Install-Package Microsoft.Azure.DocumentDB
 
 3. 安裝封裝之後，您的 Visual Studio 方案應該類似下列已新增兩個新參考 (Microsoft.Azure.Documents.Client 和 Newtonsoft.Json) 的方案。
 
@@ -146,20 +146,20 @@
 		}
 
 	為下列程式碼。
-		
-        public class Item
-        {
-        	[JsonProperty(PropertyName="id")]
-        	public string Id { get; set; }
-		
-        	[JsonProperty(PropertyName="name")]
-        	public string Name { get; set; }
-		
-        	[JsonProperty(PropertyName = "desc")]
-        	public string Description { get; set; }
-		
-       		[JsonProperty(PropertyName="isComplete")]
-        	public bool Completed { get; set; }    
+
+		public class Item
+		{
+			[JsonProperty(PropertyName = "id")]
+			public string Id { get; set; }
+			 
+			[JsonProperty(PropertyName = "name")]
+			public string Name { get; set; }
+
+			[JsonProperty(PropertyName = "description")]
+			public string Description { get; set; }
+
+			[JsonProperty(PropertyName = "isComplete")]
+			public bool Completed { get; set; }
 		}
 
 	DocumentDB 中的所有資料都會透過線路傳遞，並儲存為 JSON。如需透過 JSON.NET 控管物件序列化/取消序列化，您可以使用在剛才建立的 [項目] 類別中所示範 **JsonProperty** 屬性。您**無需**這樣做，但我想確定所有屬性都會依照 JSON camelCase 的命名慣例命名。
@@ -173,7 +173,7 @@
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，按一下 [新增]，然後按一下 [控制器]。
 
-    [**新增 Scaffold**] 對話方塊隨即出現。
+	[**新增 Scaffold**] 對話方塊隨即出現。
 
 2. 選取 [Web API 5 控制器 - 空]，然後按一下 [新增]。
 
@@ -206,8 +206,8 @@
 
 2. 在 [新增檢視] 對話方塊中，執行下列動作：
 	- 在 [檢視名稱] 方塊中，輸入「***索引***」。
-	- 在 [範本] 方塊中，選取 [***清單***]。
-	- 在 [模型類別] 方塊中，選取 [***項目 (todo.Models)***]。
+	- 在 [範本] 方塊中，選取 [清單]。
+	- 在 [模型類別] 方塊中，選取 [項目 (todo.Models)]。
 	- 將 [資料內容類別] 方塊保留空白。 
 	- 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/\_Layout.cshtml***。
 	
@@ -222,12 +222,12 @@
 1. 在 [方案總管] 中，再次以滑鼠右鍵按一下 **Item** 資料夾，按一下 [新增]，然後按一下 [檢視]。
 
 2. 在 [新增檢視] 對話方塊中，執行下列動作：
-    - 在 [檢視名稱] 方塊中，輸入「***建立***」。
-    - 在 [**範本**] 方塊中，選取 [***建立***]。
-    - 在 [模型類別] 方塊中，選取 [***項目 (todo.Models)***]。
-    - 將 [資料內容類別] 方塊保留空白。
-    - 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/\_Layout.cshtml***。
-    - 按一下 [新增]。
+	- 在 [檢視名稱] 方塊中，輸入「***建立***」。
+	- 在 [**範本**] 方塊中，選取 [***建立***]。
+	- 在 [模型類別] 方塊中，選取 [項目 (todo.Models)]。
+	- 將 [資料內容類別] 方塊保留空白。
+	- 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/\_Layout.cshtml***。
+	- 按一下 [新增]。
 
 #### <a name="_Toc395888515"></a>新增編輯項目檢視
 
@@ -236,12 +236,12 @@
 1. 在 [方案總管] 中，再次以滑鼠右鍵按一下 **Item** 資料夾，按一下 [新增]，然後按一下 [檢視]。
 
 2. 在 [新增檢視] 對話方塊中，執行下列動作：
-    - 在 [**檢視名稱**] 方塊中，輸入「***編輯***」。
-    - 在 [範本] 方塊中，選取 [***編輯***]。
-    - 在 [模型類別] 方塊中，選取 [***項目 (todo.Models)***]。
-    - 將 [資料內容類別] 方塊保留空白。 
-    - 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/\_Layout.cshtml***。
-    - 按一下 [新增]。
+	- 在 [**檢視名稱**] 方塊中，輸入「***編輯***」。
+	- 在 [範本] 方塊中，選取 [編輯]。
+	- 在 [模型類別] 方塊中，選取 [項目 (todo.Models)]。
+	- 將 [資料內容類別] 方塊保留空白。 
+	- 在 [版面配置頁面] 方塊中，輸入 ***~/Views/Shared/\_Layout.cshtml***。
+	- 按一下 [新增]。
 
 完成這項作業之後，請將 Visual Studio 中的所有 cshtml 文件關閉，我們稍後會回頭使用這些檢視。
 
@@ -264,8 +264,8 @@
 2. 在剛剛建立的 **DocumentDBRepository** 類別中，在*命名空間*宣告上方新增下列 *using 陳述式*
 		
 		using Microsoft.Azure.Documents; 
-	    using Microsoft.Azure.Documents.Client; 
-	    using Microsoft.Azure.Documents.Linq; 
+		using Microsoft.Azure.Documents.Client; 
+		using Microsoft.Azure.Documents.Linq; 
 		using System.Configuration;
 		using System.Linq.Expressions;
 		using System.Threading.Tasks;
@@ -274,151 +274,97 @@
 
 		public class DocumentDBRepository
 		{
-    	}
+		}
 
 	為下列程式碼。
 
-    	
-		public static class DocumentDBRepository<T>
-    	{
-			//Use the Database if it exists, if not create a new Database
-	    	private static Database ReadOrCreateDatabase()
-	    	{
-	        	var db = Client.CreateDatabaseQuery()
-	        	                .Where(d => d.Id == DatabaseId)
-	        	                .AsEnumerable()
-	        	                .FirstOrDefault();
-				
-	        	if (db == null)
-	        	{
-	        	    db = Client.CreateDatabaseAsync(new Database { Id = DatabaseId }).Result;
-	        	}
-				
-	        	return db;
-	    	}
-			
-			//Use the DocumentCollection if it exists, if not create a new Collection
-	    	private static DocumentCollection ReadOrCreateCollection(string databaseLink)
-	   		{
-	    	    var col = Client.CreateDocumentCollectionQuery(databaseLink)
-	        	                  .Where(c => c.Id == CollectionId)
-	        	                  .AsEnumerable()
-	        	                  .FirstOrDefault();
-		
-	        	if (col == null)
-	        	{
-					var collectionSpec = new DocumentCollection { Id = CollectionId };
-					var requestOptions = new RequestOptions {OfferType = "S1" };
-					
-	        	    col = Client.CreateDocumentCollectionAsync(databaseLink, collectionSpec, requestOptions).Result;
-	        	}
-				
-	        	return col;
-	    	}
-			
-			//Expose the "database" value from configuration as a property for internal use
-     	   	private static string databaseId;
-     	   	private static String DatabaseId
-     	   	{
-				get
+		public static class DocumentDBRepository<T> where T : class
+		{
+			private static readonly string DatabaseId = ConfigurationManager.AppSettings["database"];
+			private static readonly string CollectionId = ConfigurationManager.AppSettings["collection"];
+			private static DocumentClient client;
+	
+			public static void Initialize()
+			{
+				client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
+				CreateDatabaseIfNotExistsAsync().Wait();
+				CreateCollectionIfNotExistsAsync().Wait();
+			}
+	
+			private static async Task CreateDatabaseIfNotExistsAsync()
+			{
+				try
 				{
-					if (string.IsNullOrEmpty(databaseId))
-					{
-						databaseId = ConfigurationManager.AppSettings["database"];
-					}
-				
-					return databaseId;
+					await client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(DatabaseId));
 				}
-       	 	}
-			
-			//Expose the "collection" value from configuration as a property for internal use
-    	    private static string collectionId;
-    	    private static String CollectionId
-    	    {
-				get
+				catch (DocumentClientException e)
 				{
-					if (string.IsNullOrEmpty(collectionId))
+					if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
 					{
-						collectionId = ConfigurationManager.AppSettings["collection"];
+						await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
 					}
-				
-					return collectionId;
+					else
+					{
+						throw;
+					}
 				}
-    	    }
-			
-			//Use the ReadOrCreateDatabase function to get a reference to the database.
-    	    private static Database database;
-    	    private static Database Database
-    	    {
-				get
+			}
+	
+			private static async Task CreateCollectionIfNotExistsAsync()
+			{
+				try
 				{
-					if (database == null)
-					{
-						database = ReadOrCreateDatabase();
-					}
-					
-					return database;
+					await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
 				}
-    	    }
-			
-			//Use the ReadOrCreateCollection function to get a reference to the collection.
-    	    private static DocumentCollection collection;
-    	    private static DocumentCollection Collection
-    	    {
-				get
+				catch (DocumentClientException e)
 				{
-					if (collection == null)
+					if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
 					{
-						collection = ReadOrCreateCollection(Database.SelfLink);
+						await client.CreateDocumentCollectionAsync(
+							UriFactory.CreateDatabaseUri(DatabaseId),
+							new DocumentCollection { Id = CollectionId },
+							new RequestOptions { OfferThroughput = 1000 });
 					}
-					
-					return collection;
+					else
+					{
+						throw;
+					}
 				}
-    	    }
-			
-			//This property establishes a new connection to DocumentDB the first time it is used, 
-			//and then reuses this instance for the duration of the application avoiding the
-			//overhead of instantiating a new instance of DocumentClient with each request
-    	    private static DocumentClient client;
-    	    private static DocumentClient Client
-    	    {
-    	        get
-    	        {
-    	            if (client == null)
-    	            {
-						string endpoint = ConfigurationManager.AppSettings["endpoint"];
-						string authKey = ConfigurationManager.AppSettings["authKey"];
-						Uri endpointUri = new Uri(endpoint);
-						client = new DocumentClient(endpointUri, authKey);
-    	            }
-    	            
-    	            return client;
-    	        }
-    	    }
-    	}
+			}
+		}
 
-	> [AZURE.TIP] 建立新的 DocumentCollection 時，您可以提供 OfferType 的選擇性 RequestOptions 參數，此參數可讓您指定新集合的效能層級。如果無法傳遞此參數，系統將會使用預設的優惠類型。如需 DocumentDB 優惠類型的詳細資訊，請參閱 [DocumentDB 效能層級](documentdb-performance-levels.md)
+		> [AZURE.TIP] 建立新的 DocumentCollection 時，您可以提供 OfferType 的選擇性 RequestOptions 參數，此參數可讓您指定新集合的效能層級。如果無法傳遞此參數，系統將會使用預設的優惠類型。如需 DocumentDB 優惠類型的詳細資訊，請參閱 [DocumentDB 效能層級](documentdb-performance-levels.md)
 
 3. 我們打算從組態中讀取部分值，因此請開啟應用程式的 **Web.config** 檔案，並在 [`<AppSettings>`] 區段下新增下列幾行。
 	
-    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>
-    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal"/>
-    	<add key="database" value="ToDoList"/>
-    	<add key="collection" value="Items"/>
+		<add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>
+		<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal"/>
+		<add key="database" value="ToDoList"/>
+		<add key="collection" value="Items"/>
 	
 4. 現在，使用 Azure 入口網站的 [金鑰] 刀鋒視窗來更新 [*端點*] 和 [*authKey*] 的值。使用 [金鑰] 刀鋒視窗的 [URI] 做為端點設定的值，並使用 [金鑰] 刀鋒視窗的 [主索引鍵] 或 [次要金鑰] 做為 authKey 設定的值。
 
 
-    負責裝設 DocumentDB 儲存機制，現在讓我們加入我們的應用程式邏輯。
+	負責裝設 DocumentDB 儲存機制，現在讓我們加入我們的應用程式邏輯。
 
 5. 我們想要對 todo 清單應用程式進行的第一件事就是顯示未完成的項目。在 **DocumentDBRepository** 類別內的任意位置複製並貼上下列程式碼片段。
 
-	    public static IEnumerable<T> GetItems(Expression<Func<T, bool>> predicate) 
-	    {
-			return Client.CreateDocumentQuery<T>(Collection.DocumentsLink) 
-				.Where(predicate) 
-				.AsEnumerable(); 
-		} 
+		public static async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
+		{
+			IDocumentQuery<T> query = client.CreateDocumentQuery<T>(
+				UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId))
+				.Where(predicate)
+				.AsDocumentQuery();
+
+			List<T> results = new List<T>();
+			while (query.HasMoreResults)
+			{
+				results.AddRange(await query.ExecuteNextAsync<T>());
+			}
+
+			return results;
+		}
+
 
 6. 開啟我們剛剛新增的 **ItemController**，並在命名空間宣告上方新增下列 *using 陳述式*
 
@@ -438,11 +384,12 @@
 
 	為下列程式碼。
 
-    	public ActionResult Index()
-    	{
-			var items = DocumentDBRepository<Item>.GetItems(d => !d.Completed);
+		[ActionName("Index")]
+		public async Task<ActionResult> IndexAsync()
+		{
+			var items = await DocumentDBRepository<Item>.GetItemsAsync(d => !d.Completed);
 			return View(items);
-    	}
+		}
 	
 此時，應該已經可以建置方案，而不會發生任何錯誤。
 
@@ -450,7 +397,7 @@
 
 開啟 ***App\_Start\\RouteConfig.cs***，並尋找以 "defaults:" 開頭的程式碼行，然後將它變更為如下所示。
 
-    	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
+		defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 如果您未在 URL 中指定控制路由行為的值，這會讓 ASP.NET MVC 知道改用 **Item** (**Home**) 作為控制器，並使用使用者**索引**作為檢視。
 
@@ -468,35 +415,39 @@
 
 1.  將下列方法新增至 **DocumentDBRepository** 類別。
 
-    	public static async Task<Document> CreateItemAsync(T item)
-   	 	{
-   	   		return await Client.CreateDocumentAsync(Collection.SelfLink, item);
-   		}
+		public static async Task<Document> CreateItemAsync(T item)
+		{
+			return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
+		}
 
 	此方法只會接受傳遞給它的物件，並將它保留在 DocumentDB 中。
 
 2. 開啟 ItemController.cs 檔案，並在類別中加入下列程式碼片段。這是 ASP.NET MVC 得知如何執行**建立**動作的方式。在此情況下，只需轉譯先前建立的關聯 Create.cshtml 檢視。
 
-    	public ActionResult Create()
-    	{ 
-			return View(); 
-   		}
+		[ActionName("Create")]
+		public async Task<ActionResult> CreateAsync()
+		{
+			return View();
+		}
 
 	現在此控制器需要更多程式碼，以接受 [建立] 檢視所提交的資料。
 
 2. 將下一個程式碼區塊新增至 ItemController.cs 類別，以告訴 ASP.NET MVC 如何使用表單 POST 來執行此控制器的作業。
 	
-    	[HttpPost]
-    	[ValidateAntiForgeryToken]
-   	 	public async Task<ActionResult> Create([Bind(Include = 	"Id,Name,Description,Completed")] Item item)  
-  	  	{
-			if (ModelState.IsValid)  
-			{  
-			    await DocumentDBRepository<Item>.CreateItemAsync(item);
-			    return RedirectToAction("Index");  
-			}   
-			return View(item);   
+		[HttpPost]
+		[ActionName("Create")]
+		[ValidateAntiForgeryToken]
+		public async Task<ActionResult> CreateAsync([Bind(Include = "Id,Name,Description,Completed")] Item item)
+		{
+			if (ModelState.IsValid)
+			{
+				await DocumentDBRepository<Item>.CreateItemAsync(item);
+				return RedirectToAction("Index");
+			}
+
+			return View(item);
 		}
+
 	這段程式碼會呼叫 DocumentDBRepository，並且使用 CreateItemAsync 方法將新的待辦事項項目保存到資料庫。
  
 	**安全性注意事項**：此處所使用的 **ValidateAntiForgeryToken** 屬性可協助應用程式防止跨網站偽造要求攻擊。這不光只是新增此屬性，您的檢視也必須使用這個防偽權杖。如需此主題的詳細資訊以及如何正確實作此作業的範例，請參閱[防止跨網站偽造要求][]。[GitHub][] 上提供的原始程式碼已有完整實作。
@@ -512,27 +463,30 @@
 
 1. 將下列程式碼新增至 **DocumentDBRepository** 類別。
 
-    	public static T GetItem(Expression<Func<T, bool>> predicate)
-    	{
-        	return Client.CreateDocumentQuery<T>(Collection.DocumentsLink)
-                    	.Where(predicate)
-                    	.AsEnumerable()
-                    	.FirstOrDefault();
-    	}		
+		public static async Task<Document> UpdateItemAsync(string id, T item)
+		{
+			return await client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id), item);
+		}
 
-    	public static async Task<Document> UpdateItemAsync(string id, T item)
-    	{
-        	Document doc = GetDocument(id);	
-        	return await Client.ReplaceDocumentAsync(doc.SelfLink, item);
-    	}
-
-		private static Document GetDocument(string id) 
-		{ 
-			return Client.CreateDocumentQuery(Collection.DocumentsLink) 
-				.Where(d => d.Id == id) 
-				.AsEnumerable() 
-				.FirstOrDefault(); 
-		} 
+		public static async Task<T> GetItemAsync(string id)
+		{
+			try
+			{
+				Document document = await client.ReadDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));
+				return (T)(dynamic)document;
+			}
+			catch (DocumentClientException e)
+			{
+				if (e.StatusCode == HttpStatusCode.NotFound)
+				{
+					return null;
+				}
+				else
+				{
+					throw;
+				}
+			}
+		}
 	
 	這兩個方法中的第一個方法 (**GetItem**) 會從 DocumentDB 提取項目，此項目會被傳回 **ItemController**，接著傳至 [編輯] 檢視。
 	
@@ -540,36 +494,36 @@
 
 2. 將下列程式碼新增至 **ItemController** 類別。
 
-		public ActionResult Edit(string id)
+		[HttpPost]
+		[ActionName("Edit")]
+		[ValidateAntiForgeryToken]
+		public async Task<ActionResult> EditAsync([Bind(Include = "Id,Name,Description,Completed")] Item item)
 		{
-		    if (string.IsNullOrEmpty(id))
-		    {
-		        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-		    }
-					 
-		    Item item = (Item)DocumentDBRepository<Item>.GetItem(d => d.Id == id);
-		 	
-		    if (item == null)
-		    {
-		        return HttpNotFound();
-		    }
-		 	
-		    return View(item);
-		}
-		
-    	[HttpPost]
-   		[ValidateAntiForgeryToken]
-    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
-    	{
-     	   if (ModelState.IsValid)
-    	    {
-    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
-    	        return RedirectToAction("Index");
-    	    }
+			if (ModelState.IsValid)
+			{
+				await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
+				return RedirectToAction("Index");
+			}
 
-  	      return View(item);
- 	   	}
-		
+			return View(item);
+		}
+
+		[ActionName("Edit")]
+		public async Task<ActionResult> EditAsync(string id)
+		{
+			if (id == null)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+
+			Item item = await DocumentDBRepository<Item>.GetItemAsync(id);
+			if (item == null)
+			{
+				return HttpNotFound();
+			}
+
+			return View(item);
+		}
 	
 	第一個方法會處理當使用者按一下 [索引] 檢視中的 [編輯] 連結時所發生的 Http GET。此方法會從 DocumentDB 中提取 [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)，並將它傳遞給 [編輯] 檢視。
 
@@ -611,11 +565,11 @@
 
 1. 若要發佈此應用程式，您只需要以滑鼠右鍵按一下 [方案總管] 上的專案，然後按一下 [發佈] 即可。
 
-    ![[方案總管] 中 [發佈] 選項的螢幕擷取畫面](./media/documentdb-dotnet-application/image28.png)
+	![[方案總管] 中 [發佈] 選項的螢幕擷取畫面](./media/documentdb-dotnet-application/image28.png)
 
 2. 系統應該已根據您的認證設定好所有項目；實際上，系統已在 Azure 中建立位於所顯示的 [目的地 URL] 的網站，您只需要按一下 [發佈] 即可。
 
-    ![Visual Studio 中 [發佈 Web] 對話方塊的螢幕擷取畫面 - ASP NET MVC 教學課程逐步解說](./media/documentdb-dotnet-application/image29.png)
+	![Visual Studio 中 [發佈 Web] 對話方塊的螢幕擷取畫面 - ASP NET MVC 教學課程逐步解說](./media/documentdb-dotnet-application/image29.png)
 
 幾秒後，Visual Studio 便會發佈 Web 應用程式並啟動瀏覽器，您可以在瀏覽器中看到您方便好用的應用程式已在 Azure 中執行！
 
@@ -633,4 +587,4 @@
 [ASP.NET MVC 中的基本 CRUD 作業]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

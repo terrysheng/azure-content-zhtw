@@ -1,6 +1,6 @@
 <properties
 	pageTitle="SQL Database 教學課程：建立 SQL Database | Microsoft Azure"
-	description="SQL Database 教學課程：在 Azure 入口網站中使用範例資料於幾分鐘內建立第一個 SQL 資料庫。了解如何設定主控伺服器和防火牆規則。"
+	description="SQL Database 教學課程：在 Azure 入口網站中於幾分鐘內建立第一個 SQL 資料庫。了解如何設定主控伺服器和防火牆規則。"
 	keywords="sql database 教學課程,建立 sql database"
 	services="sql-database"
 	documentationCenter=""
@@ -15,10 +15,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/01/2015"
+	ms.date="03/27/2015"
 	ms.author="jeffreyg"/>
 
-# SQL Database 教學課程：使用範例資料和 Azure 入口網站在幾分鐘內建立 SQL database
+# SQL Database 教學課程：使用 Azure 入口網站在幾分鐘內建立 SQL Database
 
 **單一資料庫**
 
@@ -27,14 +27,16 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-本 SQL Database 教學課程示範如何在 Azure 入口網站中使用範例資料，在短短幾分鐘內建立第一個 SQL 資料庫。您將學習如何：
+本 SQL Database 教學課程示範如何在 Azure 入口網站中於幾分鐘內建立第一個 SQL Database。您可以設定空的資料庫或具有範例資料的資料庫。
+
+您將學習如何：
 
 - 建立伺服器以裝載您建立的資料庫，然後為其設定防火牆規則。
-- 從 AdventureWorks 範例中建立 SQL Database，其中包含您可以處理的資料
+- 建立空的 SQL Database，或從 AdventureWorks 範例建立資料庫，其中包含您可以處理的資料
 
-在開始之前，您需要有 Azure 帳戶和訂用帳戶。如果您沒有帳戶，請註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+在開始之前，您需要有 Azure 帳戶和訂用帳戶。如果您沒有帳戶，請註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
-> [AZURE.NOTE] 本 SQL Database 教學課程涵蓋如何使用雲端、Azure SQL Database 中的 Microsoft 關聯性資料庫管理系統 (RDBMS) 設定資料庫。另一個選項是在 Azure 虛擬機器上執行 SQL Server。請參閱[了解 Azure SQL Database 和 Azure VM 中的 SQL Server](data-management-azure-sql-database-and-sql-server-iaas.md) 以進行快速比較，或者您可以參閱[佈建 SQL Server 虛擬機器](../virtual-machines/virtual-machines-windows-classic-portal-sql.md)以開始使用虛擬機器。
+> [AZURE.NOTE] 本 SQL Database 教學課程涵蓋如何使用雲端、Azure SQL Database 中的 Microsoft 關聯性資料庫管理系統 (RDBMS) 設定資料庫。另一個選項是在 Azure 虛擬機器上執行 SQL Server。請參閱[了解 Azure SQL Database 和 Azure VM 中的 SQL Server](data-management-azure-sql-database-and-sql-server-iaas.md) 以進行快速比較，或者您可以參閱[佈建 SQL Server 虛擬機器](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md)以開始使用虛擬機器。
 
 ## 步驟 1：登入並開始設定 SQL Database
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
@@ -49,7 +51,7 @@
 ## 步驟 2：選擇伺服器設定
 Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝載多個資料庫。設定資料庫時，您也可以建立並設定將裝載該資料庫的伺服器，或者可以使用先前建立的伺服器。我們將設定新的伺服器。
 
-1. 請輸入資料庫的 [名稱] \(我們使用 **AdventureWorks**)。我們稍後再回頭討論其他資料庫設定。
+1. 請輸入資料庫的 [名稱]\(我們使用 **AdventureWorks**)。我們稍後再回頭討論其他資料庫設定。
 2. 在 [伺服器] 下方，按一下 [設定必要的設定]，然後按一下 [建立新的伺服器]。
 
 	![為您的資料庫命名](./media/sql-database-get-started/name-and-newserver.png)
@@ -65,9 +67,15 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 
 5. 按一下 [確定] 回到 [SQL Database] 刀鋒視窗。
 
-資料庫與伺服器尚未建立。此狀況將會在下一個步驟 (您會選擇從 AdventureWorks 範例中建立資料庫，然後確認設定) 完成後發生。
+資料庫與伺服器尚未建立。此狀況將會在下一個步驟 (您會選擇建立資料庫並確認設定) 完成後發生。
 
 ## 步驟 3：設定並建立 SQL Database
+
+**若要設定沒有資料或資料表的新資料庫︰**
+- 按一下 [**建立**] 按鈕。
+
+**若要設定具有範例資料的新資料庫︰**
+
 1. 在 [SQL Database] 刀鋒視窗中，按一下 [選取來源]，然後按一下 [範例]。
 
 	![從範例建立 SQL Database](./media/sql-database-get-started/new-sample-db.png)
@@ -86,21 +94,19 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 
 您必須在伺服器中設定防火牆規則，允許從用戶端電腦 IP 位置進行連接，以便使用資料庫。如此不僅可確保能與資料庫連接，還是個可以查看區域的好方式，您可以在其中取得有關 Azure 中 SQL 伺服器的其他詳細資料。
 
-1. 按一下 [全部瀏覽]，向下捲動並按一下 [SQL Server]，然後從 [SQL Server] 清單中按一下先前建立的伺服器名稱。
+1. 按一下 [瀏覽]，向下捲動，然後按一下 [SQL Server]。不要不小心按到 [SQL Database]。這是常見的錯誤。
 
 	![選取您的資料庫伺服器](./media/sql-database-get-started/browse_dbservers.png)
 
-
-3. 於右邊顯示的資料庫屬性刀鋒視窗中，按一下 [設定]，然後從清單中按一下 [防火牆]。
+2. 從 SQL Server 清單中，按一下具有您在步驟 2 中選擇之**伺服器名稱**的伺服器。然後，於右邊顯示的資料庫屬性刀鋒視窗中，按一下 [設定]，然後從清單中按一下 [防火牆]。
 
 	![開啟防火牆設定](./media/sql-database-get-started/db_settings.png)
 
-
-	[防火牆設定] 會顯示您目前的 [用戶端 IP 位址]。
+  [防火牆設定] 會顯示您目前的 [用戶端 IP 位址]。
 
 	![目前的 IP 位址](./media/sql-database-get-started/firewall_config_client_ip.png)
 
-4. 按一下 [新增用戶端 IP]，讓 Azure 建立該 IP 位址的規則，然後按一下 [儲存]。
+3. 按一下 [新增用戶端 IP]，讓 Azure 建立該 IP 位址的規則，然後按一下 [儲存]。
 
 	![新增 IP 位址](./media/sql-database-get-started/firewall_config_new_rule.png)
 
@@ -117,4 +123,9 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 
 - 如果您想要進一步了解如何將內部部署的 SQL Server 資料庫移動至 Azure，請參閱[將資料庫移轉至 Azure SQL Database](sql-database-cloud-migrate.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+
+## 其他資源
+
+- [Azure SQL Database 服務的所有主題](sql-database-index-all-articles.md)、索引
+
+<!---HONumber=AcomDC_0330_2016-->

@@ -4,16 +4,16 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="12/11/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement - 入門指南與最佳作法
@@ -228,7 +228,7 @@
 4. **磚 (僅限 Windows Phone)**：可讓您使用 Microsoft 推播通知服務 (MPNS) 傳送包含 XML 資料的原生推播通知 (自 SDK 0.9.0 版起受到支援。磚的最後一個裝載不可超過 32 KB)。訊息會直接出現在面板的磚上。
 5. **Web 檢視**：Web 檢視是包含 Web 內容的快顯視窗。使用者按下推播通知時，就會出現這個快顯視窗。網頁檢視可讓您與使用者有更多互動。
  
->[AZURE.NOTE]請確定您要以推播通知形式傳送的內容符合各自的平台 (iOS、Android、Windows) 開發應用程式和傳送推播通知的指導方針。
+>[AZURE.NOTE] 請確定您要以推播通知形式傳送的內容符合各自的平台 (iOS、Android、Windows) 開發應用程式和傳送推播通知的指導方針。
 
  
 
@@ -356,7 +356,7 @@ Mobile Engagement SDK 自動收集的當機資料，會報告應用程式未處�
 
 #### 設定
 
-設定 Azure Mobile Engagement 其實很簡單。使用者介面的所有相關文件，都可從 Azure Mobile Engagement 網站取得：[如何瀏覽使用者介面](mobile-engagement-user-interface-navigation.md)。
+設定 Azure Mobile Engagement 其實很簡單。使用者介面的所有相關文件，都可從 Azure Mobile Engagement 網站取得：[如何瀏覽使用者介面](mobile-engagement-user-interface.md)。
 
 建議您一開始先為專案的使用者設定正確的角色和角色成員資格。這有助於您為所有使用者設定適當的平台存取。您的角色可能包括：
 
@@ -364,7 +364,10 @@ Mobile Engagement SDK 自動收集的當機資料，會報告應用程式未處�
 - 開發人員
 - 檢視者 
 
-之後：- 註冊您的 deviceID，以在自己的裝置上進行測試。- 移至您的帳戶設定，設定附有圖表的時區，並為您的時區設定通知傳遞時間。- 移至應用程式的設定，並在 [聯繫對象] 中註冊您要設定目標使用者所需的「應用程式的資訊」。
+之後︰
+- 註冊您的 deviceID，以在自己的裝置上進行測試。
+- 移至您的帳戶設定，設定附有圖表的時區，並為您的時區設定通知傳遞時間。
+- 移至應用程式的設定，並在 [聯繫對象] 中註冊您要設定目標使用者所需的「應用程式的資訊」。
 
 如需有關如何執行第一個推播通知活動的詳細資訊，請參閱[如何開始使用及管理推播通知以推送給使用者](mobile-engagement-how-tos.md)。
 
@@ -391,7 +394,7 @@ Mobile Engagement SDK 自動收集的當機資料，會報告應用程式未處�
 
 ## 後續步驟
 
-- [建立 Azure Mobile Engagement 帳戶](mobile-engagement-create-account.md)。
+- [建立 Azure Mobile Engagement 帳戶](mobile-engagement-create.md)。
 - 請瀏覽[定義 Mobile Engagement 策略](mobile-engagement-define-your-mobile-engagement-strategy.md)，以深入了解如何定義您的 Mobile Engagement 策略。
 
 
@@ -404,4 +407,4 @@ Mobile Engagement SDK 自動收集的當機資料，會報告應用程式未處�
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

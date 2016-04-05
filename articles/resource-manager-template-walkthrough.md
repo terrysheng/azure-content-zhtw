@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/14/2016"
+   ms.date="03/29/2016"
    ms.author="navale;tomfitz"/>
    
 # Resource Manager 範本逐步解說
 
-本主題將逐步引導您完成建立 Resource Manager 範本的步驟。其假設您經熟悉您要部署的 Azure 服務，但不熟悉如何在範本中表示該基礎結構。您將在[快速入門資源庫](https://github.com/Azure/azure-quickstart-templates)中建立以[具有負載平衡器和負載平衡規則範本的 2 部 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) 為基礎的範本，但相關技巧可套用到任何您需要建立的範本。
+本主題將逐步引導您完成建立 Resource Manager 範本的步驟。您將在[快速入門資源庫](https://github.com/Azure/azure-quickstart-templates)中建立以[具有負載平衡器和負載平衡規則範本的 2 部 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) 為基礎的範本。您學到的技巧可套用到任何您需要建立的範本。
 
 讓我們來看一下常見架構：
 
@@ -310,7 +310,7 @@ properties 區段包含特定資源類型獨有的所有屬性。您在此區段
 ## 虛擬機器
 如同在建立[網路介面](#network-interface)時一樣，您將使用 copyIndex() 函數建立 2 部虛擬機器。VM 的建立取決於儲存體帳戶、網路介面和可用性設定組。如 `storageProfile` 屬性所定義，將從 Marketplace 映像建立此 VM - `imageReference` 用來定義映像發行者、優惠、sku 和版本。最後，診斷設定檔已設定成啟用 VM 的診斷功能。
 
-若要尋找 Marketplace 映像的相關屬性，請遵循 [VM 搜尋](./virtual-machines/resource-groups-vm-searching.md)文章。對於第三方廠商所提供的映像，您必須指定另一個名為 `plan` 的屬性。從快速入門資源庫的[此範本](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic)中可找到範例。
+若要尋找 Marketplace 映像的相關屬性，請依照[選取 Linux 虛擬機器映像](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md)或[選取 Windows 虛擬機器映像](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md)文章執行。對於第三方廠商所提供的映像，您必須指定另一個名為 `plan` 的屬性。從快速入門資源庫的[此範本](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic)中可找到範例。
 
 
 ```json
@@ -503,4 +503,4 @@ properties 區段包含特定資源類型獨有的所有屬性。您在此區段
 - 若要深入了解範本的結構，請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)
 - 若要了解如何部署範本，請參閱[使用 Azure Resource Manager 範本部署資源群組](resource-group-template-deploy.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

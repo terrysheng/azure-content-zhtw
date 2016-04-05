@@ -20,8 +20,8 @@
 # Hadoop 教學課程：開始在 HDInsight 中使用以 Linux 為基礎的 Hadoop
 
 > [AZURE.SELECTOR]
-- [以 Windows 為基礎](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [以 Linux 為基礎](hdinsight-hadoop-linux-tutorial-get-started.md)
+- [以 Windows 為基礎](hdinsight-hadoop-tutorial-get-started-windows.md)
 
 了解如何在 HDInsight 中建立以 Linux 為基礎的 [Hadoop](http://hadoop.apache.org/) 叢集，以及如何在 HDInsight 中執行 Hive 作業。[Apache Hive](https://hive.apache.org/) 是 Hadoop 生態系統中最受歡迎的元件。HDInsight 隨附 4 種叢集類型︰[Hadoop](hdinsight-hadoop-introduction)、[Spark](hdinsight-apache-spark-overview.md)、[HBase](hdinsight-hbase-overview.md) 和 [Storm](hdinsight-storm-overview.md)。每種叢集類型都支援一組不同的元件。這 4 種叢集類型都支援 Hive。如需 HDInsight 中支援的元件清單，請參閱 [HDInsight 在 Hadoop 叢集版本中提供的新功能](hdinsight-component-versioning.md)
 
@@ -161,4 +161,4 @@
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

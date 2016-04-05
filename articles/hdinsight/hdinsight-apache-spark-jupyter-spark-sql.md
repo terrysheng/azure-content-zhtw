@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/10/2016"
+	ms.date="03/21/2016"
 	ms.author="nitinme"/>
 
 
@@ -92,7 +92,7 @@
 
 ### 使用 PySpark 核心建立 Jupyter Notebook 
 
-1. 在 [Azure 預覽入口網站](https://portal.azure.com/)的「開始面板」，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板的話)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
+1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
 2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結] ，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
@@ -138,7 +138,7 @@
 5. 由於您使用的是 PySpark 核心，因此現在可直接在您剛才使用 `%%sql` magic 建立的暫存資料表 hvac 上執行 SQL 查詢。如需 `%%sql` magic 以及可搭配 PySpark 核心使用的其他 magic 的詳細資訊，請參閱[使用 Spark HDInsight 叢集之 Jupyter Notebook 上可用的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels)。
 		
 		%%sql
-		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13")
+		SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = "6/1/13"
 
 5. 一旦工作順利完成後，預設會顯示下列表格式輸出。
 
@@ -206,4 +206,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

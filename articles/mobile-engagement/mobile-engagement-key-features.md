@@ -26,7 +26,7 @@
 
 - **個別 SaaS 入口網站** 可讓您輕鬆存取行銷團隊，不需要透過 Azure 管理入口網站。
 
-- **開放式 REST API 的可用性** 利用開放式平台 API 達到與 CRM/CMS/IT 系統整合及自動化的目的，我們提供開放式 REST API 和 .NET SDK 來使用這些可以讓您輕鬆整合及自動化 Mobile Engagement 的 API。請參閱 [此項目] 了解詳細資料 (mobile-engagement-api-authentication.md)
+- **開放式 REST API 的可用性** 利用開放式平台 API 達到與 CRM/CMS/IT 系統整合及自動化的目的，我們提供開放式 REST API 和 .NET SDK 來使用這些可以讓您輕鬆整合及自動化 Mobile Engagement 的 API。請參閱 [此項目](mobile-engagement-api-authentication.md) 了解詳細資料 
 
 - **Power BI 連接器可供使用** 您也可以將重要分析圖表拉出到 Power BI 儀表板中。請參閱本[指南](https://powerbi.microsoft.com/zh-TW/documentation/powerbi-content-pack-azure-mobile/)
 
@@ -163,5 +163,6 @@
 [26]: ./media/mobile-engagement-key-features/push_personalized.png
 [27]: ./media/mobile-engagement-key-features/push_emoji.png
 [28]: ./media/mobile-engagement-key-features/push_limits.png
+
 
 <!---HONumber=AcomDC_0316_2016-->

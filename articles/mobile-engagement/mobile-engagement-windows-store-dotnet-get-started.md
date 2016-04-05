@@ -13,28 +13,21 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/29/2016"
+	ms.date="03/25/2016"
 	ms.author="piyushjo" />
 
 # 開始使用適用於 Windows 通用 App 的 Azure Mobile Engagement
 
-> [AZURE.SELECTOR]
-- [通用 Windows](mobile-engagement-windows-store-dotnet-get-started.md)
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS | Obj C](mobile-engagement-ios-get-started.md)
-- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md)
-- [Cordova](mobile-engagement-cordova-get-started.md)
+[AZURE.INCLUDE [Hero 教學課程切換器](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-本主題說明如何使用 Azure Mobile Engagement 了解您的應用程式使用狀況，以及傳送推播通知給 Windows 通用 app 的分佈使用者。
-本教學課程將示範使用 Mobile Engagement 的簡單廣播案例。您將建立一個空白的 Windows 通用 app，以使用 Windows 通知服務 (WNS) 來收集基本的應用程式使用資料及接收推播通知。
+本主題說明如何使用 Azure Mobile Engagement 了解您的應用程式使用狀況，以及傳送推播通知給 Windows 通用 app 的分佈使用者。本教學課程將示範使用 Mobile Engagement 的簡單廣播案例。您將建立一個空白的 Windows 通用 app，以使用 Windows 通知服務 (WNS) 來收集基本的應用程式使用資料及接收推播通知。
 
 本教學課程需要下列各項：
 
 + Visual Studio 2013
 + [MicrosoftAzure.MobileEngagement] Nuget 封裝
 
-> [AZURE.IMPORTANT] 完成本教學課程是所有其他 Windows 通用 app 的 Mobile Engagement 教學課程的必要條件。若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
+> [AZURE.NOTE] 若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-store-dotnet-get-started)。
 
 ##<a id="setup-azme"></a>設定 Windows 通用 App 的 Mobile Engagement
 
@@ -190,8 +183,7 @@ Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活�
 
 [AZURE.INCLUDE [建立 Windows 推播活動](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-如果 App 正在執行，則您將會看到 App 內的通知，否則會看到快顯通知 (如果 App 已關閉)。
-如果您看見的是 App 內的通知而不是快顯通知，而且您正在 Visual Studio 中的偵錯模式下執行 App，則應嘗試執行工具列中的 [週期事件] -> [暫止]，以確保 App 會實際暫止。如果您在 Visual Studio 中偵錯應用程式時只按了 [首頁] 按鈕，則它永遠不會暫止，而您將會看見 App 內的通知，它不會顯示為快顯通知。
+如果 App 正在執行，則您將會看到 App 內的通知，否則會看到快顯通知 (如果 App 已關閉)。如果您看見的是 App 內的通知而不是快顯通知，而且您正在 Visual Studio 中的偵錯模式下執行 App，則應嘗試執行工具列中的 [週期事件] -> [暫止]，以確保 App 會實際暫止。如果您在 Visual Studio 中偵錯應用程式時只按了 [首頁] 按鈕，則它永遠不會暫止，而您將會看見 App 內的通知，它不會顯示為快顯通知。
 
 ![][8]
 
@@ -215,4 +207,4 @@ Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活�
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

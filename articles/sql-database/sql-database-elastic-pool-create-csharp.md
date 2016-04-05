@@ -1,6 +1,6 @@
 <properties
-    pageTitle="建立彈性資料庫集區 (C#) | Microsoft Azure"
-    description="使用 C# 資料庫開發技術來建立 Azure SQL Database 彈性資料庫集區，讓您可以跨多個資料庫共用資源。"
+    pageTitle="使用 C# 建立彈性資料庫集區 | Microsoft Azure"
+    description="使用 C# 資料庫開發技術在 Azure SQL Database 中建立可調整的彈性資料庫集區，讓您可以跨多個資料庫共用資源。"
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="03/22/2016"
+    ms.date="03/24/2016"
     ms.author="sstein"/>
 
-# 建立彈性資料庫集區 (C&#x23;)
+# 使用 C&#x23; 來建立彈性資料庫集區
 
 > [AZURE.SELECTOR]
 - [Azure 入口網站](sql-database-elastic-pool-create-portal.md)
@@ -37,7 +37,7 @@
 
 
 
-## 建立彈性資料庫集區
+## 建立集區
 
 
     // Create elastic pool: configure create or update parameters and properties explicitly
@@ -56,7 +56,7 @@
     // Create the pool
     var newPoolResponse = sqlClient.ElasticPools.CreateOrUpdate("resourcegroup-name", "server-name", "ElasticPool1", newPoolParameters);
 
-## 將現有資料庫移入彈性資料庫集區
+## 將現有資料庫移入集區
 
 
     // Retrieve current database properties
@@ -82,7 +82,7 @@
 
 
 
-## 在彈性資料庫集區中建立新的資料庫
+## 在集區中建立新的資料庫
 
 
     // Create a database: configure create or update parameters and properties explicitly
@@ -105,7 +105,7 @@
 
 
 
-## 建立彈性資料庫集區 C&#x23; 範例
+## 建立集區 C&#x23; 範例
 
 
 需要下列程式庫才能執行這個範例。您可以在 Visual Studio 的[封裝管理員主控台](http://docs.nuget.org/Consume/Package-Manager-Console) ([工具] > [NuGet 封裝管理員] > [封裝管理員主控台]) 中執行下列命令以進行安裝
@@ -145,7 +145,7 @@
         static string adminPassword = "<server password (store it securely!)>";
         static string serverVersion = "12.0";
 
-        // elastic database pool variables
+        // pool variables
         static string elasticPoolName = "<pool name>";
         static string poolEdition = "Standard";
         static int poolDtus = 400;
@@ -168,7 +168,7 @@
             ServerGetResponse srvr = CreateServer();
             Console.WriteLine("Creation of server " + srvr.Server.Name + ": " + srvr.StatusCode.ToString());
 
-            // Create an elastic database pool
+            // Create a pool
             Console.WriteLine("Creating elastic database pool... ");
             ElasticPoolCreateOrUpdateResponse epool = CreateElasticDatabasePool();
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
@@ -270,7 +270,7 @@
 ## 後續步驟
 
 - [管理集區](sql-database-elastic-pool-manage-csharp.md)
-- [建立彈性工作](sql-database-elastic-jobs-overview.md) 彈性工作有助於對集區中任意數目的資料庫執行 T-SQL 指令碼。
+- [建立彈性工作](sql-database-elastic-jobs-overview.md) 彈性工作可讓您對集區中任意數目的資料庫執行 T-SQL 指令碼。
 
 
 ## 其他資源
@@ -280,4 +280,4 @@
 - [Azure 資源管理 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [彈性資料庫集區參考](sql-database-elastic-pool-reference.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

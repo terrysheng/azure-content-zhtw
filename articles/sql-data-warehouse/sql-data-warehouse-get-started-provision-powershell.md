@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/26/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # 使用 Powershell 建立 SQL 資料倉儲
@@ -25,21 +25,21 @@
 
 ## 取得和執行 Azure PowerShell Cmdlet
 
-> [AZURE.NOTE]  若要搭配使用 Microsoft Azure Powershell 與 SQL 資料倉儲，您應該使用 ARM Cmdlet 下載並安裝最新版的 Azure PowerShell。您可以執行 `Get-Module -ListAvailable -Name Azure` 來檢查版本。本文是根據 Microsoft Azure PowerShell 1.0.3 版所撰寫。
+> [AZURE.NOTE]  若要搭配使用 Microsoft Azure Powershell 與 SQL 資料倉儲，您應該使用 ARM Cmdlet 下載並安裝最新版的 Azure PowerShell。您可以執行 `Get-Module -ListAvailable -Name Azure` 來檢查版本。本文是根據 Microsoft Azure PowerShell 1.0.3 版或更新版本所撰寫。
 
 如果您尚未安裝 PowerShell，您需要加以下載並進行設定。
 
-1. 如要下載 Azure PowerShell 模組，請執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)。
-2. 若要執行模組，請在開始視窗中輸入 Windows PowerShell。
-3. 執行此 Cmdlet 來登入 Azure 資源管理員。如需詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][]。
+1. 如要下載 Azure PowerShell 模組，請執行 [Microsoft Web Platform Installer](http://aka.ms/webpi-azps)。如需此安裝程式的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][]。
+2. 若要執行模組，請在開始視窗中鍵入 **Windows PowerShell**。
+3. 執行此 Cmdlet 來登入 Azure 資源管理員。
 
-	```
+	```Powershell
 	Login-AzureRmAccount
 	```
 
 4. 選取目前的工作階段要使用的訂用帳戶。
 
-	```
+	```Powershell
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
 
@@ -55,13 +55,13 @@
 
 此命令會在 SQL 資料倉儲中部署新的資料庫。
 
-```
+```Powershell
 New-AzureRmSqlDatabase -RequestedServiceObjectiveName "<Service Objective>" -DatabaseName "<Data Warehouse Name>" -ServerName "<Server Name>" -ResourceGroupName "<ResourceGroupName>" -Edition "DataWarehouse"
 ```
 
 這個範例會使用服務目標等級 "DW400" 將名為 "mynewsqldw1" 的新資料庫部署到 "mywesteuroperesgp1" 資源群組中名為 "sqldwserver1" 的伺服器。
 
-```
+```Powershell
 New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw1" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
 ```
 
@@ -96,4 +96,4 @@ New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "myn
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [如何安裝和設定 Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

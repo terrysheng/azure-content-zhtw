@@ -94,8 +94,9 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 **可以從 Amazon S3 讀取資料嗎？**
 
 如果您有少量的資料，而且想要透過 HTTP URL 公開，則您可以使用[讀取器][reader]模組。若為任何較大量的資料，請先傳送至 Azure 儲存體，然後使用[讀取器][reader]模組將它帶入實驗中。
-<!--<SEE CLOUD DS PROCESS>-->
-
+<!--
+<SEE CLOUD DS PROCESS>
+-->
 
 **有內建的影像輸入功能嗎？**
 
@@ -115,6 +116,10 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 **可使用 [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language) 之類來定義模型嗎？**
 
 不，不支援，但是自訂 R 和 Python 程式碼可以用來定義模組。
+
+**在我的實驗中可以平行執行多少個模組？**
+
+您可以在實驗中最多平行執行 4 個模組。
 
 
 ### 資料處理
@@ -163,7 +168,7 @@ Machine Learning Studio 提供頂級演算法，例如 Scalable Boosted Decision
 
 **Machine Learning Studio 中可使用什麼 R 套件？**
 
-Machine Learning Studio 目前支援 400 個以上的 CRAN R 封裝，且數量仍在持續增加。若要了解如何取得支援的 R 封裝的清單，請參閱 [透過 R 擴展您的實驗](machine-learning-extend-your-experiment-with-r.md)。如果您要的封裝不在此清單中，請在[使用者意見反映論壇](http://go.microsoft.com/fwlink/?LinkId=404231)中提供封裝名稱。
+Machine Learning Studio 目前支援 400 個以上的 CRAN R 封裝，以下是所有內含封裝的[目前清單](http://az754797.vo.msecnd.net/docs/RPackages.xlsx)。此外，若要了解如何自行擷取此清單，請參閱 [透過 R 擴展您的實驗](machine-learning-extend-your-experiment-with-r.md)。如果您要的封裝不在此清單中，請在[使用者意見反映論壇](http://go.microsoft.com/fwlink/?LinkId=404231)中提供封裝名稱。
 
 **是否可以建置自訂的 R 模組？**
 
@@ -312,4 +317,4 @@ Azure Machine Learning 在 MSDN 上也設有社群論壇，可供您詢問 Azure
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

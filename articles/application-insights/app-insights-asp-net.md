@@ -57,7 +57,7 @@ Application Insights SDK 會從 Web 應用程式傳送分析遙測至 Azure 入�
 
 如果這是您第一次使用，系統會要求您登入或註冊 Microsoft Azure。
 
-如果此應用程式是更大應用程式的一部分，您可以使用 [**組態設定**]，將它放在與其他元件相同的資源群組中。
+如果此應用程式是更大應用程式的一部分，您可以使用 [組態設定]，將它放在與其他元件相同的資源群組中。
 
 
 ####<a name="land"></a>「加入 Application Insights」執行了哪些動作？
@@ -70,7 +70,7 @@ Application Insights SDK 會從 Web 應用程式傳送分析遙測至 Azure 入�
 
 如果您一開始未登入 Azure，將會安裝 SDK，而不將它連接至資源。您可以在偵錯時，於 Visual Studio 搜尋視窗中查看及搜尋 Application Insights 遙測。您可以稍後再完成其他步驟。
 
-## <a name="run"></a>執行專案
+## <a name="run"></a> 偵錯您的專案
 
 利用 F5 執行應用程式並立即試用：開啟不同的頁面來產生一些遙測。
 
@@ -81,6 +81,16 @@ Application Insights SDK 會從 Web 應用程式傳送分析遙測至 Azure 入�
 按一下此按鈕以開啟診斷搜尋。
 
 
+
+## 偵錯遙測
+
+### 診斷中樞
+
+診斷中樞 (在 Visual Studio 2015 或更新版本) 會顯示其產生的 Application Insights 伺服器遙測。即使您選擇只安裝 SDK，而不連接至 Azure 入口網站中的資源，也會運作。
+
+![開啟 [診斷工具] 視窗，並檢查 Application Insights 事件。](./media/app-insights-asp-net/31.png)
+
+
 ### 診斷搜尋
 
 [搜尋] 視窗會顯示已記錄的事件。(如果您在設定 Application Insights 時登入至 Azure，就能夠在入口網站搜尋相同的事件。)
@@ -89,8 +99,12 @@ Application Insights SDK 會從 Web 應用程式傳送分析遙測至 Azure 入�
 
 任意文字搜尋適用於事件中的任何欄位。例如，搜尋頁面的 URL 的一部分；或者如用戶端城市的屬性值；或者追蹤記錄檔中的特定單字。
 
+您也可以開啟 [相關項目] 索引標籤，以協助診斷失敗的要求或例外狀況。
 
-[深入了解搜尋](app-insights-diagnostic-search.md)
+
+![](./media/app-insights-asp-net/41.png)
+
+
 
 ### 例外狀況
 
@@ -100,7 +114,28 @@ Application Insights SDK 會從 Web 應用程式傳送分析遙測至 Azure 入�
 
 
 
-## <a name="monitor"></a> 開啟 Application Insights
+
+### 本機監視
+
+
+
+(從 Visual Studio 2015 Update 2 開始) 如果您尚未設定 SDK 以將遙測傳送至 Application Insights 入口網站 (以便讓 ApplicationInsights.config 中沒有任何檢測金鑰)，則 [診斷] 視窗會顯示來自最新偵錯工作階段的遙測。
+
+如果您已發佈過應用程式先前的版本，這是比較好的做法。您不會想讓來自偵錯工作階段的遙測與 Application Insights 入口網站中來自已發佈之應用程式的遙測混在一起。
+
+如果您在將遙測傳送至入口網站之前有一些[自訂遙測](app-insights-api-custom-events-metrics.md)想要偵錯，它也很有用。
+
+
+* 首先，我完全設定 Application Insights 將遙測傳送至入口網站。但是現在我只想要查看在 Visual Studio 中的遙測。
+
+ * 在 [搜尋] 視窗的 [設定] 中，即使您的應用程式將遙測傳送至入口網站，也有選項可搜尋本機診斷。
+ * 若要停止將遙測傳送至入口網站，請將 ApplicationInsights.config 中的 `<instrumentationkey>...` 程式行註解化。當您準備再次將遙測傳送至入口網站時，請取消註解。
+
+
+
+## <a name="monitor"></a> 在 Application Insights 入口網站中檢視遙測
+
+當應用程式發佈後，您就能在 Application Insights 入口網站看到遙測，而且當您在偵錯時，您會想要確認它是否正確傳送遙測。
 
 在 [Azure 入口網站][portal]中開啟 Application Insights 資源。
 
@@ -116,7 +151,7 @@ Application Insights SDK 會從 Web 應用程式傳送分析遙測至 Azure 入�
 
 按一下任何圖表以查看詳細度量。[深入了解度量。][perf]
 
-* *沒有使用者或頁面資料嗎？* - [新增使用者和頁面資料](app-insights-web-track-usage.md)
+* 沒有使用者或頁面資料嗎？ - [新增使用者和頁面資料](app-insights-web-track-usage.md)
 
 ### 搜尋：個別事件
 
@@ -126,7 +161,7 @@ Application Insights SDK 會從 Web 應用程式傳送分析遙測至 Azure 入�
 
 [深入了解搜尋](app-insights-diagnostic-search.md)
 
-* *沒有相關聯的事件嗎？* 設定[伺服器例外狀況](app-insights-asp-net-exceptions.md)和[相依性](app-insights-asp-net-dependencies.md)。
+* 沒有相關聯的事件嗎？ 設定[伺服器例外狀況](app-insights-asp-net-exceptions.md)和[相依性](app-insights-asp-net-dependencies.md)。
 
 
 ## 沒有資料？
@@ -134,7 +169,7 @@ Application Insights SDK 會從 Web 應用程式傳送分析遙測至 Azure 入�
 * 在 Visual Studio 中，請確定您的應用程式正在傳送遙測。您應該會在 [輸出] 視窗和 [診斷中樞] 中看到追蹤。
 * 請確定您在 Azure 中查看的是正確的項目。登入 [Azure 入口網站](https://portal.azure.com)，按一下 [瀏覽] > [Application Insights]，然後選取您的應用程式。
 * 使用應用程式、開啟不同頁面，以產生一些遙測。
-* 開啟 [[搜尋][diagnostic]] 刀鋒視窗，查看個別事件。有時候，事件通過計量管線所需的時間較長。
+* 開啟 [搜尋][][diagnostic] 刀鋒視窗，查看個別事件。有時候，事件通過計量管線所需的時間較長。
 * 請稍等片刻，然後按一下 [重新整理]。
 * 請參閱[疑難排解][qna]。
 
@@ -151,21 +186,6 @@ Application Insights SDK 會從 Web 應用程式傳送分析遙測至 Azure 入�
 參閱[此疑難排解項目](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild)。
 
 > [AZURE.NOTE] 如果您的應用程式會產生大量遙測 (且您使用的是 ASP.NET SDK 版本 2.0.0-beta3 或較新)，調適性取樣模型會自動藉由僅傳送事件代表性片段，以減少傳送到入口網站的量。不過，與同一個要求相關的事件會選取或取消選取為群組，讓您可以在相關事件之間瀏覽。[了解取樣](app-insights-sampling.md)。
-
-
-## 偵錯遙測
-
-### 診斷中樞
-
-診斷中樞 (在 Visual Studio 2015 或更新版本) 會顯示其產生的 Application Insights 伺服器遙測。即使您選擇只安裝 SDK，而不連接至 Azure 入口網站中的資源，也會運作。
-
-![開啟 [診斷工具] 視窗，並檢查 Application Insights 事件。](./media/app-insights-asp-net/31.png)
-
-如果您在將遙測傳送至入口網站之前有一些[自訂遙測](app-insights-api-custom-events-metrics.md)想要偵錯，這特別有用。
-
-* *首先，我完全設定 Application Insights 將遙測傳送至入口網站。但是現在我只想要查看在 Visual Studio 中的遙測。*
-
-    從 ApplicationInsights.config 註解化 `<instrumentationkey>...` 這一行。當您準備再次將遙測傳送至入口網站時，請取消註解。
 
 
 
@@ -214,4 +234,4 @@ Application Insights SDK 會從 Web 應用程式傳送分析遙測至 Azure 入�
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

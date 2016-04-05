@@ -36,12 +36,12 @@
 	![新增->DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 
 6. 在 [新增 Data Factory] 刀鋒視窗中：
-	1. 輸入 **ADFTutorialDataFactory** 做為名稱。 
+	1. 輸入 **ADFTutorialDataFactory** 做為**名稱**。 
 	
   		![新增 Data Factory 刀鋒視窗](./media/data-factory-copy-data-wizard-tutorial/getstarted-new-data-factory.png)
 	2. 按一下 [資源群組名稱]，然後執行下列動作：
 		1. 按一下 [建立新的資源群組]。
-		2. 在 [建立資源群組] 刀鋒視窗中，輸入 **ADFTutorialResourceGroup** 做為資源群組的名稱，然後按一下 [確定]。 
+		2. 在 [建立資源群組] 刀鋒視窗中，輸入 **ADFTutorialResourceGroup** 做為資源群組的**名稱**，然後按一下 [確定]。 
 
 			![建立資源群組](./media/data-factory-copy-data-wizard-tutorial/create-new-resource-group.png)
 
@@ -63,9 +63,11 @@
 ## 建立管線
 
 1. 在 Data Factory 首頁，按一下 [資料複製] 圖格以啟動 [複製精靈]。 
+
+	> [AZURE.NOTE] 如果您看到網頁瀏覽器停留在「授權中...」，請停用/取消核取 [封鎖第三方 Cookie 和站台資料] 設定 (或) 將它保持啟用並為 **login.microsoftonline.com** 建立例外狀況，然後再次嘗試啟動精靈。
 2. 在 [屬性] 頁面︰
-	1. 輸入 CopyFromBlobToAzureSql 做為 [工作名稱]
-	2. 輸入 [說明] \(選擇性)。
+	1. 輸入 **CopyFromBlobToAzureSql** 做為 [工作名稱]
+	2. 輸入**說明** (選擇性)。
 	3. 請記住 [開始日期時間] 和 [結束日期時間]。將 [結束日期時間] 變更為 [開始日期時間] 的隔天。 
 	3. 按 [下一步]。  
 
@@ -74,28 +76,28 @@
 
 	![複製工具 - 來源資料儲存頁面](./media/data-factory-copy-data-wizard-tutorial/copy-tool-source-data-store-page.png)
 5. 在 [指定 Azure Blob 儲存體帳戶] 頁面︰
-	1. 輸入 AzureStorageLinkedService 做為 [連結服務名稱]。
+	1. 輸入 **AzureStorageLinkedService** 做為 [連結服務名稱]。
 	2. 確認 [帳戶選取方法] 為 [從 Azure 訂用帳戶]。 
 	3. 從您選取的訂用帳戶中可用的 Azure 儲存體帳戶清單中，選取 [Azure 儲存體帳戶]。您也可以選擇手動輸入儲存體帳戶設定，其做法是選取 [帳戶選取方法]的 [手動輸入] 選項，然後按 [下一步]。 
 
 	![複製工具 - 指定 Azure Blob 儲存體帳戶](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
 6. 在 [選擇輸入檔案或資料夾] 頁面︰
-	1. 導覽至 adftutorial 資料夾。
-	2. 選取 emp.txt，然後按一下 [選擇]
+	1. 導覽至 **adftutorial** 資料夾。
+	2. 選取 **emp.txt**，然後按一下 [選擇]
 	3. 按 [下一步]。 
 
 	![複製工具 - 選擇輸入檔案或資料夾](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
-7. 在 [檔案格式設定] 頁面上，選取預設值，然後按 [下一步]。
+7. 在 [檔案格式設定] 頁面上，選取**預設**值，然後按 [下一步]。
 
 	![複製工具 - 檔案格式設定](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
 8. 在 [目的地資料存放區] 頁面上，按一下 [Azure SQL Database] 圖格，然後按 [下一步]。
 9. 在 [指定 Azure SQL Database] 頁面︰
-	1. 針對 [連結服務名稱] 欄位輸入 AzureSqlLinkedService。 
+	1. 針對 [連結服務名稱] 欄位輸入 **AzureSqlLinkedService**。 
 	2. 確認 [伺服器/資料庫選取方法] 已設為 [從 Azure 訂用帳戶]。
 	3. 選取 [伺服器名稱] 和 [資料庫]。
 	4. 輸入 [使用者名稱] 和 [密碼]。
 	5. 按 [下一步]。  
-9. 在 [資料表對應] 頁面上，從 [目的地] 欄位的下拉式清單中選取 emp，按一下向下箭號 (選擇性) 以查看結構描述及預覽資料。
+9. 在 [資料表對應] 頁面上，從 [目的地] 欄位的下拉式清單中選取 **emp**，按一下**向下箭號** (選擇性) 以查看結構描述及預覽資料。
 
 	![複製工具 - 資料表對應](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
 10. 在 [結構描述對應] 頁面上，按 [下一步]。
@@ -108,4 +110,4 @@
 	![監視應用程式](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
   
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

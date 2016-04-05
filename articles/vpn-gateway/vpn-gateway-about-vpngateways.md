@@ -42,7 +42,10 @@ VPN 閘道 (也稱為 Azure 虛擬網路閘道) 可用來傳送虛擬網路與�
 
 ## <a name="gwtype"></a>閘道類型
 
-閘道類型會指定閘道本身如何連接以及為何它是 Resource Manager 部署模型的必要組態設定。請勿將閘道類型與 VPN 類型混為一談，後者所指定的是 VPN 的路由類型。GatewayType 的可用值為︰Vpn 和 ExpressRoute。
+閘道類型會指定閘道本身如何連接以及為何它是 Resource Manager 部署模型的必要組態設定。請勿將閘道類型與 VPN 類型混為一談，後者所指定的是 VPN 的路由類型。`-GatewayType` 的可用值為：
+
+- Vpn
+- ExpressRoute
 
 
 此 Resource Manager 部署模型範例將 -GatewayType 指定為 Vpn。在建立閘道時，您必須確定用於組態的閘道類型是正確的。
@@ -57,7 +60,7 @@ VPN 閘道 (也稱為 Azure 虛擬網路閘道) 可用來傳送虛擬網路與�
 - 標準
 - HighPerformance
 
-下列範例會將 GatewaySku 指定為「標準」。
+下列範例會將 `-GatewaySku` 指定為「標準」。
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
 
@@ -78,9 +81,22 @@ VPN 閘道 (也稱為 Azure 虛擬網路閘道) 可用來傳送虛擬網路與�
 
 [AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-此 Resource Manager 部署模型範例將 -VpnType 指定為 RouteBased。在建立閘道時，您必須確定用於組態的 -VpnType 是正確的。
+此 Resource Manager 部署模型範例將 `-VpnType` 指定為 RouteBased。在建立閘道時，您必須確定用於組態的 -VpnType 是正確的。
 
 	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+
+## <a name="connectiontype"></a>連線類型
+
+每個組態皆需要特定的連線類型。`-ConnectionType` 的可用 Resource Manager PowerShell 值為：
+
+- IPsec
+- Vnet2Vnet
+- ExpressRoute
+- VPNClient
+
+在下列範例中，我們會建立站對站連線，其需要 "IPsec" 連線類型。
+
+	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 
 ## <a name="lng"></a>區域網路閘道
@@ -122,4 +138,4 @@ VPN 閘道 (也稱為 Azure 虛擬網路閘道) 可用來傳送虛擬網路與�
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -73,7 +73,7 @@ Azure 資源管理員介紹一種看待 Azure 資源的嶄新方式。與其建�
 	Get-AzureRmADGroupMember               Get a group members.
 	...
 
-若要取得完整的 cmdlet，請輸入以下格式的命令:
+To get full help for a cmdlet, type a command with the format:
 
 	Get-Help <cmdlet-name> -Full
   
@@ -461,6 +461,6 @@ ProviderNamespace 表示相關資源類型的集合。這些命名空間通常�
 - 若要了解如何建立資源管理員範本，請參閱[撰寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)。
 - 若要了解部署範本的相關資訊，請參閱[使用 Azure 資源管理員範本部署應用程式](./resource-group-template-deploy.md)。
 - 如需部署專案的詳細範例，請參閱[透過可預測方式在 Azure 中部署微服務](app-service-web/app-service-deploy-complex-application-predictably.md)。
-- 若要了解如何疑難排解失敗的部署，請參閱[在 Azure 中疑難排解資源群組部署](./virtual-machines/resource-group-deploy-debug.md)。
+- 若要了解如何疑難排解失敗的部署，請參閱[在 Azure 中疑難排解資源群組部署](./resource-manager-troubleshoot-deployments-powershell.md)。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

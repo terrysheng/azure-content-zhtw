@@ -195,7 +195,7 @@
 
 [針對 Azure VM 延伸模組的失敗進行疑難排解](virtual-machines-windows-extensions-troubleshoot.md)
 
-[針對資源群組部署進行疑難排解](resource-group-deploy-debug.md)
+[針對資源群組部署進行疑難排解](../resource-manager-troubleshoot-deployments-portal.md)
 
 [疑難排解在 Azure 虛擬機器上執行的應用程式存取](virtual-machines-windows-troubleshoot-app-connection.md)
 
@@ -375,4 +375,4 @@
 
 [在 Azure 中建立、重新啟動或調整 VM 大小時，對配置失敗進行疑難排解](virtual-machines-windows-allocation-failure.md)
 
-<!----HONumber=AcomDC_0323_2016--->
+<!---HONumber=AcomDC_0330_2016-->

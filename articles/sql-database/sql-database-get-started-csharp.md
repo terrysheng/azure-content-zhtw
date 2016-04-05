@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="試用 SQL Database：使用 C# 建立 SQL Database | Microsoft Azure" 
-	description="嘗試用 SQL Database 開發 SQL 和 C# 應用程式，然後使用 SQL Database Library for .NET 以 C# 建立 Azure SQL Database。" 
+<properties
+	pageTitle="試用 SQL Database：使用 C# 建立 SQL Database | Microsoft Azure"
+	description="嘗試用 SQL Database 開發 SQL 和 C# 應用程式，然後使用 SQL Database Library for .NET 以 C# 建立 Azure SQL Database。"
 	keywords="試用 sql, sql c#"   
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor="cgronlun"/>
 
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="hero-article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="01/22/2016"
+   ms.tgt_pltfrm="csharp"
+   ms.workload="data-management"
+   ms.date="03/24/2016"
    ms.author="sstein"/>
 
-# 試用 SQL Database：透過 SQL Database Library for .NET 使用 C&#x23; 建立 SQL Database 
+# 試用 SQL Database：透過 SQL Database Library for .NET 使用 C&#x23; 建立 SQL Database
 
 **單一資料庫**
 
@@ -26,13 +26,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-
-
-了解如何使用 C# 命令透過 [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) 建立 Azure SQL Database。
-
-您可使用 SQL 和 C# 建立單一資料庫，試用 SQL Database。若要建立彈性資料庫，請參閱[建立彈性資料庫集區](sql-database-elastic-pool-portal.md)。
-
-為了清楚起見，將個別程式碼片段分別列出，範例主控台應用程式會將所有命令整合在本文底端的區段中。
+了解如何使用 C# 命令透過 [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) 建立 Azure SQL Database。您可使用 SQL 和 C# 建立單一資料庫，試用 SQL Database。若要建立彈性資料庫集區，請參閱[建立彈性資料庫集區](sql-database-elastic-pool-create-portal.md)。為了清楚起見，將個別程式碼片段分別列出，範例主控台應用程式會將所有命令整合在本文底端的區段中。
 
 Azure SQL Database Library for .NET 提供 [Azure 資源管理員](../resource-group-overview.md)式 API，它會包裝[資源管理員式 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)。此用戶端程式庫遵循資源管理員式用戶端程式庫的常見模式。資源管理員需要資源群組，並且使用 [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD) 進行驗證。
 
@@ -86,7 +80,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](../resource-g
 
     ![新增 SQL C# 應用程式的重新導向 URL。][8]
 
-7. 完成應用程式建立，按一下 [設定]，然後複製 [用戶端識別碼] \(您在程式碼中需要用戶端識別碼)。
+7. 完成建立應用程式，按一下 [設定]，然後複製 [用戶端識別碼] (稍後在程式碼中需要用戶端識別碼)。
 
     ![取得 SQL C# 應用程式的用戶端識別碼。][9]
 
@@ -120,7 +114,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](../resource-g
 使用 Azure Active Directory 進行驗證的其他資訊可以在[此有用的部落格文章](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/)中找到。
 
 
-### 擷取目前使用者的存取權杖 
+### 擷取目前使用者的存取權杖
 
 用戶端應用程式必須擷取目前使用者的應用程式存取權杖。使用者第一次執行此程式碼時，系統會提示使用者輸入其使用者認證，產生的權杖會在本機快取。後續執行會從快取擷取權杖，並且在權杖過期時僅提示使用者登入。
 
@@ -154,7 +148,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](../resource-g
         {
             creds = new Microsoft.Rest.TokenCredentials(token.AccessToken);
 
-            // Create a resource management client 
+            // Create a resource management client
             ResourceManagementClient resourceClient = new ResourceManagementClient(creds);
 
             // Resource group parameters
@@ -169,7 +163,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](../resource-g
         }
 
 
-## 建立伺服器 
+## 建立伺服器
 
 SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL Server 中必須是唯一的，因此如果伺服器名稱已被採用，您會收到錯誤。另外值得注意的是，此命令可能需要數分鐘才能完成。
 
@@ -223,7 +217,7 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 
         static void CreateFirewallRule()
         {
-            // Create a firewall rule on the server 
+            // Create a firewall rule on the server
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
                 Properties = new FirewallRuleCreateOrUpdateProperties()
@@ -284,7 +278,7 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-    
+
     namespace SqlDbConsoleApp
     {
     class Program
@@ -295,13 +289,13 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
         static string redirectUri = "<Azure App redirectURI>";
         static string domainName = "<domain>";
 
-        // You create these values 
+        // You create these values
         static string resourceGroupName = "<your resource group name>";
         static string location = "<Azure data center location>";
 
         static string serverName = "<your server name>";
         static string administratorLogin = "<your server admin>";
-        
+
         // store your password securely!
         static string administratorPassword = "<your server admin password>";
         static string serverVersion = "12.0";
@@ -340,7 +334,7 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
             Console.WriteLine("Creating database...");
 
             DatabaseCreateOrUpdateResponse dbResponse = CreateDatabase();
-            Console.WriteLine("Status: " + dbResponse.Status.ToString() 
+            Console.WriteLine("Status: " + dbResponse.Status.ToString()
                 + " Code: " + dbResponse.StatusCode.ToString());
 
             Console.WriteLine("Press enter to exit...");
@@ -351,7 +345,7 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
         {
             creds = new Microsoft.Rest.TokenCredentials(token.AccessToken);
 
-            // Create a resource management client 
+            // Create a resource management client
             ResourceManagementClient resourceClient = new ResourceManagementClient(creds);
 
             // Resource group parameters
@@ -386,7 +380,7 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 
         static void CreateFirewallRule()
         {
-            // Create a firewall rule on the server 
+            // Create a firewall rule on the server
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
                 Properties = new FirewallRuleCreateOrUpdateProperties()
@@ -463,4 +457,4 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

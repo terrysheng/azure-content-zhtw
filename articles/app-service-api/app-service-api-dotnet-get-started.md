@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 Azure App Service 中開始使用 API Apps 和 ASP.NET | Microsoft Azure"
+	pageTitle="在 App Service 中開始使用 API Apps 和 ASP.NET | Microsoft Azure"
 	description="了解如何在 Azure App Service 使用 Visual Studio 2015 建立、部署和取用 ASP.NET API 應用程式。"
 	services="app-service\api"
 	documentationCenter=".net"
@@ -22,19 +22,19 @@
 
 ## 概觀
 
-本文是一系列教學課程的第一篇，文章中將會說明如何使用 Azure App Service 中有助於開發和裝載 API 的功能：
+本文是一系列教學課程的第一篇，文章中將會說明如何使用 Azure App Service 中有助於開發和裝載 RESTful API 的功能：
 
 * 整合的 API 中繼資料支援
 * CORS 支援
 * 驗證和授權支援
 
-您將會在 Azure App Service 中把範例應用程式部署到兩個 [API 應用程式](app-service-api-apps-why-best-platform.md)和一個 Web 應用程式。此範例應用程式是個待辦事項清單，具有 AngularJS 單一頁面應用程式 (SPA) 前端、ASP.NET Web API 中介層和 ASP.NET Web API 資料層，詳情如下圖所示。
+您將會在 Azure App Service 中把範例應用程式部署到兩個 [API 應用程式](app-service-api-apps-why-best-platform.md)和一個 Web 應用程式。此範例應用程式是個待辦事項清單，具有 AngularJS 單一頁面應用程式 (SPA) 前端、ASP.NET Web API 中介層和 ASP.NET Web API 資料層。
 
-![](./media/app-service-api-dotnet-get-started/noauthdiagram.png)
+![API Apps 範例應用程式圖表](./media/app-service-api-dotnet-get-started/noauthdiagram.png)
 
 以下是 SPA 前端的螢幕擷取畫面。
 
-![](./media/app-service-api-dotnet-get-started/todospa.png)
+![API Apps 範例應用程式待辦事項清單](./media/app-service-api-dotnet-get-started/todospa.png)
 
 一旦完成本教學課程，您將會擁有兩個在 App Service API 應用程式中啟動並執行的 Web API。完成下列教學課程之後，您將會擁有在雲端中執行的整個應用程式，以及在 App Service Web 應用程式中的 SPA。而在後續的教學課程中，您則會新增驗證和授權。
 
@@ -76,7 +76,8 @@
 
 	* **ToDoListAPI** - 中介層：呼叫資料層以對待辦事項項目執行 CRUD 作業的 ASP.NET Web API 專案。
 
-	* **ToDoListDataAPI** - 資料層：對待辦事項項目執行 CRUD 作業的 ASP.NET Web API 專案。待辦事項項目會儲存在記憶體中，這表示每當應用程式重新啟動時，所有變更都會遺失。
+	* **ToDoListDataAPI** - 資料層：對待辦事項項目執行 CRUD 作業的 ASP.NET Web API 專案。待辦事項項目會儲存在記憶體中，這表示每當應用程式重新啟動時，所有變更都會遺失
+	* 。 
 
 	中介層會在呼叫資料層時，於 `Owner` 欄位中提供使用者識別碼。在您下載的程式碼中，使用者識別碼一律為 "*"。當您在稍後的教學課程中新增驗證時，中介層會對資料層提供實際的使用者識別碼。
 
@@ -98,7 +99,7 @@
 
 	該 UI 會顯示兩個預設的待辦事項項目。
 
-	![](./media/app-service-api-dotnet-get-started/todospa.png)
+	![API Apps 範例應用程式待辦事項清單](./media/app-service-api-dotnet-get-started/todospa.png)
 
 4. 新增、編輯和刪除待辦事項項目，以查看應用程式的運作情形。
 
@@ -120,17 +121,17 @@ ASP.NET Web API 專案可以使用 [Swashbuckle](https://www.nuget.org/packages/
 
 	瀏覽器會開啟並顯示 [HTTP 403 錯誤] 頁面。
 
-12. 在瀏覽器的位址列中，於 URL 結尾加入 `swagger/docs/v1`，然後按 Enter 鍵 (URL 會是 `http://localhost:45914/swagger/docs/v1`)。
+12. 在瀏覽器的位址列中，於 URL 結尾加入 `swagger/docs/v1`，然後按 Enter 鍵 (URL 是 `http://localhost:45914/swagger/docs/v1`。)
 
 	這是 Swashbuckle 用來傳回 API 的 Swagger 2.0 JSON 中繼資料的預設 URL。
 
-	如果您是使用 Internet Explorer，瀏覽器會提示您下載 *v1.json* 檔案。
+	如果您是使用 Internet Explorer，瀏覽器會提示您下載 v1.json 檔案。
 
-	![](./media/app-service-api-dotnet-get-started/iev1json.png)
+	![在 IE 中下載 JSON 中繼資料](./media/app-service-api-dotnet-get-started/iev1json.png)
 
 	如果您是使用 Chrome、Firefox 或 Edge，瀏覽器會在瀏覽器視窗中顯示 JSON。
 
-	![](./media/app-service-api-dotnet-get-started/chromev1json.png)
+	![Chrome 中的 JSON 中繼資料](./media/app-service-api-dotnet-get-started/chromev1json.png)
 
 	下列範例顯示 API 的 Swagger 中繼資料的第一個區段 (包含 Get 方法的定義)。此中繼資料可驅動您將在下列步驟中使用的 Swagger UI，而您將在本教學課程稍後的章節中使用它來自動產生用戶端程式碼。
 
@@ -171,7 +172,7 @@ ASP.NET Web API 專案可以使用 [Swashbuckle](https://www.nuget.org/packages/
 
 1. 關閉瀏覽器。
 
-3. 在 [方案總管] 的 ToDoListDataAPI 專案中，開啟 *App\_Start\\SwaggerConfig.cs* 檔案，然後向下捲動至下列程式碼並予以取消註解。
+3. 在 [方案總管] 的 ToDoListDataAPI 專案中，開啟 App\_Start\\SwaggerConfig.cs 檔案，然後向下捲動至下列程式碼並予以取消註解。
 
 		/*
 		    })
@@ -179,33 +180,33 @@ ASP.NET Web API 專案可以使用 [Swashbuckle](https://www.nuget.org/packages/
 		    {
 		*/
 
-	*SwaggerConfig.cs* 檔案建立於您在專案中安裝 Swashbuckle 封裝時。此檔案會提供數種方式來設定 Swashbuckle。
+	SwaggerConfig.cs 檔案建立於您在專案中安裝 Swashbuckle 封裝時。此檔案會提供數種方式來設定 Swashbuckle。
 
 	您已取消註解的程式碼會啟用您將使用於下列步驟中的 Swagger UI。當您使用 API 應用程式專案範本建立 Web API 專案時，基於安全性考量，預設會註解化此程式碼。
 
 5. 再次執行此專案。
 
-3. 在瀏覽器的位址列中，於 URL 結尾加入 `swagger`，然後按 Enter 鍵 (URL 會是 `http://localhost:45914/swagger`)。
+3. 在瀏覽器的位址列中，於 URL 結尾加入 `swagger`，然後按 Enter 鍵 (URL 是 `http://localhost:45914/swagger`。)
 
 4. 當 Swagger UI 頁面出現時，按一下 [ToDoList] 以查看可用的方法。
 
-	![](./media/app-service-api-dotnet-get-started/methods.png)
+	![Swagger UI 可用的方法](./media/app-service-api-dotnet-get-started/methods.png)
 
 5. 按一下 [取得]。
 
 6. 輸入星號來做為 `owner` 參數的值，然後按一下 [立即試用]。
 
-	![](./media/app-service-api-dotnet-get-started/gettryitout1.png)
+	![Swagger UI 試用](./media/app-service-api-dotnet-get-started/gettryitout1.png)
 
 	Swagger UI 會呼叫 ToDoList Get 方法並顯示回應碼和 JSON 結果。
 
-	![](./media/app-service-api-dotnet-get-started/gettryitout.png)
+	![Swagger UI 試用結果](./media/app-service-api-dotnet-get-started/gettryitout.png)
 
 6. 按一下 [Post]，然後按一下 [模型結構描述] 之下的方塊。
 
 	按一下模型結構描述會預先填入輸入方塊，而您可以在其中指定 Post 方法的參數值。(如果這不適用於 Internet Explorer，請使用不同的瀏覽器或在下一個步驟中手動輸入參數值。)
 
-	![](./media/app-service-api-dotnet-get-started/post.png)
+	![Swagger UI 試用文章](./media/app-service-api-dotnet-get-started/post.png)
 
 7. 在 `contact` 參數輸入方塊中變更 JSON，讓它看起來如同下列範例，或以您自己的描述文字替代：
 
@@ -229,7 +230,7 @@ ASP.NET Web API 專案可以使用 [Swashbuckle](https://www.nuget.org/packages/
 
 Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagger 中繼資料產生新增至現有的專案，只需安裝 Swashbuckle 封裝。
 
-**注意：**Swagger 中繼資料包含每個 API 作業的唯一識別碼。根據預設，Swashbuckle 可能會為 Web API 控制器方法產生重複的 Swagger 作業識別碼。如果控制器有多載的 HTTP 方法，例如 `Get()` 和 `Get(id)`，就會發生此情況。如需如何處理多載的相關資訊，請參閱[自訂 Swashbuckle 產生的 API 定義](app-service-api-dotnet-swashbuckle-customize.md)。如果您在 Visual Studio 中使用 Azure API 應用程式範本建立 Web API 專案，*SwaggerConfig.cs* 檔案中就會自動新增用來產生唯一作業識別碼的程式碼。
+**注意：**Swagger 中繼資料包含每個 API 作業的唯一識別碼。根據預設，Swashbuckle 可能會為 Web API 控制器方法產生重複的 Swagger 作業識別碼。如果控制器有多載的 HTTP 方法，例如 `Get()` 和 `Get(id)`，就會發生此情況。如需如何處理多載的相關資訊，請參閱[自訂 Swashbuckle 產生的 API 定義](app-service-api-dotnet-swashbuckle-customize.md)。如果您在 Visual Studio 中使用 Azure API 應用程式範本建立 Web API 專案，SwaggerConfig.cs 檔案中就會自動新增用來產生唯一作業識別碼的程式碼。
 
 ## 在 Azure 中建立 API 應用程式並將 ToDoListAPI 專案部署至該應用程式
 
@@ -237,23 +238,23 @@ Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagg
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 ToDoListDataAPI 專案，然後按一下 [發佈]。
 
-	![](./media/app-service-api-dotnet-get-started/pubinmenu.png)
+	![在 Visual Studio 中按一下 [發佈]](./media/app-service-api-dotnet-get-started/pubinmenu.png)
 
 3.  在 [發佈 Web] 精靈的 [設定檔] 步驟中，按一下 [Microsoft Azure App Service]。
 
-	![](./media/app-service-api-dotnet-get-started/selectappservice.png)
+	![在 [發佈 Web] 中按一下 [Azure App Service]](./media/app-service-api-dotnet-get-started/selectappservice.png)
 
 4. 如果您尚未登入，請登入您的 Azure 帳戶；或者如果過期，請重新整理您的認證。
 
 4. 在 [App Service] 對話方塊中，選擇您想要使用的 Azure [訂用帳戶]，然後按一下 [新增]。
 
-	![](./media/app-service-api-dotnet-get-started/clicknew.png)
+	![在 [App Service] 對話方塊中按一下 [新增]](./media/app-service-api-dotnet-get-started/clicknew.png)
 
 	[建立 App Service] 對話方塊的 [主控] 索引標籤中隨即出現。
 
 	因為您正在部署已安裝 Swashbuckle 的 Web API 專案，所以 Visual Studio 假設您要建立 API 應用程式。這是以 [API 應用程式名稱] 標題以及 [變更類型] 下拉式清單設為 [API 應用程式] 的這個事實所指出。
 
-	![](./media/app-service-api-dotnet-get-started/apptype.png)
+	![[App Service] 對話方塊中的應用程式類型](./media/app-service-api-dotnet-get-started/apptype.png)
 
 	<a id="apptype"></a> 應用程式類型並不會決定可供新的 API 應用程式、Web 應用程式或行動應用程式使用的功能。這些教學課程中顯示的所有 API 應用程式功能可供上述三種類型使用。唯一的差別在於 Azure 入口網站為了識別應用程式類型而顯示的圖示和文字，以及功能列在入口網站中某些頁面上的順序。您稍後將在本教學課程中看見 Azure 入口網站；這是用來管理 Azure 資源的 Web 介面。
 
@@ -265,7 +266,7 @@ Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagg
 
 	如果您輸入了其他人已使用的名稱，您就會在右邊看到紅色驚嘆號，而不是綠色勾號，這代表您需要輸入不同的名稱。
 
-	Azure 將使用這個名稱做為應用程式 URL 的前置詞。完整的 URL 組合是這個名稱加上 *.azurewebsites.net*。例如，若名稱為 `ToDoListDataAPI`，URL 會是 `todolistdataapi.azurewebsites.net`。
+	Azure 將使用這個名稱做為應用程式 URL 的前置詞。完整的 URL 組合是這個名稱加上 .azurewebsites.net。例如，若名稱為 `ToDoListDataAPI`，則 URL 是 `todolistdataapi.azurewebsites.net`。
 
 6. 在 [資源群組] 下拉式清單中，按一下 [新增]，然後輸入 "ToDoListGroup" 或其他您偏好使用的名稱。
 
@@ -277,7 +278,7 @@ Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagg
 
 	螢幕擷取畫面顯示 [API 應用程式名稱]、[訂用帳戶] 和 [資源群組] 的範例值 -- 您的值會有所不同。
 
-	![](./media/app-service-api-dotnet-get-started/createas.png)
+	![建立 App Service 對話方塊](./media/app-service-api-dotnet-get-started/createas.png)
 
 	在下列步驟中，您會為新的資源群組建立 App Service 方案。App Service 方案會指定 API 應用程式執行所在的計算資源。例如，如果您選擇免費層，則 API 應用程式會在共用 VM 上執行，若為某些付費層，它則會在專用 VM 上執行。如需 App Service 方案的詳細資訊，請參閱 [App Service 方案概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
 
@@ -293,11 +294,11 @@ Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagg
 
 6. 在 [設定 App Service 方案] 對話方塊中，按一下 [確定]。
 
-	![](./media/app-service-api-dotnet-get-started/configasp.png)
+	![在 [設定 App Service 方案] 中按一下 [確定]](./media/app-service-api-dotnet-get-started/configasp.png)
 
 7. 在 [建立 App Service] 對話方塊中，按一下 [建立]。
 
-	![](./media/app-service-api-dotnet-get-started/clickcreate.png)
+	![在 [建立 App Service] 對話方塊中按一下 [建立]](./media/app-service-api-dotnet-get-started/clickcreate.png)
 
 	Visual Studio 會建立 API 應用程式。
 
@@ -309,7 +310,7 @@ Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagg
 
 	您可以改為繼續進行並馬上按一下 [發佈]，立即將此專案部署至新的 API 應用程式，但是在本教學課程中，您將會歷經此對話方塊的其他索引標籤，了解可在其中執行哪些操作。
 
-	![](./media/app-service-api-dotnet-get-started/connnext.png)
+	![在 [發佈 Web] 的 [連線] 索引標籤中按 [下一步]](./media/app-service-api-dotnet-get-started/connnext.png)
 
 	下一個索引標籤是 [設定] 索引標籤。您可以在此變更組建組態索引標籤，以部署用於[遠端偵錯](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug)的偵錯組建。此索引標籤也會提供數個 [檔案發佈選項]：
 
@@ -321,23 +322,23 @@ Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagg
 
 14. 按 [下一步]。
 
-	![](./media/app-service-api-dotnet-get-started/settingsnext.png)
+	![在 [發佈 Web] 的 [設定] 索引標籤中按 [下一步]](./media/app-service-api-dotnet-get-started/settingsnext.png)
 
 	[預覽] 索引標籤讓您有機會查看哪些檔案即將從您的專案複製到 API 應用程式。當您將專案部署至您先前已部署至的 API 應用程式時，只會複製已變更的檔案。如果您想要查看即將複製的項目清單，可以按一下 [開始預覽] 按鈕。
 
-15. 按一下 [發行]。
+15. 按一下 [發佈]。
 
-	![](./media/app-service-api-dotnet-get-started/clickpublish.png)
+	![在 [發佈 Web] 的 [預覽] 索引標籤中按一下 [發佈]](./media/app-service-api-dotnet-get-started/clickpublish.png)
 
 	Visual Studio 會將 ToDoListDataAPI 專案部署到新的 API 應用程式。[輸出] 視窗會記錄成功的部署，而在開啟至 API 應用程式 URL 的瀏覽器視窗會出現 [已成功建立] 頁面。
 
-	![](./media/app-service-api-dotnet-get-started/deploymentoutput.png)
+	![成功部署的輸出視窗](./media/app-service-api-dotnet-get-started/deploymentoutput.png)
 
-	![](./media/app-service-api-dotnet-get-started/appcreated.png)
+	![新的 API 應用程式已成功建立頁面](./media/app-service-api-dotnet-get-started/appcreated.png)
 
-11. 在瀏覽器的位址列中將 "swagger" 新增至 URL，然後按 Enter 鍵(URL 會是 `http://{apiappname}.azurewebsites.net/swagger`)。
+11. 在瀏覽器的位址列中將 "swagger" 新增至 URL，然後按 Enter 鍵(URL 是 `http://{apiappname}.azurewebsites.net/swagger`。)
 
-	瀏覽器會顯示您稍早看到的相同 Swagger UI，但該 UI 現在在雲端執行。試用 Get 方法，然後您會看到您返回預設的 2 個待辦事項項目，因為您稍早所做的變更已儲存在本機電腦的記憶體中。
+	瀏覽器會顯示您稍早看到的相同 Swagger UI，但該 UI 現在在雲端執行。試用 Get 方法，然後您會發現您回到預設的 2 個待辦事項。您稍早所做的變更已儲存在本機電腦的記憶體中。
 
 12. 開啟 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -345,21 +346,21 @@ Swashbuckle 可搭配任何 ASP.NET Web API 專案使用。如果您要將 Swagg
  
 14. 按一下 [瀏覽] > [應用程式服務]。
 
-	![](./media/app-service-api-dotnet-get-started/browseas.png)
+	![瀏覽應用程式服務](./media/app-service-api-dotnet-get-started/browseas.png)
 
 15. 在 [應用程式服務] 刀鋒視窗中，尋找並按一下新的 API 應用程式。(在 Azure 入口網站中，在右側開啟的視窗稱為「刀鋒視窗」。)
 
-	![](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
+	![[應用程式服務] 刀鋒視窗](./media/app-service-api-dotnet-get-started/choosenewapiappinportal.png)
 
 	有兩個刀鋒視窗會開啟，其中一個包含 API 應用程式的概觀，另一個包含您可以檢視和變更的一長串設定。
 
 16. 在 [設定] 刀鋒視窗中，尋找 [API] 區段並按一下 [API 定義]。
 
-	![](./media/app-service-api-dotnet-get-started/apidefinsettings.png)
+	![[設定] 刀鋒視窗中的 API 定義](./media/app-service-api-dotnet-get-started/apidefinsettings.png)
 
 	[API 定義] 刀鋒視窗可讓您指定會以 JSON 格式傳回 Swagger 2.0 中繼資料的 URL。當 Visual Studio 建立 API 應用程式時，它會將 API 定義 URL 設定為您稍早所見的 Swashbuckle 產生的中繼資料預設值，也就是 API 應用程式的基底 URL 加上 `/swagger/docs/v1`。
 
-	![](./media/app-service-api-dotnet-get-started/apidefurl.png)
+	![API 定義 URL](./media/app-service-api-dotnet-get-started/apidefurl.png)
 
 	當您選取要對其產生用戶端程式碼的 API 應用程式時，Visual Studio 會從這個 URL 擷取中繼資料。
 
@@ -379,25 +380,25 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 	此資料夾先前已透過您即將進行的程式碼產生程序加以建立。
 
-	![](./media/app-service-api-dotnet-get-started/deletecodegen.png)
+	![刪除產生的用戶端程式碼](./media/app-service-api-dotnet-get-started/deletecodegen.png)
 
 2. 以滑鼠右鍵按一下 ToDoListAPI 專案，然後按一下 [新增] > [REST API 用戶端]。
 
-	![](./media/app-service-api-dotnet-get-started/codegenmenu.png)
+	![在 Visual Studio 中新增 REST API 用戶端](./media/app-service-api-dotnet-get-started/codegenmenu.png)
 
 3. 在 [加入 REST API 用戶端] 對話方塊中，依序按一下 [Swagger URL] 和 [選取 Azure 資產]。
 
-	![](./media/app-service-api-dotnet-get-started/codegenbrowse.png)
+	![選取 Azure 資產](./media/app-service-api-dotnet-get-started/codegenbrowse.png)
 
 8. 在 [App Service] 對話方塊中，展開您在本教學課程中使用的資源群組，選取您的 API 應用程式，然後按一下 [確定]。
 
-	![](./media/app-service-api-dotnet-get-started/codegenselect.png)
+	![選取用於產生程式碼的 API 應用程式](./media/app-service-api-dotnet-get-started/codegenselect.png)
 
 	此對話方塊可讓您用數種方法組織清單中的 API 應用程式，以免您有太多 API 應用程式而無法捲動。此外，也可讓您輸入搜尋字串來依名稱篩選 API 應用程式。
 
 	請注意，當您返回 [加入 REST API 用戶端] 對話方塊時，文字方塊中已填入您稍早在入口網站中看到的 API 定義 URL 值。
 
-	![](./media/app-service-api-dotnet-get-started/codegenurlplugged.png)
+	![API 定義 URL](./media/app-service-api-dotnet-get-started/codegenurlplugged.png)
 
 	取得用於產生程式碼之中繼資料的令一個方法是直接輸入 URL，而不需透過瀏覽對話方塊。另一個替代方法是使用 [選取現有的 Swagger 中繼資料檔案] 選項。例如，如果您要在部署至 Azure 之前產生用戶端程式碼，您可以在本機執行 Web API 專案、移至可提供 Swagger JSON 檔案的 URL、儲存檔案，然後在此處予以選取。
 
@@ -405,7 +406,7 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 	Visual Studio 會建立以 API 應用程式命名的資料夾，並且產生用戶端類別。
 
-	![](./media/app-service-api-dotnet-get-started/codegenfiles.png)
+	![所產生用戶端的程式碼檔案](./media/app-service-api-dotnet-get-started/codegenfiles.png)
 
 5. 在 ToDoListAPI 專案中，開啟 Controllers\\ToDoListController.cs，查看可使用所產生的用戶端呼叫 API 的程式碼。
 
@@ -470,7 +471,7 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 4. 按一下 [儲存]。
 
-	![](./media/app-service-api-dotnet-get-started/asinportal.png)
+	![按一下 [應用程式設定] 的 [儲存]](./media/app-service-api-dotnet-get-started/asinportal.png)
 
 	在 Azure 中執行程式碼時，這個值現在會覆寫 Web.config 檔案中的 localhost URL。
 
@@ -478,13 +479,13 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 11. 在瀏覽器視窗中，瀏覽至您剛才建立的新中介層 API 應用程式的 URL (按一下入口網站中 API 應用程式的主要刀鋒視窗中的 URL，即可抵達)。
 
-13. 在瀏覽器的位址列中將 "swagger" 新增至 URL，然後按 Enter 鍵(URL 會是 `http://{apiappname}.azurewebsites.net/swagger`)。
+13. 在瀏覽器的位址列中將 "swagger" 新增至 URL，然後按 Enter 鍵(URL 是 `http://{apiappname}.azurewebsites.net/swagger`。)
 
 	瀏覽器會顯示您稍早在 ToDoListDataAPI 所看到的相同 Swagger UI，但現在 `owner` 不是 Get 作業的必要欄位，因為中介層 API 應用程式會為您將該值傳送到資料層 API 應用程式。(當您進行驗證教學課程時，中介層會傳送 `owner` 參數的實際使用者識別碼；它現在是硬式編碼星號。)
 
 12. 試用 Get 方法和其他方法來確認中介層 API 應用程式會成功呼叫資料層 API 應用程式。
 
-	![](./media/app-service-api-dotnet-get-started/midtierget.png)
+	![Swagger UI Get 方法](./media/app-service-api-dotnet-get-started/midtierget.png)
 
 如需所產生的用戶端的詳細資訊，請參閱 [AutoRest GitHub 儲存機制](https://github.com/azure/autorest)。如需使用所產生用戶端的相關問題協助，請開啟 [AutoRest 儲存機制中的問題](https://github.com/azure/autorest/issues)。
 
@@ -492,7 +493,7 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 在本教學課程中，您會下載 ASP.NET Web API 專案以便部署至 App Service，而非從頭開始建立新的專案。若要建立打算部署到 API 應用程式的專案，您可以建立一般 Web API 專案並安裝 Swashbuckle 封裝，也可以使用 [Azure API 應用程式] 新專案範本。若要使用該範本，請按一下 [檔案] > [新增] > [專案] > [ASP.NET Web 應用程式] > [Azure API 應用程式]。
 
-![](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
+![Visual Studio 中的 API 應用程式範本](./media/app-service-api-dotnet-get-started/apiapptemplate.png)
 
 [Azure API 應用程式] 專案範本等同於選擇 [空白] ASP.NET 4.5.2 範本、按一下核取方塊以加入 Web API 支援，然後安裝 Swashbuckle 封裝。此外，範本會加入為了避免建立重複的 Swagger 作業識別碼而設計的某些 Swashbuckle 組態程式碼。
 
@@ -506,15 +507,15 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 
 2. 在左導覽窗格中，展開 [訂用帳戶]，然後展開您先前使用的訂用帳戶。
 
-4. 展開 resourceGroups，然後展開您先前使用的資源群組。
+4. 展開 **resourceGroups**，然後展開您先前使用的資源群組。
 
-5. 依序展開 Microsoft.Web、sites，然後選取您要變更的 API 應用程式。
+5. 依序展開 **Microsoft.Web**、**sites**，然後選取您要變更的 API 應用程式。
 
-6. 按一下 [**編輯**]。
+6. 按一下 [編輯]。
 
 8. 尋找 `kind` 屬性，然後將它從 "api" 變更為 "WebApp"。
 
-	![](./media/app-service-api-dotnet-get-started/resexp.png)
+	![App Service 執行個體的種類屬性](./media/app-service-api-dotnet-get-started/resexp.png)
 
 9. 按一下 [放置]。
 
@@ -530,8 +531,16 @@ ToDoListAPI 專案已有產生的用戶端程式碼，但是您要將其刪除�
 		  "url": "https://todolistdataapi.azurewebsites.net/swagger/docs/v1"
 		}
 
+## 疑難排解
+
+如果您在進行本教學課程時遇到問題，請確定您使用的是最新版 Azure SDK for .NET。若要這麼做，最簡單的方法是[下載 Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003)；如果您已安裝最新版本，Web Platform Installer 會指出不需要進行安裝。
+
+如果您位於公司網路內，並嘗試透過防火牆部署至 Azure App Service，請確定連接埠 443 和 8172 已針對 Web Deploy 開啟。如果您無法開啟這些連接埠，請參閱下面的＜後續步驟＞一節以了解其他部署選項。
+
+在 Azure App Service 中執行 ASP.NET API 應用程式之後，建議您深入了解可簡化疑難排解步驟的 Visual Studio 功能。如需記錄和遠端偵錯等功能的相關資訊，請參閱[在 Visual Studio 中針對 Azure App Service 應用程式進行疑難排解](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)。
+
 ## 後續步驟
 
 在本教學課程中，您已了解如何建立 API 應用程式、對其部署程式碼、為其產生用戶端程式碼，以及從 .NET 用戶端取用應用程式。API Apps 入門系列中的下一個教學課程示範如何[使用 CORS 從 JavaScript 用戶端取用 API 應用程式](app-service-api-cors-consume-javascript.md)。本系列的教學課程稍後會顯示如何實作驗證與授權。
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

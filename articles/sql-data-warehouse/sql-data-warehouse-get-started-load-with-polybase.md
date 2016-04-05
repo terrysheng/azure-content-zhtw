@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;jrj;sonyama"/>
 
 
@@ -53,20 +53,20 @@
 
 1. 開啟 [記事本]，並將下列幾行資料複製到新的檔案。將此檔案儲存到本機暫存目錄 %temp%\\DimDate2.txt。
 
-    ```
-    20150301,1,3
-    20150501,2,4
-    20151001,4,2
-    20150201,1,3
-    20151201,4,2
-    20150801,3,1
-    20150601,2,4
-    20151101,4,2
-    20150401,2,4
-    20150701,3,1
-    20150901,3,1
-    20150101,1,3
-    ```
+```
+20150301,1,3
+20150501,2,4
+20151001,4,2
+20150201,1,3
+20151201,4,2
+20150801,3,1
+20150601,2,4
+20151101,4,2
+20150401,2,4
+20150701,3,1
+20150901,3,1
+20150101,1,3
+```
 
 ### B.尋找您的 Blob 服務端點
 
@@ -141,7 +141,7 @@ PolyBase 使用外部資料表存取 Azure Blob 儲存體或 Hadoop 中的資料
 對 SQL 資料倉儲資料庫執行這個查詢。它會在 dbo 結構描述中建立指向 Azure Blob 儲存體中 DimDate2.txt 範例資料的外部資料表 (名稱為 DimDate2External)。
 
 
-```
+```sql
 -- A: Create a master key.
 -- Only necessary if one does not already exist.
 -- Required to encrypt the credential secret in the next step.
@@ -208,14 +208,19 @@ SELECT count(*) FROM dbo.DimDate2External;
 
 ```
 
-## 步驟 4：將資料載入 SQL 資料倉儲
+
+在 Visual Studio 的 [SQL Server 物件總管] 內，您可以看到外部檔案格式、外部資料來源和 DimDate2External 資料表。
+
+![檢視外部資料表](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
+
+## 步驟 3：將資料載入 SQL 資料倉儲
 
 外部資料表建立好後，您可以將資料載入至新資料表，或將其插入到現有資料表。
 
 - 若要將資料載入至新資料表，請執行 [CREATE TABLE AS SELECT (Transact-SQL)][] 陳述式。新資料表會擁有查詢中指名的資料行。資料行的資料類型會符合外部資料表定義中的資料類型。
 - 若要將資料載入至現有資料表，請使用 [INSERT...SELECT (Transact-SQL)][] 陳述式。
 
-```
+```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE dbo.DimDate2
@@ -228,21 +233,16 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-
-在 Visual Studio 的 [SQL Server 物件總管] 內，您可以看到外部檔案格式、外部資料來源和 DimDate2External 資料表。
-
-![檢視外部資料表](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
-
-## 步驟 5：建立新載入資料的統計資料
+## 步驟 4：建立新載入資料的統計資料
 
 SQL 資料倉儲不會自動建立或自動更新統計資料。因此，若要達到高查詢效能，請務必在第一次載入後，於每個資料表的每個資料行上建立統計資料。另外，也請務必在大幅變更資料後更新統計資料。
 
-本範例會在新的 DimDate2External 資料表上建立單一資料行統計資料。
+本範例會在新的 DimDate2 資料表上建立單一資料行統計資料。
 
-```
+```sql
 CREATE STATISTICS [DateId] on [DimDate2] ([DateId]);
 CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
-create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
 若要深入了解，請參閱[統計資料][]。
@@ -286,4 +286,4 @@ create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 [建立資料庫範圍認證 (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -32,10 +32,10 @@ Mesos 提供環境來部署及調整叢集工作負載，同時將基礎硬體�
 
 ## 從 Mesos 和 Marathon 收集資訊
 
-將容器部署至 Mesos 叢集之前，請收集 Mesos 叢集的一些相關資訊，例如 Mesos 代理程式的名稱和目前狀態。若要這樣做，請查詢 Mesos 主機上的 `master/slaves` 端點。如果一切順利，您會看到 Mesos 代理程式清單及每個代理程式的數個屬性。
+將容器部署至 Mesos 叢集之前，請收集 Mesos 叢集的一些相關資訊，例如 Mesos 代理程式的名稱和目前狀態。若要這樣做，請查詢 Mesos REST API 的 `master/slaves` 端點。如果一切順利，您會看到 Mesos 代理程式清單及每個代理程式的數個屬性。
 
 ```bash
-curl http://localhost/master/slaves
+curl http://localhost/mesos/master/slaves
 ```
 
 現在，使用 Marathon `/apps` 端點來檢查目前部署至 Mesos 叢集的應用程式。如果這是新的叢集，您會看到空的應用程式陣列。
@@ -160,4 +160,4 @@ Marathon API 也可用來相應放大或縮小應用程式部署。前一個範�
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

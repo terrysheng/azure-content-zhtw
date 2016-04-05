@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/21/2016"
+	ms.date="03/29/2016"
 	ms.author="vakarand"/>
 
 
@@ -134,7 +134,7 @@
 
 ![驗證適用於同步處理的 Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/services.png)
 
->[Azure.NOTE] 請記住，使用 Azure AD Connect Health 需要 Azure AD Premium。如果您沒有 Azure AD Premium，將無法完成 Azure 入口網站中的組態。如需詳細資訊，請參閱[此處](active-directory-aadconnect-health-agent-install.md#requirements)的需求。
+> [AZURE.NOTE] 請記住，使用 Azure AD Connect Health 需要 Azure AD Premium。如果您沒有 Azure AD Premium，將無法完成 Azure 入口網站中的組態。如需詳細資訊，請參閱[此處](active-directory-aadconnect-health-agent-install.md#requirements)的需求。
 
 
 ## 手動 Azure AD Connect Health for Sync 註冊
@@ -187,7 +187,7 @@
 
 	Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
 
-範例：*Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver:443*
+範例：Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver:443
 
 - 「位址」可以是可解析的 DNS 伺服器名稱或 IPv4 位址
 - 「連接埠」可以省略。如果省略，則會選擇 443 做為預設連接埠。
@@ -233,4 +233,4 @@
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 版本歷程記錄](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -46,14 +46,17 @@
 	1. 如果您偏好讓您的 API 可透過網際網路存取，您可以在您的 App Service 環境與您現有的 API 之間設定 HTTP 基本存取驗證。[更新現有的 API 以了解如何進行。](powerapps-configure-apis.md)<br/><br/>
 	2. 如果您想要將 API 保留在您組織的網路內，您可以在 App Service 環境中設定虛擬網路，以安全地存取您的組織。深入了解 [App Service 環境](../app-service-web/app-service-app-service-environment-intro.md)。
 
-3. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [PowerApps]，然後選取 [Manage APIs] (管理 API)：![][11]
-4. 在 [Manage APIs] (管理 API) 中，選取 [Add] (新增)：![][12]
-5. 在 [Add API] (新增 API) 中，輸入 API 屬性：  
+3. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [PowerApps]，然後選取 [Manage APIs] \(管理 API)：  
+![][11]
+4. 在 [Manage APIs] \(管理 API) 中，選取 [Add] \(新增)：  
+![][12]
+5. 在 [Add API] \(新增 API) 中，輸入 API 屬性：  
 
-	- 在 [Name] (名稱) 中，輸入 API 的名稱。請注意，您輸入的名稱會包含在 API 的執行階段 URL 中。設定有意義且在組織中獨一無二的名稱。
+	- 在 [Name] \(名稱) 中，輸入 API 的名稱。請注意，您輸入的名稱會包含在 API 的執行階段 URL 中。設定有意義且在組織中獨一無二的名稱。
 	- 在 [**來源**] 中選取 [**從 Swagger 2.0 匯入**]。
 
-6. 在 [**API 定義 (Swagger 2.0)**] 中，上傳您的 Swagger 2.0 API 定義檔案：![][13]
+6. 在 [**API 定義 (Swagger 2.0)**] 中，上傳您的 Swagger 2.0 API 定義檔案：  
+ ![][13]
 7. 選取 [**新增**] 以完成這些步驟。
 
 > [AZURE.TIP] 註冊 API 時，您是向您的 App Service 環境註冊 API。一旦其在 App Service 環境中，相同 App Service 環境內的其他應用程式便能使用它。
@@ -72,3 +75,4 @@
 [13]: ./media/powerapps-register-existing-api-from-api-definition/add-api-blade.png
 
 <!---HONumber=AcomDC_0309_2016-->
+

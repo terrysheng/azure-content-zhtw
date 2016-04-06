@@ -82,7 +82,7 @@
 
 3. 在 [目標] 下按一下您的專案名稱，然後按一下 [組建設定] 索引標籤並展開 [程式碼簽署身分識別]，接著在 [偵錯] 下設定您的程式碼簽署身分識別。將 [層級] 從 [基本] 切換成 [全部]，然後將 [佈建設定檔] 設為您先前建立的佈建設定檔。
 
-	如果畫面未顯示您在 Xcode 中建立的新佈建設定檔，請嘗試重新整理簽署身分識別的設定檔。按一下功能表列上的 [Xcode]，再依序按一下 [喜好設定]、[帳號] 索引標籤、[檢視詳細資料] 按鈕、您的簽署身分識別，然後按一下右下角的 [重新整理] 按鈕。
+	如果畫面未顯示您在 Xcode 中建立的新佈建設定檔，請嘗試重新整理簽署身分識別的設定檔。按一下功能表列上的 \[Xcode]，再依序按一下 [喜好設定]、[帳號] 索引標籤、[檢視詳細資料] 按鈕、您的簽署身分識別，然後按一下右下角的 [重新整理] 按鈕。
 
    	![Xcode - 佈建設定檔][9]
 
@@ -505,4 +505,4 @@
 [本機和推播通知程式設計指南]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure 入口網站]: https://portal.azure.com
 
-<!----HONumber=AcomDC_0323_2016-->
+<!-----HONumber=AcomDC_0323_2016-->

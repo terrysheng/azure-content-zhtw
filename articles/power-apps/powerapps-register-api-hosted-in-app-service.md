@@ -54,11 +54,13 @@ PowerApps 支援註冊託管於雲端或內部部署任何位置的 API，其功
 
 API 部署至 App Service 環境之後，請使用下列步驟註冊：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [PowerApps]，然後選取 [管理 API]：![][11]
-2. 在 [Manage APIs] (管理 API) 中，選取 [Add] (新增)：![][12]  
-3. 在 [Add API] (新增 API) 中，輸入 API 屬性：  
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [PowerApps]，然後選取 [管理 API]：  
+![][11]
+2. 在 [Manage APIs] \(管理 API) 中，選取 [Add] \(新增)：  
+![][12]  
+3. 在 [Add API] \(新增 API) 中，輸入 API 屬性：  
 
-	- 在 [Name] (名稱) 中，輸入 API 的名稱。請注意，您輸入的名稱會包含在 API 的執行階段 URL 中。請使用對貴組織有意義且為唯一的名稱。	
+	- 在 [Name] \(名稱) 中，輸入 API 的名稱。請注意，您輸入的名稱會包含在 API 的執行階段 URL 中。請使用對貴組織有意義且為唯一的名稱。	
 	- 在 [來源] 中選取 [從 App Service 環境代管的 API 匯入]：![][13]
 4. 在 [App Service 環境代管的 API] 中選取要匯入的 API。這份清單會顯示已設定其 **apiDefinition.url** 屬性之 App Service 環境中的每一個 Web 應用程式、API 應用程式和行動應用程式。若要匯入 API，它會使用利用這個屬性公開的 Swagger 2.0 API 定義。當您註冊 API 時，請確定這個 URL 可公開存取：![][14]
 5. 選取 [加入] 完成這些步驟。
@@ -79,3 +81,4 @@ API 部署至 App Service 環境之後，請使用下列步驟註冊：
 [14]: ./media/powerapps-register-api-hosted-in-app-service/add-api-select-from-ase.png
 
 <!---HONumber=AcomDC_0309_2016-->
+

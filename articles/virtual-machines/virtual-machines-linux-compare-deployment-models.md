@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-compare-deployment-models](../../includes/virtual-machines-common-compare-deployment-models.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!------HONumber=AcomDC_0323_2016-->

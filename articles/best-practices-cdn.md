@@ -65,7 +65,8 @@ CDN 的典型用法包括：
 |韓國首爾| 190 | 190 | 0% |
 
 
-* 在同一城市中具有 Azure CDN 節點。** 在鄰近城市中具有 Azure CDN 節點。
+\* 在同一城市中具有 Azure CDN 節點。
+\*\* 在鄰近城市中具有 Azure CDN 節點。
 
 ## 挑戰  
 
@@ -283,4 +284,4 @@ Azure CDN 可讓您指定[自訂網域名稱](./cdn/cdn-map-content-to-custom-do
 + [整合雲端服務與 Azure CDN](./cdn/cdn-cloud-service-with-cdn.md/)
 + [Microsoft Azure 內容傳遞網路的最佳作法](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

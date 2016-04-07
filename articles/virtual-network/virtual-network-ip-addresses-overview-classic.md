@@ -136,7 +136,7 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 
 下表顯示在 Azure 中，針對每一訂用帳戶在 IP 定址上所加諸的限制。您可以[連絡支援人員](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)，以根據您的業務需求將預設上限調升到最高上限。
 
-|預設限制|上限|
+||預設限制|上限|
 |---|---|---|
 |公用 IP 位址 (動態)|5|連絡支援人員|
 |保留的公用 IP 位址|20|連絡支援人員|
@@ -166,4 +166,4 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 ## 後續步驟
 - 使用傳統入口網站[部署使用靜態私人 IP 位址的 VM](virtual-networks-static-private-ip-classic-pportal.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!------HONumber=AcomDC_0323_2016-->

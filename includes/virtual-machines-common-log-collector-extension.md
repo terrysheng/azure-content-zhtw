@@ -1,5 +1,6 @@
 
 要診斷 Microsoft Azure 雲端服務的問題，必須在問題發生時收集服務在虛擬機器上的記錄檔。您可以視需要使用 AzureLogCollector 延伸模組，從一或多個雲端服務 VM (從 Web 角色和背景工作角色) 執行一次性的記錄收集作業，並將收集到的檔案傳輸到 Azure 儲存體帳戶，完全不必遠端登入任何 VM。
+
 > [AZURE.NOTE]大部分已記錄的資訊都可在 http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp 找到相關說明。
 
 根據要收集的檔案類型，會有兩種收集模式。
@@ -26,4 +27,4 @@
 
 - **遞迴**：如果要以遞迴方式收集資料夾下的檔案。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

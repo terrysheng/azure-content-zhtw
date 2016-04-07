@@ -552,11 +552,11 @@
 	...
 	```
 
-	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
+	請注意，為 CSS 套件組合插入的指令碼仍在下列行中包含 `CdnFallbackExpression` 屬性的出錯殘留部分：
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
+	但因為 || 運算式的開頭部分一定會傳回 true (緊鄰的上一行)，所以 document.write() 函數永遠不會執行。
 
 6. 若要測試後援指令碼是否可運作，請回到 CDN 端點的刀鋒視窗，並按一下 [停止]。
 

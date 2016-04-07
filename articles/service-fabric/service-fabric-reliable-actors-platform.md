@@ -3,7 +3,7 @@
    description="描述 Reliable Actors 如何使用 Service Fabric 平台的功能，且涵蓋動作項目開發人員觀點的概念。"
    services="service-fabric"
    documentationCenter=".net"
-   authors="myamanbh"
+   authors="vturecek"
    manager="timlt"
    editor="vturecek"/>
 

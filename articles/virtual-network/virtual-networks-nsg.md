@@ -125,10 +125,10 @@ NSG 包含兩組規則：輸入和輸出。規則的優先順序在每一個集�
 |部署工具|傳統|資源管理員|
 |---|---|---|
 |傳統入口網站|![否][red]|![否][red]|
-|Azure 入口網站|![是][green]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![是][green]</a>|
-|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![是][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![是][green]</a>|
-|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![是][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![是][green]</a>|
-|ARM 範本|![否][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![是][green]</a>|
+|Azure 入口網站|![是][green]|[![是][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal)|
+|PowerShell|[![是][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps)|[![是][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps)|
+|Azure CLI|[![是][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli)|[![是][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli)|
+|ARM 範本|![否][red]|[![是][green]]( https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template)|
 
 |**Key**|![是][green] 支援。按一下文章。|![否][red] 不支援。|
 |---|---|---|
@@ -282,4 +282,4 @@ NSG 包含兩組規則：輸入和輸出。規則的優先順序在每一個集�
 [yellow]: ./media/virtual-network-nsg-overview/yellow.png
 [red]: ./media/virtual-network-nsg-overview/red.png
 
-<!----HONumber=AcomDC_0323_2016-->
+<!------HONumber=AcomDC_0323_2016-->

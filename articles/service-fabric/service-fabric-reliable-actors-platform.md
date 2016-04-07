@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/15/2016"
-   ms.author="amanbha"/>
+   ms.author="vturecek"/>
 
 # Reliable Acto 如何使用 Service Fabric 平台
 

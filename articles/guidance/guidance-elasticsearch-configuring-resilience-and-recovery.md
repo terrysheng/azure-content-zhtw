@@ -343,4 +343,3 @@ Failure -- BulkDataInsertTest17(org.apache.jmeter.protocol.java.sampler.JUnitSam
 [執行自動化 Elasticsearch 復原測試]: guidance-elasticsearch-running-automated-resilience-tests.md
 
 <!---HONumber=AcomDC_0224_2016 for CC training test -->
-<!---HONumber=AcomDC_0224_2016 for CC training test: reject -->

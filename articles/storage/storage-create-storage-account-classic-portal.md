@@ -173,4 +173,4 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 - 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
 - [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
 
-<!-----HONumber=AcomDC_0218_2016-->
+<!------HONumber=AcomDC_0218_2016-->

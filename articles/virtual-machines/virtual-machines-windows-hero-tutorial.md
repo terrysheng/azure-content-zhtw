@@ -117,4 +117,4 @@
 * 使用 [Azure Resource Manager](https://azure.microsoft.com/documentation/templates/)，自動部署和管理虛擬機器和工作負載。
 * 您也可以使用 Azure CLI 快速[建立 Linux 虛擬機器](virtual-machines-linux-quick-create-cli.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0323_2016-->

@@ -342,4 +342,5 @@ Failure -- BulkDataInsertTest17(org.apache.jmeter.protocol.java.sampler.JUnitSam
 [管理虛擬機器的可用性]: ../articles/virtual-machines/virtual-machines-manage-availability.md
 [執行自動化 Elasticsearch 復原測試]: guidance-elasticsearch-running-automated-resilience-tests.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0224_2016 for CC training test -->
+<!---HONumber=AcomDC_0224_2016 for CC training test: reject -->

@@ -1,21 +1,21 @@
-<properties 
- pageTitle="排程器高可用性和可靠性" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="排程器高可用性和可靠性"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
- 
- 
+
+
 # 排程器高可用性和可靠性
 
 ## Azure 排程器高可用性
@@ -30,7 +30,7 @@
 
 Azure 排程器前端不僅可供管理要求使用，您自己的工作也是可以進行地理區域複寫。在某個區域中斷執行時，Azure 排程器會容錯移轉，並確保從配對的地理區域中的另一個資料中心執行工作。
 
-比方說，如果您在美國中南部建立工作，Azure 排程器就會在中北部自動複寫該工作。在美國中南部失敗時，Azure 排程器會確保工作從美國中北部執行。[這裡提供配對的 Azure 區域清單](https://msdn.microsoft.com/library/azure/dn758204.aspx)。
+比方說，如果您在美國中南部建立工作，Azure 排程器就會在中北部自動複寫該工作。在美國中南部失敗時，Azure 排程器會確保工作從美國中北部執行。[如需 Azure 異地複寫功能的深入說明，請參閱本主題。](../sql-database/sql-database-business-continuity-design.md)
 
 ![][1]
 
@@ -56,14 +56,14 @@ Azure 排程器可讓您設定重試原則。根據預設，如果工作失敗�
 
 ![][2]
 
-請注意，相同的重試原則同時適用於原始動作和替代錯誤動作。此外，替代錯誤動作的動作類型也可能與主要動作的動作類型不同。例如，當主要動作可能叫用 HTTP 端點時，而錯誤動作則可能改為進行錯誤記錄的儲存體佇列動作。
+請注意，相同的重試原則同時適用於原始動作和替代錯誤動作。此外，替代錯誤動作的動作類型也可能與主要動作的動作類型不同。例如，當主要動作可能叫用 HTTP 端點時，而錯誤動作則可能改為進行錯誤記錄的儲存體佇列、服務匯流排佇列或服務匯流排主題動作。
 
 若要了解如何設定替代端點，請參閱 [errorAction](scheduler-concepts-terms.md#action-and-erroraction)。
 
 ## 另請參閱
 
  [排程器是什麼？](scheduler-intro.md)
- 
+
  [Azure 排程器概念、術語及實體階層](scheduler-concepts-terms.md)
 
  [在 Azure 入口網站中開始使用排程器](scheduler-get-started-portal.md)
@@ -79,12 +79,10 @@ Azure 排程器可讓您設定重試原則。根據預設，如果工作失敗�
  [Azure 排程器限制、預設值和錯誤碼](scheduler-limits-defaults-errors.md)
 
  [Azure 排程器輸出驗證](scheduler-outbound-authentication.md)
- 
- 
+
+
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
- 
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

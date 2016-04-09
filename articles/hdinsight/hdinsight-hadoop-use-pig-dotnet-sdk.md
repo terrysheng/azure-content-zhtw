@@ -49,7 +49,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 每個 Azure 訂閱都是透過 GUID 值 (稱為訂閱識別碼) 予以識別。請使用下列步驟來尋找此值。
 
-1. 瀏覽 [Azure 入口網站](preview-portal)。
+1. 造訪 [Azure 入口網站][preview-portal]。
 
 2. 從入口網站的左側列選取 [瀏覽全部]，然後從 [瀏覽] 刀鋒視窗選取 [訂用帳戶]。
 
@@ -64,23 +64,23 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 3. 對於新的專案，輸入或選取下列值。
 
 	<table>
-<tr>
-<th>屬性</th>
-<th>值</th>
-</tr>
-<tr>
-<th>類別</th>
-<th>範本/Visual C#/Windows</th>
-</tr>
-<tr>
-<th>範本</th>
-<th>主控台應用程式</th>
-</tr>
-<tr>
-<th>名稱</th>
-<th>SubmitPigJob</th>
-</tr>
-</table>
+	<tr>
+	<th>屬性</th>
+	<th>值</th>
+	</tr>
+	<tr>
+	<th>類別</th>
+	<th>範本/Visual C#/Windows</th>
+	</tr>
+	<tr>
+	<th>範本</th>
+	<th>主控台應用程式</th>
+	</tr>
+	<tr>
+	<th>名稱</th>
+	<th>SubmitPigJob</th>
+	</tr>
+	</table>
 4. 按一下 [確定] 以建立專案。
 5. 從 [**工具**] 功能表中，選取 [**程式庫封裝管理員**] 或 [**Nuget 封裝管理員**]，然後選取 [**封裝管理員主控台**]。
 6. 在主控台中執行下列命令，以安裝 .NET SDK 封裝。
@@ -122,7 +122,6 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
                     // Define the Pig job
                     var parameters = new PigJobSubmissionParameters()
                     {
-                        UserName = ExistingClusterUsername,
                         Query = queryString,
                     };
         
@@ -156,6 +155,6 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 * [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
-[preview-portal]：https://portal.azure.com/
+[preview-portal]: https://portal.azure.com/
 
-<!-----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

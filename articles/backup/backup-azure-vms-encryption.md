@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="11/27/2015"
+   ms.date="03/14/2016"
    ms.author="markgal; jimpark"/>
 
 # 處理 VM 備份期間加密的磁碟
@@ -62,4 +62,4 @@
 - [部署指南 - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [部署及使用 SecureVM - 影片](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

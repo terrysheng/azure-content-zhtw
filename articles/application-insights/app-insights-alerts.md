@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/05/2016" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中設定警示
@@ -48,6 +48,8 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
 *我沒看到 [新增警示] 按鈕。* - 您使用的是組織帳戶嗎？ 如果您有這個應用程式資源的擁有者或參與者存取權，您可以設定警示。查看 [設定] -> [使用者]。[深入了解存取控制][roles]。
 
+> [AZURE.NOTE] 在 [警示] 刀鋒視窗中，您會看到已經設定警示集︰[NRT 主動診斷](app-insights-nrt-proactive-diagnostics.md)。這是會監視要求失敗率這一個特定度量的自動警示。因此除非您決定要停用此功能，否則不需要設定自己的要求失敗率警示。
+
 ## 查看您的警示
 
 當警示在非作用中與作用中之間變更狀態時，您會收到電子郵件。
@@ -58,13 +60,10 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
 ![](./media/app-insights-alerts/010-alert-drop.png)
 
-狀態變更的歷程記錄位於作業事件記錄檔中：
+狀態變更的歷程記錄位於稽核記錄檔中：
 
-![在 [概觀] 刀鋒視窗靠近底部的位置，按一下 [過去一週的事件]](./media/app-insights-alerts/09-alerts.png)
+![在 [概觀] 刀鋒視窗中，按一下 [設定]、[稽核記錄檔]](./media/app-insights-alerts/09-alerts.png)
 
-*這些「事件」是否與遙測事件或自訂事件相關？*
-
-* 否。這些作業事件只是於此應用程式資源發生之事件的記錄。 
 
 
 ## 警示的運作方式
@@ -127,4 +126,4 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
  
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

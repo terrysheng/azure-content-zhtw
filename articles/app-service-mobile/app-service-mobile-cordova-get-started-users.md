@@ -54,7 +54,7 @@
 
     content-security-policy (針對 Azure Active Directory 實作) 的範例如下所示：
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'
 			data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
 
     您應該使用上表中的 OAuth 主機取代 `https://login.windows.net`。如需此中繼標籤的詳細資訊，請參閱 [Content-Security-Policy 文件]。
@@ -96,10 +96,19 @@
 * 深入了解 Azure App Service [驗證相關資訊]。
 * 將[推播通知]新增至 Apache Cordova 應用程式，以繼續本教學課程。
 
+了解如何使用 SDK。
+
+* [Apache Cordova SDK]
+* [ASP.NET Server SDK]
+* [Node.js Server SDK]
+
 <!-- URLs. -->
 [開始使用行動應用程式]: app-service-mobile-cordova-get-started.md
 [Content-Security-Policy 文件]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 [推播通知]: app-service-mobile-cordova-get-started-push.md
 [驗證相關資訊]: app-service-mobile-auth.md
+[Apache Cordova SDK]: app-service-mobile-codova-how-to-use-client-library.md
+[ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

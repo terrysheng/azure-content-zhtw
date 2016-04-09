@@ -108,7 +108,7 @@ Azure 診斷可讓您從雲端服務背景工作角色或 web 角色，或從在
 
 ![][1]
 
-Azure 診斷將記錄檔從客戶雲端服務應用程式和 [Azure 虛擬機器](virtual-machines-about.md)移至 Azure 儲存體。根據記錄檔格式，某些資料會儲存在 Azure 資料表中，某些在 blob 中。在 [Azure 儲存體](storage-introduction.md)中收集的資料可以使用 Azure 儲存體用戶端程式庫下載至內部部署 SIEM 系統加以監視與分析。
+Azure 診斷將記錄檔從客戶雲端服務應用程式和 [Azure 虛擬機器](virtual-machines/virtual-machines-linux-about.md)移至 Azure 儲存體。根據記錄檔格式，某些資料會儲存在 Azure 資料表中，某些在 blob 中。在 [Azure 儲存體](storage-introduction.md)中收集的資料可以使用 Azure 儲存體用戶端程式庫下載至內部部署 SIEM 系統加以監視與分析。
 
 此外，HDInsight 可用於進一步分析雲端中的資料。以下是使用 Azure 診斷進行安全性資料收集的一些範例。
 
@@ -614,4 +614,4 @@ Azure Active Directory (Azure AD) 包含一組安全性、使用方式與稽核�
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

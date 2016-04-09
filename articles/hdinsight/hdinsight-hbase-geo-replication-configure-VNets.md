@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
 # 設定兩個 Azure 虛擬網路之間的 VPN 連線  
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
+- [設定 VPN 連線](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [設定 DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [設定 HBase 複寫](hdinsight-hbase-geo-replication.md) 
 
 Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IKE 的安全通道。VNet 可位於不同的訂用帳戶和不同的區域。您甚至可以使用多網站組態來結合 VNet 對 VNet 通訊。VNet 對 VNet 連線的原因有幾種：
 
@@ -29,7 +29,7 @@ Azure 虛擬網路的站對站連線會使用 VPN 閘道來提供採用 Ipsec/IK
 - 具有嚴密隔離界限的區域性多層式應用程式 
 - 在 Azure 中的跨訂用帳戶、組織間通訊
 
-如需詳細資訊，請參閱[設定 VNet 對 VNet 連線](../virtual-network/virtual-networks-configure-vnet-to-vnet-connection.md)。
+如需詳細資訊，請參閱[設定 VNet 對 VNet 連線](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)。
 
 若要觀看相關影片：
 
@@ -270,4 +270,4 @@ Vnet 閘道會使用共用金鑰來驗證虛擬網路之間的連線。此金鑰
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

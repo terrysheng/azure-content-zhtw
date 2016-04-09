@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中建立和使用群組來管理開發人員帳戶
@@ -30,7 +30,7 @@ API 管理具有下列不可變的系統群組。
 
 本指南說明 API 管理執行個體的管理員如何加入新的群組，並將這些群組與產品和開發人員建立關聯。
 
->[AZURE.NOTE]除了在發佈者入口網站中建立和管理群組，您還可以使用 API 管理 REST API [群組](https://msdn.microsoft.com/library/azure/dn776329.aspx)實體，建立和管理您的群組。
+>[AZURE.NOTE] 除了在發佈者入口網站中建立和管理群組，您還可以使用 API 管理 REST API [群組](https://msdn.microsoft.com/library/azure/dn776329.aspx)實體，建立和管理您的群組。
 
 ## <a name="create-group"> </a>建立群組
 
@@ -64,7 +64,7 @@ API 管理具有下列不可變的系統群組。
 
 ![Set visibility][api-management-add-group-to-product-visibility]
 
->[AZURE.NOTE]若要加入 Azure Active Directory 群組，請參閱[如何在 Azure API 管理中使用 Azure Active Directory 授權開發人員帳戶](api-management-howto-aad.md)。
+>[AZURE.NOTE] 若要加入 Azure Active Directory 群組，請參閱[如何在 Azure API 管理中使用 Azure Active Directory 授權開發人員帳戶](api-management-howto-aad.md)。
 >
 >若要從產品的 [可見度] 索引標籤中設定群組，請按一下 [管理群組]。
 
@@ -111,4 +111,4 @@ API 管理具有下列不可變的系統群組。
 [開始使用 Azure API 管理]: api-management-get-started.md#create-service-instance
 [使用 Azure Active Directory 相關租用戶中的外部群組]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

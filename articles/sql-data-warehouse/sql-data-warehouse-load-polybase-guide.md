@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
@@ -37,7 +37,7 @@
 3. 卸除並建立指向新的外部資料來源的外部資料表
 
 當您移轉所有的外部資料表到新的外部資料來源時，您就可以執行清除工作：
- 
+
 1. 卸除第一個外部資料來源
 2. 卸除以主要儲存體存取金鑰為基礎的第一個資料庫範圍認證
 3. 登入 Azure 並重新產生主要存取金鑰供下一次使用
@@ -47,13 +47,13 @@
 
 ```
 
--- Query Azure storage resident data via external table. 
+-- Query Azure storage resident data via external table.
 SELECT * FROM [ext].[CarSensor_Data]
 ;
 
 ```
 
-> [AZURE.NOTE]外部資料表上的查詢可能會失敗，並顯示「*查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值*」錯誤。這表示您的外部資料包含「*錯誤*」記錄。如果實際的資料類型/資料行數目不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。若要修正此問題，請確定您的外部資料表及外部檔案格式定義皆正確，且這些定義與您的外部資料相符。萬一外部資料記錄的子集有錯誤，您可以使用 CREATE EXTERNAL TABLE DDL 中的拒絕選項，選擇拒絕這些查詢記錄。
+> [AZURE.NOTE] 外部資料表上的查詢可能會失敗，並顯示「*查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值*」錯誤。這表示您的外部資料包含「*錯誤*」記錄。如果實際的資料類型/資料行數目不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。若要修正此問題，請確定您的外部資料表及外部檔案格式定義皆正確，且這些定義與您的外部資料相符。萬一外部資料記錄的子集有錯誤，您可以使用 CREATE EXTERNAL TABLE DDL 中的拒絕選項，選擇拒絕這些查詢記錄。
 
 
 ## 從 Azure blob 儲存體載入資料
@@ -66,16 +66,16 @@ SELECT * FROM [ext].[CarSensor_Data]
 CREATE TABLE AS SELECT 是高效能 TRANSACT-SQL 陳述式，可將資料平行載入到您的 SQL 資料倉儲的所有計算節點。它原本是針對分析平台系統中的大量平行處理 (MPP) 引擎所開發，現在已納入 SQL 資料倉儲中。
 
 ```
--- Load data from Azure blob storage to SQL Data Warehouse 
+-- Load data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE [dbo].[Customer_Speed]
-WITH 
+WITH
 (   
     CLUSTERED COLUMNSTORE INDEX
 ,	DISTRIBUTION = HASH([CarSensor_Data].[CustomerKey])
 )
-AS 
-SELECT * 
+AS
+SELECT *
 FROM   [ext].[CarSensor_Data]
 ;
 ```
@@ -129,7 +129,7 @@ WHERE
 ### 簡單的小檔案範例
 
 以下是一行會建立檔案的簡單 Powershell 指令碼。
- 
+
 ```
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
@@ -210,4 +210,4 @@ $write.Dispose()
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

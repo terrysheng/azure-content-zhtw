@@ -13,82 +13,144 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="03/14/2016"
 	ms.author="billmath"/>
 
-#多網域支援
+# 與 Azure AD 同盟的多網域支援
+以下文件提供與 Office 365 或 Azure AD 網域同盟時，如何使用多個最上層網域和子網域的指引。
 
-許多人都很好奇如何使用同盟設定多個最上層 Office 365 或 Azure AD 網域和子網域。儘管大部分的程序都可以透過簡單明瞭的方式完成，但是由於有些事情是我們在幕後進行的，因此您應該瞭解一些秘訣與技巧，以避免發生下列問題
+## 多個最上層網域支援
+若要讓多個最上層網域與 Azure AD 同盟，您需要一些讓單一最上層網域同盟時不需要的額外組態。
 
-- 嘗試為同盟設定其他網域時的錯誤訊息
-- 在為同盟設定多個最上層網域之後，子網域中的使用者無法登入
+當網域與 Azure AD 同盟時，系統會在 Azure 中的網域上設定幾個屬性。其中一個重要屬性是 IssuerUri。這是 Azure AD 用來識別與權杖相關聯之網域的 URI。該 URI 不需要解析為任何內容，不過它必須是有效的 URI。根據預設，Azure AD 會在內部部署 AD FS 組態中將其設定為同盟服務識別碼的值。
 
-## 多個最上層網域
-我將引導您完成範例組織 contoso.com 的設定，該組織想要名為 fabrikam.com 的額外網域。
+>[AZURE.NOTE]同盟服務識別碼是可唯一識別同盟服務的 URI。同盟服務是能做為 Security Token Service 的 AD FS 執行個體。
 
-假設在我的內部部署系統中，我已經將 AD FS 的同盟服務名稱設定為 fs.contoso100.com。
+您可以使用 PowerShell 命令 `Get-MsolDomainFederationSettings - DomainName <your domain>` 檢視 IssuerUri。
 
-當我第一次註冊 Office 365 或 Azure AD 時，我選擇將 contoso.com 設定為我的第一個登入網域。我可以透過使用 New-msolfederateddomain 的 Azure AD Connect 或 Azure AD Powershell 來完成此目的。
+![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
 
-完成時，讓我們看一下這兩個新 Azure AD 網域之新組態屬性的預設值 (這可以使用 Get-MsolDomainFederationSettings 查詢)：
+當我們想要加入多個最上層網域時，問題便油然而生。例如，假設您已設定 Azure AD 和內部部署環境之間的同盟。在本文中我使用 bmcontoso.com。現在我已加入第二個最上層網域 bmfabrikam.com。
 
-| 屬性名稱 | 值 | 說明|
-| ----- | ----- | -----|
-|IssuerURI | http://fs.contoso100.com/adfs/services/trust| 雖然它看起來像是個 URL，但這個屬性其實只是內部部署驗證系統的名稱，因此路徑不需要解析為任何項目。根據預設，Azure AD 會在我的內部部署 AD FS 組態中將其設定為同盟服務識別碼的值。
-|PassiveClientSignInUrl|https://fs.contoso100.com/adfs/ls/|This 是將傳送被動登入要求的目標位置，且它會解析成我的實際 AD FS 系統。實際上有幾個「*Url」屬性，但我們只需要看一下說明此屬性與 URI 之間差異 (例如 IssuerURI) 的範例。
+![網域](./media/active-directory-multiple-domains/domains.png)
 
-現在，假設我加入第二個網域 fabrikam.com。同樣的，我可以再次執行 Azure AD Connect 精靈或透過 PowerShell 完成此動作。
+當我們嘗試將 bmfabrikam.com 網域轉換為同盟時，會收到錯誤。這個錯誤的原因在於，Azure AD 有一項限制，這項限制不允許多個網域的 IssuerURI 屬性擁有相同的值。
+  
 
-如果我嘗試使用 Azure AD PowerShell 將第二個網域新增為同盟，我會收到錯誤。
+![同盟錯誤](./media/active-directory-multiple-domains/error.png)
 
-原因是 Azure AD 有一個條件約束，對於一個以上的網域，IssuerURI 不能有相同的值。為了克服這項限制，您必須針對新網域使用不同的 IssuerURI。這就是 SupportMultipleDomain 參數的用途。當與 cmdlet 搭配使用來設定同盟 (New-、Convert- 與 Update-MsolFederatedDomain) 時，此參數會導致 Azure AD 根據在 Azure AD 的租用戶中必須是唯一的網域名稱來設定 IssuerURI，因此它應該是唯一的。宣告規則也有變化，但我晚一點再來談它。
+### SupportMultipleDomain 參數
 
-所以，在 Powershell 中，如果我使用 SupportMultipleDomain 參數新增 fabrikam.com，
+若要解決這個問題，我們需要使用 `-SupportMultipleDomain` 參數來加入不同的 IssuerUri。這個參數可搭配下列 Cmdlet 使用：
+	
+- `New-MsolFederatedDomain`
+- `Convert-MsolDomaintoFederated`
+- `Update-MsolFederatedDomain`
 
-    PS C:\>New-MsolFederatedDomain -DomainName fabrikam.com –SupportMultipleDomain
+這個參數可讓 Azure AD 根據網域名稱設定 IssuerUri。它將會成為 Azure AD 中所有目錄的唯一項目。使用參數可讓 PowerShell 命令順利完成。
 
-我會在 Azure AD 中得到下列組態：
+![同盟錯誤](./media/active-directory-multiple-domains/convert.png)
 
-- DomainName：fabrikam.com
-- IssuerURI：http://fabrikam.com/adfs/services/trust
-- PassiveClientSignInUrl：https://fs.contoso100.com/adfs/ls/
+從新 bmfabrikam.com 網域的設定中，您可以發現以下內容︰
 
-請注意，當已根據我的網域為 IssuerURI 設定一個值時，唯一的端點 url 值仍然設定為指向我在 fs.contoso100.com 上的同盟服務，就像對原始 contoso.com 網域一樣。因此，所有網域仍會指向相同的 AD FS 系統。
+![同盟錯誤](./media/active-directory-multiple-domains/settings.png)
 
-SupportMultipleDomain 所做的另外一件事是確保 AD FS 系統將在針對 Azure AD 簽發的權杖中包含正確的簽發者值。它會透過取用使用者 upn 的網域部分並將其設定為 issuerURI 中的網域，即 https://{upn suffix}/adfs/services/trust，以完成此動作。因此在 Azure AD 或 Office 365 驗證期間，將會以使用者權杖的簽發者項目來尋找 Azure AD 中的網域。如果找不到相符項目，驗證將會失敗。
+請注意，`-SupportMultipleDomain` 不會變更依然設定為指向 adfs.bmcontoso.com 上之同盟服務的其他端點。
 
-例如，如果使用者的 UPN 是 johndoe@fabrikam.com，權杖 AD FS 簽發中的簽發者項目將會設為 http://fabrikam.com/adfs/services/trust。這會比對 Azure AD 組態，且驗證將會成功。
+`-SupportMultipleDomain` 的另一個功用是確保 AD FS 系統在簽發給 Azure AD 之權杖中包含正確的簽發者值。它會透過取用使用者 UPN 的網域部分並將其設定為 IssuerUri 中的網域 (即 https://{upn suffix}/adfs/services/trust)，以完成此動作。
+
+因此在 Azure AD 或 Office 365 驗證期間，系統會以使用者權杖的 IssuerUri 項目來尋找 Azure AD 中的網域。如果找不到相符項目，驗證將會失敗。
+
+例如，如果使用者的 UPN 是 bsimon@bmcontoso.com，AD FS 簽發之權杖中的 IssuerUri 項目將會設定為 http://bmcontoso.com/adfs/services/trust。這會比對 Azure AD 組態，且驗證將會成功。
 
 以下是實作此邏輯的自訂宣告規則：
 
     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type =   "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
 
-現在，在我的設定中，我已先註冊 contoso.com，而沒有 supportMultipleDomains 參數，但有預設的 IssuerURI 值。當我新增 fabrikam.com 時，我實際上需要確定該 contoso.com 也設定為使用 SupportMultiple 網域參數，因為宣告規則更新將永遠不會再傳送預設 IssuerURI，且驗證將會因 IssuerURI 不相符而失敗。別擔心，我們會就這一點對您發出警告，然後才會讓您在不同網域上使用 supportMultipleDomain 參數。
 
-若要補救這種情況，我們也需要針對網域 contoso.com 更新組態。在找出何時需要完成上述動作以及在您新增第二個網域時做出正確的動作方面，Azure AD Connect 精靈相當好用。在第一個階段中，如果您已在 SupportMultipleDomain 組態中，我們不會覆寫您。
+>[AZURE.IMPORTANT]若要在嘗試加入新網域或轉換已加入的網域時使用 -SupportMultipleDomain 參數，您需要先設定同盟信任才能以原生方式支援。
 
-在 PowerShell 中，您必須手動提供 SupportMultipleDomain 參數。
 
-如需從單一網域轉換至多個網域的詳細步驟，請參與以下說明。
+## 如何更新 AD FS 與 Azure AD 之間的信任
+如果您未設定 AD FS 與 Azure AD 執行個體之間的同盟信任，可能需要重新建立此信任。這是因為當我們最初未使用 `-SupportMultipleDomain` 參數進行設定時，系統會將 IssuerUri 設定為預設值。在以下螢幕擷取畫面中，您可以看到 IssuerUri 的設定為 https://adfs.bmcontoso.com/adfs/services/trust。
 
-完成此動作後，我們在 Azure AD 中會有兩個網域的組態：
+回過頭來，如果我們已成功地在 Azure AD 入口網站中加入新網域，然後再嘗試使用 `Convert-MsolDomaintoFederated -DomainName <your domain>` 轉換，我們會收到下列錯誤。
 
-- DomainName：contoso.com
-- IssuerURI：http://contoso.com/adfs/services/trust
-- PassiveClientSignInUrl：https://fs.contoso100.com/adfs/ls/
-- DomainName：fabrikam.com
-- IssuerURI：http://fabrikam.com/adfs/services/trust
-- PassiveClientSignInUrl：https://fs.contoso100.com/adfs/ls/
+![同盟錯誤](./media/active-directory-multiple-domains/trust1.png)
 
-使用者從 contoso.com 同盟登入後，fabrikam.com 網域現在將可正常運作。現在只剩下一個問題：使用者在子網域中登入。
+如果您嘗試加入 `-SupportMultipleDomain` 參數，我們將會收到下列錯誤︰
 
-##子網域
-假設我將子網域 sub.contoso.com 加入 Azure AD。由於 Azure AD 管理網域的方式，子網域會繼承父系網域的設定，在此情況下為 contoso.com。這表示 user@sub.contoso.com 的 IssuerURI 必須是 http://contoso.com/adfs/services/trust。但是以上針對
+![同盟錯誤](./media/active-directory-multiple-domains/trust2.png)
 
-Azure AD 實作的標準規則，會將含簽發者的權杖產生為 http://sub.contoso.com/adfs/services/trust這將不符合網域的必要值，且驗證將會失敗。幸運的是，我們對此也有因應措施，但這並沒有內建到我們的工具中。您必須手動為 Microsoft Online 更新 AD FS 信賴憑證者信任。
+單單嘗試針對原始網域執行 `Update-MsolFederatedDomain -DomainName <your domain> -SupportMultipleDomain`，也會產生錯誤。
 
-您必須設定自訂宣告規則，以使其在建構自訂簽發者值時能夠從使用者的 UPN 尾碼移除任何子網域。您可以在以下步驟中找到執行此動作的確切步驟。
+![同盟錯誤](./media/active-directory-multiple-domains/trust3.png)
 
-總而言之，您可以有多個具有不同名稱的網域，以及子網域，且全都同盟至相同 AD FS 伺服器，現在只需要幾個額外的步驟，便可確保為所有使用者正確設定簽發者值。
+使用下列步驟來加入其他最上層網域。如果您已加入網域且未使用 `-SupportMultipleDomain` 參數，請從移除及更新原始網域的步驟開始。如果您尚未加入最上層網域，可以從使用 Azure AD Connect 的 PowerShell 來加入網域開始。
 
-<!---HONumber=AcomDC_0128_2016-->
+請使用下列步驟來移除 Microsoft Online 信任，然後更新您的原始網域。
+
+2.  在 AD FS 同盟伺服器上，開啟 [AD FS 管理]。 
+2.  展開左側的 [信任關係] 和 [信賴憑證者信任]
+3.  刪除右側的 **Microsoft Office 365 身分識別平台**項目。![移除 Microsoft Online](./media/active-directory-multiple-domains/trust4.png)
+1.  在已安裝[適用於 Windows PowerShell 的 Microsoft Azure Active Directory 模組](https://msdn.microsoft.com/library/azure/jj151815.aspx)的機器上執行下列命令︰`$cred=Get-Credential`。  
+2.  輸入欲同盟之 Azure AD 網域的全域管理員使用者名稱和密碼
+2.  在 PowerShell 中輸入 `Connect-MsolService -Credential $cred`
+4.  在 PowerShell 中輸入 `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`。這是針對原始網域。所以使用上述網域後，它將會成為︰`Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
+
+
+使用下列步驟以透過 PowerShell 加入新的最上層網域
+
+1.  在已安裝[適用於 Windows PowerShell 的 Microsoft Azure Active Directory 模組](https://msdn.microsoft.com/library/azure/jj151815.aspx)的機器上執行下列命令︰`$cred=Get-Credential`。  
+2.  輸入欲同盟之 Azure AD 網域的全域管理員使用者名稱和密碼
+2.  在 PowerShell 中輸入 `Connect-MsolService -Credential $cred`
+3.  在 PowerShell 中輸入 `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`
+
+使用下列步驟以透過 Azure AD Connect 加入新的最上層網域。
+
+1.	從桌面或 [開始] 功能表啟動 Azure AD Connect
+2.	選擇 [新增其他 Azure AD 網域] ![新增其他 Azure AD 網域](./media/active-directory-multiple-domains/add1.png)
+3.	輸入您的 Azure AD 和 Active Directory 認證
+4.	選取要設定同盟的第二個網域。![新增其他 Azure AD 網域](./media/active-directory-multiple-domains/add2.png)
+5.	按一下 [安裝]
+
+
+### 確認新的最上層網域
+藉由使用 PowerShell 命令 `Get-MsolDomainFederationSettings - DomainName <your domain>`，您可以檢視更新的 IssuerUri。以下螢幕擷取畫面顯示原始網域上的同盟設定已更新 http://bmcontoso.com/adfs/services/trust
+
+![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
+
+而新網域上的 IssuerUri 已設定為 https://bmfabrikam.com/adfs/services/trust
+
+![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/settings2.png)
+
+
+##子網域的支援
+在加入子網域時，因為 Azure AD 處理網域的方式，導致子網域會繼承父項的設定。這表示 IssuerUri 需要與父項相符。
+
+因此，假設我有 bmcontoso.com，後來再加入 corp.bmcontoso.com。這表示來自 corp.bmcontoso.com 之使用者的 IssuerUri 必須是 ****http://bmcontoso.com/adfs/services/trust.** 然而，根據前述針對 Azure AD 實作的標準規則，產生之權杖的簽發者會是 ****http://corp.bmcontoso.com/adfs/services/trust.** 由於它與網域的必要值不符，因此驗證將會失敗。
+
+### 如何啟用子網域的支援
+若要解決這個問題，您需要更新 Microsoft Online 的 AD FS 信賴憑證者信任。若要這樣做，您必須設定自訂宣告規則，以使其在建構自訂簽發者值時能夠從使用者的 UPN 尾碼移除任何子網域。
+
+下列宣告將會執行這項操作︰
+
+    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));
+
+請使用下列步驟來加入自訂宣告，以支援子網域。
+
+1.	開啟 [AD FS 管理]
+2.	以滑鼠右鍵按一下 Microsoft Online RP 信任，然後選擇 [編輯宣告規則]
+3.	選取第三個宣告規則並取代 ![編輯宣告](./media/active-directory-multiple-domains/sub1.png)
+4.	取代目前的宣告︰
+    
+	    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+    	
+	取代為
+    
+	    `c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));`
+	
+![取代宣告](./media/active-directory-multiple-domains/sub2.png)
+5.	按一下 [確定]。按一下 [套用]。按一下 [確定]。關閉 [AD FS 管理]。
+
+<!---HONumber=AcomDC_0316_2016-->

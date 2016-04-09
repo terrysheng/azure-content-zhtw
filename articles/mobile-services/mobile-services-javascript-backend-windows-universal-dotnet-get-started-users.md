@@ -4,7 +4,7 @@
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/22/2015" 
+	ms.date="03/05/2016" 
 	ms.author="glenga"/>
 
 # 將驗證加入 Universal Windows 8.1 應用程式
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[將驗證新增至您的 Windows 應用程式](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md)。
 
 本主題說明如何從您的通用 Windows 8.1 App 在 Azure 行動服務中驗證使用者。在本教學課程中，您將使用行動服務支援的身分識別提供者，將驗證加入至快速入門專案。由行動服務成功驗證並授權之後，就會顯示使用者識別碼值。
 
@@ -34,7 +39,7 @@
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)]
  
->[AZURE.NOTE]當您使用 Visual Studio 工具將您的應用程式連接到行動服務時，此工具會分別針對個別用戶端平台需要產生共兩組 **MobileServiceClient** 定義。這時您可以順勢將使用 `#if...#endif` 包裝的 **MobileServiceClient** 定義統一至單一未包裝的定義以供這兩個應用程式版本使用，藉此簡化產生的程式碼。如果您是從 [Azure 傳統入口網站]下載快速入門應用程式，則不需要這麼做。
+>[AZURE.NOTE] 當您使用 Visual Studio 工具將您的應用程式連接到行動服務時，此工具會分別針對個別用戶端平台需要產生共兩組 **MobileServiceClient** 定義。這時您可以順勢將使用 `#if...#endif` 包裝的 **MobileServiceClient** 定義統一至單一未包裝的定義以供這兩個應用程式版本使用，藉此簡化產生的程式碼。如果您是從 [Azure 傳統入口網站]下載快速入門應用程式，則不需要這麼做。
 
 ##<a name="add-authentication"></a>將驗證新增至應用程式
 
@@ -84,4 +89,4 @@
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

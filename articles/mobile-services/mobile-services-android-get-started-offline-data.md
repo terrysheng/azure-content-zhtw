@@ -18,11 +18,12 @@
 
 # 在 Android 行動服務應用程式中加入離線資料同步
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[啟用 Android 行動應用程式的離線同步處理](../app-service-mobile/app-service-mobile-android-get-started-offline-data.md)。
 
 ## 摘要
 
@@ -223,4 +224,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [行動服務快速啟動教學課程]: mobile-services-android-get-started.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

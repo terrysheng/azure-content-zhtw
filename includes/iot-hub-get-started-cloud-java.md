@@ -16,7 +16,7 @@
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.0</version>
+      <version>1.0.2</version>
     </dependency>
     ```
     
@@ -88,7 +88,7 @@
 
 ## 接收裝置到雲端的訊息
 
-在本節中，您將建立 Java 主控台應用程式，以讀取來自 IoT 中樞的裝置到雲端訊息。IoT 中樞會公開與[事件中樞][lnk-event-hubs-overview]相容的端點以讓您讀取裝置到雲端訊息。為了簡單起見，本教學課程會建立的基本讀取器不適合用於高輸送量部署。[處理裝置到雲端的訊息][lnk-processd2c-tutorial]教學課程會說明如何大規模處理裝置到雲端的訊息。 [開始使用事件中樞][lnk-eventhubs-tutorial]教學課程則會提供進一步資訊，說明如何處理來自事件中樞的訊息，而且此教學課程也適用於 IoT 中樞事件中樞相容端點。
+在本節中，您將建立 Java 主控台應用程式，以讀取來自 IoT 中樞的裝置到雲端訊息。IoT 中樞會公開與[事件中樞][lnk-event-hubs-overview]相容的端點以讓您讀取裝置到雲端訊息。為了簡單起見，本教學課程會建立的基本讀取器不適合用於高輸送量部署。[處理裝置到雲端的訊息][lnk-processd2c-tutorial]教學課程會說明如何大規模處理裝置到雲端的訊息。[開始使用事件中樞][lnk-eventhubs-tutorial]教學課程則會提供進一步資訊，說明如何處理來自事件中樞的訊息，而且此教學課程也適用於 IoT 中樞事件中樞相容端點。
 
 1. 在*建立裝置識別*一節所建立的 iot-java-get-started 資料夾中，於命令提示字元下使用下列命令建立稱為 **read-d2c-messages** 的新 Maven 專案。請注意，這是一個非常長的命令：
 
@@ -223,9 +223,9 @@
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-event-hubs-overview]: event-hubs-overview.md
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

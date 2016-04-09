@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="01/20/2016"
+	ms.date="03/21/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -23,9 +23,9 @@
 **單一資料庫**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-copy.md)
+- [Azure 入口網站](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
-- [SQL](sql-database-copy-transact-sql.md)
+- [T-SQL](sql-database-copy-transact-sql.md)
 
 下列步驟說明如何利用 [Azure 入口網站](https://portal.azure.com)複製 SQL database。資料庫複製作業會建立新的 SQL Database。副本是您在同一部伺服器或不同伺服器上建立的資料庫快照備份。
 
@@ -102,4 +102,4 @@
 [3]: ./media/sql-database-copy/copy-notification.png
 [4]: ./media/sql-database-copy/monitor-copy.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

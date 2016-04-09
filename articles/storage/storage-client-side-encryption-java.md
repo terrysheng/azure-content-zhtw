@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2016"
+	ms.date="02/24/2016"
 	ms.author="dineshm"/>
 
 
@@ -22,7 +22,8 @@
 [AZURE.INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## 概觀  
-[Azure Storage Client Library for Java](https://www.nuget.org/packages/WindowsAzure.Storage) 支援在上傳至 Azure 儲存體之前將用戶端應用程式內的資料加密，並在下載至用戶端時解密資料。程式庫也支援與 [Azure 金鑰保存庫](https://azure.microsoft.com/services/key-vault/)整合，以進行儲存體帳戶金鑰管理。
+
+[Azure Storage Client Library for Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) 支援在上傳至 Azure 儲存體之前將用戶端應用程式內的資料加密，並在下載至用戶端時解密資料。程式庫也支援與 [Azure 金鑰保存庫](https://azure.microsoft.com/services/key-vault/)整合，以進行儲存體帳戶金鑰管理。
 
 ## 透過信封技術進行加密和解密    
 加密和解密的程序採用信封技術。
@@ -239,9 +240,11 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
 
 ## 後續步驟  
 
-- 下載 [Azure Storage Client Library for Java Maven package (適用於 Java Maven 封裝的 Azure 儲存體用戶端程式庫)](https://github.com/Azure/azure-storage-java)  
+- 下載 [Azure Storage Client Library for Java Maven package (適用於 Java Maven 封裝的 Azure 儲存體用戶端程式庫)](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 - 從 GitHub 下載 [Azure Storage Client Library for Java Source Code (適用於 Java 原始程式碼的 Azure 儲存體用戶端程式庫)](https://github.com/Azure/azure-storage-java)   
-- 下載 Azure 金鑰保存庫 Maven 的 [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/)、[Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 及 [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 封裝。
+- 下載適用於 Java Maven 的 Azure 金鑰保存庫 Maven 程式庫封裝：
+	- [核心](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)封裝
+	- [用戶端](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)封裝
 - 請瀏覽 [Azure 金鑰保存庫文件](../key-vault/key-vault-whatis.md)  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -3,9 +3,9 @@
 	description="了解如何在 Azure 中使用 Azure 資料表儲存體。程式碼範例以 Ruby API 撰寫。"
 	services="storage"
 	documentationCenter="ruby"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # 如何使用 Ruby 的 Azure 資料表儲存體
@@ -31,7 +31,7 @@
 
 ## 建立 Ruby 應用程式
 
-如需如何建立 Ruby 應用程式的指示，請參閱 [Azure VM 上的 Ruby on Rails Web 應用程式](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md)。
+如需如何建立 Ruby 應用程式的指示，請參閱 [Azure VM 上的 Ruby on Rails Web 應用程式](../virtual-machines/virtual-machines-ruby-rails-linux-classic-web-app.md)。
 
 ## 設定您的應用程式以存取儲存體
 
@@ -163,4 +163,4 @@ Azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 - [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
 - GitHub 上的 [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) 存放庫
 
-<!----HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

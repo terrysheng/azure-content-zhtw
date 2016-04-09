@@ -47,7 +47,7 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
 某些 Azure 儲存體用戶端程式庫 (例如 Xamarin 程式庫)，僅支援使用共用存取簽章 (SAS) 權杖進行的驗證。您必須使用可支援共用金鑰驗證的工具或應用程式，來建立此 SAS 權杖。有個簡單的方法可產生 SAS 權杖，也就是透過 Azure PowerShell：
 
-1. 如果尚未安裝 Azure PowerShell，請先安裝。建議使用最新版的 Azure PowerShell Cmdlet。如需安裝指示，請參閱[如何安裝和設定 Azure PowerShell](../articles/powershell-install-configure.md#Install)。
+1. 如果尚未安裝 Azure PowerShell，請先安裝。建議使用最新版的 Azure PowerShell Cmdlet。如需安裝指示，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md#Install)。
 
 2. 開啟 Azure PowerShell 並執行下列命令。請務必以您自己的認證取代 *ACCOUNT\_NAME* 和 *ACCOUNT\_KEY = =*。以您選擇的名稱取代 *CONTAINER\_NAME*。
 
@@ -232,4 +232,4 @@ Microsoft Azure 儲存體模擬器提供了模擬 Azure Blob、佇列和資料�
 
 - 現在完全支援 2013-08-15 版的 Azure 儲存體服務。(先前只有儲存體模擬器 2.2.1 版預覽才支援此版本)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

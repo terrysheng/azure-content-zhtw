@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="03/22/2016"
    ms.author="erihur"/>
 
 
@@ -251,6 +251,8 @@ N/A | 標記 | _**新增資料行。**_ Azure 中的新資源類型可讓您標�
 ## 其他資源
 瀏覽至[管理您的服務](https://msdn.microsoft.com/library/azure/dn578292.aspx)之下的**管理帳戶、訂用帳戶和系統管理員角色**區段，以取得一些非常有用的連結：
 
+- [Azure 計費及訂用帳戶常見問題集](billing-subscription-faq.md)
+
 - [管理您的付款方法](https://msdn.microsoft.com/library/azure/dn736054.aspx)
 
 - [編輯現有信用卡的付款資訊](https://msdn.microsoft.com/library/azure/dn736053.aspx)
@@ -265,4 +267,4 @@ N/A | 標記 | _**新增資料行。**_ Azure 中的新資源類型可讓您標�
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

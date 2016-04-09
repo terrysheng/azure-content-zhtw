@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
@@ -61,4 +61,4 @@ CDN 為開發人員提供一套全球解決方案，以在全球實體節點上�
 - [進階 HTTP 報告](cdn-advanced-http-reports.md)
 - [即時統計資料](cdn-real-time-stats.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

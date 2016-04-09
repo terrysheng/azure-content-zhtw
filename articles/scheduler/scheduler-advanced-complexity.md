@@ -1,18 +1,18 @@
-<properties 
- pageTitle="如何使用 Azure 排程器建立複雜的排程和進階週期" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="如何使用 Azure 排程器建立複雜的排程和進階週期"
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # 如何使用 Azure 排程器建立複雜的排程和進階週期  
@@ -31,7 +31,7 @@ Azure 排程器可讓您指定不同的一次和週期工作排程。*一次*排
 -	映像處理 – 例如，每個工作天，在離峰時段，使用雲端運算壓縮當天上傳的映像
 
 
-在本文中，我們會逐步引導您完成您可以使用 Azure 排程器建立的範例工作。我們提供描述每個排程的 JSON 資料。如果您使用 [排程器 REST API](https://msdn.microsoft.com/library/azure/dn528946.aspx)，則可以使用這個相同的 JSON，[建立 Azure 排程器工作](https://msdn.microsoft.com/library/azure/dn528937.aspx)。
+在本文中，我們會逐步引導您完成您可以使用 Azure 排程器建立的範例工作。我們提供描述每個排程的 JSON 資料。如果您使用 [排程器 REST API](https://msdn.microsoft.com/library/mt629143.aspx)，則可以使用這個相同的 JSON，[建立 Azure 排程器工作](https://msdn.microsoft.com/library/mt629145.aspx)。
 
 ## 支援的案例
 
@@ -39,7 +39,7 @@ Azure 排程器可讓您指定不同的一次和週期工作排程。*一次*排
 
 -	在特定日期和時間執行一次
 -	執行並重複執行明確的次數
--	立即執行並重複執行 
+-	立即執行並重複執行
 -	執行並每隔 *n* 分鐘、小時、天、週或個月重複執行一次，從特定時間開始
 -	執行並每週或每個月重複執行一次，但是只在特定日、特定星期幾或特定月日
 -	執行並在某個期間執行多次 – 例如，每個月的最後一個星期五和星期一，或在每天上午 5:15 和下午 5:15
@@ -52,7 +52,7 @@ Azure 排程器工作中的日期時間參考遵循 [ISO 8601 規格](http://en.
 
 ## 如何：使用 JSON 和 REST API 建立排程
 
-若要使用本文中的 JSON 範例和 Azure 排程器 REST API 建立簡單的排程，[首先建立雲端服務](https://msdn.microsoft.com/library/azure/dn528943.aspx)，[然後建立工作集合](https://msdn.microsoft.com/library/azure/dn528940.aspx)，[最後建立工作](https://msdn.microsoft.com/library/azure/dn528937.aspx)。當建立工作時，您可以使用如下摘錄的 JSON 指定排程與週期：
+若要使用 [Azure 排程器 REST API](https://msdn.microsoft.com/library/mt629143) 建立簡單的排程，首先請[向資源提供者註冊訂用帳戶](https://msdn.microsoft.com/library/azure/dn790548.aspx) (排程器的提供者名稱是 _Microsoft.Scheduler_)，接著[建立工作集合](https://msdn.microsoft.com/library/mt629159.aspx)，最後[建立工作](https://msdn.microsoft.com/library/mt629145.aspx)。當建立工作時，您可以使用如下摘錄的 JSON 指定排程與週期：
 
 	{
 	    "startTime": "2012-08-04T00:00Z", // optional
@@ -71,7 +71,7 @@ Azure 排程器工作中的日期時間參考遵循 [ISO 8601 規格](http://en.
 	    },
 	    …
 	}
-	
+
 ## 概觀：工作結構描述的基本概念
 
 下表提供與工作中週期和排程相關之主要元素的高階概觀：
@@ -177,10 +177,10 @@ Azure 排程器工作中的日期時間參考遵循 [ISO 8601 規格](http://en.
 |<code>{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}</code>|在每個月第 3 個星期三上午 5:15、上午 5:45、下午 5:15 和下午 5:45 執行|
 
 ## 另請參閱
- 
+
 
  [排程器是什麼？](scheduler-intro.md)
- 
+
  [Azure 排程器概念、術語及實體階層](scheduler-concepts-terms.md)
 
  [在 Azure 入口網站中開始使用排程器](scheduler-get-started-portal.md)
@@ -196,7 +196,5 @@ Azure 排程器工作中的日期時間參考遵循 [ISO 8601 規格](http://en.
  [Azure 排程器限制、預設值和錯誤碼](scheduler-limits-defaults-errors.md)
 
  [Azure 排程器輸出驗證](scheduler-outbound-authentication.md)
- 
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

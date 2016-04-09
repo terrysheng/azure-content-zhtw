@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 特殊權限身分識別管理：如何開始將角色新增到使用者"
-   description="了解如何將角色新增到具備 Azure 特殊權限身分識別管理擴充功能的特殊權限身分識別。"
+   pageTitle="如何新增或移除使用者角色 | Microsoft Azure"
+   description="了解如何使用 Azure Active Directory Privileged Identity Management 擴充功能來將角色新增到特殊權限身分識別。"
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management：如何新增或移除使用者角色
+# Azure AD Privileged Identity Management：如何新增或移除使用者角色
 
 ## 新增或移除使用者角色
-有數種方式可以瀏覽到 PIM 介面的 [新增受管理的使用者] 刀鋒視窗。以下列出每個項目的點選順序：
+有數種方式可以瀏覽到 Privileged Identity Management (PIM) 介面的 [新增受管理的使用者] 刀鋒視窗。以下列出每個項目的點選順序：
 
 - 儀表板 > 管理員角色中的使用者 > 新增或移除
 - 儀表板 > 角色摘要 > 所有使用者清單 > 新增或移除
@@ -34,6 +34,9 @@
 4. 選取清單中的使用者，然後按一下 [完成]。
 5. 按一下 [確定] 以儲存您的選取項目。您選取的使用者將會出現在清單中，而角色將是暫時性的。
 6. 如果想要讓角色變成永久，請按一下清單中的使用者。該使用者的資訊即會出現在新的刀鋒視窗中。在使用者資訊功能表中選取 [變成永久]。
+
+    如果使用者無法註冊為 Azure Muti-Fator Authentication 或使用 Microsoft 帳戶，則您需要執行此動作。系統會要求暫時系統管理員在啟用啟用期間註冊 MFA。
+
 7. 按一下 [啟用]，以開始提出為使用者啟用此角色的要求。在 [要求理由] 文字欄位中輸入啟用的原因。此時將會為此使用者自動啟用角色，並傳送通知給全域管理員。
 
 ## 從角色移除使用者
@@ -46,4 +49,4 @@
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

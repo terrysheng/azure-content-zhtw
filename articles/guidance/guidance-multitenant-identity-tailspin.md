@@ -29,7 +29,7 @@ Tailspin 是虛構的公司，他們正在開發名為 Surveys 的 SaaS 應用�
 
 > [AZURE.NOTE] 若要開始使用應用程式，請參閱 [Running the Surveys application (執行 Surveys 應用程式)]。
 
-此螢幕擷取畫面顯示 [Edit Survey] (編輯問卷) 頁面：
+此螢幕擷取畫面顯示 [Edit Survey] \(編輯問卷) 頁面：
 
 ![編輯問卷](media/guidance-multitenant-identity/edit-survey.png)
 
@@ -45,7 +45,7 @@ Tailspin 是虛構的公司，他們正在開發名為 Surveys 的 SaaS 應用�
 
 使用者可以從其他租用戶加入參與者，因此能夠跨租用戶共用資源。在此螢幕擷取畫面中，Bob (`bob@contoso.com`) 正在將 Alice (`alice@fabrikam.com`) 加入以成為 Bob 所建立之問卷的參與者。
 
-當 Alice 登入時，她會看見該問卷列在 [Surveys I can contribute to] (我可以參與的問卷) 之下。
+當 Alice 登入時，她會看見該問卷列在 [Surveys I can contribute to] \(我可以參與的問卷) 之下。
 
 ![問卷參與者](media/guidance-multitenant-identity/contributor.png)
 
@@ -65,4 +65,4 @@ Surveys 應用程式由 Web 前端和 Web API 後端組成。兩者都使用 [AS
 [ASP.NET 核心 1.0]: https://docs.asp.net/en/latest/
 [範例應用程式]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!------HONumber=AcomDC_0302_2016-------->

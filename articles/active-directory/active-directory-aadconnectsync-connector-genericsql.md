@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # 一般 SQL 連接器技術參考
@@ -22,9 +22,11 @@
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   必須使用 Hotfix 4.1.3461.0 或更新版本 [KB2870703](https://support.microsoft.com/kb/2870703)。
+    -   必須使用 Hotfix 4.1.3671.0 或更新版本 [KB3092178](https://support.microsoft.com/kb/3092178)。
 
 對於 MIM2016 和 FIM2010R2，可以從 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=717495)下載此連接器。
+
+若要查看這個作用中的連接器，請參閱 [Generic SQL Connector step-by-step (一般 SQL 連接器的逐步解說)](active-directory-aadconnectsync-connector-genericsql-step-by-step.md) 一文。
 
 ## 一般 SQL 連接器概觀
 
@@ -78,9 +80,9 @@
 
 資料庫應該支援下列其中一種驗證方法。
 
-- **Windows 驗證**：驗證資料庫將使用 Windows 認證來驗證使用者。在此情況下，將使用同步處理服務所使用的服務帳戶。此帳戶需要資料庫的權限。
+- **Windows 驗證**：驗證資料庫將使用 Windows 認證來驗證使用者。指定的使用者名稱/密碼將用來向資料庫進行驗證。此帳戶需要資料庫的權限。
 - **SQL 驗證**：驗證資料庫會使用 [連線能力] 畫面上定義的使用者名稱/密碼連接到資料庫。如果您在 DSN 檔案中儲存使用者名稱/密碼，則優先使用在 [連線能力] 畫面上提供的認證。
-- **Azure SQL Database 驗證**：如需詳細資訊，請參閱[使用 Azure Active Directory 驗證連接到 SQL Database](sql-database-aad-authentication.md)。
+- **Azure SQL Database 驗證**：如需詳細資訊，請參閱[使用 Azure Active Directory 驗證連接到 SQL Database](..\sql-database\sql-database-aad-authentication.md)。
 
 **DN 是錨點**：如果您選取此選項，DN 也會做為錨點屬性。它可用於簡單實作，但也有下列限制：
 
@@ -295,4 +297,4 @@
 
 -	如需如何啟用記錄來疑難排解連接器的資訊，請參閱[如何啟用連接器的 ETW 追蹤](http://go.microsoft.com/fwlink/?LinkId=335731)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

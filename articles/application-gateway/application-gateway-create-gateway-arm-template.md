@@ -81,7 +81,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 	- **name**。資源的名稱。請注意 [parameters('applicationGatewayName')] 的用法，這表示此名稱是在部署期間由使用者輸入的內容，或是由參數檔案所提供。
 	- **properties**。資源屬性的清單。此範本會在應用程式閘道建立期間，使用虛擬網路與公用 IP 位址。
 
-7. 瀏覽回到 https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json。
+7. 瀏覽回到 https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/。
 8. 依序按一下 [azuredeploy-paremeters.json] 和 [RAW]。
 9. 將檔案儲存至您電腦上的本機資料夾。
 10. 開啟您剛儲存的檔案，編輯參數的值。使用下列值來部署本文案例所述的應用程式閘道。
@@ -284,4 +284,4 @@ Azure 應用程式閘道是第 7 層負載平衡器。不論是在雲端或內�
 - [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="在 Azure 搜尋服務中使用 REST API 進行資料匯入 | Microsoft Azure | 雲端託管搜尋服務"
-    description="如何使用 REST API 將資料上傳至 Azure 搜尋服務中的索引。"
+    pageTitle="在 Azure 搜尋服務中使用 REST API 上傳資料 | Microsoft Azure | 雲端託管搜尋服務"
+    description="了解如何使用 REST API 將資料上傳至 Azure 搜尋服務中的索引。"
     services="search"
     documentationCenter=""
     authors="ashmaka"
@@ -14,33 +14,32 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="ashmaka"/>
 
-# 使用 REST API 將資料匯入至 Azure 搜尋服務
+# 使用 REST API 將資料上傳至 Azure 搜尋服務
 > [AZURE.SELECTOR]
 - [概觀](search-what-is-data-import.md)
-- [入口網站](search-import-data-portal.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
-- [索引子](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 
+本文將說明如何使用 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 將資料匯入 Azure 搜尋服務索引。
 
-本文將說明如何使用 [Azure 搜尋服務 REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) 將資料匯入 Azure 搜尋服務索引。在開始閱讀本逐步解說前，請先[建立好 Azure 搜尋服務索引](search-create-index-rest-api.md)。
+在開始閱讀本逐步解說前，請先[建立好 Azure 搜尋服務索引](search-what-is-an-index.md)。
 
 若要使用 REST API 將文件推送至索引，您會發出 HTTP POST 要求至您的索引 URL 端點。HTTP 要求主體是包含要新增、修改或刪除之文件的 JSON 物件。
 
 ## I.識別 Azure 搜尋服務的系統管理 API 金鑰
-使用 REST API 對服務發出 HTTP 要求時，*每個* API 要求都必須包含針對您佈建的搜尋服務所產生的 API 金鑰。擁有有效的金鑰就能為每個要求在傳送要求之應用程式與處理要求之服務間建立信任。
+使用 REST API 對服務發出 HTTP 要求時，每個 API 要求都必須包含針對您佈建的搜尋服務所產生的 API 金鑰。擁有有效的金鑰就能為每個要求在傳送要求之應用程式與處理要求之服務間建立信任。
 
 1. 若要尋找服務的 API 金鑰，您必須登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 前往 Azure 搜尋服務的刀鋒視窗。
 3. 按一下 [金鑰] 圖示。
 
-服務會有*系統管理金鑰*和*查詢金鑰*。
+服務會有系統管理金鑰和查詢金鑰。
 
-  - 主要和次要*系統管理金鑰*會授與所有作業的完整權限，包括管理服務以及建立和刪除索引、索引子與資料來源的能力。由於有兩個金鑰，因此如果您決定重新產生主要金鑰，您可以繼續使用次要金鑰，反之亦然。
-  - *查詢金鑰*會授與索引和文件的唯讀存取權，且通常會分派給發出搜尋要求的用戶端應用程式。
+  - 主要和次要系統管理金鑰會授與所有作業的完整權限，包括管理服務以及建立和刪除索引、索引子與資料來源的能力。由於有兩個金鑰，因此如果您決定重新產生主要金鑰，您可以繼續使用次要金鑰，反之亦然。
+  - 查詢金鑰會授與索引和文件的唯讀存取權，且通常會分派給發出搜尋要求的用戶端應用程式。
 
 主要或次要系統管理金鑰都可用於將資料匯入索引。
 
@@ -53,7 +52,8 @@
 --- | --- | --- | ---
 `upload` | `upload` 動作類似「upsert」，如果是新文件，就會插入該文件，如果文件已經存在，就會更新/取代它。 | 索引鍵以及其他任何您想要定義的欄位 | 在更新/取代現有文件時，要求中未指定的欄位會將其欄位設定為 `null`。即使先前已將欄位設定為非 null 值也是一樣。
 `merge` | 使用指定的欄位更新現有文件。如果文件不存在於索引中，合併就會失敗。 | 索引鍵以及其他任何您想要定義的欄位 | 您在合併中指定的任何欄位將取代文件中現有的欄位。這包括類型 `Collection(Edm.String)` 的欄位。例如，如果文件包含欄位 `tags` 且值為 `["budget"]`，而您使用值 `["economy", "pool"]` 針對 `tags` 執行合併，則 `tags` 欄位最後的值會是 `["economy", "pool"]`。而不會是 `["budget", "economy", "pool"]`。
-`mergeOrUpload` | 如果含有指定索引鍵的文件已經存在於索引中，則此動作的行為會類似 `merge`。如果文件不存在，其行為會類似新文件的 `upload`。| 索引鍵以及其他任何您想要定義的欄位 |- `delete` | 從索引中移除指定的文件。| 僅索引鍵 | 索引鍵欄位以外的所有指定欄位都將遭到忽略。如果您想要從文件中移除個別欄位，請改用 `merge`，而且只需明確地將該欄位設為 null。
+`mergeOrUpload` | 如果含有指定索引鍵的文件已經存在於索引中，則此動作的行為會類似 `merge`。如果文件不存在，其行為會類似新文件的 `upload`。| 索引鍵以及其他任何您想要定義的欄位 |- 
+`delete` | 從索引中移除指定的文件。| 僅索引鍵 | 索引鍵欄位以外的所有指定欄位都將遭到忽略。如果您想要從文件中移除個別欄位，請改用 `merge`，而且只需明確地將該欄位設為 null。
 
 ## III.建構 HTTP 要求和要求本文
 既然您已收集好索引動作的必要欄位值，您可以開始建構實際的 HTTP 要求和 JSON 要求主體以匯入資料。
@@ -166,6 +166,6 @@
 如需文件動作和成功/錯誤回應的詳細資訊，請參閱[加入、更新或刪除文件](https://msdn.microsoft.com/library/azure/dn798930.aspx)。如需失敗時可能傳回的其他 HTTP 狀態碼詳細資訊，請參閱 [HTTP 狀態碼 (Azure 搜尋服務)](https://msdn.microsoft.com/library/azure/dn798925.aspx)。
 
 ## 下一步
-在填入 Azure 搜尋服務索引後，您就可以開始發出查詢來搜尋文件。如需詳細資料，請參閱[使用 REST API 查詢 Azure 搜尋服務索引](search-query-rest-api.md)。
+在填入 Azure 搜尋服務索引後，您就可以開始發出查詢來搜尋文件。如需詳細資料，請參閱[查詢 Azure 搜尋服務索引](search-query-overview.md)。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!-----HONumber=AcomDC_0316_2016-->

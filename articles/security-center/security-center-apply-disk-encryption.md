@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="03/10/2016"
    ms.author="terrylan"/>
 
 # 在 Azure 資訊安全中心中套用磁碟加密
@@ -33,17 +33,30 @@
 
 ![][1]
 
+若要加密已由資訊安全中心識別為需要加密的 Azure 虛擬機器，建議您執行下列步驟︰
+
+- 安裝並設定 Azure PowerShell。這可讓您執行必要的 PowerShell 命令，以便設定用來加密 Azure 虛擬機器的必要先決條件。
+- 取得並執行 Azure 磁碟加密先決條件 Azure PowerShell 指令碼。
+- 加密虛擬機器。
+
+[加密 Azure 虛擬機器](security-center-disk-encryption.md)將逐步引導您完成這些步驟。本主題假設您使用 Windows 10 做為用戶端電腦，並從中設定磁碟加密。
+
+若要設定先決條件以及設定 Azure 虛擬機器的加密功能，可以使用的方法很多。如果您已經很熟悉 Azure PowerShell 或 Azure CLI，可能會想要使用其他方法。若要深入了解其他這些方法，請參閱 [Azure 磁碟加密](../azure-security-disk-encryption.md)。
+
+
+
 ## 後續步驟
 
 本文件說明如何實作 Azure 資訊安全中心建議的「套用磁碟加密」。 若要深入了解磁碟加密，請參閱下列主題：
 
-- [Azure 金鑰保存庫的加密和金鑰管理](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (視訊，36 分 39 秒) -- 了解如何使用的 IaaS VM 和 Azure 金鑰保存庫的磁碟加密管理功能，協助保護您的資料。
+- [Azure 金鑰保存庫的加密和金鑰管理](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (影片，36 分 39 秒) -- 了解如何使用 IaaS VM 和 Azure 金鑰保存庫的磁碟加密管理功能，協助保護您的資料。
+- [加密 Azure 虛擬機器](security-center-disk-encryption.md) (文件) - 了解如何加密 Azure 虛擬機器。
 - [Azure 磁碟加密](../azure-security-disk-encryption.md) (文件) -- 了解如何為 Windows 和 Linux VM 啟用磁碟加密。
 
 如要深入了解資訊安全中心，請參閱下列主題：
 
 - [設定 Azure 資訊安全中心的安全性原則](security-center-policies.md) -- 了解如何設定安全性原則。
-- [Azure 資訊安全中心的安全性健康情況監視](security-center-monitoring.md) -- 了解如何監視 Azure 資源的健康情況。
+- [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) -- 了解如何監視 Azure 資源的健全狀況。
 - [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) -- 了解如何管理與回應安全性警示。
 - [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md) -- 了解建議如何協助您保護您的 Azure 資源。
 - [Azure 資訊安全中心常見問題集](security-center-faq.md) -- 尋找在使用服務時經常會遇到的問題。
@@ -54,4 +67,4 @@
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

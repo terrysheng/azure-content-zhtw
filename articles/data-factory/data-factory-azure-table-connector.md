@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="從 Azure 資料表來回移動資料 | Azure Data Factory" 
+	pageTitle="從 Azure 資料表來回移動資料 | Microsoft Azure" 
 	description="了解如何使用 Azure Data Factory 從 Azure 資料表儲存體來回移動資料。" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -380,7 +380,7 @@ Azure Data Factory 支援兩種類型的 Azure 儲存體連結服務：**AzureSt
 
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | 使用自訂查詢來讀取資料。 | <p>Azure 資料表查詢字串。請參閱以下範例。 | 否
+azureTableSourceQuery | 使用自訂查詢來讀取資料。 | Azure 資料表查詢字串。請參閱以下範例。 | 否
 azureTableSourceIgnoreTableNotFound | 指出是否忍受資料表不存在的例外狀況。 | TRUE<br/>FALSE | 否 |
 
 ### azureTableSourceQuery 範例
@@ -526,4 +526,4 @@ lastlogindate | Edm.DateTime
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

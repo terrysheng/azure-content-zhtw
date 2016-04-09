@@ -5,7 +5,7 @@
 **注意：**可以根據指定的重試原則在 Azure Data Factory 中自動重新執行配量。建議您設定重試原則，以防止暫時性失敗。由此可知，重複性是移動資料時的重要層面。
 
 **做為來源：**
-> [AZURE.NOTE] 下面的範例是針對 Azure SQL，但是也適用於任何支援矩形資料集的資料存放區。您可能必須針對資料存放區調整來源的 [類型] 和 **query** 屬性 (例如：query 而不是 sqlReaderQuery)。
+> [AZURE.NOTE] 下面的範例是針對 Azure SQL，但是也適用於任何支援矩形資料集的資料存放區。您可能必須針對資料存放區調整來源的 [類型] 和 **query** 屬性 (例如：query 而不是 sqlReaderQuery)。   
 
 在多數情況下，從關聯式存放區讀取時，您會希望只讀取對應該配量的資料。使用 Azure Data Factory 中提供的 WindowStart 和 WindowEnd 變數即可達到此目的。請在此[「排程和執行」](../articles/data-factory/data-factory-scheduling-and-execution.md)文章中閱讀關於 Azure Data Factory 中的變數和函數。範例：
 	
@@ -25,4 +25,4 @@
 	          },
 	
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0224_2016-->

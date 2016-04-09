@@ -1,14 +1,14 @@
 
-## Index
+## 索引
 
-- [Overview](../articles/application-insights/app-analytics.md)
-- [Tour](../articles/application-insights/app-analytics-tour.md)
- - Start here. A tutorial covering the main features.
-- [Queries](../articles/application-insights/app-analytics-queries.md)
- - Use operators such as `where` and `count` to build queries.
-- [Aggregation](../articles/application-insights/app-analytics-aggregations.md)
- - Used to compute statistics over groups of records
-- [Scalars](../articles/application-insights/app-analytics-scalars.md)
- - Numbers, strings, and other expressions used to form query parameters.
+- [概觀](../articles/application-insights/app-analytics.md)
+- [教學](../articles/application-insights/app-analytics-tour.md)
+ - 從這裡開始。涵蓋主要功能的教學課程。
+- [查詢](../articles/application-insights/app-analytics-queries.md)
+ - 使用像 `where` 和 `count` 這樣的運算子來建立查詢。
+- [彙總](../articles/application-insights/app-analytics-aggregations.md)
+ - 用於計算記錄群組的統計資料
+- [純量](../articles/application-insights/app-analytics-scalars.md)
+ - 用於構成查詢參數的數字、字串及其他運算式。
 
-
+<!---HONumber=AcomDC_0309_2016-->

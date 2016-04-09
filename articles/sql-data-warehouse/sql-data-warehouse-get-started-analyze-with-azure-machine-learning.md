@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # 使用 Azure Machine Learning 分析資料
@@ -39,25 +39,25 @@
 5. 在 [屬性] 窗格中指定 SQL 資料倉儲資料庫的詳細資料。
 6. 指定資料庫「查詢」以利讀取感興趣的資料。
 
-   ```
-   SELECT [CustomerKey]
-      ,[GeographyKey]
-      ,[CustomerAlternateKey]
-      ,[MaritalStatus]
-      ,[Gender]
-      ,cast ([YearlyIncome] as int) as SalaryYear
-      ,[TotalChildren]
-      ,[NumberChildrenAtHome]
-      ,[EnglishEducation]
-      ,[EnglishOccupation]
-      ,[HouseOwnerFlag]
-      ,[NumberCarsOwned]
-      ,[CommuteDistance]
-      ,[Region]
-      ,[Age]
-      ,[BikeBuyer]
-  FROM [dbo].[vTargetMail]
-   ```
+```sql
+SELECT [CustomerKey]
+  ,[GeographyKey]
+  ,[CustomerAlternateKey]
+  ,[MaritalStatus]
+  ,[Gender]
+  ,cast ([YearlyIncome] as int) as SalaryYear
+  ,[TotalChildren]
+  ,[NumberChildrenAtHome]
+  ,[EnglishEducation]
+  ,[EnglishOccupation]
+  ,[HouseOwnerFlag]
+  ,[NumberCarsOwned]
+  ,[CommuteDistance]
+  ,[Region]
+  ,[Age]
+  ,[BikeBuyer]
+FROM [dbo].[vTargetMail]
+```
 
 按一下實驗畫布下方的 [**執行**]，以執行實驗。![執行實驗][1]
 
@@ -115,6 +115,8 @@
 
 比較 BikeBuyer (實際) 資料行和評分標籤 (預測)，您可以看到模型的執行效果。在接下來的步驟中，您可以使用此模型預測新的客戶，並將其發佈為 web 服務，或將結果寫回 SQL 資料倉儲。
 
+## 後續步驟
+
 若要深入了解如何建置預測性機器學習模型，請參閱 [Azure 上的機器學習服務簡介][]。
 
 
@@ -140,4 +142,4 @@
 [手動載入範例資料]: sql-data-warehouse-get-started-manually-load-samples.md
 [建立 SQL 資料倉儲]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

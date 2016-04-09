@@ -14,7 +14,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
@@ -121,7 +121,7 @@ HDInsight Emulator 提供本機部署環境，與 Hadoop 沙箱極為相似。�
 			<value>*</value>
 		</property>
 
-3. 當 Visual Studio 嘗試連接到 WebHCat 服務時，您可能會收到錯誤 (「錯誤：找不到工作 job\_XXXX\_0001」)。若是如此，您必須重新啟動 WebHCat 服務，然後再試一次。若要重新啟動 WebHCat 服務，請啟動 [**服務**] MMC、以滑鼠右鍵按一下 **Apache Hadoop Templeton** (這是 WebHCat 服務的舊名稱)，然後按一下 [**重新啟動**]。
+3. 當 Visual Studio 嘗試連接到 WebHCat 服務時，您可能會收到錯誤 (「錯誤：找不到工作 job\_XXXX\_0001」)。若是如此，您必須重新啟動 WebHCat 服務，然後再試一次。若要重新啟動 WebHCat 服務，請啟動 [**服務**] MMC、以滑鼠右鍵按一下 [**Apache Hadoop Templeton**] \(這是 WebHCat 服務的舊名稱)，然後按一下 [**重新啟動**]。
 
 ##<a name="runwordcount"></a>字數統計 MapReduce 教學課程
 
@@ -508,7 +508,6 @@ HDInsight Emulator 也支援部分 Azure PowerShell Cmdlet。這些 Cmdlet 包�
 
 - [開始使用 Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [開發 HDInsight 的 Java MapReduce 程式](hdinsight-develop-deploy-java-mapreduce.md)
-- [開發 HDInsight 的 C# Hadoop 串流 MapReduce 程式](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [HDInsight Emulator 版本資訊](hdinsight-emulator-release-notes.md)
 - [討論 HDInsight 的 MSDN 論壇](http://social.msdn.microsoft.com/Forums/hdinsight)
 
@@ -528,7 +527,6 @@ HDInsight Emulator 也支援部分 Azure PowerShell Cmdlet。這些 Cmdlet 包�
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-deploy-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-versions]: hdinsight-component-versioning.md
 
 [Powershell-install-configure]: powershell-install-configure.md
@@ -538,4 +536,4 @@ HDInsight Emulator 也支援部分 Azure PowerShell Cmdlet。這些 Cmdlet 包�
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="從 GitHub 更新 Azure Linux 代理程式 | Microsoft Azure"
 	description="了解如何從 Github 更新 Azure 中的 Linux VM 之 Azure Linux 代理程式為最新版本"
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -28,7 +28,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-> [AZURE.NOTE] 如果您會從 Windows 電腦執行這項工作，可以使用 PuTTY 來 SSH 到 Linux 機器。如需詳細資訊，請參閱[如何登入執行 Linux 的虛擬機器](virtual-machines-linux-how-to-log-on.md)。
+> [AZURE.NOTE] 如果您會從 Windows 電腦執行這項工作，可以使用 PuTTY 來 SSH 到 Linux 機器。如需詳細資訊，請參閱[如何登入執行 Linux 的虛擬機器](virtual-machines-linux-classic-log-on.md)。
 
 支援 Azure 的 Linux 散發版本有將 Azure Linux 代理程式套件放在其儲存機制，因此請先從這個 Distro 儲存機制檢查並安裝最新版本。
 
@@ -45,6 +45,20 @@
 接下來，若要安裝最新版的 Azure Linux 代理程式，請輸入：
 
     #sudo yum install WALinuxAgent
+
+如果找不到附加元件儲存機制，只需根據您的 Oracle Linux 版本，將這幾行加入 .repo 檔案結尾處︰
+
+Oracle Linux 6 虛擬機器︰
+
+  [ol6\_addons] name=Add-Ons for Oracle Linux $releasever ($basearch) baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86\_64 gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6 gpgcheck=1 enabled=1
+
+Oracle Linux 7 虛擬機器︰
+
+  [ol7\_addons] name=Oracle Linux $releasever Add ons ($basearch) baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle gpgcheck=1 enabled=0
+
+然後輸入：
+
+    #sudo yum update WALinuxAgent
 
 通常您要做就是這幾個步驟了，但如果因為其他原因造成您必須直接從 https://github.com 安裝，請執行以下步驟。
 
@@ -99,12 +113,12 @@
     #sudo cp waagent /usr/share/oem/bin/
 
   如果是新安裝 Azure Linux 代理程式，請執行：
-
+ 
     #sudo /usr/sbin/waagent -install -verbose
 
 ### 針對 2.1.x 版本，請使用：
 
-您可能需要先安裝套件 `setuptools`，請參閱[此處](https://pypi.python.org/pypi/setuptools)。然後，執行：
+您可能需要先安裝封裝 `setuptools`，請參閱[此處](https://pypi.python.org/pypi/setuptools)。然後，執行：
 
     #sudo python setup.py install
 
@@ -130,6 +144,6 @@
 
 您會看到 Azure Linux 代理程式版本已更新為新的版本。
 
-如需有關 Azure Linux 代理程式的詳細資訊，請參閱 [Azure Linux 代理程式讀我檔案](https://github.com/Azure/WALinuxAgent)。
+如需 Azure Linux 代理程式的詳細資訊，請參閱 [Azure Linux 代理程式讀我檔案](https://github.com/Azure/WALinuxAgent)。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

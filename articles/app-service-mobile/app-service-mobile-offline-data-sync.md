@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="03/14/2016"
 	ms.author="wesmc"/>
 
 # Azure 行動應用程式中的離線資料同步處理
@@ -58,26 +58,7 @@
 
 「同步處理內容」會與行動用戶端物件相關聯 (例如 `IMobileServiceClient` 或 `MSClient`)，並且追蹤對同步處理資料表所做的變更。同步處理內容會維護「作業佇列」，其中記錄 CUD 作業 (Create、Update、Delete) 的順序清單，該清單稍後會傳送至伺服器。
 
-本機存放區會使用初始化方法 (例如 .NET 用戶端 SDK 中的 `IMobileServicesSyncContext.InitializeAsync(localstore)`)，來與同步處理內容相關聯。
-
-<!-- TODO: link to client references -->
-
-
-<!--
-Client code will interact with the table using the `IMobileServiceSyncTable` interface to support offline buffering. This interface supports all the methods of `IMobileServiceTable` along with additional support for pulling data from a Mobile App backend table and merging it into a local store table. How the local table is synchronized with the backend database is mainly controlled by your logic in the client app.
-
-The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization.
-
-
-
-* The data objects on the client should have some system properties, most are not required.
-	* Managed
-		* Write out the attributes
-	* iOS
-		*table for the entity
-* Note: because the iOS local store is based on Core Data, the developer must define the following tables:
-	* System tables  -->
-
+本機存放區會使用初始化方法 (例如 [.NET 用戶端 SDK] 中的 `IMobileServicesSyncContext.InitializeAsync(localstore)`)，來與同步處理內容產生關聯。
 
 ## 離線同步處理如何運作
 
@@ -89,9 +70,9 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 
 * **隱含推送**：如果提取是針對有擱置中本機更新的資料表執行，則提取會先在同步處理內容上執行推送。這有助於將已排入佇列的變更與來自伺服器的新資料之間的衝突最小化。
 
-* **增量同步處理**：提取作業的第一個參數是「查詢名稱」，此參數只在用戶端使用。如果您使用非 null 的查詢名稱，Azure 行動 SDK 將會執行「增量同步處理」。每當提取作業傳回結果集，該結果集中最新的 `__updatedAt` 時間戳記就會儲存在 SDK 本機系統資料表。後續的提取作業只會擷取該時間戳記之後的記錄。
+* **增量同步處理**：提取作業的第一個參數是「查詢名稱」，此參數只在用戶端使用。如果您使用非 null 的查詢名稱，Azure 行動 SDK 將會執行「增量同步處理」。每當提取作業傳回結果集，該結果集中最新的 `updatedAt` 時間戳記就會儲存在 SDK 本機系統資料表。後續的提取作業只會擷取該時間戳記之後的記錄。
 
-  若要使用增量同步處理，您的伺服器必須傳回有意義的 `__updatedAt` 值，也必須支援依據此欄位排序。不過，由於 SDK 會在 updatedAt 欄位上加入自己的排序，所以您不能使用本身具備 `$orderBy$` 子句的提取查詢。
+  若要使用增量同步處理，您的伺服器必須傳回有意義的 `updatedAt` 值，也必須支援依據此欄位排序。不過，由於 SDK 會在 updatedAt 欄位上加入自己的排序，所以您不能使用本身具備 `$orderBy$` 子句的提取查詢。
 
   查詢名稱可以是您選擇的任何字串，但它在應用程式中的每個邏輯查詢都必須是唯一的。否則，不同的提取作業可能會覆寫相同的增量同步處理時間戳記，您的查詢可能因此傳回不正確的結果。
 
@@ -100,11 +81,6 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 		await todoTable.PullAsync("todoItems" + userid, syncTable.Where(u => u.UserId = userid));
 
   如果您想選擇不要增量同步處理，則傳遞 `null` 做為查詢識別碼。在此情況下，每次呼叫 `PullAsync` 時都會擷取所有的記錄，這可能會沒有效率。
-
-
-
-<!--   mymobileservice-code.azurewebsites.net/tables/TodoItem?$filter=(__updatedAt ge datetimeoffset'1970-01-01T00:00:00.0000000%2B00:00')&$orderby=__updatedAt&$skip=0&$top=50&__includeDeleted=true&__systemproperties=__updatedAt%2C__deleted
- -->
 
 * **清除**：您可以使用 `IMobileServiceSyncTable.PurgeAsync` 來清除本機存放區的內容。如果用戶端資料庫中有過時資料，或者您想要捨棄所有擱置的變更，可能就需要此作業。
 
@@ -120,11 +96,11 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 * [Windows 8.1：啟用離線同步處理]
 
 <!-- Links -->
+[.NET 用戶端 SDK]: app-service-mobile-dotnet-how-to-use-client-library.md
+[Android：啟用離線同步處理]: app-service-mobile-android-get-started-offline-data.md
+[iOS：啟用離線同步處理]: app-service-mobile-ios-get-started-offline-data.md
+[Xamarin iOS：啟用離線同步處理]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Xamarin Android：啟用離線同步處理]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Windows 8.1：啟用離線同步處理]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-[Android：啟用離線同步處理]: ../app-service-mobile-android-get-started-offline-data.md
-[iOS：啟用離線同步處理]: ../app-service-mobile-ios-get-started-offline-data.md
-[Xamarin iOS：啟用離線同步處理]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Xamarin Android：啟用離線同步處理]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Windows 8.1：啟用離線同步處理]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

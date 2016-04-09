@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="03/03/2016"
    ms.author="ryanwi"/>
 
 # REST 架構應用程式生命週期範例
@@ -709,4 +709,4 @@ namespace ServiceFabricRestCaller
 
 [Service Fabric 應用程式生命週期](service-fabric-application-lifecycle.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

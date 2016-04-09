@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/17/2016"
 	ms.author="glenga"/>
 
 # 將推播通知新增至行動服務應用程式
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[將推播通知新增至 Xamarin.Android 應用程式](../app-service-mobile/app-service-mobile-xamarin-android-get-started-push.md)。
 
 ##概觀
 本主題說明如何使用 Azure 行動服務傳送推播通知至 Xamarin.Android 應用程式。在本教學課程中，您會使用 Google Cloud Messaging (GCM) 服務將推播通知新增至[開始使用行動服務]專案。完成後，行動服務就會在每次插入記錄時傳送推播通知。
@@ -45,7 +45,7 @@
 
 ##<a id="update-scripts"></a>更新註冊的插入指令碼以傳送通知
 
->[AZURE.TIP]下列步驟示範如何在 Azure 傳統入口網站中對 TodoItem 資料表上的插入作業更新註冊的指令碼。您也可以直接在 Visual Studio 之伺服器總管的 Azure 節點中，直接存取和編輯此行動服務指令碼。
+>[AZURE.TIP] 下列步驟示範如何在 Azure 傳統入口網站中對 TodoItem 資料表上的插入作業更新註冊的指令碼。您也可以直接在 Visual Studio 之伺服器總管的 Azure 節點中，直接存取和編輯此行動服務指令碼。
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -72,11 +72,11 @@
 
 * [開始使用驗證](mobile-services-android-get-started-users.md) <br/>了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
 
-* [什麼是通知中心？](../notification-hubs-overview.md) <br/>深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
+* [什麼是通知中心？](../notification-hubs/notification-hubs-overview.md) <br/>深入了解通知中心如何跨所有主要用戶端平台將通知傳遞到您的應用程式。
 
 * [偵錯通知中樞應用程式](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>取得通知中樞解決方案的疑難排解和偵錯指引。
 
-* [如何使用適用於行動服務的 .NET 用戶端程式庫](mobile-services-windows-dotnet-how-to-use-client-library.md) <br/>深入了解如何將 Xamarin C# 程式碼搭配行動服務使用。
+* [如何使用適用於行動服務的 .NET 用戶端程式庫](mobile-services-dotnet-how-to-use-client-library.md) <br/>深入了解如何將 Xamarin C# 程式碼搭配行動服務使用。
 
 * [行動服務伺服器指令碼參考](mobile-services-how-to-use-server-scripts.md) <br/>深入了解如何在您的行動服務中實作商務邏輯。
 
@@ -87,4 +87,4 @@
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure 行動服務]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0323_2016-->

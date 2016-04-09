@@ -128,8 +128,6 @@
 
 > [AZURE.IMPORTANT] 使用 `EngagementListActivity` 或 `EngagementExpandableListActivity` 時，務必先呼叫 `requestWindowFeature(...);` 再呼叫 `super.onCreate(...);`，否則會發生當機。
 
-我們提供 `FragmentActivity` 和 `MapActivity` 的子類別，但為了避免使用 ProGuard 的應用程式發生問題，所以未將這些項目包含在 `engagement.jar` 中。
-
 您可以在 `src` 資料夾中找到這些類別，並將其複製到您的專案。這些類別也會顯示在 JavaDoc 中。
 
 ### 替代方法：手動呼叫 `startActivity()` 和 `endActivity()`
@@ -382,4 +380,4 @@ Engagement 在喜好設定檔案內會一律使用 `engagement:key` 布林值機
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

@@ -32,7 +32,7 @@
 
 本指南根據上述案例說明如何建立網際網路面向的負載平衡器。
 
-1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
+1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](../../articles/xplat-cli-install.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶為止。
 
 2. 執行 **azure config mode** 命令，以切換為傳統模式，如下所示。
 
@@ -135,7 +135,7 @@
 
 ## 後續步驟
 
-[開始設定內部負載平衡器](load-balancer-internal-getstarted.md)
+[開始設定內部負載平衡器](load-balancer-get-started-ilb-arm-ps.md)
 
 [設定負載平衡器分配模式](load-balancer-distribution-mode.md)
 
@@ -143,4 +143,4 @@
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

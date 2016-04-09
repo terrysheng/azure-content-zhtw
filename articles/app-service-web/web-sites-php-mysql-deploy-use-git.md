@@ -3,9 +3,9 @@
 	description="示範如何建立 PHP Web 應用程式，將資料儲存於 MySQL 中並對 Azure 使用 Git 部署的教學課程。";"
 	services="app-service\web"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"
+	editor=""
 	tags="mysql"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="PHP"
 	ms.topic="hero-article"
 	ms.date="02/09/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #在 Azure 應用程式服務中建立 PHP-MySQL Web 應用程式並使用 Git 部署
 
@@ -33,6 +33,7 @@
 
 * 如何使用 [Azure 入口網站](https://portal.azure.com)建立 Web 應用程式和 MySQL 資料庫。由於預設會在 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) 上啟用 PHP，因此您不需要執行任何特殊步驟就能執行 PHP 程式碼。
 * 如何使用 Git 來發行與重新發行應用程式到 Azure。
+* 如何啟用編輯器延伸模組以在每個 `git push` 自動執行編輯器工作。
 
 依照本教學課程進行，您將使用 PHP 建置一個簡易的註冊 Web 應用程式。此應用程式將裝載於 Web Apps 中。完成之應用程式的螢幕擷取畫面如下：
 
@@ -104,7 +105,7 @@
 
 註冊應用程式是一項簡單的 PHP 應用程式，您只需提供名稱與電子郵件地址就能註冊活動。先前的註冊者相關資訊會顯示在資料表中。註冊資訊會存放在 MySQL 資料庫。該應用程式包含一個檔案 (複製/貼上以下提供的程式碼)：
 
-* **index.php**：顯示註冊表單，以及內含註冊者資訊的資料表。
+* index.php：顯示註冊表單，以及內含註冊者資訊的資料表。
 
 若要在本機建置與執行應用程式，請遵循下列步驟。請注意，這些步驟假設您已經在本機電腦上設定 PHP 和 MySQL 命令列工具 (MySQL 的一部分)，且您已經啟用 [MySQL 的 PDO 延伸功能][pdo-mysql]。
 
@@ -120,9 +121,9 @@
 
 		CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 
-4. 在本機應用程式資料夾的根目錄中建立 **index.php** 檔案。
+4. 在本機應用程式資料夾的根目錄中建立 index.php 檔案。
 
-5. 在文字編輯器或 IDE 中開啟 **index.php** 檔案並加入下列程式碼，然後完成具有 `//TODO:` 註解的必要變更。
+5. 在文字編輯器或 IDE 中開啟 index.php 檔案並加入下列程式碼，然後完成具有 `//TODO:` 註解的必要變更。
 
 
 		<html>
@@ -237,7 +238,7 @@
 
 	![透過 Git 初始發送至 Azure][git-initial-push]
 
-2. 瀏覽至 **http://[site 名稱].azurewebsites.net/index.php** 以開始使用該應用程式 (此項資訊將儲存在您的帳戶儀表板上)：
+2. 瀏覽至 http://[site 名稱].azurewebsites.net/index.php 以開始使用該應用程式 (此項資訊將儲存在您的帳戶儀表板上)：
 
 	![Azure PHP web site][running-app]
 
@@ -258,11 +259,32 @@
 
 	![透過 Git 將網站變更發送至 Azure][git-change-push]
 
-3. 瀏覽至 **http://[site 名稱].azurewebsites.net/index.php** 以查看您的應用程式以及您所做的任何變更：
+3. 瀏覽至 http://[site 名稱].azurewebsites.net/index.php 以查看您的應用程式以及您所做的任何變更：
 
 	![Azure PHP web site][running-app]
 
 >[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+
+<a name="composer">
+## 利用編輯器延伸模組啟用編輯器自動化功能
+
+根據預設，App Service 中的 git 部署程序不會對您在 PHP 專案中擁有的 composer.json 執行任何操作。若想在 `git push` 期間啟用 composer.json 處理，您可以透過啟用編輯器延伸模組來達成。
+
+1. 在 [Azure 入口網站](https://portal.azure.com)的 PHP Web 應用程式刀鋒視窗中，按一下 [工具] > [延伸模組]。
+
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-settings.png)
+
+2. 依序按一下 [新增] 和 [編輯器]。
+
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-add.png)
+    
+3. 按一下 [確定] 接受法律條款。再按一次 [確定] 以新增延伸模組。
+
+    [已安裝的延伸模組] 刀鋒視窗會立即顯示編輯器延伸模組。![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    
+4. 現在，和上一節一樣執行 `git add`、`git commit` 和 `git push`。您就會立即看到編輯器正在安裝 composer.json 中定義的相依性。
+
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png)
 
 ## 後續步驟
 
@@ -303,4 +325,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

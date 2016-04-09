@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="03/15/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽︰用來示範頁面使用者介面 (UI) 自訂功能的協助程式工具
@@ -91,4 +91,4 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 現在，您可以使用 [立即執行] 按鈕或您自己的應用程式，再次執行您的原則。結果看起來應該幾乎完全相同 -- 您在這兩個案例中都使用相同的範例 HTML 和 CSS。不過，您的原則現在會參考您自己的 Azure Blob 儲存體執行個體，而您可以再次自由編輯和上傳檔案。如需自訂 HTML 和 CSS 的詳細資訊，請參閱[主要 UI 自訂文章](active-directory-b2c-reference-ui-customization.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!----HONumber=AcomDC_0316_2016-->

@@ -14,20 +14,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/03/2016"
    ms.author="litran"/>
 
-# 在您組織的 App Service 環境中建立新的 Salesforce API
+# 在 PowerApps Enterprise 中建立新的 Salesforce API
+
+> [AZURE.SELECTOR]
+- [邏輯應用程式](../articles/connectors/create-api-salesforce.md)
+- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
+
+將 Salesforce API 加入您組織 (租用戶) 的 App Service 環境中。
 
 ## 在 Azure 入口網站中建立 API
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中使用您的工作帳戶登入。例如，使用 *yourUserName*@*YourCompany*.com 登入。當您這樣做時，您會自動登入您的公司訂用帳戶。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中使用您的工作帳戶登入。例如，使用 yourUserName@*YourCompany*.com 登入。當您這樣做時，將會自動登入您的公司訂用帳戶。
  
-2. 選取工作列中的 [**瀏覽**]：![][14]
+2. 選取工作列中的 [瀏覽]：![][14]
 
 3. 在清單中，您可以捲動以尋找 PowerApps 或輸入 *powerapps*：![][15]
 
-4. 在 [**PowerApps**] 中選取 [**管理 API**]：![瀏覽至已註冊的 API][1]
+4. 在 **PowerApps** 中選取 [管理 API]：![瀏覽至已註冊的 API][1]
 
 5. 在 [**管理 API**] 中，選取 [**新增**] 以新增 API：![Add API][2]
 
@@ -39,7 +45,7 @@
 
 9. 輸入您 Salesforce 應用程式的*應用程式金鑰*與*應用程式密碼*值。如果您還沒有這些值，請參閱本主題中的＜註冊 Salesforce 應用程式以搭配 PowerApps 使用＞一節，建立您需要的金鑰與密碼值。
 
-	> [AZURE.IMPORTANT]儲存**重新導向 URL**。您在本主題的後半部可能需要此值。
+	> [AZURE.IMPORTANT] 儲存**重新導向 URL**。您在本主題的後半部可能需要此值。
 
 10. 選取 [**確定**] 以完成步驟。
 
@@ -58,7 +64,10 @@
 
 4. 在 [**New Connected App (新增連接的應用程式)**] 中：
 
-	a) 為 [**Connected App Name (連接的應用程式名稱)**] 輸入值。b) 為 [**API Name (API 名稱)**] 輸入值。c) 為 [**Contact Email (連絡電子郵件) **] 輸入值。d) 在 [_API (Enable OAuth Settings) (API (啟用 OAuth 設定))_] 下方，選取 [**Enable OAuth Settings (啟用 OAuth 設定)**]，然後將 [**Callback URL (回呼 URL)**] 設為您在 Azure 入口網站中新增 Salesforce API 時收到的重新導向 URL (在本主題中)。
+	1. 輸入 [已連線的應用程式名稱] 的值。  
+	2. 輸入 [API 名稱] 的值。  
+	3. 輸入 [連絡人電子郵件] 的值。  
+	4. 在 [API (啟用 OAuth 設定)] 下方，選取 [啟用 OAuth 設定]，然後把 [回呼 URL] 設為您在 Azure 入口網站中新增 Salesforce API 時收到的重新導向 URL (在本主題中)。  
 
 5. 在 [_Selected OAuth scopes (選取的 OAuth 範圍)_] 下方，將下列範圍新增至 [**Selected OAuth Scopes (選取的 OAuth 範圍)**]：
 
@@ -70,6 +79,10 @@
 6. **儲存**您的變更：![Salesforce 新的應用程式][8]
 
 Salesforce 應用程式便建立好了。您可以在 Azure 入口網站的 Salesforce API 組態中使用此應用程式。
+
+## 請參閱 REST API
+
+[Salesforce REST API](../connectors/create-api-salesforce.md) 參考。
 
 ## 摘要和後續步驟
 在本主題中，您已將 Salesforce API 新增至 PowersApps Enterprise。接下來，請授與使用者此 API 的存取權，讓使用者能夠將此 API 新增至其應用程式：
@@ -88,4 +101,4 @@ Salesforce 應用程式便建立好了。您可以在 Azure 入口網站的 Sale
 [14]: ./media/powerapps-create-api-salesforce/browseall.png
 [15]: ./media/powerapps-create-api-salesforce/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

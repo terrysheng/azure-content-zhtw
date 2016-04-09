@@ -3,7 +3,7 @@
 	description="說明如何檢視存取和使用情況報告來深入了解貴組織之目錄完整性和安全性。"
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
+	authors="dhanyahk"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
-	ms.author="kenhoff;Justinha;curtand"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
 
 # 檢視存取和使用情況報告
@@ -99,7 +99,15 @@
 ## 異常活動報告
 <p>異常登入活動報告會將 Office365、Azure 管理入口網站、Azure AD 存取面板、Sharepoint Online、Dynamics CRM Online 和其他 Microsoft Online Services 的可疑登入活動加上旗標。</p>
 <p>所有這些報告，除了「多項失敗後的登入」報告，也會將上述服務的可疑<i>同盟</i>登入加上旗標，無論同盟提供者是誰。</p>
-<p>提供下列報告：</p><ul><li>[從不明來源登入](active-directory-reporting-sign-ins-from-unknown-sources.md)。</li> <li>[在多次失敗後登入](active-directory-reporting-sign-ins-after-multiple-failures.md)。</li> <li>[從多個地理區域登入](active-directory-reporting-sign-ins-from-multiple-geographies.md)。</li> <li>[從具有可疑活動的 IP 位址登入](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)。</li> <li>[異常的登入活動](active-directory-reporting-irregular-sign-in-activity.md)。</li> <li>[從可能受感染的裝置登入](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)。</li> <li>[具有異常登入活動的使用者](active-directory-reporting-users-with-anomalous-sign-in-activity.md)。</li> <li>認證外洩的使用者</li></ul>
+<p>可以使用下列報告：</p><ul>
+<li>[從不明來源登入](active-directory-reporting-sign-ins-from-unknown-sources.md)。</li>
+<li>[在多次失敗後登入](active-directory-reporting-sign-ins-after-multiple-failures.md)。</li>
+<li>[從多個地理區域登入](active-directory-reporting-sign-ins-from-multiple-geographies.md)。</li>
+<li>[從具有可疑活動的 IP 位址登入](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)。</li>
+<li>[異常的登入活動](active-directory-reporting-irregular-sign-in-activity.md)。</li>
+<li>[從可能受感染的裝置登入](active-directory-reporting-sign-ins-from-possibly-infected-devices.md)。</li>
+<li>[具有異常登入活動的使用者](active-directory-reporting-users-with-anomalous-sign-in-activity.md)。</li>
+<li>認證外洩的使用者</li></ul>
 
 
 
@@ -246,11 +254,11 @@
 
 - 連絡使用者來確認活動
 - 重設使用者的密碼
-- [啟用多因素驗證](multi-factor-authentication-get-started.md)以提供額外的安全性
+- [啟用多因素驗證](../multi-factor-authentication/multi-factor-authentication-get-started.md)以提供額外的安全性
 
 ## 檢視或下載報告
 
-1. 在 Azure 管理入口網站中，按一下 [**Active Directory**]，按一下您組織的目錄名稱，後按一下 [**報告**]。
+1. 在 Azure 傳統入口網站中，依序按一下 [Active Directory]、您組織目錄的名稱，然後按一下 [報告]。
 2. 在 [報告] 頁面上，按一下您要檢視和/或下載的報告。
 
     > [AZURE.NOTE] 如果這是您第一次使用 Azure Active Directory 的報告功能，您會看到「選擇加入」的訊息。如果您同意，請按一下核取記號圖示繼續進行。
@@ -260,8 +268,8 @@
     - 過去 7 天
     - 過去 30 天
 4. 按一下核取記號圖示來執行報告。
-	- Azure 管理入口網站最多會顯示 1000 個事件。
-5. 如果適用的話，按一下 [**下載**] 可將報告下載為逗號分隔值 (CSV) 格式的壓縮檔，以供離線檢視或封存。
+	- Azure 傳統入口網站最多會顯示 1000 個事件。
+5. 如果適用的話，按一下 [下載] 可將報告下載為逗號分隔值 (CSV) 格式的壓縮檔，以供離線檢視或封存。
 	- 最多 75,000 個事件會包含在下載的檔案中。
 	- 如需更多資料，請參閱 [Azure AD 報告 API](active-directory-reporting-api-getting-started.md)。
 
@@ -278,4 +286,4 @@
 - [開始使用 Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

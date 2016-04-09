@@ -12,10 +12,10 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="java"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/05/2016"
+   ms.date="03/07/2016"
    ms.author="larryfr"/>
 
 
@@ -25,7 +25,9 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
 > [AZURE.NOTE] 本文中的步驟會建立以 Windows 為基礎的 HDInsight 叢集。如需在 HDInsight 叢集上建立以 Linux 為基礎之 Storm 的步驟，請參閱 [Apache Storm 教學課程：在 HDInsight 上藉由資料分析開始使用 Storm Starter 範例](hdinsight-apache-storm-tutorial-get-started-linux.md)
 
-## 必要條件
+## 開始之前
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 您必須具備下列先決條件，才能順利完成本 Apache Storm 教學課程：
 
@@ -111,7 +113,7 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 [提交拓撲] 表單可用於上傳並執行含有 Storm 拓撲的 .jar 檔案。它也包含數個與叢集一併提供的基本範例。
 
-### <a id="run"></a>從 GitHub 的 Storm Starter 專案執行 word-count 範例
+### <a id="run">從 GitHub 的 Storm Starter 專案執行 word-count 範例
 
 與叢集一併提供的範例包含 word-counting 拓撲的數個變體。這些範例包含會隨機產生句子的 **spout**，以及會將每個句子拆成個別單字，然後計算每個單字的出現次數的 **bolts**。這些範例均來自 [Storm Starter 範例](https://github.com/apache/storm/tree/master/examples/storm-starter) (Apache Storm 的一部分)。
 
@@ -203,6 +205,10 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 
 請返回 word-count 拓撲的 [拓撲摘要] 頁面，然後選取 [拓撲動作] 區段中的 [終止] 按鈕。出現提示時，請先輸入要等候 10 秒，再停止拓撲。逾時期限過後，當您瀏覽儀表板的 [Storm UI] 區段時，就不會再看到拓撲。
 
+##刪除叢集
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## 摘要
 
 您已在本 Apache Storm 教學課程中藉由 Storm Starter 了解如何建立 Storm on HDInsight 叢集，以及如何使用 Storm 儀表板部署、監視和管理 Storm 拓撲。
@@ -239,4 +245,4 @@ Storm on HDInsight 使用 Azure Blob 儲存體來儲存提交給叢集的記錄�
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0316_2016-->

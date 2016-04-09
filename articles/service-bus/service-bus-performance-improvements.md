@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="使用服務匯流排提升效能的最佳作法 |Microsoft Azure"
-   description="描述如何使用 Azure 服務匯流排來在交換代理的訊息時將效能最佳化。"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="使用服務匯流排提升效能的最佳做法 |Microsoft Azure"
+    description="描述如何使用 Azure 服務匯流排來在交換代理的訊息時將效能最佳化。"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # 使用服務匯流排代理傳訊的效能改進最佳作法
 
@@ -31,7 +31,7 @@
 
 ## 重複使用處理站和用戶端
 
-服務匯流排用戶端物件，例如 [QueueClient][] 或 [MessageSender][]，會透過也提供內部連接管理的 [MessagingFactory][] 物件來建立。當您傳送一個訊息，並在傳送下一個訊息時重新建立傳訊處理站或佇列、主題及訂用帳戶用戶端之後，您不能將其關閉。關閉傳訊處理站會刪除服務匯流排服務的連接，並在重新建立處理站時建立新的連接。建立連接是成本高昂的作業，您可以藉由重新使用多項作業的相同處理站和用戶端物件來避免此作業。
+服務匯流排用戶端物件，例如 [QueueClient][] 或 [MessageSender][]，會透過也提供內部連接管理的 [MessagingFactory][] 物件來建立。當您傳送一個訊息，並在傳送下一個訊息時重新建立傳訊處理站或佇列、主題及訂用帳戶用戶端之後，您不能將其關閉。關閉傳訊處理站會刪除服務匯流排服務的連接，並在重新建立處理站時建立新的連接。建立連接是成本高昂的作業，您可以藉由重新使用多項作業的相同處理站和用戶端物件來避免此作業。您可以安全地使用 [QueueClient][] 物件，從並行非同步作業和多個執行緒傳送訊息。
 
 ## 並行作業
 
@@ -130,7 +130,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 ## 快速佇列和主題
 
-快速實體會啟用高輸送量並減少延遲案例。使用快速實體時，如果訊息傳送至佇列或主題，它不會立即儲存在訊息存放區。訊息會改為在記憶體中快取。如果訊息保留在佇列中超過幾秒鐘，它會自動寫入至穩定儲存體，藉此保護它免於因中斷而遺失。將訊息寫入記憶體快取會增加輸送量並減少延遲，因為訊息傳送時沒有存取穩定儲存體。在幾秒鐘內取用的訊息不會寫入至訊息存放區。下列範例會建立快速主題。
+快速實體會啟用高輸送量並減少延遲案例。使用快速實體時，如果訊息傳送至佇列或主題，訊息不會立即儲存在訊息存放區。相反地，它會快取在記憶體中。如果訊息保留在佇列中超過幾秒鐘，它會自動寫入至穩定儲存體，藉此保護它免於因中斷而遺失。將訊息寫入記憶體快取會增加輸送量並減少延遲，因為訊息傳送時沒有存取穩定儲存體。在幾秒鐘內取用的訊息不會寫入至訊息存放區。下列範例會建立快速主題。
 
 ```
 TopicDescription td = new TopicDescription(TopicName);
@@ -142,7 +142,7 @@ namespaceManager.CreateTopic(td);
 
 ## 使用分割的佇列或主題
 
-服務匯流排會在內部使用相同的節點和訊息存放區來處理和儲存訊息實體 (佇列或主題) 的所有訊息。另一方面，分割的佇列或主題會在多個節點和訊息存放區中散佈。分割的佇列和主題不僅會產生比一般佇列和主題更高的輸送量，也會顯示較優異的可用性。若要建立分割的實體，請將 [EnablePartitioning][] 屬性設為 **true**，如下列範例所示。如需分割實體的詳細資訊，請參閱[分割訊息實體][]。
+服務匯流排會在內部使用相同的節點和訊息存放區來處理和儲存訊息實體 (佇列或主題) 的所有訊息。另一方面，分割的佇列或主題會在多個節點和訊息存放區中散佈。分割的佇列和主題不僅會產生比一般佇列和主題更高的輸送量，也會顯示較優異的可用性。若要建立分割的實體，請將 [EnablePartitioning][] 屬性設為 **true**，如下列範例所示。如需分割實體的詳細資訊，請參閱[分割的傳訊實體][]。
 
 ```
 // Create partitioned queue.
@@ -275,7 +275,7 @@ namespaceManager.CreateQueue(qd);
 
 ## 後續步驟
 
-若要深入了解如何最佳化服務匯流排效能，請參閱[分割訊息實體][]。
+若要深入了解如何最佳化服務匯流排效能，請參閱[分割的傳訊實體][]。
 
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
@@ -288,7 +288,7 @@ namespaceManager.CreateQueue(qd);
   [SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
   [ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
   [EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
-  [分割訊息實體]: service-bus-partitioning.md
+  [分割的傳訊實體]: service-bus-partitioning.md
   
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0323_2016-->

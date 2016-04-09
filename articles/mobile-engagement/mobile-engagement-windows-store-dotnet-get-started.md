@@ -13,18 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/29/2016"
+	ms.date="03/25/2016"
 	ms.author="piyushjo" />
 
 # 開始使用適用於 Windows 通用 App 的 Azure Mobile Engagement
 
-> [AZURE.SELECTOR]
-- [通用 Windows](mobile-engagement-windows-store-dotnet-get-started.md)
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS | Obj C](mobile-engagement-ios-get-started.md)
-- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md)
-- [Cordova](mobile-engagement-cordova-get-started.md)
+[AZURE.INCLUDE [Hero 教學課程切換器](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 本主題說明如何使用 Azure Mobile Engagement 了解您的應用程式使用狀況，以及傳送推播通知給 Windows 通用 app 的分佈使用者。
 本教學課程將示範使用 Mobile Engagement 的簡單廣播案例。您將建立一個空白的 Windows 通用 app，以使用 Windows 通知服務 (WNS) 來收集基本的應用程式使用資料及接收推播通知。
@@ -34,7 +28,7 @@
 + Visual Studio 2013
 + [MicrosoftAzure.MobileEngagement] Nuget 封裝
 
-> [AZURE.IMPORTANT] 完成本教學課程是所有其他 Windows 通用 app 的 Mobile Engagement 教學課程的必要條件。若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
+> [AZURE.NOTE] 若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-store-dotnet-get-started)。
 
 ##<a id="setup-azme"></a>設定 Windows 通用 App 的 Mobile Engagement
 
@@ -135,7 +129,8 @@
 
 ##<a id="integrate-push"></a>啟用推播通知與 App 內傳訊
 
-Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活動進行時與使用者互動和觸達。此模組在 Mobile Engagement 入口網站中稱為觸達 (REACH)。以下各節將設定您的用程式來接收它們。
+Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活動進行時與使用者互動和觸達。此模組在 Mobile Engagement 入口網站中稱為觸達 (REACH)。
+以下各節將設定您的用程式來接收它們。
 
 ###啟用您的應用程式接收 WNS 推播通知
 
@@ -215,4 +210,4 @@ Mobile Engagement 可讓您透過推播通知和應用程式內傳訊，於活�
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

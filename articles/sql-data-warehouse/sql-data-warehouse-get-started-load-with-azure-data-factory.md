@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # 使用 Azure Data Factory 載入資料
@@ -75,18 +75,18 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 
 2. 若要註冊 SQL 資料倉儲，請瀏覽至 [編寫及部署] 區段，選取 [新資料存放區]，然後選取 [Azure SQL 資料倉儲]。複製並貼上此範本，然後填入您的特定資訊。
 
-    ````
-    {
-        "name": "<Linked Service Name>",
-	    "properties": {
-	        "description": "",
-		    "type": "AzureSqlDW",
-		    "typeProperties": {
-		         "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
-	         }
-        }
+```JSON
+{
+    "name": "<Linked Service Name>",
+    "properties": {
+        "description": "",
+	    "type": "AzureSqlDW",
+	    "typeProperties": {
+	         "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
+         }
     }
-    ````
+}
+```
 
 ### 步驟 2.2：定義資料集
 
@@ -96,56 +96,56 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 
 2. 依序按一下 [新增資料集] 和 [Azure Blob 儲存體]，以將儲存體連結至 Data Factory。您可以使用以下指令碼，在 Azure Blob 儲存體中定義您的資料：
 
-    ````
-	{
-	    "name": "<Dataset Name>",
-		"properties": {
-		    "type": "AzureBlob",
-			"linkedServiceName": "<linked storage name>",
-			"typeProperties": {
-			    "folderPath": "<containter name>",
-				"fileName": "FactInternetSales.csv",
-				"format": {
-				"type": "TextFormat",
-				"columnDelimiter": ",",
-				"rowDelimiter": "\n"
-                }
-            },
-		    "external": true,
-		    "availability": {
-			    "frequency": "Hour",
-			    "interval": 1
-		    },
-		    "policy": {
-		        "externalData": {
-			        "retryInterval": "00:01:00",
-			        "retryTimeout": "00:10:00",
-			        "maximumRetry": 3
-		        }
+```JSON
+{
+    "name": "<Dataset Name>",
+	"properties": {
+	    "type": "AzureBlob",
+		"linkedServiceName": "<linked storage name>",
+		"typeProperties": {
+		    "folderPath": "<containter name>",
+			"fileName": "FactInternetSales.csv",
+			"format": {
+			"type": "TextFormat",
+			"columnDelimiter": ",",
+			"rowDelimiter": "\n"
             }
-		}
+        },
+	    "external": true,
+	    "availability": {
+		    "frequency": "Hour",
+		    "interval": 1
+	    },
+	    "policy": {
+	        "externalData": {
+		        "retryInterval": "00:01:00",
+		        "retryTimeout": "00:10:00",
+		        "maximumRetry": 3
+	        }
+        }
 	}
-    ````
+}
+```
 
 
 3. 現在，我們也會對 SQL 資料倉儲定義我們的資料集。我們以相同方式開始，即依序按一下 [新增資料集] 和 [Azure SQL 資料倉儲]。
 
-    ````
-    {
-	    "name": "DWDataset",
-		"properties": {
-		    "type": "AzureSqlDWTable",
-		    "linkedServiceName": "AzureSqlDWLinkedService",
-		    "typeProperties": {
-			    "tableName": "FactInternetSales"
-			},
-		    "availability": {
-		        "frequency": "Hour",
-			    "interval": 1
-	        }
+```JSON
+{
+    "name": "DWDataset",
+	"properties": {
+	    "type": "AzureSqlDWTable",
+	    "linkedServiceName": "AzureSqlDWLinkedService",
+	    "typeProperties": {
+		    "tableName": "FactInternetSales"
+		},
+	    "availability": {
+	        "frequency": "Hour",
+		    "interval": 1
         }
     }
-    ````
+}
+```
 
 ## 步驟 3：建立和執行管線
 
@@ -153,7 +153,7 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 
 現在。在 [作者與部署] 區段中。依序按一下 [其他命令] 和 [新增管線]。建立管線之後，您可以使用以下程式碼，將資料傳送到資料倉儲：
 
-````
+```JSON
 {
     "name": "<Pipeline Name>",
     "properties": {
@@ -199,7 +199,7 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 	    "isPaused": false
     }
 }
-````
+```
 
 ## 後續步驟
 
@@ -215,4 +215,4 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 - [教學課程：將資料從 Azure 儲存體 Blob 複製到 Azure SQL Database](../data-factory/data-factory-get-started.md)。在本教學課程中，您將在 Azure Data Factory 中建立管線，將資料從 Azure 儲存體 Blob 複製到 Azure SQL Database。
 - [真實案例教學課程](../data-factory/data-factory-tutorial.md)。這是使用 Azure Data Factory 的深入教學課程。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

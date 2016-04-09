@@ -3,8 +3,8 @@
   description="確定已適當地準備您的環境，以使用 Azure 備份伺服器來備份工作負載"
   services="backup"
   documentationCenter=""
-  authors="Jim-Parker"
-  manager="jwhit"
+  authors="pvrk"
+  manager="shivamg"
   editor=""
   keywords="Azure 備份伺服器；備份保存庫"/>
 
@@ -15,7 +15,7 @@
   ms.devlang="na"
   ms.topic="article"
   ms.date="02/04/2016"
-  ms.author="jimpark; trinadhk;"/>
+  ms.author="jimpark;trinadhk;pullabhk"/>
 
 # 準備使用 Azure 備份伺服器來備份工作負載
 
@@ -211,4 +211,4 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 - [SharePoint 伺服器備份](backup-azure-backup-sharepoint.md)
 - [替代伺服器備份](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="02/29/2016"
 	ms.author="larryfr"/>
 
 # 在 HDInsight Hadoop 叢集上安裝和使用 Solr
@@ -40,9 +40,13 @@
 
 ## <a name="install"></a>使用指令碼動作安裝 Solr
 
-您可以從唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Solr 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh)。本節提供有關如何在使用 Azure 入口網站佈建叢集時使用範例指令碼的指示。
+在 HDInsight 叢集上安裝 Solr 的範例指令碼位於下列位置。
 
-> [AZURE.NOTE] 您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+    https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+
+本節提供如何在使用 Azure 入口網站建立新叢集時使用範例指令碼的指示。
+
+> [AZURE.NOTE] Azure PowerShell、HDInsight .NET SDK 或 Azure Resource Manager 範本也可用來套用指令碼動作。您也可以將指令碼動作套用到執行中的叢集上。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 1. 使用[佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中的步驟開始佈建叢集，但是不完成佈建。
 
@@ -292,8 +296,6 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 
 - [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)。色調是 Web UI，可讓您更輕鬆地建立、執行及儲存 Pig 和 Hive 工作，以及瀏覽您的 HDInsight 叢集的預設儲存體。
 
-- [在 HDInsight 叢集上安裝及使用 Spark][hdinsight-install-spark]。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Spark。Spark 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。
-
 - [在 HDInsight 叢集上安裝 R][hdinsight-install-r]。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 R。R 是一個用於統計計算的開放原始碼語言和環境。它提供數百個內建的統計函式及它自己的程式設計語言，此語言結合了函式型和物件導向程式設計的層面。它也提供廣泛的圖形功能。
 
 - [在 HDInsight 叢集上安裝 Giraph](hdinsight-hadoop-giraph-install-linux.md)。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Giraph。Giraph 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。
@@ -303,7 +305,6 @@ Solr 儀表板是 Web UI，可讓您透過網頁瀏覽器使用 Solr。Solr 儀�
 
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
-[hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -9,7 +9,7 @@
 
 下列 Transact-SQL 指令碼為每個區域提供範例。
 
->[AZURE.NOTE]每個範例是根據兩個必要條件：您的金鑰保存庫的非對稱金鑰 (稱為 **CONTOSO\_KEY**)，和 AKV 整合功能所建立的認證 (稱為 **Azure\_EKM\_TDE\_cred**)。
+>[AZURE.NOTE] 每個範例是根據兩個必要條件：您的金鑰保存庫的非對稱金鑰 (稱為 **CONTOSO\_KEY**)，和 AKV 整合功能所建立的認證 (稱為 **Azure\_EKM\_TDE\_cred**)。
 
 ### 透明資料加密 (TDE)
 1. 建立 SQL Server 登入，讓資料庫引擎用於 TDE，然後新增認證。
@@ -93,6 +93,6 @@
 ## 其他資源
 如需有關如何使用這些加密功能的詳細資訊，請參閱[以 SQL Server 加密功能使用 EKM](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM)。
 
-請注意，本文中的步驟假設您已在 Azure 虛擬機器上執行 SQL Server。如果沒有，請參閱[在 Azure 中佈建 SQL Server 虛擬機器](../articles/virtual-machines/virtual-machines-provision-sql-server.md)。如需在 Azure VM 中執行 SQL Server 的其他指引，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)。
+請注意，本文中的步驟假設您已在 Azure 虛擬機器上執行 SQL Server。如果沒有，請參閱[在 Azure 中佈建 SQL Server 虛擬機器](../articles/virtual-machines/virtual-machines-windows-classic-portal-sql.md)。如需在 Azure VM 中執行 SQL Server 的其他指引，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

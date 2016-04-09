@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # 如何在 Azure CLI 中建立 NSG
@@ -32,9 +32,9 @@
 ## 如何建立前端子網路的 NSG
 若要根據上述案例建立名為 *NSG-FrontEnd* 的 NSG，請依照下列步驟執行。
 
-1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli-install.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
+1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](../xplat-cli-install.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
 
-2. 執行 **azure config mode** 命令，以切換為資源管理員模式，如下所示。
+2. 執行 **azure config mode** 命令，以切換為 Azure 資源管理員模式，如下所示。
 
 		azure config mode arm
 
@@ -69,8 +69,8 @@
 		info:    network nsg create command OK
 
 	參數：
-	- **-g (或 --resource-group)**。將會在當中建立 NSG 之資源群組的名稱。在本文案例中為 *TestRG*.
-	- **-l (或 --location)**。將要建立新 NSG 的 Azure 區域。在本文案例中為 *westus*.
+	- **-g (或 --resource-group)**。將會在當中建立 NSG 之資源群組的名稱。在本文案例中為 *TestRG*。
+	- **-l (或 --location)**。將要建立新 NSG 的 Azure 區域。在本文案例中為 *westus*。
 	- **-n (或 --name)**。新 NSG 的名稱。在本文案例中為 *NSG-FrontEnd*。
 
 4. 執行 **azure network nsg rule create** 命令來建立允許從網際網路存取連接埠 3389 (RDP) 的規則。
@@ -269,4 +269,4 @@
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=AcomDC_1217_2015-->
+<!------HONumber=AcomDC_0323_2016-->

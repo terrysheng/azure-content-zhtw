@@ -19,8 +19,8 @@
 
 # 監視和管理 Azure Data Factory 管線
 > [AZURE.SELECTOR]
-- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
-- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+- [使用 Azure 入口網站/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [使用監視及管理應用程式](data-factory-monitor-manage-app.md)
 
 Data Factory 服務提供一個可靠且完整的儲存、處理和資料移動服務檢視。它可協助您快速評估端對端資料管線健康情況、指出問題所在，並視需要採取修正動作。您也可以透過視覺化方式追蹤跨任何來源的資料之間的資料歷程和關聯，並從單一監視儀表板查看工作執行、系統健全狀況和相依性的完整歷程記錄處理。
 
@@ -277,9 +277,9 @@ Azure Data Factory 透過 Azure 傳統入口網站和 Azure PowerShell 提供許
 
 您可以使用 Set-AzureRmDataFactorySliceStatus Cmdlet 來重新執行失敗。如需該 Cmdlet 的語法及其他詳細資料，請參閱 [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) 主題。
 
-**範例：**下列範例把 Azure 資料處理站「WikiADF」中「DAWikiAggregatedData」資料表的所有配量狀態都設為「Waiting」。
+範例：下列範例把 Azure Data Factory 'WikiADF' 中 'DAWikiAggregatedData' 資料表的所有配量狀態都設為 'Waiting'。
 
-**注意：**UpdateType 已設為 UpstreamInPipeline，這代表資料表中每個配量的狀態，以及做為管線中活動的輸入資料表的所有相依 (上游) 資料表的狀態，都設為「Waiting」。此參數的另一個可能值為 "Individual"。
+注意：UpdateType 已設為 UpstreamInPipeline，這代表資料表中每個配量的狀態，以及作為管線中活動之輸入資料表的所有相依 (上游) 資料表狀態，都設為 "Waiting"。此參數的另一個可能值為 "Individual"。
 
 	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
@@ -296,7 +296,7 @@ Azure 事件可讓您深入了解 Azure 資源的情況。當建立、更新或�
 
 您可以針對這些使用者事件建立警示，並設定它們傳送電子郵件通知給訂用帳戶的管理員和共同管理員。此外，您還可以指定使用者的其他電子郵件地址，當條件符合時，這些使用者需要收到電子郵件通知。這在您想要取得有關失敗的通知且不想要持續監視您的 Data Factory 時會非常有用。
 
-> [AZURE.NOTE] 入口網站目前無法顯示事件警示。請使用[監視及管理應用程式](data-factory-monitor-manage-app.md)查看所有警示。
+> [AZURE.NOTE] 入口網站目前無法顯示事件警示。請使用[監視及管理應用程式](data-factory-monitor-manage-app.md)來查看所有警示。
 
 #### 指定警示定義：
 若要指定警示定義，您需要建立 JSON 檔案來描述您想要接獲通知的作業。在下列範例中，警示會針對 RunFinished 作業傳送電子郵件通知。具體而言，當 Data Factory 中完成一個回合，而且執行失敗時 (Status = FailedExecution)，就會傳送電子郵件通知。
@@ -349,7 +349,7 @@ Azure 事件可讓您深入了解 Azure 資源的情況。當建立、更新或�
 作業名稱 | 狀態 | 子狀態
 -------------- | ------ | ----------
 RunStarted | 已啟動 | 啟動中
-RunFinished | Failed / Succeeded | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
+RunFinished | Failed / Succeeded | FailedResourceAllocation<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abandoned
 OnDemandClusterCreateStarted | 已啟動
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
@@ -357,7 +357,7 @@ OnDemandClusterDeleted | Succeeded
 如需上述範例中所使用之 JSON 元素的詳細資料，請參閱[建立警示規則](https://msdn.microsoft.com/library/azure/dn510366.aspx)。
 
 #### 部署警示 
-如果要部署警示，請依照下列範例所示，使用 Azure PowerShell Cmdlet：**New-AzureRmResourceGroupDeployment**：
+如果要部署警示，請依照下列範例所示，使用 Azure PowerShell Cmdlet：New-AzureRmResourceGroupDeployment：
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
@@ -378,8 +378,10 @@ OnDemandClusterDeleted | Succeeded
 	Parameters        :
 	Outputs           :
 
+> [AZURE.NOTE] 您可以使用[建立警示規則](https://msdn.microsoft.com/library/azure/dn510366.aspx) REST API 來建立警示規則。JSON 承載類似上述的 JSON 範例。
+
 #### 擷取 Azure 資源群組部署的清單
-如果要擷取已部署的 Azure 資源群組部署清單，請依照下列範例所示，使用 Cmdlet：**Get-AzureRmResourceGroupDeployment**：
+如果要擷取已部署的 Azure 資源群組部署清單，請使用 Cmdlet：**Get-AzureRmResourceGroupDeployment**，如下列範例所示：
 
 	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
@@ -545,11 +547,13 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
  
 以適當的值取代上述範例中的 subscriptionId、resourceGroupName、和 dataFactoryName。
 
-*metricName* 目前支援 2 個值：- FailedRuns - SuccessfulRuns
+metricName 目前支援 2 個值︰
+- FailedRuns
+- SuccessfulRuns
 
 **部署警示：**
 
-如果要部署警示，請依照下列範例所示，使用 Azure PowerShell Cmdlet：**New-AzureRmResourceGroupDeployment**：
+如果要部署警示，請使用 Azure PowerShell Cmdlet：**New-AzureRmResourceGroupDeployment**，如下列範例所示：
 
 	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
@@ -570,10 +574,10 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 	Outputs           
 
 
-您也可以使用 **Add-AlertRule** Cmdlet 部署警示規則。詳細資料及範例請參閱 [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) 主題。
+您也可以使用 **Add-AlertRule** Cmdlet 來部署警示規則。如需詳細資料及範例，請參閱 [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) 主題。
 
 ## 將 Data Factory 移至另一個資源群組或訂用帳戶
-您可以使用 Data Factory 首頁上的 [**移動**] 命令列按鈕，將 Data Factory 移至另一個資源群組或訂用帳戶。
+您可以使用 Data Factory 首頁上的 [移動] 命令列按鈕，將 Data Factory 移至另一個資源群組或訂用帳戶。
 
 ![移動 Data Factory](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
 
@@ -581,4 +585,4 @@ Data Factory 可讓您擷取各種度量並建立度量警示。您可以針對�
 
 ![移動資源對話方塊](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

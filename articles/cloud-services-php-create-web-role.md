@@ -3,9 +3,9 @@
 	description="在 Azure 雲端服務中建立 PHP Web 和背景工作角色及設定 PHP 執行階段的指南。"
 	services=""
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="01/08/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #如何建立 PHP Web 和背景工作角色
 
@@ -52,7 +52,7 @@ Azure 提供三種運算模型來執行應用程式：Azure 應用程式服務�
 
 	PS C:\myProject> Add-AzurePHPWorkerRole roleName
 
-> [AZURE.NOTE]`roleName` 是選用參數。若省略此參數，將會自動產生角色名稱。第一個建立的 Web 角色將是 `WebRole1`、第二個將是 `WebRole2`，依此類推。第一個建立的背景工作角色將是 `WorkerRole1`、第二個將是 `WorkerRole2`，依此類推。
+> [AZURE.NOTE] `roleName` 是選用參數。若省略此參數，將會自動產生角色名稱。第一個建立的 Web 角色將是 `WebRole1`、第二個將是 `WebRole2`，依此類推。第一個建立的背景工作角色將是 `WorkerRole1`、第二個將是 `WorkerRole2`，依此類推。
 
 ## 指定內建 PHP 版本
 
@@ -76,7 +76,7 @@ Azure 提供三種運算模型來執行應用程式：Azure 應用程式服務�
 
 	PS C:\myProject> Set-AzureServiceProjectRole roleName php 5.4.0
 
-> [AZURE.NOTE]可用的 PHP 版本未來可能會變更。
+> [AZURE.NOTE] 可用的 PHP 版本未來可能會變更。
 
 ## 自訂內建 PHP 執行階段
 
@@ -91,7 +91,7 @@ Azure 提供三種運算模型來執行應用程式：Azure 應用程式服務�
 		display_errors=On
 		extension=php_mongo.dll
 
-> [AZURE.NOTE]任何未在您提供的 `php.ini` 檔案中明確設定的設定，都將自動設為其預設值。但請留意，您可以新增完整的 `php.ini` 檔案。
+> [AZURE.NOTE] 任何未在您提供的 `php.ini` 檔案中明確設定的設定，都將自動設為其預設值。但請留意，您可以新增完整的 `php.ini` 檔案。
 
 ## 使用您自己的 PHP 執行階段
 在某些情況下，您可能會想要提供自己的 PHP 執行階段，而不依照前述的說明選取內建 PHP 執行階段並加以設定。例如，您可以使用與在開發環境使用的 Web 或背景工作角色中相同的 PHP 執行階段。這可讓您更輕鬆地確保應用程式在您的生產環境中不會變更行為。
@@ -128,7 +128,7 @@ Azure 提供三種運算模型來執行應用程式：Azure 應用程式服務�
 
 6. 如以下的[發佈您的應用程式](#how-to-publish-your-application)一節所述，發佈您的應用程式。
 
-> [AZURE.NOTE]在執行前述步驟 (使用您自己的 PHP 執行階段) 之後，您可以將 `download.ps1` 指令碼 (位於 Web 角色根目錄的 `bin` 資料夾中) 刪除。
+> [AZURE.NOTE] 在執行前述步驟 (使用您自己的 PHP 執行階段) 之後，您可以將 `download.ps1` 指令碼 (位於 Web 角色根目錄的 `bin` 資料夾中) 刪除。
 
 ### 設定背景工作角色以使用您自己的 PHP 執行階段
 
@@ -211,4 +211,4 @@ Azure 模擬器所提供的本機環境，可讓您在 Azure 應用程式部署�
 [sqlsrv drivers]: http://php.net/sqlsrv
 []: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

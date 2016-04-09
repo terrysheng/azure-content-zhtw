@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
+  	ms.date="03/18/2016"
 	ms.author="juliako"/>
 
 #使用 .NET SDK 設定資產傳遞原則
@@ -31,7 +31,7 @@
 
 您可以將不同的原則套用至相同的資產。例如，您可以將 PlayReady 加密套用到 Smooth Streaming，將 AES 信封加密套用到 MPEG DASH 和 HLS。傳遞原則中未定義的任何通訊協定 (例如，您加入單一原則，它只有指定 HLS 做為通訊協定) 將會遭到封鎖無法串流。這個狀況的例外情形是您完全沒有定義資產傳遞原則之時。那麼，將允許所有通訊協定，不受阻礙。
 
-請注意，如果您想要傳遞儲存體加密資產，則必須設定資產的傳遞原則。資產可以串流處理之前，串流伺服器會移除儲存體加密，並使用指定的傳遞原則來串流您的內容。例如，若要傳遞使用進階加密標準 (AES) 信封加密金鑰加密的資產，請將原則類型設定為 **DynamicEnvelopeEncryption**。如果您要移除儲存體加密，並且不受阻礙地串流資產，請將原則類型設定為 **NoDynamicEncryption**。下列範例示範如何設定這些原則類型。
+如果您想要傳遞儲存體加密資產，就必須設定資產的傳遞原則。資產可以串流處理之前，串流伺服器會移除儲存體加密，並使用指定的傳遞原則來串流您的內容。例如，若要傳遞使用進階加密標準 (AES) 信封加密金鑰加密的資產，請將原則類型設定為 **DynamicEnvelopeEncryption**。如果您要移除儲存體加密，並且不受阻礙地串流資產，請將原則類型設定為 **NoDynamicEncryption**。下列範例示範如何設定這些原則類型。
 
 視您如何設定資產傳遞原則而定，您可以動態封裝、動態加密，以及串流下列串流通訊協定：Smooth Streaming、HLS、MPEG DASH 和 HDS 資料流。
 
@@ -116,14 +116,27 @@ Azure 媒體服務也可讓您加入 Widevine 加密。下列範例會示範 Pla
 
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
+    	// Get the PlayReady license service URL.
         Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
-        Uri widevineURl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
+        
+
+        // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
+        // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
+        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
+        // to append /? KID =< keyId > to the end of the url when creating the manifest.
+        // As a result Widevine license aquisition URL will have KID appended twice, 
+        // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
+
+        Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
+        UriBuilder uriBuilder = new UriBuilder(widevineUrl);
+        uriBuilder.Query = String.Empty;
+        widevineUrl = uriBuilder.Uri;
 
         Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
             new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
         {
             {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineURl.ToString()},
+            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineUrl.ToString()}
 
         };
 
@@ -348,4 +361,4 @@ Azure 媒體服務也可讓您加入 Widevine 加密。下列範例會示範 Pla
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

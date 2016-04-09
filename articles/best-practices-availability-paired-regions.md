@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags
-    ms.service="backup"
+    ms.service="site-recovery"
     ms.workload="storage-backup-recovery"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/12/2016"
+    ms.date="03/20/2016"
     ms.author="raynew"/>
 
 # 業務持續性和災害復原 (BCDR)：Azure 配對的區域
@@ -64,7 +64,7 @@ Azure 能在世界各地多個地理位置運作。Azure 地理位置是包含�
 
 ![1Green](./media/best-practices-availability-paired-regions/1Green.png) **Azure 計算 (PaaS)** – 您必須佈建額外的計算資源，以便確保發生嚴重損壞時資源可在其他區域中使用。如需詳細資訊，請參閱 [Azure 業務持續性技術指引](https://msdn.microsoft.com/library/azure/hh873027.aspx)
 
-![2Green](./media/best-practices-availability-paired-regions/2Green.png) **Azure 儲存體** - 建立 Azure 儲存體帳戶時，系統預設會設定異地備援儲存體 (GRS)。使用 GRS 時，系統會在主要區域內將您的資料自動複寫三次，並在配對區域中複寫三次。如需詳細資訊，請參閱 [Azure 儲存體備援選項](../storage/storage-redundancy.md)。
+![2Green](./media/best-practices-availability-paired-regions/2Green.png) **Azure 儲存體** - 建立 Azure 儲存體帳戶時，系統預設會設定異地備援儲存體 (GRS)。使用 GRS 時，系統會在主要區域內將您的資料自動複寫三次，並在配對區域中複寫三次。如需詳細資訊，請參閱 [Azure 儲存體備援選項](storage/storage-redundancy.md)。
 
 
 ![3Green](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – 使用 Azure SQL 標準異地複寫，您就可以設定交易至配對區域的非同步複寫。使用高階異地複寫，您就可以設定複寫至世界上任何區域。不過，我們建議您在配對區域中，為大部分的災害復原案例部署這些資源。如需詳細資訊，請參閱 [Azure SQL Database 中的異地複寫](https://msdn.microsoft.com/library/azure/dn783447.aspx)
@@ -85,4 +85,4 @@ Azure 能在世界各地多個地理位置運作。Azure 地理位置是包含�
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **資料常駐地** - 區域會駐留在相同的地理位置之內形成配對 (巴西南部除外)，以符合資料常駐地之稅務和執法管轄區的要求。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

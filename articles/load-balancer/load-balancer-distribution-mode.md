@@ -42,7 +42,7 @@
 
 	Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 
->[AZURE.NOTE] LoadBalancerDistribution 可設定為 sourceIP 以使用 2-tuple (來源 IP、目的地 IP) 負載平衡、sourceIPProtocol 以使用 3-tuple (來源 IP、目的地 IP、通訊協定) 負載平衡，或者，如果您想要預設行為 (5-tuple 負載平衡)，則可設定為 [無]。
+>[AZURE.NOTE] LoadBalancerDistribution 可設定為 sourceIP 以使用 2-tuple (來源 IP、目的地 IP) 負載平衡、sourceIPProtocol 以使用 3-tuple (來源 IP、目的地 IP、通訊協定) 負載平衡；或者，如果您想要預設行為 (5-tuple 負載平衡)，則可設定為 [無]
 
 
 擷取端點負載平衡器分配模式組態
@@ -145,8 +145,8 @@ LoadBalancerDistribution 的值可以是 sourceIP (適用於 2-tuple 同質性)�
 
 [內部負載平衡器概觀](load-balancer-internal-overview.md)
 
-[開始設定網際網路面向的負載平衡器](load-balancer-internet-getstarted.md)
+[開始設定網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

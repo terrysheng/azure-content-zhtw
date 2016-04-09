@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="03/23/2016"
    ms.author="oanapl"/>
 
 # 使用系統健康狀態報告進行疑難排解
@@ -43,13 +43,13 @@ Azure Service Fabric 元件會針對叢集中的所有實體提供現成的報�
 - **後續步驟**：調查網路上的芳鄰遺失的原因 (例如，檢查叢集節點之間的通訊)。
 
 ## 節點系統健康狀態報告
-**System.FM** (代表容錯移轉管理員服務) 是管理叢集節點相關資訊的授權單位。每個節點都應該有一份來自 System.FM 的報告，以顯示其狀態。當節點停用時，會移除節點的實體。
+**System.FM** (代表容錯移轉管理員服務) 是管理叢集節點相關資訊的授權單位。每個節點都應該有一份來自 System.FM 的報告，以顯示其狀態。移除節點狀態時，會移除節點實體 (請參閱 [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx))。
 
 ### 節點運作中/關閉
 當節點加入環形時，System.FM 會回報為 OK (節點已啟動且正在運作中)。當節點離開環形時，則會回報錯誤 (節點已關閉進行升級，或只是發生故障)。由健康狀態資料存放區建置的健康狀態階層會根據 System.FM 節點報告，對部署的實體採取行動。它會將節點視為所有已部署實體的虛擬父系。如果節點關閉、未回報，或擁有與實體相關聯之執行個體相異的執行個體，則該節點上的已部署實體將不會透過查詢公開。當 System.FM 回報節點已關閉或重新啟動 (新執行個體) 時，健康狀態資料存放區會自動清除僅能存在於已關閉節點或先前的節點執行個體上的已部署實體。
 
 - **SourceId**：System.FM
-- **屬性**：狀態
+- **Property**：State
 - **後續步驟**：如果節點已關閉來進行升級，應該會在升級後重新啟動。在這種情況下，健康狀態應會切換回 OK。如果節點沒有重新啟動或故障，就需要進一步調查問題。
 
 以下項目說明帶有 OK 健康狀態的 System.FM 事件 (適用於運作中節點)：
@@ -79,15 +79,15 @@ HealthEvents          :
 當節點所使用的憑證即將到期時，**System.FabricNode** 會回報警告。每個節點有三個憑證：**Certificate\_cluster**、**Certificate\_server** 及 **Certificate\_default\_client**。如果過期時間至少超過兩週，報告健康狀態就是 OK。如果過期時間是在兩週內，則報告類型會是 Warning。這些事件的 TTL 是無限制的，只有節點離開叢集時才會被移除。
 
 - **SourceId**：System.FabricNode
-- **屬性**：以 **Certificate** 為開頭，且包含關於憑證類型的詳細資訊。
+- **Property**：以 **Certificate** 為開頭，且包含關於憑證類型的詳細資訊。
 - **後續步驟**：如果憑證即將到期，請更新憑證。
 
 ### 負載容量違規
 如果 Service Fabric 負載平衡器偵測到節點容量違規，就會回報警告。
 
  - **SourceId**：System.PLB
- - **屬性**：以 **Capacity** 為開頭。
- - **後續步驟**：檢查提供的度量，並在節點上檢視目前容量。
+ - **Property**：以 **Capacity** 為開頭。
+ - **後續步驟**：檢查提供的計量，並在節點上檢視目前容量。
 
 ## 應用程式系統健康狀態報告
 **System.CM** (代表叢集管理員服務) 是管理應用程式相關資訊的授權單位。
@@ -96,13 +96,13 @@ HealthEvents          :
 已建立或更新應用程式時，System.CM 會回報為 OK。已刪除應用程式時，它會通知健康狀態資料存放區，以便從存放區將它移除。
 
 - **SourceId**：System.CM
-- **屬性**：狀態
-- **後續步驟**：如果已建立應用程式，它就應該包含叢集管理員健康狀態報告。否則，請發出查詢以檢查應用程式狀態 (例如 Powershell Cmdlet **Get-ServiceFabricApplication -ApplicationName *applicationName***)。
+- **Property**：State
+- **後續步驟**：如果已建立應用程式，它就應該包含叢集管理員健康狀態報告。否則，請發出查詢以檢查應用程式狀態 (例如 PowerShell Cmdlet **Get-ServiceFabricApplication -ApplicationName *applicationName***)。
 
 以下說明 **fabric:/WordCount** 應用程式上的狀態事件：
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) -DeployedApplicationsHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Ok
@@ -129,7 +129,7 @@ HealthEvents                    :
 已建立服務時，System.FM 會回報為 OK。已刪除服務時，它會從健康狀態資料存放區刪除實體。
 
 - **SourceId**：System.FM
-- **屬性**：狀態
+- **Property**：State
 
 以下說明 **fabric:/WordCount/WordCountService** 服務上的狀態事件：
 
@@ -160,8 +160,77 @@ HealthEvents          :
 如果 **System.PLB** 找不到放置一或多個服務複本的位置，就會回報警告。當報告過期時會被移除。
 
 - **SourceId**：System.FM
-- **屬性**：狀態
+- **Property**：State
 - **後續步驟**：檢查服務條件約束和位置的目前狀態。
+
+以下顯示在含有 5 個節點的叢集中，與使用 7 個目標複本設定的服務所發生的違規。
+
+```xml
+PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
+
+
+ServiceName           : fabric:/WordCount/WordCountService
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.PLB', 
+                        Property='ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b', HealthState='Warning', 
+                        ConsiderWarningAsError=false.
+                        
+PartitionHealthStates : 
+                        PartitionId           : a1f83a35-d6bf-4d39-b90d-28d15f39599b
+                        AggregatedHealthState : Warning
+                        
+HealthEvents          : 
+                        SourceId              : System.FM
+                        Property              : State
+                        HealthState           : Ok
+                        SequenceNumber        : 10
+                        SentAt                : 3/22/2016 7:56:53 PM
+                        ReceivedAt            : 3/22/2016 7:57:18 PM
+                        TTL                   : Infinite
+                        Description           : Service has been created.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Ok = 3/22/2016 7:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
+                        
+                        SourceId              : System.PLB
+                        Property              : ServiceReplicaUnplacedHealth_Secondary_a1f83a35-d6bf-4d39-b90d-28d15f39599b
+                        HealthState           : Warning
+                        SequenceNumber        : 131032232425505477
+                        SentAt                : 3/23/2016 4:14:02 PM
+                        ReceivedAt            : 3/23/2016 4:14:03 PM
+                        TTL                   : 00:01:05
+                        Description           : The Load Balancer was unable to find a placement for one or more of the Service's Replicas:
+                        fabric:/WordCount/WordCountService Secondary Partition a1f83a35-d6bf-4d39-b90d-28d15f39599b could not be placed, possibly, 
+                        due to the following constraints and properties:  
+                        Placement Constraint: N/A
+                        Depended Service: N/A
+                        
+                        Constraint Elimination Sequence:
+                        ReplicaExclusionStatic eliminated 4 possible node(s) for placement -- 1/5 node(s) remain.
+                        ReplicaExclusionDynamic eliminated 1 possible node(s) for placement -- 0/5 node(s) remain.
+                        
+                        Nodes Eliminated By Constraints:
+                        
+                        ReplicaExclusionStatic:
+                        FaultDomain:fd:/0 NodeName:_Node_0 NodeType:NodeType0 UpgradeDomain:0 UpgradeDomain: ud:/0 Deactivation Intent/Status: 
+                        None/None
+                        FaultDomain:fd:/1 NodeName:_Node_1 NodeType:NodeType1 UpgradeDomain:1 UpgradeDomain: ud:/1 Deactivation Intent/Status: 
+                        None/None
+                        FaultDomain:fd:/3 NodeName:_Node_3 NodeType:NodeType3 UpgradeDomain:3 UpgradeDomain: ud:/3 Deactivation Intent/Status: 
+                        None/None
+                        FaultDomain:fd:/4 NodeName:_Node_4 NodeType:NodeType4 UpgradeDomain:4 UpgradeDomain: ud:/4 Deactivation Intent/Status: 
+                        None/None
+                        
+                        ReplicaExclusionDynamic:
+                        FaultDomain:fd:/2 NodeName:_Node_2 NodeType:NodeType2 UpgradeDomain:2 UpgradeDomain: ud:/2 Deactivation Intent/Status: 
+                        None/None
+                        
+                        
+                        RemoveWhenExpired     : True
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 3/22/2016 7:57:48 PM, LastOk = 1/1/0001 12:00:00 AM
+```
 
 ## 分割區系統健康狀態報告
 **System.FM** (代表容錯移轉管理員服務) 是管理服務分割區相關資訊的授權單位。
@@ -174,7 +243,7 @@ HealthEvents          :
 其他重要事件包括：當重新設定花費的時間比預期長，或者建置的時間比預期長，則會回報警告。建置和重新設定的預計時間可根據服務案來例設定。例如，如果服務擁有 1 TB 的狀態 (例如 SQL Database)，則建置的時間會比小數量狀態的服務長。
 
 - **SourceId**：System.FM
-- **屬性**：狀態
+- **Property**：State
 - **後續步驟**：如果健康狀態不是 OK，有可能是因為部分複本並沒有正確建立、開啟、提升為主要或次要的複本。在許多情況下，根本原因是在開啟或變更角色實作時發生服務錯誤。
 
 以下顯示狀況良好的分割區：
@@ -201,7 +270,7 @@ HealthEvents          :
 以下顯示分割區的健康情況低於目標複本計數。後續步驟是取得分割區說明，其中說明設定方式：**MinReplicaSetSize** 為二，**TargetReplicaSetSize** 為七。接著取得叢集中的節點數：五。因此在此情況下，不能放置兩個複本。
 
 ```powershell
-PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None
 
 PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 AggregatedHealthState : Warning
@@ -242,10 +311,10 @@ PS C:\> @(Get-ServiceFabricNode).Count
 ```
 
 ### 複本條件約束違規
-如果 **System.PLB** 偵測到複本條件約束違規，且無法放置分割區複本時，會回報錯誤。
+如果 **System.PLB** 偵測到複本條件約束違規，且無法放置分割區複本時，會回報警告。
 
 - **SourceId**：System.PLB
-- **屬性**：以 **ReplicaConstraintViolation** 為開頭
+- **Property**：以 **ReplicaConstraintViolation** 為開頭
 
 ## 複本系統健康狀態報告
 **System.RA** (代表重新設定代理程式元件) 是複本狀態的授權單位。
@@ -254,7 +323,7 @@ PS C:\> @(Get-ServiceFabricNode).Count
 已建立複本時，**System.RA** 會回報為 OK。
 
 - **SourceId**：System.RA
-- **屬性**：狀態
+- **Property**：State
 
 以下顯示狀況良好的複本：
 
@@ -283,14 +352,14 @@ HealthEvents          :
 如果複本開啟所花費的時間超過設定期間 (預設值：30 分鐘)，**System.RA** 會回報警告。如果 API 影響服務可用性，則報告發出速度就會快上許多 (可設定的間隔，預設值 30 秒)。這包含複寫器開啟及服務開啟所花費的時間。如果開啟完成，則屬性會變更為 OK。
 
 - **SourceId**：System.RA
-- **屬性**：**ReplicaOpenStatus**
+- **Property**：**ReplicaOpenStatus**
 - **後續步驟**：如果健康狀態不是 OK，請調查複本開啟所花費的時間超過預期的原因。
 
 ### 緩慢服務 API 呼叫
 如果呼叫使用者服務程式碼所花費的時間超過設定的時間，**System.RAP** 和 **System.Replicator** 就會回報警告。當呼叫完成時，警告就會被清除。
 
 - **SourceId**：System.RAP 或 System.Replicator
-- **屬性**：緩慢 API 的名稱。該說明會提供有關 API 擱置時間的詳細資訊。
+- **Property**：緩慢 API 的名稱。該說明會提供有關 API 擱置時間的詳細資訊。
 - **後續步驟**：調查呼叫所花費時間超過預期的原因。
 
 下列範例說明處於仲裁遺失狀態的分割區，以及調查原因時需進行的步驟。若其中一個複本的健康狀態為 Warning，您就會取得其健康狀態。它會顯示服務作業所花費的時間超過預期 (由 System.RAP 回報的事件)。接收到此資訊之後，下一個步驟就是查看服務程式碼並詳加調查。在此情況下，具狀態服務的 **RunAsync** 實作會擲回未處理的例外狀況。請注意，因為複本會進行回收，所以您可能不會看到任何處於 Warning 狀態的複本。您可以嘗試重新取得健康狀態，然後查看複本識別碼中是否有任何差異。在某些情況下，這可讓您得到一些線索。
@@ -400,7 +469,7 @@ Visual Studio 2015 診斷事件：RunAsync 在 **fabric:/HelloWorldStatefulAppli
 如果複寫佇列已滿，**System.Replicator** 會回報警告。在主要複本上，會發生此狀況通常是由於一或多個次要複本緩慢而無法認可作業所造成。在次要複本上，這通常是因為服務緩慢而無法套用作業所造成。當佇列有空間時，警告就會被清除。
 
 - **SourceId**：System.Replicator
-- **屬性**：**PrimaryReplicationQueueStatus** 或 **SecondaryReplicationQueueStatus** (根據複本角色而定)
+- **Property**：**PrimaryReplicationQueueStatus** 或 **SecondaryReplicationQueueStatus** (根據複本角色而定)
 
 ## DeployedApplication 系統健康狀態報告
 **System.Hosting** 是已部署實體的授權單位。
@@ -409,7 +478,7 @@ Visual Studio 2015 診斷事件：RunAsync 在 **fabric:/HelloWorldStatefulAppli
 當應用程式在節點上成功啟用時，System.Hosting 會回報為 OK。否則，它會報告錯誤。
 
 - **SourceId**：System.Hosting
-- **屬性**：啟用，包括首度發行版本
+- **Property**：啟用，包括首度發行版本
 - **後續步驟**：如果應用程式的狀況不佳，請調查啟用失敗的原因。
 
 以下說明成功啟用的情況：
@@ -443,7 +512,7 @@ HealthEvents                       :
 如果應用程式封裝下載失敗，**System.Hosting** 會回報錯誤。
 
 - **SourceId**：System.Hosting
-- **屬性**：**Download:*RolloutVersion***
+- **Property**：**Download:*RolloutVersion***
 - **後續步驟**：調查節點上下載失敗的原因。
 
 ## DeployedServicePackage 系統健康狀態報告
@@ -453,20 +522,20 @@ HealthEvents                       :
 如果節點上的服務封裝成功啟用，System.Hosting 會回報為 OK。否則，它會報告錯誤。
 
 - **SourceId**：System.Hosting
-- **屬性**：啟用
+- **Property**：Activation
 - **後續步驟**：調查啟用失敗的原因。
 
 ### 程式碼封裝啟用
 如果成功啟用，**System.Hosting** 會針對每個程式碼封裝回報為 OK。如果啟用失敗，它會依設定回報警告。如果 **CodePackage** 無法啟用，或者因為錯誤數超過 **CodePackageHealthErrorThreshold** 的設定而結束，則 Hosting 會回報錯誤。如果服務封裝包含多個程式碼封裝，就會針對每個封裝產生啟用報告。
 
 - **SourceId**：System.Hosting
-- **屬性**：使用前置詞 **CodePackageActivation**，並以 **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** 形式包含程式碼封裝的名稱和進入點 (例如，**CodePackageActivation:Code:SetupEntryPoint**)
+- **Property**：使用前置詞 **CodePackageActivation**，並以 **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** 形式 (例如 **CodePackageActivation:Code:SetupEntryPoint**) 包含程式碼封裝的名稱和進入點
 
 ### 服務類型註冊
 如果服務類型已成功註冊，**System.Hosting** 會回報為 OK。如果註冊未及時完成 (使用 **ServiceTypeRegistrationTimeout** 來設定)，則會回報錯誤。如果服務類型是從節點取消註冊，這是因為執行階段已關閉。Hosting 會回報警告。
 
 - **SourceId**：System.Hosting
-- **屬性**：使用前置詞 **ServiceTypeRegistration**，並包含服務類型名稱 (例如，**ServiceTypeRegistration:FileStoreServiceType**)
+- **Property**：使用前置詞 **ServiceTypeRegistration**，並包含服務類型名稱 (例如，**ServiceTypeRegistration:FileStoreServiceType**)
 
 以下顯示狀況良好的已部署服務封裝：
 
@@ -520,15 +589,15 @@ HealthEvents          :
 如果服務封裝下載失敗，**System.Hosting** 會回報錯誤。
 
 - **SourceId**：System.Hosting
-- **屬性**：**Download:*RolloutVersion***
+- **Property**：**Download:*RolloutVersion***
 - **後續步驟**：調查節點上下載失敗的原因。
 
 ### 升級驗證
 如果驗證在升級期間失敗，或者節點上的升級失敗，**System.Hosting** 會回報錯誤。
 
 - **SourceId**：System.Hosting
-- **屬性**：使用前置詞 **FabricUpgradeValidation**，並包含升級版本
-- **說明**：指出發生的錯誤
+- **Property**：使用前置詞 **FabricUpgradeValidation**，並包含升級版本
+- **Description**：指出發生的錯誤
 
 ## 後續步驟
 [檢視 Service Fabric 健康狀態報告](service-fabric-view-entities-aggregated-health.md)
@@ -537,4 +606,4 @@ HealthEvents          :
 
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

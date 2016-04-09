@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="03/10/2016" 
 	ms.author="awills"/>
  
 # 從 Application Insights 匯出遙測
@@ -31,7 +31,7 @@
 如果您還沒有「傳統」儲存體帳戶，請立即建立一個。
 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)的訂用帳戶中建立「傳統」儲存體帳戶。
+1. 在 [Azure 入口網站](https://portal.azure.com)的訂用帳戶中建立儲存體帳戶。
 
     ![在 Azure 入口網站中，依序選擇 [新增]、[資料]、[儲存體]](./media/app-insights-export-telemetry/030.png)
 
@@ -91,6 +91,17 @@
 ![使用適合的工具檢查 Blob 儲存區](./media/app-insights-export-telemetry/04-data.png)
 
 日期和時間為 UTC，並且是遙測存放在儲存區的時間 - 而不是產生的時間。因此，如果您編寫程式碼來下載資料，它可以透過資料線性地移動。
+
+以下是路徑的格式︰
+
+
+    $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+  
+Where
+
+-	`blobCreationTimeUtc` 是在內部暫存儲存體中建立 Blob 的時間
+-	`blobDeliveryTimeUtc` 是將 Blob 複製到匯出目的地儲存體的時間
+
 
 
 ## <a name="format"></a> 資料格式
@@ -212,4 +223,4 @@
 
  
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

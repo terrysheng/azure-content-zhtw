@@ -44,7 +44,11 @@
 >
 > Azure App Service 支援橢圓曲線密碼編譯 (ECC) 憑證；不過，它們相對而言比較新，您應該在具體步驟中使用 CA 來建立 CSR。
 
-如果 CA 使用**[中繼憑證](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** (也稱為鏈結憑證)，則您還需要取得這些中繼憑證。使用中繼憑證比使用「未鏈結憑證」安全，因此常會見到 CA 使用中繼憑證。中繼憑證通常是從 CA 網站個別下載而得。本文章中的步驟提供關於如何確保任何中繼憑證與已上傳至應用程式的憑證相合併的步驟。
+如果 CA 使用**[中繼憑證](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** (也稱為鏈結憑證)，則您還需要取得這些中繼憑證。使用中繼憑證比使用「未鏈結憑證」安全，因此常會見到 CA 使用中繼憑證。中繼憑證通常是從 CA 網站個別下載而得。本文提供的步驟為確保任何中繼憑證與已上傳至應用程式的憑證相合併。
+
+> [AZURE.NOTE]
+>
+> 如果 CA 使用中繼憑證，則它們每一個都必須和您網域發行的憑證一起安裝。無法安裝任何中繼憑證，可能會造成某些用戶端難以重現互通性問題。
 
 <a name="bkmk_certreq"></a>
 ### 使用 Certreq.exe 取得憑證 (僅限 Windows)
@@ -388,9 +392,9 @@ OpenSSL 可以用來建立憑證要求 (並讓該要求使用 SubjectAltName 延
 <a name="bkmk_standardmode"></a>
 ## 2\.設定標準或高階定價層
 
-在 Azure App Service 中針對自訂網域啟用 HTTPS 僅適用於「標準」和「高階」定價層。請使用下列步驟將您的 App Service 方案切換至「標準」層。
+在 Azure App Service 中針對自訂網域啟用 HTTPS 僅適用於**標準**和**高階**定價層。請使用下列步驟將您的 App Service 方案切換至 [**標準**] 層。
 
-> [AZURE.NOTE] 在將應用程式從「免費」層切換至「標準」層之前，您應該先移除訂用帳戶的支出費用上限，以免帳單期間還未結束，應用程式就因為已達支出費用上限而變得無法使用。如需共用與「標準」層的詳細資訊，請參閱[定價詳細資料][pricing]。
+> [AZURE.NOTE] 在將應用程式從**免費**層切換至**標準**層之前，您應該先移除訂用帳戶的支出費用上限，以免帳單期間還未結束，應用程式就因為已達支出費用上限而變得無法使用。如需共用與**標準**層的詳細資訊，請參閱[定價詳細資料][pricing]。
 
 1.	在瀏覽器中，開啟 [Azure 入口網站](https://portal.azure.com)。
 	
@@ -531,11 +535,10 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 - [在 Azure App Service 中設定 Web 應用程式](../articles/app-service-web/web-sites-configure.md)
 - [Azure 管理入口網站](https://manage.windowsazure.com)
 
->[AZURE.NOTE] 如果您想要在註冊 Azure 帳戶前便開始使用 Azure App Service，只要移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期的入門應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期的入門應用程式。不需要信用卡；沒有承諾。
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [customdomain]: ../articles/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
@@ -561,4 +564,4 @@ Azure App Service「*不會*」強制使用 HTTPS。訪客可能仍會使用 HTT
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

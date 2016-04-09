@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="donnam"/>
 
 # 在行動服務中使用離線資料同步
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[啟用 Xamarin.Android 行動應用程式的離線同步處理](../app-service-mobile/app-service-mobile-xamarin-android-get-started-offline-data.md)。
 
 本主題逐步解說 todo 清單快速入門應用程式中的 Azure 行動服務離線同步處理功能。離線同步處理可讓您輕鬆建立連沒有網路存取的一般使用者都能使用的應用程式。
 
@@ -176,4 +176,4 @@ Azure 行動服務離線同步處理可讓使用者在無法存取網路時，�
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
 [Azure 傳統入口網站]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

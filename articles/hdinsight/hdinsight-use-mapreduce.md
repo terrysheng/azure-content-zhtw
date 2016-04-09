@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 # 在 HDInsight 上的 Hadoop 中使用 MapReduce
@@ -53,8 +53,6 @@ Hadoop 資料流會透過 STDIN 與 STDOUT 與對應程式和減壓器通訊 (�
 如需詳細資訊，請參閱[Hadoop 資料流](http://hadoop.apache.org/docs/r1.2.1/streaming.html) (英文)。
 
 如需搭配 HDInsight 使用 Hadoop 資料流的範例，請參閱下列內容：
-
-* [開發 C# Hadoop 資料流程式](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
 * [開發 Python MapReduce 工作](hdinsight-hadoop-streaming-python.md)
 
@@ -169,8 +167,6 @@ HDInsight 可以使用各種方法執行 HiveQL 工作。請使用下表決定�
 
 * [開發 HDInsight 的 Python 資料流 MapReduce 程式](hdinsight-hadoop-streaming-python.md)
 
-* [開發 HDInsight 的 C# Hadoop 資料流 MapReduce 程式][hdinsight-develop-streaming]
-
 * [使用 HDInsight 上的 Apache Hadoop 開發 Scalding MapReduce 工作](hdinsight-hadoop-mapreduce-scalding.md)
 
 * [搭配 HDInsight 使用 Hivet][hdinsight-use-hive]
@@ -193,4 +189,4 @@ HDInsight 可以使用各種方法執行 HiveQL 工作。請使用下表決定�
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

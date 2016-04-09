@@ -3,9 +3,9 @@
 	description="了解如何使用 Blob 儲存體上傳、下載、列出及刪除 Blob 內容。範例以 Ruby 撰寫。"
 	services="storage"
 	documentationCenter="ruby"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="tysonn"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="02/17/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 # 如何使用 Ruby 的 Blob 儲存體
@@ -31,7 +31,7 @@
 
 ## 建立 Ruby 應用程式
 
-建立 Ruby 應用程式。如需指示，請參閱 [Azure VM 上的 Ruby on Rails Web 應用程式](../virtual-machines/virtual-machines-ruby-rails-web-app-linux.md)
+建立 Ruby 應用程式。如需指示，請參閱 [Azure VM 上的 Ruby on Rails Web 應用程式](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md)
 
 ## 設定您的應用程式以存取儲存體
 
@@ -155,4 +155,4 @@ azure 模組會讀取環境變數 **AZURE\_STORAGE\_ACCOUNT** 及 **AZURE\_STORA
 - GitHub 上的 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) 存放庫
 - [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

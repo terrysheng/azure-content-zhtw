@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # 開始使用事件中心
@@ -34,7 +34,7 @@
 
 + Microsoft Visual Studio Express for Windows
 
-+ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
++ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費帳戶。如需詳細資訊，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
 
 ## 建立事件中心
 
@@ -62,7 +62,7 @@
 
 7. 在相同頁面上，記下為 **SendRule** 產生的金鑰。
 
-	![][6b]
+	![][7]
 
 8. 按一下頁面頂端的 [**儀表板**] 索引標籤，然後按一下 [**連接資訊**]。記下這兩個連接字串。
 
@@ -79,7 +79,7 @@
 
 現在您已經準備好執行應用程式。
 
-1.	從 Visual Studio 執行 **Receiver** 專案，然後等它啟動所有資料分割的接收器。
+1.	從 Visual Studio 執行 **Receiver** 專案，然後等它啟動所有分割區的接收器。
 
 	![][21]
 
@@ -104,7 +104,7 @@
 [4]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub4.png
 [5]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub5.png
 [6]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub6.png
-[6b]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub6b.png
+[7]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub6b.png
 
 
 [21]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs1.png
@@ -119,4 +119,4 @@
 [佇列訊息解決方案]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

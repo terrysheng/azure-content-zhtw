@@ -3,7 +3,7 @@
 	description="了解如何下載和安裝 Azure SDK for PHP。"
 	documentationCenter="php"
 	services="app-service\web"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="12/16/2015"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #下載 Azure SDK for PHP
 
@@ -31,7 +31,7 @@ Azure SDK for PHP 內含的元件可讓您開發、部署及管理適用於 Azur
 
 本主題中的指示假設您已安裝 [PHP][install-php]。
 
-> [AZURE.NOTE]您必須有 PHP 5.3 或更新版本，才能使用適用於 Azure 的 PHP 用戶端程式庫。
+> [AZURE.NOTE] 您必須有 PHP 5.3 或更新版本，才能使用適用於 Azure 的 PHP 用戶端程式庫。
 
 ##適用於 Azure 的 PHP 用戶端程式庫
 
@@ -44,7 +44,7 @@ Azure SDK for PHP 內含的元件可讓您開發、部署及管理適用於 Azur
 1. [安裝 Git][install-git]。
 
 
-	> [AZURE.NOTE]在 Windows 中，您也需要將 Git 可執行檔新增至 PATH 環境變數。
+	> [AZURE.NOTE] 在 Windows 中，您也需要將 Git 可執行檔新增至 PATH 環境變數。
 
 2. 在專案的根目錄中建立名為 **composer.json** 的檔案，並新增下列程式碼：
 
@@ -89,7 +89,7 @@ Azure SDK for PHP 內含的元件可讓您開發、部署及管理適用於 Azur
 
 1. 從 [GitHub][php-sdk-github] 下載含有程式庫的 .zip 封存檔。或者，分岔儲存機制並複製到本機電腦(後面這個選項需要有 GitHub 帳戶並在本機安裝 Git)。
 
-	> [AZURE.NOTE]PHP Client Libraries for Azure 相依於 [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2)、[Mail\_mime](http://pear.php.net/package/Mail_mime) 和 [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) PEAR 封裝。建議使用 [PEAR 封裝管理員](http://pear.php.net/manual/en/installation.php)來安裝這些封裝，以解決這些相依性。
+	> [AZURE.NOTE] PHP Client Libraries for Azure 相依於 [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2)、[Mail\_mime](http://pear.php.net/package/Mail_mime) 和 [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode) PEAR 封裝。建議使用 [PEAR 封裝管理員](http://pear.php.net/manual/en/installation.php)來安裝這些封裝，以解決這些相依性。
 
 2. 將下載之封存檔的 `WindowsAzure` 目錄複製到應用程式目錄結構中，並從您的應用程式參考類別。
 
@@ -130,4 +130,4 @@ Azure CLI 是一組命令，可用於部署和管理 Azure 服務，例如 Azure
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

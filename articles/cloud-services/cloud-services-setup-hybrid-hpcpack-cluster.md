@@ -25,9 +25,11 @@
 
 本教學課程示範一個有時稱為「將量擴大到雲端」的方法，此方法使用 Azure 中可調整的隨選計算資源來執行大量計算的應用程式。
 
-本教學課程假設您先前沒有使用計算叢集或 HPC Pack 的經驗。其只是要協助您快速部署一個示範性質的混合式計算叢集。如需有關在生產環境中以較大規模部署混合式 HPC Pack 叢集的考量和步驟，請參閱[詳細指引](http://go.microsoft.com/fwlink/p/?LinkID=200493) (英文)。如需使用 HPC Pack 的其他案例，包括 Azure 虛擬機器中的自動化叢集部署，請參閱[在 Azure 中使用 Microsoft HPC Pack 的 HPC 叢集選項](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)。
+本教學課程假設您先前沒有使用計算叢集或 HPC Pack 的經驗。其只是要協助您快速部署一個示範性質的混合式計算叢集。如需有關在生產環境中以較大規模部署混合式 HPC Pack 叢集的考量和步驟，請參閱[詳細指引](http://go.microsoft.com/fwlink/p/?LinkID=200493) (英文)。如需使用 HPC Pack 的其他案例，包括 Azure 虛擬機器中的自動化叢集部署，請參閱[在 Azure 中使用 Microsoft HPC Pack 的 HPC 叢集選項](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md)。
 
->[AZURE.NOTE] Azure 為您的計算資源提供適合各種不同工作負載的[大小範圍](../virtual-machines/virtual-machines-size-specs.md)。例如，A8 和 A9 執行個體結合了高效能與特定 HPC 應用程式所需的低延遲、高輸送量應用程式網路存取。請參閱[關於 A8、A9、A10 和 A11 計算密集型執行個體](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md)。
+
+>[AZURE.NOTE] Azure 為您的運算資源提供適合各種不同工作負載的[大小範圍](../virtual-machines/virtual-machines-windows-sizes.md)。例如，A8 和 A9 執行個體結合了高效能與特定 HPC 應用程式所需的低延遲、高輸送量應用程式網路存取。請參閱[關於 A8、A9、A10 和 A11 計算密集型執行個體](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)。
+
 
 ## 必要條件
 
@@ -218,7 +220,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 ## 啟動 Azure 節點
 當您想要使用 Azure 中的叢集資源時，請使用 HPC 叢集管理員來啟動 (佈建) Azure 節點並讓節點上線。
 
-1.	在 HPC 叢集管理員中，於 [節點管理] (在某些版本的 HPC Pack 中稱為**資源管理**) 中按一或兩個節點，然後在 [動作] 窗格中按一下 [啟動]。
+1.	在 HPC 叢集管理員中，於 [節點管理] \(在某些版本的 HPC Pack 中稱為**資源管理**) 中按一或兩個節點，然後在 [動作] 窗格中按一下 [啟動]。
 
 	![Start Nodes][add_node4]
 
@@ -307,7 +309,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 * [HPC Pack 2012 R2 和 HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697
 
 * [使用 Microsoft HPC Pack 將量擴大到 Azure 背景工作角色執行個體](http://go.microsoft.com/fwlink/p/?LinkID=200493)
-* [在 Azure 中使用 Microsoft HPC Pack 的 HPC 叢集選項](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
+* [在 Azure 中使用 Microsoft HPC Pack 的 HPC 叢集選項](../virtual-machines/virtual-machines-linux-hpcpack-cluster-options.md)
 * [在 Azure 中的大量計算：批次和高效能計算 (HPC) 的技術資源](../batch/big-compute-resources.md)
 
 
@@ -348,4 +350,4 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,10 +13,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="12/09/2015"
+	ms.date="03/16/2016"
 	ms.author="bsiva"/>
 
-# 使用 PowerShell 和 Azure 資源管理員的 Azure Site Recovery。
+# 使用 PowerShell 和 Azure Resource Manager 在內部部署 Hyper-V 虛擬機器與 Azure 之間複寫。
+
+> [AZURE.SELECTOR]
+- [Azure 傳統入口網站](site-recovery-hyper-v-site-to-azure.md)
+- [PowerShell - 資源管理員](site-recovery-deploy-with-powershell-resource-manager.md)
+
 
 
 ## 概觀
@@ -262,4 +267,4 @@ Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows Powe
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

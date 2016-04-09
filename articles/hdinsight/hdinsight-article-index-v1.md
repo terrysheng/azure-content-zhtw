@@ -21,7 +21,7 @@
 使用此索引頁面在 [Azure 傳統入口網站](https://manage.windowsazure.com/)上尋找說明 HDInsight 相關資訊的文章。Azure HDInsight 是開放原始碼 Hadoop 與 Hortonworks Data Platform 的雲端發佈點。
 
 
-> [AZURE.IMPORTANT]此文件索引頁面適用於已經將解決方案部署至目前 Azure 傳統入口網站的客戶。
+> [AZURE.IMPORTANT]  此文件索引頁面適用於已經將解決方案部署至目前 Azure 傳統入口網站的客戶。
 >
 > Microsoft 建議您針對新的 HDInsight 叢集使用 **Azure 入口網站**：
 >
@@ -58,10 +58,9 @@
 * [使用 Microsoft Avro Library 將 Hadoop 中的資料序列化](hdinsight-dotnet-avro-serialization.md)
 * [使用 Hive 處理並分析 JSON 文件](hdinsight-using-json-in-hive.md)
 * [搭配 Hive 與 Pig 來使用 Python](hdinsight-python.md)
-* [最佳化 Hadoop 的 Hive 查詢](hdinsight-hadoop-optimize-hive-query–v1.md)
+* [最佳化 Hadoop 的 Hive 查詢](hdinsight-hadoop-optimize-hive-query.md)
 * [使用 .NET SDK for Hadoop 執行 Pig 工作](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
 * [搭配 Hive 和 Pig 串流處理使用 C# 使用者定義函數](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [開發 C# Hadoop 資料流程式](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
 ## HBase：NoSQL 資料庫
 
@@ -71,7 +70,7 @@
 
 ## Apache Storm：串流查詢
 
-* [開始使用 Storm 入門範例](hdinsight-apache-storm-tutorial-get-started-v1.md)
+* [開始使用 Storm 入門範例](hdinsight-apache-storm-tutorial-get-started.md)
 * [部署和管理 Apache Storm 拓撲](hdinsight-storm-deploy-monitor-topology.md)
 * [使用 Visual Studio 的 Hadoop 工具開發 Apache Storm 的 C# 拓撲](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 * [使用 Apache Storm 和 Maven 開發基本字數統計應用程式的 Java 型拓撲](hdinsight-storm-develop-java-topology.md)
@@ -100,9 +99,8 @@
 ## HDInsight 中的機器學習
 
 * [搭配 Hadoop 使用 Apache Mahout 產生電影推薦](hdinsight-mahout.md)
-* [學習路徑：建置進階分析方案](machine-learning-data-science-how-to-create-machine-learning-service.md)
-* [學習路徑：進階資料處理](machine-learning-data-science-advanced-data-processing.md)
-* [使用 HDInsight 和機器學習服務預測計程車小費](machine-learning-data-science-process-hive-walkthrough.md)
+* [學習路徑：建置進階分析方案](../machine-learning/machine-learning-walkthrough-develop-predictive-solution.md)
+* [使用 HDInsight 和機器學習服務預測計程車小費](../machine-learning/machine-learning-data-science-process-hive-walkthrough.md)
 
 ## 擴充性
 
@@ -133,4 +131,4 @@
 * [解譯錯誤訊息](hdinsight-debug-jobs.md)
 * [在論壇上取得協助](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

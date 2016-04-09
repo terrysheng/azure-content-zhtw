@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 #Apache Storm on HDInsight 簡介：Hadoop 的即時分析
@@ -81,7 +81,7 @@ HDInsight Tools for Visual Studio 也提供了介面，讓您可以監視和管�
 
 如需關於使用 Storm 儀表板的詳細資訊，請參閱[部署和管理 HDInsight 上的 Apache Storm 拓撲](hdinsight-storm-deploy-monitor-topology.md)。
 
-Storm on HDInsight 也提供透過 **Event Hub Spout** 與 Azure 事件中樞輕鬆整合的功能。您可以在每個 Storm 叢集的 **%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** 位置中使用這項功能。如需在 Storm 拓撲中使用此 Spout 的範例，請參閱下列文件：
+Storm on HDInsight 也提供透過 **Event Hub Spout** 與 Azure 事件中樞輕鬆整合的功能。此元件的最新版本可在下列網頁取得：[https://github.com/hdinsight/hdinsight-storm-examples/tree/master/lib/eventhubs](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/lib/eventhubs)。如需如何使用此元件的詳細資訊，請參閱下列文件。
 
 * [開發使用 Azure 事件中樞的 C# 拓樸](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
@@ -219,4 +219,4 @@ Storm 可以提供不同程度的訊息處理保證。例如，基本的 Storm �
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

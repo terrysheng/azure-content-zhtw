@@ -36,7 +36,7 @@
 
 若要使用 PowerShell 部署您下載的 ARM 範本，請依照下列步驟執行。
 
-1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
+1. 如果您從未用過 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell](../../articles/powershell-install-configure.md)，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
 
 2. 執行 **New-AzureRmResourceGroupDeployment** Cmdlet 以使用範本建立資源群組。
 
@@ -48,7 +48,7 @@
 
 若要使用 Azure CLI 部署 ARM 範本，請依照下列步驟執行。
 
-1. 如果您從未用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
+1. 如果您從未用過 Azure CLI，請參閱[安裝和設定 Azure CLI](../../articles/xplat-cli-install.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
 2. 執行 **azure config mode** 命令，以切換為資源管理員模式，如下所示。
 
 		azure config mode arm
@@ -64,10 +64,10 @@
 
 ## 後續步驟
 
-[開始設定內部負載平衡器](load-balancer-internal-getstarted.md)
+[開始設定內部負載平衡器](load-balancer-get-started-ilb-arm-ps.md)
 
 [設定負載平衡器分配模式](load-balancer-distribution-mode.md)
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

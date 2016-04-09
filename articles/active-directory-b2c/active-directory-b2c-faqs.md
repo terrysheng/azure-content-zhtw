@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/21/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：常見問題集
@@ -46,6 +46,7 @@ Azure AD B2C 無法與 Microsoft Office 365 一起使用。一般而言，它不
 
 - Facebook: email
 - Google+: email
+- Microsoft 帳戶︰openid 電子郵件設定檔
 - Amazon: profile
 - LinkedIn: r\_emailaddress, r\_basicprofile
 
@@ -79,7 +80,7 @@ Azure AD B2C 的本機帳戶密碼原則是以 Azure AD 的原則為基礎。Azu
 
 ### Azure AD B2C 可以搭配 SharePoint 內部部署的 2016 或更舊版本一起使用嗎？
 
-目前不支援。Azure AD B2C 不支援入口網站和電子商務應用程式建置在 SharePoint 內部部署需要的 SAML 1.1 權杖。請注意，Azure AD B2C 不適用於 SharePoint 外部夥伴共用的案例。請改成參閱 [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx)。
+目前不支援。Azure AD B2C 不支援入口網站和電子商務應用程式建置在 SharePoint 內部部署需要的 SAML 1.1 權杖。請注意，Azure AD B2C 不適用於 SharePoint 外部夥伴共用的案例。請改參閱 [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx)。
 
 ### 我應該使用 Azure AD B2C 或 B2B 來管理外部身分識別？
 
@@ -113,4 +114,4 @@ Azure AD B2C 的本機帳戶密碼原則是以 Azure AD 的原則為基礎。Azu
 
 您也可能想要檢閱目前的[預覽限制和條件約束](active-directory-b2c-limitations.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

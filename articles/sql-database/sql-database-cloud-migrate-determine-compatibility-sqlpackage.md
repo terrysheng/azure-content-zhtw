@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/17/2015"
+   ms.date="03/14/2016"
    ms.author="carlrab"/>
 
 # 使用 SqlPackage.exe 判斷 SQL Database 相容性
@@ -51,4 +51,4 @@
 
 [修正資料庫相容性問題](sql-database-cloud-migrate-fix-compatibility-issues.md) (如果有)。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -25,7 +25,7 @@ Azure CLI 提供您一組開放原始碼的跨平台命令集合，供您運用�
 
 本指南假設您已了解 Azure 儲存體的基本概念。本指南提供許多指令碼示範如何使用 Azure CLI 搭配 Azure 儲存體。在執行每個指令碼之前，請務必先根據您的組態更新指令碼變數。
 
-> [AZURE.NOTE] 本指南提供在 Azure 服務管理模式 (ASM) 中執行的 Azure CLI 命令和指令碼範例。如需在 Azure 資源管理(ARM) 模式中適用儲存體的 Azure CLI 命令，請參閱[使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 資源管理](../azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)。
+> [AZURE.NOTE] 本指南提供在 Azure 服務管理模式 (ASM) 中執行的 Azure CLI 命令和指令碼範例。如需在 Azure 資源管理(ARM) 模式中適用儲存體的 Azure CLI 命令，請參閱[使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 資源管理](../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)。
 
 ## 在 5 分鐘內開始使用 Azure 儲存體和 Azure CLI
 
@@ -221,4 +221,4 @@ Azure 檔案共用是 Azure 中的 SMB 檔案共用。所有目錄和檔案都�
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

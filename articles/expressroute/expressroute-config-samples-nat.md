@@ -17,9 +17,9 @@
 
 # 設定和管理 NAT 的路由器組態範例
 
-此頁面提供適用於 Cisco ASA 和 Juniper MX 系列路由器的 NAT 組態範例。這些範例僅可用作指引，不能依原樣使用。您可以和廠商合作來擬定適合您網路的組態。
+此頁面提供適用於 Cisco ASA 和 Juniper SRX 系列路由器的 NAT 組態範例。這些範例僅可用作指引，不能依原樣使用。您可以和廠商合作來擬定適合您網路的組態。
 
->[AZURE.IMPORTANT]此頁面中的範例純粹只用作指引。您必須和廠商的業務人員 / 技術小組及您的網路團隊合作，來擬定適當的組態以符合您的需求。Microsoft 將不支援此頁面中所列組態的相關問題。您必須連絡您的裝置廠商來支援問題。
+>[AZURE.IMPORTANT] 此頁面中的範例純粹只用作指引。您必須和廠商的業務人員 / 技術小組及您的網路團隊合作，來擬定適當的組態以符合您的需求。Microsoft 將不支援此頁面中所列組態的相關問題。您必須連絡您的裝置廠商來支援問題。
 
 下列路由器組態範例適用於 Azure Public 與 Microsoft 對等互連。您必須設定 Azure 私人對等互連的 NAT。如需詳細資訊，請檢閱 [ExpressRoute 對等互連](expressroute-circuit-peerings.md)和 [ExpressRoute NAT 需求](expressroute-nat.md)。
 
@@ -78,7 +78,7 @@ NAT 命令：
 	nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
 
-## Juniper MX 系列路由器 
+## Juniper SRX 系列路由器 
 
 ### 1\.建立叢集的備援乙太網路介面
 
@@ -319,4 +319,4 @@ NAT 命令：
 
 如需詳細資訊，請參閱〈[ExpressRoute 常見問題集](expressroute-faqs.md)〉。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

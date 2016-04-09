@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
- 
+
 # SQL 資料倉儲中的檢視
 
 在 SQL 資料倉儲中檢視特別有用。以許多不同的方式使用，可以提升您的方案品質。
@@ -33,7 +33,7 @@ CREATE TABLE dbo.DimDate_New
 WITH (DISTRIBUTION = ROUND_ROBIN
 , CLUSTERED INDEX (DateKey ASC)
 )
-AS 
+AS
 SELECT *
 FROM   dbo.DimDate  AS prod
 UNION ALL
@@ -54,7 +54,12 @@ RENAME OBJECT DimDate_New TO DimDate;
 ## 限制
 SQL 資料倉儲中的檢視僅限中繼資料使用。
 
-因此無法使用下列選項：- 沒有結構描述繫結選項 - 無法透過檢視更新基底資料表 - 無法在暫存資料表上建立檢視 - 不支援 EXPAND / NOEXPAND 提示 - SQL 資料倉儲中沒有已編製索引的檢視
+因此無法使用下列選項︰
+- 	沒有結構描述繫結選項
+- 	無法透過檢視更新基底資料表
+- 	無法在暫存資料表上建立檢視
+- 	不支援 EXPAND / NOEXPAND 提示
+- 	SQL 資料倉儲中沒有索引檢視表
 
 
 ## 後續步驟
@@ -69,4 +74,4 @@ SQL 資料倉儲中的檢視僅限中繼資料使用。
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

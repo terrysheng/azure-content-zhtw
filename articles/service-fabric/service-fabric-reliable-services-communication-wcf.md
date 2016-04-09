@@ -17,7 +17,7 @@
    ms.author="bharatn@microsoft.com"/>
 
 # 適用於 Reliable Services 的 WCF 式通訊堆疊
-Reliable Services 架構允許服務作者選擇其想要針對服務使用的通訊堆疊。他們可以透過從 [CreateServiceReplicaListeners 或 CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md) 方法傳回的 **ICommunicationListener**，來外掛所選擇的通訊堆疊。服務作者如果想要使用 Windows Communication Foundation (WCF) 式通訊，架構可提供以 WCF 式實作的通訊堆疊。
+Reliable Services 架構允許服務作者選擇其想要針對服務使用的通訊堆疊。他們可以透過從 [CreateServiceReplicaListeners 或 CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) 方法傳回的 **ICommunicationListener**，來外掛所選擇的通訊堆疊。服務作者如果想要使用 Windows Communication Foundation (WCF) 式通訊，架構可提供以 WCF 式實作的通訊堆疊。
 
 ## WCF 通訊接聽程式
 **ICommunicationListener** 的 ECF 特定實作係由 **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** 類別所提供。
@@ -47,7 +47,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 ## 撰寫適用於 WCF 通訊堆疊的用戶端
-為了撰寫使用 WCF 讓用戶端能與服務進行通訊，架構提供了 **WcfClientCommunicationFactory**，也就是 [ClientCommunicationFactoryBase](service-fabric-reliable-service-communication.md) 的 WCF 特定實作。
+為了撰寫能夠使用 WCF 來與服務進行通訊的用戶端，架構提供了 **WcfClientCommunicationFactory**，也就是 [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md) 的 WCF 特定實作。
 
 ```csharp
 
@@ -114,4 +114,4 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 
 * [在 Reliable Services 中搭配 OWIN 使用 Web API](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

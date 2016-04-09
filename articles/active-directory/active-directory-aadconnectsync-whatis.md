@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/04/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -36,11 +36,14 @@ Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理
 | [了解宣告式佈建運算式](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | 深入了解組態模式的運作方式和運算式語言的語法。 |
 | [變更預設組態的最佳作法](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) | 當您知道上述主題的詳細資料並需要變更現成可用的組態，以搭配您的案例或您的需求使用時。 |
 | [設定篩選](active-directory-aadconnectsync-configure-filtering.md) | 說明如何限制哪些物件正同步處理至 Azure AD 的各種選項，以及逐步說明如何設定這些選項。 |
-| **功能** ||
-| [實作密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md) | 說明密碼同步處理的運作方式、實作方式，以及其操作方式及疑難排解方式。 |
+| 功能和案例 ||
 | [防止意外刪除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) | 說明 [防止意外刪除] 功能以及如何加以設定。 |
 | [排程器](active-directory-aadconnectsync-feature-scheduler.md) | 描述匯入、同步處理及匯出資料的內建排程器。 |
-| **作業** ||
+| [實作密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md) | 說明密碼同步處理的運作方式、實作方式，以及其操作方式及疑難排解方式。 |
+| [裝置回寫](active-directory-aadconnect-feature-device-writeback.md) | 說明在 Azure AD Connect 中，裝置回寫的運作方式。 |
+| [目錄擴充](active-directory-aadconnectsync-feature-directory-extensions.md) | 說明如何使用您自己的自訂屬性擴充 Azure AD 結構描述。 |
+| 作業和 UI ||
+| [同步處理服務管理員](active-directory-aadconnectsync-service-manager-ui.md) | 說明同步處理服務管理員 UI，包括[作業](active-directory-aadconnectsync-service-manager-ui-operations.md)、[連接器](active-directory-aadconnectsync-service-manager-ui-connectors.md)、[Metaverse 設計工具](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md)和 [Metaverse 搜尋](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)索引標籤。|
 | [作業工作和考量](active-directory-aadconnectsync-operations.md) | 說明作業考量，例如災害復原。 |
 | **詳細資訊和參考** ||
 | [連接埠](active-directory-aadconnect-ports.md) | 列出您需要在同步處理引擎以及內部部署目錄與 Azure AD 之間開啟的連接埠。 |
@@ -51,4 +54,4 @@ Azure Active Directory Connect 同步處理服務 (Azure AD Connect 同步處理
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

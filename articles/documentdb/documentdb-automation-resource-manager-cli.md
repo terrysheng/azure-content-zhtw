@@ -15,14 +15,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="03/04/2016" 
 	ms.author="mimig"/>
 
 # 使用 Azure 資源管理員範本和 Azure CLI 自動建立 DocumentDB 帳戶
 
 > [AZURE.SELECTOR]
-- [Azure Portal](documentdb-create-account.md)
-- [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
+- [Azure 入口網站](documentdb-create-account.md)
+- [Azure CLI 和 ARM](documentdb-automation-resource-manager-cli.md)
 
 本文將說明如何使用 Azure 資源管理員範本或 Azure 命令列介面 (CLI) 來建立 DocumentDB 帳戶。若要使用 Azure 入口網站建立 DocumentDB 帳戶，請參閱[使用 Azure 入口網站建立 DocumentDB 資料庫帳戶](documentdb-create-account.md)。
 
@@ -59,7 +59,7 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
     Enter the code E1A2B3C4D to authenticate. If you're signing in as an Azure
     AD application, use the --username and --password parameters.
 
-> [AZURE.NOTE] 如果您沒有 Azure 帳戶，就會看到錯誤訊息，指出您需要不同類型的帳戶。若要從目前的 Azure 帳戶建立一個帳戶，請參閱[在 Azure Active Directory 中建立工作或學校身分識別](../virtual-machines/resource-group-create-work-id-from-personal.md)。
+> [AZURE.NOTE] 如果您沒有 Azure 帳戶，就會看到錯誤訊息，指出您需要不同類型的帳戶。若要從目前的 Azure 帳戶建立一個帳戶，請參閱[在 Azure Active Directory 中建立工作或學校身分識別](../virtual-machines/virtual-machines-windows-create-aad-work-id.md)。
 
 在瀏覽器中開啟 [https://aka.ms/devicelogin](https://aka.ms/devicelogin)，然後輸入命令輸出中提供的代碼。
 
@@ -75,9 +75,10 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
 
 命令殼層也會提供下列輸出。
 
-    -info:    Added subscription Visual Studio Ultimate with MSDN
-	+
-	info:    login command OK
+    /info:    Added subscription Visual Studio Ultimate with MSDN
+    info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
+    +
+    info:    login command OKK
 
 除了此處所述的互動式登入方法之外，還有一些其他的 Azure CLI 登入方法可供使用。如需其他方法的詳細資訊以及處理多個訂用帳戶的相關資訊，請參閱[從 Azure 命令列介面 (Azure CLI) 連接到 Azure 訂用帳戶](../xplat-cli-connect.md)。
 
@@ -89,7 +90,9 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
 
 這會提供下列輸出：
 
-	info:    New mode is arm
+    info:    Executing command config mode
+    info:    New mode is arm
+    info:    config mode command OK
 
 要切換回預設的命令，可以輸入 `azure config mode asm`。
 
@@ -268,8 +271,8 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
 
     azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g <resourcegroupname> -n <deploymentname>
 
- - `<PathToTemplate>` 是步驟 1 中建立的 azuredeploy.json 檔案的路徑。
- - `<PathToParameterFile>` 是步驟 1 中建立的 azuredeploy.parameters.json 檔案的路徑。
+ - `<PathToTemplate>` 是步驟 1 中建立的 azuredeploy.json 檔案的路徑。如果您的路徑名稱含有空格，請使用雙引號括住此參數。
+ - `<PathToParameterFile>` 是步驟 1 中建立的 azuredeploy.parameters.json 檔案的路徑。如果您的路徑名稱含有空格，請使用雙引號括住此參數。
  - `<resourcegroupname>` 是要在其中加入 DocumentDB 資料庫帳戶的現有資源群組名稱。 
  - `<deploymentname>` 是部署的選擇性名稱。
 
@@ -342,7 +345,7 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
 
 建立您的資料庫之後, 您必須[加入一或多個集合](documentdb-create-collection.md)至資料庫，然後[加入文件](documentdb-view-json-document-explorer.md)至集合。
 
-在集合中有了文件之後，您就能使用 Preview 入口網站中的[查詢總管](documentdb-query-collections-query-explorer.md)、[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 或其中一個 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)，針對文件使用 [DocumentDB SQL](documentdb-sql-query.md) 來[執行查詢](documentdb-sql-query.md#executing-queries)。
+當集合中有文件之後，您就可以利用入口網站中的[查詢總管](documentdb-query-collections-query-explorer.md)、[REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)，或其中一個 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)，來針對文件使用 [DocumentDB SQL](documentdb-sql-query.md) 來[執行查詢](documentdb-sql-query.md#executing-queries)。
 
 若要深入了解 DocumentDB，請探索以下資源：
 
@@ -351,4 +354,4 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
 
 如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

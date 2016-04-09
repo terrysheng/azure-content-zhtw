@@ -30,7 +30,7 @@ Azure 搜尋服務是一項雲端搜尋即服務解決方案，可將伺服器�
 
 **多面向導覽**已輕鬆地加入至 Azure 搜尋服務的搜尋結果頁面。只要使用[單一查詢參數](https://msdn.microsoft.com/library/azure/dn798927.aspx)，Azure 搜尋服務就會傳回所有必要的資訊，以在您的應用程式 UI 中創造多面向搜尋體驗，讓使用者能向下鑽研及篩選搜尋結果 (例如依價格範圍或品牌搜尋目錄項目)。
 
-**地理空間**[支援](search-create-geospatial.md)可讓您以智慧方式處理、篩選和顯示地理位置。Azure 搜尋服務可讓使用者根據指定位置的搜尋結果鄰近程度，或根據特定的地理區域來瀏覽資料。
+**地理空間**支援可讓您以智慧方式處理、篩選和顯示地理位置。Azure 搜尋服務可讓使用者根據指定位置的搜尋結果鄰近程度，或根據特定的地理區域來瀏覽資料。本教學影片示範其運作方式︰[Channel 9︰Azure 搜尋服務和地理空間資料](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)。
 
 **篩選**可用來輕鬆地將多面向導覽納入應用程式的 UI、增強查詢編寫，以及根據使用者或開發人員指定的準則進行篩選。使用 [OData 語法](https://msdn.microsoft.com/library/azure/dn798921.aspx)建立強大的篩選條件。
 
@@ -83,4 +83,4 @@ Azure 搜尋服務會當作端對端解決方案**受到完整管理**，所以�
 
 如果您沒有 Azure 帳戶，您可以免費試用 60 分鐘的工作階段 (不需要註冊)。移至[試用 Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214)並選取 [Web 應用程式]。 然後選取「ASP.NET + Azure 搜尋」範本開始進行。
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

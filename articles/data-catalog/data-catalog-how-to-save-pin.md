@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/26/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # 如何儲存搜尋和釘選資料資產
@@ -76,4 +76,4 @@ Azure 資料目錄入口網站首頁有 [我的資產] 區段，其會顯示目�
 ## 摘要
 Azure 資料目錄提供各種功能讓使用者能夠更容易地探索所需的資料來源，讓他們可以花較少的時間尋找資料並有更多時間使用資料。已儲存的搜尋和已釘選的資料資產是以這些核心功能為基礎所建立，因此使用者可以輕鬆地識別所要重複使用的資料來源。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

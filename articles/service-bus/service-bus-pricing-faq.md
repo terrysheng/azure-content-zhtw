@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="服務匯流排價格常見問題集 | Microsoft Azure"
-   description="回答一些有關服務匯流排價格結構的常見問題。"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="服務匯流排價格常見問題集 | Microsoft Azure"
+    description="回答一些有關服務匯流排價格結構的常見問題。"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # 服務匯流排定價常見問題集
 
-本節提供服務匯流排價格結構的一些常見問題解答。您也可以造訪 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)，以取得一般 Microsoft Azure 價格資訊。如需服務匯流排價格的完整資訊，請參閱[服務匯流排價格詳細資料](https://azure.microsoft.com/pricing/details/service-bus/)。
+本文提供服務匯流排價格結構的一些常見問題解答。您也可以造訪 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)，以取得一般 Microsoft Azure 價格資訊。如需服務匯流排價格的完整資訊，請參閱[服務匯流排價格詳細資料](https://azure.microsoft.com/pricing/details/service-bus/)。
 
->[AZURE.NOTE] [事件中樞可用性和支援常見問題集](../event-hubs/event-hubs-availability-and-support-faq.md)主題說明事件中樞的價格結構，而[事件中樞價格](https://azure.microsoft.com/pricing/details/event-hubs/)主題中有更詳細的資訊。
+>[AZURE.NOTE] [事件中樞可用性和支援常見問題集](../event-hubs/event-hubs-availability-and-support-faq.md)一文說明事件中樞的價格結構，而[事件中樞價格](https://azure.microsoft.com/pricing/details/event-hubs/)一文中有更詳細的資訊。
 
 - [服務匯流排的收費方式為何？](#how-do-you-charge-for-service-bus)
 - [何種服務匯流排用法需支付資料傳輸費用？ 何種不需？](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
@@ -32,7 +32,7 @@
 
 ## 服務匯流排的收費方式為何？
 
-如需服務匯流排價格的完整資訊，請參閱[服務匯流排價格和計費](https://msdn.microsoft.com/library/dn831889.aspx)和[服務匯流排價格詳細資料](https://azure.microsoft.com/pricing/details/service-bus/)。除了註明的價格，您還需支付您的應用程式佈建所在資料中心外部的輸出相關資料傳輸費用。如需詳細資訊，請參閱下面的[何種服務匯流排用法需支付資料傳輸費用？ 何種不需？](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)。
+如需服務匯流排價格的完整資訊，請參閱[服務匯流排價格和計費](service-bus-pricing-billing.md)和[服務匯流排價格詳細資料](https://azure.microsoft.com/pricing/details/service-bus/)。除了註明的價格，您還需支付您的應用程式佈建所在資料中心外部的輸出相關資料傳輸費用。如需詳細資訊，請參閱下面的[何種服務匯流排用法需支付資料傳輸費用？ 何種不需？](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)。
 
 ## 何種服務匯流排用法需支付資料傳輸費用？ 何種不需？
 
@@ -40,7 +40,7 @@
 
 ## 到底什麼是服務匯流排「轉送」？
 
-轉送是可在用戶端與 Web 服務之間轉送訊息的服務匯流排實體。轉送可為服務提供持續、可探索的服務匯流排位址、與防火牆 /NAT 周遊功能的可靠連線，以及其他功能，例如自動負載平衡。當已啟用轉送的 WCF 服務或「轉送接聽程式」第一次連接到指定的服務匯流排位址 (命名空間 URL) 時，轉送就會隱含具現化並於該位址開放。應用程式會使用服務匯流排 .NET Managed API 來建立轉送接聽程式，而該 API 可提供標準 WCF 繫結的特殊具轉送功能版本。
+轉送是可在用戶端與 Web 服務之間轉送訊息的服務匯流排實體。轉送可為服務提供持續、可探索的服務匯流排位址、與防火牆 /NAT 周遊功能的可靠連線，以及其他功能，例如自動負載平衡。當已啟用轉送的 WCF 服務或「轉送接聽程式」第一次連接到指定的服務匯流排位址 (命名空間 URL) 時，轉送就會隱含具現化並於該位址開放。應用程式會使用服務匯流排 .NET API 來建立轉送接聽程式，而該 API 可提供標準 WCF 繫結之具轉送功能的特殊版本。
 
 ## 如何計算轉送時數計量？
 
@@ -72,7 +72,7 @@
 
 雖然我們有權停用在指定的月份內超出其使用量配額的客戶帳戶，但我們將提供電子郵件通知並且在採取任何動作之前多次嘗試連絡客戶。超出這些配額的客戶仍需負責支付超出配額的費用。
 
-如同 Azure 上的其他服務，服務匯流排會強制執行一組特定的配額，以確保公平的資源使用量。以下是此服務會強制執行的使用量配額：
+如同 Azure 上的其他服務，服務匯流排會強制執行一組特定的[配額](service-bus-quotas.md)，以確保公平的資源使用量。以下是此服務會強制執行的使用量配額：
 
 - **佇列/主題大小** – 您會在建立佇列或主題時指定佇列或主題大小上限。此配額的值可以是 1、2、3、4 或 5 GB。如果達到大小上限，其他內送訊息將會遭到拒絕，而且呼叫端程式碼將會收到例外狀況。
 
@@ -116,4 +116,4 @@
 
 [Azure 傳統入口網站]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

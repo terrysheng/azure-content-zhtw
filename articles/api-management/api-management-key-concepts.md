@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="03/04/2016" 
+	ms.date="03/23/2016" 
 	ms.author="sdanie"/>
 
 #什麼是 API 管理？
 
 「API 管理」可協助組織將 API 發佈給外部、合作夥伴及內部開發人員，以發揮其資料與服務的潛力。各地的公司都想要將其作業延伸為數位平台、建立新的管道、尋找新客戶並對現有客戶促進更深入的參與。「API 管理」提供的核心專長認證，透過開發人員參與、商務洞察力、分析、安全性和保護，可確保 API 程式獲致成功。
 
-> [AZURE.VIDEO microsoft-ignite-2015-azure-api-management-and-the-api-economy]
+觀看下列影片以取得 Azure API 管理的概觀，並了解如何使用 API 管理，以最少量的工作將許多功能新增至您的 API，包括存取控制、速率限制、監視、事件記錄及回應快取。
+
+> [AZURE.VIDEO azure-api-management-overview]
 
 為了使用 API 管理，管理員會建立 API。每個 API 都包含一或多個作業，而每個 API 則可加入至一或多個產品。為了使用 API，開發人員會訂閱包含該 API 的產品，而且他們之後可呼叫 API 的作業，但需受限於可能生效的任何使用原則。
 
@@ -92,6 +94,12 @@ API 是 API 管理服務執行個體的基礎。每個 API 都代表可供開發
 
 透過加入自訂內容、自訂樣式和加入自己的品牌，即可自訂開發人員入口網站的外觀及操作。
 
+## API 管理和 API 經濟效益
+
+若要深入了解 API 管理，請觀看 Microsoft Ignite 2015 會議的以下簡報。
+
+> [AZURE.VIDEO microsoft-ignite-2015-azure-api-management-and-the-api-economy]
+
 [APIs and operations]: #apis
 [Products]: #products
 [Groups]: #groups
@@ -114,4 +122,4 @@ API 是 API 管理服務執行個體的基礎。每個 API 都代表可供開發
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

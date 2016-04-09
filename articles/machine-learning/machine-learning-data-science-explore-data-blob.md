@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="03/04/2016" 
 	ms.author="fashah;garye;bradsev" />
 
 #使用 Pandas 瀏覽 Azure blob 儲存體中的資料
@@ -27,7 +27,7 @@
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
 
-## 先決條件
+## 必要條件
 本文假設您已經：
 
 * 建立 Azure 儲存體帳戶。如需指示，請參閱[建立 Azure 儲存體帳戶](../hdinsight-get-started.md#storage)
@@ -38,7 +38,7 @@
 
 1. 使用 blob 服務，透過下列 Python 程式碼範例，從 Azure blob 下載資料。使用您的特定值來取代下列程式碼中的變數： 
 
-	    from azure.storage import BlobService
+	    from azure.storage.blob import BlobService
     	import tables
     	
 		STORAGEACCOUNTNAME= <storage_account_name>
@@ -117,4 +117,4 @@
 		#correlation between column_a and column_b
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

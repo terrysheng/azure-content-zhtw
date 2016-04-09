@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/17/2015"
+   ms.date="03/22/2016"
    ms.author="joaoma" />
 
 # 使用 Azure 資源管理員的 PowerShell 建立 Azure 應用程式閘道的自訂探查
@@ -238,4 +238,4 @@ Azure 資源管理員需要所有的資源群組指定一個位置。這用來�
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

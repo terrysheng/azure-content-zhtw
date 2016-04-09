@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="03/10/2016"
 	ms.author="piyushjo" />
 
 
 #版本資訊
+
+##4\.2.0 (03/11/2016)
+
+- SDK 現在是在 MIT 中授權的。
+- 允許在 SDK 初始化階段指定自訂裝置識別碼。
 
 ##4\.1.5 (02/01/2016)
 
@@ -65,4 +70,4 @@
 -   增強安全性。
 -   已移除 Google Play 和 SmartAd 追蹤。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

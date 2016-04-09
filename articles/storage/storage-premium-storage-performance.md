@@ -177,7 +177,8 @@ IO 大小是其中一個很重要的因素。IO 大小是指應用程式所產�
 | Standard\_DS14 | 16 | 112 GB | 作業系統 = 1023 GB <br> 本機 SSD = 224 GB | 32 | 576 GB | 50,000 IOPS <br> 每秒 512 MB | 4,000 IOPS 和每秒 33 MB |
 | Standard\_GS5 | 32 | 448 GB | 作業系統 = 1023 GB <br> 本機 SSD = 896 GB | 64 | 4224 GB | 80,000 IOPS <br> 每秒 2,000 MB | 5,000 IOPS 和每秒 50 MB |
 
-若要檢視所有可用的 Azure VM 大小的完整清單，請參閱 [Azure 虛擬機器的大小](../virtual-machines/virtual-machines-size-specs.md)。選擇可以符合並調整為期望的應用程式效能需求的 VM 大小。此外，選擇 VM 大小時，請將下列重要因素納入考量。
+若要檢視所有可用的 Azure VM 大小的完整清單，請參閱 [Azure 虛擬機器的大小](../virtual-machines/virtual-machines-linux-sizes.md)。選擇可以符合並調整為期望的應用程式效能需求的 VM 大小。此外，選擇 VM 大小時，請將下列重要因素納入考量。
+
 
 *調整限制* 每個 VM 和每個磁碟的最大 IOPS 限制都不同且各自獨立。請確定應用程式在 VM 及它連接的高階磁碟的限制內推動 IOPS。否則，應用程式效能會發生節流現象。
 
@@ -197,7 +198,10 @@ IO 大小是其中一個很重要的因素。IO 大小是指應用程式所產�
 | **每月的磁碟成本** | $1,638.40 (32 x 1 TB 磁碟) | $544.34 (4 x P30 磁碟) |
 | **每月的整體成本** | $3,208.98 | $1,544.34 |
 
-*Linux 散發版本* Azure 進階儲存體可讓執行 Windows 和 Linux 的 VM 達到相同層級的效能。我們支援許多種 Linux 散發版本，您可以在[經 Azure 背書之配送映像上的 Linux](../virtual-machines/virtual-machines-linux-endorsed-distributions.md) 看到完整清單。務必注意，針對不同類型的工作負載，不同的散發版本會更適合。根據執行工作負載的散發版本而定，您會看到不同層級的效能。請以您的應用程式來測試 Linux 散發版本，選擇最適合的散發版本。
+*Linux 散發版本*
+
+Azure 進階儲存體可讓執行 Windows 和 Linux 的 VM 達到相同層級的效能。我們支援許多種 Linux 散發版本，您可以在[這裡](../virtual-machines/virtual-machines-linux-endorsed-distros.md)看到完整清單。務必注意，針對不同類型的工作負載，不同的散發版本會更適合。根據執行工作負載的散發版本而定，您會看到不同層級的效能。請以您的應用程式來測試 Linux 散發版本，選擇最適合的散發版本。
+
 
 搭配進階儲存體執行 Linux 時，請檢查所需驅動程式的最新更新，以確保達到較高效能。
 
@@ -263,13 +267,17 @@ Azure 進階儲存體目前提供三種磁碟大小。對於 IOPS、頻寬和儲
 
 重要事項：您可以使用伺服器管理員 UI，將一個等量磁碟區的總欄數最多設定為 8 個。當連接 8 個以上的磁碟時，請使用 PowerShell 來建立磁碟區。您可以使用 PowerShell 將欄數設定為等於磁碟數量。例如，如果單一等量磁碟區中有 16 個磁碟，請在 *New-VirtualDisk* PowerShell Cmdlet 的 *NumberOfColumns* 參數中指定 16 欄。
 
+
 在 Linux 上，請使用 MDADM 公用程式將磁碟串接在一起。有關在 Linux 上串接磁碟的詳細步驟，請參閱[在 Linux 上設定軟體 RAID](../virtual-machines/virtual-machines-linux-configure-raid.md)。
+
 
 *等量大小* 磁碟串接時一項重要設定是等量大小。等量大小或區塊大小是指應用程式在等量磁碟區上可定址的最小資料區塊。您設定的等量大小取決於應用程式的類型及其要求模式。如果您選擇錯誤的等量大小，可能會導致 IO 對齊錯錯，進而導致應用程式的效能降低。
 
 比方說，如果應用程式所產生的 IO 要求大於磁碟等量大小，儲存體系統會跨越等量單位界限，將此要求寫入多個磁碟上。在需要存取該資料時，必須跨越一個以上的等量單位來搜尋，才能完成要求。這種行為的累積效果可能會導致效能大幅降低。相反地，如果 IO 要求大小比等量大小更小，而且是隨機性質，IO 要求可能聚集在相同的磁碟上而造成瓶頸，最終導致 IO 效能降低。
 
-請根據應用程式執行的工作負載類型，選擇適當的等量大小。對於隨機小型 IO 要求，請使用較小的等量大小。對於大型循序 IO 要求，請使用較大的等量大小。針對您要在進階儲存體上執行的應用程式，請參考等量大小建議。對於 SQL Server 而言，請將 OLTP 工作負載的等量大小設定為 64KB，而資料倉儲工作負載則設定為 256KB。請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法：磁碟和效能考量](virtual-machines-sql-server-performance-best-practices.md#disks-and-performance-considerations)以深入了解。
+
+請根據應用程式執行的工作負載類型，選擇適當的等量大小。對於隨機小型 IO 要求，請使用較小的等量大小。對於大型循序 IO 要求，請使用較大的等量大小。針對您要在進階儲存體上執行的應用程式，請參考等量大小建議。對於 SQL Server 而言，請將 OLTP 工作負載的等量大小設定為 64KB，而資料倉儲工作負載則設定為 256KB。若要深入了解，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳作法](../virtual-machines/virtual-machines-windows-classic-sql-perf.md#disks-and-performance-considerations)。
+
 
 >**附註：**在 DS 系列 VM 上，最多可以串接 32 個進階儲存體磁碟，而在 GS 系列 VM 上，最多可以串接 64 個進階儲存體磁碟。
 
@@ -387,7 +395,7 @@ Azure 進階儲存體會根據您選擇的 VM 大小和磁碟大小，佈建指�
 ### FIO  
 FIO 是 Linux VM 上用於儲存體效能評定的一項常用工具。它可以靈活地選取不同的 IO 大小、循序或隨機讀取和寫入。它會繁衍背景工作執行緒或處理程序來執行指定的 I/O 作業。您可以使用工作檔案，指定每個背景工作執行緒必須執行的 I/O 作業類型。我們已經為下面範例所示的每個案例建立一個工作檔案。您可以變更這些工作檔案中的規格，對進階儲存體上執行的不同工作負載進行效能評定。在範例中，我們使用執行 **Ubuntu** 的標準 DS 14 VM。請使用[效能評定一節](#Benchmarking)的開頭所述的相同設定，並於執行效能評定測試之前先準備快取。
 
-開始之前，在虛擬機器上[下載 FIO](https://github.com/axboe/fio)並且安裝。
+開始之前，在虛擬機器上[下載 FIO](https://github.com/axboe/fio) 並安裝。
 
 對 Ubuntu 執行下列命令，
 
@@ -419,7 +427,10 @@ rw=randwrite
 directory=/mnt/nocache
 ```
 
-請注意以下與先前幾節所述的設計指導方針一致的重要事項。這些規格對於達到最大 IOPS 很重要 - 較高佇列深度 256。- 較小區塊大小 8KB。- 執行隨機寫入的多個執行緒。
+請注意以下與先前幾節所述的設計指導方針一致的重要事項。這些規格對於達到最大 IOPS 很重要，
+-   較高的佇列深度 256。  
+-   較小的區塊大小 8KB。  
+-   執行隨機寫入的多個執行緒。
 
 執行下列命令，開始執行 FIO 測試 30 秒，
 
@@ -526,7 +537,7 @@ rate_iops=12500
 
 若為 SQL Server 使用者，請參閱「SQL Server 的效能最佳作法」文章：
 
-- [Azure 虛擬機器中的 SQL Server 效能最佳作法](../virtual-machines/virtual-machines-sql-server-performance-best-practices.md)
+- [Azure 虛擬機器中的 SQL Server 效能最佳作法](../virtual-machines/virtual-machines-windows-classic-sql-perf.md)
 - [Azure 進階儲存體為 Azure VM 中的 SQL Server 提供最高效能](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

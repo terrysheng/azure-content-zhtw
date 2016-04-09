@@ -91,6 +91,8 @@
 
 持續用戶端佇列會保留訊息順序，並在服務匯流排實體無法使用時保護用戶端應用程式免於發生例外狀況。它可以搭配簡單和分散式交易使用。
 
+> [AZURE.NOTE] 此範例適用於基礎結構即服務 (IaaS) 案例，其中本機磁碟或 MSMQ 的磁碟會對應至儲存體帳戶，並使用 MSMQ 可靠地儲存訊息。這不適用於平台即服務 (PaaS) 案例，例如雲端服務和 Web 應用程式。
+
 ## 後續步驟
 
 若要深入了解災害復原，請參閱這些文章：
@@ -109,4 +111,4 @@
   [Azure SQL Database 商務持續性]: ../sql-database/sql-database-business-continuity.md
   [Azure 業務持續性技術指引]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

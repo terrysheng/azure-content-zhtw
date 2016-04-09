@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/13/2016"
+	ms.date="03/04/2016"
 	ms.author="gokuma;weig;bradsev" />
 
 # 您可以在 Data Science Virtual Machine 上做的十件事 
@@ -321,7 +321,7 @@ Azure blob 是可靠、划算的雲端儲存體，可存放大型和小型的資
 	from time import time
 	import pyodbc
 	import os
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	import tables
 	import time
 	import zipfile
@@ -894,4 +894,4 @@ Azure DocumentDB 是雲端中的 NoSQL 資料庫。它可讓您使用 JSON 等�
 ## 摘要
 這些只是您可以在 Microsoft Data Science Virtual Machine 上可做的一些事情。您還可以做更多事情，讓它成為有效的分析環境。
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

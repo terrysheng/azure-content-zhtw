@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="rajram"/>
 
 # 開始使用 FTP 連接器並將它加入您的邏輯應用程式
->[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [FTP API](../connectors/create-api-ftp.md)。
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [FTP API](../connectors/connectors-create-api-ftp.md)。
 
 連線至 FTP 伺服器以移動資料或檔案。FTP 連接器的主要功能如下：
 
@@ -31,7 +31,9 @@
 您可以將 FTP 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
 ## 建立新的 FTP 連接器
-若要建新的 FTP 連接器，請遵循下面提到的步驟。- 啟動 Azure 入口網站 - 使用 [+ 新增] \(位於頁面底部) -> [Web + 行動] --> [Azure Marketplace] 開啟 Azure Marketplace︰![啟動 Azure Marketplace][1]
+若要建立新的 FTP 連接器，請遵循下面所述的步驟。
+- 啟動 Azure 入口網站
+- 使用 [+ 新增] \(位於頁面底部) -> [Web + 行動] --> [Azure Marketplace] 開啟 Azure Marketplace︰![啟動 Azure Marketplace][1]
 
 - 按一下 API 應用程式
 - 搜尋 FTP，然後選取 FTP 連接器︰![選取 FTP 連接器][2]
@@ -75,11 +77,17 @@ FTP 連接器具有一個觸發程序 -「檔案可用 (讀取然後刪除)」�
 
 按一下 [檔案可用 (讀取然後刪除)] 觸發程序︰![基本輸入 FTP 觸發程序][7]
 
-輸入可協助您設定依排定的頻率輪詢特定資料夾路徑。基本輸入為 - 頻率 - 指定 FTP 輪詢的頻率 - 間隔 - 指定已排定頻率的間隔 - 資料夾路徑 - 指定 FTP 伺服器中的資料夾路徑 - 檔案類型 - 指定檔案類型是文字還是二進位
+輸入可協助您設定依排定的頻率輪詢特定資料夾路徑。基本輸入如下：
+- 頻率 - 指定 FTP 輪詢的頻率
+- 間隔 - 指定排定頻率的間隔
+- 資料夾路徑 - 在 FTP 伺服器中指定資料夾路徑
+- 類型檔案 - 指定檔案類型是文字或二進位檔
 
 按一下省略符號 [...] 可顯示進階輸入︰![基本輸入 FTP 觸發程序][8]
 
-進階輸入包含 - 檔案遮罩 - 指定輪詢時的檔案遮罩 - 排除檔案遮罩 - 指定輪詢時排除的檔案遮罩
+進階輸入包括：
+- 檔案遮罩 - 指定輪詢時的檔案遮罩
+- 排除檔案遮罩 - 指定輪詢時排除的檔案遮罩
 
 提供輸入，然後按一下核取記號以完成輸入設定︰![基本輸入 FTP 觸發程序][9]
 
@@ -162,4 +170,4 @@ FTP 連接器支援下列動作︰
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

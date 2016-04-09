@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/23/2016"
+   ms.date="03/08/2016"
    ms.author="jgao"/>
 
 # 使用 Azure PowerShell 在 HDInsight 中建立 Windows 型 Hadoop 叢集
@@ -24,7 +24,9 @@
 了解如何使用 Azure PowerShell 建立 HDInsight 叢集。Azure PowerShell 是一個模組，提供各種 Cmdlet，讓您透過 Windows PowerShell 管理 Azure。如需其他叢集建立工具和功能的資訊，請按一下此頁面頂端的索引標籤，或參閱[叢集建立方法](hdinsight-provision-clusters.md#cluster-creation-methods)。
 
 
-###必要條件：
+##必要條件：
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 開始執行本文中的指示之前，您必須擁有以下項目：
 
@@ -154,4 +156,4 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

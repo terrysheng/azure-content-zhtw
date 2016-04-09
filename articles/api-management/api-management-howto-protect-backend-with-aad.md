@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # 如何使用 Azure Active Directory 與 API 管理保護 Web API 後端
@@ -162,11 +162,11 @@ HttpResponseMessage response = Request.CreateResponse(); response.Content = new 
 
 ![應用程式][api-management-aad-backend-app]
 
-按一下要設定必要權限的應用程式名稱。瀏覽到 [設定] 索引標籤，向下捲動到 [其他應用程式的權限] 區段。按一下 [Microsoft Azure Active Directory] 旁邊的 [應用程式權限] 下拉式清單，核取 [讀取目錄資料] 的方塊，然後按一下 [儲存]。
+按一下要設定必要權限的應用程式名稱。瀏覽到 [設定] 索引標籤，向下捲動到 [其他應用程式的權限] 區段。按一下 [Windows Azure Active Directory] 旁邊的 [應用程式權限] 下拉式清單，核取 [讀取目錄資料] 的方塊，然後按一下 [儲存]。
 
 ![新增權限][api-management-aad-add-permissions]
 
->[AZURE.NOTE]如果 [Microsoft Azure Active Directory] 並未列在 [其他應用程式的權限] 之下，請按一下 [加入應用程式] 從清單將其加入。
+>[AZURE.NOTE] 如果 [Windows Azure Active Directory] 並未列在 [其他應用程式的權限] 之下，請按一下 [加入應用程式] 從清單將其加入。
 
 請記下 [應用程式識別碼 URI] 供後續為 API 管理開發人員入口網站設定 Azure AD 應用程式的步驟時使用。
 
@@ -291,7 +291,7 @@ API 是從 API 發佈者入口網站所設定，您可以透過 Azure 傳統入�
 
 按一下 [**儲存**] 以儲存組態並顯示金鑰。
 
->[AZURE.IMPORTANT]記下此金鑰。關閉 Azure Active Directory 組態視窗之後，即無法再次顯示金鑰。
+>[AZURE.IMPORTANT] 記下此金鑰。關閉 Azure Active Directory 組態視窗之後，即無法再次顯示金鑰。
 
 將金鑰複製到剪貼簿、切換回發佈者入口網站、將金鑰貼入 [用戶端密碼] 文字方塊中，然後按一下 [儲存]。
 
@@ -413,4 +413,4 @@ API 是從 API 發佈者入口網站所設定，您可以透過 Azure 傳統入�
 [建立 API 管理服務執行個體]: api-management-get-started.md#create-service-instance
 [管理您的第一個 API]: api-management-get-started.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

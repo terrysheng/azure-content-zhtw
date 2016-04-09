@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags
@@ -81,7 +81,7 @@
 -	美國政府維吉尼亞州
 -	美國政府愛荷華州
 
-如需 Azure Government 雲端的詳細資訊，請參閱 [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) 和 [Microsoft Azure Government 開發人員指南](azure-government-developer-guide.md)。
+如需 Azure Government 雲端的詳細資訊，請參閱 [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) 和 [Microsoft Azure Government 開發人員指南](../azure-government-developer-guide.md)。
 
 ### 連線到 Azure 中國雲端
 
@@ -98,7 +98,7 @@
 -	中國東部
 -	中國北部
 
-如需 Azure 中國雲端的詳細資訊，請參閱 [由中國的世紀互聯營運的 Azure 中國雲端](http://www.windowsazure.cn/)。
+如需 Azure 中國雲端的詳細資訊，請參閱[由中國的世紀互聯營運的 Azure 中國雲端](http://www.windowsazure.cn/)。
 
 ## 用於 Azure Redis 快取 PowerShell 的屬性
 
@@ -609,4 +609,4 @@
 - [Windows PowerShell 部落格](http://blogs.msdn.com/powershell)：深入了解 Windows PowerShell 的新功能。
 - ["Hey, Scripting Guy!" 部落格](http://blogs.technet.com/b/heyscriptingguy/)：從 Windows PowerShell 社群中取得實際的秘訣及訣竅。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

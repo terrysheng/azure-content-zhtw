@@ -8,7 +8,7 @@
 
 2. 在 [方案總管] 中，以滑鼠右鍵按一下 **CreateDeviceIdentity** 專案，然後按一下 [管理 NuGet 封裝]。
 
-3. 在 [NuGet 封裝管理員] 視窗中，搜尋 [Microsoft Azure 裝置]，按一下 [安裝] 以安裝 **Microsoft.Azure.Devices** 封裝，並接受使用規定。
+3. 在 [NuGet 封裝管理員] 視窗中選取 [瀏覽]、搜尋 **microsoft.azure.devices**、按一下 [安裝] 以安裝 [Microsoft.Azure.Devices] 封裝，並接受使用規定。
 
 	![][11]
 
@@ -112,10 +112,10 @@
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
 [lnk-servicebus-nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
-[lnk-event-hubs-overview]: event-hubs-overview.md
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
@@ -125,4 +125,4 @@
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

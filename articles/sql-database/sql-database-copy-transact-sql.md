@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="使用 Transact-SQL 建立 Azure SQL Database 的複本" 
+    pageTitle="使用 Transact-SQL 複製 Azure SQL Database | Microsoft Azure" 
     description="使用 Transact-SQL 建立 Azure SQL Database 的複本" 
 	services="sql-database"
 	documentationCenter=""
@@ -10,21 +10,21 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/23/2016"
+	ms.date="03/21/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# 使用 Transact-SQL 建立 Azure SQL Database 的複本
+# 使用 Transact-SQL 複製 Azure SQL Database
 
 **單一資料庫**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-copy.md)
+- [Azure 入口網站](sql-database-copy.md)
 - [PowerShell](sql-database-copy-powershell.md)
-- [SQL](sql-database-copy-transact-sql.md)
+- [T-SQL](sql-database-copy-transact-sql.md)
 
 
 
@@ -103,4 +103,4 @@
 - [災害復原詳細資訊](sql-database-disaster-recovery-drills.md)
 - [SQL Database 文件](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

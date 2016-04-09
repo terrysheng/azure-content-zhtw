@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # 關於流量管理員監視
@@ -75,7 +75,7 @@ Azure 流量管理員會在 Azure 傳統入口網站中顯示設定檔和端點�
 1. **GET** – 流量管理員監視系統對您在監視設定中指定的路徑和檔案執行 GET。
 2. **200 OK** – 監視系統預期在 10 秒鐘內收到 HTTP 200 OK 訊息。當系統收到此回應時，會假設雲端服務可以使用。 
 
->[AZURE.NOTE]如果傳回的訊息是 200 OK，流量管理員只會將端點視為線上。如果系統收到非 200 的回應時，會假設端點無法使用，而且會將此次計算為失敗的檢查。如需疑難排解失敗的檢查的詳細資訊，請參閱[疑難排解 Azure 流量管理員上的已降級狀態](traffic-manager-troubleshooting-degraded.md)。
+>[AZURE.NOTE] 如果傳回的訊息是 200 OK，流量管理員只會將端點視為線上。如果系統收到非 200 的回應時，會假設端點無法使用，而且會將此次計算為失敗的檢查。如需疑難排解失敗的檢查的詳細資訊，請參閱[疑難排解 Azure 流量管理員上的已降級狀態](traffic-manager-troubleshooting-degraded.md)。
 
 3. **每次檢查之間間隔 30 秒** – 每隔 30 秒執行這項檢查。
 4. **雲端服務無法使用** – 雲端服務變為無法使用。流量管理員要直到下次監視檢查時才會知道。
@@ -115,4 +115,4 @@ Azure 流量管理員會在 Azure 傳統入口網站中顯示設定檔和端點�
 [疑難排解 Azure 流量管理員上的已降級狀態](traffic-manager-troubleshooting-degraded.md)
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0323_2016-->

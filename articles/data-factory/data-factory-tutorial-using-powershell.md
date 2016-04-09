@@ -16,7 +16,7 @@
 	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# 教學課程：使用 Data Factory 移動及處理記錄檔 [PowerShell]
+# 教學課程：使用 Data Factory 移動及處理記錄檔 (PowerShell)
 本文章提供的端對端逐步解說，是有關使用 Azure Data Factory，將記錄檔的資料轉換成見解的記錄檔處理程序標準案例。
 
 ## 案例
@@ -24,7 +24,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
  
 在本逐步解說中，我們會收集範例記錄檔、處理並以參考資料加以充實，然後轉換資料以評估 Contoso 最近推出的行銷活動有效性。
 
-## 準備開始教學課程
+## 必要條件
 1.	請參閱 [Azure Data Factory 簡介][adfintroduction]，以取得 Azure Data Factory 的概觀並了解最高階的概念。
 2.	您必須擁有 Azure 訂閱，才能執行本教學課程。如需取得訂用帳戶的詳細資訊，請參閱[購買選項][azure-purchase-options]、[成員優惠][azure-member-offers]或[免費試用][azure-free-trial]。
 3.	您必須在電腦上下載並安裝 [Azure PowerShell][download-azure-powershell]。
@@ -69,17 +69,18 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 2. **EnrichGameLogsPipeline** 聯結分割的遊戲事件 (PartitionedGameEvents 資料表，其為 PartitionGameLogsPipeline 的輸出) 與地區代碼 (RefGetoCodeDictionaryTable)，並將 IP 位址對應到相對應的地理位置來充實資料 (EnrichedGameEventsTable)。
 3. **AnalyzeMarketingCampaignPipeline** 管線運用已充實的資料 (EnrichGameLogsPipeline 所產生的 EnrichedGameEventTable)，並加上廣告資料來處理 (RefMarketingCampaignnTable)，以建立行銷活動成效的最終輸出，該輸出會複製到 Azure SQL Database (MarketingCampainEffectivensessSQLTable) 和 Azure Blob 儲存體 (MarketingCampaignEffectivenessBlobTable) 進行分析。
     
-## 逐步解說：建立、部署和監視工作流程
-1. [步驟 1：上傳範例資料和指令碼](#MainStep1)。在此步驟中，您將上傳所有範例資料 (包括所有記錄檔和參考資料) 和將由工作流程執行的 Hive/Pig 指令碼。您執行的指令碼也會建立 Azure SQL 資料庫 (名為 MarketingCampaigns)、資料表、使用者定義型別和預存程序。
-2. [步驟 2：建立 Azure Data Factory](#MainStep2)。在此步驟中，您將建立名為 LogProcessingFactory 的 Azure Data Factory。
-3. [步驟 3：建立連結服務](#MainStep3)。在此步驟中，您將建立下列連結的服務： 
+您會在本教學課程中執行下列步驟：
+
+1. [上傳範例資料和指令碼](#upload-sample-data-and-scripts)。在此步驟中，您將上傳所有範例資料 (包括所有記錄檔和參考資料) 和將由工作流程執行的 Hive/Pig 指令碼。您執行的指令碼也會建立 Azure SQL 資料庫 (名為 MarketingCampaigns)、資料表、使用者定義型別和預存程序。
+2. [建立 Azure Data Factory](#create-data-factory)。在此步驟中，您將建立名為 LogProcessingFactory 的 Azure Data Factory。
+3. [建立連結的服務](#create-linked-services)。在此步驟中，您將建立下列連結的服務： 
 	
 	- 	**StorageLinkedService**。Azure 儲存體位置的連結，其中包含原始遊戲事件、分割的遊戲事件、充實的遊戲事件、行銷活動有效性資訊、參考資料的地區代碼，以及 LogProcessingFactory 行銷活動資料的參考資料   
 	- 	**AzureSqlLinkedService**。連結 Azure SQL 資料庫，其中包含行銷活動有效性資訊。 
 	- 	**HDInsightStorageLinkedService**。連結與 HDInsightLinkedService 所參照 HDInsight 叢集相關聯的 Azure Blob 儲存體。 
 	- 	**HDInsightLinkedService**。將Azure HDInsight 叢集與 LogProcessingFactory 連結。這個叢集用來對資料執行 pig/hive 處理。 
  		
-4. [步驟 4：建立資料表](#MainStep4)。在此步驟中，您將建立下列資料表：
+4. [建立資料集](#create-datasets)。在此步驟中，您將建立下列資料表：
 	
 	- **RawGameEventsTable**。此資料表指定 StorageLinkedService 所定義的 Azure Blob 儲存體中，原始遊戲事件資料的位置 (adfwalkthrough/logs/rawgameevents/)。 
 	- **PartitionedGameEventsTable**。此資料表指定 StorageLinkedService 所定義的 Azure Blob 儲存體中分割的遊戲事件資料的位置 (adfwalkthrough/logs/partitionedgameevents/)。 
@@ -90,7 +91,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 	- **MarketingCampaignEffectivenessBlobTable**。此資料表指定 StorageLinkedService 所定義的 Azure Blob 儲存體中，行銷活動有效性資料的位置 (adfwalkthrough/marketingcampaigneffectiveness/)。 
 
 	
-5. [步驟 5：建立和排程管線](#MainStep5)。在此步驟中，您將建立下列管線：
+5. [建立和排程管線](#create-pipelines)。在此步驟中，您將建立下列管線：
 	- **PartitionGameLogsPipeline**。管線會從 Blob 儲存體 (RawGameEventsTable) 讀取原始遊戲事件，並建立以年、月和日為基礎的資料分割 (PartitionedGameEventsTable)。 
 
 
@@ -107,9 +108,9 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 		![MarketingCampaignPipeline][image-data-factory-tutorial-analyze-marketing-campaign-pipeline]
 
 
-6. [步驟 6：監視管線和資料配量](#MainStep6)。在此步驟中，您將使用 Azure 傳統入口網站監視管線、資料表和資料配量。
+6. [監視管線和資料配量](#monitor-pipelines)。在此步驟中，您將使用 Azure 傳統入口網站監視管線、資料表和資料配量。
 
-## <a name="MainStep1"></a> 步驟 1：上傳範例資料和指令碼
+## 上傳範例資料和指令碼
 在此步驟中，您將上傳所有範例資料 (包括所有記錄檔和參考資料) 和將由工作流程叫用的 Hive/Pig 指令碼。您執行的指令碼也會建立 Azure SQL Database (名為 **MarketingCampaigns**)、資料表、使用者定義型別和預存程序。
 
 將行銷活動有效性結果從 Azure Blob 儲存體移至 Azure SQL 資料庫時，會使用資料表、使用者定義型別和預存程序。
@@ -163,7 +164,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 		6/6/2014 11:54:36 AM You are ready to deploy Linked Services, Tables and Pipelines. 
 
 
-## <a name="MainStep2"></a> 步驟 2：建立 Azure Data Factory
+## 建立 Data Factory
 在此步驟中，您會建立名為 **LogProcessingFactory** 的 Azure Data Factory。
 
 1. 切換至 **Azure PowerShell** (如果已開啟) 或啟動 **Azure PowerShell**。如果您已經關閉並重新開啟 Azure PowerShell，您需要執行下列命令： 
@@ -185,7 +186,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 	> Data Factory 的名稱未來可能會註冊為 DNS 名稱，因此會變成公開可見的名稱。
 
  
-## <a name="MainStep3"></a> 步驟 3：建立連結服務
+## 建立連結服務
 
 > [AZURE.NOTE] 本文使用 Azure PowerShell 建立連結服務、資料表和管線。若您想使用 Azure 入口網站 (特別是 Data Factory 編輯器) 執行此教學課程，請參閱[使用 Data Factory 編輯器執行教學課程][adftutorial-using-editor]。
 
@@ -234,7 +235,7 @@ Contoso 是為多個平台建立遊戲的遊戲公司，包含遊戲主機、手
 
  
 
-## <a name="MainStep4"></a> 步驟 4：建立資料表 
+## 建立資料集
 在此步驟中，您將建立下列資料表：
 
 - RawGameEventsTable
@@ -288,7 +289,7 @@ Azure 傳統入口網站尚不支援建立資料集/資料表，因此在此版�
 	
 
 
-## <a name="MainStep5"></a> 步驟 5：建立和排程管線
+## 建立管線
 在此步驟中，您將建立下列管線：PartitionGameLogsPipeline、EnrichGameLogsPipeline 和 AnalyzeMarketingCampaignPipeline。
 
 1. 在 **Windows 檔案總管** 中，導覽至 **C:\\ADFWalkthrough** 資料夾中的 **Pipelines** 子資料夾 (或從您解壓縮範例所在位置)。
@@ -358,7 +359,7 @@ Azure 傳統入口網站尚不支援建立資料集/資料表，因此在此版�
 	**恭喜！** 您已成功建立 Azure Data Factory、連結的服務、管線、資料表，並開始工作流程。
 
 
-## <a name="MainStep6"></a> 步驟 6：監視管線和資料配量 
+## 監視管線 
 
 1.	如果您的 LogProcessingFactory 的 Data Factory 分頁未開啟，您可以執行下列其中一項：
 	1.	在**開始面板**按一下 **LogProcessingFactory**。在建立 Data Factory 時，已自動勾選 [**新增至開始面板**] 選項。
@@ -391,7 +392,7 @@ Azure 傳統入口網站尚不支援建立資料集/資料表，因此在此版�
 
 	![RawGameEventsTable [資料配量] 刀鋒視窗][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	如果發生錯誤，您在這裡會看到 **[Failed] **狀態。您也可能會看到兩個配量的狀態都是 **Ready**，或都是 **Waiting** (視系統處理配量的速度而定)。
+	如果發生錯誤，您在這裡會看到 **[Failed] **狀態。您也可能會看到兩個配量的狀態都是 [Ready]，或都是 [Waiting] (視系統處理配量的速度而定)。
  
 	請參閱 [Azure Data Factory 開發人員參考資料][developer-reference]，以了解所有可能的配量狀態。
 
@@ -503,4 +504,4 @@ Azure 傳統入口網站尚不支援建立資料集/資料表，因此在此版�
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -43,7 +43,9 @@
 
 ## 設定 CLI 以使用資源管理員
 
-1. 若您從未使用過 Azure CLI，請參閱[安裝及設定 Azure CLI](xplat-cli.md)，並依照指示執行到選取您的 Azure 帳戶和訂用帳戶為止。
+
+1. 如果您從未使用過 Azure CLI，請參閱[安裝 Azure CLI](../xplat-cli-install.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
+
 
 2. 執行 **azure config mode** 命令，以切換為 Azure 資源管理員模式，如下所示。
 
@@ -232,4 +234,4 @@ Azure 資源管理員中的所有資源都會關聯到資源群組。若還未�
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

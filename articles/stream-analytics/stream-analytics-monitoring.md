@@ -14,26 +14,26 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 # 了解串流分析工作監視功能，以及如何監視查詢
 
 ## 簡介：監視頁面
 
-Azure 管理入口網站和 Azure Preview 入口網站都會顯示關鍵效能計量，讓您能用來監視和疑難排解您的查詢及工作效能。
+Azure 管理入口網站和 Azure 入口網站都會顯示關鍵效能計量，讓您能用來監視和疑難排解您的查詢及工作效能。
 
 在 Azure 管理入口網站中，按一下執行中串流分析工作的 [監視] 索引標籤以查看這些度量。[監視] 頁面中出現了最多 1 分鐘的效能度量延遲。
 
   ![監視工作儀表板](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)
 
-在 Azure Preview 入口網站中，瀏覽至您有興趣查看度量的串流分析工作，並檢視 [監視] 區段。
+在 Azure 入口網站中，瀏覽至您有興趣查看度量的串流分析工作，並檢視 [**監視**] 區段。
 
-  ![Azure Preview 入口網站監視工作儀表板](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)
+  ![Azure 入口網站監視工作儀表板](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)
 
 串流分析工作第一次在區域中建立時，您必須設定適合該地區的診斷功能。若要這樣做，請按一下 [監視] 區段的任何位置，就會顯示 [診斷] 刀鋒視窗。您可以在這裡啟用診斷，並指定監視資料的儲存體帳戶。
 
-  ![Azure Preview 入口網站設定查詢診斷](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
+  ![Azure 入口網站設定查詢診斷](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
 
 ## 可供串流分析使用的度量
 
@@ -65,17 +65,17 @@ Azure 管理入口網站和 Azure Preview 入口網站都會顯示關鍵效能�
 
 您可以設定規則，在工作超過定義臨界值時透過電子郵件通知您。
 
-## 在 Azure Preview 入口網站中自訂監視 ##
+## 在 Azure 入口網站中自訂監視 ##
 
-您可以在 [編輯圖表] 設定中調整圖表類型、顯示的度量和時間範圍。如需詳細資訊，請參閱[如何自訂監視](./azure-portal/insights-how-to-customize-monitoring.md)。
+您可以在 [編輯圖表] 設定中調整圖表類型、顯示的度量和時間範圍。如需詳細資訊，請參閱[如何自訂監視](../azure-portal/insights-how-to-customize-monitoring.md)。
 
-  ![Azure Preview 入口網站查詢監視時間範圍](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)
+  ![Azure 入口網站查詢監視時間範圍](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)
 
 ## 工作狀態
 
-串流分析工作狀態可以在您看件工作清單之 Azure 入口網站中檢視。您可以按一下 Azure 入口網站中的串流分析圖示來查看工作清單。
+在 Azure 傳統入口網站中可檢視串流分析工作的狀態，在此您會看見工作清單。按一下 Azure 傳統入口網站中的 [串流分析] 圖示可檢視工作清單。
 
-| 狀態 | 定義 |
+| Status | 定義 |
 |--------|------------|
 | 建立時間 | 工作已建立，但是尚未啟動。 |
 | 啟動中 | 使用者按一下啟動工作，且工作正在啟動 |
@@ -97,7 +97,7 @@ Azure 管理入口網站和 Azure Preview 入口網站都會顯示關鍵效能�
   ![查詢診斷](./media/stream-analytics-monitoring/05-stream-analytics-monitoring.png)
 
 ## 取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureStreamAnalytics)
 
 ## 後續步驟
 
@@ -107,4 +107,4 @@ Azure 管理入口網站和 Azure Preview 入口網站都會顯示關鍵效能�
 - [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

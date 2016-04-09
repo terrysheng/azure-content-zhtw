@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/09/2016"
+    ms.date="03/10/2016"
     ms.author="brjohnst"/>
 
 # 使用 .NET SDK 建立 Azure 搜尋服務索引
@@ -38,10 +38,10 @@
 2. 前往 Azure 搜尋服務的刀鋒視窗。
 3. 按一下 [金鑰] 圖示。
 
-服務會有*系統管理金鑰*和*查詢金鑰*。
+服務會有系統管理金鑰和查詢金鑰。
 
-  - 主要和次要*系統管理金鑰*會授與所有作業的完整權限，包括管理服務以及建立和刪除索引、索引子與資料來源的能力。由於有兩個金鑰，因此如果您決定重新產生主要金鑰，您可以繼續使用次要金鑰，反之亦然。
-  - *查詢金鑰*會授與索引和文件的唯讀存取權，且通常會分派給發出搜尋要求的用戶端應用程式。
+  - 主要和次要系統管理金鑰會授與所有作業的完整權限，包括管理服務以及建立和刪除索引、索引子與資料來源的能力。由於有兩個金鑰，因此如果您決定重新產生主要金鑰，您可以繼續使用次要金鑰，反之亦然。
+  - 查詢金鑰會授與索引和文件的唯讀存取權，且通常會分派給發出搜尋要求的用戶端應用程式。
 
 主要或次要系統管理金鑰都可用於建立索引。
 
@@ -77,8 +77,8 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 var definition = new Index()
 {
     Name = "hotels",
-    Fields = new[] 
-    { 
+    Fields = new[]
+    {
         new Field("hotelId", DataType.String)                       { IsKey = true, IsFilterable = true },
         new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true, IsFacetable = true },
         new Field("description", DataType.String)                   { IsSearchable = true },
@@ -97,7 +97,7 @@ var definition = new Index()
 
 我們已根據每個 `Field` 在應用程式中的可能使用方式仔細選擇其各自的屬性值。例如，搜尋旅館的人很可能會對 `description` 欄位上的關鍵字相符項目感興趣，因此我們藉由將 `IsSearchable` 設為`true` 來啟用該欄位的全文檢索搜尋。
 
-請注意，`DataType.String` 類型的索引中必須有一個欄位 (且只有一個) 指定為 _key_ 欄位，方法是將 `IsKey` 設為 `true` (請參閱上述範例中的 `hotelId`)。
+請注意，`DataType.String` 類型的索引中必須有一個欄位 (且只有一個) 指定為 key 欄位，方法是將 `IsKey` 設為 `true` (請參閱上述範例中的 `hotelId`)。
 
 `description_fr` 欄位會用來儲存法文文字，因此上述索引定義會對此欄位使用自訂語言分析器。如需語言分析器的詳細資訊，請參閱 [MSDN 上的語言支援主題](https://msdn.microsoft.com/library/azure/dn879793.aspx)以及對應的[部落格文章](https://azure.microsoft.com/blog/language-support-in-azure-search/)。
 
@@ -121,6 +121,6 @@ serviceClient.Indexes.Delete("hotels");
 > [AZURE.NOTE] 為簡單起見，本文的範例程式碼使用 Azure 搜尋服務 .NET SDK 的同步方法。我們建議您在應用程式中使用非同步方法，讓應用程式保有可擴充性且回應靈敏。例如，您可以在上述範例中使用 `CreateAsync` 和 `DeleteAsync`，而非 `Create` 和 `Delete`。
 
 ## 下一步
-建立好 Azure 搜尋服務索引後，您就可以上傳內容到索引以便開始搜尋資料。如需詳細資訊，請參閱[使用 .NET SDK 將資料匯入至 Azure 搜尋服務](search-import-data-dotnet.md)。
+建立 Azure 搜尋服務索引後，您就可以[將內容上傳到索引](search-what-is-data-import.md)，以便開始搜尋資料。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="02/29/2016"
+   ms.date="03/10/2016"
    ms.author="tomfitz"/>
 
 # 使用 Azure Resource Manager 驗證服務主體
@@ -120,7 +120,7 @@
 
         PS C:\> $secret = Get-AzureKeyVaultSecret -VaultName examplevault -Name appPassword
         
-2. 取得您的 Active Directory 應用程式。登入時，您將需要應用程式識別碼。
+2. 取得您的 Active Directory 應用程式。登入時會需要應用程式識別碼。
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
 
@@ -231,7 +231,7 @@
 <a id="provide-certificate-through-automated-powershell-script" />
 ### 透過自動化的 PowerShell 指令碼提供憑證
 
-1. 取得您的 Active Directory 應用程式。登入時，您將需要應用程式識別碼
+1. 取得您的 Active Directory 應用程式。登入時會需要應用程式識別碼
 
         PS C:\> $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example"
         
@@ -337,13 +337,13 @@
 
 如果您想要手動登入為服務主體，您可以使用 **azure login** 命令。您必須提供租用戶識別碼、應用程式識別碼和密碼。直接將密碼包含在指令碼中並不安全，因為密碼會儲存在檔案中。請參閱下一節，以了解執行自動化指令碼時更佳的選項。
 
-1. 找出包含服務主體之訂用帳戶的 **TenantId**。您必須移除從 JSON 輸出傳回的開頭及結尾雙引號，然後才將它作為參數傳遞。
+1. 找出包含服務主體之訂用帳戶的 **TenantId**。如果您正在擷取目前已驗證之訂用帳戶的租用戶識別碼，就不需要提供訂用帳戶 ID 做為參數。**-r** 參數會擷取不加引號的值。
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 2. 針對使用者名稱，使用您在建立服務主體時所使用的 **AppId**。如果您要擷取應用程式識別碼，請使用下列命令。在 **search** 參數中提供 Active Directory 應用程式的名稱。
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 3. 登入為服務主體。
 
@@ -365,17 +365,17 @@
 
 這些步驟假設您已設定金鑰保存庫並儲存密碼。若要透過範本部署金鑰保存庫和密碼，請參閱[金鑰保存庫範本格式]()。如需深入了解金鑰保存庫，請參閱[開始使用 Azure 金鑰保存庫](./key-vault/key-vault-get-started.md)。
 
-1. 從金鑰保存庫擷取您的密碼 (在下列範例中，以名稱 **appPassword** 儲存的密碼)。您必須移除從 JSON 輸出傳回的開頭及結尾雙引號，然後才將它作為密碼參數傳遞。
+1. 從金鑰保存庫擷取您的密碼 (在下列範例中，以名稱 **appPassword** 儲存的密碼)。包含 **-r** 參數，以移除從 JSON 輸出傳回的開頭及結尾雙引號。
 
-        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq '.value' | sed -e 's/^"//' -e 's/"$//')
+        secret=$(azure keyvault secret show --vault-name examplevault --secret-name appPassword --json | jq -r '.value')
     
-2. 找出包含服務主體之訂用帳戶的 **TenantId**。
+2. 找出包含服務主體之訂用帳戶的 **TenantId**。如果您正在擷取目前已驗證之訂用帳戶的租用戶識別碼，就不需要提供訂用帳戶 ID 做為參數。
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 3. 針對使用者名稱，使用您在建立服務主體時所使用的 **AppId**。如果您要擷取應用程式識別碼，請使用下列命令。在 **search** 參數中提供 Active Directory 應用程式的名稱。
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. 藉由提供應用程式識別碼、金鑰保存庫中的密碼、租用戶識別碼，登入為服務主體。
 
@@ -413,7 +413,7 @@
 
 2. 開啟 **.pem** 檔案並複製憑證資料。尋找在 **-----BEGIN CERTIFICATE-----** 與 **-----END CERTIFICATE-----** 之間的一長串字元。
 
-3. 執行 **azure ad app create** 命令，以建立新的 Active Directory 應用程式，並提供您在上一個步驟中複製的憑證資料以做為金鑰值。
+3. 執行 **azure ad app create** 命令，以建立新的 Active Directory 應用程式，並提供您在上一個步驟中複製的憑證資料做為金鑰值。
 
         azure ad app create -n "exampleapp" --home-page "https://www.contoso.org" -i "https://www.contoso.org/example" --key-value <certificate data>
 
@@ -460,13 +460,13 @@
 
         30996D9CE48A0B6E0CD49DBB9A48059BF9355851
 
-2. 找出包含服務主體之訂用帳戶的 **TenantId**。
+2. 找出包含服務主體之訂用帳戶的 **TenantId**。如果您正在擷取目前已驗證之訂用帳戶的租用戶識別碼，就不需要提供訂用帳戶 ID 做為參數。**-r** 參數會擷取不加引號的值。
 
-        tenantId=$(azure account show -s <subscriptionId> --json | jq '.[0].tenantId' | sed -e 's/^"//' -e 's/"$//')
+        tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
 
 3. 針對使用者名稱，使用您在建立服務主體時所使用的 **AppId**。如果您要擷取應用程式識別碼，請使用下列命令。在 **search** 參數中提供 Active Directory 應用程式的名稱。
 
-        appId=$(azure ad app show --search exampleapp --json | jq '.[0].appId' | sed -e 's/^"//' -e 's/"$//')
+        appId=$(azure ad app show --search exampleapp --json | jq -r '.[0].appId')
 
 4. 若要使用 Azure CLI 進行驗證，請提供憑證指紋、憑證檔案、應用程式識別碼和租用戶識別碼。
 
@@ -506,15 +506,15 @@
     var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
     var client = new ResourceManagementClient(creds); 
        
-如需有關使用憑證和 Azure CLI 的詳細資訊，請參閱 [Certificate-based auth with Azure Service Principals from Linux command line (從 Linux 命令列以憑證方式驗證 Azure 服務主體)](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)
+如需使用憑證和 Azure CLI 的詳細資訊，請參閱 [Certificate-based auth with Azure Service Principals from Linux command line (從 Linux 命令列以憑證方式驗證 Azure 服務主體)](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)
 
 ## 後續步驟
   
 - 若要了解如何使用入口網站與服務主體，請參閱[使用 Azure 入口網站建立新的 Azure 服務主體](./resource-group-create-service-principal-portal.md)  
-- 如需實作 Azure Resource Manager 的安全性指導，請參閱 [Azure Resource Manager 的安全性考量](best-practices-resource-manager-security.md)
+- 如需實作 Azure 資源管理員的安全性指導，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)
 
 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

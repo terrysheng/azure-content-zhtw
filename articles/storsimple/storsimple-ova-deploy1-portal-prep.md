@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/10/2016"
    ms.author="alkohli"/>
 
 # 部署 StorSimple Virtual Array：準備入口網站
@@ -26,8 +26,8 @@
 
 您必須需要有系統管理員權限，才能完成安裝和設定程序。我們建議您在開始之前，先檢閱部署設定檢查清單。入口網站的準備工作不到 10 分鐘就能完成。
 
-這篇文章中的 StorSimple 部署資訊，僅適用於 StorSimple Virtual Array。
-
+本文中發佈的資訊適用於 StorSimple Virtual Arrays 在 Azure 傳統入口網站的部署，以及 Microsoft Azure 政府服務雲端。
+ 
 ### 開始使用
 
 部署的工作流程包括準備入口網站、在您的虛擬環境中佈建虛擬陣列，以及完成安裝程序。若要開始將 StorSimple Virtual Array 部署為檔案伺服器和 iSCSI 伺服器，您必須參閱下列表格中的資源 (文章和影片)。
@@ -38,7 +38,7 @@
 
 | **#** | **在此步驟中** | **您將會進行...** | **請使用這些文件。**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
-|1\. | **設定 Azure 傳統入口網站** | 請在佈建 StorSimple 虛擬裝置之前，先建立並設定 StorSimple Manager 服務。 |[Prepare the portal (準備入口網站)](storsimple-ova-deploy1-portal-prep.md)| 
+|1\. | **設定 Azure 傳統入口網站** | 請在佈建 StorSimple 虛擬裝置之前，先建立並設定 StorSimple Manager 服務。 |[Prepare the portal (準備入口網站)](storsimple-ova-deploy1-portal-prep.md)|
 |2\. | **佈建 Virtual Array** | 對於 Hyper-V，請佈建及連線到執行 Hyper-V 2008 R2、Hyper-V 2012 或 Hyper-V 2012 R2 之主機系統上的 StorSimple 虛擬裝置。<br></br> <br></br>對於 VMware，請佈建及連線到執行 VMware ESXi 5.5 及更新版本之主機系統上的 StorSimple 內部部署虛擬裝置。<br></br>| [在 Hyper-V 中佈建虛擬陣列](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [在 VMware 中佈建虛擬陣列](storsimple-ova-deploy2-provision-vmware.md)|
 |3\. | **設定 Virtual Array** | 對於檔案伺服器，請執行初始安裝程序、註冊 StorSimple 檔案伺服器，以及完成裝置安裝程序。接下來，您可以佈建 SMB 共用。<br></br> <br></br>對於 iSCSI 伺服器，請執行初始安裝、註冊 StorSimple iSCSI 伺服器，並完成裝置安裝程序。接下來，您可以佈建 iSCSI 磁碟區。| [將虛擬陣列設定為檔案伺服器](storsimple-ova-deploy3-fs-setup.md)<br></br> <br></br>[將虛擬陣列設定為 iSCSI 伺服器](storsimple-ova-deploy3-iscsi-setup.md)|
 
@@ -211,4 +211,4 @@
 
 -   [Provision a Virtual Array in VMware (在 VMware 中佈建 Virtual Array)](storsimple-ova-deploy2-provision-vmware.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

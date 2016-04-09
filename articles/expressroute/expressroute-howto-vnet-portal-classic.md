@@ -1,10 +1,10 @@
 <properties
    pageTitle="設定 ExpressRoute 的虛擬網路和閘道 | Microsoft Azure"
-   description="本文將引導您逐步設定 ExpressRoute 的虛擬網路 (VNet)"
+   description="本文將逐步引導您使用傳統部署模型來設定 ExpressRoute 的虛擬網路 (VNet)。"
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"/>
 
@@ -14,16 +14,22 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="03/08/2016"
    ms.author="cherylmc"/>
 
-# 設定 ExpressRoute 的虛擬網路
+# 在傳統入口網站中設定 ExpressRoute 的虛擬網路
 
-這些步驟將引導您使用傳統部署模型與服務管理來設定虛擬網路和閘道，以和 ExpressRoute 搭配使用。目前，我們並沒有使用資源管理員部署模型來為 ExpressRoute 設定 VNet 的文件。當我們有發行文章時，我們就會新增該文章的連結。
+本文中的步驟將引導您使用傳統部署模型與傳統入口網站來設定虛擬網路和閘道器，以和 ExpressRoute 搭配使用。
 
->[AZURE.IMPORTANT]請務必了解 Azure 目前使用兩種部署模型：資源管理員模型和傳統模型。開始您的組態之前，請確定您瞭解部署模型和工具。如需部署模型的資訊，請參閱 [Azure 部署模型](../azure-classic-rm.md)。
+如果您需要 Resource Manager 部署模型的指示，下列文章會逐步引導您了解如何[使用 PowerShell 建立虛擬網路](../virtual-network/virtual-networks-create-vnet-arm-ps.md)及[將 VPN 閘道加入 ExpressRoute 的 Resource Manager VNet](expressroute-howto-add-gateway-resource-manager.md)。
 
-1. 登入 **Azure 傳統入口網站**。
+**關於 Azure 部署模型**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+## 若要設定 VNet 和閘道器
+
+1. 登入 [Azure 傳統入口網站](http://manage.windowsazure.com)。
 
 2. 按一下螢幕左下角的 [新增]。在導覽窗格中依序按一下 [網路服務] 和 [虛擬網路]。按一下 [Custom Create] 開始組態精靈。
 
@@ -36,7 +42,7 @@
 
 	- **DNS 伺服器**：輸入 DNS 伺服器名稱和 IP 位址，或從下拉式清單中選取先前註冊的 DNS 伺服器。此設定不會建立 DNS 伺服器，它可讓您指定您想要用於此虛擬網路的名稱解析的 DNS 伺服器。
 	- **設定站台對站台 VPN**：選取 [**設定站台對站台 VPN**] 的核取方塊。
-	- **選取 ExpressRoute**：選取 [**使用 ExpressRoute**] 核取方塊。唯有在上一個步驟選取 [**設定站台對站台 VPN**] 才會出現此選項。
+	- **選取 ExpressRoute**：選取 [**使用 ExpressRoute**] 核取方塊。唯有在上一個步驟選取 [***設定站台對站台 VPN***] 才會出現此選項。
 	- **區域網路**：表示實體內部部署位置的本機網路。您可以選取先前建立的區域網路，或者可以建立新的區域網路。
 
 	如果您選取現有區域網路，請略過步驟 5。
@@ -51,7 +57,7 @@
 
 	- **位址空間**：包括起始 IP 和位址計數。請確認您指定的位址空間沒有與您在區域網路上所擁有的任何位址空間重疊。
 	- **新增子網路** - 包括起始 IP 和位址計數。您不需要其他子網路，但可能希望為將擁有動態 IP 位址 (DIPS) 的 VM 建立個別子網路。或者，您可以讓您的 VM 位於與其他 PaaS 執行個體不同的子網路中。
-	- **新增閘道器子網路**：按一下以新增閘道器子網路。閘道器子網路僅用於虛擬網路閘道，而且為這個組態的必要項目。**重要事項：**ExpressRoute 的閘道子網路前置詞必須是 /28 或更小。(/27、/26 等)
+	- **新增閘道器子網路**：按一下以新增閘道器子網路。閘道器子網路僅用於虛擬網路閘道，而且為這個組態的必要項目。***重要事項：***ExpressRoute 的閘道子網路前置詞必須是 /28 或更小。(/27、/26 等)
 
 7. 按一下頁面底部的核取記號，然後您的虛擬網路即會開始建立。完成時，您將在 Azure 傳統入口網站的 [網路] 頁面上看到 [狀態] 下列出 [已建立]。
 
@@ -70,4 +76,4 @@
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

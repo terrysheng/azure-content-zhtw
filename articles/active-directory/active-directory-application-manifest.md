@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/18/2015"
+   ms.date="03/16/2016"
    ms.author="dkershaw;bryanla"/>
 
 # 了解 Azure Active Directory 應用程式資訊清單
@@ -47,16 +47,13 @@
 
 1. 瀏覽至 [Azure 傳統入口網站][AZURE-CLASSIC-PORTAL]並使用具有服務管理員或共同管理員權限的帳戶登入。
 
-
 2. 在您驗證之後，向下捲動並選取左瀏覽面板中的 Azure "Active Directory" 延伸模組 (1)，然後按一下您的應用程式註冊所在的 Azure AD 租用戶 (2)。
 
-	![選取 Azure AD 租用戶][SELECT-AZURE-AD-TENANT]
-
+    ![選取 Azure AD 租用戶][SELECT-AZURE-AD-TENANT]
 
 3. 出現 [目錄] 頁面時，按一下頁面頂端的 [應用程式] \(1) 以查看在租用戶中註冊的應用程式清單。然後找到您要在清單中更新的應用程式並按一下它 (2)。
 
     ![選取 Azure AD 租用戶][SELECT-AZURE-AD-APP]
-
 
 4. 既然您已選取應用程式的主頁面，請注意頁面底部的「管理資訊清單」功能 (1)。如果您按一下此連結，系統將提示您下載或上傳 JSON 資訊清單檔案。按一下 [下載資訊清單] \(2)，其後會立即出現下載確認對話方塊，提示您按一下 [下載資訊清單] \(3) 加以確認，然後在本機開啟或儲存檔案 (4)。
 
@@ -107,7 +104,7 @@
 
 1. 首先，移至要新增新 API 之存取權的用戶端應用程式的 [設定] 頁面，然後按一下 [新增應用程式] 按鈕。
 2. 畫面中會顯示租用戶中已註冊的資源應用程式 (API) 的清單。按一下資源應用程式名稱旁的加號 (+)，加以選取。  
-3. 然後，按一下右下角的核取記號。 
+3. 然後，按一下右下角的核取記號。
 4. 當您回到用戶端組態頁面的 [新增應用程式] 區段時，您會在清單中看到新的資源應用程式。如果您將游標移至該資料列右側的 [委派的權限] 區段上方，您會看到顯示的下拉式清單。按一下該清單，然後選取新的權限，以將其新增至用戶端要求的權限清單。注意：這個新的權限會儲存在用戶端應用程式身分識別組態的 "requiredResourceAccess" 集合屬性中。
 
 ![其他應用程式的權限][PERMS-TO-OTHER-APPS]
@@ -148,4 +145,4 @@
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -3,8 +3,8 @@
    description="了解 Azure 備份如何讓您使用 Azure 匯入/匯出服務在網路上傳送資料。此文章說明如何使用 Azure 匯入/匯出服務離線植入初始備份資料"
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="nkolli1"
+   manager="shivamg"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="01/28/2016"
-   ms.author="jimpark;"/>
+   ms.author="jimpark;nkolli;trinadhk"/>
 
 # 在 Azure 備份中離線備份工作流程
 Azure 備份有許多有效的內建功能以節省網路和儲存體成本。Azure 備份不僅會壓縮資料，也會在內容有差異/增量之後一次完整備份。因此，如果要備份的是 10TB 的檔案磁碟區，Azure 備份會傳送 10TB 做為初始複寫 (IR) 的部分，以及僅差異做為差異複寫的部分。因此，在 IR 期間需要最大的 WAN 頻寬。為了在 IR 時降低 WAN 的相依性，Azure 備份支援使用 Azure 匯入/匯出服務的離線備份。
@@ -119,4 +119,4 @@ Azure 備份與 Azure 匯入/匯出服務密切整合，可讓您快速傳輸初
 - 若您有關於 Azure 匯入/匯出工作流程的任何問題，請參閱此[文章](../storage/storage-import-export-service.md)。
 - 若您有關於工作流程的任何問題，請參閱 Azure 備份[常見問題集](backup-azure-backup-faq.md)的＜離線備份＞章節
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

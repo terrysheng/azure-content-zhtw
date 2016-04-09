@@ -18,12 +18,12 @@
 
 # 在行動服務中開始使用驗證
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[將驗證加入 Xamarin.Android 應用程式中](../app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md)。
 
 本主題顯示如何在 Azure 行動服務中從應用程式驗證使用者。在本教學課程中，您將使用行動服務支援的身分識別提供者，將驗證加入至快速入門專案。由行動服務成功驗證並授權之後，就會顯示使用者識別碼值。
 
@@ -76,7 +76,7 @@
 
     這會建立新的方法來處理驗證程序。使用者透過 Facebook 登入來驗證。將出現對話方塊來顯示已驗證的使用者的識別碼。
 
-    > [AZURE.NOTE]如果您使用的身分識別提供者不是 Facebook，請將傳給上述 **LoginAsync** 的值變更為下列其中一個：_MicrosoftAccount_、_Twitter_、_Google_ 或 _WindowsAzureActiveDirectory_。
+    > [AZURE.NOTE] 如果您使用的身分識別提供者不是 Facebook，請將傳給上述 **LoginAsync** 的值變更為下列其中一個：_MicrosoftAccount_、_Twitter_、_Google_ 或 _WindowsAzureActiveDirectory_。
 
 3. 在 **onCreate** 方法中，在具現化 `MobileServiceClient` 物件的程式碼後面加入下列這一行程式碼。
 
@@ -112,4 +112,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0323_2016-->

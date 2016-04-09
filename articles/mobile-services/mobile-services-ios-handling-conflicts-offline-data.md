@@ -3,7 +3,7 @@
 	description="了解您在 iOS 應用程式中同步離線資料時如何使用 Azure 行動服務處理衝突"
 	documentationCenter="ios"
 	authors="krisragh"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="mobile-services"/>
 
@@ -13,29 +13,31 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="03/09/2016"
 	ms.author="krisragh;donnam"/>
 
 
 # 處理行動服務中的離線資料同步衝突
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 本主題將說明在使用 Azure 行動服務的離線功能時，應如何同步處理資料及處理衝突。本教學課程是以[開始使用離線資料]教學課程為基礎。
 
->[AZURE.NOTE]若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。
+>[AZURE.NOTE] 若要完成此教學課程，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 免費試用</a>。
 
 
 ## 下載 iOS 專案
 
 在此教學課程中，請下載 [Github 的更新 Xcode 專案](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS)。在[開始使用離線資料]教學課程結束後，我們便將 Xcode 專案做為起點使用，然後加以更新，以允許編輯項目。我們也已加入支援類別和方法，以便在下一節中新增衝突處理常式。
 
-本教學課程結束時，如果您在兩支電話上執行此應用程式，同時在兩支電話上本機變更相同項目，並將變更推播回伺服器，即可允許使用者自行選擇要保留的版本：*保留用戶端版本 (這會覆寫伺服器上的版本)、*保留伺服器版本 (這會更新用戶端的本機資料表)，或是*兩個版本都不保留 (取消推播並暫停作業)。
+在本教學課程結束時，如果您在兩台行動電話上執行此應用程式，並在本機上變更這兩台行動電話的相同項目，然後將變更推送回伺服器，即可允許每台行動電話的使用者選擇要保存下列哪個版本︰
+  * 保留用戶端版本 (這會覆寫伺服器上的版本)、
+  * 保留伺服器版本 (這會更新用戶端本機資料表)，或
+  * 兩個版本都不保留 (取消發送並擱置作業)。
 
 現在我們要新增衝突處理常式，以啟用這項功能。
 
@@ -144,4 +146,4 @@
 [開始使用離線資料]: mobile-services-ios-get-started-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

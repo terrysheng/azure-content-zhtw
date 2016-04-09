@@ -68,9 +68,9 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 | 系統更新 | 根據為該虛擬機器設定的服務，每隔 12 小時從 Windows Update 或 WSUS 抓取可用的更新清單，並建議在您的 Windows 虛擬機器上安裝遺漏的安全性和重要更新。 |
 | 基準規則 | 分析所有支援的虛擬機器，以識別任何可能造成虛擬機器更容易受到攻擊的作業系統組態，並建議進行組態變更來處理這些弱點。如需受監視之特定設定的詳細資訊，請參閱[建議的基準清單](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)。 |
 | 反惡意程式碼 | 建議為所有 Windows 虛擬機器佈建反惡意程式碼，以協助識別和移除病毒、間諜軟體及其他惡意軟體。 |
-| 端點上的存取控制清單 | 建議設定[存取控制清單](virtual-machines-set-up-endpoints.md) (ACL) 來限制對傳統虛擬機器端點的存取。這通常是用來確保只有連線到公司網路的使用者才能存取虛擬機器。 |
-| 網路安全性群組 | 建議設定[網路安全性群組](virtual-networks-nsg.md) (NSG) 來控制資源管理員虛擬機器之子網路與網路介面的輸入與輸出流量。除非另有指定，否則所有虛擬機器網路介面都會繼承為子網路設定的 NSG。除了檢查是否已設定 NSG 之外，此選項還會評估輸入安全性規則來識別是否有任何允許連入流量的規則。 |
-| Web 應用程式防火牆 | 建議於下列情況下，在虛擬機器上佈建 Web 應用程式防火牆：使用[執行個體層級公用 IP](virtual-networks-instance-level-public-ip.md) (ILPIP) 並設定相關聯的「NSG 輸入安全性規則」來允許存取連接埠 80/443。使用負載平衡 IP (VIP) 並設定相關聯的負載平衡與輸入 NAT 規則，來允許存取連接埠 80/443 (如需詳細資訊，請參閱 [Azure 資源管理員的負載平衡器支援](load-balancer-arm.md))。 |
+| 端點上的存取控制清單 | 建議設定[存取控制清單](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) (ACL) 來限制對傳統虛擬機器端點的存取。這通常是用來確保只有連線到公司網路的使用者才能存取虛擬機器。 |
+| 網路安全性群組 | 建議設定[網路安全性群組](../virtual-network/virtual-networks-nsg.md) (NSG) 來控制資源管理員虛擬機器之子網路與網路介面的輸入與輸出流量。除非另有指定，否則所有虛擬機器網路介面都會繼承為子網路設定的 NSG。除了檢查是否已設定 NSG 之外，此選項還會評估輸入安全性規則來識別是否有任何允許連入流量的規則。 |
+| Web 應用程式防火牆 | 建議於下列情況下，在虛擬機器上佈建 Web 應用程式防火牆：使用[執行個體層級公用 IP](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) 並設定相關聯的「NSG 輸入安全性規則」來允許存取連接埠 80/443。使用負載平衡 IP (VIP) 並設定相關聯的負載平衡與輸入 NAT 規則，來允許存取連接埠 80/443 (如需詳細資訊，請參閱 [Azure 資源管理員的負載平衡器支援](../load-balancer/load-balancer-arm.md))。 |
 | SQL 稽核 | 建議針對法規遵循、進階偵測及調查用途，啟用 Azure SQL 伺服器與資料庫的存取稽核。 |
 | SQL 透明資料加密 | 建議為您的 Azure SQL 資料庫、關聯的備份及交易記錄檔啟用待用期加密，讓您的資料即使遭到入侵也無法被讀取。 |
 
@@ -99,4 +99,4 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 - [Azure 安全性中心常見問題集](security-center-faq.md) - 尋找使用服務的常見問題
 - [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) – 尋找有關 Azure 安全性與相容性的部落格文章
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

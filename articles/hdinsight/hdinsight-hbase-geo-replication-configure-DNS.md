@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="03/04/2016"
    ms.author="jgao"/>
 
 # 設定兩個 Azure 虛擬網路之間的 DNS
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](../hdinsight-hbase-geo-replication-configure-VNETs.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
-- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
+- [設定 VPN 連線](../hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [設定 DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [設定 HBase 複寫](hdinsight-hbase-geo-replication.md) 
 
 
 了解如何新增與設定 Azure 虛擬網路的 DNS 伺服器，以處理虛擬網路內部與虛擬網路之間的名稱解析。
@@ -220,4 +220,4 @@ DNS 伺服器需要靜態 IP 位址。此步驟無法在 Azure 傳統入口網�
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

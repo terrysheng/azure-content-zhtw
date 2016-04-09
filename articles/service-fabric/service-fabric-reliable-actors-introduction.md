@@ -55,9 +55,11 @@ public class CalculatorActor : StatelessActor, ICalculatorActor
 
 因為方法引動過程及其回應最終會導致叢集中的網路要求，引數與其所傳回之工作的結果型別必須可由平台序列化。特別是，它們必須是[資料合約序列化](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)。
 
-> [AZURE.TIP]Service Fabric Actors 執行階段會發出某些[事件和與動作項目方法相關的效能計數器](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters)。這些項目對於診斷與效能監視很有幫助。
+> [AZURE.TIP] Service Fabric Actors 執行階段會發出某些[事件和與動作項目方法相關的效能計數器](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters)。這些項目對於診斷與效能監視很有幫助。
 
-值得一提的是下列動作項目介面方法的專屬方法：- 動作項目介面方法無法多載。- 動作項目介面方法不能有輸出、參照或選擇性參數。
+值得一提的是下列與動作項目介面方法相關的規則︰
+- 動作項目介面方法無法多載。
+- 動作項目介面方法不能有 out、ref 或選擇性參數。
 
 ## 動作項目通訊
 ### 動作項目 Proxy
@@ -70,7 +72,7 @@ ICalculatorActor calculatorActor = ActorProxy.Create<ICalculatorActor>(actorId, 
 double result = calculatorActor.AddAsync(2, 3).Result;
 ```
 
-請注意，有兩段資訊用於建立動作項目 Proxy 物件：動作項目 ID 與應用程式名稱。動作項目 ID 可唯一識別動作項目，而應用程式名稱可識別動作項目部署所在的 [Service Fabric 應用程式](service-fabric-reliable-actors-platform.md#service-fabric-application-model-concepts-for-actors)。
+請注意，有兩段資訊用於建立動作項目 Proxy 物件：動作項目 ID 與應用程式名稱。動作項目識別碼可唯一識別動作項目，而應用程式名稱可識別動作項目部署所在的 [Service Fabric 應用程式](service-fabric-reliable-actors-platform.md#service-fabric-application-model-concepts-for-actors)。
 
 ### 動作項目生命週期
 
@@ -89,7 +91,7 @@ Service Fabric 動作項目是虛擬的，也就是說，其生命週期不會�
 
 動作項目執行階段會藉由在某回合的開頭取得一個各動作項目鎖定，然後在回合結束時釋放該鎖定，來強制回合式並行。因此，回合式並行會依各個動作項目強制執行，不會在動作項目之間強制執行。動作項目方法和計時器/提醒回撥可代表不同的動作項目同時執行。
 
-以下範例說明上述概念。如果有一個動作項目類型實作兩個非同步方法 (假設為 Method1 與 Method2)，也就是計時器與提醒。下圖顯示代表這兩個屬於此動作項目類型的動作項目 (ActorId1 與 ActorId2) 執行這些方法與回呼的時間軸範例。
+以下範例說明上述概念。如果有一個動作項目類型實作兩個非同步方法 (假設為 *Method1* 與 *Method2*)，也就是計時器與提醒。下圖顯示代表這兩個屬於此動作項目類型的動作項目 (*ActorId1* 與 *ActorId2*) 執行這些方法與回呼的時間軸範例。
 
 ![Reliable Actors 執行階段回合式並行和存取][1]
 
@@ -102,20 +104,20 @@ Service Fabric 動作項目是虛擬的，也就是說，其生命週期不會�
 
 在上圖中得注意以下幾點：
 
-- 當 Method1 代表 ActorId2 執行以回應用戶端要求 xyz789 時，另一個抵達的用戶端要求 abc123 也需要 Method1 由 ActorId2 執行。不過，Method1 的第二次執行會在前一次執行完成後才會開始。同樣的，由 ActorId2 註冊的提醒會在 Method1 正在執行時引發，以回應用戶端要求 xyz789。提醒回撥只會在 Method1 的這兩個執行都完成後才執行。所有的一切都是因為對 ActorId2 強制執行回合式並行。
-- 同樣的，也會對 ActorId1 強制執行回合式並行，如代表依序發生的 ActorId1 執行 Method1、Method2 和計時器回呼所示。
-- 代表ActorId1 執行 Method1 與代表 ActorId2 執行重疊。這是因為回合式並行只會在動作項目內強制執行，不會在動作項目間強制執行。
-- 在某些方法/回呼執行中，方法/回呼傳回的 `Task` 會在方法傳回後完成。在其他執行中，已在方法/回呼傳回的時間前完成 `Task`。在兩種情況下，只會在方法/回呼都傳回且 `Task` 完成後，才會釋放各動作項目鎖定。
+- 當 *Method1* 代表 *ActorId2* 執行以回應用戶端要求 *xyz789* 時，另一個抵達的用戶端要求 (*abc123*) 也需要 *Method1* 由 *ActorId2* 執行。不過，*Method1* 的第二次執行會在前一次執行完成後才開始。同樣的，由 *ActorId2* 註冊的提醒會在 *Method1* 正在執行時引發，以回應用戶端要求 *xyz789*。提醒回撥只會在 *Method1* 的這兩個執行都完成後才執行。所有的一切都是因為對 *ActorId2* 強制執行回合式並行。
+- 同樣地，也會對 *ActorId1* 強制執行回合式並行，如代表依序發生的 *ActorId1* 執行 *Method1*、*Method2* 和計時器回呼所示。
+- 代表*ActorId1* 執行 *Method1* 與代表 *ActorId2* 執行重疊。這是因為回合式並行只會在動作項目內強制執行，不會在動作項目間強制執行。
+- 在某些方法/回呼執行中，方法/回呼傳回的 `Task` 會在方法傳回後完成。在某些其他執行中，已在方法/回呼傳回的時間前完成 `Task`。在這兩種情況下，只有在方法/回呼傳回且 `Task` 完成後，才會釋放各個動作項目鎖定。
 
 ### 重新進入
 
-動作項目執行階段依預設允許重新進入。這表示如果動作項目 A 的動作項目方法在動作項目 B 上呼叫方法，然後反過來在動作項目 A 上呼叫另一個方法，則允許執行該方法。這是因為該方法是同一個邏輯呼叫鏈結內容的一部分。所有的計時器與提醒呼叫的開頭都是新的邏輯呼叫內容。如需詳細資訊，請參閱 [Reliable Actors 重新進入](service-fabric-reliable-actors-reentrancy.md)。
+動作項目執行階段依預設允許重新進入。這表示如果 *Actor A* 的動作項目方法在 *Actor B* 上呼叫某一個方法，然後反過來在 *Actor A* 上呼叫另一個方法，則允許執行該方法。這是因為該方法是同一個邏輯呼叫鏈結內容的一部分。所有的計時器與提醒呼叫的開頭都是新的邏輯呼叫內容。如需詳細資訊，請參閱 [Reliable Actors 重新進入](service-fabric-reliable-actors-reentrancy.md)。
 
 ### 並行保證的範圍
 
 動作項目執行階段在控制叫用這些方法的狀況下，提供這些並行保證。例如，動作項目執行階段會對為回應用戶端要求而進行的方法叫用，以及對計時器與提醒回呼提供這些保證。然而，如果動作項目程式碼在動作項目執行階段提供的機制之外直接叫用這些方法，則執行階段無法提供任何並行保證。例如，如果在某個與動作項目方法所傳回的工作不相關聯的工作內容中叫用方法，則執行階段無法提供並行保證。如果從動作項目自行建立的執行緒叫用方法，則執行階段也無法提供並行保證。因此，若要執行背景作業，動作項目應使用遵守回合式並行的[動作項目計時器和動作項目提醒](service-fabric-reliable-actors-timers-reminders.md)。
 
-> [AZURE.TIP]Service Fabric Actors 執行階段會發出某些[事件和與並行相關的效能計數器](service-fabric-reliable-actors-diagnostics.md#concurrency-events-and-performance-counters)。這些項目對於診斷與效能監視很有幫助。
+> [AZURE.TIP] Service Fabric 動作項目執行階段會發出某些[與並行相關的事件和效能計數器](service-fabric-reliable-actors-diagnostics.md#concurrency-events-and-performance-counters)。這些項目對於診斷與效能監視很有幫助。
 
 ## 動作項目狀態管理
 您可以使用 Service Fabric 來建立無狀態或可設定狀態的動作項目。
@@ -136,7 +138,7 @@ class HelloActor : StatelessActor, IHello
 ```
 
 ### 可設定狀態的動作項目
-在記憶體回收與容錯移轉之間保留可設定狀態的動作項目其狀態。它們衍生自 `StatefulActor<TState>`，其中`TState` 是必須保留的狀態類型。透過基底類別的 `State` 屬性可在動作項目方法中存取狀態。
+在記憶體回收與容錯移轉之間保留可設定狀態的動作項目其狀態。它們衍生自 `StatefulActor<TState>`，其中`TState` 是必須保留的狀態類型。透過基底類別的 `State` 屬性，可在動作項目方法中存取狀態。
 
 以下為存取狀態之可設定狀態的動作項目範例：
 
@@ -153,21 +155,21 @@ class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 
 當動作項目保存在磁碟上並複寫到叢集中的多個節點時，會在記憶體回收和容錯移轉時保留動作項目狀態。這表示如同方法引數和傳回值一樣，動作項目狀態的類型必須是[資料合約序列化](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)。
 
-> [AZURE.NOTE]請參閱[序列化上的可靠動作項目附註](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)一文，以取得如何定義介面和 Actor State 類型的詳細資訊。
+> [AZURE.NOTE] 請參閱 [Reliable Actors 序列化的注意事項](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)一文，以取得應如何定義介面和動作項目狀態類型的詳細資訊。
 
 #### 動作項目狀態提供者
-動作項目狀態提供者會提供狀態的儲存與擷取。可在組件內依狀態提供者特定的屬性，對各動作項目或所有動作項目設定狀態提供者。動作項目啟動時，其狀態會載入到記憶體中。動作項目方法完成時，動作項目執行階段會呼叫狀態提供者的方法，自動儲存修改過的狀態。如果在 [儲存] 作業期間發生失敗，則動作項目執行階段會建立新的動作項目執行個體，並從狀態提供者載入最後一個一致的狀態。
+動作項目狀態提供者會提供狀態的儲存與擷取。可在組件內依狀態提供者特定的屬性，對各動作項目或所有動作項目設定狀態提供者。動作項目啟動時，其狀態會載入到記憶體中。動作項目方法完成時，動作項目執行階段會呼叫狀態提供者的方法，自動儲存修改過的狀態。如果在**儲存**作業期間發生失敗，則動作項目執行階段會建立新的動作項目執行個體，並從狀態供應器載入最後一個一致的狀態。
 
-根據預設，可設定狀態的動作項目會使用索引鍵值存放區動作項目狀態提供者，其建置在由 Service Fabric 平台提供的分散式索引鍵值存放區之基礎上。如需詳細資訊，請參閱[狀態提供者選擇](service-fabric-reliable-actors-platform.md#actor-state-provider-choices)主題。
+根據預設，可設定狀態的動作項目會使用索引鍵值存放區動作項目狀態提供者，其建置在由 Service Fabric 平台提供的分散式索引鍵值存放區之基礎上。如需詳細資訊，請參閱[狀態供應器選項](service-fabric-reliable-actors-platform.md#actor-state-provider-choices)主題。
 
-> [AZURE.TIP]動作項目執行階段會發出某些[事件和與動作項目狀態管理相關的效能計數器](service-fabric-reliable-actors-diagnostics.md#actor-state-management-events-and-performance-counters)。這些項目對於診斷與效能監視很有幫助。
+> [AZURE.TIP] 動作項目執行階段會發出某些[事件和與動作項目狀態管理相關的效能計數器](service-fabric-reliable-actors-diagnostics.md#actor-state-management-events-and-performance-counters)。這些項目對於診斷與效能監視很有幫助。
 
 #### 唯讀方法
 依預設，動作項目執行階段會在動作項目方法呼叫、計時器回呼或提醒回呼完成時儲存動作項目狀態。儲存狀態完成前不允許其他的動作項目呼叫。
 
 然而，有一些動作項目方法不會修改狀態。在此狀況下，需要花費額外的時間儲存狀態，這會影響系統的整體輸送量。若要避免此狀況發生，您可以將不修改狀態的方法和計時器回呼標示為唯讀。
 
-以下範例顯示如何使用 `Readonly` 屬性將動作項目方法標示為唯讀：
+以下範例示範如何使用 `Readonly` 屬性，將動作項目方法標示為唯讀：
 
 ```csharp
 public interface IVoicemailBoxActor : IActor
@@ -197,4 +199,4 @@ public interface IVoicemailBoxActor : IActor
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

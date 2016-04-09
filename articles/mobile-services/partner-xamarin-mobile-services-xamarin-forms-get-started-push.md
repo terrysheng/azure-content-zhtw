@@ -13,16 +13,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="01/22/2016"
+	ms.date="03/18/2016"
 	ms.author="wesmc"/>
 
 # 將推播通知新增至 Xamarin.Forms 應用程式
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[將推播通知新增至 Xamarin.Forms 應用程式](../app-service-mobile/app-service-mobile-xamarin-forms-get-started-push.md)。
 
 ##概觀
 
@@ -708,7 +709,7 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 
 5. 按 **F5** 鍵以執行應用程式。包含註冊金鑰的快顯對話方塊隨即顯示。
 
-6.	在 [方案總管] 中展開 [屬性]，開啟 WMAppManifest.xml 檔案，按一下 [功能] 索引標籤，確定已核取 **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** 功能。
+6.	在方案總管中展開 [屬性]，開啟 WMAppManifest.xml 檔案，按一下 [功能] 索引標籤，確定已核取 **ID\_CAP\_PUSH\_NOTIFICATION** 功能。
 
    	![在 VS 中啟用通知](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -857,4 +858,4 @@ APNS 使用憑證來驗證您的行動服務。遵循這些指示建立必要的
 [Xamarin.Forms Azure 推播通知入門範例]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
 [完整的 Xamarin.Forms Azure 推播通知範例]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

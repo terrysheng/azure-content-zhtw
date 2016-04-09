@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="03/04/2016" 
 	ms.author="robmcm"/>
 
 # 將自訂 Java Web 應用程式上傳至 Azure
@@ -72,7 +72,7 @@
                                     
 **stdoutLogFile** (預設值="d:\\home\\LogFiles\\httpPlatformStdout.log")。 **processPath** 中指定程序之 **stdout** 和 **stderr** 的絕對檔案路徑將會被記錄下來。
                                     
-> [AZURE.NOTE]`%HTTP_PLATFORM_PORT%` 是個特殊預留位置，它必須以 **arguments** 的一部分或 **httpPlatform** **environmentVariables** 清單的一部分進行指定。這將會被透過 **HttpPlatformHandler** 內部產生的連接埠取代，以便 **processPath** 所指定的程序可以接聽此連接埠。
+> [AZURE.NOTE] `%HTTP_PLATFORM_PORT%` 是個特殊預留位置，它必須以 **arguments** 的一部分或 **httpPlatform** **environmentVariables** 清單的一部分進行指定。這將會被透過 **HttpPlatformHandler** 內部產生的連接埠取代，以便 **processPath** 所指定的程序可以接聽此連接埠。
 
 ## Deployment
 
@@ -257,4 +257,4 @@ App Service Web Apps 支援 Liferay。因為 Liferay 需要大量記憶體，Web
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

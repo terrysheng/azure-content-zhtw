@@ -4,15 +4,16 @@
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carolz"
-   editor="" />
+   manager="carmonm"
+   editor=""
+  tags="azure-resource-manager, azure-service-management"/>
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/02/2016"
+   ms.date="03/15/2016"
    ms.author="cherylmc" />
 
 # 關於站對站 VPN 閘道連線的 VPN 裝置
@@ -40,8 +41,8 @@
 | **廠商** | **裝置系列** | **作業系統最低版本** | **原則式** | **路由式** |
 |---------------------------------|----------------------------------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Allied Telesis | AR 系列 VPN 路由器 | 2\.9.2 | 敬請期待 | 不相容 |
-| Barracuda Networks, Inc. | Barracuda NG Firewall | Barracuda NG Firewall 5.4.3 | [Barracuda NG Firewall](https://techlib.barracuda.com/display/BNGV54/How%20to%20Configure%20an%20IPsec%20Site-to-Site%20VPN%20to%20a%20Windows%20Azure%20VPN%20Gateway)| 不相容 |
-| Barracuda Networks, Inc. | Barracuda Firewall | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | 不相容 |
+| Barracuda Networks, Inc. | Barracuda NextGen Firewall F-series | 原則式︰5.4.3、路由式︰6.2.0 | [組態指示](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) | [組態指示](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
+| Barracuda Networks, Inc. | Barracuda NextGen Firewall X-series | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | 不相容 |
 | Brocade | Vyatta 5400 vRouter | Virtual Router 6.6R3 GA | [組態指示](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | 不相容 |
 | Check Point | Security Gateway | R75.40、R75.40VS | [組態指示](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [組態指示](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco | ASA | 8\.3 | [Cisco 範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) | 不相容 |
@@ -74,7 +75,7 @@
 **編輯範本：**
 
 1. 使用 [記事本] 開啟範本。 
-1. 搜尋所有 <*文字*> 字串並使用適合您環境的值加以取代。請務必加上 < and >。當有指定名稱時，您選取的名稱應該是唯一名稱。如果命令無法運作，請參閱裝置製造商文件。
+1. 搜尋所有 <文字> 字串並使用適合您環境的值加以取代。請務必加上 < and >。當有指定名稱時，您選取的名稱應該是唯一名稱。如果命令無法運作，請參閱裝置製造商文件。
 
 | **範本中的文字** | **變更為** |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------------|
@@ -94,6 +95,8 @@
 
 ## IPsec 參數
 
+>[AZURE.NOTE] 雖然 Azure VPN 閘道支援下面所列的值，但您目前無法指定或選取 Azure VPN 閘道的特定組合。您必須指定內部部署 VPN 裝置的任何條件約束。
+
 ### IKE 階段 1 設定
 
 | **屬性** | **原則式** | **路由式和標準或高效能 VPN 閘道** |
@@ -102,8 +105,8 @@
 | Diffie-Hellman 群組 | 群組 2 (1024 位元) | 群組 2 (1024 位元) |
 | 驗證方法 | 預先共用金鑰 | 預先共用金鑰 |
 | 加密演算法 | AES256 AES128 3DES | AES256 3DES |
-| 雜湊演算法 | SHA1(SHA128) | SHA1(SHA128) |
-| 階段 1 安全性關聯 (SA) 存留期 (時間) | 28,800 秒 | 28,800 秒 |
+| 雜湊演算法 | SHA1(SHA128) | SHA1(SHA128)、SHA2(SHA256) |
+| 階段 1 安全性關聯 (SA) 存留期 (時間) | 28,800 秒 | 10,800 秒 |
 
 
 ### IKE 階段 2 設定
@@ -112,10 +115,10 @@
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
 | IKE 版本 | IKEv1 | IKEv2 |
 | 雜湊演算法 | SHA1(SHA128) | SHA1(SHA128) |
-| 階段 2 安全性關聯 (SA) 存留期 (時間) | 3,600 秒 | - |
+| 階段 2 安全性關聯 (SA) 存留期 (時間) | 3,600 秒 | 3,600 秒 |
 | 階段 2 安全性關聯 (SA) 存留期 (輸送量) | 102,400,000 KB | - |
 | IPsec SA 加密及驗證提供項目 (依喜好順序) | 1.ESP-AES256 2.ESP-AES128 3.ESP-3DES 4.N/A | 請參閱＜路由式閘道 IPsec安全性關聯 (SA) 提供項目＞ (下方)|
-| 完整轉寄密碼 (PFS) | 否 | 是 (DH Group1) |
+| 完整轉寄密碼 (PFS) | 否 | 是 (DH Group1、2、5、14、24) |
 | 停用的對等偵測 (DPD) | 不支援 | 支援 |
 
 ### 路由式閘道 IPsec 安全性關聯 (SA) 提供項目
@@ -148,4 +151,4 @@
 
 - 透過網際網路的跨單位連線，請使用含有加密和雜湊演算法的預設 Azure VPN 閘道設定 (如上表所列)，以確保重要通訊的安全性。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

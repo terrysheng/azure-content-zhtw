@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中建立 API
@@ -98,4 +98,4 @@ API 是在發行者入口網站中建立和設定。若要存取發佈者入口�
 [如何在 Azure API 管理中使用用戶端憑證驗證來保護後端服務]: api-management-howto-mutual-certificates.md
 [如何在 Azure API 管理中使用 OAuth 2.0 授權開發人員帳戶]: api-management-howto-oauth2.md
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

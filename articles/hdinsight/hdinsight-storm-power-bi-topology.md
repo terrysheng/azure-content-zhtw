@@ -133,10 +133,14 @@ Power BI 可讓您以視覺化的方式將資料顯示為報表或儀表板。�
 
     ![拓撲摘要上的 [刪除] 按鈕](./media/hdinsight-storm-power-bi-topology/killtopology.png)
 
+## 刪除叢集
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## 後續步驟
 
 在本文件中，您已學會如何使用 REST 將資料從 Storm 拓撲傳送到 Power BI。如需如何使用其他 Azure 技術的資訊，請參閱下列項目：
 
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

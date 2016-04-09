@@ -49,6 +49,9 @@
     - 您已部署或更新為 [Azure AD Connect 的最新版本](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect)。
     - 您已設定 Azure AD Connect 以[執行完整同步處理](active-directory-ds-getting-started-password-sync.md)。
     - 根據您的目錄大小，可能需要一些時間，使用者帳戶和認證雜湊才可在 Azure AD 網域服務中提供使用。確定您已等候足夠長的時間之後，再重試驗證 (視目錄大小的不同，可能需要幾個小時到一天的時間，大型目錄則可能需要兩天)。
+    - 如果在您驗證上述步驟之後問題仍持續發生，請嘗試重新啟動 Microsoft Azure AD 同步服務。在您的同步電腦上，啟動命令提示字元，然後執行下列命令：
+      1. net stop 'Microsoft Azure AD Sync'
+      2. net start 'Microsoft Azure AD Sync'
 
 - **僅限雲端帳戶**：如果受影響的使用者帳戶是僅限雲端的使用者帳戶，請確定在您啟用 Azure AD 網域服務之後，使用者已變更其密碼。這個步驟會導致產生 Azure AD 網域服務所需的認證雜湊。
 
@@ -59,4 +62,4 @@
 - **電子郵件：**您可以透過 [Azure AD 網域服務意見反應](mailto:aaddsfb@microsoft.com)寄送電子郵件給我們務必包含您的 Azure AD 目錄的租用戶識別碼和您為 AAD 網域服務設定的網域名稱，以便我們調查問題。
 - **[Azure Active Directory 使用者心聲頻道](https://feedback.azure.com/forums/169401-azure-active-directory/)：**請務必在問題前加上 **'AADDS'** 字詞，才可送達我們。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

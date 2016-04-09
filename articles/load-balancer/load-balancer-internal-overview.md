@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 
@@ -82,9 +82,9 @@ LOB 的另一個案例是有站台對站台 VPN 至 ILB 端點設定所在的虛
 
 ## 後續步驟
 
-[開始設定網際網路面向的負載平衡器](load-balancer-internet-getstarted.md)
+[開始設定網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)
 
-[開始設定內部負載平衡器](load-balancer-internal-getstarted.md)
+[開始設定內部負載平衡器](load-balancer-get-started-ilb-arm-ps.md)
 
 [設定負載平衡器分配模式](load-balancer-distribution-mode.md)
 
@@ -92,4 +92,4 @@ LOB 的另一個案例是有站台對站台 VPN 至 ILB 端點設定所在的虛
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

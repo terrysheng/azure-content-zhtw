@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # 網路資源提供者
@@ -254,26 +254,14 @@ Rest API 符合 HTTP 1.1 通訊協定規格。API 的一般 URI 結構顯示如�
 ![範例範本部署](./media/resource-groups-networking/Figure6.png)
 
 
-## 另請參閱
-
-[Azure 網路 API 參考](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-
-[Azure PowerShell 網路參考](https://msdn.microsoft.com/library/azure/mt163510.aspx)
+## 後續步驟
 
 [Azure 資源管理員範本語言](../resource-group-authoring-templates.md)
 
 [Azure 網路 - 常用範本](https://github.com/Azure/azure-quickstart-templates)
 
-[計算資源提供者](../virtual-machines-azurerm-versus-azuresm)
+[計算資源提供者](../virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure 資源管理員概觀](../resource-group-overview)
+[Azure 資源管理員概觀](../resource-group-overview.md)
 
-[Azure 資源管理員中的角色存取控制](https://msdn.microsoft.com/library/azure/dn906885.aspx)
-
-[在 Azure 資源管理員中使用標記](https://msdn.microsoft.com/library/azure/dn848368.aspx)
-
-[範本部署](https://msdn.microsoft.com/library/azure/dn790549.aspx)
-
-現今的
-
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

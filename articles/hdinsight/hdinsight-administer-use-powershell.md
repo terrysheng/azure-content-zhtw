@@ -89,7 +89,7 @@ HDInsight 叢集需要 Azure 儲存體帳戶上的 Azure 資源群組和 Blob �
 
 	New-AzureRmStorageAccount -ResourceGroupName <Azure Resource Group Name> -Name <Azure Storage Account Name> -Location "<Azure Location>" -Type <AccountType> # account type example: Standard_LRS for zero redundancy storage
 	
-	Don't use **Standard_ZRS** because it deson't support Azure Table.  HDInsight uses Azure Table to logging. For a full list of the storage account types, see [https://msdn.microsoft.com/library/azure/hh264518.aspx](https://msdn.microsoft.com/library/azure/hh264518.aspx).
+請勿使用 **Standard\_ZRS**，因為它不支援 Azure 資料表。HDInsight 會使用 Azure 資料表來記錄。如需儲存體帳戶類型的完整清單，請參閱 [https://msdn.microsoft.com/library/azure/hh264518.aspx](https://msdn.microsoft.com/library/azure/hh264518.aspx)。
 
 [AZURE.INCLUDE [資料中心清單](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
@@ -332,4 +332,4 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

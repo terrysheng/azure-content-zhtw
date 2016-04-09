@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/22/2016"
+   ms.date="03/16/2016"
    ms.author="alkohli" />
 
 # 部署您的內部部署 StorSimple 裝置 (Update 1)
@@ -20,7 +20,7 @@
 > [AZURE.SELECTOR]
 - [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
 - [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
-- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
+- [GA 版本](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## 概觀
 
@@ -33,7 +33,7 @@
 
 您必須需要有系統管理員權限，才能完成安裝和設定程序。建議您在開始之前，檢閱設定檢查清單。部署與設定程序可能需要一些時間才能完成。
 
-> [AZURE.NOTE] 發佈於 Microsoft Azure 網站上的 StorSimple 部署資訊僅適用於 StorSimple 8000 系列裝置。如需 7000 系列裝置的完整資訊，請移至： [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)。如需 7000 系列部署資訊，請參閱 [StorSimple 系統快速入門指南](http://onlinehelp.storsimple.com/111_Appliance/)。
+> [AZURE.NOTE] 發佈於 Microsoft Azure 網站上的 StorSimple 部署資訊僅適用於 StorSimple 8000 系列裝置。如需 5000 和 7000 系列裝置的完整資訊，請移至：[http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)。如需 5000 和 7000 系列部署資訊，請參閱 [StorSimple System Quick Start Guide](http://onlinehelp.storsimple.com/111_Appliance/)。
 
 ## 部署步驟
 
@@ -241,7 +241,8 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 
 ## 掃描並套用更新
 
-更新裝置可能需要數小時的時間。在裝置上執行下列步驟來掃描並套用更新。<!--can take 1-4 hours-->
+更新裝置可能需要數小時的時間。在裝置上執行下列步驟來掃描並套用更新。
+<!--can take 1-4 hours--> 
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -289,4 +290,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。請執行下列�
 - 使用 [StorSimple Manager 服務](storsimple-manager-service-administration.md)以管理 StorSimple 裝置。
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

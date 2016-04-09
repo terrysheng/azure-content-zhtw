@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="01/26/2016" 
+	ms.topic="article"
+	ms.date="03/04/2016" 
 	ms.author="tdykstra"/>
 
 # 在 Azure App Service 中 API Apps 的服務主體驗證
@@ -41,11 +41,9 @@
 
 本節提供適用於任何 API 應用程式的一般指示。如需「待辦事項清單」.NET 範例應用程式的專用步驟，請移至[繼續進行 .NET 入門教學課程](#tutorialstart)。
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至想要保護的 API 應用程式的 [API 應用程式] 刀鋒視窗，然後按一下 [設定]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您想要保護的 API 應用程式的 [設定] 刀鋒視窗，然後尋找 [功能] 區段，再按一下 [驗證/授權]。
 
-2. 在 [設定] 刀鋒視窗中，尋找 [功能] 區段，然後按一下 [驗證/授權]。
-
-	![](./media/app-service-api-dotnet-user-principal-auth/features.png)
+	![Azure 入口網站中的驗證/授權](./media/app-service-api-dotnet-user-principal-auth/features.png)
 
 3. 在 [驗證/授權] 刀鋒視窗中，按一下 [開啟]。
 
@@ -53,7 +51,7 @@
 
 5. 在 [驗證提供者] 底下，選取 [Azure Active Directory]。
 
-	![](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
+	![Azure 入口網站中的驗證/授權刀鋒視窗](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
 
 6. 設定 [Azure Active Directory 設定] 刀鋒視窗以建立新的 Azure AD 應用程式，或者，如果您已有想要使用的現有 Azure AD 應用程式，則請使用該應用程式。
 
@@ -64,6 +62,8 @@
 7. [驗證提供者設定] 刀鋒視窗使用完畢時，按一下 [確定]。
 
 7. 在 [驗證/授權] 刀鋒視窗中，按一下 [儲存]。
+
+	![按一下 [Save] (儲存)。](./media/app-service-api-dotnet-service-principal-auth/authsave.png)
 
 完成時，App Service 只會允許來自已設定 Azure AD 租用戶的呼叫端的要求。受保護的 API 應用程式則不需要有驗證或授權程式碼。持有人權杖會與 HTTP 標頭中的常用宣告一起傳遞至 API 應用程式，您可以在程式碼中閱讀該資訊，以驗證要求是來自特定的呼叫端，例如服務主體。
 
@@ -98,7 +98,7 @@ App Service 也在 X-MS-CLIENT-PRINCIPAL-ID 標頭中提供 `objectidentifier` �
 
 如果您要遵循適用於 API 應用程式的 Node.js 或 Java 入門系列，請跳至[後續步驟](#next-steps)一節。
 
-本文其餘部分將接續說明適用於 API 應用程式的 .NET 入門系列，並且假設您已完成[使用者驗證教學課程](app-service-api-user-principal-auth.md)而且擁有在 Azure 中執行、已啟用使用者驗證的範例應用程式。
+本文其餘部分將接續說明適用於 API 應用程式的 .NET 入門系列，並且假設您已完成[使用者驗證教學課程](app-service-api-dotnet-user-principal-auth.md)而且擁有在 Azure 中執行、已啟用使用者驗證的範例應用程式。
 
 ## 在 Azure 中設定驗證
 
@@ -106,11 +106,15 @@ App Service 也在 X-MS-CLIENT-PRINCIPAL-ID 標頭中提供 `objectidentifier` �
 
 在下一節中，則會設定中介層 API 應用程式，以傳送應用程式認證至 Azure AD、取回持有人權杖，並將持有人權杖傳送至資料層 API 應用程式。下圖可說明此程序。
 
-![](./media/app-service-api-dotnet-service-principal-auth/appdiagram.png)
+![服務驗證圖表](./media/app-service-api-dotnet-service-principal-auth/appdiagram.png)
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您為 ToDoListDataAPI (資料層) API 應用程式建立之 API 應用程式的 [API 應用程式] 刀鋒視窗，然後按一下 [設定]。
+如果您遵循教學課程指示進行時遇到問題，請參閱教學課程尾端的[疑難排解](#troubleshooting) 一節。
+
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您為 ToDoListDataAPI (資料層) API 應用程式建立之 API 應用程式的 [設定] 刀鋒視窗，然後按一下 [設定]。
 
 2. 在 [設定] 刀鋒視窗中，尋找 [功能] 區段，然後按一下 [驗證/授權]。
+
+	![Azure 入口網站中的驗證/授權](./media/app-service-api-dotnet-user-principal-auth/features.png)
 
 3. 在 [驗證/授權] 刀鋒視窗中，按一下 [開啟]。
 
@@ -120,21 +124,21 @@ App Service 也在 X-MS-CLIENT-PRINCIPAL-ID 標頭中提供 `objectidentifier` �
 
 5. 在 [驗證提供者] 底下，按一下 [Azure Active Directory]。
 
+	![Azure 入口網站中的驗證/授權刀鋒視窗](./media/app-service-api-dotnet-user-principal-auth/authblade.png)
+
 6. 在 [Azure Active Directory 設定] 刀鋒視窗中，按一下 [快速]。
 
 	在使用 [快速] 選項時，Azure 可以自動在 Azure AD [租用戶](https://msdn.microsoft.com/zh-TW/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)中建立 AAD 應用程式。
 
 	您不必建立租用戶，因為每個 Azure 帳戶都會自動擁有一個。
 
-7. 在 [管理模式] 底下，按一下 [建立新的 AD 應用程式]。
+7. 在 [管理模式] 底下，按一下 [建立新的 AD 應用程式] \(若尚未選取)。
 
-	入口網站會在 [建立應用程式] 輸入方塊中填入預設值。
+	入口網站會在 [建立應用程式] 輸入方塊中填入預設值。根據預設，Azure AD 應用程式的名稱會與 API 應用程式相同。如有需要，也可以輸入不同名稱。
 	
-	![](./media/app-service-api-dotnet-service-principal-auth/aadsettings.png)
+	![Azure AD 設定](./media/app-service-api-dotnet-service-principal-auth/aadsettings.png)
 
-	根據預設，Azure AD 應用程式的名稱會與 API 應用程式相同。如有需要，也可以輸入不同名稱。
-
-	或者，您可以讓呼叫端 API 應用程式和受保護的 API 應用程式使用同一個 Azure AD 應用程式。如果您選擇後者，則這邊不需要 [建立新的 AD 應用程式] 選項，因為您稍早已在使用者驗證教學課程中建立了 Azure AD 應用程式。在本教學課程中，您會讓呼叫端 API 應用程式和受保護的 API 應用程式使用個別的 Azure AD 應用程式。
+	附註：或者，您可以讓呼叫端 API 應用程式和受保護的 API 應用程式使用同一個 Azure AD 應用程式。如果您選擇後者，則這邊不需要 [建立新的 AD 應用程式] 選項，因為您稍早已在使用者驗證教學課程中建立了 Azure AD 應用程式。在本教學課程中，您會讓呼叫端 API 應用程式和受保護的 API 應用程式使用個別的 Azure AD 應用程式。
 
 8. 記下 [建立應用程式] 輸入方塊中的值，您稍後將在 Azure 傳統入口網站中查詢此 AAD 應用程式。
 
@@ -142,7 +146,7 @@ App Service 也在 X-MS-CLIENT-PRINCIPAL-ID 標頭中提供 `objectidentifier` �
 
 10. 在 [驗證/授權] 刀鋒視窗中，按一下 [儲存]。
 
-	![](./media/app-service-api-dotnet-service-principal-auth/saveauth.png)
+	![按一下 [Save] (儲存)。](./media/app-service-api-dotnet-service-principal-auth/saveauth.png)
 
 	App Service 在建立 Azure Active Directory 應用程式時，會自動將 [登入 URL] 和 [回覆 URL] 設定為 API 應用程式的 URL。第二個值可讓 AAD 租用戶中的使用者登入和存取 API 應用程式。
 
@@ -170,7 +174,7 @@ App Service 也在 X-MS-CLIENT-PRINCIPAL-ID 標頭中提供 `objectidentifier` �
 
 在 Visual Studio 中對 ToDoListAPI 專案進行下列變更。
 
-1. 取消註解 *ServicePrincipal.cs* 檔案中的所有程式碼。
+1. 取消註解 ServicePrincipal.cs 檔案中的所有程式碼。
 
 	這便是使用適用於 .NET 的 ADAL 來取得 Azure AD 持有人權杖的程式碼。此程式碼會使用數個設定值，而您稍後將會在 Azure 執行階段環境中設定這些值。此程式碼如下：
 
@@ -197,16 +201,18 @@ App Service 也在 X-MS-CLIENT-PRINCIPAL-ID 標頭中提供 `objectidentifier` �
 		    }
 		}
 
-	**附註：**此程式碼需要 .NET 適用之 ADAL 的 NuGet 封裝 (Microsoft.IdentityModel.Clients.ActiveDirectory)，其早已安裝於專案中。如果您是從頭建立此專案，則必須安裝此封裝。API 應用程式的新專案範本不會自動安裝此封裝。
+	附註：此程式碼需要 .NET 適用之 ADAL 的 NuGet 封裝 (Microsoft.IdentityModel.Clients.ActiveDirectory)，其早已安裝於專案中。如果您是從頭建立此專案，則必須安裝此封裝。API 應用程式的新專案範本不會自動安裝此封裝。
 
-2. 在 *Controllers/ToDoListController* 中，將 `NewDataAPIClient` 方法中會將權杖新增至 HTTP 要求之 authorization 標頭的程式碼取消註解。
+2. 在 Controllers/ToDoListController 中，將 `NewDataAPIClient` 方法中會將權杖新增至 HTTP 要求之 authorization 標頭的程式碼取消註解。
 
 		client.HttpClient.DefaultRequestHeaders.Authorization =
 		    new AuthenticationHeaderValue("Bearer", ServicePrincipal.GetS2SAccessTokenForProdMSA().AccessToken);
 
 3. 部署 ToDoListAPI 專案 (以滑鼠右鍵按一下專案，然後按一下 [發佈] > [發佈])。
 
-4. 關閉成功部署專案後所開啟的瀏覽器視窗。
+	Visual Studio 會部署專案並將瀏覽器開啟至 Web 應用程式的基底 URL。這會顯示 403 錯誤頁面，這是嘗試從瀏覽器移至 Web API 基底 URL 時的正常現象。
+
+4. 關閉瀏覽器。
 
 ### 取得 Azure AD 設定值
 
@@ -222,7 +228,7 @@ App Service 也在 X-MS-CLIENT-PRINCIPAL-ID 標頭中提供 `objectidentifier` �
 
 5. 複製 [用戶端識別碼] 值，並將其儲存至可在稍後取得此值的位置。
 
-8. 在 Azure 傳統入口網站中，返回 [我公司所擁有的應用程式] 清單，然後按一下您為 ToDoListAPI (中介層) API 應用程式建立的 AAD 應用程式。
+8. 在 Azure 傳統入口網站中，返回 [我公司所擁有的應用程式] 清單，然後按一下您為中介層 ToDoListAPI API 應用程式 (您在先前的教學課程中所建立，不是您在本教學課程中建立) 建立的 AAD 應用程式。
 
 16. 按一下 [設定] 索引標籤。
 
@@ -232,34 +238,49 @@ App Service 也在 X-MS-CLIENT-PRINCIPAL-ID 標頭中提供 `objectidentifier` �
 
 6. 按一下 [儲存]。
 
-	![](./media/app-service-api-dotnet-service-principal-auth/genkey.png)
+	![產生應用程式金鑰](./media/app-service-api-dotnet-service-principal-auth/genkey.png)
 
 7. 複製金鑰值，並將其儲存至可在稍後取得此值的位置。
 
-	![](./media/app-service-api-dotnet-service-principal-auth/genkeycopy.png)
+	![複製新的應用程式金鑰](./media/app-service-api-dotnet-service-principal-auth/genkeycopy.png)
 
 ### 在中介層 API 應用程式的執行階段環境中設定 Azure AD 設定
 
 1. 移至 [Azure 入口網站](https://portal.azure.com/)，然後瀏覽至裝載 TodoListAPI (中介層) 專案之 API 應用程式的 [API 應用程式] 刀鋒視窗。
 
-2. 按一下 **[設定] > [應用程式設定]**。
+2. 按一下 [設定] > [應用程式設定]。
 
 3. 在 [應用程式設定] 區段中，新增下列金鑰和值：
 
-	|金鑰|值|範例
-	|---|---|---|
-	|ida:Authority|https://login.microsoftonline.com/{your Azure AD 租用戶名稱}|https://login.microsoftonline.com/contoso.onmicrosoft.com|
-	|ida:ClientId|呼叫端應用程式 (ToDoListAPI) 的用戶端識別碼|960adec2-b74a-484a-960adec2-b74a-484a|
-	|ida:ClientSecret|呼叫端應用程式 (ToDoListAPI) 的應用程式金鑰|oCgdj3EYLfnR0p6iR3UvHFAfkn+zQB+0VqZT/6=
-	|ida:Resource|受呼叫應用程式 (ToDoListDataAPI) 的用戶端識別碼|e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8|
+	| 金鑰 | ida:Authority |
+	|---|---|
+	| 值 | https://login.microsoftonline.com/{your Azure AD 租用戶名稱} |
+	| 範例 | https://login.microsoftonline.com/contoso.onmicrosoft.com |
 
-	如果您讓呼叫端 API 應用程式和受保護的 API 應用程式使用同一個 Azure AD 應用程式，則會在 `ida:ClientId` 和 `ida:Resource` 中使用相同的值。
+	| 金鑰 | ida:ClientId |
+	|---|---|
+	| 值 | 呼叫端應用程式 (中介層 - ToDoListAPI) 的用戶端識別碼 |
+	| 範例 | 960adec2-b74a-484a-960adec2-b74a-484a |
+
+	| 金鑰 | ida:ClientSecret |
+	|---|---|
+	| 值 | 呼叫端應用程式 (中介層 - ToDoListAPI) 的應用程式金鑰 |
+	| 範例 | e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8 |
+
+	| 金鑰 | ida:Resource |
+	|---|---|
+	| 值 | 呼叫端應用程式 (資料層 - ToDoListAPI) 的用戶端識別碼 |
+	| 範例 | e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8 |
+
+	附註︰針對 `ida:Resource`，請確定您使用呼叫的應用程式的用戶端識別碼，而非其應用程式識別碼 URI。
+
+	`ida:ClientId` 和 `ida:Resource` 對本教學課程是不同的值，因為您正在為中介層和資料層使用個別的 Azure AD 應用程式。如果您讓呼叫端 API 應用程式和受保護的 API 應用程式使用同一個 Azure AD 應用程式，則會在 `ida:ClientId` 和 `ida:Resource` 中使用相同的值。
 
 	程式碼會使用 ConfigurationManager 來取得這些值，因此這些值可以儲存在專案的 Web.config 檔案或 Azure 執行階段環境中。當 ASP.NET 應用程式在 Azure App Service 中執行時，環境設定會自動覆寫 Web.config 的設定。一般來說，環境設定是[比 Web.config 檔案更安全的機密資訊儲存方式](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure)。
 
 6. 按一下 [儲存]。
 
-	![](./media/app-service-api-dotnet-service-principal-auth/appsettings.png)
+	![按一下 [Save] (儲存)。](./media/app-service-api-dotnet-service-principal-auth/appsettings.png)
 
 ### 測試應用程式
 
@@ -269,7 +290,7 @@ App Service 也在 X-MS-CLIENT-PRINCIPAL-ID 標頭中提供 `objectidentifier` �
 
 4. 新增待辦事項項目，以確認應用程式可以運作。
 
-	![](./media/app-service-api-dotnet-service-principal-auth/mvchome.png)
+	![待辦事項清單頁面](./media/app-service-api-dotnet-service-principal-auth/mvchome.png)
 
 	如果應用程式未如預期般運作，請仔細檢查所有您在 Azure 入口網站中輸入的設定。如果所有設定看起來都沒問題，請參閱本教學課程稍後的[疑難排解](#troubleshooting)一節。
 
@@ -307,7 +328,7 @@ App Service 也在 X-MS-CLIENT-PRINCIPAL-ID 標頭中提供 `objectidentifier` �
 
 對 TodoListDataAPI 專案進行下列變更。
 
-2. 開啟 *Controllers/TodoListController.cs* 檔案。
+2. 開啟 Controllers/TodoListController.cs 檔案。
 
 3. 取消註解用來設定 `trustedCallerClientId` 和 `trustedCallerServicePrincipalId` 的程式行。
 
@@ -332,55 +353,55 @@ App Service 也在 X-MS-CLIENT-PRINCIPAL-ID 標頭中提供 `objectidentifier` �
 
 	對後端的呼叫會失敗，因此應用程式不會運作。新的程式碼會檢查實際的 appid 和 objectidentifier，但它還沒有正確值可用來對這兩項進行檢查。瀏覽器的開發人員工具主控台會報告伺服器傳回 HTTP 401 錯誤。
 
-	![](./media/app-service-api-dotnet-service-principal-auth/webapperror.png)
+	![開發人員工具主控台中發生錯誤](./media/app-service-api-dotnet-service-principal-auth/webapperror.png)
 
 	在下列步驟中，您將會設定預期值。
 
 8. 使用 Azure AD PowerShell，為針對 TodoListWebApp 專案所建立的 Azure AD 應用程式取得服務主體的值。
 
-	a.如需有關如何安裝 Azure PowerShell 和連線至訂用帳戶的指示，請參閱[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)。
+	a.如需有關如何安裝 Azure PowerShell 和連線至訂用帳戶的指示，請參閱[搭配使用 Azure PowerShell 與 Azure Resource Manager](../powershell-azure-resource-manager.md)。
 
 	b.若要取得服務主體清單，請依序執行 `Login-AzureRmAccount` 命令和 `Get-AzureRmADServicePrincipal` 命令。
 
 	c.尋找 TodoListAPI 應用程式之服務主體的 objectid，並將它儲存在您稍後可以從中複製此值的位置。
 
-7. 在 Azure 入口網站中，瀏覽至 ToDoListAngular 專案所部署到之 Web 應用程式的 Web 應用程式刀鋒視窗。
+7. 在 Azure 入口網站中，瀏覽至您部署 ToDoListDataAPI 專案所在之 API 應用程式的 [API 應用程式] 刀鋒視窗。
 
 9. 按一下 **[設定] > [應用程式設定]**。
 
 3. 在 [應用程式設定] 區段中，新增下列金鑰和值：
 
-	|金鑰|值|範例
-	|---|---|---|
-	|todo:TrustedCallerServicePrincipalId|呼叫端應用程式的服務主體識別碼|4f4a94a4-6f0d-4072-4f4a94a4-6f0d-4072|
-	|todo:TrustedCallerClientId|呼叫端應用程式的用戶端識別碼 - 從 TodoListAPI AAD 應用程式複製而來|960adec2-b74a-484a-960adec2-b74a-484a|
+	| 金鑰 | todo:TrustedCallerServicePrincipalId |
+	|---|---|
+	| 值 | 呼叫端應用程式的服務主體識別碼 |
+	| 範例 | 4f4a94a4-6f0d-4072-4f4a94a4-6f0d-4072 |
+
+	| 金鑰 | todo:TrustedCallerClientId |
+	|---|---|
+	| 值 | 呼叫端應用程式的用戶端識別碼 - 從 TodoListAPI Azure AD 應用程式複製而來 |
+	| 範例 | 960adec2-b74a-484a-960adec2-b74a-484a |
 
 6. 按一下 [儲存]。
 
-	![](./media/app-service-api-dotnet-service-principal-auth/trustedcaller.png)
+	![按一下 [Save] (儲存)。](./media/app-service-api-dotnet-service-principal-auth/trustedcaller.png)
 
 6. 在瀏覽器中，返回 Web 應用程式的 URL，然後在首頁中按一下 [待辦事項清單] 索引標籤。
 
 	受信任呼叫端的應用程式識別碼和服務主體識別碼皆為預期值，因此這次應用程式會如預期般運作。
 
-	![](./media/app-service-api-dotnet-service-principal-auth/mvchome.png)
+	![待辦事項清單頁面](./media/app-service-api-dotnet-service-principal-auth/mvchome.png)
 
 ## 從頭建置專案
 
-兩個 Web API 專案是透過使用 **Azure API 應用程式**專案範本並以 ToDoList 控制器取代預設值控制器所建立。為了在 ToDoListAPI 專案中取得 Azure AD 服務主體權杖，我們已安裝 [.NET 適用的 Active Directory 驗證程式庫 (ADAL)](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) NuGet 封裝。
+兩個 Web API 專案是透過使用 Azure API 應用程式專案範本並以 ToDoList 控制器取代預設值控制器所建立。為了在 ToDoListAPI 專案中取得 Azure AD 服務主體權杖，我們已安裝 [.NET 適用的 Active Directory 驗證程式庫 (ADAL)](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) NuGet 封裝。
  
 如需如何使用 ToDoListAngular 之類的 Web API 後端建立 AngularJS 單一頁面應用程式的相關資訊，請參閱[實習實驗室：使用 ASP.NET Web API 和 Angular.js 建置單一頁面應用程式 (SPA)](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs)。如需如何新增 Azure AD 驗證程式碼的相關資訊，請參閱[使用 Azure AD 保護 AngularJS 單一頁面應用程式](../active-directory/active-directory-devquickstarts-angular.md)。
 
 ## 疑難排解
 
-如果您不必驗證就能成功執行應用程式，但應用程式在實作驗證後卻不能運作，此問題的原因大多是組態設定不正確或不一致。請先仔細檢查 Azure App Service 和 Azure Active Directory 中的所有設定。以下是部分具體建議：
+[AZURE.INCLUDE [疑難排解](../../includes/app-service-api-auth-troubleshooting.md)]
 
-* 在某專案中設定程式碼之後，請確定您部署的是該專案，而非其他專案。
-* 針對在 Azure 入口網站的 [應用程式設定] 刀鋒視窗中所做的設定，請確定在輸入設定值時所選取的 API 應用程式或 Web 應用程式正確無誤。
-* 請確定您在瀏覽器中是移至 HTTPS URL，而非 HTTP URL。
-* 請確定中介層 API 應用程式上仍然啟用 CORS，以允許從前端 HTTPS URL 呼叫中介層。如果不確定問題是否與 CORS 有關，請嘗試以 "*" 做為允許的原始 URL。**重要事項：**某些瀏覽器的開發人員工具主控台錯誤訊息可能會在真正的問題是資料層驗證時卻報告是 CORS 錯誤。若要確認情況是否如此，請暫時停用 ToDoListDataAPI API 應用程式的驗證。
-* 請將 [customErrors 模式設定為 [關閉]](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview)以確保您會在錯誤訊息中取得最詳盡的資訊。
-* 如果其他方法都失敗，請嘗試執行[遠端偵錯工作階段](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug)並檢查變數值，這些值會傳遞至用來在 ToDoListAPI 中取得持有人權杖的程式碼，以及用來驗證 ToDoListDataAPI 中所接收到之 Azure AD 值的程式碼。請注意，程式碼可以從許多不同的來源取得設定值，因此透過這種方式可能可以找到意外結果。例如，如果您在設定 App Service 設定時誤將 `ida:ClientId` 命名為 `ida:ClientID`，程式碼可能會忽略 App Service 設定而從 Web.config 檔案取得它在尋找的 `ida:ClientId` 值。 
+* 請確定不要混淆 ToDoListAPI (中介層) 和 ToDoListDataAPI (資料層)。例如，您會在本教學課程中將驗證新增至資料層 API 應用程式，但應用程式金鑰必須來自您為中介層 API 應用程式建立的 Azure AD 應用程式。
 
 ## 後續步驟
 
@@ -390,8 +411,10 @@ App Service 也在 X-MS-CLIENT-PRINCIPAL-ID 標頭中提供 `objectidentifier` �
 
 * [Azure AD 開發人員指南](http://aka.ms/aaddev)
 * [Azure AD 案例](http://aka.ms/aadscenarios)
-* [Azure AD 範例](http://aka.ms/aadsamples) [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) 範例類似於本教學課程中顯示的項目，但是未使用 App Service 驗證。
+* [Azure AD 範例](http://aka.ms/aadsamples)
 
-如需了解藉由使用 Visual Studio，或是藉由使用[原始檔控制系統](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)來[自動化部署](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)，以將 Visual Studio 專案部署到 API 應用程式的其他方式相關資訊，請參閱[如何部署 Azure App Service 應用程式](web-sites-deploy.md)。
+	[WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) 範例類似於本教學課程中顯示的項目，但是未使用 App Service 驗證。
 
-<!---HONumber=AcomDC_0211_2016-->
+如需了解藉由使用 Visual Studio，或是藉由使用[原始檔控制系統](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)來[自動化部署](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)，以將 Visual Studio 專案部署到 API 應用程式的其他方式相關資訊，請參閱[如何部署 Azure App Service 應用程式](../app-service-web/web-sites-deploy.md)。
+
+<!---HONumber=AcomDC_0323_2016-->

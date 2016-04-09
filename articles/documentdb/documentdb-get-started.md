@@ -13,11 +13,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
-	ms.date="02/19/2016"
+	ms.topic="hero-article"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
-# NoSQL 教學課程：建置 DocumentDB C# 主控台應用程式 
+# NoSQL 教學課程：建置 DocumentDB C# 主控台應用程式
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
@@ -59,13 +59,13 @@
 1. 在電腦上開啟 **Visual Studio**。
 2. 從 [檔案] 功能表中，選取 [新增]，然後選擇 [專案]。
 3. 在 [新增專案] 對話方塊中，依序選取 [範本] / [Visual C#] / [主控台應用程式]、為專案命名，然後按一下 [確定]。
-4. 在 [**方案總管**] 中，以滑鼠右鍵按一下 Visual Studio 方案底下的新主控台應用程式。
-5. 然後在無需離開功能表的情況下，按一下 [**管理 NuGet 封裝...**]
-6. 在 [**管理 NuGet 封裝**] 視窗的最左側窗格上，依序按一下 [**線上**] / [**nuget.org**]。
-7. 在 [**線上搜尋**] 輸入方塊中，搜尋 **DocumentDB 用戶端程式庫**。
-8. 在結果中，尋找 [**Microsoft Azure DocumentDB 用戶端程式庫**]，並按一下 [**安裝**]。DocumentDB 用戶端程式庫的封裝識別碼為 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
+4. 在 [方案總管] 中，以滑鼠右鍵按一下 Visual Studio 方案底下的新主控台應用程式。
+5. 然後在無需離開功能表的情況下，按一下 [管理 NuGet 封裝...]
+6. 在 [管理 NuGet 封裝] 視窗的最左側窗格上，依序按一下 [線上] / [nuget.org]。
+7. 在 [線上搜尋] 輸入方塊中，搜尋 **DocumentDB 用戶端程式庫**。
+8. 在結果中，尋找 [Microsoft Azure DocumentDB 用戶端程式庫]，並按一下 [安裝]。DocumentDB 用戶端程式庫的封裝識別碼為 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)
 
-太棒了！ 現在已完成安裝程式，讓我們開始撰寫一些程式碼。
+太棒了！ 現在已完成安裝程式，讓我們開始撰寫一些程式碼。您可以在 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs) 找到本教學課程的完整程式碼專案。
 
 ##<a id="Connect"></a> 步驟 3：連接到 DocumentDB 帳戶
 
@@ -88,18 +88,18 @@
 讓我們建立 **DocumentClient** 的新執行個體，來開始入門示範應用程式。建立新的且名為 **GetStartedDemo** 的非同步工作呼叫，並將新的 **DocumentClient** 具現化。
 
 	private static async Task GetStartedDemo()
-    {
+	{
 		// Create a new instance of the DocumentClient
-    	var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);
+		DocumentClient client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);
 	}
 
 從 **Main** 方法呼叫非同步工作 (類似下列程式碼)。
 
 	public static void Main(string[] args)
-    {
+	{
 		try
-    	{
-        	GetStartedDemo().Wait();
+		{
+			GetStartedDemo().Wait();
 		}
 		catch (Exception e)
 		{
@@ -108,174 +108,203 @@
 		}
 	}
 
-> [AZURE.WARNING] 請勿將認證儲存在原始程式碼中。為了讓這個範例簡單明瞭，原始程式碼中會顯示認證。如需如何在實際執行環境中儲存認證的相關資訊，請參閱 [Azure 網站：應用程式字串與連接字串的運作方式 (英文)](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)。查看我們在 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs) 上的範例應用程式，以取得在原始程式碼外儲存認證的相關範例。
-
 現在，您已經知道如何連接到 DocumentDB 帳戶和建立 **DocumentClient** 類別的執行個體，接下來說明使用 DocumentDB 資源。
 
 ## 步驟 4：建立線上資料庫
 可以使用 **DocumentClient** 類別的 [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) 方法建立 DocumentDB [資料庫](documentdb-resources.md#databases)。資料庫是分割給多個集合之 JSON 文件儲存體的邏輯容器。在您建立 **DocumentClient** 之後，在 **GetStartedDemo** 方法中建立新的資料庫。
 
-	// Check to verify a database with the id=FamilyRegistry does not exist
-	Database database = client.CreateDatabaseQuery().Where(db => db.Id == "FamilyRegistry").AsEnumerable().FirstOrDefault();
-
-	// If the database does not exist, create a new database
-    if (database == null)
-    {
-    	database = await client.CreateDatabaseAsync(
-    		new Database
-            {
-            	Id = "FamilyRegistry"
-            });
-
-		// Write the new database's id to the console
-		Console.WriteLine(database.Id);
-        Console.WriteLine("Press any key to continue ...");
-        Console.ReadKey();
-        Console.Clear();
+	// Check if the database FamilyDB does not exist
+	string databaseName = "FamilyDB";
+	
+	try
+	{
+		await this.client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(familyName));
 	}
-
+	catch (DocumentClientException de)
+	{
+		// If the database does not exist, create a new database
+		if (de.StatusCode == HttpStatusCode.NotFound)
+		{
+			await this.client.CreateDatabaseAsync(new Database { Id = familyName });
+			this.WriteToConsoleAndPromptToContinue("Created {0}", databaseName);
+		}
+		else
+		{
+			throw;
+		}
+	}
+	
 ##<a id="CreateColl"></a>步驟 5：建立集合  
 
-> [AZURE.WARNING] **CreateDocumentCollectionAsync** 會建立具有定價含意的新 S1 集合。如需詳細資訊，請造訪[定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
+> [AZURE.WARNING] **CreateDocumentCollectionAsync** 會建立含有保留輸送量且具有定價含意的新集合。如需詳細資訊，請造訪[定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
 
-您可以使用 **DocumentClient** 類別的 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 方法建立[集合](documentdb-resources.md#collections)。集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。新建立的集合將會對應至 [S1 效能層級](documentdb-performance-levels.md)。在 **GetStartedDemo** 方法中建立資料庫之後，建立名為 **FamilyCollection** 的新集合。
+您可以使用 **DocumentClient** 類別的 [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) 方法建立[集合](documentdb-resources.md#collections)。集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。在 **GetStartedDemo** 方法中建立資料庫之後，建立名為 **FamilyCollection** 的新集合。
 
-    // Check to verify a document collection with the id=FamilyCollection does not exist
-    DocumentCollection documentCollection = client.CreateDocumentCollectionQuery("dbs/" + database.Id).Where(c => c.Id == "FamilyCollection").AsEnumerable().FirstOrDefault();
+	string collectionName = "FamilyCollection";
+	try
+	{
+		await this.client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName));
+	}
+	catch (DocumentClientException de)
+	{
+		// If the document collection does not exist, create a new collection
+		if (de.StatusCode == HttpStatusCode.NotFound)
+		{
+			// Configure the collection. Optionally, you can configure partitioning and indexing behavior of the collection here.
+			DocumentCollection collectionInfo = new DocumentCollection();
+			collectionInfo.Id = collectionName;
 
-	// If the document collection does not exist, create a new collection
-    if (documentCollection == null)
-    {
-    	documentCollection = await client.CreateDocumentCollectionAsync("dbs/" + database.Id,
-        	new DocumentCollection
-            {
-            	Id = "FamilyCollection"
-            });
+			// DocumentDB collections can be reserved with throughput specified in request units/second. 1 RU is a normalized request equivalent to the read
+			// of a 1KB document.  Here we create a collection with 400 RU/s. 
+			await this.client.CreateDocumentCollectionAsync(
+				UriFactory.CreateDatabaseUri(databaseName),
+				new DocumentCollection { Id = collectionName },
+				new RequestOptions { OfferThroughput = 400 });
 
-		// Write the new collection's id to the console
-		Console.WriteLine(documentCollection.Id);
-        Console.WriteLine("Press any key to continue ...");
-        Console.ReadKey();
-        Console.Clear();
+			this.WriteToConsoleAndPromptToContinue("Created {0}", collectionName);
+		}
+		else
+		{
+			throw;
+		}
 	}
 
 ##<a id="CreateDoc"></a>步驟 6：建立 JSON 文件
 您可以使用 **DocumentClient** 類別的 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 方法來建立[文件](documentdb-resources.md#documents)。文件會是使用者定義的 (任意) JSON 內容。現在可插入一或多份文件。如果您已經有想要儲存於資料庫中的資料，就可以使用 DocumentDB 的[資料移轉工具](documentdb-import-data.md)。
 
-首先，我們需要建立**Parent**、**Child**、**Pet**、**Address** 和 **Family** 類別。藉由在 **GetStartedDemo** 方法之後加入下列內部子類別來建立這些類別。
+首先，我們需要建立 **Family** 類別以代表此範例中儲存在 DocumentDB 內的物件。我們也會建立 **Family** 內使用的 **Parent**、**Child**、**Pet**、**Address** 子類別。請注意，文件必須將 **Id** 屬性序列化為 JSON 中的**識別碼**。藉由在 **GetStartedDemo** 方法之後加入下列內部子類別來建立這些類別。
 
-    internal sealed class Parent
-    {
-        public string FamilyName { get; set; }
-        public string FirstName { get; set; }
-    }
-
-    internal sealed class Child
-    {
-        public string FamilyName { get; set; }
-        public string FirstName { get; set; }
-        public string Gender { get; set; }
-        public int Grade { get; set; }
-        public Pet[] Pets { get; set; }
-    }
-
-    internal sealed class Pet
-    {
-        public string GivenName { get; set; }
-    }
-
-    internal sealed class Address
-    {
-        public string State { get; set; }
-        public string County { get; set; }
-        public string City { get; set; }
-    }
-
-    internal sealed class Family
-    {
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
-        public string LastName { get; set; }
-        public Parent[] Parents { get; set; }
-        public Child[] Children { get; set; }
-        public Address Address { get; set; }
-        public bool IsRegistered { get; set; }
-    }
-
-接下來，在您的 **GetStartedDemo** 非同步方法內建立文件。
-
-    // Check to verify a document with the id=AndersenFamily does not exist
-    Document document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "AndersenFamily").AsEnumerable().FirstOrDefault();
-
-	// If the document does not exist, create a new document
-	if (document == null)
+	public class Family
 	{
-	    // Create the Andersen Family document
-	    Family andersonFamily = new Family
-	    {
-	        Id = "AndersenFamily",
-	        LastName = "Andersen",
-	        Parents = new Parent[] {
-	            new Parent { FirstName = "Thomas" },
-	            new Parent { FirstName = "Mary Kay"}
-	        },
-	        Children = new Child[] {
-	            new Child
-	            { 
-	                FirstName = "Henriette Thaulow", 
-	                Gender = "female", 
-	                Grade = 5, 
-	                Pets = new Pet[] {
-	                    new Pet { GivenName = "Fluffy" } 
-	                }
-	            } 
-	        },
-	        Address = new Address { State = "WA", County = "King", City = "Seattle" },
-	        IsRegistered = true
-	    };
+		[JsonProperty(PropertyName = "id")]
+		public string Id { get; set; }
+		public string LastName { get; set; }
+		string string District { get; set; }
+		public Parent[] Parents { get; set; }
+		public Child[] Children { get; set; }
+		public Address Address { get; set; }
+		public bool IsRegistered { get; set; }
+	}
 	
-	    // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
-	    await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, andersonFamily);
+	public class Parent
+	{
+		public string FamilyName { get; set; }
+		public string FirstName { get; set; }
 	}
 
-    // Check to verify a document with the id=AndersenFamily does not exist
-    document = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id).Where(d => d.Id == "WakefieldFamily").AsEnumerable().FirstOrDefault();
-
-    if (document == null)
-    {
-        // Create the WakeField document
-        Family wakefieldFamily = new Family
-        {
-            Id = "WakefieldFamily",
-            Parents = new Parent[] {
-                new Parent { FamilyName= "Wakefield", FirstName= "Robin" },
-                new Parent { FamilyName= "Miller", FirstName= "Ben" }
-            },
-            Children = new Child[] {
-                new Child {
-                    FamilyName= "Merriam", 
-                    FirstName= "Jesse", 
-                    Gender= "female", 
-                    Grade= 8,
-                    Pets= new Pet[] {
-                        new Pet { GivenName= "Goofy" },
-                        new Pet { GivenName= "Shadow" }
-                    }
-                },
-                new Child {
-                    FamilyName= "Miller", 
-                    FirstName= "Lisa", 
-                    Gender= "female", 
-                    Grade= 1
-                }
-            },
-            Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
-            IsRegistered = false
-        };
-
-        // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
-        await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, wakefieldFamily);
+	public class Child
+	{
+		public string FamilyName { get; set; }
+		public string FirstName { get; set; }
+		public string Gender { get; set; }
+		public int Grade { get; set; }
+		public Pet[] Pets { get; set; }
 	}
+
+	public class Pet
+	{
+		public string GivenName { get; set; }
+	}
+
+	public class Address
+	{
+		public string State { get; set; }
+		public string County { get; set; }
+		public string City { get; set; }
+	}
+
+
+接下來，在您的 **GetStartedDemo** 非同步方法內建立文件。首先，請如下所示建立 **CreateFamilyDocumentIfNotExists** 方法︰
+
+	private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
+	{
+		try
+		{
+			await this.client.ReadDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, family.Id));
+		}
+		catch (DocumentClientException de)
+		{
+			if (de.StatusCode == HttpStatusCode.NotFound)
+			{
+				await this.client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), family);
+				this.WriteToConsoleAndPromptToContinue("Created Family {0}", family.Id);
+			}
+			else
+			{
+				throw;
+			}
+		}
+	}
+
+插入兩個文件，一個給 Andersen 家族，另一個給 Wakefield 家族，如下所示︰
+
+	// Insert a document, here we create a Family object
+	Family andersenFamily = new Family
+	{
+		Id = "Andersen.1",
+		LastName = "Andersen",
+		Parents = new Parent[] 
+		{
+			new Parent { FirstName = "Thomas" },
+			new Parent { FirstName = "Mary Kay" }
+		},
+		Children = new Child[] 
+		{
+			new Child
+			{
+				FirstName = "Henriette Thaulow",
+				Gender = "female",
+				Grade = 5,
+				Pets = new Pet[] 
+				{
+					new Pet { GivenName = "Fluffy" }
+				}
+			}
+		},
+		District = "WA5",
+		Address = new Address { State = "WA", County = "King", City = "Seattle" },
+		IsRegistered = true
+	};
+
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", andersenFamily);
+
+	Family wakefieldFamily = new Family
+	{
+		Id = "Wakefield.7",
+		LastName = "Wakefield",
+		Parents = new Parent[]
+		{
+			new Parent { FamilyName = "Wakefield", FirstName = "Robin" },
+			new Parent { FamilyName = "Miller", FirstName = "Ben" }
+		},
+		Children = new Child[]
+		{
+			new Child
+			{
+				FamilyName = "Merriam",
+				FirstName = "Jesse",
+				Gender = "female",
+				Grade = 8,
+				Pets = new Pet[]
+				{
+					new Pet { GivenName = "Goofy" },
+					new Pet { GivenName = "Shadow" }
+				}
+			},
+			new Child
+			{
+				FamilyName = "Miller",
+				FirstName = "Lisa",
+				Gender = "female",
+				Grade = 1
+			}
+		},
+		District = "NY23",
+		Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
+		IsRegistered = false
+	};
+
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
 
 您現在已經在 DocumentDB 帳戶中建立下列資料庫、集合和文件。
 
@@ -285,37 +314,29 @@
 
 DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](documentdb-sql-query.md)。下列範例程式碼示範可在我們於前一個步驟中插入的文件上執行的各種查詢 (同時使用 DocumentDB SQL 語法和 LINQ)。將這些查詢加入至 **GetStartedDemo** 非同步方法。
 
-    // Query the documents using DocumentDB SQL for the Andersen family.
-    var families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id,
-        "SELECT * " +
-        "FROM Families f " +
-        "WHERE f.id = "AndersenFamily"");
+	// Run a simple query via LINQ. DocumentDB indexes all properties, so queries can be completed efficiently and with low latency.
+	// Here we find the Andersen family via its LastName
+	IQueryable<Family> familyQuery = this.client.CreateDocumentQuery<Family>(
+		UriFactory.CreateDocumentCollectionUri(databaseName, collectionName))
+		.Where(f => f.LastName == "Andersen");
 
-    foreach (var family in families)
-    {
-        Console.WriteLine("\tRead {0} from SQL", family);
-    }
+	// The query is executed synchronously here, but can also be executed asynchronously via the IDocumentQuery<T> interface
+	Console.WriteLine("Running LINQ query...");
+	foreach (Family family in familyQuery)
+	{
+			Console.WriteLine("\tRead {0}", family);
+	}
 
-    // Query the documents using LINQ for the Andersen family.
-    families =
-        from f in client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id)
-        where f.Id == "AndersenFamily"
-        select f;
+	// Now execute the same query via direct SQL
+	IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
+		UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
+		"SELECT * FROM Family WHERE Family.lastName = 'Andersen'");
 
-    foreach (var family in families)
-    {
-        Console.WriteLine("\tRead {0} from LINQ", family);
-    }
-
-    // Query the documents using LINQ lambdas for the Andersen family.
-    families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id)
-        .Where(f => f.Id == "AndersenFamily")
-        .Select(f => f);
-
-    foreach (var family in families)
-    {
-        Console.WriteLine("\tRead {0} from LINQ query", family);
-    }
+	Console.WriteLine("Running direct SQL query...");
+	foreach (Family family in familyQuery)
+	{
+		Console.WriteLine("\tRead {0}", family);
+	}
 
 下圖說明如何針對您所建立的集合呼叫 DocumentDB SQL 查詢語法，相同邏輯也可以套用至 LINQ 查詢。
 
@@ -327,9 +348,8 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 
 刪除已建立的資料庫將會移除資料庫和所有子系資源 (集合、文件等)。您可以刪除資料庫和文件用戶端，方法是在 **GetStartedDemo** 非同步方法的結尾處加入下列程式碼片段。
 
-    // Clean up/delete the database
-    await client.DeleteDatabaseAsync("dbs/" + database.Id);
-	client.Dispose();
+	// Clean up/delete the database
+	await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
 
 ##<a id="Run"></a>步驟 9：執行您的 C# 主控台應用程式！
 
@@ -341,120 +361,19 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 
 您現在應該可以看到入門應用程式的輸出。輸出將會顯示新增的查詢結果，而且應該符合以下的範例文字。
 
-	Read {
-	  "id": "AndersenFamily",
-	  "LastName": "Andersen",
-	  "Parents": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Thomas"
-		},
-    	{
-		  "FamilyName": null,
-		  "FirstName": "Mary Kay"
-		}
-	  ],
-	  "Children": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Henriette Thaulow",
-		  "Gender": "female",
-		  "Grade": 5,
-		  "Pets": [
-			{
-			  "GivenName": "Fluffy"
-			}
-		  ]
-		}
-	  ],
-	  "Address": {
-		"State": "WA",
-		"County": "King",
-		"City": "Seattle"
-	  },
-	  "IsRegistered": true,
-	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
-	  "_ts": 1428372205,
-	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
-	  "_attachments": "attachments/"
-	} from SQL
-	Read {
-	  "id": "AndersenFamily",
-	  "LastName": "Andersen",
-	  "Parents": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Thomas"
-		},
-		{
-		  "FamilyName": null,
-		  "FirstName": "Mary Kay"
-		}
-	  ],
-	  "Children": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Henriette Thaulow",
-		  "Gender": "female",
-		  "Grade": 5,
-		  "Pets": [
-			{
-			  "GivenName": "Fluffy"
-			}
-		  ]
-		}
-	  ],
-	  "Address": {
-		"State": "WA",
-		"County": "King",
-		"City": "Seattle"
-	  },
-	  "IsRegistered": true,
-	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
-	  "_ts": 1428372205,
-	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
-	  "_attachments": "attachments/"
-	} from LINQ
-	Read {
-	  "id": "AndersenFamily",
-	  "LastName": "Andersen",
-	  "Parents": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Thomas"
-		},
-		{
-		  "FamilyName": null,
-		  "FirstName": "Mary Kay"
-		}
-	  ],
-	  "Children": [
-		{
-		  "FamilyName": null,
-		  "FirstName": "Henriette Thaulow",
-		  "Gender": "female",
-		  "Grade": 5,
-		  "Pets": [
-			{
-			  "GivenName": "Fluffy"
-			}
-		  ]
-		}
-	  ],
-	  "Address": {
-		"State": "WA",
-		"County": "King",
-		"City": "Seattle"
-	  },
-	  "IsRegistered": true,
-	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
-	  "_ts": 1428372205,
-	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
-	  "_attachments": "attachments/"
-	} from LINQ query
+	Created FamilyDB
+	Press any key to continue ...
+	Created FamilyCollection
+	Press any key to continue ...
+	Created Family Andersen.1
+	Press any key to continue ...
+	Created Family Wakefield.7
+	Press any key to continue ...
+	Running LINQ query...
+		Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":5,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
+	Running direct SQL query...
+		Read {"id":"Andersen.1","LastName":"Andersen","District":"WA5","Parents":[{"FamilyName":null,"FirstName":"Thomas"},{"FamilyName":null,"FirstName":"Mary Kay"}],"Children":[{"FamilyName":null,"FirstName":"Henriette Thaulow","Gender":"female","Grade":5,"Pets":[{"GivenName":"Fluffy"}]}],"Address":{"State":"WA","County":"King","City":"Seattle"},"IsRegistered":true}
+	End of demo, press any key to exit.
 
 恭喜！ 您已經完成本 NoSQL 教學課程，並擁有運作中的 C# 主控台應用程式！
 
@@ -469,13 +388,12 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行豐富[查詢](doc
 ## 後續步驟
 
 -   需要更複雜的 ASP.NET MVC NoSQL 教學課程嗎？ 請參閱[使用 DocumentDB 建置具有 ASP.NET MVC 的 Web 應用程式](documentdb-dotnet-application.md)。
--	了解如何[監視 DocumentDB 帳戶](documentdb-monitor-accounts.md) (英文)。
+-	了解如何[監視 DocumentDB 帳戶](documentdb-monitor-accounts.md)。
 -	在 [Query Playground](https://www.documentdb.com/sql/demo) 中，針對範例資料集執行查詢。
 -	如需深入了解程式設計模型，請參閱 [DocumentDB 文件頁面](https://azure.microsoft.com/documentation/services/documentdb/)中的＜開發＞一節。
 
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
- 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

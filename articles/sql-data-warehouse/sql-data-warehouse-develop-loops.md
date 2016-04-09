@@ -3,7 +3,7 @@
    description="在 Azure SQL 資料倉儲中使用 Transact-SQL 迴圈及取代資料指標以開發解決方案的秘訣。"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="lodipalm"
+   authors="jrowlandjones"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 資料倉儲中的迴圈
@@ -25,10 +25,10 @@ SQL 資料倉儲支援 [WHILE][] 迴圈重複執行陳述式區塊。只要指�
 向前快轉唯讀資料指標可以輕鬆地以迴圈建構取代。以下是簡單的範例：程式碼範例會更新資料庫中每個資料表的統計資料。藉由反覆迴圈中的資料表，我們就能夠依序執行每個命令。
 
 首先，建立暫存資料表，其中包含用來識別個別陳述式的唯一資料列數目：
-  
+
 ```
-CREATE TABLE #tbl 
-WITH 
+CREATE TABLE #tbl
+WITH
 ( DISTRIBUTION = ROUND_ROBIN
 )
 AS
@@ -81,4 +81,4 @@ DROP TABLE #tbl;
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

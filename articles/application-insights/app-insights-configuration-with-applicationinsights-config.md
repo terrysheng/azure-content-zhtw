@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="03/12/2016" 
 	ms.author="awills"/>
 
 # 使用 ApplicationInsights.config 或 .xml 設定 Application Insights SDK
@@ -54,7 +54,7 @@ Application Insights .NET SDK 是由數個 NuGet 封裝所組成。[核心封裝
 
 ### Application Insights 診斷遙測
 
-`DiagnosticsTelemetryModule` 報告 Application Insights 檢測程式碼本身中的錯誤。例如，如果程式碼無法存取效能計數器，或 `ITelemetryInitializer` 擲回例外狀況。此模組所追蹤的追蹤遙測會出現在[診斷搜尋][diagnostic]中。
+`DiagnosticsTelemetryModule` 報告 Application Insights 檢測程式碼本身中的錯誤。例如，如果程式碼無法存取效能計數器，或 `ITelemetryInitializer` 擲回例外狀況。此模組所追蹤的追蹤遙測會出現在[診斷搜尋][diagnostic]中。將診斷資料傳送至 dc.services.vsallin.net。
  
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
 * [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet 封裝。如果您只安裝這個封裝，不會自動建立 ApplicationInsights.config 檔案。 
@@ -85,9 +85,9 @@ Application Insights .NET SDK 是由數個 NuGet 封裝所組成。[核心封裝
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` - 追蹤背景工作角色、Windows 服務和主控台應用程式的未處理例外狀況。
 * [Application Insights Windows Server](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet 封裝。
 
-### 核心 API
+### Microsoft.ApplicationInsights
 
-核心套件提供 SDK 的[核心 API](https://msdn.microsoft.com/library/mt420197.aspx)。其他遙測模組使用此功能，您也可以[使用它來定義您自己的遙測](app-insights-api-custom-events-metrics.md)。
+Microsoft.ApplicationInsights 封裝提供 SDK 的[核心 API](https://msdn.microsoft.com/library/mt420197.aspx)。其他遙測模組使用此功能，您也可以[使用它來定義您自己的遙測](app-insights-api-custom-events-metrics.md)。
 
 * ApplicationInsights.config 中沒有項目。
 * [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet 封裝。如果您只安裝此 NuGet，不會產生任何 .config 檔案。
@@ -123,12 +123,14 @@ Application Insights .NET SDK 是由數個 NuGet 封裝所組成。[核心封裝
  - `Language` 設定為 `CurrentCulture` 的名稱。
 * 針對具有 Web 應用程式執行所在電腦之網域名稱的所有遙測項目，`DomainNameRoleInstanceTelemetryInitializer` 會更新 `Device` 內容的 `RoleInstance` 屬性。
 * `OperationNameTelemetryInitializer` 會根據 HTTP 方法，以及 ASP.NET MVC 控制器的名稱和叫用來處理要求的動作，更新所有遙測項目 `RequestTelemetry` 之 `Name` 屬性和 `Operation` 內容的 `Name` 屬性。
-* `OperationIdTelemetryInitializer` 在處理具有自動產生的 `RequestTelemetry.Id` 的要求時，會更新追蹤的所有遙測項目的 `Operation.Id` 內容屬性。
+* `OperationIdTelemetryInitializer` 或 `OperationCorrelationTelemetryInitializer` 在處理具有自動產生的 `RequestTelemetry.Id` 的要求時，會更新追蹤的所有遙測項目的 `Operation.Id` 內容屬性。
 * 針對具有從使用者瀏覽器中執行的 Application Insights JavaScript 檢測程式碼所產生之 `ai_session` Cookie 擷取值的所有遙測項目，`SessionTelemetryInitializer` 會更新 `Session` 內容的 `Id` 屬性。 
-* `SyntheticTelemetryInitializer` 在處理來自綜合來源 (例如可用性測試或搜尋引擎 Bot) 要求時，會更新追蹤之所有遙測項目的 `User`、`Session` 和 `Operation` 內容屬性。根據預設，[計量瀏覽器](app-insights-metrics-explorer.md)不會顯示綜合的遙測。
+* `SyntheticTelemetryInitializer` 或 `SyntheticUserAgentTelemetryInitializer` 在處理來自綜合來源 (例如可用性測試或搜尋引擎 Bot) 的要求時，會更新追蹤的所有遙測項目的 `User`、`Session` 和 `Operation` 內容屬性。根據預設，[計量瀏覽器](app-insights-metrics-explorer.md)不會顯示綜合的遙測。 
+
+    `<Filters>` 會設定要求的識別屬性。
 * `UserAgentTelemetryInitializer` 會根據要求的 `User-Agent` HTTP 標頭來更新所有遙測項目之 `User` 內容的 `UserAgent` 屬性。
 * 針對具有從使用者瀏覽器中執行之 Application Insights JavaScript 檢測程式碼所產生的 `ai_user` Cookie 擷取值的所有遙測項目，`UserTelemetryInitializer` 會更新 `User` 內容的 `Id` 和 `AcquisitionDate` 屬性。
-
+* `WebTestTelemetryInitializer` 會設定使用者識別碼、工作階段識別碼，以及來自[可用性測試](app-insights-monitor-web-app-availability.md)的 HTTP 要求的綜合來源屬性。`<Filters>` 會設定要求的識別屬性。
 
 ## 遙測處理器 (ASP.NET)
 
@@ -285,4 +287,4 @@ Application Insights .NET SDK 是由數個 NuGet 封裝所組成。[核心封裝
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0316_2016-->

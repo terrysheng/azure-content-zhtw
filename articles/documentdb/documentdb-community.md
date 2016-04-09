@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="02/24/2016"
+  ms.date="03/18/2016"
   ms.author="andrl"/>
 
 # 社群入口網站
@@ -89,13 +89,19 @@ fluent-plugin-documentdb 是用於輸出到 Azure DocumentDB 的 Fluentd 外掛�
 
 **社群貼文：**
 
-* [**使用 fluent-plugin-documentdb 將記錄檔收集到 Azure DocumentDB**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *作者 Yoichi Kawasaki*
+* [**Going Social with DocumentDB (使用 DocumentDB 進行社交活動)**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) - 作者：Matias Quarantaas
 
-* [**DocumentDB 回顧 1/2 – 理論**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *作者 Peter Mannerhult*
+* [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app (UWP、Azure App Service 和 DocumentDB Soup：分享照片的應用程式)**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) - 作者：Eric Langland
 
-* [**Azure DocumentDB 的愛與恨**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - *作者 George Saadeh*
+* [**Notifications for new or changed DocumentDB resources using Logic Apps**](documentdb-change-notification.md) - 作者：Howard Edidin
 
-* [**Azure DocumentDB 伺服器端指令碼**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - *作者 Robert Sheldon*
+* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - 作者：Yoichi Kawasaki
+
+* [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - 作者：Peter Mannerhult
+
+* [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) - 作者：George Saadeh
+
+* [**Azure DocumentDB Server-Side Scripting (Azure DocumentDB 伺服器端指令碼)**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) - 作者：Robert Sheldon
 
 * [**把 DocumentDB 當做 Azure 串流分析的資料接收器**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) - 由 Jan Hentschel 撰寫
 
@@ -140,9 +146,10 @@ fluent-plugin-documentdb 是用於輸出到 Azure DocumentDB 的 Fluentd 外掛�
 ### 最新和近期活動
 
 | 活動名稱 | 主講人 | 位置 | 日期 | Hashtag |
-| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | ------- |
-| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Andrew Liu | Bellevue, WA | 2016 年 3 月 3 日 | n/a
-| SQLBits XV | TBD | 英國利物浦 | 2016 年 5 月 4-7 日 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
+| [組建 2016](https://build.microsoft.com/) | John Macintyre、Dharma Shukla | 美國加州舊金山 | 2016 年 3 月 30 日至 4 月 1 日 | [#MicrosoftBuild](https://twitter.com/hashtag/MicrosoftBuild)
+| [SQLBits XV](https://sqlbits.com/) | Andrew Liu、Aravind Ramachandran | 英國利物浦 | 2016 年 5 月 4-7 日 | [#SQLBits](https://twitter.com/hashtag/SQLBits)
+| [Meetup: UK Azure User Group](http://www.meetup.com/UKAzureUserGroup/events/229673468/) | Andrew Liu | 倫敦英國 | 2016 年 5 月 12 日 | n/a |
 
 您在演講或舉辦活動嗎？ [請告訴我們](mailto:askdocdb@microsoft.com)該如何協助您！
 
@@ -150,6 +157,7 @@ fluent-plugin-documentdb 是用於輸出到 Azure DocumentDB 的 Fluentd 外掛�
 
 | 活動名稱 | 主講人 | 位置 | 日期 | 記錄 |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: CloudTalk](http://www.meetup.com/CloudTalk/events/227963695/) | Kirat Pandya | Bellevue, WA | 2016 年 3 月 3 日 | n/a |
 | [Meetup: Azure Austin](http://www.meetup.com/azureaustin/events/228209275/) | Merwan Chinta | Austin, TX | 2016 年 1 月 28 日 | n/a |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Vincent-Philippe Lauzon | 加拿大魁北克省蒙特婁 | 2015 年 12 月 1 日 | n/a |
 | [聚會：SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | David Makogon | 美國華盛頓州西雅圖 | 2015 年 11 月 12 日 | n/a |
@@ -181,8 +189,10 @@ fluent-plugin-documentdb 是用於輸出到 Azure DocumentDB 的 Fluentd 外掛�
 ### 影片和播客
 
 | 顯示 | 主講人 | 日期 | 劇集 |
-| ------------------------------------------- | ----------------------- | ------------------ | ------- |
+| ------------------------------------------- | --------------------------- | ------------------ | ------- |
+| Wired2WinWebinar | Sai Sankar Kunnathukuzhiyil | 2016 年 3 月 9 日 | [Developing Solutions with Azure DocumentDB](https://www.youtube.com/watch?v=xKttEwXv_bs)
 | Integration User Group | Han Wong | 2016 年 2 月 17 日 | [使用 DocumentDB + Power BI 分析和視覺化非關聯式資料](http://www.integrationusergroup.com/analyze-visualize-non-relational-data-documentdb-power-bi/) |
+| Azure 播客 | Cale Teeter | 2016 年 1 月 14 日 | [Episode 110: Using DocumentDB & Search](http://azpodcast.azurewebsites.net/post/Episode-110-Using-DocumentDB-Search) |
 | 第 9 頻道：現代化應用程式 | Tara Shankar Jana | 2016 年 12 月 13 日 | [在應用程式中運用現代化方法處理資料](https://channel9.msdn.com/Series/Modern-Applications/Take-a-modern-approach-to-data-in-your-apps) |
 | NinjaTips | Miguel Quintero | 2015 年 12 月 10 日 | [DocumentDB - Un vistazo general](https://channel9.msdn.com/Series/Ninja-Tips/31-NinjaTips-Desarrollo-DocumentDB-1-Vistazo-general) |
 | Integration User Group | Howard Edidin | 2015 年 11 月 9 日 | [適用於醫療保健整合的 Azure DocumentDB – 第 2 部分](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
@@ -284,4 +294,4 @@ DocumentDB 精靈是社群領導者，他們是在協助其他人充分利用他
 
 想要成為 DocumentDB 精靈？ 由於是否能成為 DocumentDB 精靈並沒有任何評斷基準，因此我們會針對部分條件來評估，包括被提名人在線上論壇 (例如 StackOverflow 和 MSDN；Wiki 和線上內容；會議和使用者群組；播客；網站；部落格和社群媒體；以及文章與書籍) 中提供之貢獻所產生的影響。如果您想提名自己或其他人，請[傳送電子郵件給我們](mailto:askdocdb@microsoft.com)。
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

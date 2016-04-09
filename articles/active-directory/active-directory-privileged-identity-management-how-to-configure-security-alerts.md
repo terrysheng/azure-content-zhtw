@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 特殊權限身分識別管理：如何設定安全性警示"
+   pageTitle="如何設定安全性警示 | Microsoft Azure"
    description="了解如何為 Azure Privileged Identity Management 擴充功能設定安全性警示。"
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management：如何設定安全性警示
+# Azure AD Privileged Identity Management：如何設定安全性警示
 
 ## 安全性警示概觀
 Azure Privileged Identity Management (PIM) 提供下列可設定的警示。您可以在 PIM 儀表板的 [警示] 區段中檢視安全性警示。
@@ -59,4 +59,4 @@ Azure Privileged Identity Management (PIM) 提供下列可設定的警示。您�
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/02/2016"
    ms.author="litran"/>
 
 
@@ -51,7 +51,7 @@ PowerApps Enterprise 已啟用且可供使用，您可以新增系統管理員�
 - 管理所有 app 及其使用者存取權。
 - 無法變更計費。
 
-> [AZURE.IMPORTANT]「PowerApps 系統管理員」必須在獲得 app 服務環境之資源群組上的「擁有者」角色之後，才能對「App Service 環境」進行變更。若要這樣做，請參閱[這篇文章](powerapps-get-started-azure-portal.md)。
+> [AZURE.IMPORTANT] 「PowerApps 系統管理員」必須在獲得 app 服務環境之資源群組上的「擁有者」角色之後，才能對「App Service 環境」進行變更。若要這樣做，請參閱[開始使用 PowerApps Enterprise](powerapps-get-started-azure-portal.md)。
 
 獲得 app 服務環境之資源群組上的「擁有者」角色之後，PowerApps 系統管理員也可以：
 
@@ -106,7 +106,7 @@ PowerApps Enterprise 已啟用且可供使用，您可以新增系統管理員�
 3. 選取一個邏輯 app 來檢視該 app 的詳細資料。請確定您選取的是正確的 PowerApps 訂閱帳戶，如此才能列出正確的邏輯 app：  
 ![][7]  
 
-	> [AZURE.IMPORTANT]在公用預覽中，您可能會看到瀏覽刀鋒視窗中的邏輯 app 計數與主要 PowerApps 刀鋒視窗上顯示的計數不一致。這是預期行為。入口網站顯示的是所有虛擬主機方案的所有邏輯 app，並未篩選針對 PowerApps 部署的 app 服務環境下的邏輯 app。在未來的更新中將會修正這個行為。
+	> [AZURE.IMPORTANT] 在公用預覽中，您可能會看到瀏覽刀鋒視窗中的邏輯 app 計數與主要 PowerApps 刀鋒視窗上顯示的計數不一致。這是預期行為。入口網站顯示的是所有虛擬主機方案的所有邏輯 app，並未篩選針對 PowerApps 部署的 app 服務環境下的邏輯 app。在未來的更新中將會修正這個行為。
 
 	**若要深入了解邏輯 app 及如何管理它們，請參閱[這些指示](https://azure.microsoft.com/documentation/services/app-service/logic/)。**
 
@@ -177,4 +177,4 @@ PowerApps Enterprise 已啟用且可供使用，您可以新增系統管理員�
 [9]: ./media/powerapps-manage-monitor-usage/webapps.png
 [10]: ./media/powerapps-manage-monitor-usage/mobileapps.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

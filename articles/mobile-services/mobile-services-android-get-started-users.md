@@ -18,11 +18,12 @@
 
 # 將驗證加入至行動服務 Android 應用程式 (JavaScript 後端)
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[將驗證加入 Android 應用程式中](../app-service-mobile/app-service-mobile-android-get-started-users.md)。
 
 ## 摘要
 
@@ -49,7 +50,7 @@
 
 2. 在 [執行] 功能表中，按一下 [執行應用程式]。確認應用程式啟動之後會引發無法處理的例外狀況，狀態碼為 401 (未授權)。
 
-	 這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 TodoItem 資料表現在需要驗證。
+	 這是因為應用程式嘗試以未驗證的使用者身分來存取行動服務，但 _TodoItem_ 資料表現在需要驗證。
 
 接下來，您要將應用程式更新為在要求行動服務的資源之前必須驗證使用者。
 
@@ -106,4 +107,4 @@
 [開始使用行動服務]: mobile-services-android-get-started.md
 [使用指令碼授權使用者]: mobile-services-javascript-backend-service-side-authorization.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

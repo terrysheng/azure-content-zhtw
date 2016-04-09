@@ -27,13 +27,15 @@ Azure 資料湖存放區是 HDFS 相容的雲端儲存體服務，可為資料�
 * [Java JDK 1.7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 或更新版本
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 * Azure 訂用帳戶
-* Storm on HDInsight 叢集。本文件中包含可使用 Azure 資料湖存放區之叢集的建立資訊。
+* Storm on HDInsight 叢集。若要建立新的 Storm on HDInsight 叢集，請使用[使用 Azure 來搭配使用 HDInsight 與 Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 文件中的步驟。本文件中的步驟將逐步引導您建立新的 HDInsight 叢集和 Azure 資料湖存放區。  
+
+    > [AZURE.IMPORTANT] 當您建立 HDInsight 叢集時，必須選取 __Storm__ 做為叢集類型。作業系統可以是 Windows 或 Linux。
 
 ###設定環境變數
 
 當您在開發工作站上安裝 Java 和 JDK 時可能會設定下列環境變數。不過，您應該檢查它們是否存在，以及它們是否包含您系統的正確值。
 
-* __JAVA\_HOME__ - 應該指向已安裝 Java 執行階段環境 (JRE) 的目錄。例如，在 Unix 或 Linux 散發套件上，它的值應該類似 `/usr/lib/jvm/java-7-oracle`在 Windows 中，它的值會類似 `c:\Program Files (x86)\Java\jre1.7`。
+* __JAVA\_HOME__ - 應該指向已安裝 Java 執行階段環境 (JRE) 的目錄。例如，在 Unix 或 Linux 散發套件上，它的值應該類似 `/usr/lib/jvm/java-7-oracle`在 Windows 中，它的值應該類似 `c:\Program Files (x86)\Java\jre1.7`
 
 * __PATH__ - 應該包含下列路徑：
 
@@ -53,7 +55,7 @@ Azure 資料湖存放區是 HDFS 相容的雲端儲存體服務，可為資料�
 
 * __FinalCount__：彙總來自 PartialCount 的計數資料。
 
-* __ADLStoreBolt__：使用 [HdfsBolt](http://storm.apache.org/javadoc/apidocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 元件將資料寫入至 Azure 資料湖存放區。
+* __ADLStoreBolt__：使用 [HdfsBolt](http://storm.apache.org/javadoc/apidocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 元件，將資料寫入至 Azure Data Lake Store。
 
 包含此拓撲的專案可從 [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) 下載。
 
@@ -94,17 +96,11 @@ ADLStoreBolt 是用於拓撲中寫入至 Azure 資料湖之 HdfsBolt 執行個�
 
 因為寫入資料湖存放區時是使用 HdfsBolt，並且只需變更 URL，您應該能夠取得使用 HdfsBolt 寫入到 HDFS 或 WASB 的現有拓撲，並輕鬆地將它變更為使用 Azure 資料湖存放區。
 
-##建立 HDInsight 叢集和資料湖存放區
-
-使用[使用 Azure 來搭配使用 HDInsight 與資料湖存放區](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)文件中的步驟建立新的 Storm on HDInsight 叢集。本文件中的步驟將逐步引導您建立新的 HDInsight 叢集和 Azure 資料湖存放區。
-
-> [AZURE.IMPORTANT] 當您建立 HDInsight 叢集時，您必須選取 __Storm__ 做為叢集類型。作業系統可以是 Windows 或 Linux。
-
 ##建置和封裝拓撲
 
 1. 從 [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) 下載範例專案到開發環境。
 
-2. 在編輯器中開啟 `StormToDataLake\src\main\java\com\microsoft\example\StormToDataLakeStore.java` 檔案，然後尋找包含 `.withFsUrl("adl://MYDATALAKE.azuredatalakestore.net/")` 的程式碼行。將 __MYDATALAKE__ 變更為建立 HDInsight 伺服器時所使用的 Azure 資料湖存放區名稱。
+2. 在編輯器中開啟 `StormToDataLake\src\main\java\com\microsoft\example\StormToDataLakeStore.java` 檔案，然後尋找包含 `.withFsUrl("adl://MYDATALAKE.azuredatalakestore.net/")` 的程式碼行。將 __MYDATALAKE__ 變更為建立 HDInsight 伺服器時所使用的 Azure Data Lake Store 名稱。
 
 3. 從命令提示字元、終端機或 Shell 工作階段，將目錄變更為所下載專案的根目錄，然後執行下列命令來建置和封裝拓撲。
 
@@ -164,21 +160,21 @@ ADLStoreBolt 是用於拓撲中寫入至 Azure 資料湖之 HdfsBolt 執行個�
 
 > [AZURE.NOTE] 您應該讓拓撲先執行幾分鐘後再檢查輸出資料，這樣才能讓資料同步至 Azure 資料湖存放區上的數個檔案。
 
-* __從 [Azure 入口網站](https://portal.azure.com)__：在入口網站中，選取搭配 HDInsight 使用的 Azure 資料湖存放區。
+* __從 [Azure 入口網站](https://portal.azure.com)__：在入口網站中，選取搭配 HDInsight 使用的 Azure Data Lake Store。
 
-    > [AZURE.NOTE] 如果未將資料湖存放區固定至 Azure 入口網站的儀表板，其尋找方式是選取左側清單底部的 [瀏覽]，然後是 [資料湖存放區]，最後再選取該存放區。
+    > [AZURE.NOTE] 如果未將 Data Lake Store 固定至 Azure 入口網站的儀表板，其尋找方式是依序選取左側清單底部的 [瀏覽] 和 [Data Lake Store]，最後選取該存放區。
     
-    從資料湖存放區頂端的圖示，選取 [資料總管]。
+    從 Data Lake Store 頂端的圖示，選取 [資料總管]。
     
     ![資料瀏覽圖示](./media/hdinsight-storm-write-data-lake-store/dataexplorer.png)
     
-    接下來，選取 __stormdata__ 資料夾。此時應該會顯示文字檔案清單。
+    接下來，選取 [stormdata] 資料夾。此時應該會顯示文字檔案清單。
     
     ![文字檔](./media/hdinsight-storm-write-data-lake-store/stormoutput.png)
     
     選取其中一個檔案以檢視其內容。
 
-* __從叢集__：如果您已使用 SSH 連接到 HDInsight 叢集 (Linux 叢集) 或連接到遠端桌面 (Windows 叢集)，您可以使用下列命令來檢視資料。將 __DATALAKE__ 取代為資料湖存放區的名稱
+* __從叢集__：如果您已使用 SSH 連接到 HDInsight 叢集 (Linux 叢集) 或連接到遠端桌面 (Windows 叢集)，您可以使用下列命令來檢視資料。將 __DATALAKE__ 取代為 Data Lake Store 的名稱
 
         hdfs dfs -cat adl://DATALAKE.azuredatalakestore.net/stormdata/*.txt
 
@@ -199,26 +195,30 @@ ADLStoreBolt 是用於拓撲中寫入至 Azure 資料湖之 HdfsBolt 執行個�
 
 Storm 拓撲會一直執行，直到其停止或叢集遭到刪除。若要停止拓撲，請使用下列資訊。
 
-__若為 Linux 型 HDInsight__：
+__如果是以 Linux 為基礎的 HDInsight__：
 
 在連往叢集的 SSH 工作階段中，使用下列命令：
 
     storm kill datalakewriter
 
-__若為 Windows 型 HDInsight__：
+__如果是以 Windows 為基礎的 HDInsight__：
 
-1. 在 [Storm 儀表板] \(https://CLUSTERNAME.azurehdinsight.net,) 中，選取頁面頂端的 [Storm UI] 連結。
+1. 在 Storm 儀表板 (https://CLUSTERNAME.azurehdinsight.net,) 中，選取頁面頂端的 [Storm UI] 連結。
 
 2. Storm UI 載入後，選取 [datalakewriter] 連結。
 
     ![datalakewriter 的連結](./media/hdinsight-storm-write-data-lake-store/selecttopology.png)
 
-3. 在 [拓撲動作] 區段中，選取 [刪除]，然後選取所出現對話方塊上的 [確定]。
+3. 在 [拓撲動作] 區段中，選取 [刪除]，然後在出現的對話方塊上選取 [確定]。
 
     ![拓撲動作](./media/hdinsight-storm-write-data-lake-store/topologyactions.png)
 
+## 刪除叢集
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##後續步驟
 
-現在，您已學到如何使用 Storm 來寫入至 Azure 資料湖存放區，接下來請探索其他 [HDInsight 的 Storm 範例](hdinsight-storm-example-topology.md)。
+現在，您已了解如何使用 Storm 來寫入至 Azure Data Lake Store，接下來請探索其他 [HDInsight 的 Storm 範例](hdinsight-storm-example-topology.md)。
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -37,7 +37,7 @@ Mesos 提供環境來部署及調整叢集工作負載，同時將基礎硬體�
 
 ![建立部署](media/ui2.png)
 
-## 部署 Docker 容器
+## 部署 Docker 格式化容器
 
 若要使用 Marathon 在 Mesos 叢集上啟動新的容器，請按一下 [`Create Application`] 按鈕。[新增應用程式] 表單用來定義應用程式或容器參數。此範例中將會部署一個簡單的 Nginx 容器。輸入以下資訊：完成時按一下 [建立]。
  
@@ -56,11 +56,11 @@ ID | nginx
 
 ![建立部署](media/ui4.png)
 
-如果您切換回 Mesos 應用程式 (http://localhost/Mesos))，您將會看到 Mesos 叢集上正在執行一項工作，在此例子中是 Docker 容器。您也可以看到正在執行工作的叢集節點。
+如果您切換回 Mesos 應用程式 (http://localhost/Mesos))，您將會看到 Mesos 叢集上正在執行一項工作，在此例子中是 Docker 格式化容器。您也可以看到正在執行工作的叢集節點。
 
 ![建立部署](media/ui5.png)
 
-## 調整 Docker 容器
+## 調整容器的大小
 
 Marathon Web UI 也可用來調整容器的執行個體計數。若要這樣做，請瀏覽至 Marathon 頁面，選取您想要調整的容器，然後按一下 [`scale`] 按鈕。在 [調整應用程式] 視窗中，輸入您想要的容器執行個體數目，然後選取 [`Scale Application`]。
 
@@ -70,4 +70,4 @@ Marathon Web UI 也可用來調整容器的執行個體計數。若要這樣做�
 
 ![建立部署](media/ui8.png)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

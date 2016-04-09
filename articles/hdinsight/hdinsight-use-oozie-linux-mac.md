@@ -695,7 +695,6 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
 
-[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [sqldatabase-create-configue]: sql-database-create-configure.md
@@ -721,4 +720,4 @@ Oozie UI 對於疑難排解 Oozie 工作的問題很有幫助，因為它可讓�
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="11/12/2015" 
-	ms.author="nadavhelfman; ronitr"/>
+	ms.author="nadavh;ronitr"/>
  
 # SQL Database - 下層用戶端對稽核的支援
 
@@ -38,4 +38,4 @@
 
 **備註：**上述伺服器 FDQN 修改可能會對於套用 SQL Server 層級稽核原則有所助益，不需要每個資料庫中的組態步驟 (暫存緩和)。
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0316_2016-->

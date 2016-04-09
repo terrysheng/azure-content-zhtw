@@ -3,7 +3,7 @@
    description="包含所有 Azure Active Directory 報告文章的指南"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
+   authors="dhanyahk"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 
 # Azure Active Directory 報告指南
@@ -30,4 +30,4 @@
  - [Azure Active Directory 所有使用者登入活動報告](active-directory-reporting-all-user-sign-in-activity-report.md)
  - [檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

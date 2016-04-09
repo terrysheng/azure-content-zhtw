@@ -1,6 +1,6 @@
 已註冊新的插入指令檔，該指令檔會在插入新 Todo 項目時產生 SAS。
 
-0. 如果您尚未建立儲存體帳戶，請參閱[如何建立儲存體帳戶](../storage/storage-create-storage-account.md)。
+0. 如果您尚未建立儲存體帳戶，請參閱[如何建立儲存體帳戶](../articles/storage/storage-create-storage-account.md)。
 
 1. 在[ Azure 傳統入口網站](https://manage.windowsazure.com/)中，按一下 [儲存體]、[儲存體帳戶]和 [管理金鑰]。
 
@@ -78,7 +78,7 @@
 
    	這會以新指令碼取代 TodoItem 資料表發生插入時所叫用的函數。這個新指令碼會對插入產生新的 SAS (有效期間為 5 分鐘)，以及將產生的 SAS 值指派給所傳回項目的 `sasQueryString` 屬性。`imageUri` 屬性也會設定為新 BLOB 的資源路徑，以便於繫結期間在用戶端 UI 中顯示映像。
 
-	>[AZURE.NOTE]此程式碼會為個別 BLOB 建立 SAS。如果您需要使用相同的 SAS 將多個 Blob 上傳至容器，您可以改用空白的 Blob 資源名稱呼叫 [generateSharedAccessSignature method](http://go.microsoft.com/fwlink/?LinkId=390455)</a> 方法，如下所示：
+	>[AZURE.NOTE] 此程式碼會為個別 BLOB 建立 SAS。如果您需要使用相同的 SAS 將多個 Blob 上傳至容器，您可以改用空白的 Blob 資源名稱呼叫 [generateSharedAccessSignature method](http://go.microsoft.com/fwlink/?LinkId=390455)</a> 方法，如下所示：
 	>                 
 	>     blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);
 
@@ -91,4 +91,4 @@
 <!-- URLs. -->
 [應用程式設定]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!----HONumber=AcomDC_1203_2015-->
+<!-----HONumber=AcomDC_0309_2016-->

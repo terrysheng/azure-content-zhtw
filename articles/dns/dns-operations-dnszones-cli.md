@@ -22,7 +22,7 @@
 - [Azure CLI](dns-operations-dnszones-cli.md)
 - [PowerShell](dns-operations-dnszones.md)
 
-本指南說明如何管理 DNS 區域。有助於了解管理 DNS 區域所需執行的作業序列。
+本指南將示範如何使用跨平台 Azure CLI 管理 DNS 區域資源。
 
 >[AZURE.NOTE] Azure DNS 是僅能以 Azure 資源管理員運作的服務。它沒有 ASM API。因此您必須確認設定 Azure CLI 以使用資源管理員模式，並使用 azure config mode arm 命令。
 
@@ -78,4 +78,4 @@
 
 了解[如何管理 DNS 記錄](dns-operations-recordsets-cli.md)，以及[使用 .NET SDK 來自動化作業](dns-sdk.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

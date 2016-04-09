@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure AD Connect 同步處理：實作密碼同步處理 | Microsoft Azure"
-	description="提供您所需的資訊，以了解密碼同步處理的運作方式，及如何在您的環境中啟用此功能。"
+	pageTitle="使用 Azure AD Connect 同步處理實作密碼同步處理 | Microsoft Azure"
+	description="提供有關密碼同步處理如何運作以及如何加以啟用的資訊。"
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -12,15 +12,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/07/2016"
+	ms.date="03/22/2016"
 	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD Connect 同步處理：實作密碼同步處理
+# 使用 Azure AD Connect 同步處理實作密碼同步處理
 
 藉由密碼同步處理，您可讓使用者使用與登入您的內部部署 Active Directory 時使用的相同密碼登入 Azure Active Directory。
 
-本主題的目標是提供您所需的資訊，以了解密碼同步處理的運作方式，及如何在您的環境中啟用此功能。
+本主題的目標是提供您所需的資訊，以了解密碼同步處理的運作方式、如何加以啟用，以及如何在您的環境中對其進行疑難排解。
 
 ## 什麼是密碼同步處理
 
@@ -32,7 +32,7 @@
 
 任何 Azure Active Directory 的客戶都有權執行密碼同步處理。請參閱以下有關密碼同步處理相容性，及同盟驗證等其他功能的資訊。
 
-### 密碼同步處理如何運作
+## 密碼同步處理如何運作
 
 密碼同步處理是 Azure AD Connect 同步處理實作的目錄同步作業功能的延伸。因此，這項功能需要設定您的內部部署與 Azure Active Directory 之間的目錄同步作業。
 
@@ -83,14 +83,16 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 如果使用者再次變更內部部署密碼，則新的密碼會同步到雲端，並且會覆寫手動更新的密碼。
 
-## 準備密碼同步處理
 
+## 啟用密碼同步處理
 
-### 啟用密碼同步處理
+若要啟用密碼同步處理，您有兩個選項︰
 
-如果您在安裝 Azure AD Connect 時使用快速設定，則會依預設啟用密碼同步處理。
+- 如果您在安裝 Azure AD Connect 時使用快速設定，則會依預設啟用密碼同步處理。
 
-如果您在安裝 Azure AD Connect 時使用自訂設定，則必須在使用者登入頁面上啟用密碼同步處理。![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
+- 如果您在安裝 Azure AD Connect 時使用自訂設定，則必須在使用者登入頁面上啟用密碼同步處理。
+
+<br> ![啟用密碼同步處理](./media/active-directory-aadconnectsync-implement-password-synchronization/usersignin.png) <br>
 
 如果您選擇使用 [與 AD FS 同盟]，則可以選擇性地啟用密碼同步，做為 AD FS 基礎結構失敗時的備用方式。如果您打算使用 Azure AD 網域服務，您也可以啟用它。
 
@@ -110,19 +112,32 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 如需安全性和 FIPS 的詳細資訊，請參閱 [AAD 密碼同步、加密和 FIPS 法規遵循](http://blogs.technet.com/b/ad/archive/2014/06/28/aad-password-sync-encryption-and-and-fips-compliance.aspx)
 
-## 管理密碼同步處理
 
-### 疑難排解密碼同步處理
+## 針對密碼同步處理進行疑難排解
 
-啟動**同步處理服務管理器**，開啟 [連接器]，選取使用者所在的 Active Directory 連接器，選取 [搜尋連接器空間]，並找到您要尋找的使用者。
+**若要針對密碼同步處理進行疑難排解，請執行下列步驟︰**
 
-![csuser](./media/active-directory-aadsync-implement-password-synchronization/cspasswordsync.png)
+1. 開啟 [同步處理服務管理員]。
 
-在使用者上，選取 [歷程] 索引標籤，並確認至少有一個同步規則的 [密碼同步] 顯示為 **True**。對於預設組態，這會是名為 **In from AD - User AccountEnabled** 的同步規則。
+2. 按一下 [連接器]。
 
-若要查看物件的密碼同步詳細資料，請按一下這個頁面底部的 [記錄...] 按鈕。這將會產生此頁面在過去一週使用者的密碼同步狀態的歷程記錄檢視。
+3. 選取使用者所位於的 Active Directory 連接器。
 
-![物件記錄檔](./media/active-directory-aadsync-implement-password-synchronization/csobjectlog.png)
+4. 選取 [搜尋連接器空間]。
+
+5. 找出您要尋找的使用者。
+
+6. 選取 [歷程] 索引標籤，並確認至少有一個同步規則的 [密碼同步] 顯示為 [True]。在預設組態中，同步規則的名稱是 **In from AD - User AccountEnabled**。
+
+    ![使用者的相關歷程資訊](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)
+
+7. 您也應該透過 Metaverse [追蹤使用者](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system)以至 Azure AD 連接器空間，並確定還有 [密碼同步處理] 設定為 [True] 的輸出規則。在預設組態中，同步規則的名稱是 **Out to AAD - User Join**。
+
+    ![使用者的連接器空間屬性](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)
+
+8. 若要查看物件的密碼同步詳細資料，請按一下 [記錄...] 按鈕。<br> 這將會建立具有過去一週的使用者密碼同步狀態歷程記錄檢視的頁面。
+
+    ![取得記錄檔詳細資料](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)
 
 狀態欄可能有下列值，其指出問題以及為何未同步處理密碼。
 
@@ -136,8 +151,9 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 | MigratedCheckDetailsForMoreInfo | 記錄項目建立於組建 1.0.9125.0 之前，並且以其舊版的狀態顯示。 |
 
 
-### 觸發所有密碼的完整同步處理
-強制執行所有密碼的完整同步應該不是必要，但如果基於某些原因您需要，以下就是此動作的 PowerShell。
+## 觸發所有密碼的完整同步處理
+
+在許多情況下，您並不需要強制所有密碼進行完整同步處理。<br> 不過，如果您需要這麼做，則可以使用下列指令碼來達成︰
 
     $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
     $aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
@@ -154,9 +170,9 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 
 
-## 其他資源
+## 後續步驟
 
 * [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

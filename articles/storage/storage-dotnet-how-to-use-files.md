@@ -210,8 +210,9 @@ Azure 檔案儲存體是使用標準[伺服器訊息區塊 (SMB) 通訊協定](h
 
 為說明如何掛接 Azure 檔案共用，我們現在將建立執行 Windows 的 Azure 虛擬機器，並遠端進入該虛擬機器以掛接共用。
 
-1. 首先，依照[在 Azure 入口網站中建立 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)中的指示建立新的 Azure 虛擬機器。
-2. 接著依照[使用 Azure 入口網站登入 Windows 虛擬機器](../virtual-machines/virtual-machines-arm-log-on-windows-vm.md)中的指示遠端登入虛擬機器。
+
+1. 首先，依照[在 Azure 入口網站中建立 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md)中的指示建立新的 Azure 虛擬機器。
+2. 接著依照[使用 Azure 入口網站登入 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-log-on.md)中的指示遠端登入虛擬機器。
 3. 在虛擬機器上開啟 PowerShell 視窗。
 
 ### 在虛擬機器中保留您的儲存體帳戶認證
@@ -607,7 +608,7 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 
 	如果是透過 SMB 掛接檔案共用，則您對權限沒有此層級的控制。不過，您可以透過 REST API 或用戶端程式庫來建立共用存取簽章 (SAS)，以達到此目的。
 
-12. 嘗試將檔案解壓縮到檔案儲存體時，執行速度很緩慢。**我該怎麼辦？**
+12. **嘗試將檔案解壓縮到檔案儲存體時，執行速度很緩慢。我該怎麼辦？**
 
 	若要將大量檔案傳輸到檔案儲存體，我們建議您使用 AzCopy、Azure Powershell (Windows) 或 Azure CLI (Linux/Unix)，因為這些工具已針對網路傳輸最佳化。
 
@@ -646,4 +647,4 @@ Azure 儲存體分析現在支援檔案儲存體的度量。利用度量資料�
 - [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!----HONumber=AcomDC_0323_2016-->

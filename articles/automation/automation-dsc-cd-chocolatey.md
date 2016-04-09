@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="03/04/2016"
    ms.author="golive"/>
 
 # 使用範例：使用 Automation DSC 和 Chocolatey 持續部署至虛擬機器
@@ -41,7 +41,7 @@ Azure 自動化是 Microsoft Azure 中的受管理服務，可讓您使用 Runbo
 
 DSC 資源是具有特定功能的程式碼模組，例如管理網路、Active Directory 或 SQL Server。Chocolatey DSC 資源知道如何存取 NuGet 伺服器 (還有其他)、下載封裝、安裝封裝...等等。[PowerShell 資源庫](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)中有許多其他 DSC 資源。這些模組安裝到您的 Azure 自動化 DSC 提取伺服器 (由您安裝)，供您的組態使用。
 
-ARM 範本以宣告方式產生基礎結構，例如網路、子網路、網路安全性和路由、負載平衡器、NIC、VM...等等。這篇[文章](../resource-manager-deployment-model.md)比較 ARM 部署模型 (宣告) 與 Azure 服務管理 (ASM 或傳統) 部署模型 (必要)。另一篇[文章](../virtual-machines\virtual-machines-azurerm-versus-azuresm.md)是關於核心資源提供者、計算、儲存體和網路。
+ARM 範本以宣告方式產生基礎結構，例如網路、子網路、網路安全性和路由、負載平衡器、NIC、VM...等等。這篇[文章](../resource-manager-deployment-model.md)比較 ARM 部署模型 (宣告) 與 Azure 服務管理 (ASM 或傳統) 部署模型 (必要)。另一篇[文章](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)是關於核心資源提供者、計算、儲存體和網路。
 
 ARM 範本的一項主要功能是能夠在佈建時將 VM 延伸模組安裝至 VM 中。VM 延伸模組具有特定功能，例如執行自訂指令碼、安裝防毒軟體或執行 DSC 組態指令碼。有許多其他類型的 VM 延伸模組。
 
@@ -78,7 +78,7 @@ PowerShell 資源庫會自動將 DSC 資源安裝到您的 Azure 自動化帳戶
 還有手動方法。適用於 Windows 電腦的 PowerShell 整合模組的資料夾結構，與 Azure 自動化所需的資料夾結構稍有不同。您需要稍微調整一下。但並不難，每個資源只需要進行一次 (除非您將來想要升級。) 如需關於撰寫 PowerShell 整合模組的詳細資訊，請參閱下列文章：[撰寫 Azure 自動化的整合模組](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   將您需要的模組安裝在工作站，如下所示：
-    -   安裝 [Windows Management Framework v5](http://www.microsoft.com/download/details.aspx?id=48729) (Win10 不須安裝)
+    -   安裝 [Windows Management Framework v5](http://aka.ms/wmf5latest) (Win10 不須安裝)
     -   `Install-Module  –ModuleName MODULENAME` <—從 PowerShell 資源庫抓取模組 
 -   從 `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` 模組資料夾複製到暫存資料夾 
 -   刪除主要資料夾中的範例和文件 
@@ -185,4 +185,4 @@ New-ConfigurationScript.ps1：
 - [Azure 自動化 DSC Cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)
 - [上架由 Azure 自動化 DSC 管理的機器](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

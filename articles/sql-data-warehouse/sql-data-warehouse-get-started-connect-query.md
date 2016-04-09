@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # 使用 Visual Studio 連接及查詢
@@ -69,7 +69,7 @@
 
 3. 將下列內程式碼輸入查詢視窗中：
 
-	```
+	```sql
 	SELECT COUNT(*) FROM dbo.FactInternetSales;
 	```
 
@@ -91,4 +91,4 @@
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

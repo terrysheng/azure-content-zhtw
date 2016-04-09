@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="12/04/2015"
+ ms.date="03/09/2016"
  ms.author="krisragh"/>
 
 # 排程器限制、預設值和錯誤碼
@@ -25,7 +25,7 @@
 
 每一個對排程器服務提出的要求都會傳回名為 **x-ms-request-id** 的回應標頭。此標頭包含專門識別要求的不透明值。
 
-如果要求一直失敗，而且您已確認要求表達正確，則可以使用此值將錯誤回報給 Microsoft。在您的報告中，包括值 ofx-ms-request-id、提出要求的大約時間、訂用帳戶的識別碼、雲端服務、工作集合及/或工作，以及要求所嘗試的作業類型。
+如果要求一直失敗，而且您已確認要求表達正確，則可以使用此值將錯誤回報給 Microsoft。在您的報告中，包括值 ofx-ms-request-id、提出要求的大約時間、訂用帳戶的識別碼、工作集合及/或工作，以及要求所嘗試的作業類型。
 
 ## 排程器狀態和錯誤碼
 
@@ -55,7 +55,7 @@ API 作業也可能傳回管理服務所定義的其他錯誤資訊。此其他�
 
 
  [排程器是什麼？](scheduler-intro.md)
- 
+
  [Azure 排程器概念、術語及實體階層](scheduler-concepts-terms.md)
 
  [在 Azure 入口網站中開始使用排程器](scheduler-get-started-portal.md)
@@ -69,7 +69,5 @@ API 作業也可能傳回管理服務所定義的其他錯誤資訊。此其他�
  [Azure 排程器高可用性和可靠性](scheduler-high-availability-reliability.md)
 
  [Azure 排程器輸出驗證](scheduler-outbound-authentication.md)
- 
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

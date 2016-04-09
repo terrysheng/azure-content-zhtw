@@ -3,8 +3,8 @@
 	description="如何搜尋 Azure Active Directory 的安全性、活動和稽核報告"
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
+	authors="dhanyahk"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,18 +13,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/07/2015"
-	ms.author="kenhoff"/>
+	ms.date="03/07/2016"
+	ms.author="dhanyahk"/>
 
 # Azure Active Directory 報告搜尋
 
 *這份文件是 [Azure Active Directory 報告指南](active-directory-reporting-guide.md)的一部分。*
 
-Azure Active Directory 可以讓目錄管理員跨多個報告搜尋使用者安全性、活動和稽核事件。
+Azure Active Directory (Azure AD) 可以讓目錄管理員跨多個報告搜尋使用者安全性、活動和稽核事件。
 
-若要尋找搜尋面板，請瀏覽至 [Azure 管理入口網站] -> 您的 Azure Active Directory -> [報告]。 您可以在報告清單頂端找到面板。
+若要尋找搜尋面板，請瀏覽至 [Azure 傳統入口網站] > 您的 Azure AD 目錄 > [報告]。 您可以在報告清單頂端找到面板。
 
-若要搜尋特定使用者的活動或稽核事件，請在 [從] 和 [到] 欄位中選取日期範圍、輸入使用者的 UPN 或顯示名稱，然後按一下核取記號按鈕。
+若要搜尋特定使用者的活動或稽核事件，請在 [從] 和 [到] 欄位中選取日期範圍、輸入使用者的 UPN 或顯示名稱，然後選取核取記號 (確定) 按鈕。
 
 ## 搜尋中包含的報告
 
@@ -58,4 +58,4 @@ RMS 裝置使用量 | 否
  - [Azure Active Directory 報告](active-directory-view-access-usage-reports.md)
  - [Azure Active Directory 報告稽核事件](active-directory-reporting-audit-events.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

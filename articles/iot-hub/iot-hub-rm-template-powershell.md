@@ -16,13 +16,13 @@
      ms.date="02/12/2016"
      ms.author="dobett"/>
 
-# 使用 Powershell 建立 IoT 中樞
+# 使用 PowerShell 建立 IoT 中樞
 
 [AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## 簡介
 
-您可以使用 Azure 資源管理員 (ARM)，以程式設計方式建立和管理 Azure IoT 中樞。本教學課程示範如何使用資源管理員範本從 C# 程式建立 IoT 中樞。
+您可以使用 Azure 資源管理員 (ARM)，以程式設計方式建立和管理 Azure IoT 中樞。本教學課程示範如何使用資源管理員範本，利用 PowerShell 建立 IoT 中樞。
 
 > [AZURE.NOTE] Azure 建立和處理資源的部署模型有二種：[資源管理員和傳統](../resource-manager-deployment-model.md)。本文涵蓋內容包括如何使用資源管理員部署模型。
 
@@ -62,7 +62,7 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 
     ```
     {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
         "hubName": {
@@ -123,4 +123,4 @@ New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-powershell-arm]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

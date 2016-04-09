@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
+   ms.date="02/29/2016"
    ms.author="sumukhs"/>
 
 # 設定具狀態的 Reliable Services
@@ -52,7 +52,7 @@ ReplicatorConfig
 |ReplicatorEndpoint|N/A|無預設值--必要的參數|主要/次要複寫器將用於與複本集中其他複寫器通訊的 IP 位址與連接埠。這應該參考服務資訊清單中的 TCP 資源端點。請參閱[服務資訊清單資源](service-fabric-service-manifest-resources.md)，深入了解如何在服務資訊清單中定義端點資源。 |
 |MaxPrimaryReplicationQueueSize|作業數目|8192|主要佇列中作業數目上限。主要複寫器收到所有次要複寫器的通知後，系統便會釋放作業。此值必須大於 64 且為 2 的乘冪。|
 |MaxSecondaryReplicationQueueSize|作業數目|16384|次要佇列中作業數目上限。透過持續性讓狀態成為高可用性後，系統便會釋放作業。此值必須大於 64 且為 2 的乘冪。|
-|CheckpointThresholdInMB|MB|200|狀態完成檢查點作業後的記錄檔空間量。|
+|CheckpointThresholdInMB|MB|50|狀態完成檢查點作業後的記錄檔空間量。|
 |MaxRecordSizeInKB|KB|1024|複寫器可以寫入記錄檔中的最大記錄大小。此值必須是 4 的倍數且大於 16。|
 |OptimizeLogForLowerDiskUsage|Boolean|true|為 true 時會設定記錄檔，以便使用 NTFS 疏鬆檔案來建立複本的專用記錄檔。這會降低檔案實際使用的磁碟空間量。為 false 時，將以固定配置建立檔案，以提供最佳寫入效能。|
 |MaxRecordSizeInKB|KB|1024|複寫器可以寫入記錄檔中的最大記錄大小。此值必須是 4 的倍數且大於 16。|
@@ -107,4 +107,4 @@ MaxRecordSizeInKB 設定會定義複寫器可以寫入記錄檔的記錄大小�
 
 SharedLogId 和 SharedLogPath 設定永遠會一起使用，以便讓服務使用與節點的預設共用記錄檔不同的共用記錄檔。如需最佳效率，請儘可能讓所有服務指定相同的共用記錄檔。共用記錄檔應該放在共用記錄檔專用的磁碟上，以減少磁頭移動爭用情形。預期此值只會在極少數的情況下需要變更。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

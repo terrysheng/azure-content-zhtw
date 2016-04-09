@@ -31,7 +31,7 @@
 1. 您**必須**詳讀[教學課程概觀](data-factory-build-your-first-pipeline.md)一文，並完成必要的步驟，再進一步繼續。
 2. 本文不提供 Azure Data Factory 服務的概念性概觀。建議您詳讀 [Azure Data Factory 簡介](data-factory-introduction.md)一文，了解服務的詳細概觀。  
 
-## 步驟 1：建立 Data Factory
+## 建立 Data Factory
 資料處理站可以有一或多個管線。其中的管線可以有一或多個活動。例如，「複製活動」會從來源複製資料到目的地資料存放區，HDInsight Hive 活動則是執行 Hive 指令碼轉換輸入資料以產生輸出資料。讓我們在這個步驟中開始建立 Data Factory。
 
 1.	登入 [Azure 入口網站](https://portal.azure.com/)之後，執行下列動作：
@@ -61,7 +61,7 @@
 
 建立管線之前，您必須先建立一些 Data Factory 項目。首先，您要先建立連結的服務，以便將資料存放區/電腦連結到您的資料存放區；並定義輸入和輸出資料集，表示資料位於連結的資料存放區中，再建立具有使用這些資料集的活動之管線。
 
-## 步驟 2：建立連結服務
+## 建立連結服務
 在此步驟中，您將您的 Azure 儲存體帳戶和隨選 Azure HDInsight 叢集連結到您的 Data Factory。Azure 儲存體帳戶會保留此範例中管線的輸入和輸出資料。HDInsight 連結服務會用來執行此範例中管線活動指定的 Hive 指令碼。您必須識別案例中使用的資料存放區/計算服務，並建立連結的服務將這些服務連結到 Data Factory。
 
 ### 建立 Azure 儲存體連結服務
@@ -70,7 +70,7 @@
 1.	在適用於 **GetStartedDF** 的 [DATA FACTORY] 刀鋒視窗中，按一下 [製作和部署]。這會啟動 Data Factory 編輯器。 
 	 
 	![[製作和部署] 磚](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
-2.	按一下 [新增資料存放區] 並選擇 [Azure 儲存體]
+2.	按一下 [新增資料存放區] 並選擇 [Azure 儲存體]。
 	
 	![Azure 儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
@@ -80,7 +80,7 @@
 
 	![[部署] 按鈕](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   成功部署連結的服務之後，應該會出現 **Draft-1** 視窗，而且您會在左側的樹狀檢視中看到 **StorageLinkedService**。
+   成功部署連結的服務之後，應該會出現 Draft-1 視窗，而且您會在左側的樹狀檢視中看到 AzureStorageLinkedService。
    ![功能表中的儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
@@ -100,7 +100,7 @@
 		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
-		      "linkedServiceName": "StorageLinkedService"
+		      "linkedServiceName": "AzureStorageLinkedService"
 		    }
 		  }
 		}
@@ -124,12 +124,12 @@
 
 	如需詳細資訊，請參閱 [HDInsight 隨選連結服務](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。
 3. 按一下命令列的 [部署]，部署連結服務。 
-4. 確認您有在左側的樹狀檢視中看到 **StorageLinkedService** 和 **HDInsightOnDemandLinkedService**。
+4. 確認您有在左側的樹狀檢視中看到 AzureStorageLinkedService 和 HDInsightOnDemandLinkedService。
 
 	![含連結服務的樹狀檢視](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
-## 步驟 3：建立資料集
-在此步驟中，您將建立資料集來代表 Hive 處理的輸入和輸出資料。這些資料集是您稍早在本教學課程中建立的 **StorageLinkedService**。連結的服務會指向 Azure 儲存體帳戶，而資料集則會指定保留輸入和輸出資料儲存體中的容器、資料夾和檔案名稱。
+## 建立資料集
+在此步驟中，您將建立資料集來代表 Hive 處理的輸入和輸出資料。這些資料集是您稍早在本教學課程中建立的 AzureStorageLinkedService。連結的服務會指向 Azure 儲存體帳戶，而資料集則會指定保留輸入和輸出資料儲存體中的容器、資料夾和檔案名稱。
 
 ### 建立輸入資料集
 
@@ -142,7 +142,7 @@
 			"name": "AzureBlobInput",
 		    "properties": {
 		        "type": "AzureBlob",
-		        "linkedServiceName": "StorageLinkedService",
+		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "input.log",
 		            "folderPath": "adfgetstarted/inputdata",
@@ -165,7 +165,7 @@
 	| 屬性 | 說明 |
 	| :------- | :---------- |
 	| 類型 | 類型屬性設為 AzureBlob，因為資料位於 Azure Blob 儲存體。 |  
-	| linkedServiceName | 表示您稍早建立的 StorageLinkedService。 |
+	| linkedServiceName | 表示您稍早建立的 AzureStorageLinkedService。 |
 	| fileName | 這是選用屬性。如果您省略此屬性，會挑選位於 folderPath 的所有檔案。在這種情況下，只會處理 input.log。 |
 	| 類型 | 記錄檔為文字格式，因此我們會使用 TextFormat。 | 
 	| columnDelimiter | 記錄檔案中的資料行會以 , (逗號) 分隔 |
@@ -186,7 +186,7 @@
 		  "name": "AzureBlobOutput",
 		  "properties": {
 		    "type": "AzureBlob",
-		    "linkedServiceName": "StorageLinkedService",
+		    "linkedServiceName": "AzureStorageLinkedService",
 		    "typeProperties": {
 		      "folderPath": "adfgetstarted/partitioneddata",
 		      "format": {
@@ -207,10 +207,10 @@
 
 	![含連結服務的樹狀檢視](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
-## 步驟 4：建立您的第一個管線
+## 建立管線
 在此步驟中，您將建立第一個具有 **HDInsightHive** 活動的管線。請注意，您每個月都可取得輸入配量資訊 (頻率：每月，間隔：1)，輸出配量則是每用產生，而活動的排程器屬性也設為每用 (如下所示)。輸出資料集設定及活動排程器必須相符。這時，輸出資料集會影響排程，因此即使活動並未產生任何輸出，您都必須建立輸出資料集。如果活動沒有任何輸入，您可以略過建立輸入資料集。本節結尾會說明下列 JSON 中使用的屬性。
 
-1. 在 [Data Factory 編輯器] 中，按一下 [省略符號…]，然後按一下 [新增管線]。
+1. 在 [Data Factory 編輯器] 中，按一下 [省略符號 (…) 其他命令]，然後按一下 [新增管線]。
 	
 	![新增管線按鈕](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. 複製下列程式碼片段並貼到 Draft-1 視窗。
@@ -226,7 +226,7 @@
 		                "type": "HDInsightHive",
 		                "typeProperties": {
 		                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-		                    "scriptLinkedService": "StorageLinkedService",
+		                    "scriptLinkedService": "AzureStorageLinkedService",
 		                    "defines": {
 		                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
 		                        "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
@@ -254,15 +254,15 @@
 		                "linkedServiceName": "HDInsightOnDemandLinkedService"
 		            }
 		        ],
-		        "start": "2014-02-01T00:00:00Z",
-		        "end": "2014-02-02T00:00:00Z",
+		        "start": "2016-02-01T00:00:00Z",
+		        "end": "2016-02-02T00:00:00Z",
 		        "isPaused": false
 		    }
 		}
  
 	您會在 JSON 程式碼片段中建立一個管線，其中包括在 HDInsight 叢集上使用 Hive 處理「資料」的單一活動。
 	
-	Hive 指令碼檔案 **partitionweblogs.hql** 儲存於 Azure 儲存體帳戶 (透過 scriptLinkedService 指定，名為 **StorageLinkedService**)，且位於 **adfgetstarted**容器的 **script** 資料夾中。
+	Hive 指令碼檔案 partitionweblogs.hql 儲存於 Azure 儲存體帳戶 (透過 scriptLinkedService，名為 AzureStorageLinkedService)，且位於 adfgetstarted 容器的 script 資料夾中。
 
 	**defines** 區段可用來指定執行階段設定，該設定將傳遞到 Hive 指令碼做為 Hive 組態值 (例如 ${hiveconf:inputtable}、${hiveconf:partitionedtable})。
 
@@ -270,15 +270,19 @@
 
 	在活動 JSON 中，您會指定 Hive 指令碼要在透過 **linkedServiceName** – **HDInsightOnDemandLinkedService** 指定的計算上執行。
 
-	> [ACOM.NOTE] 如需上述範例中使用的 JSON 屬性的詳細資訊，請參閱[管線的剖析](data-factory-create-pipelines.md#anatomy-of-a-pipeline)。
+	> [AZURE.NOTE] 如需上述範例中使用的 JSON 屬性的詳細資訊，請參閱[管線的剖析](data-factory-create-pipelines.md#anatomy-of-a-pipeline)。
 
-3. 確認您在 Azure Blob 儲存體的 adfgetstarted/inputdata 資料夾中看到了 input.log 檔案，並按一下命令列中的 [部署]，以部署管線。由於 **start** 和 **end** 時間設定在過去，且 **isPaused** 設為 false，管線 (管線中的活動) 會在部署之後立即執行。
+3. 確認下列項目：
+	1. input.log 檔案存在於 Azure Blob 儲存體中 adfgetstarted 容器的 inputdata 資料夾中。
+	2. partitionweblogs.hql 檔案存在於 Azure Blob 儲存體中 adfgetstarted 容器的 script 資料夾中。如果您沒有看見這些檔案，請完成[教學課程概觀](data-factory-build-your-first-pipeline.md)中的先決條件步驟。 
+	3. 確認在管線 JSON 中使用您的儲存體帳戶名稱取代 storageaccountname。 
+2. 按一下命令列上的 [部署]，部署管線。由於 **start** 和 **end** 時間設定在過去，且 **isPaused** 設為 false，管線 (管線中的活動) 會在部署之後立即執行。 
 4. 確認您在樹狀檢視中看到管線。
 
 	![管線的樹狀檢視](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 5. 恭喜，您已經成功建立您的第一個管線！
 
-## 步驟 4：監視管線
+## 監視管線
 
 6. 按一下 **X** 以關閉 [Data Factory 編輯器] 刀鋒視窗、瀏覽回 [Data Factory] 刀鋒視窗，然後按一下 [圖表]。
   
@@ -300,11 +304,11 @@
 11. 按一下 **X** 關閉 **AzureBlobInput** 刀鋒視窗。 
 12. 在 [圖表檢視] 中，按兩下 [AzureBlobOutput] 資料集。您會看到目前正在處理的配量。
 
-	![資料集](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
+	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. 處理完成時，您會看到配量處於 [就緒] 狀態。
 	>[AZURE.IMPORTANT] 建立隨選 HDInsight 叢集通常需要一些時間 (大約 20 分鐘)。  
 
-	![資料集](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
+	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
 	
 10. 當配量處於**就緒**狀態時，檢查您 Blob 儲存體中 **adfgetstarted** 容器內 **partitioneddata** 資料夾的輸出資料。
  
@@ -324,4 +328,4 @@
 
   
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

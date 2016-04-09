@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 特殊權限身分識別管理：角色"
+   pageTitle="PIM 的角色 |Microsoft Azure"
    description="了解要針對具備 Azure 特殊權限身分識別管理擴充功能的特殊權限身分識別使用哪些角色。"
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure 特殊權限身分識別管理：角色
+# Azure AD Privileged Identity Management：角色
 
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
@@ -57,4 +57,4 @@ Azure Privileged Identity Management (PIM) 會使用下列角色做為預設的�
 ## 後續步驟
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

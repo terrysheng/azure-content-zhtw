@@ -3,7 +3,7 @@
    description="描述如何處理 Azure 自動化中的 Runbook 的詳細資料。"
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="03/21/2016"
    ms.author="bwren" />
 
 # Azure 自動化中的 Runbook 執行
@@ -97,6 +97,8 @@ Runbook 儀表板會顯示單一 Runbook 的摘要。針對經過指定的天數
 
 為了在雲端中的所有 Runbook 之間共用資源，「Azure 自動化」會在任何工作已執行 3 小時之後將其暫時卸載。[圖形化](automation-runbook-types.md#graphical-runbooks)和 [PowerShell 工作流程](automation-runbook-types.md#powershell-workflow-runbooks) Runbook 將會從其最後一個[檢查點](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints)繼續。在此期間，工作的顯示狀態為「執行中，正在等候資源」。如果 Runbook 沒有檢查點，或在卸載工作之前工作未到達第一個檢查點，則會從頭重新啟動。[PowerShell](automation-runbook-types.md#powershell-runbooks) Runbook 一律會從頭重新啟動，因為它們不支援檢查點。
 
+>[AZURE.NOTE] 公平分享限制不適用於混合式 Runbook 背景工作角色上執行的 Runbook 工作。
+
 如果 Runbook 從相同檢查點或從 Runbook 的開頭重新啟動連續三次，它將被終止，狀態為「失敗，正在等候資源」。這是為了防止 Runbook 無限期地執行而不會完成，因為它們在未重新卸載的情況下，無法進入下一個檢查點。在此情況下，您會收到下列失敗例外狀況。
 
 *工作無法繼續執行，因為它被從相同的檢查點重複收回。請確定您的 Runbook 在未保存其狀態的情況下，不會長時間執行作業。*
@@ -105,8 +107,8 @@ Runbook 儀表板會顯示單一 Runbook 的摘要。針對經過指定的天數
 
 
 
-## 相關文章
+## 後續步驟
 
 - [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

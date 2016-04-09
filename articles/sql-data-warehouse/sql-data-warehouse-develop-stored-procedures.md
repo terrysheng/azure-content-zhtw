@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
-# SQL 資料倉儲中的預存程序 
+# SQL 資料倉儲中的預存程序
 
 SQL 資料倉儲支援許多 SQL Server 中具備的 TRANSACT-SQL 功能。更重要的是，我們會想要運用相應放大特定功能，將解決方案的效能最大化。
 
@@ -28,7 +28,7 @@ SQL 資料倉儲支援許多 SQL Server 中具備的 TRANSACT-SQL 功能。更�
 預存程序很適合用來封裝您的 SQL 程式碼；將它儲存在資料倉儲中您的資料附近。藉由將程式碼封裝成可管理的單位，預存程序協助開發人員將其解決方案模組化；促使程式碼有更大的可重複使用性。每個預存程序也可接受參數，使其更具彈性。
 
 SQL 資料倉儲提供簡化且更簡化的預存程序實作。相較於 SQL Server，最大差異是預存程序不是預先編譯的程式碼。在資料倉儲中，我們通常比較不在乎編譯時間。比較重要的是在對大型資料磁碟區操作時，正確地最佳化預存程序程式碼。目標是要節省時數、分鐘數和秒數，而不是毫秒數。因此，將預存程序視為 SQL 邏輯的容器更有幫助。
- 
+
 當 SQL 資料倉儲執行預存程序時，SQL 陳述式會在執行階段進行剖析、轉譯和最佳化。在此過程中，每個陳述式都會轉換為分散式查詢。實際針對資料執行的 SQL 程式碼與提交的查詢不同。
 
 ## 巢狀預存程序
@@ -40,14 +40,17 @@ SQL 資料倉儲最多支援 8 個巢狀層級。這與 SQL Server 稍有不同�
 
 ```
 EXEC prc_nesting
-``` 
-如果預存程序也進行另一個 EXEC 呼叫，這會使巢狀層級提升為 2 ```
+```
+如果預存程序也會進行另一個 EXEC 呼叫，則這會將巢狀層級提高到 2
+```
 CREATE PROCEDURE prc_nesting
 AS
 EXEC prc_nesting_2  -- This call is nest level 2
 GO
 EXEC prc_nesting
-``` 如果第二個程序接著執行動態 sql，這會使巢狀層級提升為 3 ```
+```
+如果第二個程序接著會執行一些動態 SQL，則這會將巢狀層級提高到 3
+```
 CREATE PROCEDURE prc_nesting_2
 AS
 EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2
@@ -94,4 +97,4 @@ SQL 資料倉儲不允許您透過 INSERT 陳述式取用預存程序的結果�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

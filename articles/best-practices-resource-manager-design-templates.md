@@ -1,10 +1,10 @@
 <properties
-	pageTitle="設計 Azure 資源管理員範本的最佳做法"
+	pageTitle="Azure Resource Manager 範本的最佳做法 | Microsoft Azure"
 	description="顯示 Azure 資源管理員範本的設計模式"
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/17/2015"
-	ms.author="mmercuri"/>
+	ms.author="tomfitz"/>
 
 # 設計 Azure 資源管理員範本的最佳做法
 
@@ -381,6 +381,6 @@ Redis 只會使用單一節點類型，因此您將建立名為 node-resources.j
 
 - 若要查看如何實作本主題所提供之設計原理的內容相關範例，請參閱[實作範本的最佳做法內容範例](best-practices-resource-manager-examples.md)。
 - 如需如何在 Azure 資源管理員中處理安全性的建議，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)。
-- 若要了解進出範本的共用狀態，請參閱 [Azure 資源管理員範本中的共用狀態](best-practices-resource-manager-state.md)。
+- 若要了解進出範本的共用狀態，請參閱〈[Azure 資源管理員範本中的共用狀態](best-practices-resource-manager-state.md)〉。
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

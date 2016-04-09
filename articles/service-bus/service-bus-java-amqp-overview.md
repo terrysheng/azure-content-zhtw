@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="03/09/2016" 
 	ms.author="sethm"/>
 
 
@@ -72,7 +72,7 @@ Azure 服務匯流排中的 AMQP 1.0 支援代表您現在能夠從一組平台�
 
 | 語言 | 程式庫 |
 |----------|-------------------------------------------------------------------------------|
-| Java | Apache Qpid Java 訊息服務 (JMS) 用戶端<br/> IIT Software SwiftMQ Java 用戶端 |
+| Java | Apache Qpid Java 訊息服務 (JMS) 用戶端<br/>IIT Software SwiftMQ Java 用戶端 |
 | C | Apache Qpid Proton-C |
 | PHP | Apache Qpid Proton-PHP |
 | Python | Apache Qpid Proton-Python |
@@ -101,4 +101,4 @@ Azure 服務匯流排中的 AMQP 1.0 支援代表您現在能夠從一組平台�
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0316_2016-->

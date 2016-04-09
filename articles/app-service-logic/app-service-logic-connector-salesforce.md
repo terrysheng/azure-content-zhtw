@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # 開始使用 Salesforce 連接器並將它加入您的邏輯應用程式
->[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [Salesforce API](../connectors/create-api-salesforce.md)。
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [Salesforce API](../connectors/connectors-create-api-salesforce.md)。
 
 連線至 Salesforce 並建立和修改如帳戶、組長等實體。以下是涉及 Salesforce 的典型整合案例：
 
@@ -108,4 +108,4 @@
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

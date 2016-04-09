@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #使用 TSQL 建立 SQL 資料倉儲
@@ -32,13 +32,18 @@
 
 本文不會涵蓋如何使用 Visual Studio 正確設定與連接。如需如何進行的完整說明，請參閱[連接及查詢][]文件。若要開始，您必須開啟 Visual Studio 中的 SQL Server 物件總管，並連接到您將用來建立 SQL 資料倉儲的伺服器一旦您這麼做，您就能針對「主要」資料庫執行下列命令來建立 SQL 資料倉儲：
 
-        CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>);
+```sql
+CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>);
+```
 
 您也能透過開啟命令列並執行下列命令建立 SQL 資料倉儲：
 
-        sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
+```
+sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>)"
+```
 
-當執行上述 TSQL 陳述式時，請注意 MAXSIZE 和 SERVICE\_OBJECTIVE 參數將會要求初始的儲存體大小，而且計算到資料倉儲執行個體的分配。MAXSIZE 接受下列大小，建議選擇較大的空間大小以保留成長空間：
+
+執行上述 TSQL 陳述式時，請注意 `MAXSIZE` 和 `SERVICE_OBJECTIVE` 參數將會要求初始的儲存體大小並計算分配給資料倉儲執行個體的儲存體大小。`MAXSIZE` 接受下列大小，建議選擇較大的空間大小以保留成長空間：
 
 + 250 GB
 + 500 GB
@@ -51,7 +56,7 @@
 + 40960 GB
 + 51200 GB
 
-SERVICE\_OBJECTIVE 會指出您的執行個體起始的 DWU 數量，並接受下列值：
+`SERVICE_OBJECTIVE` 會指出您的執行個體起始的 DWU 數量，並接受下列值：
 
 + DW100
 + DW200
@@ -76,4 +81,4 @@ SERVICE\_OBJECTIVE 會指出您的執行個體起始的 DWU 數量，並接受�
 [載入範例資料]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [價格頁面]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="02/29/2016"
+   ms.date="03/15/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect︰版本發行歷程記錄
@@ -28,12 +28,21 @@ Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Co
 - 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](active-directory-aadconnect-accounts-permissions.md#upgrade)
 - [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## 1\.1.119.0
+發行日期：2016 年 3 月
+
+**已修正的問題：**
+
+- 請確定 Windows Server 2008 (發行前 R2) 上無法使用快速安裝，因為此作業系統不支援密碼同步處理。
+- 使用自訂篩選器設定從 DirSync 升級並未如預期般運作。
+- 升級至較新版本且沒有進行任何組態變更時，不應排程完整匯入/同步處理。
+
 ## 1\.1.110.0
 發行日期：2016 年 2 月
 
 **已修正的問題：**
 
-- 如果安裝並非位於預設 **C:\\Program Files** 資料夾，則無法從舊版升級。。
+- 如果安裝不是位於預設的 **C:\\Program Files** 資料夾中，則無法從舊版升級。
 - 如果您安裝並在結束安裝精靈時取消選取 [啟動同步處理程序]，重新執行安裝精靈將不會啟用排程器。
 - 在日期/時間格式並非美國英文的伺服器上，排程器將無法正常運作，並且會封鎖 `Get-ADSyncScheduler` 傳回正確的時間。
 - 如果您是以 ADFS 做為登入選項和升級，來安裝舊版 Azure AD Connect，便無法再次執行安裝精靈。
@@ -248,4 +257,4 @@ AD 帳戶必須獲得其他權限，才能讀取來自 AD 的密碼雜湊。要�
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

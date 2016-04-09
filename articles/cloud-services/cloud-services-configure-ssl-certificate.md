@@ -22,12 +22,12 @@
 # 在 Azure 設定應用程式的 SSL
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
-- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
+- [Azure 入口網站](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure 傳統入口網站](cloud-services-configure-ssl-certificate.md)
 
 安全通訊端層 (SSL) 加密是最常用來保護在網際網路上傳送之資料的方法。此常見工作會討論如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。
 
-> [AZURE.NOTE] 此工作的程序適用於 Azure 雲端服務；若為 應用程式服務，請參閱[此處](../app-service-web/web-sites-configure-ssl-certificate.md)。
+> [AZURE.NOTE] 此工作的程序適用於 Azure 雲端服務，若為應用程式服務，請參閱[此處](../app-service-web/web-sites-configure-ssl-certificate.md)。
 
 此工作將使用生產部署；本主題最後將提供關於如何使用預備部署的資訊。
 
@@ -55,7 +55,7 @@
 
 您的應用程式必須已設定為使用憑證，而且您必須新增 HTTPS 端點。因此，您需要更新服務定義檔與服務組態檔。
 
-1.  在開發環境中，開啟服務定義檔 (CSDEF)、在 **WebRole** 區段內新增 **Certificates** 區段，並加入下列憑證相關資訊：
+1.  在開發環境中，開啟服務定義檔 (CSDEF)、在 [WebRole] 區段內新增 [Certificates] 區段，並加入下列憑證 (及中繼憑證) 相關資訊：
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
@@ -63,6 +63,17 @@
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
                     		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
+                <!-- IMPORTANT! Unless your certificate is either
+                self-signed or signed directly by the CA root, you
+                must include all the intermediate certificates
+                here. You must list them here, even if they are
+                not bound to any endpoints. Failing to list any of
+                the intermediate certificates may cause hard-to-reproduce
+                interoperability problems on some clients.-->
+                <Certificate name="CAForSampleCertificate"
+                             storeLocation="LocalMachine"
+                             storeName="CA"
                              permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
@@ -111,6 +122,9 @@
             <Certificates>
                 <Certificate name="SampleCertificate" 
                     thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
+                    thumbprintAlgorithm="sha1" />
+                <Certificate name="CAForSampleCertificate"
+                    thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
                     thumbprintAlgorithm="sha1" />
             </Certificates>
         ...
@@ -168,4 +182,4 @@
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

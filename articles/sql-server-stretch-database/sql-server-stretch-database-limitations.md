@@ -3,9 +3,9 @@
 	description="了解在啟用 Stretch Database 前必須解決的封鎖問題。"
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -65,6 +65,8 @@
 
 -   參考資料表的外部索引鍵條件約束
 
+    您無法在其上啟用 Stretch Database 的資料表，是外部索引鍵條件約束所參考的資料表。在父子式關聯性 (例如，訂單和訂單詳細資料) 中，這是父資料表 (訂單)。
+
 **索引數**
 -   全文檢索索引
 
@@ -74,14 +76,16 @@
 
 -   參考資料表的索引檢視表
 
-## <a name="Caveats"></a>Stretch 資料表的限制的注意事項
+## <a name="Caveats"></a>Stretch 資料表的限制和注意事項
 在目前的 SQL Server 2016 預覽版本中，Stretch 資料表有下列限制或注意事項。
 
 -   在 Stretch 表格中，「唯一」條件約束和「主要金鑰」條件約束並無強制唯一性。
 
 -   您無法在 Stretch 資料表上執行「更新」或「刪除」作業。
 
--   您無法「插入」到遠端的 Azure SQL Database 資料表。
+-   您無法從遠端插入到連結伺服器上啟用 Stretch 的資料表。
+
+-   您無法搭配啟用 Stretch 的資料表使用複寫功能。
 
 -   您無法建立其中包含 Stretch 資料表的檢視表索引。
 
@@ -90,6 +94,11 @@
 -   索引篩選不會傳播至遠端資料表。
 
 ## 另請參閱
-[執行 Stretch Database Advisor，以識別 Stretch Database 的資料庫和資料表](sql-server-stretch-database-identify-databases.md) [為資料庫啟用 Stretch Database](sql-server-stretch-database-enable-database.md) [為資料表啟用 Stretch Database](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+[透過執行 Stretch Database Advisor 為資料庫和資料表識別 Stretch Database](sql-server-stretch-database-identify-databases.md)
+
+[為資料庫啟用 Stretch Database](sql-server-stretch-database-enable-database.md)
+
+[為資料表啟用 Stretch Database](sql-server-stretch-database-enable-table.md)
+
+<!---HONumber=AcomDC_0323_2016-->

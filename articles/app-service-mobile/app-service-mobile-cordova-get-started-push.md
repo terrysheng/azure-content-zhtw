@@ -88,9 +88,9 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。這些�
 
 1.  在 [方案總管] 中開啟 `config.xml` 檔案。
 2.  按一下 [外掛程式] > [自訂]，請選取 [Git] 做為安裝來源，然後輸入 `https://github.com/phonegap/phonegap-plugin-push` 做為來源。
-	
+
 	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
-	
+
 4.  按一下安裝來源旁的箭頭，然後按一下 [新增]
 
 推撥外掛程式現已安裝。
@@ -115,23 +115,23 @@ PhoneGap 推播外掛程式仰賴 Google Play 服務來進行推播通知。若�
 
 1. 在登入程序的回呼期間或是在 **onDeviceReady** 方法的底部，新增對 **registerForPushNotifications** 的呼叫：
 
- 
+
 		// Login to the service.
 		client.login('google')
 		    .then(function () {
 		        // Create a table reference
 		        todoItemTable = client.getTable('todoitem');
-		
+
 		        // Refresh the todoItems
 		        refreshDisplay();
-		
+
 		        // Wire up the UI Event Handler for the Add Item
 		        $('#add-item').submit(addItemHandler);
 		        $('#refresh').on('click', refreshDisplay);
-		
+
 				// Added to register for push notifications.
 		        registerForPushNotifications();
-		
+
 		    }, handleError);
 
 	此範例為驗證成功後呼叫 **registerForPushNotifications**，如果應用程式中同時使用推播通知和驗證，建議採此方法。
@@ -152,18 +152,18 @@ PhoneGap 推播外掛程式仰賴 Google Play 服務來進行推播通知。若�
 	                sound: 'true'
 	            },
 	            wns: {
-	
+
 	            }
 	        });
-	
+
 	        pushRegistration.on('registration', function (data) {
 	            client.push.register('gcm', data.registrationId);
 	        });
-	
+
 	        pushRegistration.on('notification', function (data, d2) {
 	            alert('Push Received: ' + data.message);
 	        });
-	
+
 	        pushRegistration.on('error', handleError);
 	    }
 
@@ -182,6 +182,12 @@ PhoneGap 推播外掛程式仰賴 Google Play 服務來進行推播通知。若�
 * 請閱讀[通知中樞]，了解推播通知的相關資訊。
 * 如果您尚未這麼做，請[新增驗證]至您的 Apache Cordova 應用程式，繼續教學課程。
 
+了解如何使用 SDK。
+
+* [Apache Cordova SDK]
+* [ASP.NET Server SDK]
+* [Node.js Server SDK]
+
 <!-- URLs -->
 [新增驗證]: app-service-mobile-cordova-get-started-users.md
 [Apache Cordova 快速入門]: app-service-mobile-cordova-get-started.md
@@ -194,5 +200,8 @@ PhoneGap 推播外掛程式仰賴 Google Play 服務來進行推播通知。若�
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/zh-TW/features/cordova-vs.aspx
 [通知中樞]: ../notification-hubs/notification-hubs-overview.md
+[Apache Cordova SDK]: app-service-mobile-codova-how-to-use-client-library.md
+[ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

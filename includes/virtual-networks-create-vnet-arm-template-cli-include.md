@@ -2,7 +2,7 @@
 
 若要使用 Azure CLI 部署您下載的 ARM 範本，請依照下列步驟執行。
 
-1. 如果您從未用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli-install.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
+1. 如果您從未用過 Azure CLI，請參閱[安裝和設定 Azure CLI](../articles/xplat-cli-install.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
 2. 執行 **`azure config mode`** 命令，以切換為資源管理員模式，如下所示。
 
 		azure config mode arm
@@ -11,7 +11,7 @@
 
 		info:    New mode is arm
 
-3. 如有必要，執行 **`azure group create`** 以建立新的資源群組，如下所示。請查看命令的輸出內容。輸出後顯示的清單可說明所使用的參數。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](resource-group-overview.md)。
+3. 如有必要，執行 **`azure group create`** 以建立新的資源群組，如下所示。請查看命令的輸出內容。輸出後顯示的清單可說明所使用的參數。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](../articles/resource-group-overview.md)。
 
 		azure group create -n TestRG -l centralus
 
@@ -89,4 +89,4 @@
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

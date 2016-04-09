@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="撰寫使用服務匯流排佇列的應用程式 | Microsoft Azure"
-   description="如何撰寫使用服務匯流排，且以佇列為基礎的簡單應用程式。"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="撰寫使用服務匯流排佇列的應用程式 | Microsoft Azure"
+    description="如何撰寫使用服務匯流排，且以佇列為基礎的簡單應用程式。"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="tysonn" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="03/16/2016"
+    ms.author="sethm" />
 
 # 建立使用服務匯流排佇列的應用程式
 
@@ -55,15 +55,15 @@
 
 ### 註冊服務匯流排帳戶和訂用帳戶
 
-您需要 Azure 帳戶，才能開始使用服務匯流排。如果您沒有此帳戶，可以在[這裡](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)註冊免費試用。
+您需要 Azure 帳戶，才能開始使用服務匯流排。如果您沒有此帳戶，可以在[這裡](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)註冊免費帳戶。
 
 ### 建立服務命名空間
 
-當您有訂用帳戶後，便可建立新的命名空間。您必須為所有服務匯流排帳戶的新命名空間指定唯一名稱。每個命名空間會做為一組服務匯流排實體的容器。如需詳細資訊，請參閱[作法：建立或修改服務匯流排服務命名空間](https://msdn.microsoft.com/library/azure/hh690931.aspx)。
+當您有訂用帳戶後，便可建立新的命名空間。請為所有服務匯流排帳戶的新命名空間指定唯一名稱。每個命名空間會作為一組服務匯流排實體的範圍容器。
 
 ### 安裝 NuGet 封裝
 
-若要使用服務匯流排服務命名空間，應用程式必須參考服務匯流排組件，也就是 Microsoft.ServiceBus.dll。您可以在 Microsoft Azure SDK 中找到此組件，並可在 [Azure SDK 下載頁面](https://azure.microsoft.com/downloads/)中下載。但要取得服務匯流排 API，並對應用程式進行設定，以使用所有服務匯流排相依性的最簡單方法，便是使用服務匯流排 NuGet 封裝。如需使用 NuGet 和服務匯流排套件的詳細資料，請參閱[使用 NuGet 服務匯流排套件](https://msdn.microsoft.com/library/dn741354.aspx) (英文)。
+若要使用服務匯流排命名空間，應用程式必須參考服務匯流排組件，也就是 Microsoft.ServiceBus.dll。您可以在 Microsoft Azure SDK 中找到此組件，並可在 [Azure SDK 下載頁面](https://azure.microsoft.com/downloads/)中下載。但要取得服務匯流排 API，並對應用程式進行設定，以使用所有服務匯流排相依性的最簡單方法，便是使用[服務匯流排 NuGet 封裝](https://www.nuget.org/packages/WindowsAzure.ServiceBus)。
 
 ### 建立佇列
 
@@ -158,6 +158,6 @@ catch (Exception e)
 
 ## 後續步驟
 
-既然您了解佇列的基本概念，請參閱[建立使用服務匯流排主題和訂用帳戶的應用程式](service-bus-create-topics-subscriptions.md)，透過服務匯流排代理傳訊的發佈/訂閱功能，繼續進行本文的討論。
+既然您了解佇列的基本概念，請參閱[建立使用服務匯流排主題和訂用帳戶的應用程式](service-bus-create-topics-subscriptions.md)，透過服務匯流排主題和訂用帳戶的發佈/訂用帳戶功能，繼續進行本文的討論。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

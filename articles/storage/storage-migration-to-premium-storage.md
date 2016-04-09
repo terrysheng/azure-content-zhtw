@@ -45,12 +45,12 @@ Azure VM 支援連接數個「進階儲存體」磁碟，讓您應用程式的�
 ### 先決條件
 - 您將需要 Azure 訂用帳戶。如果您沒有訂用帳戶，可以建立一個月的[免費試用](https://azure.microsoft.com/pricing/free-trial/)訂用帳戶，或造訪 [Azure 定價](https://azure.microsoft.com/pricing/)以了解其他選項。
 - 若要執行 PowerShell Cmdlet，您將需要 Microsoft Azure PowerShell 模組。若要下載此模組，請參閱 [Microsoft Azure 下載](https://azure.microsoft.com/downloads/)。
-- 當您計劃使用在進階儲存體上執行的 Azure VM 時，您需要使用 DS 系列或 GS 系列的 VM。DS 系列的 VM 可同時搭配標準和進階儲存體磁碟使用。未來進階儲存體磁碟將可搭配更多 VM 類型使用。如需所有可用 Azure VM 磁碟類型和大小的詳細資訊，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-size-specs.md)和[雲端服務的大小](../cloud-services/cloud-services-sizes-specs.md)。
+- 當您計劃使用在進階儲存體上執行的 Azure VM 時，您需要使用 DS 系列或 GS 系列的 VM。DS 系列的 VM 可同時搭配標準和進階儲存體磁碟使用。未來進階儲存體磁碟將可搭配更多 VM 類型使用。如需所有可用 Azure VM 磁碟類型和大小的詳細資訊，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-windows-sizes.md)和[雲端服務的大小](../cloud-services/cloud-services-sizes-specs.md)。
 
 ### 注意事項
 
 #### VM 大小
-Azure VM 大小的規格已列在[虛擬機器的大小](../virtual-machines/virtual-machines-size-specs.md)一文中。請檢閱使用於進階儲存體的虛擬機器效能特性，然後選擇最適合您的工作負載的 VM 大小。確定 VM 上有足夠的磁碟流量頻寬。
+Azure VM 大小的規格已列在[虛擬機器的大小](../virtual-machines/virtual-machines-windows-sizes.md)一文中。請檢閱使用於進階儲存體的虛擬機器效能特性，然後選擇最適合您的工作負載的 VM 大小。確定 VM 上有足夠的磁碟流量頻寬。
 
 
 #### 磁碟大小
@@ -73,6 +73,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-
 如需有關「進階儲存體」規格的詳細資訊，請查看[使用進階儲存體時的延展性和效能目標](storage-premium-storage.md#scalability-and-performance-targets-whzh-TWing-premium-storage)。
 
 #### 額外的資料磁碟
+
 根據您的工作負載，決定您的 VM 是否需要額外的資料磁碟。您可以將數個持續性資料磁碟連接至您的 VM。如有需要，您可以跨磁碟等量磁碟區以增加磁碟區的容量和效能。如果您使用[儲存空間](http://technet.microsoft.com/library/hh831739.aspx)等量 Premium 儲存體資料磁碟，應該為所使用的每個磁碟，以一個資料行進行設定。否則，等量磁碟區的整體效能可能會因為磁碟流量分配不平均而比預期的效能還低。而對於 Linux VM，您可以使用 *mdadm* 公用程式來達到相同的效果。如需詳細資訊，請參閱文章[在 Linux 上設定軟體 RAID](../virtual-machines/virtual-machines-linux-configure-raid.md)。
 
 #### 磁碟快取原則
@@ -312,9 +313,9 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-
 
 ## 將現有的 Azure VM 移轉至 Azure 進階儲存體
 
-如果您目前有使用標準儲存體磁碟的 Azure VM，請依照下列程序將其移轉至進階儲存體。概括來看，移轉牽涉到兩個階段：
--	將磁碟從標準儲存體帳戶移轉至進階儲存體帳戶
--	將 VM 大小從 A/D/G 轉換成使用進階儲存體所需的 DS 或 GS。
+如果您目前有使用標準儲存體磁碟的 Azure VM，請依照下列程序將其移轉至進階儲存體。就高層級而言，移轉牽涉到兩個階段 ︰
+-	將磁碟從標準儲存體帳戶移轉到進階儲存體帳戶
+-	將 VM 大小從 A/D/G 轉換成使用進階儲存體磁碟所需的 DS 或 GS。
 
 此外，請參閱上一節中有關於「注意事項」的內容，以了解您可以為進階儲存體執行的各種最佳化。根據您的應用程式所適用的最佳化，移轉程序可能屬於下列其中一個移轉案例。
 
@@ -665,8 +666,8 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-
 如需移轉虛擬機器的特定案例，請參閱下列資源：
 
 - [在儲存體帳戶之間移轉 Azure 虛擬機器](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-- [建立並上傳 Windows Server VHD 到 Azure。](../virtual-machines/virtual-machines-create-upload-vhd-windows-server.md)
-- [建立及上傳包含 Linux 作業系統的虛擬硬碟](../virtual-machines/virtual-machines-linux-create-upload-vhd.md)
+- [建立並上傳 Windows Server VHD 到 Azure。](../virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)
+- [建立及上傳包含 Linux 作業系統的虛擬硬碟](../virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)
 - [將虛擬機器從 Amazon AWS 移轉至 Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 若要深入了解 Azure 儲存體和 Azure 虛擬機器，也請參閱下列資源：
@@ -679,4 +680,4 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="02/09/2016"
+   ms.date="03/08/2016"
    ms.author="brjohnst"/>
 
 # 如何從 .NET 應用程式使用 Azure 搜尋服務
@@ -643,6 +643,4 @@ Hotel.cs：
         }
     }
 
-您也可以在 [GitHub](http://aka.ms/search-dotnet-howto) 上找到完整的範例原始程式碼。
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="使用 Azure 入口網站 | Microsoft Azure 監視 DocumentDB 帳戶" 
-	description="了解如何監視 DocumentDB 帳戶的效能度量 (如要求和伺服器錯誤) 和使用量度量 (如儲存體耗用量)。" 
-	services="documentdb" 
-	documentationCenter="" 
-	authors="mimig1" 
-	manager="jhubbard" 
+<properties
+	pageTitle="使用 Azure 入口網站 | Microsoft Azure 監視 DocumentDB 帳戶"
+	description="了解如何監視 DocumentDB 帳戶的效能度量 (如要求和伺服器錯誤) 和使用量度量 (如儲存體耗用量)。"
+	services="documentdb"
+	documentationCenter=""
+	authors="mimig1"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/18/2016" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/10/2016"
 	ms.author="mimig"/>
 
 # 在 Azure 入口網站中監視 DocumentDB 帳戶的使用方式
@@ -24,10 +24,10 @@
 1.	在 [Azure 入口網站](https://portal.azure.com/) 中，依序按一下 [瀏覽] 和 [DocumentDB 帳戶]，然後按一下您想要檢視效能度量的 DocumentDB 帳戶名稱。
 2.	在 [監視] 透鏡內，依預設可以看到：
 	*	當日的要求總數。
-	*	帳戶的儲存體使用量。 
+	*	帳戶的儲存體使用量。
 
 	如果您的資料表顯示**沒有可用的資料**，請參閱[疑難排解](#troubleshooting)一節。
-	
+
 	![「監視」功能濾鏡的螢幕擷取畫面，可顯示目前的要求總數和儲存體使用量](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
 
 
@@ -52,7 +52,7 @@
 ## 建立並排效能度量圖表
 Azure 入口網站可讓您建立並排度量圖表。
 
-1.	首先，在您要複製並修改的圖表上按一下滑鼠右鍵，然後選取 [**自訂**]。 
+1.	首先，在您要複製並修改的圖表上按一下滑鼠右鍵，然後選取 [**自訂**]。
 
 	![包含反白顯示 [自訂] 選項的 [要求總數] 圖表螢幕擷取畫面](./media/documentdb-monitor-accounts/madocdb6.png)
 
@@ -63,24 +63,16 @@ Azure 入口網站可讓您建立並排度量圖表。
 
 現在，您可以將此組件視為其他任何度量組件，並自訂該組件中顯示的度量和時間範圍。如此一來，您可以同時看到兩個不同的度量圖表並排出現。![[要求總數] 圖表和全新 [要求總數] 前一個小時圖表的螢幕擷取畫面](./media/documentdb-monitor-accounts/madocdb8.png)
 
-## 檢視 DocumentDB 帳戶的使用量度量
-1.	在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [瀏覽]、[DocumentDB 帳戶]，然後按一下您要查看其使用量度量的 DocumentDB 帳戶名稱。
-2.	在 [**使用量**] 透鏡內，依預設可以檢視下列：
-	*	針對目前計費週期的 DocumentDB 帳戶日期所預估的成本。
-	*	帳戶內耗用的儲存體。
-	*	帳戶可用的儲存體上限 (臨界值)。
-	*	使用者和權限使用量。
-	*	附件使用量。
-
-	![[使用量] 透鏡的螢幕擷取畫面](./media/documentdb-monitor-accounts/madocdb9.png)
- 
 ## 設定 DocumentDB 帳戶的效能度量警示
 1.	在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [全部瀏覽]，再按一下 [DocumentDB 帳戶]，然後按一下您想要設定效能度量警示的 DocumentDB 帳戶名稱。
-2.	在 [**作業**] 透鏡內，按一下 [**警示規則**] 組件。![已選取警示規則組件的 [作業] 透鏡螢幕擷取畫面](./media/documentdb-monitor-accounts/madocdb10.png)
 
-3.	在 [警示規則] 刀鋒視窗中，按一下 [新增警示]。![包含反白顯示 [新增警示] 按鈕的 [警示規則] 刀鋒視窗螢幕擷取畫面](./media/documentdb-monitor-accounts/madocdb11.png)
+2.	如果未開啟 [所有設定] 刀鋒視窗，可按一下左上方的 [設定] 命令來開啟此刀鋒視窗。![[資料庫帳戶] 刀鋒視窗上 [設定] 命令的螢幕擷取畫面](./media/documentdb-monitor-accounts/madocdb10.png)
 
-4.	在 [Add an alert rule] 刀鋒視窗中，指定：
+3.	在 [所有設定] 刀鋒視窗中，按一下 [警示規則] 以開啟 [警示規則] 刀鋒視窗。![已選取 [警示規則] 組件的螢幕擷取畫面](./media/documentdb-monitor-accounts/madocdb10.5.png)
+
+4.	在 [警示規則] 刀鋒視窗中，按一下 [新增警示]。![包含反白顯示 [新增警示] 按鈕的 [警示規則] 刀鋒視窗螢幕擷取畫面](./media/documentdb-monitor-accounts/madocdb11.png)
+
+5.	在 [Add an alert rule] 刀鋒視窗中，指定：
 	*	您設定之警示規則的名稱。
 	*	新警示規則的描述。
 	*	警示規則的度量。
@@ -95,7 +87,7 @@ Azure 入口網站可讓您建立並排度量圖表。
 - 若要使用 .NET SDK，請使用 [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) 方法，其會傳回 [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx)，其中包含 **CollectionSizeUsage**、**DatabaseUsage**、**DocumentUsage** 等數個使用量屬性。
 
 ## 疑難排解
-如果您的監視磚顯示**沒有可用的資料**訊息，以及您最近所做的要求或加入至資料庫的資料，您就能編輯磚以反映最近的使用量。
+如果您的監視圖格顯示**沒有可用的資料**訊息，以及您最近所做的要求或加入至資料庫的資料，您就能編輯圖格以反映最近的使用量。
 
 ### 編輯磚以重新整理目前的資料
 1.	若要自訂特定組件中顯示的度量，請以滑鼠右鍵按一下度量圖表，然後選取 [**編輯圖表**]。![指出沒有可用資料的 [要求總數] 磚螢幕擷取畫面](./media/documentdb-monitor-accounts/documentdb-no-available-data.png)
@@ -103,10 +95,9 @@ Azure 入口網站可讓您建立並排度量圖表。
 2.	在 [編輯圖表] 刀鋒視窗的 [時間範圍] 區段中，依序按一下 [過去 1 小時] 和 [儲存]。![已選取過去 1 小時的 [編輯圖表] 刀鋒視窗螢幕擷取畫面](./media/documentdb-monitor-accounts/documentdb-no-available-data-past-hour.png)
 
 
-3.	您的磚現在應該會重新整理以顯示您目前的資料和使用量。 ![過去 1 小時已更新的要求總數磚的的螢幕擷取畫面](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
+3.	您的圖格現在應該會重新整理以顯示您目前的資料和使用量。 ![過去 1 小時已更新的要求總數磚的的螢幕擷取畫面](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
 
 ## 後續步驟
 若要深入了解 DocumentDB 容量，請參閱[管理 DocumentDB 容量](documentdb-manage.md)。
- 
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -3,9 +3,9 @@
 	description="了解如何識別可做為 Stretch Database 候選對象的資料庫和資料表。"
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -61,6 +61,11 @@
 -   若要在該資料庫已啟用 Stretch 的情況下，於另一個**資料表**上啟用 Stretch Database，請參閱 [Enable Stretch Database for a table (為資料表啟用 Stretch Database)](sql-server-stretch-database-enable-table.md)。
 
 ## 另請參閱
-[Surface area limitations and blocking issues for Stretch Database (Stretch Database 的介面區域限制和封鎖問題)](sql-server-stretch-database-limitations.md) [Enable Stretch Database for a database (為資料庫啟用 Stretch Database)](sql-server-stretch-database-enable-database.md) [Enable Stretch Database for a table (為資料表啟用 Stretch Database)](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+[Stretch Database 的介面區域限制和封鎖問題](sql-server-stretch-database-limitations.md)
+
+[為資料庫啟用 Stretch Database](sql-server-stretch-database-enable-database.md)
+
+[為資料表啟用 Stretch Database](sql-server-stretch-database-enable-table.md)
+
+<!---HONumber=AcomDC_0316_2016-->

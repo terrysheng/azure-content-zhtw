@@ -13,18 +13,19 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="02/10/2016"
+	ms.date="03/16/2016"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>開始使用行動服務
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[建立 Windows 應用程式](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started.md)。
 
 本教學課程顯示如何使用 Azure 行動服務，將雲端型後端服務新增到通用 Windows 應用程式。通用 Windows 應用程式解決方案包括 Windows 市集 8.1 和 Windows Phone 市集 8.1 應用程式的專案，以及一般共用專案。如需詳細資訊，請參閱[建置目標為 Windows 和 Windows Phone 的通用 Windows 應用程式](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx)。
 
-在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單*待辦事項*應用程式。您將建立的行動服務會使用 JavaScript 建立伺服器端商務邏輯。若要建立可讓您使用 Visual Studio 並以支援的 .NET 語言來撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 .NET 後端版本。
+在本教學課程中，您將建立新的行動服務，並建立可在新的行動服務中儲存應用程式資料的簡單待辦事項應用程式。您將建立的行動服務會使用 JavaScript 建立伺服器端商務邏輯。若要建立可讓您使用 Visual Studio 並以支援的 .NET 語言來撰寫伺服器端商務邏輯的行動服務，請參閱本主題的 .NET 後端版本。
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../../includes/mobile-services-windows-universal-get-started.md)]
 
@@ -58,7 +59,7 @@
 
 5. 在 [Download and run your app] 中，選取您的應用程式語言，然後按一下 [下載]。
 
-  	這將會下載與行動服務連接的範例*待辦事項*應用程式專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
+  	這將會下載與行動服務連接的範例待辦事項應用程式專案。將此壓縮專案檔案儲存到您的本機電腦，並記錄儲存位置。
 
 ## 執行您的 Windows 應用程式
 
@@ -98,4 +99,4 @@
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
  
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

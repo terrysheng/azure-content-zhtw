@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2016"
+	ms.date="03/18/2016"
 	ms.author="dastrock"/>
 
-# 我應該使用 v2.0 端點嗎？ 
+# 我應該使用 v2.0 端點嗎？
 
 當建立與 Azure Active Directory 整合的應用程式時，您必須判斷 v2.0 端點和驗證通訊協定是否符合您的需求。仍然完整支援原始的 Azure AD 應用程式模型，而且在某些方面比 v2.0 的功能更豐富。不過，v2.0 端點為開發人員[帶來極大的好處](active-directory-v2-compare.md)， 可能吸引您採用新的程式設計模型。隨著時間經過，v2.0 會成長到含括所有的 Azure AD 功能，屆時您只需要使用 v2.0 端點即可。
 
@@ -74,13 +74,15 @@ v2.0 端點目前支援登入所有在新的應用程式註冊入口網站註冊
 
 - 如果您要建置 Web 應用程式，您可以安心地使用我們正式運作的伺服器端中介軟體來執行登入和權杖驗證。其中包括適用於 ASP.NET 的 OWIN Open ID Connect 中介軟體和我們的 NodeJS Passport 外掛程式。[使用者入門](active-directory-appmodel-v2-overview.md#getting-started)一節也提供使用這些中介軟體的範例程式碼。
 - 至於其他平台及原生與行動應用程式，您也可以直接在應用程式程式碼中傳送和接收通訊協定訊息，以便與 v2.0 端點整合。v2.0 OpenID Connect 和 OAuth 通訊協定[有明確的說明文件](active-directory-v2-protocols.md)，可協助您執行這種整合。
-- 最後，您可以使用開放原始碼 Open ID Connect 和 OAuth 程式庫來與 v2.0 端點整合。v2.0 通訊協定與許多開放原始碼通訊協定程式庫都應該相容，而不需要重大變更。這類程式庫的可用性依語言和平台而不同，[Open ID Connect](http://openid.net/connect/) 和 [OAuth 2.0](http://oauth.net/2/) 網站維護一份常用的實作清單。以下是已通過 v2.0 端點測試的開放原始碼用戶端程式庫和範例。請注意，尚未支援像是 [OpenID Connect 動態用戶端註冊](https://openid.net/specs/openid-connect-registration-1_0.html)和權杖驗證端點等功能，而且可能需要在程式庫中停用它們，才能使用 v2 端點： 
+- 最後，您可以使用開放原始碼 Open ID Connect 和 OAuth 程式庫來與 v2.0 端點整合。v2.0 通訊協定與許多開放原始碼通訊協定程式庫都應該相容，而不需要重大變更。這類程式庫的可用性依語言和平台而不同，[Open ID Connect](http://openid.net/connect/) 和 [OAuth 2.0](http://oauth.net/2/) 網站維護一份常用的實作清單。以下是已通過 v2.0 端點測試的開放原始碼用戶端程式庫和範例。
 
   - [Java WSO2 身分識別伺服器](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
   - [Java Gluu 同盟](https://github.com/GluuFederation/oxAuth)
   - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
   - [PHP OpenID Connect 基本用戶端](https://github.com/jumbojett/OpenID-Connect-PHP)
-  - [Android OpenID Connect 範例](https://github.com/learning-layers/android-openid-connect)
+  - [iOS OAuth2 用戶端](https://github.com/nxtbgthng/OAuth2Client)
+  - [Android OAuth2 用戶端](https://github.com/wuman/android-oauth-client)
+  - [Android OpenID Connect 用戶端](https://github.com/kalemontes/OIDCAndroidLib)
 
 ## 通訊協定的限制
 v2.0 端點僅支援 Open ID Connect 和 OAuth 2.0。不過，並非每個通訊協定的所有特性與功能都已納入到 v2.0 端點。部分範例包括：
@@ -96,4 +98,4 @@ Azure Active Directory 服務中有一組開發人員功能 (v2.0 端點尚不�
 - Azure AD 使用者的群組宣告
 - 應用程式角色和角色宣告
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

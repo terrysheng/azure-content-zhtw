@@ -53,7 +53,7 @@ Application Insights 可以監視 Java 和 ASP.NET Web 應用程式與服務、W
 
 ![按一下圖形以選擇度量](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
 
-> [AZURE.NOTE]**取消核取所有度量**可查看所有可供選擇的項目。度量分為多個群組；當您選取群組的任何成員時，只有該群組的其他成員會出現。
+> [AZURE.NOTE] **取消核取所有度量**可查看所有可供選擇的項目。度量分為多個群組；當您選取群組的任何成員時，只有該群組的其他成員會出現。
 
 
 ## <a name="metrics"></a>這具有哪些意義？ 效能磚和報告
@@ -111,6 +111,8 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 ## 系統效能計數器
 
 您可以選擇的度量包含[效能計數器](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)。Windows 提供多種計數器，您也可以自行定義。
+
+(若是 Azure 上裝載的應用程式，請 [將 Azure 診斷傳送至 Application Insights](app-insights-azure-diagnostics.md)。)
 
 此範例會顯示預設提供的效能計數器。我們已針對每個計數器[加入個別的圖表](app-insights-metrics-explorer.md#editing-charts-and-grids)，並透過[另存為我的最愛](app-insights-metrics-explorer.md#editing-charts-and-grids)來命名圖表：
 
@@ -199,4 +201,4 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0323_2016-->

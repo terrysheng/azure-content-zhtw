@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="03/05/2016" 
 	ms.author="glenga"/>
 
 # 傳送推播通知給已驗證的使用者
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱 [How to: Send push notifications to an authenticated user using tags (做法：使用標記傳送推播通知給已驗證的使用者)](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#push-user)。
 
 ##概觀
 本主題說明如何將推播通知傳送給任何已註冊之 iOS 裝置上的驗證使用者。不同於先前的[將推播通知新增至您的應用程式]教學課程，本教學課程會變更您的行動服務，要求使用者必須先完成驗證，用戶端才能向通知中心註冊推播通知。此外也會修改註冊，以根據指派的使用者識別碼新增標記。最後會更新伺服器指令碼，而僅將通知傳送給已驗證的使用者，而不是所有的註冊。
@@ -95,4 +100,4 @@
 [將驗證新增至您的應用程式]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [將推播通知新增至您的應用程式]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

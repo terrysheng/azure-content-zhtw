@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="串流分析版本資訊 | Microsoft Azure" 
-	description="Azure 串流分析版本資訊" 
+	description="串流分析版本資訊" 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/16/2016" 
+	ms.date="03/18/2016" 
 	ms.author="jeffstok"/>
 
 #串流分析版本資訊
+
+## 串流分析 2016/03/03 版的注意事項 ##
+
+此版本包含下列更新。
+
+課程名稱 | 說明
+---|---
+新的串流分析查詢語言項目 | SAQL 現在有 [GetType](https://msdn.microsoft.com/library/azure/mt643890.aspx "GetType MSDN 頁面")、[TRY\_CAST](https://msdn.microsoft.com/library/azure/mt643735.aspx "TRY_CAST MSDN 頁面") 及 [REGEXMATCH](https://msdn.microsoft.com/library/azure/mt643891.aspx "REGEXMATCH MSDN 頁面")。
 
 ## 串流分析 2015 年 12 月 10 日版本的注意事項 ##
 
@@ -25,7 +33,7 @@
 課程名稱 | 說明
 ---|---
 REST API 版本更新 | REST API 的版本已更新至 2015-10-01。您可在[串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)和[在串流分析中整合機器學習服務](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)的 MSDN 中取得詳細資料。
-Azure 機器學習的整合 | 此版本開始支援 Azure 機器學習的使用者定義函數。如需教學課程，請前往[這裡](stream-analytics-machine-learning-integration-tutorial.md)；如需一般的部落格公告，請前往[這裡](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx)。
+Azure 機器學習的整合 | 此版本開始支援 Azure 機器學習的使用者定義函數。如需詳細資訊，請參閱[教學課程](stream-analytics-machine-learning-integration-tutorial.md)及[部落格上的一般公告](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx)。
 
 ## 串流分析 2015/11/12 版本的注意事項 ##
 
@@ -54,7 +62,7 @@ SELECT 的新行為 | 「串流分析」中的 SELECT 已經延伸成允許使�
 課程名稱 | 說明
 ---|---
 Azure IoT Suite 公用預覽 | Azure IoT Suite 公用預覽包含串流分析。
-Azure Preview 入口網站整合 | 串流分析除了會繼續出現在 Azure 管理入口網站之外，它現在也已整合到 [Azure Preview 入口網站](https://azure.microsoft.com/overview/preview-portal/)中。請注意，Preview 入口網站中的串流分析功能目前是 Azure 管理入口網站所提供功能的子集，不支援瀏覽器中查詢測試、Power BI 輸出組態和在有存取權限的訂用帳戶中瀏覽或建立新的輸入和輸出資源。
+Azure 入口網站整合 | 串流分析除了會繼續出現在 Azure 管理入口網站之外，它現在也已整合到 [Azure 入口網站](https://azure.microsoft.com/overview/preview-portal/)中。請注意，Preview 入口網站中的串流分析功能目前是 Azure 管理入口網站所提供功能的子集，不支援瀏覽器中查詢測試、Power BI 輸出組態和在有存取權限的訂用帳戶中瀏覽或建立新的輸入和輸出資源。
 支援 DocumentDB 輸出 | 串流分析工作現在可以輸出到 [DocumentDB](https://azure.microsoft.com/services/documentdb/)。
 支援 IoT 中心輸入 | 串流分析作業現在可以內嵌來自 IoT 中心的資料。
 異質事件的時間戳記格式 | 當單一資料流包含數個在不同欄位有不同時間戳記的事件類型時，您現在已可以使用 [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) 搭配運算式為每個案例指定不同的時間戳記欄位。
@@ -133,4 +141,4 @@ PowerBI 資料集只能包含一個資料表|PowerBI 不允許指定的資料集
 - [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

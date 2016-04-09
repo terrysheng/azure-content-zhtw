@@ -111,8 +111,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 	+ 適用於 IPython Notebook 伺服器遠端連線
 	+ 擷取 IPython Notebook 範例和 SQL 指令碼
 	+ 下載並安裝實用的資料科學 Python 封裝
-	+ 下載並安裝 Azure 工具，例如 AzCopy 和 Azure 儲存體總管  
-<br>
+	+ 下載並安裝 Azure 工具，例如 AzCopy 和 Azure 儲存體總管<br>
 - 您可以使用 `https://<virtual_machine_DNS_name>:<port>` 格式的 URL，從任何本機或遠端瀏覽器存取並執行 IPython Notebook，URL 格式中的 port 是您佈建虛擬機器時選取的 IPython 公用連接埠。
 - IPython Notebook 伺服器正以背景服務形式執行，而且將在您重新啟動虛擬機器時自動重新啟動。
 
@@ -122,7 +121,7 @@ Azure 虛擬機器組件庫涵蓋數個包含 Microsoft SQL Server 的映像。�
 
  > [AZURE.NOTE] 請勿使用 D 磁碟機來儲存資料。顧名思義，它只提供暫存儲存空間。它並不提供備援或備份，因為它不在 Azure 儲存體內。
 
-若要連接其他資料磁碟，請依照「[如何將資料磁碟連接至 Windows 虛擬機器](storage-windows-attach-disk.md)」中所述的步驟執行，這將引導您完成：
+若要連接其他資料磁碟，請依照「[如何將資料磁碟連接至 Windows 虛擬機器](virtual-machines-windows-classic-attach-disk.md)」中所述的步驟執行，這將引導您完成：
 
 1. 將空磁碟連接至先前步驟中佈建的虛擬機器
 2. 在虛擬機器中將新磁碟初始化
@@ -299,4 +298,4 @@ Azure 虛擬機器的定價策略是「**只針對您使用的項目進行付費
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

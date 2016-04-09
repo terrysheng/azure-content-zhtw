@@ -17,11 +17,10 @@
 	ms.author="ricksal"/>
 
 # 將推播通知新增至行動服務應用程式
-
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
+> 如需本主題的對等 Mobile Apps 版本，請參閱[將推播通知新增至 Android 應用程式](../app-service-mobile/app-service-mobile-android-get-started-push.md)。
+ 
 &nbsp;
-
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
@@ -117,4 +116,4 @@
 [將廣播通知傳送給訂閱者]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [將範本型通知傳送給訂閱者]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 
-<!----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

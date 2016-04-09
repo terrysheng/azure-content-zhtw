@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="03/07/2016" 
 	ms.author="nitinme"/>
 
 
@@ -27,6 +27,8 @@
 
 
    ![開始使用 HDInsight 中的 Apache Spark](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.getstartedflow.png "開始使用 HDInsight 教學課程中的 Apache Spark插圖化的步驟：建立儲存體帳戶；建立叢集；執行 Spark SQL 陳述式")
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 **必要條件：**
 
@@ -234,6 +236,10 @@
 
 	![重新啟動 Jupyter 核心](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/hdispark.jupyter.restart.kernel.png "重新啟動 Jupyter 核心")
 
+##刪除叢集
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 
 ##<a name="seealso"></a>另請參閱
 
@@ -256,4 +262,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

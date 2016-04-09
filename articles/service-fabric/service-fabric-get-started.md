@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/09/2016"
+   ms.date="03/26/2016"
    ms.author="seanmck"/>
 
 # 準備您的開發環境
@@ -21,29 +21,27 @@
 
 ## 必要條件
 ### 支援的作業系統版本
-下列為支援的作業系統版本：
+下列為支援開發的作業系統版本：
 
+- Windows 7
 - Windows 8/Windows 8.1
 - Windows Server 2012 R2
 - Windows 10
 
 ### Visual Studio 2015
 
-適用於 Service Fabric 的工具取決於 Visual Studio 2015，您可以在 [Visual Studio 網站][2]上找到。
+適用於 Service Fabric 的工具至少需要 Visual Studio 2015，您可以在 [Visual Studio 網站][2]上找到。
 
-> [AZURE.NOTE] 若您並未執行其中一個支援的作業系統版本，或不想在您的電腦上安裝 Visual Studio 2015，則您可以設定已預先安裝 Windows Server 2012 R2 和 Visual Studio 2015 的 Azure 虛擬機器。您可以使用 Azure 虛擬機器資源庫中的映像來執行這項操作。
+> [AZURE.NOTE] 若您並未執行其中一個支援的作業系統版本，或不想在您的電腦上安裝 Visual Studio，則您可以設定已預先安裝 Windows Server 2012 R2 和 Visual Studio 的 Azure 虛擬機器。您可以使用 Azure 虛擬機器資源庫中的映像來執行這項操作。
 
 ## 安裝執行階段、SDK 和工具
 
-Web Platform Installer 會執行 Service Fabric 元件的安裝。遵循這些指示來進行安裝：
+Web Platform Installer 會執行 Service Fabric 元件的安裝。有三個安裝選項：
 
-1. 使用 Web Platform Installer [下載 SDK][3]。
+- [安裝適用於 Visual Studio 2015 的 Service Fabric 執行階段、SDK 和工具](full-bundle-vs2015)
+- [安裝適用於 Visual Studio "15" Preview 的 Service Fabric 執行階段、SDK 和工具](full-bundle-dev15)
+- [僅安裝 Service Fabric 執行階段和 SDK (不安裝 Visual Studio 工具)](core-sdk)
 
-2. 按一下 [安裝] 開始安裝程序。
-
-3. 檢閱並接受使用者授權合約。
-
-系統將自動繼續安裝。
 
 ## 啟用 PowerShell 指令碼執行
 
@@ -65,6 +63,8 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric 活動頁面"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 連結"
+[full-bundle-vs2015]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI 連結"
+[full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 連結"
+[core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Core SDK WebPI 連結"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

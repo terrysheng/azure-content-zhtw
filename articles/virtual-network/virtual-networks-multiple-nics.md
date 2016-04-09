@@ -1,14 +1,14 @@
-<properties 
+<properties
    pageTitle="建立具有多個 NIC 的 VM"
    description="深入了解如何建立與設定具有多個 NIC 的 VM"
    services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
    manager="carmonm"
-   editor="tysonn" 
+   editor="tysonn"
    tags="azure-service-management,azure-resource-manager"
 />
-<tags 
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -25,22 +25,13 @@
 
 上圖顯示具有三個 NIC 的 VM，每個都連接到不同的子網路。
 
-## 需求和限制
-
-多個 NIC 目前具有下列需求和條件約束：
-
-- 多個 NIC 的 VM 必須建立於 Azure 虛擬網路 (VNet) 中。不支援非 VNet 的 VM。 
-- 在單一雲端服務 (傳統部署) 或資源群組 (資源管理員部署) 中，僅允許下列設定： 
-	- 該雲端服務中的所有 VM 必須已啟用多個 NIC 功能，或者 
-	- 該雲端服務中的每一個 VM 都必須具有單一 NIC 
-
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
- 
-- 只有「預設」NIC 上才支援網際網路對向的 VIP (傳統部署)。只有一個 VIP 可以連接到預設 NIC 的 IP。 
-- 執行個體層級公用 IP (LPIP) 位址 (傳統部署) 目前不支援多個 NIC 的 VM。 
-- VM 內部的 NIC 順序是隨機的，而且也可透過 Azure 基礎結構更新來變更。不過，IP 位址及對應的乙太網路 MAC 位址會維持不變。例如，假設 **Eth1** 具有 IP 位址 10.1.0.100 和 MAC 位址 00-0D-3A-B0-39-0D；在 Azure 基礎結構更新並重新開機之後，就無法變更為 **Eth2**，但是 IP 和 MAC 配對會保持相同。當客戶起始重新啟動時，NIC 順序會保持相同。 
-- 每個 VM 上的每個 NIC 位址都必須位於子網路中，單一 VM 上的多個 NIC 每個都可以指派位於相同子網路的位址。 
-- VM 大小會決定您可以為 VM 建立的 NIC 數目。下表列出與 VM 大小相對應的 NIC 數目： 
+
+- 只有「預設」NIC 上才支援網際網路對向的 VIP (傳統部署)。只有一個 VIP 可以連接到預設 NIC 的 IP。
+- 執行個體層級公用 IP (LPIP) 位址 (傳統部署) 目前不支援多個 NIC 的 VM。
+- VM 內部的 NIC 順序是隨機的，而且也可透過 Azure 基礎結構更新來變更。不過，IP 位址及對應的乙太網路 MAC 位址會維持不變。例如，假設 **Eth1** 具有 IP 位址 10.1.0.100 和 MAC 位址 00-0D-3A-B0-39-0D；在 Azure 基礎結構更新並重新開機之後，就無法變更為 **Eth2**，但是 IP 和 MAC 配對會保持相同。當客戶起始重新啟動時，NIC 順序會保持相同。
+- 每個 VM 上的每個 NIC 位址都必須位於子網路中，單一 VM 上的多個 NIC 每個都可以指派位於相同子網路的位址。
+- VM 大小會決定您可以為 VM 建立的 NIC 數目。下表列出與 VM 大小相對應的 NIC 數目：
 
 |VM 大小 (標準 SKU)|NIC 數目 (每個 VM 允許的最大值)|
 |---|---|
@@ -94,8 +85,8 @@
 
 如果將子網路關聯至 NSG，而且該子網路內的 NIC 會個別關聯至 NSG，則相關聯的 NSG 規則會根據傳入或傳出 NIC 的流量方向套用**流程順序**：
 
-- ****連入流量** 的目的地是問題流量中的 NIC，首先會通過子網路，並在傳入 NIC 前觸發子網路的 NSG 規則，然後再觸發 NIC 的 NSG 規則。
-- **連出流量**的來源是有問題的流量中第一次從 NIC 流出的 NIC，會在流經子網路之前觸發 NIC 的 NSG 規則，然後觸發子網路的 NSG 規則。 
+- **連入流量**的目的地是上述流量中的 NIC，首先會通過子網路，並在傳入 NIC 前觸發子網路的 NSG 規則，然後再觸發 NIC 的 NSG 規則。
+- **連出流量**的來源是有問題的流量中第一次從 NIC 流出的 NIC，會在流經子網路之前觸發 NIC 的 NSG 規則，然後觸發子網路的 NSG 規則。
 
 深入了解[網路安全性群組](virtual-networks-nsg.md)和其如何根據與子網路、VM 和 NIC 之關聯而套用。
 
@@ -133,8 +124,8 @@
 
 若要建立有多個 NIC 的 VM，請依照下列步驟：
 
-1. 從 Azure VM 映像庫中選取 VM 映像請注意，映像經常變更且可依區域取得。以下範例中指定的映像可能會變更，或者可能不在您的區域中，因此，請務必指定您需要的映像。 
-	    
+1. 從 Azure VM 映像庫中選取 VM 映像請注意，映像經常變更且可依區域取得。以下範例中指定的映像可能會變更，或者可能不在您的區域中，因此，請務必指定您需要的映像。
+
 		$image = Get-AzureVMImage `
 	    	-ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201410.01-en.us-127GB.vhd"
 
@@ -151,13 +142,13 @@
 1. 在 VM 組態中加入其他 NIC。
 
 		Add-AzureNetworkInterfaceConfig -Name "Ethernet1" `
-			-SubnetName "Midtier" -StaticVNetIPAddress "10.1.1.111" -VM $vm 
+			-SubnetName "Midtier" -StaticVNetIPAddress "10.1.1.111" -VM $vm
 		Add-AzureNetworkInterfaceConfig -Name "Ethernet2" `
 			-SubnetName "Backend" -StaticVNetIPAddress "10.1.2.222" -VM $vm
 
 1. 指定預設 NIC 的子網路和 IP 位址。
 
-		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm 
+		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm
 		Set-AzureStaticVNetIP -IPAddress "10.1.0.100" -VM $vm
 
 1. 在虛擬網路中建立 VM。
@@ -166,11 +157,20 @@
 
 >[AZURE.NOTE] 您在此處指定的 VNet 必須已經存在 (如必要條件中所提及)。下面範例指定名稱為 **MultiNIC-VNet** 的虛擬網路。
 
+## 限制
+
+使用多個 NIC 功能時，適用下列限制︰
+
+- 多個 NIC 的 VM 必須建立於 Azure 虛擬網路 (VNet) 中。無法使用多個 NIC 設定非 VNet VM。
+- 可用性設定組中的所有 VM 都必須使用多個 NIC 或單一 NIC。在可用性設定組內無法混用多個 NIC VM 和單一 NIC VM。雲端服務中的 VM 適用相同規則。
+- 一旦部署 VM 之後，如果沒有刪除後再重新建立，則無法使用多個 NIC 設定包含單一 NIC 的 VM (反之亦然)。
+
+
 ## 其他子網路的次要 NIC 存取
 
-目前 Azure 中的模型是虛擬機器中全部的 NIC 都設定為預設閘道。這可讓 NIC 與它們子網路外部的 IP 位址通訊。使用弱式路由模型的作業系統 (例如 Linux)，如果輸入和輸出流量使用不同的 NIC，網際網路連線將會中斷。
+根據預設，將不會使用預設閘道設定次要 NIC，因為次要 NIC 上的流量將會限制在相同的子網路內。如果使用者想要啟用次要 NIC 在其子網路外部通訊，他們必須在路由表中新增項目以設定閘道，如下所述。
 
-為了修正此問題，Azure 將於 2015 年 7 月第一週，將更新推出到將從次要 NIC 移除預設閘道的平台。在現有虛擬機器重新開機之前，這不會影響現有的虛擬機器。重新開機之後，新的設定將會生效，同時次要 NIC 上的流量將會限制在相同的子網路中。如果使用者想要啟用次要 NIC 在其子網路外部通訊，他們必須在路由表中新增項目以設定閘道，如下所述。
+>[AZURE.NOTE] 在 2015 年 7 月之前建立的 VM 可能已經為所有 NIC 設定預設閘道。在這些 VM 重新開機之前，將不會移除次要 NIC 的預設閘道。在使用弱式主機路由模型的作業系統 (例如 Linux) 中，如果輸入和輸出流量使用不同的 NIC，網際網路連線可能會中斷。
 
 ### 設定 Windows VM
 
@@ -207,7 +207,7 @@
 請注意，預設路由 (0.0.0.0) 僅提供主要 NIC 使用。您將無法存取次要 NIC 子網路外部的資源，如下所示：
 
 	C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
-	 
+
 	Pinging 192.168.1.7 from 192.165.2.5 with 32 bytes of data:
 	PING: transmit failed. General failure.
 	PING: transmit failed. General failure.
@@ -236,7 +236,7 @@
 4. 若要測試連線，請移至命令提示字元並嘗試 ping 不同的次要 NIC 子網路，如下列範例所示：
 
 		C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
-		 
+
 		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
 		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
 		Reply from 192.168.1.7: bytes=32 time=2ms TTL=128
@@ -265,4 +265,4 @@
 - 部署[在資源管理員部署中的 2 層應用程式案例之多個 NIC VM](virtual-network-deploy-multinic-arm-template.md)。
 - 部署[在傳統部署中的 2 層應用程式案例之多個 NIC VM](virtual-network-deploy-multinic-classic-ps.md)。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

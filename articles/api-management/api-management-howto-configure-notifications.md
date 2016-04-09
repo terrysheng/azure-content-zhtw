@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中設定通知和電子郵件範本
@@ -114,4 +114,4 @@ API 管理可讓您設定特定事件的通知，以及設定用來與 API 管�
 [建立 API 管理服務執行個體]: api-management-get-started.md
 [開始使用 Azure API 管理]: api-management-get-started.md#create-service-instance
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

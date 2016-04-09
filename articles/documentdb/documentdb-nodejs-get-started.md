@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="hero-article" 
-	ms.date="02/19/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # NoSQL Node.js 教學課程：DocumentDB Node.js 主控台應用程式  
@@ -85,85 +85,76 @@
 
 現在讓我們將 ```database id```、```collection id``` 和 ```JSON documents``` 新增到 ```config``` 物件。在您設定 ```config.endpoint``` 和 ```config.authKey``` 屬性的位置下面，新增下列程式碼。如果您已經有想要儲存於資料庫中的資料，就可以使用 DocumentDB 的[資料移轉工具](documentdb-import-data.md)，而不用新增文件定義。
 
-    config.dbDefinition = {"id": "FamilyRegistry"};
-    config.collDefinition = {"id": "FamilyCollection"};
+    config.database = {
+        "id": "FamilyDB"
+    };
 
-    var documents = {
-      "Andersen": {
-        "id": "AndersenFamily",
-        "LastName": "Andersen",
-        "Parents": [
-          {
-            "FirstName": "Thomas"
-          },
-          {
-            "FirstName": "Mary Kay"
-          }
-        ],
-        "Children": [
-          {
-            "FirstName": "Henriette Thaulow",
-            "Gender": "female",
-            "Grade": 5,
-            "Pets": [
-              {
-                "GivenName": "Fluffy"
-              }
-            ]
-          }
-        ],
-        "Address": {
-          "State": "WA",
-          "County": "King",
-          "City": "Seattle"
-        }
-      },
-      "Wakefield":   {
-          "id": "WakefieldFamily",
-          "Parents": [
-            {
-              "FamilyName": "Wakefield",
-              "FirstName": "Robin"
-            },
-            {
-              "FamilyName": "Miller",
-              "FirstName": "Ben"
+    config.collection = {
+        "id": "FamilyColl",
+        "partitionKey": { "paths": ["/district"], "kind": "Hash" }
+    };
+
+    config.documents = {
+        "Andersen": {
+            "id": "Anderson.1",
+            "lastName": "Andersen",
+            "district": "WA5",
+            "parents": [{
+                "firstName": "Thomas"
+            }, {
+                    "firstName": "Mary Kay"
+                }],
+            "children": [{
+                "firstName": "Henriette Thaulow",
+                "gender": "female",
+                "grade": 5,
+                "pets": [{
+                    "givenName": "Fluffy"
+                }]
+            }],
+            "address": {
+                "state": "WA",
+                "county": "King",
+                "city": "Seattle"
             }
-          ],
-          "Children": [
-            {
-              "FamilyName": "Merriam",
-              "FirstName": "Jesse",
-              "Gender": "female",
-              "Grade": 8,
-              "Pets": [
-                {
-                  "GivenName": "Goofy"
-                },
-                {
-                  "GivenName": "Shadow"
-                }
-              ]
+        },
+        "Wakefield": {
+            "id": "Wakefield.7",
+            "district": "NY23",
+            "parents": [{
+                "familyName": "Wakefield",
+                "firstName": "Robin"
+            }, {
+                    "familyName": "Miller",
+                    "firstName": "Ben"
+                }],
+            "children": [{
+                "familyName": "Merriam",
+                "firstName": "Jesse",
+                "gender": "female",
+                "grade": 8,
+                "pets": [{
+                    "givenName": "Goofy"
+                }, {
+                        "givenName": "Shadow"
+                    }]
+            }, {
+                    "familyName": "Miller",
+                    "firstName": "Lisa",
+                    "gender": "female",
+                    "grade": 1
+                }],
+            "address": {
+                "state": "NY",
+                "county": "Manhattan",
+                "city": "NY"
             },
-            {
-              "FamilyName": "Miller",
-              "FirstName": "Lisa",
-              "Gender": "female",
-              "Grade": 1
-            }
-          ],
-          "Address": {
-            "State": "NY",
-            "County": "Manhattan",
-            "City": "NY"
-          },
-          "IsRegistered": false
+            "isRegistered": false
         }
     };
 
-    config.docsDefinitions = documents;
 
-資料庫、集合和文件定義會作為您 DocumentDB 的```database id```、```collection id```和文件資料。
+資料庫、集合和文件定義會作為您 DocumentDB 的 ```database id```、```collection id``` 和文件的資料。
 
 最後，匯出您的 ```config``` 物件，如此就可以在 ```app.js``` 檔案中參考它。
 
@@ -173,104 +164,107 @@
 
 在文字編輯器中開啟您的空白 ```app.js``` 檔案。匯入 ```documentdb``` 模組和新建的 ```config``` 模組。
 
+    "use strict";
+
     var documentClient = require("documentdb").DocumentClient;
     var config = require("./config");
+    var url = require('url');
 
 接下來，我們將使用先前儲存的 ```config.endpoint``` 和 ```config.authKey``` 來建立新的 DocumentClient。
 
-    var client = new documentClient(config.endpoint, {"masterKey": config.authKey});
+    var client = new documentClient(config.endpoint, { "masterKey": config.authKey });
 
 現在既然您已連接到 DocumentDB 帳戶，讓我們看看如何使用 DocumentDB 資源。
 
 ## 步驟 5：建立節點資料庫
 可以使用 **DocumentClient** 類別的 [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式來建立[資料庫](documentdb-resources.md#databases)。資料庫是分割給多個集合之文件儲存體的邏輯容器。以 ```config``` 物件中指定的 ```id```，在 app.js 檔案中加入建立新資料庫的函式。我們會先檢查確定具有相同 ```FamilyRegistry``` 識別碼的資料庫不存在。如果存在，我們會傳回該資料庫，而不會建立新資料庫。
 
-    var getOrCreateDatabase = function(callback) {
-        var querySpec = {
-            query: 'SELECT * FROM root r WHERE r.id=@id',
-            parameters: [{
-                name: '@id',
-                value: config.dbDefinition.id
-            }]
-        };
+    var HttpStatusCodes = { NOTFOUND: 404 };
+    var databaseUrl = `dbs/${config.database.id}`;
+    var collectionUrl = `${databaseUrl}/colls/${config.collection.id}`;
 
-        client.queryDatabases(querySpec).toArray(function(err, results) {
-            if(err) return callback(err);
+    /**
+     * Get the database by ID, or create if it doesn't exist.
+     * @param {string} database - The database to get or create
+     */
+    function getDatabase() {
+        console.log(`Getting database:\n${config.database.id}\n`);
 
-            if (results.length === 0) {
-                client.createDatabase(config.dbDefinition, function(err, created) {
-                    if(err) return callback(err);
-
-                    callback(null, created);
-                });
-            }
-            else {
-                callback(null, results[0]);
-            }
+        return new Promise((resolve, reject) => {
+            client.readDatabase(databaseUrl, (err, result) => {
+                if (err) {
+                    if (err.code == HttpStatusCodes.NOTFOUND) {
+                        client.createDatabase(config.database, (err, created) => {
+                            if (err) reject(err)
+                            else resolve(created);
+                        });
+                    } else {
+                        reject(err);
+                    }
+                } else {
+                    resolve(result);
+                }
+            });
         });
-    };
-
+    }
 ##<a id="CreateColl"></a>步驟 6：建立集合  
 
-> [AZURE.WARNING] **CreateDocumentCollectionAsync** 會建立具有定價含意的新 S1 集合。如需詳細資訊，請造訪[定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
+> [AZURE.WARNING] **CreateDocumentCollectionAsync** 會建立具有定價含意的新集合。如需詳細資訊，請造訪[定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
 
-可以使用 **DocumentClient** 類別的 [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式建立[集合](documentdb-resources.md#collections)。集合是 JSON 文件和相關聯 JavaScript 應用程式邏輯的容器。新建立的集合將會對應至 [S1 效能層級](documentdb-performance-levels.md)。以 ```config``` 物件中指定的 ```id```，在 app.js 檔案中加入建立新集合的函式。同樣地，我們會檢查確定具有相同 ```FamilyCollection``` 識別碼的集合不存在。如果存在，我們會傳回該集合，而不會建立新集合。
+可以使用 **DocumentClient** 類別的 [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式建立[集合](documentdb-resources.md#collections)。集合是 JSON 文件和相關聯的 JavaScript 應用程式邏輯的容器，dd 用於在 app.js 檔案中建立新集合的函式，並在 ```config``` 物件中指定 ```id```。同樣地，我們會檢查確定具有相同 ```FamilyCollection``` 識別碼的集合不存在。如果存在，我們會傳回該集合，而不會建立新集合。
 
-    var getOrCreateCollection = function(callback) {
+    /**
+     * Get the collection by ID, or create if it doesn't exist.
+     */
+    function getCollection() {
+        console.log(`Getting collection:\n${collection.id}\n`);
 
-        var querySpec = {
-            query: 'SELECT * FROM root r WHERE r.id=@id',
-            parameters: [{
-                name: '@id',
-                value: config.collDefinition.id
-            }]
-        };
-
-        var dbUri = "dbs/" + config.dbDefinition.id;
-
-        client.queryCollections(dbUri, querySpec).toArray(function(err, results) {
-            if(err) return callback(err);
-
-            if (results.length === 0) {
-                client.createCollection(dbUri, config.collDefinition, function(err, created) {
-                    if(err) return callback(err);
-                    callback(null, created);
-                });
-            }
-            else {
-                callback(null, results[0]);
-            }
+        return new Promise((resolve, reject) => {
+            client.readCollection(collectionUrl, (err, result) => {
+                if (err) {
+                    if (err.code == HttpStatusCodes.NOTFOUND) {
+                        client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
+                            if (err) reject(err)
+                            else resolve(created);
+                        });
+                    } else {
+                        reject(err);
+                    }
+                } else {
+                    resolve(result);
+                }
+            });
         });
-    };
+    }
 
 ##<a id="CreateDoc"></a>步驟 7：建立文件
 可以使用 **DocumentClient** 類別的 [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 函式來建立[文件](documentdb-resources.md#documents)。文件會是使用者定義的 (任意) JSON 內容。您現在可以將文件插入至 DocumentDB。
 
 接下來，將建立文件 (包含儲存在 ```config``` 物件中的 JSON 資料) 的函式加入至 app.js。同樣地，我們會檢查以確定具有相同識別碼的文件不存在。
 
-    var getOrCreateDocument = function(document, callback) {
-        var querySpec = {
-            query: 'SELECT * FROM root r WHERE r.id=@id',
-            parameters: [{
-                name: '@id',
-                value: document.id
-            }]
-        };
+    /**
+     * Get the document by ID, or create if it doesn't exist.
+     * @param {function} callback - The callback function on completion
+     */
+    function getFamilyDocument(document) {
+        let documentUrl = `${collectionUrl}/docs/${document.id}`;
+        console.log(`Getting document:\n${document.id}\n`);
 
-        var collectionUri = "dbs/" + config.dbDefinition.id + "/colls/" + config.collDefinition.id;
-
-        client.queryDocuments(collectionUri, querySpec).toArray(function(err, results) {
-            if(err) return callback(err);
-
-            if(results.length === 0) {
-                client.createDocument(collectionUri, document, function(err, created) {
-                    if(err) return callback(err);
-
-                    callback(null, created);
-                });
-            } else {
-                callback(null, results[0]);
-            }
+        return new Promise((resolve, reject) => {
+            client.readDocument(documentUrl, { partitionKey: document.district }, (err, result) => {
+                if (err) {
+                    if (err.code == HttpStatusCodes.NOTFOUND) {
+                        client.createDocument(collectionUrl, document, (err, created) => {
+                            if (err) reject(err)
+                            else resolve(created);
+                        });
+                    } else {
+                        reject(err);
+                    }
+                } else {
+                    resolve(result);
+                }
+            });
         });
     };
 
@@ -282,23 +276,29 @@
 
 DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](documentdb-sql-query.md)。下列範例程式碼示範您可以針對集合中之文件執行的查詢。在 ```app.js``` 檔案中新增下列函數。DocumentDB 支援類 SQL 查詢，如下所示。如需建立複雜查詢的詳細資訊，請參閱[查詢遊樂場](https://www.documentdb.com/sql/demo)和[查詢文件](documentdb-sql-query.md)。
 
-    var queryCollection = function(documentId, callback) {
-      var querySpec = {
-          query: 'SELECT * FROM root r WHERE r.id=@id',
-          parameters: [{
-              name: '@id',
-              value: documentId
-          }]
-      };
+    /**
+     * Query the collection using SQL
+     */
+    function queryCollection() {
+        console.log(`Querying collection through index:\n${config.collection.id}\n`);
 
-      var collectionUri = "dbs/" + config.dbDefinition.id + "/colls/" + config.collDefinition.id;
-
-      client.queryDocuments(collectionUri, querySpec).toArray(function(err, results) {
-          if(err) return callback(err);
-
-          callback(null, results);
-      });
+        return new Promise((resolve, reject) => {
+            client.queryDocuments(
+                collectionUrl,
+                'SELECT VALUE r.address.city FROM root r WHERE r.lastName = "Andersen"',
+                { enableCrossPartitionQuery: true }
+            ).toArray((err, results) => {
+                if (err) reject(err)
+                else {
+                    for (var queryResult of results) {
+                        console.log(`Query returned ${queryResult}`);
+                    }
+                    resolve(results);
+                }
+            });
+        });
     };
+
 
 下圖說明如何針對您所建立的集合呼叫 DocumentDB SQL 查詢語法。
 
@@ -310,12 +310,17 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 
 刪除已建立的資料庫將會移除資料庫和所有子系資源 (集合、文件等)。您可以加入下列程式碼片段來刪除資料庫。
 
-    // WARNING: this function will delete your database and all its children resources: collections and documents
-    function cleanup(callback) {
-        client.deleteDatabase("dbs/" + config.dbDefinition.id, function(err) {
-            if(err) return callback(err);
+    /**
+     * Cleanup the database and collection on completion
+     */
+    function cleanup() {
+        console.log(`Cleaning up by deleting database ${config.database.id}`);
 
-            callback(null);
+        return new Promise((resolve, reject) => {
+            client.deleteDatabase(databaseUrl, (err) => {
+                if (err) reject(err)
+                else resolve(null);
+            });
         });
     }
 
@@ -323,39 +328,28 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 
 既然您已經將應用程式所有必要的功能設定好，來呼叫它們吧！
 
-函式呼叫的順序會是 * *getOrCreateDatabase* * *getOrCreateCollection* * *getOrCreateDocument* * *getOrCreateDocument* * *queryCollection* * *cleanup*
-
 將下列程式碼片段加入至您在 ```app.js``` 中的程式碼底部。
 
-    getOrCreateDatabase(function(err, db) {
-        if(err) return console.log(err);
-        console.log('Read or created db:\n' + db.id + '\n');
+    /**
+     * Exit the app with a prompt
+     * @param {message} message - The message to display
+     */
+    function exit(message) {
+        console.log(message);
+        console.log('Press any key to exit');
+        process.stdin.setRawMode(true);
+        process.stdin.resume();
+        process.stdin.on('data', process.exit.bind(process, 0));
+    }
 
-        getOrCreateCollection(function(err, coll) {
-            if(err) return console.log(err);
-            console.log('Read or created collection:\n' + coll.id + '\n');
-
-            getOrCreateDocument(config.docsDefinitions.Andersen, function(err, doc) {
-                if(err) return console.log(err);
-                console.log('Read or created document:\n' + doc.id + '\n');
-
-                getOrCreateDocument(config.docsDefinitions.Wakefield, function(err, doc) {
-                    if(err) return console.log(err);
-                    console.log('Read or created document:\n' + doc.id + '\n');
-
-                    queryCollection("AndersenFamily", function(err, results) {
-                        if(err) return console.log(err);
-                        console.log('Query results:\n' + JSON.stringify(results, null, '\t') + '\n');
-
-                        cleanup(function(err) {
-                            if(err) return console.log(err);
-                            console.log('Done.');
-                        });
-                    });
-                });
-            });
-        });
-    });
+    getDatabase()
+        .then(() => getCollection())
+        .then(() => getFamilyDocument(config.documents.Andersen))
+        .then(() => getFamilyDocument(config.documents.Wakefield))
+        .then(() => queryCollection())
+        .then(() => cleanup())
+        .then(() => { exit(`Completed successfully`); })
+        .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 ##<a id="Run"></a>步驟 11：執行您的 Node.js 應用程式！
 
@@ -365,57 +359,26 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 
 您應該可以看到入門應用程式的輸出。輸出應該會與下列範例文字相符。
 
-    Read or created db:
-    FamilyRegistry
+    Getting database:
+    FamilyDB
 
-    Read or created collection:
-    FamilyCollection
+    Getting collection:
+    FamilyColl
 
-    Read or created document:
-    AndersenFamily
+    Getting document:
+    Anderson.1
 
-    Read or created document:
-    WakefieldFamily
+    Getting document:
+    Wakefield.7
 
-    Query results:
-    [
-            {
-                    "id": "AndersenFamily",
-                    "LastName": "Andersen",
-                    "Parents": [
-                            {
-                                    "FirstName": "Thomas"
-                            },
-                            {
-                                    "FirstName": "Mary Kay"
-                            }
-                    ],
-                    "Children": [
-                            {
-                                    "FirstName": "Henriette Thaulow",
-                                    "Gender": "female",
-                                    "Grade": 5,
-                                    "Pets": [
-                                            {
-                                                    "GivenName": "Fluffy"
-                                            }
-                                    ]
-                            }
-                    ],
-                    "Address": {
-                            "State": "WA",
-                            "County": "King",
-                            "City": "Seattle"
-                    },
-                    "_rid": "tOErANjwoQcBAAAAAAAAAA==",
-                    "_ts": 1444327141,
-                    "_self": "dbs/tOErAA==/colls/tOErANjwoQc=/docs/tOErANjwoQcBAAAAAAAAAA==/",
-                    "_etag": ""00001200-0000-0000-0000-5616aee50000"",
-                    "_attachments": "attachments/"
-            }
-    ]
+    Querying collection through index:
+    FamilyColl
+      Query returned Seattle
 
-    Done.
+    Cleaning up by deleting database FamilyDB
+
+    Completed successfully
+    Press any key to exit
 
 恭喜！ 您已完成 Node.js 教學課程，和擁有您的第一個 DocumentDB 主控台應用程式！
 
@@ -425,14 +388,15 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 -   [DocumentDB 帳戶][documentdb-create-account]。
 -   您可以在 GitHub 上找到 [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) 方案。
 
-透過 npm 安裝 **documentdb** 模組。使用下列命令：* ```npm install documentdb --save```
+透過 npm 安裝 **documentdb** 模組。使用下列命令：
+* ```npm install documentdb --save```
 
 接下來，將 ```config.js``` 檔案中的 config.endpoint 和 config.authKey 的值更新為如[步驟 3：設定您的應用程式組態](#Config)中所述。
 
 ## 後續步驟
 
 -   需要更複雜的 Node.js 範例嗎？ 請參閱[使用 DocumentDB 建置 Node.js Web 應用程式](documentdb-nodejs-application.md)。
--	了解如何[監視 DocumentDB 帳戶](documentdb-monitor-accounts.md) (英文)。
+-	了解如何[監視 DocumentDB 帳戶](documentdb-monitor-accounts.md)。
 -	在 [Query Playground](https://www.documentdb.com/sql/demo) 中，針對範例資料集執行查詢。
 -	如需深入了解程式設計模型，請參閱 [DocumentDB 文件頁面](../../services/documentdb/)中的＜開發＞一節。
 
@@ -442,4 +406,4 @@ DocumentDB 支援對儲存於每個集合的 JSON 文件進行[豐富查詢](doc
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

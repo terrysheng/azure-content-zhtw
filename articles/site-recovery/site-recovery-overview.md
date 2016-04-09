@@ -1,6 +1,6 @@
 <properties
 	pageTitle="什麼是 Site Recovery？ | Microsoft Azure" 
-	description="Azure Site Recovery 可將內部部署上虛擬機器和實體伺服器的複寫、容錯移轉及復原協調至 Azure 或次要內部部署站台。" 
+	description="提供 Azure Site Recovery 服務的概觀，並說明可以如何部署服務。" 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="rayne-wiselman" 
@@ -18,53 +18,57 @@
 
 #  什麼是 Site Recovery？
 
-Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原 (BCDR) 策略，為您的商務持續性與災害復原做出貢獻。機器可以複寫至 Azure，或次要的內部部署資料中心。請閱讀[常見問題集](site-recovery-faq.md)中的一些常見問題。
+歡迎使用 Azure Site Recovery！ 請以此文章做為開端，快速地概略了解 Site Recovery 服務以及其如何有助於商務持續性和災害復原 (BCDR) 策略。
+
+Azure 建立和處理資源的部署模型有二種：[資源管理員和傳統](../resource-manager-deployment-model.md)。本文同時適用於這兩種模型。Microsoft 建議讓大部分的新部署使用資源管理員模式。
+
+## 概觀
+
+組織的 BCDR 策略的其中一個重要部分是，找出在計劃中和非計劃中的中斷發生時讓企業工作負載和應用程式保持啟動並執行的方法。
+
+Site Recovery 可協助做到這點，因為它能協調工作負載和應用程式的複寫、容錯移轉及復原，因此能夠在主要位置發生故障時透過次要位置來提供工作負載和應用程式。
 
 ## 為什麼要使用 Site Recovery？ 
 
-- **Simpler BCDR story**-Site Recovery 能夠讓您很輕鬆地處理複寫、容錯移轉及復原您的內部工作負載和應用程式。
-- **彈性複寫**-您可以複寫內部部署伺服器、Hyper-V 虛擬機器和 VMware 虛擬機器。Site Recovery 使用智慧型複寫，只會複寫資料區塊 (而非整個 VHD) 來進行初始複寫。對於進行中的複寫，則只會複寫差異變更。Site Recovery 支援離線資料傳輸，並搭配 WAN 最佳工具使用。 
-- **不需要次要資料中心**-Site Recovery 可以自動化資料中心之間的複寫，但它也藉由複寫至 Azure 來讓您能夠不需要建置次要網站位置。複寫的資料會儲存在 Azure 儲存體中，並具備所有提供的彈性。
+以下是 Site Recovery 可以為企業提供的協助︰
 
+- 簡化 BCDR 策略 - Site Recovery 可讓您從單一位置輕鬆處理多個商務工作負載和應用程式的複寫、容錯移轉及復原。Site Recovery 會協調複寫和容錯移轉，但不會攔截應用程式資料或擁有任何相關資訊。
+- 提供彈性的複寫 - 使用 Site Recovery，您就可以複寫 Hyper-V 虛擬機器、VMware 虛擬機器和 Windows/Linux 實體伺服器上執行的工作負載。 
+- 簡單容錯移轉和復原 - Site Recovery 可提供測試用容錯移轉，既能支援災害復原演練，又不會影響生產環境。您也可以執行計劃性容錯移轉，因為是預期中的中斷，所以不會遺失任何資料；或是執行非計劃性容錯移轉，以在發生非未預期的災害時將資料損失減到最少 (取決於複寫頻率)。在容錯移轉之後，您可以容錯回復到主要站台。Site Recovery 提供了包含指令碼和 Azure 自動化作業手冊的復原計畫，以供您自訂多層式應用程式的容錯移轉和復原。 
+- 消除次要資料中心 - 您可以複寫至次要內部部署站台或 Azure。使用 Azure 做為災害復原目的地可免除次要站台的維護成本與複雜度，而且複寫的資料會儲存在 Azure 儲存體，能夠具備其提供的所有恢復功能。
+- 與現有 BCDR 技術整合 - Site Recovery 能夠與其他應用程式的 BCDR 功能搭配使用。例如，您可以使用 Site Recovery 保護公司工作負載的 SQL Server 後端，包括原生支援 SQL Server AlwaysOn 以便管理可用性群組的容錯移轉。 
 
-## 部署案例
+## 我可以複寫哪些項目？
 
-此資料表摘要說明 Site Recovery 支援的複寫案例。
-
-**REPLICATE** | **複寫來源** | **複寫目標** | **文章**
----|---|---|---
-VMware 虛擬機器 | 內部部署 VMware 伺服器 | Azure 儲存體 | [部署](site-recovery-vmware-to-azure-classic.md)
-實體 Windows/Linux 伺服器 | 內部部署實體伺服器 | Azure 儲存體 | [部署](site-recovery-vmware-to-azure-classic.md)
-Hyper-V 虛擬機器 | VMM 雲端中的內部部署 Hyper-V 主機伺服器 | Azure 儲存體 | [部署](site-recovery-vmm-to-azure.md)
-Hyper-V 虛擬機器 | 內部部署 Hyper-V 網站 (一或多個 Hyper-V 主機伺服器) | Azure 儲存體 | [部署](site-recovery-hyper-v-site-to-azure.md)
-內部部署 Hyper-V 虛擬機器| VMM 雲端中的內部部署 Hyper-V 主機伺服器 | 在次要資料中心之 VMM 雲端中的內部部署 Hyper-V 主機伺服器 | [部署](site-recovery-vmm-to-vmm.md)
-Hyper-V 虛擬機器 | VMM 雲端中使用 SAN 存放裝置的內部部署 Hyper-V 主機伺服器| 在次要資料中心的 VMM 雲端中使用 SAN 存放裝置的內部部署 Hyper-V 主機伺服器 | [部署](site-recovery-vmm-san.md)
-VMware 虛擬機器 | 內部部署 VMware 伺服器 | 執行 VMware 的次要資料中心 | [部署](site-recovery-vmware-to-vmware.md) 
-實體 Windows/Linux 伺服器 | 內部部署實體伺服器 | 次要資料中心 | [部署](site-recovery-vmware-to-vmware.md) 
-
-下列圖表中會摘要說明。
+以下是 Site Recovery 可以複寫的項目摘要。
 
 ![內部部署至內部部署](./media/site-recovery-overview/asr-overview-graphic.png)
 
+REPLICATE | 複寫來源 | 複寫目標 | 文章
+---|---|---|---
+VMware VM 上執行的工作負載 | 內部部署 VMware 伺服器 | Azure 儲存體 | [部署](site-recovery-vmware-to-azure-classic.md)
+VMware VM 上執行的工作負載 | 內部部署 VMware 伺服器 | 次要 VMware 站台 | [部署](site-recovery-vmware-to-vmware.md) 
+Hyper-V VM 上執行的工作負載 | VMM 雲端中的內部部署 Hyper-V 主機伺服器 | Azure 儲存體 | [部署](site-recovery-vmm-to-azure.md)
+Hyper-V VM 上執行的工作負載 | VMM 雲端中的內部部署 Hyper-V 主機伺服器 | 次要 VMM 站台 | [部署](site-recovery-vmm-to-vmm.md)
+Hyper-V VM 上執行的工作負載 | VMM 雲端中使用 SAN 存放裝置的內部部署 Hyper-V 主機伺服器| 具有 SAN 儲存體的次要 VMM 站台 | [部署](site-recovery-vmm-san.md)
+Hyper-V VM 上執行的工作負載 | 內部部署 Hyper-V 站台 (無 VMM) | Azure 儲存體 | [部署](site-recovery-hyper-v-site-to-azure.md)
+實體 Windows/Linux 伺服器上執行的工作負載 | 內部部署實體伺服器 | Azure 儲存體 | [部署](site-recovery-vmware-to-azure-classic.md)
+實體 Windows/Linux 伺服器上執行的工作負載 | 內部部署實體伺服器 | 次要資料中心 | [部署](site-recovery-vmware-to-vmware.md) 
+
+
 ## 可以保護哪些工作負載？
 
-Site Recovery 可協助您的應用裝置感知業務持續性。您可以使用 Site Recovery 來為 Windows 和協力廠商應用程式協調災害復原。此應用程式感知保護可提供：
+Site Recovery 有助於應用程式感知 BCDR，讓工作負載和應用程式在中斷發生時繼續以一致的方式執行。Site Recovery 提供：
 
-
-- 僅需 30 秒即可為 Hyper-V 完成 PRO 近同步複寫，並支援 VMware 的連續複寫功能，能滿足重要應用程式的需求。
-- 適用於單一或多層式架構應用程式的應用程式一致性快照
-- 整合 SQL Server AlwaysOn，並與其他應用程式層級的複寫技術合作，包括 Active Directory 複寫、Exchange DAG 和 Oracle 資料保護。
-- 彈性修復計劃，只要按一下就能讓您復原整個應用程式堆疊，並包含外部指令碼或手動動作。 
-- Site Recovery 和 Azure 中的進階網路管理可簡化應用程式的網路需求，包括保留 IP 位址，設定負載平衡器或低 RTO 網路轉換的 Azure 流量管理員整合。
-- 豐富的自動化程式庫，提供已可用於生產環境，且可下載並已經與 Site Recovery 整合的應用程式特定指令碼。  
-
-
-如需詳細資料，請閱讀 [Site Recovery 可以保護哪些工作負載？](site-recovery-workload.md)
+- 應用程式一致快照 - 使用單一或多層式架構應用程式的應用程式一致快照進行複寫。近乎同步複寫 - Hyper-V 的複寫頻率最低可為 30 秒，VMware 則可連續複寫。與 SQL Server AlwaysOn 整合 - 您可以在 Site Recovery 復原計畫中管理可用性群組的容錯移轉。 
+- 彈性復原計畫 - 您可以使用外部指令碼、手動動作和 Azure 自動化 Runbook 建立並自訂復原計畫，讓您只要按一下就能復原整個應用程式堆疊。
+- 自動化程式庫 - 豐富的 Azure 自動化程式庫提供了已可供生產環境使用的應用程式特定指令碼供您下載，並可整合到 Site Recovery。-**簡易網路管理**- Site Recovery 和 Azure 中的進階網路管理簡化了應用程式網路需求，包括保留 IP 位址、設定負載平衡器，以及整合 Azure 流量管理員以進行有效率的網路交換動作。
 
 
 ## 後續步驟
 
-了解此概觀之後，請[深入了解](site-recovery-components.md) Site Recovery 架構的相關資訊。
+- 如需詳細資料，請閱讀 [Site Recovery 可以保護哪些工作負載？](site-recovery-workload.md)
+- 若要深入了解 Site Recovery 架構，請閱讀 [Site Recovery 如何運作？](site-recovery-components.md)
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -11,7 +11,7 @@
 
 	![位址空間刀鋒視窗](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
 
-4. 按一下 [**資源群組**]，選取要新增 VNet 的資源群組，或按一下 [**建立新的資源群組**]，將 VNet 新增到新的資源群組。下圖顯示新資源群組 **TestRG** 的資源群組設定。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](resource-group-overview.md/#resource-groups)。
+4. 按一下 [**資源群組**]，選取要新增 VNet 的資源群組，或按一下 [**建立新的資源群組**]，將 VNet 新增到新的資源群組。下圖顯示新資源群組 **TestRG** 的資源群組設定。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](../articles/virtual-network/resource-group-overview.md/#resource-groups)。
 
 	![建立資源群組刀鋒視窗](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
 
@@ -35,4 +35,4 @@
 
 	![在 Azure 入口網站中建立 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

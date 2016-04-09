@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/15/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma"/>
 
 
@@ -28,7 +28,7 @@ Azure DNS 是 DNS 網域的主機代管服務。網域必須從父系網域委�
 
 網域是網域名稱系統中的唯一名稱，例如 'contoso.com'。網域註冊機構是指可以提供網際網路網域名稱的公司。他們會驗證您想要使用的網際網路網域是否可用，並允許您購買。一旦註冊網域名稱，您就成為該網域名稱的合法擁有者。如果您已經有網際網路網域，您將使用目前的網域註冊機構委派給 Azure DNS。
 
->[AZURE.NOTE]若要了解誰擁有指定的網域名稱，或如需有關如何購買網域的詳細資訊，請參閱 [Azure AD 中的網際網路網域管理](https://msdn.microsoft.com/library/azure/hh969248.aspx)。
+>[AZURE.NOTE] 若要了解誰擁有指定的網域名稱，或如需有關如何購買網域的詳細資訊，請參閱 [Azure AD 中的網際網路網域管理](https://msdn.microsoft.com/library/azure/hh969248.aspx)。
 
 DNS 區域用來裝載特定網域的 DNS 記錄。例如，網域 'contoso.com' 可能包含許多的 DNS 記錄，例如 'mail.contoso.com' (用於郵件伺服器) 和 'www.contoso.com' (用於網站)。
 
@@ -63,7 +63,7 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 
 一旦您在 Azure DNS 中建立 DNS 區域，您需要在上層區域中設定 NS 記錄，使 Azure DNS 成為您的區域的名稱解析授權來源。如果是從註冊機構購買網域，註冊機構會提供選項來設定這些 NS 記錄。
 
->[AZURE.NOTE]您不必擁有網域，也能在 Azure DNS 中以該網域名稱建立 DNS 區域。不過，您必須擁有網域，才能在註冊機構中設定委派給 Azure DNS。
+>[AZURE.NOTE] 您不必擁有網域，也能在 Azure DNS 中以該網域名稱建立 DNS 區域。不過，您必須擁有網域，才能在註冊機構中設定委派給 Azure DNS。
 
 例如，假設您購買網域 'contoso.com'，並在 Azure DNS 中建立名稱為 'contoso.com' 的區域。身為網域的擁有者，註冊機構會提供選項，讓您設定網域的名稱伺服器位址 (亦即 NS 記錄)。註冊機構會將這些 NS 記錄儲存在父系網域中，在此例子中為 '.com'。然後，當世界各地的用戶端嘗試解析 'contoso.com' 中的 DNS 記錄時，將會導向至您在 Azure DNS 區域中的網域。
 
@@ -71,8 +71,8 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 
 您可以使用 Azure PowerShell 抓取授權 NS 記錄，如下所示 (記錄名稱 "@" 用來參考區域頂點的記錄)。
 
-	PS C:> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:\> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -88,7 +88,7 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 
 每個註冊機構都有自己的 DNS 管理工具，可變更網域的名稱伺服器記錄。在註冊機構的 DNS 管理頁面中，請編輯 NS 記錄，並將 NS 記錄取代為 Azure DNS 建立的記錄。
 
->[AZURE.NOTE]委派網域給 Azure DNS 時，您必須使用 Azure DNS 提供的名稱伺服器名稱。您不應該使用「黏附記錄」指向 Azure DNS 名稱伺服器 IP 位址，因為這些 IP 位址日後可能變更。Azure DNS 目前不支援使用您區域中名稱伺服器名稱的委派 (也稱為「虛名名稱伺服器」)。
+>[AZURE.NOTE] 委派網域給 Azure DNS 時，您必須使用 Azure DNS 提供的名稱伺服器名稱。您不應該使用「黏附記錄」指向 Azure DNS 名稱伺服器 IP 位址，因為這些 IP 位址日後可能變更。Azure DNS 目前不支援使用您區域中名稱伺服器名稱的委派 (也稱為「虛名名稱伺服器」)。
 
 完成委派之後，您可以使用 'nslookup' 之類的工具來查詢您區域的 SOA 記錄 (這也是在建立區域時自動建立)，以確認名稱解析正常運作。
 
@@ -159,4 +159,4 @@ DNS 階層中的網域裝載於個別的 DNS 區域。這些區域遍布全球�
 
 [Azure DNS REST API 參考](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

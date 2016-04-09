@@ -79,7 +79,7 @@ Sysprep 完成時，它會關閉 VM。
 
 當 VM 已經停止執行時，請在目前的入口網站尋找並擷取它。
 
-若要深入了解擷取映像，請參閱[擷取以傳統部署模型建立之 Azure Windows 虛擬機器的映像](../virtual-machines-capture-image-windows-server.md)
+若要深入了解擷取映像，請參閱[擷取以傳統部署模型建立之 Azure Windows 虛擬機器的映像](../virtual-machines/virtual-machines-windows-classic-capture-image.md)
 
 
 ### 5\.新增至 Azure RemoteApp 範本映像
@@ -158,4 +158,4 @@ Sysprep 完成時，它會關閉 VM。
 [5]: ./media/sql-database-ssms-remoteapp/publish.png
 [6]: ./media/sql-database-ssms-remoteapp/user.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

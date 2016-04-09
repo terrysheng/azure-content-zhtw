@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # 加入、停用、啟用或刪除端點
@@ -75,4 +75,4 @@
 
 [流量管理員的相關作業 (REST API 參考)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,7 +1,7 @@
 <properties
-	pageTitle="透過資料庫加密保護 SQL Database 中的機密資料 | Microsoft Azure"
+	pageTitle="一律加密 - 透過資料庫加密保護 Azure SQL Database 中的機密資料"
 	description="在數分鐘內開始保護您 SQL 資料庫中的機密資料。"
-	keywords="SQL Database, SQL 加密, 資料庫加密, 加密金鑰, 機密資料, 永遠加密"	
+	keywords="加密資料, SQL 加密, 資料庫加密, 機密資料, 永遠加密"	
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -15,18 +15,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="03/02/2016"
 	ms.author="sstein"/>
 
-# 透過資料庫加密來保護 SQL Database 中的機密資料，並將您的加密金鑰儲存在 Windows 憑證存放區
+# 一律加密 - 透過資料庫加密來保護 SQL Database 中的機密資料，並將您的加密金鑰儲存在 Windows 憑證存放區
 
 > [AZURE.SELECTOR]
 - [Azure 金鑰保存庫](sql-database-always-encrypted-azure-key-vault.md)
 - [Windows 憑證存放區](sql-database-always-encrypted.md)
 
+
 本文章將告訴您如何使用 [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx) 中的 [Always Encrypted Wizard (永遠加密精靈)](https://msdn.microsoft.com/library/mt459280.aspx)進行資料庫加密，並將您的加密金鑰儲存在 Windows 憑證存放區，來將機密資料儲存在 SQL Database。
 
-「永遠加密」是 Azure SQL Database 和 SQL Server 中新的加密技術，可保護伺服器上待用的機密資料、在機密資料於用戶端與伺服器之間移動時保護資料，以及在資料使用時保護資料，以確保機密資料永遠不會在資料庫系統中以純文字方式顯示。只有具備金鑰存取權的用戶端應用程式或應用程式伺服器可以存取純文字資料。如需詳細資訊，請參閱[永遠加密 (資料庫引擎)](https://msdn.microsoft.com/library/mt163865.aspx)。
+「永遠加密」是 Azure SQL Database 和 SQL Server 中新的資料加密技術，可保護伺服器上待用的機密資料、在機密資料於用戶端與伺服器之間移動時保護資料，以及在資料使用時保護資料，以確保機密資料永遠不會在資料庫系統中以純文字方式顯示。加密資料之後，只有具備金鑰存取權的用戶端應用程式或應用程式伺服器可以存取純文字資料。如需詳細資訊，請參閱[永遠加密 (資料庫引擎)](https://msdn.microsoft.com/library/mt163865.aspx)。
 
 
 將資料庫設定為使用 [永遠加密] 之後，我們將搭配 Visual Studio 使用 C# 建立一個用戶端應用程式來使用加密資料。
@@ -547,6 +548,6 @@ SSMS 提供一個精靈，透過設定加密資料行主要金鑰 (CMK)、資料
 - [透明資料加密](https://msdn.microsoft.com/library/bb934049.aspx)
 - [SQL Server 加密](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Always Encrypted Wizard (永遠加密精靈)](https://msdn.microsoft.com/library/mt459280.aspx)
-- [Always Encrypted Blog (永遠加密部落格)](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always%20encrypted/)
+- [Always Encrypted Blog (永遠加密部落格)](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

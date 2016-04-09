@@ -19,8 +19,7 @@
 # 開始使用自訂驗證
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
+> 如需本主題的對等 Mobile Apps 版本，請參閱[做法：針對應用程式使用自訂驗證](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth)。
 
 
 ## 概觀
@@ -424,4 +423,4 @@
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

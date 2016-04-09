@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="sameerch"/>
 
 
 # 開始使用 Microsoft SQL 連接器並將它加入您的邏輯應用程式
->[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 Azure SQL 2015-08-01-preview 結構描述版本，請按一下 [SQL Azure API](../connectors/create-api-sqlazure.md)。
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 Azure SQL 2015-08-01-preview 結構描述版本，請按一下 [SQL Azure API](../connectors/connectors-create-api-sqlazure.md)。
 
 連接到內部部署 SQL Server 或 Azure SQL Database 來建立和變更資訊或資料。在 Logic Apps 中，連接器可以在「工作流程」中用來擷取、處理或推送資料。在工作流程中使用 SQL 連接器時，您可以達到各種案例的目的。例如，您可以：
 
@@ -155,4 +155,4 @@ App Service 使用混合式組態管理員來安全地連線到內部部署系�
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

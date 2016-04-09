@@ -1,7 +1,7 @@
 <properties
 	pageTitle="使用 Azure 建立 LAMP 堆疊 | Microsoft Azure"
 	description="了解如何透過 Microsoft Azure 使用執行 Linux 的 Azure 虛擬機器 (VM) 建立 LAMP 堆疊。"
-	services="virtual-machines"
+	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="NingKuang"
 	manager="timlt"
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
@@ -456,4 +456,4 @@ Tasksel 是一個 Debian/Ubuntu 工具，以協調工作的方式安裝多個相
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

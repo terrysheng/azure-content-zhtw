@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/19/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma" />
 
 # 如何變更負載平衡器的 TCP 閒置逾時設定
@@ -44,7 +44,7 @@
 - 透過服務模型設定您的 Web/背景工作角色的 TCP 逾時。
  
 
->[AZURE.NOTE]請記住，有些命令只會存在於最新的 Azure PowerShell 封裝。如果 powershell 命令不存在，請下載最新的 PowerShell 套件。
+>[AZURE.NOTE] 請記住，有些命令只會存在於最新的 Azure PowerShell 封裝。如果 powershell 命令不存在，請下載最新的 PowerShell 套件。
 
  
 ### 將執行個體層級公用 IP 的 TCP 逾時值設定為 15 分鐘。
@@ -53,7 +53,7 @@
 
 IdleTimeoutInMinutes 是選擇性的。若未設定，則預設的逾時為 4 分鐘。
 
->[AZURE.NOTE]可接受的逾時範圍介於 4 與 30 分鐘之間。
+>[AZURE.NOTE] 可接受的逾時範圍介於 4 與 30 分鐘之間。
  
 ### 在虛擬機器上建立 Azure 端點時設定閒置逾時
 
@@ -160,10 +160,10 @@ IdleTimeoutInMinutes 是選擇性的。若未設定，則預設的逾時為 4 �
 
 [內部負載平衡器概觀](load-balancer-internal-overview.md)
 
-[開始設定網際網路面向的負載平衡器](load-balancer-internet-getstarted.md)
+[開始設定網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)
 
 [設定負載平衡器分配模式](load-balancer-distribution-mode.md)
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0309_2016-->

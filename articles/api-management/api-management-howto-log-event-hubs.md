@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # 如何將事件記錄到 Azure API 管理中的 Azure 事件中樞
@@ -80,7 +80,7 @@
 
 當您提出要求時，如果記錄器已建立，會傳回狀態碼 `201 Created`。
 
->[AZURE.NOTE]如需其他可能的傳回碼和其原因，請參閱[建立記錄器](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT)。若要查看如何執行其他作業，例如列出、更新和刪除，請參閱[記錄器](https://msdn.microsoft.com/library/azure/mt592020.aspx)實體文件。
+>[AZURE.NOTE] 如需其他可能的傳回碼和其原因，請參閱[建立記錄器](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT)。若要查看如何執行其他作業，例如列出、更新和刪除，請參閱[記錄器](https://msdn.microsoft.com/library/azure/mt592020.aspx)實體文件。
 
 ## 設定 log-to-eventhubs 原則
 
@@ -133,4 +133,4 @@
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

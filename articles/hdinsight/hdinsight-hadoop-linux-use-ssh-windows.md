@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/22/2016"
+   ms.date="03/25/2016"
    ms.author="larryfr"/>
 
 #從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop
@@ -121,7 +121,11 @@ SSH 使用者可以使用密碼或公開金鑰來驗證。密碼是您自己設�
 
 	![putty 介面，選取私密金鑰](./media/hdinsight-hadoop-linux-use-ssh-windows/puttykey.png)
 
-3. 在 [**類別**] 中，選取 [**工作階段**]。在 [**PuTTY 工作階段的基本選項**] 畫面上，將您的 HDInsight 伺服器的 SSH 位址輸入到 [**主機名稱 (或 IP 位址)**] 欄位。SSH 位址是叢集名稱加上 **-ssh.azurehdinsight.net**。例如，**mycluster-ssh.azurehdinsight.net**。
+3. 在 [**類別**] 中，選取 [**工作階段**]。在 [**PuTTY 工作階段的基本選項**] 畫面上，將您的 HDInsight 伺服器的 SSH 位址輸入到 [**主機名稱 (或 IP 位址)**] 欄位。連接至叢集時，您可以使用兩個可能的 SSH 位址：
+
+    * __前端節點位址__︰若要連接到叢集的前端節點，請使用您的叢集名稱加上 **-ssh.azurehdinsight.net**。例如，**mycluster-ssh.azurehdinsight.net**。
+    
+    * __邊緣節點位址__︰如果您要連接到 HDInsight 叢集上的 R Server，您可以使用位址 __RServer.CLUSTERNAME.ssh.azurehdinsight.net__ (其中 CLUSTERNAME 是叢集名稱) 連接到 R Server 邊緣節點。例如，__RServer.mycluster.ssh.azurehdinsight.net__。
 
 	![已輸入 ssh 位址的 putty 介面](./media/hdinsight-hadoop-linux-use-ssh-windows/puttyaddress.png)
 
@@ -229,4 +233,4 @@ SSH 可用來建立通道以將本機要求 (例如 Web 要求) 傳送到 HDInsi
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

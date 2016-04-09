@@ -18,7 +18,7 @@
 # 每一雲端服務有多重 VIP
 您可以使用 Azure 所提供的 IP 位址，透過公用網際網路存取 Azure 雲端服務。此公用 IP 位址也稱為 VIP (虛擬 IP)，因為它會連結至 Azure 負載平衡器，而且不是雲端服務中真正的 VM 執行個體。您可以使用單一 VIP 來存取雲端服務中的任何 VM 執行個體。
 
-不過，在某些情況下，您可能需要一個以上的 VIP 作為相同雲端服務的進入點。比方說，您的雲端服務可以裝載多個需要使用預設 SLSL 連接埠 443 進行 SSL 連線的網站，而每個網站是針對不同的客戶或租用戶進行裝載。在這種情況下，每個網站都需要有不同的公開 IP 位址。下圖顯示典型的多租用戶 Web 裝載，其在相同的公用連接埠上需要有多個 SSL 憑證。
+不過，在某些情況下，您可能需要一個以上的 VIP 作為相同雲端服務的進入點。比方說，您的雲端服務可以裝載多個需要使用預設連接埠 443 進行 SSL 連線的網站，而每個網站是針對不同的客戶或租用戶進行裝載。在這種情況下，每個網站都需要有不同的公開 IP 位址。下圖顯示典型的多租用戶 Web 裝載，其在相同的公用連接埠上需要有多個 SSL 憑證。
 
 ![多重 VIP SSL 案例](./media/load-balancer-multivip/Figure1.png)
 
@@ -148,11 +148,11 @@ VIP 預設是動態的，這表示指派給雲端服務的實際 IP 位址會隨
 
 [網際網路面向的負載平衡器概觀](load-balancer-internet-overview.md)
 
-[開始使用網際網路面向的負載平衡器](load-balancer-internet-getstarted.md)
+[開始使用網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)
 
 [虛擬網路概觀](../virtual-network/virtual-networks-overview.md)
 
 [保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

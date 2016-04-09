@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="02/29/2016"
+   	ms.date="03/08/2016"
    	ms.author="larryfr"/>
 
 #使用 Azure CLI 建立 HDInsight 上的 Linux 型叢集
@@ -33,8 +33,9 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 
 ##必要條件
 
-- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
+- **Azure 訂用帳戶**。請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 - __Azure CLI__。如需安裝 CLI 的相關資訊，請參閱[安裝 Azure CLI](../xplat-cli-install.md)。
 
 ##登入您的 Azure 訂用帳戶
@@ -121,4 +122,4 @@ Azure 資源管理範本是描述__資源群組__與其中所有資源 (例如 H
 * [在 HDInsight 上的 Storm 中使用 Python 元件](hdinsight-storm-develop-python-topology.md)
 * [在 HDInsight 上使用 Storm 部署和監視拓撲](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

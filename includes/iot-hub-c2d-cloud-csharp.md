@@ -84,17 +84,17 @@
 
         commandMessage.Ack = DeliveryAcknowledgement.Full;
 
-4.  按下 **F5** 以執行應用程式，您應該會看到這三個應用程式啟動。選取 [SendCloudToDevice] 視窗，然後按下 **Enter**：您應該會看到模擬應用程式收到訊息，並在幾秒鐘後，您的 **SendCloudToDevice** 應用程式收到意見反應訊息。
+4.  按下 **F5** 以執行應用程式，您應該會看到這三個應用程式啟動。選取 [SendCloudToDevice] 視窗，然後按下 **Enter**：您應該會看到模擬 App 收到訊息，而您的 **SendCloudToDevice** 應用程式會在幾秒鐘後收到意見反應訊息。
 
     ![][22]
 
-> [AZURE.NOTE]為了簡單起見，本教學課程不會實作任何重試原則。在實際程式碼中，建議如 MSDN 文章[暫時性錯誤處理]所建議，實作重試原則 (例如指數型輪詢)。
+> [AZURE.NOTE] 為了簡單起見，本教學課程不會實作任何重試原則。在實際程式碼中，建議如 MSDN 文章[暫時性錯誤處理]所建議，實作重試原則 (例如指數型輪詢)。
 
 <!-- Links -->
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Azure IoT - 服務 SDK NuGet 封裝]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[暫時性錯誤處理]: https://msdn.microsoft.com/zh-TW/library/hh680901(v=pandp.50).aspx
+[暫時性錯誤處理]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [開始使用 IoT 中心]: iot-hub-csharp-csharp-getstarted.md
 [開始使用 IoT 中樞]: iot-hub-csharp-csharp-getstarted.md
 
@@ -103,4 +103,4 @@
 [21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

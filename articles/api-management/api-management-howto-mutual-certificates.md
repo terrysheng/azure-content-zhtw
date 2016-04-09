@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中使用用戶端憑證驗證來保護後端服務
@@ -24,7 +24,7 @@ API 管理提供以用戶端憑證保護 API 後端服務之存取的功能。�
 
 ## <a name="prerequisites"> </a>必要條件
 
-本指南將示範如何設定 API 管理服務執行個體，以使用用戶端憑證驗證來存取 API 的後端服務。在遵循本主題中的步驟之前，請先設定後端服務以進行用戶端憑證驗證，以及取得憑證的存取權限和憑證密碼，以在 API 管理發行者入口網站內上傳。
+本指南將示範如何設定 API 管理服務執行個體，以使用用戶端憑證驗證來存取 API 的後端服務。在遵循本主題中的步驟之前，請先設定後端服務以進行用戶端憑證驗證 ([若要在 Azure WebSites 中設定憑證驗證，請參閱此文章][])，以及取得憑證的存取權限和憑證密碼，以在 API 管理發行者入口網站內上傳。
 
 ## <a name="step1"> </a>上傳用戶端憑證
 
@@ -129,6 +129,7 @@ API 管理提供以用戶端憑證保護 API 後端服務之存取的功能。�
 
 [Azure API 管理 REST API 憑證實體]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
+[若要在 Azure WebSites 中設定憑證驗證，請參閱此文章]: https://azure.microsoft.com/zh-TW/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
@@ -138,7 +139,6 @@ API 管理提供以用戶端憑證保護 API 後端服務之存取的功能。�
 [Next steps]: #next-steps
 
 
-
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

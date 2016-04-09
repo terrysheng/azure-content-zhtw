@@ -386,9 +386,9 @@ Azure Data Factory 支援兩種類型的 Azure 儲存體連結服務：**AzureSt
 | 屬性 | 說明 | 必要 |
 | -------- | ----------- | -------- | 
 | folderPath | Blob 儲存體中容器和資料夾的路徑。範例：myblobcontainer\\myblobfolder\\ | 是 |
-| fileName | <p>Blob 的名稱。fileName 是選擇性且區分大小寫。</p><p>如果您指定 filename，則活動 (包括複製活動) 適用於特定的 Blob。</p><p>如果未指定 fileName，則複製活動將會包含輸入資料集 folderPath 中的所有 Blob。</p><p>如果未指定輸出資料集的 fileName，則所產生檔案的名稱會採用下列格式：Data.<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | 否 |
+| fileName | Blob 的名稱。fileName 是選擇性且區分大小寫。<br/><br/>如果您指定 fileName，則活動 (包括複製活動) 適用於特定的 Blob。<br/><br/>如果未指定 fileName，則複製活動將會包含輸入資料集 folderPath 中的所有 Blob。<br/><br/>如果未指定輸出資料集的 fileName，則所產生檔案的名稱會採用下列格式：Data.<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | 否 |
 | partitionedBy | partitionedBy 是選擇性的屬性。您可以用來指定時間序列資料的動態 folderPath 和 filename。例如，folderPath 可針對每小時的資料進行參數化。如需詳細資訊和範例，請參閱以下[運用 partitionedBy 屬性](#Leveraging-partitionedBy-property)一節。 | 否
-| format | 支援兩種格式類型：**TextFormat**、**AvroFormat**。您需要將格式底下的 type 屬性設定為這些值。如果格式為 TextFormat，您可以指定格式的其他選擇性屬性。如需詳細資訊，請參閱以下[指定 TextFormat](#specifying-textformat) 一節。 | 否
+| format | 支援三種格式類型：**TextFormat**、**AvroFormat** 及 **JsonFormat**。您需要將格式底下的 type 屬性設定為這些值。如果格式為 TextFormat，您可以指定格式的其他選擇性屬性。如需詳細資訊，請參閱以下[指定 TextFormat](#specifying-textformat) 一節。如果您使用 JsonFormat，請參閱[指定 JsonFormat](#specifying-jsonformat) 一節。 | 否
 | compression | 指定此資料的壓縮類型和層級。支援的類型為：**GZip**、**Deflate** 和 **BZip2**，而支援的層級為：**最佳**和**最快**。請注意，目前不支援 **AvroFormat** 的資料壓縮設定。如需詳細資訊，請參閱[壓縮支援](#compression-support)一節。 | 否 |
 
 ### 運用 partitionedBy 屬性
@@ -430,12 +430,12 @@ Azure Data Factory 支援兩種類型的 Azure 儲存體連結服務：**AzureSt
 | -------- | ----------- | -------- |
 | columnDelimiter | 在檔案中做為資料行分隔符號的字元。目前只允許一個字元。此標記是選擇性的。預設值是逗號 (,)。 | 否 |
 | rowDelimiter | 在檔案中做為資料列分隔符號的字元。目前只允許一個字元。此標記是選擇性的。預設值是下列任一項：[“\\r\\n”, “\\r”,” \\n”]。 | 否 |
-| escapeChar | <p>用來逸出內容中顯示之資料行分隔符號的特殊字元。此標記是選擇性的。沒有預設值。您為此屬性指定的字元不得超過一個。</p><p>例如，如果您以逗號 (,) 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：“Hello, world”)，您可以定義 ‘$’ 做為逸出字元，並在來源中使用字串 “Hello$, world”。</p><p>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。</p> | 否 | 
-| quoteChar | <p>用來引用字串值的特殊字元。引號字元內的資料行和資料列分隔符號會被視為字串值的一部分。此標記是選擇性的。沒有預設值。您為此屬性指定的字元不得超過一個。</p><p>例如，如果您以逗號 (,) 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：<Hello  world>)，您可以定義 ‘"’ 做為引用字元，並在來源中使用字串 <"Hello, world">。這個屬性同時適用於輸入和輸出資料表。</p><p>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。</p> | 否 |
-| nullValue | <p>用來代表 Blob 檔案內容中 null 值的字元。此標記是選擇性的。預設值為 “\\N”。</p><p>例如，根據上述範例，Blob 中的 “NaN” 會在複製到 SQL Server 時轉換成 null 值。</p> | 否 |
+| escapeChar | 用來逸出內容中顯示之資料行分隔符號的特殊字元。此標記是選擇性的。沒有預設值。您為此屬性指定的字元不得超過一個。<br/><br/>例如，如果您以逗號 (,) 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：“Hello, world”)，您可以定義 ‘$’ 做為逸出字元，並在來源中使用字串 “Hello$, world”。<br/><br/>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。 | 否 | 
+| quoteChar | 用來引用字串值的特殊字元。引號字元內的資料行和資料列分隔符號會被視為字串值的一部分。此標記是選擇性的。沒有預設值。您為此屬性指定的字元不得超過一個。<br/><br/>例如，如果您以逗號 (,) 做為資料行分隔符號，但您想要在文字中使用逗號字元 (例如：<Hello  world>)，您可以定義 ‘"’ 做為引用字元，並在來源中使用字串 <"Hello, world">。這個屬性同時適用於輸入和輸出資料表。<br/><br/>請注意，您無法同時為資料表指定 escapeChar 和 quoteChar。 | 否 |
+| nullValue | 用來代表 Blob 檔案內容中 null 值的字元。此標記是選擇性的。預設值為 “\\N”。<br/><br/>例如，根據上述範例，Blob 中的 “NaN” 會在複製到 SQL Server 時轉換成 Null 值。 | 否 |
 | encodingName | 指定編碼名稱。如需有效編碼名稱的清單，請參閱：[Encoding.EncodingName 屬性](https://msdn.microsoft.com/library/system.text.encoding.aspx)。例如：windows-1250 或 shift\_jis。預設值為 UTF-8。 | 否 | 
 
-#### 範例
+#### TextFormat 範例
 下列範例顯示 TextFormat 的一些格式屬性。
 
 	"typeProperties":
@@ -466,6 +466,8 @@ Azure Data Factory 支援兩種類型的 Azure 儲存體連結服務：**AzureSt
 
 若要在 Hive 資料表中使用 Avro 格式，您可以參考 [Apache Hive 的教學課程](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe)。
 
+[AZURE.INCLUDE [data-factory-json-format](../../includes/data-factory-json-format.md)]
+
 [AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 
@@ -478,7 +480,7 @@ Azure Data Factory 支援兩種類型的 Azure 儲存體連結服務：**AzureSt
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- | 
-| treatEmptyAsNull | 指定是否將 null 或空字串視為 null 值。<p>請注意，當指定 **quoteChar** 屬性時，加上引號的空字串也可能在此屬性中視為 null。</p> | TRUE(預設值) <br/>FALSE | 否 |
+| treatEmptyAsNull | 指定是否將 null 或空字串視為 null 值。<br/><br/>請注意，指定 **quoteChar** 屬性時，加上引號的空字串也可能在此屬性中被視為 Null。 | TRUE(預設值) <br/>FALSE | 否 |
 | skipHeaderLineCount | 指出需要略過多少行。僅適用於輸入資料集使用 **TextFormat** 時。 | 0 與最大值之間的整數。 | 否 | 
 | 遞迴 | 表示是否從子資料夾，或只有從指定的資料夾，以遞迴方式讀取資料。 | True (預設值)、False | 否 | 
 
@@ -488,19 +490,19 @@ Azure Data Factory 支援兩種類型的 Azure 儲存體連結服務：**AzureSt
 | 屬性 | 說明 | 允許的值 | 必要 |
 | -------- | ----------- | -------------- | -------- |
 | blobWriterAddHeader | 指定是否要加入資料行定義的標頭。 | TRUE<br/>FALSE (預設值) | 否 |
-| copyBehavior | 當來源為 BlobSource 或 FileSystem 時，定義複製行為。 | <p>有三種可能的 copyBehavior 屬性值。</p><ul><li>**PreserveHierarchy：**在目標資料夾中保留檔案的階層架構，亦即來源檔案和來源資料夾的相對路徑，與目標檔案和目標資料夾的相對路徑完全相同。</li><li>**FlattenHierarchy：**來源資料夾的所有檔案都會在目標資料夾的第一層中。目標檔案都會有自動產生的名稱。</li><li>**MergeFiles：(預設) **會將來源資料夾的所有檔案合併為一個檔案。如果已指定檔案/Blob 名稱，合併檔案名稱會是指定的名稱；否則，就會是自動產生的檔案名稱。</li></ul> | 否 |
+| copyBehavior | 當來源為 BlobSource 或 FileSystem 時，定義複製行為。 | **PreserveHierarchy：**在目標資料夾中保留檔案的階層架構，亦即來源檔案至來源資料夾的相對路徑，與目標檔案至目標資料夾的相對路徑完全相同。<br/><br/>**FlattenHierarchy：**來源資料夾的所有檔案都將位於目標資料夾的第一層。目標檔案都會有自動產生的名稱。<br/><br/>**MergeFiles：(預設) **會將來源資料夾的所有檔案合併為一個檔案。如果已指定檔案/Blob 名稱，合併檔案名稱會是指定的名稱；否則，就會是自動產生的檔案名稱。 | 否 |
 
 ### 遞迴和 copyBehavior 範例
 本節說明遞迴和 copyBehavior 值在不同組合的情況下，複製作業所產生的行為。
 
 遞迴 | copyBehavior | 產生的行為
 --------- | ------------ | --------
-true | preserveHierarchy | <p>對於有下列結構的來源資料夾 Folder1：</p> <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>目標資料夾 Folder1 的結構將與來源資料夾相同<p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>  
-true | flattenHierarchy | <p>對於有下列結構的來源資料夾 Folder1：</p> <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>目標資料夾 Folder1 將會有下列結構：<p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File5</p>
-true | mergeFiles | <p>對於有下列結構的來源資料夾 Folder1：</p> <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>目標資料夾 Folder1 將會有下列結構：<p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + File 5 的內容將會合併成一個檔案，且擁有自動產生的檔案名稱。</p>
-false | preserveHierarchy | <p>對於有下列結構的來源資料夾 Folder1：</p> <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>目標資料夾 Folder1 將會有下列結構：<p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/></p><p>系統不會挑選擁有 File3、File4 及 File5 的 Subfolder1。</p>
-false | flattenHierarchy | <p>對於有下列結構的來源資料夾 Folder1：</p> <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>目標資料夾 Folder1 將會有下列結構：<p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1，且擁有自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2，且擁有自動產生的名稱<br/></p><p>系統不會挑選擁有 File3、File4 及 File5 的 Subfolder1。</p>
-false | mergeFiles | <p>對於有下列結構的來源資料夾 Folder1：</p> <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>目標資料夾 Folder1 將會有下列結構：<p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 的內容將會合併成一個檔案，且擁有自動產生的檔案名稱。File1 會有自動產生的名稱</p><p>系統不會挑選擁有 File3、File4 及 File5 的 Subfolder1。</p>
+true | preserveHierarchy | 對於有下列結構的來源資料夾 Folder1：<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>目標資料夾 Folder1 的結構會和來源相同<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5。  
+true | flattenHierarchy | 對於有下列結構的來源資料夾 Folder1：<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>目標 Folder1 會有下列結構：<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 有自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2 有自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;File3 有自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;File4 有自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;File5 有自動產生的名稱
+true | mergeFiles | 對於有下列結構的來源資料夾 Folder1：<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>目標 Folder1 會有下列結構：<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + File 5 的內容會合併成一個會自動產生檔名的檔案
+false | preserveHierarchy | 對於有下列結構的來源資料夾 Folder1：<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>目標資料夾 Folder1 會有下列結構：<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/><br/>系統不挑選有 File3、File4 和 File5 的 Subfolder1。
+false | flattenHierarchy | 對於有下列結構的來源資料夾 Folder1：<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>目標資料夾 Folder1 會有下列結構：<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 有自動產生的名稱<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2 有自動產生的名稱<br/><br/><br/>系統不挑選有 File3、File4 和 File5 的 Subfolder1。
+false | mergeFiles | 對於有下列結構的來源資料夾 Folder1：<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>目標資料夾 Folder1 會有下列結構：<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 的內容會合併成一個有自動產生檔案名稱的檔案。File1 有自動產生的名稱<br/><br/>系統不挑選有 File3、File4 和 File5 的 Subfolder1。
 
   
 
@@ -511,4 +513,4 @@ false | mergeFiles | <p>對於有下列結構的來源資料夾 Folder1：</p> <
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

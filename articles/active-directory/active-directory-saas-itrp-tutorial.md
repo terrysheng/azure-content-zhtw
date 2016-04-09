@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/05/2016" 
+    ms.date="03/16/2016" 
     ms.author="jeedes" />
 
 #教學課程：Azure Active Directory 與 ITRP 整合
@@ -37,7 +37,7 @@
 
 ###若要啟用 ITRP 的應用程式整合，請執行下列步驟：
 
-1.  在 Azure 管理入口網站的左方瀏覽窗格中，按一下 [Active Directory]。
+1.  在 Azure 傳統入口網站中，按一下左方瀏覽窗格的 [Active Directory]。
 
     ![Active Directory](./media/active-directory-saas-itrp-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@
 
 ###若要設定單一登入，請執行下列步驟：
 
-1.  在 Azure AD 入口網站的 [ITRP] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1.  在 Azure 傳統入口網站的 [ITRP] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-itrp-tutorial/IC771709.png "設定單一登入")
 
@@ -101,15 +101,15 @@
     ![單一登入](./media/active-directory-saas-itrp-tutorial/IC775573.png "單一登入")
 
     1.  按一下 [啟用]。
-    2.  在 Azure 入口網站中的 [設定在 ITRP 單一登入] 對話方塊頁面上， 複製 [遠端登出 URL] 值，然後將它貼至 [遠端登出] 文字方塊中。
-    3.  在 Azure 入口網站中的 [設定在 ITRP 單一登入] 對話方塊頁面上， 複製 [SAML SSO URL] 值，然後將它貼至 [SAML SSO URL] 文字方塊中。
+    2.  在 Azure 傳統入口網站中的 [設定在 ITRP 單一登入] 對話方塊頁面上， 複製 [遠端登出 URL] 值，然後將它貼至 [遠端登出] 文字方塊中。
+    3.  在 Azure 傳統入口網站中的 [設定在 ITRP 單一登入] 對話方塊頁面上， 複製 [SAML SSO URL] 值，然後將它貼至 [SAML SSO URL] 文字方塊中。
     4.  從匯出的憑證複製 [指紋] 值，然後將它貼入 [憑證指紋] 文字方塊。
         
 		>[AZURE.TIP]如需詳細資訊，請參閱[如何擷取憑證的指紋值](http://youtu.be/YKQF266SAxI)。
 
     5.  按一下 [儲存]。
 
-9.  在 Azure AD 入口網站上，選取單一登入組態確認，然後按一下 [完成] 以關閉 [設定單一登入] 對話方塊。
+9.  在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
 
     ![設定單一登入](./media/active-directory-saas-itrp-tutorial/IC775574.png "設定單一登入")
 ##設定使用者佈建
@@ -139,7 +139,7 @@
     1.  輸入您想要佈建之有效 AAD 帳戶的 [名稱]、[電子郵件]。
     2.  按一下 [儲存]。
 
->[AZURE.NOTE]您可以使用任何其他的 ITRP 使用者帳戶建立工具或 ITRP 提供的 API 來佈建 AAD 使用者帳戶。
+>[AZURE.NOTE] 您可以使用任何其他的 ITRP 使用者帳戶建立工具或 ITRP 提供的 API 來佈建 AAD 使用者帳戶。
 
 ##指派使用者
   
@@ -159,4 +159,4 @@
   
 如果要測試您的單一登入設定，請開啟存取面板。如需存取面板的詳細資訊，請參閱[存取面板簡介](active-directory-saas-access-panel-introduction.md)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

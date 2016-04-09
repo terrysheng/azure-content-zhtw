@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="02/29/2016"
 	ms.author="larryfr"/>
 
 # 在 HDInsight Hadoop 叢集上安裝 Giraph，以及使用 Giraph 來處理大規模圖形
 
-您也可以使用**指令碼動作**叢集自訂，在 Azure HDInsight 上 Hadoop 中的任何一種叢集上安裝 Giraph。指令碼動作可讓您執行指令碼，只在建立叢集時才能自訂叢集。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+您也可以使用 [指令碼動作] 來自訂叢集，在 Azure HDInsight 上 Hadoop 中的任何一種叢集上安裝 Giraph。
 
 在本主題中，您將學習如何使用指令碼動作來安裝 Giraph。一旦您已安裝 Giraph，您也將了解如何將 Giraph 用於大部分的一般應用程式，也就是處理大型的圖形。
 
@@ -42,9 +42,13 @@
 
 ## <a name="install"></a>使用指令碼動作安裝 Giraph
 
-您可以從一個唯讀的 Azure 儲存體 Blob 取得在 HDInsight 叢集上安裝 Giraph 的範例指令碼，網址為 [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh)。本節提供有關如何在使用 Azure 傳統入口網站建立叢集時使用範例指令碼的指示。
+在 HDInsight 叢集上安裝 Giraph 的範例指令碼位於下列位置。
 
-> [AZURE.NOTE] 您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，以使用此指令碼建立叢集。如需使用這些方法的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+    https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+
+本節提供如何在使用 Azure 入口網站建立叢集時使用範例指令碼的指示。
+
+> [AZURE.NOTE] Azure PowerShell、HDInsight .NET SDK 或 Azure Resource Manager 範本也可用來套用指令碼動作。您也可以將指令碼動作套用到執行中的叢集上。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 1. 使用[建立以 Linux 為基礎的 HDInsight 叢集](hdinsight-provision-linux-clusters.md#portal)中的步驟開始建立叢集，但是不完成建立。
 
@@ -146,10 +150,8 @@
 
 - [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)。色調是 Web UI，可讓您更輕鬆地建立、執行及儲存 Pig 和 Hive 工作，以及瀏覽您的 HDInsight 叢集的預設儲存體。
 
-- [在 HDInsight 叢集上安裝和使用 Spark](hdinsight-hadoop-spark-install-linux.md)：如何使用叢集自訂，以在 HDInsight Hadoop 叢集上安裝和使用 Spark 的指示。Spark 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。
-
 - [在 HDInsight 叢集上安裝 R](hdinsight-hadoop-r-scripts-linux.md)：如何使用叢集自訂，以在 HDInsight Hadoop 叢集上安裝和使用 R 的指示。R 是一個用於統計計算的開放原始碼語言和環境。它提供數百個內建的統計函式及它自己的程式設計語言，此語言結合了函式型和物件導向程式設計的層面。它也提供廣泛的圖形功能。
 
 - [在 HDInsight 叢集上安裝 Solr](hdinsight-hadoop-solr-install-linux.md)。在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Solr。Solr 可讓您在儲存的資料上執行功能強大的搜尋作業。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

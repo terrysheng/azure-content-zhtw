@@ -72,7 +72,7 @@ Microsoft Azure SQL Database 為 Azure 和其他網際網路式應用程式提�
 
 ## 建立資料庫層級防火牆規則
 
-設定第一個伺服器層級防火牆之後，您可能想要限制對特定資料庫的存取。如果您在資料庫層級防火牆規則中指定的 IP 位址範圍是在伺服器層級防火牆規則中指定的範圍之外，只有具有資料庫層級範圍中的 IP 位址的那些用戶端才可以存取資料庫。對於資料庫，您最多可以有 128 個資料庫層級防火牆規則。master 和使用者資料庫的資料庫層級防火牆規則可以透過 Transact-SQL 來建立和管理。如需詳細資訊，請參閱[如何：進行防火牆設定 (Azure SQL Database)](sql-database-configure-firewall-settings.md)。
+設定第一個伺服器層級防火牆之後，您可能想要限制對特定資料庫的存取。如果您在資料庫層級防火牆規則中指定的 IP 位址範圍是在伺服器層級防火牆規則中指定的範圍之外，只有具有資料庫層級範圍中的 IP 位址的那些用戶端才可以存取資料庫。對於資料庫，您最多可以有 128 個資料庫層級防火牆規則。master 和使用者資料庫的資料庫層級防火牆規則可以透過 Transact-SQL 來建立和管理。如需設定資料庫層級防火牆規則的詳細資訊，請參閱 [sp\_set\_database\_firewall\_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx)。
 
 ## 以程式設計方式管理防火牆規則
 
@@ -138,4 +138,4 @@ Microsoft Azure SQL Database 為 Azure 和其他網際網路式應用程式提�
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

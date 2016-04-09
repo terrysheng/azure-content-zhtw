@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="01/22/2016"
+   ms.date="03/02/2016"
    ms.author="coreyp"/>
 
 # Azure 自動化 DSC 概觀 #
@@ -116,6 +116,9 @@ Azure 自動化 DSC 中的編譯工作是組態編譯的執行個體，以建立
 
 - 升級至 WMF 5 RTM 時，如果機器已註冊為 Azure Automation DSC 的節點，請從 Azure Automation DSC 將其取消註冊，並且在 WMF 5 RTM 升級之後重新註冊。在重新註冊之前，刪除 $env:windir\\system32\\configuration\\DSCEngineCache.mof 檔案。
 
+- 如果將 WMF 5 RTM 安裝於 WMF 5 Production Preview 上，PowerShell DSC Cmdlet 可能不會運作。若要修正此問題，請在提高權限的 PowerShell 工作階段 (以系統管理員身分執行) 中執行下列命令︰`mofcomp $env:windir\system32\wbem\DscCoreConfProv.mof`
+ 
+
 ##相關文章##
 
 - [上架由 Azure 自動化 DSC 管理的機器](../automation/automation-dsc-onboarding.md)
@@ -124,4 +127,4 @@ Azure 自動化 DSC 中的編譯工作是組態編譯的執行個體，以建立
 - [Azure 自動化 DSC 價格](https://azure.microsoft.com/pricing/details/automation/)
 - [使用 Azure 自動化 DSC 和 Chocolatey 的 IaaS VM 持續部署](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

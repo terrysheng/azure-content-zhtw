@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 # 使用 Python 從 Azure Blob 儲存體來回移動資料
@@ -51,7 +51,7 @@
 
 將下列程式碼片段新增至您希望以程式設計方式存取 Azure 儲存體的任何 Python 程式碼頂端附近：
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 **BlobService** 物件讓您能使用容器及 blob。下列程式碼會使用儲存體帳戶名稱和帳戶金鑰來建立 BlobService 物件。使用您真正的帳戶和金鑰來取代帳戶名稱和帳戶金鑰。
 	
@@ -70,7 +70,7 @@
 
 下列程式碼範例會將本機目錄中的所有檔案 (不含目錄) 上傳至 Blob 儲存體：
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os import listdir
 	from os.path import isfile, join
 	
@@ -95,7 +95,11 @@
 
 ## 從 Blob 下載資料
 
-使用下列方法從 Blob 下載資料：1. get\_blob\_to\_path 2. get\_blob\_to\_file 3. get\_blob\_to\_bytes 4. get\_blob\_to\_text
+使用下列方法，從 Blob 下載資料：
+1. get\_blob\_to\_path
+2. get\_blob\_to\_file
+3. get\_blob\_to\_bytes
+4. get\_blob\_to\_text 
 
 這些方法可以在資料大小超過 64 MB 時執行必要的區塊化動作。
 
@@ -105,7 +109,7 @@
 
 下列程式碼範例會從容器下載所有 Blob。它會使用 list\_blobs 來取得容器中可用的 Blob 清單，並將它們下載至本機目錄。
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 	from os.path import join
 	
 	# Set parameters here
@@ -125,4 +129,4 @@
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

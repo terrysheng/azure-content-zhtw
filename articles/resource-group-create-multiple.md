@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="03/09/2016"
    ms.author="tomfitz"/>
 
 # 在 Azure 資源管理員中建立資源的多個執行個體
@@ -210,9 +210,282 @@
         ...
     }]
 
+## 針對一部虛擬機器建立多個資料磁碟
+
+常見的案例是針對一部虛擬機器建立多個資料磁碟。您不能將 **copy** 與資料磁碟搭配使用，因為 **dataDisks** 是虛擬機器上的屬性，而不是它自己的資源類型。**copy** 僅適用於資源。相反地，您可以建立連結的範本，在其中定義所需的資料磁碟數目，並輸出具有指定資料磁碟數目的陣列。您可以從部署範本連結到此範本，並傳入要傳回的資料磁碟數目。在部署範本中，您會將 **dataDisks** 屬性設定為來自連結範本的輸出值。
+
+此模式的完整範例會顯示於 [Create a VM with a dynamic selection of data disks (使用動態選取的資料磁碟來建立 VM)](https://azure.microsoft.com/documentation/templates/201-vm-dynamic-data-disks-selection/) 範本中。
+
+部署範本的相關區段如下所示。已移除範本中的大部分內容，以便反白顯示動態建立多個資料磁碟時所涉及的區段。請注意參數 **numDataDisks**，其可讓您傳入要建立的磁碟數目。名為 **diskSelection** 的連結範本是指定於資源區段中。該連結範本的輸出會指派給虛擬機器上的 **dataDisks** 屬性。
+
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        ...
+        "numDataDisks": {
+          "type": "string",
+          "allowedValues": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "32"
+          ],
+          "metadata": {
+            "description": "This parameter allows the user to select the number of disks they want"
+          }
+        }
+      },
+      "variables": {
+        "artifactsLocation": "https://raw.githubusercontent.com/singhkay/azure-quickstart-templates/master/201-vm-dynamic-data-disks-selection/", 
+        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'dynamicdisk')]",
+        "sizeOfDataDisksInGB": 100,
+        "diskCaching": "ReadWrite",
+        ...
+      },
+      "resources": [
+        {
+          "apiVersion": "2015-01-01",
+          "name": "diskSelection",
+          "type": "Microsoft.Resources/deployments",
+          "properties": {
+            "mode": "Incremental",
+            "templateLink": {
+              "uri": "[concat(variables('artifactsLocation'), 'disksSelector', '.json')]",
+              "contentVersion": "1.0.0.0"
+            },
+            "parameters": {
+              "numDataDisks": {
+                "value": "[parameters('numDataDisks')]"
+              },
+              "diskStorageAccountName": {
+                "value": "[variables('storageAccountName')]"
+              },
+              "diskCaching": {
+                "value": "[variables('diskCaching')]"
+              },
+              "diskSizeGB": {
+                "value": "[variables('sizeOfDataDisksInGB')]"
+              }
+            }
+          }
+        },
+        ...
+        {
+          "type": "Microsoft.Compute/virtualMachines",
+          "properties": {
+            "storageProfile": {
+              ...
+              "dataDisks": "[reference('diskSelection').outputs.dataDiskArray.value]"
+            },
+            ...
+          }
+        }
+      ]
+    }
+
+連結的範本會定義要傳回的陣列。以下所示的範本會省略介於 3 到 32 之間的重複磁碟定義，但在您的實際範本中需要包含所有的這些定義。如果您需要 32 個以上的資料磁碟，您可以繼續使用此模式。請注意，在這整個範本中並未部署任何資源；相反地，它只會傳回一個陣列，其中包含定義資料磁碟之物件的要求數目。
+
+```
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "numDataDisks": {
+      "type": "string",
+      "allowedValues": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "32"
+      ],
+      "metadata": {
+        "description": "This parameter allows the user to select the number of disks they want"
+      }
+    },
+    "diskStorageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the storage account where the data disks are stored"
+      }
+    },
+    "diskCaching": {
+      "type": "string",
+      "allowedValues": [
+        "None",
+        "ReadOnly",
+        "ReadWrite"
+      ],
+      "metadata": {
+        "description": "Caching type for the data disks"
+      }
+    },
+    "diskSizeGB": {
+      "type": "int",
+      "minValue": 1,
+      "maxValue": 1023,
+      "metadata": {
+        "description": "Size of the data disks"
+      }
+    }
+  },
+  "variables": {
+    "disksArray": {
+      "1": "[variables('dataDisks')['1']]",
+      "2": "[concat(variables('dataDisks')['1'], variables('dataDisks')['2'])]",
+      "3": "[concat(variables('dataDisks')['1'], variables('dataDisks')['2'], variables('dataDisks')['3'])]",
+      "4": "[variables('diskDeltas')['4delta']]",
+      "5": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'])]",
+      "6": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'], variables('dataDisks')['6'])]",
+      "7": "[concat(variables('diskDeltas')['4delta'], variables('dataDisks')['5'], variables('dataDisks')['6'], variables('dataDisks')['7'])]",
+      "8": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'])]",
+      "9": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'])]",
+      "10": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'], variables('dataDisks')['10'])]",
+      "11": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('dataDisks')['9'], variables('dataDisks')['10'], variables('dataDisks')['11'])]",
+      "12": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'])]",
+      "13": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'])]",
+      "14": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'], variables('dataDisks')['14'])]",
+      "15": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('dataDisks')['13'], variables('dataDisks')['14'], variables('dataDisks')['15'])]",
+      "16": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['16delta'])]",
+      "32": "[concat(variables('diskDeltas')['4delta'], variables('diskDeltas')['8delta'], variables('diskDeltas')['12delta'], variables('diskDeltas')['16delta'], variables('diskDeltas')['32delta'])]"
+    },
+    "dataDisks": {
+      "1": [
+        {
+          "name": "datadisk1",
+          "lun": 0,
+          "vhd": {
+            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk1.vhd')]"
+          },
+          "createOption": "Empty",
+          "caching": "[parameters('diskCaching')]",
+          "diskSizeGB": "[parameters('diskSizeGB')]"
+        }
+      ],
+      "2": [
+        {
+          "name": "datadisk2",
+          "lun": 1,
+          "vhd": {
+            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk2.vhd')]"
+          },
+          "createOption": "Empty",
+          "caching": "[parameters('diskCaching')]",
+          "diskSizeGB": "[parameters('diskSizeGB')]"
+        }
+      ],
+      "3": [
+        {
+          "name": "datadisk3",
+          "lun": 2,
+          "vhd": {
+            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk3.vhd')]"
+          },
+          "createOption": "Empty",
+          "caching": "[parameters('diskCaching')]",
+          "diskSizeGB": "[parameters('diskSizeGB')]"
+        }
+      ],
+      ...
+      "32": [
+        {
+          "name": "datadisk32",
+          "lun": 31,
+          "vhd": {
+            "uri": "[concat('http://', parameters('diskStorageAccountName'),'.blob.core.windows.net/vhds/', 'datadisk32.vhd')]"
+          },
+          "createOption": "Empty",
+          "caching": "[parameters('diskCaching')]",
+          "diskSizeGB": "[parameters('diskSizeGB')]"
+        }
+      ]
+    },
+    "_comment2": "The delta arrays below build the difference from 0 to 4, 4 to 8, 8 to 12 disks and so on",
+    "diskDeltas": {
+      "4delta": [
+        "[variables('dataDisks')['1'][0]]",
+        "[variables('dataDisks')['2'][0]]",
+        "[variables('dataDisks')['3'][0]]",
+        "[variables('dataDisks')['4'][0]]"
+      ],
+      "8delta": [
+        "[variables('dataDisks')['5'][0]]",
+        "[variables('dataDisks')['6'][0]]",
+        "[variables('dataDisks')['7'][0]]",
+        "[variables('dataDisks')['8'][0]]"
+      ],
+      "12delta": [
+        "[variables('dataDisks')['9'][0]]",
+        "[variables('dataDisks')['10'][0]]",
+        "[variables('dataDisks')['11'][0]]",
+        "[variables('dataDisks')['12'][0]]"
+      ],
+      "16delta": [
+        "[variables('dataDisks')['13'][0]]",
+        "[variables('dataDisks')['14'][0]]",
+        "[variables('dataDisks')['15'][0]]",
+        "[variables('dataDisks')['16'][0]]"
+      ],
+      "32delta": [
+        "[variables('dataDisks')['17'][0]]",
+        "[variables('dataDisks')['18'][0]]",
+        "[variables('dataDisks')['19'][0]]",
+        "[variables('dataDisks')['20'][0]]",
+        "[variables('dataDisks')['21'][0]]",
+        "[variables('dataDisks')['22'][0]]",
+        "[variables('dataDisks')['23'][0]]",
+        "[variables('dataDisks')['24'][0]]",
+        "[variables('dataDisks')['25'][0]]",
+        "[variables('dataDisks')['26'][0]]",
+        "[variables('dataDisks')['27'][0]]",
+        "[variables('dataDisks')['28'][0]]",
+        "[variables('dataDisks')['29'][0]]",
+        "[variables('dataDisks')['30'][0]]",
+        "[variables('dataDisks')['31'][0]]",
+        "[variables('dataDisks')['32'][0]]"
+      ]
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "dataDiskArray": {
+      "type": "array",
+      "value": "[variables('disksArray')[parameters('numDataDisks')]]"
+    }
+  }
+}
+
+```
+
 ## 後續步驟
 - 若要了解範本區段的相關資訊，請參閱[編寫 Azure 資源管理員範本](./resource-group-authoring-templates.md)。
 - 如需可以在範本中使用的函式清單，請參閱 [Azure 資源管理員範本函式](./resource-group-template-functions.md)。
 - 若要了解如何部署範本，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0316_2016-->

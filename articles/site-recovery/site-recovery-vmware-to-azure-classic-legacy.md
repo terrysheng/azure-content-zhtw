@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="03/15/2016"
 	ms.author="raynew"/>
 
 # 使用 Azure Site Recovery 將 VMWare 虛擬機器和實體伺服器複寫至 Azure (舊版)
@@ -197,11 +197,11 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 **元件** | **需求** | **詳細資料**
 --- | --- | --- 
 **Azure 帳戶** | 您將需要 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。您可以從[免費試用](pricing/free-trial/)開始。
-**Azure 儲存體** | <p>您將需要 Azure 儲存體帳戶來儲存複寫的資料</p><p>帳戶應該是[標準異地備援儲存體帳戶](../storage/storage-redundancy.md#geo-redundant-storage)或[進階儲存體帳戶](../storage/storage-premium-storage.md)。</p><p>此帳戶應與 Azure Site Recovery 服務位於相同的區域，且與相同的訂用帳戶相關聯。</p><p>若要深入了解，請閱讀 [Microsoft Azure 儲存體簡介](../storage/storage-introduction.md)</p>
+**Azure 儲存體** | <p>您將需要 Azure 儲存體帳戶來儲存複寫的資料</p><p>帳戶應該是[標準異地備援儲存體帳戶](../storage/storage-redundancy.md#geo-redundant-storage)或[進階儲存體帳戶](../storage/storage-premium-storage.md)。</p><p>此帳戶必須與 Azure Site Recovery 服務位於相同的區域，且與相同的訂用帳戶相關聯。我們不支援使用[新的 Azure 入口網站](../storage/storage-create-storage-account.md)來跨資源群組移動所建立的儲存體帳戶。</p><p>若要深入了解，請閱讀 [Microsoft Azure 儲存體簡介](../storage/storage-introduction.md)</p>
 **Azure 虛擬網路** | 您需要 Azure 虛擬網路以部署設定伺服器與主要目標伺服器。需與 Azure Site Recovery 保存庫位於相同的訂用帳戶與區域中。如果您想要透過 ExpressRoute 或 VPN 連接來複寫資料，Azure 虛擬網路必須透過 ExpressRoute 連線或站對站 VPN 連接到內部部署網路。
 **Azure 資源** | 請確認您有足夠的 Azure 資源以部署所有元件。在 [Azure 訂用帳戶限制](../azure-subscription-service-limits.md)中深入了解。
 **Azure 虛擬機器** | <p>您想要保護的虛擬機器應該符合 [Azure 必要條件](site-recovery-best-practices.md)。</p><p>**磁碟計數**—單一受保護伺服器上可支援最多 31 個磁碟</p><p>**磁碟大小**—個別磁碟容量不應該超過 1023 GB</p><p>**叢集**—不支援叢集伺服器</p><p>**開機**—不支援整合可延伸韌體介面 (UEFI)/可延伸韌體介面 (EFI) 開機</p><p>**磁碟區**—不支援 Bitlocker 加密的磁碟區</p><p> **伺服器名稱**—名稱應包含 1 到 63 個字元 (字母、數字和連字號)。名稱必須以字母或數字開頭，並以字母或數字結尾。機器受到保護之後，您可以修改 Azure 的名稱。</p>
-**設定伺服器** | <p>將在您的訂用帳戶中為設定伺服器建立以 Azure Site Recovery Windows Server 2012 R2 資源庫映像為基礎的標準 A3 虛擬機器。它會建立為新的雲端服務中的第一個執行個體。如果選取 [公用網際網路] 作為設定伺服器的連線類型，將使用保留的公用 IP 位址建立雲端服務。</p><p>安裝路徑僅限使用英文字元。</p>
+**設定伺服器** | <p>將在您的訂用帳戶中為設定伺服器建立以 Azure Site Recovery Windows Server 2012 R2 資源庫映像為基礎的標準 A3 虛擬機器。它會建立為新的雲端服務中的第一個執行個體。如果選取 [公用網際網路] 做為設定伺服器的連線類型，將使用保留的公用 IP 位址建立雲端服務。</p><p>安裝路徑僅限使用英文字元。</p>
 **主要目標伺服器** | <p>Azure 虛擬機器，標準 A4、D14 或 DS4。</p><p>安裝路徑應該只有英文字元。例如，執行 Linux 的主要目標伺服器之路徑應為 **/usr/local/ASR**。</p></p>
 **處理序伺服器** | <p>您可以在執行最新版更新之 Windows Server 2012 R2 的實體或虛擬機器上部署處理序伺服器。在 C:/ 上安裝。</p><p>建議您將此伺服器放在與您要保護的機器相同的網路與子網路上。</p><p>在程序伺服器上安裝 VMware vSphere CLI 5.5.0。處理序伺服器上需要 VMware vSphere CLI 元件，才能探索由 vCenter 伺服器管理的虛擬機器或 ESXi 主機上執行的虛擬機器。</p><p>安裝路徑應該只有英文字元。</p><p>不支援 ReFS 檔案系統。</p>
 **VMware** | <p>VMware vCenter 伺服器，管理您的 VMware vSphere Hypervisor。它應該執行 vCenter 5.1 或 5.5 版，並且具備最新的更新。</p><p>一或多個 vSphere Hypervisor，包含您要保護的 VMware 虛擬機器。Hypervisor 應該執行 ESX/ESXi 5.1 或 5.5 版或更新版本並且具備最新的更新。</p><p>VMware 虛擬機器應該已安裝並執行 VMware 工具。</p>  
@@ -310,11 +310,11 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 	- 如果您使用自訂 Proxy，或者您的預設 Proxy 需要驗證，您必須輸入 Proxy 詳細資料，包含位址、連接埠和認證。
 	- 下列 URL 應可透過 Proxy 存取：
 		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
-- 如果您有以 IP 位址為基礎的防火牆規則，請確保規則均設定為允許組態伺服器可與 [Azure 資料中心 IP 範圍](https://msdn.microsoft.com/library/azure/dn175718.aspx)和 HTTPS (443) 通訊協定中所述的 IP 位址通訊。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
+		- **.accesscontrol.windows.net
+		- **.backup.windowsazure.com
+		- **.blob.core.windows.net
+		- **.store.core.windows.net
+	- 如果您有以 IP 位址為基礎的防火牆規則，請確保規則均設定為允許組態伺服器可與 [Azure 資料中心 IP 範圍](https://msdn.microsoft.com/library/azure/dn175718.aspx)和 HTTPS (443) 通訊協定中所述的 IP 位址通訊。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 
 	![Proxy 註冊](./media/site-recovery-vmware-to-azure-classic-legacy/register-proxy.png)
 
@@ -417,8 +417,9 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 8. 如果您在執行 Linux：
 	1. 確定您已安裝最新的 Linux Integration Services (LIS)，之後才安裝主要目標伺服器軟體。您可以在[這裡](https://www.microsoft.com/download/details.aspx?id=46842)找到最新版本的 LIS 以及安裝指示。LIS 安裝之後重新啟動電腦。
 	2. 在 [準備目標 (Azure) 資源] 中，按一下 [下載並安裝其他軟體 (僅適用 Linux 主要目標伺服器)] 以下載 Linux 主要目標伺服器封裝。將下載的 tar 檔案複製到使用 sftp 用戶端的虛擬機器。或者您可以登入已部署的 Linux 主要目標伺服器並使用 *wgethttp://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* 下載檔案。
-2. 使用安全殼層用戶端登入伺服器。請注意，如果您已透過 VPN 連線到 Azure 網路，請使用內部 IP 位址。否則請使用外部 IP 位址與 SSH 公用端點。
-	3. 將檔案從 Gzip 安裝程式解壓縮，方法是執行：**tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***![Linux 主要目標伺服器](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)
+	2. 使用安全殼層用戶端登入伺服器。請注意，如果您已透過 VPN 連線到 Azure 網路，請使用內部 IP 位址。否則請使用外部 IP 位址與 SSH 公用端點。
+	3. 將檔案從 Gzip 安裝程式解壓縮，方法是執行：**tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64**
+	![Linux 主要目標伺服器](./media/site-recovery-vmware-to-azure-classic-legacy/linux-tar.png)
 	4. 請確認您在解壓縮 tar 檔案內容的目錄中。
 	5. 使用命令 **echo *`<passphrase>`* >passphrase.txt** 將組態伺服器的複雜密碼複製到本機檔案
 	6. 執行命令 “**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**”。
@@ -697,6 +698,8 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 	![加入 V-Center 伺服器](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)	
 4. 在 [指定目標資源] 中，選取要用於複寫主要目標伺服器和儲存體，並選取設定是否應該用於所有工作負載。設定工作負載的保護時選取[進階儲存體帳戶](../storage/storage-premium-storage.md)，該工作負載需要一致高 IO 效能和低延遲，以裝載需要大量 IO 的工作負載。如果您希望針對您的工作負載磁碟使用進階儲存體帳戶，您必須使用 DS 系列的主要目標。您無法搭配使用進階儲存體磁碟與非 DS 系列的主要目標。
 
+	>[AZURE.NOTE] 我們不支援使用[新的 Azure 入口網站](../storage/storage-create-storage-account.md)來跨資源群組移動所建立的儲存體帳戶。
+
 	![vCenter 伺服器](./media/site-recovery-vmware-to-azure-classic-legacy/machine-resources.png)
 
 5. 在 [指定帳戶] 中，選取您要於在受保護的機器上安裝行動服務的帳戶。需要帳戶認證，才能自動安裝行動服務。如果您無法選取帳戶，請確定您如步驟 2 中所述設定一個。請注意，Azure 無法存取此帳戶。對於 Windows 伺服器而言，帳戶應該具有來源伺服器上的系統管理員權限。若為 Linux，帳戶必須是 root。
@@ -804,4 +807,4 @@ The information in Section B is regarding Third Party Code components that are b
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428).Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!----HONumber=AcomDC_0316_2016-->

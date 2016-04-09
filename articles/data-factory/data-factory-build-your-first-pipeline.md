@@ -1,6 +1,6 @@
 <properties
-	pageTitle="開始使用 Azure Data Factory"
-	description="本教學課程示範如何建立使用 Azure HDInsight 轉換資料的範例資料管線。"
+	pageTitle="建置您的第一個 Data Factory |Microsoft Azure"
+	description="本教學課程示範如何建立含有使用 Azure HDInsight 轉換資料之資料管線的 Data Factory。"
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="12/18/2015"
+	ms.date="03/03/2016"
 	ms.author="spelluru"/>
 
-# 開始使用 Azure Data Factory
+# 教學課程︰建立您的第一個 Data Factory (概觀)
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [教學課程概觀](data-factory-build-your-first-pipeline.md)
+- [使用 Data Factory 編輯器](data-factory-build-your-first-pipeline-using-editor.md)
+- [使用 PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [使用 Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [使用資源管理員範本](data-factory-build-your-first-pipeline-using-arm.md)
 
 本文可協助您開始建置您的第一個 Azure Data Factory。
 
@@ -185,7 +185,7 @@
 
 ### 將輸入檔案和 HQL 檔案上傳到您的 Azure Blob 儲存體
 
-您可以使用任何工具 (例如：[Microsoft Azure 儲存體總管](http://storageexplorer.com/)、CloudXPlorer by ClumsyLeaf Software) 來執行這項工作。本節提供使用 AzCopy 工具的指示。
+您可以使用您選擇的任何工具 (例如：[Microsoft Azure 儲存體總管](http://storageexplorer.com/)、CloudXPlorer by ClumsyLeaf Software) 來執行這項工作。本節提供使用 AzCopy 工具的指示。
 	 
 2. 為教學課程準備 Azure 儲存體：
 	1. 下載[最新版本的 **AzCopy**](http://aka.ms/downloadazcopy)，或[最新預覽版本](http://aka.ms/downloadazcopypr)。請參閱[如何使用 AzCopy](../storage/storage-use-azcopy.md) 一文以取得使用公用程式的指示。
@@ -209,7 +209,7 @@
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. 執行下列命令，將 **partitionweblogs.hql** 檔案上傳到 **adfgetstarted** 容器的**指令碼**資料夾中。命令如下： 
+	1. 執行下列命令，將 **partitionweblogs.hql** 檔案上傳到 **adfgetstarted** 容器的 [指令碼] 資料夾中。命令如下： 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
@@ -222,4 +222,4 @@
 - Visual Studio
 - Azure 資源管理員範本 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

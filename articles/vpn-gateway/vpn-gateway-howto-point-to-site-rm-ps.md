@@ -19,12 +19,12 @@
 # 使用 PowerShell 設定虛擬網路的點對站連線
 
 > [AZURE.SELECTOR]
-- [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portal - Classic](vpn-gateway-point-to-site-create.md)
+- [PowerShell - 資源管理員](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [入口網站 - 傳統](vpn-gateway-point-to-site-create.md)
 
 點對站設定可讓您從用戶端電腦個別地建立與虛擬網路的安全連線。VPN 連線的建立方式是從用戶端電腦啟動連線。當您想要從遠端位置 (例如從住家或會議) 連接到您的 VNet 時，或您只有幾個需要連線至虛擬網路的用戶端時，點對站是絕佳的解決方案。點對站連線不需要 VPN 裝置或公眾對應 IP 位址即可運作。如需點對站連線的詳細資訊，請參閱 [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md#point-to-site-connections)和[關於跨單位連線](vpn-gateway-cross-premises-options.md)。
 
-本文適用於使用 **Azure 資源管理員**部署模型建立的 VNet 和 VPN 閘道。如果您想為使用服務管理 (也稱為傳統部署模型) 建立的 VNet 設定點對站連線，請參閱[設定 VNet 的點對站 VPN 連線](vpn-gateway-point-to-site-create.md)。
+本文適用於使用 **Azure Resource Manager** 部署模型建立的 VNet 和 VPN 閘道。如果您想為使用服務管理 (也稱為傳統部署模型) 建立的 VNet 設定點對站連線，請參閱[設定 VNet 的點對站 VPN 連線](vpn-gateway-point-to-site-create.md)。
 
 [AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -37,7 +37,7 @@
 - 名稱：**TestVNet**，使用位址空間 **192.168.0.0/16** 與 **10.254.0.0/16**。請注意，您可以針對 VNet 使用一個以上的位址空間。
 - 子網路名稱：**FrontEnd**，使用 **192.168.1.0/24**
 - 子網路名稱：**BackEnd**，使用 **10.254.1.0/24**
-- 子網路名稱：**GatewaySubnet**，使用 **192.168.200.0/24**。子網路名稱 *GatewaySubnet* 是閘道能夠運作的必要項目。 
+- 子網路名稱：**GatewaySubnet**，使用 **192.168.200.0/24**。子網路名稱 *GatewaySubnet* 是閘道器能夠運作的必要項目。 
 - VPN 用戶端位址集區：**172.16.201.0/24**。使用這個點對站連線連線到 VNet 的 VPN 用戶端會接收來自這個集區的 IP 位址。
 - 訂用帳戶：如果您有一個以上的訂用帳戶，請確認您使用正確的訂用帳戶。
 - 資源群組：**TestRG**
@@ -52,7 +52,7 @@
 
 - 請確認您有 Azure 訂用帳戶。如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或申請[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 	
-- 您必須安裝 Azure 資源管理員 PowerShell Cmdlet (1.0.2 或更新版本)。如需安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
+- 您必須安裝 Azure 資源管理員 PowerShell Cmdlet (1.0.2 或更新版本)。如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 
 ## 為 Azure 設定點對站連線
 
@@ -92,7 +92,7 @@
 
 		New-AzureRmResourceGroup -Name $RG -Location $Location
 
-6. 為虛擬網路建立子網路設定，將其命名為 *FrontEnd*、*BackEnd* 和 *GatewaySubnet*。請注意，這些前置詞必須是上面宣告的 VNet 位址空間的一部分。
+6. 為虛擬網路建立子網路組態，將其命名為 *FrontEnd*、*BackEnd* 和 *GatewaySubnet*。請注意，這些前置詞必須是上面宣告的 VNet 位址空間的一部分。
 
 		$fesub = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
 		$besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
@@ -227,6 +227,6 @@
 
 ## 後續步驟
 
-您可以將虛擬機器新增至虛擬網路。請參閱[建立網站的虛擬機器](../virtual-machines/virtual-machines-windows-tutorial.md)以取得相關步驟。
+您可以將虛擬機器新增至虛擬網路。請參閱[建立網站的虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md)以取得相關步驟。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

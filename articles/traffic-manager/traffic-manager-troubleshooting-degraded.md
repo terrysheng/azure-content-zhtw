@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/02/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # 疑難排解 Azure 流量管理員上的已降級狀態
@@ -67,9 +67,9 @@
 ## 後續步驟
 
 
-[關於流量管理員流量路由方法](traffic-manager-load-balancing-methods.md)
+[關於流量管理員流量路由方法](traffic-manager-routing-methods.md)
 
-[什麼是流量管理員](../traffic-manmager-overview.md)
+[什麼是流量管理員](traffic-manager-overview.md)
 
 [雲端服務](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -80,4 +80,4 @@
 [Azure 流量管理員 Cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0323_2016-->

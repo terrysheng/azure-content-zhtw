@@ -3,7 +3,7 @@
    description="開始連線到 SQL 資料倉儲並執行一些查詢。"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/28/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # 使用 SQLCMD 連接及查詢
@@ -45,17 +45,17 @@
 
 ## 使用 sqlcmd 連接到 SQL 資料倉儲
 
-若要在使用 sqlcmd 時連接到 SQL 資料倉儲的特定執行個體，您必須開啟命令提示字元並輸入 **sqlcmd**，後面接著 SQL 資料倉儲資料庫的連接字串。連接字串必須包含下列參數：
+若要在使用 sqlcmd 時連接到 SQL 資料倉儲的特定執行個體，您必須開啟命令提示字元並輸入 **sqlcmd**，後面接著 SQL 資料倉儲資料庫的連接字串。連接字串需要下列必要參數：
 
++ **伺服器 (-S)：** 採用 `<`Server Name`>`.database.windows.net 格式的伺服器
++ **資料庫 (-d)：**資料庫名稱。
 + **使用者 (-U)：**`<`使用者`>`表單中的伺服器使用者
 + **密碼 (-P)：**與使用者相關聯的密碼。
-+ **伺服器 (-S)：** 採用 `<`Server Name`>`.database.windows.net 格式的伺服器
-+ **資料庫 (-D)：**資料庫名稱。
 + **啟用引號識別碼 (-I)：**必須啟用引號識別碼，才能連接到 SQL 資料倉儲執行個體。
 
 因此，若要連接到 SQL 資料倉儲執行個體，您需輸入下列資訊：
 
-```
+```sql
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
 ```
 
@@ -63,9 +63,9 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 
 連線之後，您可以對執行個體發出任何支援的 Transact-SQL 陳述式。
 
-```
+```sql
 C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
-1> SELECT COUNT(*) FROM dbo.FactInternetSales;
+1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
 ```
@@ -83,4 +83,4 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

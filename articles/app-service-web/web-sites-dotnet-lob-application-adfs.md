@@ -102,7 +102,7 @@
 	  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
 	  <mark>&lt;add key="ida:RPIdentifier" value="[輸入在 AD FS 中設定的信賴憑證者識別碼，例如 https://localhost:44320/]" /></mark>
 	  <mark>&lt;add key="ida:ADFS" value="[輸入 AD FS 服務的 FQDN，例如 adfs.contoso.com]" /></mark>
-
+	
 	&lt;/appSettings>
 	</pre>
 
@@ -135,9 +135,9 @@
 
 11. 在 Visual Studio 中，開啟專案中的 **Web.Release.config**。將下列 XML 插入 `<configuration>` 標記，並使用發佈 Web 應用程式的 URL 取代索引鍵值。
 	<pre class="prettyprint">
-&lt;appSettings>
-   &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>
+	&lt;appSettings>
+	   &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+	&lt;/appSettings></pre>
 
 當您完成時，您會在專案中設定兩個 RP 識別碼，一個適用於 Visual Studio 中的偵錯環境，另一個適用於 Azure 中的已發行 Web 應用程式。您會在 AD FS 中，為兩種環境的每種環境設定一個 RP 信任。在偵錯期間，Web.config 中的應用程式設定可讓您的「偵錯」組態使用 AD FS，且在發佈後 (預設會發佈「版本」組態) 會上傳轉換的 Web.config，其中包含 Web.Release.config 的應用程式設定變更。
 
@@ -199,17 +199,17 @@
 10.	選取 [使用自訂規則傳送宣告] 並按 [下一步]。
 11.	將下列規則語言貼到 [自訂規則] 方塊，將規則命名為 [每個工作階段識別碼] 並按一下 [完成]。  
 	<pre class="prettyprint">
-c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
-	=> add(
-		store = "_OpaqueIdStore",
-		types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
-		query = "{0};{1};{2};{3};{4}",
-		param = "useEntropy",
-		param = c1.Value,
-		param = c1.OriginalIssuer,
-		param = "",
-		param = c2.Value);
+	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
+	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+		=> add(
+			store = "_OpaqueIdStore",
+			types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+			query = "{0};{1};{2};{3};{4}",
+			param = "useEntropy",
+			param = c1.Value,
+			param = c1.OriginalIssuer,
+			param = "",
+			param = c2.Value);
 	</pre>
 
 	您的自訂規則看起來應該像這樣：
@@ -268,17 +268,17 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 	<mark>[Authorize(Roles="Test Group")]</mark>
 	public ActionResult About()
 	{
-    ViewBag.Message = "Your application description page.";
-
-    return View();
+	    ViewBag.Message = "Your application description page.";
+	
+	    return View();
 	}
-
+	
 	<mark>[Authorize(Roles="Domain Admins")]</mark>
 	public ActionResult Contact()
 	{
-    ViewBag.Message = "Your contact page.";
-
-    return View();
+	    ViewBag.Message = "Your contact page.";
+	
+	    return View();
 	}
 	</pre>
 
@@ -356,4 +356,4 @@ Azure App Service Web Apps 可透過兩種方式支援存取在內部部署資�
  
  
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

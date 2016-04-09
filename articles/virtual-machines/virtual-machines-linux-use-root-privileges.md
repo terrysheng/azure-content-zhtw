@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="在 Linux 虛擬機器上使用根權限 | Microsoft Azure" 
 	description="了解如何在 Azure 中的 Linux 虛擬機器上使用根權限。" 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
@@ -55,4 +55,4 @@
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

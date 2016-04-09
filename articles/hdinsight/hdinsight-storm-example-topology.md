@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="01/15/2016"
+ ms.date="03/18/2016"
  ms.author="larryfr"/>
 
 # HDInsight 上 Apache Storm 的範例 Storm 拓撲及元件
@@ -61,4 +61,4 @@
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "此專案包含 spout、bolt 和拓撲的範本，藉此和各種 Azure 服務進行互動，例如事件中心、DocumentDB 和 SQL Database。"
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

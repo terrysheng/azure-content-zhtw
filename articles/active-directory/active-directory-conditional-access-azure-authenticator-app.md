@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="03/07/2016"
 	ms.author="femila"/>
 
 # 適用於 Android 的 Azure Authenticator
@@ -46,7 +46,8 @@ IT 系統管理員可能曾建議您使用 Microsoft Azure Authenticator 進行�
 9. [加入工作場所] 畫面會顯示「正在加入您的工作場所」訊息。Azure Authenticator 應用程式會嘗試將您的裝置加入至您的工作場所。
 10. 您應該會在下一個畫面上看到「已加入工作場所」訊息。
 
->[AZURE.NOTE]您可以在您的裝置上有單一工作帳戶。
+>[AZURE.NOTE]
+您可以在您的裝置上有單一工作帳戶。
 
 ### 從設定功能表新增工作帳戶
 安裝 Azure Authenticator 應用程式之後，您也可以從 Android 帳戶管理員建立工作帳戶。
@@ -66,7 +67,8 @@ IT 系統管理員可能曾建議您使用 Microsoft Azure Authenticator 進行�
 7. 下一個畫面會顯示 Multi-Factor Authentication (MFA) 的相關資訊，這是為了增加安全性的選擇性畫面。如果您的公司或學校要求次要因素驗證才能建立工作帳戶，您將會看到這個畫面。它會提供進一步驗證帳戶的指示。
 8. 按下一個畫面上的 [確定]。請勿變更憑證名稱，隨即顯示「正在加入您的工作場所」訊息。Azure Authenticator 應用程式會嘗試將您的裝置加入至您的工作場所。您應該會在下一個畫面上看到「已加入工作場所」訊息。
 
->[AZURE.NOTE]您可以在您的裝置上有單一工作帳戶。
+>[AZURE.NOTE]
+您可以在您的裝置上有單一工作帳戶。
 
 安裝 Azure Authenticator 應用程式之後，您也可以從 Android 帳戶管理員建立工作帳戶。
 
@@ -106,10 +108,12 @@ IT 系統管理員可能曾建議您使用 Microsoft Azure Authenticator 進行�
 
 ##解除安裝應用程式
 
-在 Samsung Android 裝置上，必須先如下所示移除裝置系統管理員權限，才能解除安裝。1.從 [設定] 的 [系統] 之下，選取 [安全性]。2.在 [裝置管理] 中按一下 [裝置系統管理員]。確定已清除 [Azure Authenticator] 旁邊的核取方塊。
+在 Samsung Android 裝置上，必須先如下所示移除裝置系統管理員權限，才能解除安裝。
+1. 從 [設定] 的 [系統] 之下，選取 [安全性]。
+2. 在 [裝置管理] 中按一下 [裝置系統管理員]。確定已清除 [Azure Authenticator] 旁邊的核取方塊。
 
 ##疑難排解
 
 如果您看到 [金鑰存放區錯誤]，這可能是因為您未使用 PIN 設定鎖定畫面。若要解決這個問題，請將 Azure Authenticator 應用程式解除安裝、設定鎖定螢幕的 PIN，以及重新安裝應用程式。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

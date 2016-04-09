@@ -3,8 +3,8 @@
    description="在您的 Azure Active Directory 中針對顯示報告事件所花費的時間長度"
    services="active-directory"
    documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
+   authors="dhanyahk"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/07/2015"
-   ms.author="kenhoff"/>
+   ms.date="03/07/2016"
+   ms.author="dhanyahk"/>
 
 # Azure Active Directory 報告延遲
 
@@ -52,4 +52,4 @@ RMS 裝置使用量 | 2 小時 | 4 小時 | 8 小時
 **私人預覽報告** | | |
 所有使用者登入活動 | 2 小時 | 4 小時 | 8 小時
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

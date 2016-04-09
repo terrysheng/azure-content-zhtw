@@ -1,11 +1,11 @@
 <properties
-	pageTitle="撰寫嵌入資料表值函式以選取要移轉的資料列 (Stretch Database) | Microsoft Azure"
-	description="了解如何建立篩選述詞以選取要移轉的資料列。"
+	pageTitle="使用篩選述詞選取要移轉的資料列 (Stretch Database) | Microsoft Azure"
+	description="了解如何使用篩選述詞選取要移轉的資料列。"
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -16,15 +16,15 @@
 	ms.date="02/26/2016"
 	ms.author="douglasl"/>
 
-# 撰寫嵌入資料表值函式以選取要移轉的資料列 (Stretch Database)
+# 使用篩選述詞選取要移轉的資料列 (Stretch Database)
 
 如果您將歷程資料儲存在個別的資料表上，您可以設定 Stretch Database 以移轉整個資料表。相反地，如果您的資料表同時包含歷程及目前的資料，您可以指定篩選述詞以選取要移轉的資料列。篩選述詞必須呼叫嵌入資料表值函式。本主題說明如何撰寫嵌入資料表值函式以選取要移轉的資料列。
 
-在透過 RC0 使用的 CTP 3.1 中，指定述詞的選項已不再於 [為資料庫啟用延伸功能] 精靈中提供。您必須使用 ALTER TABLE 陳述式以利用此選項設定 Stretch Database。如需詳細資訊，請參閱 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)。
+在 CTP 3.1 一直到 RC1 中，指定述詞的選項已不再於 [啟用 Stretch 資料庫精靈] 中提供。您必須使用 ALTER TABLE 陳述式以利用此選項設定 Stretch Database。如需詳細資訊，請參閱 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)。
 
 如果您不指定篩選述詞，便會移轉整個資料表。
 
-> [!重要事項] 如果您提供執行不良的篩選述詞，則資料移轉也會執行不良。Stretch Database 使用 CROSS APPLY 運算子將篩選述詞套用至資料表。
+    > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
 
 ## 嵌入資料表值函式的基本需求
 Stretch Database 篩選函式嵌入資料表值函式所需的嵌入資料表值函式看起來如下列範例所示。
@@ -45,7 +45,7 @@ RETURN	SELECT 1 AS is_eligible
 如果函式傳回非空白結果，則該資料列便符合移轉資格。否則，在函式沒有傳回任何資料列的情況下，便代表該資料列不符合移轉資格。
 
 ### 條件
-&lt;*述詞*&gt;可以包含一個條件，或是包含以 AND 邏輯運算子結合的數個條件。
+&lt;*述詞*&gt; 可以包含一個條件，或是包含以 AND 邏輯運算子結合的數個條件。
 
 ```
 <predicate> ::= <condition> [ AND <condition> ] [ ...n ]
@@ -70,7 +70,7 @@ RETURN	SELECT 1 AS is_eligible
 
 -   比較函式參數及常數運算式。例如，`@column1 < 1000`。
 
-    以下是檢查 [date] 資料欄的值是否為 &lt; 1\\/1\\/2016 的範例。
+    以下是檢查 [date] 資料欄的值是否為 &lt; 1/1/2016 的範例。
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
@@ -407,6 +407,7 @@ GO
 若要檢查套用至資料表的篩選述詞，請開啟目錄檢視 **sys.remote\_data\_archive\_tables** 並查看 **filter\_predicate** 資料欄的值。如果值為 Null，便代表整個資料表皆符合封存資格。如需詳細資訊，請參閱 [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx)。
 
 ## 另請參閱
+
 [ALTER TABLE (TRANSACT-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

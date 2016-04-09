@@ -197,6 +197,6 @@ Ping 命令應該會收到來自 IP 位址 10.0.0.1 的 4 次成功回覆。
 
 ## 後續步驟
 
-- 設定[生產工作負載](../virtual-machines/virtual-machines-workload-intranet-sharepoint-overview.md)。
+- 設定[生產工作負載](../virtual-machines/virtual-machines-windows-sp-intranet-overview.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

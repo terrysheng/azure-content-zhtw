@@ -1,22 +1,22 @@
-<properties 
-   pageTitle="SQL 資料倉儲下層用戶端對資料稽核的支援 | Microsoft Azure" 
-   description="了解 SQL 資料倉儲下層用戶端對資料稽核的支援" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="SQL 資料倉儲下層用戶端對資料稽核的支援 | Microsoft Azure"
+   description="了解 SQL 資料倉儲下層用戶端對資料稽核的支援"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-database" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-database"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
-# SQL 資料倉儲 - 下層用戶端對稽核和動態資料遮罩的支援 
+
+# SQL 資料倉儲 - 下層用戶端對稽核和動態資料遮罩的支援
 
 
 [稽核](sql-data-warehouse-auditing-get-started.md)可與支援 TDS 重新導向的 SQL 用戶端搭配使用。
@@ -38,6 +38,4 @@
 
 **備註：**上述伺服器 FDQN 修改可能會對於套用 SQL Server 層級稽核原則有所助益，不需要每個資料庫中的組態步驟 (暫存緩和)。
 
- 
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

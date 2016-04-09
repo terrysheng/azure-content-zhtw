@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/08/2016"
+ms.date="03/18/2016"
 ms.author="larryfr"/>
 
 #使用 Apache Storm on HDInsight 處理 Azure 事件中樞的車輛感應器資料
@@ -48,14 +48,14 @@ Storm 拓撲中使用的元件如下：
 
 ![Storm 拓撲](./media/hdinsight-storm-iot-eventhub-documentdb/iottopology.png)
 
-> [AZURE.NOTE]這是一個簡化的圖表，且在方案中的每個元件都可能會有多個執行個體。例如，在拓撲中每個元件的多個執行個體會跨節點分布在 Storm on HDInsight 叢集中。
+> [AZURE.NOTE] 這是一個簡化的圖表，且在方案中的每個元件都可能會有多個執行個體。例如，在拓撲中每個元件的多個執行個體會跨節點分布在 Storm on HDInsight 叢集中。
 
 ##實作
 
-本案例中已完成的自動化方案可在 GitHub 上做為 <a href="https://github.com/hdinsight/hdinsight-storm-examples" target="_blank">HDInsight-Storm-範例</a>的一部分。若要使用此範例，請遵循 [IoTExample README.MD](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md) 中的步驟。
+本案例中已完成的自動化方案可在 GitHub 上作為 [HDInsight-Storm-Examples](https://github.com/hdinsight/hdinsight-storm-examples) 儲存機制的一部分。若要使用此範例，請遵循 [IoTExample README.MD](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md) 中的步驟。
 
 ## 後續步驟
 
 若需更多範例 Storm 拓撲，請參閱 [Storm on HDInsight 上的範例拓撲](hdinsight-storm-example-topology.md)。
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

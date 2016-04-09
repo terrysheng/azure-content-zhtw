@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="03/02/2016"
+	ms.date="03/16/2016"
 	ms.author="jeffstok"/>
 
 # 將串流分析資料轉換輸出的目標，設為分析工具及資料儲存體選項
@@ -23,10 +23,60 @@
 
 為了要啟用各種應用程式模式，Azure 串流分析針對儲存輸出及檢視分析結果提供了數種不同的選項。這讓您能輕鬆地檢視工作輸出，還讓您對於資料倉儲和其他用途之工作輸出的取用及儲存方式更有彈性。任何在工作中設定的輸出，都必須在工作開始之前，以及在事件開始運作之前就已經存在。例如，如果您把 Blob 儲存體當做輸出來使用，工作就不會自動建立儲存體帳戶。使用者必須在 Azure 串流分析工作開始之前建立儲存體帳戶。
 
+## Azure 資料湖存放區
 
-## SQL Database ##
+串流分析支援 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。此儲存體可讓您存放任何大小、類型和擷取速度的資料，以便進行運作和探究分析。目前只有 Azure 傳統入口網站支援建立及設定 Data Lake Store 輸出。此外，串流分析需要經過授權，才能存取 Data Lake Store。如需有關授權，以及如何註冊 Data Lake Store 預覽 (如有需要) 的詳細資料，請參閱 [Data Lake 輸出文章](stream-analytics-data-lake-output.md)。
 
-如果資料的本質上具備關聯性，或者應用程式所需的內容需由關聯式資料庫提供時，就可使用 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 做為資料輸出。串流分析工作會寫入至 Azure SQL Database 中的現有資料表。請注意，資料表結構描述必須完全符合工作輸出的欄位及其類型。下表列出屬性名稱及其描述以建立 SQL Database 輸出。
+下表列出建立 Data Lake Store 輸出所需的屬性名稱及其描述。
+
+<table>
+<tbody>
+<tr>
+<td><B>屬性名稱</B></td>
+<td><B>描述</B></td>
+</tr>
+<tr>
+<td>輸出別名</td>
+<td>此為易記名稱，用於在查詢中將查詢輸出指向這個 Data Lake Store。</td>
+</tr>
+<tr>
+<td>Data Lake Store 帳戶</td>
+<td>您傳送輸出的儲存體帳戶名稱。您將看到 Data Lake Store 帳戶的下拉式清單，登入入口網站的使用者可存取該下拉式清單。</td>
+</tr>
+<tr>
+<td>路徑前置詞模式 [<I>選用</I>]</td>
+<td>用來在指定的 Data Lake Store 帳戶中寫入檔案的檔案路徑。<BR>{date}、{time}<BR>範例 1：folder1/logs/{date}/{time}<BR>範例 2：folder1/logs/{date}</td>
+</tr>
+<tr>
+<td>日期格式 [<I>選用</I>]</td>
+<td>如果前置詞路徑中使用日期權杖，您可以選取組織檔案要用的日期格式。範例：YYYY/MM/DD</td>
+</tr>
+<tr>
+<td>時間格式 [<I>選用</I>]</td>
+<td>如果前置詞路徑中使用時間權杖，請指定組織檔案要用的時間格式。目前唯一支援的值為 HH。</td>
+</tr>
+<tr>
+<td>事件序列化格式</td>
+<td>輸出資料的序列化格式。支援 JSON、CSV 和 Avro。</td>
+</tr>
+<tr>
+<td>編碼</td>
+<td>若為 CSV 或 JSON 格式，必須指定編碼。UTF-8 是目前唯一支援的編碼格式。</td>
+</tr>
+<tr>
+<td>分隔符號</td>
+<td>僅適用於 CSV 序列化。串流分析可支援多種序列化 CSV 資料常用的分隔符號。支援的值是逗號、分號、空格、索引標籤和分隔號。</td>
+</tr>
+<tr>
+<td>格式</td>
+<td>僅適用於 JSON 序列化。分隔的行會指定輸出的格式化方式為利用新行分隔每個 JSON 物件。陣列會指定輸出將會格式化為 JSON 物件的陣列。</td>
+</tr>
+</tbody>
+</table>
+
+## SQL Database
+
+如果資料的本質上具備關聯性，或者應用程式所需的內容需由關聯式資料庫提供時，就可使用 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 做為資料輸出。串流分析工作會寫入至 Azure SQL Database 中的現有資料表。請注意，資料表結構描述必須完全符合工作輸出的欄位及其類型。您也可以透過 SQL Database 輸出選項，將 [Azure SQL 資料倉儲](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)指定為輸出 (這是一個預覽功能)。下表列出屬性名稱及其描述以建立 SQL Database 輸出。
 
 | 屬性名稱 | 說明 |
 |---------------|-------------|
@@ -37,7 +87,7 @@
 | 密碼 | 連接到資料庫的密碼 |
 | 資料表 | 將在其中寫入輸出的資料表名稱。資料表名稱會區分大小寫，且資料表的結構描述應該完全符合工作輸出所產生的欄位數目和其類型。 |
 
-## Blob 儲存體 ##
+## Blob 儲存體
 
 若要將大量非結構化資料儲存於雲端，Blob 儲存體提供具有成本效益且可擴充的解決方案。如需 Azure Blob 儲存體及其使用方式的簡介，請參閱[如何使用 Blob](../storage/storage-dotnet-how-to-use-blobs.md) 中的文件。
 
@@ -114,6 +164,7 @@
 | 編碼 | 對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式 |
 | 分隔符號 | 僅適用於 CSV 序列化。串流分析可支援多種以 CSV 格式序列化資料常用的分隔符號。支援的值是逗號、分號、空格、索引標籤和分隔號。 |
 | 格式 | 僅適用於 JSON 類型。分隔的行會指定輸出的格式化方式為利用新行分隔每個 JSON 物件。陣列會指定輸出將會格式化為 JSON 物件的陣列。 |
+
 ## Power BI
 
 您可以把 [Power BI](https://powerbi.microsoft.com/) 當做串流分析工作的輸出，來為分析結果提供豐富的視覺體驗。這項功能可以用於可運作的儀表板、產生報告，以及度量驅動的報告。
@@ -267,4 +318,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

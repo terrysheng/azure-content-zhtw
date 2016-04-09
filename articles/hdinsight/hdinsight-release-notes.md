@@ -14,11 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="03/10/2016"
 	ms.author="nitinme"/>
 
 
 # Azure HDInsight 上 Hadoop 元件的版本資訊
+
+## HDInsight 2016/03/10 版本的注意事項
+
+使用此版本部署的 HDInsight 叢集的完整版本號碼：
+
+* HDInsight (Windows) 2.1.10.859.2123216 (HDP 1.3.12.0-01795 - 未變更)
+* HDInsight (Windows) 3.0.6.859.2123216 (HDP 2.0.13.0-2117 - 未變更)
+* HDInsight (Windows) 3.1.4.859.2123216 (HDP 2.1.15.0-2374 - 未變更)
+* HDInsight (Windows) 3.2.7.859.2123216 (HDP 2.2.9.1-7)
+* HDInsight (Windows) 3.3.0.859.2123216 (HDP 2.3.3.1-5 - 未變更)
+* HDInsight (Linux) 3.2.1000.7076817 (HDP 2.2.9.1-8)
+* HDInsight (Linux) 3.3.1000.7076817 (HDP 2.3.3.1-7)
+* SDK 1.5.8
+
+此版本包含下列更新。
+
+| 課程名稱 | 說明 | 受影響的區域 (例如服務、元件或 SDK) | 叢集類型 (例如 Hadoop、HBase 或 Storm) | JIRA (如果適用) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| 更新所有 HDInsight 叢集的 HDInsight 版本 | 在此版本中，我們已更新所有 HDInsight 叢集的 HDInsight 版本| 服務 | 全部| N/A
 
 ## HDInsight 2016/01/27 版本的附註
 
@@ -56,7 +75,7 @@
 
 | 課程名稱 | 說明 | 受影響的區域 (例如服務、元件或 SDK) | 叢集類型 (例如 Hadoop、HBase 或 Storm) | JIRA (如果適用) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| 新增 HDInsight 3.3 版並更新所有 HDInsight 叢集的 HDInsight 版本 | 在此版本中，我們新增了 HDInsight v3.3 (以 HDP 2.3 為基礎) 並且更新了其他 HDP 版本。HDP 2.3 版本附註可在[這裡](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html)找到，而 HDInsight 版本的詳細資訊則可以在[這裡](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/)找到。| 服務 | 全部| N/A
+| 新增 HDInsight 3.3 版並更新所有 HDInsight 叢集的 HDInsight 版本 | 在此版本中，我們新增了 HDInsight v3.3 (以 HDP 2.3 為基礎) 並且更新了其他 HDP 版本。HDP 2.3 版本附註可在[這裡](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html)找到，而 HDInsight 版本的詳細資訊則可以在[這裡](https://azure.microsoft.com/zh-TW/documentation/articles/hdinsight-component-versioning/)找到。| 服務 | 全部| N/A
 
 ## HDInsight 2015/11/30 版本的附註
 
@@ -1184,7 +1203,19 @@ Apache Mahout 是 Apache Hadoop 的機器學習庫。Mahout 包含用來處理�
 
 * 我們為 HDInsight 叢集的預設部署提供新的記憶體設定。先前的預設記憶體設定並未充分考量所部署 CPU 核心數目的方針。根據 Hortonworks 建議，這些新的記憶體設定應該提供更佳的預設值。若要變更，請參閱關於變更叢集組態的 SDK 參考文件。下表列舉預設 4 CPU 核心 (8 容器) HDInsight 叢集所使用的新記憶體設定。(同時也附帶提供此版本之前使用的值。)
 
-<table border="1"> <tr><th>元件</th><th>記憶體配置</th></tr> <tr><td> yarn.scheduler.minimum-allocation</td><td>768 MB (先前為 512 MB)</td></tr> <tr><td> yarn.scheduler.maximum-allocation</td><td>6144 MB (未變更)</td></tr> <tr><td>yarn.nodemanager.resource.memory</td><td>6144 MB (未變更)</td></tr> <tr><td>mapreduce.map.memory</td><td>768 MB (先前為 512 MB)</td></tr> <tr><td>mapreduce.map.java.opts</td><td>opts=-Xmx512m (先前為 -Xmx410m)</td></tr> <tr><td>mapreduce.reduce.memory</td><td>1536 MB (先前為 1024 MB)</td></tr> <tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m (先前為 -Xmx819m)</td></tr> <tr><td>yarn.app.mapreduce.am.resource</td><td>768 MB (先前為 1024 MB)</td></tr> <tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m (先前為 -Xmx819m)</td></tr> <tr><td>mapreduce.task.io.sort</td><td>256 MB (先前為 200 MB)</td></tr> <tr><td>tez.am.resource.memory</td><td>1536 MB (未變更)</td></tr>
+<table border="1">
+<tr><th>元件</th><th>記憶體配置</th></tr>
+<tr><td> yarn.scheduler.minimum-allocation</td><td>768 MB (先前是 512 MB)</td></tr>
+<tr><td> yarn.scheduler.maximum-allocation</td><td>6144 MB (未變更)</td></tr>
+<tr><td>yarn.nodemanager.resource.memory</td><td>6144 MB (未變更)</td></tr>
+<tr><td>mapreduce.map.memory</td><td>768 MB (先前是 512 MB)</td></tr>
+<tr><td>mapreduce.map.java.opts</td><td>opts=-Xmx512m (先前是 -Xmx410m)</td></tr>
+<tr><td>mapreduce.reduce.memory</td><td>1536 MB (先前是 1024 MB)</td></tr>
+<tr><td>mapreduce.reduce.java.opts</td><td>opts=-Xmx1024m (先前是 -Xmx819m)</td></tr>
+<tr><td>yarn.app.mapreduce.am.resource</td><td>768 MB (先前是 1024 MB)</td></tr>
+<tr><td>yarn.app.mapreduce.am.command</td><td>opts=-Xmx512m (先前是 -Xmx819m)</td></tr>
+<tr><td>mapreduce.task.io.sort</td><td>256 MB (先前是 200 MB)</td></tr>
+<tr><td>tez.am.resource.memory</td><td>1536 MB (未變更)</td></tr>
 
 </table><br>
 
@@ -1238,7 +1269,11 @@ Apache Mahout 是 Apache Hadoop 的機器學習庫。Mahout 包含用來處理�
 * 正在將 HDInsight 1.6 版 (HDP 1.1 和 Hadoop 1.0.3) 和 HDInsight 2.1 版 (HDP1.3 和 Hadoop 1.2) 從 Azure 入口網站移除。您可以繼續使用 Azure PowerShell Cmdlet、[New-AzureRmHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) 或使用 [HDInsight SDK](http://msdn.microsoft.com/library/azure/dn469975.aspx) 來建立這些版本的 Hadoop 叢集。如需詳細資訊，請參閱 [HDInsight 所提供叢集版本的新功能](../hdinsight-component-versioning/)頁面。
 * 此版本中的 Hortonworks Data Platform (HDP) 變更：
 
-<table border="1"> <tr><th>HDP</th><th>變更</th></tr> <tr><td>HDP 1.3 / HDI 2.1</td><td>未變更</td></tr> <tr><td>HDP 2.0 / HDI 3.0</td><td>未變更</td></tr> <tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: ['3.4.5.2.1.3.0-1948'] -> ['3.4.5.2.1.3.2-0002']</td></tr>
+<table border="1">
+<tr><th>HDP</th><th>變更</th></tr>
+<tr><td>HDP 1.3 / HDI 2.1</td><td>沒有變更</td></tr>
+<tr><td>HDP 2.0 / HDI 3.0</td><td>沒有變更</td></tr>
+<tr><td>HDP 2.1 / HDI 3.1</td><td>zookeeper: ['3.4.5.2.1.3.0-1948'] -> ['3.4.5.2.1.3.2-0002']</td></tr>
 
 
 </table><br>
@@ -1295,9 +1330,30 @@ Oozie 中繼存放區會連接到特定叢集，且兩者無法在叢集之間�
 
 **連接埠**：已變更 HDInsight 服務所使用的連接埠。以前所使用的連接埠號碼都在 Windows 作業系統暫時連接埠範圍內。對於短期的網際網路通訊協定通訊，會自動從預設定義的暫時範圍中配置連接埠。新的一組允許的 Hortonworks Data Platform (HDP) 服務連接埠號碼不在此範圍內，以避免與前端節點上執行的服務所使用的連接埠發生衝突。新的連接埠號碼應該不會引起任何重大變更。使用的號碼如下：
 
- **HDInsight 1.6 (HDP 1.1)** <table border="1"> <tr><th>名稱</th><th>值</th></tr> <tr><td>dfs.http.address</td><td>namenodehost:30070</td></tr> <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr> <tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr> <tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr> <tr><td>dfs.secondary.http.address</td><td>0.0.0.0:30090</td></tr> <tr><td>mapred.job.tracker.http.address</td><td>jobtrackerhost:30030</td></tr> <tr><td>mapred.task.tracker.http.address</td><td>0.0.0.0:30060</td></tr> <tr><td>mapreduce.history.server.http.address</td><td>0.0.0.0:31111</td></tr> <tr><td>templeton.port</td><td>30111</td></tr> </table><br>
+ **HDInsight 1.6 (HDP 1.1)** <table border="1">
+<tr><th>名稱</th><th>值</th></tr>
+<tr><td>dfs.http.address</td><td>namenodehost:30070</td></tr>
+<tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>
+<tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr>
+<tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr>
+<tr><td>dfs.secondary.http.address</td><td>0.0.0.0:30090</td></tr>
+<tr><td>mapred.job.tracker.http.address</td><td>jobtrackerhost:30030</td></tr>
+<tr><td>mapred.task.tracker.http.address</td><td>0.0.0.0:30060</td></tr>
+<tr><td>mapreduce.history.server.http.address</td><td>0.0.0.0:31111</td></tr>
+<tr><td>templeton.port</td><td>30111</td></tr>
+</table><br>
 
- **HDInsight 3.1 及 3.0 (HDP 2.1 及 2.0)** <table border="1"> <tr><th>名稱</th><th>值</th></tr> <tr><td>dfs.namenode.http-address</td><td>namenodehost:30070</td></tr> <tr><td>dfs.namenode.https-address</td><td>headnodehost:30470</td></tr> <tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr> <tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr> <tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr> <tr><td>dfs.namenode.secondary.http-address</td><td>0.0.0.0:30090</td></tr> <tr><td>yarn.nodemanager.webapp.address</td><td>0.0.0.0:30060</td></tr> <tr><td>templeton.port</td><td>30111</td></tr> </table><br>
+ **HDInsight 3.1 和 3.0 (HDP 2.1 和 2.0)** <table border="1">
+<tr><th>名稱</th><th>值</th></tr>
+<tr><td>dfs.namenode.http-address</td><td>namenodehost:30070</td></tr>
+<tr><td>dfs.namenode.https-address</td><td>headnodehost:30470</td></tr>
+<tr><td>dfs.datanode.address</td><td>0.0.0.0:30010</td></tr>
+<tr><td>dfs.datanode.http.address</td><td>0.0.0.0:30075</td></tr>
+<tr><td>dfs.datanode.ipc.address</td><td>0.0.0.0:30020</td></tr>
+<tr><td>dfs.namenode.secondary.http-address</td><td>0.0.0.0:30090</td></tr>
+<tr><td>yarn.nodemanager.webapp.address</td><td>0.0.0.0:30060</td></tr>
+<tr><td>templeton.port</td><td>30111</td></tr>
+</table><br>
 
 ###相依項目
 
@@ -1399,7 +1455,7 @@ HDInsight 2.x (HDP1.x) 與 HDInsight 3.x (HDP2.x) 之間有下列版本變更：
 
 
 ### 驅動程式
-SQL Server 的 Java 資料庫連接 (JDBC) 驅動程式僅供 HDInsight 內部使用，且不適用於外部作業。如果您想要使用開放式資料庫連接 (ODBC) 連線至 HDInsight，請使用 Microsoft Hive ODBC 驅動程式。如需詳細資訊，請參閱[使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight](../hdinsight-connect-excel-hive-odbc-driver.md)。
+SQL Server 的 Java 資料庫連接 (JDBC) 驅動程式僅供 HDInsight 內部使用，且不適用於外部作業。如果您想要使用開放式資料庫連接 (ODBC) 連線至 HDInsight，請使用 Microsoft Hive ODBC 驅動程式。如需詳細資訊，請參閱[使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight](hdinsight-connect-excel-hive-odbc-driver.md)。
 
 
 ### 錯誤修正
@@ -1441,4 +1497,4 @@ SQL Server 的 Java 資料庫連接 (JDBC) 驅動程式僅供 HDInsight 內部�
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

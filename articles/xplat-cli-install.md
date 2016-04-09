@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="03/09/2016"
 	ms.author="danlep"/>
 
 # 安裝 Azure CLI
 
-快速安裝 Azure 命令列介面 (Azure CLI) 以使用一組開放原始碼的命令介面式命令，用於建立和管理 Microsoft Azure 中的資源。使用提供的安裝程式套件之一在作業系統上安裝 Azure CLI、使用 Node.js 和 **npm** 安裝 CLI，或將 Azure CLI 安裝為 Docker 主機中的容器。如需詳細的選項和背景，請參閱 [GitHub](https://github.com/azure/azure-xplat-cli) 中的專案儲存機制。
+快速安裝 Azure 命令列介面 (Azure CLI) 以使用一組開放原始碼的命令介面式命令，用於建立和管理 Microsoft Azure 中的資源。您有數個選擇：使用提供的安裝程式封裝之一在作業系統上安裝 Azure CLI、使用 Node.js 和 **npm** 安裝 CLI，或將 Azure CLI 安裝為 Docker 主機中的容器。如需詳細的選項和背景，請參閱 [GitHub](https://github.com/azure/azure-xplat-cli) 中的專案儲存機制。
 
 
 安裝好 Azure CLI 之後，您就能[使用 Azure 訂用帳戶將其連接](xplat-cli-connect.md)，並從命令列介面 (Bash、終端機及命令提示字元等) 中執行 **azure** 命令以使用 Azure 資源。
@@ -142,9 +142,9 @@ npm update -g azure-cli
 
 ## 其他資源
 
-* [搭配使用 Azure CLI 與 Azure 資源管理員][cliarm]
+* [Azure Resource Manager (ARM) 模式中的 Azure CLI 命令][cliarm]
 
-* [搭配使用 Azure CLI 與 Azure 服務管理][cliasm]
+* [Azure 服務管理 (ASM) 模式中的 Azure CLI 命令][cliasm]
 
 * 若要深入了解 Azure CLI、下載來源程式碼、回報問題，或是參與專案，請造訪 [Azure CLI 的 GitHub 儲存機制](https://github.com/azure/azure-xplat-cli)。
 
@@ -155,7 +155,7 @@ npm update -g azure-cli
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
-[cliasm]: virtual-machines/virtual-machines-command-line-tools.md
-[cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: virtual-machines/azure-cli-arm-commands.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

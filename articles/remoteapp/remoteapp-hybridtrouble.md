@@ -40,7 +40,7 @@
 >[AZURE.NOTE] 您必須確定 VNET 中的 DNS 伺服器都已啟動，而且永遠能夠解析裝載於 VNET 中的虛擬機器。請勿在此使用 Google DNS。
 
 
-對於混合式集合，您使用專屬 DNS 伺服器。您可以在網路組態結構描述中或在建立虛擬網路時透過管理入口網站來指定它們。DNS 伺服器的使用順序就是針對進行容錯移轉所指定的順序 (而非循環配置資源)。
+對於混合式集合，您使用專屬 DNS 伺服器。您可以在網路組態結構描述中或在建立虛擬網路時透過管理入口網站來指定它們。DNS 伺服器的使用順序就是針對進行容錯移轉所指定的順序 (而非循環配置資源)。請參閱 [VM 與角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)，以確定您的 DNS 伺服器已正確設定。
 
 請確定可以從針對這個集合所指定的 VNET 子網路中存取和使用您集合的 DNS 伺服器。
 
@@ -67,4 +67,4 @@
 
 建立或新增的網域名稱必須是內部網域名稱 (非 Azure AD 網域名稱)，而且必須是可解析的 DNS 格式 (contoso.local)。例如，您有 Active Directory 內部名稱 (contoso.local) 和 Active Directory UPN (contoso.com) - 您必須在建立集合時使用內部名稱。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

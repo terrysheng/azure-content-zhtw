@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
+     ms.date="02/03/2016"
      ms.author="elioda"/>
 
 # 教學課程：如何使用 IoT 中樞將檔案從裝置上傳到雲端
@@ -39,7 +39,7 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
 + Microsoft Visual Studio 2015，
 
-+ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank")。
++ 使用中的 Azure 帳戶。<br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdevelop%2Fiot%2Ftutorials%2Ffile-upload%2F target="\_blank")。
 
 
 [AZURE.INCLUDE [iot-hub-file-upload-cloud-csharp](../../includes/iot-hub-file-upload-cloud-csharp.md)]
@@ -78,12 +78,12 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 
 <!-- Links -->
 
-[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
+[透過 IoT 中心傳送雲端對裝置的訊息]: iot-hub-csharp-csharp-c2d.md
 
 [Azure 入口網站]: https://portal.azure.com/
 
-[Azure Data Factory]: https://azure.microsoft.com/zh-TW/documentation/services/data-factory/
-[Hadoop]: https://azure.microsoft.com/zh-TW/documentation/services/hdinsight/
+[Azure Data Factory]: https://azure.microsoft.com/documentation/services/data-factory/
+[Hadoop]: https://azure.microsoft.com/documentation/services/hdinsight/
 
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [使用 IoT 中心傳送雲端到裝置訊息]: iot-hub-csharp-csharp-c2d.md
@@ -99,4 +99,4 @@ Azure IoT 中心是一項完全受管理的服務，可讓數百萬個 IoT 裝�
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Azure IoT 開發人員中心]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0309_2016-->

@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Azure 自動化中的排程 | Microsoft Azure"
    description="自動化排程是用來排程讓 Azure 自動化中的 Runbook 自動啟動。本文說明如何建立排程。"
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
+   ms.date="03/18/2016"
    ms.author="bwren" />
 
 # Azure 自動化中的排程
 
-自動化排程是用來排程 Runbook 以自動執行。這可以是在單一日期和時間執行一次 Runbook。或也可以是重複執行的排程，以啟動 Runbook 多次。排程通常不會從 Runbook 存取。
+自動化排程是用來排程 Runbook 以自動執行。這可以是在單一日期和時間執行一次 Runbook。或也可以是每日或每小時重複執行的排程，以啟動 Runbook 多次。排程通常不會從 Runbook 存取。
 
 >[AZURE.NOTE]  排程目前不支援 Azure Automation DSC 組態。
 
@@ -60,12 +60,11 @@
 	$scheduleName = "My Daily Schedule"
 	$startTime = (Get-Date).Date.AddDays(1).AddHours(12)
 	$expiryTime = $startTime.AddYears(1)
-	
+
 	New-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –StartTime $startTime –ExpiryTime $expiryTime –DayInterval 1
 
 
 ## 另請參閱
 - [在 Azure 自動化中排程 Runbook](automation-scheduling-a-runbook.md)
- 
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

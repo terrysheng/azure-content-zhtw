@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -35,7 +35,7 @@
 - 啟用 AppBlade 單一登入的訂用帳戶
 
 
-> [AZURE.NOTE]若要測試本教學課程中的步驟，我們不建議使用生產環境。
+> [AZURE.NOTE] 若要測試本教學課程中的步驟，我們不建議使用生產環境。
 
 
 若要測試本教學課程中的步驟，您應該遵循這些建議：
@@ -117,7 +117,7 @@
 
 
 ### 建立 Azure AD 測試使用者
-本節的目標是要在 Azure 傳統入口網站中建立名為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
+本節目標是在 Azure 傳統入口網站中建立名稱為 Britta Simon 的測試使用者。<br> 在 [使用者] 清單中，選取 [Britta Simon]。<br><br>![建立 Azure AD 使用者][20]<br>
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
@@ -125,11 +125,11 @@
 
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
-3. 按一下頂端功能表中的 [使用者]，來顯示使用者清單。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-appblade-tutorial/create_aaduser_03.png) <br>
+3. 若要顯示使用者清單，請按一下功能表頂端的 [使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-appblade-tutorial/create_aaduser_03.png) <br>
 
-4. 按一下底部工具列上的 [加入使用者]，來開啟 [加入使用者] 對話方塊。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-appblade-tutorial/create_aaduser_04.png) <br>
+4. 若要開啟 [新增使用者] 對話方塊，請按一下底部工具列上的 [新增使用者]。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-appblade-tutorial/create_aaduser_04.png) <br>
 
-5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行下列步驟：<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-appblade-tutorial/create_aaduser_05.png) <br>
+5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行以下步驟：<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-appblade-tutorial/create_aaduser_05.png) <br>
 
     a.針對 [使用者類型]，選取 [您組織中的新使用者]。
 
@@ -137,7 +137,7 @@
 
     c.按 [下一步]。
 
-6.  在 [使用者設定檔]對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-appblade-tutorial/create_aaduser_06.png)<br>
+6.  在 [使用者設定檔]對話方塊頁面上，執行下列步驟：<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-appblade-tutorial/create_aaduser_06.png) <br>
 
     a.在 [名字] 文字方塊中，輸入 **Britta**。
 
@@ -145,7 +145,7 @@
 
     c.在 [顯示名稱] 文字方塊中，輸入 **Britta Simon**。
 
-    d.在 [角色] 清單中，選取 [使用者]。
+    d.在 [角色] 清單中選取 [使用者]。
 
     e.按 [下一步]。
 
@@ -167,7 +167,7 @@
 
 在這一節沒有您需要進行的動作項目。嘗試存取 AppBlade 時，如果使用者還不存在，就會建立新使用者。[設定 Azure AD 單一登入](#configuring-azure-ad-single-single-sign-on)。
 
-> [AZURE.NOTE]如果您需要手動建立使用者，您需要連絡 AppBlade 支援小組。
+> [AZURE.NOTE] 如果您需要手動建立使用者，您需要連絡 AppBlade 支援小組。
 
 
 ### 指派 Azure AD 測試使用者
@@ -217,4 +217,4 @@
 [204]: ./media/active-directory-saas-appblade-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-appblade-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

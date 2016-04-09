@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/26/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # 使用 Visual Studio 連接到 SQL 資料倉儲
@@ -42,8 +42,9 @@
     ![完整伺服器名稱][1]
 
 ## 步驟 2：連接到您的 SQL 資料庫
+如需最佳體驗，請使用 Visual Studio 2015 搭配 [最新的 SQL Server Data Tools (SSDT) 更新](https://msdn.microsoft.com/library/mt204009.aspx)。
 
-1. 開啟 Visual Studio。
+1. 開啟 Visual Studio 2013 或 2015。
 2. 開啟 [SQL Server 物件總管]。若要這麼做，請選取 [檢視] > [SQL Server 物件總管]。
 
     ![SQL Server 物件總管][2]
@@ -58,7 +59,8 @@
 
     - **伺服器名稱**。輸入我們先前找到的*伺服器名稱*。
     - **驗證**。選取 [SQL Server 驗證]。
-    - **登入**和**密碼**。輸入 Azure SQL 伺服器的登入和密碼。
+    - **使用者名稱**和**密碼**。輸入 Azure SQL 伺服器的使用者名稱和密碼。
+    - **資料庫名稱**。輸入 SQL DW 資料庫的資料庫名稱。
     - 按一下 [連接]。
 
 1. 若要瀏覽，請展開您的 Azure SQL 伺服器。您可以檢視與伺服器相關聯的資料庫。展開 AdventureWorksDW 以查看範例資料庫中的資料表。
@@ -78,9 +80,9 @@
 
 3. 將此 TSQL 查詢複製到查詢視窗中：
 
-	```
-	SELECT COUNT(*) FROM dbo.FactInternetSales;
-	```
+    ```sql
+    SELECT COUNT(*) FROM dbo.FactInternetSales;
+    ```
 
 4. 執行查詢。若要這麼做，請按一下綠色箭頭，或使用下列快速鍵：`CTRL`+`SHIFT`+`E`。
 
@@ -108,4 +110,4 @@
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

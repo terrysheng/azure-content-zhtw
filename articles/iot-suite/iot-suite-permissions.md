@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="11/17/2015"
+  ms.date="03/02/2016"
   ms.author="araguila"/>
   
 # azureiotsuite.com 網站的權限
@@ -112,7 +112,7 @@ Azure 管理員角色可控制將 Azure 訂用帳戶對應至 AD 租用戶的能
 
 1. 在 [Azure 管理入口網站][lnk-classic-portal]中建立新的 AAD 目錄。
 
-2. 移至 <https://github.com/Azure/azure-iot-remote-monitoring>。如需有關雲端部署的詳細資訊，請參閱[雲端部署][lnk-wiki-clouddeployment]。
+2. 移至 <https://github.com/Azure/azure-iot-remote-monitoring>。
 
 3. 執行 `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}` (例如，`build.cmd cloud debug myRMSolution`)
 
@@ -140,10 +140,9 @@ Azure 管理員角色可控制將 Azure 訂用帳戶對應至 AD 租用戶的能
 [lnk-aad-admin]: https://azure.microsoft.com/documentation/articles/active-directory-assign-admin-roles/
 [lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-create-edit-users]: https://azure.microsoft.com/documentation/articles/active-directory-create-users/
-[lnk-assign-app-roles]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Manually-setting-up-roles-and-assigning-permissions-in-Azure-Active-Directory-(AAD)#assigning-users-to-the-roles
+[lnk-assign-app-roles]: https://azure.microsoft.com/documentation/articles/active-directory-application-manifest/
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
-[lnk-wiki-clouddeployment]: https://github.com/Azure/azure-iot-remote-monitoring/wiki/Cloud-deployment
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

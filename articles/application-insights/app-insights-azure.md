@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
 
 #  Microsoft Azure 應用程式的 Application Insights
@@ -28,8 +28,13 @@
 
 * [Azure Web 應用程式](app-insights-asp-net.md)
 * [Azure 雲端服務 App - Web 和背景工作角色](app-insights-cloudservices.md)
-* [Azure VM 中的 IIS 上的 Web 應用程式](../app-insights-asp-net.md)
+* [Azure VM 中的 IIS 上的 Web 應用程式](app-insights-asp-net.md)
 * [Azure 外部的應用程式](app-insights-overview.md)
+
+
+額外的遙測
+
+* [在 Application Insights 中顯示 Azure 診斷記錄](app-insights-azure-diagnostics.md)
 
 
 
@@ -40,4 +45,4 @@
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0309_2016-->

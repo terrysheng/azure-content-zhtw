@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/15/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # 使用 Azure CLI 部署使用靜態公用 IP 的 VM
@@ -106,7 +106,7 @@
 		    --subnet-id $subnetId \
 		    --public-ip-name $pipName
 
->[AZURE.TIP]上述的第一個命令會使用 [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) 和[字串操作](http://tldp.org/LDP/abs/html/string-manipulation.html) (更具體來說，是子字串移除)。
+>[AZURE.TIP] 上述的第一個命令會使用 [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) 和[字串操作](http://tldp.org/LDP/abs/html/string-manipulation.html) (更具體來說，是子字串移除)。
 
 5. 建立裝載 VM 作業系統磁碟機的儲存體帳戶。
 
@@ -227,4 +227,4 @@
 		info:    Creating VM "WEB1"
 		info:    vm create command OK
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

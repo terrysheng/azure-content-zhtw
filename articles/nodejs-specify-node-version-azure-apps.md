@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="03/04/2016"
 	ms.author="robmcm"/>
 
 # 在 Azure 應用程式中指定 Node.js 版本
@@ -24,7 +24,7 @@
 
 Azure 提供的 Node.js 版本會持續進行更新。除非另有指定，否則會使用最新的版本。
 
-> [AZURE.NOTE]如果您要將應用程式裝載在 Azure 雲端服務 (Web 或背景工作角色) 中，而且這是您第一次部署應用程式，只要您安裝在部署環境中的 Node.js 版本符合 Azure 上提供的其中一個預設版本，Azure 就會嘗試使用這個版本。
+> [AZURE.NOTE] 如果您要將應用程式裝載在 Azure 雲端服務 (Web 或背景工作角色) 中，而且這是您第一次部署應用程式，只要您安裝在部署環境中的 Node.js 版本符合 Azure 上提供的其中一個預設版本，Azure 就會嘗試使用這個版本。
 
 ##以 package.json 進行版本設定
 
@@ -102,4 +102,4 @@ Azure 提供的 Node.js 版本會持續進行更新。除非另有指定，否�
 [使用模組]: nodejs-use-node-modules-azure-apps.md
 [建置並部署 Node.js 網站]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

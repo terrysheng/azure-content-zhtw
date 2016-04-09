@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="03/18/2016"
 	ms.author="brandwe"/>
 
 # 將 Azure AD 整合至 Android 應用程式
@@ -264,7 +264,7 @@ dependencies {
 
 選擇性：**acquireTokenSilent**
 
-您可以呼叫 **acquireTokenSilent** 來處理快取和權杖重新整理。它也提供同步處理版本。它接受 userid 做為參數。
+您可以呼叫 **acquireTokenSilent** 來處理快取和權杖重新整理。它也提供同步處理版本。它接受 userid 作為參數。
 
     ```java
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
@@ -313,11 +313,11 @@ ADFS 不視為正式的 STS，因此您需要開啟執行個體探索，並在 A
 
 ### 查詢快取項目
 
-ADAL 在 SharedPrefrecens 中提供預設快取與一些簡單的快取查詢函式。您可以使用 
+ADAL 在 SharedPreferences 中提供預設快取與一些簡單的快取查詢函式。您可以從 AuthenticationContext 取得目前的快取和︰
 ```Java
  ITokenCacheStore cache = mContext.getCache();
 ```
- 從 AuthenticationContext 取得目前的快取。如果想要自訂，您也可以提供您的快取實作。
+如果想要自訂它，您也可以提供您的快取實作。
 ```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
@@ -417,7 +417,7 @@ Fiddler 是最簡單的 HTTP 追蹤工具。請使用下列連結來設定它，
 
 ### Oauth2 持有者挑戰
 
-AuthenticationParameters 類別提供從 Oauth2 持有者挑戰取得 authorization_uri 的功能。
+AuthenticationParameters 類別提供從 Oauth2 持有者挑戰取得 authorization\_uri 的功能。
 
 ### Web 檢視中的工作階段 Cookie
 
@@ -427,7 +427,7 @@ CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` 
+```
 深入了解 Cookie：http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### 資源覆寫
@@ -449,8 +449,12 @@ ADAL 程式庫包含下列兩個 ProgressDialog 訊息英文字串。
 =======
 
 ### NTLM 對話方塊
-Adal 1.1.0 版支援 NTLM 對話方塊，此對話方塊是透過 WebViewClient 的 onReceivedHttpAuthRequest 事件來處理。您可以自訂對話方塊版面配置和字串。### 步驟 5：下載 iOS 原生用戶端範例程式碼
+Adal 1.1.0 版支援 NTLM 對話方塊，此對話方塊是透過 WebViewClient 的 onReceivedHttpAuthRequest 事件來處理。您可以自訂對話方塊版面配置和字串。
+
+### 跨應用程式的 SSO
+了解[如何使用 ADAL 啟用跨應用程式的 SSO](active-directory-sso-android.md)
+
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

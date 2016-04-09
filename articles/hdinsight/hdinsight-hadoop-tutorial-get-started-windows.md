@@ -12,20 +12,22 @@
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/25/2016"
+   ms.date="03/07/2016"
    ms.author="nitinme"/>
 
 
 # Hadoop 教學課程：開始在 Windows 上的 HDInsight 中使用 Hadoop
 
 > [AZURE.SELECTOR]
-- [Windows](../hdinsight-hadoop-tutorial-get-started-windows.md)
-- [Linux](../hdinsight-hadoop-linux-tutorial-get-started.md)
+- [以 Windows 為基礎](../hdinsight-hadoop-tutorial-get-started-windows.md)
+- [以 Linux 為基礎](../hdinsight-hadoop-linux-tutorial-get-started.md)
 
 為了協助您了解在 Windows 上的 Hadoop 並開始使用 HDInsight，本教學課程為您示範如何在 Hadoop 叢集上執行 Hive 查詢非結構化資料，並且接著在 Microsoft Excel 中分析結果。
+
+>[AZURE.NOTE] 本文件的資訊是 以 Windows 為基礎之 HDInsight 叢集的特定資訊。如需以 Linux 為基礎之叢集的相關資訊，請參閱[Hadoop 教學課程：開始在 HDInsight 中使用以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)。
 
 假設您有一個大型的非結構化資料集，而且您想要在此資料集上執行查詢，以擷取一些有用資訊。這正是您要在這個教學課程中做的事。以下是要達成此目標的作法：
 
@@ -38,6 +40,8 @@
 **[在 YouTube 上觀看 HDInsight 的 Hadoop 教學課程](https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS)**
 
 除了全面供應 Azure HDInsight 之外，Microsoft 還提供 HDInsight Emulator for Azure，先前稱為 *Microsoft HDInsight Developer Preview*。模擬器非常適合開發人員使用，並只支援單一節點部署。如需使用 HDInsight Emulator 的詳細資訊，請參閱〈[開始使用 HDInsight Emulator][hdinsight-emulator]〉。
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ### 必要條件
 
@@ -177,7 +181,9 @@ HDInsight 叢集會提供查詢主控台，其中包括快速入門組件庫，�
 [網站記錄分析][hdinsight-weblogs-sample] | 了解如何使用 HDInsight 來分析網站記錄檔，以深入了解一天之中來自外部網站的造訪次數，以及使用者遭遇網站錯誤的摘要。
 [Twitter 趨勢分析](hdinsight-analyze-twitter-data.md) | 了解如何使用 HDInsight 來分析 Twitter 的趨勢。
 
+##刪除叢集
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##後續步驟
 在本 Hardoop 教學課程中，您已經了解如何在 Windows 上使用 HDInsight 建立叢集、對資料執行 Hive 查詢，並且將結果匯入 Excel，以便使用商業智慧工具進行後續處理及圖形顯示。若要深入了解，請參閱下列教學課程：
@@ -190,9 +196,8 @@ HDInsight 叢集會提供查詢主控台，其中包括快速入門組件庫，�
 - [〈搭配 HDInsight 使用 MapReduce〉][hdinsight-use-mapreduce]
 - [〈搭配 HDInsight 使用 Hivet〉][hdinsight-use-hive]
 - [〈搭配 HDInsight 使用 Pig〉][hdinsight-use-pig]
-- [〈在 HDInsight 上使用 Oozie〉][hdinsight-use-oozie]
-- [〈開發 HDInsight 的 C# Hadoop 串流程式〉][hdinsight-develop-streaming]
-- [〈開發 HDInsight 的 Java MapReduce 程式〉][hdinsight-develop-mapreduce]
+- [在 HDInsight 上使用 Oozie][hdinsight-use-oozie]
+- [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]
 
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
@@ -209,7 +214,6 @@ HDInsight 叢集會提供查詢主控台，其中包括快速入門組件庫，�
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-emulator]: hdinsight-hadoop-emulator-get-started.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
 [hdinsight-weblogs-sample]: hdinsight-hive-analyze-website-log.md
@@ -251,4 +255,4 @@ HDInsight 叢集會提供查詢主控台，其中包括快速入門組件庫，�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!----HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

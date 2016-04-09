@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="03/21/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute 線路和路由網域
@@ -69,12 +69,12 @@ ExpressRoute 線路有多個相關聯的路由網域：Azure 公用、Azure 私�
 
 下表是這三種路由網域的比較。
 
-|**私人對等互連**|**公用對等互連**|**Microsoft 對等互連**|
+||**私人對等互連**|**公用對等互連**|**Microsoft 對等互連**|
 |---|---|---|---|
 |**每個對等支援的前置詞數目最大值**|預設為 4000，ExpressRoute Premium 中為 10000|200|200|
 |**支援的 IP 位址範圍**|您的 WAN 內任何有效的 IPv4 位址。|您或您的連線提供者所擁有的公用 IPv4 位址。|您或您的連線提供者所擁有的公用 IPv4 位址。|
-|**AS 編號需求**|私密和公用 AS 編號。客戶必須擁有公用 AS 編號。 | 私密和公用 AS 編號。客戶必須擁有公用 AS 編號。| 僅限公用 AS 編號。必須針對註冊的路由驗證 AS 編號以驗證擁有權。|
-|**路由介面 IP 位址**|RFC1918 和公用 IP 位址|在路由註冊中向客戶註冊的公用 IP 位址。| 在路由註冊中向客戶註冊的公用 IP 位址。|
+|**AS 編號需求**|私密和公用 AS 編號。您必須擁有公用 AS 編號。 | 私密和公用 AS 編號。不過，您必須提供公用 AS 編號，驗證公用 IP 位址的擁有權。| 私密和公用 AS 編號。不過，您必須提供公用 AS 編號，驗證公用 IP 位址的擁有權。|
+|**路由介面 IP 位址**|RFC1918 和公用 IP 位址|在路由註冊中向您註冊的公用 IP 位址。| 在路由註冊中向您註冊的公用 IP 位址。|
 |**MD5 雜湊支援**| 是|是|是|
 
 您可以選擇在 ExpressRoute 線路中啟用一或多個路由網域。如果想要將所有路由網域合併成單一路由網域，您可以選擇將所有路由網域放在相同的 VPN。您也可以將他們放在不同的路由網域，類似上圖。建議的設定是將私用對等直接連線到核心網路，而將公用和 Microsoft 對等連結連線到您的 DMZ。
@@ -90,4 +90,4 @@ ExpressRoute 線路有多個相關聯的路由網域：Azure 公用、Azure 私�
 	- [設定路由 (線路對等)](expressroute-howto-routing-classic.md)
 	- [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

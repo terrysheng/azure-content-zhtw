@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/06/2016"
+	ms.date="03/22/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：在您的應用程式中註冊與登入取用者
@@ -22,7 +22,7 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
 
 在過去，應用程式開發人員若想要註冊並讓取用者登入其應用程式，他們會編寫自己的程式碼。而且他們會使用內部部署資料庫或系統來儲存使用者名稱和密碼。Azure Active Directory B2C 為開發人員提供更理想的做法，透過安全且以標準為基礎的平台以及豐富的可延伸原則組合，協助將取用者身分識別管理整合至應用程式。當您使用 Azure Active Directory B2C 時，您的取用者可以使用現有的社交帳戶 (Facebook、Google、Amazon、LinkedIn) 註冊應用程式，或是建立新的認證 (電子郵件地址與密碼，或使用者名稱與密碼)；後者稱為「本機帳戶」。
 
-Azure Active Directory B2C 處於預覽版狀態。我們冀望在此期間能聆聽您的寶貴意見反應與試用體驗。我們可能會根據這些意見反應進行重大變更，以改善服務。在這段期間，請勿發行使用預覽版的生產應用程式。透過「[使用者心聲](https://feedback.azure.com/forums/169401-azure-active-directory/)」(User Voice) 與我們分享您的想法。
+Azure Active Directory B2C 處於預覽版狀態。我們冀望在此期間能聆聽您的寶貴意見反應與試用體驗。我們可能會根據這些意見反應進行重大變更，以改善服務。在這段期間，請勿發行使用預覽版的生產應用程式。透過「[使用者意見](https://feedback.azure.com/forums/169401-azure-active-directory/)」(User Voice) 與我們分享您的想法。
 
 ## 開始使用
 
@@ -63,4 +63,4 @@ Azure Active Directory B2C 處於預覽版狀態。我們冀望在此期間能�
 - 閱讀 [Azure Active Directory B2C 常見問題集](active-directory-b2c-faqs.md)。
 - [提出 Azure Active Directory B2C 的支援要求](active-directory-b2c-support.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

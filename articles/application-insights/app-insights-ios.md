@@ -1,5 +1,5 @@
 <properties
-    pageTitle="iOS 應用程式的分析 | Microsoft Azure"
+    pageTitle="iOS 應用程式的分析"
     description="分析 iOS 應用程式的使用情況和效能。"
     services="application-insights"
     documentationCenter="ios"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/04/2016"
+    ms.date="03/17/2016"
     ms.author="awills"/>
 
 # iOS 應用程式的分析
@@ -24,13 +24,14 @@ Microsoft 為裝置 devOps 提供兩個解決方案：適用於用戶端裝置�
 請移至：
 
 * [HockeyApp](http://support.hockeyapp.net/kb)
+* [HockeyApp for iOS](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-ios)
 * [HockeyApp 部落格](http://hockeyapp.net/blog/)
 * 加入 [Hockeyapp Preseason](http://hockeyapp.net/preseason/) 以提早取得版本。
 
 如果您的應用程式有伺服器端，請使用 [Application Insights](app-insights-overview.md) 在 [ASP.NET](app-insights-asp-net.md) 或 [J2EE](app-insights-java-get-started.md) 上監視您的應用程式的 Web 伺服器端。
 
+> [AZURE.NOTE] Application Insights for iOS、Android、Windows 市集和 Windows Phone 應用程式將於 2016 年 6 月 15 日停止顯示資料。
+>
+> [這項變更的詳細資訊](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/)。
 
-
-有已經不再支援的 [Application Insights SDK for iOS](https://github.com/Microsoft/ApplicationInsights-iOS)。
-
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

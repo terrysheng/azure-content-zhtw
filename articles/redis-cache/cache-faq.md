@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="03/17/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis 快取常見問題集
@@ -220,10 +220,31 @@ Redis 工具 (例如 `redis-cli`) 未使用 SSL 連接埠，但您可以遵循[�
 
 -	如果您有標準或進階快取，就可以使用 [Redis 主控台](cache-configure.md#redis-console)來執行 Redis 命令。這可提供在 Azure 入口網站中執行 Redis 命令的安全方式。
 -	您也可以使用 Redis 命令列工具。若要使用那些工具，請執行下列步驟。
-	-	下載 [Redis 命令列工具](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip)。
+	-	下載 [Redis 命令列工具](https://github.com/MSOpenTech/redis/releases/)。
 	-	使用 `redis-cli.exe` 連線至快取。使用-h 參數傳入快取端點，以及使用 -a 傳入索引鍵 (如下列範例所示)。
 		-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
 	-	請注意，Redis 命令列工具未使用 SSL 連接埠，但您可以遵循[宣佈 Redis 預覽版本的 ASP.NET 工作階段狀態提供者](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)部落格文章中的指示，使用公用程式 (例如 `stunnel`) 將工具安全地連線至 SSL 連接埠。
+
+<a name="cache-emulator"></a>
+## Azure Redis 快取有本機模擬器嗎？
+
+Azure Redis 快取沒有本機模擬器，但您可以從本機電腦的 [Redis 命令列工具](https://github.com/MSOpenTech/redis/releases/)執行 MSOpenTech 版本的 redis-server.exe，連接它以取得類似本機快取模擬器的體驗，如下例所示。
+
+	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	{
+		// Connect to a locally running instance of Redis to simulate a local cache emulator experience.
+	    return ConnectionMultiplexer.Connect("127.0.0.1");
+	});
+	
+	public static ConnectionMultiplexer Connection
+	{
+	    get
+	    {
+	        return lazyConnection.Value;
+	    }
+	}
+
+如有需要，您也可以選擇設定 [redis.conf](http://redis.io/topics/config) 檔案以更貼近線上 Azure Redis 快取的[預設快取設定](cache-configure.md#default-redis-server-configuration)。
 
 <a name="cache-common-patterns"></a>
 ## 一些常見的快取模式和考量為何？
@@ -282,4 +303,4 @@ In-Role Cache 已設定於 2016 年 11 月 30 日淘汰。
 
 ["minIoThreads" 組態設定]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

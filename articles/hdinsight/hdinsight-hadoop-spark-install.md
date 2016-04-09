@@ -23,9 +23,9 @@
 了解如何使用指令碼動作在以 Windows 為基礎的 HDInsight 上安裝 Spark，以及如何在 HDInsight 叢集上執行 Spark 查詢。
 
 
-**相關文章** - [在以 Linux 為基礎的 HDInsight 叢集上安裝 Spark](hdinsight-hadoop-spark-install-linux.md)。
+**相關文章**
 
-- [在 HDInsight 建立 Hadoop 叢集](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。
+- [在 HDInsight 叢集中建立 Hadoop](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。
 
 - [開始使用 HDInsight 上的 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)：在 Windows 作業系統上建立 Spark 類型的叢集。
 
@@ -63,16 +63,18 @@ Spark 也可用來執行傳統的磁碟型資料處理。Spark 以避免在中�
 	![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-spark-install/HDI.CustomProvision.Page6.png "使用指令碼動作以自訂叢集")
 
 	<table border='1'>
-	<tr><th>屬性</th><th>值</th></tr>
-	<tr><td>名稱</td>
-		<td>指定指令碼動作的名稱。例如，<b>安裝 Spark</b>。</td></tr>
-	<tr><td>指令碼 URI</td>
-		<td>指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。例如，<i>https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1</i></td></tr>
-	<tr><td>節點類型</td>
-		<td>指定執行自訂指令碼的節點。您可以選擇 [<b>所有節點</b>]、[<b>僅限前端節點</b>] 或 [<b>僅限背景工作節點</b>]。
-	<tr><td>參數</td>
-		<td>如果指令碼要求，請指定參數。用來安裝 Spark 的指令碼不需要任何參數，因此可以讓此處空白。</td></tr>
-</table>您可以加入一個以上的指令碼動作，以在叢集上安裝多個元件。加入指令碼之後，請按一下核取記號以開始建立叢集。
+		<tr><th>屬性</th><th>值</th></tr>
+		<tr><td>名稱</td>
+			<td>指定指令碼動作的名稱。例如，<b>安裝 Spark</b>。</td></tr>
+		<tr><td>指令碼 URI</td>
+			<td>指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。例如，<i>https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1</i></td></tr>
+		<tr><td>節點類型</td>
+			<td>指定執行自訂指令碼的節點。您可以選擇 [<b>所有節點</b>]、[<b>僅限前端節點</b>] 或 [<b>僅限背景工作節點</b>]。
+		<tr><td>參數</td>
+			<td>如果指令碼要求，請指定參數。用來安裝 Spark 的指令碼不需要任何參數，因此可以讓此處空白。</td></tr>
+	</table>
+
+	您可以加入一個以上的指令碼動作，以在叢集上安裝多個元件。加入指令碼之後，請按一下核取記號以開始建立叢集。
 
 您也可以使用 Azure PowerShell 或 HDInsight .NET SDK，在 HDInsight 上使用指令碼安裝 Spark。本主題稍後會提供這些程序的指示。
 
@@ -264,26 +266,26 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 	**Add-AzureHDInsightScriptAction** Cmdlet 可接受下列參數：
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">參數</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:550px; padding-left:5px; padding-right:5px;">定義</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">設定</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">要在其中新增指令碼動作資訊的設定物件。</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">名稱</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">指令碼動作的名稱。</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">ClusterRoleCollection</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">指定執行自訂指定碼的節點。有效值為 HeadNode (在前端節點上安裝) 或 DataNode (在所有資料節點上安裝)。您可以使用其中一個或兩個值。</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Uri</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">指定所執行之指令碼的 URI。</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">參數</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">指令碼所需的參數。本主題中使用的範例指令碼不需要任何參數，因此您在上述程式碼片段中看不到此參數。
-</td></tr>
-</table>
+	<tr>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">參數</th>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:550px; padding-left:5px; padding-right:5px;">定義</th></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">設定</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">要在其中新增指令碼動作資訊的設定物件。</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">名稱</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">指令碼動作的名稱。</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">ClusterRoleCollection</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">指定執行自訂指定碼的節點。有效值為 HeadNode (在前端節點上安裝) 或 DataNode (在所有資料節點上安裝)。您可以使用其中一個或兩個值。</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Uri</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">指定所執行之指令碼的 URI。</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">參數</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">指令碼所需的參數。本主題中使用的範例指令碼不需要任何參數，因此您在上述程式碼片段中看不到此參數。
+	</td></tr>
+	</table>
 
 4. 最後，開始建立已安裝 Spark 的自訂叢集。
 
@@ -303,7 +305,6 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 
 ## 另請參閱
 
-- [在以 Linux 為基礎的 HDInsight 叢集上安裝 Spark](hdinsight-hadoop-spark-install-linux.md)：在以 Linux 為基礎的 HDInsight 叢集上安裝 Spark。
 - [在 HDInsight 中建立 Hadoop 叢集](hdinsight-provision-clusters.md)：建立 HDInsight 叢集。
 - [開始使用 HDInsight 上的 Apache Spark](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)：開始在 HDInsight 上使用 Spark。
 - [使用指令碼動作自訂 HDInsight 叢集][hdinsight-cluster-customize]：使用指令碼動作自訂 HDInsight 叢集。
@@ -317,4 +318,4 @@ Spark SQL 可讓您使用 Spark 來執行以結構化查詢語言 (SQL)、HiveQL
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: powershell-install-configure.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="03/16/2016"
    ms.author="rajram"/>
 
 
 # 開始使用 Azure 服務匯流排連接器並將它加入您的邏輯應用程式 
->[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下[服務匯流排 API](../connectors/create-api-servicebus.md)。
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下[服務匯流排 API](../connectors/connectors-create-api-servicebus.md)。
 
 連線至 Azure 服務匯流排可以將訊息傳送至「佇列和主題」，並接收來自「佇列和訂用帳戶」的訊息。連接器在 Logic Apps 中是用作「工作流程」的一部分。
 
@@ -95,4 +95,4 @@ Azure 服務匯流排連接器提供下列觸發程序和動作：
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

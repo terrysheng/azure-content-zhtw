@@ -29,9 +29,9 @@
 + 強烈依賴資料的讀寫 (RW) 存取
 + 考量到延遲和流量成本，無法接受應用程式邏輯和資料庫之間的跨區域連接    
 
-在此情況下，應用程式部署拓撲經過最佳化，可處理區域性災害，此時所有應用程式元件都受影響，而需要當成一個單位來容錯移轉。在地理備援方面，應用程式邏輯和資料庫複寫到另一個區域，但在正常情況下不負責處理應用程式工作負載。次要地區中的應用程式應該設定為使用次要資料庫的 SQL 連接字串。流量管理員設為使用[容錯移轉路由方法](traffic-manager-configure-failover-load-balancing.md)。
+在此情況下，應用程式部署拓撲經過最佳化，可處理區域性災害，此時所有應用程式元件都受影響，而需要當成一個單位來容錯移轉。在地理備援方面，應用程式邏輯和資料庫複寫到另一個區域，但在正常情況下不負責處理應用程式工作負載。次要地區中的應用程式應該設定為使用次要資料庫的 SQL 連接字串。流量管理員設為使用[容錯移轉路由方法](../traffic-manager/traffic-manager-configure-failover-routing-method.md)。
 
-> [AZURE.NOTE] [Azure traffic manager]這整篇文章使用 (traffic-manager-overview.md) 僅供說明用途。您可以使用任何支援容錯移轉路由方法的負載平衡方案。
+> [AZURE.NOTE] [Azure traffic manager]這整篇文章使用 (../traffic-manager/traffic-manager-overview.md) 僅供說明用途。您可以使用任何支援容錯移轉路由方法的負載平衡方案。
 
 除了主要應用程式執行個體，您還應該考慮部署小型的[背景工作角色應用程式](cloud-services-choose-me.md#tellmecs)，以定期發出 T-SQL 唯讀 (RO) 命令來監控主要資料庫。您可以利用它來自動觸發容錯移轉、在應用程式的系統管理員主控台產生警示，或兩種功能都執行。為了確保地區性的運作中斷不會影響監視，您應該將監視應用程式執行個體部署至每個區域，並將它們連接到其他區域中的資料庫，但只有次要地區中執行個體必須在作用中。
 
@@ -75,7 +75,7 @@
 + 使用不同的連接字串可以隔開唯讀邏輯和讀寫邏輯
 + 唯讀邏輯不依賴資料與最新更新完全同步  
 
-如果您的應用程式具有這些特性，只要將使用者連接的負載分散於不同區域中的多個應用程式執行個體，即可改善效能和使用者體驗。若要達成此目標，每個區域都應該有應用程式的作用中執行個體，而且讀寫 (RW) 邏輯要連接到主要區域中的主要資料庫。唯讀 (RO) 邏輯應該連接到應用程式執行個體所在的相同區域中的次要資料庫。流量管理員應該設定為使用[循環配置資源路由](traffic-manager-configure-round-robin-load-balancing.md)或[效能路由](traffic-manager-configure-performance-load-balancing.md)，而且每個應用程式執行個體都啟用[端點監視](traffic-manager-monitoring.md)。
+如果您的應用程式具有這些特性，只要將使用者連接的負載分散於不同區域中的多個應用程式執行個體，即可改善效能和使用者體驗。若要達成此目標，每個區域都應該有應用程式的作用中執行個體，而且讀寫 (RW) 邏輯要連接到主要區域中的主要資料庫。唯讀 (RO) 邏輯應該連接到應用程式執行個體所在的相同區域中的次要資料庫。流量管理員應該設定為使用[循環配置資源路由](../traffic-manager/traffic-manager-configure-round-robin-routing-method.md)或[效能路由](../traffic-manager/traffic-manager-configure-performance-routing-method.md)，而且每個應用程式執行個體都啟用[端點監視](../traffic-manager/traffic-manager-monitoring.md)。
 
 如同模式 #1，您應該考慮部署類似的監視應用程式。但有別於模式 #1，此監視應用程式不負責觸發端點容錯移轉。
 
@@ -108,7 +108,7 @@
 + 任何資料遺失都會帶來極高的商業風險，資料庫容錯移轉只能當作永久中斷運作時的最後手段。
 + 應用程式可以在「唯讀模式」下運作一段時間。
 
-在此模式下，應用程式連接到次要資料庫時會切換到唯讀模式。主要區域中的應用程式邏輯與主要資料庫共置，而且以讀寫模式 (RW) 運作，次要地區中的應用程式邏輯與次要資料庫共置，而且隨時可在唯讀模式 (RO) 下運作。流量管理員應該設定為使用[容錯移轉路由](traffic-manager-configure-failover-load-balancing.md)，而且兩個應用程式執行個體都啟用[端點監視](traffic-manager-monitoring.md)。
+在此模式下，應用程式連接到次要資料庫時會切換到唯讀模式。主要區域中的應用程式邏輯與主要資料庫共置，而且以讀寫模式 (RW) 運作，次要地區中的應用程式邏輯與次要資料庫共置，而且隨時可在唯讀模式 (RO) 下運作。流量管理員應該設定為使用[容錯移轉路由](../traffic-manager/traffic-manager-configure-failover-routing-method.md)，而且兩個應用程式執行個體都啟用[端點監視](../traffic-manager/traffic-manager-monitoring.md)。
 
 下圖說明此組態在運作中斷之前的情形。![容錯移轉之前的主動/被動部署。雲端災害復原。](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern3-1.png)
 
@@ -148,4 +148,4 @@
 | 應用程式負載平衡的主動-主動部署 | 讀寫存取 < 5 秒 | 失敗偵測時間 + 容錯移轉 API 呼叫 + SQL 連接字串變更 + 應用程式驗證測試
 | 資料保留的主動-被動部署 | 唯讀存取 < 5 秒，讀寫存取 = 0 | 唯讀存取 = 連線失敗偵測時間 + 應用程式驗證測試 <br>讀寫存取 = 運作中斷趨緩的時間
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

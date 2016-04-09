@@ -13,8 +13,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="01/29/2016"
+	ms.topic="article"
+	ms.date="03/07/2016"
 	ms.author="jgao"/>
 
 
@@ -36,7 +36,9 @@
 
 
 
-**必要條件**
+###開始之前
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 開始進行本 HBase 教學課程之前，您必須具備下列條件：
 
@@ -326,20 +328,19 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 7. 設定 **Main** 函數中的前三個變數。
 8. 按 **F5** 鍵執行應用程式。
 
+##刪除叢集
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## 後續步驟
 在 HDInsight 的本 HBase 教學課程中，您已了解如何建立 HBase 叢集，以及如何建立資料表，並從 HBase Shell 檢視這些資料表中的資料。您同時也了解到如何使用 Hive 查詢 HBase 資料表中的資料，以及如何使用 HBase C# REST API 建立 HBase 資料表，並擷取其資料表中的資料。
 
 若要深入了解，請參閱：
 
-- [HDInsight HBase 概觀][hdinsight-hbase-overview]：
-HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
-- [在 Azure 虛擬網路上建立 HBase 叢集][hdinsight-hbase-provision-vnet]：
-由於虛擬網路的整合，現在您能夠把 HBase 叢集部署到應用程式所在的虛擬網路中，讓應用程式能夠直接與 HBase 進行通訊。
+- [HDInsight HBase 概觀][hdinsight-hbase-overview]：HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
+- [在 Azure 虛擬網路上建立 HBase 叢集][hdinsight-hbase-provision-vnet]：由於虛擬網路的整合，現在您能夠把 HBase 叢集部署到應用程式所在的虛擬網路中，讓應用程式能夠直接與 HBase 進行通訊。
 - [設定 HDInsight 中的 HBase 複寫](hdinsight-hbase-geo-replication.md)：了解如何跨兩個 Azure 資料中心設定 HBase 複寫。
-- [利用 HDInsight 中的 HBase 分析 Twitter 情緒][hbase-twitter-sentiment]：
-了解如何使用 HDInsight 之 Hadoop 叢集中的 HBase，執行巨量資料的即時[情緒分析](http://en.wikipedia.org/wiki/Sentiment_analysis)。
+- [利用 HDInsight 中的 HBase 分析 Twitter 情緒][hbase-twitter-sentiment]：了解如何使用 HDInsight 之 Hadoop 叢集中的 HBase，執行巨量資料的即時[情緒分析](http://en.wikipedia.org/wiki/Sentiment_analysis)。
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -368,4 +369,4 @@ HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

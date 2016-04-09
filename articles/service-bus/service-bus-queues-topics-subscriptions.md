@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # 服務匯流排佇列、主題和訂用帳戶
@@ -169,7 +169,8 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 - [服務匯流排訊息概觀](service-bus-messaging-overview.md)
 - [服務匯流排代理傳訊 .NET 教學課程](service-bus-brokered-tutorial-dotnet.md)
 - [服務匯流排代理傳訊 REST 教學課程](service-bus-brokered-tutorial-rest.md)
+- [事件中樞文件](https://azure.microsoft.com/documentation/services/event-hubs/)
 - [事件中樞開發人員指南](../event-hubs/event-hubs-programming-guide.md)
 - [代理傳訊︰進階篩選器](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

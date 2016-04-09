@@ -3,9 +3,9 @@
 	description="了解如何為資料庫設定 Stretch Database。"
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="03/09/2016"
 	ms.author="douglasl"/>
 
 # 為資料庫啟用 Stretch Database
@@ -128,6 +128,9 @@ GO
 -   [Backup and restore Stretch-enabled databases (備份與還原已啟用 Stretch 的資料庫)](sql-server-stretch-database-backup.md)
 
 ## 另請參閱
-[為資料庫和資料表識別 Stretch Database](sql-server-stretch-database-identify-databases.md) [ALTER DATABASE SET 選項 (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
-<!---HONumber=AcomDC_0302_2016-------->
+[識別適用於 Stretch Database 的資料庫和資料表](sql-server-stretch-database-identify-databases.md)。
+
+[ALTER DATABASE SET 選項 (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+
+<!---HONumber=AcomDC_0316_2016-->

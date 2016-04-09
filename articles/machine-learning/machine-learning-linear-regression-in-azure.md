@@ -14,15 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="03/02/2016" 
 	ms.author="kbaroni;garye" />
 
 # 在 Azure Machine Learning 中使用線性迴歸
 
 > *Kate Baroni* 和 *Ben Boatman* 是 Microsoft 的 Data Insights Center of Excellence 的企業方案架構設計人員。在本文章中，他們將說明使用 Azure Machine Learning 將現有的迴歸分析套件移轉至雲端式解決方案的經驗。
-
-[AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
-
+ 
+&nbsp;
+  
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+ 
 ## 目標
 
 我們的專案開始時有兩個目標：
@@ -50,7 +52,7 @@
 
 1.	將資料集以 csv 檔案 (非常小的檔案) 的形式上傳到 Azure ML
 2.	建立新的實驗並使用[專案資料行][project-columns]模組來選取 Excel 中所使用的相同資料功能   
-3.	使用[分割][split]模組 (與*相對運算式*模式)，將資料分成完全相同的訓練集，正如同在 Excel 中完成的動作  
+3.	使用[資料分割][split]模組 (與「相對運算式」模式)，將資料分成完全相同的訓練集，正如同在 Excel 中完成的動作  
 4.	使用[線性迴歸][linear-regression]模組實驗 (只有使用預設選項)、記載，並將結果與我們 Excel 迴歸模型比較
 
 ### 檢閱初步結果
@@ -74,28 +76,28 @@
 ### 謎題解開了！
 當我們套用建議時，我們在 Azure ML 中達成與 Excel 的相同基準效能：
 
-|| Excel|Azure ML (初始)|Azure ML 無最小平方|
+|| Excel|Azure ML (初始)|Azure ML (最小平方法)|
 |---|:---:|:---:|:---:|
-|標示的值 |實際值 (數值)|相同|相同|
-|線性 |Excel -> 資料分析-> 迴歸|線性迴歸。|線性迴歸|
-|線性選項|不適用|預設|一般最小平方<br />L2 = 0.005|
+|加上標籤的值 |實際值 (數值)|相同|相同|
+|學習模組 |Excel -> 資料分析 -> 迴歸|線性迴歸。|線性迴歸|
+|學習模組選項|N/A|預設值|普通最小平方<br />L2 = 0.005|
 |資料集|26 個資料列，3 個功能，1 個標籤。全部數值。|相同|相同|
-|分割：訓練|Excel 對前 18 個資料列進行訓練，對最後 8 個資料列進行測試。|相同|相同|
-|分割：測試|Excel 迴歸公式套用至最後 8 個資料列|相同|相同|
+|分割：訓練|Excel 會在前 18 個資料列上訓練，在最後 8 個資料列上測試。|相同|相同|
+|分割：測試|Excel 迴歸公式會套用至最後 8 個資料列|相同|相同|
 |**效能**||||
-|調整的 R 平方|0.96|不適用||
-|決定係數|不適用|0.78|0.952049|
+|調整 R 平方|0\.96|N/A||
+|決定係數|N/A|0\.78|0\.952049|
 |平均絕對誤差 |$9.5M|$ 19.4M|$9.5M|
-|平均絕對誤差 (%)|<span style="background-color: 00FF00;"> 6.03%</span>|12.2%|<span style="background-color: 00FF00;"> 6.03%</span>|
+|平均絕對誤差 (%)|<span style="background-color: 00FF00;"> 6.03%</span>|12\.2%|<span style="background-color: 00FF00;"> 6.03%</span>|
 
 此外，Excel 係數相較與 Azure 訓練模型中的功能加權不相上下：
 
 ||Excel 係數|Azure 功能加權|
 |---|:---:|:---:|
-|截距/乖離率|19470209.88|19328500|
-|功能 A|0.832653063|0.834156|
-|功能 B|11071967.08|11007300|
-|功能 C|25383318.09|25140800|
+|截距/偏差|19470209\.88|19328500|
+|功能 A|0\.832653063|0\.834156|
+|功能 B|11071967\.08|11007300|
+|功能 C|25383318\.09|25140800|
 
 ## 後續步驟
 
@@ -157,4 +159,4 @@
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

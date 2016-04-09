@@ -131,7 +131,7 @@
 
 ### 步驟 4：建立您的診斷組態檔並安裝擴充功能
 1.	執行下列 PowerShell 命令，以下載公用組態檔結構描述定義：
-2.	
+2.
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
 2.	以滑鼠右鍵按一下 **WorkerRole1** 專案，然後選取 [加入] -> [新增項目...] -> [Visual C# 項目] -> [資料] -> [XML 檔]，將 XML 檔加入您的 **WorkerRole1** 專案。將檔案命名為 "WadExample.xml"。
@@ -180,7 +180,8 @@
 ```
 
 ### 步驟 6：查看您的遙測資料
-在 Visual Studio 的 [伺服器總管] 中，瀏覽至 wadexample 儲存體帳戶。在雲端服務執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。![CloudServices\_diag\_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
+在 Visual Studio 的 [伺服器總管] 中，瀏覽至 wadexample 儲存體帳戶。在雲端服務執行約 5 分鐘之後，您應該會看到資料表 **WADEnumsTable**、**WADHighFreqTable**、**WADMessageTable**、**WADPerformanceCountersTable** 和 **WADSetOtherTable**。按兩下其中一個資料表以檢視收集的遙測資料。
+	![CloudServices\_diag\_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 
 ## 組態檔結構描述
@@ -203,3 +204,4 @@
 [安裝及設定 Azure PowerShell 0.8.7 版或更新版本]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
 <!---HONumber=AcomDC_0302_2016-------->
+

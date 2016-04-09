@@ -19,11 +19,11 @@
 # 將虛擬網路連結到 ExpressRoute 電路
 
 > [AZURE.SELECTOR]
-- [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
-- [PowerShell - Resource Manager] (expressroute-howto-linkvnet-arm.md)
-- [Template - Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
+- [PowerShell - 傳統](expressroute-howto-linkvnet-classic.md)
+- [PowerShell - 資源管理員](expressroute-howto-linkvnet-arm.md)
+- [範本 - 資源管理員](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
-本文提供如何將虛擬網路 (Vnet) 連結到 ExpressRoute 線路的概觀。虛擬網路可以位於相同的訂用帳戶中，或屬於另一個訂用帳戶。本文適用於使用資源管理員部署模型部署的 Vnet。如果您想要連結使用傳統部署模型部署的虛擬網路，請參閱[將虛擬網路連結至 ExpressRoute 電路](expressroute-howto-linkvnet-classic.md)。
+本文提供如何將虛擬網路 (Vnet) 連結到 ExpressRoute 線路的概觀。虛擬網路可以位於相同的訂用帳戶中，或屬於另一個訂用帳戶。本文適用於使用資源管理員部署模型部署的 Vnet。如果您想要連結使用傳統部署模型部署的虛擬網路，請參閱[將虛擬網路連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)。
 
 
 **關於 Azure 部署模型**
@@ -129,7 +129,7 @@
 循環使用者可以執行下列 Cmdlet 來兌換連結授權。
 
 	$id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"	
-	$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+	$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 
 #### 釋出連線授權
 
@@ -139,4 +139,4 @@
 
 如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

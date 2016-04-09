@@ -1,6 +1,6 @@
 <properties
 	pageTitle="以 .NET 開始使用 Azure 表格儲存體 | Microsoft Azure"
-	description="使用 Azure 表格儲存體 (Microsoft 的 NoSQL 資料存放區) 將非結構化的資料儲存在雲端。從簡單的表格儲存體作業來開始，包括建立和刪除表格以及插入、更新、刪除和查詢資料。"
+	description="使用 Azure 表格儲存體 (Microsoft 的 NoSQL 資料存放區) 將結構化的資料儲存在雲端。從簡單的表格儲存體作業來開始，包括建立和刪除表格以及插入、更新、刪除和查詢資料。"
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/14/2016"
+	ms.date="03/27/2016"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## 概觀
 
-Azure 表格儲存體是可將非結構化的 NoSQL 資料儲存在雲端中的服務。表格儲存體是具有無結構描述設計的索引鍵/屬性存放區。由於表格儲存體並無結構描述，因此可輕易隨著應用程式發展需求改寫資料。所有類型的應用程式都可以用快速且具成本效益的方式存取資料。相較於類似資料量的傳統 SQL，資料表儲存體通常可大幅降低成本。
+Azure 表格儲存體是可將結構化的 NoSQL 資料儲存在雲端中的服務。表格儲存體是具有無結構描述設計的索引鍵/屬性存放區。由於表格儲存體並無結構描述，因此可輕易隨著應用程式發展需求改寫資料。所有類型的應用程式都可以用快速且具成本效益的方式存取資料。相較於類似資料量的傳統 SQL，資料表儲存體通常可大幅降低成本。
 
 您可以使用資料表儲存體來儲存具彈性的資料集，例如 Web 應用程式的使用者資料、通訊錄、裝置資訊，以及服務所需的任何其他中繼資料類型。您可以在資料表中儲存任意數目的實體，且儲存體帳戶可包含任意數目的資料表，最高可達儲存體帳戶的容量限制。
 
@@ -257,7 +257,7 @@ Azure 表格儲存體是可將非結構化的 NoSQL 資料儲存在雲端中的�
 	   // Change the phone number.
 	   updateEntity.PhoneNumber = "425-555-0105";
 
-	   // Create the InsertOrReplace TableOperation.
+	   // Create the Replace TableOperation.
 	   TableOperation updateOperation = TableOperation.Replace(updateEntity);
 
 	   // Execute the operation.
@@ -444,4 +444,4 @@ Azure 表格儲存體是可將非結構化的 NoSQL 資料儲存在雲端中的�
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

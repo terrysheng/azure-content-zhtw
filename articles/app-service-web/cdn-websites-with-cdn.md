@@ -527,7 +527,7 @@
                     len = document.styleSheets.length;
                 for (var i = 0; i < len; i++) {
                     var sheet = document.styleSheets[i];
- 		    if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?v=1.0.0.25474') !== -1) { 
+                    if (sheet.href.indexOf('http://az673227.azureedge.net/Content/css?v=1.0.0.25474') !== -1) {
                         var meta = document.createElement('meta');
                         meta.className = 'sr-only';
                         document.head.appendChild(meta);
@@ -539,7 +539,7 @@
                     }
                 }
                 return true;
-            }())||document.write('<script src="/Content/css"><\/script>');</script>
+            }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
 	<script src="http://az673227.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -573,7 +573,6 @@
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

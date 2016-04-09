@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/27/2015"
+   ms.date="01/27/2016"
    ms.author="cawa" />
 
 # 使用 Visual Studio Team Services (VSTS) 為 Service Fabric 應用程式設定持續整合
@@ -411,4 +411,4 @@
 - [部署組建代理程式](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
 - [建立和設定組建定義](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0316_2016-->

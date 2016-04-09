@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Linux 代理程式使用者指南 | Microsoft Azure" 
 	description="了解如何安裝和設定 Linux 代理程式 (waagent)，來管理虛擬機器與 Azure 網狀架構控制器之間的互動。" 
-	services="virtual-machines" 
+	services="virtual-machines-linux" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
@@ -9,7 +9,7 @@
 	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines-linux" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
@@ -317,8 +317,8 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 - 請參閱下列資源，以便在佈建期間，於 Ubuntu 雲端映像上設定資源磁碟掛接和交換空間：
 
  - [Ubuntu Wiki：設定交換資料分割](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
- - [將自訂資料插入 Azure 虛擬機器](virtual-machines-how-to-inject-custom-data.md)
+ - [將自訂資料插入 Azure 虛擬機器](virtual-machines-windows-classic-inject-custom-data.md)
 
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -25,7 +25,7 @@
         + Creating VM
         info:    vm create command OK
 
-    >[AZURE.NOTE] 針對 Linux 虛擬機器，您必須提供 `vm create` 中的 `-e` 選項；建立虛擬機器之後就無法啟用 SSH。如需 SSH 的詳細資料，請參閱[如何在 Azure 上搭配使用 SSH 和 Linux](virtual-machines-linux-use-ssh-key.md)。
+    >[AZURE.NOTE] 針對 Linux 虛擬機器，您必須提供 `vm create` 中的 `-e` 選項；建立虛擬機器之後就無法啟用 SSH。如需 SSH 的詳細資料，請參閱[如何在 Azure 上搭配使用 SSH 和 Linux](virtual-machines-linux-ssh-from-linux.md)。
 
     請注意，映像 *b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-opensuse-13.1-20141216-x86-64* 就是我們在上述步驟中從映像清單所選擇的映像。*MyTestVM* 是新虛擬機器的名稱，而 *adminUser* 是我們將在虛擬機器中用於 SSH 的使用者名稱。您可以根據您的需求來取代這些變數。如需此命令的詳細資料，請造訪[搭配使用 Azure CLI 和 Azure 服務管理](virtual-machines-command-line-tools.md)。
 
@@ -41,4 +41,4 @@
 
 如需所有 Azure CLI 虛擬機器命令的詳細資料，請閱讀[搭配使用 Azure CLI 與服務管理 API](virtual-machines-command-line-tools.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

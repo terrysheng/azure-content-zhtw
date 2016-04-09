@@ -75,7 +75,9 @@ Microsoft 會維護叢集中執行的網狀架構程式碼和組態。視情況�
 
 ![顯示 Azure 入口網站中憑證指紋的螢幕擷取畫面。][CertificateUpgrade]
 
->[AZURE.NOTE] 在識別要用於叢集資源的憑證之前，必須先完成下列步驟，否則將不會使用新的憑證：1.將新的憑證上傳至 Azure 金鑰保存庫。如需相關指示，請參閱 [Service Fabric 安全性](service-fabric-cluster-security.md)。從該文件的步驟 2 開始。2.更新組成叢集的所有虛擬機器 (VM)，使憑證部署至其上。若要執行該作業，請參閱 [Azure 金鑰保存庫小組部落格](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx)。
+>[AZURE.NOTE] 在識別要用於叢集資源的憑證之前，必須先完成下列步驟，否則將不會使用新的憑證：
+1. 將新的憑證上傳至 Azure 金鑰保存庫。如需相關指示，請參閱 [Service Fabric 安全性](service-fabric-cluster-security.md)。從該文件的步驟 2 開始。
+2. 更新組成叢集的所有虛擬機器 (VM)，使憑證部署至其上。若要執行該作業，請參閱 [Azure Key Vault Team Blog (Azure 金鑰保存庫小組部落格)](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx)。
 
 ### 應用程式連接埠
 
@@ -100,11 +102,11 @@ Microsoft 會維護叢集中執行的網狀架構程式碼和組態。視情況�
 
 對於每個節點類型，您可以加入您要在應用程式中使用的自訂放置屬性。NodeType 是您可使用而不需明確新增的預設屬性。
 
->[AZURE.NOTE] 如需放置屬性用法的詳細資訊，請參閱[放置條件約束概觀](service-fabric-placement-constraint.md)。
+>[AZURE.NOTE] 如需使用放置條件約束、節點屬性及如何定義它們的詳細資訊，請參閱[描述您的叢集](service-fabric-cluster-resource-manager-cluster-description.md)上《Service Fabric 叢集資源管理員的文件》中的＜放置條件約束和節點屬性＞一節。
 
 ### 容量度量
 
-對於每個節點類型，您可以加入您要在應用程式中用來報告負載的自訂容量計量。如需使用容量計量來報告負載的詳細資訊，請參閱[動態負載報告概觀](service-fabric-resource-balancer-dynamic-load-reporting.md)。
+對於每個節點類型，您可以加入您要在應用程式中用來報告負載的自訂容量計量。如需使用報告負載之容量度量的詳細資訊，請參閱[描述您的叢集](service-fabric-cluster-resource-manager-cluster-description.md)和[度量和負載](service-fabric-cluster-resource-manager-metrics.md)上的《 Service Fabric 叢集資源管理員文件》。
 
 ### 組成叢集的 VM 上的作業系統修補程式
 
@@ -124,4 +126,4 @@ Microsoft 會維護叢集中執行的網狀架構程式碼和組態。視情況�
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

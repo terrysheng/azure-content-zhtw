@@ -431,7 +431,7 @@
 	     } 
 	}
 
-如需為 SQL Server 資料來源設定認證的詳細資料，請參閱[設定認證和安全性](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)。
+如需為 SQL Server 資料來源設定認證的詳細資料，請參閱[設定認證和安全性](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security)。
 
 ## SQL Server 資料集類型屬性
 
@@ -467,7 +467,7 @@
 
 如果您未指定 sqlReaderQuery 或 sqlReaderStoredProcedureName，就會使用資料集 JSON 的結構區段中定義的資料行來建立一個查詢，以對 SQL Server 資料庫執行 (從 mytable 選取 column1、column2)。如果資料集定義沒有結構，則會從資料表中選取所有資料行。
 
-> [AZURE.NOTE] 當您使用 **sqlReaderStoredProcedureName** 時，仍必須為資料集 JSON 中的 **tableName** 屬性指定值。這是產品目前的限制。雖然目前尚未針對此資料表來進行驗證。
+> [AZURE.NOTE] 當您使用 **sqlReaderStoredProcedureName** 時，仍必須為資料集 JSON 中的 **tableName** 屬性指定值。這是該產品目前的功能限制。雖然目前尚未針對此資料表來進行驗證。
 
 ### SqlSink
 
@@ -507,7 +507,7 @@
 	> 如需連接/閘道器相關問題的疑難排解秘訣，請參閱[閘道器疑難排解](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting)。
 
 ## 目標資料庫中的身分識別資料行
-本節提供的範例將示範，如何把資料從沒有身分識別資料行的來源資料表，複製到有身分識別資料行的目的地資料表。
+本節提供的範例將示範，如何把資料從沒有身分識別資料行的來源資料表，複製到具有身分識別資料行的目的地資料表。
 
 **來源資料表：**
 
@@ -527,7 +527,7 @@
 	)
 
 
-請注意，目標資料表有身分識別資料行。
+請注意，目標資料表具有身分識別資料行。
 
 **來源資料集 JSON 定義**
 
@@ -574,7 +574,7 @@
 	}
 
 
-請注意，您的來源資料表及目標資料表有不同的結構描述 (目標資料表有額外的身分識別資料行)。在此案例中，您必須在目標資料集定義中指定 **structure** 屬性，這不包含身分識別資料行。
+請注意，您的來源資料表與目標資料表的結構描述不同 (目標資料表有一個具有身分識別的額外資料行)。在此案例中，您必須在目標資料集定義中指定 **structure** 屬性，這不包含身分識別資料行。
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -637,4 +637,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

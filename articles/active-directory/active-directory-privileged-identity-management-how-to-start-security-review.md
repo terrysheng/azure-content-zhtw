@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 特殊權限身分識別管理：如何開始安全性檢閱"
+   pageTitle="如何開始安全性檢閱 | Microsoft Azure"
    description="了解如何為具備 Azure 特殊權限身分識別管理擴充功能的特殊權限身分識別建立安全性檢閱。"
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="03/17/2016"
    ms.author="kgremban"/>
 
-# Azure Privileged Identity Management：如何開始安全性檢閱
+# Azure AD Privileged Identity Management：如何開始安全性檢閱
 
 ## 開始安全性檢閱
 最後，您可以在 Azure 入口網站的其他位置中執行安全性檢閱。本文件涵蓋的步驟可用來在**特殊權限身分識別管理 (PIM)** 介面內開始安全性檢閱。
@@ -62,4 +62,4 @@
 ## PIM 目錄
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

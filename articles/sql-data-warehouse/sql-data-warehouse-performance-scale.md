@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # SQL 資料倉儲的彈性效能與延展性
@@ -27,12 +27,12 @@ Microsoft 會在幕後執行許多效能基準測試，以判斷需要多少硬�
 
 1. 若是開發過程中的資料倉儲，可從少量的 DWU 開始。
 2. 監視應用程式效能，觀察比較所選 DWU 數目與您觀察到的效能。
-3. 透過假設線性標尺，判斷需要將效能加快或減慢多少才能達到您需求的最佳效能等級。 
+3. 透過假設線性標尺，判斷需要將效能加快或減慢多少才能達到您需求的最佳效能等級。
 4. 增加或減少選取的 DWU 數目。服務會迅速回應並調整計算資源，以符合 DWU 需求。
 5. 繼續進行調整，直到達到您業務需求的最佳效能為止。
 
 如果應用程式的工作負載持續變動，請將效能等級上移或下移，以配合尖峰和離峰點。比方說，如果工作負載尖峰通常落在月底，可規劃在尖峰天數期間新增更多 DWU，然後在尖峰期間結束之後相應減少。
- 
+
 ## 相應增加和減少計算資源
 SQL 資料倉儲不仰賴雲端儲存空間運作，其絕佳的彈性可讓您透過資料倉儲單位 (DWU) 的滑動標尺，增加、縮減或暫停計算能力。這樣就能將您的計算能力彈性調整為最適合您業務的計算能力。
 
@@ -41,7 +41,7 @@ SQL 資料倉儲不仰賴雲端儲存空間運作，其絕佳的彈性可讓您�
 在 [Azure 傳統入口網站][]中，您可以按一下 SQL 資料倉儲頁面頂端的「縮放」圖示，然後使用滑桿增加或減少套用至資料倉儲的 DWU 數量，再按一下 [儲存]。如果您想要以程式設計方式變更級別，下列 T-SQL 程式碼示範如何針對您的 SQL 資料倉儲調整 DWU 配置：
 
 ```
-ALTER DATABASE MySQLDW 
+ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
 ```
@@ -95,4 +95,4 @@ Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Se
 
 [Azure 傳統入口網站]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

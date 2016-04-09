@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="02/01/2016" 
+	ms.date="03/07/2016" 
 	ms.author="spelluru"/>
 
 # 教學課程：使用 Visual Studio 建立具有複製活動的管線
@@ -22,9 +22,8 @@
 - [使用 Data Factory 編輯器](data-factory-get-started-using-editor.md)
 - [使用 Visual Studio](data-factory-get-started-using-vs.md)
 - [使用 PowerShell](data-factory-monitor-manage-using-powershell.md)
+- [使用複製精靈](data-factory-copy-data-wizard-tutorial.md)
 
-
-##本教學課程內容
 在本教學課程中，您會使用 Visual Studio 2013 執行下列作業：
 
 1. 建立兩個連結的服務：**AzureStorageLinkedService1** 和 **AzureSqlinkedService1**。AzureStorageLinkedService1 連結 Azure 儲存體，而 AzureSqlLinkedService1 連結 Azure SQL 資料庫至 Data Factory：**ADFTutorialDataFactoryVS**。管線的輸入資料位於 Azure Blob 儲存體的 Blob 容器中，輸出資料則儲存在 Azure SQL Database 的資料表中。因此，您可以將這兩個資料存放區以連結服務的形式新增至 Data Factory。
@@ -32,18 +31,14 @@
 3. 在 ADFTutorialDataFactoryVS 中建立名為 **ADFTutorialPipeline** 的管線。管線會有一個複製活動，將輸入資料從 Azure Blob 複製到輸出 Azure SQL 資料表。複製活動會在 Azure Data Factory 中執行資料移動，而此活動是由全域可用的服務所提供，可以使用安全、可靠及可調整的方式，在各種不同的資料存放區之間複製資料。如需複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。 
 4. 建立 Data Factory，以及部署連結的服務、資料表和管線。    
 
-## 使用 Visual Studio 建立和部署 Data Factory 實體 
-
-### 必要條件
+## 必要條件
 請檢閱[教學課程概觀](data-factory-get-started.md)文章，並在執行本教學課程之前完成必要的步驟。
 
 您必須已在電腦上安裝下列項目：
 - Visual Studio 2013
 - 下載 Azure SDK for Visual Studio 2013。瀏覽至 [Azure 下載頁面](https://azure.microsoft.com/downloads/)並按一下 **.NET** 區段中的 [VS 2013 安裝]。
 
-### 逐步介紹
-
-#### 建立 Visual Studio 專案 
+## 建立 Visual Studio 專案 
 1. 啟動 **Visual Studio 2013**。按一下 [**檔案**]，指向 [**新增**]，然後按一下 [**專案**]。您應該會看到 [新增專案] 對話方塊。  
 2. 在 [新增專案] 對話方塊中，選取 **DataFactory** 範本，然後按一下 [空白 Data Factory 專案]。如果您沒有看到 DataFactory 範本，請關閉 Visual Studio、安裝 Azure SDK for Visual Studio 2013，並重新開啟 Visual Studio。  
 
@@ -53,12 +48,12 @@
 
 	![Solution Explorer](./media/data-factory-get-started-using-vs/solution-explorer.png)
 
-#### 建立連結服務
+## 建立連結服務
 連結服務會將資料存放區或計算服務連結至 Azure Data Factory。資料存放區可以是 Azure 儲存體、Azure SQL Database 或在內部部署 SQL Server 資料庫。
 
 在此步驟中，您將建立兩個連結服務：**AzureStorageLinkedService1** 和 **AzureSqlLinkedService1**。AzureStorageLinkedService1 連結服務會連結 Azure 儲存體帳戶，而 AzureSqlLinkedService 會將 Azure SQL 資料庫連結至 Data Factory：**ADFTutorialDataFactory**。
 
-##### 建立 Azure 儲存體連結服務
+### 建立 Azure 儲存體連結服務
 
 4. 以滑鼠右鍵按一下 [方案總管] 中的 [連結服務]，指向 [加入]，然後按一下 [新增項目]。      
 5. 在 [加入新項目] 對話方塊中，從清單選取 [Azure 儲存體連結服務]，然後按一下 [加入]。 
@@ -71,7 +66,7 @@
 
 4. 儲存 **AzureStorageLinkedService1.json** 檔案。
 
-#### 建立 Azure SQL 連結服務。
+### 建立 Azure SQL 連結服務。
 
 5. 再次以滑鼠右鍵按一下 [方案總管] 中的 [連結服務] 節點，指向 [加入]，然後按一下 [新增項目]。 
 6. 這次，請選取 [Azure SQL 連結服務]，然後按一下 [加入]。 
@@ -79,10 +74,10 @@
 8.  儲存 **AzureSqlLinkedService1.json** 檔案。 
 
 
-### 建立輸入和輸出資料表
+## 建立資料集
 在上一個步驟中，您已建立連結服務 **AzureStorageLinkedService1** 和 **AzureSqlLinkedService1**，將 Azure 儲存體帳戶和 Azure SQL 資料庫連結至 Data Factory：**ADFTutorialDataFactory**。在此步驟中，您將定義兩個 Data Factory 資料表：**EmpTableFromBlob** 和 **EmpSQLTable**，他們分別代表 AzureStorageLinkedService1 和 AzureSqlLinkedService1 所參考資料存放區中儲存的輸入/輸出資料。您將針對 EmpTableFromBlob 指定所含 Blob 具有來源資料的 Blob 容器，而針對 EmpSQLTable 指定可儲存輸出資料的 SQL 資料表。
 
-#### 建立輸入資料表
+### 建立輸入資料集
 
 9. 以滑鼠右鍵按一下 [方案總管] 中的 [資料表]，指向 [加入]，然後按一下 [新增項目]。
 10. 在 [加入新項目] 對話方塊中，選取 [Azure Blob]，然後按一下 [加入]。   
@@ -118,7 +113,7 @@
 		  }
 		}
 
-#### 建立輸出資料表
+### 建立輸出資料集
 
 11. 再次以滑鼠右鍵按一下 [**方案總管**] 中的 [**資料表**]，指向 [**新增**]，然後按一下 [**新增項目**]。
 12. 在 [加入新項目] 對話方塊中，選取 [Azure SQL]，然後按一下 [加入]。 
@@ -149,7 +144,7 @@
 		  }
 		}
 
-#### 建立管線 
+## 建立管線 
 您到目前為止已建立輸入/輸出連結服務和資料表。現在，您將使用 [複製活動] 建立管線，將資料從 Azure Blob 複製到 Azure SQL 資料庫。
 
 
@@ -201,7 +196,7 @@
 		  }
 		}
 
-#### 發佈/部署 Data Factory 實體
+## 發佈/部署 Data Factory 實體
   
 18. 在 [方案總管] 中，以滑鼠右鍵按一下專案，再按一下 [發佈]。 
 19. 如果您看到 [登入您的 Microsoft 帳戶] 對話方塊，請輸入具有 Azure 訂用帳戶的帳戶認證，然後按一下 [登入]。
@@ -226,7 +221,7 @@
 25. 在 [部署狀態] 頁面上，您應該會看到部署程序的狀態。部署完成後按一下 [完成]。 
 
 
-## 使用 [伺服器總管] 檢視 Data Factory 實體
+## 使用伺服器總管檢視 Data Factory
 
 1. 在 **Visual Studio** 中，按一下功能表上的 [檢視]，然後按一下 [伺服器總管]。
 2. 在 [伺服器總管] 視窗中，依序展開 **Azure** 和 **Data Factory**。如果您看到 [登入 Visual Studio]，請輸入和 Azure 訂用帳戶相關聯的**帳戶**，然後按一下 [繼續]。輸入**密碼**，然後按一下 [登入]。Visual Studio 會嘗試取得訂用帳戶中所有 Azure Data Factory 的相關資訊。您會在 [Data Factory 工作清單] 視窗中看到這項作業的狀態。![Server Explorer](./media/data-factory-get-started-using-vs/server-explorer.png)
@@ -239,9 +234,9 @@
 2. 選取左窗格中的 [更新]，然後選取 [Visual Studio 組件庫]。
 4. 選取 [Visual Studio 的 Azure Data Factory 工具] 並按一下 [更新]。如果您看不到此項目，代表您已經有最新版本的工具。 
 
-如需如何使用 Azure 入口網站來監視您在本教學課程中建立的管線和資料集的指示，請參閱[監視資料集和管線](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline)。
+如需如何使用 Azure 入口網站來監視您在本教學課程中建立的管線和資料集的指示，請參閱[監視資料集和管線](data-factory-get-started-using-editor.md#monitor-pipeline)。
 
 ## 另請參閱
-如需 Azure Data Factory 中**複製活動**的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。
+如需 Azure Data Factory 中複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)文章。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

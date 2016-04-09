@@ -39,28 +39,43 @@
     function printResultFor(op) {
       return function printResult(err, res) {
         if (err) console.log(op + ' error: ' + err.toString());
-        if (res) console.log(op + ': message sent');
+        if (res) console.log(op + ' status: ' + res.constructor.name);
       };
     }
     ```
 
-7. 使用 **setInterval** 函數每秒將新訊息傳送至 IoT 中樞：
+7. 建立回呼，並使用 **setInterval** 函式每秒將新訊息傳送至 IoT 中樞：
 
     ```
-    setInterval(function(){
-      var windSpeed = 10 + (Math.random() * 4);
-      var data = JSON.stringify({ deviceId: 'myFirstDevice', windSpeed: windSpeed });
-      var message = new Message(data);
-      console.log("Sending message: " + message.getData());
-      client.sendEvent(message, printResultFor('send'));
-    }, 1000);
+    var connectCallback = function (err) {
+      if (err) {
+        console.log('Could not connect: ' + err);
+      } else {
+        console.log('Client connected');
+
+        // Create a message and send it to the IoT Hub every second
+        setInterval(function(){
+            var windSpeed = 10 + (Math.random() * 4);
+            var data = JSON.stringify({ deviceId: 'mydevice', windSpeed: windSpeed });
+            var message = new Message(data);
+            console.log("Sending message: " + message.getData());
+            client.sendEvent(message, printResultFor('send'));
+        }, 2000);
+      }
+    };
     ```
 
-8. 儲存並關閉 **SimulatedDevice.js** 檔案。
+8. 開啟您 IoT 中樞的連線，並開始傳送訊息︰
+
+    ```
+    client.open(connectCallback);
+    ```
+
+9. 儲存並關閉 **SimulatedDevice.js** 檔案。
 
 > [AZURE.NOTE] 為了簡單起見，本教學課程不會實作任何重試原則。在實際程式碼中，您應該如 MSDN 文章[暫時性錯誤處理][lnk-transient-faults]所建議，實作重試原則 (例如指數型輪詢)。
 
 <!-- Links -->
-[lnk-transient-faults]: https://msdn.microsoft.com/zh-TW/library/hh680901(v=pandp.50).aspx
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -4,7 +4,7 @@
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -54,4 +54,4 @@ Azure Redis Cache 是一種分散式受管理快取，可提供超快速的資�
 -	[如何設定高階 Azure Redis Cache 的叢集](cache-how-to-premium-clustering.md)
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

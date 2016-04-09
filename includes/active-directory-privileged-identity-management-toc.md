@@ -10,4 +10,4 @@
 - [如何要求 MFA](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md)
 - [如何使用稽核記錄檔](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -47,7 +47,7 @@ Azure Search REST 管理 API 是在入口網站中執行管理工作的程式設
 
 Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別提供者。
 
-為了取得存取權杖，讓要求到達資源管理員，用戶端應用程式包含了可呼叫 Active Directory 的程式碼片段。此程式碼區段以及使用程式碼片段的先決步驟出自這篇文章：[驗證 Azure 資源管理員要求]()。
+為了取得存取權杖，讓要求到達資源管理員，用戶端應用程式包含了可呼叫 Active Directory 的程式碼片段。此程式碼區段以及使用程式碼片段的先決步驟出自這篇文章：[驗證 Azure 資源管理員要求](http://msdn.microsoft.com/library/azure/dn790557.aspx)。
 
 您可以依照上面連結中的指示，或使用本文件中的步驟 (如果您想要逐步完成本教學課程的話)。
 
@@ -208,4 +208,4 @@ Azure 資源管理員需要 Azure Active Directory 服務做為其身分識別�
 
  
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

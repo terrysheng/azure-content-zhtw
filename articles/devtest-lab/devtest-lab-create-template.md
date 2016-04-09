@@ -1,6 +1,6 @@
     <properties
-	pageTitle="Create VM templates | Microsoft Azure"
-	description="Learn how to create VM templates from VHD images"
+	pageTitle="Create a DevTest Lab custom image from a VHD file | Microsoft Azure"
+	description="Learn how to create a custom image from a VHD file, which can then be used to create VMs in a DevTest Lab"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,48 +13,44 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/30/2016"
+	ms.date="03/13/2016"
 	ms.author="tarcher"/>
 
-# 建立 VM 範本
+# 從 VHD 檔案建立研測實驗室自訂映像
 
 ## 概觀
 
-一旦[建立實驗室](devtest-lab-create-lab.md)之後，您就可以從 VM 範本清單中[將 VM 加入該實驗室](devtest-lab-add-vm-with-artifacts.md)。在本文中，您將了解如何上傳和設定虛擬硬碟 (VHD) 映像檔，以做為可用來建立您 VM 的範本。如果您不熟悉 VHD 映像，請參閱[建立並上傳 Windows Server VHD 到 Azure](/virtual-machines/virtual-machines-create-upload-vhd-windows-server.md) 一文，了解如何建立 VHD 映像。一旦建立或取得 VHD 映像的存取權之後，本文將逐步帶領您上傳映像，並從中建立範本。
+當您[建立研測實驗室](devtest-lab-create-lab.md)之後，就可以[將虛擬機器 (VM) 加入該實驗室](devtest-lab-add-vm-with-artifacts.md)。當您建立 VM 時，您會指定*基底*，這可以是*自訂映像*或 *Marketplace 映像*。在本文中，您將看到如何從 VHD 檔案建立自訂映像的方式。請注意，您必須能夠存取有效的 VHD 檔案，才能執行本文中的所有步驟。
 
-## 建立 VM 範本
+## 建立自訂映像
 
-1. 登入 [Azure Preview 入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
 1. 點選 [瀏覽]，然後從清單中點選 [研發/測試實驗室]。
 
 1. 從實驗室清單中，點選所需的實驗室。
 
-1. 在實驗室刀鋒視窗上，點選 [設定]。
+1. 所選實驗室的 [設定] 刀鋒視窗隨即顯示。
 
-    ![實驗室設定](./media/devtest-lab-create-template/lab-blade-settings.png)
+1. 在實驗室的 [設定] 刀鋒視窗上，點選 [自訂映像]。
 
-1. 在實驗室的 [設定] 刀鋒視窗上，點選 [範本]。
+    ![自訂映像選項](./media/devtest-lab-create-template/lab-settings-custom-images.png)
 
-    ![範本選項](./media/devtest-lab-create-template/lab-blade-settings-templates.png)
+1. 在 [自訂映像] 刀鋒視窗上，點選 [+自訂映像]。
 
-1. 在 [範本] 刀鋒視窗上，點選 [+ 範本]。
+    ![加入自訂映像](./media/devtest-lab-create-template/add-custom-image.png)
 
-    ![加入範本](./media/devtest-lab-create-template/add-template.png)
+1. 輸入自訂映像的名稱。這個名稱會在建立新的 VM 時顯示於基底映像清單中。
 
-1. 在 [加入範本] 刀鋒視窗上：
+1. 輸入自訂映像的描述。這個描述會在建立新的 VM 時顯示於基底映像清單中。
 
-	1. 輸入範本的名稱。這個名稱會在建立新的 VM 時顯示於範本清單中。
+1. 點選 [VHD 檔案]。
 
-	1. 輸入範本的描述。這個描述會在建立新的 VM 時顯示於範本清單中。
+1. 如果未列出您有權存取的 VHD 檔案，請遵循[上傳 VHD 檔案](#upload-a-vhd-file)一節中的指示來加入該檔案，完成之後再回到這裡。
 
-	1. 點選 [映像]。
+1. 選取所需的 VHD 檔案。
 
-	1. 如果未列出您想要的映像但您想要將它加入，請先跳至[加入新的範本映像](#add-a-new-template-image)一節，並於完成之後返回此處。
-
-	1. 選取所需的映像。
-
-	1. 點選 [確定] 以關閉 [加入範本] 刀鋒視窗。
+1. 點選 [確定] 以關閉 [VHD 檔案] 刀鋒視窗。
 
 1. 點選 [作業系統組態]。
 
@@ -62,28 +58,24 @@
 
 1. 如果選取 [Windows]，請透過核取方塊來指定 *Sysprep* 是否已在電腦上執行。
 
-1. 輸入電腦的**使用者名稱**。
-
-1. 輸入電腦的**密碼**。**附註：**密碼將以純文字顯示。
-
 1. 點選 [確定] 以關閉 [作業系統組態] 刀鋒視窗。
 
-1. 指定 [位置]。
+1. 點選 [確定] 以建立自訂映像。
 
-1. 點選 [確定] 以建立範本。
+1. 請移至[後續步驟](#next-steps)一節。
 
-##加入新的範本映像
+##上傳 VHD 檔案
 
-若要加入新的範本映像，您必須具有 VHD 映像檔案的存取權。
+若要加入新的自訂映像，您必須具有 VHD 檔案的存取權。
 
-1. 在 [加入範本映像] 刀鋒視窗上，點選 [使用 PowerShell 上傳映像]。
+1. 在 [VHD 檔案] 刀鋒視窗中，點選 [使用 PowerShell 上傳 VHD 檔案]。
 
     ![上傳映像](./media/devtest-lab-create-template/upload-image-using-psh.png)
 
-1. 下一個刀鋒視窗將顯示修改和執行 PowerShell 指令碼的指示，該指令碼會將 VHD 映像檔案上傳到您的 Azure 訂用帳戶。**附註：**根據映像檔案的大小與您的連接速度而定，這個程序的時間可能非常冗長。
+1. 下一個刀鋒視窗將顯示用來修改和執行 PowerShell 指令碼的指示，該指令碼會將 VHD 檔案上傳到您的 Azure 訂用帳戶。**注意：**根據 VHD 檔案的大小與您的連接速度而定，這個程序的時間可能非常冗長。
 
 ##後續步驟
 
-一旦加入要在建立 VM 時使用的 VM 範本之後，下一個步驟就是[將 VM 加入研發/測試實驗室](devtest-lab-add-vm-with-artifacts)。
+一旦加入要在建立 VM 時使用的自訂映像之後，下一個步驟就是[將 VM 加入研測實驗室](./devtest-lab-add-vm-with-artifacts.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0323_2016-->

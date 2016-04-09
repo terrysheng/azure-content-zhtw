@@ -1,5 +1,5 @@
 <properties
-	pageTitle="複製活動的效能及微調指南"
+	pageTitle="複製活動的效能及微調指南 | Microsoft Azure"
 	description="了解在 Azure Data Factory 中透過複製活動的資料移動效能會受到哪些主要因素的影響。"
 	services="data-factory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/07/2016"
 	ms.author="spelluru"/>
 
 
@@ -224,4 +224,4 @@
 - 內部部署 SQL Server：[效能的監視與微調](https://msdn.microsoft.com/library/ms189081.aspx)。
 - 內部部署檔案伺服器：[檔案伺服器的效能微調](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

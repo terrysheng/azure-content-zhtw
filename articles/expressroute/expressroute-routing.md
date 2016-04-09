@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
+   ms.date="03/21/2016"
    ms.author="cherylmc"/>
 
 
@@ -78,7 +78,7 @@ a.b.c.d/29 會分割成 a.b.c.d/30 和 a.b.c.d+4/30 並透過佈建 API 向下�
 
 ## 自發系統號碼
 
-Microsoft 將使用 AS 12076 進行 Azure 公用、Azure 私人和 Microsoft 對等互連。我們已保留 AS 65515 供內部使用。同時支援 16 和 32 位元號碼。您可以使用私人 AS 號碼進行 Azure 私人對等互連。您必須使用註冊給您的公用 AS 號碼進行 Azure 私人和 Microsoft 對等互連。
+Microsoft 將使用 AS 12076 進行 Azure 公用、Azure 私人和 Microsoft 對等互連。我們已保留 AS 65515 供內部使用。同時支援 16 和 32 位元號碼。
 
 資料傳輸對稱沒有任何相關需求。轉送與返回路徑可能會周遊不同的路由器配對。相同的路由必須從橫跨多個屬於您的循環配對的任一端公告。路由計量不需要完全相同。
 
@@ -178,4 +178,4 @@ Microsoft 不接受任何您所設定的 BGP 社群值。您必須為每個對�
 	- [設定傳統部署模型的路由](expressroute-howto-routing-classic.md)或[設定資源管理員部署模型的路由](expressroute-howto-routing-arm.md)
 	- [將傳統 VNet 連結至 ExpressRoute 電路](expressroute-howto-linkvnet-classic.md)或[將資源管理員 VNet 連結至 ExpressRoute 電路](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

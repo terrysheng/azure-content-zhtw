@@ -1,21 +1,23 @@
-Most of the time authentication errors result from incorrect or inconsistent configuration settings. Here are some specific suggestions for things to check.
+大部分的時間驗證錯誤都是因為不正確或不一致的組態設定所造成。以下是一些需檢查之項目的特定建議。
 
-* Make sure that you didn't miss the **Save** button anywhere. This is often easy to do, and the result is that you'll be looking at the correct values on a portal page but they haven't actually been saved in the Azure environment or Azure AD application.
-* For settings configured in the **Application Settings** blade of the Azure portal, make sure that the correct API app or web app was selected when the settings were entered.  Also make sure that the settings were entered as **App settings** and not **Connection strings**, as the format of the two sections is similar.
-* For authentication to a JavaScript front end, download the manifest again to verify that `oauth2AllowImplicitFlow` was successfully changed to `true`.
-* Verify that you used HTTPS wherever you configured URLs:
+* 確定您在任何地方都沒有遺漏 [儲存] 按鈕。這通常很容易實行，結果是您會在入口網站頁面上看見正確的值，但是尚未將它們實際儲存在 Azure 環境或 Azure AD 應用程式中。
+* 針對在 Azure 入口網站的 [應用程式設定] 刀鋒視窗中所做的設定，請確定在輸入設定值時所選取的 API 應用程式或 Web 應用程式正確無誤。另外請確定設定輸入為 [應用程式設定] 而非 [連接字串]，因為這兩個區段的格式類似。
+* 若要驗證 JavaScript 前端，請重新下載資訊清單，確認 `oauth2AllowImplicitFlow` 已順利變更為 `true`。
+* 確認您在設定 URL 的位置都是使用 HTTPS：
 
-	* In project code
-	* In CORS
-	* In Azure environment App settings for each API app and web app
-	* In Azure AD application settings.
+	* 在專案程式碼中
+	* 在 CORS 中
+	* 在每個 API 應用程式和 Web 應用程式的 Azure 環境應用程式設定中
+	* 在 Azure AD 應用程式設定中。
 	
-	Note that if you copy an API app's URL from the portal, it often has `http://` and you have to manually change it to `https://`.
+	請注意，如果您從入口網站複製 API 應用程式的 URL，它通常會有 `http://`，您必須手動將它變更為 `https://`。
 
-* Make sure that any code changes were successfully deployed. For example, in a multiple-project solution it's possible to change a project's code and accidentally choose one of the others when you intend to deploy the change.
-* Make sure that you are going to HTTPS URLs in your browser, not HTTP URLs. By default, Visual Studio creates publish profiles with HTTP URLs, and that's what opens in the browser after you deploy a project.
-* For authentication to a JavaScript front end, make sure that CORS is correctly configured on the API app that the JavaScript code calls. If in doubt about whether the problem is CORS-related, try "*" as the allowed origin URL. 
-* For a JavaScript front end, open your browser's Developer Tools Console tab to get more error information, and examine HTTP requests on the Network. However, Console error messages may be misleading. If you get a message indicating a CORS error, the real issue may be authentication. You can check if this is the case by running the app with authentication temporarily temporarily disabled.
-* For a .NET API app, make sure you are getting as much information in error messages as possible by setting [customErrors mode to Off](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
-* For a .NET API app, start a [remote debugging session](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug), and examine the values of the variables that are passed to code that uses ADAL to acquire a bearer token, or code that checks claims against the expected service principal ID. Note that your code can pick up configuration values from many different sources, so it's possible to find surprises this way. For example, if you mistype `ida:ClientId` as `ida:ClientID` when configuring Azure App Service environment settings, the code might get the `ida:ClientId` value that it's looking for from the Web.config file, ignoring the Azure App Service setting. 
-* If things don't work in a normal Internet Explorer window, an existing log-in may be interfering; try InPrivate and try Chrome or Firefox.
+* 請確定已成功部署任何程式碼變更。例如，在多專案方案中有可能變更專案的程式碼，而在想要部署變更時不小心選擇其中一個其他變更。
+* 請確定您在瀏覽器中是移至 HTTPS URL，而非 HTTP URL。根據預設，Visual Studio 會利用 HTTP URL 建立發佈設定檔，而那會是您部署專案之後在瀏覽器中開啟的項目。
+* 若要驗證 JavaScript 前端，請確定 JavaScript 程式碼呼叫的 API 應用程式上已正確設定 CORS。如果不確定問題是否與 CORS 有關，請嘗試以 "*" 做為允許的原始 URL。
+* 針對 JavaScript 前端，請開啟您瀏覽器的 [開發人員工具主控台] 索引標籤以取得詳細的錯誤訊息，並檢查網路上的 HTTP 要求。不過，主控台錯誤訊息可能會產生誤導。如果您收到一則訊息指出 CORS 錯誤時，真正的問題可能是驗證。您可以執行應用程式並暫時停用驗證，檢查是否是這種情況。
+* 針對 .NET API 應用程式，請將 [customErrors 模式設定為 [關閉]](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview)以確保您會在錯誤訊息中取得最詳盡的資訊。
+* 針對 .NET API 應用程式，啟動[遠端偵錯工作階段](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug)，並檢查傳遞至使用 ADAL 來取得持有人權杖之程式碼，或傳遞至針對預期的服務主體識別碼檢查宣告之程式碼的變數值。請注意，程式碼可以從許多不同的來源取得設定值，因此透過這種方式可能可以找到意外結果。例如，如果您在設定 Azure App Service 環境設定時將 `ida:ClientId` 拼錯為 `ida:ClientID`，程式碼可能忽略 Azure App Service 設定的值，從 Web.config 檔案取得 `ida:ClientId` 值。 
+* 如果無法在正常的 Internet Explorer 視窗中運作，現有的登入可能會產生干擾；請嘗試 InPrivate 並嘗試使用 Chrome 或 Firefox。
+
+<!---HONumber=AcomDC_0309_2016-->

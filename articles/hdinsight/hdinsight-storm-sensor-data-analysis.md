@@ -104,10 +104,12 @@
 4. 選取 [設定]，然後使用下列資訊建立兩個新的存取原則。
 
 	<table>
-<tr><th>名稱</th><th>權限</th></tr>
-<tr><td>裝置</td><td>傳送</td></tr>
-<tr><td>Storm</td><td>接聽</td></tr>
-</table>建立權限之後，在頁面底部選取 [儲存] 圖示。這會建立共用存取原則，用以傳送訊息至此中樞，以及讀取此中樞的訊息。
+	<tr><th>名稱</th><th>權限</th></tr>
+	<tr><td>裝置</td><td>傳送</td></tr>
+	<tr><td>Storm</td><td>接聽</td></tr>
+	</table>
+
+	建立權限之後，在頁面底部選取 [儲存] 圖示。這會建立共用存取原則，用以傳送訊息至此中樞，以及讀取此中樞的訊息。
 
 5. 儲存原則之後，使用頁面底部的 [共用存取金鑰產生器]，擷取「裝置」和「Storm」原則的金鑰。妥善儲存這些金鑰，以便稍後使用。
 
@@ -399,6 +401,9 @@
 
 啟動 Storm 叢集上的拓撲並處理資料後，您可以再次利用 `scan 'SensorData'` 命令，確認該資料已經插入 HBase。
 
+## 刪除叢集
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## 後續步驟
 
@@ -422,4 +427,4 @@
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

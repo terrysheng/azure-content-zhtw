@@ -4,7 +4,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="load-balancer"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/09/2015"
+   ms.date="03/22/2016"
    ms.author="joaoma" />
 
 
-# 什麼是 Azure 負載平衡器？
+# Azure 負載平衡器概觀
 
 Azure 負載平衡器可為您的應用程式提供高可用性和網路效能。這是 Layer 4 (TCP、UDP) 負載平衡器，可將連入流量分散在負載平衡器集合中定義之雲端服務或虛擬機器集中狀況良好的服務執行個體。
 
@@ -121,6 +121,7 @@ Azure 負載平衡器組態支援 UDP 的完全錐形 NAT。在完全錐形 NAT 
 
 Azure 資源管理員是 Azure 中新的服務管理架構。Azure 負載平衡器現在可以透過以 Azure 資源管理員為基礎的 API 和工具來管理。若要深入了解資源管理員，請參閱 [Iaas 因為 Azure 資源管理員變得更容易](https://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)。
 
+[AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## 後續步驟
 
@@ -128,6 +129,6 @@ Azure 資源管理員是 Azure 中新的服務管理架構。Azure 負載平衡�
 
 [內部負載平衡器概觀](load-balancer-internal-overview.md)
 
-[開始建立網際網路面向的負載平衡器](load-balancer-internet-getstarted.md)
+[開始建立網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

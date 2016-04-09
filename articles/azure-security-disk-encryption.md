@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="03/22/2016"
    ms.author="devtiw"/>
 
 
@@ -196,7 +196,7 @@ Azure 磁碟加密會保護 Azure 金鑰保存庫中的磁碟加密金鑰和密�
 若要建立新的金鑰保存庫，請使用下列兩個選項之一：
 
 - 使用位於[這裡](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json)的 "101-Create-KeyVault" ARM 範本
-- 使用 Azure PowerShell 金鑰保存庫 Cmdlet，如[這裡](key-vault-get-started.md)所述
+- 使用 Azure PowerShell 金鑰保存庫 Cmdlet。
 
 **附註：**如果您已為您的訂用帳戶設定金鑰保存庫，請繼續下一節。
 
@@ -260,7 +260,7 @@ Azure AD 用戶端識別碼和密碼也可使用在 https://manage.windowsazure.
 ![Azure 磁碟加密](./media/azure-security-disk-encryption\disk-encryption-fig7.JPG)
 
 
-**附註：**入口網站不支援上述的流程。
+**注意：**入口網站不支援上述的流程。
 
 ##### 使用現有的應用程式
 
@@ -527,7 +527,7 @@ Azure AD 用戶端識別碼和密碼也可使用在 https://manage.windowsazure.
 
 ### 取得加密的 IaaS VM 的加密狀態
 
-您可以使用 Azure 管理入口網站、[PowerShell Cmdlet](https://msdn.microsoft.com/library/azure/mt622700.aspx) 或 CLI 命令取得加密狀態。下列各節將說明如何使用 Azure 管理 (預覽) 入口網站和 CLI 命令來取得加密狀態。
+您可以使用 Azure 管理入口網站、[PowerShell Cmdlet](https://msdn.microsoft.com/library/azure/mt622700.aspx) 或 CLI 命令取得加密狀態。下列章節將說明如何使用 Azure 入口網站和 CLI 命令來取得加密狀態。
 
 #### 使用 Azure 管理入口網站取得加密 IaaS VM 的加密狀態
 
@@ -804,4 +804,4 @@ OSVolumeEncrypted 和 DataVolumesEncrypted 設定值設定為 "True"，顯示這
 
 [探索使用 Azure PowerShell 的 Azure 磁碟加密 - 第 2 部分](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

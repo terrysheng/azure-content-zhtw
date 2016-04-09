@@ -74,9 +74,9 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 - 建議您使用 Azure 提供的預設 DNS 伺服器，而非指定您自己的 DNS 伺服器名稱。如果您的 DNS 伺服器名稱無效，則建立虛擬裝置將會失敗。
 - 點對站及站對站都是選用的，但並非必要。如有需要，您可以針對更進階的案例設定這些選項。 
 
->[AZURE.IMPORTANT]**請確定虛擬網路與您即將與虛擬裝置搭配使用的雲端儲存體帳戶位於相同區域中。**
+>[AZURE.IMPORTANT] **請確定虛擬網路與您即將與虛擬裝置搭配使用的雲端儲存體帳戶位於相同區域中。**
 
-- 您可以將 [Azure 虛擬機器](../virtual-machines/virtual-machines-about.md) (主機伺服器) 建立在可使用由虛擬裝置公開之磁碟區的虛擬網路中。這些伺服器必須符合下列需求： 							
+- 您可以將 [Azure 虛擬機器](../virtual-machines/virtual-machines-linux-about.md) (主機伺服器) 建立在可使用由虛擬裝置公開之磁碟區的虛擬網路中。這些伺服器必須符合下列需求： 							
 	- 是已安裝 iSCSI 啟動器軟體的 Windows 或 Linux VM
 	- 正在虛擬裝置所在的相同虛擬網路中執行
 	- 能夠透過虛擬裝置的內部 IP 位址連接到虛擬裝置的 iSCSI 目標
@@ -139,7 +139,7 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 	5. **虛擬裝置建立的儲存體帳戶** - 此儲存體帳戶將在佈建期間用來存放虛擬裝置映像，並將在佈建後裝載虛擬裝置的磁碟。此儲存體帳戶應該與虛擬裝置和虛擬網路位於相同的區域中。不應讓實體裝置或虛擬裝置用它來儲存資料。根據預設，將基於此用途建立新的儲存體帳戶。不過，如果您知道已經擁有適合此用途的儲存體帳戶，則可從清單中選取該帳戶。
 
-    >[AZURE.NOTE]虛擬裝置只能使用 Azure 儲存體帳戶。StorSimple 虛擬裝置不支援其他雲端服務提供者，例如 Amazon、HP 和 OpenStack (皆受實體裝置支援)。
+    >[AZURE.NOTE] 虛擬裝置只能使用 Azure 儲存體帳戶。StorSimple 虛擬裝置不支援其他雲端服務提供者，例如 Amazon、HP 和 OpenStack (皆受實體裝置支援)。
 	
 4. 按一下勾號，表示您了解虛擬裝置上儲存的資料將裝載於 Microsoft 資料中心。若您只使用實體裝置，加密金鑰就會與裝置放在一起。因此，Microsoft 無法將它解密。![StorSimple 虛擬裝置建立中階段](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceCreating1M.png)
 
@@ -186,7 +186,7 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 
 StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓系統管理員以本機和雲端快照的形式管理 StorSimple 裝置的備份。
 
->[AZURE.NOTE]對虛擬裝置而言，您的 Windows 主機就是 Azure VM。
+>[AZURE.NOTE] 對虛擬裝置而言，您的 Windows 主機就是 Azure VM。
 
 當您在 StorSimple Snapshot Manager 中設定裝置時，系統將提示您提供 StorSimple 裝置 IP 位址和密碼來驗證您的儲存裝置。
 
@@ -285,7 +285,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 當您在 StorSimple 裝置設定頁面上啟用虛擬裝置之後，就可以使用 Windows PowerShell 遠端處理功能，從相同虛擬網路內部的另一部虛擬機器連接到虛擬裝置；例如，您可以從已設定且用來連接 iSCSI 的主機 VM 進行連接。在大部分的部署中，您應該都已開啟公用端點來存取您可用來存取虛擬裝置的主機 VM。
 
->[AZURE.WARNING]**為了加強安全性，強烈建議您在連接到端點時應使用 HTTPS，並且在完成 PowerShell 遠端工作階段之後刪除端點。**
+>[AZURE.WARNING] **為了加強安全性，強烈建議您在連接到端點時應使用 HTTPS，並且在完成 PowerShell 遠端工作階段之後刪除端點。**
 
 您應遵循[遠端連線至 StorSimple 裝置](storsimple-remote-connect.md)中的程序，來設定虛擬裝置的遠端處理功能。
 
@@ -343,7 +343,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 災害復原 (DR) 是針對其設計 StorSimple 虛擬裝置的重要案例之一。在此案例中，實體 StorSimple 裝置或整個資料中心可能無法使用。幸運的是，您可以使用虛擬裝置，在替代位置中還原作業。在 DR 期間，來源裝置的磁碟區容器會變更擁有權，並移轉到虛擬裝置。DR 的必要條件是必須已建立並設定虛擬裝置、磁碟區容器內的所有磁碟區都要離線，以及磁碟區容器應該具有相關聯的雲端快照。
 
->[AZURE.NOTE]您無法從執行 Update 1 的裝置容錯移轉或複製到執行 Update 1 之前版本軟體的裝置。如果您選取執行 Update 1 之前版本軟體的目標裝置，您將會收到必須在執行容錯移轉之前更新目標裝置的通知。
+>[AZURE.NOTE] 您無法從執行 Update 1 的裝置容錯移轉或複製到執行 Update 1 之前版本軟體的裝置。如果您選取執行 Update 1 之前版本軟體的目標裝置，您將會收到必須在執行容錯移轉之前更新目標裝置的通知。
 
 ### 將實體裝置還原至 StorSimple 虛擬裝置
 
@@ -365,7 +365,7 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 容錯移轉程序就會開始。在容錯移轉完成後，移至 [裝置] 頁面，然後選取在容錯移轉程序中作為目標的虛擬裝置。移至 [磁碟區容器] 頁面。此時應會顯示所有磁碟區容器以及舊裝置中的磁碟區。
 
->[AZURE.NOTE]虛擬裝置上支援的儲存體數量為 30 TB。
+>[AZURE.NOTE] 虛擬裝置上支援的儲存體數量為 30 TB。
 
 ## 關閉或刪除虛擬裝置
 
@@ -393,4 +393,4 @@ StorSimple Snapshot Manager 密碼現在已更新，可在驗證 Windows 主機�
 
 了解如何[從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0323_2016-->

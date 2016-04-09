@@ -65,7 +65,7 @@ public class Program
 
 SDK 會在 `PeekLock` 模式中收到訊息，並在函數成功完成時，於訊息中呼叫 `Complete`，或是在函數失敗時呼叫 `Abandon`。如果函數執行時間較 `PeekLock` 逾時還長，即會自動更新鎖定。
 
-服務匯流排會處理自己的有害佇列，因此，不會受到 WebJobs SDK 所控制，也無法在其中進行設定。
+服務匯流排會自行處理 WebJobs SDK 無法控制或設定的有害佇列。
 
 ### 字串佇列訊息
 
@@ -186,4 +186,4 @@ SDK 會針對 POCO ([純舊 CLR 物件](http://en.wikipedia.org/wiki/Plain_Old_C
 本指南提供了程式碼範例，示範如何處理使用 Azure Service Bus 的常見案例。如需 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱[Azure WebJobs 建議使用的資源](http://go.microsoft.com/fwlink/?linkid=390226)。
  
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

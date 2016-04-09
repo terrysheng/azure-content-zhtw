@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="02/16/2016"
+   ms.date="03/04/2016"
    ms.author="andkjell;billmath"/>
 
 # Azure AD Connect 的必要條件
@@ -66,7 +66,7 @@
     </system.net>
 ```
 
-如果您的 Proxy 伺服器需要驗證，則該區段應該改為看起來像這樣。
+- 如果您的 Proxy 伺服器需要驗證，則[服務帳戶](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)必須位於網域中，且您必須使用自訂的設定安裝路徑來指定[自訂服務帳戶](active-directory-aadconnect-get-started-custom.md#install-required-components)。您也需要不同的 machine.config；在 machine.config 中進行這項變更之後，安裝精靈和同步處理引擎就會回應來自 Proxy 伺服器的驗證要求。在所有安裝精靈頁面中 ([設定] 頁面除外)，都會使用已登入之使用者的認證。在安裝精靈結尾的 [設定] 頁面上，內容會切換到您建立的[服務帳戶](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)。Machine.config 區段應該看起來像這樣。
 
 ```
     <system.net>
@@ -80,7 +80,7 @@
     </system.net>
 ```
 
-在 machine.config 中進行這項變更之後，安裝精靈和同步處理引擎就會回應來自 Proxy 伺服器的驗證要求。在所有安裝精靈頁面中 ([設定] 頁面除外)，都會使用已登入之使用者的認證。在安裝精靈結尾的 [設定] 頁面上，內容會切換到已建立的[服務帳戶](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts)。如需有關[預設 Proxy 元素](https://msdn.microsoft.com/library/kd3cf2ex.aspx)的詳細資訊，請參閱 MSDN。
+如需有關[預設 Proxy 元素](https://msdn.microsoft.com/library/kd3cf2ex.aspx)的詳細資訊，請參閱 MSDN。
 
 如果您遇到連線問題，請參閱[疑難排解連線問題](active-directory-aadconnect-troubleshoot-connectivity.md)。
 
@@ -94,7 +94,7 @@ Azure AD Connect 需要 Microsoft PowerShell 和 .NET Framework 4.5.1。依您�
   - 預設會安裝 Microsoft PowerShell，不需採取任何動作。
   - .NET Framework 4.5.1 和更新版本會透過 Windows Update 提供。請確定您已在控制台安裝 Windows Server 的最新更新。
 - Windows Server 2008R2 和 Windows Server 2012
-  - **Windows Management Framework 4.0** 中包含最新的 Microsoft PowerShell 版本，可從 [Microsoft 下載中心](http://www.microsoft.com/downloads)取得。
+  - Windows Management Framework 4.0 中包含最新的 Microsoft PowerShell 版本，可從 [Microsoft 下載中心](http://www.microsoft.com/downloads)取得。
   - .NET Framework 4.5.1 和更新版本可從 [Microsoft 下載中心](http://www.microsoft.com/downloads)取得。
 - Windows Server 2008
   - **Windows Management Framework 3.0** 中包含最新支援的 PowerShell 版本，可從 [Microsoft 下載中心](http://www.microsoft.com/downloads)取得。
@@ -168,4 +168,4 @@ Azure AD Connect 需要 Microsoft PowerShell 和 .NET Framework 4.5.1。依您�
 ## 後續步驟
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

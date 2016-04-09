@@ -53,6 +53,6 @@ StatefulServiceBase 也會提供與 StatelessServiceBase 相同的四個生命�
 
 - [使用系統健康狀態報告進行疑難排解](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-- [放置條件約束概觀](service-fabric-placement-constraint.md)
+- [使用 Service Fabric 叢集資源管理員設定服務](service-fabric-cluster-resource-manager-configure-services.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

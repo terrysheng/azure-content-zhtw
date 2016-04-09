@@ -1,23 +1,32 @@
-##<a name="create-client"></a>How to: Create Client
+##<a name="create-client"></a>建立用戶端連接
 
-Create a client connection by creating a `WindowsAzure.MobileServicesClient` object.  Replace `appUrl` with the URL to your Mobile App.
+建立 `WindowsAzure.MobileServiceClient` 物件來建立用戶端連接。以您行動應用程式的 URL 取代 `appUrl`。
 
 ```
-var client = WindowsAzure.MobileServicesClient(appUrl);
+var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-##<a name="table-reference"></a>How to: Create Table Reference
+##<a name="table-reference"></a>使用資料表
 
-To access or update data, create a reference to the backend table. Replace `tableName` with the name of your table
+若要存取或更新資料，請建立後端資料表的參考。以您的資料表名稱取代 `tableName`
 
 ```
 var table = client.getTable(tableName);
 ```
 
-##<a name="querying"></a>How to: Query a Table Reference
+只要有資料表參考，就進一步使用資料表進行下列作業︰
 
-Once you have a table reference, you can use it to query for data on the server.  Queries are made in a "LINQ-like" language.
-To return all data from the table, use the following:
+* [查詢資料表](#querying)
+  * [篩選資料](#table-filter)
+  * [逐頁查看資料](#table-paging)
+  * [排序資料](#sorting-data)
+* [插入資料](#inserting)
+* [修改資料](#modifying)
+* [刪除資料](#deleting)
+
+###<a name="querying"></a>如何：查詢資料表參考
+
+取得資料表參考之後，您可以使用它來查詢伺服器上的資料。您可以使用「類似 LINQ」的語言來撰寫查詢。若要從資料表傳回所有資料，使用下列方法：
 
 ```
 /**
@@ -45,15 +54,13 @@ table
     .then(success, failure);
 ```
 
-The success function is called with the results.   Do not use `for (var i in results)` in
-the success function as that will iterate over information that is included in the results
-when other query functions (such as `.includeTotalCount()`) are used.
+搭配 results 呼叫 success 函式。請勿在 success 函式中使用 `for (var i in results)`，因為當使用其他查詢函式時 (例如 `.includeTotalCount()`)，這樣會反覆檢查結果中包含的資訊。
 
-For more information on the Query syntax, refer to the [Query object documentation].
+如需 Query 語法的詳細資訊，請參閱 [Query 物件文件]。
 
-### Filtering Data on the server
+####<a name="table-filter"></a>篩選伺服器的資料
 
-You can use a `where` clause on the table reference:
+您可以在資料表參考上使用 `where` 子句：
 
 ```
 table
@@ -62,8 +69,7 @@ table
     .then(success, failure);
 ```
 
-You can also use a function that filters the object.  In this case the `this` variable is assigned to the
-current object being filtered.  The following is functionally equivalent to the prior example:
+您也可以使用函式來篩選物件。在此案例中，`this` 變數會指派給目前篩選的物件。以下在功能上等同於先前的範例：
 
 ```
 function filterByUserId(currentUserId) {
@@ -76,9 +82,9 @@ table
     .then(success, failure);
 ```
 
-### Paging through data
+####<a name="table-paging"></a>逐頁查看資料
 
-Utilize the take() and skip() methods.  For example, if you wish to split the table into 100-row records:
+利用 take() 和 skip() 方法。例如，如果您想要將資料表分割成 100 列的記錄：
 
 ```
 var totalCount = 0, pages = 0;
@@ -101,18 +107,14 @@ function loadPage(pageNum) {
 }
 ```
 
-The `.includeTotalCount()` method is used to add a totalCount field to the results object.  The
-totalCount field is filled with the total number of records that would be returned if no paging
-is used.
+`.includeTotalCount()` 方法是用來將 totalCount 欄位加入至 results 物件。totalCount 欄位中填入未使用分頁時會傳回的記錄總數。
 
-You can then use the pages variable and some UI buttons to provide a page list; use loadPage() to
-load the new records for each page.  You should implement some sort of caching to speed access to
-records that have already been loaded.
+接著，您可以使用 pages 變數和一些 UI 按鈕來提供頁面清單。您可以使用 loadPage() 載入每個頁面的新記錄。您應該實作一些快取來加速存取已載入的記錄。
 
 
-###<a name="sorting-data"></a>How to: Return data sorted
+####<a name="sorting-data"></a>如何：傳回已排序的資料
 
-Use the .orderBy() or .orderByDescending() query methods:
+使用 .orderBy() 或 .orderByDescending() 查詢方法：
 
 ```
 table
@@ -121,11 +123,11 @@ table
     .then(success, failure);
 ```
 
-For more information on the Query object, refer to the [Query object documentation].
+如需 Query 物件的詳細資訊，請參閱 [Query 物件文件]。
 
-##<a name="inserting"></a>How to: Insert Data
+###<a name="inserting"></a>作法：插入資料
 
-Create a JavaScript object with the appropriate date and call table.insert() asynchronously:
+以適當的日期建立 JavaScript 物件，並以非同步方式呼叫 table.insert()：
 
 ```
 var newItem = {
@@ -140,19 +142,13 @@ table
     }, failure);
 ```
 
-On successful insertion, the inserted item is returned with the additional fields that are required
-for sync operations.  You should update your own cache with this information for later updates.
+在成功插入時，插入的項目及同步處理作業所需的其他欄位會一起傳回。您應該以這項資訊更新您自己的快取，後續更新時才會正確。
 
-Note that the Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.
-In the case of dynamic schema, the schema of the table is updated on the fly, allowing you to add
-columns to the table just by specifying them in an insert or update operation.  We recommend that
-you turn off dynamic schema before moving your application to production.
+請注意，Azure Mobile Apps Node.js Server SDK 支援的動態結構描述適用於開發用途。就動態結構描述而言，資料表結構描述會即時更新您只要在插入或更新作業中指定資料行，就能將資料行加入至資料表。在將應用程式移至生產環境之前，我們建議您關閉動態結構描述。
 
-##<a name="modifying"></a>How to: Modify Data
+###<a name="modifying"></a>作法：修改資料
 
-Similar to the .insert() method, you should create an Update object and then call .update().  The update
-object must contain the ID of the record to be updated - this is obtained when reading the record or
-when calling .insert().
+類似於 .insert() 方法，您應該建立 Update 物件，然後呼叫 .update()。Update 物件必須包含要更新的記錄的識別碼 - 這是在讀取記錄或呼叫 .insert() 時取得。
 
 ```
 var updateItem = {
@@ -167,9 +163,9 @@ table
     }, failure);
 ```
 
-##<a name="deleting"></a>How to: Delete Data
+###<a name="deleting"></a>作法：刪除資料
 
-Call the .del() method to delete a record.  Pass the ID in an object reference:
+呼叫 .del() 方法來刪除記錄。將識別碼傳入物件參考中：
 
 ```
 table
@@ -178,3 +174,5 @@ table
         // Record is now deleted - update your cache
     }, failure);
 ```
+
+<!---HONumber=AcomDC_0323_2016-->

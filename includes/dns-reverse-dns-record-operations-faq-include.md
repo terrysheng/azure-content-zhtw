@@ -1,21 +1,20 @@
-<BR> 
-## FAQ 
-### How much do reverse DNS records cost?
-They’re free!  There is no additional cost for reverse DNS records or queries.
-### Will my reverse DNS records resolve from the internet?
-Yes. Once you set the reverse DNS property for your Cloud Service, Azure manages all the DNS delegations and DNS zones required to ensure that reverse DNS record resolves for all internet users.
-### Will a default reverse DNS record be created for my Cloud Services?
-No. Reverse DNS will be an opt-in feature. No default reverse DNS record will be created if you choose not to configure one.
-What is the format for the fully-qualified domain name (FQDN)?
-FQDNs are specified in forward order, and must be terminated by a dot (e.g., “app1.contoso.com.”).
-### What happens if the validation checks for the reverse DNS I’ve specified fail?
-Where the validation for reverse DNS checks fail, the service management operation will fail. Please correct the reverse DNS value as required, and retry.
-### Can I manage reverse DNS for my Azure Website?
-Reverse DNS is not supported for Azure Websites. Reverse DNS is supported for Azure PaaS roles and IaaS virtual machines.
-### Can I configure multiple reverse DNS records for my Cloud Service?
-No. Azure supports a single reverse DNS record for each Azure Cloud Service. Each Azure Cloud Service however can have their own reverse DNS record.
-### Can I host the ARPA zones for my Azure-assigned IPs on Azure DNS within my own subscription, or on my own authoritative DNS servers?
-No. Azure does not support the onward delegation of ARPA zones. Azure hosts the ARPA zones for all available IPs, and enables customers to create reverse DNS records within these ARPA zones.
-### Can I host ARPA zones for my ISP-assigned IP blocks on Azure DNS?
-No. Azure DNS does not currently support reverse DNS records in customers DNS zones.
+<BR>
+## 常見問題集 
+### 反向 DNS 記錄的成本為何？
+完全免費！ 反向 DNS 記錄或查詢不需要額外成本。
+### 我的反向 DNS 記錄會從網際網路解析嗎？
+是。在您為「雲端服務」設定反向 DNS 屬性之後，Azure 會管理所有必要的 DNS 委派和 DNS 區域，以確保反向 DNS 記錄可以為所有網際網路使用者解析。
+### 我的雲端服務會建立預設反向 DNS 記錄嗎？
+不會。反向 DNS 是選用的功能。如果您選擇不設定，則不會建立任何預設反向 DNS 記錄。完整網域名稱 (FQDN) 的格式為何？ FQDN 是以正向順序指定，且必須以點結束 (例如，"app1.contoso.com.")。
+### 如果我指定的反向 DNS 驗證檢查失敗，會發生什麼事？
+如果反向 DNS 的驗證檢查失敗，則服務管理作業也會失敗。請依要求更正反向 DNS 值，然後再試一次。
+### 我可以管理我的 Azure 網站的反向 DNS 嗎？
+Azure 網站不支援反向 DNS。Azure PaaS 角色與 IaaS 虛擬機器則支援反向 DNS。
+### 我可以針對我的「雲端服務」設定多個反向 DNS 記錄嗎？
+不行。Azure 針對每個 Azure 雲端服務支援單一反向 DNS 記錄。不過，每個 Azure 雲端服務可以有自己的反向 DNS 記錄。
+### 我可以在訂用帳戶內的 Azure DNS 上或是我自己的授權 DNS 伺服器上，為 Azure 指派的 IP 裝載 ARPA 區域嗎？
+不行。Azure 不支援向外委派 ARPA 區域。Azure 會針對所有可用的 IP 裝載 ARPA 區域，並讓客戶在這些 ARPA 區域內建立反向 DNS 記錄。
+### 我可以在 Azure DNS 上，為 ISP 指派的 IP 區塊裝載 ARPA 區域嗎？
+不行。Azure DNS 目前不支援客戶 DNS 區域中的反向 DNS 記錄。
 
+<!---HONumber=AcomDC_0309_2016-->

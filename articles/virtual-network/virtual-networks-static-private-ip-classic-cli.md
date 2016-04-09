@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # 如何在 Azure CLI 設定靜態的私人 IP 位址 (傳統)
@@ -30,7 +30,7 @@
 ## 建立 VM 時如何指定靜態私人 IP 位址
 若要根據上述案例，在名為 *TestService* 的雲端服務中建立名為 *DNS01* 的新 VM，請遵循下列步驟：
 
-1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](xplat-cli-install.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
+1. 如果您從未使用過 Azure CLI，請參閱[安裝和設定 Azure CLI](../xplat-cli-install.md)，並依照指示進行，直到選取您的 Azure 帳戶和訂用帳戶。
 1. 執行 **azure service create** 命令來建立雲端服務。
 
 		azure service create TestService --location uscentral
@@ -111,8 +111,8 @@
 
 ## 後續步驟
 
-- 深入了解[保留的公用 IP](../virtual-networks-reserved-public-ip) 位址。
-- 深入了解[執行個體層級公用 IP (ILPIP)](../virtual-networks-instance-level-public-ip) 位址。
+- 深入了解[保留的公用 IP](virtual-networks-reserved-public-ip.md) 位址。
+- 深入了解[執行個體層級公用 IP (ILPIP)](virtual-networks-instance-level-public-ip.md) 位址。
 - 請參閱[保留 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

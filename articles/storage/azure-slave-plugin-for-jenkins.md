@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="02/22/2016"
     ms.author="robmcm"/>
 
 # 如何搭配使用 Azure 從屬外掛程式與 Jenkins 連續整合
@@ -41,7 +41,7 @@
 * 訂用帳戶識別碼
 * 訂用帳戶的管理憑證
 
-您可以在訂用帳戶設定檔中找到這些資訊。如果您沒有訂用帳戶設定檔，可以從[訂用帳戶網站](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0)下載。以下是訂用帳戶設定檔的範例。
+您可以在[訂用帳戶設定檔](https://manage.windowsazure.com/publishsettings/Index?SchemaVersion=2.0)中找到這些資訊。以下是訂用帳戶設定檔的範例。
 
 	<?xml version="1.0" encoding="utf-8"?>
 
@@ -204,4 +204,4 @@
 
 Jenkins 會隨即使用上一節建立的範本來建立從屬節點，並執行您在建置步驟中為這項工作指定的指令碼。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

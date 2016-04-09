@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="samueld"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
-	ms.author="billmath;vakarand"/>
+	ms.date="03/21/2016"
+	ms.author="vakarand"/>
 
 
 # Azure AD Connect Health 常見問題集 (FAQ)
@@ -92,6 +92,11 @@ Azure AD Connect Health 警示會在成功情況下獲得解決。Azure AD Conne
 
 您必須開放 TCP/UDP 連接埠 80、443 和 5671，Azure AD Connect Health 代理程式才能夠與 Azure AD Health 服務端點進行通訊。
 
+
+**問︰為什麼我會在 Azure AD Connect Health 入口網站中看到兩部名稱相同的伺服器？**
+
+當您從伺服器移除代理程式時，系統不會自動從 Azure AD Connect 入口網站移除伺服器。因此，如果您以手動方式從伺服器移除代理程式，或移除伺服器本身，就需要以手動方式從 Azure AD Connect Health 入口網站中刪除伺服器項目。如需詳細資訊，請參閱[刪除伺服器或服務執行個體](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance)。 此外，如果您重新製作了伺服器的映像或使用相同的詳細資訊 (例如電腦名稱) 建立新的伺服器，但先未從 Azure AD Connect Health 入口網站移除伺服器，然後才在新伺服器上安裝代理程式，您現在可能就會看到該伺服器的兩個項目。在此情況下，您應該手動刪除屬於較舊伺服器的項目。具有此項目的資料通常是過期的。
+
 ## 相關連結
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
@@ -101,4 +106,4 @@ Azure AD Connect Health 警示會在成功情況下獲得解決。Azure AD Conne
 * [使用 Azure AD Connect Health 進行同步處理](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health 版本歷程記錄](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

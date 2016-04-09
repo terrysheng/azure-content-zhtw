@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="02/25/2016"
+	ms.date="03/11/2016"
 	ms.author="yidingz;marsma"/>
 
 # Azure Batch 功能概觀
@@ -44,7 +44,7 @@
 
 ## <a name="resource"></a>批次服務的資源
 
-當您使用 Azure Batch 服務時，您可以使用下列資源：
+當您使用 Batch 時，您可以使用下列多項資源：其中有些資源 (如帳戶、計算節點、集區、作業和工作) 都使用於所有 Batch 解決方案中。其他資源 (如作業排程和應用程式封裝) 都很實用，但為選用功能。
 
 - [帳戶](#account)
 - [計算節點](#computenode)
@@ -55,7 +55,9 @@
 	- [作業管理員工作](#jobmanagertask)
 	- [作業準備和作業釋放工作](#jobpreprelease)
 	- [多重執行個體工作](#multiinstance)
-- [JobSchedule](#jobschedule)
+    - [作業相依性](#taskdep)
+- [作業排程](#jobschedule)
+- [應用程式封裝](#appkg)
 
 ### <a name="account"></a>帳戶
 
@@ -122,7 +124,6 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台；Batch 集區提�
 	- Azure 批次可以偵測失敗的工作並重試工作。可以指定**工作重試次數上限**作為條件約束，包括指定一律重試工作，或決不重試工作。重試工作表示工作會重新排入佇列，以再次執行。
 - 您可以透過用戶端應用程式將工作新增至作業，或是指定[作業管理員工作](#jobmanagertask)。作業管理員工作會使用 Batch API，且包含為作業建立必要工作所需的資訊，而工作會在集區內的其中一個計算節點上執行。Batch 會特別處理作業管理員工作 – 此工作會在作業建立後立即排入佇列，且如果失敗，則會重新啟動。由作業排程建立的作業需要有作業管理員工作，因為它是在作業具現化之前唯一可定義工作的方法。以下提供作業管理員工作的詳細資訊。
 
-
 ### <a name="task"></a>工作
 
 工作是與作業相關聯的計算單位且在節點上執行。工作會指派給節點以便執行，或排入佇列直到節點變成可用為止。工作會使用下列資源：
@@ -141,6 +142,7 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台；Batch 集區提�
 - [作業管理員工作](#jobmanagertask)
 - [作業準備和作業釋放工作](#jobmanagertask)
 - [多重執行個體工作](#multiinstance)
+- [作業相依性](#taskdep)
 
 #### <a name="starttask"></a>啟動工作
 
@@ -187,9 +189,29 @@ Batch 提供作業前執行設定的作業準備工作，和作業後維護或�
 
 如需在 Batch 中使用 Batch .NET 程式庫執行 MPI 作業的詳細討論，請參閱[在 Azure Batch 中使用多個執行個體的工作執行訊息傳遞介面 (MPI) 應用程式](batch-mpi.md)。
 
+#### <a name="taskdep"></a>作業相依性
+
+工作相依性正如其名，可讓您在執行某個工作之前，指定該工作相依於其他工作。此功能提供下列情況的支援：「下游」工作取用「上游」工作的輸出，或當上游工作執行下游工作所需的某種初始化時。若要使用這項功能，您必須先在 Batch 作業上啟用工作相依性。然後，針對每個相依於另一個工作 (或其他許多工作) 的工作，指定該工作相依的工作。
+
+利用工作相依性，您可以設定如下所示的案例︰
+
+* taskB 相依於 taskA (直到 taskA 完成，才會開始執行 taskB)
+* taskC 同時相依於 *taskA* 和 *taskB*
+* taskD 在執行前相依於某個範圍的工作，例如工作 1 至 10
+
+請查看 [azure-batch-samples][github_samples] GitHub 儲存機制中的 [TaskDependencies][github_sample_taskdeps] 程式碼範例。您將在其中使用 [Batch .NET][batch_net_api] 程式庫，了解如何設定相依於其他工作的工作。
+
 ### <a name="jobschedule"></a>排程的工作
 
 作業排程可讓您在 Batch 服務內建立週期性作業。作業排程會指定何時要執行作業，並且包含要執行之作業的規格。作業排程允許指定排程的持續時間 (排程的有效時間和生效時間)，以及在那段期間內建立作業的頻率。
+
+### <a name="appkg"></a>應用程式封裝
+
+[應用程式封裝](batch-application-packages.md)功能可為集區中的計算節點提供簡單的應用程式管理和部署能力。透過應用程式封裝，您可以輕鬆上傳及管理多個版本的工作執行應用程式 (包括二進位檔和支援檔案)，接著將一或多個這種類型的應用程式自動部署到集區中的計算節點。
+
+Batch 能在背景處理使用 Azure 儲存體將應用程式封裝安全地儲存及部署到計算節點的詳細資料，因此可以簡化程式碼和管理額外負荷。
+
+若要了解應用程式封裝功能的詳細資訊，請參閱[使用 Azure Batch 應用程式封裝部署應用程式](batch-application-packages.md)。
 
 ## <a name="files"></a>檔案和目錄
 
@@ -224,7 +246,7 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 
 透過[自動調整](batch-automatic-scaling.md)功能，您可以讓 Batch 服務根據計算案例的目前工作負載和資源使用狀況，動態調整集區中的計算節點數目。這樣一來，您只會使用所需資源並可釋放不需要的資源，因而能夠降低應用程式的整體執行成本。您可以在建立集區時為其指定自動調整設定或是稍後再啟用自動調整，此外您也可以更新已啟用自動調整功能之集區上的調整設定。
 
-為集區指定**自動調整公式**即可執行自動調整。Batch 服務使用此公式來決定集區中下一個調整間隔 (您可以指定的間隔) 的目標節點數目。
+為集區指定自動調整公式即可執行自動調整。Batch 服務使用此公式來決定集區中下一個調整間隔 (您可以指定的間隔) 的目標節點數目。
 
 例如，或許作業需要您提交大量排定要執行的工作。您可以指派調整公式給集區，以根據目前的暫止工作數目和工作的完成率來調整集區中的節點數目。Batch 服務會定期評估公式，並根據工作負載和公式設定來調整集區大小。
 
@@ -334,7 +356,7 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 
 	這實際上會讓節點「離線」，以便不會再收到任何指派的工作，但允許節點繼續執行並留在集區中。這可讓您執行進一步的調查以了解失敗原因，卻又不會遺失失敗工作的資料，而且不會讓節點造成額外的工作失敗。例如，您可以停用節點上的工作排程，然後從遠端登入以檢查節點的事件記錄檔，或執行其他疑難排解動作。一旦完成調查，您就可以啟用工作排程 ([REST][rest_online]、[.NET][net_online]) 讓節點重新上線，或是執行上面所討論的另一個動作。
 
-> [AZURE.IMPORTANT] 您可以使用上述各個動作 (重新啟動、重新安裝映像、移除、停用工作排程)，指定當您執行動作時要如何處理節點上目前執行的工作。例如，當您停用具有 Batch .NET 用戶端程式庫之節點上的工作排程時，您可以指定 [DisableComputeNodeSchedulingOption][net_offline_option] 列舉值，以指定是要**終止**執行中的工作、將工作**重新放入佇列**以在其他節點上排程，還是允許執行中的工作先完成再執行動作 (**TaskCompletion**)。
+> [AZURE.IMPORTANT] 您可以使用上述各個動作 (重新啟動、重新安裝映像、移除、停用工作排程)，指定當您執行動作時要如何處理節點上目前執行的工作。例如，當您停用具有 Batch .NET 用戶端程式庫之節點上的工作排程時，您可以指定 [DisableComputeNodeSchedulingOption][net_offline_option] 列舉值，以指定是要「終止」執行中的工作、將工作「重新放入佇列」以在其他節點上排程，還是允許執行中的工作先完成再執行動作 (TaskCompletion)。
 
 ## 後續步驟
 
@@ -351,6 +373,8 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -377,7 +401,7 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
-[rest_multiinstance]: https://msdn.microsoft.com/zh-TW/library/azure/mt637905.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 [rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
@@ -387,4 +411,4 @@ Batch 服務會在節點上公開檔案系統的一部分作為「根目錄」�
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="03/04/2016" 
 	ms.author="robmcm"/>
 
 
@@ -22,7 +22,7 @@
 
 將封裝的應用程式移至生產環境供網際網路存取之前，可先將應用程式部署到 Azure 中的預備環境來進行測試。預備環境與生產環境完全相同，差別在於您只能以 Azure 產生的隱藏 URL 來存取預備應用程式。在確認應用程式可正常運作之後，就可以執行虛擬 IP (VIP) 交換將它部署至生產環境。
 
-> [AZURE.NOTE]本文中的步驟僅適用於以 Azure 雲端服務的形式受到代管的節點應用程式。
+> [AZURE.NOTE] 本文中的步驟僅適用於以 Azure 雲端服務的形式受到代管的節點應用程式。
 
 ## 步驟 1：預備應用程式
 
@@ -52,7 +52,7 @@
 
 在預備環境中驗證應用程式的升級版本之後，您可以交換預備和生產環境的虛擬 IP (VIP)，快速將應用程式移至生產環境。
 
-> [AZURE.NOTE]此步驟假設您已將應用程式部署至生產環境，也已預備應用程式的升級版本。
+> [AZURE.NOTE] 此步驟假設您已將應用程式部署至生產環境，也已預備應用程式的升級版本。
 
 1.  登入 [Azure 傳統入口網站]，按一下 [雲端服務]，然後選取服務名稱。
 
@@ -75,4 +75,4 @@
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [如何在 Azure 中交換 VIP 將服務升級部署至生產環境]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/27/2016"
+   ms.date="03/29/2016"
    ms.author="cgronlun"/>
 
 
@@ -80,6 +80,10 @@ HDInsight 提供 Apache Hadoop、 Spark、HBase 或 Storm 的叢集設定。您�
 * [Solr](hdinsight-hadoop-solr-install-linux.md)：一種企業級搜尋平台，可對資料進行全文檢索搜尋。
 
 如需如何開發自有指令碼動作的資訊，請參閱[使用 HDInsight 開發指令碼動作](hdinsight-hadoop-script-actions-linux.md)。
+
+## HDInsight Standard 和 HDInsight Premium
+
+HDInsight 提供兩種類型的巨量資料雲端提供項目：Standard 和 Premium。HDInsight Standard 提供組織可用來執行其巨量資料工作負載的企業規模叢集。HDInsight Premium 以其為基礎，並提供 HDInsight 叢集的進階分析與安全性功能。如需詳細資訊，請參閱 [Azure HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)
 
 ## Hadoop 元件與公用程式是什麼？
 
@@ -211,11 +215,19 @@ HDInsight 叢集提供下列 Hadoop 生態系統專屬語言的支援：
 
 * 最先進的 Hadoop 元件。如需詳細資訊，請參閱 [HDInsight 所提供 Hadoop 叢集版本的新功能][component-versioning]。
 
-* 叢集的高可用性和可靠性。如需詳細資訊，請參閱＜[HDInsight 上 Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)＞。
+* 叢集的高可用性和可靠性。已在 HDInsight 所部署的 Hadoop 叢集中新增第二個前端節點，以提升服務的可用性。Hadoop 叢集的標準實作通常包含單一前端節點。HDInsight 會透過新增次要前端節點，來將這個單一失敗點移除。除非客戶使用超大型前端節點 (而不是預設的大型節點) 來建立叢集，否則新的 HA 叢集組態開關並不會變更叢集價格。
+
+	如需詳細資訊，請參閱＜[HDInsight 上 Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)＞。
 
 * 有效率又符合經濟效益的資料存放區，採用 Azure Blob 儲存體，是一個 Hadoop 相容選項。如需詳細資訊，請參閱＜[在 HDInsight 上將 Azure Blob 儲存體與 Hadoop 搭配使用](hdinsight-hadoop-use-blob-storage.md)＞。
 
 * 與其他 Azure 服務整合，包括 [Web 應用程式](../documentation/services/app-service/web/)和 [SQL Database](../documentation/services/sql-database/)。
+
+* 其他 VM 大小。HDInsight 叢集可用於不同的 VM 類型和大小。HDInsight 叢集現在可以利用針對一般用途建置的 A2 到 A7 大小；特色為固態硬碟 (SSD) 和處理器速度更快 60% 的 D 系列節點；以及具有 InfiniBand 支援可快速進行網路連線的 A8 和 A9 大小。Azure HDInsight 上的 Apache HBase 客戶可以從 D 系列更大的記憶體組態獲得效能增加的優點。Azure HDInsight 上的 Apache Storm 客戶可以獲得額外記憶體的優點，用來載入更大的參考資料集，以及更快的 CPU 可用於更高的輸送量。
+
+* 叢集調整。叢集調整可讓您變更執行中 HDInsight 叢集的節點數目，而不必刪除或重建它。
+
+* 虛擬網路支援。HDInsight 叢集可以與 Azure 虛擬網路一起使用來支援隔離雲端資源，或支援將這些雲端資源與資料中心裡的那些雲端資源連結的混合式案例。
 
 * 進入成本低。開始[免費試用](/pricing/free-trial/)，或請參閱＜[HDInsight 定價詳細資料](/pricing/details/hdinsight/)＞。
 
@@ -256,7 +268,7 @@ HDInsight 叢集提供下列 Hadoop 生態系統專屬語言的支援：
 
 * [Azure SQL Database](/documentation/services/sql-database/)：SQL Database 的文件、教學課程及影片。
 
-* [Azure 入口網站上的 SQL Database](sql-database-manage-portal.md)：簡單易學的輕量型資料管理工具，可在雲端中用來管理 SQL Database。
+* [Azure 入口網站上的 SQL Database](../sql-database/sql-database-manage-portal.md)：簡單易學的輕量型資料管理工具，可在雲端中用來管理 SQL Database。
 
 * [SQL Database 的大膽嘗試](http://msftdbprodsamples.codeplex.com/releases/view/37304)：SQL Database 範例資料庫的下載頁面。
 
@@ -292,4 +304,4 @@ HDInsight 叢集提供下列 Hadoop 生態系統專屬語言的支援：
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0330_2016-->

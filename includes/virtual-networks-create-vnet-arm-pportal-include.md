@@ -11,7 +11,7 @@
 
 	![建立虛擬網路的刀鋒視窗](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
 
-4. 按一下 [**資源群組**]，選取要加入 VNet 的目的地資源群組，或按一下 [**新建**]，將 VNet 加入至新的資源群組。下圖顯示新資源群組 **TestRG** 的資源群組設定。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](resource-group-overview.md/#resource-groups)。
+4. 按一下 [**資源群組**]，選取要加入 VNet 的目的地資源群組，或按一下 [**新建**]，將 VNet 加入至新的資源群組。下圖顯示新資源群組 **TestRG** 的資源群組設定。如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](../articles/resource-group-overview.md/#resource-groups)。
 
 	![資源群組](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 
@@ -35,4 +35,4 @@
 
 	![VNet 中的子網路清單](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

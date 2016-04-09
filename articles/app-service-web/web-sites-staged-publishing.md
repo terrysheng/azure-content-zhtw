@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="cephalin"/>
 
 # 針對 Azure App Service 中的 Web 應用程式設定預備環境
@@ -164,43 +164,55 @@ Azure PowerShell 模組提供透過 Windows PowerShell 來管理 Azure 的 Cmdle
 
 - 如需安裝與設定 Azure PowerShell，以及使用您的 Azure 訂用帳戶驗證 Azure PowerShell 的詳細資訊，請參閱[如何安裝和設定 Microsoft Azure PowerShell](../powershell-install-configure.md) (英文)。  
 
-- 若要使用適用於 PowerShell Cmdlet 之新的 Azure 資源管理員模式，開頭需如下所示：`Switch-AzureMode -Name AzureResourceManager`。
-
 ----------
 
 ### 建立 Web 應用程式
 
-`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]`
+```
+New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]
+```
 
 ----------
 
 ### 建立 Web 應用程式的部署位置
 
-`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -SlotName [deployment slot name] -Location [location] -AppServicePlan [app service plan name]`
+```
+New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [web app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
+```
 
 ----------
 
 ### 起始多階段交換和將目標位置組態套用至來源位置
 
-`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01`
+```
+$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
 
 ----------
 
 ### 還原多階段交換的第一個階段和還原來源位置組態
 
-`Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01`
+```
+Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
+```
 
 ----------
 
 ### 交換部署位置
 
-`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01`
+```
+$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
 
 ----------
 
 ### 刪除部署位置
 
-`Remove-AzureResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01`
+```
+Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01
+```
 
 ----------
 
@@ -271,4 +283,4 @@ Azure CLI 提供跨平台命令供您處理 Azure，包括支援管理 Web 應�
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

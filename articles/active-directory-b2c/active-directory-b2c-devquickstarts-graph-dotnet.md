@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="dstrockis"
 	manager="msmbaldwin"
-	editor=""/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="03/22/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 預覽：使用圖形 API
@@ -171,7 +171,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 當您想要從圖形 API 取得使用者清單或取得特定的使用者時，您可以傳送 HTTP `GET` 要求給 `/users` 端點。要求取得租用戶中所有使用者時，情況如下：
 
 ```
-GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
+GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 ```
 
@@ -184,11 +184,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 有兩個重點值得注意：
 
 - 透過 ADAL 取得的存取權杖已利用 `Bearer` 配置加入至 `Authorization` 標頭。
-- 對於 B2C 租用戶，您必須使用查詢參數 `api-version=beta`。
-
-
-> [AZURE.NOTE]
-	Azure AD 圖形 API 的 Beta 版提供預覽功能。如需 Beta 版的詳細資訊，請參閱[這篇圖形 API 小組部落格文章](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx)。
+- 對於 B2C 租用戶，您必須使用查詢參數 `api-version=1.6`。
 
 這兩個細節都在 `B2CGraphClient.SendGraphGetRequest(...)` 方法中處理：
 
@@ -197,9 +193,9 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 {
 	...
 
-	// For B2C user management, be sure to use the beta Graph API version.
+	// For B2C user management, be sure to use the 1.6 Graph API version.
 	HttpClient http = new HttpClient();
-	string url = "https://graph.windows.net/" + tenant + api + "?" + "api-version=beta";
+	string url = "https://graph.windows.net/" + tenant + api + "?" + "api-version=1.6";
 	if (!string.IsNullOrEmpty(query))
 	{
 		url += "&" + query;
@@ -218,7 +214,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 在 B2C 租用戶中建立使用者帳戶時，您可以傳送 HTTP `POST` 要求給 `/users` 端點：
 
 ```
-POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
+POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 Content-Type: application/json
 Content-Length: 338
@@ -227,13 +223,13 @@ Content-Length: 338
 	// All of these properties are required to create consumer users.
 
 	"accountEnabled": true,
-	"alternativeSignInNamesInfo": [             // controls which identifier the user uses to sign in to the account
+	"signInNames": [                            // controls which identifier the user uses to sign in to the account
 		{
 			"type": "emailAddress",             // can be 'emailAddress' or 'userName'
 			"value": "joeconsumer@gmail.com"
 		}
 	],
-	"creationType": "NameCoexistence",          // always set to 'NameCoexistence'
+	"creationType": "LocalAccount",            // always set to 'LocalAccount'
 	"displayName": "Joe Consumer",				// a value that can be used for displaying to the end user
 	"mailNickname": "joec",						// an email alias for the user
 	"passwordProfile": {
@@ -244,7 +240,7 @@ Content-Length: 338
 }
 ```
 
-建立取用者使用者時，需要此要求中的所有屬性。加上 `//` 註解是為了講解，請不要放入實際的要求中。
+此要求中的這些屬性，在建立取用者使用者時，大部分都是必要的屬性。若要深入了解，請按一下[這裡](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)。請注意，加上 `//` 註解是為了講解，請不要放入實際的要求中。
 
 若要查看此要求，請執行下列其中一個命令：
 
@@ -253,20 +249,23 @@ Content-Length: 338
 > B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-`Create-User` 命令會以 .json 檔案做為輸入參數。這包含使用者物件的 JSON 表示法。範例程式碼中有兩個範例 .json 檔案：`usertemplate-email.json` 和 `usertemplate-username.json`。您可以修改這些檔案以符合您的需求。除了上述必要欄位以外，這些檔案包含一些您可以使用的選擇性欄位。[Azure AD 圖形 API 實體參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#UserEntity)提供這些其他欄位的詳細資訊。
+`Create-User` 命令會以 .json 檔案做為輸入參數。這包含使用者物件的 JSON 表示法。範例程式碼中有兩個範例 .json 檔案：`usertemplate-email.json` 和 `usertemplate-username.json`。您可以修改這些檔案以符合您的需求。除了上述必要欄位以外，這些檔案包含一些您可以使用的選擇性欄位。[Azure AD 圖形 API 實體參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#UserEntity)提供選擇性欄位的詳細資訊。
 
 您可以在 `B2CGraphClient.SendGraphPostRequest(...)` 中看到如何建構 POST 要求。
 
 - 它會將存取權杖附加至要求的 `Authorization` 標頭。
-- 它會設定 `api-version=beta`。
+- 它會設定 `api-version=1.6`。
 - 它會將 JSON 使用者物件加入要求主體中。
+
+> [AZURE.NOTE]
+如果您想要從現有使用者存放區移轉的帳戶密碼強度比[由 Azure AD B2C 強制執行的強式密碼強度](https://msdn.microsoft.com/library/azure/jj943764.aspx)還低，您可以使用 `passwordPolicies` 屬性中的 `DisableStrongPassword` 值來停用強式密碼需求。例如，您可以修改上述提供的建立使用者要求，如下所示︰`"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`。
 
 ### 更新取用者的使用者帳戶
 
 當您更新使用者物件時，此程序類似於您用來建立使用者物件的程序。但此程序會使用 HTTP `PATCH` 方法：
 
 ```
-PATCH https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=beta
+PATCH https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 Content-Type: application/json
 Content-Length: 37
@@ -285,12 +284,30 @@ Content-Length: 37
 
 如需有關如何傳送此要求的詳細資訊，請檢閱 `B2CGraphClient.SendGraphPatchRequest(...)` 方法。
 
+### 搜尋使用者
+
+您可以透過數種方式在 B2C 租用戶中搜尋使用者。一個是利用使用者的物件識別碼，另一個則是使用者的登入識別碼 (亦即 `signInNames` 屬性)。
+
+執行下列其中一個命令來搜尋特定的使用者︰
+
+```
+> B2C Get-User <user-object-id>
+> B2C Get-User <filter-query-expression>
+```
+
+以下是一些範例︰
+
+```
+> B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
+> B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27joeconsumer@gmail.com%27)
+```
+
 ### 刪除使用者
 
 刪除使用者的程序很簡單。使用 HTTP `DELETE` 方法並以正確的物件識別碼建構 URL：
 
 ```
-DELETE https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=beta
+DELETE https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 ```
 
@@ -335,21 +352,19 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 }
 ```
 
-您可以使用完整名稱作為使用者物件的屬性，例如 `extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`。以新的屬性和該屬性的值更新 .json 檔案，然後執行：
+您可以使用完整名稱做為使用者物件的屬性，例如 `extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`。以新的屬性和該屬性的值更新 .json 檔案，然後執行：
 
 ```
 > B2C Update-User <object-id-of-user> <path-to-json-file>
 ```
 
-使用 `B2CGraphClient`，您即有一個服務應用程式可以用程式設計方式管理 B2C 租用戶使用者。`B2CGraphClient` 會使用自己的應用程式身分識別向 Azure AD 圖形 API 驗證。它也會使用用戶端密碼來取得權杖。將這項功能納入您的應用程式時，請記住 B2C 應用程式的幾個重點：
+使用 `B2CGraphClient`，您會有一個服務應用程式可利用程式設計方式來管理 B2C 租用戶使用者。`B2CGraphClient` 會使用自己的應用程式身分識別，向 Azure AD 圖形 API 進行驗證。它也會使用用戶端密碼來取得權杖。將這項功能納入您的應用程式時，請記住 B2C 應用程式的幾個重點：
 
 - 您需要將租用戶中的適當權限授與應用程式。
 - 現在，您需要使用 ADAL v2 取得存取權杖(也可以直接傳送通訊協定訊息，而不使用程式庫)。
-- 當您呼叫圖形 API 時，請使用 [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx)。
+- 當您呼叫圖形 API 時，請使用 `api-version=1.6`。
 - 當建立和更新取用者使用者，有幾個必要的屬性，如上所述。
-
-> [AZURE.IMPORTANT] 在 B2C 應用程式中使用 Azure AD 圖形 API 時，您需要考慮以 Azure AD B2C 為基礎的目錄服務的複寫特性。(閱讀[本文](http://blogs.technet.com/b/ad/archive/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-geo-distributed-cloud-directory.aspx)以深入了解)。 取用者使用**註冊**原則註冊您的 B2C 應用程式後，如果您在應用程式中使用 Azure AD 圖形 API，立即嘗試讀取使用者物件，它可能會無法使用。您必須等候數秒鐘讓複寫程序完成。在正式發行的版本中，我們計劃發佈關於 Azure AD 圖形 API 和目錄服務提供的「讀寫一致性保證」的更具體指引。
 
 對於您想要使用圖形 API 在 B2C 租用戶上執行的動作，如有任何問題或要求，請在本文上留言，或在 GitHub 程式碼範例儲存機制中提出問題。
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="02/16/2016"
+	ms.date="03/16/2016"
 	ms.author="spelluru"/>
 
 # 使用 Microsoft Visual Studio 建置您的第一個 Azure Data Factory
@@ -32,7 +32,7 @@
 1. 您**必須**詳讀[教學課程概觀](data-factory-build-your-first-pipeline.md)一文，並完成必要的步驟，再進一步繼續。
 2. 本文不提供 Azure Data Factory 服務的概念性概觀。建議您詳讀 [Azure Data Factory 簡介](data-factory-introduction.md)一文，了解服務的詳細概觀。  
 
-## 逐步解說：使用 Visual Studio 建立及部署 Data Factory 實體 
+## 建立和部署 Data Factory 實體  
 
 ### 必要條件
 
@@ -44,7 +44,7 @@
 	
 	
 
-### 建立 Visual Studio 專案 
+## 建立 Visual Studio 專案 
 1. 啟動 **Visual Studio 2013** 或 **Visual Studio 2015**。按一下 [**檔案**]，指向 [**新增**]，然後按一下 [**專案**]。您應該會看到 [新增專案] 對話方塊。  
 2. 在 [新增專案] 對話方塊中，選取 [DataFactory] 範本，然後按一下 [空白 Data Factory 專案]。   
 
@@ -54,7 +54,7 @@
 
 	![Solution Explorer](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
-### 建立連結服務
+## 建立連結服務
 資料處理站可以有一或多個管線。其中的管線可以有一或多個活動。例如，「複製活動」會從來源複製資料到目的地資料存放區，HDInsight Hive 活動則是執行 Hive 指令碼轉換輸入資料以產生輸出資料。您可在稍後發佈 Data Factory 解決方案時，指定 Data Factory 的名稱和設定。
 
 在此步驟中，您將您的 Azure 儲存體帳戶和隨選 Azure HDInsight 叢集連結到您的 Data Factory。Azure 儲存體帳戶會保留此範例中管線的輸入和輸出資料。HDInsight 連結服務會用來執行此範例中管線活動指定的 Hive 指令碼。您必須識別案例中使用的資料存放區/計算服務，並建立連結的服務將這些服務連結到 Data Factory。
@@ -110,7 +110,7 @@
 	如需詳細資訊，請參閱 [HDInsight 隨選連結服務](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。 
 4. 儲存 **HDInsightOnDemandLinkedService1.json** 檔案。
 
-### 建立資料集
+## 建立資料集
 在此步驟中，您將建立資料集來代表 Hive 處理的輸入和輸出資料。這些資料集是您稍早在本教學課程中建立的 **AzureStorageLinkedService1**。連結的服務會指向 Azure 儲存體帳戶，而資料集則會指定保留輸入和輸出資料儲存體中的容器、資料夾和檔案名稱。
 
 #### 建立輸入資料集
@@ -192,7 +192,7 @@
 4. 儲存 **OutputDataset.json** 檔案。
 
 
-### 建立您的第一個管線
+### 建立管線
 在此步驟中，您將建立第一個具有 **HDInsightHive** 活動的管線。請注意，您每個月都可取得輸入配量資訊 (頻率：每月，間隔：1)，輸出配量則是每用產生，而活動的排程器屬性也設為每用 (如下所示)。輸出資料集設定及活動排程器必須相符。這時，輸出資料集會影響排程，因此即使活動並未產生任何輸出，您都必須建立輸出資料集。如果活動沒有任何輸入，您可以略過建立輸入資料集。本節結尾會說明下列 JSON 中使用的屬性。
 
 1. 以滑鼠右鍵按一下 [方案總管] 中的 [管線]，指向 [加入]，然後按一下 [新項目]。 
@@ -256,7 +256,7 @@
 
 	在活動 JSON 中，您會指定 Hive 指令碼要在透過 **linkedServiceName** – **HDInsightOnDemandLinkedService** 指定的計算上執行。
 
-	> [ACOM.NOTE] 如需上述範例中使用的 JSON 屬性的詳細資訊，請參閱[管線的剖析](data-factory-create-pipelines.md#anatomy-of-a-pipeline)。 
+	> [AZURE.NOTE] 如需上述範例中使用的 JSON 屬性的詳細資訊，請參閱[管線的剖析](data-factory-create-pipelines.md#anatomy-of-a-pipeline)。 
 3. 儲存 **HiveActivity1.json** 檔案。
 
 ### 將 partitionweblogs.hql 新增為相依性 
@@ -289,7 +289,7 @@
 24. 檢閱摘要，然後按 [下一步] 開始部署程序，並檢視 [部署狀態]。
 25. 在 [部署狀態] 頁面上，您應該會看到部署程序的狀態。部署完成後按一下 [完成]。 
  
-## 步驟 4：監視管線
+## 監視管線
 
 6. 登入 [Azure 入口網站](https://portal.azure.com/)，執行下列動作。
 	1. 按一下 [瀏覽]，選取 [資料處理站]。![瀏覽 Data Factory](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
@@ -326,7 +326,7 @@
 
 如需如何使用 Azure 入口網站來監視您在本教學課程中建立的管線和資料集的指示，請參閱[監視資料集和管線](data-factory-monitor-manage-pipelines.md)。
 
-## 使用 [伺服器總管] 檢視 Data Factory 實體
+## 使用伺服器總管檢視 Data Factory
 
 1. 在 **Visual Studio** 中，按一下功能表上的 [檢視]，然後按一下 [伺服器總管]。
 2. 在 [伺服器總管] 視窗中，依序展開 **Azure** 和 **Data Factory**。如果您看到 [登入 Visual Studio]，請輸入和 Azure 訂用帳戶相關聯的**帳戶**，然後按一下 [繼續]。輸入**密碼**，然後按一下 [登入]。Visual Studio 會嘗試取得訂用帳戶中所有 Azure Data Factory 的相關資訊。您會在 [Data Factory 工作清單] 視窗中看到這項作業的狀態。
@@ -449,4 +449,4 @@
 在本文中，您已經建立可在隨選 HDInsight 叢集上執行 Hive 指令碼，含有轉換活動 (HDInsight 活動) 的管線。若要了解如何使用「複製活動」從 Azure Blob 複製資料到 Azure SQL，請參閱[教學課程：從 Azure Blob 複製資料到 Azure SQL](data-factory-get-started.md)。
   
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

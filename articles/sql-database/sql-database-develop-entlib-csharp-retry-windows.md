@@ -3,8 +3,8 @@
 	description="Enterprise Library 是設計來簡化雲端服務的用戶端程式工作，包括整合暫時性錯誤的重試邏輯。"
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	authors="annemill"
+	manager="jhubbard"
 	editor="" />
 
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/17/2015"
-	ms.author="genemi"/>
+	ms.date="03/15/2016"
+	ms.author="annemill"/>
 
 
 # 程式碼範例：C&#x23 中用於連接到 SQL Database 的 Enterprise Library 6 重試邏輯
@@ -326,4 +326,4 @@ SELECT TOP 3
 
 - [SQL Database 的用戶端快速入門程式碼範例](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0316_2016-->

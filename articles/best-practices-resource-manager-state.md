@@ -3,8 +3,8 @@
 	description="示範透過「Azure 資源管理員」範本與連結的範本，使用複雜物件來共用狀態資料的建議做法"
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
-	manager="georgem"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/26/2016"
-	ms.author="mmercuri"/>
+	ms.author="tomfitz"/>
 
 # Azure 資源管理員範本中的共用狀態
 
@@ -389,4 +389,4 @@ enableJumpbox | 來自條件約束清單的字串 (enabled/disabled) | 識別是
 - [編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)
 - [Azure 資源管理員範本函數](resource-group-template-functions.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0316_2016-->

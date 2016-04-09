@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/26/2016"
+   ms.date="03/23/2016"
    ms.author="oanapl"/>
 
 # Service Fabric 健康狀態監視簡介
@@ -66,7 +66,7 @@ Service Fabric 元件會使用此健康狀態模型來報告其目前狀態。�
 ## 健康狀態
 Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否良好：「OK」、「Warning」和「Error」。傳送至健康狀態資料存放區的任何報告都必須指定這其中一個狀態。健康狀態評估結果即為這些狀態的其中之一。
 
-可能的健康狀態為：
+可能的[健康狀態](https://msdn.microsoft.com/library/azure/system.fabric.health.healthstate)為：
 
 - **OK**。實體的健康狀態良好。報告實體本身或其子系 (適用時) 沒有已知問題。
 
@@ -74,7 +74,7 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 
 - **Error**。實體的狀況不良。因為實體無法正常運作，故應採取動作來修正實體的狀態。
 
-- **Unknown**。實體不存在於健康狀態資料存放區中。此結果可以從合併來自多個元件之結果的分散式查詢中取得。其中可包含取得 Service Fabric 節點清單的查詢 (其會移至 **FailoverManager** 和 **HealthManager**)，或是取得應用程式的查詢 (其會移至 **ClusterManager** 和 **HealthManager**)。這些查詢會合併來自多個系統元件的結果。若其他系統元件具有尚未到達健康狀態資料存放區的實體，或實體已從健康狀態資料存放區清除，則合併的查詢將使用「Unknown」健康狀態來填入健康狀態結果。
+- **Unknown**。實體不存在於健康狀態資料存放區中。此結果可以從合併來自多個元件之結果的分散式查詢中取得。其中可包含取得 Service Fabric 節點清單的查詢 (其會移至 **FailoverManager** 和 **HealthManager**)，或是取得應用程式清單的查詢 (其會移至 **ClusterManager** 和 **HealthManager**)。這些查詢會合併來自多個系統元件的結果。若其他系統元件具有尚未到達健康狀態資料存放區的實體，或實體已從健康狀態資料存放區清除，則合併的查詢將使用「Unknown」健康狀態來填入健康狀態結果。
 
 ## 健康狀態原則
 健康狀態資料存放區會套用健康狀態原則，依照它的報告及其子系來判斷實體的健康狀態是否良好。
@@ -84,45 +84,48 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 根據預設，Service Fabric 適用於父系-子系階層式關聯性的嚴格規則 (所有項目都必須是狀況良好的) 。如果有一個子系具有一個狀況不良的事件，就會將父系視為狀況不良。
 
 ### 叢集健康狀態原則
-叢集健康狀態原則是用來評估叢集健康狀態和節點健康狀態。原則可以定義於叢集資訊清單中。如果原則不存在，則會使用預設原則 (不容許失敗)。叢集健康狀態原則包含：
+[叢集健康狀態原則](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.aspx)是用來評估叢集健康狀態和節點健康狀態。原則可以定義於叢集資訊清單中。如果原則不存在，則會使用預設原則 (不容許失敗)。叢集健康狀態原則包含：
 
-- **ConsiderWarningAsError**。指定是否要在健康狀態評估期間將「Warning」健康狀態報告視為錯誤。預設：false。
+- [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.considerwarningaserror.aspx)。指定是否要在健康狀態評估期間將「Warning」健康狀態報告視為錯誤。預設：false。
 
-- **MaxPercentUnhealthyApplications**。指定在系統將叢集視為「Error」之前，對狀況不良之應用程式的最大容許百分比。
+- [MaxPercentUnhealthyApplications](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications.aspx)。指定在系統將叢集視為「Error」之前，對狀況不良之應用程式的最大容許百分比。
 
-- **MaxPercentUnhealthyNodes**。指定在系統將叢集視為「Error」之前，對狀況不良之節點的最大容許百分比。在大型叢集中，永遠存在一些要關閉或需要修復的節點，因此應設定此百分比來容許錯誤。
+- [MaxPercentUnhealthyNodes](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes.aspx)。指定在系統將叢集視為「Error」之前，對狀況不良之節點的最大容許百分比。在大型叢集中，永遠存在一些要關閉或需要修復的節點，因此應設定此百分比來容許錯誤。
 
-下列是來自叢集資訊清單的摘要：
+- [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx)。應用程式類型的健康狀態原則對應可以在叢集健康狀態評估期間，用來描述特殊的應用程式類型。根據預設，所有的應用程式都會放入集區，並使用 MaxPercentUnhealthyApplications 加以評估。如果有一或多個特殊的應用程式類型，而且應該使用不同的方式來處理，則可將它們從全域集區中取出，並根據對應中與其應用程式類型名稱相關聯的百分比進行評估。例如，在叢集中，有數千個不同類型的應用程式，以及某個特殊應用程式類型的數個控制應用程式執行個體。控制應用程式應該絕對不會發生錯誤。因此使用者可以將全域的 MaxPercentUnhealthyApplications 指定為 20%，以容許一些失敗，但如果應用程式類型為 "ControlApplicationType"，請將 MaxPercentUnhealthyApplications 設為 0。如此一來，如果這許多應用程式中有一些的狀況不良，但低於全域狀況不良的百分比，則會將叢集評估為 Warning。Warning 健康狀態並不會影響叢集升級或由 Error 健康狀態觸發的其他監視。但即使只有一個控制應用程式發生錯誤都會使叢集健康狀態發生錯誤，其可以復原或防止叢集升級。對於對應中定義的應用程式類型，所有的應用程式執行個體都是從應用程式的全域集區中所取出。系統會使用對應的特定 MaxPercentUnhealthyApplications，根據應用程式類型的應用程式總數來評估它們。所有其他的應用程式都會保留於全域集區中，並使用 MaxPercentUnhealthyApplications 加以評估。
+
+下列是來自叢集資訊清單的摘要。若要定義應用程式類型對應中的項目，請在參數名稱前面加上 "ApplicationTypeMaxPercentUnhealthyApplications-"，後面接著應用程式類型名稱。
 
 ```xml
 <FabricSettings>
   <Section Name="HealthManager/ClusterHealthPolicy">
     <Parameter Name="ConsiderWarningAsError" Value="False" />
-    <Parameter Name="MaxPercentUnhealthyApplications" Value="0" />
+    <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
     <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+    <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
   </Section>
 </FabricSettings>
 ```
 
 ### 應用程式健康狀態原則
-應用程式健康狀態原則會針對應用程式及其子系，說明完成事件和子系狀態彙總評估的方式。它可以定義於應用程式資訊清單中，即應用程式封裝中的 **ApplicationManifest.xml**。若未指定任何原則，則當健康狀態報告或子系處於「Warning」或「Error」健康狀態時，Service Fabric 會假設實體狀況不良。可設定的原則包含：
+[應用程式健康狀態原則](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.aspx)會針對應用程式及其子系，說明完成事件和子系狀態彙總評估的方式。在應用程式封裝中，它可以定義於應用程式資訊清單 (即 **ApplicationManifest.xml**) 中。若未指定任何原則，則當健康狀態報告或子系處於「Warning」或「Error」健康狀態時，Service Fabric 會假設實體狀況不良。可設定的原則包含：
 
-- **ConsiderWarningAsError**。指定是否要在健康狀態評估期間將「Warning」健康狀態報告視為錯誤。預設：false。
+- [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx)。指定是否要在健康狀態評估期間將「Warning」健康狀態報告視為錯誤。預設：false。
 
-- **MaxPercentUnhealthyDeployedApplications**。指定在系統將應用程式視為「Error」之前，對狀況不良之已部署應用程式的最大容許百分比。計算方式是將狀況不良的已部署應用程式數目，除以目前部署在叢集中的應用程式節點數目。針對較少的節點數目，計算會四捨五入以容許一個失敗。預設百分比：零。
+- [MaxPercentUnhealthyDeployedApplications](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications.aspx)。指定在系統將應用程式視為「Error」之前，對狀況不良之已部署應用程式的最大容許百分比。計算方式是將狀況不良的已部署應用程式數目，除以目前部署在叢集中的應用程式節點數目。針對較少的節點數目，計算會四捨五入以容許一個失敗。預設百分比：零。
 
-- **DefaultServiceTypeHealthPolicy**。指定預設服務類型健康狀態原則，並取代適用於應用程式中所有服務類型的預設健康狀態原則。
+- [DefaultServiceTypeHealthPolicy](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy.aspx)。指定預設服務類型健康狀態原則，並取代適用於應用程式中所有服務類型的預設健康狀態原則。
 
-- **ServiceTypeHealthPolicyMap**。針對每個服務類型提供服務健康狀態原則的對應。這些會取代每個指定服務類型的預設服務類型健康狀態原則。例如，在包含無狀態的閘道服務類型和具狀態引擎服務類型的應用程式中，無狀態和具狀態服務的健康狀態原則可以進行不同的設定。當您針對每個服務類型指定原則時，可以對服務的健康狀態取得更細微的控制。
+- [ServiceTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap.aspx)。針對每個服務類型提供服務健康狀態原則的對應。這些會取代每個指定服務類型的預設服務類型健康狀態原則。例如，在包含無狀態的閘道服務類型和具狀態引擎服務類型的應用程式中，無狀態和具狀態服務的健康狀態原則可以進行不同的設定。當您針對每個服務類型指定原則時，可以對服務的健康狀態取得更細微的控制。
 
 ### 服務類型健康狀態原則
-服務類型健康狀態原則會指定評估和彙總服務子系的方式。原則包含：
+[服務類型健康狀態原則](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.aspx)會指定評估和彙總服務及服務子系的方式。原則包含：
 
-- **MaxPercentUnhealthyPartitionsPerService**。指定在系統將服務視為狀況不良之前，狀況不良之分割區的最大容許百分比。預設百分比：零。
+- [MaxPercentUnhealthyPartitionsPerService](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice.aspx)。指定在系統將服務視為狀況不良之前，狀況不良之分割區的最大容許百分比。預設百分比：零。
 
-- **MaxPercentUnhealthyReplicasPerPartition**。指定在系統將分割區視為狀況不良之前，狀況不良之複本的最大容許百分比。預設百分比：零。
+- [MaxPercentUnhealthyReplicasPerPartition](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition.aspx)。指定在系統將分割區視為狀況不良之前，狀況不良之複本的最大容許百分比。預設百分比：零。
 
-- **MaxPercentUnhealthyServices**。指定在系統將應用程式視為狀況不良之前，狀況不良之服務的最大容許百分比。預設百分比：零。
+- [MaxPercentUnhealthyServices](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices.aspx)。指定在系統將應用程式視為狀況不良之前，狀況不良之服務的最大容許百分比。預設百分比：零。
 
 下列是來自應用程式資訊清單的摘要：
 
@@ -156,7 +159,7 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 
 ![健康狀態報告彙總，包含「Error」報告。][2]
 
-錯誤的健康狀態報告會觸發健康狀態實體成為「Error」狀態。
+Error 健康狀態報告或過期的健康狀態報告 (不論其是否為健康狀態) 會觸發健康狀態實體，使其處於錯誤狀態。
 
 [2]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-error.png
 
@@ -188,12 +191,12 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 - 若具有「Error」狀態的子系符合狀況不良子系的最大允許百分比，則已彙總的健康狀態為「Warning」。
 
 ## 健康狀態報告
-系統元件和內部/外部看門狗可以針對 Service Fabric 實體進行報告。報告程式會依照其所監視的條件，來決定「本機」受監視實體的健康狀態。回報者不需查看任何全域狀態或彙總資料。而且不需要這樣做，因為這會使報告程式成為複雜的有機體，需要查看許多項目才能推斷所要傳送的資訊。
+系統元件、System Fabric 應用程式和內部/外部看門狗可以針對 Service Fabric 實體進行回報。報告程式會依照其所監視的條件，來決定「本機」受監視實體的健康狀態。回報者不需查看任何全域狀態或彙總資料。而且不需要這樣做，因為這會使報告程式成為複雜的有機體，需要查看許多項目才能推斷所要傳送的資訊。
 
-若要將健康狀態資料傳送至健康狀態資料存放區，報告程式需要識別受影響的實體，並建立健康狀態報告。報告接著可以透過使用 **FabricClient.HealthManager.ReportHealth** 的 API、PowerShell 或 REST 來傳送。
+若要將健康狀態資料傳送至健康狀態資料存放區，報告程式需要識別受影響的實體，並建立健康狀態報告。報告接著可以使用 [FabricClient.HealthClient.ReportHealth](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient_members.aspx) 透過 API、透過 PowerShell 或 REST 來傳送。
 
 ### 健康狀態報告
-叢集中每個實體的健康狀態報告包含下列資訊：
+叢集中每個實體的[健康狀態報告](https://msdn.microsoft.com/library/azure/system.fabric.health.healthreport.aspx)包含下列資訊：
 
 - **SourceId**。用來識別健康狀態事件回報者的唯一字串。
 
@@ -227,10 +230,10 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 
 - **SequenceNumber**。這個值是必須持續增加的正整數，其表示報告的順序。健康狀態資料存放區會使用其來偵測因網路延遲或其他問題而較晚收到的陳舊報告。針對相同的實體、來源和屬性，若序號小於或等於最新套用的數字，則報告會遭到拒絕。如果未指定，即會自動產生序號。只有在報告狀態轉換時，才需放入序號。在此情況下，來源必須記住它所傳送的報告，並保留在容錯移轉復原的資訊。
 
-每個健康狀態報告都需要四種資訊 (SourceId、實體識別碼、Property 和 HealthState)。不允許 SourceId 字串以前置詞「**System.**」開頭，因為這是保留給系統報告。針對相同的實體，相同的來源和屬性僅能有一個報告。無論在健康狀態用戶端 (若非批次處理) 或健康狀態資料存放區端，若針對相同的來源和屬性產生多個報告，則其會互相覆寫。取代是以序號為根據；較新的報告 (具有較大的序號) 會取代較舊的報告。
+每個健康狀態報告都需要四種資訊 (SourceId、實體識別碼、Property 和 HealthState)。不允許 SourceId 字串以前置詞 "**System.**" 開頭，因為這是保留給系統報告。針對相同的實體，相同的來源和屬性僅能有一個報告。無論在健康狀態用戶端 (若非批次處理) 或健康狀態資料存放區端，若針對相同的來源和屬性產生多個報告，則其會互相覆寫。取代是以序號為根據；較新的報告 (具有較大的序號) 會取代較舊的報告。
 
 ### 健康狀態事件
-就內部而言，健康狀態資料存放區會保留健康狀態事件，其中包含報告的所有資訊以及其他中繼資料。這包括報告送至健康狀態用戶端的時間，以及在伺服器端修改該報告的時間。健康狀態事件將透過[健康狀態查詢](service-fabric-view-entities-aggregated-health.md#health-queries)來傳回。
+就內部而言，健康狀態資料存放區會保留[健康狀態事件](https://msdn.microsoft.com/library/azure/system.fabric.health.healthevent.aspx)，其中包含報告的所有資訊以及其他中繼資料。這包括報告送至健康狀態用戶端的時間，以及在伺服器端修改該報告的時間。健康狀態事件將透過[健康狀態查詢](service-fabric-view-entities-aggregated-health.md#health-queries)來傳回。
 
 新增的中繼資料包含：
 
@@ -251,71 +254,71 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 - 若屬性在「Warning」和「Error」之間切換，則可判斷其已處於狀況不良的時間長度 (例如，非「OK」)。例如，若屬性狀況良好的狀態不超過 5 分鐘時發出警示，可以轉譯為 (HealthState != Ok 且 Now - LastOkTransitionTime > 5 分鐘)。
 
 ## 範例：報告和評估應用程式健康狀態
-下列範例會從來源 **MyWatchdog** 透過應用程式 **fabric:/WordCount** 上的 PowerShell 來傳送健康狀態報告。健康狀態報告會在「Error」健康狀態中包含健康狀態屬性可用性的相關資訊，並包含「Infinite」的 TimeToLive。然後它會查詢應用程式健康狀態，並在健康狀態事件清單中傳回已彙總的健康狀態錯誤和已報告的健康狀態事件。
+下列範例會從來源 **MyWatchdog**，透過應用程式 **fabric:/WordCount** 上的 PowerShell 來傳送健康狀態報告。健康狀態報告會在 Error 健康狀態中包含健康狀態屬性「可用性」的相關資訊，並包含「Infinite」的 TimeToLive。然後它會查詢應用程式健康狀態，並在健康狀態事件清單中傳回已彙總的健康狀態錯誤和已報告的健康狀態事件。
 
 ```powershell
 PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
 
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
+
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
-UnhealthyEvaluations            :
+UnhealthyEvaluations            : 
                                   Error event: SourceId='MyWatchdog', Property='Availability'.
-
-ServiceHealthStates             :
-                                  ServiceName           : fabric:/WordCount/WordCount.Service
-                                  AggregatedHealthState : Warning
-
-                                  ServiceName           : fabric:/WordCount/WordCount.WebService
+                                  
+ServiceHealthStates             : 
+                                  ServiceName           : fabric:/WordCount/WordCountService
+                                  AggregatedHealthState : Error
+                                  
+                                  ServiceName           : fabric:/WordCount/WordCountWebService
                                   AggregatedHealthState : Ok
-
-DeployedApplicationHealthStates :
+                                  
+DeployedApplicationHealthStates : 
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.4
+                                  NodeName              : _Node_0
                                   AggregatedHealthState : Ok
-
+                                  
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.1
+                                  NodeName              : _Node_2
                                   AggregatedHealthState : Ok
-
+                                  
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.5
+                                  NodeName              : _Node_3
                                   AggregatedHealthState : Ok
-
+                                  
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.2
+                                  NodeName              : _Node_4
                                   AggregatedHealthState : Ok
-
+                                  
                                   ApplicationName       : fabric:/WordCount
-                                  NodeName              : Node.3
+                                  NodeName              : _Node_1
                                   AggregatedHealthState : Ok
-
-HealthEvents                    :
+                                  
+HealthEvents                    : 
                                   SourceId              : System.CM
                                   Property              : State
                                   HealthState           : Ok
-                                  SequenceNumber        : 5102
-                                  SentAt                : 4/15/2015 5:29:15 PM
-                                  ReceivedAt            : 4/15/2015 5:29:15 PM
+                                  SequenceNumber        : 360
+                                  SentAt                : 3/22/2016 7:56:53 PM
+                                  ReceivedAt            : 3/22/2016 7:56:53 PM
                                   TTL                   : Infinite
                                   Description           : Application has been created.
                                   RemoveWhenExpired     : False
                                   IsExpired             : False
-                                  Transitions           : ->Ok = 4/15/2015 5:29:15 PM
-
+                                  Transitions           : Error->Ok = 3/22/2016 7:56:53 PM, LastWarning = 1/1/0001 12:00:00 AM
+                                  
                                   SourceId              : MyWatchdog
                                   Property              : Availability
                                   HealthState           : Error
-                                  SequenceNumber        : 130736794527105907
-                                  SentAt                : 4/16/2015 5:37:32 PM
-                                  ReceivedAt            : 4/16/2015 5:37:32 PM
+                                  SequenceNumber        : 131032204762818013
+                                  SentAt                : 3/23/2016 3:27:56 PM
+                                  ReceivedAt            : 3/23/2016 3:27:56 PM
                                   TTL                   : Infinite
-                                  Description           :
+                                  Description           : 
                                   RemoveWhenExpired     : False
                                   IsExpired             : False
-                                  Transitions           : ->Error = 4/16/2015 5:37:32 PM
-
+                                  Transitions           : Ok->Error = 3/23/2016 3:27:56 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
 ## 健康狀態模型使用方式
@@ -334,4 +337,4 @@ HealthEvents                    :
 
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -7,8 +7,8 @@
 追蹤或記錄的資料速率 | 200 dp/s | 500 dp/s
 例外狀況資料速率 | 50 dp/s | 50 dp/s
 其他遙測資料速率 | 200 dp/s | 500 dp/s
-原始資料保留期間 |7 天| 30 天
-彙總資料保留期間 | 13 個月 | 無限制
+原始資料保留期間 | 7 天
+彙總資料保留期間 | 90 天
 跨應用程式的屬性名稱計數 | 100 | 100
 屬性名稱長度 | 100 | 100
 屬性值長度 | 1000 | 1000
@@ -22,4 +22,4 @@
  
 [關於 Application Insights 中的定價和配額](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

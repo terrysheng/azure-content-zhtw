@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/25/2016"
+	ms.date="03/18/2016"
 	ms.author="casoper"/>
 
 
 # 使用 Azure 的 CDN
 
-Azure 內容傳遞網路 (CDN) 是在 Azure 中調整任何 HTTP 應用程式的基礎建置組塊。它透過快取和傳遞接近使用者的內容，將全域方案提供給 Azure 客戶。因此，使用者要求會聰明地路由至最適合執行的 CDN 邊緣 POP，而不是每次都按原點。這會大幅增加效能和使用者經驗。如需 CDN 節點位置的最新清單，請參閱「[Azure 內容傳遞網路 (CDN) POP 位置](cdn-pop-locations.md)」。
+Azure 內容傳遞網路 (CDN) 是在 Azure 中調整任何 HTTP/HTTPS 應用程式的基礎建置組塊。它透過快取和傳遞接近使用者的內容，將全域方案提供給 Azure 客戶。因此，使用者要求會聰明地路由傳送至可提供最佳回應時間的 CDN 邊緣節點 (POP，或存在點)，而不是每次都按原點。這會大幅增加效能和使用者經驗。如需 CDN 節點位置的最新清單，請參閱「[Azure 內容傳遞網路 (CDN) POP 位置](cdn-pop-locations.md)」。
 
 使用 CDN 來快取 Azure 資料的優點包括：
 
@@ -149,4 +149,4 @@ Azure 可讓您使用 HTTPS 呼叫從 CDN 擷取內容。這可讓您將 CDN 中
 - [清除 Azure CDN 端點](cdn-purge-endpoint.md)
 - [CDN 資源提供者 REST API](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

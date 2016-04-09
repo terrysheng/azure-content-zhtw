@@ -72,7 +72,7 @@
 
 
 ### 使用 Azure 入口網站從檔案匯入 Runbook
-您可以使用下列程序，將指令碼檔案匯入到 Azure 自動化。請注意，您只能使用此入口網站將 .ps1 檔案匯入 PowerShell 工作流程 Runbook。
+您可以使用下列程序，將指令碼檔案匯入到 Azure 自動化。請注意，您可以使用此入口網站，將 .ps1 檔案匯入 PowerShell Runbook 或 PowerShell 工作流程 Runbook。
 
 1. 在 Azure 入口網站中，開啟您的自動化帳戶。
 2. 按一下 [Runbook] 磚以開啟 Runbook 的清單。
@@ -131,4 +131,4 @@
 - [在 Azure 自動化中編輯文字式 Runbook](automation-edit-textual-runbook.md)
 - [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

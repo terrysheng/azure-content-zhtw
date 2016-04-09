@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="03/18/2016"
 	ms.author="jahogg"/>
 
 # 監視、診斷與疑難排解 Microsoft Azure 儲存體
@@ -666,7 +666,10 @@ Timestamp|作業|結果|容器名稱|用戶端要求 ID
 
 **PercentSuccess** 度量會依據其 HTTP 狀態碼，擷取成功完成的作業百分比。帶有 2XX 狀態碼的作業會記錄為成功，而帶有 3XX、4XX 與 5XX 範圍之狀態碼的作業將記錄為不成功，並會降低 **PercentSucess** 度量值。在伺服器端的儲存體記錄檔中，這些作業會加上 **ClientOtherErrors** 的交易狀態記錄下來。
 
-請務必注意，這些作業已經成功完成，因此不會影響到例如可用性的其他度量。以下範例顯示成功執行，但出現不成功 HTTP 狀態碼的作業：- **ResourceNotFound** (找不到 404)，例如來自 GET 對不存在的 Blob 的要求。- **ResouceAlreadyExists** (衝突 409)，例如來自資源已存在的 **CreateIfNotExist** 作業。- **ConditionNotMet** (未修改 304)，例如來自條件式作業，比如說，只有在上次作業之後更新影像，用戶端才會傳送 **ETag** 值和 HTTP **If-None-Match** 標頭以要求該影像。
+請務必注意，這些作業已經成功完成，因此不會影響到例如可用性的其他度量。以下作業範例顯示作業已成功執行，但卻出現不成功的 HTTP 狀態碼：
+- **ResourceNotFound** (找不到 404)，例如來自 GET 對不存在的 Blob 的要求。
+- **ResouceAlreadyExists** (衝突 409)，例如來自 **CreateIfNotExist** 的作業，而且其資源已經存在。
+- **ConditionNotMet** (未修改 304)，例如來自條件式作業，像是用戶端傳送 **ETag** 值與 HTTP **If-None-Match** 標頭以要求顯示影像 (前提是該影像自從上次作業後已經更新)。
 
 您可以在<a href="http://msdn.microsoft.com/library/azure/dd179357.aspx" target="_blank">常見的 REST API 錯誤碼</a>頁面找到儲存體服務傳回的常見 REST API 錯誤碼清單。
 
@@ -914,4 +917,4 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting-classic-portal/mma-screenshot-2.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="03/01/2016"   
+	ms.date="03/02/2016"   
 	ms.author="juliako"/>
 
 #使用 NewTek TriCaster 編碼器來傳送單一位元速率的即時串流
@@ -28,7 +28,7 @@
 
 本教學課程示範如何使用 Azure 媒體服務總管 (AMSE) 工具管理 Azure 媒體服務 (AMS)。此工具只會在 Windows 電腦上執行。如果您是用 Mac 或 Linux，請使用 Azure 傳統入口網站建立[通道](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel)和[程式](media-services-portal-creating-live-encoder-enabled-channel#create-and-manage-a-program)。
 
->[AZURE.NOTE]當使用 Tricaster 將分佈摘要傳送到 Azure 媒體服務時，如果您使用 Tricaster 的某些功能，例如摘要之間快速切割或切換候選影片，您的即時事件可能會出現視訊/音訊干擾。AMS 小組正著手於修正這些問題，在解決之前，不建議使用這些功能。
+>[AZURE.NOTE]使用 Tricaster 將分佈摘要傳送到針對即時編碼啟用的 AMS 通道時，如果您使用 Tricaster 的某些功能 (例如，在摘要之間快速切割或切換靜態圖像)，您的即時事件可能會出現視訊/音訊干擾。AMS 小組正著手於修正這些問題，在解決之前，不建議使用這些功能。
 
 
 ##必要條件
@@ -123,7 +123,7 @@
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
 
 >[AZURE.IMPORTANT] 在您按一下 [資料流] 之前，**必須**確保通道已就緒。
-此外，請務必不要讓通道在沒有輸入比重摘要的情況下，處於就緒狀態超過 15 分鐘。
+> 此外，請務必不要讓通道在沒有輸入比重摘要的情況下，處於就緒狀態超過 15 分鐘。
 
 ##測試播放
   
@@ -148,7 +148,7 @@
 	注意：建立程式時所使用的時間會比建立通道時更少。
  
 5. 一旦程式開始執行，請在程式上按一下滑鼠右鍵，並瀏覽至 [播放程式]，然後選取 [使用 Azure 媒體播放器] 確認播放。
-6. 一經確認後，再次於該程式上按一下滑鼠右鍵，並選取 [複製輸出 URL 到剪貼簿] (或從 [程式資訊和設定] 功能表選項擷取這項資訊)。 
+6. 一經確認後，再次於該程式上按一下滑鼠右鍵，並選取 \[複製輸出 URL 到剪貼簿] (或從 [程式資訊和設定] 功能表選項擷取這項資訊)。 
 
 串流現在已經可以內嵌於播放程式中，或散發給某個對象，以供即時檢視。
 
@@ -166,4 +166,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

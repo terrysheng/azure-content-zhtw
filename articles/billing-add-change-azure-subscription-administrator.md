@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/07/2016"
 	ms.author="genli"/>
 
 # 如何新增或變更 Azure 管理員角色
@@ -29,7 +29,7 @@ Microsoft Azure 中的管理員角色有三種：
 
 > [AZURE.NOTE] Azure Active Directory 角色型存取控制 (RBAC) 能讓使用者擁有多個角色。如需詳細資訊，請參閱 [Azure Active Directory 角色型存取控制](./active-directory/role-based-access-control-configure.md)。
 
-## 如何為訂用帳戶新增共同管理員
+## 如何新增訂用帳戶的管理員
 
 1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)。
 
@@ -46,7 +46,7 @@ Microsoft Azure 中的管理員角色有三種：
 * **Microsoft 帳戶** (先前稱為 Windows Live ID) </br> 您可以使用 Microsoft 帳戶登入所有消費者導向的 Microsoft 產品和雲端服務，例如 Outlook (Hotmail)、Skype (MSN)、OneDrive、Windows Phone 和 Xbox LIVE。
 * **組織帳戶**</br> 組織帳戶是建立在 Azure Active Directory 之下的帳戶。組織帳戶地址的樣式如下：user@&lt;yourdomain&gt;.onmicrosoft.com
 
-## 限制和約束
+### 限制和約束
 
  * 每個訂用帳戶都與一個 Azure AD 目錄 (也就是預設目錄) 相關聯。若要尋找與訂用帳戶相關聯的預設目錄，請前往 [Azure 傳統入口網站](https://manage.windowsazure.com/)，然後選取 [設定] > [訂用帳戶]。請查看訂用帳戶識別碼來尋找預設目錄。
 
@@ -56,13 +56,14 @@ Microsoft Azure 中的管理員角色有三種：
 
  * 現在可以使用組織帳戶登入至 Azure，以下是服務管理員和共同管理員帳戶需求的變更：
 
-	| 登入方法| 將 Microsoft 帳戶或預設目錄中的使用者新增為 CA 或 SA？ |將相同組織中的組織帳戶新增為 CA 或 SA？ |將不同組織中的組織帳戶新增為 CA 或 SA？
-	| ------------- | ------------- |---------------|---------------|
-	|Microsoft 帳戶 |是|否|否|
-	|組織帳戶|是|是|否|
+	登入方法| 將 Microsoft 帳戶或預設目錄中的使用者新增為 CA 或 SA？ |將相同組織中的組織帳戶新增為 CA 或 SA？ |將不同組織中的組織帳戶新增為 CA 或 SA？
+	------------- | ------------- |---------------|---------------
+	Microsoft 帳戶 |是|否|否
+	組織帳戶|是|是|否
 
 ## 如何變更訂用帳戶的服務管理員
-只有帳戶管理員可以變更訂用帳戶的服務管理員。
+
+Azure 傳統入口網站只有帳戶管理員可以變更訂用帳戶的服務管理員。
 
 1. 以帳戶管理員的身分登入[帳戶管理入口網站](https://account.windowsazure.com/subscriptions)。
 
@@ -88,4 +89,4 @@ Microsoft Azure 中的管理員角色有三種：
 
 * 如需有關 Azure Active Directory 如何與您的 Azure 訂用帳戶關聯的詳細資訊，請參閱[在 Azure Active Directory (Azure AD) 中指派系統管理員角色](./active-directory/active-directory-assign-admin-roles.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

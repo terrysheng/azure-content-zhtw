@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/24/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma"/>
 
 # 如何管理使用 PowerShell 的 DNS 區域
@@ -113,4 +113,4 @@
 
 [使用 .NET SDK 自動化作業](dns-sdk.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -58,7 +58,7 @@ Azure 診斷延伸模組可以把這項資料傳送到 Azure 儲存體帳戶，�
 如需更進階的主題，請參閱
 - [搭配適用於雲端服務的 Application Insights 來使用 Azure 診斷](./application-insights/app-insights-cloudservices.md)
 - [使用 Azure 診斷追蹤雲端服務應用程式的流程](./cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
-- [使用 PowerShell 在雲端服務上設定診斷](./virtual-machines/virtual-machines-extensions-diagnostics-windows-powershell.md)
+- [使用 PowerShell 在雲端服務上設定診斷](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
 
 
 ## 使用 Azure 診斷的虛擬機器
@@ -66,8 +66,8 @@ Azure 診斷延伸模組可以把這項資料傳送到 Azure 儲存體帳戶，�
 - [在 Azure 虛擬機器上設定 Azure 診斷](./virtual-machines-dotnet-diagnostics.md)
 
 如需更進階的主題，請參閱
-- [使用 PowerShell 在 Azure 虛擬機器上設定診斷](./virtual-machines/virtual-machines-extensions-diagnostics-windows-powershell.md)
-- [使用 Azure Resource Manager 範本建立具有監視和診斷的 Windows 虛擬機器](./virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md)
+- [使用 PowerShell 在 Azure 虛擬機器上設定診斷](./virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md)
+- [使用 Azure Resource Manager 範本建立具有監視和診斷的 Windows 虛擬機器](./virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
 ## 使用 Azure 診斷的 Service Fabric
 請參閱[監視 Service Fabric 應用程式](./service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)來開始。當您抵達這篇文章所在網頁時，可以利用左側的導覽樹狀目錄前往許多其他的 Service Fabric 診斷文章。
@@ -79,4 +79,4 @@ Azure 診斷延伸模組可以把這項資料傳送到 Azure 儲存體帳戶，�
 - 了解如何[把 Azure 診斷資訊路由到 Application Insights](./azure-diagnostics-configure-applicationinsights.md)。
 - 如果您在開始診斷，或是在 Azure 儲存體資料表中尋找資料時遇到問題，請參閱 [Azure 診斷疑難排解](./azure-diagnostics-troubleshooting.md)。
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

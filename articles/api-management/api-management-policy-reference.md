@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="03/22/2016" 
 	ms.author="sdanie"/>
 
 # Azure API 管理原則參考文件
@@ -59,7 +59,7 @@
 	-	[將 JSON 轉換成 XML][] - 將要求或回應內文從 JSON 轉換成 XML。
 	-	[將 XML 轉換成 JSON][] - 將要求或回應內文從 XML 轉換成 JSON。
 	-	[在內文中尋找並取代字串][] - 尋找要求或回應子字串，並替換為其他子字串。
-	-	[遮罩內容中的 URL][] - 重寫 (遮罩) 回應內文與位置標頭中的連結，使其經由閘道指向同等的連結。
+	-	[遮罩內容中的 URL][] - 重寫 (遮罩) 回應內文的連結，使其經由閘道器指向同等的連結。
 	-	[設定後端服務][] - 變更傳入要求的後端服務。
 	-	[設定本文][] - 設定傳入和傳出要求的訊息本文。
 	-	[設定 HTTP 標頭][] - 指派值給現有的回應及/或要求標頭，或加入新的回應及/或要求標頭。
@@ -119,4 +119,4 @@
 
  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -13,22 +13,29 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/05/2016"
+    ms.date="03/14/2016"
     ms.author="larryfr"/>
 
 # 使用 HDInsight 開發指令碼動作
 
-指令碼動作是自訂 Azure HDInsight 叢集的方式，方法是在安裝期間指定叢集組態設定，或者在叢集上安裝額外服務、工具或其他軟體。
+指令碼動作是自訂 Azure HDInsight 叢集的方式，方法是指定叢集組態設定，或者在叢集上安裝額外服務、工具或其他軟體。您可以在叢集建立期間或在執行中的叢集上使用指令碼動作。
 
 > [AZURE.NOTE] 本文件的資訊是以 Linux 為基礎的 HDInsight 叢集的特定資訊。如需有關搭配以 Windows 為基礎的叢集使用指令碼動作的詳細資訊，請參閱[使用 HDInsight 進行指令碼動作開發 (Windows)](hdinsight-hadoop-script-actions.md)。
 
 ## 什麼是指令碼動作？
 
-指令碼動作是在佈建期間在叢集節點上執行的 Bash 指令碼。指令碼動作是依據根權限來執行，並具有叢集節點的完整存取權限。
+指令碼動作是 Azure 在叢集節點上執行以進行組態變更或安裝軟體的 Bash 指令碼。指令碼動作是依據根權限來執行，並具有叢集節點的完整存取權限。
 
-您可以在使用 __Azure 入口網站__、__Azure PowerShell__ 或 __HDInsight .NET SDK__ 佈建叢集時，使用指令碼動作。
+您可以透過下列方法套用指令碼動作︰
 
-如需使用指令碼動作自訂叢集的逐步解說，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+| 使用此方法來套用指令碼... | 在叢集建立期間... | 在執行中的叢集上... |
+| ----- |:-----:|:-----:|
+| Azure 入口網站 | ✓ | ✓ |
+| Azure PowerShell | ✓ | ✓ |
+| HDInsight .NET SDK | ✓ | ✓ |
+| Azure Resource Manager 範本 | ✓ | &nbsp; |
+
+如需使用這些方法來套用指令碼動作的詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 ## <a name="bestPracticeScripting"></a>指令碼開發的最佳做法
 
@@ -51,7 +58,7 @@
 
 ### <a name="bPS2"></a>提供穩定的指令碼資源連結
 
-使用者應該確定在叢集的整個存留期間，由指令碼使用的所有指令碼及資源都保持可用，並且這些檔案的版本在此持續時間內不會變更。如果叢集中的節點重新製作映像，就必須有這些資源。
+使用者應該確定在叢集的整個存留期間，由指令碼使用的所有指令碼及資源都保持可用，並且這些檔案的版本在此持續時間內不會變更。如果已在調整作業期間將新節點加入至叢集，則需要這些資源。
 
 最佳做法是下載並封存您的訂用帳戶上 Azure 儲存體帳戶中的所有項目。
 
@@ -65,7 +72,7 @@
 
 ### <a name="bPS3"></a>確保叢集自訂指令碼具有等冪性
 
-您必須預期在叢集存留期間將會為 HDInsight 叢集的節點重新製作映像。且在發生時會使用叢集自訂指令碼。此指令碼必須設計成具有等冪性，意思就是在重新製作映像時，此指令碼應該確保叢集在每一次執行時會回到相同的狀態。
+概念上必須將指令碼設計為等冪，意思就是，如果多次執行指令碼，就應該確保叢集在每一次執行時都會回到相同的狀態。
 
 例如，如果自訂指令碼在第一次執行時，在 /usr/local/bin 中安裝了某個應用程式，則在後續每次的執行中，此指令碼應該先檢查 /usr/local/bin 位置中是否有該應用程式，再繼續執行指令碼中的其他步驟。
 
@@ -77,7 +84,7 @@
 
 ### <a name="bPS6"></a>設定自訂元件來使用 Azure Blob 儲存體
 
-您安裝在叢集上的元件可能有使用 Hadoop 分散式檔案系統 (HDFS) 儲存體的預設組態。在重新製作叢集映像時，會格式化 HDFS 檔案系統，因此您會遺失儲存在其中的所有資料。您應該變更組態，改為使用 Azure Blob 儲存體 (WASB)，因為這是叢集的預設儲存體，即使刪除叢集也會保留。
+您安裝在叢集上的元件可能有使用 Hadoop 分散式檔案系統 (HDFS) 儲存體的預設組態。HDInsight 使用 Azure Blob 儲存體 (WASB) 做為預設儲存體。這提供 HDFS 相容的檔案系統，即使刪除叢集，也能保存資料。您應該設定要安裝來使用 WASB 而非 HDFS 的元件。
 
 例如，以下會將 giraph-examples.jar 檔案從本機檔案系統複製到 WASB：
 
@@ -85,7 +92,9 @@
 
 ### <a name="bPS7"></a>將資訊寫入 STDOUT 和 STDERR
 
-寫入 STDOUT 和 STDERR 的資訊會記錄起來，可以在使用 Ambari Web UI 佈建叢集之後檢視。
+系統會記錄指令碼執行期間寫入 STDOUT 和 STDERR 的資訊，而且可以使用 Ambari Web UI 加以檢視。
+
+> [AZURE.NOTE] 只有在成功建立叢集之後，才能使用 Ambari。如果您在叢集建立期間使用指令碼動作，但建立失敗，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)的疑難排解小節，以取得存取記錄資訊的其他方式。
 
 大部分的公用程式和安裝套件已經將資訊寫入 STDOUT 和 STDERR，不過您可能想要新增其他記錄。若要將文字傳送到 STDOUT，請使用 `echo`。例如：
 
@@ -93,7 +102,7 @@
 
 根據預設，`echo` 會將字串傳送至 STDOUT。若要將其導向至 STDERR，請在 `echo` 之前加入 `>&2`。例如：
 
-        >&2 echo "An error occured installing Foo"
+        >&2 echo "An error occurred installing Foo"
 
 這會將傳送到 STDOUT (1，這是預設值，因此未在此處列出) 的資訊重新導向至 STDERR (2)。如需 IO 重新導向的詳細資訊，請參閱 [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html)。
 
@@ -171,14 +180,13 @@ Bash 指令碼應該儲存為 ASCII 格式，該格式以 LF 做為行尾結束�
 
 ## <a name="runScriptAction"></a>如何執行指令碼動作
 
-您可以透過 Azure 入口網站、Azure PowerShell 或 HDInsight .NET SDK，使用指令碼動作自訂 HDInsight 叢集。如需指示，請參閱[如何使用指令碼動作](hdinsight-hadoop-customize-cluster-linux.md#howto)。
+您可以透過 Azure 入口網站、Azure PowerShell、Azure Resource Manager (ARM) 或 HDInsight .NET SDK，使用指令碼動作來自訂 HDInsight 叢集。如需指示，請參閱[如何使用指令碼動作](hdinsight-hadoop-customize-cluster-linux.md)。
 
 ## <a name="sampleScripts"></a>自訂指令碼範例
 
 Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。您可以在下方的連結中找到這些範例指令碼和其使用方式的說明：
 
 - [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)
-- [在 HDInsight 叢集上安裝及使用 Spark](hdinsight-hadoop-spark-install-linux.md)
 - [在 HDInsight Hadoop 叢集上安裝和使用 R](hdinsight-hadoop-r-scripts-linux.md)
 - [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install-linux.md)
 - [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install-linux.md)  
@@ -216,8 +224,12 @@ _解決方式_：將檔案儲存為 ASCII，或不具有 BOM 的 UTF-8。您也�
 
 對於上述命令，以包含 BOM 的檔案取代 __INFILE__。__OUTFILE__ 應該是新檔案的名稱，且包含不具有 BOM 的指令碼。
 
-## <a name="seeAlso"></a>另請參閱
+## <a name="seeAlso"></a>接續步驟
 
-[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)
+* 深入了解[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-<!---HONumber=AcomDC_0211_2016-->
+* 使用 [HDInsight.NET SDK 參考](https://msdn.microsoft.com/library/mt271028.aspx)，深入了解如何建立 .NET 應用程式來管理 HDInsight
+
+* 使用 [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx)，以了解如何使用 REST，在 HDInsight 叢集上執行管理動作。
+
+<!---HONumber=AcomDC_0323_2016-->

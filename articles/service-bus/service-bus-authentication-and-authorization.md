@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="03/09/2016"
    ms.author="sethm" />
 
 # 服務匯流排驗證和授權
@@ -73,4 +73,4 @@ New-AzureSBNamespace <namespaceName> "<Region>” -CreateACSNamespace $false
 
 您可以在[作法：透過 OAuth 包裝通訊協定向 ACS 要求權杖](https://msdn.microsoft.com/library/hh674475.aspx)中找到 ACS 權杖的詳細資訊。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0316_2016-->

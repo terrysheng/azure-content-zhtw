@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # 在 Application Insights 中診斷相依性問題
@@ -50,10 +50,11 @@
 
 平台 | 安裝
 ---|---
-IIS 伺服器 | [狀態監視器](app-insights-monitor-performance-live-website-now.md)
+IIS 伺服器 | [在您的伺服器上安裝狀態監視器](app-insights-monitor-performance-live-website-now.md)或[將您的應用程式升級到 .NET Framework 4.6 或更新版本](http://go.microsoft.com/fwlink/?LinkId=528259) 
 Azure Web 應用程式 | [Application Insights 延伸模組](../azure-portal/insights-perf-analytics.md)
 Java Web 伺服器 | [Java Web 應用程式](app-insights-java-agent.md)
 網頁 | [JavaScript 監視](app-insights-javascript.md) (沒有網頁監視以外的其他設定)
+雲端服務 | [使用啟動工作](app-insights-cloudservices.md#dependencies)或[安裝 .NET Framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md)  
 
 IIS 伺服器的狀態監視器不需要您使用 Application Insights SDK 重新建置來源專案。
 
@@ -139,4 +140,4 @@ IIS 伺服器的狀態監視器不需要您使用 Application Insights SDK 重�
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

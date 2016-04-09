@@ -1,4 +1,7 @@
->[AZURE.NOTE]若要完成此程序，您必須要有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>。
+
+###利用 API 金鑰建立 Google 雲端通訊專案
+
+>[AZURE.NOTE] 若要完成此程序，您必須要有已通過電子郵件地址驗證的 Google 帳戶。若要建立新的 Google 帳戶，請前往 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>。
 
 1. 導覽至 [Google 雲端主控台](https://console.developers.google.com/project)，並使用 Google 帳戶認證登入，然後按一下 [建立專案]。
 
@@ -31,4 +34,4 @@
 
 7. 記下 [API 金鑰] 的值。您稍後會使用此 API 金鑰值來設定 [原生推送] 區段。
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0330_2016-->

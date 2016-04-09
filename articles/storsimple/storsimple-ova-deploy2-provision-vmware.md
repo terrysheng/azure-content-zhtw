@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/01/2016"
+   ms.date="03/10/2016"
    ms.author="alkohli"/>
 
 
@@ -22,7 +22,7 @@
 ![](./media/storsimple-ova-deploy2-provision-vmware/vmware4.png)
 
 ## 概觀 
-本佈建教學課程適用於執行 2016 年 3 月公開上市 (GA) 版的 StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。本教學課程說明如何在執行 VMware ESXi 5.5 及更新版本 的主機系統上佈建及連線到 StorSimple 虛擬陣列。
+本佈建教學課程適用於執行 2016 年 3 月公開上市 (GA) 版的 StorSimple Virtual Array (也稱為 StorSimple 內部部署虛擬裝置或 StorSimple 虛擬裝置)。本教學課程說明如何在執行 VMware ESXi 5.5 及更新版本 的主機系統上佈建及連線到 StorSimple 虛擬陣列。本文適用於 StorSimple Virtual Arrays 在 Azure 傳統入口網站的部署，以及 Microsoft Azure 政府服務雲端。
 
 您需要系統管理員權限，才能佈建及連線到虛擬裝置。佈建及初始安裝程序可能需要大約 10 分鐘的時間才能完成。
 
@@ -257,15 +257,15 @@
 
 1.  步驟 6 至 8 僅適用於在非 DHCP 環境中開機的情況。如果您是在 DHCP 環境中，請略過這些步驟並前往步驟 9。如果您是在非 DHCP 環境中讓裝置開機，您會看到下列畫面。
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image42.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image42m.png)
 
 	您現在必須設定網路。
 
 1.  使用 `Get-HcsIpAddress` 命令來列出虛擬裝置上已啟用的網路介面。如果您的裝置有已啟用的單一網路介面，系統指派給該介面的預設名稱會是 `Ethernet`。
 
-	![](./media/storsimple-ova-deploy2-provision-vmware/image43.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image43m.png)
 
-1.  使用 Set-HcsIpAddress Cmdlet 來設定網路。範例如下所示：
+1.  使用 `Set-HcsIpAddress` Cmdlet 設定網路。範例如下所示：
 
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
@@ -276,11 +276,22 @@
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image45.png)
 
-如果裝置不符合最低設定需求，橫幅文字中會出現錯誤訊息 (如下所示)。您必須修改裝置設定，讓裝置有足夠的資源來符合最低需求。然後您就可以將裝置重新啟動，並連線到該裝置。請參閱〈[步驟 1：確認主機系統符合最低的虛擬裝置需求](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)〉中的最低設定需求。
+
+1. (選擇性) 只有當您要在政府服務雲端部署裝置時，才執行這個步驟。您現在將在您的裝置上啟用美國聯邦資訊處理標準 (FIPS) 模式。FIPS 140 標準定義核准美國聯邦政府電腦系統所使用的密碼編譯演算法來保護機密資料。
+	1. 若要啟用 FIPS 模式，請執行下列 Cmdlet：
+		
+		`Enter-HcsFIPSMode`
+
+	2. 在您啟用 FIPS 模式之後，重新啟動您的裝置，讓密碼編譯驗證生效。
+
+		> [AZURE.NOTE] 您可以在您的裝置上啟用或停用 FIPS 模式。不支援在 FIPS 和非 FIPS 模式之間替換裝置。
+
+
+如果裝置不符合最低設定需求，橫幅文字中會出現錯誤訊息 (如下所示)。您必須修改裝置設定，讓裝置有足夠的資源來符合最低需求。然後您就可以將裝置重新啟動，並連線到該裝置。請參閱[步驟 1：確認主機系統符合最低的虛擬裝置需求](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)中的最低設定需求。
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/image46.png)
 
-如果您在使用本機 Web UI 進行初始設定作業時碰到任何錯誤，請參閱[使用本機 Web UI 管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md) 中的下列工作流程。
+如果您在使用本機 Web UI 進行初始設定作業時碰到其他任何錯誤，請參閱[使用本機 Web UI 管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md) 中的下列工作流程。
 
 -   執行診斷測試來[排解使用 Web UI 安裝時所發生的錯誤](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors)。
 
@@ -292,4 +303,4 @@
 
 -   [Set up your StorSimple Virtual Array as an iSCSI server (將 StorSimple 虛擬陣列設定為 iSCSI 伺服器)](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0316_2016-->

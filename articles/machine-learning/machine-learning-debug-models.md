@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="03/02/2016" 
 	ms.author="bradsev;garye" />
 
 # 在 Azure Machine Learning 中為模型偵錯
@@ -47,7 +47,7 @@
 
 ![image2](./media/machine-learning-debug-models/train_test-2.png)
 
-在受監督之學習的典型訓練/測試圖形中，[分割][split]模組會將原始資料夾分成兩個部分：用於定型模型的部分，以及保留以用於計分的部分 (針對定型模型在未定型資料上的表現程度計分)。接著，使用定型模型為測試資料評分，然後再評估結果以判斷模型的準確性。
+在受監督之學習的典型訓練/測試圖形中，[分割資料][split]模組會將原始資料集分成兩個部分：用於定型模型的部分，以及保留來用於計分的部分 (針對定型模型在未定型資料上的表現程度計分)。接著，使用定型模型為測試資料評分，然後再評估結果以判斷模型的準確性。
 
 [計分模型][score-model]模組需要兩個輸入：
 
@@ -69,4 +69,4 @@
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

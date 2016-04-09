@@ -18,12 +18,12 @@
 
 # 在您的行動服務應用程式中新增驗證
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[將驗證加入 Xamarin.Android 應用程式中](../app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md)。
 
 <p>本主題顯示如何在 Azure 行動服務中從 Xamarin.Android 應用程式驗證使用者。在本教學課程中，您將使用行動服務支援的身分識別提供者，將驗證加入至快速入門專案。由行動服務成功驗證並授權之後，就會顯示使用者識別碼值。</p>
 
@@ -142,4 +142,4 @@
 [使用指令碼授權使用者]: mobile-services-javascript-backend-service-side-authorization.md
 [完成的範例專案]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

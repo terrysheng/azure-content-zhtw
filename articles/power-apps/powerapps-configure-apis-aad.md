@@ -5,7 +5,7 @@
     suite="powerapps"
 	documentationCenter="" 
 	authors="MandiOhlinger"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="03/02/2016"
    ms.author="guayan"/>
 
 # 設定 API 連接到 Azure Active Directory 網域上的後端資源
@@ -41,20 +41,20 @@
 5. 在 [單一登入] 中加入 ``https://<your App Service Environment name>.azure-apim.net:456/redirect`` 為**回覆 URL**。
 6. 在 [其他應用程式的權限] 中：  
 
-	a) 選取 [加入應用程式]。在快顯視窗中，選擇保護您現有後端的 AAD 應用程式：![][17]
+	1. 選取 [加入應用程式]。在快顯視窗中，選擇保護您現有後端的 AAD 應用程式：![][17]  
 
-	b) 使用下拉式清單加入權限：![][18]
+	2. 使用下拉式清單加入權限：![][18]
 
 7. 選取底部的 [儲存]。
 8. 複製並儲存**用戶端識別碼**和**金鑰**。關閉 Azure 入口網站之後，金鑰就不再出現。 
 
-如需 AAD 應用程式的詳細資訊，請參閱[整合應用程式與 Azure Active Directory](../active-directory-integrating-applications.md)。
+如需 AAD 應用程式的詳細資訊，請參閱[整合應用程式與 Azure Active Directory](../active-directory/active-directory-integrating-applications.md)。
 
 ## 步驟 2：使用 Azure PowerShell 設定 API
 
 此時，沒有任何 Azure 入口網站支援可初始化 API 需要的設定。若要在 Azure 入口網站中設定 API，請使用下列 Azure PowerShell 指令碼：
 
-> [AZURE.TIP]若要了解如何安裝、設定和執行 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell][11]。下列指令碼可搭配 Azure PowerShell 1.0 Preview 或更新版本使用。
+> [AZURE.TIP] 若要了解如何安裝、設定和執行 Azure PowerShell，請參閱[如何安裝和設定 Azure PowerShell][11]。下列指令碼可搭配 Azure PowerShell 1.0 Preview 或更新版本使用。
 
 ```powershell
 # get the API resource
@@ -134,7 +134,7 @@ New-AzureRmResource -Location $api.Location -ResourceId $api.ResourceId -Propert
 </policies>
 ```
 
-請查看這個原則，基本上，它讓您使用**權杖**變數將 **x-ms-apim-tokens** 標頭中的值當做解碼的 JObject 參考。然後您就可以使用 **set-header** 原則取得實際的 AAD 權杖，並將它設定到**授權**標頭。這和 [Azure API 管理](https://azure.microsoft.com/services/api-management/)使用的原則一樣。如需詳細資訊，請參閱 [Azure API 管理的原則](../api-management-howto-policies.md)。
+請查看這個原則，基本上，它讓您使用**權杖**變數將 **x-ms-apim-tokens** 標頭中的值當做解碼的 JObject 參考。然後您就可以使用 **set-header** 原則取得實際的 AAD 權杖，並將它設定到**授權**標頭。這和 [Azure API 管理](https://azure.microsoft.com/services/api-management/)使用的原則一樣。如需詳細資訊，請參閱 [Azure API 管理的原則](../api-management/api-management-howto-policies.md)。
 
 **請注意，**屬性名稱**權杖**要符合您設定此設定時所用的連接參數名稱。
 
@@ -157,4 +157,4 @@ New-AzureRmResource -Location $api.Location -ResourceId $api.ResourceId -Propert
 [20]: https://tools.ietf.org/html/rfc4648
 [21]: ./media/powerapps-configure-apis-aad/api-settings-aad.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0309_2016-->

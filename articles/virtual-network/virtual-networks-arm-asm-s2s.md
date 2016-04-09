@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/15/2016"
    ms.author="telmos" />
 
 # 將傳統 VNet 連接到新的 VNet
@@ -23,7 +23,7 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 
 ![](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure01.png)
 
->[AZURE.NOTE]這份文件會引導您完成用於測試用途的端對端解決方案。如果您已設定 VNet，而且熟悉 Azure 中的 VPN 閘道與站台對站台連線，請造訪[在 ARM VNet 與傳統 VNet 之間設定 S2S VPN](../virtual-networks-arm-asm-s2s-howto.md)。
+>[AZURE.NOTE] 這份文件會引導您完成用於測試用途的端對端解決方案。如果您已設定 VNet，而且熟悉 Azure 中的 VPN 閘道與站台對站台連線，請造訪[在 ARM VNet 與傳統 VNet 之間設定 S2S VPN](virtual-networks-arm-asm-s2s-howto.md)。
 
 若要測試此案例，您將：
 
@@ -33,7 +33,7 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 
 您將執行上述步驟，方法是首先使用傳統 Azure 管理工具，包括傳統入口網站、網路組態檔，以及 Azure 服務管理員 PowerShell Cmdlet；而且稍後會移至新的管理工具，包括新的 Azure 入口網站、ARM 範本和 ARM PowerShell Cmdlet。
 
->[AZURE.IMPORTANT]若要使 VNet 彼此連接，它們不能有相衝突的 CIDR 區塊。確定每個 VNet 具有唯一的 CIDR 區塊！
+>[AZURE.IMPORTANT] 若要使 VNet 彼此連接，它們不能有相衝突的 CIDR 區塊。確定每個 VNet 具有唯一的 CIDR 區塊！
 
 ## 建立傳統 VNet 環境
 
@@ -43,15 +43,9 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 
 若要建立新的 VNet 對應至上述圖 1，請遵循下列指示。
 
-1. 從 PowerShell 主控台中，執行下列命令以新增您的 Azure 帳戶。
+1. 從 PowerShell 主控台中，執行下列命令以登入 Azure 帳戶。
 
-		Add-AzureAccount
-
-2. 遵循登入對話方塊的指示，來使用您的 Azure 帳戶登入。
-
-3. 執行下列命令，來確定您是使用 Azure 服務管理 PowerShell Cmdlet。
-
-		Switch-AzureMode AzureServiceManagement
+		Login-AzureRmAccount
 
 4. 執行下列命令來下載 Azure 網路組態檔。
 
@@ -153,7 +147,7 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 
 	![VNet 儀表板](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure04.png)
 
-	>[AZURE.NOTE]這項作業可能需要幾分鐘的時間。
+	>[AZURE.NOTE] 這項作業可能需要幾分鐘的時間。
 
 9. 一旦建立了閘道，請寫下閘道的公用 IP 位址，如下所見。稍後您將需要此位址，建立 ARM VNet 的區域網路。
 
@@ -195,12 +189,13 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 
 5. 若要建立 ARM VNet 和其相關物件，請在名為 **RG1** 的新資源群組中，執行下列 PowerShell 命令。確定您變更範本檔案和參數檔案的路徑。
 
-		Switch-AzureMode AzureResourceManager
-		New-AzureResourceGroup -Name RG1 -Location "Central US" `
+		New-AzureRmResourceGroup -Name RG1 -Location centralus
+
+		New-AzureRmResourceGroupDeployment -Name deployment01 `
 		    -TemplateFile C:\Azure\azuredeploy.json `
 		    -TemplateParameterFile C:\Azure\azuredeploy-parameters.json		
 
-	>[AZURE.NOTE]這項作業可能需要幾分鐘的時間。
+	>[AZURE.NOTE] 這項作業可能需要幾分鐘的時間。
 
 7. 從瀏覽器中，巡覽至 https://portal.azure.com/，並在需要時輸入您的認證。
 8. 按一下 Azure 入口網站中的 **RG1** 資源群組磚 ，如下所示。
@@ -232,7 +227,7 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 
 	![VNet 儀表板](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure10.png)
 
-	>[AZURE.NOTE]這項作業可能需要幾分鐘的時間。您可以移至本文件的下一個部分。
+	>[AZURE.NOTE] 這項作業可能需要幾分鐘的時間。您可以移至本文件的下一個部分。
 
 ## 連接兩個 VNet
 
@@ -261,10 +256,6 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 		                           etGatewayConfig"
 		                           }
 		DnsSettings              : null
-
-2. 執行下列命令，確定您是對 PowerShell 命令使用 Azure 服務管理 API。
-
-		Switch-AzureMode AzureServiceManagement
 
 3. 執行下列命令來下載 Azure 網路組態檔。
 
@@ -298,21 +289,17 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 
 既然您已設定傳統的 VNet 閘道，是時候建立連線。若要這樣做，請遵循下列指示。
 
-1. 從 PowerShell 主控台中，執行下列命令以切換到 ARM 模式。 
-
-		Switch-AzureMode AzureResourceManager
-
 2. 執行下列命令，在閘道之間建立連線。
 
-		$vnet01gateway = Get-AzureLocalNetworkGateway -Name vnet01 -ResourceGroupName RG1
-		$vnet02gateway = Get-AzureVirtualNetworkGateway -Name ArmAsmGateway -ResourceGroupName RG1
+		$vnet01gateway = Get-AzureRmLocalNetworkGateway -Name vnet01 -ResourceGroupName RG1
+		$vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name ArmAsmGateway -ResourceGroupName RG1
 		
-		New-AzureVirtualNetworkGatewayConnection -Name arm-asm-s2s-connection `
+		New-AzureRmVirtualNetworkGatewayConnection -Name arm-asm-s2s-connection `
 			-ResourceGroupName RG1 -Location "Central US" -VirtualNetworkGateway1 $vnet02gateway `
 			-LocalNetworkGateway2 $vnet01gateway -ConnectionType IPsec `
 			-RoutingWeight 10 -SharedKey 'abc123'
 
-3. 開啟 Azure 入口網站(網址是 https://manage.windowsazure.com )，並在需要時輸入您的認證。
+3. 開啟 Azure 入口網站 (網址是 https://manage.windowsazure.com)，並在需要時輸入您的認證。
 4. 在 [**所有項目**] 下，向下捲動並依序按一下 [**網路**]、[**vnet01**] 和 [**儀表板**]。請注意，現在已建立 **vnet01** 與 **vnet02** 之間的連線，如下所見。
 
 	![VNet 儀表板](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure11.png)
@@ -360,7 +347,7 @@ Azure 目前有兩種管理模式：Azure 服務管理員 (稱為傳統) 和 Azu
 
 ## 後續步驟
 
-- 深入了解 [ARM 的網路資源提供者 (NRP)](../resource-groups-networking.md)。
-- 檢視有關如何[在傳統 VNet 和 ARM VNet 之間建立 S2S VPN 連線](../virtual-networks-arm-asm-s2s-howto.md)的一般指導方針。
+- 深入了解 [ARM 的網路資源提供者 (NRP)](resource-groups-networking.md)。
+- 檢視有關如何[在傳統 VNet 和 ARM VNet 之間建立 S2S VPN 連線](virtual-networks-arm-asm-s2s-howto.md)的一般指導方針。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

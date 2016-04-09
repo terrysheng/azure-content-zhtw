@@ -3,9 +3,9 @@
 	description="了解如何針對 Stretch Database 進行管理和疑難排解"
 	services="sql-server-stretch-database"
 	documentationCenter=""
-	authors="douglasl"
-	manager="jhubbard"
-	editor="monicar"/>
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="sql-server-stretch-database"
@@ -51,6 +51,9 @@
 -   您的網路狀況可能已降級。請連絡您的網路系統管理員，以取得最新問題或中斷情形的資訊。
 
 ## 另請參閱
-[監視 Stretch Database](sql-server-stretch-database-monitor.md) [Backup and restore Stretch-enabled databases (備份與還原已啟用 Stretch 的資料庫)](sql-server-stretch-database-backup.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+[監視 Stretch Database](sql-server-stretch-database-monitor.md)
+
+[Backup and restore Stretch-enabled databases (備份與還原已啟用 Stretch 的資料庫)](sql-server-stretch-database-backup.md)
+
+<!---HONumber=AcomDC_0316_2016-->

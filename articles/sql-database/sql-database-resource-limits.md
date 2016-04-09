@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="02/17/2016"
+	ms.date="03/02/2016"
 	ms.author="jroth" />
 
 
@@ -55,12 +55,6 @@ Azure SQL Database 使用兩種不同機制來管理資料庫可使用的資源�
 
 如需上述表格所列之每項資源的擴充定義，請參閱[服務層功能和限制](sql-database-performance-guidance.md#service-tier-capabilities-and-limits)中的說明。如需服務層的概觀，請參閱 [Azure SQL Database 服務層和效能等級](sql-database-service-tiers.md)。
 
-## 每部伺服器的 DTU 配額
-
-Azure SQL Database 的每個邏輯伺服器目前有 15000 個 DTU 的 DTU 配額。此配額代表一部邏輯伺服器可以裝載的 DTU 數目，取決於 DTU 總數，以及伺服器上每個資料庫的效能層級。例如，若伺服器具備 5 個基本資料庫 (最多 5 X 5 個 DTU)、2 個標準 S1 資料庫 (最多 2 X 20 個 DTU)，以及 3 個進階 P1 資料庫 (最多 3 X 100 個 DTU)，便已用掉 15000 個 DTU 配額中的 365 個 DTU。
-
->[AZURE.NOTE] 您可以[連絡支援人員](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)，要求增加此配額。
-
 ## 其他 SQL Database 限制
 
 | 領域 | 限制 | 說明 |
@@ -75,4 +69,4 @@ Azure SQL Database 的每個邏輯伺服器目前有 15000 個 DTU 的 DTU 配�
 
 [SQL Database 用戶端程式的錯誤訊息](sql-database-develop-error-messages.md)
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

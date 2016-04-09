@@ -192,7 +192,7 @@ Azure WebJobs 具有下列特性：
 ### 詳細資訊
 
 - Azure 上的[虛擬機器](https://azure.microsoft.com/services/virtual-machines/)
-- [Azure 虛擬機器常見問題集](virtual-machines-questions.md)
+- [Azure 虛擬機器常見問題集](virtual-machines/virtual-machines-linux-classic-faq.md)
 
 ## 設計考量
 
@@ -317,4 +317,4 @@ Web 和背景工作角色在啟動、執行和停止時會經歷一組不同的�
 - [Azure 佇列和服務匯流排佇列 - 異同比較 (英文)](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [如何在雲端服務中啟用診斷 (英文)](cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

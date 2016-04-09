@@ -21,7 +21,7 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 
 具有 [Azure Active Directory Premium](active-directory-editions.md) 授權的客戶也會取得以下額外功能：
 
-* 任何支援 SAML 2.0 身分識別提供者的應用程式皆可進行自助式整合
+* 任何支援 SAML 2.0 身分識別提供者的應用程式皆可進行自助式整合 (SP 起始或 IdP 起始)
 * Web 應用程式可在使用[密碼型 SSO](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on) 的 HTML 登入頁面上進行自助式整合
 * 應用程式可使用 SCIM 通訊協定進行自助式連線，以執行使用者佈建 ([說明請見此處](active-directory-scim-provisioning))
 * 能夠在 [Office 365 應用程式啟動器](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)中新增任何應用程式的連結
@@ -38,7 +38,7 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 
 在應用程式資源庫，您可以使用左側的 [自訂] 類別來新增未列出的應用程式；找不到您想要的應用程式，可以選取顯示在搜尋結果中的 [新增未列出的應用程式] 連結來進行新增。輸入應用程式的名稱之後，您可以設定單一登入選項和行為。
 
-**快速提示**：最佳作法是使用搜尋函式來查看應用程式是否已存在於應用程式庫中。如果找到應用程式，且其描述提及「單一登入」，則應用程式已支援同盟單一登入。
+快速提示：最佳作法是使用搜尋函式來查看應用程式是否已存在於應用程式庫中。如果找到應用程式，且其描述提及「單一登入」，則應用程式已支援同盟單一登入。
 
 ![][2]
 
@@ -52,8 +52,26 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 選取此選項，可為應用程式設定 SAML 型驗證。若使用此選項，應用程式必須支援 SAML 2.0，您應先收集有關於如何使用應用程式之 SAML 功能的資訊，再繼續作業。選取 [下一步] 後，系統會提示您為應用程式輸入三個對應於 SAML 端點的不同 URL。
 
 ![][4]
+ 
+它們是：
 
-對話方塊中的工具提示圖示會詳細說明每個 URL 是什麼及其使用方式。在輸入這些資料後，請按 [下一步] 繼續前往下一個畫面。此畫面會提供相關資訊來說明在應用程式端需要進行哪些設定，才能使應用程式接受來自於 Azure AD 的 SAML 權杖。
+* 登入 URL (僅限 SP 起始) – 其中使用者會登入此應用程式。如果應用程式設定為執行服務提供者起始單一登入，則當使用者導覽到此 URL，服務提供者會執行必要的重新導向至 Azure AD，以進行驗證並將使用者登入。如果已填入此欄位，Azure AD 將使用此 URL 從 Office 365 和 Azure AD 存取面板中啟動應用程式。如果略過這個欄位，則 Azure AD 會改為執行識別提供者 - 即從 Office 365、Azure AD 存取面板或 Azure AD 單一登入 URL (可從 [儀表板] 索引標籤複製) 啟動應用程式時起始登入。
+
+* 簽發者 URL - 簽發者 URL 應專門用於識別正在設定單一登入的應用程式。這是 Azure AD 會傳送回應用程式做為 SAML 權杖的 Audience 參數值，應用程式預期會驗證它。在應用程式中提供的任何 SAML 中繼資料中，這個值也會顯示為實體識別碼。查看應用程式的 SAML 文件，了解實體識別碼或 Audience 值的詳細資訊。以下是觀眾 URL 在傳回應用程式的 SAML 權杖中的外觀範例︰
+
+```
+    <Subject>
+    <NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:unspecificed">chad.smith@example.com</NameID>
+        <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />
+      </Subject>
+      <Conditions NotBefore="2014-12-19T01:03:14.278Z" NotOnOrAfter="2014-12-19T02:03:14.278Z">
+        <AudienceRestriction>
+          <Audience>https://tenant.example.com</Audience>
+        </AudienceRestriction>
+      </Conditions>
+```
+
+* 回覆 URL -回覆 URL 是應用程式預期接收 SAML 權杖的位置。這也稱為判斷提示取用者服務 (ACS) URL。查看應用程式的 SAML 文件，了解 SAML 權杖回覆 URL 或 ACS URL 的詳細資訊。在輸入這些資料後，請按 [下一步] 繼續前往下一個畫面。此畫面會提供相關資訊來說明在應用程式端需要進行哪些設定，才能使應用程式接受來自於 Azure AD 的 SAML 權杖。 
 
 ![][5]
 
@@ -69,9 +87,9 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 
 ![][6]
 
-指派使用者可讓 Azure AD 為該使用者核發權杖，並使此應用程式的磚出現在使用者的存取面板中。如果使用者使用 Office 365，則也會有應用程式磚出現在 Office 365 應用程式啟動器中。
+指派使用者可讓 Azure AD 為該使用者核發權杖，並使此應用程式的圖格出現在使用者的存取面板中。如果使用者使用 Office 365，則也會有應用程式圖格出現在 Office 365 應用程式啟動器中。
 
-您可以在應用程式的 [設定] 索引標籤上使用 [上傳標誌] 按鈕，來上傳應用程式的磚標誌。
+您可以在應用程式的 [設定] 索引標籤上使用 [上傳標誌] 按鈕，來上傳應用程式的圖格標誌。
 
 ###自訂在 SAML 權杖中發出的宣告 
 
@@ -89,7 +107,7 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 
 在 Azure AD 中和應用程式中設定 SAML URL 和憑證、將使用者或群組指派給 Azure 中的應用程式，並且已視需要檢視和編輯宣告之後，使用者即可登入應用程式。
 
-若要進行測試，請在 https://myapps.microsoft.com 上使用您指派給應用程式的使用者帳戶登入 Azure AD 存取面板，然後按一下應用程式的磚開始進行單一登入程序。或者，您可以直接瀏覽至應用程式的 [登入 URL]，並從該處登入。
+若要進行測試，請在 https://myapps.microsoft.com 上使用您指派給應用程式的使用者帳戶登入 Azure AD 存取面板，然後按一下應用程式的圖格開始進行單一登入程序。或者，您可以直接瀏覽至應用程式的 [登入 URL]，並從該處登入。
 
 如需偵錯提示，請參閱這篇[有關於如何對應用程式的 SAML 型單一登入進行偵錯的文章](active-directory-saml-debugging.md)
 
@@ -101,7 +119,7 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 
 在擷取登入頁面後，即可指派使用者和群組，並且可像[密碼 SSO 應用程式](active-directory-appssoaccess-whatis.md)一般設定認證原則。
 
-注意：您可以在應用程式的 [設定] 索引標籤上使用 [上傳標誌] 按鈕，來上傳應用程式的磚標誌。
+注意：您可以在應用程式的 [設定] 索引標籤上使用 [上傳標誌] 按鈕，來上傳應用程式的圖格標誌。
 
 ##現有單一登入
 
@@ -109,7 +127,7 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 
 選取 [下一步] 之後，系統會提示您輸入要連結到的應用程式的 URL。完成之後，使用者和群組即可指派給應用程式，而使應用程式出現在這些使用者的 [Office 365 應用程式啟動器](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)中。
 
-注意：您可以在應用程式的 [設定] 索引標籤上使用 [上傳標誌] 按鈕，來上傳應用程式的磚標誌。
+注意：您可以在應用程式的 [設定] 索引標籤上使用 [上傳標誌] 按鈕，來上傳應用程式的圖格標誌。
 
 ## 相關文章
 
@@ -126,4 +144,4 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0309_2016-->

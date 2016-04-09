@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # 移轉資料
@@ -28,18 +28,18 @@
 
 PolyBase 還提供極高效能選項來載入資料。不過，這表示要使用兩種工具，而不止一種工具。如果您需要達到最佳效能，請使用 PolyBase。如果只想要使用單一工具 (且資料量不大)，則 ADF 就是答案。
 
-> [AZURE.NOTE]PolyBase 規定資料檔案必須為 UTF-8。這是 ADF 複製的預設編碼，無可變更之處。這是提醒您不要變更 ADF 複製的預設行為。
+> [AZURE.NOTE] PolyBase 規定資料檔案必須為 UTF-8。這是 ADF 複製的預設編碼，無可變更之處。這是提醒您不要變更 ADF 複製的預設行為。
 
 請閱讀下文，內有一些很好的 [ADF 複製範例]。
 
 ## Integration Services ##
 Integration Services (SSIS) 是一個功能強大且靈活的擷取轉換和載入 (ETL) 工具，支援複雜的工作流程、資料轉換，以及數個資料載入選項。使用 SSIS 來單純將資料傳輸至 Azure，或做為更廣泛移轉的一部分。
 
-> [AZURE.NOTE]SSIS 可以匯出為 UTF-8，檔案中不需要有位元組順序標示。若要這樣設定，您必須先使用衍生的資料行元件，轉換資料流程中的字元資料來使用 65001 UTF-8 字碼頁。一旦轉換資料行之後，接著將資料寫入一般檔案目的地配接器，但要確定也已選取 65001 做為檔案的字碼頁。
+> [AZURE.NOTE] SSIS 可以匯出為 UTF-8，檔案中不需要有位元組順序標示。若要這樣設定，您必須先使用衍生的資料行元件，轉換資料流程中的字元資料來使用 65001 UTF-8 字碼頁。一旦轉換資料行之後，接著將資料寫入一般檔案目的地配接器，但要確定也已選取 65001 做為檔案的字碼頁。
 
 SSIS 會連接到 SQL 資料倉儲，就像連接到 SQL Server 部署一樣。不過，您的連線必須使用 ADO.NET 連接管理員。您也應該小心設定「可用時使用大量插入」設定，以最大化輸送量。若要深入了解該屬性，請參閱 [ADO.NET 目的地配接器][]
 
-> [AZURE.NOTE]不支援使用 OLEDB 連接到 Azure SQL 資料倉儲。
+> [AZURE.NOTE] 不支援使用 OLEDB 連接到 Azure SQL 資料倉儲。
 
 此外，封裝經常可能因為節流或網路問題而失敗。請將封裝設計成可以從失敗點繼續，而不必重做失敗之前已完成的工作。
 
@@ -48,7 +48,7 @@ SSIS 會連接到 SQL 資料倉儲，就像連接到 SQL Server 部署一樣。�
 ## bcp
 bcp 是專為一般檔案資料匯入和匯出所設計的命令列公用程式。資料匯出期間可能進行某些轉換。若要執行簡單的轉換，請使用查詢來選取和轉換資料。一旦匯出之後，一般檔案就可以直接載入到目標 SQL 資料倉儲資料庫。
 
-> [AZURE.NOTE]通常建議將資料匯出時使用的轉換封裝在來源系統上的檢視表中。這可確保邏輯得以保留，且程序是可重複。
+> [AZURE.NOTE] 通常建議將資料匯出時使用的轉換封裝在來源系統上的檢視表中。這可確保邏輯得以保留，且程序是可重複。
 
 bcp 的優點包括：
 
@@ -84,7 +84,7 @@ SQLDW 資料移轉程序可以有效地分成三個獨立的步驟：
 ### 編碼
 PolyBase 規定資料檔案必須為 UTF-8 編碼。這表示匯出資料時，資料必須符合這項需求。如果您的資料只包含基本 ASCII 字元 (不是擴充的 ASCII)，則這些會直接對應到 UTF-8 標準，您不需要太擔心編碼。不過，如果您的資料包含任何特殊字元，例如變音符號、腔調字或符號，或您的資料支援非拉丁語言，則您必須確保匯出檔案經過適當的 UTF-8 編碼。
 
-> [AZURE.NOTE]bcp 不支援將資料匯出為 UTF-8。因此，最好的選擇是使用 Integration Services 或 ADF 複製來匯出資料。值得一提，資料檔案中不需要 UTF-8 位元組順序標記 (BOM)。
+> [AZURE.NOTE] bcp 不支援將資料匯出為 UTF-8。因此，最好的選擇是使用 Integration Services 或 ADF 複製來匯出資料。值得一提，資料檔案中不需要 UTF-8 位元組順序標記 (BOM)。
 
 資料傳輸***之前***，任何使用 UFT-16 編碼的檔案都需要重新撰寫。
 
@@ -153,7 +153,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
 ## 最佳化資料匯出
 除了確保匯出符合 PolyBase 所規定的需求，您也可以設法最佳化資料匯出，以進一步改善程序。
 
-> [AZURE.NOTE]因為 PolyBase 要求資料必須是 UTF-8 格式，您不太可能使用 bcp 來執行資料匯出。bcp 不支援將資料檔案輸出為 UTF-8。SSIS 或 ADF 複製比較適合執行這類的資料匯出。
+> [AZURE.NOTE] 因為 PolyBase 要求資料必須是 UTF-8 格式，您不太可能使用 bcp 來執行資料匯出。bcp 不支援將資料檔案輸出為 UTF-8。SSIS 或 ADF 複製比較適合執行這類的資料匯出。
 
 ### 資料壓縮
 PolyBase 可以讀取 gzip 壓縮的資料。如果您可以將資料壓縮成 gzip 檔案，就能將網路上推送的資料量減到最少。
@@ -194,4 +194,4 @@ PolyBase 也支援一項稱為「遞迴資料夾周遊」的功能。您可以�
 [ADO.NET 目的地配接器]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS 文件]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

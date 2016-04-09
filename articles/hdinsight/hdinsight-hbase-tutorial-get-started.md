@@ -13,7 +13,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="02/05/2016"
 	ms.author="jgao"/>
 
@@ -29,7 +29,9 @@
 
 > [AZURE.NOTE] 以 Windows 為基礎的 HDInsight 上的 HBase (0.98.0 版) 只能與 HDInsight 3.1 叢集一起使用 (以 Apache Hadoop 和 YARN 2.4.0 為基礎)。如需版本資訊，請參閱 [HDInsight 在 Hadoop 叢集版本中提供的新功能？][hdinsight-versions]
 
-###必要條件
+###開始之前
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 開始進行本 HBase 教學課程之前，您必須具備下列條件：
 
@@ -291,7 +293,9 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 
 在高可用性叢集中，您會找到目前使用中之 HBase 主要節點 (其正在主控 WebUI) 的連結。
 
+##刪除叢集
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
 ## 後續步驟
@@ -331,4 +335,4 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。使用 Web UI，�
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0309_2016-->

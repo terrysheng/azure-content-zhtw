@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/18/2016" 
+	ms.date="03/15/2016" 
 	ms.author="heidist"/>
 
 #如何在 Azure 搜尋服務中實作多面向導覽
@@ -57,7 +57,7 @@
 
 1.	傳送到 Azure 搜尋服務會透過一或多個多面向查詢參數指定多面向導覽結構。例如，查詢可能包括 `facet=Rating`，可能還有 `:values` 或 `:sort` 選項，以進一步精簡展示。
 2.	展示層會使用要求上的面向來轉譯提供多面向導覽的頁面。
-3.	舉包含「評分」的多面向導覽結構為例，使用者按一下 [4] 表示只會顯示評分為 4 或更高的產品。 
+3.	舉包含「評分」的多面向導覽結構為例，使用者按一下 \[4] 表示只會顯示評分為 4 或更高的產品。 
 4.	應用程式會傳送包含 `$filter=Rating ge 4` 的查詢做為回應。 
 5.	展示層會更新頁面，並顯示精簡過的結果集，其中只包含滿足新準則 (此案例中是評分為 4 或更高) 的產品。
 
@@ -291,7 +291,7 @@ Azure Search 中有兩種地理空間函式，**geo.distance** 與 **geo.interse
 
 - **geo.intersects** 函式在給定點位於給定多邊形中時會傳回 true，其中該給定點會是欄位，且多邊形會指定為做為篩選條件一部分所傳送的座標常數清單。
 
-您可以在 [OData 運算式語法 (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx) 中找到篩選條件範例。若要深入了解地理空間搜尋，請參閱[在 Azure Search 中建立地理空間搜尋應用程式](search-create-geospatial.md)。
+您可以在 [OData 運算式語法 (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx) 中找到篩選條件範例。
 
 <a name="tryitout"></a>
 ##立即試用
@@ -362,7 +362,6 @@ Azure Search 中有兩種地理空間函式，**geo.distance** 與 **geo.interse
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
-[Create a geospatial search application in Azure Search]: search-create-geospatial.md
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
@@ -370,4 +369,4 @@ Azure Search 中有兩種地理空間函式，**geo.distance** 與 **geo.interse
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0316_2016-->

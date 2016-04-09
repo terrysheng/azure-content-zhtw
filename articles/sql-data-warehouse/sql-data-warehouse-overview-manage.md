@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016"
+   ms.date="03/03/2016"
    ms.author="mausher;nicw;barbkess;jrj;sonyama;"/>
 
 # SQL 資料倉儲的管理工具
@@ -24,7 +24,7 @@
 
 入口網站包含的計量涵蓋目前和過去的效能 DWU 設定、所使用的儲存體數量、成功和失敗的 SQL 連接，以及一組視覺效果和資料，可讓您了解在執行個體上執行的查詢和這些查詢的詳細資料。
 
-## Visual Studio 中的 SQL Server Data Tools	
+## Visual Studio 中的 SQL Server Data Tools
 Visual Studio 中的 [SQL Server Data Tools][] (SSDT) 是在您電腦上執行的用戶端工具，可讓您連接、管理和開發雲端中的資料庫。如果您是熟悉 Visual Studio 或其他整合式開發環境 (IDE) 的應用程式開發人員，請嘗試使用 Visual Studio 中的 SSDT。
 
 SSDT 包含的 SQL Server 總管可讓您針對 SQL 資料倉儲資料庫視覺化、連接和執行指令碼。若要快速連線至 SQL 資料倉儲，只需在 Azure 傳統入口網站檢視資料庫的詳細資料時，按一下命令列中的 [在 Visual Studio 中開啟] 按鈕即可。
@@ -48,4 +48,4 @@ SSDT 包含的 SQL Server 總管可讓您針對 SQL 資料倉儲資料庫視覺�
 <!--Other web references-->
 [Azure 傳統入口網站]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

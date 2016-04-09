@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 # 如何在 Azure API 管理中連同操作一起匯入 API 的定義
@@ -54,7 +54,7 @@ API 是在發行者入口網站中建立和設定。若要存取發佈者入口�
 
 輸入所有的值之後，按一下 [**儲存**]，以建立 API 和相關聯的操作。
 
->[AZURE.NOTE]如需以 Swagger 格式匯入基本計算機 API 的教學課程，請參閱 [在 Azure API 管理中管理您的第一個 API](api-management-get-started.md)。
+>[AZURE.NOTE] 如需以 Swagger 格式匯入基本計算機 API 的教學課程，請參閱 [在 Azure API 管理中管理您的第一個 API](api-management-get-started.md)。
 
 ## <a name="export-api"> </a> 匯出 API
 
@@ -95,4 +95,4 @@ API 是在發行者入口網站中建立和設定。若要存取發佈者入口�
 [如何建立 API]: api-management-howto-create-apis.md
 [如何設定 API 設定]: api-management-howto-create-apis.md#configure-api-settings
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0309_2016-->

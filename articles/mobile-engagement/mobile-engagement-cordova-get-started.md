@@ -12,25 +12,19 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
-	ms.topic="article" 
-	ms.date="02/29/2016"
+	ms.topic="hero-article" 
+	ms.date="03/25/2016"
 	ms.author="piyushjo" />
 
 # 開始使用 Azure Mobile Engagement for Cordova/Phonegap
 
-> [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS | Obj C](mobile-engagement-ios-get-started.md)
-- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md)
-- [Cordova](mobile-engagement-cordova-get-started.md)
+[AZURE.INCLUDE [Hero 教學課程切換器](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 此主題說明如何使用 Azure Mobile Engagement 了解您的應用程式使用狀況，以及傳送推播通知給以 Cordova 開發之行動應用程式的特定使用者。
 
 在本教學課程中，我們將會使用 Mac 建立空白的 Cordova 應用程式，然後整合 Mobile Engagement SDK。它會收集基本分析資料，並針對 iOS 使用 Apple Push Notification System (APNS)、針對 Android 使用 Google Cloud Messaging (GCM) 接收推播通知。我們會將它部署到 iOS 或 Android 裝置以進行測試。
 
-> [AZURE.IMPORTANT] 若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資料，請參閱 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fzh-TW%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 免費試用</a>。
+> [AZURE.NOTE] 若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started)。
 
 本教學課程需要下列各項：
 
@@ -245,4 +239,4 @@ Mobile Engagement 可讓您使用「推播通知」和「應用程式內傳訊�
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0330_2016-->

@@ -15,7 +15,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/25/2016"
+      ms.date="03/18/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Azure AD Graph API 的快速入門
@@ -124,6 +124,7 @@ Content-Type: application/json
 
 ## 後續步驟
 
-深入了解 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
+- 深入了解 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
+- 深入了解 [Azure AD 圖形 API 權限範圍](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

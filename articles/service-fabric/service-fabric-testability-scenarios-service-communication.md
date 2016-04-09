@@ -85,11 +85,11 @@
 
 ```powershell
 
-PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode PartialQuorumLoss -QuorumLossDurationInSeconds 20
+PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode QuorumReplicas -QuorumLossDurationInSeconds 20
 
 ```
 
-在此範例中，我們將 `QuorumLossMode` 設為 `PartialQuorumLoss`，以便在引發仲裁遺失時，不會關閉所有複本。如此才能正常執行讀取作業。若要測試整個分割區都無法使用的案例，您可將此參數設定為 `FullQuorumLoss`。
+在此範例中，我們將 `QuorumLossMode` 設為 `QuorumReplicas`，以便在引發仲裁遺失時，不會關閉所有複本。如此才能正常執行讀取作業。若要測試整個分割區都無法使用的案例，您可將此參數設定為 `AllReplicas`。
 
 ## 後續步驟
 
@@ -97,4 +97,4 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 [深入了解 Testability 案例](service-fabric-testability-scenarios.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0309_2016-->

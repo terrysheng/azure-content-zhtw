@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/21/2016"
+   ms.date="03/08/2016"
    ms.author="barbkess;sonyama"/>
 
 # 語言元素
@@ -278,13 +278,13 @@
 
 
 ## 後續步驟
-如需詳細參考資訊，請參閱 [SQL 資料倉儲參考概觀][]。
+如需更多的參考資訊，請參閱 [SQL 資料倉儲參考概觀][]。
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-reference.md
+[SQL 資料倉儲參考概觀]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

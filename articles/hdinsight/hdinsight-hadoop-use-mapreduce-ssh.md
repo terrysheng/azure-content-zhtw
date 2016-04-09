@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 # 搭配使用 MapReduce 與 HDInsight 上的 Hadoop 和 SSH
@@ -23,7 +23,7 @@
 
 在本文中，您將學習如何使用安全殼層 (SSH) 連線至 HDInsight 叢集上的 Hadoop，然後使用 Hadoop 命令提交 MapReduce 工作。
 
-> [AZURE.NOTE]如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱[以 Linux 為基礎的 HDInsight 秘訣](hdinsight-hadoop-linux-information.md)。
+> [AZURE.NOTE] 如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱[以 Linux 為基礎的 HDInsight 秘訣](hdinsight-hadoop-linux-information.md)。
 
 ##<a id="prereq"></a>必要條件
 
@@ -61,7 +61,7 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
 
 	這樣會啟動 **wordcount** 類別 (內含於 **hadoop-mapreduce-examples.jar** 檔案中)。它使用 ****wasb://example/data/gutenberg/davinci.txt** 文件作為輸入，輸出則儲存在 ****wasb:///example/data/WordCountOutput**。
 
-	> [AZURE.NOTE]如需關於此 MapReduce 工作和範例資料的詳細資訊，請參閱[在 HDInsight 上的 Hadoop 中使用 MapReduce](hdinsight-use-mapreduce.md)。
+	> [AZURE.NOTE] 如需關於此 MapReduce 工作和範例資料的詳細資訊，請參閱[在 HDInsight 上的 Hadoop 中使用 MapReduce](hdinsight-use-mapreduce.md)。
 
 2. 工作會在處理時發出詳細資料，並於工作完成時傳回與下列類似的資訊：
 
@@ -76,7 +76,7 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
 
 	這應該會顯示兩個檔案：**SUCCESS** 和 **part-r-00000**。**part-r-00000** 檔案包含這項工作的輸出。
 
-	> [AZURE.NOTE]某些 MapReduce 工作可能會將結果分成多個 **part-r-#####** 檔案。若是如此，請使用 ##### 尾碼指出檔案的順序。
+	> [AZURE.NOTE] 某些 MapReduce 工作可能會將結果分成多個 **part-r-#####** 檔案。若是如此，請使用 ##### 尾碼指出檔案的順序。
 
 4. 若要檢視輸出，請使用下列命令：
 
@@ -108,4 +108,4 @@ Windows 未提供內建 SSH 用戶端。建議使用 **PuTTY**，您可以從下
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

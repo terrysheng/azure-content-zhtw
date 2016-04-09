@@ -151,7 +151,7 @@
 
 存取控制服務身分識別是一組認證，可讓應用程式或用戶端直接使用 Azure AD 存取控制進行驗證，並接收權杖。
 
-> [AZURE.IMPORTANT] BizTalk 服務會使用**擁有者**做為預設服務身分識別，並使用**密碼**值。若您使用對稱金鑰值，而不是密碼值，可能會發生下列錯誤。<br/><br/>* 無法利用指定的認證連線至存取控制管理服務帳戶*
+> [AZURE.IMPORTANT] BizTalk 服務會使用**擁有者**做為預設服務身分識別，並使用**密碼**值。若您使用對稱金鑰值，而不是密碼值，可能會發生下列錯誤。<br/><br/> *無法利用指定的認證連線至存取控制管理服務帳戶*
 
 [管理您的 ACS 命名空間](https://msdn.microsoft.com/library/azure/hh674478.aspx)列出一些指導方針和建議。
 
@@ -271,4 +271,4 @@ Azure 帳戶可擁有多個訂用帳戶，只要使用者取得允許皆可管�
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!----HONumber=AcomDC_0302_2016-->

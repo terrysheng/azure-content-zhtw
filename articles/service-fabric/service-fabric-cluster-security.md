@@ -81,7 +81,10 @@ Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\Service
 Login-AzureRmAccount
 ```
 
-下列指令碼會建立新的資源群組和/或金鑰保存庫 (如果原本不存在)。
+下列指令碼會建立新的資源群組和/或金鑰保存庫 (如果原本不存在)。**請注意︰如果您使用現有的金鑰保存庫，必須使用此指令碼將它設定為支援部署。**
+```
+Set-AzureRmKeyVaultAccessPolicy -VaultName <Name of the Vault> -ResourceGroupName <string> -EnabledForTemplateDeployment -EnabledForDeployment
+```
 
 ```
 Invoke-AddCertToKeyVault -SubscriptionId <your subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -UseExistingCertificate -ExistingPfxFilePath <Full path to the .pfx file>
@@ -102,7 +105,7 @@ Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -R
 
 現在您已擁有設定安全叢集時所需的資訊。請移至步驟 3。
 
-**步驟 2.5**：如果您「沒有」憑證，且想要建立新的自我簽署憑證，並將它上傳到金鑰保存庫，請依照下列步驟進行。
+**步驟 2.5**：如果您「沒有」憑證，且想要建立新的自我簽署憑證，並將它上傳到金鑰保存庫，請遵循下列步驟進行。
 
 登入您的 Azure 帳戶。如果這個 PowerShell 命令因為某些原因無法運作，您應該檢查 Azure PowerShell 是否已正確安裝。
 
@@ -120,7 +123,7 @@ Invoke-AddCertToKeyVault -SubscriptionId <you subscription id> -ResourceGroupNam
 
 >[AZURE.NOTE] DnsName 字串會指定一或多個 DNS 名稱，以在 CloneCert 參數中未指定要複製的憑證時放入憑證的主體別名副檔名中。第一個 DNS 名稱也會儲存為主體名稱。如果未指定任何簽署憑證，則第一個 DNS 名稱也會儲存為簽發者名稱。
 
-如需進一步了解如何建立自我簽署憑證，請前往 [https://technet.microsoft.com/library/hh848633.aspx](https://technet.microsoft.com/library/hh848633.aspx)。
+您可以在下列位置深入了解如何建立自我簽署憑證：[https://technet.microsoft.com/library/hh848633.aspx](https://technet.microsoft.com/library/hh848633.aspx)。
 
 以下是已填入指令碼的範例。
 
@@ -148,7 +151,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FileP
 
 ### 步驟 3：設定安全的叢集
 
-請依照 [Service Fabric 叢集建立程序](service-fabric-cluster-creation-via-portal.md)一文中所述的步驟，直到您進入 [安全性組態] 區段。然後跳至此處顯示的指示來設定您的安全性組態：
+請依照 [Service Fabric 叢集建立程序](service-fabric-cluster-creation-via-portal.md)所述的步驟，直到您進入 [安全性組態] 區段。然後跳至此處顯示的指示來設定您的安全性組態：
 
 >[AZURE.NOTE]
 需要的憑證會於 [安全性組態] 下的 [節點類型] 層級指定。您必須為您的叢集中的每個節點類型指定此項目。雖然本文件會逐步解說如何使用入口網站執行這項作業，但您可以使用 Azure 資源管理員範本來執行相同的作業。
@@ -157,7 +160,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FileP
 
 必要參數：
 
-- **安全性模式。** 選取 [X.509 憑證]。這會對 Service Fabric 指出您想要設定安全的叢集。
+- **安全性模式。** 選取 [X509 憑證]。這會對 Service Fabric 指出您想要設定安全的叢集。
 - **叢集的保護層級。** 請參閱這份[保護層級文件](https://msdn.microsoft.com/library/aa347692.aspx)，以了解每個值所代表的意義。雖然這邊允許使用的值有三個 (EncryptAndSign、Sign 和 None)，但除非您了解您所進行的作業，否則最好保留使用預設值 EncryptAndSign。
 - **來源保存庫。** 這是指金鑰保存庫的資源識別碼。其格式應該如下：
 
@@ -219,10 +222,12 @@ Service Fabric 可讓您指定兩個憑證 (主要和次要)。根據預設，�
 
 ### X.509 憑證
 
-X509 數位憑證通常用來驗證用戶端與伺服器，以及加密及數位簽署訊息。如需有關這些憑證的詳細資料，請參閱 MSDN Library 中的[使用憑證](http://msdn.microsoft.com/library/ms731899.aspx)。
+X509 數位憑證通常用來驗證用戶端與伺服器，以及加密及數位簽署訊息。如需這些憑證的詳細資料，請參閱 MSDN Library 中的[使用憑證](http://msdn.microsoft.com/library/ms731899.aspx)。
 
 >[AZURE.NOTE]
-- 執行生產工作負載的叢集中所使用的憑證，應利用已正確設定的 Windows Server 憑證服務來建立，或是透過已核准的 [Certificate Authority (CA，憑證授權單位)](https://en.wikipedia.org/wiki/Certificate_authority) 來取得。- 絕對不要在生產環境中使用透過 MakeCert.exe 等工具建立的暫存或測試憑證。- 對於用於測試的叢集，您可以選擇使用自我簽署憑證。
+- 執行生產工作負載的叢集中所使用的憑證，應利用已正確設定的 Windows Server 憑證服務來建立，或是透過已核准的 [Certificate Authority (CA，憑證授權單位)](https://en.wikipedia.org/wiki/Certificate_authority) 來取得。
+- 絕對不要在生產環境中使用透過 MakeCert.exe 等工具建立的暫存或測試憑證。
+- 對於用於測試的叢集，您可以選擇使用自我簽署憑證。
 
 ### 伺服器憑證和用戶端憑證
 
@@ -257,4 +262,4 @@ X509 數位憑證通常用來驗證用戶端與伺服器，以及加密及數位
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

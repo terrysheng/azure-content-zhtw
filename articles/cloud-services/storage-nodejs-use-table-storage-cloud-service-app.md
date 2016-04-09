@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="03/04/2016" 
 	ms.author="robmcm"/>
 
 # 使用儲存體的 Node.js Web 應用程式
@@ -39,7 +39,7 @@
 
 若要存取 Azure 儲存體，您必須傳入儲存體認證。若要這樣做，您必須使用 web.config 應用程式設定。這些設定會以環境變數方式傳遞至 Node，接著再由 Azure SDK 進行讀取。
 
-> [AZURE.NOTE]只有當將應用程式部署到 Azure 時，才會用到儲存體認證。在模擬器中執行時，應用程式將使用儲存體模擬器。
+> [AZURE.NOTE] 只有當將應用程式部署到 Azure 時，才會用到儲存體認證。在模擬器中執行時，應用程式將使用儲存體模擬器。
 
 執行下列步驟以擷取儲存體帳戶認證，並將他們新增至 web.config 設定：
 
@@ -53,7 +53,7 @@
 
 	這會擷取與託管服務相關的儲存體帳戶和帳戶金鑰清單。
 
-	> [AZURE.NOTE]由於 Azure SDK 會在您部署服務時建立儲存體帳戶，因此，從上一個說明的部署應用程式中應已有儲存體帳戶存在。
+	> [AZURE.NOTE] 由於 Azure SDK 會在您部署服務時建立儲存體帳戶，因此，從上一個說明的部署應用程式中應已有儲存體帳戶存在。
 
 4.  開啟包含環境設定 (將應用程式部署到 Azure 時會用到) 的 **ServiceDefinition.csdef** 檔案：
 
@@ -403,4 +403,4 @@ Azure 會就每小時伺服器時間所使用的 Web 角色執行個體數進行
  
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

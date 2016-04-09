@@ -18,6 +18,12 @@
 
 #  將 Hyper-V 虛擬機器 (位於 VMM 雲端中) 複寫至 Azure
 
+> [AZURE.SELECTOR]
+- [Azure 傳統入口網站](site-recovery-vmm-to-azure.md)
+- [PowerShell - 傳統](site-recovery-deploy-with-powershell.md)
+- [PowerShell - 資源管理員](site-recovery-vmm-to-azure-powershell-resource-manager.md) 
+
+
 Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原 (BCDR) 策略，為您的商務持續性與災害復原做出貢獻。機器可以複寫至 Azure，或次要的內部部署資料中心。如需快速概觀，請參閱[什麼是 Azure Site Recovery？](site-recovery-overview.md)。
 
 ## 概觀
@@ -117,7 +123,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 	![Microsoft Update](./media/site-recovery-vmm-to-azure/updates.png)
 
 
-5.  提供者的安裝位置已設為 **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**。按一下 [Install]。
+5.  提供者的安裝位置已設為 **<SystemDrive>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**。按一下 [安裝]。
 
 	![InstallLocation](./media/site-recovery-vmm-to-azure/install-location.png)
 
@@ -230,11 +236,11 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 2. 在 [受保護項目] 索引標籤上，按一下要設定的雲端，並移至 [設定] 索引標籤。
 3. 在 [目標] 中，選取 [Azure]。
 4. 在 [儲存體帳戶] 中，選取您想要用來複寫的 Azure 儲存體帳戶。
-5. 將 [加密儲存的資料] 設為 [關閉]。此設定指定應該將內部部署與 Azure 之間複寫的資料加密。
+5. 將 [Encrypt stored data] 設為 [關閉]。此設定指定應該將內部部署與 Azure 之間複寫的資料加密。
 6. 在 [複製頻率] 中保留預設設定。這個值指定應在來源與目標位置之間同步處理資料的頻率。
-7. 在 [保留復原點的時間] 中保留預設設定。使用預設值 0 時，只會在複本主機伺服器上儲存主要虛擬機器的最新復原點。
+7. 在 [Retain recovery points for] 中保留預設設定。使用預設值 0 時，只會在複本主機伺服器上儲存主要虛擬機器的最新復原點。
 8. 在 [應用程式一致快照的頻率] 中保留預設設定。這個值指定建立快照的頻率。快照會使用「磁碟區陰影複製服務」(VSS) 來確保建立快照時，應用程式是處於一致狀態。如果您設定一個值，請確定此值小於您設定的其他復原點數目。
-9. 在 [複寫開始時間] 中，指定初次將資料複寫至 Azure 的開始時間。將會使用 Hyper-V 主機伺服器的時區。建議您將初次複寫排定在離峰時段進行。
+9. 在 [Replication start time] 中，指定初次將資料複寫至 Azure 的開始時間。將會使用 Hyper-V 主機伺服器的時區。建議您將初次複寫排定在離峰時段進行。
 
 	![Cloud replication settings](./media/site-recovery-vmm-to-azure/cloud-settings.png)
 
@@ -284,11 +290,14 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
 	![Verify virtual machines](./media/site-recovery-vmm-to-azure/vm-properties.png)
 
+
 4. 在虛擬機器屬性的 [設定] 索引標籤上可以修改下列網路屬性。
 
 
 
-- **目標虛擬機器的網路介面卡數目** - 網路介面卡的數目取決於您針對目標虛擬機器所指定的大小。查看[虛擬機器大小規格](../virtual-machines/virtual-machines-size-specs.md#size-tables)，了解虛擬機器大小所支援的介面卡數目。在修改虛擬機器的大小並儲存設定之後，當您下次開啟 [設定] 頁面時，網路介面卡的數量將會改變。目標虛擬機器的網路介面卡數目，是來源虛擬機器上的網路介面卡數目下限，以及所選虛擬機器大小支援的網路介面卡數目上限，如下所示：
+
+
+- 目標虛擬機器的網路介面卡數目 - 網路介面卡的數目取決於您針對目標虛擬機器所指定的大小。查看[虛擬機器大小規格](../virtual-machines/virtual-machines-linux-sizes.md#size-tables)，了解虛擬機器大小所支援的介面卡數目。在修改虛擬機器的大小並儲存設定之後，當您下次開啟 [設定] 頁面時，網路介面卡的數量將會改變。目標虛擬機器的網路介面卡數目，是來源虛擬機器上的網路介面卡數目下限，以及所選虛擬機器大小支援的網路介面卡數目上限，如下所示：
 
 	- 如果來源電腦上的網路介面卡數目小於或等於針對目標機器大小所允許的介面卡數目，則目標將具備與來源相同的介面卡數目。
 	- 如果來源虛擬機器的介面卡數目超過針對目標大小所允許的數目，則將使用目標大小的最大值。
@@ -346,7 +355,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
 	![沒有網路](./media/site-recovery-vmm-to-azure/test-no-network.png)
 
-3. 如果已啟用雲端的資料加密，當您開啟選項以啟用雲端的資料加密時，請在 [**加密金鑰**] 中選取在 VMM 伺服器上安裝提供者時發出的憑證。
+3. 如果已啟用雲端的資料加密，當您開啟選項以啟用雲端的資料加密時，請在 [加密金鑰] 中選取在 VMM 伺服器上安裝提供者時發出的憑證。
 4. 在 [工作] 索引標籤上，您可以追蹤容錯移轉進度。您應該可以在 Azure 入口網站中看到該虛擬機器測試複本。如果您設定從內部部署網路存取虛擬機器，您可以初始化虛擬機器的「遠端桌面」連線。
 5. 當容錯移轉到達 [完成測試] 階段時，請按一下 [完成測試] 以完成測試容錯移轉。您可以向下切入到 [工作] 索引標籤，來追蹤容錯移轉進度和狀態，並執行任何所需的動作。
 6. 在容錯移轉之後，您將可以在 Azure 入口網站中看到該虛擬機器測試複本。如果您設定從內部部署網路存取虛擬機器，您可以初始化虛擬機器的「遠端桌面」連線。執行下列動作：
@@ -363,4 +372,4 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
 深入了解[設定復原計劃](site-recovery-create-recovery-plans.md)和[容錯移轉](site-recovery-failover.md)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

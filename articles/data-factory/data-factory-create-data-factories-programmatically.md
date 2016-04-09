@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="使用 Data Factory SDK 來建立、監視及管理 Azure Data Factory" 
+	pageTitle="使用 Data Factory SDK 來建立、監視及管理 Azure Data Factory | Microsoft Azure" 
 	description="了解如何使用 Data Factory .NET SDK，以程式設計方式建立、監視和管理 Azure Data Factory。" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -394,4 +394,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

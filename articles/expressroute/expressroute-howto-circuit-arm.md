@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/04/2015"
+   ms.date="03/03/2016"
    ms.author="cherylmc"/>
 
 # 使用資源管理員及 PowerShell 建立和修改 ExpressRoute 線路
@@ -90,7 +90,7 @@ PS C:\> Get-AzureRmExpressRouteServiceProvider
 若您還沒有資源群組，您必須在建立 ExpressRoute 線路之前建立一個。您可以執行下列命令來這麼做：
 
 ```
-New-AzureRmResourceGroup -Name “ExpressRouteResourceGroup” -Location "West US"
+New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
 ```
 
 以下示範如何透過矽谷的 Equinix 建立 200-Mbps ExpressRoute 線路。如果您使用不同的提供者和不同的設定，請在您提出要求時替換成該資訊。下列是新服務金鑰的要求範例：
@@ -242,94 +242,138 @@ ServiceProviderProperties        : {
 ServiceKey                       : **************************************
 Peerings                         : []
 
-**Step 7.  Create your routing configuration.**
+```
 
-For step-by-step instructions, refer to the [ExpressRoute circuit routing configuration (create and modify circuit peerings)](expressroute-howto-routing-arm.md).
+**步驟 7。建立路由組態。**
 
-**Step 8.  Link a virtual network to an ExpressRoute circuit.**
+請參閱 [ExpressRoute 線路路由組態 (建立和修改線路對等)](expressroute-howto-routing-arm.md) 頁面，取得逐步指示。
 
-Next, link a virtual network to your ExpressRoute circuit. You can use [this template](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) when you work with the Resource Manager deployment mode. We're currently working on steps to accomplish this by using PowerShell.
+**步驟 8將虛擬網路連結到 ExpressRoute 電路。**
 
-## Get the status of an ExpressRoute circuit
+接下來，將虛擬網路連結到 ExpressRoute 線路。當使用資源管理員部署模式時，您可以使用 [此範本](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)。我們目前正在準備使用 PowerShell 完成此動作的步驟。
 
-You can retrieve this information at any time by using the *Get-AzureRmExpressRouteCircuit* cmdlet. Making the call with no parameters will list all circuits.
+## 取得 ExpressRoute 線路的狀態
+
+您可以透過使用 Get-AzureRmExpressRouteCircuit Cmdlet，隨時擷取這項資訊。執行呼叫時，若未指定任何參數，將會列出所有線路。
 
 ```
 Get-AzureRmExpressRouteCircuit
 ```
 
-The response will be similar to the following example:
+回應將如以下範例所示：
 
 ```
-Name : ExpressRouteARMCircuit ResourceGroupName : ExpressRouteResourceGroup Location : westus Id : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit Etag : W/"################################" ProvisioningState : Succeeded Sku : { "Name": "Standard\_MeteredData", "Tier": "Standard", "Family": "MeteredData" } CircuitProvisioningState : Enabled ServiceProviderProvisioningState : Provisioned ServiceProviderNotes : ServiceProviderProperties : { "ServiceProviderName": "Equinix", "PeeringLocation": "Silicon Valley", "BandwidthInMbps": 200 } ServiceKey : ************************************** Peerings :
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                     "Name": "Standard_MeteredData",
+                                     "Tier": "Standard",
+                                     "Family": "MeteredData"
+                                   }
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : Provisioned
+ServiceProviderNotes             :
+ServiceProviderProperties        : {
+   		                             "ServiceProviderName": "Equinix",
+   		                             "PeeringLocation": "Silicon Valley",
+   		                             "BandwidthInMbps": 200
+   		                           }
+ServiceKey                       : **************************************
+Peerings                         : []
 ```
 
-You can get information on a specific ExpressRoute circuit by passing the resource group name and circuit name as a parameter to the call:
+您可以透過將資源群組名稱和線路名稱做為參數傳遞至呼叫，取得特定 ExpressRoute 線路的資訊：
 
 ```
 Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
-The response will look similar to the following example:
+回應看起來將會如下列範例所示：
 
 ```
-Name : ExpressRouteARMCircuit ResourceGroupName : ExpressRouteResourceGroup Location : westus Id : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit Etag : W/"################################" ProvisioningState : Succeeded Sku : { "Name": "Standard\_MeteredData", "Tier": "Standard", "Family": "MeteredData" } CircuitProvisioningState : Enabled ServiceProviderProvisioningState : Provisioned ServiceProviderNotes : ServiceProviderProperties : { "ServiceProviderName": "Equinix", "PeeringLocation": "Silicon Valley", "BandwidthInMbps": 200 } ServiceKey : ************************************** Peerings :
+Name                             : ExpressRouteARMCircuit
+ResourceGroupName                : ExpressRouteResourceGroup
+Location                         : westus
+Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+Etag                             : W/"################################"
+ProvisioningState                : Succeeded
+Sku                              : {
+                                     "Name": "Standard_MeteredData",
+   		                             "Tier": "Standard",
+   		                             "Family": "MeteredData"
+   		                           }
+CircuitProvisioningState         : Enabled
+ServiceProviderProvisioningState : Provisioned
+ServiceProviderNotes             :
+ServiceProviderProperties        : {
+                                     "ServiceProviderName": "Equinix",
+                                     "PeeringLocation": "Silicon Valley",
+                                     "BandwidthInMbps": 200
+   		                           }
+ServiceKey                       : **************************************
+Peerings                         : []
 ```
 
-You can get detailed descriptions of all parameters by running the following:
+您可以執行下列命令來取得所有參數的詳細描述：
 
 ```
 get-help get-azurededicatedcircuit -detailed
 ```
 
-## Modify an ExpressRoute circuit
+## 修改 ExpressRoute 線路
 
-You can modify certain properties of an ExpressRoute circuit without impacting connectivity.
+您可以修改 ExpressRoute 線路的某些屬性，而不會影響連線。
 
-You can do the following, with no downtime:
+您可以執行下列工作，而無需中途停機：
 
-- Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-- Increase the bandwidth of your ExpressRoute circuit.
+- 啟用或停用 ExpressRoute 線路的 ExpressRoute 進階附加元件。
+- 增加 ExpressRoute 線路的頻寬。
 
-For more information on limits and limitations, refer to the [ExpressRoute FAQ](expressroute-faqs.md) page.
+如需限制的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)頁面。
 
-### Enable the ExpressRoute premium add-on
+### 啟用 ExpressRoute 進階附加元件
 
-You can enable the ExpressRoute premium add-on for your existing circuit by using the following PowerShell snippet:
-
-```
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-
-$ckt.Sku.Name = "Premium" $ckt.sku.Name = "Premium\_MeteredData"
-
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
-
-The circuit will now have the ExpressRoute premium add-on features enabled. Note that Microsoft will begin billing you for the premium add-on capability as soon as the command has successfully run.
-
-### Disable the ExpressRoute premium add-on
-
-You can disable the ExpressRoute premium add-on for the existing circuit by using the following PowerShell cmdlet:
+您可以使用下列 PowerShell 程式碼片段，為現有的線路啟用 ExpressRoute 進階附加元件：
 
 ```
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-$ckt.Sku.Tier = "Standard" $ckt.sku.Name = "Standard\_MeteredData"
+$ckt.Sku.Tier = "Premium"
+$ckt.sku.Name = "Premium_MeteredData"
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-The premium add-on is now disabled for the circuit.
+線路現在將啟用 ExpressRoute 進階附加功能。請注意，順利執行命令後，Microsoft 會開始向您收取進階附加元件功能的費用。
 
-Note that this operation can fail if you are using resources greater than what is permitted for the standard circuit.
+### 停用 ExpressRoute 進階附加元件
 
-- Before you downgrade from premium to standard, you must ensure that the number of virtual networks linked to the circuit is less than 10. If you don't do so, your update request fails and Microsoft will bill you at premium rates.
-- You must unlink all virtual networks in other geopolitical regions. If you don't do so, your update request will fail and Microsoft will bill you at premium rates.
-- Your route table must be less than 4,000 routes for private peering. If your route table size is greater than 4,000 routes, the BGP session drops and won't be reenabled until the number of advertised prefixes goes below 4,000.
+您可以使用下列 PowerShell Cmdlet，為現有的線路停用 ExpressRoute 進階附加元件：
 
-### Update the ExpressRoute circuit bandwidth
+```
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-For supported bandwidth options for your provider, check the [ExpressRoute FAQ](expressroute-faqs.md) page. You can pick any size greater than the size of your existing circuit. After you decide what size you need, use the following command to resize your circuit:
+$ckt.Sku.Tier = "Standard"
+$ckt.sku.Name = "Standard_MeteredData"
+
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
+
+線路現在已經停用進階附加元件。
+
+請注意，如果您使用的資源超出標準線路所允許的數量，這項作業可能會失敗。
+
+- 從進階降級為標準之前，您必須確定連結至線路的虛擬網路數目小於 10。如果您不這樣做，更新要求就會失敗，且 Microsoft 會以進階費率計費。
+- 您必須取消連結其他地理政治區域中的所有虛擬網路。如果您不這樣做，更新要求就會失敗，且 Microsoft 會以進階費率計費。
+- 就私用對等設定而言，路由表必須少於 4000 個路由。如果路由表大小超過 4000 個路由，BGP 工作階段將會中斷，而且在通告的首碼數目降到 4000 以下之前不會重新啟用。
+
+### 更新 ExpressRoute 線路頻寬
+
+請查閱 [ExpressRoute 常見問題集](expressroute-faqs.md)頁面，以取得提供者支援的頻寬選項。您可以挑選任何比現有線路規模還大的大小。一旦決定需要的大小後，可以使用下列命令來重新調整線路大小。
 
 ```
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -339,16 +383,17 @@ $ckt.ServiceProviderProperties.BandwidthInMbps = 1000
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-Your circuit will be sized up on the Microsoft side. Then you must contact your connectivity provider to update configurations on their side to match this change. After you make this notification, Microsoft will begin billing you for the updated bandwidth option.
+我們會在 Microsoft 端調整線路的大小。接下來，您必須連絡連線提供者，將他們的設定更新為符合這項變更。通知之後，Microsoft 會開始以更新的頻寬選項計費。
 
-**Important**: You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
+**重要**：降低 ExpressRoute 線路的頻寬時必須中斷運作。頻寬降級需要取消佈建 ExpressRoute 線路，然後重新佈建新的 ExpressRoute 線路。
 
-## Delete and deprovision an ExpressRoute circuit
+## 刪除和佈建 ExpressRoute 線路
 
-You can delete your ExpressRoute circuit by running the following command:
+您可以執行下列命令來刪除 ExpressRoute 線路：
 
 ```
-Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit" ```
+Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
+```
 
 請注意，此操作若要成功，您必須取消連結 ExpressRoute 線路的所有虛擬網路，如果此操作失敗，請檢查您是否有任何虛擬網路連結至線路。
 
@@ -363,4 +408,4 @@ Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup"
 - [建立和修改 ExpressRoute 線路的路由](expressroute-howto-routing-arm.md)
 - [將虛擬網路連結至 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0309_2016-->

@@ -32,7 +32,7 @@
 - **儲存體** - 支援儲存虛擬機器之 VHD 所需的儲存體帳戶，包括它們的作業系統和其他資料磁碟。
 - **網路** - 支援必要的 NIC、虛擬機器 IP 位址及虛擬網路內的子網路，以及選擇性的負載平衡器、負載平衡器 IP 位址與網路安全性群組。
 
-針對這些資源類型，您必須知道您使用哪一個版本，因為支援的作業將會不同。如需轉換運算、儲存體和網路資源的詳細資訊，請參閱 [Azure 資源管理員下的 Azure 運算、網路和儲存體提供者](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)。
+針對這些資源類型，您必須知道您使用哪一個版本，因為支援的作業將會不同。如需轉換運算、儲存體和網路資源的詳細資訊，請參閱 [Azure 資源管理員下的 Azure 運算、網路和儲存體提供者](./virtual-machines/virtual-machines-windows-compare-deployment-models.md)。
 
 ## 資源管理員特性
 
@@ -52,7 +52,7 @@
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-  - 對於 Azure PowerShell 1.0 版，請使用資源管理員版本的命令。這些命令的格式為 *verb-AzureRm*，如下所示。
+  - 對於 Azure PowerShell 1.0 版，請使用資源管理員版本的命令。這些命令的格式是 *Verb-AzureRmNoun*，如下所示。
 
             PS C:\> Get-AzureRmResourceGroupDeployment
 
@@ -97,11 +97,11 @@
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - 對於比 Azure PowerShell 1.0 版還舊的版本，命令會在 **AzureServiceManagement** 模式中執行 (這是預設模式，因此如果未特意切換至 AzureResourceManager，您就會在 AzureServiceManagement 模式中執行)。
+  - 對於比 Azure PowerShell 1.0 版還舊的版本，命令會在 **AzureServiceManagement** 模式中執行 (這是預設模式，因此，如果您未特意切換至 AzureResourceManager，您就會在 AzureServiceManagement 模式中執行)。
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
-  - 對於 Azure PowerShell 1.0 版，請使用服務管理版本的命令。這些命令名稱的格式**不是** *verb-AzureRm*，如下所示。
+  - 對於 Azure PowerShell 1.0 版，請使用服務管理版本的命令。這些命令名稱的格式是 *Verb-AzureNoun*，如下所示。
 
             PS C:\> Get-AzureDeployment
 
@@ -111,7 +111,7 @@
 
     ![傳統類型](./media/resource-manager-deployment-model/classic-type.png)
 
-您仍然可以使用入口網站來管理透過傳統部署所建立的資源。
+您仍然可以使用 Azure 入口網站，來管理透過傳統部署所建立的資源。
 
 以下是 Azure 服務管理的元件及其關聯性。
 
@@ -125,7 +125,7 @@
 - 您可以在整個應用程式週期重複部署應用程式，並確信您的資源會部署在一致的狀態中。
 - 您可以使用宣告式範本來定義您的部署。
 - 您可以定義之間的相依性，使得以正確的順序部署資源。
-- 因為角色型存取控制 (RBAC) 會原生整合至管理平台，您可以將存取控制套用至資源群組中的所有服務。
+- 由於角色型存取控制 (RBAC) 會原生整合至管理平台，因此您可以將存取控制套用至資源群組中的所有資源。
 - 您可以將標籤套用至資源，以便以邏輯方式組織訂用帳戶中的所有資源。
 
 
@@ -155,9 +155,9 @@
      ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
     ...
 
-不過，如果您執行 Get-AzureVM 命令，則只會出現使用資源管理員建立的虛擬機器。
+不過，如果您執行 Get-AzureRmVM 命令，則只會出現使用資源管理員建立的虛擬機器。
 
-    PS C:\> Get-AzureVM -ResourceGroupName ExampleGroup
+    PS C:\> Get-AzureRmVM -ResourceGroupName ExampleGroup
     ...
     Id       : /subscriptions/xxxx/resourceGroups/ExampleGroup/providers/Microsoft.Compute/virtualMachines/ExampleResourceVM
     Name     : ExampleResourceVM
@@ -177,9 +177,9 @@
 
 如果您負擔得起虛擬機器的停機時間，您可以從傳統部署轉換至資源管理員搭配使用 [ASM2ARM PowerShell 指令碼](https://github.com/fullscale180/asm2arm)。
 
-從傳統部署轉換至資源管理員時，如需對等 Azure CLI 命令的清單，請參閱 [VM 作業的對等資源管理員和服務管理命令](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md)。
+從傳統部署轉換至資源管理員時，如需對等 Azure CLI 命令的清單，請參閱 [VM 作業的對等資源管理員和服務管理命令](./virtual-machines/virtual-machines-linux-cli-manage.md)。
 
-如需轉換運算、儲存體和網路資源的詳細資訊，請參閱 [Azure 資源管理員提供的 Azure 運算、網路和儲存體提供者](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)。
+如需轉換運算、儲存體和網路資源的詳細資訊，請參閱 [Azure 資源管理員提供的 Azure 運算、網路和儲存體提供者](./virtual-machines/virtual-machines-windows-compare-deployment-models.md)。
 
 若要了解從不同部署模型連接虛擬網路，請參閱[將傳統 VNet 連接到新的 VNet](./virtual-network/virtual-networks-arm-asm-s2s.md)。
 
@@ -188,4 +188,4 @@
 - 若要了解如何建立宣告式部署範本，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要查看部署範本的命令，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

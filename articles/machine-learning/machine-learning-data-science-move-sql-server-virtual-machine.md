@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="02/10/2016" 
 	ms.author="fashah;mohabib;bradsev" />
 
 # 移動資料至 Azure 虛擬機器上的 SQL Server
@@ -38,16 +38,16 @@
 
 請注意，本文件假設 SQL 命令是從 SQL Server Management Studio 或 Visual Studio 資料庫總管中執行。
 
-> [AZURE.TIP] 或者，您可以使用 [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 建立並排程管線，以將資料移至 Azure 上的 SQL Server VM。如需詳細資訊，請參閱[使用 Azure Data Factory 複製資料 (複製活動)](data-factory-data-movement-activities.md)。
+> [AZURE.TIP] 或者，您可以使用 [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 建立並排程管線，以將資料移至 Azure 上的 SQL Server VM。如需詳細資訊，請參閱[使用 Azure Data Factory 複製資料 (複製活動)](../data-factory/data-factory-data-movement-activities.md)。
 
 
 ## <a name="prereqs"></a>必要條件
 本教學課程假設您有：
 
 * **Azure 訂用帳戶**。如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* **Azure 儲存體帳戶**。在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱[檢視、複製和重新產生儲存體存取金鑰](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
+* **Azure 儲存體帳戶**。在本教學課程中，您將使用 Azure 儲存體帳戶來儲存資料。如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)一文。建立儲存體帳戶之後，您必須取得用來存取儲存體的帳戶金鑰。請參閱[檢視、複製和重新產生儲存體存取金鑰](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)。
 * 已佈建 **Azure VM 上的 SQL Server**。如需指示，請參閱[將 Azure SQL Server 虛擬機器設定為 IPython Notebook 伺服器供進階分析使用](machine-learning-data-science-setup-sql-server-virtual-machine.md)。
-* 已在本機上安裝和設定 **Azure PowerShell**。如需指示，請參閱[如何安裝和設定 Azure PowerShell](powershell-install-configure.md)。
+* 已在本機上安裝和設定 **Azure PowerShell**。如需指示，請參閱[如何安裝和設定 Azure PowerShell](../powershell-install-configure.md)。
 
 
 ## <a name="filesource_to_sqlonazurevm"></a>從一般檔案來源移動資料至 Azure VM 上的 SQL Server
@@ -63,7 +63,7 @@
 
 BCP 是與 SQL Server 一起安裝的命令列公用程式，是最快速移動資料的其中一種方式。它的運作方式可跨越這三個 SQL Server 版本 (內部部署的 SQL Server、SQL Azure，以及 Azure 上的 SQL Server VM)。
 
-> [AZURE.NOTE] **我應該針對 BCP 將資料放置於何處？** 雖然並非必要，但是，擁有包含與目標 SQL Server 位於相同電腦上之來源資料的檔案可讓傳輸速度 (網路速度與本機磁碟 IO 速度) 變得更快。您可以使用像是 [AZCopy](../storage-use-azcopy.md)、[Azure 儲存體總管](https://azurestorageexplorer.codeplex.com/)或透過遠端桌面通訊協定 (RDP) 進行的 Windows 複製/貼上等各種檔案複製工具，將包含資料的一般檔案移到安裝 SQL Server 的電腦上。
+> [AZURE.NOTE] **我應該針對 BCP 將資料放置於何處？** 雖然並非必要，但是，擁有包含與目標 SQL Server 位於相同電腦上之來源資料的檔案可讓傳輸速度 (網路速度與本機磁碟 IO 速度) 變得更快。您可以使用像是 [AZCopy](../storage/storage-use-azcopy.md)、[Azure 儲存體總管](http://storageexplorer.com/)或透過遠端桌面通訊協定 (RDP) 進行的 Windows 複製/貼上等各種檔案複製工具，將包含資料的一般檔案移到安裝 SQL Server 的電腦上。
 
 1. 確定已在目標 SQL Server 資料庫上建立資料庫和資料表。以下是如何使用 `Create Database` 和 `Create Table` 命令來執行此作業的範例：
 
@@ -173,7 +173,7 @@ BCP 是與 SQL Server 一起安裝的命令列公用程式，是最快速移動�
 
 ### 將 SQL Server Database 部署到 Microsoft Azure VM 精靈
 
-**將 SQL Server Database 部署到 Microsoft Azure VM 精靈**是簡單且建議的方式，可用於將資料從內部部署 SQL Server 執行個體移至 Azure VM 上的 SQL Server。如需詳細的步驟以及其他替代方案的討論，請參閱[將資料庫移轉至 Azure VM 上的 SQL Server](../virtual-machines/virtual-machines-migrate-onpremises-database.md)。
+**將 SQL Server Database 部署到 Microsoft Azure VM 精靈**是簡單且建議的方式，可用於將資料從內部部署 SQL Server 執行個體移至 Azure VM 上的 SQL Server。如需詳細的步驟以及其他替代方案的討論，請參閱[將資料庫移轉至 Azure VM 上的 SQL Server](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md)。
 
 ### <a name="export-flat-file"></a>匯出至一般檔案
 
@@ -217,11 +217,11 @@ SQL Server Management Studio 的資料庫備份/還原選項的螢幕擷取畫�
 
 ## 資源
 
-[將資料庫移轉至 Azure VM 上的 SQL Server](../virtual-machines/virtual-machines-migrate-onpremises-database.md)
+[將資料庫移轉至 Azure VM 上的 SQL Server](../virtual-machines/virtual-machines-windows-classic-migrate-sql.md)
 
-[Azure 虛擬機器上的 SQL Server 概觀](../virtual-machines/virtual-machines-sql-server-infrastructure-services.md)
+[Azure 虛擬機器上的 SQL Server 概觀](../virtual-machines/virtual-machines-windows-classic-sql-overview.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

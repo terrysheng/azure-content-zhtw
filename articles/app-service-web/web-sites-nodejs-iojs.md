@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016"
+	ms.date="03/04/2016"
 	ms.author="robmcm" />
 
 # 如何搭配使用 io.js 和 Azure App Service Web Apps
@@ -31,7 +31,7 @@
 
 第一個檔案 **.deployment** 會在部署時指示 Web Apps 執行 **deploy.cmd**。此指令碼會針對 Node.js 應用程式執行所有一般步驟，但也會下載最新版的 io.js。最後，**IISNode.yml** 會設定 Web Apps 使用剛才下載的 io.js 二進位檔，而不是預先安裝的 Node.js 二進位檔。
 
-> [AZURE.NOTE]若要更新使用的 io.js 二進位檔，只要重新部署應用程式即可；每次部署應用程式時，指令碼都會下載新版 io.js。
+> [AZURE.NOTE] 若要更新使用的 io.js 二進位檔，只要重新部署應用程式即可；每次部署應用程式時，指令碼都會下載新版 io.js。
 
 <a id="manualinstallation"></a>
 ## 使用手動安裝
@@ -47,12 +47,12 @@
 
 在本文中，您學到如何搭配使用 io.js 與 App Service Web Apps、使用這兩個提供的部署指令碼，以及手動安裝。
 
-> [AZURE.NOTE]io.js 正在密集的開發中，而且比 Node.js 更頻繁地更新。許多 Node.js 模組可能不適用於 io.js，請參閱 [GitHub 上的 io.js] 以進行疑難排解。
+> [AZURE.NOTE] io.js 正在密集的開發中，而且比 Node.js 更頻繁地更新。許多 Node.js 模組可能不適用於 io.js，請參閱 [GitHub 上的 io.js] 以進行疑難排解。
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
 
->[AZURE.NOTE]如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
+>[AZURE.NOTE] 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至[試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。不需要信用卡；沒有承諾。
 
 [io.js]: https://iojs.org
 [io.js 散發]: https://iojs.org/dist/
@@ -60,4 +60,4 @@
 [io.js Deployment Script]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

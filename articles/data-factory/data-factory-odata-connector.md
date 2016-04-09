@@ -287,4 +287,4 @@
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0224_2016-->
+<!------HONumber=AcomDC_0224_2016-->

@@ -30,8 +30,10 @@ Operational Insights 會依儲存記錄檔的儲存體資料表的名稱，識�
 * [Operational Insights](https://azure.microsoft.com/services/operational-insights/)
 * [Azure 資源管理員](https://azure.microsoft.com/resource-group-overview/)
 
-## 先決條件
-這些工具將用來執行這份文件中的某些作業：* [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/) * [Azure 資源管理員用戶端](https://github.com/projectkudu/ARMClient)
+## 必要條件
+這些工具將用來執行這份文件中的某些作業：
+* [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/)
+* [Azure Resource Manager 用戶端](https://github.com/projectkudu/ARMClient)
 
 ## 您可能想要收集的不同記錄來源
 1. **Service Fabric 記錄檔：**由平台發出到標準 ETW 和 EventSource 通道。記錄檔可以是下列其中一種類型：
@@ -123,7 +125,7 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
                 }
             }
     },
-                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountNamee')]"
+                    "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountName')]"
                 },
                 "protectedSettings": {
                     "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",
@@ -167,7 +169,7 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
 
 如上所述建立 JSON 檔之後，請依照您環境的特點加以變更。然後呼叫下列命令，並傳入 Service Fabric 叢集的資源群組名稱。成功執行此命令後，診斷將部署在所有 VM 上，並開始將叢集中的記錄檔上傳至指定的 Azure 儲存體帳戶中的資料表。
 
-此外，在呼叫此部署命令之前，您可能需要進行一些設定，包括加入 Azure 帳戶 (`Add-AzureAccount`)、選擇正確的訂用帳戶 (`Select-AzureSubscription`)，以及切換到資源晚裡元模式 (`Switch-AzureMode AzureResourceManager`)。
+此外，在呼叫此部署命令之前，您可能需要進行一些設定，包括加入 Azure 帳戶 (`Add-AzureAccount`)、選擇正確的訂用帳戶 (`Select-AzureSubscription`)，以及切換到 [資源管理員] 模式 (`Switch-AzureMode AzureResourceManager`)。
 
 ```ps
 
@@ -325,4 +327,4 @@ if ($existingConfig) {
 ## 後續步驟
 查看針對 [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) 和 [Reliable Services](service-fabric-reliable-services-diagnostics.md) 所發出的診斷事件，以更詳細了解進行問題移難排解時應該調查哪些事件。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0309_2016-->

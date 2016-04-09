@@ -65,23 +65,23 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 3. 對於新的專案，輸入或選取下列值。
 
 	<table>
-<tr>
-<th>屬性</th>
-<th>值</th>
-</tr>
-<tr>
-<th>類別</th>
-<th>範本/Visual C#/Windows</th>
-</tr>
-<tr>
-<th>範本</th>
-<th>主控台應用程式</th>
-</tr>
-<tr>
-<th>名稱</th>
-<th>SubmitPigJob</th>
-</tr>
-</table>
+	<tr>
+	<th>屬性</th>
+	<th>值</th>
+	</tr>
+	<tr>
+	<th>類別</th>
+	<th>範本/Visual C#/Windows</th>
+	</tr>
+	<tr>
+	<th>範本</th>
+	<th>主控台應用程式</th>
+	</tr>
+	<tr>
+	<th>名稱</th>
+	<th>SubmitPigJob</th>
+	</tr>
+	</table>
 
 4. 按一下 [確定] 以建立專案。
 
@@ -126,7 +126,6 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 		            // Define the Pig job
 		            var parameters = new PigJobSubmissionParameters()
 		            {
-		                UserName = ExistingClusterUsername,
 		                Query = queryString,
 		            };
 		
@@ -161,4 +160,4 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

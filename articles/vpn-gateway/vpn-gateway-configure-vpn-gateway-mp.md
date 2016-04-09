@@ -164,10 +164,10 @@
 
 您可以在此文章中進一步了解虛擬網路跨單位連線：[關於虛擬網路的安全跨單位連線](vpn-gateway-cross-premises-options.md)。
 
-您可以將虛擬機器加入您的虛擬網路。請參閱[如何建立自訂虛擬機器](../virtual-machines/virtual-machines-create-custom.md)。
+您可以將虛擬機器加入您的虛擬網路。請參閱[如何建立自訂虛擬機器](../virtual-machines/virtual-machines-windows-classic-createportal.md)。
 
 如果您想要設定點對站 VPN 連線，請參閱[設定點對站 VPN 連線](vpn-gateway-point-to-site-create.md)。
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

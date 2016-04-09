@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # 開始使用事件中心
@@ -30,7 +30,7 @@
 
 若要完成本教學課程，您需要下列項目：
 
-+ C 開發環境。在本教學課程中，我們假設 [Azure Linux VM](../virtual-machines/virtual-machines-linux-tutorial.md) 上的 gcc 堆疊有 Ubuntu 14.04。其他環境的指示將會在外部連結中提供。
++ C 開發環境。在本教學課程中，我們假設 [Azure Linux VM](../virtual-machines/virtual-machines-linux-cli-create.md) 上的 gcc 堆疊有 Ubuntu 14.04。其他環境的指示將會在外部連結中提供。
 
 + Microsoft Visual Studio Express 2013 for Windows
 
@@ -42,31 +42,31 @@
 
 2. 按一下 [**應用程式服務**]、[**服務匯流排**]、[**事件中樞**]、[**快速建立**]。
 
-   	![][1]
+	![][1]
 
 3. 為您的事件中樞輸入名稱、選取所需的區域，然後按一下 [**建立新的事件中樞**]。
 
-   	![][2]
+	![][2]
 
 4. 按一下您剛才建立的命名空間 (通常是 ***event hub name*-ns**)。
 
-   	![][3]
+	![][3]
 
 5. 按一下頁面頂端的 [事件中心] 索引標籤，然後按一下您剛建立的事件中心。
 
-   	![][4]
+	![][4]
 
 6. 按一下頁面頂端的 [**設定**] 索引標籤，新增名為 **SendRule** 且具有*傳送*權限的規則，以及另一個名為 **ReceiveRule** 且具有*管理、傳送、接聽*權限的規則，然後按一下 [**儲存**]。
 
-   	![][5]
+	![][5]
 
 7. 在相同頁面上，記下為 **SendRule** 產生的金鑰。
 
-   	![][6b]
+	![][6b]
 
 8. 按一下頁面頂端的 [**儀表板**] 索引標籤，然後按一下 [**連接資訊**]。記下這兩個連接字串。
 
-   	![][6]
+	![][6]
 
 現已建立事件中心，並具有傳送與接收事件所需的連接字串。
 
@@ -81,11 +81,11 @@
 
 1.	從 Visual Studio 內部執行 **Receiver** 專案，然後等它啟動所有資料分割的接收器。
 
-   	![][21]
+	![][21]
 
-2.	執行 **sender** 程式，並查看接收器視窗中出現的事件。
+2.	執行 **Sender** 程式，並查看接收器視窗中出現的事件。
 
-   	![][24]
+	![][24]
 
 ## 後續步驟
 
@@ -117,4 +117,4 @@
 [使用「事件中樞」相應放大事件處理]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [佇列訊息解決方案]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0323_2016-->

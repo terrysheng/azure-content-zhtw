@@ -44,7 +44,7 @@
 - 使用下列命令進行**驗證**：
 
 		azure login
-	如需使用公司或學校帳戶驗證的詳細資訊，請參閱[從 Azure CLI 連線至 Azure 訂用帳戶](xplat-cli-connect.md)。
+	如需使用公司或學校帳戶驗證的詳細資訊，請參閱[從 Azure CLI 連線至 Azure 訂用帳戶](../xplat-cli-connect.md)。
 - 使用下列命令來**切換至 Azure 資源管理員模式**：
 
 		azure config mode arm
@@ -169,4 +169,4 @@ Azure 入口網站會提供使用者介面，可將範例資料檔案複製到�
 - 針對管理工作，請參閱[使用 Azure 入口網站管理 Azure 資料湖分析](data-lake-analytics-manage-use-portal.md)。
 - 若要取得資料湖分析概觀，請參閱 [Azure 資料湖分析概觀](data-lake-analytics-overview.md)。
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0323_2016-->

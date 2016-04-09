@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/05/2015"
+	ms.date="03/08/2016"
 	ms.author="sethm"/>
 
 # 開始使用事件中心
@@ -38,27 +38,27 @@
 
 2. 按一下 [**應用程式服務**]、[**服務匯流排**]、[**事件中樞**]、[**快速建立**]。
 
-   	![][1]
+	![][1]
 
 3. 為您的事件中樞輸入名稱、選取所需的區域，然後按一下 [**建立新的事件中樞**]。
 
-   	![][2]
+	![][2]
 
 4. 按一下您剛才建立的命名空間 (通常是 ***event hub name*-ns**)。
 
-   	![][3]
+	![][3]
 
 5. 按一下頁面頂端的 [事件中心] 索引標籤，然後按一下您剛建立的事件中心。
 
-   	![][4]
+	![][4]
 
 6. 按一下頂端的 [設定] 索引標籤，新增名為 **SendRule** 且具有「傳送」權限的規則，以及另一個名為 **ReceiveRule** 且具有「管理、傳送、接聽」權限的規則，然後按一下 [儲存]。
 
-   	![][5]
+	![][5]
 
 7. 按一下頁面頂端的 [儀表板] 索引標籤，然後按一下 [連線資訊]。記下兩個連接字串，或複製到別處，以供本教學課程後續使用。
 
-   	![][6]
+	![][6]
 
 現已建立事件中心，並具有傳送與接收事件所需的連接字串。
 
@@ -73,11 +73,11 @@
 
 1.	從 Visual Studio 內部執行 **Receiver** 專案，然後等它啟動所有資料分割的接收器。
 
-   	![][21]
+	![][21]
 
 2.	執行 **Sender** 專案，按主控台視窗中的 **Enter** 鍵，並查看出現在接收器視窗中的事件。
 
-   	![][22]
+	![][22]
 
 ## 後續步驟
 
@@ -105,7 +105,7 @@
 [事件中心概觀]: event-hubs-overview.md
 [使用事件中樞的完整範例應用程式]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [使用「事件中樞」相應放大事件處理]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[佇列訊息解決方案]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[佇列訊息解決方案]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/18/2016"
+	ms.date="03/22/2016"
 	ms.author="billmath;andkjell"/>
 
 # 使用快速設定開始使用 Azure AD Connect
@@ -44,7 +44,7 @@
 3. 在 [歡迎] 畫面上，選取同意授權條款的方塊，然後按一下 [繼續]。
 4. 在 [快速設定] 畫面上，按一下 [**使用快速設定**]。![歡迎使用 Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. 在 [連接到 Azure AD] 畫面上，輸入您的 Azure AD 的 Azure 全域系統管理員使用者名稱和密碼。按 [下一步]。![連接至 AAD](./media/active-directory-aadconnect-get-started-express/connectaad.png)如果您收到錯誤訊息，而且有連線問題，請參閱[對連線問題進行疑難排解](active-directory-aadconnect-troubleshoot-connectivity.md)。
-6. 在 [連接到 AD DS] 畫面上輸入企業系統管理員帳戶的使用者名稱和密碼。按 [下一步]。![歡迎使用 Azure AD Connect](./media/active-directory-aadconnect-get-started-express/connectad.png)
+6. 在 [連接到 AD DS] 畫面上輸入企業系統管理員帳戶的使用者名稱和密碼。您可以用 NetBios 或 FQDN 格式輸入網域部分，也就是 FABRIKAM\\administrator 或 fabrikam.com\\administrator。按 [下一步]。![歡迎使用 Azure AD Connect](./media/active-directory-aadconnect-get-started-express/connectad.png)
 7. 在 [準備好設定] 畫面中，按一下 [安裝]。
 	- 在 [準備好設定] 頁面上，您可以選擇取消核取 [設定一完成，即開始同步處理程序] 核取方塊。如果這麼做，精靈會設定同步處理但會停用該工作而不執行，直到您在 [工作排程器] 將它重新啟用。一旦啟用工作，每隔 30 分鐘就會執行同步處理。
 	- 此外，您也可以選擇核取對應 [Exchange 混合式部署] 的核取方塊，以設定同步處理服務。如果您不打算在雲端和內部部署均設置 Exchange 信箱，則不需要此設定。![歡迎使用 Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
@@ -60,4 +60,4 @@
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

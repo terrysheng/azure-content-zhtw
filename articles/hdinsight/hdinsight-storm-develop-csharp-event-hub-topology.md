@@ -87,10 +87,12 @@ Spout 和 Bolt 會以名為 **eventhubs-storm-spout-0.9-jar-with-dependencies.ja
 4. 選取 [設定]，然後使用下列資訊建立兩個新的存取原則。
 
 	<table>
-<tr><th>名稱</th><th>權限</th></tr>
-<tr><td>寫入器</td><td>傳送</td></tr>
-<tr><td>讀取者</td><td>接聽</td></tr>
-</table>建立權限之後，在頁面底部選取**儲存**圖示。這樣會建立共用存取原則，可用來傳送 (寫入器) 和接聽 (讀取器) 此事件中樞的訊息。
+	<tr><th>名稱</th><th>權限</th></tr>
+	<tr><td>寫入器</td><td>傳送</td></tr>
+	<tr><td>讀取者</td><td>接聽</td></tr>
+	</table>
+
+	建立權限之後，在頁面底部選取**儲存**圖示。這樣會建立共用存取原則，可用來傳送 (寫入器) 和接聽 (讀取器) 此事件中樞的訊息。
 
 	![原則](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
 
@@ -141,13 +143,13 @@ Spout 和 Bolt 會以名為 **eventhubs-storm-spout-0.9-jar-with-dependencies.ja
 3. 輸入下列設定。使用您稍早在 [值] 資料行中所建立的事件中樞資訊。
 
 	<table>
-<tr><th style="text-align:left">名稱</th><th style="text-align:left">類型</th><th style="text-align:left">Scope</th></tr>
-<tr><td style="text-align:left">EventHubPolicyName</td><td style="text-align:left">字串</td><td style="text-align:left">應用程式</td></tr>
-<tr><td style="text-align:left">EventHubPolicyKey</td><td style="text-align:left">字串</td><td style="text-align:left">應用程式</td></tr>
-<tr><td style="text-align:left">EventHubNamespace</td><td style="text-align:left">字串</td><td style="text-align:left">應用程式</td></tr>
-<tr><td style="text-align:left">EventHubName</td><td style="text-align:left">字串</td><td style="text-align:left">應用程式</td></tr>
-<tr><td style="text-align:left">EventHubPartitionCount</td><td style="text-align:left">int</td><td style="text-align:left">應用程式</td></tr>
-</table>
+	<tr><th style="text-align:left">名稱</th><th style="text-align:left">類型</th><th style="text-align:left">Scope</th></tr>
+	<tr><td style="text-align:left">EventHubPolicyName</td><td style="text-align:left">字串</td><td style="text-align:left">應用程式</td></tr>
+	<tr><td style="text-align:left">EventHubPolicyKey</td><td style="text-align:left">字串</td><td style="text-align:left">應用程式</td></tr>
+	<tr><td style="text-align:left">EventHubNamespace</td><td style="text-align:left">字串</td><td style="text-align:left">應用程式</td></tr>
+	<tr><td style="text-align:left">EventHubName</td><td style="text-align:left">字串</td><td style="text-align:left">應用程式</td></tr>
+	<tr><td style="text-align:left">EventHubPartitionCount</td><td style="text-align:left">int</td><td style="text-align:left">應用程式</td></tr>
+	</table>
 
 4. 儲存並關閉 [屬性] 頁面。
 
@@ -296,15 +298,17 @@ Spout 和 Bolt 會以名為 **eventhubs-storm-spout-0.9-jar-with-dependencies.ja
 3. 輸入下列設定。使用您稍早在 [值] 資料行中所建立的事件中樞和儲存體帳戶資訊。
 
 	<table>
-<tr><th style="text-align:left">名稱</th><th style="text-align:left">類型</th><th style="text-align:left">Scope</th></tr>
-<tr><th style="text-align:left">EventHubPolicyName</th><th style="text-align:left">字串</th><th style="text-align:left">應用程式</th></tr>
-<tr><th style="text-align:left">EventHubPolicyKey</th><th style="text-align:left">字串</th><th style="text-align:left">應用程式</th></tr>
-<tr><th style="text-align:left">EventHubNamespace</th><th style="text-align:left">字串</th><th style="text-align:left">應用程式</th></tr>
-<tr><th style="text-align:left">EventHubName</th><th style="text-align:left">字串</th><th style="text-align:left">應用程式</th></tr>
-<tr><th style="text-align:left">EventHubPartitionCount</th><th style="text-align:left">int</th><th style="text-align:left">應用程式</th></tr>
-<tr><th style="text-align:left">StorageConnection</th><th style="text-align:left">(連接字串)</th><th style="text-align:left">應用程式</th></tr>
-<tr><th style="text-align:left">TableName</th><th style="text-align:left">字串</th><th style="text-align:left">應用程式</th></tr>
-</table>在 **TableName** 中，輸入您想要用來儲存事件的資料表名稱。
+	<tr><th style="text-align:left">名稱</th><th style="text-align:left">類型</th><th style="text-align:left">Scope</th></tr>
+	<tr><th style="text-align:left">EventHubPolicyName</th><th style="text-align:left">字串</th><th style="text-align:left">應用程式</th></tr>
+	<tr><th style="text-align:left">EventHubPolicyKey</th><th style="text-align:left">字串</th><th style="text-align:left">應用程式</th></tr>
+	<tr><th style="text-align:left">EventHubNamespace</th><th style="text-align:left">字串</th><th style="text-align:left">應用程式</th></tr>
+	<tr><th style="text-align:left">EventHubName</th><th style="text-align:left">字串</th><th style="text-align:left">應用程式</th></tr>
+	<tr><th style="text-align:left">EventHubPartitionCount</th><th style="text-align:left">int</th><th style="text-align:left">應用程式</th></tr>
+	<tr><th style="text-align:left">StorageConnection</th><th style="text-align:left">(連接字串)</th><th style="text-align:left">應用程式</th></tr>
+	<tr><th style="text-align:left">TableName</th><th style="text-align:left">字串</th><th style="text-align:left">應用程式</th></tr>
+	</table>
+
+	在 **TableName** 中，輸入您想要用來儲存事件的資料表名稱。
 
     在 **StorageConnection** 中輸入 `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;` 值。將 **myAccount** 和 **myKey** 取代為稍早取得的儲存體帳戶名稱和金鑰。
 
@@ -520,6 +524,10 @@ Spout 和 Bolt 會以名為 **eventhubs-storm-spout-0.9-jar-with-dependencies.ja
 
 ![終止拓撲的影像](./media/hdinsight-storm-develop-csharp-event-hub-topology/killtopology.png)
 
+##刪除叢集
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ## 注意事項
 
 ### 檢查點
@@ -548,7 +556,7 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 
 > [AZURE.NOTE] 由於資料已保存到預設儲存體容器，新的叢集**必須**使用與先前叢集相同的儲存體帳戶和容器。
 
-## 摘要
+## 後續步驟
 
 在本文件中，您已經了解如何使用 Java 事件中樞 Spout 和 Bolt，以利用 C# 拓撲來使用 Azure 事件中樞的資料。若要深入了解如何建立 C# 拓撲，請參閱下列內容。
 
@@ -557,4 +565,4 @@ EventHubSpout 會定期將其狀態設定檢查點到 Zookeeper 節點，這會�
 * [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

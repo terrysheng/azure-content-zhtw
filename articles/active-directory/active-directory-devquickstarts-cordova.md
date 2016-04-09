@@ -81,21 +81,23 @@ Apache Cordova 可讓您開發 HTML5/JavaScript 應用程式，然後在行動�
 
 Azure AD 只會發出權杖給已知的應用程式。您必須先在租用戶中建立應用程式的項目，才能從應用程式使用 Azure AD。若要在您的租用戶中註冊新的應用程式，請執行下列動作：
 
-- 登入 Azure 管理入口網站
-- 在左側導覽中按一下 Active Directory
-- 選取您要在其中註冊應用程式的租用戶
-- 按一下 [應用程式] 索引標籤，然後按一下最下面抽屜的 [新增]。
-- 遵照提示進行，並建立新的「原生用戶端應用程式」。
-    - 應用程式的名稱將對使用者說明您的應用程式
-    -	[重新導向 URI] 是用來將權杖傳回至您的應用程式的 URI。輸入 `http://MyDirectorySearcherApp`。
+-	登入 [Azure 管理入口網站](https://manage.windowsazure.com)
+-	在左側導覽中按一下 **Active Directory**
+-	選取您要註冊應用程式的租用戶。
+-	按一下 [**應用程式**] 索引標籤，然後按一下最下面抽屜的 [**新增**]。
+-	遵循提示，並建立新的原生用戶端應用程式 (儘管 Cordova 應用程式是以 HTML 為基礎，我們在此建立原生用戶端應用程式，因此必須選取 `Native Client Application` 選項，否則應用程式無法運作)。
+    -	應用程式的 [**名稱**] 將對使用者說明您的應用程式
+    -	[重新導向 URI] 是用來將權杖傳回至您應用程式的 URI。輸入 `http://MyDirectorySearcherApp`。
 
-完成註冊後，AAD 會為您的應用程式指派一個唯一用戶端識別碼。您在後續章節中將會用到這個值：您可以在新建立的應用程式的 [設定] 索引標籤中找到此值。
+完成註冊後，AAD 會為您的應用程式指派一個唯一用戶端識別碼。您在後續章節中將會用到這個值：您可以在新建立之應用程式的 [設定] 索引標籤中找到此值。
 
-## *2.複製本教學課程所需的儲存機制*
+若要執行 `DirSearchClient Sample`，請授與剛建立的應用程式權限來查詢 Azure AD Graph API：
+-	在 [設定] 索引標籤上找到 [其他應用程式的權限] 區段。對於 "Azure Active Directory" 應用程式，在 [委派權限] 下，加入 [以登入使用者的身分存取目錄] 權限。這樣做可讓您的應用程式查詢 Graph API 的使用者。
+
+## *2.複製本教學課程所需的範例應用程式儲存機制*
 
 從 Shell 或命令列，輸入下列命令：
 
-    git clone https://github.com/AzureAD/azure-activedirectory-library-for-cordova.git
     git clone -b skeleton https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova.git
 
 ## *3.建立 Cordova 應用程式*
@@ -112,17 +114,17 @@ Azure AD 只會發出權杖給已知的應用程式。您必須先在租用戶�
 加入叫用 Graph API 所需的允許清單外掛程式。  
 
 
-     cordova plugin add https://github.com/apache/cordova-plugin-whitelist.git
+     cordova plugin add cordova-plugin-whitelist
 
 接著，加入所有您想要支援的平台。您至少必須執行下列其中一個命令，才能發揮範例的實用性。請注意，您無法在 Windows 模擬 iOS，或在 Mac 上模擬 Windows/Windows Phone。
 
-    cordova platform add android@97718a0a25ec50fedf7b023ae63bfcffbcfafb4b
+    cordova platform add android
     cordova platform add ios
     cordova platform add windows
 
 最後，您可以將 ADAL for Cordova 外掛程式加入您的專案。
 
-    cordova plugin add ../azure-activedirectory-library-for-cordova
+    cordova plugin add cordova-plugin-ms-adal
 
 ## *3.加入程式碼來驗證使用者，並從 AAD 取得權杖*
 
@@ -165,14 +167,17 @@ Azure AD 只會發出權杖給已知的應用程式。您必須先在租用戶�
 
     },
 ```
-讓我們將該函式分成兩個主要部分來檢查一下。此範例設計成可搭配任何租用戶，而不受限於特定的租用戶。它使用 "/common" 端點，可讓使用者在驗證時輸入任何帳戶，而且會將要求導向其所屬的租用戶。此方法的第一個部分會檢查 ADAL 快取，查看是否有已儲存的權杖。如果有的話，則使用它的來源租用戶來重新初始化 ADAL。這是為了避免額外提示而必須執行的動作，因為使用 "/common" 永遠會導致要求使用者輸入新的帳戶。```javascript
+讓我們將該函式分成兩個主要部分來檢查一下。此範例設計成可搭配任何租用戶，而不受限於特定的租用戶。它使用 "/common" 端點，可讓使用者在驗證時輸入任何帳戶，而且會將要求導向其所屬的租用戶。此方法的第一個部分會檢查 ADAL 快取，查看是否有已儲存的權杖。如果有的話，則使用它的來源租用戶來重新初始化 ADAL。這是為了避免額外提示而必須執行的動作，因為使用 "/common" 永遠會導致要求使用者輸入新的帳戶。
+```javascript
         app.context = new Microsoft.ADAL.AuthenticationContext(authority);
         app.context.tokenCache.readItems().then(function (items) {
             if (items.length > 0) {
                 authority = items[0].authority;
                 app.context = new Microsoft.ADAL.AuthenticationContext(authority);
             }
-``` 此方法的第二個部分會執行適當的權杖要求。 `acquireTokenSilentAsync` 方法會要求 ADAL 傳回指定資源的權杖，而不會顯示任何 UX。如果快取中已儲存適當的存取權杖，或者如果有重新整理權杖可用來取得新的存取權杖，而不會顯示任何提示，就會發生此情況。如果該嘗試失敗，我們就退回到 `acquireTokenAsync`，將會明顯提示使用者進行驗證。```javascript
+```
+此方法的第二個部分會執行適當的權杖要求。`acquireTokenSilentAsync` 方法會要求 ADAL 傳回指定資源的權杖，而不會顯示任何 UX。如果快取中已儲存適當的存取權杖，或者如果有重新整理權杖可用來取得新的存取權杖，而不會顯示任何提示，就會發生此情況。如果該嘗試失敗，我們就退回到 `acquireTokenAsync`，將會明顯提示使用者進行驗證。
+```javascript
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
@@ -182,7 +187,8 @@ Azure AD 只會發出權杖給已知的應用程式。您必須先在租用戶�
                     app.error("Failed to authenticate: " + err);
                 });
             });
-``` 既然已取得權杖，我們終於可以叫用 Graph API，並執行我們想要的搜尋查詢。在 `authenticate` 定義下方，插入下列程式碼片段。
+```
+既然已取得權杖，我們終於可以叫用圖形 API，並執行我們想要的搜尋查詢。在 `authenticate` 定義下方，插入下列程式碼片段。
 
 ```javascript
 // Makes Api call to receive user list.
@@ -214,22 +220,29 @@ Azure AD 只會發出權杖給已知的應用程式。您必須先在租用戶�
 ## *4.執行*
 終於可以開始執行您的應用程式了！ 操作很簡單：應用程式啟動後，在文字方塊中輸入您要查閱的使用者的別名，然後按一下按鈕。系統會提示您進行驗證。在成功驗證和成功搜尋之後，將會顯示搜尋到的使用者的屬性。後續執行時只會執行搜尋，而不會顯示任何提示，因為先前取得的權杖已存在於快取中。執行應用程式的具體步驟隨著平台而不同。
 
+####Windows 10：
 
-##### 建置和執行 Windows Tablet/PC 應用程式版本
+   平板電腦/PC：`cordova run windows --archs=x64 -- --appx=uap`
+
+   行動裝置 (需要連線至 PC 的 Windows10 行動裝置)︰`cordova run windows --archs=arm -- --appx=uap --phone`
+
+   __注意__：第一次執行期間可能會要求您登入，以取得開發人員授權。如需詳細資訊，請參閱[開發人員授權](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx)。
+
+####Windows 8.1 平板電腦/PC：
 
    `cordova run windows`
 
    __注意__：第一次執行期間可能會要求您登入，以取得開發人員授權。如需詳細資訊，請參閱[開發人員授權](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx)。
 
-
-##### 在 Windows Phone 8.1 建置和執行應用程式
+####Windows Phone 8.1：
 
    在已連接的裝置上執行：`cordova run windows --device -- --phone`
 
    在預設模擬器上執行：`cordova emulate windows -- --phone`
 
    使用 `cordova run windows --list -- --phone` 查看所有可用的目標，使用 `cordova run windows --target=<target_name> -- --phone` 在特定裝置或模擬器上執行應用程式 (例如，`cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`)。
-##### 在 Android 裝置上建置和執行
+
+####Android：
 
    在已連接的裝置上執行：`cordova run android --device`
 
@@ -239,7 +252,7 @@ Azure AD 只會發出權杖給已知的應用程式。您必須先在租用戶�
 
    使用 `cordova run android --list` 查看所有可用的目標，使用 `cordova run android --target=<target_name>` 在特定裝置或模擬器上執行應用程式 (例如，`cordova run android --target="Nexus4_emulator"`)。
 
-##### 在 iOS 裝置上建置和執行
+####iOS：
 
    在已連接的裝置上執行：`cordova run ios --device`
 
@@ -251,10 +264,10 @@ Azure AD 只會發出權杖給已知的應用程式。您必須先在租用戶�
 
 使用 `cordova run --help` 查看其他建置和執行選項。
 
-這裡提供完成的範例供您參考 (不含您的設定值)。您現在可以進入更進階 (應該說更有趣) 的案例。您可以嘗試：
+[這裡](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient)提供完成的範例供您參考 (不含您的設定值)。您現在可以進入更進階 (應該說更有趣) 的案例。您可以嘗試：
 
 [使用 Azure AD 保護 Node.js Web API >>](active-directory-devquickstarts-webapi-nodejs.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -345,7 +345,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 
 ## 將應用程式部署至 Web 應用程式
 
-執行 AzureWebDemo 並建立新的 Web 應用程式之後，登入傳統入口網站，按一下 **[Web Apps]**，然後選取 [**Web Apps**] 清單中的 [**WebDemoWebApp**]。在 Web 應用程式的儀表板頁面中，按一下 [**瀏覽**] (或按一下 URL：`webdemowebapp.azurewebsites.net`) 以導覽至該 Web 應用程式。您將會看見空白預留位置頁面，因為尚未將任何內容發佈至此 Web 應用程式。
+執行 AzureWebDemo 並建立新的 Web 應用程式之後，登入傳統入口網站，按一下 **[Web Apps]**，然後選取 [**Web Apps**] 清單中的 [**WebDemoWebApp**]。在 Web 應用程式的儀表板頁面中，按一下 [**瀏覽**] \(或按一下 URL：`webdemowebapp.azurewebsites.net`) 以導覽至該 Web 應用程式。您將會看見空白預留位置頁面，因為尚未將任何內容發佈至此 Web 應用程式。
 
 接下來，您會建立 "Hello World" 應用程式並將其部署至 Web 應用程式。
 
@@ -460,7 +460,7 @@ Azure SDK for Java 使用管理憑證來向 Azure 訂用帳戶進行驗證。這
 
 1. 在 [**基本功能**] 之下，尋找並複製 [**FTP 主機名稱**]。這是類似於 `ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net` 的 URI。
 
-2. 在 [**基本功能**] 之下，尋找並複製 [**FTP/部署使用者名稱**]。其格式為 *webappname\\deployment-username*；例如 `WebDemoWebApp\deployer77`
+2. 在 [**基本功能**] 之下，尋找並複製 [**FTP/部署使用者名稱**]。其格式為 *webappname\deployment-username* ；例如 `WebDemoWebApp\deployer77`
 
 若要從發行設定檔取得 FTP 連線資訊：
 
@@ -547,7 +547,7 @@ FileZilla 是另一項可用來發佈應用程式的工具 ，這是具有便利
     - **通訊協定：**(FTP 檔案傳輸通訊協定)
     - **加密：**使用一般 FTP
     - **登入類型：**正常
-    - **使用者：**輸入您從儀表板複製的部署/FTP 使用者。這是完整 FTP 使用者名稱，格式為 *webappname\\username*。
+    - **使用者：**輸入您從儀表板複製的部署/FTP 使用者。這是完整 FTP 使用者名稱，格式為 *webappname\username* 。
     - **密碼：**輸入您設定部署認證時指定的密碼。
 
     在 [**傳輸設定**] 索引標籤上，選取 [**被動**]。
@@ -607,4 +607,4 @@ FileZilla 是另一項可用來發佈應用程式的工具 ，這是具有便利
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [Azure 入口網站]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!-----HONumber=AcomDC_0302_2016-------->

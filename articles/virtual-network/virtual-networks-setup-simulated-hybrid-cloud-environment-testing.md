@@ -51,7 +51,7 @@
 
 ## 第 1 階段：設定 TestLab 虛擬網路
 
-使用[基底組態測試環境](../virtual-machines/virtual-machines-base-configuration-test-environment.md)中的指示，在名稱為 TestLab 的 Azure 虛擬網路中設定 DC1、APP1 和 CLIENT1 電腦。
+使用[基底組態測試環境](../virtual-machines/virtual-machines-windows-classic-test-config-env.md)中的指示，在名稱為 TestLab 的 Azure 虛擬網路中設定 DC1、APP1 和 CLIENT1 電腦。
 
 從本機電腦上的 Azure 管理入口網站中，使用 CORP\\User1 認證連線到 DC1。若要設定 CORP 網域，讓電腦和使用者使用其本機網域控制站進行驗證，請從系統管理員層級 Windows PowerShell 命令提示字元執行這些命令。
 
@@ -261,4 +261,4 @@ Azure VPN 閘道會實作為一組會產生持續成本的兩個 Azure 虛擬機
 
 接著，在 Azure 管理入口網站的 [網路] 頁面上，按一下 [TestLab] 虛擬網路，然後按一下工作列中的 [連接]。等候 TestLab 虛擬網路顯示 TestVNET 區域網路的連線狀態。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -607,8 +607,8 @@ _圖 6.根據分析和儲存體需求分割資料_
 - Microsoft 網站上的「[在 Azure 雲端服務和虛擬機器中啟用診斷](cloud-services-dotnet-diagnostics.md)」頁面。
 - Microsoft 網站上的＜[Azure Redis 快取](https://azure.microsoft.com/services/cache/)＞、＜[Azure DocumentDB](https://azure.microsoft.com/services/documentdb/)＞和＜[HDInsight](https://azure.microsoft.com/services/hdinsight/)＞頁面。
 - Microsoft 網站上的＜[如何服務匯流排佇列](service-bus-dotnet-how-to-use-queues.md)＞頁面。
-- Microsoft 網站上的＜[Azure 虛擬機器中的 SQL Server Business Intelligence](./virtual-machines/virtual-machines-sql-server-business-intelligence.md)＞頁面。
+- Microsoft 網站上的＜[Azure 虛擬機器中的 SQL Server Business Intelligence](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)＞頁面。
 - Microsoft 網站上的「[接收警示通知](insights-receive-alert-notifications.md)」和「[追蹤服務健全狀況](insights-service-health.md)」頁面。
 - Microsoft 網站上的＜[Application Insights](app-insights-get-started.md)＞頁面。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

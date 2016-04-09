@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/17/2016"
    ms.author="joaoma" />
 
 # 設定容錯移轉路由方法
@@ -38,7 +38,7 @@
 
 [將公司網際網路網域指向流量管理員網域](traffic-manager-point-internet-domain.md)
 
-[流量管理員路由方法](traffic-manager-load-balancing-methods.md)
+[流量管理員路由方法](traffic-manager-routing-methods.md)
 
 [設定循環配置資源路由方法](traffic-manager-configure-round-robin-routing-method.md)
 
@@ -52,4 +52,4 @@
 
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0323_2016-->

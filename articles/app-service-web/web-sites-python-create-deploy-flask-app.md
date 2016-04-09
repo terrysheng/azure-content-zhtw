@@ -382,7 +382,6 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 
 ## 變更的項目
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
-* 如需從舊的入口網站變更為新入口網站的指南，請參閱：[巡覽預覽入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
@@ -403,4 +402,4 @@ Visual Studio 不會顯示部署進度。如果您想要檢閱輸出，請參閱
 [Flask 說明文件 (英文)]: http://flask.pocoo.org/
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

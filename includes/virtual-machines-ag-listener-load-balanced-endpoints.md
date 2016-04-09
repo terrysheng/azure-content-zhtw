@@ -17,5 +17,4 @@
 		Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
 
 	一旦匯入發佈設定檔案，您便可以在 PowerShell 工作階段中管理 Azure 訂用帳戶。
-
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

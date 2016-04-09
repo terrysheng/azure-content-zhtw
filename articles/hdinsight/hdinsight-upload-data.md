@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/29/2015"
+	ms.date="03/22/2016"
 	ms.author="jgao"/>
 
 
@@ -109,18 +109,12 @@ Azure PowerShell 是一種指令碼環境，可讓您在 Azure 中用來控制�
 1. 依照[安裝和設定 Azure PowerShell](../powershell-install-configure.md) 的指示，開啟 Azure PowerShell 主控台。
 2. 在下列指令碼中設定前五個變數的值：
 
-		$subscriptionName = "<AzureSubscriptionName>"
 		$resourceGroupName = "<AzureResourceGroupName>"
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"
 
 		$fileName ="<LocalFileName>"
 		$blobName = "<BlobName>"
-
-		Switch-AzureMode -Name AzureResourceManager
-
-		Add-AzureAccount
-		Select-AzureSubscription $subscriptionName
 
 		# Get the storage account key
 		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
@@ -284,4 +278,4 @@ Azure Blob 儲存體也可以使用 Azure SDK，透過下列程式設計語言�
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

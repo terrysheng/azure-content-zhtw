@@ -4,7 +4,7 @@
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="03/05/2016" 
 	ms.author="glenga"/>
 
 
@@ -21,6 +21,11 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[新增推播通知至 Windows App](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md)。
+ 
 本主題說明如何使用 Azure 行動服務與 JavaScript 後端傳送推播通知至通用 Windows 應用程式。在本教學課程中，您會透過 Azure 通知中心，啟用通用 Windows 應用程式專案中的推播通知功能。完成之後，每次 TodoList 資料表中插入記錄時，您的行動服務將會從 JavaScript 後端將推播通知傳送至所有註冊的 Windows 市集與 Windows Phone 市集應用程式。您所建立的通知中心可透過行動服務免費使用、可在行動服務以外個別管理，並且可供其他應用程式和服務使用。
 
 >[AZURE.NOTE]本主題說明如何使用 Visual Studio 2013 with Update 3 的工具，從行動服務將推播通知支援新增至通用 Windows 應用程式。要將推播通知從行動服務新增到 Windows 市集或 Windows Phone 8.1 應用程式時，也可使用相同的步驟進行。若要將推播通知新增至 Windows Phone 8 或 Windows Phone Silverlight 8.1 應用程式，請檢視此版本的[開始在行動服務中使用推播通知](mobile-services-javascript-backend-windows-phone-get-started-push.md)。
@@ -67,13 +72,13 @@
 
 + [將推播通知傳送給驗證的使用者](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) <br/>了解如何利用標記，從行動服務將推播通知只傳送給已驗證的使用者。
 
-+ [將廣播通知傳送給訂閱者](../notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>了解使用者如何註冊及接收其所需之類別的推播通知。
++ [將廣播通知傳送給訂閱者](../notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md) <br/>了解使用者如何註冊及接收其所需之類別的推播通知。
 
-+ [將跨平台通知傳送給訂閱者](../notification-hubs-aspnet-cross-platform-notify-users.md) <br/>了解如何使用範本從您的行動服務傳送推播通知，但不必在後端製作平台特定的裝載。
++ [將跨平台通知傳送給訂閱者](../notification-hubs/notification-hubs-aspnet-cross-platform-notify-users.md) <br/>了解如何使用範本從您的行動服務傳送推播通知，但不必在後端製作平台特定的裝載。
 
 在下列主題中深入了解行動服務和通知中心：
 
-* [Azure 通知中樞 - 診斷指導方針](../notification-hubs-diagnosing.md) <br/>了解如何疑難排解推播通知問題。
+* [Azure 通知中樞 - 診斷指導方針](../notification-hubs/notification-hubs-diagnosing.md) <br/>了解如何疑難排解推播通知問題。
 
 * [開始使用驗證] <br/>了解如何使用行動服務驗證使用不同帳戶類型的應用程式使用者。
 
@@ -100,4 +105,4 @@
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0309_2016-->

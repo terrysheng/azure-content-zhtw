@@ -106,7 +106,7 @@ HEAD|傳回 GET 回應的物件中繼資料。
 
 ##限制
 
-查詢項目時，有一次最多傳回 1000 個實體的限制，因為公用 REST v2 有 1000 個查詢結果數目的限制。您需要使用 [略過] 和 [採用] (.NET)/ [最前面] (REST)，如[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述。
+查詢項目時，有一次最多傳回 1000 個實體的限制，因為公用 REST v2 有 1000 個查詢結果數目的限制。您需要使用 [略過] 和 [採用] \(.NET) [最前面] \(REST)，如[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述。
 
 
 ## 探索媒體服務模型
@@ -132,4 +132,4 @@ HEAD|傳回 GET 回應的物件中繼資料。
 
  
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!-----HONumber=AcomDC_0302_2016-------->

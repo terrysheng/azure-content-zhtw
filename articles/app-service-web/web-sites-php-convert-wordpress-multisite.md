@@ -3,9 +3,9 @@
 	description="了解如何將透過 Azure 中的組件庫所建立的現有 WordPress Web 應用程式轉換成 WordPress 多網站" 
 	services="app-service\web" 
 	documentationCenter="php" 
-	authors="tfitzmac" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP" 
 	ms.topic="article" 
 	ms.date="01/12/2016" 
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 
 
@@ -153,4 +153,4 @@ Azure Web Apps 可讓您將不限數量的網域加入至 Web 應用程式。若
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

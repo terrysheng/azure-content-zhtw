@@ -3,8 +3,8 @@
 	description="了解如何使用 System Center 2012 R2 DPM 將 Exchange Server 備份至 Azure 備份"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="AnuragMehrotra"
+	manager="shivamg"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/08/2015"
-	ms.author="jimpark;delhan"/>
+	ms.author="anuragm;jimpark;delhan"/>
 
 
 # 使用 System Center 2012 R2 DPM 將 Exchange Server 備份至 Azure 備份
@@ -23,7 +23,7 @@
 ## 更新
 若要在 Azure 備份中成功註冊 DPM 伺服器，您必須安裝 System Center 2012 R2 DPM 的最新更新彙總套件和 Azure 備份代理程式的最新版本。從 [Microsoft Catalog](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager) 取得最新的更新彙總套件。
 
->[AZURE.NOTE]對於本文中的範例，會安裝 Azure 備份代理程式的 2.0.8719.0 版，而更新彙總套件 6 會安裝於 System Center 2012 R2 DPM。
+>[AZURE.NOTE] 對於本文中的範例，會安裝 Azure 備份代理程式的 2.0.8719.0 版，而更新彙總套件 6 會安裝於 System Center 2012 R2 DPM。
 
 ## 先決條件
 繼續之前，請確定符合使用 Microsoft Azure 備份保護工作負載的所有[必要條件](backup-azure-dpm-introduction.md#prerequisites)。這些先決條件包含下列各項：
@@ -50,7 +50,7 @@
 
 4. 選取您想要保護的 Exchange Server 資料庫，然後按 [下一步]。
 
-    >[AZURE.NOTE]如果您要保護 Exchange 2013，請檢查 [Exchange 2013 先決條件](https://technet.microsoft.com/library/dn751029.aspx)。
+    >[AZURE.NOTE] 如果您要保護 Exchange 2013，請檢查 [Exchange 2013 先決條件](https://technet.microsoft.com/library/dn751029.aspx)。
 
     下例中選取了Exchange 2010 資料庫。
 
@@ -69,13 +69,13 @@
 
     選取此選項之後，將會在 DPM 伺服器上執行備份一致性檢查，以避免在 Exchange Server 上執行 **eseutil** 命令所產生的 I/O 流量。
 
-    >[AZURE.NOTE]若要使用此選項，您必須將 Ese.dll 和 Eseutil.exe 檔案複製到 DPM 伺服器上的 C:\\Program Files\\Microsoft System Center 2012 R2\\DPM\\DPM\\bin 目錄。否則會觸發下列錯誤：![eseutil 錯誤](./media/backup-azure-backup-exchange-server/eseutil-error.png)
+    >[AZURE.NOTE] 若要使用此選項，您必須將 Ese.dll 和 Eseutil.exe 檔案複製到 DPM 伺服器上的 C:\\Program Files\\Microsoft System Center 2012 R2\\DPM\\DPM\\bin 目錄。否則會觸發下列錯誤：![eseutil 錯誤](./media/backup-azure-backup-exchange-server/eseutil-error.png)
 
 8. 按 [下一步]。
 
 9. 選取要 [複製備份] 的資料庫，然後按 [下一步]。
 
-    >[AZURE.NOTE]如果您未對資料庫的至少一個 DAG 複本選取「完整備份」，則不會截斷記錄檔。
+    >[AZURE.NOTE] 如果您未對資料庫的至少一個 DAG 複本選取「完整備份」，則不會截斷記錄檔。
 
 10. 設定 [短期備份] 的目標，然後按 [下一步]。
 
@@ -93,7 +93,7 @@
 
     ![指定線上備份排程](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
-    >[AZURE.NOTE]請注意，線上復原點是以快速完整復原點為基礎。因此，您必須將線上復原點排程在針對快速完整復原點指定的時間之後。
+    >[AZURE.NOTE] 請注意，線上復原點是以快速完整復原點為基礎。因此，您必須將線上復原點排程在針對快速完整復原點指定的時間之後。
 
 16. 設定 [Azure 備份] 的保留期原則，然後按 [下一步]。
 
@@ -131,4 +131,4 @@
 
 - [Azure 備份常見問題集](backup-azure-backup-faq.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0316_2016-->

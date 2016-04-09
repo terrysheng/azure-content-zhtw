@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/23/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # 使用 DocumentDB Document Explorer 檢視、編輯、建立和上傳 JSON 文件
@@ -158,4 +158,4 @@ Azure 入口網站中的 Document Explorer 只是一種處理 DocumentDB 中文�
 
 [學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)也是很實用的資源，可引導您深入了解 DocumentDB。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -20,8 +20,6 @@
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
-&nbsp;
-
 以下連結的主題提供 Microsoft Azure 行動服務的特定行為相關資訊。這些相同主題可以做為 Azure 傳統入口網站的說明。
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
@@ -86,4 +84,4 @@
 - [錯誤處理](https://msdn.microsoft.com/library/azure/jj631632.aspx)
 - [快速鍵](https://msdn.microsoft.com/library/azure/jj552469.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="03/04/2016" 
 	ms.author="bradsev" />
 
 
@@ -364,11 +364,14 @@ Power BI 中將會產生新的資料集。按一下 **ConnectedCarsRealtime** �
 ![Connected Cars PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard2.png)
  
 
-**從第 3 頁**，釘選下列項目 1.VIN 的計數 ![Connected Cars PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png)
+**從第 3 頁**，釘選下列項目
+1.	VIN 的計數 ![Connected Cars PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png) 
 
 2.	激進駕駛的車輛 (依車型) – 瀑布圖 ![車輛遙測 - 釘選圖表 4](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard4.png)
 
-**從第 5 頁**，釘選下列項目 1.vin 的計數 ![車輛遙測 - 釘選圖表 5](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png) 2.省油的車輛 (依車型)：群組直條圖 ![車輛遙測 - 釘選圖表 6](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard6.png)
+**從第 5 頁**，釘選下列項目
+1.	vin 的計數 ![車輛遙測 - 釘選圖表 5](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png)  
+2.	省油的車輛 (依車型)：群組直條圖 ![車輛遙測 - 釘選圖表 6](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard6.png)
 
 **從第 4 頁**，釘選下列項目
 
@@ -390,4 +393,4 @@ Power BI 中將會產生新的資料集。按一下 **ConnectedCarsRealtime** �
 
 恭喜！ 您已成功建立報報和儀表板，可取得車輛健全狀況和駕駛習慣的即時、預測和批次深入分析。
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0309_2016-->

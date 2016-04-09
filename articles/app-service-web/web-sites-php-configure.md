@@ -3,7 +3,7 @@
 	description="了解如何設定預設的 PHP 安裝，或是在 Azure App Service 中新增適用於 Web Apps 的自訂 PHP 安裝。"
 	services="app-service"
 	documentationCenter="php"
-	authors="tfitzmac"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="02/26/2016"
-	ms.author="tomfitz"/>
+	ms.author="robmcm"/>
 
 #在 Azure App Service Web Apps 中設定 PHP
 
@@ -188,4 +188,4 @@ Zend 擴充功能也支援使用 **PHP\_ZENDEXTENSIONS** 索引鍵。若要啟�
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0323_2016-->

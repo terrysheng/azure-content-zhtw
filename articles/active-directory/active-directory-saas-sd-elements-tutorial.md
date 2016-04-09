@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/21/2015"
+	ms.date="03/08/2016"
 	ms.author="jeedes"/>
 
 
@@ -36,7 +36,7 @@
 - 已啟用 SD Elements 單一登入的訂用帳戶
 
 
-> [AZURE.NOTE]若要測試本教學課程中的步驟，我們不建議使用生產環境。
+> [AZURE.NOTE] 若要測試本教學課程中的步驟，我們不建議使用生產環境。
 
 
 若要測試本教學課程中的步驟，您應該遵循這些建議：
@@ -62,7 +62,7 @@
 2. 從 [目錄] 清單中，選取要啟用目錄整合的目錄。
 
 3. 若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br> ![應用程式][2]<br>
-4. 按一下頁面底部的 [新增]。<br><br> ![應用程式][3]<br>
+4. 按一下頁面底部的 [加入]。<br><br> ![應用程式][3]<br>
 5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br> ![應用程式][4]<br>
 6. 在搜尋方塊中，輸入 **SD Elements**。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_01.png)<br>
 7. 在結果窗格中選取 [SD Elements]，然後按一下 [完成] 以新增應用程式。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_02.png)<br>
@@ -104,7 +104,7 @@ SD Elements 應用程式需要特定格式的 SAML 判斷提示，因此您必�
    
     b.在 [回覆 URL] 文字方塊中，以下列形式輸入您租用戶的回覆 URL：*https://\<您的租用戶名稱>.sdelements.com/sso/saml2/acs/*
 
-    > [AZURE.NOTE]如果您的租用戶需要實際的簽發者 URL 和回覆 URL，請連絡您的 [SD Elements 支援小組](mailto:support@sdelements.com)。
+    > [AZURE.NOTE] 如果您的租用戶需要實際的簽發者 URL 和回覆 URL，請連絡您的 [SD Elements 支援小組](mailto:support@sdelements.com)。
       
     c.按 [下一步]。
 
@@ -187,7 +187,7 @@ SD Elements 應用程式需要特定格式的 SAML 判斷提示，因此您必�
 
     c.在 [顯示名稱] 文字方塊中，輸入 **Britta Simon**。
 
-    d.在 [角色] 清單中，選取 [使用者]。
+    d.在 [角色] 清單中選取 [使用者]。
 
     e.按 [下一步]。
 
@@ -287,4 +287,4 @@ SD Elements 應用程式需要特定格式的 SAML 判斷提示，因此您必�
 [204]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0309_2016-->

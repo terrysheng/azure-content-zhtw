@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="03/22/2016"
 	ms.author="billmath;andkjell"/>
 
 # 自訂 Azure AD Connect 安裝
@@ -68,7 +68,7 @@
 ## [同步] 一節的頁面
 
 ### 連接您的目錄
-若要連接到您的 Active Directory 網域服務，Azure AD Connect 需要具有足夠權限的帳戶認證。此帳戶可以是一般使用者帳戶，因為我們只需要預設的讀取權限。不過，視您的情況而定，可能會需要其他權限。如需詳細資訊，請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
+若要連接到您的 Active Directory 網域服務，Azure AD Connect 需要具有足夠權限的帳戶認證。您可以用 NetBios 或 FQDN 格式輸入網域部分，也就是 FABRIKAM\\syncuser 或 fabrikam.com\\syncuser。此帳戶可以是一般使用者帳戶，因為我們只需要預設的讀取權限。不過，視您的情況而定，可能會需要其他權限。如需詳細資訊，請參閱 [Azure AD Connect 帳戶與權限](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
 
 ![連線目錄](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
@@ -131,6 +131,8 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 
 ![選用功能](./media/active-directory-aadconnect-get-started-custom/azureadattributes2.png)
 
+>[AZURE.WARNING] 移除可能影響功能的屬性。如需最佳作法和建議，請參閱[同步處理的屬性](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize)。
+
 ### 目錄擴充屬性同步處理
 您可以使用目錄擴充，利用您組織新增的自訂屬性，或 Active Directory 中的其他屬性，在 Azure AD 中擴充結構描述。若要使用這項功能，請選取 [選用功能] 頁面上的 [目錄擴充屬性同步處理]。如此可讓您進入此頁面，並在其中選取其他屬性。
 
@@ -150,7 +152,7 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 
 ![AD FS 伺服器陣列](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
-**注意：**如果選擇使用現有的 AD FS 伺服器陣列，會略過幾個頁面將您直接導向至一個畫面，以設定 AD FS 與 Azure AD 的之間的信任關係。
+注意：如果選擇使用現有的 AD FS 伺服器陣列，會略過幾個頁面將您直接導向至一個畫面，以設定 AD FS 與 Azure AD 的之間的信任關係。
 
 ### 指定 AD FS 伺服器
 您會在這裡輸入想要在其中安裝 AD FS 的特定伺服器。您可以根據容量規劃需求，加入一或多部伺服器。這些伺服器必須先全部加入 Active Directory 網域，才能執行這項設定。我們建議安裝一部用來測試和試驗部署的 AD FS 伺服器，並在初始安裝之後開啟 Azure AD Connect 以部署其他伺服器，然後將 AD FS 部署至其他伺服器以符合您的擴充需求。
@@ -176,7 +178,7 @@ Azure AD 應用程式和屬性篩選|透過啟用 Azure AD 應用程式和屬性
 ### 指定 AD FS 服務的服務帳戶
 AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Directory 中查閱使用者資訊。它可支援兩種類型的服務帳戶：
 
-- **群組受管理服務帳戶**：這是 Active Directory 網域服務中隨著 Windows Server 2012 一起導入的服務帳戶類型。此類型的帳戶提供 AD FS 之類的服務，讓您可以使用單一帳戶，且不需要定期更新帳戶密碼。如果您在要納入 AD FS 伺服器的網域中已經有 Windows Server 2012 網域控制站，請使用此選項。
+- 群組受管理服務帳戶：這是 Active Directory 網域服務中隨著 Windows Server 2012 一起導入的服務帳戶類型。此類型的帳戶提供 AD FS 之類的服務，讓您可以使用單一帳戶，且不需要定期更新帳戶密碼。如果您在要納入 AD FS 伺服器的網域中已經有 Windows Server 2012 網域控制站，請使用此選項。
 - **網域使用者帳戶**：此類型的帳戶會要求您提供密碼，並在密碼變更時定期更新密碼。只有當您在 AD FS 伺服器所屬的網域中沒有 Windows Server 2012 網域控制站時，才能使用此選項。
 
 如果您選取群組受管理服務帳戶，且從未在 Active Directory 中使用過這項功能則也會提示您輸入企業系統管理員認證。這些會認證用來啟動金鑰存放區，並啟用 Active Directory 中的這項功能。
@@ -227,7 +229,7 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 此外，請執行下列驗證步驟：
 
-- 驗證來自內部網路中使用 Internet Explorer 之加入網域電腦的瀏覽器登入：連接到 https://myapps.microsoft.com，並使用您已登入的帳戶驗證登入。**附註：**內建的 AD DS 系統管理員帳戶未同步處理，不能用於驗證。
+- 驗證來自內部網路中使用 Internet Explorer 之加入網域電腦的瀏覽器登入：連接到 https://myapps.microsoft.com，並使用您已登入的帳戶驗證登入。附註：內建的 AD DS 系統管理員帳戶未同步處理，不能用於驗證。
 - 驗證來自外部網路裝置的瀏覽器登入：在家用電腦或行動裝置上，連接到 https://myapps.microsoft.com，並提供您的登入識別碼和密碼認證。
 - 驗證豐富型用戶端登入：連接到 https://testconnectivity.microsoft.com，選擇 [Office 365] 索引標籤，然後選擇 [Office 365 單一登入測試]。
 
@@ -238,4 +240,4 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0323_2016-->

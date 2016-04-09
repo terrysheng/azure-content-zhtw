@@ -195,9 +195,13 @@
 
 當您準備要停止拓撲時，請回到 Visual Studio 中的 **CorrelationTopology** 專案。在 [**Storm 拓撲檢視**] 中，選取拓撲，然後使用拓撲檢視頂端的 [**刪除**] 按鈕。
 
+##刪除叢集
+
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+
 ##後續步驟
 
 如需更多 Storm 範例，請參閱 [Storm on HDInsight 上的範例拓撲](hdinsight-storm-example-topology.md)。
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

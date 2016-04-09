@@ -4,7 +4,7 @@
     services="redis-cache"
     documentationCenter="na"
     authors="steved0x"
-    manager="dwrede"
+    manager="erikre"
     editor="tysonn" />
 <tags 
     ms.service="cache"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="12/03/2015"
+    ms.date="03/17/2016"
     ms.author="sdanie" />
 
 # 從受管理的快取服務移轉至 Azure Redis 快取
@@ -49,6 +49,7 @@ Azure 受管理的快取服務與 Azure Redis 快取類似，但兩者在實作�
 |到期原則|預設的到期原則為 [絕對]，預設的到期間隔為 10 分鐘。另外也提供 [滑動] 和 [永不] 原則。|依預設，快取中的項目不會到期，但可以使用快取集多載，對每筆寫入作業設定到期時間。如需詳細資訊，請參閱[從快取加入和擷取物件](cache-dotnet-how-to-use-azure-redis-cache.md#add-and-retrieve-objects-from-the-cache)。|
 |區域和標記|區域是快取項目的子群組。區域也支援以稱為標記的額外描述性字串，來為快取項目加上註解。區域支援對該區域內的任何標記項目執行搜尋作業的能力。區域內的所有項目都位於單一快取叢集節點內。|Redis 快取是由單一節點所組成 (除非已啟用 Redis 叢集)，因此不適用受管理的快取服務區域的概念。Redis 支援在擷取索引鍵時執行搜尋和萬用字元作業，讓描述性標記可以內嵌在索引鍵名稱內並於稍後用來擷取項目。如需使用 Redis 實作標記解決方案的範例，請參閱[使用 Redis 實作快取標記](http://stackify.com/implementing-cache-tagging-redis/)。|
 |序列化|受管理的快取支援 NetDataContractSerializer 和 BinaryFormatter，也支援使用自訂序列化程式。預設值為 NetDataContractSerializer。|由用戶端應用程式負責先將 .NET 物件序列化再將它們放入快取中，至於要選擇使用哪個序列化程式則由用戶端應用程式的開發人員決定。如需詳細資訊和範例程式碼，請參閱[在快取中使用 .NET 物件](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache)。|
+| 快取模擬器 | 受管理的快取提供本機快取模擬器。 | Azure Redis 快取沒有模擬器，但您可以[在本機執行 redis-server.exe 的 MSOpenTech 組建](cache-faq.md#cache-emulator)提供模擬器體驗。 |
 
 ## 選擇快取服務
 
@@ -71,7 +72,7 @@ Azure Redis 快取中的快取可以透過 [Azure 入口網站](https://portal.a
 -	若要使用 Azure PowerShell 建立快取，請參閱[使用 Azure PowerShell 管理 Azure Redis 快取](cache-howto-manage-redis-cache-powershell.md)。
 -	若要使用 Azure CLI 建立快取，請參閱[如何使用 Azure 命令列介面 (Azure CLI) 建立並管理 Azure Redis 快取](cache-manage-cli.md)。
 
->[AZURE.NOTE] 若要使用 Azure Redis 快取，您需要 Azure 帳戶。如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero)。
+>[AZURE.NOTE] 若要使用 Azure Redis 快取，您需要 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero)。
 
 ## 設定快取用戶端
 
@@ -195,4 +196,4 @@ Azure Redis 快取有適用於 ASP.NET 工作階段狀態和頁面輸出快取�
 
 瀏覽 [Azure Redis 快取文件](https://azure.microsoft.com/documentation/services/cache/)中的教學課程、範例、影片及其他資訊。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

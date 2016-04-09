@@ -13,17 +13,16 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 # 傳送推播通知給已驗證的使用者
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[做法：傳送推播通知給已驗證的使用者](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#push-user)。
 
 在本主題中，您將了解如何將推播通知傳送給 iOS 上已驗證的使用者。開始本教學課程之前，請先完成[開始使用驗證]和[開始使用推播通知]。
 
@@ -53,4 +52,4 @@
 [開始使用推播通知]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0316_2016-->

@@ -68,7 +68,7 @@
 
 ## 接收裝置到雲端的訊息
 
-在本節中，您將建立 Node.js 主控台應用程式，以讀取來自 IoT 中樞的裝置到雲端訊息。IoT 中樞會公開與[事件中樞][lnk-event-hubs-overview]相容的端點以讓您讀取裝置到雲端訊息。為了簡單起見，本教學課程會建立的基本讀取器不適合用於高輸送量部署。[處理裝置到雲端的訊息][lnk-processd2c-tutorial]教學課程會說明如何大規模處理裝置到雲端的訊息。 [開始使用事件中樞][lnk-eventhubs-tutorial]教學課程則會提供進一步資訊，說明如何處理來自事件中樞的訊息，而且此教學課程也適用於 IoT 中樞事件中樞相容端點。
+在本節中，您將建立 Node.js 主控台應用程式，以讀取來自 IoT 中樞的裝置到雲端訊息。IoT 中樞會公開與[事件中樞][lnk-event-hubs-overview]相容的端點以讓您讀取裝置到雲端訊息。為了簡單起見，本教學課程會建立的基本讀取器不適合用於高輸送量部署。[處理裝置到雲端的訊息][lnk-processd2c-tutorial]教學課程會說明如何大規模處理裝置到雲端的訊息。[開始使用事件中樞][lnk-eventhubs-tutorial]教學課程則會提供進一步資訊，說明如何處理來自事件中樞的訊息，而且此教學課程也適用於 IoT 中樞事件中樞相容端點。
 
 1. 建立稱為 **readdevicetocloudmessages** 的新的空資料夾。在 **readdevicetocloudmessages** 資料夾中，於命令提示字元使用下列命令建立新的 package.json 檔案。接受所有預設值：
 
@@ -95,7 +95,7 @@
     var Promise = require('bluebird');
     ```
 
-5. 新增下列變數宣告，將預留位置取代為您先前記下的值。**{your event hub-compatible namespace}** 預留位置的值來自 **事件中樞相容端點**，其形式為 **xxxxnamespace.servicebus.windows.net**。
+5. 新增下列變數宣告，將預留位置取代為您先前記下的值。**{您的事件中樞相容命名空間}** 預留位置的值來自入口網站中的 [事件中樞相容端點] 欄位，其形式為 **namespace.servicebus.windows.net** (沒有 **sb://* 首碼)。
 
     ```
     var protocol = 'amqps';
@@ -177,9 +177,9 @@
 
 <!-- Links -->
 
-[lnk-eventhubs-tutorial]: event-hubs-csharp-ephcs-getstarted.md
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-event-hubs-overview]: event-hubs-overview.md
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

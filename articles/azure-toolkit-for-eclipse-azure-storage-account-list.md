@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="01/09/2016" 
+    ms.date="03/04/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
@@ -74,7 +74,7 @@ Azure 儲存體帳戶可讓下載位置用於您的 JDK、應用程式伺服器�
 1. 在 [儲存體帳戶] 對話方塊中，按一下您要編輯的儲存體帳戶，然後按一下 [移除]。
 2. 出現提示時，按一下 [確定] 以移除儲存體帳戶。
 
->[AZURE.NOTE]透過 [儲存體帳戶] 對話方塊移除儲存體帳戶，只會將其從可在 Eclipse 中檢視的儲存體帳戶清單中移除，而不會從您的 Azure 訂用帳戶中移除此儲存體帳戶。此外，當 Eclipse 重新載入您訂用帳戶的詳細資料之後，該儲存體帳戶可能會再次出現於清單中。
+>[AZURE.NOTE] 透過 [儲存體帳戶] 對話方塊移除儲存體帳戶，只會將其從可在 Eclipse 中檢視的儲存體帳戶清單中移除，而不會從您的 Azure 訂用帳戶中移除此儲存體帳戶。此外，當 Eclipse 重新載入您訂用帳戶的詳細資料之後，該儲存體帳戶可能會再次出現於清單中。
 
 ## 另請參閱 ##
 
@@ -100,4 +100,4 @@ Azure 儲存體帳戶可讓下載位置用於您的 JDK、應用程式伺服器�
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0309_2016-->

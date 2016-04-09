@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="03/16/2016"
    ms.author="andkjell"/>
 
 # WIndows PowerShell 連接器技術參考
@@ -22,7 +22,7 @@
 
 - Microsoft Identity Manager 2016 (MIM2016)
 - Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   必須使用 Hotfix 4.1.3461.0 或更新版本 [KB2870703](https://support.microsoft.com/kb/2870703)。
+    -   必須使用 Hotfix 4.1.3671.0 或更新版本 [KB3092178](https://support.microsoft.com/kb/3092178)。
 
 對於 MIM2016 和 FIM2010R2，可以從 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=717495)下載此連接器。
 
@@ -370,4 +370,4 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0323_2016-->

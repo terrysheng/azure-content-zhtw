@@ -55,7 +55,7 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 
 此外，多重執行個體工作*只會*在 **2015 年 12 月 14 日之後建立的集區**中的節點上執行。
 
-> [AZURE.TIP] 當您在 Batch 集區中使用大小 [A8 或 A9 計算節點](./../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md)時，MPI 應用程式可以利用 Azure 的高效能、低延遲的遠端直接記憶體存取 (RDMA) 網路。[雲端服務的大小](./../cloud-services/cloud-services-sizes-specs.md)提供 Batch 集區中可用的計算節點大小的完整清單。
+> [AZURE.TIP] 當您在 Batch 集區中使用大小 [A8 或 A9 計算節點](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)時，MPI 應用程式可以利用 Azure 的高效能、低延遲的遠端直接記憶體存取 (RDMA) 網路。[雲端服務的大小](./../cloud-services/cloud-services-sizes-specs.md)提供 Batch 集區中可用的計算節點大小的完整清單。
 
 ### 使用 StartTask 來安裝 MPI 應用程式
 
@@ -247,4 +247,4 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "多重執行個體概觀"
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

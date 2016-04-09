@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/16/2015"
+   ms.date="03/08/2016"
    ms.author="spyros;sethm" />
 
 # 通知使用者從感應器或其他系統接收到的資料
@@ -25,7 +25,7 @@
 
 ![][2]
 
-問題在於，如何在符合特定條件時獲得重要資訊，而不是抽出時間查看靜態報告。如果您使用 [Azure 事件中樞][]或 [IoT 中樞][]，從裝置或企業應用程式 (例如 [Dynamics AX][]) 接收資料，您可以透過數種方式來處理這些資料。您可以在網站上檢視資料、您可以分析資料、您可以儲存資料，且您可以使用資料觸發命令，以執行某些動作。若要這麼做，您可以使用功能強大的工具，例如 [Azure 網站][]、[SQL Azure][]、[HDInsight][]、[Cortana 分析套件][]、[IoT 套件][]、[邏輯應用程式][]或 [Azure 通知中樞][]。但有時您只是想以最低的額外負荷將該資料傳送給其他人。為了說明如何以些許程式碼進行此作業，我們提供了新的範例 [AppToNotifyUsers][]。包含的選項為電子郵件 (SMTP)、SMS 和電話。
+問題在於，如何在符合特定條件時獲得重要資訊，而不是抽出時間查看靜態報告。如果您使用 [Azure 事件中樞][]或 [Azure IoT 中樞][]，從裝置或企業應用程式 (例如 [Dynamics AX][]) 接收資料，您可以透過數個選項來處理這些資料。您可以在網站上檢視資料、您可以分析資料、您可以儲存資料，且您可以使用資料觸發命令，以執行某些動作。若要這麼做，您可以使用功能強大的工具，例如 [Azure 網站][]、[SQL Azure][]、[HDInsight][]、[Cortana 分析套件][]、[IoT 套件][]、[邏輯應用程式][]或 [Azure 通知中樞][]。但有時您只是想以最低的額外負荷將該資料傳送給其他人。為了說明如何以些許程式碼進行此作業，我們提供了新的範例 [AppToNotifyUsers][]。包含的選項為電子郵件 (SMTP)、SMS 和電話。
 
 ## 應用程式結構
 
@@ -64,13 +64,13 @@
 
 [事件中樞教學課程]: event-hubs-csharp-ephcs-getstarted.md
 [Azure IoT 中心]: https://azure.microsoft.com/services/iot-hub/
-[IoT 中樞]: https://azure.microsoft.com/services/iot-hub/
+[Azure IoT 中樞]: https://azure.microsoft.com/services/iot-hub/
 [Azure 事件中樞]: https://azure.microsoft.com/services/event-hubs/
 [Azure 事件中樞]: https://azure.microsoft.com/services/event-hubs/
-[使用事件中樞的完整範例應用程式]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[佇列訊息解決方案]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[使用事件中樞的完整範例應用程式]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[佇列訊息解決方案]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 [AppToNotifyUsers]: https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications
-[Dynamics AX]: http://www.microsoft.com/en-us/dynamics/erp-ax-overview.aspx
+[Dynamics AX]: http://www.microsoft.com/dynamics/erp-ax-overview.aspx
 [Azure 網站]: https://azure.microsoft.com/services/app-service/web/
 [SQL Azure]: https://azure.microsoft.com/services/sql-database/
 [HDInsight]: https://azure.microsoft.com/services/hdinsight/
@@ -83,4 +83,4 @@
 [1]: ./media/event-hubs-sensors-notify-users/event-hubs-sensor-alert.png
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0316_2016-->

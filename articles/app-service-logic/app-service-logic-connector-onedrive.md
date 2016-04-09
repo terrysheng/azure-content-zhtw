@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="03/16/2016"
 	ms.author="rajram"/>
 
 # 開始使用 OneDrive 連接器並將它加入您的邏輯應用程式
->[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [OneDrive API](../connectors/create-api-onedrive.md)。
+>[AZURE.NOTE] 這一版文章適用於邏輯應用程式 2014-12-01-preview 結構描述版本。若為 2015-08-01-preview 結構描述版本，請按一下 [OneDrive API](../connectors/connectors-create-api-onedrive.md)。
 
 連線至 OneDrive 以上傳、下載及刪除檔案。邏輯應用程式可以根據各種資料來源觸發，並提供連接器以取得及處理屬於流程一部分的資料。您可以將 OneDrive 連接器加入您的商務工作流程，就能在邏輯應用程式的該工作流程中處理資料。
 
@@ -28,12 +28,12 @@
 2.	Under "Everything", search for “OneDrive connector”.
 3.	設定 OneDrive 連接器，如下所示：
 
-	![][1] 
-	- **名稱** - 提供 OneDrive 連接器的名稱 
-	- **App Service 方案** - 選取或建立 App Service 方案 
-	- **定價層** - 選擇用於連接器的定價層 
-	- **資源群組** - 選取或建立連接器所在的資源群組 
-	- **訂用帳戶** - 選擇您要在其中建立此連接器的訂用帳戶 
+	![][1]
+	- **名稱** - 提供 OneDrive 連接器的名稱
+	- **App Service 方案** - 選取或建立 App Service 方案
+	- **定價層** - 選擇連接器的定價層
+	- **資源群組** - 選取或建立連接器所在的資源群組
+	- **訂閱** - 選擇您要建立此連接器的訂閱
 	- **位置** - 選擇您要部署連接器的地理位置
 
 4. 按一下 [建立]。將建立新的 OneDrive 連接器。
@@ -51,8 +51,7 @@
 	![][2]
 4.	您可以在 [OneDrive 連接器] 上按一下來將 OneDrive 連接器 API 應用程式置入編輯器。按一下 [授權] 按鈕。提供您的 Microsoft 認證 (若未自動登入)。按一 [是] 來允許存取。
 
-	![][3] 
-	![][4]
+	![][3] ![][4]
 
 5.	您現在便可以在流程中使用 OneDrive 連接器。OneDrive 連接器中目前沒有觸發程序可使用。可使用的動作有 - 「取得檔案」、「上傳檔案」、「刪除檔案」和「列出檔案」。
 
@@ -99,4 +98,4 @@
 [建立新的邏輯應用程式]: app-service-logic-create-a-logic-app.md
 [OneDrive API 定義]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0323_2016-->

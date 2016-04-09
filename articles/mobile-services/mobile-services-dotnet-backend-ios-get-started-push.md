@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="03/09/2016"
 	ms.author="krisragh"/>
 
 
 # 將推播通知新增至 iOS 應用程式和 .NET 後端
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+> 如需本主題的對等 Mobile Apps 版本，請參閱[將推播通知新增至您的 iOS 應用程式](../app-service-mobile/app-service-mobile-ios-get-started-push.md)。
 
 本主題說明如何新增推播通知給[快速入門專案](mobile-services-dotnet-backend-ios-get-started.md)，以讓行動服務在每次插入一筆記錄時傳送推播通知。您必須先完成[開始使用行動服務]。
 
@@ -132,4 +132,4 @@
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0316_2016-->

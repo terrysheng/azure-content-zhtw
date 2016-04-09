@@ -133,17 +133,17 @@ Cmdlet 需要有您的訂閱，才能用來管理您的服務。您可以購買 
 
 > [AZURE.NOTE] 此非互動式登入方法僅適用於公司或學校帳戶。公司或學校帳戶是由您的公司或學校所管理的使用者，並為您的公司或學校定義於 Azure Active Directory 執行個體中。如果您目前沒有公司或學校帳戶，而是使用 Microsoft 帳戶登入您的 Azure 訂閱，則您可以透過下列步驟輕鬆地建立帳戶。
 
-> 1. 登入 [Azure 管理入口網站](https://manage.windowsazure.com)，然後按一下 [Active Directory]。
+> 1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)，然後按一下 [Active Directory]。
 
 > 2. 如果不存在任何目錄，請選取 [Create your directory] 並提供要求的資訊。
 
 > 3. 選取您的目錄並新增使用者。這個新的使用者可以使用公司或學校帳戶登入。在建立使用者期間，系統會提供您該使用者的電子郵件地址與臨時密碼。請儲存此資訊，在以下的步驟 5 將會用到。
 
-> 4. 從管理入口網站，選取 [設定]，然後選取 [管理員]。選取 [新增]，然後將新使用者新增為共同管理員。這麼做可讓公司或學校帳戶管理您的 Azure 訂閱。
+> 4. 從 Azure 傳統入口網站，選取 [設定]，然後選取 [管理員]。選取 [新增]，然後將新使用者新增為共同管理員。這麼做可讓公司或學校帳戶管理您的 Azure 訂閱。
 
-> 5. 最後，登出 Azure 入口網站，然後使用公司或學校帳戶重新登入。如果這是您第一次使用此帳戶登入，系統會提示您變更密碼。
+> 5. 最後，登出 Azure 傳統入口網站，然後使用公司或學校帳戶重新登入。如果這是您第一次使用此帳戶登入，系統會提示您變更密碼。
 
-> 如需使用公司或學校帳戶註冊 Microsoft Azure 的詳細資訊，請參閱[以組織身分註冊 Microsoft Azure](sign-up-organization.md)。
+> 如需使用公司或學校帳戶註冊 Microsoft Azure 的詳細資訊，請參閱[以組織身分註冊 Microsoft Azure](/active-directory/sign-up-organization.md)。
 
 > 如需 Azure 中之驗證與訂閱管理的詳細資訊，請參閱[管理帳戶、訂閱和系統管理角色](http://go.microsoft.com/fwlink/?LinkId=324796)。
 
@@ -178,4 +178,4 @@ Cmdlet 需要有您的訂閱，才能用來管理您的服務。您可以購買 
 
 如需可協助您了解如何使用指令碼來管理 Azure 的範例指令碼和指示，請參閱[指令碼中心](http://go.microsoft.com/fwlink/p/?LinkId=321940)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0323_2016-->

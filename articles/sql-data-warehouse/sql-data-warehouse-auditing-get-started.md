@@ -1,29 +1,29 @@
-<properties 
-   pageTitle="開始使用 SQL 資料倉儲資料庫稽核 | Microsoft Azure" 
-   description="開始使用 SQL 資料倉儲資料庫稽核" 
-   services="sql-data-warehouse" 
-   documentationCenter="" 
-   authors="twounder" 
-   manager="barbkess" 
+<properties
+   pageTitle="開始使用 SQL 資料倉儲資料庫稽核 | Microsoft Azure"
+   description="開始使用 SQL 資料倉儲資料庫稽核"
+   services="sql-data-warehouse"
+   documentationCenter=""
+   authors="twounder"
+   manager="barbkess"
    editor=""/>
 
-<tags 
-   ms.service="sql-data-warehouse" 
-   ms.workload="data-management" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="01/07/2016" 
+<tags
+   ms.service="sql-data-warehouse"
+   ms.workload="data-management"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="03/03/2016" 
    ms.author="mausher;barbkess;sonyama"/>
- 
-# 開始使用 SQL 資料倉儲資料庫稽核 
+
+# 開始使用 SQL 資料倉儲資料庫稽核
 Azure SQL 資料倉儲稽核會追蹤資料庫事件，並將稽核事件寫入 Azure 儲存體帳戶中的稽核記錄。
 
 稽核可協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
 
 稽核工具啟用及推動遵循法規標準，但不保證符合法規。如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure 信任中心</a>。
 
-+ [資料庫稽核基本概念] 
++ [資料庫稽核基本概念]
 + [設定資料庫的稽核]
 + [分析稽核記錄和報告]
 
@@ -66,7 +66,7 @@ SQL 資料倉儲資料庫稽核可讓您：
 	![][1]
 
 3. 在 [稽核組態] 刀鋒視窗中，先取消選取 [從伺服器繼承稽核設定] 核取方塊。這可讓您指定特定資料庫的設定。
-	
+
 	![][2]
 
 4. 接下來，按一下 [開啟] 按鈕，來啟用稽核。
@@ -103,7 +103,7 @@ SQL 資料倉儲資料庫稽核可讓您：
 
 ##<a id="subheading-4">生產環境中的使用方式作法</a>
 本節的說明與以上的畫面截圖有關。可以使用 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>或<a href= "https://manage.windowsazure.com/" target="_bank">Azure 傳統入口網站</a>。
- 
+
 
 ##<a id="subheading-5"></a>儲存體金鑰重新產生
 
@@ -116,7 +116,7 @@ SQL 資料倉儲資料庫稽核可讓您：
 3. 返回 [稽核組態] 刀鋒視窗，並且將 [儲存體存取金鑰] 的 [次要] 切換為 [主要]，然後按下 [儲存]。
 
 4. 返回儲存體 UI 並**重新產生** 「次要存取金鑰」 (為了下一個金鑰重新整理週期做準備)。
-  
+
 ##<a id="subheading-6"></a>自動化
 有數個 PowerShell 指令程式可用來設定 Azure SQL Database 中的稽核。若要存取稽核 Cmdlet，您必須在 [Azure 資源管理員] 模式中執行 PowerShell。
 
@@ -141,4 +141,4 @@ SQL 資料倉儲資料庫稽核可讓您：
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0114_2016--->
+<!---HONumber=AcomDC_0309_2016-->

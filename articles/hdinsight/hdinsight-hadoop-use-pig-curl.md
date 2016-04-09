@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/08/2016"
+   ms.date="03/18/2016"
    ms.author="larryfr"/>
 
 #使用 Curl 搭配執行 Pig 工作與 HDInsight 上的 Hadoop
@@ -25,7 +25,7 @@
 
 本文件使用 Curl 示範如何使用未經處理的 HTTP 要求來與 HDInsight 互動，以便執行、監視和擷取 Pig 工作的結果。要想執行這些作業，就要使用 HDInsight 叢集所提供的 WebHCat REST API (先前稱為 Templeton)。
 
-> [AZURE.NOTE]如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱[以 Linux 為基礎的 HDInsight 秘訣](hdinsight-hadoop-linux-information.md)。
+> [AZURE.NOTE] 如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱[以 Linux 為基礎的 HDInsight 秘訣](hdinsight-hadoop-linux-information.md)。
 
 ##<a id="prereq"></a>必要條件
 
@@ -39,7 +39,7 @@
 
 ##<a id="curl"></a>使用 Curl 執行 Pig 工作
 
-> [AZURE.NOTE]在使用 Curl 或與 WebHCat 進行任何其他 REST 通訊時，您必須提供 HDInsight 叢集的系統管理員使用者名稱和密碼來驗證要求。您也必須在用來將要求傳送至伺服器的統一資源識別項 (URI) 中使用叢集名稱。
+> [AZURE.NOTE] 在使用 Curl 或與 WebHCat 進行任何其他 REST 通訊時，您必須提供 HDInsight 叢集的系統管理員使用者名稱和密碼來驗證要求。您也必須在用來將要求傳送至伺服器的統一資源識別項 (URI) 中使用叢集名稱。
 >
 > 在本節的所有命令中，將 **USERNAME** 取代為用來驗證叢集的使用者，並將 **PASSWORD** 取代為使用者帳戶的密碼。將 **CLUSTERNAME** 取代為您叢集的名稱。
 >
@@ -72,7 +72,7 @@
         * **execute**：要執行的 Pig Latin 陳述式
         * **statusdir**：要寫入此工作狀態的目錄
 
-    > [AZURE.NOTE]請注意，與 Curl 搭配使用時，會將 Pig Latin 陳述式中的空格取代為 `+` 字元。
+    > [AZURE.NOTE] 請注意，與 Curl 搭配使用時，會將 Pig Latin 陳述式中的空格取代為 `+` 字元。
 
     此命令應該會傳回可用來檢查工作狀態的工作識別碼，例如：
 
@@ -84,7 +84,7 @@
 
 	如果工作已完成，則狀態會是 [**成功**]。
 
-    > [AZURE.NOTE]此 Curl 要求會傳回含有工作資訊的 JavaScript Object Notation (JSON) 文件，而 jq 則用來僅擷取狀態值。
+    > [AZURE.NOTE] 此 Curl 要求會傳回含有工作資訊的 JavaScript Object Notation (JSON) 文件，而 jq 則用來僅擷取狀態值。
 
 ##<a id="results"></a>檢視結果
 
@@ -98,7 +98,7 @@
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]您必須使用 `-a` 和 `-k` 參數指定包含 Blob 的儲存體帳戶名稱，或是設定 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORAGE\_ACCESS\_KEY** 環境變數。
+> [AZURE.NOTE] 您必須使用 `-a` 和 `-k` 參數指定包含 Blob 的儲存體帳戶名稱，或是設定 **AZURE\_STORAGE\_ACCOUNT** 和 **AZURE\_STORAGE\_ACCESS\_KEY** 環境變數。
 
 ##<a id="summary"></a>摘要
 
@@ -118,4 +118,4 @@
 
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0323_2016-->

@@ -19,13 +19,20 @@
 # Analytics 的純量運算式
 
 
-[分析](app-insights-analytics.md) 是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。這些頁面說明 Analytics 查詢語言。
+[分析](app-insights-analytics.md) 是 
+[Application Insights](app-insights-overview.md) 的強大搜尋功能。這些頁面說明
+ Analytics 查詢語言。
 
 [AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
 
 ---
 
-[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) <br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull) <br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) | [itemCount](#itemCount) | [split](#split) | [sqrt](#sqrt) <br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
+[ago](#ago) | [arraylength](#arraylength) | [bin](#bin) [countof](#countof) | [dayofweek](#dayofweek) | [extract](#extract) | [extractjson](#extractjson) | [floor](#floor) 
+<br/>[getmonth](#getmonth) | [gettype](#gettype) [getyear](#getyear) | [hash](#hash) | [iff](#iff) | [isempty](#isempty) | [isnotempty](#isnotempty) | [isnull](#isnull) | [isnotnull](#isnotnull)
+<br/> [now](#now) | [notempty](#notempty) | [notnull](#notnull) | [parsejson](#parsejson)| [rand](#rand) | [range](#range) | [replace](#replace) 
+| [itemCount](#itemCount) | [split](#split) | [sqrt](#sqrt) 
+<br/>[startofmonth](#startofmonth) | [startofyear](#startofyear) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) 
+| [tolower](#tolower) | [toupper](#toupper) | [treepath](#treepath)
 
 ---
 
@@ -35,25 +42,28 @@
 
 「純量」也包含陣列和複合物件，兩者也都能儲存在單一資料庫的資料格中。
 
-純量運算式不同於[查詢](app-insights-analytics-queries.md)，後者的結果為資料表。
+純量運算式不同於 [查詢](app-insights-analytics-queries.md) ，後者的結果為資料表。
 
 ## 純量
 
-[casts](#casts) | [comparisons](#scalar-comparisons) <br/> [gettype](#gettype) | [hash](#hash) | [iff](#iff)| [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
+[casts](#casts) | [comparisons](#scalar-comparisons)
+<br/>
+[gettype](#gettype) | [hash](#hash) | [iff](#iff)|  [isnull](#isnull) | [isnotnull](#isnotnull) | [notnull](#notnull)
 
 支援的類型包括︰
 
-| 類型 | 其他名稱 | 對等的 .NET 類型 |
+| 類型      | 其他名稱   | 對等的 .NET 類型 |
 | --------- | -------------------- | -------------------- |
-| `bool` | `boolean` | `System.Boolean` |
-| `datetime`| `date` | `System.DateTime` |
-| `dynamic` | | `System.Object` |
-| `guid` | `uuid`, `uniqueid` | `System.Guid` |
-| `int` | | `System.Int32` |
-| `long` | | `System.Int64` |
-| `double` | `real` | `System.Double` |
-| `string` | | `System.String` |
-| `timespan`| `time` | `System.TimeSpan` |
+| `bool`    | `boolean`            | `System.Boolean`     |
+| `datetime`| `date`               | `System.DateTime`    |
+| `dynamic` |                      | `System.Object`      |
+| `guid`    | `uuid`, `uniqueid`   | `System.Guid`        |
+| `int`     |                      | `System.Int32`       |
+| `long`    |                      | `System.Int64`       |
+| `double`  | `real`               | `System.Double`      |
+| `string`  |                      | `System.String`      |
+| `timespan`| `time`               | `System.TimeSpan`    |
+
 
 ### 轉換
 
@@ -157,7 +167,9 @@ hash(datetime("2015-01-01"))    // 1380966698541616202
 iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 ```
 
-<a name="isnull"/></a> <a name="isnotnull"/></a> <a name="notnull"/></a>
+<a name="isnull"/></a>
+<a name="isnotnull"/></a>
+<a name="notnull"/></a>
 ### isnull、isnotnull、notnull
 
     isnull(parsejson("")) == true
@@ -185,7 +197,7 @@ true 或 false，取決於值是 null 或不是 null。
 | "" | false
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 **範例**
@@ -217,7 +229,8 @@ true 或 false，取決於值是 null 或不是 null。
 
 ## 數字
 
-[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[bin](#bin) | [floor](#floor) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
+| [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### 數值常值
 
@@ -231,7 +244,17 @@ true 或 false，取決於值是 null 或不是 null。
 || |
 |---|-------------|
 | + | 加 |
-| - | 減 | | * | 乘 | | / | 除 | | % | 模數 | || |`<` |小於 |`<=`|小於或等於 |`>` |大於 |`>=`|大於或等於 |`<>`|不等於 |`!=`|不等於
+| - | 減 |
+| * | 乘 |
+| / | 除 |
+| % | 模數 |
+||
+|`<` |小於
+|`<=`|小於或等於
+|`>` |大於
+|`>=`|大於或等於
+|`<>`|不等於
+|`!=`|不等於
 
 
 
@@ -338,7 +361,7 @@ true 或 false，取決於值是 null 或不是 null。
 ## 日期和時間
 
 
-[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)| [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
+[ago](#ago) | [dayofweek](#dayofweek) | [getmonth](#getmonth)|  [getyear](#getyear) | [now](#now) | [startofmonth](#startofmonth) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan)
 
 ### 日期和時間常值
 
@@ -394,7 +417,8 @@ true 或 false，取決於值是 null 或不是 null。
 
 **引數**
 
-* a\_timespan︰要從目前的 UTC 時鐘時間 (`now()`) 減去的間隔。
+* a_timespan︰要從目前的 UTC 時鐘時間 
+(`now()`) 減去的間隔。
 
 **傳回**
 
@@ -649,7 +673,9 @@ h"hello"
 extract("^.{2,2}(.{4,4})", 1, Text)
 ```
 
-<a name="notempty"></a> <a name="isnotempty"></a> <a name="isempty"></a>
+<a name="notempty"></a>
+<a name="isnotempty"></a>
+<a name="isempty"></a>
 ### isempty、isnotempty、notempty
 
     isempty("") == true
@@ -676,7 +702,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 | "" | true
 |"x" | false
 |parsejson("")|true
-|parsejson("")|false
+|parsejson("[]")|false
 |parsejson("{}")|false
 
 
@@ -823,7 +849,9 @@ substring("ABCD", 0, 2)       // AB
 
 ## 陣列和物件 - 動態類型
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses)
+<br/>
+[arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
 
 
 以下是 Application Insights 例外狀況的查詢結果。`details` 中的值是陣列。
@@ -1070,7 +1098,8 @@ T
 
 ### range
 
-`range()` 函式 (請勿與 `range` 運算子混淆) 會產生保有一系列等間距值的動態陣列。
+`range()` 函式 (請勿與 `range` 運算子混淆)
+會產生保有一系列等間距值的動態陣列。
 
 **語法**
 
@@ -1144,4 +1173,4 @@ range(1, 8, 3)
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0330_2016-->
+<!----HONumber=AcomDC_0330_2016-->

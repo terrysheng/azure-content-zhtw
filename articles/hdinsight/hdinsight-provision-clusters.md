@@ -23,7 +23,7 @@
 
 Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理叢集上的作業。Azure 將個別節點安裝和設定的實作細節抽象化，您只需要提供一般組態資訊即可。您會在本文中學習這些組態設定。
 
->[AZURE.NOTE] 本文件的資訊是以 Windows 為基礎之 HDInsight 叢集的特定資訊。如需 Linux 型叢集的資訊，請參閱[在 HDInsight 中建立 Windows 型的 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
+>[AZURE.NOTE] 本文件的資訊是以 Windows 為基礎之 HDInsight 叢集的特定資訊。如需以 Linux 為基礎的叢集的詳細資訊，請參閱[在 HDInsight 中建立以 Linux 為基礎的 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 ##叢集類型
 
@@ -243,4 +243,4 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理叢集
 | [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [ARM 範本](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

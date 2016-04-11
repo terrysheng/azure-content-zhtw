@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="03/07/2016" 
+    ms.date="03/28/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
@@ -22,15 +22,15 @@
 
 Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclipse 開發環境來建立、開發、測試及部署 Azure 應用程式。它是開放原始碼專案，您可以從專案網站，透過 Apache License 2.0 取得其原始程式碼：
 
-* <https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava>
+* <https://github.com/microsoft/azure-tools-for-java.>
 
 ## 開始使用 Azure Toolkit for Eclipse ##
 
 下列文章可協助您開始使用 Azure Toolkit for Eclipse：
 
 * [適用於 Eclipse 的 Azure 工具組的新功能]
-* [安裝適用於 Eclipse 的 Azure 工具組]
-* [在 Eclipse 中為 Azure 建立 Hello World 應用程式]
+* [安裝 Azure Toolkit for Eclipse]
+* [在 Eclipse 中為 Azure 建立 Hello World 雲端服務]
 * [Create a Hello World Web App for Azure in Eclipse (在 Eclipse 中建立 Azure Hello World Web 應用程式)]
 * [在 Eclipse 中顯示 Azure Libraries for Java 封裝的 Javadoc 內容]
 
@@ -62,11 +62,11 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 
 ## 另請參閱 ##
 
-[安裝適用於 Eclipse 的 Azure 工具組]
+[安裝 Azure Toolkit for Eclipse]
 
 [在 Eclipse 中為 Azure 建立 Hello World 應用程式]
 
-[Azure Toolkit for Eclipse 的新功能]
+[適用於 Eclipse 的 Azure 工具組的新功能]
 
 如需如何搭配使用 Azure 與 Java 的詳細資訊，請參閱 [Azure Java 開發人員中心]。
 
@@ -77,7 +77,7 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 [Azure 角色屬性]: http://go.microsoft.com/fwlink/?LinkID=699525
 [Azure 服務端點]: http://go.microsoft.com/fwlink/?LinkID=699526
 [Azure 儲存體帳戶清單]: http://go.microsoft.com/fwlink/?LinkID=699528
-[在 Eclipse 中為 Azure 建立 Hello World 應用程式]: http://go.microsoft.com/fwlink/?LinkID=699533
+[在 Eclipse 中為 Azure 建立 Hello World 雲端服務]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Create a Hello World Web App for Azure in Eclipse (在 Eclipse 中建立 Azure Hello World Web 應用程式)]: ./app-service-web/create-a-hello-world-web-app-for-azure-in-eclipse.md
 [在 Eclipse 中偵錯 Azure 應用程式]: http://go.microsoft.com/fwlink/?LinkID=699535
 [部署大型部署]: http://go.microsoft.com/fwlink/?LinkID=699536
@@ -89,11 +89,10 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 [如何使用專用快取]: http://go.microsoft.com/fwlink/?LinkID=699543
 [如何以 Eclipse 搭配 Azure 來使用 JMS 搭配 AMQP 1.0]: http://go.microsoft.com/fwlink/?LinkID=699544
 [如何使用 SSL 卸載]: http://go.microsoft.com/fwlink/?LinkID=699545
-[安裝適用於 Eclipse 的 Azure 工具組]: http://go.microsoft.com/fwlink/?LinkID=699546
+[安裝 Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699546
 [啟用工作階段同質]: http://go.microsoft.com/fwlink/?LinkID=699548
 [SSL 卸載]: http://go.microsoft.com/fwlink/?LinkID=699549
 [在 JSP 中使用 Azure 服務執行階段程式庫]: http://go.microsoft.com/fwlink/?LinkID=699551
-[Azure Toolkit for Eclipse 的新功能]: http://go.microsoft.com/fwlink/?LinkID=699552
 [適用於 Eclipse 的 Azure 工具組的新功能]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

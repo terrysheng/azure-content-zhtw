@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="02/27/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess"/>
 
 # 最佳化 SQL 資料倉儲的交易
@@ -89,7 +89,7 @@ Azure SQL 資料倉儲認可使用交易記錄檔之資料庫的變更。每個�
 ### 使用 CTAS 最佳化大量刪除作業
 如果您需要刪除資料表或分割中的大量資料，比較理想的作法通常是改為 `SELECT` 您想要保留的資料；利用 [CTAS][] 建立新資料表。建立之後，使用一組 [RENAME OBJECT][] 命令來切換資料表的名稱。
 
-```
+```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
 
 --Step 01. Create a new table select only the records we want to kep (PromotionKey 2)
@@ -124,7 +124,7 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 
 在此情況下，我們反而要將折扣金額新增到資料表中的銷售額︰
 
-```
+```sql
 --Step 01. Create a new table containing the "Update". 
 CREATE TABLE [dbo].[FactInternetSales_u]
 WITH
@@ -192,7 +192,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 
 不過，若要協助識別要切換的分割，我們必須先建置如下的協助程式程序。
 
-```
+```sql
 CREATE PROCEDURE dbo.partition_data_get
 	@schema_name		   NVARCHAR(128)
 ,	@table_name			   NVARCHAR(128)
@@ -240,7 +240,7 @@ GO
 
 下列程式碼示範上述達到完整分割切換例行工作的五個步驟。
 
-```
+```sql
 --Create a partitioned aligned empty table to switch out the data 
 IF OBJECT_ID('[dbo].[FactInternetSales_out]') IS NOT NULL
 BEGIN
@@ -346,7 +346,7 @@ DROP TABLE #ptn_data
 
 以下提供實用的範例。批次大小設為簡單數字來醒目提示此技術。事實上，批次大小明顯大很多。
 
-```
+```sql
 SET NO_COUNT ON;
 IF OBJECT_ID('tempdb..#t') IS NOT NULL
 BEGIN
@@ -436,4 +436,4 @@ Azure SQL 資料倉儲可讓您暫停、繼續及調整需要的資料倉儲。�
 <!--MSDN references-->
 [alter index]: https://msdn.microsoft.com/zh-TW/library/ms188388.aspx
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

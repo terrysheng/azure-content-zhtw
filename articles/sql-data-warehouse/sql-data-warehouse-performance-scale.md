@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="nicw;jrj;mausher;barbkess;sonyama"/>
 
 # SQL 資料倉儲的彈性效能與延展性
@@ -40,7 +40,7 @@ SQL 資料倉儲不仰賴雲端儲存空間運作，其絕佳的彈性可讓您�
 
 在 [Azure 傳統入口網站][]中，您可以按一下 SQL 資料倉儲頁面頂端的「縮放」圖示，然後使用滑桿增加或減少套用至資料倉儲的 DWU 數量，再按一下 [儲存]。如果您想要以程式設計方式變更級別，下列 T-SQL 程式碼示範如何針對您的 SQL 資料倉儲調整 DWU 配置：
 
-```
+```sql
 ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
@@ -49,7 +49,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 您也可以使用下列程式碼，透過 Powershell 達成相同結果：
 
-```
+```Powershell
 Set-AzureSQLDatabase -DatabaseName "MySQLDW" -ServerName "MyServer.database.windows.net" -ServiceObjective "DW1000"
 ```
 
@@ -64,20 +64,18 @@ SQL 資料倉儲的獨一無二之處就是能夠視需要暫停和繼續計算�
 
 下列程式碼示範如何使用 PowerShell 執行暫停：
 
-```
+```Powershell
 Suspend-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName
 "Server01" –DatabaseName "Database02"
 ```
 
 PowerShell 也可輕易地繼續執行服務：
 
-```
+```Powershell
 Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 如需有關如何使用 PowerShell 的詳細資料，請參閱[透過 SQL 資料倉儲使用 PowerShell Cmdlet 和 REST API][]。
-
-
 
 ## 後續步驟
 如需效能概觀，請參閱[效能概觀][]。
@@ -95,4 +93,4 @@ Resume-AzureSqlDatabase –ResourceGroupName "ResourceGroup11" –ServerName "Se
 
 [Azure 傳統入口網站]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

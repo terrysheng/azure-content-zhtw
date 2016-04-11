@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 資料目錄的新功能 | Microsoft Azure"
-   description="概略介紹 Azure 資料目錄預覽版本中的新功能。"
+   description="概略介紹新增至 Azure 資料目錄的新功能。"
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/14/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # Azure 資料目錄的新功能
@@ -216,4 +216,4 @@
 - 僅限標準版：將擁有者新增至資料資產時，**Azure 資料目錄**現在可同時支援將使用者帳戶和安全性群組做為擁有者。若要將安全性群組加入並使其成為所選資料資產的擁有者，您可以輸入群組的顯示名稱或群組的 UPN 電子郵件地址 (如果有的話)。
 - 支援 Azure Blob 儲存體的資料來源。使用者現在可以註冊並探索 Azure 儲存體 Blob 和目錄。
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="barbkess;jrj;sonyama"/>
 
 # SQL 資料倉儲容量限制
@@ -149,7 +149,7 @@ SQL 資料倉儲會使用內部緩衝區在後端計算節點之間移動資料�
 
 因為 nvarchar 實際定義的大小使用 26 個位元組，而資料列定義小於 8060 個位元組，所以可放在 SQL Server 頁面上。因此，即使當 DMS 嘗試將這個資料列載入至 DMS 緩衝區時失敗，CREATE TABLE 陳述式仍會成功。
 
-````
+```sql
 CREATE TABLE T1
   (
     c0 int NOT NULL,
@@ -162,10 +162,10 @@ CREATE TABLE T1
   )
 WITH ( DISTRIBUTION = HASH (c0) )
 ;
-````
+```
 下一個步驟示範我們可以成功地使用 INSERT 將資料插入資料表。此陳述式不使用 DMS，而是直接將資料載入至 SQL Server，因此不會引發 DMS 緩衝區溢位失敗。整合服務也會成功載入這個資料列。</para>
 
-````
+```sql
 --The INSERT operation succeeds because the row is inserted directly into SQL Server without requiring DMS to buffer the row.
 INSERT INTO T1
 VALUES (
@@ -177,11 +177,11 @@ VALUES (
     N'Each row must fit into the DMS buffer size of 32,768 bytes.',
     N'Each row must fit into the DMS buffer size of 32,768 bytes.'
   )
-````
+```
 
 為了準備展示資料移動，此範例會建立第二個資料表，並以 CustomerKey 作為散發資料行。
 
-````
+```sql
 --This second table is distributed on CustomerKey. 
 CREATE TABLE T2
   (
@@ -206,20 +206,20 @@ VALUES (
     N'Each row must fit into the DMS buffer size of 32,768 bytes.',
     N'Each row must fit into the DMS buffer size of 32,768 bytes.'
   )
-````
+```
 由於這兩個資料表不是根據 CustomerKey 散發，T1 和 T2 之間根據 CustomerKey 的聯結是散發不相容。DMS 必須載入至少一個資料列，並將它複製到不同的散發。
 
-````
+```
 SELECT * FROM T1 JOIN T2 ON T1.CustomerKey = T2.CustomerKey;
-````
+```
 
 如同預期，DMS 無法執行該聯結，因為當填補 nvarchar 資料行時，資料列會超過 32,768 個位元組的 DMS 緩衝區大小。將會出現下列錯誤訊息。
 
-````
+```sql
 Msg 110802, Level 16, State 1, Line 126
 
 An internal DMS error occurred that caused this operation to fail. Details: Exception: Microsoft.SqlServer.DataWarehouse.DataMovement.Workers.DmsSqlNativeException, Message: SqlNativeBufferReader.ReadBuffer, error in OdbcReadBuffer: SqlState: , NativeError: 0, 'COdbcReadConnection::ReadBuffer: not enough buffer space for one row | Error calling: pReadConn-&gt;ReadBuffer(pBuffer, bufferOffset, bufferLength, pBytesRead, pRowsRead) | state: FFFF, number: 81, active connections: 8', Connection String: Driver={SQL Server Native Client 11.0};APP=DmsNativeReader:P13521-CMP02\sqldwdms (4556) - ODBC;Trusted_Connection=yes;AutoTranslate=no;Server=P13521-SQLCMP02,1500
-````
+```
 
 
 ## 後續步驟
@@ -232,4 +232,4 @@ An internal DMS error occurred that caused this operation to fail. Details: Exce
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

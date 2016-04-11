@@ -1,5 +1,5 @@
 
-本文會為您示範如何使用 Azure 資源管理員範本和 Azure CLI，執行下列部署和管理 Azure 虛擬機器的常見工作。如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)和[使用範本的應用程式架構](virtual-machines-linux-app-frameworks.md)。
+本文會為您示範如何使用 Azure 資源管理員範本和 Azure CLI，執行下列部署和管理 Azure 虛擬機器的常見工作。如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)和[使用範本的應用程式架構](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md)。
 
 
 - [在 Azure 中快速建立虛擬機器](#quick-create-a-vm-in-azure)
@@ -35,9 +35,9 @@
 
 如果您還沒有 Azure 訂閱帳戶，但是有 MSDN 訂閱帳戶，請啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)。或者申請[免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
-現在，輸入 `azure login` 並遵循提示來進行 Azure 帳戶的互動式登入體驗，[以互動方式登入您的 Azure 帳戶](../xplat-cli-connect.md#use-the-log-in-method)。
+現在，輸入 `azure login` 並遵循提示來進行 Azure 帳戶的互動式登入體驗，[以互動方式登入您的 Azure 帳戶](../articles/xplat-cli-connect.md#use-the-log-in-method)。
 
-> [AZURE.NOTE] 如果您有公司或學校識別碼，而且知道尚未啟用雙因素驗證，則您「也」可以使用 `azure login -u` 再加上公司或學校識別碼，在「沒有」互動式工作階段的情況下進行登入。如果沒有公司或學校識別碼，您可以[從個人 Microsoft 帳戶建立公司或學校識別碼](virtual-machines-windows-create-aad-work-id.md)，使用相同方式來登入。
+> [AZURE.NOTE] 如果您有公司或學校識別碼，而且知道尚未啟用雙因素驗證，則您「也」可以使用 `azure login -u` 再加上公司或學校識別碼，在「沒有」互動式工作階段的情況下進行登入。如果沒有公司或學校識別碼，您可以[從個人 Microsoft 帳戶建立公司或學校識別碼](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md)，使用相同方式來登入。
 
 您的帳戶可能會有一個以上的訂閱帳戶。您可以輸入 `azure account list`，即可列出訂閱帳戶，如以下所示：
 
@@ -75,7 +75,7 @@
 - 稽核作業。
 - 利用其他中繼資料標記資源，方便追蹤。
 
-如需深入了解 Azure 資源群組及其功能，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。如果您有興趣了解如何編寫範本，請參閱[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)。
+如需深入了解 Azure 資源群組及其功能，請參閱 [Azure 資源管理員概觀](../articles/resource-group-overview.md)。如果您有興趣了解如何編寫範本，請參閱[編寫 Azure 資源管理員範本](../articles/resource-group-authoring-templates.md)。
 
 ## <a id="quick-create-a-vm-in-azure"></a>工作：在 Azure 中快速建立 VM
 
@@ -97,7 +97,7 @@
     info:    group create command OK
 
 
-第二，您將需要映像。若要利用 Azure CLI 尋找映像，請參閱[利用 PowerShell 和 Azure CLI 瀏覽和選取 Azure 虛擬機器映像](virtual-machines-linux-cli-ps-findimage.md)。不過在本文中，以下是常用映像的簡要清單。我們會使用 CoreOS 的 Stable 映像，縮短整個建立流程。
+第二，您將需要映像。若要利用 Azure CLI 尋找映像，請參閱[利用 PowerShell 和 Azure CLI 瀏覽和選取 Azure 虛擬機器映像](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md)。不過在本文中，以下是常用映像的簡要清單。我們會使用 CoreOS 的 Stable 映像，縮短整個建立流程。
 
 > [AZURE.NOTE] 對於 ComputeImageVersion，您也可以只提供 'latest' 做為範本語言和 Azure CLI 中的參數。這可讓您永遠使用最新且經過修補的映像版本，而不必修改您的指令碼或範本。如下所示。
 
@@ -666,9 +666,9 @@
 
 很明顯，您需要 .vhd。您可以使用 Azure 現有的 .vhd 或者可以上傳一個 .vhd。
 
-若是 Windows 型虛擬機器，請參閱[建立 Windows Server VHD 並上傳至 Azure](virtual-machines-windows-classic-createupload-vhd.md)。
+若是 Windows 型虛擬機器，請參閱[建立 Windows Server VHD 並上傳至 Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)。
 
-如需了解 Linux 架構的虛擬機器，請參閱[建立及上傳包含 Linux 作業系統的虛擬硬碟](virtual-machines-linux-classic-create-upload-vhd.md)。
+如需了解 Linux 架構的虛擬機器，請參閱[建立及上傳包含 Linux 作業系統的虛擬硬碟](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)。
 
 ### 步驟 3：使用範本建立虛擬機器
 
@@ -1160,7 +1160,7 @@
 
 ## <a id="show-the-log-for-a-resource-group-deployment"></a>工作：顯示資源群組部署記錄檔
 
-建立或使用範本時，此種情況很常見。您可以使用 `azure group log show <groupname>` 呼叫來顯示群組的部署記錄檔，它會顯示相當多的實用資訊，協助您了解發生某些狀況的原因，或是未發生某些狀況的原因(如需疑難排解部署及其他問題的詳細資訊，請參閱[疑難排解 Azure 的資源群組部署](resource-group-deploy-debug.md))。
+建立或使用範本時，此種情況很常見。您可以使用 `azure group log show <groupname>` 呼叫來顯示群組的部署記錄檔，它會顯示相當多的實用資訊，協助您了解發生某些狀況的原因，或是未發生某些狀況的原因(如需疑難排解部署及其他問題的詳細資訊，請參閱[疑難排解 Azure 的資源群組部署](../articles/resource-manager-troubleshoot-deployments-cli.md))。
 
 例如，為了查明某些異常狀況，您可以使用 **jq** 此類的工具，就可以更清楚掌握前因後果，例如您需要更正的異常狀況。下列範例會使用 **jq** 剖析 **lbgroup** 的部署記錄檔，找出各種異常狀況。
 
@@ -1243,7 +1243,7 @@
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>工作：登入 Linux 架構的虛擬機器
 
-通常 Linux 機器是透過 SSH 連接的。如需詳細資訊，請參閱[如何在 Azure 上搭配使用 SSH 與 Linux](virtual-machines-linux-ssh-from-linux.md)。
+通常 Linux 機器是透過 SSH 連接的。如需詳細資訊，請參閱[如何在 Azure 上搭配使用 SSH 與 Linux](../articles/virtual-machines/virtual-machines-linux-ssh-from-linux.md)。
 
 ## <a id="stop-a-virtual-machine"></a>工作：停止 VM
 
@@ -1276,9 +1276,9 @@
 
 ## 後續步驟
 
-如需其他有關 Azure CLI 搭配 **arm** 模式使用的範例，請參閱[搭配 Azure 資源管理員使用適用於 Mac、Linux 和 Windows 的 Azure CLI](xplat-cli-azure-resource-manager.md)。若要深入了解 Azure 資源和概念，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。
+如需其他有關 Azure CLI 搭配 **arm** 模式使用的範例，請參閱[搭配 Azure 資源管理員使用適用於 Mac、Linux 和 Windows 的 Azure CLI](../articles/xplat-cli-azure-resource-manager.md)。若要深入了解 Azure 資源和概念，請參閱 [Azure 資源管理員概觀](../articles/resource-group-overview.md)。
 
 
-如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)和[使用範本的應用程式架構](virtual-machines-linux-app-frameworks.md)。
+如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)和[使用範本的應用程式架構](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

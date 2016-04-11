@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 資料目錄的常見問題集"
-   description="與 Azure 資料目錄預覽相關的常見問題集，包括資料來源探索、註解和管理功能。"
+   description="與 Azure 資料目錄相關的常見問題集，包括資料來源探索、註解和管理功能。"
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/04/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # Azure 資料目錄的常見問題集
@@ -39,7 +39,7 @@
 
 ## 問：Azure 資料目錄的區域可用性如何？
 
-在預覽期間，只有下列資料中心提供 **Azure 資料目錄**服務：
+目前只有下列資料中心提供 **Azure 資料目錄**服務：
 
 - 美國西部
 - 美國東部
@@ -58,14 +58,13 @@
 
 請參閱[資料目錄 DSR](data-catalog-dsr.md)，以取得目前支援的資料來源清單。
 
-
 ## 問：如何要求另一個資料來源的支援？
 
 您可以在 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)提交功能要求與其他意見。
 
 ## 問：如何開始使用 Azure 資料目錄？
 
-建議依照[開始使用資料目錄](../data-catalog-get-started/)中的指示開始使用。本文是公開預覽中各項功能的端對端教學課程。
+建議依照[開始使用資料目錄](../data-catalog-get-started/)中的指示開始使用。本文是服務中各項功能的端對端概觀。
 
 ## 問：如何註冊我的資料？
 
@@ -106,10 +105,6 @@
 
 專家是指對資料物件具有獨特見解的人。一個物件可能有多個專家。專家不見得是物件的「擁有者」。專家只是知道應該如何運用資料的人。
 
-## 問：什麼是預覽的 SLA？
-
-在 **Azure 資料目錄**預覽期間，沒有明確的服務等級合約。
-
 ## 問：如果我遇到問題，如何與 Azure 資料目錄小組分享資訊？
 
 請使用 **Azure 資料目錄**論壇來報告問題、分享資訊及發問。此論壇位於 http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409
@@ -141,12 +136,8 @@
 
 答：若要更新已註冊在目錄中的資料資產的中繼資料，只要重新註冊包含這些資產的資料來源即可。資料來源中的任何變更 (例如在資料表或檢視中加入或移除資料行) 都會在目錄中更新，但會保留使用者提供的任何註解。
 
-## 問：使用 Azure 資料目錄時，如何提出問題或取得協助？
-
-若您在使用 **Azure 資料目錄**預覽時遇到問題或需要協助，請在 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)提出。
-
 ## 問：這裡沒有解答我的問題 – 我該怎麼辦？
 
 請前往 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)。那裡提出的問題會在這裡找到答案。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

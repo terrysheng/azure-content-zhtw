@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/03/2016"
+   ms.date="03/30/2016"
    ms.author="derrickv"/>
 
 
@@ -34,4 +34,4 @@
 
   一個範例，示範如何使用資料目錄 REST API 以從 Azure 資料目錄擷取資產，並將其序列化成檔案。它也會示範如何取用一組已序列化為 json 的資產，並將其推送至目錄。它支援使用搜尋查詢匯出目錄的子集。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

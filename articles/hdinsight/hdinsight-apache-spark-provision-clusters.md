@@ -71,16 +71,16 @@ Spark 可讓您透過原始資料定義結構描述和 Hive 資料表。您可�
 
 如需搭配虛擬網路 (包含虛擬網路特定設定需求) 使用 HDInsight 的詳細資訊，請參閱[使用 Azure 虛擬網路延伸 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
 
-##<a id="portal"></a>使用 Azure Preview 入口網站
+##<a id="portal"></a>使用 Azure 入口網站
 
 HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案系統。相同的資料中心上必須要有 Azure 儲存體帳戶，才能夠建立 HDInsight 叢集。如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體](hdinsight-hadoop-use-blob-storage.md)。如需建立 Azure 儲存體帳戶的詳細資訊，請參閱[如何建立儲存體帳戶][azure-create-storageaccount]。
 
 **使用自訂建立選項建立 HDInsight 叢集**
 
-1. 登入 [Azure 預覽入口網站](https://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 依序按一下 [新增]、[資料分析] 及 [HDInsight]。
 
-    ![在 Azure Preview 入口網站中建立新的叢集](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.1.png "在 Azure Preview 入口網站中建立新的叢集")
+    ![在 Azure 入口網站中建立新的叢集](./media/hdinsight-apache-spark-provision-clusters/hdispark.createcluster.1.png "在 Azure 入口網站中建立新的叢集")
 
 3. 輸入 [叢集名稱]，再為 [叢集類型] 選取 [Spark]，然後從 [叢集作業系統] 下拉式清單中選取 [Windows Server 2012 R2 資料中心]。如果該叢集可用，其名稱旁會出現綠色核取記號。
 
@@ -176,7 +176,7 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 	* **使用者** (![使用者圖示](./media/hdinsight-apache-spark-provision-clusters/users.png))：可讓您設定 Azure 訂用帳戶上其他使用者對此叢集的「入口網站管理」權限。
 
-		> [AZURE.IMPORTANT] 這「只」會影響在 Azure Preview 入口網站對此叢集的存取和權限，對於連線至 HDInsight 叢集或將作業提交至其上的使用者則沒有作用。
+		> [AZURE.IMPORTANT] 這_只_會影響在 Azure 入口網站對此叢集的存取和權限，對於連線到 HDInsight 叢集或將工作提交到 HDInsight 叢集的使用者沒有影響。
 
 	* **標記** (![標記圖示](./media/hdinsight-apache-spark-provision-clusters/tags.png))：標記可讓您設定索引鍵/值組，以定義雲端服務的自訂分類。例如，您可以建立名為 __project__ 的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
 
@@ -242,4 +242,4 @@ HDInsight 上的 Spark 叢集會使用 Azure Blob 儲存容器作為預設檔案
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "搭配 HDInsight 使用 Sqoop"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

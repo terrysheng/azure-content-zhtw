@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # 註冊管理
@@ -28,10 +28,10 @@
 向「通知中樞」註冊裝置是藉由使用 [註冊] 或 [安裝] 來完成。
 
 #### 註冊
-註冊是通知中樞的子實體，會將裝置的「平台通知服務」(PNS) 控制代碼與標記 (以及也可能與範本) 建立關聯。PNS 控制代碼可能是 ChannelURI、裝置權杖或 GCM 註冊識別碼。標記是用來將通知路由至一組正確的裝置控制代碼。如需詳細資訊，請參閱[路由與標記運算式](notification-hubs-routing-tag-expressions.md)。範本是用來實作每一註冊的轉換。如需詳細資訊，請參閱[範本](notification-hubs-templates.md)。
+註冊會將裝置的「平台通知服務」(PNS) 控制代碼與標記 (以及也可能與範本) 建立關聯。PNS 控制代碼可能是 ChannelURI、裝置權杖或 GCM 註冊識別碼。標記是用來將通知路由至一組正確的裝置控制代碼。如需詳細資訊，請參閱[路由與標記運算式](notification-hubs-routing-tag-expressions.md)。範本是用來實作每一註冊的轉換。如需詳細資訊，請參閱[範本](notification-hubs-templates.md)。
 
 #### 安裝
-安裝是增強型的註冊，包含一組推播相關的屬性。不過，它也是最新且最佳的裝置註冊方式。
+安裝是增強型的註冊，包含一組推播相關的屬性。它是註冊您的裝置最新最好的方法。不過，目前用戶端 .NET SDK([適用於後端作業的通知中樞 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) 不支援此種安裝。這表示如果您要從用戶端裝置本身註冊，您必須使用[通知中樞 REST API](https://msdn.microsoft.com/library/mt621153.aspx) 方法來支援安裝。如果您使用後端服務，您應該能夠使用[適用於後端作業的通知中樞 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
 
 以下是使用安裝的一些主要優點：
 
@@ -39,9 +39,7 @@
 * 安裝模型可讓您更容易進行個別推播 (以特定裝置為目標)。在每個安裝型註冊，都會自動新增一個系統標記 **"$InstallationId:[installationId]"**。因此，您不需編寫任何額外的程式碼，即可對此標記進行傳送呼叫來以特定裝置做為目標。
 * 使用安裝也可讓您進行部分註冊更新。要求部分安裝更新時，是使用 [JSON-Patch 標準](https://tools.ietf.org/html/rfc6902)以 PATCH 方法來要求。當您想要更新註冊的相關標記時，這會特別有用。您不需要移除整個註冊，然後再次重新傳送所有先前的標記。
 
-目前只有[適用於後端作業的通知中樞 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) 支援安裝。如需詳細資訊，請參閱[安裝類別](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation.aspx)。若要在沒有後端的情況下，使用安裝識別碼從用戶端裝置進行註冊，此時您將需要使用[通知中樞 REST API](https://msdn.microsoft.com/library/mt621153.aspx)。
-
-安裝可以包含下列屬性。如需完整的安裝屬性清單，請參閱[使用 REST 來建立或覆寫安裝](https://msdn.microsoft.com/library/azure/mt621153.aspx)或[安裝屬性](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx)。
+安裝可以包含下列屬性。如需完整的安裝屬性清單，請參閱[使用 REST API 建立或覆寫安裝](https://msdn.microsoft.com/library/azure/mt621153.aspx)或[安裝屬性](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx)。
 
 	// Example installation format to show some supported properties
 	{
@@ -332,4 +330,4 @@ SecondaryTiles 字典使用的 TileId 會與在「Windows 市集」應用程式�
 
 後端必須處理註冊更新之間的並行存取。「服務匯流排」可提供開放式並行存取控制來管理註冊。在 HTTP 層級，這是藉由在註冊管理作業上使用 ETag 來進行實作。Microsoft SDK 會在背景使用這項功能，如果因並行存取而導致更新被拒，將會擲回例外狀況。App 後端會負責處理這些例外狀況，並視需要重試更新。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0330_2016-->

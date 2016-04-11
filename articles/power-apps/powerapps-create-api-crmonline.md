@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/02/2016"
+   ms.date="03/29/2016"
    ms.author="sameerch"/>
 
 # 在 PowerApps Enterprise 中建立新的 Dynamics CRM Online API
 
 > [AZURE.SELECTOR]
-- [邏輯應用程式](../articles/connectors/create-api-crmonline.md)
+- [邏輯應用程式](../articles/connectors/connectors-create-api-crmonline.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-crmonline.md)
 
 將 Dynamics CRM Online API 加入您組織 (租用戶) 的 App Service 環境中。
@@ -38,7 +38,7 @@
 4. 在 **PowerApps** 中選取 [管理 API]：  
 ![瀏覽至已註冊的 API][3]
 
-5. 在 [管理 API] 中，選取 [新增] 以新增新的 API：  
+5. 在 [**管理 API**] 中，選取 [**新增**] 以新增 API：
 ![Add API][4]
 
 6. 為您的 API 輸入描述性**名稱**。
@@ -81,7 +81,7 @@
 
 6. 在 [應用程式屬性] 中：
 
-	1. 輸入您應用程式的 [登入 URL]。由於您即將使用 PowerApps 適用的 AAD 來進行驗證，因此請把登入 URL 設定為 _https://login.windows.net_。
+	1. 輸入您應用程式的 [登入 URL]。由於您即將使用 PowerApps 適用的 AAD 來進行驗證，因此請把登入 URL 設定為 \__https://login.windows.net_。
 	2. 為您的應用程式輸入有效的 [應用程式識別碼 URI]。  
 	3. 選取 [確定]。  
 
@@ -99,7 +99,7 @@
 
 ## 請參閱 REST API
 
-[Dynamics CRM Online REST API](../connectors/create-api-crmonline.md) 參考。
+[Dynamics CRM Online REST API](../connectors/connectors-create-api-crmonline.md) 參考。
 
 
 ## 摘要和後續步驟
@@ -122,4 +122,4 @@
 [11]: ./media/powerapps-create-api-crmonline/contoso-aad-app.PNG
 [12]: ./media/powerapps-create-api-crmonline/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

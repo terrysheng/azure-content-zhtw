@@ -9,7 +9,7 @@
 * [使用包含主要-附屬組態之 MySQL 複寫叢集部署 WordPress 後端](/documentation/templates/mysql-replication/)
 * [使用 ProjectNami 管理的 SQL Azure DB 部署 WordPress 應用程式後端](/marketplace/partners/projectnami/projectnami/)
   
-## 第 2 章：疑難排解 WordPress 應用程式
+## 疑難排解 WordPress 應用程式
 
 * [如何疑難排解 WordPress 應用程式](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
 * [使用 Azure Application Insights 服務收集使用量遙測資料](https://azure.microsoft.com/blog/usage-analytics-for-wordpress-with-azure-app-insights/)
@@ -18,7 +18,7 @@
 * [使用各種自動修復規則來自動解決即時事件](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
 * [如何備份 Web 應用程式](../articles/app-service-web/web-sites-backup.md)和[如何還原 Web 應用程式](../articles/app-service-web/web-sites-restore.md)
 
-## 第 3 章：效能
+## 效能
 
 * [如何提升 WordPress Web 應用程式的速度](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
 * 如何使用 [Redis 快取外掛程式](https://wordpress.org/plugins/wp-redis/)來[啟用 Redis 快取](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
@@ -28,4 +28,4 @@
 * [如何使用 IIS 輸出快取進行伺服器快取](http://blogs.msdn.com/b/brian_swan/archive/2011/06/08/performance-tuning-php-apps-on-windows-iis-with-output-caching.aspx)
 * [如何針對靜態內容啟用瀏覽器快取](http://www.iis.net/configreference/system.webserver/staticcontent)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0330_2016-->

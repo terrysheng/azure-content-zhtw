@@ -16,12 +16,12 @@ Azure 會使用映像透過作業系統提供新的虛擬機器。一個映像�
 
 您可以使用適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (CLI)，或使用 Azure PowerShell 模組來管理您的 Azure 訂用帳戶可使用的映像。您也可以使用 Azure 傳統入口網站進行部分映像工作，但命令列則提供您更多選項。
 
-關於如何透過資源管理員部署使用這些工具，如需更多的資訊，請參閱[使用 PowerShell 和 Azure CLI 瀏覽和選取 Azure 虛擬機器映像](virtual-machines-linux-cli-ps-findimage.md)。
+關於如何透過資源管理員部署使用這些工具，如需更多的資訊，請參閱[使用 PowerShell 和 Azure CLI 瀏覽和選取 Azure 虛擬機器映像](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md)。
 
 在傳統部署中使用這些工具的範例：
 
-- 針對 CLI，請參閱[使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理](virtual-machines-command-line-tools.md)中的「管理 Azure 虛擬機器映像的命令」
-- 針對 Azure PowerShell，請參閱下列命令清單。如需尋找映像以建立 VM 的範例，請參閱[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-windows-classic-create-powershell.md)中的「步驟 3：決定 ImageFamily」。
+- 針對 CLI，請參閱[使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理](../articles/virtual-machines-command-line-tools.md)中的「管理 Azure 虛擬機器映像的命令」
+- 針對 Azure PowerShell，請參閱下列命令清單。如需尋找映像以建立 VM 的範例，請參閱[使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)中的「步驟 3：決定 ImageFamily」。
 
 -	**取得所有映像**：`Get-AzureVMImage`傳回目前訂用帳戶中所有可用映像的清單：您的映像以及 Azure 或夥伴所提供的映像。這表示您可能會收到龐大的清單。下面的範例示範如何取得較短的清單。
 -	**取得映像系列**：`Get-AzureVMImage | select ImageFamily`顯示字串 **ImageFamily** 屬性以取得映像系列清單。
@@ -35,8 +35,8 @@ Azure 會使用映像透過作業系統提供新的虛擬機器。一個映像�
 
 ## 其他資源
 
-[建立 Linux 虛擬機器的不同方式](virtual-machines-linux-creation-choices.md)
+[建立 Linux 虛擬機器的不同方式](../articles/virtual-machines/virtual-machines-linux-creation-choices.md)
 
-[建立 Windows 虛擬機器的不同方式](virtual-machines-windows-creation-choices.md)
+[建立 Windows 虛擬機器的不同方式](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

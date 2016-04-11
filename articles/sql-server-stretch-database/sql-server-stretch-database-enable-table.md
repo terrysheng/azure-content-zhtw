@@ -61,7 +61,7 @@
 
 -   (選擇性) 如果資料表同時包含歷程記錄資料和目前資料，請使用 `FILTER_PREDICATE = <predicate>` 子句以指定述詞來選取要移轉的資料列。述詞必須呼叫嵌入資料表值函式。如需詳細資訊，請參閱[撰寫嵌入資料表值函式以選取資料列 (Stretch Database)](sql-server-stretch-database-predicate-function.md)。如果您不指定篩選述詞，便會移轉整個資料表。
 
-        > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
+    >   [AZURE.NOTE] 如果您提供執行不良的篩選述詞，則資料移轉也會執行不良。Stretch Database 使用 CROSS APPLY 運算子將篩選述詞套用至資料表。
 
     在透過 RC1 使用的 CTP 3.1 中，此選項於 [為資料庫啟用 Stretch] 精靈中已不再提供。您必須使用 CREATE TABLE 或 ALTER TABLE 陳述式，利用此選項為資料表設定 Stretch Database。如需詳細資訊，請參閱 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)。
 
@@ -114,4 +114,4 @@ CREATE TABLE <table name> ...
 
 [CREATE TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms174979.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

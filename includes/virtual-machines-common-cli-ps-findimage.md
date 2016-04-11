@@ -1,33 +1,5 @@
 
 
-
-
-
-## 常用映像表
-
-
-| PublisherName | 提供項目 | SKU |
-|:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 |
-| OpenLogic | CentOS | 7\.1 |
-| CoreOS | CoreOS | Beta |
-| CoreOS | CoreOS | Stable |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2015 |
-| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 |
-| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | 標準 |
-| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW |
-| MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP |
-| Canonical | UbuntuServer | 12\.04.5-LTS |
-| Canonical | UbuntuServer | 14\.04.2-LTS |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
-| MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 |
-
-
 ## Azure CLI
 
 > [AZURE.NOTE] 本文說明如何使用最近安裝的 Azure CLI 或 Azure PowerShell，來瀏覽並選取虛擬機器映像。有一個必要條件是您必須變更為資源管理員模式。搭配 Azure CLI 時，請輸入 `azure config mode arm` 來進入該模式。
@@ -118,18 +90,11 @@
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
 
-現在，您可以精確地選擇想要使用的映像。若要使用您剛找到的 URN 資訊快速地建立虛擬機器，或使用具有該 URN 資訊的範本，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理員](xplat-cli-azure-resource-manager.md)。
-
-### 影片逐步解說
-
-這段影片示範使用 CLI 的上述步驟。
-
-[AZURE.VIDEO virtual-machines-linux-cli-ps-findimage-cli]
-
+現在，您可以精確地選擇想要使用的映像。若要使用您剛找到的 URN 資訊快速地建立虛擬機器，或使用具有該 URN 資訊的範本，請參閱[搭配使用適用於 Mac、Linux 和 Windows 的 Azure CLI 與 Azure 資源管理員](../articles/xplat-cli-azure-resource-manager.md)。
 
 ## PowerShell
 
-搭配 PowerShell 時，則請輸入 `Switch-AzureMode AzureResourceManager`。請參閱[搭配使用 Azure CLI 與資源管理員](xplat-cli-azure-resource-manager.md)和[搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)，以取得更多完整的更新與設定詳細資料。
+搭配 PowerShell 時，則請輸入 `Switch-AzureMode AzureResourceManager`。請參閱[搭配使用 Azure CLI 與資源管理員](../articles/xplat-cli-azure-resource-manager.md)和[搭配使用 Azure PowerShell 與 Azure 資源管理員](../articles/powershell-azure-resource-manager.md)，以取得更多完整的更新與設定詳細資料。
 
 > [AZURE.NOTE] 由於具有 1.0 以上的 Azure PowerShell 模組，`Switch-AzureMode` Cmdlet 已移除。搭配該版本和更新版本時，請使用由 `AzureRm` 所取代的 `Azure` 部分來取代以下命令。如果您使用 1.0 以下的 Azure PowerShell 模組，則您將使用下列命令，但您必須先 `Switch-AzureMode AzureResourceManager`。
 
@@ -229,4 +194,4 @@
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

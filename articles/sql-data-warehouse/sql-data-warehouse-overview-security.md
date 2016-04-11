@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # 保護 SQL 資料倉儲中的資料庫
@@ -37,7 +37,7 @@
 
 首先，使用伺服器管理員登入連接到您伺服器上的主資料庫，並建立新的伺服器登入。
 
-```
+```sql
 -- Connect to master database and create a login
 CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
 
@@ -45,8 +45,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
 
 然後使用您的伺服器管理員登入，連接到 SQL 資料倉儲資料庫，並根據您剛建立的伺服器登入建立資料庫使用者。
 
-```
-
+```sql
 -- Connect to SQL DW database and create a database user
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
@@ -59,7 +58,7 @@ CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 
 「授權」是指在 Azure SQL 資料倉儲內可以執行的動作，這是由使用者帳戶的角色成員資格和權限所控制。最好的作法是，您應該授與使用者所需的最低權限。Azure SQL 資料倉儲可讓您輕鬆地透過 T-SQL 中的角色進行上述管理：
 
-```
+```sql
 EXEC sp_addrolemember 'db_datareader', 'ApplicationUser'; -- allows ApplicationUser to read data
 EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationUser to write data
 ```
@@ -74,14 +73,12 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 要從 Azure 傳統入口網站或使用 Azure 資源管理員 API 管理資料庫和邏輯伺服器，是由入口網站使用者帳戶的角色指派所控制。如需有關此主題的詳細資訊，請參閱 [Azure 入口網站中的角色型存取控制][]。
 
-
-
 ## 加密
 
 Azure SQL 資料倉儲可以使用[透明資料加密][]，透過加密「靜止」時的資料，或儲存在資料庫檔案和備份中的資料，來協助保護您的資料。若要加密您的資料庫，請連接到您伺服器上的主要資料庫並執行：
 
 
-```
+```sql
 
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
@@ -89,13 +86,9 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 您也可以從 [Azure 傳統入口網站][]中的資料庫設定，啟用透明資料加密。
 
-
-
 ## 稽核
 
 稽核和追蹤資料庫事件可協助您遵循法規，並找出可疑的活動。SQL 資料倉儲稽核可讓您將資料庫中的事件記錄到 Azure 儲存體帳戶中的稽核記錄。SQL 資料倉儲稽核也整合了 Microsoft Power BI，具備向下鑽研報表和分析的功能。如需詳細資訊，請參閱[開始使用 Azure Database 稽核][]。
-
-
 
 ## 後續步驟
 如需更多開發祕訣，請參閱[開發概觀][]。
@@ -119,4 +112,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 <!--Other Web references-->
 [Azure 入口網站中的角色型存取控制]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

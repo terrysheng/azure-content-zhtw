@@ -43,7 +43,7 @@
 
 ### Ubuntu 雲端映像
 
-在大部分的 Azure Linux 映像中．您可以編輯 "/etc/waagent.conf" ，以設定暫存資源磁碟和交換檔。如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南](virtual-machines-linux-agent-user-guide.md)。
+在大部分的 Azure Linux 映像中．您可以編輯 "/etc/waagent.conf" ，以設定暫存資源磁碟和交換檔。如需詳細資訊，請參閱 [Azure Linux 代理程式使用者指南](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md)。
 
 不過，在 Ubuntu 雲端映像上，您必須使用 cloud-init 設定資源磁碟 (也就是「暫時」磁碟) 和交換資料分割。如需詳細資訊，請參閱 Ubuntu wiki 上的下列網頁：[AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions)。
 
@@ -59,4 +59,4 @@
 
 [Azure 命令列介面](https://github.com/Azure/azure-xplat-cli)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

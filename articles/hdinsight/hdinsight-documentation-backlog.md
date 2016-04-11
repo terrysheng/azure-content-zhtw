@@ -31,7 +31,8 @@
 自動化 | 更新關於[使用 Apache Storm 叢集分析感應器資料](hdinsight-storm-sensor-data-analysis.md)的文章以使用 ARM 範本| 2 | 擱置中 | [@mumian](https://github.com/mumian) | - 
 儲存體 | 說明 WASB 和 Data Lake Store 儲存體選項的文章 | 2 | 擱置中 | [@mumian](https://github.com/mumian) | - 
 效能 | 適用於 MapReduce 應用程式的效能微調指導方針 | 1 | 擱置中 | [@blackmist](https://github.com/blackmist) | - 
-效能 | 適用於 Spark 叢集的效能微調指導方針 |1 | 擱置中 | [@nitinme](https://github.com/nitinme) | -
+效能 | 適用於 Spark 叢集的效能微調指導方針 |1 | 擱置中 | [@nitinme](https://github.com/nitinme) | - 
+開發 | 使用 HDInsight .NET 應用程式的非互動式驗證 |2| 寫入中 | [@mumian](https://github.com/mumian) | [@matt1883](https://github.com/matt1883)
 
 
 ## 如何在待處理項目上提供意見反應
@@ -40,4 +41,4 @@
 * 在下方新增註解。
 * 在 [Azure 內容儲存機制](https://github.com/Azure/azure-content/blob/master/articles/hdinsight/hdinsight-documentation-backlog.md)中提交這份文件的提取要求。
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

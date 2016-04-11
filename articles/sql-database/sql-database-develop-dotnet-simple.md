@@ -24,21 +24,19 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-## 先決條件
-
-### .NET Framework
+## 步驟 1︰設定開發環境
 
 .NET Framework 會隨 Windows 預先安裝。若是 Linux 和 Mac OS X，您可以從 [Mono Project](http://www.mono-project.com/) 下載 .NET Framework。
 
-### SQL Database
+## 步驟 2：建立 SQL Database
 
 請參閱[快速入門頁面](sql-database-get-started.md)，以了解如何建立範例資料庫。請務必遵循該指南以建立 **AdventureWorks 資料庫範本**。以下所示的範例僅適用於 **AdventureWorks 結構描述**。
 
-## 步驟 1：取得連接字串
+## 步驟 3：取得連接字串
 
 [AZURE.INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
 
-## 步驟 2：連接
+## 步驟 4︰連接
 
 [System.Data.SqlClient.SqlConnection 類別](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx)可用來連接到 SQL Database。
 
@@ -58,7 +56,7 @@ class Sample
 }
 ```
 
-## 步驟 3：執行查詢
+## 步驟 5：執行查詢
 
 [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) 和 [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx) 類別可用來擷取對 SQL Database 查詢的結果集。請注意，System.Data.SqlClient 也支援將資料擷取到離線 [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx) 中。
 
@@ -98,7 +96,7 @@ class Sample
 
 ```  
 
-## 步驟 4：插入資料列
+## 步驟 6：插入資料列
 
 在這個範例中，您將了解如何安全地執行 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) 陳述式、傳遞透過 [SQL 插入](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 弱點保護您應用程式的參數，以及擷取自動產生的[主索引鍵](https://msdn.microsoft.com/library/ms179610.aspx)值。
 
@@ -133,4 +131,11 @@ class Sample
 }
 ```
 
-<!---HONumber=AcomDC_0323_2016-->
+
+## 後續步驟
+
+了解如何藉由處理暫時性錯誤碼使用重試邏輯，使您的程式碼更有彈性︰[程式碼範例︰C# 中用於連接到 SQL Database 的重試邏輯](sql-database-develop-csharp-retry-windows.md)
+
+在這裡深入了解可能的錯誤碼：[SQL Database 用戶端應用程式的 SQL 錯誤碼：資料庫連接錯誤和其他問題](sql-database-develop-error-messages.md)
+
+<!---HONumber=AcomDC_0330_2016-->

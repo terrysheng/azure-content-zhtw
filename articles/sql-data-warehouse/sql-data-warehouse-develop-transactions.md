@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 資料倉儲中的交易
@@ -57,7 +57,7 @@ SQL 資料倉儲會使用 XACT\_STATE() 函式 (採用值 -2) 來報告失敗的
 
 在 SQL Server 中，您可能會看到如下所示的程式碼片段：
 
-```
+```sql
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
@@ -83,7 +83,7 @@ BEGIN TRAN
 
 在 SQL 資料倉儲中，程式碼必須看起來像這樣：
 
-```
+```sql
 BEGIN TRAN
     BEGIN TRY
         DECLARE @i INT;
@@ -140,4 +140,4 @@ SQL 資料倉儲有一些與交易相關的其他限制。
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

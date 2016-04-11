@@ -54,7 +54,7 @@
 
 - 您已經有 Azure 帳戶。如果您沒有帳戶，請[註冊一個試用帳戶](http://azure.microsoft.com/pricing/free-trial/)。
 
-- 您已經知道如何透過 GUI 佈建來自虛擬機器資源庫的 SQL Server VM。如需詳細資訊，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-classic-portal-sql.md)
+- 您已經知道如何透過 GUI 佈建來自虛擬機器資源庫的 SQL Server VM。如需詳細資訊，請參閱[在 Azure 中佈建 SQL Server 虛擬機器](virtual-machines-windows-portal-sql-server-provision.md)
 
 - 您已充分了解 AlwaysOn 可用性群組。如需詳細資訊，請參閱 [AlwaysOn 可用性群組 (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx)。
 
@@ -260,4 +260,4 @@ SQL Server 的新執行個體會在沒有網際網路連線的虛擬機器上執
 
 您現在已使用 RDP 連接至 SQL Server。您可以開啟 SQL Server Management Studio、連接到 SQL Server 的預設執行個體，並確認已設定 AlwaysOn 可用性群組。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

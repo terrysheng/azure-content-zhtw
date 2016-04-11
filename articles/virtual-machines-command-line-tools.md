@@ -19,7 +19,7 @@
 
 # Azure 服務管理 (asm) 模式中的 Azure CLI 命令
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](azure-cli-arm-commands.md)。
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines/azure-cli-arm-commands.md)。
 
 本文提供傳統部署模型中您通常用來建立和管理 Azure 資源的 Azure CLI 命令的語法和選項。您可以在 Azure 服務管理 (asm) 模式下執行 CLI 來存取這些命令。這不是完整的參考，您的 CLI 版本可能會顯示稍微不同的命令或參數。
 
@@ -27,7 +27,7 @@
 
 如需在服務管理模式中命令列目前的命令語法和選項，請輸入 `azure help`，或顯示特定命令的說明 `azure help [command]`。您也可以在文件中找到建立和管理特定的 Azure 服務的 CLI 範例。
 
-選用參數會以方括號括住 (例如，`[parameter]`)。其他所有參數皆為必要參數。
+選用參數會以方括弧括住 (例如，`[parameter]`)。其他所有參數皆為必要參數。
 
 除了本文所述的命令特定選用參數，還有三個選用參數可用來顯示詳細輸出，例如要求選項和狀態碼。`-v` 參數提供詳細資訊輸出，而 `-vv` 參數提供更詳細的詳細資訊輸出。`--json` 選項將以原始 json 格式輸出結果。
 
@@ -1446,7 +1446,7 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 
 ### <a name="Mobile_Scripts"></a>管理指令碼的命令
 
-本節中的命令可用來管理屬於行動服務的伺服器指令碼。如需詳細資訊，請參閱[在行動服務中使用伺服器指令碼](../mobile-services/mobile-services-how-to-use-server-scripts.md)。
+本節中的命令可用來管理屬於行動服務的伺服器指令碼。如需詳細資訊，請參閱[在行動服務中使用伺服器指令碼](mobile-services/mobile-services-how-to-use-server-scripts.md)。
 
 **mobile script list [options] [servicename]**
 
@@ -2348,4 +2348,4 @@ Azure 行動服務整合了一組為應用程式啟用後端功能的 Azure 服�
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

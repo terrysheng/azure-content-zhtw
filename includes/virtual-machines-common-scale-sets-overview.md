@@ -10,7 +10,7 @@
 
 ## 建立和管理 VM 調整集
 
-VM 調整集可以使用 JSON 範本和 [REST API](https://msdn.microsoft.com/library/mt589023.aspx) 來定義和部署，如同個別的 Azure 資源管理員 VM 一樣。因此，您可以使用任何標準 Azure 資源管理員部署方法。如需範本的詳細資訊，請參閱[編寫 Azure 資源管理員範本](../resource-group-authoring-templates.md)。
+VM 調整集可以使用 JSON 範本和 [REST API](https://msdn.microsoft.com/library/mt589023.aspx) 來定義和部署，如同個別的 Azure 資源管理員 VM 一樣。因此，您可以使用任何標準 Azure 資源管理員部署方法。如需範本的詳細資訊，請參閱[編寫 Azure 資源管理員範本](../articles/resource-group-authoring-templates.md)。
 
 在 Azure 快速入門範本 GitHub 儲存機制中可以找到 VM 調整集的範例範本集：
 
@@ -26,7 +26,7 @@ VM 調整集可以使用 JSON 範本和 [REST API](https://msdn.microsoft.com/li
 
 如果您想要重新部署範本以變更容量，您可以定義小得多的範本，使其僅包含 SKU 和更新的容量。其範例顯示如下：[https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json)。
 
-若要逐步完成相關步驟以建立會自動調整的調整集，請參閱[在虛擬機器調整集中自動調整機器](virtual-machines-windows-ps-vmss-create.md)
+若要逐步完成相關步驟以建立會自動調整的調整集，請參閱[在虛擬機器調整集中自動調整機器](../articles/virtual-machines/virtual-machines-windows-ps-vmss-create.md)
 
 ## 監視 VM 調整集
 
@@ -79,7 +79,7 @@ VM 調整集可以使用 JSON 範本和 [REST API](https://msdn.microsoft.com/li
 
 **問：**VM 調整集有哪些其他資源的限制？
 
-**答：** 在預覽期間，會有在多個調整集內為每個區域建立的 VM 不可超過 500 個的限制。適用現有的 [Azure 訂用帳戶服務限制/](../azure-subscription-service-limits.md)。
+**答：** 在預覽期間，會有在多個調整集內為每個區域建立的 VM 不可超過 500 個的限制。適用現有的 [Azure 訂用帳戶服務限制/](../articles/azure-subscription-service-limits.md)。
 
 **問：** 在 VM 調整集內是否支援資料磁碟？
 
@@ -130,4 +130,4 @@ VM 調整集可以使用 JSON 範本和 [REST API](https://msdn.microsoft.com/li
 
 **答：** 是。VM 調整集是隱含的可用性設定組，具有 3 個 FD 和 5 個 UD。您不需要在 virtualMachineProfile 下進行任何設定。在未來的版本中，VM 調整集有可能跨越多個租用戶，但目前調整集只是單一可用性設定組。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

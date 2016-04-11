@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
 # 我的 WebApi 專案發生什麼狀況 (Visual Studio Azure Active Directory 已連接服務)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-webapi-getting-started.md)
-> - [What Happened](vs-active-directory-webapi-what-happened.md)
+> - [開始使用](vs-active-directory-webapi-getting-started.md)
+> - [發生什麼情形](vs-active-directory-webapi-what-happened.md)
 
 ##已加入參考
 
@@ -59,7 +59,8 @@
 
 ###app.config 或 web.config 檔案有新的組態值。
 
-已新增下列組態項目。```
+已加入下列組態項目。
+```
 	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
@@ -116,4 +117,4 @@ Azure Active Directory 應用程式已更新為包含*讀取目錄資料* 權限
 
 [深入了解 Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

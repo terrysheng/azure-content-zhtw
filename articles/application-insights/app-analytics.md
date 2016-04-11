@@ -16,12 +16,10 @@
 	ms.author="awills"/>
 
 
-
-
 # Application Insights 的 Analytics
 
 
-[Analytics](app-analytics.md) 是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。這些頁面說明 Analytics 查詢語言。
+[Analytics](app-analytics.md) 可讓您從您的應用程式透過 [Application Insights](app-insights-overview.md) 所收集的遙測資料執行強大的查詢。這些頁面說明其查詢語言。
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
 
@@ -66,6 +64,8 @@
 >[AZURE.NOTE] 我們建議您從[語言教學](app-analytics-tour.md)開始。
 
 
+
+
 ## 連接到您的 Application Insights 資料
 
 
@@ -74,9 +74,12 @@
 ![開啟 portal.azure.com，開啟您的 Application Insights 資源，然後按一下 [分析]。](./media/app-analytics/001.png)
 
 
+## 限制
+
+目前，查詢結果受限於僅只過去一週的資料。
 
 
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

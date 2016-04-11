@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 #安全性
@@ -47,4 +47,4 @@
 
 通知中樞接受授 Microsoft Azure 存取控制權杖所授與的宣告，以及直接在通知中樞設定，由共用金鑰所產生之簽章權杖所授與的宣告。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 在 SQL 資料倉儲中使用標籤來檢測查詢
 SQL 資料倉儲支援稱為查詢標籤的概念。繼續進行之前，讓我們看看一個範例：
 
-```
+```sql
 SELECT *
 FROM sys.tables
 OPTION (LABEL = 'My Query Label')
@@ -32,7 +32,7 @@ OPTION (LABEL = 'My Query Label')
 
 若要根據標籤搜尋，您可以使用下列使用動態管理檢視的查詢：
 
-```
+```sql
 SELECT  *
 FROM    sys.dm_pdw_exec_requests r
 WHERE   r.[label] = 'My Query Label'
@@ -54,4 +54,4 @@ WHERE   r.[label] = 'My Query Label'
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

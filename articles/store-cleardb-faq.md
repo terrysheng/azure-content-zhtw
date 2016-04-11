@@ -81,6 +81,10 @@ Azure Marketplace 無法供在亞塞拜然、克羅埃西亞、挪威或波多�
 
 您可以使用 [ClearDB 升級精靈](https://www.cleardb.com/store/azure/upgrade)。目前我們在 Azure 入口網站中沒有升級途徑。
 
+## 我在 Azure 入口網站中看不到我的 ClearDB 資料庫？
+
+如果我們使用 Azure Resource Manager 或[新的 Azure 入口網站](https://portal.azure.com) 建立 ClearDB 資料庫，將無法在[舊的 Azure 入口網站](https://manage.windowsazure.com)中看到此資料庫。若要解決此問題，請將您的資料庫手動連結至 Web 應用程式。同樣地，如果在[舊的入口網站](https://manage.windowsazure.com)中建立 ClearDB 資料庫，則您在[新的 Azure 入口網站](https://portal.azure.com)中將看不到您的資料庫。對於後者情況，沒有任何解決之道。
+
 ## 我的資料庫關閉時應向誰連絡尋求支援？
 
 如有任何資料庫相關的問題，請連絡 [ClearDB 支援](https://www.cleardb.com/developers/help/support)。準備好提供問題資訊與您的 Azure 訂用帳戶資訊。
@@ -89,13 +93,17 @@ Azure Marketplace 無法供在亞塞拜然、克羅埃西亞、挪威或波多�
 
 不行。您無法建立其他的使用者，但可以在自己的 ClearDB 資料庫叢集上建立其他的資料庫。
 
+## 與 ClearDB 入口網站上目前的 Planetary 計劃類似，是否可以就地升級基本/專業系列資料庫嗎？
+
+是，可以就地升級基本系列資料庫 (基本 60 到基本 500)。可以就地升級專業系列 (專業 125 到專業 1000)，但專業 60 除外。我們目前不支援升級專業 60 資料庫。
+
 ## 當我把資源從某個訂用帳戶移轉到另一個訂用帳戶時，我的 ClearDB MySQL 資料庫也會跟著移轉嗎？  
 
-當您跨訂用帳戶移轉資源時，會遇到某些[限制](app-service-move-resources.md)。ClearDB MySQL 資料庫是第三方服務，因此在 Azure 訂用帳戶移轉期間是不會移轉的。如果您在移轉 Azure 資源之前，沒有管理自己 MySQL 資料庫的移轉作業，您的 ClearDB MySQL 資料庫可能會遭到停用。請先手動移轉資料庫，然後再為您的 Web 應用程式執行 Azure 訂用帳戶移轉作業。
+當跨訂用帳戶執行資源移轉時，適用某些[限制](./app-service-web/app-service-move-resources.md)。ClearDB MySQL 資料庫是第三方服務，因此在 Azure 訂用帳戶移轉期間是不會移轉的。如果您在移轉 Azure 資源之前，沒有管理自己 MySQL 資料庫的移轉作業，您的 ClearDB MySQL 資料庫可能會遭到停用。請先手動移轉資料庫，然後再為您的 Web 應用程式執行 Azure 訂用帳戶移轉作業。
 
 ## 可以使用 Enterprise 合約 (EA) 訂用帳戶購買 Scalable WordPress 嗎？
 
-此程序對任何訂用帳戶是相同的。請前往 [Azure 入口網站](https://portal.azure.com/)的 Azure Marketplace，然後選取 [[可調整規模的 WordPress](https://portal.azure.com/?feature.customportal=false#create/WordPress.ScalableWordPress)] 來開始建立應用程式。可調整規模的 WordPress 只支援 ClearDB Saturn 及 Jupiter 定價層，且您的 EA 信用額度將用於在標準 Web Apps 定價層上執行的 Web 應用程式，以及付費 ClearDB (共用) MySQL 資料庫。[/marketplace/faq/](/marketplace/faq/) 我們每季將根據您的 EA，以不同的彙總發票來為您在 Azure 市集購買的項目收費。
+此程序對任何訂用帳戶是相同的。請前往 [Azure 入口網站](https://portal.azure.com/)中的 Azure Marketplace，然後選取 [[可調整規模的 WordPress](https://portal.azure.com/?feature.customportal=false#create/WordPress.ScalableWordPress)] 來開始建立應用程式。可調整規模的 WordPress 只支援 ClearDB Saturn 及 Jupiter 定價層，且您的 EA 信用額度將用於在標準 Web Apps 定價層上執行的 Web 應用程式，以及付費 ClearDB (共用) MySQL 資料庫。[/marketplace/faq/](/marketplace/faq/) 我們每季將根據您的 EA，以不同的彙總發票來為您在 Azure 市集購買的項目收費。
 
 ## 我可以將 ClearDB 資料庫從信用卡訂用帳戶移轉給 EA 訂用帳戶嗎？
 
@@ -120,8 +128,12 @@ Azure Marketplace 無法供在亞塞拜然、克羅埃西亞、挪威或波多�
 
 如有任何關於自己 EA 註冊的計費問題，請連絡[企業版客戶支援](http://aka.ms/AzureEntSupport)。EA 入口網站支援小組會回答您的問題或協助解決您的問題。
 
+ 
+
+
+
 ## 詳細資訊
 
 [Azure Marketplace 常見問題集](/marketplace/faq/)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -36,11 +36,11 @@
 1. 透過瀏覽器瀏覽至 http://portal.azure.com，並視需要使用您的 Azure 帳戶登入。
 2. 按一下 [瀏覽] > [網路安全性群組]。
 
-	![Azure 入口網站 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
+    ![Azure 入口網站 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
 
-3. 在 [網路安全性群組] 刀鋒視窗中，按一下 [加入]。
-
-	![Azure 入口網站 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
+3. 在 [網路安全性群組] 刀鋒視窗中，按一下 [新增]。
+  
+    ![Azure 入口網站 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
 
 4. 在 [建立網路安全性群組] 刀鋒視窗的 *RG-NSG* 資源群組中建立名為 *NSG-FrontEnd* 的 NSG，然後按一下 [建立]。
 
@@ -70,7 +70,7 @@
 
 7. 重複步驟 6，建立名為 *rdp-rule* 的輸入規則，優先順序為 *250*，並允許透過 *TCP* 連接埠 *3389* 從任何來源存取任何 VM。
 
-## 將 NSG 與 FrontEnd 子網路建立關聯
+## 建立 NSG 與 FrontEnd 子網路的關聯
 
 1. 按一下 [瀏覽] > [資源群組] > [RG-NSG]。
 2. 在 [RG-NSG] 刀鋒視窗中，按一下 [...] > [TestVNet]。
@@ -96,11 +96,11 @@
 	|---|---|
 	|![Azure 入口網站 - 輸入規則](./media/virtual-networks-create-nsg-arm-pportal/figure17.png)|![Azure 入口網站 - 輸出規則](./media/virtual-networks-create-nsg-arm-pportal/figure18.png)|
 
-3. 重複[將 NSG 與 FrontEnd 子網路相關聯](#Associate-the-NSG-to-the-FrontEnd-subnet)中的步驟，建立 **NSG-BackEnd** NSG 與 **BackEnd** 子網路的關聯。
+3. 重複[建立 NSG 與 FrontEnd 子網路的關聯](#Associate-the-NSG-to-the-FrontEnd-subnet)中的步驟，建立 **NSG-Backend** NSG 與 **BackEnd** 子網路的關聯。
 
 ## 後續步驟
 
 - 了解如何[管理現有的 NSG](virtual-network-manage-nsg-arm-portal.md)
 - [啟用 NSG 的記錄](virtual-network-nsg-manage-log.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

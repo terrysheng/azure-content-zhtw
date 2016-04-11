@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="03/28/2016"
     ms.author="elizapo" />
 
 
@@ -26,4 +26,4 @@
 
 - 如果您有段時間都沒有活動，RemoteApp 就會自動將您登出。為了防止資料遺失，建議您完成使用服務時，就將您的應用程式關閉。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0330_2016-->

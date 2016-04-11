@@ -62,7 +62,12 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
         "effect" : "deny | audit"
       }
     }
+    
+## 原則評估
 
+使用 HTTP PUT 建立資源或部署範本時，會評估原則。部署範本時，會在範本中的每個資源建立期間評估原則。
+
+注意︰[原則] 不會評估不支援標記、種類、位置的資源類型，例如 Microsoft.Resources/deployments。未來將加入此支援。若要避免向下相容問題，撰寫原則時明確指定類型是最佳作法。例如，沒指定類型的標記原則會套用到所有類型，因此，如果不支援標記的巢狀資源的資源類型在未來加入評估時，範本部署可能會失敗。
 
 ## 邏輯運算子
 
@@ -120,7 +125,7 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
 
 | 別名名稱 | 說明 |
 | ---------- | ----------- |
-| {resourceType}/sku.name | 支援的資源類型包括：Microsoft.Storage/storageAccounts、<br />Microsoft.Scheduler/jobcollections、<br />Microsoft.DocumentDB/databaseAccounts、<br />Microsoft.Cache/Redis、<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | 支援的資源類型為：Microsoft.Storage/storageAccounts、<br />Microsoft.Scheduler/jobcollections、<br />Microsoft.DocumentDB/databaseAccounts、<br />Microsoft.Cache/Redis、<br />Microsoft..CDN/profiles |
 | {resourceType}/sku.family | 支援的資源類型為 Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | 支援的資源類型為 Microsoft.Cache/Redis |
 | Microsoft.Cache/Redis/enableNonSslPort | |
@@ -176,19 +181,19 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
         "not" : {
           "anyOf" : [
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Resources/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Compute/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Storage/*"
             },
             {
-              "source" : "action",
+              "field" : "type",
               "like" : "Microsoft.Network/*"
             }
           ]
@@ -207,14 +212,14 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
       "if": {
         "allOf": [
           {
-            "source": "action",
-            "like": "Microsoft.Storage/storageAccounts/*"
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
           },
           {
             "not": {
               "allof": [
                 {
-                  "field": "Microsoft.Storage/storageAccounts/accountType",
+                  "field": "Microsoft.Storage/storageAccounts/sku.name",
                   "in": ["Standard_LRS", "Standard_GRS"]
                 }
               ]
@@ -302,8 +307,6 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
           }
         }
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
-      "type":"Microsoft.Authorization/policyDefinitions",
       "name":"testdefinition"
     }
 
@@ -350,8 +353,6 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
         "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"
       },
-      "id":"/subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyAssignments/VMPolicyAssignment",
-      "type":"Microsoft.Authorization/policyAssignments",
       "name":"VMPolicyAssignment"
     }
 
@@ -386,4 +387,4 @@ RBAC 著重於**使用者**在不同範圍內可執行的動作。例如，若�
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0330_2016-->

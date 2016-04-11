@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -28,7 +28,7 @@
 
 下列範例會將新的日期記錄加入至日期維度。請注意是如何第一次建立新的物件 DimDate\_New，然後予以重新命名來取代原始版本的物件。
 
-```
+```sql
 CREATE TABLE dbo.DimDate_New
 WITH (DISTRIBUTION = ROUND_ROBIN
 , CLUSTERED INDEX (DateKey ASC)
@@ -74,4 +74,4 @@ SQL 資料倉儲中的檢視僅限中繼資料使用。
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 管理資料行存放區索引
@@ -24,7 +24,7 @@
 ## 查詢資料行存放區中繼資料
 若要了解資料行存放區索引的密度，必須查詢系統中繼資料。以下是您能夠發現的資訊類型範例。
 
-```
+```sql
 CREATE VIEW dbo.vColumnstoreDensity
 AS
 WITH CSI
@@ -73,7 +73,7 @@ FROM    CSI
 
 在建立檢視之後，可以輕鬆地分析資料行存放區中繼資料。範例查詢如下所示。
 
-```
+```sql
 SELECT	[table_name]
 ,		[table_partition_count]
 ,		[row_count_total]
@@ -149,4 +149,4 @@ WHERE	[table_name] = 'FactInternetSales'
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

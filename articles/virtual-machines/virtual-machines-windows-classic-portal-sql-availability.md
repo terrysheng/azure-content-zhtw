@@ -54,7 +54,7 @@
 
 - 您已經有 Azure 帳戶。
 
-- 您已經知道如何透過 GUI 佈建來自虛擬機器資源庫的 SQL Server VM。如需詳細資訊，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-classic-portal-sql.md)
+- 您已了解如何透過 GUI 佈建來自虛擬機器資源庫的傳統 SQL Server VM。
 
 - 您已非常熟悉 AlwaysOn 可用性群組的功能。如需詳細資訊，請參閱 [AlwaysOn 可用性群組 (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)。
 
@@ -348,7 +348,7 @@
 
 1. 在 [新增節點精靈] 中，按 [下一步]。在 [輸入伺服器名稱] 中輸入伺服器名稱，然後按一下 [新增]，於 [選取伺服器] 頁面上，將 **ContosoSQL2** 和 **ContosoWSFCNode** 新增至清單。完成之後，按 [下一步]。
 
-1. 在 [驗證警告] 頁面上，按一下 [否] \(實際操作時，請執行驗證測試)。然後按 [下一步]。
+1. 在 [驗證警告] 頁面上，按一下 [否] (實際操作時，請執行驗證測試)。然後按 [下一步]。
 
 1. 在 [確認] 頁面中按 [下一步]，以新增節點。
 
@@ -547,6 +547,6 @@
 ## 後續步驟
 現在，您已透過在 Azure 中建立可用性群組的方式，成功實作 SQL Server AlwaysOn。若要為此可用性群組設定接聽程式，請參閱[在 Azure 中為 AlwaysOn 可用性群組設定 ILB 接聽程式](virtual-machines-windows-classic-ps-sql-int-listener.md)。
 
-如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md)。
+如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-windows-classic-sql-overview.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

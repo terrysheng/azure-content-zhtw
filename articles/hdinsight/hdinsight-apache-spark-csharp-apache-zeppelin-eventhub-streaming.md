@@ -26,7 +26,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 在本教學課程中，您將學習如何建立 Azure 事件中樞、使用以 C# 撰寫的主控台應用程式將訊息擷取到事件中樞，以及使用針對 HDInsight 中 Apache Spark 設定的 Zeppelin Notebook 平行擷取它們。
 
-> [AZURE.NOTE] 若要遵循這篇文章中的指示，您必須使用兩種版本的 Azure 入口網站。若要建立事件中樞，您會用到 [Azure 入口網站](https://manage.windowsazure.com)。若要使用 HDInsight Spark 叢集，您會用到 [Azure Preview 入口網站](https://ms.portal.azure.com/)。
+> [AZURE.NOTE] 若要遵循這篇文章中的指示，您必須使用兩種版本的 Azure 入口網站。若要建立事件中樞，您會用到 [Azure 傳統入口網站](https://manage.windowsazure.com)。若要使用 HDInsight Spark 叢集，您會用到 [Azure 入口網站](https://ms.portal.azure.com/)。
 
 **必要條件：**
 
@@ -54,10 +54,12 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 4. 按一下您建立的事件中樞，再按一下 [設定]，然後為事件中樞建立兩個存取原則。
 
 	<table>
-<tr><th>名稱</th><th>權限</th></tr>
-<tr><td>mysendpolicy</td><td>傳送</td></tr>
-<tr><td>myreceivepolicy</td><td>接聽</td></tr>
-</table>建立權限之後，在頁面底部選取**儲存**圖示。這會建立共用存取原則，可用來傳送 (**mysendpolicy**) 給及接聽 (**myreceivepolicy**) 此事件中樞。
+	<tr><th>名稱</th><th>權限</th></tr>
+	<tr><td>mysendpolicy</td><td>傳送</td></tr>
+	<tr><td>myreceivepolicy</td><td>接聽</td></tr>
+	</table>
+
+	建立權限之後，在頁面底部選取**儲存**圖示。這會建立共用存取原則，可用來傳送 (**mysendpolicy**) 給及接聽 (**myreceivepolicy**) 此事件中樞。
 
 	![原則](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policies.png "建立事件中樞原則")
 
@@ -92,7 +94,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 ### 使用 Zeppelin 建立串流處理應用程式
 
-1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您 Spark 叢集的磚 (如果您已把它釘選到開始面板)。您也可以瀏覽到自己的叢集，方法是按一下 [瀏覽全部] > [HDInsight 叢集]。   
+1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
 2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結]，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Zeppelin Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
@@ -194,4 +196,4 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

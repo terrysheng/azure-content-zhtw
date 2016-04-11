@@ -24,7 +24,7 @@
 
 如果您不指定篩選述詞，便會移轉整個資料表。
 
-    > If you provide a filter predicate that performs poorly, data migration also performs poorly. Stretch Database applies the filter predicate to the table by using the CROSS APPLY operator.
+>   [AZURE.NOTE] 如果您提供執行不良的篩選述詞，則資料移轉也會執行不良。Stretch Database 使用 CROSS APPLY 運算子將篩選述詞套用至資料表。
 
 ## 嵌入資料表值函式的基本需求
 Stretch Database 篩選函式嵌入資料表值函式所需的嵌入資料表值函式看起來如下列範例所示。
@@ -70,7 +70,7 @@ RETURN	SELECT 1 AS is_eligible
 
 -   比較函式參數及常數運算式。例如，`@column1 < 1000`。
 
-    以下是檢查 [date] 資料欄的值是否為 &lt; 1/1/2016 的範例。
+    以下是檢查 [date] 資料行的值是否為 &lt; 1/1/2016 的範例。
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 datetime)
@@ -91,7 +91,7 @@ RETURN	SELECT 1 AS is_eligible
 
 -   使用 IN 運算子來比較函式參數及常數值清單。
 
-    以下是檢查 [shipment\_status] 資料欄的值是否為 `IN (N'Completed', N'Returned', N'Cancelled')` 的範例。
+    以下是檢查 [shipment\_status] 資料行的值是否為 `IN (N'Completed', N'Returned', N'Cancelled')` 的範例。
 
     ```tsql
     CREATE FUNCTION dbo.fn_stretchpredicate(@column1 nvarchar(15))
@@ -404,10 +404,10 @@ GO
 只要有資料表將該函式做為其篩選述詞使用，您便無法卸除嵌入資料表值函式。
 
 ## 查看套用至資料表的篩選述詞
-若要檢查套用至資料表的篩選述詞，請開啟目錄檢視 **sys.remote\_data\_archive\_tables** 並查看 **filter\_predicate** 資料欄的值。如果值為 Null，便代表整個資料表皆符合封存資格。如需詳細資訊，請參閱 [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx)。
+若要檢查套用至資料表的篩選述詞，請開啟目錄檢視 **sys.remote\_data\_archive\_tables** 並查看 **filter\_predicate** 資料行的值。如果值為 Null，便代表整個資料表皆符合封存資格。如需詳細資訊，請參閱 [sys.remote\_data\_archive\_tables (Transact-SQL)](https://msdn.microsoft.com/library/dn935003.aspx)。
 
 ## 另請參閱
 
 [ALTER TABLE (TRANSACT-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

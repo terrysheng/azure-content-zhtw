@@ -14,18 +14,25 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="03/28/2016"
    ms.author="larryfr"/>
 
 # 在 Linux 上使用 HDInsight 的相關資訊
 
 以 Linux 為基礎的 Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端中執行的 Hadoop。其操作大多與 Linux 安裝上的任何其他 Hadoop 相同。本文件會指出其中應注意的特殊不同之處。
 
+##必要條件
+
+本文件中的許多步驟都使用下列公用程式，可能需要安裝在您的系統上。
+
+* [cURL](https://curl.haxx.se/) - 用來與 Web 型服務通訊
+* [jq](https://stedolan.github.io/jq/) - 用來剖析 JSON 文件
+
 ## 網域名稱
 
 從網際網路連接到叢集時所要使用的完整網域名稱 (FQDN) 是 **&lt;clustername>.azurehdinsight.net** 或 (僅適用於 SSH) **&lt;clustername-ssh>.azurehdinsight.net**。
 
-就內部而言，叢集中的每個節點都具有在叢集組態期間指派的名稱。若要尋找叢集名稱，您可以造訪 Ambari Web UI 的 [主機] 頁面，或使用下列命令以傳回來自 Ambari REST API (使用 [cURL](http://curl.haxx.se/) 和 [jq](https://stedolan.github.io/jq/)) 的主機清單：
+就內部而言，叢集中的每個節點都具有在叢集組態期間指派的名稱。若要尋找叢集名稱，您可以造訪 Ambari Web UI 的 [主機] 頁面，或使用下列命令以傳回來自 Ambari REST API 的主機清單：
 
     curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
@@ -196,7 +203,7 @@ HDInsight 也可讓您將多個 Blob 儲存體帳戶與叢集相關聯。若要�
 
 	* __Storm UI__︰使用下列步驟來重新平衡使用 Storm UI 的拓撲。
 
-		1. 在網頁瀏覽器中開啟 \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__，其中 CLUSTERNAME 是 Storm 叢集的名稱。出現提示時，輸入建立叢集時所指定的 HDInsight 叢集系統管理員 (管理員) 名稱和密碼。
+		1. 在您的網頁瀏覽器中開啟 \_\___https://CLUSTERNAME.azurehdinsight.net/stormui__，其中 CLUSTERNAME 是您的 Storm 叢集的名稱。出現提示時，輸入建立叢集時所指定的 HDInsight 叢集系統管理員 (管理員) 名稱和密碼。
 
 		3. 選取您要重新平衡的拓撲，然後選取 [重新平衡] 按鈕。在執行重新平衡作業之前輸入延遲。
 
@@ -242,8 +249,9 @@ HDInsight 是受管理的服務，這表示如果偵測到問題，叢集中的�
 
 ## 後續步驟
 
+* [從以 Windows 為基礎的 HDInsight 移轉至以 Linux 為基礎的 HDInsight](hdinsight-migrate-from-windows-to-linux.md)
 * [搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

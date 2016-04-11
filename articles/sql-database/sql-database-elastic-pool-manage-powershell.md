@@ -16,7 +16,7 @@
     ms.date="03/15/2016"
     ms.author="sstein"/>
 
-# 監視和管理彈性資料庫集區 (PowerShell) 
+# 使用 PowerShell 監視、管理和估算彈性資料庫集區大小 
 
 > [AZURE.SELECTOR]
 - [Azure 入口網站](sql-database-elastic-pool-manage-portal.md)
@@ -35,7 +35,7 @@
 
 
 
-## 在彈性資料庫集區內建立新的彈性資料庫
+## 在集區中建立新的彈性資料庫
 
 若要直接在集區內建立新的資料庫，請使用 [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) Cmdlet，並設定 **ElasticPoolName** 參數。
 
@@ -43,34 +43,34 @@
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## 將獨立資料庫移入彈性資料庫集區
+## 將獨立資料庫移入集區
 
 若要將現有資料庫移入集區，請使用 [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) Cmdlet，並設定 **ElasticPoolName** 參數。
 
 	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
-## 變更彈性資料庫集區的效能設定
+## 變更集區的效能設定
 
-若要變更彈性資料庫集區的效能設定，請使用 [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) Cmdlet。
+若要變更集區的效能設定，請使用 [Set-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt603511.aspx) Cmdlet。
 
     Set-AzureRmSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
 
-## 取得彈性資料庫集區作業的狀態
+## 取得集區作業的狀態
 
-您可以追蹤彈性資料庫集區作業的狀態，包括使用 [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) Cmdlet 建立和更新作業。
+您可以追蹤集區作業的狀態，包括使用 [Get-AzureRmSqlElasticPoolActivity](https://msdn.microsoft.com/library/azure/mt603812.aspx) Cmdlet 建立和更新作業。
 
 	Get-AzureRmSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
-## 取得將彈性資料庫移入和移出彈性資料庫集區的狀態
+## 取得將彈性資料庫移入和移出集區的狀態
 
 您可以追蹤彈性資料庫集區作業的狀態，包括使用 [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/azure/mt603687.aspx) Cmdlet 建立和更新作業。
 
 	Get-AzureRmSqlDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## 取得彈性資料庫集區的使用量資料
+## 取得集區的使用狀況資料
 
 可以用資源集區限制的百分比來擷取的度量：
 
@@ -113,7 +113,7 @@
 
 除了以下的語意差異外，這些 API 與目前用於監視獨立資料庫之資源使用率的 (V12) API 相同。
 
-* 這個擷取的 API 度量，會以針對該彈性資料庫集區所設定之每個 databaseDtuMax (或是 CPU、IO 等基礎度量的相等上限) 的百分比來表示。例如，這些度量有其中一項的使用率為 50%，則表示特定資源的消耗量佔該資源在父彈性資料庫集區中，每個資料庫上限限制的 50%。 
+* 這個擷取的 API 度量，會以針對該集區所設定之每個 databaseDtuMax (或是 CPU、IO 等基礎度量的相等上限) 的百分比來表示。例如，這些度量有其中一項的使用率為 50%，則表示特定資源的消耗量佔該資源在父集區中，每個資料庫上限限制的 50%。 
 
 取得度量：
 
@@ -132,7 +132,7 @@
     foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
-## 監視和管理彈性資料庫集區 PowerShell 範例
+## 監視和管理集區 PowerShell 範例
 
 
     $subscriptionId = '<Azure subscription id>'
@@ -171,11 +171,11 @@
 
 ## 後續步驟
 
-- [建立彈性工作](sql-database-elastic-jobs-overview.md) 彈性工作有助於對集區中任意數目的資料庫執行 T-SQL 指令碼。
+- [建立彈性工作](sql-database-elastic-jobs-overview.md) 彈性工作可讓您對集區中任意數目的資料庫執行 T-SQL 指令碼。
 
 
 ## 彈性資料庫參考
 
 如需關於彈性資料庫和彈性資料庫集區的詳細資訊，包括 API 和錯誤詳細資料，請參閱[彈性資料庫集區參考](sql-database-elastic-pool-reference.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

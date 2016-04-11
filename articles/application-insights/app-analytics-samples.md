@@ -15,10 +15,9 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
 # Application Insights 的 Analytics 範例
 
-[Analytics](app-analytics.md) 是強大的搜尋引擎，適合用於 [Application Insights](app-insights-overview.md) 遙測。這些頁面說明 Analytics 查詢語言。另外還有[語言教學](app-analytics-tour.md)，建議您從這裡開始。
+[Analytics](app-analytics.md) 可讓您從您的應用程式透過 [Application Insights](app-insights-overview.md) 所收集的遙測資料執行強大的查詢。這些頁面說明其查詢語言。另外還有[語言教學](app-analytics-tour.md)，建議您從這裡開始。
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -437,4 +436,4 @@ JobHistory
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

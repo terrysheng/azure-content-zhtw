@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="03/23/2016"
 	ms.author="tomfitz"/>
 
 # 設計 Azure 資源管理員範本的最佳做法
@@ -145,7 +145,7 @@
 
 表面上，自由格式組態聽起來很實用。它們讓您能夠選取 VM 類型，且提供任意數目的節點以及這些節點的連接磁碟，並做為範本的參數來執行此動作。不過，當您進一步查看並考慮將部署多個不同大小之虛擬機器的範本時，會出現其他考量，讓該選擇在許多案例中變得較不適當。
 
-在 Azure 網站的 [適用於 Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn641267.aspx)文章中，已識別出不同的 VM 類型和可用大小，以及每個可連接且持久的磁碟數目 (2、4、8、16 或 32)。每個連接的磁碟可提供 500 個 IOPS，而您可以利用這個 IOPS 數目做為乘數來共用這些磁碟數目的倍數。例如，共用 16 個磁碟，即可提供 8,000 個 IOPS。您可以使用 Microsoft Windows 儲存空間或 Linux 中價格便宜的獨立磁碟容錯陣列 (RAID)，利用作業系統中的組態來完成共用。
+在[虛擬機器的大小](./virtual-machines/virtual-machines-windows-sizes.md)文章中，已識別出不同的 VM 類型和可用大小，以及每個可連接且持久的磁碟數目 (2、4、8、16 或 32)。每個連接的磁碟可提供 500 個 IOPS，而您可以利用這個 IOPS 數目做為乘數來共用這些磁碟數目的倍數。例如，共用 16 個磁碟，即可提供 8,000 個 IOPS。您可以使用 Microsoft Windows 儲存空間或 Linux 中價格便宜的獨立磁碟容錯陣列 (RAID)，利用作業系統中的組態來完成共用。
 
 自由格式組態能夠選取一些 VM 執行個體、一些適用於這些執行個體的不同 VM 類型和大小、一些可根據 VM 類型而有所不同的磁碟，以及一或多個指令碼來設定 VM 內容。
 
@@ -379,8 +379,7 @@ Redis 只會使用單一節點類型，因此您將建立名為 node-resources.j
 
 ## 後續步驟
 
-- 若要查看如何實作本主題所提供之設計原理的內容相關範例，請參閱[實作範本的最佳做法內容範例](best-practices-resource-manager-examples.md)。
 - 如需如何在 Azure 資源管理員中處理安全性的建議，請參閱 [Azure 資源管理員的安全性考量](best-practices-resource-manager-security.md)。
 - 若要了解進出範本的共用狀態，請參閱〈[Azure 資源管理員範本中的共用狀態](best-practices-resource-manager-state.md)〉。
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

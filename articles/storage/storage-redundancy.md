@@ -91,7 +91,8 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 | 澳大利亞東南部 | 澳洲東部 |
 | 印度南部 | 印度中部 |
 | 印度中部 | 印度南部 |
-
+| 美國政府愛荷華州 | 美國政府維吉尼亞州 |
+| 美國政府維吉尼亞州 | 美國政府愛荷華州 |
 
 ## 讀取權限異地備援儲存體
 
@@ -107,4 +108,4 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 - [使用 RA-GRS 的 Microsoft Azure 儲存體模擬器 3.1](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [SOSP 文件：具有高度一致性的高可用性雲端儲存體服務。](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

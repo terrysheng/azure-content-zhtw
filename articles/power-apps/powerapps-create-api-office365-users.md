@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # 在 PowerApps Enterprise 中建立新的 Office 365 使用者 API
 
 > [AZURE.SELECTOR]
-- [邏輯應用程式](../articles/connectors/create-api-office365-users.md)
+- [邏輯應用程式](../articles/connectors/connectors-create-api-office365-users.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-users.md)
 
 將 Office 365 使用者 API 加入您組織 (租用戶) 的 App Service 環境中。
@@ -41,7 +41,7 @@
 5. 在 [**管理 API**] 中，選取 [**新增**] 以新增 API：  
 ![Add API][2]
 
-6. 為您的 API 輸入描述性**名稱**。  
+6. 為您的 API 輸入描述性**名稱**。
 	
 7. 在 [**來源**] 中，選取 [**可用 API**] 以選取預先建置的 API，然後選取 [**Office 365 使用者**]：  
 ![選取 Office 365 使用者 api][3]
@@ -51,7 +51,7 @@
 
 9. 輸入 Office 365 Azure Active Directory (AAD) 應用程式的*用戶端識別碼*與*用戶端密碼*。如果您還沒有這些值，請參閱本主題中的＜註冊 AAD 應用程式以搭配 PowerApps 使用＞一節，建立您需要的金鑰與密碼值。
 
-	> [AZURE.IMPORTANT] 儲存**重新導向 URL**。您在本主題的後半部可能需要此值。  
+	> [AZURE.IMPORTANT] 儲存**重新導向 URL**。您在本主題的後半部可能需要此值。
 
 10. 選取 [**確定**] 以完成步驟。
 
@@ -83,7 +83,7 @@
 
 6. 在 [應用程式屬性] 中：  
 
-	1. 輸入您應用程式的「登入 URL」。由於您即將利用 PowerApps 適用的 AAD 進行驗證，因此請將登入 URL 設定為 \__https://login.windows.net_。  
+	1. 輸入您應用程式的「登入 URL」。由於您即將使用 PowerApps 適用的 AAD 來進行驗證，因此請把登入 URL 設定為 \__https://login.windows.net_。
 	2. 為您的應用程式輸入有效的「應用程式識別碼 URI」。  
 	3. 選取 [確定]。  
 
@@ -107,7 +107,7 @@ Azure Active Directory 應用程式便建立好了。您可以在 Azure 入口�
 
 ## 請參閱 REST API
 
-[Office 365 使用者 REST API](../connectors/create-api-office365-users.md) 參考。
+[Office 365 使用者 REST API](../connectors/connectors-create-api-office365-users.md) 參考。
 
 ## 摘要和後續步驟
 在本主題中，您已將 Office 365 使用者 API 新增至 PowersApps Enterprise。接下來，請授與使用者此 API 的存取權，讓使用者能夠將此 API 新增至其應用程式：
@@ -128,4 +128,4 @@ Azure Active Directory 應用程式便建立好了。您可以在 Azure 入口�
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!----HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

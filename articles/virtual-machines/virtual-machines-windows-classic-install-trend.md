@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
-	ms.author="dkshir"/>
+	ms.date="03/28/2016"
+	ms.author="iainfou"/>
 
 
 # 如何在 Windows VM 上安裝和設定 Trend Micro Deep Security as a Service
@@ -87,4 +87,4 @@
 [如何登入執行 Windows Server 的虛擬機器]: virtual-machines-windows-classic-connect-logon.md
 [Azure VM 延伸模組與功能]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

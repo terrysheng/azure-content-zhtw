@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 #Azure 通知中心豐富內容推播
@@ -96,7 +96,7 @@
             }
         }
 
-> [AZURE.NOTE](optional) 如需如何新增和取得專案資源的詳細資訊，請參閱[如何使用 Visual C# 來內嵌和存取資源](http://support.microsoft.com/kb/319292)。
+> [AZURE.NOTE] (optional) 如需如何新增和取得專案資源的詳細資訊，請參閱[如何使用 Visual C# 來內嵌和存取資源](http://support.microsoft.com/kb/319292)。
 
 7. 在 **NotificationsController.cs** 中，使用下列程式碼片段重新定義 **NotificationsController**。這會將初始無訊息豐富內容通知識別碼傳送到裝置，並可讓用戶端擷取影像：
 
@@ -381,4 +381,4 @@
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0330_2016-->

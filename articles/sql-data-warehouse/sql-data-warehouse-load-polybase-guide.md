@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 
@@ -45,12 +45,10 @@
 ## 查詢 Azure blob 儲存體資料
 針對外部資料表的查詢只使用資料表名稱，如同關聯式資料表一樣。
 
-```
-
+```sql
 -- Query Azure storage resident data via external table.
 SELECT * FROM [ext].[CarSensor_Data]
 ;
-
 ```
 
 > [AZURE.NOTE] 外部資料表上的查詢可能會失敗，並顯示「*查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值*」錯誤。這表示您的外部資料包含「*錯誤*」記錄。如果實際的資料類型/資料行數目不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。若要修正此問題，請確定您的外部資料表及外部檔案格式定義皆正確，且這些定義與您的外部資料相符。萬一外部資料記錄的子集有錯誤，您可以使用 CREATE EXTERNAL TABLE DDL 中的拒絕選項，選擇拒絕這些查詢記錄。
@@ -65,7 +63,7 @@ SELECT * FROM [ext].[CarSensor_Data]
 
 CREATE TABLE AS SELECT 是高效能 TRANSACT-SQL 陳述式，可將資料平行載入到您的 SQL 資料倉儲的所有計算節點。它原本是針對分析平台系統中的大量平行處理 (MPP) 引擎所開發，現在已納入 SQL 資料倉儲中。
 
-```
+```sql
 -- Load data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE [dbo].[Customer_Speed]
@@ -86,7 +84,7 @@ FROM   [ext].[CarSensor_Data]
 
 Azure 資料倉儲尚未支援自動建立或自動更新統計資料。為了獲得查詢的最佳效能，在首次載入資料，或是資料中發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。如需統計資料的詳細說明，請參閱主題群組＜開發＞之中的[統計資料][]主題。以下是快速範例，說明如何在此範例中建立載入資料表的統計資料。
 
-```
+```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
 create statistics [CustomerKey] on [Customer_Speed] ([CustomerKey]);
 create statistics [GeographyKey] on [Customer_Speed] ([GeographyKey]);
@@ -99,7 +97,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 下列範例會使用 dbo.Weblogs 資料表中的資料行定義和資料從 dbo 建立外部資料表 Weblogs2014。外部資料表定義會儲存在 SQL 資料倉儲中，而 SELECT 陳述式的結果會匯出至資料來源所指定的 blob 容器下的 "/archive/log2014/" 目錄。以指定的文字檔案格式匯出的資料。
 
-```
+```sql
 CREATE EXTERNAL TABLE Weblogs2014 WITH
 (
     LOCATION='/archive/log2014/',
@@ -130,7 +128,7 @@ WHERE
 
 以下是一行會建立檔案的簡單 Powershell 指令碼。
 
-```
+```PowerShell
 Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
 ```
 
@@ -140,7 +138,7 @@ Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name>
 
 下列程式碼範例更為複雜，但在資料流處理來自來源的資料至目標的資料列時更具效率。應用此方法在較大的檔案上。
 
-```
+```PowerShell
 #Static variables
 $ascii = [System.Text.Encoding]::ASCII
 $utf16le = [System.Text.Encoding]::Unicode
@@ -210,4 +208,4 @@ $write.Dispose()
 [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

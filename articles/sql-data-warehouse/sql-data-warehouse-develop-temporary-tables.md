@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # SQL 資料倉儲中的暫存資料表
@@ -24,7 +24,7 @@
 ## 建立暫存資料表
 建立暫存資料表是非常直截了當的。您所要做的就只是在資料表名稱前面加上 #，如下列範例所示 ︰
 
-```
+```sql
 CREATE TABLE #stats_ddl
 (
 	[schema_name]			NVARCHAR(128) NOT NULL
@@ -44,7 +44,7 @@ WITH
 
 暫存資料表也可以使用完全相同的方法，利用 `CTAS` 來建立。
 
-```
+```sql
 CREATE TABLE #stats_ddl
 WITH
 (
@@ -102,7 +102,7 @@ FROM    t1
 
 為了確保您的 `CREATE TABLE` 陳述式會成功，請務必確保資料表尚未存在於工作階段中。這可以使用下列模式，透過預先存在的簡單檢查來處理：
 
-```
+```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN
 	DROP TABLE #stats_ddl
@@ -113,7 +113,7 @@ END
 
 當您在程式碼中完成使用暫存資料表之後，使用 `DROP TABLE` 加以移除也是一個很好的做法。
 
-```
+```sql
 DROP TABLE #stats_ddl
 ```
 
@@ -127,7 +127,7 @@ DROP TABLE #stats_ddl
 
 下列預存程序結合了先前所述的範例。此程式碼可用來產生更新資料庫中每個資料行的統計資料所需的 DDL：
 
-```
+```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
 (   @update_type    tinyint -- 1 default 2 fullscan 3 sample 4 resample
 	,@sample_pct     tinyint
@@ -209,7 +209,7 @@ GO
 
 這可能會導致更多模組化和可管理的程式碼。查看下方範例：
 
-```
+```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
 
 DECLARE @i INT              = 1
@@ -254,4 +254,4 @@ SQL 資料倉儲在實作暫存資料表時的確有一些限制。
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

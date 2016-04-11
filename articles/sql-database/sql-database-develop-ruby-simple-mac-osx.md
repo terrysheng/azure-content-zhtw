@@ -20,40 +20,24 @@
 
 # 在 Mac OS X (Yosemite) 上使用 Ruby 連接到 SQL Database
 
-
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
+本主題提供可在執行 Yosemite 的 Mac 電腦上執行，以連接到 Azure SQL Database 的 Ruby 程式碼範例。
 
-本主題提供可在執行 Yosemite 的 Mac 電腦上執行，以連接到 Azure SQL Database 資料庫的 Ruby 程式碼範例。
+## 步驟 1︰設定開發環境
 
-## 必要條件
+[使用 TinyTDS Ruby Driver for SQL Server 的必要條件](https://msdn.microsoft.com/library/mt711041.aspx#Mac)
 
-### 安裝必要的模組
-
-開啟您的終端機，並安裝下列：
-
-**1) Homebrew**：從您的終端機執行下列命令：這會在您的電腦上下載 Homebrew 封裝管理員。
-
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-**2) FreeTDS：**從您的終端機執行下列命令。這會在您的電腦上安裝 FreeTDS，TinyTDS 才能運作。
-
-    brew install FreeTDS
-
-**3) TinyTDS：**從您的終端機執行下列命令。這會在您的電腦上安裝 TinyTDS。
-
-    gem install tiny_tds
-
-### SQL Database
+## 步驟 2：建立 SQL Database
 
 請參閱[快速入門頁面](sql-database-get-started.md)，以了解如何建立範例資料庫。請務必遵循該指南以建立 **AdventureWorks 資料庫範本**。以下所示的範例僅適用於 **AdventureWorks 結構描述**。
 
 
-## 步驟 1：取得連線詳細資料
+## 步驟 3：取得連接詳細資料
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## 步驟 2：連接
+## 步驟 4︰連接
 
 [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) 函式可用來連接到 SQL Database。
 
@@ -62,7 +46,7 @@
     host: 'yourserver.database.windows.net', port: 1433,
     database: 'AdventureWorks', azure:true
 
-## 步驟 3：執行查詢
+## 步驟 5：執行查詢
 
 [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) 函數可用來從針對 SQL Database 的查詢擷取結果集。此函數會接受查詢，並傳回結果集。結果集可使用 [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds) 重複列舉。
 
@@ -76,7 +60,7 @@
     puts row
     end
 
-## 步驟 4：插入資料列
+## 步驟 6：插入資料列
 
 在這個範例中，您將了解如何安全地執行 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) 陳述式、傳遞透過 [SQL 插入](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 弱點保護您應用程式的參數，以及擷取自動產生的[主索引鍵](https://msdn.microsoft.com/library/ms179610.aspx)值。
 
@@ -106,4 +90,4 @@
     puts row
     end
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

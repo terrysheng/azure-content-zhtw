@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/28/2016"
    ms.author="barbkess;mausher;sonyama"/>
 
 # 透過 SQL 資料倉儲使用 PowerShell Cmdlet 和 REST API
@@ -26,19 +26,19 @@
 
 ## 取得和執行 Azure PowerShell Cmdlet
 
-1. 如要下載 Azure PowerShell 模組，請執行 [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)。
+1. 如要下載 Azure PowerShell 模組，請執行 [Microsoft Web Platform Installer](http://aka.ms/webpi-azps)。如需此安裝程式的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell][]。
 2. 若要執行模組，請在開始視窗中鍵入 **Windows PowerShell**。
-3. 如果您尚未將帳戶加入電腦，請執行下列 Cmdlet。(如需詳細資訊，請參閱[如何安裝及設定 Azure PowerShell]()：
+3. 執行此 Cmdlet 來登入 Azure 資源管理員。
 
-	```
-	Login-AzureRmAccount
-	```
+```PowerShell
+Login-AzureRmAccount
+```
 
 3. 針對您想要暫停或繼續的資料庫選取您的訂用帳戶。這將會選取名稱為 "MySubscription" 的訂用帳戶。
 
-	```
-	Select-AzureRmSubscription -SubscriptionName "MySubscription"
-	```
+```Powershell
+Select-AzureRmSubscription -SubscriptionName "MySubscription"
+```
 
 ## Suspend-AzureRmSqlDatabase
 
@@ -48,7 +48,7 @@
 
 此範例會暫停「Server01」伺服器上託管的「Database02」資料庫。 此伺服器位於「ResourceGroup1」這個 Azure 資源群組。
 
-```
+```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
@@ -56,7 +56,7 @@ Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "
 
 此範例從「ResourceGroup1」資源群組包含的「Server01」伺服器中，擷取「Database02」資料庫。 它將擷取的物件輸送到 **Suspend-AzureRmSqlDatabase**。結果就是暫停資料庫。最終的命令會顯示結果。
 
-```
+```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
@@ -64,13 +64,13 @@ $resultDatabase
 
 ## Resume-AzureSqlDatabase
 
-如需命令的參考資料，請參閱 [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)。
+如需命令參考，請參閱 [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)
 
 ### 範例 1：依名稱在伺服器上繼續資料庫
 
 此範例會繼續「Server01」伺服器上託管的「Database02」資料庫的作業。 此伺服器包含在「ResourceGroup1」這個資源群組中。
 
-```
+```Powershell
 Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
@@ -78,7 +78,7 @@ Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "S
 
 此範例會從「ResourceGroup1」資源群組包含的 「Server01」伺服器中，擷取「Database02」資料庫。 物件會被輸送到 **Resume-AzureRmSqlDatabase**。
 
-```
+```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ```
@@ -96,7 +96,7 @@ RestorePointCreationDate |備份快照時間 (在 restorePointType = DISCRETE �
 ### 範例 1：依名稱在伺服器上擷取資料庫的還原點
 此範例會從「ResourceGroup1」資源群組包含的「Server01」伺服器中，擷取「Database02」資料庫的還原點。
 
-```
+```Powershell
 $restorePoints = Get-AzureRmSqlDatabaseRestorePoints –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints
 ```
@@ -106,7 +106,7 @@ $restorePoints
 
 此範例會從「ResourceGroup1」資源群組包含的「Server01」伺服器中，擷取「Database02」資料庫。 資料庫物件會被輸送到 **Get-AzureRmSqlDatabase**，且結果就是資料庫的還原點。最終的命令會列印結果。
 
-```
+```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $restorePoints = $database | Get-AzureRmSqlDatabaseRestorePoints
 $retorePoints
@@ -123,7 +123,7 @@ $retorePoints
 
 <!--Article references-->
 [SQL 資料倉儲參考概觀]: sql-data-warehouse-overview-reference.md
-[How to install and configure Azure PowerShell]: ../articles/powershell-install-configure.md
+[如何安裝和設定 Azure PowerShell]: ../articles/powershell-install-configure.md
 
 <!--MSDN references-->
 
@@ -133,4 +133,4 @@ $retorePoints
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

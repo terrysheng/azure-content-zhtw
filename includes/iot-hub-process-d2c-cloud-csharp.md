@@ -8,24 +8,26 @@
 
 事件處理器會使用事件中樞訊息位移做為區塊識別碼。這可以讓其在認可新區塊至儲存體之前，先執行重複資料刪除檢查，查看認可的區塊和檢查點之間是否有損毀。
 
-> [AZURE.NOTE] 本教學課程使用單一儲存體帳戶來寫入從 IoT 中心擷取的所有訊息。請參閱 [Azure 儲存體延展性指導方針]來決定方案中是否需要使用多個 Azure 儲存體帳戶。
+> [AZURE.NOTE] 本教學課程使用單一儲存體帳戶來寫入從 IoT 中樞擷取的所有訊息。請參閱 [Azure 儲存體延展性指導方針]來決定方案中是否需要使用多個 Azure 儲存體帳戶。
 
 應用程式會使用服務匯流排重複資料刪除功能，來於處理互動式訊息時避免重複項目。模擬的裝置會藉由使用唯一的 **MessageId** 為每個互動式訊息加上時間戳記，讓服務匯流排能夠確保在指定的重複資料刪除時間範圍中，不會有兩個具有相同 **MessageId** 的訊息傳遞給接收者。此重複資料刪除功能和服務匯流排佇列所提供的每一訊息完成語意，使其能夠很容易地實作可靠的互動訊息處理。
 
 為確保不會在重複資料刪除時間範圍之外重新提交任何訊息，程式碼會同步 **EventProcessorHost** 檢查點機制與服務匯流排佇列重複資料刪除時間範圍。完成此作業的方法是在每次重複資料刪除時間範圍過去時 (在本教學課程中為 1 小時)，強制檢查點至少執行一次。
 
-> [AZURE.NOTE] 本教學課程使用單一分割服務匯流排佇列來處理所有擷取自 IoT 中心的互動式訊息。請參閱[服務匯流排文件]，以取得如何使用服務匯流排佇列來滿足您解決方案之擴展性需求的詳細資訊。
+> [AZURE.NOTE] 本教學課程使用單一分割服務匯流排佇列來處理所有擷取自 IoT 中樞的互動式訊息。請參閱[服務匯流排文件]，以取得如何使用服務匯流排佇列來滿足您解決方案之擴展性需求的詳細資訊。
 
 ### 佈建 Azure 儲存體帳戶和服務匯流排佇列
 為使用 [EventProcessorHost] 類別，您必須擁有 Azure 儲存體帳戶才能讓 **EventProcessorHost** 記錄檢查點資訊。您可以使用現有的儲存體帳戶，或是依照[關於 Azure 儲存體]中的指示建立新的帳戶。請記下儲存體帳戶連接字串。
 
-您也需要服務匯流排佇列以可靠地處理互動式訊息。您可以程式設計方式使用 1 小時重複資料刪除視窗建立佇列，如同[如何使用服務匯流排佇列][Service Bus Queue]中所述，或遵循下列步驟來使用 [Azure 傳統入口網站]：
+> [AZURE.NOTE] 當您複製並貼上儲存體帳戶連接字串時，請確定連接字串中沒有任何空格。
 
-1. 按一下左下角的 [新增]，然後依序按一下 [應用程式服務]、[服務匯流排]、[佇列]、[自訂建立]，接著輸入名稱 **d2ctutorial**、選取區域、使用現有命名空間或建立一個新的命名空間，然後在下一頁選取 [啟用重複偵測]，並將 [重複的偵測記錄期間] 設為一小時。然後按一下核取記號以儲存您的佇列組態。
+您也需要服務匯流排佇列以可靠地處理互動式訊息。您可以程式設計方式使用 1 小時重複資料刪除視窗建立佇列，如同[如何使用服務匯流排佇列][Service Bus Queue]中所述，或遵循下列步驟使用 [Azure 傳統入口網站]：
+
+1. 按一下左下角的 [新增]，然後依序按一下 [應用程式服務]、[服務匯流排]、[佇列]、[自訂建立]，接著輸入名稱 **d2ctutorial**、選取區域、使用現有命名空間或建立新的命名空間，然後在下一頁選取 [啟用重複偵測]，並將 [重複的偵測記錄期間] 設為一小時。然後按一下核取記號以儲存您的佇列組態。
 
     ![][30]
 
-2. 在服務匯流排佇列清單中，按一下 **d2ctutorial**，然後按一下 [設定]。建立兩個共用存取原則，一個名為**傳送**，具備**傳送**權限，而另一個名為**接聽**，具備**接聽**權限。完成時請按一下底部的 [儲存]。
+2. 在服務匯流排佇列清單中，按一下 [d2ctutorial]，然後按一下 [設定]。建立兩個共用的存取原則，一個名為**傳送**，具備**傳送**權限，而另一個名為**接聽**，具備**接聽**權限。完成時請按一下底部的 [儲存]。
 
     ![][31]
 
@@ -35,11 +37,11 @@
 
 ### 建立事件處理器
 
-1. 在目前的 Visual Studio 方案中，按一下 [檔案] -> [加入] -> [新增專案]，以使用 [主控台應用程式] 專案範本建立新的 Visual C# Windows 專案。將專案命名為 **ProcessDeviceToCloudMessages**。
+1. 在目前的 Visual Studio 方案中，依序按一下 [檔案]、[加入]、[新增專案]，以使用 [主控台應用程式] 專案範本建立新的 Visual C# Windows 專案。將專案命名為 **ProcessDeviceToCloudMessages**。
 
     ![][10]
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ProcessDeviceToCloudMessages** 專案，然後按一下 [管理 NuGet 封裝]。就會顯示 [NuGet 封裝管理員] 對話方塊。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ProcessDeviceToCloudMessages** 專案，然後按一下 [管理 NuGet 封裝]。此時會顯示 [NuGet 封裝管理員] 對話方塊。
 
 3. 搜尋 **WindowsAzure.ServiceBus**，按一下 [安裝] 並接受使用規定。這會下載、安裝並加入 [Azure 服務匯流排 NuGet 封裝](https://www.nuget.org/packages/WindowsAzure.ServiceBus)的參考與其所有相依性。
 
@@ -194,21 +196,21 @@
     }
     ```
 
-    **EventProcessorHost** 類別會呼叫此類別以處理從 IoT 中樞收到的裝置對雲端訊息。此類別中的程式碼會實作邏輯，以在 Blob 容器中可靠地儲存訊息，並將互動式訊息轉送至服務匯流排佇列。**OpenAsync** 方法會初始化 **currentBlockInitOffset** 變數，此變數可追蹤此事件處理器所讀取之第一個訊息的目前位移。請記住，每個處理器都會負責單一分割區。
+    **EventProcessorHost** 類別會呼叫此類別來處理從 IoT 中樞收到的「裝置到雲端」訊息。此類別中的程式碼會實作邏輯，以在 Blob 容器中可靠地儲存訊息，並將互動式訊息轉送至服務匯流排佇列。**OpenAsync** 方法會初始化 **currentBlockInitOffset** 變數，此變數可追蹤此事件處理器所讀取之第一個訊息的目前位移。請記住，每個處理器都會負責單一分割區。
     
     **ProcessEventsAsync** 方法可從 IoT 中樞接收一批訊息，並依照以下方式處理訊息：它會傳送互動式訊息至服務匯流排佇列，並將資料點訊息附加到名為 **toAppend** 的記憶體緩衝區。如果記憶體緩衝區達到 4 Mb 區塊限制，或者距離上一個檢查點的時間已超過服務匯流排重複資料刪除時間範圍 (在本教學課程中為 1 小時)，都會觸發檢查點。
 
-    **AppendAndCheckpoint** 方法會先為要附加的區塊產生區塊識別碼。Azure 儲存體需要所有區塊識別碼都具有相同的長度，此方法才能以前置的零來填補位移 - `currentBlockInitOffset.ToString("0000000000000000000000000")`。如果具有此識別碼的區塊已在 Blob 中，此方法會使用緩衝區目前的內容將它覆寫。
+    **AppendAndCheckpoint** 方法會先為要附加的區塊產生區塊識別碼。Azure 儲存體需要所有區塊識別碼都具有相同的長度，因此此方法會以前置的零來填補位移 - `currentBlockInitOffset.ToString("0000000000000000000000000")`。如果具有此識別碼的區塊已在 Blob 中，此方法會使用緩衝區目前的內容將它覆寫。
 
     > [AZURE.NOTE] 若要簡化程式碼，本教學課程會使用每個分割的單一 blob 檔案來儲存訊息。實際的解決方案會實作檔案復原，使用的方法是在檔案到達特定大小時 (請注意，Azure 區塊 Blob 大小上限為 195 Gb)，或在某段時間之後建立其他檔案。
 
-8. 在 **Program** 類別中，於頂端新增下列 **using** 陳述式：
+8. 在 **Program** 類別中的一開頭加入下列 **using** 陳述式：
 
     ```
     using Microsoft.ServiceBus.Messaging;
     ```
 
-9. 如下所示修改 **Program** 類別中的 **Main** 方法，使用名為 **d2ctutorial** 之佇列的 [傳送] 權限取代 IoT 中樞 **iothubowner** 連接字串 (來自 [開始使用 IoT 中樞] 教學課程)、儲存體連接字串，以及服務匯流排連接字串：
+9. 如下所示修改 **Program** 類別中的 **Main** 方法，使用名為 **d2ctutorial** 之佇列的 [傳送] 權限取代 IoT 中樞 **iothubowner** 連接字串 (來自[開始使用 IoT 中樞]教學課程)、儲存體連接字串，以及服務匯流排連接字串：
 
     ```
     static void Main(string[] args)
@@ -236,11 +238,11 @@
 
 1. 在目前的 Visual Studio 方案中，使用 [主控台應用程式] 專案範本建立新的 Visual C# Windows 專案。將專案命名為 **ProcessD2CInteractiveMessages**。
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ProcessD2CInteractiveMessages** 專案，然後按一下 [管理 NuGet 封裝]。就會顯示 [NuGet 封裝管理員] 視窗。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ProcessD2CInteractiveMessages** 專案，然後按一下 [管理 NuGet 封裝]。此時會顯示 [NuGet 封裝管理員] 視窗。
 
 3. 搜尋 **WindowsAzure.Service Bus**，按一下 [安裝] 並接受使用規定。這會下載及安裝 [Azure 服務匯流排](https://www.nuget.org/packages/WindowsAzure.ServiceBus)，並加入對它的參考和其所有相依性。
 
-4. 在 **Program.cs** 檔案開頭處新增以下 **using** 陳述式：
+4. 在 **Program.cs** 檔案一開頭加入以下 **using** 陳述式：
 
     ```
     using System.IO;
@@ -297,7 +299,7 @@
 [Azure Portal]: https://manage.windowsazure.com/
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 [使用服務匯流排建置多層式應用程式]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-[]: iot-hub-csharp-csharp-getstarted.md
+[開始使用 IoT 中樞]: iot-hub-csharp-csharp-getstarted.md
 [服務匯流排文件]: https://azure.microsoft.com/documentation/services/service-bus/
 
 <!-- Images -->
@@ -312,4 +314,4 @@
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

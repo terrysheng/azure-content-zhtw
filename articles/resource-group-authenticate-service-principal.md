@@ -279,8 +279,11 @@
     }        
 
     var certCred = new ClientAssertionCertificate(clientId, cert); 
-    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+    var token = authContext.AcquireToken("https://management.core.windows.net/", certCred);
+    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
+    var creds = new TokenCredentials(token.AccessToken); 
+    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
+    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
     var client = new ResourceManagementClient(creds); 
         
 
@@ -503,7 +506,10 @@
 
     var certCred = new ClientAssertionCertificate(clientId, cert); 
     var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
-    var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+    // If using the new resource manager package like "Microsoft.Azure.ResourceManager" version="1.0.0-preview" use below
+    var creds = new TokenCredentials(token.AccessToken); 
+    // Else if using older package versions like Microsoft.Azure.Management.Resources" version="3.4.0-preview" use below
+    // var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
     var client = new ResourceManagementClient(creds); 
        
 如需使用憑證和 Azure CLI 的詳細資訊，請參閱 [Certificate-based auth with Azure Service Principals from Linux command line (從 Linux 命令列以憑證方式驗證 Azure 服務主體)](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx)
@@ -517,4 +523,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

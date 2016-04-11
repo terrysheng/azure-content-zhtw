@@ -1,11 +1,8 @@
-建立 VM、重新啟動已停止 (已取消配置) 的 VM，或重新調整 VM 大小時，Microsoft Azure 會配置計算資源給您的訂用帳戶。當您執行這些作業時，即使您尚未達到 Azure 訂用帳戶的限制，也可能偶爾收到錯誤訊息。本文說明一些常見配置失敗的原因，並建議可能的補救方法。規劃服務的部署時，本資訊可能也很有用。
 
-＜一般疑難排解步驟＞一節列出解決常見問題的步驟。＜詳細的疑難排解步驟＞一節依照特定的錯誤訊息提供解決問題的步驟。在您開始之前，請參考這裡提供的背景資訊，來了解配置的運作方式及配置失敗的原因。
-
-若本文中未提及您的 Azure 問題，請前往 [MSDN 及 Stack Overflow 上的 Azure 論壇](https://azure.microsoft.com/support/forums/)。您可以在這些論壇上，或前往 Twitter 的 @AzureSupport 上張貼您的問題。此外，您也可以選取 [Azure 支援](https://azure.microsoft.com/support/options/)網站上的 [取得支援]，來提出 Azure 支援要求。
+若本文中未提及您的 Azure 問題，請前往 [MSDN 及 Stack Overflow 上的 Azure 論壇](https://azure.microsoft.com/support/forums/)。您可以在這些論壇上，或前往 Twitter 的 @AzureSupport 上張貼您的問題。此外，也可以前往 [Azure 支援選項](https://azure.microsoft.com/support/options/)網站，選取 [支援]提出 Azure 支援的申請。
 ## 背景資訊
 ### 配置的運作方式
-Azure 資料中心的伺服器分割成叢集。通常會嘗試向多個叢集提出配置要求，但配置要求可能帶有某些條件約束，而強制 Azure 平台只嘗試向一個叢集提出要求。在本文中，這種情況稱為「釘選到叢集」。 下圖 1 說明於嘗試向多個叢集提出一般配置的情況。圖 2 說明釘選到叢集 2 來配置的情況，因為現有的雲端服務 CS\_1 或可用性設定組裝載於此處。![配置圖表](./media/virtual-machines-common-allocation-failure/Allocation1.png)
+Azure 資料中心的伺服器分割成叢集。通常會嘗試向多個叢集提出配置要求，但配置要求可能帶有某些條件約束，而強制 Azure 平台只嘗試向一個叢集提出要求。在本文中，這種情況稱為「釘選到叢集」。 下圖 1 說明於嘗試向多個叢集提出一般配置的情況。圖 2 說明釘選到叢集 2 的配置案例，因為叢集 2 是現有雲端服務 CS\_1 或可用性設定組的裝載位置。![配置圖表](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
 ### 配置失敗的原因
 當配置要求已釘選到叢集時，由於可用的資源集區較小，很可能找不到可用的資源。此外，如果配置要求已釘選到叢集，但該叢集不支援您所要求的資源類型，即使叢集有可用的資源，您的要求仍會失敗。下圖 3 說明由於唯一候選叢集沒有可用的資源，導致已釘選的配置失敗的情況。圖 4 說明因唯一候選叢集不支援所要求的 VM 大小 (雖然叢集有可用的資源)，而導致已釘選的配置失敗的情況。
@@ -17,17 +14,17 @@ Azure 資料中心的伺服器分割成叢集。通常會嘗試向多個叢集�
 
 這些步驟可協助解決虛擬機器中的許多配置失敗：
 
-- 將 VM 調整為不同的大小。<br> 按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的虛擬機器 > [設定] > [大小]。如需詳細步驟，請參閱[調整虛擬機器的大小](https://msdn.microsoft.com/library/dn168976.aspx)。
+- 將 VM 調整為不同的大小。<br> 按一下 [全部瀏覽] > [虛擬機器 (傳統)] > [<您的虛擬機器>] > [設定] > [大小]。如需詳細步驟，請參閱[調整虛擬機器的大小](https://msdn.microsoft.com/library/dn168976.aspx)。
 
-- 從雲端服務刪除所有 VM，然後重新建立 VM。<br> 按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的虛擬機器 > [刪除]。然後，按一下 [新增] > [計算] > [虛擬機器映像]。
+- 從雲端服務刪除所有 VM，然後重新建立 VM。<br> 按一下 [全部瀏覽] > [虛擬機器 (傳統)] > [<您的虛擬機器>] > [刪除]。然後，按一下 [新增] > [計算] > [虛擬機器映像]。
 
 ### 疑難排解 Azure 資源管理員部署模型中常見的配置失敗
 
 這些步驟可協助解決虛擬機器中的許多配置失敗：
 
-- 停止 (解除配置) 相同可用性設定組中的所有 VM，然後重新啟動每一部 VM。<br> 若要停止：按一下 [資源群組] > 您的資源群組 > [資源] > 您的可用性設定組 > [虛擬機器] > 您的虛擬機器 > [停止]。
+- 停止 (解除配置) 相同可用性設定組中的所有 VM，然後重新啟動每一部 VM。<br> 若要停止：按一下 [資源群組] > [<您的資源群組>] > [資源] > [<您的可用性設定組>] > [虛擬機器] > [<您的虛擬機器>] > [停止]。
 
-	所有 VM 都停止後，選取第一個 VM 並按一下 [啟動]。
+	所有 VM 都停止之後，選取第一個 VM 並按一下 [啟動]。
 
 ## 詳細的疑難排解步驟
 ### 疑難排解傳統部署模型中特定的配置失敗情況
@@ -61,7 +58,7 @@ Upgrade\_VMSizeNotSupported 或 GeneralError
 
 **因應措施**
 
-如果錯誤是 Upgrade\_VMSizeNotSupported*，請嘗試不同的 VM 大小。如果使用不同的 VM 大小不可行，但可接受使用不同的虛擬 IP 位址 (VIP)，請建立新的雲端服務來裝載新的 VM，並將新的雲端服務加入至執行現有 VM 的區域虛擬網路。如果現有的雲端服務不使用區域虛擬網路，您仍然可以為新的雲端服務建立新的虛擬網路，然後將[現有的虛擬網路連接到新的虛擬網路](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)。深入了解 [Regional Virtual Networks (區域虛擬網路)](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。
+如果錯誤是 Upgrade\_VMSizeNotSupported*，請嘗試不同的 VM 大小。如果使用不同的 VM 大小不可行，但可接受使用不同的虛擬 IP 位址 (VIP)，請建立新的雲端服務來裝載新的 VM，並將新的雲端服務加入至執行現有 VM 的區域虛擬網路。如果現有的雲端服務不使用區域虛擬網路，您仍然可以為新的雲端服務建立新的虛擬網路，然後將[現有的虛擬網路連線到新的虛擬網路](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)。深入了解 [Regional Virtual Networks (區域虛擬網路)](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。
 
 如果錯誤是 GeneralError*，很可能是叢集支援資源的類型 (例如特定的 VM 大小)，但叢集目前沒有可用的資源。類似上述案例，透過建立新的雲端服務 (請注意，新的雲端服務必須使用不同的 VIP) 新增所需的計算資源，並使用區域虛擬網路連接您的雲端服務。
 
@@ -79,7 +76,7 @@ GeneralError*
 
 如果可接受使用不同的 VIP，請刪除已停止 (已取消配置) 的 VM (但保留相關聯的磁碟)，並透過不同的雲端服務重新加回 VM。使用區域虛擬網路連接您的雲端服務：
 - 如果現有的雲端服務使用區域虛擬網路，只要將新的雲端服務加入至相同的虛擬網路即可。
-- 如果現有的雲端服務不使用區域虛擬網路，請為新的雲端服務建立新的虛擬網路，然後將[現有的虛擬網路連接到新的虛擬網路](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)。深入了解 [Regional Virtual Networks (區域虛擬網路)](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。
+- 如果現有的雲端服務不使用區域虛擬網路，請為新的雲端服務建立新的虛擬網路，然後將[現有的虛擬網路連線到新的虛擬網路](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)。深入了解 [Regional Virtual Networks (區域虛擬網路)](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。
 
 #### 配置案例：重新啟動已完全停止 (已取消配置) 的 VM
 **錯誤**
@@ -131,9 +128,9 @@ New\_General* 或 New\_VMSizeNotSupported*
 
 **因應措施**
 
-如果您不需要同質群組，請為您要加入的新資源建立新的區域虛擬網路，然後[將現有的虛擬網路連接到新的虛擬網路](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)。深入了解 [Regional Virtual Networks (區域虛擬網路)](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。
+如果您不需要同質群組，請為您要加入的新資源建立新的區域虛擬網路，然後[將現有的虛擬網路連線到新的虛擬網路](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)。深入了解 [Regional Virtual Networks (區域虛擬網路)](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。
 
-此外，您也可以[將同質群組式虛擬網路移轉至區域虛擬網路](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)，然後再重新加入需要的資源。
+此外，也可以[將同質群組式虛擬網路移轉至區域虛擬網路](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)，然後再重新加入需要的資源。
 
 ### 疑難排解 Azure 資源管理員部署模型中特定的配置失敗案例
 以下是造成釘選配置要求的常見配置案例。我們將在本文稍後深入探討每一個案例。
@@ -204,4 +201,4 @@ GeneralError*
 
 「伺服器發生內部錯誤。請重試要求。」 或「無法產生服務的配置。」
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

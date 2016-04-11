@@ -63,4 +63,4 @@
 
 如果嘗試連線時遇到問題，請參閱[疑難排解執行 Windows 之 Azure 虛擬機器的遠端桌面連線](virtual-machines-windows-troubleshoot-rdp-connection.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

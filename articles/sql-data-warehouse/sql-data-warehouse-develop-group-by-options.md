@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 根據 SQL 資料倉儲中的選項分組
 
-[GROUP BY] 子句可用來彙總資料以摘要一組資料列。它也具有一些擴充其功能的選項，這些選項都需要克服，因為 Azure SQL 資料倉儲並不直接支援這些選項。
+[GROUP BY][] 子句可用來彙總資料以摘要一組資料列。它也具有一些擴充其功能的選項，這些選項都需要克服，因為 Azure SQL 資料倉儲並不直接支援這些選項。
 
 可用選項包括
 - GROUP BY 搭配 ROLLUP
@@ -30,7 +30,7 @@
 
 以下是使用 `ROLLUP` 選項的 group by 陳述式範例：
 
-```
+```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 ,      SUM(SalesAmount)             AS TotalSalesAmount
@@ -50,7 +50,7 @@ GROUP BY ROLLUP (
 
 若要將其取代，您必須使用 `UNION ALL`；指定彙總明確需要傳回相同的結果：
 
-```
+```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
 ,      SUM(SalesAmount) AS TotalSalesAmount
@@ -84,7 +84,7 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 
 第一個步驟是定義 'cube'，其定義我們想要建立的所有彙總層級。請務必記下兩個衍生資料表的交叉聯結。這樣可以為我們產生所有層級。其餘程式碼真的有格式化。
 
-```
+```sql
 CREATE TABLE #Cube
 WITH
 (   DISTRIBUTION = ROUND_ROBIN
@@ -119,7 +119,7 @@ CTAS 的結果如下所示：
 
 第二個步驟是指定目標資料表來儲存過渡結果：
 
-```
+```sql
 DECLARE
  @SQL NVARCHAR(4000)
 ,@Columns NVARCHAR(4000)
@@ -142,7 +142,7 @@ WITH
 
 第三個步驟是對執行彙總的資料行 cube 執行迴圈。查詢會為 #Cube 暫存資料表中的每個資料列執行一次，並將結果儲存在 #Results 暫存資料表中
 
-```
+```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
 
 WHILE @i<=@nbr
@@ -166,7 +166,7 @@ END
 
 最後，我們只需要從 #Results 暫存資料表讀取，就可以傳回結果
 
-```
+```sql
 SELECT *
 FROM #Results
 ORDER BY 1,2,3
@@ -191,4 +191,4 @@ ORDER BY 1,2,3
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

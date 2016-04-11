@@ -15,9 +15,9 @@
 	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
-# 監視 Web 應用程式的效能 (英文)
+# 監視 Web 應用程式的效能
 
-*Application Insights 目前僅供預覽。*
+Application Insights 目前僅供預覽。
 
 
 確認應用程式的運作狀況良好，以及迅速找出任何失敗。[Application Insights][start] 能指出任何效能問題和例外狀況，以及協助您尋找及診斷根本原因。
@@ -110,50 +110,59 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
 ## 系統效能計數器
 
-您可以選擇的度量包含[效能計數器](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)。Windows 提供多種計數器，您也可以自行定義。
+
+Windows 提供多種效能計數器，您也可以自行定義。
 
 (若是 Azure 上裝載的應用程式，請 [將 Azure 診斷傳送至 Application Insights](app-insights-azure-diagnostics.md)。)
 
-此範例會顯示預設提供的效能計數器。我們已針對每個計數器[加入個別的圖表](app-insights-metrics-explorer.md#editing-charts-and-grids)，並透過[另存為我的最愛](app-insights-metrics-explorer.md#editing-charts-and-grids)來命名圖表：
+若要查看一組常見的[效能計數器](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)，請開啟 [伺服器] 刀鋒視窗。您也可以編輯圖表，然後從 [效能計數器] 區段選取度量來選擇計數器︰
 
 ![](./media/app-insights-web-monitor-performance/sys-perf.png)
 
+透過在 Windows 系統上使用 PowerShell 命令 [`Get-Counter -ListSet *`](https://technet.microsoft.com/library/hh849685.aspx)，即可決定您的系統上可用的一組完整度量。
 
-如果您想要的計數器不在 [屬性] 清單中，您可以將它們加入 SDK 收集的集合。開啟 ApplicationInsights.config，然後編輯效能收集器指示詞：
+如果您想要的計數器不在 [度量] 清單中，您可以將它們加入 SDK 收集的集合。開啟 ApplicationInsights.config，然後編輯效能收集器指示詞：
 
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
         <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
       </Counters>
     </Add>
 
-格式為 `\Category(instance)\Counter"`，若是沒有執行個體的類別，則為 `\Category\Counter`。若要探索您的系統中有哪些計數器可用，請閱讀[本簡介](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)。
+您可以擷取標準計數器以及您自行實作的計數器。`\Objects\Processes` 適用於所有 Windows 系統；`\Sales...` 是可在 Web 伺服器中實作的自訂計數器範例。
+
+格式為 `\Category(instance)\Counter"`，若是沒有執行個體的類別，則為 `\Category\Counter`。
+
 
 若計數器名稱含有下列項目以外的字元，則需要 `ReportAs`：字母、圓角括號、斜線、連字號、底線、空格和點。
 
-如果您指定執行個體，系統收集它做為報告度量的 "CounterInstanceName" 屬性。
+如果您指定執行個體，系統會收集它做為報告度量的 "CounterInstanceName" 維度。
 
-如果您想要，也可以撰寫程式碼來達到相同效果：
+### 在程式碼中收集效能計數器
 
-    var perfCollectorModule = new PerformanceCollectorModule();
-    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
-      @"\Sales(electronics)# Items Sold", "Items sold"));
-    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
-
-此外，如果您想要收集效能計數器並將其推送到 Application Insights，可以使用下列程式碼片段：
+若要收集系統效能計數器並將其推送到 Application Insights，可以使用下列程式碼片段：
 
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\.NET CLR Memory([replace-with-application-process-name])# GC Handles", "GC Handles")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 
+或者，您可以透過您建立的自訂度量執行相同的作業︰
+
+    var perfCollectorModule = new PerformanceCollectorModule();
+    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
+      @"\Sales(electronics)# Items Sold", "Items sold"));
+    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+
+此外，如果您想要
+
 ### 例外狀況計數
 
-*「例外狀況率和例外狀況度量之間的差異為何？」*
+「例外狀況率和例外狀況度量之間的差異為何？」
 
-* *例外狀況率*是系統效能計數器。CLR 會計算所有擲回之已處理和未處理的例外狀況，並依據間隔的長度將總數分割為取樣間隔。Application Insights SDK 會收集此結果並將它傳送至入口網站。
-* *例外狀況*是在圖表的取樣間隔中由入口網站接收之 TrackException 報告的計數。它只包含您程式碼中撰寫 TrackException 呼叫所在位置的已處理例外狀況，並且不包含所有的[未處理例外狀況](app-insights-asp-net-exceptions.md)。 
+* 例外狀況率是系統效能計數器。CLR 會計算所有擲回之已處理和未處理的例外狀況，並依據間隔的長度將總數分割為取樣間隔。Application Insights SDK 會收集此結果並將它傳送至入口網站。
+* 例外狀況是在圖表的取樣間隔中由入口網站接收之 TrackException 報告的計數。它只包含您程式碼中撰寫 TrackException 呼叫所在位置的已處理例外狀況，並且不包含所有的[未處理例外狀況](app-insights-asp-net-exceptions.md)。 
 
 ## 設定警示
 
@@ -201,4 +210,4 @@ HTTP 要求包括頁面、資料及影像的所有 GET 或 POST 要求。
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

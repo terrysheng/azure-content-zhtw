@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # 要求增加 DocumentDB 帳戶限制
@@ -29,20 +29,8 @@
 
 下表說明可以透過聯絡 Azure 支援人員來進行調整的 DocumentDB 配額：
 
-|實體 |配額 (標準優惠)|
-|-------|--------|
-|資料庫帳戶 |5
-|每個集合的預存程序、觸發程序和 UDF 數目 |各 25 個
-|每個資料庫帳戶的集合上限 |100
-|每個資料庫的文件儲存體上限 (100 個集合) |1 TB
-|每個查詢的 UDF 數目上限 |2
-|每個查詢的 JOIN 數目上限 |5
-|每個查詢的 AND 子句數目上限 |20
-|每個查詢的 OR 子句數目上限 |20
-|每個 IN 運算式的值數目上限 |200
-|ST\_WITHIN 查詢中多邊形引數的點數上限 |16
-|每分鐘建立集合的數目上限 |5
-|每分鐘縮放作業的數目上限 |5
+[AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
+
 
 ##<a id="RequestQuotaIncrease"></a> 要求配額調整
 下列步驟說明如何要求配額調整。
@@ -75,4 +63,4 @@
 ##<a name="NextSteps"></a> 後續步驟
 - 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

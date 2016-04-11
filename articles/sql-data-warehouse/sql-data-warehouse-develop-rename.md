@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;jrj;barbkess;sonyama"/>
 
 # 在 SQL 資料倉儲中重新命名
-SQL Server 是透過預存程序 ```sp_renamedb``` 支援資料庫重新命名，而「SQL 資料倉儲」則是使用 DDL 語法來達到相同的目的。DDL 命令是 ```RENAME OBJECT```。
+SQL Server 是透過預存程序 `sp_renamedb` 支援資料庫重新命名，而「SQL 資料倉儲」則是使用 DDL 語法來達到相同的目的。DDL 命令是 `RENAME OBJECT`。
 
 ## 重新命名資料表
 
 目前只有資料表可以重新命名。重新命名資料表的語法是：
 
-```
+```sql
 RENAME OBJECT dbo.Customer TO NewCustomer;
 ```
 
@@ -36,13 +36,13 @@ RENAME OBJECT dbo.Customer TO NewCustomer;
 ## 變更資料表結構描述
 如果目的是要變更物件所屬的結構描述，可以透過 ALTER SCHEMA 達成：
 
-```
+```sql
 ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 ```
 
 ## 資料表重新命名需要獨佔的資料表鎖定
 
-請務必記得，您無法在資料表處於使用中時將它重新命名。重新命名資料表時，需要該資料表的獨佔鎖定。如果資料表處於使用中，您可能需要終止使用該資料表的工作階段。若要終止工作階段，您必須使用 [KILL](https://msdn.microsoft.com/library/ms173730.aspx) 命令。使用 ```KILL``` 時請小心，因為終止工作階段時，會回復所有未認可的工作。「SQL 資料倉儲」中的工作階段會以 'SID' 做為首碼。叫用 KILL 命令時，將需要包含此首碼和工作階段號碼。例如 ```KILL 'SID1234'```。如需[工作階段]的詳細資訊，請參閱連接文件
+請務必記得，您無法在資料表處於使用中時將它重新命名。重新命名資料表時，需要該資料表的獨佔鎖定。如果資料表處於使用中，您可能需要終止使用該資料表的工作階段。若要終止工作階段，您必須使用 [KILL][] 命令。使用 `KILL` 時請小心，因為終止工作階段時，會回復所有未認可的工作。「SQL 資料倉儲」中的工作階段會以 'SID' 做為首碼。叫用 KILL 命令時，將需要包含此首碼和工作階段號碼。例如 `KILL 'SID1234'`。如需[工作階段]的詳細資訊，請參閱連接文件
 
 
 ## 後續步驟
@@ -54,4 +54,8 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 [開發概觀]: sql-data-warehouse-overview-develop.md
 [工作階段]: sql-data-warehouse-develop-connections.md
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--MSDN references-->
+[KILL]: https://msdn.microsoft.com/library/ms173730.aspx
+
+<!---HONumber=AcomDC_0330_2016-->

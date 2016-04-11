@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 將您的結構描述移轉至 SQL 資料倉儲#
@@ -65,7 +65,7 @@ SQL 資料倉儲支援常見的商務資料類型：
 
 您可以使用這個查詢來識別資料倉儲中包含不相容類型的資料行：
 
-```
+```sql
 SELECT  t.[name]
 ,       c.[name]
 ,       c.[system_type_id]
@@ -145,4 +145,4 @@ OR  y.[is_user_defined] = 1
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

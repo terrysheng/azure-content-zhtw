@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/15/2015" 
+	ms.date="03/28/2016" 
 	ms.author="wesmc"/>
 
 # 使用通知中心傳送當地語系化的即時新聞
 
 > [AZURE.SELECTOR]
-- [Windows Store C#](notification-hubs-windows-store-dotnet-send-localized-breaking-news.md)
+- [Windows 市集 C#](notification-hubs-windows-store-dotnet-send-localized-breaking-news.md)
 - [iOS](notification-hubs-ios-send-localized-breaking-news.md)
 
 ##概觀
@@ -227,4 +227,4 @@
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

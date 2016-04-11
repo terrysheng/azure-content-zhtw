@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括資源管理員部署模型。您也可以[在傳統部署模型中建立 UDR](virtual-networks-udr-how-to.md)。
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]本文涵蓋之內容包括資源管理員部署模型。
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -394,6 +394,6 @@
 		data:    
 		info:    group show command OK
 
->[AZURE.TIP] 如果看不到所有資源，請執行 `azure group deployment show` 命令，以確保部署的佈建狀態為*成功*。
+>[AZURE.TIP] 如果看不到所有資源，請執行 `azure group deployment show` 命令，以確保部署的佈建狀態為 [成功]。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

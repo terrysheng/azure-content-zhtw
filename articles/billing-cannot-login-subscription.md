@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="03/30/2016"
 	ms.author="genli"/>
 
 # 我無法登入來管理我的 Azure 訂用帳戶
@@ -24,13 +24,9 @@
 
 ## 您想進入哪個入口網站？
 
-帳戶擁有者只能存取[帳戶中心](https://account.windowsazure.com/)，而服務管理員 (SA) 和共同管理員 (CA) 才可以存取 [Azure 入口網站](https://manage.windowsazure.com/)。
+帳戶管理員只能存取[帳戶中心](https://account.windowsazure.com/)，而服務管理員 (SA) 和共同管理員 (CA) 只有 [Azure 入口網站](https://portal.azure.com)或 [Azure 傳統入口網站](https://manage.windowsazure.com/)的存取權。
 
-有關更新管理員角色的說明，請按一下下方連結：
-
-- [更新帳戶的 SA](./billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription)
-
-- [在管理入口網站中新增 CA ](./billing-add-change-azure-subscription-administrator.md#add-a-co-administrator-for-a-subscription)
+如需 Azure 管理員的詳細資訊，請參閱[如何新增或變更 Azure 管理員角色](billing-add-change-azure-subscription-administrator.md)。
 
 ## 您的訂用帳戶是否與 Microsoft 帳戶或是組織帳戶相關聯？
 
@@ -56,4 +52,4 @@
 
 如果您對本文內容有需要協助之處，可以連絡 [MSDN Azure 和堆疊溢位論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。或者，您也可以提出 Azure 支援事件。請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，按一下 [取得支援]。如需有關使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

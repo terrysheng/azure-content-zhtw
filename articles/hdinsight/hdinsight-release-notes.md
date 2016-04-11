@@ -14,11 +14,55 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="03/29/2016"
 	ms.author="nitinme"/>
 
 
 # Azure HDInsight 上 Hadoop 元件的版本資訊
+
+## HDInsight 03/29/2016 版本的注意事項
+
+使用此版本部署的 HDInsight 叢集的完整版本號碼：
+
+* HDInsight (Windows) 2.1.10.875.2159884 (HDP 1.3.12.0-01795 - 未變更)
+* HDInsight (Windows) 3.0.6.875.2159884 (HDP 2.0.13.0-2117 - 未變更)
+* HDInsight (Windows) 3.1.4.875.2159884 (HDP 2.1.15.0-2374 - 未變更)
+* HDInsight (Windows) 3.2.7.875.2159884 (HDP 2.2.9.1-7 - 未變更)
+* HDInsight (Windows) 3.3.0.875.2159884 (HDP 2.3.3.1-16)
+* HDInsight (Linux) 3.2.1000.0.7193255 (HDP 2.2.9.1-8 - 未變更)
+* HDInsight (Linux) 3.3.1000.0.7193255 (HDP 2.3.3.1-7 - 未變更)
+* HDInsight (Linux) 3.4.1000.0.7195842 (HDP 2.4.1.0-327)
+* SDK 1.5.8
+
+此版本包含下列更新。
+
+| 課程名稱 | 說明 | 受影響的區域 (例如服務、元件或 SDK) | 叢集類型 (例如 Hadoop、HBase 或 Storm) | JIRA (如果適用) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| 新增 HDInsight 3.4 版並更新所有 HDInsight 叢集的 HDP 版本 | 在此版本中，我們新增了 HDInsight v3.4 (以 HDP 2.4 為基礎) 並且更新了其他 HDP 版本。HDP 2.4 版本附註可在[這裡](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html)找到，而 HDInsight 版本的詳細資訊則可以在[這裡](hdinsight-component-versioning.md)找到。| 服務 | 所有 Linux 叢集| N/A
+| HDInsight Premium | HDInsight 現在有兩種類別：Standard 和 Premium。HDInsight Premium 目前為預覽版，僅適用於 Linux 上的 Hadoop 和 Spark 叢集。如需詳細資訊，請參閱[這裡](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)。| 服務 | Linux 上的 Hadoop 和 Spark| N/A
+| Microsoft R 伺服器 | HDInsight Premium 提供 Microsoft R 伺服器，它可以隨附於 Linux 上的 Hadoop 與 Spark 叢集。如需詳細資訊，請參閱 [HDInsight 上的 R 伺服器的概觀](hdinsight-hadoop-r-server-overview.md)。| 服務 | Linux 上的 Hadoop 和 Spark| N/A
+| Spark 1.6.0 | HDInsight 3.4 叢集現在包含 Spark 1.6.0| 服務 | Linux 上的 Spark 叢集| N/A
+| Jupyter Notebook 增強功能 | 可用於 Spark 叢集的 Jupyter Nnotebook 現在提供額外的 Spark 核心。其中也包括增強功能，例如使用 %%magic、自動視覺化，以及與 Python 視覺化程式庫 (例如 matplotlib) 整合。如需詳細資訊，請參閱[適用於 Jupyter Notebook 的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md)。 | 服務 | Linux 上的 Spark 叢集 | N/A
+
+## HDInsight 03/22/2016 版本的注意事項
+
+使用此版本部署的 HDInsight 叢集的完整版本號碼：
+
+* HDInsight (Windows) 2.1.10.875.2159884 (HDP 1.3.12.0-01795 - 未變更)
+* HDInsight (Windows) 3.0.6.875.2159884 (HDP 2.0.13.0-2117 - 未變更)
+* HDInsight (Windows) 3.1.4.875.2159884 (HDP 2.1.15.0-2374 - 未變更)
+* HDInsight (Windows) 3.2.7.875.2159884 (HDP 2.2.9.1-7 - 未變更)
+* HDInsight (Windows) 3.3.0.875.2159884 (HDP 2.3.3.1-16)
+* HDInsight (Linux) 3.2.1000.0.7193255 (HDP 2.2.9.1-8 - 未變更)
+* HDInsight (Linux) 3.3.1000.0.7193255 (HDP 2.3.3.1-7 - 未變更)
+* SDK 1.5.8
+
+此版本包含下列更新。
+
+| 課程名稱 | 說明 | 受影響的區域 (例如服務、元件或 SDK) | 叢集類型 (例如 Hadoop、HBase 或 Storm) | JIRA (如果適用) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| 更新所有 HDInsight 叢集的 HDInsight 版本 | 在此版本中，我們已更新所有 HDInsight 叢集的 HDInsight 版本| 服務 | 全部| N/A
+
 
 ## HDInsight 2016/03/10 版本的注意事項
 
@@ -75,7 +119,7 @@
 
 | 課程名稱 | 說明 | 受影響的區域 (例如服務、元件或 SDK) | 叢集類型 (例如 Hadoop、HBase 或 Storm) | JIRA (如果適用) |
 |-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
-| 新增 HDInsight 3.3 版並更新所有 HDInsight 叢集的 HDInsight 版本 | 在此版本中，我們新增了 HDInsight v3.3 (以 HDP 2.3 為基礎) 並且更新了其他 HDP 版本。HDP 2.3 版本附註可在[這裡](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html)找到，而 HDInsight 版本的詳細資訊則可以在[這裡](https://azure.microsoft.com/zh-TW/documentation/articles/hdinsight-component-versioning/)找到。| 服務 | 全部| N/A
+| 新增 HDInsight 3.3 版並更新所有 HDInsight 叢集的 HDP 版本 | 在此版本中，我們新增了 HDInsight v3.3 (以 HDP 2.3 為基礎) 並且更新了其他 HDP 版本。HDP 2.3 版本附註可在[這裡](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html)找到，而 HDInsight 版本的詳細資訊則可以在[這裡](hdinsight-component-versioning.md)找到。| 服務 | 全部| N/A
 
 ## HDInsight 2015/11/30 版本的附註
 
@@ -1497,4 +1541,4 @@ SQL Server 的 Java 資料庫連接 (JDBC) 驅動程式僅供 HDInsight 內部�
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

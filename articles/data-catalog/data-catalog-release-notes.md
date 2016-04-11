@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 資料目錄版本資訊"
-   description="Azure 資料目錄 2015 年 8 月 28 日公開預覽版本的版本資訊。"
+   description="Azure 資料目錄的版本資訊。"
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # Azure 資料目錄版本資訊
@@ -50,7 +50,7 @@
 
 ### 註冊及連接到 SQL Server Reporting Services
 
-Azure 資料目錄初始預覽版本中對於 SQL Server Reporting Services (SSRS) 資料來源的支援，僅限於原生模式伺服器。未來版本將加入在 SharePoint 模式中支援 SSRS。
+對於 SQL Server Reporting Services (SSRS) 資料來源的支援，僅限於原生模式伺服器。未來版本將加入在 SharePoint 模式中支援 SSRS。
 
 ### 在 Excel 中開啟資料資產
 
@@ -88,4 +88,4 @@ Azure 資料目錄初始預覽版本中對於 SQL Server Reporting Services (SSR
 
 若要找出 RegistrationTool.exe.config 檔案，請啟動註冊工具，然後開啟 Windows 工作管理員公用程式。在工作管理員的 [詳細資料] 索引標籤，以滑鼠右鍵按一下 RegistrationTool.exe，再從快顯功能表中選擇 [開啟檔案位置]。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

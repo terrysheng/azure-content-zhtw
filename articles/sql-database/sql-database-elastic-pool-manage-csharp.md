@@ -16,7 +16,7 @@
     ms.date="03/15/2016"
     ms.author="sstein"/>
 
-# 管理彈性資料庫集區 (C&#x23;)
+# 使用 C&#x23; 管理和估算彈性資料庫集區大小
 
 > [AZURE.SELECTOR]
 - [Azure 入口網站](sql-database-elastic-pool-manage-portal.md)
@@ -36,7 +36,7 @@
 
 
 
-## 更新彈性資料庫集區
+## 更新集區
 
 
     // Retrieve existing pool properties
@@ -60,7 +60,7 @@
 
 
 
-## 將現有資料庫移入彈性資料庫集區
+## 將現有資料庫移入集區
 
 
     // Update database service objective to add the database to a pool
@@ -88,7 +88,7 @@
 
 
 
-## 在彈性資料庫集區中建立新的資料庫
+## 在集區中建立新的資料庫
 
 
     // Create a new database in the pool
@@ -111,7 +111,7 @@
 
 
 
-## 列出彈性資料庫集區中的所有資料庫
+## 列出集區中的所有資料庫
 
 下列範例會列出集區中的所有資料庫：
 
@@ -126,7 +126,7 @@
 
 
 
-## 管理彈性資料庫集區 C&#x23; 範例
+## 管理集區 C&#x23; 範例
 
 需要下列程式庫才能執行這個範例。您可以在 Visual Studio 的[封裝管理員主控台](http://docs.nuget.org/Consume/Package-Manager-Console) ([工具] > [NuGet 封裝管理員] > [封裝管理員主控台]) 中執行下列命令以進行安裝
 
@@ -148,7 +148,7 @@
     {
     class Program
     {
-        // elastic database pool variables
+        // pool variables
         static string poolName = "elasticPool1";
         static string poolEdition = "Standard";
         static int poolDtus = 400;
@@ -191,7 +191,7 @@
             ServerGetResponse srvr = CreateServer();
             Console.WriteLine("Creation of server " + srvr.Server.Name + ": " + srvr.StatusCode.ToString());
 
-            // Create an elastic database pool
+            // Create a pool
             Console.WriteLine("Creating elastic database pool with 400 pool eDTUs... ");
             ElasticPoolCreateOrUpdateResponse epool = CreateElasticDatabasePool();
             Console.WriteLine("Creation of pool " + epool.ElasticPool.Name + ": " + epool.Status.ToString());
@@ -212,7 +212,7 @@
             Console.WriteLine("Press Enter to update the pool to 1200 pool eDTUs.");
             Console.ReadLine();
 
-            // Update the elastic database pool
+            // Update the pool
             Console.WriteLine("Updating elastic database pool to 1200 pool eDTUs...");
             ElasticPoolCreateOrUpdateResponse epool2 = UpdateElasticDatabasePool();
             Console.WriteLine("Update of pool " + epool2.ElasticPool.Name + ": " + epool2.Status.ToString());
@@ -457,4 +457,4 @@
 - [Azure 資源管理 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 - [彈性資料庫集區參考](sql-database-elastic-pool-reference.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

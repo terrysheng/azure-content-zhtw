@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="03/23/2016"
 	ms.author="jeedes"/>
 
 
@@ -65,7 +65,7 @@
 4. 按一下頁面底部的 [加入]。<br><br> ![應用程式][3]<br>
 5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br> ![應用程式][4]<br>
 6. 在搜尋方塊中，輸入 **Ultipro**。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_01.png)<br>
-7. 在結果窗格中，選取 [Ultipro]，然後按一下 [完成] 以新增應用程式。<br><br>
+7. 在結果窗格中，選取 [Ultipro]，然後按一下 [完成] 以新增應用程式。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_02.png)<br>
 
 ##  設定並測試 Azure AD 單一登入
 本節的目標是說明如何以名為 "Britta Simon" 的測試使用者為基礎，使用 Ultipro 來設定及測試 Azure AD 單一登入。
@@ -221,4 +221,4 @@
 [204]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="barbkess;jrj;sonyama"/>
 
 # SQL 資料倉儲容量限制
@@ -47,16 +47,16 @@
 | 資料表 | 每個資料庫的資料表 | 20 億 |
 | 資料表 | 每個資料表的資料行 | 1024 個資料行 |
 | 資料表 | 每個資料行的位元組 | 8000 個位元組 |
-| 資料表 | 每個資料列的位元組，已定義的大小 | 8060 個位元組<br/><br/>每個資料列的位元組數目計算方式同於已啟用頁面壓縮的 SQL Server。就像 SQL Server，SQL 資料倉儲支援資料列溢位儲存，讓可變長度的資料行能發送至超出資料列。發送超出資料列的可變長度資料行在主資料列只有儲存 24 位元的根。如需詳細資訊，請參閱 SQL Server 線上叢書中的[超過 8 KB 的資料列溢位資料](https://msdn.microsoft.com/library/ms186981.aspx)主題。<br/><br/>如需 SQL 資料倉儲資料類型大小的列表，請參閱 [CREATE TABLE (Azure SQL 資料倉儲)](https://msdn.microsoft.com/library/mt203953.aspx)。 |
+| 資料表 | 每個資料列的位元組，已定義的大小 | 8060 個位元組<br/><br/>每個資料列的位元組數目計算方式同於已啟用頁面壓縮的 SQL Server。就像 SQL Server，SQL 資料倉儲支援資料列溢位儲存，讓可變長度的資料行能發送至超出資料列。發送超出資料列的可變長度資料行在主資料列只有儲存 24 位元的根。如需詳細資訊，請參閱《SQL Server 線上叢書》中的[超過 8 KB 的資料列溢位資料](https://msdn.microsoft.com/library/ms186981.aspx)主題。<br/><br/>如需 SQL 資料倉儲資料類型大小的列表，請參閱 [CREATE TABLE (Azure SQL Data Warehouse) (CREATE TABLE (Azure SQL 資料倉儲))](https://msdn.microsoft.com/library/mt203953.aspx)。 |
 | 資料表 | 每個資料列的位元組，移動資料時的內部緩衝區大小 | 32,768<br/><br/>注意：目前有此限制，但不久後將會移除。<br/><br/>在分散式 SQL 資料倉儲系統內，SQL 資料倉儲使用內部緩衝區來移動資料列。負責移動資料列的服務稱為資料移動服務 (DMS)，它會以不同於 SQL Server 的格式儲存資料列。<br/><br/>如果資料列無法填入內部緩衝區，就會發生查詢編譯錯誤或內部資料移動錯誤。若要避免這個問題，請參閱 [DMS 緩衝區大小的詳細資料](#details-about-the-dms-buffer-size)。|
 | 資料表 | 每個資料表的資料分割 | 15,000<br/><br/>為了獲得高效能，建議在能夠支援業務需求的情況下，將您需要的資料分割數目降至最低。隨著資料分割數目增加，資料定義語言 (DDL) 和資料操作語言 (DML) 作業的負荷會加重，導致效能變慢。|
 | 資料表 | 每個資料分割界限值的字元。| 4000 |
-| 索引 | 每個資料表的非叢集索引。 | 999<br/><br/>僅適用於列式資料表。|
-| 索引 | 每個資料表的叢集索引。 | 1<br><br/>適用於列式資料表及行式資料表。|
-| 索引 | 資料行存放區索引資料列群組中的資料列 | 1024<br/><br/>每個行式索引都實作為多個行式索引。請注意，如果您將 1024 個資料列插入 SQL 資料倉儲的資料行存放區索引，資料列不會全部移至相同的資料列群組。|
-| 索引 | 叢集資料行存放區索引的並行組建。 | 32<br/><br/>適用於叢集行式索引全部都在不同資料表上建置時。每個資料表只允許有 1 個叢集行式索引建置。其他要求會在佇列中等候。|
-| 索引 | 索引鍵的大小。 | 900 個位元組。<br/><br/>僅適用於列式索引。<br/><br/>varchar 資料行上可以建立大小上限超過 900 個位元組的索引，只是在建立索引時，資料行中現有的資料不能超過 900 個位元組。不過，後續在資料行上執行 INSERT 或 UPDATE 動作時，如果總計大小超過 900 個位元組，將會失敗。|
-| 索引 | 每個索引的索引鍵資料行。 | 16<br/><br/>僅適用於列式索引。叢集資料行存放區索引包含所有資料行。|
+| 索引 | 每個資料表的非叢集索引。 | 999<br/><br/>僅適用於資料行存放區資料表。|
+| 索引 | 每個資料表的叢集索引。 | 1<br><br/>適用於資料列存放區資料表及資料行存放區資料表。|
+| 索引 | 資料行存放區索引資料列群組中的資料列 | 1024<br/><br/>每個資料行存放區索引都實作為多個資料行存放區索引。請注意，如果您將 1024 個資料列插入 SQL 資料倉儲的資料行存放區索引，資料列不會全部移至相同的資料列群組。|
+| 索引 | 叢集資料行存放區索引的並行組建。 | 32<br/><br/>適用於叢集資料行存放區索引全部都在不同資料表上建置時。每個資料表只允許有 1 個叢集資料行存放區索引建置。其他要求會在佇列中等候。|
+| 索引 | 索引鍵的大小。 | 900 個位元組。<br/><br/>僅適用於資料列存放區索引。<br/><br/>varchar 資料行上可以建立大小上限超過 900 個位元組的索引，只是在建立索引時，資料行中現有的資料不能超過 900 個位元組。不過，後續在資料行上執行 INSERT 或 UPDATE 動作時，如果總計大小超過 900 個位元組，將會失敗。|
+| 索引 | 每個索引的索引鍵資料行。 | 16<br/><br/>僅適用於資料列存放區索引。叢集資料行存放區索引包含所有資料行。|
 | 統計資料 | 結合資料行值的大小。 | 900 個位元組。 |
 | 統計資料 | 每個統計資料物件的資料行。 | 32 |
 | 統計資料 | 每個資料表的資料行上建立的統計資料。 | 30,000 |
@@ -149,7 +149,7 @@ SQL 資料倉儲會使用內部緩衝區在後端計算節點之間移動資料�
 
 因為 nvarchar 實際定義的大小使用 26 個位元組，而資料列定義小於 8060 個位元組，所以可放在 SQL Server 頁面上。因此，即使當 DMS 嘗試將這個資料列載入至 DMS 緩衝區時失敗，CREATE TABLE 陳述式仍會成功。
 
-````
+```sql
 CREATE TABLE T1
   (
     c0 int NOT NULL,
@@ -162,10 +162,11 @@ CREATE TABLE T1
   )
 WITH ( DISTRIBUTION = HASH (c0) )
 ;
-````
+```
+
 下一個步驟示範我們可以成功地使用 INSERT 將資料插入資料表。此陳述式不使用 DMS，而是直接將資料載入至 SQL Server，因此不會引發 DMS 緩衝區溢位失敗。整合服務也會成功載入這個資料列。</para>
 
-````
+```sql
 --The INSERT operation succeeds because the row is inserted directly into SQL Server without requiring DMS to buffer the row.
 INSERT INTO T1
 VALUES (
@@ -177,11 +178,11 @@ VALUES (
     N'Each row must fit into the DMS buffer size of 32,768 bytes.',
     N'Each row must fit into the DMS buffer size of 32,768 bytes.'
   )
-````
+```
 
 為了準備展示資料移動，此範例會建立第二個資料表，並以 CustomerKey 作為散發資料行。
 
-````
+```sql
 --This second table is distributed on CustomerKey. 
 CREATE TABLE T2
   (
@@ -206,20 +207,20 @@ VALUES (
     N'Each row must fit into the DMS buffer size of 32,768 bytes.',
     N'Each row must fit into the DMS buffer size of 32,768 bytes.'
   )
-````
+```
 由於這兩個資料表不是根據 CustomerKey 散發，T1 和 T2 之間根據 CustomerKey 的聯結是散發不相容。DMS 必須載入至少一個資料列，並將它複製到不同的散發。
 
-````
+```sql
 SELECT * FROM T1 JOIN T2 ON T1.CustomerKey = T2.CustomerKey;
-````
+```
 
 如同預期，DMS 無法執行該聯結，因為當填補 nvarchar 資料行時，資料列會超過 32,768 個位元組的 DMS 緩衝區大小。將會出現下列錯誤訊息。
 
-````
+```sql
 Msg 110802, Level 16, State 1, Line 126
 
 An internal DMS error occurred that caused this operation to fail. Details: Exception: Microsoft.SqlServer.DataWarehouse.DataMovement.Workers.DmsSqlNativeException, Message: SqlNativeBufferReader.ReadBuffer, error in OdbcReadBuffer: SqlState: , NativeError: 0, 'COdbcReadConnection::ReadBuffer: not enough buffer space for one row | Error calling: pReadConn-&gt;ReadBuffer(pBuffer, bufferOffset, bufferLength, pBytesRead, pRowsRead) | state: FFFF, number: 81, active connections: 8', Connection String: Driver={SQL Server Native Client 11.0};APP=DmsNativeReader:P13521-CMP02\sqldwdms (4556) - ODBC;Trusted_Connection=yes;AutoTranslate=no;Server=P13521-SQLCMP02,1500
-````
+```
 
 
 ## 後續步驟
@@ -232,4 +233,4 @@ An internal DMS error occurred that caused this operation to fail. Details: Exce
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

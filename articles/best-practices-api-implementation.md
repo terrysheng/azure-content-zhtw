@@ -937,7 +937,7 @@
 
 	執行可能需花很長時間處理的要求時，不應封鎖送出此要求的用戶端。Web API 可以執行一些初始檢查來驗證要求、起始個別工作來執行工作，然後傳回具有 HTTP 狀態碼 202 (已接受) 的回應訊息。此工作可以非同步方式當作 Web API 的一部分執行，或者可以卸載到 Azure WebJob (如果 Web API 由 Azure 網站裝載) 或背景工作角色 (如果 Web API 是以 Azure 雲端服務的方式實作)。
 
-	> [AZURE.NOTE] 如需有關搭配使用 WebJobs 與 Azure 網站的詳細資訊，請瀏覽 Microsoft 網站上的[使用 WebJobs 在 Microsoft Azure 網站中執行背景工作](web-sites-create-web-jobs.md)頁面。
+	> [AZURE.NOTE] 如需有關搭配使用 WebJobs 與 Azure 網站的詳細資訊，請瀏覽 Microsoft 網站上的[使用 WebJobs 在 Microsoft Azure 網站中執行背景工作](../articles/app-service-web/web-sites-create-web-jobs.md)頁面。
 
 	Web API 也應提供一種機制，將處理的結果傳回給用戶端應用程式。提供輪詢機制，以供用戶端應用程式定期查詢處理是否已完成並取得結果，或讓 Web API 在作業完成時傳送通知，即可達到此目的。
 
@@ -1061,7 +1061,7 @@ Azure 提供 [API 管理服務](https://azure.microsoft.com/documentation/servic
 
 您可以在 Microsoft 網站的 [API 管理](https://azure.microsoft.com/services/api-management/)頁面上找到說明如何執行這些工作的完整詳細資料。Azure API 管理服務也提供自己的 REST 介面，讓您建置自訂介面，以簡化設定 Web API 的程序。如需詳細資訊，請瀏覽 Microsoft 網站上的 [Azure API 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn776326.aspx)頁面。
 
-> [AZURE.TIP] Azure 提供了 Azure 流量管理員，可讓您實作容錯移轉和負載平衡，並且讓網站上裝載於不同地理位置的多個執行個體減少延遲。您可以使用 Azure 流量管理員搭配 API 管理服務；API 管理服務可以透過 Azure 流量管理員，將要求路由傳送至網站的執行個體。如需詳細資訊，請瀏覽 Microsoft 網站上的[關於流量管理員負載平衡方法](../traffic-manager/traffic-manager-load-balancing-methods.md)頁面。
+> [AZURE.TIP] Azure 提供了 Azure 流量管理員，可讓您實作容錯移轉和負載平衡，並且讓網站上裝載於不同地理位置的多個執行個體減少延遲。您可以使用 Azure 流量管理員搭配 API 管理服務；API 管理服務可以透過 Azure 流量管理員，將要求路由傳送至網站的執行個體。如需詳細資訊，請瀏覽 Microsoft 網站上的[流量管理員路由方法](../articles/traffic-manager/traffic-manager-routing-methods.md)頁面。
 
 > 在此結構中，如果您使用您網站的自訂 DNS 名稱，則應該為每個網站設定適當的 CNAME 記錄，以指向 Azure 流量管理員網站的 DNS 名稱。
 
@@ -1111,7 +1111,7 @@ Azure 管理入口網站可讓您自訂開發人員入口網站來變更樣式�
 
 您可以從 Azure 管理入口網站即時檢視此資料。您也可以建立用以監控 Web API 健全狀況的 Web 測試。Web 測試會傳送定期要求至 Web API 中指定的 URI，並擷取回應。您可以指定成功回應 (例如 HTTP 狀態碼 200) 的定義，而如果要求未傳回此回應，您可以安排要傳送給系統管理員的警示。必要時，系統管理員可以重新啟動裝載 Web API 的伺服器 (如果失敗的話)。
 
-Microsoft 網站上的 [Application Insights - 開始監控應用程式的健全狀況和使用量](app-insights-start-monitoring-app-health-usage/)頁面會提供詳細資訊。
+Microsoft 網站上的 [Application Insights - 開始監控應用程式的健全狀況和使用量](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md)頁面會提供詳細資訊。
 
 ### 透過 API 管理服務監控 Web API
 
@@ -1143,13 +1143,13 @@ Microsoft 網站上的 [Application Insights - 開始監控應用程式的健全
 - W3C 網站上的[狀態碼定義](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)頁面包含 HTTP 狀態碼的完整清單及其說明。
 - 如需使用 ASP.NET Web API 處理 HTTP 例外狀況的詳細資訊，請瀏覽 Microsoft 網站上的 [ASP.NET Web API 中的例外狀況處理](http://www.asp.net/web-api/overview/error-handling/exception-handling)頁面。
 - Microsoft 網站上的 [Web API 全域錯誤處理](http://www.asp.net/web-api/overview/error-handling/web-api-global-error-handling)一文說明如何實作 Web API 的全域錯誤處理和記錄策略。
-- Microsoft 網站上的[使用 WebJob 在 Microsoft Azure 網站中執行背景工作](web-sites-create-web-jobs.md)頁面提供有關使用 WebJob 在 Azure 網站上執行背景作業的資訊和範例。
+- Microsoft 網站上的[使用 WebJob 執行背景工作](../articles/app-service-web/web-sites-create-web-jobs.md)頁面提供有關使用 WebJob 在 Azure 網站上執行背景作業的資訊和範例。
 - Microsoft 網站上的 [Azure 通知中樞通知使用者](notification-hubs-aspnet-backend-windows-dotnet-notify-users/)頁面會顯示如何使用 Azure 通知中樞將非同步回應推送至用戶端應用程式。
 - Microsoft 網站上的 [API 管理](https://azure.microsoft.com/services/api-management/)頁面說明如何發佈產品，以提供受控制且安全的 Web API 存取。
 - Microsoft 網站上的 [Azure API 管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn776326.aspx)頁面說明如何使用 API 管理 REST API 來建置自訂管理應用程式。
-- Microsoft 網站上的[關於流量管理員負載平衡方法](../traffic-manager/traffic-manager-load-balancing-methods.md)頁面摘要說明 Azure 流量管理員如何用來平衡裝載 Web API 的網站上多個執行個體的要求負載。
-- Microsoft 網站上的 [Application Insights - 開始監控應用程式的健全狀況和使用量](app-insights-start-monitoring-app-health-usage.md)頁面提供有關在 ASP.NET Web API 專案中安裝和設定 Application Insights 的詳細資訊。
+- Microsoft 網站上的[流量管理員路由方法](../articles/traffic-manager/traffic-manager-routing-methods.md)頁面摘要說明 Azure 流量管理員如何用來平衡裝載 Web API 的網站上多個執行個體的要求負載。
+- Microsoft 網站上的 [Application Insights - 開始監控應用程式的健全狀況和使用量](../articles/application-insights/app-insights-start-monitoring-app-health-usage.md)頁面提供有關在 ASP.NET Web API 專案中安裝和設定 Application Insights 的詳細資訊。
 - Microsoft 網站上的[驗證使用單位測試的程式碼](https://msdn.microsoft.com/library/dd264975.aspx)頁面提供有關使用 Visual Studio 建立和管理單位測試的詳細資訊。
 - Microsoft 網站上的[在發行前執行應用程式的效能測試](https://msdn.microsoft.com/library/dn250793.aspx)頁面說明如何使用 Visual Studio Ultimate 建立 Web 效能和負載測試專案。
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

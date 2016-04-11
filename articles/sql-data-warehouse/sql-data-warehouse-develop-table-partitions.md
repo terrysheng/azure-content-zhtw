@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/14/2016"
+   ms.date="03/25/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 資料倉儲中的資料表分割
@@ -38,9 +38,9 @@ SQL DW 為 DBA 提供數個資料表類型選項：堆積 (CI)、叢集索引和
 在 SQL DW 中建立叢集資料行存放區索引時，DBA 需考量另一個因素：資料列數目。CCI 資料表可以達成高度壓縮，並協助 SQL DW 加速查詢效能。由於壓縮會在 SQL DW 內部運作，因此 CCI 資料表中的每個分割區在壓縮資料前都必須擁有相當大量的資料列。此外，SQL DW 會在大量的散發之間分散資料，而且分割區會進一步分割每個散發。為了最佳壓縮和效能，每個散發與分割區都需要至少 100,000 個資料列。依據上述範例，如果銷售事實資料表包含 36 個月的分割區，並假設 SQL DW 有 60 個散發，則銷售事實資料表每個月應包含 6 百萬個資料列，或是在填入所有月份時包含 216 百萬個資料列。如果資料表包含的資料列遠少於建議的最小值，DBA 就應該考慮建立具有較少分割區的資料表，以增加每個散發的資料列數目。
 
 
-若要在分割層級調整目前資料庫的大小，請使用類似以下的查詢：
+若要在分割層級調整目前 SQL Server 資料庫的大小，請使用類似以下的查詢：
 
-```
+```sql
 SELECT      s.[name]                        AS      [schema_name]
 ,           t.[name]                        AS      [table_name]
 ,           i.[name]                        AS      [index_name]
@@ -54,7 +54,7 @@ SELECT      s.[name]                        AS      [schema_name]
 FROM        sys.schemas s
 JOIN        sys.tables t                    ON      t.[schema_id]         = s.[schema_id]
 JOIN        sys.partitions p                ON      p.[object_id]         = t.[object_id]
-JOIN        sys.allocation_units a          ON      a.[container_id]        = p.[partition_id]
+JOIN        sys.allocation_units a          ON      a.[container_id]      = p.[partition_id]
 JOIN        sys.indexes i                   ON      i.[object_id]         = p.[object_id]
                                             AND     i.[index_id]          = p.[index_id]
 JOIN        sys.data_spaces ds              ON      ds.[data_space_id]    = i.[data_space_id]
@@ -83,7 +83,7 @@ MPP 分割大小 = SMP 分割大小 / 散發數目
 
 您可以使用下列查詢，找出您的 SQL 資料倉儲資料庫有多少個散發：
 
-```
+```sql
 SELECT  COUNT(*)
 FROM    sys.pdw_distributions
 ;
@@ -96,7 +96,7 @@ FROM    sys.pdw_distributions
 
 查詢資源管理員動態管理檢視，即可取得每個散發的記憶體配置資訊。事實上，記憶體授與會小於下列數據。不過，這會提供指導方針，以便在針對資料管理作業調整分割大小時使用。
 
-```
+```sql
 SELECT  rp.[name]								AS [pool_name]
 ,       rp.[max_memory_kb]						AS [max_memory_kb]
 ,       rp.[max_memory_kb]/1024					AS [max_memory_mb]
@@ -122,7 +122,7 @@ AND     rp.[name]    = 'SloDWPool'
 
 下列範例顯示每個分割包含一個資料列的分割資料行存放區資料表：
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
         [ProductKey]            int          NOT NULL
@@ -157,7 +157,7 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 
 我們可以接著運用 `sys.partitions` 目錄檢視，查詢資料列計數：
 
-```
+```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
 ,       i.[name] as Index_name
 ,       p.partition_number as Partition_nmbr
@@ -174,7 +174,7 @@ WHERE t.[name] = 'FactInternetSales'
 
 如果我們嘗試分割此資料表，我們會收到錯誤：
 
-```
+```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
@@ -182,7 +182,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 不過，我們可以使用 `CTAS` 建立新資料表以保存資料。
 
-```
+```sql
 CREATE TABLE dbo.FactInternetSales_20000101
     WITH    (   DISTRIBUTION = HASH(ProductKey)
             ,   CLUSTERED COLUMNSTORE INDEX
@@ -200,7 +200,7 @@ WHERE   1=2
 
 分割界限已對齊，所以允許切換。這會讓來源資料表有空白分割可供我們接著分割。
 
-```
+```sql
 ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
@@ -208,7 +208,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 接下來只需使用 `CTAS` 將我們的資料對齊新的分割界限，並將我們的資料切換回到主資料表
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
             ,   CLUSTERED COLUMNSTORE INDEX
@@ -229,7 +229,7 @@ ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.Fa
 
 完成資料移動後，最好能重新整理目標資料表上的統計資料，確保統計資料可在其各自的分割中精確地反映出資料的新散發：
 
-```
+```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
@@ -238,7 +238,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 
 1. 將資料表建立為分割資料表，但沒有分割值
 
-```
+```sql
 CREATE TABLE [dbo].[FactInternetSales]
 (
     [ProductKey]            int          NOT NULL
@@ -262,7 +262,7 @@ WITH
 
 2. 在部署過程中 `SPLIT` 資料表：
 
-```
+```sql
 -- Create a table containing the partition boundaries
 
 CREATE TABLE #partitions
@@ -336,4 +336,4 @@ DROP TABLE #partitions;
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

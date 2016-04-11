@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="03/22/2016"
    ms.author="telmos" />
 
 # 如何將 VM 或角色執行個體移至不同的子網路
 
 您可以使用 PowerShell 將 VM 從一個子網路移至相同虛擬網路 (VNet) 中的另一個子網路。您可以藉由編輯 CSCFG，而非使用 PowerShell 來移動角色執行個體。
+
+>[AZURE.NOTE] 本文包含僅與 Azure 傳統部署相關的資訊。
 
 為什麼要將 VM 移到另一個子網路？ 當較舊的子網路太小，且由於在該子網路中執行的現有 VM 而無法擴充時，子網路移轉相當實用。在此案例中，您可以建立較新且較大的子網路，並將 VM 移轉至新的子網路，然後在完成移轉之後，您可以刪除舊的空白子網路。
 
@@ -51,4 +53,4 @@
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

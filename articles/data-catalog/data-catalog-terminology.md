@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="03/30/2016"
    ms.author="maroche"/>
 
 # Azure 資料目錄術語
@@ -86,4 +86,4 @@ Azure 資料目錄中的資料設定檔是資料表層級的快照集和及資�
 
 - 〈[開始使用 Azure 資料目錄](data-catalog-get-started.md)〉 - 這篇文章提供端對端教學課程，示範如何使用 Azure 資料目錄來探索資料來源。
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

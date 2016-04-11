@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # 在 PowerApps Enterprise 中建立新的 Twitter API
 
 > [AZURE.SELECTOR]
-- [邏輯應用程式](../articles/connectors/create-api-twitter.md)
+- [邏輯應用程式](../articles/connectors/connectors-create-api-twitter.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-twitter.md)
 
 將 Twitter API 加入您組織 (租用戶) 的 App Service 環境中。
@@ -76,7 +76,7 @@ Twitter 應用程式便建立好了。您可以在 Azure 入口網站的 Twitter
 
 ## 請參閱 REST API
 
-[Twitter REST API](../connectors/create-api-twitter.md) 參考。
+[Twitter REST API](../connectors/connectors-create-api-twitter.md) 參考。
 
 
 ## 摘要和後續步驟
@@ -96,4 +96,4 @@ Twitter 應用程式便建立好了。您可以在 Azure 入口網站的 Twitter
 [14]: ./media/powerapps-create-api-sqlserver/browseall.png
 [15]: ./media/powerapps-create-api-sqlserver/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

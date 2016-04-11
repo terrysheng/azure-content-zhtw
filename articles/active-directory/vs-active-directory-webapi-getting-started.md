@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/18/2015" 
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
 # 開始使用 Azure Active Directory 和 Visual Studio 已連接服務 (WebApi 專案)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-webapi-getting-started.md)
-> - [What Happened](vs-active-directory-webapi-what-happened.md)
+> - [開始使用](vs-active-directory-webapi-getting-started.md)
+> - [發生什麼情形](vs-active-directory-webapi-what-happened.md)
 
 ##存取控制器之前需要驗證
  
@@ -29,4 +29,4 @@
 [深入了解 Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

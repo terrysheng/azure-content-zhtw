@@ -23,7 +23,7 @@
 只要兩個簡單步驟，就能設定服務的遠端處理：
 
 1. 建立服務實作的介面。這個介面會定義方法，可在您的服務上用於遠端程序呼叫。方法也必須是傳回工作的非同步方法。此介面必須實作 `Microsoft.ServiceFabric.Services.Remoting.IService`，表示服務具有遠端處理介面。
-2. 在您的服務中使用 `Microsoft.ServiceFabric.Services.Remoting.Runtime.ServiceRemotingListener`。這是提供遠端功能的 `ICommunicationListener` 實作。
+2. 在您的服務中使用 `FabricTransportServiceRemotingListener`。這是提供遠端功能的 `ICommunicationListener` 實作。
 
 例如，這個 Hello World 服務會公開單一方法，透過遠端程序呼叫取得 "Hello World"：
 
@@ -37,7 +37,9 @@ internal class HelloWorldStateful : StatefulService, IHelloWorldStateful
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
-        return new[] { new ServiceReplicaListener(parameters => new ServiceRemotingListener<HelloWorldStateful>(parameters, this)) };
+        return new[]{
+                new ServiceReplicaListener(
+                    (context) => new FabricTransportServiceRemotingListener(context,this))};
     }
 
     public Task<string> GetHelloWorld()
@@ -47,7 +49,7 @@ internal class HelloWorldStateful : StatefulService, IHelloWorldStateful
 }
 
 ```
-> [AZURE.NOTE]服務介面中的引數和傳回類型可以是任何簡單、複雜或自訂的類型，但必須可由 .NET [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx) 序列化。
+> [AZURE.NOTE] 服務介面中的引數和傳回類型可以是任何簡單、複雜或自訂的類型，但必須可由 .NET [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx) 序列化。
 
 
 ## 呼叫遠端服務方法
@@ -70,4 +72,6 @@ string message = await helloWorldClient.GetHelloWorld();
 
 * [使用 Reliable Services 的 WCF 通訊](service-fabric-reliable-services-communication-wcf.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+* [Reliable Services 的安全通訊](service-fabric-reliable-services-secure-communication.md)
+
+<!---HONumber=AcomDC_0330_2016-->

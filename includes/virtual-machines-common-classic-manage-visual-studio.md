@@ -156,6 +156,6 @@
 
 ## 後續步驟
 
-若要了解建立虛擬機器的詳細資訊，請參閱[建立執行 Linux 的虛擬機器](virtual-machines-linux-cli-create.md)和[在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器](virtual-machines-windows-tutorial.md)。
+若要了解建立虛擬機器的詳細資訊，請參閱[建立執行 Linux 的虛擬機器](../articles/virtual-machines/virtual-machines-linux-cli-create.md)和[在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器](../articles/virtual-machines/virtual-machines-windows-tutorial.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

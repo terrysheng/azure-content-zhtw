@@ -1,5 +1,5 @@
 <properties
-   pageTitle="了解資源管理員與傳統部署模型之間的差異"
+   pageTitle="Resource Manager 與傳統部署 | Microsoft Azure"
    description="描述資源管理員部署模型與傳統 (或服務管理) 部署模型之間的差異。"
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,26 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/22/2016"
+   ms.date="03/23/2016"
    ms.author="tomfitz"/>
 
-# 了解資源管理員部署和傳統部署
+# Azure Resource Manager vs. 傳統部署：了解資源的部署模型和狀態
 
-資源管理員部署模型提供新的方式來部署和管理組成應用程式的服務。這個新模型包含與傳統部署模型的重要差異，而兩個模型之間並非完全相容。為了簡化資源的部署和管理，Microsoft 建議您針對新的資源使用資源管理員，同時，可能的話，透過資源管理員重新部署現有的資源。
+本主題中，您將了解 Azure Resource Manager 和傳統部署模型、您的資源的狀態、以及您的資源相互部署的原因。Resource Manager 部署模型與傳統部署模型有重要的差異，且兩個模型之間並非完全相容。為了簡化資源的部署和管理，Microsoft 建議您針對新的資源使用資源管理員，同時，可能的話，透過資源管理員重新部署現有的資源。
 
-您可能也知道傳統部署模型也就是服務管理模型。
+對大多數資源，您可以沒有任何問題地轉換為 Resource Manager。不過，由於模型之間的架構差異，一些資源提供者會提供兩個版本的資源 (一個用於傳統和一個用於資源管理員)。區別兩種模型之間的資源提供者是：
 
-本主題描述這兩個模型之間的差異，以及從傳統模型轉換為資源管理員時可能會遇到的部分問題。它提供模型的概觀但未詳述個別服務的差異。
-
-許多資源可同時在傳統模型和資源管理員中沒有問題的運作。即使是在傳統的模型中建立，這些資源也能完全支援資源管理員。您可以在無需任何顧慮或額外動作下轉換為資源管理員。
-
-不過，由於模型之間的架構差異，一些資源提供者會提供兩個版本的資源 (一個用於傳統和一個用於資源管理員)。區別兩種模型之間的資源提供者是：
-
-- **計算** - 支援虛擬機器和選擇性可用性設定組的執行個體。
+- **計算** - 支援虛擬機器的執行個體以及選擇性的可用性設定集。
 - **儲存體** - 支援儲存虛擬機器之 VHD 所需的儲存體帳戶，包括它們的作業系統和其他資料磁碟。
 - **網路** - 支援必要的 NIC、虛擬機器 IP 位址及虛擬網路內的子網路，以及選擇性的負載平衡器、負載平衡器 IP 位址與網路安全性群組。
 
-針對這些資源類型，您必須知道您使用哪一個版本，因為支援的作業將會不同。如需轉換運算、儲存體和網路資源的詳細資訊，請參閱 [Azure 資源管理員下的 Azure 運算、網路和儲存體提供者](./virtual-machines/virtual-machines-windows-compare-deployment-models.md)。
+針對這些資源類型，您必須知道您使用哪一個版本，因為支援的作業將會不同。為了解您的資源是以哪一個模型部署，讓我們來探討這兩個模型。
 
 ## 資源管理員特性
 
@@ -42,19 +36,15 @@
 
   - [Azure 入口網站](https://portal.azure.com/)。
 
-        ![Azure portal](./media/resource-manager-deployment-model/preview-portal.png)
+   ![Azure 入口網站](./media/resource-manager-deployment-model/preview-portal.png)
 
-        針對運算、儲存體及網路資源，您可以選擇使用資源管理員或傳統部署。 選擇**資源管理員**。
+   針對計算、儲存體及網路資源，您可以選擇使用資源管理員或傳統部署。選擇**資源管理員**。
 
-        ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
+   ![資源管理員部署](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - 對於比 Azure PowerShell 1.0 版還舊的版本，這些命令會在 **AzureResourceManager** 模式中執行。
+  - 若使用 Azure PowerShell，請使用 Resource Manager 版本的命令。這些命令的格式是 Verb-AzureRmNoun，如下所示。
 
-            PS C:\> Switch-AzureMode -Name AzureResourceManager
-
-  - 對於 Azure PowerShell 1.0 版，請使用資源管理員版本的命令。這些命令的格式是 *Verb-AzureRmNoun*，如下所示。
-
-            PS C:\> Get-AzureRmResourceGroupDeployment
+            Get-AzureRmResourceGroupDeployment
 
   - 適用於 REST 作業的 [Azure 資源管理員 REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx)。
   - Azure CLI 命令會在 **arm** 模式中執行。
@@ -63,7 +53,7 @@
 
 - 資源類型的名稱中不包括 **(傳統)**。下圖顯示的類型為**儲存體帳戶**。
 
-    ![Web 應用程式](./media/resource-manager-deployment-model/resource-manager-type.png)
+   ![Web 應用程式](./media/resource-manager-deployment-model/resource-manager-type.png)
 
 下圖所示的應用程式示範如何將透過資源管理員所部署的資源包含在單一資源群組中。
 
@@ -79,6 +69,8 @@
 
 ## 傳統部署特性
 
+您可能也知道傳統部署模型也就是服務管理模型。
+
 在 Azure 服務管理中，用以裝載虛擬機器的計算、儲存體或網路資源是透過下列方式來提供：
 
 - 用來做為裝載虛擬機器 (計算) 之容器所需的雲端服務。虛擬機器是利用網路介面卡 (NIC) 和 Azure 所指派的 IP 位址自動提供。此外，雲端服務包含外部負載平衡器執行個體、共用 IP 位址及預設端點，以允許 Windows 架構虛擬機器的遠端桌面與遠端 PowerShell 流量，以及 Linux 架構虛擬機器的安全殼層 (SSH) 流量。
@@ -91,25 +83,21 @@
 
   - [傳統入口網站](https://manage.windowsazure.com)
 
-        ![Classic portal](./media/resource-manager-deployment-model/azure-portal.png)
+   ![傳統入口網站](./media/resource-manager-deployment-model/azure-portal.png)
 
-        或安裝 Preview 入口網站並指定進行**傳統**部署 (範圍包括運算、儲存體及網路).
+   或安裝 Azure 入口網站並指定進行**傳統**部署 (範圍包括計算、儲存體及網路)
 
-        ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
+   ![傳統部署](./media/resource-manager-deployment-model/select-classic.png)
 
-  - 對於比 Azure PowerShell 1.0 版還舊的版本，命令會在 **AzureServiceManagement** 模式中執行 (這是預設模式，因此，如果您未特意切換至 AzureResourceManager，您就會在 AzureServiceManagement 模式中執行)。
+  - 若使用 Azure PowerShell，請使用「服務管理」版本的命令。這些命令名稱的格式是 Verb-AzureNoun，如下所示。
 
-            PS C:\> Switch-AzureMode -Name AzureServiceManagement
-
-  - 對於 Azure PowerShell 1.0 版，請使用服務管理版本的命令。這些命令名稱的格式是 *Verb-AzureNoun*，如下所示。
-
-            PS C:\> Get-AzureDeployment
+            Get-AzureDeployment
 
   - REST 作業的[服務管理 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx)。
   - Azure CLI 命令會在 **asm** 或預設模式中執行。
 - 資源類型的名稱中包括 **(傳統)**。下圖顯示的類型為**儲存體帳戶 (傳統)**。
 
-    ![傳統類型](./media/resource-manager-deployment-model/classic-type.png)
+   ![傳統類型](./media/resource-manager-deployment-model/classic-type.png)
 
 您仍然可以使用 Azure 入口網站，來管理透過傳統部署所建立的資源。
 
@@ -143,10 +131,12 @@
 
 ## 部署模型支援的作業
 
-在傳統部署模型中所建立的資源不支援資源管理員作業。在某些情況下，資源管理員命令可以擷取透過傳統部署建立之資源的相關資訊，或可以執行系統管理工作 (例如將傳統資源移至另一個資源群組)，但這些情況下，不應讓您認為該類型支援資源管理員作業。例如，假設您有資源群組，其中包含使用資源管理員和傳統所建立的虛擬機器。如果您執行下列 PowerShell 命令，您會看到所有虛擬機器的：
+在傳統部署模型中所建立的資源不支援資源管理員作業。在某些情況下，資源管理員命令可以擷取透過傳統部署建立之資源的相關資訊，或可以執行系統管理工作 (例如將傳統資源移至另一個資源群組)，但這些情況下，不應讓您認為該類型支援資源管理員作業。例如，假設您有資源群組，其中包含使用資源管理員和傳統所建立的虛擬機器。若您執行下列 PowerShell 命令：
 
-    PS C:\> Get-AzureRmResourceGroup -Name ExampleGroup
-    ...
+    Get-AzureRmResourceGroup -Name ExampleGroup
+
+它會傳回所有虛擬機器：
+
     Resources :
      Name                 Type                                          Location
      ================     ============================================  ========
@@ -155,10 +145,12 @@
      ExampleResourceVM    Microsoft.Compute/virtualMachines             eastus
     ...
 
-不過，如果您執行 Get-AzureRmVM 命令，則只會出現使用資源管理員建立的虛擬機器。
+不過，如果您執行 **Get-AzureRmVM** 命令：
 
-    PS C:\> Get-AzureRmVM -ResourceGroupName ExampleGroup
-    ...
+    Get-AzureRmVM -ResourceGroupName ExampleGroup
+
+則只會出現使用 Resource Manager 建立的虛擬機器。
+
     Id       : /subscriptions/xxxx/resourceGroups/ExampleGroup/providers/Microsoft.Compute/virtualMachines/ExampleResourceVM
     Name     : ExampleResourceVM
     ...
@@ -185,7 +177,8 @@
 
 ## 後續步驟
 
-- 若要了解如何建立宣告式部署範本，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
+- 針對定義虛擬機器、儲存體帳戶、虛擬網路的範本，如需可其建立逐步解說，請參閱 [Resource Manager 範本的逐步解說](resource-manager-template-walkthrough.md)。
+- 若要了解 Resource Manager 範本的結構，請參閱[撰寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。
 - 若要查看部署範本的命令，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

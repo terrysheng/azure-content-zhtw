@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/12/2016"
-   ms.author="mfussell"/>
+   ms.date="03/24/2016"
+   ms.author="msfussell"/>
 
 # RunAs：使用不同的安全性權限執行 Service Fabric 應用程式
 Azure Service Fabric 能夠保護叢集中以不同使用者帳戶 (稱為 **RunAs**) 執行的應用程式。Service Fabric 也會利用此使用者帳戶來保護應用程式所使用的資源，例如檔案、目錄和憑證。
@@ -110,7 +110,7 @@ PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ~~~
 
-接著，記下已在 Service Fabric 總管中部署並啟動服務的節點名稱，例如節點 1。接下來，瀏覽至應用程式執行個體工作資料夾，以尋找顯示 **TestVariable** 之值的 out.txt 檔案。例如，如果此服務已部署至節點 2，則您可以移至 **MyApplicationType** 的這個路徑：
+接著，記下已在 Service Fabric 總管中部署並啟動服務的節點名稱，例如節點 2。接下來，瀏覽至應用程式執行個體工作資料夾，以尋找顯示 **TestVariable** 之值的 out.txt 檔案。例如，如果此服務已部署至節點 2，則您可以移至 **MyApplicationType** 的這個路徑：
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
@@ -351,4 +351,4 @@ Echo "Test console redirection which writes to the application log folder on the
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

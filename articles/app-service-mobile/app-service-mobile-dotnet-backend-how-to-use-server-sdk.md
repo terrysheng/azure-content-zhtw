@@ -63,7 +63,7 @@
 
 ## <a name="install-sdk"></a>如何：下載並初始化 SDK
 
-SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本功能。若要初始化 SDK，您需要在 HttpConfiguration 物件上執行動作。
+SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本功能。若要初始化 SDK，您需要在 **HttpConfiguration** 物件上執行動作。
 
 ###安裝 SDK
 
@@ -77,7 +77,7 @@ SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本�
 
     [assembly: OwinStartup(typeof(YourServiceName.YourStartupClassName))]
 
-在 OWIN 啟動類別的 `Configuration()` 方法中，使用 HttpConfiguration 物件來設定伺服器專案，該物件代表服務的設定選項。下列範例會初始化伺服器專案，不新增任何功能：
+在 OWIN 啟動類別的 `Configuration()` 方法中，使用 **HttpConfiguration** 物件來設定伺服器專案，該物件代表服務的設定選項。下列範例會初始化伺服器專案，不新增任何功能：
 
 	// in OWIN startup class
 	public void Configuration(IAppBuilder app)
@@ -91,7 +91,7 @@ SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本�
 	    app.UseWebApi(config);
 	}
 
-若要啟用個別功能，您必須在呼叫 ApplyTo 之前，於 MobileAppConfiguration 物件上呼叫擴充方法。例如，下列程式碼會在初始化期間，將預設路由加入具有屬性 `[MobileAppController]` 的所有 API 控制器中：
+若要啟用個別功能，您必須在呼叫 **ApplyTo** 之前，於 **MobileAppConfiguration** 物件上呼叫擴充方法。例如，下列程式碼會在初始化期間，將預設路由加入具有屬性 `[MobileAppController]` 的所有 API 控制器中：
 
 	new MobileAppConfiguration()
 	    .MapApiControllers()
@@ -101,7 +101,7 @@ SDK 可於 [NuGet.org] 取得。此封裝包含開始使用 SDK 所需的基本�
 
 許多功能的擴充方法都可透過其他您可以包含的 NuGet 封裝提供使用，於下節中說明。
 
-Azure 入口網站的伺服器快速入門會呼叫 UseDefaultConfiguration()。此命令相當於下列設定：
+Azure 入口網站的伺服器快速入門會呼叫 **UseDefaultConfiguration()**。此命令相當於下列設定：
 
 		new MobileAppConfiguration()
 			.AddMobileAppHomeController()             // from the Home package
@@ -118,21 +118,21 @@ Azure 入口網站的伺服器快速入門會呼叫 UseDefaultConfiguration()。
 
 ### SDK 延伸模組
 
-下列 NuGet 型擴充套件提供了許多您應用程式可以使用的行動功能。您可以使用 MobileAppConfiguration 物件，在初始化期間啟用擴充功能。
+下列 NuGet 型擴充套件提供了許多您應用程式可以使用的行動功能。您可以使用 **MobileAppConfiguration** 物件，在初始化期間啟用擴充功能。
 
-- [Microsoft.Azure.Mobile.Server.Quickstart] 支援基本的 Mobile Apps 設定。在初始化期間，透過呼叫 UseDefaultConfiguration 擴充方法來加入設定中。此延伸模組包含下列延伸模組：通知、驗證、實體、資料表，Crossdomain 與首頁封裝。這就相當於您從 Azure 入口網站下載的快速入門伺服器專案。
+- [Microsoft.Azure.Mobile.Server.Quickstart] 支援基本的 Mobile Apps 設定。在初始化期間，透過呼叫 **UseDefaultConfiguration** 擴充方法來加入設定中。此延伸模組包含下列延伸模組：通知、驗證、實體、資料表，Crossdomain 與首頁封裝。這就相當於您從 Azure 入口網站下載的快速入門伺服器專案。
 
-- [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 實作網站根目錄的預設 [此行動應用程式已啟動並執行中] 頁面。透過呼叫 AddMobileAppHomeController 擴充方法來加入設定中。
+- [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 實作網站根目錄的預設 [此行動應用程式已啟動並執行中] 頁面。透過呼叫 **AddMobileAppHomeController** 擴充方法來加入設定中。
 
-- [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) 包含適用於處理資料與設定資料管線的類別。透過呼叫 AddTables 擴充方法來加入設定中。
+- [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) 包含適用於處理資料與設定資料管線的類別。透過呼叫 **AddTables** 擴充方法來加入設定中。
 
-- [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) 讓 Entity Framework 能存取 SQL Database 中的資料。透過呼叫 AddTablesWithEntityFramework 擴充方法來加入設定中。
+- [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) 讓 Entity Framework 能存取 SQL Database 中的資料。透過呼叫 **AddTablesWithEntityFramework** 擴充方法來加入設定中。
 
-- [Microsoft.Azure.Mobile.Server.Authentication] 啟用驗證，並設定用來驗證權杖的 OWIN 中介軟體。透過呼叫 AddAppServiceAuthentication 與 IAppBuilder.UseAppServiceAuthentication 擴充方法來新增到組態中。
+- [Microsoft.Azure.Mobile.Server.Authentication] 啟用驗證，並設定用來驗證權杖的 OWIN 中介軟體。透過呼叫 **AddAppServiceAuthentication** 與 **IAppBuilder**.**UseAppServiceAuthentication** 擴充方法來新增到組態中。
 
-- [Microsoft.Azure.Mobile.Server.Notifications] 啟用推播通知，並定義推播註冊端點。透過呼叫 AddPushNotifications 擴充方法來加入設定中。
+- [Microsoft.Azure.Mobile.Server.Notifications] 啟用推播通知，並定義推播註冊端點。透過呼叫 **AddPushNotifications** 擴充方法來加入設定中。
 
-- [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) 建立從行動應用程式提供資料給舊版網頁瀏覽器的控制器。透過呼叫 MapLegacyCrossDomainController 擴充方法來加入設定中。
+- [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) 建立從行動應用程式提供資料給舊版網頁瀏覽器的控制器。透過呼叫 **MapLegacyCrossDomainController** 擴充方法來加入設定中。
 
 - [Microsoft.Azure.Mobile.Server.Login] 透過 AppServiceLoginHandler.CreateToken() 方法提供對自訂驗證的預覽支援。這是靜態方法，不需要在組態中啟用。
 
@@ -186,7 +186,7 @@ Azure 入口網站的伺服器快速入門會呼叫 UseDefaultConfiguration()。
 
 1. 在 Visual Studio 中，以滑鼠右鍵按一下 [控制器] 資料夾，然後按一下 [加入] > [控制器]，選取 [Web API 2 控制器&mdash;空白]，然後按一下 [加入]。
 
-2. 提供 [控制器名稱] \(例如 `CustomController`)，然後按一下 [加入]。這會建立繼承自 **ApiController** 的新 **CustomController** 類別。
+2. 提供 [控制器名稱] (例如 `CustomController`)，然後按一下 [加入]。這會建立繼承自 **ApiController** 的新 **CustomController** 類別。
 
 3. 在新的控制器類別檔案中，新增下列 Using 陳述式：
 
@@ -275,7 +275,7 @@ Mobile Apps 會使用 App Service 驗證和 ASP.NET 的功能，簡化為您的�
 			}
 		}
 
-`MobileAppLoginHAppServiceLoginHandlerandler.CreateToken()` 方法包含 _audience_ 和 _issuer_ 參數。這兩個參數通常會使用 HTTPS 配置設定為應用程式根目錄的 URL。同樣地，您應該將 _secretKey_ 設定為您應用程式的簽署金鑰值。這是機密值，永遠不應共用或包含於用戶端。您可以藉由參考 _WEBSITE\_AUTH\_SIGNING\_KEY_ 環境變數，在裝載於 App Service 時取得這個值。如果在本機偵錯內容中有需要，請依照[使用驗證進行本機偵錯](#local-debug)一節中的指示以擷取金鑰，並將它儲存為應用程式設定。
+`MobileAppLoginHAppServiceLoginHandlerandler.CreateToken()` 方法包含 audience 和 issuer 參數。這兩個參數通常會使用 HTTPS 配置設定為應用程式根目錄的 URL。同樣地，您應該將 secretKey 設定為您應用程式的簽署金鑰值。這是機密值，永遠不應共用或包含於用戶端。您可以藉由參考 WEBSITE\_AUTH\_SIGNING\_KEY 環境變數，在裝載於 App Service 時取得這個值。如果在本機偵錯內容中有需要，請依照[使用驗證進行本機偵錯](#local-debug)一節中的指示以擷取金鑰，並將它儲存為應用程式設定。
 
 您也必須提供已發行權杖的存留期，以及您想要包含的任何宣告。您必須提供主體宣告，如範例程式碼所示。
 
@@ -435,7 +435,7 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
 
 ### <a name="local-debug"></a>使用驗證進行本機偵錯
 
-您可以在將變更發佈至雲端之前，在本機執行您的應用程式以測試變更。對於許多應用程式，在 Visual Studio 中時只需要按 *F5* 即可。不過，使用驗證時有一些其他考量。
+您可以在將變更發佈至雲端之前，在本機執行您的應用程式以測試變更。對於許多應用程式，在 Visual Studio 中時只需要按 F5 即可。不過，使用驗證時有一些其他考量。
 
 您必須擁有雲端式行動應用程式並且已設定 App Service 驗證/授權，而且您的用戶端必須有指定的雲端端點做為替代登入主機。請參閱您所選擇的用戶端平台的文件 ([iOS](app-service-mobile-ios-how-to-use-client-library.md)、[Windows/Xamarin](app-service-mobile-dotnet-how-to-use-client-library.md)) 以取得所需的特定步驟。
 
@@ -449,7 +449,7 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
 			TokenHandler = config.GetMobileAppTokenHandler()
 		});
 
-在上述範例中，您應該使用 HTTPS 配置，將 Web.config 檔案中的 _authAudience_ 和 _authIssuer_ 應用程式設定，設定為每個應用程式根目錄的 URL。同樣地，您應該將 _authSigningKey_ 設定為您應用程式的簽署金鑰值。這是機密值，永遠不應共用或包含於用戶端。若要取得該值，請在 [Azure 入口網站]中巡覽至您的應用程式，然後按一下 [工具]。然後選取 [Kudu]，再按一下 [移至]。這樣會帶您前往您的網站的 Kudu 管理端點。按一下 [環境] 並且在 _WEBSITE\_AUTH\_SIGNING\_KEY_ 底下尋找值。這是您應該在本機應用程式設定中用於 _authSigningKey_ 的值。
+在上述範例中，您應該使用 HTTPS 配置，將 Web.config 檔案中的 authAudience 和 authIssuer 應用程式設定，設定為每個應用程式根目錄的 URL。同樣地，您應該將 authSigningKey 設定為您應用程式的簽署金鑰值。這是機密值，永遠不應共用或包含於用戶端。若要取得該值，請在 [Azure 入口網站]中巡覽至您的應用程式，然後按一下 [工具]。然後選取 [Kudu]，再按一下 [移至]。這樣會帶您前往您的網站的 Kudu 管理端點。按一下 [環境] 並且在 WEBSITE\_AUTH\_SIGNING\_KEY 底下尋找值。這是您應該在本機應用程式設定中用於 authSigningKey 的值。
 
 您的本機執行伺服器現在已裝備，可以驗證用戶端從雲端式端點取得的權杖。
 
@@ -461,4 +461,4 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

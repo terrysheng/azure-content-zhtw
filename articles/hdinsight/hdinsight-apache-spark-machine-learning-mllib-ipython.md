@@ -55,7 +55,7 @@
 
 ## 開始使用 Spark MLlib 建置機器學習應用程式
 
-1. 在 [Azure Preview 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
+1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
 
 2. 在 Spark 叢集刀鋒視窗中按一下 [快速連結] ，然後在 [叢集儀表板] 刀鋒視窗中按一下 [Jupyter Notebook]。出現提示時，輸入叢集的系統管理員認證。
 
@@ -71,7 +71,7 @@
 
 	![提供 Notebook 的名稱](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "提供 Notebook 的名稱")
 
-3. 您使用 PySpark 核心建立 Notebook，因此不需要明確地建立任何內容。當您執行第一個程式碼儲存格時，系統會自動為您建立 Spark、SQL 和 Hive 內容。您可以從匯入這個案例所需的類型，開始建置您的機器學習服務應用程式。若要這樣做，請將游標放在儲存格中，然後按 **SHIFT + ENTER** 鍵。
+3. 您使用 PySpark 核心建立 Notebook，因此不需要明確建立任何內容。當您執行第一個程式碼儲存格時，系統會自動為您建立 Spark、SQL 和 Hive 內容。您可以從匯入這個案例所需的類型，開始建置您的機器學習服務應用程式。若要這樣做，請將游標放在儲存格中，然後按 **SHIFT + ENTER** 鍵。
 
 
 		from pyspark.ml import Pipeline
@@ -419,4 +419,4 @@ MLLib 可提供簡單的方法來執行此作業。首先，我們將「語彙�
 
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/16/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffreyg"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -58,7 +58,7 @@
 
     圖表會以動態方式顯示該度量的資源使用量，協助您選擇閾值。
 
-4. 選擇 [條件] \(大於、小於等) 和 [閾值]。
+4. 選擇 [條件] (大於、小於等) 和 [閾值]。
 5. 按一下 [確定]。
 
 ##變更每個集區的 eDTU 和資料庫 eDTU
@@ -131,4 +131,4 @@
 - [使用 C# 來建立彈性資料庫集區](sql-database-elastic-pool-create-csharp.md)
 - [彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

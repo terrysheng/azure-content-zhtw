@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # 在 PowerApps Enterprise 中建立新的 OneDrive API
 
 > [AZURE.SELECTOR]
-- [邏輯應用程式](../articles/connectors/create-api-onedrive.md)
+- [邏輯應用程式](../articles/connectors/connectors-create-api-onedrive.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-onedrive.md)
 
 將 OneDrive API 加入您組織 (租用戶) 的 App Service 環境中。
@@ -71,7 +71,7 @@
 
 ## 請參閱 REST API
 
-[OneDrive REST API](../connectors/create-api-onedrive.md) 參考。
+[OneDrive REST API](../connectors/connectors-create-api-onedrive.md) 參考。
 
 ## 摘要和後續步驟
 在本主題中，您已將 OneDrive API 新增至 PowersApps Enterprise。接下來，請授與使用者存取 API 的權限，讓使用者能夠將 API 新增至其應用程式：
@@ -89,4 +89,4 @@
 [14]: ./media/powerapps-create-api-onedrive/browseall.png
 [15]: ./media/powerapps-create-api-onedrive/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

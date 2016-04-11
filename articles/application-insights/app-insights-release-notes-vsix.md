@@ -1,21 +1,66 @@
-<properties 
-	pageTitle="Visual Studio Extension for Application Insights 版本資訊" 
-	description="Visual Studio tools for Application Insights 的最新更新。" 
-	services="application-insights" 
+<properties
+	pageTitle="適用於 Developer Analytics 之 Visual Studio 延伸模組的版本資訊"
+	description="適用於 Developer Analytics 之 Visual Studio 工具的最新更新。"
+	services="application-insights"
     documentationCenter=""
-	authors="aruna" 
+	authors="aruna"
 	manager="douge"/>
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/26/2016" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/28/2016"
 	ms.author="acearun"/>
- 
-# Application Insights Tools for Visual Studio 版本資訊
 
+# 版本資訊 - Developer Analytics 工具
+##### Visual Studio 中的 Application Insights 和 HockeyApp 分析
+## 5\.2 版
+很高興為您宣布，我們已推出 Visual Studio 中的 HockeyApp 案例。我們啟用的第一個整合是 VS 內的通用 Windows 應用程式和 Windows Forms 應用程式的 Beta 版散發套件。
+
+Beta 版散發套件可讓您將舊版應用程式上傳至 HockeyApp 以散發給一小組選定的客戶或測試人員。Beta 版散發套件在結合了 HockeyApp 當機資訊收集和使用者意見反應功能之後，可以在您廣泛發行應用程式前提供您有關應用程式的寶貴資訊。您可以使用這項資訊來解決應用程式的問題，以免情況惡化 (評價變差、意見反應不佳)。
+
+請看看從 VS 內上傳 Beta 版散發套件的組件有多麼簡單...
+### 通用 Windows 應用程式
+UWP 專案節點的內容功能表現在包含將組建上傳至 HockeyApp 的選項。
+
+![通用應用程式的專案內容功能表](./media/app-insights-release-notes-vsix/UniversalContextMenu.png)
+
+請選擇該項目並查看 HockeyApp 上傳對話方塊。您必須有 HockeyApp 帳戶才能上傳組建。如果您是新的使用者也別擔心，建立帳戶的程序相當簡單。
+
+連線之後，您會在對話方塊中看到上傳表單。
+
+![通用應用程式的上傳對話方塊](./media/app-insights-release-notes-vsix/UniversalUploadDialog.png)
+
+選取要上傳的內容 (appxbundle 或 appx)，並在精靈中選擇發行選項。在下一頁中，您可以選擇性地新增版本資訊。選擇 [完成] 以開始上傳。
+
+當上傳完成時，您會看到 HockeyApp 快顯通知，裡面有確認訊息和通往 HockeyApp 入口網站中應用程式的連結。
+
+![上傳完成快顯通知](./media/app-insights-release-notes-vsix/UploadComplete.png)
+
+這樣就大功告成了，您剛才已上傳 Beta 版散發套件的組建，而整個過程只是按幾下滑鼠而已。
+
+HockeyApp 入口網站可讓您以各種方式管理應用程式 (邀請使用者、檢視當機報告和意見反應、變更詳細資料等)。
+
+![HockeyApp 入口網站](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
+
+如需關於應用程式管理的詳細資訊，請參閱 [HockeyApp 知識庫](http://support.hockeyapp.net/kb/app-management-2)。
+
+### Windows Forms 應用程式
+Windows Forms 專案節點的內容功能表包含將組建上傳至 HockeyApp 的選項。
+
+![Windows Forms 應用程式的專案內容功能表](./media/app-insights-release-notes-vsix/WinFormContextMenu.png)
+
+這會顯示與通用應用程式類似的 HockeyApp 上傳對話方塊。
+
+![Windows Forms 應用程式的上傳對話方塊](./media/app-insights-release-notes-vsix/WinFormsUploadDialog.png)
+
+請注意此精靈有一個額外的欄位，其可供指定應用程式版本。通用應用程式的這項資訊會從資訊清單中填入，但不幸的是，Windows Forms 沒有對等的方式，因此必須手動指定。
+
+流程的其餘部分與通用應用程式類似 – 在 HockeyApp 入口網站中挑選組件、發行選項、新增版本資訊、上傳及管理。
+
+整個過程就是這麼簡單。立即試試並與我們分享您的想法。
 ## 版本 4.3
 ### 從本機偵錯工作階段搜尋遙測
 此版本可讓使用者搜尋在 Visual Studio 偵錯工作階段中產生的 Application Insights 遙測。舊版搜尋只能在應用程式註冊 Application Insights 後才能執行，而在此版本中，您的應用程式只需要安裝 Application Insights SDK，就能搜尋本機遙測。
@@ -39,7 +84,7 @@
 ###- 零點選的記錄體驗
 如果您已經在使用 NLog、Log4Net 或 System.Diagnostics 追蹤功能，則您不必操心要如何將您的所有追蹤移到 AI，我們現在正在將 Application Insights 記錄配接器與標準組態體驗進行整合。如果您已經設定了這些記錄架構其中之一，則以下是您取得它的方式：
 ####如果您已經新增 Application Insights
-- 在 [專案節點] 上按一下滑鼠右鍵 -> [Application Insights] -> [設定 Application Insights]。請確定您在組態視窗中有看到可新增正確配接器的選項。 
+- 在 [專案節點] 上按一下滑鼠右鍵 -> [Application Insights] -> [設定 Application Insights]。請確定您在組態視窗中有看到可新增正確配接器的選項。
 - 或是當您建置方案時，請注意出現在畫面右上角的快顯訊息，並在設定時按一下。![登入快顯通知](./media/app-insights-release-notes-vsix/LoggingToast.png)
 
 安裝記錄配接器之後，您就可以執行應用程式並確定是否在 [診斷工具] 索引標籤中看到資料，如以下所示：![追蹤](./media/app-insights-release-notes-vsix/Traces.png)
@@ -69,7 +114,7 @@
 
 ![按一下 [例外狀況]](./media/app-insights-release-notes-vsix/jumptocode.png)
 
-###方案總管中搜尋體驗的新進入點 
+###方案總管中搜尋體驗的新進入點
 
 ![[方案總管] 中的進入點](./media/app-insights-release-notes-vsix/searchentry.png)
 
@@ -100,10 +145,8 @@
 
 ###裝置支援
 
-我們在 *Connect();* 2015 中[宣布了](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/)裝置行動 DevOps 體驗為 HockeyApp。HockeyApp 可協助您發佈 Beta 組建發佈給測試人員、從您的應用程式收集和分析所有的損毀，並直接收集客戶的意見反應。HockeyApp 可讓您在任何平台上建置行動應用程式，無論是 iOS、Android 或 Windows，或是 Xamarin、Cordova 或 Unity 之類的跨平台解決方案上。
+我們在 Connect(); 2015 中[宣布了](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/)裝置行動 DevOps 體驗為 HockeyApp。HockeyApp 可協助您發佈 Beta 組建發佈給測試人員、從您的應用程式收集和分析所有的損毀，並直接收集客戶的意見反應。HockeyApp 可讓您在任何平台上建置行動應用程式，無論是 iOS、Android 或 Windows，或是 Xamarin、Cordova 或 Unity 之類的跨平台解決方案上。
 
 我們會在未來版本的 Application Insights 延伸模組中推出新功能，可在 HockeyApp 和 Visual Studio 之間提供更為整合的體驗。現在您只要新增 NuGet 參考，即可開始使用 HockeyApp：如需詳細資訊，請參閱[文件](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone)。
 
- 
-
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0330_2016-->

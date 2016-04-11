@@ -1,7 +1,7 @@
 <properties
 	pageTitle="彈性資料庫集區的 SQL Database |Microsoft Azure"
 	description="了解如何透過跨多個資料庫共用可用資源的方式，有效使用彈性資料庫集區駕馭 SQL 資料庫中的爆炸性成長。"
-	keywords="彈性資料庫、sql 資料庫"	
+	keywords="彈性資料庫、sql 資料庫"
 	services="sql-database"
 	documentationCenter=""
 	authors="sidneyh"
@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/11/2016"
+	ms.date="03/24/2016"
 	ms.author="sidneyh"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -20,7 +20,7 @@
 
 # 在 SQL 資料庫使用彈性資料庫集區駕馭爆炸性的成長，以共用資源
 
-SaaS 開發人員必須建立並管理數十、數百或甚至數千個 SQL Database。彈性集區會在您控制的預算內，跨這些資料庫簡化建立、維護及效能管理。從集區任意加入或減少資料庫。使用 Microsoft Azure 入口網站、[PowerShell](sql-database-elastic-pool-powershell.md) 或 [C#](sql-database-elastic-pool-csharp.md)，在幾分鐘內為您的 SQL Database [建立彈性資料庫集區](sql-database-elastic-pool-portal.md)。
+SaaS 開發人員必須建立並管理數十、數百或甚至數千個 SQL Database。彈性集區會在您控制的預算內，跨這些資料庫簡化建立、維護及效能管理。從集區任意加入或減少資料庫。請參閱[在 Azure 入口網站中建立 SQL 資料庫的可調整彈性資料庫集區](sql-database-elastic-pool-create-portal.md)，或[使用 PowerShell](sql-database-elastic-pool-powershell.md) 或 [C#](sql-database-elastic-pool-csharp.md)。
 
 如需 API 和錯誤詳細資訊，請參閱[彈性資料庫集區參考](sql-database-elastic-pool-reference.md)。
 
@@ -63,9 +63,9 @@ SaaS 開發人員必須建立並管理數十、數百或甚至數千個 SQL Data
 
 系統會自動備份彈性資料庫集區中的資料庫，而且備份保留原則與單一資料庫相對應的服務層相同。總結來說，每一層的資料庫具有不同的還原範圍：
 
-* **基本集區**：可還原至過去 7 天內的任意點。 
+* **基本集區**：可還原至過去 7 天內的任意點。
 * **標準集區**：可還原至過去 14 天內的任意點。
-* **進階集區**：可還原至過去 35 天內的任意點。 
+* **進階集區**：可還原至過去 35 天內的任意點。
 
 在預覽期間，在集區中的資料庫將會還原到相同集區中的新資料庫。卸除的資料庫一律還原為集區外的獨立資料庫，而進入該服務層的最低效能層級。例如，標準集區中卸除的彈性資料庫將還原為 S0 資料庫。您可以透過 Azure 入口網站或以程式設計方式使用 REST API，來執行資料庫還原作業。PowerShell Cmdlet 支援即將推出。
 
@@ -86,4 +86,4 @@ SaaS 開發人員必須建立並管理數十、數百或甚至數千個 SQL Data
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0330_2016-->

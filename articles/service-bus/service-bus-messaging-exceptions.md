@@ -23,13 +23,13 @@
 
 傳訊 API 會產生下列類別的例外狀況，以及可用來嘗試修正它們的相關動作：
 
-1.  使用者程式碼錯誤 ([System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)、[System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx)、[System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx)、[System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx))。一般動作：請先嘗試修正此程式碼，再繼續執行。
+1.  使用者程式碼撰寫錯誤 ([System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)、[System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx)、[System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx)、[System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx))。一般動作：請先嘗試修正此程式碼，再繼續執行。
 
 2.  設定/組態錯誤 ([Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingentitynotfoundexception.aspx)、[Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx)。一般動作：檢閱您的組態並視需要進行變更。
 
 3.  暫時性例外狀況 ([Microsoft.ServiceBus.Messaging.MessagingException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx)、[Microsoft.ServiceBus.Messaging.ServerBusyException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx)、[Microsoft.ServiceBus.Messaging.MessagingCommunicationException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingcommunicationexception.aspx))。一般動作：重試此操作或通知使用者。
 
-4.  其他例外狀況 ([System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx)、[System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)、[Microsoft.ServiceBus.Messaging.MessageLockLostException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagelocklostexception.aspx)、[Microsoft.ServiceBus.Messaging.SessionLockLostException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sessionlocklostexception.aspx))。一般動作：您通常不會處理這些執行清理或中止的例外狀況。它們可能會用於追蹤。
+4.  其他例外狀況 ([System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx)、[System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)、[Microsoft.ServiceBus.Messaging.MessageLockLostException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagelocklostexception.aspx)、[Microsoft.ServiceBus.Messaging.SessionLockLostException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sessionlocklostexception.aspx))。一般動作︰依例外狀況類型而異；請參閱下一節中的表格。
 
 ## 例外狀況類型
 
@@ -58,8 +58,7 @@
 | [MessagingEntityDisabledException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingentitydisabledexception.aspx) | 在停用的實體上要求執行階段作業。 | 啟用實體。 | 如實體在過渡期間被啟用，重試可能會有幫助。 |
 | [NoMatchingSubscriptionException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.nomatchingsubscriptionexception.aspx) | 如果您將訊息傳送至已啟用預先篩選的主題，但沒有符合的篩選，服務匯流排就會傳回此例外狀況。 | 確定至少有一個篩選相符。 | 重試將無助益。 |
 | [MessageSizeExceededException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesizeexceededexception.aspx) | 訊息裝載超過 256K 的限制。請注意，256k 的限制是總訊息大小，可包括系統屬性和任何 .NET 負荷。 | 減少訊息裝載大小，然後再重試作業。 | 重試將無助益。 |
-| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | 環境交易 (*Transaction.Current*) 無效。其可能已完成或中止。內部例外狀況可能會提供其他資訊。 | | 重試並沒有任何幫助。 | -
-| [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | 嘗試對不確定的交易執行作業，或是嘗試認可交易，但交易變成不確定。 | 應用程式必須處理這個例外狀況 (當成特殊狀況)，因為交易可能已遭認可。 | - |
+| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) | 環境交易 (*Transaction.Current*) 無效。其可能已完成或中止。內部例外狀況可能會提供其他資訊。 | | 重試並沒有任何幫助。 | - | [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) | 嘗試對不確定的交易執行作業，或是嘗試認可交易，但交易變成不確定。 | 應用程式必須處理這個例外狀況 (當成特殊狀況)，因為交易可能已遭認可。 | - |
 
 ## 後續步驟
 
@@ -71,4 +70,4 @@
 - [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 - [服務匯流排架構](service-bus-architecture.md)
 
-<!----HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

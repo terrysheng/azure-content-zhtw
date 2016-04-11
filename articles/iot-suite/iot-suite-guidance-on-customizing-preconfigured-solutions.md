@@ -30,15 +30,6 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 
 提供預先設定解決方案原始程式碼的目的，在於示範實作使用 Azure IoT 套件之 IoT 解決方案的端對端功能時，所採用的模式和作法。您可以找到如何在 GitHub 儲存機制中建置和部署解決方案的詳細資訊。
 
-## 管理預先設定解決方案中的權限
-每個預先設定解決方案的解決方案入口網站會建立為新的 Azure Active Directory 應用程式。您可以管理解決方案入口網站 (AAD 應用程式) 的權限，如下所示︰
-
-1. 開啟 [Azure 傳統入口網站](https://manage.windowsazure.com)。
-2. 藉由選取 [我公司所擁有的應用程式] 瀏覽至 AAD 應用程式，然後按一下核取記號。
-3. 瀏覽至 [使用者]，接著將 Azure Active Directory 租用戶中的成員指派給某個角色。 
-
-根據預設，應用程式會佈建**管理員**、**唯讀**及**隱含唯讀**等角色。**隱含唯讀**可授與隸屬於 Azure Active Directory 租用戶，但尚未獲得角色指派的使用者。在分接 GitHub 儲存機制並重新部署解決方案後，您可以修改 [RolePermissions.cs](https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs)。
-
 ## 變更預先設定規則
 
 遠端監視解決方案包含三個 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)工作，這些工作可實作針對解決方案顯示的裝置資訊、遙測及規則邏輯。
@@ -47,13 +38,13 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 
 您可以直接編輯這些工作以改變邏輯，或新增案例特有的邏輯。您可以尋找串流分析工作，如下所示︰
  
-1. 移至 [Azure 入口網站](https://portal.azure.com)。
+1. 移至 [Azure 入口網站][](https://portal.azure.com)。
 2. 瀏覽至名稱與 IoT 解決方案相同的資源群組。 
 3. 選取要修改的 Azure 串流分析作業。 
-4. 在命令集中選取 [停止] 以停止工作。 
+4. 在命令集中選取 [停止] 以停止作業。 
 5. 編輯輸入、查詢及輸出。
 
-    簡單修改的目的在於變更**規則**工作的查詢，以便使用 **"<"** 而不是 **">"**。編輯規則時，解決方案入口網站仍會顯示 **">"**，不過因為基礎工作中的變更，您可以發現行為已翻轉。
+    簡單修改的目的在於變更**規則**作業的查詢，以便使用 **"<"** 而不是 **">"**。編輯規則時，解決方案入口網站仍會顯示 **">"**，不過因為基礎作業中的變更，您可以發現行為已翻轉。
 
 6. 啟動工作
 
@@ -75,11 +66,70 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 
 遠端監視預先設定解決方案中的預先設定模擬器是發出溫度和濕度遙測的冷卻裝置，當您分接 GitHub 儲存機制後，您可以在 [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) 專案中修改模擬器。
 
-此外，Azure IoT 提供針對和遠端監視預先設定解決方案搭配使用所設計的 [C SDK 範例](https://github.com/Azure/azure-iot-sdks/c/serializer/samples/remote_monitoring)。
+此外，Azure IoT 提供針對和遠端監視預先設定解決方案搭配使用所設計的 [C SDK 範例](https://github.com/Azure/azure-iot-sdks/tree/master/c/serializer/samples/remote_monitoring)。
 
 ### 建置並使用自己的 (實體) 裝置
 
 [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) 提供用來將各種裝置類型 (語言和作業系統) 連接至 IoT 解決方案中的程式庫。
+
+## 手動設定應用程式角色
+
+以下程序描述如何新增 **Admin** 和 **ReadOnly** 應用程式角色至預先設定的解決方案。請注意，從 azureiotsuite.com 網站佈建的預先設定解決方案有 **Admin** 和 **ReadOnly** 角色。
+
+**ReadOnly** 角色的成員可以看到儀表板和裝置清單，但不能新增裝置、變更裝置屬性、或傳送命令。**Admin** 角色的成員具有解決方案中所有功能的完整存取權。
+
+1. 前往 [Azure 傳統入口網站][lnk-classic-portal]。
+
+2. 選取 [Active Directory]。
+
+3. 按一下您在佈建解決方案時所使用的 AAD 租用戶名稱。
+
+4. 按一下 [應用程式]。
+
+5. 按一下符合預先設定之方案名稱的應用程式名稱。如果清單中看不到您的應用程式，請選取 [顯示] 下拉式清單中的 [我公司所擁有的應用程式]，然後按一下核取記號。
+
+6.  在頁面底部，按一下 [管理資訊清單]，然後按一下 [下載資訊清單]。
+
+7. 這會下載一個 .json 檔案到本機電腦。使用您選擇的文字編輯器開啟此檔案並加以編輯。
+
+8. 在 .json 檔案的第三行，您會看到︰
+
+  ```
+  "appRoles" : [],
+  ```
+  使用下列程式碼取代這一行：
+
+  ```
+  "appRoles": [
+  {
+  "allowedMemberTypes": [
+  "User"
+  ],
+  "description": "Administrator access to the application",
+  "displayName": "Admin",
+  "id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
+  "isEnabled": true,
+  "value": "Admin"
+  },
+  {
+  "allowedMemberTypes": [
+  "User"
+  ],
+  "description": "Read only access to device information",
+  "displayName": "Read Only",
+  "id": "e5bbd0f5-128e-4362-9dd1-8f253c6082d7",
+  "isEnabled": true,
+  "value": "ReadOnly"
+  } ],
+  ```
+
+9. 儲存更新後的.json 檔案 (可以覆寫現有的檔案)。
+
+10.  在 Azure 管理入口網站中，選取頁面底部的 [管理資訊清單]，然後選取 [上傳資訊清單] 上傳您在上一個步驟儲存的.json 檔案。
+
+11. 您現在已為您的應用程式新增 **Admin** 和 **ReadOnly** 角色。
+
+12. 若要將其中一個角色指派給您目錄中的使用者，請參閱 [azureiotsuite.com 網站的權限][lnk-permissions]。
 
 ## 意見反應
 
@@ -90,5 +140,7 @@ Azure IoT Suite 提供的預先設定解決方案能夠示範套件中共同運�
 如需 IoT 裝置的詳細資訊，請參閱 [Azure IoT 開發人員網站](https://azure.microsoft.com/develop/iot/)來尋找連結和文件。
 
 [IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
+[lnk-permissions]: iot-suite-permissions.md
+[lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

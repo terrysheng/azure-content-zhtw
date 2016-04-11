@@ -41,13 +41,15 @@ Azure 入口網站會公開大部分的叢集屬性。使用 Azure ARM 範本，
 2. 依序按一下 [新增]、[資料分析] 及 [HDInsight]。
 
     ![在 Azure 入口網站中建立新的叢集](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "在 Azure 入口網站中建立新的叢集")
+3. 輸入**叢集名稱**：此名稱必須是全域唯一的。
+4. 按一下 [選取叢集類型]，然後選取︰
 
-3. 輸入：
-
-    - **叢集名稱**：此名稱必須是全域唯一的。
-    - **叢集類型**︰如果您不知道要選擇哪一個項目，請選取 [Hadoop]。
-    - **叢集作業系統**：選取 [Linux]。
+    - **叢集類型**︰如果您不知道要選擇哪一個項目，請選取 [Hadoop]。它是最受歡迎的叢集類型。
+    - **作業系統**：選取 [Linux]。
     - **版本**︰ 如果您不知道要選擇哪一個項目，請使用預設版本。如需詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
+    - **叢集層**：Azure HDInsight 提供兩種類型的巨量資料雲端提供項目：標準層和進階層。如需詳細資訊，請參閱[叢集層](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers)。
+    
+    ![HDInsight 進階層組態](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
 
 4. 按一下 [訂用帳戶]，以選取將用於此叢集的 Azure 訂用帳戶。
 
@@ -158,7 +160,7 @@ Azure 入口網站會公開大部分的叢集屬性。使用 Azure ARM 範本，
 ##自訂叢集
 
 - 請參閱[使用 Bootstrap 自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-bootstrap.md)。
-- 請參閱[使用指令碼動作自訂 Windows 型 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。
+- 請參閱[使用指令碼動作自訂 Windows 型 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 ##刪除叢集
 
@@ -193,4 +195,4 @@ Azure 入口網站會公開大部分的叢集屬性。使用 Azure ARM 範本，
 * [Spark 和機器學習：使用 HDInsight 中的 Spark 來預測食物檢查結果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 串流：使用 HDInsight 中的 Spark 來建置即時串流應用程式](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

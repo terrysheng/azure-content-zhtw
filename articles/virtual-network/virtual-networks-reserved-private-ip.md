@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="03/22/2016"
    ms.author="telmos" />
 
 # 如何設定靜態內部私人 IP
 在大部分情況下，您不需要針對虛擬機器指定靜態內部 IP 位址。虛擬網路中的 VM 會從您指定的範圍自動接收內部 IP 位址。但在某些情況下，針對特定 VM 指定靜態 IP 位址是合理的。例如，如果您的 VM 即將執行 DNS 或將成為網域控制站。
 
->[AZURE.NOTE]靜態內部 IP 位址會伴隨 VM 而存在，甚至是透過停止/取消佈建狀態。
+>[AZURE.NOTE] 靜態內部 IP 位址會伴隨 VM 而存在，甚至是透過停止/取消佈建狀態。
 
 ## 如何驗證特定 IP 位址是否可用
 若要驗證 IP 位址 *10.0.0.7* 在稱為 *TestVnet* 的 VNet 中是否可用，請執行下列 PowerShell 命令，並驗證 *IsAvailable* 的值：
@@ -31,7 +31,7 @@
 	OperationId          : fd3097e1-5f4b-9cac-8afa-bba1e3492609
 	OperationStatus      : Succeeded
 
->[AZURE.NOTE]如果您想要在安全環境中測試上述命令，請遵循＜[建立虛擬網路](../virtual-network/virtual-networks-create-vnet.md)＞中的指導方針，建立稱為 *TestVnet* 的 VNet，並確保其會使用 *10.0.0.0/8* 位址空間。
+>[AZURE.NOTE] 如果您想要在安全環境中測試上述命令，請遵循＜[建立虛擬網路](virtual-networks-create-vnet-classic-portal.md)＞中的指導方針，建立稱為 *TestVnet* 的 VNet，並確保其會使用 *10.0.0.0/8* 位址空間。
 
 ## 如何在建立 VM 時指定靜態內部 IP
 下方 PowerShell 指令碼會建立稱為 *TestService* 的新雲端服務，接著從 Azure 中擷取映像，然後在新的雲端服務中使用擷取的映像建立稱為 *TestVM* 的 VM，接下來設定要位於稱為 *Subnet-1* 之子網路的 VM，並設定 *10.0.0.7* 作為 VM 的靜態內部 IP：
@@ -92,11 +92,11 @@
 
 ## 後續步驟
 
-[保留的 IP](../virtual-networks-reserved-public-ip)
+[保留的 IP](virtual-networks-reserved-public-ip)
 
-[執行個體層級公用 IP (ILPIP)](../virtual-networks-instance-level-public-ip)
+[執行個體層級公用 IP (ILPIP)](virtual-networks-instance-level-public-ip)
 
 [保留的 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0330_2016-->

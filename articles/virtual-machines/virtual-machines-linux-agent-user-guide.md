@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
-	ms.author="mingzhan"/>
+	ms.date="03/14/2016" 
+	ms.author="szark"/>
 
 
 
@@ -26,6 +26,8 @@
 ##簡介
 
 Azure Linux 代理程式 (/usr/sbin/waagent) 可管理虛擬機器與 Azure 網狀架構控制器之間的互動。它具有下列功能：
+
+> [AZURE.NOTE] 如需本指南的最新版本，請參閱 Azure Linux 代理程式的[讀我檔案](https://github.com/Azure/WALinuxAgent/blob/2.0/README)。
 
 * **映像佈建**
   - 建立使用者帳戶
@@ -201,13 +203,13 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 
 類型：String 預設值：None
 
-如果指定可執行程式的路徑，則當網狀架構指出虛擬機器有可用的組態檔時，就會叫用此程式。XML 組態檔的路徑當做引數提供給可執行檔。只要組態檔有變動，就會叫用程式，因此可能叫用多次。附錄中提供一個範例檔。此檔案的目前路徑為 /var/lib/waagent/HostingEnvironmentConfig.xml。
+如果指定可執行程式的路徑，則當網狀架構指出虛擬機器有可用的組態檔時，就會叫用此程式。XML 組態檔的路徑當做引數提供給可執行檔。只要組態檔有變動，就會叫用程式，因此可能叫用多次。此檔案的目前路徑為 /var/lib/waagent/HostingEnvironmentConfig.xml。
 
 **Role.TopologyConsumer：**
 
 類型：String 預設值：None
 
-如果指定可執行程式的路徑，則當網狀架構指出有新的網路拓撲配置可用於虛擬機器時，就會叫用此程式。XML 組態檔的路徑當做引數提供給可執行檔。只要網路拓撲有變動 (例如由於維修)，就會叫用程式，因此可能叫用多次。附錄中提供一個範例檔。此檔案的目前位置為 /var/lib/waagent/SharedConfig.xml。
+如果指定可執行程式的路徑，則當網狀架構指出有新的網路拓撲配置可用於虛擬機器時，就會叫用此程式。XML 組態檔的路徑當做引數提供給可執行檔。只要網路拓撲有變動 (例如由於維修)，就會叫用程式，因此可能叫用多次。此檔案的目前位置為 /var/lib/waagent/SharedConfig.xml。
 
 **Provisioning.Enabled：**
 
@@ -321,4 +323,4 @@ Linux 代理程式需要一些系統封裝才能正確運作：
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

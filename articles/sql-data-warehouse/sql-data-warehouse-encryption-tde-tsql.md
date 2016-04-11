@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/03/2016" 
+   ms.date="03/23/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # 開始使用透明資料加密 (TDE)
@@ -32,7 +32,7 @@ TDE 會使用稱為資料庫加密金鑰的對稱金鑰來加密整個資料庫�
 1. 使用在 master 資料庫中做為系統管理員或 **dbmanager** 角色成員的登入，連接到裝載資料庫之伺服器上的 *master* 資料庫
 2. 執行下列陳述式來加密資料庫。
 
-```
+```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
@@ -43,7 +43,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 1. 使用在 master 資料庫中做為系統管理員或 **dbmanager** 角色成員的登入，連接到 *master* 資料庫
 2. 執行下列陳述式來加密資料庫。
 
-```
+```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
@@ -54,7 +54,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 1. 使用在 master 資料庫中做為系統管理員或 **dbmanager** 角色成員的登入，連接到 *master* 或執行個體資料庫
 2. 執行下列陳述式來加密資料庫。
 
-```
+```sql
 SELECT
 	[name],
 	[is_encrypted]
@@ -73,4 +73,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

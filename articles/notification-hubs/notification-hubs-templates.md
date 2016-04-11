@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/25/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # 範本
@@ -99,9 +99,9 @@ iOS 用戶端 app 註冊的範本如下：
 
 
 <table border="1">
-<tr><td>day1\_image</td><td>day2\_image</td><td>day3\_image</td><td>day4\_image</td><td>day5\_image</td></tr>
-<tr><td>day1\_tempC</td><td>day2\_tempC</td><td>day3\_tempC</td><td>day4\_tempC</td><td>day5\_tempC</td></tr>
-<tr><td>day1\_tempF</td><td>day2\_tempF</td><td>day3\_tempF</td><td>day4\_tempF</td><td>day5\_tempF</td></tr>
+<tr><td>day1_image</td><td>day2_image</td><td>day3_image</td><td>day4_image</td><td>day5_image</td></tr>
+<tr><td>day1_tempC</td><td>day2_tempC</td><td>day3_tempC</td><td>day4_tempC</td><td>day5_tempC</td></tr>
+<tr><td>day1_tempF</td><td>day2_tempF</td><td>day3_tempF</td><td>day4_tempF</td><td>day5_tempF</td></tr>
 </table><br/>
 
 
@@ -127,9 +127,7 @@ iOS 用戶端 app 註冊的範本如下：
 | $(prop, n) | 同上，但文字會明確裁剪成 n 字元，例如 $(title, 20) 會將 title 屬性內容裁剪成 20 個字元。 |
 | .(prop, n) | 同上，但文字會在裁剪之後，後面加上三個點。裁剪的字串與字尾的總大小不會超過 n 個字元。.(title, 20) 搭配 “This is the title line” 輸入屬性會產生 **This is the title...** 結果 |
 | %(prop) | 與 $(name) 類似，但輸出是以 URI 編碼。 |
-| #(prop) | 用於 JSON 範本 (例如，用於 iOS 與 Android 範本)。<br><br>除了是用於 JSON 範本 (例如，Apple 範本) 之外，此函式的運作方式與先前指定的 $(prop) 完全相同。在此案例中，如果此函式不是包含在 “{‘,’}” 中 (例如 ‘myJsonProperty’ : ‘#(name)’)，並且其評估結果為 Javascript 格式的數字 (例如 regexp: (0|(&#91;1-9&#93;&#91;0-9&#93;*))(.&#91;0-9&#93;+)?((e|E)(+|-)?&#91;0-9&#93;+)?)，則輸出 JSON 會是數字。<br><br>例如 ‘badge : ‘#(name)’ 會變成 ‘badge’ : 40 (而不是 ‘40‘)。|
-| ‘text’ 或 “text” |常值。常值包含以單引號或雙引號括住的任意文字。|
-| expr1 + expr2 | 將兩個運算式聯結成單一字串的串連運算子。
+| #(prop) | 用於 JSON 範本 (例如，用於 iOS 與 Android 範本)。<br><br>除了是用於 JSON 範本 (例如，Apple 範本) 之外，此函式的運作方式與先前指定的 $(prop) 完全相同。在此案例中，如果此函式不是包含在 “{‘,’}” 中 (例如 ‘myJsonProperty’ : ‘#(name)’)，並且其評估結果為 Javascript 格式的數字 (例如 regexp: (0|(&#91;1-9&#93;&#91;0-9&#93;*))(.&#91;0-9&#93;+)?((e|E)(+|-)?&#91;0-9&#93;+)?)，則輸出 JSON 會是數字。<br><br>例如 ‘badge : ‘#(name)’ 會變成 ‘badge’ : 40 (而不是 ‘40‘)。| | ‘text’ 或 “text” |常值。常值包含以單引號或雙引號括住的任意文字。| | expr1 + expr2 | 將兩個運算式聯結成單一字串的串連運算子。
 
 運算式可以是前述任一形式。
 
@@ -157,4 +155,4 @@ iOS 用戶端 app 註冊的範本如下：
 	  </visual>
 	</tile>
 
-<!--------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0330_2016-->

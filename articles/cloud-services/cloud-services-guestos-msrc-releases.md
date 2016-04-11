@@ -13,12 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="12/15/2015"
+   ms.date="03/23/2016"
    ms.author="yuemlu"/>
 
 # Azure 客體作業系統 
 
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。推出這些更新的特定[系列][family-explain]皆會包含這些更新。
+
+## 三月客體作業系統 
+
+| 公告識別碼 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-023 | [3142015] | Internet Explorer 的累積安全性更新 | 4\.30、3.37、2.49 | 2016 年 3 月 8 日 |  
+| MS16-026 | [3143148] | 圖形字型的安全性更新，可解決遠端程式碼執行問題 | 4\.30、3.37、2.49 | 2016 年 3 月 8 日 |  
+| MS16-027 | [3143146] | Windows Media Player 的安全性更新，可解決遠端程式碼執行問題 | 4\.30、3.37、2.49 | 2016 年 3 月 8 日 |  
+| MS16-028 | [3143081] | Microsoft Windows PDF 程式庫的安全性更新，可解決遠端程式碼執行問題 | 4\.30、3.37 | 2016 年 3 月 8 日 |  
+| MS16-030 | [3143136] | Windows OLE 的安全性更新，可解決遠端程式碼執行問題 | 4\.30、3.37、2.49 | 2016 年 3 月 8 日 |  
+| MS16-031 | [3140410] | Microsoft Windows 的安全性更新，可解決提高權限問題 | 2\.49 | 2016 年 3 月 8 日 |  
+| MS16-032 | [3143141] | Secondary Logon 的安全性更新，可解決提高權限問題 | 4\.30、3.37、2.49 | 2016 年 3 月 8 日 |  
+| MS16-033 | [3143142] | USB 大型存放裝置類別驅動程式的安全性更新，可解決提高權限問題 | 4\.30、3.37、2.49 | 2016 年 3 月 8 日 |  
+| MS16-034 | [3143145] | 核心模式驅動程式的安全性更新，可解決提高權限問題 | 4\.30、3.37、2.49 | 2016 年 3 月 8 日 | | MS16-035 | [3141780] | .NET Framework 的安全性更新，可解決略過安全性功能 | 4\.30、3.37、2.49 | 2016 年 3 月 8 日 |  
 
 
 ## 二月客體作業系統
@@ -242,6 +256,18 @@
 | N/A | [2999802][2999802] | 在 Windows 中列印虛線時會變成實線 | 4\.15、3.22,、2.34 | 2015 年 1 月 13 日 |
 | N/A | [2896881][2896881] | 在 Windows 中於登入程序期間使用 AddPrinterConnection VBScript 命令對應使用者印表機時，登入時間過長 | 4\.15、3.22,、2.34 | 2015 年 1 月 13 日 |
 
+
+[3142015]: http://support.microsoft.com/kb/3142015
+[3143148]: http://support.microsoft.com/kb/3143148
+[3143146]: http://support.microsoft.com/kb/3143146
+[3143081]: http://support.microsoft.com/kb/3143081
+[3143136]: http://support.microsoft.com/kb/3143136
+[3140410]: http://support.microsoft.com/kb/3140410
+[3143141]: http://support.microsoft.com/kb/3143141
+[3143142]: http://support.microsoft.com/kb/3143142
+[3143145]: http://support.microsoft.com/kb/3143145
+[3141780]: http://support.microsoft.com/kb/3141780
+
 [3134220]: http://support.microsoft.com/kb/3134220
 [3134811]: http://support.microsoft.com/kb/3134811
 [3134228]: http://support.microsoft.com/kb/3134228
@@ -406,4 +432,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

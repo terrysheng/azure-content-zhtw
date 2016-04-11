@@ -1,8 +1,5 @@
 
  
-
-在 Azure 基礎結構服務中，設定在虛擬機器中執行的第一個或下一個開發/測試或實際執行的 Oracle 資料庫。利用簡化設定的優點以及快速擴展 Oracle 資料庫工作負載的功能，來使其增加新的容量。
-
 ## Oracle 虛擬機器映像
 
 如需最新的 Windows 與 Linux 虛擬機器映像集，請參閱 [Oracle 虛擬機器映像清單](../articles/virtual-machines/virtual-machines-linux-classic-oracle-images.md)。
@@ -35,4 +32,4 @@
 
 [設定適用於 Azure 的 Oracle GoldenGate](../articles/virtual-machines/virtual-machines-windows-classic-configure-oracle-goldengate.md) 將帶領您逐步完成資料庫與複寫設定。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="03/24/2016" 
 	ms.author="awills"/>
 
 # 使用 Application Insights 監視 SharePoint 網站
@@ -97,6 +97,70 @@ Visual Studio Application Insights 會監視應用程式的可用性、效能和
 ![](./media/app-insights-sharepoint/08-users.png)
 
 
+## 擷取使用者識別碼
+
+
+標準網頁程式碼片段不會從 SharePoint 擷取使用者識別碼，但只要稍做修改就能執行此作業。
+
+
+1. 從 Application Insights 中的 [Essentials] 下拉式清單複製您應用程式的檢測金鑰。 
+
+
+    ![](./media/app-insights-sharepoint/02-props.png)
+
+2. 使用檢測金鑰替換下列程式碼片段中的 'XXXX'。
+3. 在您的 SharePoint 應用程式中內嵌指令碼，而非您從入口網站取得的程式碼片段。
+
+
+
+```
+
+
+<SharePoint:ScriptLink ID="ScriptLink1" name="SP.js" runat="server" localizable="false" loadafterui="true" /> 
+<SharePoint:ScriptLink ID="ScriptLink2" name="SP.UserProfiles.js" runat="server" localizable="false" loadafterui="true" /> 
+  
+<script type="text/javascript"> 
+var personProperties; 
+  
+// Ensure that the SP.UserProfiles.js file is loaded before the custom code runs. 
+SP.SOD.executeOrDelayUntilScriptLoaded(getUserProperties, 'SP.UserProfiles.js'); 
+  
+function getUserProperties() { 
+    // Get the current client context and PeopleManager instance. 
+    var clientContext = new SP.ClientContext.get_current(); 
+    var peopleManager = new SP.UserProfiles.PeopleManager(clientContext); 
+     
+    // Get user properties for the target user. 
+    // To get the PersonProperties object for the current user, use the 
+    // getMyProperties method. 
+    
+    personProperties = peopleManager.getMyProperties(); 
+  
+    // Load the PersonProperties object and send the request. 
+    clientContext.load(personProperties); 
+    clientContext.executeQueryAsync(onRequestSuccess, onRequestFail); 
+} 
+     
+// This function runs if the executeQueryAsync call succeeds. 
+function onRequestSuccess() { 
+var appInsights=window.appInsights||function(config){
+function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},r=document,f=window,e="script",o=r.createElement(e),i,u;for(o.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",r.getElementsByTagName(e)[0].parentNode.appendChild(o),t.cookie=r.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)s("track"+i.pop());return config.disableExceptionTracking||(i="onerror",s("_"+i),u=f[i],f[i]=function(config,r,f,e,o){var s=u&&u(config,r,f,e,o);return s!==!0&&t["_"+i](config,r,f,e,o),s}),t
+    }({
+        instrumentationKey:"XXXX"
+    });
+    window.appInsights=appInsights;
+    appInsights.trackPageView(document.title,window.location.href, {User: personProperties.get_displayName()});
+} 
+  
+// This function runs if the executeQueryAsync call fails. 
+function onRequestFail(sender, args) { 
+} 
+</script> 
+
+
+```
+
+
 
 ## 後續步驟
 
@@ -108,4 +172,7 @@ Visual Studio Application Insights 會監視應用程式的可用性、效能和
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+
+ 
+
+<!---HONumber=AcomDC_0330_2016-->

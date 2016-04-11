@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="03/22/2016"
    ms.author="alkohli" />
 
 # 變更 StorSimple 裝置的裝置模式
@@ -57,13 +57,14 @@ StorSimple 裝置可以在標準、維護和復原模式下運作。以下簡短
 #### 判斷目前的裝置模式
 
 1. 遵循[使用 PuTTY 來連接到裝置序列主控台](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console)中的步驟，登入裝置序列主控台。
+
 2. 查看裝置的序列主控台功能表中的橫幅訊息。此訊息會明確指出裝置處於維護模式或復原模式。如果訊息不含任何關於系統模式的特定資訊，就表示裝置處於標準模式。
 
 ## 變更 StorSimple 裝置模式 
 
 您可以讓 StorSimple 裝置進入維護模式 (從標準模式)，以執行維護或安裝維護模式更新。執行下列程序進入或結束維護模式。
 
-> [AZURE.IMPORTANT] 進入維護模式之前，請存取 Azure 傳統入口網站中**維護**頁面上的**硬體狀態**，以確認兩個裝置控制器的健康情況良好。如果控制站的健康情況不好，請連絡 Microsoft 支援服務以進行後續步驟。如需詳細資訊，請移至[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
+> [AZURE.IMPORTANT] 進入維護模式之前，請存取 Azure 傳統入口網站中**維護**頁面上的**硬體狀態**，以確認兩個裝置控制器的健康情況良好。如果一個或兩個控制器的健康情況不好，請連絡 Microsoft 支援服務以進行後續步驟。如需詳細資訊，請移至[連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 
 #### 進入維護模式
 
@@ -97,4 +98,4 @@ StorSimple 裝置可以在標準、維護和復原模式下運作。以下簡短
 
 了解如何在 StorSimple 裝置上[套用標準和維護模式更新](storsimple-update-device.md)。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

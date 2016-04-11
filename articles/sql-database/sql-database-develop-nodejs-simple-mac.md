@@ -26,36 +26,19 @@
 
 本主題提供可在 Mac OS X 上執行的 Node.js 程式碼範例。這個範例使用 Tedious 驅動程式連接到 Azure SQL Database。
 
+## 步驟 1︰設定開發環境
 
-## 先決條件
+[使用 Tedious Node.js Driver for SQL Server 的必要條件](https://msdn.microsoft.com/library/mt652094.aspx#Mac)
 
-
-安裝 **node**，除非您的電腦已安裝。
-
-
-若要在 OSX 10.10 Yosemite 上安裝 node.js，您可以下載預先編譯的二進位封裝，如此可讓您順利並輕鬆安裝。[前往 nodejs.org](http://nodejs.org/)，按一下 [安裝] 按鈕，以下載最新的封裝。
-
-依照將會安裝 **node** 和 **npm** 之安裝精靈的安裝步驟從 .dmg 安裝套件，npm 是「節點封裝管理員」，有助於安裝 node.js 的其他封裝。
-
-
-將您的電腦設定為使用**節點** 和 **npm** 之後，請巡覽至您打算建立 Node.js 專案的目錄，並輸入下列命令。
-
-
-	npm init
-	npm install tedious
-
-
-**npm init** 會建立節點專案。若要在專案建立期間保留預設值，請按 Enter 鍵直到專案建立為止。現在您會在專案目錄中看到 **package.json** 檔案。
-
-### SQL Database
+## 步驟 2：建立 SQL Database
 
 請參閱[快速入門頁面](sql-database-get-started.md)，以了解如何建立範例資料庫。請務必遵循該指南以建立 **AdventureWorks 資料庫範本**。以下所示的範例僅適用於 **AdventureWorks 結構描述**。
 
-## 步驟 1：取得連線詳細資料
+## 步驟 3：取得連接詳細資料
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## 步驟 2：連接
+## 步驟 4︰連接
 
 [new Connection](http://pekim.github.io/tedious/api-connection.html) 函式可用來連接到 SQL Database。
 
@@ -74,7 +57,7 @@
 	});
 
 
-## 步驟 3：執行查詢
+## 步驟 5：執行查詢
 
 
 所有 SQL 陳述式都會使用 [new Request()](http://pekim.github.io/tedious/api-request.html) 函式來執行。如果陳述式傳回資料列 (例如 SELECT 陳述式)，您可以使用 [request.on()](http://pekim.github.io/tedious/api-request.html) 函式擷取這些資料列。如果沒有資料列，[request.on()](http://pekim.github.io/tedious/api-request.html) 函式會傳回空白清單。
@@ -123,7 +106,7 @@
 	}
 
 
-## 步驟 4：插入資料列
+## 步驟 6：插入資料列
 
 在這個範例中，您將了解如何安全地執行 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) 陳述式、傳遞透過 [SQL 插入](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 弱點保護您應用程式的參數，以及擷取自動產生的[主索引鍵](https://msdn.microsoft.com/library/ms179610.aspx)值。
 
@@ -172,4 +155,4 @@
 
 如需詳細資訊，請參閱 [Node.js 開發人員中心](/develop/nodejs/)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

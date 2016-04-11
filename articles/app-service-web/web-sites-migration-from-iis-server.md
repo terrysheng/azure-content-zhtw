@@ -21,7 +21,7 @@
 
 您可以輕鬆地將在 Internet Information Service (IIS) 6 或更新版本上執行的現有網站移轉至 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)。
 
->[AZURE.IMPORTANT] 我們將在 2015 年 7 月 14 日終止對 Windows Server 2003 的支援。如果您的網站目前裝載於採用 Windows Server 2003 的 IIS 伺服器上，則 Web Apps 是一種讓您的網站保持連線的低風險、低成本和低摩擦方式，而 Web Apps 移轉小幫手可以協助您自動進行移轉程序。
+>[AZURE.IMPORTANT] 我們已在 2015 年 7 月 14 日終止對 Windows Server 2003 的支援。如果您的網站目前裝載於採用 Windows Server 2003 的 IIS 伺服器上，則 Web Apps 是一種讓您的網站保持連線的低風險、低成本和低摩擦方式，而 Web Apps 移轉小幫手可以協助您自動進行移轉程序。
 
 [Web Apps 移轉小幫手](https://www.movemetothecloud.net/)可以分析您的 IIS 伺服器安裝、識別哪些網站可以移轉至 App Service、反白顯示任何無法移轉或平台上不支援的項目，然後將您的網站和相關聯的資料庫移轉至 Azure。
 
@@ -135,4 +135,4 @@
 * 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0330_2016-->

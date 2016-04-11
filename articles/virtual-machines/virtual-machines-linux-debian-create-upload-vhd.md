@@ -3,7 +3,7 @@
 	description="了解如何建立 Debian 7 和 8 VHD，以供部署於 Azure 中。"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="SuperScottz"
+	authors="szarkos"
 	manager="timlt"
 	editor=""
     tags="azure-resource-manager,azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
-	ms.author="mingzhan"/>
+	ms.date="03/25/2016"
+	ms.author="szark"/>
 
 
 
@@ -34,7 +34,23 @@
 - 所有 VHD 的大小都必須是 1 MB 的倍數。
 
 
-## Debian 7.x 和 8.x
+## 使用 Azure-Manage 建立 Debian VHD
+
+有一些工具可用來產生適用於 Azure 的 Debian VHD，例如 [credativ](http://www.credativ.com/) 中的 [azure-manage](https://gitlab.credativ.com/de/azure-manage) 指令碼。若不想從頭建立映像，建議採用此方法。例如，若要建立 Debian 8 VHD，請執行下列命令以下載 azure-manage (和相依性)，並執行 azure\_build\_image 指令碼︰
+
+	# sudo apt-get update
+	# sudo apt-get install git qemu-utils mbr kpartx debootstrap
+
+	# sudo apt-get install python3-pip
+	# sudo pip3 install azure-storage azure-servicemanagement-legacy pytest pyyaml
+	# git clone https://gitlab.credativ.com/de/azure-manage.git
+	# cd azure-manage
+	# sudo pip3 install .
+
+	# sudo azure_build_image --option release=jessie --option image_size_gb=30 --option image_prefix=debian-jessie-azure section
+
+
+## 手動準備 Debian VHD
 
 1. 在 Hyper-V 管理員中，選取虛擬機器。
 
@@ -44,22 +60,42 @@
 
 4. 依照以下方法編輯 `/etc/default/grub` 檔案及修改 **GRUB\_CMDLINE\_LINUX** 參數，以納入用於 Azure 的其他核心參數。
 
-        GRUB_CMDLINE_LINUX="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+        GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200 earlyprintk=ttyS0,115200 rootdelay=30"
 
 5. 重建 grub，然後執行：
 
         # sudo update-grub
 
-6. 安裝 Azure Linux 代理程式的相依性封裝：
+6. 將 Debian 的 Azure 存放庫加入 Debian 6 或 7 的 /etc/apt/sources.list 中：
 
-        # apt-get install -y git parted
+	**Debian 6.x "Wheezy"**
 
-7.	使用[指引](virtual-machines-linux-update-agent.md)從 GitHub 安裝 Azure Linux 代理程式，並選擇 2.0.14 版：
+		deb http://debian-archive.trafficmanager.net/debian wheezy-backports main
+		deb-src http://debian-archive.trafficmanager.net/debian wheezy-backports main
+		deb http://debian-archive.trafficmanager.net/debian-azure wheezy main
+		deb-src http://debian-archive.trafficmanager.net/debian-azure wheezy main
 
-			# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent
-			# chmod +x waagent
-			# cp waagent /usr/sbin
-			# /usr/sbin/waagent -install -verbose
+
+	**Debian 7.x "Jessie"**
+
+		deb http://debian-archive.trafficmanager.net/debian jessie-backports main
+		deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
+		deb http://debian-archive.trafficmanager.net/debian-azure jessie main
+		deb-src http://debian-archive.trafficmanager.net/debian-azure jessie main
+
+
+7. 安裝 Azure Linux 代理程式：
+
+		# sudo apt-get update
+		# sudo apt-get install waagent
+
+8. 若為 Debian 7，從 wheezy-backports 存放庫執行 3.16 核心需要此代理程式。首先建立稱為 /etc/apt/preferences.d/linux.pref 的檔案，其內容如下：
+
+		Package: linux-image-amd64 initramfs-tools
+		Pin: release n=wheezy-backports
+		Pin-Priority: 500
+
+	然後執行 "sudo apt-get install linux-image-amd64" 安裝新的核心。
 
 8. 取消佈建虛擬機器並準備將其佈建於 Azure 上，然後執行：
 
@@ -69,16 +105,9 @@
 
 9. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。您現在可以將 Linux VHD 上傳至 Azure。
 
-## 使用 Credativ 指令碼來建立 Debian VHD
-
-Credativ 網站具有協助您自動建立 Debian VHD 的指令碼。您可以從[這裡](https://gitlab.credativ.com/de/azure-manage)下載，再將它安裝在 Linux VM 中。若要建立 Debian VHD (如 Debian 7)，請執行：
-
-        # azure_build_image --option release=wheezy --option image_prefix=lilidebian7 --option image_size_gb=30 SECTION
-
-如果您在使用該指令碼時遭遇任何問題，只要透過[這裡](https://gitlab.credativ.com/groups/de/issues)向 Credativ 提出問題即可。
 
 ## 後續步驟
 
-您現在可以開始使用您的 Debian 虛擬硬碟在 Azure 建立新的虛擬機器。如果這是您第一次將該 .vhd 檔案上傳到 Azure，請參閱[建立及上傳包含 Linux 作業系統的虛擬硬碟](virtual-machines-linux-classic-create-upload-vhd.md)中的步驟 2 和 3。
+您現在可以開始使用您的 Debian 虛擬硬碟在 Azure 建立新的虛擬機器。若這是您第一次將該 .vhd 檔案上傳到 Azure，請參閱 [建立及上傳包含 Linux 作業系統的虛擬硬碟](virtual-machines-linux-classic-create-upload-vhd.md) 中的步驟 2 和步驟 3。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

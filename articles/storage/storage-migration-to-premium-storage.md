@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/19/2016"
+    ms.date="03/28/2016"
     ms.author="prkhad"/>
 
 
@@ -45,7 +45,7 @@ Azure VM 支援連接數個「進階儲存體」磁碟，讓您應用程式的�
 ### 先決條件
 - 您將需要 Azure 訂用帳戶。如果您沒有訂用帳戶，可以建立一個月的[免費試用](https://azure.microsoft.com/pricing/free-trial/)訂用帳戶，或造訪 [Azure 定價](https://azure.microsoft.com/pricing/)以了解其他選項。
 - 若要執行 PowerShell Cmdlet，您將需要 Microsoft Azure PowerShell 模組。若要下載此模組，請參閱 [Microsoft Azure 下載](https://azure.microsoft.com/downloads/)。
-- 當您計劃使用在進階儲存體上執行的 Azure VM 時，您需要使用 DS 系列或 GS 系列的 VM。DS 系列的 VM 可同時搭配標準和進階儲存體磁碟使用。未來進階儲存體磁碟將可搭配更多 VM 類型使用。如需所有可用 Azure VM 磁碟類型和大小的詳細資訊，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-windows-sizes.md)和[雲端服務的大小](../cloud-services/cloud-services-sizes-specs.md)。
+- 當您計劃使用在進階儲存體上執行的 Azure VM 時，您需要使用 DS 系列、DSv2 系列或 GS 系列的 VM。您可以同時使用標準和進階儲存體磁碟與 DS 系列、DSv2 系列或 GS 系列的 VM 搭配。未來進階儲存體磁碟將可搭配更多 VM 類型使用。如需所有可用 Azure VM 磁碟類型和大小的詳細資訊，請參閱[虛擬機器的大小](../virtual-machines/virtual-machines-windows-sizes.md)和[雲端服務的大小](../cloud-services/cloud-services-sizes-specs.md)。
 
 ### 注意事項
 
@@ -123,7 +123,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-
 
 		%windir%\system32\sysprep\sysprep.exe
 
-4. 在 [系統準備工具] 中依序選取 [進入系統全新體驗 (OOBE)]、[一般化] 核取方塊、[關機]，然後按一下 [確定] \(如下方圖片所示)。這會將作業系統一般化，並關閉系統。
+4. 在 [系統準備工具] 中依序選取 [進入系統全新體驗 (OOBE)]、[一般化] 核取方塊、[關機]，然後按一下 [確定] (如下方圖片所示)。這會將作業系統一般化，並關閉系統。
 
 	![][1]
 
@@ -146,7 +146,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-
 建立儲存體帳戶來維護您的 VHD。規劃儲存 VHD 的位置時，請考量下列幾點：
 
 - 目標儲存體帳戶可能是 Standard 或進階儲存體，端視您的應用程式需求而定。
-- 儲存體帳戶位置必須與您將在最終階段建立的 DS 系列或 GS 系列 Azure VM 相同。您可以複製到新的儲存體帳戶，或打算根據您的需求，使用相同的儲存體帳戶。
+- 儲存體帳戶位置必須與您將在最終階段建立的 DS 系列’DSv2 系列或 GS 系列 Azure VM 相同。您可以複製到新的儲存體帳戶，或打算根據您的需求，使用相同的儲存體帳戶。
 - 為下一個階段複製並儲存目的地儲存體帳戶的儲存體帳戶金鑰。
 - 若是資料磁碟，您可以選擇將一些資料磁碟保留在標準儲存體帳戶中 (例如具有散熱器儲存體的磁碟)，並將具有大量 IOPS 的磁碟移至進階儲存體帳戶。
 
@@ -171,7 +171,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-
 
 	![][2]
 
-2. 從 S3 貯體下載 VHD 檔案。然後選取 VHD 檔案，再依序按一下 [Actions] \(動作) > [Download] \(下載)。
+2. 從 S3 貯體下載 VHD 檔案。然後選取 VHD 檔案，再依序按一下 [Actions] (動作) > [Download] (下載)。
 
 	![][3]|
 
@@ -243,7 +243,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-
 
 #### 連接至新 Azure VM 執行個體的資料磁碟 VHD
 
-將資料磁碟 VHD 上傳至儲存體帳戶之後，將其註冊為 Azure 資料磁碟，便可以連接到新的 DS 系列或 GS 系列 Azure VM 執行個體。
+將資料磁碟 VHD 上傳至儲存體帳戶之後，將其註冊為 Azure 資料磁碟，便可以連接到新的 DS 系列、DSv2 系列或 GS 系列 Azure VM 執行個體。
 
 使用下列 PowerShell Cmdlet 將您的 VHD 註冊為 Azure 資料磁碟。提供存放複製的 VHD 的完整容器 URL。
 
@@ -251,9 +251,9 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-
 
 複製並儲存這個新 Azure 資料磁碟的名稱。在上述範例中，該名稱是「DataDisk」。
 
-### 建立 Azure DS 系列或 GS 系列的 VM。
+### 建立 Azure DS 系列、DSv2 系列或 GS 系列的 VM。
 
-註冊 OS 映像或 OS 磁碟之後，請建立新的 DS 系列或 GS 系列 VM。您將使用您註冊的作業系統映像或作業系統磁碟名稱。從進階儲存體層選取 VM 類型。在下列範例中，我們使用的 VM 大小為「Standard\_DS2」。
+註冊 OS 映像或 OS 磁碟之後，請建立新的 DS 系列、DSv2 系列或 GS 系列 VM。您將使用您註冊的作業系統映像或作業系統磁碟名稱。從進階儲存體層選取 VM 類型。在下列範例中，我們使用的 VM 大小為「Standard\_DS2」。
 
 >[AZURE.NOTE] 更新磁碟大小以確定它符合您的容量、效能需求，和可用的 Azure 磁碟大小。
 
@@ -299,7 +299,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-
 
 ### 連接資料磁碟
 
-最後，如果您已經註冊資料磁碟 VHD，請將它們連接至新的 DS 系列或 GS 系列 Azure VM。
+最後，如果您已經註冊資料磁碟 VHD，請將它們連接至新的 DS 系列、DSv2 系列或 GS 系列 Azure VM。
 
 使用下列 PowerShell Cmdlet，將資料磁碟連接至新的 VM，並指定快取原則。在下列範例中，快取原則設定為「ReadOnly」。
 
@@ -315,7 +315,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-
 
 如果您目前有使用標準儲存體磁碟的 Azure VM，請依照下列程序將其移轉至進階儲存體。就高層級而言，移轉牽涉到兩個階段 ︰
 -	將磁碟從標準儲存體帳戶移轉到進階儲存體帳戶
--	將 VM 大小從 A/D/G 轉換成使用進階儲存體磁碟所需的 DS 或 GS。
+-	將 VM 大小從 A/D/G 轉換成使用進階儲存體磁碟所需的 DS、DSv2 或 GS。
 
 此外，請參閱上一節中有關於「注意事項」的內容，以了解您可以為進階儲存體執行的各種最佳化。根據您的應用程式所適用的最佳化，移轉程序可能屬於下列其中一個移轉案例。
 
@@ -324,7 +324,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-
 
 #### 準備工作
 1. 請確定進階儲存體可在您要移轉到的區域中使用。
-2. 決定您將要使用的新 VM 系列。這應該是 DS 系列或 GS 系列，這取決於區域中的可用性和您的需求。
+2. 決定您將要使用的新 VM 系列。這應該是 DS 系列、DSv2 系列或 GS 系列，這取決於區域中的可用性和您的需求。
 3. 決定您將要使用的確切 VM 大小。VM 大小必須足以支援您所擁有的資料磁碟數目。例如，如果您有 4 個資料磁碟，VM 必須有 2 個或多個核心。也請考慮處理能力、記憶體和網路頻寬需求。
 4. 在目標區域中建立進階儲存體帳戶。這是您將用於新 VM 的帳戶。
 5. 請備妥目前 VM 的詳細資料，包括磁碟和對應 VHD Blob 的清單。
@@ -341,7 +341,7 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-
 4.	請使用您在進階儲存體帳戶中複製的 OS 磁碟 VHD Blob，建立新的 OS 磁碟。您可以使用 “Add-AzureDisk” PowerShell Cmdlet 來執行此作業。
 
     範例指令碼：Add-AzureDisk -DiskName "NewOSDisk1" -MediaLocation "https://newpremiumstorageaccount.blob.core.windows.net/vhds/MyOSDisk.vhd" -OS "Windows"
-5. 接下來，請建立使用上述的 OS 磁碟和資料磁碟建立您的 DS 系列 VM (或 GS 系列)
+5. 接下來，請建立使用上述的 OS 磁碟和資料磁碟建立您的 DS 系列 VM (或 DSv2 系列或 GS 系列)。
 
     在該服務中建立新的雲端服務和新 VM 的範例指令碼：New-AzureService -ServiceName “NewServiceName” -Location “East US 2"
 
@@ -680,4 +680,4 @@ Premium 儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

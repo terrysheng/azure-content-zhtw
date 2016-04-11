@@ -31,7 +31,7 @@ Web Apps 可以備份下列資訊：
 
 * Web 應用程式設定
 * Web 應用程式檔案內容
-* 任何連接到您應用程式的 Azure SQL 資料庫或 MySQL 資料庫 (您可以選擇要將哪些資料庫納入備份)
+* 任何連接到您應用程式的 Azure SQL Database 或 MySQL 資料庫 (您可以選擇要將哪些資料庫納入備份)
 
 這項資訊會備份至您指定的 Azure 儲存體帳戶和容器。
 
@@ -126,8 +126,7 @@ Web Apps 可以備份下列資訊：
 
 假設您有一個 Web 應用程式，其中包含過去幾年的記錄檔和靜態影像，且以後不再變更。您已完整備份 Web 應用程式，包括舊的影像。現在您想要每天備份 Web 應用程式，但不想付費儲存從未變更的記錄檔或靜態影像檔案。
 
-![Logs 資料夾][LogsFolder] 
-![Images 資料夾][ImagesFolder]
+![Logs 資料夾][LogsFolder] ![Images 資料夾][ImagesFolder]
 	
 下列步驟顯示如何從備份中排除這些檔案。
 
@@ -190,4 +189,4 @@ Web 應用程式的資料庫備份則儲存在 .zip 檔案的根目錄中。若�
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

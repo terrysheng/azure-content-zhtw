@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="03/15/2016"
+   ms.date="03/23/2016"
    ms.author="alkohli"/>
 
 # StorSimple 軟體、高可用性和網路需求
@@ -52,7 +52,7 @@
  
 ## StorSimple 裝置的網路需求。
 
-您的 StorSimple 裝置是鎖定的裝置。不過，您的防火牆中必須開啟連接埠，以允許 iSCSI、雲端或管理流量。下表列出必須在防火牆中開啟的連接埠。在這個資料表中，*in* 或 *inbound* 指的是輸入用戶端要求存取裝置的方向。*Out* 或 *outbound* 指的是 StorSimple 裝置於外部傳送資料至部署之上的方向：例如，輸出到網際網路。
+您的 StorSimple 裝置是鎖定的裝置。不過，您的防火牆中必須開啟連接埠，以允許 iSCSI、雲端和管理流量。下表列出必須在防火牆中開啟的連接埠。在這個資料表中，*in* 或 *inbound* 指的是輸入用戶端要求存取裝置的方向。*Out* 或 *outbound* 指的是 StorSimple 裝置於外部傳送資料至部署之上的方向：例如，輸出到網際網路。
 
 | 連接埠號碼 <sup>1,2</sup> | 內或外 | 連接埠範圍 | 必要 | 注意事項 |
 |------------------------|-----------|------------|----------|-------| 
@@ -77,7 +77,7 @@
 
 網路系統管理員通常可以根據 URL 模式設定進階防火牆規則，來篩選輸入和輸出流量。您的 StorSimple 裝置和 StorSimple Manager 服務取決於其他 Microsoft 應用程式，例如 Azure 服務匯流排、Azure Active Directory 存取控制、儲存體帳戶和 Microsoft Update 伺服器。與這些應用程式相關聯的 URL 模式可以用來設定防火牆規則。請務必了解與這些應用程式相關聯的 URL 模式可以變更。接著，您將需要網路系統管理員監控 StorSimple 的防火牆規則，並在需要時更新。
 
-在大部分的情況下，建議您自由地設定您的防火牆規則。不過，您可以使用下列資訊設定建立安全環境所需的進階防火牆規則。
+我們建議您，在大部分情況下，根據固定 IP 位址為輸出流量設定防火牆規則。不過，您可以使用下列資訊設定建立安全環境所需的進階防火牆規則。
 
 > [AZURE.NOTE] 裝置 (來源) IP 應該一律設定為所有啟用的網路介面。目的地 IP 應該設為 [Azure 資料中心 IP 範圍](https://www.microsoft.com/zh-TW/download/confirmation.aspx?id=41653)。
 
@@ -85,6 +85,7 @@
 | URL 模式 | 元件/功能 | 裝置 IP |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | StorSimple Manager 服務<br>存取控制服務<br>Azure 服務匯流排| 啟用雲端功能的網路介面 |
+|`http://*.backup.windowsazure.com`|裝置註冊| 僅限資料 0|
 |`http://crl.microsoft.com/pki/*` |憑證撤銷 |啟用雲端功能的網路介面 |
 | `https://*.core.windows.net/*` | Azure 儲存體帳戶和監視 | 啟用雲端功能的網路介面 |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Microsoft Update 伺服器<br> | 僅限控制站的固定 IP |
@@ -126,12 +127,7 @@ Update 2 有幾項網路相關的改進且路由度量已變更。行為可以�
 		
 	| 網路介面 | 已啟用雲端 | 已停用雲端且具有閘道器 |
 	|-----|---------------|---------------------------|
-	| Data 0 | 1 | - |
-	| Data 1 | 2 | 20 |
-	| Data 2 | 3 | 30 |
-	| Data 3 | 4 | 40 |
-	| Data 4 | 5 | 50 |
-	| Data 5 | 6 | 60 |
+	| Data 0 | 1 | - | | Data 1 | 2 | 20 | | Data 2 | 3 | 30 | | Data 3 | 4 | 40 | | Data 4 | 5 | 50 | | Data 5 | 6 | 60 |
 
 
 - 雲端流量透過網路介面路由的順序為：
@@ -167,7 +163,7 @@ Update 2 有幾項網路相關的改進且路由度量已變更。行為可以�
 
 除了上述的網路需求，如需最佳效能的 StorSimple 解決方案，請遵循下列最佳作法：
 
-- 請確定您的 StorSimple 裝置有專用的 40 Mbps 頻寬 (或以上) 隨時可用。此頻寬不應與任何其他應用程式共用。
+- 請確定您的 StorSimple 裝置有專用的 40 Mbps 頻寬 (或以上) 隨時可用。此頻寬不應與其他應用程式共用 (或應該透過使用 QoS 原則保證配置)。
 
 - 請確定隨時都可以使用網路連線到網際網路。裝置的零星或不可靠網際網路連線 (包含毫無網際網路連線能力) 將導致不受支援的組態。
 
@@ -257,7 +253,7 @@ StorSimple 裝置包含使用鏡像空間保護的固態硬碟 (SSD) 與硬碟 (
 
 - 如果一個 EBOD 機箱控制器模組失敗，請先確定另一個控制器模組處於主動狀態，才取代失敗的模組。若要確認控制器為作用中，請移至[識別您裝置上的作用中控制器](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)。
 
-- 在更換 EBOD 控制器模組期間，請存取 [維護] - [硬體] 狀態，在 StorSimple Manager 服務中持續監視元件的狀態。
+- 在更換 EBOD 控制器模組期間，請存取 [維護] > [硬體狀態]，在 StorSimple Manager 服務中持續監視元件的狀態。
 
 - 如果 SAS 纜線失敗或需要替代品 (Microsoft 支援應涉入這類決定)，請確定您只移除了需要替代品的 SAS 纜線。
 
@@ -279,4 +275,4 @@ StorSimple 裝置包含使用鏡像空間保護的固態硬碟 (SSD) 與硬碟 (
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!----HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

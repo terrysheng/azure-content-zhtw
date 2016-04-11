@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # 將範例資料載入 SQL 資料倉儲
@@ -41,7 +41,7 @@
 
 2. 現在，如果您想要建立銷售橫條圖，只要按一下 [SalesAmount] 資料行，Power BI 將會為您自動建立。您可藉由將 [CustomerIncome] 圖表拖曳到 [AggregateSales] 左邊的 [軸] 欄位來增加額外的深度，以便依客戶營收等級顯示銷售業績。
 
-3. 最後，如果您想要建立銷售時間軸，只需按一下 [SalesAmount]、[OrderDate] 和 [折線圖] \([視覺效果] 下第二行中的第一個圖示) 即可。
+3. 最後，如果您想要建立銷售時間軸，只需按一下 [SalesAmount]、[OrderDate] 和 [折線圖] ([視覺效果] 下第二行中的第一個圖示) 即可。
 
 您隨時都可以按一下左下角的 [儲存] 按鈕並將您的視覺效果儲存為報告，藉以儲存您的進度。
 
@@ -51,26 +51,32 @@
 
 我們可以執行簡單的 select 陳述式，來取得員工的所有資訊：
 
-	SELECT * FROM DimEmployee;
+```sql
+SELECT * FROM DimEmployee;
+```
 
 我們也可以使用建構 (例如 GROUP BY) 執行更複雜的查詢， 來查看每一天所有銷售的總金額：
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```sql
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey
+;
+```
 
 我們甚至可以使用 WHERE 子句，來篩選出特定日期之前的訂單：
 
-	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
-	FROM FactInternetSales
-	WHERE OrderDateKey > '20020801'
-	GROUP BY OrderDateKey
-	ORDER BY OrderDateKey;
+```sql
+SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
+FROM FactInternetSales
+WHERE OrderDateKey > '20020801'
+GROUP BY OrderDateKey
+ORDER BY OrderDateKey
+;
+```
 
 事實上，SQL 資料倉儲幾乎支援 SQL Server 支援的所有 T-SQL 建構，而且您可以在我們的[移轉程式碼][]文件中找到一些差異。
-
-
 
 ## 後續步驟
 既然我們已經提供您一些時間，讓您利用範例資料進入狀況，接著請查看如何[開發][]、[載入][]或[移轉][]。
@@ -94,4 +100,4 @@
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

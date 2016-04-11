@@ -10,6 +10,8 @@
 
 ![IoT 解決方案架構][img-solution-architecture]
 
+> [AZURE.NOTE] 如需 IoT 架構的深入討論，請參閱 [Microsoft Azure IoT 服務︰參考架構][lnk-refarch]。
+
 ### 裝置連線能力
 
 在此 IoT 解決方案架構中，裝置會將遙測 (例如溫度讀數) 傳送給雲端端點，以進行儲存和處理。裝置也可以透過讀取來自雲端端點的訊息，以接收和回應雲端到裝置命令。例如，裝置可能會擷取命令，指示裝置變更其取樣資料的頻率。
@@ -26,7 +28,7 @@ IoT 專案所面臨的其中一個最大挑戰，就是如何可靠且安全地�
 
 除了上述需求之外，任何 IoT 解決方案也必須提供調整、安全性和可靠性。使用傳統技術 (例如 Web 容器和傳訊代理程式) 實作連線需求的結果是困難且耗時的。Azure IoT 中樞和 IoT 裝置 SDK 讓您更輕鬆地實作符合其需求的解決方案。
 
-裝置可以直接與雲端閘道端點通訊，或如果裝置無法使用任何雲端閘道支援的通訊協定，則可以透過執行通訊協定轉譯的中繼閘道 (例如 [IoT 中樞通訊協定閘道][lnk-protocol-gateway]) 連線。Auch die Eigenschaften
+裝置可以直接與雲端閘道端點通訊，或者，如果裝置無法使用任何雲端閘道支援的通訊協定，則可以透過執行通訊協定轉譯的中繼閘道 (例如 [IoT 中樞通訊協定閘道][lnk-protocol-gateway]) 連線。Auch die Eigenschaften
 
 ### 資料處理和分析
 
@@ -48,5 +50,6 @@ IoT 解決方案可以包含自動意見反應迴圈。例如，後端中的分�
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]: iot-hub-protocol-gateway.md
+[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -329,7 +329,7 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
 
     	azure group log show new_res_group --last-deployment
 
-    如需詳細資訊，則請參閱[在 Azure 中疑難排解資源群組部署](../virtual-machines/resource-group-deploy-debug.md)。
+    如需詳細資訊，則請參閱[在 Azure 中疑難排解資源群組部署](../resource-manager-troubleshoot-deployments-cli.md)。
 
 - Azure 入口網站中也會提供錯誤資訊，如下列螢幕擷取畫面所示。若要瀏覽至錯誤資訊：按一下動態工具列中的 [資源群組]、選取發生錯誤的資源群組，接著在 [資源群組] 刀鋒視窗的 [基本功能] 區域中按一下 [上次部署] 的日期，然後在 [部署記錄] 刀鋒視窗中選取失敗的部署，之後在 [部署] 刀鋒視窗中按一下有紅色驚嘆號的 [作業詳細資料]。失敗部署的狀態訊息會顯示在 [作業詳細資料] 刀鋒視窗中。
 
@@ -354,4 +354,4 @@ DocumentDB 資料庫帳戶是目前唯一可以使用 ARM 範本和 Azure CLI �
 
 如需您可以使用的其他範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

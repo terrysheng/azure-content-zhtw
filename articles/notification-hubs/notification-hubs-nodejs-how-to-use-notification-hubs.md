@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="03/08/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # 使用 Azure 通知中樞和 Node.js 傳送推播通知
@@ -87,7 +87,7 @@ NotificationHubService 物件可讓您使用通知中心。下列程式碼會為
 
 2. 選取 [通知中樞]，然後尋找您要用於範例的中樞。如果您需要建立新的通知中樞的說明，您可以參考 [Windows 市集開始使用教學課程](notification-hubs-windows-store-dotnet-get-started.md)。
 
-3. 選取 [Settings] \(設定)。
+3. 選取 [Settings] (設定)。
 
 4. 按一下 [存取原則]。您會看到兩個共用和完整存取連接字串。
 
@@ -230,4 +230,4 @@ WnsService 物件會提供可用來將推播通知傳送至通用 Windows 平台
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
   [Azure 入口網站]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

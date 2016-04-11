@@ -15,7 +15,7 @@
 
 ## 我可以使用多少的儲存體搭配虛擬機器？
 
-每個資料磁碟最多可達 1 TB。可使用的資料磁碟數量取決於虛擬機器的大小。如需詳細資訊，請參閱[虛擬機器的大小](virtual-machines-linux-sizes.md)。
+每個資料磁碟最多可達 1 TB。可使用的資料磁碟數量取決於虛擬機器的大小。如需詳細資訊，請參閱[虛擬機器的大小](../articles/virtual-machines/virtual-machines-linux-sizes.md)。
 
 Azure 儲存體帳戶提供作業系統磁碟和任何資料磁碟的儲存空間。每個磁碟是以分頁 Blob 方式儲存的 .vhd 檔案。如需定價的詳細資料，請參閱[儲存體定價詳細資料](http://go.microsoft.com/fwlink/p/?LinkId=396819)。
 
@@ -23,9 +23,9 @@ Azure 儲存體帳戶提供作業系統磁碟和任何資料磁碟的儲存空�
 
 Azure 僅支援固定的 VHD 格式虛擬硬碟。如果您想要在 Azure 中使用 VHDX 格式磁碟，請先使用 Hyper-V 管理員或 [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) Cmdlet 來加以轉換。接著，請使用 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) Cmdlet (以 [服務管理] 模式) 將 VHD 上傳到 Azure 中的儲存體帳戶，您便可以在虛擬機器上使用。
 
-- 如需適用於 Linux 的指示，請參閱[建立及上傳含有 Linux 作業系統的虛擬硬碟](virtual-machines-linux-classic-create-upload-vhd.md)。
+- 如需適用於 Linux 的指示，請參閱[建立及上傳含有 Linux 作業系統的虛擬硬碟](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md)。
 
-- 如需適用於 Windows 的指示，請參閱[建立及上傳 Windows Server VHD 至 Azure](virtual-machines-windows-classic-createupload-vhd.md)。
+- 如需適用於 Windows 的指示，請參閱[建立及上傳 Windows Server VHD 至 Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)。
 
 ## 這些虛擬機器與 Hyper-V 虛擬機器是一樣的嗎？
 
@@ -45,17 +45,17 @@ Azure 僅支援固定的 VHD 格式虛擬硬碟。如果您想要在 Azure 中�
 
 您需要建立遠端連線以登入虛擬機器，針對 Windows VM，請使用遠端桌面連線，針對 Linux VM，請使用安全殼層 (SSH)。如需相關指示，請參閱：
 
-- [如何登入執行 Windows Server 的虛擬機器](virtual-machines-windows-classic-connect-logon.md)：最多支援 2 個並行連線，除非伺服器設定為遠端桌面服務工作階段主機。  
-- [如何登入執行 Linux 的虛擬機器](virtual-machines-linux-classic-log-on.md)。根據預設，SSH 允許最多 10 個並行連線。您可以編輯組態檔以增加這個數字。
+- [如何登入執行 Windows Server 的虛擬機器](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md)：最多支援 2 個並行連線，除非伺服器設定為遠端桌面服務工作階段主機。  
+- [如何登入執行 Linux 的虛擬機器](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md)。根據預設，SSH 允許最多 10 個並行連線。您可以編輯組態檔以增加這個數字。
 
 
-如果您遇到遠端桌面或 SSH 的相關問題，請安裝並使用 [VMAccess](virtual-machines-windows-extensions-features.md) 擴充功能來協助修正問題。
+如果您遇到遠端桌面或 SSH 的相關問題，請安裝並使用 [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) 擴充功能來協助修正問題。
 
 對於 Windows VM，其他選項包括：
 
 - 在 Azure 傳統入口網站中，找出 VM，然後從命令列按一下 [重設遠端存取]。
-- 檢閱[疑難排解執行 Windows 之 Azure 虛擬機器的遠端桌面連線](virtual-machines-windows-troubleshoot-rdp-connection.md)。
-- 使用 Windows PowerShell 遠端功能以連線到 VM，或建立其他資源的額外端點來連線至 VM。如需詳細資訊，請參閱[如何設定虛擬機器的端點](virtual-machines-windows-classic-setup-endpoints.md)。
+- 檢閱[疑難排解執行 Windows 之 Azure 虛擬機器的遠端桌面連線](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)。
+- 使用 Windows PowerShell 遠端功能以連線到 VM，或建立其他資源的額外端點來連線至 VM。如需詳細資訊，請參閱[如何設定虛擬機器的端點](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md)。
 
 如果您熟悉 Hyper-V，您可能正在尋找類似 VMConnect 的工具。Azure 沒有提供類似的工具，因為並不支援主控台存取虛擬機器。
 
@@ -65,7 +65,7 @@ Azure 僅支援固定的 VHD 格式虛擬硬碟。如果您想要在 Azure 中�
 
 ## 如何變更暫存磁碟的磁碟機代號？
 
-在 Windows 虛擬機器上，您可以透過移動分頁檔並重新指派磁碟機代號來變更磁碟機代號，但您必須確定以特定的順序執行這些步驟。如需相關指示，請參閱[變更 Windows 暫存磁碟的磁碟機代號](virtual-machines-windows-classic-change-drive-letter.md)。
+在 Windows 虛擬機器上，您可以透過移動分頁檔並重新指派磁碟機代號來變更磁碟機代號，但您必須確定以特定的順序執行這些步驟。如需相關指示，請參閱[變更 Windows 暫存磁碟的磁碟機代號](../articles/virtual-machines/virtual-machines-windows-classic-change-drive-letter.md)。
 
 ## 如何升級客體作業系統？
 
@@ -82,7 +82,7 @@ Azure 僅支援固定的 VHD 格式虛擬硬碟。如果您想要在 Azure 中�
 
 Azure 提供的映像沒有預先設定的使用者名稱和密碼。當您使用這些映像的其中一個來建立虛擬機器時，您將需要提供用來登入虛擬機器的使用者名稱和密碼。
 
-如果您已經忘記使用者名稱或密碼，而且已經安裝 VM 代理程式，您可以安裝並使用 [VMAccess](virtual-machines-windows-extensions-features.md) 擴充功能來修正問題。
+如果您已經忘記使用者名稱或密碼，而且已經安裝 VM 代理程式，您可以安裝並使用 [VMAccess](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) 擴充功能來修正問題。
 
 其他詳細資料：
 
@@ -102,7 +102,7 @@ Azure 提供數個防毒軟體解決方案的選項，但管理則掌握在您�
 
 ## 備份和復原有哪些選擇？
 
-Azure 備份在特定地區以預覽版提供。如需詳細資訊，請參閱[備份 Azure 虛擬機器](backup-azure-vms.md)。來自認證合作夥伴的其他解決方案也可供使用。若要了解目前可用的項目，請搜尋 Azure Marketplace。
+Azure 備份在特定地區以預覽版提供。如需詳細資訊，請參閱[備份 Azure 虛擬機器](../articles/backup/backup-azure-vms.md)。來自認證合作夥伴的其他解決方案也可供使用。若要了解目前可用的項目，請搜尋 Azure Marketplace。
 
 其他選項是使用 Blob 儲存體的快照集功能。若要這樣做，您需要在任何依賴 Blob 快照集的作業前關閉 VM。這樣會儲存擱置的資料寫入，並讓檔案系統保持一致的狀態。
 
@@ -138,4 +138,4 @@ Azure 有時會重新啟動您的 VM，這是 Azure 資料中心中定期、計�
 
 [建立 Windows 虛擬機器的不同方式](virtual-machines-windows-creation-choices.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

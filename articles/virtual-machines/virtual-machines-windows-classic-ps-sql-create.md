@@ -18,12 +18,6 @@
 
 # 在 Azure 中建立 SQL Server 虛擬機器 (PowerShell)
 
-> [AZURE.SELECTOR]
-- [傳統入口網站](virtual-machines-windows-classic-portal-sql.md)
-- [PowerShell](virtual-machines-windows-classic-ps-sql-create.md)
-- [Azure Resource Manager 入口網站](virtual-machines-windows-portal-sql-server-provision.md)
-
-
 ## 概觀
 
 這篇文章提供如何使用 PowerShell Cmdlet 在 Azure 中建立 SQL Server 虛擬機器的步驟。
@@ -171,8 +165,8 @@
 
 在許多情況下下，下一個步驟是將資料庫移轉到這個新的 SQL Server VM。如需資料庫移轉的指引，請參閱[將資料庫移轉至 Azure VM 上的 SQL Server](virtual-machines-windows-classic-migrate-sql.md)。
 
-如果您還想了解如何從 Azure 傳統入口網站執行這些步驟，請參閱[在 Azure 中佈建 SQL Server 虛擬機器](virtual-machines-windows-classic-portal-sql.md)。
+如果還想了解如何使用 Azure 入口網站建立 SQL 虛擬機器，請參閱[在 Azure 中佈建 SQL Server 虛擬機器](virtual-machines-windows-portal-sql-server-provision.md)。請注意，本教學課程將逐步說明從入口網站利用建議的資源管理員模型建立 VM，而不是利用本 PowerShell 主題中所使用的傳統模型建立 VM。
 
 除了上述資源，我們也建議您檢閱[在 Azure 虛擬機器中執行 SQL Server 的其他相關主題](virtual-machines-windows-classic-sql-overview.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

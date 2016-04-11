@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 #Azure 通知中樞透過 .NET 後端通知 Android 使用者
@@ -25,7 +25,7 @@
 
 Azure 中的推播通知支援可讓您存取易於使用、多重平台的大規模推播基礎結構，而大幅簡化消費者和企業應用程式在行動平台上的推播通知實作。本教學課程將示範如何使用 Azure 通知中心，來將推播通知傳送到特定裝置上的特定應用程式使用者。ASP.NET WebAPI 後端可用來驗證用戶端並產生通知，如指引主題[從您的應用程式後端註冊](notification-hubs-registration-management.md#registration-management-from-a-backend)中所示。本教學課程以您在[開始使用通知中樞 (Android)](notification-hubs-android-get-started.md) 教學課程中建立的通知中樞為基礎。
 
-> [AZURE.NOTE]本教學課程假設您已建立並設定通知中樞，如[開始使用通知中樞 (Android)](notification-hubs-android-get-started.md) 中所述。
+> [AZURE.NOTE] 本教學課程假設您已建立並設定通知中樞，如[開始使用通知中樞 (Android)](notification-hubs-android-get-started.md) 中所述。
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -432,4 +432,4 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

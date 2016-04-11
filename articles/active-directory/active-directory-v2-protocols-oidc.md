@@ -37,7 +37,6 @@ OpenID Connect 是建置在 OAuth 2.0 的驗證通訊協定之上，可用來將
 - `response_type` 參數必須包含 `id_token`
 - 要求必須包含 `nonce` 參數
 
-
 ```
 // Line breaks for legibility only
 
@@ -51,11 +50,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=678910
 ```
 
-> [AZURE.TIP] 請嘗試將下列項目貼至網頁瀏覽器！
-
-```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=form_post&state=12345&nonce=678910
-```
+> [AZURE.TIP] 按一下下面的連結以執行此要求！ 登入之後，您的瀏覽器應重新導向至在位址列中有 `id_token` 的 `https://localhost/myapp/`。請注意，此要求會使用 `response_mode=query` (僅限教學課程目的)。建議使用 `response_mode=form_post`。<a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | 參數 | | 說明 |
 | ----------------------- | ------------------------------- | --------------- |
@@ -153,7 +148,6 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ## 取得存取權杖
 若要取得存取權杖，您需要稍微修改上述的登入要求：
 
-
 ```
 // Line breaks for legibility only
 
@@ -169,11 +163,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &nonce=678910										 // Any value, provided by your app
 ```
 
-> [AZURE.TIP] 請嘗試將下列要求貼至瀏覽器！
-
-```
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=form_post&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910
-```
+> [AZURE.TIP] 按一下下面的連結以執行此要求！ 登入之後，您的瀏覽器應重新導向至在位址列中有 `id_token` 和 `code` 的 `https://localhost/myapp/`。請注意，此要求會使用 `response_mode=query` (僅限教學課程目的)。建議使用 `response_mode=form_post`。<a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 在要求中包含權限範圍，並且使用 `response_type=code+id_token`，v2.0 端點可確保使用者已經同意 `scope` 查詢參數中表示的權限，並且將授權碼傳回至您的應用程式以交換存取權杖。
 
@@ -212,4 +202,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 一旦取得授權 `code` 和 `id_token`，您可以將使用者登入，並且代表他們取得存取權杖。若要將使用者登入，您必須完整地如[上方](#validating-the-id-token)所述驗證 `id_token`。若要取得存取權杖，您可以遵循我們的 [OAuth 通訊協定文件](active-directory-v2-protocols-oauth-code.md#request-an-access-token)中所述的步驟。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

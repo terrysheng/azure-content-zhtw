@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="03/28/2016"
 	ms.author="tarcher"/>
 
 # 我的 MVC 專案 (Visual Studio Azure Active Directory 已連線服務) 發生什麼事？
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
-> - [What Happened](vs-active-directory-dotnet-what-happened.md)
+> - [開始使用](vs-active-directory-dotnet-getting-started.md)
+> - [發生什麼情形](vs-active-directory-dotnet-what-happened.md)
 
 
 
@@ -171,4 +171,4 @@ Azure Active Directory 應用程式已更新為包含*讀取目錄資料*權限�
 
 [深入了解 Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

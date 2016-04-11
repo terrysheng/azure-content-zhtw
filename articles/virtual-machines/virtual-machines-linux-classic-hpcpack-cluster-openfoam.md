@@ -6,79 +6,41 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management,hpc-pack"/>
+ tags="azure-service-management,azure-resource-manager,hpc-pack"/>
 <tags
  ms.service="virtual-machines-linux"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="11/25/2015"
+ ms.date="03/24/2016"
  ms.author="danlep"/>
 
 # 在 Azure 中的 Linux RDMA 叢集以 Microsoft HPC Pack 執行 OpenFoam
 
-本文說明如何在 Azure 上部署 Microsoft HPC Pack 叢集，並且在跨 Azure 遠端直接記憶體存取 (RDMA) 網路連接的多個 Linux 計算節點上使用 Intel MPI 來執行 [OpenFoam](http://openfoam.com/) 工作。
+本文說明在 Azure 中執行 OpenFoam 的一種方式。您將會在 Azure 上部署 Microsoft HPC Pack 叢集，並在跨 Azure 遠端直接記憶體存取 (RDMA) 網路連接的多個 Linux 計算節點上使用 Intel MPI 執行 [OpenFoam](http://openfoam.com/) 工作。在 Azure 中執行 OpenFoam 的其他選項，還包括 Marketplace 中所提供之設定完整的市售映像。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 OpenFOAM (表示 Open Field Operation and Manipulation) 是一個免費提供的開放原始碼計算流體力學 (CFD) 軟體套件，廣泛運用在商業和學術組織的工程及科學領域中。其中包含網格處理工具，特別是 snappyHexMesh，這是一種用於複雜 CAD 幾何的前置和後置處理的平行化網格處理器。幾乎所有的程序皆以平行方式執行，讓使用者能夠依其需求充分利用電腦硬體。
 
-Microsoft HPC Pack 提供功能來執行各種大規模 HPC 和平行應用程式，包括 Microsoft Azure 虛擬機器的叢集上的 MPI 應用程式。從 Microsoft HPC Pack 2012 R2 Update 2 開始，HPC Pack 也支援在部署於 HPC Pack 叢集中的 Linux 計算節點 VM 上執行 Linux HPC 應用程式。如需搭配 HPC Pack 使用 Linux 計算節點的簡介，請參閱[開始在 Azure 中的 HPC Pack 叢集使用 Linux 計算節點](virtual-machines-linux-classic-hpcpack-cluster.md)。
+Microsoft HPC Pack 提供功能來執行各種大規模 HPC 和平行應用程式，包括 Microsoft Azure 虛擬機器的叢集上的 MPI 應用程式。HPC Pack 也支援在 HPC Pack 叢集中部署的 Linux 計算節點 VM 上，執行 Linux HPC 應用程式。如需搭配 HPC Pack 使用 Linux 計算節點的簡介，請參閱[開始在 Azure 中的 HPC Pack 叢集使用 Linux 計算節點](virtual-machines-linux-classic-hpcpack-cluster.md)。
 
 >[AZURE.NOTE] 本文假設您熟悉 Linux 系統管理，以及在 Linux HPC 叢集上執行 MPI 工作負載。
 
 ## 必要條件
 
-*   **HPC Pack 叢集與 Linux 計算節點** - 請參閱[開始在 Azure 中的 HPC Pack 叢集使用 Linux 計算節點](virtual-machines-linux-classic-hpcpack-cluster.md)，以了解在 Azure 上部署 HPC Pack 叢集與 Linux 計算節點的必要條件和步驟，方法是使用 Azure Marketplace 中的 Azure PowerShell 指令碼和 HPC Pack 映像。如需關於使用 A8 計算密集型執行個體存取 Azure RDMA 網路的相關考量，請參閱[關於 A8、A9、A10 和 A11 運算密集型執行個體](virtual-machines-windows-a8-a9-a10-a11-specs.md)。
-
-    以下是可以與指令碼搭配使用的範例 XML 組態檔，以部署 Azure 架構 HPC Pack 叢集，其中包含一個 A8 大小的 Windows Server 2012 R2 前端節點，和 2 個 A8 大小的 SUSE Linux Enterprise Server 12 計算節點。請將您的訂用帳戶和服務名稱取代為適當的值。
-
-    >[AZURE.NOTE]目前，只有從 Azure Marketplace 中具有 RDMA 功能的 SUSE Linux Enterprise Server 12 映像 (b4590d9e3ed742e4a1d46e5424aa335e\_\_suse-sles-12-hpc-v20150708) 建立的 VM，才可支援 Azure 中的 Linux RDMA 網路。
-
-    ```
-    <?xml version="1.0" encoding="utf-8" ?>
-    <IaaSClusterConfig>
-      <Subscription>
-        <SubscriptionName>Subscription-1</SubscriptionName>
-        <StorageAccount>allvhdsje</StorageAccount>
-      </Subscription>
-      <Location>Japan East</Location>  
-      <VNet>
-        <VNetName>suse12rdmavnet</VNetName>
-        <SubnetName>SUSE12RDMACluster</SubnetName>
-      </VNet>
-      <Domain>
-        <DCOption>HeadNodeAsDC</DCOption>
-        <DomainFQDN>hpclab.local</DomainFQDN>
-      </Domain>
-      <Database>
-        <DBOption>LocalDB</DBOption>
-      </Database>
-      <HeadNode>
-        <VMName>SUSE12RDMA-HN</VMName>
-        <ServiceName>suse12rdma-je</ServiceName>
-        <VMSize>A8</VMSize>
-        <EnableRESTAPI />
-        <EnableWebPortal />
-      </HeadNode>
-      <LinuxComputeNodes>
-        <VMNamePattern>SUSE12RDMA-LN%1%</VMNamePattern>
-        <ServiceName>suse12rdma-je</ServiceName>
-        <VMSize>A8</VMSize>
-        <NodeCount>2</NodeCount>
-        <ImageName>b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708</ImageName>
-      </LinuxComputeNodes>
-    </IaaSClusterConfig>
-```
+*   **具有大小為 A8 或 A9 的 Linux 計算節點之 HPC Pack 叢集** - 使用 [Azure Resource Manager 範本](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/)或 [Azure PowerShell 指令碼](virtual-machines-hpcpack-cluster-powershell-script)，在 Azure 上部署大小為 A8 或 A9 的 Linux 計算節點之 HPC Pack 叢集。如需了解任一選項的必要條件與步驟，請參閱 [開始使用 Azure 中 HPC Pack 叢集內的 Linux 計算節點](virtual-machines-linux-classic-hpcpack-cluster.md)。如果選擇 PowerShell 指令碼部署選項，請參閱本文結尾處範例檔案的組態檔範例，來部署 Azure 架構的 HPC Pack 叢集，其由大小為 A8 的 Windows Server 2012 R2 前端節點與 2 個大小為 A8 的 SUSE Linux Enterprise Server 12 計算節點所組成。請將您的訂用帳戶和服務名稱取代為適當的值。 
 
     **其他應該知道的事項**
 
-    *   將所有 Linux 計算節點部署在一個雲端服務內，以在節點之間使用 RDMA 網路連線。
+    *   目前，只有從 SUSE Linux Enterprise Server 12 (已針對 Azure Marketplace 中的高效能計算映像進行最佳化) 建立且大為 A8 或 A9 的 VM，才在 Azure 中支援 Linux RDMA 網路。如需了解其他考量事項，請參閱[關於 A8、A9、A10 及 A11 計算密集型執行個體](virtual-machines-windows-a8-a9-a10-a11-specs.md)。
+
+    *   如果使用 PowerShell 指令碼部署選項，請將所有 Linux 計算節點部署在一個雲端服務內，以使用 RDMA 網路連線。
 
     *   部署 Linux 節點之後，如果您需要以 SSH 連線以執行任何其他系統管理工作，請在 Azure 入口網站中參考每個 Linux VM 的 SSH 連線詳細資料。
         
-*   **Intel MPI** - 若要在 Azure 中的 Linux 計算節點上執行 OpenFOAM，您必須從 [Intel.com 網站](https://software.intel.com/zh-TW/intel-mpi-library/)取得 Intel MPI Library 5 執行階段。在後續步驟中，您將在 Linux 計算節點上安裝 Intel MPI。若要為此做準備，註冊 Intel 之後，請遵循確認電子郵件中相關網頁的連結，並針對適當版本的 Intel MPI 複製 .tgz 檔案的下載連結。這篇文章根據 Intel MPI 5.0.3.048 版。
+*   **Intel MPI** - 若要在 Azure 中的 Linux 計算節點上執行 OpenFOAM，必須從 [Intel.com 網站](https://software.intel.com/zh-TW/intel-mpi-library/)取得 Intel MPI Library 5 執行階段 (需要註冊)。在後續步驟中，您將在 Linux 計算節點上安裝 Intel MPI。若要為此做準備，註冊 Intel 之後，請遵循確認電子郵件中相關網頁的連結，並針對適當版本的 Intel MPI 複製 .tgz 檔案的下載連結。這篇文章根據 Intel MPI 5.0.3.048 版。
 
 *   **OpenFOAM Source Pack** - 從 [OpenFOAM Foundation 網站](http://www.openfoam.org/download/source.php)下載適用於 Linux 的OpenFOAM Source Pack 軟體。本文是依據 Source Pack 2.3.1 版 (可透過 OpenFOAM-2.3.1.tgz 的形式下載) 而撰寫的。請依照本文稍後的指示，在 Linux 計算節點上解壓縮並編譯 OpenFOAM。
 
@@ -159,7 +121,7 @@ Microsoft HPC Pack 提供功能來執行各種大規模 HPC 和平行應用程�
 
 您必須先執行數個 **clusrun** 命令，以在所有的 Linux 節點上安裝 Intel MPI Library 和 OpenFOAM 。請使用先前設定的前端節點共用，在 Linux 節點之間共用安裝檔案。
 
->[AZURE.IMPORTANT]這些安裝與編譯步驟皆為範例，必須具備一些 Linux 系統管理知識才能使用，以確保相依的編譯器和程式庫能夠正確安裝。您可能需要修改您的 Intel MPI 和 OpenFOAM 版本所需的特定環境變數或其他設定。如需詳細資訊，請參閱 [Intel MPI Library for Linux 安裝指南](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html)和 [OpenFOAM Source Pack 安裝](http://www.openfoam.org/download/source.php)。
+>[AZURE.IMPORTANT]這些安裝與編譯步驟皆為範例，必須具備一些 Linux 系統管理知識才可確保能夠正確安裝相依的編譯器和程式庫。您可能需要修改一些特定的環境變數，或 Intel MPI 與 OpenFOAM 版本的其他設定。如需詳細資訊，請參閱 [Intel MPI Library for Linux 安裝指南](http://scc.ustc.edu.cn/zlsc/tc4600/intel/impi/INSTALL.html)和 [OpenFOAM Source Pack 安裝](http://www.openfoam.org/download/source.php)。
 
 
 ### 安裝 Intel MPI
@@ -274,7 +236,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
     ![修改步階變數][step_variables]
 
-5.  在 system/decomposeParDict 檔案中指定所要的變數值。此範例使用 2 個分別具有 8 個核心的 Linux 節點，因此，請將 numberOfSubdomains 設為 16 和，並將 hierarchicalCoeffs 的 n 設為 (1 1 16)，這表示會與 16 程序平行執行 OpenFOAM。如需關於如何以平行方式執行 OpenFOAM 的詳細資訊，請參閱 [OpenFOAM 使用者指南：3.4 以平行方式執行應用程式](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4)。
+5.  在 system/decomposeParDict 檔案中指定所要的變數值。此範例使用 2 個分別具有 8 個核心的 Linux 節點，因此，請將 numberOfSubdomains 設為 16 和，並將 hierarchicalCoeffs 的 n 設為 (1 1 16)，這表示會與 16 程序平行執行 OpenFOAM。如需詳細資訊，請參閱 [OpenFOAM User Guide: 3.4 Running applications in parallel](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4)。
 
     ![分解程序][decompose]
 
@@ -368,7 +330,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
     ![工作資源][job_resources]
 
-6.	使用下列命令列和作業設定，將 4 個作業新增至工作。
+6. 按一下左側導覽的 [編輯工作]，再按一下 [加入] 將工作加入作業中。使用下列命令列與設定，將 4 個工作加入作業中。
 
     >[AZURE.NOTE]執行 `source /openfoam/settings.sh` 會設定 OpenFOAM 和 MPI 執行階段環境，因此下列每個作業會在 OpenFOAM 命令之前加以呼叫。
 
@@ -424,7 +386,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
     hpccred delcreds
     ```
 
-8.	執行工作可能需要數十分鐘到數小時不等，視您為範例設定的參數而定。在熱圖中，您會看到工作在 2 個 Linux 節點上執行。
+8.	執行工作可能需要數十分鐘到數小時不等，視您為範例設定的參數而定。您在熱度圖中會看到該工作執行於 Linux 節點上。
 
     ![熱圖][heat_map]
 
@@ -469,6 +431,43 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 
 ## 範例檔案
 
+### PowerShell 指令碼叢集部署的 XML 組態檔範例
+
+ ```
+<?xml version="1.0" encoding="utf-8" ?>
+<IaaSClusterConfig>
+  <Subscription>
+    <SubscriptionName>Subscription-1</SubscriptionName>
+    <StorageAccount>allvhdsje</StorageAccount>
+  </Subscription>
+  <Location>Japan East</Location>  
+  <VNet>
+    <VNetName>suse12rdmavnet</VNetName>
+    <SubnetName>SUSE12RDMACluster</SubnetName>
+  </VNet>
+  <Domain>
+    <DCOption>HeadNodeAsDC</DCOption>
+    <DomainFQDN>hpclab.local</DomainFQDN>
+  </Domain>
+  <Database>
+    <DBOption>LocalDB</DBOption>
+  </Database>
+  <HeadNode>
+    <VMName>SUSE12RDMA-HN</VMName>
+    <ServiceName>suse12rdma-je</ServiceName>
+    <VMSize>A8</VMSize>
+    <EnableRESTAPI />
+    <EnableWebPortal />
+  </HeadNode>
+  <LinuxComputeNodes>
+    <VMNamePattern>SUSE12RDMA-LN%1%</VMNamePattern>
+    <ServiceName>suse12rdma-je</ServiceName>
+    <VMSize>A8</VMSize>
+    <NodeCount>2</NodeCount>
+      <ImageName>b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708</ImageName>
+  </LinuxComputeNodes>
+</IaaSClusterConfig>
+```
 
 ### 範例 cred.xml 檔案
 
@@ -504,7 +503,7 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
   <PublicKey>ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEkoEAGGc6wT16d4Ye+yN2hcqigdTGlMcjUlW6cAmRWYXLwkKoW3WlX3xAK0oQdMLqRDu2PVRPY3qfHURj0EEellpydeaSekp1fg27Rw2VKmEumu6Wxwo9HddXORPAQXTQ4yI0lWSerypckXVPeVjHetbkSci2foLedCbeBA9c/RyRgIUl227/pJKDNX2Rpqly0sY82nVWN/0p4NAyslexA0fGdBx+IgKnbU2JQKJeiwOomtEB/N492XRfCw2eCi7Ly3R8+U1KeBm+zH6Q8aH8ApqQohhLRw71bcWZ1g1bxd6HORxXOu0mFTzHbWFcZ9ILtXRl4Pt0x5Mve1AJXEKb username@servername;</PublicKey>
 </ExtendedData>
 ```
-### 範例 silent.cfg 檔案
+### 安裝 MPI 的 silent.cfg 檔案範例
 
 ```
 # Patterns used to check silent configuration file
@@ -655,4 +654,4 @@ exit ${RTNSTS}
 [isosurface_color]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/isosurface_color.png
 [linux_processes]: ./media/virtual-machines-linux-classic-hpcpack-cluster-openfoam/linux_processes.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

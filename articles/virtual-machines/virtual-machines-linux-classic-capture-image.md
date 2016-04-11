@@ -38,7 +38,7 @@ Azure 會將映像儲存在 [**映像**] 底下。這也是您已上傳的任何
 
 2. 在 SSH 視窗中，輸入下列命令。請注意，不同版本的 `waagent` 公用程式可能會有稍微不同的輸出：
 
-	`sudo waagent -deprovision`
+	`sudo waagent -deprovision+user`
 
 	此命令會嘗試清除系統，使之適合重新佈建。這項作業會執行下列工作：
 
@@ -87,7 +87,7 @@ Azure 會將映像儲存在 [**映像**] 底下。這也是您已上傳的任何
 
 
 ## 後續步驟
-映像已準備好用來建立虛擬機器。您可以使用 Azure CLI 命令 `azure vm create`，並提供您剛才建立的映像名稱。如需有關命令的詳細資訊，請參閱[使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理](virtual-machines-command-line-tools.md)。或者，您也可以使用 [Azure 傳統入口網站][]，利用**從資源庫**方法並選取您剛才建立的映像，來建立自訂虛擬機器。如需詳細資料，請參閱[如何建立自訂虛擬機器][]。
+映像已準備好用來建立虛擬機器。您可以使用 Azure CLI 命令 `azure vm create`，並提供您剛才建立的映像名稱。如需有關命令的詳細資訊，請參閱[使用適用於 Mac、Linux 和 Windows 的 Azure CLI 搭配 Azure 服務管理](../virtual-machines-command-line-tools.md)。或者，您也可以使用 [Azure 傳統入口網站][]，利用**從資源庫**方法並選取您剛才建立的映像，來建立自訂虛擬機器。如需詳細資料，請參閱[如何建立自訂虛擬機器][]。
 
 **另請參閱：** [Azure Linux 代理程式使用者指南](virtual-machines-linux-agent-user-guide.md)
 
@@ -98,4 +98,4 @@ Azure 會將映像儲存在 [**映像**] 底下。這也是您已上傳的任何
 [How to Attach a Data Disk to a Virtual Machine]: virtual-machines-windows-classic-attach-disk.md
 [如何建立 Linux 虛擬機器]: virtual-machines-linux-classic-create-custom.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

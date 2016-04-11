@@ -1,6 +1,6 @@
 <properties
 	pageTitle="使用 SAN 搭配 Azure Site Recovery 將 Hyper-V VM (位於 VMM 雲端中) 複寫至次要站台 | Microsoft Azure"
-	description="此文章說明如何使用 SAN 複寫，利用 Azure Site Recovery 在兩個網站之間複寫 Hyper-V 虛擬機器。"
+	description="本文說明如何使用 SAN 複寫，搭配 Azure Site Recovery 在兩個網站之間複寫 Hyper-V 虛擬機器。"
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,20 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="03/30/2016"
 	ms.author="raynew"/>
 
 # 使用 SAN 搭配 Azure Site Recovery 將 Hyper-V VM (位於 VMM 雲端中) 複寫至次要網站
 
-Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原 (BCDR) 策略，為您的商務持續性與災害復原做出貢獻。機器可以複寫至 Azure，或次要的內部部署資料中心。如需快速概觀，請參閱[什麼是 Azure Site Recovery？](site-recovery-overview.md)。
+在本文中，您將學習如何部署 Site Recovery 來協調及自動化 Hyper-V 虛擬機器 (位於 System Center VMM 雲端中) 的 SAN 複寫及容錯移轉 (至次要 VMM 網站)。
+
+在閱讀本文之後，請在本文下方或 [Azure Recovery Services Forum (Azure 復原服務論壇)](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) 張貼任何意見或問題。
+
 
 ## 概觀
 
-本文章說明如何部署 Site Recovery，針對位於 System Center Virtual Machine Manager (VMM) 私人雲端的 Hyper-V 虛擬機器進行組織及自動化保護。在此案例中，系統會使用 Site Recovery 和 SAN 複寫，將虛擬機器從主要 VMM 站台複寫到次要 VMM 站台。
+組織需要商務持續性和災害復原 (BCDR) 策略，決定應用程式、工作負載和資料如何在規劃與未規劃停機期間維持運作，並儘速復原到正常運作的情況。BCDR 策略的解決方案重點集中在保護商務資料安全且可復原，以及當發生災害時工作負載持續可用。
 
-本文包含概觀和部署的必要條件。它將為您逐步解說如何在 VMM 和 Site Recovery 保存庫中設定並啟用複寫。您將探索 VMM 中的 SAN 存放裝置並加以分類、佈建 LUN，以及將存放裝置配置給 Hyper-V 叢集。最後它會測試容錯移轉，藉此確定一切如預期般運作。
+Site Recovery 是一項 Azure 服務，可藉由將內部部署實體伺服器和虛擬機器的複寫協調至雲端 (Azure) 或次要資料中心，協助您的 BCDR 策略。當您的主要位置發生故障時，您容錯移轉至次要網站，讓應用程式和工作負載保持可用。當它恢復正常作業時，容錯回復至您的主要位置。Site Recovery 可以用在許多案例中，並可保護許多工作負載。深入了解[什麼是 Azure Site Recovery？](site-recovery-overview.md)
 
-在這篇文章下方或 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)中張貼意見或問題。
+本文包含如何設定使用 SAN 複寫將 Hyper-V VM 從某個 VMM 網站複寫至另一個 VMM 網站的指示。其中包含架構概觀，以及部署必要條件和指示。您將探索 VMM 中的 SAN 存放裝置並加以分類、佈建 LUN，以及將存放裝置配置給 Hyper-V 叢集。最後它會測試容錯移轉，藉此確定一切如預期般運作。
+
 
 ## 為什麼使用 SAN 複寫？
 
@@ -110,6 +114,8 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 	- [如何選取在 VMM 中建立邏輯單元的方法](https://technet.microsoft.com/library/gg610624.aspx)
 	- [如何在 VMM 中佈建存放裝置邏輯單元](https://technet.microsoft.com/library/gg696973.aspx)
 
+	>[AZURE.NOTE] 在啟用了機器的複寫之後，您不應該將它的 VHD 新增至不在 Site Recovery 複寫群組的 LUN。如果您這樣做，Site Recovery 將偵測不到它們。
+
 2. 接著，配置儲存容量給 Hyper-V 主機叢集，讓 VMM 可以將虛擬機器資料部署到已佈建的存放裝置上：
 
 	- 將存放裝置配置給叢集之前，您必須先將其配置給叢集所在的 VMM 主機群組。請參閱[如何將存放裝置邏輯單元配置到主機群組](https://technet.microsoft.com/library/gg610686.aspx)及[如何將存放集區配置到主機群組](https://technet.microsoft.com/library/gg610635.aspx)。</a>
@@ -187,12 +193,12 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 	- 如果您想要使用自訂 proxy，您應該在安裝提供者之前進行設定。當您進行自訂 proxy 設定時，會執行一項測試以檢查 proxy 連線。
 	- 如果您使用自訂 proxy，或者您的預設 proxy 需要驗證，您必須輸入 proxy 詳細資料，包含 proxy 位址和連接埠。
 	- 下列 URL 應可從 VMM 伺服器和 Hyper-V 主機存取
-		- *.hypervrecoverymanager.windowsazure.com
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com
-		- *.blob.core.windows.net
-		- *.store.core.windows.net
-	- 允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- 允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)中所述的 IP 位址和 HTTPS (443) 通訊協定。您必須具有打算使用以及美國西部之 Azure 區域的白名單 IP 範圍。
 	- 如果您使用的是自訂 proxy，則會使用指定的 proxy 認證自動建立 VMM RunAs 帳戶 (DRAProxyAccount)。設定 proxy 伺服器，讓此帳戶可以成功進行驗證。在 VMM 主控台中，可以修改 VMM RunAs 帳戶設定。若要這樣做，請開啟 [設定] 工作區、展開 [安全性]、按一下 [執行身分帳戶]，然後修改 DRAProxyAccount 的密碼。您必須重新啟動 VMM 服務，這項設定才會生效。
 
 10. 在 [註冊金鑰] 中，選取您從 Azure Site Recovery 下載並複製到 VMM 伺服器的金鑰。
@@ -262,15 +268,15 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 
 1. 在 [快速啟動] 頁面上，按一下 [設定 VMM 雲端的保護]。
 2. 在 [受保護項目] 索引標籤上，選取要設定的雲端，並移至 [設定] 索引標籤。請注意：
-3. 在 [目標]<b></b> 中，選取 [VMM]<b></b>。
-4. 在 [目標位置]<b></b> 中，選取網站上負責對您要用於復原之雲端進行管理的 VMM 伺服器。
-5. 在 [目標雲端]<b></b> 中，選取要在來源雲端中用於虛擬機器容錯移轉的目標雲端。請注意：
+3. 在 [目標] 中，選取 [VMM]。
+4. 在 [目標位置] 中，選取網站上負責對您要用於復原之雲端進行管理的 VMM 伺服器。
+5. 在 [目標雲端] 中，選取要作為來源雲端中虛擬機器容錯移轉目標的雲端。請注意：
 	- 建議您，選取的目標雲端要符合所要保護之虛擬機器的復原需求。
 	- 雲端只能當成單一雲端組中的主要雲端或目標雲端。
 6. Azure Site Recovery 會確認雲端能夠存取具備 SAN 複寫功能的存放裝置，並確認存放裝置陣列已對等互連。將會顯示參與的陣列對等項。
 7. 如果驗證成功，請在 [複寫類型] 中，選取 [SAN]。
 
-<p>儲存設定之後，會建立一個工作，並可在 [工作]<b></b> 索引標籤上進行監視。在 [設定]<b></b> 索引標籤上可修改雲端設定。如果您要修改目標位置或目標雲端，則必須移除雲端組態，然後重新設定雲端。</p>
+儲存設定之後，會建立一個工作，並可在 [工作] 索引標籤上進行監視。在 [設定] 索引標籤上可修改雲端設定。如果您要修改目標位置或目標雲端，則必須移除雲端組態，然後重新設定雲端。
 
 ## 步驟 5：啟用網路對應
 
@@ -288,7 +294,7 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 6.  按一下打勾記號完成對應程序。隨即有個工作啟動來追蹤對應程序。您可以在 [工作] 索引標籤上檢視它。
 
 
-## 步驟 6：為複寫群組啟用複寫</h3>
+## 步驟 6：為複寫群組啟用複寫
 
 您必須先為存放裝置複寫群組啟用複寫，才能為虛擬機器啟用保護。
 
@@ -308,6 +314,8 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 
 為虛擬機器啟用保護之後，它們就會出現在 Azure Site Recovery 主控台中。您可以檢視虛擬機器內容、追蹤狀態，以及讓包含多個虛擬機器的複寫群組進行容錯移轉。請注意，在 SAN 複寫中，與複寫群組關聯的所有虛擬機器必須都一起進行容錯移轉。這是因為容錯移轉會先發生在儲存層。請務必正確地組成您的複寫群組，只將相關聯的虛擬機器放在一起。
 
+>[AZURE.NOTE] 在啟用了機器的複寫之後，您不應該將它的 VHD 新增至不在 Site Recovery 複寫群組的 LUN。如果您這樣做，Site Recovery 將偵測不到它們。
+
 您可以在 [工作] 索引標籤中追蹤「啟用保護」動作的進度，包括初始複寫。執行「完成保護」工作之後，虛擬機器即準備好進行容錯移轉。
 
 ![虛擬機器保護工作](./media/site-recovery-vmm-san/job-props.png)
@@ -317,9 +325,7 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 測試您的部署，以確定虛擬機器和資料容錯移轉如預期般運作。若要這樣做，您將必須選取複寫群組來建立復原方案。然後在方案上執行測試容錯移轉。
 
 1. 在 [復原計畫] 索引標籤上，按一下 [建立復原計畫]。
-2. 指定復原方案的名稱，以及來源和目標 VMM 伺服器。來源伺服器必須有已啟用容錯移轉和復原功能的虛擬機器。選取 [SAN]，僅檢視為 SAN 複寫設定的雲端。
-3.
-	![建立復原計畫](./media/site-recovery-vmm-san/r-plan.png)
+2. 指定復原方案的名稱，以及來源和目標 VMM 伺服器。來源伺服器必須有已啟用容錯移轉和復原功能的虛擬機器。選取 [SAN]，僅檢視為 SAN 複寫設定的雲端。3. ![建立復原計畫](./media/site-recovery-vmm-san/r-plan.png)
 
 4. 在 [選取虛擬機器] 中，選取複寫群組。所有與複寫群組關聯的虛擬機器，將會被選取並新增至復原方案。這些虛擬機器會新增到復原方案預設群組 (群組 1)。您可以視需要新增更多群組。請注意，複寫之後，虛擬機器將會根據復原方案群組的順序來啟動。
 
@@ -330,7 +336,6 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 
 
 	![選取測試網路](./media/site-recovery-vmm-san/test-fail1.png)
-
 
 8. 測試虛擬機器將建立在複本虛擬機器所在的相同主機上。它並不會新增至複本虛擬機器所在的雲端。
 9. 複製之後，複本虛擬機器的 IP 位址會不同於主要虛擬機器的 IP 位址。如果您是從 DHCP 發出位址，便會自動更新位址。如果您不是使用 DHCP 而想要確定位址相同，您將需要執行數個指令碼。
@@ -356,4 +361,4 @@ Site Recovery 可協調對 VMM 雲端中 Hyper-V 主機伺服器上之虛擬機�
 
 在您執行測試容錯移轉檢查您的環境是否如預期般運作之後，請[深入了解](site-recovery-failover.md)不同類型的容錯移轉。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

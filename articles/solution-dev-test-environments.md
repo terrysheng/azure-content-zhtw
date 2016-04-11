@@ -133,7 +133,7 @@ Azure 資源管理員範本會定義應用程式所使用的所有 Azure 資源�
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## 建立環境
-所有的 Azure 資源必須建立於 [Azure 資源群組](azure-portal/resource-group-portal#create-resource-group-and-resources.md)內。資源群組可讓您將 Azure 資源分組，讓他們可以共同管理。[權限](./active-directory/role-based-access-built-in-roles.md)可以指派給資源群組，讓組織內的特定人員可以建立、修改、刪除或檢視資源群組及其中的資源。可以在 [Azure 入口網站](https://portal.azure.com)中檢視資源群組中資源的警示和計費資訊。會在 Azure [區域](https://azure.microsoft.com/regions/)中建立資源群組。在本文中，所有資源都會在美國中部區域建立。當您開始建立實際環境時，您會選擇最適合您需求的區域。
+所有的 Azure 資源必須建立於 [Azure 資源群組](./azure-portal/resource-group-portal.md)內。資源群組可讓您將 Azure 資源分組，讓他們可以共同管理。[權限](./active-directory/role-based-access-built-in-roles.md)可以指派給資源群組，讓組織內的特定人員可以建立、修改、刪除或檢視資源群組及其中的資源。可以在 [Azure 入口網站](https://portal.azure.com)中檢視資源群組中資源的警示和計費資訊。會在 Azure [區域](https://azure.microsoft.com/regions/)中建立資源群組。在本文中，所有資源都會在美國中部區域建立。當您開始建立實際環境時，您會選擇最適合您需求的區域。
 
 使用下列方法之一，為每個環境建立資源群組。 每一種方法都會達到完全相同的結果。
 
@@ -235,7 +235,7 @@ Azure 資源管理員範本會定義應用程式所使用的所有 Azure 資源�
 	data:    requestedServiceObjectiveName  String        S0
 	info:    group deployment create command OKx
 
-如果命令未成功，請解決任何錯誤訊息並再試一次。常見的問題為使用未遵守 Azure 資源命名限制的參數值。其他疑難排解秘訣可在[在 Azure 中疑難排解資源群組部署](virtual-machines/resource-group-deploy-debug.md)一文中找到。
+如果命令未成功，請解決任何錯誤訊息並再試一次。常見的問題為使用未遵守 Azure 資源命名限制的參數值。其他疑難排解秘訣可在[在 Azure 中疑難排解資源群組部署](./resource-manager-troubleshoot-deployments-cli.md)一文中找到。
 
 從 CLI 命令列，輸入下列命令將資源部署至您為測試環境建立的資源群組，將 [路徑] 取代為您在先前步驟中儲存的檔案路徑。
 
@@ -279,7 +279,7 @@ Azure 資源管理員範本會定義應用程式所使用的所有 Azure 資源�
 	                    
 	Outputs           :
 
-  如果命令未成功，請解決任何錯誤訊息並再試一次。常見的問題為使用未遵守 Azure 資源命名限制的參數值。其他疑難排解秘訣可在[在 Azure 中疑難排解資源群組部署](virtual-machines/resource-group-deploy-debug.md)一文中找到。
+  如果命令未成功，請解決任何錯誤訊息並再試一次。常見的問題為使用未遵守 Azure 資源命名限制的參數值。其他疑難排解秘訣可在[在 Azure 中疑難排解資源群組部署](./resource-manager-troubleshoot-deployments-powershell.md)一文中找到。
 
   從 PowerShell 命令提示字元，輸入下列命令將資源部署至您為測試環境建立的資源群組，將 [路徑] 取代為您在先前步驟中儲存的檔案路徑。
 
@@ -357,8 +357,8 @@ Azure 資源管理員範本會定義應用程式所使用的所有 Azure 資源�
 
 ## 後續步驟
 
-- 藉由指派 Microsoft Azure AD 群組或使用者至有能力在 Azure 資源上執行作業子集的特定角色，在每個環境中[委派系統管理控制](role-based-access-control-configure.md)到不同的資源。
+- 藉由指派 Microsoft Azure AD 群組或使用者至有能力在 Azure 資源上執行作業子集的特定角色，在每個環境中[委派系統管理控制](./active-directory/role-based-access-control-configure.md)到不同的資源。
 - [指派標籤](resource-group-using-tags.md)至每個環境的資源群組及/或個別資源。您可能會將「環境」標籤新增至資源群組並設定其值以對應至您的環境名稱。當您需要組織資源以進行計費或管理時，標記可能特別有用。
 - 在 [Azure 入口網站](https://portal.azure.com)中監視資源群組中資源的警示和計費。
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -4,5 +4,6 @@
 - [查詢](../articles/application-insights/app-analytics-queries.md)
 - [彙總](../articles/application-insights/app-analytics-aggregations.md)
 - [純量](../articles/application-insights/app-analytics-scalars.md)
+- [使用](../articles/application-insights/app-analytics-using.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

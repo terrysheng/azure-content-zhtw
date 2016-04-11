@@ -66,27 +66,27 @@ Azure 管理員角色可控制將 Azure 訂用帳戶對應至 AD 租用戶的能
 
 -   **隱含唯讀：**這與 [唯讀] 角色相同，但是會授與給 AAD 租用戶的所有使用者。這麼做是為了開發期間的方便性。修改 [RolePermissions.cs][lnk-resource-cs] 原始程式檔，即可移除此角色。
 
-### 變更應用程式角色
+### 變更使用者的應用程式角色
+
+您可以使用下列程序，讓您的 Active Directory 中的使用者成為預先設定解決方案的系統管理員。
 
 您必須是 AAD 全域管理員才能變更使用者的角色：
 
 1. 前往 [Azure 傳統入口網站][lnk-classic-portal]。
 
-2. 選取 [**Active Directory**]
+2. 選取 [Active Directory]。
 
-3. 按一下 AAD 租用戶的名稱。
+3. 按一下您的 AAD 租用戶的名稱 (這是您佈建您的解決方案時在 azureiotsuite.com 選擇上的目錄)。
 
 4. 按一下 [應用程式]。
 
-5. 如果清單中看不到您的應用程式，請將 [顯示] 下拉式功能表切換成 [我公司所擁有的應用程式]，然後按一下核取記號。
-
-6. 按一下符合預先設定之方案名稱的應用程式名稱。
+5. 按一下符合預先設定之方案名稱的應用程式名稱。如果清單中看不到您的應用程式，請將 [顯示] 下拉式功能表切換成 [我公司所擁有的應用程式]，然後按一下核取記號。
 
 7. 按一下 [使用者]。
 
 8. 選取您想要轉換角色的使用者。
 
-9. 按一下 [指派] 按鈕和您想要指派的角色，再按一下核取記號。
+9. 按一下 [指派]，選取您想要指派給使用者的角色 (例如 **Admin**)，然後按一下核取記號。
 
 ## 常見問題集
 
@@ -145,4 +145,4 @@ Azure 管理員角色可控制將 Azure 訂用帳戶對應至 AD 租用戶的能
 [lnk-admin-roles]: https://azure.microsoft.com/documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

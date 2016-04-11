@@ -35,7 +35,7 @@ FD 定義共用通用電源和網路交換器的虛擬機器群組。根據預�
 
 
 ### 將負載平衡器與可用性設定組結合
-將 Azure 負載平衡器與可用性設定組結合，以獲得最多的應用程式備援能力。Azure 負載平衡器會在多部虛擬機器之間分配流量。我們的標準層虛擬機器中包含 Azure 負載平衡器。請注意，並非所有的虛擬機器階層都包含 Azure 負載平衡器。如需關於負載平衡虛擬機器的詳細資訊，請參閱《[負載平衡虛擬機器](virtual-machines-linux-load-balance.md)》。
+將 Azure 負載平衡器與可用性設定組結合，以獲得最多的應用程式備援能力。Azure 負載平衡器會在多部虛擬機器之間分配流量。我們的標準層虛擬機器中包含 Azure 負載平衡器。請注意，並非所有的虛擬機器階層都包含 Azure 負載平衡器。如需關於負載平衡虛擬機器的詳細資訊，請參閱《[負載平衡虛擬機器](../articles/virtual-machines/virtual-machines-linux-load-balance.md)》。
 
 若負載平衡器沒有設定為平衡多部虛擬機器之間的流量，則所有計劃性維護事件都只會影響處理流量的虛擬機器，並導致應用程式層中斷。將同一個層的多部虛擬機器放在相同的負載平衡器和可用性設定組下，可讓至少一個執行個體持續處理流量。
 
@@ -47,6 +47,6 @@ FD 定義共用通用電源和網路交換器的虛擬機器群組。根據預�
 [將每個應用程式層設定至不同的可用性設定組中]: #configure-each-application-tier-into-separate-availability-sets
 [將負載平衡器與可用性設定組結合]: #combine-the-load-balancer-with-availability-sets
 [避免可用性設定組中只有一部執行個體虛擬機器]: #avoid-single-instance-virtual-machines-in-availability-sets
-[如何設定虛擬機器的可用性設定組]: virtual-machines-windows-classic-configure-availability.md
+[如何設定虛擬機器的可用性設定組]: ../articles/virtual-machines/virtual-machines-windows-classic-configure-availability.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/01/2015" 
+	ms.date="03/28/2016" 
 	ms.author="wesmc"/>
 
 # 如何從 Java 使用通知中樞
@@ -303,4 +303,4 @@ CreateOrUpdate、Patch 和 Delete 最終都會與 Get 一致。您要求的作�
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0330_2016-->

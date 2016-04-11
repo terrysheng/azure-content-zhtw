@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 在 SQL 資料倉儲中指派變數
@@ -25,14 +25,14 @@ SQL 資料倉儲中的變數是使用 `DECLARE` 陳述式或 `SET` 陳述式進�
 
 使用 DECLARE 初始化變數是在 SQL 資料倉儲中設定變數值的其中一種最具彈性的方式。
 
-```
+```sql
 DECLARE @v  int = 0
 ;
 ```
 
 您也可以使用 DECLARE，一次設定一個以上的變數。您可以使用 `SELECT` 或 `UPDATE` 來執行此作業：
 
-```
+```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
 ,       @v1 INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Jones')
 ;
@@ -40,7 +40,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 
 您無法在相同的 DECLARE 陳述式中初始化並使用變數。為了說明這點，**不**允許以下範例，因為 @p1 已在相同的 DECLARE 陳述式中初始化和使用。這會導致錯誤。
 
-```
+```sql
 DECLARE @p1 int = 0
 ,       @p2 int = (SELECT COUNT (*) FROM sys.types where is_user_defined = @p1 )
 ;
@@ -51,7 +51,7 @@ SET 是設定單一變數時很常見的方法。
 
 下列所有範例都是使用 SET 設定變數的有效方式：
 
-```
+```sql
 SET     @v = (Select max(database_id) from sys.databases);
 SET     @v = 1;
 SET     @v = @v+1;
@@ -76,4 +76,4 @@ SET     @v +=1;
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

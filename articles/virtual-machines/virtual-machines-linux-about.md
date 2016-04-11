@@ -1,6 +1,6 @@
 <properties
-	pageTitle="關於 Azure 虛擬機器 | Microsoft Azure"
-	description="使用兩種部署模型深入了解 Azure 虛擬機器的基本概念。"
+	pageTitle="關於 Linux 虛擬機器 | Microsoft Azure"
+	description="了解 Azure 中使用兩種部署模型的 Linux 虛擬機器基本概念。"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,14 +17,14 @@
 	ms.date="03/10/2016"
 	ms.author="cynthn"/>
 
-#關於 Azure 虛擬機器 
+#關於 Azure 中的 Linux 虛擬機器
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 Azure 虛擬機器是由 Azure 所提供的隨選且可調整的數種運算資源類型之一。一般而言，如果您對於運算環境所需的控制權比其他選擇可提供的還要多，則您會選擇虛擬機器。
 
-Azure 虛擬機器讓您能夠有彈性地進行虛擬化，而不需購買並維護執行虛擬機器的實體硬體。不過，您仍然需要維護虛擬機器 - 設定、修補和維護在虛擬機器上執行的軟體。
+Azure 虛擬機器讓您能夠有彈性地進行虛擬化，而不需購買並維護執行虛擬機器的實體硬體。不過，您仍然需要維護虛擬機器 - 設定、修補和維護在虛擬機器上執行的軟體。您也可以了解 [Azure 中的 Windows 虛擬機器](virtual-machines-windows-about.md)。
 
 下表可協助您比較 Azure 所提供的選擇。
 
@@ -38,8 +38,8 @@ Azure 虛擬機器讓您能夠有彈性地進行虛擬化，而不需購買並�
 
 
 <!--links-->
-[應用程式服務]: app-service-choose-me.md
-[虛擬機器]: #tellmevm
-[雲端服務]: cloud-services-choose-me.md
+[App Service]: app-service-choose-me.md
+[Virtual Machines]: #tellmevm
+[Cloud Services]: cloud-services-choose-me.md
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="使用 PowerShell 升級至 Azure SQL Database V12 | Microsoft Azure" 
-	description="說明如何使用 PowerShell 升級至 Azure SQL Database V12，包括如何升級 Web 和商務資料庫，以及如何將 V11 伺服器的資料庫直接移轉至彈性資料庫集區來升級 V11 伺服器。" 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="使用 PowerShell 升級至 Azure SQL Database V12 | Microsoft Azure"
+	description="說明如何使用 PowerShell 升級至 Azure SQL Database V12，包括如何升級 Web 和商務資料庫，以及如何將 V11 伺服器的資料庫直接移轉至彈性資料庫集區來升級 V11 伺服器。"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/23/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/18/2016"
 	ms.author="sstein"/>
 
 # 使用 PowerShell 升級至 Azure SQL Database V12
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-upgrade-server-portal.md)
+- [Azure 入口網站](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -42,7 +42,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 升級至 SQL Database V12 後即無法復原。在升級之後，即無法將伺服器還原至 V11。
 
-升級至 V12 之後，將不會立即提供[服務層級建議](sql-database-service-tier-advisor.md)和[彈性集區建議](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier)，必須等到服務有時間評估您在新伺服器上的工作負載之後，才會提供。V11 伺服器建議記錄不適用於 V12 伺服器，因此不會保留。
+升級至 V12 之後，將不會立即提供[服務層級建議](sql-database-service-tier-advisor.md)和[彈性集區建議](sql-database-elastic-pool-create-portal.md)，必須等到服務有時間評估您在新伺服器上的工作負載之後，才會提供。V11 伺服器建議記錄不適用於 V12 伺服器，因此不會保留。
 
 ## 準備升級
 
@@ -51,7 +51,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 - **如果您的用戶端位於 Azure VM 上，請開啟這些連接埠**：如果在您的用戶端於 Azure 虛擬機器 (VM) 上執行時，用戶端程式連接至 SQL Database V12，您就必須開啟此 VM 上 11000-11999 和 14000-14999 範圍的連接埠。如需詳細資訊，請參閱 [SQL Database V12 的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
 
-## 必要條件 
+## 必要條件
 
 若要使用 PowerShell 將伺服器升級至 V12，您必須安裝 Azure PowerShell 並加以執行，然後視您可能需要的版本將其切換為資源管理員模式，才能存取 Azure 資源管理員 PowerShell Cmdlet。
 
@@ -78,9 +78,9 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 若要取得伺服器升級建議，請執行下列 Cmdlet：
 
-    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1” 
+    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1”
 
-如需詳細資訊，請參閱 [Azure SQL Database 彈性資料庫集區建議](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations)和 [Azure SQL Database 定價層建議](sql-database-service-tier-advisor.md)。
+如需詳細資訊，請參閱[建立彈性資料庫集區](sql-database-elastic-pool-create-portal.md)和 [Azure SQL Database 定價層建議](sql-database-service-tier-advisor.md)。
 
 
 
@@ -100,22 +100,22 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
     # Adding the account
     #
     Add-AzureRmAccount
-    
+
     # Setting the variables
     #
-    $SubscriptionName = 'YOUR_SUBSCRIPTION' 
-    $ResourceGroupName = 'YOUR_RESOURCE_GROUP' 
-    $ServerName = 'YOUR_SERVER' 
-    
-    # Selecting the right subscription 
-    # 
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName 
-    
-    # Getting the upgrade recommendations 
+    $SubscriptionName = 'YOUR_SUBSCRIPTION'
+    $ResourceGroupName = 'YOUR_RESOURCE_GROUP'
+    $ServerName = 'YOUR_SERVER'
+
+    # Selecting the right subscription
     #
-    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
-    
-    # Starting the upgrade process 
+    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+
+    # Getting the upgrade recommendations
+    #
+    $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName $ResourceGroupName -ServerName $ServerName
+
+    # Starting the upgrade process
     #
     Start-AzureRmSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
@@ -125,42 +125,42 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 如果建議不適合您的伺服器和商務案例，您可以選擇資料庫的升級方式，並將它們對應到單一或彈性資料庫。
 
 ElasticPoolCollection 和 DatabaseCollection 參數都是選擇性項目：
-    
+
     # Creating elastic pool mapping
     #
-    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties 
-    $elasticPool.DatabaseDtuMax = 100 
-    $elasticPool.DatabaseDtuMin = 0 
-    $elasticPool.Dtu = 800 
-    $elasticPool.Edition = "Standard" 
-    $elasticPool.DatabaseCollection = ("DB1", “DB2”, “DB3”, “DB4”) 
-    $elasticPool.Name = "elasticpool_1" 
-    $elasticPool.StorageMb = 800 
-     
+    $elasticPool = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeRecommendedElasticPoolProperties
+    $elasticPool.DatabaseDtuMax = 100
+    $elasticPool.DatabaseDtuMin = 0
+    $elasticPool.Dtu = 800
+    $elasticPool.Edition = "Standard"
+    $elasticPool.DatabaseCollection = ("DB1", “DB2”, “DB3”, “DB4”)
+    $elasticPool.Name = "elasticpool_1"
+    $elasticPool.StorageMb = 800
+
     # Creating single database mapping for 2 databases. DBMain1 mapped to S0 and DBMain2 mapped to S2
     #
-    $databaseMap1 = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties 
-    $databaseMap1.Name = "DBMain1" 
-    $databaseMap1.TargetEdition = "Standard" 
+    $databaseMap1 = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties
+    $databaseMap1.Name = "DBMain1"
+    $databaseMap1.TargetEdition = "Standard"
     $databaseMap1.TargetServiceLevelObjective = "S0"
-    
-    $databaseMap2 = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties 
-    $databaseMap2.Name = "DBMain2" 
-    $databaseMap2.TargetEdition = "Standard" 
+
+    $databaseMap2 = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties
+    $databaseMap2.Name = "DBMain2"
+    $databaseMap2.TargetEdition = "Standard"
     $databaseMap2.TargetServiceLevelObjective = "S2"
-     
+
     # Starting the upgrade
     #
-    Start-AzureRmSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool) 
+    Start-AzureRmSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection @($databaseMap1, $databaseMap2) -ElasticPoolCollection @($elasticPool)
 
-    
+
 
 ## 在升級至 SQL Database V12 後監視資料庫
 
 
 升級之後，建議您主動監視資料庫，以確保應用程式達到所需的執行效能，並視需要將使用情況調整到最佳狀態。
 
-除了監視個別的資料庫之外，您也可以[使用入口網站](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool)或藉由 [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools) 監視彈性資料庫集區。
+除了監視個別的資料庫之外，您也可以[使用入口網站](sql-database-elastic-pool-manage-portal.md)或藉由 [PowerShell](sql-database-elastic-pool-manage-powershell.md) 監視彈性資料庫集區。
 
 
 **資源耗用量資料：**Basic、Standard 及 Premium 資料庫的資源耗用量資料會透過使用者資料庫中的 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV 提供。此 DMV 以 15 秒的間隔提供幾乎即時的前一小時作業資源耗用量資訊。某一間隔的 DTU 百分比耗用量會以 CPU、IO 及記錄檔方面的最大百分比耗用量來計算。下列是計算前一小時之平均 DTU 百分比耗用量的查詢：
@@ -190,7 +190,7 @@ ElasticPoolCollection 和 DatabaseCollection 參數都是選擇性項目：
 
 ## 後續步驟
 
-- [建立彈性資料庫集區](sql-database-elastic-pool-portal.md)，並將部分或全部資料庫新增至集區。
+- [建立彈性資料庫集區](sql-database-elastic-pool-create-portal.md)，並將部分或全部資料庫新增至集區。
 - [變更您資料庫的服務層級和效能等級](sql-database-scale-up.md)。
 
 
@@ -201,4 +201,4 @@ ElasticPoolCollection 和 DatabaseCollection 參數都是選擇性項目：
 - [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 - [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

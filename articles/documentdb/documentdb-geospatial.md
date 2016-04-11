@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="02/03/2016" 
+    ms.date="03/30/2016" 
     ms.author="arramac"/>
     
 # 使用 Azure DocumentDB 中的地理空間資料
@@ -102,7 +102,7 @@ DocumentDB 支援對使用 [GeoJSON 規格](http://geojson.org/geojson-spec.html
        }
     };
 
-    client.createDocument(collectionLink, userProfileDocument, function (err, created) {
+    client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfileDocument, (err, created) => {
         // additional code within the callback
     });
 
@@ -124,7 +124,7 @@ DocumentDB 支援對使用 [GeoJSON 規格](http://geojson.org/geojson-spec.html
     }
     
     await client.CreateDocumentAsync(
-        collection.SelfLink, 
+        UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
         new UserProfile 
         { 
             Name = "documentdb", 
@@ -237,7 +237,7 @@ DocumentDB.NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提�
 
 **距離的 LINQ 查詢**
 
-    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(collection.SelfLink)
+    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
         .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
@@ -259,7 +259,7 @@ DocumentDB.NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提�
             })
         });
 
-    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(collection.SelfLink)
+    foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
         .Where(a => a.Location.Within(rectangularArea)))
     {
         Console.WriteLine("\t" + user);
@@ -288,9 +288,9 @@ DocumentDB.NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提�
              "path":"/*",
              "indexes":[
                 {
-                   "kind":"Hash",
+                   "kind":"Range",
                    "dataType":"String",
-                   "precision":3
+                   "precision":-1
                 },
                 {
                    "kind":"Range",
@@ -312,40 +312,31 @@ DocumentDB.NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提�
 
 **建立含空間索引編制的集合**
 
-    IndexingPolicy spatialIndexingPolicy = new IndexingPolicy();
-    spatialIndexingPolicy.IncludedPaths.Add(new IncludedPath
-    {
-        Path = "/*",
-        Indexes = new System.Collections.ObjectModel.Collection<Index>()
-            {
-                new RangeIndex(DataType.Number) { Precision = -1 },
-                new RangeIndex(DataType.String) { Precision = -1 },
-                new SpatialIndex(DataType.Point)
-            }
-    });
-
-    Console.WriteLine("Creating new collection...");
-    collection = await client.CreateDocumentCollectionAsync(dbLink, collectionDefinition);
+    DocumentCollection spatialData = new DocumentCollection()
+    spatialData.IndexingPolicy = new IndexingPolicy(new SpatialIndex(DataType.Point)); //override to turn spatial on by default
+    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), spatialData);
 
 而以下說明如何修改現有的集合，以利用儲存在文件內任何一個點上的空間索引編制。
 
 **修改含空間索引編制的現有集合**
 
     Console.WriteLine("Updating collection with spatial indexing enabled in indexing policy...");
-    collection.IndexingPolicy = spatialIndexingPolicy; 
+    collection.IndexingPolicy = new IndexingPolicy(new SpatialIndex(DataType.Point));
     await client.ReplaceDocumentCollectionAsync(collection);
 
     Console.WriteLine("Waiting for indexing to complete...");
     long indexTransformationProgress = 0;
     while (indexTransformationProgress < 100)
     {
-        ResourceResponse<DocumentCollection> response = await client.ReadDocumentCollectionAsync(collection.SelfLink);
+        ResourceResponse<DocumentCollection> response = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"));
         indexTransformationProgress = response.IndexTransformationProgress;
 
         await Task.Delay(TimeSpan.FromSeconds(1));
     }
 
 > [AZURE.NOTE] 如果文件中的 GeoJSON 位置值格式不正確或無效，就不會為其編製索引以用於空間查詢。您可以使用 ST\_ISVALID 和 ST\_ISVALIDDETAILED 驗證位置值。
+>
+> 如果您的集合定義包含分割索引鍵，不會報告索引轉換進度。
 
 ## 後續步驟
 既然您已經學會如何開始使用 DocumentDB 中的地理空間支援，您可以：
@@ -355,4 +346,4 @@ DocumentDB.NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提�
 - 深入了解 [DocumentDB 查詢](documentdb-sql-query.md)
 - 深入了解 [DocumentDB 索引編製原則](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

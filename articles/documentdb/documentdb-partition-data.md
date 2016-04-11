@@ -1,115 +1,254 @@
-<properties      
-    pageTitle="透過分區化在 DocumentDB 中分割資料和調整資料級別 |Microsoft Azure"      
-    description="檢閱如何運用分區化技術調整資料級別的相關資訊。瞭解有關分區、如何在 DocumentDB 中分割資料，以及使用「雜湊」和「定界」分割時機的資訊。"         
-    keywords="調整資料, 分區, 分區化, scale data, shard, sharding, documentdb, azure, Microsoft azure"
-	services="documentdb"      
-    authors="arramac"      
-    manager="jhubbard"      
-    editor="monicar"      
-    documentationCenter=""/>
-<tags       
-    ms.service="documentdb"      
-    ms.workload="data-services"      
-    ms.tgt_pltfrm="na"      
-    ms.devlang="na"      
-    ms.topic="article"      
-    ms.date="02/09/2016"      
-    ms.author="arramac"/>
+<properties 
+	pageTitle="透過分區化在 DocumentDB 中分割資料和調整資料級別 |Microsoft Azure"      
+	description="檢閱如何運用分區化技術調整資料級別的相關資訊。瞭解有關分區、如何在 DocumentDB 中分割資料，以及使用「雜湊」和「定界」分割時機的資訊。"         
+	keywords="調整資料, 分區, 分區化, scale data, shard, sharding, documentdb, azure, Microsoft azure"
+	services="documentdb" 
+	authors="arramac" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-# DocumentDB 中的資料分割與級別資料
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/30/2016" 
+	ms.author="arramac"/>
 
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 的設計可協助您達成快速、可預測的效能，並順暢地隨著您的應用程式成長向外延展。在 Microsoft，DocumentDB 用來賦與高延展性生產服務，像是可賦與 MSN Web 和行動應用程式套件的使用者資料存放區。
+# Azure DocumentDB 的資料分割與調整規模
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 的設計可協助您達成快速且可預測的效能，並順暢地隨著應用程式的成長而調整規模。本文概述 DocumentDB 中資料分割運作方式的概觀，並描述可如何設定 DocumentDB 集合以有效地地調整應用程式規模。
 
-您也可以利用水平分割資料的方式 (通常稱為**分區化**的概念)，讓 DocumentDB 應用程式在儲存體和輸送量方面達到近乎無限延展。DocumentDB 帳戶可以利用線性方式，並透過可堆疊的單位成本 (簡稱**集合**) 調整。跨集合分割資料的最佳方式將取決於您的資料格式和存取模式。
+閱讀本文後，您將能夠回答下列問題：
 
-閱讀本文中有關資料級別調整的內容後，您將能夠回答下列問題：
+- Azure DocumentDB 中資料分割的運作方式為何？
+- 如何在 DocumentDB 中設定資料分割？
+- 什麼是資料分割索引鍵，以及如何為我的應用程式選擇正確的資料分割索引鍵？
 
- - 什麼是雜湊和定界分割？
- - 使用每個分割技術的時機與原因？
- - 如何在 Azure DocumentDB 上建置分割應用程式？
+## DocumentDB 中的資料分割
 
-本文將介紹一些有關分區化的概念。如果您已準備好使用 DocumentDB SDK 來撰寫分割資料的程式碼，請參閱[使用 DocumentDB.NET SDK 來分割資料](documentdb-sharding.md)。
+您在 DocumentDB 中可儲存及查詢無結構描述的 JSON 文件，以及任何規模的毫秒順序回應時間。DocumentDB 提供儲存資料的容器，稱為「集合」。集合是邏輯資源，可以跨一或多個實體資料分割或伺服器分佈。資料分割數目取決於根據集合儲存體大小與佈建輸送量的 DocumentDB。DocumentDB 中的每個資料分割，都有固定數量與其相關聯的 SSD 儲存體，會進行複寫以提供高可用性。資料分割的管理完全由 Azure DocumentDB 所管理，您不需要撰寫複雜的程式碼或管理資料分割。從儲存體和輸送量的角度來看，DocumentDB 集合「實際上無限制」。
 
-## 集合 = 分割
+應用程式完全不會感受到資料分割作業的進行。DocumentDB 支援快速的讀取與寫入、SQL 與 LINQ 查詢、JavaScript 形式的交易邏輯、一致性層級，以及透過呼叫單一集合資源的 REST API 進行更細微的存取控制。此服務會處理跨資料分割所分散的資料，以及將查詢要求路由傳送至正確的資料分割。
 
-在我們更深入探索資料級別調整與資料分割技術之前，務必瞭解何謂集合。您可能已經知道，集合是 JSON 文件的容器。DocumentDB 中的集合不只是邏輯容器，也是實體容器。它們是預存程序和觸發程序的交易界限，以及查詢和 CRUD 作業的進入點。每個集合會獲派保留數量的輸送量，且不會與相同帳戶中的其他集合共用。因此，您可以藉由新增更多集合，然後在它們之間散佈您的文件，在儲存體和輸送量方面向外延展您的應用程式。
+運作方式為何？ 在 DocumentDB 中建立集合時，會注意到您可以指定「資料分割索引鍵屬性」組態值。此為文件中 DocumentDB 可用來在多部伺服器或多個資料分割之間分散資料的 JSON 屬性 (或路徑)。DocumentDB 會將資料分割索引鍵值變成雜湊值，並使用雜湊的結果來判斷儲存 JSON 文件所在的資料分割。具有相同資料分割索引鍵的所有文件，都會儲存在相同的資料分割中。
 
-集合與關聯式資料庫中的資料表不同。集合不會強制執行結構描述。因此，您可以在相同集合中儲存具有各種不同結構描述之不同類型的文件。不過，您可以選擇使用集合來儲存單一類型的物件，正如同您會對資料表進行的動作。最佳模型僅取決於資料一起出現在查詢和交易中的方式。
+例如，請考慮使用將員工和其部門資料儲存在 DocumentDB 中的應用程式。我們選擇 `"department"` 作為資料分割索引鍵屬性，依部門相應放大資料。DocumentDB 中的每個文件都必須包含必要的 `"id"` 屬性，而每個具有相同資料分割索引鍵值之文件的這個屬性都不得重複，例如 `"Marketing`"。儲存在集合中的每個文件，都必須要有不重複的資料分割索引鍵與識別碼組合 (例如 `{ "Department": "Marketing", "id": "0001" }`、`{ "Department": "Marketing", "id": "0002" }` 和 `{ "Department": "Sales", "id": "0001" }`)。換句話說，複合屬性 (資料分割索引鍵, 識別碼) 是集合的主要索引鍵。
 
-## 使用 DocumentDB 分割
+### 資料分割索引鍵
+選擇資料分割索引鍵是在設計階段必須進行的一項重要決策。您選擇的 JSON 屬性名稱必須具有各種不同的值，而且應該可以平均分散存取模式。讓我們看看資料分割索引鍵選擇對於應用程式效能的影響。
 
-有兩種方法可用於透過 Azure DocumentDB (或任何類似用途的分散式系統) 執行資料分割：包括*定界分割*與*雜湊分割*。這牽涉到在文件中挑選單一 JSON 屬性名稱做為*資料分割索引鍵* (通常為自然 ID 屬性，例如適用於使用者儲存體的 "userID"，或是適用於 IoT 案例 的 "deviceId")。針對時間序列資料會使用 "timestamp" 做為資料分割索引鍵，這是因為系統通常會依時間範圍來插入和查詢資料。雖然常見情況下會使用單一屬性，但不同的文件種類可能會使用不同屬性，例如針對使用者文件會使用 "id"、針對註解會使用 "ownerUserId"。下一個步驟是使用要求中包含的資料分割索引鍵，將諸如建立和查詢等所有作業路由至正確的集合。
+### 資料分割與佈建的輸送量
+DocumentDB 設計用來取得可預測的效能。當您建立集合時，請以「每秒要求單位 (RU)」保留輸送量。每項要求都會指派有與系統資源 (例如作業所使用的 CPU 和 IO) 數量成正比的要求單位費用。讀取 1 KB 具有工作階段一致性的文件，會使用 1 個要求單位。不論儲存的項目數或同時執行的並行要求數，讀取一次都是 1 個 RU。根據大小之不同，較大的文件需要較高的要求單位。如果您知道實體大小以及支援您應用程式所需的讀取次數，則可以佈建應用程式讀取需求確實需要的輸送量。
 
-讓我們更進一步看看這些技巧。
+DocumentDB 儲存文件時，會根據資料分割索引鍵值將其平均分散到不同的資料分割。輸送量也會平均分散到可用的資料分割，即每個資料分割的輸送量 = (每個集合的總輸送量)/(資料分割數目)。
 
-## 定界分割
+> [AZURE.NOTE] 為達到集合的完整輸送量，您必須選擇資料分割索引鍵，讓您能將要求平均地分散到數個相異的資料分割索引鍵值。
 
-在定界分割中，分割是根據分割索引鍵是否在特定範圍內所指派。這常用於分割時間戳記屬性 (例如 eventTime 介於 2015 年 2 月 1 日與 2015 年 2 月 2 日之間)。
+## 單一資料分割與料分割集合
+DocumentDB 支援建立單一資料分割與資料分割的集合。
 
-> [AZURE.TIP] 如果您的查詢限制在分割索引鍵的特定範圍值，您應該使用定界分割。
+- 「資料分割的集合」可以跨多個資料分割，且支援極大量的儲存體與輸送量。您必須為集合指定資料分割索引鍵。
+- 「單一資料分割集合」的價格選項較低，且可以對所有集合資料查詢及執行交易。它們具有單一資料分割的延展性和儲存體限制。您不需要為這些集合指定資料分割索引鍵。 
 
-定界分割的特殊案例，係指當定界為單一值時。這常用於依區域等離散值執行資料分割 (例如：斯堪地那維亞的分割包含挪威、丹麥和瑞典)。
+![DocumentDB 中的資料分割集合][2]
 
-> [AZURE.TIP] 定界分割可在管理多租用戶應用程式時，提供最高程度的控制。您可以指派多個租用戶給單一集合、單一租用戶給單一集合，或甚至多個集合的單一租用戶。
+在不需要大量儲存體或輸送量的情況下，單一資料分割集合是不錯的選擇。請注意，單一資料分割集合具有單一資料分割的延展性和儲存體限制，即最多 10 GB 的儲存體以及每秒最多 10,000 個要求單位。
 
-## 雜湊分割
+「資料分割的集合」可支援極大量的儲存體與輸送量。但預設的購買選項設定為最多儲存 250 GB 的儲存體，且每秒最高可調至 250,000 個要求單位。如果每個集合需要更高的儲存體或輸送量，請連絡 [Azure 支援](documentdb-increase-limits)，加大您帳戶的儲存體或輸送量。
 
-在雜湊分割中，分割是根據雜湊函式的值來指派，讓您在一些分割上平均分配要求和資料。這常用於分割從大量不同用戶端產生或取用的資料，適合用來儲存使用者設定檔、目錄項目以及 IoT (「物聯網」) 裝置遙測資料。
+下表列出使用單一資料分割和資料分割的集合之間的差異︰
 
-> [AZURE.TIP] 每當要列舉的實體太多時 (例如使用者或裝置)，以及實體間的要求率相當統一時，您應該使用雜湊分割。
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top"><p></p></td>
+            <td valign="top"><p><strong>單一資料分割集合</strong></p></td>
+            <td valign="top"><p><strong>資料分割的集合</strong></p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>資料分割索引鍵</p></td>
+            <td valign="top"><p>None</p></td>
+            <td valign="top"><p>必要</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>文件的主要索引鍵</p></td>
+            <td valign="top"><p>"id"</p></td>
+            <td valign="top"><p>複合索引鍵 &lt;主要索引鍵> 和 "id"</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>儲存體下限</p></td>
+            <td valign="top"><p>0 GB</p></td>
+            <td valign="top"><p>0 GB</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>儲存體上限</p></td>
+            <td valign="top"><p>10 GB</p></td>
+            <td valign="top"><p>無限制 (預設為 250 GB)</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>輸送量下限</p></td>
+            <td valign="top"><p>每秒 400 個要求單位</p></td>
+            <td valign="top"><p>每秒 10,000 個要求單位</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>輸送量上限</p></td>
+            <td valign="top"><p>每秒 10,000 個要求單位</p></td>
+            <td valign="top"><p>無限制 (預設為每秒 250,000 個要求單位)</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><p>API 版本</p></td>
+            <td valign="top"><p>全部</p></td>
+            <td valign="top"><p>API 2015-12-16 與更新版本</p></td>
+        </tr>
+    </tbody>
+</table>
 
-## 選擇適當的分割技巧
+## 使用 SDK
 
-那麼，最適合您的分割技巧為何？ 因資料類型和您的常用存取模式而定。在設計階段挑選適當的分割技巧，可讓您避免技術負債並處理資料大小和要求量的成長。
+Azure DocumentDB 已新增使用 [REST API 版本 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx) 的自動資料分割支援。若要建立資料分割的集合，必須下載其中一個支援的 SDK 平台 (.NET、Node.js、Java、Python) 中的 SDK 1.6.0 版或更新版本。
 
-- **定界分割**通常用於日期的內容中，因為它提供簡易而自然的機制，所以能讓您依時間戳記進行過時分割。當查詢一般受限於時間範圍時，它也很有用，因為與分割界限對齊。其可讓您透過自然方式，將未排序且不相關的資料集分成群組並加以組織 (例如依組織組成的群組租用戶，或依地理區域組成的州/省群組)。範圍也為在集合之間移轉資料提供更細微的控制。 
-- **雜湊分割**適合用於統一要求的負載平衡，以有效運用您的佈建儲存體和輸送量。使用一致雜湊演算法可讓您在加入或移除分割時，將要移動的資料量降到最低。
+下列範例顯示的 .NET 程式碼片段所建立之集合，可儲存輸送量每秒 20,000 個要求單位的裝置遙測資料。SDK 會設定 OfferThroughput 值 (接著會設定 REST API 中的 `x-ms-offer-throughput` 要求標頭)。此處我們將 `/deviceId` 設定為資料分割索引鍵。選擇的資料分割索引鍵會與其餘的集合中繼資料 (例如名稱與編製索引原則) 一併儲存。
 
-您不需只選擇一個分割技巧。這些複合技巧可視案例發揮其效用。比方說，如果您在儲存車輛遙測資料，較理想的方法就是依時間戳記範圍分割裝置遙測資料，以獲得分割的便利管理能力的，其次依 VIN (汽車識別號碼) 分割，以向外延展而獲得輸送量 (範圍雜湊複合分割)。
+在此範例中，我們挑選了 `deviceId`，因為我們知道 (a) 因為有大量的裝置，所以寫入可以平均分散到資料分割，讓我們能調整資料庫規模以內嵌大量的資料，以及 (b) 許多要求 (例如，提取裝置的最新讀取) 會限定在單一 deviceId，而且可以從單一資料分割擷取。
 
-## 開發分割的應用程式
-在 DocumentDB 上開發分割的應用程式時，有三個要查看的主要設計區域。
+    DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
+    await client.CreateDatabaseAsync(new Database { Id = "db" });
 
-- 路由您所建立和讀取 (包括查詢) 至正確集合的方式。
-- 保存並抓取您的分割解決組態 (即分割對應) 的方式。
-- 隨著資料和要求量的增加，新增/移除分割的方式。
+    // Collection for device telemetry. Here the JSON property deviceId will be used as the partition key to 
+    // spread across partitions. Configured for 10K RU/s throughput and an indexing policy that supports 
+    // sorting against any number or string property.
+    DocumentCollection myCollection = new DocumentCollection();
+    myCollection.Id = "coll";
+    myCollection.PartitionKey.Paths.Add("/deviceId");
 
-讓我們仔細看看每個區域。
+    await client.CreateDocumentCollectionAsync(
+        UriFactory.CreateDatabaseUri("db"),
+        myCollection,
+        new RequestOptions { OfferThroughput = 20000 });
+        
+此方法會對 DocumentDB 進行 REST API 呼叫，且服務會根據要求的輸送量來佈建許多資料分割。現在，我們將資料插入 DocumentDB 中。以下是包含裝置讀取的範例類別，以及呼叫 CreateDocumentAsync 將新的裝置讀取插入集合中。
 
-## 路由建立並查詢
+    public class DeviceReading
+    {
+        [JsonProperty("id")]
+        public string Id;
 
-以直覺方式路由文件建立要求，適用於雜湊與定界分割。文件是從雜湊分割或與分割索引鍵對應的範圍值建立。
+        [JsonProperty("deviceId")]
+        public string DeviceId;
 
-查詢和讀取一般應該限制於單一分割索引鍵，因此查詢可以展開傳送到僅符合的分割。但是，查詢所有資料需要跨多個分割展開要求，然後合併結果。請記住，有些查詢可能必須先執行自訂邏輯以合併結果，例如擷取前 N 個結果時。
+        [JsonConverter(typeof(IsoDateTimeConverter))]
+        [JsonProperty("readingTime")]
+        public DateTime ReadingTime;
 
-## 管理分割對應
+        [JsonProperty("metricType")]
+        public string MetricType;
 
-您也必須決定儲存分割對應的方式、您的用戶端將其載入並在變更時接收更新的方式，以及跨多個用戶端共用的方式。如果分割對應不常變更，您可以只是將它儲存在應用程式組態檔中。
+        [JsonProperty("unit")]
+        public string Unit;
 
-若並非如此，您可以將其儲存任何持續性存放區中。我們已在生產環境中看到的一般設計模式是將分割對應序列化為 JSON，並將它們儲存在 DocumentDB 集合內。之後用戶端可以快取對應，以避免額外的來回行程，然後定期輪詢以取得變更。如果您的用戶端可能會修改分區對應，請確定它們使用一致的命名結構描述，以及使用開放式並行存取 (eTag) 以允許對分割對應的一致更新。
+        [JsonProperty("metricValue")]
+        public double MetricValue;
+      }
 
-## 新增和移除分割以調整資料級別
+    // Create a document. Here the partition key is extracted as "XMS-0001" based on the collection definition
+    await client.CreateDocumentAsync(
+        UriFactory.CreateDocumentCollectionUri("db", "coll"),
+        new DeviceReading
+        {
+            Id = "XMS-001-FE24C",
+            DeviceId = "XMS-0001",
+            MetricType = "Temperature",
+            MetricValue = 105.00,
+            Unit = "Fahrenheit",
+            ReadingTime = DateTime.UtcNow
+        });
 
-利用 DocumentDB，您可以隨時新增及移除集合，並用集合來儲存新的內送資料或重新平衡現有的集合上可用的資料。檢閱[限制](documentdb-limits.md)頁面以取得集合數目。您一律可以致電我們以增加這些限制。
 
-利用定界分割新增及移除新分割很簡單。例如，新增新的地理區域或新時間範圍以取得最新資料，您只需將新分割附加到分割對應。將現有的分割分割成多個分割，或合併兩個分割需要多一點力氣。您需要進行兩個動作之一
+請依資料分割索引鍵和識別碼來讀取文件，並加以更新，然後最後一個步驟是依資料分割索引鍵和識別碼刪除文件。請注意，讀取包括 PartitionKey 值 (對應至 REST API 中的 `x-ms-documentdb-partitionkey` 要求標頭)。
 
-- 將分區離線進行讀取。
-- 將讀取路由至使用舊分割組態以及移轉期間的新分割組態的兩個分割。請注意，在移轉完成之前，無法提供交易和一致性層級的保證。
+    // Read document. Needs the partition key and the ID to be specified
+    Document result = await client.ReadDocumentAsync(
+      UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+      new RequestOptions { PartitionKey = new object[] { "XMS-0001" }});
 
-對於新增及移除分割而言，雜湊更為複雜。簡單的雜湊技巧將會造成隨機切換，而且需要移動大部分的資料。使用**一致雜湊**可確保只有一小部分資料需要移動。
+    DeviceReading reading = (DeviceReading)(dynamic)result;
 
-新增新分割而不需要移動資料的相當簡單的方法是將您的資料「溢出」至全新的集合中，然後對舊的和新的集合展開傳送要求。不過，這種方法應該只能用在罕見的情況下 (例如在尖峰時間工作負載溢出，以及在可以移動資料之前暫時保存資料)。
+    // Update the document. Partition key is not required, again extracted from the document
+    reading.MetricValue = 104;
+    reading.ReadingTime = DateTime.UtcNow;
+
+    await client.ReplaceDocumentAsync(
+      UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+      reading);
+
+    // Delete document. Needs partition key
+    await client.DeleteDocumentAsync(
+      UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
+      new RequestOptions { PartitionKey = new object[] { "XMS-0001" } });
+
+當您在資料分割的集合中查詢資料時，DocumentDB 會自動將查詢路由傳送至資料分割 (對應至篩選中所指定的資料分割索引鍵值 (如果有的話))。例如，此查詢只會路由傳送至包含資料分割索引鍵 "XMS-0001" 的資料分割。
+
+    // Query using partition key
+    IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
+    	UriFactory.CreateDocumentCollectionUri("db", "coll"))
+        .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
+
+下列查詢沒有根據資料分割索引鍵 (DeviceId) 的篩選，且已展開至對資料分割索引執行它的所有資料分割。請注意，您必須指定 EnableCrossPartitionQuery (REST API 中的 `x-ms-documentdb-query-enablecrosspartition`)，讓 SDK 跨資料分割執行查詢。
+
+    // Query across partition keys
+    IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
+        UriFactory.CreateDocumentCollectionUri("db", "coll"), 
+        new FeedOptions { EnableCrossPartitionQuery = true })
+        .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
+
+您也可以對具有相同裝置識別碼的文件執行不可部分完成交易，例如，如果您正在維護彙總或處於單一文件中裝置的最新狀態。
+
+    await client.ExecuteStoredProcedureAsync<DeviceReading>(
+        UriFactory.CreateStoredProcedureUri("db", "coll", "SetLatestStateAcrossReadings"),
+        "XMS-001-FE24C",
+        new RequestOptions { PartitionKey = new PartitionKey("XMS-001") });
+
+現在，我們已經完成基本概念，接著將查看在 DocumentDB 中使用資料分割索引鍵時的一些重要設計考量。
+
+## 設計資料分割
+選擇資料分割索引鍵是在設計階段必須進行的一項重要決策。本節描述選取集合資料分割索引鍵時的一些取捨。
+
+### 資料分割索引鍵作為交易界限
+您選擇的資料分割索引鍵應兼顧交易使用和將實體分散到多個資料分割 (以確保可調整的解決方案) 的需求。以一個極端的情況來說，您可以在單一資料分割儲存所有實體，但如此可能會限制解決方案的延展性。以另一個極端而言，您可以為每個資料分割索引鍵儲存一個文件以達到高延展性，但如此會透過預存程序和觸發程序，讓您無法使用跨文件交易。理想的資料分割索引鍵可讓您使用有效率的查詢，而且具有足夠的資料分割，可確保您的解決方案能加以延展。
+
+### 避免儲存體和效能瓶頸 
+也請務必挑選允許將寫入分散到數個相異值的屬性。相同資料分割索引鍵的要求，不能超過單一資料分割的輸送量，因此將進行節流。因此，請務必挑選不會在應用程式內導致「作用點」的資料分割索引鍵。在儲存體中，具有相同資料分割索引鍵之文件的總儲存體大小，也不能超過 10 GB。
+
+### 良好資料分割索引鍵的範例
+以下是如何挑選應用程式之資料分割索引鍵的一些範例︰
+
+* 如果您實作使用者設定檔後端，則使用者識別碼是不錯的資料分割索引鍵選擇。
+* 如果您在儲存 IoT 資料 (例如，裝置狀態)，則裝置識別碼是不錯的資料分割索引鍵選擇。
+* 如果您使用 DocumentDB 來記錄時間序列資料，則時間戳記的日期部分是不錯的資料分割索引鍵選擇。
+* 如果您有多重租用戶架構，租用戶識別碼是不錯的資料分割索引鍵選擇。
+
+請注意，在一些使用案例 (例如以上所述 IoT 與使用者設定檔) 中，資料分割索引鍵可能與您的識別碼 (文件索引鍵) 相同。在其他使用案例 (例如時間序列資料) 中，您的資料分割索引鍵可能與識別碼不同。
+
+### 資料分割與多重租用
+如果您實作使用 DocumentDB 的多重租用戶應用程式，則有兩種主要模式可使用 DocumentDB 實作租用：一個租用戶一個資料分割索引鍵，以及一個租用戶一個集合。以下是每項方式的優缺點︰
+
+* 一個租用戶一個資料分割索引鍵：在此模型中，租用戶共置於單一集合內。但是，針對單一資料分割，可以執行單一租用戶內文件的查詢與插入。您也可以跨租用戶內的所有文件實作交易邏輯。因為多重租用戶共用一個集合，所以您可以節省儲存體和輸送量成本，方法是在單一集合內輪詢租用戶的資源，而不是為每個租用戶佈建額外的空餘空間。缺點是未隔離每個租用戶的效能。整個集合的效能/輸送量增加與鎖定特定租用戶的增加。
+* 一個租用戶一個集合：每個租用戶都有其專屬集合。在此模型中，您可以保留每個租用戶的效能。使用 DocumentDB 的新耗用型計價模式，這種模式對於具有少數租用戶的多重租用戶應用程式最具成本效益。
+
+您也可以使用組合/分層的方式，來共置少數租用戶，並將較大的租用戶移轉到其專屬集合。
 
 ## 後續步驟
-在本文中，我們將介紹一些您如何使用 DocumentDB 分割資料的常見技巧，以及使用哪些技巧或的技巧的組合的時機。
+在本文中，我們已描述過在 Azure DocumentDB 中料分割的運作方式、如何建立資料分割的集合，以及如何為您的應用程式挑選適當的資料分割索引鍵。
 
--   接著，請查看本[文章](documentdb-sharding.md)，了解如何搭配 DocumentDB SDK 使用分割解析程式，以進行資料分割。 
--   下載其中一個[支援的 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)
--   如果您有任何問題，請透過 [MSDN 支援論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)與我們連絡。
-   
+-   使用 [SDK](documentdb-sdk-dotnet.md) 或 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 開始撰寫程式碼
+-   了解 [DocumentDB 中的佈建輸送量](documentdb-performance-levels.md)
+-   如果您要自訂應用程式如何執行資料分割，可以插入您自己的用戶端資料分割實作。請參閱[用戶端資料分割支援](documentdb-sharding.md)。
 
+[1]: ./media/documentdb-partition-data/partitioning.png
+[2]: ./media/documentdb-partition-data/single-and-partitioned.png
 
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,10 +13,10 @@
 
 ## 必要條件
 
-* **Azure 訂用帳戶** - 您可以在 Azure 全域或 Azure China 服務中使用訂用帳戶。您的訂用帳戶限制將會影響到您可以部署的叢集節點類型與數量。如需相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](../azure-subscription-service-limits.md)。
+* **Azure 訂用帳戶** - 您可以在 Azure 全域或 Azure China 服務中使用訂用帳戶。您的訂用帳戶限制將會影響到您可以部署的叢集節點類型與數量。如需相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額與條件約束](../articles/azure-subscription-service-limits.md)。
 
 
-* **已安裝並設定 Azure PowerShell 0.8.7 或更新版本的 Windows 用戶端電腦** - 請參閱[安裝及設定 Azure PowerShell](../powershell-install-configure.md)。指令碼會在 Azure 服務管理中執行。
+* **已安裝及設定 Azure PowerShell 0.8.7 或更新版本的 Windows 用戶端電腦** - 請參閱[安裝及設定 Azure PowerShell](../articles/powershell-install-configure.md)。指令碼會在 Azure 服務管理中執行。
 
 
 * **HPC Pack IaaS 部署指令碼** - 從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=44949)下載並解壓縮最新版的指令碼。執行 `New-HPCIaaSCluster.ps1 –Version` 以檢查指令碼的版本。這篇文章是根據 4.4.0 版的指令碼撰寫的。
@@ -362,4 +362,4 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> 
 
     若要解決這個問題，請先檢查 VM 中的延伸模組狀態。如果延伸模組未正確安裝，請嘗試從 HPC 叢集中移除節點，然後重新新增節點。例如，您可以在前端節點上執行 Add-HpcIaaSNode.ps1 指令碼，以新增運算節點 VM。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

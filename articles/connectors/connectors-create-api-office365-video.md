@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="03/23/2016"
 ms.author="deonhe"/>
 
 # 開始使用 Office 365 影片 API
@@ -33,7 +33,7 @@ ms.author="deonhe"/>
 
 ## 觸發程序及動作
 
-Office 365 使用者 API 提供下列動作。無觸發程序。
+Office 365 影片 API 提供下列動作。但不包含觸發程序。
 
 | 觸發程序 | 動作|
 | --- | --- |
@@ -221,4 +221,4 @@ Office 365 使用者 API 提供下列動作。無觸發程序。
 ## 後續步驟
 [建立邏輯應用程式](../app-service-logic/app-service-logic-create-a-logic-app.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

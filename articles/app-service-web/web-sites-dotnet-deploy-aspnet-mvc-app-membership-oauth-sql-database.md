@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/10/2016" 
+	ms.date="03/21/2016" 
 	ms.author="riande"/>
 
 # 使用驗證和 SQL DB 建立 ASP.NET MVC 應用程式並部署至 Azure App Service
@@ -53,9 +53,7 @@
 
 	![[檔案] 功能表中的 [新增專案]](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/gs13newproj.png)
 
-1. 在 [新增專案] 對話方塊中，展開 [C#] 並選取 [已安裝的範本] 下的 [Web]，再選取 [ASP.NET Web 應用程式]。
-
-1. 將應用程式命名為 **ContactManager**，然後再按一下 [確定]。
+1. 在 [新增專案] 對話方塊中，展開 [C#] 並選取 [已安裝的範本] 下的 [Web]，再選取 [ASP.NET Web 應用程式]。將應用程式命名為 **ContactManager**，然後再按一下 [確定]。
 
 	![New Project dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/GS13newprojdb.png)
  
@@ -63,33 +61,39 @@
 
 1. 在 [新增 ASP.NET 專案] 對話方塊中，選取 [MVC] 範本。確認 [驗證] 已設為 [個別使用者帳戶]、[雲端中的主機] 已勾選，且已選取 [App Service]。
 
-	![[New ASP.NET Project] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newproject.png)
+	![[新增 ASP.NET 專案] 對話方塊](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newproject.png)
 
 1. 按一下 [確定]。
 
-3. 當 [設定 Microsoft Azure Web 應用程式設定] 對話方塊出現時，請確定您已登入 Azure：如果您還沒有登入，請登入，如果您的登入已過期，請重新輸入您的認證。
+1. [設定 Microsoft Azure Web 應用程式設定] 對話方塊即會出現。如果您沒尚未登入，則可能需要登入，或如果您的登入已過期，請重新輸入認證。
 
-	![重新輸入認證](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/reentercredentials.png)
-
-2. 如果您想要指定 web 應用程式的名稱，請變更 [Web 應用程式名稱] 方塊中的值。
+1. 選用 - 變更 [Web 應用程式名稱] 方塊中的值 (請參閱下圖)。
 
 	Web 應用程式的 URL 將會是 {name}.azurewebsites.net，因此該名稱在 azurewebsites.net 網域中必須是唯一的。組態精靈建議唯一的名稱是將數字附加至專案名稱 "ContactManager"，這也適用於本教學課程。
 
-5. 在 [App Service 計劃] 下拉式清單中，選取 [建立新的 App Service 計劃] 並輸入名稱，例如下圖所示的 "StandardWeb"。
-
-	您也可以依照意願選取您已有的 App Service 計劃。如需 App Service 方案的資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
-
-5. 在 [資源群組] 下拉式清單中，選取 [建立新的資源群組] 並輸入名稱，例如下圖所示的 "ExampleMVC"。
+5. 在 [資源群組] 下拉式清單中，選取現有的群組或 [建立新的資源群組] (請參閱下圖)。
 
 	您也可以依照意願選取您已有的資源群組。但如果您建立新的資源群組並僅用於此教學課程，就可在您完成時輕易刪除您為教學課程所建立的所有 Azure 資源。如需資源群組的資訊，請參閱 [Azure 資源管理員概觀](../resource-group-overview.md)。
 
-7. 選取您附近的區域。
+5. 在 [App Service 方案] 下拉式清單中，選取現有的方案或 [建立新的 App Service 方案] (請參閱下圖)。
 
-	還不要按 [確定]。在下一個步驟中，您將設定資料庫資源。此對話方塊現在看起來像下圖。
+	您也可以依照意願選取您已有的 App Service 計劃。如需 App Service 方案的資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
 
-	![新方案和資源群組](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newplanandgroup.png)
- 
-2. 選取 [建立新的伺服器]，輸入伺服器名稱、使用者名稱和密碼。
+1. 點選 [探索其他 Azure 服務] 以新增 SQL Database。
+
+	![新增服務](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/n2.png)
+
+1. 點選 [+] 圖示，以新增 SQL Database。
+
+	![新增 SQL DB](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/nsql.png)
+
+1. 點選 [設定 SQL Database] 對話方塊上的 [新增]︰
+
+	![SQL 系統管理員名稱和密碼](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/nc.png)
+
+1. 輸入系統管理員的名稱和強式密碼。
+
+	![新增 SQL DB](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/np.png)
 
 	伺服器名稱必須是唯一的。它可以包含小寫字母、數字和連字號。它不能包含結尾連字號。使用者名稱和密碼是您要為新伺服器建立的新認證。
 
@@ -99,7 +103,7 @@
 
 	![使用新資料庫](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newdb.png)
 
-4. 按一下 [確定]。
+4. 點選 [建立]。
 
 	Visual Studio 會建立 ContactManager web 專案、建立資源群組和您指定的 App Service 計劃，並在您指定名稱的 Azure App Service 中建立 web 應用程式。
 
@@ -109,54 +113,13 @@
 
 	![方案總管中的 \_Layout.cshtml][newapp004]
 
-1. 以下列程式碼取代 *Layout.cshtml* 檔案的內容。
+1. 將 Layout.cshtml 檔案中的 ActionLink 取代為下列程式碼。
 
-		<!DOCTYPE html>
-		<html>
-		<head>
-		    <meta charset="utf-8" />
-		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		    <title>@ViewBag.Title - Contact Manager</title>
-		    @Styles.Render("~/Content/css")
-		    @Scripts.Render("~/bundles/modernizr")
-		
-		</head>
-		<body>
-		    <div class="navbar navbar-inverse navbar-fixed-top">
-		        <div class="container">
-		            <div class="navbar-header">
-		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                    <span class="icon-bar"></span>
-		                </button>
-		                @Html.ActionLink("CM Demo", "Index", "Cm", new { area = "" }, new { @class = "navbar-brand" })
-		            </div>
-		            <div class="navbar-collapse collapse">
-		                <ul class="nav navbar-nav">
-		                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-		                    <li>@Html.ActionLink("About", "About", "Home")</li>
-		                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-		                </ul>
-		                @Html.Partial("_LoginPartial")
-		            </div>
-		        </div>
-		    </div>
-		    <div class="container body-content">
-		        @RenderBody()
-		        <hr />
-		        <footer>
-		            <p>&copy; @DateTime.Now.Year - Contact Manager</p>
-		        </footer>
-		    </div>
-		
-		    @Scripts.Render("~/bundles/jquery")
-		    @Scripts.Render("~/bundles/bootstrap")
-		    @RenderSection("scripts", required: false)
-		</body>
-		</html>
 
-	此程式碼會變更頁首和頁尾的應用程式名稱，從 "My ASP.NET Application" 和 "Application name" 變更為 "Contact Manager" 和 "CM Demo"。
+	@Html.ActionLink("CM Demo", "Index", "Contacts", new { area = "" }, new { @class = "navbar-brand" })
+		           
+
+	確定您將第三個參數從 "Home" 變更為 "Contacts"。上面的標記將在每個頁面上建立 "Contacts" 連結，以連結至 Contacts 控制器的 Index 方法。變更頁首和頁尾的應用程式名稱，從 "My ASP.NET Application" 和 "Application name" 變更為 "Contact Manager" 和 "CM Demo"。
  
 ### 在本機執行應用程式
 
@@ -282,7 +245,6 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 1. 在 [資料內容類別] 中選取 [ApplicationDbContext (ContactManager.Models)]。[ApplicationDbContext] 將用於成員資格 DB 和我們的連絡人資料。
 
-1. 在 [控制器名稱] 文字輸入方塊中，輸入 "CmController" 作為控制器名稱。
 
 	![新增資料內容對話方塊](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss5.PNG)
 
@@ -372,7 +334,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
                 );
         }
 
-	此程式碼會以連絡人資訊初始化 (植入) 該資料庫。如需植入資料庫的詳細資訊，請參閱[植入及偵錯 Entity Framework (EF) DB](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)。
+	此程式碼會以連絡人資訊初始化 (植入) 該資料庫。如需植入資料庫的詳細資訊，請參閱[植入及偵錯 Entity Framework (EF) DB](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)。建置專案以確認沒有任何編譯錯誤。
 
 6. 在 [Package Manager Console] 中輸入命令：
 
@@ -589,6 +551,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 1. 按一下頁面上的編輯連結，系統會將您重新導向至登入頁面 (因為未將新的本機使用者新增至 *canEdit* 角色)。
 
 1. 使用 **user1@contoso.com* 的身分和密碼 "P\_assw0rd1" ("word" 中的 "0" 是數字零) 登入。系統隨即將您重新導向到先前選取的編輯頁面。
+2. 
 
 	如果無法以該帳戶和密碼登入，請嘗試複製並貼上原始程式碼中的密碼。如果仍然無法登入，請檢查 [AspNetUsers] 資料表的 [UserName] 欄，確認已新增 **user1@contoso.com*。
 
@@ -604,13 +567,12 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 1. 按一下 [發行 Web] 對話方塊左側的 [設定] 索引標籤。
 
-2. 按一下 **v** 圖示以選取 [ApplicationDbContext] 的 [遠端連接字串]，並且選取您建立專案時建立的資料庫。
+2. 在 [ApplicationDbContext]下，選取您建立專案時所建立的資料庫。
    
-	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc2.png)
 
 1. 在 [ContactManagerContext] 下選取 [Execute Code First Migrations]。
 
-	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc3.png)
+	![settings](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc2.png)
 
 1. 按一下 [發佈]。
 
@@ -797,4 +759,4 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

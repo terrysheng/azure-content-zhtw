@@ -26,20 +26,21 @@
 
 本主題說明如何從以 PHP 撰寫並在 Windows 上執行的用戶端應用程式，連接到 Azure SQL Database。
 
+## 步驟 1︰設定開發環境
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
-### SQL Database
+## 步驟 2：建立 SQL Database
 
 請參閱[快速入門頁面](sql-database-get-started.md)，以了解如何建立範例資料庫。請務必遵循該指南以建立 **AdventureWorks 資料庫範本**。以下所示的範例僅適用於 **AdventureWorks 結構描述**。
 
 
-## 步驟 1：取得連線詳細資料
+## 步驟 3：取得連接詳細資料
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## 步驟 2：連接
+## 步驟 4︰連接
 
 
 這個 **OpenConnection** 函式會在所有後續函式的頂端附近呼叫。
@@ -63,7 +64,7 @@
 	}
 
 
-## 步驟 3：執行查詢
+## 步驟 5：執行查詢
 
 [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) 函式可用來擷取對 SQL Database 查詢的結果集。這個函式基本上會接受任何查詢與連線物件並傳回結果集，您可以使用 [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php) 反覆查詢結果集。
 
@@ -93,7 +94,7 @@
 	}
 
 
-## 步驟 4：插入資料列
+## 步驟 6：插入資料列
 
 在這個範例中，您將了解如何安全地執行 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) 陳述式、傳遞透過 [SQL 插入](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 弱點保護您應用程式的參數，以及擷取自動產生的[主索引鍵](https://msdn.microsoft.com/library/ms179610.aspx)值。
 
@@ -123,7 +124,7 @@
 		}
 	}
 
-## 步驟 5：回復交易
+## 步驟 7：回復交易
 
 
 這個程式碼範例示範如何使用交易，您將：
@@ -180,4 +181,4 @@
 
 如需 PHP 安裝和使用方式的詳細資訊，請參閱[使用 PHP 存取 SQL Server Database](http://technet.microsoft.com/library/cc793139.aspx)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

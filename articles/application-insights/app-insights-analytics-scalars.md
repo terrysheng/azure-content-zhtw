@@ -286,7 +286,7 @@ true 或 false，取決於值是 null 或不是 null。
 ---|---
 `bin(4.5, 1)` | `4.0`
 `bin(time(16d), 7d)` | `14d`
-`bin(datetime(1953-04-15 22:25:07), 1d)`| `datetime(1953-04-15)`
+`bin(datetime(1953-04-15 22:25:07), 1d)`|  `datetime(1953-04-15)`
 
 
 下列運算式會計算值區大小為 1 秒之持續時間的長條圖︰
@@ -374,10 +374,10 @@ true 或 false，取決於值是 null 或不是 null。
 `ago(`*timespan*`)`|`now()-`*timespan*
 **timespan**|
 `2d`|2 天
-`1.5h`|1\.5 小時 
+`1.5h`|1.5 小時 
 `30m`|30 分鐘
 `10s`|10 秒
-`0.1s`|0\.1 秒
+`0.1s`|0.1 秒
 `100ms`| 100 毫秒
 `10microsecond`|
 `1tick`|100ns
@@ -545,7 +545,7 @@ T | where ... | extend Elapsed=now() - timestamp
 
 ## String
 
-[countof](#countof) | [extract](#extract) | [extractjson](#extractjson) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
+[countof](#countof) | [extract](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
 
 
 ### 字串常值
@@ -554,10 +554,10 @@ T | where ... | extend Elapsed=now() - timestamp
 
 字串可以用單引號或雙引號字元括住。
 
-反斜線 (``) 可用來逸出字元，例如 `\t` (Tab)、`\n` (新行) 和括住引號字元的執行個體。
+反斜線 (`\`) 可用來逸出字元，例如 `\t` (Tab)、`\n` (新行) 和括住引號字元的執行個體。
 
 * `'this is a "string" literal in single \' quotes'`
-* `"this is a 'string' literal in double " quotes"`
+* `"this is a 'string' literal in double \" quotes"`
 * `@"C:\backslash\not\escaped\with @ prefix"`
 
 ### 模糊字串常值
@@ -613,7 +613,7 @@ h"hello"
 **引數**
 
 * text：字串。
-* search︰用來在 text 中進行比對的純文字字串或[規則運算式](app-insights-analytics-reference.md#regular-expressions)。
+* search︰用來在 text 中進行比對的純文字字串或 [規則運算式](app-insights-analytics-reference.md#regular-expressions)。
 * kind：`"normal"|"regex"`。預設值 `normal`。 
 
 **傳回**
@@ -638,7 +638,7 @@ h"hello"
 
     extract("x=([0-9.]+)", 1, "hello x=45.6|wo") == "45.6"
 
-從文字字串取得[規則運算式](app-insights-analytics-reference.md#regular-expressions)的相符項目。(選擇性) 此函式接著會將所擷取的子字串轉換為指定的類型。
+從文字字串取得 [規則運算式](app-insights-analytics-reference.md#regular-expressions) 的相符項目。 (選擇性) 此函式接著會將所擷取的子字串轉換為指定的類型。
 
 **語法**
 
@@ -646,7 +646,7 @@ h"hello"
 
 **引數**
 
-* regex：[規則運算式](app-insights-analytics-reference.md#regular-expressions)。
+* regex： [規則運算式](app-insights-analytics-reference.md#regular-expressions) 。
 * captureGroup：指出要擷取之擷取群組的正 `int` 常數。0 代表整個相符項目、1 代表規則運算式中第一個 '('括號')' 所相符的值，2 或以上的數字代表後續的括號。
 * text：要搜尋的 `string`。
 * typeLiteral：選擇性的類型常值 (例如 `typeof(long)`)。如果提供，所擷取的子字串會轉換為此類型。 
@@ -680,7 +680,8 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 
     isempty("") == true
 
-如果引數為空字串或 null，則為 true。另請參閱 [isnull](#isnull)。
+如果引數為空字串或 null，則為 true。
+另請參閱 [isnull](#isnull)。
 
 
 **語法**
@@ -724,7 +725,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 
 **引數**
 
-* regex：用來搜尋 text 的[規則運算式](https://github.com/google/re2/wiki/Syntax)。它可以在 '('括號')' 中包含擷取群組。 
+* regex：用來搜尋 text 的 [規則運算式](https://github.com/google/re2/wiki/Syntax) 。它可以在 '('括號')' 中包含擷取群組。 
 * rewrite：matchingRegex 所找到之任何相符項目的取代 regex。使用 `\0` 來代表整個相符項目、`\1` 來代表第一個擷取群組，`\2` 和以上的數字來代表後續的擷取群組。
 * text：字串。
 
@@ -746,11 +747,11 @@ range x from 1 to 5 step 1
 
 | x | 字串 | 取代後|
 |---|---|---|
-| 1 | Number is 1.000000 | Number was: 1.000000|
-| 2 | Number is 2.000000 | Number was: 2.000000|
-| 3 | Number is 3.000000 | Number was: 3.000000|
-| 4 | Number is 4.000000 | Number was: 4.000000|
-| 5 | Number is 5.000000 | Number was: 5.000000|
+| 1    | Number is 1.000000  | Number was: 1.000000|
+| 2    | Number is 2.000000  | Number was: 2.000000|
+| 3    | Number is 3.000000  | Number was: 3.000000|
+| 4    | Number is 4.000000  | Number was: 4.000000|
+| 5    | Number is 5.000000  | Number was: 5.000000|
  
 
 
@@ -971,7 +972,7 @@ T
 ### let 子句中的動態物件
 
 
-[let 子句](app-insights-analytics-queries.md#let-clause)會將動態值儲存為字串，因此下列兩個子句是相等的，兩者在使用前都需要 `parsejson` (或 `todynamic`)︰
+[let 子句](app-insights-analytics-queries.md#let-clause) 會將動態值儲存為字串，因此下列兩個子句是相等的，兩者在使用前都需要 `parsejson` (或 `todynamic`)︰
 
     let list1 = '{"a" : "somevalue"}';
     let list2 = parsejson('{"a" : "somevalue"}');
@@ -1055,7 +1056,7 @@ arraylength(parsejson('21')) == null
 **效能秘訣**
 
 * 先套用 where 子句再使用 `extractjson()`
-* 請考慮改為搭配使用規則運算式相符項目與 [extract](#extract)。如果 JSON 是從範本產生，這麼做可以執行的非常快並且有效。
+* 請考慮改為搭配使用規則運算式相符項目與 [extract](#extract) 。如果 JSON 是從範本產生，這麼做可以執行的非常快並且有效。
 * 如果您需要從 JSON 中擷取不只一個值，請使用 `parsejson()`。
 * 請考慮在擷取 JSON 時透過將資料行的類型宣告為動態以剖析 JSON。
 
@@ -1151,14 +1152,14 @@ range(1, 8, 3)
     treepath(parsejson('{"listProperty":[100,200,300,"abcde",{"x":"y"}]}'))
     =>       ["['listProperty']","['listProperty'][0]","['listProperty'][0]['x']"]
 
-請注意，"[0]" 表示陣列存在，但未指定特定路徑所用的索引。
+請注意， "[0]" 表示陣列存在，但未指定特定路徑所用的索引。
 
 
 ## 取樣
 
 ### itemCount
 
-當[取樣](app-insights-sampling.md)進行時，只有一小部分 SDK 所產生的資料會擷取到 Application Insights 入口網站。取樣可在 SDK 中或在擷取到入口網站端點時進行。
+當 [取樣](app-insights-sampling.md) 進行時，只有一小部分 SDK 所產生的資料會擷取到 Application Insights 入口網站。取樣可在 SDK 中或在擷取到入口網站端點時進行。
 
 `itemCount` 會指出在 SDK 中針對串流中出現的每個事件所產生的事件數目。比方說，如果目前的取樣速率是 25%，則 itemCount == 4。
 
@@ -1173,4 +1174,4 @@ range(1, 8, 3)
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!----HONumber=AcomDC_0330_2016-->
+<!-----HONumber=AcomDC_0330_2016-->

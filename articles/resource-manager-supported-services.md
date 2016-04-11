@@ -18,7 +18,8 @@
 
 # 資源管理員提供者、區域、API 版本及結構描述
 
-Azure 資源管理員提供一種新方式來部署和管理組成應用程式的服務。大部分但並非所有的服務都支援資源管理員，有些服務僅部分支援資源管理員。Microsoft 會針對每個服務啟用資源管理員，這對於未來的解決方案而言很重要，但在支援一致化之前，您需要了解每個服務的目前狀態。本主題提供支援 Azure 資源管理員的資源提供者清單。
+Azure 資源管理員提供一種新方式來部署和管理組成應用程式的服務。
+大部分但並非所有的服務都支援資源管理員，有些服務僅部分支援資源管理員。Microsoft 會針對每個服務啟用資源管理員，這對於未來的解決方案而言很重要，但在支援一致化之前，您需要了解每個服務的目前狀態。本主題提供支援 Azure 資源管理員的資源提供者清單。
 
 部署資源時，您也需要知道哪些區域支援這些資源，以及哪些 API 版本適用於資源。[支援區域](#supported-regions)一節說明如何找出哪些區域適用於您的訂用帳戶和資源。[支援的 API 版本](#supported-api-versions)一節說明如何判斷您可以使用哪些 API 版本。
 
@@ -35,7 +36,9 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | Dynamics 週期服務 | 是 | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (Preview) | 是 | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | 虛擬機器 | 是 | [VM REST](https://msdn.microsoft.com/library/azure/mt163647.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) | [Microsoft.Compute](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Compute%22&type=Code) |
-| 虛擬機器 (傳統) | 有限 | - | - | | 遠端應用程式 | 否 | - | - | | 雲端服務 (傳統) | 有限 (請參閱下文) | - | - | - |
+| 虛擬機器 (傳統) | 有限 | - | - |
+| 遠端應用程式 | 否 | - | - |
+| 雲端服務 (傳統) | 有限 (請參閱下文) | - | - | - |
 
 虛擬機器 (傳統) 是指已透過傳統部署模型部署的資源，而不是透過資源管理員部署模型部署的資源。一般而言，這些資源不支援資源管理員作業，但已啟用某些作業。如需這些部署模型的詳細資訊，請參閱[了解資源管理員部署和傳統部署](resource-manager-deployment-model.md)。
 
@@ -88,7 +91,8 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | 資料湖存放區 | 是 | | | |
 | HDInsights | 是 | [HDInsights REST](https://msdn.microsoft.com/library/azure/mt622197.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | 串流分析 | 是 | [串流分析 REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
-| 機器學習服務 | 否 | - | - | | 資料目錄 | 否 | - | - |
+| 機器學習服務 | 否 | - | - |
+| 資料目錄 | 否 | - | - |
 
 ## 物聯網 (Internet of Things)
 
@@ -112,7 +116,8 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | ------- | ------- | -------- | ------ | ------ |
 | BizTalk 服務 | 是 | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | 服務匯流排 | 是 | | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| 備份 | 否 | - | - | | 網站復原 | 否 | - | - |
+| 備份 | 否 | - | - | 
+| 網站復原 | 否 | - | - |
 
 ## 身分識別與存取管理 
 

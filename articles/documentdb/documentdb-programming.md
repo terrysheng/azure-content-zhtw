@@ -479,7 +479,9 @@ DocumentDB 提供作業在文件上執行或觸發的觸發程序。例如，您
 ## JavaScript Language Integrated Query API
 除了使用 DocumentDB 的 SQL 文法發出查詢，伺服器端 SDK 可讓您使用流暢的 JavaScript 介面執行最佳化查詢，不需具備任何 SQL 的知識。JavaScript 的查詢 API 使用 ECMAScript5 陣列內建和受歡迎的 JavaScript 程式庫如 lodash 所熟悉的語法，將述詞函式傳遞至可鏈結式函式呼叫，藉此以程式設計方式建立查詢。查詢是由 JavaScript 執行階段使用 DocumentDB 的索引來有效地執行剖析。
 
-> [AZURE.NOTE] `__` (雙底線) 是 `getContext().getCollection()` 的別名。<br/> 換句話說，您可以使用 `__` 或 `getContext().getCollection()` 存取 JavaScript 查詢 API。
+> [AZURE.NOTE] `__` (雙底線) 是 `getContext().getCollection()` 的別名。
+> <br/> 
+> 換句話說，您可以使用 `__` 或 `getContext().getCollection()` 存取 JavaScript 查詢 API。
 
 支援的函式包括︰
 <ul>

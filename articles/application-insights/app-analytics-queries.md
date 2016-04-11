@@ -676,7 +676,7 @@ Traces 資料表中具有特定 `ActivityId` 的所有資料列，按其時間�
 * `kind`： 
  * `inner` - 結果中會有所有輸入資料表共有之資料行的子集。
  * `outer` - 結果中會有任何輸入中出現的所有資料行。輸入資料列未定義的資料格會設為 `null`。
-* `withsource=`*ColumnName：*如果指定，輸出中會包含名為 *ColumnName* 的資料行，其值會指出哪一個來源資料表貢獻了每個資料列。
+* `withsource=`*ColumnName：* 如果指定，輸出中會包含名為 *ColumnName* 的資料行，其值會指出哪一個來源資料表貢獻了每個資料列。
 
 **傳回**
 

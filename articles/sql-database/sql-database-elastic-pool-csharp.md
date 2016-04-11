@@ -29,7 +29,8 @@
 
 > [AZURE.NOTE] 彈性資料庫集區目前為預覽版，且僅能搭配 SQL Database V12 伺服器使用。如果您有 SQL Database V11 伺服器，您可以在單一步驟中[使用 PowerShell 升級至 V12 並建立集區](sql-database-upgrade-server-powershell.md)。
 
-範例使用的是[適用於 .NET 的 Azure SQL Database 程式庫](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)。為了清楚起見，將個別程式碼片段分別列出，範例主控台應用程式會將所有命令整合在本文底端的區段中。
+範例使用的是[適用於 .NET 的 Azure SQL Database 程式庫](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)。
+為了清楚起見，將個別程式碼片段分別列出，範例主控台應用程式會將所有命令整合在本文底端的區段中。
 
 
 > [AZURE.NOTE] SQL Database Library for .NET 目前為預覽狀態。
@@ -83,7 +84,7 @@
 
     ![新增應用程式][8]
 
-7. 完成建立應用程式，按一下 [設定]，然後複製 [用戶端識別碼] (您在程式碼中需要用戶端識別碼)。
+7. 完成建立應用程式，按一下 [設定]，然後複製 \[用戶端識別碼] (您在程式碼中需要用戶端識別碼)。
 
     ![取得用戶端識別碼][9]
 

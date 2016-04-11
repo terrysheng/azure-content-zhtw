@@ -183,7 +183,7 @@
 
  	![localhost IIS Express 憑證警告](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss27.PNG)
 
-1. IE 顯示*首頁*，沒有出現 SSL 警告。
+1. IE 顯示 *首頁* ，沒有出現 SSL 警告。
 
 	 ![IE 出現 localhost SSL，沒有出現警告](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss28.PNG)
 
@@ -407,7 +407,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	![程式碼影像](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	此程式碼會建立名為 *canEdit* 的新角色、建立新本機使用者 **user1@contoso.com*，並將 **user1@contoso.com* 新增至 *canEdit* 角色。如需詳細資訊，請參閱 ASP.NET 網站上的 [ASP.NET 身分識別教學課程](http://www.asp.net/identity/overview/features-api)。
+	此程式碼會建立名為 *canEdit* 的新角色、建立新本機使用者 *user1@contoso.com*，並將 *user1@contoso.com* 新增至 *canEdit* 角色。如需詳細資訊，請參閱 ASP.NET 網站上的 [ASP.NET 身分識別教學課程](http://www.asp.net/identity/overview/features-api)。
 
 ## 使用暫時程式碼，將新的社交登入使用者新增至 canEdit 角色  ##
 
@@ -463,7 +463,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 		Update-Database
 
-**Update-database** 命令會執行**植入**方法，並藉此執行您先前新增的 **AddUserAndRole** 方法。**AddUserAndRole** 方法會建立使用者 **user1@contoso.com*，並將她新增至 *canEdit* 角色。
+**Update-database** 命令會執行**植入**方法，並藉此執行您先前新增的 **AddUserAndRole** 方法。**AddUserAndRole** 方法會建立使用者 *user1@contoso.com*，並將她新增至 *canEdit* 角色。
 
 ## 使用 SSL 和 Authorize 屬性保護應用程式 ##
 
@@ -542,7 +542,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 1. 按一下 [關於] 或 [連絡人] 連結。因為匿名使用者無法檢視那些頁面，所以系統會將您重新導向至登入頁面。
 
-1. 按一下 [註冊為新使用者] 連結，並使用電子郵件 **joe@contoso.com* 新增本機使用者。確認 *Joe* 可檢視 [首頁]、[關於] 和 [連絡人] 頁面。
+1. 按一下 [註冊為新使用者] 連結，並使用電子郵件 *joe@contoso.com* 新增本機使用者。確認 *Joe* 可檢視 [首頁]、[關於] 和 [連絡人] 頁面。
 
 	![登入](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
@@ -550,10 +550,10 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 1. 按一下頁面上的編輯連結，系統會將您重新導向至登入頁面 (因為未將新的本機使用者新增至 *canEdit* 角色)。
 
-1. 使用 **user1@contoso.com* 的身分和密碼 "P\_assw0rd1" ("word" 中的 "0" 是數字零) 登入。系統隨即將您重新導向到先前選取的編輯頁面。
+1. 使用 *user1@contoso.com* 的身分和密碼 "P\_assw0rd1" ("word" 中的 "0" 是數字零) 登入。系統隨即將您重新導向到先前選取的編輯頁面。
 2. 
 
-	如果無法以該帳戶和密碼登入，請嘗試複製並貼上原始程式碼中的密碼。如果仍然無法登入，請檢查 [AspNetUsers] 資料表的 [UserName] 欄，確認已新增 **user1@contoso.com*。
+	如果無法以該帳戶和密碼登入，請嘗試複製並貼上原始程式碼中的密碼。如果仍然無法登入，請檢查 [AspNetUsers] 資料表的 [UserName] 欄，確認已新增 *user1@contoso.com*。
 
 1. 確認您可進行資料變更。
 
@@ -576,13 +576,13 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 1. 按一下 [發佈]。
 
-1. 以 **user1@contoso.com* (使用密碼 "P\_assw0rd1") 身分登入，並確認您可以編輯資料。
+1. 以 *user1@contoso.com* (使用密碼 "P\_assw0rd1") 身分登入，並確認您可以編輯資料。
 
 1. 登出。
 
 1. 請移至 [[Google Developers Console](https://console.developers.google.com/)]，並在 [**認證**] 索引標籤上更新 [重新導向 URI] 和 [JavaScript Orgins] 以使用 Azure URL。
 
-1. 使用 Google 或 Facebook 登入。如此將使 Google 或 Facebook 帳戶新增至 **canEdit** 角色。如果您收到 HTTP 400 錯誤訊息：*要求中的重新導向 URI：https://contactmanager{my https://contactmanager{my version}.azurewebsites.net/signin-google 與已註冊的重新導向 URI 不符。*，您必須等到您所做的變更都已傳播為止。如果您是在超過數分鐘之後收到此錯誤，請確認 URI 是正確的。
+1. 使用 Google 或 Facebook 登入。如此將使 Google 或 Facebook 帳戶新增至 **canEdit** 角色。如果您收到 HTTP 400 錯誤訊息： *要求中的重新導向 URI：https://contactmanager{my https://contactmanager{my version}.azurewebsites.net/signin-google 與已註冊的重新導向 URI 不符。* ，您必須等到您所做的變更都已傳播為止。如果您是在超過數分鐘之後收到此錯誤，請確認 URI 是正確的。
 
 ### 停止 Web 應用程式以防止其他人註冊  
 
@@ -614,7 +614,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 5. 返回 Visual Studio 並按一下 [發行]。
 
-3. 您的 Azure 應用程式隨即在預設瀏覽器中開啟。如果您已登入，請登出，以便您可以使用匿名使用者的身分檢視首頁。
+3. 您的 Azure 應用程式隨即在預設瀏覽器中開啟。如果您已登入，請登出，以便您可以使用匿名使用者的身分檢視首頁。  
 
 4. 按一下 [關於] 連結。系統會將您重新導向至 [登入] 頁面。
 
@@ -660,7 +660,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	![CM 頁面](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. 記下您以 Google 帳戶註冊且要加到 **canEdit** 角色中的識別碼，以及 **user1@contoso.com* 的識別碼。這些應為 **canEdit** 角色中唯一的使用者(您將會在下一個步驟進行確認)。
+1. 記下您以 Google 帳戶註冊且要加到 **canEdit** 角色中的識別碼，以及 *user1@contoso.com* 的識別碼。這些應為 **canEdit** 角色中唯一的使用者(您將會在下一個步驟進行確認)。
 
 	![CM 頁面](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -668,7 +668,7 @@ ASP.NET MVC 樣板功能可自動產生程式碼來執行建立、讀取、更�
 
 	![CM 頁面](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-3. 確認所列的 **UserId** 屬於 **user1@contoso.com* 和您註冊的 Google 帳戶。
+3. 確認所列的 **UserId** 屬於 *user1@contoso.com* 和您註冊的 Google 帳戶。
 
 ## 疑難排解
 

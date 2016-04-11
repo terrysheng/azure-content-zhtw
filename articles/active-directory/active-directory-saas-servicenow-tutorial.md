@@ -175,7 +175,7 @@
 
     b.在 [使用者欄位] 文字方塊中，輸入 [電子郵件] 或 [user\_id]，這取決於哪一個欄位用來唯一識別您的 ServiceNow 部署中的使用者。
     
-    **附註︰**移至 Azure 傳統入口網站的 [ServiceNow] > [屬性] > [單一登入] 區段，並將所要的欄位對應至 [nameidentifier] 屬性，即可設定 Azure AD 以發出 Azure AD 使用者識別碼 (使用者主體名稱) 或電子郵件地址做為 SAML 權杖中的唯一識別碼。所選屬性儲存在 Azure AD 中的值 (例如使用者主體名稱) 必須符合所輸入欄位 (例如 user\_id) 儲存在 ServiceNow 中的值
+    **附註︰** 移至 Azure 傳統入口網站的 [ServiceNow] > [屬性] > [單一登入] 區段，並將所要的欄位對應至 [nameidentifier] 屬性，即可設定 Azure AD 以發出 Azure AD 使用者識別碼 (使用者主體名稱) 或電子郵件地址做為 SAML 權杖中的唯一識別碼。所選屬性儲存在 Azure AD 中的值 (例如使用者主體名稱) 必須符合所輸入欄位 (例如 user\_id) 儲存在 ServiceNow 中的值
 
     c.在 Azure AD 傳統入口網站中，複製**識別提供者 ID** 值，然後貼到 [識別提供者 URL] 文字方塊中。
 

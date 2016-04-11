@@ -202,13 +202,13 @@
 
     e.選取 [確定]，然後關閉憑證管理員。
 
- ![授與本機服務帳戶權限之步驟的螢幕擷取畫面](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
+![授與本機服務帳戶權限之步驟的螢幕擷取畫面](media/service-fabric-set-up-continuous-integration/windows-certificate-manager.png)
 
 ### 註冊組建代理程式
 
 1.	下載 agent.zip。作法：
 
-    a.登入您的小組專案，例如 ****https://[your-VSTS-account-name].visualstudio.com**。
+    a.登入您的小組專案，例如 **https://[your-VSTS-account-name].visualstudio.com**。
 
     b.選取畫面右上角的齒輪圖示。
 
@@ -244,7 +244,7 @@
 
     c.確認您的組建代理程式出現在清單中，並且具有綠色狀態反白顯示。若強調顯示是紅色，表示組建代理程式在連接到 Team Services 時發生問題。
 
- ![顯示組建代理程式之狀態的螢幕擷取畫面](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
+![顯示組建代理程式之狀態的螢幕擷取畫面](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
 
 
 ## 建立組建定義
@@ -406,8 +406,8 @@
 
 若要深入了解與 Service Fabric 應用程式的連續整合，請閱讀下列文章：
 
- - [建置文件首頁](https://msdn.microsoft.com/Library/vs/alm/Build/overview)
- - [部署組建代理程式](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
- - [建立和設定組建定義](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
+- [建置文件首頁](https://msdn.microsoft.com/Library/vs/alm/Build/overview)
+- [部署組建代理程式](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows)
+- [建立和設定組建定義](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build)
 
 <!---HONumber=AcomDC_0330_2016-->

@@ -32,9 +32,9 @@
 
     b.在 [全部內容] 下方輸入 "Fabric"，然後按 Enter 鍵。有時自動篩選功能會無法運作，因此請務必按下 Enter 鍵。![在 Azure 入口網站上搜尋 Service Fabric 叢集範本的螢幕擷取畫面。][SearchforServiceFabricClusterTemplate]
 
-3. 選取清單中的 [Service Fabric 叢集]。
+3. 選取清單中的 \[Service Fabric 叢集]
 
-4. 瀏覽至 [Service Fabric 叢集] 刀鋒視窗，按一下 [建立]。
+4. 瀏覽至 \[Service Fabric 叢集] 刀鋒視窗，按一下 [建立]。
 
 5. 您現在會看到 [建立 Service Fabric 叢集] 刀鋒視窗列出 4 個步驟。
 
@@ -147,7 +147,7 @@
 
 ### 連線到安全的叢集
 
-    1. Run the following to set up the certificate on the machine that you are going to use to run the "Connect-serviceFabricCluster" PowerShell command.
+    1. 執行下列命令，以便在您即將用來執行「Connect-serviceFabricCluster」PowerShell 命令的電腦上設定憑證。
 
         ```powershell
         Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -155,7 +155,7 @@
                 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
         ```
 
-    2. Run the following PowerShell command to connect to a secure cluster. The certificate details are the same ones that you gave on the portal.
+    2. 執行下列 PowerShell 命令來連線到安全的叢集。憑證的詳細資料與您在入口網站所提供的資訊相同。
 
         ```powershell
         Connect-serviceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -165,7 +165,7 @@
                   -StoreLocation CurrentUser -StoreName My
         ```
 
-        For example, the PowerShell command above should look similar to the following:
+        舉例來說，上述 PowerShell 命令應該會類似下列內容：
 
         ```powershell
         Connect-serviceFabricCluster -ConnectionEndpoint sfcluster4doc.westus.cloudapp.azure.com:19000 `

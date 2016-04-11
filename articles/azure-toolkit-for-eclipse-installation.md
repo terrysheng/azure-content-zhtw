@@ -31,9 +31,11 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 ## 安裝 Azure Toolkit for Eclipse
 
 1. 啟動 Eclipse。
-2. 在 Eclipse 內，於功能表中按一下 [說明]<strong></strong>，然後按一下 [安裝新軟體]<strong></strong>，如下圖所示。![安裝 Azure Toolkit for Eclipse][ic590123]
+2. 在 Eclipse 內，於功能表中按一下 [說明]<strong></strong>，然後按一下 [安裝新軟體]<strong></strong>，如下圖所示。
+	![安裝 Azure Toolkit for Eclipse][ic590123]
 3. 在 [可用軟體]<strong></strong> 對話方塊的 [使用]<strong></strong> 文字方塊中，輸入 <strong>http://dl.microsoft.com/eclipse</strong>，然後按 <strong>Enter</strong> 鍵。
-4. 在 [名稱]<strong></strong> 窗格中，核取 [Azure Toolkit for Eclipse]<strong></strong>，然後取消核取 [在安裝期間連絡所有更新網站來尋找必要軟體]<strong></strong>。您的畫面看起來應該類似如下：![安裝 Azure Toolkit for Eclipse][ic719482]
+4. 在 [名稱]<strong></strong> 窗格中，核取 [Azure Toolkit for Eclipse]<strong></strong>，然後取消核取 [在安裝期間連絡所有更新網站來尋找必要軟體]<strong></strong>。您的畫面看起來應該類似如下：
+	![安裝 Azure Toolkit for Eclipse][ic719482]
 5. 如果您展開 [Azure Toolkit for Eclipse]<strong></strong>，則會看到下列項目：
     * **Azure Access Control Services Filter**：這個元件支援使用 Azure ACS 來驗證應用程式使用者。
     * **Azure Common Plugin**：這個元件包含其他元件所依賴的共用功能。

@@ -103,7 +103,7 @@
 
     ![儲存代理程式](./media/backup-configure-vault/agent.png)
 
-3. 將 MARSagentinstaller.exe 下載完成後，按一下 [執行] (或從儲存的位置按兩下 **MARSAgentInstaller.exe**)。
+3. 將 MARSagentinstaller.exe 下載完成後，按一下 [執行] \(或從儲存的位置按兩下 **MARSAgentInstaller.exe**)。
 
 4. 	選擇代理程式所需的安裝資料夾和快取資料夾，然後按 [下一步]。
 
@@ -135,7 +135,7 @@
 
     > [AZURE.WARNING] 如果遺失或忘記複雜密碼，Microsoft 將無法協助您復原備份資料。加密複雜密碼為使用者所有，Microsoft 將不會看到使用者所使用的複雜密碼。請將檔案儲存在安全的位置，在復原作業期間需要該檔案。
 
-    [Register Server Wizard] (註冊伺服器精靈) 會向 Microsoft Azure 備份註冊伺服器。
+    [Register Server Wizard] \(註冊伺服器精靈) 會向 Microsoft Azure 備份註冊伺服器。
 
 10. 一旦設定加密金鑰，請讓 [啟動 Microsoft Azure 復原服務代理程式] 核取方塊保持已核取狀態，然後按一下 [關閉]。
 
@@ -153,7 +153,7 @@
 
     ![Windows Server 備份排程](./media/backup-configure-vault/schedule-backup-close.png)
 
-3. 在 [Schedule Backup Wizard Getting started] (開始使用排程備份精靈) 畫面上，按 [下一步]。
+3. 在 [Schedule Backup Wizard Getting started] \(開始使用排程備份精靈) 畫面上，按 [下一步]。
 
 4. 在 [選取要備份的項目] 畫面上，按一下 [新增項目]。
 

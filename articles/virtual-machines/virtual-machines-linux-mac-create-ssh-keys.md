@@ -14,76 +14,61 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/13/2016"
+	ms.date="04/04/2016"
 	ms.author="v-livech"/>
 
 # 在 Linux 和 Mac 上為 Azure 中的 Linux VM 建立 SSH 金鑰
 
-本主題討論︰
-
-1. 使用 `ssh-keygen` 建立受密碼保護的公開和私密金鑰組
-2. 建立 `~/.ssh/config` 檔案，以加速登入並啟用重要的安全性和組態預設值
-3. 使用 SSH 登入 Azure 中的 Linux 或 BSD VM
-
-## 必要條件
-
-Azure 帳戶 ([取得免費試用版](https://azure.microsoft.com/pricing/free-trial/)) 和安裝了 SSH 工具組的 Linux 或 Mac 終端機。輸入 `azure config mode arm` 讓 CLI 進入資源模式。
-
-## 簡介
-
-想要登入 Linux 伺服器，最安全**且**最簡單的方式是使用 SSH 公開和私密金鑰。比起使用密碼來登入 Azure 中的 Linux 或 BSD VM，使用[公開金鑰密碼編譯](https://en.wikipedia.org/wiki/Public-key_cryptography)會安全得多，因為密碼非常容易遭到暴力破解。公開金鑰可以與任何人共用；私密金鑰只有您 (或您的本機安全性基礎結構) 會擁有。
-
-本文會建立 ssh-rsa 格式的金鑰檔案，因為它們是 Resource Manager 上的部署所建議使用的檔案，而且也是在[入口網站](https://portal.azure.com)上進行傳統部署和 Resource Manager 部署時所必須使用的檔案。
-
-> [AZURE.NOTE] 如果您要從 Windows 電腦登入 VM，請參閱[在 Windows 上使用 SSH 金鑰](virtual-machines-linux-ssh-from-windows.md)。
+若要建立受密碼保護的 SSH 公開和私密金鑰，您需要處於資源管理員模式的 [Azure CLI](../xplat-cli-install.md) (`azure config mode arm`)。
 
 ## 快速命令清單
 
 在下列命令範例中，請將 &lt; 和 &gt; 之間的值取代為您自己環境中的值。
 
 ```bash
-[username@fedora22 ~]$ ssh-keygen -t rsa -b 4096 -C "<your_user@yourdomain.com>"
+[chrisL@fedora ~]$ ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
 
 #Enter the name of the file that will be saved in the `~/.ssh/` directory.
-
 azure_fedora_id_rsa
 
 #Enter (twice) a [secure](https://www.xkcd.com/936/) password for the SSH key.
 
 #Enter passphrase for github_id_rsa:
-
 correct horse battery staple
 
 #Add the newly created key to `ssh-agent` on Linux and Mac (also added to OSX Keychain).
-
-[username@fedora22 ~]$ eval "$(ssh-agent -s)"
-
-[username@fedora22 ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa
+[chrisL@fedora ~]$ eval "$(ssh-agent -s)"
+[chrisL@fedora ~]$ ssh-add ~/.ssh/azure_fedora_id_rsa
 
 #Copy the SSH public key to your Linux Server.
-
-[username@fedora22 ~]$ ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
+[chrisL@fedora ~]$ ssh-copy-id -i ~/.ssh/azure_fedora_id_rsa.pub <youruser@yourserver.com>
 
 #Test the login using keys instead of a password.
-
-[username@fedora22 ~]$ ssh -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
+[chrisL@fedora ~]$ ssh -i ~/.ssh/azure_fedora_id_rsa <youruser@yourserver.com>
 
 Last login: Tue Dec 29 07:07:09 2015 from 66.215.21.201
-[username@fedora22 ~]$
+[chrisL@fedora ~]$
 
 ```
+
+## 簡介
+
+想要登入 Linux 伺服器，最安全**且**最簡單的方式是使用 SSH 公開和私密金鑰，但比起使用密碼來登入 Azure 中的 Linux 或 BSD VM，使用[公開金鑰密碼編譯](https://en.wikipedia.org/wiki/Public-key_cryptography)會安全得多，因為密碼非常容易遭到暴力破解。公開金鑰可以與任何人共用；但只有您 (或您的本機安全性基礎結構) 會擁有私密金鑰。
+
+本文會建立 ssh-rsa 格式的金鑰檔案，因為它們是 Resource Manager 上的部署所建議使用的檔案，而且也是在[入口網站](https://portal.azure.com)上進行傳統部署和資源管理員部署時所必須使用的檔案。
+
 
 ## 建立 SSH 金鑰
 
 Azure 需要至少 2048 位元的 ssh-rsa 格式公開和私密金鑰。若要建立金鑰組，請使用 `ssh-keygen`，在詢問一系列問題後，它便會編寫私密金鑰和對應的公開金鑰。您在建立 Azure VM 時會傳遞公開金鑰內容，此內容會複製到 Linux VM，而且當您登入時，此內容會與安全儲存在本機的私密金鑰搭配使用來對您進行驗證。
 
-
-
 ### 使用 `ssh-keygen`
 
 此命令會使用 2048 位元 RSA 建立 SSH 金鑰組，並為其加上註解以供輕鬆識別。
 
-    username@macbook$ ssh-keygen -t rsa -b 4096 -C "username@fedoraVMAzure"
+```
+chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "username@fedoraVMAzure"
+```
 
 ##### 命令的說明
 
@@ -95,10 +80,10 @@ Azure 需要至少 2048 位元的 ssh-rsa 格式公開和私密金鑰。若要�
 
 `-C "username@fedoraVMAzure"` = 金鑰的註解，以便輕鬆識別金鑰。註解會附加至公開金鑰檔案的結尾。常用的註解是電子郵件地址，但在本文中，我們要能夠使用多個 SSH 金鑰，所以建議使用泛型註解。
 
-#### `ssh-keygen` 逐步解說
+#### `ssh-keygen` 的逐步解說
 
 ```bash
-username@macbook$ ssh-keygen -t rsa -b 4096 -C "username@fedoraVMAzure"
+chrisL@fedora$ ssh-keygen -t rsa -b 2048 -C "username@fedoraVMAzure"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/steve/.ssh/id_rsa): azure_fedora_id_rsa
 Enter passphrase (empty for no passphrase):
@@ -120,7 +105,7 @@ The key's randomart image is:
 |        .        |
 +-----------------+
 
-username@macbook$ ls -al ~/.ssh
+chrisL@fedora$ ls -al ~/.ssh
 -rw------- 1 username staff  1675 Aug 25 18:04 azure_fedora_id_rsa
 -rw-r--r-- 1 username staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
 ```
@@ -129,7 +114,7 @@ username@macbook$ ls -al ~/.ssh
 
 `Enter passphrase (empty for no passphrase):` 強烈建議為金鑰組加上密碼 (`ssh-keygen` 將此密碼稱為「複雜密碼」)。若沒有使用密碼來保護金鑰組，任何人只要擁有私密金鑰檔案，就可以用它登入擁有相對應公開金鑰的任何伺服器 (您的伺服器)。新增密碼進而提升防護能力以防有人能夠取得您的私密金鑰檔案，可讓您有時間變更用來對您進行驗證的金鑰。
 
-`username@macbook$ ls -al ~/.ssh` 這會顯示新的金鑰組和其權限。`ssh-keygen` 會建立 `~/.ssh` (如果不存在)，並設定正確的擁有權和檔案模式。
+`chrisL@fedora$ ls -al ~/.ssh` 這會顯示新的金鑰組和其權限。`ssh-keygen` 會建立 `~/.ssh` (如果不存在)，並設定正確的擁有權和檔案模式。
 
 ## 建立和設定 SSH 組態檔
 
@@ -140,13 +125,13 @@ username@macbook$ ls -al ~/.ssh
 ### 建立檔案
 
 ```bash
-username@macbook$ touch ~/.ssh/config
+chrisL@fedora$ touch ~/.ssh/config
 ```
 
 ### 編輯檔案以加入新的 SSH 組態
 
 ```bash
-username@macbook$ vim ~/.ssh/config
+chrisL@fedora$ vim ~/.ssh/config
 
 #Azure Keys
 Host fedora22
@@ -201,14 +186,14 @@ Host *
 
 現在您已擁有 SSH 金鑰組和設定好的 SSH 組態檔，因此您可以快速且安全地登入 Linux VM。第一次使用 SSH 金鑰登入伺服器時，命令會提示您輸入該金鑰檔案的複雜密碼。
 
-`username@macbook$ ssh fedora22`
+`chrisL@fedora$ ssh fedora22`
 
 ##### 命令的說明
 
-在執行 `username@macbook$ ssh fedora22` 後，SSH 會先從 `Host fedora22` 區塊中找出所有設定並加以載入，再從最後一個區塊 `Host *` 中載入所有其餘設定。
+在執行 `chrisL@fedora$ ssh fedora22` 後，SSH 會先從 `Host fedora22` 區塊中找出所有設定並加以載入，再從最後一個區塊 `Host *` 中載入所有其餘設定。
 
 ## 後續步驟
 
 現在您可以開始著手使用金鑰檔案以[使用範本在 Azure 中建立安全的 Linux VM](virtual-machines-linux-create-ssh-secured-vm-from-template.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -145,7 +145,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 	![Configure Network][config_hpc2]
 
-3. 在 [網路設定精靈] 中，選取 [All nodes only on an enterprise network] (拓撲 5)。
+3. 在 [網路設定精靈] 中，選取 [All nodes only on an enterprise network] \(拓撲 5)。
 
 	![Topology 5][config_hpc3]
 

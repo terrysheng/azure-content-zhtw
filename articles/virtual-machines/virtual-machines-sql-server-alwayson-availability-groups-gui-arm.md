@@ -54,7 +54,7 @@
 
 - 您已經有 Azure 帳戶。如果您沒有帳戶，請[註冊一個試用帳戶](http://azure.microsoft.com/pricing/free-trial/)。
 
-- 您已經知道如何透過 GUI 佈建來自虛擬機器資源庫的 SQL Server VM。如需詳細資訊，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-classic-portal-sql.md)
+- 您已經知道如何透過 GUI 佈建來自虛擬機器資源庫的 SQL Server VM。如需詳細資訊，請參閱[在 Azure 中佈建 SQL Server 虛擬機器](virtual-machines-windows-portal-sql-server-provision.md)
 
 - 您已充分了解 AlwaysOn 可用性群組。如需詳細資訊，請參閱 [AlwaysOn 可用性群組 (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx)。
 
@@ -156,7 +156,7 @@ Azure 提供整個解決方案的資源庫映像。若要找出範本，請執�
 
 - [DC 儲存體帳戶] 是網域控制站的儲存體帳戶名稱。本教學課程使用 **alwaysondc01**。
 
-- [SQL Server 資料磁碟大小] (TB) 是 SQL Server 資料磁碟的大小 (TB)。指定從 1 到 4 的數字。這是會附加至每個 SQL Server 的資料磁碟的大小。本教學課程使用 **1**。
+- [SQL Server 資料磁碟大小] \(TB) 是 SQL Server 資料磁碟的大小 (TB)。指定從 1 到 4 的數字。這是會附加至每個 SQL Server 的資料磁碟的大小。本教學課程使用 **1**。
 
 - [儲存體最佳化] 會根據工作負載類型，設定 SQL Server 虛擬機器的特定儲存體組態設定。在此案例中，所有 SQL Server 都使用進階儲存體，且 Azure 磁碟主機快取設為唯讀。此外，有下列三種設定供您選擇，以最佳化 SQL Server 的工作負載設定：
 
@@ -260,4 +260,4 @@ SQL Server 的新執行個體會在沒有網際網路連線的虛擬機器上執
 
 您現在已使用 RDP 連接至 SQL Server。您可以開啟 SQL Server Management Studio、連接到 SQL Server 的預設執行個體，並確認已設定 AlwaysOn 可用性群組。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

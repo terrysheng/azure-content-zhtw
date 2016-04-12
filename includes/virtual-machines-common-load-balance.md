@@ -17,7 +17,7 @@ Azure 基礎結構服務提供兩種負載平衡層級︰
 - **效能**：當您的端點位於不同地理位置，且您為了取得最低延遲而要求用戶端使用「最靠近」的端點時，才可使用此方法。
 - **循環配置資源**：在您想要在相同資料中心的一組雲端服務上，或在不同資料中心的雲端服務或網站上分配負載時，才可使用此方法。
 
-如需詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法](../traffic-manager/traffic-manager-load-balancing-methods.md)。
+如需詳細資訊，請參閱[關於 Traffic Manager 負載平衡方法](../articles/traffic-manager/traffic-manager-load-balancing-methods.md)。
 
 下圖顯示在不同雲端服務間使用循環配置資源負載平衡方法分配流量的範例。
 
@@ -30,7 +30,7 @@ Azure 基礎結構服務提供兩種負載平衡層級︰
 3.	流量管理員選擇循環配置資源中的下一個雲端服務，並傳回 DNS 名稱。網際網路用戶端的 DNS 伺服器將該名稱解析為 IP 位址，並傳送至網際網路用戶端。
 4.	網際網路用戶端連線到流量管理員選擇的雲端服務。
 
-如需詳細資訊，請參閱 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)。
+如需詳細資訊，請參閱 [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md)。
 
 ## 虛擬機器的 Azure 負載平衡 ##
 
@@ -42,7 +42,7 @@ Azure 負載平衡器會隨機分配稱為負載平衡集之組態中的多個�
 
 ![負載平衡](./media/virtual-machines-common-load-balance/LoadBalancing.png)
 
-如需詳細資訊，請參閱 [Azure 負載平衡器](../load-balancer/load-balancer-overview.md)。如須建立負載平衡集的步驟，請參閱[設定負載平衡集](../load-balancer/load-balancer-internet-getstarted.md)。
+如需詳細資訊，請參閱 [Azure 負載平衡器](../articles/load-balancer/load-balancer-overview.md)。如須建立負載平衡集的步驟，請參閱[設定負載平衡集](../articles/load-balancer/load-balancer-internet-getstarted.md)。
 
 Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內部負載平衡，可用於以下方式︰
 
@@ -58,15 +58,15 @@ Azure 也可在雲端服務或虛擬網路中進行負載平衡。這稱為內�
 
 ## 負載平衡器考量
 
-負載平衡器預設設定為在 4 分鐘的閒置工作階段後逾時。如果負載平衡器後方的應用程式會保持連接閒置超過 4 分鐘，且沒有持續連線組態，則連接會中斷。您可以變更負載平衡器行為，允許 [Azure 負載平衡器的較長逾時設定](../load-balancer/load-balancer-tcp-idle-timeout.md)。
+負載平衡器預設設定為在 4 分鐘的閒置工作階段後逾時。如果負載平衡器後方的應用程式會保持連接閒置超過 4 分鐘，且沒有持續連線組態，則連接會中斷。您可以變更負載平衡器行為，允許 [Azure 負載平衡器有較長的逾時設定](../articles/load-balancer/load-balancer-tcp-idle-timeout.md)。
 
-其他考量是 Azure 負載平衡器支援的分配模式類型。您可以設定來源 IP 同質性 (來源 IP、目的地 IP) 或來源 IP 通訊協定 (來源 IP、目的地 IP 及通訊協定)。如需詳細資訊，請參閱 [Azure 負載平衡器分配模式 (來源 IP 同質性)](../load-balancer/load-balancer-distribution-mode.md)。
+其他考量是 Azure 負載平衡器支援的分配模式類型。您可以設定來源 IP 同質性 (來源 IP、目的地 IP) 或來源 IP 通訊協定 (來源 IP、目的地 IP 及通訊協定)。如需詳細資訊，請參閱 [Azure 負載平衡器分佈模式 (來源 IP 同質性)](../articles/load-balancer/load-balancer-distribution-mode.md)。
 
 
 ## 後續步驟
 
-如須建立負載平衡集的步驟，請參閱[設定內部負載平衡集](../load-balancer/load-balancer-internal-getstarted.md)。
+如須建立負載平衡集的步驟，請參閱[設定內部負載平衡集](../articles/load-balancer/load-balancer-internal-getstarted.md)。
 
-如需負載平衡器的詳細資訊，請參閱[內部負載平衡](../load-balancer/load-balancer-internal-overview.md)。
+如需負載平衡器的詳細資訊，請參閱[內部負載平衡](../articles/load-balancer/load-balancer-internal-overview.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

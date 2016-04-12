@@ -3,7 +3,7 @@
    description="開始連線到 SQL 資料倉儲並執行一些查詢。"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="twounder"
+   authors="sonyama"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/26/2016"
+   ms.date="03/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # 使用 Visual Studio 連接到 SQL 資料倉儲
@@ -22,7 +22,7 @@
 - [Visual Studio](sql-data-warehouse-get-started-connect.md)
 - [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-本逐步解說示範如何使用 Visual Studio 的 SQL Server Data Tools 在短時間內連接到 Azure SQL 資料倉儲資料庫。一旦連線，您將執行簡單的查詢。
+本逐步解說示範如何使用 Visual Studio 的 SQL Server Data Tools (SSDT) 在短時間內連接到 Azure SQL 資料倉儲資料庫。一旦連線，您將執行簡單的查詢。
 
 ## 必要條件
 
@@ -57,7 +57,7 @@
 
     ![連線到伺服器][4]
 
-    - **伺服器名稱**。輸入我們先前找到的*伺服器名稱*。
+    - **伺服器名稱**。輸入先前找到的伺服器名稱。
     - **驗證**。選取 [SQL Server 驗證]。
     - **使用者名稱**和**密碼**。輸入 Azure SQL 伺服器的使用者名稱和密碼。
     - **資料庫名稱**。輸入 SQL DW 資料庫的資料庫名稱。
@@ -70,7 +70,7 @@
 
 ## 步驟 3：執行範例查詢
 
-我們現已連接到伺服器，接著繼續撰寫查詢。
+現已建立對您的資料庫的連線，接著繼續撰寫查詢。
 
 1. 在 [SQL Server 物件總管] 中您的資料庫上按一下滑鼠右鍵。
 
@@ -110,4 +110,4 @@
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

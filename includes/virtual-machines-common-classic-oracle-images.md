@@ -37,7 +37,7 @@
 
 
 ##Oracle Linux 虛擬機器映像
-以下是可用的預先設定 Oracle 虛擬機器映像清單，可在 Azure 的 Oracle Linux 上執行。您預期針對這些映像使用您自己的授權，因為 Oracle 授權費用並未包含使用這些預先設定的虛擬機器映像。您也可以在 Windows 或 Linux 的自訂虛擬機器上使用自己的授權安裝並執行 Oracle 軟體。在 [Azure 上的 Oracle 授權](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)中有完整的詳細資料。而以下是使用[您自己的映像](virtual-machines-windows-classic-createupload-vhd.md)建立虛擬機器的詳細資料。若要深入了解移轉 Oracle 與其他工作負載至 Azure 的方法，請參閱[建立 Windows 虛擬機器的不同方式](virtual-machines-windows-creation-choices.md)。
+以下是可用的預先設定 Oracle 虛擬機器映像清單，可在 Azure 的 Oracle Linux 上執行。您預期針對這些映像使用您自己的授權，因為 Oracle 授權費用並未包含使用這些預先設定的虛擬機器映像。您也可以在 Windows 或 Linux 的自訂虛擬機器上使用自己的授權安裝並執行 Oracle 軟體。在 [Azure 上的 Oracle 授權](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)中有完整的詳細資料。而以下是使用[您自己的映像](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md)建立虛擬機器的詳細資料。若要深入了解移轉 Oracle 與其他工作負載至 Azure 的方法，請參閱[建立 Windows 虛擬機器的不同方式](../articles/virtual-machines/virtual-machines-windows-creation-choices.md)。
 
 - Oracle Linux 上的 Oracle Database 12c Enterprise Edition
 - Oracle Linux 上的 Oracle Database 12c Standard Edition
@@ -50,4 +50,4 @@
 
 [Oracle 虛擬機器映像 - 其他考量](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

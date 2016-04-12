@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/19/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -26,9 +26,18 @@
 
 ##DocumentDB .NET SDK
 
-<table> <tr><td>**下載**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr> <tr><td>**文件**</td><td>[.NET SDK 參考文件](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr> <tr><td>**範例**</td><td>[.NET 程式碼範例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr> <tr><td>**開始使用**</td><td>[開始使用 DocumentDB .NET SDK](documentdb-get-started.md)</td></tr> <tr><td>**目前支援的 Framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr> </table></br>
+<table>
+<tr><td>**下載**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
+<tr><td>**說明文件**</td><td>[.NET SDK 參考文件](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**範例**</td><td>[.NET 程式碼範例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
+<tr><td>**開始使用**</td><td>[開始使用 DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
+<tr><td>**目前支援的架構**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
+</table></br>
 
 ## 版本資訊
+
+### <a name="1.6.1"/>[1\.6.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.1)
+  - 實作[分割集合](documentdb-partition-data.md)和[使用者定義的效能等級](documentdb-performance-levels.md)。 
 
 ### <a name="1.5.3"/>[1\.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
   - **[已修正]** 查詢 DocumentDB 端點時擲回：'System.Net.Http.HttpRequestException：將內容複製到資料流時發生錯誤。
@@ -38,7 +47,7 @@
     - Take 運算子：可啟用 LINQ 中的 SELECT TOP 行為
     - CompareTo 運算子：可啟用字串範圍比較
     - 條件式 (?) 與聯合運算子 (??)
-  - **[已修正]** 將模型預測與 LINQ 查詢中的 Where-In 結合使用時發生 ArgumentOutOfRangeException。[#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+  - **[已修正]** 將模型投射與 LINQ 查詢中的 Where-In 結合使用時發生 ArgumentOutOfRangeException。[#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[已修正]** 如果 Select 不是最後一個運算式，LINQ 提供者會假設沒有任何預測，並會產生不正確的 SELECT *。[#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58)
@@ -81,9 +90,9 @@
   - LINQ 提供者支援 OrderBy() 或 OrderByDescending()
   - IndexingPolicy 支援 Order By 
   
-		**NB: 可能中斷變更** 
+		**NB: Possible breaking change** 
   
-    	如果您有與自訂索引原則佈建集合的現有程式碼，您需要更新現有的程式碼才能支援新的 IndexingPolicy 類別。 如果您沒有自訂的索引原則，這個變更不會影響到您。
+    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - 支援使用新的 HashPartitionResolver 和 RangePartitionResolver 類別及 IPartitionResolver 來分割資料
@@ -115,20 +124,21 @@ Microsoft 至少會在停用 SDK 的 **12 個月**之前提供通知，以供順
  
 | 版本 | 發行日期 | 停用日期 
 | ---	  | ---	         | ---
-| [1\.5.3](#1.5.3) | 2016 年 2 月 19 日 |--- 
-|[1\.5.2](#1.5.2) | 2015 年 12 月 14 日 |--- 
-| [1\.5.1](#1.5.1) | 2015 年 11 月 23 日 |--- 
-| [1\.5.0](#1.5.0) | 2015 年 10 月 5 日 |--- 
-| [1\.4.1](#1.4.1) | 2015 年 8 月 25 日 |--- 
-| [1\.4.0](#1.4.0) | 2015 年 8 月 13 日 |--- 
-| [1\.3.0](#1.3.0) | 2015 年 8 月 5 日 |--- 
-| [1\.2.0](#1.2.0) | 2015 年 7 月 6 日 |--- 
-| [1\.1.0](#1.1.0) | 2015 年 4 月 30 日 |--- 
-| [1\.0.0](#1.0.0) | 2015 年 4 月 8 日 |--- 
-| [0\.9.3 發行前版本](#0.9.x-preview) | 2015 年 3 月 12 日 | 2016 年 2 月 29 日 
-| [0\.9.2 發行前版本](#0.9.x-preview) | 2015 年 1 月 | 2016 年 2 月 29 日 
-| [.9.1 發行前版本](#0.9.x-preview) | 2014 年 10 月 13 日 | 2016 年 2 月 29 日 
-| [0\.9.0 發行前版本](#0.9.x-preview) | 2014 年 8 月 21 日 | 2016 年 2 月 29 日
+| [1\.6.1](#1.6.1) | 2016 年 3 月 29 日 |---
+| [1\.5.3](#1.5.3) | 2016 年 2 月 19 日 |---
+| [1\.5.2](#1.5.2) | 2015 年 12 月 14 日 |---
+| [1\.5.1](#1.5.1) | 2015 年 11 月 23 日 |---
+| [1\.5.0](#1.5.0) | 2015 年 10 月 5 日 |---
+ | [1\.4.1](#1.4.1) | 2015 年 8 月 25 日 |---
+ | [1\.4.0](#1.4.0) | 2015 年 8 月 13 日 |---
+ | [1\.3.0](#1.3.0) | 2015 年 8 月 5 日 |---
+ | [1\.2.0](#1.2.0) | 2015 年 7 月 6 日 |---
+ | [1\.1.0](#1.1.0) | 2015 年 4 月 30 日 |---
+ | [1\.0.0](#1.0.0) | 2015 年 4 月 8 日 |---
+ | [0\.9.3 發行前版本](#0.9.x-preview) | 2015 年 3 月 12 日 | 2016 年 2 月 29 日
+ | [0\.9.2 發行前版本](#0.9.x-preview) | 2015 年 1 月 | 2016 年 2 月 29 日
+ | [.9.1 發行前版本](#0.9.x-preview) | 2014 年 10 月 13 日 | 2016 年 2 月 29 日
+ | [0\.9.0 發行前版本](#0.9.x-preview) | 2014 年 8 月 21 日 | 2016 年 2 月 29 日
 
 ## 常見問題集
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -137,4 +147,4 @@ Microsoft 至少會在停用 SDK 的 **12 個月**之前提供通知，以供順
 
 若要深入了解 DocumentDB，請參閱 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 服務頁面。
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

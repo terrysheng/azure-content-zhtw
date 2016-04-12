@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
+	ms.date="03/30/2016"
 	ms.author="daleche"/>
 
 
@@ -26,10 +26,11 @@
 
 ## 暫時性錯誤 (暫時性故障)
 
-暫時性錯誤 (又稱暫時性故障) 具有很快就會自行解決的根本原因。當 Azure 系統快速地將硬體資源轉移到負載平衡更好的各種工作負載時，偶爾會發生暫時性錯誤。在此重新設定時間範圍期間，與 Azure SQL Database 的連接可能會有問題。
+暫時性錯誤 (又稱暫時性故障) 具有很快就會自行解決的根本原因。當 Azure 系統快速地將硬體資源轉移到負載平衡更好的各種工作負載時，偶爾會發生暫時性錯誤。其中大部分重新設定事件通常會在不到 60 秒內完成。在此重新設定時間範圍期間，與 Azure SQL Database 的連接可能會有問題。建置連接到 Azure SQL Database 的應用程式時，應該預期這些暫時性錯誤，並實作重試邏輯來處理它們，而不是當做應用程式錯誤呈現給使用者。
 
-如果用戶端程式使用 ADO.NET，系統會擲回 **SqlException**，告知您的程式發生暫時性錯誤。**數目**屬性可以與主題頂端附近的暫時性錯誤清單進行比較：
-[SQL Database 用戶端應用程式的 SQL 錯誤碼](sql-database-develop-error-messages.md)。
+如果用戶端程式使用 ADO.NET，系統會擲回 **SqlException**，告知您的程式發生暫時性錯誤。**數目**屬性可以與主題頂端附近的暫時性錯誤清單進行比較：[SQL Database 用戶端應用程式的 SQL 錯誤碼](sql-database-develop-error-messages.md)。
+
+<a id="connection-versus-command" name="connection-versus-command"></a>
 
 ### 連接與命令
 
@@ -42,7 +43,7 @@
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-## 暫時性錯誤的重試邏輯
+### 暫時性錯誤的重試邏輯
 
 
 用戶端程式若包含重試邏輯，在偶爾遇到暫時性錯誤時就會更可靠。
@@ -50,8 +51,9 @@
 
 當您的程式透過第三方中介軟體與 Azure SQL Database 進行通訊時，請洽詢廠商中介軟體是否包含暫時性錯誤的重試邏輯。
 
+<a id="principles-for-retry" name="principles-for-retry"></a>
 
-### 重試原則
+#### 重試原則
 
 
 - 如果是暫時性錯誤，則應該重新嘗試開啟連接。
@@ -75,7 +77,7 @@
  - 不過，方案不得每隔幾秒鐘重試，因為該原則可能讓系統充斥要求。
 
 
-### 增加重試之間的間隔
+#### 增加重試之間的間隔
 
 
 
@@ -86,7 +88,7 @@
 您也可能想要設定程式在自行終止之前的重試次數上限。
 
 
-### 具有重試邏輯的程式碼範例
+#### 具有重試邏輯的程式碼範例
 
 
 各種程式設計語言中具有重試邏輯的程式碼範例位於：
@@ -96,13 +98,13 @@
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-## 測試您的重試邏輯
+#### 測試您的重試邏輯
 
 
 若要測試您的重試邏輯，您必須在程式仍在執行時模擬或產生可以更正的錯誤。
 
 
-### 中斷與網路連接以進行測試
+##### 中斷與網路連接以進行測試
 
 
 您可以測試重試邏輯的方法，就是在程式執行時中斷用戶端電腦與網路的連接。錯誤為：
@@ -124,7 +126,7 @@
 5. 重新嘗試連接，預期成功。
 
 
-### 連接時拼錯資料庫名稱以進行測試
+##### 連接時拼錯資料庫名稱以進行測試
 
 
 在第一次連接嘗試之前，您的程式可以故意拼錯使用者名稱。錯誤為：
@@ -144,18 +146,7 @@
 4. 從使用者名稱中移除 'WRONG\_'。
 5. 重新嘗試連接，預期成功。
 
-
-<a id="a-connection-connection-string" name="a-connection-connection-string"></a>
-
-## 連接：連接字串
-
-
-連接到 Azure SQL Database 所需的連接字串和連接到 Microsoft SQL Server 的字串稍有不同。您可以從 [Azure 入口網站](https://portal.azure.com/)複製資料庫的連接字串。
-
-
-[AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
-
-
+<a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ### 進行連線重試的.NET SqlConnection 參數
 
@@ -170,7 +161,7 @@
 
 當您為 **SqlConnection** 物件建立[連接字串](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx)時，您應該調整下列參數的值：
 
-- ConnectRetryCount &nbsp;&nbsp;*(預設值為 0。範圍是 0 到 255)。*
+- ConnectRetryCount &nbsp;&nbsp;*(預設值為 1。範圍是 0 到 255)。*
 - ConnectRetryInterval &nbsp;&nbsp;*(預設值為 1 秒。範圍是 1 到 60)。*
 - Connection Timeout &nbsp;&nbsp;*(預設值為 15 秒。範圍是 0 到 2147483647)*
 
@@ -181,8 +172,9 @@
 
 例如，如果計數 = 3，且間隔 = 10 秒，則連線時，僅 29 秒的逾時將無法給予系統充足的時間以進行第三次及最後一次的重試：29 < 3 * 10。
 
+<a id="connection-versus-command" name="connection-versus-command"></a>
 
-#### 連接與命令
+### 連接與命令
 
 
 **ConnectRetryCount** 和 **ConnectRetryInterval** 參數讓您的 **SqlConnection** 物件可重試連接作業，而不需告知或中斷您的程式，例如將控制權傳回您的程式。可能會在以下情況中發生重試：
@@ -197,11 +189,24 @@
 
 假設您的應用程式有健全的自訂重試邏輯。它可能會重試連接作業 4 次。如果您將 **ConnectRetryInterval** 和 **ConnectRetryCount** =3 加入到連接字串，您會將重試次數增加為 4 * 3 = 12 次重試。您可能不會想要這麼多的重試次數。
 
+<a id="a-connection-connection-string" name="a-connection-connection-string"></a>
+
+## 連接 Azure SQL Database
+
+<a id="c-connection-string" name="c-connection-string"></a>
+
+### 連接：連接字串
+
+
+連接到 Azure SQL Database 所需的連接字串和連接到 Microsoft SQL Server 的字串稍有不同。您可以從 [Azure 入口網站](https://portal.azure.com/)複製資料庫的連接字串。
+
+
+[AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
 
-## 連接：IP 位址
+### 連接：IP 位址
 
 
 您必須設定 SQL Database 伺服器，以接受來自裝載您的用戶端程式之電腦的通訊。您可以透過 [Azure 入口網站](https://portal.azure.com/)編輯防火牆設定來執行此動作。
@@ -213,13 +218,12 @@
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-如需詳細資訊，請參閱：
-[作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)
+如需詳細資訊，請參閱：[作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)
 
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
-## 連接：連接埠
+### 連接：連接埠
 
 
 通常，您只需要在裝載用戶端程式的電腦上確定已開啟連接埠 1433 進行輸出通訊。
@@ -240,13 +244,12 @@
 如果您的用戶端程式裝載在 Azure 虛擬機器 (VM) 上，您應該閱讀：<br/>[1433 以外供 ADO.NET 4.5 和 SQL Database V12 使用的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
 
-如需設定連接埠及 IP 位址的背景資訊，請參閱：
-[Azure SQL Database 防火牆](sql-database-firewall-configure.md)
+如需設定連接埠及 IP 位址的背景資訊，請參閱：[Azure SQL Database 防火牆](sql-database-firewall-configure.md)
 
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-## 連接：ADO.NET 4.6.1
+### 連接：ADO.NET 4.6.1
 
 
 如果您的程式使用類似 **System.Data.SqlClient.SqlConnection** 的 ADO.NET 類別來連接到 Azure SQL Database，建議您使用 .NET Framework 4.6.1 版或更新的版本。
@@ -269,7 +272,11 @@ ADO.NET 4.6.1：
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
-## 診斷：測試公用程式是否可以連接
+## 診斷
+
+<a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
+
+### 診斷：測試公用程式是否可以連接
 
 
 如果您的程式無法連接到 Azure SQL Database，有一個診斷選項將嘗試與公用程式連接。理想的情況下，此公用程式會使用您的程式使用的同一程式庫來連接。
@@ -286,7 +293,7 @@ ADO.NET 4.6.1：
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
-## 診斷：檢查開啟的連接埠
+### 診斷：檢查開啟的連接埠
 
 
 假設您懷疑連接嘗試由於連接埠問題而失敗。在您的電腦上，您可以執行報告連接埠組態的公用程式。
@@ -322,7 +329,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 <a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
 
-## 診斷：記錄您的錯誤
+### 診斷：記錄您的錯誤
 
 
 有時診斷間歇問題的最好方式，就是數天或數週偵測一般模式。
@@ -338,7 +345,7 @@ Enterprise Library 6 (EntLib60) 提供 .NET Managed 類別來協助記錄：
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
-## 診斷：檢查系統記錄找出錯誤
+### 診斷：檢查系統記錄找出錯誤
 
 
 以下是一些查詢錯誤記錄和其他資訊的 Transact-SQL SELECT 陳述式。
@@ -349,6 +356,7 @@ Enterprise Library 6 (EntLib60) 提供 .NET Managed 類別來協助記錄：
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | [Sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) 檢視提供個別事件的相關資訊，包括可能導致暫時性錯誤或連線失敗的一些事件。<br/><br/>理想的情況下，您可以使 **start\_time** 或 **end\_time** 值與用戶端應用程式何時遇到問題的相關資訊相互關聯。<br/><br/>**秘訣：**您必須連接到 **master** 資料庫才能執行此動作。 |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | [Sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) 檢視針對其他診斷提供事件類型的彙總計數。<br/><br/>**秘訣：**您必須連接到 **master** 資料庫才能執行此動作。 |
 
+<a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
 ### 診斷：在 SQL Database 記錄中搜尋問題事件
 
@@ -417,6 +425,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 
 > [AZURE.NOTE] EntLib60 的原始程式碼已可公開[下載](http://go.microsoft.com/fwlink/p/?LinkID=290898)。Microsoft 沒有計劃進一步更新或維護 EntLib 的功能。
 
+<a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
 ### 用於暫時性錯誤和重試的 EntLib60 類別
 
@@ -454,6 +463,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 
 - 可在 NuGet 下載 [Enterprise Library - 暫時性錯誤處理應用程式區塊 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
+<a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
 ### EntLib60：記錄區塊
 
@@ -467,9 +477,9 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 - 記錄區塊可彙總來自記錄目的地的記錄功能，使應用程式程式碼能夠一致，而不必理會目標記錄存放區的的位置和類型。
 
 
-如需詳細資料，請參閱：
-[5 - 輕而易舉：使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
+如需詳細資料，請參閱：[5 - 輕而易舉：使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
 
+<a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 
 ### EntLib60 IsTransient 方法的原始程式碼
 
@@ -546,12 +556,13 @@ public bool IsTransient(Exception ex)
 ```
 
 
-## 詳細資訊
+## 後續步驟
 
+- 如需疑難排解其他常見的 Azure SQL Database 連接問題，請造訪[疑難排解 Azure SQL Database 的常見連接問題](sql-database-troubleshoot-common-connection-issues.md)。
 
 - [SQL Server 連接集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 
 
 - [*重試*是 Apache 2.0 授權的一般用途重試文件庫，以 **Python** 撰寫，幾乎可對任何案例加入重試作業。](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0330_2016-->

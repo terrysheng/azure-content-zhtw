@@ -215,7 +215,7 @@ VNET 包含下列屬性：
 
 ![單一訂用帳戶](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
-您也需要為每個 VNet 指定位址空間。因為您需要內部部署資料中心與 Azure 區域之間的連線，所以用於 Azure VNet 的位址空間不與內部部署衝突，而每個 VNet 所用的位址空間不得與其他現有的 VNet 衝突。您可以使用下表中的位址空間，以滿足這些需求。
+您也需要為每個 VNet 指定位址空間。因為您需要內部部署資料中心與 Azure 區域之間的連線，所以用於 Azure VNet 的位址空間不與內部部署網路衝突，而每個 VNet 所用的位址空間不得與其他現有的 VNet 衝突。您可以使用下表中的位址空間，以滿足這些需求。
 
 |**訂用帳戶**|**VNet**|**Azure 區域**|**位址空間**|
 |---|---|---|---|
@@ -265,4 +265,4 @@ VNET 包含下列屬性：
 - 深入了解[NSG，以及如何規劃和設計](virtual-networks-nsg.md) NSG 方案。
 - 深入了解您的[跨單位和 VNet 連線選項](../vpn-gateway/vpn-gateway-cross-premises-options.md)。  
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

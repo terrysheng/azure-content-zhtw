@@ -1,5 +1,5 @@
 <properties
-   pageTitle="如何探索資料來源"
+   pageTitle="如何探索資料來源 | Microsoft Azure"
    description="操作說明文章著重在說明如何探索已註冊 Azure 資料目錄的資料資產，包括搜尋、篩選及使用 Azure 資料目錄入口網站的結果醒目顯示功能。"
    services="data-catalog"
    documentationCenter=""
@@ -13,9 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
-
 
 # 如何探索資料來源
 
@@ -63,4 +62,4 @@
 ## 另請參閱
 - [開始使用 Azure 資料目錄](data-catalog-get-started.md)教學課程，取得如何探索資料來源的逐步詳細資料。
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

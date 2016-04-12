@@ -127,7 +127,11 @@ Service Fabric 應用程式可以包含一或多個服務，而每個服務在�
 
 ## 後續步驟
 
-- [請參閱如何透過 Web 服務前端在網際網路公開服務](service-fabric-add-a-web-frontend.md)
+<!--
+Temporarily removing this link because we have removed the ASP.NET template.
+
+ - [See how you can expose your services to the Internet with a web service front end](service-fabric-add-a-web-frontend.md)
+-->
 - [了解如何在 Azure 中建立叢集](service-fabric-cluster-creation-via-portal.md)
 - [深入了解 Reliable Services](service-fabric-reliable-services-quick-start.md)
 - [嘗試使用 Reliable Actors 程式設計模型建立服務](service-fabric-reliable-actors-get-started.md)
@@ -146,4 +150,4 @@ Service Fabric 應用程式可以包含一或多個服務，而每個服務在�
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="API Apps 概觀" 
+	pageTitle="API Apps 簡介 | Microsoft Azure" 
 	description="了解 Azure App Service 為何是開發、發佈及裝載 RESTful API 的最佳平台。" 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="03/23/2016" 
 	ms.author="tdykstra"/>
 
 # API Apps 概觀
 
 API Apps 是 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 提供的四個應用程式類型之一。
 
-![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
+![Azure App Service 中的應用程式類型](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-[App Service](../app-service/app-service-value-prop-what-is.md) 是一個完全受管理平台，可將豐富多樣的各種功能組合帶入 Web、行動和整合案例。App Service 中的 API Apps 提供各種功能，讓您更輕鬆地在雲端和內部部署當中建置、裝載和使用 API。將您的 API 部署為 App Service 中的 API 應用程式，即可受益於企業級安全性、簡單的存取控制、混合式連線、自動 SDK 產生，並與 [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) 完美整合。
+[App Service](../app-service/app-service-value-prop-what-is.md) 是一個完全受管理的平台，適用於 Web、行動和整合案例。App Service 中的 API Apps 提供各種功能，讓您更輕鬆地在雲端和內部部署當中建置、裝載和使用 API。將您的 API 部署為 App Service 中的 API 應用程式，即可受益於企業級安全性、簡單的存取控制、混合式連線、自動 SDK 產生，並與 [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) 完美整合。
 
 ## 為何採用 API 應用程式？
 
@@ -38,7 +38,7 @@ API Apps 提供下列功能：
 
 - **繼續使用現有的 API** - 您不必變更現有 API 的任何程式碼，就能利用 API Apps 功能，只要將程式碼部署至 API 應用程式即可。您的 API 可以使用 App Service 支援的任何語言或架構，包括 ASP.NET 和 C#、Java、PHP、Node.js 和 Python。
 
-此外，API 應用程式可以利用 [Web Apps](../app-service-web/app-service-web-overview.md) 和 [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 所提供的功能。反之亦然，如果您使用 Web 應用程式或行動應用程式應用程式來裝載 API，它就能夠利用像是 Swagger 中繼資料的 API Apps 功能來產生用戶端程式碼，以及利用 CORS 進行跨網域瀏覽器存取。這三個應用程式類型 (API、Web、行動) 之間的唯一差異是它們在 Azure 入口網站中所使用的名稱和圖示。由於它們全都具有相同功能，因此，永遠都不需要將應用程式從某一個類型變更為其他類型來取得您所需的功能。不過，如果您想要變更現有應用程式的類型，方法很簡單。如需詳細資訊，請參閱[在 Azure App Service 中開始使用 API Apps 和 ASP.NET](app-service-api-dotnet-get-started.md#optional-changing-an-app-type) 中的＜變更應用程式類型＞一節。
+此外，API 應用程式可以利用 [Web Apps](../app-service-web/app-service-web-overview.md) 和 [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 所提供的功能。反之亦然，如果您使用 Web 應用程式或行動應用程式應用程式來裝載 API，它就能夠利用像是 Swagger 中繼資料的 API Apps 功能來產生用戶端程式碼，以及利用 CORS 進行跨網域瀏覽器存取。這三個應用程式類型 (API、Web、行動) 之間的唯一差異是它們在 Azure 入口網站中所使用的名稱和圖示。由於它們全都具有相同功能，因此，永遠都不需要將應用程式從某一個類型變更為其他類型來取得您所需的功能。不過，如果您想要變更現有應用程式的類型，方法很簡單。如需詳細資訊，請參閱[在 Azure App Service 中開始使用 API Apps 和 ASP.NET](app-service-api-dotnet-get-started.md#optional-changing-an-app-type) 中的**變更應用程式類型**一節。
 
 ## 使用 Azure API 管理擴大 API 應用程式 
 
@@ -64,4 +64,4 @@ API 管理和 API 應用程式的某些功能具有類似的功能。例如，�
 
 若要詢問有關 API Apps 的問題，請在 [API Apps 論壇](https://social.msdn.microsoft.com/Forums/zh-TW/home?forum=AzureAPIApps)中發問。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

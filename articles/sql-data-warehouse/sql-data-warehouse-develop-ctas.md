@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 在 SQL 資料倉儲中的 Create Table As Select (CTAS)
-Create table as select 或 CTAS 是最重要的可用 T-SQL 功能之一。該作業與根據 SELECT 陳述式的輸出來建立新資料表的作業完全平行。CTAS 是建立資料表複本最簡單快速的方法。您可以根據意願將它視為 SELECT..INTO 的增強版本。本文件提供 CTAS 的範例和最佳做法。
+Create table as select 或 `CTAS` 是最重要的可用 T-SQL 功能之一。該作業與根據 SELECT 陳述式的輸出來建立新資料表的作業完全平行。`CTAS` 是建立資料表複本的最簡單且最快速方式。您可以根據意願將它視為 `SELECT..INTO` 的增強版本。本文件提供 `CTAS` 的範例和最佳做法。
 
 ## 使用 CTAS 複製資料表
 
-CTAS 最常見的用途之一，就是建立資料表複本，讓您可以變更 DDL。例如，您原本將資料表建立為 ROUND\_ROBIN，而現在想變更為在資料行上散發的資料表，CTAS 就是您將變更散發資料行的方式。CTAS 也可用於變更資料分割、索引，或資料行類型。
+`CTAS` 最常見的用途之一，就是建立資料表複本，讓您可以變更 DDL。例如，您原本將資料表建立為 `ROUND_ROBIN`，而現在想變更為在資料行上散發的資料表，`CTAS` 就是您將變更散發資料行的方式。`CTAS` 也可以用來變更分割、索引或資料行類型。
 
-假設您因為在 CREATE TABLE 中沒有指定散發資料行，而使用 ROUND\_ROBIN 散發的預設散發類型建立資料表。
+假設您因為在 `ROUND_ROBIN` 中沒有指定散發資料行，而使用 `CREATE TABLE` 散發的預設散發類型建立資料表。
 
-```
+```sql
 CREATE TABLE FactInternetSales
 (
 	ProductKey int NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE FactInternetSales
 
 現在您想建立此資料表的新複本搭配叢集的資料行存放區索引，讓您可以利用叢集的資料行存放區資料表的效能。您也會想要在 ProductKey 上散發此資料表，因為您預期會聯結此資料行，並在聯結 ProductKey 期間避免資料移動。最後您也會想在 OrderDateKey 上加入資料分割，如此就可以透過卸除舊的資料分割來快速刪除舊資料。以下是 CTAS 陳述式，會將您的舊資料表複製到新資料表。
 
-```
+```sql
 CREATE TABLE FactInternetSales_new
 WITH
 (
@@ -77,7 +77,7 @@ AS SELECT * FROM FactInternetSales;
 
 最後可以重新命名您的資料表以切換到新的資料表，然後卸除舊資料表。
 
-```
+```sql
 RENAME OBJECT FactInternetSales TO FactInternetSales_old;
 RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 
@@ -88,30 +88,30 @@ DROP TABLE FactInternetSales_old;
 
 ## 使用 CTAS 解決不支援的功能
 
-CTAS 也可以用來暫時解決以下幾個不支援的功能。這通常可以證明是雙贏的情況，因為您的程式碼不但能夠相容，而且通常可以在 SQL 資料倉儲上更快速執行。這是完全平行化設計的結果。可以使用 CTAS 解決的案例包括：
+`CTAS` 也可以用來暫時解決以下幾個不支援的功能。這通常可以證明是雙贏的情況，因為您的程式碼不但能夠相容，而且通常可以在 SQL 資料倉儲上更快速執行。這是完全平行化設計的結果。可以使用 CTAS 解決的案例包括：
 
 - SELECT..INTO
 - ANSI JOINS on UPDATEs
 - ANSI JOINs on DELETEs
 - MERGE 陳述式
 
-> [AZURE.NOTE] 嘗試考慮「CTAS 優先」。如果您認為您可以使用 CTAS 解決問題，即使您正在撰寫更多資料做為結果，這通常是最佳的解決方法。
+> [AZURE.NOTE] 嘗試考慮「CTAS 優先」。如果您認為您可以使用 `CTAS` 解決問題，即使您正在撰寫更多資料做為結果，這通常是最佳的解決方法。
 >
 
 ## SELECT..INTO
-您可能會發現 SELECT...INTO 會出現在解決方案中的幾個地方。
+您可能會發現 `SELECT..INTO` 會出現在解決方案中的幾個地方。
 
-以下是 SELECT..INTO 陳述式的範例：
+以下是 `SELECT..INTO` 陳述式的範例：
 
-```
+```sql
 SELECT *
 INTO    #tmp_fct
 FROM    [dbo].[FactInternetSales]
 ```
 
-而將上述範例轉換到 CTAS 的方式相當簡單：
+而將上述範例轉換到 `CTAS` 的方式相當簡單：
 
-```
+```sql
 CREATE TABLE #tmp_fct
 WITH
 (
@@ -123,7 +123,7 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-> [AZURE.NOTE] CTAS 目前需要指定散發資料行。如果您並不想要嘗試變更散發資料行，若您選取與基礎資料表相同的散發資料行作為避免資料移動的策略，則 CTAS 將會執行的最快。如果您正在建立小資料表，其效能並非重要因素，那麼您可以指定 ROUND\_ROBIN，來避免必須決定散發資料行。
+> [AZURE.NOTE] CTAS 目前需要指定散發資料行。如果您並不想要嘗試變更散發資料行，若您選取與基礎資料表相同的散發資料行作為避免資料移動的策略，則 `CTAS` 將會執行的最快。如果您正在建立小資料表，其效能並非重要因素，那麼您可以指定 `ROUND_ROBIN`，來避免必須決定散發資料行。
 
 ## update 陳述式的 ANSI 聯結取代
 
@@ -131,7 +131,7 @@ FROM    [dbo].[FactInternetSales]
 
 假設您必須更新此資料表：
 
-```
+```sql
 CREATE TABLE [dbo].[AnnualCategorySales]
 (	[EnglishProductCategoryName]	NVARCHAR(50)	NOT NULL
 ,	[CalendarYear]					SMALLINT		NOT NULL
@@ -146,7 +146,7 @@ WITH
 
 原始的查詢看起來可能像這樣：
 
-```
+```sql
 UPDATE	acs
 SET		[TotalSalesAmount] = [fis].[TotalSalesAmount]
 FROM	[dbo].[AnnualCategorySales] 	AS acs
@@ -169,11 +169,11 @@ AND	[acs].[CalendarYear]				= [fis].[CalendarYear]
 ;
 ```
 
-由於 SQL 資料倉儲不支援在 UPDATE 陳述式的 FROM 子句中使用 ANSI 聯結，因此您無法在毫不變更此程式碼的情況下將它複製過去。
+由於 SQL 資料倉儲不支援在 `UPDATE` 陳述式的 `FROM` 子句中使用 ANSI 聯結，因此您無法在毫不變更此程式碼的情況下將它複製過去。
 
-您可以使用 CTAS 和隱含聯結的組合來取代此程式碼：
+您可以使用 `CTAS` 和隱含聯結的組合來取代此程式碼：
 
-```
+```sql
 -- Create an interim table
 CREATE TABLE CTAS_acs
 WITH (DISTRIBUTION = ROUND_ROBIN)
@@ -206,11 +206,11 @@ DROP TABLE CTAS_acs
 ```
 
 ## delete 陳述式的 ANSI 聯結取代
-有時候刪除資料的最佳方法是使用 CTAS。除了刪除資料以外，可以只選取您想要保留的資料。這對於使用 ANSI 聯結語法的 DELETE 陳述式尤其適用，因為 SQL 資料倉儲不支援在 DELETE 陳述式的 FROM 子句中使用 ANSI 聯結。
+有時候刪除資料的最佳方法是使用 `CTAS`。除了刪除資料以外，可以只選取您想要保留的資料。這對於使用 ANSI 聯結語法的 `DELETE` 陳述式尤其適用，因為 SQL 資料倉儲不支援在 `DELETE` 陳述式的 `FROM` 子句中使用 ANSI 聯結。
 
 已轉換之 DELETE 陳述式的範例如下所示：
 
-```
+```sql
 CREATE TABLE dbo.DimProduct_upsert
 WITH
 (   Distribution=HASH(ProductKey)
@@ -230,11 +230,11 @@ RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ```
 
 ## 取代 merge 陳述式
-Merge 陳述式可以取代，至少有部分可使用 CTAS 取代。您可以將 `INSERT` 和 `UPDATE` 合併成單一陳述式。任何已刪除的記錄都必須在第二個陳述式中關閉。
+Merge 陳述式可以取代，至少有部分可使用 `CTAS` 取代。您可以將 `INSERT` 和 `UPDATE` 合併成單一陳述式。任何已刪除的記錄都必須在第二個陳述式中關閉。
 
 `UPSERT` 的範例如下所示：
 
-```
+```sql
 CREATE TABLE dbo.[DimProduct_upsert]
 WITH
 (   DISTRIBUTION = HASH([ProductKey])
@@ -268,7 +268,7 @@ RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
 
 移轉程式碼時，您可能會發現自己正在跨這種類型的程式碼撰寫模式執行：
 
-```
+```sql
 DECLARE @d decimal(7,2) = 85.455
 ,       @f float(24)    = 85.455
 
@@ -286,7 +286,7 @@ SELECT @d*@f
 
 下列程式碼不會產生相同的結果：
 
-```
+```sql
 DECLARE @d decimal(7,2) = 85.455
 ,       @f float(24)    = 85.455
 ;
@@ -302,7 +302,7 @@ SELECT @d*@f as result
 
 請嘗試下列內容做為範例：
 
-```
+```sql
 SELECT result,result*@d
 from result
 ;
@@ -320,11 +320,11 @@ from ctas_r
 
 我們會看到這兩個結果之間有差異，追根究柢的原因是隱含的類型轉型。在第一個範例中，資料表會定義資料行。插入資料列時，就會發生隱含類型轉換。在第二個範例中，沒有隱含類型轉換，因為此運算式會定義資料行的資料類型。請注意，第二個範例中的資料行已定義為可為 Null 的資料行，而在第一個範例中還沒有定義。在第一個範例中建立資料表時，尚未明確定義資料行可為 null。在第二個範例中，它只留給了運算式，根據預設，這會導致 NULL 定義。
 
-若要解決這些問題，您必須在 CTAS 陳述式的 SELECT 部分中明確設定類型轉換和可為 null 屬性。您無法在建立資料表的部分中設定這些屬性。
+若要解決這些問題，您必須在 `CTAS` 陳述式的 `SELECT` 部分中明確設定類型轉換和可為 null 屬性。您無法在建立資料表的部分中設定這些屬性。
 
 下列範例示範如何修正程式碼：
 
-```
+```sql
 DECLARE @d decimal(7,2) = 85.455
 ,       @f float(24)    = 85.455
 
@@ -340,11 +340,11 @@ SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 - ISNULL 是最外層的函式
 - ISNULL 的第二個部分是常數，也就是 0
 
-> [AZURE.NOTE] 若要正確地設定可為 null 屬性，必須使用 ISNULL 而不是 COALESCE。COALESCE 不是具決定性的函數，因此運算式的結果一律可為 Null。ISNULL 則不同。它是具決定性的。因此當 ISNULL 函數的第二個部分是常數或常值，則結果值將會是 NOT NULL。
+> [AZURE.NOTE] 若要正確地設定可為 null，必須使用 `ISNULL` 而非 `COALESCE`。`COALESCE` 不是具決定性的函數，因此運算式的結果一律可為 Null。`ISNULL` 不同。它是具決定性的。因此當 `ISNULL` 函數的第二個部分是常數或常值，則結果值將會是 NOT NULL。
 
 本秘訣不只適用於確保計算的完整性。它對資料表分割切換也很重要。假設您根據事實定義此資料表：
 
-```
+```sql
 CREATE TABLE [dbo].[Sales]
 (
     [date]      INT     NOT NULL
@@ -369,7 +369,7 @@ WITH
 
 若要建立資料分割資料集，您可能會想要這麼做：
 
-```
+```sql
 CREATE TABLE [dbo].[Sales_in]
 WITH    
 (   DISTRIBUTION = HASH([product])
@@ -393,7 +393,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create')
 
 執行最適合的查詢。當您嘗試執行資料分割切換時會出現問題。資料表定義不相符。若要讓資料表定義相符，必須修改 CTAS。
 
-```
+```sql
 CREATE TABLE [dbo].[Sales_in]
 WITH    
 (   DISTRIBUTION = HASH([product])
@@ -433,4 +433,4 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

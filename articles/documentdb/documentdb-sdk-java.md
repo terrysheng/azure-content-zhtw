@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -29,12 +29,15 @@
 <table>
 <tr><td>**下載**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
 <tr><td>**參與**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-<tr><td>**文件**</td><td>[Java SDK 參考文件](http://azure.github.io/azure-documentdb-java/)</td></tr>
-<tr><td>**開始使用**</td><td>[ Java SDK](documentdb-java-application.md)</td></tr>
+<tr><td>**說明文件**</td><td>[Java SDK 參考文件](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**開始使用**</td><td>[開始使用 Java SDK](documentdb-java-application.md)</td></tr>
 <tr><td>**目前支援的執行階段**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## 版本資訊
+
+### <a name="1.6.0"/>[1\.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
+- 實作[分割集合](documentdb-partition-data.md)和[使用者定義的效能等級](documentdb-performance-levels.md)。 
 
 ### <a name="1.5.1"/>[1\.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
 - 修正 HashPartitionResolver 中的錯誤以產生與其他 SDK 一致的 little-endian 雜湊值。
@@ -67,12 +70,14 @@ Microsoft 至少會在停用 SDK 的 **12 個月**之前提供通知，以供順
 
 使用已停用之 SDK 的任何 DocumentDB 要求都將被服務拒絕。
 
-> [AZURE.WARNING]適用於 Java 之所有 **1.0.0** 之前的 Azure DocumentDB SDK 版本都將於 **2016 年 2 月 29 日停用**。
+> [AZURE.WARNING]
+適用於 Java 之所有 **1.0.0** 之前的 Azure DocumentDB SDK 版本都將於 **2016 年 2 月 29 日停用**。
 
 <br/>
 
 | 版本 | 發行日期 | 停用日期 
 | ---	  | ---	         | ---
+| [1\.6.0](#1.6.0) | 2016 年 3 月 29 日 |---
 | [1\.5.1](#1.5.1) | 2015 年 12 月 31 日 |---
 | [1\.5.0](#1.5.0) | 2015 年 12 月 4 日 |---
 | [1\.4.0](#1.4.0) | 2015 年 10 月 5 日 |---
@@ -81,12 +86,12 @@ Microsoft 至少會在停用 SDK 的 **12 個月**之前提供通知，以供順
 | [1\.1.0](#1.1.0) | 2015 年 7 月 9 日 |---
 | [1\.0.1](#1.0.1) | 2015 年 5 月 12 日 |---
 | [1\.0.0](#1.0.0) | 2015 年 4 月 7 日 |---
-| 0.9.5-prelease | 2015 年 3 月 9 日 | 2016 年 2 月 29 日
-| 0.9.4-prelease | 2015 年 2 月 17 日 | 2016 年 2 月 29 日
-| 0.9.3-prelease | 2015 年 1 月 13 日 | 2016 年 2 月 29 日
-| 0.9.2-prelease | 2014 年 12 月 19 日 | 2016 年 2 月 29 日
-| 0.9.1-prelease | 2014 年 12 月 19 日 | 2016 年 2 月 29 日
-| 0.9.0-prelease | 2014 年 12 月 10 日 | 2016 年 2 月 29 日
+| 0.9.5 發行前版本 | 2015 年 3 月 9 日 | 2016 年 2 月 29 日
+| 0.9.4 發行前版本 | 2015 年 2 月 17 日 | 2016 年 2 月 29 日
+| 0.9.3 發行前版本 | 2015 年 1 月 13 日 | 2016 年 2 月 29 日
+| 0.9.2 發行前版本 | 2014 年 12 月 19 日 | 2016 年 2 月 29 日
+| 0.9.1 發行前版本 | 2014 年 12 月 19 日 | 2016 年 2 月 29 日
+| 0.9.0 發行前版本 | 2014 年 12 月 10 日 | 2016 年 2 月 29 日
 
 ## 常見問題集
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
@@ -95,4 +100,4 @@ Microsoft 至少會在停用 SDK 的 **12 個月**之前提供通知，以供順
 
 若要深入了解 DocumentDB，請參閱 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 服務頁面。
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -20,68 +20,25 @@
 
 # 在 Windows 上使用 Ruby 連接到 SQL Database
 
-
-<!--
-Older Selector technique, with dynamic drop-down lists.
- [ A ZURE . I NCLUDE [s ql-database-develop-includes-selector-language-platform-depth](../../inclu des/sql-database-develop-includes-selector-language-platform-depth.m d)]
--->
-
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
-
-本主題提供可在執行 Windows 8.1 的 Windows 電腦上執行，以連接到 Azure SQL Database 資料庫的 Ruby 程式碼範例。
-
-## 必要條件
-
-###安裝必要的模組
-
-開啟您的終端機，並安裝下列：
-
-**1) Ruby：**如果您的電腦沒有 Ruby，請安裝。若是新的 Ruby 使用者，我們建議您使用 Ruby 2.1.X 安裝程式。這些安裝程式提供相容且更新的穩定語言和廣泛封裝清單 (gem)。[移至 Ruby 下載頁面](http://rubyinstaller.org/downloads/)並且下載適當的 2.1.x 安裝程式。舉例來說，如果您是使用 64 位元電腦，請下載 **Ruby 2.1.6 (x64)** 安裝程式。<br/><br/>一旦下載安裝程式之後，請執行下列動作：
+本主題提供可在執行 Windows 8.1 的 Windows 電腦上執行，以連接到 Azure SQL Database 的 Ruby 程式碼範例。
 
 
-- 按兩下檔案以啟動安裝程式。
+## 步驟 1︰設定開發環境
 
-- 選取您的語言，並同意接受這些條款。
+[使用 TinyTDS Ruby Driver for SQL Server 的必要條件](https://msdn.microsoft.com/library/mt711041.aspx#Windows)
 
-- 在安裝設定畫面上，選取 [將 Ruby 可執行檔新增至您的路徑] 和 [讓 .rb 和 .rbw 檔案與此 Ruby 安裝產生關聯] 旁的核取方塊。
-
-
-**2) DevKit：**從 [RubyInstaller 頁面](http://rubyinstaller.org/downloads/)下載 DevKit
-
-下載完成之後，執行下列作業：
-
-
-- 按兩下檔案。系統會詢問您解壓縮檔案的位置。
-
-- 按一下 "..." 按鈕，然後選取 "C:\\DevKit"。您可能必須藉由按一下 [新增資料夾]，先建立此資料夾。
-
-- 按一下 [確定]，然後按一下 [解壓縮]，以解壓縮檔案。
-
-
-現在開啟命令列提示字元並輸入下列命令：
-
-	> chdir C:\DevKit
-	> ruby dk.rb init
-	> ruby dk.rb install
-
-您現在有功能完整的 Ruby 和 RubyGems！
-
-
-**3) TinyTDS：**瀏覽至 C:\\DevKit 並且從您的終端機執行下列命令：這會在您的電腦上安裝 TinyTDS。
-
-	gem inst tiny_tds --pre
-
-### SQL Database
+## 步驟 2：建立 SQL Database
 
 請參閱[快速入門頁面](sql-database-get-started.md)，以了解如何建立範例資料庫。請務必遵循該指南以建立 **AdventureWorks 資料庫範本**。以下所示的範例僅適用於 **AdventureWorks 結構描述**。
 
 
-## 步驟 1：取得連線詳細資料
+## 步驟 3：取得連接詳細資料
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## 步驟 2：連接
+## 步驟 4︰連接
 
 [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) 函式可用來連接到 SQL Database。
 
@@ -90,7 +47,7 @@ Older Selector technique, with dynamic drop-down lists.
     host: 'yourserver.database.windows.net', port: 1433,
     database: 'AdventureWorks', azure:true
 
-## 步驟 3：執行查詢
+## 步驟 5：執行查詢
 
 複製以下程式碼並貼到空白檔案中。稱它為 test.rb。然後執行它，方法是從命令提示字元輸入下列命令：
 
@@ -108,7 +65,7 @@ Older Selector technique, with dynamic drop-down lists.
     puts row
     end
 
-## 步驟 4：插入資料列
+## 步驟 6：插入資料列
 
 在這個範例中，您將了解如何安全地執行 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) 陳述式、傳遞透過 [SQL 插入](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 弱點保護您應用程式的參數，以及擷取自動產生的[主索引鍵](https://msdn.microsoft.com/library/ms179610.aspx)值。
 
@@ -137,4 +94,4 @@ Older Selector technique, with dynamic drop-down lists.
     puts row
     end
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

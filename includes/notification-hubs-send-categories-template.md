@@ -1,7 +1,7 @@
 
 本節說明如何從 .NET 主控台應用程式將即時新聞以加註標記的範本通知形式傳送。
 
-如果您使用行動服務，請參閱[開始使用推播](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md)教學課程。
+如果您使用 Mobile Apps，請參閱[新增 Mobile Apps 的推播通知](../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md)教學課程，在頂端選取您的平台。
 
 如果您想要使用 Java 或 PHP，請參閱[如何從 Java/PHP 使用通知中樞](../articles/notification-hubs/notification-hubs-java-backend-how-to.md)。您可以使用[通知中樞 REST 介面](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)，從任何後端傳送通知。
 
@@ -78,4 +78,4 @@
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -24,7 +24,7 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 
 在本教學課程中，您將學習如何建立 Azure 事件中樞、使用以 Java 撰寫的主控台應用程式將訊息擷取到事件中樞，以及使用以 Scala 撰寫的 Spark 應用程式平行擷取它們。此應用程式會取用透過事件中樞串流處理的資料，並將其路由傳送至不同的輸出 (Azure 儲存體 Blob、Hive 資料表和 SQL 資料表)。
 
-> [AZURE.NOTE] 若要遵循這篇文章中的指示，您必須使用兩種版本的 Azure 入口網站。若要建立事件中樞，您會用到 [Azure 入口網站](https://manage.windowsazure.com)。若要使用 HDInsight Spark 叢集，您會用到 [Azure Preview 入口網站](https://ms.portal.azure.com/)。
+> [AZURE.NOTE] 若要遵循這篇文章中的指示，您必須使用兩種版本的 Azure 入口網站。若要建立事件中樞，您會用到 [Azure 傳統入口網站](https://manage.windowsazure.com)。若要使用 HDInsight Spark 叢集，您會用到 [Azure 入口網站](https://ms.portal.azure.com/)。
 
 **必要條件：**
 
@@ -64,10 +64,12 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 4. 按一下您建立的事件中樞，再按一下 [設定]，然後為事件中樞建立兩個存取原則。
 
 	<table>
-<tr><th>名稱</th><th>權限</th></tr>
-<tr><td>mysendpolicy</td><td>傳送</td></tr>
-<tr><td>myreceivepolicy</td><td>接聽</td></tr>
-</table>建立權限之後，在頁面底部選取**儲存**圖示。這會建立共用存取原則，可用來傳送 (**mysendpolicy**) 給及接聽 (**myreceivepolicy**) 此事件中樞。
+	<tr><th>名稱</th><th>權限</th></tr>
+	<tr><td>mysendpolicy</td><td>傳送</td></tr>
+	<tr><td>myreceivepolicy</td><td>接聽</td></tr>
+	</table>
+
+	建立權限之後，在頁面底部選取**儲存**圖示。這會建立共用存取原則，可用來傳送 (**mysendpolicy**) 給及接聽 (**myreceivepolicy**) 此事件中樞。
 
 	![原則](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "建立事件中樞原則")
 
@@ -372,4 +374,4 @@ Spark Streaming 能擴充核心的 Spark API，建置可調整、高輸送量、
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

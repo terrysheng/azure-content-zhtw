@@ -1,10 +1,4 @@
 
-
-
-您在 Azure 中使用傳統部署模型建立的所有虛擬機器，都可以自動透過私人網路通道與同一雲端服務或虛擬網路中的其他虛擬機器通訊。不過，網際網路或其他虛擬網路上的電腦需要端點，才能將傳入網路流量導向至虛擬機器。
-
-視您選擇的作業系統而定，當您在 Azure 傳統入口網站建立虛擬機器時，通常也會自動為您建立像是遠端桌面、Windows PowerShell 遠端和安全殼層 (SSH) 等的通用端點。建立虛擬機器或日後有需要時，您可以設定其他端點。
-
 每個端點都有一個「公用連接埠」和一個「私人連接埠」：
 
 - Azure 負載平衡器使用公用連接埠接聽從網際網路到虛擬機器的連入流量。
@@ -12,7 +6,7 @@
 
 當您使用 Azure 傳統入口網站建立端點時，會提供 IP 通訊協定的預設值以及已知網路通訊協定的 TCP 或 UDP 連接埠。針對自訂端點，您必須指定正確的 IP 通訊協定 (TCP 或 UDP) 以及公用和私人連接埠。若要將連入流量隨機分散到多部虛擬機器，您必須建立負載平衡的集合，其中包含多個端點。
 
-建立端點之後，您可以使用存取控制清單 (ACL) 定義規則，根據來源 IP 位址允許或拒絕端點公用連接埠的連入流量。不過，如果虛擬機器位於 Azure 虛擬網路，請改用網路安全性群組。如需詳細資訊，請參閱[關於網路安全性群組](virtual-networks-nsg.md)。
+建立端點之後，您可以使用存取控制清單 (ACL) 定義規則，根據來源 IP 位址允許或拒絕端點公用連接埠的連入流量。不過，如果虛擬機器位於 Azure 虛擬網路，請改用網路安全性群組。如需詳細資訊，請參閱[關於網路安全性群組](../articles/virtual-network/virtual-networks-nsg.md)。
 
 > [AZURE.NOTE]對於與遠端桌面和安全殼層 (SSH) 相關聯的連接埠，以及對於大部分情況下的 Windows PowerShell 遠端執行功能，Azure 虛擬機器的防火牆設定會自動完成。至於其他所有端點的指定連接埠，不會自動設定虛擬機器的防火牆。您建立虛擬機器的端點時，需要確定虛擬機器的防火牆也允許端點組態相對應通訊協定和私人連接埠的流量。
 
@@ -40,7 +34,7 @@
 
 ![端點建立成功](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
 
-若要使用 Azure PowerShell Cmdlet 來設定此項目，請參閱 [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx)。如果您是在服務管理模式中使用 Azure CLI，請使用 **azure vm endpoint create** 命令。
+ 
 
 ## 在端點上管理 ACL
 
@@ -48,7 +42,7 @@
 
 > [AZURE.NOTE] 如果端點屬於負載平衡集合，則對端點上的 ACL 所做的任何變更，都將套用至此集合的所有端點。
 
-如果虛擬機器位於 Azure 虛擬網路，建議使用網路安全性群組而非 ACL。如需詳細資訊，請參閱[關於網路安全性群組](virtual-networks-nsg.md)。
+如果虛擬機器位於 Azure 虛擬網路，建議使用網路安全性群組而非 ACL。如需詳細資訊，請參閱[關於網路安全性群組](../articles/virtual-network/virtual-networks-nsg.md)。
 
 1.	如果您未曾執行過這項操作，請登入 Azure 傳統入口網站。
 2.	按一下 [虛擬機器]，然後按一下要設定的虛擬機器名稱。
@@ -64,13 +58,6 @@
 
 您可以使用規則僅允許網際網路上的電腦對應的特定電腦流量，或拒絕特定已知位址範圍的流量。
 
-規則的評估順序是從第一個規則開始，一直到最後一個規則為止。這表示規則應會以最寬鬆到最嚴格的順序來排列。如需範例和詳細資訊，請參閱[什麼是網路存取控制清單？](../virtual-network/virtual-networks-acl/)
+規則的評估順序是從第一個規則開始，一直到最後一個規則為止。這表示規則應會以最寬鬆到最嚴格的順序來排列。如需範例和詳細資訊，請參閱[什麼是網路存取控制清單？](../articles/virtual-network/virtual-networks-acl.md)
 
-若要使用 Azure PowerShell Cmdlet 來進行這項設定，請參閱[使用 PowerShell 管理端點的存取控制清單 (ACL)](../virtual-network/virtual-networks-acl-powershell.md)。
-
-
-## 其他資源
-
-[開始使用 PowerShell 在資源管理員中建立網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

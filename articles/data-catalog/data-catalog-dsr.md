@@ -3,8 +3,8 @@
    description="目前支援的資料來源的規格。"
    services="data-catalog"
    documentationCenter=""
-   authors="trhabe"
-   manager="jstrauss"
+   authors="steelanddata"
+   manager=""
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/15/2016"
-   ms.author="trhabe"/>
+   ms.date="03/30/2016"
+   ms.author="maroche"/>
 
 # Azure 資料目錄支援的資料來源
 
@@ -436,18 +436,7 @@ Azure 資料目錄的使用者可以使用公用 API、Click Once 註冊工具�
       </td>
     </tr>
 
-    <tr>
-      <td>Cosmos</td>
-      <td>容器</td>
-      <td>虛擬叢集</td>
-      <td>N/A</td>
-      <td>
-        <font size=2>通訊協定：cosmos
-            <br>驗證：{基本、windows}
-            <br>位址：
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
+
 
     <tr>
       <td>SQL Server Reporting Services</td>
@@ -523,46 +512,7 @@ Azure 資料目錄的使用者可以使用公用 API、Click Once 註冊工具�
             <br>&#160;&#160;&#160;&#160;&#160; 資料庫
             <br>&#160;&#160;&#160;&#160;&#160; 模型
             <br>
-            <br>*基本/匿名只能透過 https 使用 </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>資料表</td>
-      <td>Stream</td>
-      <td>虛擬叢集</td>
-      <td>
-        <font size=2>通訊協定：cosmos
-            <br>驗證：{基本、windows}
-            <br>位址：
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>資料表</td>
-      <td>串流組</td>
-      <td>虛擬叢集</td>
-      <td>
-        <font size=2>通訊協定：cosmos
-            <br>驗證：{基本、windows}
-            <br>位址：
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Cosmos</td>
-      <td>資料表</td>
-      <td>檢視</td>
-      <td>虛擬叢集</td>
-      <td>
-        <font size=2>通訊協定：cosmos
-            <br>驗證：{基本、windows}
-            <br>位址：
-            <br>&#160;&#160;&#160;&#160;&#160; url </font>
+            <br>*基本/匿名只能透過 https 使用* </font>
       </td>
     </tr>
 
@@ -664,7 +614,7 @@ Azure 資料目錄的使用者可以使用公用 API、Click Once 註冊工具�
             <br>&#160;&#160;&#160;&#160;&#160; 資料庫
             <br>&#160;&#160;&#160;&#160;&#160; 模型
             <br>
-            <br>*基本/匿名只能透過 https 使用 </font>
+            <br>*基本/匿名只能透過 https 使用* </font>
       </td>
     </tr>
 
@@ -1173,7 +1123,7 @@ Azure 資料目錄的使用者可以使用公用 API、Click Once 註冊工具�
             <br>&#160;&#160;&#160;&#160;&#160; 物件
             <br>&#160;&#160;&#160;&#160;&#160; objectType：{Kpi}
             <br>
-            <br>*基本/匿名只能透過 https 使用 </font>
+            <br>*基本/匿名只能透過 https 使用* </font>
       </td>
     </tr>
 
@@ -1239,7 +1189,7 @@ Azure 資料目錄的使用者可以使用公用 API、Click Once 註冊工具�
             <br>&#160;&#160;&#160;&#160;&#160; 物件
             <br>&#160;&#160;&#160;&#160;&#160; objectType：{資料表}
             <br>
-            <br>*基本/匿名只能透過 https 使用 </font>
+            <br>*基本/匿名只能透過 https 使用* </font>
       </td>
     </tr>
 
@@ -1334,4 +1284,4 @@ Azure 資料目錄的使用者可以使用公用 API、Click Once 註冊工具�
 
 </table>
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0330_2016-->

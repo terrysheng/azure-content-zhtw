@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="03/30/2016"
 	ms.author="micurd"/>
 
 # Azure 儲存體總管
@@ -52,7 +52,7 @@ Azure 儲存體的使用者通常希望能夠在「總管」(顯示儲存體帳�
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td>試用版</td>
+    <td>Y</td>
     <td>X</td>
     <td></td>
     <td></td>
@@ -63,8 +63,8 @@ Azure 儲存體的使用者通常希望能夠在「總管」(顯示儲存體帳�
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td></td>
-    <td></td>
+    <td>X</td>
+    <td>X</td>
     <td></td>
     <td>Y</td>
     <td></td>
@@ -252,4 +252,4 @@ Azure 儲存體的使用者通常希望能夠在「總管」(顯示儲存體帳�
   </tr>
 </table>
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

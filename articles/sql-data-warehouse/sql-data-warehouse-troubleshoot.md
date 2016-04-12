@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="mausher;sonyama;barbkess"/>
 
 # 疑難排解
@@ -38,7 +38,7 @@ SQL 資料倉儲支援 [Visual Studio 2013/2015年](sql-data-warehouse-get-start
 ## 查詢效能
 SQL 資料倉儲會使用一般的 SQL Server 建構來執行查詢 (含統計資料)。[統計資料](sql-data-warehouse-develop-statistics.md)是包含資料庫資料行中，值之範圍與頻率的相資訊的物件。查詢引擎會使用這些統計資料最佳化查詢執行，以及改善查詢效能。您可以使用下列查詢，判斷您的上次更新了哪些統計資料。
 
-```
+```sql
 SELECT
 	sm.[name]								    AS [schema_name],
 	tb.[name]								    AS [table_name],
@@ -90,4 +90,4 @@ WHERE
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

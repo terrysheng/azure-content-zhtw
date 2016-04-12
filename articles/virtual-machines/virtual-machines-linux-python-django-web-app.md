@@ -104,7 +104,7 @@ Ubuntu Linux VM 已經預先安裝 Python 2.7，但是並未安裝 Apache 或 Dj
 
 ## 設定 Apache
 
-1.  建立 Apache 虛擬主機組態檔 **/etc/apache2/sites-available/helloworld.conf**。設定成以下內容，並以您使用之機器的實際名稱取代 [*yourVmName*] (例如 *pyubuntu*)。
+1.  建立 Apache 虛擬主機組態檔 **/etc/apache2/sites-available/helloworld.conf**。設定成以下內容，並以您使用之機器的實際名稱取代 [*yourVmName*] \(例如 *pyubuntu*)。
 
 		<VirtualHost *:80>
 		ServerName yourVmName

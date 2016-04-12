@@ -93,6 +93,6 @@
 ## 其他資源
 如需有關如何使用這些加密功能的詳細資訊，請參閱[以 SQL Server 加密功能使用 EKM](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM)。
 
-請注意，本文中的步驟假設您已在 Azure 虛擬機器上執行 SQL Server。如果沒有，請參閱[在 Azure 中佈建 SQL Server 虛擬機器](../articles/virtual-machines/virtual-machines-windows-classic-portal-sql.md)。如需在 Azure VM 中執行 SQL Server 的其他指引，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md)。
+請注意，本文中的步驟假設您已在 Azure 虛擬機器上執行 SQL Server。如果沒有，請參閱[在 Azure 中佈建 SQL Server 虛擬機器](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md)。如需在 Azure VM 中執行 SQL Server 的其他指引，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

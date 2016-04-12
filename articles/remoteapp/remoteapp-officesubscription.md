@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/14/2015" 
+    ms.date="03/28/2016" 
     ms.author="elizapo" />
 
 
@@ -115,7 +115,7 @@ RemoteApp 訂用帳戶中的 Office 365 ProPlus 映像包含 Visio Pro 和 Proje
 
 若選擇此方式，您可以使用標準 Windows 工具將更新套用至映像。若為 Office 365 ProPlus，請使用 Office 部署工具下載並安裝 Office 365 ProPlus 的最新更新或最新版本。
 
-> [AZURE.IMPORTANT]請記得停用 Office 365 ProPlus 的自動更新。
+> [AZURE.IMPORTANT] 請記得停用 Office 365 ProPlus 的自動更新。
 
 需要關於使用 Office 部署工具進行更新的詳細資訊嗎？
 
@@ -123,4 +123,4 @@ RemoteApp 訂用帳戶中的 Office 365 ProPlus 映像包含 Visio Pro 和 Proje
 - [使用 Office 部署工具部署及更新 Office 365 ProPlus](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (影片)
 - [設定 Office 365 ProPlus 的更新設定](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

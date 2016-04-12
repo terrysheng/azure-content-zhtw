@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/26/2016"
+   ms.date="03/28/2016"
    ms.author="abhisram"/>
 
 # Reliable Actors 的診斷和效能監視
@@ -114,6 +114,8 @@ Reliable Actor 執行階段會發佈下列與並行相關的效能計數器。
 |類別名稱|計數器名稱|說明|
 |---|---|---|
 |Service Fabric 動作項目|等待動作項目鎖定的動作項目呼叫數|擱置中的動作項目呼叫數目，這些呼叫正等待取得強制執行回合式並行的各動作項目鎖定|
+|Service Fabric 動作項目|每個 Lock Wait 的平均毫秒數|取得強制執行回合式並行的各動作項目鎖定所虛的時間 (單位為毫秒)|
+|Service Fabric 動作項目|保留動作項目鎖定的平均毫秒數|保留每個動作項目鎖定的時間 (單位為毫秒)|
 
 ### 動作項目狀態管理事件與效能計數器
 Reliable Actor 執行階段會發出下列與[動作項目狀態管理](service-fabric-reliable-actors-introduction.md#actor-state-management)相關的事件。
@@ -128,24 +130,17 @@ Reliable Actor 執行階段會發佈下列與動作項目狀態管理相關的�
 |類別名稱|計數器名稱|說明|
 |---|---|---|
 |Service Fabric 動作項目|每個儲存狀態作業的平均毫秒數|儲存動作項目狀態花費的時間 (單位為毫秒)|
+|Service Fabric 動作項目|每個載入狀態作業的平均毫秒數|載入動作項目狀態花費的時間 (單位為毫秒)|
 
-### 與無狀態動作項目執行個體相關的事件
-Reliable Actor 執行階段會發出下列與[無狀態動作項目執行個體](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors)相關的事件。
-
-|事件名稱|事件識別碼|Level|關鍵字|說明|
-|---|---|---|---|---|
-|ServiceInstanceOpen|3|資訊|0x1|已開啟無狀態動作項目執行個體。這意指在此執行個體內可以為此資料分割建立動作項目 (可能也有其他執行個體)。|
-|ServiceInstanceClose|4|資訊|0x1|已關閉無狀態動作項目執行個體。這意指在此執行個體內不再為此資料分割建立動作項目。沒有新的要求將傳遞到已在此執行個體內建立的動作項目。任何進行中的要求完成後，將終結動作項目。|
-
-### 與可設定狀態的動作項目複本相關的事件
-Reliable Actor 執行階段會發出下列與[可設定狀態的動作項目複本](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors)相關的事件。
+### 與動作項目複本相關的事件
+Reliable Actors 執行階段會發出下列與[動作項目複本](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors)相關的事件。
 
 |事件名稱|事件識別碼|Level|關鍵字|說明|
 |---|---|---|---|---|
-|ReplicaChangeRoleToPrimary|1|資訊|0x1|可設定狀態的動作項目複本已將角色變為主要。這意指將在此複本內建立此資料分割的動作項目。|
-|ReplicaChangeRoleFromPrimary|2|資訊|0x1|可設定狀態的動作項目複本已將角色變為非主要。這意指在此複本內不再為此資料分割建立動作項目。沒有新的要求將傳遞到已在此複本內建立的動作項目。任何進行中的要求完成後，將終結動作項目。|
+|ReplicaChangeRoleToPrimary|1|資訊|0x1|動作項目複本已將角色變為主要。這意指將在此複本內建立此資料分割的動作項目。|
+|ReplicaChangeRoleFromPrimary|2|資訊|0x1|動作項目複本已將角色變為非主要。這意指在此複本內不再為此資料分割建立動作項目。沒有新的要求將傳遞到已在此複本內建立的動作項目。任何進行中的要求完成後，將終結動作項目。|
 
-### 動作項目啟動與停用事件
+### 動作項目啟動與停用事件與效能計數器
 Reliable Actor 執行階段會發出下列與[動作項目啟動與停用](service-fabric-reliable-actors-lifecycle.md)相關的事件。
 
 |事件名稱|事件識別碼|Level|關鍵字|說明|
@@ -153,4 +148,20 @@ Reliable Actor 執行階段會發出下列與[動作項目啟動與停用](servi
 |ActorActivated|5|資訊|0x1|動作項目已啟動。|
 |ActorDeactivated|6|資訊|0x1|動作項目已停用。|
 
-<!---HONumber=AcomDC_0211_2016-->
+Reliable Actor 執行階段會發佈下列與動作項目啟用和停用相關的效能計數器。
+
+|類別名稱|計數器名稱|說明|
+|---|---|---|
+|Service Fabric 動作項目|平均 OnActivateAsync 毫秒數|執行 OnActivateAsync 方法花費的時間 (單位為毫秒)|
+
+### 動作項目要求處理效能計數器
+當用戶端透過動作項目 proxy 物件叫用方法時，會造成要求訊息透過網路傳送至動作項目服務。服務會處理要求訊息，並傳送回應給用戶端。Reliable Actor 執行階段會發佈下列與動作項目要求處理相關的效能計數器。
+
+|類別名稱|計數器名稱|說明|
+|---|---|---|
+|Service Fabric 動作項目|# 個未處理的要求|服務中正在處理的要求數目|
+|Service Fabric 動作項目|每個要求的平均毫秒數|服務處理要求所花費的時間 (單位為毫秒)|
+|Service Fabric 動作項目|要求還原序列化的平均毫秒數|當服務收到動作項目要求訊息時，將它還原序列化所花費的時間 (單位為毫秒)|
+|Service Fabric 動作項目|要求序列化的平均毫秒數|在回應傳送至用戶端之前，序列化動作項目回應訊息所花費的時間 (單位為毫秒)|
+
+<!---HONumber=AcomDC_0330_2016-->

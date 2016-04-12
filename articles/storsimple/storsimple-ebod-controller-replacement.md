@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="03/22/2016"
    ms.author="alkohli" />
 
 # 更換 StorSimple 裝置上的 EBOD 控制器
@@ -30,7 +30,7 @@
 
 - EBOD 控制器是可熱交換，而且可以取下或更換。請勿取下故障的模組，除非您有更換模組。當起始更換程序時，您必須在 10 分鐘內完成。
 
->[AZURE.IMPORTANT]取下及更換 EBOD 之前，請閱讀 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)中的安全資訊。
+>[AZURE.IMPORTANT] 在嘗試取下或更換任何 StorSimple 元件之前，請確定先閱讀[安全圖示慣例](storsimple-safety.md#safety-icon-conventions)和其他[安全性預防措施](storsimple-safety.md)。
 
 ## 取下 EBOD 控制器
 
@@ -48,7 +48,7 @@
 
 5. 記下已連接至控制器之 EBOD 控制器模組的確切 SAS 連接埠。在更換 EBOD 模組之後，您必須將系統還原至這個組態。
 
-    >[AZURE.NOTE]通常，這將是連接埠 A，在下圖標示為 [**主機輸入**]。
+    >[AZURE.NOTE] 通常，這將是連接埠 A，在下圖標示為 [主機輸入]。
 
     ![EBOD 控制器的後擋板](./media/storsimple-ebod-controller-replacement/IC741049.png)
 
@@ -101,10 +101,10 @@
     |6|EBOD 控制器 0|
     |7|EBOD 控制器 1|
     |8|EBOD 機箱|
-    |9|PDU|
+    |9|電源分配單元|
 
 ## 後續步驟
 
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -20,10 +20,9 @@
 # 使用 CLI 建立 DNS 記錄
 
 > [AZURE.SELECTOR]
-- [Azure CLI](dns-getstarted-create-recordset-cli.md)
+- [Azure 入口網站](dns-getstarted-create-recordset-portal.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
-
-
+- [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
 建立 DNS 區域之後，您必須加入網域的 DNS 記錄。若要這樣做，您必須先了解 DNS 記錄和記錄集。
 
@@ -33,7 +32,7 @@
 
 _完整_名稱包含區域名稱，而_相對_名稱不含區域名稱。比方說，區域 'contoso.com' 中的相對記錄名稱 'www' 就給出完整記錄名稱 'www.contoso.com'。
 
->[AZURE.NOTE]在 Azure DNS 中，記錄是使用相對名稱來指定。
+>[AZURE.NOTE] 在 Azure DNS 中，記錄是使用相對名稱來指定。
 
 記錄根據所包含的資料而有各種類型。最常見的類型為 'A' 記錄，可將名稱對應到 IPv4 位址。另一個類型為 'MX' 記錄，可將名稱對應到郵件伺服器。
 
@@ -48,7 +47,7 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 
 存留時間 (TTL) 指定每一筆記錄由用戶端快取多久，之後才會重新查詢。在上述範例中，TTL 是 3600 秒 (1 小時)。TTL 是針對記錄集而指定，而非針對每一筆記錄，因此相同的值套用至該記錄集內的所有記錄。
 
->[AZURE.NOTE]Azure DNS 使用記錄集來管理 DNS 記錄。
+>[AZURE.NOTE] Azure DNS 使用記錄集來管理 DNS 記錄。
 
 
 
@@ -67,7 +66,7 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 
 記錄集在 DNS 區域 'contoso.com' 中有相對記錄名稱 'www'，因此記錄的完整名稱為 'www.contoso.com'。記錄類型為 'A'，TTL 為 60 秒。
 
->[AZURE.NOTE]若要在區域頂點 (在此案例中為 'contoso.com') 建立記錄集，請使用記錄名稱 "@" (包括引號)。這是常見的 DNS 慣例。
+>[AZURE.NOTE] 若要在區域頂點 (在此案例中為 'contoso.com') 建立記錄集，請使用記錄名稱 "@" (包括引號)。這是常見的 DNS 慣例。
 
 這個記錄集是空的，而我們必須新增記錄，才能使用新建立的 "www" 記錄集。<BR>
 
@@ -100,7 +99,7 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 
 您也可以使用 nslookup 或其他 DNS 工具來查詢新的記錄集。
 
->[AZURE.NOTE]如同建立區域時一樣，如果您還沒有將網域委派給 Azure DNS 名稱伺服器，則必須明確指定區域的名稱伺服器位址。
+>[AZURE.NOTE] 如同建立區域時一樣，如果您還沒有將網域委派給 Azure DNS 名稱伺服器，則必須明確指定區域的名稱伺服器位址。
 
 
 	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
@@ -122,4 +121,4 @@ Azure DNS 支援所有常見的 DNS 記錄類型：A、AAAA、CNAME、MX、NS、
 [使用 .NET SDK 自動化 Azure 作業](dns-sdk.md)
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

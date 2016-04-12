@@ -15,13 +15,11 @@
 	ms.date="03/21/2016" 
 	ms.author="awills"/>
 
-
 # 分析中的彙總功能
 
-[分析](app-analytics.md)是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。這些頁面說明分析查詢語言。
+[Analytics](app-analytics.md) 可讓您從您的應用程式透過 [Application Insights](app-insights-overview.md) 所收集的遙測資料執行強大的查詢。這些頁面說明其查詢語言。
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
-
 
 
 ## summarize 運算子
@@ -54,7 +52,7 @@
 
 如果您提供數值或時間運算式而不使用 `bin()`，「分析」就會自動為它套用 `1h` 間隔的時間，或 `1.0` 的數字。
 
-如果您沒有提供 *GroupExpression*，整份資料表就會彙整在單一輸出資料列中。
+如果您沒有提供 GroupExpression，整份資料表就會彙整在單一輸出資料列中。
 
 `by` 子句中必須使用簡單類型而非動態類型。例如，這裡的 `tostring` 轉換就是必要項目︰
 
@@ -463,4 +461,4 @@ Accuracy (若已指定) 會控制速度和精確度之間的平衡。
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

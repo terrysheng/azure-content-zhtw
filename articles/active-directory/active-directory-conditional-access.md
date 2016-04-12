@@ -2,7 +2,7 @@
 	pageTitle="保護對 Office 365 及其他連接至 Azure Active Directory 之應用程式的存取 | Microsoft Azure"  
     description="透過條件式存取控制，Azure Active Directory 會在驗證使用者時以及允許存取應用程式之前，檢查您挑選的特定條件。一旦符合這些條件，就會驗證使用者並允許存取應用程式。"  
     services="active-directory" 
-	keywords="存取應用程式、安全地存取公司資源、條件式存取原則" 
+	keywords="應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則" 
 	documentationCenter=""
 	authors="femila"
 	manager="stevenpo"
@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="02/10/2016"
+	ms.date="03/23/2016"
 	ms.author="femila"/>
 
 
@@ -53,4 +53,4 @@
 | 保護遺失/遭竊裝置上的公司資料 |[裝置註冊服務](active-directory-conditional-access-device-registration-overview.md)<br><br> [註冊已加入網域的裝置](active-directory-azureadjoin-setup.md)<br><br> [使用已在 Azure AD 中註冊的裝置來進行內部部署條件式存取](active-directory-conditional-access-on-premises-setup.md) <br><br>[為加入網域的 Windows 7 裝置設定自動註冊裝置](active-directory-conditional-access-automatic-device-registration-windows7.md) <br><br>[為加入網域的 Windows 8.1 裝置設定自動註冊裝置](active-directory-conditional-access-automatic-device-registration-windows8_1.md) <br><br>[Office 365 服務的條件式存取裝置原則](active-directory-conditional-access-device-policies.md)|
 | 其他資訊 |[條件式存取常見問題集](active-directory-conditional-faqs.md)|
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0330_2016-->

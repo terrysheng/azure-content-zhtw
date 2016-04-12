@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2016" 
+	ms.date="03/24/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # 安裝彈性資料庫工作概觀
@@ -42,7 +42,7 @@
 
 4.	執行 .\\InstallElasticDatabaseJobsCmdlets.ps1 script to copy the ElasticDatabaseJobs directory into $home\\Documents\\WindowsPowerShell\\Modules。這也會自動匯入模組，以供使用，例如：
 
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1 
+		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## 使用 PowerShell 安裝彈性資料庫工作元件
@@ -52,7 +52,7 @@
 
 2.	執行.\\InstallElasticDatabaseJobs.ps1 PowerShell 指令碼，並提供其所要求之變數的值。此指令碼將依[彈性資料庫工作元件和定價](sql-database-elastic-jobs-overview/#components-and-pricing)所述建立元件，以及將 Azure 雲端服務設定為適當地使用相依元件。
 
-		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1 
+		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
 
 當您執行此命令時，會隨即開啟向您詢問 [使用者名稱] 和 [密碼] 的視窗。這不是您的 Azure 認證，請輸入要用於新伺服器之系統管理員認證的使用者名稱和密碼。
@@ -151,13 +151,13 @@
 
 ## 使用入口網站安裝彈性資料庫工作元件
 
-一旦[建立了彈性資料庫集區](sql-database-elastic-pool-portal.md)，您就可以安裝**彈性資料庫工作**元件，以對彈性資料庫集區中的每個資料庫啟用系統管理工作的執行。不同於使用**彈性資料庫工作** PowerShell API 時，入口網站介面目前限制為只針對現有的集區執行。
+一旦[建立了彈性資料庫集區](sql-database-elastic-pool-create-portal.md)，您就可以安裝**彈性資料庫工作**元件，以對彈性資料庫集區中的每個資料庫啟用系統管理工作的執行。不同於使用**彈性資料庫工作** PowerShell API 時，入口網站介面目前限制為只針對現有的集區執行。
 
 
 **預估完成時間：**10 分鐘。
 
 1. 從彈性資料庫集區的儀表板檢視，透過 [Azure 入口網站](https://ms.portal.azure.com/#)，按一下 [建立工作]。
-2. 如果您是第一次建立工作，則必須安裝**彈性資料庫工作**，方法是按一下 [預覽條款]， 
+2. 如果您是第一次建立工作，則必須安裝**彈性資料庫工作**，方法是按一下 [預覽條款]，
 3. 然後按一下核取方塊接受條款。
 4. 在 [安裝服務] 檢視中，按一下 [工作認證]。
 
@@ -186,6 +186,5 @@
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
- 
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="使用 Azure 入口網站升級至 Azure SQL Database V12 | Microsoft Azure" 
-	description="說明如何使用 Azure 入口網站升級至 Azure SQL Database V12，包括如何升級 Web 和商務資料庫，以及如何將 V11 伺服器的資料庫直接移轉至彈性資料庫集區來升級 V11 伺服器。" 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
+<properties
+	pageTitle="使用 Azure 入口網站升級至 Azure SQL Database V12 | Microsoft Azure"
+	description="說明如何使用 Azure 入口網站升級至 Azure SQL Database V12，包括如何升級 Web 和商務資料庫，以及如何將 V11 伺服器的資料庫直接移轉至彈性資料庫集區來升級 V11 伺服器。"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
 	manager="jeffreyg"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-management" 
-	ms.date="02/23/2016" 
+<tags
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="02/23/2016"
 	ms.author="sstein"/>
 
 
@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-upgrade-server-portal.md)
+- [Azure 入口網站](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -41,12 +41,11 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 升級至 SQL Database V12 後即無法復原。在升級之後，即無法將伺服器還原至 V11。
 
-升級至 V12 之後，將不會立即提供[服務層級建議](sql-database-service-tier-advisor.md)和[彈性集區建議](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier)，必須等到服務有時間評估您在新伺服器上的工作負載之後，才會提供。V11 伺服器建議記錄不適用於 V12 伺服器，因此不會保留。
-
+升級至 V12 之後，將不會立即提供[服務層建議](sql-database-service-tier-advisor.md)和[彈性集區效能考量](sql-database-elastic-pool-guidance.md)，必須等到服務有時間評估您在新伺服器上的工作負載之後，才會提供。V11 伺服器建議記錄不適用於 V12 伺服器，因此不會保留。
 
 ## 準備升級
 
-- **升級所有 Web 和商務資料庫**：請參閱下面的[升級所有 Web 和商務資料庫](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases)一節，或使用 [PowerShell 來升級資料庫和伺服器](sql-database-upgrade-server-powershell.md)。
+- **升級所有 Web 和商務資料庫**：請參閱下面的[升級所有 Web 和商務資料庫](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases)一節，或參閱[監視和管理彈性資料庫集區 (PowerShell)](sql-database-elastic-pool-manage-powershell.md)。
 - **檢閱和暫停異地複寫**：如果您的 Azure SQL Database 已針對異地複寫做設定，您應該記錄其目前的設定並[停止異地複寫](sql-database-geo-replication-portal.md#remove-secondary-database)。在升級完成之後，請重新設定資料庫的異地複寫。
 - **如果您的用戶端位於 Azure VM 上，請開啟這些連接埠**：如果在您的用戶端於 Azure 虛擬機器 (VM) 上執行時，用戶端程式連接至 SQL Database V12，您就必須開啟此 VM 上 11000-11999 和 14000-14999 範圍的連接埠。如需詳細資訊，請參閱 [SQL Database V12 的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
@@ -64,7 +63,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 如果您的伺服器內有任何 Web 或 Business 資料庫，就必須將這些資料庫升級。在升級至 SQL Database V12 的過程中，您將會把所有 Web 和商務資料庫更新至新的服務層級。
 
 為了協助您完成升級，SQL Database 服務建議為每個資料庫選擇適當的服務層和效能層級 (定價層)。服務會透過分析您資料庫過去的使用情況，建議最適合用於執行您現有資料庫工作負載的層。
-    
+
 3. 在 [**升級此伺服器**] 刀鋒視窗中，選取每個要檢閱的資料庫，然後選取建議的定價層來進行升級。您隨時都可以瀏覽各種可用的定價層，並選取最符合您環境的選項。
 
 
@@ -82,7 +81,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 ## 確認升級
 
-3. 當伺服器上的所有資料庫都符合升級條件之後，您必須 [輸入伺服器名稱] 以確認您想要執行升級，然後按一下 [確定]。 
+3. 當伺服器上的所有資料庫都符合升級條件之後，您必須 [輸入伺服器名稱] 以確認您想要執行升級，然後按一下 [確定]。
 
     ![確認升級][3]
 
@@ -103,19 +102,19 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 -或-
 
-如果您看到 [按一下這裡可檢視針對此伺服器所建議的彈性資料庫集區] 訊息，請按一下該處，即可輕鬆地建立已針對您伺服器的資料庫進行最佳化的集區。如需詳細資訊，請參閱[建議的彈性資料庫集區](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)。
+如果您看到 [按一下這裡可檢視針對此伺服器所建議的彈性資料庫集區] 訊息，請按一下該處，即可輕鬆地建立已針對您伺服器的資料庫進行最佳化的集區。如需詳細資料，請參閱[彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)。
 
 ![將集區加入伺服器][7]
-   
+
 請依照[建立彈性資料庫集區](sql-database-elastic-pool.md)一文中的說明來完成集區建立。
 
 ## 在升級至 SQL Database V12 後監視資料庫
 
 >[AZURE.IMPORTANT] 升級至最新版本的 SQL Server Management Studio (SSMS) 來使用新的 v12 功能。[下載 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)。
-	
-升級之後，建議您主動監視資料庫，以確保應用程式達到所需的執行效能，並視需要將使用情況調整到最佳狀態。
 
-除了監視個別的資料庫之外，您也可以[使用入口網站](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool)或藉由 [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools) 監視彈性資料庫集區。
+升級之後，主動監視資料庫，以確保應用程式達到所需的執行效能，然後視需要將設定調整到最佳狀態。
+
+除了監視個別的資料庫之外，您也可以透過[使用 Azure 入口網站監視、管理和估算彈性資料庫集區大小](sql-database-elastic-pool-manage-portal.md)或藉由 [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools) 監視彈性資料庫集區。
 
 
 **資源耗用量資料：**Basic、Standard 及 Premium 資料庫的資源耗用量資料會透過使用者資料庫中的 [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV 提供。此 DMV 以 15 秒的間隔提供幾乎即時的前一小時作業資源耗用量資訊。某一間隔的 DTU 百分比耗用量會以 CPU、IO 及記錄檔方面的最大百分比耗用量來計算。下列是計算前一小時之平均 DTU 百分比耗用量的查詢：
@@ -148,8 +147,7 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 
 ## 後續步驟
 
-- [查看彈性資料庫集區建議](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)。
-- [建立彈性資料庫集區](sql-database-elastic-pool-portal.md)，並將您的部分或全部資料庫新增至集區。
+- [檢查集區建議並建立集區](sql-database-elastic-pool-create-portal.md)。
 - [變更您資料庫的服務層級和效能等級](sql-database-scale-up.md)。
 
 
@@ -169,4 +167,4 @@ SQL Database V12 是最新的版本，因此建議升級至 SQL Database V12。S
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

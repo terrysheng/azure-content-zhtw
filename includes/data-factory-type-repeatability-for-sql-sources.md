@@ -20,7 +20,7 @@
 
 若要避免這個問題，您必須利用下述 2 個機制之一來指定 UPSERT 語意。
 
-> [AZURE.NOTE]可以根據指定的重試原則在 Azure Data Factory 中自動重新執行配量。
+> [AZURE.NOTE] 可以根據指定的重試原則在 Azure Data Factory 中自動重新執行配量。
 
 ### 機制 1
 
@@ -50,6 +50,7 @@
 不需要再做什麼別的動作。複製活動執行清除指令碼來刪除該配量的對應資料。然後它會從 csv (只包含 1 筆記錄) 讀取輸入，並將其插入資料表。
 
 ### 機制 2
+> [AZURE.IMPORTANT] 目前 Azure SQL 資料倉儲不支援 sliceIdentifierColumnName。
 
 達成重複性的另一個機制是在目標資料表中使用專用資料行 (**sliceIdentifierColumnName**)。 Azure Data Factory 會使用這個資料行以確保來源和目的地保持同步。當目的地 SQL 資料表結構描述可彈性變更或定義，就可以使用這種方法。
 
@@ -68,4 +69,4 @@ Azure Data Factory 會根據此資料行的需求填入資料，以確保來源�
 
 和機制 1 類似，複製活動會自動先從目的地 SQL 資料表中清除指定配量的資料，然後正常執行複製活動將資料從來源插入至該配量的目的地。
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0330_2016-->

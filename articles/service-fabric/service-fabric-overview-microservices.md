@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/18/2015"
-   ms.author="mfussell"/>
+   ms.date="03/24/2016"
+   ms.author="msfussell"/>
 
 # 為何要用微服務方式建置應用程式？
 身為軟體開發人員，已熟悉思考如何將應用程式分解成元件部分。它是物件導向、軟體抽象化和元件化的中心範型。現在，這種分解經常以共用程式庫和技術層之間的類別與介面呈現，通常是透過一種分層方法，有後端存放區、中間層商務邏輯和前端 UI。過去幾年來的變化是身為開發人員的我們，開始為商業驅動的雲端建置分散式應用程式。
@@ -26,6 +26,8 @@
 - 提高資源使用率來降低成本。
 
 這些商務需求會影響我們「如何」建置應用程式。
+
+如需有關 Azure 使用微服務之方式的詳細資訊，請參閱[微服務︰採用雲端技術的應用程式革命](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 ## 單體式與微服務設計方法
 所有應用程式會隨著時間而演化。成功的應用程式因為有實用性而演化。失敗的應用程式不會演化，最後會取代。問題在於您現在對需求了解多少，以及未來有何變化？ 比方說，如果您為某個部門建置報告應用程式，並確定這將會保留於公司的範圍內，而且報告將只會短暫存在，則您選擇的方法將不同於建置服務來傳遞視訊內容給數千萬個客戶的方式。在已知後來可以重新設計應用程式的情況下，有時向外尋求概念證明才是驅動因素。從來不用卻過度設計並沒有太大意義。這就是一般所謂的工程取捨。另一方面，公司談論建置雲端時都會期望成長和使用量。問題在於無法預期成長和範圍。我們想要能夠迅速建立原型，同時還要了解我們正在通往未來成功的路徑上。這是精簡的創業方法：建置、測量、學習、反覆執行。
@@ -135,16 +137,15 @@ Service Fabric 提供兩個廣泛的領域，協助您使用微服務方法來�
 
 可能。根據我們的經驗，隨著 Microsoft 中越來越多團隊被告知基於商業理由，應該以雲端為目標來建置，有許多團隊都了解到採用類似微服務的方法所帶來的優點。例如，Bing 多年來在搜尋方面就一直這樣做。這對於其他團隊而言相當新穎。他們發現需要解決困難的問題，但這並非他們的強項。這就是為什麼 Service Fabric 受到重視而成為建置服務的最佳技術。
 
-Service Fabric 的目標是將使用微服務方法建置應用程式時的複雜性降低，讓您不需要經歷許多耗費成本的重新設計工作。方法就是從小規模開始、需要時調整、淘汰服務、加入新服務、隨客戶用法而演化。我們也知道，為了讓微服務更易於為大部分開發人員所接受，事實上還有許多其他尚待解決的問題。容器和 Actor 程式設計模型都是朝此目標前進的一小步，我們確信將會浮現更多創新來輕鬆達成目標。<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+Service Fabric 的目標是將使用微服務方法建置應用程式時的複雜性降低，讓您不需要經歷許多耗費成本的重新設計工作。方法就是從小規模開始、需要時調整、淘汰服務、加入新服務、隨客戶用法而演化。我們也知道，為了讓微服務更易於為大部分開發人員所接受，事實上還有許多其他尚待解決的問題。容器和 Actor 程式設計模型都是朝此目標前進的一小步，我們確信將會浮現更多創新來輕鬆達成目標。
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 後續步驟
 
 * 其他資訊：
 	* [Service Fabric 概觀](service-fabric-overview.md)
-	* [技術概觀](service-fabric-technical-overview.md)
-* 設定 Service Fabric [開發環境](service-fabric-get-started.md)
-* 為您的服務選擇[程式設計模型架構](service-fabric-choose-framework.md)
+    * [微服務︰採用雲端技術的應用程式革命](https://azure.microsoft.com/zh-TW/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

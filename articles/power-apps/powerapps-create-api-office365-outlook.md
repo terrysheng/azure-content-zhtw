@@ -14,20 +14,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # 在 PowerApps Enterprise 中建立新的 Office 365 Outlook API
 
 > [AZURE.SELECTOR]
-- [邏輯應用程式](../articles/connectors/create-api-office365-outlook.md)
+- [邏輯應用程式](../articles/connectors/connectors-create-api-office365-outlook.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-office365-outlook.md)
 
-將 Office 365 Outlook API 加入您組織 (租用戶) 的 App Service 環境中。 
+將 Office 365 Outlook API 加入您組織 (租用戶) 的 App Service 環境中。
 
 ## 在 Azure 入口網站中建立 API
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中使用您的工作帳戶登入。例如，使用 *yourUserName* @ *YourCompany*.com 登入。當您這樣做時，將會自動登入您的公司訂用帳戶。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中使用您的工作帳戶登入。例如，使用 yourUserName@*YourCompany*.com 登入。當您這樣做時，將會自動登入您的公司訂用帳戶。
  
 2. 選取工作列中的 [瀏覽]：  
 ![][14]
@@ -60,7 +60,7 @@
 
 ## 選擇性：註冊 AAD 應用程式以搭配 PowerApps Office 365 API 使用
 
-如果您現在沒有 AAD 應用程式及金鑰與密碼值，請使用下列步驟建立應用程式，然後取得您需要的值。 
+如果您現在沒有 AAD 應用程式及金鑰與密碼值，請使用下列步驟建立應用程式，然後取得您需要的值。
 
 1. 開啟 [Azure 入口網站][5]。
 
@@ -76,7 +76,7 @@
 
 5. 在 [**新增應用程式**] 中：  
 
-	1. 輸入您應用程式的 [名稱]。  
+	1. 輸入您應用程式的「名稱」。  
 	3. 讓應用程式類型保持為 [Web]。  
 	3. 選取 [下一步]。  
 
@@ -101,7 +101,7 @@
 
 10. 回到設定頁面，注意 _Office 365 Exchange Online_ 已加入 [其他應用程式的權限] 清單中。
 
-11. 為 _Office 365 Exchange Online_ 選取 [委派的權限]，然後選取下列權限：  
+11. 為 _Office 365 Exchange Online_ 選取 [委派的權限]，然後選取下列權限：
 
 	- 讀取和寫入使用者連絡人
 	- 讀取使用者連絡人
@@ -113,17 +113,17 @@
 
 	![Contoso 應用程式委派權限][13]
 
-隨即會建立新的 Azure Active Directory 應用程式。您可以在 Azure 入口網站的 Office 365 Outlook API 組態中使用此應用程式。 
+隨即會建立新的 Azure Active Directory 應用程式。您可以在 Azure 入口網站的 Office 365 Outlook API 組態中使用此應用程式。
 
 如需 AAD 應用程式的資訊，請參閱[將應用程式加入至 Azure AD 的方式和原因](../active-directory/active-directory-how-applications-are-added.md)。
 
 ## 請參閱 REST API
 
-[Office 365 Outlook REST API](../connectors/create-api-office365-outlook.md) 參考。
+[Office 365 Outlook REST API](../connectors/connectors-create-api-office365-outlook.md) 參考。
 
 
 ## 摘要和後續步驟
-在本主題中，您已將 Office 365 Outlook API 新增至 PowersApps Enterprise。接下來，請授與使用者此 API 的存取權，讓使用者能夠將此 API 新增至其應用程式： 
+在本主題中，您已將 Office 365 Outlook API 新增至 PowersApps Enterprise。接下來，請授與使用者此 API 的存取權，讓使用者能夠將此 API 新增至其應用程式：
 
 [新增連接並授與使用者存取權](powerapps-manage-api-connection-user-access.md)
 
@@ -144,7 +144,4 @@
 [14]: ./media/powerapps-create-api-office365-outlook/browseall.png
 [15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!----HONumber=AcomDC_0309_2016-->
-
-
-
+<!---HONumber=AcomDC_0330_2016-->

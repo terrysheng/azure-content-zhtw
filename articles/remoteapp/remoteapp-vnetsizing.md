@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="03/28/2016"
     ms.author="elizapo" />
 
 
@@ -29,4 +29,4 @@
 - [從個人 VNET 移轉至 Azure VNET](remoteapp-migratevnet.md)
 - [驗證要搭配 Azure RemoteApp 使用的 Azure VNET](remoteapp-vnet.md)
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0330_2016-->

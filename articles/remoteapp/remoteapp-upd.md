@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="如何透過 Office 365 使用者帳戶使用 Azure RemoteApp | Microsoft Azure"
-	description="深入了解如何透過 Office 365 使用者帳戶使用 Azure RemoteApp"
+    pageTitle="Azure RemoteApp 如何儲存使用者資料和設定? | Microsoft Azure"
+	description="了解 Azure RemoteApp 如何使用使用者設定檔磁碟來儲存使用者資料。"
 	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/04/2015" 
+    ms.date="03/28/2016" 
     ms.author="elizapo" />
 
 # Azure RemoteApp 如何儲存使用者資料和設定？
@@ -26,7 +26,7 @@ Azure RemoteApp 跨越裝置和工作階段儲存使用者身分識別和自訂�
 
 請閱讀更多有關使用者設定檔資料的特殊資訊。
 
->[AZURE.NOTE]必須停用 UPD 嗎？ 現在您可以那麼做了 - 詳細資料請查看 Pavithra 的部落格文章：[在 Azure RemoteApp 停用使用者設定檔磁碟 (UPD)](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx) (英文)。
+>[AZURE.NOTE] 必須停用 UPD 嗎？ 現在您可以那麼做了 - 詳細資料請查看 Pavithra 的部落格文章：[在 Azure RemoteApp 停用使用者設定檔磁碟 (UPD)](http://blogs.msdn.com/b/rds/archive/2015/11/11/disable-user-profile-disks-upds-in-azure-remoteapp.aspx) (英文)。
 
 
 ## 系統管理員如何取得資料？
@@ -80,7 +80,7 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 
 可以，您可以要求 Azure RemoteApp 停用訂用帳戶的 UPD，但無法自己執行該作業。這表示將會針對訂用帳戶中的所有集合停用 UPD。
 
-在下列情況您可能會希望停用 UPD：
+遇到下列情況時，建議您停用 UPD：
 
 - 您需要使用者資料的完整存取權限和控制 (針對稽核和檢閱之目的，例如金融機構)。
 - 您有內部部署的第三方使用者設定檔管理解決方案，並想要加入網域的 Azure RemoteApp 部署繼續使用它們。這會需要將設定檔代理程式載入主要映像。 
@@ -121,6 +121,10 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 
 ![建立可在使用者登入時執行的系統工作](./media/remoteapp-upd/upd2.png)
 
+在 [一般] 索引標籤上，務必將 [安全性] 底下的 [使用者帳戶] 變更為 BUILTIN\\Users。
+
+![變更使用者帳戶為群組](./media/remoteapp-upd/upd4.png)
+
 排定的工作將會使用使用者的認證，啟動您的啟動指令碼。將此工作安排在使用者每次登入時執行。
 
 ![將工作的觸發程序設定為「登入時」](./media/remoteapp-upd/upd3.png)
@@ -137,4 +141,22 @@ Azure RemoteApp 會儲存工作階段間的 Outlook 狀態 (信箱、PST)。若�
 
 不行，Azure RemoteApp 不支援。
 
-<!---HONumber=AcomDC_1217_2015-->
+## 可以在 VM 本機儲存資料嗎?
+
+否，資料若不儲存在 UPD 而儲存在 VM 上的任何地方，資料將會遺失。使用者下次登入 Azure RemoteApp 時不會得到同一 VM 的可能性很高。我們不會維護「使用者-VM」持續性，因此使用者無法登入相同的 VM，故資料會遺失。此外，當我們更新集合時，現有 VM 會被一組新的 VM 取代 - 這表示儲存在 VM 本身的所有資料都會遺失。建議將資料儲存在 UPD、共用儲存體 (如 Azure Files)、VNET 內部的檔案伺服器，或儲存在使用商務用 OneDrive 或其他支援的雲端儲存體系統 (如 DropBox) 的雲端上。
+
+## 如何使用 PowerShell 在 VM 上掛接 Azure File 共用?
+
+您可以使用 New-PSDrive Cmdlet 來掛接磁碟機，如下所示︰
+
+    New-PSDrive -Name <drive-name> -PSProvider FileSystem -Root \<storage-account-name>.file.core.windows.net<share-name> -Credential :<storage-account-name>
+
+
+您也可以執行下列命令儲存您的認證︰
+
+    cmdkey /add:<storage-account-name>.file.core.windows.net /user:<storage-account-name> /pass:<storage-account-key>
+
+
+這可讓您略過 New-PSDrive Cmdlet 中的 -Credential 參數。
+
+<!---HONumber=AcomDC_0330_2016-->

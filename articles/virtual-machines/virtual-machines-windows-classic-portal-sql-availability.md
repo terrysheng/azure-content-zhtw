@@ -54,7 +54,7 @@
 
 - 您已經有 Azure 帳戶。
 
-- 您已經知道如何透過 GUI 佈建來自虛擬機器資源庫的 SQL Server VM。如需詳細資訊，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-classic-portal-sql.md)
+- 您已了解如何透過 GUI 佈建來自虛擬機器資源庫的傳統 SQL Server VM。
 
 - 您已非常熟悉 AlwaysOn 可用性群組的功能。如需詳細資訊，請參閱 [AlwaysOn 可用性群組 (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)。
 
@@ -222,7 +222,7 @@
 
 	![變更 VM 慣用的 DNS 伺服器](./media/virtual-machines-windows-classic-portal-sql-availability/IC784629.png)
 
-1. 在命令列上按一下 [變更此連接的設定] (視您的視窗大小而定，可能需按一下雙向右箭頭才能看到此命令)。
+1. 在命令列上按一下 [變更此連接的設定] \(視您的視窗大小而定，可能需按一下雙向右箭頭才能看到此命令)。
 
 1. 選取 [網際網路通訊協定第 4 版 (TCP/IPv4)]，然後按一下 [內容]。
 
@@ -547,6 +547,6 @@
 ## 後續步驟
 現在，您已透過在 Azure 中建立可用性群組的方式，成功實作 SQL Server AlwaysOn。若要為此可用性群組設定接聽程式，請參閱[在 Azure 中為 AlwaysOn 可用性群組設定 ILB 接聽程式](virtual-machines-windows-classic-ps-sql-int-listener.md)。
 
-如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](../articles/virtual-machines/virtual-machines-windows-classic-sql-overview.md)。
+如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-windows-classic-sql-overview.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

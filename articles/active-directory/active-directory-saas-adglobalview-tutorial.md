@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/21/2016"
+	ms.date="03/23/2016"
 	ms.author="jeedes"/>
 
 
@@ -65,7 +65,7 @@
 4. 按一下頁面底部的 [加入]。<br><br> ![應用程式][3]<br>
 5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br> ![應用程式][4]<br>
 6. 在搜尋方塊中，輸入 [ADP GlobalView]。<br><br>![建立 Azure AD 測試使用者](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_01.png)<br>
-7. 在結果窗格中，選取 [ADP GlobalView]，然後按一下 [完成] 以加入應用程式。<br><br>
+7. 在結果窗格中，選取 [ADP GlobalView]，然後按一下 [完成] 以加入應用程式。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-adpglobalview-tutorial/tutorial_adpglobalview_06.png)<br>
 
 ##  設定並測試 Azure AD 單一登入
 本節的目標是要說明如何以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 ADP GlobalView 搭配運作的 Azure AD 單一登入。
@@ -186,7 +186,7 @@ ADP GlobalView 應用程式需要特定格式的 SAML 判斷提示，要求您�
 
 本節的目標是要授與 Britta Simon 對 ADP GlobalView 的存取權，讓她能夠使用 Azure 單一登入。<br><br>![指派使用者][200] <br>
 
-若要將 Britta Simon 指派給 ADP GlobalView，請執行下列步驟：
+**若要將 Britta Simon 指派給 ADP GlobalView，請執行下列步驟：**
 
 1. 在 Azure 傳統入口網站中，若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]。<br><br>![指派使用者][201] <br>
 
@@ -229,4 +229,4 @@ ADP GlobalView 應用程式需要特定格式的 SAML 判斷提示，要求您�
 [204]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-adpglobalview-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

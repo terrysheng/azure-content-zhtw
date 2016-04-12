@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="連線到 SQL Server 虛擬機器 (傳統) | Microsoft Azure"
 	description="本主題會使用以傳統部署模型建立的資源，並說明如何連接到在 Azure 中的虛擬機器上執行的 SQL Server。案例會視網路組態和用戶端的位置而有所不同。"
 	services="virtual-machines-windows"
@@ -7,13 +7,13 @@
 	manager="jeffreyg"
 	editor="monicar"    
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/18/2015"
+	ms.date="03/24/2016"
 	ms.author="jroth" />
 
 # 連線到 Azure 上的 SQL Server 虛擬機器 (傳統部署)
@@ -28,9 +28,9 @@
 
 但在 SQL Server 連線方面還是有一些 Azure VM 特定的設定。本文涵蓋一些[一般連線案例](#connection-scenarios)並提供[在 Azure VM 中設定 SQL Server 連線的詳細步驟](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)。
 
-本文的重點在於連線。如需有關佈建和連線能力的完整逐步解說，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-classic-portal-sql.md)。
+本文著重於如何連接到使用傳統模型的現有 SQL Server 虛擬機器。
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。如果您是使用資源管理員 VM，請參閱[使用資源管理員連接到 Azure 上的 SQL Server 虛擬機器](virtual-machines-windows-sql-connect.md)。
 
 ## 連接案例
 
@@ -72,7 +72,7 @@
 
 假設您已設定 DNS，您可以在連接字串中指定 SQL Server VM 的主機名稱來連接 SQL Server 執行個體。下列範例假設 Windows 驗證也已設定，且使用者已獲得存取 SQL Server 執行個體的權限。
 
-	"Server=mysqlvm;Integrated Security=true" 
+	"Server=mysqlvm;Integrated Security=true"
 
 請注意，在此案例中您也可以指定 VM 的 IP 位址。
 
@@ -102,12 +102,10 @@
 
 ## 後續步驟
 
-若要查看佈建指示以及連線步驟，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-classic-portal-sql.md)。
-
 如果您計畫針對高可用性和嚴重損壞修復使用 AlwaysOn 可用性群組，您應該考慮實作接聽程式。資料庫用戶端會連接至接聽程式，而非直接連接其中一個 SQL Server 執行個體。接聽程式路由傳送用戶端至可用性群組中的主要複本。如需詳細資訊，請參閱[設定 Azure 中 AlwaysOn 可用性群組的 ILB 接聽程式](virtual-machines-windows-classic-ps-sql-int-listener.md)。
 
 請務必檢閱在 Azure 虛擬機器上執行之 SQL Server 的所有安全性最佳做法。如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 安全性考量](virtual-machines-windows-classic-sql-security.md)。
 
 如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-windows-classic-sql-overview.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0330_2016-->

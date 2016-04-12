@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="03/30/2016"
 	ms.author="anhoh"/>
 
 # 使用 DocumentDB 指令碼總管建立和執行預存程序、觸發程序和使用者定義函式
@@ -89,9 +89,11 @@
 
 ## 執行預存程序
 
+> [AZURE.WARNING] 伺服器端分割集合尚未支援在 [指令碼總管] 中執行預存程序。如需詳細資訊，請造訪 [DocumentDB 中的分割和縮放](documentdb-partition-data.md)。
+
 [指令碼總管] 可讓您從 Azure 入口網站執行伺服器端預存程序。
 
-- 開啟新建立的預存程序刀鋒視窗時，就已經提供了預設的指令碼 (*prefix*)。若要執行 *prefix* 指令碼或您自己的指令碼，請加入 *id* 和 *inputs*。如果是接受多個參數的預存程序，所有的輸入都必須位於陣列內 (例如 *["foo", "bar"]*)。
+- 開啟新建立的預存程序刀鋒視窗時，就已經提供了預設的指令碼 (prefix)。若要執行 prefix 指令碼或您自己的指令碼，請加入 id 和 inputs。如果是接受多個參數的預存程序，所有的輸入都必須位於陣列內 (例如 ["foo", "bar"])。
 
 	![[指令碼總管預存程序] 刀鋒視窗的螢幕擷取畫面，可加入輸入並執行預存程序](./media/documentdb-view-scripts/documentdb-execute-a-stored-procedure-input.png)
 
@@ -117,4 +119,4 @@ Azure 入口網站中的 [指令碼總管] 只是在 DocumentDB 中使用預存�
 
 [學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)也是很實用的資源，可引導您深入了解 DocumentDB。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

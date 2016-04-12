@@ -12,15 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/21/2016" 
+	ms.date="03/24/2016" 
 	ms.author="awills"/>
 
 
  
 # Application Insights 中分析的教學課程
 
-
-[分析](app-analytics.md)是 [Application Insights](app-insights-overview.md) 的強大搜尋功能。這些頁面說明分析查詢語言。
+[Analytics](app-analytics.md) 可讓您從您的應用程式透過 [Application Insights](app-insights-overview.md) 所收集的遙測資料執行強大的查詢。這些頁面說明其查詢語言。
 
 
 [AZURE.INCLUDE [app-analytics-top-index](../../includes/app-analytics-top-index.md)]
@@ -70,10 +69,12 @@
 
 ![按一下結果右上方的資料行選取範圍](./media/app-analytics-tour/030.png)
 
+
 展開任何項目以查看詳細資料︰
  
 ![選擇 [資料表]，並使用 [設定資料行]](./media/app-analytics-tour/040.png)
 
+> [AZURE.NOTE] 按一下資料行的標頭，以重新排列網頁瀏覽器中可用的結果。但請注意，對大型結果集而言，下載至瀏覽器的資料列數目有限。請注意，以這種方式排序並不一定會顯示實際的最高或最低項目。為此，您應該使用 `top` 或 `sort` 運算子。
 
 ## [Top](app-analytics-aggregations.md#top) 和 [sort](app-analytics-aggregations.md#sort)
 
@@ -232,7 +233,7 @@ summarize 的結果有：
 
 `where` 運算子會採用布林運算式。以下是其相關的一些重點︰
 
- * `and`、`or`：布林運算子
+ * `and`, `or`：布林運算子
  * `==`、`<>`︰等於和不等於
  * `=~`、`!=`︰不區分大小寫的字串等於和不等於。有更多的字串比較運算子。
 
@@ -441,4 +442,4 @@ summarize 的結果有：
 
 [AZURE.INCLUDE [app-analytics-footer](../../includes/app-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="教學課程：使用 Data Factory 編輯器建立具有複製活動的管線" 
-	description="在本教學課程中，您將使用 Azure 傳統入口網站中的 Data Factory 編輯器，來建立具有複製活動的 Azure Data Factory 管線。" 
+	description="在本教學課程中，您將使用 Azure 入口網站中的 Data Factory 編輯器，建立具有複製活動的 Azure Data Factory 管線。" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -310,9 +310,9 @@
  
 
 ## 監視管線
-在此步驟中，您將使用 Azure 傳統入口網站來監視 Azure Data Factory 的運作情形。您也可以使用 PowerShell Cmdlet 來監視資料集和管線。如需關於使用 Cmdlet 進行監視的詳細資料，請參閱[使用 PowerShell Cmdlet 監視和管理 Data Factory][monitor-manage-using-powershell]。
+在此步驟中，您將使用 Azure 入口網站來監視 Azure Data Factory 的運作情形。您也可以使用 PowerShell Cmdlet 來監視資料集和管線。如需關於使用 Cmdlet 進行監視的詳細資料，請參閱[使用 PowerShell Cmdlet 監視和管理 Data Factory][monitor-manage-using-powershell]。
 
-1. 如果您尚未開啟 [Azure 傳統入口網站 (預覽)][azure-portal]，請瀏覽至該網站。 
+1. 如果尚未開啟 [Azure 入口網站 (預覽)][azure-portal]，請瀏覽至該網站。 
 2. 如果 **ADFTutorialDataFactory** 的刀鋒視窗未開啟，請按一下 [開始面板] 上的 [ADFTutorialDataFactory] 予以開啟。 
 3. 您應該會看到您在此分頁上建立之資料表和管線的計數和名稱。
 
@@ -456,4 +456,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

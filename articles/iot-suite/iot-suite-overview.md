@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Microsoft Azure IoT Suite 概觀 | Microsoft Azure"
-	description="這提供 Azure IoT 套件概觀，包括封裝和預先設定解決方案。"
+	description="大致說明 Azure IoT 套件如何提供物聯網預先設定的解決方案，以收集、分析和儲存資料、提供視覺效果，以及與其他系統整合。"
 	services=""
     suite="iot-suite"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Azure IoT 套件的概觀
 
-Azure IoT 服務提供廣泛的功能。這些企業等級的服務可讓您：
+Azure 物聯網 (IoT) 服務提供廣泛的功能。這些企業等級的服務可讓您：
 
 - 從裝置收集資料
 - 分析移動中的資料串流
@@ -74,4 +74,4 @@ IoT 套件包括預先設定的解決方案，可讓您快速地開始使用，�
 [lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

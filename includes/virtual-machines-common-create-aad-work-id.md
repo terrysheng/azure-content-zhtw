@@ -1,8 +1,5 @@
 
-
-如果您已建立個人的 Azure 帳戶，或有個人的 MSDN 訂用帳戶，並已建立 Azure 帳戶來運用 MSDN Azure 點數 -- 您已使用 *Microsoft 帳戶*身分識別建立。Azure 有許多很棒的功能 -- 例如[資源群組範本](../resource-group-overview.md) -- 需要工作或學校帳戶 (由 Azure Active Directory 管理的身分識別) 才能運作。幸運的是，預設的 Azure Active Directory 網域會提供您個人的 Azure 帳戶，讓您可以用來建立新的工作或學校帳戶，以搭配需要這類帳戶使用的 Azure 功能，因此您可以遵循下列指示來建立新的工作或學校帳戶。
-
-不過，最近的變更讓您可以使用[這裡](../xplat-cli-connect.md)`azure login`所述的互動式登入方法，進而使用任何類型的 Azure 帳戶來管理您的訂用帳戶。您可以使用同樣的機制，或者可以遵循接下來的指示。
+<br>
 
 > [AZURE.NOTE] 如果系統管理員已提供給您使用者名稱與密碼，很有可能您已經有工作或學校識別碼 (有時也稱做「組織識別碼」)。如果是這樣，您可以立即開始使用您的 Azure 帳戶來存取需要該帳戶的 Azure資源。如果您發現無法使用這些資源，您可能需要返回本文以尋求協助。如需詳細資訊，請參閱[您可以用來登入的帳戶](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts)及 [Azure 訂用帳戶與 Azure AD 的關係](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir)。
 
@@ -91,7 +88,7 @@
 
 ## 後續步驟
 
-您現在可以使用新的 Azure Active Directory 身分識別來使用 [Azure 資源群組範本](../xplat-cli-azure-resource-manager.md)。
+您現在可以使用新的 Azure Active Directory 身分識別來使用 [Azure 資源群組範本](../articles/xplat-cli-azure-resource-manager.md)。
 
     azure login
     info:    Executing command login
@@ -122,4 +119,4 @@
     data:
     info:    group create command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

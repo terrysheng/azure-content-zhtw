@@ -1,21 +1,23 @@
-1. From the Visual Studio menu, select **File > New > Project**.
+1. 從 Visual Studio 功能表中，選取 [檔案] > [新增] > [專案]。
 
-1. The **New Project** dialog will display.
+1. [新增專案] 對話方塊隨即顯示。
 
-	![New Project dialog](./media/create-aspnet5-app/create-web-app.png)
+	![[新增專案] 對話方塊](./media/create-aspnet5-app/create-web-app.png)
 
-1. Under the **Templates** section of the **New Project** dialog, select **Visual C# > Web**.
+1. 在 [新增專案] 對話方塊的 [範本] 區段下，選取 [Visual C#] > [Web]。
 
-1. Select **ASP.NET Web Application**.
+1. 選取 [ASP.NET Web 應用程式]。
 
-1. Give your new application a name (or take the default).
+1. 指定新應用程式的名稱 (或使用預設值)。
 
-1. Tap **OK**.
+1. 點選 [確定]。
 
-1. The **New ASP.NET Project** dialog will display.
+1. [新增 ASP.NET 專案] 對話方塊隨即顯示。
 
-	![New ASP.NET Project dialog](./media/create-aspnet5-app/choose-template.png)
+	![[新增 ASP.NET 專案] 對話方塊](./media/create-aspnet5-app/choose-template.png)
 
-1. Under ASP.NET 5 Templates, select ASP.NET Web Application.
+1. 在 [ASP.NET 5 範本] 的下方，選取 [ASP.NET Web 應用程式]。
 
-1. Tap **OK**.
+1. 點選 [確定]。
+
+<!---HONumber=AcomDC_0330_2016-->

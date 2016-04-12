@@ -36,7 +36,7 @@
     out <- data.frame(installed.packages())
     maml.mapOutputPort("out")
 
-若要檢視封裝清單，請將轉換模組 (例如[轉換至 CSV][convert-to-csv]) 連接至[執行 R 指令碼][execute-r-script]模組的輸出，執行實驗，然後按一下轉換模組的輸出並選取 [**下載**]。
+若要檢視封裝清單，請將轉換模組 (例如[轉換至 CSV][convert-to-csv]) 連接至[執行 R 指令碼][execute-r-script]模組的輸出，執行實驗，然後按一下轉換模組的輸出並選取 [**下載**]。為了方便起見，以下是 [Excel 格式的目前版本號碼完整清單](http://az754797.vo.msecnd.net/docs/RPackages.xlsx)。
 
 ##匯入封裝
 
@@ -502,4 +502,4 @@
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

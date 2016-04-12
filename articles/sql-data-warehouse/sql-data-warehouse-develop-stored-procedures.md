@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 資料倉儲中的預存程序
@@ -38,11 +38,11 @@ SQL 資料倉儲最多支援 8 個巢狀層級。這與 SQL Server 稍有不同�
 
 最上層預存程序呼叫等同於巢狀層級 1
 
-```
+```sql
 EXEC prc_nesting
 ```
 如果預存程序也會進行另一個 EXEC 呼叫，則這會將巢狀層級提高到 2
-```
+```sql
 CREATE PROCEDURE prc_nesting
 AS
 EXEC prc_nesting_2  -- This call is nest level 2
@@ -50,7 +50,7 @@ GO
 EXEC prc_nesting
 ```
 如果第二個程序接著會執行一些動態 SQL，則這會將巢狀層級提高到 3
-```
+```sql
 CREATE PROCEDURE prc_nesting_2
 AS
 EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2
@@ -97,4 +97,4 @@ SQL 資料倉儲不允許您透過 INSERT 陳述式取用預存程序的結果�
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

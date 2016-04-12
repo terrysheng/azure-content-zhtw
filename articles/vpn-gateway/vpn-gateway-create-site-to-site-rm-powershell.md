@@ -20,7 +20,8 @@
 # 使用 PowerShell 和 Azure Resource Manager 建立具有站對站 VPN 連線的虛擬網路
 
 > [AZURE.SELECTOR]
-- [Azure 傳統入口網站](vpn-gateway-site-to-site-create.md)
+- [Azure 入口網站](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Azure 入口網站 - 傳統](vpn-gateway-site-to-site-create.md)
 - [PowerShell - 資源管理員](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 本文將逐步引導您使用 **Azure Resource Manager** 部署模型建立虛擬網路以及內部部署網路的站對站 VPN 連線。站對站連線可以用於跨部署與混合式組態。
@@ -78,7 +79,7 @@
 
 接著，建立您的虛擬網路。請確認您指定的位址空間沒有與您在內部部署網路上所擁有的任何位址空間重疊。
 
-下列範例會建立一個名為 testvnet 的虛擬網路和兩個子網路：一個名為 GatewaySubnet，另一個名為 Subnet1。請務必建立一個特別命名為 GatewaySubnet 的子網路。如果您將它命名為其他名稱，您的連線設定將會失敗。
+下列範例會建立一個名為 *testvnet* 的虛擬網路和兩個子網路：一個名為 *GatewaySubnet*，另一個名為 *Subnet1*。請務必建立一個特別命名為 *GatewaySubnet* 的子網路。如果您將它命名為其他名稱，您的連線設定將會失敗。
 
 	$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/28
 	$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
@@ -105,8 +106,8 @@ Azure 會使用您指定的 IP 位址前置詞來識別要傳送至內部部署�
 
 使用 PowerShell 範例時，請注意下列各項：
 	
-- GatewayIPAddress 是內部部署 VPN 裝置的 IP 位址。VPN 裝置不能位於 NAT 後方。 
-- AddressPrefix 是您的內部部署位址空間。
+- *GatewayIPAddress* 是內部部署 VPN 裝置的 IP 位址。VPN 裝置不能位於 NAT 後方。 
+- *AddressPrefix* 是您的內部部署位址空間。
 
 若要新增具有單一位址前置詞的區域網路閘道：
 
@@ -148,7 +149,7 @@ Azure 會使用您指定的 IP 位址前置詞來識別要傳送至內部部署�
 - 站對站組態的 **-GatewayType** 是 **Vpn**。閘道器類型永遠是您實作的組態的特定類型。例如，其他閘道器組態可能需要 -GatewayType ExpressRoute。 
 
 - **-VpnType** 可以是 **RouteBased** (在某些文件中稱為動態閘道器)，或 **PolicyBased** (在某些文件中稱為靜態閘道器)。如需 VPN 閘道類型的詳細資訊，請參閱[關於 VPN 閘道](vpn-gateway-about-vpngateways.md#vpntype)。
-- **-GatewaySku** 可以是**基本**、**標準**或**高效能**。 	
+- **-GatewaySku** 可以是**Basic**、**Standard** 或 **HighPerformance**。 	
 
 		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
 
@@ -188,4 +189,4 @@ VPN 連線有幾種不同的驗證方式。下面我們將討論如何使用 Azu
 
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。請參閱[建立網站的虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md)以取得相關步驟。
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

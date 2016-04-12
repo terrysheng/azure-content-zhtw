@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -61,4 +61,4 @@
 ## 另請參閱
 - [開始使用 Azure 資料目錄](data-catalog-get-started.md)教學課程，取得如何標註資料來源的逐步詳細資料。
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

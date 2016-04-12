@@ -13,7 +13,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="02/09/2016"
 	ms.author="robmcm"/>
 
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.js](app-service-web-nodejs-get-started.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -280,7 +280,8 @@
     
 3. 按一下 [確定] 接受法律條款。再按一次 [確定] 以新增延伸模組。
 
-    [已安裝的延伸模組] 刀鋒視窗會立即顯示編輯器延伸模組。![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    [已安裝的延伸模組] 刀鋒視窗會立即顯示編輯器延伸模組。
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
     
 4. 現在，和上一節一樣執行 `git add`、`git commit` 和 `git push`。您就會立即看到編輯器正在安裝 composer.json 中定義的相依性。
 
@@ -325,4 +326,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

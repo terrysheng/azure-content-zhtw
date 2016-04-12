@@ -28,13 +28,11 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 
 ###必要條件
 
-- **已安裝 Visual Studio 2015、Visual Studio 2013 更新 4，或具有 Visual C++ 的 Visual Studio 2012** 
+- **Visual Studio 2015、Visual Studio 2013 update 4 或 Visual Studio 2012。支援 Enterprise (Ultimate/Premium)、Professional、Community 版本；不支援 Express 版本。** 
 - **Microsoft Azure SDK for .NET 2.7.1 版或更新版本**。請使用 [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx) 來安裝。
 - **[Visual Studio 適用的資料湖工具](http://aka.ms/adltoolsvs)**。 
 
-    適用於 Visual Studio 的資料湖工具安裝之後，您會在 Visual Studio 中看到資料湖功能表：
-    
-    ![U-SQL Visual Studio 功能表](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
+    安裝 Visual Studio 適用的 Data Lake 工具之後，您會在 [伺服器總管] 中的 [Azure] 節點下看到 [Data Lake Analytics] 節點 (您可以按 Ctrl+Alt+S 開啟 [伺服器總管])。
 
 - **完成「[使用 Azure 入口網站開始使用 Azure 資料湖分析](data-lake-analytics-get-started-portal.md)」一文中的下列兩個小節**。
 
@@ -56,7 +54,7 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 
 ## 上傳來源資料檔案
 
-您已在本教學課程稍早的＜必要條件＞一節中上傳部分資料。
+您已在本教學課程稍早的＜**必要條件**＞一節中上傳部分資料。
 
 萬一您想要使用您自己的資料，以下是從資料湖工具上傳資料的程序。
 
@@ -83,7 +81,7 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 
 **建立並提交資料湖分析工作**
 
-1. 從 [檔案] 功能表中，按一下 [新增]，再按一下 [專案]。
+1. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
 2. 選取 [U-SQL 專案] 類型。
 
 	![新的 U-SQL Visual Studio 專案](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
@@ -217,7 +215,7 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 - 在本機偵錯 C# 組件。 
 - 在伺服器總管中建立/刪除/檢視本機資料庫、組件、結構描述及資料表，就跟您能為 Azure 資料湖分析服務做的一樣。 
 
-您將會在 Visual Studio 中看到「本機」帳戶，且安裝程式會建立 *DataRoot* 資料夾 (位於 *C:\\LocalRunRoot*)。DataRoot 資料夾將用於：
+您將會在 Visual Studio 中看到「本機」帳戶，且安裝程式會建立 DataRoot 資料夾 (位於 C:\\LocalRunRoot)。DataRoot 資料夾將用於：
 
 - 儲存中繼資料 (包括資料表、資料庫、TVF 等)。
 - 針對特定指令碼：如果會在輸入/輸出路徑中參考相對路徑，則我們將查閱 DataRoot (以及指令碼的路徑 (如果它是輸入))
@@ -262,13 +260,13 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
 
 您可以偵錯 C# 組件，而不需提交並向 Azure 資料湖分析服務註冊。您可以在這兩個程式碼後置檔案和參考的 C# 專案中設定中斷點。
 
-如何為程式碼後置檔案中的本機程式碼偵錯
+**如何為程式碼後置檔案中的本機程式碼偵錯**
 1.	在程式碼後置檔案中設定中斷點。 
 2.	按下 **F5** 以便在本機為指令碼偵錯。
 
 下列程序僅適用於 Visual Studio 2015。在舊版 Visual Studio 中，您可能需要手動加入 pdb 檔案。
 
-如何為參考的 C# 專案中的本機程式碼偵錯
+**如何為參考的 C# 專案中的本機程式碼偵錯**
 1.	建立 C# 組件專案，並建置它來產生輸出 dll。
 2.	使用 U-SQL 陳述式來註冊 dll：
 
@@ -363,4 +361,4 @@ U-SQL 是高度可擴充、高度可延伸的語言，用來準備、轉換和�
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

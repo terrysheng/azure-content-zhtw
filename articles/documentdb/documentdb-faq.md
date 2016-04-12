@@ -13,7 +13,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="03/30/2016" 
 	ms.author="mimig"/>
 
@@ -48,7 +48,7 @@ DocumentDB 是 NoSQL 文件導向的資料庫，以 JSON 格式儲存資料。Do
 每個 DocumentDB 集合可以保留每秒輸送量要求單位的已佈建輸送量。對於任何規模的應用程式，您可以將個別要求設為基準以測量其要求單位值，以及將佈建集合設為基準以處理所有要求的要求單位的總和。您也可以隨著應用程式發展需求，相應增加或減少集合的輸送量。如需要求單位的詳細資訊以及協助確定您的集合需求，請參閱[管理效能和容量](documentdb-manage.md)。
 
 ### DocumentDB 是否符合 HIPAA 標準？
-是，DocumentDB 符合 HIPAA 標準。HIPAA 建立了使用、洩漏與保護個別辨識健全狀況資訊的需求。如需詳細資訊，請參閱 [Microsoft Trust Center (Microsoft 信任中心)](https://www.microsoft.com/zh-TW/TrustCenter/Compliance/HIPAA)。
+是，DocumentDB 符合 HIPAA 標準。HIPAA 建立了使用、洩漏與保護個別辨識健全狀況資訊的需求。如需詳細資訊，請參閱 [Microsoft Trust Center (Microsoft 信任中心)](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA)。
 
 ### DocumentDB 的儲存體限制有哪些？ 
 對於集合可以儲存在 DocumentDB 中的資料總量，理論上沒有任何限制。如果您想要在單一集合中儲存超過 250 GB 的資料，請[連絡支援服務](documentdb-increase-limits.md)以增加您的帳戶配額。
@@ -120,4 +120,4 @@ DocumentDB 透過 JavaScript 預存程序和觸發程序，支援語言整合式
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

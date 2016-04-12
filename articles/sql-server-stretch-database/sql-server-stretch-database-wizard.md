@@ -46,7 +46,7 @@
 |**已延伸**|指出資料表是否已啟用。|
 |**列**|指定資料表中的資料列數目。|
 |**大小 (KB)**|指定資料表的大小 (以 KB 為單位)。|
-|**移轉**|在透過 RC1 使用的 CTP 3.1 中，您必須使用精靈，才能移轉整個資料表。如果您想要指定述詞以從同時包含歷程與目前資料的資料表中選取要移轉的資料列，請執行 ALTER TABLE 陳述式以在結束精靈後指定述詞。如需詳細資訊，請參閱 [Enable Stretch Database for a table (為資料表啟用 Stretch Database)](sql-server-stretch-database-enable-table.md) 或 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)。|
+|**移轉**|在 CTP 3.1 到 RC2 中，您必須使用精靈，才能移轉整個資料表。如果您想要指定述詞以從同時包含歷程與目前資料的資料表中選取要移轉的資料列，請執行 ALTER TABLE 陳述式以在結束精靈後指定述詞。如需詳細資訊，請參閱 [Enable Stretch Database for a table (為資料表啟用 Stretch Database)](sql-server-stretch-database-enable-table.md) 或 [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx)。|
 
 ## <a name="Configure"></a>設定 Azure 部署
 
@@ -141,4 +141,4 @@
 [StretchWizardImage7]: ./media/sql-server-stretch-database-wizard/stretchwiz7.png
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

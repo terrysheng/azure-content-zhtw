@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="03/17/2016" 
+	ms.date="04/04/2016" 
 	ms.author="cephalin"
 />
 	
@@ -67,7 +67,7 @@
 
 4. 在 Azure 中以下一個命令建立具有唯一應用程式名稱的 App Service 應用程式資源。您的 Web 應用程式的 URL 會是 http://&lt;app_name>.azurewebsites.net。
 
-        azure site create --git <app_name> 
+        azure site create --git <app_name>
       
     >[AZURE.NOTE] 如果您從未設定 Azure 訂用帳戶的部署認證，系統將會提示您加以建立。App Service 只會將這些認證 (而不是您的 Azure 帳戶認證) 使用於 Git 部署與 FTP 登入。
     
@@ -85,11 +85,9 @@
 
 ## 看見您的應用程式即時執行
 
-若要看見您的應用程式在 Azure 中即時執行，請執行這個命令 ︰
+若要查看 Azure 中即時執行的應用程式，請從儲存機制中的任何目錄執行此命令︰
 
-    azure site browse <app_name>
-
-如果您看到錯誤訊息︰`Site <app_name> does not exist or has no hostnames`，請在幾秒後重試命令。有些應用程式 (如 Java 應用程式) 總結部署的時間比較長。
+    azure site browse
 
 ## 更新您的應用程式
 
@@ -141,4 +139,4 @@
 - [建立行動應用程式](/documentation/learning-paths/appservice-mobileapps/)
 - [建立 API 應用程式](../app-service-api/app-service-api-apps-why-best-platform.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

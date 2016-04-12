@@ -39,6 +39,6 @@
 5.	[部署 Web 服務](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[存取 Web 服務](machine-learning-walkthrough-6-access-web-service.md)
 
-此逐步解說以 [Cortana Analytics 資源庫](http://gallery.cortanaanalytics.com/)中的簡化版[二進位分類：信用風險預測](http://go.microsoft.com/fwlink/?LinkID=525270)範例實驗為基礎。
+此逐步解說以 [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) 中的簡化版[二進位分類：信用風險預測](http://go.microsoft.com/fwlink/?LinkID=525270)範例實驗為基礎。
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

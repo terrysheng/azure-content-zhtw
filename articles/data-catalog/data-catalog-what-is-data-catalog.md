@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 資料目錄 – 什麼是資料目錄"
-   description="Microsoft Azure 資料目錄概觀，包括其具備的功能以及專門解決的問題。Azure 資料目錄可讓任何使用者 – 從分析師、資料科學家到開發人員 – 註冊、探索、了解及取用資料來源。"
+   pageTitle="什麼是 Azure 資料目錄？ | Microsoft Azure"
+   description="本文提供 Microsoft Azure 資料目錄的概觀，包括其具備的功能以及專門解決的問題。Azure 資料目錄可讓任何使用者 – 從分析師、資料科學家到開發人員 – 註冊、探索、了解及取用資料來源。"
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 # 什麼是 Azure 資料目錄？
@@ -109,4 +109,4 @@ Microsoft **Azure 資料目錄**是全面管理的雲端服務，可作為企業
 1.	對於 **Azure 資料目錄**直接支援的用戶端應用程式，使用者可以在入口網站的資料來源磚中按一下 [開啟位置] 功能表。用戶端應用程式接著就會啟動，並連接到選取的資料來源。
 2.	對於所有用戶端應用程式，使用者可以使用選取的資料來源的屬性窗格中所顯示的連接資訊。此資訊包含連接到資料所需的一切詳細資料 (例如伺服器名稱、資料庫名稱和物件名稱)，而且可以複製到用戶端工具的連線體驗中。如果已針對資料來源提供要求存取詳細資料，這項資訊將會顯示在連線詳細資料的旁邊。
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

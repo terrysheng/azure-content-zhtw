@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="01/13/2016"
+   ms.date="03/31/2016"
    ms.author="elizapo"/>
 
 # 如何整合商務用 OneDrive 和 Azure RemoteApp
@@ -24,11 +24,11 @@
 
 OneDrive 共有兩種版本：OneDive 和商務用 OneDrive。Azure RemoteApp 僅支援商務用 OneDrive。個人版的 OneDrive 可以運作，但沒有正式支援。此外，Azure RemoteApp (以及 RDSH/Citrix/終端伺服器) 僅支援最新版的商務用 OneDrive (也稱為 Next Gen Sync 用戶端)。
 
->[AZURE.NOTE]Azure RemoteApp 不支援 OneDrive (客戶/個人版)。由於未經認證能在 Windows Server 上運作，因此並不支援所有商務用 OneDrive 版本。雖然新用戶端 (Next Gen Sync 用戶端) 和舊版的 Groove 看起來可在 Azure RemoteApp 中正常運作，如 [https://support.microsoft.com/en-us/kb/2965687](https://support.microsoft.com/kb/2965687) 中的說明，但舊版的同步引擎在 Citrix/終端伺服器 (Windows Server) 上的功能並不完整。在 Azure RemoteApp (以及其他 Windows Server 部署) 使用新的同步用戶端。
+>[AZURE.NOTE]  Azure RemoteApp 不支援 OneDrive (客戶/個人版)。由於未經認證能在 Windows Server 上運作，因此並不支援所有商務用 OneDrive 版本。雖然新用戶端 (Next Gen Sync 用戶端) 和舊版的 Groove 看起來可在 Azure RemoteApp 中正常運作，如 [https://support.microsoft.com/en-us/kb/2965687](https://support.microsoft.com/kb/2965687) 中的說明，但舊版的同步引擎在 Citrix/終端伺服器 (Windows Server) 上的功能並不完整。
 
 ## 商務用 OneDrive 的設定選項有何不同之處？
 
-- **商務用 OneDrive 同步引擎的傳統設定：**商務用 OneDrive 同步用戶端可安裝在伺服器 SKU (遠端桌面和 RemoteApp 工作階段/終端伺服器工作階段) 及 RemoteApp 工作階段中要進行同步的資料夾中，就如同您在 Windows 用戶端 SKU 進行的作業相同。商務用 OneDrive 同步檔案的預設位置與在 Azure RemoteApp 中儲存使用者資料和設定的使用者設定檔磁碟相同，位於 C:\\users<username> 下。無論使用者登入任何 VM，此磁碟及 ODB 都會跟隨。商務用 OneDrive 應用程式必須由管理員發佈給所有使用者，而使用者必須在每個新的工作階段中加以啟動 (否則登入指令碼會自動加以啟動)，以確保同步引擎已啟動。商務用 OneDrive 會在執行工作階段的 VM 上下載完整檔案。同步使用者內容時，對於並未針對有大量使用者短暫登入每台機器的終端機器進行優化的項目而言，同步所有項目 (CPU/已傳輸的資料/已使用的儲存體) 的工作負載十分驚人。透過選擇性的同步功能可降低工作負載，但問題仍然可能發生。
+- **商務用 OneDrive 同步處理引擎的傳統設定：**Azure RemoteApp、RDSH、Citrix 部署目前不支援此選項。
 - **「虛擬化」商務用 OneDrive/從複雜型用戶端重新導向到工作階段：**如果您將 OneDrive 同步到用戶端裝置的資料夾中，可以在磁碟機下選擇將該磁碟機[重新導向](remoteapp-redirection.md)到 Azure RemoteApp，該磁碟機應該與所有使用者用戶端的磁碟機相同，且都應該將 OneDrive 同步到該磁碟機下。如果使用者從任何其他用戶端存取 RemoteApp，可能會無法取得這些檔案 (解決方法是可以使用 OneDrive 線上版本存取檔案)。 
 - **在不快取/同步檔案的情況下，將商務用 OneDrive 視為 Azure RemoteApp 環境中的磁碟機：** (將商務用 OneDrive 對應到 VM 上的磁碟機) 支援將商務用 OneDrive 對應到RDSH 環境中的網路磁碟機。適用於以下案例： 
 	- 當使用精簡型用戶端 (非本機儲存體) 存取 Azure RemoteApp 時，應用程式需要儲存在商務用 OneDrive 中的檔案，但必須讓這些檔案「看起來像」本機檔案，而且系統管理員也無需將檔案同步到 VM。
@@ -47,8 +47,7 @@ OneDrive 共有兩種版本：OneDive 和商務用 OneDrive。Azure RemoteApp �
 
 ### 將磁碟機對應至商務用 OneDrive URL
 
-依照支援文章中的指示進行：
-[https://support.microsoft.com/kb/2616712](https://support.microsoft.com/kb/2616712)
+依照支援文章中的指示進行：[https://support.microsoft.com/kb/2616712](https://support.microsoft.com/kb/2616712)
  
 設定中的重要步驟是確保您選取了 [讓我保持登入]。
 
@@ -66,4 +65,4 @@ OneDrive 共有兩種版本：OneDive 和商務用 OneDrive。Azure RemoteApp �
  
 	![以 商務用 OneDrive 做為對應的網路磁碟機](./media/remoteapp-onedrive/ra-mappeddrive.png)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0406_2016-->

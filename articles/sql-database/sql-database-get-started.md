@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/27/2015"
+	ms.date="03/27/2016"
 	ms.author="jeffreyg"/>
 
 # SQL Database 教學課程：使用 Azure 入口網站在幾分鐘內建立 SQL Database
@@ -128,4 +128,4 @@ Azure 中的 SQL Database 會存留在資料庫伺服器中。伺服器可以裝
 
 - [Azure SQL Database 服務的所有主題](sql-database-index-all-articles.md)、索引
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

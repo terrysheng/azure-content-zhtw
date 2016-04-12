@@ -17,18 +17,18 @@
     ms.author="chhavib;olgali"/>
 
 # 使用範例實驗來建立新的實驗
-當您想要建立實驗時，請尋找機器學習服務團隊範例實驗中的實驗，以及由機器學習服務社群分享的實驗。您也可以在 [Cortana 分析資源庫](http://gallery.azureml.net/)提出有關實驗的問題或張貼意見。
+當您想要建立實驗時，請尋找機器學習服務團隊範例實驗中的實驗，以及由機器學習服務社群分享的實驗。您也可以在 [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) 提出有關實驗的問題或張貼意見。
 
-[AZURE.INCLUDE [電腦-學習-免費-試用](../../includes/machine-learning-free-trial.md)]
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## 瀏覽 Cortana 分析資源庫
-1. 前往[資源庫](http://gallery.azureml.net/)
+## 瀏覽 Cortana Intelligence Gallery
+1. 前往[資源庫](http://gallery.cortanaintelligence.com/)
 2. 前往 [實驗趨勢] 或 [Microsoft 範例] 即可瀏覽。
 3. 使用搜尋與篩選器縮小找出的結果：
-![](./media/machine-learning-sample-experiments/image1.png) 
+![](./media/machine-learning-sample-experiments/image1.png) 
 4. 按一下實驗，以深入了解相關資訊。若要執行和 (或) 修改實驗，請按一下 [在 Studio 中開啟]。
 ![](./media/machine-learning-sample-experiments/image2.png) 
-5.  以您的 Microsoft 帳戶認證登入。如果您還沒有機器學習服務工作區，就會建立免費試用的工作區。[了解機器學習服務包含免費試用哪些功能？](https://azure.microsoft.com/pricing/details/machine-learning/) 
+5.  以您的 Microsoft 帳戶認證登入。如果您還沒有機器學習服務工作區，就會建立免費試用的工作區。[了解機器學習服務包含免費試用哪些功能？](https://azure.microsoft.com/pricing/details/machine-learning/)
 ![](./media/machine-learning-sample-experiments/image3.png) 
 
 ## 在 Studio 中作為範本使用
@@ -42,4 +42,4 @@
 - [建立 Web 服務 API](machine-learning-publish-a-machine-learning-web-service.md)
 - [瀏覽立即可用的應用程式](https://datamarket.azure.com/browse?query=machine+learning)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!----HONumber=AcomDC_0406_2016-->

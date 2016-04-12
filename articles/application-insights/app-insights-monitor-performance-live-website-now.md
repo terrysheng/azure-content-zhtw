@@ -18,7 +18,7 @@
 
 # 安裝 Application Insights 狀態監視器以監視網站效能
 
-*Application Insights 目前僅供預覽。*
+Application Insights 目前僅供預覽。
 
 Visual Studio Application Insights 的狀態監視器可讓您診斷 ASP.NET 應用程式中的例外狀況與效能問題。
 
@@ -56,7 +56,7 @@ Visual Studio Application Insights 的狀態監視器可讓您診斷 ASP.NET 應
 
     ![使用 Microsoft 帳戶認證登入 Azure](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
 
-    *連接錯誤？ 請參閱[疑難排解](#troubleshooting)。*
+    連接錯誤？ 請參閱[疑難排解](#troubleshooting)。
 
 5. 挑選您想要監視的已安裝 Web 應用程式或網站，然後設定您在 Application Insights 入口網站中查看結果時想要使用的資源。
 
@@ -194,6 +194,89 @@ Visual Studio Application Insights 的狀態監視器可讓您診斷 ASP.NET 應
 
 IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
 
+## 使用 PowerShell 進行自動化
+
+您可以使用 PowerShell 啟動和停止監視。
+
+`Get-ApplicationInsightsMonitoringStatus [-Name appName]`
+
+* `-Name` (選擇性) Web 應用程式的名稱。
+* 顯示此 IIS 伺服器中每個 Web 應用程式 (或具名應用程式) 的 Application Insights 監視狀態。
+
+* 傳回每個應用程式的 `ApplicationInsightsApplication`︰
+ * `SdkState==EnabledAfterDeployment`︰應用程式正受到監視，並已在執行階段透過「狀態監視器」工具或 `Start-ApplicationInsightsMonitoring` 進行檢測。
+ * `SdkState==Disabled`︰不會針對 Application insights 檢測應用程式。應用程式從未接受檢測，或「狀態監視器」工具或 `Stop-ApplicationInsightsMonitoring` 已停用執行階段監視。
+ * `SdkState==EnabledByCodeInstrumentation`︰已透過將 SDK 加入至原始程式碼來檢測應用程式。其 SDK 無法更新或停止。
+ * `SdkVersion` 會顯示正用來監視此應用程式的版本。
+ * `LatestAvailableSdkVersion` 會顯示 NuGet 資源庫上目前可用的版本。若要將應用程式升級至此版本，請使用 `Update-ApplicationInsightsMonitoring`。
+
+`Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000`
+
+* `-Name` 應用程式在 IIS 中的名稱
+* `-InstrumentationKey` 您想要在其中顯示結果之 Application Insights 資源的 ikey。
+
+* 這個 Cmdlet 只會影響尚未檢測的應用程式，也就是 SdkState==NotInstrumented。
+
+    這個 Cmdlet 不會影響已檢測的應用程式，不論是在建置階段透過將 SDK 加入至程式碼，還是在執行階段透過先前使用的這個 Cmdlet。
+
+    用來檢測應用程式的 SDK 版本是最常下載到此伺服器的版本。
+
+    若要下載最新版本，請使用 Update-ApplicationInsightsVersion。
+
+* 成功時會傳回 `ApplicationInsightsApplication`。如果失敗，則會在 stderr 記錄追蹤。
+
+    
+          Name                      : Default Web Site/WebApp1
+          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+          ProfilerState             : ApplicationInsights
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.1
+          LatestAvailableSdkVersion : 1.2.3
+
+`Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
+
+* `-Name` 應用程式在 IIS 中的名稱
+* `-All` 停止監視此 IIS 伺服器中所有 `SdkState==EnabledAfterDeployment` 的應用程式
+
+* 停止監視指定應用程式並移除檢測。它僅適用於已在執行階段使用「狀態監視器」工具或 Start-ApplicationInsightsApplication 進行檢測的應用程式。(`SdkState==EnabledAfterDeployment`)
+
+* 傳回 ApplicationInsightsApplication。
+
+`Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
+
+* `-Name`：Web 應用程式在 IIS 中的名稱。
+* `-InstrumentationKey` (選擇性。) 使用此參數可變更應用程式的遙測所要傳送至的資源。
+* 此 Cmdlet：
+ * 將具名應用程式升級至最近下載到這台電腦之 SDK 的版本。(僅適用於 `SdkState==EnabledAfterDeployment` 時)
+ * 如果您提供檢測金鑰，具名應用程式會重新設定為將遙測傳送至具有該索引鍵的資源。(適用於 `SdkState != Disabled` 時)
+
+`Update-ApplicationInsightsVersion`
+
+* 將最新的 Application Insights SDK 下載至伺服器。
+
+## Azure 範本
+
+如果 Web 應用程式位於 Azure 內，而且您使用 Azure Resource Manager 範本建立資源，您可以透過將以下內容新增到資源節點來設定 Application Insights：
+
+    {
+      resources: [
+        /* Create Application Insights resource */
+        {
+          "apiVersion": "2015-05-01",
+          "type": "microsoft.insights/components",
+          "name": "nameOfAIAppResource",
+          "location": "centralus",
+          "kind": "web",
+          "properties": { "ApplicationId": "nameOfAIAppResource" },
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', myWebAppName)]"
+          ]
+        }
+       ]
+     } 
+
+* `nameOfAIAppResource` - Application Insights 資源的名稱
+* `myWebAppName` - Web 應用程式的識別碼
 
 ## <a name="next"></a>接續步驟
 
@@ -219,4 +302,4 @@ IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

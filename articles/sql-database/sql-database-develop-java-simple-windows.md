@@ -26,19 +26,18 @@
 
 本主題提供可用來連接到 Azure SQL Database 的 Java 程式碼範例。Java 範例需要 Java Development Kit (JDK) 1.8 版。這個範例使用 JDBC 驅動程式連接到 Azure SQL Database。
 
+## 步驟 1︰設定開發環境
 
-## 必要條件
-
-### 驅動程式和程式庫
+安裝驅動程式和程式庫：
 
 - [適用於 SQL Server 的 Microsoft JDBC 驅動程式 - SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774)。
 - 執行 [Java Development Kit 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 的任何作業系統平台。
 
-### SQL Database
+## 步驟 2：建立 SQL Database
 
 請參閱[快速入門頁面](sql-database-get-started.md)，以了解如何建立資料庫。
 
-### SQL 資料表
+## 步驟 3：建立 SQL 表格
 
 本主題中的 Java 程式碼範例假設您的 Azure SQL Database 資料庫中已經有下列測試資料表。
 
@@ -56,14 +55,14 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	);
 
 
-## 步驟 1：取得連接字串
+## 步驟 4：取得連接字串
 
 [AZURE.INCLUDE [sql-database-include-connection-string-jdbc-20-portalshots](../../includes/sql-database-include-connection-string-jdbc-20-portalshots.md)]
 
-> [AZURE.NOTE]如果您使用 JTDS JDBC 驅動程式，則您必須在連接字串的 URL 加入 "ssl=require"，然後您需要設定 JVM 的下列選項 "-Djsse.enableCBCProtection=false"。此 JVM 選項會停用安全性漏洞修正程式，因此請確定您了解會涉及到哪些風險，才能設定此選項。
+> [AZURE.NOTE] 如果您使用 JTDS JDBC 驅動程式，則您必須在連接字串的 URL 加入 "ssl=require"，然後您需要設定 JVM 的下列選項 "-Djsse.enableCBCProtection=false"。此 JVM 選項會停用安全性漏洞修正程式，因此請確定您了解會涉及到哪些風險，才能設定此選項。
 
 
-## 步驟 2：編譯 Java 程式碼範例
+## 步驟 5：編譯 Java 程式碼範例
 
 
 本節包含大量的 Java 程式碼範例。其中的註解指出您將複製並貼上後續章節所提供之一小部分 Java 程式碼片段的位置。即使未複製並貼到註解附近，本節中的範例仍可編譯及執行，但該範例只會連接，然後就結束。您會找到下列註解：
@@ -136,7 +135,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 - your\_password
 
 
-## 步驟 3：插入資料列
+## 步驟 6：插入資料列
 
 
 這個 Java 程式碼片段會發出 Transact-SQL INSERT 陳述式，以將兩個資料列插入 Person 資料表。一般順序如下：
@@ -169,7 +168,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	}
 
 
-## 步驟 4：認可交易
+## 步驟 7：認可交易
 
 下列 Java 程式碼片段會發出 Transact-SQL UPDATE 陳述式，以提高 Person 資料表中每一個資料列的 `age` 值。一般順序如下：
 
@@ -199,7 +198,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	connection.setAutoCommit(true);
 
 
-## 步驟 4：執行查詢
+## 步驟 8：執行查詢
 
 
 這個 Java 程式碼片段會執行 Transact-SQL SELECT 陳述式，以查看 Person 資料表中所有已更新的資料列。一般順序如下：
@@ -228,4 +227,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 如需詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

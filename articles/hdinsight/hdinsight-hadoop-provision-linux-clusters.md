@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/21/2016"
+   	ms.date="03/25/2016"
    	ms.author="jgao"/>
 
 
@@ -26,29 +26,49 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理叢集
 
 ##叢集類型
 
-目前，HDInsight 提供 4 種不同類型的叢集，每種都有一組提供特定功能的元件︰
+目前，HDInsight 提供 5 種不同類型的叢集，每種都有一組提供特定功能的元件︰
 
 | 叢集類型 | 如果您需要...，請使用此類型 |
 | ------------ | ----------------------------- |
-| Hadoop | 查詢和分析 (批次工作) |
-| HBase | NoSQL 資料儲存體 |
-| Storm | 即時事件處理 |
-| Spark (預覽) | 記憶體內處理、互動式查詢、微批次串流處理 |
+| Hadoop | 查詢和分析 (批次工作)。 |
+| HBase | NoSQL 資料儲存體。 |
+| Storm | 即時事件處理。 |
+| Spark (預覽) | 記憶體內處理、互動式查詢、微批次串流處理。 |
+| Spark 上的 R 伺服器 | R 支援各種不同的巨量資料統計資料、建立預測模型和機器學習功能。 |
 
 每個叢集類型對於叢集內的節點，都有它自己術語，而每個節點類型也有各自的節點數目和預設 VM 大小：
 
 | 類型| 節點 (節點數目)| 圖表|
 |-----|------|--------|
 |Hadoop| 前端節點 (2)、資料節點 (1+)|![HDInsight Hadoop 叢集節點](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)|
-|HBase|前端伺服器 (2)、區域伺服器 (1+)、主要/ZOOKEEPER 節點 (3)|![HDInsight HBase 叢集節點](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)|
-|Storm|Nimbus 節點 (2)、監督員伺服器 (1+)、ZOOKEEPER 節點 (3)|![HDInsight Storm 叢集節點](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
-|Spark|前端節點 (2)、背景工作節點 (1+)、ZOOKEEPER 節點 (3) (A1 ZOOKEEPER VM 大小隨意)|![HDInsight Spark 叢集節點](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
+|HBase|前端伺服器 (2)、區域伺服器 (1+)、主要/Zookeeper 節點 (3)|![HDInsight HBase 叢集節點](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)|
+|Storm|Nimbus 節點 (2)、監督員伺服器 (1+)、Zookeeper 節點 (3)|![HDInsight Storm 叢集節點](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
+|Spark|前端節點 (2)、背景工作角色節點 (1+)、Zookeeper 節點 (3) (A1 Zookeeper VM 大小不限)|![HDInsight Spark 叢集節點](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
 
-* 括號中是每種節點類型的節點數目。
+* 括弧中是每種節點類型的節點數目。
 
 > [AZURE.IMPORTANT] 如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
 
 您可以使用[指令碼動作](#customize-clusters-using-script-action)，將 Hue 或 R 等其他元件加入這些基本類型中。
+
+## 叢集層
+
+Azure HDInsight 提供兩種類型的巨量資料雲端提供項目：Standard 和 [Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)。HDInsight Premium 包括 R 和其他額外的元件。HDInsight Premium 只有在 HDInsight 3.4 版上受到支援。
+
+下表列出 HDInsight 叢集類型和 HDInsight Premium 支援矩陣。
+
+| 叢集類型 | 標準 | 高級 |
+|--------------|---------------|--------------|
+| Hadoop | 是 | 是 |
+| Spark | 是 | 是 |
+| HBase | 是 | 否 |
+| Storm | 是 | 否 |
+| Spark 上的 R 伺服器 | 否 | 是 |
+
+因為 HDInsight Premium 中包含更多的叢集類型，所以此資料表將會更新。以下螢幕擷取畫面顯示選擇叢集類型的 Azure 入口網站資訊︰
+
+![HDInsight 進階組態](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
+
 
 ## 基本組態選項
 
@@ -63,7 +83,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理叢集
 
 - **叢集類型**
 
-    請參閱[叢集類型](#cluster-types)。
+    請參閱[叢集類型](#cluster-types)和[叢集層](#cluster-tiers)。
 
 - **作業系統**
 
@@ -77,7 +97,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理叢集
 
 - **訂用帳戶名稱**
 
-	每個 HDInsight 叢集都會與一個 Azure 訂用帳戶綁定。
+	每個 HDInsight 叢集都會繫結至一個 Azure 訂用帳戶。
     
 - **資源群組名稱**
 
@@ -88,7 +108,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理叢集
 	HDInsight 叢集可讓您在建立叢集期間設定兩個使用者帳戶：
 
 	- HTTP 使用者。預設使用者名稱是在 Azure 入口網站上使用基本組態的 admin。有時稱之為「叢集使用者」。
-	- SSH 使用者 (Linux 叢集)：用來連線到使用 SSH 的叢集。叢集建立之後，您便可以依照[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md) 中的步驟建立其他 SSH 使用者帳戶。
+	- SSH 使用者 (Linux 叢集)：用來連線到使用 SSH 的叢集。叢集建立之後，您便可以依照[從 Linux、Unix 或 OS X 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md) 或[從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](hdinsight-hadoop-linux-use-ssh-unix.md)中的步驟建立其他 SSH 使用者帳戶。
 
     >[AZURE.NOTE] 對於以 Windows 為基礎的叢集，您可以建立 RDP 使用者，用來連接到使用 RDP 的叢集。
 
@@ -96,7 +116,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理叢集
 
 	原始的 HDFS 會使用叢集上的多個本機磁碟。HDInsight 則會使用 Azure Blob 儲存體來儲存資料。Azure Blob 儲存體是強大的一般用途儲存體解決方案，其完美整合了 HDInsight。透過 Hadoop 分散式檔案系統 (HDFS) 介面，HDInsight 中的完整元件集可直接處理 Blob 儲存體中的結構化或非結構化資料。將資料儲存在 Blob 儲存體中，您便可安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
 
-	在設定期間，您必須指定 Azure 儲存體帳戶，並在該 Azure 儲存體帳戶中指定 Azure Blob 儲存體容器。某些建立程序會要求您事先建立 Azure 儲存體帳戶和 Blob 儲存體容器。叢集會以該 Blob 儲存體容器做為預設儲存位置。您也可以選擇指定叢集可存取的其他 Azure 儲存體帳戶 (連結的儲存體)。此外，叢集也可以存取任何設有完整公用讀取權限或僅限對 blob 之公用讀取權的 Blob 容器。如需限制存取的詳細資訊，請參閱[管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)。
+	在設定期間，您必須指定 Azure 儲存體帳戶，並在該 Azure 儲存體帳戶中指定 Azure Blob 儲存體容器。某些建立程序會要求您事先建立 Azure 儲存體帳戶和 Blob 儲存體容器。叢集會以該 Blob 儲存體容器做為預設儲存位置。您也可以選擇指定叢集可存取的其他 Azure 儲存體帳戶 (連結的儲存體)。此外，叢集也可以存取任何設有完整公用讀取權限或僅限對 Blob 之公用讀取權的 Blob 容器。如需限制存取的詳細資訊，請參閱[管理 Azure 儲存體資源的存取](storage-manage-access-to-resources.md)。
 
 	![HDInsight 儲存體](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
@@ -110,7 +130,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理叢集
 
 	如需使用次要 Blob 存放區的詳細資訊，請參閱[搭配使用 Azure Blob 儲存體與 HDInsight](hdinsight-hadoop-use-blob-storage.md)。
 
-    除了 Azure Blob 儲存體，您也可以使用 [Azure Data Lake Store](data-lake-store-overview.md) 當作 HDInsight 中 HBase 叢集的預設儲存體帳戶，以及全 4 種 HDInsight 叢集類型的連結儲存體。如需相關指示，請參閱[使用 Azure 入口網站建立有 Data Lake Store 的 HDInsight 叢集](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+    除了 Azure Blob 儲存體，您也可以使用 [Azure Data Lake Store](data-lake-store-overview.md) 當做 HDInsight 中 HBase 叢集的預設儲存體帳戶，以及全部 4 種 HDInsight 叢集類型的連結儲存體。如需相關指示，請參閱[使用 Azure 入口網站建立具有 Data Lake Store 的 HDInsight 叢集](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
     
 - **位置 (區域)**
 
@@ -118,13 +138,13 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理叢集
 	
 	![Azure 區域](./media/hdinsight-provision-clusters/Azure.regions.png)
 
-	如需支援的地區清單，請按一下 [HDInsight 價格](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)中的 [地區] 下拉式清單。
+	如需支援的地區清單，請按一下 [HDInsight 定價](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)中的 [地區] 下拉式清單。
 
 - **節點定價層**
 
     客戶需根據叢集的生命期，就這些節點的使用量支付費用。一旦建立叢集之後便會開始計費，而刪除叢集時便會停止計費 (無法取消配置或保留叢集)。
 
-	不同的叢集類型具有不同的節點類型、節點數目和節點大小。例如，Hadoop 叢集類型有兩個_前端節點_和預設的四個_資料節點_，而 Storm 叢集類型有兩個 _Nimbus 節點_、三個 _Zookeeper 節點_和預設的四個_監督員節點_。HDInsight 叢集的成本是由節點數和節點的虛擬機器大小來決定。例如，如果您知道將會執行需要大量記憶體的作業，您可以選取具有較多記憶體的運算資源。為了方便學習，建議使用 1 個資料節點。如需關於 HDInsight 價格的詳細資訊，請參閱 [HDInsight 價格](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)。
+	不同的叢集類型具有不同的節點類型、節點數目和節點大小。例如，Hadoop 叢集類型有兩個_前端節點_和預設的四個_資料節點_，而 Storm 叢集類型有兩個 _Nimbus 節點_、三個 _Zookeeper 節點_和預設的四個_監督員節點_。HDInsight 叢集的成本是由節點數和節點的虛擬機器大小來決定。例如，如果您知道將會執行需要大量記憶體的作業，您可以選取具有較多記憶體的運算資源。為了方便學習，建議使用 1 個資料節點。如需關於 HDInsight 定價的詳細資訊，請參閱 [HDInsight 定價](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)。
 
 	>[AZURE.NOTE] 叢集大小限制會隨著 Azure 訂用帳戶而有所不同。若要提高限制，請與帳務支援人員連絡。
 	
@@ -182,7 +202,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理叢集
 
 在某些情況下，您可能想要將更多儲存體加入至叢集。例如，如果您有多個 Azure 儲存體帳戶在不同的地理區域，或用於不同的服務，但想要全部透過 HDInsight 來分析。
 
-如需有關使用次要 Blob 存放區的詳細資訊，請參閱[使用 Azure Blob 儲存體搭配 HDInsight](hdinsight-hadoop-use-blob-storage.md)。如需使用次要 Data Lake Store 的詳細資訊，請參閱[使用 Azure 入口網站建立有 Data Lake Store 的 HDInsight 叢集](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+如需有關使用次要 Blob 存放區的詳細資訊，請參閱[使用 Azure Blob 儲存體搭配 HDInsight](hdinsight-hadoop-use-blob-storage.md)。如需使用次要 Data Lake Store 的詳細資訊，請參閱[使用 Azure 入口網站建立具有 Data Lake Store 的 HDInsight 叢集](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 
 
 ## 使用 Hive/Oozie 中繼存放區
@@ -222,11 +242,11 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理叢集
 
 若要在叢集存留期間保留變更，您可以在建立程序期間使用 HDInsight 叢集自訂，或在 Linux 型叢集中安全使用 Ambari。如需詳細資訊，請參閱[使用 Bootstrap 自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-bootstrap.md)。
 
->[AZURE.NOTE]  Windows 型叢集無法保留重新製作映像所造成的變更。如需詳細資訊，請參閱[角色執行個體由於作業系統升級而重新啟動](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx) (英文)。若要在叢集存留期間保留變更，您必須在建立程序期間使用 HDInsight 叢集自訂。
+>[AZURE.NOTE] Windows 型叢集無法保留重新製作映像所造成的變更。如需詳細資訊，請參閱[角色執行個體由於作業系統升級而重新啟動](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx) (英文)。若要在叢集存留期間保留變更，您必須在建立程序期間使用 HDInsight 叢集自訂。
 
 ## 使用指令碼動作來自訂叢集
 
-您可以在建立期間使用指令碼來安裝其他元件或自訂組態。這類指令碼可透過**指令碼動作**來叫用；指令碼動作是可從入口網站、HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 使用的組態選項。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。
+您可以在建立期間使用指令碼來安裝其他元件或自訂組態。這類指令碼可透過**指令碼動作**來叫用；指令碼動作是可從入口網站、HDInsight Windows PowerShell Cmdlet 或 HDInsight .NET SDK 使用的組態選項。如需詳細資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 
 
@@ -234,7 +254,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理叢集
 
 在本文中，您已了解建立以 Linux 為基礎的 HDInsight 叢集的基本資訊。請利用下表，尋找如何使用最符合需求的方法建立叢集的具體資訊：
 
-| 使用這個選項建立叢集...… | 使用網頁瀏覽器…… | 使用命令列 | 使用 REST API | 使用 SDK | 從 Linux、Mac OS X 或 Unix | 從 Windows |
+| 使用這個選項建立叢集... | 使用網頁瀏覽器... | 使用命令列... | 使用 REST API | 使用 SDK | 從 Linux、Mac OS X 或 Unix | 從 Windows |
 | ------------------------------- |:----------------------:|:--------------------:|:------------------:|:------------:|:-----------------------------:|:------------:|
 | [Azure 入口網站](hdinsight-hadoop-create-linux-clusters-portal.md) | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) | ✔ | ✔ | ✔ |✔ | ✔ | ✔ |
@@ -244,4 +264,4 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理叢集
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [ARM 範本](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

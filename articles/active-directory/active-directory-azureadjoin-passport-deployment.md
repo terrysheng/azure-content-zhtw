@@ -3,6 +3,7 @@
 	description="在組織中啟用 Microsoft Passport 的部署指示。"
 	services="active-directory"
 	documentationCenter=""
+	keywords="設定 Microsoft Passport, Microsoft Passport for Work 部署"
 	authors="femila"
 	manager="stevenpo"
 	editor=""
@@ -14,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="03/23/2016"
 	ms.author="femila"/>
 
 
@@ -25,9 +26,9 @@
 ## 部署 System Center Configuration Manager 1509 版 (Technical Preview)。
 如果要根據 Microsoft Passport 金鑰部署使用者憑證，您需要下列項目：
 
-- System Center Configuration Manager 1509 版 (Technical Preview)。如需詳細資訊，請參閱 [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) 和 [System Center Configuration Manager 小組部落格](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx)。
-- 發佈金鑰基礎結構 (PKI)：若要使用使用者憑證啟用 Microsoft Passport for Work，您必須備妥 PKI。如果您沒有帳戶，或您不想要用於使用者憑證，您可以 ︰
- - 部署網域控制站︰ 部署已安裝 Windows Server 2016 組建 10551 (或更新版本) 的新網域控制站 ，並依照步驟[在現有網域中安裝複本網域控制站](https://technet.microsoft.com/library/jj574134.aspx)或[安裝新的 Active Directory 樹系 (如果您要建立新的環境)](https://technet.microsoft.com/library/jj574166)。(Iso 可在 [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true) 下載。)
+- **System Center Configuration Manager 1509 版 (Technical Preview)**。如需詳細資訊，請參閱 [Microsoft System Center Configuration Manager Technical Preview](https://technet.microsoft.com/library/dn965439.aspx#BKMK_TP3Update) 和 [System Center Configuration Manager 小組部落格](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx)。
+- **發佈金鑰基礎結構 (PKI)**：若要使用使用者憑證啟用 Microsoft Passport for Work，您必須備妥 PKI。如果您沒有帳戶，或您不想要用於使用者憑證，您可以 ︰
+ - **部署網域控制站**︰ 部署已安裝 Windows Server 2016 組建 10551 (或更新版本) 的新網域控制站 ，並依照步驟[在現有網域中安裝複本網域控制站](https://technet.microsoft.com/library/jj574134.aspx)或[安裝新的 Active Directory 樹系 (如果您要建立新的環境)](https://technet.microsoft.com/library/jj574166)。(Iso 可在 [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true) 下載。)
 
 ## 透過 Active Directory 中的群組原則設定 Microsoft Passport for Work
 
@@ -56,7 +57,7 @@
 ## 設定排程工作以要求憑證評估
 此排定的工作是短期的修正程式。系統管理員必須建立排定的工作來接聽 Passport for Work 容器的建立，然後要求評估憑證。啟用 Passport for Work 容器時觸發排程的工作。工作可以降低設定容器和 PIN 延遲，以及其在下次登入時的可用性。
 
-若要建立排定的工作，您可以使用 UI，或使用下列命令 ︰
+**若要建立排定的工作，您可以使用 UI，或使用下列命令 ︰**
 
     schtasks /create /xml %0\..<EnrollCertificate.xml> /tn <Task Name>
 
@@ -118,4 +119,4 @@
 * [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

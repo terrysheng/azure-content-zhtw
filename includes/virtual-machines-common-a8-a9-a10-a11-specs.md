@@ -23,7 +23,7 @@ A8 和 A10 | Intel Xeon E5-2670<br/>8 核心 @ 2.6 GHz | DDR3-1600 MHz<br/>56 GB
 A9 和 A11 | Intel Xeon E5-2670<br/>16 核心 @ 2.6 GHz | DDR3-1600 MHz<br/>112 GB
 
 
->[AZURE.NOTE]其他處理器詳細資料 (包括受支援的指令集延伸模組) 位於 Intel.com 網站。如需 VM 儲存體容量與磁碟詳細資訊，請參閱[虛擬機器的大小](virtual-machines-linux-sizes.md)。
+>[AZURE.NOTE]其他處理器詳細資料 (包括受支援的指令集延伸模組) 位於 Intel.com 網站。如需 VM 儲存體容量與磁碟詳細資訊，請參閱[虛擬機器的大小](../articles/virtual-machines/virtual-machines-linux-sizes.md)。
 
 ### 網路介面卡
 
@@ -58,4 +58,4 @@ A10 和 A11 執行個體具有可連線至 Azure 服務和網際網路的單一 
 
 * **RDMA 網路位址空間** - Azure 中的 RDMA 網路會保留位址空間 172.16.0.0/12。如果您打算在 Azure 虛擬網路中的 A8 和 A9 執行個體上執行 MPI 應用程式，請確定虛擬網路位址空間不會與 RDMA 網路重疊。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

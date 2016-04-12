@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 將您的 SQL 程式碼移轉至 SQL 資料倉儲
@@ -93,7 +93,7 @@ CTE 限制
 
 例如，下列程式碼擷取 @@ROWCOUNT 資訊的替代解決方案：
 
-```
+```sql
 SELECT  SUM(row_count) AS row_count
 FROM    sys.dm_pdw_sql_requests
 WHERE   row_count <> -1
@@ -131,4 +131,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

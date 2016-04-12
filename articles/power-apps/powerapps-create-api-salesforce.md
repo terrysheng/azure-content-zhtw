@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # 在 PowerApps Enterprise 中建立新的 Salesforce API
 
 > [AZURE.SELECTOR]
-- [邏輯應用程式](../articles/connectors/create-api-salesforce.md)
+- [邏輯應用程式](../articles/connectors/connectors-create-api-salesforce.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
 
 將 Salesforce API 加入您組織 (租用戶) 的 App Service 環境中。
@@ -82,7 +82,7 @@ Salesforce 應用程式便建立好了。您可以在 Azure 入口網站的 Sale
 
 ## 請參閱 REST API
 
-[Salesforce REST API](../connectors/create-api-salesforce.md) 參考。
+[Salesforce REST API](../connectors/connectors-create-api-salesforce.md) 參考。
 
 ## 摘要和後續步驟
 在本主題中，您已將 Salesforce API 新增至 PowersApps Enterprise。接下來，請授與使用者此 API 的存取權，讓使用者能夠將此 API 新增至其應用程式：
@@ -101,4 +101,4 @@ Salesforce 應用程式便建立好了。您可以在 Azure 入口網站的 Sale
 [14]: ./media/powerapps-create-api-salesforce/browseall.png
 [15]: ./media/powerapps-create-api-salesforce/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="03/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 預覽：在取用者導向應用程式中啟用 Multi-Factor Authentication
@@ -54,4 +54,8 @@ Multi-Factor Authentication 也可以在建立註冊和登入原則時啟用，�
 
 取用者登入 (使用社交或本機帳戶) 時，若已將通過驗證的電話號碼附加至取用者帳戶，系統會要求其進行驗證。如果未附加電話號碼，系統會要求取用者提供電話號碼以進行驗證。驗證成功之後，即會將電話號碼附加至取用者帳戶以供之後使用。
 
-<!---HONumber=AcomDC_0224_2016-->
+## 其他原則上的 Multi-Factor Authentication
+
+如同對上面的註冊和登入原則所述，也可以對註冊或登入原則和密碼重設原則啟用 Multi-Factor Authentication。很快即可用於設定檔編輯原則。
+
+<!---HONumber=AcomDC_0330_2016-->

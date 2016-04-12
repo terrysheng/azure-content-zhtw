@@ -165,7 +165,7 @@ Azure Resource Manager 的優點之一就是您可以用「宣告」的方式建
 
 您也可以直接使用 [GitHub](https://github.com/Azure/azure-quickstart-templates) 中的範本，而不需將範本下載到電腦。若要執行此動作，可在命令中使用 **--template-url** 選項，將 URL 傳遞至範本的 azuredeploy.json 檔。若要取得 URL，請以 [原始] 模式在 GitHub 上開啟 azuredeploy.json，然後複製出現在瀏覽器網址列中的 URL。接著，您可以使用類似下列的命令，直接使用此 URL 建立部署。
 
-	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
+	azure group deployment create "testRG" testDeploy --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 系統會提示您輸入必要的範本參數。
 
 > [AZURE.NOTE] 請務必以 [原始] 模式開啟 JSON 範本。瀏覽器網址列中出現的 URL，與一般模式中出現的不同。在 GitHub 上檢視檔案時，若要以 [原始] 模式開啟檔案，請按一下右上角的 [原始]。
@@ -215,4 +215,4 @@ Azure Resource Manager 的優點之一就是您可以用「宣告」的方式建
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

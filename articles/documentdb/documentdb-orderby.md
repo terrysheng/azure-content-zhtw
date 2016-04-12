@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # 使用 Order By 排序 DocumentDB 資料
@@ -33,9 +33,9 @@ Microsoft Azure DocumentDB 支援在 JSON 文件上使用 SQL 來查詢文件。
 您現在查詢 DocumentDB 時於 SQL 陳述式中加入選擇性的 Order By 子句，就像 ANSI SQL 一樣。子句可以包含選擇性 ASC/DESC 引數，利用它來指定擷取結果時必須依循的順序。
 
 ### 使用 SQL 來進行排序
-例如，以下是依照其標題之遞減順序擷取書籍的查詢。
+例如，以下是依照其標題之遞減順序擷取前 10 名書籍的查詢。
 
-    SELECT * 
+    SELECT TOP 10 * 
     FROM Books 
     ORDER BY Books.Title DESC
 
@@ -44,33 +44,17 @@ Microsoft Azure DocumentDB 支援在 JSON 文件上使用 SQL 來查詢文件。
 
     SELECT * 
     FROM Books 
-	WHERE Books.SalePrice > 4000
+    WHERE Books.SalePrice > 4000
     ORDER BY Books.ShippingDetails.Weight
 
 ### 使用適用於 .NET 的 LINQ 提供者來進行排序
 如果您使用 .NET SDK 1.2.0 和更新版本，還可以在 LINQ 查詢中使用 OrderBy() 或 OrderByDescending() 子句，如以下範例所示：
 
-    foreach (Book book in client.CreateDocumentQuery<Book>(booksCollection.SelfLink)
-        .OrderBy(b => b.PublishTimestamp)) 
+    foreach (Book book in client.CreateDocumentQuery<Book>(UriFactory.CreateDocumentCollectionUri("db", "books"))
+        .OrderBy(b => b.PublishTimestamp)
+        .Take(100))
     {
         // Iterate through books
-    }
-
-### 使用藉助 .NET SDK 的分頁來進行排序
-使用 DocumentDB SDK 中的原生分頁支援時，您可以一次擷取一個頁面的結果，如以下 .NET 程式碼片段所示。在這裡，我們使用 FeedOptions.MaxItemCount 和 IDocumentQuery 介面一次提取最多 10 筆結果。
-
-    var booksQuery = client.CreateDocumentQuery<Book>(
-        booksCollection.SelfLink,
-        "SELECT * FROM Books ORDER BY Books.PublishTimestamp DESC"
-        new FeedOptions { MaxItemCount = 10 })
-      .AsDocumentQuery();
-            
-    while (booksQuery.HasMoreResults) 
-    {
-        foreach(Book book in await booksQuery.ExecuteNextAsync<Book>())
-        {
-            // Iterate through books
-        }
     }
 
 DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬性的排序，即將推出其他查詢類型。如需詳細資訊，請參閱[未來將推出哪些新功能](#Whats_coming_next)。
@@ -86,21 +70,17 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 如需詳細資訊，請參閱 [DocumentDB 索引編制原則](documentdb-indexing-policies.md)。
 
 ### 針對所有屬性編製 Order By 的索引
-以下是您如何針對出現在 JSON 文件內的任何/所有數字或字串屬性，以 Order By 的「所有範圍」索引建立集合。其中，"/*" 代表集合內的所有 JSON 屬性/路徑，-1 代表最大精確度。
+以下是您如何針對出現在 JSON 文件內的任何/所有數字或字串屬性，以 Order By 的「所有範圍」索引建立集合。這裡我們會將字串值的預設索引類型覆寫為範圍，並且使用最大精確度 (-1)。
                    
-    booksCollection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*", 
-            Indexes = new Collection<Index> { 
-                new RangeIndex(DataType.String) { Precision = -1 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }
-        });
-
-    await client.CreateDocumentCollectionAsync(databaseLink, 
-        booksCollection);  
+    DocumentCollection books = new DocumentCollection();
+    books.Id = "books";
+    books.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
+    
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), books);  
 
 >[AZURE.NOTE] 請注意，Order By 只會傳回使用 RangeIndex 編製索引的資料類型 (字串和數字) 的結果。例如，如果您有預設的索引編製原則，只有數字的 RangeIndex，則針對具有字串值之路徑的 Order By 不會傳回任何文件。
+>
+> 如果您已經針對集合定義分割索引鍵，請注意，只有在根據單一分割索引鍵篩選的查詢中支援 Order By。
 
 ### 針對單一屬性編制 Order By 的索引
 以下是僅針對字串的 Title 屬性利用編制 Order By 索引來建立集合的方式。有兩種路徑，一個用於 Title 屬性 ("/Title/?") 與「範圍」索引編製，而另一個用於具有預設索引編製配置的其他每個屬性，「雜湊」用於字串及「範圍」用於數字。
@@ -112,27 +92,13 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
                 new RangeIndex(DataType.String) { Precision = -1 } } 
             });
     
-    // Use defaults which are:
-    // (a) for strings, use Hash with precision 3 (just equality queries)
-    // (b) for numbers, use Range with max precision (for equality, range and order by queries)
-    booksCollection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*",
-            Indexes = new Collection<Index> { 
-                new HashIndex(DataType.String) { Precision = 3 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }            
-        });
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), booksCollection);  
+
 
 ## 範例
 請參閱示範如何使用 Order By 的 [Github 範例專案](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)，其內容包括使用 Order By 建立索引編製原則和分頁。這些範例是開放原始碼，我們鼓勵您提交提取要求，並附上可幫助其他 DocumentDB 開發人員的貢獻。請參閱[貢獻指導方針](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md)，以取得有關如何貢獻的指引。
 
 ## 常見問題集
-
-**哪些平台/SDK 版本支援排序？**
-
-若要使用 Order By 所需的索引編製原則建立集合，您必須下載最新的 SDK (針對 .NET 下載 1.2.0，針對 Node.js、JavaScript、Python 和 Java 下載 1.1.0)。也需要 .NET SDK 1.2.0 才能在 LINQ 運算式內使用 OrderBy() 和 OrderByDescending()。
-
 
 **Order By 查詢的預期要求單位 (RU) 耗用量有多高？**
 
@@ -170,4 +136,4 @@ DocumentDB 支援對於每一個查詢使用單一數值、字串或布林值屬
 * [DocumentDB Order By 範例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

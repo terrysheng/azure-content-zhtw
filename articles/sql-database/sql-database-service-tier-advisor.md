@@ -27,7 +27,7 @@
 
 - [變更 SQL Database 的服務層級和效能等級 (定價層)](sql-database-scale-up.md)
 - [將 Azure SQL Server 升級至 V12](sql-database-upgrade-server-portal.md)
-- 瀏覽至您的 V12 伺服器 - 如果您的資料庫可以[在彈性資料庫集區中受益](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)，伺服器刀鋒視窗將會顯示一則訊息來指出建議的集區。按一下訊息來建立建議的集區。
+- 瀏覽至您的 V12 伺服器。請參閱 [SQL Database 定價層建議](sql-database-service-tier-advisor.md)。
 - [建立彈性資料庫集區](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
 
@@ -96,4 +96,4 @@ SQL Database 服務會評估 SQL Database 的歷程記錄資源使用狀況，�
 
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0330_2016-->

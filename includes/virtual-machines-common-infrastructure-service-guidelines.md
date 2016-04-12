@@ -6,7 +6,7 @@ Azure 是用來實作 dev/test 或概念證明設定的絕佳平台，因為它�
 
 這篇文章摘錄自〈[Azure 實作方針](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx)〉部落格文章的內容。感謝 Santiago Cánepa (Microsoft 應用程式開發經理) 和 Hugo Salcedo (Microsoft 應用程式開發經理) 提供的原始資料。
 
-> [AZURE.NOTE] 同質群組已取代。此處未描述其用法。如需詳細資訊，請參閱[關於區域 VNet 和同質群組](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)。
+> [AZURE.NOTE] 同質群組已取代。此處未描述其用法。如需詳細資訊，請參閱[關於區域 VNet 和同質群組](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md)。
 
 ## 1\.命名慣例
 
@@ -140,7 +140,7 @@ Azure 儲存體是許多 Azure 解決方案不可或缺的部分。Azure 儲存�
 
 Azure 中有兩種可用的儲存體帳戶。標準儲存體帳戶可供您存取 blob 儲存體 (用於存放 Azure 虛擬機器磁碟)、資料表儲存體、佇列儲存體和檔案儲存體。進階儲存體是設計來供高效能的應用程式使用 (例如，AlwaysOn 叢集中的 SQL Server)，目前僅支援 Azure 虛擬機器磁碟。
 
-儲存體帳戶會繫結至延展性目標。請參閱〈[Microsoft Azure 訂用帳戶及服務限制、配額與限制](../azure-subscription-service-limits.md#storage-limits)〉，以熟悉目前的 Azure 儲存體限制。另請參閱〈[Azure 儲存體的延展性與效能目標](../storage-scalability-targets.md)〉。
+儲存體帳戶會繫結至延展性目標。請參閱〈[Microsoft Azure 訂用帳戶及服務限制、配額與限制](../articles/azure-subscription-service-limits.md#storage-limits)〉，以熟悉目前的 Azure 儲存體限制。另請參閱〈[Azure 儲存體的延展性與效能目標](../articles/storage/storage-scalability-targets.md)〉。
 
 Azure 會建立含有一個作業系統磁碟、一個暫存磁碟，以及零或多個選用資料磁碟的虛擬機器。作業系統磁碟和資料磁碟都是 Azure 頁面 Blob，而暫存磁碟會儲存在本機機器所在的節點上。這會使得暫存磁碟不適合用於系統回收期間必須持續存在的資料，因為該虛擬機器可能會以無訊息模式從某個節點移轉到其他節點，因而遺失該磁碟上的所有資料。請勿在暫存磁碟機上儲存任何資料。
 
@@ -149,7 +149,7 @@ Azure 會建立含有一個作業系統磁碟、一個暫存磁碟，以及零�
 ### 等量磁碟
 除了能夠建立大於 1023 GB 的磁碟，在許多情況下，針對資料磁碟使用等量，可藉由允許多個 blob 備份單一磁碟區的儲存體來增強效能。從單一邏輯磁碟寫入和讀取資料所需的 I/O 會透過等量速度以平行方式繼續進行。
 
-根據虛擬機器的大小而定，Azure 會強制限制資料磁碟數量和可用頻寬。如需詳細資訊，請參閱[虛擬機器的大小](virtual-machines-linux-sizes.md)。
+根據虛擬機器的大小而定，Azure 會強制限制資料磁碟數量和可用頻寬。如需詳細資訊，請參閱[虛擬機器的大小](../articles/virtual-machines/virtual-machines-linux-sizes.md)。
 
 如果您針對 Azure 資料磁碟使用磁碟等量，請考量下列指導方針：
 
@@ -409,15 +409,15 @@ Contoso 決定為其 Azure 虛擬機器使用下列名稱：
 
 ## 其他資源
 
-[Microsoft Azure 訂用帳戶及服務限制、配額與限制](../azure-subscription-service-limits.md#storage-limits)
+[Microsoft Azure 訂用帳戶及服務限制、配額與限制](../articles/azure-subscription-service-limits.md#storage-limits)
 
-[虛擬機器的大小](virtual-machines-linux-sizes.md)
+[虛擬機器的大小](../articles/virtual-machines/virtual-machines-linux-sizes.md)
 
-[Azure 儲存體的延展性與效能目標](../storage-scalability-targets.md)
+[Azure 儲存體的延展性與效能目標](../articles/storage/storage-scalability-targets.md)
 
 [資料中心延伸模組參考架構圖表](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
 
 [Azure 資源管理員提供的 Azure 運算、網路和儲存提供者](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

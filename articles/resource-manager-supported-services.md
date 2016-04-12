@@ -54,7 +54,7 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | ExpressRoute | 是 | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx) | | [expressRouteCircuits](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FexpressRouteCircuits%22&type=Code) |
 | 負載平衡器 | 是 | [負載平衡器 REST](https://msdn.microsoft.com/library/azure/mt163651.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [loadBalancers](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Floadbalancers%22&type=Code) |
 | 流量管理員 | 是 | [流量管理員 REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) | [2015-11-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-11-01/Microsoft.Network.json) | [trafficmanagerprofiles](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Ftrafficmanagerprofiles%22&type=Code) |
-| 虛擬網路 | 是| [虛擬網路 REST](https://msdn.microsoft.com/library/azure/mt163650.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [virtualNetworks](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworks%22&type=Code) |
+| 虛擬網路 | 是| [虛擬網路 REST](https://msdn.microsoft.com/zh-TW/library/azure/mt163650.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [virtualNetworks](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworks%22&type=Code) |
 | VPN 閘道 | 是 | [網路閘道 REST](https://msdn.microsoft.com/library/azure/mt163859.aspx) | | [virtualNetworkGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworkGateways%22&type=Code) <br /> [localNetworkGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FlocalNetworkGateways%22&type=Code) <br />[連線](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Fconnections%22&type=Code) |
 
 
@@ -99,7 +99,7 @@ Azure 資源管理員提供一種新方式來部署和管理組成應用程式�
 | 服務 | 已啟用資源管理員 | REST API | 結構描述 | 快速入門範本 |
 | ------- | ------- | -------- | ------ | ------ |
 | 事件中心 | 是 | [事件中樞 REST](https://msdn.microsoft.com/library/azure/dn790674.aspx) | | [Microsoft.EventHub](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.EventHub%22&type=Code) |
-| IoTHubs | 是 | [IoT 中心 REST (英文)](https://msdn.microsoft.com/library/azure/mt589014.aspx) | | [Microsoft.Devices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Devices%22&type=Code) |
+| IoTHubs | 是 | [IoT 中樞 REST (英文)](https://msdn.microsoft.com/library/azure/mt589014.aspx) | | [Microsoft.Devices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Devices%22&type=Code) |
 | 通知中樞 | 是 | [通知中樞 REST](https://msdn.microsoft.com/library/azure/dn495827.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) | [Microsoft.NotificationHubs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.NotificationHubs%22&type=Code) |
 
 ## 媒體與 CDN
@@ -253,7 +253,7 @@ Azure Active Directory 可搭配資源管理員使用，以針對您的訂用帳
 
     azure location list
 
-您也可以使用 **jq** 之類的工具來篩選位置結果。若要了解 jq 之類的工具，請參閱[能與 Azure 互動的有用工具](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure)。
+您也可以使用 [jq](https://stedolan.github.io/jq/) 之類的 JSON 公用程式來篩選位置結果。
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
@@ -305,4 +305,4 @@ Azure Active Directory 可搭配資源管理員使用，以針對您的訂用帳
 - 若要了解如何建立資源管理員範本，請參閱[編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 - 若要了解如何部署資源，請參閱[使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 
-<!---------HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0330_2016-->

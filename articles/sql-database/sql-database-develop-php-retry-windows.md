@@ -26,19 +26,20 @@
 
 本主題說明如何從以 PHP 撰寫並在 Windows 上執行的用戶端應用程式，連接到 Azure SQL Database。
 
+## 步驟 1︰設定開發環境
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
-### SQL Database
+## 步驟 2：建立 SQL Database
 
 請參閱[快速入門頁面](sql-database-get-started.md)，以了解如何建立範例資料庫。請務必遵循該指南以建立 **AdventureWorks 資料庫範本**。以下所示的範例僅適用於 **AdventureWorks 結構描述**。
 
 
-## 步驟 1：取得連線詳細資料
+## 步驟 3：取得連接詳細資料
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-## 步驟 2：連接和查詢
+## 步驟 4：連接和查詢
 
 示範程式經過設計，會使嘗試連接期間的暫時性錯誤導致重試。但是，查詢命令期間的暫時性錯誤會導致程式捨棄連線並建立新的連線，然後再重試查詢命令。我們不建議也不反對這種設計選擇。示範程式會說明一些您可使用的設計彈性。
 
@@ -139,4 +140,4 @@
 
 如需 PHP 安裝和使用方式的詳細資訊，請參閱[使用 PHP 存取 SQL Server Database](http://technet.microsoft.com/library/cc793139.aspx)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

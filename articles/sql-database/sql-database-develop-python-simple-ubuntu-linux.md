@@ -27,43 +27,27 @@
 本主題提供可在 Ubuntu Linux 用戶端電腦上執行，以連接到 Azure SQL Database 資料庫的 Python 程式碼範例。
 
 
-## 先決條件
+## 步驟 1︰設定開發環境
 
+[使用 pymssql Python Driver for SQL Server 的必要條件](https://msdn.microsoft.com/library/mt694094.aspx#Ubuntu-Linux)
 
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/)。
-
-
-### 安裝必要的模組
-
-
-開啟您的終端機，並巡覽至您打算用來建立 Python 指令碼的目錄。輸入下列命令，以安裝 **FreeTDS** 和 **pymssql**。pymssql 使用 FreeTDS 連接到 SQL Database。
-
-	sudo apt-get --assume-yes update
-	sudo apt-get --assume-yes install freetds-dev freetds-bin
-	sudo apt-get --assume-yes install python-dev python-pip
-	sudo pip install pymssql
-
-
-### SQL Database
+## 步驟 2：建立 SQL Database
 
 請參閱[快速入門頁面](sql-database-get-started.md)，以了解如何建立範例資料庫。請務必遵循該指南以建立 **AdventureWorks 資料庫範本**。以下所示的範例僅適用於 **AdventureWorks 結構描述**。
 
-## 步驟 1：取得連線詳細資料
+## 步驟 3：取得連接詳細資料
 
 [AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 
-## 步驟 2：連接
-
-!!!!!sql-database-include-connection-string-details-20-portalshots.md
+## 步驟 4︰連接
 
 [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) 函式可用來連接到 SQL Database。
 
 	import pymssql
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
-
-## 步驟 3：執行查詢
+## 步驟 5：執行查詢
 
 [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) 函式可用來擷取對 SQL Database 查詢的結果集。這個函式基本上會接受任何查詢並傳回結果集，您可以使用 [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone) 反覆查詢結果集。
 
@@ -78,7 +62,7 @@
 	    row = cursor.fetchone()
 
 
-## 步驟 4：插入資料列
+## 步驟 6：插入資料列
 
 在這個範例中，您將了解如何安全地執行 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) 陳述式、傳遞透過 [SQL 插入](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) 弱點保護您應用程式的參數，以及擷取自動產生的[主索引鍵](https://msdn.microsoft.com/library/ms179610.aspx)值。
 
@@ -93,7 +77,7 @@
 	    row = cursor.fetchone()
 
 
-## 步驟 5：回復交易
+## 步驟 7：回復交易
 
 
 這個程式碼範例示範如何使用交易，您將：
@@ -117,4 +101,4 @@
 
 如需詳細資訊，請參閱 [Python 開發人員中心](/develop/python/)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

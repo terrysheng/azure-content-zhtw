@@ -1,13 +1,13 @@
-<properties 
+<properties
 	pageTitle="SQL Server Business Intelligence |Microsoft Azure"
 	description="本主題使用隨傳統部署模型建立的資源，並描述 Azure 虛擬機器 (VM) 上執行的 SQL Server 提供的 Business Intelligence (BI) 功能。"
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" 
+	editor="monicar"
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
 	ms.topic="article"
@@ -19,8 +19,8 @@
 # Azure 虛擬機器中的 SQL Server Business Intelligence
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]資源管理員模型。
- 
- 
+
+
 Microsoft Azure 虛擬機器資源庫含有包含 SQL Server 安裝的映像。資源庫映像中支援的 SQL Server 版本與您可以在內部部署電腦與虛擬機器中安裝的安裝檔案相同。本主題摘要說明映像上安裝的 SQL Server 商業智慧 (BI) 功能和佈建虛擬機器後所需的組態步驟。本主題也描述 BI 功能支援的部署拓撲和最佳作法。
 
 ## 授權考量
@@ -42,18 +42,18 @@ Microsoft Azure 虛擬機器資源庫涵蓋數個包含 Microsoft SQL Server 的
 ![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) 下列 PowerShell 指令碼會傳回 ImageName 中包含 “SQL-Server” 的 Azure 映像的清單：
 
 	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure classic portal.
-	
+
 	$subscriptionID = ""    # REQUIRED: Provide your subscription ID.
 	$subscriptionName = "" # REQUIRED: Provide your subscription name.
 	$thumbPrint = "" # REQUIRED: Provide your certificate thumbprint.
 	$certificate = Get-Item cert:\currentuser\my\$thumbPrint # REQUIRED: If your certificate is in a different store, provide it here.-Ser  store is the one specified with the -ss parameter on MakeCert
-	
+
 	Set-AzureSubscription -SubscriptionName $subscriptionName -Certificate $certificate -SubscriptionID $subscriptionID
-	
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2014"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2014*"} | select imagename,category, location, label, description
-	
+
 	Write-Host -foregroundcolor green "List of available gallery images where imagename contains 2012"
 	Write-Host -foregroundcolor green ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 	get-azurevmimage | where {$_.ImageName -Like "*SQL-Server-2012*"} | select imagename,category, location, label, description
@@ -99,7 +99,7 @@ Microsoft Azure 虛擬機器資源庫涵蓋數個包含 Microsoft SQL Server 的
 - 磁碟管理的最佳作法是儲存資料、記錄與備份 **C**: 和 **D**: 以外磁碟機上的檔案。例如，建立資料磁碟 **E**: 和 **F**:。
 
 	- 預設磁碟機 **C**: 的磁碟機的快取原則不是使用資料的最佳選項。
-	
+
 	- **D**: 磁碟機是主要用於分頁檔的暫存磁碟機。**D**: 磁碟機不會永久保存，並且不會儲存在 blob 儲存體中。管理工作 (例如變更虛擬機器大小) 會重設 **D**: 磁碟機。建議您**不要**將 **D**: 磁碟機用於資料庫檔案，包括 tempdb。
 
 	如需建立及連接磁碟的詳細資訊，請參閱[如何將資料磁碟連接至虛擬機器](virtual-machines-windows-classic-attach-disk.md)。
@@ -165,11 +165,11 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 - 透過 Windows 遠端桌面連線連接到虛擬機器。在遠端桌面的使用者介面中：
 
 	1. 輸入**雲端服務名稱**做為電腦名稱。
-	
+
 	1. 輸入冒號 (:) 以及針對 TCP 遠端桌面端點設定的公用連接埠號碼。
-		
+
 		Myservice.cloudapp.net:63133
-		
+
 		如需詳細資訊，請參閱[什麼是雲端服務？](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/)。
 
 **啟動 Reporting Services 組態管理員。**
@@ -279,11 +279,11 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 下表將摘要列出一些可用來從內部部署電腦發佈現有報表至 Microsoft Azure 虛擬機器上代管的報表伺服器的選項：
 
 - **報表產生器**：虛擬機器包含 Click Once 版本的 Microsoft SQL Server 報表產生器。若要在虛擬機器上首次啟動報表產生器：
-											
+
 	1. 以管理權限啟動瀏覽器。
-	
+
 	1. 瀏覽至虛擬機器上的報表管理員，然後按一下功能區中的 [報表產生器]。
-	
+
 	如需詳細資訊，請參閱[安裝、解除安裝和支援報表產生器](https://technet.microsoft.com/library/dd207038.aspx)。
 
 - **SQL Server Data Tools**：VM：SQL Server Data Tools 安裝在虛擬機器上，並可用在虛擬機器上建立**報表伺服器專案**和報表。SQL Server Data Tools 可以將報表發佈至虛擬機器上的報表伺服器。
@@ -295,11 +295,11 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 - 建立包含報表的 .VHD 硬碟機，然後上傳並連接磁碟機。
 
 	1. 在您的本機電腦上建立包含報表的 .VHD 硬碟機。
-	
+
 	1. 建立及安裝管理憑證。
-	
+
 	1. 使用 Add-AzureVHD Cmdlet 將 VHD 檔案上傳至 Azure [建立及上傳 Windows Server VHD 至 Azure](virtual-machines-windows-classic-createupload-vhd.md)。
-	
+
 	1. 將磁碟連接至虛擬機器。
 
 ## 安裝其他 SQL Server 服務和功能
@@ -375,13 +375,13 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。�
 - 如果您使用單一 VM，而下列兩項條件成立，您不需要建立 VM 端點，並且不需要在 VM 上的防火牆開啟連接埠。
 
 	- 您未從遠端存取連接到 VM 上的 SQL Server 功能。建立對 VM 的遠端桌面連線並存取 VM 本機上的 SQL Server 功能，不會被視為對 SQL Server 功能的遠端連線。
-	
+
 	- 您未透過 Azure 虛擬網路或其他 VPN 通道解決方案將 VM 加入內部部署網域。
 
 - 如果虛擬機器未加入網域，但您想要從遠端連接到 VM 上的 SQL Server 功能：
 
 	- 在 VM 上開啟防火牆的連接埠。
-	
+
 	- 為標示的連接埠 (*) 建立虛擬機器端點。
 
 - 如果虛擬機器是使用 VPN 通道 (例如 Azure 虛擬網路) 加入網域，那麼並不需要端點。不過，請在 VM 上的防火牆中開啟連接埠。
@@ -397,7 +397,7 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。�
 
 - 建立端點：[如何設定虛擬機器的端點](virtual-machines-windows-classic-setup-endpoints.md)。
 
-- SQL Server：請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-classic-portal-sql.md)的＜完成在另一部電腦上使用 SQL Server Management Studio 連接到虛擬機器的組態步驟＞一節。
+- SQL Server：請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-portal-sql-server-provision.md)的＜完成在另一部電腦上使用 SQL Server Management Studio 連接到虛擬機器的組態步驟＞一節。
 
 下圖說明要在 VM 防火牆中開啟，以允許遠端存取 VM 上的功能和元件的連接埠。
 
@@ -411,7 +411,7 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。�
 
 - [虛擬機器](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-- [在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-classic-portal-sql.md)
+- [在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-portal-sql-server-provision.md)
 
 - [如何將資料磁碟連接至虛擬機器](virtual-machines-windows-classic-attach-disk.md)
 
@@ -431,4 +431,4 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。�
 
 - [使用 PowerShell 管理 Azure SQL Database](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

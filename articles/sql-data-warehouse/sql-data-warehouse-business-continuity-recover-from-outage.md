@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/09/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess"/>
 
 # 從 SQL 資料倉儲中斷復原資料庫
@@ -52,7 +52,7 @@
 5. 建立資料庫的復原要求。
 6. 監視復原的進度。
 
-```
+```Powershell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -113,4 +113,4 @@ Get-AzureSqlDatabaseOperation -ServerName "<YourTargetServerName>" –OperationG
 [Azure 入口網站]: https://portal.azure.com/
 [連絡支援人員]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

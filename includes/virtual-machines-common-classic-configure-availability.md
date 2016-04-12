@@ -38,7 +38,7 @@
 
 	![建立新虛擬機器的可用性集合](./media/virtual-machines-common-classic-configure-availability/VMavailabilityset.png)
 
-6. 在第四個畫面上，按一下您要安裝的擴充功能。擴充程式提供可輕鬆管理虛擬機器的功能，例如執行反惡意程式碼或重設密碼。如需詳細資訊，請參閱 [Azure VM 代理程式與 VM 擴充程式](virtual-machines-windows-classic-agents-and-extensions.md)。
+6. 在第四個畫面上，按一下您要安裝的擴充功能。擴充程式提供可輕鬆管理虛擬機器的功能，例如執行反惡意程式碼或重設密碼。如需詳細資訊，請參閱 [Azure VM 代理程式與 VM 擴充程式](../articles/virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md)。
 
 7.	按一下箭號以建立虛擬機器和可用性設定組。
 
@@ -47,8 +47,8 @@
 若要使用 Azure PowerShell 命令建立 Azure 虛擬機器，並將它加入至新的或現有的可用性集合，請參閱下列內容：
 
 
-- [使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器](virtual-machines-linux-classic-createpowershell.md)
-- [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](virtual-machines-windows-classic-create-powershell.md)
+- [使用 Azure PowerShell 建立和預先設定以 Linux 為基礎的虛擬機器](../articles/virtual-machines/virtual-machines-linux-classic-createpowershell.md)
+- [使用 Azure PowerShell 建立和預先設定以 Windows 為基礎的虛擬機器](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
 
 ## <a id="addmachine"> </a>選項 2：將現有虛擬機器加入至可用性設定組##
 
@@ -86,11 +86,11 @@
 [選項 1：同時建立虛擬機器和可用性設定組]: #createset
 [選項 2：將現有虛擬機器加入至可用性設定組]: #addmachine
 
-[Azure 基礎結構服務的負載平衡]: virtual-machines-linux-load-balance.md
-[管理虛擬機器的可用性]: virtual-machines-linux-manage-availability.md
+[Azure 基礎結構服務的負載平衡]: ../articles/virtual-machines/virtual-machines-linux-load-balance.md
+[管理虛擬機器的可用性]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
 
-[建立執行 Windows 的虛擬機器]: virtual-machines-windows-hero-tutorial.md
-[虛擬網路概觀]: virtual-networks-overview.md
+[建立執行 Windows 的虛擬機器]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
+[虛擬網路概觀]: ../articles/virtual-network/virtual-networks-overview.md
 [服務管理中針對虛擬機器的文章]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

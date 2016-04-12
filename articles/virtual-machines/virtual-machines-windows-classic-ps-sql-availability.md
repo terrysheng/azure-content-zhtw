@@ -48,8 +48,6 @@ Azure 虛擬機器 (VM) 可協助資料庫管理員以較低的成本實作高�
 
 - 您已安裝 [Azure PowerShell Cmdlet](../powershell-install-configure.md)。
 
-- 您已經知道如何透過 GUI 佈建來自虛擬機器資源庫的 SQL Server VM。如需詳細資訊，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-classic-portal-sql.md)
-
 - 您已非常熟悉內部部署解決方案的 AlwaysOn 可用性群組的功能。如需詳細資訊，請參閱 [AlwaysOn 可用性群組 (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)。
 
 ## 連接至您的 Azure 訂用帳戶並建立虛擬網路
@@ -632,4 +630,4 @@ Azure 虛擬機器 (VM) 可協助資料庫管理員以較低的成本實作高�
 
 如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-windows-classic-sql-overview.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

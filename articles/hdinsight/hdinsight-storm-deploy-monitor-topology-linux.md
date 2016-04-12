@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/28/2016"
+   ms.date="02/29/2016"
    ms.author="larryfr"/>
 
 # 部署和管理以 Linux 為基礎的 HDInsight 上的 Apache Storm 拓撲
@@ -101,13 +101,22 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 ### 主頁面
 
-Storm UI 的主頁面會提供下列資訊：- **叢集摘要**：Storm 叢集的基本資訊。- **拓撲摘要**：執行中拓撲的清單。使用本節中的連結來檢視特定拓撲的詳細資訊。- **監督員摘要**：Storm 監督員的相關資訊。- **Nimbus 組態**：叢集的 Nimbus 組態。
+Storm UI 的主頁面會提供下列資訊：
+- **叢集摘要**：Storm 叢集的基本資訊。
+- **拓撲摘要**：執行中拓撲的清單。使用本節中的連結來檢視特定拓撲的詳細資訊。
+- **監督員摘要**：Storm 監督員的資訊。
+- **Nimbus 組態**：叢集的 Nimbus 組態。
 
 ### 拓撲摘要
 
-選取 [拓撲摘要] 區段中的連結會顯示拓撲的下列資訊：- **拓撲摘要**：拓撲的基本資訊。- **拓撲動作**：您可以對拓撲執行的管理動作。- **啟動**：繼續處理已停用的拓撲。- **停用**：暫停執行中拓撲。- **重新平衡**：調整拓撲的平行處理原則。變更叢集中的節點數目之後，您應該重新平衡執行中拓撲。這可讓拓撲調整平行處理原則，以彌補叢集中增加或減少的節點數目。
+選取 [拓撲摘要] 區段中的連結會顯示拓撲的下列資訊：
+- **拓撲摘要**：拓撲的基本資訊。
+- **拓撲動作**：您可以針對拓撲執行的管理動作。
+  - **啟用**：繼續處理已停用的拓撲。
+  - **停用**：暫停執行中的拓撲。
+  - **重新平衡**：調整拓撲的平行處理原則。變更叢集中的節點數目之後，您應該重新平衡執行中拓撲。這可讓拓撲調整平行處理原則，以彌補叢集中增加或減少的節點數目。
 
-      For more information, see <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of a Storm topology</a>.
+      如需詳細資訊，請參閱<a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">了解 Storm 拓撲的平行處理原則</a>。
 
   - **終止**：在指定的逾時之後結束 Storm 拓撲。
 
@@ -118,13 +127,19 @@ Storm UI 的主頁面會提供下列資訊：- **叢集摘要**：Storm 叢集�
 
 ### Spout 和 Bolt 摘要
 
-從 [Spout] 或 [Bolt] 區段中選取 Spout 會顯示所選取項目的下列資訊：- **元件摘要**：Spout 或 Bolt 的基本資訊。- **Spout/Bolt 統計資料**：Spout 或 Bolt 的統計資料。使用 [時段] 資料行中的連結以設定頁面上其他項目的時間範圍。- **輸入統計資料** (只有 Bolt)：Bolt 所耗用的輸入串流的相關資訊。- **輸出統計資料**：此 Spout 或 Bolt 所發出的串流的相關資訊。- **執行程式**：Spout 或 Bolt 的執行個體的相關資訊。選取特定執行程式的 [連接埠] 項目，以檢視針對此執行個體所產生之診斷資訊的記錄。- **錯誤**：此 Spout 或 Bolt 的任何錯誤資訊。
+從 [Spout] 或 [Bolt] 區段中選取 Spout 會顯示所選取項目的下列資訊：
+- **元件摘要**：Spout 或 Bolt 的基本資訊。
+- **Spout/Bolt 統計資料**：Spout 或 Bolt 的統計資料。使用 [視窗] 資料行中的連結，以設定頁面上其餘項目的時間範圍。
+- **輸入統計資料** (僅限 Bolt)：Bolt 所使用輸入資料流的資訊。
+- **輸出統計資料**：此 Spout 或 Bolt 所發出資料流的資訊。
+- **執行程式**：Spout 或 Bolt 執行個體的資訊。選取特定執行程式的 [連接埠] 項目，以檢視針對此執行個體所產生之診斷資訊的記錄。
+- **錯誤**：此 Spout 或 Bolt 的任何錯誤資訊。
 
 ## REST API
 
 Storm UI 是以 REST API 為建置基礎，因此您可以使用 REST API 執行類似的管理和監視功能。您可以使用 REST API 建立自訂工具來管理和監視 Storm 拓撲。
 
-如需詳細資訊，請參閱 [Storm UI REST API](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md)。下列資訊專用於搭配使用 REST API 與 Apache Storm on HDInsight。
+如需詳細資訊，請參閱 [Storm UI REST API](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html)。下列資訊專用於搭配使用 REST API 與 Apache Storm on HDInsight。
 
 > [AZURE.IMPORTANT] Storm REST API 不是透過網際網路公開可用，而是必須使用 HDInsight 叢集前端節點的 SSH 通道來存取。如需建立及使用 SSH 通道的詳細資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)。
 
@@ -155,4 +170,4 @@ REST API 的要求必須使用**基本驗證**，因此請使用 HDInsight 叢�
 
 若需更多範例拓撲的清單，請參閱 [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

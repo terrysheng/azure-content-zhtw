@@ -1,6 +1,6 @@
 <properties
  pageTitle="Azure IoT 中樞概觀 | Microsoft Azure"
- description="Azure IoT 中樞服務概觀，包括裝置連線性、通訊模式和服務輔助通訊模式"
+ description="Azure IoT 中樞服務概觀，包括物聯網架構、裝置連線性、通訊模式和服務輔助通訊模式"
  services="iot-hub"
  documentationCenter=""
  authors="dominicbetts"
@@ -27,7 +27,7 @@ Azure IoT 中樞是一項完全受管理的服務，可在數百萬個 IoT 裝�
 - 可廣泛監視裝置的連線情況和裝置的身分識別管理事件。
 - 包括適用於最受歡迎的語言和平台的裝置程式庫。
 
-![IoT 中樞做為雲端閘道][img-architecture]
+![Azure IoT 中樞做為物聯網解決方案中的雲端閘道][img-architecture]
 
 ## IoT 裝置連線能力面臨的挑戰
 
@@ -112,4 +112,4 @@ Azure IoT 中樞會在實作[服務輔助通訊][lnk-service-assisted-pattern]�
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

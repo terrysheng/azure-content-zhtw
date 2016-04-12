@@ -27,28 +27,28 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-以下的範例 PowerShell 命令會預期已根據上述案例建立簡單的環境。如果您想要以本文件顯示的方式執行命令，請先依照下列方式建置測試環境：部署[此範本](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd)，按一下 [部署至 Azure]，視情況取代預設參數值，然後遵循入口網站中的指示。下列步驟使用 **RG-NSG** 做為部署範本所在目標資源群組的名稱。
+以下的範例 PowerShell 命令會預期已根據上述案例建立簡單的環境。如果您想要以本文件顯示的方式執行命令，請先依照下列方式建置測試環境：部署[此範本](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd)，按一下 [部署至 Azure]，視情況取代預設參數值，然後遵循入口網站中的指示。下列步驟使用 **RG-NSG** 作為部署範本之資源群組的名稱。
 
 ## 建立 NSG-FrontEnd NSG
 
-若要根據上述案例建立 **NSG-FrontEnd** NSG，請依照下列步驟執行。
+若要根據上述案例建立 **NSG-FrontEnd** NSG，請遵循下列步驟執行。
 
 1. 透過瀏覽器瀏覽至 http://portal.azure.com，並視需要使用您的 Azure 帳戶登入。
 2. 按一下 [瀏覽] > [網路安全性群組]。
 
-	![Azure 入口網站 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
+    ![Azure 入口網站 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
 
 3. 在 [網路安全性群組] 刀鋒視窗中，按一下 [新增]。
+  
+    ![Azure 入口網站 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
 
-	![Azure 入口網站 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
-
-4. 在 [建立網路安全性群組] 刀鋒視窗的 *RG-NSG* 資源群組中，建立名為 *NSG-FrontEnd* 的 NSG，然後按一下 [建立]。
+4. 在 [建立網路安全性群組] 刀鋒視窗的 *RG-NSG* 資源群組中建立名為 *NSG-FrontEnd* 的 NSG，然後按一下 [建立]。
 
 	![Azure 入口網站 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure13.png)
 
 ## 建立現有 NSG 中的規則
 
-若要從 Azure 入口網站建立現有 NSG 中的規則，請依照下列步驟執行。
+若要從 Azure 入口網站建立現有 NSG 中的規則，請遵循下列步驟執行。
 
 2. 按一下 [瀏覽] > [網路安全性群組]。
 
@@ -87,10 +87,10 @@
 
 ## 建立 NSG-BackEnd NSG
 
-若要建立 **NSG-BackEnd** NSG 並建立它與 **BackEnd** 子網路的關聯，請依照下列步驟執行。
+若要建立 **NSG-BackEnd** NSG 並建立它與 **BackEnd** 子網路的關聯，請遵循下列步驟。
 
 1. 重複[建立 NSG-FrontEnd NSG](#Create-the-NSG-FrontEnd-NSG) 中的步驟，建立名為 *NSG-BackEnd* 的 NSG。
-2. 重複[建立現有 NSG 中的規則](#Create-rules-in-an-existing-NSG)中的步驟，建立下表中的**輸入**規則。
+2. 重複[在現有的 NSG 中建立規則](#Create-rules-in-an-existing-NSG)中的步驟，建立下表中的**輸入**規則。
 
 	|輸入規則|輸出規則|
 	|---|---|
@@ -103,4 +103,4 @@
 - 了解如何[管理現有的 NSG](virtual-network-manage-nsg-arm-portal.md)
 - [啟用 NSG 的記錄](virtual-network-nsg-manage-log.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

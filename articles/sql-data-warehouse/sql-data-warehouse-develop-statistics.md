@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 管理 SQL 資料倉儲中的統計資料
@@ -90,13 +90,13 @@
 
 此語法會使用所有預設選項。根據預設，SQL 資料倉儲在建立統計資料時會取樣 20% 的資料表。
 
-```
+```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
 例如：
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
@@ -106,13 +106,13 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 
 若要取樣整個資料表，請使用此語法：
 
-```
+```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
 例如：
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
@@ -120,7 +120,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 
 或者，您可以以百分比指定取樣大小：
 
-```
+```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -132,7 +132,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 
 這個範例會建立某個值範圍的統計資料。您可以輕鬆地定義這些值以符合分割中的值範圍。
 
-```
+```sql
 CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '20001231';
 ```
 
@@ -142,7 +142,7 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 
 您當然可以將選項合在一起。以下範例會使用自訂樣本大小建立篩選的統計資料物件：
 
-```
+```sql
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -156,7 +156,7 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 在此範例中，長條圖位於 *product\_category*。跨資料行統計資料會依據 *product\_category* 和 *product\_sub\_category* 計算：
 
-```
+```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
@@ -166,7 +166,7 @@ CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category)
 
 建立統計資料的其中一個方法是在建立資料表後發出 CREATE STATISTICS 命令。
 
-```
+```sql
 CREATE TABLE dbo.table1
 (
    col1 int
@@ -190,7 +190,7 @@ SQL 資料倉儲沒有相當於 SQL Server 中 [sp\_create\_stats][] 的系統�
 
 這會協助您開始進行資料庫設計。請放心地依照您的需求進行調整。
 
-```
+```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_create_stats]
 (   @create_type    tinyint -- 1 default 2 Fullscan 3 Sample
 ,   @sample_pct     tinyint
@@ -273,7 +273,7 @@ DROP TABLE #stats_ddl;
 
 若要利用此程序對資料表中的所有資料行建立統計資料，只需呼叫程序即可。
 
-```
+```sql
 prc_sqldw_create_stats;
 ```
 
@@ -288,13 +288,13 @@ prc_sqldw_create_stats;
 ### 答：更新一個特定統計資料物件 ###
 使用下列語法來更新特定統計資料物件：
 
-```
+```sql
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
 例如：
 
-```
+```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
@@ -304,13 +304,13 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ### B.更新資料表上的所有統計資料。 ###
 這顯示一個簡單的方法來更新資料表上的所有統計資料物件。
 
-```
+```sql
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
 例如：
 
-```
+```sql
 UPDATE STATISTICS dbo.table1;
 ```
 
@@ -351,7 +351,7 @@ UPDATE STATISTICS dbo.table1;
 
 此檢視會一起顯示與統計資料相關的資料行，以及 [STATS\_DATE()][] 函式的結果。
 
-```
+```sql
 CREATE VIEW dbo.vstats_columns
 AS
 SELECT
@@ -401,13 +401,13 @@ DBCC SHOW\_STATISTICS() 顯示統計資料物件中保存的資料。此資料�
 
 這個簡單範例顯示統計資料物件的所有三個部分。
 
-```
+```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
 例如：
 
-```
+```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
@@ -415,13 +415,13 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 
 如果您只想要檢視特定部分，請使用 `WITH` 子句並指定您要查看哪些部分：
 
-```
+```sql
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
 例如：
 
-```
+```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
@@ -461,4 +461,4 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [更新統計資料]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="03/16/2016"
+	ms.date="03/18/2016"
 	ms.author="jeffreyg"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -131,4 +131,4 @@
 - [使用 C# 來建立彈性資料庫集區](sql-database-elastic-pool-create-csharp.md)
 - [彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

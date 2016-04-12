@@ -64,8 +64,7 @@
 4. 按一下頁面底部的 [加入]。<br><br> ![應用程式][3]<br>
 5. 在 [欲執行動作] 對話方塊中，按一下 [從資源庫中新增應用程式]。<br><br> ![應用程式][4]<br>
 6. 在搜尋方塊中，輸入 **Secure Deliver**。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_01.png)<br>
-7. 在結果窗格中，選取 [Secure Deliver]，然後按一下 [完成] 以新增應用程式。<br><br>
-
+7. 在結果窗格中，選取 [Secure Deliver]，然後按一下 [完成] 以新增應用程式。<br><br> ![建立 Azure AD 測試使用者](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_02.png)<br>
 ##  設定並測試 Azure AD 單一登入
 本節的目標是要說明如何以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 Secure Deliver 搭配運作的 Azure AD 單一登入。
 
@@ -193,7 +192,7 @@
 
 ### 測試單一登入
 
-本節的目標是要使用存取面板，來測試您的 Azure AD 單一登入組態。<br> 當您在存取面板中按一下 [Secure Deliver] 圖格時，應該會自動登入您的 Secure Deliver 應用程式。
+本節的目標是要使用「存取面板」來測試您的 Azure AD 單一登入組態。<br> 當您在存取面板中按一下 [Secure Deliver] 圖格時，應該會自動登入您的 Secure Deliver 應用程式。
 
 
 ## 其他資源
@@ -220,4 +219,4 @@
 [204]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="使用範本來部署熱門的應用程式架構 |Microsoft Azure"
-   description="建立熱門的應用程式架構，方法是使用 Azure 資源管理員範本來安裝 Active Directory、Docker 等等。"
+   pageTitle="部署熱門應用程式架構 | Microsoft Azure"
+   description="使用 Azure Resource Manager 範本在 Windows 和 Linux VM 上建立熱門的應用程式架構，以安裝 Active Directory、Docker 等等。"
    services="virtual-machines-windows"
    documentationCenter="virtual-machines"
    authors="squillace"
@@ -17,10 +17,10 @@
    ms.date="02/03/2016"
    ms.author="rasquill"/>
 
-# 使用 Azure 資源管理員範本來部署熱門的應用程式架構
+# 使用 Azure Resource Manager 範本來部署熱門的應用程式架構
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+工作負載的設計讓它通常需要許多資源才能運作。Azure 資源管理員範本不只能讓您定義應用程式的設定方式，更能讓您定義如何將資源應加以部署，使其支援已設定的應用程式。本文介紹資源庫中最熱門的範本，並提供您有關使用 Azure 入口網站、Azure CLI 或 PowerShell 來部署這些範本的資訊。您也可以[查看本主題的 Linux 版本](virtual-machines-linux-app-frameworks.md)。
 
 [AZURE.INCLUDE [virtual-machines-common-app-frameworks](../../includes/virtual-machines-common-app-frameworks.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

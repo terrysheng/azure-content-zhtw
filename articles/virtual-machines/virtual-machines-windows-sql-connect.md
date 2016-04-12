@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/18/2015"
+	ms.date="03/24/2016"
 	ms.author="jroth" />
 
 # 連線到 Azure 上的 SQL Server 虛擬機器 (資源管理員)
@@ -28,7 +28,7 @@
 
 但在 SQL Server 連線方面還是有一些 Azure VM 特定的設定。本文涵蓋一些[一般連線案例](#connection-scenarios)並提供[在 Azure VM 中設定 SQL Server 連線的詳細步驟](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm)。
 
-本文的重點在於連線。如需有關佈建和連線能力的完整逐步解說，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-classic-portal-sql.md)。
+本文著重於如何使用資源管理員模型連接到 SQL Server VM。如需有關佈建和連線能力的完整逐步解說，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-portal-sql-server-provision.md)。
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 
@@ -61,7 +61,7 @@
 
 ### 連接相同虛擬網路中的 SQL Server
 
-[虛擬網路](../virtual-network/virtual-network-overview.md)讓其他案例變得可行。您可以連接在相同虛擬網路中的 VM，即使這些 VM 位於不同的資源群組也可以。[站對站 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) 可讓您建立能將 VM 連接至內部部署網路和電腦的混合式架構。
+[虛擬網路](../virtual-network/virtual-networks-overview.md)讓其他案例變得可行。您可以連接在相同虛擬網路中的 VM，即使這些 VM 位於不同的資源群組也可以。[站對站 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) 可讓您建立能將 VM 連接至內部部署網路和電腦的混合式架構。
 
 虛擬網路也可讓您將 Azure VM 加入網域。這是在 SQL Server 使用的 Windows 驗證的唯一方式。其他連接案例則需要使用者名稱和密碼進行 SQL 驗證。
 
@@ -94,10 +94,10 @@
 
 ## 後續步驟
 
-若要查看佈建指示以及連線步驟，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-classic-portal-sql.md)。
+若要查看佈建指示以及連線步驟，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-portal-sql-server-provision.md)。
 
 請務必檢閱在 Azure 虛擬機器上執行之 SQL Server 的所有安全性最佳做法。如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 安全性考量](virtual-machines-windows-classic-sql-security.md)。
 
 如需在 Azure VM 中執行 SQL Server 的其他相關主題，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-windows-classic-sql-overview.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!----HONumber=AcomDC_0330_2016-->

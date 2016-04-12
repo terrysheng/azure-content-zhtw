@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # 如何在 DocumentDB 中使用 .NET SDK 分割資料
 
-Azure DocumentDB 是一項文件資料庫服務，可讓您在佈建集合期間，使用 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 和 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) (亦稱為**分區化**) 順利調整帳戶。為了讓您更輕鬆地開發資料分割應用程式，並減少分割工作所需的樣板程式碼數量，我們已在 .NET、Node.js 和 Java SDK 中加入功能，讓您可以輕鬆地建立跨多個資料分割向外延展的應用程式。
+Azure DocumentDB 支援的集合可以相應增加至[較大的儲存體和輸送量](documentdb-partition-data.md)。不過，還有使用案例很有幫助，對於分割行為有細微的控制。為了減少分割工作所需的樣板程式碼數量，我們已在 .NET、Node.js 和 Java SDK 中加入功能，讓您可以輕鬆地建立跨多個集合相應放大的應用程式。
 
 在本文中，我們將探討在 .NET SDK 中的類別和介面，以及如何使用它們來開發資料分割應用程式。
 
@@ -26,8 +26,8 @@ Azure DocumentDB 是一項文件資料庫服務，可讓您在佈建集合期間
 
 在深入探討資料分割之前，讓我們複習一下一些與資料分割相關的基本 DocumentDB 概念。每個 Azure DocumentDB 資料庫帳戶是由一組資料庫所組成，每個資料庫都包含多個集合，而集合可包含預存程序、觸發程序、UDF、文件和相關附件。您可以將集合視為 DocumentDB 中的資料分割，並具有下列屬性：
 
-- 集合不只是邏輯容器，還是實體分割區。因此，在查詢或處理其位於相同集合內的文件時具有效能優勢。
-- 集合是 ACID 交易 (亦即，預存程序和觸發程序) 的界限。
+- 集合會提供效能隔離。因此，在排序相同集合內的類似文件時具有效能優勢。例如，對於時間序列資料，您可能想要將過去一個月經常查詢的資料，放在具有較高佈建輸送量的集合內，而將較舊的資料放在具有較低佈建輸送量的集合內。
+- ACID 交易，也就是預存程序和觸發無法跨越集合。交易的範圍侷限在集合內的單一分割索引鍵值。
 - 集合不會強制執行結構描述，因此可以用於相同或不同類型的 JSON 文件。
 
 從 [Azure DocumentDB .NET SDK 1.1.0](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 版起，您可以直接在資料庫中執行文件作業。在內部，[DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) 會使用您已為資料庫指定的 PartitionResolver，將要求路由至適當的集合。
@@ -134,12 +134,11 @@ foreach (UserProfile activeUser in query)
 >[AZURE.NOTE] DocumentDB 會限制建立集合的速率，因此此處顯示的部分範例方法可能需要幾分鐘才能完成。
 
 ##常見問題集
-**DocumentDB 為什麼支援用戶端與伺服器端資料分割？**
+** DocumentDB 是否支援伺服器端分割？**
 
-DocumentDB 支援用戶端資料分割的幾個原因如下：
+是，DocumentDB 支援[伺服器端分割](documentdb-partition-data.md)。DocumentDB 也針對更進階的使用案例，透過用戶端分割解析程式支援用戶端分割。
 
-- 真的很難從開發人員中抽走集合的概念，而不會影響到下列其中任何一項：一致性索引/查詢、高可用性和 ACID 交易保證。 
-- 文件資料庫通常在定義資料分割策略方面需要彈性，而伺服器端方法可能無法容納。 
+** 何時應該使用伺服器端與用戶端分割？** 對於大多數的使用案例，我們建議使用伺服器端分割，因為它會處理分割資料和路由傳送要求的系統管理工作。不過，如果您需要範圍分割或特殊的使用案例來取得不同的分割索引鍵值之間的效能隔離，則用戶端分割可能是最好的方法。
 
 **如何將集合新增或移除至我的資料分割配置？**
 
@@ -154,13 +153,13 @@ DocumentDB 支援用戶端資料分割的幾個原因如下：
 您可以藉由實作自己的 IPartitionResolver，在內部使用一或多個現有的解析程式來鏈結 PartitionResolvers。如需範例，請查看範例專案中的 TransitionHashPartitionResolver。
 
 ##參考
-* [Github 上的資料分割程式碼範例](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning)
-* [使用 DocumentDB 分割資料的概念](documentdb-partition-data.md)
+* [使用 DocumentDB 分割資料](documentdb-partition-data.md)
 * [DocumentDB 集合和效能等級](documentdb-performance-levels.md)
+* [Github 上的資料分割程式碼範例](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Partitioning)
 * [在 MSDN 的 DocumentDB .NET SDK 文件](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [DocumentDB .NET 範例](https://github.com/Azure/azure-documentdb-net)
 * [DocumentDB 限制](documentdb-limits.md)
 * [有關效能秘訣的 DocumentDB 部落格](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

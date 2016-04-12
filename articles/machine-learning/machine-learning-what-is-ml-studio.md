@@ -56,9 +56,9 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 
 ### 資源庫
 
-按一下 [資源庫] 索引標籤，會帶您進入 Cortana 分析資源庫。[資源庫] 可以讓資料科學家和開發人員社群在此分享使用 Cortana 分析套件的元件建立的解決方案。
+按一下 [資源庫] 索引標籤，會帶您進入 Cortana Intelligence Gallery。[資源庫] 可以讓資料科學家和開發人員社群在此分享使用 Cortana Intelligence 套件的元件建立的解決方案。
 
-如需有關資源庫的詳細資訊，請參閱[共用及探索 Cortana 分析資源庫中的方案](machine-learning-gallery-how-to-use-contribute-publish.md)。
+如需有關資源庫的詳細資訊，請參閱[共用及探索 Cortana Intelligence Gallery 中的方案](machine-learning-gallery-how-to-use-contribute-publish.md)。
 
 ## 實驗的元件
 
@@ -115,4 +115,4 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # 搭配使用 Azure 機器學習服務與 SQL 資料倉儲
@@ -54,7 +54,7 @@ Azure 機器學習服務是一項完全受管理的預測性分析服務，您�
 7. 資料庫查詢：輸入 SQL 陳述式，描述您要讀取的資料。在此情況下，我們將使用下列查詢從 Product 資料表讀取資料。
 
 
-```
+```SQL
 SELECT ProductKey, EnglishProductName, StandardCost,
         ListPrice, Size, Weight, DaysToManufacture,
         Class, Style, Color
@@ -149,4 +149,4 @@ FROM dbo.DimProduct;
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/26/2016"
+   ms.date="03/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # 使用 Powershell 建立 SQL 資料倉儲
@@ -78,7 +78,7 @@ New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "myn
 如需參數選項，請參閱[建立資料庫 (Azure SQL 資料倉儲)](https://msdn.microsoft.com/library/mt204021.aspx)。
 
 ## 後續步驟
-您的 SQL 資料倉儲完成佈建之後，您可以[載入範例資料][]或查看如何[開發][]、[載入][] 或[移轉][]。
+您的 SQL 資料倉儲完成佈建之後，您可以[載入範例資料][]或查看如何[開發][]、[載入][]，或[移轉][]。
 
 如果您有興趣進一步了解如何以程式設計方式管理 SQL 資料倉儲，請查看我們的 [Powershell][] 或 [REST API][] 文件。
 
@@ -88,7 +88,8 @@ New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "myn
 
 <!--Article references-->
 [移轉]: ./sql-data-warehouse-overview-migrate.md
-[開發]: ./sql-data-warehouse-overview-develop/.md
+[開發]: ./sql-data-warehouse-overview-develop.md
+[載入]: ./sql-data-warehouse-load-with-bcp.md
 [載入範例資料]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [Powershell]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [REST API]: https://msdn.microsoft.com/library/azure/dn505719.aspx
@@ -96,4 +97,4 @@ New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "myn
 [firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 [如何安裝和設定 Azure PowerShell]: ./powershell-install-configure.md
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

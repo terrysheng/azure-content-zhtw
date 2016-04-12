@@ -122,7 +122,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 程式碼：
 
 ```csharp
-this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("Foo", 42) });
+this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("Memory", 1234), new LoadMetric("metric1", 42) });
 ```
 
 服務複本或執行個體只能針對它們設定要使用的度量報告負載。建立每個服務時會設定度量清單。如果服務複本或執行個體嘗試針對目前未設定要使用的度量報告負載，Service Fabric 會記錄此報告但予以忽略，這表示我們在計算或報告叢集的狀態時不會使用該度量。這很完美，因為它能夠進行更大規模的實驗 – 程式碼可以測量並報告它知道作法的所有項目，而運算子可以迅速設定、調整及更新該服務的資源平衡規則，但不必變更程式碼。比方說，這可能包括停用有錯誤報告的度量、根據行為重新設定度量的權數，或僅在部署及驗證程式碼之後啟用新的度量。
@@ -196,4 +196,4 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 [Image3]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

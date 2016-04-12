@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="03/23/2016"
    ms.author="sstein"/>
 
 # 使用 C&#x23; 建立和管理 SQL Database
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-elastic-pool-portal.md)
+- [Azure 入口網站](sql-database-elastic-pool-create-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -30,11 +30,11 @@
 
 為了清楚起見，將個別程式碼片段分別列出，範例主控台應用程式會將所有命令整合在本文底端的區段中。
 
-Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-group-overview.md)式 API，它會包裝[資源管理員式 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)。此用戶端程式庫遵循資源管理員式用戶端程式庫的常見模式。資源管理員需要資源群組，並且使用 [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD) 進行驗證。
+Azure SQL Database Library for .NET 提供 [Azure 資源管理員](../resource-group-overview.md)式 API，它會包裝[資源管理員式 SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)。此用戶端程式庫遵循資源管理員式用戶端程式庫的常見模式。資源管理員需要資源群組，並且使用 [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD) 進行驗證。
 
 <br>
 
-> [AZURE.NOTE]SQL Database Library for .NET 目前為預覽狀態。
+> [AZURE.NOTE] SQL Database Library for .NET 目前為預覽狀態。
 
 <br>
 
@@ -93,7 +93,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 1. 在頁面底部按一下 [新增應用程式]。
 1. 選取 [Microsoft 應用程式]。
 1. 選取 [Azure 服務管理 API]，然後完成精靈。
-2. 選取 API 之後，您現在必須授與必要的存取權以存取此 API，方法是選取 [存取 Azure 服務管理 (預覽)]。
+2. 選取 API 之後，您現在必須授與必要的存取權以存取此 API，方法是選取 [**存取 Azure 服務管理 (預覽)**]。
 
     ![權限][2]
 
@@ -148,7 +148,7 @@ Azure SQL Database Library for .NET 提供 [Azure 資源管理員](resource-grou
 
 
 
-> [AZURE.NOTE]這篇文章中的範例使用每個 API 要求的同步表單，並且封鎖直到基礎服務上的 REST 呼叫完成。有可用的非同步方法。
+> [AZURE.NOTE] 這篇文章中的範例使用每個 API 要求的同步表單，並且封鎖直到基礎服務上的 REST 呼叫完成。有可用的非同步方法。
 
 
 
@@ -798,4 +798,4 @@ SQL Database 包含在伺服器中。伺服器名稱在全域的所有 Azure SQL
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

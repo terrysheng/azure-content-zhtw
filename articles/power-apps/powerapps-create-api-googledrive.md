@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/03/2016"
+   ms.date="03/29/2016"
    ms.author="litran"/>
 
 # 在 PowerApps Enterprise 中建立新的 Google Drive API
 
 > [AZURE.SELECTOR]
-- [邏輯應用程式](../articles/connectors/create-api-googledrive.md)
+- [邏輯應用程式](../articles/connectors/connectors-create-api-googledrive.md)
 - [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-googledrive.md)
 
 將 Google Drive API 加入您組織 (租用戶) 的 App Service 環境中。
@@ -89,7 +89,7 @@ Google 雲端硬碟應用程式便建立好了。您可以在 Azure 入口網站
 
 ## 請參閱 REST API
 
-[Google Drive REST API](../connectors/create-api-googledrive.md) 參考。
+[Google Drive REST API](../connectors/connectors-create-api-googledrive.md) 參考。
 
 ## 摘要和後續步驟
 在本主題中，您已將 Google Drive API 新增至 PowersApps Enterprise。接下來，請授與使用者此 API 的存取權，讓使用者能夠將此 API 新增至其應用程式：
@@ -115,4 +115,4 @@ Google 雲端硬碟應用程式便建立好了。您可以在 Azure 入口網站
 [15]: ./media/powerapps-create-api-googledrive/browseall.png
 [16]: ./media/powerapps-create-api-googledrive/allresources.png
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

@@ -10,5 +10,7 @@
  - 用於計算記錄群組的統計資料
 - [純量](../articles/application-insights/app-analytics-scalars.md)
  - 用於構成查詢參數的數字、字串及其他運算式。
+- [使用](../articles/application-insights/app-analytics-using.md)
+ - 使用分析。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

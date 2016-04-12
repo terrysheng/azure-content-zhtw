@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 資料目錄開始使用資料目錄"
-   description="Azure 資料目錄案例和功能的端對端教學課程。"
+   pageTitle="Azure 資料目錄開始使用資料目錄 | Microsoft Azure"
+   description="展示 Azure 資料目錄案例和功能的端對端教學課程。"
    documentationCenter=""
    services="data-catalog"
    authors="dvana"
@@ -258,4 +258,4 @@ Adventure Works 資料庫支援一家虛構自行車製造商 (Adventure Works C
 
 在本教學課程中，您已瀏覽 **Azure 資料目錄**的基本功能，包括註冊、註解、探索和管理企業資料來源。既然您已經完成本教學課程，現在可以開始使用。您可以立即開始註冊您和小組所依賴的資料來源，並邀請同事使用目錄。
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

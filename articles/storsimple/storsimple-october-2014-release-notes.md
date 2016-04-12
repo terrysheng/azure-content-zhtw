@@ -3,8 +3,8 @@
     description="說明 2014 年 10 月 Microsoft Azure StorSimple 版本 (Update 0.1) 的新功能與修正、未解決問題及可用的因應措施。"
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
-    manager="carolz"
+    authors="alkohli"
+    manager="carmonm"
     editor="" />
  <tags 
     ms.service="storsimple"
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="12/01/2015"
-    ms.author="v-sharos" />
+    ms.date="03/23/2016"
+    ms.author="alkohli" />
 
 # StorSimple 8000 系列 Update 0.1 版本資訊 – 2014 年 10 月  
 
@@ -35,7 +35,7 @@
 
 - 在您掃描更新前，請確定這兩個裝置控制站都在執行中。如果有任一個控制器不在執行中，掃描就會失敗。若要確認控制器處於狀況良好的狀態中，請瀏覽到 [維護] 頁面下的 [硬體狀態]。如果有 [需要注意] 的元件，進一步繼續前，請連絡 Microsoft 支援。  
 - 請確定控制器 0 與控制器 1 兩者的固定 IP 都可路由，並可以連線到網際網路用來提供更新裝置的服務。您可以使用[測試連接 Cmdlet](https://technet.microsoft.com/library/hh849808.aspx)，ping 網路外的已知位址，例如 outlook.com，以確認控制器有能力連線到外部網路。  
-- 請確定 StorSimple 裝置上的連接埠 80 和 443 可用來進行傳出通訊。如需詳細資訊，請參閱 [StorSimple 裝置的網路需求](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device)。  
+- 確定 StorSimple 裝置上的必要輸出連接埠可用於輸出通訊。如需詳細資訊，請參閱 [StorSimple 裝置的網路需求](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device)。  
 - 如果裝置軟體比 6.3.9600.17312 版 (2014 年 10 月更新) 還舊，如果已啟用，請停用資料 2 與資料 3 連接埠後，再開始更新。套用更新時，如果您讓資料 2 或資料 3 連接埠保持啟用狀態，可能會導致您的裝置控制站進入修復模式。請注意，當您停用網路介面時，會使所有相關聯的磁碟區離線，並且會在更新期間中斷 I/O。  
 
 ## 10 月發行的新功能
@@ -99,4 +99,4 @@
 這個版本不包含任何虛擬裝置的更新。套用此更新不會變更虛擬裝置的軟體版本。
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0330_2016-->

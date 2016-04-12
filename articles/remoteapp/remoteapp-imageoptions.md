@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="03/28/2016"
     ms.author="elizapo" />
 
 
 
 # 建立 Azure RemoteApp 映像
 
-Azure RemoteApp 使用映像保留與使用者共用的應用程式。若要使用選擇的應用程式建立 Azure RemoteApp 集合 (不論是雲端還是混合式)，請從建立已安裝這些應用程式的映像開始。接著，建立使用該映像的集合，並將使用者指派給集合，然後將應用程式發佈給那些使用者。
+Azure RemoteApp 使用映像保留與使用者共用的應用程式。(我們使用您的映像來建立 VM - 這是使用者登入 Azure RemoteApp 時存取的內容。) 若要使用選擇的應用程式建立 Azure RemoteApp 集合 (不論是雲端還是混合式)，請從建立已安裝這些應用程式的映像開始。接著，建立使用該映像的集合，並將使用者指派給集合，然後將應用程式發佈給那些使用者。
 
 您有幾個選項可建立或使用映像。映像的基本[需求](remoteapp-imagereqs.md)是它執行 Windows Server 2012 R2 並已安裝遠端桌面工作階段主機 (RDSH) 角色。如何達成就是有趣的地方。
 
@@ -31,4 +31,4 @@ Azure RemoteApp 使用映像保留與使用者共用的應用程式。若要使�
 
 不論在何處取得映像或如何建立映像，您都會想要確定您了解[應用程式需求](remoteapp-appreqs.md)，確保您的應用程式在 RemoteApp 中運作良好。然後，下一步是建立[雲端](remoteapp-create-cloud-deployment.md)或[混合式](remoteapp-create-hybrid-deployment.md) 集合。
 
-<!-------HONumber=AcomDC_1210_2015--->
+<!---HONumber=AcomDC_0330_2016-->

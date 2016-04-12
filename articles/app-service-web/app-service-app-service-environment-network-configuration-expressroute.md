@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="03/28/2016" 
 	ms.author="stefsch"/>
 
 # 使用 ExpressRoute 之 App Service 環境的網路組態詳細資料 
@@ -29,10 +29,10 @@
 在連接至 ExpressRoute 的虛擬網路中，可能一開始會不符合 App Service 環境的一些網路連線需求。App Service 環境需要下列所有項目，才能正確運作：
 
 
--  全球 Azure 儲存體端點的輸出網路連線。這包括位於與 App Service 環境相同區域中的端點，以及位於「其他」 Azure 區域的儲存體端點。Azure 儲存體端點在下列 DNS 網域之下解析：*table.core.windows.net*、*blob.core.windows.net*、*queue.core.windows.net* 和 *file.core.windows.net*。  
--  位於與 App Service 環境相同區域中的 SQL DB 端點的輸出網路連接。Sql DB 端點在以下網域之下解析：*database.windows.net*。
--  Azure 管理平面端點 (ASM 和 ARM 端點) 的輸出網路連線。這包括 *management.core.windows.net* 和 *management.azure.com* 的輸出連線。 
--  *ocsp.msocsp.com* 的輸出連線。需要此連線才能支援 SSL 功能。
+-  全球 Azure 儲存體端點的輸出網路連線。這包括位於與 App Service 環境相同區域中的端點，以及位於**其他** Azure 區域的儲存體端點。Azure 儲存體端點在下列 DNS 網域之下解析：table.core.windows.net、blob.core.windows.net、queue.core.windows.net 和 file.core.windows.net。  
+-  位於與 App Service 環境相同區域中的 SQL DB 端點的輸出網路連接。Sql DB 端點在以下網域之下解析：database.windows.net。
+-  Azure 管理平面端點 (ASM 和 ARM 端點) 的輸出網路連線。這包括 management.core.windows.net 和 management.azure.com 的輸出連線。 
+-  ocsp.msocsp.com、mscrl.microsoft.com 和 crl.microsoft.com 的輸出連線。需要此連線才能支援 SSL 功能。
 -  虛擬網路的 DNS 設定必須能夠解析前面幾點所提到的所有端點和網域。如果無法解析這些端點，App Service 環境建立嘗試將會失敗，而且現有的 App Service 環境會標示為狀況不良。
 -  如果 VPN 閘道的另一端有自訂 DNS 伺服器存在，則必須可從包含 App Service 環境的子網路連接該 DNS 伺服器。 
 -  輸出網路路徑不可經過內部公司 Proxy，也不可使用強制通道傳送至內部部署。這麼會變更來自 App Service 環境的輸出網路流量的有效 NAT 位址。變更 App Service 環境之輸出網路流量的 NAT 位址會導致上述眾多端點的連接失敗。這會導致 App Service 環境建立嘗試失敗，而之前狀況良好的 App Service 環境會標示為狀況不良。  
@@ -71,7 +71,7 @@
 1. 從 [Azure 下載頁面][AzureDownloads]安裝最新 Azure Powershell (日期為 2015 年 6 月或更新版本)。在 [命令列工具] 的 [Windows Powershell] 下，有一個 [安裝] 連結可安裝最新的 Powershell Cmdlet。
 
 2. 建議您建立唯一的子網路，以專供 App Service 環境使用。這可確保套用至子網路的 UDR 只會開啟 App Service 環境的輸出流量。
-3. **重要事項**：除非已經進行下列組態步驟，否則不要部署 App Service 環境。這可確保輸出網路連線可用，再嘗試部署 App Service 環境。
+3. **重要事項**：除非**已經**進行下列組態步驟，否則不要部署 App Service 環境。這可確保輸出網路連線可用，再嘗試部署 App Service 環境。
 
 **步驟 1：建立具名路由表**
 
@@ -137,4 +137,4 @@
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0330_2016-->

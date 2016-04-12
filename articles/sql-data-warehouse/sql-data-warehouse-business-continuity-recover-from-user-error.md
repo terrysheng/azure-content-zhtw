@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="03/23/2016"
    ms.author="sahajs;barbkess;sonyama"/>
 
 # 從 SQL 資料倉儲中的使用者錯誤復原資料庫
@@ -44,7 +44,7 @@ SQL 資料倉儲提供兩個核心功能，可從造成非預期之資料損毀�
 6. 將資料庫還原到想要的還原點。
 7. 監視還原的進度。
 
-```
+```Powershell
 
 Login-AzureRmAccount
 Get-AzureRmSubscription
@@ -95,13 +95,13 @@ Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $R
 3. 選取包含要還原之已刪除資料庫的訂用帳戶。
 4. 從已刪除資料庫的清單中找出資料庫及其刪除日期。
 
-```
+```Powershell
 Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>"
 ```
 
 5. 取得特定已刪除的資料庫，並開始進行還原。
 
-```
+```Powershell
 $Database = Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>" -DeletionDate "1/01/2015 12:00:00 AM"
 
 $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName "<NewDatabaseName>"
@@ -141,4 +141,4 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

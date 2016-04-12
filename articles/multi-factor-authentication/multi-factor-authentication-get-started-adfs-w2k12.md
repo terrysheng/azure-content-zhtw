@@ -7,7 +7,14 @@
 	manager="stevenpo" 
 	editor="curtland"/>
 
-<tags ms.service="multi-factor-authentication" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="03/04/2016"" ms.author="billmath"/>
+<tags 
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="03/04/2016" 
+	ms.author="billmath"/>
 
 
 # 搭配 Windows Server 2012 R2 AD FS 使用 Azure Multi-Factor Authentication Server 保護雲端和內部部署資源
@@ -224,4 +231,4 @@ MultiFactorAuthenticationAdfsAdapter.config 步驟| 子步驟
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

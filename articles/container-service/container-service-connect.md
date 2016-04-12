@@ -33,7 +33,7 @@ Azure 容器服務部署的 Mesos 和 Swarm 叢集公開了一些 REST 端點。
 
 現在開啟殼層並執行下列命令，其中：
 
-PORT 是您想要公開之端點的連接埠。以 Swarm 來說是 2375。若為 Mesos，請使用連接埠 80。USERNAME 是您部署叢集時提供的使用者名稱。DNSPREFIX 是您部署叢集時提供的 DNS 首碼。REGION 是資源群組所在的區域。
+**PORT** 是您想要公開之端點的連接埠。以 Swarm 來說是 2375。若為 Mesos，請使用連接埠 80。**USERNAME** 是您部署叢集時提供的使用者名稱。**DNSPREFIX** 是您部署叢集時提供的 DNS 首碼。**REGION** 是資源群組所在的區域。
 
 ```
 ssh -L PORT:localhost:PORT -N [USERNAME]@[DNSPREFIX]man.[REGION].cloudapp.azure.com -p 2200
@@ -104,10 +104,39 @@ export DOCKER_HOST=:2375
 
 設定 Docker Swarm 的通道之後，您即可透過 Docker CLI 存取 Swarm 叢集。您必須先使用值 ` :2375` 設定名稱為 `DOCKER_HOST` 的 Windows 環境變數。
 
+## 疑難排解
+
+### 建立通道並瀏覽至 mesos 或 marathon url 之後，我收到 502 錯誤的閘道...
+若要解決此問題，最簡單的方法是直接刪除您的叢集，然後加以重新部署。或者，您可以執行下列命令來強制 Zookeeper 自行修復︰
+
+登入每個主機，然後執行下列命令︰
+
+```
+sudo service nginx stop
+sudo service marathon stop
+sudo service chronos stop
+sudo service mesos-dns stop
+sudo service mesos-master stop 
+sudo service zookeeper stop
+```
+
+然後，一旦所有主機上的所有服務皆已停止︰
+```
+sudo mkdir /var/lib/zookeeperbackup
+sudo mv /var/lib/zookeeper/* /var/lib/zookeeperbackup
+sudo service zookeeper start
+sudo service mesos-master start
+sudo service mesos-dns start
+sudo service chronos start
+sudo service marathon start
+sudo service nginx start
+```
+在所有服務重新啟動後不久，您應該就能如文件所述使用您的叢集。
+
 ## 後續步驟
 
 使用 Mesos 或 Swarm 來部署及管理容器。
 
 - [使用 Azure 容器服務和 Mesos](./container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

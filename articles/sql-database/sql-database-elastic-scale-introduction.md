@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/01/2016"
+    ms.date="03/24/2016"
     ms.author="ddove;sidneyh"/>
 
 # 彈性資料庫功能概觀
 
 **彈性資料庫**功能可讓您使用 **Azure SQL Database** 中幾乎不受限制的資料庫資源，建立交易式工作負載的解決方案，尤其是軟體即服務 (SaaS) 應用程式。彈性資料庫功能的組成如下：
 
-* 彈性資料庫工具：這兩個工具簡化分區化資料庫解決方案的開發與管理。這些工具是：[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)和[彈性資料庫分割合併工具](sql-database-elastic-scale-overview-split-and-merge.md)。 
-* [彈性資料庫集區](sql-database-elastic-pool-guidance.md) (預覽)：集區是可讓您隨時新增或移除資料庫的資料庫集合。集區中的資料庫共用固定數量的資源 (稱為資料庫交易單位，簡稱 DTU)。您對資源支付固定費用，在管理效能時很容易計算成本。 
+* 彈性資料庫工具：這兩個工具簡化分區化資料庫解決方案的開發與管理。這些工具是：[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)和[彈性資料庫分割合併工具](sql-database-elastic-scale-overview-split-and-merge.md)。
+* [彈性資料庫集區](sql-database-elastic-pool-guidance.md) (預覽)：集區是可讓您隨時新增或移除資料庫的資料庫集合。集區中的資料庫共用固定數量的資源 (稱為資料庫交易單位，簡稱 DTU)。您對資源支付固定費用，在管理效能時很容易計算成本。
 * [彈性資料庫工作](sql-database-elastic-jobs-overview.md) (預覽)：使用工作來管理大量的 Azure SQL 資料庫。輕鬆執行系統管理作業，例如結構描述變更、認證管理、參考資料更新、效能資料收集，或使用工作的租用戶 (客戶) 遙測收集。
 * [彈性資料庫查詢](sql-database-elastic-query-overview.md) (預覽)：可讓您跨多個 Azure SQL 資料庫執行 Transact-SQL 查詢。這可讓您連接至報告工具，例如 Excel、PowerBI、Tableau 等等。
 
@@ -33,13 +33,13 @@
 
 此圖中，資料庫色彩代表結構描述。相同色彩的資料庫共用相同的結構描述。
 
-1. 一組 **Azure SQL 資料庫**使用分區化架構裝載於 Azure 中。 
+1. 一組 **Azure SQL 資料庫**使用分區化架構裝載於 Azure 中。
 2. **彈性資料庫用戶端程式庫**用來管理分區集。
-3. 一個資料庫子集放入**彈性資料庫集區**中。(請參閱[使用彈性資料庫有效駕馭爆炸性的成長](sql-database-elastic-pool.md))。 
+3. 一個資料庫子集放入**彈性資料庫集區**中。(請參閱[使用彈性資料庫有效駕馭爆炸性的成長](sql-database-elastic-pool.md))。
 4. **彈性資料庫工作**針對所有資料庫執行 T-SQL 指令碼。
 5. **分割合併工具**用來將資料移到另一個的分區。
 6. **彈性資料庫查詢**可讓您撰寫一個跨分區集所有資料庫的查詢。
-  
+
 ## 承諾和挑戰
 
 已簡單達成雲端應用程式在計算和 blob 儲存體方面的彈性和縮放 -- 增加或減少單位即可。但對於關聯式資料庫中可設定狀態的資料處理，仍然是個挑戰。我們已知這些挑戰最主要出現在下列兩個案例中：
@@ -93,7 +93,7 @@
 
 若要使用分割合併工具，您必須[設定安全性](sql-database-elastic-scale-split-merge-security-configuration.md)。
 
-若要查看彈性資料庫集區的細節，請參閱[彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)，或透過[教學課程](sql-database-elastic-pool-portal.md)建立新的集區。
+若要查看彈性資料庫集區的細節，請參閱[彈性資料庫集區的價格和效能考量](sql-database-elastic-pool-guidance.md)，或透過[教學課程](sql-database-elastic-pool-create-portal.md)建立新的集區。
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -108,4 +108,4 @@
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0330_2016-->

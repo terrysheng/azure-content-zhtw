@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="03/30/2016" 
 	ms.author="ryancraw"/>
 
-# 安全存取 DocumentDB 資料 #
+# 安全存取 DocumentDB 資料
 
 本文提供儲存於 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 中資料的安全存取概觀。
 
@@ -27,7 +27,7 @@
 -	什麼是 DocumentDB 資源權杖？
 -	如何使用 DocumentDB 使用者和權限來安全存取 DocumentDB 資料？
 
-##<a id="Sub1"></a>DocumentDB 存取控制概念##
+## DocumentDB 存取控制概念
 
 為控制 DocumentDB 資源的存取，DocumentDB 提供一流的概念。在本主題中，DocumentDB 資源分為兩種類別：
 
@@ -64,19 +64,20 @@
 
 ![DocumentDB 資源權杖圖](./media/documentdb-secure-access-to-data/resourcekeys.png)
 
-##<a id="Sub2"></a>使用 DocumentDB 主要和唯讀金鑰 ##
+## 使用 DocumentDB 主要和唯讀金鑰
+
 前面提過，DocumentDB 主要金鑰可提供 DocumentDB 帳戶內所有資源的完整系統管理存取權，而唯讀金鑰可提供帳戶內所有資源的讀取權限。下列程式碼片段說明如何使用 DocumentDB 帳戶端點和主要金鑰來具現化 DocumentClient，並建立新的資料庫。
 
     //Read the DocumentDB endpointUrl and authorization keys from config.
     //These values are available from the Azure Classic Portal on the DocumentDB Account Blade under "Keys".
     //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
     
-	private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
+    private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
     private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
         
     client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
     
-	//Create Database
+    // Create Database
     Database database = await client.CreateDatabaseAsync(
         new Database
         {
@@ -84,7 +85,8 @@
         });
 
 
-##<a id="Sub3"></a>DocumentDB 資源權杖的概觀 ##
+## DocumentDB 資源權杖的概觀
+
 若要對無法託付主要金鑰的用戶端提供 DocumentDB 帳戶內資源的存取權，您可以使用資源權杖 (方法是建立 DocumentDB 使用者和權限)。您的 DocumentDB 主要金鑰包括主要和次要金鑰，兩者皆可授與帳戶及帳戶內所有資源的系統管理存取權。提供任一主要金鑰都會讓您的帳戶受到惡意或粗心使用的可能性。
 
 同樣地，DocumentDB 唯讀金鑰可提供 DocumentDB 帳戶內所有資源的讀取權限 (當然權限資源除外)，但無法用來提供特定 DocumentDB 資源的更細微存取權 。
@@ -104,16 +106,16 @@ DocumentDB 資源權杖提供一個安全的替代方式，無需主要或唯讀
 
 ![DocumentDB 資源權杖工作流程](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
-##<a id="Sub4"></a>使用 DocumentDB 使用者和權限 ##
+## 使用 DocumentDB 使用者和權限
 DocumentDB 使用者資源會與 DocumentDB 資料庫相關聯。每個資料庫可能包含零個或多個 DocumentDB 使用者。下列程式碼片段示範如何建立 DocumentDB 使用者資源。
 
-	//Create a user.
+    //Create a user.
     User docUser = new User
     {
         Id = "mobileuser"
     };
 
-    docUser = await client.CreateUserAsync(database.SelfLink, docUser);
+    docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUser);
 
 > [AZURE.NOTE] 每個 DocumentDB 使用者都具有 PermissionsLink 屬性，可用來擷取與使用者相關聯的權限清單。
 
@@ -128,8 +130,7 @@ DocumentDB 權限資源會與 DocumentDB 使用者相關聯。每位使用者可
 
 下列程式碼片段示範如何建立權限資源，讀取權限資源的資源權杖 (token)，並將權限與先前所建立的使用者產生關聯。
 
-	//Create a permission.
-
+    // Create a permission.
     Permission docPermission = new Permission
     {
         PermissionMode = PermissionMode.Read,
@@ -137,30 +138,32 @@ DocumentDB 權限資源會與 DocumentDB 使用者相關聯。每位使用者可
         Id = "readperm"
     };
             
-	docPermission = await client.CreatePermissionAsync(docUser.SelfLink, docPermission);
-	Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+  docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission); Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+  
+如果您已指定集合的分割索引鍵，則集合的權限、文件和附件資源也必須包含 ResourceLink 以外的 ResourcePartitionKey。
 
 若要輕鬆地取得所有與特定使用者相關聯的權限資源，DocumentDB 會為每個使用者物件提供權限摘要。下列程式碼片段示範如何擷取與先前所建立的使用者相關聯的權限、建構權限清單，並代表使用者具現化新的 DocumentClient。
 
-	//Read a permission feed.
-    FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(docUser.SelfLink);
-	
-	List<Permission> permList = new List<Permission>();
-    
-	foreach (Permission perm in permFeed)
+    //Read a permission feed.
+    FeedResponse<Permission> permFeed = await client.ReadPermissionFeedAsync(
+      UriFactory.CreateUserUri("db", "myUser"));
+
+    List<Permission> permList = new List<Permission>();
+      
+    foreach (Permission perm in permFeed)
     {
         permList.Add(perm);
     }
             
-    DocumentClient userClient = new DocumentClient(new Uri(endpointUrl),permList);
+    DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 
 > [AZURE.TIP] 資源權杖有 1 小時的預設有效時間範圍。不過，您可以明確指定權杖存留期，最多 5 個小時。
 
-##<a name="NextSteps"></a>接續步驟
+## 後續步驟
 
 - 若要深入了解 DocumentDB，請按一下[這裡](http://azure.com/docdb)。
 - 若要了解如何管理主要和唯讀金鑰，請按一下[這裡](documentdb-manage-account.md)。
 - 若要了解如何建構 DocumentDB 授權權杖，請按一下[這裡](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0330_2016-->

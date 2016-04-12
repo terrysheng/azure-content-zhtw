@@ -92,7 +92,8 @@ Azure Government 目前在在「美國政府愛荷華州」(US GOV IOWA) 及「�
 一般|*.windows.net|*.usgovcloudapi.net
 核心|*.core.windows.net|*.core.usgovcloudapi.net
 計算|*.cloudapp.net|*.usgovcloudapp.net
-Blob 儲存體|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
+Blob 儲存體|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net
+Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 資料表儲存體|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 服務管理|management.core.windows.net|management.core.usgovcloudapi.net
 SQL Database|*.database.windows.net|*.database.usgovcloudapi.net

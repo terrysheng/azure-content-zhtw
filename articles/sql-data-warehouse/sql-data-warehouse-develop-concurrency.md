@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/04/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # SQL 資料倉儲中的並行存取和工作負載管理
@@ -227,7 +227,7 @@ Removed as these two are not confirmed / supported under SQLDW
 
 若要從資源管理員的觀點查看詳細資料中記憶體資源配置的差異，請使用下列查詢：
 
-```
+```sql
 WITH rg
 AS
 (   SELECT  pn.name									AS node_name
@@ -282,7 +282,7 @@ ORDER BY
 
 開啟 SQL 資料倉儲之主要資料庫的連接，並執行下列命令：
 
-```
+```sql
 CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
 
 CREATE USER newperson for LOGIN newperson
@@ -294,19 +294,19 @@ CREATE USER newperson for LOGIN newperson
 
 開啟 SQL 資料倉儲資料庫的連接，然後執行下列命令：
 
-```
+```sql
 CREATE USER newperson FOR LOGIN newperson
 ```
 
 完成之後，必須授與權限給使用者。下列範例會在 SQL 資料倉儲資料庫上授與 `CONTROL`。在資料庫層級的 `CONTROL` 相當於 SQL Server 中的 db\_owner。
 
-```
+```sql
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
 ```
 
 若要查看工作負載管理角色，請使用下列查詢：
 
-```
+```sql
 SELECT  ro.[name]           AS [db_role_name]
 FROM    sys.database_principals ro
 WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
@@ -316,13 +316,13 @@ AND     ro.[is_fixed_role]  = 0
 
 若要將使用者加入至增加工作負載管理角色，請使用下列查詢：
 
-```
+```sql
 EXEC sp_addrolemember 'largerc', 'newperson'
 ```
 
 若要從工作負載管理角色移除使用者，請使用下列查詢：
 
-```
+```sql
 EXEC sp_droprolemember 'largerc', 'newperson'
 ```
 
@@ -330,7 +330,7 @@ EXEC sp_droprolemember 'largerc', 'newperson'
 
 若要查看哪些使用者是指定角色的成員，請使用下列查詢：
 
-```
+```sql
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
 FROM	sys.database_role_members rm
@@ -343,7 +343,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
 ### 排入佇列的查詢偵測
 若要識別保留在並行存取佇列中的查詢，您可以一律參考 `sys.dm_pdw_exec_requests` DMV。
 
-```
+```sql
 SELECT 	 r.[request_id]									AS Request_ID
 		,r.[status]										AS Request_Status
 		,r.[submit_time]								AS Request_SubmitTime
@@ -374,7 +374,7 @@ DmsConcurrencyResourceType 指的是資料移動作業所產生的等候。
 
 若要執行目前以排入佇列之要求的分析，以找出要求正在等候哪些資源，請參考 `sys.dm_pdw_waits` DMV。
 
-```
+```sql
 SELECT  w.[wait_id]
 ,       w.[session_id]
 ,       w.[type]											AS Wait_type
@@ -411,7 +411,7 @@ WHERE	w.[session_id] <> SESSION_ID()
 
 若只檢視由指定查詢取用的資源等候，您可以參考 `sys.dm_pdw_resource_waits` DMV。資源等候時間只會測量等候提供資源的時間，與訊號等候時間相反，後者是基礎 SQL Server 將查詢排程到 CPU 所需的時間。
 
-```
+```sql
 SELECT  [session_id]
 ,       [type]
 ,       [object_type]
@@ -430,7 +430,7 @@ WHERE	[session_id] <> SESSION_ID()
 
 最後，SQL 資料倉儲會提供 `sys.dm_pdw_wait_stats` DMV 給等候的歷史趨勢分析。
 
-```
+```sql
 SELECT	w.[pdw_node_id]
 ,		w.[wait_name]
 ,		w.[max_wait_time]
@@ -455,4 +455,4 @@ FROM	sys.dm_pdw_wait_stats w
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0330_2016-->

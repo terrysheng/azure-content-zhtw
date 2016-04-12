@@ -1,7 +1,4 @@
 
-## 必要條件
-
-
 若要執行本主題提供的 PHP 程式碼範例，您的用戶端電腦必須安裝下列軟體項目：
 
 
@@ -29,4 +26,4 @@ DateOfLatestFreshnessVerification = 2015-07-10
 DateOfLatestContentUpdate = 2015-07-10
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0330_2016-->

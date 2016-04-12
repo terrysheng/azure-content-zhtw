@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
 	ms.topic="hero-article" 
-	ms.date="03/25/2016"
+	ms.date="04/04/2016"
 	ms.author="piyushjo" />
 
 # 開始使用 Azure Mobile Engagement for Cordova/Phonegap
@@ -24,7 +24,7 @@
 
 在本教學課程中，我們將會使用 Mac 建立空白的 Cordova 應用程式，然後整合 Mobile Engagement SDK。它會收集基本分析資料，並針對 iOS 使用 Apple Push Notification System (APNS)、針對 Android 使用 Google Cloud Messaging (GCM) 接收推播通知。我們會將它部署到 iOS 或 Android 裝置以進行測試。
 
-> [AZURE.NOTE] 若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fzh-TW%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started)。
+> [AZURE.NOTE] 若要完成此教學課程，您必須具備有效的 Azure 帳戶。如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started)。
 
 本教學課程需要下列各項：
 
@@ -72,13 +72,14 @@
 1. 安裝 Azure Mobile Engagement Cordova 外掛程式，同時提供變數值以設定外掛程式：
 
 		cordova plugin add cordova-plugin-ms-azure-mobile-engagement    
-			 --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
+     		--variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
 	        --variable AZME_IOS_REACH_ICON=... (icon name WITH extension) 
 	        --variable AZME_ANDROID_CONNECTION_STRING=<Android Connection String> 
 			--variable AZME_ANDROID_REACH_ICON=... (icon name WITHOUT extension)       
 	        --variable AZME_ANDROID_GOOGLE_PROJECT_NUMBER=... (From your Google Cloud console for sending push notifications) 
-	        --variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
-	        --variable AZME_ENABLE_LOG=true|false
+	        --variable AZME_ACTION_URL =... (URL scheme which triggers the app for deep linking)
+	        --variable AZME_ENABLE_NATIVE_LOG=true|false
+			--variable AZME_ENABLE_PLUGIN_LOG=true|false
 
 *Android 觸達圖示*：必須是不含任何副檔名的資源名稱，也不含可繪製的前置詞 (例如：mynotificationicon)，而且必須將圖示檔複製到您的 android 專案 (platforms/android/res/drawable)
 
@@ -89,8 +90,7 @@
 1. 在 Cordova 專案中，編輯 **www/js/index.js**，將呼叫加入至 Mobile Engagement，以便在收到 *deviceReady* 事件之後宣告新活動。
 
 		 onDeviceReady: function() {
-		        app.receivedEvent('deviceready');
-		        AzureEngagement.startActivity("myPage",{});
+		        Engagement.startActivity("myPage",{});
 		    }
 
 2. 執行應用程式：
@@ -155,10 +155,12 @@ Mobile Engagement 可讓您使用「推播通知」和「應用程式內傳訊�
 編輯 **www/js/index.js**，將呼叫加入至 Mobile Engagement 以要求推播通知，並宣告處理常式：
 
 	 onDeviceReady: function() {
-	        app.receivedEvent('deviceready');
-	        AzureEngagement.registerForPushNotification();
-	        AzureEngagement.onOpenURL(function(_url) { alert(_url); });
-	        AzureEngagement.startActivity("myPage",{});
+           Engagement.initializeReach(  
+	 			// on OpenUrl  
+	 			function(_url) {   
+	 			alert(_url);   
+	 			});  
+			Engagement.startActivity("myPage",{});  
 	    }
 
 ###執行應用程式
@@ -200,7 +202,7 @@ Mobile Engagement 可讓您使用「推播通知」和「應用程式內傳訊�
 4. 提供輸入來建立您的行銷活動 **[iOS]**
 
 	- 為您的行銷活動提供**名稱**。 
-	- 針對 [傳遞時間] 選取 [僅限 App 外]
+	- 針對 [傳遞時間] 選取 [僅限應用程式外]
 	- 提供通知的**標題**，這將是推播中的第一行。
 	- 提供通知的**訊息**，這將做為訊息內文。 
  
@@ -210,7 +212,7 @@ Mobile Engagement 可讓您使用「推播通知」和「應用程式內傳訊�
 
 	![][8]
 
-6. [選用] 您也可以提供動作 URL。請確定它會使用在設定外掛程式的 **AZME 重新導向 URL** 變數 (例如 **myapp://test*) 時提供的 URL 配置。
+6. [選用] 您也可以提供動作 URL。請確定它會使用在設定外掛程式的 **AZME\_REDIRECT\_URL** 變數 (例如 **myapp://test*) 時提供的 URL 配置。
 
 7. 您已完成能做的最基本活動設定。現在再次向下捲動，並按一下 [建立] 按鈕來儲存行銷活動。
 
@@ -223,9 +225,6 @@ Mobile Engagement 可讓您使用「推播通知」和「應用程式內傳訊�
 ##<a id="next-steps"></a>後續步驟
 [可用於 Cordova Mobile Engagement SDK 之所有方法的概觀](https://github.com/Azure/azure-mobile-engagement-cordova)
 
-<!-- URLs. -->
-[Mobile Engagement iOS SDK]: http://aka.ms/qk2rnj
-
 <!-- Images. -->
 
 [1]: ./media/mobile-engagement-cordova-get-started/engage-button.png
@@ -235,8 +234,7 @@ Mobile Engagement 可讓您使用「推播通知」和「應用程式內傳訊�
 [6]: ./media/mobile-engagement-cordova-get-started/new-announcement.png
 [8]: ./media/mobile-engagement-cordova-get-started/campaign-content.png
 [10]: ./media/mobile-engagement-cordova-get-started/campaign-activate.png
-
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

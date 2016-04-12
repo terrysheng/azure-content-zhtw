@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2016" 
+	ms.date="03/30/2016" 
 	ms.author="arramac"/>
 
 # DocumentDB 中的 SQL 查詢和 SQL 語法
@@ -1223,7 +1223,7 @@ DocumentDB SQL 語法已延伸，可支援使用這些使用者定義函式的�
 	   };
 	   
 	   UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
-	       collectionSelfLink/* link of the parent collection*/, 
+	       UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
 	       regexMatchUdf).Result;  
                                                                              
 上述範例會建立名為 `REGEX_MATCH` 的 UDF。它接受兩個 JSON 字串值 `input` 和 `pattern`，並使用 JavaScript 的 string.match() 函式來檢查第一個項目是否符合第二個項目中指定的模式。
@@ -1285,7 +1285,9 @@ UDF 也可以用於篩選內 (如下面範例所示)，也可以用 "udf." 前�
 	                }"
             };
 
-            UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(collection.SelfLink, seaLevelUdf);
+            UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(
+                UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
+                seaLevelUdf);
 	
 	
 以下是執行 UDF 的範例。
@@ -2316,7 +2318,7 @@ DocumentDB 提供透過 HTTP 的開放 RESTful 程式設計模型。可以使用
 
 .NET 用戶端會在 foreach 區塊中自動逐一查看查詢結果的所有頁面 (如上所示)。.NET SDK 中也提供 REST API 小節所介紹的查詢選項，方法是在 CreateDocumentQuery 方法中使用 `FeedOptions` 和 `FeedResponse` 類別。頁數可以透過 `MaxItemCount` 設定來控制。
 
-開發人員也可以明確地控制分頁，方法是使用 `IQueryable` 物件建立 `IDocumentQueryable`，然後讀取 ` ResponseContinuationToken` 值，並將它們當成 `FeedOptions` 中的 `RequestContinuationToken` 傳回。`EnableScanInQuery` 可以設定為在設定的索引編製原則不支援查詢時啟用掃描。
+您也可以明確地控制分頁，方法是使用 `IQueryable` 物件建立 `IDocumentQueryable`，然後讀取 ` ResponseContinuationToken` 值，並將它們當成 `FeedOptions` 中的 `RequestContinuationToken` 傳回。`EnableScanInQuery` 可以設定為在設定的索引編製原則不支援查詢時啟用掃描。對於分割集合，您可以使用 `PartitionKey` 來針對單一分割執行查詢 (雖然 DocumentDB 可以從查詢文字自動擷取)，以及使用 `EnableCrossPartitionQuery` 以執行可能需要針對多個分割執行的查詢。
 
 如需更多包含查詢的範例，請參閱 [DocumentDB .NET 範例](https://github.com/Azure/azure-documentdb-net)。
 
@@ -2378,4 +2380,4 @@ DocumentDB 提供一個程式設計模型，以使用預存程序和觸發程序
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0330_2016-->

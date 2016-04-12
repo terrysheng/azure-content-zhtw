@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/21/2015" 
+	ms.date="03/28/2016" 
 	ms.author="tarcher"/>
 
 # 使用 Visual Studio 分析工具，在 Azure 計算模擬器中本機測試雲端服務的效能
@@ -26,7 +26,7 @@
 
 
 
-## 步驟 1：設定 Visual Studio 進行分析
+## 1：設定 Visual Studio 進行分析
 
 首先，有些 Visual Studio 組態選項可能在進行分析時很實用。若要讓分析報告發揮作用，您需要應用程式的符號 (.pdb 檔案)，也需要系統庫的符號。您會希望確定參考可用的符號伺服器。若要這樣做，請在 Visual Studio 的 [工具] 功能表上，依序選擇 [選項]、[偵錯] 和 [符號]。請確定 Microsoft Symbol Servers 列在 [符號檔 (.pdb) 位置] 下方。您也可以參考 http://referencesource.microsoft.com/symbols，其中可能有其他符號檔案。
 
@@ -70,7 +70,7 @@
 
 在方案組態設定為 [**發行**] 的情況下，在本機建置和執行雲端服務，而不要進行偵錯 (Ctrl+F5)。這確保建立在本機執行應用程式的所有檔案和資料夾，並確保已啟動所有模擬器。從工作列啟動 Compute Emulator UI，以驗證您的背景工作角色執行中。
 
-## 步驟 2：連結至程序
+## 2：連結至程序
 
 您必須將分析工具連結至執行中程序，而不是從 Visual Studio 2010 IDE 啟動應用程式來分析應用程式。
 
@@ -104,7 +104,7 @@
 
 ![][10]
 
-## 步驟 3：檢視效能報告
+## 3：檢視效能報告
 
 會顯示您應用程式的效能報告。
 
@@ -123,7 +123,7 @@
 
 ![][14]
 
-## 步驟 4：進行變更與比較效能
+## 5：進行變更與比較效能
 
 您也可以在變更程式碼之前和之後比較效能。請停止執行中流程並編輯程式碼，以使用 StringBuilder 取代字串串連作業：
 
@@ -148,7 +148,7 @@
 
 恭喜！ 您已開始使用分析工具。
 
-##  疑難排解
+## 疑難排解
 
 - 確定您正在分析發行組建並開始而不進行偵錯。
 
@@ -186,4 +186,4 @@
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0330_2016-->

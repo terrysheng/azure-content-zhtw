@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) B2C 可讓您將強大的自助式身分識別
 接著，您必須在 B2C 目錄中建立應用程式。這會提供必要資訊給 Azure AD，讓它與應用程式安全地通訊。若要建立應用程式，請遵循[這些指示](active-directory-b2c-app-registration.md)。請務必：
 
 - 在應用程式中加入 **Web 應用程式/Web API**。
-- 在 [回覆 URL] 中輸入 `https://localhost:44316/`。這是此程式碼範例的預設 URL。
+- 輸入 `https://localhost:44316/` 做為 [重新導向 URI]。這是此程式碼範例的預設 URL。
 - 複製指派給應用程式的**應用程式識別碼**。稍後您將會用到此資訊。
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -341,4 +341,4 @@ You can now move on to more advanced B2C topics. You might try:
 
 -->
 
-<!---HONumber=AcomDC_0302_2016-------->
+<!---HONumber=AcomDC_0330_2016-->

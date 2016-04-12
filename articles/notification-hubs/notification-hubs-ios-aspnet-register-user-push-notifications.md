@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="03/28/2016"
 	ms.author="wesmc"/>
 
 # 使用 ASP.NET 來註冊目前使用者以取得推播通知
 
 > [AZURE.SELECTOR]
-- [Windows Store C#](notification-hubs-windows-store-aspnet-register-user-push-notifications.md)
 - [iOS](notification-hubs-ios-aspnet-register-user-push-notifications.md)
 
 
@@ -111,7 +110,7 @@
 
 	這會設定要求的裝置權杖。
 
-	> [AZURE.NOTE]此時，此方法中不應有任何其他程式碼。如果您已呼叫您在完成[開始使用通知中樞](/manage/services/notification-hubs/get-started-notification-hubs-ios/)教學課程時所新增的 **registerNativeWithDeviceToken** 方法，您必須註解化或移除該呼叫。
+	> [AZURE.NOTE] 此時，此方法中不應有任何其他程式碼。如果您已呼叫您在完成[開始使用通知中樞](/manage/services/notification-hubs/get-started-notification-hubs-ios/)教學課程時所新增的 **registerNativeWithDeviceToken** 方法，您必須註解化或移除該呼叫。
 
 10.	在 PushToUserAppDelegate.m 檔案中，新增下列處理常式方法：
 
@@ -237,4 +236,4 @@
 
 [開始使用通知中心]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0330_2016-->

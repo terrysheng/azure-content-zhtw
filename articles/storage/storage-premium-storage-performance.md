@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/20/2016"
+    ms.date="03/28/2016"
     ms.author="prkhad"/>
 
 # Azure 進階儲存體：專為高效能而設計
@@ -168,9 +168,9 @@ IO 大小是其中一個很重要的因素。IO 大小是指應用程式所產�
 若要證明 IO 大小對應用程式效能的影響，您可以在 VM 和磁碟上執行效能評定工具。請建立多個測試回合，而且每個回合使用不同的 IO 大小，以查看影響。如需詳細資料，請參閱本文最後的[效能評定](#Benchmarking)一節。
 
 ## 高延展性 VM 大小  
-開始設計應用程式時，首要工作之一是選擇 VM 來裝載應用程式。進階儲存體提供高延展性 VM 大小，可以執行需要更高計算能力和較高本機磁碟 I/O 效能的應用程式。這些 VM 為本機磁碟提供更快的處理器、較高的記憶體與核心比率，以及固態硬碟 (SSD)。舉例來說，DS 和 GS 系列 VM 就是支援進階儲存體的高延展性 VM。
+開始設計應用程式時，首要工作之一是選擇 VM 來裝載應用程式。進階儲存體提供高延展性 VM 大小，可以執行需要更高計算能力和較高本機磁碟 I/O 效能的應用程式。這些 VM 為本機磁碟提供更快的處理器、較高的記憶體與核心比率，以及固態硬碟 (SSD)。舉例來說，DS、DSv2 和 GS 系列 VM 就是支援進階儲存體的高延展性 VM。
 
-高延展性 VM 有各種不同大小，以及不同數目的 CPU 核心、記憶體、作業系統和暫存磁碟大小。每個 VM 大小也規定您可連接至 VM 的資料磁碟數目上限。因此，選擇的 VM 大小會影響應用程式可用的處理、記憶體和儲存體容量。也會影響計算和儲存體成本。例如，以下為 DS 系列和 GS 系列中最大 VM 大小的規格：
+高延展性 VM 有各種不同大小，以及不同數目的 CPU 核心、記憶體、作業系統和暫存磁碟大小。每個 VM 大小也規定您可連接至 VM 的資料磁碟數目上限。因此，選擇的 VM 大小會影響應用程式可用的處理、記憶體和儲存體容量。也會影響計算和儲存體成本。例如，以下為 DS 系列、DSv2 系列和 GS 系列中最大 VM 大小的規格：
 
 | VM 大小 | CPU 核心 | 記憶體 | VM 磁碟大小 | 最大資料磁碟 | 快取大小 | IOPS | 頻寬快取 IO 限制 |
 |---|---|---|---|---|---|---|---|
@@ -540,4 +540,4 @@ rate_iops=12500
 - [Azure 虛擬機器中的 SQL Server 效能最佳作法](../virtual-machines/virtual-machines-windows-classic-sql-perf.md)
 - [Azure 進階儲存體為 Azure VM 中的 SQL Server 提供最高效能](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

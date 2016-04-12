@@ -5,7 +5,7 @@
 
 Azure VM 延伸模組會實作行為或功能，以協助其他程式在 Azure VM 上運作 (例如，**WebDeployForVSDevTest** 延伸模組可讓 Visual Studio 在您的 Azure VM 上進行 Web 部署解決方案)，或是讓您能夠與 VM 互動以支援一些其他行為 (例如，您可以使用 Powershell 的 VM 存取延伸模組、Azure CLI 和 REST 用戶端，來重設或修改 Azure VM 上的遠端存取值)。
 
->[AZURE.IMPORTANT] 如需所支援功能的完整延伸模組清單，請參閱 [Azure VM 延伸模組與功能](virtual-machines-windows-extensions-features.md)。因為每個 VM 擴充功能支援特定功能，您確切可以及不可以使用擴充功能做到的事取決於擴充功能。因此，在修改 VM 之前，請確定您已閱讀想要使用之 VM 擴充功能的文件。不支援移除一些 VM 擴充功能。其他則具有已設定來大幅變更 VM 行為的屬性。
+>[AZURE.IMPORTANT] 如需所支援功能的完整延伸模組清單，請參閱 [Azure VM 延伸模組與功能](../articles/virtual-machines/virtual-machines-windows-extensions-features.md)。因為每個 VM 擴充功能支援特定功能，您確切可以及不可以使用擴充功能做到的事取決於擴充功能。因此，在修改 VM 之前，請確定您已閱讀想要使用之 VM 擴充功能的文件。不支援移除一些 VM 擴充功能。其他則具有已設定來大幅變更 VM 行為的屬性。
 
 最常見的工作如下：
 
@@ -19,7 +19,7 @@ Azure VM 延伸模組會實作行為或功能，以協助其他程式在 Azure V
 
 ##尋找可用的擴充功能
 
-Azure VM 延伸模組是 (如需所支援功能的完整延伸模組清單，請參閱 [Azure VM 延伸模組與功能](virtual-machines-windows-extensions-features.md))。 您可以使用下列各項找到擴充功能和其他資訊：
+Azure VM 延伸模組是 (如需所支援功能的完整延伸模組清單，請參閱 [Azure VM 延伸模組與功能](../articles/virtual-machines/virtual-machines-windows-extensions-features.md))。 您可以使用下列各項找到擴充功能和其他資訊：
 
 -   PowerShell
 -   Azure 跨平台介面 (Azure CLI)
@@ -121,4 +121,4 @@ Azure VM 延伸模組是 (如需所支援功能的完整延伸模組清單，請
 
 >[AZURE.NOTE]擴充功能也可以使用 JSON 所定義的組態。使用這些類型的延伸模組時，只會使用 **SampleConfig** 元素。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

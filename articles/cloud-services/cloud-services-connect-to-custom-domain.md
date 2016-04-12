@@ -3,7 +3,7 @@
   description="了解如何使用 Powershell 和 AD 網域延伸將 Web/背景工作角色連接到自訂 AD 網域"
   services="cloud-services"
   documentationCenter=""
-  authors="VMak"
+  authors="Thraka"
   manager="timlt"
   editor=""/>
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/05/2015"
+    ms.date="03/25/2016"
     ms.author="adegeo"/>
 
 # 將 Azure 雲端服務角色連接到裝載於 Azure 中的自訂 AD 網域控制站
@@ -70,11 +70,11 @@ Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath;
 
 $vnetname = '<your-vnet-name>'
 $subnetname = '<your-subnet-name>'
-$vmsvc1 = ‘<your-hosted-service>’
-$vm1 = ‘<your-vm-name>’
-$username = ‘<your-username>’
-$password = ‘<your-password>’
-$ affgrp = ‘<your- affgrp>’
+$vmsvc1 = '<your-hosted-service>'
+$vm1 = '<your-vm-name>'
+$username = '<your-username>'
+$password = '<your-password>'
+$affgrp = '<your- affgrp>'
 
 # Create a VM and add it to the Virtual Network
 
@@ -134,26 +134,26 @@ Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-
 ```powershell
 # Initialize domain variables
 
-$domain = ‘<your-domain-name>’;
-$dmuser = ‘$domain<your-username>’;
-$dmpswd = '<your-domain-password>';
-$dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force;
-$dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd);
+$domain = '<your-domain-name>'
+$dmuser = '$domain<your-username>'
+$dmpswd = '<your-domain-password>'
+$dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force
+$dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd)
 
 # Add AD Domain Extension to the cloud service roles
 
-Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-name> -Role <your-role-name> -Slot <staging-or-production> -DomainName $domain -Credential $dmcred -JoinOption 35;
+Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-name> -Role <your-role-name> -Slot <staging-or-production> -DomainName $domain -Credential $dmcred -JoinOption 35
 ```
 
-這樣就大功告成了。
+就這麼簡單。
 
 雲端服務現在應該已加入自訂網域控制站。如果您想要深入了解設定 AD 網域延伸時可用的其他選項，請依下圖所示的方法使用 PS 說明。
 
 ```powershell
-help Set-AzureServiceADDomainExtension;
-help New-AzureServiceADDomainExtensionConfig;
+help Set-AzureServiceADDomainExtension
+help New-AzureServiceADDomainExtensionConfig
 ```
 
 關於取得將虛擬機器提升為網域控制站的延伸，我們也想知道您對這個做法實用與否的意見反應。如果您認為這個做法很實用，請在意見區段中留言，讓我們知道。
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0330_2016-->

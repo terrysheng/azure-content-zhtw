@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/18/2016"
+   ms.date="03/23/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # 管理資料表散發扭曲
@@ -27,7 +27,7 @@
 
 類似下列檢視的查詢可協助您識別出已扭曲的資料表。
 
-```
+```sql
 CREATE VIEW dbo.vDistributionSkew
 AS
 WITH base
@@ -113,7 +113,7 @@ FROM	size
 
 建立檢視之後，我們只要查詢該檢視，就能使用類似下列資料表的查詢來驗證資料表中的扭曲。
 
-```
+```sql
 SELECT	[two_part_name]
 ,		[distribution_id]
 ,		[row_count]
@@ -151,4 +151,4 @@ ORDER BY [row_count] DESC
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

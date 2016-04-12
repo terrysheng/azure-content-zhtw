@@ -1,6 +1,6 @@
 <properties
-	pageTitle="在 Azure 資源管理員 (GUI) 中佈建 SQL Server 虛擬機器 | Microsoft Azure"
-	description="在 Azure 資源管理員模式下建立 SQL Server 虛擬機器。本教學課程主要是透過使用者介面作業，而非編寫指令碼。"
+	pageTitle="在 Azure 入口網站中佈建 SQL Server 虛擬機器 | Microsoft Azure"
+	description="在 Azure Resource Manager 模式下建立 SQL Server 虛擬機器。本教學課程主要是透過使用者介面作業，而非編寫指令碼。"
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -12,24 +12,19 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/22/2015"
+	ms.date="03/24/2016"
 	ms.author="mikeray" />
 
-# 在 Azure 資源管理員中佈建 SQL Server 虛擬機器
+# 在 Azure 入口網站中佈建 SQL Server 虛擬機器
 
-> [AZURE.SELECTOR]
-- [傳統入口網站](virtual-machines-windows-classic-portal-sql.md)
-- [PowerShell](virtual-machines-windows-classic-ps-sql-create.md)
-- [Azure Resource Manager 入口網站](virtual-machines-windows-portal-sql-server-provision.md)
-
-<br/>
-
->[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
+## 概觀
 
 這個端對端教學課程將示範如何使用「Azure 資源管理員」模型在入口網站中佈建 Azure 虛擬機器，並從 Azure 資源庫中的範本設定 SQL Server。
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]傳統部署模型。
 
 Azure 虛擬機器 (VM) 資源庫涵蓋數個包含 Microsoft SQL Server 的映像。您可以從資源庫中選取其中一個 VM 映像，然後按幾下，即可將 VM 佈建到您的 Azure 環境。
 
@@ -70,7 +65,7 @@ Azure 入口網站中有五個用來設定 SQL Server 虛擬機器的刀鋒視�
 ## 1\.設定基本設定
 在 [建立虛擬機器] 刀鋒視窗的 [基本資料] 底下，提供下列資訊：
 
-* 虛擬機器唯一的 [名稱]。
+* 唯一的 [虛擬機器名稱]。
 * [使用者名稱] 方塊中，該機器之本機系統管理員帳戶的唯一使用者名稱。這個帳戶也將會是 SQL Server 系統管理員 (sysadmin) 固定伺服器角色的成員。
 * 在 [密碼] 方塊中，輸入強式密碼。
 * 如果您有多個訂用帳戶，請確認訂用帳戶是否適用於您即將建置的 VM。
@@ -115,11 +110,11 @@ Azure 入口網站中有五個用來設定 SQL Server 虛擬機器的刀鋒視�
 >[AZURE.NOTE]為了安全起見，請使用「網路安全性群組」來限制來源連接埠。如需詳細資訊，請參閱[什麼是網路安全性群組 (NSG)？](../virtual-network/virtual-networks-nsg.md)。
 
 如果您偏好不要自動啟用透過網際網路連線到 Database Engine 的功能，請選擇下列其中一個選項：
-- [本機 (僅限在 VM 內)] 只允許從 VM 內連線到 SQL Server。
-- [私人 (在虛擬網路內)] 允許從相同虛擬網路中的電腦或服務連線到 SQL Server。
+- [本機 (僅限在 VM 內)] 只允許從 VM 內連接到 SQL Server。
+- [私人 (在虛擬網路內)] 允許從相同虛擬網路中的電腦或服務連接到 SQL Server。
 
 
-[連接埠] 預設為 1433。您可以指定其他連接埠號碼。如需詳細資訊，請參閱[連線到 SQL Server 虛擬機器 (資源管理員) | Microsoft Azure](virtual-machines-windows-sql-connect.md)。
+[連接埠] 預設為 1433。您可以指定其他連接埠號碼。如需詳細資訊，請參閱[連接到 SQL Server 虛擬機器 (資源管理員) | Microsoft Azure](virtual-machines-windows-sql-connect.md)。
 
 
 
@@ -129,7 +124,7 @@ Azure 入口網站中有五個用來設定 SQL Server 虛擬機器的刀鋒視�
 <br/>![SQL ARM 驗證](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-authentication.png) <br/>
 
 
-如果您啟用 [SQL Server 驗證]，請指定 [登入名稱] 和 [密碼]。這個使用者名稱將會是「SQL Server 驗證」登入，以及系統管理員 (sysadmin) 固定伺服器角色的成員。如需有關「驗證模式」的詳細資訊，請參閱[選擇驗證模式](http://msdn.microsoft.com/library/ms144284.aspx)。SQL Server 預設不會啟用「SQL Server 驗證」。在此情況下，虛擬機器上的本機系統管理員可以連線到 SQL Server 執行個體。
+如果您啟用 [SQL Server 驗證]，請指定 [登入名稱] 和 [密碼]。這個使用者名稱將會是「SQL Server 驗證」登入，以及系統管理員 (sysadmin) 固定伺服器角色的成員。如需驗證模式的詳細資訊，請參閱[選擇驗證模式](http://msdn.microsoft.com/library/ms144284.aspx)。SQL Server 預設不會啟用「SQL Server 驗證」。在此情況下，虛擬機器上的本機系統管理員可以連線到 SQL Server 執行個體。
 
 >[AZURE.NOTE] 如果您打算透過網際網路存取 SQL Server (也就是 [公用] 連線選項)，您應該在這裡啟用 SQL 驗證。對 SQL Server 進行公用存取需要使用「SQL 驗證」。
 
@@ -144,7 +139,7 @@ Azure 預設會針對 5000 IOPs、200 MBs 及 1 TB 的儲存體空間進行最�
 
 下列影像顯示 [儲存體組態] 刀鋒視窗。<br/>![SQL ARM 儲存體](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-storage.png) <br/>
 
->[AZURE.NOTE] 儲存體組態限制取決於虛擬機器大小。如需詳細資訊，請參閱[虛擬機器的大小](virtual-machines-linux-sizes.md)
+>[AZURE.NOTE] 儲存體組態限制取決於虛擬機器大小。如需詳細資訊，請參閱[虛擬機器的大小](virtual-machines-linux-sizes.md)。
 
 ### 修補
 預設會啟用 [SQL 自動修補]。自動修補可讓 Azure 自動修補 SQL Server 和作業系統。請為維護期間指定一週當中的某一天、時間及持續時間。Azure 將會在維護期間執行修補。維護期間排程會使用 VM 地區設定做為時間。如果您不想要讓 Azure 自動修補 SQL Server 和作業系統，請按一下 [停用]。
@@ -154,7 +149,7 @@ Azure 預設會針對 5000 IOPs、200 MBs 及 1 TB 的儲存體空間進行最�
 如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 自動修補](virtual-machines-windows-classic-ps-sql-patch.md)。
 
 ### 備份
-在 [SQL 自動備份] 底下可以為所有資料庫啟用自動資料庫備份。當您啟用 SQL 自動備份時，您可以設定下列各項：
+在 [SQL 自動備份] 底下，可以為所有資料庫啟用自動資料庫備份。當您啟用 SQL 自動備份時，您可以設定下列各項：
 
 - 備份保留期限天數
 - 要使用哪個儲存體帳戶來進行備份
@@ -173,17 +168,17 @@ Azure 預設會針對 5000 IOPs、200 MBs 及 1 TB 的儲存體空間進行最�
 
 |參數|描述|範例|
 |----------|----------|-------|
-|**金鑰保存庫 URL** | 金鑰保存庫的位置。|https://contosokeyvault.vault.azure.net/ |
-|**AKV 主體名稱** |Azure Active Directory 服務主體名稱。這也稱為「用戶端識別碼」。 |fde2b411-33d5-4e11-af04eb07b669ccf2|
-| **AKV 主體密碼**|「AKV 整合」會在 SQL Server 內建立認證，以便讓 VM 能夠存取金鑰保存庫。選擇此認證的名稱。 | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
-|**認證名稱**|選擇一個名稱來識別此認證。| mycred1|
+|**金鑰保存庫 URL** |金鑰保存庫的位置。|https://contosokeyvault.vault.azure.net/ |
+|**主體名稱** |Azure Active Directory 服務主體名稱。這也稱為「用戶端識別碼」。 |fde2b411-33d5-4e11-af04eb07b669ccf2|
+| **主體密碼**|Azure Active Directory 服務主體密碼。這也稱為「用戶端密碼」。 | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
+|**認證名稱**|**認證名稱**：AKV 整合會在 SQL Server 內建立認證，允許 VM 具有金鑰保存庫的存取權。選擇此認證的名稱。| mycred1|
 
 如需詳細資訊，請參閱[在 Azure VM 上設定 SQL Server 的 Azure 金鑰保存庫整合](virtual-machines-windows-classic-ps-sql-keyvault.md)。
 
 ## 5\.檢閱摘要
 檢閱摘要，然後按一下 [確定] 來建立為此 VM 指定的 SQL Server、資源群組及資源。您可以從 Azure 入口網站監視部署。畫面頂端的 [通知] 按鈕會顯示基本的部署狀態。
 
-##<a id="Open">使用遠端桌面開啟虛擬機器並完成設定
+##<a id="Open"> 使用遠端桌面開啟虛擬機器並完成設定
 請依照下列步驟使用「遠端桌面」來開啟虛擬機器：
 
 1.	建置 Azure VM 之後，VM 的圖示將會出現在 Azure 儀表板上。按一下該圖示即可查看 VM 的相關資訊。
@@ -193,13 +188,13 @@ Azure 預設會針對 5000 IOPs、200 MBs 及 1 TB 的儲存體空間進行最�
 
 連線到 SQL Server 虛擬機器之後，您可以啟動 SQL Server Management Studio，然後使用您的本機系統管理員認證透過「Windows 驗證」進行連線。這也可以讓您在佈建後，視需要變更防火牆設定或 SQL Server 組態設定。
 
-##<a id="Connect">透過網際網路連線到 SQL Server
+##<a id="Connect"> 透過網際網路連接 SQL Server
 
 如果您想要從網際網路連線到您的 SQL Server 資料庫引擎，將需要執行數個步驟，例如設定防火牆、啟用 SQL Server 驗證，以及設定您的網路安全性群組。您必須要有一個「網路安全性群組」規則來允許連接埠 1433 上的 TCP 流量。
 
 如果您使用入口網站以資源管理員佈建 SQL Server 虛擬機器映像，則當您在 SQL 連線選項選取 [公用] 並啟用 SQL Server 驗證時，即已為您完成這些步驟。不過，還有一些剩餘的步驟要完成，才能透過網際網路存取您的 SQL Server 執行個體。
 
->[AZURE.NOTE] 如果在佈建時您沒有選取 [公用]，則還必須執行其他步驟，才能透過網際網路存取您的 SQL Server 執行個體。如需詳細資訊，請參閱[連線到 SQL Server 虛擬機器 (資源管理員) | Microsoft Azure](virtual-machines-windows-sql-connect.md)。
+>[AZURE.NOTE] 如果在佈建時您沒有選取 [公用]，則還必須執行其他步驟，才能透過網際網路存取您的 SQL Server 執行個體。如需詳細資訊，請參閱[連接到 SQL Server 虛擬機器 (資源管理員) | Microsoft Azure](virtual-machines-windows-sql-connect.md)。
 
 如果您只需要在本機或從相同的「虛擬網路」內存取您的虛擬機器，則不需要執行下列步驟。
 
@@ -208,4 +203,4 @@ Azure 預設會針對 5000 IOPs、200 MBs 及 1 TB 的儲存體空間進行最�
 ##<a id="Next">後續步驟
 如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-windows-classic-sql-overview.md)。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

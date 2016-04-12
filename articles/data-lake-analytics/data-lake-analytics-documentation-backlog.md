@@ -32,7 +32,8 @@ U-SQL | 正在處理 JSON | 2 | Pending | [@mumian](https://github.com/mumian) |
 服務 | 與 Curl 互動 | 3 |Pending |[@mumian](https://github.com/mumian)
 U-SQL | 資料分割資料表 |1 | Pending | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | 效能微調 | 2 | Pending | [@MikeRys](https://github.com/mikerys) | 
-U-SQL | 程式設計人員指南 | 2 | Pending | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | U-SQL UDO 程式設計人員指南 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | U-SQL 程式設計人員指南 | 2 | Pending | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | 從 T-SQL 背景開始使用 U-SQL | 1 | Pending | [@edmacauley](https://github.com/edmacauley) | [@MikeRys](https://github.com/mikerys)
 U-SQL | 從 Hive 背景開始使用 U-SQL | 1 | Pending | [@mumian](https://github.com/mumian)| [@MikeRys](https://github.com/mikerys)
 U-SQL | 文法鐵路圖 | 1 | 進行中，使用 [這個項目](http://bottlecaps.de/rr/ui) | [@mwinkle](https://github.com/mwinkle) | [@mwinkle](https://github.com/mwinkle)
@@ -42,7 +43,7 @@ U-SQL | 文法鐵路圖 | 1 | 進行中，使用 [這個項目](http://bottlecap
 U-SQL | 說明進行範圍型 JOIN 的技術 | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | ADLS 驗證選項 | 1 | Pending | [@ArindamC](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 U-SQL | 跨平台 CLI 工作提交 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle) 
-U-SQL | REDUCE 和 COMBINE 的參考文件更新 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@mwinkle](https://github.com/mwinkle)
+U-SQL | REDUCE 和 COMBINE 的參考文件更新 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@MikeRys](https://github.com/mikerys)
 工具 | 單元測試 Visual Studio 適用的 U-SQL UDF Azure Data Lake 工具 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
 工具 | Visual Studio 適用的 Azure Data Lake 作業圖形和頂點執行檢視工具 | 1 | Pending | [@edmacauley](https://github.com/edmacauley) |[@xiaoyong](https://github.com/zxzxy1988)
 
@@ -61,4 +62,4 @@ U-SQL | REDUCE 和 COMBINE 的參考文件更新 | 1 | Pending | [@edmacauley](h
 * 在 [Azure 內容儲存機制](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md) 中提交這份文件的提取要求
 * 傳送電子郵件到 microsoft.com 的 [adlafeedback](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0330_2016-->

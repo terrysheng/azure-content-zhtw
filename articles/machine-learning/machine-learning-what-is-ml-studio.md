@@ -41,7 +41,7 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 
 第一次進入 [Machine Learning Studio](https://studio.azureml.net) 時，您會看到 [首頁]：您可以從這裡檢視文件、影片、網路研討會，以及尋找其他重要資源。
 
-頂端有三個索引標籤：[首頁] (您開始的位置)、[Studio]，以及 [資源庫]。
+頂端有三個索引標籤：[首頁] \(您開始的位置)、[Studio]，以及 [資源庫]。
 
 ### Studio
 

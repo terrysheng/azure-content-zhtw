@@ -214,7 +214,7 @@
 
 		php -S localhost:8000
 
-您現在可以瀏覽至 ****http://localhost:8000/** 測試應用程式。
+您現在可以瀏覽至 **http://localhost:8000/** 測試應用程式。
 
 
 ##發佈您的應用程式
@@ -280,7 +280,8 @@
     
 3. 按一下 [確定] 接受法律條款。再按一次 [確定] 以新增延伸模組。
 
-    [已安裝的延伸模組] 刀鋒視窗會立即顯示編輯器延伸模組。![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
+    [已安裝的延伸模組] 刀鋒視窗會立即顯示編輯器延伸模組。
+    ![](./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png)
     
 4. 現在，和上一節一樣執行 `git add`、`git commit` 和 `git push`。您就會立即看到編輯器正在安裝 composer.json 中定義的相依性。
 

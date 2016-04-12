@@ -42,10 +42,16 @@
 
 |SKU 系列 |ACU/核心 |
 |---|---|
-|[Standard\_A0](#standard-tier-a-series) |50 |
-|[Standard\_A1-4](#standard-tier-a-series) |100 |
-|[Standard\_A5-7](#standard-tier-a-series) |100 |
-|[A8-A11](#standard-tier-a-series) |225 *| |[D1-14](#standard-tier-d-series) |160 | |[D1-15v2](#standard-tier-dv2-series) |210 - 250 *| |[DS1-14](#standard-tier-ds-series) |160 | |[DS1-14v2](#standard-tier-dsv2-series) |210-250* | |[G1-5](#standard-tier-g-series) |180 - 240 *| |[GS1-5](#standard-tier-gs-series) |180 - 240 *|
+|[Standard\_A0](#standard-tier-a-series)	|50 |
+|[Standard\_A1-4](#standard-tier-a-series)	|100 |
+|[Standard\_A5-7](#standard-tier-a-series)	|100 |
+|[A8-A11](#standard-tier-a-series)	|225 *|
+|[D1-14](#standard-tier-d-series)	|160 |
+|[D1-15v2](#standard-tier-dv2-series)	|210 - 250 *|
+|[DS1-14](#standard-tier-ds-series)	|160 |
+|[DS1-14v2](#standard-tier-dsv2-series)	|210-250* |
+|[G1-5](#standard-tier-g-series)	|180 - 240 *|
+|[GS1-5](#standard-tier-gs-series)	|180 - 240 *|
 
 
 以 * 標示的 ACU 使用了「Intel® 渦輪」技術來增加 CPU 頻率及提升效能。提升的程度會依 VM 大小、工作負載及在相同主機上執行的其他工作負載而有所不同。

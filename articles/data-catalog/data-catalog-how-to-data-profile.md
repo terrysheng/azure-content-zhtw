@@ -1,6 +1,6 @@
 <properties
    pageTitle="如何對資料來源進行資料分析"
-   description="專門說明如何在 Azure 資料目錄中對資料來源進行資料分析的操作說明文章。"
+   description="專門說明如何在 Azure 資料目錄中註冊資料來源時包含資料表和資料行層級的資料設定檔以及如何使用資料設定檔來了解資料來源的操作說明文章。"
    services="data-catalog"
    documentationCenter=""
    authors="dvana"
@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="derrickv"/>
 
 # 對資料來源進行資料分析
 
 ## 簡介
 
-**Microsoft Azure 資料目錄**是全面管理的雲端服務，可作為企業資料來源的註冊系統和探索系統。換句話說，**Azure 資料目錄**的重點在於協助人們探索、了解，以及使用資料來源，並可協助組織從現有的資料獲得更多價值。當資料來源向 **Azure 資料目錄**註冊之後，該服務會複製其中繼資料並建立索引，但不僅止於此。
+[Microsoft Azure 資料目錄] 是全面管理的雲端服務，可作為企業資料來源的註冊系統和探索系統。換句話說，**Azure 資料目錄**的重點在於協助人們探索、了解，以及使用資料來源，並可協助組織從現有的資料獲得更多價值。當資料來源向 **Azure 資料目錄**註冊之後，該服務會複製其中繼資料並建立索引，但不僅止於此。
 
 **Azure 資料目錄**會檢查目錄所支援資料來源中的資料，並收集關於該資料的統計資料和資訊。這稱為**資料分析**。想要包含資料資產的設定檔很容易。當您註冊資料資產時，請選擇資料來源註冊工具中的 [包含資料設定檔]。
 
@@ -91,4 +91,4 @@
 -	[如何註冊資料來源](data-catalog-how-to-register.md)
 -	[開始使用 Azure 資料目錄](data-catalog-get-started.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

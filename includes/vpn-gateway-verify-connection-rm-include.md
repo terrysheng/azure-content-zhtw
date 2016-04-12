@@ -1,10 +1,14 @@
 ### 使用 Azure 入口網站驗證您的連線
 
-您可以在 Azure 入口網站中驗證 VPN 連線，方法是瀏覽至 [虛擬網路閘道] -> **按一下您的閘道名稱** -> [設定] -> [連線]。您可以選取連線名稱，以在 [連線] 刀鋒視窗中檢視詳細資訊。
+您可以在 Azure 入口網站中驗證 VPN 連線，方法是瀏覽至 [虛擬網路閘道] > 按一下您的閘道名稱** > [設定]**** > [連線]**。選取連線的名稱，即可檢視連線的詳細資訊。在下列範例中，並未連接連線，而且沒有流經的資料。
+
+
+![驗證連線](./media/vpn-gateway-verify-connection-rm-include/connectionverify450.png)
+
 
 ### 使用 PowerShell 驗證您的連線
 
-您也可以使用 Get-AzureRmVirtualNetworkGatewayConnection –Debug 驗證您的連接是否成功。未來，我們將有用於執行此作業的 Cmdlet。您可以使用下列 cmdlet 範例，設定符合您自己的值。出現提示時，請選取 [A] 以執行 [全部]。
+您也可以使用 `Get-AzureRmVirtualNetworkGatewayConnection –Debug` 驗證您的連線是否成功。您可以使用下列 cmdlet 範例，設定符合您自己的值。出現提示時，請選取 [A] 以執行 [全部]。
 
 	Get-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
 
@@ -37,4 +41,4 @@
 	    "egressBytesTransferred": 4142431
 	  }
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

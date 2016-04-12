@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [.Net](web-sites-dotnet-get-started.md)
-- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Node.js](app-service-web-nodejs-get-started.md)
 - [Java](web-sites-java-get-started.md)
 - [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
@@ -58,7 +58,7 @@
 
 2. 按一下 [檔案] > [新增] > [專案]。
 
-3. 在 [新增專案] 對話方塊中，依序按一下 [Visual C#] > [Web] > [ASP.NET Web 應用程式] \(如有需要，您可以選擇 [Visual Basic])。
+3. 在 [新增專案] 對話方塊中，依序按一下 [Visual C#] > [Web] > [ASP.NET Web 應用程式] (如有需要，您可以選擇 [Visual Basic])。
 
 3. 確定已選取 [.NET Framework 4.5.2] 來做為目標架構。
 
@@ -198,8 +198,7 @@
 
 	![在 Azure 中執行的 Web 應用程式](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-> [AZURE.TIP] 您可以啟用 [Web 單鍵發佈] 工具列來加快部署速度，方法是依序按一下 [檢視] > [工具列]，然後選取 [Web 單鍵發佈]。您可以使用工具列來選取設定檔、按一下按鈕來發佈，或按一下按鈕來開啟 [發佈 Web] 精靈。
-> ![Web 單鍵發行工具列](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+> [AZURE.TIP] 您可以啟用 [Web 單鍵發佈] 工具列來加快部署速度，方法是依序按一下 [檢視] > [工具列]，然後選取 [Web 單鍵發佈]。您可以使用工具列來選取設定檔、按一下按鈕來發佈，或按一下按鈕來開啟 [發佈 Web] 精靈。![Web 單鍵發行工具列](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
 ## <a id="portal"></a>在 Azure 入口網站中監控及管理 Web 應用程式
 
@@ -294,4 +293,4 @@
 
 	在 Azure 中，您可以在 App Service Web Apps 中執行 Web 應用程式 (如本教學課程所示)，或在雲端服務或虛擬機器中執行。如需詳細資訊，請參閱 [Azure Web 應用程式、雲端服務和 VM：每一項的使用時機](/manage/services/web-sites/choose-web-app-service/)。
 
-<!----HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

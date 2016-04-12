@@ -12,7 +12,7 @@
 <tags
 	ms.service="virtual-machines-windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="03/24/2016"
@@ -168,17 +168,17 @@ Azure 預設會針對 5000 IOPs、200 MBs 及 1 TB 的儲存體空間進行最�
 
 |參數|描述|範例|
 |----------|----------|-------|
-|**金鑰保存庫 URL** | 金鑰保存庫的位置。|https://contosokeyvault.vault.azure.net/ |
-|**AKV 主體名稱** |Azure Active Directory 服務主體名稱。這也稱為「用戶端識別碼」。 |fde2b411-33d5-4e11-af04eb07b669ccf2|
-| **AKV 主體密碼**|「AKV 整合」會在 SQL Server 內建立認證，以便讓 VM 能夠存取金鑰保存庫。選擇此認證的名稱。 | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
-|**認證名稱**|選擇一個名稱來識別此認證。| mycred1|
+|**金鑰保存庫 URL** |金鑰保存庫的位置。|https://contosokeyvault.vault.azure.net/ |
+|**主體名稱** |Azure Active Directory 服務主體名稱。這也稱為「用戶端識別碼」。 |fde2b411-33d5-4e11-af04eb07b669ccf2|
+| **主體密碼**|Azure Active Directory 服務主體密碼。這也稱為「用戶端密碼」。 | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
+|**認證名稱**|**認證名稱**：AKV 整合會在 SQL Server 內建立認證，允許 VM 具有金鑰保存庫的存取權。選擇此認證的名稱。| mycred1|
 
 如需詳細資訊，請參閱[在 Azure VM 上設定 SQL Server 的 Azure 金鑰保存庫整合](virtual-machines-windows-classic-ps-sql-keyvault.md)。
 
 ## 5\.檢閱摘要
 檢閱摘要，然後按一下 [確定] 來建立為此 VM 指定的 SQL Server、資源群組及資源。您可以從 Azure 入口網站監視部署。畫面頂端的 [通知] 按鈕會顯示基本的部署狀態。
 
-##<a id="Open">使用遠端桌面開啟虛擬機器並完成設定
+##<a id="Open"> 使用遠端桌面開啟虛擬機器並完成設定
 請依照下列步驟使用「遠端桌面」來開啟虛擬機器：
 
 1.	建置 Azure VM 之後，VM 的圖示將會出現在 Azure 儀表板上。按一下該圖示即可查看 VM 的相關資訊。
@@ -188,7 +188,7 @@ Azure 預設會針對 5000 IOPs、200 MBs 及 1 TB 的儲存體空間進行最�
 
 連線到 SQL Server 虛擬機器之後，您可以啟動 SQL Server Management Studio，然後使用您的本機系統管理員認證透過「Windows 驗證」進行連線。這也可以讓您在佈建後，視需要變更防火牆設定或 SQL Server 組態設定。
 
-##<a id="Connect">透過網際網路連接 SQL Server
+##<a id="Connect"> 透過網際網路連接 SQL Server
 
 如果您想要從網際網路連線到您的 SQL Server 資料庫引擎，將需要執行數個步驟，例如設定防火牆、啟用 SQL Server 驗證，以及設定您的網路安全性群組。您必須要有一個「網路安全性群組」規則來允許連接埠 1433 上的 TCP 流量。
 
@@ -203,4 +203,4 @@ Azure 預設會針對 5000 IOPs、200 MBs 及 1 TB 的儲存體空間進行最�
 ##<a id="Next">後續步驟
 如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](virtual-machines-windows-classic-sql-overview.md)。
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

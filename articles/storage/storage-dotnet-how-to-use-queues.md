@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/14/2016"
+	ms.date="03/28/2016"
 	ms.author="gusapost"/>
 
 # 以 .NET 開始使用 Azure 佇列儲存體
@@ -260,4 +260,4 @@ Azure 佇列儲存體是在雲端中提供訊息佇列的服務。設計擴充�
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!----HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

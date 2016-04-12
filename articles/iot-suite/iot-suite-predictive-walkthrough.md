@@ -43,7 +43,7 @@ IoT Suite 預先設定的預測性維護解決方案是一個端對端解決方�
 
 *週期計數*。一個週期表示 2 至 10 小時不等的已完成飛行，而在飛行時間內會每半小時擷取一次遙測資料。
 
-*遙測*。有 4 個代表引擎屬性的感應器。這些感應器會一般會標示為感應器 9、感應器 11、感應器 14 和感應器 15。這 4 個感應器代表足以從 RUL 的機器學習服務模型取得有用結果的遙測。此模型是根據包含實際引擎感應器資料的公用資料集建立而來。如需有關如何從原始資料集建立模型的詳細資訊，請參閱 [Cortana 分析資源庫預測性維護範本][lnk-cortana-analytics]。
+*遙測*。有 4 個代表引擎屬性的感應器。這些感應器會一般會標示為感應器 9、感應器 11、感應器 14 和感應器 15。這 4 個感應器代表足以從 RUL 的機器學習服務模型取得有用結果的遙測。此模型是根據包含實際引擎感應器資料的公用資料集建立而來。如需有關如何從原始資料集建立模型的詳細資訊，請參閱 [Cortana Intelligence Gallery 預測性維護範本][lnk-cortana-analytics]。
 
 模擬的裝置可以處理從 IoT 中樞傳送的下列命令：
 
@@ -64,7 +64,7 @@ IoT 中樞會提供裝置命令通知。
 
 ## Azure Machine Learning
 
-如需有關如何從原始資料集建立模型的詳細資訊，請參閱 [Cortana 分析資源庫預測性維護範本][lnk-cortana-analytics]。
+如需有關如何從原始資料集建立模型的詳細資訊，請參閱 [Cortana Intelligence Gallery 預測性維護範本][lnk-cortana-analytics]。
 
 ## 讓我們開始
 
@@ -120,8 +120,8 @@ Web 應用程式中的此頁面會使用 PowerBI JavaScript 控制項 (請參閱
 [lnk-powerbi]: https://www.github.com/Microsoft/PowerBI-visuals
 [lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
 [lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
-[lnk-cortana-analytics]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
+[lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

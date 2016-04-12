@@ -28,19 +28,13 @@
 - Windows Server 2012 R2
 - Windows 10
 
-### Visual Studio 2015
-
-適用於 Service Fabric 的工具至少需要 Visual Studio 2015，您可以在 [Visual Studio 網站][2]上找到。
-
-> [AZURE.NOTE] 若您並未執行其中一個支援的作業系統版本，或不想在您的電腦上安裝 Visual Studio，則您可以設定已預先安裝 Windows Server 2012 R2 和 Visual Studio 的 Azure 虛擬機器。您可以使用 Azure 虛擬機器資源庫中的映像來執行這項操作。
-
 ## 安裝執行階段、SDK 和工具
 
-Web Platform Installer 會執行 Service Fabric 元件的安裝。有三個安裝選項：
+Web Platform Installer 針對 Service Fabric 開發提供三個組態︰
 
-- [安裝適用於 Visual Studio 2015 的 Service Fabric 執行階段、SDK 和工具](full-bundle-vs2015)
-- [安裝適用於 Visual Studio "15" Preview 的 Service Fabric 執行階段、SDK 和工具](full-bundle-dev15)
-- [僅安裝 Service Fabric 執行階段和 SDK (不安裝 Visual Studio 工具)](core-sdk)
+- [安裝適用於 Visual Studio 2015 的 Service Fabric 執行階段、SDK 和工具][full-bundle-vs2015]
+- [安裝適用於 Visual Studio "15" Preview 的 Service Fabric 執行階段、SDK 和工具][full-bundle-dev15]
+- [僅安裝 Service Fabric 執行階段和 SDK (不安裝 Visual Studio 工具)][core-sdk]
 
 
 ## 啟用 PowerShell 指令碼執行
@@ -67,4 +61,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [full-bundle-dev15]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI 連結"
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Core SDK WebPI 連結"
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

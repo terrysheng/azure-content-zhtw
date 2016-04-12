@@ -1,6 +1,6 @@
 <properties
-	pageTitle="使用 CORS 從 JavaScript 取用 API 應用程式 | Microsoft Azure"
-	description="了解如何在 Azure App Service 中從 JavaScript 用戶端並使用 CORS 取用 API 應用程式"
+	pageTitle="App Service 中的 CORS 支援 | Microsoft Azure"
+	description="了解如何在 Azure App Service 中使用 CORS 支援。"
 	services="app-service\api"
 	documentationCenter=".net"
 	authors="tdykstra"
@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="03/31/2016"
 	ms.author="tdykstra"/>
 
 # 使用 CORS 從 JavaScript 取用 API 應用程式
 
 ## 概觀
 
-App Service 提供內建的跨原始來源資源共用 (CORS) 支援，可讓 JavaScript 用戶端對 App Service API 應用程式進行跨網域呼叫。
+App Service 提供內建的跨原始來源資源共用 (CORS) 支援，可讓 JavaScript 用戶端對 API 應用程式、Web 應用程式或行動應用程式中所裝載的 API 進行跨網域呼叫。App Service 的這項功能可讓您利用 CORS 而不需要在 API 中撰寫任何程式碼。
 
-基於安全性理由，瀏覽器會防止 JavaScript 對與 JavaScript 程式碼原始網域不同的網域進行 API 呼叫。例如，您可以從 contoso.com 網頁對 contoso.com API 端點進行呼叫，但不能對 fabrikam.com 端點進行呼叫。CORS 是一個網際網路通訊協定，其設計用來啟用您需要進行這類跨網域 API 呼叫的案例。在 Azure App Service 中，您的 JavaScript 用戶端在 Web 應用程式中執行，而您的 API 在 API 應用程式中執行，這就是這類案例的範例之一。
+[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 是網際網路通訊協定，可讓您從 JavaScript 對瀏覽器從中載入 JavaScript 之網域以外的網域進行 API 呼叫。若沒有 CORS，您雖可以從 contoso.com 網頁對 contoso.com API 端點進行呼叫，但不能對 fabrikam.com 端點進行呼叫。
 
 本文包含兩個部分：
 
-* [如何設定 CORS](#corsconfig)一節大致說明如何為 API 應用程式設定 CORS，且一體適用於 App Service 支援的所有架構，包括 .NET、Node.js 和 Java。 
+* [如何設定 CORS](#corsconfig)一節說明一般會如何設定 API 應用程式、Web 應用程式或行動應用程式的 CORS。本節一體適用於 App Service 支援的所有架構，包括 .NET、Node.js 和 Java。 
 
-* 從[繼續 .NET 快速入門教學課程](#tutorialstart)一節開始，會引導您部署 .NET 範例應用程式和設定 CORS，讓 JavaScript 前端可以呼叫 Web API 後端。
+* 從[繼續進行 .NET 入門教學課程](#tutorialstart)一節開始，本文就會成為示範 CORS 支援的教學課程，其示範方法是透過以您在[第一個 API Apps 入門教學課程](app-service-api-dotnet-get-started.md)中所做的為基礎進行建置。
 
 ## <a id="corsconfig"></a>如何在 Azure App Service 中設定 CORS
 
@@ -40,13 +40,13 @@ App Service 提供內建的跨原始來源資源共用 (CORS) 支援，可讓 Ja
 
 2. 按一下 [應用程式服務]，然後按一下您 API 應用程式的名稱。
 
-	![](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
+	![在入口網站中選取 API 應用程式](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
 
 10. 在 [API 應用程式] 右側開啟的 [設定] 刀鋒視窗中，尋找 [API] 區段，再按一下 [CORS]。
 
-	![](./media/app-service-api-cors-consume-javascript/clicksettings.png)
+	![在 [設定] 刀鋒視窗中選取 CORS](./media/app-service-api-cors-consume-javascript/clicksettings.png)
 
-11. 在文字方塊中，輸入您想要允許的 JavaScript 呼叫來源 URL。
+11. 在文字方塊中，輸入您想要允許的一或多個 JavaScript 呼叫來源 URL。
 
 
 	例如，如果您已將 JavaScript 應用程式部署至名為 todolistangular 的 Web 應用程式，請輸入 "https://todolistangular.azurewebsites.net"。或者，您也可以輸入星號 (*) 來指定接受所有的原始網域。
@@ -54,7 +54,7 @@ App Service 提供內建的跨原始來源資源共用 (CORS) 支援，可讓 Ja
 
 13. 按一下 [儲存]。
 
-	![](./media/app-service-api-cors-consume-javascript/corsinportal.png)
+	![按一下 [Save] (儲存)。](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
 	按一下 [儲存] 之後，API 應用程式會接受來自指定 URL 的 JavaScript 呼叫。
 
@@ -104,7 +104,7 @@ App Service 提供內建的跨原始來源資源共用 (CORS) 支援，可讓 Ja
 
 ### 為 ToDoListAngular 專案建立新的 Web 應用程式
 
-建立新的 Web 應用程式並對其部署專案的程序，和您在本系列的第一個教學課程中看到的相同，差別只在類型為 [Web 應用程式] 而不是 [API 應用程式]。
+建立新的 Web 應用程式並對其部署專案的程序，和您在本系列的第一個教學課程中看到的類似。唯一的差別在於應用程式類型為 [Web 應用程式] 而不是 [API 應用程式]。
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 ToDoListAngular 專案，然後按一下 [發佈]。
 
@@ -124,13 +124,13 @@ App Service 提供內建的跨原始來源資源共用 (CORS) 支援，可讓 Ja
 
 	Visual Studio 會建立 Web 應用程式、建立其發佈設定檔，並顯示 [發佈 Web] 精靈的 [連接] 步驟。
 
-	在按一下 [發佈 Web] 精靈中的 [發佈] 之前，您會設定新的 Web 應用程式以呼叫在 App Service 中執行的中介層 API 應用程式。
+	還不要按 [發佈]。在下一節中，您會設定新的 Web 應用程式以呼叫在 App Service 中執行的中介層 API 應用程式。
 
 ### 在 Web 應用程式設定中設定中介層 URL
 
 1. 移至 [Azure 入口網站](https://portal.azure.com/)，然後瀏覽至您建立以裝載 TodoListAngular (前端) 專案的 Web 應用程式的 [Web 應用程式] 刀鋒視窗。
 
-2. 按一下 **[設定] > [應用程式設定]**。
+2. 按一下 [設定] > [應用程式設定]。
 
 3. 在 [應用程式設定] 區段中，新增下列金鑰和值：
 
@@ -140,7 +140,7 @@ App Service 提供內建的跨原始來源資源共用 (CORS) 支援，可讓 Ja
 
 4. 按一下 [儲存]。
 
-	在 Azure 中執行程式碼時，這個值現在會覆寫 Web.config 檔案中的 localhost URL。
+	在 Azure 中執行程式碼時，這個值會覆寫 Web.config 檔案中的 localhost URL。
 
 	取得設定值的程式碼位於 index.cshtml：
 
@@ -184,9 +184,9 @@ App Service 提供內建的跨原始來源資源共用 (CORS) 支援，可讓 Ja
 
 3. 在顯示 AngularJS UI 的瀏覽器視窗中，按一下 [待辦事項清單] 連結。
 
-	JavaScript 程式碼會嘗試呼叫中介層 API 應用程式，但呼叫將會失敗，因為前端執行所在的網域 (Web 應用程式 URL) 與後端 (API 應用程式 URL) 不同。瀏覽器的 [開發人員工具主控台] 視窗會顯示跨原始來源錯誤訊息。
+	JavaScript 程式碼會嘗試呼叫中介層 API 應用程式，但呼叫將會失敗，因為前端執行所在的網域與後端的不同。瀏覽器的 [開發人員工具主控台] 視窗會顯示跨原始來源錯誤訊息。
 
-	![](./media/app-service-api-cors-consume-javascript/consoleaccessdenied.png)
+	![跨原始來源錯誤訊息](./media/app-service-api-cors-consume-javascript/consoleaccessdenied.png)
 
 ## 為中介層 API 應用程式設定 CORS 。
 
@@ -196,11 +196,11 @@ App Service 提供內建的跨原始來源資源共用 (CORS) 支援，可讓 Ja
 
 2. 按一下 [應用程式服務]，再按一下 ToDoListAPI (中介層) API 應用程式。
 
-	![](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
+	![在入口網站中選取 API 應用程式](./media/app-service-api-cors-consume-javascript/browseapiapps.png)
 
 10. 在 [API 應用程式] 右側開啟的 [設定] 刀鋒視窗中，尋找 [API] 區段，再按一下 [CORS]。
 
-	![](./media/app-service-api-cors-consume-javascript/clicksettings.png)
+	![在入口網站中選取 CORS](./media/app-service-api-cors-consume-javascript/clicksettings.png)
 
 12. 在文字方塊中輸入 ToDoListAngular (前端) Web 應用程式的 URL。例如，如果您將 ToDoListAngular 專案部署到名為 todolistangular0121 的 Web 應用程式，則允許來自 URL `https://todolistangular0121.azurewebsites.net` 的呼叫。
 
@@ -208,7 +208,7 @@ App Service 提供內建的跨原始來源資源共用 (CORS) 支援，可讓 Ja
 
 13. 按一下 [儲存]。
 
-	![](./media/app-service-api-cors-consume-javascript/corsinportal.png)
+	![按一下 [Save] (儲存)。](./media/app-service-api-cors-consume-javascript/corsinportal.png)
 
 	按一下 [儲存] 之後，API 應用程式會接受來自指定 URL 的 JavaScript 呼叫。在這個螢幕擷取畫面中，ToDoListAPI0223 API 應用程式會接受來自 ToDoListAngular Web 應用程式的 JavaScript 用戶端呼叫。
 
@@ -218,7 +218,7 @@ App Service 提供內建的跨原始來源資源共用 (CORS) 支援，可讓 Ja
 
 	這一次，應用程式會讓您檢視、新增、編輯和刪除待辦事項項目。
 
-	![](./media/app-service-api-cors-consume-javascript/corssuccess.png)
+	![範例應用程式的待辦事項清單頁面](./media/app-service-api-cors-consume-javascript/corssuccess.png)
 
 ## App Service CORS 與 Web API CORS
 
@@ -264,10 +264,23 @@ Web API CORS 支援比 App Service CORS 支援更有彈性。例如，在程式�
 		    [EnableCors(origins:"*", headers:"*", methods: "*")]
 		    public class ToDoListController : ApiController
  
-	> **注意**：將萬用字元使用於具有 `EnableCors` 屬性的所有參數僅供示範之用，並且將您的 API 開啟至所有來源和所有 HTTP 要求 。請謹慎使用這個屬性。
+	> **注意**：請謹慎使用這個屬性。針對所有參數指定萬用字元會向所有來源和所有 HTTP 要求開放 API。此處所示的設定僅供示範之用。
+
+## 疑難排解
+
+如果您在進行本教學課程時遇到問題，請確定您使用的是最新版 Azure SDK for .NET。若要這麼做，最簡單的方法是[下載 Azure SDK for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003)；如果您已安裝最新版本，Web Platform Installer 會指出不需要進行安裝。
+
+如果您在入口網站的 [CORS] 刀鋒視窗上設定 URL 之後繼續收到 CORS 錯誤，請仔細檢查是否已在正確位置做正確變更。例如：
+
+* 確定您已正確輸入通訊協定 (`https` 而非 `http`)，並確定您是使用 `https` 來執行前端 Web 應用程式。
+* 確定您已在中介層 API 應用程式 (而非前端 Web 應用程式) 中輸入 CORS 設定。
+
+如果您同時在應用程式程式碼和 Azure App Service 中設定 CORS，請注意 App Service 的 CORS 設定會覆寫您在應用程式程式碼中所撰寫的任何內容。
+
+若要深入了解可簡化疑難排解的 Visual Studio 功能，請參閱[在 Visual Studio 中針對 Azure App Service 應用程式進行疑難排解](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)。
 
 ## 後續步驟 
 
-在本教學課程中，您已看到如何啟用 App Service CORS 支援，以便用戶端 JavaScript 程式碼可以呼叫不同網域中的 API。在下一篇 API Apps 入門系列文章中，您將了解 [App Service API 應用程式的驗證](app-service-api-authentication.md)。
+在本文中，您已看到如何啟用 App Service CORS 支援，以便用戶端 JavaScript 程式碼可以呼叫不同網域中的 API。在下一篇 API Apps 入門系列文章中，您將了解 [App Service API 應用程式的驗證](app-service-api-authentication.md)。
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="03/08/2016"
 	ms.author="vlivech"/>
 
@@ -72,4 +72,4 @@ info:    group create command OK
 
 使用範本建立 Linux VM 後，您會想要看看還有哪些應用程式架構可與範本搭配使用。請搜尋[範本庫](https://azure.microsoft.com/documentation/templates/)以探索接下來要部署哪些應用程式架構。
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0406_2016-->

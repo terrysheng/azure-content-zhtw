@@ -1,5 +1,5 @@
 <properties
-   pageTitle="如何註冊資料來源"
+   pageTitle="如何註冊資料來源 | Microsoft Azure"
    description="專門說明如何使用 Azure 資料目錄註冊資料來源 (包括註冊期間擷取的中繼資料欄位) 的操作說明文章。"
    services="data-catalog"
    documentationCenter=""
@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
 # 如何註冊資料來源
 
 ## 簡介
-**Microsoft Azure 資料目錄**是全面管理的雲端服務，可作為企業資料來源的註冊系統和探索系統。換句話說，**Azure 資料目錄**的重點在於協助人們探索、了解，以及使用資料來源，並可協助組織從現有的資料獲得更多價值。而透過 **Azure 資料目錄**讓資料來源得以被探索的第一步是註冊該資料來源。
+[Microsoft Azure 資料目錄] 是全面管理的雲端服務，可作為企業資料來源的註冊系統和探索系統。換句話說，**Azure 資料目錄**的重點在於協助人們探索、了解，以及使用資料來源，並可協助組織從現有的資料獲得更多價值。而透過 **Azure 資料目錄**讓資料來源得以被探索的第一步是註冊該資料來源。
 ## 註冊資料來源
 註冊是指從資料來源擷取中繼資料並將該資料複製到 **Azure 資料目錄**服務的程序。資料會保留在它目前的位置，並且仍然在目前系統的系統管理員及原則的控制之下。
 
@@ -79,4 +79,4 @@
 ## 另請參閱
 - [開始使用 Azure 資料目錄](data-catalog-get-started.md)教學課程，取得如何註冊資料來源的逐步詳細資料。
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

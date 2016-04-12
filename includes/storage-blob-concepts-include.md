@@ -28,45 +28,7 @@ Blob 服務包含下列元件：
 
 	如需關於 Blob 的詳細資訊，請參閱[了解區塊 Blob、附加 Blob 及分頁 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx)。
 
-## 命名與參考容器和 Blob
-
-您可以使用下列 URL 格式，在您的儲存體帳戶中定址 Blob：
-   
-    http://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>  
-      
-例如，以下是上圖中定址其中一個 Blob 的 URL：
-
-    http://sally.blob.core.windows.net/movies/MOV1.AVI
-
-### 容器命名規則
-
-容器名稱必須是有效的 DNS 名稱，且符合下列規則：
-
-- 容器名稱必須是全小寫。
-- 容器名稱必須以字母或數字開頭，並且只能包含字母、數字和虛線 (-) 字元。
-- 每個虛線 (-) 字元前後必須立即接著字母或數字；容器名稱中不允許連續虛線。
-- 容器名稱必須介於 3 至 63 個字元長。
-
-### Blob 命名規則
-
-Blob 名稱必須符合下列規則：
-
-- Blob 名稱可包含任何字元的組合。
-- Blob 名稱必須至少一個字元長，而且不能超過 1,024 個字元。
-- Blob 名稱會區分大小寫。
-- 保留的 URL 字元必須正確逸出。
-- Blob 名稱中所包含的路徑線段數目不能超過 254 個。路徑線段是與虛擬目錄名稱對應的連續分隔符號字元 (*例如*，正斜線 '/') 之間的字串。
-
-Blob 服務是以一般儲存體配置為根據。您可以透過在 Blob 名稱內指定字元或字串分隔符號建立虛擬階層。例如，下列清單顯示一些有效且唯一的 Blob 名稱：
-
-	/a
-	/a.txt
-	/a/b
-	/a/b.txt
-
-您可以使用分隔符號字元，以階層方式列出 Blob。
-
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0406_2016-->

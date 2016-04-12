@@ -1,5 +1,5 @@
 <properties
-   pageTitle="如何使用「巨量資料」資料來源"
+   pageTitle="如何使用「巨量資料」資料來源 | Microsoft Azure"
    description="強調如何將「Azure 資料目錄」與「巨量資料」資料來源 (包括「Azure Blob 儲存體」、「Azure 資料湖」及 Hadoop HDFS) 搭配使用的操作說明文章。"
    services="data-catalog"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/30/2016"
+   ms.date="03/31/2016"
    ms.author="maroche"/>
 
 
@@ -68,4 +68,4 @@
 ## 摘要
 向 **Azure 資料目錄**註冊資料來源可讓您更輕鬆地探索和了解它們。您可以註冊並加註代表邏輯資料集的巨量資料檔案和目錄，以協助使用者找到並使用所需的巨量資料來源。
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

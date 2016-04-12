@@ -1,12 +1,12 @@
 <properties
    pageTitle="Azure 備份常見問題集 | Microsoft Azure"
-   description="關於備份代理程式、備份和保留、復原、安全性，以及 Azure 備份解決方案其他常見問題的常見問題集答案。"
+   description="關於備份服務、備份代理程式、備份和保留、復原、安全性，以及其他關於備份和災害復原之常見問題的解答。"
    services="backup"
    documentationCenter=""
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="備份解決方案；備份服務"/>
+   keywords="備份和災害復原; 備份服務"/>
 
 <tags
    ms.service="backup"
@@ -14,10 +14,15 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="03/24/2016"
+	 ms.date="03/30/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure 備份服務常見問題集
+
+> [AZURE.SELECTOR]
+- [傳統模式的備份常見問題集](backup-azure-backup-faq.md)
+- [ARM 模式的備份常見問題集](backup-azure-backup-ibiza-faq.md)
+
 這篇文章是關於 Azure 備份服務的常見問題 (和個別答案) 清單。我們的社群會快速回覆，如果是經常詢問的問題，我們會將它加入至這份文件。問題的答案通常會提供參考或支援資訊。您可以在本文件或相關文件的 Disqus 一節中詢問有關 Azure 備份的問題。您也可以在[論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
 
 ## 安裝和設定
@@ -54,7 +59,7 @@
 
 **Q9.我如何將伺服器註冊到其他資料中心？**<br/> A9.備份資料會傳送至「備份服務」的資料中心以進行註冊。若要變更資料中心，最簡單的方式是解除安裝代理程式，並重新安裝代理程式，然後註冊新的資料中心。
 
-**Q10.若重新命名正在將資料備份至 Azure 的 Windows 伺服器，則會發生什麼情況？** A10.當您重新命名伺服器時，所有目前設定的備份都會停止。您必須向備份保存庫註冊伺服器的新名稱。當您建立新的註冊時，第一次備份作業是完整備份，而非增量備份。如果您需要復原先前備份到採用舊伺服器名稱之保存庫的資料，您可以使用 [復原資料] 精靈中 [[其他伺服器](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine)] 選項來復原該資料。
+**Q10.若重新命名正在將資料備份至 Azure 的 Windows 伺服器，則會發生什麼情況？**<br/> A10.當您重新命名伺服器時，所有目前設定的備份都會停止。您必須向備份保存庫註冊伺服器的新名稱。當您建立新的註冊時，第一次備份作業是完整備份，而非增量備份。如果您需要復原先前備份到採用舊伺服器名稱之保存庫的資料，您可以使用 [復原資料] 精靈中 [[其他伺服器](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine)] 選項來復原該資料。
 
 
 **Q11.我可以從何種類型的磁碟機備份檔案和資料夾？** <br/> A11.下列的磁碟機/磁碟區組合無法進行備份：
@@ -192,4 +197,4 @@
 
   一旦在新的快取位置成功完成備份建立，您就可以移除原始的快取資料夾。
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/17/2015"
+	ms.date="03/31/2016"
 	ms.author="awills"/>
 
 # 開始使用 Visual Studio Application Insights
@@ -48,12 +48,12 @@ Application Insights 的運作方式是將 SDK 加入至您的應用程式，並
 
 * 問題：
  * [疑難排解][qna]
- * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/vstudio/zh-TW/home?forum=ApplicationInsights)
+ * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * 錯誤：
  * [連線](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * 建議：
- * [使用者心聲 (英文)](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+ * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * 程式碼範例
  * [程式碼範例](app-insights-code-samples.md)
 
@@ -74,4 +74,4 @@ Application Insights 的運作方式是將 SDK 加入至您的應用程式，並
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0406_2016-->

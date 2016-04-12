@@ -1,6 +1,6 @@
 <properties
-   pageTitle="使用 CLI 在 Azure 上快速建立 Linux VM | Microsoft Azure"
-   description="使用 CLI 在 Azure 上快速建立 Linux VM。"
+   pageTitle="使用 CLI 在 Azure 上建立 Linux VM | Microsoft Azure"
+   description="使用 CLI 在 Azure 上建立 Linux VM。"
    services="virtual-machines-linux"
    documentationCenter=""
    authors="vlivech"
@@ -10,26 +10,23 @@
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="03/28/2016"
+   ms.date="04/04/2016"
    ms.author="v-livech"/>
 
 
-# 使用 CLI 在 Azure 上快速建立 Linux VM
+# 使用 CLI 在 Azure 上建立 Linux VM
 
-本文示範如何使用 [Azure CLI](../xplat-cli-install.md) 中的 `azure vm quick-create` 命令，快速建立新的 Linux VM。
-
-[AZURE.NOTE] 本主題示範如何在 Azure 基本環境中快速建立 Linux VM，以供試用、測試以及其他短期的案例使用。您應該為 Linux VM 建立更安全的 Azure 環境，以用於實際執行或其他執行時間較長的案例。
-
-必要條件︰[Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)、[SSH 公開金鑰與私密金鑰](virtual-machines-linux-mac-create-ssh-keys.md)、Azure 資源群組 (我們將於以下建立 RG)，且已安裝 Azure CLI 同時使用 `azure config mode arm` 切換至 ARM 模式。
+本文說明如何使用 Azure CLI 的 `azure vm quick-create` 命令在 Azure 中快速建立 Linux VM，該命令會建立具有基本基礎結構的 VM，可讓您非常快速地建立原型或測試概念。本文需要 Azure 帳戶 ([取得免費試用](https://azure.microsoft.com/pricing/free-trial/)) 和處於資源管理員模式的 [Azure CLI](../xplat-cli-install.md) (`azure config mode arm`)。
 
 ## 快速命令摘要
 
-只有一個命令可以發出︰
-
-1. `azure vm quick-create`
+```
+# One command to quickly the VM that prompts for arguments
+chrisL@fedora$ azure vm quick-create
+```
 
 ## 詳細的逐步解說
 
@@ -47,7 +44,7 @@ Resource group name: exampleResourceGroup
 Virtual machine name: exampleVMname
 Location name: westus
 Operating system Type [Windows, Linux]: linux
-ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: canonical:ubuntuserver:14.04.2-LTS:latest
+ImageURN (in the format of "publisherName:offer:skus:version") or a VHD link to the user image: Canonical:UbuntuServer:14.04.4-LTS:latest
 User name: ops
 Password: *********
 Confirm password: *********
@@ -149,4 +146,4 @@ info:    vm quick-create command OK
 
 以及多種專屬和開放原始碼基礎結構部署、組態和協調流程工具。
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0406_2016-->

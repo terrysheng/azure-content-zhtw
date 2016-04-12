@@ -49,7 +49,7 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 每個儲存在 Azure 儲存體中的物件都有一個唯一 URL 位址。儲存體帳戶名稱會構成該位址的子網域。子網域會和各服務的特定網域名稱組合，從而構成儲存體帳戶的「端點」。
 
-例如，如果您的儲存體帳戶名為 *mystorageaccount* ，則儲存體帳戶的預設端點將是：
+例如，如果您的儲存體帳戶名為 *mystorageaccount*，則儲存體帳戶的預設端點將是：
 
 - Blob 服務：http://*mystorageaccount*.blob.core.windows.net
 
@@ -59,7 +59,7 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 - 檔案服務：http://*mystorageaccount*.file.core.windows.net
 
-用以存取儲存體帳戶中某物件的 URL，可藉由在端點後附加該物件在儲存體帳戶中的位置來建置。例如，Blob 位址的格式可能如下：http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob* 。
+用以存取儲存體帳戶中某物件的 URL，可藉由在端點後附加該物件在儲存體帳戶中的位置來建置。例如，Blob 位址的格式可能如下：http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*。
 
 您也可以設定與儲存體帳戶搭配使用的自訂網域名稱。對於傳統儲存體帳戶，如需詳細資訊，請參閱[針對 Blob 儲存體端點設定自訂網域名稱](storage-custom-domain-name.md)。對於 ARM 儲存體帳戶，這項功能尚未加入至 [Azure 入口網站](https://portal.azure.com)，但是您可以使用 PowerShell 設定它。如需詳細資訊，請參閱 [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) Cmdlet。
 
@@ -69,25 +69,21 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 2. 在 [中樞] 功能表上，選取 [新增] -> [資料+儲存體] -> [儲存體帳戶]。
 
-3. 選取部署模型：[資源管理員] 或 [傳統]。[資源管理員] 是建議的部署模型。如需詳細資訊，請參閱[了解資源管理員部署和傳統部署](../resource-manager-deployment-model.md)。
-
-4. 輸入儲存體帳戶的名稱。
+3. 輸入儲存體帳戶的名稱。
 
 	> [AZURE.NOTE] 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。
 	>  
-	> 儲存體帳戶名稱必須在 Azure 中是獨一無二的。Azure 入口網站會指出您選取的儲存體帳戶名稱是否已使用。
+	> 儲存體帳戶名稱必須在 Azure 中是獨一無二的。Azure 入口網站會指出您選取的儲存體帳戶名稱是否已在使用中。
 
 	請參閱下方的[儲存體帳戶端點](#storage-account-endpoints)以深入了解此儲存體帳戶名稱如何用來解析 Azure 儲存體中的物件。
 
-5. 指定要建立的儲存體帳戶類型。儲存體帳戶類型會決定複寫該儲存體帳戶的方式，以及該帳戶屬於標準儲存體帳戶還是進階儲存體帳戶。
+4. 指定所要使用的部署模型：[資源管理員] 或 [傳統]。[資源管理員] 是建議的部署模型。如需詳細資訊，請參閱[了解資源管理員部署和傳統部署](../resource-manager-deployment-model.md)。
 
-	預設儲存體帳戶類型是 **Standard-RAGRS**，它是具有讀取存取異地備援複寫的標準儲存體帳戶，。這種類型的儲存體帳戶會從主要區域複寫到數百哩之外的次要地區，並為次要位置提供讀取權限。
+5. 指定儲存體帳戶的效能層︰[標準] 或 [進階]。預設值是 [進階]。如需標準和進階儲存體帳戶的詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](storage-introduction.md)和[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage.md)。
 
-	如需 Azure 儲存體複寫選項的詳細資訊，請參閱 [Azure 儲存體複寫](storage-redundancy.md)。如需標準和進階儲存體帳戶的詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](storage-introduction.md)和[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage.md)
+6. 選取儲存體帳戶的複寫選項︰[LRS]、[GRS]、[RA-GRS] 或 [ZRS]。預設值是 [RA-GRS]。如需 Azure 儲存體複寫選項的詳細資訊，請參閱 [Azure 儲存體複寫](storage-redundancy.md)。
 
-6. 指出您是否希望針對儲存體帳戶啟用診斷。診斷包括儲存體分析記錄和度量。
-
-7. 如果您有一個以上的 Azure 訂用帳戶，則會顯示 [訂用帳戶] 欄位。選取您要在其中建立新儲存體帳戶的訂用帳戶。
+7. 選取您要在其中建立新儲存體帳戶的訂用帳戶。
 
 8. 指定新的資源群組，或選取現有的資源群組。如需資源群組的詳細資訊，請參閱[使用 Azure 入口網站管理您的 Azure 資源](../azure-portal/resource-group-portal.md)。
 
@@ -95,17 +91,25 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
 10. 按一下 [建立] 建立儲存體帳戶。
 
-## 管理儲存體存取金鑰
+## 管理儲存體帳戶
+
+### 變更帳戶組態
+
+建立儲存體帳戶之後，您可以修改其組態，例如變更帳戶所用的複寫選項。在 Azure 入口網站中，瀏覽至您的儲存體帳戶，按一下 [所有設定]，然後按一下 [組態] 以檢視和/或變更帳戶組態。變更複寫選項，將會變更您的價格。
+
+> [AZURE.NOTE] 視您在建立儲存體帳戶時選擇的效能層而定，可能無法使用某些複寫選項。
+
+### 管理儲存體存取金鑰
 
 當您建立儲存體帳戶時，Azure 會產生兩個 512 位元的儲存體存取金鑰，作為存取儲存體帳戶時的驗證憑藉。透過提供這兩個儲存體存取金鑰，Azure 讓您可重新產生金鑰，同時又不需中斷儲存體服務或對該服務的存取。
 
 > [AZURE.NOTE] 建議您避免將儲存體存取金鑰透露給其他任何人。若要允許存取儲存體資源但不要公開您的存取金鑰，您可以使用「共用存取簽章」。共用存取簽章可在您定義的間隔期間內，使用您所指定的權限，來存取帳戶中的資源。如需詳細資訊，請參閱[共用存取簽章：了解 SAS 模型](storage-dotnet-shared-access-signature-part-1.md)。
 
-### 檢視並複製儲存體存取金鑰
+#### 檢視並複製儲存體存取金鑰
 
-在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至儲存體帳戶並按一下 [金鑰] 圖示來檢視、複製，和重新產生帳戶存取金鑰。[存取金鑰] 刀鋒視窗也包含使用您主要與次要金鑰的預先設定連接字串，讓您可以複製以在應用程式中使用。
+在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的儲存體帳戶，按一下 [所有設定]，然後按一下 [存取金鑰] 圖示來檢視、複製和重新產生帳戶存取金鑰。[存取金鑰] 刀鋒視窗也包含使用您主要與次要金鑰的預先設定連接字串，讓您可以複製以在應用程式中使用。
 
-### 重新產生儲存體存取金鑰
+#### 重新產生儲存體存取金鑰
 
 建議您定期變更儲存體帳戶的存取金鑰，保護儲存體連線的安全。指派了兩個存取金鑰，因此您可以在重新產生一個存取金鑰的同時，使用另一個存取金鑰維持儲存體帳戶連線。
 
@@ -137,9 +141,9 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 
     Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-如果儲存體帳戶使用傳統部署模型，您可以依照[傳統 Azure 入口網站](https://manage.windowsazure.com)中的這些步驟，移除虛擬機器磁碟：
+如果儲存體帳戶使用傳統部署模型，您可以在 [Azure 入口網站](https://manage.windowsazure.com)中執行下列步驟來移除虛擬機器磁碟：
 
-1. 瀏覽到 [Azure 傳統入口網站](https://manage.windowsazure.com)。
+1. 瀏覽至[傳統入口網站](https://manage.windowsazure.com)。
 2. 瀏覽到 [虛擬機器] 索引標籤。
 3. 按一下 [磁碟] 索引標籤。
 4. 選取資料磁碟，然後按一下 [刪除磁碟]。
@@ -154,4 +158,4 @@ Azure 儲存體帳戶可讓您存取 Azure 儲存體中的 Azure Blob、佇列�
 - [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
 - 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/) (英文)。
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0406_2016-->

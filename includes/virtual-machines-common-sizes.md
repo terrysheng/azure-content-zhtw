@@ -192,4 +192,4 @@
 - 了解 [Azure 訂用帳戶及服務限制、配額與限制](../articles/azure-subscription-service-limits.md)。
 - 深入了解像是高效能運算 (HPC) 之工作負載的 [A8、A9、A10 及 A11 計算密集型執行個體](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)。
 
-<!---HONumber=AcomDC_0330_2016-->
+<!------HONumber=AcomDC_0330_2016-->

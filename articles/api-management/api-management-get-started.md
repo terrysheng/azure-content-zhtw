@@ -1,5 +1,5 @@
 <properties
-	pageTitle="在 Azure API 管理中管理您的第一個 API| Microsoft Azure"
+	pageTitle="在 Azure API 管理中管理您的首個 API| Microsoft Azure"
 	description="了解如何建立 API、加入作業，以及開始使用 API 管理。"
 	services="api-management"
 	documentationCenter=""
